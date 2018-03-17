@@ -161,6 +161,7 @@ tileset{ id = "dungeon/light_green", description = "Light green" }
 tileset{ id = "dungeon/pink", description = "Pink" }
 tileset{ id = "dungeon/purple", description = "Purple" }
 tileset{ id = "dungeon/yellow", description = "Yellow" }
+tileset{ id = "dungeons/owl_temple", description = "Owl Temple" }
 tileset{ id = "movies/beach", description = "Beach" }
 tileset{ id = "movies/beach_sunset", description = "Beach sunset" }
 tileset{ id = "out/light_world_legacy", description = "Light world legacy" }
@@ -724,9 +725,12 @@ sprite{ id = "pictures/peach", description = "Peach" }
 sprite{ id = "shadows/shadow_big", description = "Shadow big" }
 sprite{ id = "shadows/shadow_big_dynamic", description = "Shadow big dynamic" }
 sprite{ id = "shadows/shadow_small", description = "Shadow small" }
+sprite{ id = "dungeons/owl/pipes/red", description = "Red pipe with water flowing" }
+sprite{ id = "dungeons/owl/pipes/yellow", description = "Yellow pipe with water flowing" }
 
 music{ id = "maps/caves/cave", description = "Cave" }
 music{ id = "maps/dungeons/1/dungeon", description = "Dungeon 1" }
+music{ id = "maps/dungeons/10/dungeon", description = "Dungeon 10" }
 music{ id = "maps/dungeons/11/dungeon", description = "Dungeon 11" }
 music{ id = "maps/dungeons/2/dungeon", description = "Dungeon 2" }
 music{ id = "maps/dungeons/3/dungeon", description = "Dungeon 3" }

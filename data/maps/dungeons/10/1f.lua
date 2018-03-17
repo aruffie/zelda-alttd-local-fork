@@ -22,3 +22,9 @@ end
 function map:on_opening_transition_finished()
 
 end
+
+function pipe_button:on_activated()
+  for pipe in map:get_entities("pipe_g") do
+    pipe:get_sprite():set_animation("flowing")
+  end
+end
