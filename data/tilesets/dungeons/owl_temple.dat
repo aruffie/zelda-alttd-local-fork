@@ -19431,6 +19431,28 @@ tile_pattern{
 }
 
 tile_pattern{
+  id = "2731",
+  ground = "traversable",
+  default_layer = 2,
+  x = 472,
+  y = 728,
+  width = 8,
+  height = 16,
+  repeat_mode = "none",
+}
+
+tile_pattern{
+  id = "2732",
+  ground = "traversable",
+  default_layer = 2,
+  x = 480,
+  y = 728,
+  width = 8,
+  height = 16,
+  repeat_mode = "none",
+}
+
+tile_pattern{
   id = "274",
   ground = "empty",
   default_layer = 2,
@@ -49992,7 +50014,7 @@ tile_pattern{
   default_layer = 0,
   x = 416,
   y = 232,
-  width = 40,
+  width = 32,
   height = 16,
   repeat_mode = "none",
 }
@@ -50003,7 +50025,7 @@ tile_pattern{
   default_layer = 0,
   x = 416,
   y = 248,
-  width = 40,
+  width = 32,
   height = 16,
   repeat_mode = "none",
 }
