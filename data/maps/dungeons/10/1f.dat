@@ -9,6 +9,231 @@ properties{
 }
 
 tile{
+  layer = -1,
+  x = 1352,
+  y = 376,
+  width = 176,
+  height = 64,
+  pattern = "floor.9-2",
+}
+
+tile{
+  layer = -1,
+  x = 1384,
+  y = 416,
+  width = 8,
+  height = 32,
+  pattern = "wall_low_border.4-4",
+}
+
+tile{
+  layer = -1,
+  x = 1352,
+  y = 440,
+  width = 32,
+  height = 8,
+  pattern = "wall_low_border.2-4",
+}
+
+tile{
+  layer = -1,
+  x = 1536,
+  y = 368,
+  width = 24,
+  height = 48,
+  pattern = "wall_low.4-1",
+}
+
+tile{
+  layer = -1,
+  x = 1344,
+  y = 368,
+  width = 8,
+  height = 8,
+  pattern = "wall_low_border.corner.1-4",
+}
+
+tile{
+  layer = -1,
+  x = 1384,
+  y = 440,
+  width = 8,
+  height = 8,
+  pattern = "wall_low_border.corner.4-4",
+}
+
+tile{
+  layer = -1,
+  x = 1344,
+  y = 440,
+  width = 8,
+  height = 8,
+  pattern = "wall_low_border.corner.3-4",
+}
+
+tile{
+  layer = -1,
+  x = 1528,
+  y = 368,
+  width = 8,
+  height = 8,
+  pattern = "wall_low_border.corner.2-4",
+}
+
+tile{
+  layer = -1,
+  x = 1528,
+  y = 408,
+  width = 8,
+  height = 8,
+  pattern = "wall_low_border.corner.4-4",
+}
+
+tile{
+  layer = -1,
+  x = 1352,
+  y = 368,
+  width = 176,
+  height = 8,
+  pattern = "wall_low_border.1-4",
+}
+
+tile{
+  layer = -1,
+  x = 1384,
+  y = 408,
+  width = 144,
+  height = 8,
+  pattern = "wall_low_border.2-4",
+}
+
+tile{
+  layer = -1,
+  x = 1344,
+  y = 376,
+  width = 8,
+  height = 64,
+  pattern = "wall_low_border.3-4",
+}
+
+tile{
+  layer = -1,
+  x = 1528,
+  y = 376,
+  width = 8,
+  height = 32,
+  pattern = "wall_low_border.4-4",
+}
+
+tile{
+  layer = -1,
+  x = 1384,
+  y = 408,
+  width = 8,
+  height = 8,
+  pattern = "wall_low_border.corner_reverse.4-4",
+}
+
+tile{
+  layer = 0,
+  x = 512,
+  y = 216,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner.3-4",
+}
+
+tile{
+  layer = 0,
+  x = 424,
+  y = 216,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner.4-4",
+}
+
+tile{
+  layer = 0,
+  x = 1616,
+  y = 296,
+  width = 24,
+  height = 176,
+  pattern = "wall.3-4",
+}
+
+tile{
+  layer = 0,
+  x = 1416,
+  y = 440,
+  width = 144,
+  height = 32,
+  pattern = "floor.9-1",
+}
+
+tile{
+  layer = 0,
+  x = 1416,
+  y = 464,
+  width = 144,
+  height = 8,
+  pattern = "wall_border.2-4",
+}
+
+tile{
+  layer = 0,
+  x = 1552,
+  y = 440,
+  width = 8,
+  height = 32,
+  pattern = "wall_border.4-4",
+}
+
+tile{
+  layer = 0,
+  x = 1392,
+  y = 416,
+  width = 144,
+  height = 24,
+  pattern = "wall_low.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 1344,
+  y = 344,
+  width = 192,
+  height = 24,
+  pattern = "wall_low.1-1",
+}
+
+tile{
+  layer = 0,
+  x = 1392,
+  y = 432,
+  width = 24,
+  height = 16,
+  pattern = "wall_low.4-1",
+}
+
+tile{
+  layer = 0,
+  x = 1344,
+  y = 448,
+  width = 48,
+  height = 24,
+  pattern = "wall_low.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 1552,
+  y = 296,
+  width = 8,
+  height = 48,
+  pattern = "wall_border.4-4",
+}
+
+tile{
   layer = 0,
   x = 1008,
   y = 816,
@@ -4179,7 +4404,7 @@ tile{
   layer = 0,
   x = 360,
   y = 216,
-  width = 240,
+  width = 64,
   height = 24,
   pattern = "wall.2-4",
 }
@@ -5123,9 +5348,9 @@ tile{
 tile{
   layer = 0,
   x = 1328,
-  y = 304,
+  y = 296,
   width = 224,
-  height = 160,
+  height = 48,
   pattern = "floor.9-1",
 }
 
@@ -5145,15 +5370,6 @@ tile{
   width = 8,
   height = 8,
   pattern = "wall_border.corner.1-4",
-}
-
-tile{
-  layer = 0,
-  x = 1320,
-  y = 464,
-  width = 8,
-  height = 8,
-  pattern = "wall_border.corner.3-4",
 }
 
 tile{
@@ -5179,26 +5395,8 @@ tile{
   x = 1320,
   y = 304,
   width = 8,
-  height = 160,
+  height = 48,
   pattern = "wall_border.3-4",
-}
-
-tile{
-  layer = 0,
-  x = 1328,
-  y = 464,
-  width = 224,
-  height = 8,
-  pattern = "wall_border.2-4",
-}
-
-tile{
-  layer = 0,
-  x = 1552,
-  y = 304,
-  width = 8,
-  height = 160,
-  pattern = "wall_border.4-4",
 }
 
 tile{
@@ -6720,15 +6918,6 @@ tile{
   width = 24,
   height = 24,
   pattern = "wall.corner.1-4",
-}
-
-tile{
-  layer = 0,
-  x = 1616,
-  y = 296,
-  width = 24,
-  height = 176,
-  pattern = "wall.3-4",
 }
 
 tile{
@@ -9233,6 +9422,339 @@ tile{
   pattern = "wall_border.corner.1-4",
 }
 
+tile{
+  layer = 0,
+  x = 1240,
+  y = 632,
+  width = 80,
+  height = 16,
+  pattern = "floor.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 1320,
+  y = 368,
+  width = 24,
+  height = 80,
+  pattern = "wall_low.3-1",
+}
+
+tile{
+  layer = 0,
+  x = 1320,
+  y = 344,
+  width = 24,
+  height = 24,
+  pattern = "wall_low.corner.1-1",
+}
+
+tile{
+  layer = 0,
+  x = 1320,
+  y = 448,
+  width = 24,
+  height = 24,
+  pattern = "wall_low.corner.3-1",
+}
+
+tile{
+  layer = 0,
+  x = 1392,
+  y = 448,
+  width = 24,
+  height = 24,
+  pattern = "wall_low.corner.4-1",
+}
+
+tile{
+  layer = 0,
+  x = 1536,
+  y = 344,
+  width = 24,
+  height = 24,
+  pattern = "wall_low.corner.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 1536,
+  y = 416,
+  width = 24,
+  height = 24,
+  pattern = "wall_low.corner.4-1",
+}
+
+tile{
+  layer = 0,
+  x = 1392,
+  y = 416,
+  width = 24,
+  height = 24,
+  pattern = "wall_low.corner_reverse.4-1",
+}
+
+tile{
+  layer = 0,
+  x = 1432,
+  y = 488,
+  width = 16,
+  height = 48,
+  pattern = "floor.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 576,
+  y = 1416,
+  width = 8,
+  height = 24,
+  pattern = "stairs_down.2.border.3-1",
+}
+
+tile{
+  layer = 0,
+  x = 552,
+  y = 1416,
+  width = 8,
+  height = 24,
+  pattern = "stairs_down.2.border.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 552,
+  y = 1440,
+  width = 32,
+  height = 8,
+  pattern = "stairs_down.2.border.1-1",
+}
+
+tile{
+  layer = 0,
+  x = 560,
+  y = 1416,
+  width = 16,
+  height = 24,
+  pattern = "stairs_down.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 1328,
+  y = 352,
+  width = 80,
+  height = 112,
+  pattern = "water",
+}
+
+tile{
+  layer = 0,
+  x = 1408,
+  y = 352,
+  width = 144,
+  height = 80,
+  pattern = "water",
+}
+
+tile{
+  layer = 0,
+  x = 1768,
+  y = 376,
+  width = 8,
+  height = 24,
+  pattern = "stairs_down.2.border.3-1",
+}
+
+tile{
+  layer = 0,
+  x = 1744,
+  y = 376,
+  width = 8,
+  height = 24,
+  pattern = "stairs_down.2.border.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 1744,
+  y = 400,
+  width = 32,
+  height = 8,
+  pattern = "stairs_down.2.border.1-1",
+}
+
+tile{
+  layer = 0,
+  x = 1752,
+  y = 376,
+  width = 16,
+  height = 24,
+  pattern = "stairs_down.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 1560,
+  y = 312,
+  width = 80,
+  height = 16,
+  pattern = "floor.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 2072,
+  y = 216,
+  width = 16,
+  height = 80,
+  pattern = "floor.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 2200,
+  y = 120,
+  width = 80,
+  height = 16,
+  pattern = "floor.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 2088,
+  y = 376,
+  width = 8,
+  height = 24,
+  pattern = "stairs_down.2.border.3-1",
+}
+
+tile{
+  layer = 0,
+  x = 2064,
+  y = 376,
+  width = 8,
+  height = 24,
+  pattern = "stairs_down.2.border.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 2064,
+  y = 400,
+  width = 32,
+  height = 8,
+  pattern = "stairs_down.2.border.1-1",
+}
+
+tile{
+  layer = 0,
+  x = 2072,
+  y = 376,
+  width = 16,
+  height = 24,
+  pattern = "stairs_down.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 432,
+  y = 248,
+  width = 16,
+  height = 24,
+  pattern = "barrier_big.border.2-2",
+}
+
+tile{
+  layer = 0,
+  x = 512,
+  y = 248,
+  width = 16,
+  height = 24,
+  pattern = "barrier_big.border.2-2",
+}
+
+tile{
+  layer = 0,
+  x = 432,
+  y = 232,
+  width = 16,
+  height = 16,
+  pattern = "barrier_big.border.1-2",
+}
+
+tile{
+  layer = 0,
+  x = 512,
+  y = 232,
+  width = 16,
+  height = 16,
+  pattern = "barrier_big.border.1-2",
+}
+
+tile{
+  layer = 0,
+  x = 536,
+  y = 216,
+  width = 64,
+  height = 24,
+  pattern = "wall.2-4",
+}
+
+tile{
+  layer = 0,
+  x = 440,
+  y = 184,
+  width = 80,
+  height = 24,
+  pattern = "wall.2-4",
+}
+
+tile{
+  layer = 0,
+  x = 424,
+  y = 200,
+  width = 24,
+  height = 16,
+  pattern = "wall.4-4",
+}
+
+tile{
+  layer = 0,
+  x = 512,
+  y = 200,
+  width = 24,
+  height = 16,
+  pattern = "wall.3-4",
+}
+
+tile{
+  layer = 0,
+  x = 512,
+  y = 184,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner_reverse.3-4",
+}
+
+tile{
+  layer = 0,
+  x = 424,
+  y = 184,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner_reverse.4-4",
+}
+
+tile{
+  layer = 0,
+  x = 424,
+  y = 40,
+  width = 112,
+  height = 144,
+  pattern = "lava",
+}
+
 destination{
   name = "entrance",
   layer = 0,
@@ -9269,6 +9791,24 @@ switch{
   sprite = "entities/switch",
   needs_block = false,
   inactivate_when_leaving = false,
+}
+
+tile{
+  layer = 1,
+  x = 448,
+  y = 208,
+  width = 64,
+  height = 192,
+  pattern = "884",
+}
+
+tile{
+  layer = 1,
+  x = 448,
+  y = 208,
+  width = 64,
+  height = 192,
+  pattern = "floor.9-Alpha",
 }
 
 tile{
@@ -9821,6 +10361,51 @@ tile{
 }
 
 tile{
+  layer = 1,
+  x = 1392,
+  y = 392,
+  width = 16,
+  height = 8,
+  pattern = "waterfall.1.bottom",
+}
+
+tile{
+  layer = 1,
+  x = 488,
+  y = 312,
+  width = 8,
+  height = 24,
+  pattern = "stairs_down.2.border.3-1",
+}
+
+tile{
+  layer = 1,
+  x = 464,
+  y = 312,
+  width = 8,
+  height = 24,
+  pattern = "stairs_down.2.border.2-1",
+}
+
+tile{
+  layer = 1,
+  x = 464,
+  y = 336,
+  width = 32,
+  height = 8,
+  pattern = "stairs_down.2.border.1-1",
+}
+
+tile{
+  layer = 1,
+  x = 472,
+  y = 312,
+  width = 16,
+  height = 24,
+  pattern = "stairs_down.2-1",
+}
+
+tile{
   layer = 2,
   x = 6384,
   y = 16,
@@ -10092,9 +10677,9 @@ tile{
 
 tile{
   layer = 2,
-  x = 16,
+  x = 528,
   y = 240,
-  width = 2528,
+  width = 2016,
   height = 32,
   pattern = "ceiling.1",
 }
@@ -10884,16 +11469,7 @@ tile{
 
 tile{
   layer = 2,
-  x = 1360,
-  y = 312,
-  width = 32,
-  height = 16,
-  pattern = "2718",
-}
-
-tile{
-  layer = 2,
-  x = 1384,
+  x = 1392,
   y = 312,
   width = 16,
   height = 16,
@@ -10920,15 +11496,6 @@ tile{
 
 tile{
   layer = 2,
-  x = 1536,
-  y = 440,
-  width = 128,
-  height = 16,
-  pattern = "2718",
-}
-
-tile{
-  layer = 2,
   x = 1296,
   y = 456,
   width = 24,
@@ -10947,7 +11514,7 @@ tile{
 
 tile{
   layer = 2,
-  x = 1544,
+  x = 1536,
   y = 472,
   width = 8,
   height = 24,
@@ -10956,16 +11523,16 @@ tile{
 
 tile{
   layer = 2,
-  x = 1544,
+  x = 1536,
   y = 456,
-  width = 16,
+  width = 24,
   height = 8,
   pattern = "2722",
 }
 
 tile{
   layer = 2,
-  x = 1544,
+  x = 1536,
   y = 464,
   width = 8,
   height = 8,
@@ -10974,7 +11541,7 @@ tile{
 
 tile{
   layer = 2,
-  x = 1544,
+  x = 1536,
   y = 728,
   width = 8,
   height = 24,
@@ -10983,7 +11550,7 @@ tile{
 
 tile{
   layer = 2,
-  x = 1544,
+  x = 1536,
   y = 528,
   width = 8,
   height = 24,
@@ -10992,7 +11559,7 @@ tile{
 
 tile{
   layer = 2,
-  x = 1544,
+  x = 1536,
   y = 552,
   width = 8,
   height = 176,
@@ -11001,7 +11568,7 @@ tile{
 
 tile{
   layer = 2,
-  x = 1384,
+  x = 1392,
   y = 328,
   width = 16,
   height = 32,
@@ -11010,7 +11577,7 @@ tile{
 
 tile{
   layer = 2,
-  x = 1400,
+  x = 1408,
   y = 328,
   width = 8,
   height = 48,
@@ -11019,7 +11586,7 @@ tile{
 
 tile{
   layer = 2,
-  x = 1384,
+  x = 1392,
   y = 360,
   width = 16,
   height = 16,
@@ -11048,14 +11615,14 @@ tile{
   layer = 2,
   x = 1368,
   y = 328,
-  width = 16,
+  width = 24,
   height = 8,
   pattern = "2722",
 }
 
 tile{
   layer = 2,
-  x = 1376,
+  x = 1384,
   y = 328,
   width = 8,
   height = 48,
@@ -11314,6 +11881,267 @@ tile{
   pattern = "2722",
 }
 
+tile{
+  layer = 2,
+  x = 1344,
+  y = 888,
+  width = 16,
+  height = 16,
+  pattern = "pipe_corner.4",
+}
+
+tile{
+  layer = 2,
+  x = 1520,
+  y = 888,
+  width = 16,
+  height = 16,
+  pattern = "pipe_corner.3",
+}
+
+tile{
+  layer = 2,
+  x = 1360,
+  y = 784,
+  width = 8,
+  height = 24,
+  pattern = "2719",
+}
+
+tile{
+  layer = 2,
+  x = 1536,
+  y = 784,
+  width = 8,
+  height = 24,
+  pattern = "2719",
+}
+
+tile{
+  layer = 2,
+  x = 1384,
+  y = 904,
+  width = 16,
+  height = 8,
+  pattern = "2725",
+}
+
+tile{
+  layer = 2,
+  x = 1480,
+  y = 904,
+  width = 16,
+  height = 8,
+  pattern = "2726",
+}
+
+tile{
+  layer = 2,
+  x = 1360,
+  y = 808,
+  width = 8,
+  height = 80,
+  pattern = "2722",
+}
+
+tile{
+  layer = 2,
+  x = 1536,
+  y = 808,
+  width = 8,
+  height = 104,
+  pattern = "2722",
+}
+
+tile{
+  layer = 2,
+  x = 1352,
+  y = 904,
+  width = 32,
+  height = 8,
+  pattern = "2722",
+}
+
+tile{
+  layer = 2,
+  x = 1496,
+  y = 904,
+  width = 40,
+  height = 8,
+  pattern = "2722",
+}
+
+tile{
+  layer = 2,
+  x = 1360,
+  y = 728,
+  width = 8,
+  height = 24,
+  pattern = "2721",
+}
+
+tile{
+  layer = 2,
+  x = 1360,
+  y = 528,
+  width = 8,
+  height = 24,
+  pattern = "2719",
+}
+
+tile{
+  layer = 2,
+  x = 1360,
+  y = 552,
+  width = 8,
+  height = 176,
+  pattern = "2722",
+}
+
+tile{
+  layer = 2,
+  x = 1616,
+  y = 456,
+  width = 24,
+  height = 8,
+  pattern = "2724",
+}
+
+tile{
+  layer = 2,
+  x = 1392,
+  y = 368,
+  width = 16,
+  height = 8,
+  pattern = "waterfall.1.middle",
+}
+
+tile{
+  layer = 2,
+  x = 1392,
+  y = 360,
+  width = 16,
+  height = 8,
+  pattern = "waterfall.1.middle",
+}
+
+tile{
+  layer = 2,
+  x = 1392,
+  y = 384,
+  width = 16,
+  height = 8,
+  pattern = "waterfall.1.middle",
+}
+
+tile{
+  layer = 2,
+  x = 1392,
+  y = 376,
+  width = 16,
+  height = 8,
+  pattern = "waterfall.1.middle",
+}
+
+tile{
+  layer = 2,
+  x = 1344,
+  y = 472,
+  width = 16,
+  height = 16,
+  pattern = "pipe_corner.2",
+}
+
+tile{
+  layer = 2,
+  x = 1312,
+  y = 472,
+  width = 16,
+  height = 16,
+  pattern = "pipe_corner.4",
+}
+
+tile{
+  layer = 2,
+  x = 1312,
+  y = 312,
+  width = 16,
+  height = 16,
+  pattern = "pipe_corner.2",
+}
+
+tile{
+  layer = 2,
+  x = 1360,
+  y = 472,
+  width = 8,
+  height = 24,
+  pattern = "2721",
+}
+
+tile{
+  layer = 2,
+  x = 1328,
+  y = 464,
+  width = 8,
+  height = 8,
+  pattern = "2722",
+}
+
+tile{
+  layer = 2,
+  x = 1328,
+  y = 320,
+  width = 8,
+  height = 120,
+  pattern = "2722",
+}
+
+tile{
+  layer = 2,
+  x = 1168,
+  y = 328,
+  width = 24,
+  height = 8,
+  pattern = "2724",
+}
+
+tile{
+  layer = 2,
+  x = 1240,
+  y = 328,
+  width = 24,
+  height = 8,
+  pattern = "2723",
+}
+
+tile{
+  layer = 2,
+  x = 1192,
+  y = 328,
+  width = 48,
+  height = 8,
+  pattern = "2722",
+}
+
+tile{
+  layer = 2,
+  x = 336,
+  y = 240,
+  width = 96,
+  height = 32,
+  pattern = "ceiling.1",
+}
+
+tile{
+  layer = 2,
+  x = 16,
+  y = 240,
+  width = 288,
+  height = 32,
+  pattern = "ceiling.1",
+}
+
 separator{
   layer = 2,
   x = 952,
@@ -11444,7 +12272,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11455,7 +12283,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11466,7 +12294,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11477,7 +12305,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11488,7 +12316,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11499,7 +12327,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11510,7 +12338,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11521,7 +12349,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11532,7 +12360,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11543,7 +12371,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11554,7 +12382,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11565,7 +12393,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11576,7 +12404,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11587,7 +12415,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11598,7 +12426,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11609,7 +12437,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11620,7 +12448,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11631,7 +12459,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11642,7 +12470,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11653,7 +12481,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11664,7 +12492,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11675,7 +12503,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11686,7 +12514,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11697,7 +12525,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11708,7 +12536,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11719,7 +12547,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11730,7 +12558,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11741,7 +12569,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11752,7 +12580,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11763,7 +12591,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11774,7 +12602,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11785,7 +12613,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11796,7 +12624,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11807,7 +12635,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11818,7 +12646,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11829,7 +12657,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11840,7 +12668,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11851,7 +12679,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11862,7 +12690,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11873,7 +12701,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11884,7 +12712,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11895,7 +12723,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11906,7 +12734,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11917,7 +12745,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11928,7 +12756,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11939,7 +12767,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11950,7 +12778,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11961,7 +12789,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11972,7 +12800,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11983,7 +12811,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -11994,7 +12822,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12005,7 +12833,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12016,7 +12844,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12027,7 +12855,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12038,7 +12866,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12049,7 +12877,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12060,7 +12888,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12071,7 +12899,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12082,7 +12910,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12093,7 +12921,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12104,7 +12932,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12115,7 +12943,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12126,7 +12954,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12137,7 +12965,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12148,7 +12976,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12159,7 +12987,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12170,7 +12998,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12181,7 +13009,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12192,7 +13020,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12203,7 +13031,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12214,7 +13042,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12225,7 +13053,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12236,7 +13064,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12247,7 +13075,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12258,7 +13086,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12269,7 +13097,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12280,7 +13108,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12291,7 +13119,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12302,7 +13130,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12313,7 +13141,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12324,7 +13152,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12335,7 +13163,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12346,7 +13174,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12357,7 +13185,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12368,7 +13196,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12379,7 +13207,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12390,7 +13218,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12401,7 +13229,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12412,7 +13240,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12423,7 +13251,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12434,7 +13262,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12445,7 +13273,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12456,7 +13284,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12467,7 +13295,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12478,7 +13306,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12489,7 +13317,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12500,7 +13328,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12511,7 +13339,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12522,7 +13350,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12533,7 +13361,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12544,7 +13372,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12555,7 +13383,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12566,7 +13394,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12577,7 +13405,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12588,7 +13416,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12599,7 +13427,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12610,7 +13438,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12621,7 +13449,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12632,7 +13460,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12643,7 +13471,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12654,7 +13482,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12665,7 +13493,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12676,7 +13504,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12687,7 +13515,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12698,7 +13526,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12709,7 +13537,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12720,7 +13548,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12731,7 +13559,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12742,7 +13570,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12753,7 +13581,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12764,7 +13592,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12775,7 +13603,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12786,7 +13614,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12797,7 +13625,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12808,7 +13636,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12819,7 +13647,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12830,7 +13658,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12841,7 +13669,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12852,7 +13680,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12863,7 +13691,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12874,7 +13702,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12885,7 +13713,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12896,7 +13724,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12907,7 +13735,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12918,7 +13746,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12929,7 +13757,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12940,7 +13768,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12951,7 +13779,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12962,7 +13790,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12973,7 +13801,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12984,7 +13812,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -12995,7 +13823,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13006,7 +13834,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13017,7 +13845,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13028,7 +13856,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13039,7 +13867,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13050,7 +13878,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13061,7 +13889,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13072,7 +13900,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13083,7 +13911,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13094,7 +13922,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13105,7 +13933,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13116,7 +13944,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13127,7 +13955,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13138,7 +13966,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13149,7 +13977,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13160,7 +13988,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13171,7 +13999,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13182,7 +14010,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13193,7 +14021,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13204,7 +14032,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13215,7 +14043,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13226,7 +14054,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13237,7 +14065,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13248,7 +14076,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13259,7 +14087,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13270,7 +14098,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13281,7 +14109,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13292,7 +14120,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13303,7 +14131,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13314,7 +14142,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13325,7 +14153,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13336,7 +14164,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13347,7 +14175,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13358,7 +14186,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13369,7 +14197,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13380,7 +14208,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13391,7 +14219,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13402,7 +14230,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13413,7 +14241,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13424,7 +14252,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13435,7 +14263,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13446,7 +14274,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13457,7 +14285,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13468,7 +14296,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13479,7 +14307,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13490,7 +14318,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13501,7 +14329,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13512,7 +14340,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13523,7 +14351,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13534,7 +14362,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13545,7 +14373,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13556,7 +14384,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13567,7 +14395,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13578,7 +14406,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13589,7 +14417,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13600,7 +14428,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13611,7 +14439,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13622,7 +14450,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 dynamic_tile{
@@ -13653,7 +14481,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -13664,7 +14492,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "dungeons/owl/pipes/yellow.vertical",
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
 custom_entity{
@@ -14094,5 +14922,951 @@ custom_entity{
   height = 16,
   direction = 2,
   sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_40",
+  layer = 2,
+  x = 1400,
+  y = 901,
+  width = 16,
+  height = 16,
+  direction = 2,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_41",
+  layer = 2,
+  x = 1384,
+  y = 901,
+  width = 16,
+  height = 16,
+  direction = 2,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_42",
+  layer = 2,
+  x = 1368,
+  y = 901,
+  width = 16,
+  height = 16,
+  direction = 2,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_43",
+  layer = 2,
+  x = 1480,
+  y = 901,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_44",
+  layer = 2,
+  x = 1496,
+  y = 901,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_45",
+  layer = 2,
+  x = 1512,
+  y = 901,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_46",
+  layer = 2,
+  x = 1352,
+  y = 885,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_47",
+  layer = 2,
+  x = 1352,
+  y = 869,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_48",
+  layer = 2,
+  x = 1352,
+  y = 853,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_49",
+  layer = 2,
+  x = 1352,
+  y = 837,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_50",
+  layer = 2,
+  x = 1352,
+  y = 821,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_51",
+  layer = 2,
+  x = 1352,
+  y = 805,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_52",
+  layer = 2,
+  x = 1352,
+  y = 789,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_53",
+  layer = 2,
+  x = 1352,
+  y = 773,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_54",
+  layer = 2,
+  x = 1352,
+  y = 757,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_55",
+  layer = 2,
+  x = 1352,
+  y = 741,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_56",
+  layer = 2,
+  x = 1528,
+  y = 885,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_57",
+  layer = 2,
+  x = 1528,
+  y = 869,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_58",
+  layer = 2,
+  x = 1528,
+  y = 853,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_59",
+  layer = 2,
+  x = 1528,
+  y = 837,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_60",
+  layer = 2,
+  x = 1528,
+  y = 821,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_61",
+  layer = 2,
+  x = 1528,
+  y = 805,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_62",
+  layer = 2,
+  x = 1528,
+  y = 789,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_63",
+  layer = 2,
+  x = 1528,
+  y = 773,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_64",
+  layer = 2,
+  x = 1528,
+  y = 757,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_65",
+  layer = 2,
+  x = 1528,
+  y = 741,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_66",
+  layer = 2,
+  x = 1528,
+  y = 725,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_67",
+  layer = 2,
+  x = 1528,
+  y = 709,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_68",
+  layer = 2,
+  x = 1528,
+  y = 693,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_69",
+  layer = 2,
+  x = 1528,
+  y = 677,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_70",
+  layer = 2,
+  x = 1528,
+  y = 661,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_71",
+  layer = 2,
+  x = 1528,
+  y = 645,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_72",
+  layer = 2,
+  x = 1528,
+  y = 629,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_73",
+  layer = 2,
+  x = 1528,
+  y = 613,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_74",
+  layer = 2,
+  x = 1528,
+  y = 597,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_75",
+  layer = 2,
+  x = 1528,
+  y = 581,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_76",
+  layer = 2,
+  x = 1528,
+  y = 565,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_77",
+  layer = 2,
+  x = 1528,
+  y = 549,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_78",
+  layer = 2,
+  x = 1528,
+  y = 533,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_79",
+  layer = 2,
+  x = 1528,
+  y = 517,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_80",
+  layer = 2,
+  x = 1528,
+  y = 501,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_81",
+  layer = 2,
+  x = 1528,
+  y = 485,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_82",
+  layer = 2,
+  x = 1528,
+  y = 469,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_83",
+  layer = 2,
+  x = 1352,
+  y = 725,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_84",
+  layer = 2,
+  x = 1352,
+  y = 709,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_85",
+  layer = 2,
+  x = 1352,
+  y = 693,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_86",
+  layer = 2,
+  x = 1352,
+  y = 677,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_87",
+  layer = 2,
+  x = 1352,
+  y = 661,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_88",
+  layer = 2,
+  x = 1352,
+  y = 645,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_89",
+  layer = 2,
+  x = 1352,
+  y = 629,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_90",
+  layer = 2,
+  x = 1352,
+  y = 613,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_91",
+  layer = 2,
+  x = 1352,
+  y = 597,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_92",
+  layer = 2,
+  x = 1352,
+  y = 581,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_93",
+  layer = 2,
+  x = 1352,
+  y = 565,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_94",
+  layer = 2,
+  x = 1352,
+  y = 549,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_95",
+  layer = 2,
+  x = 1352,
+  y = 533,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_96",
+  layer = 2,
+  x = 1352,
+  y = 517,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_97",
+  layer = 2,
+  x = 1352,
+  y = 501,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_98",
+  layer = 2,
+  x = 1544,
+  y = 453,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_99",
+  layer = 2,
+  x = 1560,
+  y = 453,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_100",
+  layer = 2,
+  x = 1576,
+  y = 453,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_101",
+  layer = 2,
+  x = 1592,
+  y = 453,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_102",
+  layer = 2,
+  x = 1608,
+  y = 453,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_103",
+  layer = 2,
+  x = 1624,
+  y = 453,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_104",
+  layer = 2,
+  x = 1640,
+  y = 453,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_105",
+  layer = 2,
+  x = 1656,
+  y = 453,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_106",
+  layer = 2,
+  x = 1320,
+  y = 469,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_107",
+  layer = 2,
+  x = 1320,
+  y = 437,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_108",
+  layer = 2,
+  x = 1320,
+  y = 421,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_109",
+  layer = 2,
+  x = 1320,
+  y = 405,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_110",
+  layer = 2,
+  x = 1320,
+  y = 389,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_111",
+  layer = 2,
+  x = 1320,
+  y = 373,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_112",
+  layer = 2,
+  x = 1320,
+  y = 357,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_113",
+  layer = 2,
+  x = 1320,
+  y = 341,
+  width = 16,
+  height = 16,
+  direction = 1,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_114",
+  layer = 2,
+  x = 1304,
+  y = 325,
+  width = 16,
+  height = 16,
+  direction = 2,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_115",
+  layer = 2,
+  x = 1288,
+  y = 325,
+  width = 16,
+  height = 16,
+  direction = 2,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_116",
+  layer = 2,
+  x = 1272,
+  y = 325,
+  width = 16,
+  height = 16,
+  direction = 2,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_117",
+  layer = 2,
+  x = 1256,
+  y = 325,
+  width = 16,
+  height = 16,
+  direction = 2,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_118",
+  layer = 2,
+  x = 1240,
+  y = 325,
+  width = 16,
+  height = 16,
+  direction = 2,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_119",
+  layer = 2,
+  x = 1224,
+  y = 325,
+  width = 16,
+  height = 16,
+  direction = 2,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_120",
+  layer = 2,
+  x = 1208,
+  y = 325,
+  width = 16,
+  height = 16,
+  direction = 2,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_121",
+  layer = 2,
+  x = 1192,
+  y = 325,
+  width = 16,
+  height = 16,
+  direction = 2,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_122",
+  layer = 2,
+  x = 1176,
+  y = 325,
+  width = 16,
+  height = 16,
+  direction = 2,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_a_123",
+  layer = 2,
+  x = 1336,
+  y = 485,
+  width = 16,
+  height = 16,
+  direction = 2,
+  sprite = "dungeons/owl/pipes/red",
+}
+
+custom_entity{
+  name = "pipe_g_99",
+  layer = 2,
+  x = 1368,
+  y = 325,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "dungeons/owl/pipes/yellow",
+}
+
+custom_entity{
+  name = "pipe_g_100",
+  layer = 2,
+  x = 1384,
+  y = 325,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "dungeons/owl/pipes/yellow",
 }
 
