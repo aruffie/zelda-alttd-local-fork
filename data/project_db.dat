@@ -370,6 +370,7 @@ sprite{ id = "menus/file_selection/file_selection_cursor", description = "File s
 sprite{ id = "menus/file_selection/file_selection_hero", description = "Link's sprite for file selection menu" }
 sprite{ id = "menus/hero_head", description = "Hero head" }
 sprite{ id = "menus/hero_point", description = "Hero point" }
+sprite{ id = "menus/messagebox/messagebox_cursor", description = "Message Box cursor" }
 sprite{ id = "menus/pause_cursor", description = "Pause cursor" }
 sprite{ id = "menus/pause_menu_options_command_cursor", description = "Waiting for command input cursor" }
 sprite{ id = "menus/pause_menu_options_cursor", description = "Options menu cursor" }

@@ -4,9 +4,7 @@ local file_selection_menu = {}
 
 local language_manager = require("scripts/language_manager")
 local game_manager = require("scripts/game_manager")
-
--- States of the menu.
-local CHOOSE_PLAY, CHOOSE_DELETE, CONFIRM_DELETE = 1, 2, 3
+local messagebox = require("scripts/menus/messagebox")
 
 function file_selection_menu:on_started()
 
@@ -64,16 +62,16 @@ function file_selection_menu:on_started()
   }
   
   -- Phases.
-  local phases = {
+  self.phases = {
     CHOOSE_PLAY = 0,
-    choosing_file_to_delete = 1,
-    pear = 2
+    CHOOSE_DELETE = 1,
+    CONFIRM_DELETE = 2
   }
 
   self.slot_count = 3
   self.cursor_position = 2
   self.finished = false
-  self.phase = 1
+  self.phase = self.phases.CHOOSE_PLAY
 
   self.title_text:set_text("Choose a file")
   
@@ -83,9 +81,14 @@ function file_selection_menu:on_started()
   sol.audio.play_music("scripts/menus/player_select")
   --self:init_phase_select_file()
 
+  -- Commands.
+  --self.game:set_custom_command_effect("action", nil)
+  --self.game:set_custom_command_effect("attack", "save")
+
   -- Show an opening transition.
   self.background_img:fade_in()
   self.surface:fade_in()
+
 end
 
 -- Read the saved files.
@@ -151,7 +154,7 @@ function file_selection_menu:on_draw(dst_surface)
   self.frame_surface:draw(self.surface, 0, 0)
 
   -- Title.
-  self:draw_title()
+  self.title_text:draw(self.surface, 160, 24)
 
   -- Slots.
   for i = 1, self.slot_count do
@@ -162,14 +165,12 @@ function file_selection_menu:on_draw(dst_surface)
   self:draw_buttons()
 
   -- Cursor.
-  self:draw_cursor()
+  if self.phase ~= self.phases.CONFIRM_DELETE then
+    self:draw_cursor()
+  end
 
   -- The menu is 320*240 pixels, but dst_surface may be larger.
   self.surface:draw(dst_surface, width / 2 - 160, height / 2 - 120)
-end
-
-function file_selection_menu:draw_title()
-  self.title_text:draw(self.surface, 160, 24)
 end
 
 -- Draw a slot.
@@ -184,9 +185,14 @@ function file_selection_menu:draw_slot(index)
   if slot.has_savegame then
     slot_img_x = 0    
   end
+  
   local slot_img_y = 24
   if index == self.cursor_position then
-    slot_img_y = 0
+    if self.phase == self.phases.CHOOSE_DELETE then
+      slot_img_y = 48
+    elseif self.phase == self.phases.CHOOSE_PLAY then
+        slot_img_y = 0
+    end
   end
   self.slot_img:draw_region(slot_img_x, slot_img_y, 224, 24, self.surface, self.slot_x, slot_y)
   
@@ -219,7 +225,9 @@ function file_selection_menu:draw_buttons()
   self.button_img:draw_region(0, 0, 96, 16, self.frame_surface, self.button_1_x, self.button_y)
   
   -- Button 2.
-  self.button_img:draw_region(0, 0, 96, 16, self.frame_surface, self.button_2_x, self.button_y)
+  if self.phase == self.phases.CHOOSE_PLAY then
+    self.button_img:draw_region(0, 0, 96, 16, self.frame_surface, self.button_2_x, self.button_y)
+  end
 end
 
 
@@ -279,6 +287,33 @@ function file_selection_menu:set_cursor_position(cursor_position)
     self.cursor_position = cursor_position
     self:update_cursor()
   end
+end
+
+function file_selection_menu:get_cursor_next_position()
+  -- TODO
+end
+
+function file_selection_menu:on_key_pressed(key)
+  print(key)
+end
+
+function file_selection_menu:on_command_pressed(command)
+  print(command)
+
+  local handled = false
+
+  if self.game:is_dialog_enabled() then
+    -- Commands will be applied to the dialog box only.
+    return false
+  end
+
+  if command == "left" or command == "right" or command == "up" or command == "down" then
+    --print(command)
+  elseif command == "action" or command == "attack" then
+    --print(command)
+  end
+
+  return handled  
 end
 
 -- Return the menu.
