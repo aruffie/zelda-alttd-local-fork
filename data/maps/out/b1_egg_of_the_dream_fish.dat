@@ -17955,6 +17955,28 @@ teletransporter{
   destination = "dungeon_2_1_B",
 }
 
+custom_entity{
+  name = "bubble_swamp",
+  layer = 0,
+  x = 56,
+  y = 541,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/bubble_swamp",
+}
+
+custom_entity{
+  name = "bubble_swamp_2",
+  layer = 0,
+  x = 48,
+  y = 709,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/bubble_swamp",
+}
+
 tile{
   layer = 1,
   x = 704,
