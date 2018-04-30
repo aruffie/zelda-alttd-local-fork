@@ -686,7 +686,7 @@ npc{
   name = "cooking_rabbit",
   layer = 0,
   x = 224,
-  y = 101,
+  y = 133,
   direction = 3,
   subtype = 1,
   sprite = "npc/cooking_rabbit",

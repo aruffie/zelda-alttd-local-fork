@@ -17979,6 +17979,30 @@ custom_entity{
   model = "bubble",
 }
 
+custom_entity{
+  name = "mosquito",
+  layer = 0,
+  x = 80,
+  y = 525,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "npc/mosquito",
+  model = "bee",
+}
+
+custom_entity{
+  name = "mosquito_2",
+  layer = 0,
+  x = 72,
+  y = 677,
+  width = 16,
+  height = 16,
+  direction = 2,
+  sprite = "npc/mosquito",
+  model = "bee",
+}
+
 tile{
   layer = 1,
   x = 704,
