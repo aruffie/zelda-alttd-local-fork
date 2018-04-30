@@ -624,20 +624,10 @@ npc{
   sprite = "npc/hippo",
 }
 
-npc{
-  name = "painter",
-  layer = 0,
-  x = 184,
-  y = 149,
-  direction = 3,
-  subtype = 1,
-  sprite = "npc/painter",
-}
-
 custom_entity{
   layer = 0,
   x = 192,
-  y = 117,
+  y = 141,
   width = 32,
   height = 16,
   direction = 0,
@@ -692,6 +682,16 @@ npc{
   y = 141,
   direction = 3,
   subtype = 1,
+}
+
+npc{
+  name = "painter",
+  layer = 0,
+  x = 176,
+  y = 149,
+  direction = 3,
+  subtype = 1,
+  sprite = "npc/painter",
 }
 
 tile{
