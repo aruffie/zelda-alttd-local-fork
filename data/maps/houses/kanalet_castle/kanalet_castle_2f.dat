@@ -1396,7 +1396,7 @@ teletransporter{
   width = 16,
   height = 16,
   destination_map = "out/c2_kanalet_castle",
-  destination = "kanalet_castle_6_A",
+  destination = "kanalet_castle_4_A",
 }
 
 stairs{

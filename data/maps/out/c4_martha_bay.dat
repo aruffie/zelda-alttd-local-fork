@@ -11292,6 +11292,44 @@ destructible{
   can_be_cut = true,
 }
 
+destination{
+  name = "telephone_booth_8_2_A",
+  layer = 0,
+  x = 920,
+  y = 349,
+  direction = 3,
+}
+
+teletransporter{
+  name = "telephone_booth_8_1_A",
+  layer = 0,
+  x = 912,
+  y = 320,
+  width = 16,
+  height = 16,
+  destination_map = "houses/martha_bay/telephone_booth_8",
+  destination = "telephone_booth_8_1_B",
+}
+
+destination{
+  name = "telephone_booth_7_2_A",
+  layer = 0,
+  x = 144,
+  y = 405,
+  direction = 3,
+}
+
+teletransporter{
+  name = "telephone_booth_7_1_A",
+  layer = 0,
+  x = 136,
+  y = 376,
+  width = 16,
+  height = 16,
+  destination_map = "houses/martha_bay/telephone_booth_7",
+  destination = "telephone_booth_7_1_B",
+}
+
 tile{
   layer = 1,
   x = 568,

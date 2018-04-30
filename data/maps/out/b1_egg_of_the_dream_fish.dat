@@ -17556,7 +17556,7 @@ destructible{
 jumper{
   layer = 0,
   x = 512,
-  y = 456,
+  y = 464,
   width = 16,
   height = 8,
   direction = 6,
