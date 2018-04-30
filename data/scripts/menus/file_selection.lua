@@ -50,13 +50,15 @@ function file_selection_menu:on_started()
     font = self.menu_font,
     font_size = self.menu_font_size,
   }
-  self.option_erase_text = sol.text_surface.create{
+  self.option_1_text = sol.text_surface.create{
     color = self.text_color,
+    horizontal_alignment = "center",
     font = self.menu_font,
     font_size = self.menu_font_size,
   }
-  self.option_settings_text = sol.text_surface.create{
+  self.option_2_text = sol.text_surface.create{
     color = self.text_color,
+    horizontal_alignment = "center",
     font = self.menu_font,
     font_size = self.menu_font_size,
   }
@@ -69,21 +71,15 @@ function file_selection_menu:on_started()
   }
 
   self.slot_count = 3
-  self.cursor_position = 2
+  self.cursor_position = 1
   self.finished = false
-  self.phase = self.phases.CHOOSE_PLAY
-
-  self.title_text:set_text("Choose a file")
+  self.phase = -1
+  self:set_phase(self.phases.CHOOSE_PLAY)
   
   -- Run the menu.
   self:read_savefiles()
   self:update_cursor()
-  sol.audio.play_music("scripts/menus/player_select")
-  --self:init_phase_select_file()
-
-  -- Commands.
-  --self.game:set_custom_command_effect("action", nil)
-  --self.game:set_custom_command_effect("attack", "save")
+  --sol.audio.play_music("scripts/menus/player_select")
 
   -- Show an opening transition.
   self.background_img:fade_in()
@@ -220,13 +216,15 @@ end
 
 -- Draw the option buttons.
 function file_selection_menu:draw_buttons()
-
-  -- Button 1.
-  self.button_img:draw_region(0, 0, 96, 16, self.frame_surface, self.button_1_x, self.button_y)
   
+  -- Button 1.
+  self.button_img:draw_region(0, 0, 96, 16, self.surface, self.button_1_x, self.button_y)
+  self.option_1_text:draw(self.surface, self.button_1_x + 48, self.button_y + 7)
+
   -- Button 2.
   if self.phase == self.phases.CHOOSE_PLAY then
-    self.button_img:draw_region(0, 0, 96, 16, self.frame_surface, self.button_2_x, self.button_y)
+    self.button_img:draw_region(0, 0, 96, 16, self.surface, self.button_2_x, self.button_y)
+    self.option_2_text:draw(self.surface, self.button_2_x + 48, self.button_y + 8)   
   end
 end
 
@@ -234,6 +232,36 @@ end
 ------------
 -- Update --
 ------------
+
+function file_selection_menu:set_phase(phase)
+  if phase ~= self.phase then
+    self.phase = phase
+    self:update_phase()
+  end
+end
+
+function file_selection_menu:update_phase()
+  if self.phase == self.phases.CHOOSE_PLAY then
+    self.title_text:set_text("Choose a file")
+    self.option_1_text:set_text("Delete")
+    self.option_2_text:set_text("Options")
+  elseif self.phase == self.phases.CHOOSE_DELETE or self.phase == self.phases.CONFIRM_DELETE then
+    self.title_text:set_text("Which file to delete?")
+    self.option_1_text:set_text("Cancel")
+    self.option_2_text:set_text("")
+  else
+    self.title_text:set_text("")
+    self.option_1_text:set_text("")
+    self.option_2_text:set_text("")
+  end
+end
+
+function file_selection_menu:set_cursor_position(position)
+  if position ~= self.cursor_position then
+    self.cursor_position = position
+    self:update_cursor()
+  end
+end
 
 -- Update the cursor.
 function file_selection_menu:update_cursor()
@@ -277,44 +305,160 @@ function file_selection_menu:update_cursor()
   end
 end
 
-function file_selection_menu:update_phase()
-  -- TODO
-end
+-- Get the curor's next position, either it is valid or not.
+function file_selection_menu:get_cursor_next_position(current_position, key)
+  local next_cursor_position = nil
 
-function file_selection_menu:set_cursor_position(cursor_position)
-
-  if cursor_position ~= self.cursor_position then
-    self.cursor_position = cursor_position
-    self:update_cursor()
+  -- The cursor is on a file slot.
+  if current_position > 0 and current_position <= self.slot_count then
+    if key == "up" then
+      next_cursor_position = current_position - 1
+    elseif key == "down" then
+      next_cursor_position = current_position + 1
+    end
+  -- The cursor is on a option button.
+  elseif current_position > self.slot_count and current_position <= self.slot_count + 2 then
+    if current_position == self.slot_count + 1 and key == "right" then
+      next_cursor_position = current_position + 1
+    elseif current_position == self.slot_count + 2 and key == "left" then
+      next_cursor_position = current_position - 1
+    elseif key == "up" then
+      next_cursor_position = self.slot_count 
+    end
   end
+
+  -- Ensure the cursor has a valid index.
+  if next_cursor_position ~= nil and (next_cursor_position < 1 or next_cursor_position > self.slot_count + 2) then
+    next_cursor_position = nil
+  end
+
+  return next_cursor_position
 end
 
-function file_selection_menu:get_cursor_next_position()
-  -- TODO
+-- Get the curor's next valid position.
+function file_selection_menu:get_cursor_next_valid_position(current_position, key)
+  local next_candidate = current_position
+
+  repeat 
+    -- Get next position.
+    next_candidate = self:get_cursor_next_position(next_candidate, key)
+    if next_candidate ~= nil then
+      -- Check if valid.
+      if self:is_cursor_position_valid(next_candidate) then
+        return next_candidate
+      end
+    end
+  until next_candidate == nil
+
+  return current_position
 end
 
-function file_selection_menu:on_key_pressed(key)
-  print(key)
-end
-
-function file_selection_menu:on_command_pressed(command)
-  print(command)
-
-  local handled = false
-
-  if self.game:is_dialog_enabled() then
-    -- Commands will be applied to the dialog box only.
+-- Check if the cursor's position is valid.
+function file_selection_menu:is_cursor_position_valid(cursor_position)
+  if cursor_position == nil then
     return false
   end
 
-  if command == "left" or command == "right" or command == "up" or command == "down" then
-    --print(command)
-  elseif command == "action" or command == "attack" then
-    --print(command)
+  if self.phase == self.phases.CHOOSE_PLAY then
+    return true
+  elseif self.phase == self.phases.CHOOSE_DELETE then
+    if cursor_position > 0 and cursor_position <= self.slot_count then
+      local has_savegame = self.slots[cursor_position].has_savegame
+      return has_savegame
+    elseif cursor_position == self.slot_count + 1 then
+      return true -- Button to cancel
+    else
+      return false
+    end
+  else
+    return false
+  end
+end
+
+-- Move the cursor according to its current location.
+function file_selection_menu:move_cursor(key)
+  local handled = true
+  local position_count = self.slot_count + 2
+  local new_cursor_position = self:get_cursor_next_valid_position(self.cursor_position, key)
+
+  -- Update if different.
+  if new_cursor_position ~= self.cursor_position then
+    self:set_cursor_position(new_cursor_position)
+    sol.audio.play_sound("cursor")
+  else 
+    -- Only restart the animation.
+    self.cursor_sprite:set_frame(0)
+    if self.cursor_position <= self.slot_count then
+      self.slots[self.cursor_position].hero_sprite:set_frame(0)
+    end
+    sol.audio.play_sound("picked_item")
+  end
+
+  return handled
+end
+
+
+----------------------
+-- Command handling --
+----------------------
+
+function file_selection_menu:on_key_pressed(key)
+
+  --if self.game:is_dialog_enabled() then
+    -- Commands will be applied to the dialog box only.
+    --return false
+  --end
+
+  local handled = false
+
+  if key == "escape" then
+    -- Stop the program.
+    handled = true
+    sol.main.exit()
+  elseif key == "left" or key == "right" or key == "up" or key == "down" then
+    -- Move the cursor.
+    handled = self:move_cursor(key)
+  elseif key == "space" or key == "return" then
+    -- Choose the slot at the cursor.
+    if self.cursor_position >= 1 and self.cursor_position <= self.slot_count then
+      if self.phase == self.phases.CHOOSE_PLAY then
+        sol.audio.play_sound("sword_spin_attack_load")
+        print("TODO Play savegame "..self.cursor_position)
+        handled = true
+      elseif self.phase == self.phases.CHOOSE_DELETE then
+        sol.audio.play_sound("ok")
+        print("TODO Delete savegame "..self.cursor_position)
+        handled = true
+      end
+    -- Press the left button.
+    elseif self.cursor_position == self.slot_count + 1 then
+      if self.phase == self.phases.CHOOSE_PLAY then
+        sol.audio.play_sound("ok")
+        handled = true
+        self:set_phase(self.phases.CHOOSE_DELETE)
+        -- Set the cursor on the first slot.
+        self:set_cursor_position(1)
+      elseif self.phase == self.phases.CHOOSE_DELETE then
+        sol.audio.play_sound("ok")
+        handled = true
+        self:set_phase(self.phases.CHOOSE_PLAY)
+        -- Set the cursor on the first slot.
+        self:set_cursor_position(1)
+      end
+    -- Press the right button.
+    elseif self.cursor_position == self.slot_count + 2 then
+      if self.phase == self.phases.CHOOSE_PLAY then
+        sol.audio.play_sound("ok")
+        print("TODO Start options")
+        handled = true
+      end
+    end
   end
 
   return handled  
 end
+
+----------------------
 
 -- Return the menu.
 return file_selection_menu
