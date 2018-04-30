@@ -6755,7 +6755,7 @@ tile{
   layer = 0,
   x = 144,
   y = 472,
-  width = 464,
+  width = 448,
   height = 8,
   pattern = "1010",
 }
@@ -8868,8 +8868,8 @@ tile{
 
 tile{
   layer = 0,
-  x = 680,
-  y = 568,
+  x = 816,
+  y = 560,
   width = 16,
   height = 8,
   pattern = "1130",
@@ -8877,8 +8877,8 @@ tile{
 
 tile{
   layer = 0,
-  x = 680,
-  y = 552,
+  x = 816,
+  y = 544,
   width = 16,
   height = 16,
   pattern = "1128",
@@ -8886,8 +8886,8 @@ tile{
 
 tile{
   layer = 0,
-  x = 672,
-  y = 544,
+  x = 808,
+  y = 536,
   width = 8,
   height = 32,
   pattern = "1129",
@@ -8895,8 +8895,8 @@ tile{
 
 tile{
   layer = 0,
-  x = 696,
-  y = 544,
+  x = 832,
+  y = 536,
   width = 8,
   height = 32,
   pattern = "1131",
@@ -8904,11 +8904,182 @@ tile{
 
 tile{
   layer = 0,
-  x = 680,
-  y = 544,
+  x = 816,
+  y = 536,
   width = 16,
   height = 8,
   pattern = "1127",
+}
+
+tile{
+  layer = 0,
+  x = 608,
+  y = 472,
+  width = 8,
+  height = 128,
+  pattern = "972",
+}
+
+tile{
+  layer = 0,
+  x = 600,
+  y = 480,
+  width = 8,
+  height = 128,
+  pattern = "1011",
+}
+
+tile{
+  layer = 0,
+  x = 616,
+  y = 472,
+  width = 16,
+  height = 128,
+  pattern = "1070",
+}
+
+tile{
+  layer = 0,
+  x = 600,
+  y = 456,
+  width = 16,
+  height = 16,
+  pattern = "981",
+}
+
+tile{
+  layer = 0,
+  x = 616,
+  y = 456,
+  width = 16,
+  height = 16,
+  pattern = "983",
+}
+
+tile{
+  layer = 0,
+  x = 40,
+  y = 672,
+  width = 480,
+  height = 8,
+  pattern = "1008",
+}
+
+tile{
+  layer = 0,
+  x = 40,
+  y = 688,
+  width = 480,
+  height = 16,
+  pattern = "958",
+}
+
+tile{
+  layer = 0,
+  x = 40,
+  y = 680,
+  width = 480,
+  height = 8,
+  pattern = "959",
+}
+
+tile{
+  layer = 0,
+  x = 40,
+  y = 704,
+  width = 480,
+  height = 16,
+  pattern = "1071",
+}
+
+tile{
+  layer = 0,
+  x = 600,
+  y = 600,
+  width = 16,
+  height = 16,
+  pattern = "956",
+}
+
+tile{
+  layer = 0,
+  x = 584,
+  y = 632,
+  width = 16,
+  height = 16,
+  pattern = "961",
+}
+
+tile{
+  layer = 0,
+  x = 584,
+  y = 600,
+  width = 16,
+  height = 16,
+  pattern = "1015",
+}
+
+tile{
+  layer = 0,
+  x = 584,
+  y = 616,
+  width = 16,
+  height = 16,
+  pattern = "956",
+}
+
+tile{
+  layer = 0,
+  x = 600,
+  y = 616,
+  width = 16,
+  height = 16,
+  pattern = "961",
+}
+
+tile{
+  layer = 0,
+  x = 616,
+  y = 600,
+  width = 16,
+  height = 16,
+  pattern = "1068",
+}
+
+tile{
+  layer = 0,
+  x = 600,
+  y = 632,
+  width = 16,
+  height = 16,
+  pattern = "962",
+}
+
+tile{
+  layer = 0,
+  x = 616,
+  y = 616,
+  width = 16,
+  height = 16,
+  pattern = "962",
+}
+
+tile{
+  layer = 0,
+  x = 536,
+  y = 648,
+  width = 48,
+  height = 16,
+  pattern = "1071",
+}
+
+tile{
+  layer = 0,
+  x = 584,
+  y = 648,
+  width = 16,
+  height = 16,
+  pattern = "962",
 }
 
 teletransporter{
@@ -9058,16 +9229,16 @@ custom_entity{
 destination{
   name = "travel_destination",
   layer = 0,
-  x = 584,
-  y = 621,
+  x = 192,
+  y = 541,
   direction = 3,
 }
 
 sensor{
   name = "travel_sensor",
   layer = 0,
-  x = 584,
-  y = 549,
+  x = 192,
+  y = 477,
   width = 16,
   height = 16,
 }
@@ -9534,15 +9705,15 @@ wall{
 destination{
   name = "cave_d3_1_north",
   layer = 0,
-  x = 688,
-  y = 557,
+  x = 824,
+  y = 549,
   direction = 1,
 }
 
 teletransporter{
   layer = 0,
-  x = 680,
-  y = 544,
+  x = 816,
+  y = 536,
   width = 16,
   height = 16,
   destination_map = "caves/mask_shrine/cave_1",
@@ -9551,8 +9722,8 @@ teletransporter{
 
 stairs{
   layer = 0,
-  x = 680,
-  y = 544,
+  x = 816,
+  y = 536,
   direction = 3,
   subtype = 3,
 }
