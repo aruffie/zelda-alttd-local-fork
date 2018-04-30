@@ -17964,6 +17964,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/bubble_swamp",
+  model = "bubble",
 }
 
 custom_entity{
@@ -17975,6 +17976,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/bubble_swamp",
+  model = "bubble",
 }
 
 tile{

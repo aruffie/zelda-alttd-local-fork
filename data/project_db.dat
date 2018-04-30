@@ -915,6 +915,7 @@ entity{ id = "bee", description = "Bee" }
 entity{ id = "bird", description = "Bird" }
 entity{ id = "bowwow", description = "Bowwow" }
 entity{ id = "bowwow_follow", description = "Bowwow follow" }
+entity{ id = "bubble", description = "Bubble" }
 entity{ id = "butterfly", description = "Butterfly" }
 entity{ id = "collapsing_soil", description = "Collapsing soil" }
 entity{ id = "conveyor_belt", description = "Conveyor belt" }
