@@ -398,9 +398,9 @@ function file_selection_menu:move_cursor(key)
 end
 
 
-----------------------
--- Command handling --
-----------------------
+--------------
+-- Commands --
+--------------
 
 function file_selection_menu:on_key_pressed(key)
 
@@ -412,9 +412,9 @@ function file_selection_menu:on_key_pressed(key)
   local handled = false
 
   if key == "escape" then
-    -- Stop the program.
+    -- Close the menu.
     handled = true
-    sol.main.exit()
+    sol.menu.stop(self)
   elseif key == "left" or key == "right" or key == "up" or key == "down" then
     -- Move the cursor.
     handled = self:move_cursor(key)
@@ -427,8 +427,25 @@ function file_selection_menu:on_key_pressed(key)
         handled = true
       elseif self.phase == self.phases.CHOOSE_DELETE then
         sol.audio.play_sound("ok")
-        print("TODO Delete savegame "..self.cursor_position)
         handled = true
+        self:set_phase(self.phases.CONFIRM_DELETE)
+        messagebox:show(sol.main, {"Are you sure?"}, "Yes", "Cancel", 2, function(result)
+          if result == 1 then
+            -- Check if slot can be deleted.
+            local slot_index_to_delete = self.cursor_position
+            local slot_to_delete = self.slots[slot_index_to_delete]
+            if slot_to_delete ~= nil then
+              -- Delete file.
+              sol.audio.play_sound("boss_hurt")
+              sol.game.delete(slot_to_delete.file_name)
+              -- Update all the files.
+              self:read_savefiles()
+            end
+          end
+          
+          -- Go back to first phase.
+          self:set_phase(self.phases.CHOOSE_PLAY)
+        end)
       end
     -- Press the left button.
     elseif self.cursor_position == self.slot_count + 1 then
