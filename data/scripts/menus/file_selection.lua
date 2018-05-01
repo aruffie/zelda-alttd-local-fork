@@ -409,6 +409,10 @@ function file_selection_menu:on_key_pressed(key)
     --return false
   --end
 
+  if self.finished then
+    return true
+  end
+
   local handled = false
 
   if key == "escape" then
@@ -422,9 +426,27 @@ function file_selection_menu:on_key_pressed(key)
     -- Choose the slot at the cursor.
     if self.cursor_position >= 1 and self.cursor_position <= self.slot_count then
       if self.phase == self.phases.CHOOSE_PLAY then
-        sol.audio.play_sound("sword_spin_attack_load")
-        print("TODO Play savegame "..self.cursor_position)
         handled = true
+        -- Check if slot can be deleted.
+        local slot = self.slots[self.cursor_position]
+        if slot ~= nil then
+          if sol.game.exists(slot.file_name) then
+            -- The file exists: run it after a fade-out effect.            
+            self.finished = true
+            sol.audio.play_sound("sword_spin_attack_load")
+            self.surface:fade_out()
+            sol.timer.start(self, 700, function()
+              sol.menu.stop(self)
+              sol.main:start_savegame(slot.savegame)
+            end)
+          else
+            -- The file does not exist : it's a new game.
+            print("TODO: launch keyboard box")
+          end
+        else
+          sol.audio.play_sound("wrong")            
+        end
+
       elseif self.phase == self.phases.CHOOSE_DELETE then
         sol.audio.play_sound("ok")
         handled = true
@@ -432,19 +454,24 @@ function file_selection_menu:on_key_pressed(key)
         messagebox:show(sol.main, {"Are you sure?"}, "Yes", "Cancel", 2, function(result)
           if result == 1 then
             -- Check if slot can be deleted.
-            local slot_index_to_delete = self.cursor_position
-            local slot_to_delete = self.slots[slot_index_to_delete]
-            if slot_to_delete ~= nil then
+            local slot = self.slots[self.cursor_position]
+            if slot ~= nil then
               -- Delete file.
               sol.audio.play_sound("boss_hurt")
-              sol.game.delete(slot_to_delete.file_name)
+              sol.game.delete(slot.file_name)
               -- Update all the files.
               self:read_savefiles()
+            else
+              sol.audio.play_sound("wrong")            
             end
+            
+            -- Go back to first phase.
+            self:set_phase(self.phases.CHOOSE_PLAY)
+          else
+            sol.audio.play_sound("ok")
+            -- Go back to second phase.
+            self:set_phase(self.phases.CHOOSE_DELETE)       
           end
-          
-          -- Go back to first phase.
-          self:set_phase(self.phases.CHOOSE_PLAY)
         end)
       end
     -- Press the left button.
