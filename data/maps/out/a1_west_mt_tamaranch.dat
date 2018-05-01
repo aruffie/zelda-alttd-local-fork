@@ -12664,16 +12664,6 @@ pickable{
   treasure_savegame_variable = "piece_of_heart_12",
 }
 
-teletransporter{
-  name = "mr_write_house_1_A_2",
-  layer = 0,
-  x = 56,
-  y = 640,
-  width = 16,
-  height = 16,
-  destination_map = "houses/yarna_desert/bear_house",
-}
-
 custom_entity{
   name = "entrance_dg8_bis",
   layer = 0,

@@ -10219,46 +10219,10 @@ tile{
 tile{
   layer = 0,
   x = 680,
-  y = 488,
-  width = 16,
-  height = 8,
-  pattern = "1130",
-}
-
-tile{
-  layer = 0,
-  x = 680,
   y = 472,
   width = 16,
   height = 16,
   pattern = "1128",
-}
-
-tile{
-  layer = 0,
-  x = 672,
-  y = 464,
-  width = 8,
-  height = 32,
-  pattern = "1129",
-}
-
-tile{
-  layer = 0,
-  x = 696,
-  y = 464,
-  width = 8,
-  height = 32,
-  pattern = "1131",
-}
-
-tile{
-  layer = 0,
-  x = 680,
-  y = 464,
-  width = 16,
-  height = 8,
-  pattern = "1127",
 }
 
 tile{
@@ -10349,6 +10313,42 @@ tile{
   width = 8,
   height = 40,
   pattern = "2205",
+}
+
+tile{
+  layer = 0,
+  x = 696,
+  y = 464,
+  width = 8,
+  height = 32,
+  pattern = "1131",
+}
+
+tile{
+  layer = 0,
+  x = 680,
+  y = 488,
+  width = 16,
+  height = 8,
+  pattern = "1130",
+}
+
+tile{
+  layer = 0,
+  x = 672,
+  y = 464,
+  width = 8,
+  height = 32,
+  pattern = "1129",
+}
+
+tile{
+  layer = 0,
+  x = 680,
+  y = 464,
+  width = 16,
+  height = 8,
+  pattern = "1127",
 }
 
 npc{
@@ -11310,14 +11310,14 @@ destination{
   name = "cave_c3_1_west",
   layer = 0,
   x = 688,
-  y = 477,
+  y = 485,
   direction = 1,
 }
 
 teletransporter{
   layer = 0,
   x = 680,
-  y = 464,
+  y = 472,
   width = 16,
   height = 16,
   destination_map = "caves/east_prairie/cave_1",

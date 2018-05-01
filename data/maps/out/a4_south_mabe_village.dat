@@ -11398,17 +11398,6 @@ custom_entity{
   model = "non_diggable",
 }
 
-teletransporter{
-  name = "stairs_2_A",
-  layer = 0,
-  x = 816,
-  y = 272,
-  width = 16,
-  height = 16,
-  destination_map = "dungeons/2/1f",
-  destination = "stairs_2_B",
-}
-
 tile{
   layer = 1,
   x = 488,
