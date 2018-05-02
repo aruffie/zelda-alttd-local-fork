@@ -11330,6 +11330,94 @@ teletransporter{
   destination = "telephone_booth_7_1_B",
 }
 
+custom_entity{
+  name = "wood_bridge",
+  layer = 0,
+  x = 608,
+  y = 405,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/wood_bridge",
+}
+
+custom_entity{
+  name = "wood_bridge_2",
+  layer = 0,
+  x = 608,
+  y = 381,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/wood_bridge",
+}
+
+custom_entity{
+  name = "wood_bridge_3",
+  layer = 0,
+  x = 608,
+  y = 365,
+  width = 16,
+  height = 16,
+  direction = 2,
+  sprite = "entities/wood_bridge",
+}
+
+custom_entity{
+  name = "wood_bridge_4",
+  layer = 0,
+  x = 608,
+  y = 269,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/wood_bridge",
+}
+
+custom_entity{
+  name = "wood_bridge_6",
+  layer = 0,
+  x = 608,
+  y = 293,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/wood_bridge",
+}
+
+custom_entity{
+  name = "wood_bridge_7",
+  layer = 0,
+  x = 608,
+  y = 309,
+  width = 16,
+  height = 16,
+  direction = 2,
+  sprite = "entities/wood_bridge",
+}
+
+custom_entity{
+  name = "wood_bridge_8",
+  layer = 0,
+  x = 608,
+  y = 325,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/wood_bridge",
+}
+
+custom_entity{
+  name = "wood_bridge_9",
+  layer = 0,
+  x = 608,
+  y = 349,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/wood_bridge",
+}
+
 tile{
   layer = 1,
   x = 568,

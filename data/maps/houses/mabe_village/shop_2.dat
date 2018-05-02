@@ -405,6 +405,26 @@ custom_entity{
   model = "obstacle",
 }
 
+chest{
+  name = "forest_chest_2",
+  layer = 0,
+  x = 120,
+  y = 141,
+  treasure_name = "pegasus_shoes",
+  treasure_savegame_variable = "seashell_5",
+  sprite = "entities/chest",
+}
+
+chest{
+  name = "forest_chest_3",
+  layer = 0,
+  x = 136,
+  y = 141,
+  treasure_name = "power_bracelet",
+  treasure_savegame_variable = "seashell_5",
+  sprite = "entities/chest",
+}
+
 tile{
   layer = 1,
   x = 144,
