@@ -11310,14 +11310,14 @@ destination{
   name = "cave_c3_1_west",
   layer = 0,
   x = 688,
-  y = 485,
+  y = 477,
   direction = 1,
 }
 
 teletransporter{
   layer = 0,
   x = 680,
-  y = 472,
+  y = 464,
   width = 16,
   height = 16,
   destination_map = "caves/east_prairie/cave_1",
