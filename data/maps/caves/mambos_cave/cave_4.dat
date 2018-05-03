@@ -811,8 +811,8 @@ teletransporter{
   y = 192,
   width = 16,
   height = 16,
-  destination_map = "out/a3_mabe_village",
-  destination = "stair_weathercok",
+  destination_map = "out/d1_east_mt_tamaranch",
+  destination = "cave_d2_4_east",
 }
 
 tile{
