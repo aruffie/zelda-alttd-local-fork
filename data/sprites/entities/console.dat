@@ -3,8 +3,8 @@ animation{
   src_image = "entities/console.png",
   directions = {
     { x = 0, y = 0, frame_width = 24, frame_height = 16, origin_x = 12, origin_y = 13 },
-    { x = 0, y = 0, frame_width = 24, frame_height = 16, origin_x = 8, origin_y = 13 },
-    { x = 0, y = 0, frame_width = 24, frame_height = 16, origin_x = 8, origin_y = 13 },
-    { x = 0, y = 0, frame_width = 24, frame_height = 16, origin_x = 8, origin_y = 13 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 16, origin_x = 12, origin_y = 13 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 16, origin_x = 12, origin_y = 13 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 16, origin_x = 12, origin_y = 13 },
   },
 }
