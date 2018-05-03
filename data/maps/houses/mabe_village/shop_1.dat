@@ -609,7 +609,7 @@ npc{
   y = 181,
   direction = -1,
   subtype = 0,
-  sprite = "entities/block",
+  sprite = "entities/console",
 }
 
 custom_entity{

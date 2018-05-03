@@ -14476,6 +14476,17 @@ stairs{
   subtype = 3,
 }
 
+custom_entity{
+  name = "keyhole_dungeon_4",
+  layer = 0,
+  x = 776,
+  y = 501,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/keyhole_dungeon_4",
+}
+
 tile{
   layer = 1,
   x = 408,

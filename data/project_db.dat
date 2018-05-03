@@ -270,6 +270,7 @@ sprite{ id = "entities/chest", description = "Chest (normal)" }
 sprite{ id = "entities/claw_chain", description = "Claw chain" }
 sprite{ id = "entities/claw_crane", description = "Claw crane" }
 sprite{ id = "entities/claw_up", description = "Claw up" }
+sprite{ id = "entities/console", description = "Console" }
 sprite{ id = "entities/conveyor_belt1", description = "Conveyor belt 1" }
 sprite{ id = "entities/conveyor_belt2", description = "Conveyor belt 2" }
 sprite{ id = "entities/conveyor_belt3", description = "Conveyor belt 3" }
@@ -329,6 +330,7 @@ sprite{ id = "entities/items", description = "Items" }
 sprite{ id = "entities/kanalet_canvas", description = "Kanalet canvas" }
 sprite{ id = "entities/kanalet_darknut_statue", description = "Kanalet darknut statue" }
 sprite{ id = "entities/kanalet_statue", description = "Kanalet statue" }
+sprite{ id = "entities/keyhole_dungeon_4", description = "Keyhole dungeon 4" }
 sprite{ id = "entities/keyhole_dungeon_7", description = "Keyhole dungeon 7" }
 sprite{ id = "entities/la_beach/la_background", description = "entities/la_beach/la_background" }
 sprite{ id = "entities/la_beach/la_swell", description = "entities/la_beach/la_swell" }
@@ -422,6 +424,7 @@ sprite{ id = "entities/switch", description = "Switch" }
 sprite{ id = "entities/teletransporter", description = "Teletransporter" }
 sprite{ id = "entities/teletransporter_dungeon", description = "Teletransporter dungeon" }
 sprite{ id = "entities/torch", description = "Torch" }
+sprite{ id = "entities/turtlerock_arms", description = "Turtlerock arms" }
 sprite{ id = "entities/turtlerock_head", description = "Turtlerock head" }
 sprite{ id = "entities/vacuum_cleaner", description = "Vacuum cleaner" }
 sprite{ id = "entities/vacuum_cleaner_ground", description = "Vacuum cleaner ground" }
