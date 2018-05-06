@@ -167,6 +167,7 @@ tileset{ id = "out/outside", description = "Outside" }
 tileset{ id = "sideview/sideview", description = "Side view tileset" }
 
 sprite{ id = "enemies/arm_mimic", description = "Arm mimic" }
+sprite{ id = "enemies/armos", description = "Armos" }
 sprite{ id = "enemies/arrow", description = "Arrow" }
 sprite{ id = "enemies/beamos", description = "Beamos" }
 sprite{ id = "enemies/boss/genie", description = "Genie" }
