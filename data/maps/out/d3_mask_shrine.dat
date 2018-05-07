@@ -4143,35 +4143,12 @@ custom_entity{
   name = "face_shrine_2",
   layer = 0,
   x = 24,
-  y = 21,
-  width = 56,
+  y = 5,
+  width = 128,
   height = 80,
   direction = 2,
   sprite = "entities/entrance_dungeon_6",
   model = "obstacle",
-}
-
-custom_entity{
-  name = "face_shrine_3",
-  layer = 0,
-  x = 96,
-  y = 21,
-  width = 56,
-  height = 80,
-  direction = 0,
-  sprite = "entities/entrance_dungeon_6",
-  model = "obstacle",
-}
-
-custom_entity{
-  name = "face_shrine_4",
-  layer = 0,
-  x = 80,
-  y = 77,
-  width = 16,
-  height = 24,
-  direction = 3,
-  sprite = "entities/entrance_dungeon_6",
 }
 
 wall{
@@ -4277,16 +4254,5 @@ tile{
   width = 32,
   height = 8,
   pattern = "991",
-}
-
-custom_entity{
-  name = "face_shrine_5",
-  layer = 1,
-  x = 80,
-  y = 21,
-  width = 16,
-  height = 56,
-  direction = 1,
-  sprite = "entities/entrance_dungeon_6",
 }
 
