@@ -5484,15 +5484,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 392,
-  y = 408,
-  width = 32,
-  height = 32,
-  pattern = "1085",
-}
-
-tile{
-  layer = 0,
   x = 432,
   y = 360,
   width = 8,
@@ -9390,7 +9381,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 344,
+  x = 328,
   y = 464,
   width = 8,
   height = 8,
@@ -9408,7 +9399,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 344,
+  x = 328,
   y = 456,
   width = 8,
   height = 8,
@@ -17670,62 +17661,8 @@ tile{
 
 tile{
   layer = 0,
-  x = 368,
-  y = 424,
-  width = 8,
-  height = 24,
-  pattern = "6080",
-}
-
-tile{
-  layer = 0,
-  x = 352,
-  y = 440,
-  width = 16,
-  height = 24,
-  pattern = "6082",
-}
-
-tile{
-  layer = 0,
-  x = 352,
-  y = 424,
-  width = 16,
-  height = 16,
-  pattern = "6083",
-}
-
-tile{
-  layer = 0,
-  x = 376,
-  y = 424,
-  width = 8,
-  height = 16,
-  pattern = "6078",
-}
-
-tile{
-  layer = 0,
-  x = 336,
-  y = 424,
-  width = 8,
-  height = 16,
-  pattern = "6077",
-}
-
-tile{
-  layer = 0,
   x = 344,
-  y = 424,
-  width = 8,
-  height = 24,
-  pattern = "6079",
-}
-
-tile{
-  layer = 0,
-  x = 352,
-  y = 424,
+  y = 432,
   width = 16,
   height = 16,
   pattern = "6008",
@@ -17859,16 +17796,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 392,
-  y = 440,
-  width = 32,
-  height = 32,
-  pattern = "1085",
-}
-
-tile{
-  layer = 0,
-  x = 336,
+  x = 320,
   y = 472,
   width = 8,
   height = 8,
@@ -18190,6 +18118,33 @@ tile{
   pattern = "127",
 }
 
+tile{
+  layer = 0,
+  x = 336,
+  y = 456,
+  width = 16,
+  height = 8,
+  pattern = "123",
+}
+
+tile{
+  layer = 0,
+  x = 336,
+  y = 464,
+  width = 16,
+  height = 16,
+  pattern = "907",
+}
+
+tile{
+  layer = 0,
+  x = 328,
+  y = 472,
+  width = 16,
+  height = 16,
+  pattern = "907",
+}
+
 destructible{
   layer = 0,
   x = 704,
@@ -18409,7 +18364,7 @@ destructible{
 destination{
   name = "witch_2_A",
   layer = 0,
-  x = 360,
+  x = 352,
   y = 477,
   direction = 3,
 }
@@ -18417,8 +18372,8 @@ destination{
 teletransporter{
   name = "witch_1_A",
   layer = 0,
-  x = 352,
-  y = 424,
+  x = 344,
+  y = 432,
   width = 16,
   height = 16,
   destination_map = "houses/graveyard/witch_house",
@@ -18491,8 +18446,8 @@ teletransporter{
 dynamic_tile{
   name = "witch_1_A_door",
   layer = 0,
-  x = 352,
-  y = 424,
+  x = 344,
+  y = 432,
   pattern = "6020",
   width = 16,
   height = 16,
@@ -18502,8 +18457,8 @@ dynamic_tile{
 sensor{
   name = "open_house_witch_1_A_door_sensor",
   layer = 0,
-  x = 360,
-  y = 453,
+  x = 352,
+  y = 461,
   width = 16,
   height = 16,
 }
@@ -21493,7 +21448,7 @@ pickable{
 
 custom_entity{
   layer = 0,
-  x = 296,
+  x = 280,
   y = 477,
   width = 48,
   height = 16,
@@ -21504,7 +21459,7 @@ custom_entity{
 
 custom_entity{
   layer = 0,
-  x = 296,
+  x = 280,
   y = 501,
   width = 48,
   height = 8,
@@ -21537,7 +21492,7 @@ custom_entity{
 
 custom_entity{
   layer = 0,
-  x = 344,
+  x = 328,
   y = 477,
   width = 8,
   height = 8,
@@ -21557,7 +21512,7 @@ custom_entity{
 
 custom_entity{
   layer = 0,
-  x = 288,
+  x = 272,
   y = 477,
   width = 8,
   height = 8,
@@ -21618,7 +21573,7 @@ custom_entity{
 
 custom_entity{
   layer = 0,
-  x = 344,
+  x = 328,
   y = 485,
   width = 16,
   height = 16,
@@ -22066,6 +22021,30 @@ destructible{
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
+}
+
+custom_entity{
+  name = "witch_house",
+  layer = 0,
+  x = 368,
+  y = 437,
+  width = 48,
+  height = 32,
+  direction = 0,
+  sprite = "entities/witch_house",
+  model = "obstacle",
+}
+
+custom_entity{
+  name = "witch_house_3",
+  layer = 0,
+  x = 304,
+  y = 437,
+  width = 48,
+  height = 32,
+  direction = 2,
+  sprite = "entities/witch_house",
+  model = "obstacle",
 }
 
 tile{
@@ -24365,87 +24344,6 @@ tile{
 
 tile{
   layer = 1,
-  x = 336,
-  y = 368,
-  width = 8,
-  height = 8,
-  pattern = "4156",
-}
-
-tile{
-  layer = 1,
-  x = 344,
-  y = 368,
-  width = 32,
-  height = 8,
-  pattern = "4157",
-}
-
-tile{
-  layer = 1,
-  x = 376,
-  y = 368,
-  width = 8,
-  height = 8,
-  pattern = "4158",
-}
-
-tile{
-  layer = 1,
-  x = 384,
-  y = 384,
-  width = 8,
-  height = 24,
-  pattern = "4157",
-}
-
-tile{
-  layer = 1,
-  x = 328,
-  y = 384,
-  width = 8,
-  height = 24,
-  pattern = "4157",
-}
-
-tile{
-  layer = 1,
-  x = 328,
-  y = 376,
-  width = 8,
-  height = 8,
-  pattern = "4156",
-}
-
-tile{
-  layer = 1,
-  x = 384,
-  y = 376,
-  width = 8,
-  height = 8,
-  pattern = "4158",
-}
-
-tile{
-  layer = 1,
-  x = 336,
-  y = 376,
-  width = 48,
-  height = 48,
-  pattern = "4157",
-}
-
-tile{
-  layer = 1,
-  x = 328,
-  y = 368,
-  width = 64,
-  height = 56,
-  pattern = "6074",
-}
-
-tile{
-  layer = 1,
   x = 888,
   y = 384,
   width = 48,
@@ -24563,31 +24461,11 @@ custom_entity{
 
 custom_entity{
   layer = 1,
-  x = 288,
-  y = 429,
-  width = 64,
-  height = 16,
-  direction = 1,
-  sprite = "entities/graveyard_tree",
-}
-
-custom_entity{
-  layer = 1,
-  x = 288,
+  x = 272,
   y = 445,
   width = 64,
   height = 32,
   direction = 3,
-  sprite = "entities/graveyard_tree",
-}
-
-custom_entity{
-  layer = 1,
-  x = 384,
-  y = 429,
-  width = 64,
-  height = 16,
-  direction = 1,
   sprite = "entities/graveyard_tree",
 }
 
@@ -24775,6 +24653,38 @@ custom_entity{
   layer = 1,
   x = 744,
   y = 109,
+  width = 64,
+  height = 16,
+  direction = 1,
+  sprite = "entities/graveyard_tree",
+}
+
+custom_entity{
+  name = "witch_house_4",
+  layer = 1,
+  x = 304,
+  y = 389,
+  width = 112,
+  height = 56,
+  direction = 1,
+  sprite = "entities/witch_house",
+  model = "obstacle",
+}
+
+custom_entity{
+  layer = 2,
+  x = 272,
+  y = 429,
+  width = 64,
+  height = 16,
+  direction = 1,
+  sprite = "entities/graveyard_tree",
+}
+
+custom_entity{
+  layer = 2,
+  x = 384,
+  y = 429,
   width = 64,
   height = 16,
   direction = 1,

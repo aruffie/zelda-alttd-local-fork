@@ -450,6 +450,7 @@ sprite{ id = "entities/windfish_symbol_dungeon_5", description = "Windfish symbo
 sprite{ id = "entities/windfish_symbol_dungeon_6", description = "Windfish symbol dungeon 6" }
 sprite{ id = "entities/windfish_symbol_dungeon_7", description = "Windfish symbol dungeon 7" }
 sprite{ id = "entities/windfish_symbol_dungeon_8", description = "Windfish symbol dungeon 8" }
+sprite{ id = "entities/witch_house", description = "Witch house" }
 sprite{ id = "entities/wood_bridge", description = "Wood bridge" }
 sprite{ id = "ground_effects/fall_on_hole", description = "ground_effects/fall_on_hole" }
 sprite{ id = "ground_effects/lava_splash", description = "ground_effects/lava_splash" }
