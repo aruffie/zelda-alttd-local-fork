@@ -3723,6 +3723,28 @@ Non
 }
 
 dialog{
+  id = "maps.out.martha_bay.mermaid_statue_no_scale",
+  skip = "all",
+  text = [[
+C'est une Statue
+de Sirène. Il y a
+une écaille manquante.
+DIALOGUE A MODIFIER!
+]],
+}
+
+dialog{
+  id = "maps.out.martha_bay.mermaid_statue_scale",
+  skip = "all",
+  text = [[
+Tu déposes
+l'écaille qui
+manquait sur la
+Petite Sirène !
+]],
+}
+
+dialog{
   id = "maps.out.prairie.dungeon_3_lock",
   text = [[
 Une serrure ici?

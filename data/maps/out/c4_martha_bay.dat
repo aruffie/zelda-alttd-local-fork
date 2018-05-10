@@ -11419,7 +11419,7 @@ custom_entity{
 }
 
 custom_entity{
-  name = "statue_mermaid",
+  name = "mermaid_statue",
   layer = 0,
   x = 456,
   y = 373,
@@ -11427,6 +11427,23 @@ custom_entity{
   height = 32,
   direction = 0,
   sprite = "entities/statue_mermaid",
+}
+
+npc{
+  name = "mermaid_statue_npc",
+  layer = 0,
+  x = 464,
+  y = 389,
+  direction = 3,
+  subtype = 0,
+}
+
+pickable{
+  layer = 0,
+  x = 496,
+  y = 405,
+  treasure_name = "magnifying_lens",
+  treasure_variant = 13,
 }
 
 tile{
