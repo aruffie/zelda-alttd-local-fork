@@ -1,0 +1,43 @@
+animation{
+  name = "normal",
+  src_image = "menus/keyboardbox/keyboardbox_cursor.png",
+  frame_delay = 120,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 0, origin_y = 0, num_frames = 4, num_columns = 1 },
+  },
+}
+animation{
+  name = "double",
+  src_image = "menus/keyboardbox/keyboardbox_cursor.png",
+  frame_delay = 120,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 57, y = 0, frame_width = 42, frame_height = 24, origin_x = 0, origin_y = 0, num_frames = 4, num_columns = 1 },
+  },
+}
+animation{
+  name = "long",
+  src_image = "menus/keyboardbox/keyboardbox_cursor.png",
+  frame_delay = 120,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 99, y = 0, frame_width = 96, frame_height = 24, origin_x = 0, origin_y = 0, num_frames = 4, num_columns = 1 },
+  },
+}
+animation{
+  name = "none",
+  src_image = "menus/keyboardbox/keyboardbox_cursor.png",
+  directions = {
+    { x = 0, y = 0, frame_width = 1, frame_height = 1, origin_x = 0, origin_y = 0 },
+  },
+}
+animation{
+  name = "special",
+  src_image = "menus/keyboardbox/keyboardbox_cursor.png",
+  frame_delay = 120,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 24, y = 0, frame_width = 33, frame_height = 24, origin_x = 0, origin_y = 0, num_frames = 4, num_columns = 1 },
+  },
+}

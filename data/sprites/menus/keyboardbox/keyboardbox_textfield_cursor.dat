@@ -1,0 +1,9 @@
+animation{
+  name = "blinking",
+  src_image = "menus/keyboardbox/keyboardbox_textfield_cursor.png",
+  frame_delay = 250,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 0, frame_width = 1, frame_height = 12, origin_x = 0, origin_y = 6, num_frames = 2, num_columns = 1 },
+  },
+}

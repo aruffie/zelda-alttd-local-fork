@@ -6,6 +6,8 @@
 -- The last menu is supposed to start a game.
 
 local initial_menus = {
+  --"scripts/menus/messagebox",
+  "scripts/menus/keyboardbox",
   "scripts/menus/file_selection",
   "scripts/menus/solarus_logo",
   "scripts/menus/language", 
