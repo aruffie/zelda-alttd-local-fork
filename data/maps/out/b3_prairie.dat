@@ -23575,6 +23575,14 @@ custom_entity{
   direction = 0,
 }
 
+pickable{
+  layer = 0,
+  x = 240,
+  y = 333,
+  treasure_name = "hookshot",
+  treasure_variant = 13,
+}
+
 tile{
   layer = 1,
   x = 696,

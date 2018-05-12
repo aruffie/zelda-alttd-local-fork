@@ -2,6 +2,6 @@ animation{
   name = "normal",
   src_image = "entities/statue_mermaid.png",
   directions = {
-    { x = 0, y = 0, frame_width = 32, frame_height = 40, origin_x = 8, origin_y = 21 },
+    { x = 0, y = 0, frame_width = 40, frame_height = 48, origin_x = 12, origin_y = 29 },
   },
 }
