@@ -9115,7 +9115,7 @@ enemy{
   x = 128,
   y = 653,
   direction = 3,
-  breed = "moblin",
+  breed = "moblin_dog_sword",
   treasure_name = "random",
 }
 
