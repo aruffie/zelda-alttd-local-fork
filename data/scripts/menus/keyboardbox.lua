@@ -5,6 +5,66 @@ local keyboardbox_menu = {}
 local language_manager = require("scripts/language_manager")
 local game_manager = require("scripts/game_manager")
 
+-----------
+-- Utils --
+-----------
+
+local function is_special_character(c)
+  local byte = c:byte()
+  return byte >= 192 and byte < 224
+end
+
+-- Get the string length in chars (and not in bytes as does string.len()).
+local function get_string_char_len(s)
+  local len_bytes = string.len(s)
+  local len_char = 0
+  for i = 1, len_bytes do
+    local current_char = s:sub(i, i)
+    if is_special_character(current_char) then
+      -- The first byte is 110xxxxx: the character is stored with two bytes (utf-8).
+      -- Ignore the first byte.
+    else
+      -- Count this byte as a char.
+      len_char = len_char + 1
+    end
+  end
+
+  return len_char
+end
+
+local function is_last_char_special(s)
+  local len_bytes = string.len(s)
+  local i = 1
+  while i < len_bytes do
+    local current_char = s:sub(i, i)
+    if is_special_character(current_char) then
+      if i == len_bytes - 1 then
+        return true
+      end
+      i = i + 2 -- Skip a byte.
+    else
+      i = i + 1      
+    end
+  end
+
+  return false
+end
+
+-- Check if a game currently exists and is started.
+local function is_game_started()
+  if sol.main.game ~= nil then
+    if sol.main.game:is_started() then
+      return true
+    end
+  end
+  return false
+end
+
+----------------
+-- Initialize --
+----------------
+
+-- Initialize all the menu's features.
 function keyboardbox_menu:on_started()
 
   -- Elements positions relative to self.surface.
@@ -31,56 +91,70 @@ function keyboardbox_menu:on_started()
   self.symbols = {}
   local symbol_names = {"main", "special", "shift", "cancel", "accept", "erase", }
   for i = 1, #symbol_names do
-    local symbol_surface = sol.surface.create(25, 16)
+    local symbol_surface_off = sol.surface.create(25, 16)
+    local symbol_surface_on = sol.surface.create(25, 16)
     local surface_y = (i - 1) * 16
-    symbols_img:draw_region(0, surface_y, 25, 16, symbol_surface)
+    symbols_img:draw_region(0, surface_y, 25, 16, symbol_surface_off)
+    symbols_img:draw_region(25, surface_y, 25, 16, symbol_surface_on)
     local symbol_name = symbol_names[i]
-    self.symbols[symbol_name] = symbol_surface
+    self.symbols[symbol_name] = {}
+    self.symbols[symbol_name]["on"] = symbol_surface_on
+    self.symbols[symbol_name]["off"] = symbol_surface_off
   end
 
   -- Prepare keyboard layouts.
-  local keyboard_layout_main = {
+  local keyboard_layout_main_lower = {
     "-", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "erase",
     "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
     "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
     "shift", "special", " ", "cancel", "accept",
   }
-
-  local keyboard_layout_main_upper = {}
-  for i = 1, #keyboard_layout_main do
-    keyboard_layout_main_upper[i] = string.upper(keyboard_layout_main[i])
-  end
-
-  local keyboard_layout_special = {
+  local keyboard_layout_main_upper = {
+    "-", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "erase",
+    "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
+    "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
+    "shift", "special", " ", "cancel", "accept",
+  }
+  local keyboard_layout_special_lower = {
     "à", "á", "â", "ã", "ä", "å", "æ", "è", "é", "ê", "ë", "erase",
     "ç", "đ", "ì", "í", "î", "ï", "ñ", "ò", "ó", "ô", "õ", "ö", "ø",
     "ù", "ú", "û", "ü", "ý", "œ", "ß", "&", "@", "'", "$", "€", "£", 
     "shift", "main", " ", "cancel", "accept",
   }
-
-  local keyboard_layout_special_upper = {}
-  for i = 1, #keyboard_layout_special do
-    keyboard_layout_special_upper[i] = string.upper(keyboard_layout_special[i])
-  end
-
-  self.keyboard_layouts = {
-    "lower" = {
-      "main" = {
-        map = keyboard_layout_main,
-      },
-      "special" = {
-        map = keyboard_layout_special,
-      },
-    },
-    "upper" = {
-      "main" = {
-        map = keyboard_layout_main_upper,
-      },
-      "special" = {
-        map = keyboard_layout_special_upper,
-      },
-    }
+  local keyboard_layout_special_upper = {
+    "À", "Á", "Â", "Ã", "Ä", "Å", "Æ", "È", "É", "Ê", "Ë", "erase",
+    "Ç", "Đ", "Ì", "Í", "Î", "Ï", "Ñ", "Ò", "Ó", "Ô", "Õ", "Ö", "Ø",
+    "Ù", "Ú", "Û", "Ü", "Ý", "Œ", "SS", "&", "@", "'", "$", "€", "£", 
+    "shift", "main", " ", "cancel", "accept",
   }
+
+  local lower_main = {
+    map = keyboard_layout_main_lower,
+    surface = nil,
+  }
+  local lower_special = {
+    map = keyboard_layout_special_lower,
+    surface = nil,
+  }
+  local upper_main = {
+    map = keyboard_layout_main_upper,
+    surface = nil,
+  }
+  local upper_special = {
+    map = keyboard_layout_special_upper,
+    surface = nil,
+  }
+
+  local lower_pages = {}
+  lower_pages["main"] = lower_main
+  lower_pages["special"] = lower_special
+  local upper_pages = {}
+  upper_pages["main"] = upper_main
+  upper_pages["special"] = upper_special
+
+  self.keyboard_layouts = {}
+  self.keyboard_layouts["lower"] = lower_pages
+  self.keyboard_layouts["upper"] = upper_pages
 
   local cursor_sprite_sizes = { "normal", "special", "double", "long", }
   local keyboard_layout_keys = {
@@ -140,55 +214,59 @@ function keyboardbox_menu:on_started()
   self.text_color_light = { 177, 146, 116 }
 
   -- Prepare keyboard layouts surfaces.
-  for _, value_1 in pairs(self.keyboard_layouts) do
-    for _, value_2 in pairs(value_1) do
-      value_2.surface = sol.surface.create(self.frame_w, self.frame_h)
-
-      -- TODO dessiner la surface (cf ci-dessous)
-    end
-  end
-
-  ----------------------------
-  self.keyboard_layout_main_surface = sol.surface.create(self.frame_w, self.frame_h)
-
-  for i = 1, #self.keyboard_layout_geometries do
-    local layout_item_content = self.keyboard_layout_main[i]
-    local layout_item_geometry = self.keyboard_layout_geometries[i]
-
-    -- Check if the key is a letter or a special key.
-    local symbol_surface = self.symbols[string.lower(layout_item_content)]
-    -- It's a letter.
-    if symbol_surface == nil then
-      local letter_text = sol.text_surface.create{
-        color = self.text_color,
-        horizontal_alignment = "center",
-        font = self.menu_font,
-        font_size = self.menu_font_size,
-        text = layout_item_content
-      }
-
-      local letter_x = layout_item_geometry.x + 8
-      local letter_y = layout_item_geometry.y + 8
-
-      letter_text:draw(self.keyboard_layout_main_surface, letter_x, letter_y)
-
-    -- It's a special key.
-    else
+  for layout_case, layout_pages in pairs(self.keyboard_layouts) do
+    for _, layout_page in pairs(layout_pages) do
+      -- Create the layout's surface.
+      layout_page.surface = sol.surface.create(self.frame_w, self.frame_h)
       
-      local symbol_x = layout_item_geometry.x
-      local symbol_y = layout_item_geometry.y
+      -- References for quick access.
+      local map = layout_page.map
+      local surface = layout_page.surface
 
-      -- Special case for the erase key.
-      if string.lower(layout_item_content) == "erase" then
-        symbol_x = symbol_x + 4 
+      -- Draw all the symbols on the surface.
+      for i = 1, #self.keyboard_layout_geometries do
+        local layout_item_content = map[i]
+        local layout_item_geometry = self.keyboard_layout_geometries[i]
+
+        -- Check if the key is a letter or a special key.
+        local symbol_surface = self.symbols[layout_item_content]
+        if symbol_surface == nil then
+          -- It's a letter.
+          local letter_text = sol.text_surface.create{
+            color = self.text_color,
+            horizontal_alignment = "center",
+            font = self.menu_font,
+            font_size = self.menu_font_size,
+            text = layout_item_content
+          }
+
+          local letter_x = layout_item_geometry.x + 8
+          local letter_y = layout_item_geometry.y + 8
+
+          -- Draw the letter at the correct place.
+          letter_text:draw(surface, letter_x, letter_y)
+        else
+          -- It's a special key.
+          
+          local symbol_x = layout_item_geometry.x
+          local symbol_y = layout_item_geometry.y
+
+          -- Special case for the erase key.
+          if layout_item_content == "erase" then
+            symbol_x = symbol_x + 4 
+          end
+
+          -- Draw the special symbol at the correct place.
+          local symbol_state = "off"
+          if layout_item_content == "shift" and layout_case == "upper" then
+            symbol_state = "on"
+          end
+          
+          symbol_surface[symbol_state]:draw(surface, symbol_x, symbol_y)
+        end
       end
-
-      symbol_surface:draw(self.keyboard_layout_main_surface, symbol_x, symbol_y)
-
     end
   end
-
-  --------------------------------
 
   -- Prepare texts.
   self.title_text = sol.text_surface.create{
@@ -222,46 +300,49 @@ function keyboardbox_menu:on_started()
     end
   end
   
+  -- Current state.
+  self.letter_case = "upper"
+  self.layout_page = "main"
+
   -- Dummy text to test.
   self.title_text:set_text("What's your name?")
   self:set_result("Link")
 
   -- Run the menu.
   self.max_result_size = 6
-  self.cursor_position = 41
+  self.cursor_position = 13
   self:update_cursor()
 
 end
 
+
+----------
+-- Draw --
+----------
+
 -- Draw the menu.
 function keyboardbox_menu:on_draw(dst_surface)
-
-  -- Get the destination surface size to center everything.
-  local width, height = dst_surface:get_size()
   
   -- Dark surface.
-  self:update_dark_surface(width, height)
-  self.dark_surface:draw(dst_surface, 0, 0)
-
+  self:draw_dark_surface(dst_surface)
+  
   -- Frame.
   self.frame_img:draw(self.surface, 0, 0)
-
+  
   -- Title.
-  local frame_center_x = self.frame_w / 2
-  self.title_text:draw(self.surface, frame_center_x, 16)
-
+  self.title_text:draw(self.surface, self.frame_w / 2, 16)
+  
   -- Text field.
-  self.textfield_text:draw(self.surface, frame_center_x, 38)
-  local textfield_text_w, textfield_text_h = self.textfield_text:get_size()
-  self.textfield_cursor_sprite:draw(self.surface, frame_center_x + textfield_text_w / 2, 38)
-
+  self:draw_textfield(self.surface)
+  
   -- Current keyboard layout.
-  self.keyboard_layout_main_surface:draw(self.surface, 0, 0)
-
+  self:draw_keyboard_layout(self.surface)
+  
   -- Cursor.
   self:draw_cursor(self.surface)
-
+  
   -- dst_surface may be larger: draw this menu at the center.
+  local width, height = dst_surface:get_size()
   self.surface:draw(dst_surface, (width - self.frame_w) / 2, (height - self.frame_h) / 2)
 end
 
@@ -284,6 +365,12 @@ function keyboardbox_menu:update_dark_surface(width, height)
   end
 end
 
+-- Draw a dark surface above below screen.
+function keyboardbox_menu:draw_dark_surface(dst_surface)
+  self:update_dark_surface(width, height)
+  self.dark_surface:draw(dst_surface, 0, 0)
+end
+
 -- Draw the cursor.
 function keyboardbox_menu:draw_cursor(dst_surface)
 
@@ -293,6 +380,24 @@ function keyboardbox_menu:draw_cursor(dst_surface)
     self.cursor_sprite:draw(dst_surface, self.cursor_x, self.cursor_y)
   end
 end
+
+-- Draw the textfield and its content.
+function keyboardbox_menu:draw_textfield(dst_surface)
+  local frame_center_x = self.frame_w / 2
+  
+  -- Text.
+  print(self.textfield_text:get_text())
+  self.textfield_text:draw(self.surface, frame_center_x, 38)
+  
+  -- Cursor.
+  local textfield_text_w, textfield_text_h = self.textfield_text:get_size()
+  self.textfield_cursor_sprite:draw(self.surface, frame_center_x + textfield_text_w / 2, 38)
+end
+
+
+------------
+-- Cursor --
+------------
 
 -- Change the cursor position.
 function keyboardbox_menu:set_cursor_position(position)
@@ -342,61 +447,212 @@ end
 function keyboardbox_menu:get_cursor_next_position(current_position, key)
   local next_position = current_position
 
-  if current_position == 1 then
-
-  elseif current_position > 1 and current_position < 12 then
-  
-  elseif current_position == 12 then
-
+  if current_position >= 1 and current_position <= 12 then
+    if key == "up" then
+      if current_position >= 1 and current_position <= 2 then
+        next_position = 39
+      elseif current_position == 3 or current_position == 4 then
+        next_position = 40
+      elseif current_position >= 5 and current_position <= 9 then
+        next_position = 41
+      elseif current_position == 10 then
+        next_position = 42
+      elseif current_position >= 11 and current_position <= 12 then
+        next_position = 43
+      end
+    elseif key == "left" then
+      if current_position == 1 then
+      next_position = 12        
+      else
+        next_position = current_position - 1
+      end
+    elseif key == "right" then
+      if current_position == 12 then
+        next_position = 1
+      else
+        next_position = current_position + 1
+      end
+    elseif key== "down" then
+      next_position = current_position + 12
+    end
   elseif current_position >= 13 and current_position <= 25 then
-
+    if key == "up" then
+      if current_position == 25 then
+        next_position = 12
+      else
+        next_position = current_position - 12        
+      end
+    elseif key == "left" then
+      if current_position == 13 then      
+        next_position = 25
+      else
+        next_position = current_position - 1        
+      end
+    elseif key == "right" then
+      if current_position == 25 then
+        next_position = 13
+      else
+        next_position = current_position + 1
+      end
+    elseif key== "down" then
+      next_position = current_position + 13
+    end
   elseif current_position >= 26 and current_position <= 38 then
-
+    if key == "up" then
+        next_position = current_position - 13
+    elseif key == "left" then
+      if current_position == 26 then      
+        next_position = 38
+      else
+        next_position = current_position - 1        
+      end
+    elseif key == "right" then
+      if current_position == 38 then
+        next_position = 26
+      else
+        next_position = current_position + 1
+      end
+    elseif key== "down" then
+      if current_position >= 26 and current_position <= 27 then
+        next_position = 39
+      elseif current_position >= 28 and current_position <= 29 then
+        next_position = 40
+      elseif current_position >= 30 and current_position <= 34 then
+        next_position = 41
+      elseif current_position == 35 then
+        next_position = 42
+      elseif current_position >= 36 and current_position <= 38 then
+        next_position = 43
+      end
+    end
   elseif current_position >= 39 and current_position <= 43 then
-    
+    if key == "up" then
+      if current_position == 39 then 
+        next_position = 27
+      elseif current_position == 40 then
+        next_position = 29
+      elseif current_position == 41 then
+        next_position = 32
+      elseif current_position == 42 then
+        next_position = 35
+      elseif current_position == 43 then
+        next_position = 36
+      end
+    elseif key == "left" then
+      if current_position == 39 then
+        next_position = 43
+      else
+        next_position = current_position - 1        
+      end
+    elseif key == "right" then
+      if current_position == 43 then
+        next_position = 39
+      else
+        next_position = current_position + 1
+      end
+    elseif key== "down" then
+      if current_position == 39 then 
+        next_position = 2
+      elseif current_position == 40 then
+        next_position = 4
+      elseif current_position == 41 then
+        next_position = 7
+      elseif current_position == 42 then
+        next_position = 10
+      elseif current_position == 43 then
+        next_position = 11
+      end
+    end
   else
-    next_position = 1
+    next_position = 13 -- Default position.
   end
 
   return next_position
 end
 
--- Change the displayed text in the textfield.
-function keyboardbox_menu:set_result(result)
-  local truncated_result = string.sub(result, 1, 6)
-  print(truncated_result)
-  self.result = truncated_result
-  self.textfield_text:set_text(truncated_result)
-end
-
--- Press the key.
+-- Press the key at the cursor.
 function keyboardbox_menu:validate_cursor()
   -- Check if the key is a letter or a special key.
-  local layout_item_content = self.keyboard_layout_main[self.cursor_position]
+  local keyboard_layout = self:get_keyboard_layout()
+  if keyboard_layout == nil then
+    sol.audio.play_sound("wrong")
+    return
+  end
+
+  local layout_item_content = keyboard_layout.map[self.cursor_position]
   local symbol_surface = self.symbols[layout_item_content]
-  
   if symbol_surface == nil then
+    -- Add a character.
     self:add_letter(layout_item_content)
   else
-    local special_key = string.lower(layout_item_content)
-    if special_key == "erase" then
+    if layout_item_content == "erase" then
+      -- Erase last character.
       self:erase()
-    elseif special_key == "shift" then
+    elseif layout_item_content == "shift" then
+      -- Switch between lowercase and uppercase layouts.
       self:shift()
-    elseif special_key == "main" or special_key == "special" then
-      self:set_layout(layout_item_content)    
-    elseif special_key == "cancel" then
+    elseif layout_item_content == "main" or layout_item_content == "special" then
+      -- Switch between main and special layouts.
+      self:set_layout(layout_item_content)
+    elseif layout_item_content == "cancel" then
+      -- Cancel this menu.
       self:reject()
-    elseif special_key == "accept" then
-      self:accept()  
+    elseif layout_item_content == "accept" then
+      -- Accept this menu.
+      self:accept()
     else
       sol.audio.play_sound("wrong")
     end
   end
 end
 
-function keyboardbox_menu:add_letter(letter)
-  if string.len(self.result) < self.max_result_size then
+
+---------------------
+-- Keyboard layout --
+---------------------
+
+-- Get the current keyboard layout.
+function keyboardbox_menu:get_keyboard_layout()
+
+  local current_layout = nil
+  local layout_pages = self.keyboard_layouts[self.letter_case]
+  if layout_pages ~= nil then
+    local layout_page = layout_pages[self.layout_page]
+    if layout_page ~= nil then
+      current_layout = layout_page
+    end
+  end
+
+  return current_layout
+end
+
+-- Draw current keyboard layout.
+function keyboardbox_menu:draw_keyboard_layout(dst_surface)
+  
+  -- Get current layout.
+  local current_layout = self:get_keyboard_layout()
+
+  -- Draw this current layout.
+  if current_layout ~= nil then
+    current_layout.surface:draw(self.surface, 0, 0)
+  end
+end
+
+
+--------------
+-- Commands --
+--------------
+
+-- Change the displayed text in the textfield.
+function keyboardbox_menu:set_result(result)
+  self.result = result
+  self.textfield_text:set_text(result)
+  print(self.result)
+end
+
+-- Add the character to the result.
+function keyboardbox_menu:add_letter(letter) 
+  if get_string_char_len(self.result) < self.max_result_size then
     self:set_result(self.result..letter)
     sol.audio.play_sound("ok")
   else
@@ -404,27 +660,44 @@ function keyboardbox_menu:add_letter(letter)
   end
 end
 
+-- Erase the result's last character.
 function keyboardbox_menu:erase()
-  if string.len(self.result) > 0 then
-    self:set_result(string.sub(self.result, 1, string.len(self.result) - 1))
+  if get_string_char_len(self.result) > 0 then
+    local remove_count = 1
+    if is_last_char_special(self.result) then
+      remove_count = 2
+    end
+
+    self:set_result(string.sub(self.result, 1, string.len(self.result) - remove_count))
     sol.audio.play_sound("ok")
   else
     sol.audio.play_sound("wrong")
   end
 end
 
+-- Switch the keyboard to upper or lower.
 function keyboardbox_menu:shift()
+  if self.letter_case == "upper" then
+    self.letter_case = "lower"
+  elseif self.letter_case == "lower" then
+    self.letter_case = "upper"
+  else
+    self.letter_case = "lower" -- By default    
+  end
+  sol.audio.play_sound("picked_item")
 
 end
 
+-- Switch the keyboard page.
 function keyboardbox_menu:set_layout(layout)
-
+  self.layout_page = layout
+  sol.audio.play_sound("picked_item")
 end
 
 -- Hander player input when there is no lauched game yet.
 function keyboardbox_menu:on_key_pressed(key)
 
-  if not self:is_game_started() then
+  if not is_game_started() then
     -- Escape: cancel the dialog (same as choosing No).
     if key == "escape" then
       self:reject()
@@ -445,12 +718,14 @@ end
 
 -- Accept the keyboardbox.
 function keyboardbox_menu:accept()
+  sol.audio.play_sound("sword_spin_attack_load")
   self:done()
   sol.menu.stop(self)
 end
 
 -- Rejects the keyboardbox.
 function keyboardbox_menu:reject()
+  sol.audio.play_sound("bounce")
   self.result = ""
   self:done()
   sol.menu.stop(self)
@@ -463,17 +738,6 @@ function keyboardbox_menu:done()
   end
 end
 
--- Check if a game currently exists and is started.
-function keyboardbox_menu:is_game_started()
-  
-  if sol.main.game ~= nil then
-    if sol.main.game:is_started() then
-      return true
-    end
-  end
-  return false
-
-end
 
 ------------------------
 
