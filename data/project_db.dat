@@ -209,6 +209,7 @@ sprite{ id = "enemies/like_like", description = "Like like" }
 sprite{ id = "enemies/mad_bomber", description = "Mad bomber" }
 sprite{ id = "enemies/maskass", description = "Maskass" }
 sprite{ id = "enemies/moblin", description = "Moblin" }
+sprite{ id = "enemies/moblin_dog_spear", description = "Moblin dog spear" }
 sprite{ id = "enemies/moblin_dog_sword", description = "Moblin dog sword" }
 sprite{ id = "enemies/monkey", description = "Monkey" }
 sprite{ id = "enemies/monkey_coconut", description = "Monkey coconut" }
@@ -904,6 +905,7 @@ enemy{ id = "hooded_stalfos", description = "Hooded stalfos" }
 enemy{ id = "keese", description = "Keese" }
 enemy{ id = "maskass", description = "Maskass" }
 enemy{ id = "moblin", description = "Moblin" }
+enemy{ id = "moblin_dog_spear", description = "Moblin dog spear" }
 enemy{ id = "moblin_dog_sword", description = "Moblin dog sword" }
 enemy{ id = "monkey", description = "Monkey" }
 enemy{ id = "octorok", description = "Octorok" }
