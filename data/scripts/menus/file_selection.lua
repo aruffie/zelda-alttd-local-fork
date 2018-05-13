@@ -7,6 +7,11 @@ local game_manager = require("scripts/game_manager")
 local messagebox = require("scripts/menus/messagebox")
 local keyboardbox = require("scripts/menus/keyboardbox")
 
+
+----------------
+-- Initialize --
+----------------
+
 function file_selection_menu:on_started()
 
   -- Create static surfaces.
@@ -81,7 +86,7 @@ function file_selection_menu:on_started()
   -- Run the menu.
   self:read_savefiles()
   self:update_cursor()
-  --sol.audio.play_music("scripts/menus/player_select")
+  sol.audio.play_music("scripts/menus/player_select")
 
   -- Show an opening transition.
   self.background_img:fade_in()
@@ -449,8 +454,36 @@ function file_selection_menu:on_key_pressed(key)
             keyboardbox:show(sol.main, "What's your name?", "", 1, 6, function(result)
               self:set_phase(self.phases.CHOOSE_PLAY)
               
+              -- Block player's input.
+              self.finished = true
 
+              -- Specific to Link's Awakening.
+              local lower_result = string.lower(result)
+              if lower_result == "zelda" or lower_result == "binbin" or lower_result == "chris" then
+                sol.audio.play_music("scripts/menus/player_select_zelda")
+              elseif lower_result == "moyse" then
+                sol.audio.play_music("scripts/menus/player_select_moyse")
+              end
 
+              -- Save the player's name.
+              local savegame = slot.savegame
+              savegame:set_value("player_name", result)
+              savegame:save()
+
+              -- Update the files.
+              self:read_savefiles()
+
+              -- Fade-out after a delay.
+              sol.timer.start(self, 500, function()
+                self.surface:fade_out(100)
+                sol.audio.play_sound("sword_spin_attack_load")
+              
+                -- Automatically launch the game.
+                sol.timer.start(self, 3000, function()
+                  sol.menu.stop(self)
+                  sol.main:start_savegame(slot.savegame)
+                end)
+              end)
             end)
           end
         else

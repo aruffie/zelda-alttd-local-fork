@@ -137,7 +137,6 @@ function keyboardbox_menu:on_started()
   -- Current state.
   self.letter_case = "upper"
   self.layout_page = "main"
-  self.finished = true
   
   -- Run the menu.
   self:set_result("")
@@ -145,15 +144,10 @@ function keyboardbox_menu:on_started()
   self.max_result_size = 6
   self.cursor_position = 13
   self:update_cursor()
+  self.begun = true
+  self.finished = false
 
-  self.cursor_sprite:set_paused(true)
-  self.textfield_cursor_sprite:set_paused(true)
-
-  self.surface:fade_in(10, function()
-    self.cursor_sprite:set_paused(false)
-    self.textfield_cursor_sprite:set_paused(false)
-    self.finished = false
-  end)
+  self.surface:fade_in(10)
   
 end
 
@@ -341,6 +335,7 @@ function keyboardbox_menu:initialize_symbols()
 
 end
 
+
 ----------
 -- Draw --
 ----------
@@ -424,7 +419,7 @@ function keyboardbox_menu:draw_textfield(dst_surface)
   self.textfield_text:draw(self.surface, frame_center_x, 38)
   
   -- Cursor.
-  if not self.finished then
+  if not self.finished and self.begun then
     local textfield_text_w, textfield_text_h = self.textfield_text:get_size()
     self.textfield_cursor_sprite:draw(self.surface, frame_center_x + textfield_text_w / 2, 38)
   end
@@ -760,7 +755,7 @@ end
 function keyboardbox_menu:on_key_pressed(key)
 
   if not is_game_started() then
-    if self.finished then
+    if self.begun and self.finished then
       return true
     end
     
@@ -797,7 +792,7 @@ function keyboardbox_menu:accept()
       sol.audio.play_sound("picked_small_key")
       self.textfield_sprite:set_animation("confirm")
       
-      sol.timer.start(self, 1000, function()
+      sol.timer.start(self, 700, function()
         self.textfield_sprite:set_paused(true)
         self.textfield_sprite:set_frame(0)
 
@@ -805,12 +800,8 @@ function keyboardbox_menu:accept()
           self:done()
           self:close()
         end)
-        
       end)
-    
     end)
-
-
   else
     sol.audio.play_sound("wrong")        
   end
@@ -879,6 +870,17 @@ function keyboardbox_menu:show(context, title, default_input, min_characters, ma
   self.letter_case = "upper"
   self:set_cursor_position(13)
 
+  -- Block cursors for a few milliseconds.
+  self.begun = false
+  self.finished = false
+  self.cursor_sprite:set_paused(true)
+  self.textfield_cursor_sprite:set_paused(true)
+
+  sol.timer.start(self, 400, function()
+    self.begun = true
+    self.cursor_sprite:set_paused(false)
+    self.textfield_cursor_sprite:set_paused(false)
+  end)
 end
 
 -------------------
