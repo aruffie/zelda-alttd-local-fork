@@ -7,7 +7,7 @@
 
 local initial_menus = {
   --"scripts/menus/messagebox",
-  "scripts/menus/keyboardbox",
+  --"scripts/menus/keyboardbox",
   "scripts/menus/file_selection",
   "scripts/menus/solarus_logo",
   "scripts/menus/language", 

@@ -9,18 +9,15 @@ local game_manager = require("scripts/game_manager")
 -- Utils --
 -----------
 
-local function is_special_character(c)
-  local byte = c:byte()
-  return byte >= 192 and byte < 224
-end
-
 -- Get the string length in chars (and not in bytes as does string.len()).
 local function get_string_char_len(s)
+
   local len_bytes = string.len(s)
   local len_char = 0
   for i = 1, len_bytes do
     local current_char = s:sub(i, i)
-    if is_special_character(current_char) then
+    local byte = current_char:byte()
+    if byte >= 192 and byte < 224 then
       -- The first byte is 110xxxxx: the character is stored with two bytes (utf-8).
       -- Ignore the first byte.
     else
@@ -30,14 +27,18 @@ local function get_string_char_len(s)
   end
 
   return len_char
+
 end
 
+-- Tells if the last character is a multi-byte character.
 local function is_last_char_special(s)
+
   local len_bytes = string.len(s)
   local i = 1
   while i < len_bytes do
     local current_char = s:sub(i, i)
-    if is_special_character(current_char) then
+    local byte = current_char:byte()
+    if byte >= 192 and byte < 224 then
       if i == len_bytes - 1 then
         return true
       end
@@ -48,16 +49,20 @@ local function is_last_char_special(s)
   end
 
   return false
+
 end
 
 -- Check if a game currently exists and is started.
 local function is_game_started()
+
   if sol.main.game ~= nil then
     if sol.main.game:is_started() then
       return true
     end
   end
+
   return false
+
 end
 
 ----------------
@@ -72,6 +77,13 @@ function keyboardbox_menu:on_started()
   self.textfield_y = 30
   self.keys_y = 54
   self.keys_x = 15
+  
+  -- Get fonts.
+  local menu_font, menu_font_size = language_manager:get_menu_font()
+  self.menu_font = menu_font
+  self.menu_font_size = menu_font_size
+  self.text_color = { 115, 59, 22 }
+  self.text_color_light = { 177, 146, 116 }
 
   -- Create static surfaces.
   self.frame_img = sol.surface.create("menus/keyboardbox/keyboardbox_frame.png")
@@ -79,30 +91,75 @@ function keyboardbox_menu:on_started()
 
   local keys_img = sol.surface.create("menus/keyboardbox/keyboardbox_keys.png")
   keys_img:draw(self.frame_img, self.keys_x, self.keys_y)
-  local textfield_img = sol.surface.create("menus/keyboardbox/keyboardbox_textfield.png")
-  textfield_img:draw(self.frame_img, self.textfield_x, self.textfield_y)
-  
+
   self.surface = sol.surface.create(self.frame_w, self.frame_h)
-
-  self.textfield_img = sol.surface.create("menus/keyboardbox/keyboardbox_textfield.png")
-
+  
   -- Prepare all different symbols.
-  local symbols_img = sol.surface.create("menus/keyboardbox/keyboardbox_symbols.png")
-  self.symbols = {}
-  local symbol_names = {"main", "special", "shift", "cancel", "accept", "erase", }
-  for i = 1, #symbol_names do
-    local symbol_surface_off = sol.surface.create(25, 16)
-    local symbol_surface_on = sol.surface.create(25, 16)
-    local surface_y = (i - 1) * 16
-    symbols_img:draw_region(0, surface_y, 25, 16, symbol_surface_off)
-    symbols_img:draw_region(25, surface_y, 25, 16, symbol_surface_on)
-    local symbol_name = symbol_names[i]
-    self.symbols[symbol_name] = {}
-    self.symbols[symbol_name]["on"] = symbol_surface_on
-    self.symbols[symbol_name]["off"] = symbol_surface_off
-  end
-
+  self:initialize_symbols()
+  
   -- Prepare keyboard layouts.
+  self:initialize_layouts()
+  
+  -- Prepare texts.
+  self.title_text = sol.text_surface.create{
+    color = self.text_color,
+    horizontal_alignment = "center",
+    font = self.menu_font,
+    font_size = self.menu_font_size,
+  }
+  
+  self.textfield_text = sol.text_surface.create{
+    color = self.text_color,
+    horizontal_alignment = "center",
+    font = self.menu_font,
+    font_size = self.menu_font_size,
+  }
+  
+  -- Create sprites.
+  self.textfield_sprite = sol.sprite.create("menus/keyboardbox/keyboardbox_textfield")
+  self.textfield_sprite:set_animation("default")
+  self.cursor_sprite = sol.sprite.create("menus/keyboardbox/keyboardbox_cursor")
+  self.textfield_cursor_sprite = sol.sprite.create("menus/keyboardbox/keyboardbox_textfield_cursor")
+
+  -- Callback when the menu is done.
+  self.callback = function(result)
+  end
+  
+  -- Custom commands effects
+  local game = sol.main.game
+  if game ~= nil then
+    if game.set_custom_command_effect ~= nil then
+        game:set_custom_command_effect("action", "return")
+        game:set_custom_command_effect("attack", nil)
+    end
+  end
+  
+  -- Current state.
+  self.letter_case = "upper"
+  self.layout_page = "main"
+  self.finished = true
+  
+  -- Run the menu.
+  self:set_result("")
+  self.min_result_size = 1
+  self.max_result_size = 6
+  self.cursor_position = 13
+  self:update_cursor()
+
+  self.cursor_sprite:set_paused(true)
+  self.textfield_cursor_sprite:set_paused(true)
+
+  self.surface:fade_in(10, function()
+    self.cursor_sprite:set_paused(false)
+    self.textfield_cursor_sprite:set_paused(false)
+    self.finished = false
+  end)
+  
+end
+
+-- Initialize the keyboard layouts.
+function keyboardbox_menu:initialize_layouts()
+
   local keyboard_layout_main_lower = {
     "-", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "erase",
     "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
@@ -205,13 +262,6 @@ function keyboardbox_menu:on_started()
       cursor_size = key_cursor_type,
     }
   end
-  
-  -- Get fonts.
-  local menu_font, menu_font_size = language_manager:get_menu_font()
-  self.menu_font = menu_font
-  self.menu_font_size = menu_font_size
-  self.text_color = { 115, 59, 22 }
-  self.text_color_light = { 177, 146, 116 }
 
   -- Prepare keyboard layouts surfaces.
   for layout_case, layout_pages in pairs(self.keyboard_layouts) do
@@ -268,53 +318,28 @@ function keyboardbox_menu:on_started()
     end
   end
 
-  -- Prepare texts.
-  self.title_text = sol.text_surface.create{
-    color = self.text_color,
-    horizontal_alignment = "center",
-    font = self.menu_font,
-    font_size = self.menu_font_size,
-  }
-
-  self.textfield_text = sol.text_surface.create{
-    color = self.text_color,
-    horizontal_alignment = "center",
-    font = self.menu_font,
-    font_size = self.menu_font_size,
-  }
-
-  -- Create sprites.
-  self.cursor_sprite = sol.sprite.create("menus/keyboardbox/keyboardbox_cursor")
-  self.textfield_cursor_sprite = sol.sprite.create("menus/keyboardbox/keyboardbox_textfield_cursor")
-
-  -- Callback when the menu is done.
-  self.callback = function(result)
-  end
-  
-  -- Custom commands effects
-  local game = sol.main.game
-  if game ~= nil then
-    if game.set_custom_command_effect ~= nil then
-        game:set_custom_command_effect("action", "return")
-        game:set_custom_command_effect("attack", nil)
-    end
-  end
-  
-  -- Current state.
-  self.letter_case = "upper"
-  self.layout_page = "main"
-
-  -- Dummy text to test.
-  self.title_text:set_text("What's your name?")
-  self:set_result("Link")
-
-  -- Run the menu.
-  self.max_result_size = 6
-  self.cursor_position = 13
-  self:update_cursor()
-
 end
 
+-- Initialize the symbols not drawn with the font.
+function keyboardbox_menu:initialize_symbols()
+
+  local symbols_img = sol.surface.create("menus/keyboardbox/keyboardbox_symbols.png")
+  self.symbols = {}
+  local symbol_names = {"main", "special", "shift", "cancel", "accept", "erase" }
+
+  for i = 1, #symbol_names do
+    local symbol_surface_off = sol.surface.create(25, 16)
+    local symbol_surface_on = sol.surface.create(25, 16)
+    local surface_y = (i - 1) * 16
+    symbols_img:draw_region(0, surface_y, 25, 16, symbol_surface_off)
+    symbols_img:draw_region(25, surface_y, 25, 16, symbol_surface_on)
+    local symbol_name = symbol_names[i]
+    self.symbols[symbol_name] = {}
+    self.symbols[symbol_name]["on"] = symbol_surface_on
+    self.symbols[symbol_name]["off"] = symbol_surface_off
+  end
+
+end
 
 ----------
 -- Draw --
@@ -344,6 +369,7 @@ function keyboardbox_menu:on_draw(dst_surface)
   -- dst_surface may be larger: draw this menu at the center.
   local width, height = dst_surface:get_size()
   self.surface:draw(dst_surface, (width - self.frame_w) / 2, (height - self.frame_h) / 2)
+
 end
 
 -- Update the dark surface if necessary.
@@ -362,13 +388,18 @@ function keyboardbox_menu:update_dark_surface(width, height)
     self.dark_surface = sol.surface.create(width, height)
     self.dark_surface:fill_color({112, 112, 112})
     self.dark_surface:set_blend_mode("multiply")
+    self.dark_surface:fade_in(10)
   end
+
 end
 
 -- Draw a dark surface above below screen.
 function keyboardbox_menu:draw_dark_surface(dst_surface)
+
+  local width, height = dst_surface:get_size()
   self:update_dark_surface(width, height)
   self.dark_surface:draw(dst_surface, 0, 0)
+
 end
 
 -- Draw the cursor.
@@ -379,19 +410,25 @@ function keyboardbox_menu:draw_cursor(dst_surface)
     -- Draw the cursor sprite.
     self.cursor_sprite:draw(dst_surface, self.cursor_x, self.cursor_y)
   end
+
 end
 
 -- Draw the textfield and its content.
 function keyboardbox_menu:draw_textfield(dst_surface)
   local frame_center_x = self.frame_w / 2
   
+  -- Field.
+  self.textfield_sprite:draw(self.surface, frame_center_x, 38)
+
   -- Text.
-  print(self.textfield_text:get_text())
   self.textfield_text:draw(self.surface, frame_center_x, 38)
   
   -- Cursor.
-  local textfield_text_w, textfield_text_h = self.textfield_text:get_size()
-  self.textfield_cursor_sprite:draw(self.surface, frame_center_x + textfield_text_w / 2, 38)
+  if not self.finished then
+    local textfield_text_w, textfield_text_h = self.textfield_text:get_size()
+    self.textfield_cursor_sprite:draw(self.surface, frame_center_x + textfield_text_w / 2, 38)
+  end
+
 end
 
 
@@ -401,10 +438,12 @@ end
 
 -- Change the cursor position.
 function keyboardbox_menu:set_cursor_position(position)
+
   if position ~= self.cursor_position then
     self.cursor_position = position
     self:update_cursor()
   end
+
 end
 
 -- Update the cursor (change x, y and sprite according to position).
@@ -430,21 +469,25 @@ function keyboardbox_menu:update_cursor()
 
   -- Restart the animation.
   self.cursor_sprite:set_frame(0)
+
 end
 
 -- Move the cursor according to its current location.
 function keyboardbox_menu:move_cursor(key)
-  local handled = true
+
   local new_cursor_position = self:get_cursor_next_position(self.cursor_position, key)
 
   self:set_cursor_position(new_cursor_position)
   sol.audio.play_sound("cursor")
 
-  return handled
+  -- Always handle the key.
+  return true
+
 end
 
 -- Get the curor's next valid position.
 function keyboardbox_menu:get_cursor_next_position(current_position, key)
+
   local next_position = current_position
 
   if current_position >= 1 and current_position <= 12 then
@@ -568,10 +611,12 @@ function keyboardbox_menu:get_cursor_next_position(current_position, key)
   end
 
   return next_position
+
 end
 
 -- Press the key at the cursor.
 function keyboardbox_menu:validate_cursor()
+
   -- Check if the key is a letter or a special key.
   local keyboard_layout = self:get_keyboard_layout()
   if keyboard_layout == nil then
@@ -598,12 +643,13 @@ function keyboardbox_menu:validate_cursor()
       -- Cancel this menu.
       self:reject()
     elseif layout_item_content == "accept" then
-      -- Accept this menu.
+      -- Accepts this menu.
       self:accept()
     else
       sol.audio.play_sound("wrong")
     end
   end
+
 end
 
 
@@ -624,6 +670,7 @@ function keyboardbox_menu:get_keyboard_layout()
   end
 
   return current_layout
+
 end
 
 -- Draw current keyboard layout.
@@ -636,6 +683,7 @@ function keyboardbox_menu:draw_keyboard_layout(dst_surface)
   if current_layout ~= nil then
     current_layout.surface:draw(self.surface, 0, 0)
   end
+
 end
 
 
@@ -645,23 +693,29 @@ end
 
 -- Change the displayed text in the textfield.
 function keyboardbox_menu:set_result(result)
+
   self.result = result
   self.textfield_text:set_text(result)
-  print(self.result)
+
 end
 
 -- Add the character to the result.
-function keyboardbox_menu:add_letter(letter) 
+function keyboardbox_menu:add_letter(letter)
+
   if get_string_char_len(self.result) < self.max_result_size then
     self:set_result(self.result..letter)
+    self.textfield_cursor_sprite:set_frame(0)
     sol.audio.play_sound("ok")
   else
+    self.textfield_cursor_sprite:set_frame(0)
     sol.audio.play_sound("wrong")
   end
+
 end
 
 -- Erase the result's last character.
 function keyboardbox_menu:erase()
+
   if get_string_char_len(self.result) > 0 then
     local remove_count = 1
     if is_last_char_special(self.result) then
@@ -669,14 +723,19 @@ function keyboardbox_menu:erase()
     end
 
     self:set_result(string.sub(self.result, 1, string.len(self.result) - remove_count))
+    self.textfield_cursor_sprite:set_frame(0)
     sol.audio.play_sound("ok")
+
   else
+    self.textfield_cursor_sprite:set_frame(0)
     sol.audio.play_sound("wrong")
   end
+
 end
 
 -- Switch the keyboard to upper or lower.
 function keyboardbox_menu:shift()
+
   if self.letter_case == "upper" then
     self.letter_case = "lower"
   elseif self.letter_case == "lower" then
@@ -684,20 +743,27 @@ function keyboardbox_menu:shift()
   else
     self.letter_case = "lower" -- By default    
   end
+
   sol.audio.play_sound("picked_item")
 
 end
 
 -- Switch the keyboard page.
 function keyboardbox_menu:set_layout(layout)
+
   self.layout_page = layout
   sol.audio.play_sound("picked_item")
+
 end
 
 -- Hander player input when there is no lauched game yet.
 function keyboardbox_menu:on_key_pressed(key)
 
   if not is_game_started() then
+    if self.finished then
+      return true
+    end
+    
     -- Escape: cancel the dialog (same as choosing No).
     if key == "escape" then
       self:reject()
@@ -714,32 +780,108 @@ function keyboardbox_menu:on_key_pressed(key)
 
   -- Don't propagate the event to anything below the dialog box.
   return true
+
 end
 
--- Accept the keyboardbox.
+-- Accept the keyboardbox if possible.
 function keyboardbox_menu:accept()
-  sol.audio.play_sound("sword_spin_attack_load")
-  self:done()
-  sol.menu.stop(self)
+
+  local char_lenght = get_string_char_len(self.result)
+  if char_lenght >= self.min_result_size and char_lenght <= self.max_result_size then
+    self.finished = true
+    sol.audio.play_sound("ok")
+    self.textfield_cursor_sprite:set_paused(true)
+    self.cursor_sprite:set_paused(true)
+
+    sol.timer.start(self, 300, function()
+      sol.audio.play_sound("picked_small_key")
+      self.textfield_sprite:set_animation("confirm")
+      
+      sol.timer.start(self, 1000, function()
+        self.textfield_sprite:set_paused(true)
+        self.textfield_sprite:set_frame(0)
+
+        sol.timer.start(self, 300, function()         
+          self:done()
+          self:close()
+        end)
+        
+      end)
+    
+    end)
+
+
+  else
+    sol.audio.play_sound("wrong")        
+  end
+
 end
 
 -- Rejects the keyboardbox.
 function keyboardbox_menu:reject()
-  sol.audio.play_sound("bounce")
-  self.result = ""
-  self:done()
-  sol.menu.stop(self)
+  
+  self.finished = true
+  sol.audio.play_sound("ok")
+  self.textfield_cursor_sprite:set_paused(true)
+  self.cursor_sprite:set_paused(true)
+  
+  sol.timer.start(self, 300, function()
+    self.result = ""
+    self:done()
+    self:close()
+  end)
+
 end
 
 -- Calls the callback when the keyboardbox is done.
 function keyboardbox_menu:done()
+
   if self.callback ~= nil then
     self.callback(self.result)
   end
+
 end
 
+-- Close this dialog with a fade out.
+function keyboardbox_menu:close()
+  sol.audio.play_sound("pause_closed")
+  
+  local delay = 10
+  if self.dark_surface ~= nil then
+    self.dark_surface:fade_out(delay)
+  end
 
-------------------------
+  self.surface:fade_out(delay, function()
+    sol.menu.stop(self)
+  end)
+end
+
+-- Show the messagebox with the text in parameter.
+function keyboardbox_menu:show(context, title, default_input, min_characters, max_characters, callback)
+
+  -- Show the menu.
+  sol.menu.start(context, self, true)
+  sol.audio.play_sound("pause_open")
+
+  -- Title.
+  self.title_text:set_text(title)
+
+  -- Default input (generally and empty string).
+  self:set_result(default_input)
+  self.min_result_size = min_characters
+  self.max_result_size = max_characters
+
+  -- Callback to call when the keyboardbox is closed.
+  self.callback = callback
+
+  -- Default cursor position: first key of the second line (A).
+  self.layout_page = "main"
+  self.letter_case = "upper"
+  self:set_cursor_position(13)
+
+end
+
+-------------------
 
 -- Return the menu.
 return keyboardbox_menu

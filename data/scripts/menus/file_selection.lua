@@ -5,6 +5,7 @@ local file_selection_menu = {}
 local language_manager = require("scripts/language_manager")
 local game_manager = require("scripts/game_manager")
 local messagebox = require("scripts/menus/messagebox")
+local keyboardbox = require("scripts/menus/keyboardbox")
 
 function file_selection_menu:on_started()
 
@@ -67,7 +68,8 @@ function file_selection_menu:on_started()
   self.phases = {
     CHOOSE_PLAY = 0,
     CHOOSE_DELETE = 1,
-    CONFIRM_DELETE = 2
+    CONFIRM_DELETE = 2,
+    ENTER_NAME, 3
   }
 
   self.slot_count = 3
@@ -161,7 +163,7 @@ function file_selection_menu:on_draw(dst_surface)
   self:draw_buttons()
 
   -- Cursor.
-  if self.phase ~= self.phases.CONFIRM_DELETE then
+  if self.phase == self.phases.CHOOSE_DELETE or self.phase == self.phases.CHOOSE_PLAY then
     self:draw_cursor()
   end
 
@@ -241,7 +243,7 @@ function file_selection_menu:set_phase(phase)
 end
 
 function file_selection_menu:update_phase()
-  if self.phase == self.phases.CHOOSE_PLAY then
+  if self.phase == self.phases.CHOOSE_PLAY or self.phase == self.phases.ENTER_NAME then
     self.title_text:set_text("Choose a file")
     self.option_1_text:set_text("Delete")
     self.option_2_text:set_text("Options")
@@ -441,16 +443,26 @@ function file_selection_menu:on_key_pressed(key)
             end)
           else
             -- The file does not exist : it's a new game.
-            print("TODO: launch keyboard box")
+            self:set_phase(self.phases.ENTER_NAME)
+
+            -- Open a keyboard to allow the player to type his/her name.
+            keyboardbox:show(sol.main, "What's your name?", "", 1, 6, function(result)
+              self:set_phase(self.phases.CHOOSE_PLAY)
+              
+
+
+            end)
           end
         else
           sol.audio.play_sound("wrong")            
         end
 
       elseif self.phase == self.phases.CHOOSE_DELETE then
-        sol.audio.play_sound("ok")
         handled = true
         self:set_phase(self.phases.CONFIRM_DELETE)
+        
+        -- Open a messagebox to ask the player for confirmation.
+        sol.audio.play_sound("pause_open")
         messagebox:show(sol.main, {"Are you sure?"}, "Yes", "Cancel", 2, function(result)
           if result == 1 then
             -- Check if slot can be deleted.
