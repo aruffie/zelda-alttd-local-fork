@@ -1232,7 +1232,8 @@ Je vais te corriger !!
 dialog{
   id = "maps.caves.egg_of_the_dream_fish.moblins_cave.moblins_3",
   text = [[
-C'est qui cet intrus tout vétu de vert ??!!!
+C'est qui cet intrus 
+tout vétu de vert ??!!!
 Attrapez-le !!!!
 ]],
 }
@@ -1891,10 +1892,9 @@ dialog{
   id = "maps.houses.mabe_village.marin_house.tarin_3",
   skip = "all",
   text = [[
-Hé mon gars,    
-attends un peu ! 
-J'ai quêqu' chose à te 
-dire !
+Hé mon gars, attends un 
+peu ! J'ai quêqu' chose
+ à te dire !
 ]],
 }
 

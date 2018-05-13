@@ -30,6 +30,11 @@ function map:on_started()
   map:set_music()
   moblin_chief:get_sprite():set_animation("sitting")
   local step = game:get_value("main_quest_step")
+  if step < 9 then
+    moblin_fire:set_enabled(false)
+  elseif step > 9 then
+    moblin_fire:get_sprite():set_animation("off")
+  end
   if step ~= 9 then
     for enemy in map:get_entities_by_type("enemy") do
       enemy:remove()
@@ -49,7 +54,16 @@ function map:on_opening_transition_finished(destination)
   end
   map:set_doors_open("door_group_1", true)
   door_manager:close_if_enemies_not_dead(map, "enemy_group_1", "door_group_1")
-  game:start_dialog("maps.caves.egg_of_the_dream_fish.moblins_cave.moblins_1")
+  for enemy in map:get_entities("enemy_group_1") do
+    enemy:get_sprite():set_direction(3)
+  end
+
+  game:start_dialog("maps.caves.egg_of_the_dream_fish.moblins_cave.moblins_1", function()
+    for enemy in map:get_entities("enemy_group_1") do
+      local direction = enemy:get_movement():get_direction4()
+      enemy:get_sprite():set_direction(direction)
+    end
+  end)
 
 end
 
@@ -72,7 +86,7 @@ function sensor_2:on_activated()
   game:set_hud_enabled(false)
   game:set_pause_allowed(false)
   game:set_suspended(true)
-  game:start_dialog("maps.caves.egg_of_the_dream_fish.moblins_cave.moblins_2", function()
+  game:start_dialog("maps.caves.egg_of_the_dream_fish.moblins_cave.moblins_3", function()
       moblin_chief:get_sprite():set_animation("walking")
       moblin_chief:get_sprite():set_ignore_suspend(true)
       moblin_chief.xy = { x = x_moblin_chief, y = y_moblin_chief }
@@ -107,7 +121,7 @@ function sensor_3:on_activated()
   end
   launch_boss = true
   door_manager:close_if_enemies_not_dead(map, "enemy_group_3", "door_group_1")
-  game:start_dialog("maps.caves.egg_of_the_dream_fish.moblins_cave.moblins_3", function()
+  game:start_dialog("maps.caves.egg_of_the_dream_fish.moblins_cave.moblins_2", function()
     enemy_group_3_1:start_battle()
   end)
 
