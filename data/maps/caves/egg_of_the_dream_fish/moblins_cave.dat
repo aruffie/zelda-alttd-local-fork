@@ -2564,7 +2564,7 @@ wall{
 wall{
   layer = 0,
   x = 192,
-  y = 408,
+  y = 432,
   width = 32,
   height = 32,
   stops_hero = true,
@@ -2577,7 +2577,7 @@ wall{
 wall{
   layer = 0,
   x = 104,
-  y = 408,
+  y = 432,
   width = 32,
   height = 32,
   stops_hero = true,
@@ -2751,10 +2751,10 @@ wall{
 enemy{
   name = "enemy_group_1_1",
   layer = 0,
-  x = 136,
-  y = 373,
+  x = 160,
+  y = 389,
   direction = 3,
-  breed = "moblin",
+  breed = "moblin_dog_sword",
 }
 
 enemy{
@@ -2763,7 +2763,7 @@ enemy{
   x = 192,
   y = 93,
   direction = 3,
-  breed = "moblin",
+  breed = "moblin_dog_spear",
 }
 
 enemy{
@@ -2772,7 +2772,7 @@ enemy{
   x = 128,
   y = 93,
   direction = 3,
-  breed = "moblin",
+  breed = "moblin_dog_spear",
 }
 
 enemy{
@@ -2781,7 +2781,7 @@ enemy{
   x = 216,
   y = 125,
   direction = 3,
-  breed = "moblin",
+  breed = "moblin_dog_spear",
 }
 
 enemy{
@@ -2790,7 +2790,7 @@ enemy{
   x = 104,
   y = 125,
   direction = 3,
-  breed = "moblin",
+  breed = "moblin_dog_spear",
 }
 
 door{
@@ -3022,10 +3022,10 @@ custom_entity{
 custom_entity{
   layer = 0,
   x = 200,
-  y = 421,
+  y = 445,
   width = 32,
   height = 32,
-  direction = 3,
+  direction = 1,
   sprite = "entities/dog_statue",
   model = "obstacle",
 }
@@ -3051,15 +3051,6 @@ enemy{
   breed = "boss/moblin_chief",
 }
 
-enemy{
-  name = "enemy_group_1_2",
-  layer = 0,
-  x = 184,
-  y = 373,
-  direction = 3,
-  breed = "moblin",
-}
-
 custom_entity{
   name = "moblin_fire",
   layer = 0,
@@ -3075,10 +3066,10 @@ custom_entity{
 custom_entity{
   layer = 0,
   x = 112,
-  y = 421,
+  y = 445,
   width = 32,
   height = 32,
-  direction = 3,
+  direction = 1,
   sprite = "entities/dog_statue",
   model = "obstacle",
 }

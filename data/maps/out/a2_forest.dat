@@ -9112,17 +9112,17 @@ sensor{
 
 enemy{
   layer = 0,
-  x = 120,
-  y = 613,
-  direction = 3,
+  x = 256,
+  y = 605,
+  direction = 2,
   breed = "moblin_dog_spear",
   treasure_name = "random",
 }
 
 enemy{
   layer = 0,
-  x = 360,
-  y = 557,
+  x = 384,
+  y = 453,
   direction = 3,
   breed = "moblin_dog_spear",
   treasure_name = "random",
@@ -9148,17 +9148,17 @@ enemy{
 
 enemy{
   layer = 0,
-  x = 600,
-  y = 517,
-  direction = 3,
+  x = 680,
+  y = 509,
+  direction = 2,
   breed = "moblin_dog_spear",
   treasure_name = "random",
 }
 
 enemy{
   layer = 0,
-  x = 592,
-  y = 261,
+  x = 584,
+  y = 229,
   direction = 3,
   breed = "moblin_dog_sword",
   treasure_name = "random",
@@ -9166,9 +9166,9 @@ enemy{
 
 enemy{
   layer = 0,
-  x = 680,
+  x = 672,
   y = 109,
-  direction = 3,
+  direction = 2,
   breed = "moblin_dog_spear",
   treasure_name = "random",
 }
@@ -9188,15 +9188,6 @@ enemy{
   y = 109,
   direction = 3,
   breed = "zol_green",
-  treasure_name = "random",
-}
-
-enemy{
-  layer = 0,
-  x = 888,
-  y = 109,
-  direction = 3,
-  breed = "moblin_dog_sword",
   treasure_name = "random",
 }
 
@@ -10722,9 +10713,9 @@ destructible{
 
 enemy{
   layer = 0,
-  x = 224,
-  y = 453,
-  direction = 3,
+  x = 352,
+  y = 461,
+  direction = 0,
   breed = "moblin_dog_spear",
   treasure_name = "random",
 }
@@ -11785,9 +11776,36 @@ custom_entity{
 
 enemy{
   layer = 0,
-  x = 648,
-  y = 317,
+  x = 656,
+  y = 301,
+  direction = 2,
+  breed = "moblin_dog_spear",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 144,
+  y = 477,
   direction = 3,
+  breed = "moblin_dog_spear",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 856,
+  y = 77,
+  direction = 2,
+  breed = "moblin_dog_spear",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 880,
+  y = 109,
+  direction = 2,
   breed = "moblin_dog_spear",
   treasure_name = "random",
 }
