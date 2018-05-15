@@ -9133,7 +9133,7 @@ enemy{
   x = 280,
   y = 669,
   direction = 3,
-  breed = "zol_green",
+  breed = "zol_red",
   treasure_name = "random",
 }
 
@@ -9142,7 +9142,7 @@ enemy{
   x = 336,
   y = 709,
   direction = 3,
-  breed = "zol_green",
+  breed = "zol_red",
   treasure_name = "random",
 }
 
@@ -11888,6 +11888,24 @@ enemy{
   y = 493,
   direction = 0,
   breed = "moblin_dog_spear",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 600,
+  y = 669,
+  direction = 3,
+  breed = "zol_red",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 904,
+  y = 661,
+  direction = 3,
+  breed = "zol_red",
   treasure_name = "random",
 }
 

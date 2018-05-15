@@ -1,4 +1,4 @@
--- Lua script of enemy goponga.
+-- Lua script of enemy pols_voice.
 -- This script is executed every time an enemy with this model is created.
 
 -- Feel free to modify the code below.
@@ -21,12 +21,8 @@ function enemy:on_created()
   -- Initialize the properties of your enemy here,
   -- like the sprite, the life and the damage.
   sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
-  enemy:set_traversable(false)
   enemy:set_life(1)
   enemy:set_damage(1)
-  enemy:set_invincible(true)
-  enemy:set_attacking_collision_mode("touching")
-
 end
 
 -- Event called when the enemy should start or restart its movements.

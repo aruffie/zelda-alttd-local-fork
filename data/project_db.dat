@@ -188,6 +188,7 @@ sprite{ id = "enemies/bubble", description = "Bubble" }
 sprite{ id = "enemies/buzz_blob", description = "Buzz blob" }
 sprite{ id = "enemies/chicken", description = "Chicken" }
 sprite{ id = "enemies/chicken_mortal", description = "Chicken mortal" }
+sprite{ id = "enemies/crow", description = "Crow" }
 sprite{ id = "enemies/cukeman", description = "Cukeman" }
 sprite{ id = "enemies/darknut_bow", description = "Darknut bow" }
 sprite{ id = "enemies/darknut_sword", description = "Darknut sword" }
@@ -221,6 +222,8 @@ sprite{ id = "enemies/pike_auto", description = "Pike auto" }
 sprite{ id = "enemies/pike_detect", description = "Pike detect" }
 sprite{ id = "enemies/pike_fixed", description = "Pike fixed" }
 sprite{ id = "enemies/pols_voice", description = "Pols voice" }
+sprite{ id = "enemies/raven", description = "Raven" }
+sprite{ id = "enemies/river_zora", description = "River zora" }
 sprite{ id = "enemies/sand_crab", description = "Crab" }
 sprite{ id = "enemies/sea_urchin", description = "Sea urchin" }
 sprite{ id = "enemies/spike", description = "Spike" }
@@ -892,6 +895,7 @@ enemy{ id = "bubble", description = "Bubble" }
 enemy{ id = "buzz_blob", description = "Buzz blob" }
 enemy{ id = "chicken", description = "Chicken" }
 enemy{ id = "chicken_mortal", description = "Chicken mortal" }
+enemy{ id = "crow", description = "Crow" }
 enemy{ id = "death_ball", description = "Death ball" }
 enemy{ id = "dog", description = "Dog" }
 enemy{ id = "evil_tile", description = "Evile tile" }
@@ -920,6 +924,8 @@ enemy{ id = "pike_auto", description = "Pike auto" }
 enemy{ id = "pike_detect", description = "Pike detect" }
 enemy{ id = "pike_fixed", description = "Pike fixed" }
 enemy{ id = "pols_voice", description = "Pols voice" }
+enemy{ id = "raven", description = "Raven" }
+enemy{ id = "river_zora", description = "River Zora" }
 enemy{ id = "sand_crab", description = "Sand crab" }
 enemy{ id = "sea_urchin", description = "Sea urchin" }
 enemy{ id = "spike", description = "Spike" }

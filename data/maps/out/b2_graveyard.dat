@@ -24700,3 +24700,57 @@ custom_entity{
   sprite = "entities/graveyard_tree",
 }
 
+enemy{
+  layer = 2,
+  x = 648,
+  y = 77,
+  direction = 0,
+  breed = "crow",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 2,
+  x = 704,
+  y = 29,
+  direction = 2,
+  breed = "crow",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 2,
+  x = 768,
+  y = 133,
+  direction = 2,
+  breed = "crow",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 2,
+  x = 776,
+  y = 69,
+  direction = 2,
+  breed = "crow",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 2,
+  x = 640,
+  y = 221,
+  direction = 2,
+  breed = "crow",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 2,
+  x = 792,
+  y = 229,
+  direction = 2,
+  breed = "crow",
+  treasure_name = "random",
+}
+

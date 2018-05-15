@@ -9225,6 +9225,15 @@ pickable{
   treasure_savegame_variable = "golden_leaf_2",
 }
 
+enemy{
+  layer = 0,
+  x = 112,
+  y = 189,
+  direction = 0,
+  breed = "crow",
+  treasure_name = "random",
+}
+
 tile{
   layer = 1,
   x = 8,
