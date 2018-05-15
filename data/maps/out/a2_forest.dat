@@ -9112,8 +9112,8 @@ sensor{
 
 enemy{
   layer = 0,
-  x = 256,
-  y = 605,
+  x = 264,
+  y = 621,
   direction = 2,
   breed = "moblin_dog_spear",
   treasure_name = "random",
@@ -9178,7 +9178,7 @@ enemy{
   x = 608,
   y = 133,
   direction = 3,
-  breed = "zol_green",
+  breed = "zol_red",
   treasure_name = "random",
 }
 
@@ -9187,7 +9187,7 @@ enemy{
   x = 624,
   y = 109,
   direction = 3,
-  breed = "zol_green",
+  breed = "zol_red",
   treasure_name = "random",
 }
 
@@ -11806,6 +11806,87 @@ enemy{
   x = 880,
   y = 109,
   direction = 2,
+  breed = "moblin_dog_spear",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 184,
+  y = 141,
+  direction = 2,
+  breed = "moblin_dog_spear",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 88,
+  y = 53,
+  direction = 0,
+  breed = "moblin_dog_spear",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 120,
+  y = 645,
+  direction = 0,
+  breed = "moblin_dog_spear",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 152,
+  y = 597,
+  direction = 3,
+  breed = "moblin_dog_spear",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 664,
+  y = 669,
+  direction = 2,
+  breed = "moblin_dog_spear",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 680,
+  y = 645,
+  direction = 2,
+  breed = "moblin_dog_spear",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 840,
+  y = 645,
+  direction = 2,
+  breed = "moblin_dog_spear",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 840,
+  y = 677,
+  direction = 0,
+  breed = "moblin_dog_spear",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 904,
+  y = 493,
+  direction = 0,
   breed = "moblin_dog_spear",
   treasure_name = "random",
 }

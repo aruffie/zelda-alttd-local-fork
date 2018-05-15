@@ -12898,6 +12898,15 @@ tile{
   pattern = "1785",
 }
 
+tile{
+  layer = 0,
+  x = 152,
+  y = 504,
+  width = 16,
+  height = 16,
+  pattern = "728",
+}
+
 teletransporter{
   name = "to_b1",
   layer = 0,
@@ -14485,6 +14494,88 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/keyhole_dungeon_4",
+}
+
+enemy{
+  layer = 0,
+  x = 48,
+  y = 637,
+  direction = 0,
+  breed = "moblin",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 88,
+  y = 413,
+  direction = 0,
+  breed = "moblin",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 80,
+  y = 533,
+  direction = 1,
+  breed = "moblin",
+  treasure_name = "random",
+}
+
+destructible{
+  layer = 0,
+  x = 160,
+  y = 517,
+  sprite = "entities/stone_small_white",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+enemy{
+  layer = 0,
+  x = 392,
+  y = 629,
+  direction = 1,
+  breed = "moblin",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 368,
+  y = 645,
+  direction = 1,
+  breed = "moblin",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 328,
+  y = 517,
+  direction = 3,
+  breed = "moblin_pig_sword",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 680,
+  y = 597,
+  direction = 2,
+  breed = "moblin",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 576,
+  y = 581,
+  direction = 1,
+  breed = "moblin",
+  treasure_name = "random",
 }
 
 tile{

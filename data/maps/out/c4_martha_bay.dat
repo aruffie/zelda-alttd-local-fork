@@ -11446,6 +11446,24 @@ pickable{
   treasure_variant = 13,
 }
 
+enemy{
+  layer = 0,
+  x = 200,
+  y = 157,
+  direction = 2,
+  breed = "moblin",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 176,
+  y = 133,
+  direction = 3,
+  breed = "moblin",
+  treasure_name = "random",
+}
+
 tile{
   layer = 1,
   x = 568,

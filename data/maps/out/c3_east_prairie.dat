@@ -11517,6 +11517,105 @@ custom_entity{
   model = "hookable",
 }
 
+enemy{
+  layer = 0,
+  x = 416,
+  y = 581,
+  direction = 1,
+  breed = "moblin",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 624,
+  y = 197,
+  direction = 3,
+  breed = "moblin_pig_sword",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 592,
+  y = 221,
+  direction = 3,
+  breed = "moblin",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 656,
+  y = 221,
+  direction = 3,
+  breed = "moblin",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 384,
+  y = 469,
+  direction = 3,
+  breed = "moblin",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 352,
+  y = 597,
+  direction = 2,
+  breed = "moblin",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 416,
+  y = 493,
+  direction = 0,
+  breed = "moblin",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 376,
+  y = 565,
+  direction = 0,
+  breed = "moblin",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 424,
+  y = 453,
+  direction = 2,
+  breed = "moblin",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 704,
+  y = 109,
+  direction = 1,
+  breed = "moblin",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 744,
+  y = 133,
+  direction = 0,
+  breed = "moblin",
+  treasure_name = "random",
+}
+
 tile{
   layer = 1,
   x = 432,

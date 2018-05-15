@@ -22047,6 +22047,15 @@ custom_entity{
   model = "obstacle",
 }
 
+enemy{
+  layer = 0,
+  x = 192,
+  y = 301,
+  direction = 1,
+  breed = "buzz_blob",
+  treasure_name = "random",
+}
+
 tile{
   layer = 1,
   x = 736,

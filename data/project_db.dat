@@ -196,6 +196,7 @@ sprite{ id = "enemies/dog", description = "Dog" }
 sprite{ id = "enemies/enemy_killed", description = "Enemy killed" }
 sprite{ id = "enemies/fireball", description = "Fireball" }
 sprite{ id = "enemies/flying_tile", description = "Flying tile" }
+sprite{ id = "enemies/gel_red", description = "Gel red" }
 sprite{ id = "enemies/ghini", description = "Ghini" }
 sprite{ id = "enemies/giant_goponga_flower", description = "Giant Goponga Flower" }
 sprite{ id = "enemies/goomba", description = "Goomba" }
@@ -211,6 +212,7 @@ sprite{ id = "enemies/maskass", description = "Maskass" }
 sprite{ id = "enemies/moblin", description = "Moblin" }
 sprite{ id = "enemies/moblin_dog_spear", description = "Moblin dog spear" }
 sprite{ id = "enemies/moblin_dog_sword", description = "Moblin dog sword" }
+sprite{ id = "enemies/moblin_pig_sword", description = "Moblin pig sword" }
 sprite{ id = "enemies/monkey", description = "Monkey" }
 sprite{ id = "enemies/monkey_coconut", description = "Monkey coconut" }
 sprite{ id = "enemies/octorok", description = "Octorok" }
@@ -221,7 +223,6 @@ sprite{ id = "enemies/pike_fixed", description = "Pike fixed" }
 sprite{ id = "enemies/pols_voice", description = "Pols voice" }
 sprite{ id = "enemies/sand_crab", description = "Crab" }
 sprite{ id = "enemies/sea_urchin", description = "Sea urchin" }
-sprite{ id = "enemies/slime_green", description = "Slime green" }
 sprite{ id = "enemies/spike", description = "Spike" }
 sprite{ id = "enemies/spiny_beetle", description = "Spiny beetle" }
 sprite{ id = "enemies/stalfos_blue", description = "Stalfos blue" }
@@ -234,6 +235,7 @@ sprite{ id = "enemies/wizzrobe_beam", description = "Wizzrobe beam" }
 sprite{ id = "enemies/wizzrobe_blue", description = "Wizzrobe lue" }
 sprite{ id = "enemies/wizzrobe_white", description = "Wizzrobe white" }
 sprite{ id = "enemies/zol_green", description = "Zol green" }
+sprite{ id = "enemies/zol_red", description = "Zol red" }
 sprite{ id = "entities/arrow", description = "Arrow" }
 sprite{ id = "entities/arrow_fly", description = "Arrow fly" }
 sprite{ id = "entities/ball", description = "Ball" }
@@ -887,6 +889,7 @@ enemy{ id = "boss/moldorm/moldorm_head", description = "Moldorm head" }
 enemy{ id = "boss/rolling_bones", description = "Rolling bones" }
 enemy{ id = "boss/rolling_bones/rolling_bones_spike", description = "Rolling bones spike" }
 enemy{ id = "bubble", description = "Bubble" }
+enemy{ id = "buzz_blob", description = "Buzz blob" }
 enemy{ id = "chicken", description = "Chicken" }
 enemy{ id = "chicken_mortal", description = "Chicken mortal" }
 enemy{ id = "death_ball", description = "Death ball" }
@@ -894,6 +897,7 @@ enemy{ id = "dog", description = "Dog" }
 enemy{ id = "evil_tile", description = "Evile tile" }
 enemy{ id = "fireball", description = "Fireball" }
 enemy{ id = "flying_tile", description = "Flying tile" }
+enemy{ id = "gel_red", description = "Gel red" }
 enemy{ id = "generic_towards_hero", description = "generic_towards_hero" }
 enemy{ id = "generic_waiting_for_hero", description = "generic_waiting_for_hero" }
 enemy{ id = "giant_goponga_flower", description = "Giant goponga flower" }
@@ -903,10 +907,12 @@ enemy{ id = "hardhat_beetle_blue", description = "Hardhat beetle blue" }
 enemy{ id = "hardhat_beetle_red", description = "Hardhat beetle red" }
 enemy{ id = "hooded_stalfos", description = "Hooded stalfos" }
 enemy{ id = "keese", description = "Keese" }
+enemy{ id = "like_like", description = "Like Like" }
 enemy{ id = "maskass", description = "Maskass" }
 enemy{ id = "moblin", description = "Moblin" }
 enemy{ id = "moblin_dog_spear", description = "Moblin dog spear" }
 enemy{ id = "moblin_dog_sword", description = "Moblin dog sword" }
+enemy{ id = "moblin_pig_sword", description = "Moblin pig sword" }
 enemy{ id = "monkey", description = "Monkey" }
 enemy{ id = "octorok", description = "Octorok" }
 enemy{ id = "octorok_stone", description = "Octorok stone" }
@@ -927,6 +933,7 @@ enemy{ id = "wizzrobe_beam", description = "Wizzrobe beam" }
 enemy{ id = "wizzrobe_blue", description = "Wizzrobe blue" }
 enemy{ id = "wizzrobe_white", description = "Wizzrobe white" }
 enemy{ id = "zol_green", description = "Zol green" }
+enemy{ id = "zol_red", description = "Zol red" }
 
 entity{ id = "bee", description = "Bee" }
 entity{ id = "bird", description = "Bird" }

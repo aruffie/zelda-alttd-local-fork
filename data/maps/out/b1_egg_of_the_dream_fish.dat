@@ -17979,6 +17979,24 @@ custom_entity{
   model = "bubble",
 }
 
+enemy{
+  layer = 0,
+  x = 400,
+  y = 485,
+  direction = 0,
+  breed = "moblin",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 424,
+  y = 493,
+  direction = 3,
+  breed = "moblin",
+  treasure_name = "random",
+}
+
 tile{
   layer = 1,
   x = 704,
