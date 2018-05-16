@@ -1,5 +1,5 @@
 animation{
-  name = "waiting",
+  name = "normal",
   src_image = "enemies/crow.png",
   frame_delay = 300,
   frame_to_loop_on = 0,

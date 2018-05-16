@@ -904,6 +904,7 @@ enemy{ id = "flying_tile", description = "Flying tile" }
 enemy{ id = "gel_red", description = "Gel red" }
 enemy{ id = "generic_towards_hero", description = "generic_towards_hero" }
 enemy{ id = "generic_waiting_for_hero", description = "generic_waiting_for_hero" }
+enemy{ id = "ghini", description = "Ghini" }
 enemy{ id = "giant_goponga_flower", description = "Giant goponga flower" }
 enemy{ id = "goomba", description = "Goomba" }
 enemy{ id = "goponga_flower", description = "Goponga flower" }

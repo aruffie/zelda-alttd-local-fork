@@ -22056,6 +22056,96 @@ enemy{
   treasure_name = "random",
 }
 
+enemy{
+  layer = 0,
+  x = 584,
+  y = 469,
+  direction = 2,
+  breed = "ghini",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 632,
+  y = 541,
+  direction = 0,
+  breed = "ghini",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 664,
+  y = 453,
+  direction = 2,
+  breed = "ghini",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 568,
+  y = 597,
+  direction = 2,
+  breed = "ghini",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 672,
+  y = 669,
+  direction = 0,
+  breed = "ghini",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 768,
+  y = 637,
+  direction = 2,
+  breed = "ghini",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 896,
+  y = 589,
+  direction = 2,
+  breed = "ghini",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 784,
+  y = 461,
+  direction = 2,
+  breed = "ghini",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 808,
+  y = 509,
+  direction = 2,
+  breed = "ghini",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 864,
+  y = 461,
+  direction = 2,
+  breed = "ghini",
+  treasure_name = "random",
+}
+
 tile{
   layer = 1,
   x = 736,
