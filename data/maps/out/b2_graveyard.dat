@@ -18145,6 +18145,33 @@ tile{
   pattern = "907",
 }
 
+tile{
+  layer = 0,
+  x = 88,
+  y = 592,
+  width = 16,
+  height = 40,
+  pattern = "262",
+}
+
+tile{
+  layer = 0,
+  x = 80,
+  y = 592,
+  width = 8,
+  height = 40,
+  pattern = "260",
+}
+
+tile{
+  layer = 0,
+  x = 104,
+  y = 592,
+  width = 8,
+  height = 40,
+  pattern = "261",
+}
+
 destructible{
   layer = 0,
   x = 704,
@@ -18717,18 +18744,6 @@ destructible{
   layer = 0,
   x = 152,
   y = 677,
-  treasure_name = "random",
-  sprite = "entities/grass",
-  destruction_sound = "bush",
-  weight = -1,
-  can_be_cut = true,
-  ground = "grass",
-}
-
-destructible{
-  layer = 0,
-  x = 120,
-  y = 661,
   treasure_name = "random",
   sprite = "entities/grass",
   destruction_sound = "bush",
@@ -22146,6 +22161,51 @@ enemy{
   treasure_name = "random",
 }
 
+enemy{
+  layer = 0,
+  x = 224,
+  y = 645,
+  direction = 1,
+  breed = "zombie",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 416,
+  y = 613,
+  direction = 3,
+  breed = "zombie",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 552,
+  y = 661,
+  direction = 1,
+  breed = "zombie",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 656,
+  y = 637,
+  direction = 1,
+  breed = "zombie",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 96,
+  y = 677,
+  direction = 2,
+  breed = "zombie",
+  treasure_name = "random",
+}
+
 tile{
   layer = 1,
   x = 736,
@@ -24842,5 +24902,17 @@ enemy{
   direction = 2,
   breed = "crow",
   treasure_name = "random",
+}
+
+destructible{
+  layer = 2,
+  x = 120,
+  y = 661,
+  treasure_name = "random",
+  sprite = "entities/grass",
+  destruction_sound = "bush",
+  weight = -1,
+  can_be_cut = true,
+  ground = "grass",
 }
 
