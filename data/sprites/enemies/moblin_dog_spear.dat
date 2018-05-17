@@ -61,11 +61,10 @@ animation{
   name = "throwing",
   src_image = "enemies/moblin_dog_spear.png",
   frame_delay = 100,
-  frame_to_loop_on = 0,
   directions = {
-    { x = 0, y = 144, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 45, num_frames = 4 },
-    { x = 0, y = 0, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 45, num_frames = 4 },
-    { x = 0, y = 48, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 45, num_frames = 4 },
-    { x = 0, y = 96, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 45, num_frames = 4 },
+    { x = 0, y = 288, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 45, num_frames = 2 },
+    { x = 0, y = 240, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 45, num_frames = 2 },
+    { x = 0, y = 384, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 45, num_frames = 2 },
+    { x = 0, y = 336, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 45, num_frames = 2 },
   },
 }

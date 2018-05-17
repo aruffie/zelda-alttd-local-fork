@@ -214,6 +214,7 @@ sprite{ id = "enemies/moblin", description = "Moblin" }
 sprite{ id = "enemies/moblin_dog_spear", description = "Moblin dog spear" }
 sprite{ id = "enemies/moblin_dog_sword", description = "Moblin dog sword" }
 sprite{ id = "enemies/moblin_pig_sword", description = "Moblin pig sword" }
+sprite{ id = "enemies/moblin_spear", description = "Moblin spear" }
 sprite{ id = "enemies/monkey", description = "Monkey" }
 sprite{ id = "enemies/monkey_coconut", description = "Monkey coconut" }
 sprite{ id = "enemies/octorok", description = "Octorok" }
