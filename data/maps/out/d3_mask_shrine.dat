@@ -5470,6 +5470,83 @@ custom_entity{
   sprite = "entities/mask_shrine_slabs",
 }
 
+custom_entity{
+  name = "shrine_column_3",
+  layer = 0,
+  x = 200,
+  y = 653,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/mask_shrine_column",
+}
+
+custom_entity{
+  name = "shrine_column_4",
+  layer = 0,
+  x = 136,
+  y = 653,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/mask_shrine_column",
+}
+
+custom_entity{
+  name = "shrine_column_5",
+  layer = 0,
+  x = 200,
+  y = 669,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/mask_shrine_column",
+}
+
+custom_entity{
+  name = "shrine_column_6",
+  layer = 0,
+  x = 200,
+  y = 685,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/mask_shrine_column",
+}
+
+custom_entity{
+  name = "shrine_column_7",
+  layer = 0,
+  x = 176,
+  y = 685,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/mask_shrine_column",
+}
+
+custom_entity{
+  name = "shrine_column_8",
+  layer = 0,
+  x = 152,
+  y = 685,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/mask_shrine_column",
+}
+
+custom_entity{
+  name = "shrine_column_11",
+  layer = 0,
+  x = 128,
+  y = 685,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/mask_shrine_column",
+}
+
 tile{
   layer = 1,
   x = 712,
