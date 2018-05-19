@@ -70,9 +70,9 @@ shader{
 #define COMPAT_PRECISION
 #endif
 
-#define VertexCoord gl_Vertex
-#define COLOR gl_Color
-#define TexCoord gl_MultiTexCoord0
+#define VertexCoord sol_vertex
+#define COLOR sol_color
+#define TexCoord sol_tex_coord
 COMPAT_VARYING vec4 COL0;
 COMPAT_VARYING vec4 TEX0;
 COMPAT_VARYING vec4 t1;
@@ -83,11 +83,17 @@ COMPAT_VARYING vec4 t5;
 COMPAT_VARYING vec4 t6;
 COMPAT_VARYING vec4 t7;
 
-#define MVPMatrix gl_ModelViewProjectionMatrix
+COMPAT_ATTRIBUTE COMPAT_PRECISION vec2 VertexCoord;
+COMPAT_ATTRIBUTE COMPAT_PRECISION vec2 TexCoord;
+COMPAT_ATTRIBUTE COMPAT_PRECISION vec4 COLOR;
+
+#define MVPMatrix sol_mvp_matrix
 uniform COMPAT_PRECISION int FrameDirection;
 uniform COMPAT_PRECISION int FrameCount;
 uniform COMPAT_PRECISION vec2 sol_input_size;
 uniform COMPAT_PRECISION vec2 sol_output_size;
+uniform COMPAT_PRECISION mat4 MVPMatrix;
+uniform COMPAT_PRECISION mat3 sol_uv_matrix;
 #define TextureSize sol_input_size
 #define InputSize sol_input_size
 #define OutputSize sol_output_size
@@ -99,7 +105,7 @@ uniform COMPAT_PRECISION vec2 sol_output_size;
 
 void main()
 {
-    gl_Position = MVPMatrix * VertexCoord;
+    gl_Position = MVPMatrix * vec4(VertexCoord,0,1);
     COL0 = COLOR;
     TEX0.xy = TexCoord.xy;
     vec2 ps = vec2(SourceSize.z, SourceSize.w);
