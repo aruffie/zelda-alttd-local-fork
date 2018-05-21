@@ -196,6 +196,7 @@ sprite{ id = "enemies/death_ball", description = "Death ball" }
 sprite{ id = "enemies/dog", description = "Dog" }
 sprite{ id = "enemies/enemy_killed", description = "Enemy killed" }
 sprite{ id = "enemies/fireball", description = "Fireball" }
+sprite{ id = "enemies/flying_octorok", description = "Flying octorok" }
 sprite{ id = "enemies/flying_tile", description = "Flying tile" }
 sprite{ id = "enemies/gel_red", description = "Gel red" }
 sprite{ id = "enemies/ghini", description = "Ghini" }
@@ -904,6 +905,7 @@ enemy{ id = "death_ball", description = "Death ball" }
 enemy{ id = "dog", description = "Dog" }
 enemy{ id = "evil_tile", description = "Evile tile" }
 enemy{ id = "fireball", description = "Fireball" }
+enemy{ id = "flying_octorok", description = "Flying octorok" }
 enemy{ id = "flying_tile", description = "Flying tile" }
 enemy{ id = "gel_red", description = "Gel red" }
 enemy{ id = "generic_towards_hero", description = "generic_towards_hero" }

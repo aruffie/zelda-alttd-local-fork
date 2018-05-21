@@ -23584,6 +23584,15 @@ enemy{
   treasure_name = "random",
 }
 
+enemy{
+  layer = 0,
+  x = 272,
+  y = 325,
+  direction = 1,
+  breed = "flying_octorok",
+  treasure_name = "random",
+}
+
 tile{
   layer = 1,
   x = 696,
