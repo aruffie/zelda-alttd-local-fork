@@ -170,6 +170,7 @@ sprite{ id = "enemies/arm_mimic", description = "Arm mimic" }
 sprite{ id = "enemies/armos", description = "Armos" }
 sprite{ id = "enemies/arrow", description = "Arrow" }
 sprite{ id = "enemies/beamos", description = "Beamos" }
+sprite{ id = "enemies/boo_buddy", description = "Boo buddy" }
 sprite{ id = "enemies/boss/genie", description = "Genie" }
 sprite{ id = "enemies/boss/genie/genie_bottle", description = "Genie bottle" }
 sprite{ id = "enemies/boss/genie/genie_fire_ball", description = "Genie fire ball" }
