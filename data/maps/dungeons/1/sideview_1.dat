@@ -1289,3 +1289,19 @@ dynamic_tile{
   enabled_at_start = true,
 }
 
+enemy{
+  layer = 0,
+  x = 504,
+  y = 181,
+  direction = 0,
+  breed = "goomba",
+}
+
+enemy{
+  layer = 0,
+  x = 216,
+  y = 181,
+  direction = 0,
+  breed = "goomba",
+}
+
