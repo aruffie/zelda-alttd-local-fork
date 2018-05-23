@@ -17477,22 +17477,6 @@ enemy{
   breed = "goponga_flower",
 }
 
-enemy{
-  layer = 0,
-  x = 128,
-  y = 461,
-  direction = 0,
-  breed = "goponga_flower",
-}
-
-enemy{
-  layer = 0,
-  x = 128,
-  y = 445,
-  direction = 0,
-  breed = "goponga_flower",
-}
-
 destructible{
   layer = 0,
   x = 232,
@@ -17995,6 +17979,22 @@ enemy{
   direction = 3,
   breed = "moblin",
   treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 128,
+  y = 461,
+  direction = 0,
+  breed = "goponga_flower",
+}
+
+enemy{
+  layer = 0,
+  x = 128,
+  y = 445,
+  direction = 0,
+  breed = "goponga_flower",
 }
 
 tile{

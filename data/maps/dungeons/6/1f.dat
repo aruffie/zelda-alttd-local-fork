@@ -718,7 +718,7 @@ enemy{
   x = 2000,
   y = 1141,
   direction = 3,
-  breed = "tektite_blue",
+  breed = "water_tektite",
   treasure_name = "random",
 }
 
@@ -728,7 +728,7 @@ enemy{
   x = 2000,
   y = 1085,
   direction = 0,
-  breed = "tektite_blue",
+  breed = "water_tektite",
   treasure_name = "random",
 }
 
@@ -748,7 +748,7 @@ enemy{
   x = 2088,
   y = 637,
   direction = 3,
-  breed = "tektite_blue",
+  breed = "water_tektite",
   treasure_name = "random",
 }
 
@@ -758,7 +758,7 @@ enemy{
   x = 2136,
   y = 637,
   direction = 3,
-  breed = "tektite_blue",
+  breed = "water_tektite",
   treasure_name = "random",
 }
 
@@ -768,7 +768,7 @@ enemy{
   x = 2120,
   y = 605,
   direction = 0,
-  breed = "tektite_blue",
+  breed = "water_tektite",
   treasure_name = "random",
 }
 

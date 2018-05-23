@@ -170,6 +170,7 @@ sprite{ id = "enemies/arm_mimic", description = "Arm mimic" }
 sprite{ id = "enemies/armos", description = "Armos" }
 sprite{ id = "enemies/arrow", description = "Arrow" }
 sprite{ id = "enemies/beamos", description = "Beamos" }
+sprite{ id = "enemies/bomber", description = "Bomber" }
 sprite{ id = "enemies/bombite_explosion", description = "Bombite explosion" }
 sprite{ id = "enemies/boo_buddy", description = "Boo buddy" }
 sprite{ id = "enemies/boss/genie", description = "Genie" }
@@ -242,6 +243,7 @@ sprite{ id = "enemies/stalfos_red", description = "Stalfos red" }
 sprite{ id = "enemies/star", description = "Star" }
 sprite{ id = "enemies/tektite_blue", description = "Tektite blue" }
 sprite{ id = "enemies/vegas", description = "Vegas" }
+sprite{ id = "enemies/water_tektite", description = "Water tektite" }
 sprite{ id = "enemies/wizzrobe_beam", description = "Wizzrobe beam" }
 sprite{ id = "enemies/wizzrobe_blue", description = "Wizzrobe lue" }
 sprite{ id = "enemies/wizzrobe_white", description = "Wizzrobe white" }
@@ -947,6 +949,7 @@ enemy{ id = "stalfos_red", description = "Stalfos red" }
 enemy{ id = "star", description = "Star" }
 enemy{ id = "tektite_blue", description = "Tektite blue" }
 enemy{ id = "vegas", description = "Vegas" }
+enemy{ id = "water_tektite", description = "Water tektite" }
 enemy{ id = "wizzrobe_beam", description = "Wizzrobe beam" }
 enemy{ id = "wizzrobe_blue", description = "Wizzrobe blue" }
 enemy{ id = "wizzrobe_white", description = "Wizzrobe white" }
