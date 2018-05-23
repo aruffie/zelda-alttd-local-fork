@@ -19175,7 +19175,7 @@ enemy{
   x = 440,
   y = 109,
   direction = 0,
-  breed = "keese",
+  breed = "boo_buddy",
   treasure_name = "random",
 }
 
@@ -19185,7 +19185,7 @@ enemy{
   x = 440,
   y = 157,
   direction = 0,
-  breed = "keese",
+  breed = "boo_buddy",
   treasure_name = "random",
 }
 

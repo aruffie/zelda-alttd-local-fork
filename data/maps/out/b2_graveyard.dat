@@ -22206,6 +22206,17 @@ enemy{
   treasure_name = "random",
 }
 
+teletransporter{
+  name = "stairs_2_A",
+  layer = 0,
+  x = 576,
+  y = 48,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/2/1f",
+  destination = "stairs_2_B",
+}
+
 tile{
   layer = 1,
   x = 736,
