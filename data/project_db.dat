@@ -229,6 +229,7 @@ sprite{ id = "enemies/octorok_stone", description = "Octorok stone" }
 sprite{ id = "enemies/pike_auto", description = "Pike auto" }
 sprite{ id = "enemies/pike_detect", description = "Pike detect" }
 sprite{ id = "enemies/pike_fixed", description = "Pike fixed" }
+sprite{ id = "enemies/piranha_plant", description = "Piranha plant" }
 sprite{ id = "enemies/pols_voice", description = "Pols voice" }
 sprite{ id = "enemies/raven", description = "Raven" }
 sprite{ id = "enemies/red_bombite", description = "Red bombite" }
@@ -268,6 +269,7 @@ sprite{ id = "entities/blocks/richard_block", description = "Richard block" }
 sprite{ id = "entities/blue_cristal", description = "Blue cristal" }
 sprite{ id = "entities/bomb", description = "Bomb" }
 sprite{ id = "entities/bomb_fly", description = "Bomb fly" }
+sprite{ id = "entities/bombite_explosion", description = "Bombite_explosion" }
 sprite{ id = "entities/book_blue", description = "Book blue" }
 sprite{ id = "entities/book_green", description = "Book green" }
 sprite{ id = "entities/book_orange", description = "Book orange" }
