@@ -1,11 +1,12 @@
 animation{
-  name = "exit_enter",
+  name = "exit",
   src_image = "enemies/piranha_plant.png",
+  frame_delay = 80,
   directions = {
-    { x = 16, y = 0, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 13 },
-    { x = 16, y = 0, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 13 },
-    { x = 16, y = 0, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 13 },
-    { x = 16, y = 0, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 13 },
+    { x = 0, y = 32, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 13, num_frames = 4 },
+    { x = 0, y = 32, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 13, num_frames = 4 },
+    { x = 0, y = 32, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 13, num_frames = 4 },
+    { x = 0, y = 32, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 13, num_frames = 4 },
   },
 }
 animation{
@@ -18,6 +19,17 @@ animation{
     { x = 0, y = 0, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 13, num_frames = 2 },
     { x = 0, y = 0, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 13, num_frames = 2 },
     { x = 0, y = 0, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 13, num_frames = 2 },
+  },
+}
+animation{
+  name = "enter",
+  src_image = "enemies/piranha_plant.png",
+  frame_delay = 80,
+  directions = {
+    { x = 0, y = 64, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 13, num_frames = 4 },
+    { x = 0, y = 64, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 13, num_frames = 4 },
+    { x = 0, y = 64, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 13, num_frames = 4 },
+    { x = 0, y = 64, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 13, num_frames = 4 },
   },
 }
 animation{
