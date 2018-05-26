@@ -14,6 +14,9 @@ animation{
   frame_delay = 150,
   directions = {
     { x = 0, y = 0, frame_width = 128, frame_height = 80, origin_x = 8, origin_y = 13, num_frames = 7 },
+    { x = 0, y = 0, frame_width = 128, frame_height = 80, origin_x = 8, origin_y = 13, num_frames = 7 },
+    { x = 0, y = 0, frame_width = 128, frame_height = 80, origin_x = 8, origin_y = 13, num_frames = 7 },
+    { x = 0, y = 0, frame_width = 128, frame_height = 80, origin_x = 8, origin_y = 13, num_frames = 7 },
   },
 }
 animation{
