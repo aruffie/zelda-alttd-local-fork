@@ -1444,15 +1444,6 @@ tile{
   pattern = "wall_torch.1",
 }
 
-pickable{
-  layer = 1,
-  x = 160,
-  y = 157,
-  treasure_name = "magnifying_lens",
-  treasure_variant = 14,
-  treasure_savegame_variable = "get_lens",
-}
-
 tile{
   layer = 2,
   x = 0,
