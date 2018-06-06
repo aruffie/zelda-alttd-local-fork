@@ -141,25 +141,25 @@ map{ id = "sideviews/mabe_village/sideview_1", description = "Sideview 1" }
 map{ id = "sideviews/martha_bay/sideview_1", description = "Sideview 1" }
 map{ id = "sideviews/martha_bay/sideview_2", description = "Sideview 2" }
 
-tileset{ id = "dungeons/blue", description = "Blue" }
-tileset{ id = "dungeons/brown", description = "Brown" }
-tileset{ id = "dungeons/dark_brown", description = "Dark brown" }
-tileset{ id = "dungeons/dark_turquoise", description = "Dark turquoise" }
-tileset{ id = "dungeons/dark_yellow", description = "Dark yellow" }
-tileset{ id = "dungeons/gray", description = "Gray" }
-tileset{ id = "dungeons/gray_blue", description = "Dark blue" }
-tileset{ id = "dungeons/gray_brown", description = "Gray brown" }
-tileset{ id = "dungeons/gray_pink", description = "Gray pink" }
-tileset{ id = "dungeons/gray_yellow", description = "Gray yellow" }
-tileset{ id = "dungeons/green", description = "Green" }
-tileset{ id = "dungeons/light_blue", description = "Light blue" }
-tileset{ id = "dungeons/light_brown", description = "Light brown" }
-tileset{ id = "dungeons/light_green", description = "Light green" }
-tileset{ id = "dungeons/light_yellow", description = "Light yellow" }
-tileset{ id = "dungeons/pink", description = "Pink" }
-tileset{ id = "dungeons/purple", description = "Purple" }
-tileset{ id = "dungeons/purple_blue", description = "Purple blue" }
-tileset{ id = "dungeons/yellow", description = "Yellow" }
+tileset{ id = "dungeon/blue", description = "Blue" }
+tileset{ id = "dungeon/brown", description = "Brown" }
+tileset{ id = "dungeon/dark_brown", description = "Dark brown" }
+tileset{ id = "dungeon/dark_turquoise", description = "Dark turquoise" }
+tileset{ id = "dungeon/dark_yellow", description = "Dark yellow" }
+tileset{ id = "dungeon/gray", description = "Gray" }
+tileset{ id = "dungeon/gray_blue", description = "Dark blue" }
+tileset{ id = "dungeon/gray_brown", description = "Gray brown" }
+tileset{ id = "dungeon/gray_pink", description = "Gray pink" }
+tileset{ id = "dungeon/gray_yellow", description = "Gray yellow" }
+tileset{ id = "dungeon/green", description = "Green" }
+tileset{ id = "dungeon/light_blue", description = "Light blue" }
+tileset{ id = "dungeon/light_brown", description = "Light brown" }
+tileset{ id = "dungeon/light_green", description = "Light green" }
+tileset{ id = "dungeon/light_yellow", description = "Light yellow" }
+tileset{ id = "dungeon/pink", description = "Pink" }
+tileset{ id = "dungeon/purple", description = "Purple" }
+tileset{ id = "dungeon/purple_blue", description = "Purple blue" }
+tileset{ id = "dungeon/yellow", description = "Yellow" }
 tileset{ id = "movies/beach", description = "Beach" }
 tileset{ id = "movies/beach_sunset", description = "Beach sunset" }
 tileset{ id = "out/light_world_legacy", description = "Light world legacy" }

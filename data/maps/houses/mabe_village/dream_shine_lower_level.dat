@@ -6,7 +6,7 @@ properties{
   min_layer = 0,
   max_layer = 2,
   world = "inside_world",
-  tileset = "dungeons/light_green",
+  tileset = "dungeon/light_green",
   music = "maps/houses/dream_shine_lower_level",
 }
 

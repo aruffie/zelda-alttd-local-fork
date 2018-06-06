@@ -5,7 +5,7 @@ properties{
   height = 1200,
   min_layer = -1,
   max_layer = 2,
-  tileset = "dungeons/dark_brown",
+  tileset = "dungeon/dark_brown",
 }
 
 tile{

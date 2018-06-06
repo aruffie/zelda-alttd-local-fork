@@ -5,7 +5,7 @@ properties{
   height = 2048,
   min_layer = -1,
   max_layer = 2,
-  tileset = "dungeons/dark_yellow",
+  tileset = "dungeon/dark_yellow",
 }
 
 tile{
