@@ -11526,8 +11526,8 @@ teletransporter{
 
 custom_entity{
   layer = 0,
-  x = 952,
-  y = 381,
+  x = 936,
+  y = 397,
   width = 16,
   height = 16,
   direction = 0,
