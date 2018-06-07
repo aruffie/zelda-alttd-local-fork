@@ -355,6 +355,7 @@ sprite{ id = "entities/keyhole_dungeon_7", description = "Keyhole dungeon 7" }
 sprite{ id = "entities/la_beach/la_background", description = "entities/la_beach/la_background" }
 sprite{ id = "entities/la_beach/la_swell", description = "entities/la_beach/la_swell" }
 sprite{ id = "entities/la_beach/la_wreck", description = "entities/la_beach/la_wreck" }
+sprite{ id = "entities/lanmola_statue", description = "Lanmola statue" }
 sprite{ id = "entities/letter", description = "Letter" }
 sprite{ id = "entities/lightning_strike", description = "Lightning strike" }
 sprite{ id = "entities/lightning_strike_core", description = "Lightning strike core" }
@@ -378,6 +379,7 @@ sprite{ id = "entities/palm_banana", description = "Palm banana" }
 sprite{ id = "entities/palm_footer_brown", description = "Palm footer brown" }
 sprite{ id = "entities/palm_footer_green", description = "Palm footer green" }
 sprite{ id = "entities/palm_footer_yellow", description = "Palm footer yellow" }
+sprite{ id = "entities/palm_yarna", description = "Palm yarna" }
 sprite{ id = "entities/pencil", description = "Pencil" }
 sprite{ id = "entities/phone_statue", description = "Phone statue" }
 sprite{ id = "entities/pillar", description = "Pillar" }
@@ -471,6 +473,7 @@ sprite{ id = "entities/windfish_symbol_dungeon_7", description = "Windfish symbo
 sprite{ id = "entities/windfish_symbol_dungeon_8", description = "Windfish symbol dungeon 8" }
 sprite{ id = "entities/witch_house", description = "Witch house" }
 sprite{ id = "entities/wood_bridge", description = "Wood bridge" }
+sprite{ id = "entities/yarna_skull", description = "Yarna skull" }
 sprite{ id = "ground_effects/fall_on_hole", description = "ground_effects/fall_on_hole" }
 sprite{ id = "ground_effects/lava_splash", description = "ground_effects/lava_splash" }
 sprite{ id = "ground_effects/leaves", description = "ground_effects/leaves" }
