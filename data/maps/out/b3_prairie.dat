@@ -11401,7 +11401,7 @@ tile{
   y = 264,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -11410,7 +11410,7 @@ tile{
   y = 264,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -11419,7 +11419,7 @@ tile{
   y = 336,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -11428,7 +11428,7 @@ tile{
   y = 336,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -11437,7 +11437,7 @@ tile{
   y = 520,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -11446,7 +11446,7 @@ tile{
   y = 520,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -11455,7 +11455,7 @@ tile{
   y = 192,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -11464,7 +11464,7 @@ tile{
   y = 184,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -11473,7 +11473,7 @@ tile{
   y = 368,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -11482,7 +11482,7 @@ tile{
   y = 360,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -11509,7 +11509,7 @@ tile{
   y = 400,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -11518,7 +11518,7 @@ tile{
   y = 392,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -11527,7 +11527,7 @@ tile{
   y = 408,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -11536,7 +11536,7 @@ tile{
   y = 376,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -11545,7 +11545,7 @@ tile{
   y = 360,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -11554,7 +11554,7 @@ tile{
   y = 312,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -11563,7 +11563,7 @@ tile{
   y = 296,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -11572,7 +11572,7 @@ tile{
   y = 168,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -11581,7 +11581,7 @@ tile{
   y = 152,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -11590,7 +11590,7 @@ tile{
   y = 352,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -11599,7 +11599,7 @@ tile{
   y = 384,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -11608,7 +11608,7 @@ tile{
   y = 400,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -11617,7 +11617,7 @@ tile{
   y = 384,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -11626,7 +11626,7 @@ tile{
   y = 320,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -11635,7 +11635,7 @@ tile{
   y = 408,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -11644,7 +11644,7 @@ tile{
   y = 208,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -11671,7 +11671,7 @@ tile{
   y = 424,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -11680,7 +11680,7 @@ tile{
   y = 424,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -11689,7 +11689,7 @@ tile{
   y = 408,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -11698,7 +11698,7 @@ tile{
   y = 416,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -11707,7 +11707,7 @@ tile{
   y = 432,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -11716,7 +11716,7 @@ tile{
   y = 456,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -11725,7 +11725,7 @@ tile{
   y = 480,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -11734,7 +11734,7 @@ tile{
   y = 504,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -11743,7 +11743,7 @@ tile{
   y = 592,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -11752,7 +11752,7 @@ tile{
   y = 576,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -11761,7 +11761,7 @@ tile{
   y = 536,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -11770,7 +11770,7 @@ tile{
   y = 552,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -11779,7 +11779,7 @@ tile{
   y = 496,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -11788,7 +11788,7 @@ tile{
   y = 488,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -11797,7 +11797,7 @@ tile{
   y = 464,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -11806,7 +11806,7 @@ tile{
   y = 440,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -12499,7 +12499,7 @@ tile{
   y = 200,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -12508,7 +12508,7 @@ tile{
   y = 184,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -14065,7 +14065,7 @@ tile{
   y = 272,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -14074,7 +14074,7 @@ tile{
   y = 264,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14083,7 +14083,7 @@ tile{
   y = 120,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -14092,7 +14092,7 @@ tile{
   y = 112,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -14101,7 +14101,7 @@ tile{
   y = 176,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -14110,7 +14110,7 @@ tile{
   y = 176,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -14119,7 +14119,7 @@ tile{
   y = 160,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -14128,7 +14128,7 @@ tile{
   y = 128,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -14155,7 +14155,7 @@ tile{
   y = 128,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -14164,7 +14164,7 @@ tile{
   y = 104,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -14173,7 +14173,7 @@ tile{
   y = 192,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -14182,7 +14182,7 @@ tile{
   y = 176,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -14191,7 +14191,7 @@ tile{
   y = 176,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -14200,7 +14200,7 @@ tile{
   y = 176,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -14209,7 +14209,7 @@ tile{
   y = 184,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14218,7 +14218,7 @@ tile{
   y = 184,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -14227,7 +14227,7 @@ tile{
   y = 200,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14254,7 +14254,7 @@ tile{
   y = 128,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -14263,7 +14263,7 @@ tile{
   y = 120,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -14272,7 +14272,7 @@ tile{
   y = 144,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -14281,7 +14281,7 @@ tile{
   y = 136,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14290,7 +14290,7 @@ tile{
   y = 312,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -14299,7 +14299,7 @@ tile{
   y = 304,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14308,7 +14308,7 @@ tile{
   y = 296,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14317,7 +14317,7 @@ tile{
   y = 352,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14326,7 +14326,7 @@ tile{
   y = 368,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14335,7 +14335,7 @@ tile{
   y = 384,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14344,7 +14344,7 @@ tile{
   y = 400,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14353,7 +14353,7 @@ tile{
   y = 400,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -14362,7 +14362,7 @@ tile{
   y = 384,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14371,7 +14371,7 @@ tile{
   y = 384,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -14380,7 +14380,7 @@ tile{
   y = 400,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14389,7 +14389,7 @@ tile{
   y = 384,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14398,7 +14398,7 @@ tile{
   y = 384,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -14407,7 +14407,7 @@ tile{
   y = 400,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -14416,7 +14416,7 @@ tile{
   y = 408,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -14425,7 +14425,7 @@ tile{
   y = 400,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14434,7 +14434,7 @@ tile{
   y = 520,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -14443,7 +14443,7 @@ tile{
   y = 488,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14452,7 +14452,7 @@ tile{
   y = 488,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -14461,7 +14461,7 @@ tile{
   y = 504,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14470,7 +14470,7 @@ tile{
   y = 48,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -14479,7 +14479,7 @@ tile{
   y = 40,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14488,7 +14488,7 @@ tile{
   y = 48,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -14497,7 +14497,7 @@ tile{
   y = 24,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14506,7 +14506,7 @@ tile{
   y = 24,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -14515,7 +14515,7 @@ tile{
   y = 0,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -14524,7 +14524,7 @@ tile{
   y = 632,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -14542,7 +14542,7 @@ tile{
   y = 504,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14551,7 +14551,7 @@ tile{
   y = 520,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14560,7 +14560,7 @@ tile{
   y = 672,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -14569,7 +14569,7 @@ tile{
   y = 744,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -14578,7 +14578,7 @@ tile{
   y = 744,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14587,7 +14587,7 @@ tile{
   y = 720,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14596,7 +14596,7 @@ tile{
   y = 736,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -14605,7 +14605,7 @@ tile{
   y = 728,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14632,7 +14632,7 @@ tile{
   y = 208,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -14641,7 +14641,7 @@ tile{
   y = 208,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -14650,7 +14650,7 @@ tile{
   y = 240,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -14659,7 +14659,7 @@ tile{
   y = 240,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -14668,7 +14668,7 @@ tile{
   y = 496,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -14677,7 +14677,7 @@ tile{
   y = 488,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -14686,7 +14686,7 @@ tile{
   y = 456,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14695,7 +14695,7 @@ tile{
   y = 456,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -14704,7 +14704,7 @@ tile{
   y = 528,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -14713,7 +14713,7 @@ tile{
   y = 528,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -14722,7 +14722,7 @@ tile{
   y = 496,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -14731,7 +14731,7 @@ tile{
   y = 488,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14740,7 +14740,7 @@ tile{
   y = 512,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -14749,7 +14749,7 @@ tile{
   y = 480,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -14758,7 +14758,7 @@ tile{
   y = 480,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -14767,7 +14767,7 @@ tile{
   y = 512,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -14776,7 +14776,7 @@ tile{
   y = 472,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -14785,7 +14785,7 @@ tile{
   y = 504,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -14794,7 +14794,7 @@ tile{
   y = 472,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14803,7 +14803,7 @@ tile{
   y = 504,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -15145,7 +15145,7 @@ tile{
   y = 704,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -15154,7 +15154,7 @@ tile{
   y = 696,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -15163,7 +15163,7 @@ tile{
   y = 760,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -15172,7 +15172,7 @@ tile{
   y = 744,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -15181,7 +15181,7 @@ tile{
   y = 760,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -15190,7 +15190,7 @@ tile{
   y = 680,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -15199,7 +15199,7 @@ tile{
   y = 680,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -15289,7 +15289,7 @@ tile{
   y = 624,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -15298,7 +15298,7 @@ tile{
   y = 584,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -15352,7 +15352,7 @@ tile{
   y = 232,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -15361,7 +15361,7 @@ tile{
   y = 160,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{

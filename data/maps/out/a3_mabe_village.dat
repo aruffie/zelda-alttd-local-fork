@@ -13915,6 +13915,141 @@ tile{
   pattern = "1108",
 }
 
+tile{
+  layer = 0,
+  x = 176,
+  y = 32,
+  width = 8,
+  height = 8,
+  pattern = "105 (copy)",
+}
+
+tile{
+  layer = 0,
+  x = 448,
+  y = 464,
+  width = 8,
+  height = 8,
+  pattern = "103 (copy)",
+}
+
+tile{
+  layer = 0,
+  x = 432,
+  y = 448,
+  width = 8,
+  height = 8,
+  pattern = "103 (copy)",
+}
+
+tile{
+  layer = 0,
+  x = 416,
+  y = 432,
+  width = 8,
+  height = 8,
+  pattern = "103 (copy)",
+}
+
+tile{
+  layer = 0,
+  x = 384,
+  y = 400,
+  width = 8,
+  height = 8,
+  pattern = "103 (copy)",
+}
+
+tile{
+  layer = 0,
+  x = 400,
+  y = 416,
+  width = 8,
+  height = 8,
+  pattern = "103 (copy)",
+}
+
+tile{
+  layer = 0,
+  x = 424,
+  y = 472,
+  width = 8,
+  height = 8,
+  pattern = "105 (copy)",
+}
+
+tile{
+  layer = 0,
+  x = 736,
+  y = 544,
+  width = 8,
+  height = 8,
+  pattern = "104 (copy)",
+}
+
+tile{
+  layer = 0,
+  x = 744,
+  y = 544,
+  width = 8,
+  height = 8,
+  pattern = "105 (copy)",
+}
+
+tile{
+  layer = 0,
+  x = 744,
+  y = 408,
+  width = 8,
+  height = 8,
+  pattern = "102 (copy)",
+}
+
+tile{
+  layer = 0,
+  x = 736,
+  y = 408,
+  width = 8,
+  height = 8,
+  pattern = "103 (copy)",
+}
+
+tile{
+  layer = 0,
+  x = 880,
+  y = 408,
+  width = 8,
+  height = 8,
+  pattern = "103 (copy)",
+}
+
+tile{
+  layer = 0,
+  x = 880,
+  y = 576,
+  width = 8,
+  height = 8,
+  pattern = "104 (copy)",
+}
+
+tile{
+  layer = 0,
+  x = 912,
+  y = 544,
+  width = 8,
+  height = 8,
+  pattern = "104 (copy)",
+}
+
+tile{
+  layer = 0,
+  x = 912,
+  y = 504,
+  width = 8,
+  height = 8,
+  pattern = "103 (copy)",
+}
+
 wall{
   layer = 0,
   x = 288,

@@ -3968,6 +3968,15 @@ tile{
   pattern = "ceiling.2",
 }
 
+tile{
+  layer = 2,
+  x = 320,
+  y = 0,
+  width = 320,
+  height = 256,
+  pattern = "ceiling.2",
+}
+
 separator{
   name = "auto_separator_1",
   layer = 2,
