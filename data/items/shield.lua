@@ -6,6 +6,7 @@ This script can be extended to other types of entities.
 -------- CUSTOM EVENTS:
 enemy/sprite:on_shield_collision(shield) -- Overrides push behavior.
 enemy/sprite:on_pushed_by_shield(shield) -- Called after creating the push.
+enemy/sprite:on_pushing_hero_on_shield(shield) -- Called after creating the push.
 enemy/sprite:on_finished_pushed_by_shield()
 enemy/sprite:on_finished_pushed_hero_on_shield()
 enemy/sprite:on_shield_collision_test(shield_collision_mask) -- Test: true to confirm collision.
@@ -65,16 +66,12 @@ local weak_sound_id = "shield_push"
 
 function item:on_created()
   self:set_savegame_variable("possession_shield")
-  self:set_assignable(true)
-  local variant = self:get_variant() or 0
-  --if variant == 0 then self:set_variant(1) end
+  self:on_variant_changed(self:get_variant())
 end
 
 function item:on_variant_changed(variant)
-  -- TODO: change shield variant.
-end
-
-function item:on_obtained()
+  if variant > 0 then self:set_assignable(true)
+  else self:set_assignable(false) end
 end
 
 -- Program custom shield.
@@ -85,6 +82,7 @@ function item:on_using()
   local variant = item:get_variant()
 
   -- Do nothing if game is suspended or if shield is being used.
+  if variant == 0 then return end
   if game:is_suspended() or hero:is_using_shield() then return end
   -- Do not use if there is bad ground below or while jumping.
   if not map:is_solid_ground(hero:get_ground_position()) then return end 
@@ -183,10 +181,15 @@ function item:on_using()
   end
 end
 
--- Stop using items when changing maps.
-function item:on_map_changed(map)
+-- Map transition events: stop using when changing maps.
+function item:on_map_finished(map)
   local hero = game:get_hero()
   if hero and hero:is_using_shield() then self:finish_using() end
+end
+function item:on_map_changed(map)
+  map:register_event("on_finished", function()
+    item:on_map_finished(map)
+  end)
 end
 
 function item:finish_using()
@@ -279,13 +282,10 @@ function item:create_shield()
   end)
   -- Define collision test to detect enemies with shield.
   -- A pixel-precise collision between enemy and shield is assumed before calling this test.
-  local function shield_collision_test(shield, entity, entity_sprite, shield_sprite)
-    -- Check enemies that can be pushed.
-    if (not entity) or (not entity_sprite) then return end
-    -- TODO: REMOVE NEXT LINE WHEN #1162 IS FIXED.
-    if entity_sprite:get_animation_set() == "hero/shield_collision_mask" then return end
+  local function shield_collision_test(shield, entity, shield_sprite, entity_sprite)
     
     -- Check collision conditions. Sprite collision overrides entity collision.
+    if (not entity) or (not entity_sprite) then return end
     for _, e in ipairs({entity_sprite, entity}) do
       
       local custom_test = (e.on_shield_collision_test == nil)
@@ -335,6 +335,10 @@ function item:create_shield()
           end
         end   
         hero:push(p)
+        -- Custom event.
+        if e.on_pushing_hero_on_shield then
+          e.on_pushing_hero_on_shield(shield)
+        end
       end
       
       -- Sprite behavior, if any, overrides entity behavior (in the first loop).
@@ -346,10 +350,7 @@ function item:create_shield()
   end
   
   -- Initialize collision test on the shield collision mask.
-  collision_mask:add_collision_test("sprite",
-  function(shield, entity, shield_sprite, entity_sprite)
-    shield_collision_test(shield, entity, shield_sprite, entity_sprite)
-  end)
+  collision_mask:add_collision_test("sprite", shield_collision_test)
 end
 
 function item:set_grabing_abilities_enabled(enabled)
@@ -373,6 +374,9 @@ function hero_meta:is_using_shield()
 end
 function hero_meta:set_using_shield(using_shield)
   self.using_shield = using_shield
+end
+function item:is_being_used()
+  return self:get_map():get_hero().using_shield or false
 end
 
 -- True if there is a pixel collision between shield and enemy.
@@ -438,9 +442,9 @@ for _, entity_meta in ipairs({sprite_meta, enemy_meta}) do
   function entity_meta:set_default_behavior_on_hero_shield(behavior)
     -- Define default properties.
     local p_enemy, p_hero
-    local normal_push = {distance = 32, speed = 120, push_delay = 200, num_directions = "any"}
-    local weak_push = {distance = 16, speed = 120, push_delay = 200, num_directions = "any"}
-    local strong_push = {distance = 48, speed = 120, push_delay = 200, num_directions = "any"}
+    local normal_push = {distance = 32, speed = 120, push_delay = 250, num_directions = "any"}
+    local weak_push = {distance = 16, speed = 120, push_delay = 100, num_directions = "any"}
+    local strong_push = {distance = 48, speed = 200, push_delay = 500, num_directions = "any"}
     local block_push = {distance = 1, speed = 80, push_delay = 30, num_directions = 4}
     self:set_can_push_hero_on_shield(true)
     self:set_can_be_pushed_by_shield(true)
@@ -470,10 +474,28 @@ for _, entity_meta in ipairs({sprite_meta, enemy_meta}) do
         local hero = self:get_map():get_hero()
         return self:overlaps(hero, "facing")
       end
+    elseif behavior == "burn_push" then
+      p_enemy, p_hero = {}, strong_push
+      self:set_can_be_pushed_by_shield(false)
+      p_hero.sound_id = "fire_ball"
+      self:register_event("on_pushing_hero_on_shield", function(self, shield)
+        -- Burn wooden shield!
+        local item = self:get_game():get_item("shield")
+        local variant = item:get_variant()
+        if variant == 1 then item:burn_shield() end
+      end)
     end
     -- Set properties to enemy.
     self:set_pushed_by_shield_properties(p_enemy)
     self:set_push_hero_on_shield_properties(p_hero)
   end
 
+end
+
+-- Burn and destroy shield.
+function item:burn_shield()
+  -- Hero stops using shield.
+  self:set_variant(0)
+  self:finish_using()
+  game:start_dialog("_treasure.shield.burnt")
 end
