@@ -1,3 +1,4 @@
+map{ id = "caves/cave", description = "Unknown Cave" }
 map{ id = "caves/east_mt_tamaranch/cave_1", description = "Cave 1 - Underwater Cave" }
 map{ id = "caves/east_mt_tamaranch/cave_2", description = "Cave 2 - Path to East Mt Tamaranch 1" }
 map{ id = "caves/east_mt_tamaranch/cave_3", description = "Cave 3 - Path to East Mt Tamaranch 2" }

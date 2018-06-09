@@ -5091,3 +5091,17 @@ sûrement plus...
 ]],
 }
 
+dialog{
+  id = "unknown_cave",
+  text = [[
+Cette caverne secrète a
+été placée ici pour rendre
+hommage à une zone
+inutilisée dans le
+jeu original.
+
+Bravo pour l'avoir 
+trouvée !
+]],
+}
+
