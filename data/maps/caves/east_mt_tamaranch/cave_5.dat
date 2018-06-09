@@ -2151,6 +2151,24 @@ custom_entity{
 tile{
   layer = 1,
   x = 392,
+  y = 440,
+  width = 32,
+  height = 32,
+  pattern = "floor_low.16-2",
+}
+
+tile{
+  layer = 1,
+  x = 200,
+  y = 192,
+  width = 128,
+  height = 32,
+  pattern = "floor_low.16-2",
+}
+
+tile{
+  layer = 1,
+  x = 392,
   y = 280,
   width = 32,
   height = 64,
@@ -2236,24 +2254,6 @@ tile{
   width = 224,
   height = 16,
   pattern = "floor_low.16-2",
-}
-
-tile{
-  layer = 1,
-  x = 392,
-  y = 440,
-  width = 32,
-  height = 32,
-  pattern = "floor.16-1",
-}
-
-tile{
-  layer = 1,
-  x = 200,
-  y = 192,
-  width = 128,
-  height = 32,
-  pattern = "floor.16-1",
 }
 
 tile{
@@ -3713,6 +3713,39 @@ custom_entity{
   layer = 1,
   x = 568,
   y = 125,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/cave_rock",
+}
+
+custom_entity{
+  name = "cave_rock_28",
+  layer = 1,
+  x = 208,
+  y = 205,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/cave_rock",
+}
+
+custom_entity{
+  name = "cave_rock_30",
+  layer = 1,
+  x = 304,
+  y = 205,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/cave_rock",
+}
+
+custom_entity{
+  name = "cave_rock_31",
+  layer = 1,
+  x = 408,
+  y = 461,
   width = 16,
   height = 16,
   direction = 0,

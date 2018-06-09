@@ -2295,20 +2295,11 @@ custom_entity{
 
 tile{
   layer = 1,
-  x = 776,
-  y = 168,
-  width = 32,
-  height = 48,
-  pattern = "floor.16-1",
-}
-
-tile{
-  layer = 1,
   x = 536,
-  y = 152,
+  y = 120,
   width = 240,
-  height = 64,
-  pattern = "floor.16-1",
+  height = 96,
+  pattern = "floor_low.16-2",
 }
 
 tile{
@@ -2317,7 +2308,16 @@ tile{
   y = 136,
   width = 112,
   height = 80,
-  pattern = "floor.16-1",
+  pattern = "floor_low.16-2",
+}
+
+tile{
+  layer = 1,
+  x = 776,
+  y = 168,
+  width = 32,
+  height = 48,
+  pattern = "floor_low.16-2",
 }
 
 tile{
@@ -2749,7 +2749,7 @@ tile{
   y = 120,
   width = 96,
   height = 32,
-  pattern = "floor.16-1",
+  pattern = "floor_low.16-2",
 }
 
 tile{
@@ -2758,16 +2758,181 @@ tile{
   y = 104,
   width = 352,
   height = 32,
-  pattern = "floor.16-1",
+  pattern = "floor_low.16-2",
 }
 
 tile{
   layer = 1,
   x = 520,
   y = 120,
-  width = 256,
+  width = 32,
   height = 32,
-  pattern = "floor.16-1",
+  pattern = "floor_low.16-2",
+}
+
+custom_entity{
+  name = "cave_rock_24",
+  layer = 1,
+  x = 784,
+  y = 197,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/cave_rock",
+}
+
+custom_entity{
+  name = "cave_rock_25",
+  layer = 1,
+  x = 736,
+  y = 157,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/cave_rock",
+}
+
+custom_entity{
+  name = "cave_rock_26",
+  layer = 1,
+  x = 664,
+  y = 173,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/cave_rock",
+}
+
+custom_entity{
+  name = "cave_rock_27",
+  layer = 1,
+  x = 592,
+  y = 133,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/cave_rock",
+}
+
+custom_entity{
+  name = "cave_rock_28",
+  layer = 1,
+  x = 568,
+  y = 181,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/cave_rock",
+}
+
+custom_entity{
+  name = "cave_rock_29",
+  layer = 1,
+  x = 544,
+  y = 141,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/cave_rock",
+}
+
+custom_entity{
+  name = "cave_rock_30",
+  layer = 1,
+  x = 488,
+  y = 117,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/cave_rock",
+}
+
+custom_entity{
+  name = "cave_rock_31",
+  layer = 1,
+  x = 440,
+  y = 133,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/cave_rock",
+}
+
+custom_entity{
+  name = "cave_rock_32",
+  layer = 1,
+  x = 368,
+  y = 117,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/cave_rock",
+}
+
+custom_entity{
+  name = "cave_rock_33",
+  layer = 1,
+  x = 296,
+  y = 125,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/cave_rock",
+}
+
+custom_entity{
+  name = "cave_rock_34",
+  layer = 1,
+  x = 208,
+  y = 141,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/cave_rock",
+}
+
+custom_entity{
+  name = "cave_rock_35",
+  layer = 1,
+  x = 224,
+  y = 173,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/cave_rock",
+}
+
+custom_entity{
+  name = "cave_rock_36",
+  layer = 1,
+  x = 168,
+  y = 181,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/cave_rock",
+}
+
+custom_entity{
+  name = "cave_rock_37",
+  layer = 1,
+  x = 368,
+  y = 181,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/cave_rock",
+}
+
+custom_entity{
+  name = "cave_rock_38",
+  layer = 1,
+  x = 416,
+  y = 181,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/cave_rock",
 }
 
 tile{

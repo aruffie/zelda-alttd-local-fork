@@ -16,7 +16,7 @@ tile{
   y = 64,
   width = 192,
   height = 128,
-  pattern = "floor.16-2",
+  pattern = "floor_low.16-1",
 }
 
 tile{
