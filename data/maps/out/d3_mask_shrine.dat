@@ -6474,8 +6474,8 @@ destination{
 
 teletransporter{
   layer = 0,
-  x = 296,
-  y = 224,
+  x = 288,
+  y = 232,
   width = 16,
   height = 16,
   destination_map = "caves/mask_shrine/cave_3",
@@ -6486,7 +6486,7 @@ teletransporter{
   name = "cave_2_1_A_2",
   layer = 0,
   x = 120,
-  y = 192,
+  y = 184,
   width = 16,
   height = 16,
   destination_map = "caves/mask_shrine/cave_3",
@@ -6505,7 +6505,7 @@ destination{
   name = "cave_d3_3_west",
   layer = 0,
   x = 128,
-  y = 221,
+  y = 213,
   direction = 3,
 }
 
@@ -8695,6 +8695,89 @@ custom_entity{
   direction = 0,
   sprite = "entities/mask_shrine_column",
   model = "obstacle",
+}
+
+teletransporter{
+  layer = 0,
+  x = 160,
+  y = 488,
+  width = 16,
+  height = 16,
+  destination_map = "houses/mask_shrine/south_shrine",
+  destination = "south_shrine_1_B",
+}
+
+destination{
+  name = "southern_shrine",
+  layer = 0,
+  x = 168,
+  y = 517,
+  direction = 3,
+}
+
+wall{
+  layer = 0,
+  x = 136,
+  y = 488,
+  width = 24,
+  height = 24,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 0,
+  x = 80,
+  y = 512,
+  width = 72,
+  height = 8,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 0,
+  x = 176,
+  y = 488,
+  width = 24,
+  height = 24,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 0,
+  x = 184,
+  y = 512,
+  width = 72,
+  height = 8,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 0,
+  x = 160,
+  y = 480,
+  width = 16,
+  height = 8,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
 }
 
 tile{
