@@ -17997,6 +17997,63 @@ enemy{
   breed = "goponga_flower",
 }
 
+destination{
+  name = "egg_of_the_dream_fish",
+  layer = 0,
+  x = 584,
+  y = 117,
+  direction = 3,
+}
+
+teletransporter{
+  layer = 0,
+  x = 576,
+  y = 80,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/11/1f",
+  destination = "entrance",
+}
+
+wall{
+  layer = 0,
+  x = 568,
+  y = 72,
+  width = 32,
+  height = 8,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 0,
+  x = 568,
+  y = 80,
+  width = 8,
+  height = 24,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 0,
+  x = 592,
+  y = 80,
+  width = 8,
+  height = 24,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
 tile{
   layer = 1,
   x = 704,
