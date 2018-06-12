@@ -144,7 +144,6 @@ map{ id = "sideviews/martha_bay/sideview_2", description = "Sideview 2" }
 tileset{ id = "dungeon/blue", description = "Blue" }
 tileset{ id = "dungeon/brown", description = "Brown" }
 tileset{ id = "dungeon/dark_brown", description = "Dark brown" }
-tileset{ id = "dungeon/dark_turquoise", description = "Dark turquoise" }
 tileset{ id = "dungeon/dark_yellow", description = "Dark yellow" }
 tileset{ id = "dungeon/gray", description = "Gray" }
 tileset{ id = "dungeon/gray_blue", description = "Dark blue" }
@@ -155,10 +154,8 @@ tileset{ id = "dungeon/green", description = "Green" }
 tileset{ id = "dungeon/light_blue", description = "Light blue" }
 tileset{ id = "dungeon/light_brown", description = "Light brown" }
 tileset{ id = "dungeon/light_green", description = "Light green" }
-tileset{ id = "dungeon/light_yellow", description = "Light yellow" }
 tileset{ id = "dungeon/pink", description = "Pink" }
 tileset{ id = "dungeon/purple", description = "Purple" }
-tileset{ id = "dungeon/purple_blue", description = "Purple blue" }
 tileset{ id = "dungeon/yellow", description = "Yellow" }
 tileset{ id = "movies/beach", description = "Beach" }
 tileset{ id = "movies/beach_sunset", description = "Beach sunset" }
