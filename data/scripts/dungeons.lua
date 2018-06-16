@@ -141,7 +141,7 @@ local function initialize_dungeon_features(game)
       }
    },
    [3] = {
-        lowest_floor = -1,
+        lowest_floor = 0,
         highest_floor = 0,
         rows = 8,
         cols= 4,
@@ -155,7 +155,7 @@ local function initialize_dungeon_features(game)
         }
       },
  [4] = {
-        lowest_floor = -1,
+        lowest_floor = 0,
         highest_floor = 0,
         rows = 7,
         cols= 6,
@@ -179,7 +179,7 @@ local function initialize_dungeon_features(game)
           floor = 0,
           x = 640 + 1440,
           y = 720 + 365,
-          savegame_variable = "dungeon_6_boss",
+          savegame_variable = "dungeon_5_boss",
         }
       }
     }

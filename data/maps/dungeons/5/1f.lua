@@ -1,4 +1,4 @@
--- Lua script of map dungeons/5/1f.
+-- Lua script of map dungeons/4/1f.
 -- This script is executed every time the hero enters this map.
 
 -- Feel free to modify the code below.
@@ -8,17 +8,53 @@
 -- http://www.solarus-games.org/doc/latest
 
 local map = ...
+local separator = ...
 local game = map:get_game()
+local is_small_boss_active = false
+local is_boss_active = false
 
--- Event called at initialization time, as soon as this map becomes is loaded.
+local door_manager = require("scripts/maps/door_manager")
+local treasure_manager = require("scripts/maps/treasure_manager")
+local switch_manager = require("scripts/maps/switch_manager")
+local enemy_manager = require("scripts/maps/enemy_manager")
+local separator_manager = require("scripts/maps/separator_manager")
+local owl_manager = require("scripts/maps/owl_manager")
+
 function map:on_started()
 
-  -- You can initialize the movement and sprites of various
-  -- map entities here.
-end
+ local hero = map:get_hero()
+  -- Init music
+  game:play_dungeon_music()
 
--- Event called after the opening transition effect of the map,
--- that is, when the player takes control of the hero.
-function map:on_opening_transition_finished()
+
 
 end
+
+function map:on_opening_transition_finished(destination)
+
+  if destination == dungeon_5_1_B then
+    game:start_dialog("maps.dungeons.5.welcome")
+  end
+
+end
+
+
+-- Enemies
+
+
+-- Treasures
+
+
+-- Doors
+
+door_manager:open_when_enemies_dead(map,  "enemy_group_5",  "door_group_1")
+
+-- Blocks
+
+
+-- Sensors events
+
+
+separator_manager:manage_map(map)
+owl_manager:manage_map(map)
+

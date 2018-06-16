@@ -524,6 +524,10 @@ sprite{ id = "menus/dungeon_maps/map_4", description = "Map 4" }
 sprite{ id = "menus/dungeon_maps/map_4_compass", description = "Map 4 compass" }
 sprite{ id = "menus/dungeon_maps/map_4_no_map", description = "Map 4 no map" }
 sprite{ id = "menus/dungeon_maps/map_4_no_map_compass", description = "Map 4 no map compass" }
+sprite{ id = "menus/dungeon_maps/map_5", description = "Map 5" }
+sprite{ id = "menus/dungeon_maps/map_5_compass", description = "map 5 compass" }
+sprite{ id = "menus/dungeon_maps/map_5_no_map", description = "Map 5 no map" }
+sprite{ id = "menus/dungeon_maps/map_5_no_map_compass", description = "Map 5 no map compass" }
 sprite{ id = "menus/hero_head", description = "Hero head" }
 sprite{ id = "menus/hero_point", description = "Hero point" }
 sprite{ id = "menus/pause_cursor", description = "Pause cursor" }
