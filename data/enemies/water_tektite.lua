@@ -8,6 +8,7 @@ local properties = {
   damage = 1,
   normal_speed = 64,
   faster_speed = 64,
+  obstacle_behavior = "swimming",
 }
 
 behavior:create(enemy, properties)
