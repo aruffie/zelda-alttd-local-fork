@@ -1385,6 +1385,16 @@ dialog{
 }
 
 dialog{
+  id = "maps.dungeons.5.chest_hookshot_fail",
+  text = [[
+J'ai ce qu'il y avait dans
+ce coffre. Viens le 
+chercher si tu oses !     
+Signé : Ü
+]],
+}
+
+dialog{
   id = "maps.dungeons.5.indication",
   text = [[
 ...TEMPLE...    
@@ -1397,7 +1407,7 @@ dialog{
   id = "maps.dungeons.5.welcome",
   text = [[
           Niveau 5    
-      Poisson-chat
+        Poisson-chat
 
 ]],
 }

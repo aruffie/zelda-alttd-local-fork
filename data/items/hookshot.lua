@@ -52,6 +52,7 @@ local config = require("items/hookshot_config.lua")
 function item:on_created()
 
   item:set_savegame_variable("possession_hookshot")
+  item:set_sound_when_brandished("treasure_2")
   item:set_assignable(true)
 end
 

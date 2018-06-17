@@ -40,6 +40,28 @@ function treasure_manager:appear_pickable_when_enemies_dead(map, enemy_prefix, p
 
 end
 
+function treasure_manager:appear_pickable_when_blocks_moved(map, block_prefix, pickable)
+
+      local remaining = map:get_entities_count(block_prefix)
+      local game = map:get_game()
+      local function block_on_moved()
+        remaining = remaining - 1
+        if remaining == 0 then
+          local pickable_entity = map:get_entity(pickable)
+          if pickable_entity ~= nil then
+            local treasure, variant, savegame = pickable_entity:get_treasure()
+            if  not savegame or savegame and not game:get_value(savegame) then
+             self:appear_pickable(map, pickable, true)
+            end
+          end
+       end
+      end
+      for block in map:get_entities(block_prefix) do
+        block.on_moved = block_on_moved
+      end
+
+end
+
 function treasure_manager:appear_pickable_when_flying_tiles_dead(map, enemy_prefix, pickable)
 
     local function enemy_on_flying_tile_dead()
