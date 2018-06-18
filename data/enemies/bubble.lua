@@ -16,6 +16,7 @@ function enemy:on_created()
   self:set_origin(4, 4)
   self:set_can_hurt_hero_running(true)
   self:set_invincible()
+  self:set_obstacle_behavior("swimming")
 end
 
 -- The enemy was stopped for some reason and should restart.
