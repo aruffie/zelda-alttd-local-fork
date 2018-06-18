@@ -967,6 +967,7 @@ enemy{ id = "zombie", description = "Zombie" }
 
 entity{ id = "bee", description = "Bee" }
 entity{ id = "bird", description = "Bird" }
+entity{ id = "bomb_fly", description = "Bomb fly" }
 entity{ id = "bowwow", description = "Bowwow" }
 entity{ id = "bowwow_follow", description = "Bowwow follow" }
 entity{ id = "bubble", description = "Bubble" }
