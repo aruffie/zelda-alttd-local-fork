@@ -1,0 +1,12 @@
+animation{
+  name = "normal",
+  src_image = "entities/floating_tree_rafting.png",
+  frame_delay = 400,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 56, y = 0, frame_width = 8, frame_height = 56, origin_x = 8, origin_y = 12 },
+    { x = 8, y = 0, frame_width = 48, frame_height = 56, origin_x = 8, origin_y = 12 },
+    { x = 0, y = 0, frame_width = 8, frame_height = 56, origin_x = 8, origin_y = 12 },
+    { x = 0, y = 56, frame_width = 64, frame_height = 24, origin_x = 8, origin_y = 12, num_frames = 2 },
+  },
+}

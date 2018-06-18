@@ -866,3 +866,47 @@ dynamic_tile{
   enabled_at_start = true,
 }
 
+custom_entity{
+  name = "floating_tree",
+  layer = 0,
+  x = 272,
+  y = 29,
+  width = 16,
+  height = 56,
+  direction = 0,
+  sprite = "entities/floating_tree_rafting",
+}
+
+custom_entity{
+  name = "floating_tree_2",
+  layer = 0,
+  x = 216,
+  y = 29,
+  width = 16,
+  height = 56,
+  direction = 2,
+  sprite = "entities/floating_tree_rafting",
+}
+
+custom_entity{
+  name = "floating_tree_3",
+  layer = 0,
+  x = 224,
+  y = 29,
+  width = 48,
+  height = 56,
+  direction = 1,
+  sprite = "entities/floating_tree_rafting",
+}
+
+custom_entity{
+  name = "floating_tree_4",
+  layer = 0,
+  x = 216,
+  y = 85,
+  width = 64,
+  height = 24,
+  direction = 3,
+  sprite = "entities/floating_tree_rafting",
+}
+
