@@ -196,7 +196,10 @@ sprite{ id = "enemies/darknut_sword", description = "Darknut sword" }
 sprite{ id = "enemies/death_ball", description = "Death ball" }
 sprite{ id = "enemies/dog", description = "Dog" }
 sprite{ id = "enemies/enemy_killed", description = "Enemy killed" }
+sprite{ id = "enemies/eyegore_statue", description = "Eyegore statue" }
+sprite{ id = "enemies/face_lamp", description = "Face lamp" }
 sprite{ id = "enemies/fireball", description = "Fireball" }
+sprite{ id = "enemies/fireball_small_triple_red", description = "fireball_small_triple_red" }
 sprite{ id = "enemies/flying_octorok", description = "Flying octorok" }
 sprite{ id = "enemies/flying_tile", description = "Flying tile" }
 sprite{ id = "enemies/gel_red", description = "Gel red" }
@@ -920,7 +923,10 @@ enemy{ id = "crow", description = "Crow" }
 enemy{ id = "death_ball", description = "Death ball" }
 enemy{ id = "dog", description = "Dog" }
 enemy{ id = "evil_tile", description = "Evile tile" }
+enemy{ id = "eyegore_statue", description = "Eyegore statue" }
+enemy{ id = "face_lamp", description = "Face lamp" }
 enemy{ id = "fireball", description = "Fireball" }
+enemy{ id = "fireball_small_triple_red", description = "fireball_small_triple_red" }
 enemy{ id = "flying_octorok", description = "Flying octorok" }
 enemy{ id = "flying_tile", description = "Flying tile" }
 enemy{ id = "gel_red", description = "Gel red" }
