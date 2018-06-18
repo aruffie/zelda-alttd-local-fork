@@ -12,6 +12,8 @@ local behavior = {}
 --   projectile_sound = "zora",
 --   detection_distance = 500,
 --   shooting_delay = 1300,
+--   fire_x = 0,
+--   fire_y = 0,
 -- }
 -- behavior:create(enemy, properties)
 
@@ -25,6 +27,12 @@ function behavior:create(enemy, properties)
   end
   if properties.shooting_delay == nil then
     properties.shooting_delay = 5000
+  end
+  if properties.fire_x == nil then
+    properties.fire_x = 0
+  end
+  if properties.fire_y == nil then
+    properties.fire_y = 0
   end
 
   function enemy:on_created()
@@ -64,7 +72,11 @@ function behavior:create(enemy, properties)
 
         children[#children + 1] = self:create_enemy({
           breed = properties.projectile_breed,
+          x = properties.fire_x,
+          y = properties.fire_y,
+          layer = map:get_max_layer()
         })
+        children[#children]:set_layer_independent_collisions(true)
       end
       return true  -- Repeat the timer.
     end)
