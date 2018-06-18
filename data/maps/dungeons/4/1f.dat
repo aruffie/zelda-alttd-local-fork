@@ -15071,6 +15071,28 @@ sensor{
   height = 16,
 }
 
+custom_entity{
+  name = "handle_base",
+  layer = 0,
+  x = 1528,
+  y = 37,
+  width = 16,
+  height = 16,
+  direction = 3,
+  sprite = "entities/handle_base",
+}
+
+custom_entity{
+  name = "handle",
+  layer = 0,
+  x = 1528,
+  y = 53,
+  width = 16,
+  height = 16,
+  direction = 3,
+  sprite = "entities/handle",
+}
+
 tile{
   layer = 1,
   x = 672,
