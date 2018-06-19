@@ -12269,6 +12269,114 @@ tile{
   pattern = "floor_low.cracked.1-1",
 }
 
+tile{
+  layer = 0,
+  x = 1984,
+  y = 1808,
+  width = 32,
+  height = 24,
+  pattern = "wall_decor.1-7",
+}
+
+tile{
+  layer = 0,
+  x = 2144,
+  y = 1808,
+  width = 32,
+  height = 24,
+  pattern = "wall_decor.1-7",
+}
+
+tile{
+  layer = 0,
+  x = 1024,
+  y = 1808,
+  width = 32,
+  height = 24,
+  pattern = "wall_decor.1-7",
+}
+
+tile{
+  layer = 0,
+  x = 1184,
+  y = 1808,
+  width = 32,
+  height = 24,
+  pattern = "wall_decor.1-7",
+}
+
+tile{
+  layer = 0,
+  x = 1344,
+  y = 1808,
+  width = 32,
+  height = 24,
+  pattern = "wall_decor.1-7",
+}
+
+tile{
+  layer = 0,
+  x = 1504,
+  y = 1808,
+  width = 32,
+  height = 24,
+  pattern = "wall_decor.1-7",
+}
+
+tile{
+  layer = 0,
+  x = 1984,
+  y = 2008,
+  width = 32,
+  height = 24,
+  pattern = "wall_decor.2-7",
+}
+
+tile{
+  layer = 0,
+  x = 2144,
+  y = 2008,
+  width = 32,
+  height = 24,
+  pattern = "wall_decor.2-7",
+}
+
+tile{
+  layer = 0,
+  x = 1024,
+  y = 2008,
+  width = 32,
+  height = 24,
+  pattern = "wall_decor.2-7",
+}
+
+tile{
+  layer = 0,
+  x = 1184,
+  y = 2008,
+  width = 32,
+  height = 24,
+  pattern = "wall_decor.2-7",
+}
+
+tile{
+  layer = 0,
+  x = 1344,
+  y = 2008,
+  width = 32,
+  height = 24,
+  pattern = "wall_decor.2-7",
+}
+
+tile{
+  layer = 0,
+  x = 1504,
+  y = 2008,
+  width = 32,
+  height = 24,
+  pattern = "wall_decor.2-7",
+}
+
 block{
   layer = 0,
   x = 1864,
@@ -16754,12 +16862,12 @@ door{
 }
 
 enemy{
-  name = "enemy_group_12_1",
+  name = "skeleton_1",
   layer = 0,
   x = 1440,
   y = 1141,
   direction = 3,
-  breed = "boss/hinox_master",
+  breed = "boss/skeleton",
 }
 
 enemy{
@@ -16969,21 +17077,21 @@ enemy{
 }
 
 enemy{
-  name = "enemy_group_23_1",
+  name = "skeleton_3",
   layer = 0,
   x = 1440,
-  y = 141,
+  y = 133,
   direction = 3,
-  breed = "boss/hinox_master",
+  breed = "boss/skeleton",
 }
 
 enemy{
-  name = "enemy_group_18_1",
+  name = "skeleton_2",
   layer = 0,
   x = 2080,
   y = 909,
   direction = 3,
-  breed = "boss/hinox_master",
+  breed = "boss/skeleton",
 }
 
 custom_entity{
@@ -17112,17 +17220,6 @@ destination{
   x = 568,
   y = 61,
   direction = 1,
-}
-
-teletransporter{
-  layer = 0,
-  x = 2072,
-  y = 1960,
-  width = 16,
-  height = 16,
-  transition = "immediate",
-  destination_map = "dungeons/5/1f",
-  destination = "destination",
 }
 
 sensor{
@@ -17460,12 +17557,12 @@ sensor{
 }
 
 enemy{
-  name = "enemy_group_24_1",
+  name = "skeleton_4",
   layer = 0,
   x = 160,
   y = 109,
   direction = 3,
-  breed = "boss/hinox_master",
+  breed = "boss/skeleton",
   treasure_name = "hookshot",
 }
 
@@ -17514,7 +17611,7 @@ custom_entity{
 custom_entity{
   name = "hook_bridge_2",
   layer = 0,
-  x = 1816,
+  x = 1824,
   y = 605,
   width = 16,
   height = 16,
@@ -17525,7 +17622,7 @@ custom_entity{
 custom_entity{
   name = "hook_bridge_3",
   layer = 0,
-  x = 1216,
+  x = 1224,
   y = 1341,
   width = 16,
   height = 16,
@@ -17536,7 +17633,7 @@ custom_entity{
 custom_entity{
   name = "hook_bridge_4",
   layer = 0,
-  x = 1168,
+  x = 1176,
   y = 469,
   width = 16,
   height = 16,
@@ -19405,9 +19502,9 @@ separator{
   name = "auto_separator_4",
   layer = 2,
   x = 1272,
-  y = 0,
+  y = 256,
   width = 16,
-  height = 2048,
+  height = 1792,
 }
 
 separator{
@@ -19432,9 +19529,9 @@ separator{
   name = "auto_separator_1",
   layer = 2,
   x = 312,
-  y = 0,
+  y = 256,
   width = 16,
-  height = 2048,
+  height = 1792,
 }
 
 separator{
@@ -19442,7 +19539,7 @@ separator{
   layer = 2,
   x = 0,
   y = 1272,
-  width = 2240,
+  width = 1280,
   height = 16,
 }
 
@@ -19462,15 +19559,6 @@ separator{
   y = 0,
   width = 16,
   height = 768,
-}
-
-separator{
-  name = "auto_separator_5",
-  layer = 2,
-  x = 1592,
-  y = 1024,
-  width = 16,
-  height = 1024,
 }
 
 separator{
@@ -19496,7 +19584,7 @@ separator{
   layer = 2,
   x = 0,
   y = 248,
-  width = 2240,
+  width = 1280,
   height = 16,
 }
 
@@ -19513,7 +19601,7 @@ separator{
   name = "auto_separator_15",
   layer = 2,
   x = 1592,
-  y = 760,
+  y = 768,
   width = 16,
   height = 256,
 }
@@ -19537,7 +19625,7 @@ separator{
 }
 
 separator{
-  name = "auto_separator_18",
+  name = "skeleton_separator_2_1",
   layer = 2,
   x = 1912,
   y = 768,
@@ -19570,5 +19658,77 @@ separator{
   y = 760,
   width = 320,
   height = 16,
+}
+
+separator{
+  name = "skeleton_separator_4_1",
+  layer = 2,
+  x = 312,
+  y = 0,
+  width = 16,
+  height = 256,
+}
+
+separator{
+  name = "skeleton_separator_3_1",
+  layer = 2,
+  x = 1280,
+  y = 248,
+  width = 320,
+  height = 16,
+}
+
+separator{
+  name = "auto_separator_24",
+  layer = 2,
+  x = 1600,
+  y = 248,
+  width = 640,
+  height = 16,
+}
+
+separator{
+  name = "skeleton_separator_1_1",
+  layer = 2,
+  x = 1280,
+  y = 1272,
+  width = 320,
+  height = 16,
+}
+
+separator{
+  name = "auto_separator_26",
+  layer = 2,
+  x = 1600,
+  y = 1272,
+  width = 640,
+  height = 16,
+}
+
+separator{
+  name = "skeleton_separator_1_2",
+  layer = 2,
+  x = 1592,
+  y = 1024,
+  width = 16,
+  height = 256,
+}
+
+separator{
+  name = "auto_separator_5",
+  layer = 2,
+  x = 1592,
+  y = 1280,
+  width = 16,
+  height = 768,
+}
+
+separator{
+  name = "skeleton_separator_3_2",
+  layer = 2,
+  x = 1272,
+  y = 0,
+  width = 16,
+  height = 256,
 }
 
