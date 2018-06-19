@@ -12585,7 +12585,7 @@ custom_entity{
   width = 64,
   height = 24,
   direction = 3,
-  sprite = "entities/statue_dungeon_4_egg",
+  sprite = "entities/statue_dungeon_3_egg",
 }
 
 destructible{
@@ -14236,16 +14236,6 @@ enemy{
   breed = "water_tektite",
 }
 
-npc{
-  name = "owl_4",
-  layer = 0,
-  x = 1424,
-  y = 941,
-  direction = 3,
-  subtype = 1,
-  sprite = "entities/owl_blue",
-}
-
 enemy{
   name = "enemy_group_7_2",
   layer = 0,
@@ -14656,7 +14646,7 @@ enemy{
 enemy{
   name = "enemy_group_14_3",
   layer = 0,
-  x = 1400,
+  x = 1392,
   y = 941,
   direction = 0,
   breed = "spike",
@@ -14666,7 +14656,7 @@ enemy{
   name = "enemy_group_14_2",
   layer = 0,
   x = 1416,
-  y = 909,
+  y = 893,
   direction = 0,
   breed = "zol_green",
 }
@@ -15091,6 +15081,40 @@ custom_entity{
   height = 16,
   direction = 3,
   sprite = "entities/handle",
+}
+
+custom_entity{
+  name = "statue_owl_free",
+  layer = 0,
+  x = 1416,
+  y = 925,
+  width = 24,
+  height = 32,
+  direction = 1,
+  sprite = "entities/statue_owl_dungeon_free",
+  model = "obstacle",
+}
+
+custom_entity{
+  name = "statue_owl_free_2",
+  layer = 0,
+  x = 1440,
+  y = 925,
+  width = 8,
+  height = 32,
+  direction = 2,
+  sprite = "entities/statue_owl_dungeon_free",
+}
+
+custom_entity{
+  name = "statue_owl_free_3",
+  layer = 0,
+  x = 1408,
+  y = 925,
+  width = 8,
+  height = 32,
+  direction = 0,
+  sprite = "entities/statue_owl_dungeon_free",
 }
 
 tile{
