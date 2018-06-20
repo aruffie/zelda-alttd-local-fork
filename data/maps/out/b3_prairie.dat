@@ -23593,6 +23593,13 @@ enemy{
   treasure_name = "random",
 }
 
+chest{
+  layer = 0,
+  x = 448,
+  y = 485,
+  sprite = "entities/chest",
+}
+
 tile{
   layer = 1,
   x = 696,

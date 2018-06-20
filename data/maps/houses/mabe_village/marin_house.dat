@@ -636,6 +636,25 @@ npc{
   behavior = "dialog#maps.houses.mabe_village.marin_house.letter",
 }
 
+teletransporter{
+  layer = 0,
+  x = 152,
+  y = 152,
+  width = 16,
+  height = 16,
+  transition = "immediate",
+  destination_map = "dungeons/5/1f",
+  destination = "dungeon_5_1_B",
+}
+
+chest{
+  layer = 0,
+  x = 216,
+  y = 117,
+  treasure_name = "hookshot",
+  sprite = "entities/chest",
+}
+
 tile{
   layer = 1,
   x = 144,
