@@ -19,7 +19,6 @@ local switch_manager = require("scripts/maps/switch_manager")
 local enemy_manager = require("scripts/maps/enemy_manager")
 local separator_manager = require("scripts/maps/separator_manager")
 local owl_manager = require("scripts/maps/owl_manager")
---require("scripts/multi_events")
 
 function map:on_started()
 
@@ -55,6 +54,8 @@ function map:init_skeletons()
     enemy:set_enabled(false)
   end
   local enemy = map:get_entity("skeleton_" .. skeleton_step)
+  print("skeleton_" .. skeleton_step)
+print(enemy)
   if enemy ~= nil then
     enemy:set_enabled(true)
   end
@@ -222,32 +223,60 @@ end
 
 -- Separator events
 
-auto_separator_15:register_event("on_activating", function(separator, direction4)
+function auto_separator_15:on_activating(direction4)
   switch_1:set_activated(false)
   block_group_2_1:reset()
   local x, y = hero:get_position()
   if direction4 == 0 then
     map:close_doors("door_group_4_")
   end
-end)
+end
 
-auto_separator_16:register_event("on_activating", function(separator, direction4)
+function auto_separator_16:on_activating(direction4)
   switch_1:set_activated(false)
   block_group_2_1:reset()
   local x, y = hero:get_position()
   if direction4 == 1 then
     map:close_doors("door_group_4_")
   end
-end)
+end
 
-auto_separator_21:register_event("on_activating", function(separator, direction4)
+function auto_separator_21:on_activating(direction4)
   switch_1:set_activated(false)
   block_group_2_1:reset()
   local x, y = hero:get_position()
   if direction4 == 3 then
     map:close_doors("door_group_4_")
   end
-end)
+end
+
+function skeleton_separator_1_1:on_activating(direction4)
+  map:init_skeletons()
+end
+
+function skeleton_separator_1_2:on_activating(direction4)
+  map:init_skeletons()
+end
+
+
+
+function skeleton_separator_2_1:on_activating(direction4)
+  --map:init_skeletons()
+end
+
+
+function skeleton_separator_3_1:on_activating(direction4)
+  --map:init_skeletons()
+end
+
+function skeleton_separator_3_1:on_activating(direction4)
+  --map:init_skeletons()
+end
+
+
+function skeleton_separator_4_1:on_activating(direction4)
+  --map:init_skeletons()
+end
 
 
 
