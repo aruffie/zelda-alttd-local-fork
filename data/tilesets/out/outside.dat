@@ -811,7 +811,7 @@ tile_pattern{
 
 tile_pattern{
   id = "1007",
-  ground = "traversable",
+  ground = "empty",
   default_layer = 0,
   x = 96,
   y = 272,
@@ -1155,7 +1155,7 @@ tile_pattern{
 
 tile_pattern{
   id = "1010",
-  ground = "traversable",
+  ground = "empty",
   default_layer = 0,
   x = 96,
   y = 296,
@@ -58023,7 +58023,7 @@ tile_pattern{
 
 tile_pattern{
   id = "14793",
-  ground = "traversable",
+  ground = "empty",
   default_layer = 0,
   x = 160,
   y = 152,
@@ -58034,7 +58034,7 @@ tile_pattern{
 
 tile_pattern{
   id = "14794",
-  ground = "traversable",
+  ground = "empty",
   default_layer = 0,
   x = 168,
   y = 152,
@@ -58045,7 +58045,7 @@ tile_pattern{
 
 tile_pattern{
   id = "14795",
-  ground = "traversable",
+  ground = "empty",
   default_layer = 0,
   x = 160,
   y = 160,
@@ -58056,7 +58056,7 @@ tile_pattern{
 
 tile_pattern{
   id = "14796",
-  ground = "traversable",
+  ground = "empty",
   default_layer = 0,
   x = 168,
   y = 160,
@@ -58067,7 +58067,7 @@ tile_pattern{
 
 tile_pattern{
   id = "14797",
-  ground = "traversable",
+  ground = "empty",
   default_layer = 0,
   x = 160,
   y = 680,
@@ -58078,7 +58078,7 @@ tile_pattern{
 
 tile_pattern{
   id = "14798",
-  ground = "traversable",
+  ground = "empty",
   default_layer = 0,
   x = 168,
   y = 680,
@@ -58089,7 +58089,7 @@ tile_pattern{
 
 tile_pattern{
   id = "14799",
-  ground = "traversable",
+  ground = "empty",
   default_layer = 0,
   x = 168,
   y = 688,
@@ -58121,7 +58121,7 @@ tile_pattern{
 
 tile_pattern{
   id = "14800",
-  ground = "traversable",
+  ground = "empty",
   default_layer = 0,
   x = 160,
   y = 688,
@@ -58132,7 +58132,7 @@ tile_pattern{
 
 tile_pattern{
   id = "14801",
-  ground = "traversable",
+  ground = "empty",
   default_layer = 0,
   x = 160,
   y = 1208,
@@ -58143,7 +58143,7 @@ tile_pattern{
 
 tile_pattern{
   id = "14802",
-  ground = "traversable",
+  ground = "empty",
   default_layer = 0,
   x = 168,
   y = 1208,
@@ -58154,7 +58154,7 @@ tile_pattern{
 
 tile_pattern{
   id = "14803",
-  ground = "traversable",
+  ground = "empty",
   default_layer = 0,
   x = 168,
   y = 1216,
@@ -58165,7 +58165,7 @@ tile_pattern{
 
 tile_pattern{
   id = "14804",
-  ground = "traversable",
+  ground = "empty",
   default_layer = 0,
   x = 160,
   y = 1216,
@@ -58176,7 +58176,7 @@ tile_pattern{
 
 tile_pattern{
   id = "14805",
-  ground = "traversable",
+  ground = "empty",
   default_layer = 0,
   x = 160,
   y = 1736,
@@ -58187,7 +58187,7 @@ tile_pattern{
 
 tile_pattern{
   id = "14806",
-  ground = "traversable",
+  ground = "empty",
   default_layer = 0,
   x = 168,
   y = 1736,
@@ -58198,7 +58198,7 @@ tile_pattern{
 
 tile_pattern{
   id = "14807",
-  ground = "traversable",
+  ground = "empty",
   default_layer = 0,
   x = 168,
   y = 1744,
@@ -58209,7 +58209,7 @@ tile_pattern{
 
 tile_pattern{
   id = "14808",
-  ground = "traversable",
+  ground = "empty",
   default_layer = 0,
   x = 160,
   y = 1744,
@@ -62549,7 +62549,7 @@ tile_pattern{
 
 tile_pattern{
   id = "1751",
-  ground = "traversable",
+  ground = "empty",
   default_layer = 0,
   x = 96,
   y = 800,
@@ -62582,7 +62582,7 @@ tile_pattern{
 
 tile_pattern{
   id = "1754",
-  ground = "traversable",
+  ground = "empty",
   default_layer = 0,
   x = 96,
   y = 824,
@@ -71190,7 +71190,7 @@ tile_pattern{
 
 tile_pattern{
   id = "2470",
-  ground = "traversable",
+  ground = "empty",
   default_layer = 0,
   x = 168,
   y = 1224,
@@ -71964,7 +71964,7 @@ tile_pattern{
 
 tile_pattern{
   id = "2536",
-  ground = "traversable",
+  ground = "empty",
   default_layer = 0,
   x = 96,
   y = 1328,
@@ -71997,7 +71997,7 @@ tile_pattern{
 
 tile_pattern{
   id = "2539",
-  ground = "traversable",
+  ground = "empty",
   default_layer = 0,
   x = 96,
   y = 1352,
@@ -82902,7 +82902,7 @@ tile_pattern{
 
 tile_pattern{
   id = "3447",
-  ground = "traversable",
+  ground = "empty",
   default_layer = 0,
   x = 96,
   y = 1856,
@@ -82945,7 +82945,7 @@ tile_pattern{
 
 tile_pattern{
   id = "3450",
-  ground = "traversable",
+  ground = "empty",
   default_layer = 0,
   x = 96,
   y = 1880,
