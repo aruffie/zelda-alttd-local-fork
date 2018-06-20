@@ -9,7 +9,7 @@ local config = {
   -- Speed in pixels per second.
   speed = 256,
 
-  -- What types of entities can be cought.
+  -- What types of entities can be caught.
   -- Additionally, all entities that have a method "is_catchable_with_hookshot"
   -- returning true will be catchable.
   catchable_entity_types = { "pickable" },
