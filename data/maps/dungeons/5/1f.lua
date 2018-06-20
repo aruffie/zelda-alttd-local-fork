@@ -250,32 +250,30 @@ function auto_separator_21:on_activating(direction4)
   end
 end
 
-function skeleton_separator_1_1:on_activating(direction4)
+function separator_skeleton_1_1:on_activating(direction4)
   map:init_skeletons()
 end
 
-function skeleton_separator_1_2:on_activating(direction4)
+function separator_skeleton_1_2:on_activating(direction4)
+  map:init_skeletons()
+end
+
+function separator_skeleton_2_1:on_activating(direction4)
   map:init_skeletons()
 end
 
 
+function separator_skeleton_3_1:on_activating(direction4)
+  map:init_skeletons()
+end
 
-function skeleton_separator_2_1:on_activating(direction4)
-  --map:init_skeletons()
+function separator_skeleton_3_1:on_activating(direction4)
+  map:init_skeletons()
 end
 
 
-function skeleton_separator_3_1:on_activating(direction4)
-  --map:init_skeletons()
-end
-
-function skeleton_separator_3_1:on_activating(direction4)
-  --map:init_skeletons()
-end
-
-
-function skeleton_separator_4_1:on_activating(direction4)
-  --map:init_skeletons()
+function separator_skeleton_4_1:on_activating(direction4)
+  map:init_skeletons()
 end
 
 
