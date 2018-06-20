@@ -28,10 +28,10 @@
 --
 -- * Catching entities:
 --
--- You can customize which entities can be cought.
--- A list of entity types that can be cought is defined in
+-- You can customize which entities can be caught.
+-- A list of entity types that can be caught is defined in
 -- hookshot_config.lua, feel free to change it.
--- You can also allow individual entities to be cought by defining a method
+-- You can also allow individual entities to be caught by defining a method
 -- is_catchable_with_hookshot() returning true.
 --
 -- * Transporting the hero:
@@ -70,7 +70,7 @@ function item:on_using()
   local hookshot
   local hookshot_sprite
   local link_sprite
-  local entities_cought = {}
+  local entities_caught = {}
   local hooked_entity
   local hooked
   local leader
@@ -190,7 +190,7 @@ function item:on_using()
 
     function movement:on_position_changed()
 
-      for _, entity in ipairs(entities_cought) do
+      for _, entity in ipairs(entities_caught) do
         entity:set_position(hookshot:get_position())
       end
     end
@@ -384,9 +384,9 @@ function item:on_using()
     elseif entity.is_catchable_with_hookshot ~= nil and entity:is_catchable_with_hookshot() then
       -- Catch the entity with the hookshot.
       if not hooked and not going_back then
-        entities_cought[#entities_cought + 1] = entity
+        entities_caught[#entities_caught + 1] = entity
         entity:set_position(hookshot:get_position())
-        hookshot:set_modified_ground("traversable")  -- Don't let the cought entity fall in holes.
+        hookshot:set_modified_ground("traversable")  -- Don't let the caught entity fall in holes.
         go_back()
       end
 
