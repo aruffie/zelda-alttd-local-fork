@@ -182,6 +182,24 @@ function sensor_7:on_activated()
 
 end
 
+function sensor_8:on_activated()
+
+  if is_boss_active == false then
+    is_boss_active = true
+    enemy_manager:launch_boss_if_not_dead(map)
+  end
+
+end
+
+function sensor_9:on_activated()
+
+  if is_small_boss_active == false then
+    is_small_boss_active = true
+    enemy_manager:launch_small_boss_if_not_dead(map)
+  end
+
+end
+
 -- Switchs events
 
 function switch_1:on_activated()
