@@ -400,6 +400,7 @@ sprite{ id = "entities/pillar", description = "Pillar" }
 sprite{ id = "entities/pillar_base", description = "Pillar base" }
 sprite{ id = "entities/pot", description = "Pot" }
 sprite{ id = "entities/powder_fly", description = "Powder fly" }
+sprite{ id = "entities/raft", description = "Raft" }
 sprite{ id = "entities/rain", description = "Rain" }
 sprite{ id = "entities/rock_block", description = "Rock block" }
 sprite{ id = "entities/rooster_dead", description = "Rooster dead" }
