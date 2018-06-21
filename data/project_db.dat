@@ -67,6 +67,9 @@ map{ id = "dungeons/4/sideview_3", description = "Sideview 3" }
 map{ id = "dungeons/4/sideview_4", description = "Sideview 4" }
 map{ id = "dungeons/5/1f", description = "Dungeon 5 1F" }
 map{ id = "dungeons/5/sideview_1", description = "Sideview 1" }
+map{ id = "dungeons/5/sideview_2", description = "Sideview 2" }
+map{ id = "dungeons/5/sideview_3", description = "Sideview 3" }
+map{ id = "dungeons/5/sideview_4", description = "Sideview 4" }
 map{ id = "dungeons/6/1f", description = "Dungeon 6 1F" }
 map{ id = "dungeons/7/1f", description = "Dungeon 7 1F" }
 map{ id = "dungeons/7/2f", description = "Dungeon 7 2F" }

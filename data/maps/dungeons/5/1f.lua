@@ -201,6 +201,12 @@ function sensor_9:on_activated()
 
 end
 
+function sensor_10:on_activated()
+
+  door_manager:close_if_enemies_not_dead(map, "enemy_group_26_", "door_group_small_boss")
+
+end
+
 -- Switchs events
 
 function switch_1:on_activated()
@@ -260,6 +266,12 @@ end
 
 function separator_skeleton_2_1:on_activating(direction4)
   map:init_skeletons()
+  switch_1:set_activated(false)
+  block_group_2_1:reset()
+  local x, y = hero:get_position()
+  if direction4 == 2 then
+    map:close_doors("door_group_4_")
+  end
 end
 
 
