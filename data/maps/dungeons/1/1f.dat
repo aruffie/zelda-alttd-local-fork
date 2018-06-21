@@ -14783,14 +14783,6 @@ destination{
   direction = 1,
 }
 
-destination{
-  name = "destination_2",
-  layer = 0,
-  x = 2000,
-  y = 1157,
-  direction = 1,
-}
-
 custom_entity{
   name = "symbol_egg_1",
   layer = 0,

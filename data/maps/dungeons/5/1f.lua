@@ -33,8 +33,16 @@ end
 
 function map:on_opening_transition_finished(destination)
 
+  local skeleton_step = game:get_value("dungeon_5_skeleton_step")
+  if skeleton_step == nil then
+    skeleton_step = 1
+  end
   treasure_manager:disappear_pickable(map, "pickable_small_key_1")
   map:set_doors_open("door_group_6_", true)
+  if skeleton_step > 2 then
+    map:set_doors_open("door_group_4_", true)
+    switch_1:set_activated(true)
+  end
   if destination == dungeon_5_1_B then
     game:start_dialog("maps.dungeons.5.welcome")
   end
@@ -54,8 +62,6 @@ function map:init_skeletons()
     enemy:set_enabled(false)
   end
   local enemy = map:get_entity("skeleton_" .. skeleton_step)
-  print("skeleton_" .. skeleton_step)
-print(enemy)
   if enemy ~= nil then
     enemy:set_enabled(true)
   end
@@ -194,7 +200,9 @@ end
 
 function sensor_9:on_activated()
 
+print('test')
   if is_small_boss_active == false then
+print('test2')
     is_small_boss_active = true
     enemy_manager:launch_small_boss_if_not_dead(map)
   end
@@ -230,28 +238,37 @@ end
 -- Separator events
 
 function auto_separator_15:on_activating(direction4)
+  local skeleton_step = game:get_value("dungeon_5_skeleton_step")
+  if skeleton_step == nil then
+    skeleton_step = 1
+  end
   switch_1:set_activated(false)
   block_group_2_1:reset()
-  local x, y = hero:get_position()
-  if direction4 == 0 then
+  if direction4 == 0 and skeleton_step <= 2 then
     map:close_doors("door_group_4_")
   end
 end
 
 function auto_separator_16:on_activating(direction4)
+  local skeleton_step = game:get_value("dungeon_5_skeleton_step")
+  if skeleton_step == nil then
+    skeleton_step = 1
+  end
   switch_1:set_activated(false)
   block_group_2_1:reset()
-  local x, y = hero:get_position()
-  if direction4 == 1 then
+  if direction4 == 1 and skeleton_step <= 2 then
     map:close_doors("door_group_4_")
   end
 end
 
 function auto_separator_21:on_activating(direction4)
+  local skeleton_step = game:get_value("dungeon_5_skeleton_step")
+  if skeleton_step == nil then
+    skeleton_step = 1
+  end
   switch_1:set_activated(false)
   block_group_2_1:reset()
-  local x, y = hero:get_position()
-  if direction4 == 3 then
+  if direction4 == 3 and skeleton_step <= 2 then
     map:close_doors("door_group_4_")
   end
 end
@@ -266,12 +283,7 @@ end
 
 function separator_skeleton_2_1:on_activating(direction4)
   map:init_skeletons()
-  switch_1:set_activated(false)
   block_group_2_1:reset()
-  local x, y = hero:get_position()
-  if direction4 == 2 then
-    map:close_doors("door_group_4_")
-  end
 end
 
 

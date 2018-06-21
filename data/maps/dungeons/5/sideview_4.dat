@@ -1216,7 +1216,7 @@ teletransporter{
   height = 16,
   transition = "immediate",
   destination_map = "dungeons/5/1f",
-  destination = "stairs_5_B",
+  destination = "stairs_13_B",
 }
 
 teletransporter{
@@ -1228,7 +1228,7 @@ teletransporter{
   height = 16,
   transition = "immediate",
   destination_map = "dungeons/5/1f",
-  destination = "stairs_7_B",
+  destination = "stairs_15_B",
 }
 
 destination{
