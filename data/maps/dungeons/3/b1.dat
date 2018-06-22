@@ -7283,6 +7283,52 @@ custom_entity{
   sprite = "entities/statue_dungeon_3_egg",
 }
 
+door{
+  name = "door_group_boss_1",
+  layer = 0,
+  x = 1112,
+  y = 1752,
+  direction = 1,
+  sprite = "entities/doors/door_boss_key",
+  savegame_variable = "dungeon_1_door_boss",
+  opening_method = "interaction_if_savegame_variable",
+  opening_condition = "dungeon_1_boss_key",
+}
+
+door{
+  name = "door_group_boss_2",
+  layer = 0,
+  x = 1112,
+  y = 1816,
+  direction = 3,
+  sprite = "entities/doors/door_boss_key",
+  savegame_variable = "dungeon_1_door_boss",
+  opening_method = "interaction_if_savegame_variable",
+  opening_condition = "dungeon_1_boss_key",
+}
+
+door{
+  name = "door_group_boss_4",
+  layer = 0,
+  x = 1112,
+  y = 1560,
+  direction = 3,
+  sprite = "entities/doors/door_normal",
+  opening_condition = "dungeon_1_small_keys",
+  opening_condition_consumed = true,
+}
+
+door{
+  name = "door_group_boss_3",
+  layer = 0,
+  x = 1112,
+  y = 1496,
+  direction = 1,
+  sprite = "entities/doors/door_normal",
+  opening_condition = "dungeon_1_small_keys",
+  opening_condition_consumed = true,
+}
+
 tile{
   layer = 1,
   x = 1008,

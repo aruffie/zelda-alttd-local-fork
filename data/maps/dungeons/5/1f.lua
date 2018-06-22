@@ -26,8 +26,8 @@ function map:on_started()
   -- Init music
   game:play_dungeon_music()
   treasure_manager:appear_chest_if_savegame_exist(map, "chest_beak_of_stone",  "dungeon_5_beak_of_stone")
-
-
+  enemy_manager:create_teletransporter_if_small_boss_dead(map, false)
+  treasure_manager:appear_heart_container_if_boss_dead(map)
 
 end
 
@@ -224,7 +224,6 @@ function switch_1:on_activated()
 
 end
 
-
 -- Chests events
 
 function chest_hookshot_fail:on_opened()
@@ -286,7 +285,6 @@ function separator_skeleton_2_1:on_activating(direction4)
   block_group_2_1:reset()
 end
 
-
 function separator_skeleton_3_1:on_activating(direction4)
   map:init_skeletons()
 end
@@ -299,8 +297,6 @@ end
 function separator_skeleton_4_1:on_activating(direction4)
   map:init_skeletons()
 end
-
-
 
 separator_manager:manage_map(map)
 owl_manager:manage_map(map)

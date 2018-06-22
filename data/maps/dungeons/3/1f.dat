@@ -8777,6 +8777,15 @@ tile{
   pattern = "torch_big.bottom",
 }
 
+tile{
+  layer = 0,
+  x = 1064,
+  y = 1664,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.1-5",
+}
+
 block{
   layer = 0,
   x = 1352,
