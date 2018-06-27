@@ -233,6 +233,7 @@ sprite{ id = "enemies/monkey", description = "Monkey" }
 sprite{ id = "enemies/monkey_coconut", description = "Monkey coconut" }
 sprite{ id = "enemies/octorok", description = "Octorok" }
 sprite{ id = "enemies/octorok_stone", description = "Octorok stone" }
+sprite{ id = "enemies/pairodd", description = "Pairodd" }
 sprite{ id = "enemies/peahat", description = "Peahat" }
 sprite{ id = "enemies/pike_auto", description = "Pike auto" }
 sprite{ id = "enemies/pike_detect", description = "Pike detect" }
