@@ -967,6 +967,7 @@ enemy{ id = "moblin_pig_sword", description = "Moblin pig sword" }
 enemy{ id = "monkey", description = "Monkey" }
 enemy{ id = "octorok", description = "Octorok" }
 enemy{ id = "octorok_stone", description = "Octorok stone" }
+enemy{ id = "peahat", description = "Peahat" }
 enemy{ id = "pike_auto", description = "Pike auto" }
 enemy{ id = "pike_detect", description = "Pike detect" }
 enemy{ id = "pike_fixed", description = "Pike fixed" }

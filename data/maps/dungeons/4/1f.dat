@@ -13896,7 +13896,7 @@ enemy{
   x = 1688,
   y = 1181,
   direction = 0,
-  breed = "raven",
+  breed = "peahat",
 }
 
 enemy{
@@ -14143,7 +14143,7 @@ enemy{
   x = 2184,
   y = 957,
   direction = 0,
-  breed = "raven",
+  breed = "peahat",
 }
 
 enemy{
@@ -14152,7 +14152,7 @@ enemy{
   x = 2120,
   y = 717,
   direction = 0,
-  breed = "raven",
+  breed = "peahat",
 }
 
 enemy{
@@ -14161,7 +14161,7 @@ enemy{
   x = 2056,
   y = 653,
   direction = 0,
-  breed = "raven",
+  breed = "peahat",
 }
 
 enemy{
@@ -14280,7 +14280,7 @@ enemy{
   x = 904,
   y = 1101,
   direction = 0,
-  breed = "raven",
+  breed = "peahat",
 }
 
 enemy{
@@ -14289,7 +14289,7 @@ enemy{
   x = 840,
   y = 1165,
   direction = 0,
-  breed = "raven",
+  breed = "peahat",
 }
 
 enemy{
@@ -14298,7 +14298,7 @@ enemy{
   x = 744,
   y = 1085,
   direction = 0,
-  breed = "raven",
+  breed = "peahat",
 }
 
 enemy{
@@ -14501,7 +14501,7 @@ enemy{
   x = 1464,
   y = 1117,
   direction = 0,
-  breed = "raven",
+  breed = "peahat",
 }
 
 enemy{
@@ -14726,7 +14726,7 @@ enemy{
   x = 1080,
   y = 381,
   direction = 0,
-  breed = "chicken",
+  breed = "helmasaur_masked",
 }
 
 enemy{
@@ -14735,7 +14735,7 @@ enemy{
   x = 1160,
   y = 381,
   direction = 0,
-  breed = "chicken",
+  breed = "helmasaur_masked",
 }
 
 enemy{
