@@ -12433,6 +12433,7 @@ block{
 }
 
 block{
+  name = "block_group_1_1",
   layer = 0,
   x = 1800,
   y = 637,
@@ -12454,6 +12455,7 @@ block{
 }
 
 block{
+  name = "block_group_1_2",
   layer = 0,
   x = 1784,
   y = 653,
@@ -17318,6 +17320,7 @@ dynamic_tile{
 }
 
 enemy{
+  name = "enemy_group_26_1",
   layer = 2,
   x = 1088,
   y = 557,
@@ -17326,6 +17329,7 @@ enemy{
 }
 
 enemy{
+  name = "enemy_group_26_2",
   layer = 2,
   x = 1120,
   y = 557,
@@ -17334,6 +17338,7 @@ enemy{
 }
 
 enemy{
+  name = "enemy_group_25_1",
   layer = 2,
   x = 1088,
   y = 45,
@@ -17342,6 +17347,7 @@ enemy{
 }
 
 enemy{
+  name = "enemy_group_25_2",
   layer = 2,
   x = 1120,
   y = 45,

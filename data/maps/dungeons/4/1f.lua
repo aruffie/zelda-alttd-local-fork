@@ -124,10 +124,29 @@ end
 
 function sensor_11:on_activated()
 
-  door_manager:close_if_enemies_not_dead(map,  "enemy_group_23_",  "door_group_6_")
+  sensor_10:on_activated()
 
 end
 
+-- Separator events
+
+function auto_separator_5:on_activating(direction4)
+  for block in map:get_entities("block_group_1_") do
+    block:reset()
+  end
+end
+
+function auto_separator_6:on_activating(direction4)
+  auto_separator_5:on_activating(direction4)
+end
+
+function auto_separator_12:on_activating(direction4)
+  auto_separator_5:on_activating(direction4)
+end
+
+function auto_separator_13:on_activating(direction4)
+  auto_separator_5:on_activating(direction4)
+end
 
 separator_manager:manage_map(map)
 owl_manager:manage_map(map)
