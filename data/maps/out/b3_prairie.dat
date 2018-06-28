@@ -19123,18 +19123,6 @@ teletransporter{
 }
 
 custom_entity{
-  name = "dungeon_3_statue",
-  layer = 0,
-  x = 424,
-  y = 717,
-  width = 16,
-  height = 24,
-  direction = 0,
-  sprite = "entities/statue_small_key_dungeon_3",
-  model = "obstacle",
-}
-
-custom_entity{
   layer = 0,
   x = 488,
   y = 725,
@@ -19303,7 +19291,7 @@ npc{
   name = "dungeon_3_lock",
   layer = 0,
   x = 424,
-  y = 725,
+  y = 717,
   direction = 3,
   subtype = 0,
 }
@@ -23598,6 +23586,18 @@ chest{
   x = 448,
   y = 485,
   sprite = "entities/chest",
+}
+
+custom_entity{
+  name = "dungeon_3_statue",
+  layer = 0,
+  x = 424,
+  y = 717,
+  width = 16,
+  height = 24,
+  direction = 0,
+  sprite = "entities/statue_small_key_dungeon_3",
+  model = "obstacle",
 }
 
 tile{
