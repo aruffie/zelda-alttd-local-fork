@@ -1041,3 +1041,4 @@ shader{ id = "sepia", description = "Sepia" }
 shader{ id = "toon", description = "Toon" }
 shader{ id = "xBR-v3.8c", description = "xBR-v3.8c" }
 
+file{ path = "sprites/entities/statue_dungeon_7.dat", author = "Newlink", }

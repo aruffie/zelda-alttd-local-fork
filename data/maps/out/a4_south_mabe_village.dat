@@ -11301,17 +11301,6 @@ custom_entity{
   model = "obstacle",
 }
 
-custom_entity{
-  layer = 0,
-  x = 864,
-  y = 317,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_dungeon_1_key",
-  model = "obstacle",
-}
-
 npc{
   name = "dungeon_1_lock",
   layer = 0,
@@ -11378,6 +11367,17 @@ custom_entity{
   direction = 0,
   sprite = "entities/non_diggable",
   model = "non_diggable",
+}
+
+custom_entity{
+  layer = 0,
+  x = 864,
+  y = 317,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statue_dungeon_1_key",
+  model = "obstacle",
 }
 
 tile{
