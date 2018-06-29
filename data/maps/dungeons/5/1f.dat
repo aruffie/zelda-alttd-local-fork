@@ -17257,8 +17257,8 @@ enemy{
   layer = 0,
   x = 1440,
   y = 1141,
-  direction = 3,
-  breed = "boss/skeleton",
+  direction = 0,
+  breed = "boss/master_stalfos",
 }
 
 enemy{
@@ -17483,8 +17483,8 @@ enemy{
   layer = 0,
   x = 1440,
   y = 133,
-  direction = 3,
-  breed = "boss/skeleton",
+  direction = 0,
+  breed = "boss/master_stalfos",
 }
 
 enemy{
@@ -17492,8 +17492,8 @@ enemy{
   layer = 0,
   x = 2080,
   y = 909,
-  direction = 3,
-  breed = "boss/skeleton",
+  direction = 0,
+  breed = "boss/master_stalfos",
 }
 
 custom_entity{
@@ -17940,9 +17940,9 @@ enemy{
   name = "skeleton_4",
   layer = 0,
   x = 160,
-  y = 109,
-  direction = 3,
-  breed = "boss/skeleton",
+  y = 125,
+  direction = 0,
+  breed = "boss/master_stalfos",
   treasure_name = "hookshot",
 }
 
