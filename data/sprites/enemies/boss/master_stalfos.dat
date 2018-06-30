@@ -1,11 +1,13 @@
 animation{
-  name = "waiting",
+  name = "walking",
   src_image = "enemies/boss/master_stalfos.png",
+  frame_delay = 150,
+  frame_to_loop_on = 0,
   directions = {
-    { x = 0, y = 0, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 77 },
-    { x = 0, y = 0, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 77 },
-    { x = 0, y = 80, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 77 },
-    { x = 0, y = 80, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 77 },
+    { x = 0, y = 0, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 77, num_frames = 4 },
+    { x = 0, y = 0, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 77, num_frames = 4 },
+    { x = 0, y = 80, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 77, num_frames = 4 },
+    { x = 0, y = 80, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 77, num_frames = 4 },
   },
 }
 animation{
@@ -42,14 +44,12 @@ animation{
   },
 }
 animation{
-  name = "walking",
+  name = "waiting",
   src_image = "enemies/boss/master_stalfos.png",
-  frame_delay = 150,
-  frame_to_loop_on = 0,
   directions = {
-    { x = 0, y = 0, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 77, num_frames = 4 },
-    { x = 0, y = 0, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 77, num_frames = 4 },
-    { x = 0, y = 80, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 77, num_frames = 4 },
-    { x = 0, y = 80, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 77, num_frames = 4 },
+    { x = 0, y = 0, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 77 },
+    { x = 0, y = 0, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 77 },
+    { x = 0, y = 80, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 77 },
+    { x = 0, y = 80, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 77 },
   },
 }
