@@ -172,7 +172,6 @@ sprite{ id = "enemies/armos", description = "Armos" }
 sprite{ id = "enemies/arrow", description = "Arrow" }
 sprite{ id = "enemies/beamos", description = "Beamos" }
 sprite{ id = "enemies/bomber", description = "Bomber" }
-sprite{ id = "enemies/bombite_explosion", description = "Bombite explosion" }
 sprite{ id = "enemies/boo_buddy", description = "Boo buddy" }
 sprite{ id = "enemies/boss/dodongo_snake", description = "Dodongo_snake" }
 sprite{ id = "enemies/boss/dodongo_snake/dodongo_snake_body", description = "Dodongo snake body" }
@@ -204,7 +203,6 @@ sprite{ id = "enemies/cukeman", description = "Cukeman" }
 sprite{ id = "enemies/darknut_bow", description = "Darknut bow" }
 sprite{ id = "enemies/darknut_sword", description = "Darknut sword" }
 sprite{ id = "enemies/death_ball", description = "Death ball" }
-sprite{ id = "enemies/dodongo_snake", description = "Dodongo snake" }
 sprite{ id = "enemies/dog", description = "Dog" }
 sprite{ id = "enemies/enemy_killed", description = "Enemy killed" }
 sprite{ id = "enemies/eyegore_statue", description = "Eyegore statue" }
