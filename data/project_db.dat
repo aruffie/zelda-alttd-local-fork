@@ -256,6 +256,8 @@ sprite{ id = "enemies/stalfos_blue", description = "Stalfos blue" }
 sprite{ id = "enemies/stalfos_grey", description = "Stalfos grey" }
 sprite{ id = "enemies/stalfos_red", description = "Stalfos red" }
 sprite{ id = "enemies/star", description = "Star" }
+sprite{ id = "enemies/sword_darknut", description = "Sword darknut" }
+sprite{ id = "enemies/sword_moblin_dog", description = "Sword moblin dog" }
 sprite{ id = "enemies/sword_moblin_pig", description = "Sword moblin pig" }
 sprite{ id = "enemies/tektite_blue", description = "Tektite blue" }
 sprite{ id = "enemies/vegas", description = "Vegas" }
