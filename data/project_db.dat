@@ -244,6 +244,11 @@ sprite{ id = "enemies/pike_auto", description = "Pike auto" }
 sprite{ id = "enemies/pike_detect", description = "Pike detect" }
 sprite{ id = "enemies/pike_fixed", description = "Pike fixed" }
 sprite{ id = "enemies/piranha_plant", description = "Piranha plant" }
+sprite{ id = "enemies/pokey_2", description = "Pokey 2" }
+sprite{ id = "enemies/pokey_3", description = "Pokey_3" }
+sprite{ id = "enemies/pokey_ball", description = "pokey_ball" }
+sprite{ id = "enemies/pokey_full", description = "Pokey full" }
+sprite{ id = "enemies/pokey_head", description = "Pokey_head" }
 sprite{ id = "enemies/pols_voice", description = "Pols voice" }
 sprite{ id = "enemies/raven", description = "Raven" }
 sprite{ id = "enemies/red_bombite", description = "Red bombite" }
@@ -259,7 +264,7 @@ sprite{ id = "enemies/star", description = "Star" }
 sprite{ id = "enemies/sword_darknut", description = "Sword darknut" }
 sprite{ id = "enemies/sword_moblin_dog", description = "Sword moblin dog" }
 sprite{ id = "enemies/sword_moblin_pig", description = "Sword moblin pig" }
-sprite{ id = "enemies/tektite_blue", description = "Tektite blue" }
+sprite{ id = "enemies/tektite", description = "Tektite" }
 sprite{ id = "enemies/vegas", description = "Vegas" }
 sprite{ id = "enemies/water_tektite", description = "Water tektite" }
 sprite{ id = "enemies/wizzrobe_beam", description = "Wizzrobe beam" }
@@ -980,6 +985,7 @@ enemy{ id = "peahat", description = "Peahat" }
 enemy{ id = "pike_auto", description = "Pike auto" }
 enemy{ id = "pike_detect", description = "Pike detect" }
 enemy{ id = "pike_fixed", description = "Pike fixed" }
+enemy{ id = "pokey_full", description = "Pokey full" }
 enemy{ id = "pols_voice", description = "Pols voice" }
 enemy{ id = "raven", description = "Raven" }
 enemy{ id = "red_bombite", description = "Red bombite" }
