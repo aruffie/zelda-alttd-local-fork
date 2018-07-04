@@ -171,6 +171,9 @@ sprite{ id = "enemies/arm_mimic", description = "Arm mimic" }
 sprite{ id = "enemies/armos", description = "Armos" }
 sprite{ id = "enemies/arrow", description = "Arrow" }
 sprite{ id = "enemies/beamos", description = "Beamos" }
+sprite{ id = "enemies/beetle_blue", description = "Beetle blue" }
+sprite{ id = "enemies/beetle_green", description = "Beetle green" }
+sprite{ id = "enemies/beetle_red", description = "Beetle red" }
 sprite{ id = "enemies/bomber", description = "Bomber" }
 sprite{ id = "enemies/boo_buddy", description = "Boo buddy" }
 sprite{ id = "enemies/boss/dodongo_snake", description = "Dodongo_snake" }
@@ -243,6 +246,9 @@ sprite{ id = "enemies/peahat", description = "Peahat" }
 sprite{ id = "enemies/pike_auto", description = "Pike auto" }
 sprite{ id = "enemies/pike_detect", description = "Pike detect" }
 sprite{ id = "enemies/pike_fixed", description = "Pike fixed" }
+sprite{ id = "enemies/pincer_body", description = "Pincer body" }
+sprite{ id = "enemies/pincer_eyes", description = "Pincer eyes" }
+sprite{ id = "enemies/pincer_head", description = "Pincer head" }
 sprite{ id = "enemies/piranha_plant", description = "Piranha plant" }
 sprite{ id = "enemies/pokey_2", description = "Pokey 2" }
 sprite{ id = "enemies/pokey_3", description = "Pokey_3" }
