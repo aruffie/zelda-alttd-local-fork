@@ -249,6 +249,7 @@ sprite{ id = "enemies/pike_fixed", description = "Pike fixed" }
 sprite{ id = "enemies/pincer_body", description = "Pincer body" }
 sprite{ id = "enemies/pincer_eyes", description = "Pincer eyes" }
 sprite{ id = "enemies/pincer_head", description = "Pincer head" }
+sprite{ id = "enemies/piranha", description = "Piranha" }
 sprite{ id = "enemies/piranha_plant", description = "Piranha plant" }
 sprite{ id = "enemies/pokey_2", description = "Pokey 2" }
 sprite{ id = "enemies/pokey_3", description = "Pokey_3" }
