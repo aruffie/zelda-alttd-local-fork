@@ -453,37 +453,41 @@ function file_selection_menu:on_key_pressed(key)
             -- Open a keyboard to allow the player to type his/her name.
             keyboardbox:show(sol.main, "What's your name?", "", 1, 6, function(result)
               self:set_phase(self.phases.CHOOSE_PLAY)
-              
-              -- Block player's input.
-              self.finished = true
 
-              -- Specific to Link's Awakening.
-              local lower_result = string.lower(result)
-              if lower_result == "zelda" or lower_result == "binbin" or lower_result == "chris" then
-                sol.audio.play_music("scripts/menus/player_select_zelda")
-              elseif lower_result == "moyse" then
-                sol.audio.play_music("scripts/menus/player_select_moyse")
-              end
+              -- A non-empty string means the player has typed his/her name and
+              -- has accepted the dialog box.
+              if string.len(result) > 0 then
+                -- Block player's input.
+                self.finished = true
 
-              -- Save the player's name.
-              local savegame = slot.savegame
-              savegame:set_value("player_name", result)
-              savegame:save()
+                -- Specific to Link's Awakening.
+                local lower_result = string.lower(result)
+                if lower_result == "zelda" or lower_result == "binbin" or lower_result == "chris" then
+                  sol.audio.play_music("scripts/menus/player_select_zelda")
+                elseif lower_result == "moyse" then
+                  sol.audio.play_music("scripts/menus/player_select_moyse")
+                end
 
-              -- Update the files.
-              self:read_savefiles()
+                -- Save the player's name.
+                local savegame = slot.savegame
+                savegame:set_value("player_name", result)
+                savegame:save()
 
-              -- Fade-out after a delay.
-              sol.timer.start(self, 500, function()
-                self.surface:fade_out(100)
-                sol.audio.play_sound("sword_spin_attack_load")
-              
-                -- Automatically launch the game.
-                sol.timer.start(self, 3000, function()
-                  sol.menu.stop(self)
-                  sol.main:start_savegame(slot.savegame)
+                -- Update the files.
+                self:read_savefiles()
+
+                -- Fade-out after a delay.
+                sol.timer.start(self, 500, function()
+                  self.surface:fade_out(100)
+                  sol.audio.play_sound("sword_spin_attack_load")
+                
+                  -- Automatically launch the game.
+                  sol.timer.start(self, 3000, function()
+                    sol.menu.stop(self)
+                    sol.main:start_savegame(slot.savegame)
+                  end)
                 end)
-              end)
+              end
             end)
           end
         else
