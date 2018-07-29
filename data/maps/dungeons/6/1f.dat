@@ -22426,8 +22426,8 @@ door{
 enemy{
   name = "enemy_group_24_1",
   layer = 0,
-  x = 104,
-  y = 157,
+  x = 96,
+  y = 165,
   direction = 0,
   breed = "star",
   treasure_name = "random",
@@ -24079,6 +24079,50 @@ pickable{
   y = 357,
   treasure_name = "instrument_6",
   treasure_savegame_variable = "dungeon_6_instrument",
+}
+
+custom_entity{
+  name = "horse_head",
+  layer = 0,
+  x = 200,
+  y = 181,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/horse_head",
+}
+
+custom_entity{
+  name = "horse_head_2",
+  layer = 0,
+  x = 136,
+  y = 165,
+  width = 16,
+  height = 16,
+  direction = 2,
+  sprite = "entities/horse_head",
+}
+
+custom_entity{
+  name = "horse_head_3",
+  layer = 0,
+  x = 784,
+  y = 629,
+  width = 16,
+  height = 16,
+  direction = 2,
+  sprite = "entities/horse_head",
+}
+
+custom_entity{
+  name = "horse_head_4",
+  layer = 0,
+  x = 816,
+  y = 645,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/horse_head",
 }
 
 tile{
