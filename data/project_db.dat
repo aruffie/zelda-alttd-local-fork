@@ -401,6 +401,7 @@ sprite{ id = "entities/mad_batter_set", description = "Mad batter set" }
 sprite{ id = "entities/mask_helmasaur", description = "Mask helmasaur" }
 sprite{ id = "entities/mask_shrine_column", description = "Mask shrine column" }
 sprite{ id = "entities/mask_shrine_slabs", description = "Mask shrine slabs" }
+sprite{ id = "entities/mega_thwomp", description = "Mega thwomp" }
 sprite{ id = "entities/moblin_carpet", description = "Moblin carpet" }
 sprite{ id = "entities/moblin_fire", description = "Moblin fire" }
 sprite{ id = "entities/moblin_throne", description = "Moblin throne" }

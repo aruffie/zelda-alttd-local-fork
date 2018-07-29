@@ -319,7 +319,7 @@ tile{
 tile{
   layer = 0,
   x = 80,
-  y = 96,
+  y = 88,
   width = 8,
   height = 8,
   pattern = "37",
@@ -328,7 +328,7 @@ tile{
 tile{
   layer = 0,
   x = 88,
-  y = 96,
+  y = 88,
   width = 48,
   height = 8,
   pattern = "38",
@@ -337,7 +337,7 @@ tile{
 tile{
   layer = 0,
   x = 136,
-  y = 96,
+  y = 88,
   width = 8,
   height = 8,
   pattern = "39",
@@ -346,7 +346,7 @@ tile{
 tile{
   layer = 0,
   x = 136,
-  y = 104,
+  y = 96,
   width = 8,
   height = 8,
   pattern = "53",
@@ -355,7 +355,7 @@ tile{
 tile{
   layer = 0,
   x = 88,
-  y = 104,
+  y = 96,
   width = 48,
   height = 8,
   pattern = "52",
@@ -364,7 +364,7 @@ tile{
 tile{
   layer = 0,
   x = 80,
-  y = 104,
+  y = 96,
   width = 8,
   height = 8,
   pattern = "51",
@@ -373,7 +373,7 @@ tile{
 tile{
   layer = 0,
   x = 192,
-  y = 96,
+  y = 88,
   width = 8,
   height = 8,
   pattern = "37",
@@ -382,7 +382,7 @@ tile{
 tile{
   layer = 0,
   x = 200,
-  y = 96,
+  y = 88,
   width = 16,
   height = 8,
   pattern = "38",
@@ -391,7 +391,7 @@ tile{
 tile{
   layer = 0,
   x = 216,
-  y = 96,
+  y = 88,
   width = 8,
   height = 8,
   pattern = "39",
@@ -400,7 +400,7 @@ tile{
 tile{
   layer = 0,
   x = 216,
-  y = 104,
+  y = 96,
   width = 8,
   height = 8,
   pattern = "53",
@@ -409,7 +409,7 @@ tile{
 tile{
   layer = 0,
   x = 200,
-  y = 104,
+  y = 96,
   width = 16,
   height = 8,
   pattern = "52",
@@ -418,7 +418,7 @@ tile{
 tile{
   layer = 0,
   x = 192,
-  y = 104,
+  y = 96,
   width = 8,
   height = 8,
   pattern = "51",
@@ -499,9 +499,9 @@ tile{
 tile{
   layer = 0,
   x = 224,
-  y = 96,
+  y = 88,
   width = 16,
-  height = 80,
+  height = 88,
   pattern = "79",
 }
 
@@ -646,5 +646,16 @@ separator{
   y = 0,
   width = 16,
   height = 256,
+}
+
+custom_entity{
+  name = "mega_thwomp",
+  layer = 0,
+  x = 152,
+  y = 69,
+  width = 48,
+  height = 48,
+  direction = 0,
+  sprite = "entities/mega_thwomp",
 }
 
