@@ -407,6 +407,7 @@ sprite{ id = "entities/moblin_throne", description = "Moblin throne" }
 sprite{ id = "entities/movies/background_introduction", description = "Background introduction" }
 sprite{ id = "entities/movies/swell", description = "Swell" }
 sprite{ id = "entities/movies/wreck", description = "Wreck" }
+sprite{ id = "entities/moving_platform_dg_2", description = "Moving platform dg 2" }
 sprite{ id = "entities/non_diggable", description = "Diggable" }
 sprite{ id = "entities/notes", description = "Notes" }
 sprite{ id = "entities/outside_door", description = "Outside closed door" }
@@ -424,6 +425,7 @@ sprite{ id = "entities/phone_statue", description = "Phone statue" }
 sprite{ id = "entities/pillar", description = "Pillar" }
 sprite{ id = "entities/pillar_base", description = "Pillar base" }
 sprite{ id = "entities/pot", description = "Pot" }
+sprite{ id = "entities/pot_sideview_dg_2", description = "Pot sideview dg 2" }
 sprite{ id = "entities/powder_fly", description = "Powder fly" }
 sprite{ id = "entities/raft", description = "Raft" }
 sprite{ id = "entities/rain", description = "Rain" }
@@ -472,6 +474,7 @@ sprite{ id = "entities/statue_dungeon_7_egg", description = "Statue dungeon 7 eg
 sprite{ id = "entities/statue_dungeon_7_owl", description = "Statue dungeon 7 owl" }
 sprite{ id = "entities/statue_dungeon_8_egg", description = "Statue dungeon 8 egg" }
 sprite{ id = "entities/statue_dungeon_8_owl", description = "Statue dungeon 8 owl" }
+sprite{ id = "entities/statue_koopa_hookable", description = "Statue koopa hookable" }
 sprite{ id = "entities/statue_liftable_dungeon_6", description = "Statue liftable dungeon 6" }
 sprite{ id = "entities/statue_mermaid", description = "Statue mermaid" }
 sprite{ id = "entities/statue_owl_dungeon_free", description = "Statue owl dungeon free" }

@@ -1307,3 +1307,27 @@ enemy{
   breed = "goomba",
 }
 
+custom_entity{
+  name = "statue_koopa",
+  layer = 0,
+  x = 616,
+  y = 85,
+  width = 16,
+  height = 16,
+  direction = 2,
+  sprite = "entities/statue_koopa_hookable",
+  model = "hookable",
+}
+
+custom_entity{
+  name = "statue_koopa_2",
+  layer = 0,
+  x = 56,
+  y = 93,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statue_koopa_hookable",
+  model = "hookable",
+}
+
