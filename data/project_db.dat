@@ -167,6 +167,7 @@ tileset{ id = "out/light_world_legacy", description = "Light world legacy" }
 tileset{ id = "out/outside", description = "Outside" }
 tileset{ id = "sideview/sideview", description = "Side view tileset" }
 
+sprite{ id = "enemies/angler_brick", description = "Angler brick" }
 sprite{ id = "enemies/angler_fry", description = "Angler fry" }
 sprite{ id = "enemies/arm_mimic", description = "Arm mimic" }
 sprite{ id = "enemies/armos", description = "Armos" }
@@ -387,6 +388,7 @@ sprite{ id = "entities/hook_bridge_deployed", description = "hook_bridge_deploye
 sprite{ id = "entities/hookshot", description = "Hookshot" }
 sprite{ id = "entities/horse_head", description = "Horse head" }
 sprite{ id = "entities/house_dungeon_7", description = "House dungeon 7" }
+sprite{ id = "entities/ice_block", description = "Ice block" }
 sprite{ id = "entities/instrument_big_sparkle", description = "Instrument big sparkle" }
 sprite{ id = "entities/instrument_small_sparkle", description = "Instrument small sparkle" }
 sprite{ id = "entities/iron_ball", description = "Iron ball" }
