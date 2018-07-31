@@ -167,6 +167,7 @@ tileset{ id = "out/light_world_legacy", description = "Light world legacy" }
 tileset{ id = "out/outside", description = "Outside" }
 tileset{ id = "sideview/sideview", description = "Side view tileset" }
 
+sprite{ id = "enemies/angler_fry", description = "Angler fry" }
 sprite{ id = "enemies/arm_mimic", description = "Arm mimic" }
 sprite{ id = "enemies/armos", description = "Armos" }
 sprite{ id = "enemies/arrow", description = "Arrow" }
@@ -218,6 +219,7 @@ sprite{ id = "enemies/flying_octorok", description = "Flying octorok" }
 sprite{ id = "enemies/flying_tile", description = "Flying tile" }
 sprite{ id = "enemies/gel_red", description = "Gel red" }
 sprite{ id = "enemies/ghini", description = "Ghini" }
+sprite{ id = "enemies/giant_bubble", description = "Giant bubble" }
 sprite{ id = "enemies/giant_ghini", description = "Giant ghini" }
 sprite{ id = "enemies/giant_goponga_flower", description = "Giant Goponga Flower" }
 sprite{ id = "enemies/gibdo", description = "Gibdo" }
