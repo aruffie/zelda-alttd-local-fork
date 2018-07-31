@@ -200,6 +200,7 @@ sprite{ id = "enemies/boss/moldorm/moldorm_head", description = "Moldorm 1 head"
 sprite{ id = "enemies/boss/rolling_bones", description = "Rolling bones" }
 sprite{ id = "enemies/boss/rolling_bones/rolling_bones_spike", description = "Rolling bones spike" }
 sprite{ id = "enemies/boss/skeleton", description = "Skeleton" }
+sprite{ id = "enemies/boulder", description = "Boulder" }
 sprite{ id = "enemies/bubble", description = "Bubble" }
 sprite{ id = "enemies/buzz_blob", description = "Buzz blob" }
 sprite{ id = "enemies/cheep_cheep", description = "Cheep cheep" }
@@ -260,6 +261,7 @@ sprite{ id = "enemies/pincer_eyes", description = "Pincer eyes" }
 sprite{ id = "enemies/pincer_head", description = "Pincer head" }
 sprite{ id = "enemies/piranha", description = "Piranha" }
 sprite{ id = "enemies/piranha_plant", description = "Piranha plant" }
+sprite{ id = "enemies/podoboo", description = "Podoboo" }
 sprite{ id = "enemies/pokey_2", description = "Pokey 2" }
 sprite{ id = "enemies/pokey_3", description = "Pokey_3" }
 sprite{ id = "enemies/pokey_ball", description = "pokey_ball" }
@@ -278,6 +280,7 @@ sprite{ id = "enemies/stalfos_blue", description = "Stalfos blue" }
 sprite{ id = "enemies/stalfos_grey", description = "Stalfos grey" }
 sprite{ id = "enemies/stalfos_red", description = "Stalfos red" }
 sprite{ id = "enemies/star", description = "Star" }
+sprite{ id = "enemies/stone_hinox_boulder", description = "Stone hinox boulder" }
 sprite{ id = "enemies/sword_darknut", description = "Sword darknut" }
 sprite{ id = "enemies/sword_moblin_dog", description = "Sword moblin dog" }
 sprite{ id = "enemies/sword_moblin_pig", description = "Sword moblin pig" }
