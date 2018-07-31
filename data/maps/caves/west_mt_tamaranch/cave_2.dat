@@ -1364,13 +1364,15 @@ custom_entity{
   sprite = "entities/cave_rock",
 }
 
-enemy{
-  name = "enemy_group_1_1",
+custom_entity{
+  name = "flame_fountain",
   layer = 0,
   x = 240,
   y = 61,
+  width = 16,
+  height = 16,
   direction = 0,
-  breed = "zol_green",
+  sprite = "entities/flame_fountain_machine",
 }
 
 tile{
