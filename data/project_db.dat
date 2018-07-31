@@ -240,6 +240,7 @@ sprite{ id = "enemies/maskass", description = "Maskass" }
 sprite{ id = "enemies/mini_moldorm", description = "Mini moldorm" }
 sprite{ id = "enemies/mini_moldorm_body", description = "Mini Moldorm body" }
 sprite{ id = "enemies/mini_moldorm_tail", description = "Mini moldorm tail" }
+sprite{ id = "enemies/mini_thwomp", description = "Mini thwomp" }
 sprite{ id = "enemies/moblin", description = "Moblin" }
 sprite{ id = "enemies/moblin_dog_spear", description = "Moblin dog spear" }
 sprite{ id = "enemies/moblin_dog_sword", description = "Moblin dog sword" }
