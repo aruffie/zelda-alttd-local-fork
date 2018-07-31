@@ -271,6 +271,7 @@ sprite{ id = "enemies/pols_voice", description = "Pols voice" }
 sprite{ id = "enemies/raven", description = "Raven" }
 sprite{ id = "enemies/red_bombite", description = "Red bombite" }
 sprite{ id = "enemies/river_zora", description = "River zora" }
+sprite{ id = "enemies/rope", description = "Rope" }
 sprite{ id = "enemies/sand_crab", description = "Crab" }
 sprite{ id = "enemies/sea_urchin", description = "Sea urchin" }
 sprite{ id = "enemies/spike", description = "Spike" }
