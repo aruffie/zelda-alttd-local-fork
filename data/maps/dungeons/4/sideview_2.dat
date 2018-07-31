@@ -891,3 +891,19 @@ separator{
   height = 256,
 }
 
+enemy{
+  layer = 0,
+  x = 456,
+  y = 69,
+  direction = 0,
+  breed = "spiked_thwomp",
+}
+
+enemy{
+  layer = 0,
+  x = 184,
+  y = 101,
+  direction = 0,
+  breed = "spiked_thwomp",
+}
+

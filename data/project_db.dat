@@ -271,6 +271,7 @@ sprite{ id = "enemies/river_zora", description = "River zora" }
 sprite{ id = "enemies/sand_crab", description = "Crab" }
 sprite{ id = "enemies/sea_urchin", description = "Sea urchin" }
 sprite{ id = "enemies/spike", description = "Spike" }
+sprite{ id = "enemies/spiked_thwomp", description = "Spiked thwomp" }
 sprite{ id = "enemies/spiny_beetle", description = "Spiny beetle" }
 sprite{ id = "enemies/stalfos_blue", description = "Stalfos blue" }
 sprite{ id = "enemies/stalfos_grey", description = "Stalfos grey" }
@@ -1015,6 +1016,7 @@ enemy{ id = "river_zora", description = "River Zora" }
 enemy{ id = "sand_crab", description = "Sand crab" }
 enemy{ id = "sea_urchin", description = "Sea urchin" }
 enemy{ id = "spike", description = "Spike" }
+enemy{ id = "spiked_thwomp", description = "Spiked thwomp" }
 enemy{ id = "stalfos_blue", description = "Stalfos blue" }
 enemy{ id = "stalfos_grey", description = "Stalfos grey" }
 enemy{ id = "stalfos_red", description = "Stalfos red" }
