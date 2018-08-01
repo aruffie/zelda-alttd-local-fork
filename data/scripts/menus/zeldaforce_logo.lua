@@ -222,6 +222,10 @@ end
 -- Step 5: Quit this menu.
 function zeldaforce_logo_menu:step5(fadeout_wait_time)
 
+  if not sol.menu.is_started(self) then
+    return
+  end
+
   self.step = 5
 
   sol.timer.start(self, fadeout_wait_time, function()
