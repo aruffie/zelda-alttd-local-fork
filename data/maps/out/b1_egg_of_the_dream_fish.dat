@@ -5666,7 +5666,7 @@ tile{
   layer = 0,
   x = 0,
   y = 416,
-  width = 144,
+  width = 80,
   height = 16,
   pattern = "1706",
 }
@@ -17162,6 +17162,15 @@ tile{
   width = 32,
   height = 32,
   pattern = "8120",
+}
+
+tile{
+  layer = 0,
+  x = 96,
+  y = 416,
+  width = 48,
+  height = 16,
+  pattern = "1706",
 }
 
 teletransporter{
