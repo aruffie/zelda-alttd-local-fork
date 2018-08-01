@@ -191,7 +191,7 @@ local function initialize_hud_features(game)
     local element = element_builder:new(game, element_config)
     if element.set_dst_position ~= nil then
       -- Compatibility with old HUD element scripts
-      -- whose new() method don't take a config parameter.
+      -- whose new() method does not take a config parameter.
       element:set_dst_position(element_config.x, element_config.y)
     end
     hud.elements[#hud.elements + 1] = element
