@@ -44,7 +44,7 @@ function enemy:go(direction4)
   local max_distance = 40 + math.random(120)
   m:set_max_distance(max_distance)
   m:set_smooth(true)
-  m:set_speed(40)
+  m:set_speed(20)
   m:set_angle(direction4 * math.pi / 2)
 end
 
