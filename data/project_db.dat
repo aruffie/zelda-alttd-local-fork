@@ -287,6 +287,8 @@ sprite{ id = "enemies/sword_moblin_dog", description = "Sword moblin dog" }
 sprite{ id = "enemies/sword_moblin_pig", description = "Sword moblin pig" }
 sprite{ id = "enemies/tektite", description = "Tektite" }
 sprite{ id = "enemies/vegas", description = "Vegas" }
+sprite{ id = "enemies/vire", description = "Vire" }
+sprite{ id = "enemies/vire_blazing_bat", description = "Vire blazing bat" }
 sprite{ id = "enemies/water_tektite", description = "Water tektite" }
 sprite{ id = "enemies/wizzrobe_beam", description = "Wizzrobe beam" }
 sprite{ id = "enemies/wizzrobe_blue", description = "Wizzrobe lue" }
