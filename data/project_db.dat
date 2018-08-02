@@ -169,6 +169,7 @@ tileset{ id = "sideview/sideview", description = "Side view tileset" }
 
 sprite{ id = "enemies/angler_brick", description = "Angler brick" }
 sprite{ id = "enemies/angler_fry", description = "Angler fry" }
+sprite{ id = "enemies/anti_kirby", description = "Anti kirby" }
 sprite{ id = "enemies/arm_mimic", description = "Arm mimic" }
 sprite{ id = "enemies/armos", description = "Armos" }
 sprite{ id = "enemies/arrow", description = "Arrow" }
