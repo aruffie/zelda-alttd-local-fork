@@ -529,14 +529,22 @@ function file_selection_menu:on_key_pressed(key)
         sol.audio.play_sound("ok")
         handled = true
         self:set_phase(self.phases.CHOOSE_DELETE)
-        -- Set the cursor on the first slot.
-        self:set_cursor_position(1)
+        -- Set the cursor on the first valid slot.
+        local first_valid_slot = 1
+        if not self:is_cursor_position_valid(first_valid_slot) then
+          first_valid_slot = self:get_cursor_next_valid_position(1, "down")
+        end
+        self:set_cursor_position(first_valid_slot)
       elseif self.phase == self.phases.CHOOSE_DELETE then
         sol.audio.play_sound("ok")
         handled = true
         self:set_phase(self.phases.CHOOSE_PLAY)
-        -- Set the cursor on the first slot.
-        self:set_cursor_position(1)
+        -- Set the cursor on the first valid slot.
+        local first_valid_slot = 1
+        if not self:is_cursor_position_valid(first_valid_slot) then
+          first_valid_slot = self:get_cursor_next_valid_position(1, "down")
+        end
+        self:set_cursor_position(first_valid_slot)
       end
     -- Press the right button.
     elseif self.cursor_position == self.slot_count + 2 then
