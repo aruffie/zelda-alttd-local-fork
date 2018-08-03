@@ -176,6 +176,10 @@ end
 -- Step 3: Letters Z and F.
 function zeldaforce_logo_menu:step3()
   
+  if not sol.menu.is_started(self) then
+    return
+  end
+
   self.step = 3
   self.has_played_sound = false
 
