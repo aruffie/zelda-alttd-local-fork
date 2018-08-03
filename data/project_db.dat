@@ -548,9 +548,9 @@ sprite{ id = "hero/ground1", description = "Grass under hero" }
 sprite{ id = "hero/ground2", description = "Shallow water under hero" }
 sprite{ id = "hero/link_happy", description = "Link happy" }
 sprite{ id = "hero/link_sad", description = "Link sad" }
+sprite{ id = "hero/shield1", description = "Hero shield 1" }
 sprite{ id = "hero/shield2", description = "Hero shield 2" }
 sprite{ id = "hero/shield3", description = "Hero shield 3" }
-sprite{ id = "hero/shield_1_above", description = "Hero shield 1" }
 sprite{ id = "hero/shield_collision_mask", description = "Shield Collision Mask" }
 sprite{ id = "hero/sword1", description = "Hero sword 1" }
 sprite{ id = "hero/sword2", description = "Hero sword 2" }
@@ -1082,5 +1082,14 @@ shader{ id = "6xbrz", description = "6xbrz" }
 shader{ id = "mode_7", description = "Mode 7" }
 shader{ id = "sepia", description = "Sepia" }
 shader{ id = "toon", description = "Toon" }
-shader{ id = "xBR-v3.8c", description = "xBR-v3.8c" }
 
+file{ path = "shaders/6xbrz.dat", author = "Christopho", license = "GPL v3" }
+file{ path = "shaders/6xbrz.frag.glsl", author = "Hyllian", license = "GPL v3" }
+file{ path = "shaders/6xbrz.vert.glsl", author = "Hyllian", license = "GPL v3" }
+file{ path = "shaders/mode_7.dat", author = "Christopho", license = "GPL v3" }
+file{ path = "shaders/mode_7.frag.glsl", author = "Christopho", license = "GPL v3" }
+file{ path = "shaders/mode_7.vert.glsl", author = "Christopho", license = "GPL v3" }
+file{ path = "shaders/sepia.dat", author = "Christopho", license = "GPL v3" }
+file{ path = "shaders/sepia.frag.glsl", author = "Vlag", license = "GPL v3" }
+file{ path = "shaders/toon.dat", author = "Christopho", license = "GPL v3" }
+file{ path = "shaders/toon.frag.glsl", author = "Vlag", license = "GPL v3" }

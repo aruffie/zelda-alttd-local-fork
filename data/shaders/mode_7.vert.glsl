@@ -14,14 +14,17 @@
  * You should have received a copy of the GNU General Public License along
  * with this program. If not, see <http://www.gnu.org/licenses/>.
  */
+
+// Mode 7 shader.
+// Shows a texture in a perspective view.
+// Inspired from https://www.shadertoy.com/view/ltsGWn
+
 #if __VERSION__ >= 130
-#define COMPAT_VARYING in
-#define COMPAT_TEXTURE texture
-out vec4 FragColor;
+#define COMPAT_VARYING out
+#define COMPAT_ATTRIBUTE in
 #else
 #define COMPAT_VARYING varying
-#define FragColor gl_FragColor
-#define COMPAT_TEXTURE texture2D
+#define COMPAT_ATTRIBUTE attribute
 #endif
 
 #ifdef GL_ES
@@ -31,15 +34,20 @@ precision mediump float;
 #define COMPAT_PRECISION
 #endif
 
-uniform sampler2D sol_texture;
+uniform mat4 sol_mvp_matrix;
+uniform mat3 sol_uv_matrix;
+COMPAT_ATTRIBUTE vec2 sol_vertex;
+COMPAT_ATTRIBUTE vec2 sol_tex_coord;
+COMPAT_ATTRIBUTE vec4 sol_color;
+
 COMPAT_VARYING vec2 sol_vtex_coord;
 COMPAT_VARYING vec4 sol_vcolor;
 
-void main() {
-    vec3 texel = COMPAT_TEXTURE(sol_texture, sol_vtex_coord).rgb;
-    FragColor = vec4(texel.x,texel.y,texel.z, 1.0);
+COMPAT_VARYING out vec4 vertex_position;
 
-    FragColor.r = dot(texel, vec3(.393, .769, .189));
-    FragColor.g = dot(texel, vec3(.349, .686, .168));
-    FragColor.b = dot(texel, vec3(.272, .534, .131));
+void main() {
+    vertex_position = sol_mvp_matrix * vec4(sol_vertex, 0, 1);
+    gl_Position = vertex_position;
+    sol_vcolor = sol_color;
+    sol_vtex_coord = (sol_uv_matrix * vec3(sol_tex_coord, 1)).xy;
 }
