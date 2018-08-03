@@ -119,7 +119,7 @@ function zeldaforce_logo_menu:on_key_pressed(key)
     end
 
     -- Go directly to last step
-    if self.step < 3 then
+    if self.step <= 3 then
       sol.audio.play_sound("solarus_logo")
       self:step4()
       self:step5(500)
@@ -162,6 +162,7 @@ function zeldaforce_logo_menu:step2()
     else
       -- At the end of the animation, start the next step.
       self.timer:stop()
+      self.timer = nil
       self:step3()
     end
   end)
@@ -181,7 +182,7 @@ function zeldaforce_logo_menu:step3()
   self:update_surface()
 
   -- Start animation.
-  self.timer = sol.timer.start(self.anim_delta, function()
+  self.timer = sol.timer.start(self, self.anim_delta, function()
     -- Elapsed time since launch of animation.
     self.elapsed_time = self.elapsed_time + self.anim_delta
     
@@ -201,6 +202,7 @@ function zeldaforce_logo_menu:step3()
     else
       -- At the end of the animation, start the next step.
       self.timer:stop()
+      self.timer = nil
       --sol.audio.play_sound("sword_spin_attack_load")
       self:step4()
 
