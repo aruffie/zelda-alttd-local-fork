@@ -136,6 +136,10 @@ end
 -- Step 1: Triforce 
 function zeldaforce_logo_menu:step2()
 
+  if not sol.menu.is_started(self) then
+    return
+  end
+
   self.step = 2
   self.has_played_sound = false
 
