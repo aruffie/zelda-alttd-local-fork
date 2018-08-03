@@ -176,7 +176,6 @@ map:register_event("on_command_pressed", function(map, command)
         shop_manager:buy_product(map, map.shop_manager_product)
       end
     elseif (command == "up" or command == "down" or command == "left" or command == "right") and link_move == true then
-      print("ok")
       return true
     end
 

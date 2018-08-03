@@ -30,6 +30,7 @@ function enemy:on_restarted()
 end
 
 function enemy:go()
+
   movement = sol.movement.create("straight")
   movement:set_angle(angle)
   movement:set_speed(96)

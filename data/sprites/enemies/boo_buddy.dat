@@ -1,5 +1,5 @@
 animation{
-  name = "strong_walking",
+  name = "walking",
   src_image = "enemies/boo_buddy.png",
   frame_delay = 100,
   frame_to_loop_on = 0,
@@ -11,7 +11,7 @@ animation{
   },
 }
 animation{
-  name = "strong_hurt",
+  name = "hurt",
   src_image = "enemies/boo_buddy.png",
   frame_delay = 100,
   frame_to_loop_on = 0,

@@ -19519,6 +19519,18 @@ custom_entity{
   sprite = "entities/statue_dungeon_2_egg",
 }
 
+wall{
+  layer = 0,
+  x = 1112,
+  y = 1496,
+  width = 16,
+  height = 80,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
 tile{
   layer = 1,
   x = 936,
@@ -21126,7 +21138,7 @@ separator{
   layer = 2,
   x = 640,
   y = 1272,
-  width = 1920,
+  width = 1280,
   height = 16,
 }
 
@@ -21299,5 +21311,23 @@ separator{
   y = 0,
   width = 16,
   height = 256,
+}
+
+separator{
+  name = "auto_separator_26",
+  layer = 2,
+  x = 1920,
+  y = 1272,
+  width = 320,
+  height = 16,
+}
+
+separator{
+  name = "auto_separator_27",
+  layer = 2,
+  x = 2240,
+  y = 1272,
+  width = 320,
+  height = 16,
 }
 
