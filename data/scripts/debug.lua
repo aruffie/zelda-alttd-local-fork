@@ -4,6 +4,7 @@
 
 -- Usage:
 -- require("scripts/debug")
+local mode_7_manager = require("scripts/mode_7")
 
 if not sol.file.exists("debug") and not sol.file.exists("debug.lua") then
   return true
@@ -33,9 +34,10 @@ function debug:on_key_pressed(key, modifiers)
     sol.menu.start(sol.main, console)
   elseif sol.main.game ~= nil and not console.enabled then
     local game = sol.main.game
+    local map = game:get_map()
     local hero = nil
-    if game ~= nil and game:get_map() ~= nil then
-      hero = game:get_map():get_entity("hero")
+    if game ~= nil and map ~= nil then
+      hero = map:get_entity("hero")
     end
 
     -- In-game cheating keys.
@@ -107,6 +109,10 @@ function debug:on_key_pressed(key, modifiers)
       function statistics:on_finished()
         game:set_suspended(false)
       end
+    elseif key == "7" then
+      local map_id = "out/a1_west_mt_tamaranch"
+      local destination_name = "travel_destination"
+      mode_7_manager:teleport(game, map:get_entity("travel_sensor"), map_id, destination_name)
     else
       -- Not a known in-game debug key.
       handled = false

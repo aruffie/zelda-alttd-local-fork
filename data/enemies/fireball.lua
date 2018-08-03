@@ -14,7 +14,7 @@ function enemy:on_created()
   self:set_obstacle_behavior("flying")
   sprite = enemy:get_sprite()
   local direction = sprite:get_direction()
-  angle = math.pi /2 * direction
+  angle = math.pi / 2 * direction
   if direction == 0 or direction == 1 then
     clockwise = false
   else
