@@ -7,6 +7,7 @@
 
 local initial_menus = {
   "scripts/menus/solarus_logo",
+  "scripts/menus/team_logo",
   "scripts/menus/zeldaforce_logo",
   "scripts/menus/language", 
   "scripts/menus/introduction", 
