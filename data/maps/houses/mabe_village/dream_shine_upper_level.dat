@@ -6,7 +6,7 @@ properties{
   min_layer = 0,
   max_layer = 2,
   world = "inside_world",
-  tileset = "dungeons/light_brown",
+  tileset = "dungeon/light_brown",
   music = "maps/houses/dream_shine_upper_level",
 }
 
@@ -643,14 +643,6 @@ custom_entity{
   direction = 0,
   sprite = "entities/torch",
   model = "torch",
-}
-
-enemy{
-  layer = 0,
-  x = 120,
-  y = 173,
-  direction = 0,
-  breed = "hardhat_beetle_blue",
 }
 
 tile{

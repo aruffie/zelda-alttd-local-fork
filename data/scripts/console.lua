@@ -1,4 +1,5 @@
 -- A Lua console that can be enabled with F12 at any time during the program.
+local mode_7_manager = require("scripts/mode_7")
 
 local console = {
   font = "minecraftia_mono",            -- Font of the console (monospaced).
@@ -72,6 +73,12 @@ local function environment_index(environment, key)
     elseif key == "tp" then
       return function(...)
         game:get_hero():teleport(...)
+        sol.menu.stop(console)
+      end
+    elseif key == "tp7" then
+      return function(...)
+        mode_7_manager:teleport(game, game:get_hero(), ...)
+        sol.menu.stop(console)
       end
     end
 

@@ -44,20 +44,56 @@ function item:on_using()
     local layer = hero:get_layer()
 
     sol.timer.start(map, 150, function()
-      map:create_dynamic_tile{
-        x = x,
-        y = y,
+      --map:create_dynamic_tile{
+      --  x = x,
+       -- y = y,
+       -- layer = layer,
+       -- width = 16,
+       -- height = 16,
+        --pattern = "728",
+       -- enabled_at_start = true
+      --}
+      local dug_entity = map:create_custom_entity{
+        name = "ground_dug",
+        sprite = "entities/ground_dug",
+        direction = 0,
+        x = x + 8,
+        y = y + 13,
         layer = layer,
         width = 16,
-        height = 16,
-        pattern = "728",
-        enabled_at_start = true
-      }
+        height = 16
+       }
+       dug_entity:bring_to_front()
 
---[[ TODO
-      if map.shovel_treasures[index] ~= nil then
-        map.shovel_treasures[index]:bring_to_front()
-        map.shovel_treasures[index]:set_enabled(true)
+
+      -- Detect treasures
+      local x1, y1 = item:get_position_from_index(dig_indexes[1])
+      local x2, y2 = item:get_position_from_index(dig_indexes[2])
+      local x3, y3 = item:get_position_from_index(dig_indexes[3])
+      local x4, y4 = item:get_position_from_index(dig_indexes[4])
+      local treasure_found = false
+      for pickable in map:get_entities("auto_shovel") do
+        local x_pickable, y_pickable, layer_pickable = pickable:get_position()
+        local sprite = pickable:get_sprite()
+        local origin_x, origin_y = sprite:get_origin()
+        x_pickable = x_pickable - origin_x
+        y_pickable = y_pickable - origin_y
+        if x == x_pickable and y == y_pickable 
+          or x == x_pickable + 8 and y == y_pickable + 8 
+          or x == x_pickable - 8 and y2 == y_pickable + 8 
+          or x == x_pickable + 8 and y2 == y_pickable - 8 
+          or x == x_pickable - 8 and y2 == y_pickable - 8 
+          or x == x_pickable and y2 == y_pickable - 8 
+          or x == x_pickable and y2 == y_pickable + 8
+          or x == x_pickable - 8 and y2 == y_pickable
+          or x == x_pickable + 8 and y2 == y_pickable
+          then
+          treasure_found = pickable
+        end
+      end
+      if treasure_found then
+        treasure_found:bring_to_front()
+        treasure_found:set_enabled(true)
       else
         map:create_pickable{
           layer = layer,
@@ -67,7 +103,6 @@ function item:on_using()
           treasure_variant = 1,
         }
       end
---]]
     end)
   end
 
@@ -221,10 +256,9 @@ function map_meta:set_digging_allowed_square(square_index, diggable)
 end
 
 game:register_event("on_map_changed", function(game, map)
-
+  
   for pickable in map:get_entities("auto_shovel") do
-    local index = map:get_entity_position_index(pickable)
-    map.shovel_treasures[index] = pickable
+    local x_pickable, y_pickable, layer_pickable = pickable:get_position()
     pickable:set_enabled(false)
   end
 

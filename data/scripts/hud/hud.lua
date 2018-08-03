@@ -105,6 +105,10 @@ local function initialize_hud_features(game)
   -- Called periodically to change the transparency or position of icons.
   local function check_hud()
 
+    if not hud:is_enabled() then
+      return true
+    end
+
     local map = game:get_map()
     if map ~= nil then
       -- If the hero is below the top-left icons, make them semi-transparent.
@@ -174,10 +178,6 @@ local function initialize_hud_features(game)
           sol.menu.stop(menu)
         end
       end
-
-      if enabled then
-        sol.timer.start(hud, 50, check_hud)
-      end
     end
   end
 
@@ -191,7 +191,7 @@ local function initialize_hud_features(game)
     local element = element_builder:new(game, element_config)
     if element.set_dst_position ~= nil then
       -- Compatibility with old HUD element scripts
-      -- whose new() method don't take a config parameter.
+      -- whose new() method does not take a config parameter.
       element:set_dst_position(element_config.x, element_config.y)
     end
     hud.elements[#hud.elements + 1] = element
@@ -211,6 +211,7 @@ local function initialize_hud_features(game)
 
   -- Start the HUD.
   hud:set_enabled(true)
+  sol.timer.start(game, 50, check_hud)
 end
 
 -- Set up the HUD features on any game that starts.

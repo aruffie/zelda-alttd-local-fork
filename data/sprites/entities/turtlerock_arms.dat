@@ -1,0 +1,10 @@
+animation{
+  name = "normal",
+  src_image = "entities/turtlerock_arms.png",
+  directions = {
+    { x = 40, y = 0, frame_width = 40, frame_height = 48, origin_x = 8, origin_y = 13 },
+    { x = 40, y = 0, frame_width = 40, frame_height = 48, origin_x = 8, origin_y = 13 },
+    { x = 0, y = 0, frame_width = 40, frame_height = 48, origin_x = 8, origin_y = 13 },
+    { x = 0, y = 0, frame_width = 40, frame_height = 48, origin_x = 8, origin_y = 13 },
+  },
+}

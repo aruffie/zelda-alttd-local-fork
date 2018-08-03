@@ -7,7 +7,7 @@ properties{
   max_layer = 2,
   world = "outside_world",
   tileset = "out/light_world_legacy",
-  music = "same",
+  music = "maps/out/mysterious_forest",
 }
 
 tile{
@@ -9112,19 +9112,19 @@ sensor{
 
 enemy{
   layer = 0,
-  x = 128,
-  y = 653,
-  direction = 3,
-  breed = "moblin",
+  x = 264,
+  y = 621,
+  direction = 2,
+  breed = "moblin_dog_spear",
   treasure_name = "random",
 }
 
 enemy{
   layer = 0,
-  x = 256,
-  y = 613,
+  x = 416,
+  y = 525,
   direction = 3,
-  breed = "moblin",
+  breed = "moblin_dog_spear",
   treasure_name = "random",
 }
 
@@ -9133,8 +9133,8 @@ enemy{
   x = 280,
   y = 669,
   direction = 3,
-  breed = "zol_green",
-  treasure_name = "quiver",
+  breed = "zol_red",
+  treasure_name = "random",
 }
 
 enemy{
@@ -9142,34 +9142,34 @@ enemy{
   x = 336,
   y = 709,
   direction = 3,
-  breed = "zol_green",
-  treasure_name = "quiver",
-}
-
-enemy{
-  layer = 0,
-  x = 600,
-  y = 517,
-  direction = 3,
-  breed = "moblin",
+  breed = "zol_red",
   treasure_name = "random",
 }
 
 enemy{
   layer = 0,
-  x = 640,
-  y = 317,
-  direction = 3,
-  breed = "moblin",
+  x = 592,
+  y = 509,
+  direction = 2,
+  breed = "moblin_dog_spear",
   treasure_name = "random",
 }
 
 enemy{
   layer = 0,
-  x = 680,
+  x = 584,
+  y = 229,
+  direction = 3,
+  breed = "moblin_dog_sword",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 672,
   y = 109,
-  direction = 3,
-  breed = "moblin",
+  direction = 2,
+  breed = "moblin_dog_spear",
   treasure_name = "random",
 }
 
@@ -9178,7 +9178,7 @@ enemy{
   x = 608,
   y = 133,
   direction = 3,
-  breed = "zol_green",
+  breed = "zol_red",
   treasure_name = "random",
 }
 
@@ -9187,16 +9187,7 @@ enemy{
   x = 624,
   y = 109,
   direction = 3,
-  breed = "zol_green",
-  treasure_name = "random",
-}
-
-enemy{
-  layer = 0,
-  x = 888,
-  y = 109,
-  direction = 3,
-  breed = "moblin",
+  breed = "zol_red",
   treasure_name = "random",
 }
 
@@ -9304,17 +9295,6 @@ npc{
   direction = 3,
   subtype = 0,
   sprite = "npc/tarin",
-}
-
-custom_entity{
-  layer = 0,
-  x = 640,
-  y = 245,
-  width = 32,
-  height = 32,
-  direction = 0,
-  sprite = "entities/stone_large_white",
-  model = "heavy_object",
 }
 
 destructible{
@@ -10711,15 +10691,6 @@ destructible{
   can_be_cut = true,
 }
 
-enemy{
-  layer = 0,
-  x = 104,
-  y = 501,
-  direction = 3,
-  breed = "moblin",
-  treasure_name = "random",
-}
-
 destructible{
   name = "bis_destructible_1",
   layer = 0,
@@ -10729,15 +10700,6 @@ destructible{
   destruction_sound = "bush",
   weight = 1,
   can_be_cut = true,
-}
-
-enemy{
-  layer = 0,
-  x = 232,
-  y = 453,
-  direction = 3,
-  breed = "moblin",
-  treasure_name = "random",
 }
 
 destructible{
@@ -10776,8 +10738,8 @@ wall{
 
 wall{
   layer = 0,
-  x = 256,
-  y = 416,
+  x = 176,
+  y = 432,
   width = 16,
   height = 64,
   stops_enemies = true,
@@ -11753,6 +11715,146 @@ wall{
   stops_npcs = true,
   stops_enemies = true,
   stops_blocks = true,
+  stops_projectiles = true,
+}
+
+destination{
+  name = "stair_bombs_upgrade",
+  layer = 0,
+  x = 648,
+  y = 261,
+  direction = 3,
+}
+
+teletransporter{
+  layer = 0,
+  x = 640,
+  y = 248,
+  width = 16,
+  height = 16,
+  destination_map = "caves/forest/cave_3",
+  destination = "stair",
+}
+
+stairs{
+  layer = 0,
+  x = 640,
+  y = 248,
+  direction = 1,
+  subtype = 3,
+}
+
+custom_entity{
+  name = "secret_stone",
+  layer = 0,
+  x = 640,
+  y = 245,
+  width = 32,
+  height = 32,
+  direction = 0,
+  sprite = "entities/stone_large_white",
+  model = "heavy_object",
+}
+
+enemy{
+  layer = 0,
+  x = 656,
+  y = 301,
+  direction = 2,
+  breed = "moblin_dog_spear",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 144,
+  y = 477,
+  direction = 3,
+  breed = "moblin_dog_spear",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 856,
+  y = 77,
+  direction = 2,
+  breed = "moblin_dog_spear",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 184,
+  y = 141,
+  direction = 2,
+  breed = "moblin_dog_spear",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 88,
+  y = 53,
+  direction = 0,
+  breed = "moblin_dog_spear",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 120,
+  y = 645,
+  direction = 0,
+  breed = "moblin_dog_spear",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 680,
+  y = 645,
+  direction = 2,
+  breed = "moblin_dog_spear",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 600,
+  y = 669,
+  direction = 3,
+  breed = "zol_red",
+  treasure_name = "random",
+}
+
+wall{
+  layer = 0,
+  x = 752,
+  y = 616,
+  width = 16,
+  height = 40,
+  stops_enemies = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 0,
+  x = 192,
+  y = 480,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 0,
+  x = 616,
+  y = 456,
+  width = 16,
+  height = 72,
+  stops_enemies = true,
   stops_projectiles = true,
 }
 
@@ -13533,8 +13635,8 @@ separator{
 sensor{
   name = "owl_3_position",
   layer = 2,
-  x = 200,
-  y = -3,
+  x = 352,
+  y = -43,
   width = 16,
   height = 16,
 }
@@ -13542,8 +13644,8 @@ sensor{
 npc{
   name = "owl_3",
   layer = 2,
-  x = 200,
-  y = -3,
+  x = 352,
+  y = -43,
   direction = 3,
   subtype = 0,
   sprite = "npc/owl",

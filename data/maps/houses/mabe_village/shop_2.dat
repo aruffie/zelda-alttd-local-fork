@@ -6,7 +6,7 @@ properties{
   min_layer = 0,
   max_layer = 2,
   world = "inside_world",
-  tileset = "dungeons/light_brown",
+  tileset = "dungeon/light_brown",
   music = "same",
 }
 
@@ -309,29 +309,11 @@ tile{
 
 tile{
   layer = 0,
-  x = 264,
+  x = 256,
   y = 112,
   width = 16,
   height = 32,
   pattern = "wall_torch.4",
-}
-
-tile{
-  layer = 0,
-  x = 72,
-  y = 88,
-  width = 176,
-  height = 32,
-  pattern = "floor_low.1-2",
-}
-
-tile{
-  layer = 0,
-  x = 72,
-  y = 80,
-  width = 176,
-  height = 8,
-  pattern = "floor_boarder.5-L",
 }
 
 destination{
@@ -381,59 +363,6 @@ npc{
   subtype = 1,
 }
 
-wall{
-  layer = 0,
-  x = 72,
-  y = 80,
-  width = 176,
-  height = 8,
-  stops_hero = true,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
-}
-
-custom_entity{
-  name = "placeholder_1",
-  layer = 0,
-  x = 96,
-  y = 77,
-  width = 16,
-  height = 16,
-  direction = 0,
-}
-
-custom_entity{
-  name = "placeholder_2",
-  layer = 0,
-  x = 136,
-  y = 77,
-  width = 16,
-  height = 16,
-  direction = 0,
-}
-
-custom_entity{
-  name = "placeholder_3",
-  layer = 0,
-  x = 184,
-  y = 77,
-  width = 16,
-  height = 16,
-  direction = 0,
-}
-
-custom_entity{
-  name = "placeholder_4",
-  layer = 0,
-  x = 224,
-  y = 77,
-  width = 16,
-  height = 16,
-  direction = 0,
-}
-
 npc{
   name = "merchant_angry",
   layer = 0,
@@ -464,19 +393,35 @@ custom_entity{
   sprite = "entities/shop_office",
 }
 
+custom_entity{
+  name = "shop_board",
+  layer = 0,
+  x = 80,
+  y = 61,
+  width = 176,
+  height = 48,
+  direction = 0,
+  sprite = "entities/shop_board",
+  model = "obstacle",
+}
+
 chest{
+  name = "forest_chest_2",
   layer = 0,
   x = 120,
-  y = 157,
-  treasure_name = "shovel",
+  y = 141,
+  treasure_name = "pegasus_shoes",
+  treasure_savegame_variable = "seashell_5",
   sprite = "entities/chest",
 }
 
 chest{
+  name = "forest_chest_3",
   layer = 0,
   x = 136,
-  y = 157,
-  treasure_name = "bow",
+  y = 141,
+  treasure_name = "power_bracelet",
+  treasure_savegame_variable = "seashell_5",
   sprite = "entities/chest",
 }
 
@@ -494,6 +439,46 @@ custom_entity{
   layer = 1,
   x = 160,
   y = 221,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+custom_entity{
+  name = "placeholder_1",
+  layer = 1,
+  x = 96,
+  y = 77,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+custom_entity{
+  name = "placeholder_2",
+  layer = 1,
+  x = 136,
+  y = 77,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+custom_entity{
+  name = "placeholder_3",
+  layer = 1,
+  x = 184,
+  y = 77,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+custom_entity{
+  name = "placeholder_4",
+  layer = 1,
+  x = 224,
+  y = 77,
   width = 16,
   height = 16,
   direction = 0,

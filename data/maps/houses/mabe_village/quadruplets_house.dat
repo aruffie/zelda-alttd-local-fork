@@ -6,7 +6,7 @@ properties{
   min_layer = 0,
   max_layer = 2,
   world = "inside_world",
-  tileset = "dungeons/light_brown",
+  tileset = "dungeon/light_brown",
   music = "same",
 }
 
@@ -1293,6 +1293,42 @@ tile{
   width = 248,
   height = 8,
   pattern = "floor_border.3",
+}
+
+tile{
+  layer = 1,
+  x = 40,
+  y = 168,
+  width = 32,
+  height = 16,
+  pattern = "wall_pillar.3-9",
+}
+
+tile{
+  layer = 1,
+  x = 40,
+  y = 72,
+  width = 32,
+  height = 16,
+  pattern = "wall_pillar.3-9",
+}
+
+tile{
+  layer = 1,
+  x = 568,
+  y = 168,
+  width = 32,
+  height = 16,
+  pattern = "wall_pillar.4-9",
+}
+
+tile{
+  layer = 1,
+  x = 568,
+  y = 72,
+  width = 32,
+  height = 16,
+  pattern = "wall_pillar.4-9",
 }
 
 destination{

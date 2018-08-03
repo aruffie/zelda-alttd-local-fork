@@ -42,6 +42,8 @@ end
 function map:monkey_build_bridge()
 
   hero:freeze()
+  game:set_hud_enabled(false)
+  game:set_pause_allowed(false)
   local x, y, layer = monkey:get_position()
   sol.audio.stop_music()
   sol.audio.play_sound("monkeys_build_a_bridge")
@@ -90,6 +92,9 @@ function map:monkey_build_bridge()
         movement:start(monkey_entity)
         function movement:on_finished()
           num_monkeys_arrived = num_monkeys_arrived + 1
+          if i == 10 then
+            monkey_entity:remove()
+          end
           if num_monkeys_arrived == 9 then
                 sol.timer.start(monkey, 9000, function()
                   bridge:set_enabled(true)
@@ -137,6 +142,8 @@ function map:monkey_leave_bridge()
     function movement:on_finished()
       monkey:remove()
       hero:unfreeze()
+      game:set_hud_enabled(true)
+      game:set_pause_allowed(true)
       game:set_value("main_quest_step", 14) 
     end
 end
@@ -149,6 +156,9 @@ function map:on_started()
   local item = game:get_item("magnifying_lens")
   local variant = item:get_variant()
   companion_manager:init_map(map)
+  if game:get_value("castle_door_is_open") then
+    castle_door:set_enabled(false)
+  end
   if game:get_value("main_quest_step") < 14 then
     baton:set_enabled(false)
     bridge:set_enabled(false)

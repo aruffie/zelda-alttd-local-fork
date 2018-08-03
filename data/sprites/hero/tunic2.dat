@@ -111,10 +111,10 @@ animation{
   frame_delay = 180,
   frame_to_loop_on = 0,
   directions = {
-    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 6 },
-    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 6 },
-    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 6 },
-    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 6 },
+    { x = 0, y = 120, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 6 },
+    { x = 0, y = 168, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 6 },
+    { x = 0, y = 144, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 6 },
+    { x = 0, y = 96, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 6 },
   },
 }
 animation{
@@ -295,6 +295,28 @@ animation{
   },
 }
 animation{
+  name = "shield_stopped",
+  src_image = "hero/stopped.tunic.png",
+  directions = {
+    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
+    { x = 24, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
+    { x = 72, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
+    { x = 96, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
+  },
+}
+animation{
+  name = "shield_walking",
+  src_image = "hero/walking.tunic.png",
+  frame_delay = 100,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 160, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29, num_frames = 8 },
+    { x = 0, y = 192, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29, num_frames = 8 },
+    { x = 0, y = 256, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29, num_frames = 8 },
+    { x = 0, y = 288, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29, num_frames = 8 },
+  },
+}
+animation{
   name = "spin_attack",
   src_image = "hero/spin_attack.tunic2.png",
   frame_delay = 30,
@@ -405,6 +427,18 @@ animation{
     { x = 0, y = 152, frame_width = 24, frame_height = 40, origin_x = 12, origin_y = 37, num_frames = 7 },
     { x = 0, y = 192, frame_width = 40, frame_height = 24, origin_x = 28, origin_y = 21, num_frames = 7 },
     { x = 0, y = 216, frame_width = 24, frame_height = 40, origin_x = 12, origin_y = 21, num_frames = 7 },
+  },
+}
+animation{
+  name = "teleporting",
+  src_image = "hero/teleporting.png",
+  frame_delay = 120,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 8 },
+    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 8 },
+    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 8 },
+    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 8 },
   },
 }
 animation{

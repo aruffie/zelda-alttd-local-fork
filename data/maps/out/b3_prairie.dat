@@ -12,11 +12,20 @@ properties{
 
 tile{
   layer = 0,
-  x = -24,
+  x = -16,
   y = -16,
   width = 992,
   height = 792,
   pattern = "14667",
+}
+
+tile{
+  layer = 0,
+  x = 792,
+  y = 104,
+  width = 8,
+  height = 64,
+  pattern = "121",
 }
 
 tile{
@@ -1002,7 +1011,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 800,
+  x = 792,
   y = 88,
   width = 48,
   height = 40,
@@ -1011,7 +1020,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 800,
+  x = 792,
   y = 128,
   width = 48,
   height = 8,
@@ -1020,7 +1029,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 800,
+  x = 792,
   y = 72,
   width = 48,
   height = 16,
@@ -1029,7 +1038,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 792,
+  x = 784,
   y = 88,
   width = 8,
   height = 40,
@@ -1038,7 +1047,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 848,
+  x = 840,
   y = 88,
   width = 8,
   height = 40,
@@ -1137,7 +1146,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 432,
+  x = 440,
   y = 208,
   width = 48,
   height = 40,
@@ -1146,7 +1155,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 432,
+  x = 440,
   y = 248,
   width = 48,
   height = 8,
@@ -1155,7 +1164,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 432,
+  x = 440,
   y = 192,
   width = 48,
   height = 16,
@@ -1164,7 +1173,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 424,
+  x = 432,
   y = 208,
   width = 8,
   height = 40,
@@ -1173,7 +1182,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 480,
+  x = 488,
   y = 208,
   width = 8,
   height = 40,
@@ -7455,42 +7464,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 368,
-  y = 488,
-  width = 8,
-  height = 8,
-  pattern = "84",
-}
-
-tile{
-  layer = 0,
-  x = 376,
-  y = 496,
-  width = 8,
-  height = 8,
-  pattern = "84",
-}
-
-tile{
-  layer = 0,
-  x = 376,
-  y = 488,
-  width = 8,
-  height = 8,
-  pattern = "101",
-}
-
-tile{
-  layer = 0,
-  x = 368,
-  y = 496,
-  width = 8,
-  height = 8,
-  pattern = "100",
-}
-
-tile{
-  layer = 0,
   x = 448,
   y = 448,
   width = 8,
@@ -10011,15 +9984,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 496,
-  y = 208,
-  width = 16,
-  height = 32,
-  pattern = "1037",
-}
-
-tile{
-  layer = 0,
   x = 512,
   y = 224,
   width = 16,
@@ -10560,24 +10524,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 864,
-  y = 72,
-  width = 8,
-  height = 8,
-  pattern = "84",
-}
-
-tile{
-  layer = 0,
-  x = 864,
-  y = 64,
-  width = 8,
-  height = 8,
-  pattern = "101",
-}
-
-tile{
-  layer = 0,
   x = 856,
   y = 72,
   width = 8,
@@ -10875,15 +10821,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 880,
-  y = 64,
-  width = 8,
-  height = 8,
-  pattern = "84",
-}
-
-tile{
-  layer = 0,
   x = 888,
   y = 72,
   width = 8,
@@ -10895,87 +10832,6 @@ tile{
   layer = 0,
   x = 880,
   y = 72,
-  width = 8,
-  height = 8,
-  pattern = "100",
-}
-
-tile{
-  layer = 0,
-  x = 856,
-  y = 32,
-  width = 8,
-  height = 8,
-  pattern = "84",
-}
-
-tile{
-  layer = 0,
-  x = 864,
-  y = 40,
-  width = 8,
-  height = 8,
-  pattern = "84",
-}
-
-tile{
-  layer = 0,
-  x = 856,
-  y = 40,
-  width = 8,
-  height = 8,
-  pattern = "100",
-}
-
-tile{
-  layer = 0,
-  x = 832,
-  y = 40,
-  width = 8,
-  height = 8,
-  pattern = "84",
-}
-
-tile{
-  layer = 0,
-  x = 840,
-  y = 48,
-  width = 8,
-  height = 8,
-  pattern = "84",
-}
-
-tile{
-  layer = 0,
-  x = 832,
-  y = 48,
-  width = 8,
-  height = 8,
-  pattern = "100",
-}
-
-tile{
-  layer = 0,
-  x = 848,
-  y = 48,
-  width = 8,
-  height = 8,
-  pattern = "84",
-}
-
-tile{
-  layer = 0,
-  x = 856,
-  y = 56,
-  width = 8,
-  height = 8,
-  pattern = "84",
-}
-
-tile{
-  layer = 0,
-  x = 848,
-  y = 56,
   width = 8,
   height = 8,
   pattern = "100",
@@ -11415,60 +11271,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 856,
-  y = 24,
-  width = 8,
-  height = 8,
-  pattern = "101",
-}
-
-tile{
-  layer = 0,
-  x = 848,
-  y = 24,
-  width = 8,
-  height = 8,
-  pattern = "100",
-}
-
-tile{
-  layer = 0,
-  x = 880,
-  y = 56,
-  width = 8,
-  height = 8,
-  pattern = "101",
-}
-
-tile{
-  layer = 0,
-  x = 872,
-  y = 56,
-  width = 8,
-  height = 8,
-  pattern = "100",
-}
-
-tile{
-  layer = 0,
-  x = 872,
-  y = 64,
-  width = 8,
-  height = 8,
-  pattern = "84",
-}
-
-tile{
-  layer = 0,
-  x = 856,
-  y = 56,
-  width = 8,
-  height = 8,
-  pattern = "84",
-}
-
-tile{
-  layer = 0,
   x = 872,
   y = 80,
   width = 8,
@@ -11599,7 +11401,7 @@ tile{
   y = 264,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -11608,7 +11410,7 @@ tile{
   y = 264,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -11617,7 +11419,7 @@ tile{
   y = 336,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -11626,7 +11428,7 @@ tile{
   y = 336,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -11635,7 +11437,7 @@ tile{
   y = 520,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -11644,7 +11446,7 @@ tile{
   y = 520,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -11653,7 +11455,7 @@ tile{
   y = 192,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -11662,7 +11464,7 @@ tile{
   y = 184,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -11671,7 +11473,7 @@ tile{
   y = 368,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -11680,7 +11482,7 @@ tile{
   y = 360,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -11707,7 +11509,7 @@ tile{
   y = 400,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -11716,7 +11518,7 @@ tile{
   y = 392,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -11725,7 +11527,7 @@ tile{
   y = 408,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -11734,7 +11536,7 @@ tile{
   y = 376,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -11743,7 +11545,7 @@ tile{
   y = 360,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -11752,7 +11554,7 @@ tile{
   y = 312,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -11761,7 +11563,7 @@ tile{
   y = 296,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -11770,7 +11572,7 @@ tile{
   y = 168,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -11779,7 +11581,7 @@ tile{
   y = 152,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -11788,7 +11590,7 @@ tile{
   y = 352,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -11797,7 +11599,7 @@ tile{
   y = 384,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -11806,7 +11608,7 @@ tile{
   y = 400,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -11815,7 +11617,7 @@ tile{
   y = 384,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -11824,7 +11626,7 @@ tile{
   y = 320,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -11833,7 +11635,7 @@ tile{
   y = 408,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -11842,7 +11644,7 @@ tile{
   y = 208,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -11869,7 +11671,7 @@ tile{
   y = 424,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -11878,7 +11680,7 @@ tile{
   y = 424,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -11887,7 +11689,7 @@ tile{
   y = 408,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -11896,7 +11698,7 @@ tile{
   y = 416,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -11905,7 +11707,7 @@ tile{
   y = 432,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -11914,7 +11716,7 @@ tile{
   y = 456,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -11923,7 +11725,7 @@ tile{
   y = 480,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -11932,7 +11734,7 @@ tile{
   y = 504,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -11941,7 +11743,7 @@ tile{
   y = 592,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -11950,7 +11752,7 @@ tile{
   y = 576,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -11959,7 +11761,7 @@ tile{
   y = 536,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -11968,7 +11770,7 @@ tile{
   y = 552,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -11977,7 +11779,7 @@ tile{
   y = 496,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -11986,7 +11788,7 @@ tile{
   y = 488,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -11995,7 +11797,7 @@ tile{
   y = 464,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -12004,7 +11806,7 @@ tile{
   y = 440,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -12697,7 +12499,7 @@ tile{
   y = 200,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -12706,7 +12508,7 @@ tile{
   y = 184,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -14263,7 +14065,7 @@ tile{
   y = 272,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -14272,7 +14074,7 @@ tile{
   y = 264,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14281,7 +14083,7 @@ tile{
   y = 120,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -14290,34 +14092,7 @@ tile{
   y = 112,
   width = 8,
   height = 8,
-  pattern = "102",
-}
-
-tile{
-  layer = 0,
-  x = 504,
-  y = 240,
-  width = 8,
-  height = 8,
-  pattern = "105",
-}
-
-tile{
-  layer = 0,
-  x = 488,
-  y = 224,
-  width = 8,
-  height = 8,
-  pattern = "105",
-}
-
-tile{
-  layer = 0,
-  x = 488,
-  y = 216,
-  width = 8,
-  height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -14326,7 +14101,7 @@ tile{
   y = 176,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -14335,7 +14110,7 @@ tile{
   y = 176,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -14344,7 +14119,7 @@ tile{
   y = 160,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -14353,7 +14128,7 @@ tile{
   y = 128,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -14380,7 +14155,7 @@ tile{
   y = 128,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -14389,7 +14164,7 @@ tile{
   y = 104,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -14398,7 +14173,7 @@ tile{
   y = 192,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -14407,7 +14182,7 @@ tile{
   y = 176,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -14416,7 +14191,7 @@ tile{
   y = 176,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -14425,7 +14200,7 @@ tile{
   y = 176,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -14434,7 +14209,7 @@ tile{
   y = 184,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14443,7 +14218,7 @@ tile{
   y = 184,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -14452,7 +14227,7 @@ tile{
   y = 200,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14479,7 +14254,7 @@ tile{
   y = 128,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -14488,7 +14263,7 @@ tile{
   y = 120,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -14497,7 +14272,7 @@ tile{
   y = 144,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -14506,7 +14281,7 @@ tile{
   y = 136,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14515,7 +14290,7 @@ tile{
   y = 312,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -14524,7 +14299,7 @@ tile{
   y = 304,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14533,7 +14308,7 @@ tile{
   y = 296,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14542,7 +14317,7 @@ tile{
   y = 352,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14551,7 +14326,7 @@ tile{
   y = 368,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14560,7 +14335,7 @@ tile{
   y = 384,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14569,7 +14344,7 @@ tile{
   y = 400,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14578,7 +14353,7 @@ tile{
   y = 400,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -14587,7 +14362,7 @@ tile{
   y = 384,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14596,7 +14371,7 @@ tile{
   y = 384,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -14605,7 +14380,7 @@ tile{
   y = 400,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14614,7 +14389,7 @@ tile{
   y = 384,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14623,7 +14398,7 @@ tile{
   y = 384,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -14632,7 +14407,7 @@ tile{
   y = 400,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -14641,7 +14416,7 @@ tile{
   y = 408,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -14650,7 +14425,7 @@ tile{
   y = 400,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14659,7 +14434,7 @@ tile{
   y = 520,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -14668,7 +14443,7 @@ tile{
   y = 488,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14677,7 +14452,7 @@ tile{
   y = 488,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -14686,7 +14461,7 @@ tile{
   y = 504,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14695,7 +14470,7 @@ tile{
   y = 48,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -14704,7 +14479,7 @@ tile{
   y = 40,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14713,7 +14488,7 @@ tile{
   y = 48,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -14722,7 +14497,7 @@ tile{
   y = 24,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14731,7 +14506,7 @@ tile{
   y = 24,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -14740,7 +14515,7 @@ tile{
   y = 0,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -14749,7 +14524,7 @@ tile{
   y = 632,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -14767,7 +14542,7 @@ tile{
   y = 504,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14776,7 +14551,7 @@ tile{
   y = 520,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14785,7 +14560,7 @@ tile{
   y = 672,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -14794,7 +14569,7 @@ tile{
   y = 744,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -14803,7 +14578,7 @@ tile{
   y = 744,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14812,7 +14587,7 @@ tile{
   y = 720,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14821,7 +14596,7 @@ tile{
   y = 736,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -14830,7 +14605,7 @@ tile{
   y = 728,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14857,7 +14632,7 @@ tile{
   y = 208,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -14866,7 +14641,7 @@ tile{
   y = 208,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -14875,7 +14650,7 @@ tile{
   y = 240,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -14884,7 +14659,7 @@ tile{
   y = 240,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -14893,7 +14668,7 @@ tile{
   y = 496,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -14902,7 +14677,7 @@ tile{
   y = 488,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -14911,7 +14686,7 @@ tile{
   y = 456,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14920,7 +14695,7 @@ tile{
   y = 456,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -14929,7 +14704,7 @@ tile{
   y = 528,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -14938,7 +14713,7 @@ tile{
   y = 528,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -14947,7 +14722,7 @@ tile{
   y = 496,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -14956,7 +14731,7 @@ tile{
   y = 488,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -14965,7 +14740,7 @@ tile{
   y = 512,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -14974,7 +14749,7 @@ tile{
   y = 480,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -14983,7 +14758,7 @@ tile{
   y = 480,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -14992,7 +14767,7 @@ tile{
   y = 512,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -15001,7 +14776,7 @@ tile{
   y = 472,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -15010,7 +14785,7 @@ tile{
   y = 504,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -15019,7 +14794,7 @@ tile{
   y = 472,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -15028,7 +14803,7 @@ tile{
   y = 504,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -15370,7 +15145,7 @@ tile{
   y = 704,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -15379,7 +15154,7 @@ tile{
   y = 696,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -15388,7 +15163,7 @@ tile{
   y = 760,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -15397,7 +15172,7 @@ tile{
   y = 744,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -15406,7 +15181,7 @@ tile{
   y = 760,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -15415,7 +15190,7 @@ tile{
   y = 680,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -15424,7 +15199,7 @@ tile{
   y = 680,
   width = 8,
   height = 8,
-  pattern = "102",
+  pattern = "102 (copy)",
 }
 
 tile{
@@ -15514,7 +15289,7 @@ tile{
   y = 624,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -15523,7 +15298,7 @@ tile{
   y = 584,
   width = 8,
   height = 8,
-  pattern = "104",
+  pattern = "104 (copy)",
 }
 
 tile{
@@ -15573,20 +15348,11 @@ tile{
 
 tile{
   layer = 0,
-  x = 512,
-  y = 216,
-  width = 8,
-  height = 8,
-  pattern = "103",
-}
-
-tile{
-  layer = 0,
   x = 528,
   y = 232,
   width = 8,
   height = 8,
-  pattern = "103",
+  pattern = "103 (copy)",
 }
 
 tile{
@@ -15595,7 +15361,7 @@ tile{
   y = 160,
   width = 8,
   height = 8,
-  pattern = "105",
+  pattern = "105 (copy)",
 }
 
 tile{
@@ -18039,15 +17805,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 792,
-  y = 104,
-  width = 8,
-  height = 64,
-  pattern = "121",
-}
-
-tile{
-  layer = 0,
   x = 888,
   y = 560,
   width = 8,
@@ -18804,33 +18561,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 760,
-  y = 8,
-  width = 16,
-  height = 24,
-  pattern = "992",
-}
-
-tile{
-  layer = 0,
-  x = 776,
-  y = 8,
-  width = 8,
-  height = 24,
-  pattern = "990",
-}
-
-tile{
-  layer = 0,
-  x = 752,
-  y = 8,
-  width = 8,
-  height = 24,
-  pattern = "989",
-}
-
-tile{
-  layer = 0,
   x = 488,
   y = 88,
   width = 16,
@@ -18840,7 +18570,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 408,
+  x = 416,
   y = 600,
   width = 16,
   height = 8,
@@ -18991,6 +18721,188 @@ tile{
   pattern = "1201",
 }
 
+tile{
+  layer = 0,
+  x = 760,
+  y = 24,
+  width = 16,
+  height = 8,
+  pattern = "1202",
+}
+
+tile{
+  layer = 0,
+  x = 752,
+  y = 16,
+  width = 8,
+  height = 16,
+  pattern = "1060",
+}
+
+tile{
+  layer = 0,
+  x = 776,
+  y = 16,
+  width = 8,
+  height = 16,
+  pattern = "1061",
+}
+
+tile{
+  layer = 0,
+  x = 760,
+  y = 16,
+  width = 16,
+  height = 8,
+  pattern = "1201",
+}
+
+tile{
+  layer = 0,
+  x = 928,
+  y = 608,
+  width = 8,
+  height = 8,
+  pattern = "114",
+}
+
+tile{
+  layer = 0,
+  x = 928,
+  y = 576,
+  width = 8,
+  height = 8,
+  pattern = "117",
+}
+
+tile{
+  layer = 0,
+  x = 944,
+  y = 488,
+  width = 32,
+  height = 32,
+  pattern = "1073",
+}
+
+tile{
+  layer = 0,
+  x = 944,
+  y = 488,
+  width = 32,
+  height = 32,
+  pattern = "1501",
+}
+
+tile{
+  layer = 0,
+  x = 920,
+  y = 512,
+  width = 32,
+  height = 32,
+  pattern = "1073",
+}
+
+tile{
+  layer = 0,
+  x = 920,
+  y = 512,
+  width = 32,
+  height = 32,
+  pattern = "1501",
+}
+
+tile{
+  layer = 0,
+  x = 848,
+  y = 16,
+  width = 16,
+  height = 16,
+  pattern = "1111",
+}
+
+tile{
+  layer = 0,
+  x = 872,
+  y = 56,
+  width = 16,
+  height = 16,
+  pattern = "1111",
+}
+
+tile{
+  layer = 0,
+  x = 856,
+  y = 48,
+  width = 8,
+  height = 8,
+  pattern = "84",
+}
+
+tile{
+  layer = 0,
+  x = 848,
+  y = 48,
+  width = 8,
+  height = 8,
+  pattern = "101",
+}
+
+tile{
+  layer = 0,
+  x = 840,
+  y = 48,
+  width = 8,
+  height = 8,
+  pattern = "100",
+}
+
+tile{
+  layer = 0,
+  x = 832,
+  y = 40,
+  width = 8,
+  height = 8,
+  pattern = "101",
+}
+
+tile{
+  layer = 0,
+  x = 824,
+  y = 40,
+  width = 8,
+  height = 8,
+  pattern = "100",
+}
+
+tile{
+  layer = 0,
+  x = 840,
+  y = 56,
+  width = 8,
+  height = 8,
+  pattern = "84",
+}
+
+tile{
+  layer = 0,
+  x = 848,
+  y = 56,
+  width = 8,
+  height = 8,
+  pattern = "84",
+}
+
+custom_entity{
+  name = "statue_pig_destroyed",
+  layer = 0,
+  x = 784,
+  y = 237,
+  width = 80,
+  height = 80,
+  direction = 0,
+  sprite = "entities/statue_pig_destroyed",
+}
+
 destructible{
   layer = 0,
   x = 264,
@@ -19013,32 +18925,6 @@ custom_entity{
   sprite = "entities/teletransporter",
 }
 
-wall{
-  layer = 0,
-  x = 464,
-  y = 608,
-  width = 32,
-  height = 16,
-  stops_hero = true,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
-}
-
-wall{
-  layer = 0,
-  x = 344,
-  y = 608,
-  width = 40,
-  height = 16,
-  stops_hero = true,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
-}
-
 custom_entity{
   layer = 0,
   x = 448,
@@ -19046,19 +18932,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/entrance_dungeon_1_door",
-  model = "obstacle",
-}
-
-custom_entity{
-  name = "dungeon_3_entrance",
-  layer = 0,
-  x = 424,
-  y = 613,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/entrance_dungeon_1_door",
+  sprite = "entities/entrance_dungeon_door",
   model = "obstacle",
 }
 
@@ -19069,7 +18943,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/entrance_dungeon_1_door",
+  sprite = "entities/entrance_dungeon_door",
   model = "obstacle",
 }
 
@@ -19136,6 +19010,7 @@ teletransporter{
 }
 
 npc{
+  name = "sign_start",
   layer = 0,
   x = 136,
   y = 701,
@@ -19249,42 +19124,8 @@ teletransporter{
 
 custom_entity{
   layer = 0,
-  x = 368,
-  y = 621,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_big_dungeon_3",
-  model = "obstacle",
-}
-
-custom_entity{
-  layer = 0,
-  x = 480,
-  y = 621,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_big_dungeon_3",
-  model = "obstacle",
-}
-
-custom_entity{
-  name = "dungeon_3_statue",
-  layer = 0,
-  x = 424,
-  y = 717,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small_key_dungeon_3",
-  model = "mr_write",
-}
-
-custom_entity{
-  layer = 0,
   x = 488,
-  y = 717,
+  y = 725,
   width = 16,
   height = 16,
   direction = 0,
@@ -19295,7 +19136,7 @@ custom_entity{
 custom_entity{
   layer = 0,
   x = 336,
-  y = 629,
+  y = 613,
   width = 16,
   height = 16,
   direction = 0,
@@ -19361,17 +19202,6 @@ custom_entity{
 custom_entity{
   layer = 0,
   x = 488,
-  y = 733,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 488,
   y = 749,
   width = 16,
   height = 16,
@@ -19427,7 +19257,7 @@ custom_entity{
 custom_entity{
   layer = 0,
   x = 336,
-  y = 661,
+  y = 653,
   width = 16,
   height = 16,
   direction = 0,
@@ -19438,7 +19268,7 @@ custom_entity{
 custom_entity{
   layer = 0,
   x = 336,
-  y = 669,
+  y = 677,
   width = 16,
   height = 16,
   direction = 0,
@@ -20252,30 +20082,6 @@ destructible{
   layer = 0,
   x = 464,
   y = 285,
-  treasure_name = "random",
-  sprite = "entities/grass",
-  destruction_sound = "bush",
-  weight = -1,
-  can_be_cut = true,
-  ground = "grass",
-}
-
-destructible{
-  layer = 0,
-  x = 504,
-  y = 221,
-  treasure_name = "random",
-  sprite = "entities/grass",
-  destruction_sound = "bush",
-  weight = -1,
-  can_be_cut = true,
-  ground = "grass",
-}
-
-destructible{
-  layer = 0,
-  x = 504,
-  y = 237,
   treasure_name = "random",
   sprite = "entities/grass",
   destruction_sound = "bush",
@@ -23502,7 +23308,7 @@ destination{
   name = "fairy_fountain_2_A",
   layer = 0,
   x = 768,
-  y = 37,
+  y = 45,
   direction = 3,
 }
 
@@ -23510,24 +23316,11 @@ teletransporter{
   name = "fairy_fountain_1_A",
   layer = 0,
   x = 760,
-  y = 8,
+  y = 16,
   width = 16,
   height = 16,
   destination_map = "caves/prairie/fairy_fountain",
   destination = "fairy_fountain_1_B",
-}
-
-wall{
-  layer = 0,
-  x = 760,
-  y = 0,
-  width = 16,
-  height = 8,
-  stops_hero = true,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
 }
 
 destination{
@@ -23545,6 +23338,266 @@ sensor{
   y = 285,
   width = 16,
   height = 16,
+}
+
+custom_entity{
+  name = "statue_pig",
+  layer = 0,
+  x = 800,
+  y = 253,
+  width = 48,
+  height = 48,
+  direction = 0,
+  sprite = "entities/statue_pig",
+  model = "statue_pig",
+}
+
+custom_entity{
+  layer = 0,
+  x = 392,
+  y = 589,
+  width = 80,
+  height = 24,
+  direction = 0,
+  sprite = "entities/entrance_dungeon_3",
+}
+
+custom_entity{
+  layer = 0,
+  x = 360,
+  y = 589,
+  width = 32,
+  height = 48,
+  direction = 0,
+  sprite = "entities/statue_big_dungeon_3",
+  model = "obstacle",
+}
+
+custom_entity{
+  layer = 0,
+  x = 472,
+  y = 589,
+  width = 32,
+  height = 48,
+  direction = 0,
+  sprite = "entities/statue_big_dungeon_3",
+  model = "obstacle",
+}
+
+dynamic_tile{
+  name = "weak_door_2_open",
+  layer = 0,
+  x = 752,
+  y = 8,
+  pattern = "1062",
+  width = 32,
+  height = 8,
+  enabled_at_start = true,
+}
+
+dynamic_tile{
+  name = "weak_door_2_closed",
+  layer = 0,
+  x = 752,
+  y = 16,
+  pattern = "957",
+  width = 32,
+  height = 16,
+  enabled_at_start = true,
+}
+
+door{
+  name = "weak_door_2",
+  layer = 0,
+  x = 760,
+  y = 16,
+  direction = 0,
+  sprite = "entities/doors/door_weak_wall_out",
+  savegame_variable = "b3_prairie_weak_2",
+  opening_method = "explosion",
+}
+
+destructible{
+  layer = 0,
+  x = 616,
+  y = 45,
+  treasure_name = "random",
+  sprite = "entities/bush",
+  destruction_sound = "bush",
+  weight = 1,
+  can_be_cut = true,
+}
+
+destructible{
+  layer = 0,
+  x = 632,
+  y = 45,
+  treasure_name = "random",
+  sprite = "entities/bush",
+  destruction_sound = "bush",
+  weight = 1,
+  can_be_cut = true,
+}
+
+destructible{
+  layer = 0,
+  x = 648,
+  y = 45,
+  treasure_name = "random",
+  sprite = "entities/bush",
+  destruction_sound = "bush",
+  weight = 1,
+  can_be_cut = true,
+}
+
+destructible{
+  layer = 0,
+  x = 248,
+  y = 237,
+  treasure_name = "random",
+  sprite = "entities/bush",
+  destruction_sound = "bush",
+  weight = 1,
+  can_be_cut = true,
+}
+
+pickable{
+  name = "auto_shovel_seashell",
+  layer = 0,
+  x = 376,
+  y = 501,
+  treasure_name = "seashell",
+  treasure_savegame_variable = "seashell_6",
+}
+
+destructible{
+  layer = 0,
+  x = 664,
+  y = 501,
+  treasure_name = "seashell",
+  treasure_savegame_variable = "seashell_17",
+  sprite = "entities/bush",
+  destruction_sound = "bush",
+  weight = 1,
+  can_be_cut = true,
+}
+
+custom_entity{
+  name = "collision_seashell",
+  layer = 0,
+  x = 200,
+  y = 429,
+  width = 48,
+  height = 64,
+  direction = 0,
+}
+
+pickable{
+  name = "seashell_13",
+  layer = 0,
+  x = 216,
+  y = 437,
+  treasure_name = "seashell",
+  treasure_savegame_variable = "seashell_13",
+}
+
+sensor{
+  name = "owl_7_sensor",
+  layer = 0,
+  x = 512,
+  y = 621,
+  width = 16,
+  height = 144,
+}
+
+npc{
+  name = "tarin",
+  layer = 0,
+  x = 840,
+  y = 141,
+  direction = 2,
+  subtype = 1,
+  sprite = "npc/tarin",
+}
+
+custom_entity{
+  name = "dungeon_3_entrance",
+  layer = 0,
+  x = 424,
+  y = 613,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/entrance_dungeon_door",
+}
+
+destructible{
+  layer = 0,
+  x = 856,
+  y = 29,
+  treasure_name = "random",
+  sprite = "entities/bush",
+  destruction_sound = "bush",
+  weight = 1,
+  can_be_cut = true,
+}
+
+destructible{
+  layer = 0,
+  x = 880,
+  y = 69,
+  treasure_name = "random",
+  sprite = "entities/bush",
+  destruction_sound = "bush",
+  weight = 1,
+  can_be_cut = true,
+}
+
+custom_entity{
+  name = "tarin_leave_map",
+  layer = 0,
+  x = 520,
+  y = 125,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+enemy{
+  layer = 0,
+  x = 80,
+  y = 605,
+  direction = 1,
+  breed = "moblin_pig_sword",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 272,
+  y = 325,
+  direction = 1,
+  breed = "flying_octorok",
+  treasure_name = "random",
+}
+
+chest{
+  layer = 0,
+  x = 448,
+  y = 485,
+  sprite = "entities/chest",
+}
+
+custom_entity{
+  name = "dungeon_3_statue",
+  layer = 0,
+  x = 424,
+  y = 717,
+  width = 16,
+  height = 24,
+  direction = 0,
+  sprite = "entities/statue_small_key_dungeon_3",
+  model = "obstacle",
 }
 
 tile{
@@ -23684,7 +23737,7 @@ tile{
 
 tile{
   layer = 1,
-  x = 800,
+  x = 792,
   y = 56,
   width = 48,
   height = 8,
@@ -23693,7 +23746,7 @@ tile{
 
 tile{
   layer = 1,
-  x = 792,
+  x = 784,
   y = 64,
   width = 8,
   height = 48,
@@ -23702,7 +23755,7 @@ tile{
 
 tile{
   layer = 1,
-  x = 848,
+  x = 840,
   y = 64,
   width = 8,
   height = 48,
@@ -23711,7 +23764,7 @@ tile{
 
 tile{
   layer = 1,
-  x = 800,
+  x = 792,
   y = 64,
   width = 48,
   height = 48,
@@ -23720,7 +23773,7 @@ tile{
 
 tile{
   layer = 1,
-  x = 800,
+  x = 792,
   y = 112,
   width = 48,
   height = 8,
@@ -23810,7 +23863,7 @@ tile{
 
 tile{
   layer = 1,
-  x = 432,
+  x = 440,
   y = 176,
   width = 48,
   height = 8,
@@ -23819,7 +23872,7 @@ tile{
 
 tile{
   layer = 1,
-  x = 424,
+  x = 432,
   y = 184,
   width = 8,
   height = 48,
@@ -23828,7 +23881,7 @@ tile{
 
 tile{
   layer = 1,
-  x = 480,
+  x = 488,
   y = 184,
   width = 8,
   height = 48,
@@ -23837,7 +23890,7 @@ tile{
 
 tile{
   layer = 1,
-  x = 432,
+  x = 440,
   y = 184,
   width = 48,
   height = 48,
@@ -23846,7 +23899,7 @@ tile{
 
 tile{
   layer = 1,
-  x = 432,
+  x = 440,
   y = 232,
   width = 48,
   height = 8,
@@ -25842,64 +25895,20 @@ tile{
   pattern = "1451",
 }
 
-tile{
-  layer = 1,
-  x = 408,
-  y = 584,
-  width = 16,
-  height = 16,
-  pattern = "8314",
-}
-
-tile{
-  layer = 1,
-  x = 424,
-  y = 584,
-  width = 16,
-  height = 16,
-  pattern = "8314",
-}
-
-tile{
-  layer = 1,
-  x = 440,
-  y = 584,
-  width = 16,
-  height = 16,
-  pattern = "8314",
-}
-
-tile{
-  layer = 1,
-  x = 392,
-  y = 584,
-  width = 16,
-  height = 16,
-  pattern = "8314",
-}
-
-tile{
-  layer = 1,
-  x = 752,
-  y = 0,
-  width = 32,
-  height = 8,
-  pattern = "991",
-}
-
 pickable{
+  name = "honey",
   layer = 1,
-  x = 824,
-  y = 109,
+  x = 816,
+  y = 125,
   treasure_name = "magnifying_lens",
   treasure_variant = 6,
 }
 
 custom_entity{
-  name = "butterfly_7",
+  name = "bee_2",
   layer = 1,
-  x = 808,
-  y = 141,
+  x = 832,
+  y = 149,
   width = 16,
   height = 16,
   direction = 3,
@@ -25908,10 +25917,10 @@ custom_entity{
 }
 
 custom_entity{
-  name = "butterfly_8",
+  name = "bee_1",
   layer = 1,
-  x = 848,
-  y = 141,
+  x = 800,
+  y = 157,
   width = 16,
   height = 16,
   direction = 3,
@@ -25931,14 +25940,123 @@ custom_entity{
 }
 
 custom_entity{
+  name = "dungeon_3_statue_3",
   layer = 1,
-  x = 800,
-  y = 253,
-  width = 56,
-  height = 56,
+  x = 360,
+  y = 693,
+  width = 16,
+  height = 8,
+  direction = 1,
+  sprite = "entities/statue_small_key_dungeon_3",
+}
+
+custom_entity{
+  name = "dungeon_3_statue_4",
+  layer = 1,
+  x = 424,
+  y = 701,
+  width = 16,
+  height = 8,
+  direction = 1,
+  sprite = "entities/statue_small_key_dungeon_3",
+}
+
+custom_entity{
+  name = "dungeon_3_statue_5",
+  layer = 1,
+  x = 488,
+  y = 709,
+  width = 16,
+  height = 8,
+  direction = 1,
+  sprite = "entities/statue_small_key_dungeon_3",
+}
+
+custom_entity{
+  name = "dungeon_3_statue_6",
+  layer = 1,
+  x = 336,
+  y = 677,
+  width = 16,
+  height = 8,
+  direction = 1,
+  sprite = "entities/statue_small_key_dungeon_3",
+}
+
+custom_entity{
+  name = "dungeon_3_statue_7",
+  layer = 1,
+  x = 336,
+  y = 637,
+  width = 16,
+  height = 8,
+  direction = 1,
+  sprite = "entities/statue_small_key_dungeon_3",
+}
+
+custom_entity{
+  name = "dungeon_3_statue_8",
+  layer = 1,
+  x = 336,
+  y = 597,
+  width = 16,
+  height = 8,
+  direction = 1,
+  sprite = "entities/statue_small_key_dungeon_3",
+}
+
+custom_entity{
+  name = "bee_3",
+  layer = 1,
+  x = 768,
+  y = 85,
+  width = 16,
+  height = 16,
+  direction = 3,
+  sprite = "npc/bee",
+  model = "bee",
+}
+
+custom_entity{
+  name = "bee_4",
+  layer = 1,
+  x = 856,
+  y = 77,
+  width = 16,
+  height = 16,
+  direction = 3,
+  sprite = "npc/bee",
+  model = "bee",
+}
+
+custom_entity{
+  name = "link_wait_tarin_place",
+  layer = 1,
+  x = 840,
+  y = 173,
+  width = 16,
+  height = 16,
   direction = 0,
-  sprite = "entities/statue_pig",
-  model = "statue_pig",
+}
+
+custom_entity{
+  name = "tarin_invisible",
+  layer = 1,
+  x = 840,
+  y = 141,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+custom_entity{
+  name = "circle_center",
+  layer = 1,
+  x = 816,
+  y = 93,
+  width = 16,
+  height = 16,
+  direction = 0,
 }
 
 npc{
@@ -25949,5 +26067,24 @@ npc{
   direction = 3,
   subtype = 0,
   sprite = "npc/owl",
+}
+
+npc{
+  name = "owl_7",
+  layer = 2,
+  x = 552,
+  y = 453,
+  direction = 3,
+  subtype = 0,
+  sprite = "npc/owl",
+}
+
+sensor{
+  name = "owl_7_position",
+  layer = 2,
+  x = 552,
+  y = 453,
+  width = 16,
+  height = 16,
 }
 

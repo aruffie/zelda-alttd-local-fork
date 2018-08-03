@@ -1,0 +1,7 @@
+animation{
+  name = "normal",
+  src_image = "entities/statue_mermaid.png",
+  directions = {
+    { x = 0, y = 0, frame_width = 40, frame_height = 48, origin_x = 12, origin_y = 29 },
+  },
+}

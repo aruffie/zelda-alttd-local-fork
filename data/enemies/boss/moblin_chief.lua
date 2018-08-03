@@ -35,6 +35,7 @@ function enemy:on_created()
   enemy:set_pushed_back_when_hurt(false)
   enemy:set_hurt_style("boss")
   x_initial, y_initial = enemy:get_position()
+
 end
 
 function enemy:on_restarted()
@@ -69,6 +70,8 @@ end
 
 function enemy:go_to_initial_position()
 
+    enemy:set_attack_consequence("sword", "protected")
+    sprite:set_animation("walking")
     local movement_initial = sol.movement.create("target")
     movement_initial:set_speed(96)
     movement_initial:set_target(x_initial, y_initial)
@@ -92,10 +95,6 @@ function enemy:start_battle()
     function movement_battle:on_finished()
       enemy:choose_attack()
     end
-    function movement_battle:on_obstacle_reached()
-      movement_battle:stop()
-      enemy:go_to_initial_position()
-    end
 
 end
 
@@ -114,38 +113,46 @@ end
 function enemy:throw_arrow()
 
   local x_enemy, y_enemy, layer_enemy = enemy:get_position()
-  arrow = map:create_enemy{
-    breed =  'arrow',
-    direction = direction_arrow,
-    x = x_enemy,
-    y = y_enemy - 8,
-    width = 16,
-    height = 8,
-    layer = layer_enemy
-  } 
-   movement_type = "arrow"
-  local movement_arrow = sol.movement.create("straight")
-  movement_arrow:set_speed(128)
-  movement_arrow:set_smooth(false)
-  movement_arrow:set_angle(angle)
-  movement_arrow:start(arrow)
-   function  movement_arrow:on_obstacle_reached()
-      movement_arrow:stop()
-      arrow:get_sprite():set_animation("reached_obstacle")
-      sol.timer.start(enemy, 1000, function()
-          arrow:remove()
-          enemy:go_to_initial_position()
-      end)
+  sprite:set_animation("throwing")
+  function sprite:on_animation_finished(animation)
+    if animation == "throwing" then
+      sprite:set_animation("waiting")
     end
+  end
+  sol.timer.start(enemy, 200, function()
+      arrow = map:create_enemy{
+        breed =  'arrow',
+        direction = direction_arrow,
+        x = x_enemy,
+        y = y_enemy - 8,
+        width = 16,
+        height = 8,
+        layer = layer_enemy
+      } 
+       movement_type = "arrow"
+      local movement_arrow = sol.movement.create("straight")
+      movement_arrow:set_speed(128)
+      movement_arrow:set_smooth(false)
+      movement_arrow:set_angle(angle)
+      movement_arrow:start(arrow)
+       function  movement_arrow:on_obstacle_reached()
+          movement_arrow:stop()
+          arrow:get_sprite():set_animation("reached_obstacle")
+          sol.timer.start(enemy, 1000, function()
+              arrow:remove()
+              enemy:go_to_initial_position()
+          end)
+        end
+    end)
 end
 
 function enemy:charge()
 
   enemy:calculate_parameters()
-  sprite:set_animation("attacked")
+  sprite:set_animation("prepare_attacking")
   sol.timer.start(enemy, 1000, function()
     movement_type = "charge"
-    sprite:set_animation("walking")
+    sprite:set_animation("attacked")
     local movement_charge = sol.movement.create("straight")
     movement_charge:set_speed(128)
     movement_charge:set_smooth(false)
@@ -170,16 +177,11 @@ function enemy:set_shocked()
     movement_jump:set_direction8(direction)
     movement_jump:set_distance(32)
     movement_jump:set_speed(128)
+    movement_jump:set_ignore_obstacles(true)
     sol.timer.start(enemy, 4000, function()
         enemy:go_to_initial_position()
     end)
     movement_jump:start(enemy)
-
-end
-
-function enemy:on_obstacle_reached()
-
-    enemy:on_restarted()
 
 end
 

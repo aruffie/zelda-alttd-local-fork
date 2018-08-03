@@ -29,6 +29,7 @@ function map:on_started()
   map:set_doors_open("door_group_1", true)
   treasure_manager:appear_chest_if_savegame_exist(map, "chest_small_key_1",  "dungeon_3_small_key_3")
   treasure_manager:appear_chest_if_savegame_exist(map, "chest_rupee_1",  "dungeon_3_rupee_1")
+  treasure_manager:disappear_pickable(map, "pickable_small_key_1")
 
 end
 
@@ -44,10 +45,11 @@ end
 -- Enemies
 
 -- Treasures
+treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_7_", "pickable_small_key_1", nil)
 
 -- Doors
-door_manager:open_when_pot_break(map, "door_group_1")
-door_manager:open_when_enemies_dead(map,  "enemy_group_3",  "door_group_2")
+door_manager:open_when_pot_break(map, "door_group_1_")
+door_manager:open_when_enemies_dead(map,  "enemy_group_3_",  "door_group_2_")
 
 --Blocks
 
@@ -55,19 +57,19 @@ door_manager:open_when_enemies_dead(map,  "enemy_group_3",  "door_group_2")
 
 function sensor_1:on_activated()
 
-  door_manager:close_if_enemies_not_dead(map, "enemy_group_3", "door_group_2")
+  door_manager:close_if_enemies_not_dead(map, "enemy_group_3_", "door_group_2_")
 
 end
 
 function sensor_2:on_activated()
 
-  door_manager:close_if_enemies_not_dead(map, "enemy_group_3", "door_group_2")
+  door_manager:close_if_enemies_not_dead(map, "enemy_group_3_", "door_group_2_")
 
 end
 
 function sensor_3:on_activated()
 
-  door_manager:close_if_enemies_not_dead(map, "enemy_group_3", "door_group_2")
+  door_manager:close_if_enemies_not_dead(map, "enemy_group_3_", "door_group_2_")
 
 end
 
@@ -77,8 +79,8 @@ end
 -- Switchs events
 
 -- Treasures events
-treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_2", "chest_small_key_1")
-treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_5", "chest_rupee_1")
+treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_2_", "chest_small_key_1_")
+treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_5_", "chest_rupee_1_")
 
 -- Separator events
 

@@ -6,7 +6,7 @@ properties{
   min_layer = 0,
   max_layer = 2,
   world = "inside_world",
-  tileset = "dungeons/light_brown",
+  tileset = "dungeon/light_brown",
   music = "maps/houses/inside",
 }
 
@@ -585,6 +585,17 @@ destructible{
   sprite = "entities/pot",
   weight = 1,
   damage_on_enemies = 2,
+}
+
+custom_entity{
+  name = "teddy_sleep",
+  layer = 0,
+  x = 88,
+  y = 61,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "npc/village_teddy",
 }
 
 tile{

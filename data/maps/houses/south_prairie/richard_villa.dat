@@ -6,7 +6,7 @@ properties{
   min_layer = 0,
   max_layer = 2,
   world = "inside_world",
-  tileset = "dungeons/light_brown",
+  tileset = "dungeon/light_brown",
   music = "maps/houses/richards_villa",
 }
 
@@ -737,10 +737,11 @@ wall{
 }
 
 block{
+  name = "box",
   layer = 0,
   x = 240,
   y = 93,
-  sprite = "entities/block",
+  sprite = "entities/blocks/richard_block",
   pushable = true,
   pullable = false,
   maximum_moves = 1,
@@ -794,6 +795,35 @@ stairs{
   y = 64,
   direction = 1,
   subtype = 3,
+}
+
+custom_entity{
+  name = "richard_place",
+  layer = 0,
+  x = 200,
+  y = 61,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+custom_entity{
+  name = "box_place",
+  layer = 0,
+  x = 256,
+  y = 93,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+wall{
+  layer = 0,
+  x = 264,
+  y = 80,
+  width = 16,
+  height = 16,
+  stops_blocks = true,
 }
 
 tile{
@@ -956,6 +986,33 @@ tile{
   width = 24,
   height = 24,
   pattern = "287",
+}
+
+npc{
+  name = "wardrobe_1",
+  layer = 1,
+  x = 96,
+  y = 53,
+  direction = 3,
+  subtype = 1,
+}
+
+npc{
+  name = "wardrobe_2",
+  layer = 1,
+  x = 112,
+  y = 53,
+  direction = 3,
+  subtype = 1,
+}
+
+npc{
+  name = "wardrobe_3",
+  layer = 1,
+  x = 128,
+  y = 53,
+  direction = 3,
+  subtype = 1,
 }
 
 tile{

@@ -4,8 +4,8 @@ local game = item:get_game()
 function item:on_created()
 
   self:set_savegame_variable("possession_ocarina")
+  self:set_sound_when_brandished("treasure_2")
   self:set_assignable(true)
-
 end
 
 
@@ -32,10 +32,20 @@ function item:playing_song(music)
     direction = 0,
     sprite = "entities/notes"
   }
+  local notes2 = map:create_custom_entity{
+    x = x,
+    y = y,
+    layer = layer + 1,
+    width = 24,
+    height = 32,
+    direction = 2,
+    sprite = "entities/notes"
+  }
   sol.audio.play_sound(music)
   sol.timer.start(map, 4000, function()
     hero:unfreeze()
     notes:remove()
+    notes2:remove()
   end)
 
 end

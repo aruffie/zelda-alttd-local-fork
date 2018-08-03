@@ -203,4 +203,3 @@ end)
 
 separator_manager:manage_map(map)
 owl_manager:manage_map(map)
-

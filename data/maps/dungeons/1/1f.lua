@@ -22,6 +22,7 @@ local owl_manager = require("scripts/maps/owl_manager")
 
 function map:on_started()
 
+ local hero = map:get_hero()
   -- Init music
   game:play_dungeon_music()
   treasure_manager:disappear_pickable(map, "pickable_small_key_1")
@@ -34,17 +35,16 @@ function map:on_started()
   enemy_manager:create_teletransporter_if_small_boss_dead(map, false)
   treasure_manager:appear_heart_container_if_boss_dead(map)
 
-
 end
 
 function map:on_opening_transition_finished(destination)
 
-   map:set_doors_open("door_group_1", true)
+   map:set_doors_open("door_group_1_", true)
    map:set_doors_open("door_group_small_boss", true)
-   map:set_doors_open("door_group_2", true)
+   map:set_doors_open("door_group_2_", true)
   if destination == dungeon_1_1_B then
-    map:set_doors_open("door_group_2", false)
-    map:set_doors_open("door_group_5", true)
+    map:set_doors_open("door_group_2_", false)
+    map:set_doors_open("door_group_5_", true)
     game:start_dialog("maps.dungeons.1.welcome")
   end
 
@@ -56,15 +56,15 @@ end
 
 -- Treasures
 
-treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_7", "pickable_small_key_1", nil)
-treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_12", "chest_rupee_1")
-treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_13", "chest_beak_of_stone")
-treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_4", "chest_map")
+treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_7_", "pickable_small_key_1", nil)
+treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_12_", "chest_rupee_1")
+treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_13_", "chest_beak_of_stone")
+treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_4_", "chest_map")
 
 -- Doors
 
-door_manager:open_when_enemies_dead(map,  "enemy_group_6",  "door_group_1")
-door_manager:open_when_enemies_dead(map,  "enemy_group_3",  "door_group_5")
+door_manager:open_when_enemies_dead(map,  "enemy_group_6_",  "door_group_1")
+door_manager:open_when_enemies_dead(map,  "enemy_group_3_",  "door_group_5")
 door_manager:open_if_small_boss_dead(map)
 door_manager:open_if_boss_dead(map)
 
@@ -76,13 +76,13 @@ door_manager:open_when_block_moved(map, "auto_block_1", "door_group_2")
 
 function sensor_1:on_activated()
 
-  door_manager:close_if_enemies_not_dead(map, "enemy_group_6", "door_group_1")
+  door_manager:close_if_enemies_not_dead(map, "enemy_group_6_", "door_group_1_")
 
 end
 
 function sensor_2:on_activated()
 
-  door_manager:close_if_enemies_not_dead(map, "enemy_group_6", "door_group_1")
+  door_manager:close_if_enemies_not_dead(map, "enemy_group_6_", "door_group_1_")
 
 end
 
@@ -106,7 +106,7 @@ end
 
 function sensor_5:on_activated()
 
-  door_manager:close_if_enemies_not_dead(map, "enemy_group_3", "door_group_5")
+  door_manager:close_if_enemies_not_dead(map, "enemy_group_3_", "door_group_5_")
 
 end
 
@@ -119,13 +119,13 @@ end
 function sensor_7:on_activated()
 
 
-  map:close_doors("door_group_6")
+  map:close_doors("door_group_6_")
 
 end
 
 function sensor_8:on_activated()
 
-  door_manager:open_if_block_moved(map,  "auto_block_1" , "door_group_2")
+  door_manager:open_if_block_moved(map,  "auto_block_1" , "door_group_2_")
 
 end
 

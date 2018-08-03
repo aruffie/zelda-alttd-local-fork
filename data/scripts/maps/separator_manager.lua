@@ -22,29 +22,31 @@ function separator_manager:manage_map(map)
     -- Enemies.
     for k, enemy_place in pairs(enemy_places) do
       local enemy = enemy_place.enemy
-      -- First remove any enemy.
-      if enemy:exists() then
-        enemy:remove()
-      end
-
-      -- Re-create enemies in the new active region.
-      if enemy:is_in_same_region(hero) then
-        local old_enemy = enemy_place.enemy
-        local enemy = map:create_enemy({
-          x = enemy_place.x,
-          y = enemy_place.y,
-          layer = enemy_place.layer,
-          breed = enemy_place.breed,
-          direction = enemy_place.direction,
-          name = enemy_place.name,
-        })
-        enemy:set_treasure(unpack(enemy_place.treasure))
-        enemy.on_dead = old_enemy.on_dead  -- For door_manager.
-        enemy.on_symbol_fixed = old_enemy.on_symbol_fixed -- For Vegas enemies
-        if old_enemy.on_flying_tile_dead ~= nil then
-          enemy.on_flying_tile_dead = old_enemy.on_flying_tile_dead -- For Flying tiles enemies
+      if enemy:get_breed() ~= "boss/skeleton" then
+        -- First remove any enemy.
+        if enemy:exists() then
+          enemy:remove()
         end
-        enemy_place.enemy = enemy
+
+        -- Re-create enemies in the new active region.
+        if enemy:is_in_same_region(hero) then
+          local old_enemy = enemy_place.enemy
+          local enemy = map:create_enemy({
+            x = enemy_place.x,
+            y = enemy_place.y,
+            layer = enemy_place.layer,
+            breed = enemy_place.breed,
+            direction = enemy_place.direction,
+            name = enemy_place.name,
+          })
+          enemy:set_treasure(unpack(enemy_place.treasure))
+          enemy.on_dead = old_enemy.on_dead  -- For door_manager.
+          enemy.on_symbol_fixed = old_enemy.on_symbol_fixed -- For Vegas enemies
+          if old_enemy.on_flying_tile_dead ~= nil then
+            enemy.on_flying_tile_dead = old_enemy.on_flying_tile_dead -- For Flying tiles enemies
+          end
+          enemy_place.enemy = enemy
+        end
       end
     end
 
@@ -118,7 +120,7 @@ function separator_manager:manage_map(map)
     }
 
     local hero = map:get_hero()
-    if not enemy:is_in_same_region(hero) then
+    if not enemy:is_in_same_region(hero)  and enemy:get_breed() ~= "boss/skeleton" then
       enemy:remove()
     end
   end
@@ -151,7 +153,8 @@ function separator_manager:manage_map(map)
 
   for enemy in map:get_entities_by_type("enemy") do
     enemy:register_event("on_dead", function()
-      if enemy:get_breed() ~= "hardhat_beetle_blue" and enemy:get_breed() ~= "arm_mimic"  then
+      if enemy:get_breed() ~= "hardhat_beetle_blue" and enemy:get_breed() ~= "arm_mimic" and enemy:get_breed() ~= "boss/skeleton"
+  then
           enemy_places[enemy:get_name()] = nil
       end
     end)

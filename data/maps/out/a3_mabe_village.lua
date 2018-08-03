@@ -3,23 +3,30 @@
 -- Variables
 local map = ...
 local game = map:get_game()
-local marine_song = false
+local marin_song = false
+local marin_and_link_song = false
 local ball
 local ball_shadow
 local ball_is_launch = false
 local companion_manager = require("scripts/maps/companion_manager")
 local hero_is_alerted = false
-local notes = nil
-
+local marin_notes = nil
+local marin_notes_2 = nil
+local hero_notes = nil
+local hero_notes_2 = nil
 -- Methods - Functions
 
 function map:set_music()
   
   if game:get_value("main_quest_step") == 3  then
     sol.audio.play_music("maps/out/sword_search")
+  elseif map:get_game():get_value("main_quest_step") == 8 and hero:get_distance(kids_alert_position_center) < 160 or map:get_game():get_value("main_quest_step") == 9 and hero:get_distance(kids_alert_position_center) < 160 then
+    sol.audio.play_music("maps/out/moblins_and_bow_wow")
   else
-    if marine_song then
-      sol.audio.play_music("maps/out/song_of_marine")
+    if marin_song then
+      sol.audio.play_music("maps/out/song_of_marin")
+    elseif marin_and_link_song then
+      sol.audio.play_music("maps/out/song_of_marin_and_link")
     else
       sol.audio.play_music("maps/out/mabe_village")
     end
@@ -27,10 +34,65 @@ function map:set_music()
 
 end
 
-function map:marine_sing()
+function map:marin_alone_sing()
 
-  local x,y,layer = marine:get_position()
-  notes = map:create_custom_entity{
+  marin_song = true
+  map:marin_sing_start()
+  map:set_music()
+
+end
+
+function map:marin_and_hero_sing()
+
+  marin_and_link_song = true
+  local hero = map:get_hero()
+  hero:freeze()
+  game:set_hud_enabled(false)
+  game:set_pause_allowed(false)
+  map:marin_sing_start()
+  local timer1 = sol.timer.start(marin, 7500, function()
+    hero:set_direction(3)
+    map:marin_sing_stop()
+    map:hero_sing_start()
+    local timer2 = sol.timer.start(marin, 8000, function()
+      map:marin_sing_start()
+      local timer3 = sol.timer.start(marin, 17500, function()
+        map:marin_sing_stop()
+        map:hero_sing_stop()
+        sol.audio.stop_music()
+        local direction4 = hero:get_direction4_to(marin)
+        hero:set_direction(direction4)
+        game:start_dialog("maps.out.mabe_village.marin_5", function(answer)
+          if answer == 1 then
+            local timer4 = sol.timer.start(marin, 500, function()
+              marin_and_link_song = false
+              map:set_music()
+            end)
+            local item_melody = game:get_item("melody_1")
+            item_melody:set_variant(1)
+            item_melody:brandish(function()
+              --game:set_value("main_quest_step", 19) 
+              game:set_hud_enabled(true)
+              game:set_pause_allowed(true)
+              game:start_dialog("maps.out.mabe_village.marin_7")
+            end)
+          else
+            game:start_dialog("maps.out.mabe_village.marin_6", function()
+              map:marin_and_hero_sing()
+            end)
+          end
+        end)
+      end)
+    end)
+  end)
+  map:set_music()
+
+end
+
+function map:marin_sing_start()
+
+  local x,y,layer = marin:get_position()
+  marin_notes = map:create_custom_entity{
     x = x,
     y = y - 16,
     layer = layer + 1,
@@ -39,21 +101,69 @@ function map:marine_sing()
     direction = 0,
     sprite = "entities/notes"
   }
-  marine:get_sprite():set_animation("singing")
-  marine_song = true
-  map:set_music()
+  marin_notes_2 = map:create_custom_entity{
+    x = x,
+    y = y - 16,
+    layer = layer + 1,
+    width = 24,
+    height = 32,
+    direction = 2,
+    sprite = "entities/notes"
+  }
+  marin:get_sprite():set_animation("singing")
 
 end
 
-function map:init_marine()
- 
-  if game:get_value("main_quest_step") < 4  then
-    marine:set_enabled(false)
-  else
-    marine:get_sprite():set_animation("waiting")
-  end
+function map:marin_sing_stop()
+
+    marin:get_sprite():set_animation("waiting")
+    if marin_notes ~= nil then
+      marin_notes:remove()
+    end
+    if marin_notes_2 ~= nil then
+      marin_notes_2:remove()
+    end
 
 end
+
+function map:hero_sing_start()
+
+  local hero = map:get_hero()
+  local x ,y ,layer = hero:get_position()
+  hero_notes = map:create_custom_entity{
+    x = x,
+    y = y - 16,
+    layer = layer + 1,
+    width = 24,
+    height = 32,
+    direction = 0,
+    sprite = "entities/notes"
+  }
+  hero_notes_2 = map:create_custom_entity{
+    x = x,
+    y = y - 16,
+    layer = layer + 1,
+    width = 24,
+    height = 32,
+    direction = 2,
+    sprite = "entities/notes"
+  }
+  hero:set_animation("playing_ocarina")
+
+end
+
+function map:hero_sing_stop()
+
+    hero:set_animation("stopped")
+    if hero_notes ~= nil then
+      hero_notes:remove()
+    end
+    if hero_notes_2 ~= nil then
+      hero_notes_2:remove()
+    end
+
+end
+
 
 function map:init_bowwow()
  
@@ -121,31 +231,51 @@ end
 
 function map:talk_to_fishman() 
 
+  local fishman_sprite = fishman:get_sprite()
+  local direction4 = fishman:get_direction4_to(hero)
+  fishman_sprite:set_animation("stopped")
+  fishman_sprite:set_direction(direction4)
   game:start_dialog("maps.out.mabe_village.fishman_1", function(answer)
     if answer == 1 then
-      game:start_dialog("maps.out.mabe_village.fishman_2")
+      game:start_dialog("maps.out.mabe_village.fishman_2", function()
+        fishman_sprite:set_animation("walking")
+        fishman_sprite:set_direction(2)
+      end)
       --TODO - CODING FISHING GAME
     else
-      game:start_dialog("maps.out.mabe_village.fishman_3")
+      game:start_dialog("maps.out.mabe_village.fishman_3", function()
+        fishman_sprite:set_animation("walking")
+        fishman_sprite:set_direction(2)
+      end)
     end
   end)
 
 end
 
 
-function map:talk_to_marine() 
+function map:talk_to_marin() 
 
+  local item_ocarina = game:get_item("ocarina")
+  local item_melody_1 = game:get_item("melody_1")
+  local variant_ocarina = item_ocarina:get_variant()
+  local variant_melody_1 = item_melody_1:get_variant()
   if game:get_value("main_quest_step") <= 4 then
-    game:start_dialog("maps.out.mabe_village.marine_1", game:get_player_name(), function()
-      map:marine_sing()
+    game:start_dialog("maps.out.mabe_village.marin_1", game:get_player_name(), function()
+      map:marin_alone_sing()
     end)
   elseif game:get_value("main_quest_step") < 11 then
-    game:start_dialog("maps.out.mabe_village.marine_2", game:get_player_name(), function()
-      map:marine_sing()
+    game:start_dialog("maps.out.mabe_village.marin_2", game:get_player_name(), function()
+      map:marin_alone_sing()
     end)
+  elseif variant_ocarina == 1 and variant_melody_1 == 0 then
+    game:start_dialog("maps.out.mabe_village.marin_4", function()
+      map:marin_and_hero_sing()
+    end)
+  elseif game:get_value("main_quest_step") > 18 then
+    game:start_dialog("maps.out.mabe_village.marin_8")
   else
-    game:start_dialog("maps.out.mabe_village.marine_3", game:get_player_name(), function()
-      map:marine_sing()
+    game:start_dialog("maps.out.mabe_village.marin_3", game:get_player_name(), function()
+      map:marin_alone_sing()
     end)
   end
 
@@ -154,7 +284,48 @@ end
 
 function  map:talk_to_grand_ma()
 
-    if map:get_game():get_value("main_quest_step") ~= 8 and map:get_game():get_value("main_quest_step") ~= 9 then
+
+    local item = game:get_item("magnifying_lens")
+    local variant_lens = item:get_variant()
+    local grand_ma_sprite = grand_ma:get_sprite()
+    local x_grand_ma, y_grand_ma, layer_grand_ma = grand_ma:get_position()
+    if variant_lens == 10 then
+      game:start_dialog("maps.out.mabe_village.grand_ma_3", function(answer)
+        if answer == 1 then
+          hero:freeze()
+          game:set_hud_enabled(false)
+          game:set_pause_allowed(false)
+          grand_ma_sprite:set_animation("brandish")
+          local broom_entity = map:create_custom_entity({
+            name = "brandish_broom",
+            sprite = "entities/items",
+            x = x_grand_ma,
+            y = y_grand_ma - 24,
+            width = 16,
+            height = 16,
+            layer = layer_grand_ma + 1,
+            direction = 0
+          })
+          broom_entity:get_sprite():set_animation("magnifying_lens")
+          broom_entity:get_sprite():set_direction(9)
+          sol.audio.play_sound("treasure")
+          sol.timer.start(grand_ma, 2000, function() 
+            hero:unfreeze()
+            game:set_hud_enabled(true)
+            game:set_pause_allowed(true)
+            broom_entity:remove()
+            grand_ma_sprite:set_animation("walking")
+            game:start_dialog("maps.out.mabe_village.grand_ma_5", function()
+              hero:start_treasure("magnifying_lens", 11)
+            end)
+          end)
+        else
+          game:start_dialog("maps.out.mabe_village.grand_ma_4")
+        end
+      end)
+    elseif variant_lens > 10 then
+          game:start_dialog("maps.out.mabe_village.grand_ma_6")
+    elseif map:get_game():get_value("main_quest_step") ~= 8 and map:get_game():get_value("main_quest_step") ~= 9 then
       game:start_dialog("maps.out.mabe_village.grand_ma_1", function()
         grand_ma:get_sprite():set_direction(3)
       end)
@@ -175,11 +346,16 @@ function  map:talk_to_kids()
 
 end
 
+function map:talk_to_kid_5() 
+
+  game:start_dialog("maps.out.mabe_village.kid_5_1")
+
+end
+
 function map:get_alert_moblins()
 
   local hero = map:get_hero()
   hero:freeze()
-  sol.audio.play_music("maps/out/moblins_and_bow_wow")
   game:start_dialog("maps.out.mabe_village.kids_alert_moblins", function()
       self:get_game():set_value("main_quest_step", 9)
       hero:unfreeze()
@@ -189,8 +365,25 @@ end
 
 -- Events
 
+function map:repeat_kids_scared_direction_check()
+
+  local directionkid1 = kid_1:get_direction4_to(hero)
+  local directionkid2 = kid_2:get_direction4_to(hero)
+  kid_1:get_sprite():set_direction(directionkid1)
+  kid_2:get_sprite():set_direction(directionkid2)
+
+  -- Rappeler cette fonction dans 0.1 seconde.
+  sol.timer.start(map, 100, function() 
+    map:repeat_kids_scared_direction_check()
+  end)
+end
+
 function map:on_started(destination)
 
+    local item = game:get_item("magnifying_lens")
+    local variant_lens = item:get_variant()
+  -- Signs
+  shop_sign_2:get_sprite():set_animation("crane_sign")
   -- Digging
   map:set_digging_allowed(true)
    -- Sword quest
@@ -199,11 +392,24 @@ function map:on_started(destination)
   end
   map:set_music()
   companion_manager:init_map(map)
-  map:init_marine()
+  -- Marine
+  if game:get_value("main_quest_step") < 4 or game:get_value("main_quest_step") > 20  then
+    marin:set_enabled(false)
+  else
+    marin:get_sprite():set_animation("waiting")
+  end
+  -- Kid 5
+  if game:get_value("main_quest_step") ~= 21  then
+    kid_5:set_enabled(false)
+  end
   map:init_bowwow()
   
  -- Grand ma
-  grand_ma:get_sprite():set_animation("walking")
+  if variant_lens == 10 then
+    grand_ma:get_sprite():set_animation("nobroom")
+  else 
+    grand_ma:get_sprite():set_animation("walking")
+  end
 
    -- Kids
   if map:get_game():get_value("main_quest_step") ~= 8 and map:get_game():get_value("main_quest_step") ~= 9 then
@@ -213,6 +419,9 @@ function map:on_started(destination)
   else
     kid_1:get_sprite():set_animation("scared")
     kid_2:get_sprite():set_animation("scared")
+    kid_1:get_sprite():set_ignore_suspend(true)
+    kid_2:get_sprite():set_ignore_suspend(true)
+    map:repeat_kids_scared_direction_check()
   end
 
   -- Thief detect
@@ -230,32 +439,31 @@ function map:on_started(destination)
       weathercook_statue_1:set_position(616,232)
       weathercook_statue_2:set_position(616,248)
   end
+
+if map:get_game():get_value("main_quest_step") == 8 or map:get_game():get_value("main_quest_step") == 9 then
+    sol.timer.start(map, 500, function()
+        map:set_music()
+        if  hero:get_distance(kids_alert_position_center) < 60 then
+          if not hero_is_alerted then
+            hero:get_sprite():set_direction(3)
+            hero_is_alerted = true
+            map:get_alert_moblins()
+          end
+        else
+          if hero_is_alerted then
+            hero_is_alerted = false
+          end
+        end
+        return true
+     end)
+  end
   
 
 end
 
 function map:on_opening_transition_finished(destination)
 
- if map:get_game():get_value("main_quest_step") == 8 or map:get_game():get_value("main_quest_step") == 9 then
-    if  hero:get_distance(kids_alert_position_center) < 64 then
-      hero_is_alerted = true
-      map:get_alert_moblins()
-   end
-   sol.timer.start(map, 500, function()
-    if  hero:get_distance(kids_alert_position_center) < 64 then
-      if not hero_is_alerted then
-        hero_is_alerted = true
-        map:get_alert_moblins()
-      end
-    else
-      if hero_is_alerted then
-        hero_is_alerted = false
-        map:set_music()
-      end
-    end
-    return true
-   end)
-  end
+ 
 
 end
 
@@ -297,10 +505,16 @@ function kid_4:on_interaction()
 
 end
 
-function marine:on_interaction()
+function kid_5:on_interaction()
 
-    if marine_song == false then
-      map:talk_to_marine()
+  map:talk_to_kid_5()
+
+end
+
+function marin:on_interaction()
+
+    if marin_song == false then
+      map:talk_to_marin()
     end
 
 end
@@ -311,25 +525,19 @@ function fishman:on_interaction()
 
 end
 
-function marine_sensor_1:on_activated()
+function marin_sensor_1:on_activated()
 
-    marine_song = false
-    marine:get_sprite():set_animation("waiting")
+    marin_song = false
     map:set_music()
-    if notes ~= nil then
-      notes:remove()
-    end
+    map:marin_sing_stop()
 
 end
 
-function marine_sensor_2:on_activated()
+function marin_sensor_2:on_activated()
 
-    marine_song = false
-    marine:get_sprite():set_animation("waiting")
+    marin_song = false
     map:set_music()
-    if notes ~= nil then
-      notes:remove()
-    end
+    map:marin_sing_stop()
 
 end
 

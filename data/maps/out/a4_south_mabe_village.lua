@@ -21,7 +21,7 @@ end
 function map:open_dungeon_1()
 
   dungeon_1_entrance:get_sprite():set_animation("opened")
-  dungeon_1_entrance:set_traversable_by("hero", true)
+  dungeon_1_entrance:set_traversable_by(true)
 
 end
 
@@ -37,10 +37,27 @@ function map:on_started(destination)
   if sword ~= nil then
     sword:get_sprite():set_direction(4)
   end
-  dungeon_1_entrance:set_traversable_by("hero", false)
+  dungeon_1_entrance:set_traversable_by(false)
   if game:get_value("main_quest_step") > 6 then
     map:open_dungeon_1()
   end
+
+  -- Seashell's tree
+  local seashell_tree_found = false
+  collision_seashell:add_collision_test("facing", function(entity, other, entity_sprite, other_sprite)
+    if other:get_type() == 'hero' and hero:get_state() == "running" and seashell_tree_found == false and game:get_value("seashell_14") == nil then
+      sol.timer.start(map, 250, function()
+        movement = sol.movement.create("jump")
+        movement:set_speed(100)
+        movement:set_distance(64)
+        movement:set_direction8(0)
+        movement:set_ignore_obstacles(true)
+        movement:start(seashell_14, function()
+          seashell_tree_found = true 
+        end)
+      end)
+    end
+  end)
 
 end
 

@@ -7,7 +7,7 @@ properties{
   max_layer = 2,
   world = "dungeon_3",
   floor = -1,
-  tileset = "dungeons/green",
+  tileset = "dungeon/green",
 }
 
 tile{
@@ -1349,33 +1349,6 @@ tile{
   width = 8,
   height = 160,
   pattern = "wall_border.4-2",
-}
-
-tile{
-  layer = 0,
-  x = 1088,
-  y = 1296,
-  width = 64,
-  height = 24,
-  pattern = "full_wall_decor.1-1",
-}
-
-tile{
-  layer = 0,
-  x = 976,
-  y = 1376,
-  width = 24,
-  height = 64,
-  pattern = "full_wall_decor.3-1",
-}
-
-tile{
-  layer = 0,
-  x = 1240,
-  y = 1376,
-  width = 24,
-  height = 64,
-  pattern = "full_wall_decor.4-1",
 }
 
 tile{
@@ -4197,15 +4170,6 @@ stream{
   sprite = "entities/conveyor_belt2",
 }
 
-pickable{
-  name = "instrument",
-  layer = 0,
-  x = 1120,
-  y = 1381,
-  treasure_name = "instrument_3",
-  treasure_savegame_variable = "dungeon_3_instrument",
-}
-
 custom_entity{
   layer = 0,
   x = 1336,
@@ -6534,7 +6498,7 @@ stream{
 
 crystal{
   layer = 0,
-  x = 1152,
+  x = 1120,
   y = 629,
 }
 
@@ -7262,6 +7226,106 @@ door{
   savegame_variable = "dungeon_3_door_small_key_4",
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_3_small_keys",
+  opening_condition_consumed = true,
+}
+
+npc{
+  name = "owl_2",
+  layer = 0,
+  x = 1120,
+  y = 549,
+  direction = 3,
+  subtype = 1,
+  sprite = "entities/statue_dungeon_3_owl",
+}
+
+custom_entity{
+  name = "windfish_symbol",
+  layer = 0,
+  x = 1080,
+  y = 1373,
+  width = 96,
+  height = 40,
+  direction = 3,
+  sprite = "entities/windfish_symbol_dungeon_3",
+}
+
+custom_entity{
+  name = "symbol_egg_2",
+  layer = 0,
+  x = 984,
+  y = 1389,
+  width = 24,
+  height = 64,
+  direction = 0,
+  sprite = "entities/statue_dungeon_3_egg",
+}
+
+custom_entity{
+  name = "symbol_egg_4",
+  layer = 0,
+  x = 1096,
+  y = 1309,
+  width = 64,
+  height = 24,
+  direction = 3,
+  sprite = "entities/statue_dungeon_3_egg",
+}
+
+custom_entity{
+  name = "symbol_egg_3",
+  layer = 0,
+  x = 1248,
+  y = 1389,
+  width = 24,
+  height = 64,
+  direction = 2,
+  sprite = "entities/statue_dungeon_3_egg",
+}
+
+door{
+  name = "door_group_boss_1",
+  layer = 0,
+  x = 1112,
+  y = 1752,
+  direction = 1,
+  sprite = "entities/doors/door_boss_key",
+  savegame_variable = "dungeon_1_door_boss",
+  opening_method = "interaction_if_savegame_variable",
+  opening_condition = "dungeon_1_boss_key",
+}
+
+door{
+  name = "door_group_boss_2",
+  layer = 0,
+  x = 1112,
+  y = 1816,
+  direction = 3,
+  sprite = "entities/doors/door_boss_key",
+  savegame_variable = "dungeon_1_door_boss",
+  opening_method = "interaction_if_savegame_variable",
+  opening_condition = "dungeon_1_boss_key",
+}
+
+door{
+  name = "door_group_boss_4",
+  layer = 0,
+  x = 1112,
+  y = 1560,
+  direction = 3,
+  sprite = "entities/doors/door_normal",
+  opening_condition = "dungeon_1_small_keys",
+  opening_condition_consumed = true,
+}
+
+door{
+  name = "door_group_boss_3",
+  layer = 0,
+  x = 1112,
+  y = 1496,
+  direction = 1,
+  sprite = "entities/doors/door_normal",
+  opening_condition = "dungeon_1_small_keys",
   opening_condition_consumed = true,
 }
 
@@ -8172,5 +8236,14 @@ separator{
   y = 0,
   width = 16,
   height = 2048,
+}
+
+pickable{
+  name = "instrument",
+  layer = 2,
+  x = 1120,
+  y = 1381,
+  treasure_name = "instrument_3",
+  treasure_savegame_variable = "dungeon_3_instrument",
 }
 

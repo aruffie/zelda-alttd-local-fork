@@ -1,0 +1,712 @@
+properties{
+  x = 0,
+  y = 0,
+  width = 320,
+  height = 256,
+  min_layer = 0,
+  max_layer = 2,
+  world = "inside_world",
+  tileset = "dungeon/blue",
+  music = "maps/caves/cave",
+}
+
+tile{
+  layer = 0,
+  x = 40,
+  y = 40,
+  width = 240,
+  height = 176,
+  pattern = "floor_low.5-2",
+}
+
+tile{
+  layer = 0,
+  x = 280,
+  y = 40,
+  width = 24,
+  height = 200,
+  pattern = "ceiling.2",
+}
+
+tile{
+  layer = 0,
+  x = 16,
+  y = 40,
+  width = 24,
+  height = 168,
+  pattern = "ceiling.2",
+}
+
+tile{
+  layer = 0,
+  x = 16,
+  y = 208,
+  width = 264,
+  height = 32,
+  pattern = "ceiling.2",
+}
+
+tile{
+  layer = 0,
+  x = 16,
+  y = 16,
+  width = 288,
+  height = 24,
+  pattern = "ceiling.2",
+}
+
+tile{
+  layer = 0,
+  x = 16,
+  y = 16,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner.1-3",
+}
+
+tile{
+  layer = 0,
+  x = 280,
+  y = 16,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner.2-3",
+}
+
+tile{
+  layer = 0,
+  x = 16,
+  y = 40,
+  width = 24,
+  height = 176,
+  pattern = "wall.3-3",
+}
+
+tile{
+  layer = 0,
+  x = 40,
+  y = 16,
+  width = 240,
+  height = 24,
+  pattern = "wall.1-3",
+}
+
+tile{
+  layer = 0,
+  x = 280,
+  y = 40,
+  width = 24,
+  height = 176,
+  pattern = "wall.4-3",
+}
+
+tile{
+  layer = 0,
+  x = 16,
+  y = 216,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner.3-3",
+}
+
+tile{
+  layer = 0,
+  x = 280,
+  y = 216,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner.4-3",
+}
+
+tile{
+  layer = 0,
+  x = 40,
+  y = 216,
+  width = 240,
+  height = 24,
+  pattern = "wall.2-3",
+}
+
+tile{
+  layer = 0,
+  x = 40,
+  y = 208,
+  width = 240,
+  height = 8,
+  pattern = "wall_border.2-3",
+}
+
+tile{
+  layer = 0,
+  x = 272,
+  y = 40,
+  width = 8,
+  height = 176,
+  pattern = "wall_border.4-3",
+}
+
+tile{
+  layer = 0,
+  x = 40,
+  y = 40,
+  width = 8,
+  height = 176,
+  pattern = "wall_border.3-3",
+}
+
+tile{
+  layer = 0,
+  x = 40,
+  y = 208,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner.3-3",
+}
+
+tile{
+  layer = 0,
+  x = 272,
+  y = 208,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner.4-3",
+}
+
+tile{
+  layer = 0,
+  x = 40,
+  y = 40,
+  width = 240,
+  height = 8,
+  pattern = "wall_border.1-3",
+}
+
+tile{
+  layer = 0,
+  x = 40,
+  y = 40,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner.1-3",
+}
+
+tile{
+  layer = 0,
+  x = 272,
+  y = 40,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner.2-3",
+}
+
+tile{
+  layer = 0,
+  x = 152,
+  y = 216,
+  width = 16,
+  height = 16,
+  pattern = "door_main.2-3",
+}
+
+tile{
+  layer = 0,
+  x = 168,
+  y = 216,
+  width = 8,
+  height = 16,
+  pattern = "door_main.2.support.2-3",
+}
+
+tile{
+  layer = 0,
+  x = 144,
+  y = 216,
+  width = 8,
+  height = 16,
+  pattern = "door_main.2.support.1-3",
+}
+
+tile{
+  layer = 0,
+  x = 144,
+  y = 208,
+  width = 32,
+  height = 8,
+  pattern = "door_main.2.floor.1-3",
+}
+
+tile{
+  layer = 0,
+  x = 48,
+  y = 48,
+  width = 112,
+  height = 160,
+  pattern = "water_shallow",
+}
+
+tile{
+  layer = 0,
+  x = 160,
+  y = 96,
+  width = 48,
+  height = 112,
+  pattern = "water_shallow",
+}
+
+tile{
+  layer = 0,
+  x = 208,
+  y = 144,
+  width = 32,
+  height = 64,
+  pattern = "water_shallow",
+}
+
+tile{
+  layer = 0,
+  x = 240,
+  y = 176,
+  width = 32,
+  height = 32,
+  pattern = "water_shallow",
+}
+
+tile{
+  layer = 0,
+  x = 48,
+  y = 144,
+  width = 32,
+  height = 64,
+  pattern = "water",
+}
+
+tile{
+  layer = 0,
+  x = 80,
+  y = 176,
+  width = 64,
+  height = 32,
+  pattern = "water",
+}
+
+tile{
+  layer = 0,
+  x = 48,
+  y = 40,
+  width = 112,
+  height = 8,
+  pattern = "water_shallow.1",
+}
+
+tile{
+  layer = 0,
+  x = 40,
+  y = 48,
+  width = 8,
+  height = 160,
+  pattern = "water_shallow.3",
+}
+
+tile{
+  layer = 0,
+  x = 160,
+  y = 48,
+  width = 8,
+  height = 40,
+  pattern = "water_shallow.4",
+}
+
+tile{
+  layer = 0,
+  x = 168,
+  y = 88,
+  width = 40,
+  height = 8,
+  pattern = "water_shallow.1",
+}
+
+tile{
+  layer = 0,
+  x = 208,
+  y = 96,
+  width = 8,
+  height = 40,
+  pattern = "water_shallow.4",
+}
+
+tile{
+  layer = 0,
+  x = 216,
+  y = 136,
+  width = 24,
+  height = 8,
+  pattern = "water_shallow.1",
+}
+
+tile{
+  layer = 0,
+  x = 240,
+  y = 144,
+  width = 8,
+  height = 24,
+  pattern = "water_shallow.4",
+}
+
+tile{
+  layer = 0,
+  x = 248,
+  y = 168,
+  width = 24,
+  height = 8,
+  pattern = "water_shallow.1",
+}
+
+tile{
+  layer = 0,
+  x = 272,
+  y = 176,
+  width = 8,
+  height = 32,
+  pattern = "water_shallow.4",
+}
+
+tile{
+  layer = 0,
+  x = 48,
+  y = 208,
+  width = 224,
+  height = 8,
+  pattern = "water_shallow.2",
+}
+
+tile{
+  layer = 0,
+  x = 40,
+  y = 40,
+  width = 8,
+  height = 8,
+  pattern = "water_shallow.corner.1",
+}
+
+tile{
+  layer = 0,
+  x = 160,
+  y = 40,
+  width = 8,
+  height = 8,
+  pattern = "water_shallow.corner.2",
+}
+
+tile{
+  layer = 0,
+  x = 160,
+  y = 88,
+  width = 8,
+  height = 8,
+  pattern = "water_shallow.corner_reverse.2",
+}
+
+tile{
+  layer = 0,
+  x = 208,
+  y = 88,
+  width = 8,
+  height = 8,
+  pattern = "water_shallow.corner.2",
+}
+
+tile{
+  layer = 0,
+  x = 208,
+  y = 136,
+  width = 8,
+  height = 8,
+  pattern = "water_shallow.corner_reverse.2",
+}
+
+tile{
+  layer = 0,
+  x = 240,
+  y = 136,
+  width = 8,
+  height = 8,
+  pattern = "water_shallow.corner.2",
+}
+
+tile{
+  layer = 0,
+  x = 240,
+  y = 168,
+  width = 8,
+  height = 8,
+  pattern = "water_shallow.corner_reverse.2",
+}
+
+tile{
+  layer = 0,
+  x = 272,
+  y = 168,
+  width = 8,
+  height = 8,
+  pattern = "water_shallow.corner.2",
+}
+
+tile{
+  layer = 0,
+  x = 40,
+  y = 208,
+  width = 8,
+  height = 8,
+  pattern = "water_shallow.corner.3",
+}
+
+tile{
+  layer = 0,
+  x = 272,
+  y = 208,
+  width = 8,
+  height = 8,
+  pattern = "water_shallow.corner.4",
+}
+
+tile{
+  layer = 0,
+  x = 40,
+  y = 144,
+  width = 40,
+  height = 72,
+  pattern = "2767",
+}
+
+tile{
+  layer = 0,
+  x = 80,
+  y = 176,
+  width = 64,
+  height = 40,
+  pattern = "2767",
+}
+
+tile{
+  layer = 0,
+  x = 152,
+  y = 232,
+  width = 16,
+  height = 16,
+  pattern = "floor_low.21-2",
+}
+
+tile{
+  layer = 0,
+  x = 144,
+  y = 232,
+  width = 8,
+  height = 16,
+  pattern = "barrier.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 168,
+  y = 232,
+  width = 8,
+  height = 16,
+  pattern = "barrier.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 152,
+  y = 248,
+  width = 16,
+  height = 8,
+  pattern = "barrier.1-1",
+}
+
+tile{
+  layer = 0,
+  x = 24,
+  y = 112,
+  width = 16,
+  height = 32,
+  pattern = "wall_torch.3",
+}
+
+tile{
+  layer = 0,
+  x = 280,
+  y = 112,
+  width = 16,
+  height = 32,
+  pattern = "wall_torch.4",
+}
+
+tile{
+  layer = 0,
+  x = 88,
+  y = 24,
+  width = 32,
+  height = 16,
+  pattern = "wall_torch.1",
+}
+
+tile{
+  layer = 0,
+  x = 200,
+  y = 24,
+  width = 32,
+  height = 16,
+  pattern = "wall_torch.1",
+}
+
+tile{
+  layer = 0,
+  x = 88,
+  y = 216,
+  width = 32,
+  height = 16,
+  pattern = "wall_torch.2",
+}
+
+tile{
+  layer = 0,
+  x = 200,
+  y = 216,
+  width = 32,
+  height = 16,
+  pattern = "wall_torch.2",
+}
+
+chest{
+  layer = 0,
+  x = 264,
+  y = 61,
+  treasure_name = "rupee",
+  treasure_variant = 6,
+  treasure_savegame_variable = "unknown_cave_rupee",
+  sprite = "entities/chest",
+}
+
+enemy{
+  name = "enemy_group_1_1",
+  layer = 0,
+  x = 136,
+  y = 61,
+  direction = 3,
+  breed = "hooded_stalfos",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "enemy_group_1_2",
+  layer = 0,
+  x = 104,
+  y = 101,
+  direction = 0,
+  breed = "hooded_stalfos",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "enemy_group_1_3",
+  layer = 0,
+  x = 224,
+  y = 101,
+  direction = 0,
+  breed = "hooded_stalfos",
+  treasure_name = "random",
+}
+
+wall{
+  layer = 0,
+  x = 152,
+  y = 216,
+  width = 16,
+  height = 16,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+}
+
+destination{
+  name = "entrance",
+  layer = 0,
+  x = 160,
+  y = 213,
+  direction = 1,
+}
+
+teletransporter{
+  layer = 0,
+  x = 152,
+  y = 232,
+  width = 16,
+  height = 16,
+  destination_map = "out/a3_mabe_village",
+  destination = "marin_house_2_A",
+}
+
+npc{
+  layer = 0,
+  x = 160,
+  y = 37,
+  direction = 3,
+  subtype = 0,
+  sprite = "entities/hint_stone",
+  behavior = "dialog#unknown_cave",
+}
+
+tile{
+  layer = 1,
+  x = 128,
+  y = 232,
+  width = 64,
+  height = 8,
+  pattern = "door_cache.2-3",
+}
+
+tile{
+  layer = 1,
+  x = 144,
+  y = 232,
+  width = 32,
+  height = 8,
+  pattern = "cave_entry_top.1",
+}
+
+tile{
+  layer = 2,
+  x = 0,
+  y = 0,
+  width = 320,
+  height = 16,
+  pattern = "ceiling.2",
+}
+
+tile{
+  layer = 2,
+  x = 0,
+  y = 240,
+  width = 320,
+  height = 16,
+  pattern = "ceiling.2",
+}
+
+tile{
+  layer = 2,
+  x = 0,
+  y = 16,
+  width = 16,
+  height = 224,
+  pattern = "ceiling.2",
+}
+
+tile{
+  layer = 2,
+  x = 304,
+  y = 16,
+  width = 16,
+  height = 224,
+  pattern = "ceiling.2",
+}
+

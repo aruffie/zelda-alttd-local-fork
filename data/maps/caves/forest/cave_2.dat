@@ -5,7 +5,7 @@ properties{
   height = 256,
   min_layer = 0,
   max_layer = 2,
-  tileset = "dungeons/dark_brown",
+  tileset = "dungeon/dark_brown",
   music = "maps/caves/cave",
 }
 
@@ -492,6 +492,39 @@ wall{
   stops_enemies = true,
   stops_blocks = true,
   stops_projectiles = true,
+}
+
+custom_entity{
+  name = "cave_rock_1",
+  layer = 0,
+  x = 120,
+  y = 173,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/cave_rock",
+}
+
+custom_entity{
+  name = "cave_rock_2",
+  layer = 0,
+  x = 80,
+  y = 101,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/cave_rock",
+}
+
+custom_entity{
+  name = "cave_rock_3",
+  layer = 0,
+  x = 216,
+  y = 157,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/cave_rock",
 }
 
 tile{

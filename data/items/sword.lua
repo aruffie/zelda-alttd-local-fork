@@ -5,8 +5,10 @@ local game = item:get_game()
 function item:on_created()
 
   self:set_savegame_variable("possession_sword")
-  item:set_brandish_when_picked(false)
+  self:set_brandish_when_picked(false)
   self:set_sound_when_brandished("treasure_sword")
+  self:set_shadow(nil)
+  
 
 end
 
@@ -26,19 +28,9 @@ function item:on_obtaining(variant, savegame_variable)
   game:set_suspended(true)
   hero:get_sprite():set_ignore_suspend(true)
   hero:freeze()
-  hero:set_animation("brandish")
-  local sword_entity = map:create_custom_entity({
-    name = "brandish_sword",
-    sprite = "entities/items",
-    x = x_hero,
-    y = y_hero - 24,
-    width = 16,
-    height = 16,
-    layer = layer_hero,
-    direction = 0
-  })
-  sword_entity:get_sprite():set_animation("sword")
-  sword_entity:get_sprite():set_direction(0)
+  hero:set_animation("pulling_sword", function() 
+    hero:set_animation("pulling_sword_wait")
+  end)
   sol.audio.stop_music()
   sol.audio.play_sound("treasure_sword")
   local timer = sol.timer.start(3000, function()

@@ -1,21 +1,51 @@
+map{ id = "caves/cave", description = "Unknown Cave" }
+map{ id = "caves/east_mt_tamaranch/cave_1", description = "Cave 1 - Underwater Cave" }
+map{ id = "caves/east_mt_tamaranch/cave_2", description = "Cave 2 - Path to East Mt Tamaranch 1" }
+map{ id = "caves/east_mt_tamaranch/cave_3", description = "Cave 3 - Path to East Mt Tamaranch 2" }
+map{ id = "caves/east_mt_tamaranch/cave_4", description = "Cave 4 - Tower Mountain Cave 1" }
+map{ id = "caves/east_mt_tamaranch/cave_5", description = "Cave 5 - Tower Mountain Cave 2" }
+map{ id = "caves/east_mt_tamaranch/cave_6", description = "Cave 6 - Path to Eagle Tower 1" }
+map{ id = "caves/east_mt_tamaranch/cave_7", description = "Cave 7 - Path to Eagle Tower 2" }
 map{ id = "caves/east_mt_tamaranch/fairy_fountain", description = "Fairy's fountain" }
+map{ id = "caves/east_prairie/cave_1", description = "Cave 1 - Road to Animals Village" }
+map{ id = "caves/east_prairie/cave_2", description = "Cave 2 - Prairie Hill 1" }
+map{ id = "caves/east_prairie/cave_3", description = "Cave 3 - Prairie Hill 2" }
 map{ id = "caves/egg_of_the_dream_fish/cave_1", description = "Cave 1" }
 map{ id = "caves/egg_of_the_dream_fish/cave_2", description = "Cave 2" }
 map{ id = "caves/egg_of_the_dream_fish/cave_3", description = "Cave 3" }
+map{ id = "caves/egg_of_the_dream_fish/cave_4", description = "Cave 4 - Mad bat cavern" }
+map{ id = "caves/egg_of_the_dream_fish/cave_5", description = "Cave 5 - Path to West Mt Tamaranch" }
 map{ id = "caves/egg_of_the_dream_fish/moblins_cave", description = "Moblins's house" }
 map{ id = "caves/forest/cave_1", description = "Cave 1" }
 map{ id = "caves/forest/cave_2", description = "Cave 2" }
+map{ id = "caves/forest/cave_3", description = "Cave 3 - Mad Bat cavern" }
+map{ id = "caves/graveyard/cave_1", description = "Cave 1 - Heart Piece Cave" }
+map{ id = "caves/kanalet_castle/cave_1", description = "Cave 1" }
 map{ id = "caves/mabe_village/cave_1", description = "Cave 1" }
 map{ id = "caves/mabe_village/weathercock", description = "Weathercock" }
+map{ id = "caves/mambos_cave/cave_1", description = "Cave 1 - Vers randonneur 1" }
+map{ id = "caves/mambos_cave/cave_2", description = "Cave 2 - Vers randonneur 2" }
+map{ id = "caves/mambos_cave/cave_3", description = "Cave 3 - Bird Key Cave" }
+map{ id = "caves/mambos_cave/cave_4", description = "Cave 4 - Path to Dungeon 4" }
+map{ id = "caves/martha_bay/cave_1", description = "Cave 1 - Chemin vers l'upgrade de poudre magique" }
+map{ id = "caves/martha_bay/cave_2", description = "Cave 2 - Lens Cave" }
+map{ id = "caves/mask_shrine/cave_1", description = "Cave 1 - Return rafting" }
+map{ id = "caves/mask_shrine/cave_2", description = "Cave 2 - South temple secret cave" }
+map{ id = "caves/mask_shrine/cave_3", description = "Cave 3 - Path to Face Shrine" }
 map{ id = "caves/mask_shrine/fairy_fountain", description = "Fairy's fountain" }
 map{ id = "caves/prairie/cave_1", description = "Cave 1" }
 map{ id = "caves/prairie/cave_2", description = "Cave 2" }
 map{ id = "caves/prairie/fairy_fountain", description = "Fairy fountain" }
 map{ id = "caves/south_prairie/cave_1", description = "Cave 1" }
 map{ id = "caves/south_prairie/cave_2", description = "Cave 2" }
+map{ id = "caves/south_prairie/cave_3", description = "Cave 3 - Mad bat cavern" }
+map{ id = "caves/south_prairie/cave_4", description = "Cave 4 - Boomerang Cave" }
+map{ id = "caves/south_prairie/cave_5", description = "Cave 5 - Wart Cave" }
 map{ id = "caves/west_mt_tamaranch/cave_1", description = "Cave 1" }
+map{ id = "caves/west_mt_tamaranch/cave_2", description = "Cave 2 - To Turtle Rock" }
+map{ id = "caves/yarna_desert/cave_1", description = "Cave 1 - Heart Piece Cave" }
+map{ id = "caves/yarna_desert/cave_2", description = "Cave 2 - Yarna Cave" }
 map{ id = "dungeons/1/1f", description = "Dungeon 1 1F" }
-map{ id = "dungeons/1/b1_bis", description = "Dungeon 1 B1" }
 map{ id = "dungeons/1/sideview_1", description = "Sideview 1" }
 map{ id = "dungeons/1/sideview_2", description = "Sideview 2" }
 map{ id = "dungeons/10/1f", description = "Dungeon 10 1F" }
@@ -24,12 +54,22 @@ map{ id = "dungeons/11/1f", description = "Dungeon 11 1F" }
 map{ id = "dungeons/11/b1", description = "Dungeon 11 B1" }
 map{ id = "dungeons/11/b2", description = "Dungeon 11 B2" }
 map{ id = "dungeons/2/1f", description = "Dungeon 2 1F" }
-map{ id = "dungeons/2/b1", description = "Dungeon 2 B1" }
+map{ id = "dungeons/2/sideview_1", description = "Sideview 1" }
+map{ id = "dungeons/2/sideview_2", description = "Sideview 2" }
 map{ id = "dungeons/2/sideview_3", description = "Sideview 3" }
 map{ id = "dungeons/3/1f", description = "Dungeon 3 1F" }
 map{ id = "dungeons/3/b1", description = "Dungeon 3 B1" }
+map{ id = "dungeons/3/sideview_1", description = "Sideview 1" }
 map{ id = "dungeons/4/1f", description = "Dungeon 4 1F" }
+map{ id = "dungeons/4/sideview_1", description = "Sideview 1" }
+map{ id = "dungeons/4/sideview_2", description = "Sideview 2" }
+map{ id = "dungeons/4/sideview_3", description = "Sideview 3" }
+map{ id = "dungeons/4/sideview_4", description = "Sideview 4" }
 map{ id = "dungeons/5/1f", description = "Dungeon 5 1F" }
+map{ id = "dungeons/5/sideview_1", description = "Sideview 1" }
+map{ id = "dungeons/5/sideview_2", description = "Sideview 2" }
+map{ id = "dungeons/5/sideview_3", description = "Sideview 3" }
+map{ id = "dungeons/5/sideview_4", description = "Sideview 4" }
 map{ id = "dungeons/6/1f", description = "Dungeon 6 1F" }
 map{ id = "dungeons/7/1f", description = "Dungeon 7 1F" }
 map{ id = "dungeons/7/2f", description = "Dungeon 7 2F" }
@@ -59,7 +99,7 @@ map{ id = "houses/mabe_village/dream_shine_lower_level", description = "Dream sh
 map{ id = "houses/mabe_village/dream_shine_upper_level", description = "Dream shine upper level" }
 map{ id = "houses/mabe_village/grand_pa_house", description = "Grandpa house" }
 map{ id = "houses/mabe_village/library", description = "Library" }
-map{ id = "houses/mabe_village/marine_house", description = "Marine house" }
+map{ id = "houses/mabe_village/marin_house", description = "Marin house" }
 map{ id = "houses/mabe_village/meow_meow_house", description = "Meow meow house" }
 map{ id = "houses/mabe_village/quadruplets_house", description = "Quadruplets house" }
 map{ id = "houses/mabe_village/shop_1", description = "Shop 1" }
@@ -83,6 +123,7 @@ map{ id = "houses/yarna_desert/empty_house", description = "Empty house" }
 map{ id = "houses/yarna_desert/painter_house", description = "Painter's house" }
 map{ id = "houses/yarna_desert/rabbits_house", description = "Rabbits house" }
 map{ id = "movies/introduction", description = "Introduction" }
+map{ id = "movies/link_and_marin", description = "Link and Marin" }
 map{ id = "out/a1_west_mt_tamaranch", description = "A1 - West Mt Tamaranch" }
 map{ id = "out/a2_forest", description = "A2 - Forest" }
 map{ id = "out/a3_mabe_village", description = "A3 - Mabe village" }
@@ -99,38 +140,57 @@ map{ id = "out/d1_east_mt_tamaranch", description = "D1 - East Mt Tamaranch" }
 map{ id = "out/d2_rafting", description = "D2 - Rafting" }
 map{ id = "out/d3_mask_shrine", description = "D3 - Mask shrine" }
 map{ id = "out/d4_yarna_desert", description = "D4 - Yarna desert" }
+map{ id = "sideviews/kanalet_castle/sideview_1", description = "Sideview 1" }
+map{ id = "sideviews/mabe_village/sideview_1", description = "Sideview 1" }
+map{ id = "sideviews/martha_bay/sideview_1", description = "Sideview 1" }
+map{ id = "sideviews/martha_bay/sideview_2", description = "Sideview 2" }
 
-tileset{ id = "dungeons/blue", description = "Blue" }
-tileset{ id = "dungeons/brown", description = "Brown" }
-tileset{ id = "dungeons/dark_brown", description = "Dark brown" }
-tileset{ id = "dungeons/dark_turquoise", description = "Dark turquoise" }
-tileset{ id = "dungeons/dark_yellow", description = "Dark yellow" }
-tileset{ id = "dungeons/gray", description = "Gray" }
-tileset{ id = "dungeons/gray_blue", description = "Dark blue" }
-tileset{ id = "dungeons/gray_brown", description = "Gray brown" }
-tileset{ id = "dungeons/gray_pink", description = "Gray pink" }
-tileset{ id = "dungeons/gray_yellow", description = "Gray yellow" }
-tileset{ id = "dungeons/green", description = "Green" }
-tileset{ id = "dungeons/light_blue", description = "Light blue" }
-tileset{ id = "dungeons/light_brown", description = "Light brown" }
-tileset{ id = "dungeons/light_green", description = "Light green" }
-tileset{ id = "dungeons/light_yellow", description = "Light yellow" }
-tileset{ id = "dungeons/pink", description = "Pink" }
-tileset{ id = "dungeons/purple", description = "Purple" }
-tileset{ id = "dungeons/purple_blue", description = "Purple blue" }
-tileset{ id = "dungeons/sideview", description = "Sideview" }
-tileset{ id = "dungeons/yellow", description = "Yellow" }
+tileset{ id = "dungeon/blue", description = "Blue" }
+tileset{ id = "dungeon/brown", description = "Brown" }
+tileset{ id = "dungeon/dark_brown", description = "Dark brown" }
+tileset{ id = "dungeon/dark_yellow", description = "Dark yellow" }
+tileset{ id = "dungeon/gray", description = "Gray" }
+tileset{ id = "dungeon/gray_blue", description = "Dark blue" }
+tileset{ id = "dungeon/gray_brown", description = "Gray brown" }
+tileset{ id = "dungeon/gray_pink", description = "Gray pink" }
+tileset{ id = "dungeon/gray_yellow", description = "Gray yellow" }
+tileset{ id = "dungeon/green", description = "Green" }
+tileset{ id = "dungeon/light_blue", description = "Light blue" }
+tileset{ id = "dungeon/light_brown", description = "Light brown" }
+tileset{ id = "dungeon/light_green", description = "Light green" }
+tileset{ id = "dungeon/pink", description = "Pink" }
+tileset{ id = "dungeon/purple", description = "Purple" }
+tileset{ id = "dungeon/yellow", description = "Yellow" }
 tileset{ id = "movies/beach", description = "Beach" }
+tileset{ id = "movies/beach_sunset", description = "Beach sunset" }
 tileset{ id = "out/light_world_legacy", description = "Light world legacy" }
 tileset{ id = "out/outside", description = "Outside" }
+tileset{ id = "sideview/sideview", description = "Side view tileset" }
 
+sprite{ id = "enemies/angler_brick", description = "Angler brick" }
+sprite{ id = "enemies/angler_fry", description = "Angler fry" }
+sprite{ id = "enemies/anti_kirby", description = "Anti kirby" }
 sprite{ id = "enemies/arm_mimic", description = "Arm mimic" }
+sprite{ id = "enemies/armos", description = "Armos" }
 sprite{ id = "enemies/arrow", description = "Arrow" }
 sprite{ id = "enemies/beamos", description = "Beamos" }
+sprite{ id = "enemies/beetle_blue", description = "Beetle blue" }
+sprite{ id = "enemies/beetle_green", description = "Beetle green" }
+sprite{ id = "enemies/beetle_red", description = "Beetle red" }
+sprite{ id = "enemies/bloober", description = "Bloober" }
+sprite{ id = "enemies/bomber", description = "Bomber" }
+sprite{ id = "enemies/boo_buddy", description = "Boo buddy" }
+sprite{ id = "enemies/boss/dodongo_snake", description = "Dodongo_snake" }
+sprite{ id = "enemies/boss/dodongo_snake/dodongo_snake_body", description = "Dodongo snake body" }
 sprite{ id = "enemies/boss/genie", description = "Genie" }
 sprite{ id = "enemies/boss/genie/genie_bottle", description = "Genie bottle" }
+sprite{ id = "enemies/boss/genie/genie_fire_ball", description = "Genie fire ball" }
 sprite{ id = "enemies/boss/genie_enemies/genie_bottle", description = "Genie bottle" }
 sprite{ id = "enemies/boss/hinox_master", description = "Hinox master" }
+sprite{ id = "enemies/boss/master_stalfos", description = "Master stalfos" }
+sprite{ id = "enemies/boss/master_stalfos/master_stalfos_shadow", description = "Master stalfos shadow" }
+sprite{ id = "enemies/boss/master_stalfos/master_stalfos_shield", description = "Master stalfos shield" }
+sprite{ id = "enemies/boss/master_stalfos/master_stalfos_sword", description = "Master stalfos sword" }
 sprite{ id = "enemies/boss/moblin_chief", description = "Moblin chief" }
 sprite{ id = "enemies/boss/moldorm", description = "Moldorm tail" }
 sprite{ id = "enemies/boss/moldorm/moldorm_body_1", description = "Moldorm body 1" }
@@ -140,54 +200,122 @@ sprite{ id = "enemies/boss/moldorm/moldorm_eyes", description = "Moldorm eyes" }
 sprite{ id = "enemies/boss/moldorm/moldorm_head", description = "Moldorm 1 head" }
 sprite{ id = "enemies/boss/rolling_bones", description = "Rolling bones" }
 sprite{ id = "enemies/boss/rolling_bones/rolling_bones_spike", description = "Rolling bones spike" }
+sprite{ id = "enemies/boss/skeleton", description = "Skeleton" }
+sprite{ id = "enemies/boulder", description = "Boulder" }
 sprite{ id = "enemies/bubble", description = "Bubble" }
+sprite{ id = "enemies/buzz_blob", description = "Buzz blob" }
+sprite{ id = "enemies/cheep_cheep", description = "Cheep cheep" }
 sprite{ id = "enemies/chicken", description = "Chicken" }
 sprite{ id = "enemies/chicken_mortal", description = "Chicken mortal" }
+sprite{ id = "enemies/crow", description = "Crow" }
+sprite{ id = "enemies/cukeman", description = "Cukeman" }
+sprite{ id = "enemies/darknut_bow", description = "Darknut bow" }
+sprite{ id = "enemies/darknut_sword", description = "Darknut sword" }
 sprite{ id = "enemies/death_ball", description = "Death ball" }
 sprite{ id = "enemies/dog", description = "Dog" }
 sprite{ id = "enemies/enemy_killed", description = "Enemy killed" }
+sprite{ id = "enemies/eyegore_statue", description = "Eyegore statue" }
+sprite{ id = "enemies/face_lamp", description = "Face lamp" }
 sprite{ id = "enemies/fireball", description = "Fireball" }
+sprite{ id = "enemies/fireball_small_triple_red", description = "fireball_small_triple_red" }
+sprite{ id = "enemies/flying_octorok", description = "Flying octorok" }
 sprite{ id = "enemies/flying_tile", description = "Flying tile" }
+sprite{ id = "enemies/gel_red", description = "Gel red" }
+sprite{ id = "enemies/ghini", description = "Ghini" }
+sprite{ id = "enemies/giant_bubble", description = "Giant bubble" }
+sprite{ id = "enemies/giant_ghini", description = "Giant ghini" }
 sprite{ id = "enemies/giant_goponga_flower", description = "Giant Goponga Flower" }
+sprite{ id = "enemies/gibdo", description = "Gibdo" }
 sprite{ id = "enemies/goomba", description = "Goomba" }
 sprite{ id = "enemies/goponga_flower", description = "Goponga flower" }
+sprite{ id = "enemies/green_bombite", description = "Green bombite" }
 sprite{ id = "enemies/hardhat_beetle_blue", description = "Hardhat beetle blue" }
 sprite{ id = "enemies/hardhat_beetle_red", description = "Hardhat beetle red" }
+sprite{ id = "enemies/helmasaur_masked", description = "Helmasaur masked" }
+sprite{ id = "enemies/helmasaur_naked", description = "Helmasaur naked" }
 sprite{ id = "enemies/hooded_stalfos", description = "Hooded stalfos" }
 sprite{ id = "enemies/keese", description = "Keese" }
+sprite{ id = "enemies/leever", description = "Leever" }
+sprite{ id = "enemies/like_like", description = "Like like" }
+sprite{ id = "enemies/mad_bomber", description = "Mad bomber" }
 sprite{ id = "enemies/maskass", description = "Maskass" }
+sprite{ id = "enemies/mini_moldorm", description = "Mini moldorm" }
+sprite{ id = "enemies/mini_moldorm_body", description = "Mini Moldorm body" }
+sprite{ id = "enemies/mini_moldorm_tail", description = "Mini moldorm tail" }
+sprite{ id = "enemies/mini_thwomp", description = "Mini thwomp" }
 sprite{ id = "enemies/moblin", description = "Moblin" }
+sprite{ id = "enemies/moblin_dog_spear", description = "Moblin dog spear" }
+sprite{ id = "enemies/moblin_dog_sword", description = "Moblin dog sword" }
+sprite{ id = "enemies/moblin_pig_sword", description = "Moblin pig sword" }
+sprite{ id = "enemies/moblin_spear", description = "Moblin spear" }
+sprite{ id = "enemies/monkey", description = "Monkey" }
+sprite{ id = "enemies/monkey_coconut", description = "Monkey coconut" }
 sprite{ id = "enemies/octorok", description = "Octorok" }
 sprite{ id = "enemies/octorok_stone", description = "Octorok stone" }
+sprite{ id = "enemies/pairodd", description = "Pairodd" }
+sprite{ id = "enemies/peahat", description = "Peahat" }
 sprite{ id = "enemies/pike_auto", description = "Pike auto" }
 sprite{ id = "enemies/pike_detect", description = "Pike detect" }
 sprite{ id = "enemies/pike_fixed", description = "Pike fixed" }
+sprite{ id = "enemies/pincer_body", description = "Pincer body" }
+sprite{ id = "enemies/pincer_eyes", description = "Pincer eyes" }
+sprite{ id = "enemies/pincer_head", description = "Pincer head" }
+sprite{ id = "enemies/piranha", description = "Piranha" }
+sprite{ id = "enemies/piranha_plant", description = "Piranha plant" }
+sprite{ id = "enemies/podoboo", description = "Podoboo" }
+sprite{ id = "enemies/pokey_2", description = "Pokey 2" }
+sprite{ id = "enemies/pokey_3", description = "Pokey_3" }
+sprite{ id = "enemies/pokey_ball", description = "pokey_ball" }
+sprite{ id = "enemies/pokey_full", description = "Pokey full" }
+sprite{ id = "enemies/pokey_head", description = "Pokey_head" }
 sprite{ id = "enemies/pols_voice", description = "Pols voice" }
+sprite{ id = "enemies/raven", description = "Raven" }
+sprite{ id = "enemies/red_bombite", description = "Red bombite" }
+sprite{ id = "enemies/river_zora", description = "River zora" }
+sprite{ id = "enemies/rope", description = "Rope" }
+sprite{ id = "enemies/sand_crab", description = "Crab" }
 sprite{ id = "enemies/sea_urchin", description = "Sea urchin" }
-sprite{ id = "enemies/slime_green", description = "Slime green" }
+sprite{ id = "enemies/spike", description = "Spike" }
+sprite{ id = "enemies/spiked_thwomp", description = "Spiked thwomp" }
+sprite{ id = "enemies/spiny_beetle", description = "Spiny beetle" }
 sprite{ id = "enemies/stalfos_blue", description = "Stalfos blue" }
 sprite{ id = "enemies/stalfos_grey", description = "Stalfos grey" }
 sprite{ id = "enemies/stalfos_red", description = "Stalfos red" }
 sprite{ id = "enemies/star", description = "Star" }
-sprite{ id = "enemies/tektite_blue", description = "Tektite blue" }
+sprite{ id = "enemies/stone_hinox_boulder", description = "Stone hinox boulder" }
+sprite{ id = "enemies/sword_darknut", description = "Sword darknut" }
+sprite{ id = "enemies/sword_moblin_dog", description = "Sword moblin dog" }
+sprite{ id = "enemies/sword_moblin_pig", description = "Sword moblin pig" }
+sprite{ id = "enemies/tektite", description = "Tektite" }
 sprite{ id = "enemies/vegas", description = "Vegas" }
+sprite{ id = "enemies/vire", description = "Vire" }
+sprite{ id = "enemies/vire_blazing_bat", description = "Vire blazing bat" }
+sprite{ id = "enemies/water_tektite", description = "Water tektite" }
 sprite{ id = "enemies/wizzrobe_beam", description = "Wizzrobe beam" }
 sprite{ id = "enemies/wizzrobe_blue", description = "Wizzrobe lue" }
 sprite{ id = "enemies/wizzrobe_white", description = "Wizzrobe white" }
 sprite{ id = "enemies/zol_green", description = "Zol green" }
+sprite{ id = "enemies/zol_red", description = "Zol red" }
+sprite{ id = "enemies/zombie", description = "Zombie" }
 sprite{ id = "entities/arrow", description = "Arrow" }
+sprite{ id = "entities/arrow_fly", description = "Arrow fly" }
 sprite{ id = "entities/ball", description = "Ball" }
 sprite{ id = "entities/ball_shadow", description = "Ball shadow" }
+sprite{ id = "entities/bananas", description = "Bananas" }
 sprite{ id = "entities/beach_debris_1", description = "Beach debris 1" }
 sprite{ id = "entities/beach_debris_2", description = "Beach debris 2" }
 sprite{ id = "entities/beach_debris_3", description = "Beach debris 3" }
 sprite{ id = "entities/beach_debris_4", description = "Beach debris 4" }
+sprite{ id = "entities/bear_pots", description = "Bear pots" }
 sprite{ id = "entities/bed", description = "Hero's bed" }
 sprite{ id = "entities/big_chest", description = "Chest (big)" }
 sprite{ id = "entities/block", description = "Block" }
 sprite{ id = "entities/blocks/block_small_key", description = "Block small key" }
+sprite{ id = "entities/blocks/richard_block", description = "Richard block" }
 sprite{ id = "entities/blue_cristal", description = "Blue cristal" }
 sprite{ id = "entities/bomb", description = "Bomb" }
+sprite{ id = "entities/bomb_fly", description = "Bomb fly" }
+sprite{ id = "entities/bombite_explosion", description = "Bombite_explosion" }
 sprite{ id = "entities/book_blue", description = "Book blue" }
 sprite{ id = "entities/book_green", description = "Book green" }
 sprite{ id = "entities/book_orange", description = "Book orange" }
@@ -195,6 +323,7 @@ sprite{ id = "entities/book_red", description = "Book red" }
 sprite{ id = "entities/boomerang1", description = "Boomerang 1" }
 sprite{ id = "entities/boomerang2", description = "Boomerang 2" }
 sprite{ id = "entities/bow", description = "Bow" }
+sprite{ id = "entities/bubble_swamp", description = "Bubble swamp" }
 sprite{ id = "entities/bush", description = "Bush" }
 sprite{ id = "entities/bush_grass", description = "Bush grass" }
 sprite{ id = "entities/camera", description = "Camera" }
@@ -202,7 +331,12 @@ sprite{ id = "entities/cannonball", description = "Cannon ball" }
 sprite{ id = "entities/cave_bones", description = "Cave bones" }
 sprite{ id = "entities/cave_hole", description = "Cave hole" }
 sprite{ id = "entities/cave_rock", description = "Cave rock" }
+sprite{ id = "entities/chain", description = "Chain" }
 sprite{ id = "entities/chest", description = "Chest (normal)" }
+sprite{ id = "entities/claw_chain", description = "Claw chain" }
+sprite{ id = "entities/claw_crane", description = "Claw crane" }
+sprite{ id = "entities/claw_up", description = "Claw up" }
+sprite{ id = "entities/console", description = "Console" }
 sprite{ id = "entities/conveyor_belt1", description = "Conveyor belt 1" }
 sprite{ id = "entities/conveyor_belt2", description = "Conveyor belt 2" }
 sprite{ id = "entities/conveyor_belt3", description = "Conveyor belt 3" }
@@ -217,71 +351,115 @@ sprite{ id = "entities/doors/door_normal", description = "Door" }
 sprite{ id = "entities/doors/door_normal_cave", description = "Door cave" }
 sprite{ id = "entities/doors/door_small_key", description = "Door small key" }
 sprite{ id = "entities/doors/door_very_weak_wall", description = "Door very weak wall" }
+sprite{ id = "entities/doors/door_weak_block", description = "Door weak block" }
+sprite{ id = "entities/doors/door_weak_block_cave", description = "Door weak block cave" }
 sprite{ id = "entities/doors/door_weak_wall", description = "Door_weak_wall" }
 sprite{ id = "entities/doors/door_weak_wall_cave", description = "Door weak wall cave" }
 sprite{ id = "entities/doors/door_weak_wall_out", description = "Door weak wall out" }
 sprite{ id = "entities/egg", description = "Egg" }
 sprite{ id = "entities/entrance_dungeon_1", description = "Entrance dungeon 1" }
-sprite{ id = "entities/entrance_dungeon_1_door", description = "Entrance dungeon 1 door" }
 sprite{ id = "entities/entrance_dungeon_2", description = "Entrance dungeon 2" }
+sprite{ id = "entities/entrance_dungeon_3", description = "entities/entrance_dungeon_3" }
 sprite{ id = "entities/entrance_dungeon_4", description = "Entrance dungeon 4" }
 sprite{ id = "entities/entrance_dungeon_5", description = "Entrance dungeon 5" }
 sprite{ id = "entities/entrance_dungeon_6", description = "Entrance dungeon 6" }
 sprite{ id = "entities/entrance_dungeon_7", description = "Entrance dungeon 7" }
 sprite{ id = "entities/entrance_dungeon_7_door", description = "Entrance dungeon 7 door" }
+sprite{ id = "entities/entrance_dungeon_8_bis", description = "Entrance dungeon 8 bis" }
+sprite{ id = "entities/entrance_dungeon_door", description = "Entrance dungeons" }
 sprite{ id = "entities/entrance_moblin_cave", description = "Entrance moblin cave" }
 sprite{ id = "entities/entrance_southern_face_shrine", description = "Entrance southern face shrine" }
 sprite{ id = "entities/explosion", description = "Explosion" }
 sprite{ id = "entities/fire", description = "Fire" }
 sprite{ id = "entities/fish_manbo", description = "Fish Manbo" }
+sprite{ id = "entities/flame_fountain_machine", description = "Flame fountain machine" }
+sprite{ id = "entities/floating_tree_rafting", description = "Floating tree rafting" }
+sprite{ id = "entities/game_board", description = "game_board" }
 sprite{ id = "entities/grass", description = "Grass" }
 sprite{ id = "entities/graveyard_tree", description = "Graveyard tree" }
-sprite{ id = "entities/graveyard_tree_footer_brown", description = "Graveyard tree footer" }
+sprite{ id = "entities/graveyard_tree_footer_brown", description = "Graveyard tree footer brown" }
+sprite{ id = "entities/graveyard_tree_footer_green", description = "Graveyard tree footer green" }
 sprite{ id = "entities/green_cristal", description = "Green cristal" }
+sprite{ id = "entities/ground_dug", description = "Ground dug" }
 sprite{ id = "entities/hammer_stake_brown", description = "Hammer stake brown" }
 sprite{ id = "entities/hammer_stake_green", description = "Hammer stake green" }
 sprite{ id = "entities/hammer_stake_yellow", description = "Hammer stake yellow" }
+sprite{ id = "entities/handle", description = "Handle" }
+sprite{ id = "entities/handle_base", description = "Handle base" }
+sprite{ id = "entities/handle_chain", description = "Handle chain" }
 sprite{ id = "entities/heart", description = "Heart" }
 sprite{ id = "entities/heart_fly", description = "Heart fly" }
 sprite{ id = "entities/heart_fly_shadow", description = "Heart fly shadow" }
+sprite{ id = "entities/hibiscus_pot", description = "Hibiscus pot" }
 sprite{ id = "entities/hint_stone", description = "Hint stone" }
 sprite{ id = "entities/hook", description = "Hook" }
+sprite{ id = "entities/hook_bridge", description = "Hook bridge" }
+sprite{ id = "entities/hook_bridge_deployed", description = "hook_bridge_deployed" }
 sprite{ id = "entities/hookshot", description = "Hookshot" }
+sprite{ id = "entities/horse_head", description = "Horse head" }
+sprite{ id = "entities/house_dungeon_7", description = "House dungeon 7" }
+sprite{ id = "entities/ice_block", description = "Ice block" }
 sprite{ id = "entities/instrument_big_sparkle", description = "Instrument big sparkle" }
+sprite{ id = "entities/instrument_small_sparkle", description = "Instrument small sparkle" }
 sprite{ id = "entities/iron_ball", description = "Iron ball" }
 sprite{ id = "entities/items", description = "Items" }
+sprite{ id = "entities/kanalet_canvas", description = "Kanalet canvas" }
+sprite{ id = "entities/kanalet_darknut_statue", description = "Kanalet darknut statue" }
+sprite{ id = "entities/kanalet_statue", description = "Kanalet statue" }
+sprite{ id = "entities/keyhole_dungeon_4", description = "Keyhole dungeon 4" }
+sprite{ id = "entities/keyhole_dungeon_6", description = "Keyhole dungeon 6" }
 sprite{ id = "entities/keyhole_dungeon_7", description = "Keyhole dungeon 7" }
 sprite{ id = "entities/la_beach/la_background", description = "entities/la_beach/la_background" }
 sprite{ id = "entities/la_beach/la_swell", description = "entities/la_beach/la_swell" }
 sprite{ id = "entities/la_beach/la_wreck", description = "entities/la_beach/la_wreck" }
+sprite{ id = "entities/lanmola_statue", description = "Lanmola statue" }
+sprite{ id = "entities/letter", description = "Letter" }
+sprite{ id = "entities/lightning_strike", description = "Lightning strike" }
+sprite{ id = "entities/lightning_strike_core", description = "Lightning strike core" }
+sprite{ id = "entities/mad_batter_set", description = "Mad batter set" }
+sprite{ id = "entities/mask_helmasaur", description = "Mask helmasaur" }
+sprite{ id = "entities/mask_shrine_column", description = "Mask shrine column" }
+sprite{ id = "entities/mask_shrine_slabs", description = "Mask shrine slabs" }
+sprite{ id = "entities/mega_thwomp", description = "Mega thwomp" }
+sprite{ id = "entities/moblin_carpet", description = "Moblin carpet" }
+sprite{ id = "entities/moblin_fire", description = "Moblin fire" }
 sprite{ id = "entities/moblin_throne", description = "Moblin throne" }
 sprite{ id = "entities/movies/background_introduction", description = "Background introduction" }
 sprite{ id = "entities/movies/swell", description = "Swell" }
 sprite{ id = "entities/movies/wreck", description = "Wreck" }
+sprite{ id = "entities/moving_platform_dg_2", description = "Moving platform dg 2" }
 sprite{ id = "entities/non_diggable", description = "Diggable" }
 sprite{ id = "entities/notes", description = "Notes" }
-sprite{ id = "entities/numbers", description = "Numbers" }
 sprite{ id = "entities/outside_door", description = "Outside closed door" }
 sprite{ id = "entities/outside_ladder", description = "Outside ladder" }
-sprite{ id = "entities/owl", description = "Owl" }
 sprite{ id = "entities/owl_blue", description = "Owl blue" }
-sprite{ id = "entities/owl_out", description = "Owl out" }
 sprite{ id = "entities/painting", description = "Painting" }
 sprite{ id = "entities/palm", description = "Palm" }
+sprite{ id = "entities/palm_banana", description = "Palm banana" }
 sprite{ id = "entities/palm_footer_brown", description = "Palm footer brown" }
 sprite{ id = "entities/palm_footer_green", description = "Palm footer green" }
 sprite{ id = "entities/palm_footer_yellow", description = "Palm footer yellow" }
+sprite{ id = "entities/palm_yarna", description = "Palm yarna" }
+sprite{ id = "entities/pencil", description = "Pencil" }
 sprite{ id = "entities/phone_statue", description = "Phone statue" }
 sprite{ id = "entities/pillar", description = "Pillar" }
 sprite{ id = "entities/pillar_base", description = "Pillar base" }
 sprite{ id = "entities/pot", description = "Pot" }
+sprite{ id = "entities/pot_sideview_dg_2", description = "Pot sideview dg 2" }
+sprite{ id = "entities/powder_fly", description = "Powder fly" }
+sprite{ id = "entities/raft", description = "Raft" }
 sprite{ id = "entities/rain", description = "Rain" }
+sprite{ id = "entities/rock_block", description = "Rock block" }
+sprite{ id = "entities/rooster_dead", description = "Rooster dead" }
+sprite{ id = "entities/rupee_fly", description = "Rupee fly" }
 sprite{ id = "entities/rupee_icon", description = "Rupee icon" }
 sprite{ id = "entities/shadow", description = "Shadow" }
 sprite{ id = "entities/shield", description = "Shield" }
+sprite{ id = "entities/shop_board", description = "Shop board" }
 sprite{ id = "entities/shop_office", description = "Shop office" }
 sprite{ id = "entities/shovel", description = "Shovel" }
 sprite{ id = "entities/sign", description = "Sign" }
+sprite{ id = "entities/signs", description = "Signs" }
 sprite{ id = "entities/skull_brown", description = "Skull brown" }
 sprite{ id = "entities/skull_green", description = "Skull green" }
 sprite{ id = "entities/skull_white", description = "Skull white" }
@@ -292,15 +470,36 @@ sprite{ id = "entities/star", description = "Star" }
 sprite{ id = "entities/statue", description = "Statue" }
 sprite{ id = "entities/statue_big_dungeon_3", description = "Statue dungeon 3" }
 sprite{ id = "entities/statue_dungeon_1_block", description = "Statue dungeon 1 block" }
+sprite{ id = "entities/statue_dungeon_1_egg", description = "Statue dungeon 1 egg" }
 sprite{ id = "entities/statue_dungeon_1_key", description = "Statue dungeon 1 key" }
+sprite{ id = "entities/statue_dungeon_1_owl", description = "Statue dungeon 1 owl" }
+sprite{ id = "entities/statue_dungeon_2", description = "Statue dungeon 2" }
+sprite{ id = "entities/statue_dungeon_2_egg", description = "Statue dungeon 2 egg" }
+sprite{ id = "entities/statue_dungeon_2_head", description = "Statue dungeon 2 head" }
+sprite{ id = "entities/statue_dungeon_2_owl", description = "Statue dungeon 2 owl" }
 sprite{ id = "entities/statue_dungeon_3", description = "Statue dungeon 3" }
-sprite{ id = "entities/statue_dungeon_3_block", description = "Statue dungeon 3 block" }
+sprite{ id = "entities/statue_dungeon_3_egg", description = "Statue dungeon 3 egg" }
 sprite{ id = "entities/statue_dungeon_3_key", description = "Statue dungeon 3 key" }
+sprite{ id = "entities/statue_dungeon_3_owl", description = "Statue dungeon 3 owl" }
+sprite{ id = "entities/statue_dungeon_4_egg", description = "Statue dungeon 4 egg" }
+sprite{ id = "entities/statue_dungeon_4_owl", description = "Statue dungeon 4 owl" }
+sprite{ id = "entities/statue_dungeon_5_egg", description = "Statue dungeon 5 egg" }
+sprite{ id = "entities/statue_dungeon_5_owl", description = "Statue dungeon 5 owl" }
 sprite{ id = "entities/statue_dungeon_6", description = "Statue dungeon 6" }
+sprite{ id = "entities/statue_dungeon_6_egg", description = "Statue dungeon 6 egg" }
 sprite{ id = "entities/statue_dungeon_6_head", description = "Statue dungeon 6 head" }
+sprite{ id = "entities/statue_dungeon_6_owl", description = "Statue dungeon 6 owl" }
 sprite{ id = "entities/statue_dungeon_7", description = "Statue dungeon 7" }
+sprite{ id = "entities/statue_dungeon_7_egg", description = "Statue dungeon 7 egg" }
+sprite{ id = "entities/statue_dungeon_7_owl", description = "Statue dungeon 7 owl" }
+sprite{ id = "entities/statue_dungeon_8_egg", description = "Statue dungeon 8 egg" }
+sprite{ id = "entities/statue_dungeon_8_owl", description = "Statue dungeon 8 owl" }
+sprite{ id = "entities/statue_koopa_hookable", description = "Statue koopa hookable" }
 sprite{ id = "entities/statue_liftable_dungeon_6", description = "Statue liftable dungeon 6" }
+sprite{ id = "entities/statue_mermaid", description = "Statue mermaid" }
+sprite{ id = "entities/statue_owl_dungeon_free", description = "Statue owl dungeon free" }
 sprite{ id = "entities/statue_pig", description = "Statue pig" }
+sprite{ id = "entities/statue_pig_destroyed", description = "Statue pig destroyed" }
 sprite{ id = "entities/statue_small", description = "Statue small" }
 sprite{ id = "entities/statue_small_dungeon_3", description = "Statue small dungeon 3" }
 sprite{ id = "entities/statue_small_key_dungeon_3", description = "Statue small key dungeon 3" }
@@ -308,15 +507,37 @@ sprite{ id = "entities/stone_large_white", description = "Large white stone" }
 sprite{ id = "entities/stone_small_black", description = "Small black stone" }
 sprite{ id = "entities/stone_small_brown", description = "Stone small brown" }
 sprite{ id = "entities/stone_small_white", description = "Small white stone" }
+sprite{ id = "entities/sun", description = "Sun" }
+sprite{ id = "entities/swell", description = "Swell" }
 sprite{ id = "entities/switch", description = "Switch" }
 sprite{ id = "entities/teletransporter", description = "Teletransporter" }
 sprite{ id = "entities/teletransporter_dungeon", description = "Teletransporter dungeon" }
 sprite{ id = "entities/torch", description = "Torch" }
+sprite{ id = "entities/turtlerock_arms", description = "Turtlerock arms" }
+sprite{ id = "entities/turtlerock_head", description = "Turtlerock head" }
 sprite{ id = "entities/vacuum_cleaner", description = "Vacuum cleaner" }
 sprite{ id = "entities/vacuum_cleaner_ground", description = "Vacuum cleaner ground" }
-sprite{ id = "entities/wallturn_prototype", description = "Wallturn prototype" }
+sprite{ id = "entities/wallturn_dungeon_1_front", description = "Wallturn" }
+sprite{ id = "entities/wallturn_dungeon_2_front", description = "Wallturn dungeon 2" }
+sprite{ id = "entities/wallturn_dungeon_3_front", description = "Wallturn dungeon 3" }
+sprite{ id = "entities/wallturn_dungeon_5_front", description = "Wallturn dungeon 5" }
+sprite{ id = "entities/wallturn_dungeon_6_front", description = "Wallturn dungeon 6" }
+sprite{ id = "entities/wallturn_dungeon_7_front", description = "Wallturn dungeon 7" }
+sprite{ id = "entities/wallturn_dungeon_8_front", description = "Wallturn dungeon 8" }
+sprite{ id = "entities/wallturn_dungeon_9_front", description = "Wallturn dungeon 9" }
 sprite{ id = "entities/water_tree", description = "Water tree" }
 sprite{ id = "entities/water_tree_junction", description = "Water tree junction" }
+sprite{ id = "entities/windfish_symbol_dungeon_1", description = "Windfish symbol dungeon 1" }
+sprite{ id = "entities/windfish_symbol_dungeon_2", description = "Windfish symbol dungeon 2" }
+sprite{ id = "entities/windfish_symbol_dungeon_3", description = "Windfish symbol dungeon 3" }
+sprite{ id = "entities/windfish_symbol_dungeon_4", description = "Windfish symbol dungeon 4" }
+sprite{ id = "entities/windfish_symbol_dungeon_5", description = "Windfish symbol dungeon 5" }
+sprite{ id = "entities/windfish_symbol_dungeon_6", description = "Windfish symbol dungeon 6" }
+sprite{ id = "entities/windfish_symbol_dungeon_7", description = "Windfish symbol dungeon 7" }
+sprite{ id = "entities/windfish_symbol_dungeon_8", description = "Windfish symbol dungeon 8" }
+sprite{ id = "entities/witch_house", description = "Witch house" }
+sprite{ id = "entities/wood_bridge", description = "Wood bridge" }
+sprite{ id = "entities/yarna_skull", description = "Yarna skull" }
 sprite{ id = "ground_effects/fall_on_hole", description = "ground_effects/fall_on_hole" }
 sprite{ id = "ground_effects/lava_splash", description = "ground_effects/lava_splash" }
 sprite{ id = "ground_effects/leaves", description = "ground_effects/leaves" }
@@ -325,9 +546,12 @@ sprite{ id = "hero/diving", description = "Diving" }
 sprite{ id = "hero/fire_rod", description = "Fire rod" }
 sprite{ id = "hero/ground1", description = "Grass under hero" }
 sprite{ id = "hero/ground2", description = "Shallow water under hero" }
+sprite{ id = "hero/link_happy", description = "Link happy" }
+sprite{ id = "hero/link_sad", description = "Link sad" }
 sprite{ id = "hero/shield1", description = "Hero shield 1" }
 sprite{ id = "hero/shield2", description = "Hero shield 2" }
 sprite{ id = "hero/shield3", description = "Hero shield 3" }
+sprite{ id = "hero/shield_collision_mask", description = "Shield Collision Mask" }
 sprite{ id = "hero/sword1", description = "Hero sword 1" }
 sprite{ id = "hero/sword2", description = "Hero sword 2" }
 sprite{ id = "hero/sword3", description = "Hero sword 3" }
@@ -368,6 +592,10 @@ sprite{ id = "menus/dungeon_maps/map_4_no_map", description = "Map 4 no map" }
 sprite{ id = "menus/dungeon_maps/map_4_no_map_compass", description = "Map 4 no map compass" }
 sprite{ id = "menus/file_selection/file_selection_cursor", description = "File selection menu cursor" }
 sprite{ id = "menus/file_selection/file_selection_hero", description = "Link's sprite for file selection menu" }
+sprite{ id = "menus/dungeon_maps/map_5", description = "Map 5" }
+sprite{ id = "menus/dungeon_maps/map_5_compass", description = "map 5 compass" }
+sprite{ id = "menus/dungeon_maps/map_5_no_map", description = "Map 5 no map" }
+sprite{ id = "menus/dungeon_maps/map_5_no_map_compass", description = "Map 5 no map compass" }
 sprite{ id = "menus/hero_head", description = "Hero head" }
 sprite{ id = "menus/hero_point", description = "Hero point" }
 sprite{ id = "menus/keyboardbox/keyboardbox_cursor", description = "Keyboard Box cursor" }
@@ -433,26 +661,34 @@ sprite{ id = "npc/alttp/young_girl_red", description = "Red young girl" }
 sprite{ id = "npc/alttp/zelda", description = "Zelda" }
 sprite{ id = "npc/bear", description = "Bear" }
 sprite{ id = "npc/bee", description = "Bee" }
+sprite{ id = "npc/big_rabbit", description = "Big rabbit" }
 sprite{ id = "npc/bird", description = "Bird" }
+sprite{ id = "npc/bird_musician", description = "Bird musician" }
 sprite{ id = "npc/bowwow", description = "Bowwow" }
 sprite{ id = "npc/butterfly_blue", description = "Butterfly blue" }
 sprite{ id = "npc/butterfly_red", description = "Butterfly red" }
 sprite{ id = "npc/butterfly_yellow", description = "Butterfly yellow" }
 sprite{ id = "npc/christine", description = "Christine" }
+sprite{ id = "npc/cooking_rabbit", description = "Cooking rabbit" }
 sprite{ id = "npc/cucco_man", description = "Cucco man" }
+sprite{ id = "npc/elephant_musician", description = "Elephant musician" }
 sprite{ id = "npc/fairy", description = "Fairy" }
 sprite{ id = "npc/fishman", description = "Fishman" }
 sprite{ id = "npc/fishman_b", description = "Fishman B" }
 sprite{ id = "npc/flying_rooster", description = "Flying rooster" }
+sprite{ id = "npc/fox_musician", description = "Fox musician" }
 sprite{ id = "npc/frog", description = "Frog" }
 sprite{ id = "npc/game_man", description = "Game man" }
 sprite{ id = "npc/ghost", description = "Ghost" }
+sprite{ id = "npc/goriya", description = "Goriya" }
 sprite{ id = "npc/grand_ma", description = "Grand-mother" }
 sprite{ id = "npc/grand_pa", description = "Grand pa" }
+sprite{ id = "npc/hippo", description = "Hippo" }
 sprite{ id = "npc/kid_1", description = "Kid 1" }
 sprite{ id = "npc/kid_2", description = "Kid 2" }
 sprite{ id = "npc/kid_3", description = "Kid 3" }
 sprite{ id = "npc/kid_4", description = "Kid 4" }
+sprite{ id = "npc/mad_bat", description = "Mad bat" }
 sprite{ id = "npc/manbo", description = "Manbo" }
 sprite{ id = "npc/manbopals_blue", description = "Manbopals blue" }
 sprite{ id = "npc/manbopals_emerald", description = "Manbopals emerald" }
@@ -461,13 +697,15 @@ sprite{ id = "npc/manbopals_grey", description = "Manbopals grey" }
 sprite{ id = "npc/manbopals_pink", description = "Manbopals pink" }
 sprite{ id = "npc/manbopals_red", description = "Manbopals red" }
 sprite{ id = "npc/manbopals_yellow", description = "Manbopals yellow" }
-sprite{ id = "npc/marine", description = "Marine" }
+sprite{ id = "npc/marin", description = "Marin" }
 sprite{ id = "npc/meow_meow", description = "Meow meow" }
 sprite{ id = "npc/merchant", description = "Merchant" }
 sprite{ id = "npc/mermaid", description = "Mermaid" }
 sprite{ id = "npc/monique", description = "Monique" }
 sprite{ id = "npc/monkey", description = "Monkey" }
 sprite{ id = "npc/monkey_brown", description = "Monkey brown" }
+sprite{ id = "npc/monty_mole", description = "Monty mole" }
+sprite{ id = "npc/mosquito", description = "Mosquito" }
 sprite{ id = "npc/mouse", description = "Mouse" }
 sprite{ id = "npc/mr_write", description = "Mr Write" }
 sprite{ id = "npc/owl", description = "Owl" }
@@ -483,12 +721,12 @@ sprite{ id = "npc/seagull", description = "Seagull" }
 sprite{ id = "npc/small_bowwow", description = "Small bowwow" }
 sprite{ id = "npc/tarin", description = "Tarin" }
 sprite{ id = "npc/village_bird", description = "Village bird" }
-sprite{ id = "npc/village_hippo", description = "Village hippo" }
 sprite{ id = "npc/village_teddy", description = "Village teddy" }
 sprite{ id = "npc/walrus", description = "Walrus" }
 sprite{ id = "npc/wart", description = "Wart" }
 sprite{ id = "npc/warts_brother", description = "Wart's brother" }
 sprite{ id = "npc/witch", description = "Witch" }
+sprite{ id = "pictures/peach", description = "Peach" }
 sprite{ id = "shadows/shadow_big", description = "Shadow big" }
 sprite{ id = "shadows/shadow_big_dynamic", description = "Shadow big dynamic" }
 sprite{ id = "shadows/shadow_small", description = "Shadow small" }
@@ -508,6 +746,7 @@ music{ id = "maps/dungeons/boss", description = "Boss" }
 music{ id = "maps/dungeons/instruments", description = "Instruments" }
 music{ id = "maps/dungeons/passageways", description = "Passageways" }
 music{ id = "maps/dungeons/small_boss", description = "Small boss" }
+music{ id = "maps/houses/christine", description = "Christine" }
 music{ id = "maps/houses/cucco_house", description = "Cucco's House" }
 music{ id = "maps/houses/dream_shine_in_the_bed", description = "Dream shine in the bed" }
 music{ id = "maps/houses/dream_shine_lower_level", description = "Dream shine lower level" }
@@ -516,7 +755,7 @@ music{ id = "maps/houses/ghost_house", description = "Ghost's house" }
 music{ id = "maps/houses/inside", description = "Inside" }
 music{ id = "maps/houses/kanalet_castle", description = "Kanalet castle" }
 music{ id = "maps/houses/links_awake", description = "Link wakes up" }
-music{ id = "maps/houses/mr_write_and_christine", description = "Mr Write and Christine" }
+music{ id = "maps/houses/mr_write", description = "Mr Write" }
 music{ id = "maps/houses/richards_villa", description = "Richard villa" }
 music{ id = "maps/houses/shop", description = "Shop" }
 music{ id = "maps/houses/shop_high", description = "Shop high" }
@@ -532,6 +771,7 @@ music{ id = "maps/out/mt_tamaranch_marine", description = "Mt Tamaranch Marine" 
 music{ id = "maps/out/mysterious_forest", description = "Mysterious forest" }
 music{ id = "maps/out/overworld", description = "Overworld" }
 music{ id = "maps/out/song_of_marine", description = "Song of Marine" }
+music{ id = "maps/out/song_of_marine_and_link", description = "Song of Marine and Link" }
 music{ id = "maps/out/sword_search", description = "Sword search" }
 music{ id = "scripts/menus/game_over", description = "Game over" }
 music{ id = "scripts/menus/introduction", description = "Introduction" }
@@ -544,6 +784,9 @@ music{ id = "scripts/meta/map/fairy_fountain", description = "Fairy fountain" }
 music{ id = "scripts/meta/map/the_wise_owl", description = "The wise owl" }
 
 sound{ id = "arrow_hit", description = "Arrow hit" }
+sound{ id = "beehive_bees", description = "Beehive bees" }
+sound{ id = "beehive_fall", description = "Beehive fall" }
+sound{ id = "beehive_poke", description = "Beehive poke" }
 sound{ id = "bomb", description = "Bomb" }
 sound{ id = "boomerang", description = "Boomerang" }
 sound{ id = "boss_1_explode_part", description = "Boss 1 explode" }
@@ -553,6 +796,7 @@ sound{ id = "bounce", description = "Bounce" }
 sound{ id = "bow", description = "Bow" }
 sound{ id = "bowwow", description = "bowwow" }
 sound{ id = "bush", description = "Bush" }
+sound{ id = "castle_door", description = "Castle door" }
 sound{ id = "chest_open", description = "Chest open" }
 sound{ id = "compass_signal", description = "Compass signal" }
 sound{ id = "cursor", description = "Cursor" }
@@ -600,8 +844,12 @@ sound{ id = "items/ocarina_3", description = "items/ocarina_3" }
 sound{ id = "items/ocarina_3_revive_1", description = "items/ocarina_3_revive_1" }
 sound{ id = "items/ocarina_3_revive_2", description = "items/ocarina_3_revive_2" }
 sound{ id = "jump", description = "Jump" }
+sound{ id = "laser", description = "Laser" }
 sound{ id = "lift", description = "Lift" }
+sound{ id = "mad_bat_appear", description = "Mad bat appear" }
+sound{ id = "mad_bat_disappear", description = "Mad bat disappear" }
 sound{ id = "magic_powder", description = "magic_powder" }
+sound{ id = "marin_on_beach", description = "Marin on beach" }
 sound{ id = "message_end", description = "Message end" }
 sound{ id = "message_letter", description = "Message letter" }
 sound{ id = "monkeys_build_a_bridge", description = "Monkeys build a bridge" }
@@ -612,7 +860,6 @@ sound{ id = "pause_open", description = "Pause open" }
 sound{ id = "picked_item", description = "Picked item" }
 sound{ id = "picked_rupee", description = "Picked rupee" }
 sound{ id = "picked_small_key", description = "Picked small key" }
-sound{ id = "piece_of_heart", description = "get heart container" }
 sound{ id = "rolling_spike", description = "Rolling spike" }
 sound{ id = "running", description = "Running" }
 sound{ id = "running_obstacle", description = "Running obstacle" }
@@ -645,8 +892,13 @@ sound{ id = "thunder", description = "Thunder" }
 sound{ id = "treasure", description = "Get treasure" }
 sound{ id = "treasure_2", description = "Get treasure 2" }
 sound{ id = "treasure_sword", description = "Get treasure sword" }
+sound{ id = "trendy_game_lever", description = "Trendy game lever" }
+sound{ id = "trendy_game_win", description = "Trendy game win" }
+sound{ id = "urchin1", description = "Urchin 1" }
+sound{ id = "urchin2", description = "Urchin 2" }
 sound{ id = "walk_on_grass", description = "Walk on grass" }
 sound{ id = "walk_on_water", description = "Walk on water" }
+sound{ id = "wallturn", description = "Wallturn" }
 sound{ id = "water_fill", description = "Water fill" }
 sound{ id = "wrong", description = "Wrong" }
 sound{ id = "zonzifleur/solarus_team_logo", description = "Solarus Team logo" }
@@ -710,15 +962,19 @@ item{ id = "small_key", description = "Small key" }
 item{ id = "sword", description = "Sword" }
 item{ id = "tail_key", description = "Tail key" }
 item{ id = "tunic", description = "Tunic (green/blue/red)" }
+item{ id = "zol_green", description = "Zol green" }
 
 enemy{ id = "arm_mimic", description = "Arm mimic" }
+enemy{ id = "armos", description = "Armos" }
 enemy{ id = "arrow", description = "Arrow" }
 enemy{ id = "beamos", description = "Beamos" }
 enemy{ id = "blob_green", description = "Blob green" }
 enemy{ id = "blob_red", description = "Blob red" }
+enemy{ id = "boo_buddy", description = "Boo buddy" }
 enemy{ id = "boss/genie", description = "Genie" }
 enemy{ id = "boss/genie/genie_bottle", description = "Genie bottle" }
 enemy{ id = "boss/hinox_master", description = "Hinox master" }
+enemy{ id = "boss/master_stalfos", description = "Master stalfos" }
 enemy{ id = "boss/moblin_chief", description = "Moblin chief" }
 enemy{ id = "boss/moldorm", description = "Moldorm" }
 enemy{ id = "boss/moldorm/moldorm_body_1", description = "Moldorm body 1" }
@@ -728,48 +984,76 @@ enemy{ id = "boss/moldorm/moldorm_head", description = "Moldorm head" }
 enemy{ id = "boss/rolling_bones", description = "Rolling bones" }
 enemy{ id = "boss/rolling_bones/rolling_bones_spike", description = "Rolling bones spike" }
 enemy{ id = "bubble", description = "Bubble" }
+enemy{ id = "buzz_blob", description = "Buzz blob" }
 enemy{ id = "chicken", description = "Chicken" }
 enemy{ id = "chicken_mortal", description = "Chicken mortal" }
+enemy{ id = "crow", description = "Crow" }
 enemy{ id = "death_ball", description = "Death ball" }
 enemy{ id = "dog", description = "Dog" }
 enemy{ id = "evil_tile", description = "Evile tile" }
+enemy{ id = "eyegore_statue", description = "Eyegore statue" }
+enemy{ id = "face_lamp", description = "Face lamp" }
 enemy{ id = "fireball", description = "Fireball" }
+enemy{ id = "fireball_small_triple_red", description = "fireball_small_triple_red" }
+enemy{ id = "flying_octorok", description = "Flying octorok" }
 enemy{ id = "flying_tile", description = "Flying tile" }
+enemy{ id = "gel_red", description = "Gel red" }
 enemy{ id = "generic_towards_hero", description = "generic_towards_hero" }
 enemy{ id = "generic_waiting_for_hero", description = "generic_waiting_for_hero" }
+enemy{ id = "ghini", description = "Ghini" }
 enemy{ id = "giant_goponga_flower", description = "Giant goponga flower" }
 enemy{ id = "goomba", description = "Goomba" }
 enemy{ id = "goponga_flower", description = "Goponga flower" }
 enemy{ id = "hardhat_beetle_blue", description = "Hardhat beetle blue" }
 enemy{ id = "hardhat_beetle_red", description = "Hardhat beetle red" }
+enemy{ id = "helmasaur_masked", description = "Helmasaur masked" }
 enemy{ id = "hooded_stalfos", description = "Hooded stalfos" }
 enemy{ id = "keese", description = "Keese" }
+enemy{ id = "like_like", description = "Like Like" }
 enemy{ id = "maskass", description = "Maskass" }
 enemy{ id = "moblin", description = "Moblin" }
+enemy{ id = "moblin_dog_spear", description = "Moblin dog spear" }
+enemy{ id = "moblin_dog_sword", description = "Moblin dog sword" }
+enemy{ id = "moblin_pig_sword", description = "Moblin pig sword" }
+enemy{ id = "monkey", description = "Monkey" }
 enemy{ id = "octorok", description = "Octorok" }
 enemy{ id = "octorok_stone", description = "Octorok stone" }
+enemy{ id = "peahat", description = "Peahat" }
 enemy{ id = "pike_auto", description = "Pike auto" }
 enemy{ id = "pike_detect", description = "Pike detect" }
 enemy{ id = "pike_fixed", description = "Pike fixed" }
+enemy{ id = "pokey_full", description = "Pokey full" }
 enemy{ id = "pols_voice", description = "Pols voice" }
+enemy{ id = "raven", description = "Raven" }
+enemy{ id = "red_bombite", description = "Red bombite" }
+enemy{ id = "river_zora", description = "River Zora" }
+enemy{ id = "sand_crab", description = "Sand crab" }
 enemy{ id = "sea_urchin", description = "Sea urchin" }
+enemy{ id = "spike", description = "Spike" }
+enemy{ id = "spiked_thwomp", description = "Spiked thwomp" }
 enemy{ id = "stalfos_blue", description = "Stalfos blue" }
 enemy{ id = "stalfos_grey", description = "Stalfos grey" }
 enemy{ id = "stalfos_red", description = "Stalfos red" }
 enemy{ id = "star", description = "Star" }
 enemy{ id = "tektite_blue", description = "Tektite blue" }
 enemy{ id = "vegas", description = "Vegas" }
+enemy{ id = "water_tektite", description = "Water tektite" }
 enemy{ id = "wizzrobe_beam", description = "Wizzrobe beam" }
 enemy{ id = "wizzrobe_blue", description = "Wizzrobe blue" }
 enemy{ id = "wizzrobe_white", description = "Wizzrobe white" }
 enemy{ id = "zol_green", description = "Zol green" }
+enemy{ id = "zol_red", description = "Zol red" }
+enemy{ id = "zombie", description = "Zombie" }
 
 entity{ id = "bee", description = "Bee" }
 entity{ id = "bird", description = "Bird" }
+entity{ id = "bomb_fly", description = "Bomb fly" }
 entity{ id = "bowwow", description = "Bowwow" }
 entity{ id = "bowwow_follow", description = "Bowwow follow" }
+entity{ id = "bubble", description = "Bubble" }
 entity{ id = "butterfly", description = "Butterfly" }
 entity{ id = "collapsing_soil", description = "Collapsing soil" }
+entity{ id = "conveyor_belt", description = "Conveyor belt" }
 entity{ id = "fire", description = "Fire" }
 entity{ id = "frog", description = "Frog" }
 entity{ id = "green_crystal", description = "Green crystal" }
@@ -777,16 +1061,18 @@ entity{ id = "heart_fly", description = "Heart fly" }
 entity{ id = "heavy_object", description = "Heavy object" }
 entity{ id = "heavy_statue", description = "Heavy statue" }
 entity{ id = "hole", description = "Hole" }
+entity{ id = "hook_bridge", description = "hook bridge" }
 entity{ id = "hookable", description = "Hookable" }
-entity{ id = "marine", description = "Marine" }
+entity{ id = "marin_follow", description = "Marine" }
 entity{ id = "mouse", description = "Mouse" }
-entity{ id = "mr_write", description = "Mr Write" }
+entity{ id = "mr_write_and_christine", description = "Mr Write and Christine" }
 entity{ id = "non_diggable", description = "Non diggable" }
 entity{ id = "obstacle", description = "Obstacle" }
 entity{ id = "seagull", description = "Seagull" }
 entity{ id = "statue_pig", description = "Statue pig" }
 entity{ id = "torch", description = "Torch" }
 entity{ id = "vacuum_cleaner", description = "Vacuum cleaner" }
+entity{ id = "wallturn", description = "Wallturn" }
 
 language{ id = "fr", description = "Français" }
 
@@ -799,7 +1085,17 @@ font{ id = "small_white_digits", description = "Small white digits" }
 font{ id = "white_digits", description = "White digits" }
 
 shader{ id = "6xbrz", description = "6xbrz" }
+shader{ id = "mode_7", description = "Mode 7" }
 shader{ id = "sepia", description = "Sepia" }
 shader{ id = "toon", description = "Toon" }
-shader{ id = "xBR-v3.8c", description = "xBR-v3.8c" }
 
+file{ path = "shaders/6xbrz.dat", author = "Christopho", license = "GPL v3" }
+file{ path = "shaders/6xbrz.frag.glsl", author = "Hyllian", license = "GPL v3" }
+file{ path = "shaders/6xbrz.vert.glsl", author = "Hyllian", license = "GPL v3" }
+file{ path = "shaders/mode_7.dat", author = "Christopho", license = "GPL v3" }
+file{ path = "shaders/mode_7.frag.glsl", author = "Christopho", license = "GPL v3" }
+file{ path = "shaders/mode_7.vert.glsl", author = "Christopho", license = "GPL v3" }
+file{ path = "shaders/sepia.dat", author = "Christopho", license = "GPL v3" }
+file{ path = "shaders/sepia.frag.glsl", author = "Vlag", license = "GPL v3" }
+file{ path = "shaders/toon.dat", author = "Christopho", license = "GPL v3" }
+file{ path = "shaders/toon.frag.glsl", author = "Vlag", license = "GPL v3" }
