@@ -98,6 +98,7 @@ function mode_7_manager:teleport(game, src_entity, destination_map_id, destinati
 
   function mode_7:on_finished()
     sol.video.set_shader(previous_shader)
+    hero:set_enabled(true)
     game:set_suspended(false)
     game:set_pause_allowed(true)
     hero:teleport(destination_map_id, destination_name, "immediate")

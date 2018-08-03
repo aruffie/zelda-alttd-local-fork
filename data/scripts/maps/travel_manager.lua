@@ -24,7 +24,7 @@ local positions_info = {
 }
 
 function travel_manager:init(map, from_id)
-  
+
   local game = map:get_game()
   local savegame = positions_info[from_id]['savegame']
   game:set_value(savegame, 1)
