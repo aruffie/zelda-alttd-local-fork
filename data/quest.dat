@@ -1,6 +1,6 @@
 quest{
   solarus_version = "1.6",
-  write_dir = "zelda-lafd",
+  write_dir = "zelda-alttd",
   title = "Link's Awakening : A Link To The Dream",
   short_description = "",
   long_description = [[
