@@ -108,6 +108,7 @@ function zeldaforce_logo_menu:on_key_pressed(key)
   if key == "escape" then
     -- Escape: quit Solarus.
     sol.main.exit()
+    return true
   elseif not self.stopped then
     self.stopped = true
 
@@ -122,11 +123,12 @@ function zeldaforce_logo_menu:on_key_pressed(key)
       sol.audio.play_sound("solarus_logo")
       self:step4()
       self:step5(500)
+    return true
     end
 
-    -- Return true to indicate that the keyboard event was handled.
-    return true
   end
+  
+  return false
 end
 
 ----------------------------------------------------------
