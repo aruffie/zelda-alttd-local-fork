@@ -12,11 +12,29 @@ properties{
 
 tile{
   layer = 0,
-  x = 0,
-  y = 0,
-  width = 960,
-  height = 768,
-  pattern = "112",
+  x = 96,
+  y = 504,
+  width = 16,
+  height = 16,
+  pattern = "963",
+}
+
+tile{
+  layer = 0,
+  x = 208,
+  y = 504,
+  width = 16,
+  height = 16,
+  pattern = "962",
+}
+
+tile{
+  layer = 0,
+  x = 192,
+  y = 520,
+  width = 16,
+  height = 16,
+  pattern = "962",
 }
 
 tile{
@@ -730,6 +748,456 @@ tile{
   pattern = "959",
 }
 
+tile{
+  layer = 0,
+  x = 128,
+  y = 408,
+  width = 64,
+  height = 8,
+  pattern = "978",
+}
+
+tile{
+  layer = 0,
+  x = 128,
+  y = 416,
+  width = 64,
+  height = 8,
+  pattern = "1009",
+}
+
+tile{
+  layer = 0,
+  x = 208,
+  y = 408,
+  width = 16,
+  height = 16,
+  pattern = "983",
+}
+
+tile{
+  layer = 0,
+  x = 192,
+  y = 408,
+  width = 16,
+  height = 16,
+  pattern = "981",
+}
+
+tile{
+  layer = 0,
+  x = 208,
+  y = 424,
+  width = 16,
+  height = 64,
+  pattern = "1070",
+}
+
+tile{
+  layer = 0,
+  x = 192,
+  y = 424,
+  width = 8,
+  height = 64,
+  pattern = "1011",
+}
+
+tile{
+  layer = 0,
+  x = 112,
+  y = 408,
+  width = 16,
+  height = 16,
+  pattern = "986",
+}
+
+tile{
+  layer = 0,
+  x = 112,
+  y = 424,
+  width = 8,
+  height = 64,
+  pattern = "977",
+}
+
+tile{
+  layer = 0,
+  x = 96,
+  y = 424,
+  width = 16,
+  height = 64,
+  pattern = "1069",
+}
+
+tile{
+  layer = 0,
+  x = 120,
+  y = 424,
+  width = 8,
+  height = 64,
+  pattern = "1012",
+}
+
+tile{
+  layer = 0,
+  x = 128,
+  y = 504,
+  width = 64,
+  height = 16,
+  pattern = "958",
+}
+
+tile{
+  layer = 0,
+  x = 128,
+  y = 496,
+  width = 64,
+  height = 8,
+  pattern = "959",
+}
+
+tile{
+  layer = 0,
+  x = 128,
+  y = 480,
+  width = 64,
+  height = 8,
+  pattern = "1007",
+}
+
+tile{
+  layer = 0,
+  x = 128,
+  y = 488,
+  width = 64,
+  height = 8,
+  pattern = "1008",
+}
+
+tile{
+  layer = 0,
+  x = 128,
+  y = 520,
+  width = 64,
+  height = 16,
+  pattern = "1071",
+}
+
+tile{
+  layer = 0,
+  x = 112,
+  y = 488,
+  width = 16,
+  height = 16,
+  pattern = "955",
+}
+
+tile{
+  layer = 0,
+  x = 112,
+  y = 504,
+  width = 16,
+  height = 16,
+  pattern = "960",
+}
+
+tile{
+  layer = 0,
+  x = 96,
+  y = 488,
+  width = 16,
+  height = 16,
+  pattern = "964",
+}
+
+tile{
+  layer = 0,
+  x = 208,
+  y = 488,
+  width = 16,
+  height = 16,
+  pattern = "966",
+}
+
+tile{
+  layer = 0,
+  x = 192,
+  y = 488,
+  width = 16,
+  height = 16,
+  pattern = "956",
+}
+
+tile{
+  layer = 0,
+  x = 192,
+  y = 504,
+  width = 16,
+  height = 16,
+  pattern = "961",
+}
+
+tile{
+  layer = 0,
+  x = 200,
+  y = 424,
+  width = 8,
+  height = 64,
+  pattern = "972",
+}
+
+tile{
+  layer = 0,
+  x = 112,
+  y = 400,
+  width = 96,
+  height = 8,
+  pattern = "1072",
+}
+
+tile{
+  layer = 0,
+  x = 112,
+  y = 400,
+  width = 16,
+  height = 16,
+  pattern = "929",
+}
+
+tile{
+  layer = 0,
+  x = 104,
+  y = 408,
+  width = 16,
+  height = 16,
+  pattern = "929",
+}
+
+tile{
+  layer = 0,
+  x = 200,
+  y = 400,
+  width = 16,
+  height = 16,
+  pattern = "927",
+}
+
+tile{
+  layer = 0,
+  x = 192,
+  y = 520,
+  width = 16,
+  height = 16,
+  pattern = "924",
+}
+
+tile{
+  layer = 0,
+  x = 208,
+  y = 504,
+  width = 16,
+  height = 16,
+  pattern = "924",
+}
+
+tile{
+  layer = 0,
+  x = 96,
+  y = 504,
+  width = 16,
+  height = 16,
+  pattern = "922",
+}
+
+tile{
+  layer = 0,
+  x = 168,
+  y = 440,
+  width = 16,
+  height = 16,
+  pattern = "1125",
+}
+
+tile{
+  layer = 0,
+  x = 160,
+  y = 432,
+  width = 8,
+  height = 32,
+  pattern = "1122",
+}
+
+tile{
+  layer = 0,
+  x = 168,
+  y = 456,
+  width = 16,
+  height = 8,
+  pattern = "1126",
+}
+
+tile{
+  layer = 0,
+  x = 184,
+  y = 432,
+  width = 8,
+  height = 32,
+  pattern = "1124",
+}
+
+tile{
+  layer = 0,
+  x = 168,
+  y = 432,
+  width = 16,
+  height = 8,
+  pattern = "1123",
+}
+
+tile{
+  layer = 0,
+  x = 128,
+  y = 424,
+  width = 64,
+  height = 8,
+  pattern = "1010",
+}
+
+tile{
+  layer = 0,
+  x = 208,
+  y = 408,
+  width = 16,
+  height = 16,
+  pattern = "927",
+}
+
+tile{
+  layer = 0,
+  x = 112,
+  y = 408,
+  width = 16,
+  height = 16,
+  pattern = "986",
+}
+
+tile{
+  layer = 0,
+  x = 96,
+  y = 408,
+  width = 16,
+  height = 16,
+  pattern = "988",
+}
+
+tile{
+  layer = 0,
+  x = 96,
+  y = 408,
+  width = 16,
+  height = 16,
+  pattern = "929",
+}
+
+tile{
+  layer = 0,
+  x = 80,
+  y = 424,
+  width = 16,
+  height = 80,
+  pattern = "921",
+}
+
+tile{
+  layer = 0,
+  x = 80,
+  y = 504,
+  width = 16,
+  height = 16,
+  pattern = "923",
+}
+
+tile{
+  layer = 0,
+  x = 112,
+  y = 520,
+  width = 16,
+  height = 16,
+  pattern = "963",
+}
+
+tile{
+  layer = 0,
+  x = 112,
+  y = 520,
+  width = 16,
+  height = 16,
+  pattern = "922",
+}
+
+tile{
+  layer = 0,
+  x = 96,
+  y = 520,
+  width = 16,
+  height = 16,
+  pattern = "923",
+}
+
+tile{
+  layer = 0,
+  x = 208,
+  y = 520,
+  width = 16,
+  height = 16,
+  pattern = "925",
+}
+
+tile{
+  layer = 0,
+  x = 192,
+  y = 536,
+  width = 16,
+  height = 16,
+  pattern = "925",
+}
+
+tile{
+  layer = 0,
+  x = 128,
+  y = 536,
+  width = 64,
+  height = 16,
+  pattern = "918",
+}
+
+tile{
+  layer = 0,
+  x = 112,
+  y = 536,
+  width = 16,
+  height = 16,
+  pattern = "923",
+}
+
+tile{
+  layer = 0,
+  x = 224,
+  y = 408,
+  width = 16,
+  height = 96,
+  pattern = "920",
+}
+
+tile{
+  layer = 0,
+  x = 224,
+  y = 504,
+  width = 16,
+  height = 16,
+  pattern = "925",
+}
+
 dynamic_tile{
   layer = 0,
   x = 344,
@@ -952,5 +1420,53 @@ custom_entity{
   height = 24,
   direction = 3,
   sprite = "entities/floating_tree_rafting",
+}
+
+separator{
+  layer = 0,
+  x = 0,
+  y = 184,
+  width = 960,
+  height = 16,
+}
+
+separator{
+  layer = 0,
+  x = 0,
+  y = 376,
+  width = 960,
+  height = 16,
+}
+
+separator{
+  layer = 0,
+  x = 0,
+  y = 568,
+  width = 960,
+  height = 16,
+}
+
+separator{
+  layer = 0,
+  x = 712,
+  y = 0,
+  width = 16,
+  height = 768,
+}
+
+separator{
+  layer = 0,
+  x = 472,
+  y = 16,
+  width = 16,
+  height = 768,
+}
+
+separator{
+  layer = 0,
+  x = 240,
+  y = 16,
+  width = 16,
+  height = 768,
 }
 
