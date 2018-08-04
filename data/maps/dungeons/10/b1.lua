@@ -1,4 +1,4 @@
--- Lua script of map dungeons/10/1f.
+-- Lua script of map dungeons/10/b1.
 -- This script is executed every time the hero enters this map.
 
 -- Feel free to modify the code below.
@@ -10,7 +10,7 @@
 local map = ...
 local game = map:get_game()
 
--- Event called at initialization time, as soon as this map becomes is loaded.
+-- Event called at initialization time, as soon as this map is loaded.
 function map:on_started()
 
   -- You can initialize the movement and sprites of various
@@ -21,15 +21,4 @@ end
 -- that is, when the player takes control of the hero.
 function map:on_opening_transition_finished()
 
-end
-
-function pipe_button:on_activated()
- 
-  for pipe in map:get_entities("pipe_a") do
-    pipe:get_sprite():set_animation("flowing")
-  end
-
-  for pipe in map:get_entities("pipe_g") do
-    pipe:get_sprite():set_animation("flowing")
-  end
 end
