@@ -51,7 +51,7 @@ uniform float angle;
 uniform float horizon;
 uniform bool repeat_texture;
 
-COMPAT_VARYING in vec4 vertex_position;
+COMPAT_VARYING vec4 vertex_position;
 
 // Alpha-blends c1 onto c2.
 vec4 alpha_blend(vec4 c1, vec4 c2) {

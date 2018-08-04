@@ -43,7 +43,7 @@ COMPAT_ATTRIBUTE vec4 sol_color;
 COMPAT_VARYING vec2 sol_vtex_coord;
 COMPAT_VARYING vec4 sol_vcolor;
 
-COMPAT_VARYING out vec4 vertex_position;
+COMPAT_VARYING vec4 vertex_position;
 
 void main() {
     vertex_position = sol_mvp_matrix * vec4(sol_vertex, 0, 1);
