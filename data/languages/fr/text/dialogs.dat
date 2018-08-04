@@ -2133,11 +2133,9 @@ Non
 dialog{
   id = "maps.houses.mabe_village.shop_1.merchant_2",
   text = [[
-Désolé petit!   
-Tu n'as pas     
-assez de rubis. 
-Reviens donc    
-plus tard.
+Désolé petit !   
+Tu n'as pas assez de rubis.
+Reviens donc plus tard.
 ]],
 }
 
