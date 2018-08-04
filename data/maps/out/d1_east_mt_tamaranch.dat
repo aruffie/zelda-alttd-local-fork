@@ -12304,6 +12304,33 @@ tile{
   pattern = "14796",
 }
 
+tile{
+  layer = 0,
+  x = 184,
+  y = 488,
+  width = 16,
+  height = 40,
+  pattern = "262",
+}
+
+tile{
+  layer = 0,
+  x = 200,
+  y = 488,
+  width = 8,
+  height = 40,
+  pattern = "261",
+}
+
+tile{
+  layer = 0,
+  x = 176,
+  y = 488,
+  width = 8,
+  height = 40,
+  pattern = "260",
+}
+
 teletransporter{
   name = "to_d2",
   layer = 0,
@@ -12452,7 +12479,7 @@ destination{
   name = "travel_destination",
   layer = 0,
   x = 192,
-  y = 469,
+  y = 541,
   direction = 3,
 }
 
@@ -12460,7 +12487,7 @@ sensor{
   name = "travel_sensor",
   layer = 0,
   x = 192,
-  y = 541,
+  y = 477,
   width = 16,
   height = 16,
 }
@@ -13246,5 +13273,15 @@ tile{
   width = 48,
   height = 8,
   pattern = "1453",
+}
+
+npc{
+  name = "travel_transporter",
+  layer = 2,
+  x = 576,
+  y = 469,
+  direction = 3,
+  subtype = 0,
+  sprite = "npc/owl",
 }
 
