@@ -198,7 +198,7 @@ sprite{ id = "enemies/boss/moldorm/moldorm_body_2", description = "Moldorm body 
 sprite{ id = "enemies/boss/moldorm/moldorm_body_3", description = "Moldorm body 3" }
 sprite{ id = "enemies/boss/moldorm/moldorm_eyes", description = "Moldorm eyes" }
 sprite{ id = "enemies/boss/moldorm/moldorm_head", description = "Moldorm 1 head" }
-sprite{ id = "enemies/boss/rolling_bones", description = "Rolling bones" }
+sprite{ id = "enemies/boss/rolling_bones/rolling_bones", description = "Rolling bones" }
 sprite{ id = "enemies/boss/rolling_bones/rolling_bones_spike", description = "Rolling bones spike" }
 sprite{ id = "enemies/boss/skeleton", description = "Skeleton" }
 sprite{ id = "enemies/boulder", description = "Boulder" }
@@ -975,7 +975,7 @@ enemy{ id = "boss/moldorm/moldorm_body_1", description = "Moldorm body 1" }
 enemy{ id = "boss/moldorm/moldorm_body_2", description = "Moldorm body 2" }
 enemy{ id = "boss/moldorm/moldorm_body_3", description = "Moldorm body 3" }
 enemy{ id = "boss/moldorm/moldorm_head", description = "Moldorm head" }
-enemy{ id = "boss/rolling_bones", description = "Rolling bones" }
+enemy{ id = "boss/rolling_bones/rolling_bones", description = "Rolling bones" }
 enemy{ id = "boss/rolling_bones/rolling_bones_spike", description = "Rolling bones spike" }
 enemy{ id = "bubble", description = "Bubble" }
 enemy{ id = "buzz_blob", description = "Buzz blob" }

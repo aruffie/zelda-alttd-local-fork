@@ -14061,8 +14061,8 @@ door{
 door{
   name = "door_group_1_2",
   layer = 0,
-  x = 896,
-  y = 1432,
+  x = 920,
+  y = 1400,
   direction = 2,
   sprite = "entities/doors/door_normal",
   opening_condition = "dungeon_1_small_keys",
@@ -17175,9 +17175,9 @@ separator{
 separator{
   name = "auto_separator_11",
   layer = 2,
-  x = 0,
+  x = 960,
   y = 760,
-  width = 2560,
+  width = 1600,
   height = 16,
 }
 
@@ -17251,5 +17251,23 @@ separator{
   y = 0,
   width = 16,
   height = 2048,
+}
+
+separator{
+  name = "auto_separator_16",
+  layer = 2,
+  x = 0,
+  y = 760,
+  width = 640,
+  height = 16,
+}
+
+separator{
+  name = "auto_separator_17",
+  layer = 2,
+  x = 640,
+  y = 760,
+  width = 320,
+  height = 16,
 }
 

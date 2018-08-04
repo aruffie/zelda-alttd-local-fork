@@ -158,5 +158,9 @@ function weak_wall_A_1:on_opened()
 
 end
 
+auto_separator_17:register_event("on_activating", function(separator, direction4)
+    map:set_doors_open("door_group_2", false)
+end)
+
 separator_manager:manage_map(map)
 owl_manager:manage_map(map)

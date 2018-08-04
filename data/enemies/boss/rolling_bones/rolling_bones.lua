@@ -34,7 +34,7 @@ function enemy:on_created()
   enemy:set_hurt_style("boss")
   -- Spike
   spike = map:create_enemy{
-    breed = enemy:get_breed() .. "/rolling_bones_spike",
+    breed = enemy:get_breed() .. "_spike",
     direction = 2,
     x = x_enemy - 64,
     y = y_enemy - spike_offset,

@@ -6,7 +6,7 @@ local hero_meta = sol.main.get_metatable("hero")
 
 -- Initialize parameters for custom jump.
 local is_hero_jumping = false
-local jump_duration = 600 -- Duration of jump in milliseconds.
+local jump_duration = 430 -- Duration of jump in milliseconds.
 local max_height = 16 -- Height of jump in pixels.
 local max_distance = 31 -- Max distance of jump in pixels.
 local jumping_speed = math.floor(1000 * max_distance / jump_duration)
