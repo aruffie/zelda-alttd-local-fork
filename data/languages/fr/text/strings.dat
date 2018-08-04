@@ -1,3 +1,10 @@
+text{ key = "copyright_menu.made_by_fans.line1", value = "Ce jeu est réalisé par des fans," }
+text{ key = "copyright_menu.made_by_fans.line2", value = "est non commercial" }
+text{ key = "copyright_menu.made_by_fans.line3", value = "et n'a aucun lien avec Nintendo." }
+text{ key = "copyright_menu.solarus_license.line1", value = "Solarus est un logiciel libre" }
+text{ key = "copyright_menu.solarus_license.line2", value = "sous licence GPL v3." }
+text{ key = "copyright_menu.tloz_trademark.line1", value = "The Legend of Zelda est" }
+text{ key = "copyright_menu.tloz_trademark.line2", value = "une marque déposée de Nintendo." }
 text{ key = "game.thief", value = "VOYOU" }
 text{ key = "inventory.caption.item.angler_key.1", value = "Clé poisson" }
 text{ key = "inventory.caption.item.bird_key.1", value = "Clé vautour" }
