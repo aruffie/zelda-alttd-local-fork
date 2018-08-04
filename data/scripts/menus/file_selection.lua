@@ -6,6 +6,7 @@ local language_manager = require("scripts/language_manager")
 local game_manager = require("scripts/game_manager")
 local messagebox = require("scripts/menus/messagebox")
 local keyboardbox = require("scripts/menus/keyboardbox")
+local settings = require("scripts/menus/settings")
 
 
 ----------------
@@ -74,7 +75,8 @@ function file_selection_menu:on_started()
     CHOOSE_PLAY = 0,
     CHOOSE_DELETE = 1,
     CONFIRM_DELETE = 2,
-    ENTER_NAME, 3
+    ENTER_NAME = 3,
+    EDIT_OPTIONS = 4,
   }
 
   self.slot_count = 3
@@ -248,7 +250,7 @@ function file_selection_menu:set_phase(phase)
 end
 
 function file_selection_menu:update_phase()
-  if self.phase == self.phases.CHOOSE_PLAY or self.phase == self.phases.ENTER_NAME then
+  if self.phase == self.phases.CHOOSE_PLAY or self.phase == self.phases.ENTER_NAME or self.phase == self.phases.EDIT_OPTIONS then
     self.title_text:set_text("Choose a file")
     self.option_1_text:set_text("Delete")
     self.option_2_text:set_text("Options")
@@ -550,8 +552,14 @@ function file_selection_menu:on_key_pressed(key)
     elseif self.cursor_position == self.slot_count + 2 then
       if self.phase == self.phases.CHOOSE_PLAY then
         sol.audio.play_sound("ok")
-        print("TODO Start options")
         handled = true
+
+        self:set_phase(self.phases.EDIT_OPTIONS)
+
+        -- Opens the settings
+        settings:show(sol.main, function()
+          self:set_phase(self.phases.CHOOSE_PLAY)
+        end)
       end
     end
   end
