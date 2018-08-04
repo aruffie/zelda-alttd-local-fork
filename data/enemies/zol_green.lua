@@ -36,22 +36,49 @@ function enemy:appear()
   function sprite:on_animation_finished(animation)
     if animation == "appearing" then
       sprite:set_animation("shaking")
-    elseif animation == 'shaking' then
-      enemy:go()
+      sol.timer.start(enemy, 1000, function()
+        enemy:go()
+      end)
     end
   end
 
 end
 
+function enemy:disappear()
+
+  is_awake = false
+  sprite:set_animation("disappearing")
+  function sprite:on_animation_finished(animation)
+    if animation == "disappearing" then
+     sprite:set_animation("stopped")
+    end
+  end
+
+end
+
+
 function enemy:go()
 
   sprite:set_animation("immobilized")
   sol.timer.start(enemy, 200, function()
+    sprite:set_animation("jump")
+    local direction8 = enemy:get_direction8_to(enemy:get_map():get_hero())
     local m = sol.movement.create("jump")
     m:set_speed(0)
-    m:set_distance(32)
-    m:set_direction(0)
+    m:set_distance(16)
+    m:set_direction8(direction8)
     m:start(enemy)
+    function m:on_finished()
+      sprite:set_animation("immobilized")
+      sol.timer.start(enemy, 500, function()
+        local tx, ty, _ = enemy:get_map():get_hero():get_position()
+        if enemy:get_distance(tx, ty) < max_distance then
+          enemy:go()
+        else
+          enemy:disappear()
+        end
+      end)
+    end
   end)
   
 

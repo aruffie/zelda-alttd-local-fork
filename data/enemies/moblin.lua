@@ -46,5 +46,6 @@ function enemy:go(direction4)
   m:set_smooth(true)
   m:set_speed(40)
   m:set_angle(direction4 * math.pi / 2)
+
 end
 
