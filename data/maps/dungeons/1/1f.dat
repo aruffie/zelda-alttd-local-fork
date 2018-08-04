@@ -2965,24 +2965,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 2088,
-  y = 792,
-  width = 8,
-  height = 16,
-  pattern = "door.1.support.2-1",
-}
-
-tile{
-  layer = 0,
-  x = 2064,
-  y = 792,
-  width = 8,
-  height = 16,
-  pattern = "door.1.support.1-1",
-}
-
-tile{
-  layer = 0,
   x = 2072,
   y = 792,
   width = 16,
@@ -13839,18 +13821,6 @@ door{
 }
 
 door{
-  name = "door_group_boss_2",
-  layer = 0,
-  x = 2072,
-  y = 792,
-  direction = 3,
-  sprite = "entities/doors/door_boss_key",
-  savegame_variable = "dungeon_1_door_boss",
-  opening_method = "interaction_if_savegame_variable",
-  opening_condition = "dungeon_1_boss_key",
-}
-
-door{
   name = "door_small_key_2_2",
   layer = 0,
   x = 792,
@@ -15184,6 +15154,40 @@ enemy{
   breed = "keese",
 }
 
+custom_entity{
+  name = "boss_door_frame",
+  layer = 0,
+  x = 2096,
+  y = 805,
+  width = 8,
+  height = 16,
+  direction = 0,
+  sprite = "entities/doors/boss_door_frames",
+}
+
+custom_entity{
+  name = "boss_door_frame_2",
+  layer = 0,
+  x = 2072,
+  y = 805,
+  width = 8,
+  height = 16,
+  direction = 2,
+  sprite = "entities/doors/boss_door_frames",
+}
+
+door{
+  name = "door_group_boss_2",
+  layer = 0,
+  x = 2072,
+  y = 792,
+  direction = 3,
+  sprite = "entities/doors/door_boss_key",
+  savegame_variable = "dungeon_1_door_boss",
+  opening_method = "interaction_if_savegame_variable",
+  opening_condition = "dungeon_1_boss_key",
+}
+
 tile{
   layer = 1,
   x = 528,
@@ -15916,15 +15920,6 @@ tile{
 tile{
   layer = 1,
   x = 2064,
-  y = 784,
-  width = 32,
-  height = 8,
-  pattern = "door_top.1-2",
-}
-
-tile{
-  layer = 1,
-  x = 2064,
   y = 744,
   width = 32,
   height = 8,
@@ -16159,16 +16154,6 @@ dynamic_tile{
   layer = 1,
   x = 2048,
   y = 1040,
-  properties = {
-    {
-      key = "start_layer",
-      value = "0",
-    },
-    {
-      key = "end_layer",
-      value = "1",
-    },
-  },
   pattern = "door_cache.1-2",
   width = 64,
   height = 8,
@@ -16180,20 +16165,21 @@ dynamic_tile{
   layer = 1,
   x = 2064,
   y = 1040,
-  properties = {
-    {
-      key = "start_layer",
-      value = "0",
-    },
-    {
-      key = "end_layer",
-      value = "1",
-    },
-  },
   pattern = "door_top.1-2",
   width = 32,
   height = 8,
   enabled_at_start = true,
+}
+
+custom_entity{
+  name = "boss_door_frame_3",
+  layer = 1,
+  x = 2072,
+  y = 797,
+  width = 32,
+  height = 8,
+  direction = 1,
+  sprite = "entities/doors/boss_door_frames",
 }
 
 tile{
@@ -17308,16 +17294,6 @@ dynamic_tile{
   layer = 2,
   x = 1920,
   y = 1008,
-  properties = {
-    {
-      key = "start_layer",
-      value = "0",
-    },
-    {
-      key = "end_layer",
-      value = "2",
-    },
-  },
   pattern = "ceiling.1",
   width = 320,
   height = 32,

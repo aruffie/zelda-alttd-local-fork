@@ -349,6 +349,7 @@ sprite{ id = "entities/crystal", description = "Crystal" }
 sprite{ id = "entities/crystal_block", description = "Crystal block" }
 sprite{ id = "entities/destination", description = "Destination of teletransporter" }
 sprite{ id = "entities/dog_statue", description = "Dog statue" }
+sprite{ id = "entities/doors/boss_door_frames", description = "Boss door frames" }
 sprite{ id = "entities/doors/door_big_key", description = "Door big key" }
 sprite{ id = "entities/doors/door_boss_key", description = "Door boss key" }
 sprite{ id = "entities/doors/door_normal", description = "Door" }
@@ -1099,13 +1100,3 @@ shader{ id = "mode_7", description = "Mode 7" }
 shader{ id = "sepia", description = "Sepia" }
 shader{ id = "toon", description = "Toon" }
 
-file{ path = "shaders/6xbrz.dat", author = "Christopho", license = "GPL v3" }
-file{ path = "shaders/6xbrz.frag.glsl", author = "Hyllian", license = "GPL v3" }
-file{ path = "shaders/6xbrz.vert.glsl", author = "Hyllian", license = "GPL v3" }
-file{ path = "shaders/mode_7.dat", author = "Christopho", license = "GPL v3" }
-file{ path = "shaders/mode_7.frag.glsl", author = "Christopho", license = "GPL v3" }
-file{ path = "shaders/mode_7.vert.glsl", author = "Christopho", license = "GPL v3" }
-file{ path = "shaders/sepia.dat", author = "Christopho", license = "GPL v3" }
-file{ path = "shaders/sepia.frag.glsl", author = "Vlag", license = "GPL v3" }
-file{ path = "shaders/toon.dat", author = "Christopho", license = "GPL v3" }
-file{ path = "shaders/toon.frag.glsl", author = "Vlag", license = "GPL v3" }
