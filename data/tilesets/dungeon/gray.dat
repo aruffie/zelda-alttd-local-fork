@@ -50433,7 +50433,7 @@ tile_pattern{
   default_layer = 0,
   x = 528,
   y = 232,
-  width = 40,
+  width = 32,
   height = 16,
   repeat_mode = "none",
 }
@@ -50444,7 +50444,7 @@ tile_pattern{
   default_layer = 0,
   x = 528,
   y = 248,
-  width = 40,
+  width = 32,
   height = 16,
   repeat_mode = "none",
 }

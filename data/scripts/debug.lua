@@ -102,13 +102,6 @@ function debug:on_key_pressed(key, modifiers)
         debug.normal_walking_speed = hero:get_walking_speed()
         hero:set_walking_speed(384)
       end
-    elseif key == "s" then
-      local statistics = statistics_manager:new(game)
-      game:set_suspended(true)
-      sol.menu.start(game, statistics)
-      function statistics:on_finished()
-        game:set_suspended(false)
-      end
     elseif key == "7" then
       local map_id = "out/a1_west_mt_tamaranch"
       local destination_name = "travel_destination"
