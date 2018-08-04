@@ -147,7 +147,7 @@ function debug:on_update()
       end
       if hero_movement ~= nil then
         if not ctrl_pressed
-            and (sol.input.is_key_pressed("left control") or sol.input.is_key_pressed("right control")) then
+            and (sol.input.is_key_pressed("left control") or sol.input.is_key_pressed("right control") or sol.input.is_key_pressed("-")) then
           hero_movement:set_ignore_obstacles(true)
           ctrl_pressed = true
         elseif ctrl_pressed

@@ -35,7 +35,7 @@ function claw_manager:launch_step_1(map)
   local claw_crane = map:get_entity("claw_crane")
   local claw_shadow= map:get_entity("claw_shadow")
   claw_step = 1
-  function game:on_command_pressed(button)
+  function map:on_command_pressed(button)
     if claw_step == 1 and button == "item_1" then
       claw_movement = sol.movement.create("straight")
       claw_movement:set_angle(0)
@@ -53,7 +53,7 @@ function claw_manager:launch_step_1(map)
       end
     end
   end
-  function game:on_command_released(button)
+  function map:on_command_released(button)
       if button == "item_1" then
         claw_is_sound_activated = false
         claw_movement:stop()

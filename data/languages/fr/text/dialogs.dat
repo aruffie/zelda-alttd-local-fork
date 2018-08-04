@@ -1072,12 +1072,11 @@ dialog{
   id = "_treasure.shield.1",
   icon = "63",
   text = [[
-Vous récupérez  
-votre bouclier! $0
+Vous récupérez votre 
+bouclier ! $0
 
 Utilisez-le pour
-repousser vos   
-ennemis!
+repousser vos ennemis !
 ]],
 }
 
@@ -1530,7 +1529,7 @@ dialog{
   skip = "all",
   text = [[
 Heu... Hum...   
-Comment dire?   
+Comment dire ?   
 Téléphone...    
 A l'extérieur...
 Pépé le Ramollo n'a pas 
@@ -1855,29 +1854,26 @@ Ah! Enfin...
 J'ai cru que tu n'allais
 jamais te réveiller.   
 Tu devais cauchemarder.   
-Quoi? Zelda ??   
+Quoi ? Zelda ??   
 Tu dois être encore 
 patraque !
 Je suis Marine ! 
-Tu es sur l'île
-Cocolint !
+Tu es sur l'île Cocolint !
 ]],
 }
 
 dialog{
   id = "maps.houses.mabe_village.marin_house.tarin_1",
   text = [[
-Salut $v ! T'es 
-réveillé...
+Salut $v ! 
+T'es réveillé... 
 J'suis Tarkin...
 Tu t'sens mieux ?
-Quoi? Comment j'sais
-ton nom ? 
-Ben, c'est gravé
+Quoi ? Comment j'sais
+ton nom ? Ben, c'est gravé
 sur le Bouclier !
-Ben, d'ailleurs 
-il est à toi !
-J'te l'donne !
+Ben, d'ailleurs il est à 
+toi ! J'te l'donne !
 ]],
 }
 
@@ -1886,14 +1882,12 @@ dialog{
   skip = "all",
   text = [[
 Salut $v !    
-Au fait! Y'a un autre 
-bidule qui est resté
-sur la plage.   
-Si tu y vas, fais
-attention aux 
-monstres !
-Car, depuis que t'es 
-ici $v, des monstres,   
+Au fait ! Y'a un autre 
+bidule qui est resté sur
+la plage. Si tu y vas, fais
+attention aux monstres !
+Car, depuis que t'es ici 
+$v, des monstres, 
 y'en a partout !
 ]],
 }
@@ -1904,7 +1898,7 @@ dialog{
   text = [[
 Hé mon gars, attends un 
 peu ! J'ai quêqu' chose
- à te dire !
+à te dire !
 ]],
 }
 
@@ -1997,10 +1991,9 @@ dialog{
   id = "maps.houses.mabe_village.meow_meow_house.small_bowwow_2_1",
   text = [[
 Ouaf Ouaf ! 
-Je suis un 
-chien très branché !
-J'aimerais avoir des 
-accessoires à la mode !
+Je suis un chien très
+branché ! J'aimerais avoir 
+des accessoires à la mode !
 ]],
 }
 
@@ -2262,12 +2255,10 @@ dialog{
   text = [[
 DRING DRING !    
 DRING ! Hello !   
-Madonna         
-à l'appaouïelle.
-No darling...   
-CLIC !           
-Tu as dû faire  
-un faux numéro !
+Madonna à l'appaouïelle.
+No darling... CLIC !           
+Tu as dû faire un faux 
+numéro !
 ]],
 }
 
@@ -2277,11 +2268,10 @@ dialog{
 DRING DRING !!   
 Pépé le Ramollo à 
 l'appareil... 
-Je sais tout de cette 
-île !      
-Si tu te perds, 
-passe-moi un coup de
-fil ! Salut !  CLIC ! 
+Je sais tout de cette île !      
+Si tu te perds, passe-moi
+un coup de fil ! Salut ! 
+CLIC !
 ]],
 }
 
@@ -2888,9 +2878,8 @@ Je te suis reconnaissant.
 dialog{
   id = "maps.houses.wardrobe_1",
   text = [[
-$v a inspecté la
-commode. C'est un 
-objet d'art... ...
+$v a inspecté la commode.
+C'est un objet d'art... ...
 ]],
 }
 
@@ -3321,8 +3310,8 @@ Sois un peu plus motivé !
 dialog{
   id = "maps.out.mabe_village.grand_ma_1",
   text = [[
-YOUPI ! J'ai la  
-pêche ! Et toi ? 
+YOUPI ! J'ai la pêche ! 
+Et toi ? 
 ]],
 }
 

@@ -15176,6 +15176,14 @@ enemy{
   breed = "zol_green",
 }
 
+enemy{
+  layer = 0,
+  x = 1096,
+  y = 1677,
+  direction = 0,
+  breed = "keese",
+}
+
 tile{
   layer = 1,
   x = 528,
