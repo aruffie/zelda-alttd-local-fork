@@ -10,9 +10,9 @@ local initial_menus = {
   "scripts/menus/team_logo",
   "scripts/menus/zeldaforce_logo",
   "scripts/menus/language", 
-  "scripts/menus/introduction", 
+  "scripts/menus/copyright_menu",
   "scripts/menus/title", 
-  "scripts/menus/savegames",
+  "scripts/menus/file_selection",
 }
 
 return initial_menus

@@ -1,0 +1,9 @@
+animation{
+  name = "default",
+  src_image = "menus/settings/settings_arrow_right.png",
+  frame_delay = 120,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 0, frame_width = 16, frame_height = 12, origin_x = 0, origin_y = 0, num_frames = 4 },
+  },
+}

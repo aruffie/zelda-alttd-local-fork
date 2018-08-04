@@ -9,10 +9,10 @@
 local team_logo_menu = {}
 
 -- Load Solarus Team logo sprite and text.
-local logo_sprite = sol.sprite.create("menus/team_logo")
+local logo_sprite = sol.sprite.create("menus/team_logo/team_logo")
 local logo_sprite_width, logo_sprite_height = logo_sprite:get_size()
 
-local text_img = sol.surface.create("menus/team_logo_text.png")
+local text_img = sol.surface.create("menus/team_logo/team_logo_text.png")
 local txt_width, txt_height = text_img:get_size()
 
 -- Compute each item position.

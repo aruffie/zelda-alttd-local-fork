@@ -1,0 +1,18 @@
+animation{
+  name = "big",
+  src_image = "menus/file_selection/file_selection_cursor.png",
+  frame_delay = 120,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 0, frame_width = 232, frame_height = 32, origin_x = 0, origin_y = 0, num_frames = 4, num_columns = 1 },
+  },
+}
+animation{
+  name = "small",
+  src_image = "menus/file_selection/file_selection_cursor.png",
+  frame_delay = 120,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 232, y = 0, frame_width = 104, frame_height = 24, origin_x = 0, origin_y = 0, num_frames = 4, num_columns = 1 },
+  },
+}

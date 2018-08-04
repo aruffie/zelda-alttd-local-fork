@@ -1,0 +1,16 @@
+animation{
+  name = "default",
+  src_image = "menus/keyboardbox/keyboardbox_textfield.png",
+  directions = {
+    { x = 0, y = 0, frame_width = 144, frame_height = 16, origin_x = 72, origin_y = 8 },
+  },
+}
+animation{
+  name = "confirm",
+  src_image = "menus/keyboardbox/keyboardbox_textfield.png",
+  frame_delay = 100,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 144, y = 0, frame_width = 144, frame_height = 16, origin_x = 72, origin_y = 8, num_frames = 2, num_columns = 1 },
+  },
+}

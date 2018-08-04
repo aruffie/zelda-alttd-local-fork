@@ -15,19 +15,19 @@ local solarus_logo_menu = {}
 local surface = sol.surface.create(201, 48)
 
 -- Solarus title sprite.
-local title = sol.sprite.create("menus/solarus_logo")
+local title = sol.sprite.create("menus/solarus_logo/solarus_logo")
 title:set_animation("title")
 
 -- Solarus subtitle sprite.
-local subtitle = sol.sprite.create("menus/solarus_logo")
+local subtitle = sol.sprite.create("menus/solarus_logo/solarus_logo")
 subtitle:set_animation("subtitle")
 
 -- Sun sprite.
-local sun = sol.sprite.create("menus/solarus_logo")
+local sun = sol.sprite.create("menus/solarus_logo/solarus_logo")
 sun:set_animation("sun")
 
 -- Sword sprite.
-local sword = sol.sprite.create("menus/solarus_logo")
+local sword = sol.sprite.create("menus/solarus_logo/solarus_logo")
 sword:set_animation("sword")
 
 -- Black square below the sun.

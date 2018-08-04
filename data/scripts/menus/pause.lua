@@ -25,12 +25,12 @@ local function initialize_pause_features(game)
 
     -- Define the available submenus.
 
-    game.pause_submenus = {  -- Array of submenus (inventory, map, etc.).
+    -- Array of submenus (inventory, map, etc.).
+    game.pause_submenus = {
       inventory_builder:new(game),
       map_builder:new(game),
       quest_builder:new(game),
-     options_builder:new(game)
-
+      options_builder:new(game),
     }
 
     -- Select the submenu that was saved if any.
