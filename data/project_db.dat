@@ -170,6 +170,8 @@ tileset{ id = "out/light_world_legacy", description = "Light world legacy" }
 tileset{ id = "out/outside", description = "Outside" }
 tileset{ id = "sideview/sideview", description = "Side view tileset" }
 
+sprite{ id = "dungeons/owl/pipes/red", description = "Red pipe with water flowing" }
+sprite{ id = "dungeons/owl/pipes/yellow", description = "Yellow pipe with water flowing" }
 sprite{ id = "enemies/angler_brick", description = "Angler brick" }
 sprite{ id = "enemies/angler_fry", description = "Angler fry" }
 sprite{ id = "enemies/anti_kirby", description = "Anti kirby" }
@@ -727,8 +729,6 @@ sprite{ id = "pictures/peach", description = "Peach" }
 sprite{ id = "shadows/shadow_big", description = "Shadow big" }
 sprite{ id = "shadows/shadow_big_dynamic", description = "Shadow big dynamic" }
 sprite{ id = "shadows/shadow_small", description = "Shadow small" }
-sprite{ id = "dungeons/owl/pipes/red", description = "Red pipe with water flowing" }
-sprite{ id = "dungeons/owl/pipes/yellow", description = "Yellow pipe with water flowing" }
 
 music{ id = "maps/caves/cave", description = "Cave" }
 music{ id = "maps/dungeons/1/dungeon", description = "Dungeon 1" }
