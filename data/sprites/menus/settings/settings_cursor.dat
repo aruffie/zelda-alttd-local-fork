@@ -1,0 +1,9 @@
+animation{
+  name = "default",
+  src_image = "menus/settings/settings_cursor.png",
+  frame_delay = 120,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 0, frame_width = 96, frame_height = 24, origin_x = 4, origin_y = 4, num_frames = 4, num_columns = 1 },
+  },
+}
