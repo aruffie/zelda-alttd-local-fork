@@ -465,14 +465,6 @@ function file_selection_menu:on_key_pressed(key)
                 -- Block player's input.
                 self.finished = true
 
-                -- Specific to Link's Awakening.
-                local lower_result = string.lower(result)
-                if lower_result == "zelda" or lower_result == "binbin" or lower_result == "chris" then
-                  sol.audio.play_music("scripts/menus/player_select_zelda")
-                elseif lower_result == "moyse" then
-                  sol.audio.play_music("scripts/menus/player_select_moyse")
-                end
-
                 -- Save the player's name.
                 local savegame = slot.savegame
                 savegame:set_value("player_name", result)
@@ -483,6 +475,9 @@ function file_selection_menu:on_key_pressed(key)
 
                 -- Fade-out after a delay.
                 sol.timer.start(self, 500, function()
+                  -- Stop music.
+                  sol.audio.stop_music()
+
                   self.surface:fade_out(100)
                   sol.audio.play_sound("sword_spin_attack_load")
                 
