@@ -19,7 +19,7 @@ function options_submenu:on_started()
     vertical_alignment = "top",
     font = font,
     font_size = font_size,
-    text_key = "selection_menu.options.video_mode",
+    text_key = "settings.video_filter",
     color = self.text_color,
   }
   self.video_mode_label_text:set_xy(center_x - 50, center_y - 58)
