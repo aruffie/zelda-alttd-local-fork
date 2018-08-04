@@ -1,4 +1,4 @@
--- Lua script of enemy monkey.
+-- Lua script of enemy monkey_coconut.
 -- This script is executed every time an enemy with this model is created.
 
 -- Feel free to modify the code below.
@@ -31,45 +31,4 @@ end
 -- it was hurt or immobilized.
 function enemy:on_restarted()
 
-  enemy:attack(2)
-
-end
-
-function enemy:attack(direction)
-
-  sprite:set_direction(direction)
-  sprite:set_animation("throwing")
-  enemy:create_coconut()
-  function sprite:on_animation_finished(animation)
-    if animation == "throwing" then
-      sprite:set_animation("walking")
-      sol.timer.start(enemy, 200, function()
-        if direction == 2 then
-          enemy:attack(0)
-        else
-          enemy:wait(0)
-        end
-      end)
-    end
-  end
-end
-
-function enemy:wait()
-
-  sprite:set_animation("walking")
-  sol.timer.start(enemy, 2000, function()
-    enemy:attack(2)
-  end)
- 
-end
-
-function enemy:create_coconut()
-  local x,y = enemy:get_position()
-    sol.audio.play_sound("stone")
-    local stone = enemy:create_enemy({
-      breed = "monkey_coconut",
-      layer= 2,
-      x = x,
-      y = y,
-    })
 end
