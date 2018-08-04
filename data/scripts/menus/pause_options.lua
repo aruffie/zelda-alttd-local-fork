@@ -22,7 +22,7 @@ function options_submenu:on_started()
     text_key = "settings.video_filter",
     color = self.text_color,
   }
-  self.video_mode_label_text:set_xy(center_x - 50, center_y - 58)
+  self.video_mode_label_text:set_xy(center_x - 50, center_y - 58 + self.font_y_shift)
 
   self.video_mode_text = sol.text_surface.create{
     horizontal_alignment = "center",
@@ -32,7 +32,7 @@ function options_submenu:on_started()
     text = sol.video.get_mode(),
     color = self.text_color,
   }
-  self.video_mode_text:set_xy(center_x + 74, center_y - 58)
+  self.video_mode_text:set_xy(center_x + 74, center_y - 58 + self.font_y_shift)
 
   self.command_column_text = sol.text_surface.create{
     horizontal_alignment = "center",
@@ -42,7 +42,7 @@ function options_submenu:on_started()
     text_key = "options.commands_column",
     color = self.column_color,
   }
-  self.command_column_text:set_xy(center_x - 76, center_y - 37)
+  self.command_column_text:set_xy(center_x - 76, center_y - 37 + self.font_y_shift)
 
   self.keyboard_column_text = sol.text_surface.create{
     horizontal_alignment = "center",
@@ -52,7 +52,7 @@ function options_submenu:on_started()
     text_key = "options.keyboard_column",
     color = self.column_color,
   }
-  self.keyboard_column_text:set_xy(center_x - 7, center_y - 37)
+  self.keyboard_column_text:set_xy(center_x - 7, center_y - 37 + self.font_y_shift)
 
   self.joypad_column_text = sol.text_surface.create{
     horizontal_alignment = "center",
@@ -62,7 +62,7 @@ function options_submenu:on_started()
     text_key = "options.joypad_column",
     color = self.column_color,
   }
-  self.joypad_column_text:set_xy(center_x + 69, center_y - 37)
+  self.joypad_column_text:set_xy(center_x + 69, center_y - 37 + self.font_y_shift)
 
   self.commands_surface = sol.surface.create(215, 160)
   self.commands_surface:set_xy(center_x - 107, center_y - 18)

@@ -14,6 +14,9 @@ end
 
 function submenu:on_started()
 
+  -- Fix the font shift (issue with Minecraftia)
+  self.font_y_shift = 2
+
   self.background_surfaces = sol.surface.create("menus/pause_submenus.png")
   self.title_surfaces = sol.surface.create("pause_submenus_title.png", true)
   self.title_arrows = sol.surface.create("menus/pause_submenus_arrows.png")
@@ -122,10 +125,10 @@ function submenu:draw_caption(dst_surface)
 
     -- Draw caption text.
     if self.caption_text_2:get_text():len() == 0 then
-      self.caption_text_1:draw(dst_surface, width / 2, height / 2 + 89)
+      self.caption_text_1:draw(dst_surface, width / 2, height / 2 + 89 + self.font_y_shift)
     else
-      self.caption_text_1:draw(dst_surface, width / 2, height / 2 + 84)
-      self.caption_text_2:draw(dst_surface, width / 2, height / 2 + 94)
+      self.caption_text_1:draw(dst_surface, width / 2, height / 2 + 84 + self.font_y_shift)
+      self.caption_text_2:draw(dst_surface, width / 2, height / 2 + 94 + self.font_y_shift)
     end
   end
 end
@@ -273,18 +276,18 @@ function submenu:draw_save_dialog_if_any(dst_surface)
     self.save_dialog_background:draw(dst_surface, center_x - frame_half_w, center_y - frame_half_h)
 
     -- Draw the dialog question.
-    self.question_text_1:draw(dst_surface, center_x, center_y - 20) -- line 1
-    self.question_text_2:draw(dst_surface, center_x, center_y - 8) -- line 2
+    self.question_text_1:draw(dst_surface, center_x, center_y - 20 + self.font_y_shift) -- line 1
+    self.question_text_2:draw(dst_surface, center_x, center_y - 8 + self.font_y_shift) -- line 2
     
     -- Draw the dialog answers (yes/no).
-    self.answer_text_1:draw(dst_surface, center_x - 56, center_y + 19)
-    self.answer_text_2:draw(dst_surface, center_x + 56, center_y + 19)
+    self.answer_text_1:draw(dst_surface, center_x - 56, center_y + 19 + self.font_y_shift)
+    self.answer_text_2:draw(dst_surface, center_x + 56, center_y + 19 + self.font_y_shift)
     
     -- Draw the dialog cursor.
     if self.save_dialog_cursor_pos == "left" then
-      self.save_dialog_cursor:draw(dst_surface, center_x - 80, center_y + 20)
+      self.save_dialog_cursor:draw(dst_surface, center_x - 80, center_y + 20 + self.font_y_shift)
     elseif self.save_dialog_cursor_pos == "right" then
-      self.save_dialog_cursor:draw(dst_surface, center_x + 32, center_y + 20)
+      self.save_dialog_cursor:draw(dst_surface, center_x + 32, center_y + 20 + self.font_y_shift)
     end
   end
 end

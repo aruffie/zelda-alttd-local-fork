@@ -7,6 +7,9 @@ local game_manager = require("scripts/game_manager")
 
 function messagebox_menu:on_started()
 
+  -- Fix the font shift (issue with Minecraftia)
+  self.font_y_shift = 2
+
   -- Create static surfaces.
   self.frame_img = sol.surface.create("menus/messagebox/messagebox_frame.png")
   local frame_w, frame_h = self.frame_img:get_size()
@@ -116,7 +119,7 @@ function messagebox_menu:on_draw(dst_surface)
   for i = 1, #self.text_lines do
     local text_line = self.text_lines[i]
     local text_line_y = self.text_y + (i - 1) * self.menu_font_size * 1.75
-    text_line:draw(self.surface, frame_w / 2, text_line_y)
+    text_line:draw(self.surface, frame_w / 2, text_line_y + self.font_y_shift)
   end
 
   -- Buttons.
@@ -124,7 +127,7 @@ function messagebox_menu:on_draw(dst_surface)
     local button_x = self.buttons[i].x
     local button_text = self.buttons[i].text
     self.button_img:draw(self.surface, button_x, self.button_y)
-    button_text:draw(self.surface, button_x + 32, self.button_y + 8)
+    button_text:draw(self.surface, button_x + 32, self.button_y + 8 + self.font_y_shift)
   end
 
   -- Cursor (if the position is valid).

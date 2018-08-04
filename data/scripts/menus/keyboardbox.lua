@@ -72,6 +72,9 @@ end
 -- Initialize all the menu's features.
 function keyboardbox_menu:on_started()
 
+  -- Fix the font shift (issue with Minecraftia)
+  self.font_y_shift = 2
+
   -- Elements positions relative to self.surface.
   self.textfield_x = 60
   self.textfield_y = 30
@@ -285,7 +288,7 @@ function keyboardbox_menu:initialize_layouts()
           }
 
           local letter_x = layout_item_geometry.x + 8
-          local letter_y = layout_item_geometry.y + 8
+          local letter_y = layout_item_geometry.y + 8 + self.font_y_shift
 
           -- Draw the letter at the correct place.
           letter_text:draw(surface, letter_x, letter_y)
@@ -350,7 +353,7 @@ function keyboardbox_menu:on_draw(dst_surface)
   self.frame_img:draw(self.surface, 0, 0)
   
   -- Title.
-  self.title_text:draw(self.surface, self.frame_w / 2, 16)
+  self.title_text:draw(self.surface, self.frame_w / 2, 16 + self.font_y_shift)
   
   -- Text field.
   self:draw_textfield(self.surface)
@@ -416,7 +419,7 @@ function keyboardbox_menu:draw_textfield(dst_surface)
   self.textfield_sprite:draw(self.surface, frame_center_x, 38)
 
   -- Text.
-  self.textfield_text:draw(self.surface, frame_center_x, 38)
+  self.textfield_text:draw(self.surface, frame_center_x, 38 + self.font_y_shift)
   
   -- Cursor.
   if not self.finished and self.begun then

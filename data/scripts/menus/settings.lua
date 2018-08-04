@@ -7,6 +7,9 @@ local game_manager = require("scripts/game_manager")
 
 function settings_menu:on_started()
 
+  -- Fix the font shift (issue with Minecraftia)
+  self.font_y_shift = 2
+
   -- Create static surfaces.
   self.frame_img = sol.surface.create("menus/settings/settings_frame.png")
   local frame_w, frame_h = self.frame_img:get_size()
@@ -131,18 +134,18 @@ function settings_menu:on_draw(dst_surface)
   self.frame_img:draw(self.surface, 0, 0) 
 
   -- Title.
-  self.title_text:draw(self.surface, self.title_x, 10)
+  self.title_text:draw(self.surface, self.title_x, 10 + self.font_y_shift)
  
   for i, option in ipairs(self.options) do   
     -- Background
     self:draw_slot_background(self.surface, i)
 
     -- Label
-    option.label_text:draw(self.surface, self.text_x, self.slot_y + self.slot_spacing * (i - 1))
+    option.label_text:draw(self.surface, self.text_x, self.slot_y + self.slot_spacing * (i - 1) + self.font_y_shift)
 
     -- Value
     if option.type == "text" then
-      option.value_text:draw(self.surface, self.slot_x + 44, self.slot_y + self.slot_spacing * (i - 1))
+      option.value_text:draw(self.surface, self.slot_x + 44, self.slot_y + self.slot_spacing * (i - 1) + self.font_y_shift)
     elseif option.type == "integer" then
       self:draw_slider(self.surface, i)
       self:draw_slider_value(self.surface, i)
@@ -151,7 +154,7 @@ function settings_menu:on_draw(dst_surface)
   
   -- Back button.
   self.back_img:draw(self.surface, self.slot_x, self.slot_y + self.slot_spacing * 4)
-  self.back_text:draw(self.surface, self.slot_x + 44, self.slot_y + self.slot_spacing * 4 + 8)
+  self.back_text:draw(self.surface, self.slot_x + 44, self.slot_y + self.slot_spacing * 4 + 8 + self.font_y_shift)
 
   -- Cursor (if the position is valid).
   if self.cursor_position > 0 and self.cursor_position <= self.slot_count + 1 then
@@ -222,7 +225,7 @@ function settings_menu:draw_slider_value(dst_surface, slot_index)
   local x = self.slot_x + 64 + 8
   local y = self.slot_y + self.slot_spacing * (slot_index - 1)
 
-  self.options[slot_index].value_text:draw(dst_surface, x, y)
+  self.options[slot_index].value_text:draw(dst_surface, x, y + self.font_y_shift)
 
 end
 

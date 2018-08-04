@@ -15,6 +15,9 @@ local settings = require("scripts/menus/settings")
 
 function file_selection_menu:on_started()
 
+  -- Fix the font shift (issue with Minecraftia)
+  self.font_y_shift = 2
+
   -- Create static surfaces.
   -- TODO animate background (use a sprite).  
   self.surface = sol.surface.create(320, 240)
@@ -159,7 +162,7 @@ function file_selection_menu:on_draw(dst_surface)
   self.frame_surface:draw(self.surface, 0, 0)
 
   -- Title.
-  self.title_text:draw(self.surface, 160, 24)
+  self.title_text:draw(self.surface, 160, 24 + self.font_y_shift)
 
   -- Slots.
   for i = 1, self.slot_count do
@@ -205,7 +208,7 @@ function file_selection_menu:draw_slot(index)
   slot.hero_sprite:draw(self.surface, self.slot_x + 16, slot_center_y)
 
   -- Slot player's name.
-  slot.player_name_text:draw(self.surface, self.slot_x + 32, slot_center_y)  
+  slot.player_name_text:draw(self.surface, self.slot_x + 32, slot_center_y + self.font_y_shift)  
 
   if slot.hearts_view ~= nil then
     slot.hearts_view:set_dst_position(self.slot_x + 135, slot_y + 4)
@@ -228,12 +231,12 @@ function file_selection_menu:draw_buttons()
   
   -- Button 1.
   self.button_img:draw_region(0, 0, 96, 16, self.surface, self.button_1_x, self.button_y)
-  self.option_1_text:draw(self.surface, self.button_1_x + 48, self.button_y + 7)
+  self.option_1_text:draw(self.surface, self.button_1_x + 48, self.button_y + 7 + self.font_y_shift)
 
   -- Button 2.
   if self.phase == self.phases.CHOOSE_PLAY then
     self.button_img:draw_region(0, 0, 96, 16, self.surface, self.button_2_x, self.button_y)
-    self.option_2_text:draw(self.surface, self.button_2_x + 48, self.button_y + 8)   
+    self.option_2_text:draw(self.surface, self.button_2_x + 48, self.button_y + 8 + self.font_y_shift)   
   end
 end
 

@@ -35,6 +35,9 @@ local menu_items
 -- Initialize the menu.
 function copyright_menu:on_started()
 
+  -- Fix the font shift (issue with Minecraftia)
+  self.font_y_shift = 2
+
   -- GPLv3 logo
   gpl_logo = sol.surface.create("menus/copyright_menu/gplv3_logo.png")
   gpl_logo_width, gpl_logo_height = gpl_logo:get_size()
@@ -138,7 +141,7 @@ function copyright_menu:on_draw(screen)
   local screen_width, screen_height = screen:get_size()
   local screen_center_x = screen_width /2
 
-  local item_y = top_margin
+  local item_y = top_margin + self.font_y_shift
 
   -- Draw Solarus license text
   solarus_license_line1:draw(screen, screen_center_x, item_y)
