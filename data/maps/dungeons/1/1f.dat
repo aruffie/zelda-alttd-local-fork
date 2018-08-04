@@ -15167,6 +15167,15 @@ block{
   maximum_moves = 0,
 }
 
+enemy{
+  name = "test",
+  layer = 0,
+  x = 1096,
+  y = 1677,
+  direction = 0,
+  breed = "zol_green",
+}
+
 tile{
   layer = 1,
   x = 528,
