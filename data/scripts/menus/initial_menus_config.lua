@@ -11,7 +11,6 @@ local initial_menus = {
   "scripts/menus/zeldaforce_logo",
   "scripts/menus/language", 
   "scripts/menus/copyright_menu",
-  "scripts/menus/introduction", 
   "scripts/menus/title", 
   "scripts/menus/file_selection",
 }

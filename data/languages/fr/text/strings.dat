@@ -5,6 +5,14 @@ text{ key = "copyright_menu.solarus_license.line1", value = "Solarus est un logi
 text{ key = "copyright_menu.solarus_license.line2", value = "sous licence GPL v3." }
 text{ key = "copyright_menu.tloz_trademark.line1", value = "The Legend of Zelda est" }
 text{ key = "copyright_menu.tloz_trademark.line2", value = "une marque déposée de Nintendo." }
+text{ key = "file_selection.cancel", value = "Annuler" }
+text{ key = "file_selection.choose_file", value = "Veuillez choisir un fichier" }
+text{ key = "file_selection.confirm_delete", value = "Etes-vous sûr ?" }
+text{ key = "file_selection.delete", value = "Effacer" }
+text{ key = "file_selection.delete_file", value = "Quel fichier effacer ?" }
+text{ key = "file_selection.empty", value = "Vide" }
+text{ key = "file_selection.enter_name", value = "Quel est votre nom ?" }
+text{ key = "file_selection.options", value = "Options" }
 text{ key = "game.thief", value = "VOYOU" }
 text{ key = "inventory.caption.item.angler_key.1", value = "Clé poisson" }
 text{ key = "inventory.caption.item.bird_key.1", value = "Clé vautour" }
@@ -79,6 +87,8 @@ text{ key = "map.caption.dungeon_name_7", value = "Tour du vautour" }
 text{ key = "map.caption.dungeon_name_8", value = "Roc de la tortue" }
 text{ key = "map.caption.dungeon_name_9", value = "Donjon des couleurs" }
 text{ key = "map.caption.world_map", value = "Carte de Cocolint" }
+text{ key = "messagebox.no", value = "Non" }
+text{ key = "messagebox.yes", value = "Oui" }
 text{ key = "options.caption.press_action_change_mode", value = "Appuyez sur Action$pour changer de mode" }
 text{ key = "options.caption.press_action_customize_key", value = "Appuyez sur Action pour$configurer cette touche" }
 text{ key = "options.caption.press_key", value = "Appuyez sur une touche$du clavier ou du joypad" }
@@ -103,23 +113,11 @@ text{ key = "save_dialog.no", value = "Non" }
 text{ key = "save_dialog.save_question_0", value = "Voulez-vous sauvegarder" }
 text{ key = "save_dialog.save_question_1", value = "votre progression ?" }
 text{ key = "save_dialog.yes", value = "Oui" }
-text{ key = "selection_menu.back", value = "Retour" }
-text{ key = "selection_menu.big_no", value = "NON" }
-text{ key = "selection_menu.big_yes", value = "OUI" }
-text{ key = "selection_menu.cancel", value = "Annuler" }
-text{ key = "selection_menu.empty", value = "Vide" }
-text{ key = "selection_menu.erase", value = "Effacer" }
-text{ key = "selection_menu.options", value = "Options" }
-text{ key = "selection_menu.options.language", value = "Langue" }
-text{ key = "selection_menu.options.music_volume", value = "Volume de la musique" }
-text{ key = "selection_menu.options.sound_volume", value = "Volume des sons" }
-text{ key = "selection_menu.options.video_mode", value = "Mode vidéo" }
-text{ key = "selection_menu.phase.choose_mode", value = "Choisissez un mode de jeu" }
-text{ key = "selection_menu.phase.choose_name", value = "Quel est votre nom ?" }
-text{ key = "selection_menu.phase.confirm_erase", value = "Etes-vous sûr ?" }
-text{ key = "selection_menu.phase.erase_file", value = "Quel fichier voulez-vous effacer ?" }
-text{ key = "selection_menu.phase.options", value = "Appuyez sur Espace pour modifier" }
-text{ key = "selection_menu.phase.options.changing", value = "<  > : choisir, Espace : valider" }
-text{ key = "selection_menu.phase.select_file", value = "Veuillez choisir un fichier" }
+text{ key = "settings.back", value = "Retour" }
+text{ key = "settings.language", value = "Langue" }
+text{ key = "settings.music_volume", value = "Volume de la musique" }
+text{ key = "settings.sound_volume", value = "Volume des sons" }
+text{ key = "settings.title", value = "Options" }
+text{ key = "settings.video_filter", value = "Filtre vidéo" }
 text{ key = "title_screen.press_space", value = "Appuyez sur espace" }
 text{ key = "title_screen.website", value = "www.zeldaforce.net" }

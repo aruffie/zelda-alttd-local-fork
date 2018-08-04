@@ -27,13 +27,13 @@ function file_selection_menu:on_started()
   local frame_img = sol.surface.create("menus/file_selection/file_selection_frame.png")
   frame_img:draw(self.frame_surface, 8, 18)
   local title_img = sol.surface.create("menus/file_selection/file_selection_title.png")
-  title_img:draw(self.frame_surface, 84, 8)
+  local title_img_w, title_img_h = title_img:get_size()
+  title_img:draw(self.frame_surface, (320 - title_img_w) / 2, 8)
 
   -- Create sprites.
   self.cursor_sprite = sol.sprite.create("menus/file_selection/file_selection_cursor")
 
   -- Get fonts.
-  --local dialog_font, dialog_font_size = language_manager:get_dialog_font()
   local menu_font, menu_font_size = language_manager:get_menu_font()
   self.menu_font = menu_font
   self.menu_font_size = menu_font_size
@@ -251,12 +251,12 @@ end
 
 function file_selection_menu:update_phase()
   if self.phase == self.phases.CHOOSE_PLAY or self.phase == self.phases.ENTER_NAME or self.phase == self.phases.EDIT_OPTIONS then
-    self.title_text:set_text("Choose a file")
-    self.option_1_text:set_text("Delete")
-    self.option_2_text:set_text("Options")
+    self.title_text:set_text(sol.language.get_string("file_selection.choose_file"))
+    self.option_1_text:set_text(sol.language.get_string("file_selection.delete"))
+    self.option_2_text:set_text(sol.language.get_string("file_selection.options"))
   elseif self.phase == self.phases.CHOOSE_DELETE or self.phase == self.phases.CONFIRM_DELETE then
-    self.title_text:set_text("Which file to delete?")
-    self.option_1_text:set_text("Cancel")
+    self.title_text:set_text(sol.language.get_string("file_selection.delete_file"))
+    self.option_1_text:set_text(sol.language.get_string("file_selection.cancel"))
     self.option_2_text:set_text("")
   else
     self.title_text:set_text("")
@@ -453,7 +453,7 @@ function file_selection_menu:on_key_pressed(key)
             self:set_phase(self.phases.ENTER_NAME)
 
             -- Open a keyboard to allow the player to type his/her name.
-            keyboardbox:show(sol.main, "What's your name?", "", 1, 6, function(result)
+            keyboardbox:show(sol.main, sol.language.get_string("file_selection.enter_name"), "", 1, 6, function(result)
               self:set_phase(self.phases.CHOOSE_PLAY)
 
               -- A non-empty string means the player has typed his/her name and
@@ -502,7 +502,10 @@ function file_selection_menu:on_key_pressed(key)
         
         -- Open a messagebox to ask the player for confirmation.
         sol.audio.play_sound("pause_open")
-        messagebox:show(sol.main, {"Are you sure?"}, "Yes", "Cancel", 2, function(result)
+        messagebox:show(sol.main, 
+          {sol.language.get_string("file_selection.confirm_delete")}, 
+          sol.language.get_string("messagebox.yes"), sol.language.get_string("file_selection.cancel"), 2,
+          function(result)
           if result == 1 then
             -- Check if slot can be deleted.
             local slot = self.slots[self.cursor_position]

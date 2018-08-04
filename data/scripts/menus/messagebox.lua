@@ -305,8 +305,8 @@ function messagebox_menu:show(context, text_lines, button_1_text, button_2_text,
   self.text_lines[3]:set_text(line_3)
 
   -- Buttons.
-  local button_1_text = button_1_text or "Yes"
-  local button_2_text = button_2_text or "No"
+  local button_1_text = button_1_text or sol.language.get_string("messagebox.yes")
+  local button_2_text = button_2_text or sol.language.get_string("messagebox.no")
 
   self.buttons[1].text:set_text(button_1_text)
   self.buttons[2].text:set_text(button_2_text)

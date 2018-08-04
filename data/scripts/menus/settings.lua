@@ -41,7 +41,7 @@ function settings_menu:on_started()
     horizontal_alignment = "center",
     font = self.menu_font,
     font_size = self.menu_font_size,
-    text = "Settings",
+    text_key = "settings.title",
   }
   
   -- Options.
@@ -52,7 +52,7 @@ function settings_menu:on_started()
       values = sol.language.get_languages(),
     },
     {
-      name = "video_mode",
+      name = "video_filter",
       type = "text",
       values = sol.video.get_modes(),
     },
@@ -74,7 +74,7 @@ function settings_menu:on_started()
     option.label_text = sol.text_surface.create{
       font = self.menu_font,
       font_size = self.menu_font_size,
-      text_key = "selection_menu.options." .. option.name,
+      text_key = "settings." .. option.name,
       color = self.text_color,
       horizontal_alignment = "left",
     }
@@ -96,7 +96,7 @@ function settings_menu:on_started()
     horizontal_alignment = "center",
     font = self.menu_font,
     font_size = self.menu_font_size,
-    text = "Back",
+    text_key = "settings.back",
   }
   
   self.slot_count = 4
@@ -450,7 +450,7 @@ function settings_menu:load_option(option)
     option.value = sol.language.get_language()
     option.value_text:set_text(sol.language.get_language_name(option.value))
 
-  elseif option.name == "video_mode" then
+  elseif option.name == "video_filter" then
     option.value = sol.video.get_mode()
     option.value_text:set_text(option.value)
 
@@ -472,7 +472,7 @@ function settings_menu:set_option(option, value)
   if option.name == "language" then
     sol.language.set_language(value)
 
-  elseif option.name == "video_mode" then
+  elseif option.name == "video_filter" then
     sol.video.set_mode(value)
 
   elseif option.name == "music_volume" then
