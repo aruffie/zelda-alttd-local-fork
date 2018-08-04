@@ -86,7 +86,7 @@ end
 -- Step 2
 function enemy:push_spike()
 
-    enemy_step = 2
+   enemy_step = 2
    sol.timer.start(enemy, 250, function()
       sol.audio.play_sound("boss_1_explode_part")
    end)
@@ -114,7 +114,7 @@ function enemy:go_on_the_other_side()
       local direction = sprite:get_direction()
       if direction == 0 then
         if x_enemy >= x_spike + 48 then
-           movement:stop()
+          movement:stop()
           enemy_continue_move = false
           enemy:change_direction()
           movement_enemy:stop()
@@ -184,7 +184,11 @@ end
 function enemy:on_hurt(attack)
 
   if enemy:get_life() <= 0 then
-    spike:remove()
+    movement_spike:stop()
+    sprite_spike:set_animation("destroyed")
+    function sprite_spike:on_animation_finished(animation)
+      spike:remove()
+    end
   end
 
 end

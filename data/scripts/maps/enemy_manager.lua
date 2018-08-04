@@ -151,9 +151,13 @@ function enemy_manager:launch_small_boss_if_not_dead(map)
    enemy:register_event("on_dead", function()
       enemy:launch_small_boss_dead(music)
    end)
-    map:close_doors(door_prefix)
-    sol.audio.play_music("maps/dungeons/small_boss")
-        
+   for tile in map:get_entities("tiles_small_boss_") do
+    local layer = tile:get_property('start_layer')
+    tile:set_layer(layer)
+   end
+   map:close_doors(door_prefix)
+   sol.audio.play_music("maps/dungeons/small_boss")
+      
 end
 
 -- Launch battle if  boss in the room are not dead

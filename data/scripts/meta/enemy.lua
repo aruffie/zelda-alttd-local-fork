@@ -51,6 +51,10 @@ function enemy_meta:launch_small_boss_dead(music)
     treasure_name = "fairy",
     treasure_variant = 1
   })
+  for tile in map:get_entities("tiles_small_boss_") do
+   local layer = tile:get_property('end_layer')
+   tile:set_layer(layer)
+  end
 
 end
 
