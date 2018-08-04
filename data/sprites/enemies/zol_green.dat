@@ -22,6 +22,17 @@ animation{
   },
 }
 animation{
+  name = "disappearing",
+  src_image = "enemies/zols_gels.png",
+  frame_delay = 250,
+  directions = {
+    { x = 0, y = 136, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 5 },
+    { x = 0, y = 136, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 5 },
+    { x = 0, y = 136, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 5 },
+    { x = 0, y = 136, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 5 },
+  },
+}
+animation{
   name = "hurt",
   src_image = "enemies/zols_gels.png",
   frame_delay = 50,
