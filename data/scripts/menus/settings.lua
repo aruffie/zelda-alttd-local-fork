@@ -374,6 +374,7 @@ end
 function settings_menu:get_option_next_value(option, key)
 
   local values = option.values
+  local values_count = #values;
 
   local current_index = 0
   for i, value in ipairs(values) do
@@ -389,7 +390,11 @@ function settings_menu:get_option_next_value(option, key)
     next_index = current_index + 1
   end
 
-  next_index = math.max(1, math.min(#values, next_index))
+  if option.type ~= "integer" then
+    next_index = (next_index - 1) % values_count + 1
+  else
+    next_index = math.max(1, math.min(values_count, next_index))
+  end
 
   return values[next_index]
 
