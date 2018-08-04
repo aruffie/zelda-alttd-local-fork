@@ -2296,6 +2296,15 @@ tile{
   pattern = "1042",
 }
 
+tile{
+  layer = 0,
+  x = 152,
+  y = 24,
+  width = 8,
+  height = 8,
+  pattern = "1044",
+}
+
 teletransporter{
   name = "to_c3",
   layer = 0,
@@ -2508,5 +2517,54 @@ dynamic_tile{
   width = 48,
   height = 16,
   enabled_at_start = true,
+}
+
+wall{
+  layer = 0,
+  x = 64,
+  y = 40,
+  width = 48,
+  height = 8,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 0,
+  x = 344,
+  y = 24,
+  width = 48,
+  height = 8,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 0,
+  x = 768,
+  y = 720,
+  width = 80,
+  height = 8,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+jumper{
+  layer = 0,
+  x = 784,
+  y = 720,
+  width = 48,
+  height = 8,
+  direction = 6,
+  jump_length = 112,
 }
 
