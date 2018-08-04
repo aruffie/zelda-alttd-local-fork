@@ -48,6 +48,8 @@ uniform sampler2D mode_7_texture;
 uniform sampler2D overlay_texture;
 uniform vec3 character_position;
 uniform float angle;
+uniform float horizon;
+uniform bool repeat_texture;
 
 COMPAT_VARYING in vec4 vertex_position;
 
@@ -64,7 +66,8 @@ vec4 make_mode_7(vec2 uv) {
 
     // Create a 3D point
 //    float h = 0.25;
-    float h = 1.5;
+//    float h = 1.5;
+    float h = horizon;
     vec3 p = vec3(uv.x, uv.y - h - 1.0, uv.y - h);
 
     // Projecting back to 2D space
@@ -91,9 +94,16 @@ vec4 make_mode_7(vec2 uv) {
 //    uvm7 += translation;
 
     // Repeat
-    uvm7 = fract(uvm7);  // Unnecessary if GL_REPEAT is set on the texture.
+    if (repeat_texture) {
+      uvm7 = fract(uvm7);  // Unnecessary if GL_REPEAT is set on the texture.
+    }
 
-    // Read background texture
+    if (uvm7.x < 0.0 || uvm7.x > 1.0 ||
+        uvm7.y < 0.0 || uvm7.y > 1.0) {
+        // TODO return water/clouds background image
+        return vec4(0.0, 0.0, 0.0, 0.0);
+    }
+
     vec4 mode_7_color = vec4(COMPAT_TEXTURE(mode_7_texture, uvm7).xyz, 1.0);
 
     // Darkness based on the horizon

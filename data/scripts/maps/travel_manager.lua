@@ -12,7 +12,7 @@ local positions_info = {
         savegame = "travel_2"
   },
   [3] = {
-       map_id = "out/d1_east_mt_tamaranch",
+        map_id = "out/d1_east_mt_tamaranch",
         destination_name = "travel_destination",
         savegame = "travel_3"
   },
@@ -106,7 +106,7 @@ function travel_manager:launch_step_2(map, from_id, to_id)
  hero_entity:get_sprite():set_animation("flying")
  hero_entity:get_sprite():set_direction(3)
  local movement = sol.movement.create("straight")
- movement:set_speed(30)
+ movement:set_speed(100)
  movement:set_angle(math.pi / 2)
  movement:set_max_distance(128)
  movement:set_ignore_obstacles(true)
