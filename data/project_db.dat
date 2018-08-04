@@ -150,6 +150,7 @@ tileset{ id = "dungeon/blue", description = "Blue" }
 tileset{ id = "dungeon/brown", description = "Brown" }
 tileset{ id = "dungeon/dark_brown", description = "Dark brown" }
 tileset{ id = "dungeon/dark_yellow", description = "Dark yellow" }
+tileset{ id = "dungeon/extra/owl_temple", description = "Extra tiles for Owl Temple" }
 tileset{ id = "dungeon/gray", description = "Gray" }
 tileset{ id = "dungeon/gray_blue", description = "Dark blue" }
 tileset{ id = "dungeon/gray_brown", description = "Gray brown" }
@@ -162,7 +163,6 @@ tileset{ id = "dungeon/light_green", description = "Light green" }
 tileset{ id = "dungeon/pink", description = "Pink" }
 tileset{ id = "dungeon/purple", description = "Purple" }
 tileset{ id = "dungeon/yellow", description = "Yellow" }
-tileset{ id = "dungeon/owl_temple", description = "Owl Temple (Deprecated)" }
 tileset{ id = "movies/beach", description = "Beach" }
 tileset{ id = "movies/beach_sunset", description = "Beach sunset" }
 tileset{ id = "out/light_world_legacy", description = "Light world legacy" }
