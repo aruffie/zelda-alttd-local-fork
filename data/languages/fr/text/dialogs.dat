@@ -33,8 +33,8 @@ dialog{
   id = "_cannot_lift_too_heavy",
   skip = "all",
   text = [[
-Oh là là, c'est
-bien trop lourd !
+Oh là là, c'est bien trop
+lourd !
 
 Tu n'y arriveras jamais
 rien que par la force
@@ -871,11 +871,10 @@ dialog{
   id = "_treasure.mushroom.1",
   icon = "36",
   text = [[
-Tu as trouvé    
-le Champignon!$0
-Un arôme subtil 
-exalte ton sens 
-de l'odorat.
+Tu as trouvé le 
+Champignon !$0
+Un arôme subtil exalte
+ton sens de l'odorat.
 ]],
 }
 
@@ -1188,14 +1187,12 @@ dialog{
   skip = "all",
   text = [[
 C'est le champignon que
-vous avez trouvé
-dans les bois.
-Quel est-il?$0
+vous avez trouvé dans 
+les bois. Quel est-il ?$0
 Vous le placez au-dessus
-de votre tête 
-et un arôme subtil 
-exalte ton sens 
-de l'odorat..
+de votre tête et un arôme 
+subtil exalte ton sens 
+de l'odorat...
 ]],
 }
 
@@ -4944,25 +4941,22 @@ Hou hou!
 dialog{
   id = "scripts.meta.map.owl_2",
   text = [[
-Hou ! Bienvenue  
-à la Forêt Enchantée,
-mon brave garçon !   
-L'île Cocolint abonde
-en mystères et     
-n'existe sur aucune
-carte. Son règlement   
-est unique ! Tu ne
-pourras pas la quitter  
-tant que le 
+Hou ! Bienvenue à
+la Forêt Enchantée, mon 
+brave garçon !   
+L'île Cocolint abonde en
+mystères et n'existe sur
+aucune carte. 
+Son règlement est unique ! 
+Tu ne pourras pas 
+la quitter tant que le 
 Poisson-Rêve dormira.        
-A propos, as-tu visité
-la Cave Flagello,  
-située au Sud   
-du village ? Vas-y 
-avec la Clé cachée      
-dans la Forêt.
-Le Poisson-Rêve te
-regarde. Hou !
+A propos, as-tu visité la 
+Cave Flagello, située au Sud   
+du village ? Vas-y avec la 
+Clé cachée dans la Forêt.
+Le Poisson-Rêve te regarde.
+Hou !
 ]],
 }
 
