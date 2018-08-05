@@ -9,7 +9,7 @@ local companion_manager = require("scripts/maps/companion_manager")
 
 -- Methods - Functions
 
-local function update_music()
+function map:set_music()
   
   local x_hero, y_hero = hero:get_center_position()
   if y_hero < 384 then
