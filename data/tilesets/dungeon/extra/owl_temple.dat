@@ -1,0 +1,231 @@
+background_color{ 255, 255, 255 }
+tile_pattern{
+  id = "pipe_shadow_bottom_2",
+  ground = "empty",
+  default_layer = 2,
+  x = 24,
+  y = 0,
+  width = 8,
+  height = 16,
+  repeat_mode = "none",
+}
+
+tile_pattern{
+  id = "pipe_shadow_bottom_3",
+  ground = "empty",
+  default_layer = 2,
+  x = 8,
+  y = 0,
+  width = 8,
+  height = 24,
+  repeat_mode = "none",
+}
+
+tile_pattern{
+  id = "pipe_shadow_left_2",
+  ground = "empty",
+  default_layer = 2,
+  x = 56,
+  y = 8,
+  width = 16,
+  height = 8,
+  repeat_mode = "none",
+}
+
+tile_pattern{
+  id = "pipe_shadow_left_3",
+  ground = "empty",
+  default_layer = 2,
+  x = 32,
+  y = 8,
+  width = 24,
+  height = 8,
+  repeat_mode = "none",
+}
+
+tile_pattern{
+  id = "pipe_shadow_right_2",
+  ground = "empty",
+  default_layer = 2,
+  x = 56,
+  y = 0,
+  width = 16,
+  height = 8,
+  repeat_mode = "none",
+}
+
+tile_pattern{
+  id = "pipe_shadow_right_3",
+  ground = "empty",
+  default_layer = 2,
+  x = 32,
+  y = 0,
+  width = 24,
+  height = 8,
+  repeat_mode = "none",
+}
+
+tile_pattern{
+  id = "pipe_shadow_square",
+  ground = "empty",
+  default_layer = 2,
+  x = 72,
+  y = 0,
+  width = 8,
+  height = 8,
+}
+
+tile_pattern{
+  id = "pipe_shadow_top_2",
+  ground = "empty",
+  default_layer = 2,
+  x = 16,
+  y = 0,
+  width = 8,
+  height = 16,
+  repeat_mode = "none",
+}
+
+tile_pattern{
+  id = "pipe_shadow_top_3",
+  ground = "empty",
+  default_layer = 2,
+  x = 0,
+  y = 0,
+  width = 8,
+  height = 24,
+  repeat_mode = "none",
+}
+
+tile_pattern{
+  id = "purple_door_top_bottom",
+  ground = "empty",
+  default_layer = 1,
+  x = 80,
+  y = 8,
+  width = 32,
+  height = 8,
+  repeat_mode = "none",
+}
+
+tile_pattern{
+  id = "purple_door_top_left",
+  ground = "empty",
+  default_layer = 1,
+  x = 112,
+  y = 0,
+  width = 8,
+  height = 32,
+  repeat_mode = "none",
+}
+
+tile_pattern{
+  id = "purple_door_top_right",
+  ground = "empty",
+  default_layer = 1,
+  x = 120,
+  y = 0,
+  width = 8,
+  height = 32,
+  repeat_mode = "none",
+}
+
+tile_pattern{
+  id = "purple_door_top_top",
+  ground = "empty",
+  default_layer = 1,
+  x = 80,
+  y = 0,
+  width = 32,
+  height = 8,
+  repeat_mode = "none",
+}
+
+tile_pattern{
+  id = "purple_wall_decor_bottom",
+  ground = "wall",
+  default_layer = 0,
+  x = 152,
+  y = 32,
+  width = 32,
+  height = 24,
+  repeat_mode = "none",
+}
+
+tile_pattern{
+  id = "purple_wall_decor_left",
+  ground = "wall",
+  default_layer = 0,
+  x = 128,
+  y = 24,
+  width = 24,
+  height = 32,
+  repeat_mode = "none",
+}
+
+tile_pattern{
+  id = "purple_wall_decor_right",
+  ground = "wall",
+  default_layer = 0,
+  x = 160,
+  y = 0,
+  width = 24,
+  height = 32,
+  repeat_mode = "none",
+}
+
+tile_pattern{
+  id = "purple_wall_decor_top",
+  ground = "wall",
+  default_layer = 0,
+  x = 128,
+  y = 0,
+  width = 32,
+  height = 24,
+  repeat_mode = "none",
+}
+
+tile_pattern{
+  id = "red_wall_decor_bottom",
+  ground = "wall",
+  default_layer = 0,
+  x = 208,
+  y = 32,
+  width = 32,
+  height = 24,
+  repeat_mode = "none",
+}
+
+tile_pattern{
+  id = "red_wall_decor_left",
+  ground = "wall",
+  default_layer = 0,
+  x = 184,
+  y = 24,
+  width = 24,
+  height = 32,
+  repeat_mode = "none",
+}
+
+tile_pattern{
+  id = "red_wall_decor_right",
+  ground = "wall",
+  default_layer = 0,
+  x = 216,
+  y = 0,
+  width = 24,
+  height = 32,
+  repeat_mode = "none",
+}
+
+tile_pattern{
+  id = "red_wall_decor_top",
+  ground = "wall",
+  default_layer = 0,
+  x = 184,
+  y = 0,
+  width = 32,
+  height = 24,
+  repeat_mode = "none",
+}
+

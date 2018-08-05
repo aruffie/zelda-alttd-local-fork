@@ -9,20 +9,26 @@
 
 local map = ...
 local game = map:get_game()
+local door_manager = require("scripts/maps/door_manager")
+local enemy_manager = require("scripts/maps/enemy_manager")
+
+door_manager:open_when_enemies_dead(map,  "keese_1",  "door_keese_1")
+door_manager:open_when_enemies_dead(map,  "maskass_1",  "door_maskass_1")
 
 -- Event called at initialization time, as soon as this map becomes is loaded.
 function map:on_started()
-
-  -- You can initialize the movement and sprites of various
-  -- map entities here.
+  
+  map:set_doors_open("door_keese_1")
+  map:set_doors_open("door_horse_puzzle")
 end
 
--- Event called after the opening transition effect of the map,
--- that is, when the player takes control of the hero.
-function map:on_opening_transition_finished()
+-- Enemy room 1
+function sensor_enemy_room_1:on_activated()
 
+  map:close_doors("door_keese_1")
 end
 
+-- TEST ONLY
 function pipe_button:on_activated()
  
   for pipe in map:get_entities("pipe_a") do
