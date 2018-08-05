@@ -88,6 +88,7 @@ function mode_7_manager:teleport(game, src_entity, destination_map_id, destinati
     local map_x, map_y = map:get_location()
     local src_x_in_map, src_y_in_map = src_entity:get_position()
     xy.x, xy.y = map_x + src_x_in_map, map_y + src_y_in_map
+    local initial_x, initial_y = xy.x, xy.y
 
     hero_sprite:set_direction(3)
     hero_sprite:set_animation("flying")
@@ -101,17 +102,26 @@ function mode_7_manager:teleport(game, src_entity, destination_map_id, destinati
     end
 
     local dst_x, dst_y = get_dst_xy(destination_map_id, dst_name)
-    local xy_movement = sol.movement.create("target")
+    local xy_movement = sol.movement.create("straight")
     initial_distance = sol.main.get_distance(xy.x, xy.y, dst_x, dst_y)
     distance_remaining = initial_distance
-    xy_movement:set_target(dst_x, dst_y)
+    xy_movement:set_angle(sol.main.get_angle(xy.x, xy.y, dst_x, dst_y))
     xy_movement:set_speed(200)
-    xy_movement:start(xy, function()
-      sol.menu.stop(mode_7)
-    end)
+
+--    xy_movement:set_max_distance(initial_distance)
+
+    xy_movement:start(xy)
+
     function xy_movement:on_position_changed()
       angle = -xy_movement:get_angle() + (math.pi / 2.0)
       distance_remaining = sol.main.get_distance(xy.x, xy.y, dst_x, dst_y)
+
+    -- Engine bug #1075: set_max_distance() broken.
+    -- Use on_position_changed() as a workaround to stop the movement manually.
+      if sol.main.get_distance(xy.x, xy.y, initial_x, initial_y) > initial_distance then
+        sol.menu.stop(mode_7)
+      end
+
       update_shader()
     end
     xy_movement:on_position_changed()
