@@ -15001,26 +15001,11 @@ sensor{
   name = "music_sensor",
   layer = 0,
   x = 752,
-  y = 349,
-  properties = {
-    {
-      key = "music",
-      value = "maps/out/overworld",
-    },
-  },
-  width = 64,
-  height = 16,
-}
-
-sensor{
-  name = "music_sensor_2",
-  layer = 0,
-  x = 752,
   y = 333,
   properties = {
     {
       key = "music",
-      value = "maps/out/mt_tamaranch",
+      value = "maps/out/overworld",
     },
   },
   width = 64,

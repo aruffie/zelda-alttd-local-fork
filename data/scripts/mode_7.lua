@@ -49,7 +49,7 @@ function mode_7_manager:teleport(game, src_entity, destination_map_id, destinati
   local shader = sol.shader.create("mode_7")
   shader:set_uniform("mode_7_texture", map_texture)
   shader:set_uniform("repeat_texture", false)
-  shader:set_uniform("horizon", 1.25)
+  shader:set_uniform("horizon", 2.5)
   local position_on_texture = { 0.5, 1.0, 0.08 }
   mode_7.xy = {}
   local xy = mode_7.xy
