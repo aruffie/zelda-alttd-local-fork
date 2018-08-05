@@ -22286,8 +22286,8 @@ enemy{
 
 enemy{
   layer = 0,
-  x = 584,
-  y = 469,
+  x = 608,
+  y = 493,
   direction = 2,
   breed = "ghini",
   treasure_name = "random",
@@ -22295,7 +22295,7 @@ enemy{
 
 enemy{
   layer = 0,
-  x = 632,
+  x = 656,
   y = 541,
   direction = 0,
   breed = "ghini",
@@ -22304,8 +22304,8 @@ enemy{
 
 enemy{
   layer = 0,
-  x = 664,
-  y = 445,
+  x = 656,
+  y = 493,
   direction = 2,
   breed = "ghini",
   treasure_name = "random",
@@ -22313,8 +22313,8 @@ enemy{
 
 enemy{
   layer = 0,
-  x = 568,
-  y = 597,
+  x = 592,
+  y = 621,
   direction = 2,
   breed = "ghini",
   treasure_name = "random",
@@ -22322,7 +22322,7 @@ enemy{
 
 enemy{
   layer = 0,
-  x = 672,
+  x = 640,
   y = 669,
   direction = 0,
   breed = "ghini",
@@ -22331,8 +22331,8 @@ enemy{
 
 enemy{
   layer = 0,
-  x = 768,
-  y = 637,
+  x = 784,
+  y = 669,
   direction = 2,
   breed = "ghini",
   treasure_name = "random",
@@ -22340,8 +22340,8 @@ enemy{
 
 enemy{
   layer = 0,
-  x = 896,
-  y = 589,
+  x = 880,
+  y = 621,
   direction = 2,
   breed = "ghini",
   treasure_name = "random",
@@ -22350,7 +22350,7 @@ enemy{
 enemy{
   layer = 0,
   x = 784,
-  y = 461,
+  y = 493,
   direction = 2,
   breed = "ghini",
   treasure_name = "random",
@@ -22358,8 +22358,8 @@ enemy{
 
 enemy{
   layer = 0,
-  x = 808,
-  y = 509,
+  x = 832,
+  y = 541,
   direction = 2,
   breed = "ghini",
   treasure_name = "random",
@@ -22367,8 +22367,8 @@ enemy{
 
 enemy{
   layer = 0,
-  x = 864,
-  y = 461,
+  x = 880,
+  y = 493,
   direction = 2,
   breed = "ghini",
   treasure_name = "random",

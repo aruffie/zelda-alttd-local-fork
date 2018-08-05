@@ -1,37 +1,88 @@
--- Lua script of enemy leever.
--- This script is executed every time an enemy with this model is created.
-
--- Feel free to modify the code below.
--- You can add more events and remove the ones you don't need.
-
--- See the Solarus Lua API documentation for the full specification
--- of types, events and methods:
--- http://www.solarus-games.org/doc/latest
-
 local enemy = ...
-local game = enemy:get_game()
-local map = enemy:get_map()
-local hero = map:get_hero()
-local sprite
-local movement
+local max_distance = 100
+local is_awake = false
+local positions = {}
+local distance_appearing = 64
 
--- Event called when the enemy is initialized.
+-- Leaver
+
+enemy:set_life(1)
+enemy:set_damage(1)
+
+local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+
 function enemy:on_created()
+  
 
-  -- Initialize the properties of your enemy here,
-  -- like the sprite, the life and the damage.
-  sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
-  enemy:set_life(1)
-  enemy:set_damage(1)
 end
 
--- Event called when the enemy should start or restart its movements.
--- This is called for example after the enemy is created or after
--- it was hurt or immobilized.
 function enemy:on_restarted()
+  
+  sprite:set_animation("invisible")
+  sol.timer.start(enemy, 50, function()
+    local tx, ty, _ = enemy:get_map():get_hero():get_position()
+    if enemy:get_distance(tx, ty) < max_distance then
+      if is_awake == false then
+        enemy:appear()
+      end
+    end
+    return true
+  end)
 
-  movement = sol.movement.create("target")
-  movement:set_target(hero)
-  movement:set_speed(48)
-  movement:start(enemy)
 end
+
+function enemy:appear()
+
+  is_awake = true
+  sprite:set_animation("appearing")
+  function sprite:on_animation_finished(animation)
+    if animation == "appearing" then
+      enemy:go()
+    end
+  end
+
+end
+
+function enemy:disappear()
+
+  sol.timer.start(enemy, 3000, function()
+  is_awake = false
+  end)
+  sprite:set_animation("disappearing")
+  function sprite:on_animation_finished(animation)
+    if animation == "disappearing" then
+     sprite:set_animation("invisible")
+     local x,y = enemy:get_position()
+      -- todo
+    end
+  end
+
+
+end
+
+function enemy:go()
+
+    local distance = 36
+    local random = math.random(100)
+    distance = distance + random
+    local direction = enemy:get_direction4_to(enemy:get_map():get_hero())
+    sprite:set_animation("walking")
+    sprite:set_direction(direction)
+    local angle = enemy:get_angle(enemy:get_map():get_hero())
+    local m = sol.movement.create("straight")
+    m:set_speed(50)
+    m:set_max_distance(distance)
+    m:set_angle(angle)
+    m:start(enemy)
+    function m:on_finished()
+      enemy:disappear()
+    end
+    function m:on_obstacle_reached()
+      m:stop()
+      enemy:disappear()
+    end
+
+end
+
+
+

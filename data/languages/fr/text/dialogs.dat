@@ -2664,17 +2664,13 @@ Salut ! CLIC !
 dialog{
   id = "maps.houses.south_mabe_village.sales_house_o_bananas.alligator_1",
   text = [[
-Bienvenue chez  
-AlligoBanane !   
-lci j'entrepose.
-Mon hobby, c'est
-collectionner des 
+Bienvenue chez AlligoBanane !   
+lci j'entrepose. Mon hobby, 
+c'est collectionner des
 boîtes de conserve.    
-Mon frère cadet est
-un artiste. 
-Moi...          
-Je suis plus terre à 
-terre.  
+Mon frère cadet est un 
+artiste. Moi... Je suis plus 
+terre à terre.
 J'adore manger !
 ]],
 }
@@ -2873,7 +2869,8 @@ Je te suis reconnaissant.
 dialog{
   id = "maps.houses.wardrobe_1",
   text = [[
-$v a inspecté la commode.
+$v a inspecté la
+commode.
 C'est un objet d'art... ...
 ]],
 }
