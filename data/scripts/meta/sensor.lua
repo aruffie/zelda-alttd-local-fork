@@ -1,4 +1,20 @@
+-- Copyright (C) 2018 Christopho, Solarus - http://www.solarus-games.org
+--
+-- Solarus Quest Editor is free software; you can redistribute it and/or modify
+-- it under the terms of the GNU General Public License as published by
+-- the Free Software Foundation, either version 3 of the License, or
+-- (at your option) any later version.
+--
+-- Solarus Quest Editor is distributed in the hope that it will be useful,
+-- but WITHOUT ANY WARRANTY; without even the implied warranty of
+-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+-- GNU General Public License for more details.
+--
+-- You should have received a copy of the GNU General Public License along
+-- with this program. If not, see <http://www.gnu.org/licenses/>.
+
 -- Initialize sensor behavior specific to this quest.
+local music_manager = require("scripts/music_manager.lua")
 
 local sensor_meta = sol.main.get_metatable("sensor")
 
@@ -86,6 +102,19 @@ function sensor_meta:on_activated()
     return
   end
 
+  -- Sensors named "music_sensor" change the music.
+  local music_prefix = name:match("^music_sensor")
+  if music_prefix ~= nil then
+    local music = self:get_property("music")
+
+    if music ~= sol.audio.get_music() then
+      if music == "maps/out/mt_tamaranch" and
+          game:get_player_name():lower() == "marin" then
+        music = "maps/out/mt_tamaranch_marin"
+      end
+      music_manager:play_music_fade(map, music)
+    end
+  end
 end
 
 function sensor_meta:on_activated_repeat()

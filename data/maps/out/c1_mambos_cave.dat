@@ -1821,7 +1821,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 312,
+  x = 304,
   y = 480,
   width = 656,
   height = 8,
@@ -4812,7 +4812,7 @@ tile{
   x = 24,
   y = 464,
   width = 8,
-  height = 160,
+  height = 144,
   pattern = "454",
 }
 
@@ -14344,15 +14344,6 @@ dynamic_tile{
   enabled_at_start = true,
 }
 
-separator{
-  name = "auto_separator_1",
-  layer = 0,
-  x = 0,
-  y = 376,
-  width = 960,
-  height = 16,
-}
-
 jumper{
   layer = 0,
   x = 216,
@@ -15004,6 +14995,36 @@ dynamic_tile{
   width = 8,
   height = 8,
   enabled_at_start = true,
+}
+
+sensor{
+  name = "music_sensor",
+  layer = 0,
+  x = 752,
+  y = 349,
+  properties = {
+    {
+      key = "music",
+      value = "maps/out/overworld",
+    },
+  },
+  width = 64,
+  height = 16,
+}
+
+sensor{
+  name = "music_sensor_2",
+  layer = 0,
+  x = 752,
+  y = 333,
+  properties = {
+    {
+      key = "music",
+      value = "maps/out/mt_tamaranch",
+    },
+  },
+  width = 64,
+  height = 16,
 }
 
 tile{

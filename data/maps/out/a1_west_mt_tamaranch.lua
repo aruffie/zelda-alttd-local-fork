@@ -22,16 +22,10 @@ function map:on_started()
 
 end
 
-function map:get_music_mountains()
-
-
-end
-
 function map:set_music()
-  
+
   local x_hero, y_hero = hero:get_position()
-  local x_separator, y_separator = auto_separator_1:get_position()
-  if y_hero <  y_separator then
+  if y_hero < 384 then
     if game:get_player_name():lower() == "marin" then
       sol.audio.play_music("maps/out/mt_tamaranch_marin")
     else
@@ -48,20 +42,6 @@ function travel_sensor:on_activated()
     travel_manager:init(map, 2)
 
 end
-
-auto_separator_1:register_event("on_activating", function(separator, direction4)
-
-  if direction4 == 1 then
-    if game:get_player_name():lower() == "marin" then
-      sol.audio.play_music("maps/out/mt_tamaranch_marin")
-    else
-      sol.audio.play_music("maps/out/mt_tamaranch")
-    end
-  elseif direction4 == 3 then
-      sol.audio.play_music("maps/out/overworld")
-  end
-
-end)
 
 --Weak doors play secret sound on opened
 function weak_door_1:on_opened() sol.audio.play_sound("secret_1") end

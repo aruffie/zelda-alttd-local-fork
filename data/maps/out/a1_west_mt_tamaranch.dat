@@ -11804,15 +11804,6 @@ npc{
   behavior = "dialog#maps.out.west_mt_tamaranch.owl_statue_1",
 }
 
-separator{
-  name = "auto_separator_1",
-  layer = 0,
-  x = 0,
-  y = 376,
-  width = 960,
-  height = 16,
-}
-
 jumper{
   layer = 0,
   x = 240,
@@ -13091,6 +13082,36 @@ destructible{
   weight = -1,
   can_be_cut = true,
   ground = "grass",
+}
+
+sensor{
+  name = "music_sensor",
+  layer = 0,
+  x = 328,
+  y = 429,
+  properties = {
+    {
+      key = "music",
+      value = "maps/out/overworld",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "music_sensor_2",
+  layer = 0,
+  x = 328,
+  y = 413,
+  properties = {
+    {
+      key = "music",
+      value = "maps/out/mt_tamaranch",
+    },
+  },
+  width = 16,
+  height = 16,
 }
 
 tile{
