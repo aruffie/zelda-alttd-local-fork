@@ -31,4 +31,18 @@ end
 -- it was hurt or immobilized.
 function enemy:on_restarted()
 
+    local direction = enemy:get_sprite():get_direction()
+    local angle = 4 * math.pi / 3
+    if direction == 0 then
+      angle = 5 * math.pi / 3
+    end
+    local movement = sol.movement.create("straight")
+    movement:set_max_distance(80)
+    movement:set_angle(angle)
+    movement:set_speed(140)
+    movement:start(enemy)
+    function movement:on_finished()
+      enemy:set_life(0)
+    end 
+  
 end

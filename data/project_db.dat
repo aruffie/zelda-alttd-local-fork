@@ -1019,6 +1019,7 @@ enemy{ id = "hardhat_beetle_red", description = "Hardhat beetle red" }
 enemy{ id = "helmasaur_masked", description = "Helmasaur masked" }
 enemy{ id = "hooded_stalfos", description = "Hooded stalfos" }
 enemy{ id = "keese", description = "Keese" }
+enemy{ id = "leever", description = "Leever" }
 enemy{ id = "like_like", description = "Like Like" }
 enemy{ id = "maskass", description = "Maskass" }
 enemy{ id = "moblin", description = "Moblin" }

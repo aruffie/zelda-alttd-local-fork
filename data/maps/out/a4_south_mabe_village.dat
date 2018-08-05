@@ -11380,6 +11380,42 @@ custom_entity{
   model = "obstacle",
 }
 
+enemy{
+  layer = 0,
+  x = 184,
+  y = 653,
+  direction = 0,
+  breed = "leever",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 128,
+  y = 685,
+  direction = 0,
+  breed = "leever",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 392,
+  y = 661,
+  direction = 0,
+  breed = "leever",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 336,
+  y = 693,
+  direction = 0,
+  breed = "leever",
+  treasure_name = "random",
+}
+
 tile{
   layer = 1,
   x = 488,

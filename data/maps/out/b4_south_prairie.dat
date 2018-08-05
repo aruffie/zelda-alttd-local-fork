@@ -20406,6 +20406,24 @@ destructible{
   ground = "grass",
 }
 
+enemy{
+  layer = 0,
+  x = 96,
+  y = 669,
+  direction = 0,
+  breed = "leever",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 40,
+  y = 701,
+  direction = 0,
+  breed = "leever",
+  treasure_name = "random",
+}
+
 tile{
   layer = 1,
   x = 632,
