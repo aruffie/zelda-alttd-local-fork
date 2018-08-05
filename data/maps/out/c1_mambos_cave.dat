@@ -1821,7 +1821,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 304,
+  x = 312,
   y = 480,
   width = 656,
   height = 8,
@@ -13105,6 +13105,27 @@ tile{
   pattern = "13893",
 }
 
+custom_entity{
+  layer = 0,
+  x = 776,
+  y = 405,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/entrance_dungeon_4",
+}
+
+dynamic_tile{
+  name = "water_5_1",
+  layer = 0,
+  x = 704,
+  y = 448,
+  pattern = "112",
+  width = 152,
+  height = 16,
+  enabled_at_start = true,
+}
+
 dynamic_tile{
   layer = 0,
   x = 848,
@@ -13390,16 +13411,6 @@ dynamic_tile{
 
 custom_entity{
   layer = 0,
-  x = 776,
-  y = 413,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/entrance_dungeon_4",
-}
-
-custom_entity{
-  layer = 0,
   x = 560,
   y = 405,
   width = 16,
@@ -13489,16 +13500,18 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "water_4_3",
   layer = 0,
-  x = 704,
-  y = 416,
+  x = 720,
+  y = 432,
   pattern = "112",
-  width = 160,
-  height = 64,
+  width = 112,
+  height = 16,
   enabled_at_start = true,
 }
 
 dynamic_tile{
+  name = "water_4_10",
   layer = 0,
   x = 848,
   y = 432,
@@ -13509,6 +13522,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "water_3_6",
   layer = 0,
   x = 720,
   y = 416,
@@ -13519,6 +13533,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "water_4_11",
   layer = 0,
   x = 688,
   y = 432,
@@ -13529,6 +13544,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "water_6_3",
   layer = 0,
   x = 696,
   y = 464,
@@ -13539,6 +13555,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "water_2_2",
   layer = 0,
   x = 720,
   y = 400,
@@ -13549,6 +13566,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "water_3_2",
   layer = 0,
   x = 720,
   y = 416,
@@ -13629,6 +13647,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "water_6_4",
   layer = 0,
   x = 704,
   y = 472,
@@ -13909,6 +13928,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "water_3_1",
   layer = 0,
   x = 744,
   y = 416,
@@ -13989,6 +14009,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "water_1_1",
   layer = 0,
   x = 744,
   y = 384,
@@ -13999,6 +14020,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "water_2_1",
   layer = 0,
   x = 744,
   y = 400,
@@ -14009,6 +14031,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "water_4_1",
   layer = 0,
   x = 688,
   y = 432,
@@ -14019,6 +14042,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "water_4_5",
   layer = 0,
   x = 848,
   y = 432,
@@ -14029,6 +14053,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "water_6_1",
   layer = 0,
   x = 696,
   y = 456,
@@ -14039,6 +14064,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "water_6_2",
   layer = 0,
   x = 696,
   y = 472,
@@ -14049,6 +14075,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "water_4_2",
   layer = 0,
   x = 704,
   y = 432,
@@ -14059,6 +14086,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "water_3_3",
   layer = 0,
   x = 704,
   y = 416,
@@ -14069,6 +14097,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "water_3_4",
   layer = 0,
   x = 832,
   y = 416,
@@ -14079,6 +14108,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "water_4_4",
   layer = 0,
   x = 832,
   y = 432,
@@ -14229,6 +14259,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "water_4_9",
   layer = 0,
   x = 728,
   y = 432,
@@ -14239,6 +14270,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "water_4_6",
   layer = 0,
   x = 816,
   y = 440,
@@ -14249,6 +14281,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "water_5_2",
   layer = 0,
   x = 752,
   y = 448,
@@ -14259,6 +14292,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "water_4_8",
   layer = 0,
   x = 784,
   y = 432,
@@ -14269,6 +14303,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "water_4_7",
   layer = 0,
   x = 800,
   y = 440,
@@ -14279,6 +14314,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "water_3_5",
   layer = 0,
   x = 848,
   y = 416,
@@ -14574,7 +14610,7 @@ stairs{
 }
 
 custom_entity{
-  name = "keyhole_dungeon_4",
+  name = "dungeon_4_lock",
   layer = 0,
   x = 776,
   y = 501,

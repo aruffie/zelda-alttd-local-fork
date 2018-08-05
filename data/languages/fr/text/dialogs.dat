@@ -3182,8 +3182,9 @@ rigolo !!
 dialog{
   id = "maps.out.forest.sign_1",
   text = [[
-Attention au plancher        
-fissuré.        
+Attention au plancher
+fissuré.
+        
 Rondouillards : 
 abstenez-vous !
 ]],

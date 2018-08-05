@@ -51,8 +51,7 @@ function enemy:disappear()
 
 end
 
--- Makes the enemy walk towards a direction.
-function enemy:go(direction4)
+function enemy:go()
 
     local distance = 36
     local random = math.random(100)

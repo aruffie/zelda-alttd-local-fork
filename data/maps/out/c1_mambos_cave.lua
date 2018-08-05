@@ -119,3 +119,47 @@ function father:on_interaction()
       map:talk_to_father()
 
 end
+
+function dungeon_4_lock:on_interaction()
+
+      if false and game:get_value("main_quest_step") < 6 then
+          game:start_dialog("maps.out.south_mabe_village.dungeon_1_lock")
+      elseif true or game:get_value("main_quest_step") == 6 then
+        sol.audio.stop_music()
+        hero:freeze()
+        sol.timer.start(map, 1000, function() 
+          map:remove_water(1)
+          sol.audio.play_sound("shake")
+          local camera = map:get_camera()
+          local shake_config = {
+              count = 100,
+              amplitude = 4,
+              speed = 90,
+          }
+          camera:shake(shake_config, function()
+            sol.audio.play_sound("secret_2")
+            hero:unfreeze()
+            map:set_music()
+          end)
+          game:set_value("main_quest_step", 7)
+        end)
+      end
+
+end
+
+function map:remove_water(step)
+
+  if step > 7 then
+    return
+  end
+  sol.timer.start(map, 1000, function()
+    for tile in map:get_entities("water_" .. step .. "_") do
+      tile:remove()
+    end
+    step = step +1
+    map:remove_water(step)
+  end)
+  
+  
+
+end

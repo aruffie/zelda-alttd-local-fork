@@ -1,13 +1,13 @@
 animation{
-  name = "stopped",
+  name = "walking",
   src_image = "enemies/zols_gels.png",
   frame_delay = 100,
   frame_to_loop_on = 0,
   directions = {
-    { x = 32, y = 112, frame_width = 24, frame_height = 16, origin_x = 12, origin_y = 13 },
-    { x = 32, y = 112, frame_width = 24, frame_height = 16, origin_x = 12, origin_y = 13 },
-    { x = 32, y = 112, frame_width = 24, frame_height = 16, origin_x = 12, origin_y = 13 },
-    { x = 32, y = 112, frame_width = 24, frame_height = 16, origin_x = 12, origin_y = 13 },
+    { x = 72, y = 16, frame_width = 24, frame_height = 16, origin_x = 12, origin_y = 13, num_frames = 3 },
+    { x = 72, y = 16, frame_width = 24, frame_height = 16, origin_x = 12, origin_y = 13, num_frames = 3 },
+    { x = 72, y = 16, frame_width = 24, frame_height = 16, origin_x = 12, origin_y = 13, num_frames = 3 },
+    { x = 72, y = 16, frame_width = 24, frame_height = 16, origin_x = 12, origin_y = 13, num_frames = 3 },
   },
 }
 animation{
@@ -57,6 +57,18 @@ animation{
   },
 }
 animation{
+  name = "invisible",
+  src_image = "enemies/zols_gels.png",
+  frame_delay = 100,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 32, y = 112, frame_width = 24, frame_height = 16, origin_x = 12, origin_y = 13 },
+    { x = 32, y = 112, frame_width = 24, frame_height = 16, origin_x = 12, origin_y = 13 },
+    { x = 32, y = 112, frame_width = 24, frame_height = 16, origin_x = 12, origin_y = 13 },
+    { x = 32, y = 112, frame_width = 24, frame_height = 16, origin_x = 12, origin_y = 13 },
+  },
+}
+animation{
   name = "jump",
   src_image = "enemies/zols_gels.png",
   frame_delay = 150,
@@ -78,17 +90,5 @@ animation{
     { x = 240, y = 8, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 2 },
     { x = 240, y = 8, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 2 },
     { x = 240, y = 8, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 2 },
-  },
-}
-animation{
-  name = "walking",
-  src_image = "enemies/zols_gels.png",
-  frame_delay = 100,
-  frame_to_loop_on = 0,
-  directions = {
-    { x = 72, y = 16, frame_width = 24, frame_height = 16, origin_x = 12, origin_y = 13, num_frames = 3 },
-    { x = 72, y = 16, frame_width = 24, frame_height = 16, origin_x = 12, origin_y = 13, num_frames = 3 },
-    { x = 72, y = 16, frame_width = 24, frame_height = 16, origin_x = 12, origin_y = 13, num_frames = 3 },
-    { x = 72, y = 16, frame_width = 24, frame_height = 16, origin_x = 12, origin_y = 13, num_frames = 3 },
   },
 }

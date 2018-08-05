@@ -11566,6 +11566,33 @@ tile{
   pattern = "104 (copy)",
 }
 
+tile{
+  layer = 0,
+  x = 528,
+  y = 496,
+  width = 8,
+  height = 8,
+  pattern = "100",
+}
+
+tile{
+  layer = 0,
+  x = 536,
+  y = 608,
+  width = 8,
+  height = 8,
+  pattern = "84",
+}
+
+tile{
+  layer = 0,
+  x = 536,
+  y = 528,
+  width = 8,
+  height = 8,
+  pattern = "84",
+}
+
 teletransporter{
   name = "to_b1",
   layer = 0,
