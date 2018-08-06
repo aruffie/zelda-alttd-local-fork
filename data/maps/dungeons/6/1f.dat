@@ -23880,8 +23880,7 @@ teletransporter{
   y = 1584,
   width = 16,
   height = 16,
-  destination_map = "dungeons/6/1f",
-  destination = "destination",
+  destination_map = "out/a3_mabe_village",
 }
 
 teletransporter{
