@@ -13114,6 +13114,36 @@ sensor{
   height = 16,
 }
 
+sensor{
+  name = "music_sensor_3",
+  layer = 0,
+  x = 248,
+  y = 397,
+  properties = {
+    {
+      key = "music",
+      value = "maps/out/overworld",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "music_sensor_4",
+  layer = 0,
+  x = 432,
+  y = 349,
+  properties = {
+    {
+      key = "music",
+      value = "maps/out/overworld",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
 tile{
   layer = 1,
   x = 120,

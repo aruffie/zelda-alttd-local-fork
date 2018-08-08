@@ -109,7 +109,6 @@ function mode_7_manager:teleport(game, src_entity, destination_map_id, destinati
   local shader = sol.shader.create("mode_7")
   shader:set_uniform("mode_7_texture", map_texture)
   shader:set_uniform("repeat_texture", false)
-  shader:set_uniform("horizon", 0)
   map_texture:set_shader(shader)
   local position_on_texture = { 0.5, 1.0, 0.08 }
   mode_7.xy = {}
@@ -136,6 +135,7 @@ function mode_7_manager:teleport(game, src_entity, destination_map_id, destinati
     local pitch = pitch_curve(t)
     local x = xpos_curve(t)
     local y = ypos_curve(t)    
+
 
     position_on_texture[1] = x / world_width
     position_on_texture[2] = y / world_height
@@ -207,9 +207,6 @@ function mode_7_manager:teleport(game, src_entity, destination_map_id, destinati
         {0.8,255},
         {1,0}
       },lerp)
-    
-    ascend = hermite_interp(start_height,mid_height,initial_distance/2)
-    descend = hermite_interp(mid_height,start_height,initial_distance/2)
 
     distance_remaining = initial_distance
     xy_movement:set_target(dst_x, dst_y)
@@ -218,7 +215,6 @@ function mode_7_manager:teleport(game, src_entity, destination_map_id, destinati
       sol.menu.stop(mode_7)
     end)
     function xy_movement:on_position_changed()
-      angle = -xy_movement:get_angle() + (math.pi / 2.0)
       distance_remaining = sol.main.get_distance(xy.x, xy.y, dst_x, dst_y)
       update_shader()
     end

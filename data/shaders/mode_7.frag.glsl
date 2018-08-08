@@ -47,26 +47,16 @@ uniform int sol_time;
 uniform sampler2D mode_7_texture;
 uniform vec3 character_position;
 uniform float angle;
-uniform float horizon;
 uniform float pitch;
 uniform bool repeat_texture;
 
 COMPAT_VARYING vec4 vertex_position;
 
-// Alpha-blends c1 onto c2.
-vec4 alpha_blend(vec4 c1, vec4 c2) {
-
-    float alpha = c1.a + c2.a * (1.0 - c1.a);
-    vec3 rgb = (c1.rgb * c1.a) + (c2.rgb * c2.a) * (1.0 - c1.a) / alpha;
-    return vec4(rgb, alpha);
-}
-
 // Mode 7 transformation.
 vec4 make_mode_7(vec2 uv) {
 
     // Create a 3D point
-    float h = horizon;
-    vec3 p = vec3(uv.x*320.0/256.0, uv.y - h - 1.0, h-uv.y);
+    vec3 p = vec3(uv.x*320.0/256.0, uv.y - 1.0, -uv.y);
 
     mat2 pitch_mat = mat2(cos(pitch), -sin(pitch), sin(pitch), cos(pitch));
     p.yz = pitch_mat * p.yz;
@@ -118,5 +108,4 @@ vec4 make_mode_7(vec2 uv) {
 
 void main() {
     FragColor = make_mode_7(vertex_position.xy*vec2(1,-1));
-    //FragColor = COMPAT_TEXTURE(mode_7_texture, sol_vtex_coord);
 }
