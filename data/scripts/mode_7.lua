@@ -127,6 +127,7 @@ function mode_7_manager:teleport(game, src_entity, destination_map_id, destinati
   local angle_curve
   local pitch_curve
   local fade_curve
+  local target_angle
 
   local function update_shader()
     local t = (initial_distance-distance_remaining)/initial_distance
@@ -163,7 +164,8 @@ function mode_7_manager:teleport(game, src_entity, destination_map_id, destinati
     local dst_x, dst_y = get_dst_xy(destination_map_id, dst_name)
     local xy_movement = sol.movement.create("target")
     initial_distance = sol.main.get_distance(xy.x, xy.y, dst_x, dst_y)
-    local angle = -math.atan2(dst_x-xy.x,dst_y-xy.y)-math.pi
+    local angle = -math.atan2(dst_x-xy.x,dst_y-xy.y)-3*math.pi
+    target_angle = angle
 
     local a = 0.25
     local b = 0.75
@@ -242,8 +244,16 @@ function mode_7_manager:teleport(game, src_entity, destination_map_id, destinati
     cloud_texture:draw(dst,cx,cy) --draw two strip of clouds to fill the sky
     cloud_texture:draw(dst,cx+cext,cy)
     map_texture:draw(dst,0,0) --this draw the actual mode7 plane
-    local x, y = quest_width / 2, quest_height - 67
+    local hfac = 1-height_curve(t)/mid_height -- [0,1] depending on height
+    local x, y = quest_width / 2, lerp(quest_height - 67,quest_height/2-64,hfac)
+    local sprite_dir = (math.floor((angle_curve(t) - target_angle + 0.1)*2/math.pi)+1)%4
+    local sprite_scale_factor = 0.8
+    local sprite_scale = 1+sprite_scale_factor*hfac
+    owl_sprite:set_direction(sprite_dir)
+    owl_sprite:set_scale(sprite_scale,sprite_scale)
     owl_sprite:draw(dst, x, y) --draw sprites above
+    hero_sprite:set_direction(sprite_dir)
+    hero_sprite:set_scale(sprite_scale,sprite_scale)
     hero_sprite:draw(dst, x, y + 16)
     local fade = fade_curve(t)
     dst:fill_color{0,0,0,255-fade}
