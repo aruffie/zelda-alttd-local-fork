@@ -90,9 +90,9 @@ vec4 make_mode_7(vec2 uv) {
     }
 
     if (uvm7.x < 0.0 || uvm7.x > 1.0 ||
-        uvm7.y < 0.0 || uvm7.y > 1.0 || p.z < 0) {
+        uvm7.y < 0.0 || uvm7.y > 1.0 || p.z < 0.0) {
         // TODO return water/clouds background image
-        return vec4(18, 18, 88, p.z < 0 ? 0 : 255)/255.0;
+        return vec4(18.0, 18.0, 88.0, p.z < 0.0 ? 0.0 : 255.0)/255.0;
     }
 
     vec4 mode_7_color = vec4(COMPAT_TEXTURE(mode_7_texture, uvm7).xyz, 1.0);
@@ -107,5 +107,5 @@ vec4 make_mode_7(vec2 uv) {
 }
 
 void main() {
-    FragColor = make_mode_7(vertex_position.xy*vec2(1,-1));
+    FragColor = make_mode_7(vertex_position.xy * vec2(1.0, -1.0));
 }
