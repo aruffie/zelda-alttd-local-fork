@@ -167,8 +167,8 @@ function mode_7_manager:teleport(game, src_entity, destination_map_id, destinati
     local angle = -math.atan2(dst_x-xy.x,dst_y-xy.y)-3*math.pi
     target_angle = angle
 
-    local a = 0.25
-    local b = 0.75
+    local a = 0.25*(125/200.0)
+    local b = 1-a
 
     --Init curves
     xpos_curve = interp(
@@ -198,8 +198,8 @@ function mode_7_manager:teleport(game, src_entity, destination_map_id, destinati
     pitch_curve = interp(
       {
         {0,math.pi*0.75},
-        {a,0},
-        {b,0},
+        {0.4,0},
+        {0.65,0},
         {1,math.pi*0.75}
       },hermite_interp)
     fade_curve = interp(
@@ -212,7 +212,7 @@ function mode_7_manager:teleport(game, src_entity, destination_map_id, destinati
 
     distance_remaining = initial_distance
     xy_movement:set_target(dst_x, dst_y)
-    xy_movement:set_speed(200)
+    xy_movement:set_speed(125)
     xy_movement:start(xy, function()
       sol.menu.stop(mode_7)
     end)
@@ -245,7 +245,7 @@ function mode_7_manager:teleport(game, src_entity, destination_map_id, destinati
     cloud_texture:draw(dst,cx+cext,cy)
     map_texture:draw(dst,0,0) --this draw the actual mode7 plane
     local hfac = 1-height_curve(t)/mid_height -- [0,1] depending on height
-    local x, y = quest_width / 2, lerp(quest_height - 67,quest_height/2-64,hfac)
+    local x, y = quest_width / 2, lerp(quest_height - 100+cy*1.5,quest_height/2-64,hfac)
     local sprite_dir = (math.floor((angle_curve(t) - target_angle + 0.1)*2/math.pi)+1)%4
     local sprite_scale_factor = 0.8
     local sprite_scale = 1+sprite_scale_factor*hfac
