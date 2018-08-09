@@ -45,9 +45,9 @@ uniform vec2 sol_output_size;
 uniform int sol_time;
 
 uniform sampler2D mode_7_texture;
-uniform vec3 character_position;
-uniform float angle;
-uniform float pitch;
+uniform vec3 character_position; // character position on the map in normalized coords [0,1]
+uniform float angle; // azimut angle in radians, control where the camera is horizontally aiming [-inf,inf]
+uniform float pitch; // pitch angle, in theory in radians, control where the camera is vertically aiming, positive is down for unknow reasons [-inf, inf]
 uniform bool repeat_texture;
 
 COMPAT_VARYING vec4 vertex_position;
