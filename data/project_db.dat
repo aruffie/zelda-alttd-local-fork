@@ -515,7 +515,10 @@ sprite{ id = "entities/sun", description = "Sun" }
 sprite{ id = "entities/swell", description = "Swell" }
 sprite{ id = "entities/switch", description = "Switch" }
 sprite{ id = "entities/teletransporter", description = "Teletransporter" }
+sprite{ id = "entities/teletransporter_blue", description = "Teletransporter blue" }
 sprite{ id = "entities/teletransporter_dungeon", description = "Teletransporter dungeon" }
+sprite{ id = "entities/teletransporter_green", description = "Teletransporter green" }
+sprite{ id = "entities/teletransporter_red", description = "Teletransporter red" }
 sprite{ id = "entities/torch", description = "Torch" }
 sprite{ id = "entities/turtlerock_arms", description = "Turtlerock arms" }
 sprite{ id = "entities/turtlerock_head", description = "Turtlerock head" }

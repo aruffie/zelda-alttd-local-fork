@@ -62,6 +62,8 @@ door_manager:open_when_enemies_dead(map,  "enemy_group_2_",  "door_group_2")
 door_manager:open_when_enemies_dead(map,  "enemy_group_3_",  "door_group_3")
 door_manager:open_when_enemies_dead(map,  "enemy_group_5_",  "door_group_5")
 
+function weak_door_1:on_opened() sol.audio.play_sound("secret_1") end
+
 -- Sensors events
 
 function sensor_1:on_activated()
