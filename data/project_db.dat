@@ -375,6 +375,9 @@ sprite{ id = "entities/entrance_dungeon_door", description = "Entrance dungeons"
 sprite{ id = "entities/entrance_moblin_cave", description = "Entrance moblin cave" }
 sprite{ id = "entities/entrance_southern_face_shrine", description = "Entrance southern face shrine" }
 sprite{ id = "entities/explosion", description = "Explosion" }
+sprite{ id = "entities/eye_switch_blue", description = "Eye switch blue" }
+sprite{ id = "entities/eye_switch_red", description = "Eye switch red" }
+sprite{ id = "entities/eye_switch_yellow", description = "Eye switch yellow" }
 sprite{ id = "entities/fire", description = "Fire" }
 sprite{ id = "entities/fish_manbo", description = "Fish Manbo" }
 sprite{ id = "entities/flame_fountain_machine", description = "Flame fountain machine" }
@@ -1105,6 +1108,3 @@ shader{ id = "mode_7", description = "Mode 7" }
 shader{ id = "sepia", description = "Sepia" }
 shader{ id = "toon", description = "Toon" }
 
-file{ path = "main.lua", author = "Christopho", license = "GPL v3" }
-file{ path = "scripts/meta/sensor.lua", author = "Christopho", license = "GPL v3" }
-file{ path = "scripts/music_manager.lua", author = "Christopho", license = "GPL v3" }
