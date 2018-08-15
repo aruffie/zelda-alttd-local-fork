@@ -12917,6 +12917,126 @@ custom_entity{
   sprite = "entities/eye_switch_blue",
 }
 
+custom_entity{
+  name = "orb_monster_hole_red",
+  layer = 0,
+  x = 1376,
+  y = 869,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/orb_monster_hole_red",
+}
+
+custom_entity{
+  name = "orb_monster_hole_green",
+  layer = 0,
+  x = 1504,
+  y = 933,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/orb_monster_hole_green",
+}
+
+custom_entity{
+  name = "orb_monster_hole_red_2",
+  layer = 0,
+  x = 1200,
+  y = 341,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/orb_monster_hole_red",
+}
+
+custom_entity{
+  name = "orb_monster_hole_green_2",
+  layer = 0,
+  x = 1040,
+  y = 341,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/orb_monster_hole_green",
+}
+
+custom_entity{
+  name = "orb_monster_hole_green_3",
+  layer = 0,
+  x = 1200,
+  y = 437,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/orb_monster_hole_green",
+}
+
+custom_entity{
+  name = "orb_monster_hole_blue",
+  layer = 0,
+  x = 1040,
+  y = 437,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/orb_monster_hole_blue",
+}
+
+enemy{
+  name = "orb_monster_red",
+  layer = 0,
+  x = 1400,
+  y = 869,
+  direction = 0,
+  breed = "orb_monster_red",
+}
+
+enemy{
+  name = "orb_monster_green",
+  layer = 0,
+  x = 1448,
+  y = 925,
+  direction = 3,
+  breed = "orb_monster_green",
+}
+
+enemy{
+  name = "orb_monster_green_2",
+  layer = 0,
+  x = 1072,
+  y = 349,
+  direction = 3,
+  breed = "orb_monster_green",
+}
+
+enemy{
+  name = "orb_monster_green_3",
+  layer = 0,
+  x = 1160,
+  y = 429,
+  direction = 3,
+  breed = "orb_monster_green",
+}
+
+enemy{
+  name = "orb_monster_blue",
+  layer = 0,
+  x = 1064,
+  y = 421,
+  direction = 3,
+  breed = "orb_monster_blue",
+}
+
+enemy{
+  name = "orb_monster_red_2",
+  layer = 0,
+  x = 1152,
+  y = 341,
+  direction = 0,
+  breed = "orb_monster_red",
+}
+
 tile{
   layer = 1,
   x = 656,
