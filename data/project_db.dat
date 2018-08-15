@@ -440,6 +440,12 @@ sprite{ id = "entities/movies/wreck", description = "Wreck" }
 sprite{ id = "entities/moving_platform_dg_2", description = "Moving platform dg 2" }
 sprite{ id = "entities/non_diggable", description = "Diggable" }
 sprite{ id = "entities/notes", description = "Notes" }
+sprite{ id = "entities/orb_monster_hole_blue", description = "Orb monster hole blue" }
+sprite{ id = "entities/orb_monster_hole_green", description = "Orb monster hole green" }
+sprite{ id = "entities/orb_monster_hole_red", description = "Orb monster hole red" }
+sprite{ id = "entities/orb_monster_orb_blue", description = "Orb monster orb blue" }
+sprite{ id = "entities/orb_monster_orb_green", description = "Orb monster orb green" }
+sprite{ id = "entities/orb_monster_orb_red", description = "Orb monster orb red" }
 sprite{ id = "entities/outside_door", description = "Outside closed door" }
 sprite{ id = "entities/outside_ladder", description = "Outside ladder" }
 sprite{ id = "entities/owl_blue", description = "Owl blue" }
@@ -1039,6 +1045,9 @@ enemy{ id = "monkey", description = "Monkey" }
 enemy{ id = "monkey_coconut", description = "Monkey coconut" }
 enemy{ id = "octorok", description = "Octorok" }
 enemy{ id = "octorok_stone", description = "Octorok stone" }
+enemy{ id = "orb_monster_blue", description = "Orb monster blue" }
+enemy{ id = "orb_monster_green", description = "Orb monster green" }
+enemy{ id = "orb_monster_red", description = "Orb monster red" }
 enemy{ id = "peahat", description = "Peahat" }
 enemy{ id = "pike_auto", description = "Pike auto" }
 enemy{ id = "pike_detect", description = "Pike detect" }
