@@ -208,6 +208,9 @@ sprite{ id = "enemies/boss/skeleton", description = "Skeleton" }
 sprite{ id = "enemies/boulder", description = "Boulder" }
 sprite{ id = "enemies/bubble", description = "Bubble" }
 sprite{ id = "enemies/buzz_blob", description = "Buzz blob" }
+sprite{ id = "enemies/camo_goblin_blue", description = "Camo goblin blue" }
+sprite{ id = "enemies/camo_goblin_green", description = "Camo goblin green" }
+sprite{ id = "enemies/camo_goblin_red", description = "Camo goblin red" }
 sprite{ id = "enemies/cheep_cheep", description = "Cheep cheep" }
 sprite{ id = "enemies/chicken", description = "Chicken" }
 sprite{ id = "enemies/chicken_mortal", description = "Chicken mortal" }
