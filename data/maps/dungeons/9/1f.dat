@@ -10175,10 +10175,10 @@ destination{
 enemy{
   name = "miniboss_2",
   layer = 0,
-  x = 1120,
-  y = 613,
-  direction = 3,
-  breed = "boss/hinox_master",
+  x = 1096,
+  y = 573,
+  direction = 0,
+  breed = "boss/stone_hinox",
   savegame_variable = "dungeon_9_miniboss_2",
   treasure_name = "fairy",
 }
