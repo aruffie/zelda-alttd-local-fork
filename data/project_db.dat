@@ -206,6 +206,8 @@ sprite{ id = "enemies/boss/rolling_bones/rolling_bones", description = "Rolling 
 sprite{ id = "enemies/boss/rolling_bones/rolling_bones_spike", description = "Rolling bones spike" }
 sprite{ id = "enemies/boss/skeleton", description = "Skeleton" }
 sprite{ id = "enemies/boss/stone_hinox", description = "Stone hinox" }
+sprite{ id = "enemies/boss/turtle_rock_head", description = "Turtle rock head" }
+sprite{ id = "enemies/boss/turtle_rock_head/turtle_rock_chain", description = "Turtle rock chain" }
 sprite{ id = "enemies/boulder", description = "Boulder" }
 sprite{ id = "enemies/bubble", description = "Bubble" }
 sprite{ id = "enemies/buzz_blob", description = "Buzz blob" }
