@@ -191,6 +191,9 @@ sprite{ id = "enemies/boss/genie/genie_bottle", description = "Genie bottle" }
 sprite{ id = "enemies/boss/genie/genie_fire_ball", description = "Genie fire ball" }
 sprite{ id = "enemies/boss/genie_enemies/genie_bottle", description = "Genie bottle" }
 sprite{ id = "enemies/boss/hinox_master", description = "Hinox master" }
+sprite{ id = "enemies/boss/hot_head", description = "Hot head" }
+sprite{ id = "enemies/boss/hot_head_form_b", description = "Hot head form b" }
+sprite{ id = "enemies/boss/hot_head_form_c", description = "Hot head form c" }
 sprite{ id = "enemies/boss/master_stalfos", description = "Master stalfos" }
 sprite{ id = "enemies/boss/master_stalfos/master_stalfos_shadow", description = "Master stalfos shadow" }
 sprite{ id = "enemies/boss/master_stalfos/master_stalfos_shield", description = "Master stalfos shield" }
