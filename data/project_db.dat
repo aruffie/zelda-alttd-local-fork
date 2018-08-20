@@ -190,6 +190,8 @@ sprite{ id = "enemies/boss/genie", description = "Genie" }
 sprite{ id = "enemies/boss/genie/genie_bottle", description = "Genie bottle" }
 sprite{ id = "enemies/boss/genie/genie_fire_ball", description = "Genie fire ball" }
 sprite{ id = "enemies/boss/genie_enemies/genie_bottle", description = "Genie bottle" }
+sprite{ id = "enemies/boss/giant_buzz_blob", description = "Giant buzz blob" }
+sprite{ id = "enemies/boss/giant_buzz_blob_zol_form", description = "Giant buzz blob zol form" }
 sprite{ id = "enemies/boss/hinox_master", description = "Hinox master" }
 sprite{ id = "enemies/boss/hot_head", description = "Hot head" }
 sprite{ id = "enemies/boss/hot_head_form_b", description = "Hot head form b" }
@@ -1011,6 +1013,7 @@ enemy{ id = "blob_red", description = "Blob red" }
 enemy{ id = "boo_buddy", description = "Boo buddy" }
 enemy{ id = "boss/genie", description = "Genie" }
 enemy{ id = "boss/genie/genie_bottle", description = "Genie bottle" }
+enemy{ id = "boss/giant_buzz_blob", description = "Giant buzz blob" }
 enemy{ id = "boss/hinox_master", description = "Hinox master" }
 enemy{ id = "boss/master_stalfos", description = "Master stalfos" }
 enemy{ id = "boss/moblin_chief", description = "Moblin chief" }

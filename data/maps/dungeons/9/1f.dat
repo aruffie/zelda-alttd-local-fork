@@ -11523,9 +11523,9 @@ enemy{
   name = "miniboss_1",
   layer = 0,
   x = 1760,
-  y = 133,
+  y = 109,
   direction = 3,
-  breed = "boss/hinox_master",
+  breed = "boss/giant_buzz_blob",
   savegame_variable = "dungeon_9_miniboss_1",
   treasure_name = "fairy",
 }
