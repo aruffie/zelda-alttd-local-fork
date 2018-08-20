@@ -352,6 +352,7 @@ sprite{ id = "entities/chest", description = "Chest (normal)" }
 sprite{ id = "entities/claw_chain", description = "Claw chain" }
 sprite{ id = "entities/claw_crane", description = "Claw crane" }
 sprite{ id = "entities/claw_up", description = "Claw up" }
+sprite{ id = "entities/color_platform", description = "Color platform" }
 sprite{ id = "entities/color_platform_green", description = "Color platform green" }
 sprite{ id = "entities/color_platform_red", description = "Color platform red" }
 sprite{ id = "entities/color_platform_yellow", description = "Color platform yellow" }
