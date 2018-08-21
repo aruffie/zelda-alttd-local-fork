@@ -354,8 +354,8 @@ sprite{ id = "entities/chest", description = "Chest (normal)" }
 sprite{ id = "entities/claw_chain", description = "Claw chain" }
 sprite{ id = "entities/claw_crane", description = "Claw crane" }
 sprite{ id = "entities/claw_up", description = "Claw up" }
-sprite{ id = "entities/color_platform", description = "Color platform" }
 sprite{ id = "entities/color_platform_green", description = "Color platform green" }
+sprite{ id = "entities/color_platform_orange", description = "Color plateform orange" }
 sprite{ id = "entities/color_platform_red", description = "Color platform red" }
 sprite{ id = "entities/color_platform_yellow", description = "Color platform yellow" }
 sprite{ id = "entities/console", description = "Console" }
@@ -382,7 +382,7 @@ sprite{ id = "entities/doors/door_weak_wall_out", description = "Door weak wall 
 sprite{ id = "entities/egg", description = "Egg" }
 sprite{ id = "entities/entrance_dungeon_1", description = "Entrance dungeon 1" }
 sprite{ id = "entities/entrance_dungeon_2", description = "Entrance dungeon 2" }
-sprite{ id = "entities/entrance_dungeon_3", description = "entities/entrance_dungeon_3" }
+sprite{ id = "entities/entrance_dungeon_3", description = "Entrance dungeon 3" }
 sprite{ id = "entities/entrance_dungeon_4", description = "Entrance dungeon 4" }
 sprite{ id = "entities/entrance_dungeon_5", description = "Entrance dungeon 5" }
 sprite{ id = "entities/entrance_dungeon_6", description = "Entrance dungeon 6" }
@@ -1027,6 +1027,9 @@ enemy{ id = "boss/rolling_bones/rolling_bones_spike", description = "Rolling bon
 enemy{ id = "boss/stone_hinox", description = "Stone hinox" }
 enemy{ id = "bubble", description = "Bubble" }
 enemy{ id = "buzz_blob", description = "Buzz blob" }
+enemy{ id = "camo_goblin_blue", description = "Camo goblin blue" }
+enemy{ id = "camo_goblin_green", description = "Camo goblin green" }
+enemy{ id = "camo_goblin_red", description = "Camo goblin red" }
 enemy{ id = "chicken", description = "Chicken" }
 enemy{ id = "chicken_mortal", description = "Chicken mortal" }
 enemy{ id = "crow", description = "Crow" }
@@ -1100,7 +1103,9 @@ entity{ id = "bowwow_follow", description = "Bowwow follow" }
 entity{ id = "bubble", description = "Bubble" }
 entity{ id = "butterfly", description = "Butterfly" }
 entity{ id = "collapsing_soil", description = "Collapsing soil" }
+entity{ id = "color_platform", description = "Color platform" }
 entity{ id = "conveyor_belt", description = "Conveyor belt" }
+entity{ id = "eye_switch", description = "Eye switch" }
 entity{ id = "fire", description = "Fire" }
 entity{ id = "frog", description = "Frog" }
 entity{ id = "green_crystal", description = "Green crystal" }
