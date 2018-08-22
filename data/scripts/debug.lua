@@ -77,10 +77,12 @@ function debug:on_key_pressed(key, modifiers)
       local sword = game:get_item("sword")
       local variant = math.min(4, sword:get_variant() + 1)
       sword:set_variant(variant)
+      game:set_value("force",game:get_value("force") + 1)
     elseif key == "kp 3" then
       local shield = game:get_item("shield")
       local variant = math.max(1, shield:get_variant() - 1)
       shield:set_variant(variant)
+      game:set_value("force",game:get_value("force") - 1)
     elseif key == "kp 6" then
       local shield = game:get_item("shield")
       local variant = math.min(3, shield:get_variant() + 1)

@@ -16,6 +16,9 @@ function item:on_variant_changed(variant)
 
   -- The possession state of the sword determines the built-in ability "sword".
   self:get_game():set_ability("sword", variant)
+  local force = game:get_value("force")
+  force = force + 1
+  game:set_value("force", force)
 
 end
 

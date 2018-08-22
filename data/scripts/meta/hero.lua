@@ -88,6 +88,27 @@ function hero_meta:is_walking()
   return m and m.get_speed and m:get_speed() > 0
 end
 
+function hero_meta:on_taking_damage(damage)
+
+  -- Here, self is the hero.
+  local game = self:get_game()
+
+  -- In the parameter, the damage unit is 1/2 of a heart.
+
+  local defense = game:get_value("defense")
+  if defense == 0 then
+    -- Multiply the damage by two if the hero has no defense at all.
+    damage = damage * 2
+  else
+    damage = math.floor(damage / defense)
+    if damage <= 0 then
+      damage = 1
+    end
+  end
+
+  game:remove_life(damage)
+end
+
 -- Set fixed stopped/walking animations for the hero (or nil to disable them).
 function hero_meta:set_fixed_animations(new_stopped_animation, new_walking_animation)
 
