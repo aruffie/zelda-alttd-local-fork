@@ -8,9 +8,10 @@ local time_resistance = 1000 -- The time it resists with hero above. In millisec
 function entity:on_created()
 
   local hero = self:get_map():get_hero()
-  -- Add an unstable ground (do not save ground position!!!).
+  -- Add an unstable floor (do not save ground position!!!).
   self:set_modified_ground("traversable")
-  self:set_property("unstable_ground", "true")
+  self:set_property("unstable_floor", "true")
+  self:bring_to_back()
   -- Create sprite if necessary.
   if self:get_sprite() == nil then self:create_sprite(default_sprite_id) end
   -- Add collision test. Break if the hero stays above more time than time_resistance.

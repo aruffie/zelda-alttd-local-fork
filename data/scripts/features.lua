@@ -20,6 +20,6 @@ require("scripts/meta/hero")
 require("scripts/meta/npc")
 require("scripts/meta/sensor")
 require("scripts/maps/light_manager.lua")
-require("scripts/maps/unstable_ground_manager.lua")
+require("scripts/maps/unstable_floor_manager.lua")
 
 return true

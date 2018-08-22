@@ -1126,9 +1126,9 @@ entity{ id = "obstacle", description = "Obstacle" }
 entity{ id = "seagull", description = "Seagull" }
 entity{ id = "statue_pig", description = "Statue pig" }
 entity{ id = "torch", description = "Torch" }
+entity{ id = "unstable_floor", description = "Unstable Floor" }
 entity{ id = "vacuum_cleaner", description = "Vacuum cleaner" }
 entity{ id = "wallturn", description = "Wallturn" }
-entity{ id = "weak_ground", description = "Weak Ground" }
 
 language{ id = "fr", description = "Français" }
 

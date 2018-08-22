@@ -210,6 +210,7 @@ function item:start_custom_jump()
       local is_good_ground = self:is_jumpable_ground(ground_type)
       if is_good_ground then
         hero:reset_solid_ground()
+        if hero.initialize_unstable_floor_manager then hero:initialize_unstable_floor_manager() end
         return false
       end
       return true
