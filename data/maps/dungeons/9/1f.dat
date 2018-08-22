@@ -10759,7 +10759,7 @@ pickable{
 }
 
 npc{
-  name = "fairy_d9",
+  name = "great_fairy_2",
   layer = 0,
   x = 480,
   y = 53,
@@ -19708,6 +19708,15 @@ custom_entity{
   direction = 0,
   sprite = "entities/eye_switch_yellow",
   model = "eye_switch",
+}
+
+npc{
+  name = "great_fairy",
+  layer = 0,
+  x = 480,
+  y = 109,
+  direction = 3,
+  subtype = 1,
 }
 
 tile{

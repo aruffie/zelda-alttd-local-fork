@@ -1157,15 +1157,11 @@ dialog{
   id = "_treasure.tunic.2",
   icon = "61",
   text = [[
-Tu as trouvé la
-Cotte de Mailles
-bleue !$0
-Elle te protège
-mieux contre les
-ennemis et te permet
-de résister aux
-températures les
-plus glaciales...
+Vous obtenez les
+habits bleus ! $0
+   
+Votre endurance 
+est doublée !
 ]],
 }
 
@@ -1173,12 +1169,11 @@ dialog{
   id = "_treasure.tunic.3",
   icon = "62",
   text = [[
-Tu as trouvé la
-Cotte de Mailles
-rouge !$0 Elle te
-protège de manière
-plus efficace contre
-les ennemis !
+Vous obtenez les
+habits rouges !$0
+  
+Vous débordez   
+d'énergie !
 ]],
 }
 
@@ -1457,6 +1452,63 @@ dialog{
   text = [[
           Niveau 8   
     Roc de la tortue
+]],
+}
+
+dialog{
+  id = "maps.dungeons.9.great_fairy.closing_eyes",
+  text = [[
+Ferme les yeux...
+]],
+}
+
+dialog{
+  id = "maps.dungeons.9.great_fairy.end",
+  text = [[
+Je vais te mener
+dehors...
+]],
+}
+
+dialog{
+  id = "maps.dungeons.9.great_fairy.repeat",
+  question = "1",
+  text = [[
+Rouge pour l'attaque et    
+bleu pour la défense. 
+
+Lequel désires-tu?     
+Bleu 
+Rouge
+]],
+}
+
+dialog{
+  id = "maps.dungeons.9.great_fairy.sure",
+  question = "1",
+  text = [[
+Es-tu sûr?
+Oui
+Non
+]],
+}
+
+dialog{
+  id = "maps.dungeons.9.great_fairy.welcome",
+  question = "1",
+  text = [[
+Sois le bienvenue Link. 
+Je te félicite d'être 
+venu jusqu'ici. 
+Je vais te remettre le     
+pouvoir de la couleur.
+ 
+Choisis rouge pour l'attaque 
+ou bleu pour la défense. 
+
+Quel pouvoir veux-tu?
+Bleu
+Rouge
 ]],
 }
 

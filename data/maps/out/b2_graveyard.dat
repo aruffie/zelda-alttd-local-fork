@@ -18703,7 +18703,6 @@ dynamic_tile{
   pattern = "6020",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 sensor{
@@ -22465,6 +22464,14 @@ destructible{
   weight = -1,
   can_be_cut = true,
   ground = "grass",
+}
+
+destination{
+  name = "dungeon_9_exit",
+  layer = 0,
+  x = 880,
+  y = 637,
+  direction = 3,
 }
 
 tile{
