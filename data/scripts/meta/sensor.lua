@@ -52,6 +52,7 @@ function sensor_meta:on_activated()
   -- to come back when falling into a hole or other bad ground.
   if name:match("^reset_solid_ground_sensor") then
     hero:reset_solid_ground()
+    if hero.initialize_unstable_floor_manager then hero:initialize_unstable_floor_manager() end
     return
   end
 
