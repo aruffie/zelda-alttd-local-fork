@@ -126,7 +126,7 @@ function item:start_custom_jump()
   -- Prepare hero for jump.
   is_hero_jumping = true
   hero:unfreeze()  
-  hero:save_solid_ground(hero:get_position()) -- Save solid position.
+  hero:save_solid_ground(hero:get_last_stable_position()) -- Save last stable position.
   local ws = hero:get_walking_speed() -- Default walking speed.
   hero:set_walking_speed(jumping_speed)
   hero:set_invincible(true, jump_duration)

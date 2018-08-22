@@ -1235,6 +1235,7 @@ destination{
   x = 584,
   y = 29,
   direction = 3,
+  starting_location_mode = "no",
 }
 
 destination{

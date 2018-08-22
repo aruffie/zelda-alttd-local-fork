@@ -105,12 +105,10 @@ end
 
 local hero_meta = sol.main.get_metatable("hero")
 
-function hero_meta:on_created()
+hero_meta:register_event("on_created", function(hero)
 
-  local hero = self
-  --hero:set_tunic_sprite_id("hero/eldran")
   hero:initialize_fixing_functions() -- Used to fix direction and animations.
-end
+end)
 
 --------------------------------------------------
 -- Functions to fix tunic animation and direction.
