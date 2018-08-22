@@ -13457,7 +13457,6 @@ dynamic_tile{
   pattern = "wall.4-2",
   width = 24,
   height = 48,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -13468,7 +13467,6 @@ dynamic_tile{
   pattern = "wall.3-2",
   width = 24,
   height = 48,
-  enabled_at_start = true,
 }
 
 block{
@@ -16146,10 +16144,19 @@ dynamic_tile{
   layer = 1,
   x = 2048,
   y = 1040,
+  properties = {
+    {
+      key = "start_layer",
+      value = "0",
+    },
+    {
+      key = "end_layer",
+      value = "1",
+    },
+  },
   pattern = "door_cache.1-2",
   width = 64,
   height = 8,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -16157,10 +16164,19 @@ dynamic_tile{
   layer = 1,
   x = 2064,
   y = 1040,
+  properties = {
+    {
+      key = "start_layer",
+      value = "0",
+    },
+    {
+      key = "end_layer",
+      value = "1",
+    },
+  },
   pattern = "door_top.1-2",
   width = 32,
   height = 8,
-  enabled_at_start = true,
 }
 
 custom_entity{
@@ -17286,10 +17302,19 @@ dynamic_tile{
   layer = 2,
   x = 1920,
   y = 1008,
+  properties = {
+    {
+      key = "start_layer",
+      value = "0",
+    },
+    {
+      key = "end_layer",
+      value = "2",
+    },
+  },
   pattern = "ceiling.1",
   width = 320,
   height = 32,
-  enabled_at_start = true,
 }
 
 separator{
