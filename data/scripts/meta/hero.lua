@@ -90,22 +90,16 @@ end
 
 function hero_meta:on_taking_damage(damage)
 
-  -- Here, self is the hero.
-  local game = self:get_game()
-
-  -- In the parameter, the damage unit is 1/2 of a heart.
-
-  local defense = game:get_value("defense")
-  if defense == 0 then
-    -- Multiply the damage by two if the hero has no defense at all.
-    damage = damage * 2
-  else
-    damage = math.floor(damage / defense)
-    if damage <= 0 then
-      damage = 1
-    end
-  end
-
+  local hero = self
+  local game = hero:get_game()
+  -- Calculate defense. Check tunic and powerups.
+  -- TODO: define powerup function "hero:get_defense_powerup()".
+  local defense_tunic = game:get_value("defense_tunic")
+  local defense_powerup = hero.get_defense_powerup and hero:get_defense_powerup() or 1
+  local defense = defense_tunic * defense_powerup
+  -- Calculate final damage.
+  local final_damage = math.ceil(damage/defense)
+  -- Remove life.
   game:remove_life(damage)
 end
 
