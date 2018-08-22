@@ -107,10 +107,26 @@ function hero_meta:initialize_unstable_floor_manager()
   end)
 end
 
+-- Save current position of the hero as a stable one (even over unstable floors).
+-- (Used for the first position when the map or region change.)
+function hero_meta:save_stable_floor_position()
+
+  local hero = self  
+  local x, y, layer = hero:get_position()
+  local pos = hero.last_stable_position
+  pos.x, pos.y, pos.layer = x, y, layer
+end
+
 -- Initialize the manager on the corresponding events.
 game_meta:register_event("on_map_changed", function(game, map)
-  game:get_hero():initialize_unstable_floor_manager()
+
+  local hero = game:get_hero()
+  hero:save_stable_floor_position()
+  hero:initialize_unstable_floor_manager()
 end)
 separator_meta:register_event("on_activated", function(separator, dir4)
-  separator:get_map():get_hero():initialize_unstable_floor_manager()
+
+  local hero = separator:get_map():get_hero()
+  hero:save_stable_floor_position()
+  hero:initialize_unstable_floor_manager()
 end)
