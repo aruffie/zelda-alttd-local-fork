@@ -1317,83 +1317,11 @@ tile{
 
 tile{
   layer = 0,
-  x = 400,
-  y = 432,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.4",
-}
-
-tile{
-  layer = 0,
-  x = 392,
-  y = 424,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.1",
-}
-
-tile{
-  layer = 0,
-  x = 400,
-  y = 424,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.2",
-}
-
-tile{
-  layer = 0,
-  x = 392,
-  y = 432,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.3",
-}
-
-tile{
-  layer = 0,
   x = 392,
   y = 408,
   width = 16,
   height = 16,
   pattern = "hole",
-}
-
-tile{
-  layer = 0,
-  x = 400,
-  y = 416,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.4",
-}
-
-tile{
-  layer = 0,
-  x = 392,
-  y = 408,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.1",
-}
-
-tile{
-  layer = 0,
-  x = 400,
-  y = 408,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.2",
-}
-
-tile{
-  layer = 0,
-  x = 392,
-  y = 416,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.3",
 }
 
 tile{
@@ -1407,83 +1335,11 @@ tile{
 
 tile{
   layer = 0,
-  x = 400,
-  y = 400,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.4",
-}
-
-tile{
-  layer = 0,
-  x = 392,
-  y = 392,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.1",
-}
-
-tile{
-  layer = 0,
-  x = 400,
-  y = 392,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.2",
-}
-
-tile{
-  layer = 0,
-  x = 392,
-  y = 400,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.3",
-}
-
-tile{
-  layer = 0,
   x = 392,
   y = 376,
   width = 16,
   height = 16,
   pattern = "hole",
-}
-
-tile{
-  layer = 0,
-  x = 400,
-  y = 384,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.4",
-}
-
-tile{
-  layer = 0,
-  x = 392,
-  y = 376,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.1",
-}
-
-tile{
-  layer = 0,
-  x = 400,
-  y = 376,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.2",
-}
-
-tile{
-  layer = 0,
-  x = 392,
-  y = 384,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.3",
 }
 
 tile{
@@ -3157,6 +3013,54 @@ enemy{
   direction = 0,
   breed = "keese",
   treasure_name = "random",
+}
+
+destructible{
+  name = "auto_destructible_12",
+  layer = 0,
+  x = 400,
+  y = 389,
+  treasure_name = "random",
+  sprite = "entities/small_hole",
+  destruction_sound = "stone",
+  weight = -1,
+  can_be_cut = true,
+}
+
+destructible{
+  name = "auto_destructible_13",
+  layer = 0,
+  x = 400,
+  y = 405,
+  treasure_name = "random",
+  sprite = "entities/small_hole",
+  destruction_sound = "stone",
+  weight = -1,
+  can_be_cut = true,
+}
+
+destructible{
+  name = "auto_destructible_14",
+  layer = 0,
+  x = 400,
+  y = 421,
+  treasure_name = "random",
+  sprite = "entities/small_hole",
+  destruction_sound = "stone",
+  weight = -1,
+  can_be_cut = true,
+}
+
+destructible{
+  name = "auto_destructible_15",
+  layer = 0,
+  x = 400,
+  y = 437,
+  treasure_name = "random",
+  sprite = "entities/small_hole",
+  destruction_sound = "stone",
+  weight = -1,
+  can_be_cut = true,
 }
 
 tile{
