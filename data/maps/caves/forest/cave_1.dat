@@ -2857,7 +2857,7 @@ custom_entity{
 
 custom_entity{
   layer = 0,
-  x = 400,
+  x = 424,
   y = 437,
   width = 16,
   height = 16,
@@ -2868,7 +2868,7 @@ custom_entity{
 
 custom_entity{
   layer = 0,
-  x = 400,
+  x = 424,
   y = 421,
   width = 16,
   height = 16,
@@ -2879,8 +2879,8 @@ custom_entity{
 
 custom_entity{
   layer = 0,
-  x = 400,
-  y = 405,
+  x = 416,
+  y = 381,
   width = 16,
   height = 16,
   direction = 0,
@@ -2890,8 +2890,8 @@ custom_entity{
 
 custom_entity{
   layer = 0,
-  x = 400,
-  y = 389,
+  x = 512,
+  y = 397,
   width = 16,
   height = 16,
   direction = 0,
