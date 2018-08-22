@@ -26,10 +26,12 @@ This is intended to be used by other scripts (like the jumping script), when nec
 
   require("scripts/maps/unstable_floor_manager.lua")
 
--Use the multi-events script if you need to add some code there or you may break the feature.
--Do NOT redefine the events "hero/hero_meta.on_position_changed" or "hero/hero_meta.on_created".
-This is also called by default in the events "map.on_started", "map.on_finished" and "separator.on_activated".
--Call "hero:initialize_unstable_floor_manager()" always after calling "hero:reset_solid_ground()".
+-Use the multi-events script if you need to add some code there or you may break the feature temporarily.
+-Do NOT redefine the event "hero/hero_meta.on_position_changed", or you will fully break the feature.
+-Call "hero:initialize_unstable_floor_manager()" always after calling "hero:reset_solid_ground()",
+to restart the feature.
+-By default, the events "game.on_map_changed" and "separator.on_activated" restart/initialize this
+feature, unless you override them (which could break the feature temporarily).
 
 2) HOW TO define unstable floors (i.e., floors where the hero does not save position):
 
@@ -40,6 +42,7 @@ either from the Editor, or in the script with:
 
 --]]
 
+local game_meta = sol.main.get_metatable("game")
 local map_meta = sol.main.get_metatable("map")
 local hero_meta = sol.main.get_metatable("hero")
 local separator_meta = sol.main.get_metatable("separator")
@@ -105,14 +108,8 @@ function hero_meta:initialize_unstable_floor_manager()
 end
 
 -- Initialize the manager on the corresponding events.
-hero_meta:register_event("on_created", function(hero)
-  hero:initialize_unstable_floor_manager()
-end)
-map_meta:register_event("on_started", function(map)
-  map:get_hero():initialize_unstable_floor_manager()
-end)
-map_meta:register_event("on_finished", function(map)
-  map:get_hero():initialize_unstable_floor_manager()
+game_meta:register_event("on_map_changed", function(game, map)
+  game:get_hero():initialize_unstable_floor_manager()
 end)
 separator_meta:register_event("on_activated", function(separator, dir4)
   separator:get_map():get_hero():initialize_unstable_floor_manager()
