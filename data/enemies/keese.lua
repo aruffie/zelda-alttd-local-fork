@@ -11,6 +11,7 @@ local is_awake = false
 
 function enemy:on_created()
 
+  enemy:set_obstacle_behavior("flying")
 end
 
 -- The enemy was stopped for some reason and should restart.

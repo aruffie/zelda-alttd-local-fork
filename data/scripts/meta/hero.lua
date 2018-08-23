@@ -94,7 +94,7 @@ function hero_meta:on_taking_damage(damage)
   local game = hero:get_game()
   -- Calculate defense. Check tunic and powerups.
   -- TODO: define powerup function "hero:get_defense_powerup()".
-  local defense_tunic = game:get_value("defense_tunic")
+  local defense_tunic = game:get_value("defense_tunic") or 1
   local defense_powerup = hero.get_defense_powerup and hero:get_defense_powerup() or 1
   local defense = defense_tunic * defense_powerup
   -- Calculate final damage.
