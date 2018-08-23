@@ -6,14 +6,18 @@ local enemy_manager = require("scripts/maps/enemy_manager")
 -- Redefine how to calculate the damage inflicted by the sword.
 function enemy_meta:on_hurt_by_sword(hero, enemy_sprite)
 
-  local force = hero:get_game():get_value("force")
-  local reaction = self:get_attack_consequence_sprite(enemy_sprite, "sword")
-  -- Multiply the sword consequence by the force of the hero.
-  local life_lost = reaction * force
+  
+  -- Calculate force. Check tunic, sword, spin attack and powerups.
+  -- TODO: define powerup function "hero:get_force_powerup()".
+  local force_sword = hero:get_game():get_value("force_sword")
+  local force_tunic = game:get_value("force_tunic")
+  local force_powerup = hero.get_force_powerup and hero:get_force_powerup() or 1
+  local force = force_sword * force_tunic * force_powerup
   if hero:get_state() == "sword spin attack" then
-    -- And multiply this by 2 during a spin attack.
-    life_lost = life_lost * 2
+    force = 2 * force -- Double force for spin attack.
   end
+  -- Remove life.
+  local life_lost = force
   self:remove_life(life_lost)
 end
 
