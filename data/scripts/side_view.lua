@@ -42,7 +42,7 @@ function map_meta:launch_side_view()
     if hero:get_state() == "free" then
       local dir = "up" and 1 or 3
       hero:set_direction(dir)
-print("asdfasdf")
+      game:simulate_command_released(command)
       return true
     end
     -- Do not override in other cases.
