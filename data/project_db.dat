@@ -349,7 +349,6 @@ sprite{ id = "entities/bush_grass", description = "Bush grass" }
 sprite{ id = "entities/camera", description = "Camera" }
 sprite{ id = "entities/cannonball", description = "Cannon ball" }
 sprite{ id = "entities/cave_bones", description = "Cave bones" }
-sprite{ id = "entities/cave_hole", description = "Cave hole" }
 sprite{ id = "entities/cave_rock", description = "Cave rock" }
 sprite{ id = "entities/chain", description = "Chain" }
 sprite{ id = "entities/chest", description = "Chest (normal)" }
@@ -496,20 +495,7 @@ sprite{ id = "entities/signs", description = "Signs" }
 sprite{ id = "entities/skull_brown", description = "Skull brown" }
 sprite{ id = "entities/skull_green", description = "Skull green" }
 sprite{ id = "entities/skull_white", description = "Skull white" }
-sprite{ id = "entities/small_cave_hole", description = "Small_cave_hole" }
-sprite{ id = "entities/small_dg1_hole", description = "Small dg 1 hole" }
-sprite{ id = "entities/small_dg1_weak_ground", description = "small dg 1 weak ground" }
-sprite{ id = "entities/small_dg2_hole", description = "Small dg 2 hole" }
-sprite{ id = "entities/small_dg2_weak_ground", description = "Small dg2 weak ground" }
-sprite{ id = "entities/small_dg5_hole", description = "Small dg 5 hole" }
-sprite{ id = "entities/small_dg5_weak_ground", description = "Small dg 5 weak ground" }
-sprite{ id = "entities/small_dg7_hole", description = "Small dg 7 hole" }
-sprite{ id = "entities/small_dg8_hole", description = "Small dg 8 hole" }
-sprite{ id = "entities/small_dg8_weak_ground", description = "Small dg 8 weak ground" }
-sprite{ id = "entities/small_ghost_house_hole", description = "Small ghost house hole" }
-sprite{ id = "entities/small_ghost_house_weak_ground", description = "Small ghost house weak ground" }
-sprite{ id = "entities/small_kanalet_hole", description = "Small kanalet hole" }
-sprite{ id = "entities/small_kanalet_weak_ground", description = "Small kanalet weak ground" }
+sprite{ id = "entities/small_hole", description = "Small hole" }
 sprite{ id = "entities/snores", description = "Snoring" }
 sprite{ id = "entities/solid_switch", description = "Solid switch" }
 sprite{ id = "entities/somaria_block", description = "Somaria block" }
@@ -577,6 +563,10 @@ sprite{ id = "entities/wallturn_dungeon_8_front", description = "Wallturn dungeo
 sprite{ id = "entities/wallturn_dungeon_9_front", description = "Wallturn dungeon 9" }
 sprite{ id = "entities/water_tree", description = "Water tree" }
 sprite{ id = "entities/water_tree_junction", description = "Water tree junction" }
+sprite{ id = "entities/weak_floor_1", description = "Weak floor 1" }
+sprite{ id = "entities/weak_floor_2", description = "Weak floor 2" }
+sprite{ id = "entities/weak_floor_3", description = "Weak floor 3" }
+sprite{ id = "entities/weak_floor_4", description = "Weak floor 4" }
 sprite{ id = "entities/windfish_symbol_dungeon_1", description = "Windfish symbol dungeon 1" }
 sprite{ id = "entities/windfish_symbol_dungeon_2", description = "Windfish symbol dungeon 2" }
 sprite{ id = "entities/windfish_symbol_dungeon_3", description = "Windfish symbol dungeon 3" }
