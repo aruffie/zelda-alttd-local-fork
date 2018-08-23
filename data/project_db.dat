@@ -381,7 +381,6 @@ sprite{ id = "entities/doors/door_weak_block_cave", description = "Door weak blo
 sprite{ id = "entities/doors/door_weak_wall", description = "Door_weak_wall" }
 sprite{ id = "entities/doors/door_weak_wall_cave", description = "Door weak wall cave" }
 sprite{ id = "entities/doors/door_weak_wall_out", description = "Door weak wall out" }
-sprite{ id = "entities/dungeon_1_hole", description = "Dungeon 1 hole" }
 sprite{ id = "entities/egg", description = "Egg" }
 sprite{ id = "entities/entrance_dungeon_1", description = "Entrance dungeon 1" }
 sprite{ id = "entities/entrance_dungeon_2", description = "Entrance dungeon 2" }
@@ -497,7 +496,20 @@ sprite{ id = "entities/signs", description = "Signs" }
 sprite{ id = "entities/skull_brown", description = "Skull brown" }
 sprite{ id = "entities/skull_green", description = "Skull green" }
 sprite{ id = "entities/skull_white", description = "Skull white" }
-sprite{ id = "entities/small_hole", description = "Small hole" }
+sprite{ id = "entities/small_cave_hole", description = "Small_cave_hole" }
+sprite{ id = "entities/small_dg1_hole", description = "Small dg 1 hole" }
+sprite{ id = "entities/small_dg1_weak_ground", description = "small dg 1 weak ground" }
+sprite{ id = "entities/small_dg2_hole", description = "Small dg 2 hole" }
+sprite{ id = "entities/small_dg2_weak_ground", description = "Small dg2 weak ground" }
+sprite{ id = "entities/small_dg5_hole", description = "Small dg 5 hole" }
+sprite{ id = "entities/small_dg5_weak_ground", description = "Small dg 5 weak ground" }
+sprite{ id = "entities/small_dg7_hole", description = "Small dg 7 hole" }
+sprite{ id = "entities/small_dg8_hole", description = "Small dg 8 hole" }
+sprite{ id = "entities/small_dg8_weak_ground", description = "Small dg 8 weak ground" }
+sprite{ id = "entities/small_ghost_house_hole", description = "Small ghost house hole" }
+sprite{ id = "entities/small_ghost_house_weak_ground", description = "Small ghost house weak ground" }
+sprite{ id = "entities/small_kanalet_hole", description = "Small kanalet hole" }
+sprite{ id = "entities/small_kanalet_weak_ground", description = "Small kanalet weak ground" }
 sprite{ id = "entities/snores", description = "Snoring" }
 sprite{ id = "entities/solid_switch", description = "Solid switch" }
 sprite{ id = "entities/somaria_block", description = "Somaria block" }

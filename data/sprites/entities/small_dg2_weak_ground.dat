@@ -1,6 +1,6 @@
 animation{
-  name = "default",
-  src_image = "entities/small_hole.png",
+  name = "normal",
+  src_image = "entities/inside_features.png",
   directions = {
     { x = 16, y = 0, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13 },
   },
