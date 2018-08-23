@@ -39,10 +39,10 @@ function map_meta:launch_side_view()
       return false
     end
     -- Change direction in free and jumping states, but do not move.
+    game:simulate_command_released(command)
     if hero:get_state() == "free" then
       local dir = "up" and 1 or 3
       hero:set_direction(dir)
-print("asdfasdf")
       return true
     end
     -- Do not override in other cases.
