@@ -1114,7 +1114,6 @@ entity{ id = "bowwow", description = "Bowwow" }
 entity{ id = "bowwow_follow", description = "Bowwow follow" }
 entity{ id = "bubble", description = "Bubble" }
 entity{ id = "butterfly", description = "Butterfly" }
-entity{ id = "collapsing_soil", description = "Collapsing soil" }
 entity{ id = "color_platform", description = "Color platform" }
 entity{ id = "conveyor_belt", description = "Conveyor belt" }
 entity{ id = "eye_switch", description = "Eye switch" }

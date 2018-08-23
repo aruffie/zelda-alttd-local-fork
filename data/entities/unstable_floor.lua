@@ -11,7 +11,7 @@ function entity:on_created()
   -- Add an unstable floor (do not save ground position!!!).
   self:set_modified_ground("traversable")
   self:set_property("unstable_floor", "true")
-  self:bring_to_back()
+  --self:bring_to_back()
   -- Create sprite if necessary.
   if self:get_sprite() == nil then self:create_sprite(default_sprite_id) end
   -- Add collision test. Break if the hero stays above more time than time_resistance.
@@ -35,6 +35,10 @@ function entity:on_created()
         time_above = time_above + timer_delay
         if time_above >= time_resistance then
           sol.audio.play_sound(break_sound)
+          local prefix = entity:get_name()
+          for entity_map in self:get_map():get_entities(prefix .. "_") do
+            entity_map:remove()
+          end
           entity:remove()
         end
         return true
