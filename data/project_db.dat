@@ -563,10 +563,14 @@ sprite{ id = "entities/wallturn_dungeon_8_front", description = "Wallturn dungeo
 sprite{ id = "entities/wallturn_dungeon_9_front", description = "Wallturn dungeon 9" }
 sprite{ id = "entities/water_tree", description = "Water tree" }
 sprite{ id = "entities/water_tree_junction", description = "Water tree junction" }
-sprite{ id = "entities/weak_floor_1", description = "Weak floor 1" }
-sprite{ id = "entities/weak_floor_2", description = "Weak floor 2" }
-sprite{ id = "entities/weak_floor_3", description = "Weak floor 3" }
-sprite{ id = "entities/weak_floor_4", description = "Weak floor 4" }
+sprite{ id = "entities/weak_floor_dark_1", description = "Weak floor dark 1" }
+sprite{ id = "entities/weak_floor_dark_2", description = "Weak floor dark 2" }
+sprite{ id = "entities/weak_floor_dark_3", description = "Weak floor dark 3" }
+sprite{ id = "entities/weak_floor_dark_4", description = "Weak floor dark 4" }
+sprite{ id = "entities/weak_floor_light_1", description = "Weak floor light 1" }
+sprite{ id = "entities/weak_floor_light_2", description = "Weak floor light 2" }
+sprite{ id = "entities/weak_floor_light_3", description = "Weak floor light 3" }
+sprite{ id = "entities/weak_floor_light_4", description = "Weak floor light 4" }
 sprite{ id = "entities/windfish_symbol_dungeon_1", description = "Windfish symbol dungeon 1" }
 sprite{ id = "entities/windfish_symbol_dungeon_2", description = "Windfish symbol dungeon 2" }
 sprite{ id = "entities/windfish_symbol_dungeon_3", description = "Windfish symbol dungeon 3" }
