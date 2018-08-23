@@ -1,79 +1,85 @@
+-- Sideview feature script.
+
 require("scripts/multi_events")
-local game_manager = {}
-local game_over_menu = {}
 local map_meta = sol.main.get_metatable("map")
-local gravity = 5       -- How often to update gravity in milliseconds (move the hero down one pixel this often). Default is every 10 ms.
-local jump_height = 40  -- How high to make the hero go when he jumps (in pixels). Default is 40.
-local state             -- "stopped", "walking", "jumping", "ladder", "dying", "action", "attack"
-local last_anim
 map_meta.side_view = false
 
+local jump_height = 40 -- Max height for jumping.
+local gravity_delay = 10 -- Delay for the gravity timer.
+local gravity_timer
 
-
+-- Getter/setter for sideview feature.
 function map_meta:is_side_view()
-
-  if self:get_side_view() then
-    return true
-  end
-  
-  return false
-
+  return self.side_view ~= nil
 end
-
-function map_meta:get_side_view()
-
-  return self.side_view
-
-end
-
 function map_meta:set_side_view(active)
-
-  self.side_view = active
-  if active then
+  if active and (not self.side_view) then
+    self:launch_side_view()
+  elseif (not active) and self.side_view then
+    gravity_timer:stop(); gravity_timer = nil
   end
-  self:launch_side_view()
+  self.side_view = active
 end
- 
+
+
+-- Initialize gravity timer for falling feature.
 function map_meta:launch_side_view()
 
-    local game = self:get_game()
-    sol.timer.start(gravity, function()
-        local hero = self:get_hero()
-        local state = hero:get_state()
-        local item_feather = game:get_item("feather")
-        if item_feather:is_jumping() then
-          state = "jumping"
-        end
-        if state == "jumping" then
-          hero:set_walking_speed(120)
-        else
-          hero:set_walking_speed(88)
-        end
-        local x, y, l = hero:get_position()
-        if state ~= "jumping" then
-          if self:get_ground(x, y, l) ~= "ladder"  and self:get_ground(x, y + 8, l) == "ladder" then 
-            -- Nothing
-          elseif self:get_ground(hero:get_position()) ~= "ladder" then
-            if not hero:test_obstacles(0, 1) then 
-              hero:set_position(x, (y + 1), l) 
-            end
-            end
-        else 
-          for i = 1, jump_height do
-           -- if not hero:test_obstacles(0, -1) then hero:set_position(x, (y - 1), l) end
-          end
-          sol.timer.start(gravity * jump_height, function()
-            if game:is_command_pressed("right") or game:is_command_pressed("left") then
-              state = "walking"
-            else
-              state = "stopped"
-            end
-          end)
-          hero:set_animation(state)
-          if self:get_ground(x, y, l) == "ladder" then
-            hero:set_direction(1)
-          end
-        end
+  local map = self
+  local game = self:get_game()
+  local hero = self:get_hero()
+
+  -- Ignore up/down arrows when necessary.
+  map:register_event("on_command_pressed", function(map, command)
+    if command ~= "up" and command ~= "down" then return false end
+    -- Allow to move in ladders.
+    local x, y, layer = hero:get_position()
+    if (command == "down" and map:get_ground(x, y + 3, layer) == "ladder") 
+      or (command == "up" and map:get_ground(x, y - 4, layer) == "ladder") then
+      return false
+    end
+    -- Change direction in free and jumping states, but do not move.
+    if hero:get_state() == "free" then
+      local dir = "up" and 1 or 3
+      hero:set_direction(dir)
+print("asdfasdf")
+      return true
+    end
+    -- Do not override in other cases.
+    return false 
+  end)
+
+
+  gravity_timer = sol.timer.start(gravity_delay, function()    
+    -- Check if feather is being used, if hero is on ladder, and if there is space below.
+    local x, y, layer = hero:get_position()
+    local is_jumping = hero.is_jumping and hero:is_jumping()
+    local is_on_ladder = hero:get_ground_below() == "ladder"
+    local is_grabbed_to_ladder = map:get_ground(x, y - 4, layer) == "ladder"
+        or map:get_ground(x, y + 3, layer) == "ladder"
+    local is_space_below = not hero:test_obstacles(0, 1)
+    -- Make the hero fall.
+    if (not is_jumping) and (not is_grabbed_to_ladder) and is_space_below then
+      hero:set_position(x, y + 1, layer)
+      --if hero:test_obstacles(0, 1) then
+        --sol.audio.play_sound("hero_lands") --------------------------- SOUND BUG (UP KEY)
+      --end
+
+
+    end
+
+    -- Make the hero look up on ladders.
+    local state = hero:get_state()
+    if is_on_ladder and state == "free" then
+      hero:set_direction(1)
+    end
+    -- Make the hero jump.
+    --if is_jumping
+
+     
+       --sol.timer.start(gravity * jump_height, function()
+
+--[[
         if state ~= "jumping" then 
           for entity in self:get_entities("g_") do
             local gx, gy, gl = entity:get_position()
@@ -82,9 +88,9 @@ function map_meta:launch_side_view()
             end
           end
         end
-      return true
-    end)
-  return true
+--]]
+    return true
+  end)
 end
 
   
