@@ -826,6 +826,7 @@ tile_pattern{
   y = { 0, 0, 0 },
   width = 32,
   height = 24,
+  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -837,6 +838,7 @@ tile_pattern{
   y = { 24, 24, 24 },
   width = 32,
   height = 32,
+  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -1264,7 +1266,7 @@ tile_pattern{
 
 tile_pattern{
   id = "78",
-  ground = "traversable",
+  ground = "ladder",
   default_layer = 0,
   x = 64,
   y = 152,
@@ -1275,7 +1277,7 @@ tile_pattern{
 
 tile_pattern{
   id = "79",
-  ground = "traversable",
+  ground = "ladder",
   default_layer = 0,
   x = 64,
   y = 160,
@@ -1398,10 +1400,12 @@ tile_pattern{
   id = "89",
   ground = "traversable",
   default_layer = 0,
-  x = { 96, 112, 128, 112 },
-  y = { 56, 56, 56, 56 },
+  x = { 96, 112, 128 },
+  y = { 56, 56, 56 },
   width = 16,
   height = 16,
+  frame_delay = 250,
+  mirror_loop = true,
   repeat_mode = "horizontal",
 }
 
@@ -1480,10 +1484,12 @@ tile_pattern{
   id = "96",
   ground = "traversable",
   default_layer = 0,
-  x = { 96, 112, 128, 112 },
-  y = { 80, 80, 80, 80 },
+  x = { 96, 112, 128 },
+  y = { 80, 80, 80 },
   width = 16,
   height = 8,
+  frame_delay = 250,
+  mirror_loop = true,
   repeat_mode = "horizontal",
 }
 
@@ -1491,10 +1497,12 @@ tile_pattern{
   id = "97",
   ground = "traversable",
   default_layer = 0,
-  x = { 96, 112, 128, 112 },
-  y = { 88, 88, 88, 88 },
+  x = { 96, 112, 128 },
+  y = { 88, 88, 88 },
   width = 16,
   height = 8,
+  frame_delay = 250,
+  mirror_loop = true,
   repeat_mode = "horizontal",
 }
 
