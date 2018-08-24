@@ -65,6 +65,7 @@ function map_meta:launch_side_view()
       end
 
     elseif command == "action" then
+
       -- Do not allow to use boots in up/down directions.
       sol.timer.start(300, function() -- Delay to show the animation.
         if hero:get_state() == "running" and (hero:get_direction() % 2 == 1) then
@@ -87,7 +88,8 @@ function map_meta:launch_side_view()
   end)
 
   -- Start gravity timer.
-  gravity_timer = sol.timer.start(gravity_delay, function()    
+  gravity_timer = sol.timer.start(gravity_delay, function()
+
     -- Check if feather is being used, if hero is on ladder, and if there is space below.
     local x, y, layer = hero:get_position()
     local is_jumping = hero.is_jumping and hero:is_jumping()
@@ -126,6 +128,7 @@ function map_meta:launch_side_view()
 
   -- Start update timer. Its delay is independent from gravity_delay.
   update_timer = sol.timer.start(10, function()
+
     -- Get properties.
     local x, y, layer = hero:get_position()
     local is_on_ladder = hero:get_ground_below() == "ladder"
