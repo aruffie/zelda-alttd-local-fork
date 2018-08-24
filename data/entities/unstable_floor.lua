@@ -1,3 +1,10 @@
+-- Unstable floor: breaks if the hero stays for a while above it.
+
+--[[
+IMPORTANT:
+If an instance of unstable floor has a name entity_name, when the floor is destroyed we
+also destroy all other entities with the prefix: entity_name .. "_"
+--]]
 local entity = ...
 
 local default_sprite_id = "entities/cave_hole"
@@ -11,7 +18,6 @@ function entity:on_created()
   -- Add an unstable floor (do not save ground position!!!).
   self:set_modified_ground("traversable")
   self:set_property("unstable_floor", "true")
-  --self:bring_to_back()
   -- Create sprite if necessary.
   if self:get_sprite() == nil then self:create_sprite(default_sprite_id) end
   -- Add collision test. Break if the hero stays above more time than time_resistance.
