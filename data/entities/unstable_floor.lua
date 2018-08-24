@@ -36,8 +36,10 @@ function entity:on_created()
         if time_above >= time_resistance then
           sol.audio.play_sound(break_sound)
           local prefix = entity:get_name()
-          for entity_map in self:get_map():get_entities(prefix .. "_") do
-            entity_map:remove()
+          if prefix then
+            for entity_map in self:get_map():get_entities(prefix .. "_") do
+              entity_map:remove()
+            end
           end
           entity:remove()
         end
