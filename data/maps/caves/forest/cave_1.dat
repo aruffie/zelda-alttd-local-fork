@@ -1306,6 +1306,54 @@ tile{
   pattern = "hole.corner.3",
 }
 
+custom_entity{
+  layer = 0,
+  x = 400,
+  y = 357,
+  width = 16,
+  height = 96,
+  direction = 0,
+  sprite = "entities/hole",
+  tiled = true,
+  model = "hole",
+}
+
+custom_entity{
+  layer = 0,
+  x = 400,
+  y = 341,
+  width = 144,
+  height = 16,
+  direction = 0,
+  sprite = "entities/hole",
+  tiled = true,
+  model = "hole",
+}
+
+custom_entity{
+  layer = 0,
+  x = 528,
+  y = 357,
+  width = 48,
+  height = 16,
+  direction = 0,
+  sprite = "entities/hole",
+  tiled = true,
+  model = "hole",
+}
+
+custom_entity{
+  layer = 0,
+  x = 544,
+  y = 373,
+  width = 32,
+  height = 16,
+  direction = 0,
+  sprite = "entities/hole",
+  tiled = true,
+  model = "hole",
+}
+
 teletransporter{
   name = "forest_cave_1_2_B",
   layer = 0,
@@ -1930,19 +1978,8 @@ enemy{
   treasure_name = "random",
 }
 
-custom_entity{
-  layer = 0,
-  x = 400,
-  y = 437,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "unstable_floor_1_1",
+  name = "floor_1_unstable_associate_",
   layer = 0,
   x = 392,
   y = 424,
@@ -1952,615 +1989,10 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_1",
+  name = "floor_1",
   layer = 0,
-  x = 416,
+  x = 400,
   y = 437,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/weak_floor_light_1",
-  model = "unstable_floor",
-}
-
-custom_entity{
-  layer = 0,
-  x = 400,
-  y = 421,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
-custom_entity{
-  layer = 0,
-  x = 400,
-  y = 405,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
-custom_entity{
-  layer = 0,
-  x = 400,
-  y = 389,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
-custom_entity{
-  layer = 0,
-  x = 400,
-  y = 373,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
-custom_entity{
-  layer = 0,
-  x = 400,
-  y = 357,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
-custom_entity{
-  layer = 0,
-  x = 400,
-  y = 341,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
-custom_entity{
-  layer = 0,
-  x = 416,
-  y = 341,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
-custom_entity{
-  layer = 0,
-  x = 432,
-  y = 341,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
-custom_entity{
-  layer = 0,
-  x = 448,
-  y = 341,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
-custom_entity{
-  layer = 0,
-  x = 480,
-  y = 341,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
-custom_entity{
-  layer = 0,
-  x = 496,
-  y = 341,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
-custom_entity{
-  layer = 0,
-  x = 512,
-  y = 341,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
-custom_entity{
-  layer = 0,
-  x = 528,
-  y = 341,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
-custom_entity{
-  layer = 0,
-  x = 544,
-  y = 357,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
-custom_entity{
-  layer = 0,
-  x = 560,
-  y = 357,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
-custom_entity{
-  layer = 0,
-  x = 560,
-  y = 373,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
-custom_entity{
-  layer = 0,
-  x = 544,
-  y = 373,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
-custom_entity{
-  layer = 0,
-  x = 528,
-  y = 357,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
-dynamic_tile{
-  name = "unstable_floor_2_1",
-  layer = 0,
-  x = 392,
-  y = 408,
-  pattern = "926",
-  width = 16,
-  height = 16,
-}
-
-custom_entity{
-  name = "unstable_floor_2",
-  layer = 0,
-  x = 400,
-  y = 421,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/weak_floor_light_1",
-  model = "unstable_floor",
-}
-
-dynamic_tile{
-  name = "unstable_floor_3_1",
-  layer = 0,
-  x = 392,
-  y = 392,
-  pattern = "926",
-  width = 16,
-  height = 16,
-}
-
-custom_entity{
-  name = "unstable_floor_3",
-  layer = 0,
-  x = 400,
-  y = 405,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/weak_floor_light_1",
-  model = "unstable_floor",
-}
-
-dynamic_tile{
-  name = "unstable_floor_4_1",
-  layer = 0,
-  x = 392,
-  y = 376,
-  pattern = "926",
-  width = 16,
-  height = 16,
-}
-
-custom_entity{
-  name = "unstable_floor_4",
-  layer = 0,
-  x = 400,
-  y = 389,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/weak_floor_light_1",
-  model = "unstable_floor",
-}
-
-dynamic_tile{
-  name = "unstable_floor_5_1",
-  layer = 0,
-  x = 392,
-  y = 360,
-  pattern = "926",
-  width = 16,
-  height = 16,
-}
-
-custom_entity{
-  name = "unstable_floor_5",
-  layer = 0,
-  x = 400,
-  y = 373,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/weak_floor_light_1",
-  model = "unstable_floor",
-}
-
-dynamic_tile{
-  name = "unstable_floor_6_1",
-  layer = 0,
-  x = 392,
-  y = 344,
-  pattern = "926",
-  width = 16,
-  height = 16,
-}
-
-custom_entity{
-  name = "unstable_floor_6",
-  layer = 0,
-  x = 400,
-  y = 357,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/weak_floor_light_1",
-  model = "unstable_floor",
-}
-
-dynamic_tile{
-  name = "unstable_floor_7_1",
-  layer = 0,
-  x = 392,
-  y = 328,
-  pattern = "926",
-  width = 16,
-  height = 16,
-}
-
-custom_entity{
-  name = "unstable_floor_7",
-  layer = 0,
-  x = 400,
-  y = 341,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/weak_floor_light_1",
-  model = "unstable_floor",
-}
-
-dynamic_tile{
-  name = "unstable_floor_8_1",
-  layer = 0,
-  x = 408,
-  y = 328,
-  pattern = "926",
-  width = 16,
-  height = 16,
-}
-
-custom_entity{
-  name = "unstable_floor_8",
-  layer = 0,
-  x = 416,
-  y = 341,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/weak_floor_light_1",
-  model = "unstable_floor",
-}
-
-dynamic_tile{
-  name = "unstable_floor_9_1",
-  layer = 0,
-  x = 424,
-  y = 328,
-  pattern = "926",
-  width = 16,
-  height = 16,
-}
-
-custom_entity{
-  name = "unstable_floor_9",
-  layer = 0,
-  x = 432,
-  y = 341,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/weak_floor_light_1",
-  model = "unstable_floor",
-}
-
-dynamic_tile{
-  name = "unstable_floor_10_1",
-  layer = 0,
-  x = 440,
-  y = 328,
-  pattern = "926",
-  width = 16,
-  height = 16,
-}
-
-custom_entity{
-  name = "unstable_floor_10",
-  layer = 0,
-  x = 448,
-  y = 341,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/weak_floor_light_1",
-  model = "unstable_floor",
-}
-
-custom_entity{
-  layer = 0,
-  x = 464,
-  y = 341,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
-dynamic_tile{
-  name = "unstable_floor_12_1",
-  layer = 0,
-  x = 472,
-  y = 328,
-  pattern = "926",
-  width = 16,
-  height = 16,
-}
-
-custom_entity{
-  name = "unstable_floor_12",
-  layer = 0,
-  x = 480,
-  y = 341,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/weak_floor_light_1",
-  model = "unstable_floor",
-}
-
-dynamic_tile{
-  name = "unstable_floor_11_1",
-  layer = 0,
-  x = 456,
-  y = 328,
-  pattern = "926",
-  width = 16,
-  height = 16,
-}
-
-custom_entity{
-  name = "unstable_floor_11",
-  layer = 0,
-  x = 464,
-  y = 341,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/weak_floor_light_1",
-  model = "unstable_floor",
-}
-
-dynamic_tile{
-  name = "unstable_floor_13_1",
-  layer = 0,
-  x = 488,
-  y = 328,
-  pattern = "926",
-  width = 16,
-  height = 16,
-}
-
-custom_entity{
-  name = "unstable_floor_13",
-  layer = 0,
-  x = 496,
-  y = 341,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/weak_floor_light_1",
-  model = "unstable_floor",
-}
-
-dynamic_tile{
-  name = "unstable_floor_14_1",
-  layer = 0,
-  x = 504,
-  y = 328,
-  pattern = "926",
-  width = 16,
-  height = 16,
-}
-
-custom_entity{
-  name = "unstable_floor_14",
-  layer = 0,
-  x = 512,
-  y = 341,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/weak_floor_light_1",
-  model = "unstable_floor",
-}
-
-dynamic_tile{
-  name = "unstable_floor_15_1",
-  layer = 0,
-  x = 520,
-  y = 328,
-  pattern = "926",
-  width = 16,
-  height = 16,
-}
-
-custom_entity{
-  name = "unstable_floor_15",
-  layer = 0,
-  x = 528,
-  y = 341,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/weak_floor_light_1",
-  model = "unstable_floor",
-}
-
-dynamic_tile{
-  name = "unstable_floor_17_1",
-  layer = 0,
-  x = 536,
-  y = 344,
-  pattern = "926",
-  width = 16,
-  height = 16,
-}
-
-custom_entity{
-  name = "unstable_floor_17",
-  layer = 0,
-  x = 544,
-  y = 357,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/weak_floor_light_1",
-  model = "unstable_floor",
-}
-
-dynamic_tile{
-  name = "unstable_floor_18_1",
-  layer = 0,
-  x = 552,
-  y = 344,
-  pattern = "926",
-  width = 16,
-  height = 16,
-}
-
-custom_entity{
-  name = "unstable_floor_18",
-  layer = 0,
-  x = 560,
-  y = 357,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/weak_floor_light_1",
-  model = "unstable_floor",
-}
-
-dynamic_tile{
-  name = "unstable_floor_20_1",
-  layer = 0,
-  x = 552,
-  y = 360,
-  pattern = "926",
-  width = 16,
-  height = 16,
-}
-
-custom_entity{
-  name = "unstable_floor_20",
-  layer = 0,
-  x = 560,
-  y = 373,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/weak_floor_light_1",
-  model = "unstable_floor",
-}
-
-dynamic_tile{
-  name = "unstable_floor_21_1",
-  layer = 0,
-  x = 536,
-  y = 360,
-  pattern = "926",
-  width = 16,
-  height = 16,
-}
-
-custom_entity{
-  name = "unstable_floor_21",
-  layer = 0,
-  x = 544,
-  y = 373,
   width = 16,
   height = 16,
   direction = 0,
@@ -2576,28 +2008,6 @@ enemy{
   direction = 0,
   breed = "keese",
   treasure_name = "random",
-}
-
-dynamic_tile{
-  name = "unstable_floor_16_1",
-  layer = 0,
-  x = 520,
-  y = 344,
-  pattern = "926",
-  width = 16,
-  height = 16,
-}
-
-custom_entity{
-  name = "unstable_floor_16",
-  layer = 0,
-  x = 528,
-  y = 357,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/weak_floor_light_1",
-  model = "unstable_floor",
 }
 
 enemy{
@@ -2618,6 +2028,424 @@ enemy{
   direction = 0,
   breed = "keese",
   treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "floor_2_unstable_associate_",
+  layer = 0,
+  x = 392,
+  y = 408,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "floor_3_unstable_associate_",
+  layer = 0,
+  x = 392,
+  y = 392,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "floor_4_unstable_associate_",
+  layer = 0,
+  x = 392,
+  y = 376,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "floor_5_unstable_associate_",
+  layer = 0,
+  x = 392,
+  y = 360,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "floor_6_unstable_associate_",
+  layer = 0,
+  x = 392,
+  y = 344,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "floor_7_unstable_associate_",
+  layer = 0,
+  x = 392,
+  y = 328,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "floor_8_unstable_associate_",
+  layer = 0,
+  x = 408,
+  y = 328,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "floor_9_unstable_associate_",
+  layer = 0,
+  x = 424,
+  y = 328,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "floor_10_unstable_associate_",
+  layer = 0,
+  x = 440,
+  y = 328,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "floor_11_unstable_associate_",
+  layer = 0,
+  x = 456,
+  y = 328,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "floor_12_unstable_associate_",
+  layer = 0,
+  x = 472,
+  y = 328,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "floor_13_unstable_associate_",
+  layer = 0,
+  x = 488,
+  y = 328,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "floor_14_unstable_associate_",
+  layer = 0,
+  x = 504,
+  y = 328,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "floor_15_unstable_associate_",
+  layer = 0,
+  x = 520,
+  y = 328,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "floor_16_unstable_associate_",
+  layer = 0,
+  x = 520,
+  y = 344,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "floor_17_unstable_associate_",
+  layer = 0,
+  x = 536,
+  y = 344,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "floor_18_unstable_associate_",
+  layer = 0,
+  x = 552,
+  y = 344,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "floor_19_unstable_associate_",
+  layer = 0,
+  x = 536,
+  y = 360,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "floor_20_unstable_associate_",
+  layer = 0,
+  x = 552,
+  y = 360,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+custom_entity{
+  name = "floor_2",
+  layer = 0,
+  x = 400,
+  y = 421,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
+}
+
+custom_entity{
+  name = "floor_3",
+  layer = 0,
+  x = 400,
+  y = 405,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
+}
+
+custom_entity{
+  name = "floor_4",
+  layer = 0,
+  x = 400,
+  y = 389,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
+}
+
+custom_entity{
+  name = "floor_5",
+  layer = 0,
+  x = 400,
+  y = 373,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
+}
+
+custom_entity{
+  name = "floor_6",
+  layer = 0,
+  x = 400,
+  y = 357,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
+}
+
+custom_entity{
+  name = "floor_7",
+  layer = 0,
+  x = 400,
+  y = 341,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
+}
+
+custom_entity{
+  name = "floor_8",
+  layer = 0,
+  x = 416,
+  y = 341,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
+}
+
+custom_entity{
+  name = "floor_9",
+  layer = 0,
+  x = 432,
+  y = 341,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
+}
+
+custom_entity{
+  name = "floor_10",
+  layer = 0,
+  x = 448,
+  y = 341,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
+}
+
+custom_entity{
+  name = "floor_11",
+  layer = 0,
+  x = 464,
+  y = 341,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
+}
+
+custom_entity{
+  name = "floor_12",
+  layer = 0,
+  x = 480,
+  y = 341,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
+}
+
+custom_entity{
+  name = "floor_13",
+  layer = 0,
+  x = 496,
+  y = 341,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
+}
+
+custom_entity{
+  name = "floor_14",
+  layer = 0,
+  x = 512,
+  y = 341,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
+}
+
+custom_entity{
+  name = "floor_15",
+  layer = 0,
+  x = 528,
+  y = 341,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
+}
+
+custom_entity{
+  name = "floor_16",
+  layer = 0,
+  x = 528,
+  y = 357,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
+}
+
+custom_entity{
+  name = "floor_17",
+  layer = 0,
+  x = 544,
+  y = 357,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
+}
+
+custom_entity{
+  name = "floor_18",
+  layer = 0,
+  x = 560,
+  y = 357,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
+}
+
+custom_entity{
+  name = "floor_19",
+  layer = 0,
+  x = 544,
+  y = 373,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
+}
+
+custom_entity{
+  name = "floor_20",
+  layer = 0,
+  x = 560,
+  y = 373,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
 }
 
 tile{

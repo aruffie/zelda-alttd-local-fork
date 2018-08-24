@@ -1,3 +1,10 @@
+-- Unstable floor: breaks if the hero stays for a while above it.
+
+--[[
+IMPORTANT:
+If an instance of unstable floor has a name entity_name, when the floor is destroyed we
+also destroy all other entities with the prefix: entity_name .. "_unstable_associate_"
+--]]
 local entity = ...
 
 local default_sprite_id = "entities/cave_hole"
@@ -11,7 +18,6 @@ function entity:on_created()
   -- Add an unstable floor (do not save ground position!!!).
   self:set_modified_ground("traversable")
   self:set_property("unstable_floor", "true")
-  --self:bring_to_back()
   -- Create sprite if necessary.
   if self:get_sprite() == nil then self:create_sprite(default_sprite_id) end
   -- Add collision test. Break if the hero stays above more time than time_resistance.
@@ -35,9 +41,12 @@ function entity:on_created()
         time_above = time_above + timer_delay
         if time_above >= time_resistance then
           sol.audio.play_sound(break_sound)
-          local prefix = entity:get_name()
-          for entity_map in self:get_map():get_entities(prefix .. "_") do
-            entity_map:remove()
+          local entity_name = entity:get_name()
+          if entity_name then
+            local prefix = entity_name .. "_unstable_associate_"
+            for entity_map in self:get_map():get_entities(prefix) do
+              entity_map:remove()
+            end
           end
           entity:remove()
         end
