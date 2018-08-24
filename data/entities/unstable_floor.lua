@@ -3,7 +3,7 @@
 --[[
 IMPORTANT:
 If an instance of unstable floor has a name entity_name, when the floor is destroyed we
-also destroy all other entities with the prefix: entity_name .. "_"
+also destroy all other entities with the prefix: entity_name .. "_unstable_associate_"
 --]]
 local entity = ...
 
@@ -41,9 +41,10 @@ function entity:on_created()
         time_above = time_above + timer_delay
         if time_above >= time_resistance then
           sol.audio.play_sound(break_sound)
-          local prefix = entity:get_name()
-          if prefix then
-            for entity_map in self:get_map():get_entities(prefix .. "_") do
+          local entity_name = entity:get_name()
+          if entity_name then
+            local prefix = entity_name .. "_unstable_associate_"
+            for entity_map in self:get_map():get_entities(prefix) do
               entity_map:remove()
             end
           end
