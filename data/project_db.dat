@@ -195,6 +195,7 @@ sprite{ id = "enemies/boss/genie/genie_fire_ball", description = "Genie fire bal
 sprite{ id = "enemies/boss/genie_enemies/genie_bottle", description = "Genie bottle" }
 sprite{ id = "enemies/boss/giant_buzz_blob", description = "Giant buzz blob" }
 sprite{ id = "enemies/boss/giant_buzz_blob_zol_form", description = "Giant buzz blob zol form" }
+sprite{ id = "enemies/boss/grim_creeper", description = "Grim creeper" }
 sprite{ id = "enemies/boss/hinox_master", description = "Hinox master" }
 sprite{ id = "enemies/boss/hot_head", description = "Hot head" }
 sprite{ id = "enemies/boss/hot_head_form_b", description = "Hot head form b" }
