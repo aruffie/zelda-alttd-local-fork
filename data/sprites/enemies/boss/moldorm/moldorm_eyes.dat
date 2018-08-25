@@ -22,12 +22,23 @@ animation{
     { x = 0, y = 176, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8, num_frames = 8 },
     { x = 0, y = 176, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8, num_frames = 8 },
     { x = 0, y = 176, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8, num_frames = 8 },
+    { x = 0, y = 176, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8, num_frames = 8 },
+    { x = 0, y = 176, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8, num_frames = 8 },
+    { x = 0, y = 176, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8, num_frames = 8 },
+    { x = 0, y = 176, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8, num_frames = 8 },
   },
 }
 animation{
   name = "shocked",
   src_image = "enemies/boss/moldorm/moldorm.png",
   directions = {
+    { x = 0, y = 160, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8, num_frames = 8 },
+    { x = 0, y = 160, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8, num_frames = 8 },
+    { x = 0, y = 160, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8, num_frames = 8 },
+    { x = 0, y = 160, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8, num_frames = 8 },
+    { x = 0, y = 160, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8, num_frames = 8 },
+    { x = 0, y = 160, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8, num_frames = 8 },
+    { x = 0, y = 160, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8, num_frames = 8 },
     { x = 0, y = 160, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8, num_frames = 8 },
   },
 }
