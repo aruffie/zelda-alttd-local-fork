@@ -7,10 +7,10 @@ local hero = map:get_hero()
 
 local sprites_folder = "enemies/boss/moldorm/" -- Rename this if necessary.
 local body_parts = {} -- In this order: head, body_1, body_2, body_3, tail.
-local normal_angle_speed, max_angle_speed = 3*math.pi/4, 3*math.pi/2 -- Radians per second.
+local normal_angle_speed, max_angle_speed = math.pi/2, math.pi -- Radians per second.
 local life = 8
 local min_radius, max_radius = 24, 80
-local hurt_duration = 3000
+local hurt_duration = 4000
 local delay_between_parts = 120
 local is_hurt
 
