@@ -44,28 +44,52 @@ function map_meta:launch_side_view()
   local game = self:get_game()
   local hero = self:get_hero()
 
-  -- Ignore up/down arrows when necessary.
+  -- Ignore commands when necessary.
   map:register_event("on_command_pressed", function(map, command)
-    if command ~= "up" and command ~= "down" then return false end
-    -- Allow to move in ladders.
-    local x, y, layer = hero:get_position()
-    if (command == "down" and map:get_ground(x, y + 3, layer) == "ladder") 
-      or (command == "up" and map:get_ground(x, y - 4, layer) == "ladder") then
-      return false
+
+    -- Ignore up/down arrows when necessary.
+    if command == "up" or command == "down" then
+
+      -- Allow to move in ladders.
+      local x, y, layer = hero:get_position()
+      if (command == "down" and map:get_ground(x, y + 3, layer) == "ladder") 
+        or (command == "up" and map:get_ground(x, y - 4, layer) == "ladder") then
+        return false
+      end
+      -- Change direction in free and jumping states, but do not move.
+      game:simulate_command_released(command)
+      if hero:get_state() == "free" then
+        local dir = (command == "up") and 1 or 3
+        hero:set_direction(dir)
+        return true
+      end
+
+    elseif command == "action" then
+
+      -- Do not allow to use boots in up/down directions.
+      sol.timer.start(300, function() -- Delay to show the animation.
+        if hero:get_state() == "running" and (hero:get_direction() % 2 == 1) then
+          game:simulate_command_released(command)  
+        end
+      end)
+
+    --[[ Ignore certain items.
+    elseif command == "item_1" or command == "item_2" then
+
+      local slot = (command == "item_1") and 1 or 2
+      local item = game:get_item_assigned(slot)
+      local item_name = item:get_name()
+      -- Add code here if necessary.
+    --]]
     end
-    -- Change direction in free and jumping states, but do not move.
-    game:simulate_command_released(command)
-    if hero:get_state() == "free" then
-      local dir = (command == "up") and 1 or 3
-      hero:set_direction(dir)
-      return true
-    end
-    -- Do not override in other cases.
+
+    -- Do not override commands in other cases.
     return false 
   end)
 
   -- Start gravity timer.
-  gravity_timer = sol.timer.start(gravity_delay, function()    
+  gravity_timer = sol.timer.start(gravity_delay, function()
+
     -- Check if feather is being used, if hero is on ladder, and if there is space below.
     local x, y, layer = hero:get_position()
     local is_jumping = hero.is_jumping and hero:is_jumping()
@@ -104,6 +128,7 @@ function map_meta:launch_side_view()
 
   -- Start update timer. Its delay is independent from gravity_delay.
   update_timer = sol.timer.start(10, function()
+
     -- Get properties.
     local x, y, layer = hero:get_position()
     local is_on_ladder = hero:get_ground_below() == "ladder"

@@ -16963,6 +16963,60 @@ custom_entity{
   model = "unstable_floor",
 }
 
+wall{
+  layer = 0,
+  x = 2000,
+  y = 552,
+  width = 16,
+  height = 24,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 0,
+  x = 2144,
+  y = 552,
+  width = 16,
+  height = 24,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 0,
+  x = 2144,
+  y = 704,
+  width = 16,
+  height = 24,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 0,
+  x = 2000,
+  y = 704,
+  width = 16,
+  height = 24,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 0,
+  x = 1984,
+  y = 552,
+  width = 16,
+  height = 176,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 0,
+  x = 2160,
+  y = 552,
+  width = 16,
+  height = 176,
+  stops_enemies = true,
+}
+
 tile{
   layer = 1,
   x = 528,

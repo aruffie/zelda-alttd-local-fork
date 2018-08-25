@@ -204,12 +204,12 @@ sprite{ id = "enemies/boss/master_stalfos/master_stalfos_shadow", description = 
 sprite{ id = "enemies/boss/master_stalfos/master_stalfos_shield", description = "Master stalfos shield" }
 sprite{ id = "enemies/boss/master_stalfos/master_stalfos_sword", description = "Master stalfos sword" }
 sprite{ id = "enemies/boss/moblin_chief", description = "Moblin chief" }
-sprite{ id = "enemies/boss/moldorm", description = "Moldorm tail" }
+sprite{ id = "enemies/boss/moldorm/moldorm", description = "Moldorm tail" }
 sprite{ id = "enemies/boss/moldorm/moldorm_body_1", description = "Moldorm body 1" }
 sprite{ id = "enemies/boss/moldorm/moldorm_body_2", description = "Moldorm body 2" }
 sprite{ id = "enemies/boss/moldorm/moldorm_body_3", description = "Moldorm body 3" }
 sprite{ id = "enemies/boss/moldorm/moldorm_eyes", description = "Moldorm eyes" }
-sprite{ id = "enemies/boss/moldorm/moldorm_head", description = "Moldorm 1 head" }
+sprite{ id = "enemies/boss/moldorm/moldorm_head", description = "Moldorm head" }
 sprite{ id = "enemies/boss/rolling_bones/rolling_bones", description = "Rolling bones" }
 sprite{ id = "enemies/boss/rolling_bones/rolling_bones_spike", description = "Rolling bones spike" }
 sprite{ id = "enemies/boss/skeleton", description = "Skeleton" }
@@ -1031,10 +1031,6 @@ enemy{ id = "boss/hinox_master", description = "Hinox master" }
 enemy{ id = "boss/master_stalfos", description = "Master stalfos" }
 enemy{ id = "boss/moblin_chief", description = "Moblin chief" }
 enemy{ id = "boss/moldorm", description = "Moldorm" }
-enemy{ id = "boss/moldorm/moldorm_body_1", description = "Moldorm body 1" }
-enemy{ id = "boss/moldorm/moldorm_body_2", description = "Moldorm body 2" }
-enemy{ id = "boss/moldorm/moldorm_body_3", description = "Moldorm body 3" }
-enemy{ id = "boss/moldorm/moldorm_head", description = "Moldorm head" }
 enemy{ id = "boss/rolling_bones/rolling_bones", description = "Rolling bones" }
 enemy{ id = "boss/rolling_bones/rolling_bones_spike", description = "Rolling bones spike" }
 enemy{ id = "boss/stone_hinox", description = "Stone hinox" }

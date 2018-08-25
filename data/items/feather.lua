@@ -105,7 +105,7 @@ function item:start_custom_jump()
   local is_hero_carrying = hero_state == "carrying"
   local is_hero_builtin_jumping = hero_state == "jumping"
   local is_on_stairs = hero_state == "stairs"
-  local ground_type = map:get_ground(hero:get_position())
+  local ground_type = map:get_ground(hero:get_ground_position())
   local is_ground_jumpable = self:is_jumpable_ground(ground_type)
   local is_blocked_on_stream = blocking_stream_below_hero(map)
 
@@ -223,7 +223,7 @@ function item:start_custom_jump()
     while ground == "empty" and layer > min_layer do
       layer = layer-1
       hero:set_position(x,y,layer)
-      ground = map:get_ground(hero:get_position())    
+      ground = map:get_ground(hero:get_ground_position())    
     end
     -- Reset sprite shifts.
     for _, s in hero:get_sprites() do s:set_xy(0, 0) end
@@ -236,7 +236,7 @@ function item:start_custom_jump()
 
     -- Restore solid ground as soon as possible.
     sol.timer.start(map, 1, function()
-      local ground_type = map:get_ground(hero:get_position())    
+      local ground_type = map:get_ground(hero:get_ground_position())    
       local is_good_ground = self:is_jumpable_ground(ground_type)
       if is_good_ground then
         hero:reset_solid_ground()
