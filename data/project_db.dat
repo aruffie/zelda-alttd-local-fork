@@ -184,6 +184,7 @@ sprite{ id = "enemies/beetle_red", description = "Beetle red" }
 sprite{ id = "enemies/bloober", description = "Bloober" }
 sprite{ id = "enemies/bomber", description = "Bomber" }
 sprite{ id = "enemies/boo_buddy", description = "Boo buddy" }
+sprite{ id = "enemies/boss/cue_ball", description = "Cue ball" }
 sprite{ id = "enemies/boss/dodongo_snake", description = "Dodongo_snake" }
 sprite{ id = "enemies/boss/dodongo_snake/dodongo_snake_body", description = "Dodongo snake body" }
 sprite{ id = "enemies/boss/evil_orb", description = "Evil orb" }
