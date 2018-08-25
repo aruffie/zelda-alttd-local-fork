@@ -1,153 +1,173 @@
--- Lua script of enemy blob_green.
--- This script is executed every time an enemy with this model is created.
-
--- Feel free to modify the code below.
--- You can add more events and remove the ones you don't need.
-
--- See the Solarus Lua API documentation for the full specification
--- of types, events and methods:
--- http://www.solarus-games.org/doc/latest
+-- Moldorm boss script.
 
 local enemy = ...
 local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
-local body_1
-local body_2
-local body_3
-local head
-local movement_head
-local movement_body_1
-local movement_body_2
-local movement_body_3
-local movement_tail
+
+local sprites_folder = "enemies/boss/moldorm/" -- Rename this if necessary.
+local body_parts = {} -- In this order: head, body_1, body_2, body_3, tail.
+local normal_angle_speed, max_angle_speed = 128, 180
+local min_radius, max_radius = 24, 80
+local delay_between_parts = 250
+local is_hurt
 
 -- Event called when the enemy is initialized.
 function enemy:on_created()
 
-  local x_enemy,y_enemy,layer_enemy = enemy:get_position()
-  sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
-  sprite:set_direction(2)
+  -- Check the number of parts already created (by recurrence).
+  local exists = map.moldorm_tail_exists
+  if exists then return end -- Exit function.
+  map.moldorm_tail_exists = true
+
+  -- Define tail properties.
+  local x, y, layer = enemy:get_position()
+  local sprite = enemy:create_sprite(sprites_folder .. "moldorm")
+  sprite:set_direction(3)
   enemy:set_life(5)
   enemy:set_damage(1)
   enemy:set_hurt_style("boss")
-  head = map:create_enemy{
-        breed = enemy:get_breed() .. '/moldorm_head',
-        direction = 3,
-        x = x_enemy,
-        y = y_enemy,
-        width = 32,
-        height = 32,
-        layer = layer_enemy
-      }
-  body_1 = map:create_enemy{
-      breed = enemy:get_breed() .. '/moldorm_body_1',
-      direction = 3,
-      x = x_enemy,
-      y = y_enemy,
-      width = 32,
-      height = 32,
-      layer = layer_enemy
-    }
-  body_2 = map:create_enemy{
-        breed = enemy:get_breed() .. '/moldorm_body_2',
-        direction = 3,
-        x = x_enemy,
-        y = y_enemy,
-        width = 32,
-        height = 32,
-        layer = layer_enemy
-      }
-  body_3 = map:create_enemy{
-        breed = enemy:get_breed() .. '/moldorm_body_3',
-        direction = 3,
-        x = x_enemy,
-        y = y_enemy,
-        width = 32,
-        height = 32,
-        layer = layer_enemy
-      }
+  body_parts[5] = enemy
+  
+  -- Create remaining body parts.
+  local body_names = {"head", "body_1", "body_2", "body_3"}
+  for i = 1, 4 do  
+    local e = map:create_enemy({
+      breed = enemy:get_breed(),
+      direction = 3,  x = x, y = y, layer = layer, width = 32, height = 32,
+    })
+    e:create_sprite(sprites_folder .. "moldorm_" .. body_names[i])
+    e:set_invincible(true)
+    body_parts[i] = e
+  end
+  -- Clear variable after body parts creation (necessary for several Moldorms).
+  map.moldorm_tail_exists = nil
 
+  -- Define on_restarted events.
+  for i = 1, 4 do
+    body_parts[i].on_restarted = function() end
+    body_parts[i]:restart()
+  end
+  function enemy:on_restarted() enemy:go_random() end
+
+  -- Add index and parts getters. Create lists for next movement.
+  for i = 1, 5 do
+    local e = body_parts[i] 
+    function e:get_index() return i end
+    function e:get_body_part(i) return body_parts[i] end
+    e.movement_list = {}
+  end 
 end
 
+-- Stop movements and timers only on head when hurt.
 function enemy:on_hurt()
-
-  movement_head:set_angle_speed(180)
-
+  enemy:get_body_part(1):restart()
+  is_hurt = true
 end
 
-function enemy:on_pre_draw()
-
-  head:remove_sprite()
-  body_1:remove_sprite()
-  body_2:remove_sprite()
-  body_3:remove_sprite()
-  head:create_sprite("enemies/boss/moldorm/moldorm_head")
-
-end
-
-function enemy:go_body()
-
-   movement_body_1 = sol.movement.create("target")
-   movement_body_1:set_target(head)
-   movement_body_1:set_speed(128)
-   movement_body_1:start(body_1)
-   movement_body_2 = sol.movement.create("target")
-   movement_body_2:set_target(body_1)
-   movement_body_2:set_speed(128)
-   movement_body_2:start(body_2)
-   movement_body_3 = sol.movement.create("target")
-   movement_body_3:set_target(body_2)
-   movement_body_3:set_speed(128)
-   movement_body_3:start(body_3)
-   movement_tail = sol.movement.create("target")
-   movement_tail:set_target(body_3)
-   movement_tail:set_speed(128)
-   movement_tail:start(enemy)
-
-end
-
-function enemy:go(clockwise, angle, center_x, center_y)
-
-  movement_head = sol.movement.create("circle")
-  movement_head:set_radius(32)
-  movement_head:set_angle_speed(140)
-  local angle_degrees = angle * 360 / (2 * math.pi)
-  movement_head:set_initial_angle(angle_degrees)
-  movement_head:set_ignore_obstacles(false)
-  movement_head:set_clockwise(clockwise)
-  movement_head:set_center(center_x, center_y)
-  movement_head.center_x, movement_head.center_y = center_x, center_y
-  function movement_head:on_obstacle_reached()
-    movement_head:set_clockwise(not movement_head:is_clockwise())
+-- Create list with circle movement info: radius, center, is_clockwise, init_angle, max_rotations, is_hurt.
+function enemy:create_new_movement_info()
+  -- Only the head can call this function.
+  if enemy:get_index() ~= 1 then return end
+  -- Create random properties.
+  local radius = math.floor(math.random(min_radius, max_radius))
+  local is_clockwise = math.random(0,1) == 1
+  local max_angle = math.max(1, 2 * math.pi * math.random())
+  local max_rotations = max_angle / (2 * math.pi)
+  -- Keep the same enemy "angle" of the head part if already moving.
+  local x, y, layer = enemy:get_position()
+  local m = enemy.movement_list[1]
+  local current_angle_center, current_is_clockwise
+  if m then
+    current_is_clockwise = m:is_clockwise()
+    current_angle_center = m:get_angle_from_center()
+  else
+    current_is_clockwise = is_clockwise
+    current_angle_center = 2 * math.pi * math.random()
   end
-  movement_head:start(head)
-
+  local init_angle = (is_clockwise == current_is_clockwise) and current_angle_center
+    or ((-1) * current_angle_center)
+  local angle_enemy = current_is_clockwise and (current_angle_center - math.pi/2)
+      or (current_angle_center + math.pi/2)
+  local center = {x = x + radius * math.cos(angle_enemy), y = y + radius * math.sin(angle_enemy)}
+  -- Return info.
+  local info = {
+    radius = radius, center = center, is_clockwise = is_clockwise,
+    init_angle = init_angle, max_rotations = max_rotations, is_hurt = is_hurt
+  }
+  return info
 end
 
-function enemy:repeat_switch_side()
+-- Create a movement with the info.
+function enemy:start_movement(info)
+  local m = sol.movement.create("circle")
+  m:set_radius(info.radius)
+  m:set_center(info.center.x, info.center.y)
+  if info.is_hurt then m:set_angle_speed(max_angle_speed)
+  else m:set_angle_speed(normal_angle_speed) end
+  m:set_clockwise(info.is_clockwise)
+  m:set_angle_from_center(info.init_angle)
+  m:set_max_rotations(info.max_rotations)
+  m:start(enemy)
+end
 
-  if is_dead then
-    return false
+-- Add next movement to the movement list.
+function enemy:add_next_movement(info)
+  local list = enemy.movement_list
+  list[#list + 1] = info
+end
+
+-- Remove last movement to the movement list.
+function enemy:remove_last_movement()
+  local list = enemy.movement_list
+  for i = 1, #list -1 do
+    list[i] = list[i + 1]
   end
-  local x, y = enemy:get_position()
-  local clockwise = not movement_head:is_clockwise()
-  local center_x, center_y = x - (movement_head.center_x - x), y - (movement_head.center_y - y)
-  local angle = sol.main.get_angle(center_x, center_y, x, y)
-  enemy:go(clockwise, angle, center_x, center_y)
-  sol.timer.start(enemy, math.random(1000, 3000), function()
-    enemy:repeat_switch_side()
-  end)
-
+  list[#list] = nil
 end
 
-function enemy:on_restarted() 
+-- Check if there is next movement in the movement list.
+function enemy:has_next_movement()
+  local list = enemy.movement_list
+  return #list > 0
+end
 
-  local x, y = enemy:get_position()
-  enemy:go(true, 0, x - 32, y)
-  enemy:go_body()
-  sol.timer.start(enemy, 1000, function()
-    enemy:repeat_switch_side()
-  end)
+-- Start next movement, if any, and delete its info from the list.
+function enemy:start_next_movement()
+  if enemy:has_next_movement() then
+    local info = enemy.movement_list[1]
+    enemy:start_movement(info)
+    enemy:remove_last_movement()
+  end
+end
 
+-- Start next movement when a movement has finished.
+-- The head creates a new movement when necessary.
+function enemy:on_movement_finished()
+  if enemy:get_index() ~= 1 then -- The body part is not the head.
+    enemy:start_next_movement()
+    enemy:remove_last_movement(enemy)
+  else -- The body part is the head.
+    -- Add new movement info to all body parts.
+    local info = enemy:create_new_movement_info()
+    for i = 1, 5 do
+      enemy:get_body_part(i):add_next_movement(info)
+    end
+    -- Start movement on head.
+    enemy:start_next_movement()
+  end
+end
+
+-- Start random sequence of movements.
+function enemy:go_random()
+  -- Create and initialize movements.
+  local tail = enemy:get_body_part(5)
+  local head = enemy:get_body_part(1)
+  local info = head:create_new_movement_info()
+  for i = 1, 5 do
+    sol.timer.start(tail, (i-1) * delay_between_parts, function() 
+      enemy:get_body_part(i):add_next_movement(info)
+      enemy:get_body_part(i):start_next_movement()
+    end)
+  end
 end
