@@ -7,10 +7,10 @@ local hero = map:get_hero()
 
 local sprites_folder = "enemies/boss/moldorm/" -- Rename this if necessary.
 local body_parts = {} -- In this order: head, body_1, body_2, body_3, tail.
-local normal_angle_speed, max_angle_speed = 3*math.pi/4, 3*math.pi/2 -- Radians per second.
+local normal_angle_speed, max_angle_speed = math.pi/2, math.pi -- Radians per second.
 local life = 8
 local min_radius, max_radius = 24, 80
-local hurt_duration = 3000
+local hurt_duration = 4000
 local delay_between_parts = 120
 local is_hurt
 
@@ -276,8 +276,11 @@ function enemy:on_position_changed(x, y, layer)
   end
   -- Count the movements. This is used to check when to stop.
   local info = enemy:get_current_movement_info()
-  local num_pos = info.num_positions_changed
-  info.num_positions_changed = num_pos and num_pos + 1 or 0
+  info.num_positions = info.num_positions or {}
+  local pos = info.num_positions
+  local index = enemy:get_index()
+  pos[index] = pos[index] and (pos[index] + 1) or 0
+  local num_pos = pos[index]
   -- Calculate the differences of angles.
   local cx, cy = info.center.x, info.center.y
   local x, y, _ = enemy:get_position()
@@ -285,7 +288,7 @@ function enemy:on_position_changed(x, y, layer)
   local final_diff = info.max_angle % (2 * math.pi)
   local current_diff = (current_angle - info.init_angle) % (2 * math.pi)
   -- Stop if necessary, when the final angle is surpassed. Then start new movement.
-  if current_diff >= final_diff and info.num_positions_changed > 0 then
+  if current_diff >= final_diff and pos[index] > 0 then
     enemy:start_next_movement()
   end
   -- Update eyes for head part.
