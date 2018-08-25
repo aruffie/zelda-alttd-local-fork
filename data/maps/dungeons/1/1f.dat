@@ -15041,15 +15041,6 @@ block{
   maximum_moves = 0,
 }
 
-enemy{
-  name = "test",
-  layer = 0,
-  x = 1096,
-  y = 1677,
-  direction = 0,
-  breed = "zol_green",
-}
-
 custom_entity{
   name = "boss_door_frame",
   layer = 0,
@@ -15741,7 +15732,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_1_1",
+  name = "floor_1_unstable_associate_",
   layer = 0,
   x = 720,
   y = 1456,
@@ -15751,7 +15742,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_1",
+  name = "floor_1",
   layer = 0,
   x = 728,
   y = 1469,
@@ -15763,7 +15754,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_2_1",
+  name = "floor_2_unstable_associate_",
   layer = 0,
   x = 736,
   y = 1456,
@@ -15773,7 +15764,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_2",
+  name = "floor_2",
   layer = 0,
   x = 744,
   y = 1469,
@@ -15785,7 +15776,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_3_1",
+  name = "floor_3_unstable_associate_",
   layer = 0,
   x = 752,
   y = 1456,
@@ -15795,7 +15786,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_3",
+  name = "floor_3",
   layer = 0,
   x = 760,
   y = 1469,
@@ -15807,7 +15798,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_4_1",
+  name = "floor_4_unstable_associate_",
   layer = 0,
   x = 768,
   y = 1456,
@@ -15817,7 +15808,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_4",
+  name = "floor_4",
   layer = 0,
   x = 776,
   y = 1469,
@@ -15829,7 +15820,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_5_1",
+  name = "floor_5_unstable_associate_",
   layer = 0,
   x = 784,
   y = 1456,
@@ -15839,7 +15830,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_5",
+  name = "floor_5",
   layer = 0,
   x = 792,
   y = 1469,
@@ -15851,7 +15842,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_6_1",
+  name = "floor_6_unstable_associate_",
   layer = 0,
   x = 800,
   y = 1456,
@@ -15861,7 +15852,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_6",
+  name = "floor_6",
   layer = 0,
   x = 808,
   y = 1469,
@@ -15873,7 +15864,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_7_1",
+  name = "floor_7_unstable_associate_",
   layer = 0,
   x = 816,
   y = 1456,
@@ -15883,7 +15874,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_7",
+  name = "floor_7",
   layer = 0,
   x = 824,
   y = 1469,
@@ -15895,7 +15886,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_8_1",
+  name = "floor_8_unstable_associate_",
   layer = 0,
   x = 832,
   y = 1456,
@@ -15905,7 +15896,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_8",
+  name = "floor_8",
   layer = 0,
   x = 840,
   y = 1469,
@@ -15917,7 +15908,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_9_1",
+  name = "floor_9_unstable_associate_",
   layer = 0,
   x = 848,
   y = 1456,
@@ -15927,7 +15918,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_9",
+  name = "floor_9",
   layer = 0,
   x = 856,
   y = 1469,
@@ -15939,7 +15930,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_10_1",
+  name = "floor_10_unstable_associate_",
   layer = 0,
   x = 864,
   y = 1456,
@@ -15949,7 +15940,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_10",
+  name = "floor_10",
   layer = 0,
   x = 872,
   y = 1469,
@@ -15961,7 +15952,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_11_1",
+  name = "floor_11_unstable_associate_",
   layer = 0,
   x = 720,
   y = 1472,
@@ -15971,7 +15962,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_11",
+  name = "floor_11",
   layer = 0,
   x = 728,
   y = 1485,
@@ -15983,7 +15974,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_12_1",
+  name = "floor_12_unstable_associate_",
   layer = 0,
   x = 736,
   y = 1472,
@@ -15993,7 +15984,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_12",
+  name = "floor_12",
   layer = 0,
   x = 744,
   y = 1485,
@@ -16005,7 +15996,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_13_1",
+  name = "floor_13_unstable_associate_",
   layer = 0,
   x = 752,
   y = 1472,
@@ -16015,7 +16006,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_13",
+  name = "floor_13",
   layer = 0,
   x = 760,
   y = 1485,
@@ -16027,7 +16018,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_14_1",
+  name = "floor_14_unstable_associate_",
   layer = 0,
   x = 768,
   y = 1472,
@@ -16037,7 +16028,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_14",
+  name = "floor_14",
   layer = 0,
   x = 776,
   y = 1485,
@@ -16049,7 +16040,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_15_1",
+  name = "floor_15_unstable_associate_",
   layer = 0,
   x = 784,
   y = 1472,
@@ -16059,7 +16050,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_15",
+  name = "floor_15",
   layer = 0,
   x = 792,
   y = 1485,
@@ -16071,7 +16062,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_16_1",
+  name = "floor_16_unstable_associate_",
   layer = 0,
   x = 800,
   y = 1472,
@@ -16081,7 +16072,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_16",
+  name = "floor_16",
   layer = 0,
   x = 808,
   y = 1485,
@@ -16093,7 +16084,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_17_1",
+  name = "floor_17_unstable_associate_",
   layer = 0,
   x = 816,
   y = 1472,
@@ -16103,7 +16094,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_17",
+  name = "floor_17",
   layer = 0,
   x = 824,
   y = 1485,
@@ -16115,7 +16106,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_18_1",
+  name = "floor_18_unstable_associate_",
   layer = 0,
   x = 832,
   y = 1472,
@@ -16125,7 +16116,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_18",
+  name = "floor_18",
   layer = 0,
   x = 840,
   y = 1485,
@@ -16137,7 +16128,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_19_1",
+  name = "floor_19_unstable_associate_",
   layer = 0,
   x = 848,
   y = 1472,
@@ -16147,7 +16138,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_19",
+  name = "floor_19",
   layer = 0,
   x = 856,
   y = 1485,
@@ -16159,7 +16150,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_20_1",
+  name = "floor_20_unstable_associate_",
   layer = 0,
   x = 864,
   y = 1472,
@@ -16169,7 +16160,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_20",
+  name = "floor_20",
   layer = 0,
   x = 872,
   y = 1485,
@@ -16181,7 +16172,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_21_1",
+  name = "floor_21_unstable_associate_",
   layer = 0,
   x = 704,
   y = 1440,
@@ -16191,7 +16182,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_21",
+  name = "floor_21",
   layer = 0,
   x = 712,
   y = 1453,
@@ -16203,7 +16194,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_22_1",
+  name = "floor_22_unstable_associate_",
   layer = 0,
   x = 704,
   y = 1424,
@@ -16213,7 +16204,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_22",
+  name = "floor_22",
   layer = 0,
   x = 712,
   y = 1437,
@@ -16225,7 +16216,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_23_1",
+  name = "floor_23_unstable_associate_",
   layer = 0,
   x = 704,
   y = 1408,
@@ -16235,7 +16226,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_23",
+  name = "floor_23",
   layer = 0,
   x = 712,
   y = 1421,
@@ -16247,7 +16238,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_24_1",
+  name = "floor_24_unstable_associate_",
   layer = 0,
   x = 704,
   y = 1392,
@@ -16257,7 +16248,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_24",
+  name = "floor_24",
   layer = 0,
   x = 712,
   y = 1405,
@@ -16269,7 +16260,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_25_1",
+  name = "floor_25_unstable_associate_",
   layer = 0,
   x = 704,
   y = 1376,
@@ -16279,7 +16270,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_25",
+  name = "floor_25",
   layer = 0,
   x = 712,
   y = 1389,
@@ -16291,7 +16282,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_26_1",
+  name = "floor_26_unstable_associate_",
   layer = 0,
   x = 704,
   y = 1360,
@@ -16301,7 +16292,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_26",
+  name = "floor_26",
   layer = 0,
   x = 712,
   y = 1373,
@@ -16313,7 +16304,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_27_1",
+  name = "floor_27_unstable_associate_",
   layer = 0,
   x = 720,
   y = 1344,
@@ -16323,7 +16314,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_27",
+  name = "floor_27",
   layer = 0,
   x = 728,
   y = 1357,
@@ -16335,7 +16326,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_28_1",
+  name = "floor_28_unstable_associate_",
   layer = 0,
   x = 736,
   y = 1344,
@@ -16345,7 +16336,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_28",
+  name = "floor_28",
   layer = 0,
   x = 744,
   y = 1357,
@@ -16357,7 +16348,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_29_1",
+  name = "floor_29_unstable_associate_",
   layer = 0,
   x = 752,
   y = 1344,
@@ -16367,7 +16358,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_29",
+  name = "floor_29",
   layer = 0,
   x = 760,
   y = 1357,
@@ -16379,7 +16370,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_30_1",
+  name = "floor_30_unstable_associate_",
   layer = 0,
   x = 768,
   y = 1344,
@@ -16389,7 +16380,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_30",
+  name = "floor_30",
   layer = 0,
   x = 776,
   y = 1357,
@@ -16401,7 +16392,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_31_1",
+  name = "floor_31_unstable_associate_",
   layer = 0,
   x = 688,
   y = 1440,
@@ -16411,7 +16402,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_31",
+  name = "floor_31",
   layer = 0,
   x = 696,
   y = 1453,
@@ -16423,7 +16414,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_32_1",
+  name = "floor_32_unstable_associate_",
   layer = 0,
   x = 688,
   y = 1424,
@@ -16433,7 +16424,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_32",
+  name = "floor_32",
   layer = 0,
   x = 696,
   y = 1437,
@@ -16445,7 +16436,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_33_1",
+  name = "floor_33_unstable_associate_",
   layer = 0,
   x = 688,
   y = 1408,
@@ -16455,7 +16446,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_33",
+  name = "floor_33",
   layer = 0,
   x = 696,
   y = 1421,
@@ -16467,7 +16458,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_34_1",
+  name = "floor_34_unstable_associate_",
   layer = 0,
   x = 688,
   y = 1392,
@@ -16477,7 +16468,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_34",
+  name = "floor_34",
   layer = 0,
   x = 696,
   y = 1405,
@@ -16489,7 +16480,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_35_1",
+  name = "floor_35_unstable_associate_",
   layer = 0,
   x = 688,
   y = 1376,
@@ -16499,7 +16490,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_35",
+  name = "floor_35",
   layer = 0,
   x = 696,
   y = 1389,
@@ -16511,7 +16502,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_36_1",
+  name = "floor_36_unstable_associate_",
   layer = 0,
   x = 688,
   y = 1360,
@@ -16521,7 +16512,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_36",
+  name = "floor_36",
   layer = 0,
   x = 696,
   y = 1373,
@@ -16533,7 +16524,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_37_1",
+  name = "floor_37_unstable_associate_",
   layer = 0,
   x = 720,
   y = 1328,
@@ -16543,7 +16534,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_37",
+  name = "floor_37",
   layer = 0,
   x = 728,
   y = 1341,
@@ -16555,7 +16546,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_38_1",
+  name = "floor_38_unstable_associate_",
   layer = 0,
   x = 736,
   y = 1328,
@@ -16565,7 +16556,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_38",
+  name = "floor_38",
   layer = 0,
   x = 744,
   y = 1341,
@@ -16577,7 +16568,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_39_1",
+  name = "floor_39_unstable_associate_",
   layer = 0,
   x = 752,
   y = 1328,
@@ -16587,7 +16578,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_39",
+  name = "floor_39",
   layer = 0,
   x = 760,
   y = 1341,
@@ -16599,7 +16590,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_40_1",
+  name = "floor_40_unstable_associate_",
   layer = 0,
   x = 768,
   y = 1328,
@@ -16609,7 +16600,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_40",
+  name = "floor_40",
   layer = 0,
   x = 776,
   y = 1341,
@@ -16621,7 +16612,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_41_1",
+  name = "floor_41_unstable_associate_",
   layer = 0,
   x = 816,
   y = 1328,
@@ -16631,7 +16622,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_41",
+  name = "floor_41",
   layer = 0,
   x = 824,
   y = 1341,
@@ -16643,7 +16634,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_42_1",
+  name = "floor_42_unstable_associate_",
   layer = 0,
   x = 832,
   y = 1328,
@@ -16653,7 +16644,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_42",
+  name = "floor_42",
   layer = 0,
   x = 840,
   y = 1341,
@@ -16665,7 +16656,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_43_1",
+  name = "floor_43_unstable_associate_",
   layer = 0,
   x = 848,
   y = 1328,
@@ -16675,7 +16666,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_43",
+  name = "floor_43",
   layer = 0,
   x = 856,
   y = 1341,
@@ -16687,7 +16678,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_44_1",
+  name = "floor_44_unstable_associate_",
   layer = 0,
   x = 864,
   y = 1328,
@@ -16697,7 +16688,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_44",
+  name = "floor_44",
   layer = 0,
   x = 872,
   y = 1341,
@@ -16709,7 +16700,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_45_1",
+  name = "floor_45_unstable_associate_",
   layer = 0,
   x = 816,
   y = 1344,
@@ -16719,7 +16710,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_45",
+  name = "floor_45",
   layer = 0,
   x = 824,
   y = 1357,
@@ -16731,7 +16722,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_46_1",
+  name = "floor_46_unstable_associate_",
   layer = 0,
   x = 832,
   y = 1344,
@@ -16741,7 +16732,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_46",
+  name = "floor_46",
   layer = 0,
   x = 840,
   y = 1357,
@@ -16753,7 +16744,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_47_1",
+  name = "floor_47_unstable_associate_",
   layer = 0,
   x = 848,
   y = 1344,
@@ -16763,7 +16754,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_47",
+  name = "floor_47",
   layer = 0,
   x = 856,
   y = 1357,
@@ -16775,7 +16766,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_48_1",
+  name = "floor_48_unstable_associate_",
   layer = 0,
   x = 864,
   y = 1344,
@@ -16785,7 +16776,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_48",
+  name = "floor_48",
   layer = 0,
   x = 872,
   y = 1357,
@@ -16797,7 +16788,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_49_1",
+  name = "floor_49_unstable_associate_",
   layer = 0,
   x = 880,
   y = 1360,
@@ -16807,7 +16798,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_49",
+  name = "floor_49",
   layer = 0,
   x = 888,
   y = 1373,
@@ -16819,7 +16810,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_50_1",
+  name = "floor_50_unstable_associate_",
   layer = 0,
   x = 896,
   y = 1360,
@@ -16829,7 +16820,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_50",
+  name = "floor_50",
   layer = 0,
   x = 904,
   y = 1373,
@@ -16841,7 +16832,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_51_1",
+  name = "floor_51_unstable_associate_",
   layer = 0,
   x = 880,
   y = 1376,
@@ -16851,7 +16842,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_51",
+  name = "floor_51",
   layer = 0,
   x = 888,
   y = 1389,
@@ -16863,7 +16854,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_52_1",
+  name = "floor_52_unstable_associate_",
   layer = 0,
   x = 896,
   y = 1376,
@@ -16873,7 +16864,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_52",
+  name = "floor_52",
   layer = 0,
   x = 904,
   y = 1389,
@@ -16885,7 +16876,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_53_1",
+  name = "floor_53_unstable_associate_",
   layer = 0,
   x = 880,
   y = 1424,
@@ -16895,7 +16886,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_53",
+  name = "floor_53",
   layer = 0,
   x = 888,
   y = 1437,
@@ -16907,7 +16898,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_54_1",
+  name = "floor_54_unstable_associate_5",
   layer = 0,
   x = 896,
   y = 1424,
@@ -16917,7 +16908,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_54",
+  name = "floor_54",
   layer = 0,
   x = 904,
   y = 1437,
@@ -16929,7 +16920,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_55_1",
+  name = "floor_55_unstable_associate_",
   layer = 0,
   x = 880,
   y = 1440,
@@ -16939,7 +16930,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_55",
+  name = "floor_55",
   layer = 0,
   x = 888,
   y = 1453,
@@ -16951,7 +16942,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "unstable_floor_56_1",
+  name = "floor_56_unstable_associate_",
   layer = 0,
   x = 896,
   y = 1440,
@@ -16961,7 +16952,7 @@ dynamic_tile{
 }
 
 custom_entity{
-  name = "unstable_floor_56",
+  name = "floor_56",
   layer = 0,
   x = 904,
   y = 1453,
