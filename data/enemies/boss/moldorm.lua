@@ -37,7 +37,6 @@ function enemy:on_created()
     e:set_invincible()
     e:clear_movement_info() -- Prepare lists.
   end
-  body_parts[1]:bring_to_front() -- Bring head to front.
 
   -- Clear variable after body parts creation (necessary for several Moldorms).
   map.moldorm_tail_exists = nil
@@ -47,6 +46,14 @@ function enemy:on_created()
   for i = 1, 4 do 
     body_parts[i]:create_sprite(sprites_folder .. "moldorm_" .. body_names[i])
   end
+  local head = body_parts[1]
+  local tail = body_parts[6]
+  -- Prepare head.
+  head:bring_to_front() -- Bring head to front.
+  head:get_sprite():set_direction(6)
+  -- Draw parts in correct order.
+  for i = 1, 6 do local e = body_parts[i]; e:set_drawn_in_y_order(false) end
+  for i = 2, 6 do local e = body_parts[i]; e:bring_to_back() end
 
   for i = 1, 6 do
     local e = body_parts[i]
@@ -79,7 +86,6 @@ function enemy:on_created()
   end
 
   -- Kill invincible parts when tail is killed.
-  local tail = body_parts[6] 
   function tail:on_dying()
     for i = 1, 6 do -- Stop all body parts.
       e = tail:get_body_part(i)
@@ -87,6 +93,14 @@ function enemy:on_created()
       e:set_life(0)
     end
     tail:get_invisible_part():remove()
+  end
+
+  -- Synchronize sprites with tail sprite.
+  function sprite:on_animation_changed(anim)
+    for i = 1, 4 do
+      local e = body_parts[i]
+      for _, s in e:get_sprites() do s:set_animation(anim) end
+    end
   end
 
   -- Start movement.
@@ -284,6 +298,7 @@ end
 
 -- Check if the current movement has to be finished.
 function enemy:on_position_changed(x, y, layer)
+  enemy:get_head():bring_to_front() -- Bring head to front.
   -- Do nothing for the tail.
   if enemy == enemy:get_tail() then return end
   -- Move tail when the invisible part moves. This avoids tail stopping when hurt.
