@@ -13760,8 +13760,6 @@ door{
   direction = 1,
   sprite = "entities/doors/door_boss_key",
   savegame_variable = "dungeon_1_door_boss",
-  opening_method = "interaction_if_savegame_variable",
-  opening_condition = "dungeon_1_boss_key",
 }
 
 door{
@@ -17015,6 +17013,34 @@ wall{
   width = 16,
   height = 176,
   stops_enemies = true,
+}
+
+enemy{
+  name = "enemy_group_15_1",
+  layer = 0,
+  x = 440,
+  y = 637,
+  direction = 0,
+  breed = "spike",
+}
+
+enemy{
+  name = "enemy_group_15_2",
+  layer = 0,
+  x = 504,
+  y = 685,
+  direction = 0,
+  breed = "spike",
+}
+
+enemy{
+  name = "enemy_group_16_1",
+  layer = 0,
+  x = 1088,
+  y = 1149,
+  direction = 0,
+  breed = "zol_green",
+  treasure_name = "random",
 }
 
 tile{
