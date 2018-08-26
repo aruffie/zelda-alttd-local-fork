@@ -37,6 +37,8 @@ function enemy:on_created()
     e:set_invincible()
     e:clear_movement_info() -- Prepare lists.
   end
+  body_parts[1]:bring_to_front() -- Bring head to front.
+
   -- Clear variable after body parts creation (necessary for several Moldorms).
   map.moldorm_tail_exists = nil
   -- Create sprites. Part 5 is spriteless, used to move the tail,
@@ -85,18 +87,6 @@ function enemy:on_created()
       e:set_life(0)
     end
     tail:get_invisible_part():remove()
-  end
-
-  -- Create eyes.
-  local eye_1 = body_parts[1]:create_sprite(sprites_folder .. "moldorm_eyes", "eye_1")
-  local eye_2 = body_parts[1]:create_sprite(sprites_folder .. "moldorm_eyes", "eye_2")
-  body_parts[1]:set_eyes_direction(3)
-  -- Synchronize sprites with tail sprite.
-  function sprite:on_animation_changed(anim)
-    for i = 1, 4 do
-      local e = body_parts[i]
-      for _, s in e:get_sprites() do s:set_animation(anim) end
-    end
   end
 
   -- Start movement.
@@ -327,11 +317,11 @@ function enemy:on_position_changed(x, y, layer)
       enemy:reattach()
     end
   end
-  -- Update eyes for head part.
+  -- Update direction for head sprite.
   if enemy == enemy:get_head() then
     local sign = info.is_clockwise and -1 or 1
-    local eyes_dir = (enemy:get_direction8_to(cx, cy) - sign * 2) % 8
-    enemy:set_eyes_direction(eyes_dir)
+    local dir = (enemy:get_direction8_to(cx, cy) - sign * 2) % 8
+    enemy:get_sprite():set_direction(dir)
   end
 end
 
@@ -357,27 +347,4 @@ function enemy:reattach()
     for i = 1, 6 do enemy:get_body_part(i):set_reattaching_state(false) end
     enemy:get_head():go_random()
   end)
-end
-
--- Update position of eyes.
-function enemy:set_eyes_direction(eyes_dir)
-  if enemy ~= enemy:get_head() then return end
-  -- Set directions.
-  local eye_1 = enemy:get_sprite("eye_1")
-  local eye_2 = enemy:get_sprite("eye_2")
-  eye_1:set_direction(eyes_dir)
-  eye_2:set_direction(eyes_dir)
-  -- Shift positions.
-  local shift_init_1 = {x = 5, y = -5}
-  local shift_init_2 = {x = 5, y = 5}
-  local angle = 2 * math.pi * eyes_dir/8
-  local shift_1, shift_2 = {}, {}
-  local cos, sin = math.cos(angle), math.sin(angle)
-  shift_1.x = math.floor(cos * shift_init_1.x + sin * shift_init_1.y)
-  shift_1.y = math.floor(cos * shift_init_1.x - sin * shift_init_1.y)
-  shift_2.x = math.floor(cos * shift_init_2.x + sin * shift_init_2.y)
-  shift_2.y = math.floor(cos * shift_init_2.x - sin * shift_init_2.y)
-  local dy = -10
-  eye_1:set_xy(shift_1.x, shift_1.y + dy)
-  eye_2:set_xy(shift_2.x, shift_2.y + dy)
 end

@@ -209,7 +209,6 @@ sprite{ id = "enemies/boss/moldorm/moldorm", description = "Moldorm tail" }
 sprite{ id = "enemies/boss/moldorm/moldorm_body_1", description = "Moldorm body 1" }
 sprite{ id = "enemies/boss/moldorm/moldorm_body_2", description = "Moldorm body 2" }
 sprite{ id = "enemies/boss/moldorm/moldorm_body_3", description = "Moldorm body 3" }
-sprite{ id = "enemies/boss/moldorm/moldorm_eyes", description = "Moldorm eyes" }
 sprite{ id = "enemies/boss/moldorm/moldorm_head", description = "Moldorm head" }
 sprite{ id = "enemies/boss/rolling_bones/rolling_bones", description = "Rolling bones" }
 sprite{ id = "enemies/boss/rolling_bones/rolling_bones_spike", description = "Rolling bones spike" }
