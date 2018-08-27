@@ -6,9 +6,9 @@
 
 -- See the Solarus Lua API documentation:
 -- http://www.solarus-games.org/doc/latest
-
 local map = ...
 local game = map:get_game()
+local hero = map:get_hero()
 
 -- Event called at initialization time, as soon as this map is loaded.
 function map:on_started()
