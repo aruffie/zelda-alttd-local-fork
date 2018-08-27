@@ -17043,6 +17043,15 @@ enemy{
   treasure_name = "random",
 }
 
+enemy{
+  name = "enemy_group_15_3",
+  layer = 0,
+  x = 1104,
+  y = 1693,
+  direction = 0,
+  breed = "spike",
+}
+
 tile{
   layer = 1,
   x = 528,
