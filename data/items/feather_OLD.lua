@@ -2,7 +2,6 @@ local item = ...
 
 require("scripts/multi_events")
 require("scripts/ground_effects")
-require("scripts/maps/control_manager")
 local hero_meta = sol.main.get_metatable("hero")
 
 -- Initialize parameters for custom jump.
@@ -13,20 +12,38 @@ local max_height_sideview = 20 -- Default height for sideview maps, do NOT chang
 local max_height -- Height of jump in pixels.
 local max_distance = 31 -- Max distance of jump in pixels.
 local jumping_speed = math.floor(1000 * max_distance / jump_duration)
+local disabled_entities -- Nearby streams and teletransporters that are disabled during the jump
 
--- Set properties.
 function item:on_created()
 
-  item:set_savegame_variable("possession_feather")
-  item:set_sound_when_brandished("treasure_2")
-  item:set_assignable(true)
+  self:set_savegame_variable("possession_feather")
+  self:set_sound_when_brandished("treasure_2")
+  self:set_assignable(true)
+  --[[ Redefine event game.on_command_pressed.
+  -- Avoids restarting hero animation when feather command is pressed
+  -- in the middle of a jump, and using weapons while jumping. --]]
+  local game = self:get_game()
+  game:set_ability("jump_over_water", 0) -- Disable auto-jump on water border.
+  game:register_event("on_command_pressed", function(self, command)
+    local item = game:get_item("feather")
+    local effect = game:get_command_effect(command)
+    local slot = ((effect == "use_item_1") and 1)
+        or ((effect == "use_item_2") and 2)
+    if slot and game:get_item_assigned(slot) == item then
+      if not item:is_jumping() then
+        item:on_custom_using()
+      end
+      return true
+    end
+  end)
 end
 
--- Define event for the use the item.
-function item:on_using()
-  -- TODO: check conditions of use here.
-  -- Start the jump.
-  item:start_jump()
+-- The custom jump can only be used under certain conditions.
+-- We define "item.on_custom_using" instead of "item.on_using", which
+-- is directly called by the event "game.on_command_pressed".
+function item:on_custom_using()
+  local hero = self:get_game():get_hero()
+  self:start_custom_jump()
 end
 
 -- Used to detect if custom jump is being used.
@@ -71,7 +88,7 @@ end
 
 -- MAIN FUNCTION.
 -- Define custom jump on hero metatable.
-function item:start_jump()
+function item:start_custom_jump()
 
   local game = self:get_game()
   local map = self:get_map()
@@ -93,7 +110,8 @@ function item:start_jump()
   local is_blocked_on_stream = blocking_stream_below_hero(map)
 
   if is_hero_frozen or is_hero_jumping or is_hero_builtin_jumping or is_hero_carrying
-    or (not is_ground_jumpable) or is_blocked_on_stream or is_on_stairs then
+    or is_using_shield or (not is_ground_jumpable) or is_blocked_on_stream 
+    or is_on_stairs then
     return
   end
 
@@ -107,14 +125,23 @@ function item:start_jump()
 
   -- Prepare hero for jump.
   is_hero_jumping = true
+  hero:unfreeze()  
+  hero:save_solid_ground(hero:get_last_stable_position()) -- Save last stable position.
+  local ws = hero:get_walking_speed() -- Default walking speed.
+  hero:set_walking_speed(jumping_speed)
+  hero:set_invincible(true, jump_duration)
   sol.audio.play_sound("jump")
-  --Start menu controls menu.
-  local control_menu = game:create_control_menu()
-  control_menu:set_fixed_animations("jumping", "jumping")
-  control_menu:set_speed(jumping_speed)
-  control_menu:start(hero, true) -- Start commands menu.
--- Save last stable position.
-  hero:save_solid_ground(hero:get_last_stable_position())
+
+  -- Change and fix tunic animations to display the jump.
+  local state = hero:get_state()
+  if state == "free" then
+    hero:set_fixed_animations("jumping", "jumping")
+    hero:set_animation("jumping")
+  elseif state == "sword loading" then
+    hero:set_fixed_animations("sword_loading_stopped", "sword_loading_stopped")
+  elseif state == "sword spin attack" then
+    hero:set_fixed_animations("spin_attack", "spin_attack")
+  end
 
   -- If the map NOT sideview, prepare ground below .
   local tile -- Custom entity used to modify the ground and show the shadow.
@@ -177,9 +204,15 @@ function item:start_jump()
     end)
   end
 
+
+  -- Disable nearby streams and teletransporters during the jump.
+  item:disable_nearby_entities()
+  
   -- Finish the jump.
   sol.timer.start(item, jump_duration, function()
 
+    hero:set_walking_speed(ws) -- Restore initial walking speed.
+    hero:set_fixed_animations(nil, nil) -- Restore tunic animations.
    if map.is_side_view == nil or map:is_side_view() == false then
      tile:remove()  -- Delete shadow platform tile.
     end
@@ -198,6 +231,9 @@ function item:start_jump()
     -- Create ground effect.
     map:ground_collision(hero)
     
+    -- Enable nearby streams and teletransporters that were disabled during the jump.
+    item:enable_nearby_entities()
+
     -- Restore solid ground as soon as possible.
     sol.timer.start(map, 1, function()
       local ground_type = map:get_ground(hero:get_ground_position())    
@@ -211,10 +247,84 @@ function item:start_jump()
     end)   
 
     -- Finish jump.
-    sol.timer.stop_all(item)
-    control_menu:stop()
-    is_hero_jumping = false
     item:set_finished()
+    sol.timer.stop_all(item)
+    is_hero_jumping = false
   end)
-
 end
+
+-- Create ground effects for hero landing after jump.
+-- TODO: DELETE THIS FUNCTION AND USE THE ONE IN "SCRIPTS/GROUND_EFFECTS.LUA"
+function item:create_ground_effect(x, y, layer)
+
+  local map = item:get_map()
+  local ground = map:get_ground(x, y, layer)
+  if ground == "deep_water" or ground == "shallow_water" then
+    -- If the ground has water, create a splash effect.
+    map:create_ground_effect("water_splash", x, y, layer, "splash")
+  elseif ground == "grass" then
+    -- If the ground has grass, create leaves effect.
+    map:create_ground_effect("falling_leaves", x, y, layer, "bush")
+  else
+    -- For other grounds, make landing sound.
+    sol.audio.play_sound("hero_lands")      
+  end
+end
+
+-- Disable nearby streams, stairs and teletransporters during the jump, allowing to jump over them.
+function item:disable_nearby_entities()
+  local map = item:get_map()
+  local hero = map:get_hero()
+  local hx, hy = hero:get_position()
+  -- Get rectangle coordinates and disable streams on it.
+  local x, y = hx - max_distance, hy - max_distance
+  local w, h = 24 + 2 * max_distance, 24 + 2 * max_distance
+  disabled_entities = {}
+  for entity in map:get_entities_in_rectangle(x, y, w, h) do
+    if entity:is_enabled() then
+      if entity:get_type() == "stream" or entity:get_type() == "stairs"
+          or entity:get_type() == "teletransporter" then
+        disabled_entities[#disabled_entities + 1] = entity
+        entity:set_enabled(false)
+      end
+    end
+  end
+end
+
+-- Enable nearby streams that were disabled during the jump.
+function item:enable_nearby_entities()
+  for _, entity in pairs(disabled_entities) do
+    if entity:exists() then
+      entity:set_enabled(true)
+    end
+  end
+  disabled_entities = nil -- Clear list.
+end
+
+-- Make streams invisible and use a sprite on custom entities instead.
+local function entity_to_hide_on_created(entity)
+  local map = entity:get_map()
+  entity:set_visible(false)
+  local sprite = entity:get_sprite()
+  if sprite then -- Create custom entity with sprite.
+    local x, y, layer = entity:get_position()
+    local w, h = entity:get_size()
+    local id = sprite:get_animation_set()
+    local anim = sprite:get_animation()
+    local dir = sprite:get_direction()
+    local prop = {x = x, y = y, layer = layer,
+      direction = dir, width = w, height = h, sprite = id}
+    local sprite_entity = map:create_custom_entity(prop)
+    -- Destroy the sprite entity if the entity is destroyed.
+    entity:register_event("on_removed", function(entity)
+      if sprite_entity and sprite_entity:exists() then
+        sprite_entity:remove()
+      end
+    end)
+  end
+end
+
+local stream_meta = sol.main.get_metatable("stream")
+stream_meta:register_event("on_created", entity_to_hide_on_created)
+local teletransporter_meta = sol.main.get_metatable("teletransporter")
+teletransporter_meta:register_event("on_created", entity_to_hide_on_created)

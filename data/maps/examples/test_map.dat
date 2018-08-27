@@ -17,42 +17,61 @@ tile{
   pattern = "14667",
 }
 
+tile{
+  layer = 0,
+  x = 64,
+  y = 168,
+  width = 32,
+  height = 32,
+  pattern = "113",
+}
+
+tile{
+  layer = 0,
+  x = 96,
+  y = 168,
+  width = 32,
+  height = 32,
+  pattern = "1041",
+}
+
+tile{
+  layer = 0,
+  x = 128,
+  y = 168,
+  width = 32,
+  height = 32,
+  pattern = "2224",
+}
+
 chest{
   layer = 0,
-  x = 112,
-  y = 173,
+  x = 184,
+  y = 197,
   treasure_name = "power_bracelet",
   sprite = "entities/chest",
 }
 
 enemy{
   layer = 0,
-  x = 64,
-  y = 117,
+  x = 176,
+  y = 101,
   direction = 0,
   breed = "sea_urchin",
-}
-
-enemy{
-  layer = 0,
-  x = 256,
-  y = 61,
-  direction = 0,
-  breed = "octorok",
 }
 
 destination{
   name = "destination",
   layer = 0,
-  x = 32,
-  y = 253,
+  x = 208,
+  y = 245,
   direction = 1,
 }
 
 destructible{
   layer = 0,
-  x = 112,
-  y = 141,
+  x = 184,
+  y = 181,
   sprite = "entities/pot",
   weight = 1,
   damage_on_enemies = 2,
@@ -79,8 +98,8 @@ destructible{
 
 destructible{
   layer = 0,
-  x = 144,
-  y = 141,
+  x = 232,
+  y = 181,
   sprite = "entities/pot",
   weight = 1,
   damage_on_enemies = 2,
@@ -108,17 +127,25 @@ teletransporter{
 
 chest{
   layer = 0,
-  x = 96,
-  y = 173,
+  x = 112,
+  y = 141,
   treasure_name = "magic_powder",
   sprite = "entities/chest",
 }
 
 chest{
   layer = 0,
-  x = 128,
-  y = 173,
+  x = 232,
+  y = 197,
   treasure_name = "shield",
   sprite = "entities/chest",
+}
+
+enemy{
+  layer = 0,
+  x = 280,
+  y = 117,
+  direction = 0,
+  breed = "sea_urchin",
 }
 
