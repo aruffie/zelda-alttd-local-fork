@@ -1,37 +1,30 @@
 local companion_manager = {}
+local map_meta = sol.main.get_metatable("map")
+map_meta.companion_allowed = true 
+require("scripts/multi_events")
 
-function companion_manager:init_map(map)
+function companion_manager:init(map)
 
   local game = map:get_game()
-  local hero = map:get_hero()
-  local step = game:get_value("main_quest_step")
-  local companion = false
-  local sprite = nil
-  local model = nil
-  local x,y, layer = hero:get_position()
-  if step >= 10 and step < 12 then
-    companion = true
-    sprite = "npc/bowwow"
-    model = "bowwow_follow"
-  elseif step == 23 then
-    companion = true
-    sprite = "npc/marin"
-    model = "marin_follow"
+  function game:on_map_changed() 
+    -- Todo
   end
-  if companion then
-    map:create_custom_entity({
-        name = "companion",
-        sprite = sprite,
-        x = x,
-        y = y,
-        width = 16,
-        height = 16,
-        layer = layer,
-        direction = 0,
-        model =  model
-      })
-  end
+
+  
 end
 
+-- Get companion status
+function map_meta:get_companion_allowed(status)
 
-return companion_manager
+  return map_meta.companion_allowed
+
+end
+
+-- Enable/disabled companion
+
+function map_meta:set_companion_allowed()
+
+  map_meta.companion_allowed = status 
+
+end
+
