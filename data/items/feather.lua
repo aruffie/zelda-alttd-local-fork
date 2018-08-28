@@ -108,13 +108,13 @@ function item:start_jump()
   -- Prepare hero for jump.
   is_hero_jumping = true
   sol.audio.play_sound("jump")
-  --Start menu controls menu.
+  -- Save last stable position.
+  hero:save_solid_ground(hero:get_last_stable_position())
+  -- Prepare and start control menu.
   local control_menu = game:create_control_menu()
   control_menu:set_fixed_animations("jumping", "jumping")
   control_menu:set_speed(jumping_speed)
-  control_menu:start(hero, true) -- Start commands menu.
--- Save last stable position.
-  hero:save_solid_ground(hero:get_last_stable_position())
+  control_menu:start(hero)
 
   -- If the map NOT sideview, prepare ground below .
   local tile -- Custom entity used to modify the ground and show the shadow.
