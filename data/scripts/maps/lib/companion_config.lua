@@ -4,21 +4,22 @@
 return {
   marin = {
     sprite = "npc/marin",
-    activation_condition = function(map)
-      local step = map:get_game():get_step()
+    activation_condition = function(game, map)
+      local step = map:get_game():get_value("main_quest_step")
+      local step = 23
       return step == 23
     end
   },
   bowwow = {
     sprite = "npc/bowwow",
-    activation_condition = function(map)
+    activation_condition = function(game, map)
       local excluded_maps = {
         ["houses/meow_house"] = true
       }
       if excluded_maps[map:get_id()] then
         return false
       end
-      local step = map:get_game():get_step()
+      local step = map:get_game():get_value("main_quest_step")
       return step >= 10 and step < 12
     end,
   },

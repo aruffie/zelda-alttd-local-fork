@@ -60,6 +60,9 @@ function follower:on_movement_changed()
 
   local movement = follower:get_movement()
   if movement:get_speed() > 0 then
+    if hero:get_state() ~= "stairs" or map:get_id() == "outside/a2" then
+      sprite:set_direction(movement:get_direction4())
+    end
     if sprite:get_animation() ~= "walking" then
       sprite:set_animation("walking")
     end
