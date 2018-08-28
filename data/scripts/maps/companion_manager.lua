@@ -1,30 +1,30 @@
 local companion_manager = {}
 local map_meta = sol.main.get_metatable("map")
-map_meta.companion_allowed = true 
-require("scripts/multi_events")
+local game_meta = sol.main.get_metatable("game")
 
-function companion_manager:init(map)
 
-  local game = map:get_game()
-  function game:on_map_changed() 
-    -- Todo
-  end
-
-  
+function game_meta:register_event("on_map_changed", function(map)
+    local hero = map.get_hero()
+    local x_hero, y_hero, layer_hero = hero:get_position()
+    local companions = require("scripts/maps/lib/companion_config.lua")
+    -- We go through the list of companions
+    for name, params in ipairs(companions) do
+        -- If the quest condition is true, create the companion.
+        if params.activation_condition ~=nil and params:activation_condition(map) then
+            map:create_custom_entity({
+                name = "companion_" .. name,
+                sprite = params.sprite,
+                x = x_hero,
+                y = y_hero,
+                width = 16,
+                height = 16,
+                layer = layer_hero,
+                direction = 0,
+                model =  "follower"
+              })
+        end
+    end
 end
 
--- Get companion status
-function map_meta:get_companion_allowed(status)
 
-  return map_meta.companion_allowed
-
-end
-
--- Enable/disable companion
-
-function map_meta:set_companion_allowed()
-
-  map_meta.companion_allowed = status 
-
-end
 
