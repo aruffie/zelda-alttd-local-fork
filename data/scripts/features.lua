@@ -21,5 +21,6 @@ require("scripts/meta/npc")
 require("scripts/meta/sensor")
 require("scripts/maps/light_manager.lua")
 require("scripts/maps/unstable_floor_manager.lua")
+require("scripts/maps/companion_manager.lua")
 
 return true
