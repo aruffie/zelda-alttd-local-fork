@@ -10,7 +10,7 @@
 local map = ...
 local game = map:get_game()
 local hero = map:get_hero()
-local companion_manager = require("scripts/maps/companion_manager")
+
 
 function map:set_music()
 
@@ -25,7 +25,7 @@ end
 -- Event called at initialization time, as soon as this map becomes is loaded.
 function map:on_started()
 
-  companion_manager:init_map(map)
+
   map:set_music()
   -- Secret book
   book_9:set_enabled(false)
