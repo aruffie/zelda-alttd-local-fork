@@ -5,9 +5,6 @@ return {
   marin = {
     sprite = "npc/marin",
     activation_condition = function(map)
-      if map.is_companion_allowed ~= nil and not map:is_companion_allowed() then
-        return false
-      end
       local step = map:get_game():get_step()
       return step == 23
     end
@@ -15,11 +12,15 @@ return {
   bowwow = {
     sprite = "npc/bowwow",
     activation_condition = function(map)
-      if map.is_companion_allowed ~= nil and not map:is_companion_allowed() then
+      local excluded_maps = {
+        ["houses/meow_house"] = true,
+        ["another/exemple"] = true,
+      }
+      if excluded_maps[map:get_id()] then
         return false
       end
       local step = map:get_game():get_step()
       return step >= 10 and step < 12
     end,
-  }
+  },
 }

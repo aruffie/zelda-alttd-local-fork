@@ -1,5 +1,4 @@
 local companion_manager = {}
-local map_meta = sol.main.get_metatable("map")
 local game_meta = sol.main.get_metatable("game")
 
 
