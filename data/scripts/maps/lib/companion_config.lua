@@ -13,8 +13,7 @@ return {
     sprite = "npc/bowwow",
     activation_condition = function(map)
       local excluded_maps = {
-        ["houses/meow_house"] = true,
-        ["another/exemple"] = true,
+        ["houses/meow_house"] = true
       }
       if excluded_maps[map:get_id()] then
         return false
@@ -23,4 +22,10 @@ return {
       return step >= 10 and step < 12
     end,
   },
+  ghost = {
+    sprite = "npc/ghost"
+  },
+  flying_rooster = {
+    sprite = "npc/flying_rooster"
+  }
 }
