@@ -20,7 +20,7 @@ function map_meta:get_companion_allowed(status)
 
 end
 
--- Enable/disabled companion
+-- Enable/disable companion
 
 function map_meta:set_companion_allowed()
 
