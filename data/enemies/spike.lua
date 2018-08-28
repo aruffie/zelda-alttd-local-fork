@@ -15,6 +15,7 @@ local hero = map:get_hero()
 local sprite
 local movement
 local timer
+local is_chase = false
 local activation_distance = 16
 
 -- Event called when the enemy is initialized.
@@ -35,13 +36,17 @@ end
 -- it was hurt or immobilized.
 function enemy:on_restarted()
 
-  enemy:go()
+  local m = sol.movement.create("straight")
+  m:set_speed(0)
+  m:start(self)
+  local direction4 = math.random(4) - 1
+  self:go(direction4)
 
 end
 
 function enemy:on_update()
 
-  if self:get_distance(hero) <= 192 then
+  if self:get_distance(hero) <= 192 and is_chase == false then
     -- Check whether the hero is close.
     local x, y = self:get_position()
     local hero_x, hero_y = hero:get_position()
@@ -65,66 +70,92 @@ function enemy:on_update()
 end
 
 
-function enemy:go()
+function enemy:go(direction4)
 
+  enemy:set_attack_consequence("sword", "protected")
+  is_chase = false
+  -- Set the sprite.
   sprite:set_animation("walking")
-  movement = sol.movement.create("target")
-  movement:set_target(hero)
-  movement:set_speed(48)
+  sprite:set_direction(direction4)
+
+  -- Set the movement.
+  local max_distance = 40 + math.random(120)
+  movement = sol.movement.create("straight")
+  movement:set_max_distance(max_distance)
+  movement:set_smooth(true)
+  movement:set_speed(40)
+  movement:set_angle(direction4 * math.pi / 2)
   movement:start(enemy)
 
 end
 
 function enemy:chase(direction4)
 
+  is_chase = true
   sprite:set_animation("chase")
-
-local dxy = {
-    { x =  8, y =  0},
-    { x =  0, y = -8},
-    { x = -8, y =  0},
-    { x =  0, y =  8}
-  }
-
-  -- Check that we can make the move.
-  local index = direction4 + 1
-  if not self:test_obstacles(dxy[index].x * 2, dxy[index].y * 2) then
-
+  movement:stop()
+  local dxy = {
+      { x =  8, y =  0},
+      { x =  0, y = -8},
+      { x = -8, y =  0},
+      { x =  0, y =  8}
+    }
+    -- Check that we can make the move.
+    local index = direction4 + 1
+    if not self:test_obstacles(dxy[index].x * 2, dxy[index].y * 2) then
+      sol.timer.start(enemy, 1000, function()
+        local x, y = self:get_position()
+        local angle = direction4 * math.pi / 2
+        local m = sol.movement.create("straight")
+        m:set_speed(96)
+        m:set_angle(angle)
+        m:set_max_distance(104)
+        m:set_smooth(false)
+        m:start(self)
+        function m:on_finished()
+          is_chase = false
+          local direction4 = math.random(4) - 1
+          enemy:go(direction4)
+        end
+        function m:on_obstacle_reached()
+          is_chase = false
+          local direction4 = math.random(4) - 1
+          enemy:go(direction4)
+        end
+      end)
     state = "moving"
-
-    local x, y = self:get_position()
-    local angle = direction4 * math.pi / 2
-    local m = sol.movement.create("straight")
-    m:set_speed(96)
-    m:set_angle(angle)
-    m:set_max_distance(104)
-    m:set_smooth(false)
-    m:start(self)
   end
 
 
 end
 
 
-function enemy:on_obstacle_reached()
+function enemy:on_movement_finished(movement)
 
-  self:go()
+  local direction4 = math.random(4) - 1
+  self:go(direction4)
 
 end
 
-function enemy:on_movement_finished()
+function enemy:on_obstacle_reached(movement)
 
-  self:go()
+  local direction4 = math.random(4) - 1
+  self:go(direction4)
 
 end
 
 
 function enemy:on_shield_collision(shield)
 
-  movement:stop()
+  local movement = enemy:get_movement()
+  if movement ~= nil then
+    movement:stop()
+  end
   sprite:set_animation("renverse")
+  enemy:set_attack_consequence("sword", 1)
   sol.timer.start(enemy, 2000, function()
-    enemy:go()
+    local direction4 = math.random(4) - 1
+    self:go(direction4)
   end)
     
 

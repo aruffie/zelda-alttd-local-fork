@@ -17052,6 +17052,15 @@ enemy{
   breed = "spike",
 }
 
+enemy{
+  name = "jjj",
+  layer = 0,
+  x = 1128,
+  y = 1693,
+  direction = 0,
+  breed = "octorok",
+}
+
 tile{
   layer = 1,
   x = 528,

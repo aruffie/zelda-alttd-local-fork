@@ -1119,12 +1119,12 @@ dialog{
   id = "_treasure.sword.1",
   icon = "66",
   text = [[
-Tu as retrouvé  
-ton Epée!  $0
+Tu as retrouvé ton
+Epée !  $0
 
-C'est la tienne 
-car il y a ton  
-nom dessus!
+C'est la tienne car 
+il y a ton nom
+dessus !
 ]],
 }
 
