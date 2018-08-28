@@ -5,7 +5,7 @@ local game = map:get_game()
 -- Includes scripts
 local fairy_manager = require("scripts/maps/fairy_manager")
 local owl_manager = require("scripts/maps/owl_manager")
-local companion_manager = require("scripts/maps/companion_manager")
+
 local destructible_places = {}
 local bis_destructible_places = {}
 local raccoon_positions =  {1, 2, 1, 2 , 1 , 3, 1, 3, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 6, 5, 4, 8}
@@ -129,7 +129,7 @@ function map:on_started(destination)
       destructible = destructible,
     }
   end
-  companion_manager:init_map(map)
+
   map:set_digging_allowed(true)
  fairy_manager:init_map(map, "fairy")
   map:set_overlay()
