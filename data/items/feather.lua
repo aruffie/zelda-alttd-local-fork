@@ -4,6 +4,11 @@ require("scripts/multi_events")
 require("scripts/ground_effects")
 require("scripts/maps/control_manager")
 local hero_meta = sol.main.get_metatable("hero")
+local game = item:get_game()
+
+local states_allowing_feather = {"free", "hurt", "running",
+  "sword loading", "sword spin attack", "sword swinging", "using item" }
+
 
 -- Initialize parameters for custom jump.
 local is_hero_jumping = false
@@ -20,6 +25,26 @@ function item:on_created()
   item:set_savegame_variable("possession_feather")
   item:set_sound_when_brandished("treasure_2")
   item:set_assignable(true)
+
+  -- Allow using feather during other states.
+  -- TODO: use custom states when the engine adds them.
+  game:register_event("on_command_pressed", function(self, command)
+    local item = game:get_item("feather")
+    local effect = game:get_command_effect(command)
+    local slot = ((effect == "use_item_1") and 1)
+        or ((effect == "use_item_2") and 2)
+    if slot and game:get_item_assigned(slot) == item then
+      if not item:is_jumping() then
+        local state = game:get_hero():get_state()
+        local allowed = false
+        for _, s in pairs(states_allowing_feather) do
+          if s == state then allowed = true end
+        end
+        if allowed then item:on_using() end
+        return true
+      end
+    end
+  end)
 end
 
 -- Define event for the use the item.
@@ -38,7 +63,6 @@ end
 
 -- Function to determine if the hero can jump on this type of ground.
 function item:is_jumpable_ground(ground_type)
-  local game = self:get_game()
   local map = self:get_map()
   if map.is_side_view ~= nil and map:is_side_view() then
     local is_good_ground = ( (ground_type == "traversable")
@@ -73,7 +97,6 @@ end
 -- Define custom jump on hero metatable.
 function item:start_jump()
 
-  local game = self:get_game()
   local map = self:get_map()
   local hero = map:get_hero()
   local is_sideview_map = map.is_side_view ~= nil and map:is_side_view()
@@ -108,13 +131,16 @@ function item:start_jump()
   -- Prepare hero for jump.
   is_hero_jumping = true
   sol.audio.play_sound("jump")
-  --Start menu controls menu.
+  -- Save last stable position.
+  hero:save_solid_ground(hero:get_last_stable_position())
+  -- Prepare and start control menu.
   local control_menu = game:create_control_menu()
   control_menu:set_fixed_animations("jumping", "jumping")
   control_menu:set_speed(jumping_speed)
-  control_menu:start(hero, true) -- Start commands menu.
--- Save last stable position.
-  hero:save_solid_ground(hero:get_last_stable_position())
+  local control_menu_started = hero_state ~= "running"
+  if control_menu_started then
+    control_menu:start(hero)
+  end
 
   -- If the map NOT sideview, prepare ground below .
   local tile -- Custom entity used to modify the ground and show the shadow.
@@ -179,8 +205,7 @@ function item:start_jump()
 
   -- Finish the jump.
   sol.timer.start(item, jump_duration, function()
-
-   if map.is_side_view == nil or map:is_side_view() == false then
+    if map.is_side_view == nil or map:is_side_view() == false then
      tile:remove()  -- Delete shadow platform tile.
     end
     -- If ground is empty, move hero to lower layer.
@@ -197,7 +222,7 @@ function item:start_jump()
 
     -- Create ground effect.
     map:ground_collision(hero)
-    
+   
     -- Restore solid ground as soon as possible.
     sol.timer.start(map, 1, function()
       local ground_type = map:get_ground(hero:get_ground_position())    
@@ -212,7 +237,7 @@ function item:start_jump()
 
     -- Finish jump.
     sol.timer.stop_all(item)
-    control_menu:stop()
+    if control_menu_started then control_menu:stop() end
     is_hero_jumping = false
     item:set_finished()
   end)
