@@ -1,6 +1,6 @@
 local follower = ...
 
-
+require("scripts/multi_events")
 local game = follower:get_game()
 local map = follower:get_map()
 local sprite = follower:get_sprite()
@@ -39,35 +39,33 @@ local function stop_walking()
   sprite:set_animation("stopped")
 end
 
-function follower:on_created()
-game.follower_following = true
+follower:register_event("on_created", function()
+  game.follower_following = true
   if follower:is_following_hero() then
     follower:set_position(hero:get_position())
     follower:get_sprite():set_direction(hero:get_direction())
     follow_hero()
     return
   end
-
   follower:set_enabled(true)
-end
 
-function follower:on_interaction()
+end)
 
-  
-end
-
-function follower:on_movement_changed()
+follower:register_event("on_movement_changed", function()
 
   local movement = follower:get_movement()
   if movement:get_speed() > 0 then
+    if hero:get_state() ~= "stairs" then
+      sprite:set_direction(movement:get_direction4())
+    end
     if sprite:get_animation() ~= "walking" then
       sprite:set_animation("walking")
     end
   end
-end
 
-function follower:on_position_changed()
+end)
 
+follower:register_event("on_position_changed", function()
 
   local distance = follower:get_distance(hero)
   if follower:is_following_hero() and follower:is_very_close_to_hero() then
@@ -75,19 +73,21 @@ function follower:on_position_changed()
     stop_walking()
   end
 
-end
+end)
 
-function follower:on_obstacle_reached()
-
-  sprite:set_animation("stopped")
-end
-
-function follower:on_movement_finished()
+follower:register_event("on_obstacle_reached", function()
 
   sprite:set_animation("stopped")
-end
 
--- Returns whether Zelda is currently following the hero.
+end)
+
+follower:register_event("on_movement_finished", function()
+
+  sprite:set_animation("stopped")
+
+end)
+
+-- Returns whether Follower is currently following the hero.
 -- This is true even if she is temporarily stopped because too far
 -- or to close.
 function follower:is_following_hero()
@@ -108,11 +108,11 @@ function follower:is_far_from_hero()
   return distance >= 100
 end
 
--- Called when the hero leaves a map without Zelda when he was supposed to wait for her.
+-- Called when the hero leaves a map without Follower when he was supposed to wait for her.
 function follower:hero_gone()
 
-  -- Zelda will be back to the prison cell.
   game.follower_following = false
+
 end
 
 sol.timer.start(follower, 50, function()
@@ -135,4 +135,5 @@ sol.timer.start(follower, 50, function()
   end
 
   return true
+
 end)

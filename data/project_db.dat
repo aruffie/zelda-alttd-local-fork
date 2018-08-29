@@ -369,6 +369,7 @@ sprite{ id = "entities/crystal", description = "Crystal" }
 sprite{ id = "entities/crystal_block", description = "Crystal block" }
 sprite{ id = "entities/destination", description = "Destination of teletransporter" }
 sprite{ id = "entities/dog_statue", description = "Dog statue" }
+sprite{ id = "entities/doors/boss_door_frame_renverse", description = "Boss door frame renverse" }
 sprite{ id = "entities/doors/boss_door_frames", description = "Boss door frames" }
 sprite{ id = "entities/doors/door_big_key", description = "Door big key" }
 sprite{ id = "entities/doors/door_boss_key", description = "Door boss key" }
