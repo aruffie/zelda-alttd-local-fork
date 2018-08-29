@@ -10,7 +10,7 @@ game_meta:register_event("on_map_changed", function(game, map)
     -- We go through the list of companions
     for name, params in pairs(companions) do
         -- If the quest condition is true, create the companion.
-        if params.activation_condition ~= nil and params:activation_condition(map) then
+        if params.activation_condition ~= nil and params.activation_condition(map) then
             map:create_custom_entity({
                 name = "companion_" .. name,
                 sprite = params.sprite,
