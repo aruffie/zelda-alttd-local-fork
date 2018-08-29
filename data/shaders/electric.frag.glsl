@@ -44,5 +44,6 @@ void main() {
     const vec3 black = vec3(28.0,0.0,45.0)/255.0;
 
     FragColor.rgb = lum < 0.5 ? yellow : black;
+    FragColor.rgb = vec3(1,1,1) - FragColor.rgb;
     FragColor.rgb *= pow(lum,0.25);
 }

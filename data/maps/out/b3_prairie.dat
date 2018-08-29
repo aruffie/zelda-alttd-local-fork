@@ -23266,7 +23266,6 @@ dynamic_tile{
   pattern = "1062",
   width = 32,
   height = 8,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -23277,7 +23276,6 @@ dynamic_tile{
   pattern = "957",
   width = 32,
   height = 16,
-  enabled_at_start = true,
 }
 
 door{
@@ -23392,7 +23390,6 @@ dynamic_tile{
   pattern = "1062",
   width = 32,
   height = 8,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -23403,7 +23400,6 @@ dynamic_tile{
   pattern = "957",
   width = 32,
   height = 16,
-  enabled_at_start = true,
 }
 
 door{
@@ -23598,6 +23594,16 @@ custom_entity{
   direction = 0,
   sprite = "entities/statue_small_key_dungeon_3",
   model = "obstacle",
+}
+
+custom_entity{
+  name = "effect_anchor",
+  layer = 0,
+  x = 120,
+  y = 805,
+  width = 32,
+  height = 16,
+  direction = 0,
 }
 
 tile{

@@ -91,6 +91,26 @@ function sol.main:start_savegame(game)
     sol.menu.stop(menu)
   end
 
+  --TODO put elsewhere
+  local effect = sol.surface.create"work/fsaeffect.png"  
+  local ew,eh = effect:get_size()
+  effect:set_blend_mode"multiply"
+  effect:set_opacity(4)
+  game:register_event("on_map_changed",function(game,map)
+    function map:on_draw(dst)
+      local cw,ch = dst:get_size()
+      local camera = map:get_camera()
+      local dx,dy = camera:get_position()
+      local tx = ew - dx % ew
+      local ty = eh - dy % eh
+      for i=-1,math.ceil(ew/cw)+1 do
+        for j=-1,math.ceil(eh/ch) do    
+          effect:draw(dst,tx+i*ew,ty+j*eh)
+        end
+      end
+    end
+  end)
+
   sol.main.game = game
   game:start()
 end
