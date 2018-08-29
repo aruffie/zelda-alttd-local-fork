@@ -5,7 +5,7 @@ local map = ...
 local game = map:get_game()
 local hero = map:get_hero()
 local owl_manager = require("scripts/maps/owl_manager")
-local companion_manager = require("scripts/maps/companion_manager")
+
 
 -- Methods - Functions
 
@@ -34,7 +34,7 @@ function map:on_started(destination)
   if destination == stair_arrows_upgrade then secret_stone:set_enabled(false) end
   -- Signs
   photographer_sign:get_sprite():set_animation("photographer_sign")
-  companion_manager:init_map(map)
+
 
   update_music()
 end

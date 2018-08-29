@@ -4,7 +4,7 @@ local game = map:get_game()
 
 -- Includes scripts
 local owl_manager = require("scripts/maps/owl_manager")
-local companion_manager = require("scripts/maps/companion_manager")
+
 
 -- Functions
 
@@ -31,7 +31,7 @@ function map:on_started(destination)
 
   map:set_music()
   map:set_digging_allowed(true)
-  companion_manager:init_map(map)
+
   owl_1:set_enabled(false)
   owl_4:set_enabled(false)
   if sword ~= nil then

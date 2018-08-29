@@ -4,7 +4,7 @@
 local map = ...
 local game = map:get_game()
 local hero = map:get_hero()
-local companion_manager = require("scripts/maps/companion_manager")
+
 
 -- Methods - Functions
 
@@ -155,7 +155,7 @@ function map:on_started()
   map:set_digging_allowed(true)
   local item = game:get_item("magnifying_lens")
   local variant = item:get_variant()
-  companion_manager:init_map(map)
+
   if game:get_value("castle_door_is_open") then
     castle_door:set_enabled(false)
   end

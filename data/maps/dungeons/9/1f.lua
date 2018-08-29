@@ -10,7 +10,7 @@
 local map = ...
 local separator = ...
 local game = map:get_game()
-local companion_manager = require("scripts/maps/companion_manager")
+
 local is_boss_active = false
 
 local door_manager = require("scripts/maps/door_manager")

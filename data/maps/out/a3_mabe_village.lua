@@ -8,7 +8,7 @@ local marin_and_link_song = false
 local ball
 local ball_shadow
 local ball_is_launch = false
-local companion_manager = require("scripts/maps/companion_manager")
+
 local hero_is_alerted = false
 local marin_notes = nil
 local marin_notes_2 = nil
@@ -391,7 +391,7 @@ function map:on_started(destination)
     game:set_value("main_quest_step", 3)
   end
   map:set_music()
-  companion_manager:init_map(map)
+
   -- Marine
   if game:get_value("main_quest_step") < 4 or game:get_value("main_quest_step") > 20  then
     marin:set_enabled(false)

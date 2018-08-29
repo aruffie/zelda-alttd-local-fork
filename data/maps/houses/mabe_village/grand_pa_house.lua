@@ -4,7 +4,7 @@
 local map = ...
 local game = map:get_game()
 local hero = map:get_hero()
-local companion_manager = require("scripts/maps/companion_manager")
+
 
 -- Methods - Functions
 
@@ -49,7 +49,7 @@ end
 
 function map:on_started(destination)
 
-    companion_manager:init_map(map)
+
     map:set_music()
 
 end

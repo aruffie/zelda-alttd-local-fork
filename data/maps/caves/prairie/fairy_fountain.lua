@@ -13,11 +13,11 @@ local game = map:get_game()
 
 -- Includes scripts
 local fairy_manager = require("scripts/maps/fairy_manager")
-local companion_manager = require("scripts/maps/companion_manager")
+
 
 function map:on_started()
 
-  companion_manager:init_map(map)
+
   fairy_manager:init_map(map, "fairy")
 
 end

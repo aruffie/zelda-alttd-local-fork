@@ -3,7 +3,7 @@
 -- Variables
 local map = ...
 local game = map:get_game()
-local companion_manager = require("scripts/maps/companion_manager")
+
 local owl_manager = require("scripts/maps/owl_manager")
 local travel_manager = require("scripts/maps/travel_manager")
 local tarin_chased_by_bees = false
@@ -217,7 +217,7 @@ function map:on_started(destination)
   map:set_music()
   map:set_digging_allowed(true)
   owl_7:set_enabled(false)
-  companion_manager:init_map(map)
+
   -- Travel
   travel_transporter:set_enabled(false)
   -- Statue pig
