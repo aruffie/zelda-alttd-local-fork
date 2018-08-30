@@ -1126,6 +1126,7 @@ shader{ id = "mode_7", description = "Mode 7" }
 shader{ id = "ocarina_warp", description = "Warp animation" }
 shader{ id = "sepia", description = "Sepia" }
 shader{ id = "toon", description = "Toon" }
+shader{ id = "water_effect", description = "Masked water overlay" }
 
 file{ path = "main.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "scripts/meta/sensor.lua", author = "Christopho", license = "GPL v3" }
