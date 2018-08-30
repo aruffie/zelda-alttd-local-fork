@@ -47,7 +47,7 @@ function weather_manager:launch_rain(map)
 
     local rainposx = {}
     local rainposy = {}
-    math.randomseed(397)
+
     for i = 1, 4096 do
       rainposx[i] = math.random(2048)
       rainposy[i] = math.random(2048)

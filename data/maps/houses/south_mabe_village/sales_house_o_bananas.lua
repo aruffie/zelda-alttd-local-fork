@@ -2,7 +2,7 @@
 
 -- Includes scripts
 local shop_manager = require("scripts/maps/shop_manager")
-local companion_manager = require("scripts/maps/companion_manager")
+
 
 -- Variables
 local map = ...
@@ -93,7 +93,7 @@ end
 
 function map:on_started()
 
-  companion_manager:init_map(map)
+
 
 end
 

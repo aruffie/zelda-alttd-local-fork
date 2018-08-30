@@ -10317,51 +10317,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 368,
-  y = 592,
-  width = 32,
-  height = 80,
-  pattern = "floor_low.cracked.3-1",
-}
-
-tile{
-  layer = 0,
-  x = 400,
-  y = 560,
-  width = 160,
-  height = 32,
-  pattern = "floor_low.cracked.3-1",
-}
-
-tile{
-  layer = 0,
-  x = 560,
-  y = 592,
-  width = 32,
-  height = 80,
-  pattern = "floor_low.cracked.3-1",
-}
-
-tile{
-  layer = 0,
-  x = 384,
-  y = 704,
-  width = 64,
-  height = 16,
-  pattern = "floor_low.cracked.3-1",
-}
-
-tile{
-  layer = 0,
-  x = 512,
-  y = 704,
-  width = 64,
-  height = 16,
-  pattern = "floor_low.cracked.3-1",
-}
-
-tile{
-  layer = 0,
   x = 704,
   y = 576,
   width = 32,
@@ -15380,6 +15335,51 @@ tile{
   width = 24,
   height = 32,
   pattern = "wall_decor.4-2",
+}
+
+tile{
+  layer = 0,
+  x = 560,
+  y = 592,
+  width = 32,
+  height = 80,
+  pattern = "floor_low.7-1",
+}
+
+tile{
+  layer = 0,
+  x = 368,
+  y = 592,
+  width = 32,
+  height = 80,
+  pattern = "floor_low.7-1",
+}
+
+tile{
+  layer = 0,
+  x = 400,
+  y = 560,
+  width = 160,
+  height = 32,
+  pattern = "floor_low.7-1",
+}
+
+tile{
+  layer = 0,
+  x = 384,
+  y = 704,
+  width = 64,
+  height = 16,
+  pattern = "floor_low.7-1",
+}
+
+tile{
+  layer = 0,
+  x = 512,
+  y = 704,
+  width = 64,
+  height = 16,
+  pattern = "floor_low.7-1",
 }
 
 block{

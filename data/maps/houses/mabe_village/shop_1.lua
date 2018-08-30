@@ -4,7 +4,7 @@
 local map = ...
 local game = map:get_game()
 local is_game_available = false
-local companion_manager = require("scripts/maps/companion_manager")
+
 local clow_manager = require("scripts/maps/claw_manager")
 
 -- Methods - Functions
@@ -44,7 +44,7 @@ end
 function map:on_started(destination)
 
   map:set_music()
-  companion_manager:init_map(map)
+
 
 end
 

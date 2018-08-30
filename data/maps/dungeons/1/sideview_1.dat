@@ -1245,50 +1245,6 @@ destination{
   direction = 3,
 }
 
-dynamic_tile{
-  name = "invisible_tile_1",
-  layer = 0,
-  x = 80,
-  y = 0,
-  pattern = "40",
-  width = 16,
-  height = 192,
-  enabled_at_start = true,
-}
-
-dynamic_tile{
-  name = "invisible_tile_2",
-  layer = 0,
-  x = 272,
-  y = 128,
-  pattern = "40",
-  width = 16,
-  height = 64,
-  enabled_at_start = true,
-}
-
-dynamic_tile{
-  name = "invisible_tile_3",
-  layer = 0,
-  x = 352,
-  y = 128,
-  pattern = "40",
-  width = 16,
-  height = 64,
-  enabled_at_start = true,
-}
-
-dynamic_tile{
-  name = "invisible_tile_4",
-  layer = 0,
-  x = 576,
-  y = 0,
-  pattern = "40",
-  width = 16,
-  height = 192,
-  enabled_at_start = true,
-}
-
 enemy{
   layer = 0,
   x = 504,

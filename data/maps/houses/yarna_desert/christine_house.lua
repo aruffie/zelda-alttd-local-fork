@@ -9,12 +9,12 @@
 
 local map = ...
 local game = map:get_game()
-local companion_manager = require("scripts/maps/companion_manager")
+
 
 -- Event called at initialization time, as soon as this map is loaded.
 function map:on_started()
 
-  companion_manager:init_map(map)
+
   local item = game:get_item("magnifying_lens")
   local variant = item:get_variant()
   if variant >= 9 then

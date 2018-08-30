@@ -3,7 +3,7 @@
 -- Variables
 local map = ...
 local game = map:get_game()
-local companion_manager = require("scripts/maps/companion_manager")
+
 local travel_manager = require("scripts/maps/travel_manager")
 
 -- Methods - Functions
@@ -14,7 +14,7 @@ local travel_manager = require("scripts/maps/travel_manager")
 function map:on_started()
 
   map:set_digging_allowed(true)
-  companion_manager:init_map(map)
+
   -- Travel
   travel_transporter:set_enabled(false)
 

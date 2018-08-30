@@ -3,7 +3,7 @@
 -- Variables
 local map = ...
 local game = map:get_game()
-local companion_manager = require("scripts/maps/companion_manager")
+
 
 -- Methods - Functions
 
@@ -150,7 +150,7 @@ function map:on_started(destination)
   map:set_music()
   map:init_marin()
   map:init_tarin()
-  companion_manager:init_map(map)
+
   -- Letter
   if game:get_value("main_quest_step") ~= 21  then
     letter:set_enabled(false)

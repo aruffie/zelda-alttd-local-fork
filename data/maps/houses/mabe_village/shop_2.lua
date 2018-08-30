@@ -2,7 +2,7 @@
 
 -- Includes scripts
 local shop_manager = require("scripts/maps/shop_manager")
-local companion_manager = require("scripts/maps/companion_manager")
+
 
 -- Variables
 local map = ...
@@ -94,7 +94,7 @@ function map:on_started(destination)
 
   map:set_music()
   map:init_merchant()
-  companion_manager:init_map(map)
+
   shop_manager:init(map)
   local item_shovel = game:get_item("shovel")
   local variant_shovel = item_shovel:get_variant()

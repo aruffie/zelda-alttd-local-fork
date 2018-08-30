@@ -88,6 +88,21 @@ function hero_meta:is_walking()
   return m and m.get_speed and m:get_speed() > 0
 end
 
+function hero_meta:on_taking_damage(damage)
+
+  local hero = self
+  local game = hero:get_game()
+  -- Calculate defense. Check tunic and powerups.
+  -- TODO: define powerup function "hero:get_defense_powerup()".
+  local defense_tunic = game:get_value("defense_tunic") or 1
+  local defense_powerup = hero.get_defense_powerup and hero:get_defense_powerup() or 1
+  local defense = defense_tunic * defense_powerup
+  -- Calculate final damage.
+  local final_damage = math.ceil(damage/defense)
+  -- Remove life.
+  game:remove_life(damage)
+end
+
 -- Set fixed stopped/walking animations for the hero (or nil to disable them).
 function hero_meta:set_fixed_animations(new_stopped_animation, new_walking_animation)
 
@@ -105,12 +120,10 @@ end
 
 local hero_meta = sol.main.get_metatable("hero")
 
-function hero_meta:on_created()
+hero_meta:register_event("on_created", function(hero)
 
-  local hero = self
-  --hero:set_tunic_sprite_id("hero/eldran")
   hero:initialize_fixing_functions() -- Used to fix direction and animations.
-end
+end)
 
 --------------------------------------------------
 -- Functions to fix tunic animation and direction.

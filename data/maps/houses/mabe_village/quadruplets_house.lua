@@ -4,7 +4,7 @@
 
 local map = ...
 local game = map:get_game()
-local companion_manager = require("scripts/maps/companion_manager")
+
 
 -- Functions
 
@@ -85,7 +85,7 @@ function map:on_started(destination)
  local variant = item:get_variant()
   local father_sprite = father:get_sprite()
   map:set_music()
-  companion_manager:init_map(map)
+
   if game:get_value("main_quest_step") >= 18 and variant < 8  then
     father:set_enabled(false)
   end

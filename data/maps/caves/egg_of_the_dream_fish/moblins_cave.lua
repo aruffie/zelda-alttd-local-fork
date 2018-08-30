@@ -13,7 +13,7 @@ local launch_boss = false
 require("scripts/multi_events")
 local door_manager = require("scripts/maps/door_manager")
 local separator_manager = require("scripts/maps/separator_manager")
-local companion_manager = require("scripts/maps/companion_manager")
+
 
 
 function map:set_music()
@@ -42,7 +42,7 @@ function map:on_started()
     bowwow:remove()
     map:set_doors_open("door_group", true)
   end
-  companion_manager:init_map(map)
+
 
 end
 

@@ -65,7 +65,10 @@ end
 
 function enemy:create_coconut(direction)
 
-    sol.audio.play_sound("stone")
+    local distance = enemy:get_distance(hero)
+    if distance < 100 then
+      sol.audio.play_sound("stone")
+    end
     local coconut = enemy:create_enemy({
       breed = "monkey_coconut",
       layer= 2,

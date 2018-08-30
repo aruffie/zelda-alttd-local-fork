@@ -3,7 +3,7 @@
 -- Variables
 local map = ...
 local game = map:get_game()
-local companion_manager = require("scripts/maps/companion_manager")
+
 local next_sign = 1
 local directions = {
   0, 3, 2, 1, 0, 3, 0, 1, 2, 3, 0, 3, 2
@@ -28,7 +28,7 @@ end
 function map:on_started()
 
   map:set_music()
-  companion_manager:init_map(map)
+
   map:set_digging_allowed(true)
   -- Marine
   if game:get_value("main_quest_step") ~= 21  then

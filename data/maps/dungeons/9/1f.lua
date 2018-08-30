@@ -10,7 +10,7 @@
 local map = ...
 local separator = ...
 local game = map:get_game()
-local companion_manager = require("scripts/maps/companion_manager")
+
 local is_boss_active = false
 
 local door_manager = require("scripts/maps/door_manager")
@@ -33,6 +33,8 @@ function map:on_started()
   if game:get_value("dungeon_9_boss") then 
     boss_sensor:set_enabled(false) 
   else boss:set_enabled(false) end
+  --Great Fairy gone if we already have the tunic (?)
+  if game:get_value("get_tunic") then map:set_entities_enabled("great_fairy",false) sensor_6:set_enabled(false) end
 
 end
 
@@ -86,6 +88,7 @@ function sensor_5:on_activated()
 end
 function sensor_6:on_activated()
   map:close_doors("door_group_6")
+  sol.audio.play_music("scripts/meta/map/fairy_fountain")
 end
 function sensor_7:on_activated()
   map:close_doors("door_group_7")
@@ -155,6 +158,48 @@ if boss ~= nil then
   sol.audio.play_music("maps/dungeons/9/dungeon")
   map:open_doors("door_boss") 
  end
+end
+
+--Great Fairy
+local tunic_answer
+local function fairy_dialog()
+  game:start_dialog("maps.dungeons.9.great_fairy.sure",function(answer)
+    if answer == 1 then
+      hero:start_treasure("tunic",tunic_answer + 1,"get_tunic",function()
+        game:start_dialog("maps.dungeons.9.great_fairy.closing_eyes",function()
+            local opacity = 0
+            local white_surface =  sol.surface.create(320, 256)
+            white_surface:fill_color({255, 255, 255})
+            function map:on_draw(dst_surface)
+              white_surface:set_opacity(opacity)
+              white_surface:draw(dst_surface)
+              opacity = opacity + 1
+              if opacity > 255 then
+                opacity = 255
+              end
+            end
+            sol.timer.start(3000, function()
+                game:start_dialog("maps.dungeons.9.great_fairy.end", function()
+                  hero:teleport("out/b2_graveyard","dungeon_9_exit","fade")
+                end)
+            end)
+        end)
+      end)
+    else
+      game:start_dialog("maps.dungeons.9.great_fairy.repeat",function(answer)
+        if answer == 1 then tunic_answer = 1 else tunic_answer = 2 end
+        fairy_dialog()
+      end)
+    end
+  end)
+end
+
+function great_fairy:on_interaction()
+  great_fairy:set_enabled(false)
+  game:start_dialog("maps.dungeons.9.great_fairy.welcome",function(answer)
+    if answer == 1 then tunic_answer = 1 else tunic_answer = 2 end
+    fairy_dialog()
+  end)
 end
 
 

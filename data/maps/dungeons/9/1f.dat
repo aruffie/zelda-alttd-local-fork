@@ -13,6 +13,51 @@ properties{
 
 tile{
   layer = 0,
+  x = 368,
+  y = 48,
+  width = 224,
+  height = 160,
+  pattern = "floor.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 360,
+  y = 296,
+  width = 240,
+  height = 176,
+  pattern = "floor_low.13-1",
+}
+
+tile{
+  layer = 0,
+  x = 416,
+  y = 320,
+  width = 128,
+  height = 128,
+  pattern = "floor.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 1320,
+  y = 296,
+  width = 240,
+  height = 176,
+  pattern = "floor_low.13-1",
+}
+
+tile{
+  layer = 0,
+  x = 1392,
+  y = 352,
+  width = 96,
+  height = 64,
+  pattern = "floor.18-2",
+}
+
+tile{
+  layer = 0,
   x = 1000,
   y = 296,
   width = 240,
@@ -1660,15 +1705,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 1320,
-  y = 296,
-  width = 240,
-  height = 176,
-  pattern = "floor_low.13-1",
-}
-
-tile{
-  layer = 0,
   x = 1640,
   y = 296,
   width = 240,
@@ -1698,24 +1734,6 @@ tile{
   layer = 0,
   x = 680,
   y = 296,
-  width = 240,
-  height = 176,
-  pattern = "floor_low.13-1",
-}
-
-tile{
-  layer = 0,
-  x = 360,
-  y = 296,
-  width = 240,
-  height = 176,
-  pattern = "floor_low.13-1",
-}
-
-tile{
-  layer = 0,
-  x = 360,
-  y = 40,
   width = 240,
   height = 176,
   pattern = "floor_low.13-1",
@@ -3514,279 +3532,9 @@ tile{
 
 tile{
   layer = 0,
-  x = 1408,
-  y = 16,
-  width = 64,
-  height = 24,
-  pattern = "full_wall_decor.1-1",
-}
-
-tile{
-  layer = 0,
-  x = 1296,
-  y = 96,
-  width = 24,
-  height = 64,
-  pattern = "full_wall_decor.3-1",
-}
-
-tile{
-  layer = 0,
-  x = 1344,
-  y = 48,
-  width = 16,
-  height = 16,
-  pattern = "alter_corner.1",
-}
-
-tile{
-  layer = 0,
-  x = 1360,
-  y = 48,
-  width = 160,
-  height = 16,
-  pattern = "alter_wall.1",
-}
-
-tile{
-  layer = 0,
-  x = 1520,
-  y = 48,
-  width = 16,
-  height = 16,
-  pattern = "alter_corner.2",
-}
-
-tile{
-  layer = 0,
-  x = 1520,
-  y = 64,
-  width = 16,
-  height = 72,
-  pattern = "alter_wall.4",
-}
-
-tile{
-  layer = 0,
-  x = 1520,
-  y = 136,
-  width = 16,
-  height = 16,
-  pattern = "alter_corner.4",
-}
-
-tile{
-  layer = 0,
-  x = 1344,
-  y = 136,
-  width = 16,
-  height = 16,
-  pattern = "alter_corner.3",
-}
-
-tile{
-  layer = 0,
-  x = 1344,
-  y = 64,
-  width = 16,
-  height = 72,
-  pattern = "alter_wall.3",
-}
-
-tile{
-  layer = 0,
-  x = 1360,
-  y = 64,
-  width = 160,
-  height = 72,
-  pattern = "alter_floor",
-}
-
-tile{
-  layer = 0,
-  x = 1472,
-  y = 136,
-  width = 48,
-  height = 16,
-  pattern = "alter_wall.2",
-}
-
-tile{
-  layer = 0,
-  x = 1408,
-  y = 136,
-  width = 64,
-  height = 32,
-  pattern = "alter_stairs",
-}
-
-tile{
-  layer = 0,
-  x = 1472,
-  y = 144,
-  width = 8,
-  height = 8,
-  pattern = "alter_rail.3",
-}
-
-tile{
-  layer = 0,
-  x = 1472,
-  y = 152,
-  width = 8,
-  height = 8,
-  pattern = "alter_rail.3",
-}
-
-tile{
-  layer = 0,
-  x = 1472,
-  y = 160,
-  width = 8,
-  height = 8,
-  pattern = "alter_rail.3",
-}
-
-tile{
-  layer = 0,
-  x = 1360,
-  y = 136,
-  width = 48,
-  height = 16,
-  pattern = "alter_wall.2",
-}
-
-tile{
-  layer = 0,
-  x = 1400,
-  y = 152,
-  width = 8,
-  height = 8,
-  pattern = "alter_rail.3",
-}
-
-tile{
-  layer = 0,
-  x = 1328,
-  y = 192,
-  width = 16,
-  height = 16,
-  pattern = "torch_big.bottom",
-}
-
-tile{
-  layer = 0,
-  x = 1328,
-  y = 64,
-  width = 16,
-  height = 16,
-  pattern = "torch_big.bottom",
-}
-
-tile{
-  layer = 0,
-  x = 1536,
-  y = 192,
-  width = 16,
-  height = 16,
-  pattern = "torch_big.bottom",
-}
-
-tile{
-  layer = 0,
-  x = 1536,
-  y = 64,
-  width = 16,
-  height = 16,
-  pattern = "torch_big.bottom",
-}
-
-tile{
-  layer = 0,
-  x = 1400,
-  y = 160,
-  width = 8,
-  height = 8,
-  pattern = "alter_rail.3",
-}
-
-tile{
-  layer = 0,
-  x = 1400,
-  y = 144,
-  width = 8,
-  height = 8,
-  pattern = "alter_rail.3",
-}
-
-tile{
-  layer = 0,
-  x = 1408,
-  y = 216,
-  width = 64,
-  height = 24,
-  pattern = "full_wall_decor.2-1",
-}
-
-tile{
-  layer = 0,
-  x = 1360,
-  y = 64,
+  x = 424,
+  y = 592,
   width = 32,
-  height = 32,
-  pattern = "statue_eye-2",
-}
-
-tile{
-  layer = 0,
-  x = 1488,
-  y = 64,
-  width = 32,
-  height = 32,
-  pattern = "statue_eye-2",
-}
-
-tile{
-  layer = 0,
-  x = 368,
-  y = 576,
-  width = 16,
-  height = 16,
-  pattern = "torch_big.bottom",
-}
-
-tile{
-  layer = 0,
-  x = 576,
-  y = 576,
-  width = 16,
-  height = 16,
-  pattern = "torch_big.bottom",
-}
-
-tile{
-  layer = 0,
-  x = 368,
-  y = 704,
-  width = 16,
-  height = 16,
-  pattern = "torch_big.bottom",
-}
-
-tile{
-  layer = 0,
-  x = 576,
-  y = 704,
-  width = 16,
-  height = 16,
-  pattern = "torch_big.bottom",
-}
-
-tile{
-  layer = 0,
-  x = 456,
-  y = 600,
-  width = 16,
   height = 16,
   pattern = "floor_low.18-2",
 }
@@ -3794,26 +3542,17 @@ tile{
 tile{
   layer = 0,
   x = 472,
-  y = 616,
-  width = 16,
+  y = 592,
+  width = 32,
   height = 16,
   pattern = "floor_low.18-2",
 }
 
 tile{
   layer = 0,
-  x = 488,
-  y = 600,
-  width = 16,
-  height = 16,
-  pattern = "floor_low.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 456,
-  y = 632,
-  width = 16,
+  x = 424,
+  y = 688,
+  width = 32,
   height = 16,
   pattern = "floor_low.18-2",
 }
@@ -3821,53 +3560,8 @@ tile{
 tile{
   layer = 0,
   x = 472,
-  y = 648,
-  width = 16,
-  height = 16,
-  pattern = "floor_low.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 488,
-  y = 632,
-  width = 16,
-  height = 16,
-  pattern = "floor_low.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 440,
-  y = 616,
-  width = 16,
-  height = 16,
-  pattern = "floor_low.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 440,
-  y = 648,
-  width = 16,
-  height = 16,
-  pattern = "floor_low.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 456,
-  y = 664,
-  width = 16,
-  height = 16,
-  pattern = "floor_low.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 488,
-  y = 664,
-  width = 16,
+  y = 688,
+  width = 32,
   height = 16,
   pattern = "floor_low.18-2",
 }
@@ -3875,18 +3569,9 @@ tile{
 tile{
   layer = 0,
   x = 504,
-  y = 648,
+  y = 608,
   width = 16,
-  height = 16,
-  pattern = "floor_low.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 504,
-  y = 616,
-  width = 16,
-  height = 16,
+  height = 32,
   pattern = "floor_low.18-2",
 }
 
@@ -4063,196 +3748,16 @@ tile{
 
 tile{
   layer = 0,
-  x = 440,
-  y = 344,
-  width = 16,
-  height = 16,
-  pattern = "floor_low.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 504,
-  y = 344,
-  width = 16,
-  height = 16,
-  pattern = "floor_low.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 504,
-  y = 408,
-  width = 16,
-  height = 16,
-  pattern = "floor_low.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 440,
-  y = 408,
-  width = 16,
-  height = 16,
-  pattern = "floor_low.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 440,
-  y = 328,
-  width = 16,
-  height = 16,
-  pattern = "floor_low.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 424,
-  y = 328,
-  width = 16,
-  height = 16,
-  pattern = "floor_low.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 424,
-  y = 344,
-  width = 16,
-  height = 16,
-  pattern = "floor_low.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 520,
-  y = 344,
-  width = 16,
-  height = 16,
-  pattern = "floor_low.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 520,
-  y = 328,
-  width = 16,
-  height = 16,
-  pattern = "floor_low.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 504,
-  y = 328,
-  width = 16,
-  height = 16,
-  pattern = "floor_low.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 520,
-  y = 408,
-  width = 16,
-  height = 16,
-  pattern = "floor_low.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 504,
-  y = 424,
-  width = 16,
-  height = 16,
-  pattern = "floor_low.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 520,
-  y = 424,
-  width = 16,
-  height = 16,
-  pattern = "floor_low.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 424,
-  y = 408,
-  width = 16,
-  height = 16,
-  pattern = "floor_low.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 424,
-  y = 424,
-  width = 16,
-  height = 16,
-  pattern = "floor_low.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 440,
-  y = 424,
-  width = 16,
-  height = 16,
-  pattern = "floor_low.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 408,
-  y = 280,
+  x = 416,
+  y = 320,
   width = 32,
-  height = 16,
-  pattern = "wall_torch.1",
+  height = 32,
+  pattern = "floor_low.18-2",
 }
 
 tile{
   layer = 0,
-  x = 520,
-  y = 280,
-  width = 32,
-  height = 16,
-  pattern = "wall_torch.1",
-}
-
-tile{
-  layer = 0,
-  x = 408,
-  y = 216,
-  width = 32,
-  height = 16,
-  pattern = "wall_torch.2",
-}
-
-tile{
-  layer = 0,
-  x = 520,
-  y = 216,
-  width = 32,
-  height = 16,
-  pattern = "wall_torch.2",
-}
-
-tile{
-  layer = 0,
-  x = 424,
-  y = 48,
-  width = 112,
-  height = 64,
-  pattern = "water_shallow",
-}
-
-tile{
-  layer = 0,
-  x = 408,
+  x = 400,
   y = 24,
   width = 32,
   height = 16,
@@ -4261,47 +3766,11 @@ tile{
 
 tile{
   layer = 0,
-  x = 520,
+  x = 528,
   y = 24,
   width = 32,
   height = 16,
   pattern = "wall_torch.1",
-}
-
-tile{
-  layer = 0,
-  x = 536,
-  y = 40,
-  width = 8,
-  height = 72,
-  pattern = "floor_border.2",
-}
-
-tile{
-  layer = 0,
-  x = 416,
-  y = 112,
-  width = 128,
-  height = 8,
-  pattern = "floor_border.2",
-}
-
-tile{
-  layer = 0,
-  x = 416,
-  y = 40,
-  width = 8,
-  height = 72,
-  pattern = "floor_border.2",
-}
-
-tile{
-  layer = 0,
-  x = 424,
-  y = 40,
-  width = 112,
-  height = 8,
-  pattern = "floor_border.2",
 }
 
 tile{
@@ -4324,133 +3793,16 @@ tile{
 
 tile{
   layer = 0,
-  x = 48,
-  y = 304,
-  width = 48,
-  height = 144,
+  x = 40,
+  y = 296,
+  width = 56,
+  height = 152,
   pattern = "hole",
 }
 
 tile{
   layer = 0,
-  x = 96,
-  y = 360,
-  width = 144,
-  height = 88,
-  pattern = "hole",
-}
-
-tile{
-  layer = 0,
-  x = 48,
-  y = 304,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.1",
-}
-
-tile{
-  layer = 0,
-  x = 88,
-  y = 304,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.2",
-}
-
-tile{
-  layer = 0,
-  x = 232,
-  y = 360,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.2",
-}
-
-tile{
-  layer = 0,
-  x = 48,
-  y = 440,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.3",
-}
-
-tile{
-  layer = 0,
-  x = 232,
-  y = 440,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.4",
-}
-
-tile{
-  layer = 0,
-  x = 88,
-  y = 360,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner_reverse.2",
-}
-
-tile{
-  layer = 0,
-  x = 56,
-  y = 304,
-  width = 32,
-  height = 8,
-  pattern = "hole.1",
-}
-
-tile{
-  layer = 0,
-  x = 96,
-  y = 360,
-  width = 136,
-  height = 8,
-  pattern = "hole.1",
-}
-
-tile{
-  layer = 0,
-  x = 56,
-  y = 440,
-  width = 176,
-  height = 8,
-  pattern = "hole.2",
-}
-
-tile{
-  layer = 0,
-  x = 232,
-  y = 368,
-  width = 8,
-  height = 72,
-  pattern = "hole.4",
-}
-
-tile{
-  layer = 0,
-  x = 88,
-  y = 312,
-  width = 8,
-  height = 48,
-  pattern = "hole.4",
-}
-
-tile{
-  layer = 0,
-  x = 48,
-  y = 312,
-  width = 8,
-  height = 128,
-  pattern = "hole.3",
-}
-
-tile{
-  layer = 0,
-  x = 728,
+  x = 736,
   y = 280,
   width = 32,
   height = 16,
@@ -4459,7 +3811,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 840,
+  x = 832,
   y = 280,
   width = 32,
   height = 16,
@@ -4487,7 +3839,7 @@ tile{
 tile{
   layer = 0,
   x = 664,
-  y = 328,
+  y = 320,
   width = 16,
   height = 32,
   pattern = "wall_torch.3",
@@ -4496,7 +3848,7 @@ tile{
 tile{
   layer = 0,
   x = 664,
-  y = 408,
+  y = 416,
   width = 16,
   height = 32,
   pattern = "wall_torch.3",
@@ -4504,101 +3856,11 @@ tile{
 
 tile{
   layer = 0,
-  x = 1400,
-  y = 328,
-  width = 80,
-  height = 16,
+  x = 1376,
+  y = 352,
+  width = 16,
+  height = 64,
   pattern = "floor_low.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 1384,
-  y = 344,
-  width = 16,
-  height = 80,
-  pattern = "floor_low.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 1328,
-  y = 448,
-  width = 16,
-  height = 16,
-  pattern = "torch_big.bottom",
-}
-
-tile{
-  layer = 0,
-  x = 1328,
-  y = 320,
-  width = 16,
-  height = 16,
-  pattern = "torch_big.bottom",
-}
-
-tile{
-  layer = 0,
-  x = 1536,
-  y = 448,
-  width = 16,
-  height = 16,
-  pattern = "torch_big.bottom",
-}
-
-tile{
-  layer = 0,
-  x = 1536,
-  y = 320,
-  width = 16,
-  height = 16,
-  pattern = "torch_big.bottom",
-}
-
-tile{
-  layer = 0,
-  x = 1400,
-  y = 424,
-  width = 80,
-  height = 16,
-  pattern = "floor_low.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 1480,
-  y = 344,
-  width = 16,
-  height = 80,
-  pattern = "floor_low.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 1432,
-  y = 344,
-  width = 48,
-  height = 48,
-  pattern = "floor_low.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 1696,
-  y = 280,
-  width = 32,
-  height = 16,
-  pattern = "wall_torch.1",
-}
-
-tile{
-  layer = 0,
-  x = 1792,
-  y = 280,
-  width = 32,
-  height = 16,
-  pattern = "wall_torch.1",
 }
 
 tile{
@@ -4662,24 +3924,6 @@ tile{
   width = 32,
   height = 16,
   pattern = "wall_torch.1",
-}
-
-tile{
-  layer = 0,
-  x = 1368,
-  y = 216,
-  width = 32,
-  height = 16,
-  pattern = "wall_torch.2",
-}
-
-tile{
-  layer = 0,
-  x = 1480,
-  y = 216,
-  width = 32,
-  height = 16,
-  pattern = "wall_torch.2",
 }
 
 tile{
@@ -7105,123 +6349,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 1040,
-  y = 816,
-  width = 48,
-  height = 128,
-  pattern = "green.switch",
-}
-
-tile{
-  layer = 0,
-  x = 1040,
-  y = 944,
-  width = 32,
-  height = 32,
-  pattern = "green.switch",
-}
-
-tile{
-  layer = 0,
-  x = 1088,
-  y = 864,
-  width = 112,
-  height = 80,
-  pattern = "green.switch",
-}
-
-tile{
-  layer = 0,
-  x = 1168,
-  y = 816,
-  width = 32,
-  height = 48,
-  pattern = "green.switch",
-}
-
-tile{
-  layer = 0,
-  x = 1152,
-  y = 944,
-  width = 48,
-  height = 32,
-  pattern = "green.switch",
-}
-
-tile{
-  layer = 0,
-  x = 1136,
-  y = 928,
-  width = 16,
-  height = 16,
-  pattern = "yellow.switch",
-}
-
-tile{
-  layer = 0,
-  x = 1120,
-  y = 928,
-  width = 16,
-  height = 16,
-  pattern = "yellow.switch",
-}
-
-tile{
-  layer = 0,
-  x = 1120,
-  y = 912,
-  width = 16,
-  height = 16,
-  pattern = "yellow.switch",
-}
-
-tile{
-  layer = 0,
-  x = 1136,
-  y = 912,
-  width = 16,
-  height = 16,
-  pattern = "yellow.switch",
-}
-
-tile{
-  layer = 0,
-  x = 1104,
-  y = 912,
-  width = 16,
-  height = 16,
-  pattern = "red.switch",
-}
-
-tile{
-  layer = 0,
-  x = 1104,
-  y = 896,
-  width = 16,
-  height = 16,
-  pattern = "red.switch",
-}
-
-tile{
-  layer = 0,
-  x = 1088,
-  y = 896,
-  width = 16,
-  height = 16,
-  pattern = "red.switch",
-}
-
-tile{
-  layer = 0,
-  x = 1088,
-  y = 912,
-  width = 16,
-  height = 16,
-  pattern = "red.switch",
-}
-
-tile{
-  layer = 0,
   x = 1056,
   y = 984,
   width = 32,
@@ -7690,42 +6817,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 1008,
-  y = 1088,
-  width = 176,
-  height = 64,
-  pattern = "green.switch",
-}
-
-tile{
-  layer = 0,
-  x = 1088,
-  y = 1152,
-  width = 96,
-  height = 80,
-  pattern = "green.switch",
-}
-
-tile{
-  layer = 0,
-  x = 1088,
-  y = 1120,
-  width = 32,
-  height = 32,
-  pattern = "red.switch",
-}
-
-tile{
-  layer = 0,
-  x = 1120,
-  y = 1152,
-  width = 32,
-  height = 32,
-  pattern = "yellow.switch",
-}
-
-tile{
-  layer = 0,
   x = 1088,
   y = 688,
   width = 64,
@@ -7740,24 +6831,6 @@ tile{
   width = 32,
   height = 48,
   pattern = "floor.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 1056,
-  y = 728,
-  width = 32,
-  height = 24,
-  pattern = "wall_decor.2-4",
-}
-
-tile{
-  layer = 0,
-  x = 1152,
-  y = 728,
-  width = 32,
-  height = 24,
-  pattern = "wall_decor.2-4",
 }
 
 tile{
@@ -7906,24 +6979,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 1376,
-  y = 472,
-  width = 32,
-  height = 16,
-  pattern = "wall_torch.2",
-}
-
-tile{
-  layer = 0,
-  x = 1472,
-  y = 472,
-  width = 32,
-  height = 16,
-  pattern = "wall_torch.2",
-}
-
-tile{
-  layer = 0,
   x = 1304,
   y = 624,
   width = 16,
@@ -7938,105 +6993,6 @@ tile{
   width = 16,
   height = 32,
   pattern = "wall_torch.4",
-}
-
-tile{
-  layer = 0,
-  x = 1392,
-  y = 576,
-  width = 96,
-  height = 128,
-  pattern = "green.switch",
-}
-
-tile{
-  layer = 0,
-  x = 1488,
-  y = 608,
-  width = 32,
-  height = 64,
-  pattern = "green.switch",
-}
-
-tile{
-  layer = 0,
-  x = 1360,
-  y = 608,
-  width = 32,
-  height = 64,
-  pattern = "green.switch",
-}
-
-tile{
-  layer = 0,
-  x = 1392,
-  y = 608,
-  width = 32,
-  height = 64,
-  pattern = "yellow.switch",
-}
-
-tile{
-  layer = 0,
-  x = 1424,
-  y = 672,
-  width = 32,
-  height = 32,
-  pattern = "yellow.switch",
-}
-
-tile{
-  layer = 0,
-  x = 1440,
-  y = 576,
-  width = 32,
-  height = 32,
-  pattern = "yellow.switch",
-}
-
-tile{
-  layer = 0,
-  x = 1472,
-  y = 608,
-  width = 16,
-  height = 64,
-  pattern = "yellow.switch",
-}
-
-tile{
-  layer = 0,
-  x = 1360,
-  y = 608,
-  width = 32,
-  height = 64,
-  pattern = "red.switch",
-}
-
-tile{
-  layer = 0,
-  x = 1392,
-  y = 672,
-  width = 32,
-  height = 32,
-  pattern = "red.switch",
-}
-
-tile{
-  layer = 0,
-  x = 1424,
-  y = 576,
-  width = 16,
-  height = 32,
-  pattern = "red.switch",
-}
-
-tile{
-  layer = 0,
-  x = 1440,
-  y = 608,
-  width = 32,
-  height = 64,
-  pattern = "red.switch",
 }
 
 tile{
@@ -8217,24 +7173,6 @@ tile{
   width = 32,
   height = 16,
   pattern = "wall_torch.2",
-}
-
-tile{
-  layer = 0,
-  x = 1552,
-  y = 416,
-  width = 32,
-  height = 16,
-  pattern = "wall_pillar.4-3",
-}
-
-tile{
-  layer = 0,
-  x = 1552,
-  y = 336,
-  width = 32,
-  height = 16,
-  pattern = "wall_pillar.4-3",
 }
 
 tile{
@@ -8851,8 +7789,8 @@ tile{
 
 tile{
   layer = 0,
-  x = 1384,
-  y = 328,
+  x = 1376,
+  y = 336,
   width = 16,
   height = 16,
   pattern = "floor.18-2",
@@ -8860,8 +7798,8 @@ tile{
 
 tile{
   layer = 0,
-  x = 1480,
-  y = 328,
+  x = 1488,
+  y = 336,
   width = 16,
   height = 16,
   pattern = "floor.18-2",
@@ -8869,8 +7807,8 @@ tile{
 
 tile{
   layer = 0,
-  x = 1384,
-  y = 424,
+  x = 1376,
+  y = 416,
   width = 16,
   height = 16,
   pattern = "floor.18-2",
@@ -8878,89 +7816,8 @@ tile{
 
 tile{
   layer = 0,
-  x = 1480,
-  y = 424,
-  width = 16,
-  height = 16,
-  pattern = "floor.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 472,
-  y = 600,
-  width = 16,
-  height = 16,
-  pattern = "floor.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 504,
-  y = 632,
-  width = 16,
-  height = 16,
-  pattern = "floor.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 472,
-  y = 664,
-  width = 16,
-  height = 16,
-  pattern = "floor.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 440,
-  y = 632,
-  width = 16,
-  height = 16,
-  pattern = "floor.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 472,
-  y = 632,
-  width = 16,
-  height = 16,
-  pattern = "floor.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 440,
-  y = 600,
-  width = 16,
-  height = 16,
-  pattern = "floor.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 440,
-  y = 664,
-  width = 16,
-  height = 16,
-  pattern = "floor.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 504,
-  y = 664,
-  width = 16,
-  height = 16,
-  pattern = "floor.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 504,
-  y = 600,
+  x = 1488,
+  y = 416,
   width = 16,
   height = 16,
   pattern = "floor.18-2",
@@ -8969,7 +7826,7 @@ tile{
 tile{
   layer = 0,
   x = 456,
-  y = 616,
+  y = 592,
   width = 16,
   height = 16,
   pattern = "floor.18-2",
@@ -8977,17 +7834,8 @@ tile{
 
 tile{
   layer = 0,
-  x = 488,
-  y = 616,
-  width = 16,
-  height = 16,
-  pattern = "floor.18-2",
-}
-
-tile{
-  layer = 0,
-  x = 488,
-  y = 648,
+  x = 504,
+  y = 640,
   width = 16,
   height = 16,
   pattern = "floor.18-2",
@@ -8996,10 +7844,2656 @@ tile{
 tile{
   layer = 0,
   x = 456,
-  y = 648,
+  y = 688,
   width = 16,
   height = 16,
   pattern = "floor.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 408,
+  y = 640,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 456,
+  y = 640,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 408,
+  y = 592,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 408,
+  y = 688,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 504,
+  y = 688,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 504,
+  y = 592,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 424,
+  y = 608,
+  width = 80,
+  height = 80,
+  pattern = "floor.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 1296,
+  y = 304,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner.1-6",
+}
+
+tile{
+  layer = 0,
+  x = 1296,
+  y = 440,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner.3-6",
+}
+
+tile{
+  layer = 0,
+  x = 1320,
+  y = 440,
+  width = 16,
+  height = 24,
+  pattern = "wall.2-6",
+}
+
+tile{
+  layer = 0,
+  x = 1328,
+  y = 456,
+  width = 24,
+  height = 16,
+  pattern = "wall.3-6",
+}
+
+tile{
+  layer = 0,
+  x = 1328,
+  y = 472,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner.3-6",
+}
+
+tile{
+  layer = 0,
+  x = 1528,
+  y = 472,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner.4-6",
+}
+
+tile{
+  layer = 0,
+  x = 1528,
+  y = 456,
+  width = 24,
+  height = 16,
+  pattern = "wall.4-6",
+}
+
+tile{
+  layer = 0,
+  x = 1544,
+  y = 440,
+  width = 16,
+  height = 24,
+  pattern = "wall.2-6",
+}
+
+tile{
+  layer = 0,
+  x = 1560,
+  y = 440,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner.4-6",
+}
+
+tile{
+  layer = 0,
+  x = 1528,
+  y = 272,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner.2-6",
+}
+
+tile{
+  layer = 0,
+  x = 1328,
+  y = 272,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner.1-6",
+}
+
+tile{
+  layer = 0,
+  x = 1328,
+  y = 296,
+  width = 24,
+  height = 16,
+  pattern = "wall.3-6",
+}
+
+tile{
+  layer = 0,
+  x = 1320,
+  y = 304,
+  width = 16,
+  height = 24,
+  pattern = "wall.1-6",
+}
+
+tile{
+  layer = 0,
+  x = 1560,
+  y = 304,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner.2-6",
+}
+
+tile{
+  layer = 0,
+  x = 1544,
+  y = 304,
+  width = 16,
+  height = 24,
+  pattern = "wall.1-6",
+}
+
+tile{
+  layer = 0,
+  x = 1528,
+  y = 296,
+  width = 24,
+  height = 16,
+  pattern = "wall.4-6",
+}
+
+tile{
+  layer = 0,
+  x = 1528,
+  y = 304,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner_reverse.2-6",
+}
+
+tile{
+  layer = 0,
+  x = 1328,
+  y = 304,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner_reverse.1-6",
+}
+
+tile{
+  layer = 0,
+  x = 1328,
+  y = 440,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner_reverse.3-6",
+}
+
+tile{
+  layer = 0,
+  x = 1528,
+  y = 440,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner_reverse.4-6",
+}
+
+tile{
+  layer = 0,
+  x = 1520,
+  y = 296,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner.2-4",
+}
+
+tile{
+  layer = 0,
+  x = 1552,
+  y = 328,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner.2-4",
+}
+
+tile{
+  layer = 0,
+  x = 1352,
+  y = 296,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner.1-4",
+}
+
+tile{
+  layer = 0,
+  x = 1320,
+  y = 328,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner.1-4",
+}
+
+tile{
+  layer = 0,
+  x = 1320,
+  y = 432,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner.3-4",
+}
+
+tile{
+  layer = 0,
+  x = 1352,
+  y = 464,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner.3-4",
+}
+
+tile{
+  layer = 0,
+  x = 1520,
+  y = 464,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner.4-4",
+}
+
+tile{
+  layer = 0,
+  x = 1552,
+  y = 432,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner.4-4",
+}
+
+tile{
+  layer = 0,
+  x = 1328,
+  y = 328,
+  width = 32,
+  height = 8,
+  pattern = "wall_border.1-4",
+}
+
+tile{
+  layer = 0,
+  x = 1328,
+  y = 432,
+  width = 32,
+  height = 8,
+  pattern = "wall_border.2-4",
+}
+
+tile{
+  layer = 0,
+  x = 1520,
+  y = 328,
+  width = 32,
+  height = 8,
+  pattern = "wall_border.1-4",
+}
+
+tile{
+  layer = 0,
+  x = 1520,
+  y = 432,
+  width = 32,
+  height = 8,
+  pattern = "wall_border.2-4",
+}
+
+tile{
+  layer = 0,
+  x = 1352,
+  y = 304,
+  width = 8,
+  height = 32,
+  pattern = "wall_border.3-4",
+}
+
+tile{
+  layer = 0,
+  x = 1520,
+  y = 432,
+  width = 8,
+  height = 32,
+  pattern = "wall_border.4-4",
+}
+
+tile{
+  layer = 0,
+  x = 1352,
+  y = 432,
+  width = 8,
+  height = 32,
+  pattern = "wall_border.3-4",
+}
+
+tile{
+  layer = 0,
+  x = 1520,
+  y = 304,
+  width = 8,
+  height = 32,
+  pattern = "wall_border.4-4",
+}
+
+tile{
+  layer = 0,
+  x = 1352,
+  y = 328,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner_reverse.1-4",
+}
+
+tile{
+  layer = 0,
+  x = 1520,
+  y = 328,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner_reverse.2-4",
+}
+
+tile{
+  layer = 0,
+  x = 1520,
+  y = 432,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner_reverse.4-4",
+}
+
+tile{
+  layer = 0,
+  x = 1352,
+  y = 432,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner_reverse.3-4",
+}
+
+tile{
+  layer = 0,
+  x = 1360,
+  y = 320,
+  width = 16,
+  height = 16,
+  pattern = "torch",
+}
+
+tile{
+  layer = 0,
+  x = 1504,
+  y = 320,
+  width = 16,
+  height = 16,
+  pattern = "torch",
+}
+
+tile{
+  layer = 0,
+  x = 1360,
+  y = 432,
+  width = 16,
+  height = 16,
+  pattern = "torch",
+}
+
+tile{
+  layer = 0,
+  x = 1504,
+  y = 432,
+  width = 16,
+  height = 16,
+  pattern = "torch",
+}
+
+tile{
+  layer = 0,
+  x = 1488,
+  y = 352,
+  width = 16,
+  height = 64,
+  pattern = "floor_low.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 1392,
+  y = 336,
+  width = 96,
+  height = 16,
+  pattern = "floor_low.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 1392,
+  y = 416,
+  width = 96,
+  height = 16,
+  pattern = "floor_low.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 1456,
+  y = 352,
+  width = 32,
+  height = 32,
+  pattern = "floor_low.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 1376,
+  y = 472,
+  width = 32,
+  height = 16,
+  pattern = "wall_torch.2",
+}
+
+tile{
+  layer = 0,
+  x = 1472,
+  y = 472,
+  width = 32,
+  height = 16,
+  pattern = "wall_torch.2",
+}
+
+tile{
+  layer = 0,
+  x = 1376,
+  y = 280,
+  width = 32,
+  height = 16,
+  pattern = "wall_torch.1",
+}
+
+tile{
+  layer = 0,
+  x = 1472,
+  y = 280,
+  width = 32,
+  height = 16,
+  pattern = "wall_torch.1",
+}
+
+tile{
+  layer = 0,
+  x = 1296,
+  y = 368,
+  width = 24,
+  height = 32,
+  pattern = "wall_decor.3-4",
+}
+
+tile{
+  layer = 0,
+  x = 1552,
+  y = 336,
+  width = 32,
+  height = 16,
+  pattern = "wall_pillar.4-3",
+}
+
+tile{
+  layer = 0,
+  x = 1552,
+  y = 416,
+  width = 32,
+  height = 16,
+  pattern = "wall_pillar.4-3",
+}
+
+tile{
+  layer = 0,
+  x = 1696,
+  y = 272,
+  width = 32,
+  height = 24,
+  pattern = "wall_decor.1-4",
+}
+
+tile{
+  layer = 0,
+  x = 1792,
+  y = 272,
+  width = 32,
+  height = 24,
+  pattern = "wall_decor.1-4",
+}
+
+tile{
+  layer = 0,
+  x = 1696,
+  y = 216,
+  width = 32,
+  height = 24,
+  pattern = "wall_decor.2-4",
+}
+
+tile{
+  layer = 0,
+  x = 1792,
+  y = 216,
+  width = 32,
+  height = 24,
+  pattern = "wall_decor.2-4",
+}
+
+tile{
+  layer = 0,
+  x = 1616,
+  y = 160,
+  width = 24,
+  height = 32,
+  pattern = "wall_decor.3-4",
+}
+
+tile{
+  layer = 0,
+  x = 1616,
+  y = 64,
+  width = 24,
+  height = 32,
+  pattern = "wall_decor.3-4",
+}
+
+tile{
+  layer = 0,
+  x = 1696,
+  y = 16,
+  width = 32,
+  height = 24,
+  pattern = "wall_decor.1-4",
+}
+
+tile{
+  layer = 0,
+  x = 1792,
+  y = 16,
+  width = 32,
+  height = 24,
+  pattern = "wall_decor.1-4",
+}
+
+tile{
+  layer = 0,
+  x = 1880,
+  y = 160,
+  width = 24,
+  height = 32,
+  pattern = "wall_decor.4-4",
+}
+
+tile{
+  layer = 0,
+  x = 1880,
+  y = 64,
+  width = 24,
+  height = 32,
+  pattern = "wall_decor.4-4",
+}
+
+tile{
+  layer = 0,
+  x = 1072,
+  y = 720,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.2-3",
+}
+
+tile{
+  layer = 0,
+  x = 1152,
+  y = 720,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.2-3",
+}
+
+tile{
+  layer = 0,
+  x = 1744,
+  y = 16,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.1-3",
+}
+
+tile{
+  layer = 0,
+  x = 1760,
+  y = 16,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.1-3",
+}
+
+tile{
+  layer = 0,
+  x = 1872,
+  y = 112,
+  width = 32,
+  height = 16,
+  pattern = "wall_pillar.4-3",
+}
+
+tile{
+  layer = 0,
+  x = 1872,
+  y = 128,
+  width = 32,
+  height = 16,
+  pattern = "wall_pillar.4-3",
+}
+
+tile{
+  layer = 0,
+  x = 1728,
+  y = 176,
+  width = 64,
+  height = 32,
+  pattern = "floor.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 1648,
+  y = 96,
+  width = 32,
+  height = 64,
+  pattern = "floor.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 1408,
+  y = 216,
+  width = 32,
+  height = 24,
+  pattern = "wall_decor.2-4",
+}
+
+tile{
+  layer = 0,
+  x = 1496,
+  y = 56,
+  width = 16,
+  height = 16,
+  pattern = "torch",
+}
+
+tile{
+  layer = 0,
+  x = 1552,
+  y = 208,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner.4-4",
+}
+
+tile{
+  layer = 0,
+  x = 1528,
+  y = 216,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner.4-6",
+}
+
+tile{
+  layer = 0,
+  x = 1528,
+  y = 184,
+  width = 24,
+  height = 32,
+  pattern = "wall.4-6",
+}
+
+tile{
+  layer = 0,
+  x = 1544,
+  y = 168,
+  width = 16,
+  height = 24,
+  pattern = "wall.2-6",
+}
+
+tile{
+  layer = 0,
+  x = 1560,
+  y = 168,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner.4-6",
+}
+
+tile{
+  layer = 0,
+  x = 1528,
+  y = 168,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner_reverse.4-6",
+}
+
+tile{
+  layer = 0,
+  x = 1520,
+  y = 208,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner.4-4",
+}
+
+tile{
+  layer = 0,
+  x = 1552,
+  y = 160,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner.4-4",
+}
+
+tile{
+  layer = 0,
+  x = 1520,
+  y = 160,
+  width = 32,
+  height = 8,
+  pattern = "wall_border.2-4",
+}
+
+tile{
+  layer = 0,
+  x = 1520,
+  y = 160,
+  width = 8,
+  height = 48,
+  pattern = "wall_border.4-4",
+}
+
+tile{
+  layer = 0,
+  x = 1520,
+  y = 160,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner_reverse.4-4",
+}
+
+tile{
+  layer = 0,
+  x = 1552,
+  y = 40,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner.2-4",
+}
+
+tile{
+  layer = 0,
+  x = 1528,
+  y = 16,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner.2-6",
+}
+
+tile{
+  layer = 0,
+  x = 1560,
+  y = 64,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner.2-6",
+}
+
+tile{
+  layer = 0,
+  x = 1544,
+  y = 64,
+  width = 16,
+  height = 24,
+  pattern = "wall.1-6",
+}
+
+tile{
+  layer = 0,
+  x = 1528,
+  y = 40,
+  width = 24,
+  height = 32,
+  pattern = "wall.4-6",
+}
+
+tile{
+  layer = 0,
+  x = 1528,
+  y = 64,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner_reverse.2-6",
+}
+
+tile{
+  layer = 0,
+  x = 1520,
+  y = 40,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner.2-4",
+}
+
+tile{
+  layer = 0,
+  x = 1552,
+  y = 88,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner.2-4",
+}
+
+tile{
+  layer = 0,
+  x = 1520,
+  y = 88,
+  width = 32,
+  height = 8,
+  pattern = "wall_border.1-4",
+}
+
+tile{
+  layer = 0,
+  x = 1520,
+  y = 48,
+  width = 8,
+  height = 48,
+  pattern = "wall_border.4-4",
+}
+
+tile{
+  layer = 0,
+  x = 1520,
+  y = 88,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner_reverse.2-4",
+}
+
+tile{
+  layer = 0,
+  x = 1336,
+  y = 56,
+  width = 16,
+  height = 16,
+  pattern = "torch",
+}
+
+tile{
+  layer = 0,
+  x = 1368,
+  y = 16,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner.2-6",
+}
+
+tile{
+  layer = 0,
+  x = 1384,
+  y = 96,
+  width = 80,
+  height = 24,
+  pattern = "wall.1-6",
+}
+
+tile{
+  layer = 0,
+  x = 1368,
+  y = 40,
+  width = 24,
+  height = 64,
+  pattern = "wall.4-6",
+}
+
+tile{
+  layer = 0,
+  x = 1368,
+  y = 96,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner_reverse.2-6",
+}
+
+tile{
+  layer = 0,
+  x = 1360,
+  y = 40,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner.2-4",
+}
+
+tile{
+  layer = 0,
+  x = 1368,
+  y = 120,
+  width = 112,
+  height = 8,
+  pattern = "wall_border.1-4",
+}
+
+tile{
+  layer = 0,
+  x = 1360,
+  y = 48,
+  width = 8,
+  height = 80,
+  pattern = "wall_border.4-4",
+}
+
+tile{
+  layer = 0,
+  x = 1360,
+  y = 120,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner_reverse.2-4",
+}
+
+tile{
+  layer = 0,
+  x = 1456,
+  y = 16,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner.1-6",
+}
+
+tile{
+  layer = 0,
+  x = 1456,
+  y = 40,
+  width = 24,
+  height = 64,
+  pattern = "wall.3-6",
+}
+
+tile{
+  layer = 0,
+  x = 1456,
+  y = 96,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner_reverse.1-6",
+}
+
+tile{
+  layer = 0,
+  x = 1480,
+  y = 40,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner.1-4",
+}
+
+tile{
+  layer = 0,
+  x = 1480,
+  y = 48,
+  width = 8,
+  height = 80,
+  pattern = "wall_border.3-4",
+}
+
+tile{
+  layer = 0,
+  x = 1480,
+  y = 120,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner_reverse.1-4",
+}
+
+tile{
+  layer = 0,
+  x = 1416,
+  y = 104,
+  width = 16,
+  height = 24,
+  pattern = "stairs_inner_up.1-1",
+}
+
+tile{
+  layer = 0,
+  x = 1432,
+  y = 104,
+  width = 8,
+  height = 24,
+  pattern = "stairs_inner_up.1.border.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 1408,
+  y = 104,
+  width = 8,
+  height = 24,
+  pattern = "stairs_inner_up.1.border.1-1",
+}
+
+tile{
+  layer = 0,
+  x = 1296,
+  y = 112,
+  width = 24,
+  height = 32,
+  pattern = "wall_decor.3-4",
+}
+
+tile{
+  layer = 0,
+  x = 1296,
+  y = 160,
+  width = 32,
+  height = 16,
+  pattern = "wall_pillar.3-3",
+}
+
+tile{
+  layer = 0,
+  x = 1296,
+  y = 80,
+  width = 32,
+  height = 16,
+  pattern = "wall_pillar.3-3",
+}
+
+tile{
+  layer = 0,
+  x = 1336,
+  y = 16,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.1-3",
+}
+
+tile{
+  layer = 0,
+  x = 1496,
+  y = 16,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.1-3",
+}
+
+tile{
+  layer = 0,
+  x = 1336,
+  y = 208,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.2-3",
+}
+
+tile{
+  layer = 0,
+  x = 1496,
+  y = 208,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.2-3",
+}
+
+tile{
+  layer = 0,
+  x = 1440,
+  y = 128,
+  width = 32,
+  height = 32,
+  pattern = "floor_low.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 1376,
+  y = 128,
+  width = 32,
+  height = 32,
+  pattern = "floor_low.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 1376,
+  y = 176,
+  width = 32,
+  height = 32,
+  pattern = "floor_low.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 1440,
+  y = 176,
+  width = 32,
+  height = 32,
+  pattern = "floor_low.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 1520,
+  y = 96,
+  width = 32,
+  height = 64,
+  pattern = "floor.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 1408,
+  y = 128,
+  width = 32,
+  height = 80,
+  pattern = "floor.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 1376,
+  y = 160,
+  width = 96,
+  height = 16,
+  pattern = "floor.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 736,
+  y = 552,
+  width = 48,
+  height = 40,
+  pattern = "hole",
+}
+
+tile{
+  layer = 0,
+  x = 816,
+  y = 552,
+  width = 80,
+  height = 40,
+  pattern = "hole",
+}
+
+tile{
+  layer = 0,
+  x = 704,
+  y = 688,
+  width = 160,
+  height = 40,
+  pattern = "hole",
+}
+
+tile{
+  layer = 0,
+  x = 736,
+  y = 552,
+  width = 48,
+  height = 16,
+  pattern = "wall_hole.1-1",
+}
+
+tile{
+  layer = 0,
+  x = 816,
+  y = 552,
+  width = 80,
+  height = 16,
+  pattern = "wall_hole.1-1",
+}
+
+tile{
+  layer = 0,
+  x = 704,
+  y = 712,
+  width = 160,
+  height = 16,
+  pattern = "wall_hole.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 712,
+  y = 688,
+  width = 144,
+  height = 8,
+  pattern = "hole.1",
+}
+
+tile{
+  layer = 0,
+  x = 704,
+  y = 696,
+  width = 8,
+  height = 32,
+  pattern = "hole.3",
+}
+
+tile{
+  layer = 0,
+  x = 856,
+  y = 696,
+  width = 8,
+  height = 32,
+  pattern = "hole.4",
+}
+
+tile{
+  layer = 0,
+  x = 704,
+  y = 688,
+  width = 8,
+  height = 8,
+  pattern = "hole.corner.1",
+}
+
+tile{
+  layer = 0,
+  x = 856,
+  y = 688,
+  width = 8,
+  height = 8,
+  pattern = "hole.corner.2",
+}
+
+tile{
+  layer = 0,
+  x = 816,
+  y = 552,
+  width = 8,
+  height = 32,
+  pattern = "hole.3",
+}
+
+tile{
+  layer = 0,
+  x = 888,
+  y = 552,
+  width = 8,
+  height = 32,
+  pattern = "hole.4",
+}
+
+tile{
+  layer = 0,
+  x = 824,
+  y = 584,
+  width = 64,
+  height = 8,
+  pattern = "hole.2",
+}
+
+tile{
+  layer = 0,
+  x = 816,
+  y = 584,
+  width = 8,
+  height = 8,
+  pattern = "hole.corner.3",
+}
+
+tile{
+  layer = 0,
+  x = 888,
+  y = 584,
+  width = 8,
+  height = 8,
+  pattern = "hole.corner.4",
+}
+
+tile{
+  layer = 0,
+  x = 736,
+  y = 552,
+  width = 8,
+  height = 32,
+  pattern = "hole.3",
+}
+
+tile{
+  layer = 0,
+  x = 776,
+  y = 552,
+  width = 8,
+  height = 32,
+  pattern = "hole.4",
+}
+
+tile{
+  layer = 0,
+  x = 744,
+  y = 584,
+  width = 32,
+  height = 8,
+  pattern = "hole.2",
+}
+
+tile{
+  layer = 0,
+  x = 736,
+  y = 584,
+  width = 8,
+  height = 8,
+  pattern = "hole.corner.3",
+}
+
+tile{
+  layer = 0,
+  x = 776,
+  y = 584,
+  width = 8,
+  height = 8,
+  pattern = "hole.corner.4",
+}
+
+tile{
+  layer = 0,
+  x = 656,
+  y = 672,
+  width = 32,
+  height = 16,
+  pattern = "wall_pillar.3-3",
+}
+
+tile{
+  layer = 0,
+  x = 656,
+  y = 592,
+  width = 32,
+  height = 16,
+  pattern = "wall_pillar.3-3",
+}
+
+tile{
+  layer = 0,
+  x = 736,
+  y = 536,
+  width = 32,
+  height = 16,
+  pattern = "wall_torch.1",
+}
+
+tile{
+  layer = 0,
+  x = 832,
+  y = 536,
+  width = 32,
+  height = 16,
+  pattern = "wall_torch.1",
+}
+
+tile{
+  layer = 0,
+  x = 736,
+  y = 472,
+  width = 32,
+  height = 16,
+  pattern = "wall_torch.2",
+}
+
+tile{
+  layer = 0,
+  x = 832,
+  y = 472,
+  width = 32,
+  height = 16,
+  pattern = "wall_torch.2",
+}
+
+tile{
+  layer = 0,
+  x = 736,
+  y = 728,
+  width = 32,
+  height = 16,
+  pattern = "wall_torch.2",
+}
+
+tile{
+  layer = 0,
+  x = 832,
+  y = 728,
+  width = 32,
+  height = 16,
+  pattern = "wall_torch.2",
+}
+
+tile{
+  layer = 0,
+  x = 784,
+  y = 728,
+  width = 32,
+  height = 24,
+  pattern = "wall_decor.2-4",
+}
+
+tile{
+  layer = 0,
+  x = 600,
+  y = 528,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner.2-6",
+}
+
+tile{
+  layer = 0,
+  x = 600,
+  y = 728,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner.4-6",
+}
+
+tile{
+  layer = 0,
+  x = -280,
+  y = 1072,
+  width = 8,
+  height = 160,
+  pattern = "wall_border.3-4",
+}
+
+tile{
+  layer = 0,
+  x = 592,
+  y = 552,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner.2-4",
+}
+
+tile{
+  layer = 0,
+  x = 592,
+  y = 720,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner.4-4",
+}
+
+tile{
+  layer = 0,
+  x = 448,
+  y = 728,
+  width = 32,
+  height = 24,
+  pattern = "wall_decor.2-4",
+}
+
+tile{
+  layer = 0,
+  x = 592,
+  y = 720,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner.4-4",
+}
+
+tile{
+  layer = 0,
+  x = 568,
+  y = 728,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner.4-6",
+}
+
+tile{
+  layer = 0,
+  x = 568,
+  y = 696,
+  width = 24,
+  height = 32,
+  pattern = "wall.4-6",
+}
+
+tile{
+  layer = 0,
+  x = 584,
+  y = 680,
+  width = 16,
+  height = 24,
+  pattern = "wall.2-6",
+}
+
+tile{
+  layer = 0,
+  x = 600,
+  y = 680,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner.4-6",
+}
+
+tile{
+  layer = 0,
+  x = 568,
+  y = 680,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner_reverse.4-6",
+}
+
+tile{
+  layer = 0,
+  x = 560,
+  y = 720,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner.4-4",
+}
+
+tile{
+  layer = 0,
+  x = 592,
+  y = 672,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner.4-4",
+}
+
+tile{
+  layer = 0,
+  x = 560,
+  y = 672,
+  width = 32,
+  height = 8,
+  pattern = "wall_border.2-4",
+}
+
+tile{
+  layer = 0,
+  x = 560,
+  y = 672,
+  width = 8,
+  height = 48,
+  pattern = "wall_border.4-4",
+}
+
+tile{
+  layer = 0,
+  x = 560,
+  y = 672,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner_reverse.4-4",
+}
+
+tile{
+  layer = 0,
+  x = 592,
+  y = 552,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner.2-4",
+}
+
+tile{
+  layer = 0,
+  x = 568,
+  y = 528,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner.2-6",
+}
+
+tile{
+  layer = 0,
+  x = 600,
+  y = 576,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner.2-6",
+}
+
+tile{
+  layer = 0,
+  x = 584,
+  y = 576,
+  width = 16,
+  height = 24,
+  pattern = "wall.1-6",
+}
+
+tile{
+  layer = 0,
+  x = 568,
+  y = 552,
+  width = 24,
+  height = 32,
+  pattern = "wall.4-6",
+}
+
+tile{
+  layer = 0,
+  x = 568,
+  y = 576,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner_reverse.2-6",
+}
+
+tile{
+  layer = 0,
+  x = 560,
+  y = 552,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner.2-4",
+}
+
+tile{
+  layer = 0,
+  x = 592,
+  y = 600,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner.2-4",
+}
+
+tile{
+  layer = 0,
+  x = 560,
+  y = 600,
+  width = 32,
+  height = 8,
+  pattern = "wall_border.1-4",
+}
+
+tile{
+  layer = 0,
+  x = 560,
+  y = 560,
+  width = 8,
+  height = 48,
+  pattern = "wall_border.4-4",
+}
+
+tile{
+  layer = 0,
+  x = 560,
+  y = 600,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner_reverse.2-4",
+}
+
+tile{
+  layer = 0,
+  x = 336,
+  y = 624,
+  width = 24,
+  height = 32,
+  pattern = "wall_decor.3-4",
+}
+
+tile{
+  layer = 0,
+  x = 336,
+  y = 672,
+  width = 32,
+  height = 16,
+  pattern = "wall_pillar.3-3",
+}
+
+tile{
+  layer = 0,
+  x = 336,
+  y = 592,
+  width = 32,
+  height = 16,
+  pattern = "wall_pillar.3-3",
+}
+
+tile{
+  layer = 0,
+  x = 376,
+  y = 528,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.1-3",
+}
+
+tile{
+  layer = 0,
+  x = 536,
+  y = 528,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.1-3",
+}
+
+tile{
+  layer = 0,
+  x = 376,
+  y = 720,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.2-3",
+}
+
+tile{
+  layer = 0,
+  x = 536,
+  y = 720,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.2-3",
+}
+
+tile{
+  layer = 0,
+  x = 392,
+  y = 576,
+  width = 16,
+  height = 16,
+  pattern = "torch",
+}
+
+tile{
+  layer = 0,
+  x = 392,
+  y = 688,
+  width = 16,
+  height = 16,
+  pattern = "torch",
+}
+
+tile{
+  layer = 0,
+  x = 520,
+  y = 688,
+  width = 16,
+  height = 16,
+  pattern = "torch",
+}
+
+tile{
+  layer = 0,
+  x = 520,
+  y = 576,
+  width = 16,
+  height = 16,
+  pattern = "torch",
+}
+
+tile{
+  layer = 0,
+  x = 504,
+  y = 656,
+  width = 16,
+  height = 32,
+  pattern = "floor_low.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 408,
+  y = 608,
+  width = 16,
+  height = 32,
+  pattern = "floor_low.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 408,
+  y = 656,
+  width = 16,
+  height = 32,
+  pattern = "floor_low.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 424,
+  y = 640,
+  width = 32,
+  height = 16,
+  pattern = "floor_low.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 472,
+  y = 640,
+  width = 32,
+  height = 16,
+  pattern = "floor_low.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 456,
+  y = 608,
+  width = 16,
+  height = 32,
+  pattern = "floor_low.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 456,
+  y = 656,
+  width = 16,
+  height = 32,
+  pattern = "floor_low.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 416,
+  y = 280,
+  width = 32,
+  height = 16,
+  pattern = "wall_torch.1",
+}
+
+tile{
+  layer = 0,
+  x = 512,
+  y = 280,
+  width = 32,
+  height = 16,
+  pattern = "wall_torch.1",
+}
+
+tile{
+  layer = 0,
+  x = 416,
+  y = 472,
+  width = 32,
+  height = 16,
+  pattern = "wall_torch.2",
+}
+
+tile{
+  layer = 0,
+  x = 512,
+  y = 472,
+  width = 32,
+  height = 16,
+  pattern = "wall_torch.2",
+}
+
+tile{
+  layer = 0,
+  x = 464,
+  y = 272,
+  width = 32,
+  height = 24,
+  pattern = "wall_decor.1-4",
+}
+
+tile{
+  layer = 0,
+  x = 592,
+  y = 416,
+  width = 32,
+  height = 16,
+  pattern = "wall_pillar.4-3",
+}
+
+tile{
+  layer = 0,
+  x = 592,
+  y = 336,
+  width = 32,
+  height = 16,
+  pattern = "wall_pillar.4-3",
+}
+
+tile{
+  layer = 0,
+  x = 336,
+  y = 416,
+  width = 32,
+  height = 16,
+  pattern = "wall_pillar.3-3",
+}
+
+tile{
+  layer = 0,
+  x = 336,
+  y = 336,
+  width = 32,
+  height = 16,
+  pattern = "wall_pillar.3-3",
+}
+
+tile{
+  layer = 0,
+  x = 272,
+  y = 416,
+  width = 32,
+  height = 16,
+  pattern = "wall_pillar.4-3",
+}
+
+tile{
+  layer = 0,
+  x = 272,
+  y = 336,
+  width = 32,
+  height = 16,
+  pattern = "wall_pillar.4-3",
+}
+
+tile{
+  layer = 0,
+  x = 512,
+  y = 320,
+  width = 32,
+  height = 32,
+  pattern = "floor_low.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 416,
+  y = 416,
+  width = 32,
+  height = 32,
+  pattern = "floor_low.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 512,
+  y = 416,
+  width = 32,
+  height = 32,
+  pattern = "floor_low.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 600,
+  y = 368,
+  width = 24,
+  height = 32,
+  pattern = "wall_decor.4-4",
+}
+
+tile{
+  layer = 0,
+  x = 656,
+  y = 368,
+  width = 24,
+  height = 32,
+  pattern = "wall_decor.3-4",
+}
+
+tile{
+  layer = 0,
+  x = 784,
+  y = 272,
+  width = 32,
+  height = 24,
+  pattern = "wall_decor.1-4",
+}
+
+tile{
+  layer = 0,
+  x = 864,
+  y = 304,
+  width = 48,
+  height = 48,
+  pattern = "floor.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 96,
+  y = 352,
+  width = 144,
+  height = 96,
+  pattern = "hole",
+}
+
+tile{
+  layer = 0,
+  x = 96,
+  y = 352,
+  width = 136,
+  height = 8,
+  pattern = "hole.1",
+}
+
+tile{
+  layer = 0,
+  x = 232,
+  y = 360,
+  width = 8,
+  height = 80,
+  pattern = "hole.4",
+}
+
+tile{
+  layer = 0,
+  x = 88,
+  y = 352,
+  width = 8,
+  height = 8,
+  pattern = "hole.corner_reverse.2",
+}
+
+tile{
+  layer = 0,
+  x = 232,
+  y = 352,
+  width = 8,
+  height = 8,
+  pattern = "hole.corner.2",
+}
+
+tile{
+  layer = 0,
+  x = 232,
+  y = 440,
+  width = 8,
+  height = 8,
+  pattern = "hole.corner.4",
+}
+
+tile{
+  layer = 0,
+  x = 40,
+  y = 296,
+  width = 16,
+  height = 16,
+  pattern = "wall_hole.corner.1-1",
+}
+
+tile{
+  layer = 0,
+  x = 56,
+  y = 296,
+  width = 32,
+  height = 16,
+  pattern = "wall_hole.1-1",
+}
+
+tile{
+  layer = 0,
+  x = 80,
+  y = 296,
+  width = 16,
+  height = 16,
+  pattern = "wall_hole.1-1",
+}
+
+tile{
+  layer = 0,
+  x = 88,
+  y = 296,
+  width = 8,
+  height = 56,
+  pattern = "hole.4",
+}
+
+tile{
+  layer = 0,
+  x = 40,
+  y = 312,
+  width = 16,
+  height = 128,
+  pattern = "wall_hole.3-1",
+}
+
+tile{
+  layer = 0,
+  x = 40,
+  y = 416,
+  width = 16,
+  height = 32,
+  pattern = "wall_hole.3-1",
+}
+
+tile{
+  layer = 0,
+  x = 40,
+  y = 440,
+  width = 192,
+  height = 8,
+  pattern = "hole.2",
+}
+
+tile{
+  layer = 0,
+  x = 24,
+  y = 320,
+  width = 16,
+  height = 32,
+  pattern = "wall_torch.3",
+}
+
+tile{
+  layer = 0,
+  x = 24,
+  y = 416,
+  width = 16,
+  height = 32,
+  pattern = "wall_torch.3",
+}
+
+tile{
+  layer = 0,
+  x = 96,
+  y = 472,
+  width = 32,
+  height = 16,
+  pattern = "wall_torch.2",
+}
+
+tile{
+  layer = 0,
+  x = 192,
+  y = 472,
+  width = 32,
+  height = 16,
+  pattern = "wall_torch.2",
+}
+
+tile{
+  layer = 0,
+  x = 16,
+  y = 368,
+  width = 24,
+  height = 32,
+  pattern = "wall_decor.3-4",
+}
+
+tile{
+  layer = 0,
+  x = 144,
+  y = 472,
+  width = 32,
+  height = 24,
+  pattern = "wall_decor.2-4",
+}
+
+tile{
+  layer = 0,
+  x = 368,
+  y = 352,
+  width = 48,
+  height = 64,
+  pattern = "floor.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 240,
+  y = 352,
+  width = 32,
+  height = 64,
+  pattern = "floor.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 128,
+  y = 304,
+  width = 64,
+  height = 32,
+  pattern = "floor.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 144,
+  y = 16,
+  width = 32,
+  height = 24,
+  pattern = "wall_decor.1-4",
+}
+
+tile{
+  layer = 0,
+  x = 280,
+  y = 160,
+  width = 24,
+  height = 32,
+  pattern = "wall_decor.4-4",
+}
+
+tile{
+  layer = 0,
+  x = 280,
+  y = 64,
+  width = 24,
+  height = 32,
+  pattern = "wall_decor.4-4",
+}
+
+tile{
+  layer = 0,
+  x = 16,
+  y = 64,
+  width = 24,
+  height = 32,
+  pattern = "wall_decor.3-4",
+}
+
+tile{
+  layer = 0,
+  x = 16,
+  y = 160,
+  width = 24,
+  height = 32,
+  pattern = "wall_decor.3-4",
+}
+
+tile{
+  layer = 0,
+  x = 16,
+  y = 128,
+  width = 32,
+  height = 16,
+  pattern = "wall_pillar.3-3",
+}
+
+tile{
+  layer = 0,
+  x = 16,
+  y = 112,
+  width = 32,
+  height = 16,
+  pattern = "wall_pillar.3-3",
+}
+
+tile{
+  layer = 0,
+  x = 64,
+  y = 216,
+  width = 32,
+  height = 24,
+  pattern = "wall_decor.2-4",
+}
+
+tile{
+  layer = 0,
+  x = 224,
+  y = 216,
+  width = 32,
+  height = 24,
+  pattern = "wall_decor.2-4",
+}
+
+tile{
+  layer = 0,
+  x = 64,
+  y = 16,
+  width = 32,
+  height = 24,
+  pattern = "wall_decor.1-4",
+}
+
+tile{
+  layer = 0,
+  x = 224,
+  y = 16,
+  width = 32,
+  height = 24,
+  pattern = "wall_decor.1-4",
+}
+
+tile{
+  layer = 0,
+  x = 112,
+  y = 16,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.1-3",
+}
+
+tile{
+  layer = 0,
+  x = 192,
+  y = 16,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.1-3",
+}
+
+tile{
+  layer = 0,
+  x = 112,
+  y = 208,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.2-3",
+}
+
+tile{
+  layer = 0,
+  x = 192,
+  y = 208,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.2-3",
+}
+
+tile{
+  layer = 0,
+  x = 128,
+  y = 176,
+  width = 64,
+  height = 32,
+  pattern = "floor.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 240,
+  y = 96,
+  width = 32,
+  height = 64,
+  pattern = "floor.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 80,
+  y = 64,
+  width = 160,
+  height = 128,
+  pattern = "floor.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 144,
+  y = 120,
+  width = 32,
+  height = 16,
+  pattern = "floor_boss-1",
+}
+
+tile{
+  layer = 0,
+  x = 336,
+  y = 160,
+  width = 24,
+  height = 32,
+  pattern = "wall_decor.3-1",
+}
+
+tile{
+  layer = 0,
+  x = 336,
+  y = 64,
+  width = 24,
+  height = 32,
+  pattern = "wall_decor.3-1",
+}
+
+tile{
+  layer = 0,
+  x = 448,
+  y = 16,
+  width = 64,
+  height = 24,
+  pattern = "full_wall_decor.1-1",
+}
+
+tile{
+  layer = 0,
+  x = 448,
+  y = 216,
+  width = 64,
+  height = 24,
+  pattern = "full_wall_decor.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 600,
+  y = 96,
+  width = 24,
+  height = 64,
+  pattern = "full_wall_decor.4-1",
+}
+
+tile{
+  layer = 0,
+  x = 592,
+  y = 64,
+  width = 32,
+  height = 16,
+  pattern = "wall_pillar.4-3",
+}
+
+tile{
+  layer = 0,
+  x = 592,
+  y = 176,
+  width = 32,
+  height = 16,
+  pattern = "wall_pillar.4-3",
+}
+
+tile{
+  layer = 0,
+  x = 416,
+  y = 208,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.2-3",
+}
+
+tile{
+  layer = 0,
+  x = 528,
+  y = 208,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.2-3",
+}
+
+tile{
+  layer = 0,
+  x = 432,
+  y = 40,
+  width = 8,
+  height = 8,
+  pattern = "barrier.border-2",
+}
+
+tile{
+  layer = 0,
+  x = 520,
+  y = 40,
+  width = 8,
+  height = 8,
+  pattern = "barrier.border-2",
+}
+
+tile{
+  layer = 0,
+  x = 432,
+  y = 104,
+  width = 8,
+  height = 8,
+  pattern = "barrier.border-2",
+}
+
+tile{
+  layer = 0,
+  x = 520,
+  y = 104,
+  width = 8,
+  height = 8,
+  pattern = "barrier.border-2",
+}
+
+tile{
+  layer = 0,
+  x = 432,
+  y = 48,
+  width = 8,
+  height = 56,
+  pattern = "barrier.2-2",
+}
+
+tile{
+  layer = 0,
+  x = 520,
+  y = 48,
+  width = 8,
+  height = 56,
+  pattern = "barrier.2-2",
+}
+
+tile{
+  layer = 0,
+  x = 440,
+  y = 104,
+  width = 80,
+  height = 8,
+  pattern = "barrier.1-2",
+}
+
+tile{
+  layer = 0,
+  x = 440,
+  y = 40,
+  width = 80,
+  height = 64,
+  pattern = "water",
+}
+
+tile{
+  layer = 0,
+  x = 368,
+  y = 112,
+  width = 224,
+  height = 32,
+  pattern = "floor_low.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 448,
+  y = 144,
+  width = 64,
+  height = 64,
+  pattern = "floor_low.18-2",
+}
+
+tile{
+  layer = 0,
+  x = 384,
+  y = 72,
+  width = 32,
+  height = 24,
+  pattern = "fairy_fountain.1",
+}
+
+tile{
+  layer = 0,
+  x = 544,
+  y = 72,
+  width = 32,
+  height = 24,
+  pattern = "fairy_fountain.1",
+}
+
+tile{
+  layer = 0,
+  x = 384,
+  y = 168,
+  width = 32,
+  height = 24,
+  pattern = "fairy_fountain.1",
+}
+
+tile{
+  layer = 0,
+  x = 544,
+  y = 168,
+  width = 32,
+  height = 24,
+  pattern = "fairy_fountain.1",
 }
 
 pickable{
@@ -9149,19 +10643,6 @@ wall{
 
 wall{
   layer = 0,
-  x = 1424,
-  y = 64,
-  width = 32,
-  height = 24,
-  stops_hero = true,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
-}
-
-wall{
-  layer = 0,
   x = 280,
   y = 376,
   width = 80,
@@ -9277,171 +10758,11 @@ pickable{
   treasure_savegame_variable = "dungeon_9_treasure",
 }
 
-destructible{
-  name = "pot_d9_27",
-  layer = 0,
-  x = 584,
-  y = 461,
-  sprite = "entities/pot",
-}
-
-destructible{
-  name = "pot_d9_28",
-  layer = 0,
-  x = 376,
-  y = 461,
-  sprite = "entities/pot",
-}
-
-destructible{
-  name = "pot_d9_29",
-  layer = 0,
-  x = 376,
-  y = 317,
-  sprite = "entities/pot",
-}
-
-destructible{
-  name = "pot_d9_30",
-  layer = 0,
-  x = 392,
-  y = 317,
-  sprite = "entities/pot",
-}
-
-destructible{
-  name = "pot_d9_31",
-  layer = 0,
-  x = 376,
-  y = 333,
-  sprite = "entities/pot",
-}
-
-destructible{
-  name = "pot_d9_32",
-  layer = 0,
-  x = 584,
-  y = 317,
-  sprite = "entities/pot",
-}
-
-destructible{
-  name = "pot_d9_33",
-  layer = 0,
-  x = 568,
-  y = 317,
-  sprite = "entities/pot",
-}
-
-destructible{
-  name = "pot_d9_34",
-  layer = 0,
-  x = 584,
-  y = 333,
-  sprite = "entities/pot",
-}
-
-destructible{
-  name = "pot_d9_35",
-  layer = 0,
-  x = 376,
-  y = 349,
-  sprite = "entities/pot",
-}
-
-destructible{
-  name = "pot_d9_36",
-  layer = 0,
-  x = 584,
-  y = 349,
-  sprite = "entities/pot",
-}
-
-destructible{
-  name = "pot_d9_37",
-  layer = 0,
-  x = 408,
-  y = 317,
-  sprite = "entities/pot",
-}
-
-destructible{
-  name = "pot_d9_38",
-  layer = 0,
-  x = 552,
-  y = 317,
-  sprite = "entities/pot",
-}
-
-destructible{
-  name = "pot_d9_39",
-  layer = 0,
-  x = 392,
-  y = 461,
-  sprite = "entities/pot",
-}
-
-destructible{
-  name = "pot_d9_40",
-  layer = 0,
-  x = 408,
-  y = 461,
-  sprite = "entities/pot",
-}
-
-destructible{
-  name = "pot_d9_41",
-  layer = 0,
-  x = 376,
-  y = 445,
-  sprite = "entities/pot",
-}
-
-destructible{
-  name = "pot_d9_42",
-  layer = 0,
-  x = 376,
-  y = 429,
-  sprite = "entities/pot",
-}
-
-destructible{
-  name = "pot_d9_43",
-  layer = 0,
-  x = 568,
-  y = 461,
-  sprite = "entities/pot",
-}
-
-destructible{
-  name = "pot_d9_44",
-  layer = 0,
-  x = 552,
-  y = 461,
-  sprite = "entities/pot",
-}
-
-destructible{
-  name = "pot_d9_45",
-  layer = 0,
-  x = 584,
-  y = 445,
-  sprite = "entities/pot",
-}
-
-destructible{
-  name = "pot_d9_46",
-  layer = 0,
-  x = 584,
-  y = 429,
-  sprite = "entities/pot",
-}
-
 npc{
-  name = "fairy_d9",
+  name = "great_fairy_2",
   layer = 0,
   x = 480,
-  y = 69,
+  y = 53,
   direction = 3,
   subtype = 1,
   sprite = "npc/fairy",
@@ -9466,9 +10787,9 @@ crystal_block{
 crystal_block{
   layer = 0,
   x = 224,
-  y = 296,
+  y = 304,
   width = 16,
-  height = 64,
+  height = 48,
   subtype = 1,
 }
 
@@ -9510,70 +10831,6 @@ block{
   pushable = true,
   pullable = false,
   maximum_moves = 1,
-}
-
-destructible{
-  name = "pot_d9_47",
-  layer = 0,
-  x = 776,
-  y = 381,
-  sprite = "entities/pot",
-}
-
-destructible{
-  name = "pot_d9_48",
-  layer = 0,
-  x = 792,
-  y = 397,
-  sprite = "entities/pot",
-}
-
-destructible{
-  name = "pot_d9_49",
-  layer = 0,
-  x = 808,
-  y = 413,
-  sprite = "entities/pot",
-}
-
-destructible{
-  name = "pot_d9_50",
-  layer = 0,
-  x = 696,
-  y = 461,
-  sprite = "entities/pot",
-}
-
-destructible{
-  name = "pot_d9_51",
-  layer = 0,
-  x = 696,
-  y = 445,
-  sprite = "entities/pot",
-}
-
-destructible{
-  name = "pot_d9_52",
-  layer = 0,
-  x = 904,
-  y = 461,
-  sprite = "entities/pot",
-}
-
-destructible{
-  name = "pot_d9_53",
-  layer = 0,
-  x = 904,
-  y = 445,
-  sprite = "entities/pot",
-}
-
-destructible{
-  name = "pot_d9_54",
-  layer = 0,
-  x = 888,
-  y = 445,
-  sprite = "entities/pot",
 }
 
 door{
@@ -9997,7 +11254,7 @@ npc{
 pickable{
   name = "pickable_small_key_1",
   layer = 0,
-  x = 1456,
+  x = 1472,
   y = 373,
   treasure_name = "small_key",
   treasure_savegame_variable = "dungeon_9_small_key_1",
@@ -10029,9 +11286,9 @@ enemy{
   name = "miniboss_1",
   layer = 0,
   x = 1760,
-  y = 133,
+  y = 109,
   direction = 3,
-  breed = "boss/hinox_master",
+  breed = "boss/giant_buzz_blob",
   savegame_variable = "dungeon_9_miniboss_1",
   treasure_name = "fairy",
 }
@@ -10061,16 +11318,6 @@ door{
   y = 120,
   direction = 0,
   sprite = "entities/doors/door_normal",
-}
-
-chest{
-  name = "chest_boss_key",
-  layer = 0,
-  x = 1440,
-  y = 85,
-  treasure_name = "boss_key",
-  treasure_savegame_variable = "dungeon_9_boss_key",
-  sprite = "entities/big_chest",
 }
 
 door{
@@ -10269,8 +11516,8 @@ door{
 chest{
   name = "chest_map",
   layer = 0,
-  x = 904,
-  y = 365,
+  x = 888,
+  y = 333,
   treasure_name = "map",
   treasure_savegame_variable = "dungeon_9_map",
   sprite = "entities/chest",
@@ -10986,7 +12233,7 @@ enemy{
   x = 408,
   y = 941,
   direction = 3,
-  breed = "zombie",
+  breed = "camo_goblin_green",
   treasure_name = "random",
 }
 
@@ -10996,7 +12243,7 @@ enemy{
   x = 552,
   y = 941,
   direction = 3,
-  breed = "zombie",
+  breed = "camo_goblin_green",
   treasure_name = "random",
 }
 
@@ -11006,7 +12253,7 @@ enemy{
   x = 504,
   y = 845,
   direction = 3,
-  breed = "zombie",
+  breed = "camo_goblin_red",
   treasure_name = "random",
 }
 
@@ -11018,7 +12265,6 @@ dynamic_tile{
   pattern = "wall.2-6",
   width = 32,
   height = 24,
-  enabled_at_start = true,
 }
 
 pickable{
@@ -11201,15 +12447,6 @@ destructible{
   sprite = "entities/pot",
   destruction_sound = "stone",
   weight = 1,
-}
-
-enemy{
-  layer = 0,
-  x = 1144,
-  y = 893,
-  direction = 3,
-  breed = "keese",
-  treasure_name = "random",
 }
 
 block{
@@ -11938,24 +13175,6 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/teletransporter_red",
-}
-
-enemy{
-  layer = 0,
-  x = 1424,
-  y = 701,
-  direction = 3,
-  breed = "keese",
-  treasure_name = "random",
-}
-
-enemy{
-  layer = 0,
-  x = 1512,
-  y = 645,
-  direction = 3,
-  breed = "keese",
-  treasure_name = "random",
 }
 
 custom_entity{
@@ -12750,171 +13969,18 @@ enemy{
 custom_entity{
   layer = 0,
   x = 728,
-  y = 941,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/eye_switch_blue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 872,
   y = 861,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/eye_switch_blue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 728,
-  y = 861,
+  properties = {
+    {
+      key = "state",
+      value = "0",
+    },
+  },
   width = 16,
   height = 16,
   direction = 0,
   sprite = "entities/eye_switch_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 872,
-  y = 941,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/eye_switch_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1392,
-  y = 437,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/eye_switch_blue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1488,
-  y = 341,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/eye_switch_blue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1392,
-  y = 341,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/eye_switch_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1488,
-  y = 437,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/eye_switch_yellow",
-}
-
-custom_entity{
-  layer = 0,
-  x = 480,
-  y = 613,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/eye_switch_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 512,
-  y = 645,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/eye_switch_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 480,
-  y = 677,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/eye_switch_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 448,
-  y = 645,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/eye_switch_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 480,
-  y = 645,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/eye_switch_blue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 448,
-  y = 613,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/eye_switch_blue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 448,
-  y = 677,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/eye_switch_blue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 512,
-  y = 677,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/eye_switch_blue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 512,
-  y = 613,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/eye_switch_blue",
+  model = "eye_switch",
 }
 
 custom_entity{
@@ -13037,6 +14103,5640 @@ enemy{
   breed = "orb_monster_red",
 }
 
+custom_entity{
+  layer = 0,
+  x = 1016,
+  y = 1101,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+stairs{
+  layer = 0,
+  x = 1416,
+  y = 104,
+  direction = 1,
+  subtype = 4,
+}
+
+block{
+  layer = 0,
+  x = 1480,
+  y = 141,
+  sprite = "entities/block",
+  pushable = false,
+  pullable = false,
+  maximum_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1480,
+  y = 205,
+  sprite = "entities/block",
+  pushable = false,
+  pullable = false,
+  maximum_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1480,
+  y = 157,
+  sprite = "entities/block",
+  pushable = true,
+  pullable = false,
+  maximum_moves = 1,
+}
+
+block{
+  layer = 0,
+  x = 1480,
+  y = 189,
+  sprite = "entities/block",
+  pushable = true,
+  pullable = false,
+  maximum_moves = 1,
+}
+
+block{
+  layer = 0,
+  x = 1480,
+  y = 173,
+  sprite = "entities/block",
+  pushable = true,
+  pullable = false,
+  maximum_moves = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 712,
+  y = 573,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 728,
+  y = 573,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 728,
+  y = 589,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 712,
+  y = 589,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 696,
+  y = 589,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 872,
+  y = 701,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 888,
+  y = 701,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 904,
+  y = 701,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 904,
+  y = 717,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 888,
+  y = 717,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 872,
+  y = 717,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 696,
+  y = 573,
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+block{
+  layer = 0,
+  x = 840,
+  y = 429,
+  sprite = "entities/block",
+  pushable = true,
+  pullable = false,
+  maximum_moves = 1,
+}
+
+block{
+  layer = 0,
+  x = 760,
+  y = 349,
+  sprite = "entities/block",
+  pushable = true,
+  pullable = false,
+  maximum_moves = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 696,
+  y = 461,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 712,
+  y = 461,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 712,
+  y = 445,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 696,
+  y = 445,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 696,
+  y = 429,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 712,
+  y = 429,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 760,
+  y = 365,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 776,
+  y = 381,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 792,
+  y = 397,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 808,
+  y = 413,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 824,
+  y = 429,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 856,
+  y = 429,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 872,
+  y = 445,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 888,
+  y = 461,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 904,
+  y = 461,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 872,
+  y = 429,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 888,
+  y = 429,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 904,
+  y = 429,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 904,
+  y = 445,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 888,
+  y = 445,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+enemy{
+  layer = 0,
+  x = 728,
+  y = 365,
+  direction = 0,
+  breed = "zol_red",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 784,
+  y = 325,
+  direction = 0,
+  breed = "zol_red",
+  treasure_name = "random",
+}
+
+destructible{
+  layer = 0,
+  x = 584,
+  y = 317,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 568,
+  y = 317,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 552,
+  y = 317,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 584,
+  y = 333,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 584,
+  y = 349,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 584,
+  y = 429,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 584,
+  y = 445,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 584,
+  y = 461,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 568,
+  y = 461,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 552,
+  y = 461,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 376,
+  y = 429,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 376,
+  y = 445,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 376,
+  y = 461,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 392,
+  y = 461,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 408,
+  y = 461,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 376,
+  y = 349,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 376,
+  y = 333,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 376,
+  y = 317,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 392,
+  y = 317,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 408,
+  y = 317,
+  treasure_name = "random",
+  sprite = "entities/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+custom_entity{
+  layer = 0,
+  x = 1032,
+  y = 1101,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1048,
+  y = 1101,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1064,
+  y = 1101,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1080,
+  y = 1101,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1096,
+  y = 1101,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1112,
+  y = 1101,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1128,
+  y = 1101,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1144,
+  y = 1101,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1160,
+  y = 1101,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1176,
+  y = 1101,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1016,
+  y = 1117,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1032,
+  y = 1117,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1048,
+  y = 1117,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1064,
+  y = 1117,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1080,
+  y = 1117,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1016,
+  y = 1133,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1032,
+  y = 1133,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1048,
+  y = 1133,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1064,
+  y = 1133,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1080,
+  y = 1133,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1016,
+  y = 1149,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1032,
+  y = 1149,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1048,
+  y = 1149,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1064,
+  y = 1149,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1080,
+  y = 1149,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1096,
+  y = 1117,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1112,
+  y = 1117,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1128,
+  y = 1117,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1144,
+  y = 1117,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1160,
+  y = 1117,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1176,
+  y = 1117,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1128,
+  y = 1133,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1144,
+  y = 1133,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1160,
+  y = 1133,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1176,
+  y = 1133,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1128,
+  y = 1149,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1144,
+  y = 1149,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1160,
+  y = 1149,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1176,
+  y = 1149,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1096,
+  y = 1229,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1112,
+  y = 1229,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1128,
+  y = 1229,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1144,
+  y = 1229,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1160,
+  y = 1229,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1176,
+  y = 1229,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1160,
+  y = 1165,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1176,
+  y = 1165,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1160,
+  y = 1181,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1176,
+  y = 1181,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1160,
+  y = 1197,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1176,
+  y = 1197,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1160,
+  y = 1213,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1176,
+  y = 1213,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1096,
+  y = 1165,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1112,
+  y = 1165,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1096,
+  y = 1181,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1112,
+  y = 1181,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1096,
+  y = 1197,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1112,
+  y = 1197,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1096,
+  y = 1213,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1112,
+  y = 1213,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1128,
+  y = 1213,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1144,
+  y = 1213,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1128,
+  y = 1197,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1144,
+  y = 1197,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1096,
+  y = 1133,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1112,
+  y = 1133,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1112,
+  y = 1149,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1096,
+  y = 1149,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1128,
+  y = 1165,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1144,
+  y = 1165,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1144,
+  y = 1181,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1128,
+  y = 1181,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1128,
+  y = 925,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1144,
+  y = 925,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1144,
+  y = 941,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1128,
+  y = 941,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1096,
+  y = 909,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1112,
+  y = 909,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1112,
+  y = 925,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1096,
+  y = 925,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1048,
+  y = 877,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1064,
+  y = 877,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1048,
+  y = 893,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1064,
+  y = 893,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1048,
+  y = 973,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1064,
+  y = 973,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1048,
+  y = 909,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1064,
+  y = 909,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1048,
+  y = 925,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1064,
+  y = 925,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1048,
+  y = 941,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1064,
+  y = 941,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1048,
+  y = 957,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1064,
+  y = 957,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1048,
+  y = 861,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1064,
+  y = 861,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1048,
+  y = 845,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1064,
+  y = 845,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1048,
+  y = 829,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1064,
+  y = 829,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1176,
+  y = 973,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1192,
+  y = 973,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1176,
+  y = 957,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1192,
+  y = 957,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1176,
+  y = 941,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1192,
+  y = 941,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1176,
+  y = 925,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1192,
+  y = 925,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1176,
+  y = 909,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1192,
+  y = 909,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1176,
+  y = 893,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1192,
+  y = 893,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1176,
+  y = 877,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1192,
+  y = 877,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1176,
+  y = 861,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1192,
+  y = 861,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1176,
+  y = 845,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1192,
+  y = 845,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1176,
+  y = 829,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1192,
+  y = 829,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1080,
+  y = 829,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1080,
+  y = 941,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1080,
+  y = 925,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1080,
+  y = 909,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1080,
+  y = 893,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1080,
+  y = 877,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1080,
+  y = 861,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1080,
+  y = 845,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1096,
+  y = 877,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1112,
+  y = 877,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1128,
+  y = 877,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1144,
+  y = 877,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1160,
+  y = 877,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1160,
+  y = 893,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1144,
+  y = 893,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1128,
+  y = 893,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1112,
+  y = 893,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1096,
+  y = 893,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+enemy{
+  layer = 0,
+  x = 1144,
+  y = 893,
+  direction = 3,
+  breed = "keese",
+  treasure_name = "random",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1128,
+  y = 909,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1144,
+  y = 909,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1160,
+  y = 909,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1096,
+  y = 941,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1112,
+  y = 941,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1160,
+  y = 925,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1160,
+  y = 941,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1160,
+  y = 957,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1160,
+  y = 973,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 824,
+  y = 605,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 840,
+  y = 605,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 856,
+  y = 605,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 824,
+  y = 621,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 840,
+  y = 621,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 856,
+  y = 621,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 824,
+  y = 637,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 840,
+  y = 637,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 856,
+  y = 637,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 824,
+  y = 653,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 840,
+  y = 653,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 856,
+  y = 653,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 824,
+  y = 669,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 840,
+  y = 669,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 856,
+  y = 669,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 824,
+  y = 685,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 840,
+  y = 685,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 856,
+  y = 685,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 744,
+  y = 605,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 760,
+  y = 605,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 776,
+  y = 605,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 744,
+  y = 621,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 760,
+  y = 621,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 776,
+  y = 621,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 744,
+  y = 637,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 760,
+  y = 637,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 776,
+  y = 637,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 744,
+  y = 653,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 760,
+  y = 653,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 776,
+  y = 653,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 744,
+  y = 669,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 760,
+  y = 669,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 776,
+  y = 669,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 744,
+  y = 685,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 760,
+  y = 685,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 776,
+  y = 685,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+enemy{
+  layer = 0,
+  x = 744,
+  y = 605,
+  direction = 3,
+  breed = "keese",
+  treasure_name = "random",
+}
+
+custom_entity{
+  layer = 0,
+  x = 808,
+  y = 605,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 808,
+  y = 621,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 808,
+  y = 637,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+enemy{
+  layer = 0,
+  x = 808,
+  y = 637,
+  direction = 3,
+  breed = "keese",
+  treasure_name = "random",
+}
+
+custom_entity{
+  layer = 0,
+  x = 808,
+  y = 653,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 808,
+  y = 669,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 808,
+  y = 685,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 728,
+  y = 637,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 712,
+  y = 637,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 712,
+  y = 653,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 712,
+  y = 669,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 712,
+  y = 685,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 728,
+  y = 685,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 728,
+  y = 669,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 728,
+  y = 653,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 792,
+  y = 605,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 792,
+  y = 621,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 792,
+  y = 637,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 792,
+  y = 653,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 792,
+  y = 669,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 792,
+  y = 685,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 872,
+  y = 653,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 888,
+  y = 653,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 888,
+  y = 637,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 888,
+  y = 621,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 888,
+  y = 605,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 872,
+  y = 605,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 872,
+  y = 621,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 872,
+  y = 637,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1400,
+  y = 589,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1416,
+  y = 589,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1432,
+  y = 621,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1432,
+  y = 637,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1432,
+  y = 653,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1432,
+  y = 669,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1464,
+  y = 685,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1480,
+  y = 685,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1480,
+  y = 701,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1464,
+  y = 701,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1480,
+  y = 589,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1480,
+  y = 605,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1496,
+  y = 669,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1512,
+  y = 669,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1496,
+  y = 653,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1512,
+  y = 653,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1512,
+  y = 637,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1496,
+  y = 637,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1496,
+  y = 621,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1512,
+  y = 621,
+  properties = {
+    {
+      key = "life",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_green",
+  model = "color_platform",
+}
+
+enemy{
+  layer = 0,
+  x = 1512,
+  y = 653,
+  direction = 3,
+  breed = "keese",
+  treasure_name = "random",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1400,
+  y = 685,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1416,
+  y = 685,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1416,
+  y = 701,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1400,
+  y = 701,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1432,
+  y = 589,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1432,
+  y = 605,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1448,
+  y = 621,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1464,
+  y = 621,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1464,
+  y = 637,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1448,
+  y = 637,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1448,
+  y = 653,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1464,
+  y = 653,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1464,
+  y = 669,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1448,
+  y = 669,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1368,
+  y = 621,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1384,
+  y = 621,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1384,
+  y = 637,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1368,
+  y = 637,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1368,
+  y = 653,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1384,
+  y = 653,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1384,
+  y = 669,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1368,
+  y = 669,
+  properties = {
+    {
+      key = "life",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_red",
+  model = "color_platform",
+}
+
+enemy{
+  layer = 0,
+  x = 1416,
+  y = 701,
+  direction = 3,
+  breed = "keese",
+  treasure_name = "random",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1432,
+  y = 685,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1448,
+  y = 685,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1448,
+  y = 701,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1432,
+  y = 701,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1448,
+  y = 589,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1464,
+  y = 589,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1464,
+  y = 605,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1448,
+  y = 605,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1480,
+  y = 621,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1480,
+  y = 637,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1480,
+  y = 653,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1480,
+  y = 669,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1400,
+  y = 621,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1416,
+  y = 621,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1416,
+  y = 637,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1400,
+  y = 637,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1400,
+  y = 653,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1416,
+  y = 653,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1416,
+  y = 669,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1400,
+  y = 669,
+  properties = {
+    {
+      key = "life",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/color_platform_orange",
+  model = "color_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 872,
+  y = 941,
+  properties = {
+    {
+      key = "state",
+      value = "0",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/eye_switch_red",
+  model = "eye_switch",
+}
+
+custom_entity{
+  layer = 0,
+  x = 728,
+  y = 941,
+  properties = {
+    {
+      key = "state",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/eye_switch_blue",
+  model = "eye_switch",
+}
+
+custom_entity{
+  layer = 0,
+  x = 872,
+  y = 861,
+  properties = {
+    {
+      key = "state",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/eye_switch_blue",
+  model = "eye_switch",
+}
+
+custom_entity{
+  layer = 0,
+  x = 416,
+  y = 605,
+  properties = {
+    {
+      key = "state",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/eye_switch_blue",
+  model = "eye_switch",
+}
+
+custom_entity{
+  layer = 0,
+  x = 464,
+  y = 653,
+  properties = {
+    {
+      key = "state",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/eye_switch_blue",
+  model = "eye_switch",
+}
+
+custom_entity{
+  layer = 0,
+  x = 512,
+  y = 605,
+  properties = {
+    {
+      key = "state",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/eye_switch_blue",
+  model = "eye_switch",
+}
+
+custom_entity{
+  layer = 0,
+  x = 512,
+  y = 701,
+  properties = {
+    {
+      key = "state",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/eye_switch_blue",
+  model = "eye_switch",
+}
+
+custom_entity{
+  layer = 0,
+  x = 416,
+  y = 701,
+  properties = {
+    {
+      key = "state",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/eye_switch_blue",
+  model = "eye_switch",
+}
+
+custom_entity{
+  layer = 0,
+  x = 416,
+  y = 653,
+  properties = {
+    {
+      key = "state",
+      value = "0",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/eye_switch_red",
+  model = "eye_switch",
+}
+
+custom_entity{
+  layer = 0,
+  x = 464,
+  y = 701,
+  properties = {
+    {
+      key = "state",
+      value = "0",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/eye_switch_red",
+  model = "eye_switch",
+}
+
+custom_entity{
+  layer = 0,
+  x = 464,
+  y = 605,
+  properties = {
+    {
+      key = "state",
+      value = "0",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/eye_switch_red",
+  model = "eye_switch",
+}
+
+custom_entity{
+  layer = 0,
+  x = 512,
+  y = 653,
+  properties = {
+    {
+      key = "state",
+      value = "0",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/eye_switch_red",
+  model = "eye_switch",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1384,
+  y = 349,
+  properties = {
+    {
+      key = "state",
+      value = "0",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/eye_switch_red",
+  model = "eye_switch",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1384,
+  y = 429,
+  properties = {
+    {
+      key = "state",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/eye_switch_blue",
+  model = "eye_switch",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1496,
+  y = 349,
+  properties = {
+    {
+      key = "state",
+      value = "1",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/eye_switch_blue",
+  model = "eye_switch",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1496,
+  y = 429,
+  properties = {
+    {
+      key = "state",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/eye_switch_yellow",
+  model = "eye_switch",
+}
+
+npc{
+  name = "great_fairy",
+  layer = 0,
+  x = 480,
+  y = 109,
+  direction = 3,
+  subtype = 1,
+}
+
+tile{
+  layer = 1,
+  x = 1392,
+  y = 24,
+  width = 64,
+  height = 64,
+  pattern = "floor.18-1",
+}
+
+tile{
+  layer = 1,
+  x = 1408,
+  y = 40,
+  width = 32,
+  height = 64,
+  pattern = "floor_low.18-1",
+}
+
 tile{
   layer = 1,
   x = 656,
@@ -13111,119 +19811,11 @@ tile{
 
 tile{
   layer = 1,
-  x = 1328,
-  y = 176,
-  width = 16,
-  height = 16,
-  pattern = "torch_big.top",
-}
-
-tile{
-  layer = 1,
-  x = 1328,
-  y = 48,
-  width = 16,
-  height = 16,
-  pattern = "torch_big.top",
-}
-
-tile{
-  layer = 1,
-  x = 1536,
-  y = 176,
-  width = 16,
-  height = 16,
-  pattern = "torch_big.top",
-}
-
-tile{
-  layer = 1,
-  x = 1536,
-  y = 48,
-  width = 16,
-  height = 16,
-  pattern = "torch_big.top",
-}
-
-tile{
-  layer = 1,
   x = 1728,
   y = 240,
   width = 32,
   height = 8,
   pattern = "door_top.closed.2-6",
-}
-
-tile{
-  layer = 1,
-  x = 368,
-  y = 560,
-  width = 16,
-  height = 16,
-  pattern = "torch_big.top",
-}
-
-tile{
-  layer = 1,
-  x = 576,
-  y = 560,
-  width = 16,
-  height = 16,
-  pattern = "torch_big.top",
-}
-
-tile{
-  layer = 1,
-  x = 368,
-  y = 688,
-  width = 16,
-  height = 16,
-  pattern = "torch_big.top",
-}
-
-tile{
-  layer = 1,
-  x = 576,
-  y = 688,
-  width = 16,
-  height = 16,
-  pattern = "torch_big.top",
-}
-
-tile{
-  layer = 1,
-  x = 1328,
-  y = 432,
-  width = 16,
-  height = 16,
-  pattern = "torch_big.top",
-}
-
-tile{
-  layer = 1,
-  x = 1328,
-  y = 304,
-  width = 16,
-  height = 16,
-  pattern = "torch_big.top",
-}
-
-tile{
-  layer = 1,
-  x = 1536,
-  y = 432,
-  width = 16,
-  height = 16,
-  pattern = "torch_big.top",
-}
-
-tile{
-  layer = 1,
-  x = 1536,
-  y = 304,
-  width = 16,
-  height = 16,
-  pattern = "torch_big.top",
 }
 
 tile{
@@ -13991,6 +20583,114 @@ tile{
   pattern = "door_top.1-3",
 }
 
+tile{
+  layer = 1,
+  x = 1392,
+  y = 32,
+  width = 64,
+  height = 8,
+  pattern = "wall_border.1-4",
+}
+
+tile{
+  layer = 1,
+  x = 1432,
+  y = 96,
+  width = 8,
+  height = 8,
+  pattern = "stairs_inner_up.1.top.border.2-1",
+}
+
+tile{
+  layer = 1,
+  x = 1416,
+  y = 96,
+  width = 16,
+  height = 8,
+  pattern = "stairs_inner_up.1.top-1",
+}
+
+tile{
+  layer = 1,
+  x = 1408,
+  y = 96,
+  width = 8,
+  height = 8,
+  pattern = "stairs_inner_up.1.top.border.1-1",
+}
+
+tile{
+  layer = 1,
+  x = 1392,
+  y = 80,
+  width = 16,
+  height = 16,
+  pattern = "tongue",
+}
+
+tile{
+  layer = 1,
+  x = 1440,
+  y = 80,
+  width = 16,
+  height = 16,
+  pattern = "tongue",
+}
+
+tile{
+  layer = 1,
+  x = 1440,
+  y = 40,
+  width = 16,
+  height = 16,
+  pattern = "tongue",
+}
+
+tile{
+  layer = 1,
+  x = 1392,
+  y = 40,
+  width = 16,
+  height = 16,
+  pattern = "tongue",
+}
+
+tile{
+  layer = 1,
+  x = 384,
+  y = 64,
+  width = 32,
+  height = 8,
+  pattern = "fairy_fountain.2",
+}
+
+tile{
+  layer = 1,
+  x = 544,
+  y = 64,
+  width = 32,
+  height = 8,
+  pattern = "fairy_fountain.2",
+}
+
+tile{
+  layer = 1,
+  x = 384,
+  y = 160,
+  width = 32,
+  height = 8,
+  pattern = "fairy_fountain.2",
+}
+
+tile{
+  layer = 1,
+  x = 544,
+  y = 160,
+  width = 32,
+  height = 8,
+  pattern = "fairy_fountain.2",
+}
+
 dynamic_tile{
   name = "weak_door_1_opened_1",
   layer = 1,
@@ -13999,7 +20699,6 @@ dynamic_tile{
   pattern = "door_cache.2-6",
   width = 48,
   height = 8,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -14010,7 +20709,58 @@ dynamic_tile{
   pattern = "door_top.2-3",
   width = 32,
   height = 8,
-  enabled_at_start = true,
+}
+
+wall{
+  layer = 1,
+  x = 1408,
+  y = 32,
+  width = 32,
+  height = 24,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+chest{
+  name = "chest_boss_key",
+  layer = 1,
+  x = 1424,
+  y = 53,
+  treasure_name = "boss_key",
+  treasure_savegame_variable = "dungeon_9_boss_key",
+  sprite = "entities/big_chest",
+}
+
+jumper{
+  layer = 1,
+  x = 1456,
+  y = 56,
+  width = 8,
+  height = 24,
+  direction = 0,
+  jump_length = 40,
+}
+
+jumper{
+  layer = 1,
+  x = 1384,
+  y = 56,
+  width = 8,
+  height = 24,
+  direction = 4,
+  jump_length = 40,
+}
+
+tile{
+  layer = 2,
+  x = 1408,
+  y = 8,
+  width = 32,
+  height = 24,
+  pattern = "wall.1-6",
 }
 
 tile{
@@ -14208,6 +20958,123 @@ tile{
   y = 1040,
   width = 288,
   height = 224,
+  pattern = "ceiling.1",
+}
+
+tile{
+  layer = 2,
+  x = 1296,
+  y = 272,
+  width = 32,
+  height = 32,
+  pattern = "ceiling.1",
+}
+
+tile{
+  layer = 2,
+  x = 1552,
+  y = 272,
+  width = 32,
+  height = 32,
+  pattern = "ceiling.1",
+}
+
+tile{
+  layer = 2,
+  x = 1296,
+  y = 464,
+  width = 32,
+  height = 32,
+  pattern = "ceiling.1",
+}
+
+tile{
+  layer = 2,
+  x = 1552,
+  y = 464,
+  width = 32,
+  height = 32,
+  pattern = "ceiling.1",
+}
+
+tile{
+  layer = 2,
+  x = 1552,
+  y = 192,
+  width = 32,
+  height = 48,
+  pattern = "ceiling.1",
+}
+
+tile{
+  layer = 2,
+  x = 1552,
+  y = 16,
+  width = 32,
+  height = 48,
+  pattern = "ceiling.1",
+}
+
+tile{
+  layer = 2,
+  x = 1392,
+  y = 0,
+  width = 24,
+  height = 16,
+  pattern = "wall.4-6",
+}
+
+tile{
+  layer = 2,
+  x = 1432,
+  y = 0,
+  width = 24,
+  height = 16,
+  pattern = "wall.3-6",
+}
+
+tile{
+  layer = 2,
+  x = 1432,
+  y = 8,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner_reverse.1-6",
+}
+
+tile{
+  layer = 2,
+  x = 1392,
+  y = 8,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner_reverse.2-6",
+}
+
+tile{
+  layer = 2,
+  x = 1408,
+  y = 8,
+  width = 32,
+  height = 24,
+  pattern = "wall_decor.1-4",
+}
+
+tile{
+  layer = 2,
+  x = 592,
+  y = 704,
+  width = 32,
+  height = 48,
+  pattern = "ceiling.1",
+}
+
+tile{
+  layer = 2,
+  x = 592,
+  y = 528,
+  width = 32,
+  height = 48,
   pattern = "ceiling.1",
 }
 
