@@ -35,8 +35,6 @@ function map:on_started(destination)
   -- Signs
   photographer_sign:get_sprite():set_animation("photographer_sign")
 
-
-  update_music()
 end
 
 function owl_6_sensor:on_activated()

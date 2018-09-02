@@ -656,11 +656,10 @@ dialog{
   id = "_treasure.magic_powders_counter.1",
   icon = "37",
   text = [[
-Tu as gagné la  
-Poudre Magique! $0
-Tu peux la      
-saupoudrer sur  
-plein de trucs.
+Tu as gagné la Poudre
+Magique ! $0
+Tu peux la saupoudrer
+sur plein de trucs.
 ]],
 }
 
@@ -1138,11 +1137,10 @@ dialog{
   id = "_treasure.tail_key.1",
   icon = "40",
   text = [[
-Tu as la        
-Clé Flagello!   
-Tu peux ouvrir  
-la porte de la  
-Cave Flagello!
+Tu as la Clé
+Flagello ! Tu peux
+ouvrir la porte de la
+Cave Flagello !
 ]],
 }
 
@@ -1563,21 +1561,18 @@ la forêt.
 dialog{
   id = "maps.houses.graveyard.witch_house.witch_2",
   text = [[
-Tu m'apportes le 
-Champignon qui endort.
-Bon ! Dare dare !      
-Je te concocte une 
-mixture !!
+Tu m'apportes le Champignon
+qui endort. Bon !
+Dare dare ! Je te concocte
+une mixture !!
 ]],
 }
 
 dialog{
   id = "maps.houses.graveyard.witch_house.witch_3",
   text = [[
-Ça y est ! 
-Tout est prêt !  
-Attention, il y en a 
-peu !  
+Ça y est ! Tout est prêt !  
+Attention, il y en a peu !  
 Veux-tu la tester ici ?
 ]],
 }
@@ -1933,9 +1928,8 @@ dialog{
   id = "maps.houses.mabe_village.marin_house.tarin_4",
   skip = "all",
   text = [[
-Je suis éreinté !
-J'vais faire un p'tit 
-somme. 
+Je suis éreinté ! J'vais 
+faire un p'tit somme. 
 ZZZ...ZZZ...
 ]],
 }
@@ -2917,13 +2911,11 @@ Quoi ? Tu avais remarqué ?
 dialog{
   id = "maps.houses.west_mt_tamaranch.mr_write_house.mr_write_1",
   text = [[
-Bonjour, je suis 
-Mr Wright.      
-Mon hobby, c'est écrire    
-des lettres...  
-Le problème, c'est que       
-quand j'écris, je n'ai
-jamais de réponse...
+Bonjour, je suis Mr Wright.      
+Mon hobby, c'est écrire des
+lettres... Le problème,
+c'est que quand j'écris, je
+n'ai jamais de réponse...
 ]],
 }
 
@@ -3196,12 +3188,10 @@ dialog{
   id = "maps.out.forest.raccoon_to_tarin",
   text = [[
 J'ai croqué dans un 
-champignon.
-Et j'suis devenu un 
-raton-laveur !
-Après, j'sais plus trop,
-mais c'était trop
-rigolo !!
+champignon. Et j'suis devenu 
+un raton-laveur ! Après, 
+j'sais plus trop, mais
+c'était trop rigolo !!
 ]],
 }
 
@@ -3219,9 +3209,8 @@ abstenez-vous !
 dialog{
   id = "maps.out.forest.tarin",
   text = [[
-Oh là là !! J'me sens 
-tout drôle !
-Faut m'reposer avant 
+Oh là là !! J'me sens tout
+drôle ! Faut m'reposer avant 
 d'rentrer.
 ]],
 }
@@ -3581,12 +3570,10 @@ dialog{
   id = "maps.out.mabe_village.marin_2",
   skip = "all",
   text = [[
-$v, Tarkin   
-fait la sieste à la 
-maison. Je préfère      
-chanter. Oui ! Pourquoi
-pas la Ballade du 
-Poisson-Rêve ?
+$v, Tarkin fait la sieste
+à la maison. Je préfère
+chanter. Oui ! Pourquoi pas
+la Ballade du Poisson-Rêve ?
 ]],
 }
 
@@ -3945,7 +3932,7 @@ IL REPOND AUX SONS.
 dialog{
   id = "maps.out.west_mt_tamaranch.sign_1",
   text = [[
-Accès interdit! 
+Accès interdit !
 (sauf Toutou)
 ]],
 }
@@ -4572,10 +4559,9 @@ dialog{
   icon = "36",
   skip = "all",
   text = [[
-Si tu brandis   
-le Champignon,  
-un arôme subtil 
-se répandra !
+Si tu brandis le
+Champignon, un arôme
+subtil se répandra !
 ]],
 }
 
@@ -4619,9 +4605,9 @@ dialog{
   id = "scripts.menus.pause_inventory.piece_of_heart.1",
   skip = "all",
   text = [[
-Collectionnes en 4
-pour récupérer un
-coeur supplémentaire !
+Collectionnes en 4 pour
+récupérer un coeur
+supplémentaire !
 ]],
 }
 
@@ -4653,9 +4639,8 @@ dialog{
   icon = "38",
   skip = "all",
   text = [[
-Collectes-en    
-beaucoup pour   
-faire du troc !
+Collectes-en beaucoup
+pour faire du troc !
 ]],
 }
 
@@ -4664,8 +4649,8 @@ dialog{
   icon = "63",
   skip = "all",
   text = [[
-Permet de repousser
-vos ennemis.
+Permet de repousser vos
+ennemis.
 ]],
 }
 
@@ -4706,9 +4691,8 @@ dialog{
   icon = "60",
   skip = "all",
   text = [[
-Une tunique verte 
-pour le plus beau
-des héros !
+Une tunique verte pour
+le plus beau des héros !
 ]],
 }
 
@@ -4717,9 +4701,8 @@ dialog{
   icon = "61",
   skip = "all",
   text = [[
-Une tunique bleue 
-pour le plus beau
-des héros !
+Une tunique bleue pour
+le plus beau des héros !
 ]],
 }
 
@@ -4728,9 +4711,8 @@ dialog{
   icon = "62",
   skip = "all",
   text = [[
-Une tunique rouge 
-pour le plus beau
-des héros !
+Une tunique rouge pour
+le plus beau des héros !
 ]],
 }
 
@@ -4982,14 +4964,12 @@ Hou !
 dialog{
   id = "scripts.meta.map.owl_3",
   text = [[
-Hou !            
-Avec cette clé, 
-va à la Cave Flagello.       
-Prends l'Instrument
-qui y est dissimulé.
-Dépêche-toi !    
-Le Poisson-Rêve 
-attend! Hou !
+Hou ! Avec cette clé, va
+à la Cave Flagello. Prends
+l'Instrument qui y est
+dissimulé. Dépêche-toi !    
+Le Poisson-Rêve attend !
+Hou !
 ]],
 }
 

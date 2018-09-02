@@ -9,7 +9,7 @@ local entity = ...
 
 local default_sprite_id = "entities/cave_hole"
 local break_sound = "explosion"
-local time_resistance = 500 -- The time it resists with hero above. In milliseconds.
+local time_resistance = 800 -- The time it resists with hero above. In milliseconds.
 
 -- Event called when the custom entity is initialized.
 function entity:on_created()

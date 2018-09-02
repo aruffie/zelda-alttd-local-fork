@@ -17015,24 +17015,6 @@ enemy{
   treasure_name = "random",
 }
 
-enemy{
-  name = "enemy_group_15_3",
-  layer = 0,
-  x = 1104,
-  y = 1693,
-  direction = 0,
-  breed = "spike",
-}
-
-enemy{
-  name = "jjj",
-  layer = 0,
-  x = 1128,
-  y = 1693,
-  direction = 0,
-  breed = "octorok",
-}
-
 custom_entity{
   name = "boss_door_frame_renverse",
   layer = 0,
