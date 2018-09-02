@@ -1009,8 +1009,7 @@ dialog{
   id = "_treasure.rupee.2",
   icon = "91",
   text = [[
-Tu as trouvé    
-5 rubis.       
+Tu as trouvé 5 rubis.       
 O joie !
 ]],
 }
@@ -1019,8 +1018,7 @@ dialog{
   id = "_treasure.rupee.3",
   icon = "92",
   text = [[
-Tu as trouvé    
-20 rubis.       
+Tu as trouvé 20 rubis.       
 O joie !
 ]],
 }
@@ -1029,8 +1027,7 @@ dialog{
   id = "_treasure.rupee.4",
   icon = "90",
   text = [[
-Tu as trouvé    
-50 rubis.       
+Tu as trouvé 50 rubis.       
 Merveilleux !
 ]],
 }
@@ -1039,8 +1036,7 @@ dialog{
   id = "_treasure.rupee.5",
   icon = "90",
   text = [[
-Tu as trouvé    
-100 rubis.      
+Tu as trouvé 100 rubis.      
 Fantastique !
 ]],
 }
@@ -1049,8 +1045,7 @@ dialog{
   id = "_treasure.rupee.6",
   icon = "90",
   text = [[
-Tu as trouvé    
-200 rubis.      
+Tu as trouvé 200 rubis.      
 Quelle extase !
 ]],
 }
@@ -1061,9 +1056,8 @@ dialog{
   text = [[
 Tu as trouvé un 
 coquillage !     
-Collectes-en    
-beaucoup pour faire
-du troc...
+Collectes-en beaucoup
+pour faire du troc...
 ]],
 }
 
@@ -1122,9 +1116,8 @@ dialog{
 Tu as retrouvé ton
 Epée !  $0
 
-C'est la tienne car 
-il y a ton nom
-dessus !
+C'est la tienne car il 
+y a ton nom dessus !
 ]],
 }
 
@@ -1617,18 +1610,13 @@ causeur...
 dialog{
   id = "maps.houses.mabe_village.library.book_1.content",
   text = [[
-Choisis l'objet 
-désiré dans     
-le Sous-Ecran   
-en appuyant     
-sur A ou B.     
-Certains objets 
-remplacent      
-une épée lors   
-d'un combat.    
-Essaie-les tous 
-pour avoir le   
-plus adéquat !
+Choisis l'objet désiré dans     
+le Sous-Ecran en appuyant     
+sur PAUSE.     
+Certains objets remplacent      
+une épée lors d'un combat.    
+Essaie-les tous pour avoir 
+le plus adéquat !
 ]],
 }
 
@@ -1636,8 +1624,8 @@ dialog{
   id = "maps.houses.mabe_village.library.book_1.question",
   question = "1",
   text = [[
-CHOISIR     
-LE BON OBJET  
+CHOISIR LE BON OBJET  
+
 
 Tu veux le lire ?
 Oui
@@ -1648,22 +1636,16 @@ Non
 dialog{
   id = "maps.houses.mabe_village.library.book_2.content",
   text = [[
-Appuie sur      
-SELECT          
-pour afficher la
-carte de l'île. 
-Les parties     
-sombres sont    
-les endroits    
-que tu n'as pas 
-encore visités. 
-Bouge le curseur
-et appuie sur A 
-pour obtenir le 
-nom du lieu et  
-le message      
-du hibou. Ainsi,
-tu n'auras pas  
+Appuie sur PAUSE          
+pour afficher la carte
+de l'île. Les parties     
+sombres sont les endroits    
+que tu n'as pas encore
+visités. Bouge le curseur
+et appuie sur A pour obtenir
+le nom du lieu et le
+message du hibou.
+Ainsi, tu n'auras pas  
 à tout noter !
 ]],
 }
@@ -1672,8 +1654,8 @@ dialog{
   id = "maps.houses.mabe_village.library.book_2.question",
   question = "1",
   text = [[
-CONSEILS    
-ET CARTE  
+CONSEILS ET CARTE  
+
 
 Tu veux le lire ?
 Oui
@@ -1684,22 +1666,15 @@ Non
 dialog{
   id = "maps.houses.mabe_village.library.book_3.content",
   text = [[
-Cette technique 
-spéciale        
-se transmet     
-de génération   
-en génération.  
-Maintiens       
-enfoncé         
-le bouton       
-correspondant   
-à l'épée        
-pour augmenter  
-ta force. Quand 
-c'est suffisant,
-relâche-le.     
-Crois-tu que tu 
-peux le faire ?
+Cette technique spéciale        
+se transmet de génération   
+en génération. Maintiens       
+enfoncé le bouton       
+correspondant à l'épée        
+pour augmenter ta force. 
+Quand c'est suffisant,
+relâche-le. Crois-tu que 
+tu peux le faire ?
 ]],
 }
 
@@ -1708,7 +1683,7 @@ dialog{
   question = "1",
   text = [[
 TOUT SUR L'EPEE 
-TOURNOYANTE! 
+TOURNOYANTE ! 
 
 Tu veux le lire ?
 Oui
@@ -1719,17 +1694,12 @@ Non
 dialog{
   id = "maps.houses.mabe_village.library.book_4.content",
   text = [[
-En maintenant   
-A ou B enfoncé, 
-tu peux parer   
-les attaques    
-et repousser    
-les ennemis.    
-En plus du      
-bouclier        
-standard,       
-il y en a un    
-qui te protège  
+En maintenant A ou B
+enfoncé, tu peux parer   
+les attaques et repousser
+les ennemis. En plus du
+bouclier standard, il y en a
+un qui te protège
 des lasers !
 ]],
 }
@@ -1738,9 +1708,9 @@ dialog{
   id = "maps.houses.mabe_village.library.book_4.question",
   question = "1",
   text = [[
-DE LA BONNE   
-UTILISATION 
+DE LA BONNE UTILISATION
 D'UN BOUCLIER  
+
 Tu veux le lire ?
 Oui
 Non
@@ -1750,18 +1720,13 @@ Non
 dialog{
   id = "maps.houses.mabe_village.library.book_5.content",
   text = [[
-Pour reprendre  
-une bombe       
-au sol, appuie  
-tout de suite   
-sur le bouton   
-la contrôlant.  
-Puis jette-la   
-en appuyant     
-encore sur      
-le même bouton. 
-Connaissais-tu  
-cette astuce ?
+Pour reprendre une bombe       
+au sol, appuie tout de suite   
+sur le bouton la contrôlant.  
+Puis jette-la en appuyant     
+encore sur le même bouton. 
+Connaissais-tu cette
+astuce ?
 ]],
 }
 
@@ -1781,23 +1746,15 @@ Non
 dialog{
   id = "maps.houses.mabe_village.library.book_6.content",
   text = [[
-Sur Cocolint,   
-il y a des      
-trous Warp.     
-Téléporte-toi   
-en sautant      
-dedans.         
-Replonge dans   
-le trou d'où    
-tu sors pour    
-être téléporté  
-en succession.  
-Tu ne peux pas  
-te téléporter   
-vers un trou    
-qui n'est pas   
-encore apparu   
-à l'écran !
+Sur Cocolint, il y a des      
+trous Warp. Téléporte-toi   
+en sautant dedans.         
+Replonge dans le trou d'où
+tu sors pour être téléporté
+en succession. Tu ne peux
+pas te téléporter vers un
+trou qui n'est pas encore
+apparu à l'écran !
 ]],
 }
 
@@ -1818,13 +1775,10 @@ dialog{
   id = "maps.houses.mabe_village.library.book_7.question",
   question = "1",
   text = [[
-ATLAS DE    
-COCOLINT 
-Choisis un lieu 
-grâce au curseur
-et appuie sur A 
-pour afficher   
-son nom.
+ATLAS DE COCOLINT 
+Choisis un lieu grâce 
+au curseur et appuie sur
+A pour afficher son nom.
 
 
 Tu veux le consulter ?
@@ -1836,12 +1790,9 @@ Non
 dialog{
   id = "maps.houses.mabe_village.library.book_8.content",
   text = [[
-Impossible !     
-Il te faut      
-la Loupe        
-pour lire       
-les petits      
-caractères...
+Impossible ! Il te faut 
+la Loupe pour lire les 
+petits caractères...
 ]],
 }
 
@@ -1849,9 +1800,9 @@ dialog{
   id = "maps.houses.mabe_village.library.book_8.question",
   question = "1",
   text = [[
-MYSTERES    
-ET SECRETS   
-DE COCOLINT 
+MYSTERES ET SECRETS DE
+COCOLINT
+
 Tu veux le lire ?
 Oui
 Non
@@ -2118,7 +2069,7 @@ des quadruplés.
 Plus tard, je me perdrai 
 dans les montagnes.      
 Tu viendras m'aider,
-hein?
+hein ?
 ]],
 }
 
@@ -3228,8 +3179,7 @@ dialog{
   text = [[
 J'suis un raton-laveur 
 espiègle. Et j'aime pas
-du tout c'qu'est
-poudreux...
+du tout c'qu'est poudreux...
 ]],
 }
 
@@ -3455,13 +3405,11 @@ dialog{
   skip = "all",
   text = [[
 M'sieu !
-Pour sauvegarder,    
-appuyez sur tous
-les boutons à la fois !
-Heu, je n'en sais pas
-plus, je ne suis qu'un
-gosse !
-
+Pour sauvegarder, appuyez 
+sur PAUSE puis sur ÉPÉE ! 
+Ça n'a aucun sens ? 
+Heu, je n'en sais pas plus,
+je ne suis qu'un gosse !
 ]],
 }
 
@@ -3495,13 +3443,12 @@ dialog{
   skip = "all",
   text = [[
 Ben... Après une
-sauvegarde, vous
-pouvez redémarrer 
-à la dernière porte  
-par laquelle vous êtes
-passé ! Pourquoi ? 
-Je n'en sais rien, 
-je suis un môme !
+sauvegarde, vous pouvez
+redémarrer à la dernière
+porte par laquelle vous 
+êtes passé ! Pourquoi ? 
+Je n'en sais rien,  je suis 
+un môme !
 ]],
 }
 
@@ -3510,10 +3457,10 @@ dialog{
   skip = "all",
   text = [[
 Consultez la carte de 
-l'île en appuyant     
-sur SELECT. Après, je 
-ne sais pas trop car je
-ne suis qu'un gosse !
+l'île en appuyant sur PAUSE.
+Après, je ne sais pas trop 
+car je ne suis qu'un
+gosse !
 ]],
 }
 
@@ -3521,12 +3468,11 @@ dialog{
   id = "maps.out.mabe_village.kids_4",
   skip = "all",
   text = [[
-Si vos coeurs 
-diminuent trop, entrez 
-dans une maison ou 
-une grotte. Pourquoi ? 
-Je ne sais pas, je suis
-trop petit !
+Si vos coeurs diminuent 
+trop, entrez dans une
+maison ou une grotte.
+Pourquoi ? Je ne sais pas,
+je suis trop petit !
 ]],
 }
 
@@ -3622,8 +3568,8 @@ dialog{
   skip = "all",
   text = [[
 Bonjour $v !  
-Tarkin est parti dans
-la forêt chercher des    
+Tarkin est parti dans la
+forêt chercher des 
 champignons.    
 Moi, je préfère chanter.        
 Ecoute ceci : c'est la 
@@ -4872,23 +4818,19 @@ Hou hou
 dialog{
   id = "scripts.meta.map.owl_1",
   text = [[
-Hou hou ! Cette épée      
-est donc à toi ! 
-... Je comprends
-pourquoi les monstres    
-s'agitent tant :
-celui qui doit réveiller
-le Poisson-Rêve    
-est arrivé !     
-On dit que pour 
-quitter l'île, cette 
-personne doit d'abord
-le réveiller... 
-Viens me voir dans la
-Forêt Enchantée, au   
-Nord du village.
-Je t'y attends. 
-Hou hou !
+Hou hou ! Cette épée est
+donc à toi !
+... Je comprends pourquoi 
+les monstres s'agitent
+tant : celui qui doit 
+réveiller le Poisson-Rêve 
+est arrivé ! On dit que pour 
+quitter l'île, cette
+personne doit d'abord le
+réveiller... Viens me voir 
+dans la Forêt Enchantée, 
+au Nord du village. Je t'y
+attends. Hou hou !
 ]],
 }
 

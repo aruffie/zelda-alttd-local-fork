@@ -7,6 +7,12 @@ enemy:set_damage(1)
 
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 
+function enemy:on_created()
+
+    self:set_can_be_pushed_by_shield(true)
+
+end
+
 -- The enemy was stopped for some reason and should restart.
 function enemy:on_restarted()
 
