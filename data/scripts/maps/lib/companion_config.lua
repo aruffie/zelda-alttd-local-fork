@@ -6,7 +6,7 @@ return {
     sprite = "npc/marin",
     activation_condition = function(map)
       local step = map:get_game():get_value("main_quest_step")
-      local step = 23
+      --local step = 23
       return step == 23
     end
   },

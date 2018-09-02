@@ -2,9 +2,18 @@ local fsa = {}
 
 local tmp = sol.surface.create(sol.video.get_quest_size())
 local reflection = sol.surface.create(sol.video.get_quest_size())
+local fsa_texture = sol.surface.create(sol.video.get_quest_size())
 local clouds = sol.surface.create("work/clouds_reflection.png")
 local clouds_shadow = sol.surface.create("work/clouds_shadow.png")
 clouds_shadow:set_blend_mode("multiply")
+
+local effect = sol.surface.create"work/fsaeffect.png"
+--effect:set_blend_mode"multiply"
+local shader = sol.shader.create"water_effect"
+shader:set_uniform("reflection",reflection)
+shader:set_uniform("fsa_texture",fsa_texture)
+tmp:set_shader(shader)
+local ew,eh = effect:get_size()
 
 local clouds_speed = 0.01;
 
@@ -25,7 +34,6 @@ function fsa:render_water_mask(map)
   end
 end
 
-
 local crw,crh = clouds:get_size()
 
 function fsa:render_reflection(map)
@@ -38,6 +46,17 @@ function fsa:render_reflection(map)
     for j=-1,math.ceil(crh/ch) do    
       clouds:draw(reflection,tx+i*crw,ty+j*crh)
     end
+  end
+  do --draw hero reflection
+    local hero = map:get_hero()
+    local tunic = hero:get_sprite('tunic')
+    local osx,osy = tunic:get_scale()
+    tunic:set_scale(osx,-osy)
+    local hx,hy = hero:get_position()
+    local cx,cy = map:get_camera():get_position()
+    local tx,ty = hx-cx,hy-cy
+    tunic:draw(reflection,tx,ty)
+    tunic:set_scale(osx,osy)
   end
 end
 
@@ -55,29 +74,30 @@ function fsa:draw_clouds_shadow(dst,cx,cy)
   end
 end
 
-function fsa:apply_effect(game)
-  --TODO put elsewhere
-  local effect = sol.surface.create"work/fsaeffect.png"
-  local shader = sol.shader.create"water_effect"
-  shader:set_uniform("reflection",reflection)
-  tmp:set_shader(shader)
-  local ew,eh = effect:get_size()
-  effect:set_blend_mode"multiply"
+function fsa:render_fsa_texture(map)
+  fsa_texture:clear()
+  local cw,ch = fsa_texture:get_size()
+  local camera = map:get_camera()
+  local dx,dy = camera:get_position()
+  local tx = ew - dx % ew
+  local ty = eh - dy % eh
+  for i=-1,math.ceil(ew/cw)+1 do
+    for j=-1,math.ceil(eh/ch) do    
+      effect:draw(fsa_texture,tx+i*ew,ty+j*eh)
+    end
+  end
+end
+
+function fsa:apply_effect(game) 
   game:register_event("on_map_changed",function(game,map)
     function map:on_draw(dst)
+      --dst:set_shader(shader)
       dst:draw(tmp)
-      tmp:draw(dst)
-      fsa:render_reflection()
-      local cw,ch = dst:get_size()
+      fsa:render_reflection(map)
+      fsa:render_fsa_texture(map)
       local camera = map:get_camera()
       local dx,dy = camera:get_position()
-      local tx = ew - dx % ew
-      local ty = eh - dy % eh
-      for i=-1,math.ceil(ew/cw)+1 do
-        for j=-1,math.ceil(eh/ch) do    
-          effect:draw(dst,tx+i*ew,ty+j*eh)
-        end
-      end
+      tmp:draw(dst)
       fsa:draw_clouds_shadow(dst,dx,dy)
     end
   end)
