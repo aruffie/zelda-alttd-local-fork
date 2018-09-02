@@ -922,6 +922,7 @@ sound{ id = "secret_1", description = "Secret 1" }
 sound{ id = "secret_2", description = "Secret 2" }
 sound{ id = "shake", description = "Shake" }
 sound{ id = "shield_brandish", description = "Shield brandish" }
+sound{ id = "shock", description = "Shock" }
 sound{ id = "solarus_logo", description = "Solarus logo" }
 sound{ id = "splash", description = "Splash" }
 sound{ id = "stairs_down_end", description = "Stairs down end" }

@@ -1,7 +1,7 @@
 require("scripts/multi_events")
 local hero_meta = sol.main.get_metatable("hero")
 local timer_sleeping
-local duration = 2000
+local duration = 10000
 local sleeping_animations = {"happy", "sad"}
 
 function hero_meta:launch_timer_sleeping()
