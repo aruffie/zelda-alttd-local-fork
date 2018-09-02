@@ -8,6 +8,7 @@
 require("scripts/debug")
 require("scripts/equipment")
 require("scripts/dungeons")
+require("scripts/sleep")
 require("scripts/side_view.lua")
 require("scripts/menus/dialog_box")
 require("scripts/menus/pause")
