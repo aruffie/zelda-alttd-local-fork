@@ -36,7 +36,6 @@ void main() {
              floor(sol_vtex_coord.y/relative_region_size.y)
     );
     
-    //vec4 tex_color = COMPAT_TEXTURE(sol_texture, 
     vec4 tex_color = COMPAT_TEXTURE(sol_texture, (region_xy*pixel_size)/sol_input_size);
     FragColor = tex_color;
 }
