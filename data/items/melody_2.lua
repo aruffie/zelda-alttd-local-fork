@@ -10,15 +10,40 @@
 
 local item = ...
 local game = item:get_game()
-local map = game:get_map()
-local hero_teleport_in = false
-local hero_teleport_out = false
+local shader_ocarina = sol.shader.create("ocarina_warp")
+local warp_magnitude = 0.01
 
 -- Event called when the game is initialized.
 function item:on_started()
 
   self:set_savegame_variable("possession_melody_2")
   self:set_assignable(true)
+  
+  game:register_event("on_map_changed", function(game, map)
+    map:register_event("on_draw", function(map, surface)
+        local teleport_warp_effect = game:get_value("teleport_warp_effect")
+        if teleport_warp_effect == "start"  or teleport_warp_effect == "stop" then
+          if teleport_warp_effect == "start" then
+            warp_magnitude = warp_magnitude + 0.001
+            if warp_magnitude > 0.1 then
+              warp_magnitude = 0.1
+              game:set_value("teleport_warp_effect",  "stop");
+            end
+          else
+            warp_magnitude = warp_magnitude - 0.001
+            if warp_magnitude < 0.01 then
+              warp_magnitude = 0.01
+              game:set_value("teleport_warp_effect",  nil);
+            end
+          end
+          shader_ocarina:set_uniform("magnitude", warp_magnitude)
+          surface:set_shader(shader_ocarina)
+        else
+              surface:set_shader(nil)
+        end
+      end)
+
+  end)
 
 end
 
@@ -27,45 +52,14 @@ function item:on_using()
 
     local map = game:get_map()
     local hero = map:get_hero()
-    local shader_ocarina = sol.shader.create("ocarina_warp")
-    local magnitude = 0.01
     local ocarina = game:get_item("ocarina")
     ocarina:playing_song("items/ocarina_2")
     sol.timer.start(map, 4000, function()
-        hero_teleport_in = true
+        game:set_value("teleport_warp_effect", "start");
         sol.audio.play_sound("items/ocarina_2_warp")
          sol.timer.start(map, 2000, function()
             hero:teleport("out/b2_graveyard", "ocarina_2", "fade")
-            hero_teleport_in = false
-            hero_teleport_out = true
          end)
      end)
     item:set_finished()
-    map:register_event("on_draw", function(map, surface)
-      if hero_teleport_in or hero_teleport_out then
-        if hero_teleport_in then
-          magnitude = magnitude + 0.001
-          if magnitude > 0.1 then
-            magnitude = 0.1
-          end
-        else
-          magnitude = magnitude - 0.0008
-          if magnitude < 0.01 then
-            magnitude = 0.01
-            hero_teleport_out = false
-          end
-        end
-        shader_ocarina:set_uniform("magnitude", magnitude)
-        surface:set_shader(shader_ocarina)
-      else
-            surface:set_shader(nil)
-      end
-    end)
-end
-
--- Event called when a pickable treasure representing this item
--- is created on the map.
-function item:on_pickable_created(pickable)
-
-  -- You can set a particular movement here if you don't like the default one.
 end
