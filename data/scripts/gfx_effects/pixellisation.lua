@@ -15,7 +15,7 @@ local lib={}
 local max_step=7          --Number of drawing steps (the corresponding pixel width is 2^step)
 local step_duration=0.15  --Step duration in seconds
 
-function lib.start_pixellating_effect(surface, game, mode, sfx, callback)
+function lib.start_effect(surface, game, mode, sfx, callback)
   print("START")
   local shader=sol.shader.create("pixellisation")
 
@@ -23,6 +23,7 @@ function lib.start_pixellating_effect(surface, game, mode, sfx, callback)
     print("Error : No surface has been passed")
     return
   end
+print(mode)
   if not(mode=="fade_in" or mode=="fade_out" or mode=="fade_both") then
 
     print("Error:unknown drawing mode")

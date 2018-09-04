@@ -1149,7 +1149,7 @@ shader{ id = "6xbrz", description = "6xbrz" }
 shader{ id = "electric", description = "Electric effect" }
 shader{ id = "mode_7", description = "Mode 7" }
 shader{ id = "ocarina_warp", description = "Warp animation" }
-shader{ id = "pixellisation_effect", description = "Pixellisation effect" }
+shader{ id = "pixellisation", description = "Pixellisation effect" }
 shader{ id = "sepia", description = "Sepia" }
 shader{ id = "toon", description = "Toon" }
 
