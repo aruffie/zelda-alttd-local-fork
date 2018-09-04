@@ -33,12 +33,13 @@ function item:on_started()
             warp_magnitude = warp_magnitude - 0.001
             if warp_magnitude < 0.01 then
               warp_magnitude = 0.01
-              game:set_value("teleport_warp_effect",  nil);
+              game:set_value("teleport_warp_effect",  "finished");
             end
           end
           shader_ocarina:set_uniform("magnitude", warp_magnitude)
           surface:set_shader(shader_ocarina)
-        else
+        elseif teleport_warp_effect == "finished" then
+              game:set_value("teleport_warp_effect",  nil);
               surface:set_shader(nil)
         end
       end)
