@@ -1,3 +1,20 @@
+/*
+ * Copyright (C) 2018 Solarus - http://www.solarus-games.org
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along
+ * with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
 #if __VERSION__ >= 130
 #define COMPAT_VARYING in
 #define COMPAT_TEXTURE texture
@@ -21,11 +38,6 @@ uniform vec2 sol_input_size;
 COMPAT_VARYING vec4 sol_vcolor;
 
 uniform float step; 
-float remainder(float a, float b){
-  float x=a/b;
-  float y=ceil(x);
-  return(b-(y*b))-a;
-}
 
 void main() {
     float pixel_size=pow(2.0, step);
