@@ -67,7 +67,5 @@ end
 map:register_event("on_draw", function(map, surface)
   if hero_electric then
     surface:set_shader(shader_electric)
-  else
-    surface:set_shader(nil)
   end
 end)
