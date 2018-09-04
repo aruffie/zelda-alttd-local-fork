@@ -17,11 +17,15 @@ game_meta:register_event("on_map_changed", function(game, map)
             local effect_entity = require("scripts/gfx_effects/" .. effect)
             effect_entity.start_effect(surface, game, "in", false, function()
               hero:teleport(destination_map, "_side0", "immediate")
-              effect_entity.start_effect(surface, game, "out")
+              game.map_in_transition = effect_entity
             end)
         end
       end
     end
+   if game.map_in_transition ~= nil then
+    game.map_in_transition.start_effect(surface, game, "out")
+    game.map_in_transition = nil
+   end
 
 end)
 
