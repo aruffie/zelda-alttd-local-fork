@@ -1149,9 +1149,12 @@ shader{ id = "6xbrz", description = "6xbrz" }
 shader{ id = "electric", description = "Electric effect" }
 shader{ id = "mode_7", description = "Mode 7" }
 shader{ id = "ocarina_warp", description = "Warp animation" }
+shader{ id = "pixellisation_effect", description = "Pixellisation effect" }
 shader{ id = "sepia", description = "Sepia" }
 shader{ id = "toon", description = "Toon" }
 
 file{ path = "main.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "scripts/meta/sensor.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "scripts/music_manager.lua", author = "Christopho", license = "GPL v3" }
+file{ path = "shaders/pixellisation_effect.dat", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "shaders/pixellisation_effect.frag.glsl", author = "PhoenixII54", license = "GPL v3" }
