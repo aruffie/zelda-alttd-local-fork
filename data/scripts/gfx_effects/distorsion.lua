@@ -1,7 +1,7 @@
 local lib={}
 
 --[[
-Draws a distorsion effect for the Ocarina's Mambo's warp song
+Draws a distorsion effect similar to the Ocarina's Mambo's warp song from Zelda: Link's Awakening
 Parameters:
   -surface : the surface the effect is applied on
   -game : the Game object, used for the timer
@@ -17,7 +17,7 @@ function lib.start_effect(surface, game, mode, sfx, callback)
   local max_magnitude=0.1
   local duration=2.00 --duration of the effect in seconds
   local start_time=os.clock()
-  local shader_ocarina = sol.shader.create("ocarina_warp")
+  local shader_ocarina = sol.shader.create("distorsion")
   local function lerp(a,b,p)
     return a+p*(b-a)
   end
