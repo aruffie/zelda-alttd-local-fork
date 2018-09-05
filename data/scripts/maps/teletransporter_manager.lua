@@ -14,14 +14,22 @@ game_meta:register_event("on_map_changed", function(game, map)
         function teletransporter:on_activated()
             self:set_enabled(false)
             local destination_map = self:get_destination_map()
-            local effect_entity = require("scripts/gfx_effects/" .. effect)
-            effect_entity.start_effect(surface, game, "in", false, function()
-              hero:teleport(destination_map, "_side0", "immediate")
-              game.map_in_transition = effect_entity
+            local effect_model = require("scripts/gfx_effects/" .. effect)
+            -- Execute In effect
+            effect_model.start_effect(surface, game, "in", false, function()
+              local direction = hero:get_direction()
+              direction = direction + 2
+              if direction >= 4 then
+                direction = direction - 4
+              end
+              hero:teleport(destination_map, "_side" .. direction, "immediate")
+              game.map_in_transition = effect_model
+
             end)
         end
       end
     end
+    -- Execute Out effect
    if game.map_in_transition ~= nil then
     game.map_in_transition.start_effect(surface, game, "out")
     game.map_in_transition = nil
