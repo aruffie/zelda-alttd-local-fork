@@ -6,8 +6,8 @@ Parameters:
   -surface : the surface the effect is applied on
   -game : the Game object, used for the timer
   -mode : the drawing mode of the effect, cen be either:
-      start: do the fade-in part
-      stop: do the fade-out part
+      in: do the fade-in part
+      out: do the fade-out part
   -sfx : the sound effect to play during the effect
   -callback: the function to play once the effect has completed
 --]]
@@ -27,8 +27,8 @@ function lib.start_effect(surface, game, mode, sfx, callback)
   surface:set_shader(shader_ocarina)
   sol.timer.start(game, 10, function()
     local current_time=os.clock()-start_time      
-    if mode == "start"  or mode == "stop" then
-      if mode == "start" then --we are fading in
+    if mode == "in"  or mode == "out" then
+      if mode == "in" then --we are fading in
         warp_magnitude = lerp(min_magnitude, max_magnitude, current_time/duration)
         if warp_magnitude > max_magnitude then
           warp_magnitude = max_magnitude
