@@ -23,16 +23,17 @@ COMPAT_VARYING vec2 sol_vtex_coord;
 uniform sampler2D sol_texture;
 uniform vec2 resolution;
 uniform vec3 lcolor;
+uniform int sol_time;
 
 //sample from the 1D distance map
 float sample(vec2 coord, float r) {
-	return step(r, texture2D(sol_texture, coord).r);
+	return step(r, COMPAT_TEXTURE(sol_texture, coord).r);
 }
 
 void main(void) {
 	//rectangular to polar
 	vec2 norm = sol_vtex_coord.st * 2.0 - 1.0;
-	float theta = atan(norm.y, norm.x);
+	float theta = atan(-norm.y, norm.x);
 	float r = length(norm);	
 	float coord = (theta + PI) / (2.0*PI);
 	
@@ -66,7 +67,8 @@ void main(void) {
 	//sum of 1.0 -> in light, 0.0 -> in shadow
  	
  	//multiply the summed amount by our distance, which gives us a radial falloff
- 	//then multiply by vertex (light) color  
- 	FragColor = vec4(vec3(sum * smoothstep(1.0, 0.0, r))*lcolor,1);
+ 	//then multiply by vertex (light) color
+  float dr = 0.035*(1.0+sin(float(sol_time+600)*0.0062831));
+ 	FragColor = vec4(vec3(sum * smoothstep(1.0, 0.0, r-dr))*lcolor,1);
   //color = vec4(1,0,0,1);
 }

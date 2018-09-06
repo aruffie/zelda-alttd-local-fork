@@ -173,6 +173,17 @@ animation{
   },
 }
 animation{
+  name = "happy",
+  src_image = "hero/link_happy.png",
+  frame_delay = 80,
+  directions = {
+    { x = 0, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29, num_frames = 11 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29, num_frames = 11 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29, num_frames = 11 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29, num_frames = 11 },
+  },
+}
+animation{
   name = "hookshot",
   src_image = "hero/hookshot.tunic.png",
   directions = {
@@ -341,6 +352,17 @@ animation{
     { x = 0, y = 40, frame_width = 64, frame_height = 40, origin_x = 32, origin_y = 29, num_frames = 3 },
     { x = 0, y = 80, frame_width = 64, frame_height = 40, origin_x = 32, origin_y = 29, num_frames = 3 },
     { x = 0, y = 120, frame_width = 64, frame_height = 40, origin_x = 32, origin_y = 29, num_frames = 3 },
+  },
+}
+animation{
+  name = "sad",
+  src_image = "hero/link_sad.png",
+  frame_delay = 80,
+  directions = {
+    { x = 0, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 17 },
+    { x = 0, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 17 },
+    { x = 0, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 17 },
+    { x = 0, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 17 },
   },
 }
 animation{

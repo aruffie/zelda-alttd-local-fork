@@ -11411,7 +11411,6 @@ dynamic_tile{
   pattern = "3979",
   width = 16,
   height = 152,
-  enabled_at_start = true,
 }
 
 destructible{

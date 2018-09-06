@@ -32,6 +32,7 @@ precision mediump float;
 #endif
 
 uniform sampler2D sol_texture;
+uniform int sol_time;
 COMPAT_VARYING vec2 sol_vtex_coord;
 COMPAT_VARYING vec4 sol_vcolor;
 
@@ -42,8 +43,16 @@ void main() {
 
     const vec3 yellow = vec3(255.0,218.0,71.0)/255.0;
     const vec3 black = vec3(28.0,0.0,45.0)/255.0;
+<<<<<<< HEAD
 
     FragColor.rgb = lum < 0.5 ? yellow : black;
+=======
+    if(mod(float(sol_time),180.0) > 90.0)
+      FragColor.rgb = (lum < 0.5) ? yellow : black;
+    else
+      FragColor.rgb = (lum < 0.5) ? black : yellow;
+>>>>>>> master
     FragColor.rgb = FragColor.rgb;
     FragColor.rgb *= pow(lum,0.25);
 }
+

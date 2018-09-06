@@ -27,33 +27,39 @@ uniform vec2 resolution;
 const float THRESHOLD = 0.75;
 
 void main(void) {
-float distance = 1.0;
-float last = 0.0;
-float lastd = distance;
-for (float y=0.0; y<resolution.y; y+=1.0) {
-        //rectangular to polar filter
-        vec2 norm = vec2(sol_vtex_coord.s, y/resolution.y) * 2.0 - 1.0;
-        float theta = PI*1.5 + norm.x * PI; 
-        float r = (1.0 + norm.y) * 0.5;
+  float distance = 1.0;
+  float last = 1.0;
+  float lastd = distance;
+  bool once_in_air = false;
+  for (float y=0.0; y<resolution.y; y+=1.0) {
+      //rectangular to polar filter
+      vec2 norm = vec2(sol_vtex_coord.s, y/resolution.y) * 2.0 - 1.0;
+      float theta = PI*1.5 + norm.x * PI; 
+      float r = (1.0 + norm.y) * 0.5;
 
-        //coord which we will sample from occlude map
-        vec2 coord = vec2(-r * sin(theta), -r * cos(theta))/2.0 + 0.5;
+      //coord which we will sample from occlude map
+      vec2 coord = vec2(-r * sin(theta), -r * cos(theta))/2.0 + 0.5;
 
-        //sample the occlusion map
-        vec4 data = texture2D(sol_texture, coord);
+      //sample the occlusion map
+      vec4 data = COMPAT_TEXTURE(sol_texture, coord);
 
-        //the current distance is how far from the top we've come
-        float dst = y/resolution.y;
+      //the current distance is how far from the top we've come
+      float dst = y/resolution.y;
 
-        //if we've hit an opaque fragment (occluder), then get new distance
-        //if the new distance is below the current, then we'll use that for our ray
-        float caster = data.a;
-        if (last > THRESHOLD && caster < last) {
+      //if we've hit an opaque fragment (occluder), then get new distance
+      //if the new distance is below the current, then we'll use that for our ray
+      float caster = data.a;
+      
+      if (last > THRESHOLD && caster < last && once_in_air) {
         distance = min(distance, lastd);
         //NOTE: we could probably use "break" or "return" here
-        }
-    last = caster;
-    lastd = dst;
+        break;
+      }
+      last = caster;
+      lastd = dst;
+      if(caster < THRESHOLD) {
+        once_in_air = true;
+      }
     } 
     FragColor = vec4(vec3(distance), 1.0);
 }

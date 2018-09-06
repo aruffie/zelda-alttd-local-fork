@@ -10,6 +10,9 @@
 
 local item = ...
 local game = item:get_game()
+local map = game:get_map()
+local hero_teleport_in = false
+local hero_teleport_out = false
 
 -- Event called when the game is initialized.
 function item:on_started()
@@ -24,15 +27,40 @@ function item:on_using()
 
     local map = game:get_map()
     local hero = map:get_hero()
+    local shader_ocarina = sol.shader.create("ocarina_warp")
+    local magnitude = 0.01
     local ocarina = game:get_item("ocarina")
     ocarina:playing_song("items/ocarina_2")
     sol.timer.start(map, 4000, function()
+        hero_teleport_in = true
         sol.audio.play_sound("items/ocarina_2_warp")
          sol.timer.start(map, 2000, function()
             hero:teleport("out/b2_graveyard", "ocarina_2", "fade")
+            hero_teleport_in = false
+            hero_teleport_out = true
          end)
      end)
     item:set_finished()
+    map:register_event("on_draw", function(map, surface)
+      if hero_teleport_in or hero_teleport_out then
+        if hero_teleport_in then
+          magnitude = magnitude + 0.001
+          if magnitude > 0.1 then
+            magnitude = 0.1
+          end
+        else
+          magnitude = magnitude - 0.0008
+          if magnitude < 0.01 then
+            magnitude = 0.01
+            hero_teleport_out = false
+          end
+        end
+        shader_ocarina:set_uniform("magnitude", magnitude)
+        surface:set_shader(shader_ocarina)
+      else
+            surface:set_shader(nil)
+      end
+    end)
 end
 
 -- Event called when a pickable treasure representing this item

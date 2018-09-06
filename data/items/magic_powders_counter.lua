@@ -23,7 +23,6 @@ function item:on_using()
    local amount =   self:get_amount()
    amount = amount - 1
   if amount < 0 then
-    self:set_variant(0)
     sol.audio.play_sound("wrong")
   else
     sol.audio.play_sound("magic_powder")
@@ -35,6 +34,9 @@ function item:on_using()
    self:set_amount(amount)
     item:create_fire()
     sol.timer.start(item, 400, function()
+      if amount == 0 then
+        self:set_variant(0)
+      end
       hero:unfreeze()
     end)
   end

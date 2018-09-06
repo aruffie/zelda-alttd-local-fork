@@ -400,6 +400,7 @@ sprite{ id = "entities/eye_switch_blue", description = "Eye switch blue" }
 sprite{ id = "entities/eye_switch_red", description = "Eye switch red" }
 sprite{ id = "entities/eye_switch_yellow", description = "Eye switch yellow" }
 sprite{ id = "entities/fire", description = "Fire" }
+sprite{ id = "entities/fire_mask", description = "Mask for fire animation" }
 sprite{ id = "entities/fish_manbo", description = "Fish Manbo" }
 sprite{ id = "entities/flame_fountain_machine", description = "Flame fountain machine" }
 sprite{ id = "entities/floating_tree_rafting", description = "Floating tree rafting" }
@@ -593,7 +594,6 @@ sprite{ id = "hero/diving", description = "Diving" }
 sprite{ id = "hero/fire_rod", description = "Fire rod" }
 sprite{ id = "hero/ground1", description = "Grass under hero" }
 sprite{ id = "hero/ground2", description = "Shallow water under hero" }
-sprite{ id = "hero/link_happy", description = "Link happy" }
 sprite{ id = "hero/link_sad", description = "Link sad" }
 sprite{ id = "hero/shield2", description = "Hero shield 2" }
 sprite{ id = "hero/shield3", description = "Hero shield 3" }
@@ -923,6 +923,7 @@ sound{ id = "secret_1", description = "Secret 1" }
 sound{ id = "secret_2", description = "Secret 2" }
 sound{ id = "shake", description = "Shake" }
 sound{ id = "shield_brandish", description = "Shield brandish" }
+sound{ id = "shock", description = "Shock" }
 sound{ id = "solarus_logo", description = "Solarus logo" }
 sound{ id = "splash", description = "Splash" }
 sound{ id = "stairs_down_end", description = "Stairs down end" }
@@ -1021,8 +1022,6 @@ enemy{ id = "arm_mimic", description = "Arm mimic" }
 enemy{ id = "armos", description = "Armos" }
 enemy{ id = "arrow", description = "Arrow" }
 enemy{ id = "beamos", description = "Beamos" }
-enemy{ id = "blob_green", description = "Blob green" }
-enemy{ id = "blob_red", description = "Blob red" }
 enemy{ id = "boo_buddy", description = "Boo buddy" }
 enemy{ id = "boss/evil_orb", description = "Evil orb" }
 enemy{ id = "boss/genie", description = "Genie" }
@@ -1125,7 +1124,7 @@ entity{ id = "heavy_statue", description = "Heavy statue" }
 entity{ id = "hole", description = "Hole" }
 entity{ id = "hook_bridge", description = "hook bridge" }
 entity{ id = "hookable", description = "Hookable" }
-entity{ id = "horse_head", description = "Horse head" }
+entity{ id = "light", description = "Light casting entity" }
 entity{ id = "marin_follow", description = "Marine" }
 entity{ id = "mouse", description = "Mouse" }
 entity{ id = "mr_write_and_christine", description = "Mr Write and Christine" }
