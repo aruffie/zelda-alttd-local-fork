@@ -13,7 +13,7 @@ local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
 local hero_electric = false
-local shader_electric = sol.shader.create("electric")
+local effect_model = require("scripts/gfx_effects/electric")
 local sprite
 local movement
 require("scripts/multi_events")
@@ -46,8 +46,8 @@ function enemy:on_custom_attack_received(attack)
   if attack == "sword" then
     game:set_suspended(true)
     sprite:set_animation("buzzing")
-    hero_electric = true
     sol.audio.play_sound("shock")
+
     local camera = map:get_camera()
     local shake_config = {
         count = 32,
@@ -64,8 +64,3 @@ function enemy:on_custom_attack_received(attack)
 
 end
 
-map:register_event("on_draw", function(map, surface)
-  if hero_electric then
-    surface:set_shader(shader_electric)
-  end
-end)

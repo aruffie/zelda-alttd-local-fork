@@ -17050,9 +17050,15 @@ door{
 enemy{
   name = "enemy_group_100",
   layer = 0,
-  x = 1112,
-  y = 1597,
-  direction = 0,
+  x = 1176,
+  y = 1749,
+  properties = {
+    {
+      key = "clockwise",
+      value = "true",
+    },
+  },
+  direction = 1,
   breed = "fireball",
 }
 
