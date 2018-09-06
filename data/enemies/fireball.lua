@@ -4,7 +4,7 @@ local enemy = ...
 -- and that runs along the walls
 
 local last_direction4 = 0
-local clockwise = true
+local clockwise = false
 
 -- The enemy appears: set its properties.
 function enemy:on_created()
@@ -17,42 +17,61 @@ function enemy:on_created()
   self:set_can_hurt_hero_running(true)
   self:set_invincible()
   self:set_obstacle_behavior("swimming")
+  clockwise = (self:get_property("clockwise") == "true")
 
 end
 
 -- The enemy was stopped for some reason and should restart.
 function enemy:on_restarted()
 
-  direction4 = enemy:get_direction()
+  local direction4 = 0
+  if not clockwise then
+    direction4 = 2
+  end
   self:go(direction4)
+
 end
 
--- An obstacle is reached: make the Bubble bounce.
+function enemy:change_direction(tries)
+
+  if tries ~= nil then
+    local dxy = {
+                { x =  1, y =  0},
+                { x =  0, y = -1},
+                { x = -1, y =  0},
+                { x =  0, y =  1}
+              }
+
+    -- The current direction is last_direction4:
+    local try_clockwise = (last_direction4 - 1) % 4
+    local try_counterclockwise = (last_direction4 + 1) % 4
+    local try_turnaround = (last_direction4 + 2) % 4
+    local direction_found = false
+    for _, try in pairs(tries) do
+      if direction_found == false and not self:test_obstacles(dxy[try + 1].x, dxy[try + 1].y) then
+          self:go(try)
+          direction_found = true
+      end
+    end
+  end
+
+end
+
+-- An obstacle is reached: make the Fireball bounce.
 function enemy:on_obstacle_reached()
 
-  local dxy = {
-    { x =  1, y =  0},
-    { x =  0, y = -1},
-    { x = -1, y =  0},
-    { x =  0, y =  1}
-  }
-
-  -- The current direction is last_direction8:
-  -- try the three other diagonal directions.
-  local try1 = (last_direction4 + 2) % 4
-  local try2 = (last_direction4 + 4) % 4
-  local try3 = (last_direction4 + 6) % 4
-
-  if not self:test_obstacles(dxy[try1 + 1].x, dxy[try1 + 1].y) then
-    self:go(try1)
-  elseif not self:test_obstacles(dxy[try2 + 1].x, dxy[try2 + 1].y) then
-    self:go(try2)
+  local tries
+  if clockwise then
+    tries = { try_clockwise, try_counterclockwise, try_turnaround }
   else
-    self:go(try3)
+    tries = { try_counterclockwise, try_clockwise, try_turnaround }
   end
+  self:change_direction(tries)
+
 end
 
--- Makes the Bubble go towards a diagonal direction (1, 3, 5 or 7).
+
+-- Makes the Fireball go towards a horizontal or vertical direction.
 function enemy:go(direction4)
 
   local m = sol.movement.create("straight")
@@ -60,5 +79,15 @@ function enemy:go(direction4)
   m:set_smooth(false)
   m:set_angle(direction4 * math.pi / 2)
   m:start(self)
+  function m:on_position_changed()
+    local tries
+    if clockwise then
+      tries = { try_clockwise}
+    else
+      tries = { try_counterclockwise}
+    end
+    enemy:change_direction(tries)
+  end
   last_direction4 = direction4
+
 end

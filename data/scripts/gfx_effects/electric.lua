@@ -4,7 +4,7 @@ local lib={}
   Parameters:
     surface : the surface to apply the shader on;
     game : the game object
-    sfx : The sound to play during the transition
+    sfx : The sound to play during the effect
     callback (optional): the function to execute after the effect is finiched playing
 --]]
 
@@ -19,8 +19,8 @@ function lib.start_effect(surface, game, sfx, callback)
     return
   end
   callback=callback or nil
-  if sfx then
-    sol.audio.play_sound(sfx)
+  if _sfx then
+    sol.audio.play_sound(_sfx)
   end
   surface:set_shader(shader) --Attach the shader to the surface
   sol.timer.start(game, duration, function()
