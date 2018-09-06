@@ -13,8 +13,6 @@ function enemy:on_created()
   self:set_life(1)
   self:set_damage(1)
   self:create_sprite("enemies/" .. enemy:get_breed())
-  self:set_size(8, 8)
-  self:set_origin(4, 4)
   self:set_can_hurt_hero_running(true)
   self:set_invincible()
   self:set_obstacle_behavior("swimming")
@@ -34,18 +32,18 @@ end
 function enemy:on_obstacle_reached()
 
   if clockwise then
-    self:go((last_direction4 + 1) % 4)
-  else
     self:go((last_direction4 - 1) % 4)
+  else
+    self:go((last_direction4 + 1) % 4)
   end
             
 end
 
 function enemy:on_position_changed()
     if clockwise then
-      enemy:go_if_traversable((last_direction4 - 1) % 4)
-    else
       enemy:go_if_traversable((last_direction4 + 1) % 4)
+    else
+      enemy:go_if_traversable((last_direction4 - 1) % 4)
     end
 
  end
