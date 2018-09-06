@@ -51,7 +51,7 @@ function enemy:on_custom_attack_received(attack)
     game:set_suspended(true)
     sprite:set_animation("buzzing")
     sol.audio.play_sound("shock")
-    effect_model.start_effect(surface, game, false)
+    effect_model.start_effect(surface, game, 'in', false)
     local camera = map:get_camera()
     local shake_config = {
         count = 32,

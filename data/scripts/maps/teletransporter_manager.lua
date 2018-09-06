@@ -17,6 +17,9 @@ game_meta:register_event("on_map_changed", function(game, map)
             local destination_name = self:get_destination_name()
             local x_teletransporter, y_teletransporter = self:get_position()
             local effect_model = require("scripts/gfx_effects/" .. effect)
+            game:set_suspended(true)
+            game:set_pause_allowed(false)
+            game:set_hud_enabled(false)
             -- Execute In effect
             effect_model.start_effect(surface, game, "in", false, function()
                 if destination_name == "_side" then
@@ -37,7 +40,11 @@ game_meta:register_event("on_map_changed", function(game, map)
                     game.map_in_transition = effect_model
                 else
                     hero:teleport(destination_map, destination_name, "immediate")
-                    effect_model.start_effect(surface, game, "out")
+                    effect_model.start_effect(surface, game, "out", false, function()
+                      game:set_suspended(true)
+                      game:set_pause_allowed(false)
+                      game:set_hud_enabled(false)
+                    end)
                 end
 
             end)
@@ -46,11 +53,13 @@ game_meta:register_event("on_map_changed", function(game, map)
     end
     -- Execute Out effect
    if game.map_in_transition ~= nil then
+    game:set_suspended(true)
     game:set_pause_allowed(false)
-    hero:freeze()
+    game:set_hud_enabled(false)
     game.map_in_transition.start_effect(surface, game, "out", false, function()
+      game:set_suspended(false)
+      game:set_hud_enabled(true)
       game:set_pause_allowed(true)
-      hero:unfreeze()
     end)
     game.map_in_transition = nil
    end

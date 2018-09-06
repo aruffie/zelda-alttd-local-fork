@@ -10,7 +10,7 @@ local lib={}
 
 local duration=600          --Duration of the effect
 
-function lib.start_effect(surface, game, sfx, callback)
+function lib.start_effect(surface, game, sfx, mode, callback)
 
   local shader=sol.shader.create("electric")
 

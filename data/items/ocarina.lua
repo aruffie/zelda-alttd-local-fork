@@ -16,14 +16,16 @@ function item:on_using()
 
 end
 
-function item:playing_song(music)
+function item:playing_song(music, callback)
 
    local map = game:get_map()
    local hero = map:get_hero()
    local x,y,layer = hero:get_position()
-   hero:freeze()
-   game:set_pause_allowed(false)
-   hero:set_animation("playing_ocarina")
+   hero:set_animation("playing_ocarina", function()
+     game:set_pause_allowed(true)
+     notes:remove()
+     notes2:remove()
+   end)
   local notes = map:create_custom_entity{
     x = x,
     y = y,
@@ -43,11 +45,12 @@ function item:playing_song(music)
     sprite = "entities/notes"
   }
   sol.audio.play_sound(music)
-  sol.timer.start(map, 4000, function()
-    game:set_pause_allowed(true)
-    hero:unfreeze()
+  local timer = sol.timer.start(map, 4000, function()
     notes:remove()
     notes2:remove()
+    if callback ~= nil then
+      callback()
+    end
   end)
 
 end
