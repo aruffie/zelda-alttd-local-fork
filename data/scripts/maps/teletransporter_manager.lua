@@ -46,7 +46,12 @@ game_meta:register_event("on_map_changed", function(game, map)
     end
     -- Execute Out effect
    if game.map_in_transition ~= nil then
-    game.map_in_transition.start_effect(surface, game, "out")
+    game:set_pause_allowed(false)
+    hero:freeze()
+    game.map_in_transition.start_effect(surface, game, "out", false, function()
+      game:set_pause_allowed(true)
+      hero:unfreeze()
+    end)
     game.map_in_transition = nil
    end
 

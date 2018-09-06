@@ -22,6 +22,7 @@ function item:playing_song(music)
    local hero = map:get_hero()
    local x,y,layer = hero:get_position()
    hero:freeze()
+   game:set_pause_allowed(false)
    hero:set_animation("playing_ocarina")
   local notes = map:create_custom_entity{
     x = x,
@@ -43,6 +44,7 @@ function item:playing_song(music)
   }
   sol.audio.play_sound(music)
   sol.timer.start(map, 4000, function()
+    game:set_pause_allowed(true)
     hero:unfreeze()
     notes:remove()
     notes2:remove()

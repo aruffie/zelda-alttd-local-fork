@@ -32,20 +32,26 @@ function item:on_using()
     local effect_model = require("scripts/gfx_effects/distorsion")
     ocarina:playing_song("items/ocarina_2")
     sol.timer.start(map, 4000, function()
+        game:set_pause_allowed(false)
+        game:set_hud_enabled(false)
+        hero:freeze()
         game:set_value("teleport_warp_effect", "start");
         sol.audio.play_sound("items/ocarina_2_warp")
-         sol.timer.start(map, 2000, function()
-             -- Execute In effect
-            effect_model.start_effect(surface, game, "in", false, function()
-                if map:get_id() ~= "out/b2_graveyard" then
-                    hero:teleport("out/b2_graveyard", "ocarina_2", "immediate")
-                    game.map_in_transition = effect_model
-                else
-                    hero:teleport("out/b2_graveyard", "ocarina_2", "immediate")
-                    effect_model.start_effect(surface, game, "out")
-                end
-            end)
-         end)
+         -- Execute In effect
+        effect_model.start_effect(surface, game, "in", false, function()
+            if map:get_id() ~= "out/b2_graveyard" then
+                hero:teleport("out/b2_graveyard", "ocarina_2", "immediate")
+                game.map_in_transition = effect_model
+                hero:unfreeze()
+            else
+                hero:teleport("out/b2_graveyard", "ocarina_2", "immediate")
+                effect_model.start_effect(surface, game, "out", function()
+                  game:set_pause_allowed(true)
+                  game:set_hud_enabled(true)
+                  hero:unfreeze()
+                end)
+            end
+        end)
      end)
     item:set_finished()
 end

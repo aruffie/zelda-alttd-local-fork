@@ -26,7 +26,8 @@ function enemy:on_created()
   sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
   enemy:set_life(1)
   enemy:set_damage(1)
- enemy:set_attack_consequence("sword",  "custom")
+  enemy:set_attack_consequence("sword",  "custom")
+
 end
 
 -- Event called when the enemy should start or restart its movements.
@@ -38,16 +39,19 @@ function enemy:on_restarted()
   movement:set_target(hero)
   movement:set_speed(48)
   movement:start(enemy)
+
 end
 
 
 function enemy:on_custom_attack_received(attack)
 
   if attack == "sword" then
+    local camera = map:get_camera()
+    local surface = camera:get_surface()
     game:set_suspended(true)
     sprite:set_animation("buzzing")
     sol.audio.play_sound("shock")
-
+    effect_model.start_effect(surface, game, false)
     local camera = map:get_camera()
     local shake_config = {
         count = 32,

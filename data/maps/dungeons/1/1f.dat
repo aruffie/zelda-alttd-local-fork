@@ -17047,21 +17047,6 @@ door{
   savegame_variable = "dungeon_1_door_boss",
 }
 
-enemy{
-  name = "enemy_group_100",
-  layer = 0,
-  x = 1176,
-  y = 1589,
-  properties = {
-    {
-      key = "clockwise",
-      value = "true",
-    },
-  },
-  direction = 0,
-  breed = "fireball",
-}
-
 tile{
   layer = 1,
   x = 528,

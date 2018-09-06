@@ -9006,9 +9006,15 @@ teletransporter{
   layer = 0,
   x = 0,
   y = 768,
+  properties = {
+    {
+      key = "effect",
+      value = "pixellisation",
+    },
+  },
   width = 960,
   height = 16,
-  transition = "scrolling",
+  transition = "immediate",
   destination_map = "out/a3_mabe_village",
   destination = "_side",
 }
@@ -9084,9 +9090,15 @@ teletransporter{
   layer = 0,
   x = 960,
   y = 0,
+  properties = {
+    {
+      key = "effect",
+      value = "pixellisation",
+    },
+  },
   width = 16,
   height = 768,
-  transition = "scrolling",
+  transition = "immediate",
   destination_map = "out/b2_graveyard",
   destination = "_side",
 }
@@ -9234,9 +9246,15 @@ teletransporter{
   layer = 0,
   x = 0,
   y = -16,
+  properties = {
+    {
+      key = "effect",
+      value = "pixellisation",
+    },
+  },
   width = 960,
   height = 16,
-  transition = "scrolling",
+  transition = "immediate",
   destination_map = "out/a1_west_mt_tamaranch",
   destination = "_side",
 }
