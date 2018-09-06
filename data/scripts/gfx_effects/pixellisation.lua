@@ -28,8 +28,8 @@ function lib.start_effect(surface, game, mode, sfx, callback)
     print("Error:unknown drawing mode")
     return
   end
-  if _sfx then
-    sol.audio.play_sound(_sfx)
+  if sfx then
+    sol.audio.play_sound(sfx)
   end
   local is_dezooming=(mode=="out")
   surface:set_shader(shader) --Attach the shader to the surface
