@@ -4,7 +4,7 @@ local lib={}
   Parameters:
     surface : the surface to apply the shader on;
     game : the game object
-    sfx : The sound to play during the transition
+    sfx : The sound to play during the effect
     callback (optional): the function to execute after the effect is finiched playing
 --]]
 

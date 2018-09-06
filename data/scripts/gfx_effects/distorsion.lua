@@ -4,12 +4,12 @@ local lib={}
 Draws a distorsion effect similar to the Ocarina's Mambo's warp song from Zelda: Link's Awakening
 Parameters:
   -surface : the surface the effect is applied on
-  -game : the Game object, used for the timer
-  -mode : the drawing mode of the effect, cen be either:
-      in: do the fade-in part
-      out: do the fade-out part
+  -game : the game object
+  -mode : the drawing mode of the effect, can be either:
+      "in": do the fade-in part
+      "out": do the fade-out part
   -sfx : the sound effect to play during the effect
-  -callback: the function to play once the effect has completed
+  -callback (optional): the function to play once the effect has completed
 --]]
 
 function lib.start_effect(surface, game, mode, sfx, callback)

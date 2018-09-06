@@ -4,11 +4,11 @@ local lib={}
   Parameters:
     surface : the surface to apply the shader on;
     game : the game object
-    mode : how the effect is played, can be either :
-      "fade_in": the zooming-in effect only,
-      "fade_out": the zooming-out effect only,
-      "fade_both": zoom in and out in the same call.
-    sfx : The sound to play during the transition
+    mode : the drawing mode of the effect, can be either:
+      "in": do the fade-in part
+      "out": do the fade-out part
+      "both": zoom in and out in the same call
+    sfx : The sound to play during the effect
     callback (optional): the function to execute after the effect is finiched playing
 --]]
 
