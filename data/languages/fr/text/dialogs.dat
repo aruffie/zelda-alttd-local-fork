@@ -390,7 +390,7 @@ dialog{
   id = "_treasure.feather.1",
   icon = "0",
   text = [[
-Tu as la Plume !$0
+Tu as la Plume!$0
 Soudain, tu es plus 
 léger que l'air !
 ]],

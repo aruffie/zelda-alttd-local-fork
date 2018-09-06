@@ -400,6 +400,7 @@ sprite{ id = "entities/eye_switch_blue", description = "Eye switch blue" }
 sprite{ id = "entities/eye_switch_red", description = "Eye switch red" }
 sprite{ id = "entities/eye_switch_yellow", description = "Eye switch yellow" }
 sprite{ id = "entities/fire", description = "Fire" }
+sprite{ id = "entities/fire_mask", description = "Mask for fire animation" }
 sprite{ id = "entities/fish_manbo", description = "Fish Manbo" }
 sprite{ id = "entities/flame_fountain_machine", description = "Flame fountain machine" }
 sprite{ id = "entities/floating_tree_rafting", description = "Floating tree rafting" }
@@ -1123,6 +1124,7 @@ entity{ id = "heavy_statue", description = "Heavy statue" }
 entity{ id = "hole", description = "Hole" }
 entity{ id = "hook_bridge", description = "hook bridge" }
 entity{ id = "hookable", description = "Hookable" }
+entity{ id = "light", description = "Light casting entity" }
 entity{ id = "marin_follow", description = "Marine" }
 entity{ id = "mouse", description = "Mouse" }
 entity{ id = "mr_write_and_christine", description = "Mr Write and Christine" }
@@ -1146,15 +1148,17 @@ font{ id = "small_white_digits", description = "Small white digits" }
 font{ id = "white_digits", description = "White digits" }
 
 shader{ id = "6xbrz", description = "6xbrz" }
-shader{ id = "distorsion", description = "Distorsion effect" }
+shader{ id = "cast_shadow1d", description = "Project 1D shadows" }
+shader{ id = "distort", description = "Draw distorted textures" }
 shader{ id = "electric", description = "Electric effect" }
+shader{ id = "fire_dist", description = "Draw animated fire on distort mask" }
+shader{ id = "make_shadow1d", description = "Render a 1D shadowmap from an occluder map" }
 shader{ id = "mode_7", description = "Mode 7" }
-shader{ id = "pixellisation", description = "Pixellisation effect" }
+shader{ id = "ocarina_warp", description = "Warp animation" }
 shader{ id = "sepia", description = "Sepia" }
 shader{ id = "toon", description = "Toon" }
+shader{ id = "water_effect", description = "Masked water overlay" }
 
 file{ path = "main.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "scripts/meta/sensor.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "scripts/music_manager.lua", author = "Christopho", license = "GPL v3" }
-file{ path = "shaders/pixellisation_effect.dat", author = "PhoenixII54", license = "GPL v3" }
-file{ path = "shaders/pixellisation_effect.frag.glsl", author = "PhoenixII54", license = "GPL v3" }
