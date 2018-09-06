@@ -46,10 +46,7 @@ function enemy:on_restarted()
   sol.timer.start(enemy, 50, function()
     -- Sprite direction
     local direction = hero:get_direction()
-    direction = direction + 2
-    if direction >= 4 then
-      direction = direction - 4
-    end
+    direction = (direction+2)%4
     sprite:set_direction(direction)
     -- Enemy movement
     local x_new_hero, y_new_hero = hero:get_position()
