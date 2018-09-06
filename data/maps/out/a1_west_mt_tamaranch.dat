@@ -11610,9 +11610,15 @@ teletransporter{
   layer = 0,
   x = 0,
   y = 768,
+  properties = {
+    {
+      key = "effect",
+      value = "pixellisation",
+    },
+  },
   width = 960,
   height = 16,
-  transition = "scrolling",
+  transition = "immediate",
   destination_map = "out/a2_forest",
   destination = "_side",
 }
@@ -11734,7 +11740,6 @@ dynamic_tile{
   pattern = "6020",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 sensor{
@@ -12728,7 +12733,6 @@ dynamic_tile{
   pattern = "1800",
   width = 32,
   height = 8,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -12739,7 +12743,6 @@ dynamic_tile{
   pattern = "1706",
   width = 32,
   height = 16,
-  enabled_at_start = true,
 }
 
 door{

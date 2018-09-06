@@ -14340,9 +14340,15 @@ teletransporter{
   layer = 0,
   x = 0,
   y = -16,
+  properties = {
+    {
+      key = "effect",
+      value = "pixellisation",
+    },
+  },
   width = 960,
   height = 16,
-  transition = "scrolling",
+  transition = "immediate",
   destination_map = "out/a2_forest",
   destination = "_side",
 }

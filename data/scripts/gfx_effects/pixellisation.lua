@@ -28,7 +28,6 @@ function lib.start_effect(surface, game, mode, sfx, callback)
     print("Error:unknown drawing mode")
     return
   end
-  callback=callback or nil
   if _sfx then
     sol.audio.play_sound(_sfx)
   end

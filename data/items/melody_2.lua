@@ -10,41 +10,14 @@
 
 local item = ...
 local game = item:get_game()
-local shader_ocarina = sol.shader.create("ocarina_warp")
-local warp_magnitude = 0.01
+
+require("scripts/multi_events")
 
 -- Event called when the game is initialized.
 function item:on_started()
 
   self:set_savegame_variable("possession_melody_2")
   self:set_assignable(true)
-  
-  game:register_event("on_map_changed", function(game, map)
-    map:register_event("on_draw", function(map, surface)
-        local teleport_warp_effect = game:get_value("teleport_warp_effect")
-        if teleport_warp_effect == "start"  or teleport_warp_effect == "stop" then
-          if teleport_warp_effect == "start" then
-            warp_magnitude = warp_magnitude + 0.001
-            if warp_magnitude > 0.1 then
-              warp_magnitude = 0.1
-              game:set_value("teleport_warp_effect",  "stop");
-            end
-          else
-            warp_magnitude = warp_magnitude - 0.001
-            if warp_magnitude < 0.01 then
-              warp_magnitude = 0.01
-              game:set_value("teleport_warp_effect",  "finished");
-            end
-          end
-          shader_ocarina:set_uniform("magnitude", warp_magnitude)
-          surface:set_shader(shader_ocarina)
-        elseif teleport_warp_effect == "finished" then
-              game:set_value("teleport_warp_effect",  nil);
-              surface:set_shader(nil)
-        end
-      end)
-
-  end)
 
 end
 
@@ -53,13 +26,25 @@ function item:on_using()
 
     local map = game:get_map()
     local hero = map:get_hero()
+    local camera = map:get_camera()
     local ocarina = game:get_item("ocarina")
+    local surface = camera:get_surface()
+    local effect_model = require("scripts/gfx_effects/distorsion")
     ocarina:playing_song("items/ocarina_2")
     sol.timer.start(map, 4000, function()
         game:set_value("teleport_warp_effect", "start");
         sol.audio.play_sound("items/ocarina_2_warp")
          sol.timer.start(map, 2000, function()
-            hero:teleport("out/b2_graveyard", "ocarina_2", "fade")
+             -- Execute In effect
+            effect_model.start_effect(surface, game, "in", false, function()
+                if map:get_id() ~= "out/b2_graveyard" then
+                    hero:teleport("out/b2_graveyard", "ocarina_2", "immediate")
+                    game.map_in_transition = effect_model
+                else
+                    hero:teleport("out/b2_graveyard", "ocarina_2", "immediate")
+                    effect_model.start_effect(surface, game, "out")
+                end
+            end)
          end)
      end)
     item:set_finished()
