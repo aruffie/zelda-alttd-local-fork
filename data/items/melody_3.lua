@@ -25,7 +25,12 @@ function item:on_using()
     local map = game:get_map()
     local hero = map:get_hero()
     local ocarina = game:get_item("ocarina")
-    ocarina:playing_song("items/ocarina_3")
+    hero:freeze()
+    game:set_pause_allowed(false)
+    ocarina:playing_song("items/ocarina_3", function()
+        hero:unfreeze()
+        game:set_pause_allowed(true)
+    end)
 
   item:set_finished()
 end
@@ -35,4 +40,5 @@ end
 function item:on_pickable_created(pickable)
 
   -- You can set a particular movement here if you don't like the default one.
+
 end

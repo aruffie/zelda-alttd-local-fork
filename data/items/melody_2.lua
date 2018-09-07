@@ -39,11 +39,18 @@ function item:on_using()
       sol.audio.play_sound("items/ocarina_2_warp")
        -- Execute In effect
       effect_model.start_effect(surface, game, "in", false, function()
-          if map:get_id() ~= "out/b2_graveyard" then
-              hero:teleport("out/b2_graveyard", "ocarina_2", "immediate")
+          local dungeon = game:get_dungeon()
+          local map_id = "out/b2_graveyard"
+          local destination_id = "ocarina_2"
+          if dungeon.destination_ocarina ~= nil then
+            map_id = dungeon.destination_ocarina.map_id
+            destination_id = dungeon.destination_ocarina.destination_name
+          end
+          if map:get_id() ~= map_id then
+              hero:teleport(map_id, destination_id, "immediate")
               game.map_in_transition = effect_model
           else
-              hero:teleport("out/b2_graveyard", "ocarina_2", "immediate")
+              hero:teleport(map_id, destination_id, "immediate")
               effect_model.start_effect(surface, game, "out", false, function()
                 game:set_suspended(false)
                 game:set_hud_enabled(true)
