@@ -19531,6 +19531,14 @@ wall{
   stops_projectiles = true,
 }
 
+destination{
+  name = "destination_ocarina",
+  layer = 0,
+  x = 800,
+  y = 1717,
+  direction = 1,
+}
+
 tile{
   layer = 1,
   x = 936,

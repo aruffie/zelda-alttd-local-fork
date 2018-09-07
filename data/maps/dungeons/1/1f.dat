@@ -17047,6 +17047,14 @@ door{
   savegame_variable = "dungeon_1_door_boss",
 }
 
+destination{
+  name = "destination_ocarina",
+  layer = 0,
+  x = 1120,
+  y = 1693,
+  direction = 1,
+}
+
 tile{
   layer = 1,
   x = 528,

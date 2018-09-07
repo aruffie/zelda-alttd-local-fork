@@ -68,3 +68,10 @@ function christine_invisible:on_interaction()
       map:talk_to_christine()
 
 end
+
+function mario:on_interaction()
+  
+  local music_random = math.random(4) 
+  sol.audio.play_sound("mario" .. music_random)
+
+end

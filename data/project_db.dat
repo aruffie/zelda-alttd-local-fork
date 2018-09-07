@@ -902,6 +902,10 @@ sound{ id = "mad_bat_appear", description = "Mad bat appear" }
 sound{ id = "mad_bat_disappear", description = "Mad bat disappear" }
 sound{ id = "magic_powder", description = "magic_powder" }
 sound{ id = "marin_on_beach", description = "Marin on beach" }
+sound{ id = "mario1", description = "Mario 1" }
+sound{ id = "mario2", description = "Mario 2" }
+sound{ id = "mario3", description = "Mario 3" }
+sound{ id = "mario4", description = "Mario 4" }
 sound{ id = "message_end", description = "Message end" }
 sound{ id = "message_letter", description = "Message letter" }
 sound{ id = "monkeys_build_a_bridge", description = "Monkeys build a bridge" }

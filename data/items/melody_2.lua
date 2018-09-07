@@ -42,7 +42,7 @@ function item:on_using()
           local dungeon = game:get_dungeon()
           local map_id = "out/b2_graveyard"
           local destination_id = "ocarina_2"
-          if dungeon.destination_ocarina ~= nil then
+          if dungeon ~= nil and dungeon.destination_ocarina ~= nil then
             map_id = dungeon.destination_ocarina.map_id
             destination_id = dungeon.destination_ocarina.destination_name
           end

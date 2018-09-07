@@ -10925,6 +10925,14 @@ chest{
   sprite = "entities/big_chest",
 }
 
+destination{
+  name = "destination_ocarina",
+  layer = 0,
+  x = 1120,
+  y = 1957,
+  direction = 1,
+}
+
 tile{
   layer = 1,
   x = 1872,
