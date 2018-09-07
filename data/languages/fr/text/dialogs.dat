@@ -544,8 +544,8 @@ chaîne s'étire!
 dialog{
   id = "_treasure.instrument_1.1",
   text = [[
-Tu as le violon
-des vagues !
+Tu as le violon des
+vagues !
 ]],
 }
 
@@ -1232,8 +1232,8 @@ dialog{
   id = "maps.dungeons.1.indication",
   text = [[
 ...MARAIS...    
-La route mène au
-marais fleuri.
+La route mène au marais
+fleuri.
 ]],
 }
 
@@ -1960,13 +1960,11 @@ de son pelage !
 dialog{
   id = "maps.houses.mabe_village.meow_meow_house.meow_meow_2",
   text = [[
-Au secours !     
-Quelle horreur ! 
-Toutou a été chien-nappé 
-par des Moblins !    
-OHH ! AHH !       
-Je t'en prie, va secourir
-mon Toutou !
+Au secours ! Quelle
+horreur ! Toutou a été
+chien-nappé par des Moblins !    
+OHH ! AHH ! Je t'en prie,
+va secourir mon Toutou !
 ]],
 }
 
@@ -3329,13 +3327,11 @@ Et toi ?
 dialog{
   id = "maps.out.mabe_village.grand_ma_2",
   text = [[
-Il s'est passé  
-une véritable   
-tragédie chez ma
-voisine d'en    
-face ! Que faire ?
-Moi, je ne sais 
-que balayer !!
+Il s'est passé une
+véritable tragédie chez
+ma voisine d'en face !
+Que faire ? Moi, je ne
+sais que balayer !!
 ]],
 }
 
@@ -3530,25 +3526,22 @@ dialog{
   text = [[
 M'sieu ! M'sieu !         
 C'est terrible, c'est 
-horrible ! C'est 
-c'est... des Gogo...     
-des Momo... des 
-Moblins sont venus 
+horrible ! C'est  c'est... 
+des Gogo... des Momo...
+des Moblins sont venus 
 dans le village ! 
 Ils étaient une armée... 
-Ils...ils...    
-Ils sont sortis !
-Ils sont entrés !
-Oui, c'est ça !  
-Ils sont entrés là et 
-ils ont pris le 
+Ils...ils... Ils sont
+sortis ! Ils sont entrés !
+Oui, c'est ça ! Ils sont
+entrés là et ils ont pris le 
 Minou, non non... 
 Ils ont pris Toutou !!        
 ... ... ... ... 
 ... ... ... ... 
-Il vaudrait mieux que
-tu ailles voir ce qui
-s'est passé !
+Il vaudrait mieux que tu
+ailles voir ce qui s'est
+passé !
 ]],
 }
 
@@ -3570,10 +3563,11 @@ dialog{
   id = "maps.out.mabe_village.marin_2",
   skip = "all",
   text = [[
-$v, Tarkin fait la sieste
-à la maison. Je préfère
-chanter. Oui ! Pourquoi pas
-la Ballade du Poisson-Rêve ?
+$v, Tarkin fait 
+la sieste à la maison.
+Je préfère chanter. Oui !
+Pourquoi pas la Ballade
+du Poisson-Rêve ?
 ]],
 }
 
@@ -4976,28 +4970,19 @@ Hou !
 dialog{
   id = "scripts.meta.map.owl_4",
   text = [[
-Hou ! C'est un   
-des Instruments 
-des Sirènes !    
-Tu es brave et  
-je t'avais      
+Hou ! C'est un des
+Instruments des Sirènes !    
+Tu es brave et je t'avais      
 sous-estimé...  
-Cet Instrument  
-- utilisé avec  
-les 7 autres -  
-a le pouvoir    
-de réveiller    
+Cet Instrument - utilisé 
+avec les 7 autres -  
+a le pouvoir de réveiller    
 le Poisson-Rêve.
-Collecte ces    
-8 Instruments !  
-Je suis ici pour
-t'indiquer le   
-chemin...       
-Maintenant,     
-va au Marais    
-des Anémones,   
-situé au Nord !  
-Hou !
+Collecte ces 8 Instruments !  
+Je suis ici pour t'indiquer
+le chemin... Maintenant,     
+va au Marais des Anémones,   
+situé au Nord ! Hou !
 ]],
 }
 

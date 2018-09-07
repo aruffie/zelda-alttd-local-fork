@@ -13764,8 +13764,15 @@ teletransporter{
   layer = 0,
   x = 1112,
   y = 1768,
+  properties = {
+    {
+      key = "effect",
+      value = "fade",
+    },
+  },
   width = 16,
   height = 16,
+  transition = "immediate",
   destination_map = "out/a4_south_mabe_village",
   destination = "dungeon_1_2_A",
 }
@@ -17053,6 +17060,25 @@ destination{
   x = 1120,
   y = 1693,
   direction = 1,
+}
+
+destination{
+  name = "destination",
+  layer = 0,
+  x = 2080,
+  y = 437,
+  direction = 1,
+}
+
+teletransporter{
+  layer = 0,
+  x = 1112,
+  y = 1704,
+  width = 16,
+  height = 16,
+  transition = "immediate",
+  destination_map = "dungeons/1/1f",
+  destination = "destination",
 }
 
 tile{

@@ -161,6 +161,9 @@ function treasure_manager:get_instrument(map, dungeon)
   local x_hero,y_hero, layer_hero = hero:get_position()
   local timer
   hero:freeze()
+  game:set_movie(true)
+  game:set_pause_allowed(false)
+  game:set_hud_enabled(false)
   hero:set_animation("brandish")
  local effect_entity = map:create_custom_entity({
     name = "effect",
@@ -249,16 +252,19 @@ function treasure_manager:play_instrument(map)
         function map:on_draw(dst_surface)
           white_surface:set_opacity(opacity)
           white_surface:draw(dst_surface)
-          opacity = opacity + 1
+          opacity = opacity + 2
           if opacity > 255 then
             opacity = 255
           end
         end
-        sol.timer.start(3000, function()
+        sol.timer.start(4000, function()
             game:start_dialog("maps.dungeons.".. dungeon ..".indication", function()
               local map_id = dungeon_infos["teletransporter_end_dungeon"]["map_id"]
               local destination_name = dungeon_infos["teletransporter_end_dungeon"]["destination_name"]
               hero:teleport(map_id, destination_name, "fade")
+              game:set_pause_allowed(true)
+              game:set_hud_enabled(true)
+              game:set_movie(false)
             end)
         end)
       end)
