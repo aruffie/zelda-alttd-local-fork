@@ -15,8 +15,8 @@ Parameters:
 function lib.start_effect(surface, game, mode, sfx, callback)
   local min_magnitude=0.01
   local max_magnitude=0.1
-  local duration=2.00 --duration of the effect in seconds
-  local start_time=os.clock()
+  local duration=2000--duration of the effect in seconds
+  local start_time=sol.main.get_elapsed_time()
   local shader_ocarina = sol.shader.create("distorsion")
   local function lerp(a,b,p)
     return a+p*(b-a)
@@ -26,7 +26,7 @@ function lib.start_effect(surface, game, mode, sfx, callback)
   end
   surface:set_shader(shader_ocarina)
   sol.timer.start(game, 10, function()
-    local current_time=os.clock()-start_time      
+    local current_time=sol.main.get_elapsed_time()-start_time      
     if mode == "in"  or mode == "out" then
       if mode == "in" then --we are fading in
         warp_magnitude = lerp(min_magnitude, max_magnitude, current_time/duration)

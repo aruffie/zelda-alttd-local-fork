@@ -13,7 +13,7 @@ local lib={}
 --]]
 
 local max_step=7          --Number of drawing steps (the corresponding pixel width is 2^step)
-local step_duration=0.15  --Step duration in seconds
+local step_duration=150  --Step duration in seconds
 
 function lib.start_effect(surface, game, mode, sfx, callback)
 
@@ -33,9 +33,9 @@ function lib.start_effect(surface, game, mode, sfx, callback)
   end
   local is_dezooming=(mode=="out")
   surface:set_shader(shader) --Attach the shader to the surface
-  local start_time=os.clock()
+  local start_time=sol.main.get_elapsed_time()
   sol.timer.start(game, 10, function()
-    local current_time=os.clock()-start_time
+    local current_time=sol.main.get_elapsed_time()-start_time
     local step
     if mode=="out" or (mode=="both" and is_dezooming==true) then
       step=max_step-(current_time/step_duration)
