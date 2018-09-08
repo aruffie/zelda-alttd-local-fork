@@ -20,8 +20,8 @@ COMPAT_VARYING vec2 sol_vtex_coord;
 COMPAT_VARYING vec4 sol_vcolor;
 
 uniform int sol_time;
-uniform float magnitude = 0.03; // Magnitude of the waving effect ~ [0.01 -> 0.1]
-uniform bool separated = 1; // Set this to true to enable image `scanlines` duplication
+uniform float magnitude; // Magnitude of the waving effect ~ [0.01 -> 0.1]
+uniform bool separated; // Set this to true to enable image `scanlines` duplication
 
 void main() {
     vec2 offset = vec2(magnitude*sin(float(sol_time)*0.004+gl_FragCoord.y*2.0*magnitude),0.0);

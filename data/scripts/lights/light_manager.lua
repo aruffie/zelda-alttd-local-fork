@@ -145,8 +145,9 @@ end
 
 function light_mgr:draw(dst,map)
   self.light_acc:fill_color({25,25,25,255})
+  local camera = map:get_camera()
   for n,l in pairs(self.lights) do
-    l:draw_light(self.light_acc)
+    l:draw_light(self.light_acc,camera)
   end
   self.map_occluder_layer = nil
   self.light_acc:draw(dst,0,0)

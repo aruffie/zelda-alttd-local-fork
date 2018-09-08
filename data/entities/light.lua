@@ -1,12 +1,8 @@
 -- Lua script of custom light light.
--- This script is executed every time a custom light with this model is created.
 
--- Feel free to modify the code below.
--- You can add more events and remove the ones you don't need.
+--this custom entity represent a light emission source, together with the light_manager
+--it allows to light dark places TODO comment better
 
--- See the Solarus Lua API documentation for the full specification
--- of types, events and methods:
--- http://www.solarus-games.org/doc/latest
 
 local light = ...
 local game = light:get_game()
@@ -20,6 +16,8 @@ local color = {color_str:match('(%d+),(%d+),(%d+)')}
 for i,k in ipairs(color) do
   color[i] = k/256.0
 end
+
+local sqrt2radius = 1.41 * radius
 
 light:set_can_traverse(true)
 
@@ -41,6 +39,9 @@ function light:on_created()
   -- like the sprite, the size, and whether it can traverse other
   -- entities and be traversed by them.
   light_mgr:add_light(self,light:get_name())
+  light:set_origin(radius,radius)
+  local size8 = math.ceil(size/8)*8
+  light:set_size(size8,size8)
 end
 
 function light:draw_visual(dst,drawable,x,y)
@@ -53,7 +54,19 @@ function light:get_topleft()
   return lx-radius,ly-radius,ll
 end
 
-function light:draw_light(dst)
+function light:draw_light(dst, camera)
+
+  --dont draw light if disabled
+  if not self:is_enabled() then
+    return
+  end
+
+  --dont draw light if outside of the camera
+  camera:set_layer(self:get_layer()) --TODO verify if this is not a shitty idea
+  if not camera:overlaps(self) then
+    return
+  end
+
   -- get the shadow_map for this light
   local shad_map = light_mgr:compute_light_shadow_map(light)
 

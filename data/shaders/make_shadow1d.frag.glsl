@@ -28,7 +28,7 @@ const float THRESHOLD = 0.75;
 
 void main(void) {
   float distance = 1.0;
-  float last = 1.0;
+  vec4 last = vec4(0.0,0.0,0.0,1.0);
   float lastd = distance;
   bool once_in_air = false;
   for (float y=0.0; y<resolution.y; y+=1.0) {
@@ -50,16 +50,17 @@ void main(void) {
       //if the new distance is below the current, then we'll use that for our ray
       float caster = data.a;
       
-      if (last > THRESHOLD && caster < last && once_in_air) {
+      if (last.a > THRESHOLD && caster < last.a && once_in_air) {
         distance = min(distance, lastd);
         //NOTE: we could probably use "break" or "return" here
         break;
       }
-      last = caster;
-      lastd = dst;
-      if(caster < THRESHOLD) {
+      if(data != last || last.a < THRESHOLD) {
         once_in_air = true;
       }
+      last = data;
+      lastd = dst;
+      
     } 
     FragColor = vec4(vec3(distance), 1.0);
 }

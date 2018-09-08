@@ -1162,3 +1162,20 @@ shader{ id = "water_effect", description = "Masked water overlay" }
 file{ path = "main.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "scripts/meta/sensor.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "scripts/music_manager.lua", author = "Christopho", license = "GPL v3" }
+file{ path = "shaders/cast_shadow1d.dat", author = "stdgregwar", license = "GPLv3" }
+file{ path = "shaders/cast_shadow1d.frag.glsl", author = "stdgregwar", license = "GPLv3" }
+file{ path = "shaders/cast_shadow1d.vert.glsl", author = "stdgregwar ", license = "GPLv3" }
+file{ path = "shaders/distort.dat", author = "stdgregwar", license = "GPLv3" }
+file{ path = "shaders/distort.frag.glsl", author = "stdgregwar", license = "GPLv3" }
+file{ path = "shaders/electric.dat", author = "stdgregwar", license = "GPLv3" }
+file{ path = "shaders/electric.frag.glsl", author = "stdgregwar", license = "GPLv3" }
+file{ path = "shaders/fire_dist.dat", author = "stdgregwar", license = "GPLv3" }
+file{ path = "shaders/fire_dist.frag.glsl", author = "stdgregwar", license = "GPLv3" }
+file{ path = "shaders/fire_dist.vert.glsl", author = "stdgregwar", license = "GPLv3" }
+file{ path = "shaders/make_shadow1d.dat", author = "stdgregwar", license = "GPLv3" }
+file{ path = "shaders/make_shadow1d.frag.glsl", author = "stdgregwar", license = "GPLv3" }
+file{ path = "shaders/make_shadow1d.vert.glsl", author = "stdgregwar", license = "GPLv3" }
+file{ path = "shaders/ocarina_warp.dat", author = "stdgregwar", license = "GPLv3" }
+file{ path = "shaders/ocarina_warp.frag.glsl", author = "stdgregwar", license = "GPLv3" }
+file{ path = "shaders/water_effect.dat", author = "stdgregwar", license = "GPLv3" }
+file{ path = "shaders/water_effect.frag.glsl", author = "stdgregwar", license = "GPLv3" }

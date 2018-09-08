@@ -19,11 +19,12 @@ local ew,eh = effect:get_size()
 
 local clouds_speed = 0.01;
 
+-- unused alternative to water color-keying
 function fsa:render_water_mask(map)
   local cx,cy = map:get_camera():get_position()
   local _,_,l = map:get_hero():get_position() -- TODO : use light layer instead
   local dx,dy = cx % 8, cy % 8
-  local w,h = self.map_occ:get_size()
+  local w,h = water_mask:get_size()
   local color = {255,255,255,255}
   water_mask:clear()
   for x=0,w,8 do
@@ -145,6 +146,23 @@ function fsa:render_fsa_texture(map,outside)
   end
 end
 
+local function create_light(map,x,y,layer,radius,color)
+  return map:create_custom_entity{
+    direction=0,
+    layer = layer,
+    x = x,
+    y = y,
+    width = 16,
+    height = 16,
+    sprite = "entities/fire_mask",
+    model = "light",
+    properties = {
+      {key="radius",value = radius},
+      {key="color",value = color}
+    }
+  }
+end
+
 function fsa:apply_effect(game)
   game:register_event("on_map_changed",function(game,map)
     local outside = map:get_world() == "outside_world"
@@ -155,52 +173,46 @@ function fsa:apply_effect(game)
 
       local hero = map:get_hero()
       --create hero light
-      local hl = map:create_custom_entity{
-        direction=0,
-        layer = 0,
-        x = 0,
-        y = 0,
-        width = 16,
-        height = 16,
-        sprite = "entities/fire_mask",
-        model = "light",
-        properties = {
-          {key="radius",value = "50"},
-          {key="color",value = "196,45,200"}
-        }
-      }
+      local hl = create_light(map,0,0,0,"50","196,128,200")
       function hl:on_update()
         hl:set_position(hero:get_position())
       end
       hl.excluded_occs = {[hero]=true}
 
+      --add a static light for each torch pattern in the map
       local map_lights = get_lights_from_map(map)
       local default_radius = "90"
       local default_color = "193,185,0"
 
       for _,l in ipairs(map_lights) do
-        map:create_custom_entity{
-          direction=0,
-          layer = l.layer,
-          x = l.x,
-          y = l.y,
-          width = 16,
-          height = 16,
-          sprite = "entities/fire_mask",
-          model = "light",
-          properties = {
-            {key="radius",value = default_radius},
-            {key="color",value = default_color}
-          }
-        }
+        create_light(map,l.x,l.y,l.layer,default_radius,default_color)
       end
-      --TODO add non-satic occluders
+
+      --TODO add other non-satic occluders
       for en in map:get_entities_by_type("enemy") do
         light_mgr:add_occluder(en)
       end
       for en in map:get_entities_by_type("npc") do
         light_mgr:add_occluder(en)
       end
+
+      --generate lights for dynamic torches
+      for en in map:get_entities_by_type("custom_entity") do
+        if en:get_model() == "torch" then
+          local tx,ty,tl = en:get_position()
+          local tw,th = en:get_size()
+          local yoff = -8
+          local light = create_light(map,tx+tw*0.5,ty+th*0.5+yoff,tl,default_radius,default_color)
+          en:register_event("on_unlit",function()
+                              light:set_enabled(false)
+          end)
+          en:register_event("on_lit",function()
+                              light:set_enabled(true)
+          end)
+          light:set_enabled(en:is_lit())
+        end
+      end
+
     end
     function map:on_draw(dst)
       --dst:set_shader(shader)
