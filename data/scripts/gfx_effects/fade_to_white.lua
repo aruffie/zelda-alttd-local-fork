@@ -30,32 +30,26 @@ function lib.start_effect(surface, game, mode, sfx, callback)
   end)
   sol.timer.start(game, 10, function()
     local dt=sol.main.get_elapsed_time()-start_time      
-    --print("TICK")
     if mode == "in" then
       alpha = math.floor(lerp(0, 255, dt/duration))
-      --print("IN: ", alpha)
       if alpha > 255 then
         alpha = 255
         if callback then
           callback()
         end
-        print("IN OVER")
         return false
       end
     else
       alpha = math.floor(lerp (255, 0, dt/duration))
-      --print("out: ", alpha)
       if alpha < 0 then
         alpha = 0
         if callback then
           callback()
         end
-        print("OUT OVER")
         return false
       end
     end
     mask:set_opacity(alpha)
-    --print("LOOP")
     return true
   end)
 end

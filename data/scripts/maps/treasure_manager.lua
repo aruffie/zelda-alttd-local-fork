@@ -213,6 +213,9 @@ function treasure_manager:play_instrument(map)
      local dungeon = game:get_dungeon_index()
      local opacity = 0
      local dungeon_infos = game:get_dungeon()
+     local camera = map:get_camera()
+     local surface = camera:get_surface()
+     local effect_model = require("scripts/gfx_effects/fade_to_white")
      local notes1 = map:create_custom_entity{
       x = x_hero,
       y = y_hero - 24,
@@ -247,21 +250,12 @@ function treasure_manager:play_instrument(map)
         })
       end)
       sol.timer.start(8000, function()
-        local white_surface =  sol.surface.create(320, 256)
-        white_surface:fill_color({255, 255, 255})
-        function map:on_draw(dst_surface)
-          white_surface:set_opacity(opacity)
-          white_surface:draw(dst_surface)
-          opacity = opacity + 2
-          if opacity > 255 then
-            opacity = 255
-          end
-        end
-        sol.timer.start(4000, function()
+        effect_model.start_effect(surface, game, "in", false, function()
             game:start_dialog("maps.dungeons.".. dungeon ..".indication", function()
               local map_id = dungeon_infos["teletransporter_end_dungeon"]["map_id"]
               local destination_name = dungeon_infos["teletransporter_end_dungeon"]["destination_name"]
-              hero:teleport(map_id, destination_name, "fade")
+              hero:teleport(map_id, destination_name, "immediate")
+              game.map_in_transition = effect_model
               game:set_pause_allowed(true)
               game:set_hud_enabled(true)
               game:set_movie(false)
