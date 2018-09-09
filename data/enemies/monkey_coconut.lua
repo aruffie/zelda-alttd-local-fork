@@ -21,7 +21,7 @@ function enemy:on_created()
   -- Initialize the properties of your enemy here,
   -- like the sprite, the life and the damage.
   sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
-  enemy:set_life(1)
+  enemy:set_invincible(true)
   enemy:set_damage(1)
 
 end
@@ -42,7 +42,11 @@ function enemy:on_restarted()
     movement:set_speed(140)
     movement:start(enemy)
     function movement:on_finished()
-      enemy:set_life(0)
+      local distance = enemy:get_distance(hero)
+      if distance < 170 then
+        sol.audio.play_sound("stone")
+      end
+      enemy:remove()
     end 
   
 end
