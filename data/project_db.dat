@@ -974,7 +974,8 @@ item{ id = "compass", description = "Compass" }
 item{ id = "drug", description = "Drug" }
 item{ id = "face_key", description = "Face key" }
 item{ id = "fairy", description = "Fairy" }
-item{ id = "feather", description = "Feather" }
+item{ id = "feather", description = "feather" }
+item{ id = "feather_BUGGY", description = "Feather" }
 item{ id = "fire_rod", description = "Fire rod" }
 item{ id = "flippers", description = "Flippers" }
 item{ id = "golden_leaf", description = "Golden leaf" }
