@@ -13767,7 +13767,7 @@ teletransporter{
   properties = {
     {
       key = "effect",
-      value = "fade",
+      value = "fade_to_white",
     },
   },
   width = 16,
@@ -17993,7 +17993,7 @@ tile{
 tile{
   layer = 1,
   x = 1104,
-  y = 1768,
+  y = 1776,
   width = 32,
   height = 8,
   pattern = "door_top.2-2",
