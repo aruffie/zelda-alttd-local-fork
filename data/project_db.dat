@@ -1155,11 +1155,20 @@ shader{ id = "distorsion", description = "Distorsion effect" }
 shader{ id = "electric", description = "Electric effect" }
 shader{ id = "mode_7", description = "Mode 7" }
 shader{ id = "pixellisation", description = "Pixellisation effect" }
+shader{ id = "radial_fade_out", description = "Radial fade out" }
 shader{ id = "sepia", description = "Sepia" }
 shader{ id = "toon", description = "Toon" }
 
 file{ path = "main.lua", author = "Christopho", license = "GPL v3" }
+file{ path = "scripts/gfx_effects/distorsion.lua", author = "PhoenixII54", }
+file{ path = "scripts/gfx_effects/fade_to_white.lua", author = "PhoenixII54", }
+file{ path = "scripts/gfx_effects/pixellisation.lua", author = "PhoenixII54", }
+file{ path = "scripts/gfx_effects/radial_fade_out.lua", author = "PhoenixII54", }
 file{ path = "scripts/meta/sensor.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "scripts/music_manager.lua", author = "Christopho", license = "GPL v3" }
+file{ path = "shaders/pixellisation.dat", author = "PhoenixII54", }
+file{ path = "shaders/pixellisation.frag.glsl", author = "PhoenixII54", }
 file{ path = "shaders/pixellisation_effect.dat", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "shaders/pixellisation_effect.frag.glsl", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "shaders/radial_fade_out.dat", author = "PhoenixII54", }
+file{ path = "shaders/radial_fade_out.frag.glsl", author = "PhoenixII54", }
