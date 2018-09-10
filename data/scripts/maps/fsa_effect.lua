@@ -38,7 +38,7 @@ function fsa:render_water_mask(map)
 end
 
 local crw,crh = clouds:get_size()
-
+-- render all needed reflection on reflection map
 function fsa:render_reflection(map,outside)
   reflection:clear()
   local t = sol.main.get_elapsed_time() * clouds_speed;
@@ -69,6 +69,7 @@ end
 
 local csw,csh = clouds_shadow:get_size()
 
+--draw cloud shadow
 function fsa:draw_clouds_shadow(dst,cx,cy)
   local t = sol.main.get_elapsed_time() * clouds_speed;
   local x,y = math.floor(t),math.floor(t)
@@ -81,6 +82,7 @@ function fsa:draw_clouds_shadow(dst,cx,cy)
   end
 end
 
+-- read map file again to get lights position
 local function get_lights_from_map(map)
   local map_id = map:get_id()
   local lights = {}
@@ -95,6 +97,36 @@ local function get_lights_from_map(map)
     ["wall_torch.4"] = true,
     ["torch"] = true,
     ["torch_big.top"] = true,
+    ["window.1-1"] = true,
+    ["window.2-1"] = true,
+    ["window.3-1"] = true,
+    ["window.4-1"] = true,
+  }
+
+  local big = "160"
+  local small = "80"
+
+  local radii = {
+    ["torch"] = small,
+    ["torch_big.top"] = small,
+  }
+
+  local win_cut = "0.1"
+  local win_aperture = "0.707"
+
+  local dirs = {
+    ["window.1-1"] = "0,1",
+    ["window.2-1"] = "0,-1",
+    ["window.3-1"] = "1,0",
+    ["window.4-1"] = "-1,0",
+  }
+
+  local win_col = "128,128,255"
+  local colors = {
+    ["window.1-1"] = win_col,
+    ["window.2-1"] = win_col,
+    ["window.3-1"] = win_col,
+    ["window.4-1"] = win_col,
   }
 
   function environment.tile(props)
@@ -105,6 +137,11 @@ local function get_lights_from_map(map)
                      layer = props.layer,
                      x = props.x + props.width*0.5,
                      y = props.y + props.height*0.5,
+                     radius = radii[props.pattern] or big,
+                     dir = dirs[props.pattern],
+                     cut = dirs[props.pattern] and win_cut or "0",
+                     aperture = dirs[props.pattern] and win_aperture or "1.5",
+                     color = colors[props.pattern],
                    }
       )
     end
@@ -128,6 +165,7 @@ local function get_lights_from_map(map)
   return lights
 end
 
+--render fsa texture to fsa effect map
 function fsa:render_fsa_texture(map,outside)
   fsa_texture:clear()
   if false and not outside then
@@ -146,7 +184,16 @@ function fsa:render_fsa_texture(map,outside)
   end
 end
 
-local function create_light(map,x,y,layer,radius,color)
+
+-- create a light that will automagically register to the light_manager
+local function create_light(map,x,y,layer,radius,color,dir,cut,aperture)
+  local function dircutappprops(dir,cut,aperture)
+    if dir and cut and aperture then
+      return {key="direction",value=dir},
+      {key="cut",value=cut},
+      {key="aperture",value=aperture}
+    end
+  end
   return map:create_custom_entity{
     direction=0,
     layer = layer,
@@ -158,61 +205,73 @@ local function create_light(map,x,y,layer,radius,color)
     model = "light",
     properties = {
       {key="radius",value = radius},
-      {key="color",value = color}
+      {key="color",value = color},
+      dircutappprops(dir,cut,aperture)
     }
   }
 end
 
+local function setup_inside_lights(map)
+  local house = map:get_id():find("houses") ~= nil
+  light_mgr:init(map,
+                 (function()
+                   if house then return {180,170,160} end
+                 end)())
+  light_mgr:add_occluder(map:get_hero())
+
+
+  if not house then
+    local hero = map:get_hero()
+    --create hero light
+    local hl = create_light(map,0,0,0,"80","196,128,200")
+    function hl:on_update()
+      hl:set_position(hero:get_position())
+    end
+    hl.excluded_occs = {[hero]=true}
+  end
+
+  --add a static light for each torch pattern in the map
+  local map_lights = get_lights_from_map(map)
+  local default_radius = "160"
+  local default_color = "193,185,100"
+
+  for _,l in ipairs(map_lights) do
+    create_light(map,l.x,l.y,l.layer,l.radius or default_radius,l.color or default_color,
+                 l.dir,l.cut,l.aperture)
+  end
+
+  --TODO add other non-satic occluders
+  for en in map:get_entities_by_type("enemy") do
+    light_mgr:add_occluder(en)
+  end
+  for en in map:get_entities_by_type("npc") do
+    light_mgr:add_occluder(en)
+  end
+
+  --generate lights for dynamic torches
+  for en in map:get_entities_by_type("custom_entity") do
+    if en:get_model() == "torch" then
+      local tx,ty,tl = en:get_position()
+      local tw,th = en:get_size()
+      local yoff = -8
+      local light = create_light(map,tx+tw*0.5,ty+th*0.5+yoff,tl,default_radius,default_color)
+      en:register_event("on_unlit",function()
+                          light:set_enabled(false)
+      end)
+      en:register_event("on_lit",function()
+                          light:set_enabled(true)
+      end)
+      light:set_enabled(en:is_lit())
+    end
+  end
+end
+
+-- setup fsa effect on the given game
 function fsa:apply_effect(game)
   game:register_event("on_map_changed",function(game,map)
     local outside = map:get_world() == "outside_world"
     if not outside then
-      light_mgr:init(map)
-      light_mgr:add_occluder(map:get_hero())
-
-
-      local hero = map:get_hero()
-      --create hero light
-      local hl = create_light(map,0,0,0,"50","196,128,200")
-      function hl:on_update()
-        hl:set_position(hero:get_position())
-      end
-      hl.excluded_occs = {[hero]=true}
-
-      --add a static light for each torch pattern in the map
-      local map_lights = get_lights_from_map(map)
-      local default_radius = "90"
-      local default_color = "193,185,100"
-
-      for _,l in ipairs(map_lights) do
-        create_light(map,l.x,l.y,l.layer,default_radius,default_color)
-      end
-
-      --TODO add other non-satic occluders
-      for en in map:get_entities_by_type("enemy") do
-        light_mgr:add_occluder(en)
-      end
-      for en in map:get_entities_by_type("npc") do
-        light_mgr:add_occluder(en)
-      end
-
-      --generate lights for dynamic torches
-      for en in map:get_entities_by_type("custom_entity") do
-        if en:get_model() == "torch" then
-          local tx,ty,tl = en:get_position()
-          local tw,th = en:get_size()
-          local yoff = -8
-          local light = create_light(map,tx+tw*0.5,ty+th*0.5+yoff,tl,default_radius,default_color)
-          en:register_event("on_unlit",function()
-                              light:set_enabled(false)
-          end)
-          en:register_event("on_lit",function()
-                              light:set_enabled(true)
-          end)
-          light:set_enabled(en:is_lit())
-        end
-      end
-
+      setup_inside_lights(map)
     end
     function map:on_draw(dst)
       --dst:set_shader(shader)

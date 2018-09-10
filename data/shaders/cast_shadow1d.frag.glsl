@@ -14,7 +14,7 @@ precision mediump float;
 #else
 #define COMPAT_PRECISION
 #endif
-#define PI 3.14
+#define PI 3.1415
 
 //inputs from vertex shader
 COMPAT_VARYING vec2 sol_vtex_coord;
@@ -24,6 +24,11 @@ uniform sampler2D sol_texture;
 uniform vec2 resolution;
 uniform vec3 lcolor;
 uniform int sol_time;
+uniform vec2 dir;
+uniform float aperture;
+uniform float halo;
+uniform float cut;
+uniform bool oscillate;
 
 //sample from the 1D distance map
 float sample(vec2 coord, float r) {
@@ -55,10 +60,7 @@ void main(void) {
 	sum += sample(vec2(tc.x - 3.0*blur, tc.y), r) * 0.09;
 	sum += sample(vec2(tc.x - 2.0*blur, tc.y), r) * 0.12;
 	sum += sample(vec2(tc.x - 1.0*blur, tc.y), r) * 0.15;
-	
 	sum += center * 0.16;
-  //sum += center * 1;
-	
 	sum += sample(vec2(tc.x + 1.0*blur, tc.y), r) * 0.15;
 	sum += sample(vec2(tc.x + 2.0*blur, tc.y), r) * 0.12;
 	sum += sample(vec2(tc.x + 3.0*blur, tc.y), r) * 0.09;
@@ -68,7 +70,12 @@ void main(void) {
  	
  	//multiply the summed amount by our distance, which gives us a radial falloff
  	//then multiply by vertex (light) color
-  float dr = 0.035*(1.0+sin(float(sol_time+600)*0.0062831));
+  float dr = oscillate ? 0.035*(1.0+sin(float(sol_time+600)*0.0062831)) : 0.0;
+  
  	FragColor = vec4(vec3(sum * smoothstep(1.0, 0.0, r-dr))*lcolor,1);
+  
+  float cone = smoothstep(aperture-halo,aperture+halo,dot(dir,normalize(norm)));
+  float b = step(cut,r);
+  FragColor *= cone*b;
   //color = vec4(1,0,0,1);
 }

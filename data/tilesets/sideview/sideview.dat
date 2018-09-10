@@ -819,30 +819,6 @@ tile_pattern{
 }
 
 tile_pattern{
-  id = "32",
-  ground = "traversable",
-  default_layer = 0,
-  x = { 48, 80, 112 },
-  y = { 0, 0, 0 },
-  width = 32,
-  height = 24,
-  frame_delay = 250,
-  repeat_mode = "none",
-}
-
-tile_pattern{
-  id = "33",
-  ground = "traversable",
-  default_layer = 0,
-  x = { 48, 80, 112 },
-  y = { 24, 24, 24 },
-  width = 32,
-  height = 32,
-  frame_delay = 250,
-  repeat_mode = "none",
-}
-
-tile_pattern{
   id = "34",
   ground = "wall",
   default_layer = 0,
@@ -1526,5 +1502,29 @@ tile_pattern{
   width = 16,
   height = 8,
   repeat_mode = "horizontal",
+}
+
+tile_pattern{
+  id = "wall_torch.1",
+  ground = "traversable",
+  default_layer = 0,
+  x = { 48, 80, 112 },
+  y = { 0, 0, 0 },
+  width = 32,
+  height = 24,
+  frame_delay = 250,
+  repeat_mode = "none",
+}
+
+tile_pattern{
+  id = "wall_torch.2",
+  ground = "traversable",
+  default_layer = 0,
+  x = { 48, 80, 112 },
+  y = { 24, 24, 24 },
+  width = 32,
+  height = 32,
+  frame_delay = 250,
+  repeat_mode = "none",
 }
 

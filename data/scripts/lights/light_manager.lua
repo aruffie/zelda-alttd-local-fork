@@ -3,8 +3,6 @@ local light_mgr = {occluders={},lights={},occ_maps = {},occ_chunks={}}
 light_mgr.light_acc = sol.surface.create(sol.video.get_quest_size())
 light_mgr.light_acc:set_blend_mode('multiply')
 
-light_mgr.map_occ = sol.surface.create(sol.video.get_quest_size())
-
 local make_shadow_s = sol.shader.create("make_shadow1d")
 local cast_shadow_s = sol.shader.create("cast_shadow1d")
 local angular_resolution = 256
@@ -34,28 +32,41 @@ end
 function light_mgr:get_occ_chunk(chunk_x,chunk_y,layer)
   --don't recompute map_occluder for the same layer
   local cid = self:chunk_id(chunk_x,chunk_y,layer)
-  if self.occ_chunks[cid] then
-    return self.occ_chunks[cid]
+  local chunk = self.occ_chunks[cid]
+  if not chunk then
+    --create chunk as it doesn't exist
+    chunk = {surf=sol.surface.create(chunk_size,chunk_size),valid=false}
+    self.occ_chunks[cid] = chunk
   end
-  print(string.format("computing chunk at (%d,%d,%d)",chunk_x,chunk_y,layer))
+  if chunk.valid then
+    -- chunk is still valid, return it as is
+    return chunk.surf
+  end
+  --chunk is invalid, update it!
+  --print(string.format("computing chunk at (%d,%d,%d)",chunk_x,chunk_y,layer))
   local map = self.map
-  local chunk = sol.surface.create(chunk_size,chunk_size)
   local cx,cy = chunk_x*chunk_size,chunk_y*chunk_size
   local l = layer
   local dx,dy = cx % 8, cy % 8
   local w,h = chunk_size, chunk_size
   local color = {0,0,0,255}
-  self.map_occ:clear()
+  chunk.surf:clear()
   for x=0,w,8 do
     for y=0,h,8 do
       local ground = map:get_ground(cx+x,cy+y,l)
       if blocking_grounds[ground] then
-        chunk:fill_color(color,x-dx,y-dy,8,8)
+        chunk.surf:fill_color(color,x-dx,y-dy,8,8)
       end
     end
   end
-  self.occ_chunks[cid] = chunk
-  return chunk
+  chunk.valid = true
+  return chunk.surf
+end
+
+function light_mgr:invalidate_occ_chunks()
+  for k,chunk in pairs(self.occ_chunks) do
+    chunk.valid = false
+  end
 end
 
 function light_mgr:get_occ_map(radius)
@@ -78,6 +89,10 @@ function light_mgr:compute_light_shadow_map(light)
   cast_shadow_s:set_uniform("scale",{size/angular_resolution,size})
   cast_shadow_s:set_uniform("resolution",resolution)
   cast_shadow_s:set_uniform("lcolor",light.color)
+  cast_shadow_s:set_uniform("dir",light.direction or {1,0})
+  cast_shadow_s:set_uniform("aperture",light.aperture or -1.5)
+  cast_shadow_s:set_uniform("halo",light.halo or 0.1)
+  cast_shadow_s:set_uniform("cut",light.cut or 0.0)
 
   --get light geometry
   local lx,ly,ll = light:get_topleft()
@@ -105,7 +120,7 @@ function light_mgr:compute_light_shadow_map(light)
 
   --draw non-static occluders on this light
   for ent,occ in pairs(self.occluders) do
-    if not light.excluded_occs[ent] then
+    if not light.excluded_occs[ent] and ent:is_enabled() then
       local ex,ey = ent:get_position()
       local x,y = ex-lx,ey-ly
       occ:draw(occ_map,x,y)
@@ -128,7 +143,8 @@ local function table_filter(table, pred)
   return res
 end
 
-function light_mgr:init(map)
+function light_mgr:init(map,ambient)
+  self.ambient = ambient
   self.occluders = table_filter(self.occluders,
     function(k,v) return k:get_map() == map end)
   self.lights = table_filter(self.lights,
@@ -143,8 +159,14 @@ function light_mgr:init(map)
   print("light manager initialized")
 end
 
+local inv_count = 0
+
 function light_mgr:draw(dst,map)
-  self.light_acc:fill_color({25,25,25,255})
+  if inv_count % 50 == 0 then
+    self:invalidate_occ_chunks()
+  end
+  inv_count = inv_count + 1
+  self.light_acc:fill_color(self.ambient or {25,25,25,255})
   local camera = map:get_camera()
   for n,l in pairs(self.lights) do
     l:draw_light(self.light_acc,camera)

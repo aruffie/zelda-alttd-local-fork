@@ -748,6 +748,33 @@ tile{
   pattern = "wall_pillar.4-9",
 }
 
+tile{
+  layer = 0,
+  x = 88,
+  y = 200,
+  width = 32,
+  height = 24,
+  pattern = "window.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 168,
+  y = 200,
+  width = 32,
+  height = 24,
+  pattern = "window.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 16,
+  y = 104,
+  width = 24,
+  height = 32,
+  pattern = "window.3-1",
+}
+
 npc{
   name = "small_bowwow_2",
   layer = 0,
@@ -2468,6 +2495,26 @@ custom_entity{
   direction = 0,
   sprite = "entities/non_diggable",
   model = "non_diggable",
+}
+
+custom_entity{
+  layer = 0,
+  x = 384,
+  y = 213,
+  properties = {
+    {
+      key = "direction",
+      value = "0,-1",
+    },
+    {
+      key = "aperture",
+      value = "0.7",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  model = "light",
 }
 
 tile{

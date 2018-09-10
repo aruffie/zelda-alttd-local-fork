@@ -25,13 +25,26 @@ light:set_can_traverse(true)
 light.radius = radius
 light.color = color
 light.excluded_occs = {}
+light.halo = tonumber(light:get_property('halo'))
+local dir_str = light:get_property('direction')
+if dir_str then
+  light.direction = {dir_str:match('(-?%d+),(-?%d+)')}
+  for i,k in ipairs(light.direction) do
+    light.direction[i] = k*1
+  end
+end
+light.cut = tonumber(light:get_property('cut'))
+light.aperture = tonumber(light:get_property('aperture'))
 
 local x,y = light:get_position()
 
 local fire_dist = sol.shader.create('fire_dist')
 local fire_sprite = light:get_sprite()
-light:remove_sprite(fire_sprite)
-fire_sprite:set_shader(fire_dist)
+if fire_sprite then
+  light:remove_sprite(fire_sprite)
+  fire_sprite:set_shader(fire_dist)
+end
+
 
 -- Event called when the custom light is initialized.
 function light:on_created()

@@ -565,7 +565,7 @@ tile{
   y = 120,
   width = 32,
   height = 24,
-  pattern = "32",
+  pattern = "wall_torch.1",
 }
 
 tile{
@@ -574,7 +574,7 @@ tile{
   y = 128,
   width = 32,
   height = 24,
-  pattern = "32",
+  pattern = "wall_torch.1",
 }
 
 tile{
