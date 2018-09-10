@@ -48,9 +48,11 @@ function enemy:on_custom_attack_received(attack)
   if attack == "sword" then
     local camera = map:get_camera()
     local surface = camera:get_surface()
+    hero:get_sprite():set_ignore_suspend(true)
     game:set_suspended(true)
     sprite:set_animation("buzzing")
     sol.audio.play_sound("shock")
+    hero:set_animation("electrocute")
     effect_model.start_effect(surface, game, 'in', false)
     local camera = map:get_camera()
     local shake_config = {
@@ -62,6 +64,7 @@ function enemy:on_custom_attack_received(attack)
         hero_electric = false
         game:set_suspended(false)
         sprite:set_animation("walking")
+        hero:unfreeze()
     end)
 
   end
