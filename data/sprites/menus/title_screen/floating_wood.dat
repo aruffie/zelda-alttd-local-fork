@@ -1,0 +1,9 @@
+animation{
+  name = "default",
+  src_image = "menus/title_screen/floating_wood.png",
+  frame_delay = 250,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 0, frame_width = 24, frame_height = 16, origin_x = 0, origin_y = 0, num_frames = 3 },
+  },
+}

@@ -21,7 +21,6 @@ function file_selection_menu:on_started()
   -- Create static surfaces.
   -- TODO animate background (use a sprite).  
   self.surface = sol.surface.create(320, 240)
-  self.background_img = sol.surface.create("menus/file_selection/file_selection_background.png")
   self.slot_img = sol.surface.create("menus/file_selection/file_selection_slot.png")
   self.button_img = sol.surface.create("menus/file_selection/file_selection_button.png")
 
@@ -91,10 +90,8 @@ function file_selection_menu:on_started()
   -- Run the menu.
   self:read_savefiles()
   self:update_cursor()
-  sol.audio.play_music("scripts/menus/player_select")
 
   -- Show an opening transition.
-  self.background_img:fade_in()
   self.surface:fade_in()
 
 end
@@ -154,9 +151,6 @@ function file_selection_menu:on_draw(dst_surface)
 
   -- Get the destination surface size to center everything.
   local width, height = dst_surface:get_size()
-  
-  -- Background.
-  self.background_img:draw(self.surface, 0, 0)
 
   -- Frame.
   self.frame_surface:draw(self.surface, 0, 0)

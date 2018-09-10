@@ -1,0 +1,15 @@
+animation{
+  name = "default",
+  src_image = "menus/title_screen/title_la.png",
+  directions = {
+    { x = 0, y = 192, frame_width = 118, frame_height = 24, origin_x = 12, origin_y = 6 },
+  },
+}
+animation{
+  name = "appearing",
+  src_image = "menus/title_screen/title_la.png",
+  frame_delay = 30,
+  directions = {
+    { x = 0, y = 0, frame_width = 118, frame_height = 24, origin_x = 12, origin_y = 6, num_frames = 9, num_columns = 1 },
+  },
+}
