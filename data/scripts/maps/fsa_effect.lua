@@ -130,7 +130,7 @@ end
 
 function fsa:render_fsa_texture(map,outside)
   fsa_texture:clear()
-  if not outside then
+  if false and not outside then
     fsa_texture:fill_color{255,255,255}
     return
   end
@@ -182,7 +182,7 @@ function fsa:apply_effect(game)
       --add a static light for each torch pattern in the map
       local map_lights = get_lights_from_map(map)
       local default_radius = "90"
-      local default_color = "193,185,0"
+      local default_color = "193,185,100"
 
       for _,l in ipairs(map_lights) do
         create_light(map,l.x,l.y,l.layer,default_radius,default_color)
