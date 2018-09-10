@@ -42,11 +42,14 @@ function enemy:on_restarted()
     movement:set_speed(140)
     movement:start(enemy)
     function movement:on_finished()
+      enemy:set_layer(0)
       local distance = enemy:get_distance(hero)
       if distance < 170 then
         sol.audio.play_sound("stone")
       end
-      enemy:remove()
+      sprite:set_animation("destroyed", function()
+        enemy:remove()
+        end)
     end 
   
 end
