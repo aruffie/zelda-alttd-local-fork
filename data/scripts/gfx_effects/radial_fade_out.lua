@@ -31,8 +31,13 @@ function lib.start_effect(surface, game, mode, sfx, callback)
   if sfx then
     sol.audio.play_sound(sfx)
   end
-
+  local mask=sol.surface.create(game:get_map():get_camera():get_size())
+  mask:fill_color({0,0,0})
+  mask:set_opacity(0)
   surface:set_shader(shader) --Attach the shader to the surface
+  game:get_map():register_event("on_draw", function(map, dst_surface)
+    mask:draw(surface)
+  end)
   local start_time=sol.main.get_elapsed_time()
   sol.timer.start(game, 10, function()
     local player_x, player_y=game:get_hero():get_position()
@@ -42,9 +47,7 @@ function lib.start_effect(surface, game, mode, sfx, callback)
     if mode=="in" then
       radius=lerp(max_radius, 0, elapsed/duration)
       if radius<0 then
-        game:get_map():register_event("on_draw", function(map, dst_surface)
-          surface:fill_color({0,0,0})
-        end)
+        mask:set_opacity(255)
         surface:set_shader(nil)
         if callback then
           callback()
