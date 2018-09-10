@@ -193,33 +193,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 0,
-  y = 528,
-  width = 1936,
-  height = 208,
-  pattern = "floor.2-1",
-}
-
-tile{
-  layer = 0,
-  x = 0,
-  y = 0,
-  width = 2560,
-  height = 528,
-  pattern = "floor.2-1",
-}
-
-tile{
-  layer = 0,
-  x = 2224,
-  y = 528,
-  width = 336,
-  height = 208,
-  pattern = "floor.2-1",
-}
-
-tile{
-  layer = 0,
   x = 912,
   y = 1232,
   width = 320,
@@ -13764,15 +13737,8 @@ teletransporter{
   layer = 0,
   x = 1112,
   y = 1768,
-  properties = {
-    {
-      key = "effect",
-      value = "radial_fade_out",
-    },
-  },
   width = 16,
   height = 16,
-  transition = "immediate",
   destination_map = "out/a4_south_mabe_village",
   destination = "dungeon_1_2_A",
 }
@@ -17060,25 +17026,6 @@ destination{
   x = 1120,
   y = 1693,
   direction = 1,
-}
-
-destination{
-  name = "destination",
-  layer = 0,
-  x = 2080,
-  y = 437,
-  direction = 1,
-}
-
-teletransporter{
-  layer = 0,
-  x = 1112,
-  y = 1704,
-  width = 16,
-  height = 16,
-  transition = "immediate",
-  destination_map = "dungeons/1/1f",
-  destination = "destination",
 }
 
 tile{

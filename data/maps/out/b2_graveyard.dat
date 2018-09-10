@@ -18679,7 +18679,7 @@ teletransporter{
   properties = {
     {
       key = "effect",
-      value = "radial_fade_out",
+      value = "pixellisation",
     },
   },
   width = 16,
