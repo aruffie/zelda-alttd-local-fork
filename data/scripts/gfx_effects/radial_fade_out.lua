@@ -33,16 +33,26 @@ function lib.start_effect(surface, game, mode, sfx, callback)
   end
   local mask=sol.surface.create(game:get_map():get_camera():get_size())
   mask:fill_color({0,0,0})
-  mask:set_opacity(0)
-  surface:set_shader(shader) --Attach the shader to the surface
+  mask:set_opacity(0) --make the mask transparent until the fade in part os over
+
   game:get_map():register_event("on_draw", function(map, dst_surface)
     mask:draw(surface)
   end)
+  local radius
+  if mode=="in" then
+    radius=max_radius
+  else
+    radius=0
+  end
+  surface:set_shader(shader) --Attach the shader to the surface
+  shader:set_uniform("radius", radius)
   local start_time=sol.main.get_elapsed_time()
   sol.timer.start(game, 10, function()
     local player_x, player_y=game:get_hero():get_position()
     local cam_x, cam_y=game:get_map():get_camera():get_position()
-    local radius
+    --print("PLAYER: ("..player_x..";"..player_y.."), CAMERA: ("..cam_x..";"..cam_y..")")
+    shader:set_uniform("position", {player_x-cam_x, player_y-cam_y-13})
+    
     local elapsed=sol.main.get_elapsed_time()-start_time
     if mode=="in" then
       radius=lerp(max_radius, 0, elapsed/duration)
@@ -65,7 +75,6 @@ function lib.start_effect(surface, game, mode, sfx, callback)
       end
     end
     shader:set_uniform("radius", radius)
-    shader:set_uniform("position", {player_x-cam_x, player_y-cam_y-13})
     return true
   end) --START DRAWING!
 end

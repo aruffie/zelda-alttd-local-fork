@@ -37,21 +37,17 @@ COMPAT_VARYING vec4 sol_vcolor;
 uniform vec2 sol_input_size;
 uniform float radius;
 uniform vec2 position;
+
 vec2 ratio=vec2(1.5, 1.0);
-float square_norm(float w, float h){
-  return w*w+h*h;
-}
 
 void main() {
   vec3 texel = COMPAT_TEXTURE(sol_texture, sol_vtex_coord).rgb;
 
-  vec2 size=sol_input_size;
   FragColor = vec4(texel.x,texel.y,texel.z, 1.0);
   vec2 xy=sol_vtex_coord.xy;
-  vec2 dxy=(xy*sol_input_size)-position;
-  //float square_dist=square_norm(dxy.x, dxy.y);
-  vec2 r=ratio*radius;
-  if (((dxy.x*dxy.x)/(r.x*r.x)+(dxy.y*dxy.y)/(r.y*r.y))>1.0){
-    FragColor.rgb=vec3(0);
+  vec2 dxy=xy-(position/sol_input_size);
+  vec2 r=radius/sol_input_size*ratio;
+  if ((dxy.x*dxy.x)/(r.x*r.x)+(dxy.y*dxy.y)/(r.y*r.y)>1.0){
+    FragColor.rgb=vec3(0.0);
   }
 }
