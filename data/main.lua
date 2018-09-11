@@ -91,6 +91,10 @@ function sol.main:start_savegame(game)
     sol.menu.stop(menu)
   end
 
+  -- TODO do otherwise
+  local fsa = require("scripts/maps/fsa_effect")
+  fsa:apply_effect(game)
+
   sol.main.game = game
   game:start()
 end
