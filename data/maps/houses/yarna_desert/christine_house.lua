@@ -36,7 +36,7 @@ function map:talk_to_christine()
   if variant < 8 then
     game:start_dialog("maps.houses.yarna_desert.christine_house.christine_1", function()
         christine_sprite:set_direction(2)
-        christine_sprite:set_animation("walking")
+        christine_sprite:set_animation("waiting")
     end)
   elseif variant == 8 then
     game:start_dialog("maps.houses.yarna_desert.christine_house.christine_2", function(answer)
@@ -46,20 +46,20 @@ function map:talk_to_christine()
             hibiscus_sprite:set_animation("full")
             hero:start_treasure("magnifying_lens", 9, nil, function()
               christine_sprite:set_direction(2)
-              christine_sprite:set_animation("walking")
+              christine_sprite:set_animation("waiting")
             end)
         end)
       else
         game:start_dialog("maps.houses.yarna_desert.christine_house.christine_3", function()
           christine_sprite:set_direction(2)
-          christine_sprite:set_animation("walking")
+          christine_sprite:set_animation("waiting")
         end)
       end
     end)
   else
     game:start_dialog("maps.houses.yarna_desert.christine_house.christine_5", function()
         christine_sprite:set_direction(2)
-        christine_sprite:set_animation("walking")
+        christine_sprite:set_animation("waiting")
     end)
   end
 

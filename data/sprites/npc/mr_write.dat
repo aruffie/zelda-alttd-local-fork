@@ -1,5 +1,5 @@
 animation{
-  name = "walking",
+  name = "waiting",
   src_image = "npc/mr_write.png",
   frame_delay = 250,
   frame_to_loop_on = 0,
