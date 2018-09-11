@@ -1,72 +1,60 @@
--- Title screen with an animation before the logo appears.
+-- Title screen.
 
-local title_screen = {}
+local title = {}
 
-function title_screen:on_started()
+local title_background = require("scripts/menus/title_background")
+local title_logo = require("scripts/menus/title_logo")
+local file_selection = require("scripts/menus/file_selection")
 
-  self.phase = "black"
-  self.surface = sol.surface.create(320, 256)
-  -- Black screen during 0.3 seconds
-  self.timer = sol.timer.start(self, 300, function()
-    self:phase_title()
+local multi_events = require("scripts/multi_events")
+
+function title:on_started()
+  -- Play music.
+  sol.audio.play_music("scripts/menus/title_screen")
+
+  -- Start the background.
+  sol.menu.start(self, title_background, true)
+
+  -- Register a callback for when the logo is finished.
+  multi_events:enable(title_logo)
+  title_logo:register_event("on_finished", function()
+    sol.menu.start(self, file_selection, true)
   end)
 
-  -- Preload sounds
-  sol.audio.preload_sounds()
+  -- The title appears when the sound is played during the music.
+  -- Unfortunately, they are mixed together...
+  --self.timer = sol.timer.start(self, 6000, function()
+    sol.menu.start(self, title_logo, true)
+  --end)
 
 end
 
-function title_screen:phase_title()
 
-  -- actual title screen
-  self.phase = "title"
-  self.surface:fade_in(30)
-  -- start music
-  sol.audio.play_music("scripts/menus/title_screen_no_intro")
-  local background_img = sol.surface.create("menus/title.png")
-  local width, height = background_img:get_size()
-  local x, y = 160 - width / 2, 120 - height / 2
-  background_img:draw(self.surface, x, y)
+function title:on_key_pressed(key)
 
-end
+  local handled = false
 
-function title_screen:on_draw(dst_surface)
-
-  local width, height = dst_surface:get_size()
-  self.surface:draw(dst_surface, width / 2 - 160, height / 2 - 120)
-
-end
-
-function title_screen:on_key_pressed(key)
-
-  local handled = true
+  print(key)
 
   if key == "escape" then
     -- stop the program
     sol.main.exit()
 
   elseif key == "space" or key == "return" then
-     self.timer:stop()
-     handled = true
-     sol.menu.stop(self)
+    print("title space")
 
---  Debug.
-  elseif key == "left shift" or key == "right shift" then
-    sol.menu.stop(self)
+    if self.timer ~= nil then
+      self.timer:stop()
+    end
 
-  else
-    handled = false
+    title_background:set_phase("end")
+    --sol.menu.start(self, title_logo, true)
 
+    handled = true
   end
 
   return handled
 end
 
-function title_screen:on_joypad_button_pressed(button)
-
-  return title_screen:on_key_pressed("space")
-
-end
-
-return title_screen
+return title
 

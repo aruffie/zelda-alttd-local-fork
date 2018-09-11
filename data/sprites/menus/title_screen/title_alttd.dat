@@ -1,0 +1,23 @@
+animation{
+  name = "default",
+  src_image = "menus/title_screen/title_alttd.png",
+  directions = {
+    { x = 0, y = 0, frame_width = 137, frame_height = 26, origin_x = 0, origin_y = 0 },
+  },
+}
+animation{
+  name = "filling",
+  src_image = "menus/title_screen/title_alttd.png",
+  frame_delay = 40,
+  frame_to_loop_on = 15,
+  directions = {
+    { x = 0, y = 0, frame_width = 137, frame_height = 26, origin_x = 0, origin_y = 0, num_frames = 16, num_columns = 2 },
+  },
+}
+animation{
+  name = "final",
+  src_image = "menus/title_screen/title_alttd.png",
+  directions = {
+    { x = 137, y = 182, frame_width = 137, frame_height = 26, origin_x = 0, origin_y = 0 },
+  },
+}

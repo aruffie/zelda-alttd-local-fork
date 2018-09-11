@@ -124,6 +124,7 @@ map{ id = "houses/yarna_desert/empty_house", description = "Empty house" }
 map{ id = "houses/yarna_desert/painter_house", description = "Painter's house" }
 map{ id = "houses/yarna_desert/rabbits_house", description = "Rabbits house" }
 map{ id = "movies/introduction", description = "Introduction" }
+map{ id = "movies/introduction2", description = "Cocolint Beach" }
 map{ id = "movies/link_and_marin", description = "Link and Marin" }
 map{ id = "out/a1_west_mt_tamaranch", description = "A1 - West Mt Tamaranch" }
 map{ id = "out/a2_forest", description = "A2 - Forest" }
@@ -658,6 +659,16 @@ sprite{ id = "menus/settings/settings_cursor", description = "Settings menu curs
 sprite{ id = "menus/settings/settings_slider", description = "Settings menu slider" }
 sprite{ id = "menus/solarus_logo/solarus_logo", description = "Solarus logo" }
 sprite{ id = "menus/team_logo/team_logo", description = "Solarus Team logo" }
+sprite{ id = "menus/title_screen/clouds", description = "Title screen: clouds" }
+sprite{ id = "menus/title_screen/floating_wood", description = "Title screen: floating wood" }
+sprite{ id = "menus/title_screen/mountain_clouds", description = "Title screen: mountain clouds" }
+sprite{ id = "menus/title_screen/swell", description = "Title screen: swell" }
+sprite{ id = "menus/title_screen/title_alttd", description = "Title screen: A Link To The Dream " }
+sprite{ id = "menus/title_screen/title_la", description = "Tiltle screen: Link's Awakening" }
+sprite{ id = "menus/title_screen/title_zelda", description = "Title screen: Zelda logo" }
+sprite{ id = "menus/title_screen/wave_big", description = "Title screen: big wave" }
+sprite{ id = "menus/title_screen/wave_small", description = "Title screen: small wave" }
+sprite{ id = "menus/title_screen/wreck", description = "Tiltle screen: wreck" }
 sprite{ id = "npc/alligator", description = "Alligator" }
 sprite{ id = "npc/alttp/angry_brother", description = "Angry brother" }
 sprite{ id = "npc/alttp/average_middle_aged_man", description = "Average middle-aged man" }
