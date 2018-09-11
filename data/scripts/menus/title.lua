@@ -23,9 +23,9 @@ function title:on_started()
 
   -- The title appears when the sound is played during the music.
   -- Unfortunately, they are mixed together...
-  self.timer = sol.timer.start(self, 6000, function()
+  --self.timer = sol.timer.start(self, 6000, function()
     sol.menu.start(self, title_logo, true)
-  end)
+  --end)
 
 end
 
