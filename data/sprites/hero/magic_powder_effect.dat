@@ -1,0 +1,11 @@
+animation{
+  name = "Normal",
+  src_image = "hero/magic_powder_effect.png",
+  frame_delay = 100,
+  directions = {
+    { x = 0, y = 0, frame_width = 64, frame_height = 40, origin_x = 32, origin_y = 29, num_frames = 6 },
+    { x = 0, y = 40, frame_width = 64, frame_height = 40, origin_x = 32, origin_y = 29, num_frames = 6 },
+    { x = 0, y = 80, frame_width = 64, frame_height = 40, origin_x = 32, origin_y = 29, num_frames = 6 },
+    { x = 0, y = 120, frame_width = 64, frame_height = 40, origin_x = 32, origin_y = 29, num_frames = 6 },
+  },
+}
