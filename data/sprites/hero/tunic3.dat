@@ -98,6 +98,18 @@ animation{
   },
 }
 animation{
+  name = "collapse",
+  src_image = "hero/link_collapse.png",
+  frame_delay = 150,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 0, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 0, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 0, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+  },
+}
+animation{
   name = "dying",
   src_image = "hero/dying.png",
   frame_delay = 125,
@@ -252,13 +264,13 @@ animation{
 animation{
   name = "playing_ocarina",
   src_image = "hero/ocarina.png",
-  frame_delay = 300,
+  frame_delay = 150,
   frame_to_loop_on = 0,
   directions = {
-    { x = 24, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 22, num_frames = 4 },
-    { x = 24, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 22, num_frames = 4 },
-    { x = 24, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 22, num_frames = 4 },
-    { x = 24, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 22, num_frames = 4 },
+    { x = 0, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 22, num_frames = 10 },
+    { x = 0, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 22, num_frames = 10 },
+    { x = 0, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 22, num_frames = 10 },
+    { x = 0, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 22, num_frames = 10 },
   },
 }
 animation{
