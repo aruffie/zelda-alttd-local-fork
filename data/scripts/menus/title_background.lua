@@ -9,6 +9,7 @@ function title_background:on_started()
   self.surface_w = 320
   self.surface_h = 256
   self.surface = sol.surface.create(self.surface_w, self.surface_h)
+  self.sky = sol.surface.create("menus/title_screen/sky.png")
   self.background = sol.surface.create("menus/title_screen/tmp_background.png")
   
   -- Surface used for fading to black, at the end.
@@ -85,6 +86,7 @@ function title_background:on_draw(dst_surface)
 
   -- Background.
   local y_offset = math.floor(self:get_y_offset(self.elapsed_time))
+  self.sky:draw(self.surface, 0, 0)
   self.background:draw(self.surface, 0, y_offset)
 
   -- Sprites are placed manually since this is not a map.
