@@ -86,33 +86,32 @@ end
 
 function dungeon_1_lock:on_interaction()
 
-      if game:get_value("main_quest_step") < 6 then
-          game:start_dialog("maps.out.south_mabe_village.dungeon_1_lock")
-      elseif game:get_value("main_quest_step") == 6 then
-        game:set_hud_enabled(false)
-        sol.audio.stop_music()
-        hero:freeze()
-        sol.timer.start(map, 1000, function() 
-          sol.audio.play_sound("shake")
-          local camera = map:get_camera()
-          local shake_config = {
-              count = 32,
-              amplitude = 4,
-              speed = 90,
-          }
-          camera:shake(shake_config, function()
-            sol.audio.play_sound("secret_2")
-            local sprite = dungeon_1_entrance:get_sprite()
-            sprite:set_animation("opening")
-            sol.timer.start(map, 800, function() 
-              map:open_dungeon_1()
-              hero:unfreeze()
-              game:set_hud_enabled(true)
-              map:set_music()
-            end)
-          end)
-          game:set_value("main_quest_step", 7)
+  if game:get_value("main_quest_step") < 6 then
+      game:start_dialog("maps.out.south_mabe_village.dungeon_1_lock")
+  elseif game:get_value("main_quest_step") == 6 then
+    map:set_cinematic_mode(true)
+    sol.audio.stop_music()
+    hero:freeze()
+    sol.timer.start(map, 1000, function()
+      sol.audio.play_sound("shake")
+      local camera = map:get_camera()
+      local shake_config = {
+          count = 32,
+          amplitude = 4,
+          speed = 90,
+      }
+      camera:shake(shake_config, function()
+        sol.audio.play_sound("secret_2")
+        local sprite = dungeon_1_entrance:get_sprite()
+        sprite:set_animation("opening")
+        sol.timer.start(map, 800, function()
+          map:open_dungeon_1()
+          map:set_cinematic_mode(false)
+          map:set_music()
         end)
-      end
+      end)
+      game:set_value("main_quest_step", 7)
+    end)
+  end
 
 end

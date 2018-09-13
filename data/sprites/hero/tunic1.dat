@@ -263,6 +263,18 @@ animation{
   },
 }
 animation{
+  name = "link_likelike",
+  src_image = "hero/link_likelike.png",
+  frame_delay = 80,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 2 },
+    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 2 },
+    { x = 0, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 2 },
+    { x = 0, y = 72, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 2 },
+  },
+}
+animation{
   name = "magic_powder",
   src_image = "hero/magic_powder.png",
   frame_delay = 50,

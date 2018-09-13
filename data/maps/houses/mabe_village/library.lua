@@ -141,6 +141,7 @@ function book_9:on_interaction()
 
 end
 
+-- Wardrobes
 for wardrobe in map:get_entities("wardrobe") do
   function wardrobe:on_interaction()
     game:start_dialog("maps.houses.wardrobe_2", game:get_player_name())
