@@ -28,4 +28,3 @@ for wardrobe in map:get_entities("wardrobe") do
     game:start_dialog("maps.houses.wardrobe_1", game:get_player_name())
   end
 end
-
