@@ -14,8 +14,6 @@ local phone_manager = require("scripts/maps/phone_manager")
 
 function map:on_started()
 
-
-
 end
 
 function phone_interaction:on_interaction()
