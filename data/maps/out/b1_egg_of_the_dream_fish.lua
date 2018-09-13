@@ -31,7 +31,9 @@ function map:on_started(destination)
   -- Owl
   owl_6:set_enabled(false)
   -- Remove the big stone if you come from the secret cave
-  if destination == stair_arrows_upgrade then secret_stone:set_enabled(false) end
+  if destination == stair_arrows_upgrade then
+    secret_stone:set_enabled(false)
+  end
   -- Signs
   photographer_sign:get_sprite():set_animation("photographer_sign")
 

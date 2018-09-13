@@ -23,22 +23,20 @@ function map:repeat_marin_direction_check()
 
   local direction4 = marin:get_direction4_to(hero)
   marin:get_sprite():set_direction(direction4)
-
-  -- Rappeler cette fonction dans 0.1 seconde.
   sol.timer.start(map, 100, function() 
     map:repeat_marin_direction_check()
   end)
+
 end
 
 function map:repeat_tarin_direction_check()
 
   local direction4 = tarin:get_direction4_to(hero)
   tarin:get_sprite():set_direction(direction4)
-
-  -- Rappeler cette fonction dans 0.1 seconde.
   sol.timer.start(map, 100, function() 
     map:repeat_tarin_direction_check()
   end)
+
 end
 
 function map:jump_from_bed()
@@ -209,6 +207,7 @@ function marin:on_interaction()
 
 end
 
+-- Wardrobes
 for wardrobe in map:get_entities("wardrobe") do
   function wardrobe:on_interaction()
     game:start_dialog("maps.houses.wardrobe_1", game:get_player_name())
