@@ -737,6 +737,7 @@ sprite{ id = "npc/rabbit", description = "Rabbit" }
 sprite{ id = "npc/raft_man", description = "Raft_man" }
 sprite{ id = "npc/richard", description = "Richard" }
 sprite{ id = "npc/seagull", description = "Seagull" }
+sprite{ id = "npc/seagull_small", description = "Small seagull for backgrounds" }
 sprite{ id = "npc/small_bowwow", description = "Small bowwow" }
 sprite{ id = "npc/tarin", description = "Tarin" }
 sprite{ id = "npc/village_bird", description = "Village bird" }
