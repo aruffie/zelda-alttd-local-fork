@@ -42,12 +42,19 @@ end
 function map:jump_from_bed()
 
   hero:set_enabled(true)
-  hero:start_jumping(7, 24, true)
-  map:set_cinematic_mode(false)
-  bed:get_sprite():set_animation("empty_open")
-  game:set_starting_location("houses/mabe_village/marin_house", "marin_house_1_B")
   sol.audio.play_sound("hero_lands")
-  game:set_value("main_quest_step", 1)
+  bed:get_sprite():set_animation("empty_open")
+  hero:get_sprite():set_animation("jumping")
+  local movement_jump = sol.movement.create("straight")
+  movement_jump:set_angle(math.pi)
+  movement_jump:set_max_distance(24)
+  movement_jump:set_ignore_obstacles(true)
+  movement_jump:set_ignore_suspend(true)
+  movement_jump:start(marin, function()
+    map:set_cinematic_mode(false)
+    game:set_starting_location("houses/mabe_village/marin_house", "marin_house_1_B")
+    game:set_value("main_quest_step", 1)
+  end)
 
 end
 
@@ -67,6 +74,7 @@ end
 
 function map:init_tarin()
  
+    tarin:get_sprite():set_ignore_suspend(true)
     local item = game:get_item("magnifying_lens")
     local variant = item:get_variant()
    if game:get_value("main_quest_step") > 10 and variant < 4 then
@@ -125,6 +133,7 @@ end
 
 function map:init_marin()
  
+  marin:get_sprite():set_ignore_suspend(true)
   if game:get_value("main_quest_step") > 3  then
     marin:remove()
   else
@@ -148,7 +157,7 @@ function map:on_started(destination)
   map:set_music()
   map:init_marin()
   map:init_tarin()
-
+  bed:get_sprite():set_ignore_suspend(true)
   -- Letter
   if game:get_value("main_quest_step") ~= 21  then
     letter:set_enabled(false)

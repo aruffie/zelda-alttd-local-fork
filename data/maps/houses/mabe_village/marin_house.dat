@@ -648,7 +648,7 @@ tile{
 destination{
   name = "start_position",
   layer = 1,
-  x = 144,
+  x = 136,
   y = 77,
   direction = 0,
 }
