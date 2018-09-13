@@ -40,8 +40,17 @@ function title_logo:on_started()
     font = font,
     font_size = font_size,
     text_key = "title_screen.press_space",
+    color = {255, 255, 255},
   }
-  self.press_space_text:set_xy(center_x, self.surface_h - 32)
+  self.press_space_text:set_xy(center_x, self.surface_h - 80)
+  self.press_space_text_stroke = sol.text_surface.create{
+    horizontal_alignment = "center",
+    vertical_alignment = "middle",
+    font = font,
+    font_size = font_size,
+    text_key = "title_screen.press_space",
+    color = {0, 0, 112},
+  }
 
   -- Make the "Press space" text clip every 500ms.
   self.show_press_space = false
@@ -85,7 +94,7 @@ function title_logo:on_draw(dst_surface)
         self.alttd_logo_sprite:draw(self.surface, 111, 85)
         
         if self.phase >= 4 and self.show_press_space then
-          self.press_space_text:draw(self.surface)
+          self:draw_text_stroke(self.surface, self.press_space_text, self.press_space_text_stroke)
         end
       end
     end
@@ -95,6 +104,23 @@ function title_logo:on_draw(dst_surface)
   local width, height = dst_surface:get_size()
   self.surface:draw(dst_surface, (width - self.surface_w) / 2, (height - self.surface_h) / 2)
 
+end
+
+function title_logo:draw_text_stroke(dst_surface, text, text_stroke)
+
+  -- Draw the 8 texts composing the stroke.
+  local x, y = text:get_xy()
+  text_stroke:draw(dst_surface, x - 1, y)
+  text_stroke:draw(dst_surface, x - 1, y - 1)
+  text_stroke:draw(dst_surface, x - 1, y + 1)
+  text_stroke:draw(dst_surface, x + 1, y)
+  text_stroke:draw(dst_surface, x + 1, y - 1)
+  text_stroke:draw(dst_surface, x + 1, y + 1)
+  text_stroke:draw(dst_surface, x, y - 1)
+  text_stroke:draw(dst_surface, x, y + 1)
+
+  -- Draw text above the stroke.
+  text:draw(dst_surface)
 end
 
 function title_logo:on_key_pressed(key)
@@ -117,35 +143,47 @@ function title_logo:on_joypad_button_pressed(button)
 
 end
 
--- 
+-- Modify the phase (parts of the final logo appear one after another).
 function title_logo:set_phase(phase)
   if phase ~= self.phase then
     self.phase = phase
     
     if phase == 1 then
+      -- Phase 1: Zelda logo.
       self.zelda_logo_sprite:set_animation("shining")
       self.zelda_logo_sprite:fade_in(10)
 
+      -- Go to next phase.
       sol.timer.start(self, 1500, function()
         self:set_phase(self.phase + 1)
       end)
 
     elseif phase == 2 then
+      -- Phase 2: Link's Awakening logo.
       self.la_logo_sprite:set_animation("appearing")
       self.la_logo_sprite:fade_in(20)
 
+      -- Go to next phase.
       sol.timer.start(self, 1000, function()
         self:set_phase(self.phase + 1)
       end)
 
     elseif phase == 3 then
+      -- Phase 3: A Link To The Dream logo.
       self.alttd_logo_sprite:set_animation("filling")
       self.alttd_logo_sprite:fade_in(10)
 
+      -- Go to next phase.
       sol.timer.start(self, 1000, function()
         self:set_phase(self.phase + 1)
       end)
 
+    elseif phase == 4 then
+      -- The Zelda logo shines every 10 seconds.
+      sol.timer.start(self, 10000, function()
+        self.zelda_logo_sprite:set_animation("shining")
+        return true
+      end)
     end
   end
 end
