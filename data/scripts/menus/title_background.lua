@@ -52,7 +52,7 @@ function title_background:on_started()
       y_begin = 180,
       y_end = 240,
       begin_side = "right",
-      start_delay = 3000,
+      start_delay = 4500,
       speed = 40,
       type = "foreground",
     },
@@ -157,7 +157,7 @@ function title_background:on_draw(dst_surface)
 
   -- Sprites are placed manually since this is not a map.
   self.clouds:draw(self.surface, 0, 0 + y_offset)
-  self.mountain_clouds:draw(self.surface, 40, 118 + y_offset * mountain_parallax_factor)
+  self.mountain_clouds:draw(self.surface, 30, 104 + y_offset * mountain_parallax_factor)
   self.wreck:draw(self.surface, 152, 452 + y_offset)
   self.floating_wood:draw(self.surface, 208, 488 + y_offset)
   self.floating_wood:draw(self.surface, 280, 464 + y_offset)
