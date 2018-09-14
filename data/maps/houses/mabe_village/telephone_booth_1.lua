@@ -10,7 +10,8 @@ local phone_manager = require("scripts/maps/phone_manager")
 
 -- Methods - Functions
 
-function map:set_music()
+-- Initialize the music of the map
+function map:init_music()
 
   if game:get_value("main_quest_step") == 3  then
     sol.audio.play_music("maps/out/sword_search")
@@ -20,11 +21,11 @@ function map:set_music()
 
 end
 
--- Events
+-- Map events
 
 function map:on_started(destination)
 
-  map:set_music()
+  map:init_music()
 
 
 end

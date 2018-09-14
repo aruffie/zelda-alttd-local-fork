@@ -53,12 +53,7 @@ function map:on_started()
   
 end
 
--- Event called after the opening transition effect of the map,
--- that is, when the player takes control of the hero.
-function map:on_opening_transition_finished()
-
-end
-
+-- C
 function map:open_book(book)
 
     game:start_dialog("maps.houses.mabe_village.library.book_"..book..".question", function(answer)
@@ -87,6 +82,8 @@ function map:open_book(book)
 end
 
 
+
+-- NPC events
 function book_1_interaction:on_interaction()
 
       map:open_book(1)

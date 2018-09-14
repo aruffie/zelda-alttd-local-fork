@@ -4,8 +4,6 @@
 local map = ...
 local game = map:get_game()
 
--- Methods - Functions
-
 -- Initialize the music of the map
 function map:init_music()
 
@@ -122,17 +120,16 @@ function map:on_started(destination)
 
   map:init_music()
   map:init_map_entities()
-
-  -- Letter
-  if game:get_value("main_quest_step") ~= 21  then
-    letter:set_enabled(false)
-  end
   -- Hero
   if destination:get_name() == "start_position"  then
     hero:set_enabled(false)
     bed:get_sprite():set_animation("hero_sleeping")
   else
     snores:remove()
+  end
+  -- Letter
+  if game:get_value("main_quest_step") ~= 21  then
+    letter:set_enabled(false)
   end
 
 end
@@ -155,7 +152,6 @@ function map:on_finished()
 
 end
 
-
 -- Sensor events
 function exit_sensor:on_activated()
 
@@ -167,7 +163,6 @@ function exit_sensor:on_activated()
   end
 
 end
-
 
 -- NPC events
 function tarin:on_interaction()
@@ -222,10 +217,10 @@ function map:launch_cinematic_1()
           end)
           timer3:set_suspended_with_map(false)
         end)
-        timer2:set_suspended_with_map(false)
     end)
-    timer1:set_suspended_with_map(false)
+    timer2:set_suspended_with_map(false)
   end)
+  timer1:set_suspended_with_map(false)
 
 end
 
