@@ -11,7 +11,6 @@ local map = ...
 local game = map:get_game()
 local hero = map:get_hero()
 
-
 -- Initialize the music of the map
 function map:init_music()
 
