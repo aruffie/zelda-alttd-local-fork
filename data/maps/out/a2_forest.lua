@@ -30,7 +30,8 @@ local function get_destructible_sprite_name(destructible)
   return sprite ~= nil and sprite:get_animation_set() or ""
 end
 
-function map:set_music()
+-- Initialize the music of the map
+function map:init_music()
 
   sol.audio.play_music("maps/out/mysterious_forest")
 
@@ -140,7 +141,7 @@ function map:on_started(destination)
     mushroom:set_enabled(false)
   end
   if map:get_game():get_value("owl_2") == true then
-        map:set_music()
+        map:init_music()
     end
 
 end
@@ -179,7 +180,7 @@ function forest_chest_1:on_opened()
   hero:start_treasure("tail_key", 1, "forest_chest_1", function()
     if map:get_game():get_value("owl_3") ~= true and game:get_value("main_quest_step") == 6 then
       owl_manager:appear(map, 3, function()
-      map:set_music()
+      map:init_music()
       end)
     end
   end)
@@ -378,7 +379,7 @@ function change_movement_raccoon()
       tarin_2:remove()
       game:start_dialog("maps.out.forest.raccoon_to_tarin", function()
         sol.audio.play_sound("secret_1")
-        map:set_music()
+        map:init_music()
       end)
     end)
   end
@@ -396,7 +397,7 @@ function owl_2_sensor:on_activated()
 
   if map:get_game():get_value("owl_2") ~= true then
       owl_manager:appear(map, 2, function()
-        map:set_music()
+        map:init_music()
       end)
     end
 

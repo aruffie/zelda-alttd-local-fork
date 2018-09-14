@@ -12,7 +12,8 @@ local game = map:get_game()
 local hero = map:get_hero()
 
 
-function map:set_music()
+-- Initialize the music of the map
+function map:init_music()
 
   if game:get_value("main_quest_step") == 3  then
     sol.audio.play_music("maps/out/sword_search")
@@ -25,8 +26,7 @@ end
 -- Event called at initialization time, as soon as this map becomes is loaded.
 function map:on_started()
 
-
-  map:set_music()
+  map:init_music()
   -- Secret book
   book_9:set_enabled(false)
   if game:get_value("get_secret_book") then

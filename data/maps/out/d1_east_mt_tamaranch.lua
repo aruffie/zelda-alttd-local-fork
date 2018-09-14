@@ -14,7 +14,7 @@ local travel_manager = require("scripts/maps/travel_manager")
 
 function map:on_started()
 
- map:set_music()
+ map:init_music()
  map:set_digging_allowed(true)
 
   -- Travel
@@ -22,7 +22,8 @@ function map:on_started()
 
 end
 
-function map:set_music()
+-- Initialize the music of the map
+function map:init_music()
   
   local x_hero, y_hero = hero:get_position()
   if y_hero <  384 then

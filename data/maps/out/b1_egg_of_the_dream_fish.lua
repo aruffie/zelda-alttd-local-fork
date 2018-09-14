@@ -9,7 +9,8 @@ local owl_manager = require("scripts/maps/owl_manager")
 
 -- Methods - Functions
 
-function map:set_music()
+-- Initialize the music of the map
+function map:init_music()
   
   local x_hero, y_hero = hero:get_center_position()
   if y_hero < 384 then
@@ -43,7 +44,7 @@ function owl_6_sensor:on_activated()
 
   if game:get_value("owl_6") ~= true then
     owl_manager:appear(map, 6, function()
-      map:set_music()
+      map:init_music()
     end)
   end
 

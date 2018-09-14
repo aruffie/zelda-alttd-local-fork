@@ -8,7 +8,8 @@ local game = map:get_game()
 
 -- Functions
 
-function map:set_music()
+-- Initialize the music of the map
+function map:init_music()
 
   if game:get_value("main_quest_step") == 3  then
     sol.audio.play_music("maps/out/sword_search")
@@ -84,7 +85,7 @@ function map:on_started(destination)
  local item = game:get_item("magnifying_lens")
  local variant = item:get_variant()
   local father_sprite = father:get_sprite()
-  map:set_music()
+  map:init_music()
 
   if game:get_value("main_quest_step") >= 18 and variant < 8  then
     father:set_enabled(false)

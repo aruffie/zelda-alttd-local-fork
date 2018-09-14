@@ -16,7 +16,8 @@ local separator_manager = require("scripts/maps/separator_manager")
 
 
 
-function map:set_music()
+-- Initialize the music of the map
+function map:init_music()
   
   if game:get_value("main_quest_step") == 9  then
     sol.audio.play_music("maps/out/moblins_and_bow_wow")
@@ -27,7 +28,7 @@ function map:set_music()
 end
 
 function map:on_started()
-  map:set_music()
+  map:init_music()
   moblin_chief:get_sprite():set_animation("sitting")
   local step = game:get_value("main_quest_step")
   if step < 9 then

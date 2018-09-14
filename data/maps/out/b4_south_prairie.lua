@@ -10,7 +10,8 @@ local directions = {
 }
 
 
-function map:set_music()
+-- Initialize the music of the map
+function map:init_music()
   
   if game:get_value("main_quest_step") == 3  then
     sol.audio.play_music("maps/out/sword_search")
@@ -27,7 +28,7 @@ end
 
 function map:on_started()
 
-  map:set_music()
+  map:init_music()
 
   map:set_digging_allowed(true)
   -- Marine
@@ -69,10 +70,10 @@ function marin_sensor:on_activated()
   local hero = game:get_hero()
   if hero:get_direction() == 1 then
     marin_song = false
-    map:set_music()
+    map:init_music()
   else
     marin_song = true
-    map:set_music()
+    map:init_music()
   end
 end
 

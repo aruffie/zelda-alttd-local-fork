@@ -8,7 +8,8 @@ local owl_manager = require("scripts/maps/owl_manager")
 
 -- Functions
 
-function map:set_music()
+-- Initialize the music of the map
+function map:init_music()
 
   if game:get_value("main_quest_step") == 3  then
     sol.audio.play_music("maps/out/sword_search")
@@ -29,7 +30,7 @@ end
 
 function map:on_started(destination)
 
-  map:set_music()
+  map:init_music()
   map:set_digging_allowed(true)
 
   owl_1:set_enabled(false)
@@ -64,10 +65,10 @@ end
 function owl_1_sensor:on_activated()
 
   if game:get_value("owl_1") == true then
-    map:set_music()
+    map:init_music()
   else
     owl_manager:appear(map, 1, function()
-    map:set_music()
+    map:init_music()
     end)
   end
 
@@ -77,7 +78,7 @@ function owl_4_sensor:on_activated()
 
   if game:get_value("main_quest_step") == 8  and game:get_value("owl_4") ~= true then
     owl_manager:appear(map, 4, function()
-    map:set_music()
+    map:init_music()
     end)
   end
 
@@ -107,7 +108,7 @@ function dungeon_1_lock:on_interaction()
         sol.timer.start(map, 800, function()
           map:open_dungeon_1()
           map:set_cinematic_mode(false)
-          map:set_music()
+          map:init_music()
         end)
       end)
       game:set_value("main_quest_step", 7)

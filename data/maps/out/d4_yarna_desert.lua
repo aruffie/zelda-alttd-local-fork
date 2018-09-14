@@ -20,7 +20,8 @@ function map:on_started()
 
 end
 
-function map:set_music()
+-- Initialize the music of the map
+function map:init_music()
   
   if game:get_value("main_quest_step") == 3  then
     sol.audio.play_music("maps/out/animal_village")
