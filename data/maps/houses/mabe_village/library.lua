@@ -53,7 +53,6 @@ function map:on_started()
   
 end
 
--- C
 function map:open_book(book)
 
     game:start_dialog("maps.houses.mabe_village.library.book_"..book..".question", function(answer)
