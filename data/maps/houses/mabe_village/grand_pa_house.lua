@@ -51,7 +51,7 @@ function map:on_started(destination)
 
 
     map:set_music()
-
+  
 end
 
 

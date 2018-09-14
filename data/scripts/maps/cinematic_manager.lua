@@ -3,7 +3,7 @@ local map_meta = sol.main.get_metatable("map")
 require("scripts/multi_events")
 
 local quest_w, quest_h = sol.video.get_quest_size()
-local black_stripe_h = 32
+local black_stripe_h = 35
 local black_stripe_top = sol.surface.create(quest_w, black_stripe_h)
 local black_stripe_bottom = sol.surface.create(quest_w, black_stripe_h)
 local m_black_stripe_top = sol.movement.create("target")
@@ -14,7 +14,7 @@ black_stripe_top:fill_color({0, 0, 0})
 black_stripe_bottom:fill_color({0, 0, 0})
 
 -- Enable or disable the cinematic mode
-function map_meta:set_cinematic_mode(is_cinematic)
+function map_meta:set_cinematic_mode(is_cinematic, options)
 
   local map = self
   local game = map:get_game()
@@ -22,12 +22,17 @@ function map_meta:set_cinematic_mode(is_cinematic)
   local camera = map:get_camera()
 
   game:set_hud_enabled(not is_cinematic)
-
   game:set_suspended(is_cinematic)
 
   -- Prevent or allow the player from pausing the game
   game:set_pause_allowed(not is_cinematic)
 
+  -- Entities
+  if options.entities_ignore_suspend then
+      for i,entity in ipairs(options.entities_ignore_suspend ) do
+        entity:get_sprite():set_ignore_suspend(is_cinematic)
+      end
+  end
   -- Hero
   if is_cinematic then
     hero:get_sprite():set_ignore_suspend(true)
@@ -59,7 +64,6 @@ function map_meta:set_cinematic_mode(is_cinematic)
 end
 
 -- Retrieve the cinematic status
-
 function map_meta:is_cinematic()
 
     local game = self:get_game()

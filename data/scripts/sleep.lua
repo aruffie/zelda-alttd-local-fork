@@ -5,18 +5,6 @@ local timer_sleeping
 local duration = 10000
 local sleeping_animations = {"happy", "sad"}
 
-function game_meta:get_movie()
-
-  return self.movie
-
-end
-
-function game_meta:set_movie(movie)
-
-  self.movie = movie
-
-end
-
 function hero_meta:launch_timer_sleeping()
   if timer_sleeping ~= nil then
     timer_sleeping:stop()
@@ -25,7 +13,7 @@ function hero_meta:launch_timer_sleeping()
   local game = hero:get_game()
   local sprite = self:get_sprite()
   timer_sleeping = sol.timer.start(self, duration, function()
-    if not game:get_movie() then
+    if not game:is_cinematic() then
       local animation = sleeping_animations[math.random(#sleeping_animations)]
       sprite:set_animation(animation, function()
         hero:unfreeze()

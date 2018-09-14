@@ -12,9 +12,9 @@ local initial_menus = {
   --"scripts/menus/language",
   --"scripts/menus/copyright_menu",
   -- "scripts/menus/title",
-  --"scripts/menus/file_selection",
+  "scripts/menus/file_selection",
   --"scripts/menus/title_background",
-  "scripts/menus/title",
+  --"scripts/menus/title",
 }
 
 return initial_menus
