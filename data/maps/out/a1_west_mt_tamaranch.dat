@@ -11593,6 +11593,16 @@ tile{
   pattern = "84",
 }
 
+custom_entity{
+  layer = 0,
+  x = 424,
+  y = 45,
+  width = 32,
+  height = 32,
+  direction = 0,
+  sprite = "entities/teletransporter",
+}
+
 teletransporter{
   name = "to_b1",
   layer = 0,

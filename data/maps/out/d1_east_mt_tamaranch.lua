@@ -1,22 +1,16 @@
--- Outside - West Mt Tarmaranch
-
 -- Variables
 local map = ...
 local game = map:get_game()
 local hero = map:get_hero()
 
+-- Include scripts
 local travel_manager = require("scripts/maps/travel_manager")
 
--- Methods - Functions
-
-
--- Events
-
+-- Map events
 function map:on_started()
 
  map:init_music()
  map:set_digging_allowed(true)
-
   -- Travel
   travel_transporter:set_enabled(false)
 
@@ -44,5 +38,7 @@ function travel_sensor:on_activated()
 
 end
 
---Weak doors play secret sound on opened
-function weak_door_1:on_opened() sol.audio.play_sound("secret_1") end
+-- Dors events
+function weak_door_1:on_opened()
+  sol.audio.play_sound("secret_1")
+end

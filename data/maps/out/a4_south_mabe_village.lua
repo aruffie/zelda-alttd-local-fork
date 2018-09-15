@@ -83,8 +83,7 @@ end
 -- NPC events
 function dungeon_1_lock:on_interaction()
 
-    map:launch_cinematic_2()
-  if false and game:get_value("main_quest_step") < 6 then
+  if game:get_value("main_quest_step") < 6 then
       game:start_dialog("maps.out.south_mabe_village.dungeon_1_lock")
   elseif game:get_value("main_quest_step") == 6 then
     map:launch_cinematic_2()
