@@ -43,10 +43,6 @@ function map:on_started(destination)
   local variant_lens = item:get_variant()
   -- Signs
   shop_sign_2:get_sprite():set_animation("crane_sign")
-   -- Sword quest
-  if game:get_value("main_quest_step") == 2 then
-    game:set_value("main_quest_step", 3)
-  end
   -- Marin
   if game:get_value("main_quest_step") < 4 or game:get_value("main_quest_step") > 20  then
     marin:set_enabled(false)

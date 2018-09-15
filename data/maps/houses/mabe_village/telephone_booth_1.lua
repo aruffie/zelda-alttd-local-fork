@@ -11,7 +11,6 @@ local phone_manager = require("scripts/maps/phone_manager")
 -- Methods - Functions
 
 -- Initialize the music of the map
--- Initialize the music of the map
 function map:init_music()
 
   if game:get_value("main_quest_step") == 3  then

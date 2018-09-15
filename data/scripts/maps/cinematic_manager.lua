@@ -3,7 +3,7 @@ local map_meta = sol.main.get_metatable("map")
 require("scripts/multi_events")
 
 local quest_w, quest_h = sol.video.get_quest_size()
-local black_stripe_h = 35
+local black_stripe_h = 25
 local black_stripe_top = sol.surface.create(quest_w, black_stripe_h)
 local black_stripe_bottom = sol.surface.create(quest_w, black_stripe_h)
 local m_black_stripe_top = sol.movement.create("target")

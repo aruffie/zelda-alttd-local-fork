@@ -13,7 +13,8 @@ function hero_meta:launch_timer_sleeping()
   local game = hero:get_game()
   local sprite = self:get_sprite()
   timer_sleeping = sol.timer.start(self, duration, function()
-    if not game:is_cinematic() then
+    local map = game:get_map()
+    if not map:is_cinematic() then
       local animation = sleeping_animations[math.random(#sleeping_animations)]
       sprite:set_animation(animation, function()
         hero:unfreeze()

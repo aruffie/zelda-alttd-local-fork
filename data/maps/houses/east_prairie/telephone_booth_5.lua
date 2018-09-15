@@ -1,4 +1,4 @@
---Inside - Telephone booth 6
+--Inside - Telephone booth 5
 
 -- Variables
 local map = ...
@@ -7,17 +7,7 @@ local game = map:get_game()
 -- Includes scripts
 local phone_manager = require("scripts/maps/phone_manager")
 
-
--- Methods - Functions
-
--- Events
-
-function map:on_started()
-
-
-
-end
-
+-- NPC events
 function phone_interaction:on_interaction()
 
       phone_manager:talk(map)
@@ -30,3 +20,4 @@ for wardrobe in map:get_entities("wardrobe") do
     game:start_dialog("maps.houses.wardrobe_1", game:get_player_name())
   end
 end
+
