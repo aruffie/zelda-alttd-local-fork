@@ -73,4 +73,5 @@ function item:create_powder()
   }
   local powder_sprite = powder:get_sprite()
   powder_sprite:set_ignore_suspend(true)
+
 end
