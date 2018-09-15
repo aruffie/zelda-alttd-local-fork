@@ -1,6 +1,7 @@
 -- Inside - Shop 2
 
--- Includes scripts
+-- Include scripts
+function map:init_music()
 local shop_manager = require("scripts/maps/shop_manager")
 
 

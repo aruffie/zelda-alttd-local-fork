@@ -2,7 +2,8 @@ local map = ...
 local game = map:get_game()
 -- Outside - Forest
 
--- Includes scripts
+-- Include scripts
+function map:init_music()
 local fairy_manager = require("scripts/maps/fairy_manager")
 local owl_manager = require("scripts/maps/owl_manager")
 

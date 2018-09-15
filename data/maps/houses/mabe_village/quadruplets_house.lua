@@ -1,12 +1,22 @@
--- Inside - Quadruplet's house
-
--- Variables
-
 local map = ...
 local game = map:get_game()
 
+-- Map events
+function map:on_started(destination)
 
--- Functions
+ local item = game:get_item("magnifying_lens")
+ local variant = item:get_variant()
+  local father_sprite = father:get_sprite()
+  map:init_music()
+
+  if game:get_value("main_quest_step") >= 18 and variant < 8  then
+    father:set_enabled(false)
+  end
+  if variant >= 8 then
+    father_sprite:set_animation("calling")
+  end
+
+end
 
 -- Initialize the music of the map
 function map:init_music()
@@ -19,6 +29,7 @@ function map:init_music()
 
 end
 
+-- Discussion with Father
 function map:talk_to_father() 
 
   local item = game:get_item("magnifying_lens")
@@ -36,6 +47,7 @@ function map:talk_to_father()
 
 end
 
+-- Discussion with Mother
 function map:talk_to_mother() 
 
     local item = game:get_item("magnifying_lens")
@@ -77,25 +89,7 @@ function map:talk_to_mother()
 
 end
 
-
--- Events
-
-function map:on_started(destination)
-
- local item = game:get_item("magnifying_lens")
- local variant = item:get_variant()
-  local father_sprite = father:get_sprite()
-  map:init_music()
-
-  if game:get_value("main_quest_step") >= 18 and variant < 8  then
-    father:set_enabled(false)
-  end
-  if variant >= 8 then
-    father_sprite:set_animation("calling")
-  end
-
-end
-
+-- NPC events
 function father:on_interaction()
 
       map:talk_to_father()

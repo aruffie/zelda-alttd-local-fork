@@ -1,8 +1,44 @@
--- Inside - Marine's House
-
 -- Variables
 local map = ...
 local game = map:get_game()
+
+-- Map events
+function map:on_started(destination)
+
+  map:init_music()
+  map:init_map_entities()
+  -- Hero
+  if destination:get_name() == "start_position"  then
+    hero:set_enabled(false)
+    bed:get_sprite():set_animation("hero_sleeping")
+  else
+    snores:remove()
+  end
+  -- Letter
+  if game:get_value("main_quest_step") ~= 21  then
+    letter:set_enabled(false)
+  end
+
+end
+
+function map:on_opening_transition_finished(destination)
+
+  -- Start position
+  if destination:get_name() == "start_position"  then
+    map:launch_cinematic_1()
+  end
+
+end
+
+
+function map:on_finished()
+
+  if game:has_item("shield") == true and game:get_value("main_quest_step") == 2 then
+   -- Sword quest
+    game:set_value("main_quest_step", 3)
+  end
+
+end
 
 -- Initialize the music of the map
 function map:init_music()
@@ -112,44 +148,6 @@ end
 function map:talk_to_marin() 
 
   game:start_dialog("maps.houses.mabe_village.marin_house.marin_1")
-
-end
-
--- Map events
-function map:on_started(destination)
-
-  map:init_music()
-  map:init_map_entities()
-  -- Hero
-  if destination:get_name() == "start_position"  then
-    hero:set_enabled(false)
-    bed:get_sprite():set_animation("hero_sleeping")
-  else
-    snores:remove()
-  end
-  -- Letter
-  if game:get_value("main_quest_step") ~= 21  then
-    letter:set_enabled(false)
-  end
-
-end
-
-function map:on_opening_transition_finished(destination)
-
-  -- Start position
-  if destination:get_name() == "start_position"  then
-    map:launch_cinematic_1()
-  end
-
-end
-
-
-function map:on_finished()
-
-  if game:has_item("shield") == true and game:get_value("main_quest_step") == 2 then
-   -- Sword quest
-    game:set_value("main_quest_step", 3)
-  end
 
 end
 

@@ -4,10 +4,19 @@
 local map = ...
 local game = map:get_game()
 
--- Includes scripts
+-- Include scripts
+function map:init_music()
 local phone_manager = require("scripts/maps/phone_manager")
 
--- NPC events
+
+-- Methods - Functions
+
+-- Events
+
+function map:on_started()
+
+end
+
 function phone_interaction:on_interaction()
 
       phone_manager:talk(map)

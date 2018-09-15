@@ -1,12 +1,20 @@
--- Inside - Grand pa's house
-
 -- Variables
 local map = ...
 local game = map:get_game()
 local hero = map:get_hero()
 
+-- Map events
+function map:on_started(destination)
 
--- Methods - Functions
+    map:init_music()
+  
+end
+
+function grandpa:on_interaction()
+
+      map:talk_to_grandpa()
+
+end
 
 -- Initialize the music of the map
 function map:init_music()
@@ -19,12 +27,14 @@ function map:init_music()
 
 end
 
+-- Discussion with Grandpa
 function map:talk_to_grandpa() 
 
   game:start_dialog("maps.houses.mabe_village.grandpa_house.grandpa_1")
 
 end
 
+-- Discussion with Phone
 function map:talk_to_phone() 
 
   local phone = map:get_entity("phone")
@@ -45,23 +55,7 @@ function map:talk_to_phone()
 
 end
 
-
--- Events
-
-function map:on_started(destination)
-
-
-    map:init_music()
-  
-end
-
-
-function grandpa:on_interaction()
-
-      map:talk_to_grandpa()
-
-end
-
+-- NPC events
 function phone_interaction:on_interaction()
 
       map:talk_to_phone()

@@ -1624,7 +1624,6 @@ dynamic_tile{
   pattern = "wall_low.4-2",
   width = 24,
   height = 48,
-  enabled_at_start = true,
 }
 
 block{
@@ -3068,7 +3067,6 @@ dynamic_tile{
   pattern = "door_cache_low.4-2",
   width = 8,
   height = 64,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -3079,7 +3077,6 @@ dynamic_tile{
   pattern = "door_top.low.4-3",
   width = 8,
   height = 32,
-  enabled_at_start = true,
 }
 
 tile{

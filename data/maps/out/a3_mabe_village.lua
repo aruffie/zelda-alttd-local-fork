@@ -1,4 +1,3 @@
--- Variables
 local map = ...
 local game = map:get_game()
 local marin_song = false
@@ -6,31 +5,11 @@ local marin_and_link_song = false
 local ball
 local ball_shadow
 local ball_is_launch = false
-
 local hero_is_alerted = false
 local marin_notes = nil
 local marin_notes_2 = nil
 local hero_notes = nil
 local hero_notes_2 = nil
-
--- Initialize the music of the map
-function map:init_music()
-  
-  if game:get_value("main_quest_step") == 3  then
-    sol.audio.play_music("maps/out/sword_search")
-  elseif map:get_game():get_value("main_quest_step") == 8 and hero:get_distance(kids_alert_position_center) < 160 or map:get_game():get_value("main_quest_step") == 9 and hero:get_distance(kids_alert_position_center) < 160 then
-    sol.audio.play_music("maps/out/moblins_and_bow_wow")
-  else
-    if marin_song then
-      sol.audio.play_music("maps/out/song_of_marin")
-    elseif marin_and_link_song then
-      sol.audio.play_music("maps/out/song_of_marin_and_link")
-    else
-      sol.audio.play_music("maps/out/mabe_village")
-    end
-  end
-
-end
 
 -- Map events
 function map:on_started(destination)
@@ -109,6 +88,25 @@ function map:on_started(destination)
      end)
   end
     
+end
+
+-- Initialize the music of the map
+function map:init_music()
+  
+  if game:get_value("main_quest_step") == 3  then
+    sol.audio.play_music("maps/out/sword_search")
+  elseif map:get_game():get_value("main_quest_step") == 8 and hero:get_distance(kids_alert_position_center) < 160 or map:get_game():get_value("main_quest_step") == 9 and hero:get_distance(kids_alert_position_center) < 160 then
+    sol.audio.play_music("maps/out/moblins_and_bow_wow")
+  else
+    if marin_song then
+      sol.audio.play_music("maps/out/song_of_marin")
+    elseif marin_and_link_song then
+      sol.audio.play_music("maps/out/song_of_marin_and_link")
+    else
+      sol.audio.play_music("maps/out/mabe_village")
+    end
+  end
+
 end
 
 function map:marin_alone_sing()

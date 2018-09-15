@@ -1,28 +1,9 @@
--- Lua script of map houses/mabe_village/library.
--- This script is executed every time the hero enters this map.
-
--- Feel free to modify the code below.
--- You can add more events and remove the ones you don't need.
-
--- See the Solarus Lua API documentation:
--- http://www.solarus-games.org/doc/latest
-
+-- Variables
 local map = ...
 local game = map:get_game()
 local hero = map:get_hero()
 
--- Initialize the music of the map
-function map:init_music()
-
-  if game:get_value("main_quest_step") == 3  then
-    sol.audio.play_music("maps/out/sword_search")
-  else
-    sol.audio.play_music("maps/houses/inside")
-  end
-
-end
-
--- Event called at initialization time, as soon as this map becomes is loaded.
+-- Map events
 function map:on_started()
 
   map:init_music()
@@ -52,6 +33,18 @@ function map:on_started()
   
 end
 
+-- Initialize the music of the map
+function map:init_music()
+
+  if game:get_value("main_quest_step") == 3  then
+    sol.audio.play_music("maps/out/sword_search")
+  else
+    sol.audio.play_music("maps/houses/inside")
+  end
+
+end
+
+-- Discussion with Book
 function map:open_book(book)
 
     game:start_dialog("maps.houses.mabe_village.library.book_"..book..".question", function(answer)
@@ -78,8 +71,6 @@ function map:open_book(book)
     end)
 
 end
-
-
 
 -- NPC events
 function book_1_interaction:on_interaction()

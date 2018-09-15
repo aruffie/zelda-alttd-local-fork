@@ -14874,7 +14874,6 @@ dynamic_tile{
   pattern = "6020",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 sensor{
@@ -14894,7 +14893,6 @@ dynamic_tile{
   pattern = "6020",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 sensor{
@@ -20069,7 +20067,6 @@ dynamic_tile{
   pattern = "1062",
   width = 32,
   height = 8,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -20080,7 +20077,6 @@ dynamic_tile{
   pattern = "957",
   width = 32,
   height = 16,
-  enabled_at_start = true,
 }
 
 door{
@@ -20102,7 +20098,6 @@ dynamic_tile{
   pattern = "1124",
   width = 8,
   height = 32,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -20113,7 +20108,6 @@ dynamic_tile{
   pattern = "1125",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -20124,7 +20118,6 @@ dynamic_tile{
   pattern = "1122",
   width = 8,
   height = 32,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -20135,7 +20128,6 @@ dynamic_tile{
   pattern = "1123",
   width = 16,
   height = 8,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -20146,7 +20138,6 @@ dynamic_tile{
   pattern = "1126",
   width = 16,
   height = 8,
-  enabled_at_start = true,
 }
 
 destination{
@@ -20194,7 +20185,6 @@ dynamic_tile{
   pattern = "707",
   width = 96,
   height = 8,
-  enabled_at_start = true,
 }
 
 destructible{
@@ -20422,6 +20412,19 @@ enemy{
   direction = 0,
   breed = "leever",
   treasure_name = "random",
+}
+
+wall{
+  layer = 0,
+  x = 0,
+  y = 744,
+  width = 448,
+  height = 16,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
 }
 
 tile{
