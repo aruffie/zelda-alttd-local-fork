@@ -132,7 +132,7 @@ function map:on_started(destination)
   end
 
   map:set_digging_allowed(true)
- fairy_manager:init_map(map, "fairy")
+  fairy_manager:init_map(map, "fairy")
   map:set_overlay()
   map:init_tarin()
   owl_2:set_enabled(false)

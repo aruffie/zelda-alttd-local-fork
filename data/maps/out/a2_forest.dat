@@ -9263,7 +9263,7 @@ sensor{
   name = "owl_2_sensor",
   layer = 0,
   x = 120,
-  y = 765,
+  y = 749,
   width = 96,
   height = 16,
 }

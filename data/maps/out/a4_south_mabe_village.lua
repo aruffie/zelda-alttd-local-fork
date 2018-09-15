@@ -1,12 +1,9 @@
+-- Variables
 local map = ...
 local game = map:get_game()
--- Outside - South village
 
 -- Includes scripts
 local owl_manager = require("scripts/maps/owl_manager")
-
-
--- Functions
 
 -- Initialize the music of the map
 function map:init_music()
@@ -19,20 +16,12 @@ function map:init_music()
 
 end
 
-function map:open_dungeon_1()
-
-  dungeon_1_entrance:get_sprite():set_animation("opened")
-  dungeon_1_entrance:set_traversable_by(true)
-
-end
-
--- Events
-
+-- Map events
 function map:on_started(destination)
 
   map:init_music()
+  -- Digging
   map:set_digging_allowed(true)
-
   owl_1:set_enabled(false)
   owl_4:set_enabled(false)
   if sword ~= nil then
@@ -42,7 +31,6 @@ function map:on_started(destination)
   if game:get_value("main_quest_step") > 6 then
     map:open_dungeon_1()
   end
-
   -- Seashell's tree
   local seashell_tree_found = false
   collision_seashell:add_collision_test("facing", function(entity, other, entity_sprite, other_sprite)
@@ -62,6 +50,7 @@ function map:on_started(destination)
 
 end
 
+-- Sensor events
 function owl_1_sensor:on_activated()
 
   if game:get_value("owl_1") == true then
@@ -84,7 +73,7 @@ function owl_4_sensor:on_activated()
 
 end
 
-
+-- NPC events
 function dungeon_1_lock:on_interaction()
 
   if game:get_value("main_quest_step") < 6 then
@@ -114,5 +103,13 @@ function dungeon_1_lock:on_interaction()
       game:set_value("main_quest_step", 7)
     end)
   end
+
+-- Others functions
+function map:open_dungeon_1()
+
+  dungeon_1_entrance:get_sprite():set_animation("opened")
+  dungeon_1_entrance:set_traversable_by(true)
+
+end
 
 end

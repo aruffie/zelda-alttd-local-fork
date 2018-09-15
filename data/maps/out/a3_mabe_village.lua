@@ -1,5 +1,3 @@
--- Outside - Mabe village
-
 -- Variables
 local map = ...
 local game = map:get_game()
@@ -32,6 +30,89 @@ function map:init_music()
     end
   end
 
+end
+
+-- Map events
+function map:on_started(destination)
+
+  map:init_music()
+  map:init_map_entities()
+  -- Digging
+  map:set_digging_allowed(true)
+  local item = game:get_item("magnifying_lens")
+  local variant_lens = item:get_variant()
+  -- Signs
+  shop_sign_2:get_sprite():set_animation("crane_sign")
+   -- Sword quest
+  if game:get_value("main_quest_step") == 2 then
+    game:set_value("main_quest_step", 3)
+  end
+  -- Marin
+  if game:get_value("main_quest_step") < 4 or game:get_value("main_quest_step") > 20  then
+    marin:set_enabled(false)
+  else
+    marin:get_sprite():set_animation("waiting")
+  end
+  -- Kid 5
+  if game:get_value("main_quest_step") ~= 21  then
+    kid_5:set_enabled(false)
+  end  
+  -- Grand ma
+  if variant_lens == 10 then
+    grand_ma:get_sprite():set_animation("nobroom")
+  else 
+    grand_ma:get_sprite():set_animation("walking")
+  end
+   -- Kids
+  if map:get_game():get_value("main_quest_step") ~= 8 and map:get_game():get_value("main_quest_step") ~= 9 then
+    kid_1:get_sprite():set_animation("playing")
+    kid_2:get_sprite():set_animation("playing")
+    map:create_ball(kid_1, kid_2)
+  else
+    kid_1:get_sprite():set_animation("scared")
+    kid_2:get_sprite():set_animation("scared")
+    kid_1:get_sprite():set_ignore_suspend(true)
+    kid_2:get_sprite():set_ignore_suspend(true)
+    map:repeat_kids_scared_direction_check()
+  end
+  -- Thief detect
+  local hero_is_thief_message = game:get_value("hero_is_thief_message")
+  if hero_is_thief_message then
+    game:start_dialog("maps.out.mabe_village.thief_message", function()
+      game:set_value("hero_is_thief_message", false)
+    end)
+  end
+  --Weathercock statue pushed
+  if game:get_value("mabe_village_weathercook_statue_pushed") then
+      push_weathercook_sensor:set_enabled(false)
+      weathercock:set_enabled(false)
+      weathercook_statue_1:set_position(616,232)
+      weathercook_statue_2:set_position(616,248)
+  end
+-- Kids scared
+  if map:get_game():get_value("main_quest_step") == 8 or map:get_game():get_value("main_quest_step") == 9 then
+    sol.timer.start(map, 500, function()
+        map:init_music()
+        if  hero:get_distance(kids_alert_position_center) < 60 then
+          if not hero_is_alerted then
+            hero:get_sprite():set_direction(3)
+            hero_is_alerted = true
+              local hero = map:get_hero()
+              hero:freeze()
+              game:start_dialog("maps.out.mabe_village.kids_alert_moblins", function()
+                  self:get_game():set_value("main_quest_step", 9)
+                  hero:unfreeze()
+              end)
+          end
+        else
+          if hero_is_alerted then
+            hero_is_alerted = false
+          end
+        end
+        return true
+     end)
+  end
+    
 end
 
 function map:marin_alone_sing()
@@ -354,8 +435,6 @@ function map:talk_to_kid_5()
 
 end
 
--- Events
-
 function map:repeat_kids_scared_direction_check()
 
   local directionkid1 = kid_1:get_direction4_to(hero)
@@ -365,89 +444,6 @@ function map:repeat_kids_scared_direction_check()
   sol.timer.start(map, 100, function() 
     map:repeat_kids_scared_direction_check()
   end)
-end
-
--- Map events
-function map:on_started(destination)
-
-  map:init_music()
-  map:init_map_entities()
-  local item = game:get_item("magnifying_lens")
-  local variant_lens = item:get_variant()
-  -- Signs
-  shop_sign_2:get_sprite():set_animation("crane_sign")
-  -- Digging
-  map:set_digging_allowed(true)
-   -- Sword quest
-  if game:get_value("main_quest_step") == 2 then
-    game:set_value("main_quest_step", 3)
-  end
-  -- Marin
-  if game:get_value("main_quest_step") < 4 or game:get_value("main_quest_step") > 20  then
-    marin:set_enabled(false)
-  else
-    marin:get_sprite():set_animation("waiting")
-  end
-  -- Kid 5
-  if game:get_value("main_quest_step") ~= 21  then
-    kid_5:set_enabled(false)
-  end  
-  -- Grand ma
-  if variant_lens == 10 then
-    grand_ma:get_sprite():set_animation("nobroom")
-  else 
-    grand_ma:get_sprite():set_animation("walking")
-  end
-   -- Kids
-  if map:get_game():get_value("main_quest_step") ~= 8 and map:get_game():get_value("main_quest_step") ~= 9 then
-    kid_1:get_sprite():set_animation("playing")
-    kid_2:get_sprite():set_animation("playing")
-    map:create_ball(kid_1, kid_2)
-  else
-    kid_1:get_sprite():set_animation("scared")
-    kid_2:get_sprite():set_animation("scared")
-    kid_1:get_sprite():set_ignore_suspend(true)
-    kid_2:get_sprite():set_ignore_suspend(true)
-    map:repeat_kids_scared_direction_check()
-  end
-  -- Thief detect
-  local hero_is_thief_message = game:get_value("hero_is_thief_message")
-  if hero_is_thief_message then
-    game:start_dialog("maps.out.mabe_village.thief_message", function()
-      game:set_value("hero_is_thief_message", false)
-    end)
-  end
-  --Weathercock statue pushed
-  if game:get_value("mabe_village_weathercook_statue_pushed") then
-      push_weathercook_sensor:set_enabled(false)
-      weathercock:set_enabled(false)
-      weathercook_statue_1:set_position(616,232)
-      weathercook_statue_2:set_position(616,248)
-  end
--- Kids scared
-  if map:get_game():get_value("main_quest_step") == 8 or map:get_game():get_value("main_quest_step") == 9 then
-    sol.timer.start(map, 500, function()
-        map:init_music()
-        if  hero:get_distance(kids_alert_position_center) < 60 then
-          if not hero_is_alerted then
-            hero:get_sprite():set_direction(3)
-            hero_is_alerted = true
-              local hero = map:get_hero()
-              hero:freeze()
-              game:start_dialog("maps.out.mabe_village.kids_alert_moblins", function()
-                  self:get_game():set_value("main_quest_step", 9)
-                  hero:unfreeze()
-              end)
-          end
-        else
-          if hero_is_alerted then
-            hero_is_alerted = false
-          end
-        end
-        return true
-     end)
-  end
-    
 end
 
 -- Sensor events
