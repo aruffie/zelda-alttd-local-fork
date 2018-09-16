@@ -123,7 +123,7 @@ map:register_event("on_draw", function(map, destination_surface)
     dst_y = dst_y + overlay_height
   end
 
-end)
+end,true)
 
 -- Initialize the music of the map
 function map:init_music()
