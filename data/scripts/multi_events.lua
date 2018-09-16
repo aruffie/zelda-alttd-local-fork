@@ -34,18 +34,64 @@
 
 local multi_events = {}
 
-local function register_event(object, event_name, callback)
+--create the base function that looks at the metatable remaining events
+local function mt_trampoline(obj,event_name)
+  local mt = getmetatable(obj)
+  if mt then
+    return function(...)
+      local pf = mt[event_name] or function() end
+      return pf(...)
+    end
+  end
+  return function() end
+end
 
-  local previous_callbacks = object[event_name] or function() end
+-- get actual '_events' field of the object
+-- cannot use rawget because object could be a meta data
+local function get_events(object)
+  local mt = getmetatable(object)
+  local events = object._events
+  if mt and events == mt._events then
+    return {}
+  end
+  return events or {}
+end
+
+local function register_event(object, event_name, callback)
+  local events = get_events(object)
+  if (not events[event_name]) and object[event_name] then
+    --a callback was registered without register_event
+    --insert mt_trampoline behind it
+    --print("[Warning] using register event after a regular :on_ setting")
+    local unregistered = object[event_name]
+    local tramp = mt_trampoline(object,event_name)
+    object[event_name] = function(...)
+      return tramp(...) or unregistered(...)
+    end
+  end
+  object._events = nil --remove events to allow modification
+  events[event_name] = true --set event as registered
+  local previous_callbacks = object[event_name] or mt_trampoline(object,event_name)
   object[event_name] = function(...)
     return previous_callbacks(...) or callback(...)
   end
+  object._events = events
 end
 
 -- Adds the multi event register_event() feature to an object
 -- (userdata, userdata metatable or table).
 function multi_events:enable(object)
   object.register_event = register_event
+
+  local old_newindex = object.__newindex
+  function object.__newindex(t,k,v)
+    local events = get_events(t)
+    if events and events[k] then
+      error(string.format("overriding '%s', a event previously registered with 'register_event'",k))
+    else
+      old_newindex(t,k,v)
+    end
+  end
 end
 
 local types = {
