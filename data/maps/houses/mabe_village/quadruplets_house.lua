@@ -1,14 +1,25 @@
--- Inside - Quadruplet's house
-
--- Variables
-
 local map = ...
 local game = map:get_game()
-local companion_manager = require("scripts/maps/companion_manager")
 
--- Functions
+-- Map events
+function map:on_started(destination)
 
-function map:set_music()
+ local item = game:get_item("magnifying_lens")
+ local variant = item:get_variant()
+  local father_sprite = father:get_sprite()
+  map:init_music()
+
+  if game:get_value("main_quest_step") >= 18 and variant < 8  then
+    father:set_enabled(false)
+  end
+  if variant >= 8 then
+    father_sprite:set_animation("calling")
+  end
+
+end
+
+-- Initialize the music of the map
+function map:init_music()
 
   if game:get_value("main_quest_step") == 3  then
     sol.audio.play_music("maps/out/sword_search")
@@ -18,6 +29,7 @@ function map:set_music()
 
 end
 
+-- Discussion with Father
 function map:talk_to_father() 
 
   local item = game:get_item("magnifying_lens")
@@ -35,6 +47,7 @@ function map:talk_to_father()
 
 end
 
+-- Discussion with Mother
 function map:talk_to_mother() 
 
     local item = game:get_item("magnifying_lens")
@@ -76,25 +89,7 @@ function map:talk_to_mother()
 
 end
 
-
--- Events
-
-function map:on_started(destination)
-
- local item = game:get_item("magnifying_lens")
- local variant = item:get_variant()
-  local father_sprite = father:get_sprite()
-  map:set_music()
-  companion_manager:init_map(map)
-  if game:get_value("main_quest_step") >= 18 and variant < 8  then
-    father:set_enabled(false)
-  end
-  if variant >= 8 then
-    father_sprite:set_animation("calling")
-  end
-
-end
-
+-- NPC events
 function father:on_interaction()
 
       map:talk_to_father()
@@ -107,6 +102,7 @@ function mother:on_interaction()
 
 end
 
+-- Wardrobes
 for wardrobe in map:get_entities("wardrobe") do
   function wardrobe:on_interaction()
     game:start_dialog("maps.houses.wardrobe_1", game:get_player_name())

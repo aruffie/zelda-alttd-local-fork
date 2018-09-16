@@ -19,6 +19,10 @@ local function initialize_dungeon_features(game)
       highest_floor = 0,
       rows = 6,
       cols= 7,
+      destination_ocarina = {
+        map_id = "dungeons/1/1f",
+        destination_name = "destination_ocarina"
+      },
       teletransporter_end_dungeon = {
         map_id = "out/a4_south_mabe_village",
         destination_name = "dungeon_1_2_A"
@@ -77,6 +81,10 @@ local function initialize_dungeon_features(game)
       highest_floor = 0,
       rows = 7,
       cols= 6,
+      destination_ocarina = {
+        map_id = "dungeons/2/1f",
+        destination_name = "destination_ocarina"
+      },
       teletransporter_end_dungeon = {
         map_id = "out/b1_egg_of_the_dream_fish",
         destination_name = "dungeon_2_2_A"
@@ -145,6 +153,10 @@ local function initialize_dungeon_features(game)
         highest_floor = 0,
         rows = 8,
         cols= 4,
+        destination_ocarina = {
+            map_id = "dungeons/2/1f",
+            destination_name = "destination_ocarina"
+        },
         secrets = {
         },
         boss = {

@@ -16,7 +16,6 @@ function door_manager:open_when_enemies_dead(map, enemy_prefix, door_prefix, sou
         map:open_doors(door_prefix)
         if sound then
           sol.audio.play_sound("secret_1")
-          print("death")
         end
    end
   end

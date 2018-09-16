@@ -7,7 +7,7 @@ properties{
   max_layer = 2,
   world = "outside_world",
   tileset = "out/outside",
-  music = "maps/out/mt_tamaranch",
+  music = "same",
 }
 
 tile{
@@ -12691,6 +12691,16 @@ tile{
   pattern = "12344",
 }
 
+custom_entity{
+  layer = 0,
+  x = 184,
+  y = 469,
+  width = 32,
+  height = 32,
+  direction = 0,
+  sprite = "entities/teletransporter",
+}
+
 teletransporter{
   name = "to_d2",
   layer = 0,
@@ -12715,15 +12725,6 @@ teletransporter{
   destination = "_side",
 }
 
-separator{
-  name = "auto_separator_1",
-  layer = 0,
-  x = 0,
-  y = 376,
-  width = 960,
-  height = 16,
-}
-
 dynamic_tile{
   layer = 0,
   x = 168,
@@ -12731,7 +12732,6 @@ dynamic_tile{
   pattern = "940",
   width = 32,
   height = 16,
-  enabled_at_start = true,
 }
 
 custom_entity{
@@ -13263,7 +13263,6 @@ dynamic_tile{
   pattern = "1800",
   width = 32,
   height = 8,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -13274,7 +13273,6 @@ dynamic_tile{
   pattern = "1706",
   width = 32,
   height = 16,
-  enabled_at_start = true,
 }
 
 door{
@@ -13334,7 +13332,6 @@ dynamic_tile{
   pattern = "941",
   width = 48,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -13344,7 +13341,6 @@ dynamic_tile{
   pattern = "940",
   width = 48,
   height = 16,
-  enabled_at_start = true,
 }
 
 wall{
@@ -13428,7 +13424,6 @@ dynamic_tile{
   pattern = "941",
   width = 48,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -13438,7 +13433,6 @@ dynamic_tile{
   pattern = "940",
   width = 48,
   height = 16,
-  enabled_at_start = true,
 }
 
 wall{
@@ -13557,6 +13551,21 @@ jumper{
   height = 8,
   direction = 6,
   jump_length = 120,
+}
+
+sensor{
+  name = "music_sensor",
+  layer = 0,
+  x = 96,
+  y = 333,
+  properties = {
+    {
+      key = "music",
+      value = "maps/out/overworld",
+    },
+  },
+  width = 112,
+  height = 16,
 }
 
 tile{

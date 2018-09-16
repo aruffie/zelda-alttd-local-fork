@@ -9,7 +9,7 @@
 
 local map = ...
 local game = map:get_game()
-local companion_manager = require("scripts/maps/companion_manager")
+
 
 -- Event called at initialization time, as soon as this map becomes is loaded.
 function map:on_started()
@@ -24,6 +24,7 @@ function map:on_opening_transition_finished()
 
 end
 
+-- Wardrobes
 for wardrobe in map:get_entities("wardrobe") do
   function wardrobe:on_interaction()
     game:start_dialog("maps.houses.wardrobe_1", game:get_player_name())

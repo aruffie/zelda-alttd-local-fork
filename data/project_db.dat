@@ -151,6 +151,7 @@ tileset{ id = "dungeon/blue", description = "Blue" }
 tileset{ id = "dungeon/brown", description = "Brown" }
 tileset{ id = "dungeon/dark_brown", description = "Dark brown" }
 tileset{ id = "dungeon/dark_yellow", description = "Dark yellow" }
+tileset{ id = "dungeon/extra/owl_temple", description = "Extra tiles for Owl Temple" }
 tileset{ id = "dungeon/gray", description = "Gray" }
 tileset{ id = "dungeon/gray_blue", description = "Dark blue" }
 tileset{ id = "dungeon/gray_brown", description = "Gray brown" }
@@ -163,7 +164,6 @@ tileset{ id = "dungeon/light_green", description = "Light green" }
 tileset{ id = "dungeon/pink", description = "Pink" }
 tileset{ id = "dungeon/purple", description = "Purple" }
 tileset{ id = "dungeon/yellow", description = "Yellow" }
-tileset{ id = "dungeons/owl_temple", description = "Owl Temple" }
 tileset{ id = "movies/beach", description = "Beach" }
 tileset{ id = "movies/beach_sunset", description = "Beach sunset" }
 tileset{ id = "out/light_world_legacy", description = "Light world legacy" }
@@ -185,30 +185,44 @@ sprite{ id = "enemies/beetle_red", description = "Beetle red" }
 sprite{ id = "enemies/bloober", description = "Bloober" }
 sprite{ id = "enemies/bomber", description = "Bomber" }
 sprite{ id = "enemies/boo_buddy", description = "Boo buddy" }
+sprite{ id = "enemies/boss/cue_ball", description = "Cue ball" }
 sprite{ id = "enemies/boss/dodongo_snake", description = "Dodongo_snake" }
 sprite{ id = "enemies/boss/dodongo_snake/dodongo_snake_body", description = "Dodongo snake body" }
+sprite{ id = "enemies/boss/evil_orb", description = "Evil orb" }
+sprite{ id = "enemies/boss/evil_orb/orb_evil_orb", description = "Orb evil orb" }
 sprite{ id = "enemies/boss/genie", description = "Genie" }
 sprite{ id = "enemies/boss/genie/genie_bottle", description = "Genie bottle" }
 sprite{ id = "enemies/boss/genie/genie_fire_ball", description = "Genie fire ball" }
 sprite{ id = "enemies/boss/genie_enemies/genie_bottle", description = "Genie bottle" }
+sprite{ id = "enemies/boss/giant_buzz_blob", description = "Giant buzz blob" }
+sprite{ id = "enemies/boss/giant_buzz_blob_zol_form", description = "Giant buzz blob zol form" }
+sprite{ id = "enemies/boss/grim_creeper", description = "Grim creeper" }
 sprite{ id = "enemies/boss/hinox_master", description = "Hinox master" }
+sprite{ id = "enemies/boss/hot_head", description = "Hot head" }
+sprite{ id = "enemies/boss/hot_head_form_b", description = "Hot head form b" }
+sprite{ id = "enemies/boss/hot_head_form_c", description = "Hot head form c" }
 sprite{ id = "enemies/boss/master_stalfos", description = "Master stalfos" }
 sprite{ id = "enemies/boss/master_stalfos/master_stalfos_shadow", description = "Master stalfos shadow" }
 sprite{ id = "enemies/boss/master_stalfos/master_stalfos_shield", description = "Master stalfos shield" }
 sprite{ id = "enemies/boss/master_stalfos/master_stalfos_sword", description = "Master stalfos sword" }
 sprite{ id = "enemies/boss/moblin_chief", description = "Moblin chief" }
-sprite{ id = "enemies/boss/moldorm", description = "Moldorm tail" }
+sprite{ id = "enemies/boss/moldorm/moldorm", description = "Moldorm tail" }
 sprite{ id = "enemies/boss/moldorm/moldorm_body_1", description = "Moldorm body 1" }
 sprite{ id = "enemies/boss/moldorm/moldorm_body_2", description = "Moldorm body 2" }
 sprite{ id = "enemies/boss/moldorm/moldorm_body_3", description = "Moldorm body 3" }
-sprite{ id = "enemies/boss/moldorm/moldorm_eyes", description = "Moldorm eyes" }
-sprite{ id = "enemies/boss/moldorm/moldorm_head", description = "Moldorm 1 head" }
+sprite{ id = "enemies/boss/moldorm/moldorm_head", description = "Moldorm head" }
 sprite{ id = "enemies/boss/rolling_bones/rolling_bones", description = "Rolling bones" }
 sprite{ id = "enemies/boss/rolling_bones/rolling_bones_spike", description = "Rolling bones spike" }
 sprite{ id = "enemies/boss/skeleton", description = "Skeleton" }
+sprite{ id = "enemies/boss/stone_hinox", description = "Stone hinox" }
+sprite{ id = "enemies/boss/turtle_rock_head", description = "Turtle rock head" }
+sprite{ id = "enemies/boss/turtle_rock_head/turtle_rock_chain", description = "Turtle rock chain" }
 sprite{ id = "enemies/boulder", description = "Boulder" }
 sprite{ id = "enemies/bubble", description = "Bubble" }
 sprite{ id = "enemies/buzz_blob", description = "Buzz blob" }
+sprite{ id = "enemies/camo_goblin_blue", description = "Camo goblin blue" }
+sprite{ id = "enemies/camo_goblin_green", description = "Camo goblin green" }
+sprite{ id = "enemies/camo_goblin_red", description = "Camo goblin red" }
 sprite{ id = "enemies/cheep_cheep", description = "Cheep cheep" }
 sprite{ id = "enemies/chicken", description = "Chicken" }
 sprite{ id = "enemies/chicken_mortal", description = "Chicken mortal" }
@@ -257,6 +271,9 @@ sprite{ id = "enemies/monkey", description = "Monkey" }
 sprite{ id = "enemies/monkey_coconut", description = "Monkey coconut" }
 sprite{ id = "enemies/octorok", description = "Octorok" }
 sprite{ id = "enemies/octorok_stone", description = "Octorok stone" }
+sprite{ id = "enemies/orb_monster_blue", description = "Orb monster blue" }
+sprite{ id = "enemies/orb_monster_green", description = "Orb monster green" }
+sprite{ id = "enemies/orb_monster_red", description = "Orb monster red" }
 sprite{ id = "enemies/pairodd", description = "Pairodd" }
 sprite{ id = "enemies/peahat", description = "Peahat" }
 sprite{ id = "enemies/pike_auto", description = "Pike auto" }
@@ -334,13 +351,16 @@ sprite{ id = "entities/bush_grass", description = "Bush grass" }
 sprite{ id = "entities/camera", description = "Camera" }
 sprite{ id = "entities/cannonball", description = "Cannon ball" }
 sprite{ id = "entities/cave_bones", description = "Cave bones" }
-sprite{ id = "entities/cave_hole", description = "Cave hole" }
 sprite{ id = "entities/cave_rock", description = "Cave rock" }
 sprite{ id = "entities/chain", description = "Chain" }
 sprite{ id = "entities/chest", description = "Chest (normal)" }
 sprite{ id = "entities/claw_chain", description = "Claw chain" }
 sprite{ id = "entities/claw_crane", description = "Claw crane" }
 sprite{ id = "entities/claw_up", description = "Claw up" }
+sprite{ id = "entities/color_platform_green", description = "Color platform green" }
+sprite{ id = "entities/color_platform_orange", description = "Color plateform orange" }
+sprite{ id = "entities/color_platform_red", description = "Color platform red" }
+sprite{ id = "entities/color_platform_yellow", description = "Color platform yellow" }
 sprite{ id = "entities/console", description = "Console" }
 sprite{ id = "entities/conveyor_belt1", description = "Conveyor belt 1" }
 sprite{ id = "entities/conveyor_belt2", description = "Conveyor belt 2" }
@@ -350,6 +370,8 @@ sprite{ id = "entities/crystal", description = "Crystal" }
 sprite{ id = "entities/crystal_block", description = "Crystal block" }
 sprite{ id = "entities/destination", description = "Destination of teletransporter" }
 sprite{ id = "entities/dog_statue", description = "Dog statue" }
+sprite{ id = "entities/doors/boss_door_frame_renverse", description = "Boss door frame renverse" }
+sprite{ id = "entities/doors/boss_door_frames", description = "Boss door frames" }
 sprite{ id = "entities/doors/door_big_key", description = "Door big key" }
 sprite{ id = "entities/doors/door_boss_key", description = "Door boss key" }
 sprite{ id = "entities/doors/door_normal", description = "Door" }
@@ -364,7 +386,7 @@ sprite{ id = "entities/doors/door_weak_wall_out", description = "Door weak wall 
 sprite{ id = "entities/egg", description = "Egg" }
 sprite{ id = "entities/entrance_dungeon_1", description = "Entrance dungeon 1" }
 sprite{ id = "entities/entrance_dungeon_2", description = "Entrance dungeon 2" }
-sprite{ id = "entities/entrance_dungeon_3", description = "entities/entrance_dungeon_3" }
+sprite{ id = "entities/entrance_dungeon_3", description = "Entrance dungeon 3" }
 sprite{ id = "entities/entrance_dungeon_4", description = "Entrance dungeon 4" }
 sprite{ id = "entities/entrance_dungeon_5", description = "Entrance dungeon 5" }
 sprite{ id = "entities/entrance_dungeon_6", description = "Entrance dungeon 6" }
@@ -375,6 +397,9 @@ sprite{ id = "entities/entrance_dungeon_door", description = "Entrance dungeons"
 sprite{ id = "entities/entrance_moblin_cave", description = "Entrance moblin cave" }
 sprite{ id = "entities/entrance_southern_face_shrine", description = "Entrance southern face shrine" }
 sprite{ id = "entities/explosion", description = "Explosion" }
+sprite{ id = "entities/eye_switch_blue", description = "Eye switch blue" }
+sprite{ id = "entities/eye_switch_red", description = "Eye switch red" }
+sprite{ id = "entities/eye_switch_yellow", description = "Eye switch yellow" }
 sprite{ id = "entities/fire", description = "Fire" }
 sprite{ id = "entities/fish_manbo", description = "Fish Manbo" }
 sprite{ id = "entities/flame_fountain_machine", description = "Flame fountain machine" }
@@ -397,6 +422,7 @@ sprite{ id = "entities/heart_fly", description = "Heart fly" }
 sprite{ id = "entities/heart_fly_shadow", description = "Heart fly shadow" }
 sprite{ id = "entities/hibiscus_pot", description = "Hibiscus pot" }
 sprite{ id = "entities/hint_stone", description = "Hint stone" }
+sprite{ id = "entities/hole", description = "Hole" }
 sprite{ id = "entities/hook", description = "Hook" }
 sprite{ id = "entities/hook_bridge", description = "Hook bridge" }
 sprite{ id = "entities/hook_bridge_deployed", description = "hook_bridge_deployed" }
@@ -435,6 +461,12 @@ sprite{ id = "entities/movies/wreck", description = "Wreck" }
 sprite{ id = "entities/moving_platform_dg_2", description = "Moving platform dg 2" }
 sprite{ id = "entities/non_diggable", description = "Diggable" }
 sprite{ id = "entities/notes", description = "Notes" }
+sprite{ id = "entities/orb_monster_hole_blue", description = "Orb monster hole blue" }
+sprite{ id = "entities/orb_monster_hole_green", description = "Orb monster hole green" }
+sprite{ id = "entities/orb_monster_hole_red", description = "Orb monster hole red" }
+sprite{ id = "entities/orb_monster_orb_blue", description = "Orb monster orb blue" }
+sprite{ id = "entities/orb_monster_orb_green", description = "Orb monster orb green" }
+sprite{ id = "entities/orb_monster_orb_red", description = "Orb monster orb red" }
 sprite{ id = "entities/outside_door", description = "Outside closed door" }
 sprite{ id = "entities/outside_ladder", description = "Outside ladder" }
 sprite{ id = "entities/owl_blue", description = "Owl blue" }
@@ -516,7 +548,10 @@ sprite{ id = "entities/sun", description = "Sun" }
 sprite{ id = "entities/swell", description = "Swell" }
 sprite{ id = "entities/switch", description = "Switch" }
 sprite{ id = "entities/teletransporter", description = "Teletransporter" }
+sprite{ id = "entities/teletransporter_blue", description = "Teletransporter blue" }
 sprite{ id = "entities/teletransporter_dungeon", description = "Teletransporter dungeon" }
+sprite{ id = "entities/teletransporter_green", description = "Teletransporter green" }
+sprite{ id = "entities/teletransporter_red", description = "Teletransporter red" }
 sprite{ id = "entities/torch", description = "Torch" }
 sprite{ id = "entities/turtlerock_arms", description = "Turtlerock arms" }
 sprite{ id = "entities/turtlerock_head", description = "Turtlerock head" }
@@ -532,6 +567,14 @@ sprite{ id = "entities/wallturn_dungeon_8_front", description = "Wallturn dungeo
 sprite{ id = "entities/wallturn_dungeon_9_front", description = "Wallturn dungeon 9" }
 sprite{ id = "entities/water_tree", description = "Water tree" }
 sprite{ id = "entities/water_tree_junction", description = "Water tree junction" }
+sprite{ id = "entities/weak_floor_dark_1", description = "Weak floor dark 1" }
+sprite{ id = "entities/weak_floor_dark_2", description = "Weak floor dark 2" }
+sprite{ id = "entities/weak_floor_dark_3", description = "Weak floor dark 3" }
+sprite{ id = "entities/weak_floor_dark_4", description = "Weak floor dark 4" }
+sprite{ id = "entities/weak_floor_light_1", description = "Weak floor light 1" }
+sprite{ id = "entities/weak_floor_light_2", description = "Weak floor light 2" }
+sprite{ id = "entities/weak_floor_light_3", description = "Weak floor light 3" }
+sprite{ id = "entities/weak_floor_light_4", description = "Weak floor light 4" }
 sprite{ id = "entities/windfish_symbol_dungeon_1", description = "Windfish symbol dungeon 1" }
 sprite{ id = "entities/windfish_symbol_dungeon_2", description = "Windfish symbol dungeon 2" }
 sprite{ id = "entities/windfish_symbol_dungeon_3", description = "Windfish symbol dungeon 3" }
@@ -551,8 +594,8 @@ sprite{ id = "hero/diving", description = "Diving" }
 sprite{ id = "hero/fire_rod", description = "Fire rod" }
 sprite{ id = "hero/ground1", description = "Grass under hero" }
 sprite{ id = "hero/ground2", description = "Shallow water under hero" }
-sprite{ id = "hero/link_happy", description = "Link happy" }
 sprite{ id = "hero/link_sad", description = "Link sad" }
+sprite{ id = "hero/magic_powder_effect", description = "Magic powder effect" }
 sprite{ id = "hero/shield2", description = "Hero shield 2" }
 sprite{ id = "hero/shield3", description = "Hero shield 3" }
 sprite{ id = "hero/shield_1_above", description = "Shield 1 above" }
@@ -747,6 +790,7 @@ sprite{ id = "npc/wart", description = "Wart" }
 sprite{ id = "npc/warts_brother", description = "Wart's brother" }
 sprite{ id = "npc/witch", description = "Witch" }
 sprite{ id = "pictures/peach", description = "Peach" }
+sprite{ id = "portables/horse_head", description = "Horse head" }
 sprite{ id = "shadows/shadow_big", description = "Shadow big" }
 sprite{ id = "shadows/shadow_big_dynamic", description = "Shadow big dynamic" }
 sprite{ id = "shadows/shadow_small", description = "Shadow small" }
@@ -871,6 +915,10 @@ sound{ id = "mad_bat_appear", description = "Mad bat appear" }
 sound{ id = "mad_bat_disappear", description = "Mad bat disappear" }
 sound{ id = "magic_powder", description = "magic_powder" }
 sound{ id = "marin_on_beach", description = "Marin on beach" }
+sound{ id = "mario1", description = "Mario 1" }
+sound{ id = "mario2", description = "Mario 2" }
+sound{ id = "mario3", description = "Mario 3" }
+sound{ id = "mario4", description = "Mario 4" }
 sound{ id = "message_end", description = "Message end" }
 sound{ id = "message_letter", description = "Message letter" }
 sound{ id = "monkeys_build_a_bridge", description = "Monkeys build a bridge" }
@@ -891,6 +939,7 @@ sound{ id = "secret_1", description = "Secret 1" }
 sound{ id = "secret_2", description = "Secret 2" }
 sound{ id = "shake", description = "Shake" }
 sound{ id = "shield_brandish", description = "Shield brandish" }
+sound{ id = "shock", description = "Shock" }
 sound{ id = "solarus_logo", description = "Solarus logo" }
 sound{ id = "splash", description = "Splash" }
 sound{ id = "stairs_down_end", description = "Stairs down end" }
@@ -938,7 +987,8 @@ item{ id = "compass", description = "Compass" }
 item{ id = "drug", description = "Drug" }
 item{ id = "face_key", description = "Face key" }
 item{ id = "fairy", description = "Fairy" }
-item{ id = "feather", description = "Feather" }
+item{ id = "feather", description = "feather" }
+item{ id = "feather_BUGGY", description = "Feather" }
 item{ id = "fire_rod", description = "Fire rod" }
 item{ id = "flippers", description = "Flippers" }
 item{ id = "golden_leaf", description = "Golden leaf" }
@@ -989,23 +1039,23 @@ enemy{ id = "arm_mimic", description = "Arm mimic" }
 enemy{ id = "armos", description = "Armos" }
 enemy{ id = "arrow", description = "Arrow" }
 enemy{ id = "beamos", description = "Beamos" }
-enemy{ id = "blob_green", description = "Blob green" }
-enemy{ id = "blob_red", description = "Blob red" }
 enemy{ id = "boo_buddy", description = "Boo buddy" }
+enemy{ id = "boss/evil_orb", description = "Evil orb" }
 enemy{ id = "boss/genie", description = "Genie" }
 enemy{ id = "boss/genie/genie_bottle", description = "Genie bottle" }
+enemy{ id = "boss/giant_buzz_blob", description = "Giant buzz blob" }
 enemy{ id = "boss/hinox_master", description = "Hinox master" }
 enemy{ id = "boss/master_stalfos", description = "Master stalfos" }
 enemy{ id = "boss/moblin_chief", description = "Moblin chief" }
 enemy{ id = "boss/moldorm", description = "Moldorm" }
-enemy{ id = "boss/moldorm/moldorm_body_1", description = "Moldorm body 1" }
-enemy{ id = "boss/moldorm/moldorm_body_2", description = "Moldorm body 2" }
-enemy{ id = "boss/moldorm/moldorm_body_3", description = "Moldorm body 3" }
-enemy{ id = "boss/moldorm/moldorm_head", description = "Moldorm head" }
 enemy{ id = "boss/rolling_bones/rolling_bones", description = "Rolling bones" }
 enemy{ id = "boss/rolling_bones/rolling_bones_spike", description = "Rolling bones spike" }
+enemy{ id = "boss/stone_hinox", description = "Stone hinox" }
 enemy{ id = "bubble", description = "Bubble" }
 enemy{ id = "buzz_blob", description = "Buzz blob" }
+enemy{ id = "camo_goblin_blue", description = "Camo goblin blue" }
+enemy{ id = "camo_goblin_green", description = "Camo goblin green" }
+enemy{ id = "camo_goblin_red", description = "Camo goblin red" }
 enemy{ id = "chicken", description = "Chicken" }
 enemy{ id = "chicken_mortal", description = "Chicken mortal" }
 enemy{ id = "crow", description = "Crow" }
@@ -1030,6 +1080,7 @@ enemy{ id = "hardhat_beetle_red", description = "Hardhat beetle red" }
 enemy{ id = "helmasaur_masked", description = "Helmasaur masked" }
 enemy{ id = "hooded_stalfos", description = "Hooded stalfos" }
 enemy{ id = "keese", description = "Keese" }
+enemy{ id = "leever", description = "Leever" }
 enemy{ id = "like_like", description = "Like Like" }
 enemy{ id = "maskass", description = "Maskass" }
 enemy{ id = "moblin", description = "Moblin" }
@@ -1037,8 +1088,12 @@ enemy{ id = "moblin_dog_spear", description = "Moblin dog spear" }
 enemy{ id = "moblin_dog_sword", description = "Moblin dog sword" }
 enemy{ id = "moblin_pig_sword", description = "Moblin pig sword" }
 enemy{ id = "monkey", description = "Monkey" }
+enemy{ id = "monkey_coconut", description = "Monkey coconut" }
 enemy{ id = "octorok", description = "Octorok" }
 enemy{ id = "octorok_stone", description = "Octorok stone" }
+enemy{ id = "orb_monster_blue", description = "Orb monster blue" }
+enemy{ id = "orb_monster_green", description = "Orb monster green" }
+enemy{ id = "orb_monster_red", description = "Orb monster red" }
 enemy{ id = "peahat", description = "Peahat" }
 enemy{ id = "pike_auto", description = "Pike auto" }
 enemy{ id = "pike_detect", description = "Pike detect" }
@@ -1073,9 +1128,11 @@ entity{ id = "bowwow", description = "Bowwow" }
 entity{ id = "bowwow_follow", description = "Bowwow follow" }
 entity{ id = "bubble", description = "Bubble" }
 entity{ id = "butterfly", description = "Butterfly" }
-entity{ id = "collapsing_soil", description = "Collapsing soil" }
+entity{ id = "color_platform", description = "Color platform" }
 entity{ id = "conveyor_belt", description = "Conveyor belt" }
+entity{ id = "eye_switch", description = "Eye switch" }
 entity{ id = "fire", description = "Fire" }
+entity{ id = "follower", description = "Follower" }
 entity{ id = "frog", description = "Frog" }
 entity{ id = "green_crystal", description = "Green crystal" }
 entity{ id = "heart_fly", description = "Heart fly" }
@@ -1089,9 +1146,11 @@ entity{ id = "mouse", description = "Mouse" }
 entity{ id = "mr_write_and_christine", description = "Mr Write and Christine" }
 entity{ id = "non_diggable", description = "Non diggable" }
 entity{ id = "obstacle", description = "Obstacle" }
+entity{ id = "powder", description = "Powder" }
 entity{ id = "seagull", description = "Seagull" }
 entity{ id = "statue_pig", description = "Statue pig" }
 entity{ id = "torch", description = "Torch" }
+entity{ id = "unstable_floor", description = "Unstable Floor" }
 entity{ id = "vacuum_cleaner", description = "Vacuum cleaner" }
 entity{ id = "wallturn", description = "Wallturn" }
 
@@ -1106,17 +1165,24 @@ font{ id = "small_white_digits", description = "Small white digits" }
 font{ id = "white_digits", description = "White digits" }
 
 shader{ id = "6xbrz", description = "6xbrz" }
+shader{ id = "distorsion", description = "Distorsion effect" }
+shader{ id = "electric", description = "Electric effect" }
 shader{ id = "mode_7", description = "Mode 7" }
+shader{ id = "pixellisation", description = "Pixellisation effect" }
+shader{ id = "radial_fade_out", description = "Radial fade out" }
 shader{ id = "sepia", description = "Sepia" }
 shader{ id = "toon", description = "Toon" }
 
-file{ path = "shaders/6xbrz.dat", author = "Christopho", license = "GPL v3" }
-file{ path = "shaders/6xbrz.frag.glsl", author = "Hyllian", license = "GPL v3" }
-file{ path = "shaders/6xbrz.vert.glsl", author = "Hyllian", license = "GPL v3" }
-file{ path = "shaders/mode_7.dat", author = "Christopho", license = "GPL v3" }
-file{ path = "shaders/mode_7.frag.glsl", author = "Christopho", license = "GPL v3" }
-file{ path = "shaders/mode_7.vert.glsl", author = "Christopho", license = "GPL v3" }
-file{ path = "shaders/sepia.dat", author = "Christopho", license = "GPL v3" }
-file{ path = "shaders/sepia.frag.glsl", author = "Vlag", license = "GPL v3" }
-file{ path = "shaders/toon.dat", author = "Christopho", license = "GPL v3" }
-file{ path = "shaders/toon.frag.glsl", author = "Vlag", license = "GPL v3" }
+file{ path = "main.lua", author = "Christopho", license = "GPL v3" }
+file{ path = "scripts/gfx_effects/distorsion.lua", author = "PhoenixII54", }
+file{ path = "scripts/gfx_effects/fade_to_white.lua", author = "PhoenixII54", }
+file{ path = "scripts/gfx_effects/pixellisation.lua", author = "PhoenixII54", }
+file{ path = "scripts/gfx_effects/radial_fade_out.lua", author = "PhoenixII54", }
+file{ path = "scripts/meta/sensor.lua", author = "Christopho", license = "GPL v3" }
+file{ path = "scripts/music_manager.lua", author = "Christopho", license = "GPL v3" }
+file{ path = "shaders/pixellisation.dat", author = "PhoenixII54", }
+file{ path = "shaders/pixellisation.frag.glsl", author = "PhoenixII54", }
+file{ path = "shaders/pixellisation_effect.dat", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "shaders/pixellisation_effect.frag.glsl", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "shaders/radial_fade_out.dat", author = "PhoenixII54", }
+file{ path = "shaders/radial_fade_out.frag.glsl", author = "PhoenixII54", }

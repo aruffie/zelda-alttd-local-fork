@@ -795,6 +795,15 @@ custom_entity{
   sprite = "entities/pencil",
 }
 
+npc{
+  name = "mario",
+  layer = 0,
+  x = 184,
+  y = 37,
+  direction = 3,
+  subtype = 1,
+}
+
 tile{
   layer = 1,
   x = 144,

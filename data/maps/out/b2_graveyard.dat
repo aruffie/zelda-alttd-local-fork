@@ -3693,15 +3693,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 616,
-  y = 424,
-  width = 32,
-  height = 32,
-  pattern = "1084",
-}
-
-tile{
-  layer = 0,
   x = 720,
   y = 672,
   width = 32,
@@ -5945,15 +5936,6 @@ tile{
   layer = 0,
   x = 584,
   y = 512,
-  width = 8,
-  height = 8,
-  pattern = "1113",
-}
-
-tile{
-  layer = 0,
-  x = 608,
-  y = 440,
   width = 8,
   height = 8,
   pattern = "1113",
@@ -17589,15 +17571,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 616,
-  y = 424,
-  width = 32,
-  height = 32,
-  pattern = "1501",
-}
-
-tile{
-  layer = 0,
   x = 816,
   y = 192,
   width = 8,
@@ -18406,6 +18379,24 @@ tile{
   pattern = "988",
 }
 
+tile{
+  layer = 0,
+  x = 608,
+  y = 432,
+  width = 32,
+  height = 16,
+  pattern = "1037",
+}
+
+tile{
+  layer = 0,
+  x = 608,
+  y = 448,
+  width = 8,
+  height = 8,
+  pattern = "104 (copy)",
+}
+
 destructible{
   layer = 0,
   x = 704,
@@ -18685,9 +18676,15 @@ teletransporter{
   layer = 0,
   x = -16,
   y = 0,
+  properties = {
+    {
+      key = "effect",
+      value = "pixellisation",
+    },
+  },
   width = 16,
   height = 768,
-  transition = "scrolling",
+  transition = "immediate",
   destination_map = "out/a2_forest",
   destination = "_side",
 }
@@ -18712,7 +18709,6 @@ dynamic_tile{
   pattern = "6020",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 sensor{
@@ -22295,8 +22291,8 @@ enemy{
 
 enemy{
   layer = 0,
-  x = 584,
-  y = 469,
+  x = 608,
+  y = 493,
   direction = 2,
   breed = "ghini",
   treasure_name = "random",
@@ -22304,7 +22300,7 @@ enemy{
 
 enemy{
   layer = 0,
-  x = 632,
+  x = 656,
   y = 541,
   direction = 0,
   breed = "ghini",
@@ -22313,8 +22309,8 @@ enemy{
 
 enemy{
   layer = 0,
-  x = 664,
-  y = 453,
+  x = 656,
+  y = 493,
   direction = 2,
   breed = "ghini",
   treasure_name = "random",
@@ -22322,8 +22318,8 @@ enemy{
 
 enemy{
   layer = 0,
-  x = 568,
-  y = 597,
+  x = 592,
+  y = 621,
   direction = 2,
   breed = "ghini",
   treasure_name = "random",
@@ -22331,7 +22327,7 @@ enemy{
 
 enemy{
   layer = 0,
-  x = 672,
+  x = 640,
   y = 669,
   direction = 0,
   breed = "ghini",
@@ -22340,8 +22336,8 @@ enemy{
 
 enemy{
   layer = 0,
-  x = 768,
-  y = 637,
+  x = 784,
+  y = 669,
   direction = 2,
   breed = "ghini",
   treasure_name = "random",
@@ -22349,8 +22345,8 @@ enemy{
 
 enemy{
   layer = 0,
-  x = 896,
-  y = 589,
+  x = 880,
+  y = 621,
   direction = 2,
   breed = "ghini",
   treasure_name = "random",
@@ -22359,7 +22355,7 @@ enemy{
 enemy{
   layer = 0,
   x = 784,
-  y = 461,
+  y = 493,
   direction = 2,
   breed = "ghini",
   treasure_name = "random",
@@ -22367,8 +22363,8 @@ enemy{
 
 enemy{
   layer = 0,
-  x = 808,
-  y = 509,
+  x = 832,
+  y = 541,
   direction = 2,
   breed = "ghini",
   treasure_name = "random",
@@ -22376,8 +22372,8 @@ enemy{
 
 enemy{
   layer = 0,
-  x = 864,
-  y = 461,
+  x = 880,
+  y = 493,
   direction = 2,
   breed = "ghini",
   treasure_name = "random",
@@ -22428,17 +22424,6 @@ enemy{
   treasure_name = "random",
 }
 
-teletransporter{
-  name = "stairs_2_A",
-  layer = 0,
-  x = 576,
-  y = 48,
-  width = 16,
-  height = 16,
-  destination_map = "dungeons/2/1f",
-  destination = "stairs_2_B",
-}
-
 destructible{
   layer = 0,
   x = 120,
@@ -22449,6 +22434,50 @@ destructible{
   weight = -1,
   can_be_cut = true,
   ground = "grass",
+}
+
+destructible{
+  layer = 0,
+  x = 616,
+  y = 445,
+  treasure_name = "random",
+  sprite = "entities/grass",
+  destruction_sound = "bush",
+  weight = -1,
+  can_be_cut = true,
+  ground = "grass",
+}
+
+destructible{
+  layer = 0,
+  x = 632,
+  y = 445,
+  treasure_name = "random",
+  sprite = "entities/grass",
+  destruction_sound = "bush",
+  weight = -1,
+  can_be_cut = true,
+  ground = "grass",
+}
+
+destructible{
+  layer = 0,
+  x = 664,
+  y = 461,
+  treasure_name = "random",
+  sprite = "entities/grass",
+  destruction_sound = "bush",
+  weight = -1,
+  can_be_cut = true,
+  ground = "grass",
+}
+
+destination{
+  name = "dungeon_9_exit",
+  layer = 0,
+  x = 880,
+  y = 637,
+  direction = 3,
 }
 
 tile{

@@ -23,7 +23,6 @@ function item:on_using()
    local amount =   self:get_amount()
    amount = amount - 1
   if amount < 0 then
-    self:set_variant(0)
     sol.audio.play_sound("wrong")
   else
     sol.audio.play_sound("magic_powder")
@@ -33,8 +32,11 @@ function item:on_using()
    hero:freeze()
    hero:set_animation("magic_powder")
    self:set_amount(amount)
-    item:create_fire()
+    item:create_powder()
     sol.timer.start(item, 400, function()
+      if amount == 0 then
+        self:set_variant(0)
+      end
       hero:unfreeze()
     end)
   end
@@ -43,7 +45,7 @@ function item:on_using()
 end
 
 -- Creates some fire on the map.
-function item:create_fire()
+function item:create_powder()
 
   local map = item:get_map()
   local hero = map:get_hero()
@@ -60,8 +62,8 @@ function item:create_fire()
   end
 
   local x, y, layer = hero:get_position()
-  local fire = map:create_custom_entity{
-    model = "fire",
+  local powder = map:create_custom_entity{
+    model = "powder",
     x = x + dx,
     y = y + dy,
     layer = layer,
@@ -69,6 +71,7 @@ function item:create_fire()
     height = 16,
     direction = 0,
   }
-  local fire_sprite = fire:get_sprite()
-  fire_sprite:set_ignore_suspend(true)
+  local powder_sprite = powder:get_sprite()
+  powder_sprite:set_ignore_suspend(true)
+
 end

@@ -1000,8 +1000,8 @@ custom_entity{
   layer = 0,
   x = 56,
   y = 61,
-  width = 16,
-  height = 16,
+  width = 128,
+  height = 112,
   direction = 0,
   sprite = "entities/non_diggable",
   model = "non_diggable",
@@ -2468,6 +2468,30 @@ custom_entity{
   direction = 0,
   sprite = "entities/non_diggable",
   model = "non_diggable",
+}
+
+wall{
+  layer = 0,
+  x = 136,
+  y = 200,
+  width = 16,
+  height = 16,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 0,
+  x = 376,
+  y = 200,
+  width = 16,
+  height = 16,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
 }
 
 tile{

@@ -1,20 +1,11 @@
--- Outside - Martha bay
-
 -- Variables
 local map = ...
 local game = map:get_game()
-local companion_manager = require("scripts/maps/companion_manager")
 
--- Methods - Functions
-
-
--- Events
-
+-- Map events
 function map:on_started()
 
   map:set_digging_allowed(true)
-  companion_manager:init_map(map)
-
   --Mermaid statue pushed
   if game:get_value("mermaid_statue_pushed") then
       mermaid_statue_npc:set_enabled(false)
@@ -23,8 +14,9 @@ function map:on_started()
 
 end
 
---Mermaid statue: Pushesif you have mermaid scale
+-- NPC events
 function mermaid_statue_npc:on_interaction()
+
   if game:get_item("magnifying_lens"):get_variant() == 13 then
     sol.audio.play_sound("chest_open")
     game:start_dialog("maps.out.martha_bay.mermaid_statue_scale",function()
@@ -37,11 +29,16 @@ function mermaid_statue_npc:on_interaction()
           i = i + 1
           mermaid_statue_x = mermaid_statue_x - 1
           mermaid_statue:set_position(mermaid_statue_x, mermaid_statue_y)
-          if i < 32 then return true end
+          if i < 32 then
+            return true
+          end
           sol.audio.play_sound("secret_1")
           hero:unfreeze()
           game:set_value("mermaid_statue_pushed",true)
         end)
     end)
-  else game:start_dialog("maps.out.martha_bay.mermaid_statue_no_scale") end
+  else 
+    game:start_dialog("maps.out.martha_bay.mermaid_statue_no_scale")
+  end
+
 end

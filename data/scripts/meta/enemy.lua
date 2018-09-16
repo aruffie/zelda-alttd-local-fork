@@ -3,6 +3,25 @@
 local enemy_meta = sol.main.get_metatable("enemy")
 local enemy_manager = require("scripts/maps/enemy_manager")
 
+-- Redefine how to calculate the damage inflicted by the sword.
+function enemy_meta:on_hurt_by_sword(hero, enemy_sprite)
+
+  local game = self:get_game()
+  local hero = game:get_hero()
+  -- Calculate force. Check tunic, sword, spin attack and powerups.
+  -- TODO: define powerup function "hero:get_force_powerup()".
+  local force_sword = hero:get_game():get_value("force_sword") or 1
+  local force_tunic = game:get_value("force_tunic") or 1
+  local force_powerup = hero.get_force_powerup and hero:get_force_powerup() or 1
+  local force = force_sword * force_tunic * force_powerup
+  if hero:get_state() == "sword spin attack" then
+    force = 2 * force -- Double force for spin attack.
+  end
+  -- Remove life.
+  local life_lost = force
+  self:remove_life(life_lost)
+end
+
 -- Helper function to inflict an explicit reaction from a scripted weapon.
 -- TODO this should be in the Solarus API one day
 function enemy_meta:receive_attack_consequence(attack, reaction)

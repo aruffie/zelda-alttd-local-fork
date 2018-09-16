@@ -1,15 +1,18 @@
--- Inside - Shop 1
-
--- Variables
 local map = ...
 local game = map:get_game()
 local is_game_available = false
-local companion_manager = require("scripts/maps/companion_manager")
-local clow_manager = require("scripts/maps/claw_manager")
+-- Includes scripts
+local claw_manager = require("scripts/maps/claw_manager")
 
--- Methods - Functions
+-- Map events
+function map:on_started(destination)
 
-function map:set_music()
+  map:init_music()
+
+end
+
+-- Initialize the music of the map
+function map:init_music()
 
   if game:get_value("main_quest_step") == 3  then
     sol.audio.play_music("maps/out/sword_search")
@@ -19,7 +22,7 @@ function map:set_music()
 
 end
 
-
+-- Discussion with Merchant
 function map:talk_to_merchant() 
 
   game:start_dialog("maps.houses.mabe_village.shop_1.merchant_1", function(answer)
@@ -39,15 +42,7 @@ function map:talk_to_merchant()
 
 end
 
--- Events
-
-function map:on_started(destination)
-
-  map:set_music()
-  companion_manager:init_map(map)
-
-end
-
+-- NPC events
 function merchant:on_interaction()
 
       map:talk_to_merchant()
@@ -58,7 +53,7 @@ function console:on_interaction()
 
   if is_game_available then
     is_game_available = false
-    clow_manager:init_map(map)
+    claw_manager:init_map(map)
   end
 
 end

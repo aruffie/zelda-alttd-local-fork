@@ -4,17 +4,16 @@
 local map = ...
 local game = map:get_game()
 
--- Includes scripts
+-- Include scripts
+function map:init_music()
 local phone_manager = require("scripts/maps/phone_manager")
-local companion_manager = require("scripts/maps/companion_manager")
+
 
 -- Methods - Functions
 
 -- Events
 
 function map:on_started()
-
-  companion_manager:init_map(map)
 
 end
 

@@ -34,12 +34,3 @@ function item:on_using()
   end)
 
 end
-
-function item:on_obtaining(variant, savegame_variable)
-
-  --local item = self:get_game():get_item("magic_powders_counter")
-  --item:set_savegame_variable(nil)
-
-end
-
-

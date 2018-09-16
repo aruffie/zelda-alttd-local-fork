@@ -7,12 +7,15 @@ local hero_meta = sol.main.get_metatable("hero")
 -- Initialize parameters for custom jump.
 local is_hero_jumping = false
 local jump_duration = 430 -- Duration of jump in milliseconds.
-local max_height = 16 -- Height of jump in pixels.
+local max_height_normal = 16 -- Default height, do NOT change!
+local max_height_sideview = 20 -- Default height for sideview maps, do NOT change!
+local max_height -- Height of jump in pixels.
 local max_distance = 31 -- Max distance of jump in pixels.
 local jumping_speed = math.floor(1000 * max_distance / jump_duration)
 local disabled_entities -- Nearby streams and teletransporters that are disabled during the jump
 
 function item:on_created()
+
   self:set_savegame_variable("possession_feather")
   self:set_sound_when_brandished("treasure_2")
   self:set_assignable(true)
@@ -34,20 +37,6 @@ function item:on_created()
     end
   end)
 end
-
-
-function item:set_max_height(height)
-  
-  max_height = height
-
-end
-
-function item:set_max_distance(distance)
-  
-  max_distance = distance
-
-end
-
 
 -- The custom jump can only be used under certain conditions.
 -- We define "item.on_custom_using" instead of "item.on_using", which
@@ -96,37 +85,48 @@ local function blocking_stream_below_hero(map)
   return false
 end
 
+
+-- MAIN FUNCTION.
 -- Define custom jump on hero metatable.
 function item:start_custom_jump()
+
   local game = self:get_game()
   local map = self:get_map()
   local hero = map:get_hero()
+  local is_sideview_map = map.is_side_view ~= nil and map:is_side_view()
+   -- Select Max height.
+  if is_sideview_map then max_height = max_height_sideview
+  else max_height = max_height_normal end
 
-   -- Change Max height
-   if map.is_side_view ~= nil and map:is_side_view() then
-      max_height = 32
-  else
-      max_height = 16
-  end
   -- Do nothing if the hero is frozen, carrying, jumping, "custom jumping",
   -- or if there is bad ground below. [Add more restrictions if necessary.]
   local hero_state = hero:get_state()
   local is_hero_frozen = hero_state == "frozen"
   local is_hero_carrying = hero_state == "carrying"
   local is_hero_builtin_jumping = hero_state == "jumping"
-  local ground_type = map:get_ground(hero:get_position())
+  local is_on_stairs = hero_state == "stairs"
+  local ground_type = map:get_ground(hero:get_ground_position())
   local is_ground_jumpable = self:is_jumpable_ground(ground_type)
   local is_blocked_on_stream = blocking_stream_below_hero(map)
 
   if is_hero_frozen or is_hero_jumping or is_hero_builtin_jumping or is_hero_carrying
-    or is_using_shield or (not is_ground_jumpable) or is_blocked_on_stream then
+    or is_using_shield or (not is_ground_jumpable) or is_blocked_on_stream 
+    or is_on_stairs then
     return
+  end
+
+  -- We need solid ground or ladder "below" to jump in sideview maps!
+  if is_sideview_map then
+    local x, y, layer = hero:get_position()
+    local is_grabbed_to_ladder = map:get_ground(x, y - 4, layer) == "ladder"
+        or map:get_ground(x, y + 3, layer) == "ladder"
+    if (not hero:test_obstacles(0, 1) and (not is_grabbed_to_ladder)) then return end
   end
 
   -- Prepare hero for jump.
   is_hero_jumping = true
   hero:unfreeze()  
-  hero:save_solid_ground(hero:get_position()) -- Save solid position.
+  hero:save_solid_ground(hero:get_last_stable_position()) -- Save last stable position.
   local ws = hero:get_walking_speed() -- Default walking speed.
   hero:set_walking_speed(jumping_speed)
   hero:set_invincible(true, jump_duration)
@@ -142,8 +142,10 @@ function item:start_custom_jump()
   elseif state == "sword spin attack" then
     hero:set_fixed_animations("spin_attack", "spin_attack")
   end
-  local tile
-   if map.is_side_view == nil or map:is_side_view() == false then
+
+  -- If the map NOT sideview, prepare ground below .
+  local tile -- Custom entity used to modify the ground and show the shadow.
+  if not is_sideview_map then
     -- Create shadow platform with traversable ground that follows the hero under him.
     local x, y, layer = hero:get_position()
     local platform_properties = {x=x,y=y,layer=layer,direction=0,width=8,height=8}
@@ -161,19 +163,47 @@ function item:start_custom_jump()
     end)
   end
 
-  -- Shift all sprites during jump with parabolic trajectory.
+
+  -- Create parabolic trajectory.
   local instant = 0
-  sol.timer.start(item, 1, function()
-    if not is_hero_jumping then return false end
-    local tn = instant/jump_duration
-    local height = math.floor(4*max_height*tn*(1-tn))
-    for _, s in hero:get_sprites() do
-      s:set_xy(0, -height)
-    end
-    -- Continue shifting while jumping.
-    instant = instant + 1
-    return true
-  end)
+  -- If the map NOT sideview, shift all sprites during jump with parabolic trajectory.
+  -- We use a parametrization of the height.
+  if not is_sideview_map then
+    sol.timer.start(item, 1, function()
+      if not is_hero_jumping then return false end
+      local tn = instant/jump_duration
+      local height = math.floor(4*max_height*tn*(1-tn))
+      for _, s in hero:get_sprites() do
+        s:set_xy(0, -height)
+      end
+      -- Continue shifting while jumping.
+      instant = instant + 1
+      return true
+    end)
+  end
+  -- If the map IS sideview, shift the position with parabolic trajectory.
+  -- We calculate the variations of height at each instant.
+  if is_sideview_map then
+    local d = 0 -- Accumulative decimal part, for better accuracy.
+    local pheight = 0 -- Previous height.
+    sol.timer.start(item, 1, function()
+      if not is_hero_jumping then return false end
+      local x, y, layer = hero:get_position()
+      local tn = instant/jump_duration
+      local height = 4*max_height*tn*(1-tn)
+      local dh = (height - pheight) + d -- Variation of height.
+      d = dh - math.floor(dh)
+      dh = math.floor(dh)
+      pheight = height
+      if not hero:test_obstacles(0, -dh) then
+        hero:set_position(x, y - dh, layer)
+      end
+      -- Continue shifting while jumping.
+      instant = instant + 1
+      return true
+    end)
+  end
+
 
   -- Disable nearby streams and teletransporters during the jump.
   item:disable_nearby_entities()
@@ -193,7 +223,7 @@ function item:start_custom_jump()
     while ground == "empty" and layer > min_layer do
       layer = layer-1
       hero:set_position(x,y,layer)
-      ground = map:get_ground(hero:get_position())    
+      ground = map:get_ground(hero:get_ground_position())    
     end
     -- Reset sprite shifts.
     for _, s in hero:get_sprites() do s:set_xy(0, 0) end
@@ -206,10 +236,11 @@ function item:start_custom_jump()
 
     -- Restore solid ground as soon as possible.
     sol.timer.start(map, 1, function()
-      local ground_type = map:get_ground(hero:get_position())    
+      local ground_type = map:get_ground(hero:get_ground_position())    
       local is_good_ground = self:is_jumpable_ground(ground_type)
       if is_good_ground then
         hero:reset_solid_ground()
+        if hero.initialize_unstable_floor_manager then hero:initialize_unstable_floor_manager() end
         return false
       end
       return true
@@ -240,7 +271,7 @@ function item:create_ground_effect(x, y, layer)
   end
 end
 
--- Disable nearby streams and teletransporters during the jump, allowing to jump over them.
+-- Disable nearby streams, stairs and teletransporters during the jump, allowing to jump over them.
 function item:disable_nearby_entities()
   local map = item:get_map()
   local hero = map:get_hero()
@@ -251,8 +282,8 @@ function item:disable_nearby_entities()
   disabled_entities = {}
   for entity in map:get_entities_in_rectangle(x, y, w, h) do
     if entity:is_enabled() then
-      if entity:get_type() == "stream" or
-          entity:get_type() == "teletransporter" then
+      if entity:get_type() == "stream" or entity:get_type() == "stairs"
+          or entity:get_type() == "teletransporter" then
         disabled_entities[#disabled_entities + 1] = entity
         entity:set_enabled(false)
       end

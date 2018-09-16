@@ -1,6 +1,6 @@
 local enemy = ...
 
--- Molblin: goes in a random direction.
+-- Zol green
 
 enemy:set_life(1)
 enemy:set_damage(1)
@@ -16,7 +16,7 @@ end
 -- The enemy was stopped for some reason and should restart.
 function enemy:on_restarted()
 
-  sprite:set_animation("stopped")
+  sprite:set_animation("invisible")
   sol.timer.start(enemy, 50, function()
     local tx, ty, _ = enemy:get_map():get_hero():get_position()
     if enemy:get_distance(tx, ty) < max_distance then
@@ -50,7 +50,7 @@ function enemy:disappear()
   sprite:set_animation("disappearing")
   function sprite:on_animation_finished(animation)
     if animation == "disappearing" then
-     sprite:set_animation("stopped")
+     sprite:set_animation("invisible")
     end
   end
 
@@ -64,7 +64,7 @@ function enemy:go()
     sprite:set_animation("jump")
     local direction8 = enemy:get_direction8_to(enemy:get_map():get_hero())
     local m = sol.movement.create("jump")
-    m:set_speed(0)
+    m:set_speed(35)
     m:set_distance(16)
     m:set_direction8(direction8)
     m:start(enemy)

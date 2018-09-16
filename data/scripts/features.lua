@@ -8,6 +8,7 @@
 require("scripts/debug")
 require("scripts/equipment")
 require("scripts/dungeons")
+require("scripts/sleep")
 require("scripts/side_view.lua")
 require("scripts/menus/dialog_box")
 require("scripts/menus/pause")
@@ -20,5 +21,9 @@ require("scripts/meta/hero")
 require("scripts/meta/npc")
 require("scripts/meta/sensor")
 require("scripts/maps/light_manager.lua")
+require("scripts/maps/unstable_floor_manager.lua")
+require("scripts/maps/companion_manager.lua")
+require("scripts/maps/teletransporter_manager.lua")
+require("scripts/maps/cinematic_manager.lua")
 
 return true

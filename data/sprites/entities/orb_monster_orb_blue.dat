@@ -1,0 +1,20 @@
+animation{
+  name = "default",
+  src_image = "entities/orb_monster_orb.png",
+  directions = {
+    { x = 0, y = 32, frame_width = 24, frame_height = 16, origin_x = 8, origin_y = 13 },
+    { x = 0, y = 32, frame_width = 24, frame_height = 16, origin_x = 8, origin_y = 13 },
+    { x = 0, y = 32, frame_width = 24, frame_height = 16, origin_x = 8, origin_y = 13 },
+    { x = 0, y = 32, frame_width = 24, frame_height = 16, origin_x = 8, origin_y = 13 },
+  },
+}
+animation{
+  name = "shaking",
+  src_image = "entities/orb_monster_orb.png",
+  directions = {
+    { x = 0, y = 32, frame_width = 24, frame_height = 16, origin_x = 8, origin_y = 13, num_frames = 2 },
+    { x = 0, y = 32, frame_width = 24, frame_height = 16, origin_x = 8, origin_y = 13, num_frames = 2 },
+    { x = 0, y = 32, frame_width = 24, frame_height = 16, origin_x = 8, origin_y = 13, num_frames = 2 },
+    { x = 0, y = 32, frame_width = 24, frame_height = 16, origin_x = 8, origin_y = 13, num_frames = 2 },
+  },
+}

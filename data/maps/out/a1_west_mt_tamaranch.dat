@@ -11566,6 +11566,43 @@ tile{
   pattern = "104 (copy)",
 }
 
+tile{
+  layer = 0,
+  x = 528,
+  y = 496,
+  width = 8,
+  height = 8,
+  pattern = "100",
+}
+
+tile{
+  layer = 0,
+  x = 536,
+  y = 608,
+  width = 8,
+  height = 8,
+  pattern = "84",
+}
+
+tile{
+  layer = 0,
+  x = 536,
+  y = 528,
+  width = 8,
+  height = 8,
+  pattern = "84",
+}
+
+custom_entity{
+  layer = 0,
+  x = 424,
+  y = 45,
+  width = 32,
+  height = 32,
+  direction = 0,
+  sprite = "entities/teletransporter",
+}
+
 teletransporter{
   name = "to_b1",
   layer = 0,
@@ -11583,9 +11620,15 @@ teletransporter{
   layer = 0,
   x = 0,
   y = 768,
+  properties = {
+    {
+      key = "effect",
+      value = "pixellisation",
+    },
+  },
   width = 960,
   height = 16,
-  transition = "scrolling",
+  transition = "immediate",
   destination_map = "out/a2_forest",
   destination = "_side",
 }
@@ -11707,7 +11750,6 @@ dynamic_tile{
   pattern = "6020",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 sensor{
@@ -11775,15 +11817,6 @@ npc{
   subtype = 1,
   sprite = "entities/owl_blue",
   behavior = "dialog#maps.out.west_mt_tamaranch.owl_statue_1",
-}
-
-separator{
-  name = "auto_separator_1",
-  layer = 0,
-  x = 0,
-  y = 376,
-  width = 960,
-  height = 16,
 }
 
 jumper{
@@ -12710,7 +12743,6 @@ dynamic_tile{
   pattern = "1800",
   width = 32,
   height = 8,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -12721,7 +12753,6 @@ dynamic_tile{
   pattern = "1706",
   width = 32,
   height = 16,
-  enabled_at_start = true,
 }
 
 door{
@@ -13064,6 +13095,66 @@ destructible{
   weight = -1,
   can_be_cut = true,
   ground = "grass",
+}
+
+sensor{
+  name = "music_sensor",
+  layer = 0,
+  x = 328,
+  y = 429,
+  properties = {
+    {
+      key = "music",
+      value = "maps/out/overworld",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "music_sensor_2",
+  layer = 0,
+  x = 328,
+  y = 413,
+  properties = {
+    {
+      key = "music",
+      value = "maps/out/mt_tamaranch",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "music_sensor_3",
+  layer = 0,
+  x = 248,
+  y = 397,
+  properties = {
+    {
+      key = "music",
+      value = "maps/out/overworld",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "music_sensor_4",
+  layer = 0,
+  x = 432,
+  y = 349,
+  properties = {
+    {
+      key = "music",
+      value = "maps/out/overworld",
+    },
+  },
+  width = 16,
+  height = 16,
 }
 
 tile{

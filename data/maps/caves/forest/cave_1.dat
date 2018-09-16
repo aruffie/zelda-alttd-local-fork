@@ -12,8 +12,17 @@ properties{
 
 tile{
   layer = 0,
-  x = 176,
+  x = 184,
   y = 192,
+  width = 64,
+  height = 24,
+  pattern = "wall_low.2-2",
+}
+
+tile{
+  layer = 0,
+  x = 368,
+  y = 384,
   width = 64,
   height = 24,
   pattern = "wall_low.2-2",
@@ -1020,15 +1029,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 472,
-  y = 344,
-  width = 48,
-  height = 16,
-  pattern = "hole",
-}
-
-tile{
-  layer = 0,
   x = 408,
   y = 392,
   width = 8,
@@ -1079,60 +1079,6 @@ tile{
   width = 48,
   height = 8,
   pattern = "hole.1",
-}
-
-tile{
-  layer = 0,
-  x = 512,
-  y = 344,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.2",
-}
-
-tile{
-  layer = 0,
-  x = 512,
-  y = 352,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.4",
-}
-
-tile{
-  layer = 0,
-  x = 472,
-  y = 344,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.1",
-}
-
-tile{
-  layer = 0,
-  x = 472,
-  y = 352,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.3",
-}
-
-tile{
-  layer = 0,
-  x = 480,
-  y = 344,
-  width = 32,
-  height = 8,
-  pattern = "hole.1",
-}
-
-tile{
-  layer = 0,
-  x = 480,
-  y = 352,
-  width = 32,
-  height = 8,
-  pattern = "hole.2",
 }
 
 tile{
@@ -1308,974 +1254,113 @@ tile{
 
 tile{
   layer = 0,
-  x = 392,
-  y = 424,
-  width = 16,
-  height = 16,
-  pattern = "hole",
-}
-
-tile{
-  layer = 0,
-  x = 400,
-  y = 432,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.4",
-}
-
-tile{
-  layer = 0,
-  x = 392,
-  y = 424,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.1",
-}
-
-tile{
-  layer = 0,
-  x = 400,
-  y = 424,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.2",
-}
-
-tile{
-  layer = 0,
-  x = 392,
-  y = 432,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.3",
-}
-
-tile{
-  layer = 0,
-  x = 392,
-  y = 408,
-  width = 16,
-  height = 16,
-  pattern = "hole",
-}
-
-tile{
-  layer = 0,
-  x = 400,
-  y = 416,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.4",
-}
-
-tile{
-  layer = 0,
-  x = 392,
-  y = 408,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.1",
-}
-
-tile{
-  layer = 0,
-  x = 400,
-  y = 408,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.2",
-}
-
-tile{
-  layer = 0,
-  x = 392,
-  y = 416,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.3",
-}
-
-tile{
-  layer = 0,
-  x = 392,
-  y = 392,
-  width = 16,
-  height = 16,
-  pattern = "hole",
-}
-
-tile{
-  layer = 0,
-  x = 400,
-  y = 400,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.4",
-}
-
-tile{
-  layer = 0,
-  x = 392,
-  y = 392,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.1",
-}
-
-tile{
-  layer = 0,
-  x = 400,
-  y = 392,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.2",
-}
-
-tile{
-  layer = 0,
-  x = 392,
-  y = 400,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.3",
-}
-
-tile{
-  layer = 0,
-  x = 392,
-  y = 376,
-  width = 16,
-  height = 16,
-  pattern = "hole",
-}
-
-tile{
-  layer = 0,
-  x = 400,
-  y = 384,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.4",
-}
-
-tile{
-  layer = 0,
-  x = 392,
-  y = 376,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.1",
-}
-
-tile{
-  layer = 0,
-  x = 400,
-  y = 376,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.2",
-}
-
-tile{
-  layer = 0,
-  x = 392,
-  y = 384,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.3",
-}
-
-tile{
-  layer = 0,
-  x = 392,
-  y = 360,
-  width = 16,
-  height = 16,
-  pattern = "hole",
-}
-
-tile{
-  layer = 0,
-  x = 400,
-  y = 368,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.4",
-}
-
-tile{
-  layer = 0,
-  x = 392,
-  y = 360,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.1",
-}
-
-tile{
-  layer = 0,
-  x = 400,
-  y = 360,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.2",
-}
-
-tile{
-  layer = 0,
-  x = 392,
-  y = 368,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.3",
-}
-
-tile{
-  layer = 0,
-  x = 392,
-  y = 344,
-  width = 16,
-  height = 16,
-  pattern = "hole",
-}
-
-tile{
-  layer = 0,
-  x = 400,
-  y = 352,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.4",
-}
-
-tile{
-  layer = 0,
-  x = 392,
-  y = 344,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.1",
-}
-
-tile{
-  layer = 0,
-  x = 400,
-  y = 344,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.2",
-}
-
-tile{
-  layer = 0,
-  x = 392,
-  y = 352,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.3",
-}
-
-tile{
-  layer = 0,
-  x = 520,
-  y = 344,
-  width = 16,
-  height = 16,
-  pattern = "hole",
-}
-
-tile{
-  layer = 0,
-  x = 528,
-  y = 352,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.4",
-}
-
-tile{
-  layer = 0,
-  x = 520,
-  y = 344,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.1",
-}
-
-tile{
-  layer = 0,
-  x = 528,
-  y = 344,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.2",
-}
-
-tile{
-  layer = 0,
-  x = 520,
-  y = 352,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.3",
-}
-
-tile{
-  layer = 0,
-  x = 536,
-  y = 344,
-  width = 16,
-  height = 16,
-  pattern = "hole",
-}
-
-tile{
-  layer = 0,
-  x = 544,
-  y = 352,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.4",
-}
-
-tile{
-  layer = 0,
-  x = 536,
-  y = 344,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.1",
-}
-
-tile{
-  layer = 0,
-  x = 544,
-  y = 344,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.2",
-}
-
-tile{
-  layer = 0,
-  x = 536,
-  y = 352,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.3",
-}
-
-tile{
-  layer = 0,
-  x = 552,
-  y = 344,
-  width = 16,
-  height = 16,
-  pattern = "hole",
-}
-
-tile{
-  layer = 0,
-  x = 560,
-  y = 352,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.4",
-}
-
-tile{
-  layer = 0,
-  x = 552,
-  y = 344,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.1",
-}
-
-tile{
-  layer = 0,
-  x = 560,
-  y = 344,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.2",
-}
-
-tile{
-  layer = 0,
-  x = 552,
-  y = 352,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.3",
-}
-
-tile{
-  layer = 0,
-  x = 552,
-  y = 360,
-  width = 16,
-  height = 16,
-  pattern = "hole",
-}
-
-tile{
-  layer = 0,
-  x = 560,
-  y = 368,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.4",
-}
-
-tile{
-  layer = 0,
-  x = 552,
-  y = 360,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.1",
-}
-
-tile{
-  layer = 0,
-  x = 560,
-  y = 360,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.2",
-}
-
-tile{
-  layer = 0,
-  x = 552,
-  y = 368,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.3",
-}
-
-tile{
-  layer = 0,
-  x = 536,
-  y = 360,
-  width = 16,
-  height = 16,
-  pattern = "hole",
-}
-
-tile{
-  layer = 0,
-  x = 544,
-  y = 368,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.4",
-}
-
-tile{
-  layer = 0,
-  x = 536,
-  y = 360,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.1",
-}
-
-tile{
-  layer = 0,
-  x = 544,
-  y = 360,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.2",
-}
-
-tile{
-  layer = 0,
-  x = 536,
-  y = 368,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.3",
-}
-
-tile{
-  layer = 0,
-  x = 520,
-  y = 328,
-  width = 16,
-  height = 16,
-  pattern = "hole",
-}
-
-tile{
-  layer = 0,
-  x = 528,
-  y = 336,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.4",
-}
-
-tile{
-  layer = 0,
-  x = 520,
-  y = 328,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.1",
-}
-
-tile{
-  layer = 0,
-  x = 528,
-  y = 328,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.2",
-}
-
-tile{
-  layer = 0,
-  x = 520,
-  y = 336,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.3",
-}
-
-tile{
-  layer = 0,
-  x = 504,
-  y = 328,
-  width = 16,
-  height = 16,
-  pattern = "hole",
-}
-
-tile{
-  layer = 0,
-  x = 512,
-  y = 336,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.4",
-}
-
-tile{
-  layer = 0,
-  x = 504,
-  y = 328,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.1",
-}
-
-tile{
-  layer = 0,
-  x = 512,
-  y = 328,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.2",
-}
-
-tile{
-  layer = 0,
-  x = 504,
-  y = 336,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.3",
-}
-
-tile{
-  layer = 0,
-  x = 488,
-  y = 328,
-  width = 16,
-  height = 16,
-  pattern = "hole",
-}
-
-tile{
-  layer = 0,
-  x = 496,
-  y = 336,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.4",
-}
-
-tile{
-  layer = 0,
-  x = 488,
-  y = 328,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.1",
-}
-
-tile{
-  layer = 0,
-  x = 496,
-  y = 328,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.2",
-}
-
-tile{
-  layer = 0,
-  x = 488,
-  y = 336,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.3",
-}
-
-tile{
-  layer = 0,
   x = 472,
-  y = 328,
-  width = 16,
-  height = 16,
-  pattern = "hole",
-}
-
-tile{
-  layer = 0,
-  x = 480,
-  y = 336,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.4",
-}
-
-tile{
-  layer = 0,
-  x = 472,
-  y = 328,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.1",
-}
-
-tile{
-  layer = 0,
-  x = 480,
-  y = 328,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.2",
-}
-
-tile{
-  layer = 0,
-  x = 472,
-  y = 336,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.3",
-}
-
-tile{
-  layer = 0,
-  x = 408,
-  y = 328,
-  width = 16,
-  height = 16,
-  pattern = "hole",
-}
-
-tile{
-  layer = 0,
-  x = 416,
-  y = 336,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.4",
-}
-
-tile{
-  layer = 0,
-  x = 408,
-  y = 328,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.1",
-}
-
-tile{
-  layer = 0,
-  x = 416,
-  y = 328,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.2",
-}
-
-tile{
-  layer = 0,
-  x = 408,
-  y = 336,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.3",
-}
-
-tile{
-  layer = 0,
-  x = 440,
-  y = 328,
-  width = 16,
-  height = 16,
-  pattern = "hole",
-}
-
-tile{
-  layer = 0,
-  x = 448,
-  y = 336,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.4",
-}
-
-tile{
-  layer = 0,
-  x = 440,
-  y = 328,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.1",
-}
-
-tile{
-  layer = 0,
-  x = 448,
-  y = 328,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.2",
-}
-
-tile{
-  layer = 0,
-  x = 440,
-  y = 336,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.3",
-}
-
-tile{
-  layer = 0,
-  x = 456,
-  y = 328,
-  width = 16,
-  height = 16,
-  pattern = "hole",
-}
-
-tile{
-  layer = 0,
-  x = 464,
-  y = 336,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.4",
-}
-
-tile{
-  layer = 0,
-  x = 456,
-  y = 328,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.1",
-}
-
-tile{
-  layer = 0,
-  x = 464,
-  y = 328,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.2",
-}
-
-tile{
-  layer = 0,
-  x = 456,
-  y = 336,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.3",
-}
-
-tile{
-  layer = 0,
-  x = 392,
-  y = 328,
-  width = 16,
-  height = 16,
-  pattern = "hole",
-}
-
-tile{
-  layer = 0,
-  x = 400,
-  y = 336,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.4",
-}
-
-tile{
-  layer = 0,
-  x = 392,
-  y = 328,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.1",
-}
-
-tile{
-  layer = 0,
-  x = 400,
-  y = 328,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.2",
-}
-
-tile{
-  layer = 0,
-  x = 392,
-  y = 336,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.3",
-}
-
-tile{
-  layer = 0,
-  x = 424,
-  y = 328,
-  width = 16,
-  height = 16,
-  pattern = "hole",
-}
-
-tile{
-  layer = 0,
-  x = 432,
-  y = 336,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.4",
-}
-
-tile{
-  layer = 0,
-  x = 424,
-  y = 328,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.1",
-}
-
-tile{
-  layer = 0,
-  x = 432,
-  y = 328,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.2",
-}
-
-tile{
-  layer = 0,
-  x = 424,
-  y = 336,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.3",
-}
-
-tile{
-  layer = 0,
-  x = 520,
-  y = 360,
-  width = 16,
-  height = 16,
-  pattern = "hole",
-}
-
-tile{
-  layer = 0,
-  x = 528,
-  y = 368,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.4",
-}
-
-tile{
-  layer = 0,
-  x = 520,
-  y = 360,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.1",
-}
-
-tile{
-  layer = 0,
-  x = 528,
-  y = 360,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.2",
-}
-
-tile{
-  layer = 0,
-  x = 520,
-  y = 368,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.3",
-}
-
-tile{
-  layer = 0,
-  x = 392,
-  y = 328,
-  width = 16,
-  height = 112,
-  pattern = "floor.cracked.7-2",
-}
-
-tile{
-  layer = 0,
-  x = 408,
-  y = 328,
-  width = 128,
-  height = 16,
-  pattern = "floor.cracked.7-2",
-}
-
-tile{
-  layer = 0,
-  x = 520,
   y = 344,
   width = 48,
-  height = 32,
-  pattern = "floor.cracked.7-2",
+  height = 16,
+  pattern = "hole",
+}
+
+tile{
+  layer = 0,
+  x = 512,
+  y = 344,
+  width = 8,
+  height = 8,
+  pattern = "hole.corner.2",
+}
+
+tile{
+  layer = 0,
+  x = 512,
+  y = 352,
+  width = 8,
+  height = 8,
+  pattern = "hole.corner.4",
+}
+
+tile{
+  layer = 0,
+  x = 480,
+  y = 352,
+  width = 32,
+  height = 8,
+  pattern = "hole.2",
+}
+
+tile{
+  layer = 0,
+  x = 480,
+  y = 344,
+  width = 32,
+  height = 8,
+  pattern = "hole.1",
+}
+
+tile{
+  layer = 0,
+  x = 472,
+  y = 344,
+  width = 8,
+  height = 8,
+  pattern = "hole.corner.1",
+}
+
+tile{
+  layer = 0,
+  x = 472,
+  y = 352,
+  width = 8,
+  height = 8,
+  pattern = "hole.corner.3",
+}
+
+custom_entity{
+  layer = 0,
+  x = 400,
+  y = 357,
+  width = 16,
+  height = 96,
+  direction = 0,
+  sprite = "entities/hole",
+  tiled = true,
+  model = "hole",
+}
+
+custom_entity{
+  layer = 0,
+  x = 400,
+  y = 341,
+  width = 144,
+  height = 16,
+  direction = 0,
+  sprite = "entities/hole",
+  tiled = true,
+  model = "hole",
+}
+
+custom_entity{
+  layer = 0,
+  x = 528,
+  y = 357,
+  width = 48,
+  height = 16,
+  direction = 0,
+  sprite = "entities/hole",
+  tiled = true,
+  model = "hole",
+}
+
+custom_entity{
+  layer = 0,
+  x = 544,
+  y = 373,
+  width = 32,
+  height = 16,
+  direction = 0,
+  sprite = "entities/hole",
+  tiled = true,
+  model = "hole",
 }
 
 teletransporter{
@@ -2536,16 +1621,6 @@ destructible{
 }
 
 enemy{
-  name = "enemy_group_1_1",
-  layer = 0,
-  x = 416,
-  y = 357,
-  direction = 0,
-  breed = "keese",
-  treasure_name = "random",
-}
-
-enemy{
   name = "enemy_group_2_1",
   layer = 0,
   x = 456,
@@ -2630,36 +1705,6 @@ destructible{
   destruction_sound = "stone",
   weight = -1,
   can_be_cut = true,
-}
-
-enemy{
-  name = "enemy_group_1_2",
-  layer = 0,
-  x = 416,
-  y = 405,
-  direction = 0,
-  breed = "keese",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_1_3",
-  layer = 0,
-  x = 480,
-  y = 357,
-  direction = 0,
-  breed = "keese",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_1_4",
-  layer = 0,
-  x = 512,
-  y = 357,
-  direction = 0,
-  breed = "keese",
-  treasure_name = "random",
 }
 
 destructible{
@@ -2920,6 +1965,496 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/cave_rock",
+}
+
+enemy{
+  name = "enemy_group_1_1",
+  layer = 0,
+  x = 416,
+  y = 357,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "enemy_group_1_2",
+  layer = 0,
+  x = 416,
+  y = 405,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "floor_1_unstable_associate_",
+  layer = 0,
+  x = 392,
+  y = 424,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+custom_entity{
+  name = "floor_1",
+  layer = 0,
+  x = 400,
+  y = 437,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
+}
+
+enemy{
+  name = "enemy_group_1_3",
+  layer = 0,
+  x = 480,
+  y = 357,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "enemy_group_1_4",
+  layer = 0,
+  x = 512,
+  y = 357,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "enemy_group_1_5",
+  layer = 0,
+  x = 464,
+  y = 357,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "floor_2_unstable_associate_",
+  layer = 0,
+  x = 392,
+  y = 408,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "floor_3_unstable_associate_",
+  layer = 0,
+  x = 392,
+  y = 392,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "floor_4_unstable_associate_",
+  layer = 0,
+  x = 392,
+  y = 376,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "floor_5_unstable_associate_",
+  layer = 0,
+  x = 392,
+  y = 360,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "floor_6_unstable_associate_",
+  layer = 0,
+  x = 392,
+  y = 344,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "floor_7_unstable_associate_",
+  layer = 0,
+  x = 392,
+  y = 328,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "floor_8_unstable_associate_",
+  layer = 0,
+  x = 408,
+  y = 328,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "floor_9_unstable_associate_",
+  layer = 0,
+  x = 424,
+  y = 328,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "floor_10_unstable_associate_",
+  layer = 0,
+  x = 440,
+  y = 328,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "floor_11_unstable_associate_",
+  layer = 0,
+  x = 456,
+  y = 328,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "floor_12_unstable_associate_",
+  layer = 0,
+  x = 472,
+  y = 328,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "floor_13_unstable_associate_",
+  layer = 0,
+  x = 488,
+  y = 328,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "floor_14_unstable_associate_",
+  layer = 0,
+  x = 504,
+  y = 328,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "floor_15_unstable_associate_",
+  layer = 0,
+  x = 520,
+  y = 328,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "floor_16_unstable_associate_",
+  layer = 0,
+  x = 520,
+  y = 344,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "floor_17_unstable_associate_",
+  layer = 0,
+  x = 536,
+  y = 344,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "floor_18_unstable_associate_",
+  layer = 0,
+  x = 552,
+  y = 344,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "floor_19_unstable_associate_",
+  layer = 0,
+  x = 536,
+  y = 360,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "floor_20_unstable_associate_",
+  layer = 0,
+  x = 552,
+  y = 360,
+  pattern = "926",
+  width = 16,
+  height = 16,
+}
+
+custom_entity{
+  name = "floor_2",
+  layer = 0,
+  x = 400,
+  y = 421,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
+}
+
+custom_entity{
+  name = "floor_3",
+  layer = 0,
+  x = 400,
+  y = 405,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
+}
+
+custom_entity{
+  name = "floor_4",
+  layer = 0,
+  x = 400,
+  y = 389,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
+}
+
+custom_entity{
+  name = "floor_5",
+  layer = 0,
+  x = 400,
+  y = 373,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
+}
+
+custom_entity{
+  name = "floor_6",
+  layer = 0,
+  x = 400,
+  y = 357,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
+}
+
+custom_entity{
+  name = "floor_7",
+  layer = 0,
+  x = 400,
+  y = 341,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
+}
+
+custom_entity{
+  name = "floor_8",
+  layer = 0,
+  x = 416,
+  y = 341,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
+}
+
+custom_entity{
+  name = "floor_9",
+  layer = 0,
+  x = 432,
+  y = 341,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
+}
+
+custom_entity{
+  name = "floor_10",
+  layer = 0,
+  x = 448,
+  y = 341,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
+}
+
+custom_entity{
+  name = "floor_11",
+  layer = 0,
+  x = 464,
+  y = 341,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
+}
+
+custom_entity{
+  name = "floor_12",
+  layer = 0,
+  x = 480,
+  y = 341,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
+}
+
+custom_entity{
+  name = "floor_13",
+  layer = 0,
+  x = 496,
+  y = 341,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
+}
+
+custom_entity{
+  name = "floor_14",
+  layer = 0,
+  x = 512,
+  y = 341,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
+}
+
+custom_entity{
+  name = "floor_15",
+  layer = 0,
+  x = 528,
+  y = 341,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
+}
+
+custom_entity{
+  name = "floor_16",
+  layer = 0,
+  x = 528,
+  y = 357,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
+}
+
+custom_entity{
+  name = "floor_17",
+  layer = 0,
+  x = 544,
+  y = 357,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
+}
+
+custom_entity{
+  name = "floor_18",
+  layer = 0,
+  x = 560,
+  y = 357,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
+}
+
+custom_entity{
+  name = "floor_19",
+  layer = 0,
+  x = 544,
+  y = 373,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
+}
+
+custom_entity{
+  name = "floor_20",
+  layer = 0,
+  x = 560,
+  y = 373,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/weak_floor_light_1",
+  model = "unstable_floor",
 }
 
 tile{

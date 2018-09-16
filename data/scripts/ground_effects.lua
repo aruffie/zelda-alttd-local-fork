@@ -7,6 +7,7 @@ local enemy_meta = sol.main.get_metatable("enemy")
 
 -- Create ground effect.
 function map_meta:create_ground_effect(effect, x, y, layer, sound_id)
+
   local map = self
   local sprite_id = "ground_effects/" .. effect
   local effect = map:create_custom_entity({direction=0,
@@ -23,6 +24,7 @@ end
 
 -- Display effects when an entity falls to the ground.
 function map_meta:ground_collision(entity, collision_sound, callback_bad_ground)
+
   local map = self
   local x, y, layer = entity:get_position()
   local ground = entity:get_ground_below()
@@ -36,6 +38,7 @@ function map_meta:ground_collision(entity, collision_sound, callback_bad_ground)
      entity:set_position(x, y, layer)
      ground = entity:get_ground_below()
   end
+
   -- Destroy enemies falling on a bad ground, if necessary.
   if entity:get_type() == "enemy" then
     local needs_destruction = true
@@ -50,6 +53,7 @@ function map_meta:ground_collision(entity, collision_sound, callback_bad_ground)
     end
     if needs_destruction then entity:remove() end -- Kill the enemy on bad ground.
   end
+
   -- If the entity falls on hole, water or lava, remove entity and create effect.
   if ground == "hole" and entity ~= hero then  
     self:create_ground_effect("fall_on_hole", x, y, layer, "falling_on_hole")
@@ -76,12 +80,16 @@ function map_meta:ground_collision(entity, collision_sound, callback_bad_ground)
   end
 end
 
--- Return true if there is solid ground.
+-- Functions to check if the position is SOLID ground, i.e., different from hole, lava and deep water.
+-- Deep water is NEVER considered solid ground, even if the hero has the "swim" ability.
 function map_meta:is_solid_ground(x, y, layer)
-  local ground = self:get_ground(x, y, layer)
-  if ground == "hole" or ground == "deep_water" or ground == "lava" then
+  local ground_type = self:get_ground(x, y, layer)
+  return self:is_solid_ground_type(ground_type)
+end
+-- Check if a type of ground is solid ground.
+function map_meta:is_solid_ground_type(ground_type)
+  if ground_type == "hole" or ground_type == "deep_water" or ground_type == "lava" then
     return false
-  else
-    return true
-  end  
+  end
+  return true 
 end

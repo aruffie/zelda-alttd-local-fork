@@ -1,110 +1,77 @@
 local enemy = ...
-local map = enemy:get_map()
-local hero = map:get_hero()
-local sprite
-local movement
-local angle = 0
-local clockwise = true
 
+-- Fireball: an invincible enemy that moves in horizontal or vertical direction
+-- and that runs along the walls
+
+local last_direction4 = 0
+local clockwise = false
+
+
+-- The enemy appears: set its properties.
 function enemy:on_created()
 
+  self:set_life(1)
   self:set_damage(1)
-  self:create_sprite("enemies/fireball")
+  self:create_sprite("enemies/" .. enemy:get_breed())
+  self:set_can_hurt_hero_running(true)
   self:set_invincible()
-  self:set_obstacle_behavior("flying")
-  sprite = enemy:get_sprite()
-  local direction = sprite:get_direction()
-  angle = math.pi / 2 * direction
-  if direction == 0 or direction == 1 then
-    clockwise = false
-  else
-    clockwise = true
-  end
+  self:set_obstacle_behavior("swimming")
+  clockwise = (self:get_property("clockwise") == "true")
 
 end
 
+-- The enemy was stopped for some reason and should restart.
 function enemy:on_restarted()
 
-  enemy:go()
+  local sprite = enemy:get_sprite()
+  local direction4 = sprite:get_direction()
+  self:go(direction4)
 
 end
 
-function enemy:go()
+function enemy:on_obstacle_reached()
 
-  movement = sol.movement.create("straight")
-  movement:set_angle(angle)
-  movement:set_speed(96)
-  movement:start(self)
-  sol.timer.start(enemy, 50, function()
-    enemy:calculate_new_angle()
-    movement:set_angle(angle)
-    return true
-  end)
-end
-
-function enemy:calculate_new_angle()
-
-  local x, y, layer = enemy:get_position()
-  local obstacle_0 = enemy:test_obstacles(1, 0, layer)
-  local obstacle_1 = enemy:test_obstacles(0, -1, layer)
-  local obstacle_2 = enemy:test_obstacles(-1, 0, layer)
-  local obstacle_3 = enemy:test_obstacles(0, 1, layer)
   if clockwise then
-    if obstacle_0 == false and obstacle_1 == false and obstacle_2 == false and obstacle_3 == false then
-        angle = angle + math.pi / 2
-    end
-    if obstacle_0 and obstacle_1 then
-      angle = angle - math.pi / 2
-      return angle
-    end
-  if obstacle_1 and obstacle_2 then
-    angle = angle - math.pi / 2
-    return angle
-  end
-  if obstacle_2 and obstacle_3 then
-    angle = angle - math.pi / 2
-    return angle
-  end
-  if obstacle_3 and obstacle_0 then
-     angle = angle - math.pi / 2
-    return angle
-  end
+    self:go((last_direction4 - 1) % 4)
   else
-    if obstacle_0 == false and obstacle_1 == false and obstacle_2 == false and obstacle_3 == false then
-        angle = angle - math.pi / 2
+    self:go((last_direction4 + 1) % 4)
+  end
+            
+end
+
+function enemy:on_position_changed()
+    if clockwise then
+      enemy:go_if_traversable((last_direction4 + 1) % 4)
+    else
+      enemy:go_if_traversable((last_direction4 - 1) % 4)
     end
-    if obstacle_0 and obstacle_1 then
-        angle = angle + math.pi / 2
-        return angle
-      end
-    if obstacle_1 and obstacle_2 then
-      angle = angle + math.pi / 2
-      return angle
+
+ end
+
+function enemy:go_if_traversable(direction4)
+
+    local dxy = {
+                { x =  1, y =  0},
+                { x =  0, y = -1},
+                { x = -1, y =  0},
+                { x =  0, y =  1}
+              }
+    if not self:test_obstacles(dxy[direction4 + 1].x, dxy[direction4 + 1].y) then
+        self:go(direction4)
     end
-    if obstacle_2 and obstacle_3 then
-      angle = angle + math.pi / 2
-      return angle
-    end
-    if obstacle_3 and obstacle_0 then
-       angle = angle + math.pi / 2
-      return angle
-    end
-  end
-  if obstacle_0 then
-    angle = math.pi / 2
-    return angle
-  end
-  if obstacle_1 then
-    angle = math.pi
-    return angle
-  end
-  if obstacle_2 then
-    angle = 3 * math.pi / 2
-    return angle
-  end
-  if obstacle_3 then
-    angle = 0
-    return angle
-  end
-    
+
+end
+
+
+-- Makes the Fireball go towards a horizontal or vertical direction.
+function enemy:go(direction4)
+
+  local m = sol.movement.create("straight")
+  m:set_speed(80)
+  m:set_smooth(false)
+  m:set_angle(direction4 * math.pi / 2)
+  m:start(self)
+  
+  last_direction4 = direction4
+
 end

@@ -3,13 +3,14 @@
 -- Variables
 local map = ...
 local game = map:get_game()
-local companion_manager = require("scripts/maps/companion_manager")
+
 local owl_manager = require("scripts/maps/owl_manager")
 local travel_manager = require("scripts/maps/travel_manager")
 local tarin_chased_by_bees = false
 -- Methods - Functions
 
-function map:set_music()
+-- Initialize the music of the map
+function map:init_music()
   
   if game:get_value("main_quest_step") == 3  then
     sol.audio.play_music("maps/out/sword_search")
@@ -102,13 +103,13 @@ function map:tarin_search_honey()
     end
     sol.timer.start(map, 2500, function()
         tarin_chased_by_bees = true
-        map:set_music()
+        map:init_music()
         tarin_sprite:set_animation("run_bee")
         map:tarin_run()
     end)
     sol.timer.start(map, 7000, function()
         tarin_chased_by_bees = true
-        map:set_music()
+        map:init_music()
         tarin_sprite:set_animation("run_bee")
         map:tarin_leave_map()
     end)
@@ -193,12 +194,12 @@ function map:tarin_leave_map()
         game:set_hud_enabled(true)
         game:set_pause_allowed(false)
         tarin_chased_by_bees = false
-        map:set_music()
+        map:init_music()
         hero:unfreeze()
         game:set_hud_enabled(true)
         game:set_pause_allowed(true)
         tarin_chased_by_bees = false
-        map:set_music()
+        map:init_music()
         local movement_camera = sol.movement.create("target")
         local x,y = camera:get_position_to_track(hero)
         movement_camera:set_speed(120)
@@ -214,10 +215,10 @@ end
 
 function map:on_started(destination)
 
-  map:set_music()
+  map:init_music()
   map:set_digging_allowed(true)
   owl_7:set_enabled(false)
-  companion_manager:init_map(map)
+
   -- Travel
   travel_transporter:set_enabled(false)
   -- Statue pig
@@ -287,7 +288,7 @@ function dungeon_3_lock:on_interaction()
             sol.timer.start(map, 800, function() 
               map:open_dungeon_3()
               hero:unfreeze()
-              map:set_music()
+              map:init_music()
             end)
           end)
           game:set_value("main_quest_step", 17)
@@ -313,7 +314,7 @@ function owl_7_sensor:on_activated()
 
   if game:get_value("main_quest_step") == 18  and game:get_value("owl_7") ~= true then
     owl_manager:appear(map, 7, function()
-    map:set_music()
+    map:init_music()
     end)
   end
 

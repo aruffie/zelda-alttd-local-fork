@@ -26,7 +26,12 @@ function item:on_using()
     local map = game:get_map()
     local hero = map:get_hero()
     local ocarina = game:get_item("ocarina")
-    ocarina:playing_song("items/ocarina_1")
+    hero:freeze()
+    game:set_pause_allowed(false)
+    ocarina:playing_song("items/ocarina_1", function()
+        hero:unfreeze()
+        game:set_pause_allowed(true)
+    end)
 
     item:set_finished()
 end

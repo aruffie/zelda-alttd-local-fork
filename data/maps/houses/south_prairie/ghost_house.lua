@@ -9,12 +9,12 @@
 
 local map = ...
 local game = map:get_game()
-local companion_manager = require("scripts/maps/companion_manager")
+
 local light_manager = require("scripts/maps/light_manager")
 
 function map:on_started()
 
-  companion_manager:init_map(map)
+
   light_manager:init(map)
   map:set_light(0)
 

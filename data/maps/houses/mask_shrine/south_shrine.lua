@@ -1,6 +1,6 @@
 local map = ...
 local game = map:get_game()
-local companion_manager = require("scripts/maps/companion_manager")
+
 local light_manager = require("scripts/maps/light_manager")
 
 -- Event called at initialization time, as soon as this map becomes is loaded.
@@ -24,7 +24,7 @@ function boss_sensor:on_activated()
     sol.timer.start(1000,function()
       hero:unfreeze()
       boss:set_enabled(true)
-      sol.audio.play_music("maps/dungeons/boss")
+      sol.audio.play_music("maps/dungeons/small_boss")
       boss_sensor:set_enabled(false)
     end)
 end

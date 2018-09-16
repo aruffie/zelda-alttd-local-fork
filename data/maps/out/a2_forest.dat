@@ -9006,9 +9006,15 @@ teletransporter{
   layer = 0,
   x = 0,
   y = 768,
+  properties = {
+    {
+      key = "effect",
+      value = "pixellisation",
+    },
+  },
   width = 960,
   height = 16,
-  transition = "scrolling",
+  transition = "immediate",
   destination_map = "out/a3_mabe_village",
   destination = "_side",
 }
@@ -9084,9 +9090,15 @@ teletransporter{
   layer = 0,
   x = 960,
   y = 0,
+  properties = {
+    {
+      key = "effect",
+      value = "pixellisation",
+    },
+  },
   width = 16,
   height = 768,
-  transition = "scrolling",
+  transition = "immediate",
   destination_map = "out/b2_graveyard",
   destination = "_side",
 }
@@ -9234,9 +9246,15 @@ teletransporter{
   layer = 0,
   x = 0,
   y = -16,
+  properties = {
+    {
+      key = "effect",
+      value = "pixellisation",
+    },
+  },
   width = 960,
   height = 16,
-  transition = "scrolling",
+  transition = "immediate",
   destination_map = "out/a1_west_mt_tamaranch",
   destination = "_side",
 }
@@ -9244,9 +9262,9 @@ teletransporter{
 sensor{
   name = "owl_2_sensor",
   layer = 0,
-  x = 120,
-  y = 765,
-  width = 96,
+  x = 104,
+  y = 701,
+  width = 128,
   height = 16,
 }
 
@@ -11803,8 +11821,8 @@ enemy{
 
 enemy{
   layer = 0,
-  x = 120,
-  y = 645,
+  x = 96,
+  y = 557,
   direction = 0,
   breed = "moblin_dog_spear",
   treasure_name = "random",
@@ -11856,6 +11874,15 @@ wall{
   height = 72,
   stops_enemies = true,
   stops_projectiles = true,
+}
+
+wall{
+  layer = 0,
+  x = 80,
+  y = 632,
+  width = 200,
+  height = 16,
+  stops_enemies = true,
 }
 
 tile{

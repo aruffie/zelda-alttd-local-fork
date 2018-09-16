@@ -8,12 +8,13 @@ function enemy:on_created()
   enemy:set_damage(1)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)
-  enemy:set_invincible()
+  enemy:set_invincible(false)
   enemy:set_attack_consequence("sword", 1)
   enemy:set_attack_consequence("arrow", 1)
   enemy:set_attack_consequence("boomerang", 1)
   enemy:set_attack_consequence("fire", 1)
   enemy:set_attack_consequence("thrown_item", 1)
+  enemy:set_default_behavior_on_hero_shield("normal_shield_push")
   --enemy:set_hookshot_reaction(1)
   --enemy:set_fire_reaction(1)
 
@@ -71,4 +72,10 @@ function enemy:set_symbol_fixed(fixed)
   if not fixed then
     enemy:restart()
   end
+end
+
+function enemy:on_shield_collision(shield)
+
+  enemy:hurt(1)
+
 end

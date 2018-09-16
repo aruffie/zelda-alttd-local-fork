@@ -1,0 +1,37 @@
+-----------------
+DONJON 1 : MOLDORM
+Lombric Zélé
+-----------------
+DONJON 2 : JARVICE
+Génie sarcastique
+-----------------
+DONJON 3 : VITREUX
+Oeil Malicieux
+-----------------
+DONJON 4 : LAMPOISSE
+Monstre des Profondeurs
+-----------------
+DONJON 5 : TANTALOSAR
+Anguille Insatiable
+-----------------
+DONJON 6 : FACADE
+Masque Espiègle
+-----------------
+Donjon 7 : URUBOS
+Vautour Malfaisant
+-----------------
+Donjon 8 : INFERNO
+Tête brûlée
+-----------------
+OEUF DU POISSON-RÊVE : MALEFICIO
+Prince des cauchemars
+-----------------
+TEMPLE DES COULEURS : OCTOPODAR
+Pieuvre Excentrique
+-----------------
+DESERT DE YARNA : LEMNOLA
+Terreur des Sables
+-----------------
+MONTAGNES : MORLAROC
+Tortue endormie
+-----------------
