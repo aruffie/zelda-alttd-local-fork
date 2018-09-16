@@ -6,14 +6,11 @@
 -- The last menu is supposed to start a game.
 
 local initial_menus = {
-  --"scripts/menus/solarus_logo",
-  --"scripts/menus/team_logo",
-  --"scripts/menus/zeldaforce_logo",
-  --"scripts/menus/language",
-  --"scripts/menus/copyright_menu",
-  -- "scripts/menus/title",
-  --"scripts/menus/file_selection",
-  --"scripts/menus/title_background",
+  "scripts/menus/solarus_logo",
+  "scripts/menus/team_logo",
+  "scripts/menus/zeldaforce_logo",
+  "scripts/menus/language",
+  "scripts/menus/copyright_menu",
   "scripts/menus/title",
 }
 

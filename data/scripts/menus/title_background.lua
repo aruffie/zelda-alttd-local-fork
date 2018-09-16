@@ -14,6 +14,11 @@ function title_background:on_started()
   self.background_trees = sol.surface.create("menus/title_screen/background_trees.png")
   self.background_beach = sol.surface.create("menus/title_screen/background_beach.png")
   
+  -- Dark surface to make a fade out effect.
+  self.dark_surface = sol.surface.create(self.surface_w, self.surface_h)
+  self.dark_surface:fill_color({0, 0, 0})
+  self.dark_surface:set_opacity(255)
+
   -- We don't use a map but rather place manually sprites on the background
   -- and move them manually. The reason is to make this cutscene usable as a
   -- simple menu anywhere and anyhow.
@@ -24,6 +29,8 @@ function title_background:on_started()
   self.wave_big = sol.sprite.create("menus/title_screen/wave_big")
   self.wave_small = sol.sprite.create("menus/title_screen/wave_small")
   self.swell = sol.sprite.create("menus/title_screen/swell")
+  self.clouds_top = sol.surface.create(self.surface_w, 64 + self.surface_h)
+  self.clouds_top:fill_color({223, 243, 255})
 
   -- Configure static seagulls.
   self.seagull_1 = sol.sprite.create("npc/seagull")
@@ -77,18 +84,20 @@ function title_background:on_started()
       type = "background",
     },
   }
-  
-  -- Animation duration configuration.
-  self.phase_2_duration = 4000 --ms
-  self.phase_4_duration = 1000 --ms
-  self.anim_delta = 1000 / 60 -- ms
-  self.elapsed_time = 0 -- Modified automatically by this script.
+  self.moving_seagulls_started = false
+
+  -- Modified automatically by this script.
+  self.elapsed_time = 0 
+  self.y_offset = -256
+  self.y_begin = -256
+  self.y_end = -256
+  self.total_duration = 800
 
   -- Preload sounds.
   sol.audio.preload_sounds()
  
   -- Phases.
-  self.PHASE_1, self.PHASE_2, self.PHASE_3, self.PHASE_4, self.PHASE_5 = 1, 2, 3, 4, 5
+  self.PHASE_1, self.PHASE_2, self.PHASE_3, self.PHASE_4, self.PHASE_5, self.PHASE_6 = 1, 2, 3, 4, 5, 6
 
   -- Launch animation.
   self:set_phase(self.PHASE_1)
@@ -98,17 +107,23 @@ end
 -- Start the camera animation.
 function title_background:launch_animation(callback)
 
+  -- Interval between 2 redraw.
+  local anim_delta = 1000 / 60 -- ms
+
   -- Restart the animation.
   self.elapsed_time = 0
+  if self.timer ~= nil then
+    self.timer:stop()
+    self.timer = nil
+  end
 
   -- We use a timer called each anim_delta milliseconds.
   -- The timer is called in a loop while the total duration
   -- is below the defined final duration.
-  self.timer = sol.timer.start(self, self.anim_delta, function()
+  self.timer = sol.timer.start(self, anim_delta, function()
     -- Elapsed time since launch of animation.
-    self.elapsed_time = self.elapsed_time + self.anim_delta
-    
-    if self.elapsed_time < self.phase_2_duration then
+    self.elapsed_time = self.elapsed_time + anim_delta
+    if self.elapsed_time < self.total_duration then
       -- Keep on updating while time is remaining.
       -- Relaunch the timer once again.
       return true
@@ -136,6 +151,7 @@ function title_background:on_draw(dst_surface)
 
   -- Background.
   local y_offset = math.floor(self:get_y_offset(self.elapsed_time))
+  self.y_offset = y_offset
   self.sky:draw(self.surface, 0, 0)
   local mountain_parallax_factor = 1.3
   local trees_parallax_factor = 1.1
@@ -153,6 +169,7 @@ function title_background:on_draw(dst_surface)
   end
 
   -- Sprites are placed manually since this is not a map.
+  self.clouds_top:draw(self.surface, 0, -(64 + self.surface_h) + y_offset)
   self.clouds:draw(self.surface, 0, 0 + y_offset)
   self.mountain_clouds:draw(self.surface, 30, 104 + y_offset * mountain_parallax_factor)
   self.wreck:draw(self.surface, 152, 452 + y_offset)
@@ -185,6 +202,8 @@ function title_background:on_draw(dst_surface)
   -- Draw surface on destination.
   self.surface:draw(dst_surface, (width - self.surface_w)/ 2, (height - self.surface_h) / 2)
 
+  -- Dark surface.
+  self.dark_surface:draw(dst_surface, (width - self.surface_w)/ 2, (height - self.surface_h) / 2)
 end
 
 -- We move the camera with a non-linear movement. Since it is not available
@@ -192,29 +211,17 @@ end
 -- made manually, based on a easing function. 
 function title_background:get_y_offset(t)
 
-  local begin_y = -256
-  local end_y = 0 
-  local delta = end_y - begin_y
-  local total_duration = self.phase_2_duration
-
-  if self.phase == self.PHASE_5 or (self.phase == self.PHASE_4 and t >= self.phase_4_duration)then
-    return 64
-  elseif self.phase == self.PHASE_3 or (self.phase == self.PHASE_2 and t >= self.phase_2_duration) then
-    return end_y
-  elseif self.phase == self.PHASE_4 then
-    begin_y = 0
-    end_y = 64
-    delta = end_y - begin_y
-    total_duration = self.phase_4_duration
-  end
-
-  t = t / total_duration * 2
-  if t < 1 then
-    return delta / 2 * math.pow(t, 2) + begin_y
+  local delta = self.y_end - self.y_begin
+  if delta == 0 then
+    return self.y_end
   else
-    return -delta / 2 * ((t - 1) * (t - 3) - 1) + begin_y
+    t = t / self.total_duration * 2
+    if t < 1 then
+      return delta / 2 * math.pow(t, 2) + self.y_begin
+    else
+      return -delta / 2 * ((t - 1) * (t - 3) - 1) + self.y_begin
+    end
   end
-
 end
 
 -- Change the phase of the cutscene.
@@ -228,51 +235,134 @@ function title_background:set_phase(phase)
     self.timer:stop()
   end
 
-  -- Phase 1: wait a bit before laucnhing a vertical scroll.
+  -- Phase 1: wait a bit before launching a vertical scroll.
   if phase == self.PHASE_1 then
     self.phase = phase
     self.elapsed_time = 0
+    self.dark_surface:fade_out(20)
 
-    self.timer = sol.timer.start(self, 800, function()
+    -- Animation parameters.
+    self.y_begin = -256
+    self.y_end = -256
+    self.y_offset = self.y_begin
+    self.total_duration = 1000
+
+    -- Launch animation phase.
+    self:launch_animation(function()
       -- Go to next phase.
       self:set_phase(self.phase + 1)
     end)
+  
   -- Phase 2: scroll to the top of the mountain.
   elseif phase == self.PHASE_2 then
     self.phase = phase
     self.elapsed_time = 0
 
+    -- Animation parameters.
+    self.y_begin = -256
+    self.y_end = 0
+    self.y_offset = self.y_begin
+    self.total_duration = 4000
+
+    -- Launch animation phase.
     self:launch_animation(function()
       -- Go to next phase.
       self:set_phase(self.phase + 1)
     end)
     
-    -- Start seagulls movements
-    for _, item in pairs(self.moving_seagulls) do
-      sol.timer.start(self, item.start_delay, function()
-        self:move_seagull(item)
-      end)
-    end
+    -- Start seagulls movements.
+    self:start_seagulls()
+
   -- Phase 3: Stop at the top of the mountain. 
   elseif phase == self.PHASE_3 then
     self.phase = phase
-    self.elapsed_time = self.phase_2_duration
+    self.elapsed_time = 0
+    
+    -- Animation parameters.
+    self.y_begin = 0
+    self.y_end = 0
+    self.total_duration = -1
+
+    -- Start seagulls movements, if not done yet.
+    self:start_seagulls()
+
   -- Phase 4: scroll down a bit to let the egg appear.
   elseif phase == self.PHASE_4 then
     self.phase = phase
+    self.elapsed_time = 0
 
+    -- Animation parameters.
+    self.y_begin = self.y_offset
+    self.y_end = 64
+    self.total_duration = 1500
+
+    -- Start seagulls movements, if not done yet.
+    self:start_seagulls()
+    
+    -- Launch animation phase.
     self:launch_animation(function()
       -- Go to next phase.
       self:set_phase(self.phase + 1)
     end)
+
   -- Phase 5: Stop after the scroll
   elseif phase == self.PHASE_5 then
     self.phase = phase
-    self.elapsed_time = self.phase_4_duration
+    self.elapsed_time = 0
+
+    -- Start seagulls movements, if not done yet.
+    self:start_seagulls()
+     
+    -- Animation parameters.
+    self.y_begin = 64
+    self.y_end = 64
+    self.total_duration = -1
+
+  -- Phase 6: Fade to black.
+  elseif phase == self.PHASE_6 then
+    self.phase = phase
+    self.elapsed_time = 0
+ 
+    -- Animation parameters.
+    self.y_begin = self.y_offset
+    self.y_end = 256
+    self.total_duration = 2000
+
+    -- Fade the surface.
+    self.dark_surface:fade_in(20)
+    
+    self:launch_animation(function()
+      -- Stop this menu.
+      sol.menu.stop(self)
+    end)
   end
 
 end
 
+-- Called when this menu is finished.
+function title_background:on_finished()
+  -- Stop all timers.
+  self:stop_all_timers()
+end
+
+-- Start the seagulls movements.
+function title_background:start_seagulls()
+  if not self.moving_seagulls_started then
+    self.moving_seagulls_started = true
+
+    for _, seagull in pairs(self.moving_seagulls) do
+      if seagull.timer ~= nil then
+        seagull.timer:stop()
+        seagull.timer = nil
+      end
+      seagull.timer = sol.timer.start(self, seagull.start_delay, function()
+        self:move_seagull(seagull)
+      end)
+    end
+  end
+end
+
+-- Move a seagull sprite on the screen.
 function title_background:move_seagull(seagull)
   
   if seagull.sprite == nil then
@@ -315,12 +405,32 @@ function title_background:move_seagull(seagull)
 
   -- Start the movement.
   seagull.movement:start(seagull.sprite, function()
+    if seagull.timer ~= nil then
+      seagull.timer:stop()
+      seagull.timer = nil
+    end
     -- When the movement is done, wait a bit, then restart in the opposite direction.
-    self.timer = sol.timer.start(self, 2000, function()
-      self:move_seagull(seagull)
-    end)
+    if sol.menu.is_started(self) then
+      seagull.timer = sol.timer.start(self, 2000, function()
+        self:move_seagull(seagull)
+      end)
+    end
   end)
   
+end
+
+-- Security measure: stop all timers.
+function title_background:stop_all_timers()
+  if self.timer ~= nil then
+    self.timer:stop()
+    self.timer = nil
+  end
+  for _, seagull in pairs(self.moving_seagulls) do
+    if seagull.timer ~= nil then
+      seagull.timer:stop()
+      seagull.timer = nil
+    end
+  end
 end
 
 -- The cutscene is just a background, and does not use any keyboard event.

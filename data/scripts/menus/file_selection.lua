@@ -19,7 +19,6 @@ function file_selection_menu:on_started()
   self.font_y_shift = 2
 
   -- Create static surfaces.
-  -- TODO animate background (use a sprite).  
   self.surface = sol.surface.create(320, 240)
   self.slot_img = sol.surface.create("menus/file_selection/file_selection_slot.png")
   self.button_img = sol.surface.create("menus/file_selection/file_selection_button.png")
@@ -85,6 +84,7 @@ function file_selection_menu:on_started()
   self.cursor_position = 1
   self.finished = false
   self.phase = -1
+  self.choosen_savegame = nil
   self:set_phase(self.phases.CHOOSE_PLAY)
   
   -- Run the menu.
@@ -440,10 +440,9 @@ function file_selection_menu:on_key_pressed(key)
             -- The file exists: run it after a fade-out effect.            
             self.finished = true
             sol.audio.play_sound("sword_spin_attack_load")
-            self.surface:fade_out()
-            sol.timer.start(self, 700, function()
+            self.choosen_savegame = slot.savegame
+            self.surface:fade_out(20, function()
               sol.menu.stop(self)
-              sol.main:start_savegame(slot.savegame)
             end)
           else
             -- The file does not exist : it's a new game.
@@ -472,13 +471,11 @@ function file_selection_menu:on_key_pressed(key)
                   -- Stop music.
                   sol.audio.stop_music()
 
-                  self.surface:fade_out(100)
                   sol.audio.play_sound("sword_spin_attack_load")
-                
-                  -- Automatically launch the game.
-                  sol.timer.start(self, 3000, function()
+                  self.choosen_savegame = slot.savegame
+                  self.surface:fade_out(20, function()
+                    -- Automatically launch the game.
                     sol.menu.stop(self)
-                    sol.main:start_savegame(slot.savegame)
                   end)
                 end)
               end

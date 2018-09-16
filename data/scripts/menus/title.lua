@@ -12,6 +12,8 @@ function title:on_started()
   -- Play music.
   sol.audio.play_music("scripts/menus/title_screen")
 
+  self.finished = false
+
   -- Start the background.
   -- The background does not eat keys or buttons.
   sol.menu.start(self, title_background, true)
@@ -20,19 +22,22 @@ function title:on_started()
   -- The logo will end when the user press Space (or any key).
   multi_events:enable(title_logo)
   multi_events:enable(file_selection)
+  multi_events:enable(title_background)
   title_logo:register_event("on_finished", function()
     -- Start the file selection menu.
     sol.menu.start(self, file_selection, true)
   end)
   file_selection:register_event("on_finished", function()
-    -- Fade to black.
-    print("fade everything")
+    -- Fade the background to black.
+    title_background:set_phase(title_background.PHASE_6)
+  end)
+  title_background:register_event("on_finished", function()
+    -- Launch the savegame.
+    if file_selection.choosen_savegame ~= nil then
+      sol.main:start_savegame(file_selection.choosen_savegame)
+    end
   end)
   sol.menu.start(self, title_logo, true)
-
-  -- Surface used for fading to black, at the end.
-  --self.fade_surface = sol.surface.create(self.surface_w, self.surface_h)
-  --self.fade_surface:fill_color({0, 0, 0})
 
 end
 
@@ -40,22 +45,17 @@ function title:on_key_pressed(key)
 
   local handled = false
 
-  print(key)
-
   if key == "escape" then
-    -- stop the program
+    -- Stop the program.
     sol.main.exit()
+    
+  elseif (key == "space" or key == "return") and not self.finished then
+    self.finished = true
 
-  elseif key == "space" or key == "return" then
-    print("title space")
-
-    if self.timer ~= nil then
-      self.timer:stop()
+    -- Go directly to the phase 4.
+    if title_background.phase < title_background.PHASE_4 then
+      title_background:set_phase(title_background.PHASE_4)
     end
-
-    --if title_background.phase 
-    title_background:set_phase(title_background.PHASE_4)
-    --sol.menu.start(self, title_logo, true)
 
     handled = true
   end
