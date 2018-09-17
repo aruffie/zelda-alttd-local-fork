@@ -34,6 +34,16 @@ function title_logo:on_started()
     color = {255, 255, 255},
   }
   self.copyright_text:set_xy(center_x, self.surface_h - 16)
+  self.copyright_text_shadow = sol.text_surface.create{
+    horizontal_alignment = "center",
+    vertical_alignment = "middle",
+    font = font,
+    font_size = font_size,
+    text_key = "title_screen.copyright",
+    color = {0, 0, 112},
+  }
+  self.copyright_text_shadow:set_xy(center_x, self.surface_h - 16 + 1)
+  self.copyright_text_shadow:set_opacity(127)
 
   self.press_space_text = sol.text_surface.create{
     horizontal_alignment = "center",
@@ -82,6 +92,7 @@ function title_logo:on_draw(dst_surface)
   self.surface:clear()
 
   -- Copyright.
+  self.copyright_text_shadow:draw(self.surface)
   self.copyright_text:draw(self.surface)
   
   -- Draw the logo's different parts.
