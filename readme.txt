@@ -8,7 +8,6 @@ See our development blog (http://www.solarus-engine.org) to get more
 information and documentation about Solarus and our games.
 
 
-
 --------
 Contents
 --------
