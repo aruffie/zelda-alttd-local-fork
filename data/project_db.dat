@@ -1186,6 +1186,7 @@ file{ path = "scripts/menus/team_logo.lua", author = "Olivier Cléro", license =
 file{ path = "scripts/menus/title.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/menus/title_background.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/menus/title_logo.lua", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/menus/zeldaforce_logo.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/meta/sensor.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "scripts/music_manager.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "shaders/pixellisation.dat", author = "PhoenixII54", }
@@ -1233,3 +1234,9 @@ file{ path = "sprites/menus/title_screen/title_zelda.png", author = "Olivier Cl�
 file{ path = "sprites/menus/title_screen/wave_big.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/title_screen/wave_small.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/title_screen/wreck.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/zeldaforce_logo/zeldaforce_logo_f.png", author = "Olivier Cléro", license = "© Zeldaforce" }
+file{ path = "sprites/menus/zeldaforce_logo/zeldaforce_logo_triforce_left.png", author = "Olivier Cléro", license = "© Zeldaforce" }
+file{ path = "sprites/menus/zeldaforce_logo/zeldaforce_logo_triforce_middle.png", author = "Olivier Cléro", license = "© Zeldaforce" }
+file{ path = "sprites/menus/zeldaforce_logo/zeldaforce_logo_triforce_right.png", author = "Olivier Cléro", license = "© Zeldaforce" }
+file{ path = "sprites/menus/zeldaforce_logo/zeldaforce_logo_triforce_top.png", author = "Olivier Cléro", license = "© Zeldaforce" }
+file{ path = "sprites/menus/zeldaforce_logo/zeldaforce_logo_z.png", author = "Olivier Cléro", license = "© Zeldaforce" }
