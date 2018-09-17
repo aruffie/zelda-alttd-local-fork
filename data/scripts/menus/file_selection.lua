@@ -1,4 +1,5 @@
 -- File selection screen.
+-- Author: Olivier Cléro (oclero@hotmail.com)
 
 local file_selection_menu = {}
 

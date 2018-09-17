@@ -1,4 +1,5 @@
 -- Title screen.
+-- Author: Olivier Cléro (oclero@hotmail.com)
 
 local title = {}
 

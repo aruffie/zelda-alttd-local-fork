@@ -1178,6 +1178,10 @@ file{ path = "scripts/gfx_effects/distorsion.lua", author = "PhoenixII54", }
 file{ path = "scripts/gfx_effects/fade_to_white.lua", author = "PhoenixII54", }
 file{ path = "scripts/gfx_effects/pixellisation.lua", author = "PhoenixII54", }
 file{ path = "scripts/gfx_effects/radial_fade_out.lua", author = "PhoenixII54", }
+file{ path = "scripts/menus/file_selection.lua", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/menus/title.lua", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/menus/title_background.lua", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/menus/title_logo.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/meta/sensor.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "scripts/music_manager.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "shaders/pixellisation.dat", author = "PhoenixII54", }
@@ -1186,3 +1190,23 @@ file{ path = "shaders/pixellisation_effect.dat", author = "PhoenixII54", license
 file{ path = "shaders/pixellisation_effect.frag.glsl", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "shaders/radial_fade_out.dat", author = "PhoenixII54", }
 file{ path = "shaders/radial_fade_out.frag.glsl", author = "PhoenixII54", }
+file{ path = "sprites/menus/file_selection/file_selection_button.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/file_selection/file_selection_cursor.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/file_selection/file_selection_frame.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/file_selection/file_selection_hero.png", author = "Xfixium, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/file_selection/file_selection_slot.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/file_selection/file_selection_title.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/title_screen/background_beach.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/title_screen/background_mountain.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/title_screen/background_trees.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/title_screen/clouds.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/title_screen/floating_wood.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/title_screen/mountain_clouds.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/title_screen/sky.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/title_screen/swell.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/title_screen/title_alttd.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/title_screen/title_la.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/title_screen/title_zelda.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/title_screen/wave_big.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/title_screen/wave_small.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/title_screen/wreck.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }

@@ -1,4 +1,5 @@
--- Logo and texts on the title screen (no background).
+-- Logo and texts on the title screen (no background here).
+-- Author: Olivier Cléro (oclero@hotmail.com)
 
 local language_manager = require("scripts/language_manager")
 

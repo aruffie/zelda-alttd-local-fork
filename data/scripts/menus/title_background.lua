@@ -1,4 +1,5 @@
 -- Animated background for the title screen and the file selection menu.
+-- Author: Olivier Cléro (oclero@hotmail.com)
 
 local title_background = {}
 
