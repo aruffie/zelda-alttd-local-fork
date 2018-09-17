@@ -1180,6 +1180,7 @@ file{ path = "scripts/gfx_effects/radial_fade_out.lua", author = "PhoenixII54", 
 file{ path = "scripts/menus/file_selection.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/menus/keyboardbox.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/menus/messagebox.lua", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/menus/settings.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/menus/title.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/menus/title_background.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/menus/title_logo.lua", author = "Olivier Cléro", license = "GPL v3" }
@@ -1206,6 +1207,13 @@ file{ path = "sprites/menus/keyboardbox/keyboardbox_textfield_cursor.png", autho
 file{ path = "sprites/menus/messagebox/messagebox_button.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/messagebox/messagebox_cursor.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/messagebox/messagebox_frame.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/settings/settings_arrow_left.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/settings/settings_arrow_right.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/settings/settings_button_back.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/settings/settings_cursor.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/settings/settings_frame.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/settings/settings_slider.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/settings/settings_slot.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/title_screen/background_beach.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/title_screen/background_mountain.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/title_screen/background_trees.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
