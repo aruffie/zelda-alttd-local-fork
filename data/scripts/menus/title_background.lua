@@ -404,19 +404,20 @@ function title_background:move_seagull(seagull)
   end
 
   -- Start the movement.
-  seagull.movement:start(seagull.sprite, function()
-    if seagull.timer ~= nil then
-      seagull.timer:stop()
-      seagull.timer = nil
-    end
-    -- When the movement is done, wait a bit, then restart in the opposite direction.
-    if sol.menu.is_started(self) then
-      seagull.timer = sol.timer.start(self, 2000, function()
-        self:move_seagull(seagull)
-      end)
-    end
-  end)
-  
+  if sol.menu.is_started(self) then
+    seagull.movement:start(seagull.sprite, function()
+      if seagull.timer ~= nil then
+        seagull.timer:stop()
+        seagull.timer = nil
+      end
+      -- When the movement is done, wait a bit, then restart in the opposite direction.
+      if sol.menu.is_started(self) then
+        seagull.timer = sol.timer.start(self, 2000, function()
+          self:move_seagull(seagull)
+        end)
+      end
+    end)
+  end
 end
 
 -- Security measure: stop all timers.
