@@ -68,8 +68,8 @@
 local co_cut = {}
 local coroutine = coroutine
 
-function co_cut.start_on_map(map,func)
-  local game = map:get_game()
+-- start the cutscene env, game can be nil
+function co_cut.start(timer_context,game,func,env_index)
   local thread = coroutine.create(func)
 
   local aborted = false
@@ -92,7 +92,7 @@ function co_cut.start_on_map(map,func)
   local cells = {}
   --suspend cinematic execution for a while
   function cells.wait(time)
-    local timer = sol.timer.start(map,time,resume_thread)
+    local timer = sol.timer.start(timer_context,time,resume_thread)
     timer:set_suspended_with_map(false)
     -- resume normal engine execution
     yield()
@@ -107,13 +107,15 @@ function co_cut.start_on_map(map,func)
     return yield()
   end
 
-  function cells.dialog(id,info)
-    if info then
-      game:start_dialog(id,info,resume_thread)
-    else
-      game:start_dialog(id,resume_thread)
+  if game then --enable dialog only if game available
+    function cells.dialog(id,info)
+      if info then
+        game:start_dialog(id,info,resume_thread)
+      else
+        game:start_dialog(id,resume_thread)
+      end
+      return yield()
     end
-    return yield()
   end
 
   function cells.movement(movement,entity)
@@ -139,11 +141,14 @@ function co_cut.start_on_map(map,func)
   end
 
   --inherit global scope
-  setmetatable(cells,{__index=getfenv(2)}) --get the env of calling function
+  setmetatable(cells,{__index=getfenv(env_index or 2)}) --get the env of calling function
   setfenv(func,cells) --
   resume_thread() -- launch coroutine to start executing it's content
-  return {abort=cells.abort} --return a handle that you can use to abort the coroutine
+  return {abort=abort} --return a handle that you can use to abort the coroutine
 end
 
+function co_cut.start_on_map(map,func)
+  return co_cut.start(map,map:get_game(),func,3)
+end
 
 return co_cut
