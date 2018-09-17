@@ -439,7 +439,7 @@ function file_selection_menu:on_key_pressed(key)
           if sol.game.exists(slot.file_name) then
             -- The file exists: run it after a fade-out effect.            
             self.finished = true
-            sol.audio.play_sound("sword_spin_attack_load")
+            sol.audio.play_sound("trendy_game_win")
             self.choosen_savegame = slot.savegame
             self.surface:fade_out(20, function()
               sol.menu.stop(self)
@@ -471,7 +471,7 @@ function file_selection_menu:on_key_pressed(key)
                   -- Stop music.
                   sol.audio.stop_music()
 
-                  sol.audio.play_sound("sword_spin_attack_load")
+                  sol.audio.play_sound("trendy_game_win")
                   self.choosen_savegame = slot.savegame
                   self.surface:fade_out(20, function()
                     -- Automatically launch the game.
