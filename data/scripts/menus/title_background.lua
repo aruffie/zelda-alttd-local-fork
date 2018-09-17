@@ -430,6 +430,10 @@ function title_background:stop_all_timers()
       seagull.timer:stop()
       seagull.timer = nil
     end
+    if seagull.movement ~= nil then
+      seagull.movement:stop()
+      seagull.movement = nil
+    end
   end
 end
 
