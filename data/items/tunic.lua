@@ -7,7 +7,7 @@ function item:on_created()
   self:set_savegame_variable("possession_tunic")
 end
 
-function item:on_variant_changed(variant)
+function item:on_obtaining(variant)
 
   -- Give the built-in ability "tunic", but only after the treasure sequence is done.
   game:set_ability("tunic", variant)
