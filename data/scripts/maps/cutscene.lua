@@ -92,14 +92,15 @@ function co_cut.start_on_map(map,func)
   local cells = {}
   --suspend cinematic execution for a while
   function cells.wait(time)
-    local timer = sol.timer.start(game,time,resume_thread)
+    local timer = sol.timer.start(map,time,resume_thread)
+    timer:set_suspended_with_map(false)
     -- resume normal engine execution
     yield()
     return timer
   end
 
   function cells.run_on_main(func)
-    sol.timer.start(game,0,function()
+    sol.timer.start(sol.main,0,function()
                       func()
                       resume_thread()
     end)
