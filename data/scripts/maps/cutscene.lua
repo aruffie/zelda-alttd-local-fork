@@ -23,7 +23,19 @@
 --     movement(mov,a_movable) -- execute the movement and wait for it to finish
 --     animation(a_sprite,"anim_name") -- play an animation and wait for it to finish
 --    end)
+-- 
+-- -- control flow
+-- -- the main advantage of this is to be able to use if,else,for,while during the cinematics
 --
+-- Example:
+--   cutscene.start_on_map(map,function()
+--    local response = dialog("dialog_with_yes_no_answer")
+--    if response then --
+--      dialog("dialog for yes")
+--    else
+--      dialog("dialog for no")
+--    end
+--   end)
 -- ---------
 --  Helpers
 -- ---------
@@ -80,7 +92,7 @@ function co_cut.start_on_map(map,func)
   local cells = {}
   --suspend cinematic execution for a while
   function cells.wait(time)
-    local timer = sol.timer.start(map,time,resume_thread)
+    local timer = sol.timer.start(game,time,resume_thread)
     -- resume normal engine execution
     yield()
     return timer
@@ -126,7 +138,7 @@ function co_cut.start_on_map(map,func)
   end
 
   --inherit global scope
-  setmetatable(cells,{__index=_G})
+  setmetatable(cells,{__index=getfenv(2)}) --get the env of calling function
   setfenv(func,cells) --
   resume_thread() -- launch coroutine to start executing it's content
   return {abort=cells.abort} --return a handle that you can use to abort the coroutine
