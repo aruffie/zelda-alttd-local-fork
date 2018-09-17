@@ -653,7 +653,6 @@ sprite{ id = "menus/messagebox/messagebox_cursor", description = "Message Box cu
 sprite{ id = "menus/pause_cursor", description = "Pause cursor" }
 sprite{ id = "menus/pause_menu_options_command_cursor", description = "Waiting for command input cursor" }
 sprite{ id = "menus/pause_menu_options_cursor", description = "Options menu cursor" }
-sprite{ id = "menus/selection_menu_cursor", description = "Savegame cursor" }
 sprite{ id = "menus/settings/settings_arrow_left", description = "Settings menu left arrow" }
 sprite{ id = "menus/settings/settings_arrow_right", description = "Settings menu right arrow" }
 sprite{ id = "menus/settings/settings_cursor", description = "Settings menu cursor" }
