@@ -136,7 +136,7 @@ function zeldaforce_logo_menu:skip_menu()
 
   -- Go directly to last step
   if self.step <= 3 then
-    if (not self.has_played_sound_1) or (not self.has_played_sound_2) then
+    if (not self.has_played_sound_1) and (not self.has_played_sound_2) then
       sol.audio.play_sound("solarus_logo")
     end
     self:step4()
