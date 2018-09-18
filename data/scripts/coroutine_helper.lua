@@ -161,6 +161,7 @@ function map_meta:start_coroutine(func)
   if multi_event then
     self:register_event("on_finished",handle.abort) --auto abort
   end
+  return handle
 end
 
 --add main function
@@ -175,6 +176,7 @@ function sol.menu.start_coroutine(menu,func,game)
     multi_event:enable(menu)
     menu:register_event("on_finished",handle.abort)
   end
+  return handle
 end
 
 return co_cut
