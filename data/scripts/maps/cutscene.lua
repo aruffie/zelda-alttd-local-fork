@@ -1,22 +1,22 @@
 -- @author std::gregwar
 --
--- This script allows to run your code in a co-routine, to write cinematics without callbacks.
+-- This script allows to run your code in a co-routine, to write code with less callbacks.
 -- The passed function is run in a special environment that expose various helpers.
 --
 -- Usage:
 --
--- require() the script, use start_on_map function to start a function in the special environment
+-- require() the script, this add map:start_coroutine sol.main.start_coroutine and sol.menu.start_coroutne helpers
 --
 -- Example:
 --
 -- --In a map script file
 --
--- local cutscene = require('scripts/maps/cutscene')
+-- require('scripts/maps/cutscene')
 --
 -- local game, map, hero = --init those vals as always
 --
 -- -- somewhere
---   cutscene.start_on_map(map,function()
+--   map:start_coroutine(function()
 --     dialog("sample_dialog") --display a dialog, waiting for it to finish
 --     wait(100) -- wait some time
 --     local mov = sol.movement.create(...) --create a movement like anywhere else
@@ -28,7 +28,7 @@
 -- -- the main advantage of this is to be able to use if,else,for,while during the cinematics
 --
 -- Example:
---   cutscene.start_on_map(map,function()
+--   map:start_coroutine(function()
 --    local response = dialog("dialog_with_yes_no_answer")
 --    if response then --
 --      dialog("dialog for yes")
@@ -51,19 +51,25 @@
 -- note that code inside the function is not restrained to those helpers,
 -- any valid code still works, those helper are just here to offer blocking primitives
 --
--- ----------
---  Launcher
--- ----------
--- -- map : the map where the cinematic is run, serve as context for the timers
--- -- a_function : the closure that will be run in the special environment
--- local handle = cutscene.start_on_map(map,a_function)
+-- -----------
+--  Launchers
+-- -----------
+-- sol.main.start_coroutine(func,[game]) --start coroutine with main as timer context, pass game to be able to use dialog
 --
+-- sol.menu.start_coroutine(menu,func,[game]) --start coroutine with menu as context, pass game to be able to use dialog
+--
+-- map:start_coroutine(func) --start coroutine with map as context
 --
 --
 -- handle.abort() -- abort the cutscene from outside the special function (aborting from the inside is just 'return')
 --
 -- --------------------------------------------------------------------------------------
 
+local ok, multi_event = pcall(require,"scripts/multi_events.lua")
+if not ok then
+  print("Warning multi-events script not found, coroutine_helper will lack auto-abort")
+  multi_event = nil
+end
 
 local co_cut = {}
 local coroutine = coroutine
@@ -116,6 +122,10 @@ function co_cut.start(timer_context,game,func,env_index)
       end
       return yield()
     end
+  else
+    function cells.dialog()
+      error("Dialog can only be used if a game context is passed or deduced")
+    end
   end
 
   function cells.movement(movement,entity)
@@ -141,14 +151,34 @@ function co_cut.start(timer_context,game,func,env_index)
   end
 
   --inherit global scope
-  setmetatable(cells,{__index=getfenv(env_index or 2)}) --get the env of calling function
+  setmetatable(cells,{__index=getfenv((env_index or 1) + 1)}) --get the env of calling function
   setfenv(func,cells) --
   resume_thread() -- launch coroutine to start executing it's content
   return {abort=abort} --return a handle that you can use to abort the coroutine
 end
 
-function co_cut.start_on_map(map,func)
-  return co_cut.start(map,map:get_game(),func,3)
+--add map method
+local map_meta = sol.main.get_metatable("map")
+
+function map_meta:start_coroutine(func)
+  local handle = co_cut.start(self,self:get_game(),func,2)
+  if multi_event then
+    self:register_event("on_finished",handle.abort) --auto abort
+  end
+end
+
+--add main function
+function sol.main.start_coroutine(func,game)
+  return co_cut.start(sol.main,game,func,2)
+end
+
+--add menu function
+function sol.menu.start_coroutine(menu,func,game)
+  local handle = co_cut.start(menu,game,func,2)
+  if multi_event then
+    multi_event:enable(menu)
+    menu:register_event("on_finished",handle.abort)
+  end
 end
 
 return co_cut
