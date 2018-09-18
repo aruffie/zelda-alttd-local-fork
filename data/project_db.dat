@@ -319,6 +319,7 @@ sprite{ id = "enemies/wizzrobe_white", description = "Wizzrobe white" }
 sprite{ id = "enemies/zol_green", description = "Zol green" }
 sprite{ id = "enemies/zol_red", description = "Zol red" }
 sprite{ id = "enemies/zombie", description = "Zombie" }
+sprite{ id = "entities/alligo_flag", description = "Alligo flag" }
 sprite{ id = "entities/arrow", description = "Arrow" }
 sprite{ id = "entities/arrow_fly", description = "Arrow fly" }
 sprite{ id = "entities/ball", description = "Ball" }
