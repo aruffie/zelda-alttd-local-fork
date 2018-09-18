@@ -139,50 +139,45 @@ end
 -- This is the cinematic in which the hero open dungeon 1 with tail key
 function map:launch_cinematic_2()
 
-  -- Init and launch cinematic mode
-  local options = {
-    entities_ignore_suspend = {dungeon_1_entrance}
-  }
-  map:set_cinematic_mode(true, options)
-  sol.audio.stop_music()
-  local camera = map:get_camera()
-  local camera_x, camera_y = camera:get_position()
-  local movement1 = sol.movement.create("straight")
-  movement1:set_angle(math.pi / 2)
-  movement1:set_max_distance(72)
-  movement1:set_speed(75)
-  movement1:set_ignore_suspend(true)
-  movement1:start(camera, function()
-    local timer1 = sol.timer.start(map, 1000, function()
-        sol.audio.play_sound("shake")
-        local shake_config = {
-            count = 32,
-            amplitude = 4,
-            speed = 90,
-        }
-        camera:shake(shake_config, function()
-          camera:start_manual()
-          camera:set_position(camera_x, camera_y - 72)
-          sol.audio.play_sound("secret_2")
-          dungeon_1_entrance:get_sprite():set_animation("opening")
-          local timer2 = sol.timer.start(map, 800, function()
-            map:open_dungeon_1()
-            local movement2 = sol.movement.create("straight")
-            movement2:set_angle(3 * math.pi / 2)
-            movement2:set_max_distance(72)
-            movement2:set_speed(75)
-            movement2:set_ignore_suspend(true)
-            movement2:start(camera, function()
-              map:set_cinematic_mode(false, options)
-              camera:start_tracking(hero)
-              map:init_music()
-            end)
-          end)
-          timer2:set_suspended_with_map(false)
-        end)
-        game:set_value("main_quest_step", 7)
-      end)
-      timer1:set_suspended_with_map(false)
-  end)
+  cutscene.start_on_map(map,function()
+    local options = {
+      entities_ignore_suspend = {dungeon_1_entrance}
+    }
+    map:set_cinematic_mode(true, options)
+    sol.audio.stop_music()
+    local camera = map:get_camera()
+    local camera_x, camera_y = camera:get_position()
+    local movement1 = sol.movement.create("straight")
+    movement1:set_angle(math.pi / 2)
+    movement1:set_max_distance(72)
+    movement1:set_speed(75)
+    movement1:set_ignore_suspend(true)
+    movement(movement1, camera)
+    wait(1000)
+    sol.audio.play_sound("shake")
+    local shake_config = {
+        count = 32,
+        amplitude = 4,
+        speed = 90
+    }
+    camera:shake(shake_config, function()
+      camera:start_manual()
+      camera:set_position(camera_x, camera_y - 72)
+      sol.audio.play_sound("secret_2")
+      dungeon_1_entrance:get_sprite():set_animation("opening")
+      wait(2000)
+      map:open_dungeon_1()
+      local movement2 = sol.movement.create("straight")
+      movement2:set_angle(3 * math.pi / 2)
+      movement2:set_max_distance(72)
+      movement2:set_speed(75)
+      movement2:set_ignore_suspend(true)
+      movement(movement2, camera)
+      map:set_cinematic_mode(false, options)
+      camera:start_tracking(hero)
+      game:set_value("main_quest_step", 7)
+      map:init_music()
+    end)
+  )
 
 end
