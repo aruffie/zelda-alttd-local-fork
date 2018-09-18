@@ -139,7 +139,7 @@ end
 -- This is the cinematic in which the hero open dungeon 1 with tail key
 function map:launch_cinematic_2()
 
-  cutscene.start_on_map(map,function()
+  map:start_coroutine(function()
     local options = {
       entities_ignore_suspend = {dungeon_1_entrance}
     }
@@ -178,6 +178,6 @@ function map:launch_cinematic_2()
       game:set_value("main_quest_step", 7)
       map:init_music()
     end)
-  )
+  end)
 
 end

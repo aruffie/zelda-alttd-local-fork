@@ -11,10 +11,6 @@
 --
 -- --In a map script file
 --
--- require('scripts/maps/cutscene')
---
--- local game, map, hero = --init those vals as always
---
 -- -- somewhere
 --   map:start_coroutine(function()
 --     dialog("sample_dialog") --display a dialog, waiting for it to finish
@@ -41,7 +37,7 @@
 -- ---------
 --
 -- wait(time)                         -- suspend execution of the cinematic for time [ms]
--- dialog(dialog_id,[info])           -- display the dialog (with optional info) and resume exec when it finishes
+-- dialog(dialog_id,[info])           -- display the dialog (with optional info) and resume exec when it finishes, only available if game context is passed or deduced
 -- movement(a_movement,a_movable)     -- start the given movement on the given movable, resume execution when movement finishes
 -- animation(a_sprite,animation_id)   -- play the animation on the given sprite and wait for it to finish
 -- run_on_main(a_function)            -- run a given closure on the main thread
