@@ -9786,15 +9786,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 808,
-  y = 432,
-  width = 16,
-  height = 16,
-  pattern = "6020",
-}
-
-tile{
-  layer = 0,
   x = 824,
   y = 432,
   width = 8,
@@ -11455,6 +11446,25 @@ teletransporter{
   height = 16,
   destination_map = "houses/south_mabe_village/sales_house_o_bananas",
   destination = "sales_house_o_bananas_2_B",
+}
+
+sensor{
+  name = "open_house_sales_house_o_bananas_2_A_door_sensor",
+  layer = 0,
+  x = 816,
+  y = 461,
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "sales_house_o_bananas_2_A_door",
+  layer = 0,
+  x = 808,
+  y = 432,
+  pattern = "6020",
+  width = 16,
+  height = 16,
 }
 
 tile{
