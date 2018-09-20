@@ -77,6 +77,7 @@ function co_cut.start(timer_context,game,func,env_index)
   local aborted = false
 
   local function resume_thread(...)
+    assert(coroutine.status(thread) == 'suspended', "Resuming a unsuspended coroutine")
     local status, err = coroutine.resume(thread,...)
     if not status then
       error(err) --forward errors
@@ -91,9 +92,23 @@ function co_cut.start(timer_context,game,func,env_index)
     return unpack(ress)
   end
 
+  local function assert_coroutine()
+    local status = coroutine.status(thread)
+    if status ~= "running"  then
+      error(
+        string.format(
+          "Coroutine helper isn't called from a coroutine (status : %s)...\
+            did you forgot to use 'wait_for' wait on a callback?",
+          status
+        )
+      )
+    end
+  end
+
   local cells = {}
   --suspend cinematic execution for a while
   function cells.wait(time)
+    assert_coroutine()
     local timer = sol.timer.start(timer_context,time,resume_thread)
     timer:set_suspended_with_map(false)
     -- resume normal engine execution
@@ -102,6 +117,7 @@ function co_cut.start(timer_context,game,func,env_index)
   end
 
   function cells.run_on_main(func)
+    assert_coroutine()
     sol.timer.start(sol.main,0,function()
                       func()
                       resume_thread()
@@ -111,6 +127,7 @@ function co_cut.start(timer_context,game,func,env_index)
 
   if game then --enable dialog only if game available
     function cells.dialog(id,info)
+      assert_coroutine()
       if info then
         game:start_dialog(id,info,resume_thread)
       else
@@ -125,17 +142,20 @@ function co_cut.start(timer_context,game,func,env_index)
   end
 
   function cells.movement(movement,entity)
+    assert_coroutine()
     movement:start(entity,resume_thread)
     return yield()
   end
 
   function cells.animation(sprite,anim_name)
+    assert_coroutine()
     sprite:set_animation(anim_name,resume_thread)
     return yield()
   end
 
   --run and wait a function that takes args and then a callback
   function cells.wait_for(method,...)
+    assert_coroutine()
     local args = {...}
     table.insert(args,resume_thread)
     method(unpack(args))
