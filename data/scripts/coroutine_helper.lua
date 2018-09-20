@@ -116,6 +116,13 @@ function co_cut.start(timer_context,game,func,env_index)
     return timer
   end
 
+  function cells.suspendable_wait(time)
+    assert_coroutine()
+    local timer = sol.timer.start(timer_context,time,resume_thread)
+    yield()
+    return timer
+  end
+
   function cells.run_on_main(func)
     assert_coroutine()
     sol.timer.start(sol.main,0,function()
