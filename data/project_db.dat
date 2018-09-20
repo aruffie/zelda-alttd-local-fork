@@ -1160,7 +1160,11 @@ shader{ id = "sepia", description = "Sepia" }
 shader{ id = "toon", description = "Toon" }
 
 file{ path = "main.lua", author = "Christopho", license = "GPL v3" }
-file{ path = "musics/maps/out/overworld.ogg", author = "Loeder", license = "" }
+file{ path = "musics/maps/dungeons/7/dungeon.it", author = "Metallizer", }
+file{ path = "musics/maps/houses/christine.ogg", author = "Farockt", }
+file{ path = "musics/maps/houses/mr_write.ogg", author = "Farockt", }
+file{ path = "musics/maps/out/mysterious_forest.ogg", author = "Farockt", }
+file{ path = "musics/maps/out/overworld.ogg", author = "Loeder", }
 file{ path = "scripts/gfx_effects/distorsion.lua", author = "PhoenixII54", }
 file{ path = "scripts/gfx_effects/fade_to_white.lua", author = "PhoenixII54", }
 file{ path = "scripts/gfx_effects/pixellisation.lua", author = "PhoenixII54", }
