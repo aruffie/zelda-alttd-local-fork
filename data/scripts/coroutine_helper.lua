@@ -98,7 +98,7 @@ function co_cut.start(timer_context,game,func,env_index)
       error(
         string.format(
           "Coroutine helper isn't called from a coroutine (status : %s)...\
-            did you forgot to use 'wait_for' wait on a callback?",
+            did you forget to use 'wait_for' to wait on a callback?",
           status
         )
       )
