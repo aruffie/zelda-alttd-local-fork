@@ -1,7 +1,7 @@
 -- Variables
 local map = ...
 local game = map:get_game()
-local cutscene = require("scripts/maps/cutscene.lua")
+
 
 -- Map events
 function map:on_started(destination)
@@ -225,7 +225,7 @@ end
 
 function map:launch_cinematic_1()
   --local snores = snores
-  cutscene.start_on_map(map,function()
+  map:start_coroutine(function()
     local options = {
       entities_ignore_suspend = {hero, marin, tarin, snores}
     }

@@ -11,7 +11,7 @@ local hero = map:get_hero()
 
 -- Events
 
-function map:on_started()
+function map:on_started(destination)
 
  map:init_music()
  map:set_digging_allowed(true)
@@ -29,6 +29,11 @@ function map:on_started()
  local hibiscus_sprite = hibiscus:get_sprite()
  hibiscus_sprite:set_animation("magnifying_lens")
  hibiscus_sprite:set_direction(7)
+
+ --Jumping if coming from the Bird key cave
+  if destination == cave_c1_bird_cave_key_hole then
+    hero:start_jumping(6,48,true)
+  end
 
 end
 
