@@ -1542,15 +1542,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 568,
-  y = 152,
-  width = 8,
-  height = 40,
-  pattern = "2205",
-}
-
-tile{
-  layer = 0,
   x = 576,
   y = 96,
   width = 96,
@@ -4377,8 +4368,8 @@ tile{
 
 tile{
   layer = 0,
-  x = 640,
-  y = 192,
+  x = 704,
+  y = 200,
   width = 8,
   height = 8,
   pattern = "84",
@@ -5070,7 +5061,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 600,
+  x = 584,
   y = 192,
   width = 8,
   height = 8,
@@ -5079,7 +5070,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 592,
+  x = 576,
   y = 192,
   width = 8,
   height = 8,
@@ -5088,7 +5079,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 600,
+  x = 584,
   y = 200,
   width = 8,
   height = 8,
@@ -5097,7 +5088,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 592,
+  x = 576,
   y = 200,
   width = 8,
   height = 8,
@@ -10236,78 +10227,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 544,
-  y = 144,
-  width = 48,
-  height = 40,
-  pattern = "2202",
-}
-
-tile{
-  layer = 0,
-  x = 544,
-  y = 184,
-  width = 48,
-  height = 8,
-  pattern = "2203",
-}
-
-tile{
-  layer = 0,
-  x = 536,
-  y = 144,
-  width = 8,
-  height = 40,
-  pattern = "2204",
-}
-
-tile{
-  layer = 0,
-  x = 656,
-  y = 144,
-  width = 48,
-  height = 40,
-  pattern = "2202",
-}
-
-tile{
-  layer = 0,
-  x = 656,
-  y = 184,
-  width = 48,
-  height = 8,
-  pattern = "2203",
-}
-
-tile{
-  layer = 0,
-  x = 648,
-  y = 144,
-  width = 8,
-  height = 40,
-  pattern = "2204",
-}
-
-tile{
-  layer = 0,
-  x = 704,
-  y = 144,
-  width = 8,
-  height = 40,
-  pattern = "2205",
-}
-
-tile{
-  layer = 0,
-  x = 592,
-  y = 144,
-  width = 8,
-  height = 40,
-  pattern = "2205",
-}
-
-tile{
-  layer = 0,
   x = 696,
   y = 464,
   width = 8,
@@ -10396,6 +10315,60 @@ tile{
   pattern = "975",
 }
 
+tile{
+  layer = 0,
+  x = 544,
+  y = 184,
+  width = 48,
+  height = 8,
+  pattern = "2214",
+}
+
+tile{
+  layer = 0,
+  x = 536,
+  y = 144,
+  width = 8,
+  height = 40,
+  pattern = "2212",
+}
+
+tile{
+  layer = 0,
+  x = 592,
+  y = 144,
+  width = 8,
+  height = 40,
+  pattern = "2213",
+}
+
+tile{
+  layer = 0,
+  x = 648,
+  y = 144,
+  width = 8,
+  height = 40,
+  pattern = "2212",
+}
+
+tile{
+  layer = 0,
+  x = 656,
+  y = 184,
+  width = 48,
+  height = 8,
+  pattern = "2214",
+}
+
+tile{
+  layer = 0,
+  x = 704,
+  y = 144,
+  width = 8,
+  height = 40,
+  pattern = "2213",
+}
+
 npc{
   layer = 0,
   x = 184,
@@ -10414,16 +10387,6 @@ npc{
   subtype = 0,
   sprite = "entities/sign",
   behavior = "dialog#maps.out.east_prairie.sign_1",
-}
-
-npc{
-  layer = 0,
-  x = 640,
-  y = 149,
-  direction = 3,
-  subtype = 0,
-  sprite = "entities/sign",
-  behavior = "dialog#maps.out.east_prairie.sign_4",
 }
 
 npc{
@@ -11564,16 +11527,7 @@ enemy{
 
 enemy{
   layer = 0,
-  x = 592,
-  y = 221,
-  direction = 3,
-  breed = "moblin",
-  treasure_name = "random",
-}
-
-enemy{
-  layer = 0,
-  x = 656,
+  x = 600,
   y = 221,
   direction = 3,
   breed = "moblin",
@@ -11627,7 +11581,7 @@ enemy{
 
 enemy{
   layer = 0,
-  x = 704,
+  x = 720,
   y = 109,
   direction = 1,
   breed = "moblin",
@@ -11639,6 +11593,49 @@ enemy{
   x = 744,
   y = 133,
   direction = 0,
+  breed = "moblin",
+  treasure_name = "random",
+}
+
+custom_entity{
+  name = "statue_shell_house",
+  layer = 0,
+  x = 600,
+  y = 181,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statue_shell_house",
+  model = "obstacle",
+}
+
+custom_entity{
+  name = "statue_shell_house_2",
+  layer = 0,
+  x = 648,
+  y = 181,
+  width = 16,
+  height = 16,
+  direction = 2,
+  sprite = "entities/statue_shell_house",
+  model = "obstacle",
+}
+
+npc{
+  layer = 0,
+  x = 648,
+  y = 197,
+  direction = 3,
+  subtype = 0,
+  sprite = "entities/sign",
+  behavior = "dialog#maps.out.east_prairie.sign_4",
+}
+
+enemy{
+  layer = 0,
+  x = 648,
+  y = 221,
+  direction = 3,
   breed = "moblin",
   treasure_name = "random",
 }
@@ -13266,15 +13263,6 @@ tile{
 tile{
   layer = 1,
   x = 544,
-  y = 120,
-  width = 48,
-  height = 48,
-  pattern = "4593",
-}
-
-tile{
-  layer = 1,
-  x = 544,
   y = 112,
   width = 48,
   height = 8,
@@ -13288,15 +13276,6 @@ tile{
   width = 8,
   height = 48,
   pattern = "4562",
-}
-
-tile{
-  layer = 1,
-  x = 656,
-  y = 120,
-  width = 48,
-  height = 48,
-  pattern = "4593",
 }
 
 tile{
@@ -13333,6 +13312,42 @@ tile{
   width = 8,
   height = 48,
   pattern = "4560",
+}
+
+tile{
+  layer = 1,
+  x = 544,
+  y = 144,
+  width = 48,
+  height = 40,
+  pattern = "2211",
+}
+
+tile{
+  layer = 1,
+  x = 544,
+  y = 120,
+  width = 48,
+  height = 48,
+  pattern = "4593",
+}
+
+tile{
+  layer = 1,
+  x = 656,
+  y = 144,
+  width = 48,
+  height = 40,
+  pattern = "2211",
+}
+
+tile{
+  layer = 1,
+  x = 656,
+  y = 120,
+  width = 48,
+  height = 48,
+  pattern = "4593",
 }
 
 custom_entity{

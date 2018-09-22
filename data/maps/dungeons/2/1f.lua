@@ -49,8 +49,6 @@ function map:on_opening_transition_finished(destination)
     map:set_doors_open("door_group_small_boss", true)
 end
 
--- Enemies
-
 -- Treasures
 treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_2", "pickable_small_key_1", nil)
 treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_5", "pickable_small_key_2", nil)
@@ -67,8 +65,6 @@ door_manager:open_when_blocks_moved(map, "block_group_1", "door_group_2")
 
 
 -- Sensors events
-
-
 function sensor_1:on_activated()
 
   if is_small_boss_active == false then
@@ -106,7 +102,6 @@ function sensor_4:on_activated()
 end
 
 -- Enemies events
-
 enemy_group_15_1:register_event("on_dead", function()
   if boss_key_enemies_index == 0 then
     boss_key_enemies_index = 1
@@ -126,7 +121,6 @@ enemy_group_15_3:register_event("on_dead", function()
 end)
 
 -- Switchs events
-
 function switch_1:on_activated()
 
   treasure_manager:appear_chest(map, "chest_small_key_4", true)
@@ -135,7 +129,6 @@ end
 
 
 -- Treasures events
-
 function map:on_obtaining_treasure(item, variant, savegame_variable)
 
     if savegame_variable == "dungeon_2_big_treasure_test" then
@@ -146,7 +139,6 @@ end
 
 
 -- Separator events
-
 auto_separator_2:register_event("on_activated", function(separator, direction4)
 
     map:set_light(0)

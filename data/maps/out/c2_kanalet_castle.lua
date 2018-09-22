@@ -8,7 +8,8 @@ local hero = map:get_hero()
 
 -- Methods - Functions
 
-function map:set_music()
+-- Initialize the music of the map
+function map:init_music()
   
    sol.audio.play_music("maps/out/overworld")
 
@@ -103,7 +104,7 @@ function map:monkey_build_bridge()
                   monkey:get_sprite():set_animation("stopped")
                   monkey:get_sprite():set_direction(3)
                   game:start_dialog("maps.out.kanalet_castle.monkey_5", function()
-                    map:set_music()
+                    map:init_music()
                     map:monkey_leave_bridge()
                     map:get_entity("monkey"):get_sprite():set_animation("jumping")
                     map:get_entity("monkey"):get_sprite():set_direction(1)

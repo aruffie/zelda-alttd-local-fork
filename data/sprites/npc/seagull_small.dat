@@ -1,0 +1,12 @@
+animation{
+  name = "default",
+  src_image = "npc/seagull_small.png",
+  frame_delay = 150,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 16, y = 0, frame_width = 16, frame_height = 8, origin_x = 8, origin_y = 6, num_frames = 6, num_columns = 1 },
+    { x = 16, y = 0, frame_width = 16, frame_height = 8, origin_x = 8, origin_y = 6, num_frames = 6, num_columns = 1 },
+    { x = 0, y = 0, frame_width = 16, frame_height = 8, origin_x = 8, origin_y = 6, num_frames = 6, num_columns = 1 },
+    { x = 0, y = 0, frame_width = 16, frame_height = 8, origin_x = 8, origin_y = 6, num_frames = 6, num_columns = 1 },
+  },
+}

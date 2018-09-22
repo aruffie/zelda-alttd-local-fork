@@ -1,72 +1,71 @@
--- Title screen with an animation before the logo appears.
+-- Title screen.
+-- Author: Olivier Cléro (oclero@hotmail.com)
 
-local title_screen = {}
+local title = {}
 
-function title_screen:on_started()
+local title_background = require("scripts/menus/title_background")
+local title_logo = require("scripts/menus/title_logo")
+local file_selection = require("scripts/menus/file_selection")
+local music_manager = require("scripts/music_manager")
+local multi_events = require("scripts/multi_events")
 
-  self.phase = "black"
-  self.surface = sol.surface.create(320, 256)
-  -- Black screen during 0.3 seconds
-  self.timer = sol.timer.start(self, 300, function()
-    self:phase_title()
+function title:on_started()
+  -- Play music.
+  sol.audio.play_music("scripts/menus/title_screen")
+
+  self.finished = false
+
+  -- Start the background.
+  -- The background does not eat keys or buttons.
+  sol.menu.start(self, title_background, true)
+
+  -- Register a callback for when the logo is finished.
+  -- The logo will end when the user press Space (or any key).
+  multi_events:enable(title_logo)
+  multi_events:enable(file_selection)
+  multi_events:enable(title_background)
+  title_logo:register_event("on_finished", function()
+    -- Start the file selection menu.
+    sol.menu.start(self, file_selection, true)
   end)
-
-  -- Preload sounds
-  sol.audio.preload_sounds()
-
-end
-
-function title_screen:phase_title()
-
-  -- actual title screen
-  self.phase = "title"
-  self.surface:fade_in(30)
-  -- start music
-  sol.audio.play_music("scripts/menus/title_screen_no_intro")
-  local background_img = sol.surface.create("menus/title.png")
-  local width, height = background_img:get_size()
-  local x, y = 160 - width / 2, 120 - height / 2
-  background_img:draw(self.surface, x, y)
+  file_selection:register_event("on_finished", function()
+    -- Fade out the music.
+    music_manager:play_music_fade(sol.main , nil)
+    
+    -- Fade the background to black.
+    title_background:set_phase(title_background.PHASE_6)
+  end)
+  title_background:register_event("on_finished", function()
+    -- Launch the savegame.
+    if file_selection.choosen_savegame ~= nil then
+      sol.main:start_savegame(file_selection.choosen_savegame)
+    end
+  end)
+  sol.menu.start(self, title_logo, true)
 
 end
 
-function title_screen:on_draw(dst_surface)
+function title:on_key_pressed(key)
 
-  local width, height = dst_surface:get_size()
-  self.surface:draw(dst_surface, width / 2 - 160, height / 2 - 120)
-
-end
-
-function title_screen:on_key_pressed(key)
-
-  local handled = true
+  local handled = false
 
   if key == "escape" then
-    -- stop the program
+    -- Stop the program.
     sol.main.exit()
+    
+  elseif (key == "space" or key == "return") and not self.finished then
+    self.finished = true
 
-  elseif key == "space" or key == "return" then
-     self.timer:stop()
-     handled = true
-     sol.menu.stop(self)
+    -- Go directly to the phase 4.
+    if title_background.phase < title_background.PHASE_4 then
+      title_background:set_phase(title_background.PHASE_4)
+    end
 
---  Debug.
-  elseif key == "left shift" or key == "right shift" then
-    sol.menu.stop(self)
-
-  else
-    handled = false
-
+    handled = true
   end
 
   return handled
 end
 
-function title_screen:on_joypad_button_pressed(button)
-
-  return title_screen:on_key_pressed("space")
-
-end
-
-return title_screen
+return title
 

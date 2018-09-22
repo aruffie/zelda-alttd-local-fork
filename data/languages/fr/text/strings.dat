@@ -119,5 +119,6 @@ text{ key = "settings.music_volume", value = "Volume de la musique" }
 text{ key = "settings.sound_volume", value = "Volume des sons" }
 text{ key = "settings.title", value = "Options" }
 text{ key = "settings.video_filter", value = "Filtre vidéo" }
+text{ key = "title_screen.copyright", value = "© 2017 Zeldaforce, Solarus Team" }
 text{ key = "title_screen.press_space", value = "Appuyez sur espace" }
 text{ key = "title_screen.website", value = "www.zeldaforce.net" }

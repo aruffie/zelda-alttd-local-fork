@@ -9,7 +9,8 @@ local owl_manager = require("scripts/maps/owl_manager")
 
 -- Methods - Functions
 
-function map:set_music()
+-- Initialize the music of the map
+function map:init_music()
   
   local x_hero, y_hero = hero:get_center_position()
   if y_hero < 384 then
@@ -31,7 +32,9 @@ function map:on_started(destination)
   -- Owl
   owl_6:set_enabled(false)
   -- Remove the big stone if you come from the secret cave
-  if destination == stair_arrows_upgrade then secret_stone:set_enabled(false) end
+  if destination == stair_arrows_upgrade then
+    secret_stone:set_enabled(false)
+  end
   -- Signs
   photographer_sign:get_sprite():set_animation("photographer_sign")
 
@@ -41,7 +44,7 @@ function owl_6_sensor:on_activated()
 
   if game:get_value("owl_6") ~= true then
     owl_manager:appear(map, 6, function()
-      map:set_music()
+      map:init_music()
     end)
   end
 

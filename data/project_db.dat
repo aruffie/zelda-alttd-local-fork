@@ -124,6 +124,7 @@ map{ id = "houses/yarna_desert/empty_house", description = "Empty house" }
 map{ id = "houses/yarna_desert/painter_house", description = "Painter's house" }
 map{ id = "houses/yarna_desert/rabbits_house", description = "Rabbits house" }
 map{ id = "movies/introduction", description = "Introduction" }
+map{ id = "movies/introduction2", description = "Cocolint Beach" }
 map{ id = "movies/link_and_marin", description = "Link and Marin" }
 map{ id = "out/a1_west_mt_tamaranch", description = "A1 - West Mt Tamaranch" }
 map{ id = "out/a2_forest", description = "A2 - Forest" }
@@ -185,6 +186,7 @@ sprite{ id = "enemies/bloober", description = "Bloober" }
 sprite{ id = "enemies/bomber", description = "Bomber" }
 sprite{ id = "enemies/boo_buddy", description = "Boo buddy" }
 sprite{ id = "enemies/boss/cue_ball", description = "Cue ball" }
+sprite{ id = "enemies/boss/cue_ball_splash_effect", description = "Cue ball splash effect" }
 sprite{ id = "enemies/boss/dodongo_snake", description = "Dodongo_snake" }
 sprite{ id = "enemies/boss/dodongo_snake/dodongo_snake_body", description = "Dodongo snake body" }
 sprite{ id = "enemies/boss/evil_orb", description = "Evil orb" }
@@ -318,6 +320,7 @@ sprite{ id = "enemies/wizzrobe_white", description = "Wizzrobe white" }
 sprite{ id = "enemies/zol_green", description = "Zol green" }
 sprite{ id = "enemies/zol_red", description = "Zol red" }
 sprite{ id = "enemies/zombie", description = "Zombie" }
+sprite{ id = "entities/alligo_flag", description = "Alligo flag" }
 sprite{ id = "entities/arrow", description = "Arrow" }
 sprite{ id = "entities/arrow_fly", description = "Arrow fly" }
 sprite{ id = "entities/ball", description = "Ball" }
@@ -536,6 +539,7 @@ sprite{ id = "entities/statue_mermaid", description = "Statue mermaid" }
 sprite{ id = "entities/statue_owl_dungeon_free", description = "Statue owl dungeon free" }
 sprite{ id = "entities/statue_pig", description = "Statue pig" }
 sprite{ id = "entities/statue_pig_destroyed", description = "Statue pig destroyed" }
+sprite{ id = "entities/statue_shell_house", description = "Statue shell house" }
 sprite{ id = "entities/statue_small", description = "Statue small" }
 sprite{ id = "entities/statue_small_dungeon_3", description = "Statue small dungeon 3" }
 sprite{ id = "entities/statue_small_key_dungeon_3", description = "Statue small key dungeon 3" }
@@ -594,6 +598,7 @@ sprite{ id = "hero/fire_rod", description = "Fire rod" }
 sprite{ id = "hero/ground1", description = "Grass under hero" }
 sprite{ id = "hero/ground2", description = "Shallow water under hero" }
 sprite{ id = "hero/link_sad", description = "Link sad" }
+sprite{ id = "hero/magic_powder_effect", description = "Magic powder effect" }
 sprite{ id = "hero/shield2", description = "Hero shield 2" }
 sprite{ id = "hero/shield3", description = "Hero shield 3" }
 sprite{ id = "hero/shield_1_above", description = "Shield 1 above" }
@@ -651,13 +656,22 @@ sprite{ id = "menus/messagebox/messagebox_cursor", description = "Message Box cu
 sprite{ id = "menus/pause_cursor", description = "Pause cursor" }
 sprite{ id = "menus/pause_menu_options_command_cursor", description = "Waiting for command input cursor" }
 sprite{ id = "menus/pause_menu_options_cursor", description = "Options menu cursor" }
-sprite{ id = "menus/selection_menu_cursor", description = "Savegame cursor" }
 sprite{ id = "menus/settings/settings_arrow_left", description = "Settings menu left arrow" }
 sprite{ id = "menus/settings/settings_arrow_right", description = "Settings menu right arrow" }
 sprite{ id = "menus/settings/settings_cursor", description = "Settings menu cursor" }
 sprite{ id = "menus/settings/settings_slider", description = "Settings menu slider" }
 sprite{ id = "menus/solarus_logo/solarus_logo", description = "Solarus logo" }
 sprite{ id = "menus/team_logo/team_logo", description = "Solarus Team logo" }
+sprite{ id = "menus/title_screen/clouds", description = "Title screen: clouds" }
+sprite{ id = "menus/title_screen/floating_wood", description = "Title screen: floating wood" }
+sprite{ id = "menus/title_screen/mountain_clouds", description = "Title screen: mountain clouds" }
+sprite{ id = "menus/title_screen/swell", description = "Title screen: swell" }
+sprite{ id = "menus/title_screen/title_alttd", description = "Title screen: A Link To The Dream " }
+sprite{ id = "menus/title_screen/title_la", description = "Tiltle screen: Link's Awakening" }
+sprite{ id = "menus/title_screen/title_zelda", description = "Title screen: Zelda logo" }
+sprite{ id = "menus/title_screen/wave_big", description = "Title screen: big wave" }
+sprite{ id = "menus/title_screen/wave_small", description = "Title screen: small wave" }
+sprite{ id = "menus/title_screen/wreck", description = "Tiltle screen: wreck" }
 sprite{ id = "npc/alligator", description = "Alligator" }
 sprite{ id = "npc/alttp/angry_brother", description = "Angry brother" }
 sprite{ id = "npc/alttp/average_middle_aged_man", description = "Average middle-aged man" }
@@ -768,6 +782,7 @@ sprite{ id = "npc/rabbit", description = "Rabbit" }
 sprite{ id = "npc/raft_man", description = "Raft_man" }
 sprite{ id = "npc/richard", description = "Richard" }
 sprite{ id = "npc/seagull", description = "Seagull" }
+sprite{ id = "npc/seagull_small", description = "Small seagull for backgrounds" }
 sprite{ id = "npc/small_bowwow", description = "Small bowwow" }
 sprite{ id = "npc/tarin", description = "Tarin" }
 sprite{ id = "npc/village_bird", description = "Village bird" }
@@ -1134,6 +1149,7 @@ entity{ id = "mouse", description = "Mouse" }
 entity{ id = "mr_write_and_christine", description = "Mr Write and Christine" }
 entity{ id = "non_diggable", description = "Non diggable" }
 entity{ id = "obstacle", description = "Obstacle" }
+entity{ id = "powder", description = "Powder" }
 entity{ id = "seagull", description = "Seagull" }
 entity{ id = "statue_pig", description = "Statue pig" }
 entity{ id = "torch", description = "Torch" }
@@ -1171,6 +1187,16 @@ file{ path = "scripts/gfx_effects/distorsion.lua", author = "PhoenixII54", }
 file{ path = "scripts/gfx_effects/fade_to_white.lua", author = "PhoenixII54", }
 file{ path = "scripts/gfx_effects/pixellisation.lua", author = "PhoenixII54", }
 file{ path = "scripts/gfx_effects/radial_fade_out.lua", author = "PhoenixII54", }
+file{ path = "scripts/menus/file_selection.lua", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/menus/keyboardbox.lua", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/menus/messagebox.lua", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/menus/settings.lua", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/menus/solarus_logo.lua", author = "Maxs", license = "GPL v3" }
+file{ path = "scripts/menus/team_logo.lua", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/menus/title.lua", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/menus/title_background.lua", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/menus/title_logo.lua", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/menus/zeldaforce_logo.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/meta/sensor.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "scripts/music_manager.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "shaders/pixellisation.dat", author = "PhoenixII54", }
@@ -1179,3 +1205,48 @@ file{ path = "shaders/pixellisation_effect.dat", author = "PhoenixII54", license
 file{ path = "shaders/pixellisation_effect.frag.glsl", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "shaders/radial_fade_out.dat", author = "PhoenixII54", }
 file{ path = "shaders/radial_fade_out.frag.glsl", author = "PhoenixII54", }
+file{ path = "sprites/menus/file_selection/file_selection_button.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/file_selection/file_selection_cursor.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/file_selection/file_selection_frame.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/file_selection/file_selection_hero.png", author = "Xfixium, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/file_selection/file_selection_slot.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/file_selection/file_selection_title.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/keyboardbox/keyboardbox_cursor.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/keyboardbox/keyboardbox_frame.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/keyboardbox/keyboardbox_keys.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/keyboardbox/keyboardbox_symbols.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/keyboardbox/keyboardbox_textfield.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/keyboardbox/keyboardbox_textfield_cursor.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/messagebox/messagebox_button.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/messagebox/messagebox_cursor.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/messagebox/messagebox_frame.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/settings/settings_arrow_left.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/settings/settings_arrow_right.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/settings/settings_button_back.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/settings/settings_cursor.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/settings/settings_frame.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/settings/settings_slider.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/settings/settings_slot.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/solarus_logo/solarus_logo.png", author = "Olivier Cléro, Maxs", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/team_logo/team_logo.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/team_logo/team_logo_text.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/title_screen/background_beach.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/title_screen/background_mountain.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/title_screen/background_trees.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/title_screen/clouds.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/title_screen/floating_wood.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/title_screen/mountain_clouds.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/title_screen/sky.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/title_screen/swell.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/title_screen/title_alttd.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/title_screen/title_la.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/title_screen/title_zelda.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/title_screen/wave_big.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/title_screen/wave_small.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/title_screen/wreck.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/zeldaforce_logo/zeldaforce_logo_f.png", author = "Olivier Cléro", license = "© Zeldaforce" }
+file{ path = "sprites/menus/zeldaforce_logo/zeldaforce_logo_triforce_left.png", author = "Olivier Cléro", license = "© Zeldaforce" }
+file{ path = "sprites/menus/zeldaforce_logo/zeldaforce_logo_triforce_middle.png", author = "Olivier Cléro", license = "© Zeldaforce" }
+file{ path = "sprites/menus/zeldaforce_logo/zeldaforce_logo_triforce_right.png", author = "Olivier Cléro", license = "© Zeldaforce" }
+file{ path = "sprites/menus/zeldaforce_logo/zeldaforce_logo_triforce_top.png", author = "Olivier Cléro", license = "© Zeldaforce" }
+file{ path = "sprites/menus/zeldaforce_logo/zeldaforce_logo_z.png", author = "Olivier Cléro", license = "© Zeldaforce" }

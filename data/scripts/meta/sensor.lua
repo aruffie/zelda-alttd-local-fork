@@ -107,7 +107,6 @@ function sensor_meta:on_activated()
   local music_prefix = name:match("^music_sensor")
   if music_prefix ~= nil then
     local music = self:get_property("music")
-
     if music == "maps/out/mt_tamaranch" and
         game:get_player_name():lower() == "marin" then
       music = "maps/out/mt_tamaranch_marin"

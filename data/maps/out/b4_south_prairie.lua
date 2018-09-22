@@ -1,16 +1,13 @@
--- Outside - South prairie
-
 -- Variables
 local map = ...
 local game = map:get_game()
-
 local next_sign = 1
 local directions = {
   0, 3, 2, 1, 0, 3, 0, 1, 2, 3, 0, 3, 2
 }
 
-
-function map:set_music()
+-- Initialize the music of the map
+function map:init_music()
   
   if game:get_value("main_quest_step") == 3  then
     sol.audio.play_music("maps/out/sword_search")
@@ -25,12 +22,12 @@ function map:set_music()
 
 end
 
+-- Map events
 function map:on_started()
 
-  map:set_music()
-
+  map:init_music()
   map:set_digging_allowed(true)
-  -- Marine
+  -- Marin
   if game:get_value("main_quest_step") ~= 21  then
     marin:set_enabled(false)
   end
@@ -45,7 +42,7 @@ function map:on_opening_transition_finished(destination)
 
 end
 
-
+-- Discussion with Marin
 function map:talk_to_marin() 
 
   game:start_dialog("maps.out.south_prairie.marin_1", game:get_player_name(), function(answer)
@@ -58,30 +55,37 @@ function map:talk_to_marin()
 
 end
 
+-- Sensor events
+function marin_sensor:on_activated()
+
+  local hero = game:get_hero()
+  if game:get_value("main_quest_step") == 21 then
+    if hero:get_direction() == 1 then
+      marin_song = false
+      map:init_music()
+    else
+      marin_song = true
+      map:init_music()
+    end
+  end
+
+end
+
+-- Doors events
+function weak_door_1:on_opened()
+
+  sol.audio.play_sound("secret_1")
+
+end
+
+-- NPC events
 function marin:on_interaction()
 
   map:talk_to_marin()
 
 end
 
-function marin_sensor:on_activated()
-
-  local hero = game:get_hero()
-  if hero:get_direction() == 1 then
-    marin_song = false
-    map:set_music()
-  else
-    marin_song = true
-    map:set_music()
-  end
-end
-
---Weak doors play secret sound on opened
-function weak_door_1:on_opened()
-  sol.audio.play_sound("secret_1")
-end
-
-
+-- Signs and wart
 for sign in map:get_entities("sign_") do
   function sign:on_interaction()
     if game:get_value("wart_cave") == nil then
@@ -108,7 +112,6 @@ for sign in map:get_entities("sign_") do
     end
  end
 end
-
 
 if game:get_value("wart_cave") == nil then
   for wart_cave in map:get_entities("wart_cave") do

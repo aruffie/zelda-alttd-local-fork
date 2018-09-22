@@ -23,21 +23,37 @@ end
 
 function map:talk_to_bear()
 
+  local direction4 = bear:get_direction4_to(hero)
+  local bear_sprite = bear:get_sprite()
+  bear_sprite:set_direction(direction4)
+  bear_sprite:set_animation("stopped")
   if game:get_value("main_quest_step") < 20 then
-    game:start_dialog("maps.houses.yarna_desert.bear_house.bear_1")
+    game:start_dialog("maps.houses.yarna_desert.bear_house.bear_1", function()
+      bear_sprite:set_direction(3)
+      bear_sprite:set_animation("waiting")
+    end)
   elseif game:get_value("main_quest_step") == 20  then
     game:start_dialog("maps.houses.yarna_desert.bear_house.bear_2", function(answer)
       if answer == 1 then
         ananas:set_enabled(false)
         hero:start_treasure("magnifying_lens", 7, "magnifying_lens_6", function()
-          game:start_dialog("maps.houses.yarna_desert.bear_house.bear_4")
+          game:start_dialog("maps.houses.yarna_desert.bear_house.bear_4", function()
+            bear_sprite:set_direction(3)
+            bear_sprite:set_animation("waiting")
+          end)
         end)
       else
-        game:start_dialog("maps.houses.yarna_desert.bear_house.bear_3")
+        game:start_dialog("maps.houses.yarna_desert.bear_house.bear_3", function()
+          bear_sprite:set_direction(3)
+          bear_sprite:set_animation("waiting")
+        end)
       end
     end)
   else
-    game:start_dialog("maps.houses.yarna_desert.bear_house.bear_4")
+    game:start_dialog("maps.houses.yarna_desert.bear_house.bear_4", function()
+      bear_sprite:set_direction(3)
+      bear_sprite:set_animation("waiting")
+    end)
   end
 
 end

@@ -24,5 +24,7 @@ require("scripts/maps/light_manager.lua")
 require("scripts/maps/unstable_floor_manager.lua")
 require("scripts/maps/companion_manager.lua")
 require("scripts/maps/teletransporter_manager.lua")
+require("scripts/maps/cinematic_manager.lua")
+require("scripts/coroutine_helper.lua")
 
 return true

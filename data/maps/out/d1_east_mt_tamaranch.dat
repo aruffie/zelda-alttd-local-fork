@@ -12691,6 +12691,16 @@ tile{
   pattern = "12344",
 }
 
+custom_entity{
+  layer = 0,
+  x = 184,
+  y = 469,
+  width = 32,
+  height = 32,
+  direction = 0,
+  sprite = "entities/teletransporter",
+}
+
 teletransporter{
   name = "to_d2",
   layer = 0,
@@ -12722,7 +12732,6 @@ dynamic_tile{
   pattern = "940",
   width = 32,
   height = 16,
-  enabled_at_start = true,
 }
 
 custom_entity{
@@ -13254,7 +13263,6 @@ dynamic_tile{
   pattern = "1800",
   width = 32,
   height = 8,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -13265,7 +13273,6 @@ dynamic_tile{
   pattern = "1706",
   width = 32,
   height = 16,
-  enabled_at_start = true,
 }
 
 door{
@@ -13325,7 +13332,6 @@ dynamic_tile{
   pattern = "941",
   width = 48,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -13335,7 +13341,6 @@ dynamic_tile{
   pattern = "940",
   width = 48,
   height = 16,
-  enabled_at_start = true,
 }
 
 wall{
@@ -13419,7 +13424,6 @@ dynamic_tile{
   pattern = "941",
   width = 48,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -13429,7 +13433,6 @@ dynamic_tile{
   pattern = "940",
   width = 48,
   height = 16,
-  enabled_at_start = true,
 }
 
 wall{
