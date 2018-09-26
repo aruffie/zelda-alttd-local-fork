@@ -45,16 +45,16 @@ end
 -- This is the cinematic when the witch makes magic powder
 function map:launch_cinematic_1(slot)
     
-  -- Init and launch cinematic mode
-  local options = {
-    entities_ignore_suspend = {witch, mouse}
-  }
-  map:set_cinematic_mode(true, options)
-  local mushroom = game:get_item("mushroom")
-  mushroom:set_variant(0)
-  sol.audio.play_music("maps/houses/shop_high")
-  witch:get_sprite():set_animation("speeding")
-  sol.timer.start(4000, function()
+  map:start_coroutine(function()
+    local options = {
+      entities_ignore_suspend = {witch, mouse}
+    }
+    map:set_cinematic_mode(true, options)
+    local mushroom = game:get_item("mushroom")
+    mushroom:set_variant(0)
+    sol.audio.play_music("maps/houses/shop_high")
+    witch:get_sprite():set_animation("speeding")
+    wait(4000)
     witch:get_sprite():set_animation("walking")
     sol.audio.play_music(music_name)
     game:set_hud_enabled(true)

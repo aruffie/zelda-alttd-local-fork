@@ -3,7 +3,7 @@ local game_meta = sol.main.get_metatable("game")
 local hero_meta = sol.main.get_metatable("hero")
 local timer_sleeping
 local duration = 10000
-local sleeping_animations = {"happy", "sad"}
+local sleeping_animations = {"happy", "sad", "link_tired", "link_sleeping"}
 
 function hero_meta:launch_timer_sleeping()
   if timer_sleeping ~= nil then

@@ -422,7 +422,7 @@ end
 -- This is the cinematic when Tarkin goes crazy.
 function map:launch_cinematic_1()
   
-    -- Init and launch cinematic mode
+  map:start_coroutine(function()
     local options = {
       entities_ignore_suspend = {hero, tarin}
     }
@@ -433,19 +433,17 @@ function map:launch_cinematic_1()
     local camera = map:get_camera()
     camera:start_manual()
     hero:unfreeze()
-    local movement = sol.movement.create("straight")
-    movement:set_angle(math.pi / 2)
-    movement:set_max_distance(48)
-    movement:set_ignore_obstacles(true)
-    movement:set_ignore_suspend(true)
-    movement:start(camera, function()
-      local sprite = tarin:get_sprite()
-      sprite:set_animation("shocking_raccoon")
-      local timer = sol.timer.start(map, 1000, function()
-          sprite:set_frame_delay(150)
-          change_movement_raccoon()
-      end)
-      timer:set_suspended_with_map(false)
+    local m = sol.movement.create("straight")
+    m:set_angle(math.pi / 2)
+    m:set_max_distance(48)
+    m:set_ignore_obstacles(true)
+    m:set_ignore_suspend(true)
+    movement(m, camera)
+    local sprite = tarin:get_sprite()
+    sprite:set_animation("shocking_raccoon")
+    wait(1000)
+    sprite:set_frame_delay(150)
+    change_movement_raccoon()
   end)
 
 end

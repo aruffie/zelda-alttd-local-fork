@@ -102,37 +102,27 @@ end
 -- This is the cinematic in which the hero retrieves his sword
 function map:launch_cinematic_1()
   
-  -- Init and launch cinematic mode
-  local options = {
-    entities_ignore_suspend = {hero}
-  }
-  map:set_cinematic_mode(true, options)
-  hero:set_animation("pulling_sword", function() 
-    hero:set_animation("pulling_sword_wait")
+  map:start_coroutine(function()
+    local options = {
+      entities_ignore_suspend = {hero}
+    }
+    map:set_cinematic_mode(true, options)
+    animation(hero,"pulling_sword")
+    hero:get_sprite():set_animation("pulling_sword_wait")
+    sol.audio.stop_music()
+    sol.audio.play_sound("treasure_sword")
+    wait(3000)
+    local map = game:get_map()
+    dialog("_treasure.sword.1")
+    sol.audio.play_music("maps/out/let_the_journey_begin")
+    wait(5400)
+    map:remove_entities("brandish")
+    animation(hero, "spin_attack")
+    map:set_cinematic_mode(false, options)
+    game:set_value("main_quest_step", 4)
+    wait(300)
+    sol.audio.play_music("maps/out/overworld")
   end)
-  sol.audio.stop_music()
-  sol.audio.play_sound("treasure_sword")
-  local timer = sol.timer.start(3000, function()
-      local map = game:get_map()
-      game:start_dialog("_treasure.sword.1", function()
-        sol.audio.play_music("maps/out/let_the_journey_begin")
-        local timerspin = sol.timer.start(5400, function() 
-          map:remove_entities("brandish")
-          hero:set_animation("spin_attack", function() 
-            hero:unfreeze()
-            map:set_cinematic_mode(false, options)
-            game:set_value("main_quest_step", 4)
-            hero:get_sprite():set_ignore_suspend(false)
-            local timermusic = sol.timer.start(300, function()
-              sol.audio.play_music("maps/out/overworld")
-            end)
-            timermusic:set_suspended_with_map(false)
-          end)
-       end)
-       timerspin:set_suspended_with_map(false)
-    end)
-  end)
-  timer:set_suspended_with_map(false)
 
 end
 
@@ -164,8 +154,7 @@ function map:launch_cinematic_2()
     camera:start_manual()
     camera:set_position(camera_x, camera_y - 72)
     sol.audio.play_sound("secret_2")
-    dungeon_1_entrance:get_sprite():set_animation("opening")
-    wait(2000)
+    animation(dungeon_1_entrance:get_sprite(), "opening")
     map:open_dungeon_1()
     local movement2 = sol.movement.create("straight")
     movement2:set_angle(3 * math.pi / 2)
