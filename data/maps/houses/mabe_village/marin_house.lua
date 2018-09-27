@@ -2,6 +2,9 @@
 local map = ...
 local game = map:get_game()
 
+-- Include scripts
+require("scripts/multi_events")
+
 
 -- Map events
 function map:on_started(destination)
@@ -31,15 +34,14 @@ function map:on_opening_transition_finished(destination)
 
 end
 
-
-function map:on_finished()
+map:register_event("on_finished", function()
 
   if game:has_item("shield") == true and game:get_value("main_quest_step") == 2 then
    -- Sword quest
     game:set_value("main_quest_step", 3)
   end
 
-end
+end)
 
 -- Initialize the music of the map
 function map:init_music()

@@ -26,6 +26,7 @@ function map:on_started(destination)
   owl_4:set_enabled(false)
   if sword ~= nil then
     sword:get_sprite():set_direction(4)
+    sword:get_sprite():set_ignore_suspend(true)
   end
   dungeon_1_entrance:set_traversable_by(false)
   if game:get_value("main_quest_step") > 6 then

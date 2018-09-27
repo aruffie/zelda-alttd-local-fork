@@ -10167,16 +10167,16 @@ sensor{
   name = "owl_1_sensor",
   layer = 0,
   x = 576,
-  y = 717,
+  y = 701,
   width = 64,
-  height = 48,
+  height = 64,
 }
 
 pickable{
   name = "sword",
   layer = 0,
   x = 600,
-  y = 749,
+  y = 741,
   treasure_name = "sword",
   treasure_savegame_variable = "step_2_link_found_sword",
 }
