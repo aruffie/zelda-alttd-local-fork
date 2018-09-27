@@ -7,6 +7,16 @@ function owl_manager:appear(map, step, callback)
     local hero = map:get_entity("hero")
     local owl = map:get_entity("owl_"..step)
     local x_hero,y_hero = hero:get_position()
+    local x_owl,y_owl = owl:get_position()
+    local shadow = map:create_custom_entity{
+      x = x,
+      y = y,
+      width = 16,
+      height = 8,
+      direction = 0,
+      layer = 0 ,
+      sprite= "entities/heart_fly_shadow"
+    }
     map:start_coroutine(function()
       local options = {
         entities_ignore_suspend = {owl}
