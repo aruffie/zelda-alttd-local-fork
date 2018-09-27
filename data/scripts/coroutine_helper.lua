@@ -104,23 +104,25 @@ function co_cut.start(timer_context,game,func,env_index)
       )
     end
   end
+  
+  local current_timer
 
   local cells = {}
   --suspend cinematic execution for a while
   function cells.wait(time)
     assert_coroutine()
-    local timer = sol.timer.start(timer_context,time,resume_thread)
-    timer:set_suspended_with_map(false)
+    current_timer = sol.timer.start(timer_context,time,resume_thread)
+    current_timer:set_suspended_with_map(false)
     -- resume normal engine execution
     yield()
-    return timer
+    current_timer = nil
   end
 
   function cells.suspendable_wait(time)
     assert_coroutine()
-    local timer = sol.timer.start(timer_context,time,resume_thread)
+    current_timer = sol.timer.start(timer_context,time,resume_thread)
     yield()
-    return timer
+    current_timer = nil
   end
 
   function cells.run_on_main(func)
@@ -171,6 +173,10 @@ function co_cut.start(timer_context,game,func,env_index)
 
   local function abort()
    aborted = true --mark coroutine as dead to prevent further execution
+   if current_timer then
+     current_timer:stop()
+   end
+   
   end
 
   --inherit global scope
