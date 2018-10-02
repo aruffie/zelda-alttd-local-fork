@@ -199,7 +199,9 @@ sprite{ id = "enemies/boss/genie_enemies/genie_bottle", description = "Genie bot
 sprite{ id = "enemies/boss/giant_buzz_blob", description = "Giant buzz blob" }
 sprite{ id = "enemies/boss/giant_buzz_blob_zol_form", description = "Giant buzz blob zol form" }
 sprite{ id = "enemies/boss/gohma_blue", description = "Gohma blue" }
+sprite{ id = "enemies/boss/gohma_blue_eye", description = "Gohma blue eye" }
 sprite{ id = "enemies/boss/gohma_red", description = "Gohma red" }
+sprite{ id = "enemies/boss/gohma_red_eye", description = "Gohma red eye" }
 sprite{ id = "enemies/boss/grim_creeper", description = "Grim creeper" }
 sprite{ id = "enemies/boss/hinox_master", description = "Hinox master" }
 sprite{ id = "enemies/boss/hot_head", description = "Hot head" }
@@ -592,6 +594,7 @@ sprite{ id = "entities/windfish_symbol_dungeon_8", description = "Windfish symbo
 sprite{ id = "entities/witch_house", description = "Witch house" }
 sprite{ id = "entities/wood_bridge", description = "Wood bridge" }
 sprite{ id = "entities/yarna_skull", description = "Yarna skull" }
+sprite{ id = "gohma_blue_eye", description = "Gohma blue eye" }
 sprite{ id = "ground_effects/fall_on_hole", description = "ground_effects/fall_on_hole" }
 sprite{ id = "ground_effects/lava_splash", description = "ground_effects/lava_splash" }
 sprite{ id = "ground_effects/leaves", description = "ground_effects/leaves" }
