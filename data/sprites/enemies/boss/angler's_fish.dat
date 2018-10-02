@@ -1,0 +1,9 @@
+animation{
+  name = "Walking",
+  src_image = "enemies/boss/angler's_fish.png",
+  frame_delay = 150,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 0, frame_width = 76, frame_height = 68, origin_x = 38, origin_y = 65, num_frames = 6 },
+  },
+}
