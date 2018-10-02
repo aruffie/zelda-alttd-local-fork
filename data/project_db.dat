@@ -186,6 +186,7 @@ sprite{ id = "enemies/bloober", description = "Bloober" }
 sprite{ id = "enemies/bomber", description = "Bomber" }
 sprite{ id = "enemies/boo_buddy", description = "Boo buddy" }
 sprite{ id = "enemies/boss/angler's_fish", description = "Angler's fish" }
+sprite{ id = "enemies/boss/big_armos_knight", description = "Big armos knight" }
 sprite{ id = "enemies/boss/cue_ball", description = "Cue ball" }
 sprite{ id = "enemies/boss/cue_ball_splash_effect", description = "Cue ball splash effect" }
 sprite{ id = "enemies/boss/dodongo_snake", description = "Dodongo_snake" }
