@@ -193,6 +193,7 @@ sprite{ id = "enemies/boss/dodongo_snake", description = "Dodongo_snake" }
 sprite{ id = "enemies/boss/dodongo_snake/dodongo_snake_body", description = "Dodongo snake body" }
 sprite{ id = "enemies/boss/evil_orb", description = "Evil orb" }
 sprite{ id = "enemies/boss/evil_orb/orb_evil_orb", description = "Orb evil orb" }
+sprite{ id = "enemies/boss/facade", description = "Facade" }
 sprite{ id = "enemies/boss/genie", description = "Genie" }
 sprite{ id = "enemies/boss/genie/genie_bottle", description = "Genie bottle" }
 sprite{ id = "enemies/boss/genie/genie_fire_ball", description = "Genie fire ball" }
