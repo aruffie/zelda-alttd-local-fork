@@ -13120,7 +13120,7 @@ sensor{
   properties = {
     {
       key = "music",
-      value = "maps/out/mt_tamaranch",
+      value = "maps/out/tal_tal_mountain_range",
     },
   },
   width = 16,
