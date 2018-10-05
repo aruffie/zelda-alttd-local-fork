@@ -17622,26 +17622,6 @@ destination{
   direction = 1,
 }
 
-custom_entity{
-  name = "teletransporter_A",
-  layer = 0,
-  x = 800,
-  y = 1165,
-  width = 16,
-  height = 16,
-  direction = 0,
-}
-
-custom_entity{
-  name = "placeholder_small_boss",
-  layer = 0,
-  x = 800,
-  y = 1117,
-  width = 16,
-  height = 16,
-  direction = 0,
-}
-
 destination{
   name = "teletransporter_destination_A",
   layer = 0,
@@ -19003,6 +18983,24 @@ block{
   pushable = false,
   pullable = false,
   maximum_moves = 0,
+}
+
+enemy{
+  name = "gohma_blue",
+  layer = 0,
+  x = 800,
+  y = 1093,
+  direction = 0,
+  breed = "boss/gohma_blue",
+}
+
+enemy{
+  name = "gohma_red",
+  layer = 0,
+  x = 800,
+  y = 1189,
+  direction = 0,
+  breed = "boss/gohma_red",
 }
 
 tile{

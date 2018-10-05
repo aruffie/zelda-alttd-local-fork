@@ -1056,6 +1056,8 @@ enemy{ id = "boss/facade", description = "Facade" }
 enemy{ id = "boss/genie", description = "Genie" }
 enemy{ id = "boss/genie/genie_bottle", description = "Genie bottle" }
 enemy{ id = "boss/giant_buzz_blob", description = "Giant buzz blob" }
+enemy{ id = "boss/gohma_blue", description = "Gohma blue" }
+enemy{ id = "boss/gohma_red", description = "Gohma red" }
 enemy{ id = "boss/hinox_master", description = "Hinox master" }
 enemy{ id = "boss/master_stalfos", description = "Master stalfos" }
 enemy{ id = "boss/moblin_chief", description = "Moblin chief" }
