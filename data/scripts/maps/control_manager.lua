@@ -93,14 +93,16 @@ function game_meta:create_control_menu(can_override)
     if not control_menu:is_side_view() then
       control_menu:handle_command(command, "pressed")
     else
-      control_menu:handle_sideview_command(command, "pressed")
+      control_menu:handle_command(command, "pressed")
+      --control_menu:handle_sideview_command(command, "pressed")
     end
   end
   function control_menu:on_command_released(command)
     if not control_menu:is_side_view() then
       control_menu:handle_command(command, "released")
     else
-      control_menu:handle_sideview_command(command, "released")
+      control_menu:handle_command(command, "released")
+      --control_menu:handle_sideview_command(command, "released")
     end
   end
 
@@ -164,7 +166,8 @@ function game_meta:create_control_menu(can_override)
     -- If no direction, stop movement.
     if dir8 == nil then
       entity:stop_movement()
-      for _, sprite in entity:get_sprites() do
+      for _, sprite_name in pairs({"tunic"}) do
+        local sprite = entity:get_sprite(sprite_name) 
         local stopped_anim = control_menu.stopped_animation
         if stopped_anim and sprite:has_animation(stopped_anim) then
           sprite:set_animation(stopped_anim)
@@ -178,8 +181,8 @@ function game_meta:create_control_menu(can_override)
     m:set_speed(control_menu:get_speed())
     m:set_smooth(true)
     -- Update sprites. Update direction for non diagonal movements.
-    for _, sprite in entity:get_sprites() do
-      local sprite = entity:get_sprite()
+    for _, sprite_name in pairs({"tunic"}) do
+      local sprite = entity:get_sprite(sprite_name) 
       local walking_anim = control_menu.walking_animation
       if walking_anim and sprite:has_animation(walking_anim) then
         sprite:set_animation(walking_anim)
