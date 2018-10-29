@@ -1,69 +1,67 @@
-local item = ...
+-- Custom jump script.
 
 require("scripts/multi_events")
 require("scripts/ground_effects")
-require("scripts/maps/control_manager")
+require("scripts/maps/unstable_floor_manager.lua")
 local hero_meta = sol.main.get_metatable("hero")
-local game = item:get_game()
-
-local states_allowing_feather = {"free", "hurt", "running",
-  "sword loading", "sword spin attack", "sword swinging", "using item" }
-
+local map_meta = sol.main.get_metatable("map")
+local game_meta = sol.main.get_metatable("game")
 
 -- Initialize parameters for custom jump.
-local is_hero_jumping = false
+local is_hero_jumping
 local jump_duration = 430 -- Duration of jump in milliseconds.
 local max_height_normal = 16 -- Default height, do NOT change!
 local max_height_sideview = 20 -- Default height for sideview maps, do NOT change!
 local max_height -- Height of jump in pixels.
 local max_distance = 31 -- Max distance of jump in pixels.
 local jumping_speed = math.floor(1000 * max_distance / jump_duration)
+local sprites_info = {} -- Used to restore some properties when the state is changed.
 
--- Set properties.
-function item:on_created()
-
-  item:set_savegame_variable("possession_feather")
-  item:set_sound_when_brandished("treasure_2")
-  item:set_assignable(true)
-
-  -- Allow using feather during other states.
-  -- TODO: use custom states when the engine adds them.
-  game:register_event("on_command_pressed", function(self, command)
-    local item = game:get_item("feather")
-    local effect = game:get_command_effect(command)
-    local slot = ((effect == "use_item_1") and 1)
-        or ((effect == "use_item_2") and 2)
-    if slot and game:get_item_assigned(slot) == item then
-      if not item:is_jumping() then
-        local state = game:get_hero():get_state()
-        local allowed = false
-        for _, s in pairs(states_allowing_feather) do
-          if s == state then allowed = true end
-        end
-        if allowed then item:on_using() end
-        return true
-      end
-    end
-  end)
-end
-
--- Define event for the use the item.
-function item:on_using()
-  -- TODO: check conditions of use here.
-  -- Start the jump.
-  item:start_jump()
-end
-
--- Used to detect if custom jump is being used.
--- Necessary to determine if other items can be used.
-function item:is_jumping() return is_hero_jumping end
 function hero_meta:is_jumping()
-  return self:get_game():get_item("feather"):is_jumping()
+  return is_hero_jumping
 end
 
--- Function to determine if the hero can jump on this type of ground.
-function item:is_jumpable_ground(ground_type)
-  local map = self:get_map()
+-- Restart variables.
+game_meta:register_event("on_started", function(game)
+  is_hero_jumping = false
+end)
+
+-- Initialize jumping state.
+local state = sol.state.create()
+state:set_affected_by_ground("hole", false) --state:set_touching_ground(false)
+state:set_can_use_stairs(false)
+--state:set_can_traverse("stairs", false)
+
+function state:on_started(previous_state_name, previous_state)
+
+  local psn = previous_state_name
+  local hero = state:get_game():get_hero()
+  local hero_sprite = hero:get_sprite()
+  local sword_sprite = hero:get_sprite("sword")
+  --[[
+  print("Previous_state: " .. previous_state_name)
+  print("Hero_animation: " ..  animation)
+  print("Sword_animation: " .. hero:get_sprite("sword"):get_animation())
+  print("-------------------------")
+  --]]
+  -- Change tunic animations during the jump.
+  if psn == "free" then
+    hero_sprite:set_animation("jumping")
+  elseif psn == "sword loading"
+      or psn == "sword spin attack"
+      or psn == "sword swinging"
+      then
+    state:set_can_control_direction(false)
+    hero_sprite:set_animation(sprites_info["tunic"].animation)
+    sword_sprite:set_animation(sprites_info["sword"].animation)
+    hero_sprite:set_frame(sprites_info["tunic"].frame)
+    sword_sprite:set_frame(sprites_info["sword"].frame)
+  end
+end
+  
+-- Determine if the hero can jump on this type of ground.
+function map_meta:is_jumpable_ground(ground_type)
+  local map = self
   if map.is_side_view ~= nil and map:is_side_view() then
     local is_good_ground = ( (ground_type == "traversable")
       or (ground_type == "wall_top_right") or (ground_type == "wall_top_left")
@@ -80,9 +78,11 @@ function item:is_jumpable_ground(ground_type)
     return is_good_ground
   end
 end
+
 -- Returns true if there are "blocking streams" below the hero.
-local function blocking_stream_below_hero(map)
-  local hero = map:get_hero()
+function hero_meta:is_blocked_on_stream()
+  local hero = self
+  local map = hero:get_map()
   local x, y, _ = hero:get_position()
   for e in map:get_entities_in_rectangle(x, y, 1 , 1) do
     if e:get_type() == "stream" then
@@ -95,10 +95,10 @@ end
 
 -- MAIN FUNCTION.
 -- Define custom jump on hero metatable.
-function item:start_jump()
-
+function hero_meta:start_custom_jump()
+  local hero = self
+  local game = self:get_game()
   local map = self:get_map()
-  local hero = map:get_hero()
   local is_sideview_map = map.is_side_view ~= nil and map:is_side_view()
    -- Select Max height.
   if is_sideview_map then max_height = max_height_sideview
@@ -112,11 +112,12 @@ function item:start_jump()
   local is_hero_builtin_jumping = hero_state == "jumping"
   local is_on_stairs = hero_state == "stairs"
   local ground_type = map:get_ground(hero:get_ground_position())
-  local is_ground_jumpable = self:is_jumpable_ground(ground_type)
-  local is_blocked_on_stream = blocking_stream_below_hero(map)
+  local is_ground_jumpable = map:is_jumpable_ground(ground_type)
+  local is_blocked_on_stream = hero:is_blocked_on_stream()
 
   if is_hero_frozen or is_hero_jumping or is_hero_builtin_jumping or is_hero_carrying
-    or (not is_ground_jumpable) or is_blocked_on_stream or is_on_stairs then
+    or is_using_shield or (not is_ground_jumpable) or is_blocked_on_stream 
+    or is_on_stairs then
     return
   end
 
@@ -130,17 +131,21 @@ function item:start_jump()
 
   -- Prepare hero for jump.
   is_hero_jumping = true
+  hero:save_solid_ground(hero:get_last_stable_position()) -- Save last stable position.
+  local ws = hero:get_walking_speed() -- Default walking speed.
+  hero:set_walking_speed(jumping_speed)
+  hero:set_invincible(true, jump_duration)
   sol.audio.play_sound("jump")
-  -- Save last stable position.
-  hero:save_solid_ground(hero:get_last_stable_position())
-  -- Prepare and start control menu.
-  local control_menu = game:create_control_menu()
-  control_menu:set_fixed_animations("jumping", "jumping")
-  control_menu:set_speed(jumping_speed)
-  local control_menu_started = hero_state ~= "running"
-  if control_menu_started then
-    control_menu:start(hero)
-  end
+
+  -- Save sprites info before changing state.
+  sprites_info = {}
+  for sprite_name, sprite in hero:get_sprites() do
+    local info = {}
+    sprites_info[sprite_name] = info
+    info.animation = sprite:get_animation()
+    info.frame = sprite:get_frame()
+  end  
+  hero:start_state(state) -- Start jumping state.
 
   -- If the map NOT sideview, prepare ground below .
   local tile -- Custom entity used to modify the ground and show the shadow.
@@ -150,7 +155,6 @@ function item:start_jump()
     local platform_properties = {x=x,y=y,layer=layer,direction=0,width=8,height=8}
     tile = map:create_custom_entity(platform_properties)
     tile:set_origin(4, 4)
-    tile:set_modified_ground("traversable")
     local sprite = tile:create_sprite("shadows/shadow_big_dynamic")
     local nb_frames = sprite:get_num_frames()
     local frame_delay = math.floor(jump_duration/nb_frames)
@@ -168,7 +172,7 @@ function item:start_jump()
   -- If the map NOT sideview, shift all sprites during jump with parabolic trajectory.
   -- We use a parametrization of the height.
   if not is_sideview_map then
-    sol.timer.start(item, 1, function()
+    sol.timer.start(map, 1, function()
       if not is_hero_jumping then return false end
       local tn = instant/jump_duration
       local height = math.floor(4*max_height*tn*(1-tn))
@@ -185,7 +189,7 @@ function item:start_jump()
   if is_sideview_map then
     local d = 0 -- Accumulative decimal part, for better accuracy.
     local pheight = 0 -- Previous height.
-    sol.timer.start(item, 1, function()
+    sol.timer.start(map, 1, function()
       if not is_hero_jumping then return false end
       local x, y, layer = hero:get_position()
       local tn = instant/jump_duration
@@ -203,10 +207,13 @@ function item:start_jump()
     end)
   end
 
+
   -- Finish the jump.
-  sol.timer.start(item, jump_duration, function()
+  local jump_timer = sol.timer.start(map, jump_duration, function()
+
+    hero:set_walking_speed(ws) -- Restore initial walking speed.
     if map.is_side_view == nil or map:is_side_view() == false then
-     tile:remove()  -- Delete shadow platform tile.
+      tile:remove()  -- Delete shadow platform tile.
     end
     -- If ground is empty, move hero to lower layer.
     local x,y,layer = hero:get_position()
@@ -222,11 +229,11 @@ function item:start_jump()
 
     -- Create ground effect.
     map:ground_collision(hero)
-   
+    
     -- Restore solid ground as soon as possible.
     sol.timer.start(map, 1, function()
       local ground_type = map:get_ground(hero:get_ground_position())    
-      local is_good_ground = self:is_jumpable_ground(ground_type)
+      local is_good_ground = map:is_jumpable_ground(ground_type)
       if is_good_ground then
         hero:reset_solid_ground()
         if hero.initialize_unstable_floor_manager then hero:initialize_unstable_floor_manager() end
@@ -236,11 +243,25 @@ function item:start_jump()
     end)   
 
     -- Finish jump.
-    sol.timer.stop_all(item)
-    if control_menu_started then control_menu:stop() end
     is_hero_jumping = false
-    item:set_finished()
-    hero:unfreeze()
+    hero:unfreeze() -- Finish jumping state.
   end)
+end
 
+-- Create ground effects for hero landing after jump.
+-- TODO: DELETE THIS FUNCTION AND USE THE ONE IN "SCRIPTS/GROUND_EFFECTS.LUA"
+function map_meta:create_ground_effect(x, y, layer)
+
+  local map = self
+  local ground = map:get_ground(x, y, layer)
+  if ground == "deep_water" or ground == "shallow_water" then
+    -- If the ground has water, create a splash effect.
+    map:create_ground_effect("water_splash", x, y, layer, "splash")
+  elseif ground == "grass" then
+    -- If the ground has grass, create leaves effect.
+    map:create_ground_effect("falling_leaves", x, y, layer, "bush")
+  else
+    -- For other grounds, make landing sound.
+    sol.audio.play_sound("hero_lands")      
+  end
 end
