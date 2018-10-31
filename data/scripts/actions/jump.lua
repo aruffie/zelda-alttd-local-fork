@@ -38,12 +38,6 @@ function state:on_started(previous_state_name, previous_state)
   local hero = state:get_game():get_hero()
   local hero_sprite = hero:get_sprite()
   local sword_sprite = hero:get_sprite("sword")
-  --[[
-  print("Previous_state: " .. previous_state_name)
-  print("Hero_animation: " ..  animation)
-  print("Sword_animation: " .. hero:get_sprite("sword"):get_animation())
-  print("-------------------------")
-  --]]
   -- Change tunic animations during the jump.
   if psn == "free" then
     hero_sprite:set_animation("jumping")
@@ -51,14 +45,96 @@ function state:on_started(previous_state_name, previous_state)
       or psn == "sword spin attack"
       or psn == "sword swinging"
       then
+    local callback = function()
+      hero_sprite:set_animation("jumping")
+      sword_sprite:stop_animation()
+      state:set_can_control_direction(true)
+    end
     state:set_can_control_direction(false)
-    hero_sprite:set_animation(sprites_info["tunic"].animation)
+    hero_sprite:set_animation(sprites_info["tunic"].animation, callback)
     sword_sprite:set_animation(sprites_info["sword"].animation)
     hero_sprite:set_frame(sprites_info["tunic"].frame)
     sword_sprite:set_frame(sprites_info["sword"].frame)
   end
 end
-  
+
+function state:on_finished(next_state_name, next_state)
+end
+
+function state:on_command_pressed(command)  
+  local game = state:get_game()
+  local hero = game:get_hero()
+  if command == "attack" then
+  -- Do not stop movement of the hero if sword is used during a jump.
+    if game:has_ability("sword") then
+      state:set_can_control_direction(false)
+      local tunic_sprite = hero:get_sprite("tunic")
+      local dir = tunic_sprite:get_direction()
+      local sword_sprite = hero:get_sprite("sword")
+      tunic_sprite:set_animation("sword")
+      sword_sprite:set_animation("sword")
+      sword_sprite:set_direction(dir)
+      return true
+    end
+  end
+end
+
+function state:on_command_released(command)
+  local game = state:get_game()
+  local hero = game:get_hero()
+  if command == "attack" then
+  -- Release spin attacks during jumps too, without stopping the movement.
+    if game:has_ability("sword") then
+      local tunic_sprite = hero:get_sprite("tunic")
+      local dir = tunic_sprite:get_direction()
+      local sword_sprite = hero:get_sprite("sword")
+      local sword_animation = sword_sprite:get_animation()
+      if sword_animation == "sword_loading_stopped"
+          or sword_animation == "sword_loading_walking" then
+        tunic_sprite:set_animation("spin_attack")
+        sword_sprite:set_animation("spin_attack")
+        sword_sprite:set_direction(dir)
+        return true
+      end
+    end
+  end
+end
+
+-- Finish jumping state.
+function state:set_finished()
+  -- If the hero is using the sword, keep it after the jump.
+  local hero = state:get_game():get_hero()
+  local hero_sprite = hero:get_sprite()
+  local sword_sprite = hero:get_sprite("sword")
+  if sword_sprite:is_animation_started() then
+    -- Stop hero movement with a sword attack if sword was used during the jump.
+    local sword_animation = sword_sprite:get_animation()
+    if sword_animation == "sword" or sword_animation == "spin_attack" then
+      hero:start_attack()
+    else -- Sword loading. The hero should not be frozen.
+      hero:unfreeze()
+    end
+    hero_sprite:set_animation(sprites_info["tunic"].animation)
+    sword_sprite:set_animation(sprites_info["sword"].animation)
+    hero_sprite:set_frame(sprites_info["tunic"].frame)
+    sword_sprite:set_frame(sprites_info["sword"].frame)
+  else
+    hero:unfreeze()
+  end
+end
+ 
+function state:update_sprites_info(hero)
+  -- Save sprites info before changing state.
+  sprites_info = {}
+  --local hero = state:get_game():get_hero()
+  for sprite_name, sprite in hero:get_sprites() do
+    local info = {}
+    sprites_info[sprite_name] = info
+    info.animation = sprite:get_animation()
+    info.frame = sprite:get_frame()
+  end
+end
+
 -- Determine if the hero can jump on this type of ground.
 function map_meta:is_jumpable_ground(ground_type)
   local map = self
@@ -138,13 +214,7 @@ function hero_meta:start_custom_jump()
   sol.audio.play_sound("jump")
 
   -- Save sprites info before changing state.
-  sprites_info = {}
-  for sprite_name, sprite in hero:get_sprites() do
-    local info = {}
-    sprites_info[sprite_name] = info
-    info.animation = sprite:get_animation()
-    info.frame = sprite:get_frame()
-  end  
+  state:update_sprites_info(hero)
   hero:start_state(state) -- Start jumping state.
 
   -- If the map NOT sideview, prepare ground below .
@@ -244,7 +314,8 @@ function hero_meta:start_custom_jump()
 
     -- Finish jump.
     is_hero_jumping = false
-    hero:unfreeze() -- Finish jumping state.
+    state:update_sprites_info(hero)
+    state:set_finished() -- Finish jumping state.
   end)
 end
 
