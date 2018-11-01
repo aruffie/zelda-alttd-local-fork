@@ -842,13 +842,14 @@ music{ id = "maps/out/animal_village", description = "Animal village" }
 music{ id = "maps/out/let_the_journey_begin", description = "Let the journey begin" }
 music{ id = "maps/out/mabe_village", description = "Mabe village" }
 music{ id = "maps/out/moblins_and_bow_wow", description = "Moblins and bow wow" }
-music{ id = "maps/out/mt_tamaranch", description = "Mt Tamaranch" }
-music{ id = "maps/out/mt_tamaranch_marine", description = "Mt Tamaranch Marine" }
 music{ id = "maps/out/mysterious_forest", description = "Mysterious forest" }
 music{ id = "maps/out/overworld", description = "Overworld" }
-music{ id = "maps/out/song_of_marine", description = "Song of Marine" }
-music{ id = "maps/out/song_of_marine_and_link", description = "Song of Marine and Link" }
+music{ id = "maps/out/song_of_marin", description = "Song of Marine" }
+music{ id = "maps/out/song_of_marin_and_link", description = "Song of Marine and Link" }
 music{ id = "maps/out/sword_search", description = "Sword search" }
+music{ id = "maps/out/tal_tal_mountain_range", description = "Tal Tal Mountain Range" }
+music{ id = "maps/out/tal_tal_mountain_range_marine", description = "Tal Tal Mountain Range (Marine)" }
+music{ id = "maps/out/tarin_chased_by_bees", description = "Tarin chased by bees" }
 music{ id = "scripts/menus/game_over", description = "Game over" }
 music{ id = "scripts/menus/introduction", description = "Introduction" }
 music{ id = "scripts/menus/player_select", description = "Player select" }
@@ -1188,6 +1189,15 @@ shader{ id = "sepia", description = "Sepia" }
 shader{ id = "toon", description = "Toon" }
 
 file{ path = "main.lua", author = "Christopho", license = "GPL v3" }
+file{ path = "musics/maps/dungeons/7/dungeon.it", author = "Metallizer", }
+file{ path = "musics/maps/houses/christine.ogg", author = "Farockt", }
+file{ path = "musics/maps/houses/links_awake.ogg", author = "Farockt", }
+file{ path = "musics/maps/houses/mr_write.ogg", author = "Farockt", }
+file{ path = "musics/maps/out/mabe_village.ogg", author = "Farockt", }
+file{ path = "musics/maps/out/mysterious_forest.ogg", author = "Farockt", }
+file{ path = "musics/maps/out/overworld.ogg", author = "Loeder", }
+file{ path = "musics/maps/out/tal_tal_mountain_range.ogg", author = "Farockt", }
+file{ path = "musics/maps/out/tal_tal_mountain_range_marine.ogg", author = "Marine", }
 file{ path = "scripts/gfx_effects/distorsion.lua", author = "PhoenixII54", }
 file{ path = "scripts/gfx_effects/fade_to_white.lua", author = "PhoenixII54", }
 file{ path = "scripts/gfx_effects/pixellisation.lua", author = "PhoenixII54", }

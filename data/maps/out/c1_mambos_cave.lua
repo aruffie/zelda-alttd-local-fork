@@ -43,9 +43,9 @@ function map:init_music()
   local x_hero, y_hero = hero:get_position()
   if y_hero < 384 then
     if game:get_player_name():lower() == "marin" then
-      sol.audio.play_music("maps/out/mt_tamaranch_marin")
+      sol.audio.play_music("maps/out/tal_tal_mountain_range_marin")
     else
-      sol.audio.play_music("maps/out/mt_tamaranch")
+      sol.audio.play_music("maps/out/tal_tal_mountain_range")
     end
   else
       sol.audio.play_music("maps/out/overworld")
