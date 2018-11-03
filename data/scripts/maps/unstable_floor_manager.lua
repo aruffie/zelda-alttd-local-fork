@@ -87,7 +87,8 @@ hero_meta:register_event("on_position_changed", function(hero)
 
   local map = hero:get_map()
   local x, y, layer = hero:get_ground_position() -- Check GROUND position.
-  if not hero:is_jumping() and hero:get_state() ~= "jumping" then
+  if not (hero.is_jumping and hero:is_jumping())
+        and hero:get_state() ~= "jumping" then
     if not map:is_unstable_floor(x, y, layer) then
       local position = hero.last_stable_position
       position.x, position.y, position.layer = hero:get_position()
