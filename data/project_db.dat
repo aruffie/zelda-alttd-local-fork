@@ -413,6 +413,7 @@ sprite{ id = "entities/fire", description = "Fire" }
 sprite{ id = "entities/fish_manbo", description = "Fish Manbo" }
 sprite{ id = "entities/flame_fountain_machine", description = "Flame fountain machine" }
 sprite{ id = "entities/floating_tree_rafting", description = "Floating tree rafting" }
+sprite{ id = "entities/frog_canvas", description = "Frog canvas" }
 sprite{ id = "entities/game_board", description = "game_board" }
 sprite{ id = "entities/grass", description = "Grass" }
 sprite{ id = "entities/graveyard_tree", description = "Graveyard tree" }
