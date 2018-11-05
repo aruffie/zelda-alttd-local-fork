@@ -596,7 +596,6 @@ sprite{ id = "entities/windfish_symbol_dungeon_8", description = "Windfish symbo
 sprite{ id = "entities/witch_house", description = "Witch house" }
 sprite{ id = "entities/wood_bridge", description = "Wood bridge" }
 sprite{ id = "entities/yarna_skull", description = "Yarna skull" }
-sprite{ id = "gohma_blue_eye", description = "Gohma blue eye" }
 sprite{ id = "ground_effects/fall_on_hole", description = "ground_effects/fall_on_hole" }
 sprite{ id = "ground_effects/lava_splash", description = "ground_effects/lava_splash" }
 sprite{ id = "ground_effects/leaves", description = "ground_effects/leaves" }
