@@ -676,6 +676,24 @@ tile{
   pattern = "bug_cage",
 }
 
+tile{
+  layer = 0,
+  x = 72,
+  y = 216,
+  width = 32,
+  height = 24,
+  pattern = "window.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 216,
+  y = 216,
+  width = 32,
+  height = 24,
+  pattern = "window.2-1",
+}
+
 custom_entity{
   name = "Frog_2",
   layer = 0,
