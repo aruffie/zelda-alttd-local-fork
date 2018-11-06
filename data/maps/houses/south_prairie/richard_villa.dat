@@ -1377,3 +1377,14 @@ custom_entity{
   sprite = "entities/frog_canvas",
 }
 
+custom_entity{
+  name = "frog_canvas_2",
+  layer = 2,
+  x = 264,
+  y = 37,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/frog_canvas",
+}
+
