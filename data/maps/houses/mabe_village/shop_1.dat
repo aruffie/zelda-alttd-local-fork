@@ -298,6 +298,51 @@ tile{
   pattern = "ceiling.2",
 }
 
+tile{
+  layer = 0,
+  x = 200,
+  y = 216,
+  width = 32,
+  height = 24,
+  pattern = "window.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 88,
+  y = 216,
+  width = 32,
+  height = 24,
+  pattern = "window.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 144,
+  y = 56,
+  width = 32,
+  height = 16,
+  pattern = "wall_torch.1",
+}
+
+tile{
+  layer = 0,
+  x = 48,
+  y = 120,
+  width = 16,
+  height = 32,
+  pattern = "wall_torch.3",
+}
+
+tile{
+  layer = 0,
+  x = 256,
+  y = 120,
+  width = 16,
+  height = 32,
+  pattern = "wall_torch.4",
+}
+
 destination{
   name = "shop_1_1_B",
   layer = 0,

@@ -748,6 +748,33 @@ tile{
   pattern = "wall_pillar.4-9",
 }
 
+tile{
+  layer = 0,
+  x = 88,
+  y = 200,
+  width = 32,
+  height = 24,
+  pattern = "window.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 168,
+  y = 200,
+  width = 32,
+  height = 24,
+  pattern = "window.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 16,
+  y = 104,
+  width = 24,
+  height = 32,
+  pattern = "window.3-1",
+}
+
 npc{
   name = "small_bowwow_2",
   layer = 0,

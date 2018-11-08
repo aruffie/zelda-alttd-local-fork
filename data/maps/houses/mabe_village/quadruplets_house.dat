@@ -1331,6 +1331,51 @@ tile{
   pattern = "wall_pillar.4-9",
 }
 
+tile{
+  layer = 1,
+  x = 496,
+  y = 208,
+  width = 32,
+  height = 24,
+  pattern = "window.2-1",
+}
+
+tile{
+  layer = 1,
+  x = 112,
+  y = 208,
+  width = 32,
+  height = 24,
+  pattern = "window.2-1",
+}
+
+tile{
+  layer = 1,
+  x = 40,
+  y = 104,
+  width = 24,
+  height = 32,
+  pattern = "window.3-1",
+}
+
+tile{
+  layer = 1,
+  x = 576,
+  y = 112,
+  width = 24,
+  height = 32,
+  pattern = "window.4-1",
+}
+
+tile{
+  layer = 1,
+  x = 320,
+  y = 208,
+  width = 32,
+  height = 24,
+  pattern = "window.2-1",
+}
+
 destination{
   name = "quadruplets_house_1_B",
   layer = 1,
