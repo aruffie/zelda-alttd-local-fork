@@ -472,6 +472,7 @@ sprite{ id = "entities/movies/background_introduction", description = "Backgroun
 sprite{ id = "entities/movies/swell", description = "Swell" }
 sprite{ id = "entities/movies/wreck", description = "Wreck" }
 sprite{ id = "entities/moving_platform_dg_2", description = "Moving platform dg 2" }
+sprite{ id = "entities/mushroom_move", description = "Mushroom move" }
 sprite{ id = "entities/non_diggable", description = "Diggable" }
 sprite{ id = "entities/notes", description = "Notes" }
 sprite{ id = "entities/orb_monster_hole_blue", description = "Orb monster hole blue" }
