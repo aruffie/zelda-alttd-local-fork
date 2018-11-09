@@ -206,6 +206,8 @@ sprite{ id = "enemies/boss/gohma_red", description = "Gohma red" }
 sprite{ id = "enemies/boss/gohma_red_eye", description = "Gohma red eye" }
 sprite{ id = "enemies/boss/grim_creeper", description = "Grim creeper" }
 sprite{ id = "enemies/boss/hinox_master", description = "Hinox master" }
+sprite{ id = "enemies/boss/hinox_master_blue", description = "Hinox master blue" }
+sprite{ id = "enemies/boss/hinox_master_red", description = "Hinox master red" }
 sprite{ id = "enemies/boss/hot_head", description = "Hot head" }
 sprite{ id = "enemies/boss/hot_head_form_b", description = "Hot head form b" }
 sprite{ id = "enemies/boss/hot_head_form_c", description = "Hot head form c" }
