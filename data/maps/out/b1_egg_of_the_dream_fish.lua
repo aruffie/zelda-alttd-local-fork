@@ -24,6 +24,18 @@ function map:init_music()
   end
 end
 
+-- Set if the egg is opened or not.
+function map:set_egg_opened(is_opened)
+  if is_opened then
+    egg_door:get_sprite():set_animation("opened")
+    egg_door_top:get_sprite():set_animation("opened")
+    egg:set_traversable_by(true)
+  else
+    egg_door:get_sprite():set_animation("closed")
+    egg_door_top:get_sprite():set_animation("closed")
+    egg:set_traversable_by(false)
+  end
+end
 
 -- Events
 
@@ -38,6 +50,8 @@ function map:on_started(destination)
   -- Signs
   photographer_sign:get_sprite():set_animation("photographer_sign")
 
+  -- Egg
+  self:set_egg_opened(false)
 end
 
 function owl_6_sensor:on_activated()
