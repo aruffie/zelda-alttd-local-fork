@@ -41,8 +41,6 @@ function map:on_started(destination)
   end
    -- Kids
   if map:get_game():get_value("main_quest_step") ~= 8 and map:get_game():get_value("main_quest_step") ~= 9 then
-    kid_1:get_sprite():set_animation("playing")
-    kid_2:get_sprite():set_animation("playing")
     map:create_ball(kid_1, kid_2)
   else
     kid_1:get_sprite():set_animation("scared")
@@ -256,14 +254,15 @@ function map:create_ball(player_1, player_2)
 
   local x_1,y_1, layer_1 = player_1:get_position()
   local x_2,y_2, layer_2 = player_2:get_position()
-  x_1 = x_1 + 8
-  x_2 = x_2 - 8
   local x_ball_shadow = x_1 
   local y_ball_shadow = y_1 + 8
   local radius =  (x_2 - x_1) / 2
   local center_y = y_1
   local center_x = x_1 + radius
-  ball = map:create_custom_entity{
+  kid_1:get_sprite():set_animation("stopped")
+  kid_2:get_sprite():set_animation("stopped")
+  local ball = map:create_custom_entity{
+    name = "ball",
     x = x_1,
     y = y_1,
     width = 16,
@@ -272,7 +271,8 @@ function map:create_ball(player_1, player_2)
     layer = 1 ,
     sprite= "entities/ball"
   }
-  ball_shadow = map:create_custom_entity{
+  local ball_shadow = map:create_custom_entity{
+    name = "ball_shadow",
     x = x_ball_shadow,
     y = y_ball_shadow,
     width = 16,
@@ -281,29 +281,33 @@ function map:create_ball(player_1, player_2)
     layer = 0,
     sprite= "entities/ball_shadow"
   }
-  movement = sol.movement.create("circle")
+
+  local movement = sol.movement.create("circle")
   movement:set_radius(radius)
   movement:set_angle_speed(180)
   movement:set_initial_angle(0)
   movement:set_ignore_obstacles(true)
   movement:set_clockwise(false)
   movement:set_center(center_x, center_y)
-  function  movement:on_position_changed()
-      local ball_x, ball_y, ball_layer = ball:get_position()
-      ball_shadow:set_position(ball_x, y_ball_shadow)
-  end
-  sol.timer.start(player_1, 10, function()
+  function movement:on_position_changed()
+    local ball_x, ball_y, ball_layer = ball:get_position()
+    ball_shadow:set_position(ball_x, y_ball_shadow)
+  end 
+    sol.timer.start(player_1, 10, function()
       local ball_x, ball_y, ball_layer = ball:get_position()
       if ball_x > x_1 - 2 and  ball_x < x_1 + 2 then
-        movement:set_clockwise(not movement:is_clockwise())
+        local clockwise = not movement:is_clockwise())
       end
       if ball_x > x_2 - 2 and  ball_x < x_2 + 2 then
-        movement:set_clockwise(not movement:is_clockwise())
+        local clockwise = not movement:is_clockwise())
       end
     return true
   end)
   movement:start(ball)
 
+end
+
+function generate_ball_movement()
 end
 
 -- Discussion with Fishman
