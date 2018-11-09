@@ -1,3 +1,5 @@
 [Solarus] [0] Warning: Cannot use quest size 320x240: this quest only supports 320x256 to 320x256. Using 320x256 instead.
 [Solarus] [0] Warning: Running script arg "local path=package.path;package.path='C:\Program Files\ZeroBrane\lualibs\mobdebug\?.lua;C:\Users\benschwe\.zbstudio\packages\?.lua;'..path;local mdb=require('mobdebug');require('solarus_pretty_printer');package.path=path;mdb.coro();mdb.start()"
 [Solarus] [0] Error: In script argument (-s): [string "local path=package.path;package.path='C:\Prog..."]:1: invalid escape sequence near ''C:'
+[Solarus] [4110] Warning: The function circle_movement:set_angle_speed() is deprecated since Solarus 1.6. Use circle_movement:set_angular_speed() in radians instead.
+[Solarus] [4110] Warning: The function circle_movement:set_initial_angle() is deprecated since Solarus 1.6. Use circle_movement:set_angle_from_center() in radians instead.
