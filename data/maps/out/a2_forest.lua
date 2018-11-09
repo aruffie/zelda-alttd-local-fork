@@ -447,3 +447,12 @@ function map:launch_cinematic_1()
   end)
 
 end
+
+function mushroom_sensor:on_activated()
+  
+  if mushroom:is_enabled() then
+    mushroom:set_enabled(false)
+    hero:start_treasure("mushroom", 1, "mushroom")
+  end
+
+end

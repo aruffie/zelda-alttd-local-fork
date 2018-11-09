@@ -8993,6 +8993,15 @@ tile{
 }
 
 sensor{
+  name = "mushroom_sensor",
+  layer = 0,
+  x = 24,
+  y = 221,
+  width = 32,
+  height = 32,
+}
+
+sensor{
   name = "raccoon_lost_warning_sensor",
   layer = 0,
   x = 288,
