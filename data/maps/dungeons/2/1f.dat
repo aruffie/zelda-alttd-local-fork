@@ -19310,7 +19310,7 @@ custom_entity{
   height = 32,
   direction = 0,
   sprite = "entities/statue_dungeon_2",
-  model = "obstacle",
+  model = "statue",
 }
 
 destructible{

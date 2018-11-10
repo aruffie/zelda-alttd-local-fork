@@ -12841,7 +12841,6 @@ dynamic_tile{
   pattern = "2485",
   width = 104,
   height = 8,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -12852,7 +12851,6 @@ dynamic_tile{
   pattern = "2485",
   width = 8,
   height = 168,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -12863,7 +12861,6 @@ dynamic_tile{
   pattern = "2485",
   width = 88,
   height = 8,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -12874,7 +12871,6 @@ dynamic_tile{
   pattern = "2485",
   width = 16,
   height = 8,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -12885,7 +12881,6 @@ dynamic_tile{
   pattern = "2485",
   width = 8,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -12896,7 +12891,6 @@ dynamic_tile{
   pattern = "2485",
   width = 128,
   height = 8,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -12907,7 +12901,6 @@ dynamic_tile{
   pattern = "2485",
   width = 16,
   height = 8,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -12918,7 +12911,6 @@ dynamic_tile{
   pattern = "2485",
   width = 8,
   height = 64,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -12929,7 +12921,6 @@ dynamic_tile{
   pattern = "2485",
   width = 112,
   height = 8,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -12940,7 +12931,6 @@ dynamic_tile{
   pattern = "2485",
   width = 120,
   height = 8,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -12951,7 +12941,6 @@ dynamic_tile{
   pattern = "2485",
   width = 8,
   height = 24,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -12962,7 +12951,6 @@ dynamic_tile{
   pattern = "2485",
   width = 176,
   height = 8,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -12973,7 +12961,6 @@ dynamic_tile{
   pattern = "2485",
   width = 8,
   height = 208,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -12984,7 +12971,6 @@ dynamic_tile{
   pattern = "2485",
   width = 8,
   height = 24,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -12995,7 +12981,6 @@ dynamic_tile{
   pattern = "2485",
   width = 48,
   height = 8,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -13006,7 +12991,6 @@ dynamic_tile{
   pattern = "2485",
   width = 8,
   height = 96,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -13017,7 +13001,6 @@ dynamic_tile{
   pattern = "2485",
   width = 56,
   height = 8,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -13028,7 +13011,6 @@ dynamic_tile{
   pattern = "2485",
   width = 112,
   height = 8,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -13039,7 +13021,6 @@ dynamic_tile{
   pattern = "2485",
   width = 112,
   height = 8,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -13050,7 +13031,6 @@ dynamic_tile{
   pattern = "2485",
   width = 240,
   height = 8,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -13061,7 +13041,6 @@ dynamic_tile{
   pattern = "2485",
   width = 8,
   height = 64,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -13072,7 +13051,6 @@ dynamic_tile{
   pattern = "2485",
   width = 8,
   height = 160,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -13083,7 +13061,6 @@ dynamic_tile{
   pattern = "2485",
   width = 8,
   height = 64,
-  enabled_at_start = true,
 }
 
 destructible{
@@ -13592,7 +13569,6 @@ dynamic_tile{
   pattern = "2485",
   width = 80,
   height = 8,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -13603,7 +13579,6 @@ dynamic_tile{
   pattern = "2485",
   width = 96,
   height = 8,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -13614,7 +13589,6 @@ dynamic_tile{
   pattern = "2485",
   width = 152,
   height = 8,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -13625,7 +13599,6 @@ dynamic_tile{
   pattern = "2485",
   width = 8,
   height = 128,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -13636,7 +13609,6 @@ dynamic_tile{
   pattern = "2485",
   width = 16,
   height = 8,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -13647,7 +13619,6 @@ dynamic_tile{
   pattern = "2485",
   width = 8,
   height = 128,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -13658,7 +13629,6 @@ dynamic_tile{
   pattern = "2485",
   width = 8,
   height = 128,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -13669,7 +13639,6 @@ dynamic_tile{
   pattern = "2485",
   width = 72,
   height = 8,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -13680,7 +13649,6 @@ dynamic_tile{
   pattern = "2485",
   width = 88,
   height = 8,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -13691,7 +13659,6 @@ dynamic_tile{
   pattern = "2485",
   width = 8,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -13702,7 +13669,6 @@ dynamic_tile{
   pattern = "2485",
   width = 8,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -13713,7 +13679,6 @@ dynamic_tile{
   pattern = "2485",
   width = 8,
   height = 24,
-  enabled_at_start = true,
 }
 
 chest{
@@ -14416,7 +14381,6 @@ dynamic_tile{
   pattern = "2485",
   width = 16,
   height = 8,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -14427,7 +14391,6 @@ dynamic_tile{
   pattern = "2485",
   width = 32,
   height = 8,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -14438,7 +14401,6 @@ dynamic_tile{
   pattern = "2485",
   width = 8,
   height = 40,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -14449,7 +14411,6 @@ dynamic_tile{
   pattern = "2485",
   width = 32,
   height = 8,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -14460,7 +14421,6 @@ dynamic_tile{
   pattern = "2485",
   width = 8,
   height = 8,
-  enabled_at_start = true,
 }
 
 door{
@@ -14788,7 +14748,6 @@ dynamic_tile{
   pattern = "2485",
   width = 48,
   height = 8,
-  enabled_at_start = true,
 }
 
 door{
@@ -15067,7 +15026,7 @@ custom_entity{
   height = 32,
   direction = 1,
   sprite = "entities/statue_owl_dungeon_free",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -17223,100 +17182,100 @@ dynamic_tile{
   layer = 2,
   x = 720,
   y = 648,
+  enabled_at_start = false,
   pattern = "2",
   width = 8,
   height = 16,
-  enabled_at_start = false,
 }
 
 dynamic_tile{
   layer = 2,
   x = 864,
   y = 648,
+  enabled_at_start = false,
   pattern = "3",
   width = 8,
   height = 16,
-  enabled_at_start = false,
 }
 
 dynamic_tile{
   layer = 2,
   x = 720,
   y = 584,
+  enabled_at_start = false,
   pattern = "4",
   width = 8,
   height = 16,
-  enabled_at_start = false,
 }
 
 dynamic_tile{
   layer = 2,
   x = 864,
   y = 584,
+  enabled_at_start = false,
   pattern = "5",
   width = 8,
   height = 16,
-  enabled_at_start = false,
 }
 
 dynamic_tile{
   layer = 2,
   x = 800,
   y = 616,
+  enabled_at_start = false,
   pattern = "6",
   width = 8,
   height = 16,
-  enabled_at_start = false,
 }
 
 dynamic_tile{
   layer = 2,
   x = 1040,
   y = 392,
+  enabled_at_start = false,
   pattern = "2",
   width = 8,
   height = 16,
-  enabled_at_start = false,
 }
 
 dynamic_tile{
   layer = 2,
   x = 1184,
   y = 392,
+  enabled_at_start = false,
   pattern = "3",
   width = 8,
   height = 16,
-  enabled_at_start = false,
 }
 
 dynamic_tile{
   layer = 2,
   x = 1040,
   y = 328,
+  enabled_at_start = false,
   pattern = "4",
   width = 8,
   height = 16,
-  enabled_at_start = false,
 }
 
 dynamic_tile{
   layer = 2,
   x = 1184,
   y = 328,
+  enabled_at_start = false,
   pattern = "5",
   width = 8,
   height = 16,
-  enabled_at_start = false,
 }
 
 dynamic_tile{
   layer = 2,
   x = 1120,
   y = 360,
+  enabled_at_start = false,
   pattern = "6",
   width = 8,
   height = 16,
-  enabled_at_start = false,
 }
 
 enemy{

@@ -252,17 +252,16 @@ end
 -- Ball animation
 function map:create_ball(player_1, player_2)
 
-  local x_1,y_1, layer_1 = player_1:get_position()
+local x_1,y_1, layer_1 = player_1:get_position()
   local x_2,y_2, layer_2 = player_2:get_position()
+  x_1 = x_1 + 8
+  x_2 = x_2 - 8
   local x_ball_shadow = x_1 
   local y_ball_shadow = y_1 + 8
   local radius =  (x_2 - x_1) / 2
   local center_y = y_1
   local center_x = x_1 + radius
-  kid_1:get_sprite():set_animation("stopped")
-  kid_2:get_sprite():set_animation("stopped")
-  local ball = map:create_custom_entity{
-    name = "ball",
+  ball = map:create_custom_entity{
     x = x_1,
     y = y_1,
     width = 16,
@@ -271,8 +270,7 @@ function map:create_ball(player_1, player_2)
     layer = 1 ,
     sprite= "entities/ball"
   }
-  local ball_shadow = map:create_custom_entity{
-    name = "ball_shadow",
+  ball_shadow = map:create_custom_entity{
     x = x_ball_shadow,
     y = y_ball_shadow,
     width = 16,
@@ -281,33 +279,53 @@ function map:create_ball(player_1, player_2)
     layer = 0,
     sprite= "entities/ball_shadow"
   }
-
-  local movement = sol.movement.create("circle")
+  movement = sol.movement.create("circle")
   movement:set_radius(radius)
   movement:set_angle_speed(180)
   movement:set_initial_angle(0)
   movement:set_ignore_obstacles(true)
   movement:set_clockwise(false)
   movement:set_center(center_x, center_y)
-  function movement:on_position_changed()
-    local ball_x, ball_y, ball_layer = ball:get_position()
-    ball_shadow:set_position(ball_x, y_ball_shadow)
-  end 
-    sol.timer.start(player_1, 10, function()
+  function  movement:on_position_changed()
+      local ball_x, ball_y, ball_layer = ball:get_position()
+      ball_shadow:set_position(ball_x, y_ball_shadow)
+  end
+  sol.timer.start(player_1, 10, function()
       local ball_x, ball_y, ball_layer = ball:get_position()
       if ball_x > x_1 - 2 and  ball_x < x_1 + 2 then
-        local clockwise = not movement:is_clockwise())
+        movement:set_clockwise(not movement:is_clockwise())
       end
       if ball_x > x_2 - 2 and  ball_x < x_2 + 2 then
-        local clockwise = not movement:is_clockwise())
+        movement:set_clockwise(not movement:is_clockwise())
       end
     return true
   end)
   movement:start(ball)
-
 end
 
-function generate_ball_movement()
+function map:generate_ball_movement(player_1, player_2, clockwise)
+  
+  local x_1,y_1, layer_1 = player_1:get_position()
+  local x_2,y_2, layer_2 = player_2:get_position()
+  local x_ball_shadow = x_1 
+  local y_ball_shadow = y_1 + 8
+  local radius =  (x_2 - x_1) / 2
+  local center_y = y_1
+  local center_x = x_1 + radius
+  local movement = sol.movement.create("circle")
+  movement:set_radius(radius)
+  movement:set_angular_speed(math.pi)
+  movement:set_angle_from_center(0)
+  movement:set_ignore_obstacles(true)
+  movement:set_clockwise(clockwise)
+  movement:set_center(center_x, center_y)
+  movement:set_max_rotations(1)
+  function movement:on_position_changed()
+    --local ball_x, ball_y, ball_layer = ball:get_position()
+    --ball_shadow:set_position(ball_x, y_ball_shadow)
+  end 
+  
+  return movement
 end
 
 -- Discussion with Fishman
