@@ -56,6 +56,7 @@ function gbeff:on_map_changed(map)
     gbshader:set_uniform('persistence',0.0)
     enabled = false
   else
+    sol.video.set_shader(nil)
     gbshader:set_uniform('persistence',0.8)
     enabled = true
   end
