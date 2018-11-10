@@ -192,7 +192,6 @@ end
 -- Cinematics
 -- This is the cinematic that the hero wakes up and gets up from his bed.
 function map:launch_cinematic_1()
-  --local snores = snores
   map:start_coroutine(function()
     local options = {
       entities_ignore_suspend = {hero, marin, tarin, snores}

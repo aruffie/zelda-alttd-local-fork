@@ -1169,6 +1169,7 @@ entity{ id = "non_diggable", description = "Non diggable" }
 entity{ id = "obstacle", description = "Obstacle" }
 entity{ id = "powder", description = "Powder" }
 entity{ id = "seagull", description = "Seagull" }
+entity{ id = "statue", description = "Statue" }
 entity{ id = "statue_pig", description = "Statue pig" }
 entity{ id = "torch", description = "Torch" }
 entity{ id = "unstable_floor", description = "Unstable Floor" }

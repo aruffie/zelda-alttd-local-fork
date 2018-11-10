@@ -141,7 +141,7 @@ end
 function map:on_obtaining_treasure(item, variant, savegame_variable)
 
     if savegame_variable == "dungeon_1_big_treasure" then
-      treasure_manager:get_instrument(map, 1)
+      treasure_manager:get_instrument(map)
     end
 
 end
