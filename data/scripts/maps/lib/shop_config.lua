@@ -25,11 +25,17 @@ return {
   heart = {
     price = 10,
     quantity = 3,
-    placeholder = 3
+    placeholder = 2,
+    activation_condition = function(map)
+      return true
+    end
   },
   shield = {
     price = 50,
     quantity = 1,
-    placeholder = 1
+    placeholder = 3,
+    activation_condition = function(map)
+      return true
+    end
   }
 }

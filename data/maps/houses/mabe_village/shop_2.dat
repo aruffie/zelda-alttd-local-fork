@@ -265,7 +265,7 @@ tile{
 tile{
   layer = 0,
   x = 48,
-  y = 112,
+  y = 104,
   width = 16,
   height = 32,
   pattern = "wall_torch.3",
@@ -274,7 +274,7 @@ tile{
 tile{
   layer = 0,
   x = 256,
-  y = 112,
+  y = 104,
   width = 16,
   height = 32,
   pattern = "wall_torch.4",
@@ -376,22 +376,10 @@ custom_entity{
 }
 
 custom_entity{
-  name = "shop_board",
-  layer = 0,
-  x = 80,
-  y = 61,
-  width = 176,
-  height = 48,
-  direction = 0,
-  sprite = "entities/shop_board",
-  model = "obstacle",
-}
-
-custom_entity{
   name = "placeholder_1",
   layer = 0,
-  x = 96,
-  y = 125,
+  x = 104,
+  y = 77,
   width = 16,
   height = 16,
   direction = 0,
@@ -401,7 +389,7 @@ custom_entity{
   name = "placeholder_2",
   layer = 0,
   x = 136,
-  y = 93,
+  y = 77,
   width = 16,
   height = 16,
   direction = 0,
@@ -411,7 +399,7 @@ custom_entity{
   name = "placeholder_3",
   layer = 0,
   x = 184,
-  y = 93,
+  y = 77,
   width = 16,
   height = 16,
   direction = 0,
@@ -420,11 +408,23 @@ custom_entity{
 custom_entity{
   name = "placeholder_4",
   layer = 0,
-  x = 224,
-  y = 93,
+  x = 216,
+  y = 77,
   width = 16,
   height = 16,
   direction = 0,
+}
+
+custom_entity{
+  name = "shop_board",
+  layer = 0,
+  x = 80,
+  y = 61,
+  width = 176,
+  height = 48,
+  direction = 0,
+  sprite = "entities/shop_board",
+  model = "obstacle",
 }
 
 tile{
