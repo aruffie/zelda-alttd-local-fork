@@ -844,16 +844,17 @@ tile{
   y = 128,
   width = 32,
   height = 32,
-  pattern = "33",
+  pattern = "wall_torch.2",
 }
 
 tile{
   layer = 0,
   x = 72,
   y = 128,
+  enabled_at_start = false,
   width = 32,
   height = 32,
-  pattern = "33",
+  pattern = "wall_torch.2",
 }
 
 tile{
@@ -962,7 +963,6 @@ dynamic_tile{
   pattern = "40",
   width = 16,
   height = 128,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -973,7 +973,6 @@ dynamic_tile{
   pattern = "40",
   width = 16,
   height = 64,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -984,7 +983,6 @@ dynamic_tile{
   pattern = "40",
   width = 16,
   height = 64,
-  enabled_at_start = true,
 }
 
 destination{
