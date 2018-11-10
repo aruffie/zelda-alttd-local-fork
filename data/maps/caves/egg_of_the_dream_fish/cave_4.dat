@@ -974,15 +974,6 @@ tile{
 
 tile{
   layer = 1,
-  x = 136,
-  y = 112,
-  width = 32,
-  height = 16,
-  pattern = "floor_boss-5",
-}
-
-tile{
-  layer = 1,
   x = 88,
   y = 24,
   width = 32,
@@ -1042,15 +1033,6 @@ tile{
   width = 16,
   height = 8,
   pattern = "door_top.stairs_up.2-1",
-}
-
-tile{
-  layer = 1,
-  x = 136,
-  y = 48,
-  width = 32,
-  height = 32,
-  pattern = "four_sword_palace_skull.2",
 }
 
 jumper{
@@ -1171,6 +1153,28 @@ wall{
   stops_enemies = true,
   stops_blocks = true,
   stops_projectiles = true,
+}
+
+custom_entity{
+  name = "mad_batter_5",
+  layer = 1,
+  x = 144,
+  y = 117,
+  width = 32,
+  height = 32,
+  direction = 3,
+  sprite = "entities/mad_batter_set",
+}
+
+custom_entity{
+  name = "mad_batter_6",
+  layer = 1,
+  x = 144,
+  y = 61,
+  width = 32,
+  height = 32,
+  direction = 2,
+  sprite = "entities/mad_batter_set",
 }
 
 tile{

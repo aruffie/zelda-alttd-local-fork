@@ -1,0 +1,16 @@
+animation{
+  name = "default",
+  src_image = "menus/title_screen/title_zelda.png",
+  directions = {
+    { x = 0, y = 0, frame_width = 144, frame_height = 71, origin_x = 0, origin_y = 0 },
+  },
+}
+animation{
+  name = "shining",
+  src_image = "menus/title_screen/title_zelda.png",
+  frame_delay = 100,
+  frame_to_loop_on = 15,
+  directions = {
+    { x = 0, y = 0, frame_width = 144, frame_height = 71, origin_x = 0, origin_y = 0, num_frames = 16, num_columns = 4 },
+  },
+}

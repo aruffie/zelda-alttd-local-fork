@@ -2497,24 +2497,28 @@ custom_entity{
   model = "non_diggable",
 }
 
-custom_entity{
+wall{
   layer = 0,
-  x = 384,
-  y = 213,
-  properties = {
-    {
-      key = "direction",
-      value = "0,-1",
-    },
-    {
-      key = "aperture",
-      value = "0.7",
-    },
-  },
+  x = 136,
+  y = 200,
   width = 16,
   height = 16,
-  direction = 0,
-  model = "light",
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 0,
+  x = 376,
+  y = 200,
+  width = 16,
+  height = 16,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
 }
 
 tile{

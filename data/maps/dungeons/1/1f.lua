@@ -56,29 +56,24 @@ function map:on_opening_transition_finished(destination)
 end
 
 -- Enemies
-
-  enemy_manager:execute_when_vegas_dead(map, "enemy_group_13")
+enemy_manager:execute_when_vegas_dead(map, "enemy_group_13")
 
 -- Treasures
-
 treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_7_", "pickable_small_key_1", nil)
 treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_12_", "chest_rupee_1")
 treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_13_", "chest_beak_of_stone")
 treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_4_", "chest_map")
 
 -- Doors
-
 door_manager:open_when_enemies_dead(map,  "enemy_group_6_",  "door_group_1")
 door_manager:open_when_enemies_dead(map,  "enemy_group_3_",  "door_group_5")
 door_manager:open_if_small_boss_dead(map)
 door_manager:open_if_boss_dead(map)
 
 -- Blocks
-
 door_manager:open_when_block_moved(map, "auto_block_1", "door_group_2")
 
 -- Sensors events
-
 function sensor_1:on_activated()
 
   door_manager:close_if_enemies_not_dead(map, "enemy_group_6_", "door_group_1_")
@@ -136,7 +131,6 @@ end
 
 
 -- Switchs events
-
 function switch_1:on_activated()
 
   treasure_manager:appear_chest(map, "chest_small_key_2", true)
@@ -144,7 +138,6 @@ function switch_1:on_activated()
 end
 
 -- Treasures events
-
 function map:on_obtaining_treasure(item, variant, savegame_variable)
 
     if savegame_variable == "dungeon_1_big_treasure" then
@@ -154,7 +147,6 @@ function map:on_obtaining_treasure(item, variant, savegame_variable)
 end
 
 -- Doors events
-
 function weak_wall_A_1:on_opened()
 
   weak_wall_closed_A_1:remove();

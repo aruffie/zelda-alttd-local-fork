@@ -1,4 +1,4 @@
------------------
+﻿-----------------
 DONJON 1 : MOLDORM
 Lombric Zélé
 -----------------
@@ -29,8 +29,14 @@ Prince des cauchemars
 TEMPLE DES COULEURS : OCTOPODAR
 Pieuvre Excentrique
 -----------------
+CAVERNE DES MOBLINS : CERBIRASTOS 1ER
+Roi Moblin
+-----------------
 DESERT DE YARNA : LEMNOLA
 Terreur des Sables
+-----------------
+TEMPLE DU MASQUE SUD : PENDRARMOS
+Commandant occulte
 -----------------
 MONTAGNES : MORLAROC
 Tortue endormie

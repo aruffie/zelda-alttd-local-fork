@@ -66,7 +66,7 @@ local function on_collision(torch, other, torch_sprite, other_sprite)
   if other:get_type() == "custom_entity" then
 
     local other_model = other:get_model()
-    if other_model == "fire" then
+    if other_model == "fire" or other_model == 'powder' then
       if not torch:is_lit() then
         torch:set_lit(true)
         if torch.on_lit ~= nil then

@@ -1,63 +1,90 @@
 local owl_manager = {}
 
+-- Function that makes it possible to make the owl appear to launch a dialogue.
 function owl_manager:appear(map, step, callback)
 
     local game = map:get_game()
     local hero = map:get_entity("hero")
     local owl = map:get_entity("owl_"..step)
     local x_hero,y_hero = hero:get_position()
-    local x_owl,y_owl = owl:get_position()
-    game:set_pause_allowed(false)
-    game:set_suspended(true)
-    game:set_hud_enabled(false)
-    owl:set_enabled(true)
-    owl:get_sprite():set_animation("walking")
-    owl:get_sprite():set_direction(3)
-    owl:get_sprite():set_ignore_suspend(true)
-    local m = sol.movement.create("target")
-    owl.xy = { x = x_owl, y = y_owl }
-    function m:on_position_changed(coord_x, coord_y)
-      owl:set_position(coord_x, coord_y)
-    end
-    y_hero= y_hero - 32
-    m:set_target(x_hero, y_hero)
-    m:set_speed(60)
-    m:set_ignore_obstacles(true)
-    sol.audio.play_music("scripts/meta/map/the_wise_owl")
-    game:set_value("owl_"..step, true)
-    hero:set_direction(1)
-    hero:freeze()
-    m:start(owl.xy, function() 
-      owl:get_sprite():set_animation("talking")
-      game:start_dialog("scripts.meta.map.owl_"..step, function()
-        owl:get_sprite():set_animation("walking")
-        owl:get_sprite():set_direction(1)
-        m:stop()
-        local m2 = sol.movement.create("target")
+    local x_owl,y_owl, l_owl = owl:get_position()
+    local distance_owl = owl:get_distance(hero)
+    local owl_shadow = map:create_custom_entity{
+      x = x_owl,
+      y = y_owl + 32,
+      width = 16,
+      height = 8,
+      direction = 0,
+      layer = l_owl ,
+      sprite= "npc/owl_shadow"
+    }
+    map:start_coroutine(function()
+      local options = {
+        entities_ignore_suspend = {owl, owl_shadow}
+      }
+      map:set_cinematic_mode(true, options)
+      -- Init and launch cinematic mode
+      -- Init music
+      sol.audio.play_music("scripts/meta/map/the_wise_owl")
+     -- Init hero
+      hero:set_direction(1)
+      -- Init owl shadow
+      owl_shadow:get_sprite():set_animation("walking")
+      owl_shadow:get_sprite():set_direction(1)
+     -- Init owl
+      owl:set_enabled(true)
+      owl:get_sprite():set_animation("walking")
+      owl:get_sprite():set_direction(3)
+      owl:bring_to_front()
+      -- Init movement 1
+      local m = sol.movement.create("target")
+      m:set_target(x_hero, y_hero - 32)
+      m:set_speed(60)
+      m:set_ignore_obstacles(true)
+      m:set_ignore_suspend(true)
+      function m:on_position_changed()
         local x_owl,y_owl = owl:get_position()
-        owl.xy = { x = x_owl, y = y_owl }
-        function m2:on_position_changed(coord_x, coord_y)
-          owl:set_position(coord_x, coord_y)
-        end
-        local position = map:get_entity("owl_"..step.."_position")
-        m2:set_target(position)
-        m2:set_speed(100)
-        m2:set_ignore_obstacles(true)
-        m2:start(owl.xy, function()
-          owl:set_enabled(false)
-          if callback ~= nil then
-            callback()
-          end
-          game:set_suspended(false)
-          hero:unfreeze()
-          game:set_pause_allowed(true)
-          game:set_hud_enabled(true)
-        end)
-      end)      
+        local distance = owl:get_distance(hero)
+        local offset = (distance_owl - distance) / distance_owl * 32
+        owl_shadow:set_position(x_owl, y_owl + 32 - offset)
+      end
+      movement(m, owl)
+      owl_shadow:set_enabled(false)
+      owl:get_sprite():set_animation("talking")
+      owl_shadow:get_sprite():set_animation("talking")
+      dialog("scripts.meta.map.owl_"..step)
+      owl:get_sprite():set_animation("walking")
+      owl:get_sprite():set_direction(1)
+      owl_shadow:get_sprite():set_animation("walking")
+      owl_shadow:get_sprite():set_direction(1)
+      -- Init movement 2
+      owl_shadow:set_enabled(true)
+      local position = map:get_entity("owl_"..step.."_position")
+      local m2 = sol.movement.create("target")
+      m2:set_target(position)
+      m2:set_speed(100)
+      m2:set_ignore_obstacles(true)
+      m2:set_ignore_suspend(true)
+      function m2:on_position_changed()
+        local x_owl,y_owl = owl:get_position()
+        local distance = owl:get_distance(hero)
+        local offset = (distance_owl - distance) / distance_owl * 32
+        owl_shadow:set_position(x_owl, y_owl + 32 - offset)
+      end
+      movement(m2, owl)
+      owl:set_enabled(false)
+      owl_shadow:set_enabled(false)
+      -- Launch callback if exist
+      if callback ~= nil then
+        callback()
+      end
+      game:set_value("owl_"..step, true)
+      map:set_cinematic_mode(false, options)
     end)
 
 end
 
+-- Function to manage the owls in the dungeons
 function owl_manager:manage_map(map)
 
   local game = map:get_game()

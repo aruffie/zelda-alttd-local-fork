@@ -1,6 +1,6 @@
 -- Inside - Shop 2
 
--- Includes scripts
+-- Include scripts
 local shop_manager = require("scripts/maps/shop_manager")
 
 
@@ -12,7 +12,8 @@ local link_move = false
 
 -- Methods - Functions
 
-function map:set_music()
+-- Initialize the music of the map
+function map:init_music()
 
   if game:get_value("main_quest_step") == 3  then
     sol.audio.play_music("maps/out/sword_search")
@@ -92,7 +93,7 @@ end
 
 function map:on_started(destination)
 
-  map:set_music()
+  map:init_music()
   map:init_merchant()
 
   shop_manager:init(map)

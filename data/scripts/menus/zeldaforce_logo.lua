@@ -81,7 +81,9 @@ function zeldaforce_logo_menu:on_started()
 
   self.triforce_middle_surface = sol.surface.create("menus/zeldaforce_logo/zeldaforce_logo_triforce_middle.png")
   self.draw_triforce_middle = false
-  
+  self.has_played_sound_1 = false
+  self.has_played_sound_2 = false
+
   -- Start timer.
   self.anim_length = 1200
   self.elapsed_time = 0
@@ -110,24 +112,38 @@ function zeldaforce_logo_menu:on_key_pressed(key)
     sol.main.exit()
     return true
   elseif not self.stopped then
-    self.stopped = true
-
-    -- Stop the timer.
-    if self.timer ~= nil then
-      self.timer:stop()
-      self.timer = nil
-    end
-
-    -- Go directly to last step
-    if self.step <= 3 then
-    ---  sol.audio.play_sound("solarus_logo")
-      self:step4()
-      self:step5(500)
-    return true
-    end
-
+    return self:skip_menu()
   end
   
+  return false
+end
+
+-- Mouse pressed: skip menu.
+function zeldaforce_logo_menu:on_mouse_pressed(button, x, y)
+  if button == "left" or button == "right" then
+    return self:skip_menu()
+  end
+end
+
+function zeldaforce_logo_menu:skip_menu()
+  self.stopped = true
+
+  -- Stop the timer.
+  if self.timer ~= nil then
+    self.timer:stop()
+    self.timer = nil
+  end
+
+  -- Go directly to last step
+  if self.step <= 3 then
+    if (not self.has_played_sound_1) and (not self.has_played_sound_2) then
+      sol.audio.play_sound("solarus_logo")
+    end
+    self:step4()
+    self:step5(500)
+    return true
+  end
+
   return false
 end
 
@@ -141,7 +157,7 @@ function zeldaforce_logo_menu:step2()
   end
 
   self.step = 2
-  self.has_played_sound = false
+  self.has_played_sound_1 = false
 
   -- Update the surface.
   self:update_surface()
@@ -155,8 +171,8 @@ function zeldaforce_logo_menu:step2()
     self:update_surface()
 
     -- Play a sound for the collision.
-    if self.elapsed_time >= self.anim_length * 0.6 and not self.has_played_sound then
-      self.has_played_sound = true
+    if self.elapsed_time >= self.anim_length * 0.6 and not self.has_played_sound_1 then
+      self.has_played_sound_1 = true
       sol.audio.play_sound("solarus_logo")
     end
 
@@ -181,7 +197,7 @@ function zeldaforce_logo_menu:step3()
   end
 
   self.step = 3
-  self.has_played_sound = false
+  self.has_played_sound_2 = false
 
   -- Reset elapsed time.
   self.elapsed_time = 0
@@ -198,10 +214,10 @@ function zeldaforce_logo_menu:step3()
     self:update_surface()
 
     -- Play a sound for the collision.
-    if self.elapsed_time >= self.anim_length * 0.6 and not self.has_played_sound then
-      self.has_played_sound = true
+    if self.elapsed_time >= self.anim_length * 0.6 and not self.has_played_sound_2 then
+      self.has_played_sound_2 = true
       self.draw_triforce_middle = true
-   --   sol.audio.play_sound("solarus_logo")
+      sol.audio.play_sound("solarus_logo")
     end
 
     if self.elapsed_time < self.anim_length then
@@ -211,7 +227,6 @@ function zeldaforce_logo_menu:step3()
       -- At the end of the animation, start the next step.
       self.timer:stop()
       self.timer = nil
-      --sol.audio.play_sound("sword_spin_attack_load")
       self:step4()
 
       -- Wait a bit before quitting the menu.

@@ -626,6 +626,7 @@ npc{
 }
 
 custom_entity{
+  name = "mouse",
   layer = 0,
   x = 112,
   y = 117,

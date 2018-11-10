@@ -1,32 +1,12 @@
--- Lua script of map houses/mabe_village/library.
--- This script is executed every time the hero enters this map.
-
--- Feel free to modify the code below.
--- You can add more events and remove the ones you don't need.
-
--- See the Solarus Lua API documentation:
--- http://www.solarus-games.org/doc/latest
-
+-- Variables
 local map = ...
 local game = map:get_game()
 local hero = map:get_hero()
 
-
-function map:set_music()
-
-  if game:get_value("main_quest_step") == 3  then
-    sol.audio.play_music("maps/out/sword_search")
-  else
-    sol.audio.play_music("maps/houses/inside")
-  end
-
-end
-
--- Event called at initialization time, as soon as this map becomes is loaded.
+-- Map events
 function map:on_started()
 
-
-  map:set_music()
+  map:init_music()
   -- Secret book
   book_9:set_enabled(false)
   if game:get_value("get_secret_book") then
@@ -53,12 +33,18 @@ function map:on_started()
   
 end
 
--- Event called after the opening transition effect of the map,
--- that is, when the player takes control of the hero.
-function map:on_opening_transition_finished()
+-- Initialize the music of the map
+function map:init_music()
+
+  if game:get_value("main_quest_step") == 3  then
+    sol.audio.play_music("maps/out/sword_search")
+  else
+    sol.audio.play_music("maps/houses/inside")
+  end
 
 end
 
+-- Discussion with Book
 function map:open_book(book)
 
     game:start_dialog("maps.houses.mabe_village.library.book_"..book..".question", function(answer)
@@ -86,7 +72,7 @@ function map:open_book(book)
 
 end
 
-
+-- NPC events
 function book_1_interaction:on_interaction()
 
       map:open_book(1)
@@ -141,6 +127,7 @@ function book_9:on_interaction()
 
 end
 
+-- Wardrobes
 for wardrobe in map:get_entities("wardrobe") do
   function wardrobe:on_interaction()
     game:start_dialog("maps.houses.wardrobe_2", game:get_player_name())

@@ -1,0 +1,9 @@
+animation{
+  name = "default",
+  src_image = "menus/title_screen/wreck.png",
+  frame_delay = 150,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 0, frame_width = 56, frame_height = 58, origin_x = 0, origin_y = 0, num_frames = 7 },
+  },
+}

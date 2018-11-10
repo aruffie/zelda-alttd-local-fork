@@ -1,18 +1,20 @@
--- Lua script of map houses/graveyard/witch_house_new.
--- This script is executed every time the hero enters this map.
-
--- Feel free to modify the code below.
--- You can add more events and remove the ones you don't need.
-
--- See the Solarus Lua API documentation:
--- http://www.solarus-games.org/doc/latest
-
+-- Variables
 local map = ...
 local game = map:get_game()
 local music_name = sol.audio.get_music()
+
+-- Include scripts
 local light_manager = require("scripts/maps/light_manager")
 
+-- Map events.
+function map:on_started()
 
+  light_manager:init(map)
+  map:set_light(0)
+
+end
+
+-- Discussion with Witch
 function map:talk_to_witch() 
 
   local item1 = game:get_item_assigned(1)
@@ -30,60 +32,51 @@ function map:talk_to_witch()
     if name2 == "mushroom" then
       slot = 2
     end
-    map:making_magic_powder(slot)
+    game:start_dialog("maps.houses.graveyard.witch_house.witch_2", function() 
+      map:launch_cinematic_1(slot)
+    end)
   else
     game:start_dialog("maps.houses.graveyard.witch_house.witch_1")
   end
 
 end
 
-function map:making_magic_powder(slot)
+-- Cinematics 
+-- This is the cinematic when the witch makes magic powder
+function map:launch_cinematic_1(slot)
     
-  local entity = map:get_entity("witch")
-  local sprite = entity:get_sprite()
-  game:set_hud_enabled(false)
-  game:start_dialog("maps.houses.graveyard.witch_house.witch_2", function() 
-      local mushroom = game:get_item("mushroom")
-      mushroom:set_variant(0)
-      hero:freeze()
-      sol.audio.play_music("maps/houses/shop_high")
-      sprite:set_animation("speeding")
-      sol.timer.start(3000, function()
-        sprite:set_animation("walking")
-        sol.audio.play_music(music_name)
-        game:set_hud_enabled(true)
-        game:start_dialog("maps.houses.graveyard.witch_house.witch_3", function() 
-          hero:unfreeze()
-          hero:start_treasure("magic_powders_counter", 1)
-          local item = game:get_item("magic_powders_counter")
-          game:set_item_assigned(slot, item)
-        end)
+  map:start_coroutine(function()
+    local options = {
+      entities_ignore_suspend = {witch, mouse}
+    }
+    map:set_cinematic_mode(true, options)
+    local mushroom = game:get_item("mushroom")
+    mushroom:set_variant(0)
+    sol.audio.play_music("maps/houses/shop_high")
+    witch:get_sprite():set_animation("speeding")
+    wait(4000)
+    witch:get_sprite():set_animation("walking")
+    sol.audio.play_music(music_name)
+    game:set_hud_enabled(true)
+    game:start_dialog("maps.houses.graveyard.witch_house.witch_3", function() 
+      hero:start_treasure("magic_powders_counter", 1, nil, function()
+        map:set_cinematic_mode(false, options)
       end)
-   end)
+      local item = game:get_item("magic_powders_counter")
+      game:set_item_assigned(slot, item)
+    end)
+  end)
 
 end
 
-
--- Event called at initialization time, as soon as this map becomes is loaded.
-function map:on_started()
-  light_manager:init(map)
-  map:set_light(0)
-end
-
--- Event called after the opening transition effect of the map,
--- that is, when the player takes control of the hero.
-function map:on_opening_transition_finished()
-
-end
-
-
+-- NPC events
 function witch:on_interaction()
 
       map:talk_to_witch()
 
 end
 
-
+-- Wardrobes
 for wardrobe in map:get_entities("wardrobe") do
   function wardrobe:on_interaction()
     game:start_dialog("maps.houses.wardrobe_1", game:get_player_name())

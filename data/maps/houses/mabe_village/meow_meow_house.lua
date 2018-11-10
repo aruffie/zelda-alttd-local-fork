@@ -1,13 +1,26 @@
--- Inside - Meow meow's House
-
--- Variables
-
 local map = ...
 local game = map:get_game()
 
--- Methods - Functions
+-- Map events
+function map:on_started(destination)
 
-function map:set_music()
+   local item = game:get_item("magnifying_lens")
+  -- Digging
+  map:set_digging_allowed(true)
+  map:init_music()
+  map:launch_small_bowwow()
+  map:repeat_meow_meow_direction_check()
+  if game:get_value("main_quest_step") == 8 or game:get_value("main_quest_step") == 9 then
+    meow_meow:get_sprite():set_animation("panicked")
+  end
+  if item:get_variant() > 2 then
+    small_bowwow_2:get_sprite():set_animation("ruban")
+  end
+
+end
+
+-- Initialize the music of the map
+function map:init_music()
 
   if game:get_value("main_quest_step") == 3  then
     sol.audio.play_music("maps/out/sword_search")
@@ -19,18 +32,18 @@ function map:set_music()
 
 end
 
+-- Function that forces Mrs Meow Meow to always watch the hero
 function map:repeat_meow_meow_direction_check()
 
   local direction4 = meow_meow:get_direction4_to(hero)
   meow_meow:get_sprite():set_direction(direction4)
-
-  -- Rappeler cette fonction dans 0.1 seconde.
   sol.timer.start(map, 100, function() 
     map:repeat_meow_meow_direction_check()
   end)
+
 end
 
-
+-- Discussion with Mrs Meow Meow
 function map:talk_to_meow_meow() 
 
   if game:get_value("main_quest_step") < 8 then
@@ -49,12 +62,14 @@ function map:talk_to_meow_meow()
 
 end
 
+-- Discussion with Small bowwow 1
 function map:talk_to_small_bowwow_1() 
 
   game:start_dialog("maps.houses.mabe_village.meow_meow_house.small_bowwow_1_1")
 
 end
 
+-- Discussion with Small bowwow 2
 function map:talk_to_small_bowwow_2() 
 
     sol.audio.play_sound("bowwow")
@@ -80,54 +95,7 @@ function map:talk_to_small_bowwow_2()
 
 end
 
-
-function map:launch_small_bowwow()
-
-  for entity in map:get_entities("small_bowwow") do
-    map:set_animation_small_bowwow(entity)
-  end
-  
-
-end
-
-function map:set_animation_small_bowwow(entity)
-
-  -- Random diagonal direction.
-  local item = game:get_item("magnifying_lens")
-  local sprite = entity:get_sprite()
-  local rand4 = math.random(4)
-  local direction8 = rand4 * 2 - 1
-  local angle = direction8 * math.pi / 4
-  local m = sol.movement.create("straight")
-  m:set_speed(48)
-  m:set_angle(angle)
-  m:set_max_distance(24 + math.random(96))
-  m:start(entity)
-  sprite:set_direction(rand4 - 1)
-  sol.timer.stop_all(entity)
-end
-
--- Events
-
-function map:on_started(destination)
-
-   local item = game:get_item("magnifying_lens")
-  -- Digging
-  map:set_digging_allowed(true)
-  map:set_music()
-  map:launch_small_bowwow()
-  map:repeat_meow_meow_direction_check()
-  if game:get_value("main_quest_step") == 8 or game:get_value("main_quest_step") == 9 then
-    meow_meow:get_sprite():set_animation("panicked")
-  end
-  if item:get_variant() > 2 then
-    small_bowwow_2:get_sprite():set_animation("ruban")
-  end
-
-
-end
-
-
+-- NPC events
 function meow_meow:on_interaction()
 
       map:talk_to_meow_meow()
@@ -170,6 +138,33 @@ function small_bowwow_2:on_movement_finished(movement)
 
 end
 
+-- Others functions
+function map:launch_small_bowwow()
+
+  for entity in map:get_entities("small_bowwow") do
+    map:set_animation_small_bowwow(entity)
+  end
+
+end
+
+function map:set_animation_small_bowwow(entity)
+
+  -- Random diagonal direction.
+  local sprite = entity:get_sprite()
+  local rand4 = math.random(4)
+  local direction8 = rand4 * 2 - 1
+  local angle = direction8 * math.pi / 4
+  local m = sol.movement.create("straight")
+  m:set_speed(48)
+  m:set_angle(angle)
+  m:set_max_distance(24 + math.random(96))
+  m:start(entity)
+  sprite:set_direction(rand4 - 1)
+  sol.timer.stop_all(entity)
+
+end
+
+-- Wardrobes
 for wardrobe in map:get_entities("wardrobe") do
   function wardrobe:on_interaction()
     game:start_dialog("maps.houses.wardrobe_1", game:get_player_name())

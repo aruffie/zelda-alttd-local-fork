@@ -1,5 +1,3 @@
--- Outside - Mabe village
-
 -- Variables
 local map = ...
 local game = map:get_game()
@@ -8,15 +6,93 @@ local marin_and_link_song = false
 local ball
 local ball_shadow
 local ball_is_launch = false
-
 local hero_is_alerted = false
 local marin_notes = nil
 local marin_notes_2 = nil
 local hero_notes = nil
 local hero_notes_2 = nil
--- Methods - Functions
 
-function map:set_music()
+-- Map events
+function map:on_started(destination)
+
+  map:init_music()
+  map:init_map_entities()
+  -- Digging
+  map:set_digging_allowed(true)
+  local item = game:get_item("magnifying_lens")
+  local variant_lens = item:get_variant()
+  -- Signs
+  shop_sign_2:get_sprite():set_animation("crane_sign")
+  -- Marin
+  if game:get_value("main_quest_step") < 4 or game:get_value("main_quest_step") > 20  then
+    marin:set_enabled(false)
+  else
+    marin:get_sprite():set_animation("waiting")
+  end
+  -- Kid 5
+  if game:get_value("main_quest_step") ~= 21  then
+    kid_5:set_enabled(false)
+  end  
+  -- Grand ma
+  if variant_lens == 10 then
+    grand_ma:get_sprite():set_animation("nobroom")
+  else 
+    grand_ma:get_sprite():set_animation("walking")
+  end
+   -- Kids
+  if map:get_game():get_value("main_quest_step") ~= 8 and map:get_game():get_value("main_quest_step") ~= 9 then
+    kid_1:get_sprite():set_animation("playing")
+    kid_2:get_sprite():set_animation("playing")
+    map:create_ball(kid_1, kid_2)
+  else
+    kid_1:get_sprite():set_animation("scared")
+    kid_2:get_sprite():set_animation("scared")
+    kid_1:get_sprite():set_ignore_suspend(true)
+    kid_2:get_sprite():set_ignore_suspend(true)
+    map:repeat_kids_scared_direction_check()
+  end
+  -- Thief detect
+  local hero_is_thief_message = game:get_value("hero_is_thief_message")
+  if hero_is_thief_message then
+    game:start_dialog("maps.out.mabe_village.thief_message", function()
+      game:set_value("hero_is_thief_message", false)
+    end)
+  end
+  --Weathercock statue pushed
+  if game:get_value("mabe_village_weathercook_statue_pushed") then
+      push_weathercook_sensor:set_enabled(false)
+      weathercock:set_enabled(false)
+      weathercook_statue_1:set_position(616,232)
+      weathercook_statue_2:set_position(616,248)
+  end
+-- Kids scared
+  if map:get_game():get_value("main_quest_step") == 8 or map:get_game():get_value("main_quest_step") == 9 then
+    sol.timer.start(map, 500, function()
+        map:init_music()
+        if  hero:get_distance(kids_alert_position_center) < 60 then
+          if not hero_is_alerted then
+            hero:get_sprite():set_direction(3)
+            hero_is_alerted = true
+              local hero = map:get_hero()
+              hero:freeze()
+              game:start_dialog("maps.out.mabe_village.kids_alert_moblins", function()
+                  self:get_game():set_value("main_quest_step", 9)
+                  hero:unfreeze()
+              end)
+          end
+        else
+          if hero_is_alerted then
+            hero_is_alerted = false
+          end
+        end
+        return true
+     end)
+  end
+    
+end
+
+-- Initialize the music of the map
+function map:init_music()
   
   if game:get_value("main_quest_step") == 3  then
     sol.audio.play_music("maps/out/sword_search")
@@ -38,7 +114,7 @@ function map:marin_alone_sing()
 
   marin_song = true
   map:marin_sing_start()
-  map:set_music()
+  map:init_music()
 
 end
 
@@ -66,7 +142,7 @@ function map:marin_and_hero_sing()
           if answer == 1 then
             local timer4 = sol.timer.start(marin, 500, function()
               marin_and_link_song = false
-              map:set_music()
+              map:init_music()
             end)
             local item_melody = game:get_item("melody_1")
             item_melody:set_variant(1)
@@ -85,7 +161,7 @@ function map:marin_and_hero_sing()
       end)
     end)
   end)
-  map:set_music()
+  map:init_music()
 
 end
 
@@ -165,8 +241,9 @@ function map:hero_sing_stop()
 end
 
 
-function map:init_bowwow()
+function map:init_map_entities()
  
+  -- Bowwow
   if game:get_value("main_quest_step") > 7 and game:get_value("main_quest_step") < 12  then
     bowwow:set_enabled(false)
   end
@@ -174,6 +251,7 @@ function map:init_bowwow()
 end
 
 
+-- Ball animation
 function map:create_ball(player_1, player_2)
 
   local x_1,y_1, layer_1 = player_1:get_position()
@@ -228,7 +306,7 @@ function map:create_ball(player_1, player_2)
 
 end
 
-
+-- Discussion with Fishman
 function map:talk_to_fishman() 
 
   local fishman_sprite = fishman:get_sprite()
@@ -252,7 +330,7 @@ function map:talk_to_fishman()
 
 end
 
-
+-- Discussion with Marin
 function map:talk_to_marin() 
 
   local item_ocarina = game:get_item("ocarina")
@@ -281,9 +359,8 @@ function map:talk_to_marin()
 
 end
 
-
+-- Discussion with Grand ma
 function  map:talk_to_grand_ma()
-
 
     local item = game:get_item("magnifying_lens")
     local variant_lens = item:get_variant()
@@ -335,10 +412,10 @@ function  map:talk_to_grand_ma()
       end)
     end
 
-
-
 end
 
+
+-- Discussion with Kids
 function  map:talk_to_kids() 
 
   local rand = math.random(4)
@@ -346,24 +423,12 @@ function  map:talk_to_kids()
 
 end
 
+-- Discussion with Kid 5
 function map:talk_to_kid_5() 
 
   game:start_dialog("maps.out.mabe_village.kid_5_1")
 
 end
-
-function map:get_alert_moblins()
-
-  local hero = map:get_hero()
-  hero:freeze()
-  game:start_dialog("maps.out.mabe_village.kids_alert_moblins", function()
-      self:get_game():set_value("main_quest_step", 9)
-      hero:unfreeze()
-  end)
-
-end
-
--- Events
 
 function map:repeat_kids_scared_direction_check()
 
@@ -371,102 +436,53 @@ function map:repeat_kids_scared_direction_check()
   local directionkid2 = kid_2:get_direction4_to(hero)
   kid_1:get_sprite():set_direction(directionkid1)
   kid_2:get_sprite():set_direction(directionkid2)
-
-  -- Rappeler cette fonction dans 0.1 seconde.
   sol.timer.start(map, 100, function() 
     map:repeat_kids_scared_direction_check()
   end)
 end
 
-function map:on_started(destination)
+-- Sensor events
+function marin_sensor_1:on_activated()
 
-    local item = game:get_item("magnifying_lens")
-    local variant_lens = item:get_variant()
-  -- Signs
-  shop_sign_2:get_sprite():set_animation("crane_sign")
-  -- Digging
-  map:set_digging_allowed(true)
-   -- Sword quest
-  if game:get_value("main_quest_step") == 2 then
-    game:set_value("main_quest_step", 3)
-  end
-  map:set_music()
+    marin_song = false
+    map:init_music()
+    map:marin_sing_stop()
 
-  -- Marine
-  if game:get_value("main_quest_step") < 4 or game:get_value("main_quest_step") > 20  then
-    marin:set_enabled(false)
-  else
-    marin:get_sprite():set_animation("waiting")
-  end
-  -- Kid 5
-  if game:get_value("main_quest_step") ~= 21  then
-    kid_5:set_enabled(false)
-  end
-  map:init_bowwow()
-  
- -- Grand ma
-  if variant_lens == 10 then
-    grand_ma:get_sprite():set_animation("nobroom")
-  else 
-    grand_ma:get_sprite():set_animation("walking")
-  end
+end
 
-   -- Kids
-  if map:get_game():get_value("main_quest_step") ~= 8 and map:get_game():get_value("main_quest_step") ~= 9 then
-    kid_1:get_sprite():set_animation("playing")
-    kid_2:get_sprite():set_animation("playing")
-    map:create_ball(kid_1, kid_2)
-  else
-    kid_1:get_sprite():set_animation("scared")
-    kid_2:get_sprite():set_animation("scared")
-    kid_1:get_sprite():set_ignore_suspend(true)
-    kid_2:get_sprite():set_ignore_suspend(true)
-    map:repeat_kids_scared_direction_check()
-  end
+function marin_sensor_2:on_activated()
 
-  -- Thief detect
-  local hero_is_thief_message = game:get_value("hero_is_thief_message")
-  if hero_is_thief_message then
-    game:start_dialog("maps.out.mabe_village.thief_message", function()
-      game:set_value("hero_is_thief_message", false)
-    end)
-  end
+    marin_song = false
+    map:init_music()
+    map:marin_sing_stop()
 
-  --Weathercock statue pushed
-  if game:get_value("mabe_village_weathercook_statue_pushed") then
+end
+
+function push_weathercook_sensor:on_activated_repeat()
+    if hero:get_animation() == "pushing" and hero:get_direction() == 1 and game:get_ability("lift") == 2 then
+      hero:freeze()
+      hero:get_sprite():set_animation("pushing")
       push_weathercook_sensor:set_enabled(false)
       weathercock:set_enabled(false)
-      weathercook_statue_1:set_position(616,232)
-      weathercook_statue_2:set_position(616,248)
-  end
-
-if map:get_game():get_value("main_quest_step") == 8 or map:get_game():get_value("main_quest_step") == 9 then
-    sol.timer.start(map, 500, function()
-        map:set_music()
-        if  hero:get_distance(kids_alert_position_center) < 60 then
-          if not hero_is_alerted then
-            hero:get_sprite():set_direction(3)
-            hero_is_alerted = true
-            map:get_alert_moblins()
-          end
-        else
-          if hero_is_alerted then
-            hero_is_alerted = false
-          end
-        end
-        return true
-     end)
-  end
-  
-
+      sol.audio.play_sound("hero_pushes")
+        local weathercook_x,weathercook_y = map:get_entity("weathercook_statue_1"):get_position()
+        local weathercook_x_2,weathercook_y_2 = map:get_entity("weathercook_statue_2"):get_position()
+        local i = 0
+        sol.timer.start(map,50,function()
+          i = i + 1
+          weathercook_y = weathercook_y - 1
+          weathercook_statue_1:set_position(weathercook_x, weathercook_y)
+          weathercook_y_2 = weathercook_y_2 - 1
+          weathercook_statue_2:set_position(weathercook_x_2, weathercook_y_2)
+          if i < 32 then return true end
+          sol.audio.play_sound("secret_2")
+          hero:unfreeze()
+          game:set_value("mabe_village_weathercook_statue_pushed",true)
+        end)
+    end
 end
 
-function map:on_opening_transition_finished(destination)
-
- 
-
-end
-
+-- NPC events
 function grand_ma:on_interaction()
 
   map:talk_to_grand_ma()
@@ -523,45 +539,4 @@ function fishman:on_interaction()
 
       map:talk_to_fishman()
 
-end
-
-function marin_sensor_1:on_activated()
-
-    marin_song = false
-    map:set_music()
-    map:marin_sing_stop()
-
-end
-
-function marin_sensor_2:on_activated()
-
-    marin_song = false
-    map:set_music()
-    map:marin_sing_stop()
-
-end
-
---Push the weathercook statue
-function push_weathercook_sensor:on_activated_repeat()
-    if hero:get_animation() == "pushing" and hero:get_direction() == 1 and game:get_ability("lift") == 2 then
-      hero:freeze()
-      hero:get_sprite():set_animation("pushing")
-      push_weathercook_sensor:set_enabled(false)
-      weathercock:set_enabled(false)
-      sol.audio.play_sound("hero_pushes")
-        local weathercook_x,weathercook_y = map:get_entity("weathercook_statue_1"):get_position()
-        local weathercook_x_2,weathercook_y_2 = map:get_entity("weathercook_statue_2"):get_position()
-        local i = 0
-        sol.timer.start(map,50,function()
-          i = i + 1
-          weathercook_y = weathercook_y - 1
-          weathercook_statue_1:set_position(weathercook_x, weathercook_y)
-          weathercook_y_2 = weathercook_y_2 - 1
-          weathercook_statue_2:set_position(weathercook_x_2, weathercook_y_2)
-          if i < 32 then return true end
-          sol.audio.play_sound("secret_2")
-          hero:unfreeze()
-          game:set_value("mabe_village_weathercook_statue_pushed",true)
-        end)
-    end
 end

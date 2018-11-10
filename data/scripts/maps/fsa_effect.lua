@@ -18,41 +18,24 @@ tmp:set_shader(shader)
 local ew,eh = effect:get_size()
 
 local clouds_speed = 0.01;
-
--- unused alternative to water color-keying
-function fsa:render_water_mask(map)
-  local cx,cy = map:get_camera():get_position()
-  local _,_,l = map:get_hero():get_position() -- TODO : use light layer instead
-  local dx,dy = cx % 8, cy % 8
-  local w,h = water_mask:get_size()
-  local color = {255,255,255,255}
-  water_mask:clear()
-  for x=0,w,8 do
-    for y=0,h,8 do
-      local ground = map:get_ground(cx+x,cy+y,l)
-      if blocking_grounds[ground] then
-        water_mask:fill_color(color,x-dx,y-dy,8,8)
-      end
-    end
-  end
-end
-
 local crw,crh = clouds:get_size()
 -- render all needed reflection on reflection map
-function fsa:render_reflection(map,outside)
+function fsa:render_reflection(map)
   reflection:clear()
-  local t = sol.main.get_elapsed_time() * clouds_speed;
-  local x,y = t,t
-  local cw,ch = reflection:get_size()
-  local tx,ty = x % crw, y % crh
-  if outside then
-    for i=-1,math.ceil(crw/cw)+1 do
-      for j=-1,math.ceil(crh/ch) do    
-        clouds:draw(reflection,tx+i*crw,ty+j*crh)
+  do
+    local t = sol.main.get_elapsed_time() * clouds_speed;
+    local x,y = t,t
+    local cw,ch = reflection:get_size()
+    local tx,ty = x % crw, y % crh
+    if self.outside then
+      for i=-1,math.ceil(crw/cw)+1 do
+        for j=-1,math.ceil(crh/ch) do    
+          clouds:draw(reflection,tx+i*crw,ty+j*crh)
+        end
       end
+    else
+      reflection:fill_color{128,128,128}
     end
-  else
-    reflection:fill_color{128,128,128}
   end
   do --draw hero reflection --TODO add other reflections
     local hero = map:get_hero()
@@ -166,9 +149,9 @@ local function get_lights_from_map(map)
 end
 
 --render fsa texture to fsa effect map
-function fsa:render_fsa_texture(map,outside)
+function fsa:render_fsa_texture(map)
   fsa_texture:clear()
-  if false and not outside then
+  if false and not self.outside then
     fsa_texture:fill_color{255,255,255}
     return
   end
@@ -178,7 +161,7 @@ function fsa:render_fsa_texture(map,outside)
   local tx = ew - dx % ew
   local ty = eh - dy % eh
   for i=-1,math.ceil(ew/cw)+1 do
-    for j=-1,math.ceil(eh/ch) do    
+    for j=-1,math.ceil(eh/ch) do
       effect:draw(fsa_texture,tx+i*ew,ty+j*eh)
     end
   end
@@ -187,7 +170,7 @@ end
 
 -- create a light that will automagically register to the light_manager
 local function create_light(map,x,y,layer,radius,color,dir,cut,aperture)
-  local function dircutappprops(dir,cut,aperture)
+  local function dircutappprops(dir, cut, aperture)
     if dir and cut and aperture then
       return {key="direction",value=dir},
       {key="cut",value=cut},
@@ -269,25 +252,34 @@ end
 -- setup fsa effect on the given game
 function fsa:apply_effect(game)
   game:register_event("on_map_changed",function(game,map)
-    local outside = map:get_world() == "outside_world"
-    if not outside then
-      setup_inside_lights(map)
-    end
+    fsa:on_map_changed(map)
     function map:on_draw(dst)
-      --dst:set_shader(shader)
-      dst:draw(tmp)
-      fsa:render_reflection(map,outside)
-      fsa:render_fsa_texture(map,outside)
-      local camera = map:get_camera()
-      local dx,dy = camera:get_position()
-      tmp:draw(dst)
-      if outside then
-        fsa:draw_clouds_shadow(dst,dx,dy)
-      else
-        light_mgr:draw(dst,map)
-      end
+      fsa:on_map_draw(map,dst)
     end
   end)
+end
+
+function fsa:on_map_changed(map)
+  local outside = map:get_world() == "outside_world"
+  if not outside then
+    setup_inside_lights(map)
+  end
+  self.outside = outside
+end
+
+function fsa:on_map_draw(map,dst)
+  --dst:set_shader(shader)
+  dst:draw(tmp)
+  fsa:render_reflection(map)
+  fsa:render_fsa_texture(map)
+  local camera = map:get_camera()
+  local dx,dy = camera:get_position()
+  tmp:draw(dst)
+  if self.outside then
+    fsa:draw_clouds_shadow(dst,dx,dy)
+  else
+    light_mgr:draw(dst,map)
+  end
 end
 
 return fsa

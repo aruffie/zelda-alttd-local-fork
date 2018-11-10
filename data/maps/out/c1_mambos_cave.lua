@@ -11,9 +11,9 @@ local hero = map:get_hero()
 
 -- Events
 
-function map:on_started()
+function map:on_started(destination)
 
- map:set_music()
+ map:init_music()
  map:set_digging_allowed(true)
 
   --Hibiscus
@@ -30,9 +30,15 @@ function map:on_started()
  hibiscus_sprite:set_animation("magnifying_lens")
  hibiscus_sprite:set_direction(7)
 
+ --Jumping if coming from the Bird key cave
+  if destination == cave_c1_bird_cave_key_hole then
+    hero:start_jumping(6,48,true)
+  end
+
 end
 
-function map:set_music()
+-- Initialize the music of the map
+function map:init_music()
   
   local x_hero, y_hero = hero:get_position()
   if y_hero < 384 then
@@ -119,7 +125,7 @@ function dungeon_4_lock:on_interaction()
           camera:shake(shake_config, function()
             sol.audio.play_sound("secret_2")
             hero:unfreeze()
-            map:set_music()
+            map:init_music()
           end)
           game:set_value("main_quest_step", 7)
         end)

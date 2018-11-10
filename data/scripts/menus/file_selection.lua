@@ -1,4 +1,5 @@
 -- File selection screen.
+-- Author: Olivier Cléro (oclero@hotmail.com)
 
 local file_selection_menu = {}
 
@@ -19,9 +20,7 @@ function file_selection_menu:on_started()
   self.font_y_shift = 2
 
   -- Create static surfaces.
-  -- TODO animate background (use a sprite).  
   self.surface = sol.surface.create(320, 240)
-  self.background_img = sol.surface.create("menus/file_selection/file_selection_background.png")
   self.slot_img = sol.surface.create("menus/file_selection/file_selection_slot.png")
   self.button_img = sol.surface.create("menus/file_selection/file_selection_button.png")
 
@@ -86,15 +85,14 @@ function file_selection_menu:on_started()
   self.cursor_position = 1
   self.finished = false
   self.phase = -1
+  self.choosen_savegame = nil
   self:set_phase(self.phases.CHOOSE_PLAY)
   
   -- Run the menu.
   self:read_savefiles()
   self:update_cursor()
-  sol.audio.play_music("scripts/menus/player_select")
 
   -- Show an opening transition.
-  self.background_img:fade_in()
   self.surface:fade_in()
 
 end
@@ -154,9 +152,6 @@ function file_selection_menu:on_draw(dst_surface)
 
   -- Get the destination surface size to center everything.
   local width, height = dst_surface:get_size()
-  
-  -- Background.
-  self.background_img:draw(self.surface, 0, 0)
 
   -- Frame.
   self.frame_surface:draw(self.surface, 0, 0)
@@ -445,11 +440,10 @@ function file_selection_menu:on_key_pressed(key)
           if sol.game.exists(slot.file_name) then
             -- The file exists: run it after a fade-out effect.            
             self.finished = true
-            sol.audio.play_sound("sword_spin_attack_load")
-            self.surface:fade_out()
-            sol.timer.start(self, 700, function()
+            sol.audio.play_sound("trendy_game_win")
+            self.choosen_savegame = slot.savegame
+            self.surface:fade_out(20, function()
               sol.menu.stop(self)
-              sol.main:start_savegame(slot.savegame)
             end)
           else
             -- The file does not exist : it's a new game.
@@ -478,13 +472,11 @@ function file_selection_menu:on_key_pressed(key)
                   -- Stop music.
                   sol.audio.stop_music()
 
-                  self.surface:fade_out(100)
-                  sol.audio.play_sound("sword_spin_attack_load")
-                
-                  -- Automatically launch the game.
-                  sol.timer.start(self, 3000, function()
+                  sol.audio.play_sound("trendy_game_win")
+                  self.choosen_savegame = slot.savegame
+                  self.surface:fade_out(20, function()
+                    -- Automatically launch the game.
                     sol.menu.stop(self)
-                    sol.main:start_savegame(slot.savegame)
                   end)
                 end)
               end

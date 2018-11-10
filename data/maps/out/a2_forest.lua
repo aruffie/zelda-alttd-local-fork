@@ -1,18 +1,11 @@
+-- Variables
 local map = ...
 local game = map:get_game()
--- Outside - Forest
-
--- Includes scripts
-local fairy_manager = require("scripts/maps/fairy_manager")
-local owl_manager = require("scripts/maps/owl_manager")
-
 local destructible_places = {}
 local bis_destructible_places = {}
 local raccoon_positions =  {1, 2, 1, 2 , 1 , 3, 1, 3, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 6, 5, 4, 8}
 local raccoon_index = 1
 local raccoon_movement = false
--- Variables
-
 map.overlay_angles = {
   3 * math.pi / 4,
   5 * math.pi / 4,
@@ -20,64 +13,22 @@ map.overlay_angles = {
   7 * math.pi / 4
 }
 map.overlay_step = 1
-
 map.raccoon_warning_done = false
 
--- Functions
+-- Include scripts
+require("scripts/multi_events")
+local fairy_manager = require("scripts/maps/fairy_manager")
+local owl_manager = require("scripts/maps/owl_manager")
 
+-- Utils functions
 local function get_destructible_sprite_name(destructible)
+
   local sprite = destructible:get_sprite()
   return sprite ~= nil and sprite:get_animation_set() or ""
-end
-
-function map:set_music()
-
-  sol.audio.play_music("maps/out/mysterious_forest")
 
 end
 
-function map:init_tarin()
- 
-  if game:get_value("main_quest_step") > 4 then
-    tarin:remove()
-    tarin_2:remove()
-  else
-    tarin:get_sprite():set_animation("waiting_raccoon")
-    tarin_2:get_sprite():set_animation("waiting_raccoon")
-    tarin_2:get_sprite():synchronize(tarin:get_sprite())
-    tarin_2:set_enabled(false)
-  end
-
-end
-
-function map:set_overlay()
-
-  map.overlay = sol.surface.create("entities/overlay_forest.png")
-  map.overlay:set_opacity(96)
-  map.overlay_offset_x = 0  -- Used to keep continuity when getting lost.
-  map.overlay_offset_y = 0
-  map.overlay_m = sol.movement.create("straight")
-  map.restart_overlay_movement()
-
-end
-
-function map:restart_overlay_movement()
-
-  map.overlay_m:set_speed(16) 
-  map.overlay_m:set_max_distance(100)
-  map.overlay_m:set_angle(map.overlay_angles[map.overlay_step])
-  map.overlay_step = map.overlay_step + 1
-  if map.overlay_step > #map.overlay_angles then
-    map.overlay_step = 1
-  end
-  map.overlay_m:start(map.overlay, function()
-    map:restart_overlay_movement()
-  end)
-
-end
-
--- Events
-
+-- Map events
 function map:on_started(destination)
 
   -- Remove the big stone if you come from the secret cave
@@ -131,7 +82,7 @@ function map:on_started(destination)
   end
 
   map:set_digging_allowed(true)
- fairy_manager:init_map(map, "fairy")
+  fairy_manager:init_map(map, "fairy")
   map:set_overlay()
   map:init_tarin()
   owl_2:set_enabled(false)
@@ -140,16 +91,16 @@ function map:on_started(destination)
     mushroom:set_enabled(false)
   end
   if map:get_game():get_value("owl_2") == true then
-        map:set_music()
+        map:init_music()
     end
 
 end
 
-function map:on_draw(destination_surface)
+map:register_event("on_draw", function(map, destination_surface)
 
-  -- Make the overlay scroll with the camera, but slightly faster to make
+ -- Make the overlay scroll with the camera, but slightly faster to make
   -- a depth effect.
-  local camera_x, camera_y = self:get_camera():get_position()
+  local camera_x, camera_y = map:get_camera():get_position()
   local overlay_width, overlay_height = map.overlay:get_size()
   local screen_width, screen_height = destination_surface:get_size()
   local x, y = camera_x + map.overlay_offset_x, camera_y + map.overlay_offset_y
@@ -172,17 +123,50 @@ function map:on_draw(destination_surface)
     dst_y = dst_y + overlay_height
   end
 
+end,true)
+
+-- Initialize the music of the map
+function map:init_music()
+
+  sol.audio.play_music("maps/out/mysterious_forest")
+
 end
 
+function map:init_tarin()
+ 
+  if game:get_value("main_quest_step") > 4 then
+    tarin:remove()
+    tarin_2:remove()
+  else
+    tarin:get_sprite():set_animation("waiting_raccoon")
+    tarin_2:get_sprite():set_animation("waiting_raccoon")
+    tarin_2:get_sprite():synchronize(tarin:get_sprite())
+    tarin_2:set_enabled(false)
+  end
+
+end
+
+-- Chests events
 function forest_chest_1:on_opened()
 
   hero:start_treasure("tail_key", 1, "forest_chest_1", function()
     if map:get_game():get_value("owl_3") ~= true and game:get_value("main_quest_step") == 6 then
       owl_manager:appear(map, 3, function()
-      map:set_music()
+      map:init_music()
       end)
     end
   end)
+
+end
+
+-- Sensors events
+function owl_2_sensor:on_activated()
+
+  if map:get_game():get_value("owl_2") ~= true then
+      owl_manager:appear(map, 2, function()
+        map:init_music()
+      end)
+    end
 
 end
 
@@ -216,17 +200,16 @@ function lost_sensor:on_activated()
   hero:set_position(x + diff_x, y + diff_y)
   map.overlay_offset_x = map.overlay_offset_x - diff_x  -- Keep continuity of the overlay effect.
   map.overlay_offset_y = map.overlay_offset_y - diff_y
-
   -- Keep the exact same destructible entities so that the player cannot see a difference.
   tarin_2:set_enabled(true)
   tarin_2:get_sprite():fade_out(function()
       tarin:get_sprite():set_animation("waiting_raccoon")
       tarin_2:get_sprite():set_animation("waiting_raccoon")
   end)
-
   -- Put Tarin above the grass.
   tarin:bring_to_front()
   tarin_2:bring_to_front()
+
 end
 
 function raccoon_lost_warning_sensor:on_activated()
@@ -242,6 +225,8 @@ function raccoon_lost_warning_sensor:on_activated()
 
 end
 
+
+-- Separator events
 function separator:on_activating()
 
  -- Rebuild destructibles
@@ -298,6 +283,7 @@ function separator:on_activated()
   end
 end
 
+-- NPC events
 function tarin:on_interaction()
 
   if game:get_value("main_quest_step") < 5 then
@@ -313,6 +299,7 @@ function tarin:on_interaction()
      tarin_2:get_sprite():set_direction(tarin:get_sprite():get_direction())
     end
   end
+
 end
 
 function tarin:on_interaction_item(item)
@@ -320,26 +307,24 @@ function tarin:on_interaction_item(item)
   if game:get_value("main_quest_step") > 4 then
     return
   end
-
   if item:get_name() == "magic_powders_counter"  then
-    raccoon_movement = true
-    raccoon_invisible:set_enabled(true)
-    sol.audio.stop_music()
-    game:set_hud_enabled(false)
-    local sprite = tarin:get_sprite()
-    sprite:set_animation("shocking_raccoon")
-    sol.timer.start(map, 1000, function()
-        hero:freeze()
-        game:set_pause_allowed(false)
-        sprite:set_frame_delay(150)
-        change_movement_raccoon()
-    end)
- 
+    map:launch_cinematic_1()
   end
+
 end
 
+function fairy_fountain:on_activated()
+
+  local music_name = sol.audio.get_music()
+  fairy_manager:launch_fairy_if_hero_not_max_life(map, "fairy", music_name)
+
+end
+
+
+-- Others functions
 function change_movement_raccoon()
 
+  local camera = map:get_camera()
   local value = raccoon_positions[raccoon_index]
   if value ~= nil then
     local entity = map:get_entity("racoon_position_" .. value)
@@ -347,6 +332,7 @@ function change_movement_raccoon()
     movement:set_speed(256)
     movement:set_target(entity)
     movement:set_ignore_obstacles(true)
+    movement:set_ignore_suspend(true)
     movement:start(raccoon_invisible)
     function movement:on_position_changed()
       local x,y = raccoon_invisible:get_position()
@@ -369,36 +355,95 @@ function change_movement_raccoon()
     }
     raccoon_invisible:remove()
     tarin:get_sprite():set_animation("waiting")
-    sol.timer.start(map, 1000, function()
+    local timer1 = sol.timer.start(map, 1000, function()
       game:set_value("main_quest_step", 5)
       racoon_position_8:set_enabled(false)
-      hero:unfreeze()
-      game:set_hud_enabled(true)
-      game:set_pause_allowed(true)
       tarin_2:remove()
       game:start_dialog("maps.out.forest.raccoon_to_tarin", function()
-        sol.audio.play_sound("secret_1")
-        map:set_music()
+        local movement1 = sol.movement.create("straight")
+        movement1:set_angle(math.pi / 2)
+        movement1:set_max_distance(150)
+        movement1:set_speed(250)
+        movement1:set_ignore_obstacles(true)
+        movement1:set_ignore_suspend(true)
+        movement1:start(camera, function()
+          sol.audio.play_sound("secret_1")
+          local timer2 = sol.timer.start(map, 1000, function()
+            local movement2 = sol.movement.create("straight")
+            movement2:set_angle(3 * math.pi / 2)
+            movement2:set_speed(250)
+            movement2:set_max_distance(198)
+            movement2:set_ignore_obstacles(true)
+            movement2:set_ignore_suspend(true)
+            movement2:start(camera, function()
+              map:init_music()
+              local options = {
+                entities_ignore_suspend = {hero, tarin}
+              }
+              map:set_cinematic_mode(false, options)
+              camera:start_tracking(hero)
+            end)
+          end)
+       end)
       end)
     end)
+    timer1:set_suspended_with_map(false)
   end
-end
-
-
-function fairy_fountain:on_activated()
-
-  local music_name = sol.audio.get_music()
-  fairy_manager:launch_fairy_if_hero_not_max_life(map, "fairy", music_name)
 
 end
 
-function owl_2_sensor:on_activated()
+function map:set_overlay()
 
-  if map:get_game():get_value("owl_2") ~= true then
-      owl_manager:appear(map, 2, function()
-        map:set_music()
-      end)
-    end
+  map.overlay = sol.surface.create("entities/overlay_forest.png")
+  map.overlay:set_opacity(96)
+  map.overlay_offset_x = 0  -- Used to keep continuity when getting lost.
+  map.overlay_offset_y = 0
+  map.overlay_m = sol.movement.create("straight")
+  map.restart_overlay_movement()
 
+end
+
+function map:restart_overlay_movement()
+
+  map.overlay_m:set_speed(16) 
+  map.overlay_m:set_max_distance(100)
+  map.overlay_m:set_angle(map.overlay_angles[map.overlay_step])
+  map.overlay_step = map.overlay_step + 1
+  if map.overlay_step > #map.overlay_angles then
+    map.overlay_step = 1
+  end
+  map.overlay_m:start(map.overlay, function()
+    map:restart_overlay_movement()
+  end)
+
+end
+
+-- Cinematics
+-- This is the cinematic when Tarkin goes crazy.
+function map:launch_cinematic_1()
+  
+  map:start_coroutine(function()
+    local options = {
+      entities_ignore_suspend = {hero, tarin}
+    }
+    map:set_cinematic_mode(true, options)
+    raccoon_movement = true
+    raccoon_invisible:set_enabled(true)
+    sol.audio.stop_music()
+    local camera = map:get_camera()
+    camera:start_manual()
+    hero:unfreeze()
+    local m = sol.movement.create("straight")
+    m:set_angle(math.pi / 2)
+    m:set_max_distance(48)
+    m:set_ignore_obstacles(true)
+    m:set_ignore_suspend(true)
+    movement(m, camera)
+    local sprite = tarin:get_sprite()
+    sprite:set_animation("shocking_raccoon")
+    wait(1000)
+    sprite:set_frame_delay(150)
+    change_movement_raccoon()
+  end)
 
 end

@@ -18240,7 +18240,6 @@ dynamic_tile{
   pattern = "911",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -18251,7 +18250,6 @@ dynamic_tile{
   pattern = "floor.13-Alpha",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -18262,7 +18260,6 @@ dynamic_tile{
   pattern = "911",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -18273,7 +18270,6 @@ dynamic_tile{
   pattern = "floor.13-Alpha",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -18284,7 +18280,6 @@ dynamic_tile{
   pattern = "911",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -18295,7 +18290,6 @@ dynamic_tile{
   pattern = "floor.13-Alpha",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -18306,7 +18300,6 @@ dynamic_tile{
   pattern = "floor.19-1",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 crystal_block{
@@ -21700,7 +21693,6 @@ dynamic_tile{
   pattern = "floor.19-1",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 enemy{
@@ -21721,7 +21713,6 @@ dynamic_tile{
   pattern = "floor.19-1",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -21732,7 +21723,6 @@ dynamic_tile{
   pattern = "floor.19-1",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -21740,10 +21730,10 @@ dynamic_tile{
   layer = 0,
   x = 1696,
   y = 1648,
+  enabled_at_start = false,
   pattern = "floor.19-1",
   width = 16,
   height = 16,
-  enabled_at_start = false,
 }
 
 dynamic_tile{
@@ -21754,7 +21744,6 @@ dynamic_tile{
   pattern = "floor.19-1",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -21765,7 +21754,6 @@ dynamic_tile{
   pattern = "floor.19-1",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -21776,7 +21764,6 @@ dynamic_tile{
   pattern = "floor.19-1",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 enemy{
@@ -21853,10 +21840,10 @@ dynamic_tile{
   layer = 0,
   x = 1712,
   y = 1648,
+  enabled_at_start = false,
   pattern = "floor.19-1",
   width = 16,
   height = 16,
-  enabled_at_start = false,
 }
 
 dynamic_tile{
@@ -21867,7 +21854,6 @@ dynamic_tile{
   pattern = "floor.19-1",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -21878,7 +21864,6 @@ dynamic_tile{
   pattern = "floor.19-1",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -21889,7 +21874,6 @@ dynamic_tile{
   pattern = "floor.19-1",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -21900,7 +21884,6 @@ dynamic_tile{
   pattern = "floor.19-1",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -21911,7 +21894,6 @@ dynamic_tile{
   pattern = "floor.19-1",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -21922,7 +21904,6 @@ dynamic_tile{
   pattern = "floor.19-1",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -21933,7 +21914,6 @@ dynamic_tile{
   pattern = "floor.19-1",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 enemy{
@@ -23165,7 +23145,6 @@ dynamic_tile{
   pattern = "wall.4-2",
   width = 24,
   height = 48,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -23176,7 +23155,6 @@ dynamic_tile{
   pattern = "wall.3-2",
   width = 24,
   height = 48,
-  enabled_at_start = true,
 }
 
 sensor{
@@ -23205,7 +23183,6 @@ dynamic_tile{
   pattern = "wall.2-2",
   width = 48,
   height = 24,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -23216,7 +23193,6 @@ dynamic_tile{
   pattern = "wall.1-2",
   width = 48,
   height = 24,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -23227,7 +23203,6 @@ dynamic_tile{
   pattern = "911",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -23238,7 +23213,6 @@ dynamic_tile{
   pattern = "floor.13-Alpha",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 enemy{
@@ -23259,7 +23233,6 @@ dynamic_tile{
   pattern = "911",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -23270,7 +23243,6 @@ dynamic_tile{
   pattern = "floor.13-Alpha",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 enemy{
@@ -23291,7 +23263,6 @@ dynamic_tile{
   pattern = "911",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -23302,7 +23273,6 @@ dynamic_tile{
   pattern = "floor.13-Alpha",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 enemy{
@@ -23323,7 +23293,6 @@ dynamic_tile{
   pattern = "911",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -23334,7 +23303,6 @@ dynamic_tile{
   pattern = "floor.13-Alpha",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 enemy{
@@ -23355,7 +23323,6 @@ dynamic_tile{
   pattern = "911",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -23366,7 +23333,6 @@ dynamic_tile{
   pattern = "floor.13-Alpha",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 enemy{
@@ -23387,7 +23353,6 @@ dynamic_tile{
   pattern = "911",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -23398,7 +23363,6 @@ dynamic_tile{
   pattern = "floor.13-Alpha",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 enemy{
@@ -23419,7 +23383,6 @@ dynamic_tile{
   pattern = "911",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -23430,7 +23393,6 @@ dynamic_tile{
   pattern = "floor.13-Alpha",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 enemy{
@@ -23461,7 +23423,6 @@ dynamic_tile{
   pattern = "911",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -23472,7 +23433,6 @@ dynamic_tile{
   pattern = "911",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -23483,7 +23443,6 @@ dynamic_tile{
   pattern = "floor.13-Alpha",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -23494,7 +23453,6 @@ dynamic_tile{
   pattern = "floor.13-Alpha",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 enemy{
@@ -23535,7 +23493,6 @@ dynamic_tile{
   pattern = "911",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -23546,7 +23503,6 @@ dynamic_tile{
   pattern = "floor.13-Alpha",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 enemy{
@@ -23567,7 +23523,6 @@ dynamic_tile{
   pattern = "911",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -23578,7 +23533,6 @@ dynamic_tile{
   pattern = "floor.13-Alpha",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 enemy{
@@ -23599,7 +23553,6 @@ dynamic_tile{
   pattern = "911",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -23610,7 +23563,6 @@ dynamic_tile{
   pattern = "floor.13-Alpha",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 enemy{
@@ -23631,7 +23583,6 @@ dynamic_tile{
   pattern = "911",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -23642,7 +23593,6 @@ dynamic_tile{
   pattern = "floor.13-Alpha",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 enemy{
@@ -23663,7 +23613,6 @@ dynamic_tile{
   pattern = "911",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -23674,7 +23623,6 @@ dynamic_tile{
   pattern = "floor.13-Alpha",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 enemy{
@@ -23695,7 +23643,6 @@ dynamic_tile{
   pattern = "911",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -23706,7 +23653,6 @@ dynamic_tile{
   pattern = "floor.13-Alpha",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 enemy{
@@ -23727,7 +23673,6 @@ dynamic_tile{
   pattern = "911",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -23738,7 +23683,6 @@ dynamic_tile{
   pattern = "floor.13-Alpha",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 enemy{
@@ -23759,7 +23703,6 @@ dynamic_tile{
   pattern = "911",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -23770,7 +23713,6 @@ dynamic_tile{
   pattern = "floor.13-Alpha",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 enemy{
@@ -23791,7 +23733,6 @@ dynamic_tile{
   pattern = "911",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -23802,7 +23743,6 @@ dynamic_tile{
   pattern = "floor.13-Alpha",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 enemy{
@@ -23823,7 +23763,6 @@ dynamic_tile{
   pattern = "911",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -23834,7 +23773,6 @@ dynamic_tile{
   pattern = "floor.13-Alpha",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 enemy{
@@ -24122,6 +24060,16 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/horse_head",
+}
+
+enemy{
+  name = "facade",
+  layer = 0,
+  x = 1440,
+  y = 669,
+  enabled_at_start = false,
+  direction = 0,
+  breed = "boss/facade",
 }
 
 tile{

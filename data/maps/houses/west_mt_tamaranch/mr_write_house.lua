@@ -27,13 +27,23 @@ end
 
 function map:talk_to_mr_write() 
 
+  local direction4 = mr_write:get_direction4_to(hero)
+  local mr_write_sprite = mr_write:get_sprite()
+  mr_write_sprite:set_direction(direction4)
+  mr_write_sprite:set_animation("stopped")
   if draw_picture == false then
     local item = game:get_item("magnifying_lens")
     local variant = item:get_variant()
     if variant < 9 then
-        game:start_dialog("maps.houses.west_mt_tamaranch.mr_write_house.mr_write_1")
+        game:start_dialog("maps.houses.west_mt_tamaranch.mr_write_house.mr_write_1", function()
+          mr_write_sprite:set_direction(3)
+          mr_write_sprite:set_animation("waiting")
+        end)
     elseif variant >= 10 then
-       game:start_dialog("maps.houses.west_mt_tamaranch.mr_write_house.mr_write_5")
+       game:start_dialog("maps.houses.west_mt_tamaranch.mr_write_house.mr_write_5", function()
+        mr_write_sprite:set_direction(3)
+        mr_write_sprite:set_animation("waiting")
+       end)
     else
         game:start_dialog("maps.houses.west_mt_tamaranch.mr_write_house.mr_write_2", function()
           hero:freeze()
@@ -68,6 +78,8 @@ function map:talk_to_mr_write()
                         game:set_hud_enabled(true)
                         game:set_pause_allowed(true)
                         hero:unfreeze()
+                        mr_write_sprite:set_direction(3)
+                        mr_write_sprite:set_animation("waiting")
                       end)
                     else
                       map:talk_to_mr_write_2()
