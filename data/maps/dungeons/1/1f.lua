@@ -47,9 +47,9 @@ end
 
 function map:on_opening_transition_finished(destination)
 
+  map:set_doors_open("door_group_5_", true)
   if destination == dungeon_1_1_B then
     map:set_doors_open("door_group_2_", false)
-    map:set_doors_open("door_group_5_", true)
     game:start_dialog("maps.dungeons.1.welcome")
   end
 
