@@ -5,7 +5,6 @@ local game = map:get_game()
 -- Include scripts
 require("scripts/multi_events")
 
-
 -- Map events
 function map:on_started(destination)
 

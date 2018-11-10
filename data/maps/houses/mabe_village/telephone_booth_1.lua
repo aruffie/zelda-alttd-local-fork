@@ -1,5 +1,3 @@
---Inside - Telephone booth 1
-
 -- Variables
 local map = ...
 local game = map:get_game()

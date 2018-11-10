@@ -387,6 +387,46 @@ custom_entity{
   model = "obstacle",
 }
 
+custom_entity{
+  name = "placeholder_1",
+  layer = 0,
+  x = 96,
+  y = 125,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+custom_entity{
+  name = "placeholder_2",
+  layer = 0,
+  x = 136,
+  y = 93,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+custom_entity{
+  name = "placeholder_3",
+  layer = 0,
+  x = 184,
+  y = 93,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+custom_entity{
+  name = "placeholder_4",
+  layer = 0,
+  x = 224,
+  y = 93,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
 tile{
   layer = 1,
   x = 144,
@@ -401,46 +441,6 @@ custom_entity{
   layer = 1,
   x = 160,
   y = 221,
-  width = 16,
-  height = 16,
-  direction = 0,
-}
-
-custom_entity{
-  name = "placeholder_1",
-  layer = 1,
-  x = 96,
-  y = 93,
-  width = 16,
-  height = 16,
-  direction = 0,
-}
-
-custom_entity{
-  name = "placeholder_2",
-  layer = 1,
-  x = 136,
-  y = 93,
-  width = 16,
-  height = 16,
-  direction = 0,
-}
-
-custom_entity{
-  name = "placeholder_3",
-  layer = 1,
-  x = 184,
-  y = 93,
-  width = 16,
-  height = 16,
-  direction = 0,
-}
-
-custom_entity{
-  name = "placeholder_4",
-  layer = 1,
-  x = 224,
-  y = 93,
   width = 16,
   height = 16,
   direction = 0,
