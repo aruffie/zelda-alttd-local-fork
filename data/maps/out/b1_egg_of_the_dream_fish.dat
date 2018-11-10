@@ -3945,6 +3945,15 @@ tile{
 
 tile{
   layer = 0,
+  x = -16,
+  y = 424,
+  width = 112,
+  height = 336,
+  pattern = "1643",
+}
+
+tile{
+  layer = 0,
   x = 48,
   y = 216,
   width = 8,
@@ -4264,15 +4273,6 @@ tile{
   y = 392,
   width = 48,
   height = 40,
-  pattern = "1643",
-}
-
-tile{
-  layer = 0,
-  x = -16,
-  y = 392,
-  width = 112,
-  height = 336,
   pattern = "1643",
 }
 
@@ -17371,6 +17371,25 @@ tile{
   pattern = "68",
 }
 
+tile{
+  layer = 0,
+  x = 64,
+  y = 408,
+  width = 16,
+  height = 16,
+  pattern = "1643",
+}
+
+custom_entity{
+  layer = 0,
+  x = 8,
+  y = 437,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/entrance_dungeon_2_bottom",
+}
+
 custom_entity{
   name = "egg",
   layer = 0,
@@ -18109,8 +18128,8 @@ sensor{
 
 custom_entity{
   layer = 0,
-  x = 16,
-  y = 389,
+  x = 8,
+  y = 381,
   width = 128,
   height = 56,
   direction = 0,
@@ -18129,7 +18148,7 @@ teletransporter{
   name = "dungeon_2_1_A",
   layer = 0,
   x = 64,
-  y = 416,
+  y = 408,
   width = 16,
   height = 16,
   destination_map = "dungeons/2/1f",
@@ -19296,6 +19315,16 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/egg_door_top",
+}
+
+custom_entity{
+  layer = 1,
+  x = 72,
+  y = 413,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/entrance_dungeon_2_top",
 }
 
 sensor{
