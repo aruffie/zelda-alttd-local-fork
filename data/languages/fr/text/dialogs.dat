@@ -2215,6 +2215,14 @@ regretter...
 }
 
 dialog{
+  id = "maps.houses.mabe_village.shop_2.merchant_6",
+  text = [[
+Merci beaucoup ! 
+Et au plaisir !
+]],
+}
+
+dialog{
   id = "maps.houses.mabe_village.shop_2.product_bombs",
   question = "1",
   text = [[
