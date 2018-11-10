@@ -8992,6 +8992,24 @@ tile{
   pattern = "1340",
 }
 
+tile{
+  layer = 0,
+  x = 824,
+  y = 216,
+  width = 16,
+  height = 8,
+  pattern = "510",
+}
+
+tile{
+  layer = 0,
+  x = 872,
+  y = 216,
+  width = 16,
+  height = 8,
+  pattern = "510",
+}
+
 sensor{
   name = "mushroom_sensor",
   layer = 0,

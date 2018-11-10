@@ -30,6 +30,10 @@ function map:on_opening_transition_finished(destination)
   -- Start position
   if destination:get_name() == "start_position"  then
     map:launch_cinematic_1()
+  else
+    if bed ~= nil then
+      bed:set_layer(0)
+    end
   end
 
 end
@@ -187,44 +191,6 @@ end
 
 -- Cinematics
 -- This is the cinematic that the hero wakes up and gets up from his bed.
-function map:launch_cinematic_1_bak()
-  
-    -- Init and launch cinematic mode
-    local options = {
-      entities_ignore_suspend = {hero, marin, tarin, snores}
-    }
-    map:set_cinematic_mode(true, options)
-    local timer1 = sol.timer.start(map, 3000, function()
-      -- The hero wakes up
-      snores:remove()
-      bed:get_sprite():set_animation("hero_waking")
-      local timer2 = sol.timer.start(map, 1000, function() 
-        game:start_dialog("maps.houses.mabe_village.marin_house.marin_2", function()
-          local timer3 = sol.timer.start(map, 500, function()
-            hero:set_enabled(true)
-            sol.audio.play_sound("hero_lands")
-            bed:get_sprite():set_animation("empty_open")
-            hero:set_animation("jumping")
-            -- Movement that brings the hero out of bed.
-            local movement_jump = sol.movement.create("jump")
-            movement_jump:set_direction8(7)
-            movement_jump:set_distance(24)
-            movement_jump:set_ignore_obstacles(true)
-            movement_jump:set_ignore_suspend(true)
-            movement_jump:start(hero, function()
-              map:set_cinematic_mode(false, options)
-              game:set_starting_location("houses/mabe_village/marin_house", "marin_house_1_B")
-              game:set_value("main_quest_step", 1)
-            end)
-          end)
-          timer3:set_suspended_with_map(false)
-        end)
-    end)
-    timer2:set_suspended_with_map(false)
-  end)
-  timer1:set_suspended_with_map(false)
-end
-
 function map:launch_cinematic_1()
   --local snores = snores
   map:start_coroutine(function()
@@ -242,6 +208,7 @@ function map:launch_cinematic_1()
     hero:set_enabled(true)
     sol.audio.play_sound("hero_lands")
     bed:get_sprite():set_animation("empty_open")
+    bed:set_layer(0)
     hero:set_animation("jumping")
     -- Movement that brings the hero out of bed.
     local movement_jump = sol.movement.create("jump")
@@ -250,7 +217,6 @@ function map:launch_cinematic_1()
     movement_jump:set_ignore_obstacles(true)
     movement_jump:set_ignore_suspend(true)
     movement(movement_jump,hero)
-
     map:set_cinematic_mode(false, options)
     game:set_starting_location("houses/mabe_village/marin_house", "marin_house_1_B")
     game:set_value("main_quest_step", 1)
