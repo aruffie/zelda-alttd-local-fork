@@ -7,7 +7,7 @@ local qw,qh = sol.video.get_quest_size()
 local previous = sol.surface.create(qw*fac,qh*fac)
 
 gbshader:set_uniform('previous',previous)
-gbshader:set_uniform('persistence',0.85)
+gbshader:set_uniform('persistence',0.84)
 
 local big_dst = sol.surface.create(previous:get_size())
 local enabled
@@ -40,6 +40,7 @@ local function init()
     return
   end
   sol.main:register_event('on_draw',on_main_draw)
+  inited = true
 end
 
 local previous_shader
