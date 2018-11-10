@@ -63,14 +63,14 @@ local function initialize_dialog_box_features(game)
   local box_height = 60
 
   -- Initialize dialog box data.
-  local font, font_size = language_manager:get_dialog_font()
+  dialog_box.font, dialog_box.font_size = language_manager:get_dialog_font()
   for i = 1, nb_visible_lines do
     dialog_box.lines[i] = ""
     dialog_box.line_surfaces[i] = sol.text_surface.create{
       horizontal_alignment = "left",
       vertical_alignment = "top",
-      font = font,
-      font_size = font_size,
+      font = dialog_box.font,
+      font_size = dialog_box.font_size,
       color = dialog_box.text_color
     }
   end
@@ -466,11 +466,12 @@ local function initialize_dialog_box_features(game)
     end
   end
 
+  -- Position (vertical, top, or bottom)
   function dialog_box:set_dialog_position(vertical_position)
     dialog_box.vertical_position = vertical_position
   end
 
-
+  -- Commands to control the dialog box.
   function dialog_box:on_command_pressed(command)
 
     if command == "action" then
@@ -508,6 +509,7 @@ local function initialize_dialog_box_features(game)
     return true
   end
 
+  -- Draws the dialog box.
   function dialog_box:on_draw(dst_surface)
 
     local x, y = self.box_dst_position.x, self.box_dst_position.y
@@ -524,9 +526,10 @@ local function initialize_dialog_box_features(game)
 
     -- Draw the text.
     local text_x = x + (self.icon_index == nil and 16 or 48)
-    local text_y = y - 1
+    local text_y = y - 12
+    local line_spacing = dialog_box.font_size * 2
     for i = 1, nb_visible_lines do
-      text_y = text_y + 13
+      text_y = text_y + line_spacing
       if self.selected_answer ~= nil
           and i == nb_visible_lines - 1
           and not self:has_more_lines() then

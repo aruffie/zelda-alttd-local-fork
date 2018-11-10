@@ -118,7 +118,7 @@ function messagebox_menu:on_draw(dst_surface)
   -- Text, vertically centered.
   for i = 1, #self.text_lines do
     local text_line = self.text_lines[i]
-    local text_line_y = self.text_y + (i - 1) * self.menu_font_size * 1.75
+    local text_line_y = self.text_y + (i - 1) * self.menu_font_size * 2
     text_line:draw(self.surface, frame_w / 2, text_line_y + self.font_y_shift)
   end
 
