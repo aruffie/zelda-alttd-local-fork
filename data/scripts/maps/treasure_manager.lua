@@ -153,19 +153,23 @@ function treasure_manager:appear_heart_container_if_boss_dead(map)
 
 end
 
-function treasure_manager:get_instrument(map, dungeon)
+function treasure_manager:get_instrument(map)
 
   local game = map:get_game()
   local dungeon = game:get_dungeon_index()
   local hero = map:get_entity("hero")
   local x_hero,y_hero, layer_hero = hero:get_position()
-  local timer
-  hero:freeze()
-  game:set_movie(true)
-  game:set_pause_allowed(false)
-  game:set_hud_enabled(false)
-  hero:set_animation("brandish")
- local effect_entity = map:create_custom_entity({
+  local dungeon_infos = game:get_dungeon()
+  local camera = map:get_camera()
+  local surface = camera:get_surface()
+  local opacity = 0
+  local effect_model = require("scripts/gfx_effects/fade_to_white")
+  local timer_1
+  local timer_2
+  local timer_3
+  local timer_4
+  -- Create custom entities
+  local effect_entity_1 = map:create_custom_entity({
     name = "effect",
     sprite = "entities/instrument_small_sparkle",
     x = x_hero,
@@ -175,93 +179,89 @@ function treasure_manager:get_instrument(map, dungeon)
     layer = layer_hero,
     direction = 0
   })
+ local effect_entity_2 = map:create_custom_entity({
+    name = "effect",
+    sprite = "entities/instrument_big_sparkle",
+    x = x_hero,
+    y = y_hero - 24,
+    width = 16,
+    height = 16,
+    layer = layer_hero + 1,
+    direction = 0
+  })
   local instrument_entity = map:create_custom_entity({
-      name = "brandish_sword",
-      sprite = "entities/items",
-      x = x_hero,
-      y = y_hero - 24,
-      width = 16,
-      height = 16,
-      layer = layer_hero,
-      direction = 0
-    })
+    name = "brandish_sword",
+    sprite = "entities/items",
+    x = x_hero,
+    y = y_hero - 24,
+    width = 16,
+    height = 16,
+    layer = layer_hero,
+    direction = 0
+  })
+  local notes_1 = map:create_custom_entity{
+    x = x_hero,
+    y = y_hero - 24,
+    layer = layer_hero,
+    width = 24,
+    height = 32,
+    direction = 2,
+    sprite = "entities/notes"
+  }
+  local notes_2 = map:create_custom_entity{
+    x = x_hero,
+    y = y_hero - 24,
+    layer = layer_hero,
+    width = 24,
+    height = 32,
+    direction = 0,
+    sprite = "entities/notes"
+  }
   instrument_entity:get_sprite():set_animation("instrument_" .. dungeon)
   instrument_entity:get_sprite():set_direction(0)
-  instrument_entity:get_sprite():set_ignore_suspend(true)
+  notes_1:set_enabled(false)
+  notes_2:set_enabled(false)
+  effect_entity_2:set_enabled(false)
+  local options = {
+    entities_ignore_suspend = {hero, effect_entity_1, effect_entity_2, notes_1, notes_2, instrument_entity}
+  }
+  map:set_cinematic_mode(true, options)
+  hero:set_animation("brandish")
   sol.audio.stop_music()
   sol.audio.play_sound("instruments/instrument")
-  timer = sol.timer.start(map, 7000, function() 
-  end)
-  timer:set_suspended_with_map(false)
-  sol.timer.start(2000, function()
-      effect_entity:remove()
+  timer_1 = sol.timer.start(map, 7000, function() end)
+  timer_1:set_suspended_with_map(false)
+  timer_2 = sol.timer.start(2000, function()
+      effect_entity_1:remove()
       game:start_dialog("_treasure.instrument_" .. dungeon ..".1", function()
-        local remaining_time = timer:get_remaining_time()
-        timer:stop()
+        local remaining_time = timer_1:get_remaining_time()
+        timer_1:stop()
         sol.timer.start(map, remaining_time, function()
-          treasure_manager:play_instrument(map)
+        sol.audio.play_sound("instruments/instrument_" .. dungeon)
+        notes_1:set_enabled(true)
+        notes_2:set_enabled(true)
+        timer_3 = sol.timer.start(5000, function()
+         notes_1:remove()
+         notes_2:remove()
+         effect_entity_2:set_enabled(true)
         end)
+        timer_3:set_suspended_with_map(false)
+        timer_4 = sol.timer.start(8000, function()
+          effect_model.start_effect(surface, game, "in", false, function()
+              game:start_dialog("maps.dungeons.".. dungeon ..".indication", function()
+                local map_id = dungeon_infos["teletransporter_end_dungeon"]["map_id"]
+                local destination_name = dungeon_infos["teletransporter_end_dungeon"]["destination_name"]
+                hero:teleport(map_id, destination_name, "immediate")
+                game.map_in_transition = effect_model
+                map:set_cinematic_mode(false)
+              end)
+          end)
+        end)
+        timer_4:set_suspended_with_map(false)
       end)
+    end)
   end)
-end
-
-function treasure_manager:play_instrument(map)
-
-     local game = map:get_game()
-     local hero = map:get_entity("hero")
-     local x_hero,y_hero, layer_hero = hero:get_position()
-     local dungeon = game:get_dungeon_index()
-     local opacity = 0
-     local dungeon_infos = game:get_dungeon()
-     local camera = map:get_camera()
-     local surface = camera:get_surface()
-     local effect_model = require("scripts/gfx_effects/fade_to_white")
-     local notes1 = map:create_custom_entity{
-      x = x_hero,
-      y = y_hero - 24,
-      layer = layer_hero,
-      width = 24,
-      height = 32,
-      direction = 2,
-      sprite = "entities/notes"
-    }
-     local notes2 = map:create_custom_entity{
-      x = x_hero,
-      y = y_hero - 24,
-      layer = layer_hero,
-      width = 24,
-      height = 32,
-      direction = 0,
-      sprite = "entities/notes"
-    }
-     sol.audio.play_sound("instruments/instrument_" .. dungeon)
-      sol.timer.start(5000, function()
-       notes1:remove()
-       notes2:remove()
-       local effect_entity = map:create_custom_entity({
-          name = "effect",
-          sprite = "entities/instrument_big_sparkle",
-          x = x_hero,
-          y = y_hero - 24,
-          width = 16,
-          height = 16,
-          layer = layer_hero,
-          direction = 0
-        })
-      end)
-      sol.timer.start(8000, function()
-        effect_model.start_effect(surface, game, "in", false, function()
-            game:start_dialog("maps.dungeons.".. dungeon ..".indication", function()
-              local map_id = dungeon_infos["teletransporter_end_dungeon"]["map_id"]
-              local destination_name = dungeon_infos["teletransporter_end_dungeon"]["destination_name"]
-              hero:teleport(map_id, destination_name, "immediate")
-              game.map_in_transition = effect_model
-              game:set_pause_allowed(true)
-              game:set_hud_enabled(true)
-              game:set_movie(false)
-            end)
-        end)
-      end)
+  timer_2:set_suspended_with_map(false)
 end
 
 return treasure_manager

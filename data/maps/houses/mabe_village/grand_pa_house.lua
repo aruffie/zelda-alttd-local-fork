@@ -6,13 +6,13 @@ local hero = map:get_hero()
 -- Map events
 function map:on_started(destination)
 
-    map:init_music()
+  map:init_music()
   
 end
 
 function grandpa:on_interaction()
 
-      map:talk_to_grandpa()
+    map:talk_to_grandpa()
 
 end
 
@@ -58,7 +58,7 @@ end
 -- NPC events
 function phone_interaction:on_interaction()
 
-      map:talk_to_phone()
+    map:talk_to_phone()
 
 end
 

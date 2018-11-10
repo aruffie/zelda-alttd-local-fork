@@ -1,6 +1,8 @@
+-- Variables
 local map = ...
 local game = map:get_game()
 local is_game_available = false
+
 -- Includes scripts
 local claw_manager = require("scripts/maps/claw_manager")
 

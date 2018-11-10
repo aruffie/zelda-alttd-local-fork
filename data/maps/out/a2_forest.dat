@@ -8992,6 +8992,33 @@ tile{
   pattern = "1340",
 }
 
+tile{
+  layer = 0,
+  x = 824,
+  y = 216,
+  width = 16,
+  height = 8,
+  pattern = "510",
+}
+
+tile{
+  layer = 0,
+  x = 872,
+  y = 216,
+  width = 16,
+  height = 8,
+  pattern = "510",
+}
+
+sensor{
+  name = "mushroom_sensor",
+  layer = 0,
+  x = 24,
+  y = 221,
+  width = 32,
+  height = 32,
+}
+
 sensor{
   name = "raccoon_lost_warning_sensor",
   layer = 0,
@@ -9075,14 +9102,6 @@ chest{
   x = 352,
   y = 77,
   sprite = "entities/chest",
-}
-
-pickable{
-  name = "mushroom",
-  layer = 0,
-  x = 32,
-  y = 229,
-  treasure_name = "mushroom",
 }
 
 teletransporter{
@@ -11883,6 +11902,17 @@ wall{
   width = 200,
   height = 16,
   stops_enemies = true,
+}
+
+custom_entity{
+  name = "mushroom",
+  layer = 0,
+  x = 32,
+  y = 229,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/mushroom_move",
 }
 
 tile{

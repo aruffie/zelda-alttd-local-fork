@@ -11357,7 +11357,7 @@ custom_entity{
   height = 16,
   direction = 2,
   sprite = "entities/statue_dungeon_1_block",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -11368,7 +11368,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/statue_dungeon_1_block",
-  model = "obstacle",
+  model = "statue",
 }
 
 npc{
@@ -11447,7 +11447,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/statue_dungeon_1_key",
-  model = "obstacle",
+  model = "statue",
 }
 
 enemy{

@@ -13577,8 +13577,8 @@ door{
 door{
   name = "door_small_key_3_1",
   layer = 0,
-  x = 1560,
-  y = 1144,
+  x = 1792,
+  y = 1160,
   direction = 2,
   sprite = "entities/doors/door_small_key",
   savegame_variable = "dungeon_1_door_small_key_3",
@@ -17026,6 +17026,24 @@ destination{
   x = 1120,
   y = 1693,
   direction = 1,
+}
+
+destination{
+  name = "destination",
+  layer = 0,
+  x = 2080,
+  y = 437,
+  direction = 1,
+}
+
+teletransporter{
+  layer = 0,
+  x = 1112,
+  y = 1696,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/1/1f",
+  destination = "destination",
 }
 
 tile{

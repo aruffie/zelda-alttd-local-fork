@@ -39,6 +39,7 @@ void main() {
     sepia.b = dot(tex_color, vec3(.272, .534, .131));
 
     sepia *= vec3(0.7,1,0.7)*1.3;
+    sepia = sepia*1.3 -vec3(0.2);
 
     vec3 previous_col = COMPAT_TEXTURE(previous, sol_vtex_coord).rgb;    
 

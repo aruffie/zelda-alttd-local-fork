@@ -19127,7 +19127,7 @@ custom_entity{
   height = 32,
   direction = 0,
   sprite = "entities/statue_dungeon_6",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -19138,7 +19138,7 @@ custom_entity{
   height = 32,
   direction = 0,
   sprite = "entities/statue_dungeon_6",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -19149,7 +19149,7 @@ custom_entity{
   height = 32,
   direction = 0,
   sprite = "entities/statue_dungeon_6",
-  model = "obstacle",
+  model = "statue",
 }
 
 enemy{
@@ -22312,7 +22312,7 @@ custom_entity{
   height = 32,
   direction = 0,
   sprite = "entities/statue_dungeon_6",
-  model = "obstacle",
+  model = "statue",
 }
 
 door{
@@ -26879,7 +26879,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/statue_dungeon_6_head",
-  model = "obstacle",
+  model = "statue",
 }
 
 chest{
@@ -27835,7 +27835,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/statue_dungeon_6_head",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -27846,7 +27846,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/statue_dungeon_6_head",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -27857,7 +27857,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/statue_dungeon_6_head",
-  model = "obstacle",
+  model = "statue",
 }
 
 npc{
