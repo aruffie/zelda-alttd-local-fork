@@ -10378,6 +10378,24 @@ tile{
   pattern = "122",
 }
 
+tile{
+  layer = 0,
+  x = 544,
+  y = 144,
+  width = 48,
+  height = 40,
+  pattern = "2211",
+}
+
+tile{
+  layer = 0,
+  x = 656,
+  y = 144,
+  width = 48,
+  height = 40,
+  pattern = "2211",
+}
+
 npc{
   layer = 0,
   x = 184,
@@ -13317,28 +13335,10 @@ tile{
 tile{
   layer = 1,
   x = 544,
-  y = 144,
-  width = 48,
-  height = 40,
-  pattern = "2211",
-}
-
-tile{
-  layer = 1,
-  x = 544,
   y = 120,
   width = 48,
   height = 48,
   pattern = "4593",
-}
-
-tile{
-  layer = 1,
-  x = 656,
-  y = 144,
-  width = 48,
-  height = 40,
-  pattern = "2211",
 }
 
 tile{
