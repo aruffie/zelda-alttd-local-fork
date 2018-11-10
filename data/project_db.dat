@@ -1177,6 +1177,8 @@ entity{ id = "wallturn", description = "Wallturn" }
 
 language{ id = "fr", description = "Français" }
 
+font{ id = "04b03", description = "04b03" }
+font{ id = "Alttp", description = "ALTTP" }
 font{ id = "green_digits", description = "Green digits" }
 font{ id = "la", description = "Link s Awakening" }
 font{ id = "minecraftia", description = "Minecraftia" }

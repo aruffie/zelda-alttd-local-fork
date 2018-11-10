@@ -28,22 +28,22 @@ function title_logo:on_started()
   self.copyright_text = sol.text_surface.create{
     horizontal_alignment = "center",
     vertical_alignment = "middle",
-    font = font,
-    font_size = font_size,
+    font = "04b03",
+    font_size = 8,
     text_key = "title_screen.copyright",
     color = {255, 255, 255},
   }
   self.copyright_text:set_xy(center_x, self.surface_h - 16)
   self.copyright_text_shadow = sol.text_surface.create{
-    horizontal_alignment = "center",
-    vertical_alignment = "middle",
-    font = font,
-    font_size = font_size,
+    horizontal_alignment = self.copyright_text:get_horizontal_alignment(),
+    vertical_alignment =  self.copyright_text:get_vertical_alignment(),
+    font = self.copyright_text:get_font(),
+    font_size = self.copyright_text:get_font_size(),
     text_key = "title_screen.copyright",
     color = {0, 0, 112},
   }
   self.copyright_text_shadow:set_xy(center_x, self.surface_h - 16 + 1)
-  self.copyright_text_shadow:set_opacity(127)
+  self.copyright_text_shadow:set_opacity(128)
 
   self.press_space_text = sol.text_surface.create{
     horizontal_alignment = "center",

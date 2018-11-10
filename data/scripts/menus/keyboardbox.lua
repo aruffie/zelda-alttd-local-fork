@@ -73,7 +73,7 @@ end
 function keyboardbox_menu:on_started()
 
   -- Fix the font shift (issue with Minecraftia)
-  self.font_y_shift = 2
+  self.font_y_shift = 0
 
   -- Elements positions relative to self.surface.
   self.textfield_x = 60

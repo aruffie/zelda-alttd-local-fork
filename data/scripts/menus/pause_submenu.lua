@@ -15,7 +15,7 @@ end
 function submenu:on_started()
 
   -- Fix the font shift (issue with Minecraftia)
-  self.font_y_shift = 2
+  self.font_y_shift = 0
 
   self.background_surfaces = sol.surface.create("menus/pause_submenus.png")
   self.title_surfaces = sol.surface.create("pause_submenus_title.png", true)
