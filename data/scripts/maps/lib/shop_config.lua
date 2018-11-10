@@ -7,6 +7,7 @@ return {
     quantity = 1,
     placeholder = 1,
     variant = 1,
+    sprite = "entities/shovel",
     dialog_id = "shovel",
     activation_condition = function(map)
       local item_shovel = map:get_game():get_item("shovel")
@@ -14,11 +15,12 @@ return {
       return variant_shovel == 0
     end
   },
-  bomb = {
+  bombs = {
     price = 10,
     quantity = 10,
     placeholder = 1,
     variant = 1,
+    sprite = "entities/bombs",
     dialog_id = "bomb",
     activation_condition = function(map)
       local item_shovel = map:get_game():get_item("shovel")
@@ -31,6 +33,7 @@ return {
     quantity = 3,
     placeholder = 2,
     variant = 1,
+    sprite = "entities/heart",
     dialog_id = "heart",
     activation_condition = function(map)
       return true
@@ -41,6 +44,7 @@ return {
     quantity = 1,
     placeholder = 3,
     variant = 1,
+    sprite = "entities/shield",
     dialog_id = "shield",
     activation_condition = function(map)
       return true

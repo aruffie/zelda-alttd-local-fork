@@ -56,7 +56,7 @@ function shop_manager:add_product(map, name, params)
         -- Create product
         local product = map:create_custom_entity({
           name = "product_" .. name,
-          sprite = "entities/" .. name,
+          sprite = params.sprite,
           x = x_placeholder,
           y = y_placeholder,
           width = 16,
@@ -139,7 +139,6 @@ function shop_manager:add_product(map, name, params)
         if money >= shop_manager.product.params.price then
           hero:freeze()
           hero:unfreeze()
-          shop_manager.product.entity:remove()
           game:remove_money(shop_manager.product.params.price)
           local item = game:get_item(shop_manager.product.name)
           item:set_variant(shop_manager.product.params.variant)
