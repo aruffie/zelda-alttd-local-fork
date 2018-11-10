@@ -38,12 +38,12 @@ function effm:set_effect(game, effect)
     init(game)
   end
 
-  local map = game:get_map()
+  local map = game and game:get_map() or nil
   if current_effect then
     current_effect:clean(map)
   end
 
-  if effect and map then
+  if effect then
     apply_effect(map,effect)
   end
   current_effect = effect

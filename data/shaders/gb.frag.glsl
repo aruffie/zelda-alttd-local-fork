@@ -31,7 +31,8 @@ void main() {
 
     float yfactor = (brighten_scanlines + sin(angle.y)) / (brighten_scanlines + 1.0);
     vec3 xfactors = (brighten_lcd + sin(angle.x + offsets)) / (brighten_lcd + 1.0);
-    vec3 tex_color = COMPAT_TEXTURE(sol_texture, sol_vtex_coord).rgb;
+    vec4 texel = COMPAT_TEXTURE(sol_texture, sol_vtex_coord);
+    vec3 tex_color = texel.rgb;
     vec3 sepia = vec3(tex_color.x,tex_color.y,tex_color.z);
 
     sepia.r = dot(tex_color, vec3(.393, .769, .189));
@@ -47,5 +48,6 @@ void main() {
     
     FragColor.rgb = previous_col * persistence + FragColor.rgb * (1.0-persistence);
 
+    //FragColor.rgb = vec3(1,0,0);
     FragColor.a = 1.0;
 }

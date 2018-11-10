@@ -7,7 +7,10 @@ local qw,qh = sol.video.get_quest_size()
 local previous = sol.surface.create(qw*fac,qh*fac)
 
 gbshader:set_uniform('previous',previous)
-gbshader:set_uniform('persistence',0.84)
+
+local persistence = 0.8
+
+
 
 local big_dst = sol.surface.create(previous:get_size())
 local enabled
@@ -16,11 +19,14 @@ local main_surface
 local function on_main_draw(_,dst)
   main_surface = dst
   if enabled then
+    big_dst:fill_color{0,0,0,0}
     dst:set_shader(gbshader)
     dst:set_scale(fac,fac)
     dst:draw(big_dst)
     big_dst:set_scale(1,1)
     big_dst:draw(previous)
+    dst:set_scale(1,1)
+    dst:set_shader(nil)
   end
 end
 
@@ -28,7 +34,6 @@ function sol.video:on_draw(dst)
   if enabled then
     local bw,bh = big_dst:get_size()
     local dw,dh = dst:get_size()
-    
     big_dst:set_scale(dw/bw,dh/bh)
     big_dst:draw(dst)
   end
@@ -45,8 +50,16 @@ end
 
 local previous_shader
 function gbeff:on_map_changed(map)
+  if not map then
+    previous_shader = sol.video.get_shader()
+    sol.video.set_shader(gbshader)
+    gbshader:set_uniform('persistence',0.0)
+    enabled = false
+  else
+    gbshader:set_uniform('persistence',0.8)
+    enabled = true
+  end
   init()
-  enabled = true
 end
 
 function gbeff:on_map_draw(map,dst)
