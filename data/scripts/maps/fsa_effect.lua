@@ -59,7 +59,7 @@ function fsa:draw_clouds_shadow(dst,cx,cy)
   local cw,ch = dst:get_size()
   local tx,ty = (-cx+x) % csw, (-cy+y) % csh
   for i=-1,math.ceil(csw/cw)+1 do
-    for j=-1,math.ceil(csh/ch) do    
+    for j=-1,math.ceil(csh/ch) do
       clouds_shadow:draw(dst,tx+i*csw,ty+j*csh)
     end
   end
@@ -249,22 +249,16 @@ local function setup_inside_lights(map)
   end
 end
 
--- setup fsa effect on the given game
-function fsa:apply_effect(game)
-  game:register_event("on_map_changed",function(game,map)
-    fsa:on_map_changed(map)
-    function map:on_draw(dst)
-      fsa:on_map_draw(map,dst)
-    end
-  end)
-end
-
 function fsa:on_map_changed(map)
+  if self.current_map == map then
+    return -- already registered and created
+  end
   local outside = map:get_world() == "outside_world"
   if not outside then
     setup_inside_lights(map)
   end
   self.outside = outside
+  self.current_map = map
 end
 
 function fsa:on_map_draw(map,dst)
@@ -280,6 +274,10 @@ function fsa:on_map_draw(map,dst)
   else
     light_mgr:draw(dst,map)
   end
+end
+
+function fsa:clean()
+
 end
 
 return fsa
