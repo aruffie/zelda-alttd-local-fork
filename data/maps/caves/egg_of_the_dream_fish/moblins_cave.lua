@@ -49,9 +49,11 @@ function map:init_map_entities()
   moblin_chief:get_sprite():set_animation("sitting")
   -- Moblin fire
   if step < 9 then
-    moblin_fire:set_enabled(false)
+    moblin_fire:remove()
+    moblin_fire_light:remove()
   elseif step > 9 then
     moblin_fire:get_sprite():set_animation("off")
+    moblin_fire_light:remove()
   end
 
 end
@@ -91,10 +93,7 @@ function sensor_3:on_activated()
     return
   end
   launch_boss = true
-  door_manager:close_if_enemies_not_dead(map, "enemy_group_3", "door_group_1")
-  game:start_dialog("maps.caves.egg_of_the_dream_fish.moblins_cave.moblins_2", function()
-    enemy_group_3_1:start_battle()
-  end)
+  map:launch_cinematic_3()
 
 end
 
@@ -187,8 +186,30 @@ function map:launch_cinematic_2()
     movement(m, moblin_chief)
     moblin_chief:set_enabled(false)
     door_manager:close_if_enemies_not_dead(map, "enemy_group_2", "door_group_1")
+    for enemy in map:get_entities("enemy_group_2") do
+      local direction = enemy:get_movement():get_direction4()
+      enemy:get_sprite():set_direction(direction)
+    end
     wall_enemies:remove()
     map:set_cinematic_mode(false, options)
+  end)
+
+end
+
+-- This is the cinematic that the hero enters in the same room that the moblin chief bis
+function map:launch_cinematic_3()
+
+  door_manager:close_if_enemies_not_dead(map, "enemy_group_3", "door_group_1")
+  map:start_coroutine(function()
+    local options = {
+      entities_ignore_suspend = {hero, enemy_group_3_1}
+    }
+    map:set_cinematic_mode(true, options)
+    enemy_group_3_1:get_sprite():set_animation("prepare_attacking")
+    enemy_group_3_1:get_sprite():set_direction(2)
+    dialog("maps.caves.egg_of_the_dream_fish.moblins_cave.moblins_2")
+    map:set_cinematic_mode(false, options)
+    enemy_group_3_1:start_battle()
   end)
 
 end

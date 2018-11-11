@@ -1147,7 +1147,6 @@ entity{ id = "bee", description = "Bee" }
 entity{ id = "bird", description = "Bird" }
 entity{ id = "bomb_fly", description = "Bomb fly" }
 entity{ id = "bowwow", description = "Bowwow" }
-entity{ id = "bowwow_follow", description = "Bowwow follow" }
 entity{ id = "bubble", description = "Bubble" }
 entity{ id = "butterfly", description = "Butterfly" }
 entity{ id = "color_platform", description = "Color platform" }
@@ -1164,7 +1163,6 @@ entity{ id = "hole", description = "Hole" }
 entity{ id = "hook_bridge", description = "hook bridge" }
 entity{ id = "hookable", description = "Hookable" }
 entity{ id = "light", description = "Light" }
-entity{ id = "marin_follow", description = "Marine" }
 entity{ id = "mouse", description = "Mouse" }
 entity{ id = "mr_write_and_christine", description = "Mr Write and Christine" }
 entity{ id = "non_diggable", description = "Non diggable" }
