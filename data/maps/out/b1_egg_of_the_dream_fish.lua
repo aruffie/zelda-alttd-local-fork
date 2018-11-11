@@ -41,6 +41,7 @@ end
 
 function map:on_started(destination)
 
+  map:init_music()
   -- Owl
   owl_6:set_enabled(false)
   -- Remove the big stone if you come from the secret cave
