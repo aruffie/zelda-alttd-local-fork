@@ -44,8 +44,6 @@ function enemy:on_restarted()
   end
 end
 
-
-
 -- Calculate distance, angle and new position enemy
 function enemy:calculate_parameters()
 
@@ -129,7 +127,7 @@ function enemy:throw_arrow()
         height = 8,
         layer = layer_enemy
       } 
-       movement_type = "arrow"
+      movement_type = "arrow"
       local movement_arrow = sol.movement.create("straight")
       movement_arrow:set_speed(128)
       movement_arrow:set_smooth(false)
@@ -158,6 +156,13 @@ function enemy:charge()
     movement_charge:set_smooth(false)
     movement_charge:set_angle(angle)
    function  movement_charge:on_obstacle_reached()
+      local camera = map:get_camera()
+      local shake_config = {
+        count = 10,
+        amplitude = 4,
+        speed = 180,
+      }
+      camera:shake(shake_config)
       movement_charge:stop()
       enemy:set_shocked()
     end

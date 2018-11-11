@@ -129,6 +129,10 @@ local function initialize_dialog_box_features(game)
   function dialog_box:set_position(vertical_position)
     dialog_box.vertical_position = vertical_position
   end
+  
+  function dialog_box:get_position(vertical_position)
+    return dialog_box.vertical_position
+  end
 
   local function repeat_show_character()
 

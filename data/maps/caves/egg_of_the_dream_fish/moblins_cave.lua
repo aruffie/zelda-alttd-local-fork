@@ -14,6 +14,13 @@ function map:on_started(destination)
   map:init_music()
   map:init_map_entities()
   
+  -- Doors
+  map:set_doors_open("door_group_1", true)
+  -- Ennemis
+  for enemy in map:get_entities("enemy_group_1") do
+    enemy:get_sprite():set_direction(3)
+  end
+  
 end
 
 -- Initialize the music of the map
@@ -91,7 +98,7 @@ function sensor_3:on_activated()
 
 end
 
-function sensor_4:on_activated()
+function bowwow:on_interaction()
 
   local step = game:get_value("main_quest_step")
   if step ~= nil and step ~= 9 then
@@ -101,23 +108,7 @@ function sensor_4:on_activated()
     enemy:remove()
   end
   sol.audio.play_sound("treasure_2")
-  game:start_dialog("maps.caves.egg_of_the_dream_fish.moblins_cave.bowwow_1", function()
-    game:set_value("main_quest_step", 10)
-    local x,y, layer = bowwow:get_position()
-    local name =  bowwow:get_name()
-    bowwow:remove()
-    bowwow = map:create_custom_entity({
-        name = "bowwow",
-        sprite = "npc/bowwow",
-        x = x,
-        y = y,
-        width = 16,
-        height = 16,
-        layer = layer,
-        direction = 0,
-        model =  "bowwow_follow"
-      })
-  end)
+  map:launch_cinematic_4()
 
 end
 
@@ -130,17 +121,22 @@ end
 -- This is the cinematic that the hero enters the cave to fight the Mloblins
 function map:launch_cinematic_1()
   
-  map:set_doors_open("door_group_1", true)
-  door_manager:close_if_enemies_not_dead(map, "enemy_group_1", "door_group_1")
-  for enemy in map:get_entities("enemy_group_1") do
-    enemy:get_sprite():set_direction(3)
-  end
   map:start_coroutine(function()
     local options = {
       entities_ignore_suspend = {hero, enemy_group_1_1}
     }
     map:set_cinematic_mode(true, options)
+    -- Movement
+    hero:set_animation("walking")
+    local m = sol.movement.create("straight")
+    m:set_angle(math.pi/2)
+    m:set_max_distance(32)
+    m:set_ignore_suspend(true)
+    m:set_speed(40)
+    movement(m, hero)
+    hero:set_animation("stopped")
     dialog("maps.caves.egg_of_the_dream_fish.moblins_cave.moblins_1")
+    door_manager:close_if_enemies_not_dead(map, "enemy_group_1", "door_group_1")
     for enemy in map:get_entities("enemy_group_1") do
       local direction = enemy:get_movement():get_direction4()
       enemy:get_sprite():set_direction(direction)
@@ -157,18 +153,32 @@ function map:launch_cinematic_2()
   local x_moblin_chief, y_moblin_chief = moblin_chief:get_position()
   moblin_chief:get_sprite():set_animation("sitting_text")
   moblin_chief:get_sprite():set_direction(0)
+  for enemy in map:get_entities("enemy_group_2") do
+    enemy:get_sprite():set_direction(3)
+  end
   map:start_coroutine(function()
     local options = {
-      entities_ignore_suspend = {hero, enemy_group_1_1}
+      entities_ignore_suspend = {hero, moblin_chief, enemy_group_2_1, enemy_group_2_2, enemy_group_2_3, enemy_group_2_4}
     }
     map:set_cinematic_mode(true, options)
-    local alignement = game:get_dialog_box():get_position()
-    dialog.set_vertical_alignment("bottom")
+    -- Movement
+    hero:set_animation("walking")
+    local m = sol.movement.create("target")
+    m:set_target(placeholder_hero)
+    m:set_ignore_suspend(true)
+    m:set_speed(40)
+    movement(m, hero)
+    hero:set_animation("stopped")
+    -- Dialog box
+    local dialog_box = game:get_dialog_box()
+    local alignement = dialog_box:get_position()
+    dialog_box.set_position("bottom")
     dialog("maps.caves.egg_of_the_dream_fish.moblins_cave.moblins_3")
     game:get_dialog_box():set_position(alignement)
     moblin_chief:get_sprite():set_animation("walking")
     moblin_chief:get_sprite():set_ignore_suspend(true)
     moblin_chief.xy = { x = x_moblin_chief, y = y_moblin_chief }
+    -- Init movement
     local m = sol.movement.create("target")
     m:set_speed(96)
     m:set_target(moblin_chief_finished)
@@ -177,6 +187,49 @@ function map:launch_cinematic_2()
     movement(m, moblin_chief)
     moblin_chief:set_enabled(false)
     door_manager:close_if_enemies_not_dead(map, "enemy_group_2", "door_group_1")
+    wall_enemies:remove()
+    map:set_cinematic_mode(false, options)
+  end)
+
+end
+
+-- This is the cinematic that the hero retrieve bowow
+function map:launch_cinematic_4()
+  
+  local game = map:get_game()
+  map:start_coroutine(function()
+    local options = {
+      entities_ignore_suspend = {hero}
+    }
+    map:set_cinematic_mode(true, options)
+    -- Movement
+    hero:set_animation("happy")
+    local sprite = hero:get_sprite()
+    print(sprite)
+    local time = sprite:get_frame_delay() * sprite:get_num_frames()
+    local timer = sol.timer.start(map, time, function()
+      hero:set_animation("happy")
+      return true
+    end)
+    timer:set_suspended_with_map(false)
+    hero:set_direction(3)
+    dialog("maps.caves.egg_of_the_dream_fish.moblins_cave.bowwow_1")
+    timer:stop()
+    game:set_value("main_quest_step", 10)
+    local x,y, layer = bowwow:get_position()
+    local name =  bowwow:get_name()
+    bowwow:remove()
+    bowwow = map:create_custom_entity({
+      name = "bowwow",
+      sprite = "npc/bowwow",
+      x = x,
+      y = y,
+      width = 16,
+      height = 16,
+      layer = layer,
+      direction = 0,
+      model =  "bowwow_follow"
+    })
     map:set_cinematic_mode(false, options)
   end)
 

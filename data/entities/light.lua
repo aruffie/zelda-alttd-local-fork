@@ -93,6 +93,6 @@ end
 
 function light:track_entity(ent,dx,dy,dl)
   ent:register_event("on_position_changed",function(ent,x,y,l)
-                       light:set_position(x+(dx or 0),y+(dy or 0), l+(dl or 0))
+    light:set_position(x+(dx or 0),y+(dy or 0), l+(dl or 0))
   end)
 end
