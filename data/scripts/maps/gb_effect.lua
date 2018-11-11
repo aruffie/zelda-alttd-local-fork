@@ -19,7 +19,6 @@ local main_surface
 local function on_main_draw(_,dst)
   main_surface = dst
   if enabled then
-    big_dst:fill_color{0,0,0,0}
     dst:set_shader(gbshader)
     dst:set_scale(fac,fac)
     dst:draw(big_dst)
