@@ -10,7 +10,7 @@ local movement
 follower:set_optimization_distance(0)
 follower:set_drawn_in_y_order(true)
 follower:set_traversable_by(true)
-follower:set_traversable_by("hero", false)
+follower:set_traversable_by("hero", true)
 follower:set_can_traverse("enemy", true)
 follower:set_can_traverse("npc", true)
 follower:set_can_traverse("sensor", true)
@@ -27,8 +27,6 @@ local function follow_hero()
   game.follower_following = true
   sprite:set_animation("walking")
 
-  follower:set_can_traverse("hero", true)
-  follower:set_traversable_by("hero", true)
 end
 
 -- Stops for now because too close or too far.
