@@ -1,10 +1,12 @@
 local fsa = {}
 
-local light_mgr = require("scripts/lights/light_manager.lua")
+local light_mgr = require("scripts/lights/light_manager")
+local chunk_provider = require("scripts/maps/chunk_provider")
 
 local tmp = sol.surface.create(sol.video.get_quest_size())
 local reflection = sol.surface.create(sol.video.get_quest_size())
 local fsa_texture = sol.surface.create(sol.video.get_quest_size())
+--local water_mask = sol.surface.create(sol.video.get_quest_size())
 local clouds = sol.surface.create("work/clouds_reflection.png")
 local clouds_shadow = sol.surface.create("work/clouds_shadow.png")
 clouds_shadow:set_blend_mode("multiply")
@@ -14,6 +16,7 @@ local effect = sol.surface.create"work/fsaeffect.png"
 local shader = sol.shader.create"water_effect"
 shader:set_uniform("reflection",reflection)
 shader:set_uniform("fsa_texture",fsa_texture)
+--shader:set_uniform("water_mask",water_mask)
 tmp:set_shader(shader)
 local ew,eh = effect:get_size()
 
@@ -249,6 +252,12 @@ local function setup_inside_lights(map)
   end
 end
 
+local water_grounds = {deep_water=true,shallow_water=true}
+local col = {255,0,0}
+local function water_predicate(ground)
+  return water_grounds[ground], col
+end
+
 function fsa:on_map_changed(map)
   if self.current_map == map then
     return -- already registered and created
@@ -259,6 +268,7 @@ function fsa:on_map_changed(map)
   end
   self.outside = outside
   self.current_map = map
+  --self.water_mask_provider = chunk_provider.create(map, water_predicate)
 end
 
 function fsa:on_map_draw(map,dst)
@@ -266,8 +276,13 @@ function fsa:on_map_draw(map,dst)
   dst:draw(tmp)
   fsa:render_reflection(map)
   fsa:render_fsa_texture(map)
+
+  
   local camera = map:get_camera()
   local dx,dy = camera:get_position()
+  local layer = map:get_hero():get_layer()
+  --water_mask:clear()
+  --self.water_mask_provider:fill_surf(water_mask,dx,dy,layer)
   tmp:draw(dst)
   if self.outside then
     fsa:draw_clouds_shadow(dst,dx,dy)
