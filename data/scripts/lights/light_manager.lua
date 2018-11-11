@@ -91,7 +91,7 @@ function light_mgr:compute_light_shadow_map(light)
   cast_shadow_s:set_uniform("lcolor",light.color)
   cast_shadow_s:set_uniform("dir",light.direction or {1,0})
   cast_shadow_s:set_uniform("aperture",light.aperture or -1.5)
-  cast_shadow_s:set_uniform("halo",light.halo or 0.1)
+  cast_shadow_s:set_uniform("halo",light.halo or 0.2)
   cast_shadow_s:set_uniform("cut",light.cut or 0.0)
 
   --get light geometry

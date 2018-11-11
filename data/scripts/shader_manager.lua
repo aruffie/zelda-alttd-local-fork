@@ -7,7 +7,8 @@ local current_shader_index = 0  -- 0 means no shader.
 local function initialize_shaders()
 
   shaders = {}
-  shader_ids = sol.main.get_resource_ids("shader")
+  -- TODO find a more elegant way to filter
+  shader_ids = {'6xbrz','lcd','sepia'}--sol.main.get_resource_ids("shader")
   current_shader_index = 0
 end
 

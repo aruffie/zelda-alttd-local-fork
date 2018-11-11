@@ -4,6 +4,18 @@
 --it allows to light dark places TODO comment better
 
 
+--[[
+  This entity uses the following **custom properties** :
+   * color : vec3 => define the base color of the light ex `255,128,64`
+   * radius : scalar => define the radius of the light in pixels
+   * aperture : scalar => define the aperture of a light, turns it into a spot if `abs(aperture)` < 1, this is the cosine desired angle
+   * direction : vec2 => define the direction of the light, light will be aligned to the vector
+   * halo : scalar => define the smoothness of the shadow cone/disk
+   * cut : scalar => define how much the light is "cut" from the base cut \in [0,1] 0 no cut, 1 full cut
+   
+   * angle : scalar => alias for aperture that defines it from the **angle in degrees**
+]]
+
 local light = ...
 local game = light:get_game()
 local map = light:get_map()
@@ -35,6 +47,11 @@ if dir_str then
 end
 light.cut = tonumber(light:get_property('cut'))
 light.aperture = tonumber(light:get_property('aperture'))
+
+local angle = light:get_property('angle')
+if angle then
+  light.aperture = math.cos((math.pi/180)* tonumber(angle))
+end
 
 local x,y = light:get_position()
 

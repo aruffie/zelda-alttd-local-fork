@@ -89,7 +89,7 @@ local function get_lights_from_map(map)
     ["window.4-1"] = true,
   }
 
-  local big = "160"
+  local big = "110"
   local small = "80"
 
   local radii = {
@@ -201,7 +201,11 @@ local function setup_inside_lights(map)
   local house = map:get_id():find("houses") ~= nil
   light_mgr:init(map,
                  (function()
-                   if house then return {180,170,160} end
+                   if house then
+                     return {180,170,160}
+                   else
+                     return {110,105,100}
+                   end
                  end)())
   light_mgr:add_occluder(map:get_hero())
 
