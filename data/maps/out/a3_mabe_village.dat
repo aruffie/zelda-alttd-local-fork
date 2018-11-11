@@ -15897,7 +15897,7 @@ custom_entity{
   name = "kids_alert_position_center",
   layer = 0,
   x = 120,
-  y = 733,
+  y = 717,
   width = 16,
   height = 16,
   direction = 0,
@@ -18097,7 +18097,7 @@ custom_entity{
 custom_entity{
   layer = 0,
   x = 120,
-  y = 701,
+  y = 717,
   width = 16,
   height = 16,
   direction = 0,
@@ -18141,7 +18141,7 @@ custom_entity{
 custom_entity{
   layer = 0,
   x = 120,
-  y = 717,
+  y = 701,
   width = 16,
   height = 16,
   direction = 0,

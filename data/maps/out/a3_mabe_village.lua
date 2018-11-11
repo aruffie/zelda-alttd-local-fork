@@ -5,7 +5,6 @@ local marin_song = false
 local marin_and_link_song = false
 local ball
 local ball_shadow
-local ball_is_launch = false
 local hero_is_alerted = false
 local marin_notes = nil
 local marin_notes_2 = nil
@@ -68,16 +67,10 @@ function map:on_started(destination)
   if map:get_game():get_value("main_quest_step") == 8 or map:get_game():get_value("main_quest_step") == 9 then
     sol.timer.start(map, 500, function()
         map:init_music()
-        if  hero:get_distance(kids_alert_position_center) < 60 then
+        if hero:get_distance(kids_alert_position_center) < 60 then
           if not hero_is_alerted then
-            hero:get_sprite():set_direction(3)
+            map:launch_cinematic_1()
             hero_is_alerted = true
-              local hero = map:get_hero()
-              hero:freeze()
-              game:start_dialog("maps.out.mabe_village.kids_alert_moblins", function()
-                  self:get_game():set_value("main_quest_step", 9)
-                  hero:unfreeze()
-              end)
           end
         else
           if hero_is_alerted then
@@ -313,7 +306,6 @@ function map:play_ball(player_1, player_2)
   
 end
 
-
 -- Discussion with Fishman
 function map:talk_to_fishman() 
 
@@ -440,13 +432,24 @@ end
 
 function map:repeat_kids_scared_direction_check()
 
-  local directionkid1 = kid_1:get_direction4_to(hero)
-  local directionkid2 = kid_2:get_direction4_to(hero)
-  kid_1:get_sprite():set_direction(directionkid1)
-  kid_2:get_sprite():set_direction(directionkid2)
+  local x_hero, y_hero = hero:get_position()
+  local x_kid_1, y_kid_1 = kid_1:get_position()
+  local x_kid_2, y_kid_2 = kid_2:get_position()
+  local direction_kid_1 = 1
+  local direction_kid_2 = 1
+  if y_hero > y_kid_1 then
+    direction_kid_1 = 3
+  end
+  if y_hero > y_kid_2 then
+    direction_kid_2 = 3
+  end
+  
+  kid_1:get_sprite():set_direction(direction_kid_1)
+  kid_2:get_sprite():set_direction(direction_kid_2)
   sol.timer.start(map, 100, function() 
     map:repeat_kids_scared_direction_check()
   end)
+
 end
 
 -- Sensor events
@@ -467,6 +470,7 @@ function marin_sensor_2:on_activated()
 end
 
 function push_weathercook_sensor:on_activated_repeat()
+  
     if hero:get_animation() == "pushing" and hero:get_direction() == 1 and game:get_ability("lift") == 2 then
       hero:freeze()
       hero:get_sprite():set_animation("pushing")
@@ -488,6 +492,7 @@ function push_weathercook_sensor:on_activated_repeat()
           game:set_value("mabe_village_weathercook_statue_pushed",true)
         end)
     end
+    
 end
 
 -- NPC events
@@ -547,4 +552,36 @@ function fishman:on_interaction()
 
       map:talk_to_fishman()
 
+end
+
+-- Cinematics
+-- This is the cinematic that kids are scared
+function map:launch_cinematic_1()
+  
+  local distance = hero:get_distance(kids_alert_position_center)
+  local max_distance = math.abs(distance - 20)
+  print(max_distance)
+  local hero = map:get_hero()
+  local x_hero, y_hero = hero:get_position()
+  local x_kid_1, y_kid_1 = kid_1:get_position()
+  local direction4 = 3
+  if y_hero > y_kid_1 then
+    direction4 = 1
+  end
+  hero:get_sprite():set_direction(direction4)
+  map:start_coroutine(function()
+    local options = {
+      entities_ignore_suspend = {hero, kid_1, kid_2}
+    }
+    map:set_cinematic_mode(true, options)
+    local m = sol.movement.create("straight")
+    m:set_max_distance(max_distance)
+    m:set_smooth(true)
+    m:set_speed(40)
+    m:set_angle(direction4 * math.pi / 2)
+    movement(m, hero)
+    dialog("maps.out.mabe_village.kids_alert_moblins")
+    self:get_game():set_value("main_quest_step", 9)
+    map:set_cinematic_mode(false)
+  end)
 end
