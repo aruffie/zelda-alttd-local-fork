@@ -24,6 +24,10 @@ function shop_manager:init(map)
         local x_hero, y_hero = hero:get_position()
         if math.abs(y_placeholder - y_hero) < 48 and hero:get_direction() == 1 then
           if shop_manager.product.name == k then
+            local carried_object = hero:get_carried_object()
+            local state = sol.state.create()
+            state:set_carried_object_action("remove")
+            hero:start_state(state)
             hero:unfreeze()
             shop_manager:add_product(map, shop_manager.product.name, shop_manager.product.params)
             shop_manager.product = nil
@@ -66,7 +70,7 @@ function shop_manager:add_product(map, name, params)
         })
         local product_lifting = map:create_custom_entity({
           name = "product_lifting_" .. name,
-          sprite = "entities/" .. name,
+          sprite = params.sprite,
           x = x_placeholder,
           y = y_placeholder + 24,
           width = 16,
@@ -119,10 +123,18 @@ function shop_manager:add_product(map, name, params)
   local hero = map:get_hero()
   game:start_dialog("maps.houses.mabe_village.shop_2.product" .. "_" .. shop_manager.product.params.dialog_id, function(answer)
     if answer == 1 then
+              print(shop_manager.product.name)
       local error = false
       -- Hearts
       if shop_manager.product.name == "heart" then
         if game:get_life() == game:get_max_life() then
+          error = true
+        end
+      elseif shop_manager.product.name == "bombs" then
+        local item = game:get_item("bombs_counter")
+        print(item:get_amount())
+        print(item:get_max_amount())
+        if item:get_amount() >= item:get_max_amount() then
           error = true
         end
       elseif shop_manager.product.name == "shield" then
@@ -137,11 +149,14 @@ function shop_manager:add_product(map, name, params)
       else
         local money = game:get_money()
         if money >= shop_manager.product.params.price then
-          hero:freeze()
+          local carried_object = hero:get_carried_object()
+          local state = sol.state.create()
+          state:set_carried_object_action("remove")
+          hero:start_state(state)
           hero:unfreeze()
           game:remove_money(shop_manager.product.params.price)
-          local item = game:get_item(shop_manager.product.name)
-          item:set_variant(shop_manager.product.params.variant)
+          shop_manager.product.params.buy_callback(map)
+          print("ok")
           game:start_dialog("maps.houses.mabe_village.shop_2.merchant_6")
           shop_manager.product = nil
         else

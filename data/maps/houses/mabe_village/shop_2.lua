@@ -68,9 +68,9 @@ function map:talk_to_merchant()
 
     local direction4 = merchant:get_direction4_to(hero)
     merchant:get_sprite():set_direction(direction4)
-    --if map.shop_manager_product == nil then
-    game:start_dialog("maps.houses.mabe_village.shop_2.merchant_1")
-    --end
+    if shop_manager.product == nil then
+      game:start_dialog("maps.houses.mabe_village.shop_2.merchant_1")
+    end
 
 end
 

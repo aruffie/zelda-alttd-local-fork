@@ -17932,7 +17932,6 @@ dynamic_tile{
   pattern = "4070",
   width = 64,
   height = 24,
-  enabled_at_start = true,
 }
 
 teletransporter{

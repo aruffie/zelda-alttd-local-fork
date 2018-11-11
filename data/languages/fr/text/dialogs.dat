@@ -2223,7 +2223,7 @@ Et au plaisir !
 }
 
 dialog{
-  id = "maps.houses.mabe_village.shop_2.product_bombs",
+  id = "maps.houses.mabe_village.shop_2.product_bomb",
   question = "1",
   text = [[
 10 Bombes   

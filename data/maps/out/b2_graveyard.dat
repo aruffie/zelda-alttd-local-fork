@@ -32,7 +32,7 @@ tile{
   layer = 0,
   x = 328,
   y = 136,
-  width = 112,
+  width = 120,
   height = 80,
   pattern = "111",
 }
@@ -22477,6 +22477,32 @@ wall{
   x = 312,
   y = 408,
   width = 80,
+  height = 16,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 0,
+  x = 280,
+  y = 448,
+  width = 32,
+  height = 16,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 0,
+  x = 392,
+  y = 448,
+  width = 32,
   height = 16,
   stops_hero = true,
   stops_npcs = true,

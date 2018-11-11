@@ -1394,6 +1394,24 @@ tile{
   pattern = "table_piece.1",
 }
 
+tile{
+  layer = 1,
+  x = 320,
+  y = 24,
+  width = 32,
+  height = 24,
+  pattern = "window.1-1",
+}
+
+tile{
+  layer = 1,
+  x = 112,
+  y = 24,
+  width = 32,
+  height = 24,
+  pattern = "window.1-1",
+}
+
 destination{
   name = "quadruplets_house_1_B",
   layer = 1,

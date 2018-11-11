@@ -6725,7 +6725,6 @@ dynamic_tile{
   pattern = "1062",
   width = 32,
   height = 8,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -6736,7 +6735,6 @@ dynamic_tile{
   pattern = "957",
   width = 32,
   height = 16,
-  enabled_at_start = true,
 }
 
 door{
@@ -6849,7 +6847,6 @@ dynamic_tile{
   pattern = "617",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 wall{
@@ -6872,7 +6869,6 @@ dynamic_tile{
   pattern = "941",
   width = 48,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -6882,7 +6878,6 @@ dynamic_tile{
   pattern = "941",
   width = 48,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -6892,7 +6887,6 @@ dynamic_tile{
   pattern = "941",
   width = 48,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -6902,7 +6896,6 @@ dynamic_tile{
   pattern = "941",
   width = 48,
   height = 16,
-  enabled_at_start = true,
 }
 
 custom_entity{
