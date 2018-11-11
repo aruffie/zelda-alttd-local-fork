@@ -7,7 +7,7 @@
 local light = ...
 local game = light:get_game()
 local map = light:get_map()
-local light_mgr = require('scripts/lights/light_manager.lua')
+local light_mgr = require('scripts/lights/light_manager')
 
 local radius = tonumber(light:get_property('radius')) or 120
 local size = radius*2
