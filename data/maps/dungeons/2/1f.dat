@@ -15677,7 +15677,13 @@ enemy{
   name = "enemy_group_4_1",
   layer = 0,
   x = 1376,
-  y = 1333,
+  y = 1453,
+  properties = {
+    {
+      key = "clockwise",
+      value = "true",
+    },
+  },
   direction = 0,
   breed = "fireball",
 }
@@ -18401,8 +18407,14 @@ block{
 enemy{
   name = "enemy_group_1_1",
   layer = 0,
-  x = 792,
-  y = 1333,
+  x = 856,
+  y = 1493,
+  properties = {
+    {
+      key = "clockwise",
+      value = "true",
+    },
+  },
   direction = 0,
   breed = "fireball",
 }
@@ -19537,6 +19549,28 @@ destination{
   x = 800,
   y = 1709,
   direction = 1,
+}
+
+door{
+  name = "door_group_5_1",
+  layer = 0,
+  x = 2168,
+  y = 1048,
+  direction = 3,
+  sprite = "entities/doors/door_normal",
+  opening_condition = "dungeon_1_small_keys",
+  opening_condition_consumed = true,
+  cannot_open_dialog = "Oups",
+}
+
+teletransporter{
+  layer = 0,
+  x = 792,
+  y = 1712,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/2/sideview_3",
+  destination = "stairs_1_B",
 }
 
 tile{

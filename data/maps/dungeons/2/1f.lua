@@ -193,7 +193,7 @@ auto_separator_25:register_event("on_activated", function(separator, direction4)
   end
 end)
 
-function auto_separator_:on_activating(direction4)
+function auto_separator_26:on_activating(direction4)
   block_group_1_1:reset()
   block_group_1_2:reset()
 end
