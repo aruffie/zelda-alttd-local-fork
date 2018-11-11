@@ -23,11 +23,15 @@ function moving_platform:go()
 
   -- Set the movement.
   movement = sol.movement.create("straight")
-  movement:set_speed(30)
+  movement:set_speed(60)
   movement:set_max_distance(distance)
   movement:set_angle(angle)
   movement:start(moving_platform)
   function movement:on_finished()
+    angle = angle + math.pi
+    moving_platform:go()
+  end
+  function movement:on_obstacle_reached()
     angle = angle + math.pi
     moving_platform:go()
   end
