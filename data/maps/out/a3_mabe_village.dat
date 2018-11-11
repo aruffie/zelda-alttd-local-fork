@@ -21478,6 +21478,26 @@ npc{
   sprite = "npc/kid_3",
 }
 
+custom_entity{
+  name = "kids_alert_position_hero_1",
+  layer = 0,
+  x = 120,
+  y = 685,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+custom_entity{
+  name = "kids_alert_position_hero_2",
+  layer = 0,
+  x = 120,
+  y = 733,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
 tile{
   layer = 1,
   x = 792,
