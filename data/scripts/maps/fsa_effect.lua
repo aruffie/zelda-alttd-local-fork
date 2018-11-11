@@ -1,7 +1,7 @@
 local fsa = {}
 
 local light_mgr = require("scripts/lights/light_manager")
-local chunk_provider = require("scripts/maps/chunk_provider")
+--local chunk_provider = require("scripts/maps/chunk_provider")
 
 local tmp = sol.surface.create(sol.video.get_quest_size())
 local reflection = sol.surface.create(sol.video.get_quest_size())
