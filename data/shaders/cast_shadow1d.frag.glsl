@@ -51,7 +51,7 @@ void main(void) {
 	
 	//we multiply the blur amount by our distance from center
 	//this leads to more blurriness as the shadow "fades away"
-	float blur = /*0.001 +*/ (0.2/resolution.x)  * smoothstep(0., 1., r) * halo * 10; 
+	float blur = /*0.001 +*/ (0.2/resolution.x)  * smoothstep(0., 1., r) * halo * 10.0; 
 	
 	//now we use a simple gaussian blur
 	float sum = 0.2;
