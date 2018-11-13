@@ -8,7 +8,6 @@ function door_manager:open_when_enemies_dead(map, enemy_prefix, door_prefix, sou
 
 
   local function enemy_on_dead()
-
     if sound == nil then
       sound = true
     end
@@ -76,101 +75,101 @@ end
 -- Open doors if block moved
 function door_manager:open_if_block_moved(map, block_prefix, door_prefix)
 
-      for block in map:get_entities(block_prefix) do
-       if block.is_moved then
-        map:open_doors(door_prefix)
-       else
-          map:close_doors(door_prefix)
-       end
-      end
+  for block in map:get_entities(block_prefix) do
+   if block.is_moved then
+    map:open_doors(door_prefix)
+   else
+      map:close_doors(door_prefix)
+   end
+  end
 
 end
 
 -- Open doors when all blocks in the room are moved
 function door_manager:open_when_blocks_moved(map, block_prefix, door_prefix)
 
-      local remaining = map:get_entities_count(block_prefix)
-      local function block_on_moved()
-        remaining = remaining - 1
-        if remaining == 0 then
-            map:open_doors(door_prefix)
-            sol.audio.play_sound("secret_1")
-       end
-      end
-      for block in map:get_entities(block_prefix) do
-        block.on_moved = block_on_moved
-      end
+  local remaining = map:get_entities_count(block_prefix)
+  local function block_on_moved()
+    remaining = remaining - 1
+    if remaining == 0 then
+        map:open_doors(door_prefix)
+        sol.audio.play_sound("secret_1")
+   end
+  end
+  for block in map:get_entities(block_prefix) do
+    block.on_moved = block_on_moved
+  end
 
 end
 
 -- Open doors when a switch in the room is activated
 function door_manager:open_when_switch_activated(map, switch_prefix, door_prefix)
 
-      local function switch_on_activated(switch)
-        if not switch.is_activated then
-          switch.is_activated = true
-          map:open_doors(door_prefix)
-          sol.audio.play_sound("secret_1")
-        end
-       end
-      for switch in map:get_entities(switch_prefix) do
-        switch.is_activated = false
-        switch.on_activated = switch_on_activated
-      end
+  local function switch_on_activated(switch)
+    if not switch.is_activated then
+      switch.is_activated = true
+      map:open_doors(door_prefix)
+      sol.audio.play_sound("secret_1")
+    end
+   end
+  for switch in map:get_entities(switch_prefix) do
+    switch.is_activated = false
+    switch.on_activated = switch_on_activated
+  end
 
 end
 
 -- Open doors when a block in the room are moved
 function door_manager:open_when_block_moved(map, block_prefix, door_prefix)
 
-      local function block_on_moved(block)
-        if not block.is_moved then
-          block.is_moved = true
-          map:open_doors(door_prefix)
-          sol.audio.play_sound("secret_1")
-        end
-       end
-      for block in map:get_entities(block_prefix) do
-        block.is_moved = false
-        block.on_moved = block_on_moved
-      end
+  local function block_on_moved(block)
+    if not block.is_moved then
+      block.is_moved = true
+      map:open_doors(door_prefix)
+      sol.audio.play_sound("secret_1")
+    end
+   end
+  for block in map:get_entities(block_prefix) do
+    block.is_moved = false
+    block.on_moved = block_on_moved
+  end
 
 end
 
 -- Open doors when pot break
 function door_manager:open_when_pot_break(map, door_prefix)
 
-      local detect_entity = map:get_entity("detect_" .. door_prefix)
-      detect_entity:add_collision_test("touching", function(entity_source, entity_dest)
-        if entity_dest:get_type() == "carried_object" then
-            map:open_doors(door_prefix)
-            sol.audio.play_sound("secret_1")
-        end
-      end)
+  local detect_entity = map:get_entity("detect_" .. door_prefix)
+  detect_entity:add_collision_test("touching", function(entity_source, entity_dest)
+    if entity_dest:get_type() == "carried_object" then
+        map:open_doors(door_prefix)
+        sol.audio.play_sound("secret_1")
+    end
+  end)
 
 end
 
 -- Destroy wall by explosion
 function door_manager:destroy_wall(map, weak_wall_prefix)
 
-    local game = map:get_game()
-    local dungeon = game:get_dungeon_index()
-    if game:get_value("dungeon_" .. dungeon .. "_" .. weak_wall_prefix) == nil then
-      game:set_value("dungeon_" .. dungeon .. "_" .. weak_wall_prefix, true)
-      map:remove_entities(weak_wall_prefix)
-      sol.audio.play_sound("secret_1")
-    end
+  local game = map:get_game()
+  local dungeon = game:get_dungeon_index()
+  if game:get_value("dungeon_" .. dungeon .. "_" .. weak_wall_prefix) == nil then
+    game:set_value("dungeon_" .. dungeon .. "_" .. weak_wall_prefix, true)
+    map:remove_entities(weak_wall_prefix)
+    sol.audio.play_sound("secret_1")
+  end
 
 end
 
 -- Destroy wall by explosion
 function door_manager:check_destroy_wall(map, weak_wall_prefix)
 
-    local game = map:get_game()
-    local dungeon = game:get_dungeon_index()
-    if game:get_value("dungeon_" .. dungeon .. "_" .. weak_wall_prefix) == true then
-      map:remove_entities(weak_wall_prefix)
-    end
+  local game = map:get_game()
+  local dungeon = game:get_dungeon_index()
+  if game:get_value("dungeon_" .. dungeon .. "_" .. weak_wall_prefix) == true then
+    map:remove_entities(weak_wall_prefix)
+  end
 
 end
 

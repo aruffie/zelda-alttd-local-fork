@@ -200,9 +200,7 @@ end
 
 function sensor_9:on_activated()
 
-print('test')
   if is_small_boss_active == false then
-print('test2')
     is_small_boss_active = true
     enemy_manager:launch_small_boss_if_not_dead(map)
   end

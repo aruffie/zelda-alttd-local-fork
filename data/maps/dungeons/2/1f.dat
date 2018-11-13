@@ -20841,8 +20841,8 @@ teletransporter{
 destination{
   name = "stairs_1_B",
   layer = 0,
-  x = 2168,
-  y = 1077,
+  x = 480,
+  y = 709,
   direction = 3,
 }
 
@@ -20946,25 +20946,13 @@ destination{
   direction = 1,
 }
 
-door{
-  name = "door_group_5_1",
-  layer = 0,
-  x = 2160,
-  y = 1048,
-  direction = 3,
-  sprite = "entities/doors/door_normal",
-  opening_condition = "dungeon_1_small_keys",
-  opening_condition_consumed = true,
-  cannot_open_dialog = "Oups",
-}
-
 teletransporter{
   layer = 0,
   x = 792,
   y = 1712,
   width = 16,
   height = 16,
-  destination_map = "dungeons/2/sideview_3",
+  destination_map = "dungeons/2/1f",
   destination = "stairs_1_B",
 }
 
@@ -23108,6 +23096,40 @@ block{
   maximum_moves = 0,
 }
 
+wall{
+  name = "wall_1_1",
+  layer = 0,
+  x = 2144,
+  y = 1048,
+  width = 48,
+  height = 16,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+dynamic_tile{
+  name = "wall_1_2",
+  layer = 0,
+  x = 2144,
+  y = 1040,
+  pattern = "wall.1-2",
+  width = 48,
+  height = 24,
+}
+
+custom_entity{
+  name = "placeholder_explosion_wall_1",
+  layer = 0,
+  x = 2168,
+  y = 1061,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
 tile{
   layer = 1,
   x = 2136,
@@ -24040,6 +24062,16 @@ custom_entity{
   direction = 0,
   sprite = "entities/powder_fly",
   model = "heart_fly",
+}
+
+dynamic_tile{
+  name = "wall_1_3",
+  layer = 1,
+  x = 2136,
+  y = 1040,
+  pattern = "door_cache.1-2",
+  width = 64,
+  height = 8,
 }
 
 tile{

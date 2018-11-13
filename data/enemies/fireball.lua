@@ -70,8 +70,6 @@ function enemy:go(direction4)
   m:set_smooth(false)
   m:set_angle(direction4 * math.pi / 2)
   m:start(self)
-  print(direction4)
-  
   last_direction4 = direction4
 
 end
