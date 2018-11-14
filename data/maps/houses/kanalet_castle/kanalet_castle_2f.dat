@@ -1863,7 +1863,7 @@ custom_entity{
   height = 32,
   direction = 0,
   sprite = "entities/kanalet_statue",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -1875,7 +1875,7 @@ custom_entity{
   height = 32,
   direction = 2,
   sprite = "entities/kanalet_statue",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{

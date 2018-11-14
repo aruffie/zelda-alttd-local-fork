@@ -1300,7 +1300,7 @@ custom_entity{
   height = 32,
   direction = 0,
   sprite = "entities/kanalet_statue",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -1312,55 +1312,55 @@ custom_entity{
   height = 32,
   direction = 2,
   sprite = "entities/kanalet_statue",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
   name = "kanalet_statue_5",
   layer = 0,
   x = 72,
-  y = 285,
+  y = 301,
   width = 32,
   height = 32,
   direction = 0,
   sprite = "entities/kanalet_statue",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
   name = "kanalet_statue_7",
   layer = 0,
   x = 168,
-  y = 285,
+  y = 301,
   width = 32,
   height = 32,
   direction = 2,
   sprite = "entities/kanalet_statue",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
   name = "kanalet_statue_9",
   layer = 0,
   x = 72,
-  y = 237,
+  y = 213,
   width = 32,
   height = 32,
   direction = 0,
   sprite = "entities/kanalet_statue",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
   name = "kanalet_statue_10",
   layer = 0,
   x = 168,
-  y = 237,
+  y = 213,
   width = 32,
   height = 32,
   direction = 2,
   sprite = "entities/kanalet_statue",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -1419,7 +1419,7 @@ enemy{
   name = "enemy_group_2_2",
   layer = 0,
   x = 176,
-  y = 213,
+  y = 189,
   direction = 0,
   breed = "zol_green",
   treasure_name = "random",
@@ -2507,7 +2507,7 @@ custom_entity{
   name = "kanalet_statue_6",
   layer = 1,
   x = 80,
-  y = 269,
+  y = 285,
   width = 16,
   height = 16,
   direction = 1,
@@ -2518,7 +2518,7 @@ custom_entity{
   name = "kanalet_statue_8",
   layer = 1,
   x = 176,
-  y = 269,
+  y = 285,
   width = 16,
   height = 16,
   direction = 1,
@@ -2529,7 +2529,7 @@ custom_entity{
   name = "kanalet_statue_11",
   layer = 1,
   x = 80,
-  y = 221,
+  y = 197,
   width = 16,
   height = 16,
   direction = 1,
@@ -2540,7 +2540,7 @@ custom_entity{
   name = "kanalet_statue_12",
   layer = 1,
   x = 176,
-  y = 221,
+  y = 197,
   width = 16,
   height = 16,
   direction = 1,
