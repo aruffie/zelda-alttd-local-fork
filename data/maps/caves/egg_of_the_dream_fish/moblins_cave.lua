@@ -46,7 +46,11 @@ function map:init_map_entities()
     map:set_doors_open("door_group", true)
   end
   -- Moblin chief
-  moblin_chief:get_sprite():set_animation("sitting")
+  if step ~= 9 then
+    moblin_chief:remove()
+  else
+      moblin_chief:get_sprite():set_animation("sitting")
+  end
   -- Moblin fire
   if step < 9 then
     moblin_fire:remove()

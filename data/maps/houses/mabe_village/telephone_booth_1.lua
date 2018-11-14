@@ -5,9 +5,6 @@ local game = map:get_game()
 -- Include scripts
 local phone_manager = require("scripts/maps/phone_manager")
 
-
--- Methods - Functions
-
 -- Initialize the music of the map
 function map:init_music()
 

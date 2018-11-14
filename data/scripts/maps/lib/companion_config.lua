@@ -5,6 +5,9 @@ return {
   marin = {
     sprite = "npc/marin",
     activation_condition = function(map)
+      if map:get_game():is_in_dungeon() then
+        return false
+      end
       local step = map:get_game():get_value("main_quest_step")
       return step == 23
     end
@@ -13,10 +16,12 @@ return {
     sprite = "npc/bowwow",
     activation_condition = function(map)
       local excluded_maps = {
-        ["houses/meow_house"] = true,
-        ["dungeons/2/1f"] = true
+        ["houses/meow_house"] = true
       }
       if excluded_maps[map:get_id()] then
+        return false
+      end
+      if map:get_game():is_in_dungeon() then
         return false
       end
       local step = map:get_game():get_value("main_quest_step")

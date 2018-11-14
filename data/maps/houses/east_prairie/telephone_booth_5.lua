@@ -1,27 +1,15 @@
---Inside - Telephone booth 6
-
 -- Variables
 local map = ...
 local game = map:get_game()
 
 -- Include scripts
-function map:init_music()
 local phone_manager = require("scripts/maps/phone_manager")
-
-
--- Methods - Functions
 
 -- Events
 
-function map:on_started()
-
-
-
-end
-
 function phone_interaction:on_interaction()
 
-      phone_manager:talk(map)
+  phone_manager:talk(map)
 
 end
 
