@@ -1434,15 +1434,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 168,
-  y = 688,
-  width = 48,
-  height = 16,
-  pattern = "12842",
-}
-
-tile{
-  layer = 0,
   x = 160,
   y = 704,
   width = 8,
@@ -1520,15 +1511,6 @@ tile{
   width = 48,
   height = 8,
   pattern = "2203",
-}
-
-tile{
-  layer = 0,
-  x = 72,
-  y = 688,
-  width = 48,
-  height = 16,
-  pattern = "12842",
 }
 
 tile{
@@ -5297,24 +5279,6 @@ tile{
   layer = 0,
   x = 88,
   y = 520,
-  width = 8,
-  height = 8,
-  pattern = "100",
-}
-
-tile{
-  layer = 0,
-  x = 144,
-  y = 512,
-  width = 8,
-  height = 8,
-  pattern = "101",
-}
-
-tile{
-  layer = 0,
-  x = 136,
-  y = 512,
   width = 8,
   height = 8,
   pattern = "100",
@@ -18901,6 +18865,51 @@ tile{
   pattern = "84",
 }
 
+tile{
+  layer = 0,
+  x = 160,
+  y = 688,
+  width = 16,
+  height = 16,
+  pattern = "1041",
+}
+
+tile{
+  layer = 0,
+  x = 168,
+  y = 688,
+  width = 48,
+  height = 16,
+  pattern = "12842",
+}
+
+tile{
+  layer = 0,
+  x = 160,
+  y = 656,
+  width = 16,
+  height = 16,
+  pattern = "1041",
+}
+
+tile{
+  layer = 0,
+  x = 112,
+  y = 688,
+  width = 16,
+  height = 16,
+  pattern = "1041",
+}
+
+tile{
+  layer = 0,
+  x = 72,
+  y = 688,
+  width = 48,
+  height = 16,
+  pattern = "12842",
+}
+
 custom_entity{
   name = "statue_pig_destroyed",
   layer = 0,
@@ -19031,7 +19040,7 @@ npc{
 npc{
   layer = 0,
   x = 144,
-  y = 509,
+  y = 517,
   direction = 3,
   subtype = 0,
   sprite = "entities/sign",
