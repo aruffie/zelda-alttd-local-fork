@@ -12,6 +12,12 @@ function npc_meta:on_created()
   if name:match("^walking_npc") then
     self:random_walk()
   end
+  
+  local model = self:get_property("model")
+  if model ~= nil then
+    require("scripts/npc/" .. model)(self)
+  end
+  
 end
 
 -- Make signs hooks for the hookshot.
@@ -23,6 +29,7 @@ function npc_meta:is_hookable()
   end
 
   return sprite:get_animation_set() == "entities/sign"
+  
 end
 
 -- Makes the NPC randomly walk with the given optional speed.

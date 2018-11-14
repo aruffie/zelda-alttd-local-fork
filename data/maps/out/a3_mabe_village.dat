@@ -14532,6 +14532,12 @@ npc{
   layer = 0,
   x = 560,
   y = 285,
+  properties = {
+    {
+      key = "model",
+      value = "marin",
+    },
+  },
   direction = 3,
   subtype = 1,
   sprite = "npc/marin",

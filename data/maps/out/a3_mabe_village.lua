@@ -1,15 +1,9 @@
 -- Variables
 local map = ...
 local game = map:get_game()
-local marin_song = false
-local marin_and_link_song = false
 local ball
 local ball_shadow
 local hero_is_alerted = false
-local marin_notes = nil
-local marin_notes_2 = nil
-local hero_notes = nil
-local hero_notes_2 = nil
 
 -- Map events
 function map:on_started(destination)
@@ -102,147 +96,10 @@ function map:init_music()
   elseif map:get_game():get_value("main_quest_step") == 8 and hero:get_distance(kids_alert_position_center) < 160 or map:get_game():get_value("main_quest_step") == 9 and hero:get_distance(kids_alert_position_center) < 160 then
     sol.audio.play_music("maps/out/moblins_and_bow_wow")
   else
-    if marin_song then
-      sol.audio.play_music("maps/out/song_of_marin")
-    elseif marin_and_link_song then
-      sol.audio.play_music("maps/out/song_of_marin_and_link")
-    else
-      sol.audio.play_music("maps/out/mabe_village")
-    end
+    sol.audio.play_music("maps/out/mabe_village")
   end
 
 end
-
-function map:marin_alone_sing()
-
-  marin_song = true
-  map:marin_sing_start()
-  map:init_music()
-
-end
-
-function map:marin_and_hero_sing()
-
-  marin_and_link_song = true
-  local hero = map:get_hero()
-  hero:freeze()
-  game:set_hud_enabled(false)
-  game:set_pause_allowed(false)
-  map:marin_sing_start()
-  local timer1 = sol.timer.start(marin, 7500, function()
-    hero:set_direction(3)
-    map:marin_sing_stop()
-    map:hero_sing_start()
-    local timer2 = sol.timer.start(marin, 8000, function()
-      map:marin_sing_start()
-      local timer3 = sol.timer.start(marin, 17500, function()
-        map:marin_sing_stop()
-        map:hero_sing_stop()
-        sol.audio.stop_music()
-        local direction4 = hero:get_direction4_to(marin)
-        hero:set_direction(direction4)
-        game:start_dialog("maps.out.mabe_village.marin_5", function(answer)
-          if answer == 1 then
-            local timer4 = sol.timer.start(marin, 500, function()
-              marin_and_link_song = false
-              map:init_music()
-            end)
-            local item_melody = game:get_item("melody_1")
-            item_melody:set_variant(1)
-            item_melody:brandish(function()
-              --game:set_value("main_quest_step", 19) 
-              game:set_hud_enabled(true)
-              game:set_pause_allowed(true)
-              game:start_dialog("maps.out.mabe_village.marin_7")
-            end)
-          else
-            game:start_dialog("maps.out.mabe_village.marin_6", function()
-              map:marin_and_hero_sing()
-            end)
-          end
-        end)
-      end)
-    end)
-  end)
-  map:init_music()
-
-end
-
-function map:marin_sing_start()
-
-  local x,y,layer = marin:get_position()
-  marin_notes = map:create_custom_entity{
-    x = x,
-    y = y - 16,
-    layer = layer + 1,
-    width = 24,
-    height = 32,
-    direction = 0,
-    sprite = "entities/notes"
-  }
-  marin_notes_2 = map:create_custom_entity{
-    x = x,
-    y = y - 16,
-    layer = layer + 1,
-    width = 24,
-    height = 32,
-    direction = 2,
-    sprite = "entities/notes"
-  }
-  marin:get_sprite():set_animation("singing")
-
-end
-
-function map:marin_sing_stop()
-
-    marin:get_sprite():set_animation("waiting")
-    if marin_notes ~= nil then
-      marin_notes:remove()
-    end
-    if marin_notes_2 ~= nil then
-      marin_notes_2:remove()
-    end
-
-end
-
-function map:hero_sing_start()
-
-  local hero = map:get_hero()
-  local x ,y ,layer = hero:get_position()
-  hero_notes = map:create_custom_entity{
-    x = x,
-    y = y - 16,
-    layer = layer + 1,
-    width = 24,
-    height = 32,
-    direction = 0,
-    sprite = "entities/notes"
-  }
-  hero_notes_2 = map:create_custom_entity{
-    x = x,
-    y = y - 16,
-    layer = layer + 1,
-    width = 24,
-    height = 32,
-    direction = 2,
-    sprite = "entities/notes"
-  }
-  hero:set_animation("playing_ocarina")
-
-end
-
-function map:hero_sing_stop()
-
-    hero:set_animation("stopped")
-    if hero_notes ~= nil then
-      hero_notes:remove()
-    end
-    if hero_notes_2 ~= nil then
-      hero_notes_2:remove()
-    end
-
-end
-
 
 function map:init_map_entities()
  
@@ -252,7 +109,6 @@ function map:init_map_entities()
   end
 
 end
-
 
 -- Kid's ball creation
 function map:create_ball(player_1, player_2)
@@ -350,21 +206,21 @@ function map:talk_to_marin()
   local variant_melody_1 = item_melody_1:get_variant()
   if game:get_value("main_quest_step") <= 4 then
     game:start_dialog("maps.out.mabe_village.marin_1", game:get_player_name(), function()
-      map:marin_alone_sing()
+      marin:sing_start()
     end)
   elseif game:get_value("main_quest_step") < 11 then
     game:start_dialog("maps.out.mabe_village.marin_2", game:get_player_name(), function()
-      map:marin_alone_sing()
+      marin:sing_start()
     end)
   elseif variant_ocarina == 1 and variant_melody_1 == 0 then
     game:start_dialog("maps.out.mabe_village.marin_4", function()
-      map:marin_and_hero_sing()
+      m:launch_cinematic_marin_singing_with_hero()
     end)
   elseif game:get_value("main_quest_step") > 18 then
     game:start_dialog("maps.out.mabe_village.marin_8")
   else
     game:start_dialog("maps.out.mabe_village.marin_3", game:get_player_name(), function()
-      map:marin_alone_sing()
+      marin:sing_start()
     end)
   end
 
@@ -373,58 +229,57 @@ end
 -- Discussion with Grand ma
 function  map:talk_to_grand_ma()
 
-    local item = game:get_item("magnifying_lens")
-    local variant_lens = item:get_variant()
-    local grand_ma_sprite = grand_ma:get_sprite()
-    local x_grand_ma, y_grand_ma, layer_grand_ma = grand_ma:get_position()
-    if variant_lens == 10 then
-      game:start_dialog("maps.out.mabe_village.grand_ma_3", function(answer)
-        if answer == 1 then
-          hero:freeze()
-          game:set_hud_enabled(false)
-          game:set_pause_allowed(false)
-          grand_ma_sprite:set_animation("brandish")
-          local broom_entity = map:create_custom_entity({
-            name = "brandish_broom",
-            sprite = "entities/items",
-            x = x_grand_ma,
-            y = y_grand_ma - 24,
-            width = 16,
-            height = 16,
-            layer = layer_grand_ma + 1,
-            direction = 0
-          })
-          broom_entity:get_sprite():set_animation("magnifying_lens")
-          broom_entity:get_sprite():set_direction(9)
-          sol.audio.play_sound("treasure")
-          sol.timer.start(grand_ma, 2000, function() 
-            hero:unfreeze()
-            game:set_hud_enabled(true)
-            game:set_pause_allowed(true)
-            broom_entity:remove()
-            grand_ma_sprite:set_animation("walking")
-            game:start_dialog("maps.out.mabe_village.grand_ma_5", function()
-              hero:start_treasure("magnifying_lens", 11)
-            end)
+  local item = game:get_item("magnifying_lens")
+  local variant_lens = item:get_variant()
+  local grand_ma_sprite = grand_ma:get_sprite()
+  local x_grand_ma, y_grand_ma, layer_grand_ma = grand_ma:get_position()
+  if variant_lens == 10 then
+    game:start_dialog("maps.out.mabe_village.grand_ma_3", function(answer)
+      if answer == 1 then
+        hero:freeze()
+        game:set_hud_enabled(false)
+        game:set_pause_allowed(false)
+        grand_ma_sprite:set_animation("brandish")
+        local broom_entity = map:create_custom_entity({
+          name = "brandish_broom",
+          sprite = "entities/items",
+          x = x_grand_ma,
+          y = y_grand_ma - 24,
+          width = 16,
+          height = 16,
+          layer = layer_grand_ma + 1,
+          direction = 0
+        })
+        broom_entity:get_sprite():set_animation("magnifying_lens")
+        broom_entity:get_sprite():set_direction(9)
+        sol.audio.play_sound("treasure")
+        sol.timer.start(grand_ma, 2000, function() 
+          hero:unfreeze()
+          game:set_hud_enabled(true)
+          game:set_pause_allowed(true)
+          broom_entity:remove()
+          grand_ma_sprite:set_animation("walking")
+          game:start_dialog("maps.out.mabe_village.grand_ma_5", function()
+            hero:start_treasure("magnifying_lens", 11)
           end)
-        else
-          game:start_dialog("maps.out.mabe_village.grand_ma_4")
-        end
-      end)
-    elseif variant_lens > 10 then
-      game:start_dialog("maps.out.mabe_village.grand_ma_6")
-    elseif map:get_game():get_value("main_quest_step") ~= 8 and map:get_game():get_value("main_quest_step") ~= 9 then
-      game:start_dialog("maps.out.mabe_village.grand_ma_1", function()
-        grand_ma:get_sprite():set_direction(3)
-      end)
-    else
-      game:start_dialog("maps.out.mabe_village.grand_ma_2", function()
-        grand_ma:get_sprite():set_direction(3)
-      end)
-    end
+        end)
+      else
+        game:start_dialog("maps.out.mabe_village.grand_ma_4")
+      end
+    end)
+  elseif variant_lens > 10 then
+    game:start_dialog("maps.out.mabe_village.grand_ma_6")
+  elseif map:get_game():get_value("main_quest_step") ~= 8 and map:get_game():get_value("main_quest_step") ~= 9 then
+    game:start_dialog("maps.out.mabe_village.grand_ma_1", function()
+      grand_ma:get_sprite():set_direction(3)
+    end)
+  else
+    game:start_dialog("maps.out.mabe_village.grand_ma_2", function()
+      grand_ma:get_sprite():set_direction(3)
+    end)
+  end
 
 end
-
 
 -- Discussion with Kids
 function map:talk_to_kids() 
@@ -465,17 +320,19 @@ end
 -- Sensor events
 function marin_sensor_1:on_activated()
 
-    marin_song = false
-    map:init_music()
-    map:marin_sing_stop()
+  if marin:is_sing() then
+    marin:sing_stop()
+    map:init_music()    
+  end
 
 end
 
 function marin_sensor_2:on_activated()
 
-    marin_song = false
-    map:init_music()
-    map:marin_sing_stop()
+  if marin:is_sing() then
+    marin:sing_stop()
+    map:init_music()    
+  end
 
 end
 
@@ -551,7 +408,7 @@ end
 
 function marin:on_interaction()
 
-  if marin_song == false then
+  if marin:is_sing() == false then
     map:talk_to_marin()
   end
 
@@ -587,4 +444,5 @@ function map:launch_cinematic_1(destination)
     self:get_game():set_value("main_quest_step", 9)
     map:set_cinematic_mode(false)
   end)
+
 end
