@@ -23852,7 +23852,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/heart_fly",
-  model = "heart_fly",
+  model = "pickable_fly",
 }
 
 custom_entity{
@@ -24061,7 +24061,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/powder_fly",
-  model = "heart_fly",
+  model = "pickable_fly",
 }
 
 dynamic_tile{

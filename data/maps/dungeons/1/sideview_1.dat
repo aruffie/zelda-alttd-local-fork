@@ -1147,24 +1147,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 464,
-  y = 88,
-  width = 32,
-  height = 24,
-  pattern = "32",
-}
-
-tile{
-  layer = 0,
-  x = 192,
-  y = 88,
-  width = 32,
-  height = 24,
-  pattern = "32",
-}
-
-tile{
-  layer = 0,
   x = 112,
   y = 80,
   width = 16,
@@ -1197,6 +1179,24 @@ tile{
   width = 16,
   height = 16,
   pattern = "7",
+}
+
+tile{
+  layer = 0,
+  x = 192,
+  y = 88,
+  width = 32,
+  height = 24,
+  pattern = "wall_torch.1",
+}
+
+tile{
+  layer = 0,
+  x = 464,
+  y = 88,
+  width = 32,
+  height = 24,
+  pattern = "wall_torch.1",
 }
 
 separator{

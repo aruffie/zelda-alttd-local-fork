@@ -1145,7 +1145,6 @@ enemy{ id = "zombie", description = "Zombie" }
 
 entity{ id = "bee", description = "Bee" }
 entity{ id = "bird", description = "Bird" }
-entity{ id = "bomb_fly", description = "Bomb fly" }
 entity{ id = "bowwow", description = "Bowwow" }
 entity{ id = "bubble", description = "Bubble" }
 entity{ id = "butterfly", description = "Butterfly" }
@@ -1156,7 +1155,6 @@ entity{ id = "fire", description = "Fire" }
 entity{ id = "follower", description = "Follower" }
 entity{ id = "frog", description = "Frog" }
 entity{ id = "green_crystal", description = "Green crystal" }
-entity{ id = "heart_fly", description = "Heart fly" }
 entity{ id = "heavy_object", description = "Heavy object" }
 entity{ id = "heavy_statue", description = "Heavy statue" }
 entity{ id = "hole", description = "Hole" }
@@ -1164,9 +1162,11 @@ entity{ id = "hook_bridge", description = "hook bridge" }
 entity{ id = "hookable", description = "Hookable" }
 entity{ id = "light", description = "Light" }
 entity{ id = "mouse", description = "Mouse" }
+entity{ id = "moving_platform", description = "Movin platform" }
 entity{ id = "mr_write_and_christine", description = "Mr Write and Christine" }
 entity{ id = "non_diggable", description = "Non diggable" }
 entity{ id = "obstacle", description = "Obstacle" }
+entity{ id = "pickable_fly", description = "Pickable fly" }
 entity{ id = "powder", description = "Powder" }
 entity{ id = "seagull", description = "Seagull" }
 entity{ id = "statue", description = "Statue" }
