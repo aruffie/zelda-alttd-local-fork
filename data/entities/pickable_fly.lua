@@ -51,9 +51,21 @@ end
 function entity:on_picked()
   local sprite_name = entity:get_sprite():get_animation_set()
   -- Heart item.
-  if game:get_life() == game:get_max_life() then
-    sol.audio.play_sound("picked_item")
-  else
-   game:add_life(4)
+  if sprite_name == "entities/heart_fly" then
+    if game:get_life() == game:get_max_life() then
+      sol.audio.play_sound("picked_item")
+    else
+     game:add_life(4)
+    end
+  -- Bomb item.
+  elseif sprite_name == "entities/bomb_fly" then
+    if bombs_counter:get_amount() == bombs_counter:get_max_amount() then
+      sol.audio.play_sound("picked_item")
+    else
+      game:get_item("bombs_counter"):add_amount(1)
+    end
+
+  -- TODO: add more flying items here.
+
   end
 end

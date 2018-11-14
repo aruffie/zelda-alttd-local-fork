@@ -1132,6 +1132,7 @@ entity{ id = "mouse", description = "Mouse" }
 entity{ id = "mr_write_and_christine", description = "Mr Write and Christine" }
 entity{ id = "non_diggable", description = "Non diggable" }
 entity{ id = "obstacle", description = "Obstacle" }
+entity{ id = "pickable_fly", description = "Pickable fly" }
 entity{ id = "seagull", description = "Seagull" }
 entity{ id = "statue_pig", description = "Statue pig" }
 entity{ id = "torch", description = "Torch" }
