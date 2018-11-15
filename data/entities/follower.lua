@@ -5,6 +5,7 @@ local game = follower:get_game()
 local map = follower:get_map()
 local sprite = follower:get_sprite()
 local hero = game:get_hero()
+local state = "following"
 local movement
 
 follower:set_optimization_distance(0)
@@ -24,28 +25,73 @@ local function follow_hero()
   movement:set_speed(100)
   movement:set_ignore_obstacles(true)
   movement:start(follower)
-  game.follower_following = true
   sprite:set_animation("walking")
+  follower:set_state("following")
 
 end
 
--- Stops for now because too close or too far.
 local function stop_walking()
-
+  
+  if follower:get_state() ~= "following" then
+    return false
+  end
   follower:stop_movement()
   movement = nil
   sprite:set_animation("stopped")
+  follower:set_state("stopped")
+    
+end
+
+function follower:get_state()
+
+  return state
+  
+end
+
+function follower:set_state(new_state)
+
+  if new_state == nil then
+    new_state = "following"
+  end
+  
+  state = new_state
+  
+end
+
+function follower:is_very_close_to_hero()
+
+  local distance = follower:get_distance(hero)
+  return distance < 24
+  
 end
 
 follower:register_event("on_created", function()
-  game.follower_following = true
-  if follower:is_following_hero() then
-    follower:set_position(hero:get_position())
-    follower:get_sprite():set_direction(hero:get_direction())
-    follow_hero()
-    return
+    
+  follower:set_position(hero:get_position())
+  follower:get_sprite():set_direction(hero:get_direction())
+  follow_hero()
+
+end)
+
+follower:register_event("on_obstacle_reached", function()
+
+  movement = nil
+  sprite:set_animation("stopped")
+
+end)
+
+follower:register_event("on_movement_finished", function()
+
+  movement = nil
+  sprite:set_animation("stopped")
+
+end)
+
+follower:register_event("on_position_changed", function()
+
+  if follower:get_state() == "following" and follower:is_very_close_to_hero() then
+    stop_walking()
   end
-  follower:set_enabled(true)
 
 end)
 
@@ -53,83 +99,15 @@ follower:register_event("on_movement_changed", function()
 
   local movement = follower:get_movement()
   if movement:get_speed() > 0 then
-    if hero:get_state() ~= "stairs" then
-      sprite:set_direction(movement:get_direction4())
-    end
-    if sprite:get_animation() ~= "walking" then
-      sprite:set_animation("walking")
-    end
+    sprite:set_direction(movement:get_direction4())
   end
 
 end)
-
-follower:register_event("on_position_changed", function()
-
-  local distance = follower:get_distance(hero)
-  if follower:is_following_hero() and follower:is_very_close_to_hero() then
-    -- Close enough to the hero: stop.
-    stop_walking()
-  end
-
-end)
-
-follower:register_event("on_obstacle_reached", function()
-
-  sprite:set_animation("stopped")
-
-end)
-
-follower:register_event("on_movement_finished", function()
-
-  sprite:set_animation("stopped")
-
-end)
-
--- Returns whether Follower is currently following the hero.
--- This is true even if she is temporarily stopped because too far
--- or to close.
-function follower:is_following_hero()
-  -- This is stored on the game because it persists accross maps,
-  -- but this is not saved.
-  return game.follower_following
-end
-
-function follower:is_very_close_to_hero()
-
-  local distance = follower:get_distance(hero)
-  return distance < 32
-end
-
-function follower:is_far_from_hero()
-
-  local distance = follower:get_distance(hero)
-  return distance >= 100
-end
-
--- Called when the hero leaves a map without Follower when he was supposed to wait for her.
-function follower:hero_gone()
-
-  game.follower_following = false
-
-end
 
 sol.timer.start(follower, 50, function()
 
-  if follower:is_following_hero() then
-    if movement == nil and not follower:is_very_close_to_hero() and not follower:is_far_from_hero() then
-      -- Restart.
-      follow_hero()
-    elseif movement ~= nil and follower:is_far_from_hero() then
-      -- Too far: stop.
-      stop_walking()
-    end
-  end
-
-  if hero:get_state() == "stairs" and follower:is_following_hero() and not follower:is_far_from_hero() then
-    follower:set_position(hero:get_position())
-    if hero:get_movement() ~= nil then
-      sprite:set_direction(hero:get_movement():get_direction4())
-    end
+  if movement == nil and not follower:is_very_close_to_hero() and follower:get_state() == "stopped" then
+    follow_hero()
   end
 
   return true

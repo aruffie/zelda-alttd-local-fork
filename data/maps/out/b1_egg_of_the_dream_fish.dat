@@ -17665,54 +17665,6 @@ sensor{
   height = 16,
 }
 
-enemy{
-  layer = 0,
-  x = 40,
-  y = 445,
-  direction = 0,
-  breed = "goponga_flower",
-}
-
-enemy{
-  layer = 0,
-  x = 40,
-  y = 461,
-  direction = 0,
-  breed = "goponga_flower",
-}
-
-enemy{
-  layer = 0,
-  x = 48,
-  y = 477,
-  direction = 0,
-  breed = "goponga_flower",
-}
-
-enemy{
-  layer = 0,
-  x = 64,
-  y = 485,
-  direction = 0,
-  breed = "goponga_flower",
-}
-
-enemy{
-  layer = 0,
-  x = 80,
-  y = 485,
-  direction = 0,
-  breed = "goponga_flower",
-}
-
-enemy{
-  layer = 0,
-  x = 96,
-  y = 477,
-  direction = 0,
-  breed = "goponga_flower",
-}
-
 destructible{
   layer = 0,
   x = 232,
@@ -18203,14 +18155,7 @@ enemy{
   y = 445,
   direction = 0,
   breed = "goponga_flower",
-}
-
-enemy{
-  layer = 0,
-  x = 104,
-  y = 461,
-  direction = 0,
-  breed = "goponga_flower",
+  treasure_name = "random",
 }
 
 destination{
@@ -18315,6 +18260,69 @@ wall{
   stops_enemies = true,
   stops_blocks = true,
   stops_projectiles = true,
+}
+
+enemy{
+  layer = 0,
+  x = 104,
+  y = 461,
+  direction = 0,
+  breed = "goponga_flower",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 96,
+  y = 477,
+  direction = 0,
+  breed = "goponga_flower",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 64,
+  y = 485,
+  direction = 0,
+  breed = "goponga_flower",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 80,
+  y = 485,
+  direction = 0,
+  breed = "goponga_flower",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 48,
+  y = 477,
+  direction = 0,
+  breed = "goponga_flower",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 40,
+  y = 461,
+  direction = 0,
+  breed = "goponga_flower",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 40,
+  y = 445,
+  direction = 0,
+  breed = "goponga_flower",
+  treasure_name = "random",
 }
 
 tile{
