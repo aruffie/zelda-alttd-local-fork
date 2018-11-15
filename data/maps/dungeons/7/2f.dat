@@ -13,6 +13,33 @@ properties{
 
 tile{
   layer = 0,
+  x = 416,
+  y = 248,
+  width = 16,
+  height = 48,
+  pattern = "floor.7-1",
+}
+
+tile{
+  layer = 0,
+  x = 576,
+  y = 248,
+  width = 16,
+  height = 48,
+  pattern = "floor.7-1",
+}
+
+tile{
+  layer = 0,
+  x = 416,
+  y = 248,
+  width = 16,
+  height = 48,
+  pattern = "floor.7-1",
+}
+
+tile{
+  layer = 0,
   x = 48,
   y = 304,
   width = 224,
@@ -6587,33 +6614,6 @@ tile{
   y = 896,
   width = 112,
   height = 16,
-  pattern = "floor.7-1",
-}
-
-tile{
-  layer = 0,
-  x = 688,
-  y = 472,
-  width = 48,
-  height = 80,
-  pattern = "floor.7-1",
-}
-
-tile{
-  layer = 0,
-  x = 416,
-  y = 264,
-  width = 16,
-  height = 32,
-  pattern = "floor.7-1",
-}
-
-tile{
-  layer = 0,
-  x = 576,
-  y = 264,
-  width = 16,
-  height = 32,
   pattern = "floor.7-1",
 }
 
