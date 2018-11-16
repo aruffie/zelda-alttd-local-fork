@@ -1,6 +1,7 @@
 local follower = ...
 
 require("scripts/multi_events")
+
 local game = follower:get_game()
 local map = follower:get_map()
 local sprite = follower:get_sprite()
@@ -11,13 +12,6 @@ local movement
 follower:set_optimization_distance(0)
 follower:set_drawn_in_y_order(true)
 follower:set_traversable_by(true)
-follower:set_traversable_by("hero", true)
-follower:set_can_traverse("enemy", true)
-follower:set_can_traverse("npc", true)
-follower:set_can_traverse("sensor", true)
-follower:set_can_traverse("separator", true)
-follower:set_can_traverse("stairs", true)
-follower:set_can_traverse("teletransporter", true)
 
 local function follow_hero()
 
@@ -42,12 +36,15 @@ local function stop_walking()
     
 end
 
+-- Get current follower state
 function follower:get_state()
 
   return state
   
 end
 
+-- Set current follower state
+-- following is default state
 function follower:set_state(new_state)
 
   if new_state == nil then
@@ -58,6 +55,7 @@ function follower:set_state(new_state)
   
 end
 
+-- Check if follower is so closed to hero
 function follower:is_very_close_to_hero()
 
   local distance = follower:get_distance(hero)
@@ -104,6 +102,7 @@ follower:register_event("on_movement_changed", function()
 
 end)
 
+-- Launch timer on follower
 sol.timer.start(follower, 50, function()
 
   if movement == nil and not follower:is_very_close_to_hero() and follower:get_state() == "stopped" then

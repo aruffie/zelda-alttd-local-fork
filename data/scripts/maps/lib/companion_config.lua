@@ -29,12 +29,11 @@ return {
     end,
     repeated_behavior_delay = 2000,
     repeated_behavior = function(companion)
-      print(companion:get_state())
       if companion:get_state() == "eat_enemy" then
         companion:set_state("stopped")
         return false
       end
-      local distance = 64
+      local distance = 40
       local map = companion:get_map()
       local hero = map:get_hero()
       local x,y, layer = companion:get_position()
@@ -48,9 +47,7 @@ return {
       end
       local index = math.random(1, #enemies)
       if enemies[index] ~= nil then
-        --companion:stop_movement()
         companion:set_state("eat_enemy")
-        print("eat")
         -- Bowwow eat enemy
         local enemy = enemies[index]
         local direction4 = companion:get_direction4_to(enemy)
@@ -60,6 +57,11 @@ return {
         movement_1:set_speed(100)
         movement_1:set_ignore_obstacles(true)
         movement_1:start(companion)
+        function movement_1:on_position_changed()
+          if companion:get_distance(hero) > distance then
+            companion:set_state("stopped")
+          end
+        end
         function movement_1:on_finished()
           enemy:set_life(0)
           companion:set_state("stopped")
