@@ -16,6 +16,8 @@ local max_height -- Height of jump in pixels.
 local max_distance = 31 -- Max distance of jump in pixels.
 local jumping_speed = math.floor(1000 * max_distance / jump_duration)
 local sprites_info = {} -- Used to restore some properties when the state is changed.
+-- Sounds:
+local jumping_sound = "jump"
 
 function hero_meta:is_jumping()
   return is_hero_jumping
@@ -72,7 +74,7 @@ function state:on_started(previous_state_name, previous_state)
 end
 
 function state:on_finished(next_state_name, next_state)
-  hero:set_jumping(false)
+  state:get_game():get_hero():set_jumping(false)
 end
 
 function state:on_command_pressed(command)  
@@ -208,7 +210,7 @@ function hero_meta:start_custom_jump()
   hero:save_solid_ground(hero:get_last_stable_position()) -- Save last stable position.
   local ws = hero:get_walking_speed() -- Default walking speed.
   hero:set_walking_speed(jumping_speed)
-  sol.audio.play_sound("jump")
+  sol.audio.play_sound(jumping_sound)
 
   -- Save sprites info before changing state.
   state:update_sprites_info(hero)

@@ -7,6 +7,9 @@ local hero_meta = sol.main.get_metatable("hero")
 local map_meta = sol.main.get_metatable("map")
 local game_meta = sol.main.get_metatable("game")
 local runjump_manager = {}
+-- Sounds:
+local running_obstacle_sound = "running_obstacle"
+local jumping_sound = "jump"
 -- Parameters:
 local movement
 local jump_duration = 500 -- Change this for duration of the runjump.
@@ -75,8 +78,11 @@ function hero_meta:start_runjump()
   local game = hero:get_game()
   local map = hero:get_map()
     
+  -- Do not jump if already jumping.
+  if hero.is_jumping and hero:is_jumping() then return end
+    
   -- Play jump sound.
-  sol.audio.play_sound("jump")
+  sol.audio.play_sound(jumping_sound)
   -- Start jumping state.
   hero:start_state(state)
   -- Start runjump movement.
