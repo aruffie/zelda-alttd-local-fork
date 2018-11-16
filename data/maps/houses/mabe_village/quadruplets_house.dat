@@ -1600,6 +1600,14 @@ destructible{
   damage_on_enemies = 2,
 }
 
+chest{
+  layer = 1,
+  x = 408,
+  y = 165,
+  treasure_name = "magnifying_lens",
+  sprite = "entities/chest",
+}
+
 tile{
   layer = 2,
   x = 0,

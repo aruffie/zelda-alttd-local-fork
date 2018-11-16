@@ -59,29 +59,7 @@ function map:init_music()
 
 end
 
--- Function that forces Marin to always watch the hero
-function map:repeat_marin_direction_check()
-
-  local direction4 = marin:get_direction4_to(hero)
-  marin:get_sprite():set_direction(direction4)
-  sol.timer.start(map, 100, function() 
-    map:repeat_marin_direction_check()
-  end)
-
-end
-
--- Function that forces Tarin to always watch the hero
-function map:repeat_tarin_direction_check()
-
-  local direction4 = tarin:get_direction4_to(hero)
-  tarin:get_sprite():set_direction(direction4)
-  sol.timer.start(map, 100, function() 
-    map:repeat_tarin_direction_check()
-  end)
-
-end
-
--- Initializes Entities based on player's progress
+-- Initializes entities based on player's progress
 function map:init_map_entities()
  
    local item = game:get_item("magnifying_lens")
@@ -127,6 +105,27 @@ function map:init_map_entities()
 
 end
 
+-- Function that forces Marin to always watch the hero
+function map:repeat_marin_direction_check()
+
+  local direction4 = marin:get_direction4_to(hero)
+  marin:get_sprite():set_direction(direction4)
+  sol.timer.start(map, 100, function() 
+    map:repeat_marin_direction_check()
+  end)
+
+end
+
+-- Function that forces Tarin to always watch the hero
+function map:repeat_tarin_direction_check()
+
+  local direction4 = tarin:get_direction4_to(hero)
+  tarin:get_sprite():set_direction(direction4)
+  sol.timer.start(map, 100, function() 
+    map:repeat_tarin_direction_check()
+  end)
+
+end
 
 -- Discussion with Tarin
 function  map:talk_to_tarin() 
@@ -172,25 +171,26 @@ end
 -- NPC events
 function tarin:on_interaction()
 
-      map:talk_to_tarin()
+  map:talk_to_tarin()
 
 end
 
 function tarin_npc:on_interaction()
 
-      map:talk_to_tarin()
+  map:talk_to_tarin()
 
 end
 
 function marin:on_interaction()
 
-      map:talk_to_marin()
+  map:talk_to_marin()
 
 end
 
 -- Cinematics
 -- This is the cinematic that the hero wakes up and gets up from his bed.
 function map:launch_cinematic_1()
+  
   map:start_coroutine(function()
     local options = {
       entities_ignore_suspend = {hero, marin, tarin, snores}
@@ -214,11 +214,12 @@ function map:launch_cinematic_1()
     movement_jump:set_distance(24)
     movement_jump:set_ignore_obstacles(true)
     movement_jump:set_ignore_suspend(true)
-    movement(movement_jump,hero)
+    movement(movement_jump, hero)
     map:set_cinematic_mode(false, options)
     game:set_starting_location("houses/mabe_village/marin_house", "marin_house_1_B")
     game:set_value("main_quest_step", 1)
   end)
+
 end
 
 -- Wardrobes
@@ -227,4 +228,3 @@ for wardrobe in map:get_entities("wardrobe") do
     game:start_dialog("maps.houses.wardrobe_1", game:get_player_name())
   end
 end
-

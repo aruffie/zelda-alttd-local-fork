@@ -32,6 +32,15 @@ function map:init_music()
 
 end
 
+-- Initializes Entities based on player's progress
+function map:init_map_entities()
+ 
+  map:repeat_merchant_direction_check()
+  merchant_angry:set_enabled(false)
+
+end
+
+
 -- Function that forces Merchent to always watch the hero with delay
 function map:repeat_merchant_direction_check()
 
@@ -52,14 +61,6 @@ function map:repeat_merchant_direction_check()
   sol.timer.start(map, 100, function() 
     map:repeat_merchant_direction_check()
   end)
-
-end
-
--- Initializes Entities based on player's progress
-function map:init_map_entities()
- 
-  map:repeat_merchant_direction_check()
-  merchant_angry:set_enabled(false)
 
 end
 

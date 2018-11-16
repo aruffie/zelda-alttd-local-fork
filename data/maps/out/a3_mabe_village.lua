@@ -87,7 +87,6 @@ function map:on_opening_transition_finished(destination)
   end
 end
 
-
 -- Initialize the music of the map
 function map:init_music()
   
@@ -101,6 +100,7 @@ function map:init_music()
 
 end
 
+-- Initializes Entities based on player's progress
 function map:init_map_entities()
  
   -- Bowwow

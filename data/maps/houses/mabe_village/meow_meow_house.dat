@@ -789,6 +789,12 @@ npc{
   layer = 0,
   x = 352,
   y = 141,
+  properties = {
+    {
+      key = "model",
+      value = "small_bowwow",
+    },
+  },
   direction = -1,
   subtype = 0,
   sprite = "npc/small_bowwow",
@@ -799,6 +805,12 @@ npc{
   layer = 0,
   x = 104,
   y = 141,
+  properties = {
+    {
+      key = "model",
+      value = "small_bowwow",
+    },
+  },
   direction = 3,
   subtype = 1,
   sprite = "npc/small_bowwow",

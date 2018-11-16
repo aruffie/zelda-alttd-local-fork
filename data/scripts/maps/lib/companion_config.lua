@@ -70,7 +70,23 @@ return {
     end
   },
   ghost = {
-    sprite = "npc/ghost"
+    sprite = "npc/ghost",
+    activation_condition = function(map)
+      local excluded_maps = {
+        ["houses/meow_house"] = true
+      }
+      if excluded_maps[map:get_id()] then
+        return false
+      end
+      if map:get_game():is_in_dungeon() then
+        return false
+      end
+      return false
+    end,
+    repeated_behavior_delay = 5000,
+    repeated_behavior = function(companion)
+      -- Todo play ghost sound
+    end
   },
   flying_rooster = {
     sprite = "npc/flying_rooster"
