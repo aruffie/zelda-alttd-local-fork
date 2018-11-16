@@ -149,3 +149,69 @@ enemy{
   breed = "sea_urchin",
 }
 
+chest{
+  layer = 0,
+  x = 312,
+  y = 237,
+  treasure_name = "sword",
+  sprite = "entities/chest",
+}
+
+chest{
+  layer = 0,
+  x = 296,
+  y = 237,
+  treasure_name = "feather",
+  sprite = "entities/chest",
+}
+
+chest{
+  layer = 0,
+  x = 280,
+  y = 237,
+  treasure_name = "pegasus_shoes",
+  sprite = "entities/chest",
+}
+
+sensor{
+  name = "sensor",
+  layer = 0,
+  x = 40,
+  y = 181,
+  width = 32,
+  height = 32,
+}
+
+custom_entity{
+  layer = 1,
+  x = 240,
+  y = 101,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/heart_fly",
+  model = "pickable_fly",
+}
+
+custom_entity{
+  layer = 1,
+  x = 88,
+  y = 93,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/heart_fly",
+  model = "pickable_fly",
+}
+
+custom_entity{
+  layer = 1,
+  x = 56,
+  y = 109,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/heart_fly",
+  model = "pickable_fly",
+}
+
