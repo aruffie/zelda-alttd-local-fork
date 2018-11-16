@@ -1,19 +1,7 @@
 local item = ...
 
 require("scripts/multi_events")
-require("scripts/ground_effects")
-require("scripts/actions/jump")
-local hero_meta = sol.main.get_metatable("hero")
-
--- Initialize parameters for custom jump.
-local jump_duration = 430 -- Duration of jump in milliseconds.
-local max_height_normal = 16 -- Default height, do NOT change!
-local max_height_sideview = 20 -- Default height for sideview maps, do NOT change!
-local max_height -- Height of jump in pixels.
-local max_distance = 31 -- Max distance of jump in pixels.
-local jumping_speed = math.floor(1000 * max_distance / jump_duration)
-local disabled_entities -- Nearby streams and teletransporters that are disabled during the jump
-local jumping_state -- Custom state for jumping.
+require("scripts/states/jump")
 
 function item:on_created()
 
@@ -32,9 +20,7 @@ function item:on_created()
     local slot = ((effect == "use_item_1") and 1)
         or ((effect == "use_item_2") and 2)
     if slot and game:get_item_assigned(slot) == item then
-      if not hero:is_jumping() then
-        hero:start_custom_jump() -- Call custom jump script.
-      end
+      hero:start_custom_jump() -- Call custom jump script.
       return true
     end
   end)

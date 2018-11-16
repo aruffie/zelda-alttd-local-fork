@@ -20,6 +20,9 @@ local sprites_info = {} -- Used to restore some properties when the state is cha
 function hero_meta:is_jumping()
   return is_hero_jumping
 end
+function hero_meta:set_jumping(jumping)
+  is_hero_jumping = jumping
+end
 
 -- Restart variables.
 game_meta:register_event("on_started", function(game)
@@ -28,9 +31,18 @@ end)
 
 -- Initialize jumping state.
 local state = sol.state.create()
-state:set_affected_by_ground("hole", false) --state:set_touching_ground(false)
+state:set_gravity_enabled(false)
+state:set_can_come_from_bad_ground(false)
+state:set_can_be_hurt(false)
+state:set_can_push(false)
+state:set_can_pick_treasure(false)
 state:set_can_use_stairs(false)
---state:set_can_traverse("stairs", false)
+state:set_can_use_jumper(false)
+state:set_can_traverse("stairs", false)
+state:set_affected_by_ground("hole", false) 
+state:set_affected_by_ground("lava", false) 
+state:set_affected_by_ground("deep_water", false) 
+
 
 function state:on_started(previous_state_name, previous_state)
 
@@ -138,34 +150,12 @@ end
 -- Determine if the hero can jump on this type of ground.
 function map_meta:is_jumpable_ground(ground_type)
   local map = self
-  if map.is_side_view ~= nil and map:is_side_view() then
-    local is_good_ground = ( (ground_type == "traversable")
-      or (ground_type == "wall_top_right") or (ground_type == "wall_top_left")
-      or (ground_type == "wall_bottom_left") or (ground_type == "wall_bottom_right")
-      or (ground_type == "shallow_water") or (ground_type == "grass")
-      or (ground_type == "ice")  or (ground_type == "ladder") )
-    return is_good_ground
-  else
-    local is_good_ground = ( (ground_type == "traversable")
-      or (ground_type == "wall_top_right") or (ground_type == "wall_top_left")
-      or (ground_type == "wall_bottom_left") or (ground_type == "wall_bottom_right")
-      or (ground_type == "shallow_water") or (ground_type == "grass")
-      or (ground_type == "ice") )
-    return is_good_ground
-  end
-end
-
--- Returns true if there are "blocking streams" below the hero.
-function hero_meta:is_blocked_on_stream()
-  local hero = self
-  local map = hero:get_map()
-  local x, y, _ = hero:get_position()
-  for e in map:get_entities_in_rectangle(x, y, 1 , 1) do
-    if e:get_type() == "stream" then
-      return (not e:get_allow_movement())
-    end
-  end
-  return false
+  local is_good_ground = ( (ground_type == "traversable")
+    or (ground_type == "wall_top_right") or (ground_type == "wall_top_left")
+    or (ground_type == "wall_bottom_left") or (ground_type == "wall_bottom_right")
+    or (ground_type == "shallow_water") or (ground_type == "grass")
+    or (ground_type == "ice") or (ground_type == "ladder") )
+  return is_good_ground
 end
 
 
@@ -180,20 +170,27 @@ function hero_meta:start_custom_jump()
   if is_sideview_map then max_height = max_height_sideview
   else max_height = max_height_normal end
 
-  -- Do nothing if the hero is frozen, carrying, jumping, "custom jumping",
-  -- or if there is bad ground below. [Add more restrictions if necessary.]
+  -- Allow to jump only under certain states.
   local hero_state = hero:get_state()
-  local is_hero_frozen = hero_state == "frozen"
-  local is_hero_carrying = hero_state == "carrying"
-  local is_hero_builtin_jumping = hero_state == "jumping"
-  local is_on_stairs = hero_state == "stairs"
+  if hero_state ~= "free" and hero_state ~= "sword swinging"
+     and hero_state ~= "sword loading" and hero_state ~= "sword spin attack"
+     and hero_state ~= "custom"
+  then
+    return
+  end
+  if hero_state == "custom" then
+    local state_name = hero:get_state_object():get_description()
+    if state_name ~= "run" then
+      return
+    end
+  end
+  
+  -- Allow to jump only on certain grounds.
   local ground_type = map:get_ground(hero:get_ground_position())
   local is_ground_jumpable = map:is_jumpable_ground(ground_type)
-  local is_blocked_on_stream = hero:is_blocked_on_stream()
-
-  if is_hero_frozen or is_hero_jumping or is_hero_builtin_jumping or is_hero_carrying
-    or is_using_shield or (not is_ground_jumpable) or is_blocked_on_stream 
-    or is_on_stairs then
+  local stream = hero:get_controlling_stream()
+  local is_blocked_on_stream = stream and (not stream:get_allow_movement())
+  if (not is_ground_jumpable) or is_blocked_on_stream then
     return
   end
 
@@ -210,7 +207,6 @@ function hero_meta:start_custom_jump()
   hero:save_solid_ground(hero:get_last_stable_position()) -- Save last stable position.
   local ws = hero:get_walking_speed() -- Default walking speed.
   hero:set_walking_speed(jumping_speed)
-  hero:set_invincible(true, jump_duration)
   sol.audio.play_sound("jump")
 
   -- Save sprites info before changing state.
@@ -317,22 +313,4 @@ function hero_meta:start_custom_jump()
     state:update_sprites_info(hero)
     state:set_finished() -- Finish jumping state.
   end)
-end
-
--- Create ground effects for hero landing after jump.
--- TODO: DELETE THIS FUNCTION AND USE THE ONE IN "SCRIPTS/GROUND_EFFECTS.LUA"
-function map_meta:create_ground_effect(x, y, layer)
-
-  local map = self
-  local ground = map:get_ground(x, y, layer)
-  if ground == "deep_water" or ground == "shallow_water" then
-    -- If the ground has water, create a splash effect.
-    map:create_ground_effect("water_splash", x, y, layer, "splash")
-  elseif ground == "grass" then
-    -- If the ground has grass, create leaves effect.
-    map:create_ground_effect("falling_leaves", x, y, layer, "bush")
-  else
-    -- For other grounds, make landing sound.
-    sol.audio.play_sound("hero_lands")      
-  end
 end
