@@ -4,6 +4,9 @@ local map_submenu = submenu:new()
 function map_submenu:on_started()
 
   submenu.on_started(self)
+      
+  -- Set title
+  self:set_title(sol.language.get_string("map.title"))
 
   self.map_surface = sol.surface.create(320, 256)
   self.map_surface:clear()
@@ -33,9 +36,6 @@ function map_submenu:on_draw(dst_surface)
   else
     self:draw_world_map(self.map_surface)
   end
-  
-  -- Draw save dialog if necessary/
-  self:draw_save_dialog_if_any(dst_surface)
 
 end
 

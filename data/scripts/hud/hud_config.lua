@@ -50,38 +50,42 @@ local hud_config = {
   -- Pause icon.
   {
     menu_script = "scripts/hud/pause_icon",
-    x = 0,
+    x = 21,
     y = 6,
   },
 
   -- Item icon for slot 1.
   {
     menu_script = "scripts/hud/item_icon",
-    x = 11,
-    y = 28,
+    x = 6,
+    y = 26,
     slot = 1,  -- Item slot (1 or 2).
   },
 
   -- Item icon for slot 2.
   {
     menu_script = "scripts/hud/item_icon",
-    x = 63,
-    y = 28,
+    x = 66,
+    y = 26,
     slot = 2,  -- Item slot (1 or 2).
   },
 
   -- Attack icon.
   {
     menu_script = "scripts/hud/attack_icon",
-    x = 13,
-    y = 28,
+    x = 36,
+    y = 26,
+    dialog_x = 15,
+    dialog_y = 20,
   },
 
   -- Action icon.
   {
     menu_script = "scripts/hud/action_icon",
-    x = 26,
-    y = 50,
+    x = 51,
+    y = 48,
+    dialog_x = 30,
+    dialog_y = 42,
   },
 }
 

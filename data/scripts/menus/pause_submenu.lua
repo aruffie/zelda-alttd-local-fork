@@ -3,6 +3,8 @@
 local submenu = {}
 
 local language_manager = require("scripts/language_manager")
+local messagebox = require("scripts/menus/messagebox")
+local text_fx_helper = require("scripts/text_fx_helper")
 
 function submenu:new(game)
   
@@ -16,62 +18,28 @@ function submenu:on_started()
 
   -- Fix the font shift (issue with Minecraftia)
   self.font_y_shift = 0
-
+  
+  -- State.
+  self.save_messagebox_opened = false
+  
+  -- Load images.
   self.background_surfaces = sol.surface.create("menus/pause_submenus.png")
-  self.title_surfaces = sol.surface.create("pause_submenus_title.png", true)
   self.title_arrows = sol.surface.create("menus/pause_submenus_arrows.png")
   self.caption_background = sol.surface.create("menus/pause_submenus_caption.png") 
-  self.save_dialog_background = sol.surface.create("menus/dialog_background.png")
-  self.save_dialog_cursor = sol.sprite.create("menus/dialog_cursor")
-  self.save_dialog_cursor_pos = "left"
-  self.save_dialog_state = 0
-  self.text_color = { 115, 59, 22 }
-
+  self.caption_background_w, self.caption_background_h = self.caption_background:get_size()
+  
   -- Dark surface whose goal is to slightly hide the game and better highlight the menu.
   local quest_w, quest_h = sol.video.get_quest_size()
   self.dark_surface = sol.surface.create(quest_w, quest_h)
   self.dark_surface:fill_color({112, 112, 112})
   self.dark_surface:set_blend_mode("multiply")
-
-  local menu_font, menu_font_size = language_manager:get_menu_font()
-
-  -- Create save dialog texts.
-  self.question_text_1 = sol.text_surface.create{
-    horizontal_alignment = "center",
-    vertical_alignment = "middle",
-    color = self.text_color,
-    font = menu_font,
-    font_size = menu_font_size,
-  }
-  self.question_text_2 = sol.text_surface.create{
-    horizontal_alignment = "center",
-    vertical_alignment = "middle",
-    color = self.text_color,
-    font = menu_font,
-    font_size = menu_font_size,
-  }
-  self.answer_text_1 = sol.text_surface.create{
-    horizontal_alignment = "center",
-    vertical_alignment = "middle",
-    color = self.text_color,
-    text_key = "save_dialog.yes",
-    font = menu_font,
-    font_size = menu_font_size,
-  }
-  self.answer_text_2 = sol.text_surface.create{
-    horizontal_alignment = "center",
-    vertical_alignment = "middle",
-    color = self.text_color,
-    text_key = "save_dialog.no",
-    font = menu_font,
-    font_size = menu_font_size,
-  }
-
+  
   -- Create captions.
+  local menu_font, menu_font_size = language_manager:get_menu_font()
+  self.text_color = { 115, 59, 22 }
   self.caption_text_1 = sol.text_surface.create{
     horizontal_alignment = "center",
     vertical_alignment = "middle",
-    font = "fixed",
     font = menu_font,
     font_size = menu_font_size,
     color = self.text_color,
@@ -79,14 +47,39 @@ function submenu:on_started()
   self.caption_text_2 = sol.text_surface.create{
     horizontal_alignment = "center",
     vertical_alignment = "middle",
-    font = "fixed",
     font = menu_font,
     font_size = menu_font_size,
     color = self.text_color,
   }
 
+  -- Create title.
+  self.title = ""
+  self.title_text = sol.text_surface.create{
+    horizontal_alignment = "center",
+    vertical_alignment = "middle",
+    font = menu_font,
+    font_size = menu_font_size,
+    color = {255, 255, 255},
+  }
+  self.title_stroke_color = {158, 117, 70}
+  self.title_shadow_color = {85, 20, 0}
+  self.title_surface = sol.surface.create(88, 16)
+
+  -- Command icons.
   self.game:set_custom_command_effect("action", nil)
   self.game:set_custom_command_effect("attack", "save")
+  
+  self.dialog_opened = false
+  -- Automatically starts the pause menu when the game is set on pause.
+  self.game:register_event("on_dialog_started", function(game)
+    self.backup_dialog_opened = self.dialog_opened
+    self.dialog_opened = true
+  end)
+
+  -- Automatically stops the pause menu when the game is unpaused.
+  self.game:register_event("on_dialog_finished", function(game)
+    self.dialog_opened = self.backup_dialog_opened
+  end)
 end
 
 -- Sets the caption text.
@@ -117,22 +110,23 @@ end
 function submenu:draw_caption(dst_surface)
 
   -- Draw only if save dialog is not displayed.
-  if self.save_dialog_state == 0 then
+  if not self.dialog_opened then
     local width, height = dst_surface:get_size()
 
     -- Draw caption frame.
-    self.caption_background:draw(dst_surface, width / 2 - 79, height / 2 + 74)
+    self.caption_background:draw(dst_surface, (width - self.caption_background_w) / 2, height / 2 + 74)
 
     -- Draw caption text.
     if self.caption_text_2:get_text():len() == 0 then
-      self.caption_text_1:draw(dst_surface, width / 2, height / 2 + 89 + self.font_y_shift)
+      self.caption_text_1:draw(dst_surface, width / 2, height / 2 + 92 + self.font_y_shift)
     else
-      self.caption_text_1:draw(dst_surface, width / 2, height / 2 + 84 + self.font_y_shift)
-      self.caption_text_2:draw(dst_surface, width / 2, height / 2 + 94 + self.font_y_shift)
+      self.caption_text_1:draw(dst_surface, width / 2, height / 2 + 86 + self.font_y_shift)
+      self.caption_text_2:draw(dst_surface, width / 2, height / 2 + 100 + self.font_y_shift)
     end
   end
 end
 
+-- Goes to the next pause screen.
 function submenu:next_submenu()
 
   sol.audio.play_sound("pause_closed")
@@ -144,6 +138,7 @@ function submenu:next_submenu()
   sol.menu.start(self.game.pause_menu, submenus[submenu_index], false)
 end
 
+-- Goes to the previous pause screen.
 function submenu:previous_submenu()
 
   sol.audio.play_sound("pause_closed")
@@ -155,6 +150,55 @@ function submenu:previous_submenu()
   sol.menu.start(self.game.pause_menu, submenus[submenu_index], false)
 end
 
+-- Shows the messagebox to save the game.
+function submenu:show_save_messagebox()
+  sol.audio.play_sound("pause_open")
+  messagebox:show(self, 
+    -- Text lines.
+    {
+     sol.language.get_string("save_dialog.save_question_0"),
+     sol.language.get_string("save_dialog.save_question_1"),
+    },
+    -- Buttons
+    sol.language.get_string("messagebox.yes"),
+    sol.language.get_string("messagebox.no"),
+    -- Default button
+    1,
+    -- Callback called after the user has chosen an answer.
+    function(result)
+      if result == 1 then
+        self.game:save()
+      end
+    
+      -- Ask the user if he/she wants to continue the game.
+      self:show_continue_messagebox()
+  end)
+end
+
+-- Show the messagebox to ask the user if he/she wants to continue.
+function submenu:show_continue_messagebox()
+  sol.audio.play_sound("pause_open")
+  messagebox:show(self, 
+    -- Text lines.
+    {
+     sol.language.get_string("save_dialog.continue_question_0"),
+     sol.language.get_string("save_dialog.continue_question_1"),
+    },
+    -- Buttons
+    sol.language.get_string("messagebox.yes"),
+    sol.language.get_string("messagebox.no"),
+    -- Default button
+    1,
+    -- Callback called after the user has chosen an answer.
+    function(result)
+      if result == 2 then
+        sol.main.reset()
+      end
+    
+  end) 
+end
+
+-- Commands to navigate in the pause menu. 
 function submenu:on_command_pressed(command)
 
   local handled = false
@@ -164,63 +208,10 @@ function submenu:on_command_pressed(command)
     return false
   end
 
-  if self.save_dialog_state == 0 then
-    -- The save dialog is not shown
-    if command == "attack" then
-      sol.audio.play_sound("message_end")
-      self.save_dialog_state = 1
-      self.save_dialog_choice = 0
-      self.save_dialog_cursor_pos = "left"
-      self.question_text_1:set_text_key("save_dialog.save_question_0")
-      self.question_text_2:set_text_key("save_dialog.save_question_1")
-      self.action_command_effect_saved = self.game:get_custom_command_effect("action")
-      self.game:set_custom_command_effect("action", "validate")
-      self.attack_command_effect_saved = self.game:get_custom_command_effect("attack")
-      self.game:set_custom_command_effect("attack", "validate")
-      handled = true
-    end
-  else
-    -- The save dialog is visible.
-    if command ~= "pause" then
-      handled = true  -- Block all commands on the submenu except pause.
-    end
-
-    if command == "left" or command == "right" then
-      -- Move the cursor.
-      sol.audio.play_sound("cursor")
-      if self.save_dialog_choice == 0 then
-        self.save_dialog_choice = 1
-        self.save_dialog_cursor_pos = "right"
-      else
-        self.save_dialog_choice = 0
-        self.save_dialog_cursor_pos = "left"
-      end
-    elseif command == "action" or command == "attack" then
-      -- Validate a choice.
-      if self.save_dialog_state == 1 then
-        -- After "Do you want to save?".
-        self.save_dialog_state = 2
-        if self.save_dialog_choice == 0 then
-          self.game:save()
-          sol.audio.play_sound("ok")
-        else
-          sol.audio.play_sound("danger")
-        end
-        self.question_text_1:set_text_key("save_dialog.continue_question_0")
-        self.question_text_2:set_text_key("save_dialog.continue_question_1")
-        self.save_dialog_choice = 0
-        self.save_dialog_cursor_pos = "left"
-      else
-        -- After "Do you want to continue?".
-        sol.audio.play_sound("ok")
-        self.save_dialog_state = 0
-        self.game:set_custom_command_effect("action", self.action_command_effect_saved)
-        self.game:set_custom_command_effect("attack", self.attack_command_effect_saved)
-        if self.save_dialog_choice == 1 then
-          sol.main.reset()
-        end
-      end
-    end
+  if command == "attack" and not self.dialog_opened then
+    self.dialog_opened = true
+    self:show_save_messagebox()
+    return true
   end
 
   return handled
@@ -240,13 +231,8 @@ function submenu:draw_background(dst_surface)
       320, 240,                               -- region w, h
       dst_surface,                            -- destination surface
       (width - 320) / 2, (height - 240) / 2   -- pos in destination surface
-  )  
-  self.title_surfaces:draw_region(
-    0, 16 * (submenu_index - 1),                  -- region x, y
-    88, 16,                                       -- region w, h
-    dst_surface,                                  -- destination surface
-    (width - 88) / 2, ((height - 240) / 2 ) + 32  -- pos in destination surface
   )
+  self.title_surface:draw(dst_surface, (width - 88) / 2, ((height - 240) / 2 ) + 32)
 
   -- Draw only if save dialog is not displayed.
   if self.save_dialog_state == 0 then
@@ -258,38 +244,20 @@ function submenu:draw_background(dst_surface)
   end
 end
 
-function submenu:draw_save_dialog_if_any(dst_surface)
-
-  if self.save_dialog_state > 0 then
-    local width, height = dst_surface:get_size()
-    local center_x = width / 2
-    local center_y = height / 2
-    local frame_w = 224
-    local frame_h = 72
-    local frame_half_w  = frame_w / 2
-    local frame_half_h = frame_h / 2
-
-    -- A dark surface to better highlight the dialog
-    self.dark_surface:draw(dst_surface)
-
-    -- Draw the dialog frame.
-    self.save_dialog_background:draw(dst_surface, center_x - frame_half_w, center_y - frame_half_h)
-
-    -- Draw the dialog question.
-    self.question_text_1:draw(dst_surface, center_x, center_y - 20 + self.font_y_shift) -- line 1
-    self.question_text_2:draw(dst_surface, center_x, center_y - 8 + self.font_y_shift) -- line 2
-    
-    -- Draw the dialog answers (yes/no).
-    self.answer_text_1:draw(dst_surface, center_x - 56, center_y + 19 + self.font_y_shift)
-    self.answer_text_2:draw(dst_surface, center_x + 56, center_y + 19 + self.font_y_shift)
-    
-    -- Draw the dialog cursor.
-    if self.save_dialog_cursor_pos == "left" then
-      self.save_dialog_cursor:draw(dst_surface, center_x - 80, center_y + 20 + self.font_y_shift)
-    elseif self.save_dialog_cursor_pos == "right" then
-      self.save_dialog_cursor:draw(dst_surface, center_x + 32, center_y + 20 + self.font_y_shift)
-    end
+function submenu:set_title(text)
+  if text ~= self.title then
+    self.title = text
+    self:rebuild_title_surface()
   end
 end
 
+function submenu:rebuild_title_surface()
+  self.title_surface:clear()
+  local w, h = self.title_surface:get_size()
+  self.title_text:set_text(self.title)
+  self.title_text:set_xy(w / 2, h / 2 - 2)
+  text_fx_helper:draw_text_with_stroke_and_shadow(self.title_surface, self.title_text, self.title_stroke_color, self.title_shadow_color)
+end
+
+-- Return the menu.
 return submenu

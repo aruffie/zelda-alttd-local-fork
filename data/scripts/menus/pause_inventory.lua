@@ -24,6 +24,10 @@ local item_names_static = {
 function inventory_submenu:on_started()
 
   submenu.on_started(self)
+      
+  -- Set title
+  self:set_title(sol.language.get_string("inventory.title"))
+
   self.cursor_sprite = sol.sprite.create("menus/pause_cursor")
   self.sprites_assignables = {}
   self.sprites_static = {}
@@ -65,7 +69,7 @@ function inventory_submenu:on_started()
       }
     end
   end
-
+  
   for i,item_name in ipairs(item_names_static) do
     local item = self.game:get_item(item_name)
     local variant = item:get_variant()
@@ -159,8 +163,6 @@ function inventory_submenu:on_draw(dst_surface)
     self.item_assigned_sprite:draw(dst_surface)
   end
 
-  -- Draw the save dialog if necessary.
-  self:draw_save_dialog_if_any(dst_surface)
 end
 
 function inventory_submenu:on_command_pressed(command)
@@ -244,7 +246,6 @@ function inventory_submenu:show_info_message()
 end
 
 function inventory_submenu:set_cursor_position(row, column)
-
   self.cursor_row = row
   self.cursor_column = column
   local index
@@ -260,14 +261,15 @@ function inventory_submenu:set_cursor_position(row, column)
     self:set_caption("inventory.caption.item." .. item_name .. "." .. variant)
     self.game:set_custom_command_effect("action", "info")
     if item:is_assignable() then
-      item_icon_opacity = 255
+      self.game:set_hud_mode("normal")
+    else
+      self.game:set_hud_mode("pause")
     end
   else
     self:set_caption(nil)
     self.game:set_custom_command_effect("action", nil)
+    self.game:set_hud_mode("pause")
   end
-  self.game:get_hud():set_item_icon_opacity(1, item_icon_opacity)
-  self.game:get_hud():set_item_icon_opacity(2, item_icon_opacity)
 
 end
 

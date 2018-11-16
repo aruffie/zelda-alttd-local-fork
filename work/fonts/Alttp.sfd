@@ -22,7 +22,7 @@ OS2Version: 2
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 0
 CreationTime: 1379761758
-ModificationTime: 1541861793
+ModificationTime: 1541893827
 PfmFamily: 81
 TTFWeight: 400
 TTFWidth: 5
@@ -84,7 +84,7 @@ NameList: AGL For New Fonts
 DisplaySize: -48
 AntiAlias: 1
 FitToEm: 0
-WinInfo: 240 16 10
+WinInfo: 0 16 10
 BeginPrivate: 0
 EndPrivate
 Grid
@@ -153,11 +153,9 @@ EndChar
 
 StartChar: space
 Encoding: 32 32 3
-Width: 256
-Flags: W
+Width: 640
+Flags: WO
 LayerCount: 2
-Fore
-Validated: 1
 EndChar
 
 StartChar: exclam
@@ -6734,7 +6732,7 @@ SplineSet
  384 128 l 1,45,-1
  640 128 l 1,42,-1
 EndSplineSet
-Validated: 524293
+Validated: 5
 EndChar
 
 StartChar: dcroat

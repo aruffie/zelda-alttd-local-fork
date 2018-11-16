@@ -27,6 +27,11 @@ local item_names_static_bottom = {
 function quest_submenu:on_started()
 
   submenu.on_started(self)
+    
+  -- Set title
+  self:set_title(sol.language.get_string("quest_status.title"))
+
+  -- Initialize the menu.
   self.cursor_sprite = sol.sprite.create("menus/pause_cursor")
   self.hearts = sol.surface.create("menus/pieces_of_heart.png")
   self.counters = {}
@@ -183,8 +188,6 @@ function quest_submenu:on_draw(dst_surface)
     self.cursor_sprite:draw(dst_surface, 64 + 32 * self.cursor_column, 86 + 32 * self.cursor_row)
   end
 
-  -- Draw save dialog if necessary.
-  self:draw_save_dialog_if_any(dst_surface)
 end
 
 function quest_submenu:on_command_pressed(command)
@@ -344,14 +347,15 @@ function quest_submenu:set_cursor_position(row, column)
       self:set_caption("inventory.caption.item." .. item_name .. "." .. variant)
       self.game:set_custom_command_effect("action", "info")
       if item:is_assignable() then
-        item_icon_opacity = 255
+        self.game:set_hud_mode("normal")
+      else
+        self.game:set_hud_mode("pause")
       end
     else
       self:set_caption(nil)
       self.game:set_custom_command_effect("action", nil)
+      self.game:set_hud_mode("pause")
     end
-    self.game:get_hud():set_item_icon_opacity(1, item_icon_opacity)
-    self.game:get_hud():set_item_icon_opacity(2, item_icon_opacity)
   end
 end
 

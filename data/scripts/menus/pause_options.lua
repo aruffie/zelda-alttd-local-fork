@@ -6,6 +6,9 @@ local options_submenu = submenu:new()
 function options_submenu:on_started()
 
   submenu.on_started(self)
+      
+  -- Set title
+  self:set_title(sol.language.get_string("options.title"))
 
   local font, font_size = language_manager:get_menu_font()
   local width, height = sol.video.get_quest_size()
@@ -207,8 +210,6 @@ function options_submenu:on_draw(dst_surface)
     end
   end
 
-  -- Draw save dialog if necessary.
-  self:draw_save_dialog_if_any(dst_surface)
 end
 
 function options_submenu:on_command_pressed(command)

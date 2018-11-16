@@ -21,6 +21,17 @@ local function initialize_pause_features(game)
   local pause_menu = {}
   game.pause_menu = pause_menu
 
+  -- Starts the pause menu.
+  function pause_menu:open()
+    sol.menu.start(game, pause_menu, false)
+  end
+
+  -- Stops the pause menu.
+  function pause_menu:close()
+    sol.menu.stop(pause_menu)
+  end
+
+  -- Called when the pause menu is started.
   function pause_menu:on_started()
 
     -- Define the available submenus.
@@ -44,27 +55,37 @@ local function initialize_pause_features(game)
     -- Play the sound of pausing the game.
     sol.audio.play_sound("pause_open")
 
+    -- Forces the dialog_box to be at bottom.
+    local dialog_box = game:get_dialog_box()
+    self.backup_dialog_position = dialog_box:get_position()
+    dialog_box:set_position("bottom")
+    
+    -- Set the HUD correct mode.
+    pause_menu.backup_hud_mode = game:get_hud_mode()
+    game:set_hud_mode("pause")
+
     -- Start the selected submenu.
     sol.menu.start(pause_menu, game.pause_submenus[submenu_index])
   end
 
-  function pause_menu:open()
-    sol.menu.start(game, pause_menu, false)
-  end
-
-  function pause_menu:close()
-    sol.menu.stop(pause_menu)
-  end
-
+  -- Called when the pause menu is stopped.
   function pause_menu:on_finished()
 
     -- Play the sound of unpausing the game.
     sol.audio.play_sound("pause_closed")
 
+    -- Clear the submenus table.
     game.pause_submenus = {}
-    -- Restore opacity
-    game:get_hud():set_item_icon_opacity(1, 255)
-    game:get_hud():set_item_icon_opacity(2, 255)
+    
+    -- Restore the previous HUD state.
+    game:get_hud():set_mode("normal")
+    
+    -- Restore the dialog_box position.
+    game:get_dialog_box():set_position(self.backup_dialog_position)
+    
+    -- Restor the HUD mode.
+    game:set_hud_mode(pause_menu.backup_hud_mode)
+
     -- Restore the built-in effect of action and attack commands.
     if game.set_custom_command_effect ~= nil then
       game:set_custom_command_effect("action", nil)
@@ -72,9 +93,12 @@ local function initialize_pause_features(game)
     end
   end
 
+  -- Automatically starts the pause menu when the game is set on pause.
   game:register_event("on_paused", function(game)
     pause_menu:open()
   end)
+
+  -- Automatically stops the pause menu when the game is unpaused.
   game:register_event("on_unpaused", function(game)
     pause_menu:close()
   end)

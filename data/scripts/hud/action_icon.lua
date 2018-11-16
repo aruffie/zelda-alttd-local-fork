@@ -1,85 +1,111 @@
 -- The icon that shows what the action command does.
 
+local hud_icon_builder = require("scripts/hud/hud_icon")
+
 local action_icon_builder = {}
 
 function action_icon_builder:new(game, config)
 
   local action_icon = {}
 
-  local dst_x, dst_y = config.x, config.y
+  -- Creates the hud icon delegate.
+  action_icon.hud_icon = hud_icon_builder:new(config.x, config.y, config.dialog_x, config.dialog_y)
+  action_icon.hud_icon:set_background_sprite(sol.sprite.create("hud/icon_action"))
+  
+  -- Initializes the icon.
+  action_icon.text = sol.surface.create("action_icon_text.png", true) -- language specific
+  action_icon.text_w, _ = action_icon.text:get_size()
+  action_icon.text_h = 24
+  action_icon.text_region_y = nil
+  action_icon.effects_indexes = {
+    ["validate"] = 1,
+    ["next"] = 2,
+    ["info"] = 3,
+    ["return"] = 4,
+    ["look"] = 5,
+    ["open"] = 6,
+    ["action"] = 7,
+    ["lift"] = 8,
+    ["throw"] = 9,
+    ["grab"] = 10,
+    ["stop"] = 11,
+    ["speak"] = 12,
+    ["change"] = 13,
+    ["swim"] = 14,
+    ["none"] = 15,
+  }
+  action_icon.effect_displayed = nil
 
-  action_icon.game = game
-  action_icon.surface = sol.surface.create(72, 24)
-  action_icon.icons_img = sol.surface.create("action_icon.png", true)
-  action_icon.icon_region_y = nil
-  action_icon.icon_flip_sprite = sol.sprite.create("hud/action_icon_flip")
-  action_icon.is_flipping = false
-  action_icon.effect_displayed = game.get_custom_command_effect ~= nil and game:get_custom_command_effect("action") or game:get_command_effect("action")
-
-  function action_icon.icon_flip_sprite:on_animation_finished()
-    if action_icon.is_flipping then
-      action_icon.is_flipping = false
-      action_icon:compute_icon_region_y()
-      action_icon:rebuild_surface()
-    end
+  -- The surface used by the icon for the foreground is handled here.
+  action_icon.foreground = sol.surface.create(action_icon.text_w, action_icon.text_h)
+  action_icon.hud_icon:set_foreground(action_icon.foreground)
+  
+  -- Draws the icon surface.
+  function action_icon:on_draw(dst_surface)
+    action_icon.hud_icon:on_draw(dst_surface)
   end
 
-  function action_icon.icon_flip_sprite:on_frame_changed()
-    action_icon:rebuild_surface()
+  -- Rebuild the foreground (called only when needed).
+  function action_icon:rebuild_foreground()
+    action_icon.foreground:clear()
+
+    action_icon.text_region_y = action_icon:get_region_y(action_icon.effect_displayed)
+    if action_icon.text_region_y ~= nil then
+      -- Draw the static image of the icon.
+      action_icon.text:draw_region(0, action_icon.text_region_y, action_icon.text_w, action_icon.text_h, action_icon.foreground)
+    end    
   end
 
-  function action_icon:compute_icon_region_y()
+  -- Set if the icon is enabled or disabled.
+  function action_icon:set_enabled(enabled)
+    action_icon.hud_icon:set_enabled(enabled)
+  end
+  
+  -- Set if the icon is active or inactive.
+  function action_icon:set_active(active)
+    action_icon.hud_icon:set_active(active)
+  end
 
-    local y
+  -- Gets the position of the icon.
+  function action_icon:get_dst_position()
+    return action_icon.hud_icon:get_dst_position()
+  end
+
+  -- Sets the position of the icon.
+  function action_icon:set_dst_position(x, y)
+    action_icon.hud_icon:set_dst_position(x, y)
+  end
+
+  -- Gets the normal position of the icon.
+  function action_icon:get_normal_position()
+    return action_icon.hud_icon:get_normal_position()
+  end
+
+  -- Gets the dialog position of the icon.
+  function action_icon:get_dialog_position()
+    return action_icon.hud_icon:get_dialog_position()
+  end
+
+  -- Computes the region to draw on the foreground.
+  function action_icon:get_region_y(effect_displayed)
+    local result = 0
     if action_icon.effect_displayed ~= nil then
-      -- Create an icon with the name of the current effect.
-      local effects_indexes = {
-        ["validate"] = 1,
-        ["next"] = 2,
-        ["info"] = 3,
-        ["return"] = 4,
-        ["look"] = 5,
-        ["open"] = 6,
-        ["action"] = 7,
-        ["lift"] = 8,
-        ["throw"] = 9,
-        ["grab"] = 10,
-        ["stop"] = 11,
-        ["speak"] = 12,
-        ["change"] = 13,
-        ["swim"] = 14,
-        ["none"] = 15,
-      }
-      action_icon.icon_region_y = 24 * effects_indexes[action_icon.effect_displayed]
+      result = action_icon.text_h * action_icon.effects_indexes[action_icon.effect_displayed]
     end
+    return result
   end
 
+  -- Checks if the icon needs a refresh.
   function action_icon:check()
-
-    local need_rebuild = false
-
-    if not action_icon.flipping then
-      local effect = game.get_custom_command_effect ~= nil and game:get_custom_command_effect("action") or game:get_command_effect("action")
-      if effect ~= action_icon.effect_displayed then
-        if action_icon.effect_displayed ~= nil then
-          if effect ~= nil and effect  ~= "none" then
-            action_icon.icon_flip_sprite:set_animation("flip")
-          else
-            action_icon.icon_flip_sprite:set_animation("disappearing")
-          end
-        else
-          action_icon.icon_flip_sprite:set_animation("appearing")
-        end
-        action_icon.effect_displayed = effect
-        action_icon.icon_region_y = nil
-        action_icon.is_flipping = true
-        need_rebuild = true
-      end
-    end
-
-    -- Redraw the surface only if something has changed.
-    if need_rebuild then
-      action_icon:rebuild_surface()
+    local effect = game.get_custom_command_effect ~= nil and game:get_custom_command_effect("action") or game:get_command_effect("action")
+    if effect ~= action_icon.effect_displayed then
+      -- Store the current command.
+      action_icon.effect_displayed = effect
+      
+      action_icon.hud_icon:flip_icon(function()
+        -- Redraw the surface.
+        action_icon:rebuild_foreground()
+      end)
     end
 
     -- Schedule the next check.
@@ -88,48 +114,12 @@ function action_icon_builder:new(game, config)
     end)
   end
 
-  function action_icon:rebuild_surface()
-
-    action_icon.surface:clear()
-
-    if action_icon.icon_region_y ~= nil then
-      -- Draw the static image of the icon.
-      action_icon.icons_img:draw_region(0, action_icon.icon_region_y, 72, 24, action_icon.surface)
-    elseif action_icon.is_flipping then
-      -- Draw the flipping sprite
-      action_icon.icon_flip_sprite:draw(action_icon.surface, 24, 0)
-    end
-  end
-
-  function action_icon:get_surface()
-    return action_icon.surface
-  end
-
-  function action_icon:set_dst_position(x, y)
-    dst_x = x
-    dst_y = y
-  end
-
-  function action_icon:on_draw(dst_surface)
-
-    local x, y = dst_x, dst_y
-    local width, height = dst_surface:get_size()
-    if x < 0 then
-      x = width + x
-    end
-    if y < 0 then
-      y = height + y
-    end
-
-    action_icon.surface:draw(dst_surface, x, y)
-  end
-
+  -- Called when the menu is started.
   function action_icon:on_started()
-    action_icon:compute_icon_region_y()
     action_icon:check()
-    action_icon:rebuild_surface()
   end
 
+  -- Returns the menu.
   return action_icon
 end
 

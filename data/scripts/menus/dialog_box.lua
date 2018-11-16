@@ -92,7 +92,6 @@ local function initialize_dialog_box_features(game)
 
   -- Called by the engine when a dialog starts.
   game:register_event("on_dialog_started", function(game, dialog, info)
-
     dialog_box.dialog = dialog
     dialog_box.info = info
     sol.menu.start(game, dialog_box)
@@ -100,7 +99,6 @@ local function initialize_dialog_box_features(game)
 
   -- Called by the engine when a dialog finishes.
   game:register_event("on_dialog_finished", function(game, dialog)
-
     if sol.menu.is_started(dialog_box) then
       sol.menu.stop(dialog_box)
     end
@@ -128,6 +126,10 @@ local function initialize_dialog_box_features(game)
   -- - "bottom": Botton of the screen.
   function dialog_box:set_position(vertical_position)
     dialog_box.vertical_position = vertical_position
+  end
+
+  function dialog_box:get_position()
+    return dialog_box.vertical_position
   end
 
   local function repeat_show_character()
@@ -188,7 +190,7 @@ local function initialize_dialog_box_features(game)
     -- Set the coordinates of graphic objects.
     local screen_width, screen_height = sol.video.get_quest_size()
     local x = screen_width / 2 - 110
-    local y = top and 32 or (screen_height - 80)
+    local y = top and 16 or (screen_height - 68)
 
     if self.style == "empty" then
       y = y + (top and -24 or 24)
@@ -198,7 +200,16 @@ local function initialize_dialog_box_features(game)
     self.question_dst_position = { x = x + 18, y = y + 27 }
     self.icon_dst_position = { x = x + 18, y = y + 22 }
 
+    -- Show the dialog.
     self:show_dialog()
+
+    -- Set the correct HUD mode.
+    self.backup_hud_mode = game:get_hud_mode()
+    game:set_hud_mode("dialog")
+    
+    -- Set the HUD on top.
+    game:bring_hud_to_front()
+
   end
 
   -- The dialog box is being closed.
@@ -209,6 +220,9 @@ local function initialize_dialog_box_features(game)
       game:set_custom_command_effect("action", nil)
       game:set_custom_command_effect("attack", nil)
     end
+
+    -- Restore HUD state.
+    game:set_hud_mode(self.backup_hud_mode)
   end
 
   -- A dialog starts (not necessarily the first one of its sequence).
@@ -525,7 +539,8 @@ local function initialize_dialog_box_features(game)
     end
 
     -- Draw the text.
-    local text_x = x + (self.icon_index == nil and 16 or 48)
+    local left_padding = 8
+    local text_x = x + (self.icon_index == nil and 16 or 48) + left_padding
     local text_y = y - 12
     local line_spacing = dialog_box.font_size * 2
     for i = 1, nb_visible_lines do
@@ -544,7 +559,7 @@ local function initialize_dialog_box_features(game)
       local row, column = math.floor(self.icon_index / 10), self.icon_index % 10
       self.icons_img:draw_region(16 * column, 16 * row, 16, 16,
       self.dialog_surface,
-      self.icon_dst_position.x, self.icon_dst_position.y)
+      self.icon_dst_position.x + left_padding / 2, self.icon_dst_position.y)
       self.question_dst_position.x = x + 50
     else
       self.question_dst_position.x = x + 18
