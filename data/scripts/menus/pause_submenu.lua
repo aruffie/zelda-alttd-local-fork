@@ -235,7 +235,7 @@ function submenu:draw_background(dst_surface)
   self.title_surface:draw(dst_surface, (width - 88) / 2, ((height - 240) / 2 ) + 32)
 
   -- Draw only if save dialog is not displayed.
-  if self.save_dialog_state == 0 then
+  if not self.dialog_opened then
     -- Draw arrows on both sides of the menu title
     local center_x = width / 2
     local center_y = height / 2

@@ -199,7 +199,7 @@ function options_submenu:on_draw(dst_surface)
   end
   
   -- Draw cursor (only when the save dialog is not open).
-  if self.save_dialog_state == 0 then
+  if not self.dialog_opened then
     if self.waiting_for_command then
       -- Cursor when waiting for a command, in both cells (keyboard and joypad).
       self.command_cursor_sprite:draw(dst_surface, self.cursor_sprite.x + 64, self.cursor_sprite.y)

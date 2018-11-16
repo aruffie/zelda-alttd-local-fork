@@ -184,7 +184,7 @@ function quest_submenu:on_draw(dst_surface)
   )
   
   -- Draw cursor only when the save dialog is not displayed.
-  if self.save_dialog_state == 0 then
+  if not self.dialog_opened then
     self.cursor_sprite:draw(dst_surface, 64 + 32 * self.cursor_column, 86 + 32 * self.cursor_row)
   end
 
