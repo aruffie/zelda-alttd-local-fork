@@ -23,9 +23,9 @@ function submenu:on_started()
   self.save_messagebox_opened = false
   
   -- Load images.
-  self.background_surfaces = sol.surface.create("menus/pause_submenus.png")
-  self.title_arrows = sol.surface.create("menus/pause_submenus_arrows.png")
-  self.caption_background = sol.surface.create("menus/pause_submenus_caption.png") 
+  self.background_surfaces = sol.surface.create("menus/pause/submenus.png")
+  self.title_arrows = sol.surface.create("menus/pause/submenus_arrows.png")
+  self.caption_background = sol.surface.create("menus/pause/submenus_caption.png") 
   self.caption_background_w, self.caption_background_h = self.caption_background:get_size()
   
   -- Dark surface whose goal is to slightly hide the game and better highlight the menu.

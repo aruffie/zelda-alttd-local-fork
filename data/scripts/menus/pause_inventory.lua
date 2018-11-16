@@ -28,7 +28,7 @@ function inventory_submenu:on_started()
   -- Set title
   self:set_title(sol.language.get_string("inventory.title"))
 
-  self.cursor_sprite = sol.sprite.create("menus/pause_cursor")
+  self.cursor_sprite = sol.sprite.create("menus/pause/cursor")
   self.sprites_assignables = {}
   self.sprites_static = {}
   self.captions = {}
@@ -134,21 +134,21 @@ function inventory_submenu:on_draw(dst_surface)
 
   -- Draw ocarina menu.
   if self.menu_ocarina == true then
-    local menu_ocarina_img = sol.surface.create("menus/pause_menu_ocarina.png")
+    local menu_ocarina_img = sol.surface.create("menus/pause/inventory/ocarina_background.png")
     menu_ocarina_img:draw_region(0, 0, 98, 34, dst_surface, 174, 69) 
     local melody = self.game:get_item("melody_1")
     if melody:get_variant() > 0 then
-      local menu_ocarina_img_1 = sol.surface.create("menus/pause_menu_ocarina_1.png")
+      local menu_ocarina_img_1 = sol.surface.create("menus/pause/inventory/ocarina_1.png")
       menu_ocarina_img_1:draw_region(0, 0, 98, 34, dst_surface, 184, 78) 
     end
     local melody = self.game:get_item("melody_2")
     if melody:get_variant() > 0 then
-      local menu_ocarina_img_2 = sol.surface.create("menus/pause_menu_ocarina_2.png")
+      local menu_ocarina_img_2 = sol.surface.create("menus/pause/inventory/ocarina_2.png")
       menu_ocarina_img_2:draw_region(0, 0, 98, 34, dst_surface, 216, 78)
     end
     local melody = self.game:get_item("melody_2")
     if melody:get_variant() > 0 then
-      local menu_ocarina_img_3 = sol.surface.create("menus/pause_menu_ocarina_3.png")
+      local menu_ocarina_img_3 = sol.surface.create("menus/pause/inventory/ocarina_3.png")
       menu_ocarina_img_3:draw_region(0, 0, 98, 34, dst_surface, 248, 78) 
   end
   end

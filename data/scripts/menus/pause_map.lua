@@ -91,11 +91,11 @@ end
 
 function map_submenu:build_world_map()
 
-  self.pause_menu_background_img = sol.surface.create("menus/pause_menu_world_background.png")
-  self.pause_menu_world_map_img = sol.surface.create("menus/pause_menu_world_map.png")
-  self.pause_menu_world_map_zone = sol.surface.create("menus/pause_menu_world_map_zone.png")
-  self.pause_menu_world_map_zone_position = sol.surface.create("menus/pause_menu_world_map_zone_position.png")
-  self.pause_menu_world_map_grid = sol.surface.create("menus/pause_menu_world_map_grid.png")
+  self.pause_menu_background_img = sol.surface.create("menus/pause/map/world_background.png")
+  self.pause_menu_world_map_img = sol.surface.create("menus/pause/map/world_map.png")
+  self.pause_menu_world_map_zone = sol.surface.create("menus/pause/map/world_map_zone.png")
+  self.pause_menu_world_map_zone_position = sol.surface.create("menus/pause/map/world_map_zone_position.png")
+  self.pause_menu_world_map_grid = sol.surface.create("menus/pause/map/world_map_grid.png")
 
 end
 
@@ -103,7 +103,7 @@ function map_submenu:build_dungeon_map()
 
     local width, height = sol.video.get_quest_size()
     local center_x, center_y = width / 2, height / 2
-    self.pause_menu_background_img = sol.surface.create("menus/pause_menu_dungeon_background.png")
+    self.pause_menu_background_img = sol.surface.create("menus/pause/map/dungeon_background.png")
     self.sprite_map  = sol.sprite.create("entities/items")
     self.sprite_map:set_animation("map")
     self.sprite_compass  = sol.sprite.create("entities/items")
@@ -112,12 +112,12 @@ function map_submenu:build_dungeon_map()
     self.sprite_boss_key:set_animation("boss_key")
     self.sprite_beak_of_stone  = sol.sprite.create("entities/items")
     self.sprite_beak_of_stone:set_animation("beak_of_stone")
-    self.sprite_hero_head  = sol.sprite.create("menus/hero_head")
-    self.boss_icon_img = sol.surface.create("menus/boss_icon.png")
-    self.chest_icon_img = sol.surface.create("menus/chest_icon.png")
-    self.up_arrow_sprite = sol.sprite.create("menus/arrow")
+    self.sprite_hero_head  = sol.sprite.create("menus/pause/map/hero_head")
+    self.boss_icon_img = sol.surface.create("menus/pause/map/boss_icon.png")
+    self.chest_icon_img = sol.surface.create("menus/pause/map/chest_icon.png")
+    self.up_arrow_sprite = sol.sprite.create("menus/pause/arrow")
     self.up_arrow_sprite:set_direction(1)
-    self.down_arrow_sprite = sol.sprite.create("menus/arrow")
+    self.down_arrow_sprite = sol.sprite.create("menus/pause/arrow")
     self.down_arrow_sprite:set_direction(3)
     self.floors_img = sol.surface.create("floors.png", true)
     self.floors_img:set_xy(center_x - 160, center_y - 120)

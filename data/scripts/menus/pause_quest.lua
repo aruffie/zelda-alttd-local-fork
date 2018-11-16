@@ -32,8 +32,8 @@ function quest_submenu:on_started()
   self:set_title(sol.language.get_string("quest_status.title"))
 
   -- Initialize the menu.
-  self.cursor_sprite = sol.sprite.create("menus/pause_cursor")
-  self.hearts = sol.surface.create("menus/pieces_of_heart.png")
+  self.cursor_sprite = sol.sprite.create("menus/pause/cursor")
+  self.hearts = sol.surface.create("menus/pause/quest/pieces_of_heart.png")
   self.counters = {}
   self.sprites_static_left = {}
   self.sprites_static_right = {}
