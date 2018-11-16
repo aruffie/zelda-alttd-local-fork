@@ -18171,6 +18171,12 @@ sensor{
   layer = 0,
   x = 584,
   y = 397,
+  properties = {
+    {
+      key = "music",
+      value = "10_overworld",
+    },
+  },
   width = 16,
   height = 16,
 }
@@ -18180,6 +18186,12 @@ sensor{
   layer = 0,
   x = 584,
   y = 381,
+  properties = {
+    {
+      key = "music",
+      value = "46_tal_tal_mountain_range",
+    },
+  },
   width = 16,
   height = 16,
 }

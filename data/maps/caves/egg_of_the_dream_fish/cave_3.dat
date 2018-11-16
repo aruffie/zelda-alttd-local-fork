@@ -7,7 +7,7 @@ properties{
   max_layer = 2,
   world = "inside_world",
   tileset = "dungeon/dark_brown",
-  music = "maps/caves/cave",
+  music = "same",
 }
 
 tile{
@@ -4703,7 +4703,6 @@ dynamic_tile{
   pattern = "wall_low.2-2",
   width = 32,
   height = 24,
-  enabled_at_start = true,
 }
 
 pickable{
@@ -7057,7 +7056,6 @@ dynamic_tile{
   pattern = "door_cache_low.2-2",
   width = 64,
   height = 8,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -7068,7 +7066,6 @@ dynamic_tile{
   pattern = "door_top.low.2-3",
   width = 32,
   height = 8,
-  enabled_at_start = true,
 }
 
 tile{

@@ -24,7 +24,7 @@ This is intended to be used by other scripts (like the jumping script), when nec
 
 1) HOW TO include this feature. First, include the script with:
 
-  require("scripts/maps/unstable_floor_manager.lua")
+  require("scripts/maps/unstable_floor_manager")
 
 -Use the multi-events script if you need to add some code there or you may break the feature temporarily.
 -Do NOT redefine the event "hero/hero_meta.on_position_changed", or you will fully break the feature.

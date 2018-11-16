@@ -5,7 +5,7 @@ function shop_manager:init(map)
 
   local game = map:get_game()
   local hero = map:get_hero()
-  local shop_products = require("scripts/maps/lib/shop_config.lua")
+  local shop_products = require("scripts/maps/lib/shop_config")
   -- We go through the list of products
   for name, params in pairs(shop_products) do
     -- If the quest condition is true, create the product.

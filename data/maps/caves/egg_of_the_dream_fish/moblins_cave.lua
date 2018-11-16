@@ -7,6 +7,7 @@ local launch_boss = false
 require("scripts/multi_events")
 local door_manager = require("scripts/maps/door_manager")
 local separator_manager = require("scripts/maps/separator_manager")
+local audio_manager = require("scripts/audio_manager")
 
 -- Map events
 function map:on_started(destination)
@@ -27,9 +28,9 @@ end
 function map:init_music()
   
   if game:get_value("main_quest_step") == 9  then
-    sol.audio.play_music("maps/out/moblins_and_bow_wow")
+    audio_manager:play_music("moblins_and_bow_wow")
   else
-    sol.audio.play_music("maps/caves/cave")
+    audio_manager:play_music("18_cave")
   end
   
 end

@@ -58,7 +58,7 @@ function enemy_meta:launch_small_boss_dead(music)
   local dungeon = game:get_dungeon_index()
   local savegame = "dungeon_" .. dungeon .. "_small_boss"
   local door_prefix = "door_group_small_boss"
-  sol.audio.play_music(music)
+  audio_manager:play_music(music)
   game:set_value(savegame, true)
   map:open_doors(door_prefix)
   enemy_manager:create_teletransporter_if_small_boss_dead(map, true)
@@ -84,7 +84,7 @@ function enemy_meta:launch_boss_dead()
   local dungeon = game:get_dungeon_index()
   local savegame = "dungeon_" .. dungeon .. "_boss"
   local door_prefix = "door_group_boss"
-  sol.audio.play_music("maps/dungeons/instruments")
+  audio_manager:play_music("instruments")
   game:set_value(savegame, true)
   map:open_doors(door_prefix)
   local heart_container = map:get_entity("heart_container")

@@ -8,7 +8,7 @@ properties{
   world = "dungeon_1",
   floor = 0,
   tileset = "sideview/sideview",
-  music = "maps/dungeons/passageways",
+  music = "same",
 }
 
 tile{

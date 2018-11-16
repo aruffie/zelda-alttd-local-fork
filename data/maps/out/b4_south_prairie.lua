@@ -10,13 +10,13 @@ local directions = {
 function map:init_music()
   
   if game:get_value("main_quest_step") == 3  then
-    sol.audio.play_music("maps/out/sword_search")
+    audio_manager:play_music("tarin_chased_by_bees")
   else
     if marin_song then
       sol.audio.stop_music()
-      sol.audio.play_sound("marin_on_beach")
+      audio_manager:play_music("marin_on_beach")
     else
-      sol.audio.play_music("maps/out/overworld")
+      audio_manager:play_music("07_koholint_island")
     end
   end
 

@@ -4,6 +4,7 @@ local game = map:get_game()
 
 -- Include scripts
 require("scripts/multi_events")
+local audio_manager = require("scripts/audio_manager")
 
 -- Map events
 function map:on_started(destination)
@@ -50,11 +51,11 @@ end)
 function map:init_music()
 
   if game:get_value("main_quest_step") < 3  then
-    sol.audio.play_music("maps/houses/links_awake")
+    audio_manager:play_music("06_marin_house")
   elseif game:get_value("main_quest_step") == 3  then
-    sol.audio.play_music("maps/out/sword_search")
+    audio_manager:play_music("07_koholint_island")
   else
-    sol.audio.play_music("maps/houses/inside")
+    audio_manager:play_music("12_house")
   end
 
 end

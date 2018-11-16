@@ -61,7 +61,7 @@
 --
 -- --------------------------------------------------------------------------------------
 
-local ok, multi_event = pcall(require,"scripts/multi_events.lua")
+local ok, multi_event = pcall(require,"scripts/multi_events")
 if not ok then
   print("Warning multi-events script not found, coroutine_helper will lack auto-abort")
   multi_event = nil

@@ -7,6 +7,7 @@ properties{
   max_layer = 2,
   world = "Sideview",
   tileset = "sideview/sideview",
+  music = "same",
 }
 
 tile{

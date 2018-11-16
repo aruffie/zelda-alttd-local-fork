@@ -6,7 +6,7 @@
 -- require("scripts/debug")
 local mode_7_manager = require("scripts/mode_7")
 
-if not sol.file.exists("debug") and not sol.file.exists("debug.lua") then
+if not sol.file.exists("debug") and not sol.file.exists("debug") then
   return true
 end
 

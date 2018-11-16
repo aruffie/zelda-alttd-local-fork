@@ -2,7 +2,7 @@
 
 require("scripts/multi_events")
 require("scripts/ground_effects")
-require("scripts/maps/unstable_floor_manager.lua")
+require("scripts/maps/unstable_floor_manager")
 local hero_meta = sol.main.get_metatable("hero")
 local map_meta = sol.main.get_metatable("map")
 local game_meta = sol.main.get_metatable("game")
@@ -320,7 +320,7 @@ function hero_meta:start_custom_jump()
 end
 
 -- Create ground effects for hero landing after jump.
--- TODO: DELETE THIS FUNCTION AND USE THE ONE IN "SCRIPTS/GROUND_EFFECTS.LUA"
+-- TODO: DELETE THIS FUNCTION AND USE THE ONE IN "SCRIPTS/GROUND_EFFECTS"
 function map_meta:create_ground_effect(x, y, layer)
 
   local map = self

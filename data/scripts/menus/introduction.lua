@@ -23,7 +23,7 @@ function introduction_screen:phase_intro()
   self.surface:fade_in(30)
   self.surface:clear()
   -- start music
-  sol.audio.play_music("scripts/menus/introduction")
+  audio_manager:play_music("01_introduction")
 
 end
 

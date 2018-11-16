@@ -17,6 +17,7 @@ map.raccoon_warning_done = false
 
 -- Include scripts
 require("scripts/multi_events")
+local audio_manager = require("scripts/audio_manager")
 local fairy_manager = require("scripts/maps/fairy_manager")
 local owl_manager = require("scripts/maps/owl_manager")
 
@@ -31,6 +32,8 @@ end
 -- Map events
 function map:on_started(destination)
 
+  -- Music
+  map:init_music()
   -- Remove the big stone if you come from the secret cave
   if destination == stair_bombs_upgrade then secret_stone:set_enabled(false) end
   -- Tail key chest
@@ -96,6 +99,13 @@ function map:on_started(destination)
 
 end
 
+-- Initialize the music of the map
+function map:init_music()
+  
+audio_manager:play_music("16_mysterious_forest")
+
+end
+
 map:register_event("on_draw", function(map, destination_surface)
 
  -- Make the overlay scroll with the camera, but slightly faster to make
@@ -128,7 +138,7 @@ end,true)
 -- Initialize the music of the map
 function map:init_music()
 
-  sol.audio.play_music("maps/out/mysterious_forest")
+  audio_manager:play_music("16_mysterious_forest")
 
 end
 

@@ -8,6 +8,7 @@ properties{
   world = "dungeon_10",
   floor = 1,
   tileset = "dungeon/gray_yellow",
+  music = "same",
 }
 
 tile{
@@ -15870,7 +15871,6 @@ dynamic_tile{
   pattern = "water.transparent",
   width = 80,
   height = 112,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -15880,7 +15880,6 @@ dynamic_tile{
   pattern = "water.transparent",
   width = 144,
   height = 80,
-  enabled_at_start = true,
 }
 
 destination{
@@ -16438,7 +16437,6 @@ dynamic_tile{
   pattern = "water.transparent",
   width = 96,
   height = 160,
-  enabled_at_start = true,
 }
 
 destination{
@@ -16473,7 +16471,6 @@ dynamic_tile{
   pattern = "stairs_down.2.border.3-1",
   width = 8,
   height = 24,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -16483,7 +16480,6 @@ dynamic_tile{
   pattern = "stairs_down.2.border.1-1",
   width = 32,
   height = 8,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -16493,7 +16489,6 @@ dynamic_tile{
   pattern = "stairs_down.2.border.2-1",
   width = 8,
   height = 24,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -16503,7 +16498,6 @@ dynamic_tile{
   pattern = "stairs_down.2-1",
   width = 16,
   height = 24,
-  enabled_at_start = true,
 }
 
 destination{
@@ -20865,7 +20859,6 @@ dynamic_tile{
   pattern = "pipe_corner.4",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 custom_entity{
@@ -21078,7 +21071,6 @@ dynamic_tile{
   pattern = "pipe_corner.4",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -21088,7 +21080,6 @@ dynamic_tile{
   pattern = "pipe_corner.4",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 custom_entity{
@@ -21301,7 +21292,6 @@ dynamic_tile{
   pattern = "pipe_corner.4",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 custom_entity{

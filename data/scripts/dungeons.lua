@@ -324,7 +324,7 @@ local function initialize_dungeon_features(game)
     if  game:get_value(savegame_boss) and not game:get_value(savegame_treasure) then
       music = "maps/dungeons/instruments"
     end
-    sol.audio.play_music(music)
+    audio_manager:play_music(music)
   end
 
   local function compute_merged_rooms(game, dungeon_index, floor)

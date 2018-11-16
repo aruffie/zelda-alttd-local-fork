@@ -5,16 +5,12 @@ local map = ...
 local game = map:get_game()
 local hero = map:get_hero()
 
-
--- Methods - Functions
-
 -- Initialize the music of the map
 function map:init_music()
   
-   sol.audio.play_music("maps/out/overworld")
+  audio_manager:play_music("10_overworld")
 
 end
-
 
 function map:talk_to_monkey() 
 

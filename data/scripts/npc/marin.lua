@@ -1,5 +1,8 @@
 return function(marin)
   
+  -- Include scripts
+  local audio_manager = require("scripts/audio_manager")
+  
   local game = marin:get_game()
   local map = marin:get_map()
   local marin_notes = nil
@@ -12,7 +15,7 @@ return function(marin)
     local map = game:get_map()
     marin:sing_start_animation(map)
     sol.audio.stop_music()
-    sol.audio.play_music("maps/out/song_of_marin")
+    audio_manager:play_music("44_song_of_marin")
     
   end
 

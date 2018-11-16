@@ -1,29 +1,25 @@
--- Lua script of map houses/west_mt_tamaranch/.
--- This script is executed every time the hero enters this map.
-
--- Feel free to modify the code below.
--- You can add more events and remove the ones you don't need.
-
--- See the Solarus Lua API documentation:
--- http://www.solarus-games.org/doc/latest
-
+-- Variables
 local map = ...
 local game = map:get_game()
-
 local draw_picture = false
 
--- Event called at initialization time, as soon as this map becomes is loaded.
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
+
 function map:on_started()
 
+  -- Music
+  map:init_music()
 
+end
+
+-- Initialize the music of the map
+function map:init_music()
+  
+  audio_manager:play_music("27_mr_write_house")
 
 end
 
--- Event called after the opening transition effect of the map,
--- that is, when the player takes control of the hero.
-function map:on_opening_transition_finished()
-
-end
 
 function map:talk_to_mr_write() 
 

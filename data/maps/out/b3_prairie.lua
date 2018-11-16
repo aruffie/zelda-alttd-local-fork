@@ -1,23 +1,24 @@
--- Outside - Prairie
-
 -- Variables
 local map = ...
 local game = map:get_game()
+local tarin_chased_by_bees = false
 
+
+-- Include scripts
 local owl_manager = require("scripts/maps/owl_manager")
 local travel_manager = require("scripts/maps/travel_manager")
-local tarin_chased_by_bees = false
--- Methods - Functions
+local audio_manager = require("scripts/audio_manager")
+
 
 -- Initialize the music of the map
 function map:init_music()
   
   if game:get_value("main_quest_step") == 3  then
-    sol.audio.play_music("maps/out/sword_search")
+    audio_manager:play_music("07_koholint_island")
   elseif tarin_chased_by_bees then
-      sol.audio.play_music("maps/out/tarin_chased_by_bees")
+    audio_manager:play_music("tarin_chased_by_bees")
   else
-    sol.audio.play_music("maps/out/overworld")
+    audio_manager:play_music("10_overworld")
   end
 
 end
@@ -161,55 +162,55 @@ end
 
 function map:tarin_leave_map()
   
-    tarin_invisible:get_movement():stop()
-    local camera = map:get_camera()
-    local tarin_sprite = tarin:get_sprite()
-    local movement_target = sol.movement.create("target")
-    movement_target:set_speed(120)
-    movement_target:set_target(tarin_leave_map)
-    movement_target:start(tarin_invisible)
-    function movement_target:on_position_changed()
-        local x_tarin,y_tarin= tarin_invisible:get_position()
-        local direction = movement_target:get_direction4()
-        tarin:set_position(x_tarin, y_tarin)
-        tarin_sprite:set_direction(direction)
+  tarin_invisible:get_movement():stop()
+  local camera = map:get_camera()
+  local tarin_sprite = tarin:get_sprite()
+  local movement_target = sol.movement.create("target")
+  movement_target:set_speed(120)
+  movement_target:set_target(tarin_leave_map)
+  movement_target:start(tarin_invisible)
+  function movement_target:on_position_changed()
+      local x_tarin,y_tarin= tarin_invisible:get_position()
+      local direction = movement_target:get_direction4()
+      tarin:set_position(x_tarin, y_tarin)
+      tarin_sprite:set_direction(direction)
+  end
+  function movement_target:on_finished()
+    tarin_invisible:set_enabled(false)
+    tarin:set_enabled(false)
+    for bee in map:get_entities("bee_chase") do
+      bee:set_enabled(false)
     end
-    function movement_target:on_finished()
-      tarin_invisible:set_enabled(false)
-      tarin:set_enabled(false)
-      for bee in map:get_entities("bee_chase") do
-        bee:set_enabled(false)
+    sol.timer.start(map, 2500, function()
+      sol.audio.stop_music()
+      local movement = sol.movement.create("jump")
+      movement:set_speed(100)
+      movement:set_distance(32)
+      movement:set_direction8(6)
+      movement:set_ignore_obstacles(true)
+      movement:start(honey)
+      game:set_value("main_quest_step", 19)
+      sol.audio.play_sound("beehive_fall")
+      hero:unfreeze()
+      game:set_hud_enabled(true)
+      game:set_pause_allowed(false)
+      tarin_chased_by_bees = false
+      map:init_music()
+      hero:unfreeze()
+      game:set_hud_enabled(true)
+      game:set_pause_allowed(true)
+      tarin_chased_by_bees = false
+      map:init_music()
+      local movement_camera = sol.movement.create("target")
+      local x,y = camera:get_position_to_track(hero)
+      movement_camera:set_speed(120)
+      movement_camera:set_target(x,y)
+      movement_camera:start(camera)
+      function movement_camera:on_finished()
+        camera:start_tracking(hero)
       end
-      sol.timer.start(map, 2500, function()
-        sol.audio.stop_music()
-        local movement = sol.movement.create("jump")
-        movement:set_speed(100)
-        movement:set_distance(32)
-        movement:set_direction8(6)
-        movement:set_ignore_obstacles(true)
-        movement:start(honey)
-        game:set_value("main_quest_step", 19)
-        sol.audio.play_sound("beehive_fall")
-        hero:unfreeze()
-        game:set_hud_enabled(true)
-        game:set_pause_allowed(false)
-        tarin_chased_by_bees = false
-        map:init_music()
-        hero:unfreeze()
-        game:set_hud_enabled(true)
-        game:set_pause_allowed(true)
-        tarin_chased_by_bees = false
-        map:init_music()
-        local movement_camera = sol.movement.create("target")
-        local x,y = camera:get_position_to_track(hero)
-        movement_camera:set_speed(120)
-        movement_camera:set_target(x,y)
-        movement_camera:start(camera)
-        function movement_camera:on_finished()
-          camera:start_tracking(hero)
-        end
-      end)
-    end
+    end)
+  end
 
 end
 

@@ -4,14 +4,15 @@ local game = map:get_game()
 
 -- Include scripts
 local phone_manager = require("scripts/maps/phone_manager")
+local audio_manager = require("scripts/audio_manager")
 
 -- Initialize the music of the map
 function map:init_music()
 
   if game:get_value("main_quest_step") == 3  then
-    sol.audio.play_music("maps/out/sword_search")
+    audio_manager:play_music("07_koholint_island")
   else
-    sol.audio.play_music("maps/houses/telephone_booth")
+    audio_manager:play_music("13_phone")
   end
 
 end

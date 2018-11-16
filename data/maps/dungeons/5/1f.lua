@@ -139,7 +139,7 @@ function sensor_3:on_activated()
   end
   if skeleton_step == 1 then
     door_manager:close_if_enemies_not_dead(map, "skeleton_1", "door_group_3_")
-    sol.audio.play_music("maps/dungeons/small_boss")
+    audio_manager:play_music("small_boss")
   end
 
 end
@@ -152,7 +152,7 @@ function sensor_4:on_activated()
   end
   if skeleton_step == 2 then
     door_manager:close_if_enemies_not_dead(map, "skeleton_2", "door_group_4_")
-    sol.audio.play_music("maps/dungeons/small_boss")
+    audio_manager:play_music("small_boss")
   end
 
 end
@@ -165,7 +165,7 @@ function sensor_5:on_activated()
   end
   if skeleton_step == 3 then
     door_manager:close_if_enemies_not_dead(map, "skeleton_3", "door_group_5_")
-    sol.audio.play_music("maps/dungeons/small_boss")
+    audio_manager:play_music("small_boss")
   end
 
 end
@@ -184,7 +184,7 @@ function sensor_7:on_activated()
   end
   if skeleton_step == 4 then
     door_manager:close_if_enemies_not_dead(map, "skeleton_4", "door_group_6_")
-    sol.audio.play_music("maps/dungeons/small_boss")
+    audio_manager:play_music("small_boss")
   end
 
 end

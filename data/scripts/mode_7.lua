@@ -229,7 +229,7 @@ function mode_7_manager:teleport(game, src_entity, destination_map_id, destinati
 
     game:set_suspended(true)  -- Because the map continues to run normally.
     game:set_pause_allowed(false)
-    sol.audio.play_music("scripts/menus/title_screen_no_intro")
+    audio_manager:play_music("02_title_no_intro")
     update_shader()
   end
 

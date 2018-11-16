@@ -5,10 +5,15 @@ local ball
 local ball_shadow
 local hero_is_alerted = false
 
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
+
 -- Map events
 function map:on_started(destination)
 
+  -- Music
   map:init_music()
+  
   map:init_map_entities()
   -- Digging
   map:set_digging_allowed(true)
@@ -91,11 +96,11 @@ end
 function map:init_music()
   
   if game:get_value("main_quest_step") == 3  then
-    sol.audio.play_music("maps/out/sword_search")
+    audio_manager:play_music("07_koholint_island")
   elseif map:get_game():get_value("main_quest_step") == 8 and hero:get_distance(kids_alert_position_center) < 160 or map:get_game():get_value("main_quest_step") == 9 and hero:get_distance(kids_alert_position_center) < 160 then
-    sol.audio.play_music("maps/out/moblins_and_bow_wow")
+    audio_manager:play_music("moblins_and_bow_wow")
   else
-    sol.audio.play_music("maps/out/mabe_village")
+    audio_manager:play_music("11_mabe_village")
   end
 
 end

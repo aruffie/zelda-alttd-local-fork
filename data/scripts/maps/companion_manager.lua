@@ -6,7 +6,7 @@ game_meta:register_event("on_map_changed", function(game, map)
 
   local hero = map:get_hero()
   local x_hero, y_hero, layer_hero = hero:get_position()
-  local companions = require("scripts/maps/lib/companion_config.lua")
+  local companions = require("scripts/maps/lib/companion_config")
   -- We go through the list of companions
   for name, params in pairs(companions) do
     -- If the quest condition is true, create the companion.

@@ -6,12 +6,12 @@ local title = {}
 local title_background = require("scripts/menus/title_background")
 local title_logo = require("scripts/menus/title_logo")
 local file_selection = require("scripts/menus/file_selection")
-local music_manager = require("scripts/music_manager")
+local audio_manager = require("scripts/audio_manager")
 local multi_events = require("scripts/multi_events")
 
 function title:on_started()
   -- Play music.
-  sol.audio.play_music("scripts/menus/title_screen")
+  audio_manager:play_music("02_title")
 
   self.finished = false
 
@@ -30,7 +30,7 @@ function title:on_started()
   end)
   file_selection:register_event("on_finished", function()
     -- Fade out the music.
-    music_manager:play_music_fade(sol.main , nil)
+    audio_manager:play_music_fade(sol.main , nil)
     
     -- Fade the background to black.
     title_background:set_phase(title_background.PHASE_6)

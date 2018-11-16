@@ -6,6 +6,7 @@ local link_move = false
 
 -- Include scripts
 local shop_manager = require("scripts/maps/shop_manager")
+local audio_manager = require("scripts/audio_manager")
 
 -- Map events
 function map:on_started(destination)
@@ -20,13 +21,13 @@ end
 function map:init_music()
 
   if game:get_value("main_quest_step") == 3  then
-    sol.audio.play_music("maps/out/sword_search")
+    audio_manager:play_music("07_koholint_island")
   else
     local thief_must_die = game:get_value("thief_must_die")
     if thief_must_die then
-      sol.audio.play_music("maps/dungeons/boss")
+      audio_manager:play_music("boss")
     else
-      sol.audio.play_music("maps/houses/shop")
+      audio_manager:play_music("14_shop")
     end
   end
 

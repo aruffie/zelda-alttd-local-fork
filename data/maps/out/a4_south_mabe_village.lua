@@ -4,14 +4,15 @@ local game = map:get_game()
 
 -- Include scripts
 local owl_manager = require("scripts/maps/owl_manager")
+local audio_manager = require("scripts/audio_manager")
 
 -- Initialize the music of the map
 function map:init_music()
 
   if game:get_value("main_quest_step") == 3  then
-    sol.audio.play_music("maps/out/sword_search")
+    audio_manager:play_music("07_koholint_island")
   else
-    sol.audio.play_music("maps/out/overworld")
+    audio_manager:play_music("10_overworld")
   end
 
 end
@@ -115,14 +116,14 @@ function map:launch_cinematic_1()
     wait(3000)
     local map = game:get_map()
     dialog("_treasure.sword.1")
-    sol.audio.play_music("maps/out/let_the_journey_begin")
+    audio_manager:play_music("09_beginning_of_the_journey")
     wait(5400)
     map:remove_entities("brandish")
     animation(hero, "spin_attack")
     map:set_cinematic_mode(false, options)
     game:set_value("main_quest_step", 4)
     wait(300)
-    sol.audio.play_music("maps/out/overworld")
+    audio_manager:play_music("10_overworld")
   end)
 
 end

@@ -16,18 +16,14 @@ end
 -- Initialize the music of the map
 function map:init_music()
   
-  if game:get_value("main_quest_step") == 3  then
-    sol.audio.play_music("maps/out/animal_village")
-  else
-      sol.audio.play_music("maps/out/overworld")
-  end
+  audio_manager:play_music("animal_village")
 
 end
 
 -- Discussion with Rabbit 1
 function map:talk_to_rabbit_1()
 
-      game:start_dialog("maps.out.yarna_desert.rabbit_1_1")
+  game:start_dialog("maps.out.yarna_desert.rabbit_1_1")
 
 end
 
@@ -63,9 +59,9 @@ end
 separator_1:register_event("on_activating", function(separator, direction4)
 
   if direction4 == 1 then
-      sol.audio.play_music("maps/out/animal_village")
+    audio_manager:play_music("animal_village")
   elseif direction4 == 3 then
-      sol.audio.play_music("maps/out/overworld")
+    audio_manager:play_music("10_overworld")
   end
 
 

@@ -7,7 +7,7 @@ properties{
   max_layer = 2,
   world = "dungeon_4",
   tileset = "sideview/sideview",
-  music = "maps/dungeons/passageways",
+  music = "same",
 }
 
 tile{
@@ -642,33 +642,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 136,
-  y = 40,
-  width = 32,
-  height = 24,
-  pattern = "32",
-}
-
-tile{
-  layer = 0,
-  x = 256,
-  y = 40,
-  width = 32,
-  height = 24,
-  pattern = "32",
-}
-
-tile{
-  layer = 0,
-  x = 472,
-  y = 40,
-  width = 32,
-  height = 24,
-  pattern = "32",
-}
-
-tile{
-  layer = 0,
   x = 128,
   y = 96,
   width = 16,
@@ -737,6 +710,33 @@ tile{
   width = 16,
   height = 16,
   pattern = "59",
+}
+
+tile{
+  layer = 0,
+  x = 144,
+  y = 40,
+  width = 32,
+  height = 24,
+  pattern = "wall_torch.1",
+}
+
+tile{
+  layer = 0,
+  x = 240,
+  y = 40,
+  width = 32,
+  height = 24,
+  pattern = "wall_torch.1",
+}
+
+tile{
+  layer = 0,
+  x = 464,
+  y = 40,
+  width = 32,
+  height = 24,
+  pattern = "wall_torch.1",
 }
 
 separator{

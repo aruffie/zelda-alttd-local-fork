@@ -4,10 +4,14 @@ local game = map:get_game()
 
 -- Includes scripts
 local separator_manager = require("scripts/maps/separator_manager")
+local audio_manager = require("scripts/audio_manager")
 
 -- Map events
-function map:on_started()
+function map:on_started(destination)
 
+  -- Music
+  map:init_music()
+  
   --Invisible things: only visible with the Lens
   for entity in map:get_entities("invisible_entity") do
     if game:get_value("get_lens") then
@@ -16,6 +20,13 @@ function map:on_started()
       entity:set_visible(false)
     end
   end
+  
+end
+
+-- Initialize the music of the map
+function map:init_music()
+
+  audio_manager:play_music("18_cave")
 
 end
 

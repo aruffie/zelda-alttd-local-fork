@@ -815,58 +815,42 @@ sprite{ id = "shadows/shadow_big", description = "Shadow big" }
 sprite{ id = "shadows/shadow_big_dynamic", description = "Shadow big dynamic" }
 sprite{ id = "shadows/shadow_small", description = "Shadow small" }
 
-music{ id = "maps/caves/cave", description = "Cave" }
-music{ id = "maps/dungeons/1/dungeon", description = "Dungeon 1" }
-music{ id = "maps/dungeons/10/dungeon", description = "Dungeon 10" }
-music{ id = "maps/dungeons/11/dungeon", description = "Dungeon 11" }
-music{ id = "maps/dungeons/2/dungeon", description = "Dungeon 2" }
-music{ id = "maps/dungeons/3/dungeon", description = "Dungeon 3" }
-music{ id = "maps/dungeons/4/dungeon", description = "Dungeon 4" }
-music{ id = "maps/dungeons/5/dungeon", description = "Dungeon 5" }
-music{ id = "maps/dungeons/6/dungeon", description = "Dungeon 6" }
-music{ id = "maps/dungeons/7/dungeon", description = "Dungeon 7" }
-music{ id = "maps/dungeons/8/dungeon", description = "Dungeon 8" }
-music{ id = "maps/dungeons/9/dungeon", description = "Dungeon 9" }
-music{ id = "maps/dungeons/boss", description = "Boss" }
-music{ id = "maps/dungeons/instruments", description = "Instruments" }
-music{ id = "maps/dungeons/passageways", description = "Passageways" }
-music{ id = "maps/dungeons/small_boss", description = "Small boss" }
-music{ id = "maps/houses/christine", description = "Christine" }
-music{ id = "maps/houses/cucco_house", description = "Cucco's House" }
-music{ id = "maps/houses/dream_shine_in_the_bed", description = "Dream shine in the bed" }
-music{ id = "maps/houses/dream_shine_lower_level", description = "Dream shine lower level" }
-music{ id = "maps/houses/dream_shine_upper_level", description = "Dream shine upper level" }
-music{ id = "maps/houses/ghost_house", description = "Ghost's house" }
-music{ id = "maps/houses/inside", description = "Inside" }
-music{ id = "maps/houses/kanalet_castle", description = "Kanalet castle" }
-music{ id = "maps/houses/links_awake", description = "Link wakes up" }
-music{ id = "maps/houses/mr_write", description = "Mr Write" }
-music{ id = "maps/houses/richards_villa", description = "Richard villa" }
-music{ id = "maps/houses/shop", description = "Shop" }
-music{ id = "maps/houses/shop_high", description = "Shop high" }
-music{ id = "maps/houses/southern_shrine", description = "Southern shrine" }
-music{ id = "maps/houses/telephone_booth", description = "Telephone booth" }
-music{ id = "maps/houses/trendy_game", description = "Trendy game" }
-music{ id = "maps/out/animal_village", description = "Animal village" }
-music{ id = "maps/out/let_the_journey_begin", description = "Let the journey begin" }
-music{ id = "maps/out/mabe_village", description = "Mabe village" }
-music{ id = "maps/out/moblins_and_bow_wow", description = "Moblins and bow wow" }
-music{ id = "maps/out/mt_tamaranch", description = "Mt Tamaranch" }
-music{ id = "maps/out/mt_tamaranch_marine", description = "Mt Tamaranch Marine" }
-music{ id = "maps/out/mysterious_forest", description = "Mysterious forest" }
-music{ id = "maps/out/overworld", description = "Overworld" }
-music{ id = "maps/out/song_of_marine", description = "Song of Marine" }
-music{ id = "maps/out/song_of_marine_and_link", description = "Song of Marine and Link" }
-music{ id = "maps/out/sword_search", description = "Sword search" }
-music{ id = "scripts/menus/game_over", description = "Game over" }
-music{ id = "scripts/menus/introduction", description = "Introduction" }
-music{ id = "scripts/menus/player_select", description = "Player select" }
-music{ id = "scripts/menus/player_select_moyse", description = "Player select Moyse" }
-music{ id = "scripts/menus/player_select_zelda", description = "Player select Zelda" }
-music{ id = "scripts/menus/title_screen", description = "Title screen" }
-music{ id = "scripts/menus/title_screen_no_intro", description = "Title screen no intro" }
-music{ id = "scripts/meta/map/fairy_fountain", description = "Fairy fountain" }
-music{ id = "scripts/meta/map/the_wise_owl", description = "The wise owl" }
+music{ id = "gb/01_introduction", description = "01 - Introduction" }
+music{ id = "gb/02_title", description = "02 - Title" }
+music{ id = "gb/02_title_no_intro", description = "02 - Title no intro" }
+music{ id = "gb/06_marin_house", description = "06 - Marin's House" }
+music{ id = "gb/07_koholint_island", description = "07 - Koholint Island.ogg" }
+music{ id = "gb/08_the_owl", description = "08 - The Owl" }
+music{ id = "gb/09_beginning_of_the_journey", description = "09 - Beginning of the journey" }
+music{ id = "gb/10_overworld", description = "10 - Overworld" }
+music{ id = "gb/11_mabe_village", description = "11 - Mabe Village" }
+music{ id = "gb/12_house", description = "12 - House" }
+music{ id = "gb/13_phone", description = "13 - Phone" }
+music{ id = "gb/14_shop", description = "14 - Shop" }
+music{ id = "gb/14_shop_high", description = "14 - Shop high" }
+music{ id = "gb/15_trendy_game", description = "15 - Trendy Game" }
+music{ id = "gb/16_mysterious_forest", description = "16 - Mysterious Forest" }
+music{ id = "gb/18_cave", description = "18 - Cave" }
+music{ id = "gb/27_mr_write_house", description = "27 - Mr Write" }
+music{ id = "gb/41_christine_house", description = "41 - Christine's House" }
+music{ id = "gb/44_song_of_marin", description = "44 - Song of Marin" }
+music{ id = "gb/46_tal_tal_mountain_range", description = "46 - Tal tal Mountain Range" }
+music{ id = "snes/06_marin_house", description = "06 - Marin's House" }
+music{ id = "snes/07_koholint_island", description = "07 - Koholint Island.ogg" }
+music{ id = "snes/08_the_owl", description = "08 - The Owl" }
+music{ id = "snes/09_beginning_of_the_journey", description = "09 - Begining of the journey" }
+music{ id = "snes/10_overworld", description = "10 - Overworld" }
+music{ id = "snes/11_mabe_village", description = "11 - Mabe Village" }
+music{ id = "snes/12_house", description = "12 - House" }
+music{ id = "snes/13_phone", description = "13 - Phone" }
+music{ id = "snes/14_shop", description = "14 - Shop" }
+music{ id = "snes/14_shop_high", description = "14 - Shop high" }
+music{ id = "snes/15_trendy_game", description = "15 - Trendy Game" }
+music{ id = "snes/16_mysterious_forest", description = "16 - Mysterious Forest" }
+music{ id = "snes/18_cave", description = "18 - Cave" }
+music{ id = "snes/27_mr_write_house", description = "27 - Mr Write" }
+music{ id = "snes/41_christine_house", description = "41 - Christine's House" }
+music{ id = "snes/46_tal_tal_mountain_range", description = "46 - Tal tal Mountain Range" }
 
 sound{ id = "arrow_hit", description = "Arrow hit" }
 sound{ id = "beehive_bees", description = "Beehive bees" }

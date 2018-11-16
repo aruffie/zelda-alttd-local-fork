@@ -1,10 +1,12 @@
--- Outside - West Mt Tamaranch
-
 -- Variables
 local map = ...
 local game = map:get_game()
 local hero = map:get_hero()
+
+-- Include scripts
+local travel_manager = require("scripts/maps/travel_manager")
 local owl_manager = require("scripts/maps/owl_manager")
+local audio_manager = require("scripts/audio_manager")
 
 
 -- Methods - Functions
@@ -14,13 +16,9 @@ function map:init_music()
   
   local x_hero, y_hero = hero:get_center_position()
   if y_hero < 384 then
-    if game:get_player_name():lower() == "marin" then
-      sol.audio.play_music("maps/out/mt_tamaranch_marin")
-    else
-      sol.audio.play_music("maps/out/mt_tamaranch")
-    end
+    audio_manager:play_music("46_tal_tal_mountain_range")
   else
-      sol.audio.play_music("maps/out/overworld")
+    audio_manager:play_music("10_overworld")
   end
 end
 

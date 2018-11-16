@@ -6,7 +6,6 @@ properties{
   min_layer = -1,
   max_layer = 2,
   tileset = "movies/beach_sunset",
-  music = "scripts/movies/marin_on_beach",
 }
 
 tile{

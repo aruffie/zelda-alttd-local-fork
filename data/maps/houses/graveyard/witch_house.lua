@@ -1,16 +1,26 @@
 -- Variables
 local map = ...
 local game = map:get_game()
-local music_name = sol.audio.get_music()
 
 -- Include scripts
 local light_manager = require("scripts/maps/light_manager")
+local audio_manager = require("scripts/audio_manager")
 
 -- Map events.
 function map:on_started()
 
+  -- Music
+  map:init_music()
+  -- Light
   light_manager:init(map)
   map:set_light(0)
+
+end
+
+-- Initialize the music of the map
+function map:init_music()
+  
+  audio_manager:play_music("14_shop")
 
 end
 
@@ -52,11 +62,11 @@ function map:launch_cinematic_1(slot)
     map:set_cinematic_mode(true, options)
     local mushroom = game:get_item("mushroom")
     mushroom:set_variant(0)
-    sol.audio.play_music("maps/houses/shop_high")
+    audio_manager:play_music("14_shop_high")
     witch:get_sprite():set_animation("speeding")
     wait(4000)
     witch:get_sprite():set_animation("walking")
-    sol.audio.play_music(music_name)
+    audio_manager:play_music("14_shop")
     game:set_hud_enabled(true)
     game:start_dialog("maps.houses.graveyard.witch_house.witch_3", function() 
       hero:start_treasure("magic_powders_counter", 1, nil, function()

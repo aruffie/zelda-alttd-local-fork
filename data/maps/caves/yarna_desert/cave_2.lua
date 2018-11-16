@@ -10,15 +10,26 @@
 local map = ...
 local game = map:get_game()
 local separator_manager = require("scripts/maps/separator_manager")
+local audio_manager = require("scripts/audio_manager")
 
+-- Map events
+function map:on_started(destination)
 
-separator_manager:manage_map(map)
+  -- Music
+  map:init_music()
+  
+end
 
-function map:on_started()
+-- Initialize the music of the map
+function map:init_music()
 
-
+  audio_manager:play_music("18_cave")
 
 end
 
+separator_manager:manage_map(map)
+
 --Weak doors play secret sound on opened
-function weak_door_1:on_opened() sol.audio.play_sound("secret_1") end
+function weak_door_1:on_opened()
+  sol.audio.play_sound("secret_1")
+end
