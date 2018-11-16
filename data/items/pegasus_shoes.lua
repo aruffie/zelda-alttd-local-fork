@@ -12,6 +12,7 @@ function item:on_created()
   local game = self:get_game()
   game:set_ability("jump_over_water", 0) -- Disable auto-jump on water border.
   game:register_event("on_command_pressed", function(self, command)
+    if game:is_suspended() then return end
     local item = game:get_item("pegasus_shoes")
     local hero = game:get_hero()
     local effect = game:get_command_effect(command)

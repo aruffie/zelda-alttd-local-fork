@@ -16,6 +16,8 @@ local max_height -- Height of jump in pixels.
 local max_distance = 31 -- Max distance of jump in pixels.
 local jumping_speed = math.floor(1000 * max_distance / jump_duration)
 local sprites_info = {} -- Used to restore some properties when the state is changed.
+-- Sounds:
+local jumping_sound = "jump"
 
 function hero_meta:is_jumping()
   return is_hero_jumping
@@ -68,9 +70,11 @@ function state:on_started(previous_state_name, previous_state)
     hero_sprite:set_frame(sprites_info["tunic"].frame)
     sword_sprite:set_frame(sprites_info["sword"].frame)
   end
+  hero:set_jumping(true)
 end
 
 function state:on_finished(next_state_name, next_state)
+  state:get_game():get_hero():set_jumping(false)
 end
 
 function state:on_command_pressed(command)  
@@ -203,11 +207,10 @@ function hero_meta:start_custom_jump()
   end
 
   -- Prepare hero for jump.
-  is_hero_jumping = true
   hero:save_solid_ground(hero:get_last_stable_position()) -- Save last stable position.
   local ws = hero:get_walking_speed() -- Default walking speed.
   hero:set_walking_speed(jumping_speed)
-  sol.audio.play_sound("jump")
+  sol.audio.play_sound(jumping_sound)
 
   -- Save sprites info before changing state.
   state:update_sprites_info(hero)
@@ -216,7 +219,7 @@ function hero_meta:start_custom_jump()
   -- If the map NOT sideview, prepare ground below .
   local tile -- Custom entity used to modify the ground and show the shadow.
   if not is_sideview_map then
-    -- Create shadow platform with traversable ground that follows the hero under him.
+    -- Create shadow that follows the hero under him.
     local x, y, layer = hero:get_position()
     local platform_properties = {x=x,y=y,layer=layer,direction=0,width=8,height=8}
     tile = map:create_custom_entity(platform_properties)
@@ -309,7 +312,6 @@ function hero_meta:start_custom_jump()
     end)   
 
     -- Finish jump.
-    is_hero_jumping = false
     state:update_sprites_info(hero)
     state:set_finished() -- Finish jumping state.
   end)
