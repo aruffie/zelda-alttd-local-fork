@@ -831,10 +831,16 @@ music{ id = "gb/14_shop_high", description = "14 - Shop high" }
 music{ id = "gb/15_trendy_game", description = "15 - Trendy Game" }
 music{ id = "gb/16_mysterious_forest", description = "16 - Mysterious Forest" }
 music{ id = "gb/18_cave", description = "18 - Cave" }
+music{ id = "gb/19_level_1_tail_cave", description = "19 - Level 1 - Tail cave" }
+music{ id = "gb/20_sidescrolling", description = "20 - Sidescrolling" }
+music{ id = "gb/21_mini_boss_battle", description = "21 - Mini boss battle" }
+music{ id = "gb/22_boss_battle", description = "22 - Boss battle" }
+music{ id = "gb/24_instruments", description = "24 - Instruments" }
 music{ id = "gb/27_mr_write_house", description = "27 - Mr Write" }
 music{ id = "gb/41_christine_house", description = "41 - Christine's House" }
 music{ id = "gb/44_song_of_marin", description = "44 - Song of Marin" }
 music{ id = "gb/46_tal_tal_mountain_range", description = "46 - Tal tal Mountain Range" }
+music{ id = "gb/82_game_over", description = "82 - Game over" }
 music{ id = "snes/06_marin_house", description = "06 - Marin's House" }
 music{ id = "snes/07_koholint_island", description = "07 - Koholint Island.ogg" }
 music{ id = "snes/08_the_owl", description = "08 - The Owl" }

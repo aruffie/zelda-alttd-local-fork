@@ -3,7 +3,9 @@
 -- Usage:
 -- require("scripts/dungeons")
 
+-- Include scripts
 require("scripts/multi_events")
+local audio_manager = require("scripts/audio_manager")
 
 local function initialize_dungeon_features(game)
 
@@ -19,6 +21,7 @@ local function initialize_dungeon_features(game)
       highest_floor = 0,
       rows = 6,
       cols= 7,
+      music = "19_level_1_tail_cave",
       destination_ocarina = {
         map_id = "dungeons/1/1f",
         destination_name = "destination_ocarina"
@@ -318,11 +321,11 @@ local function initialize_dungeon_features(game)
   function game:play_dungeon_music(dungeon_index)
 
     dungeon_index = dungeon_index or game:get_dungeon_index()
-    local music = "maps/dungeons/" .. dungeon_index .. "/dungeon"
+    local music = dungeons_info[dungeon_index].music
     local savegame_boss = "dungeon_" .. dungeon_index .. "_boss"
     local savegame_treasure = "dungeon_" .. dungeon_index .. "_big_treasure"
     if  game:get_value(savegame_boss) and not game:get_value(savegame_treasure) then
-      music = "maps/dungeons/instruments"
+      music = "24_instruments"
     end
     audio_manager:play_music(music)
   end

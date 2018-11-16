@@ -2,6 +2,7 @@
 
 local enemy_meta = sol.main.get_metatable("enemy")
 local enemy_manager = require("scripts/maps/enemy_manager")
+local audio_manager = require("scripts/audio_manager")
 
 -- Redefine how to calculate the damage inflicted by the sword.
 function enemy_meta:on_hurt_by_sword(hero, enemy_sprite)
@@ -51,13 +52,15 @@ function enemy_meta:receive_attack_consequence(attack, reaction)
 
 end
 
-function enemy_meta:launch_small_boss_dead(music)
+function enemy_meta:launch_small_boss_dead()
 
   local game = self:get_game()
   local map = game:get_map()
   local dungeon = game:get_dungeon_index()
+  local dungeon_info = game:get_dungeon()
   local savegame = "dungeon_" .. dungeon .. "_small_boss"
   local door_prefix = "door_group_small_boss"
+  local music = dungeon_info.music
   audio_manager:play_music(music)
   game:set_value(savegame, true)
   map:open_doors(door_prefix)

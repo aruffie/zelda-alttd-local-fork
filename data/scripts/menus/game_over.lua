@@ -3,7 +3,9 @@
 -- Usage:
 -- require("scripts/menus/game_over")
 
+-- Include scripts
 require("scripts/multi_events")
+local audio_manager = require("scripts/audio_manager")
 
 -- Creates and sets up a game-over menu for the specified game.
 local function initialize_game_over_features(game)
@@ -108,7 +110,7 @@ local function initialize_game_over_features(game)
           else
             -- No fairy: game over.
             state = "menu"
-            audio_manager:play_music("game_over")
+            audio_manager:play_music("82_game_over")
             fairy_sprite:set_xy(76, 112)  -- Cursor.
             cursor_position = 0
             local death_count = game:get_value("death_count") or 0
