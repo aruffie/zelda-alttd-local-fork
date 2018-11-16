@@ -19,9 +19,7 @@ local ground_effects_time = 100 -- Time between ground effects.
 local sounds_timer -- Timer for sounds.
 local sounds_time = 200 -- Time between sounds.
 local movement -- Movement on the hero.
-local jump_duration = 500 -- Change this for duration of the jump.
-local max_height = 16 -- Height of the jump in pixels.
-local jumping_speed = 130 -- Walking speed during the jump.
+
 
 function hero_meta:is_running()
   return is_hero_running
@@ -41,7 +39,7 @@ local state = sol.state.create()
 state:set_can_control_movement(false)
 state:set_can_control_direction(false)
 state:set_can_use_stairs(false)
---state:set_can_traverse("stairs", false)
+state:set_can_traverse("stairs", false)
 
 
 function state:on_started(previous_state_name, previous_state)
@@ -53,6 +51,7 @@ function state:on_started(previous_state_name, previous_state)
   hero_sprite:set_animation("sword_loading_walking")
   sword_sprite:set_animation("sword_loading_walking")
   sword_sprite:set_direction(hero_sprite:get_direction())
+  hero:set_running(true)
 end
 
 
@@ -70,7 +69,7 @@ function state:on_finished(next_state_name, next_state)
     ground_effect_timer = nil
   end
   running_state = nil
-  is_hero_running = false  
+  hero:set_running(false)
 end
 
 -- Determine if the hero can jump on this type of ground.
@@ -116,7 +115,6 @@ function hero_meta:start_running_stopped(command)
   end
 
   -- Set state properties.
-  is_hero_running = true
   running_state = "stopped"
   local can_start_moving = false
   hero:start_state(state)
@@ -192,7 +190,6 @@ function hero_meta:start_running_movement()
   local command_dir = dirs[dir] -- Current direction.
   -- Restart state. Necessary if running_stopped is skipped.
   if not running_state then hero:start_state(state) end
-  is_hero_running = true
   running_state = "moving"  
   -- Create movement and check for collisions with walls.
   local m = sol.movement.create("straight")
@@ -219,56 +216,10 @@ function hero_meta:start_running_movement()
       m:stop()
       hero:unfreeze()
       return false
-    end
-    
-    -- Check for bad grounds (like holes, water and lava) to stop using the boots.
-    running_manager:check_ground(map)
-    
-    -- Allow jumping while running.
---[[
-    if hero.is_jumping then return true
-    elseif game:is_command_pressed("item_1") then
-      local it1 = game:get_item_assigned(1)
-      if it1 then
-        if it1:get_name() == "feather" then
-          item:start_jump()       
-        end
-      end
-    elseif game:is_command_pressed("item_2") then
-      local it2 = game:get_item_assigned(2)
-      if it2 then
-        if it2:get_name() == "feather" then
-          item:start_jump()
-        end
-      end
-    end
-    -- TODO: add slot 0 (the attack command).        
---]]
-
-    -- TODO: Check if custom items (feather, sword,...) are used, for a combined use.
-    --[[
-    if game:is_command_pressed("attack") and (not is_using_other_item) then
-      is_using_other_item = true
-      game:simulate_command_pressed("attack")
-    end
-    -- ]]
-    
+    end   
     -- Keep checking.
     return true
   end)
-end
-
--- Check for bad grounds (like holes, water and lava) to stop using the boots.
-function running_manager:check_ground(map)
-  -- Get ground type.
-  local map = map
-  local hero = map:get_hero()
-  local x,y,layer = hero:get_ground_position()
-  -- Stop using boots in case of bad ground.
-  if not map:is_solid_ground(x,y,layer) then
-    movement:stop() -- TODO: Note that using hero:stop_movement() crashes by some bug.
-    running_manager:finish_using(hero)
-  end
 end
 
 
@@ -285,7 +236,6 @@ function running_manager:finish_using(hero)
     sounds_timer = nil
   end
   -- Finish the use.
-  is_hero_running = false
   hero:unfreeze()
 end
 
