@@ -1,8 +1,6 @@
 -- Custom jump script.
-
 require("scripts/multi_events")
 require("scripts/ground_effects")
-require("scripts/maps/unstable_floor_manager.lua")
 local hero_meta = sol.main.get_metatable("hero")
 local map_meta = sol.main.get_metatable("map")
 local game_meta = sol.main.get_metatable("game")
@@ -33,6 +31,7 @@ end)
 
 -- Initialize jumping state.
 local state = sol.state.create()
+state:set_description("jump")
 state:set_gravity_enabled(false)
 state:set_can_come_from_bad_ground(false)
 state:set_can_be_hurt(false)
@@ -169,7 +168,7 @@ function hero_meta:start_custom_jump()
   local hero = self
   local game = self:get_game()
   local map = self:get_map()
-  local is_sideview_map = map.is_side_view ~= nil and map:is_side_view()
+  local is_sideview_map = map.is_side_view and map:is_side_view()
    -- Select Max height.
   if is_sideview_map then max_height = max_height_sideview
   else max_height = max_height_normal end
@@ -184,9 +183,7 @@ function hero_meta:start_custom_jump()
   end
   if hero_state == "custom" then
     local state_name = hero:get_state_object():get_description()
-    if state_name ~= "run" then
-      return
-    end
+    return --if state_name ~= ALLOWED_STATES then return end
   end
   
   -- Allow to jump only on certain grounds.
@@ -207,7 +204,6 @@ function hero_meta:start_custom_jump()
   end
 
   -- Prepare hero for jump.
-  hero:save_solid_ground(hero:get_last_stable_position()) -- Save last stable position.
   local ws = hero:get_walking_speed() -- Default walking speed.
   hero:set_walking_speed(jumping_speed)
   sol.audio.play_sound(jumping_sound)
@@ -299,18 +295,6 @@ function hero_meta:start_custom_jump()
     -- Create ground effect.
     map:ground_collision(hero)
     
-    -- Restore solid ground as soon as possible.
-    sol.timer.start(map, 1, function()
-      local ground_type = map:get_ground(hero:get_ground_position())    
-      local is_good_ground = map:is_jumpable_ground(ground_type)
-      if is_good_ground then
-        hero:reset_solid_ground()
-        if hero.initialize_unstable_floor_manager then hero:initialize_unstable_floor_manager() end
-        return false
-      end
-      return true
-    end)   
-
     -- Finish jump.
     state:update_sprites_info(hero)
     state:set_finished() -- Finish jumping state.

@@ -18,6 +18,9 @@ local ground_effect_timer -- Timer for ground effects.
 local ground_effects_time = 100 -- Time between ground effects.
 local sounds_timer -- Timer for sounds.
 local sounds_time = 200 -- Time between sounds.
+local moving_timer -- Check if hero can start run movement.
+local pressed_timer -- Check if command is kept pressed to start run.
+local direction_timer -- Direction pressed timer.
 local movement -- Movement on the hero.
 
 
@@ -36,6 +39,7 @@ end)
 
 -- Initialize running state.
 local state = sol.state.create()
+state:set_description("run")
 state:set_can_control_movement(false)
 state:set_can_control_direction(false)
 state:set_can_use_stairs(false)
@@ -70,6 +74,7 @@ function state:on_finished(next_state_name, next_state)
   end
   running_state = nil
   hero:set_running(false)
+  running_manager:clean_timers()
 end
 
 -- Determine if the hero can jump on this type of ground.
@@ -102,7 +107,7 @@ function hero_meta:start_running_stopped(command)
   end
   if hero_state == "custom" then
     local state_name = hero:get_state_object():get_description()
-    --if state_name ~= UNALLOWED_STATES then return end
+    return --if state_name ~= ALLOWED_STATES then return end
   end
   
   -- Allow to jump only on certain grounds.
@@ -120,7 +125,7 @@ function hero_meta:start_running_stopped(command)
   hero:start_state(state)
 
   -- Timer to check if the command button is being pressed enough time to use the boots.
-  local timer = sol.timer.start(map, 1000, function()
+  moving_timer = sol.timer.start(map, 1000, function()
     can_start_moving = true
   end)
   -- Timer for ground effects.
@@ -134,9 +139,8 @@ function hero_meta:start_running_stopped(command)
     return true
   end)
   -- Check if the command button is being pressed enough time to use the boots.
-  sol.timer.start(map, 1, function() 
+  pressed_timer = sol.timer.start(map, 1, function() 
     if not game:is_command_pressed(command) then
-      timer:stop()
       hero:unfreeze()
       return false
     elseif can_start_moving then
@@ -204,7 +208,7 @@ function hero_meta:start_running_movement()
   m:start(hero)
   -- Check for commands pressed to interrupt movement or use weapons.
   local is_using_other_item = false
-  sol.timer.start(map, 1, function()
+  direction_timer = sol.timer.start(map, 1, function()
     -- Stop movement if some direction command (different from 
     -- the current direction) is pressed.
     local interrupt = false
@@ -222,9 +226,8 @@ function hero_meta:start_running_movement()
   end)
 end
 
-
--- Function called when the hero finish using the item.
-function running_manager:finish_using(hero)
+-- Clean timers.
+function running_manager:clean_timers()
   -- Destroy ground effect timer.
   if ground_effect_timer then 
     ground_effect_timer:stop()
@@ -235,10 +238,22 @@ function running_manager:finish_using(hero)
     sounds_timer:stop()
     sounds_timer = nil
   end
-  -- Finish the use.
-  hero:unfreeze()
+  -- Destroy moving timer.
+  if moving_timer then
+    moving_timer:stop()
+    moving_timer = nil
+  end
+  -- Destroy pressed timer.
+  if pressed_timer then
+    pressed_timer:stop()
+    pressed_timer = nil
+  end
+  -- Destroy direction timer.
+  if direction_timer then
+    direction_timer:stop()
+    direction_timer = nil
+  end
 end
-
 
 -- Function for the crash effect against walls.
 function running_manager:smash_wall(hero)
@@ -267,9 +282,9 @@ function running_manager:smash_wall(hero)
   m:set_max_distance(12)
   m:start(hero)
   function m:on_obstacle_reached()
-    running_manager:finish_using(hero)
+    hero:unfreeze()
   end
   function m:on_finished()
-    running_manager:finish_using(hero)
+    hero:unfreeze()
   end
 end
