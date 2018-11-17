@@ -819,22 +819,65 @@ music{ id = "gb/01_introduction", description = "01 - Introduction" }
 music{ id = "gb/02_title", description = "02 - Title" }
 music{ id = "gb/02_title_no_intro", description = "02 - Title no intro" }
 music{ id = "gb/06_marin_house", description = "06 - Marin's House" }
-music{ id = "gb/07_koholint_island", description = "07 - Koholint Island.ogg" }
+music{ id = "gb/07_koholint_island", description = "07 - Koholint island.ogg" }
 music{ id = "gb/08_the_owl", description = "08 - The Owl" }
 music{ id = "gb/09_beginning_of_the_journey", description = "09 - Beginning of the journey" }
 music{ id = "gb/10_overworld", description = "10 - Overworld" }
-music{ id = "gb/11_mabe_village", description = "11 - Mabe Village" }
+music{ id = "gb/11_mabe_village", description = "11 - Mabe village" }
 music{ id = "gb/12_house", description = "12 - House" }
 music{ id = "gb/13_phone", description = "13 - Phone" }
 music{ id = "gb/14_shop", description = "14 - Shop" }
 music{ id = "gb/14_shop_high", description = "14 - Shop high" }
 music{ id = "gb/15_trendy_game", description = "15 - Trendy Game" }
-music{ id = "gb/16_mysterious_forest", description = "16 - Mysterious Forest" }
+music{ id = "gb/16_mysterious_forest", description = "16 - Mysterious forest" }
 music{ id = "gb/18_cave", description = "18 - Cave" }
+music{ id = "gb/19_level_1_tail_cave", description = "19 - Level 1 - Tail cave" }
+music{ id = "gb/20_sidescrolling", description = "20 - Sidescrolling" }
+music{ id = "gb/21_mini_boss_battle", description = "21 - Mini boss battle" }
+music{ id = "gb/22_boss_battle", description = "22 - Boss battle" }
+music{ id = "gb/23_boss_defeated", description = "23 - boss defeated" }
+music{ id = "gb/24_instrument_of_the_sirens", description = "24 - Instrument of the sirens" }
+music{ id = "gb/25_the_full_moon_cello", description = "25 - The full moon cello" }
+music{ id = "gb/26_bowwow_dognapped", description = "26 - Bowow dognapped" }
 music{ id = "gb/27_mr_write_house", description = "27 - Mr Write" }
+music{ id = "gb/28_level_2_bottle_grotto", description = "28 - Level 2 - Bottle grotto" }
+music{ id = "gb/29_the_conch_horn", description = "29 - The conch horn" }
+music{ id = "gb/30_richard_villa", description = "30 - Richard's villa" }
+music{ id = "gb/31_kiki_bridge", description = "31- Kiki's bridge" }
+music{ id = "gb/32_kanalet_castle", description = "32 - Kanalet castle" }
+music{ id = "gb/33_level_3_key_cavern", description = "33 - Level 3 - Key cavern" }
+music{ id = "gb/34_the_sea_lily_bell", description = "34 - The sea lily's bell" }
+music{ id = "gb/35_dream_shrine_entrance", description = "35 - Dream shrine entrance" }
+music{ id = "gb/36_falling_asleep", description = "36 - Falling asleep" }
+music{ id = "gb/37_dream_shrine", description = "37 - Dream shrine" }
+music{ id = "gb/38_song_of_marin_and_link", description = "38 - Song of Marin and Link" }
+music{ id = "gb/39_bees", description = "39 - Bees" }
+music{ id = "gb/40_animal_village", description = "40 - Animal village" }
 music{ id = "gb/41_christine_house", description = "41 - Christine's House" }
+music{ id = "gb/42_marin_beach", description = "42 - Marin's beach" }
+music{ id = "gb/43_on_the_beach_with_marin", description = "43 - On the beach with Marin" }
 music{ id = "gb/44_song_of_marin", description = "44 - Song of Marin" }
+music{ id = "gb/45_angler_tunnel_revealed", description = "45 - Angler's tunnel revealed" }
 music{ id = "gb/46_tal_tal_mountain_range", description = "46 - Tal tal Mountain Range" }
+music{ id = "gb/47_level_4_angler_tunnel", description = "47 - Level 4 - Angler's tunnel" }
+music{ id = "gb/48_the_surf_harp", description = "48 - The surf harp" }
+music{ id = "gb/49_manbo_mambo", description = "49 - Manbo's mambo" }
+music{ id = "gb/51_house_by_the_bay", description = "51 - House by the bay" }
+music{ id = "gb/52_fishing_under_the_bridge", description = "52 - Fishing under the bridge" }
+music{ id = "gb/53_level_5_catfish_maw", description = "53 - Level 5 - Catfish's maw" }
+music{ id = "gb/55_the_wind_marimba", description = "55 - The wind marimba" }
+music{ id = "gb/58_southern_shrine", description = "58 - Southern shrine" }
+music{ id = "gb/59_level_6_face_shrine", description = "59- Level 6 - Face shrine" }
+music{ id = "gb/60_coral_triangle", description = "68 - Coral triangle" }
+music{ id = "gb/63_cucco_house", description = "63 - Cucco house" }
+music{ id = "gb/64_level_7_eagle_tower", description = "64 - Level 7 - Eagle's tower" }
+music{ id = "gb/67_organ_of_evening_calm", description = "67 - Organ of evening calm" }
+music{ id = "gb/69_level_8_turtle_rock", description = "69 - Level 8 - Turtle rock" }
+music{ id = "gb/70_thunder_drum", description = "70 - Thunder drum" }
+music{ id = "gb/71_color_dungeon", description = "71 - Color dungeon" }
+music{ id = "gb/72_great_fairy_fountain", description = "72 - Great fairy fountain" }
+music{ id = "gb/74_wind_fish_egg", description = "74 - Wind fish egg" }
+music{ id = "gb/82_game_over", description = "82 - Game over" }
 music{ id = "snes/06_marin_house", description = "06 - Marin's House" }
 music{ id = "snes/07_koholint_island", description = "07 - Koholint Island.ogg" }
 music{ id = "snes/08_the_owl", description = "08 - The Owl" }

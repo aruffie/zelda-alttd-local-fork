@@ -3,7 +3,9 @@
 -- Usage:
 -- require("scripts/dungeons")
 
+-- Include scripts
 require("scripts/multi_events")
+local audio_manager = require("scripts/audio_manager")
 
 local function initialize_dungeon_features(game)
 
@@ -19,6 +21,7 @@ local function initialize_dungeon_features(game)
       highest_floor = 0,
       rows = 6,
       cols= 7,
+      music = "19_level_1_tail_cave",
       destination_ocarina = {
         map_id = "dungeons/1/1f",
         destination_name = "destination_ocarina"
@@ -81,6 +84,7 @@ local function initialize_dungeon_features(game)
       highest_floor = 0,
       rows = 7,
       cols= 6,
+      music = "28_level_2_bottle_grotto",
       destination_ocarina = {
         map_id = "dungeons/2/1f",
         destination_name = "destination_ocarina"
@@ -149,52 +153,55 @@ local function initialize_dungeon_features(game)
       }
    },
    [3] = {
-        lowest_floor = 0,
-        highest_floor = 0,
-        rows = 8,
-        cols= 4,
-        destination_ocarina = {
-            map_id = "dungeons/2/1f",
-            destination_name = "destination_ocarina"
-        },
-        secrets = {
-        },
-        boss = {
-          floor = 0,
-          x = 640 + 1440,
-          y = 720 + 365,
-          savegame_variable = "dungeon_3_boss",
-        }
+      lowest_floor = 0,
+      highest_floor = 0,
+      rows = 8,
+      cols= 4,
+      music = "33_level_3_key_cavern",
+      destination_ocarina = {
+          map_id = "dungeons/2/1f",
+          destination_name = "destination_ocarina"
       },
- [4] = {
-        lowest_floor = 0,
-        highest_floor = 0,
-        rows = 7,
-        cols= 6,
-        secrets = {
-        },
-        boss = {
-          floor = 0,
-          x = 640 + 1440,
-          y = 720 + 365,
-          savegame_variable = "dungeon_4_boss",
-        }
+      secrets = {
       },
- [5] = {
-        lowest_floor = 0,
-        highest_floor = 0,
-        rows = 7,
-        cols= 8,
-        secrets = {
-        },
-        boss = {
-          floor = 0,
-          x = 640 + 1440,
-          y = 720 + 365,
-          savegame_variable = "dungeon_5_boss",
-        }
+      boss = {
+        floor = 0,
+        x = 640 + 1440,
+        y = 720 + 365,
+        savegame_variable = "dungeon_3_boss",
+      }
+    },
+   [4] = {
+      lowest_floor = 0,
+      highest_floor = 0,
+      rows = 7,
+      cols= 6,
+      music = "47_level_4_angler_tunnel",
+      secrets = {
+      },
+      boss = {
+        floor = 0,
+        x = 640 + 1440,
+        y = 720 + 365,
+        savegame_variable = "dungeon_4_boss",
+      }
+    },
+   [5] = {
+      lowest_floor = 0,
+      highest_floor = 0,
+      rows = 7,
+      cols= 8,
+      music = "53_level_5_catfish_maw",
+      secrets = {
+      },
+      boss = {
+        floor = 0,
+        x = 640 + 1440,
+        y = 720 + 365,
+        savegame_variable = "dungeon_5_boss",
       }
     }
+  }
 
   -- Returns the index of the current dungeon if any, or nil.
   function game:get_dungeon_index()
@@ -318,11 +325,11 @@ local function initialize_dungeon_features(game)
   function game:play_dungeon_music(dungeon_index)
 
     dungeon_index = dungeon_index or game:get_dungeon_index()
-    local music = "maps/dungeons/" .. dungeon_index .. "/dungeon"
+    local music = dungeons_info[dungeon_index].music
     local savegame_boss = "dungeon_" .. dungeon_index .. "_boss"
     local savegame_treasure = "dungeon_" .. dungeon_index .. "_big_treasure"
     if  game:get_value(savegame_boss) and not game:get_value(savegame_treasure) then
-      music = "maps/dungeons/instruments"
+      music = "24_instruments_of_the_sirens"
     end
     audio_manager:play_music(music)
   end
