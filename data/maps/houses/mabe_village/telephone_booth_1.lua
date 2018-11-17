@@ -6,6 +6,13 @@ local game = map:get_game()
 local phone_manager = require("scripts/maps/phone_manager")
 local audio_manager = require("scripts/audio_manager")
 
+-- Map events
+function map:on_started(destination)
+
+  map:init_music()
+
+end
+
 -- Initialize the music of the map
 function map:init_music()
 
@@ -14,15 +21,6 @@ function map:init_music()
   else
     audio_manager:play_music("13_phone")
   end
-
-end
-
--- Map events
-
-function map:on_started(destination)
-
-  map:init_music()
-
 
 end
 

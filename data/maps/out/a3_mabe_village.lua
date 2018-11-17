@@ -13,10 +13,10 @@ function map:on_started(destination)
 
   -- Music
   map:init_music()
-  
-  map:init_map_entities()
   -- Digging
   map:set_digging_allowed(true)
+  -- Entities
+  map:init_map_entities()
   local item = game:get_item("magnifying_lens")
   local variant_lens = item:get_variant()
   -- Signs

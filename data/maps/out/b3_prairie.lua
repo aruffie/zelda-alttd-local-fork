@@ -11,7 +11,9 @@ local audio_manager = require("scripts/audio_manager")
 -- Map events
 function map:on_started(destination)
 
+  -- Music
   map:init_music()
+  -- Digging
   map:set_digging_allowed(true)
   owl_7:set_enabled(false)
 
