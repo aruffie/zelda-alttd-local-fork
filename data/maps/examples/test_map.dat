@@ -19,7 +19,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 64,
+  x = 32,
   y = 168,
   width = 32,
   height = 32,
@@ -28,25 +28,34 @@ tile{
 
 tile{
   layer = 0,
-  x = 96,
-  y = 168,
-  width = 32,
-  height = 32,
+  x = 136,
+  y = 104,
+  width = 48,
+  height = 128,
   pattern = "1041",
 }
 
 tile{
   layer = 0,
-  x = 128,
-  y = 168,
+  x = 0,
+  y = 104,
   width = 32,
   height = 32,
   pattern = "2224",
 }
 
-chest{
+tile{
   layer = 0,
   x = 184,
+  y = 104,
+  width = 80,
+  height = 48,
+  pattern = "1041",
+}
+
+chest{
+  layer = 0,
+  x = 72,
   y = 197,
   treasure_name = "power_bracelet",
   sprite = "entities/chest",
@@ -54,8 +63,8 @@ chest{
 
 enemy{
   layer = 0,
-  x = 176,
-  y = 101,
+  x = 120,
+  y = 93,
   direction = 0,
   breed = "sea_urchin",
 }
@@ -70,7 +79,7 @@ destination{
 
 destructible{
   layer = 0,
-  x = 184,
+  x = 72,
   y = 181,
   sprite = "entities/pot",
   weight = 1,
@@ -93,13 +102,14 @@ destructible{
   y = 141,
   sprite = "entities/pot",
   weight = 1,
+  can_be_cut = true,
   damage_on_enemies = 2,
 }
 
 destructible{
   layer = 0,
-  x = 232,
-  y = 181,
+  x = 312,
+  y = 165,
   sprite = "entities/pot",
   weight = 1,
   damage_on_enemies = 2,
@@ -135,16 +145,16 @@ chest{
 
 chest{
   layer = 0,
-  x = 232,
-  y = 197,
+  x = 312,
+  y = 181,
   treasure_name = "shield",
   sprite = "entities/chest",
 }
 
 enemy{
   layer = 0,
-  x = 280,
-  y = 117,
+  x = 296,
+  y = 93,
   direction = 0,
   breed = "sea_urchin",
 }
@@ -176,10 +186,50 @@ chest{
 sensor{
   name = "sensor",
   layer = 0,
-  x = 40,
+  x = 8,
   y = 181,
   width = 32,
   height = 32,
+}
+
+destructible{
+  layer = 0,
+  x = 96,
+  y = 157,
+  sprite = "entities/pot",
+  weight = 1,
+  can_be_cut = true,
+  damage_on_enemies = 2,
+}
+
+destructible{
+  layer = 0,
+  x = 96,
+  y = 173,
+  sprite = "entities/pot",
+  weight = 1,
+  can_be_cut = true,
+  damage_on_enemies = 2,
+}
+
+destructible{
+  layer = 0,
+  x = 96,
+  y = 189,
+  sprite = "entities/pot",
+  weight = 1,
+  can_be_cut = true,
+  damage_on_enemies = 2,
+}
+
+teletransporter{
+  layer = 0,
+  x = 304,
+  y = 16,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/1/sideview_1",
+  sprite = "entities/outside_door",
 }
 
 custom_entity{
