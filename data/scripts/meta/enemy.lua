@@ -1,5 +1,6 @@
 -- Initialize enemy behavior specific to this quest.
 
+-- Include scripts
 local enemy_meta = sol.main.get_metatable("enemy")
 local enemy_manager = require("scripts/maps/enemy_manager")
 local audio_manager = require("scripts/audio_manager")
@@ -87,7 +88,7 @@ function enemy_meta:launch_boss_dead()
   local dungeon = game:get_dungeon_index()
   local savegame = "dungeon_" .. dungeon .. "_boss"
   local door_prefix = "door_group_boss"
-  audio_manager:play_music("instruments")
+  audio_manager:play_music("23_boss_defeated")
   game:set_value(savegame, true)
   map:open_doors(door_prefix)
   local heart_container = map:get_entity("heart_container")

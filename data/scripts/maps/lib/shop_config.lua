@@ -22,7 +22,7 @@ return {
   bombs = {
     price = 10,
     quantity = 10,
-    placeholder = 1,
+    placeholder = 4,
     variant = 1,
     sprite = "entities/bomb",
     dialog_id = "bomb",
@@ -39,6 +39,24 @@ return {
       local variant_shovel = item_shovel:get_variant()
       return variant_shovel > 0
     end
+  },
+  bow = {
+    price = 980,
+    quantity = 1,
+    placeholder = 1,
+    variant = 1,
+    sprite = "entities/bow",
+    dialog_id = "bow",
+    buy_callback = function(map)
+      local item_bow = map:get_game():get_item("bow")
+      local variant_bow = item_bow:get_variant()
+      return variant_bow > 0
+    end,  
+    activation_condition = function(map)
+      local item_bow = map:get_game():get_item("bow")
+      local variant_bow = item_bow:get_variant()
+      return variant_bow == 0
+    end,  
   },
   heart = {
     price = 10,

@@ -16,7 +16,7 @@ return {
     sprite = "npc/bowwow",
     activation_condition = function(map)
       local excluded_maps = {
-        ["houses/meow_house"] = true
+        ["houses/mabe_village/meow_meow_house"] = true
       }
       if excluded_maps[map:get_id()] then
         return false

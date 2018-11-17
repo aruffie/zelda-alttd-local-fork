@@ -6,6 +6,9 @@ local directions = {
   0, 3, 2, 1, 0, 3, 0, 1, 2, 3, 0, 3, 2
 }
 
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
+
 -- Initialize the music of the map
 function map:init_music()
   
@@ -16,7 +19,7 @@ function map:init_music()
       sol.audio.stop_music()
       audio_manager:play_music("marin_on_beach")
     else
-      audio_manager:play_music("07_koholint_island")
+      audio_manager:play_music("10_overworld")
     end
   end
 

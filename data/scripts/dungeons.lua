@@ -22,6 +22,7 @@ local function initialize_dungeon_features(game)
       rows = 6,
       cols= 7,
       music = "19_level_1_tail_cave",
+      music_instrument = "25_the_full_moon_cello",
       destination_ocarina = {
         map_id = "dungeons/1/1f",
         destination_name = "destination_ocarina"
@@ -85,6 +86,7 @@ local function initialize_dungeon_features(game)
       rows = 7,
       cols= 6,
       music = "28_level_2_bottle_grotto",
+      music_instrument = "29_the_conch_horn",
       destination_ocarina = {
         map_id = "dungeons/2/1f",
         destination_name = "destination_ocarina"
@@ -158,6 +160,7 @@ local function initialize_dungeon_features(game)
       rows = 8,
       cols= 4,
       music = "33_level_3_key_cavern",
+      music_instrument = "34_the_sea_lily_bell",
       destination_ocarina = {
           map_id = "dungeons/2/1f",
           destination_name = "destination_ocarina"
@@ -177,6 +180,7 @@ local function initialize_dungeon_features(game)
       rows = 7,
       cols= 6,
       music = "47_level_4_angler_tunnel",
+      music_instrument = "48_the_surf_harp",
       secrets = {
       },
       boss = {
@@ -192,6 +196,7 @@ local function initialize_dungeon_features(game)
       rows = 7,
       cols= 8,
       music = "53_level_5_catfish_maw",
+      music_instrument = "55_the_wind_marimba",
       secrets = {
       },
       boss = {
@@ -329,7 +334,7 @@ local function initialize_dungeon_features(game)
     local savegame_boss = "dungeon_" .. dungeon_index .. "_boss"
     local savegame_treasure = "dungeon_" .. dungeon_index .. "_big_treasure"
     if  game:get_value(savegame_boss) and not game:get_value(savegame_treasure) then
-      music = "24_instruments_of_the_sirens"
+      music = "23_boss_defeated"
     end
     audio_manager:play_music(music)
   end

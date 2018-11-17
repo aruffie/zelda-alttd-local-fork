@@ -1,5 +1,8 @@
 local treasure_manager = {}
 
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
+
 function treasure_manager:appear_chest_when_enemies_dead(map, enemy_prefix, chest)
     
   local function enemy_on_dead()
@@ -168,6 +171,7 @@ function treasure_manager:get_instrument(map)
   local timer_2
   local timer_3
   local timer_4
+  local timer_5
   -- Create custom entities
   local effect_entity_1 = map:create_custom_entity({
     name = "effect",
@@ -227,34 +231,39 @@ function treasure_manager:get_instrument(map)
   }
   map:set_cinematic_mode(true, options)
   hero:set_animation("brandish")
-  sol.audio.stop_music()
-  sol.audio.play_sound("instruments/instrument")
-  timer_1 = sol.timer.start(map, 7000, function() end)
+  audio_manager:play_music("24_instrument_of_the_sirens")
+  timer_1 = sol.timer.start(map, 7000, function()
+    sol.audio.stop_music()
+  end)
   timer_1:set_suspended_with_map(false)
   timer_2 = sol.timer.start(2000, function()
-      effect_entity_1:remove()
-      game:start_dialog("_treasure.instrument_" .. dungeon ..".1", function()
-        local remaining_time = timer_1:get_remaining_time()
-        timer_1:stop()
-        sol.timer.start(map, remaining_time, function()
-        sol.audio.play_sound("instruments/instrument_" .. dungeon)
+    effect_entity_1:remove()
+    game:start_dialog("_treasure.instrument_" .. dungeon ..".1", function()
+      local remaining_time = timer_1:get_remaining_time()
+      timer_1:stop()
+      sol.timer.start(map, remaining_time, function()
+        audio_manager:play_music(dungeon_infos.music_instrument)
+        timer_5 = sol.timer.start(map, 11000, function()
+          sol.audio.stop_music()
+        end)
+        timer_5:set_suspended_with_map(false)
         notes_1:set_enabled(true)
         notes_2:set_enabled(true)
         timer_3 = sol.timer.start(5000, function()
-         notes_1:remove()
-         notes_2:remove()
-         effect_entity_2:set_enabled(true)
+          notes_1:remove()
+          notes_2:remove()
+          effect_entity_2:set_enabled(true)
         end)
         timer_3:set_suspended_with_map(false)
         timer_4 = sol.timer.start(8000, function()
           effect_model.start_effect(surface, game, "in", false, function()
-              game:start_dialog("maps.dungeons.".. dungeon ..".indication", function()
-                local map_id = dungeon_infos["teletransporter_end_dungeon"]["map_id"]
-                local destination_name = dungeon_infos["teletransporter_end_dungeon"]["destination_name"]
-                hero:teleport(map_id, destination_name, "immediate")
-                game.map_in_transition = effect_model
-                map:set_cinematic_mode(false)
-              end)
+            game:start_dialog("maps.dungeons.".. dungeon ..".indication", function()
+              local map_id = dungeon_infos["teletransporter_end_dungeon"]["map_id"]
+              local destination_name = dungeon_infos["teletransporter_end_dungeon"]["destination_name"]
+              hero:teleport(map_id, destination_name, "immediate")
+              game.map_in_transition = effect_model
+              map:set_cinematic_mode(false)
+            end)
           end)
         end)
         timer_4:set_suspended_with_map(false)

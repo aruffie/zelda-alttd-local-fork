@@ -3,12 +3,58 @@ local map = ...
 local game = map:get_game()
 local tarin_chased_by_bees = false
 
-
 -- Include scripts
 local owl_manager = require("scripts/maps/owl_manager")
 local travel_manager = require("scripts/maps/travel_manager")
 local audio_manager = require("scripts/audio_manager")
 
+-- Map events
+function map:on_started(destination)
+
+  map:init_music()
+  map:set_digging_allowed(true)
+  owl_7:set_enabled(false)
+
+  -- Travel
+  travel_transporter:set_enabled(false)
+  -- Statue pig
+  if game:get_value("statue_pig_exploded") then
+    statue_pig:remove()
+  end
+  dungeon_3_entrance:set_traversable_by(false)
+  if game:get_value("main_quest_step") > 16 then
+    map:open_dungeon_3()
+  end
+  -- Tarin
+  if game:get_value("main_quest_step") ~= 18 then
+    tarin:set_enabled(false)
+  end
+  -- Honey and bees
+  if game:get_value("main_quest_step") > 19 then
+    honey:set_enabled(false)
+    for bee in map:get_entities("bee") do
+        bee:set_enabled(false)
+    end
+
+  end
+  -- Seashell's tree
+  local seashell_tree_found = false
+  collision_seashell:add_collision_test("facing", function(entity, other, entity_sprite, other_sprite)
+    if other:get_type() == 'hero' and hero:get_state() == "running" and seashell_tree_found == false and game:get_value("seashell_13") == nil then
+      sol.timer.start(map, 250, function()
+        movement = sol.movement.create("jump")
+        movement:set_speed(100)
+        movement:set_distance(64)
+        movement:set_direction8(0)
+        movement:set_ignore_obstacles(true)
+        movement:start(seashell_13, function()
+          seashell_tree_found = true 
+        end)
+      end)
+    end
+  end)
+
+end
 
 -- Initialize the music of the map
 function map:init_music()
@@ -16,7 +62,7 @@ function map:init_music()
   if game:get_value("main_quest_step") == 3  then
     audio_manager:play_music("07_koholint_island")
   elseif tarin_chased_by_bees then
-    audio_manager:play_music("tarin_chased_by_bees")
+    audio_manager:play_music("39_bees")
   else
     audio_manager:play_music("10_overworld")
   end
@@ -43,7 +89,6 @@ function  map:talk_to_tarin()
   end)
 
 end
-
 
 function map:tarin_search_honey()
   local camera = map:get_camera()
@@ -211,53 +256,6 @@ function map:tarin_leave_map()
       end
     end)
   end
-
-end
-
-function map:on_started(destination)
-
-  map:init_music()
-  map:set_digging_allowed(true)
-  owl_7:set_enabled(false)
-
-  -- Travel
-  travel_transporter:set_enabled(false)
-  -- Statue pig
-  if game:get_value("statue_pig_exploded") then
-    statue_pig:remove()
-  end
-  dungeon_3_entrance:set_traversable_by(false)
-  if game:get_value("main_quest_step") > 16 then
-    map:open_dungeon_3()
-  end
-  -- Tarin
-  if game:get_value("main_quest_step") ~= 18 then
-    tarin:set_enabled(false)
-  end
-  -- Honey and bees
-  if game:get_value("main_quest_step") > 19 then
-    honey:set_enabled(false)
-    for bee in map:get_entities("bee") do
-        bee:set_enabled(false)
-    end
-
-  end
-  -- Seashell's tree
-  local seashell_tree_found = false
-  collision_seashell:add_collision_test("facing", function(entity, other, entity_sprite, other_sprite)
-    if other:get_type() == 'hero' and hero:get_state() == "running" and seashell_tree_found == false and game:get_value("seashell_13") == nil then
-      sol.timer.start(map, 250, function()
-        movement = sol.movement.create("jump")
-        movement:set_speed(100)
-        movement:set_distance(64)
-        movement:set_direction8(0)
-        movement:set_ignore_obstacles(true)
-        movement:start(seashell_13, function()
-          seashell_tree_found = true 
-        end)
-      end)
-    end
-  end)
 
 end
 

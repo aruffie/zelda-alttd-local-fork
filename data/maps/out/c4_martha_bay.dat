@@ -12147,6 +12147,16 @@ enemy{
   treasure_name = "random",
 }
 
+dynamic_tile{
+  name = "invisible_tile_1",
+  layer = 0,
+  x = 336,
+  y = 712,
+  pattern = "707",
+  width = 48,
+  height = 8,
+}
+
 tile{
   layer = 1,
   x = -56,
