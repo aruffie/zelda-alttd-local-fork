@@ -1,4 +1,4 @@
--- Script for the running jump state.
+-- Custom runjump script.
 require("scripts/multi_events")
 require("scripts/ground_effects")
 require("scripts/states/run")
@@ -16,8 +16,9 @@ local jump_duration = 500 -- Change this for duration of the runjump.
 local max_height = 16 -- Height of the jump in pixels.
 local speed = 130 -- Walking speed during the runjump.
 
--- Initialize run-jump state.
+-- Initialize runjump state.
 local state = sol.state.create()
+state:set_description("runjump")
 state:set_can_control_movement(false)
 state:set_can_control_direction(false)
 state:set_gravity_enabled(false)
@@ -31,7 +32,7 @@ state:set_can_use_stairs(false)
 state:set_can_traverse("stairs", false)
 state:set_affected_by_ground("hole", false) 
 state:set_affected_by_ground("lava", false) 
-state:set_affected_by_ground("deep_water", false) 
+state:set_affected_by_ground("deep_water", false)
 
 
 function state:on_started(previous_state_name, previous_state)
@@ -51,6 +52,10 @@ function state:on_finished(next_state_name, next_state)
   -- Change run/jump state variables.
   hero:set_running(false)
   hero:set_jumping(false)
+  if movement then
+    movement:stop()
+    movement = nil
+  end
 end
 
 
@@ -77,10 +82,37 @@ function hero_meta:start_runjump()
   local hero = self
   local game = hero:get_game()
   local map = hero:get_map()
-    
-  -- Do not jump if already jumping.
-  if hero.is_jumping and hero:is_jumping() then return end
-    
+  local is_sideview_map = map.is_side_view and map:is_side_view()
+
+  -- Allow to jump only under certain states.
+  local hero_state = hero:get_state()
+  if hero_state ~= "custom" then
+    return
+  end
+  if hero_state == "custom" then
+    local state_name = hero:get_state_object():get_description()
+    if state_name ~= "run" then
+      return --if state_name ~= ALLOWED_STATES then return end
+    end
+  end
+
+  -- Allow to jump only on certain grounds.
+  local ground_type = map:get_ground(hero:get_ground_position())
+  local is_ground_jumpable = map:is_jumpable_ground(ground_type)
+  local stream = hero:get_controlling_stream()
+  local is_blocked_on_stream = stream and (not stream:get_allow_movement())
+  if (not is_ground_jumpable) or is_blocked_on_stream then
+    return
+  end
+
+  -- We need solid ground or ladder "below" to jump in sideview maps!
+  if is_sideview_map then
+    local x, y, layer = hero:get_position()
+    local is_grabbed_to_ladder = map:get_ground(x, y - 4, layer) == "ladder"
+        or map:get_ground(x, y + 3, layer) == "ladder"
+    if (not hero:test_obstacles(0, 1) and (not is_grabbed_to_ladder)) then return end
+  end
+
   -- Play jump sound.
   sol.audio.play_sound(jumping_sound)
   -- Start jumping state.
