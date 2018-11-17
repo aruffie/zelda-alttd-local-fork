@@ -1,8 +1,23 @@
--- Inside - Ocarina's house
-require("scripts/multi_events")
 -- Variables
 local map = ...
 local game = map:get_game()
+
+-- Include scripts
+require("scripts/multi_events")
+local audio_manager = require("scripts/audio_manager")
+
+function map:on_started(destination)
+
+  -- Music
+  map:init_music()
+  
+  snores:set_enabled(false)
+  for torch in map:get_entities("light_torch") do
+    torch:set_lit(true)
+  end
+
+end
+
 -- Link go to bed
 function map:go_to_bed() 
 
@@ -11,7 +26,7 @@ function map:go_to_bed()
     game:set_hud_enabled(false)
     game:set_pause_allowed(false)
     hero:freeze()
-    audio_manager:play_music("dream_shine_in_the_bed")
+    audio_manager:play_music("36_falling_asleep")
     sol.timer.start(map, 6000, function()
       sol.audio.stop_music()
     end)
@@ -66,6 +81,12 @@ function map:go_to_bed()
         end)
       end)
     end)
+end
+
+-- Initialize the music of the map
+function map:init_music()
+  
+  audio_manager:play_music("35_dream_shrine_entrance")
 
 end
 
@@ -73,14 +94,5 @@ end
 function bed_npc:on_interaction()
 
       map:go_to_bed()
-
-end
-
-function map:on_started(destination)
-
-  snores:set_enabled(false)
-  for torch in map:get_entities("light_torch") do
-      torch:set_lit(true)
-  end
 
 end

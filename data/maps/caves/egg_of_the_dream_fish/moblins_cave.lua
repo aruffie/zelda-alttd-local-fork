@@ -28,7 +28,7 @@ end
 function map:init_music()
   
   if game:get_value("main_quest_step") == 9  then
-    audio_manager:play_music("moblins_and_bow_wow")
+    audio_manager:play_music("26_bowwow_dognapped")
   else
     audio_manager:play_music("18_cave")
   end

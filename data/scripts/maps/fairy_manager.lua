@@ -15,7 +15,7 @@ function fairy_manager:launch_fairy_if_hero_not_max_life(map, fairy_name, music_
         entities_ignore_suspend = {fairy}
       }
       map:set_cinematic_mode(true, options)
-      audio_manager:play_music("fairy_foutain")
+      audio_manager:play_music("72_great_fairy_fountain")
       fairy:get_sprite():fade_in(100, function()
         game:start_dialog("scripts.meta.map.fairy", function()
           local hearts = {}
