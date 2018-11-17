@@ -72,6 +72,10 @@ function state:on_finished(next_state_name, next_state)
     ground_effect_timer:stop()
     ground_effect_timer = nil
   end
+  if movement then
+    movement:stop()
+    movement = nil
+  end
   running_state = nil
   hero:set_running(false)
   running_manager:clean_timers()

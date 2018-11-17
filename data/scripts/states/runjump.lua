@@ -7,6 +7,7 @@ local hero_meta = sol.main.get_metatable("hero")
 local map_meta = sol.main.get_metatable("map")
 local game_meta = sol.main.get_metatable("game")
 local runjump_manager = {}
+local sprites_info = {} -- Used to restore some properties when the state is changed.
 -- Sounds:
 local running_obstacle_sound = "running_obstacle"
 local jumping_sound = "jump"
@@ -58,6 +59,64 @@ function state:on_finished(next_state_name, next_state)
   end
 end
 
+function state:on_command_pressed(command)  
+  local game = state:get_game()
+  local hero = game:get_hero()
+  if command == "attack" then
+  -- Do not stop movement of the hero if sword is used during a jump.
+    if game:has_ability("sword") then
+      state:set_can_control_direction(false)
+      local tunic_sprite = hero:get_sprite("tunic")
+      local dir = tunic_sprite:get_direction()
+      local sword_sprite = hero:get_sprite("sword")
+      tunic_sprite:set_animation("sword")
+      sword_sprite:set_animation("sword")
+      sword_sprite:set_direction(dir)
+      return true
+    end
+  end
+end
+
+
+function state:on_command_released(command)
+end
+
+
+-- Finish jumping state.
+function state:set_finished()
+  -- If the hero is using the sword, keep it after the jump.
+  local hero = state:get_game():get_hero()
+  local hero_sprite = hero:get_sprite()
+  local sword_sprite = hero:get_sprite("sword")
+  if sword_sprite:is_animation_started() then
+    -- Stop hero movement with a sword attack if sword was used during the jump.
+    local sword_animation = sword_sprite:get_animation()
+    if sword_animation == "sword" or sword_animation == "spin_attack" then
+      hero:start_attack()
+    else -- Sword loading. The hero should not be frozen.
+      hero:unfreeze()
+    end
+    hero_sprite:set_animation(sprites_info["tunic"].animation)
+    sword_sprite:set_animation(sprites_info["sword"].animation)
+    hero_sprite:set_frame(sprites_info["tunic"].frame)
+    sword_sprite:set_frame(sprites_info["sword"].frame)
+  else
+    hero:unfreeze()
+  end
+end
+ 
+function state:update_sprites_info(hero)
+  -- Save sprites info before changing state.
+  sprites_info = {}
+  --local hero = state:get_game():get_hero()
+  for sprite_name, sprite in hero:get_sprites() do
+    local info = {}
+    sprites_info[sprite_name] = info
+    info.animation = sprite:get_animation()
+    info.frame = sprite:get_frame()
+  end
+end
+
 
 -- Function to start the running movement.
 function runjump_manager:start_runjump_movement(hero)
@@ -76,14 +135,16 @@ function runjump_manager:start_runjump_movement(hero)
   m:start(hero)
 end
 
-
 -- Start jump while running.
 function hero_meta:start_runjump()
   local hero = self
   local game = hero:get_game()
   local map = hero:get_map()
   local is_sideview_map = map.is_side_view and map:is_side_view()
-
+  
+  -- Do not runjump if the hero is not moving (i.e., "running stopped").
+  if not hero:is_walking() then return end
+  
   -- Allow to jump only under certain states.
   local hero_state = hero:get_state()
   if hero_state ~= "custom" then
@@ -130,17 +191,46 @@ function hero_meta:start_runjump()
   sprite:set_animation("walking")
   sprite:set_frame_delay(frame_delay) 
   function tile:on_update() tile:set_position(hero:get_position()) end -- Follow the hero.
-  
-  -- Shift the sprite during the jump. Use a parabolic trajectory.
+
+  -- Create parabolic trajectory.
   local instant = 0
-  sol.timer.start(self, 1, function()
-    local tn = instant/jump_duration
-    local height = math.floor(4*max_height*tn*(1-tn))
-    hero:get_sprite():set_xy(0, -height)
-    -- Continue shifting while jumping.
-    instant = instant+1
-    if hero:is_jumping() then return true end
-  end)
+  -- If the map NOT sideview, shift all sprites during jump with parabolic trajectory.
+  -- We use a parametrization of the height.
+  if not is_sideview_map then
+    sol.timer.start(map, 1, function()
+      if not hero:is_jumping() then return false end
+      local tn = instant/jump_duration
+      local height = math.floor(4*max_height*tn*(1-tn))
+      for _, s in hero:get_sprites() do
+        s:set_xy(0, -height)
+      end
+      -- Continue shifting while jumping.
+      instant = instant + 1
+      return true
+    end)
+  end
+  -- If the map IS sideview, shift the position with parabolic trajectory.
+  -- We calculate the variations of height at each instant.
+  if is_sideview_map then
+    local d = 0 -- Accumulative decimal part, for better accuracy.
+    local pheight = 0 -- Previous height.
+    sol.timer.start(map, 1, function()
+      if not hero:is_jumping() then return false end
+      local x, y, layer = hero:get_position()
+      local tn = instant/jump_duration
+      local height = 4*max_height*tn*(1-tn)
+      local dh = (height - pheight) + d -- Variation of height.
+      d = dh - math.floor(dh)
+      dh = math.floor(dh)
+      pheight = height
+      if not hero:test_obstacles(0, -dh) then
+        hero:set_position(x, y - dh, layer)
+      end
+      -- Continue shifting while jumping.
+      instant = instant + 1
+      return true
+    end)
+  end 
   
   -- Finish the jump.
   sol.timer.start(self, jump_duration, function()
@@ -158,9 +248,10 @@ function hero_meta:start_runjump()
     
     -- Create ground effect.
     map:ground_collision(hero)
-        
-    -- Finish the jump.
-    hero:unfreeze()
+     
+    -- Finish jump.
+    state:update_sprites_info(hero)
+    state:set_finished() -- Finish jumping state.
   end)
 end
 
