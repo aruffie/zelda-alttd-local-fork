@@ -2753,7 +2753,7 @@ enemy{
   name = "enemy_group_2_4",
   layer = 0,
   x = 216,
-  y = 125,
+  y = 109,
   direction = 3,
   breed = "moblin_dog_spear",
 }
@@ -2762,7 +2762,7 @@ enemy{
   name = "enemy_group_2_1",
   layer = 0,
   x = 104,
-  y = 125,
+  y = 109,
   direction = 3,
   breed = "moblin_dog_spear",
 }
@@ -3093,7 +3093,7 @@ wall{
   name = "wall_enemies",
   layer = 0,
   x = 48,
-  y = 136,
+  y = 112,
   enabled_at_start = false,
   width = 224,
   height = 8,

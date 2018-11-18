@@ -11,8 +11,13 @@ local audio_manager = require("scripts/audio_manager")
 
 -- Map events
 function map:on_started(destination)
-
-  map:init_music()
+  
+  -- Music
+  if game:get_value("main_quest_step") == 9  then
+    sol.audio.stop_music()
+  else
+    map:init_music()
+  end
   map:init_map_entities()
   
   -- Doors
@@ -116,18 +121,30 @@ function bowwow:on_interaction()
 
 end
 
-local step = game:get_value("main_quest_step")
-if step == 9 then
-  separator_manager:manage_map(map)
+function map:create_symbol_exclamation(x, y, layer)
+  
+  sol.audio.play_sound("ok")
+  local symbol = map:create_custom_entity({
+    sprite = "entities/symbol_exclamation",
+    x = x,
+    y = y,
+    width = 16,
+    height = 16,
+    layer = layer,
+    direction = 0
+  })
+
+  return symbol
+  
 end
 
 -- Cinematics
--- This is the cinematic that the hero enters the cave to fight the Mloblins
+-- This is the cinematic that the hero enters the cave to fight the Moblins
 function map:launch_cinematic_1()
   
   map:start_coroutine(function()
     local options = {
-      entities_ignore_suspend = {hero, enemy_group_1_1}
+      entities_ignore_suspend = {hero, enemy_group_1_1, moblin_fire}
     }
     map:set_cinematic_mode(true, options)
     -- Movement
@@ -139,6 +156,11 @@ function map:launch_cinematic_1()
     m:set_speed(40)
     movement(m, hero)
     hero:set_animation("stopped")
+    local x, y, layer = enemy_group_1_1:get_position()
+    local symbol = map:create_symbol_exclamation(x - 16, y - 16, layer + 1)
+    wait(2000)
+    symbol:remove()
+    map:init_music()
     dialog("maps.caves.egg_of_the_dream_fish.moblins_cave.moblins_1")
     door_manager:close_if_enemies_not_dead(map, "enemy_group_1", "door_group_1")
     for enemy in map:get_entities("enemy_group_1") do
@@ -173,6 +195,26 @@ function map:launch_cinematic_2()
     m:set_speed(40)
     movement(m, hero)
     hero:set_animation("stopped")
+    local x, y, layer = enemy_group_2_1:get_position()
+    local symbol_1 = map:create_symbol_exclamation(x - 16, y - 16, layer + 1)
+    wait(200)
+    local x, y, layer = enemy_group_2_2:get_position()
+    local symbol_2 = map:create_symbol_exclamation(x - 16, y - 16, layer + 1)
+    wait(200)
+    local x, y, layer = enemy_group_2_3:get_position()
+    local symbol_3 = map:create_symbol_exclamation(x - 16, y - 16, layer + 1)
+    wait(200)
+    local x, y, layer = enemy_group_2_4:get_position()
+    local symbol_4 = map:create_symbol_exclamation(x - 16, y - 16, layer + 1)
+    wait(200)
+    local x, y, layer = moblin_chief:get_position()
+    local symbol_5 = map:create_symbol_exclamation(x - 16, y - 32, layer + 1)
+    wait(2000)
+    symbol_1:remove()
+    symbol_2:remove()
+    symbol_3:remove()
+    symbol_4:remove()
+    symbol_5:remove()    
     -- Dialog box
     local dialog_box = game:get_dialog_box()
     local alignement = dialog_box:get_position()
@@ -276,4 +318,9 @@ function map:launch_cinematic_4()
     map:set_cinematic_mode(false, options)
   end)
 
+end
+
+local step = game:get_value("main_quest_step")
+if step == 9 then
+  separator_manager:manage_map(map)
 end

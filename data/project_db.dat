@@ -369,7 +369,6 @@ sprite{ id = "entities/chest", description = "Chest (normal)" }
 sprite{ id = "entities/claw_chain", description = "Claw chain" }
 sprite{ id = "entities/claw_crane", description = "Claw crane" }
 sprite{ id = "entities/claw_up", description = "Claw up" }
-sprite{ id = "entities/collapse_symbol", description = "Collapse symbol" }
 sprite{ id = "entities/color_platform_green", description = "Color platform green" }
 sprite{ id = "entities/color_platform_orange", description = "Color plateform orange" }
 sprite{ id = "entities/color_platform_red", description = "Color platform red" }
@@ -413,7 +412,6 @@ sprite{ id = "entities/entrance_dungeon_8_bis", description = "Entrance dungeon 
 sprite{ id = "entities/entrance_dungeon_door", description = "Entrance dungeons" }
 sprite{ id = "entities/entrance_moblin_cave", description = "Entrance moblin cave" }
 sprite{ id = "entities/entrance_southern_face_shrine", description = "Entrance southern face shrine" }
-sprite{ id = "entities/exclamation_symbol", description = "exclamation symbol" }
 sprite{ id = "entities/explosion", description = "Explosion" }
 sprite{ id = "entities/eye_switch_blue", description = "Eye switch blue" }
 sprite{ id = "entities/eye_switch_red", description = "Eye switch red" }
@@ -452,7 +450,6 @@ sprite{ id = "entities/house_dungeon_7", description = "House dungeon 7" }
 sprite{ id = "entities/ice_block", description = "Ice block" }
 sprite{ id = "entities/instrument_big_sparkle", description = "Instrument big sparkle" }
 sprite{ id = "entities/instrument_small_sparkle", description = "Instrument small sparkle" }
-sprite{ id = "entities/interrogation_symbol", description = "Interrogation symbol" }
 sprite{ id = "entities/iron_ball", description = "Iron ball" }
 sprite{ id = "entities/items", description = "Items" }
 sprite{ id = "entities/kanalet_canvas", description = "Kanalet canvas" }
@@ -570,6 +567,9 @@ sprite{ id = "entities/stone_small_white", description = "Small white stone" }
 sprite{ id = "entities/sun", description = "Sun" }
 sprite{ id = "entities/swell", description = "Swell" }
 sprite{ id = "entities/switch", description = "Switch" }
+sprite{ id = "entities/symbol_collapse", description = "Symbol collapse" }
+sprite{ id = "entities/symbol_exclamation", description = "Symbol exclamation" }
+sprite{ id = "entities/symbol_interrogation", description = "Symbol interrogation" }
 sprite{ id = "entities/teletransporter", description = "Teletransporter" }
 sprite{ id = "entities/teletransporter_blue", description = "Teletransporter blue" }
 sprite{ id = "entities/teletransporter_dungeon", description = "Teletransporter dungeon" }
