@@ -71,11 +71,13 @@ animation{
 animation{
   name = "sitting_text",
   src_image = "enemies/boss/moblin_chief.png",
+  frame_delay = 200,
+  frame_to_loop_on = 0,
   directions = {
-    { x = 512, y = 64, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61 },
-    { x = 512, y = 64, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61 },
-    { x = 512, y = 64, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61 },
-    { x = 512, y = 64, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61 },
+    { x = 512, y = 64, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61, num_frames = 4 },
+    { x = 512, y = 64, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61, num_frames = 4 },
+    { x = 512, y = 64, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61, num_frames = 4 },
+    { x = 512, y = 64, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61, num_frames = 4 },
   },
 }
 animation{
