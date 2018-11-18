@@ -53,8 +53,8 @@ function map:on_opening_transition_finished(destination)
 end
 
 -- Treasures
-treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_2_", "pickable_small_key_1", nil)
-treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_5_", "pickable_small_key_2", nil)
+treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_2_", "pickable_small_key_1")
+treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_5_", "pickable_small_key_2")
 treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_3_", "chest_compass")
 treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_17_", "chest_power_bracelet")
 

@@ -1248,7 +1248,7 @@ destination{
 enemy{
   layer = 0,
   x = 504,
-  y = 181,
+  y = 189,
   direction = 0,
   breed = "goomba",
 }
@@ -1256,7 +1256,7 @@ enemy{
 enemy{
   layer = 0,
   x = 216,
-  y = 181,
+  y = 189,
   direction = 0,
   breed = "goomba",
 }

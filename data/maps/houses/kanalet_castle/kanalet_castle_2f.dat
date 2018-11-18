@@ -1839,6 +1839,7 @@ stairs{
 }
 
 pickable{
+  name = "pickable_golden_leaf_4",
   layer = 0,
   x = 136,
   y = 189,
@@ -1894,6 +1895,12 @@ custom_entity{
   layer = 0,
   x = 232,
   y = 141,
+  properties = {
+    {
+      key = "enemy",
+      value = "darknut",
+    },
+  },
   width = 16,
   height = 16,
   direction = 1,
@@ -1949,7 +1956,7 @@ enemy{
   layer = 0,
   x = 152,
   y = 229,
-  direction = 2,
+  direction = 0,
   breed = "fireball",
   treasure_name = "fairy",
 }
@@ -1968,10 +1975,10 @@ custom_entity{
 enemy{
   name = "enemy_group_2_1",
   layer = 0,
-  x = 480,
-  y = 77,
+  x = 504,
+  y = 85,
   direction = 3,
-  breed = "zol_green",
+  breed = "boss/hinox_master",
 }
 
 destructible{
@@ -2112,6 +2119,16 @@ destructible{
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
+}
+
+enemy{
+  name = "enemy_group_2_2",
+  layer = 0,
+  x = 232,
+  y = 141,
+  direction = 3,
+  breed = "darknut",
+  treasure_name = "random",
 }
 
 tile{
@@ -2797,7 +2814,7 @@ custom_entity{
   name = "kanalet_darknut_statue_3",
   layer = 1,
   x = 96,
-  y = 125,
+  y = 133,
   width = 8,
   height = 32,
   direction = 2,
@@ -2808,7 +2825,7 @@ custom_entity{
   name = "kanalet_darknut_statue_4",
   layer = 1,
   x = 224,
-  y = 125,
+  y = 133,
   width = 8,
   height = 32,
   direction = 2,

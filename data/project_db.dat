@@ -239,8 +239,8 @@ sprite{ id = "enemies/chicken", description = "Chicken" }
 sprite{ id = "enemies/chicken_mortal", description = "Chicken mortal" }
 sprite{ id = "enemies/crow", description = "Crow" }
 sprite{ id = "enemies/cukeman", description = "Cukeman" }
+sprite{ id = "enemies/darknut", description = "Darknut sword" }
 sprite{ id = "enemies/darknut_bow", description = "Darknut bow" }
-sprite{ id = "enemies/darknut_sword", description = "Darknut sword" }
 sprite{ id = "enemies/death_ball", description = "Death ball" }
 sprite{ id = "enemies/dog", description = "Dog" }
 sprite{ id = "enemies/enemy_killed", description = "Enemy killed" }
@@ -1108,6 +1108,7 @@ enemy{ id = "camo_goblin_red", description = "Camo goblin red" }
 enemy{ id = "chicken", description = "Chicken" }
 enemy{ id = "chicken_mortal", description = "Chicken mortal" }
 enemy{ id = "crow", description = "Crow" }
+enemy{ id = "darknut", description = "Darknut" }
 enemy{ id = "death_ball", description = "Death ball" }
 enemy{ id = "dog", description = "Dog" }
 enemy{ id = "evil_tile", description = "Evile tile" }
@@ -1131,6 +1132,7 @@ enemy{ id = "hooded_stalfos", description = "Hooded stalfos" }
 enemy{ id = "keese", description = "Keese" }
 enemy{ id = "leever", description = "Leever" }
 enemy{ id = "like_like", description = "Like Like" }
+enemy{ id = "mad_bomber", description = "Mad bomber" }
 enemy{ id = "maskass", description = "Maskass" }
 enemy{ id = "moblin", description = "Moblin" }
 enemy{ id = "moblin_dog_spear", description = "Moblin dog spear" }
@@ -1197,6 +1199,7 @@ entity{ id = "pickable_fly", description = "Pickable fly" }
 entity{ id = "powder", description = "Powder" }
 entity{ id = "seagull", description = "Seagull" }
 entity{ id = "statue", description = "Statue" }
+entity{ id = "statue_enemy", description = "Statue enemy" }
 entity{ id = "statue_pig", description = "Statue pig" }
 entity{ id = "torch", description = "Torch" }
 entity{ id = "unstable_floor", description = "Unstable Floor" }

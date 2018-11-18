@@ -45,7 +45,7 @@ end
 -- Enemies
 
 -- Treasures
-treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_7_", "pickable_small_key_1", nil)
+treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_7_", "pickable_small_key_1")
 
 -- Doors
 door_manager:open_when_pot_break(map, "door_group_1_")

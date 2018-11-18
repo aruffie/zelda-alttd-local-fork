@@ -5,6 +5,7 @@ local hero = map:get_hero()
 
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
+require("scripts/multi_events")
 
 -- Events
 
@@ -44,6 +45,15 @@ function map:init_map_entities()
   if variant > 4 then
     baton:set_enabled(false)
   end
+  
+  -- Golden leaves
+  if pickable_golden_leaf_1 ~= nil then
+    pickable_golden_leaf_1:set_enabled(false)
+  end
+  if pickable_golden_leaf_2 ~= nil then
+    pickable_golden_leaf_2:set_enabled(false)
+  end
+  
   
 end
 
@@ -109,6 +119,22 @@ function monkey:on_interaction()
   map:talk_to_monkey()
 
 end
+
+mad_bomber_1:register_event("on_dead", function()
+    
+  if not game:get_value("golden_leaf_1") and pickable_golden_leaf_1 ~= nil  then
+    pickable_golden_leaf_1:set_enabled(true)
+  end
+  
+end)
+
+crow_1:register_event("on_dead", function()
+    
+  if not game:get_value("golden_leaf_1") and pickable_golden_leaf_2 ~= nil  then
+    pickable_golden_leaf_2:set_enabled(true)
+  end
+  
+end)
 
 -- Cinematics
 -- This is the cinematic that monkeys build the bridge

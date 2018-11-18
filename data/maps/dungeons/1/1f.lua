@@ -1,12 +1,3 @@
--- Lua script of map dungeons/1/1f.
--- This script is executed every time the hero enters this map.
-
--- Feel free to modify the code below.
--- You can add more events and remove the ones you don't need.
-
--- See the Solarus Lua API documentation:
--- http://www.solarus-games.org/doc/latest
-
 local map = ...
 local separator = ...
 local game = map:get_game()
@@ -59,7 +50,7 @@ end
 enemy_manager:execute_when_vegas_dead(map, "enemy_group_13")
 
 -- Treasures
-treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_7_", "pickable_small_key_1", nil)
+treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_7_", "pickable_small_key_1")
 treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_12_", "chest_rupee_1")
 treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_13_", "chest_beak_of_stone")
 treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_4_", "chest_map")

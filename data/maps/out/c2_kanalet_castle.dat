@@ -7077,51 +7077,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 600,
-  y = 32,
-  width = 16,
-  height = 8,
-  pattern = "1123",
-}
-
-tile{
-  layer = 0,
-  x = 592,
-  y = 32,
-  width = 8,
-  height = 32,
-  pattern = "1122",
-}
-
-tile{
-  layer = 0,
-  x = 600,
-  y = 56,
-  width = 16,
-  height = 8,
-  pattern = "1126",
-}
-
-tile{
-  layer = 0,
-  x = 600,
-  y = 40,
-  width = 16,
-  height = 16,
-  pattern = "1125",
-}
-
-tile{
-  layer = 0,
-  x = 616,
-  y = 32,
-  width = 8,
-  height = 32,
-  pattern = "1124",
-}
-
-tile{
-  layer = 0,
   x = 8,
   y = 8,
   width = 8,
@@ -8551,6 +8506,15 @@ tile{
   pattern = "2205",
 }
 
+tile{
+  layer = 0,
+  x = 600,
+  y = 32,
+  width = 16,
+  height = 16,
+  pattern = "1041",
+}
+
 custom_entity{
   layer = 0,
   x = 592,
@@ -9380,19 +9344,11 @@ teletransporter{
   name = "kanalet_castle_underground_1_A",
   layer = 0,
   x = 600,
-  y = 48,
+  y = 32,
   width = 16,
   height = 16,
   destination_map = "sideviews/kanalet_castle/sideview_1",
   destination = "kanalet_castle_underground_2_A",
-}
-
-stairs{
-  layer = 0,
-  x = 600,
-  y = 48,
-  direction = 1,
-  subtype = 3,
 }
 
 destination{
@@ -9423,14 +9379,16 @@ stairs{
 }
 
 pickable{
+  name = "pickable_golden_leaf_1",
   layer = 0,
   x = 568,
-  y = 221,
+  y = 229,
   treasure_name = "golden_leaf",
   treasure_savegame_variable = "golden_leaf_1",
 }
 
 pickable{
+  name = "pickable_golden_leaf_2",
   layer = 0,
   x = 136,
   y = 189,
@@ -9439,11 +9397,136 @@ pickable{
 }
 
 enemy{
+  name = "crow_1",
   layer = 0,
   x = 112,
   y = 189,
   direction = 0,
   breed = "crow",
+  treasure_name = "random",
+}
+
+destructible{
+  name = "bush_1",
+  layer = 0,
+  x = 608,
+  y = 45,
+  treasure_name = "random",
+  sprite = "entities/bush_grass",
+  destruction_sound = "bush",
+  weight = 1,
+  can_be_cut = true,
+}
+
+enemy{
+  layer = 0,
+  x = 544,
+  y = 53,
+  direction = 2,
+  breed = "darknut",
+  treasure_name = "random",
+}
+
+custom_entity{
+  name = "mad_bomber_1_placeholder_1",
+  layer = 0,
+  x = 568,
+  y = 205,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+enemy{
+  name = "mad_bomber_1",
+  layer = 0,
+  x = 552,
+  y = 253,
+  properties = {
+    {
+      key = "num_positions",
+      value = "6",
+    },
+  },
+  direction = 2,
+  breed = "mad_bomber",
+  treasure_name = "random",
+}
+
+custom_entity{
+  name = "mad_bomber_1_placeholder_2",
+  layer = 0,
+  x = 520,
+  y = 237,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+custom_entity{
+  name = "mad_bomber_1_placeholder_3",
+  layer = 0,
+  x = 536,
+  y = 285,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+custom_entity{
+  name = "mad_bomber_1_placeholder_4",
+  layer = 0,
+  x = 600,
+  y = 285,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+custom_entity{
+  name = "mad_bomber_1_placeholder_5",
+  layer = 0,
+  x = 616,
+  y = 237,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+custom_entity{
+  name = "mad_bomber_1_placeholder_6",
+  layer = 0,
+  x = 568,
+  y = 253,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+enemy{
+  layer = 0,
+  x = 552,
+  y = 477,
+  direction = 2,
+  breed = "darknut",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 152,
+  y = 493,
+  direction = 0,
+  breed = "darknut",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 0,
+  x = 152,
+  y = 293,
+  direction = 0,
+  breed = "darknut",
   treasure_name = "random",
 }
 
