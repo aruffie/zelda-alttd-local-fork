@@ -23,6 +23,7 @@ local x -- X Enemy
 local y -- Y Enemy
 local x_initial
 local y_initial
+local symbol_collapse
 local arrow
 local launch_boss
 
@@ -68,6 +69,9 @@ end
 
 function enemy:go_to_initial_position()
 
+    if symbol_collapse ~= nil then
+      symbol_collapse:remove()
+    end
     enemy:set_attack_consequence("sword", "protected")
     sprite:set_animation("walking")
     local movement_initial = sol.movement.create("target")
@@ -155,7 +159,7 @@ function enemy:charge()
     movement_charge:set_speed(128)
     movement_charge:set_smooth(false)
     movement_charge:set_angle(angle)
-   function  movement_charge:on_obstacle_reached()
+    function  movement_charge:on_obstacle_reached()
       local camera = map:get_camera()
       local shake_config = {
         count = 10,
@@ -186,6 +190,9 @@ function enemy:set_shocked()
     sol.timer.start(enemy, 4000, function()
         enemy:go_to_initial_position()
     end)
+    function movement_jump:on_finished()
+      symbol_collapse = enemy:create_symbol_collapse()
+    end
     movement_jump:start(enemy)
 
 end

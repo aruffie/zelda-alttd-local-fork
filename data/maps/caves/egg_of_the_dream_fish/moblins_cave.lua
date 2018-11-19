@@ -121,23 +121,6 @@ function bowwow:on_interaction()
 
 end
 
-function map:create_symbol_exclamation(x, y, layer)
-  
-  sol.audio.play_sound("ok")
-  local symbol = map:create_custom_entity({
-    sprite = "entities/symbol_exclamation",
-    x = x,
-    y = y,
-    width = 16,
-    height = 16,
-    layer = layer,
-    direction = 0
-  })
-
-  return symbol
-  
-end
-
 -- Cinematics
 -- This is the cinematic that the hero enters the cave to fight the Moblins
 function map:launch_cinematic_1()
@@ -156,8 +139,7 @@ function map:launch_cinematic_1()
     m:set_speed(40)
     movement(m, hero)
     hero:set_animation("stopped")
-    local x, y, layer = enemy_group_1_1:get_position()
-    local symbol = map:create_symbol_exclamation(x - 16, y - 16, layer + 1)
+    local symbol = enemy_group_1_1:create_symbol_exclamation()
     wait(2000)
     symbol:remove()
     map:init_music()
@@ -195,20 +177,15 @@ function map:launch_cinematic_2()
     m:set_speed(40)
     movement(m, hero)
     hero:set_animation("stopped")
-    local x, y, layer = enemy_group_2_1:get_position()
-    local symbol_1 = map:create_symbol_exclamation(x - 16, y - 16, layer + 1)
+    local symbol_1 = enemy_group_2_1:create_symbol_exclamation()
     wait(200)
-    local x, y, layer = enemy_group_2_2:get_position()
-    local symbol_2 = map:create_symbol_exclamation(x - 16, y - 16, layer + 1)
+    local symbol_2 = enemy_group_2_2:create_symbol_exclamation()
     wait(200)
-    local x, y, layer = enemy_group_2_3:get_position()
-    local symbol_3 = map:create_symbol_exclamation(x - 16, y - 16, layer + 1)
+    local symbol_3 = enemy_group_2_3:create_symbol_exclamation()
     wait(200)
-    local x, y, layer = enemy_group_2_4:get_position()
-    local symbol_4 = map:create_symbol_exclamation(x - 16, y - 16, layer + 1)
+    local symbol_4 = enemy_group_2_4:create_symbol_exclamation()
     wait(200)
-    local x, y, layer = moblin_chief:get_position()
-    local symbol_5 = map:create_symbol_exclamation(x - 16, y - 32, layer + 1)
+    local symbol_5 = moblin_chief:create_symbol_exclamation()
     wait(2000)
     symbol_1:remove()
     symbol_2:remove()

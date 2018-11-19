@@ -126,5 +126,65 @@ function enemy_meta:on_attacking_hero(hero, enemy_sprite)
   end
 end
 
+-- Create an exclamation symbol near npc
+function enemy_meta:create_symbol_exclamation(x, y, layer)
+  
+  local map = self:get_map()
+  local x, y, layer = self:get_position()
+  sol.audio.play_sound("ok")
+  local symbol = map:create_custom_entity({
+    sprite = "entities/symbol_exclamation",
+    x = x - 16,
+    y = y - 16,
+    width = 16,
+    height = 16,
+    layer = layer + 1,
+    direction = 0
+  })
+
+  return symbol
+  
+end
+
+-- Create an interrogation symbol near npc
+function enemy_meta:create_symbol_interrogation()
+  
+  local map = self:get_map()
+  local x, y, layer = self:get_position()
+  sol.audio.play_sound("ok")
+  local symbol = map:create_custom_entity({
+    sprite = "entities/symbol_interrogation",
+    x = x,
+    y = y,
+    width = 16,
+    height = 16,
+    layer = layer + 1,
+    direction = 0
+  })
+
+  return symbol
+  
+end
+
+-- Create a collapse symbol near npc
+function enemy_meta:create_symbol_collapse()
+  
+  local map = self:get_map()
+  local width, height = self:get_sprite():get_size()
+  local x, y, layer = self:get_position()
+  local symbol = map:create_custom_entity({
+    sprite = "entities/symbol_collapse",
+    x = x,
+    y = y - height / 2,
+    width = 16,
+    height = 16,
+    layer = layer + 1,
+    direction = 0
+  })
+
+  return symbol
+  
+end
+
 
 return true
