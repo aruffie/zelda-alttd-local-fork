@@ -1,14 +1,8 @@
--- Lua script of map caves/egg_of_the_dream_fish/cave_1.
--- This script is executed every time the hero enters this map.
-
--- Feel free to modify the code below.
--- You can add more events and remove the ones you don't need.
-
--- See the Solarus Lua API documentation:
--- http://www.solarus-games.org/doc/latest
-
+-- Variables
 local map = ...
 local game = map:get_game()
+
+-- Include scripts
 local separator_manager = require("scripts/maps/separator_manager")
 local audio_manager = require("scripts/audio_manager")
 
@@ -27,12 +21,12 @@ function map:init_music()
 
 end
 
-separator_manager:manage_map(map)
-
-
---Weak doors play secret sound on opened
+-- Doors events
 function weak_door_1:on_opened()
   
   sol.audio.play_sound("secret_1")
   
 end
+
+-- Separators
+separator_manager:manage_map(map)

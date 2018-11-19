@@ -11,6 +11,8 @@ function map:on_started(destination)
 
   -- Music
   map:init_music()
+  -- Entities
+  map:init_map_entities()
   
 end
 
@@ -21,9 +23,9 @@ function map:init_music()
 
 end
 
--- Map events
-function map:on_started()
-
+-- Initializes entities based on player's progress
+function map:init_map_entities()
+ 
   --Invisible things: only visible with the Lens
   if game:get_value("get_lens") then
     map:set_entities_enabled("trader",true)
@@ -33,7 +35,7 @@ function map:on_started()
 
 end
 
--- Traders
+-- NPC events
 for trader in map:get_entities("trader") do
   function trader:on_interaction()
     local dialog
@@ -57,4 +59,5 @@ for trader in map:get_entities("trader") do
   end
 end
 
+-- Separators
 separator_manager:manage_map(map)

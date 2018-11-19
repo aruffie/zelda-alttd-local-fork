@@ -186,5 +186,4 @@ function enemy_meta:create_symbol_collapse()
   
 end
 
-
 return true

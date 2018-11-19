@@ -9,7 +9,17 @@ local audio_manager = require("scripts/audio_manager")
 -- Map events
 function map:on_started()
 
+  -- Music
+  map:init_music()
+  -- Fairy
   fairy_manager:init_map(map, "fairy")
+
+end
+
+-- Initialize the music of the map
+function map:init_music()
+
+  audio_manager:play_music("72_great_fairy_fountain")
 
 end
 

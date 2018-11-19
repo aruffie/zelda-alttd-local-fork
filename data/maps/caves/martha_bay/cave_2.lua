@@ -11,15 +11,8 @@ function map:on_started(destination)
 
   -- Music
   map:init_music()
-  
-  --Invisible things: only visible with the Lens
-  for entity in map:get_entities("invisible_entity") do
-    if game:get_value("get_lens") then
-      entity:set_visible(true)
-    else
-      entity:set_visible(false)
-    end
-  end
+  -- Entities
+  map:init_map_entities()
   
 end
 
@@ -30,13 +23,30 @@ function map:init_music()
 
 end
 
+-- Initializes entities based on player's progress
+function map:init_map_entities()
+ 
+  --Invisible things: only visible with the Lens
+  for entity in map:get_entities("invisible_entity") do
+    if game:get_value("get_lens") then
+      entity:set_visible(true)
+    else
+      entity:set_visible(false)
+    end
+  end
+
+end
+
 --Invisible things: only visible with the Lens
 function map:on_obtained_treasure(item, variant, treasure_savegame_variable)
+  
   if item:get_name() == "magnifying_lens" and item:get_variant() == 14 then
     for entity in map:get_entities("invisible_entity") do
 			entity:set_visible(false)
 		end
   end
+  
 end
 
+-- Separators
 separator_manager:manage_map(map)

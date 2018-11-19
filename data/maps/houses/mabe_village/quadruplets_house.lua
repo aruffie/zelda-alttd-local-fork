@@ -8,7 +8,9 @@ local audio_manager = require("scripts/audio_manager")
 -- Map events
 function map:on_started(destination)
 
+  -- Music
   map:init_music()
+  -- Entities
   map:init_map_entities()
 
 end

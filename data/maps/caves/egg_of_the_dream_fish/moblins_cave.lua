@@ -18,11 +18,11 @@ function map:on_started(destination)
   else
     map:init_music()
   end
+  -- Entities
   map:init_map_entities()
-  
   -- Doors
   map:set_doors_open("door_group_1", true)
-  -- Ennemis
+  -- Ennemies
   for enemy in map:get_entities("enemy_group_1") do
     enemy:get_sprite():set_direction(3)
   end
@@ -83,6 +83,7 @@ door_manager:open_when_enemies_dead(map,  "enemy_group_1",  "door_group_1")
 door_manager:open_when_enemies_dead(map,  "enemy_group_2",  "door_group_1")
 door_manager:open_when_enemies_dead(map,  "enemy_group_3",  "door_group_1")
 
+-- Sensors
 function sensor_2:on_activated()
 
   local step = game:get_value("main_quest_step")
@@ -107,6 +108,7 @@ function sensor_3:on_activated()
 
 end
 
+-- NPC events
 function bowwow:on_interaction()
 
   local step = game:get_value("main_quest_step")
@@ -297,6 +299,7 @@ function map:launch_cinematic_4()
 
 end
 
+-- Separators
 local step = game:get_value("main_quest_step")
 if step == 9 then
   separator_manager:manage_map(map)

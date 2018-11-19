@@ -11,7 +11,7 @@ function map:on_started(destination)
 
   -- Music
   map:init_music()
-    -- Mad bat
+  -- Mad bat
   mad_bat_manager:init_map(map, "mad_bat", "mad_bat_2")
   
 end

@@ -9,7 +9,7 @@ function map:on_started()
 
 end
 
---Doors events
+-- Doors events
 function weak_door_1:on_opened()
   sol.audio.play_sound("secret_1")
 end
