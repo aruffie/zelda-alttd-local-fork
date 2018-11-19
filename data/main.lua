@@ -56,24 +56,33 @@ end
 function sol.main:on_finished()
 
   sol.main.save_settings()
+  
 end
 
 local eff_m = require('scripts/maps/effect_manager')
 local fsa = require('scripts/maps/fsa_effect')
 local gb = require('scripts/maps/gb_effect')
+local audio_manager = require('scripts/audio_manager')
 -- Event called when the player pressed a keyboard key.
 function sol.main:on_key_pressed(key, modifiers)
 
   local handled = false
+  local game = sol.main.game
   if key == "f5" then
     -- F5: change the video mode.
     shader_manager:switch_shader()
   elseif key == 'f9' then
     eff_m:set_effect(sol.main.get_game(),gb)
+    game:set_value("mode", "gb")
+    audio_manager:refresh_music()
   elseif key == 'f7' then
     eff_m:set_effect(sol.main.get_game(),fsa)
+    game:set_value("mode", "snes")
+    audio_manager:refresh_music()
   elseif key == 'f8' then
+    game:set_value("mode", "snes")
     eff_m:set_effect(sol.main.get_game())
+    audio_manager:refresh_music()
   elseif key == "f11" or
     (key == "return" and (modifiers.alt or modifiers.control)) then
     -- F11 or Ctrl + return or Alt + Return: switch fullscreen.

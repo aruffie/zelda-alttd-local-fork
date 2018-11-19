@@ -121,4 +121,20 @@ function audio_manager:play_audio(id_audio)
 
 end
 
+-- Refresh audio according to the mode of play
+function audio_manager:refresh_music()
+  
+  local game = sol.main.game
+  local id_music = sol.audio.get_music()
+  local mode = (game ~= nil) and game:get_value("mode") or "snes"
+  local directory = (mode == "gb") and "gb" or "snes"
+  if directory == "gb" then
+    id_music = id_music:gsub("snes/", "gb/")
+  else
+    id_music = id_music:gsub("gb/", "snes/")
+  end
+  sol.audio.play_music(id_music) 
+
+end
+
 return audio_manager
