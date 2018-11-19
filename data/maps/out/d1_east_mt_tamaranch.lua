@@ -10,10 +10,12 @@ local audio_manager = require("scripts/audio_manager")
 -- Map events
 function map:on_started()
 
+-- Music
  map:init_music()
+ -- Entities
+map:init_map_entities()
+ -- Digging
  map:set_digging_allowed(true)
-  -- Travel
-  travel_transporter:set_enabled(false)
 
 end
 
@@ -29,13 +31,24 @@ function map:init_music()
 
 end
 
-function travel_sensor:on_activated()
-
-    travel_manager:init(map, 3)
-
+-- Initializes Entities based on player's progress
+function map:init_map_entities()
+  
+    -- Travel
+  travel_transporter:set_enabled(false)
+  
 end
 
--- Dors events
+-- Doors events
 function weak_door_1:on_opened()
+  
   sol.audio.play_sound("secret_1")
+  
+end
+
+-- Sensors events
+function travel_sensor:on_activated()
+
+  travel_manager:init(map, 3)
+
 end

@@ -13,10 +13,31 @@ function map:on_started(destination)
 
   -- Music
   map:init_music()
+  -- Entities
+  map:init_map_entities()
   -- Digging
   map:set_digging_allowed(true)
-  owl_7:set_enabled(false)
 
+end
+
+-- Initialize the music of the map
+function map:init_music()
+  
+  if game:get_value("main_quest_step") == 3  then
+    audio_manager:play_music("07_koholint_island")
+  elseif tarin_chased_by_bees then
+    audio_manager:play_music("39_bees")
+  else
+    audio_manager:play_music("10_overworld")
+  end
+
+end
+
+-- Initializes Entities based on player's progress
+function map:init_map_entities()
+  
+ -- Owl
+  owl_7:set_enabled(false)
   -- Travel
   travel_transporter:set_enabled(false)
   -- Statue pig
@@ -55,22 +76,10 @@ function map:on_started(destination)
       end)
     end
   end)
-
-end
-
--- Initialize the music of the map
-function map:init_music()
   
-  if game:get_value("main_quest_step") == 3  then
-    audio_manager:play_music("07_koholint_island")
-  elseif tarin_chased_by_bees then
-    audio_manager:play_music("39_bees")
-  else
-    audio_manager:play_music("10_overworld")
-  end
-
 end
 
+-- Dungeon 3 opening
 function map:open_dungeon_3()
 
   dungeon_3_entrance:get_sprite():set_animation("opened")
@@ -78,9 +87,8 @@ function map:open_dungeon_3()
 
 end
 
--- Events
-
-function  map:talk_to_tarin() 
+-- Discussion with Tarin
+function map:talk_to_tarin() 
 
   game:start_dialog("maps.out.prairie.tarin_1", game:get_player_name(), function(answer)
     if answer == 1 then
@@ -92,7 +100,9 @@ function  map:talk_to_tarin()
 
 end
 
+-- Tarin search honey
 function map:tarin_search_honey()
+  
   local camera = map:get_camera()
   camera:start_manual()
   local x_tarin, y_tarin, layer_tarin = tarin:get_position()
@@ -162,8 +172,10 @@ function map:tarin_search_honey()
         map:tarin_leave_map()
     end)
   end)
+
 end
 
+-- Tarin run
 function map:tarin_run()
 
   local tarin_sprite = tarin:get_sprite()
@@ -174,20 +186,16 @@ function map:tarin_run()
   movement:set_initial_angle(315)
   movement:set_ignore_obstacles(true)
   movement:start(tarin_invisible)
-  function movement:on_finished()
-    --map:tarin_go_next_place(index)
-  end
   function movement:on_position_changed()
-      local x_tarin,y_tarin= tarin_invisible:get_position()
-      local circle_angle = circle_center:get_angle(tarin_invisible)
-      local movement_angle = circle_angle + math.pi/2
-      movement_angle = math.deg(movement_angle)
-      local direction = math.floor((movement_angle + 45) / 90)
-      direction = direction % 4
-      tarin:set_position(x_tarin, y_tarin)
-      tarin_sprite:set_direction(direction)
+    local x_tarin,y_tarin= tarin_invisible:get_position()
+    local circle_angle = circle_center:get_angle(tarin_invisible)
+    local movement_angle = circle_angle + math.pi/2
+    movement_angle = math.deg(movement_angle)
+    local direction = math.floor((movement_angle + 45) / 90)
+    direction = direction % 4
+    tarin:set_position(x_tarin, y_tarin)
+    tarin_sprite:set_direction(direction)
   end
-
   for bee in map:get_entities("bee_chase") do
     local movement_bee = sol.movement.create("target")
     local bee_sprite = bee:get_sprite()
@@ -196,17 +204,18 @@ function map:tarin_run()
     movement_bee:set_ignore_obstacles(true)
     movement_bee:start(bee)
     function movement_bee:on_position_changed()
-        local circle_angle = circle_center:get_angle(tarin_invisible)
-        local movement_angle = circle_angle + math.pi/2
-        movement_angle = math.deg(movement_angle)
-        local direction = math.floor((movement_angle + 45) / 90)
-        direction = direction % 4
-        bee_sprite:set_direction(direction)
+      local circle_angle = circle_center:get_angle(tarin_invisible)
+      local movement_angle = circle_angle + math.pi/2
+      movement_angle = math.deg(movement_angle)
+      local direction = math.floor((movement_angle + 45) / 90)
+      direction = direction % 4
+      bee_sprite:set_direction(direction)
     end
   end
 
 end
 
+-- Tarin leave map
 function map:tarin_leave_map()
   
   tarin_invisible:get_movement():stop()
@@ -217,10 +226,10 @@ function map:tarin_leave_map()
   movement_target:set_target(tarin_leave_map)
   movement_target:start(tarin_invisible)
   function movement_target:on_position_changed()
-      local x_tarin,y_tarin= tarin_invisible:get_position()
-      local direction = movement_target:get_direction4()
-      tarin:set_position(x_tarin, y_tarin)
-      tarin_sprite:set_direction(direction)
+    local x_tarin,y_tarin= tarin_invisible:get_position()
+    local direction = movement_target:get_direction4()
+    tarin:set_position(x_tarin, y_tarin)
+    tarin_sprite:set_direction(direction)
   end
   function movement_target:on_finished()
     tarin_invisible:set_enabled(false)
@@ -261,43 +270,20 @@ function map:tarin_leave_map()
 
 end
 
-function travel_sensor:on_activated()
+-- Doors events
+function weak_door_1:on_opened()
+  
+  sol.audio.play_sound("secret_1")
+  
+end
 
-    travel_manager:init(map, 1)
+function weak_door_2:on_opened()
+  
+  sol.audio.play_sound("secret_1")
 
 end
 
-function dungeon_3_lock:on_interaction()
-
-      if game:get_value("main_quest_step") < 16 then
-          game:start_dialog("maps.out.prairie.dungeon_3_lock")
-      elseif game:get_value("main_quest_step") == 16 then
-        sol.audio.stop_music()
-        hero:freeze()
-        sol.timer.start(map, 1000, function() 
-          sol.audio.play_sound("shake")
-          local camera = map:get_camera()
-          local shake_config = {
-              count = 32,
-              amplitude = 4,
-              speed = 90,
-          }
-          camera:shake(shake_config, function()
-            sol.audio.play_sound("secret_2")
-            local sprite = dungeon_3_entrance:get_sprite()
-            sprite:set_animation("opening")
-            sol.timer.start(map, 800, function() 
-              map:open_dungeon_3()
-              hero:unfreeze()
-              map:init_music()
-            end)
-          end)
-          game:set_value("main_quest_step", 17)
-        end)
-      end
-
-end
-
+-- NPCs events
 function sign_start:on_interaction()
 
   game:start_dialog("maps.out.south_prairie.surprise_3")
@@ -311,6 +297,44 @@ function tarin:on_interaction()
 
 end
 
+function dungeon_3_lock:on_interaction()
+
+  if game:get_value("main_quest_step") < 16 then
+      game:start_dialog("maps.out.prairie.dungeon_3_lock")
+  elseif game:get_value("main_quest_step") == 16 then
+    sol.audio.stop_music()
+    hero:freeze()
+    sol.timer.start(map, 1000, function() 
+      sol.audio.play_sound("shake")
+      local camera = map:get_camera()
+      local shake_config = {
+          count = 32,
+          amplitude = 4,
+          speed = 90,
+      }
+      camera:shake(shake_config, function()
+        sol.audio.play_sound("secret_2")
+        local sprite = dungeon_3_entrance:get_sprite()
+        sprite:set_animation("opening")
+        sol.timer.start(map, 800, function() 
+          map:open_dungeon_3()
+          hero:unfreeze()
+          map:init_music()
+        end)
+      end)
+      game:set_value("main_quest_step", 17)
+    end)
+  end
+
+end
+
+-- Sensors events
+function travel_sensor:on_activated()
+
+    travel_manager:init(map, 1)
+
+end
+
 function owl_7_sensor:on_activated()
 
   if game:get_value("main_quest_step") == 18  and game:get_value("owl_7") ~= true then
@@ -320,8 +344,4 @@ function owl_7_sensor:on_activated()
   end
 
 end
-
---Weak doors play secret sound on opened
-function weak_door_1:on_opened() sol.audio.play_sound("secret_1") end
-function weak_door_2:on_opened() sol.audio.play_sound("secret_1") end
 

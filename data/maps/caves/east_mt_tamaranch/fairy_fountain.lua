@@ -23,7 +23,7 @@ function map:init_music()
 
 end
 
--- NPC events
+-- NPCs events
 function fairy_fountain:on_activated()
 
   fairy_manager:launch_fairy_if_hero_not_max_life(map, "fairy")

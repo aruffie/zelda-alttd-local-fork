@@ -75,7 +75,7 @@ function map:open_book(book)
 
 end
 
--- NPC events
+-- NPCs events
 function book_1_interaction:on_interaction()
 
       map:open_book(1)

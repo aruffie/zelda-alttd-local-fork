@@ -108,7 +108,7 @@ function sensor_3:on_activated()
 
 end
 
--- NPC events
+-- NPCs events
 function bowwow:on_interaction()
 
   local step = game:get_value("main_quest_step")

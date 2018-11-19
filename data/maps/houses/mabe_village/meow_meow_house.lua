@@ -108,7 +108,7 @@ function map:talk_to_small_bowwow_2()
 
 end
 
--- NPC events
+-- NPCs events
 function meow_meow:on_interaction()
 
   map:talk_to_meow_meow()

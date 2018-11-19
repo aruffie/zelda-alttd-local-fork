@@ -293,7 +293,7 @@ function separator:on_activated()
   end
 end
 
--- NPC events
+-- NPCs events
 function tarin:on_interaction()
 
   if game:get_value("main_quest_step") < 5 then

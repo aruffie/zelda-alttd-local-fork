@@ -159,7 +159,7 @@ function map:talk_to_marin()
 
 end
 
--- Sensor events
+-- Sensors events
 function exit_sensor:on_activated()
 
   if game:has_item("shield") == false then
@@ -171,7 +171,7 @@ function exit_sensor:on_activated()
 
 end
 
--- NPC events
+-- NPCs events
 function tarin:on_interaction()
 
   map:talk_to_tarin()

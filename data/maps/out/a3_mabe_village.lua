@@ -322,7 +322,7 @@ function map:repeat_kids_scared_direction_check()
 
 end
 
--- Sensor events
+-- Sensors events
 function marin_sensor_1:on_activated()
 
   if marin:is_sing() then
@@ -367,7 +367,7 @@ function push_weathercook_sensor:on_activated_repeat()
     
 end
 
--- NPC events
+-- NPCs events
 function grand_ma:on_interaction()
 
   map:talk_to_grand_ma()

@@ -35,7 +35,7 @@ function map:init_map_entities()
 
 end
 
--- NPC events
+-- NPCs events
 for trader in map:get_entities("trader") do
   function trader:on_interaction()
     local dialog

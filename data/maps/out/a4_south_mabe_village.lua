@@ -59,7 +59,7 @@ function map:on_obtaining_treasure(treasure_item, treasure_variant, treasure_sav
   end
 
 end
--- Sensor events
+-- Sensors events
 function owl_1_sensor:on_activated()
 
   if game:get_value("owl_1") == true then
@@ -82,7 +82,7 @@ function owl_4_sensor:on_activated()
 
 end
 
--- NPC events
+-- NPCs events
 function dungeon_1_lock:on_interaction()
 
   if game:get_value("main_quest_step") < 6 then

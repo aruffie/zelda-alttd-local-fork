@@ -7,7 +7,6 @@ local hero = map:get_hero()
 local travel_manager = require("scripts/maps/travel_manager")
 local audio_manager = require("scripts/audio_manager")
 
-
 -- Map events
 function map:on_started()
 
@@ -35,8 +34,15 @@ end
 -- Initializes Entities based on player's progress
 function map:init_map_entities()
   
-  -- Travel
+    -- Travel
   travel_transporter:set_enabled(false)
+  
+end
+
+--Doors events
+function weak_door_1:on_opened()
+  
+  sol.audio.play_sound("secret_1")
   
 end
 
@@ -45,11 +51,4 @@ function travel_sensor:on_activated()
 
   travel_manager:init(map, 2)
 
-end
-
---Doors events
-function weak_door_1:on_opened()
-  
-  sol.audio.play_sound("secret_1")
-  
 end

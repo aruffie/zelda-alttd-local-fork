@@ -10,13 +10,10 @@ function map:on_started()
 
   -- Music
   map:init_music()
+  -- Entities
+  map:init_map_entities()
   -- Digging
   map:set_digging_allowed(true)
-  --Mermaid statue pushed
-  if game:get_value("mermaid_statue_pushed") then
-      mermaid_statue_npc:set_enabled(false)
-      mermaid_statue:set_position(424,373)
-  end
 
 end
 
@@ -27,7 +24,18 @@ function map:init_music()
 
 end
 
--- NPC events
+-- Initializes Entities based on player's progress
+function map:init_map_entities()
+  
+  --Mermaid statue pushed
+  if game:get_value("mermaid_statue_pushed") then
+      mermaid_statue_npc:set_enabled(false)
+      mermaid_statue:set_position(424,373)
+  end
+  
+end
+
+-- NPCs events
 function mermaid_statue_npc:on_interaction()
 
   if game:get_item("magnifying_lens"):get_variant() == 13 then
@@ -38,7 +46,7 @@ function mermaid_statue_npc:on_interaction()
       sol.audio.play_sound("hero_pushes")
         local mermaid_statue_x,mermaid_statue_y = map:get_entity("mermaid_statue"):get_position()
         local i = 0
-        sol.timer.start(map,50,function()
+        sol.timer.start(map, 50, function()
           i = i + 1
           mermaid_statue_x = mermaid_statue_x - 1
           mermaid_statue:set_position(mermaid_statue_x, mermaid_statue_y)

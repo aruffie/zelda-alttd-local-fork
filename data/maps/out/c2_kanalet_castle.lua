@@ -7,16 +7,15 @@ local hero = map:get_hero()
 local audio_manager = require("scripts/audio_manager")
 require("scripts/multi_events")
 
--- Events
-
+-- Map events
 function map:on_started()
 
   -- Music
   map:init_music()
-  -- Digging
-  map:set_digging_allowed(true)
   -- Entities
   map:init_map_entities()
+  -- Digging
+  map:set_digging_allowed(true)
 
 end
 
@@ -32,10 +31,11 @@ function map:init_map_entities()
   
   local item = game:get_item("magnifying_lens")
   local variant = item:get_variant()
-
+  -- Castle door
   if game:get_value("castle_door_is_open") then
     castle_door:set_enabled(false)
   end
+  -- Baton and bridge
   if game:get_value("main_quest_step") < 14 then
     baton:set_enabled(false)
     bridge:set_enabled(false)
@@ -45,7 +45,6 @@ function map:init_map_entities()
   if variant > 4 then
     baton:set_enabled(false)
   end
-  
   -- Golden leaves
   if pickable_golden_leaf_1 ~= nil then
     pickable_golden_leaf_1:set_enabled(false)
@@ -54,72 +53,68 @@ function map:init_map_entities()
     pickable_golden_leaf_2:set_enabled(false)
   end
   
-  
 end
 
 -- Discussion with monkey
 function map:talk_to_monkey() 
 
-    local item = game:get_item("magnifying_lens")
-    local variant = item:get_variant()
-    if game:get_value("main_quest_step") < 12 then
-      game:start_dialog("maps.out.kanalet_castle.monkey_1")
-    elseif game:get_value("main_quest_step") < 14 then
-        if variant == 4 then
-          game:start_dialog("maps.out.kanalet_castle.monkey_3", function(answer) 
-            if answer == 1 then
-              game:start_dialog("maps.out.kanalet_castle.monkey_4", function()
-                map:launch_cinematic_1()
-              end)
-            else
-              game:start_dialog("maps.out.kanalet_castle.monkey_2")
-            end
-          end)
-        else
-          game:start_dialog("maps.out.kanalet_castle.monkey_2")
-        end
-    end
+  local item = game:get_item("magnifying_lens")
+  local variant = item:get_variant()
+  if game:get_value("main_quest_step") < 12 then
+    game:start_dialog("maps.out.kanalet_castle.monkey_1")
+  elseif game:get_value("main_quest_step") < 14 then
+      if variant == 4 then
+        game:start_dialog("maps.out.kanalet_castle.monkey_3", function(answer) 
+          if answer == 1 then
+            game:start_dialog("maps.out.kanalet_castle.monkey_4", function()
+              map:launch_cinematic_1()
+            end)
+          else
+            game:start_dialog("maps.out.kanalet_castle.monkey_2")
+          end
+        end)
+      else
+        game:start_dialog("maps.out.kanalet_castle.monkey_2")
+      end
+  end
 
 end
 
+-- Monkey leave bridge
 function map:monkey_leave_bridge()
 
-    local x, y, layer = monkey:get_position()
-    for i = 1, 9 do
-      local monkey_entity = map:get_entity("monk_" .. i)
-      local monkey_sprite = monkey_entity:get_sprite()
-      monkey_sprite:set_animation("walking")    
-      monkey_sprite:set_direction(1)    
-      local sprite = monkey_entity:get_sprite()
-      local movement = sol.movement.create("target")
-      movement:set_target(x, y - 300)
-      movement:set_speed(120)
-      movement:set_ignore_obstacles(true)
-      movement:start(monkey_entity)
-      function movement:on_finished()
-        monkey_entity:remove()
-      end
-    end
+  local x, y, layer = monkey:get_position()
+  for i = 1, 9 do
+    local monkey_entity = map:get_entity("monk_" .. i)
+    local monkey_sprite = monkey_entity:get_sprite()
+    monkey_sprite:set_animation("walking")    
+    monkey_sprite:set_direction(1)    
+    local sprite = monkey_entity:get_sprite()
     local movement = sol.movement.create("target")
     movement:set_target(x, y - 300)
-    movement:set_speed(80)
+    movement:set_speed(120)
     movement:set_ignore_obstacles(true)
-    movement:start(monkey)
+    movement:start(monkey_entity)
     function movement:on_finished()
-      monkey:remove()
-      hero:unfreeze()
-      game:set_hud_enabled(true)
-      game:set_pause_allowed(true)
-      game:set_value("main_quest_step", 14) 
+      monkey_entity:remove()
     end
+  end
+  local movement = sol.movement.create("target")
+  movement:set_target(x, y - 300)
+  movement:set_speed(80)
+  movement:set_ignore_obstacles(true)
+  movement:start(monkey)
+  function movement:on_finished()
+    monkey:remove()
+    hero:unfreeze()
+    game:set_hud_enabled(true)
+    game:set_pause_allowed(true)
+    game:set_value("main_quest_step", 14) 
+  end
+  
 end
 
-function monkey:on_interaction()
-
-  map:talk_to_monkey()
-
-end
-
+-- Enemies events
 mad_bomber_1:register_event("on_dead", function()
     
   if not game:get_value("golden_leaf_1") and pickable_golden_leaf_1 ~= nil  then
@@ -135,6 +130,13 @@ crow_1:register_event("on_dead", function()
   end
   
 end)
+
+-- NPCs events
+function monkey:on_interaction()
+
+  map:talk_to_monkey()
+
+end
 
 -- Cinematics
 -- This is the cinematic that monkeys build the bridge

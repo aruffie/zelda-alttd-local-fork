@@ -101,7 +101,7 @@ function map:talk_to_mother()
 
 end
 
--- NPC events
+-- NPCs events
 function father:on_interaction()
 
   map:talk_to_father()

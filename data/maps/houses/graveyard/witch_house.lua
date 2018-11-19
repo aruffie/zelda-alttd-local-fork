@@ -79,7 +79,7 @@ function map:launch_cinematic_1(slot)
 
 end
 
--- NPC events
+-- NPCs events
 function witch:on_interaction()
 
       map:talk_to_witch()

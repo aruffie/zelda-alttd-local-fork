@@ -46,7 +46,7 @@ function map:talk_to_alligator()
   end
 end
 
--- NPC events
+-- NPCs events
 function alligator:on_interaction()
 
   map:talk_to_alligator()

@@ -78,7 +78,7 @@ function map:talk_to_merchant()
 
 end
 
--- NPC events
+-- NPCs events
 function merchant:on_interaction()
 
     map:talk_to_merchant()

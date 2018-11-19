@@ -52,7 +52,7 @@ function map:talk_to_phone()
 
 end
 
--- NPC events
+-- NPCs events
 function phone_interaction:on_interaction()
 
     map:talk_to_phone()
