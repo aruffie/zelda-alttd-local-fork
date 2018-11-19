@@ -7,18 +7,16 @@ local hero = map:get_hero()
 local travel_manager = require("scripts/maps/travel_manager")
 local audio_manager = require("scripts/audio_manager")
 
--- Methods - Functions
 
-
--- Events
-
+-- Map events
 function map:on_started()
 
- map:init_music()
- map:set_digging_allowed(true)
-
-  -- Travel
-  travel_transporter:set_enabled(false)
+  -- Music
+  map:init_music()
+  -- Entities
+  map:init_map_entities()
+  -- Digging
+  map:set_digging_allowed(true)
 
 end
 
@@ -34,11 +32,24 @@ function map:init_music()
 
 end
 
+-- Initializes Entities based on player's progress
+function map:init_map_entities()
+  
+  -- Travel
+  travel_transporter:set_enabled(false)
+  
+end
+
+-- Sensors events
 function travel_sensor:on_activated()
 
-    travel_manager:init(map, 2)
+  travel_manager:init(map, 2)
 
 end
 
---Weak doors play secret sound on opened
-function weak_door_1:on_opened() sol.audio.play_sound("secret_1") end
+--Doors events
+function weak_door_1:on_opened()
+  
+  sol.audio.play_sound("secret_1")
+  
+end
