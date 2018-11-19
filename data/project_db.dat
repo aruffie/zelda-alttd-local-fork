@@ -178,6 +178,9 @@ sprite{ id = "enemies/anti_kirby", description = "Anti kirby" }
 sprite{ id = "enemies/arm_mimic", description = "Arm mimic" }
 sprite{ id = "enemies/armos", description = "Armos" }
 sprite{ id = "enemies/arrow", description = "Arrow" }
+sprite{ id = "enemies/ballchain_soldier", description = "Ballchain soldier" }
+sprite{ id = "enemies/ballchain_soldier_ball", description = "Ballchain soldier ball" }
+sprite{ id = "enemies/ballchain_soldier_chain", description = "Ballchain soldier chain" }
 sprite{ id = "enemies/beamos", description = "Beamos" }
 sprite{ id = "enemies/beetle_blue", description = "Beetle blue" }
 sprite{ id = "enemies/beetle_green", description = "Beetle green" }
