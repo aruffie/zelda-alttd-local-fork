@@ -33,77 +33,61 @@ function map:init_map_entities()
   
 end
 
-
--- Todo change script (put in cinemec
--- Link go to bed
-function map:go_to_bed() 
-
-  local x, y, layer = placeholder_link_sleep:get_position()
-  bed:get_sprite():set_animation("empty_open")
-  game:set_hud_enabled(false)
-  game:set_pause_allowed(false)
-  hero:freeze()
-  audio_manager:play_music("36_falling_asleep")
-  sol.timer.start(map, 6000, function()
-    sol.audio.stop_music()
-  end)
-  sol.timer.start(map, 500, function()
-    hero:set_enabled(false)
-    bed:get_sprite():set_animation("hero_goes_to_bed")
-    sol.timer.start(map, 500, function()
-      local black_surface =  sol.surface.create(320, 256)
-      local opacity_black = 0
-      black_surface:fill_color({0, 0, 0})
-      map:register_event("on_draw", function(map, dst_surface)
-        black_surface:set_opacity(opacity_black)
-        black_surface:draw(dst_surface)
-        opacity_black = opacity_black + 1
-        if opacity_black > 255 then
-          opacity_black = 255
-        end
-      end)
-      bed:get_sprite():set_animation("hero_sleeping")
-      snores:set_enabled(true)
-      for torch in map:get_entities("light_torch_1") do
-          torch:set_lit(false)
-      end
-      sol.timer.start(map, 500, function()
-        for torch in map:get_entities("light_torch_2") do
-            torch:set_lit(false)
-        end
-        sol.timer.start(map, 500, function()
-          for torch in map:get_entities("light_torch_3") do
-              torch:set_lit(false)
-          end
-          sol.timer.start(map, 500, function()
-            for torch in map:get_entities("light_torch_4") do
-                torch:set_lit(false)
-            end
-            local white_surface =  sol.surface.create(320, 256)
-            local opacity = 0
-            white_surface:fill_color({255, 255, 255})
-            map:register_event("on_draw", function(map, dst_surface)
-              white_surface:set_opacity(opacity)
-              white_surface:draw(dst_surface)
-              opacity = opacity + 1
-              if opacity > 255 then
-                opacity = 255
-              end
-            end)
-            sol.timer.start(map, 4000, function()
-                hero:teleport("houses/mabe_village/dream_shine_lower_level", "dream_shine_to_upper_1_A", "immediate")
-            end)
-          end)
-        end)
-      end)
-    end)
-  end)
-
-end
-
 -- NPCs events
 function bed_npc:on_interaction()
 
-  map:go_to_bed()
+  map:launch_cinematic_1()
+
+end
+
+-- Cinematics
+-- This is the cinematic that the hero go to sleep.
+function map:launch_cinematic_1()
+  
+  local game = map:get_game()
+  local camera = map:get_camera()
+  local surface = camera:get_surface()
+  local effect_model = require("scripts/gfx_effects/fade_to_white")
+  map:start_coroutine(function()
+    local options = {
+      entities_ignore_suspend = {hero, bed, snores}
+    }
+    map:set_cinematic_mode(true, options)
+    local x, y, layer = placeholder_link_sleep:get_position()
+    bed:get_sprite():set_animation("empty_open")
+    audio_manager:play_music("36_falling_asleep")
+    local timer = sol.timer.start(map, 6000, function()
+      sol.audio.stop_music()
+    end)
+    wait(500)
+    hero:set_enabled(false)
+    bed:get_sprite():set_animation("hero_goes_to_bed")
+    timer:set_suspended_with_map(false)
+    bed:get_sprite():set_animation("hero_sleeping")
+    snores:set_enabled(true)
+    for torch in map:get_entities("light_torch_1") do
+      torch:set_lit(false)
+    end
+    wait(500)
+    for torch in map:get_entities("light_torch_2") do
+      torch:set_lit(false)
+    end
+    wait(500)
+    for torch in map:get_entities("light_torch_3") do
+      torch:set_lit(false)
+    end
+    wait(500)
+    for torch in map:get_entities("light_torch_4") do
+      torch:set_lit(false)
+    end
+    wait_for(effect_model.start_effect, surface, game, "in", false)
+    game.map_in_transition = effect_model
+    wait(2000)
+    map:set_cinematic_mode(false, options)
+    game:set_suspended(false)
+    game:set_hud_enabled(true)
+    game:set_pause_allowed(true)
+    hero:teleport("houses/mabe_village/dream_shine_lower_level", "dream_shine_to_upper_1_A", "immediate")
+  end)
 
 end

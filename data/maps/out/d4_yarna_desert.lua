@@ -4,6 +4,7 @@ local game = map:get_game()
 
 -- Include scripts
 local travel_manager = require("scripts/maps/travel_manager")
+local audio_manager = require("scripts/audio_manager")
 
 -- Map events
 function map:on_started()
@@ -20,7 +21,7 @@ end
 -- Initialize the music of the map
 function map:init_music()
   
-  audio_manager:play_music("animal_village")
+  audio_manager:play_music("40_animal_village")
 
 end
 
@@ -103,7 +104,7 @@ end
 separator_1:register_event("on_activating", function(separator, direction4)
 
   if direction4 == 1 then
-    audio_manager:play_music("animal_village")
+    audio_manager:play_music("40_animal_village")
   elseif direction4 == 3 then
     audio_manager:play_music("10_overworld")
   end

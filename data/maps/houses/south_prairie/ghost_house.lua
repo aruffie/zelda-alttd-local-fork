@@ -11,16 +11,16 @@ function map:on_started(destination)
 
   -- Music
   map:init_music()
+  -- Light
+  light_manager:init(map)
+  map:set_light(0)
 
 end
 
 -- Initialize the music of the map
 function map:init_music()
 
-  -- Todo Add music ghost house
-  -- Light
-  light_manager:init(map)
-  map:set_light(0)
+  audio_manager:play_music("51_house_by_the_bay")
 
 end
 
