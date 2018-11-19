@@ -20966,7 +20966,7 @@ teletransporter{
   width = 16,
   height = 16,
   destination_map = "dungeons/2/1f",
-  destination = "stairs_1_B",
+  destination = "destination_instru",
 }
 
 custom_entity{
@@ -23141,6 +23141,14 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
+}
+
+destination{
+  name = "destination_instru",
+  layer = 0,
+  x = 1752,
+  y = 709,
+  direction = 1,
 }
 
 tile{
