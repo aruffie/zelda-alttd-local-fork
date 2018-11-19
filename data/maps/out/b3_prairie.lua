@@ -58,7 +58,6 @@ function map:init_map_entities()
     for bee in map:get_entities("bee") do
         bee:set_enabled(false)
     end
-
   end
   -- Seashell's tree
   local seashell_tree_found = false

@@ -5,8 +5,7 @@ local game = map:get_game()
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
 
--- Events
-
+-- Map events
 function map:on_started()
 
   -- Music

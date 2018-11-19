@@ -6,6 +6,18 @@ local game = map:get_game()
 local owl_manager = require("scripts/maps/owl_manager")
 local audio_manager = require("scripts/audio_manager")
 
+-- Map events
+function map:on_started(destination)
+
+  -- Music
+  map:init_music()
+  -- Entities
+  map:init_map_entities()
+  -- Digging
+  map:set_digging_allowed(true)
+
+end
+
 -- Initialize the music of the map
 function map:init_music()
 
@@ -17,13 +29,10 @@ function map:init_music()
 
 end
 
--- Map events
-function map:on_started(destination)
-
-  map:init_music()
-  -- Digging
-  map:set_digging_allowed(true)
-  owl_1:set_enabled(false)
+-- Initializes Entities based on player's progress
+function map:init_map_entities()
+  
+    owl_1:set_enabled(false)
   owl_4:set_enabled(false)
   if sword ~= nil then
     sword:get_sprite():set_direction(4)
@@ -52,6 +61,15 @@ function map:on_started(destination)
 
 end
 
+-- Dungeon 1 opening
+function map:open_dungeon_1()
+
+  dungeon_1_entrance:get_sprite():set_animation("opened")
+  dungeon_1_entrance:set_traversable_by(true)
+
+end
+
+-- Obtaining sword
 function map:on_obtaining_treasure(treasure_item, treasure_variant, treasure_savegame_variable)
 
   if treasure_item:get_name() == "sword" then
@@ -59,6 +77,18 @@ function map:on_obtaining_treasure(treasure_item, treasure_variant, treasure_sav
   end
 
 end
+
+-- NPCs events
+function dungeon_1_lock:on_interaction()
+
+  if game:get_value("main_quest_step") < 6 then
+      game:start_dialog("maps.out.south_mabe_village.dungeon_1_lock")
+  elseif game:get_value("main_quest_step") == 6 then
+    map:launch_cinematic_2()
+  end
+  
+end
+
 -- Sensors events
 function owl_1_sensor:on_activated()
 
@@ -79,24 +109,6 @@ function owl_4_sensor:on_activated()
     map:init_music()
     end)
   end
-
-end
-
--- NPCs events
-function dungeon_1_lock:on_interaction()
-
-  if game:get_value("main_quest_step") < 6 then
-      game:start_dialog("maps.out.south_mabe_village.dungeon_1_lock")
-  elseif game:get_value("main_quest_step") == 6 then
-    map:launch_cinematic_2()
-  end
-end
-
--- Others functions
-function map:open_dungeon_1()
-
-  dungeon_1_entrance:get_sprite():set_animation("opened")
-  dungeon_1_entrance:set_traversable_by(true)
 
 end
 
