@@ -8,6 +8,7 @@ local audio_manager = require("scripts/audio_manager")
 -- Map events
 function map:on_started(destination)
 
+  -- Music
   map:init_music()
 
 end
@@ -51,6 +52,13 @@ function alligator:on_interaction()
 
   map:talk_to_alligator()
 
+end
+
+-- Wardrobes
+for wardrobe in map:get_entities("wardrobe") do
+  function wardrobe:on_interaction()
+    game:start_dialog("maps.houses.wardrobe_1", game:get_player_name())
+  end
 end
 
 -- Cinematics
@@ -115,11 +123,4 @@ function map:launch_cinematic_1()
     hero:start_treasure("magnifying_lens", 4, "magnifying_lens_4")
   end)
 
-end
-
--- Wardrobes
-for wardrobe in map:get_entities("wardrobe") do
-  function wardrobe:on_interaction()
-    game:start_dialog("maps.houses.wardrobe_1", game:get_player_name())
-  end
 end

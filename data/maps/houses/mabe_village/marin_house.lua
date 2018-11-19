@@ -13,17 +13,6 @@ function map:on_started(destination)
   map:init_music()
   -- Entities
   map:init_map_entities()
-  -- Hero
-  if destination:get_name() == "start_position"  then
-    hero:set_enabled(false)
-    bed:get_sprite():set_animation("hero_sleeping")
-  else
-    snores:remove()
-  end
-  -- Letter
-  if game:get_value("main_quest_step") ~= 21  then
-    letter:set_enabled(false)
-  end
 
 end
 
@@ -65,28 +54,39 @@ end
 -- Initializes entities based on player's progress
 function map:init_map_entities()
  
-   local item = game:get_item("magnifying_lens")
-   local variant = item:get_variant()
-   -- Marin
-   if game:get_value("main_quest_step") > 3  then
-     marin:remove()
-   else
-     marin:get_sprite():set_animation("waiting")
-     map:repeat_marin_direction_check()
-   end
-   -- Others entities
-   if game:get_value("main_quest_step") > 10 and variant < 4 then
+  local item = game:get_item("magnifying_lens")
+  local variant = item:get_variant()
+  -- Hero
+  if destination:get_name() == "start_position"  then
+    hero:set_enabled(false)
+    bed:get_sprite():set_animation("hero_sleeping")
+  else
+    snores:remove()
+  end
+  -- Letter
+  if game:get_value("main_quest_step") ~= 21  then
+    letter:set_enabled(false)
+  end
+  -- Marin
+  if game:get_value("main_quest_step") > 3  then
+    marin:remove()
+  else
+    marin:get_sprite():set_animation("waiting")
+    map:repeat_marin_direction_check()
+  end
+  -- Others entities
+  if game:get_value("main_quest_step") > 10 and variant < 4 then
     snores_tarin:remove()
     bed_tarin:remove()
     tarin:get_sprite():set_animation("waiting")
     tarin:get_sprite():set_direction(3)
-   elseif game:get_value("main_quest_step") > 10  then
+  elseif game:get_value("main_quest_step") > 10  then
     snores_tarin:remove()
     bed_tarin:remove()
     bed:remove()
     tarin:remove()
     bananas:remove()
-   elseif game:get_value("main_quest_step") > 4 then
+  elseif game:get_value("main_quest_step") > 4 then
     local x,y,layer = placeholder_tarin_sleep:get_position()
     tarin:set_position(x,y,layer)
     tarin:get_sprite():set_animation("sleeping")
@@ -130,32 +130,32 @@ function map:repeat_tarin_direction_check()
 
 end
 
--- Discussion with Tarin
-function  map:talk_to_tarin() 
-
-   if game:get_value("main_quest_step") > 10 then
-    game:start_dialog("maps.houses.mabe_village.marin_house.tarin_5")
-   elseif game:get_value("main_quest_step") > 4 then
-    game:start_dialog("maps.houses.mabe_village.marin_house.tarin_4")
-   else
-      if game:has_item("shield") == false then
-        local item = game:get_item("shield")
-        game:start_dialog("maps.houses.mabe_village.marin_house.tarin_1", game:get_player_name(), function()
-          hero:start_treasure("shield", 1, "schield")
-          game:set_item_assigned(1, item)
-          game:set_value("main_quest_step", 2)
-        end)
-      else
-          game:start_dialog("maps.houses.mabe_village.marin_house.tarin_2", game:get_player_name())
-      end
-  end
-
-end
-
 -- Discussion with Marin
 function map:talk_to_marin() 
 
   game:start_dialog("maps.houses.mabe_village.marin_house.marin_1")
+
+end
+
+-- Discussion with Tarin
+function  map:talk_to_tarin() 
+
+  if game:get_value("main_quest_step") > 10 then
+    game:start_dialog("maps.houses.mabe_village.marin_house.tarin_5")
+  elseif game:get_value("main_quest_step") > 4 then
+    game:start_dialog("maps.houses.mabe_village.marin_house.tarin_4")
+  else
+    if game:has_item("shield") == false then
+      local item = game:get_item("shield")
+      game:start_dialog("maps.houses.mabe_village.marin_house.tarin_1", game:get_player_name(), function()
+        hero:start_treasure("shield", 1, "schield")
+        game:set_item_assigned(1, item)
+        game:set_value("main_quest_step", 2)
+      end)
+    else
+        game:start_dialog("maps.houses.mabe_village.marin_house.tarin_2", game:get_player_name())
+    end
+  end
 
 end
 
@@ -164,8 +164,8 @@ function exit_sensor:on_activated()
 
   if game:has_item("shield") == false then
     game:start_dialog("maps.houses.mabe_village.marin_house.tarin_3", function()
-     hero:set_direction(2)
-     hero:walk("2222")
+      hero:set_direction(2)
+      hero:walk("2222")
    end)
   end
 
@@ -188,6 +188,13 @@ function marin:on_interaction()
 
   map:talk_to_marin()
 
+end
+
+-- Wardrobes
+for wardrobe in map:get_entities("wardrobe") do
+  function wardrobe:on_interaction()
+    game:start_dialog("maps.houses.wardrobe_1", game:get_player_name())
+  end
 end
 
 -- Cinematics
@@ -223,11 +230,4 @@ function map:launch_cinematic_1()
     game:set_value("main_quest_step", 1)
   end)
 
-end
-
--- Wardrobes
-for wardrobe in map:get_entities("wardrobe") do
-  function wardrobe:on_interaction()
-    game:start_dialog("maps.houses.wardrobe_1", game:get_player_name())
-  end
 end

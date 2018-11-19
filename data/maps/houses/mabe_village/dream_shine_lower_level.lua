@@ -11,12 +11,13 @@ function map:on_started(destination)
   -- Music
   map:init_music()
   
- sol.timer.start(map, 2000, function()
-  game:set_hud_enabled(true)
-  game:set_pause_allowed(true)
- end)
- hero:set_enabled(true)
- local white_surface =  sol.surface.create(320, 256)
+  -- Todo change this script (in cinematic)
+  sol.timer.start(map, 2000, function()
+    game:set_hud_enabled(true)
+    game:set_pause_allowed(true)
+  end)
+  hero:set_enabled(true)
+  local white_surface =  sol.surface.create(320, 256)
   local opacity = 255
   white_surface:fill_color({255, 255, 255})
   function map:on_draw(dst_surface)
@@ -37,4 +38,5 @@ function map:init_music()
 
 end
 
+-- Separators events
 separator_manager:manage_map(map)

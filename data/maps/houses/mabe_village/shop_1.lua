@@ -10,6 +10,7 @@ local audio_manager = require("scripts/audio_manager")
 -- Map events
 function map:on_started(destination)
 
+  -- Music
   map:init_music()
 
 end
@@ -48,7 +49,7 @@ end
 -- NPCs events
 function merchant:on_interaction()
 
-      map:talk_to_merchant()
+  map:talk_to_merchant()
 
 end
 

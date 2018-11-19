@@ -34,7 +34,7 @@ end
 -- Initializes Entities based on player's progress
 function map:init_map_entities()
   
-    -- Travel
+  -- Travel
   travel_transporter:set_enabled(false)
   
 end

@@ -20,7 +20,7 @@ function map:init_music()
 
 end
 
-
+-- Discussion with Mr Write
 function map:talk_to_mr_write() 
 
   local direction4 = mr_write:get_direction4_to(hero)
@@ -95,6 +95,7 @@ function map:talk_to_mr_write()
 end
 
 function map:talk_to_mr_write_2()
+  
   game:start_dialog("maps.houses.west_mt_tamaranch.mr_write_house.mr_write_4", function(answer)
     if answer == 1 then
       hero:start_treasure("magnifying_lens", 10, nil,  function()
@@ -106,23 +107,24 @@ function map:talk_to_mr_write_2()
       map:talk_to_mr_write_2()
     end
   end)
+
 end
 
 function mr_write:on_collision_fire()
 
-      return false
+  return false
 
 end
 
 function mr_write:on_interaction()
 
-      map:talk_to_mr_write()
+  map:talk_to_mr_write()
 
 end
 
 function mr_write_invisible:on_interaction()
 
-      map:talk_to_mr_write()
+  map:talk_to_mr_write()
 
 end
 

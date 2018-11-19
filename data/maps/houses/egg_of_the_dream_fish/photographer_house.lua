@@ -1,25 +1,18 @@
--- Lua script of map houses/egg_of_the_dream_fish/photographers_house.
--- This script is executed every time the hero enters this map.
-
--- Feel free to modify the code below.
--- You can add more events and remove the ones you don't need.
-
--- See the Solarus Lua API documentation:
--- http://www.solarus-games.org/doc/latest
-
+-- Variables
 local map = ...
 local game = map:get_game()
 
+-- Map events
+function map:on_started(destination)
 
--- Event called at initialization time, as soon as this map is loaded.
-function map:on_started()
-
-
-
+  -- Music
+  map:init_music()
+  
 end
 
--- Event called after the opening transition effect of the map,
--- that is, when the player takes control of the hero.
-function map:on_opening_transition_finished()
+-- Initialize the music of the map
+function map:init_music()
+
+  -- Todo add music photograph
 
 end

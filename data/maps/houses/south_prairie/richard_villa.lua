@@ -35,13 +35,14 @@ function map:init_map_entities()
 
 end
 
-function  map:talk_to_richard() 
+-- Discussion with Richard
+function map:talk_to_richard() 
 
-   if game:get_value("main_quest_step") < 12 then
+  if game:get_value("main_quest_step") < 12 then
     game:start_dialog("maps.houses.south_prairie.richard_villa.richard_1")
-   elseif game:get_value("main_quest_step") > 14 then
+  elseif game:get_value("main_quest_step") > 14 then
     game:start_dialog("maps.houses.south_prairie.richard_villa.richard_8")
-   else
+  else
     local item = game:get_item("golden_leaves_counter")
     local num = item:get_amount()
     if num == nil or num == 0 then
@@ -73,15 +74,17 @@ function  map:talk_to_richard()
 
 end
 
-function richard:on_interaction()
-
-      map:talk_to_richard()
-
-end
-
+-- Blocks events
 function box:on_moved()
 
   game:set_value("richard_box_moved", true) 
+
+end
+
+-- NPCs events
+function richard:on_interaction()
+
+  map:talk_to_richard()
 
 end
 

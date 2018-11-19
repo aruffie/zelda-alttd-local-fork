@@ -51,6 +51,20 @@ function map:talk_to_witch()
 
 end
 
+-- NPCs events
+function witch:on_interaction()
+
+  map:talk_to_witch()
+
+end
+
+-- Wardrobes
+for wardrobe in map:get_entities("wardrobe") do
+  function wardrobe:on_interaction()
+    game:start_dialog("maps.houses.wardrobe_1", game:get_player_name())
+  end
+end
+
 -- Cinematics 
 -- This is the cinematic when the witch makes magic powder
 function map:launch_cinematic_1(slot)
@@ -77,18 +91,4 @@ function map:launch_cinematic_1(slot)
     end)
   end)
 
-end
-
--- NPCs events
-function witch:on_interaction()
-
-      map:talk_to_witch()
-
-end
-
--- Wardrobes
-for wardrobe in map:get_entities("wardrobe") do
-  function wardrobe:on_interaction()
-    game:start_dialog("maps.houses.wardrobe_1", game:get_player_name())
-  end
 end

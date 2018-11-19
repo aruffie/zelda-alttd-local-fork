@@ -9,8 +9,28 @@ local audio_manager = require("scripts/audio_manager")
 -- Map events
 function map:on_started()
 
+  -- Music
   map:init_music()
-  -- Secret book
+  -- Entities
+  map:init_map_entities()
+  
+end
+
+-- Initialize the music of the map
+function map:init_music()
+
+  if game:get_value("main_quest_step") == 3  then
+    audio_manager:play_music("07_koholint_island")
+  else
+    audio_manager:play_music("12_house")
+  end
+
+end
+
+-- Initializes Entities based on player's progress
+function map:init_map_entities()
+
+    -- Secret book
   book_9:set_enabled(false)
   if game:get_value("get_secret_book") then
     book_9:set_enabled(true)
@@ -33,100 +53,89 @@ function map:on_started()
       end)
     end
   end)
-  
-end
-
--- Initialize the music of the map
-function map:init_music()
-
-  if game:get_value("main_quest_step") == 3  then
-    audio_manager:play_music("07_koholint_island")
-  else
-    audio_manager:play_music("12_house")
-  end
 
 end
 
 -- Discussion with Book
 function map:open_book(book)
 
-    game:start_dialog("maps.houses.mabe_village.library.book_"..book..".question", function(answer)
-        if answer == 1 then
-          local entity = map:get_entity("book_"..book)
-          local sprite = entity:get_sprite()
-          sprite:set_animation("reading")
-          if book == 8 then
-            if game:get_value("get_lens") then
-              game:start_dialog("maps.houses.mabe_village.library.book_"..book..".true_content", function()
-                sprite:set_animation("normal")
-              end)
-            else
-              game:start_dialog("maps.houses.mabe_village.library.book_"..book..".content", function()
-                sprite:set_animation("normal")
-              end)
-            end
-          elseif book ~= 7 then
-            game:start_dialog("maps.houses.mabe_village.library.book_"..book..".content", function()
-              sprite:set_animation("normal")
-            end)
-          end
+  game:start_dialog("maps.houses.mabe_village.library.book_"..book..".question", function(answer)
+    if answer == 1 then
+      local entity = map:get_entity("book_"..book)
+      local sprite = entity:get_sprite()
+      sprite:set_animation("reading")
+      if book == 8 then
+        if game:get_value("get_lens") then
+          game:start_dialog("maps.houses.mabe_village.library.book_"..book..".true_content", function()
+            sprite:set_animation("normal")
+          end)
+        else
+          game:start_dialog("maps.houses.mabe_village.library.book_"..book..".content", function()
+            sprite:set_animation("normal")
+          end)
         end
-    end)
+      elseif book ~= 7 then
+        game:start_dialog("maps.houses.mabe_village.library.book_"..book..".content", function()
+          sprite:set_animation("normal")
+        end)
+      end
+    end
+  end)
 
 end
 
 -- NPCs events
 function book_1_interaction:on_interaction()
 
-      map:open_book(1)
+  map:open_book(1)
 
 end
 
 function book_2_interaction:on_interaction()
 
-      map:open_book(2)
+  map:open_book(2)
 
 end
 
 function book_3_interaction:on_interaction()
 
-      map:open_book(3)
+  map:open_book(3)
 
 end
 
 function book_4_interaction:on_interaction()
 
-      map:open_book(4)
+  map:open_book(4)
 
 end
 
 function book_5_interaction:on_interaction()
 
-      map:open_book(5)
+  map:open_book(5)
 
 end
 
 function book_6_interaction:on_interaction()
 
-      map:open_book(6)
+  map:open_book(6)
 
 end
 
 function book_7_interaction:on_interaction()
 
-      map:open_book(7)
+  map:open_book(7)
 
 end
 
 function book_8_interaction:on_interaction()
 
-      map:open_book(8)
+  map:open_book(8)
 
 end
 
 function book_9:on_interaction()
 
-      map:open_book(9)
+  map:open_book(9)
 
 end
 

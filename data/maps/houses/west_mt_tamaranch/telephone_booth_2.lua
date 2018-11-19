@@ -21,7 +21,7 @@ function map:init_music()
 
 end
 
--- Events
+-- NPCs events
 function phone_interaction:on_interaction()
 
   phone_manager:talk(map)

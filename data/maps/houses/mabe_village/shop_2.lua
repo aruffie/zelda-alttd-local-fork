@@ -15,6 +15,7 @@ function map:on_started(destination)
   map:init_music()
   -- Entities
   map:init_map_entities()
+  -- Shop
   shop_manager:init(map)
 
 end
@@ -43,7 +44,6 @@ function map:init_map_entities()
 
 end
 
-
 -- Function that forces Merchent to always watch the hero with delay
 function map:repeat_merchant_direction_check()
 
@@ -70,27 +70,28 @@ end
 -- Discussion with Merchant
 function map:talk_to_merchant() 
 
-    local direction4 = merchant:get_direction4_to(hero)
-    merchant:get_sprite():set_direction(direction4)
-    if shop_manager.product == nil then
-      game:start_dialog("maps.houses.mabe_village.shop_2.merchant_1")
-    end
+  local direction4 = merchant:get_direction4_to(hero)
+  merchant:get_sprite():set_direction(direction4)
+  if shop_manager.product == nil then
+    game:start_dialog("maps.houses.mabe_village.shop_2.merchant_1")
+  end
 
 end
 
 -- NPCs events
 function merchant:on_interaction()
 
-    map:talk_to_merchant()
+  map:talk_to_merchant()
 
 end
 
 function merchant_invisible:on_interaction()
 
-    map:talk_to_merchant()
+  map:talk_to_merchant()
 
 end
 
+-- Sensors events
 function exit_sensor:on_activated()
 
   if shop_manager.product ~= nil then

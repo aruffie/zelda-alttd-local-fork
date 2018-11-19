@@ -55,13 +55,13 @@ end
 -- NPCs events
 function phone_interaction:on_interaction()
 
-    map:talk_to_phone()
+  map:talk_to_phone()
 
 end
 
 function grandpa:on_interaction()
 
-    map:talk_to_grandpa()
+  map:talk_to_grandpa()
 
 end
 
