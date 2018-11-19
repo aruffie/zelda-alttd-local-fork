@@ -1,29 +1,33 @@
--- Lua script of map houses/yarna_desert/quadruplets_house.
--- This script is executed every time the hero enters this map.
-
--- Feel free to modify the code below.
--- You can add more events and remove the ones you don't need.
-
--- See the Solarus Lua API documentation:
--- http://www.solarus-games.org/doc/latest
-
+-- Variables
 local map = ...
 local game = map:get_game()
 
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
 
--- Event called at initialization time, as soon as this map is loaded.
-function map:on_started()
+-- Map events
+function map:on_started(destination)
 
-
+  -- Music
+  map:init_music()
 
 end
 
+-- Initialize the music of the map
+function map:init_music()
+
+  audio_manager:play_music("12_house")
+
+end
+
+-- Discussion with rabbit
 function map:talk_to_rabbit()
 
-      game:start_dialog("maps.houses.yarna_desert.rabbits_house.rabbit_1")
+  game:start_dialog("maps.houses.yarna_desert.rabbits_house.rabbit_1")
 
 end
 
+-- NPCs events
 function rabbit:on_interaction()
 
   map:talk_to_rabbit()

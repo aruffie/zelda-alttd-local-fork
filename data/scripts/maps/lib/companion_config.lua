@@ -52,6 +52,7 @@ return {
         local enemy = enemies[index]
         local direction4 = companion:get_direction4_to(enemy)
         companion:get_sprite():set_direction(direction4)
+        companion:get_sprite():set_animation("angry")
         local movement_1 = sol.movement.create("target")
         movement_1:set_target(enemy)
         movement_1:set_speed(100)
@@ -60,11 +61,13 @@ return {
         function movement_1:on_position_changed()
           if companion:get_distance(hero) > distance then
             companion:set_state("stopped")
+            companion:get_sprite():set_animation("stopped")
           end
         end
         function movement_1:on_finished()
           enemy:set_life(0)
           companion:set_state("stopped")
+          companion:get_sprite():set_animation("stopped")
         end
       end
     end
