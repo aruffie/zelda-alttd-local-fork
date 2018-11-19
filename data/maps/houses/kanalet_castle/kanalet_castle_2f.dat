@@ -1907,28 +1907,6 @@ custom_entity{
   sprite = "entities/kanalet_darknut_statue",
 }
 
-custom_entity{
-  name = "kanalet_darknut_statue_8",
-  layer = 0,
-  x = 120,
-  y = 133,
-  width = 8,
-  height = 24,
-  direction = 0,
-  sprite = "entities/kanalet_darknut_statue",
-}
-
-custom_entity{
-  name = "kanalet_darknut_statue_9",
-  layer = 0,
-  x = 248,
-  y = 133,
-  width = 8,
-  height = 24,
-  direction = 0,
-  sprite = "entities/kanalet_darknut_statue",
-}
-
 wall{
   layer = 0,
   x = 152,
@@ -2808,28 +2786,6 @@ custom_entity{
   height = 16,
   direction = 1,
   sprite = "entities/kanalet_statue",
-}
-
-custom_entity{
-  name = "kanalet_darknut_statue_3",
-  layer = 1,
-  x = 96,
-  y = 133,
-  width = 8,
-  height = 32,
-  direction = 2,
-  sprite = "entities/kanalet_darknut_statue",
-}
-
-custom_entity{
-  name = "kanalet_darknut_statue_4",
-  layer = 1,
-  x = 224,
-  y = 133,
-  width = 8,
-  height = 32,
-  direction = 2,
-  sprite = "entities/kanalet_darknut_statue",
 }
 
 teletransporter{
