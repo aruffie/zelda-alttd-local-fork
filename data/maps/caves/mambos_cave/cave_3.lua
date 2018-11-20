@@ -22,4 +22,4 @@ function map:init_music()
 end
 
 -- Separators
-separator_manager:manage_map(map)
+separator_manager:init(map)

@@ -30,5 +30,5 @@ function map:init_map_entities()
   
 end
 
--- Separators events
-separator_manager:manage_map(map)
+-- Separators
+separator_manager:init(map)

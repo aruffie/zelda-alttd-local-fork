@@ -311,5 +311,5 @@ auto_separator_17:register_event("on_activating", function(separator, direction4
   end
 end)
 
-separator_manager:manage_map(map)
-owl_manager:manage_map(map)
+separator_manager:init(map)
+owl_manager:init(map)

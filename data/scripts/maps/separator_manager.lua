@@ -9,7 +9,7 @@
 local separator_manager = {}
 require("scripts/multi_events")
 
-function separator_manager:manage_map(map)
+function separator_manager:init(map)
 
   local enemy_places = {}
   local destructible_places = {}

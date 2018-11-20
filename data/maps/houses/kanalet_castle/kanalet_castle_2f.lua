@@ -30,4 +30,4 @@ end
 treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_2_", "pickable_golden_leaf_4")
 
 -- Separators
-separator_manager:manage_map(map)
+separator_manager:init(map)

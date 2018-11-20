@@ -148,6 +148,6 @@ function auto_separator_13:on_activating(direction4)
   auto_separator_5:on_activating(direction4)
 end
 
-separator_manager:manage_map(map)
-owl_manager:manage_map(map)
+separator_manager:init(map)
+owl_manager:init(map)
 

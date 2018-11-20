@@ -84,6 +84,6 @@ treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_5_", "chest_ru
 
 -- Separator events
 
-separator_manager:manage_map(map)
-owl_manager:manage_map(map)
+separator_manager:init(map)
+owl_manager:init(map)
 

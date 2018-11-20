@@ -88,7 +88,7 @@ function owl_manager:appear(map, step, callback)
 end
 
 -- Function to manage the owls in the dungeons
-function owl_manager:manage_map(map)
+function owl_manager:init(map)
 
   local game = map:get_game()
   for beak in map:get_entities("owl") do

@@ -302,5 +302,5 @@ end
 -- Separators
 local step = game:get_value("main_quest_step")
 if step == 9 then
-  separator_manager:manage_map(map)
+  separator_manager:init(map)
 end

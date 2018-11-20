@@ -203,4 +203,4 @@ function great_fairy:on_interaction()
 end
 
 
-owl_manager:manage_map(map)
+owl_manager:init(map)

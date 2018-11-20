@@ -49,4 +49,4 @@ function map:on_obtained_treasure(item, variant, treasure_savegame_variable)
 end
 
 -- Separators
-separator_manager:manage_map(map)
+separator_manager:init(map)

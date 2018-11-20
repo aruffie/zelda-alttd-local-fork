@@ -296,6 +296,6 @@ function separator_skeleton_4_1:on_activating(direction4)
   map:init_skeletons()
 end
 
-separator_manager:manage_map(map)
-owl_manager:manage_map(map)
+separator_manager:init(map)
+owl_manager:init(map)
 

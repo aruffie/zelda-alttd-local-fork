@@ -29,5 +29,5 @@ function weak_door_1:on_opened()
 end
 
 -- Separators
-separator_manager:manage_map(map)
+separator_manager:init(map)
 
