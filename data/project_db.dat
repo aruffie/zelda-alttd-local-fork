@@ -1242,6 +1242,8 @@ shader{ id = "sepia", description = "Sepia" }
 shader{ id = "toon", description = "Toon" }
 
 file{ path = "main.lua", author = "Christopho", license = "GPL v3" }
+file{ path = "maps", author = "Binbin,  Christopho, Olivier Cléro, Mymy, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves", author = "Binbin, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
 file{ path = "maps/caves/cave.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/cave.lua", author = "Binbin", license = "GPL v3" }
 file{ path = "maps/caves/east_mt_tamaranch", author = "Binbin, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
@@ -1563,6 +1565,87 @@ file{ path = "maps/sideviews/martha_bay/sideview_1.dat", author = "Binbin", lice
 file{ path = "maps/sideviews/martha_bay/sideview_1.lua", author = "Binbin", license = "GPL v3" }
 file{ path = "maps/sideviews/martha_bay/sideview_2.dat", author = "Binbin", license = "CC BY-SA 4.0" }
 file{ path = "maps/sideviews/martha_bay/sideview_2.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "musics/gb", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/01_introduction.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/02_title.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/02_title_no_intro.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/06_marin_house.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/07_koholint_island.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/08_the_owl.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/09_beginning_of_the_journey.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/10_overworld.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/11_mabe_village.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/12_house.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/13_phone.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/14_shop.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/14_shop_high.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/15_trendy_game.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/16_mysterious_forest.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/18_cave.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/19_level_1_tail_cave.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/20_sidescrolling.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/21_mini_boss_battle.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/22_boss_battle.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/23_boss_defeated.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/24_instrument_of_the_sirens.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/25_the_full_moon_cello.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/26_bowwow_dognapped.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/27_mr_write_house.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/28_level_2_bottle_grotto.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/29_the_conch_horn.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/30_richard_villa.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/31_kiki_bridge.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/32_kanalet_castle.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/33_level_3_key_cavern.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/34_the_sea_lily_bell.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/35_dream_shrine_entrance.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/36_falling_asleep.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/37_dream_shrine.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/38_song_of_marin_and_link.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/39_bees.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/40_animal_village.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/41_christine_house.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/42_marin_beach.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/43_on_the_beach_with_marin.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/44_song_of_marin.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/45_angler_tunnel_revealed.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/46_tal_tal_mountain_range.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/47_level_4_angler_tunnel.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/48_the_surf_harp.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/49_manbo_mambo.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/51_house_by_the_bay.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/52_fishing_under_the_bridge.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/53_level_5_catfish_maw.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/55_the_wind_marimba.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/58_southern_shrine.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/59_level_6_face_shrine.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/60_coral_triangle.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/63_cucco_house.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/64_level_7_eagle_tower.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/67_organ_of_evening_calm.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/69_level_8_turtle_rock.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/70_thunder_drum.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/71_color_dungeon.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/72_great_fairy_fountain.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/74_wind_fish_egg.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/82_game_over.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/snes", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/06_marin_house.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/07_koholint_island.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/08_the_owl.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/09_beginning_of_the_journey.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/10_overworld.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/11_mabe_village.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/12_house.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/13_phone.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/14_shop.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/14_shop_high.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/15_trendy_game.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/16_mysterious_forest.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/18_cave.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/27_mr_write_house.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/41_christine_house.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/46_tal_tal_mountain_range.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
 file{ path = "scripts", license = "GPL v3" }
 file{ path = "scripts/gfx_effects", author = "PhoenixII54, Stdgregwar", license = "GPL v3" }
 file{ path = "scripts/gfx_effects/distorsion.lua", author = "PhoenixII54", license = "GPL v3" }
