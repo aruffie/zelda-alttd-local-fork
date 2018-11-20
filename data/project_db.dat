@@ -1241,278 +1241,282 @@ shader{ id = "radial_fade_out", description = "Radial fade out" }
 shader{ id = "sepia", description = "Sepia" }
 shader{ id = "toon", description = "Toon" }
 
+file{ path = "languages", author = "Nintendo, Benjamin Schweitzer, Christopho, Julien Van Steerteghem", license = "Proprietary, Fair use" }
+file{ path = "languages/fr", author = "Nintendo, Benjamin Schweitzer, Christopho, Julien Van Steerteghem", license = "Proprietary, Fair use" }
+file{ path = "languages/fr/images", author = "Nintendo, Benjamin Schweitzer, Christopho, Julien Van Steerteghem", license = "Proprietary, Fair use" }
+file{ path = "languages/fr/text", author = "Nintendo, Benjamin Schweitzer, Christopho, Julien Van Steerteghem", license = "Proprietary, Fair use" }
 file{ path = "main.lua", author = "Christopho", license = "GPL v3" }
-file{ path = "maps", author = "Binbin,  Christopho, Olivier Cléro, Mymy, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves", author = "Binbin, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/cave.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/cave.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/east_mt_tamaranch", author = "Binbin, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/east_mt_tamaranch/cave_1.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/east_mt_tamaranch/cave_1.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/east_mt_tamaranch/cave_2.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/east_mt_tamaranch/cave_2.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/east_mt_tamaranch/cave_3.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/east_mt_tamaranch/cave_3.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/east_mt_tamaranch/cave_4.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/east_mt_tamaranch/cave_4.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/east_mt_tamaranch/cave_5.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/east_mt_tamaranch/cave_5.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/east_mt_tamaranch/cave_6.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/east_mt_tamaranch/cave_6.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/east_mt_tamaranch/cave_7.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/east_mt_tamaranch/cave_7.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/east_mt_tamaranch/fairy_fountain.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/east_mt_tamaranch/fairy_fountain.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/east_prairie", author = "Binbin, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/east_prairie/cave_1.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/east_prairie/cave_1.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/east_prairie/cave_2.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/east_prairie/cave_2.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/east_prairie/cave_3.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/east_prairie/cave_3.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/egg_of_the_dream_fish", author = "Binbin, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/egg_of_the_dream_fish/cave_1.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/egg_of_the_dream_fish/cave_1.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/egg_of_the_dream_fish/cave_2.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/egg_of_the_dream_fish/cave_2.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/egg_of_the_dream_fish/cave_3.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/egg_of_the_dream_fish/cave_3.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/egg_of_the_dream_fish/cave_4.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/egg_of_the_dream_fish/cave_4.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/egg_of_the_dream_fish/cave_5.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/egg_of_the_dream_fish/cave_5.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/egg_of_the_dream_fish/moblins_cave.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/egg_of_the_dream_fish/moblins_cave.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/forest", author = "Binbin, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/forest/cave_1.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/forest/cave_1.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/forest/cave_2.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/forest/cave_2.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/forest/cave_3.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/forest/cave_3.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/graveyard", author = "Binbin, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/graveyard/cave_1.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/graveyard/cave_1.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/kanalet_castle", author = "Binbin, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/kanalet_castle/cave_1.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/kanalet_castle/cave_1.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/mabe_village", author = "Binbin, ZeldoRetro o", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/mabe_village/cave_1.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/mabe_village/cave_1.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/mabe_village/weathercock.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/mabe_village/weathercock.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/mambos_cave", author = "Binbin, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/mambos_cave/cave_1.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/mambos_cave/cave_1.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/mambos_cave/cave_2.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/mambos_cave/cave_2.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/mambos_cave/cave_3.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/mambos_cave/cave_3.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/mambos_cave/cave_4.dat", author = "Binbin, Zeldo", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/mambos_cave/cave_4.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/martha_bay", author = "Binbin, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/martha_bay/cave_1.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/martha_bay/cave_1.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/martha_bay/cave_2.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/martha_bay/cave_2.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/mask_shrine", author = "Binbin, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/mask_shrine/cave_1.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/mask_shrine/cave_1.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/mask_shrine/cave_2.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/mask_shrine/cave_2.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/mask_shrine/cave_3.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/mask_shrine/cave_3.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/mask_shrine/fairy_fountain.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/mask_shrine/fairy_fountain.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/prairie", author = "Binbin, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps", author = "Benjamin Schweitzer,  Christopho, Olivier Cléro, Mymy, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/cave.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/cave.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/east_mt_tamaranch", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_3.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_3.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_4.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_4.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_5.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_5.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_6.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_6.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_7.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_7.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/east_mt_tamaranch/fairy_fountain.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_mt_tamaranch/fairy_fountain.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/east_prairie", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/east_prairie/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_prairie/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/east_prairie/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_prairie/cave_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/east_prairie/cave_3.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_prairie/cave_3.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/egg_of_the_dream_fish", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/egg_of_the_dream_fish/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/egg_of_the_dream_fish/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/egg_of_the_dream_fish/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/egg_of_the_dream_fish/cave_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/egg_of_the_dream_fish/cave_3.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/egg_of_the_dream_fish/cave_3.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/egg_of_the_dream_fish/cave_4.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/egg_of_the_dream_fish/cave_4.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/egg_of_the_dream_fish/cave_5.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/egg_of_the_dream_fish/cave_5.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/egg_of_the_dream_fish/moblins_cave.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/egg_of_the_dream_fish/moblins_cave.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/forest", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/forest/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/forest/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/forest/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/forest/cave_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/forest/cave_3.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/forest/cave_3.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/graveyard", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/graveyard/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/graveyard/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/kanalet_castle", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/kanalet_castle/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/kanalet_castle/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/mabe_village", author = "Benjamin Schweitzer, ZeldoRetro o", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/mabe_village/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/mabe_village/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/mabe_village/weathercock.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/mabe_village/weathercock.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/mambos_cave", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/mambos_cave/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/mambos_cave/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/mambos_cave/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/mambos_cave/cave_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/mambos_cave/cave_3.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/mambos_cave/cave_3.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/mambos_cave/cave_4.dat", author = "Benjamin Schweitzer, Zeldo", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/mambos_cave/cave_4.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/martha_bay", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/martha_bay/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/martha_bay/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/martha_bay/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/martha_bay/cave_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/mask_shrine", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/mask_shrine/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/mask_shrine/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/mask_shrine/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/mask_shrine/cave_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/mask_shrine/cave_3.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/mask_shrine/cave_3.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/mask_shrine/fairy_fountain.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/mask_shrine/fairy_fountain.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/prairie", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
 file{ path = "maps/caves/prairie/cave_1.dat", author = "ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/prairie/cave_1.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/prairie/cave_2.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/prairie/cave_2.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/prairie/fairy_fountain.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/prairie/fairy_fountain.lua", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/south_prairie", author = "Binbin, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/south_prairie/cave_1.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/south_prairie/cave_1.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/south_prairie/cave_2.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/south_prairie/cave_2.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/south_prairie/cave_3.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/south_prairie/cave_3.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/south_prairie/cave_4.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/south_prairie/cave_4.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/south_prairie/cave_5.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/south_prairie/cave_5.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/west_mt_tamaranch", author = "Binbin, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/west_mt_tamaranch/cave_1.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/west_mt_tamaranch/cave_1.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/west_mt_tamaranch/cave_2.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/west_mt_tamaranch/cave_2.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/yarna_desert", author = "Binbin, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/yarna_desert/cave_1.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/yarna_desert/cave_1.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/caves/yarna_desert/cave_2.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/yarna_desert/cave_2.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/dungeons", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/dungeons/1", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/dungeons/1/1f.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/1/1f.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/dungeons/1/sideview_1.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/1/sideview_1.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/dungeons/1/sideview_2.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/1/sideview_2.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/dungeons/10", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/dungeons/10/1f.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/10/1f.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/dungeons/10/b1.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/10/b1.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/dungeons/10/entrance.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/10/entrance.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/dungeons/10/sideview_1.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/10/sideview_1.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/dungeons/11", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/dungeons/11/1f.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/11/1f.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/dungeons/11/b1.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/11/b1.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/dungeons/11/b2.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/11/b2.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/dungeons/2", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/dungeons/2/1f.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/2/1f.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/dungeons/2/sideview_1.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/2/sideview_1.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/dungeons/2/sideview_2.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/2/sideview_2.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/dungeons/2/sideview_3.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/2/sideview_3.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/dungeons/3", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/dungeons/3/1f.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/3/1f.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/dungeons/3/b1.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/3/b1.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/dungeons/3/sideview_1.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/3/sideview_1.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/dungeons/4", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/dungeons/4/1f.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/4/1f.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/dungeons/4/sideview_1.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/4/sideview_1.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/dungeons/4/sideview_2.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/4/sideview_2.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/dungeons/4/sideview_3.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/4/sideview_3.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/dungeons/4/sideview_4.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/4/sideview_4.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/dungeons/5", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/dungeons/5/1f.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/5/1f.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/dungeons/5/sideview_1.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/5/sideview_1.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/dungeons/5/sideview_2.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/5/sideview_2.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/dungeons/5/sideview_3.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/5/sideview_3.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/dungeons/5/sideview_4.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/5/sideview_4.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/dungeons/6", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/dungeons/6/1f.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/6/1f.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/dungeons/7", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/dungeons/7/1f.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/7/1f.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/dungeons/7/2f.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/7/2f.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/dungeons/7/3f.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/7/3f.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/dungeons/7/3f_bis.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/7/3f_bis.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/dungeons/8", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/dungeons/8/1f.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/8/1f.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/dungeons/9", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/dungeons/9/1f.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/9/1f.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/houses", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/houses/east_prairie", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/houses/east_prairie/telephone_booth_5.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/houses/east_prairie/telephone_booth_5.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/houses/egg_of_the_dream_fish", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/houses/egg_of_the_dream_fish/photographer_house.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/houses/egg_of_the_dream_fish/photographer_house.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/houses/graveyard", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/houses/graveyard/drugstore.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/houses/graveyard/drugstore.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/houses/graveyard/witch_house.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/houses/graveyard/witch_house.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/houses/kanalet_castle", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/houses/kanalet_castle/kanalet_castle_1f.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/houses/kanalet_castle/kanalet_castle_1f.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/houses/kanalet_castle/kanalet_castle_2f.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/houses/kanalet_castle/kanalet_castle_2f.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/houses/kanalet_castle/telephone_booth_6.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/houses/kanalet_castle/telephone_booth_6.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/houses/mabe_village", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/houses/mabe_village/dream_shine_lower_level.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/houses/mabe_village/dream_shine_lower_level.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/houses/mabe_village/dream_shine_upper_level.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/houses/mabe_village/dream_shine_upper_level.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/houses/mabe_village/grand_pa_house.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/houses/mabe_village/grand_pa_house.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/houses/mabe_village/library.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/houses/mabe_village/library.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/houses/mabe_village/marin_house.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/houses/mabe_village/marin_house.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/houses/mabe_village/meow_meow_house.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/houses/mabe_village/meow_meow_house.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/houses/mabe_village/quadruplets_house.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/houses/mabe_village/quadruplets_house.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/houses/mabe_village/shop_1.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/houses/mabe_village/shop_1.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/houses/mabe_village/shop_2.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/houses/mabe_village/shop_2.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/houses/mabe_village/telephone_booth_1.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/houses/mabe_village/telephone_booth_1.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/houses/mambos_cave", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/houses/mambos_cave/cuccos_house.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/houses/mambos_cave/cuccos_house.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/houses/martha_bay", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/houses/martha_bay/mask_shrine", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/houses/martha_bay/telephone_booth_7.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/houses/martha_bay/telephone_booth_7.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/houses/martha_bay/telephone_booth_8.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/houses/martha_bay/telephone_booth_8.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/houses/prairie", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/houses/prairie/telephone_booth_4.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/houses/prairie/telephone_booth_4.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/houses/rafting", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/houses/rafting/rafting_house.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/houses/rafting/rafting_house.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/houses/south_mabe_village", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/houses/south_mabe_village/sales_house_o_bananas.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/houses/south_mabe_village/sales_house_o_bananas.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/houses/south_prairie", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/houses/south_prairie/ghost_house.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/houses/south_prairie/ghost_house.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/houses/south_prairie/richard_villa.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/houses/south_prairie/richard_villa.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/houses/west_mt_tamaranch", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/houses/west_mt_tamaranch/mr_write_house.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/houses/west_mt_tamaranch/mr_write_house.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/houses/west_mt_tamaranch/telephone_booth_2.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/houses/west_mt_tamaranch/telephone_booth_2.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/houses/west_mt_tamaranch/telephone_booth_3.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/houses/west_mt_tamaranch/telephone_booth_3.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/houses/yarna_desert", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/houses/yarna_desert/bear_house.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/houses/yarna_desert/bear_house.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/houses/yarna_desert/christine_house.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/houses/yarna_desert/christine_house.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/houses/yarna_desert/empty_house.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/houses/yarna_desert/empty_house.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/houses/yarna_desert/painter_house.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/houses/yarna_desert/painter_house.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/houses/yarna_desert/rabbits_house.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/houses/yarna_desert/rabbits_house.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/prairie/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/prairie/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/prairie/cave_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/prairie/fairy_fountain.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/prairie/fairy_fountain.lua", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/south_prairie", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/south_prairie/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/south_prairie/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/south_prairie/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/south_prairie/cave_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/south_prairie/cave_3.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/south_prairie/cave_3.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/south_prairie/cave_4.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/south_prairie/cave_4.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/south_prairie/cave_5.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/south_prairie/cave_5.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/west_mt_tamaranch", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/west_mt_tamaranch/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/west_mt_tamaranch/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/west_mt_tamaranch/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/west_mt_tamaranch/cave_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/yarna_desert", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/yarna_desert/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/yarna_desert/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/caves/yarna_desert/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/yarna_desert/cave_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/dungeons/1", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/dungeons/1/1f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/1/1f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/1/sideview_1.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/1/sideview_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/1/sideview_2.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/1/sideview_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/10", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/dungeons/10/1f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/10/1f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/10/b1.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/10/b1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/10/entrance.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/10/entrance.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/10/sideview_1.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/10/sideview_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/11", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/dungeons/11/1f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/11/1f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/11/b1.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/11/b1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/11/b2.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/11/b2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/2", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/dungeons/2/1f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/2/1f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/2/sideview_1.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/2/sideview_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/2/sideview_2.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/2/sideview_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/2/sideview_3.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/2/sideview_3.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/3", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/dungeons/3/1f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/3/1f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/3/b1.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/3/b1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/3/sideview_1.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/3/sideview_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/4", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/dungeons/4/1f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/4/1f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/4/sideview_1.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/4/sideview_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/4/sideview_2.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/4/sideview_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/4/sideview_3.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/4/sideview_3.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/4/sideview_4.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/4/sideview_4.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/5", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/dungeons/5/1f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/5/1f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/5/sideview_1.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/5/sideview_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/5/sideview_2.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/5/sideview_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/5/sideview_3.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/5/sideview_3.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/5/sideview_4.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/5/sideview_4.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/6", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/dungeons/6/1f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/6/1f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/7", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/dungeons/7/1f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/7/1f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/7/2f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/7/2f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/7/3f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/7/3f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/7/3f_bis.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/7/3f_bis.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/8", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/dungeons/8/1f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/8/1f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/9", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/dungeons/9/1f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/9/1f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/houses", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/houses/east_prairie", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/houses/east_prairie/telephone_booth_5.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/east_prairie/telephone_booth_5.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/houses/egg_of_the_dream_fish", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/houses/egg_of_the_dream_fish/photographer_house.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/egg_of_the_dream_fish/photographer_house.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/houses/graveyard", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/houses/graveyard/drugstore.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/graveyard/drugstore.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/houses/graveyard/witch_house.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/graveyard/witch_house.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/houses/kanalet_castle", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/houses/kanalet_castle/kanalet_castle_1f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/kanalet_castle/kanalet_castle_1f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/houses/kanalet_castle/kanalet_castle_2f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/kanalet_castle/kanalet_castle_2f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/houses/kanalet_castle/telephone_booth_6.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/kanalet_castle/telephone_booth_6.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/houses/mabe_village", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/houses/mabe_village/dream_shine_lower_level.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/mabe_village/dream_shine_lower_level.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/houses/mabe_village/dream_shine_upper_level.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/mabe_village/dream_shine_upper_level.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/houses/mabe_village/grand_pa_house.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/mabe_village/grand_pa_house.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/houses/mabe_village/library.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/mabe_village/library.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/houses/mabe_village/marin_house.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/mabe_village/marin_house.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/houses/mabe_village/meow_meow_house.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/mabe_village/meow_meow_house.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/houses/mabe_village/quadruplets_house.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/mabe_village/quadruplets_house.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/houses/mabe_village/shop_1.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/mabe_village/shop_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/houses/mabe_village/shop_2.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/mabe_village/shop_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/houses/mabe_village/telephone_booth_1.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/mabe_village/telephone_booth_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/houses/mambos_cave", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/houses/mambos_cave/cuccos_house.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/mambos_cave/cuccos_house.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/houses/martha_bay", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/houses/martha_bay/mask_shrine", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/houses/martha_bay/telephone_booth_7.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/martha_bay/telephone_booth_7.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/houses/martha_bay/telephone_booth_8.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/martha_bay/telephone_booth_8.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/houses/prairie", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/houses/prairie/telephone_booth_4.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/prairie/telephone_booth_4.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/houses/rafting", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/houses/rafting/rafting_house.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/rafting/rafting_house.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/houses/south_mabe_village", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/houses/south_mabe_village/sales_house_o_bananas.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/south_mabe_village/sales_house_o_bananas.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/houses/south_prairie", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/houses/south_prairie/ghost_house.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/south_prairie/ghost_house.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/houses/south_prairie/richard_villa.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/south_prairie/richard_villa.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/houses/west_mt_tamaranch", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/houses/west_mt_tamaranch/mr_write_house.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/west_mt_tamaranch/mr_write_house.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/houses/west_mt_tamaranch/telephone_booth_2.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/west_mt_tamaranch/telephone_booth_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/houses/west_mt_tamaranch/telephone_booth_3.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/west_mt_tamaranch/telephone_booth_3.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/houses/yarna_desert", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/houses/yarna_desert/bear_house.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/yarna_desert/bear_house.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/houses/yarna_desert/christine_house.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/yarna_desert/christine_house.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/houses/yarna_desert/empty_house.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/yarna_desert/empty_house.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/houses/yarna_desert/painter_house.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/yarna_desert/painter_house.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/houses/yarna_desert/rabbits_house.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/yarna_desert/rabbits_house.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/movies", author = "Olivier Cléro", license = "GPL v3, CC BY-SA 4.0" }
 file{ path = "maps/movies/introduction.dat", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "maps/movies/introduction.lua", author = "Olivier Cléro", license = "GPL v3" }
@@ -1520,51 +1524,51 @@ file{ path = "maps/movies/introduction2.dat", author = "Olivier Cléro", license
 file{ path = "maps/movies/introduction2.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "maps/movies/link_and_marin.dat", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "maps/movies/link_and_marin.lua", author = "Olivier Cléro", license = "GPL v3" }
-file{ path = "maps/out", author = "Binbin, Christopho, Mymy", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/out/a1_west_mt_tamaranch.dat", author = "Binbin, Christopho", license = "CC BY-SA 4.0" }
-file{ path = "maps/out/a1_west_mt_tamaranch.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/out", author = "Benjamin Schweitzer, Christopho, Mymy", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/out/a1_west_mt_tamaranch.dat", author = "Benjamin Schweitzer, Christopho", license = "CC BY-SA 4.0" }
+file{ path = "maps/out/a1_west_mt_tamaranch.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/out/a2_forest.dat", author = "Christopho, Mymy", license = "CC BY-SA 4.0" }
-file{ path = "maps/out/a2_forest.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/out/a3_mabe_village.dat", author = "Binbin, Christopho, Mymy", license = "CC BY-SA 4.0" }
-file{ path = "maps/out/a3_mabe_village.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/out/a4_south_mabe_village.dat", author = "Binbin, Christopho, Mymy", license = "CC BY-SA 4.0" }
-file{ path = "maps/out/a4_south_mabe_village.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/out/b1_egg_of_the_dream_fish.dat", author = "Binbin, Christopho", license = "CC BY-SA 4.0" }
-file{ path = "maps/out/b1_egg_of_the_dream_fish.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/out/b2_graveyard.dat", author = "Binbin, Christopho, Mymy", license = "CC BY-SA 4.0" }
-file{ path = "maps/out/b2_graveyard.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/out/b3_prairie.dat", author = "Binbin, Christopho, Mymy", license = "CC BY-SA 4.0" }
-file{ path = "maps/out/b3_prairie.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/out/b4_south_prairie.dat", author = "Binbin, Christopho, Mymy", license = "CC BY-SA 4.0" }
-file{ path = "maps/out/b4_south_prairie.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/out/c1_mambos_cave.dat", author = "Binbin, Christopho", license = "CC BY-SA 4.0" }
-file{ path = "maps/out/c1_mambos_cave.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/out/c2_kanalet_castle.dat", author = "Binbin, Christopho", license = "CC BY-SA 4.0" }
-file{ path = "maps/out/c2_kanalet_castle.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/out/c3_east_prairie.dat", author = "Binbin, Christopho", license = "CC BY-SA 4.0" }
-file{ path = "maps/out/c3_east_prairie.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/out/c4_martha_bay.dat", author = "Binbin, Christopho", license = "CC BY-SA 4.0" }
-file{ path = "maps/out/c4_martha_bay.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/out/d1_east_mt_tamaranch.dat", author = "Binbin, Christopho", license = "CC BY-SA 4.0" }
-file{ path = "maps/out/d1_east_mt_tamaranch.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/out/d2_rafting.dat", author = "Binbin, Christopho", license = "CC BY-SA 4.0" }
-file{ path = "maps/out/d2_rafting.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/out/d3_mask_shrine.dat", author = "Binbin, Christopho", license = "CC BY-SA 4.0" }
-file{ path = "maps/out/d3_mask_shrine.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/out/d4_yarna_desert.dat", author = "Binbin, Christopho", license = "CC BY-SA 4.0" }
-file{ path = "maps/out/d4_yarna_desert.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/sideviews", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/sideviews/kanalet_castle", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/sideviews/kanalet_castle/sideview_1.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/sideviews/kanalet_castle/sideview_1.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/sideviews/mabe_village", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/sideviews/mabe_village/sideview_1.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/sideviews/mabe_village/sideview_1.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/sideviews/martha_bay", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/sideviews/martha_bay/sideview_1.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/sideviews/martha_bay/sideview_1.lua", author = "Binbin", license = "GPL v3" }
-file{ path = "maps/sideviews/martha_bay/sideview_2.dat", author = "Binbin", license = "CC BY-SA 4.0" }
-file{ path = "maps/sideviews/martha_bay/sideview_2.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/out/a2_forest.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/out/a3_mabe_village.dat", author = "Benjamin Schweitzer, Christopho, Mymy", license = "CC BY-SA 4.0" }
+file{ path = "maps/out/a3_mabe_village.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/out/a4_south_mabe_village.dat", author = "Benjamin Schweitzer, Christopho, Mymy", license = "CC BY-SA 4.0" }
+file{ path = "maps/out/a4_south_mabe_village.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/out/b1_egg_of_the_dream_fish.dat", author = "Benjamin Schweitzer, Christopho", license = "CC BY-SA 4.0" }
+file{ path = "maps/out/b1_egg_of_the_dream_fish.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/out/b2_graveyard.dat", author = "Benjamin Schweitzer, Christopho, Mymy", license = "CC BY-SA 4.0" }
+file{ path = "maps/out/b2_graveyard.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/out/b3_prairie.dat", author = "Benjamin Schweitzer, Christopho, Mymy", license = "CC BY-SA 4.0" }
+file{ path = "maps/out/b3_prairie.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/out/b4_south_prairie.dat", author = "Benjamin Schweitzer, Christopho, Mymy", license = "CC BY-SA 4.0" }
+file{ path = "maps/out/b4_south_prairie.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/out/c1_mambos_cave.dat", author = "Benjamin Schweitzer, Christopho", license = "CC BY-SA 4.0" }
+file{ path = "maps/out/c1_mambos_cave.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/out/c2_kanalet_castle.dat", author = "Benjamin Schweitzer, Christopho", license = "CC BY-SA 4.0" }
+file{ path = "maps/out/c2_kanalet_castle.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/out/c3_east_prairie.dat", author = "Benjamin Schweitzer, Christopho", license = "CC BY-SA 4.0" }
+file{ path = "maps/out/c3_east_prairie.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/out/c4_martha_bay.dat", author = "Benjamin Schweitzer, Christopho", license = "CC BY-SA 4.0" }
+file{ path = "maps/out/c4_martha_bay.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/out/d1_east_mt_tamaranch.dat", author = "Benjamin Schweitzer, Christopho", license = "CC BY-SA 4.0" }
+file{ path = "maps/out/d1_east_mt_tamaranch.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/out/d2_rafting.dat", author = "Benjamin Schweitzer, Christopho", license = "CC BY-SA 4.0" }
+file{ path = "maps/out/d2_rafting.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/out/d3_mask_shrine.dat", author = "Benjamin Schweitzer, Christopho", license = "CC BY-SA 4.0" }
+file{ path = "maps/out/d3_mask_shrine.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/out/d4_yarna_desert.dat", author = "Benjamin Schweitzer, Christopho", license = "CC BY-SA 4.0" }
+file{ path = "maps/out/d4_yarna_desert.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/sideviews", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/sideviews/kanalet_castle", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/sideviews/kanalet_castle/sideview_1.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/sideviews/kanalet_castle/sideview_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/sideviews/mabe_village", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/sideviews/mabe_village/sideview_1.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/sideviews/mabe_village/sideview_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/sideviews/martha_bay", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/sideviews/martha_bay/sideview_1.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/sideviews/martha_bay/sideview_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/sideviews/martha_bay/sideview_2.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/sideviews/martha_bay/sideview_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "musics/gb", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "musics/gb/01_introduction.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "musics/gb/02_title.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
