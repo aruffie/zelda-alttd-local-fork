@@ -903,9 +903,23 @@ music{ id = "snes/27_mr_write_house", description = "27 - Mr Write" }
 music{ id = "snes/41_christine_house", description = "41 - Christine's House" }
 music{ id = "snes/46_tal_tal_mountain_range", description = "46 - Tal tal Mountain Range" }
 
+sound{ id = "arrow_hit", description = "Empty sound" }
+sound{ id = "boomerang", description = "Empty sound" }
+sound{ id = "boss_hurt", description = "Empty sound" }
+sound{ id = "boss_killed", description = "Empty sound" }
+sound{ id = "bow", description = "Empty sound" }
+sound{ id = "cane", description = "Empty sound" }
+sound{ id = "chest", description = "Empty sound" }
+sound{ id = "chest_open", description = "Empty sound" }
 sound{ id = "diarandor/solarus_logo", description = "Solarus logo" }
+sound{ id = "door_closed", description = "Empty sound" }
+sound{ id = "door_open", description = "Empty sound" }
+sound{ id = "door_unlocked", description = "Empty sound" }
 sound{ id = "enemies/sea_urchin_1", description = "enemies/sea_urchin_1" }
 sound{ id = "enemies/sea_urchin_2", description = "enemies/sea_urchin_2" }
+sound{ id = "enemy_hurt", description = "Empty sound" }
+sound{ id = "enemy_killed", description = "Empty sound" }
+sound{ id = "explosion", description = "Empty sound" }
 sound{ id = "gb/cursor", description = "Cursor" }
 sound{ id = "gb/lift", description = "Lift" }
 sound{ id = "gb/menus/solarus_logo", description = "Solarus logo" }
@@ -921,6 +935,11 @@ sound{ id = "gb/trendy_game_win", description = "Trendy game win" }
 sound{ id = "gb/walk_on_grass", description = "Walk on grass" }
 sound{ id = "gb/walk_on_water", description = "Walk on water" }
 sound{ id = "gb/wrong", description = "Wrong" }
+sound{ id = "hero_falls", description = "Empty sound" }
+sound{ id = "hero_hurt", description = "Empty sound" }
+sound{ id = "hero_lands", description = "Empty sound" }
+sound{ id = "hero_pushes", description = "Empty sound" }
+sound{ id = "hookshot", description = "Empty sound" }
 sound{ id = "instruments/instrument", description = "Instrument" }
 sound{ id = "instruments/instrument_1", description = "Instrument 1" }
 sound{ id = "instruments/instrument_2", description = "Instrument 2" }
@@ -937,6 +956,14 @@ sound{ id = "items/ocarina_2_warp", description = "items/ocarina_2_warp" }
 sound{ id = "items/ocarina_3", description = "items/ocarina_3" }
 sound{ id = "items/ocarina_3_revive_1", description = "items/ocarina_3_revive_1" }
 sound{ id = "items/ocarina_3_revive_2", description = "items/ocarina_3_revive_2" }
+sound{ id = "jump", description = "Empty sound" }
+sound{ id = "lift", description = "Empty sound" }
+sound{ id = "message._end", description = "Empty sound" }
+sound{ id = "monster_hurt", description = "Empty sound" }
+sound{ id = "picked_item", description = "Empty sound" }
+sound{ id = "running", description = "Empty sound" }
+sound{ id = "running_obstacle", description = "Empty sound" }
+sound{ id = "shield", description = "Empty sound" }
 sound{ id = "snes/arrow_hit", description = "Arrow hit" }
 sound{ id = "snes/boomerang", description = "Boomerang" }
 sound{ id = "snes/boss_hurt", description = "Boss hurt" }
@@ -985,6 +1012,26 @@ sound{ id = "snes/victory", description = "Victory" }
 sound{ id = "snes/walk_on_grass", description = "Walk on grass" }
 sound{ id = "snes/walk_on_water", description = "Walk on water" }
 sound{ id = "snes/wrong", description = "Wrong" }
+sound{ id = "splash", description = "Empty sound" }
+sound{ id = "stairs_down_end", description = "Empty sound" }
+sound{ id = "stairs_down_start", description = "Empty sound" }
+sound{ id = "stairs_up_end", description = "Empty sound" }
+sound{ id = "stairs_up_start", description = "Empty sound" }
+sound{ id = "stone", description = "Empty sound" }
+sound{ id = "swim", description = "Empty sound" }
+sound{ id = "sword1", description = "Empty sound" }
+sound{ id = "sword_spin_attack_load", description = "Empty sound" }
+sound{ id = "sword_spin_attack_release", description = "Empty sound" }
+sound{ id = "sword_tapping", description = "Empty sound" }
+sound{ id = "sword_tapping_weak_wall", description = "Empty sound" }
+sound{ id = "throw", description = "Empty sound" }
+sound{ id = "timer", description = "Empty sound" }
+sound{ id = "timer_hurry", description = "Empty sound" }
+sound{ id = "treasure", description = "Empty sound" }
+sound{ id = "victory", description = "Empty sound" }
+sound{ id = "walk_on_grass", description = "Empty sound" }
+sound{ id = "walk_on_water", description = "Empty sound" }
+sound{ id = "wrong", description = "Empty sound" }
 sound{ id = "zonzifleur/solarus_team_logo", description = "Solarus Team logo" }
 
 item{ id = "angler_key", description = "Angler key" }
@@ -1538,10 +1585,57 @@ file{ path = "shaders/pixellisation.dat", author = "PhoenixII54", }
 file{ path = "shaders/pixellisation.frag.glsl", author = "PhoenixII54", }
 file{ path = "shaders/radial_fade_out.dat", author = "PhoenixII54", }
 file{ path = "shaders/radial_fade_out.frag.glsl", author = "PhoenixII54", }
+file{ path = "sounds/arrow_hit.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/boomerang.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/boss_hurt.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/boss_killed.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/bow.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/cane.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/chest.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/chest_open.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/door_closed.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/door_open.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/door_unlocked.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/enemy_hurt.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/enemy_killed.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/explosion.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/gb/menus/solarus_logo.ogg", author = "Diarandor", }
 file{ path = "sounds/gb/menus/solarus_team_logo.ogg", author = "Zonzifleur", }
+file{ path = "sounds/hero_falls.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/hero_hurt.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/hero_lands.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/hero_pushes.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/hookshot.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/jump.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/lift.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/message._end.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/monster_hurt.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/picked_item.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/running.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/running_obstacle.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/shield.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/snes/menus/solarus_logo.ogg", author = "Diarandor", }
 file{ path = "sounds/snes/menus/solarus_team_logo.ogg", author = "Zonzifleur", }
+file{ path = "sounds/splash.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/stairs_down_end.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/stairs_down_start.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/stairs_up_end.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/stairs_up_start.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/stone.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/swim.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/sword1.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/sword_spin_attack_load.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/sword_spin_attack_release.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/sword_tapping.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/sword_tapping_weak_wall.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/throw.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/timer.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/timer_hurry.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/treasure.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/victory.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/walk_on_grass.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/walk_on_water.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/wrong.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/file_selection/file_selection_button.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/file_selection/file_selection_cursor.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/file_selection/file_selection_frame.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
