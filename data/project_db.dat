@@ -937,10 +937,54 @@ sound{ id = "items/ocarina_2_warp", description = "items/ocarina_2_warp" }
 sound{ id = "items/ocarina_3", description = "items/ocarina_3" }
 sound{ id = "items/ocarina_3_revive_1", description = "items/ocarina_3_revive_1" }
 sound{ id = "items/ocarina_3_revive_2", description = "items/ocarina_3_revive_2" }
+sound{ id = "snes/arrow_hit", description = "Arrow hit" }
+sound{ id = "snes/boomerang", description = "Boomerang" }
+sound{ id = "snes/boss_hurt", description = "Boss hurt" }
+sound{ id = "snes/boss_killed", description = "Boss killed" }
+sound{ id = "snes/bow", description = "Bow" }
+sound{ id = "snes/cane", description = "Cane" }
+sound{ id = "snes/chest_open", description = "Chest open" }
+sound{ id = "snes/door_closed", description = "Door closed" }
+sound{ id = "snes/door_open", description = "Door open" }
+sound{ id = "snes/door_unlocked", description = "Door unlock" }
+sound{ id = "snes/enemy_hurt", description = "Enemy hurt" }
+sound{ id = "snes/enemy_killed", description = "Enemy killed" }
+sound{ id = "snes/explosion", description = "Explosion" }
+sound{ id = "snes/hero_falls", description = "Hero falls" }
+sound{ id = "snes/hero_hurt", description = "Hero hurt" }
+sound{ id = "snes/hero_lands", description = "Hero lands" }
+sound{ id = "snes/hero_pushes", description = "Hero pushes" }
+sound{ id = "snes/hookshot", description = "Hookshot" }
+sound{ id = "snes/jump", description = "Jump" }
+sound{ id = "snes/lift", description = "Lift" }
 sound{ id = "snes/menus/solarus_logo", description = "Solarus logo" }
 sound{ id = "snes/menus/solarus_team_logo", description = "Solarus team logo" }
+sound{ id = "snes/message_end", description = "Message end" }
+sound{ id = "snes/monster_hurt", description = "Monster hurt" }
+sound{ id = "snes/picked_item", description = "Picked item" }
+sound{ id = "snes/running", description = "Running" }
+sound{ id = "snes/running_obstacle", description = "Running obstacle" }
+sound{ id = "snes/shield", description = "Shield" }
+sound{ id = "snes/splash", description = "Splash" }
+sound{ id = "snes/stairs_down_end", description = "Stairs down end" }
+sound{ id = "snes/stairs_down_start", description = "Stairs down start" }
+sound{ id = "snes/stairs_up_end", description = "Stairs up end" }
+sound{ id = "snes/stairs_up_start", description = "Stairs up start" }
+sound{ id = "snes/stone", description = "Stone" }
+sound{ id = "snes/swim", description = "Swim" }
+sound{ id = "snes/sword1", description = "Sword 1" }
+sound{ id = "snes/sword_spin_attack_load", description = "Sword spin attack load" }
+sound{ id = "snes/sword_spin_attack_release", description = "Sword spin attack release" }
+sound{ id = "snes/sword_tapping", description = "Sword tapping" }
+sound{ id = "snes/sword_tapping_weak_wall", description = "Sword tapping weak wall" }
+sound{ id = "snes/throw", description = "Throw" }
+sound{ id = "snes/timer", description = "Timer" }
+sound{ id = "snes/timer_hurry", description = "Timer hurry" }
+sound{ id = "snes/treasure", description = "Treasure" }
+sound{ id = "snes/victory", description = "Victory" }
 sound{ id = "snes/walk_on_grass", description = "Walk on grass" }
 sound{ id = "snes/walk_on_water", description = "Walk on water" }
+sound{ id = "snes/wrong", description = "Wrong" }
 sound{ id = "zonzifleur/solarus_team_logo", description = "Solarus Team logo" }
 
 item{ id = "angler_key", description = "Angler key" }
