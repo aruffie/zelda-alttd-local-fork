@@ -5,6 +5,7 @@ local submenu = {}
 local language_manager = require("scripts/language_manager")
 local messagebox = require("scripts/menus/messagebox")
 local text_fx_helper = require("scripts/text_fx_helper")
+local audio_manager = require("scripts/audio_manager")
 
 function submenu:new(game)
   local o = { game = game }

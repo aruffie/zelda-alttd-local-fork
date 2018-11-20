@@ -1,5 +1,7 @@
 -- The money counter shown in the game screen.
 
+local audio_manager = require("scripts/audio_manager")
+
 local rupees_builder = {}
 
 function rupees_builder:new(game, config)

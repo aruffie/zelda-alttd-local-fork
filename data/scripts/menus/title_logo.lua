@@ -3,6 +3,7 @@
 
 local language_manager = require("scripts/language_manager")
 local text_fx_helper = require("scripts/text_fx_helper")
+local audio_manager = require("scripts/audio_manager")
 
 local title_logo = {}
 

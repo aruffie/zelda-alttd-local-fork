@@ -4,6 +4,7 @@
 local language_menu = {}
 
 local language_manager = require("scripts/language_manager")
+local audio_manager = require("scripts/audio_manager")
 
 function language_menu:on_started()
 

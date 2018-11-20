@@ -117,7 +117,7 @@ function audio_manager:play_sound(id_sound)
   local mode = (game ~= nil) and game:get_value("mode") or "snes"
   local directory = (mode == "gb") and "gb" or "snes"
   local directory = "gb" -- todo remove later
-  sol.audio.play_sound(directory .. "/" .. id_sound) 
+  --sol.audio.play_sound(directory .. "/" .. id_sound) 
 
 end
 

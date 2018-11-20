@@ -285,35 +285,33 @@ end
   -- Handle player input.
   function messagebox_menu:on_command_pressed(command)
 
--- Handle player input.
-function messagebox_menu:on_command_pressed(command)
-  print(command)
-  -- Action: click on the button.
-  if command == "action" then
-    if self.cursor_position == 1 then
-      audio_manager:play_sound("menus/menu_cursor")
-      self:accept()
-    else
-      audio_manager:play_sound("menus/menu_cursor")
-      self:reject()
-    end
-  -- Left/Right: move the cursor.
-  elseif command == "left" or command == "right" then
-    if self.cursor_position == 1 and command == "right" then
-      -- Go to button 2.
-      self:set_cursor_position(2)
-      audio_manager:play_sound("menus/menu_cursor")    
-    elseif self.cursor_position == 2 and command == "left" then
-      -- Go to button 1.
-      self:set_cursor_position(1)
-      audio_manager:play_sound("menus/menu_cursor")    
-    else
-      -- Blocked.
-      self:notify_cursor_not_allowed()
-    end
+    -- Action: click on the button.
+    if command == "action" then
+      if self.cursor_position == 1 then
+        audio_manager:play_sound("menus/menu_cursor")
+        self:accept()
+      else
+        audio_manager:play_sound("menus/menu_cursor")
+        self:reject()
+      end
+    -- Left/Right: move the cursor.
+    elseif command == "left" or command == "right" then
+      if self.cursor_position == 1 and command == "right" then
+        -- Go to button 2.
+        self:set_cursor_position(2)
+        audio_manager:play_sound("menus/menu_cursor")    
+      elseif self.cursor_position == 2 and command == "left" then
+        -- Go to button 1.
+        self:set_cursor_position(1)
+        audio_manager:play_sound("menus/menu_cursor")    
+      else
+        -- Blocked.
+        self:notify_cursor_not_allowed()
+      end
 
-    -- Don't propagate the event to anything below the dialog box.
-    return true
+      -- Don't propagate the event to anything below the dialog box.
+      return true
+    end
   end
 
   -- Hander player input when there is no lauched game yet.
@@ -420,6 +418,7 @@ function messagebox_menu:on_command_pressed(command)
   ------------------------
 
   messagebox_menu:show(context, text_lines, button_1_text, button_2_text, default_button_index, callback)
+
 end
 
 return messagebox_builder
