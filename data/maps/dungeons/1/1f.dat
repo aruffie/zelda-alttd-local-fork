@@ -12956,15 +12956,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 2064,
-  y = 632,
-  width = 32,
-  height = 16,
-  pattern = "floor_boss-1",
-}
-
-tile{
-  layer = 0,
   x = 1936,
   y = 432,
   width = 32,
@@ -13366,15 +13357,6 @@ tile{
   width = 64,
   height = 32,
   pattern = "floor_low.10-Alpha",
-}
-
-tile{
-  layer = 0,
-  x = 2064,
-  y = 824,
-  width = 32,
-  height = 16,
-  pattern = "floor_boss-1",
 }
 
 tile{
@@ -17215,6 +17197,28 @@ destination{
   x = 2080,
   y = 437,
   direction = 1,
+}
+
+custom_entity{
+  name = "boss_symbol",
+  layer = 0,
+  x = 2080,
+  y = 845,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/boss_symbol_dungeon_1",
+}
+
+custom_entity{
+  name = "boss_symbol_2",
+  layer = 0,
+  x = 2080,
+  y = 653,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/boss_symbol_dungeon_1",
 }
 
 tile{
