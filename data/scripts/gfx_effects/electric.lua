@@ -20,7 +20,7 @@ function lib.start_effect(surface, game, sfx, mode, callback)
   end
   callback=callback or nil
   if _sfx then
-    sol.audio.play_sound(_sfx)
+    audio_manager:play_sound(_sfx)
   end
   surface:set_shader(shader) --Attach the shader to the surface
   sol.timer.start(game, duration, function()

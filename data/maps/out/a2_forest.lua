@@ -351,13 +351,13 @@ function change_movement_raccoon()
     function movement:on_finished()
       local direction4 = hero:get_direction4_to(tarin)
       hero:get_sprite():set_direction(direction4)
-      sol.audio.play_sound("bounce")
+      audio_manager:play_sound("bounce")
       raccoon_index = raccoon_index + 1
       change_movement_raccoon()
     end
   else
     local x, y, layer = tarin:get_position()
-    sol.audio.play_sound("explosion")
+    audio_manager:play_sound("explosion")
     map:create_explosion{
       layer = layer,
       x = x,
@@ -377,7 +377,7 @@ function change_movement_raccoon()
         movement1:set_ignore_obstacles(true)
         movement1:set_ignore_suspend(true)
         movement1:start(camera, function()
-          sol.audio.play_sound("secret_1")
+          audio_manager:play_sound("secret_1")
           local timer2 = sol.timer.start(map, 1000, function()
             local movement2 = sol.movement.create("straight")
             movement2:set_angle(3 * math.pi / 2)

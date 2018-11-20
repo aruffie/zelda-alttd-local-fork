@@ -64,7 +64,7 @@ door_manager:open_when_enemies_dead(map,  "enemy_group_2_",  "door_group_2")
 door_manager:open_when_enemies_dead(map,  "enemy_group_3_",  "door_group_3")
 door_manager:open_when_enemies_dead(map,  "enemy_group_5_",  "door_group_5")
 
-function weak_door_1:on_opened() sol.audio.play_sound("secret_1") end
+function weak_door_1:on_opened() audio_manager:play_sound("secret_1") end
 
 -- Sensors events
 
@@ -97,7 +97,7 @@ end
 -- Switchs events
 
 function switch_5:on_activated()
-  sol.audio.play_sound("secret_1")
+  audio_manager:play_sound("secret_1")
   map:open_doors("door_group_5")
 end
 
@@ -115,7 +115,7 @@ function miniboss_sensor_1:on_activated()
 end
 if miniboss_1 ~= nil then
  function miniboss_1:on_dead()
-  sol.audio.play_sound("secret_1") 
+  audio_manager:play_sound("secret_1") 
   audio_manager:play_music("maps/dungeons/9/dungeon")
   map:open_doors("door_miniboss_1") 
  end
@@ -134,7 +134,7 @@ function miniboss_sensor_2:on_activated()
 end
 if miniboss_2 ~= nil then
  function miniboss_2:on_dead()
-  sol.audio.play_sound("secret_1") 
+  audio_manager:play_sound("secret_1") 
   audio_manager:play_music("maps/dungeons/9/dungeon")
   map:open_doors("door_miniboss_2") 
  end
@@ -154,7 +154,7 @@ function boss_sensor:on_activated()
 end
 if boss ~= nil then
  function boss:on_dead()
-  sol.audio.play_sound("secret_1") 
+  audio_manager:play_sound("secret_1") 
   audio_manager:play_music("maps/dungeons/9/dungeon")
   map:open_doors("door_boss") 
  end

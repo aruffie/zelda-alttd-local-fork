@@ -228,15 +228,15 @@ function options_submenu:on_command_pressed(command)
       self:next_submenu()
       handled = true
     elseif command == "up" then
-      sol.audio.play_sound("cursor")
+      audio_manager:play_sound("cursor")
       self:set_cursor_position((self.cursor_position + 8) % 10 + 1)
       handled = true
     elseif command == "down" then
-      sol.audio.play_sound("cursor")
+      audio_manager:play_sound("cursor")
       self:set_cursor_position(self.cursor_position % 10 + 1)
       handled = true
     elseif command == "action" then
-      sol.audio.play_sound("danger")
+      audio_manager:play_sound("danger")
       if self.cursor_position == 1 then
         -- Change the video mode.
         sol.video.switch_mode()
@@ -248,7 +248,7 @@ function options_submenu:on_command_pressed(command)
         local command_to_customize = self.command_names[self.cursor_position - 1]
         self.game:capture_command_binding(command_to_customize, function()
           self.waiting_for_command = false
-          sol.audio.play_sound("danger")
+          audio_manager:play_sound("danger")
           self:set_caption("options.caption.press_action_customize_key")
           self:load_command_texts()
           -- TODO restore HUD icons.

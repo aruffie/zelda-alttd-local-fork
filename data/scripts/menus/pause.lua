@@ -4,6 +4,7 @@
 -- require("scripts/menus/pause")
 
 require("scripts/multi_events")
+local audio_manager = require("scripts/audio_manager")
 
 -- Creates a pause menu for the specified game.
 local function initialize_pause_features(game)
@@ -42,7 +43,7 @@ local function initialize_pause_features(game)
     game:set_value("pause_last_submenu", submenu_index)
 
     -- Play the sound of pausing the game.
-    sol.audio.play_sound("pause_open")
+    audio_manager:play_sound("pause_open")
 
     -- Start the selected submenu.
     sol.menu.start(pause_menu, game.pause_submenus[submenu_index])
@@ -59,7 +60,7 @@ local function initialize_pause_features(game)
   function pause_menu:on_finished()
 
     -- Play the sound of unpausing the game.
-    sol.audio.play_sound("pause_closed")
+    audio_manager:play_sound("pause_closed")
 
     game.pause_submenus = {}
     -- Restore opacity

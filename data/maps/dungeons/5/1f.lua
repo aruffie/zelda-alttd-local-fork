@@ -218,7 +218,7 @@ end
 function switch_1:on_activated()
 
   map:open_doors("door_group_4")
-  sol.audio.play_sound("secret_1")
+  audio_manager:play_sound("secret_1")
 
 end
 

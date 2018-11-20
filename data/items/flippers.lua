@@ -32,7 +32,7 @@ function item:start_diving()
       item:stop_diving()
     end
   end)
-  sol.audio.play_sound("splash")
+  audio_manager:play_sound("splash")
   hero:freeze()
   hero:set_animation("diving",function()
     hero:unfreeze()

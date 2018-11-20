@@ -1,6 +1,9 @@
 -- Animated Zeldaforce logo by Olivier Cléro.
 -- Version 1.0
 
+-- Includes scripts
+local audio_manager = require("scripts/audio_manager")
+
 local zeldaforce_logo_menu = {}
 
 ----------------------------------------------------------
@@ -137,7 +140,7 @@ function zeldaforce_logo_menu:skip_menu()
   -- Go directly to last step
   if self.step <= 3 then
     if (not self.has_played_sound_1) and (not self.has_played_sound_2) then
-      sol.audio.play_sound("solarus_logo")
+      audio_manager:play_sound("menus/solarus_logo")
     end
     self:step4()
     self:step5(500)
@@ -173,7 +176,7 @@ function zeldaforce_logo_menu:step2()
     -- Play a sound for the collision.
     if self.elapsed_time >= self.anim_length * 0.6 and not self.has_played_sound_1 then
       self.has_played_sound_1 = true
-      sol.audio.play_sound("solarus_logo")
+      audio_manager:play_sound("menus/solarus_logo")
     end
 
     if self.elapsed_time < self.anim_length then
@@ -217,7 +220,7 @@ function zeldaforce_logo_menu:step3()
     if self.elapsed_time >= self.anim_length * 0.6 and not self.has_played_sound_2 then
       self.has_played_sound_2 = true
       self.draw_triforce_middle = true
-      sol.audio.play_sound("solarus_logo")
+      audio_manager:play_sound("menus/solarus_logo")
     end
 
     if self.elapsed_time < self.anim_length then

@@ -126,7 +126,7 @@ function sensor_meta:on_activated_repeat()
       if hero:get_direction() == 1
 	         and door:is_enabled() then
         door:set_enabled(false)
-        sol.audio.play_sound("door_open")
+        audio_manager:play_sound("door_open")
       end
     end
   end

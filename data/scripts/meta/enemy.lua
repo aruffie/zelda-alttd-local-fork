@@ -44,7 +44,7 @@ function enemy_meta:receive_attack_consequence(attack, reaction)
         self:restart()
       end)
   elseif reaction == "protected" then
-    sol.audio.play_sound("sword_tapping")
+    audio_manager:play_sound("sword_tapping")
   elseif reaction == "custom" then
     if self.on_custom_attack_received ~= nil then
       self:on_custom_attack_received(attack)
@@ -131,7 +131,7 @@ function enemy_meta:create_symbol_exclamation(x, y, layer)
   
   local map = self:get_map()
   local x, y, layer = self:get_position()
-  sol.audio.play_sound("ok")
+  audio_manager:play_sound("ok")
   local symbol = map:create_custom_entity({
     sprite = "entities/symbol_exclamation",
     x = x - 16,
@@ -151,7 +151,7 @@ function enemy_meta:create_symbol_interrogation()
   
   local map = self:get_map()
   local x, y, layer = self:get_position()
-  sol.audio.play_sound("ok")
+  audio_manager:play_sound("ok")
   local symbol = map:create_custom_entity({
     sprite = "entities/symbol_interrogation",
     x = x,

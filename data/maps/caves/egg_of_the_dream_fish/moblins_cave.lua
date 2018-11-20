@@ -118,7 +118,7 @@ function bowwow:on_interaction()
   for enemy in map:get_entities_by_type("enemy") do
     enemy:remove()
   end
-  sol.audio.play_sound("treasure_2")
+  audio_manager:play_sound("treasure_2")
   map:launch_cinematic_4()
 
 end

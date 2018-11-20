@@ -175,7 +175,7 @@ function hero_meta:start_runjump()
   end
 
   -- Play jump sound.
-  sol.audio.play_sound(jumping_sound)
+  audio_manager:play_sound(jumping_sound)
   -- Start jumping state.
   hero:start_state(state)
   -- Start runjump movement.
@@ -259,7 +259,7 @@ end
 function runjump_manager:smash_wall(hero)
   -- Crash animation and sound.
   local hero = hero
-  sol.audio.play_sound(running_obstacle_sound)
+  audio_manager:play_sound(running_obstacle_sound)
   hero:set_animation("hurt")
   
   -- Call collision events of entities when the hero crashes against them.

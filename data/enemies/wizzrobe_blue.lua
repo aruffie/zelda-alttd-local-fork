@@ -47,7 +47,7 @@ local function shoot()
   children[#children + 1] = beam
 
   if not map.wizzrobe_recent_sound then
-    sol.audio.play_sound("zora")
+    audio_manager:play_sound("zora")
     -- Avoid loud simultaneous sounds if there are several wizzrobes.
     map.wizzrobe_recent_sound = true
     sol.timer.start(map, 200, function()

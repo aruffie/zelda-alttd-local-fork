@@ -178,22 +178,22 @@ end
 
 function enemy:set_shocked()
 
-    enemy:calculate_parameters()
-    sol.audio.play_sound("enemy_bounce")
-    sprite:set_animation("shocked")
-    enemy:set_attack_consequence("sword", 1)
-    local movement_jump = sol.movement.create("jump")
-    movement_jump:set_direction8(direction)
-    movement_jump:set_distance(32)
-    movement_jump:set_speed(128)
-    movement_jump:set_ignore_obstacles(true)
-    sol.timer.start(enemy, 4000, function()
-        enemy:go_to_initial_position()
-    end)
-    function movement_jump:on_finished()
-      symbol_collapse = enemy:create_symbol_collapse()
-    end
-    movement_jump:start(enemy)
+  enemy:calculate_parameters()
+  audio_manager:play_sound("enemy_bounce")
+  sprite:set_animation("shocked")
+  enemy:set_attack_consequence("sword", 1)
+  local movement_jump = sol.movement.create("jump")
+  movement_jump:set_direction8(direction)
+  movement_jump:set_distance(32)
+  movement_jump:set_speed(128)
+  movement_jump:set_ignore_obstacles(true)
+  sol.timer.start(enemy, 4000, function()
+      enemy:go_to_initial_position()
+  end)
+  function movement_jump:on_finished()
+    symbol_collapse = enemy:create_symbol_collapse()
+  end
+  movement_jump:start(enemy)
 
 end
 

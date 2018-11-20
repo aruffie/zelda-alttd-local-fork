@@ -192,7 +192,7 @@ end
 -- Notify that this cursor movement is not allowed.
 function messagebox_menu:notify_cursor_not_allowed()
   self.cursor_sprite:set_frame(0)
-  sol.audio.play_sound("picked_item")    
+  audio_manager:play_sound("picked_item")    
 end
 
 
@@ -218,10 +218,10 @@ function messagebox_menu:on_command_pressed(command)
   -- Action: click on the button.
   if command == "action" then
     if self.cursor_position == 1 then
-      sol.audio.play_sound("cursor")
+      audio_manager:play_sound("cursor")
       self:accept()
     else
-      sol.audio.play_sound("cursor")
+      audio_manager:play_sound("cursor")
       self:reject()
     end
   -- Left/Right: move the cursor.
@@ -229,11 +229,11 @@ function messagebox_menu:on_command_pressed(command)
     if self.cursor_position == 1 and command == "right" then
       -- Go to button 2.
       self:set_cursor_position(2)
-      sol.audio.play_sound("cursor")    
+      audio_manager:play_sound("cursor")    
     elseif self.cursor_position == 2 and command == "left" then
       -- Go to button 1.
       self:set_cursor_position(1)
-      sol.audio.play_sound("cursor")    
+      audio_manager:play_sound("cursor")    
     else
       -- Blocked.
       self:notify_cursor_not_allowed()
@@ -259,11 +259,11 @@ function messagebox_menu:on_key_pressed(key)
         if self.cursor_position == 1 and key == "right" then
           -- Go to button 2.
           self:set_cursor_position(2)
-          sol.audio.play_sound("cursor")    
+          audio_manager:play_sound("cursor")    
         elseif self.cursor_position == 2 and key == "left" then
           -- Go to button 1.
           self:set_cursor_position(1)
-          sol.audio.play_sound("cursor")    
+          audio_manager:play_sound("cursor")    
         else
           -- Blocked.
           self:notify_cursor_not_allowed()

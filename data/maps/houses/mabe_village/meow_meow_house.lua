@@ -77,7 +77,7 @@ end
 -- Discussion with Small bowwow 1
 function map:talk_to_small_bowwow_1() 
 
-  sol.audio.play_sound("bowwow")
+  audio_manager:play_sound("bowwow")
   game:start_dialog("maps.houses.mabe_village.meow_meow_house.small_bowwow_1_1")
 
 end
@@ -85,13 +85,13 @@ end
 -- Discussion with Small bowwow 2
 function map:talk_to_small_bowwow_2() 
 
-  sol.audio.play_sound("bowwow")
+  audio_manager:play_sound("bowwow")
   local item = game:get_item("magnifying_lens")
   local variant = item:get_variant()
   if variant == 2 then
     game:start_dialog("maps.houses.mabe_village.meow_meow_house.small_bowwow_2_2", function(answer)
       if answer == 1 then
-        sol.audio.play_sound("bowwow")
+        audio_manager:play_sound("bowwow")
         game:start_dialog("maps.houses.mabe_village.meow_meow_house.small_bowwow_2_4", function()
           small_bowwow_2:get_sprite():set_animation("ruban")
           hero:start_treasure("magnifying_lens", 3, "magnifying_lens_3")

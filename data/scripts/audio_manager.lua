@@ -106,22 +106,22 @@ function audio_manager:play_music(id_music)
 
 end
 
--- Play audio according to the mode of play
-function audio_manager:play_audio(id_audio)
+-- Play sound according to the mode of play
+function audio_manager:play_sound(id_sound)
   
-  if id_audio == nil then
+  if id_sound == nil then
     return false
   end
   local game = sol.main.game
+  
   local mode = (game ~= nil) and game:get_value("mode") or "snes"
   local directory = (mode == "gb") and "gb" or "snes"
   local directory = "gb" -- todo remove later
-  
-  sol.audio.play_audio(directory .. "/" .. id_audio) 
+  sol.audio.play_sound(directory .. "/" .. id_sound) 
 
 end
 
--- Refresh audio according to the mode of play
+-- Refresh music according to the mode of play
 function audio_manager:refresh_music()
   
   local game = sol.main.game

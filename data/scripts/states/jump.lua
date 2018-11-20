@@ -206,7 +206,7 @@ function hero_meta:start_custom_jump()
   -- Prepare hero for jump.
   local ws = hero:get_walking_speed() -- Default walking speed.
   hero:set_walking_speed(jumping_speed)
-  sol.audio.play_sound(jumping_sound)
+  audio_manager:play_sound(jumping_sound)
 
   -- Save sprites info before changing state.
   state:update_sprites_info(hero)

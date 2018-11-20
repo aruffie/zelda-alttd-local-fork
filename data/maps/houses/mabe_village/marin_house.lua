@@ -214,7 +214,7 @@ function map:launch_cinematic_1()
     wait(500)
 
     hero:set_enabled(true)
-    sol.audio.play_sound("hero_lands")
+    audio_manager:play_sound("hero_lands")
     bed:get_sprite():set_animation("empty_open")
     bed:set_layer(0)
     hero:set_animation("jumping")

@@ -46,7 +46,7 @@ function enemy:on_custom_attack_received(attack, sprite)
     local angle = direction * math.pi / 2
     movement:set_angle(angle)
 
-    sol.audio.play_sound("enemy_hurt")
+    audio_manager:play_sound("enemy_hurt")
 
     bounced = true
   end

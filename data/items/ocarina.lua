@@ -44,7 +44,7 @@ function item:playing_song(music, callback)
     direction = 2,
     sprite = "entities/notes"
   }
-  sol.audio.play_sound(music)
+  audio_manager:play_sound(music)
   local timer = sol.timer.start(map, 4000, function()
     notes:remove()
     notes2:remove()

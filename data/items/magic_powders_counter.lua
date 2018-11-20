@@ -23,9 +23,9 @@ function item:on_using()
    local amount =   self:get_amount()
    amount = amount - 1
   if amount < 0 then
-    sol.audio.play_sound("wrong")
+    audio_manager:play_sound("wrong")
   else
-    sol.audio.play_sound("magic_powder")
+    audio_manager:play_sound("magic_powder")
    local map = game:get_map()
    local hero = map:get_hero()
    local x,y,layer = hero:get_position()

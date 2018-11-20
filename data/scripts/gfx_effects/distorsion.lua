@@ -22,7 +22,7 @@ function lib.start_effect(surface, game, mode, sfx, callback)
     return a+p*(b-a)
   end
   if sfx then
-    sol.audio.play_sound(sfx)
+    audio_manager:play_sound(sfx)
   end
   surface:set_shader(shader_ocarina)
   sol.timer.start(game, 10, function()

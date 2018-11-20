@@ -62,8 +62,8 @@ function map:launch_cinematic_1()
     local camera = map:get_camera()
     hero:set_direction(3)
     wait(1000)
-    sol.audio.play_sound("castle_door")
-    sol.audio.play_sound("shake")
+    audio_manager:play_sound("castle_door")
+    audio_manager:play_sound("shake")
     local shake_config = {
         count = 32,
         amplitude = 4,

@@ -49,7 +49,7 @@ function enemy:on_restarted()
             movement:stop()
             sprite:set_animation("crushed")
             function sprite:on_animation_finished(animation)
-              sol.audio.play_sound("switch")
+              audio_manager:play_sound("switch")
               enemy:remove()
             end
           end

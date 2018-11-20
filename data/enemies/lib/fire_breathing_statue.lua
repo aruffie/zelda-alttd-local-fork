@@ -62,7 +62,7 @@ function behavior:create(enemy, properties)
       if self:get_distance(hero) < properties.detection_distance and self:is_in_same_region(hero) then
 
         if not map.fire_breath_recent_sound then
-          sol.audio.play_sound(properties.projectile_sound)
+          audio_manager:play_sound(properties.projectile_sound)
           -- Avoid loudy simultaneous sounds if there are several fire breathing enemies.
           map.fire_breath_recent_sound = true
           sol.timer.start(map, 200, function()

@@ -8,6 +8,7 @@ local game_manager = require("scripts/game_manager")
 local messagebox = require("scripts/menus/messagebox")
 local keyboardbox = require("scripts/menus/keyboardbox")
 local settings = require("scripts/menus/settings")
+local audio_manager = require("scripts/audio_manager")
 
 
 ----------------
@@ -391,14 +392,14 @@ function file_selection_menu:move_cursor(key)
   -- Update if different.
   if new_cursor_position ~= self.cursor_position then
     self:set_cursor_position(new_cursor_position)
-    sol.audio.play_sound("cursor")
+    audio_manager:play_sound("cursor")
   else 
     -- Only restart the animation.
     self.cursor_sprite:set_frame(0)
     if self.cursor_position <= self.slot_count then
       self.slots[self.cursor_position].hero_sprite:set_frame(0)
     end
-    sol.audio.play_sound("picked_item")
+    audio_manager:play_sound("picked_item")
   end
 
   return handled
@@ -440,7 +441,7 @@ function file_selection_menu:on_key_pressed(key)
           if sol.game.exists(slot.file_name) then
             -- The file exists: run it after a fade-out effect.            
             self.finished = true
-            sol.audio.play_sound("trendy_game_win")
+            audio_manager:play_sound("trendy_game_win")
             self.choosen_savegame = slot.savegame
             self.surface:fade_out(20, function()
               sol.menu.stop(self)
@@ -472,7 +473,7 @@ function file_selection_menu:on_key_pressed(key)
                   -- Stop music.
                   sol.audio.stop_music()
 
-                  sol.audio.play_sound("trendy_game_win")
+                  audio_manager:play_sound("trendy_game_win")
                   self.choosen_savegame = slot.savegame
                   self.surface:fade_out(20, function()
                     -- Automatically launch the game.
@@ -483,7 +484,7 @@ function file_selection_menu:on_key_pressed(key)
             end)
           end
         else
-          sol.audio.play_sound("wrong")            
+          audio_manager:play_sound("wrong")            
         end
 
       elseif self.phase == self.phases.CHOOSE_DELETE then
@@ -491,7 +492,7 @@ function file_selection_menu:on_key_pressed(key)
         self:set_phase(self.phases.CONFIRM_DELETE)
         
         -- Open a messagebox to ask the player for confirmation.
-        sol.audio.play_sound("pause_open")
+        audio_manager:play_sound("pause_open")
         messagebox:show(sol.main, 
           {sol.language.get_string("file_selection.confirm_delete")}, 
           sol.language.get_string("messagebox.yes"), sol.language.get_string("file_selection.cancel"), 2,
@@ -501,18 +502,18 @@ function file_selection_menu:on_key_pressed(key)
             local slot = self.slots[self.cursor_position]
             if slot ~= nil then
               -- Delete file.
-              sol.audio.play_sound("boss_hurt")
+              audio_manager:play_sound("boss_hurt")
               sol.game.delete(slot.file_name)
               -- Update all the files.
               self:read_savefiles()
             else
-              sol.audio.play_sound("wrong")            
+              audio_manager:play_sound("wrong")            
             end
             
             -- Go back to first phase.
             self:set_phase(self.phases.CHOOSE_PLAY)
           else
-            sol.audio.play_sound("ok")
+            audio_manager:play_sound("ok")
             -- Go back to second phase.
             self:set_phase(self.phases.CHOOSE_DELETE)       
           end
@@ -521,7 +522,7 @@ function file_selection_menu:on_key_pressed(key)
     -- Press the left button.
     elseif self.cursor_position == self.slot_count + 1 then
       if self.phase == self.phases.CHOOSE_PLAY then
-        sol.audio.play_sound("ok")
+        audio_manager:play_sound("ok")
         handled = true
         self:set_phase(self.phases.CHOOSE_DELETE)
         -- Set the cursor on the first valid slot.
@@ -531,7 +532,7 @@ function file_selection_menu:on_key_pressed(key)
         end
         self:set_cursor_position(first_valid_slot)
       elseif self.phase == self.phases.CHOOSE_DELETE then
-        sol.audio.play_sound("ok")
+        audio_manager:play_sound("ok")
         handled = true
         self:set_phase(self.phases.CHOOSE_PLAY)
         -- Set the cursor on the first valid slot.
@@ -544,7 +545,7 @@ function file_selection_menu:on_key_pressed(key)
     -- Press the right button.
     elseif self.cursor_position == self.slot_count + 2 then
       if self.phase == self.phases.CHOOSE_PLAY then
-        sol.audio.play_sound("ok")
+        audio_manager:play_sound("ok")
         handled = true
 
         self:set_phase(self.phases.EDIT_OPTIONS)

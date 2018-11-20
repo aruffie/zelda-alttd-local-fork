@@ -26,6 +26,6 @@ end
 -- Doors events
 function weak_door_1:on_opened()
   
-  sol.audio.play_sound("secret_1")
+  audio_manager:play_sound("secret_1")
   
 end

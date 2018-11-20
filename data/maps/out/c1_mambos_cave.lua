@@ -132,7 +132,7 @@ function dungeon_4_lock:on_interaction()
     hero:freeze()
     sol.timer.start(map, 1000, function() 
       map:remove_water(1)
-      sol.audio.play_sound("shake")
+      audio_manager:play_sound("shake")
       local camera = map:get_camera()
       local shake_config = {
           count = 100,
@@ -140,7 +140,7 @@ function dungeon_4_lock:on_interaction()
           speed = 90,
       }
       camera:shake(shake_config, function()
-        sol.audio.play_sound("secret_2")
+        audio_manager:play_sound("secret_2")
         hero:unfreeze()
         map:init_music()
       end)

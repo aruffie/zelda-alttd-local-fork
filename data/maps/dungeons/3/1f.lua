@@ -1,12 +1,4 @@
--- Lua script of map dungeons/1/1f.
--- This script is executed every time the hero enters this map.
-
--- Feel free to modify the code below.
--- You can add more events and remove the ones you don't need.
-
--- See the Solarus Lua API documentation:
--- http://www.solarus-games.org/doc/latest
-
+-- Variables
 local map = ...
 local separator = ...
 local game = map:get_game()

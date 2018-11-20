@@ -180,11 +180,11 @@ function running_manager:running_effect(hero)
   local ground = hero:get_ground_below()
   -- Create sound effect.
   if ground == "deep_water" or ground == "shallow_water" then
-    sol.audio.play_sound(walk_on_water_sound)
+    audio_manager:play_sound(walk_on_water_sound)
   elseif ground == "grass" then
-    sol.audio.play_sound(walk_on_grass_sound)
+    audio_manager:play_sound(walk_on_grass_sound)
   else 
-    sol.audio.play_sound(running_sound)
+    audio_manager:play_sound(running_sound)
   end
 end
 
@@ -263,7 +263,7 @@ end
 function running_manager:smash_wall(hero)
   -- Crash animation and sound.
   local hero = hero
-  sol.audio.play_sound(running_obstacle_sound)
+  audio_manager:play_sound(running_obstacle_sound)
   hero:set_animation("hurt")
   
   -- Call collision events of entities when the hero crashes against them.

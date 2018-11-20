@@ -112,7 +112,7 @@ function map:tarin_search_honey()
   local tarin_sprite = tarin:get_sprite()
   tarin_sprite:set_ignore_suspend(true)
   tarin_sprite:set_animation("brandish")
-  sol.audio.play_sound("treasure")
+  audio_manager:play_sound("treasure")
   local baton_entity = map:create_custom_entity({
     name = "brandish_baton",
     sprite = "entities/items",
@@ -139,13 +139,13 @@ function map:tarin_search_honey()
     sol.audio.stop_music()
     tarin_sprite:set_animation("searching_honey")
     baton_entity:remove()
-    sol.audio.play_sound("beehive_poke")
+    audio_manager:play_sound("beehive_poke")
     for i=1,4 do
       sol.timer.start(map, 500 * i, function()
           if i == 2 then
-              sol.audio.play_sound("beehive_poke")
+              audio_manager:play_sound("beehive_poke")
           end
-          sol.audio.play_sound("beehive_bees")
+          audio_manager:play_sound("beehive_bees")
           local bee = map:create_custom_entity({
             name = "bee_chase_" .. i,
             sprite = "npc/bee",
@@ -245,7 +245,7 @@ function map:tarin_leave_map()
       movement:set_ignore_obstacles(true)
       movement:start(honey)
       game:set_value("main_quest_step", 19)
-      sol.audio.play_sound("beehive_fall")
+      audio_manager:play_sound("beehive_fall")
       hero:unfreeze()
       game:set_hud_enabled(true)
       game:set_pause_allowed(false)
@@ -272,13 +272,13 @@ end
 -- Doors events
 function weak_door_1:on_opened()
   
-  sol.audio.play_sound("secret_1")
+  audio_manager:play_sound("secret_1")
   
 end
 
 function weak_door_2:on_opened()
   
-  sol.audio.play_sound("secret_1")
+  audio_manager:play_sound("secret_1")
 
 end
 
@@ -304,7 +304,7 @@ function dungeon_3_lock:on_interaction()
     sol.audio.stop_music()
     hero:freeze()
     sol.timer.start(map, 1000, function() 
-      sol.audio.play_sound("shake")
+      audio_manager:play_sound("shake")
       local camera = map:get_camera()
       local shake_config = {
           count = 32,
@@ -312,7 +312,7 @@ function dungeon_3_lock:on_interaction()
           speed = 90,
       }
       camera:shake(shake_config, function()
-        sol.audio.play_sound("secret_2")
+        audio_manager:play_sound("secret_2")
         local sprite = dungeon_3_entrance:get_sprite()
         sprite:set_animation("opening")
         sol.timer.start(map, 800, function() 

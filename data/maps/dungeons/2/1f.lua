@@ -1,6 +1,5 @@
 -- Variables
 local map = ...
-local separator = ...
 local game = map:get_game()
 local is_small_boss_active = false
 local is_boss_active = false
@@ -236,7 +235,7 @@ function map:launch_cinematic_1()
     map:set_cinematic_mode(true, options)
     sol.audio.stop_music()
     wait(2000)
-    sol.audio.play_sound("shake")
+    audio_manager:play_sound("shake")
     local camera = map:get_camera()
     local shake_config = {
         count = 32,
@@ -244,7 +243,7 @@ function map:launch_cinematic_1()
         speed = 90
     }
     wait_for(camera.shake,camera,shake_config)
-    sol.audio.play_sound("explosion")
+    audio_manager:play_sound("explosion")
     local x,y,layer = placeholder_explosion_wall_1:get_position()
     map:create_explosion({
       x = x,
@@ -265,7 +264,7 @@ function map:launch_cinematic_1()
       entity:remove()
     end
     wait(1000)
-    sol.audio.play_sound("secret_1")
+    audio_manager:play_sound("secret_1")
     game:play_dungeon_music()
     game:set_value("dungeon_2_wall_1", true)
     map:set_cinematic_mode(false, options)

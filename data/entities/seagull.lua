@@ -40,7 +40,7 @@ end
 function seagull:escape_hero()
 
   is_move = true
-  sol.audio.play_sound("seagull")
+  audio_manager:play_sound("seagull")
   -- Set the sprite.
   sprite:set_animation("walking")
   sprite:set_direction(1)
@@ -72,7 +72,7 @@ function seagull:join_origin()
     sprite:set_animation("stopped")
     is_escape = false
     is_move = false
-    sol.audio.play_sound("seagull")
+    audio_manager:play_sound("seagull")
   end
 end
 

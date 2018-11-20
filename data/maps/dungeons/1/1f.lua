@@ -1,6 +1,5 @@
 -- Variables
 local map = ...
-local separator = ...
 local game = map:get_game()
 local is_small_boss_active = false
 local is_boss_active = false
@@ -72,7 +71,7 @@ function weak_wall_A_1:on_opened()
 
   weak_wall_closed_A_1:remove();
   weak_wall_closed_A_2:remove();
-  sol.audio.play_sound("secret_1")
+  audio_manager:play_sound("secret_1")
 
 end
 

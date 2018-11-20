@@ -903,49 +903,24 @@ music{ id = "snes/27_mr_write_house", description = "27 - Mr Write" }
 music{ id = "snes/41_christine_house", description = "41 - Christine's House" }
 music{ id = "snes/46_tal_tal_mountain_range", description = "46 - Tal tal Mountain Range" }
 
-sound{ id = "arrow_hit", description = "Arrow hit" }
-sound{ id = "beehive_bees", description = "Beehive bees" }
-sound{ id = "beehive_fall", description = "Beehive fall" }
-sound{ id = "beehive_poke", description = "Beehive poke" }
-sound{ id = "bomb", description = "Bomb" }
-sound{ id = "boomerang", description = "Boomerang" }
-sound{ id = "boss_1_explode_part", description = "Boss 1 explode" }
-sound{ id = "boss_hurt", description = "Boss hurt" }
-sound{ id = "boss_killed", description = "Boss killed" }
-sound{ id = "bounce", description = "Bounce" }
-sound{ id = "bow", description = "Bow" }
-sound{ id = "bowwow", description = "bowwow" }
-sound{ id = "bush", description = "Bush" }
-sound{ id = "castle_door", description = "Castle door" }
-sound{ id = "chest_open", description = "Chest open" }
-sound{ id = "compass_signal", description = "Compass signal" }
-sound{ id = "cursor", description = "Cursor" }
-sound{ id = "danger", description = "Danger" }
 sound{ id = "diarandor/solarus_logo", description = "Solarus logo" }
-sound{ id = "dig", description = "Dig" }
-sound{ id = "door_closed", description = "Door closed" }
-sound{ id = "door_open", description = "Door open" }
-sound{ id = "door_unlocked", description = "Door unlocked" }
 sound{ id = "enemies/sea_urchin_1", description = "enemies/sea_urchin_1" }
 sound{ id = "enemies/sea_urchin_2", description = "enemies/sea_urchin_2" }
-sound{ id = "enemy_bounce", description = "Enemy bounce" }
-sound{ id = "enemy_hurt", description = "Enemy hurt" }
-sound{ id = "enemy_killed", description = "Enemy killed" }
-sound{ id = "explosion", description = "Explosion" }
-sound{ id = "fairy_heal", description = "fairy_heal" }
-sound{ id = "fairy_vanish", description = "fairy_vanish" }
-sound{ id = "flame", description = "flame" }
-sound{ id = "ground_grumble", description = "Ground grumble" }
-sound{ id = "hammer", description = "Hammer" }
-sound{ id = "heart", description = "Heart" }
-sound{ id = "heart_container", description = "Heart container" }
-sound{ id = "hero_dying", description = "Hero dying" }
-sound{ id = "hero_falls", description = "Hero falls" }
-sound{ id = "hero_get_sword", description = "Hero get sword" }
-sound{ id = "hero_hurt", description = "Hero hurt" }
-sound{ id = "hero_lands", description = "Hero lands" }
-sound{ id = "hero_pushes", description = "Hero pushes" }
-sound{ id = "hookshot", description = "Hookshot" }
+sound{ id = "gb/cursor", description = "Cursor" }
+sound{ id = "gb/lift", description = "Lift" }
+sound{ id = "gb/menus/solarus_logo", description = "Solarus logo" }
+sound{ id = "gb/menus/solarus_team_logo", description = "Solarus team logo" }
+sound{ id = "gb/ok", description = "Ok" }
+sound{ id = "gb/pause_closed", description = "Pause closed" }
+sound{ id = "gb/pause_open", description = "Pause open" }
+sound{ id = "gb/picked_item", description = "Picked item" }
+sound{ id = "gb/picked_small_key", description = "Picked small key" }
+sound{ id = "gb/throw", description = "Throw" }
+sound{ id = "gb/trendy_game_lever", description = "Trendy game lever" }
+sound{ id = "gb/trendy_game_win", description = "Trendy game win" }
+sound{ id = "gb/walk_on_grass", description = "Walk on grass" }
+sound{ id = "gb/walk_on_water", description = "Walk on water" }
+sound{ id = "gb/wrong", description = "Wrong" }
 sound{ id = "instruments/instrument", description = "Instrument" }
 sound{ id = "instruments/instrument_1", description = "Instrument 1" }
 sound{ id = "instruments/instrument_2", description = "Instrument 2" }
@@ -955,7 +930,6 @@ sound{ id = "instruments/instrument_5", description = "Instrument 5" }
 sound{ id = "instruments/instrument_6", description = "Instrument 6" }
 sound{ id = "instruments/instrument_7", description = "Instrument 7" }
 sound{ id = "instruments/instrument_8", description = "Instrument 8" }
-sound{ id = "intro", description = "Intro" }
 sound{ id = "items/ocarina", description = "items/ocarina" }
 sound{ id = "items/ocarina_1", description = "items/ocarina_1" }
 sound{ id = "items/ocarina_2", description = "items/ocarina_2" }
@@ -963,71 +937,11 @@ sound{ id = "items/ocarina_2_warp", description = "items/ocarina_2_warp" }
 sound{ id = "items/ocarina_3", description = "items/ocarina_3" }
 sound{ id = "items/ocarina_3_revive_1", description = "items/ocarina_3_revive_1" }
 sound{ id = "items/ocarina_3_revive_2", description = "items/ocarina_3_revive_2" }
-sound{ id = "jump", description = "Jump" }
-sound{ id = "laser", description = "Laser" }
-sound{ id = "lift", description = "Lift" }
-sound{ id = "mad_bat_appear", description = "Mad bat appear" }
-sound{ id = "mad_bat_disappear", description = "Mad bat disappear" }
-sound{ id = "magic_powder", description = "magic_powder" }
-sound{ id = "marin_on_beach", description = "Marin on beach" }
-sound{ id = "mario1", description = "Mario 1" }
-sound{ id = "mario2", description = "Mario 2" }
-sound{ id = "mario3", description = "Mario 3" }
-sound{ id = "mario4", description = "Mario 4" }
-sound{ id = "message_end", description = "Message end" }
-sound{ id = "message_letter", description = "Message letter" }
-sound{ id = "monkeys_build_a_bridge", description = "Monkeys build a bridge" }
-sound{ id = "monster_hurt", description = "Monster hurt" }
-sound{ id = "ok", description = "Ok" }
-sound{ id = "pause_closed", description = "Pause closed" }
-sound{ id = "pause_open", description = "Pause open" }
-sound{ id = "picked_item", description = "Picked item" }
-sound{ id = "picked_rupee", description = "Picked rupee" }
-sound{ id = "picked_small_key", description = "Picked small key" }
-sound{ id = "rolling_spike", description = "Rolling spike" }
-sound{ id = "running", description = "Running" }
-sound{ id = "running_obstacle", description = "Running obstacle" }
-sound{ id = "rupee_counter", description = "Rupee counter" }
-sound{ id = "rupee_counter_end", description = "Rupee counter end" }
-sound{ id = "seagull", description = "Seagull" }
-sound{ id = "secret_1", description = "Secret 1" }
-sound{ id = "secret_2", description = "Secret 2" }
-sound{ id = "shake", description = "Shake" }
-sound{ id = "shield_brandish", description = "Shield brandish" }
-sound{ id = "shock", description = "Shock" }
-sound{ id = "solarus_logo", description = "Solarus logo" }
-sound{ id = "splash", description = "Splash" }
-sound{ id = "stairs_down_end", description = "Stairs down end" }
-sound{ id = "stairs_down_start", description = "Stairs down end" }
-sound{ id = "stairs_up_end", description = "Stairs up end" }
-sound{ id = "stairs_up_start", description = "Stairs up start" }
-sound{ id = "stone", description = "Stone" }
-sound{ id = "swim", description = "Swim" }
-sound{ id = "switch", description = "Switch" }
-sound{ id = "sword1", description = "Sword 1" }
-sound{ id = "sword_spin_attack_load", description = "Sword spin attack load" }
-sound{ id = "sword_spin_attack_release", description = "Sword spin attack release" }
-sound{ id = "sword_tapping", description = "Sword tapping" }
-sound{ id = "sword_tapping_weak_wall", description = "Sword tapping weak wall" }
-sound{ id = "tarin_and_bees", description = "Tarin and bees" }
-sound{ id = "teletransporter", description = "Teletransporter" }
-sound{ id = "teletransporter_appear", description = "Teletransporter appear" }
-sound{ id = "throw", description = "Throw" }
-sound{ id = "thunder", description = "Thunder" }
-sound{ id = "treasure", description = "Get treasure" }
-sound{ id = "treasure_2", description = "Get treasure 2" }
-sound{ id = "treasure_sword", description = "Get treasure sword" }
-sound{ id = "trendy_game_lever", description = "Trendy game lever" }
-sound{ id = "trendy_game_win", description = "Trendy game win" }
-sound{ id = "urchin1", description = "Urchin 1" }
-sound{ id = "urchin2", description = "Urchin 2" }
-sound{ id = "walk_on_grass", description = "Walk on grass" }
-sound{ id = "walk_on_water", description = "Walk on water" }
-sound{ id = "wallturn", description = "Wallturn" }
-sound{ id = "water_fill", description = "Water fill" }
-sound{ id = "wrong", description = "Wrong" }
+sound{ id = "snes/menus/solarus_logo", description = "Solarus logo" }
+sound{ id = "snes/menus/solarus_team_logo", description = "Solarus team logo" }
+sound{ id = "snes/walk_on_grass", description = "Walk on grass" }
+sound{ id = "snes/walk_on_water", description = "Walk on water" }
 sound{ id = "zonzifleur/solarus_team_logo", description = "Solarus Team logo" }
-sound{ id = "zora", description = "Zora" }
 
 item{ id = "angler_key", description = "Angler key" }
 item{ id = "arrow", description = "Arrow" }
@@ -1237,10 +1151,334 @@ shader{ id = "sepia", description = "Sepia" }
 shader{ id = "toon", description = "Toon" }
 
 file{ path = "main.lua", author = "Christopho", license = "GPL v3" }
-file{ path = "scripts/gfx_effects/distorsion.lua", author = "PhoenixII54", }
-file{ path = "scripts/gfx_effects/fade_to_white.lua", author = "PhoenixII54", }
-file{ path = "scripts/gfx_effects/pixellisation.lua", author = "PhoenixII54", }
-file{ path = "scripts/gfx_effects/radial_fade_out.lua", author = "PhoenixII54", }
+file{ path = "maps/caves/cave.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/cave.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/east_mt_tamaranch", author = "Binbin, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_1.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_1.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_2.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_2.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_3.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_3.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_4.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_4.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_5.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_5.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_6.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_6.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_7.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_7.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/east_mt_tamaranch/fairy_fountain.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_mt_tamaranch/fairy_fountain.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/east_prairie", author = "Binbin, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/east_prairie/cave_1.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_prairie/cave_1.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/east_prairie/cave_2.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_prairie/cave_2.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/east_prairie/cave_3.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_prairie/cave_3.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/egg_of_the_dream_fish", author = "Binbin, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/egg_of_the_dream_fish/cave_1.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/egg_of_the_dream_fish/cave_1.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/egg_of_the_dream_fish/cave_2.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/egg_of_the_dream_fish/cave_2.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/egg_of_the_dream_fish/cave_3.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/egg_of_the_dream_fish/cave_3.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/egg_of_the_dream_fish/cave_4.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/egg_of_the_dream_fish/cave_4.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/egg_of_the_dream_fish/cave_5.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/egg_of_the_dream_fish/cave_5.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/egg_of_the_dream_fish/moblins_cave.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/egg_of_the_dream_fish/moblins_cave.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/forest", author = "Binbin, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/forest/cave_1.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/forest/cave_1.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/forest/cave_2.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/forest/cave_2.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/forest/cave_3.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/forest/cave_3.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/graveyard", author = "Binbin, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/graveyard/cave_1.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/graveyard/cave_1.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/kanalet_castle", author = "Binbin, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/kanalet_castle/cave_1.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/kanalet_castle/cave_1.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/mabe_village", author = "Binbin, ZeldoRetro o", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/mabe_village/cave_1.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/mabe_village/cave_1.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/mabe_village/weathercock.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/mabe_village/weathercock.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/mambos_cave", author = "Binbin, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/mambos_cave/cave_1.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/mambos_cave/cave_1.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/mambos_cave/cave_2.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/mambos_cave/cave_2.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/mambos_cave/cave_3.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/mambos_cave/cave_3.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/mambos_cave/cave_4.dat", author = "Binbin, Zeldo", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/mambos_cave/cave_4.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/martha_bay", author = "Binbin, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/martha_bay/cave_1.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/martha_bay/cave_1.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/martha_bay/cave_2.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/martha_bay/cave_2.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/mask_shrine", author = "Binbin, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/mask_shrine/cave_1.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/mask_shrine/cave_1.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/mask_shrine/cave_2.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/mask_shrine/cave_2.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/mask_shrine/cave_3.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/mask_shrine/cave_3.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/mask_shrine/fairy_fountain.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/mask_shrine/fairy_fountain.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/prairie", author = "Binbin, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/prairie/cave_1.dat", author = "ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/prairie/cave_1.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/prairie/cave_2.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/prairie/cave_2.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/prairie/fairy_fountain.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/prairie/fairy_fountain.lua", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/south_prairie", author = "Binbin, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/south_prairie/cave_1.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/south_prairie/cave_1.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/south_prairie/cave_2.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/south_prairie/cave_2.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/south_prairie/cave_3.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/south_prairie/cave_3.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/south_prairie/cave_4.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/south_prairie/cave_4.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/south_prairie/cave_5.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/south_prairie/cave_5.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/west_mt_tamaranch", author = "Binbin, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/west_mt_tamaranch/cave_1.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/west_mt_tamaranch/cave_1.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/west_mt_tamaranch/cave_2.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/west_mt_tamaranch/cave_2.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/yarna_desert", author = "Binbin, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/yarna_desert/cave_1.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/yarna_desert/cave_1.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/caves/yarna_desert/cave_2.dat", author = "Binbin, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/yarna_desert/cave_2.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/dungeons", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/dungeons/1", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/dungeons/1/1f.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/1/1f.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/dungeons/1/sideview_1.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/1/sideview_1.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/dungeons/1/sideview_2.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/1/sideview_2.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/dungeons/10", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/dungeons/10/1f.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/10/1f.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/dungeons/10/b1.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/10/b1.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/dungeons/10/entrance.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/10/entrance.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/dungeons/10/sideview_1.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/10/sideview_1.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/dungeons/11", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/dungeons/11/1f.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/11/1f.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/dungeons/11/b1.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/11/b1.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/dungeons/11/b2.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/11/b2.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/dungeons/2", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/dungeons/2/1f.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/2/1f.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/dungeons/2/sideview_1.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/2/sideview_1.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/dungeons/2/sideview_2.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/2/sideview_2.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/dungeons/2/sideview_3.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/2/sideview_3.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/dungeons/3", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/dungeons/3/1f.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/3/1f.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/dungeons/3/b1.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/3/b1.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/dungeons/3/sideview_1.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/3/sideview_1.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/dungeons/4", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/dungeons/4/1f.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/4/1f.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/dungeons/4/sideview_1.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/4/sideview_1.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/dungeons/4/sideview_2.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/4/sideview_2.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/dungeons/4/sideview_3.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/4/sideview_3.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/dungeons/4/sideview_4.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/4/sideview_4.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/dungeons/5", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/dungeons/5/1f.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/5/1f.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/dungeons/5/sideview_1.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/5/sideview_1.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/dungeons/5/sideview_2.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/5/sideview_2.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/dungeons/5/sideview_3.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/5/sideview_3.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/dungeons/5/sideview_4.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/5/sideview_4.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/dungeons/6", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/dungeons/6/1f.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/6/1f.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/dungeons/7", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/dungeons/7/1f.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/7/1f.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/dungeons/7/2f.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/7/2f.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/dungeons/7/3f.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/7/3f.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/dungeons/7/3f_bis.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/7/3f_bis.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/dungeons/8", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/dungeons/8/1f.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/8/1f.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/dungeons/9", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/dungeons/9/1f.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/9/1f.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/houses", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/houses/east_prairie", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/houses/east_prairie/telephone_booth_5.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/east_prairie/telephone_booth_5.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/houses/egg_of_the_dream_fish", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/houses/egg_of_the_dream_fish/photographer_house.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/egg_of_the_dream_fish/photographer_house.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/houses/graveyard", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/houses/graveyard/drugstore.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/graveyard/drugstore.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/houses/graveyard/witch_house.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/graveyard/witch_house.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/houses/kanalet_castle", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/houses/kanalet_castle/kanalet_castle_1f.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/kanalet_castle/kanalet_castle_1f.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/houses/kanalet_castle/kanalet_castle_2f.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/kanalet_castle/kanalet_castle_2f.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/houses/kanalet_castle/telephone_booth_6.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/kanalet_castle/telephone_booth_6.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/houses/mabe_village", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/houses/mabe_village/dream_shine_lower_level.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/mabe_village/dream_shine_lower_level.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/houses/mabe_village/dream_shine_upper_level.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/mabe_village/dream_shine_upper_level.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/houses/mabe_village/grand_pa_house.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/mabe_village/grand_pa_house.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/houses/mabe_village/library.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/mabe_village/library.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/houses/mabe_village/marin_house.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/mabe_village/marin_house.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/houses/mabe_village/meow_meow_house.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/mabe_village/meow_meow_house.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/houses/mabe_village/quadruplets_house.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/mabe_village/quadruplets_house.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/houses/mabe_village/shop_1.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/mabe_village/shop_1.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/houses/mabe_village/shop_2.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/mabe_village/shop_2.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/houses/mabe_village/telephone_booth_1.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/mabe_village/telephone_booth_1.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/houses/mambos_cave", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/houses/mambos_cave/cuccos_house.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/mambos_cave/cuccos_house.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/houses/martha_bay", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/houses/martha_bay/mask_shrine", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/houses/martha_bay/telephone_booth_7.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/martha_bay/telephone_booth_7.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/houses/martha_bay/telephone_booth_8.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/martha_bay/telephone_booth_8.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/houses/prairie", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/houses/prairie/telephone_booth_4.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/prairie/telephone_booth_4.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/houses/rafting", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/houses/rafting/rafting_house.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/rafting/rafting_house.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/houses/south_mabe_village", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/houses/south_mabe_village/sales_house_o_bananas.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/south_mabe_village/sales_house_o_bananas.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/houses/south_prairie", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/houses/south_prairie/ghost_house.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/south_prairie/ghost_house.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/houses/south_prairie/richard_villa.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/south_prairie/richard_villa.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/houses/west_mt_tamaranch", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/houses/west_mt_tamaranch/mr_write_house.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/west_mt_tamaranch/mr_write_house.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/houses/west_mt_tamaranch/telephone_booth_2.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/west_mt_tamaranch/telephone_booth_2.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/houses/west_mt_tamaranch/telephone_booth_3.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/west_mt_tamaranch/telephone_booth_3.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/houses/yarna_desert", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/houses/yarna_desert/bear_house.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/yarna_desert/bear_house.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/houses/yarna_desert/christine_house.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/yarna_desert/christine_house.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/houses/yarna_desert/empty_house.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/yarna_desert/empty_house.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/houses/yarna_desert/painter_house.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/yarna_desert/painter_house.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/houses/yarna_desert/rabbits_house.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/yarna_desert/rabbits_house.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/movies", author = "Olivier Cléro", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/movies/introduction.dat", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "maps/movies/introduction.lua", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "maps/movies/introduction2.dat", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "maps/movies/introduction2.lua", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "maps/movies/link_and_marin.dat", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "maps/movies/link_and_marin.lua", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "maps/out", author = "Binbin, Christopho, Mymy", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/out/a1_west_mt_tamaranch.dat", author = "Binbin, Christopho", license = "CC BY-SA 4.0" }
+file{ path = "maps/out/a1_west_mt_tamaranch.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/out/a2_forest.dat", author = "Christopho, Mymy", license = "CC BY-SA 4.0" }
+file{ path = "maps/out/a2_forest.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/out/a3_mabe_village.dat", author = "Binbin, Christopho, Mymy", license = "CC BY-SA 4.0" }
+file{ path = "maps/out/a3_mabe_village.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/out/a4_south_mabe_village.dat", author = "Binbin, Christopho, Mymy", license = "CC BY-SA 4.0" }
+file{ path = "maps/out/a4_south_mabe_village.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/out/b1_egg_of_the_dream_fish.dat", author = "Binbin, Christopho", license = "CC BY-SA 4.0" }
+file{ path = "maps/out/b1_egg_of_the_dream_fish.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/out/b2_graveyard.dat", author = "Binbin, Christopho, Mymy", license = "CC BY-SA 4.0" }
+file{ path = "maps/out/b2_graveyard.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/out/b3_prairie.dat", author = "Binbin, Christopho, Mymy", license = "CC BY-SA 4.0" }
+file{ path = "maps/out/b3_prairie.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/out/b4_south_prairie.dat", author = "Binbin, Christopho, Mymy", license = "CC BY-SA 4.0" }
+file{ path = "maps/out/b4_south_prairie.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/out/c1_mambos_cave.dat", author = "Binbin, Christopho", license = "CC BY-SA 4.0" }
+file{ path = "maps/out/c1_mambos_cave.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/out/c2_kanalet_castle.dat", author = "Binbin, Christopho", license = "CC BY-SA 4.0" }
+file{ path = "maps/out/c2_kanalet_castle.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/out/c3_east_prairie.dat", author = "Binbin, Christopho", license = "CC BY-SA 4.0" }
+file{ path = "maps/out/c3_east_prairie.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/out/c4_martha_bay.dat", author = "Binbin, Christopho", license = "CC BY-SA 4.0" }
+file{ path = "maps/out/c4_martha_bay.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/out/d1_east_mt_tamaranch.dat", author = "Binbin, Christopho", license = "CC BY-SA 4.0" }
+file{ path = "maps/out/d1_east_mt_tamaranch.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/out/d2_rafting.dat", author = "Binbin, Christopho", license = "CC BY-SA 4.0" }
+file{ path = "maps/out/d2_rafting.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/out/d3_mask_shrine.dat", author = "Binbin, Christopho", license = "CC BY-SA 4.0" }
+file{ path = "maps/out/d3_mask_shrine.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/out/d4_yarna_desert.dat", author = "Binbin, Christopho", license = "CC BY-SA 4.0" }
+file{ path = "maps/out/d4_yarna_desert.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/sideviews", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/sideviews/kanalet_castle", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/sideviews/kanalet_castle/sideview_1.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/sideviews/kanalet_castle/sideview_1.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/sideviews/mabe_village", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/sideviews/mabe_village/sideview_1.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/sideviews/mabe_village/sideview_1.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/sideviews/martha_bay", author = "Binbin", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/sideviews/martha_bay/sideview_1.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/sideviews/martha_bay/sideview_1.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "maps/sideviews/martha_bay/sideview_2.dat", author = "Binbin", license = "CC BY-SA 4.0" }
+file{ path = "maps/sideviews/martha_bay/sideview_2.lua", author = "Binbin", license = "GPL v3" }
+file{ path = "scripts", license = "GPL v3" }
+file{ path = "scripts/gfx_effects", author = "PhoenixII54, Stdgregwar", license = "GPL v3" }
+file{ path = "scripts/gfx_effects/distorsion.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "scripts/gfx_effects/electric.lua", author = "Stdgregwar", license = "GPL v3" }
+file{ path = "scripts/gfx_effects/fade_to_white.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "scripts/gfx_effects/pixellisation.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "scripts/gfx_effects/radial_fade_out.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/menus/file_selection.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/menus/keyboardbox.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/menus/messagebox.lua", author = "Olivier Cléro", license = "GPL v3" }
@@ -1256,6 +1494,10 @@ file{ path = "shaders/pixellisation.dat", author = "PhoenixII54", }
 file{ path = "shaders/pixellisation.frag.glsl", author = "PhoenixII54", }
 file{ path = "shaders/radial_fade_out.dat", author = "PhoenixII54", }
 file{ path = "shaders/radial_fade_out.frag.glsl", author = "PhoenixII54", }
+file{ path = "sounds/gb/menus/solarus_logo.ogg", author = "Diarandor", }
+file{ path = "sounds/gb/menus/solarus_team_logo.ogg", author = "Zonzifleur", }
+file{ path = "sounds/snes/menus/solarus_logo.ogg", author = "Diarandor", }
+file{ path = "sounds/snes/menus/solarus_team_logo.ogg", author = "Zonzifleur", }
 file{ path = "sprites/menus/file_selection/file_selection_button.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/file_selection/file_selection_cursor.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/file_selection/file_selection_frame.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
@@ -1301,3 +1543,65 @@ file{ path = "sprites/menus/zeldaforce_logo/zeldaforce_logo_triforce_middle.png"
 file{ path = "sprites/menus/zeldaforce_logo/zeldaforce_logo_triforce_right.png", author = "Olivier Cléro", license = "© Zeldaforce" }
 file{ path = "sprites/menus/zeldaforce_logo/zeldaforce_logo_triforce_top.png", author = "Olivier Cléro", license = "© Zeldaforce" }
 file{ path = "sprites/menus/zeldaforce_logo/zeldaforce_logo_z.png", author = "Olivier Cléro", license = "© Zeldaforce" }
+file{ path = "tilesets/dungeon/blue.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/blue.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/blue.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/brown.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/brown.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/brown.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/dark_brown.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/dark_brown.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/dark_brown.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/dark_yellow.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/dark_yellow.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/dark_yellow.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/gray.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/gray.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/gray.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/gray_blue.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/gray_blue.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/gray_blue.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/gray_brown.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/gray_brown.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/gray_brown.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/gray_pink.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/gray_pink.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/gray_pink.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/gray_yellow.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/gray_yellow.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/gray_yellow.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/green.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/green.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/green.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/light_blue.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/light_blue.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/light_blue.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/light_brown.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/light_brown.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/light_brown.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/light_green.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/light_green.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/light_green.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/pink.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/pink.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/pink.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/purple.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/purple.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/purple.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/yellow.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/yellow.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon/yellow.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/movies", author = "Nintendo, Olivier Cléro", license = "Proprietary, Fair use" }
+file{ path = "tilesets/movies/beach.dat", author = "Nintendo, Olivier Cléro", license = "Proprietary, Fair use" }
+file{ path = "tilesets/movies/beach.entities.png", author = "Nintendo, Olivier Cléro", license = "Proprietary, Fair use" }
+file{ path = "tilesets/movies/beach.tiles.png", author = "Nintendo, Olivier Cléro", license = "Proprietary, Fair use" }
+file{ path = "tilesets/movies/beach_sunset.dat", author = "Nintendo, Olivier Cléro", license = "Proprietary, Fair use" }
+file{ path = "tilesets/movies/beach_sunset.entities.png", author = "Nintendo, Olivier Cléro", license = "Proprietary, Fair use" }
+file{ path = "tilesets/movies/beach_sunset.tiles.png", author = "Nintendo, Olivier Cléro", license = "Proprietary, Fair use" }
+file{ path = "tilesets/out", author = "Nintendo, FFomega", }
+file{ path = "tilesets/out/light_world_legacy.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/out/light_world_legacy.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/out/light_world_legacy.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/out/outside.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/out/outside.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/out/outside.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }

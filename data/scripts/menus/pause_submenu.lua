@@ -135,7 +135,7 @@ end
 
 function submenu:next_submenu()
 
-  sol.audio.play_sound("pause_closed")
+  audio_manager:play_sound("pause_closed")
   sol.menu.stop(self)
   local submenus = self.game.pause_submenus
   local submenu_index = self.game:get_value("pause_last_submenu")
@@ -146,7 +146,7 @@ end
 
 function submenu:previous_submenu()
 
-  sol.audio.play_sound("pause_closed")
+  audio_manager:play_sound("pause_closed")
   sol.menu.stop(self)
   local submenus = self.game.pause_submenus
   local submenu_index = self.game:get_value("pause_last_submenu")
@@ -167,7 +167,7 @@ function submenu:on_command_pressed(command)
   if self.save_dialog_state == 0 then
     -- The save dialog is not shown
     if command == "attack" then
-      sol.audio.play_sound("message_end")
+      audio_manager:play_sound("message_end")
       self.save_dialog_state = 1
       self.save_dialog_choice = 0
       self.save_dialog_cursor_pos = "left"
@@ -187,7 +187,7 @@ function submenu:on_command_pressed(command)
 
     if command == "left" or command == "right" then
       -- Move the cursor.
-      sol.audio.play_sound("cursor")
+      audio_manager:play_sound("cursor")
       if self.save_dialog_choice == 0 then
         self.save_dialog_choice = 1
         self.save_dialog_cursor_pos = "right"
@@ -202,9 +202,9 @@ function submenu:on_command_pressed(command)
         self.save_dialog_state = 2
         if self.save_dialog_choice == 0 then
           self.game:save()
-          sol.audio.play_sound("ok")
+          audio_manager:play_sound("ok")
         else
-          sol.audio.play_sound("danger")
+          audio_manager:play_sound("danger")
         end
         self.question_text_1:set_text_key("save_dialog.continue_question_0")
         self.question_text_2:set_text_key("save_dialog.continue_question_1")
@@ -212,7 +212,7 @@ function submenu:on_command_pressed(command)
         self.save_dialog_cursor_pos = "left"
       else
         -- After "Do you want to continue?".
-        sol.audio.play_sound("ok")
+        audio_manager:play_sound("ok")
         self.save_dialog_state = 0
         self.game:set_custom_command_effect("action", self.action_command_effect_saved)
         self.game:set_custom_command_effect("attack", self.attack_command_effect_saved)
