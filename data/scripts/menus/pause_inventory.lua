@@ -87,6 +87,11 @@ function inventory_submenu:on_draw(dst_surface)
   local cell_size = 28
   local cell_spacing = 4
 
+  local width, height = dst_surface:get_size()
+  local center_x = width / 2
+  local center_y = height / 2
+  local menu_x, menu_y = center_x - self.width / 2, center_y - self.height / 2
+
   -- Draw the background.
   self:draw_background(dst_surface)
   
@@ -94,9 +99,9 @@ function inventory_submenu:on_draw(dst_surface)
   self:draw_caption(dst_surface)
 
   -- Draw each inventory static item.
-  local y = 90
+  local y = menu_y + 84
   local k = 0
-  local x = 64
+  local x = menu_x + 64
   for j = 0, 3 do
     k = k + 1
     local item = self.game:get_item(item_names_static[k])
@@ -109,11 +114,11 @@ function inventory_submenu:on_draw(dst_surface)
   end
 
   -- Draw each inventory assignable item.
-  local y = 90
+  local y = menu_y + 84
   local k = 0
 
   for i = 0, 3 do
-    local x = 95
+    local x = menu_x + 96
     for j = 0, 2 do
       k = k + 1
       if item_names_assignable[k] ~= nil then
@@ -135,27 +140,27 @@ function inventory_submenu:on_draw(dst_surface)
   -- Draw ocarina menu.
   if self.menu_ocarina == true then
     local menu_ocarina_img = sol.surface.create("menus/pause/inventory/ocarina_background.png")
-    menu_ocarina_img:draw_region(0, 0, 98, 34, dst_surface, 174, 69) 
+    menu_ocarina_img:draw_region(0, 0, 98, 34, dst_surface, menu_x + 174, menu_y + 69) 
     local melody = self.game:get_item("melody_1")
     if melody:get_variant() > 0 then
       local menu_ocarina_img_1 = sol.surface.create("menus/pause/inventory/ocarina_1.png")
-      menu_ocarina_img_1:draw_region(0, 0, 98, 34, dst_surface, 184, 78) 
+      menu_ocarina_img_1:draw_region(0, 0, 98, 34, dst_surface, menu_x + 184, menu_y + 78) 
     end
     local melody = self.game:get_item("melody_2")
     if melody:get_variant() > 0 then
       local menu_ocarina_img_2 = sol.surface.create("menus/pause/inventory/ocarina_2.png")
-      menu_ocarina_img_2:draw_region(0, 0, 98, 34, dst_surface, 216, 78)
+      menu_ocarina_img_2:draw_region(0, 0, 98, 34, dst_surface, menu_x + 216, menu_y + 78)
     end
     local melody = self.game:get_item("melody_2")
     if melody:get_variant() > 0 then
       local menu_ocarina_img_3 = sol.surface.create("menus/pause/inventory/ocarina_3.png")
-      menu_ocarina_img_3:draw_region(0, 0, 98, 34, dst_surface, 248, 78) 
+      menu_ocarina_img_3:draw_region(0, 0, 98, 34, dst_surface, menu_x + 248, menu_y + 78)
   end
   end
 
   -- Draw cursor only when the save dialog is not displayed.
   if not self.dialog_opened then
-    self.cursor_sprite:draw(dst_surface, 64 + 32 * self.cursor_column, 86 + 32 * self.cursor_row)
+    self.cursor_sprite:draw(dst_surface, menu_x + 64 + 32 * self.cursor_column, menu_y + 79 + 32 * self.cursor_row)
   end
 
   -- Draw the item being assigned if any.
@@ -166,15 +171,18 @@ function inventory_submenu:on_draw(dst_surface)
 end
 
 function inventory_submenu:on_command_pressed(command)
-  
   local handled = submenu.on_command_pressed(self, command)
 
   if not handled then
 
     if command == "action"  then
       if self.game:get_command_effect("action") == nil and self.game:get_custom_command_effect("action") == "info" then
-        self:show_info_message()
-        handled = true
+        if not self.dialog_opened then
+          handled = true
+          self:show_info_message()
+        else
+          handled = false
+        end
       end
 
     elseif command == "item_1" then
@@ -229,20 +237,13 @@ end
 -- Shows a message describing the item currently selected.
 -- The player is supposed to have this item.
 function inventory_submenu:show_info_message()
-
   local item_name = self:get_item_name(self.cursor_row, self.cursor_column)
   local variant = self.game:get_item(item_name):get_variant()
-  local game = self.game
-  local map = game:get_map()
-
-
-  self.game:set_custom_command_effect("action", nil)
-  self.game:set_custom_command_effect("attack", nil)
-  game:start_dialog("scripts.menus.pause_inventory." .. item_name .. "." .. variant, function()
-    self.game:set_custom_command_effect("action", "info")
-    self.game:set_custom_command_effect("attack", "save")
+  local dialog_id = "scripts.menus.pause_inventory." .. item_name .. "." .. variant
+  self:show_info_dialog(dialog_id, function()
+    -- Re-update the cursor and buttons.
+    self:set_cursor_position(self.cursor_row, self.cursor_column)  
   end)
-
 end
 
 function inventory_submenu:set_cursor_position(row, column)
@@ -258,7 +259,7 @@ function inventory_submenu:set_cursor_position(row, column)
   local variant = item and item:get_variant()
   local item_icon_opacity = 128
   if variant > 0 then
-    self:set_caption("inventory.caption.item." .. item_name .. "." .. variant)
+    self:set_caption_key("inventory.caption.item." .. item_name .. "." .. variant)
     self.game:set_custom_command_effect("action", "info")
     if item:is_assignable() then
       self.game:set_hud_mode("normal")
@@ -266,7 +267,7 @@ function inventory_submenu:set_cursor_position(row, column)
       self.game:set_hud_mode("pause")
     end
   else
-    self:set_caption(nil)
+    self:set_caption_key(nil)
     self.game:set_custom_command_effect("action", nil)
     self.game:set_hud_mode("pause")
   end
@@ -398,6 +399,5 @@ function inventory_submenu:finish_assigning_item()
   self.item_assigned = nil
 
 end
-
 
 return inventory_submenu

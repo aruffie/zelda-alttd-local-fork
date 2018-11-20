@@ -25,7 +25,7 @@ function options_submenu:on_started()
     text_key = "settings.video_filter",
     color = self.text_color,
   }
-  self.video_mode_label_text:set_xy(center_x - 50, center_y - 58 + self.font_y_shift)
+  self.video_mode_label_text:set_xy(center_x - 50, center_y -60 + self.font_y_shift)
 
   self.video_mode_text = sol.text_surface.create{
     horizontal_alignment = "center",
@@ -35,7 +35,7 @@ function options_submenu:on_started()
     text = sol.video.get_mode(),
     color = self.text_color,
   }
-  self.video_mode_text:set_xy(center_x + 74, center_y - 58 + self.font_y_shift)
+  self.video_mode_text:set_xy(center_x + 74, center_y - 60 + self.font_y_shift)
 
   self.command_column_text = sol.text_surface.create{
     horizontal_alignment = "center",
@@ -148,11 +148,11 @@ function options_submenu:set_cursor_position(position)
 
     self.cursor_position = position
     if position == 1 then  -- Video mode.
-      self:set_caption("options.caption.press_action_change_mode")
+      self:set_caption_key("options.caption.press_action_change_mode")
       self.cursor_sprite.x = width / 2 + 78
       self.cursor_sprite.y = height / 2 - 51
     else  -- Customization of a command.
-      self:set_caption("options.caption.press_action_customize_key")
+      self:set_caption_key("options.caption.press_action_customize_key")
 
       -- Make sure the selected command is visible.
       while position <= self.commands_highest_visible do
@@ -244,13 +244,13 @@ function options_submenu:on_command_pressed(command)
         self.video_mode_text:set_text(sol.video.get_mode())
       else
         -- Customize a game command.
-        self:set_caption("options.caption.press_key")
+        self:set_caption_key("options.caption.press_key")
         self.waiting_for_command = true
         local command_to_customize = self.command_names[self.cursor_position - 1]
         self.game:capture_command_binding(command_to_customize, function()
           self.waiting_for_command = false
           sol.audio.play_sound("danger")
-          self:set_caption("options.caption.press_action_customize_key")
+          self:set_caption_key("options.caption.press_action_customize_key")
           self:load_command_texts()
           -- TODO restore HUD icons.
         end)

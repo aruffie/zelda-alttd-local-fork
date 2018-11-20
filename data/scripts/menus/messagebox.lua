@@ -11,8 +11,6 @@ function messagebox_builder:show(context, text_lines, button_1_text, button_2_te
   local messagebox_menu = {}
 
   function messagebox_menu:on_started()
-    print("started")
-
     -- Fix the font shift (issue with Minecraftia)
     self.font_y_shift = -1
 
@@ -134,7 +132,6 @@ function messagebox_builder:show(context, text_lines, button_1_text, button_2_te
 
       -- Set the correct HUD mode.
       self.backup_hud_mode = game:get_hud_mode()
-      print(self.backup_hud_mode)
       game:set_hud_mode("dialog")
     else
       self.backup_actions = {
@@ -151,8 +148,6 @@ function messagebox_builder:show(context, text_lines, button_1_text, button_2_te
   end
 
   function messagebox_menu:on_finished()
-    print("finished")
-
     local game = sol.main.game
     if game ~= nil then
       -- Restore HUD mode.

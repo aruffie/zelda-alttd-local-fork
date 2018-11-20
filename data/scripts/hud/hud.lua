@@ -62,6 +62,11 @@ local function initialize_hud_features(game)
   function game:set_custom_command_effect(command, effect)
 
     hud.custom_command_effects[command] = effect
+
+    -- if command == "action" and action_icon then
+    --   local action_enabled = effect ~= nil
+    --   action_icon:set_enabled(action_enabled)
+    -- end
   end
 
   -- Ensures the HUD is above evrything.
