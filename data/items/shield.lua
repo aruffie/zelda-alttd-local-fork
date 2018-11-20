@@ -47,6 +47,7 @@ enemy/sprite:set_default_behavior_on_hero_shield(behavior)
 
 local item = ...
 require("scripts/pushing_manager")
+local audio_manager = require("scripts/audio_manager")
 local enemy_meta = sol.main.get_metatable("enemy")
 local hero_meta = sol.main.get_metatable("hero")
 local sprite_meta = sol.main.get_metatable("sprite")
@@ -67,12 +68,18 @@ local weak_sound_id = "shield_push"
 function item:on_created()
   self:set_savegame_variable("possession_shield")
   self:on_variant_changed(self:get_variant())
-  self:set_sound_when_brandished("treasure_2")
+  self:set_sound_when_brandished(nil)
 end
 
 function item:on_variant_changed(variant)
   if variant > 0 then self:set_assignable(true)
   else self:set_assignable(false) end
+end
+
+function item:on_obtaining()
+  
+  audio_manager:play_sound("items/fanfare_item_extended")
+        
 end
 
 -- Program custom shield.
