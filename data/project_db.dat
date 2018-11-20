@@ -920,21 +920,193 @@ sound{ id = "enemies/sea_urchin_2", description = "enemies/sea_urchin_2" }
 sound{ id = "enemy_hurt", description = "Empty sound" }
 sound{ id = "enemy_killed", description = "Empty sound" }
 sound{ id = "explosion", description = "Empty sound" }
-sound{ id = "gb/cursor", description = "Cursor" }
-sound{ id = "gb/lift", description = "Lift" }
+sound{ id = "gb/enemies/angler_fish_lunge", description = "Angler fish lunge" }
+sound{ id = "gb/enemies/anti_kirby", description = "Anti kirby" }
+sound{ id = "gb/enemies/blade_trap", description = "Blade trap" }
+sound{ id = "gb/enemies/boss_bursting", description = "Boss bursting" }
+sound{ id = "gb/enemies/boss_bursting_fast1", description = "Boss burting fast 1" }
+sound{ id = "gb/enemies/boss_bursting_fast2", description = "Boss busting fast 2" }
+sound{ id = "gb/enemies/boss_die", description = "Boss die" }
+sound{ id = "gb/enemies/boss_explode", description = "Boss explode" }
+sound{ id = "gb/enemies/boss_hit", description = "Boss hit" }
+sound{ id = "gb/enemies/boss_jump", description = "Boss jump" }
+sound{ id = "gb/enemies/cueball_swim", description = "Cueball swim" }
+sound{ id = "gb/enemies/dethl_arm_spin", description = "Dethl arm spin" }
+sound{ id = "gb/enemies/dethl_die", description = "Dethl die" }
+sound{ id = "gb/enemies/dodongo_snake_swallow", description = "Dodongo snake swallow" }
+sound{ id = "gb/enemies/enemy_die", description = "Enemy die" }
+sound{ id = "gb/enemies/enemy_die_power", description = "Enemy die power" }
+sound{ id = "gb/enemies/enemy_fall", description = "Enemy fall" }
+sound{ id = "gb/enemies/enemy_hit", description = "Enemy hit" }
+sound{ id = "gb/enemies/enemy_hit_power", description = "Enemy hit power" }
+sound{ id = "gb/enemies/enemy_jump", description = "Enemy jump" }
+sound{ id = "gb/enemies/evil_eagle_flap", description = "Evil eagle flap" }
+sound{ id = "gb/enemies/evil_eagle_fly_away", description = "Evil eagle fly away" }
+sound{ id = "gb/enemies/evil_eagle_flyby", description = "Evil eagle flyby" }
+sound{ id = "gb/enemies/evil_eagle_skid", description = "Evil eagle skid" }
+sound{ id = "gb/enemies/floor_tiles", description = "Floor tiles" }
+sound{ id = "gb/enemies/genie_appear", description = "Genie appear" }
+sound{ id = "gb/enemies/genie_bottle_smash", description = "Genie bottle smash" }
+sound{ id = "gb/enemies/genie_disapear", description = "Genie disapear" }
+sound{ id = "gb/enemies/genie_fireball", description = "Genie fireball" }
+sound{ id = "gb/enemies/grimcreeper_big_keese", description = "Grimcreeper big keese" }
+sound{ id = "gb/enemies/hinox_grab", description = "Hinox grab" }
+sound{ id = "gb/enemies/hot_head_splash_fire", description = "Hot head splash fire" }
+sound{ id = "gb/enemies/lanmola_dig", description = "Lanmola dig" }
+sound{ id = "gb/enemies/laser", description = "Laser" }
+sound{ id = "gb/enemies/master_stalfos_crumble", description = "Master stalfos crumble" }
+sound{ id = "gb/enemies/master_stalfos_escape", description = "Master stalfos escape" }
+sound{ id = "gb/enemies/master_stalfos_slash", description = "Master stalfos slash" }
+sound{ id = "gb/enemies/moldorm_segment_explode", description = "Moldorm segment explode" }
+sound{ id = "gb/enemies/moldorm_segment_explode_full", description = "Moldorm segment explode full" }
+sound{ id = "gb/enemies/moldorm_speedy", description = "Moldorm speedy" }
+sound{ id = "gb/enemies/nightmare_shadow1_damaged", description = "Nightmare shadow 1_damaged" }
+sound{ id = "gb/enemies/nightmare_shadow1_split", description = "Nightmare shadow1 split" }
+sound{ id = "gb/enemies/nightmare_shadow2_charge", description = "Nightmare shadow2 charge" }
+sound{ id = "gb/enemies/nightmare_shadow2_dizzy", description = "Nightmare shadow 2 dizzy" }
+sound{ id = "gb/enemies/nightmare_shadow2_shoot_energy", description = "Nightmare shadow 2 shoot energy" }
+sound{ id = "gb/enemies/nightmare_shadow2_shoot_homing", description = "Nightmare shadow 2 shoot homing" }
+sound{ id = "gb/enemies/nightmare_shadow2_shoot_homing_split", description = "Nightmare shadow 2 shoot homing split" }
+sound{ id = "gb/enemies/nightmare_shadow3_move", description = "Nightmare shadow 3 move" }
+sound{ id = "gb/enemies/nightmare_shadow3_move_fast", description = "Nightmare shadow 3 move fast" }
+sound{ id = "gb/enemies/nightmare_shadow4_bat", description = "Nightmare shadow 4 bat" }
+sound{ id = "gb/enemies/nightmare_shadow4_stafffly", description = "Nightmare shadow 4_stafffly" }
+sound{ id = "gb/enemies/nightmare_shadow4_summon_staff", description = "Nightmare shadow 4 summon staff" }
+sound{ id = "gb/enemies/nightmare_shadows_move", description = "Nightmare shadows move" }
+sound{ id = "gb/enemies/nightmare_shadows_throw_staff", description = "Nightmares shadows throw staff" }
+sound{ id = "gb/enemies/nightmare_shadows_transform", description = "Nightmare shadows transform" }
+sound{ id = "gb/enemies/nightmare_shadows_warning", description = "Nightmare shadows warning" }
+sound{ id = "gb/enemies/pairodd_teleport", description = "Pairodd teleport" }
+sound{ id = "gb/enemies/rolling_bones_roller", description = "Rolling bones roller" }
+sound{ id = "gb/enemies/sea_urchin_push1", description = "Sea urchin push 1" }
+sound{ id = "gb/enemies/sea_urchin_push2", description = "Sea urchin push 2" }
+sound{ id = "gb/enemies/slime_eel_appear", description = "Slime eel appear" }
+sound{ id = "gb/enemies/slime_eel_grab", description = "Slim eel grab" }
+sound{ id = "gb/enemies/smasher_pickup", description = "Smasher pickup" }
+sound{ id = "gb/enemies/turtle_rock_alive", description = "Turtle rock alive" }
+sound{ id = "gb/enemies/turtle_rock_blink1", description = "Turtle rock blink 1" }
+sound{ id = "gb/enemies/turtle_rock_explode", description = "Turtle rock explode" }
+sound{ id = "gb/enemies/turtle_rock_shed_full", description = "Turtle rock shed full" }
+sound{ id = "gb/enemies/turtlerock_blink2", description = "Turtlerock blink 2" }
+sound{ id = "gb/enemies/turtlerock_shed", description = "Turtlerock shed" }
+sound{ id = "gb/enemies/vacuum_mouth", description = "Vacuum mouth" }
+sound{ id = "gb/hero/bounce", description = "Bounce" }
+sound{ id = "gb/hero/dizzy", description = "Dizzy" }
+sound{ id = "gb/hero/dying", description = "Dying" }
+sound{ id = "gb/hero/fall", description = "Fall" }
+sound{ id = "gb/hero/hurt", description = "Hurt" }
+sound{ id = "gb/hero/jump", description = "Jump" }
+sound{ id = "gb/hero/land", description = "Land" }
+sound{ id = "gb/hero/launched", description = "Launched" }
+sound{ id = "gb/hero/pickup", description = "Pickup" }
+sound{ id = "gb/hero/rebound", description = "Rebound" }
+sound{ id = "gb/hero/run", description = "Run" }
+sound{ id = "gb/hero/shock", description = "Shock" }
+sound{ id = "gb/hero/swim", description = "Swim" }
+sound{ id = "gb/hero/throw", description = "Throw" }
+sound{ id = "gb/hero/wade1", description = "Wade 1" }
+sound{ id = "gb/hero/wade2", description = "Wade 2" }
+sound{ id = "gb/items/bomb_explode", description = "Bomb explode" }
+sound{ id = "gb/items/boomerang", description = "Boomerang" }
+sound{ id = "gb/items/bow_arrow", description = "Bow arrow" }
+sound{ id = "gb/items/fanfare_heart_container", description = "Fanfare heart container" }
+sound{ id = "gb/items/fanfare_item", description = "Fanfare item" }
+sound{ id = "gb/items/fanfare_item_extended", description = "Fanfare item extended" }
+sound{ id = "gb/items/fire_rod", description = "Fire rod" }
+sound{ id = "gb/items/get_item", description = "Get item" }
+sound{ id = "gb/items/get_item2", description = "Get item 2" }
+sound{ id = "gb/items/get_power_up", description = "Get power up" }
+sound{ id = "gb/items/get_rupee", description = "fet rupee" }
+sound{ id = "gb/items/get_sword", description = "Get sword" }
+sound{ id = "gb/items/hookshot", description = "Hookshot" }
+sound{ id = "gb/items/magic_powder", description = "Magic powder" }
+sound{ id = "gb/items/magic_powder_ignite", description = "Magic powder ignite" }
+sound{ id = "gb/items/ocarina_ballad", description = "Ocarina ballad" }
+sound{ id = "gb/items/ocarina_default", description = "Ocarina default" }
+sound{ id = "gb/items/ocarina_frog_song", description = "Ocarina frog song" }
+sound{ id = "gb/items/ocarina_frog_song_revive_1", description = "Ocarina frog song revive 1" }
+sound{ id = "gb/items/ocarina_frog_song_revive_2", description = "Ocarina frog song revive 2" }
+sound{ id = "gb/items/ocarina_mambo", description = "Ocarina mambo" }
+sound{ id = "gb/items/ocarina_mambo_warp", description = "Ocarina membo warp" }
+sound{ id = "gb/items/shield", description = "Shield" }
+sound{ id = "gb/items/shield_deflect", description = "Shield deflect" }
+sound{ id = "gb/items/shovel_dig", description = "Shovel dig" }
+sound{ id = "gb/items/sword_charge", description = "Sword charge" }
+sound{ id = "gb/items/sword_shoot", description = "Sword shoot" }
+sound{ id = "gb/items/sword_slash1", description = "Sword slash 1" }
+sound{ id = "gb/items/sword_slash2", description = "Sword slash 2" }
+sound{ id = "gb/items/sword_slash3", description = "Sword slash 3" }
+sound{ id = "gb/items/sword_slash4", description = "Sword slash 4" }
+sound{ id = "gb/items/sword_spin", description = "Sword spin" }
+sound{ id = "gb/items/sword_tap", description = "Sword tap" }
+sound{ id = "gb/items/sword_tap_bombable", description = "Sword tap bombable" }
+sound{ id = "gb/menus/menu_cursor", description = "Menu cursor" }
+sound{ id = "gb/menus/menu_select", description = "Menu select" }
+sound{ id = "gb/menus/pause_menu_close", description = "Pause menu close" }
+sound{ id = "gb/menus/pause_menu_open", description = "Pause menu open" }
 sound{ id = "gb/menus/solarus_logo", description = "Solarus logo" }
 sound{ id = "gb/menus/solarus_team_logo", description = "Solarus team logo" }
-sound{ id = "gb/ok", description = "Ok" }
-sound{ id = "gb/pause_closed", description = "Pause closed" }
-sound{ id = "gb/pause_open", description = "Pause open" }
-sound{ id = "gb/picked_item", description = "Picked item" }
-sound{ id = "gb/picked_small_key", description = "Picked small key" }
-sound{ id = "gb/throw", description = "Throw" }
-sound{ id = "gb/trendy_game_lever", description = "Trendy game lever" }
-sound{ id = "gb/trendy_game_win", description = "Trendy game win" }
-sound{ id = "gb/walk_on_grass", description = "Walk on grass" }
-sound{ id = "gb/walk_on_water", description = "Walk on water" }
-sound{ id = "gb/wrong", description = "Wrong" }
+sound{ id = "gb/menus/text_done", description = "Text done" }
+sound{ id = "gb/menus/text_letter", description = "Text letter" }
+sound{ id = "gb/menus/title_appear", description = "Title appear" }
+sound{ id = "gb/others/beehive_bees", description = "Beehive bees" }
+sound{ id = "gb/others/beehive_fall", description = "Beehive fall" }
+sound{ id = "gb/others/beehive_poke1", description = "Beehive poke 1" }
+sound{ id = "gb/others/beehive_poke2", description = "Beehive poke 2" }
+sound{ id = "gb/others/bowwow", description = "Bowwow" }
+sound{ id = "gb/others/bush_cut", description = "Bus cut" }
+sound{ id = "gb/others/camera", description = "Camera" }
+sound{ id = "gb/others/chest_open", description = "Chest open" }
+sound{ id = "gb/others/cucco", description = "Cucco" }
+sound{ id = "gb/others/dungeon_door_slam", description = "Dungeon door slam" }
+sound{ id = "gb/others/dungeon_one_way_door", description = "Dungeon one way door" }
+sound{ id = "gb/others/dungeon_open", description = "Dungeon open" }
+sound{ id = "gb/others/dungeon_shake", description = "Dungeon shake" }
+sound{ id = "gb/others/dungeon_signal", description = "Dungeon signal" }
+sound{ id = "gb/others/dungeon_switch", description = "Dungeon switch" }
+sound{ id = "gb/others/dungeon_teleport", description = "Dungeon teleport" }
+sound{ id = "gb/others/dungeon_teleport_appear", description = "Dungeon teleport appear" }
+sound{ id = "gb/others/dungeon_transport_out", description = "Dungeon transport out" }
+sound{ id = "gb/others/eagles_tower_column_fall", description = "Eagle's tower column fall" }
+sound{ id = "gb/others/eagles_tower_rotate", description = "Eagle's tower rotate" }
+sound{ id = "gb/others/error", description = "Error" }
+sound{ id = "gb/others/face_shrine_grow", description = "Face shrine grow" }
+sound{ id = "gb/others/ghost", description = "Ghost" }
+sound{ id = "gb/others/great_fairy_heal", description = "Great fairy heal" }
+sound{ id = "gb/others/great_fairy_vanish", description = "Great fairy vanish" }
+sound{ id = "gb/others/ground_crumble", description = "Ground crumble" }
+sound{ id = "gb/others/kiki", description = "Kiki" }
+sound{ id = "gb/others/koholint_vanish", description = "Koholint vanish" }
+sound{ id = "gb/others/low_health", description = "Low health" }
+sound{ id = "gb/others/mysterious_woods_lost", description = "Mysterious wood lost" }
+sound{ id = "gb/others/owl_fly_away", description = "Owl fly away" }
+sound{ id = "gb/others/owl_fly_in", description = "Owl fly in" }
+sound{ id = "gb/others/owl_hoot1", description = "Owl hoot 1" }
+sound{ id = "gb/others/owl_hoot2", description = "Owl hoot 2" }
+sound{ id = "gb/others/rock_push", description = "Rock push" }
+sound{ id = "gb/others/rock_shatter", description = "Rock shatter" }
+sound{ id = "gb/others/seagull", description = "Seagull" }
+sound{ id = "gb/others/seashell_mansion_meterfull", description = "Seashell mansion meter full" }
+sound{ id = "gb/others/secret1", description = "Secret 1" }
+sound{ id = "gb/others/secret2", description = "Secret 2" }
+sound{ id = "gb/others/shore", description = "Shore" }
+sound{ id = "gb/others/shore_long", description = "Shore long" }
+sound{ id = "gb/others/sirens_instruments_appear", description = "Siren's instrument appear" }
+sound{ id = "gb/others/stairs", description = "Stairs" }
+sound{ id = "gb/others/sword_electricity", description = "Sword electricity" }
+sound{ id = "gb/others/taltalheights_drain", description = "Tal tal heights drain" }
+sound{ id = "gb/others/thunder", description = "Thunder" }
+sound{ id = "gb/others/trendy_game_lever", description = "Trendy game lever" }
+sound{ id = "gb/others/trendy_game_win", description = "Trendy game win" }
+sound{ id = "gb/others/walrus", description = "Walrus" }
+sound{ id = "gb/others/walrus_splash", description = "Walrus splash" }
+sound{ id = "gb/others/waterfall", description = "Waterfall" }
+sound{ id = "gb/others/waterjet", description = "Waterjet" }
+sound{ id = "gb/others/waterjet_clear", description = "Waterjet clear" }
+sound{ id = "gb/others/wind_fish_cry_clear", description = "Winf fish cry clear" }
+sound{ id = "gb/others/windfish_appear", description = "Wind fish appear" }
+sound{ id = "gb/others/windfish_cry", description = "Wind fish cry" }
+sound{ id = "gb/others/zap", description = "Zap" }
 sound{ id = "hero_falls", description = "Empty sound" }
 sound{ id = "hero_hurt", description = "Empty sound" }
 sound{ id = "hero_lands", description = "Empty sound" }
@@ -964,54 +1136,8 @@ sound{ id = "picked_item", description = "Empty sound" }
 sound{ id = "running", description = "Empty sound" }
 sound{ id = "running_obstacle", description = "Empty sound" }
 sound{ id = "shield", description = "Empty sound" }
-sound{ id = "snes/arrow_hit", description = "Arrow hit" }
-sound{ id = "snes/boomerang", description = "Boomerang" }
-sound{ id = "snes/boss_hurt", description = "Boss hurt" }
-sound{ id = "snes/boss_killed", description = "Boss killed" }
-sound{ id = "snes/bow", description = "Bow" }
-sound{ id = "snes/cane", description = "Cane" }
-sound{ id = "snes/chest_open", description = "Chest open" }
-sound{ id = "snes/door_closed", description = "Door closed" }
-sound{ id = "snes/door_open", description = "Door open" }
-sound{ id = "snes/door_unlocked", description = "Door unlock" }
-sound{ id = "snes/enemy_hurt", description = "Enemy hurt" }
-sound{ id = "snes/enemy_killed", description = "Enemy killed" }
-sound{ id = "snes/explosion", description = "Explosion" }
-sound{ id = "snes/hero_falls", description = "Hero falls" }
-sound{ id = "snes/hero_hurt", description = "Hero hurt" }
-sound{ id = "snes/hero_lands", description = "Hero lands" }
-sound{ id = "snes/hero_pushes", description = "Hero pushes" }
-sound{ id = "snes/hookshot", description = "Hookshot" }
-sound{ id = "snes/jump", description = "Jump" }
-sound{ id = "snes/lift", description = "Lift" }
 sound{ id = "snes/menus/solarus_logo", description = "Solarus logo" }
 sound{ id = "snes/menus/solarus_team_logo", description = "Solarus team logo" }
-sound{ id = "snes/message_end", description = "Message end" }
-sound{ id = "snes/monster_hurt", description = "Monster hurt" }
-sound{ id = "snes/picked_item", description = "Picked item" }
-sound{ id = "snes/running", description = "Running" }
-sound{ id = "snes/running_obstacle", description = "Running obstacle" }
-sound{ id = "snes/shield", description = "Shield" }
-sound{ id = "snes/splash", description = "Splash" }
-sound{ id = "snes/stairs_down_end", description = "Stairs down end" }
-sound{ id = "snes/stairs_down_start", description = "Stairs down start" }
-sound{ id = "snes/stairs_up_end", description = "Stairs up end" }
-sound{ id = "snes/stairs_up_start", description = "Stairs up start" }
-sound{ id = "snes/stone", description = "Stone" }
-sound{ id = "snes/swim", description = "Swim" }
-sound{ id = "snes/sword1", description = "Sword 1" }
-sound{ id = "snes/sword_spin_attack_load", description = "Sword spin attack load" }
-sound{ id = "snes/sword_spin_attack_release", description = "Sword spin attack release" }
-sound{ id = "snes/sword_tapping", description = "Sword tapping" }
-sound{ id = "snes/sword_tapping_weak_wall", description = "Sword tapping weak wall" }
-sound{ id = "snes/throw", description = "Throw" }
-sound{ id = "snes/timer", description = "Timer" }
-sound{ id = "snes/timer_hurry", description = "Timer hurry" }
-sound{ id = "snes/treasure", description = "Treasure" }
-sound{ id = "snes/victory", description = "Victory" }
-sound{ id = "snes/walk_on_grass", description = "Walk on grass" }
-sound{ id = "snes/walk_on_water", description = "Walk on water" }
-sound{ id = "snes/wrong", description = "Wrong" }
 sound{ id = "splash", description = "Empty sound" }
 sound{ id = "stairs_down_end", description = "Empty sound" }
 sound{ id = "stairs_down_start", description = "Empty sound" }
@@ -1672,6 +1798,7 @@ file{ path = "shaders/pixellisation.dat", author = "PhoenixII54", }
 file{ path = "shaders/pixellisation.frag.glsl", author = "PhoenixII54", }
 file{ path = "shaders/radial_fade_out.dat", author = "PhoenixII54", }
 file{ path = "shaders/radial_fade_out.frag.glsl", author = "PhoenixII54", }
+file{ path = "sounds", author = "Nintendo, Diarando, Franck Jousseaume, Zonzifleur", license = "Proprietary, Fair use, CC BY-SA 4.0" }
 file{ path = "sounds/arrow_hit.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/boomerang.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/boss_hurt.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
@@ -1686,8 +1813,199 @@ file{ path = "sounds/door_unlocked.ogg", author = "Franck Jousseaume", license =
 file{ path = "sounds/enemy_hurt.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/enemy_killed.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/explosion.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
-file{ path = "sounds/gb/menus/solarus_logo.ogg", author = "Diarandor", }
-file{ path = "sounds/gb/menus/solarus_team_logo.ogg", author = "Zonzifleur", }
+file{ path = "sounds/gb", author = "Nintendo, Diarando,, Zonzifleur", license = "Proprietary, Fair use, CC BY-SA 4.0" }
+file{ path = "sounds/gb/enemies", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/angler_fish_lunge.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/anti_kirby.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/blade_trap.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/boss_bursting.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/boss_bursting_fast1.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/boss_bursting_fast2.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/boss_die.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/boss_explode.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/boss_hit.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/boss_jump.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/cueball_swim.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/dethl_arm_spin.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/dethl_die.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/dodongo_snake_swallow.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/enemy_die.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/enemy_die_power.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/enemy_fall.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/enemy_hit.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/enemy_hit_power.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/enemy_jump.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/evil_eagle_flap.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/evil_eagle_fly_away.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/evil_eagle_flyby.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/evil_eagle_skid.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/floor_tiles.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/genie_appear.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/genie_bottle_smash.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/genie_disapear.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/genie_fireball.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/grimcreeper_big_keese.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/hinox_grab.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/hot_head_splash_fire.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/lanmola_dig.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/laser.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/master_stalfos_crumble.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/master_stalfos_escape.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/master_stalfos_slash.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/moldorm_segment_explode.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/moldorm_segment_explode_full.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/moldorm_speedy.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/nightmare_shadow1_damaged.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/nightmare_shadow1_split.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/nightmare_shadow2_charge.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/nightmare_shadow2_dizzy.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/nightmare_shadow2_shoot_energy.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/nightmare_shadow2_shoot_homing.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/nightmare_shadow2_shoot_homing_split.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/nightmare_shadow3_move.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/nightmare_shadow3_move_fast.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/nightmare_shadow4_bat.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/nightmare_shadow4_stafffly.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/nightmare_shadow4_summon_staff.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/nightmare_shadows_move.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/nightmare_shadows_throw_staff.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/nightmare_shadows_transform.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/nightmare_shadows_warning.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/pairodd_teleport.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/rolling_bones_roller.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/sea_urchin_push1.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/sea_urchin_push2.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/slime_eel_appear.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/slime_eel_grab.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/smasher_pickup.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/turtle_rock_alive.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/turtle_rock_blink1.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/turtle_rock_explode.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/turtle_rock_shed_full.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/turtlerock_blink2.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/turtlerock_shed.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/vacuum_mouth.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/hero", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/hero/bounce.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/hero/dizzy.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/hero/dying.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/hero/fall.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/hero/hurt.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/hero/jump.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/hero/land.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/hero/launched.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/hero/pickup.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/hero/rebound.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/hero/run.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/hero/shock.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/hero/swim.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/hero/throw.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/hero/wade1.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/hero/wade2.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/items", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/items/bomb_explode.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/items/boomerang.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/items/bow_arrow.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/items/fanfare_heart_container.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/items/fanfare_item.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/items/fanfare_item_extended.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/items/fire_rod.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/items/get_item.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/items/get_item2.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/items/get_power_up.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/items/get_rupee.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/items/get_sword.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/items/hookshot.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/items/magic_powder.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/items/magic_powder_ignite.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/items/ocarina_ballad.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/items/ocarina_default.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/items/ocarina_frog_song.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/items/ocarina_frog_song_revive_1.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/items/ocarina_frog_song_revive_2.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/items/ocarina_mambo.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/items/ocarina_mambo_warp.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/items/shield.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/items/shield_deflect.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/items/shovel_dig.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/items/sword_charge.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/items/sword_shoot.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/items/sword_slash1.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/items/sword_slash2.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/items/sword_slash3.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/items/sword_slash4.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/items/sword_spin.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/items/sword_tap.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/items/sword_tap_bombable.ogg", author = "Nintendo", }
+file{ path = "sounds/gb/menus", author = "Nintendo, Diarando, Zonzifleur", license = "Proprietary, Fair use, CC BY-SA 4.0" }
+file{ path = "sounds/gb/menus/menu_cursor.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/menus/menu_select.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/menus/pause_menu_close.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/menus/pause_menu_open.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/menus/solarus_logo.ogg", author = "Diarandor", license = "CC BY-SA 4.0" }
+file{ path = "sounds/gb/menus/solarus_team_logo.ogg", author = "Zonzifleur", license = "CC BY-SA 4.0" }
+file{ path = "sounds/gb/menus/text_done.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/menus/text_letter.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/menus/title_appear.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/beehive_bees.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/beehive_fall.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/beehive_poke1.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/beehive_poke2.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/bowwow.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/bush_cut.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/camera.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/chest_open.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/cucco.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/dungeon_door_slam.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/dungeon_one_way_door.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/dungeon_open.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/dungeon_shake.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/dungeon_signal.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/dungeon_switch.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/dungeon_teleport.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/dungeon_teleport_appear.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/dungeon_transport_out.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/eagles_tower_column_fall.ogg", author = "Nintendo", license = "Proprietary, Fair useProprietary, Fair use" }
+file{ path = "sounds/gb/others/eagles_tower_rotate.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/error.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/face_shrine_grow.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/ghost.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/great_fairy_heal.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/great_fairy_vanish.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/ground_crumble.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/kiki.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/koholint_vanish.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/low_health.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/mysterious_woods_lost.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/owl_fly_away.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/owl_fly_in.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/owl_hoot1.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/owl_hoot2.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/rock_push.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/rock_shatter.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/seagull.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/seashell_mansion_meterfull.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/secret1.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/secret2.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/shore.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/shore_long.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/sirens_instruments_appear.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/stairs.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/sword_electricity.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/taltalheights_drain.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/thunder.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/trendy_game_lever.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/trendy_game_win.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/walrus.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/walrus_splash.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/waterfall.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/waterjet.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/waterjet_clear.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/wind_fish_cry_clear.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/windfish_appear.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/windfish_cry.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/others/zap.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/hero_falls.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/hero_hurt.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/hero_lands.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
@@ -1701,8 +2019,10 @@ file{ path = "sounds/picked_item.ogg", author = "Franck Jousseaume", license = "
 file{ path = "sounds/running.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/running_obstacle.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/shield.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
-file{ path = "sounds/snes/menus/solarus_logo.ogg", author = "Diarandor", }
-file{ path = "sounds/snes/menus/solarus_team_logo.ogg", author = "Zonzifleur", }
+file{ path = "sounds/snes", author = "Nintendo, Diarando,, Zonzifleur", license = "Proprietary, Fair use, CC BY-SA 4.0" }
+file{ path = "sounds/snes/menus", author = "Nintendo, Diarando, Zonzifleur", license = "Proprietary, Fair use, CC BY-SA 4.0" }
+file{ path = "sounds/snes/menus/solarus_logo.ogg", author = "Diarandor", license = "CC BY-SA 4.0" }
+file{ path = "sounds/snes/menus/solarus_team_logo.ogg", author = "Zonzifleur", license = "CC BY-SA 4.0" }
 file{ path = "sounds/splash.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/stairs_down_end.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/stairs_down_start.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
