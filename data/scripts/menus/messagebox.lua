@@ -4,6 +4,7 @@ local messagebox_menu = {}
 
 local language_manager = require("scripts/language_manager")
 local game_manager = require("scripts/game_manager")
+local audio_manager = require("scripts/audio_manager")
 
 function messagebox_menu:on_started()
 

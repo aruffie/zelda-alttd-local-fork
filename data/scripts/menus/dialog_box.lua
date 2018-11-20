@@ -5,6 +5,7 @@
 
 require("scripts/multi_events")
 local language_manager = require("scripts/language_manager")
+local audio_manager = require("scripts/audio_manager")
 
 -- Creates and sets up a dialog box for the specified game.
 local function initialize_dialog_box_features(game)
@@ -148,7 +149,7 @@ local function initialize_dialog_box_features(game)
     if not dialog_box:is_full() then
       dialog_box:add_character()
     else
-      audio_manager:play_sound("message_end")
+      audio_manager:play_sound("menus/text_letter")
       if dialog_box:has_more_lines()
         or dialog_box.dialog.next ~= nil
         or dialog_box.selected_answer ~= nil then
@@ -430,7 +431,7 @@ local function initialize_dialog_box_features(game)
 
     if not special and current_char ~= nil and self.need_letter_sound then
       -- Play a letter sound sometimes.
-      audio_manager:play_sound("message_letter")
+      audio_manager:play_sound("menus/text_letter")
       self.need_letter_sound = false
       sol.timer.start(self, letter_sound_delay, function()
         self.need_letter_sound = true

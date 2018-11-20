@@ -60,7 +60,7 @@ local function initialize_pause_features(game)
   function pause_menu:on_finished()
 
     -- Play the sound of unpausing the game.
-    audio_manager:play_sound("pause_closed")
+    audio_manager:play_sound("menus/pause_menu_close")
 
     game.pause_submenus = {}
     -- Restore opacity

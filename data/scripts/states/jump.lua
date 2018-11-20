@@ -1,6 +1,8 @@
 -- Custom jump script.
 require("scripts/multi_events")
 require("scripts/ground_effects")
+local audio_manager = require("scripts/audio_manager")
+
 local hero_meta = sol.main.get_metatable("hero")
 local map_meta = sol.main.get_metatable("map")
 local game_meta = sol.main.get_metatable("game")

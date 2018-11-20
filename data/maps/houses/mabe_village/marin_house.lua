@@ -12,7 +12,7 @@ function map:on_started(destination)
   -- Music
   map:init_music()
   -- Entities
-  map:init_map_entities()
+  map:init_map_entities(destination)
 
 end
 
@@ -52,7 +52,7 @@ function map:init_music()
 end
 
 -- Initializes entities based on player's progress
-function map:init_map_entities()
+function map:init_map_entities(destination)
  
   local item = game:get_item("magnifying_lens")
   local variant = item:get_variant()
@@ -214,7 +214,7 @@ function map:launch_cinematic_1()
     wait(500)
 
     hero:set_enabled(true)
-    audio_manager:play_sound("hero_lands")
+    audio_manager:play_sound("hero/jump")
     bed:get_sprite():set_animation("empty_open")
     bed:set_layer(0)
     hero:set_animation("jumping")

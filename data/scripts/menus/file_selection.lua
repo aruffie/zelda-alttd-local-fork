@@ -441,7 +441,7 @@ function file_selection_menu:on_key_pressed(key)
           if sol.game.exists(slot.file_name) then
             -- The file exists: run it after a fade-out effect.            
             self.finished = true
-            audio_manager:play_sound("trendy_game_win")
+            audio_manager:play_sound("menus/menu_select")
             self.choosen_savegame = slot.savegame
             self.surface:fade_out(20, function()
               sol.menu.stop(self)
@@ -473,7 +473,7 @@ function file_selection_menu:on_key_pressed(key)
                   -- Stop music.
                   sol.audio.stop_music()
 
-                  audio_manager:play_sound("trendy_game_win")
+                  audio_manager:play_sound("menus/menu_select")
                   self.choosen_savegame = slot.savegame
                   self.surface:fade_out(20, function()
                     -- Automatically launch the game.
@@ -484,7 +484,7 @@ function file_selection_menu:on_key_pressed(key)
             end)
           end
         else
-          audio_manager:play_sound("wrong")            
+          audio_manager:play_sound("others/errors")            
         end
 
       elseif self.phase == self.phases.CHOOSE_DELETE then
@@ -502,12 +502,12 @@ function file_selection_menu:on_key_pressed(key)
             local slot = self.slots[self.cursor_position]
             if slot ~= nil then
               -- Delete file.
-              audio_manager:play_sound("boss_hurt")
+              audio_manager:play_sound("menus/menu_select")
               sol.game.delete(slot.file_name)
               -- Update all the files.
               self:read_savefiles()
             else
-              audio_manager:play_sound("wrong")            
+              audio_manager:play_sound("others/errors")            
             end
             
             -- Go back to first phase.

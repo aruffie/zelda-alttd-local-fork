@@ -839,7 +839,7 @@ end
 
 -- Close this dialog with a fade out.
 function keyboardbox_menu:close()
-  audio_manager:play_sound("pause_closed")
+  audio_manager:play_sound("menus/pause_menu_close")
   
   local delay = 10
   if self.dark_surface ~= nil then

@@ -420,7 +420,7 @@ end
 -- Quits this menu.
 function settings_menu:close(callback)
   
-  audio_manager:play_sound("pause_closed")
+  audio_manager:play_sound("menus/pause_menu_close")
 
   -- Block cursor
   self.finished = true
