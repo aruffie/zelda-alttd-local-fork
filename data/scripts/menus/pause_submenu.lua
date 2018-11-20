@@ -187,7 +187,7 @@ function submenu:on_command_pressed(command)
 
     if command == "left" or command == "right" then
       -- Move the cursor.
-      audio_manager:play_sound("cursor")
+      audio_manager:play_sound("menus/menu_cursor")
       if self.save_dialog_choice == 0 then
         self.save_dialog_choice = 1
         self.save_dialog_cursor_pos = "right"
@@ -202,7 +202,7 @@ function submenu:on_command_pressed(command)
         self.save_dialog_state = 2
         if self.save_dialog_choice == 0 then
           self.game:save()
-          audio_manager:play_sound("ok")
+          audio_manager:play_sound("menus/menu_select")
         else
           audio_manager:play_sound("danger")
         end
@@ -212,7 +212,7 @@ function submenu:on_command_pressed(command)
         self.save_dialog_cursor_pos = "left"
       else
         -- After "Do you want to continue?".
-        audio_manager:play_sound("ok")
+        audio_manager:play_sound("menus/menu_select")
         self.save_dialog_state = 0
         self.game:set_custom_command_effect("action", self.action_command_effect_saved)
         self.game:set_custom_command_effect("attack", self.attack_command_effect_saved)

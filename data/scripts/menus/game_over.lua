@@ -174,13 +174,13 @@ local function initialize_game_over_features(game)
     end
 
     if command == "down" then
-      audio_manager:play_sound("cursor")
+      audio_manager:play_sound("menus/menu_cursor")
       cursor_position = (cursor_position + 1) % 4
       local fairy_x, fairy_y = fairy_sprite:get_xy()
       fairy_y = 112 + cursor_position * 16
       fairy_sprite:set_xy(fairy_x, fairy_y)
     elseif command == "up" then
-      audio_manager:play_sound("cursor")
+      audio_manager:play_sound("menus/menu_cursor")
       cursor_position = (cursor_position + 3) % 4
       local fairy_x, fairy_y = fairy_sprite:get_xy()
       fairy_y = 112 + cursor_position * 16

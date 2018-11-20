@@ -264,7 +264,7 @@ function settings_menu:on_key_pressed(key)
             local option = self.options[self.cursor_position]
             local next_value = self:get_option_next_value(option, key)
             if next_value ~= option.value then
-              audio_manager:play_sound("cursor")
+              audio_manager:play_sound("menus/menu_cursor")
               self:set_option(option, next_value)
               self:load_option(option)
             else
@@ -287,7 +287,7 @@ function settings_menu:on_key_pressed(key)
             -- Update if different.
             if new_cursor_position ~= self.cursor_position and new_position_is_valid then
               self:set_cursor_position(new_cursor_position)
-              audio_manager:play_sound("cursor")
+              audio_manager:play_sound("menus/menu_cursor")
             else 
               -- Only restart the animation.
               self.cursor_sprite:set_frame(0)

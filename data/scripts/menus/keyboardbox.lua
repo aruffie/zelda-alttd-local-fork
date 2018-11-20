@@ -477,7 +477,7 @@ function keyboardbox_menu:move_cursor(key)
   local new_cursor_position = self:get_cursor_next_position(self.cursor_position, key)
 
   self:set_cursor_position(new_cursor_position)
-  audio_manager:play_sound("cursor")
+  audio_manager:play_sound("menus/menu_cursor")
 
   -- Always handle the key.
   return true
@@ -704,7 +704,7 @@ function keyboardbox_menu:add_letter(letter)
   if get_string_char_len(self.result) < self.max_result_size then
     self:set_result(self.result..letter)
     self.textfield_cursor_sprite:set_frame(0)
-    audio_manager:play_sound("ok")
+    audio_manager:play_sound("menus/menu_select")
   else
     self.textfield_cursor_sprite:set_frame(0)
     audio_manager:play_sound("wrong")
@@ -723,11 +723,11 @@ function keyboardbox_menu:erase()
 
     self:set_result(string.sub(self.result, 1, string.len(self.result) - remove_count))
     self.textfield_cursor_sprite:set_frame(0)
-    audio_manager:play_sound("ok")
+    audio_manager:play_sound("menus/menu_select")
 
   else
     self.textfield_cursor_sprite:set_frame(0)
-    audio_manager:play_sound("wrong")
+    audio_manager:play_sound("others/error")
   end
 
 end
@@ -788,12 +788,12 @@ function keyboardbox_menu:accept()
   local char_lenght = get_string_char_len(self.result)
   if char_lenght >= self.min_result_size and char_lenght <= self.max_result_size then
     self.finished = true
-    audio_manager:play_sound("ok")
+    audio_manager:play_sound("menus/menu_select")
     self.textfield_cursor_sprite:set_paused(true)
     self.cursor_sprite:set_paused(true)
 
     sol.timer.start(self, 300, function()
-      audio_manager:play_sound("picked_small_key")
+      audio_manager:play_sound("menus/menu_select")
       self.textfield_sprite:set_animation("confirm")
       
       sol.timer.start(self, 700, function()
@@ -816,7 +816,7 @@ end
 function keyboardbox_menu:reject()
   
   self.finished = true
-  audio_manager:play_sound("ok")
+  audio_manager:play_sound("menus/menu_select")
   self.textfield_cursor_sprite:set_paused(true)
   self.cursor_sprite:set_paused(true)
   
@@ -856,7 +856,7 @@ function keyboardbox_menu:show(context, title, default_input, min_characters, ma
 
   -- Show the menu.
   sol.menu.start(context, self, true)
-  audio_manager:play_sound("pause_open")
+  audio_manager:play_sound("menus/menu_select")
 
   -- Title.
   self.title_text:set_text(title)

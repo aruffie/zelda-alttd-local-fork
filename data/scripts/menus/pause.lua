@@ -43,7 +43,7 @@ local function initialize_pause_features(game)
     game:set_value("pause_last_submenu", submenu_index)
 
     -- Play the sound of pausing the game.
-    audio_manager:play_sound("pause_open")
+    audio_manager:play_sound("menus/menu_select")
 
     -- Start the selected submenu.
     sol.menu.start(pause_menu, game.pause_submenus[submenu_index])

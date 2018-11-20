@@ -218,10 +218,10 @@ function messagebox_menu:on_command_pressed(command)
   -- Action: click on the button.
   if command == "action" then
     if self.cursor_position == 1 then
-      audio_manager:play_sound("cursor")
+      audio_manager:play_sound("menus/menu_cursor")
       self:accept()
     else
-      audio_manager:play_sound("cursor")
+      audio_manager:play_sound("menus/menu_cursor")
       self:reject()
     end
   -- Left/Right: move the cursor.
@@ -229,11 +229,11 @@ function messagebox_menu:on_command_pressed(command)
     if self.cursor_position == 1 and command == "right" then
       -- Go to button 2.
       self:set_cursor_position(2)
-      audio_manager:play_sound("cursor")    
+      audio_manager:play_sound("menus/menu_cursor")    
     elseif self.cursor_position == 2 and command == "left" then
       -- Go to button 1.
       self:set_cursor_position(1)
-      audio_manager:play_sound("cursor")    
+      audio_manager:play_sound("menus/menu_cursor")    
     else
       -- Blocked.
       self:notify_cursor_not_allowed()
@@ -259,11 +259,11 @@ function messagebox_menu:on_key_pressed(key)
         if self.cursor_position == 1 and key == "right" then
           -- Go to button 2.
           self:set_cursor_position(2)
-          audio_manager:play_sound("cursor")    
+          audio_manager:play_sound("menus/menu_cursor")    
         elseif self.cursor_position == 2 and key == "left" then
           -- Go to button 1.
           self:set_cursor_position(1)
-          audio_manager:play_sound("cursor")    
+          audio_manager:play_sound("menus/menu_cursor")    
         else
           -- Blocked.
           self:notify_cursor_not_allowed()

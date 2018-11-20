@@ -392,7 +392,7 @@ function file_selection_menu:move_cursor(key)
   -- Update if different.
   if new_cursor_position ~= self.cursor_position then
     self:set_cursor_position(new_cursor_position)
-    audio_manager:play_sound("cursor")
+    audio_manager:play_sound("menus/menu_cursor")
   else 
     -- Only restart the animation.
     self.cursor_sprite:set_frame(0)
@@ -492,7 +492,7 @@ function file_selection_menu:on_key_pressed(key)
         self:set_phase(self.phases.CONFIRM_DELETE)
         
         -- Open a messagebox to ask the player for confirmation.
-        audio_manager:play_sound("pause_open")
+        audio_manager:play_sound("menus/menu_select")
         messagebox:show(sol.main, 
           {sol.language.get_string("file_selection.confirm_delete")}, 
           sol.language.get_string("messagebox.yes"), sol.language.get_string("file_selection.cancel"), 2,
@@ -513,7 +513,7 @@ function file_selection_menu:on_key_pressed(key)
             -- Go back to first phase.
             self:set_phase(self.phases.CHOOSE_PLAY)
           else
-            audio_manager:play_sound("ok")
+            audio_manager:play_sound("menus/menu_select")
             -- Go back to second phase.
             self:set_phase(self.phases.CHOOSE_DELETE)       
           end
@@ -522,7 +522,7 @@ function file_selection_menu:on_key_pressed(key)
     -- Press the left button.
     elseif self.cursor_position == self.slot_count + 1 then
       if self.phase == self.phases.CHOOSE_PLAY then
-        audio_manager:play_sound("ok")
+        audio_manager:play_sound("menus/menu_select")
         handled = true
         self:set_phase(self.phases.CHOOSE_DELETE)
         -- Set the cursor on the first valid slot.
@@ -532,7 +532,7 @@ function file_selection_menu:on_key_pressed(key)
         end
         self:set_cursor_position(first_valid_slot)
       elseif self.phase == self.phases.CHOOSE_DELETE then
-        audio_manager:play_sound("ok")
+        audio_manager:play_sound("menus/menu_select")
         handled = true
         self:set_phase(self.phases.CHOOSE_PLAY)
         -- Set the cursor on the first valid slot.
@@ -545,7 +545,7 @@ function file_selection_menu:on_key_pressed(key)
     -- Press the right button.
     elseif self.cursor_position == self.slot_count + 2 then
       if self.phase == self.phases.CHOOSE_PLAY then
-        audio_manager:play_sound("ok")
+        audio_manager:play_sound("menus/menu_select")
         handled = true
 
         self:set_phase(self.phases.EDIT_OPTIONS)

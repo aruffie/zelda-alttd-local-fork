@@ -228,11 +228,11 @@ function options_submenu:on_command_pressed(command)
       self:next_submenu()
       handled = true
     elseif command == "up" then
-      audio_manager:play_sound("cursor")
+      audio_manager:play_sound("menus/menu_cursor")
       self:set_cursor_position((self.cursor_position + 8) % 10 + 1)
       handled = true
     elseif command == "down" then
-      audio_manager:play_sound("cursor")
+      audio_manager:play_sound("menus/menu_cursor")
       self:set_cursor_position(self.cursor_position % 10 + 1)
       handled = true
     elseif command == "action" then
