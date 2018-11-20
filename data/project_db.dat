@@ -899,6 +899,7 @@ music{ id = "snes/14_shop_high", description = "14 - Shop high" }
 music{ id = "snes/15_trendy_game", description = "15 - Trendy Game" }
 music{ id = "snes/16_mysterious_forest", description = "16 - Mysterious Forest" }
 music{ id = "snes/18_cave", description = "18 - Cave" }
+music{ id = "snes/19_level_1_tail_cave", description = "19 - Level 1 - Tail cave" }
 music{ id = "snes/27_mr_write_house", description = "27 - Mr Write" }
 music{ id = "snes/41_christine_house", description = "41 - Christine's House" }
 music{ id = "snes/46_tal_tal_mountain_range", description = "46 - Tal tal Mountain Range" }

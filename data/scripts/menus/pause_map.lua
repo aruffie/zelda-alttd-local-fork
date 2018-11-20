@@ -1,4 +1,5 @@
 local submenu = require("scripts/menus/pause_submenu")
+local audio_manager = require("scripts/audio_manager")
 local map_submenu = submenu:new()
 
 function map_submenu:on_started()

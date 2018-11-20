@@ -3,6 +3,7 @@
 local submenu = {}
 
 local language_manager = require("scripts/language_manager")
+local audio_manager = require("scripts/audio_manager")
 
 function submenu:new(game)
   
@@ -167,7 +168,7 @@ function submenu:on_command_pressed(command)
   if self.save_dialog_state == 0 then
     -- The save dialog is not shown
     if command == "attack" then
-      audio_manager:play_sound("message_end")
+      audio_manager:play_sound("menus/menu_select")
       self.save_dialog_state = 1
       self.save_dialog_choice = 0
       self.save_dialog_cursor_pos = "left"
