@@ -1,5 +1,7 @@
 -- The magic bar shown in the game screen.
 
+local audio_manager = require("scripts/audio_manager")
+
 local magic_bar_builder = {}
 
 function magic_bar_builder:new(game, config)

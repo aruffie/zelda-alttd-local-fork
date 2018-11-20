@@ -1,5 +1,6 @@
 local submenu = require("scripts/menus/pause_submenu")
 local audio_manager = require("scripts/audio_manager")
+
 local quest_submenu = submenu:new()
 local item_names_static_left = {
   "instrument_1",
@@ -28,8 +29,13 @@ local item_names_static_bottom = {
 function quest_submenu:on_started()
 
   submenu.on_started(self)
-  self.cursor_sprite = sol.sprite.create("menus/pause_cursor")
-  self.hearts = sol.surface.create("menus/pieces_of_heart.png")
+    
+  -- Set title
+  self:set_title(sol.language.get_string("quest_status.title"))
+
+  -- Initialize the menu.
+  self.cursor_sprite = sol.sprite.create("menus/pause/cursor")
+  self.hearts = sol.surface.create("menus/pause/quest/pieces_of_heart.png")
   self.counters = {}
   self.sprites_static_left = {}
   self.sprites_static_right = {}
@@ -82,6 +88,11 @@ function quest_submenu:on_draw(dst_surface)
   local cell_size = 28
   local cell_spacing = 4
 
+  local width, height = dst_surface:get_size()
+  local center_x = width / 2
+  local center_y = height / 2
+  local menu_x, menu_y = center_x - self.width / 2, center_y - self.height / 2
+
   -- Draw the background.
   self:draw_background(dst_surface)
   
@@ -89,18 +100,18 @@ function quest_submenu:on_draw(dst_surface)
   self:draw_caption(dst_surface)
 
   -- Draw each inventory static item left.
-  local y = 90
+  local y = menu_y + 79
   local k = 0
   for i = 0, 2 do
-    local x = 64
+    local x = menu_x + 64
     for j = 0, 2 do
       if x == 1 and x == 1 then
-        x=x+1
+        x = x + 1
       end
       k = k + 1
       if item_names_static_left[k] ~= nil then
         local item = self.game:get_item(item_names_static_left[k])
-        if item:get_variant() > 0 then
+        if item and item:get_variant() > 0 then
           -- The player has this item: draw it.
           if item_names_static_left[k] == "magnifying_lens" then
             self.sprites_static_left[k]:set_direction(item:get_variant() - 1)
@@ -118,25 +129,25 @@ function quest_submenu:on_draw(dst_surface)
   -- Draw each inventory static item right.
   for i, item_name in ipairs(item_names_static_right) do
         local item = self.game:get_item(item_name)
-        local x = 0
-        local y = 0
+        local x = menu_x
+        local y = menu_y
         if item:get_variant() > 0 then
           -- The player has this item: draw it.
           if i == 1 then
-            x = 192
-            y = 122
+            x = menu_x + 192
+            y = menu_y + 111
           elseif i == 2 then
-            x = 224
-            y = 90
+            x = menu_x + 224
+            y = menu_y + 90
           elseif i == 3 then
-            x = 256
-            y = 122
+            x = menu_x + 256
+            y = menu_y + 111
           elseif i == 4 then
-            x = 224
-            y = 154
+            x = menu_x + 224
+            y = menu_y + 143
           elseif i == 5 then
-            x = 224
-            y = 122
+            x = menu_x + 224
+            y = menu_y + 111
           end
           self.sprites_static_right[i]:set_direction(item:get_variant() - 1)
           self.sprites_static_right[i]:draw(dst_surface, x, y)
@@ -144,8 +155,8 @@ function quest_submenu:on_draw(dst_surface)
   end
 
   -- Draw each inventory static item bottom.
-  local y = 187
-  local x = 64
+  local x = menu_x + 64
+  local y = menu_y + 187
   local k = 0
   for i = 0, 2 do
     k = k + 1
@@ -176,16 +187,14 @@ function quest_submenu:on_draw(dst_surface)
     pieces_of_heart_x, 0,                 -- region position in image
     pieces_of_heart_w, pieces_of_heart_w, -- region size in image
     dst_surface,                          -- destination surface
-    146, 168                              -- position in destination surface
+    menu_x + 146, menu_y + 168            -- position in destination surface
   )
   
   -- Draw cursor only when the save dialog is not displayed.
-  if self.save_dialog_state == 0 then
-    self.cursor_sprite:draw(dst_surface, 64 + 32 * self.cursor_column, 86 + 32 * self.cursor_row)
+  if not self.dialog_opened then
+    self.cursor_sprite:draw(dst_surface, menu_x + 64 + 32 * self.cursor_column, menu_y + 79 + 32 * self.cursor_row)
   end
 
-  -- Draw save dialog if necessary.
-  self:draw_save_dialog_if_any(dst_surface)
 end
 
 function quest_submenu:on_command_pressed(command)
@@ -196,8 +205,8 @@ function quest_submenu:on_command_pressed(command)
 
     if command == "action" then
       if self.game:get_command_effect("action") == nil and self.game:get_custom_command_effect("action") == "info" then
-        self:show_info_message()
         handled = true
+        self:show_info_message()
       end
 
     elseif command == "left" then
@@ -273,8 +282,6 @@ function quest_submenu:show_info_message()
   local game = self.game
   local map = game:get_map()
   local dialog_id = false
-  self.game:set_custom_command_effect("action", nil)
-  self.game:set_custom_command_effect("attack", nil)
   if item_name == "piece_of_heart" then
     dialog_id =  "scripts.menus.pause_inventory.piece_of_heart.1" 
   elseif item_name == "seashells_counter" then
@@ -297,10 +304,8 @@ function quest_submenu:show_info_message()
     dialog_id = "scripts.menus.pause_inventory." .. item_name .. "." .. variant
   end
   if dialog_id then
-    game:start_dialog(dialog_id, function()
-      self.game:set_custom_command_effect("action", "info")
-      self.game:set_custom_command_effect("attack", "save")
-     -- game:set_dialog_position("auto")  -- Back to automatic position.
+    self:show_info_dialog(dialog_id, function()
+      set_cursor_position(self.cursor_row, self.cursor_column)
     end)
   end
 end
@@ -317,42 +322,52 @@ function quest_submenu:set_cursor_position(row, column)
   local item_name = self:get_item_name(row, column)
   if item_name =="piece_of_heart" then
       local num_pieces_of_heart = self.game:get_item("piece_of_heart"):get_num_pieces_of_heart()
-      self:set_caption("inventory.caption.item.piece_of_heart."..num_pieces_of_heart)
+      self:set_caption_key("inventory.caption.item.piece_of_heart."..num_pieces_of_heart)
       self.game:set_custom_command_effect("action", "info")
   elseif item_name =="seashells_counter" then
     local item = item_name and self.game:get_item(item_name) or nil
     if item:get_amount() > 0 then
-      self:set_caption("inventory.caption.item.seashells_counter.1")
+      self:set_caption_key("inventory.caption.item.seashells_counter.1")
       self.game:set_custom_command_effect("action", "info")
+    else
+      self:set_caption_key(nil)
+      self.game:set_custom_command_effect("action", nil)
     end
   elseif item_name =="photos_counter" then
     local item = item_name and self.game:get_item(item_name) or nil
     if item:get_amount() > 0 then
-      self:set_caption("inventory.caption.item.photos_counter.1")
+      self:set_caption_key("inventory.caption.item.photos_counter.1")
       self.game:set_custom_command_effect("action", "info")
+    else
+      self:set_caption_key(nil)
+      self.game:set_custom_command_effect("action", nil)
     end
   elseif item_name =="golden_leaves_counter" then
     local item = item_name and self.game:get_item(item_name) or nil
     if item:get_amount() > 0 then
-      self:set_caption("inventory.caption.item.golden_leaves_counter.1")
+      self:set_caption_key("inventory.caption.item.golden_leaves_counter.1")
       self.game:set_custom_command_effect("action", "info")
-   end
+    else
+      self:set_caption_key(nil)
+      self.game:set_custom_command_effect("action", nil)
+    end
   else
     local item = item_name and self.game:get_item(item_name) or nil
     local variant = item and item:get_variant()
     local item_icon_opacity = 128
     if variant > 0 then
-      self:set_caption("inventory.caption.item." .. item_name .. "." .. variant)
+      self:set_caption_key("inventory.caption.item." .. item_name .. "." .. variant)
       self.game:set_custom_command_effect("action", "info")
       if item:is_assignable() then
-        item_icon_opacity = 255
+        self.game:set_hud_mode("normal")
+      else
+        self.game:set_hud_mode("pause")
       end
     else
-      self:set_caption(nil)
+      self:set_caption_key(nil)
       self.game:set_custom_command_effect("action", nil)
+      self.game:set_hud_mode("pause")
     end
-    self.game:get_hud():set_item_icon_opacity(1, item_icon_opacity)
-    self.game:get_hud():set_item_icon_opacity(2, item_icon_opacity)
   end
 end
 

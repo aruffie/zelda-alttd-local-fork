@@ -9,7 +9,7 @@ local audio_manager = require("scripts/audio_manager")
 function settings_menu:on_started()
 
   -- Fix the font shift (issue with Minecraftia)
-  self.font_y_shift = 2
+  self.font_y_shift = 0
 
   -- Create static surfaces.
   self.frame_img = sol.surface.create("menus/settings/settings_frame.png")

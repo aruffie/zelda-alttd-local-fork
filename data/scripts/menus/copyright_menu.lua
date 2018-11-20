@@ -17,7 +17,7 @@ local gpl_logo_width, gpl_logo_height
 
 local top_margin = 52
 local item_margin = 8
-local line_spacing = 4
+local line_spacing = 6
 local can_skip_menu = false
 local fade_delay = 20
 local is_skipping = false
@@ -36,7 +36,7 @@ local menu_items
 function copyright_menu:on_started()
 
   -- Fix the font shift (issue with Minecraftia)
-  self.font_y_shift = 2
+  self.font_y_shift = 0
 
   -- GPLv3 logo
   gpl_logo = sol.surface.create("menus/copyright_menu/gplv3_logo.png")
