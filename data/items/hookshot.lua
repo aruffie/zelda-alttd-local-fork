@@ -47,7 +47,7 @@
 
 local item = ...
 
-local config = require("items/hookshot_config.lua")
+local config = require("items/hookshot_config")
 
 function item:on_created()
 
@@ -153,7 +153,7 @@ function item:on_using()
     movement:start(hookshot)
 
     function movement:on_obstacle_reached()
-      sol.audio.play_sound("sword_tapping")
+      audio_manager:play_sound("sword_tapping")
       go_back()
     end
 
@@ -163,10 +163,10 @@ function item:on_using()
 
     -- Play a repeated sound.
     sound_timer = sol.timer.start(map, 150, function()
-      sol.audio.play_sound("hookshot")
+      audio_manager:play_sound("hookshot")
       return true  -- Repeat the timer.
     end)
-    sol.audio.play_sound("hookshot")
+    audio_manager:play_sound("hookshot")
 
   end
 
@@ -358,7 +358,7 @@ function item:on_using()
     elseif entity_type == "crystal" then
       -- Activate crystals.
       if not hooked and not going_back then
-        sol.audio.play_sound("switch")
+        audio_manager:play_sound("switch")
         map:change_crystal_state()
         go_back()
       end
@@ -373,9 +373,9 @@ function item:on_using()
           sprite:get_animation_set() == "entities/solid_switch" then
 
         if switch:is_activated() then
-          sol.audio.play_sound("sword_tapping")
+          audio_manager:play_sound("sword_tapping")
         else
-          sol.audio.play_sound("switch")
+          audio_manager:play_sound("switch")
           switch:set_activated(true)
         end
         go_back()

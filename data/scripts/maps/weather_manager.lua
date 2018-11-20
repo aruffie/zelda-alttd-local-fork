@@ -62,12 +62,12 @@ function weather_manager:launch_rain(map)
       if (math.random(100) == 1) then
         dst_surface:fill_color({255, 255, 255, 128}, 0, 0, 1024, 1024)
        if (math.random(5) == 1) then
-          sol.audio.play_sound("thunder")
+          audio_manager:play_sound("thunder")
         end
       end
       if weather_manager.raintimer <= 0 then
         weather_manager.raintimer = 150
-        sol.audio.play_sound("water_fill")
+        audio_manager:play_sound("water_fill")
       end
       weather_manager.raintimer = weather_manager.raintimer - 1
     

@@ -23,9 +23,9 @@ function item:on_using()
   item:set_pushed_stake(false)
   sol.timer.start(map, 200, function()
     if item:has_pushed_stake() then
-      sol.audio.play_sound("hammer_stake")  -- Successfully pushed a stake.
+      audio_manager:play_sound("hammer_stake")  -- Successfully pushed a stake.
     else
-      sol.audio.play_sound("hammer")  -- No stake was pushed.
+      audio_manager:play_sound("hammer")  -- No stake was pushed.
     end
     item:set_pushed_stake(false)
   end)
@@ -74,7 +74,7 @@ function item:on_using()
       end
       entities_touched[entity] = true
 
-      sol.audio.play_sound("switch")
+      audio_manager:play_sound("switch")
       map:change_crystal_state()
 
     -- Activate solid switches.
@@ -85,7 +85,7 @@ function item:on_using()
          sprite:get_animation_set() == "entities/solid_switch" then
 
         if not switch:is_activated() then
-          sol.audio.play_sound("switch")
+          audio_manager:play_sound("switch")
           switch:set_activated(true)
         end
       end

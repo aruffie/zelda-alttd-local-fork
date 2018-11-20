@@ -2,6 +2,10 @@ local enemy_manager = {}
 
 enemy_manager.is_transported = false
 
+-- Include scripts
+require("scripts/multi_events")
+local audio_manager = require("scripts/audio_manager")
+
 function enemy_manager:execute_when_vegas_dead(map, enemy_prefix)
 
   local function enemy_on_symbol_fixed(enemy)
@@ -24,7 +28,7 @@ function enemy_manager:execute_when_vegas_dead(map, enemy_prefix)
 
     sol.timer.start(map, 500, function()
       if not all_same_direction then
-        sol.audio.play_sound("wrong")
+        audio_manager:play_sound("wrong")
         for vegas in map:get_entities(enemy_prefix) do
           vegas:set_symbol_fixed(false)
         end
@@ -81,7 +85,7 @@ function enemy_manager:create_teletransporter_if_small_boss_dead(map, sound)
           hero:set_position(teletransporter_A_x, teletransporter_A_y)
           hero_sprite:set_ignore_suspend(true)
           hero_sprite:set_animation("teleporting")
-          sol.audio.play_sound("teletransporter")
+          audio_manager:play_sound("teletransporter")
           function hero_sprite:on_animation_finished(animation)
             if animation == "teleporting" then
               game:set_suspended(false)
@@ -104,7 +108,7 @@ function enemy_manager:create_teletransporter_if_small_boss_dead(map, sound)
           hero:set_position(teletransporter_B_x, teletransporter_B_y)
           hero_sprite:set_ignore_suspend(true)
           hero_sprite:set_animation("teleporting")
-          sol.audio.play_sound("teletransporter")
+          audio_manager:play_sound("teletransporter")
           function hero_sprite:on_animation_finished(animation)
             if animation == "teleporting" then
               game:set_suspended(false)
@@ -118,7 +122,7 @@ function enemy_manager:create_teletransporter_if_small_boss_dead(map, sound)
         end
       end)
       if sound ~= nil and sound ~= false then
-        sol.audio.play_sound("teletransporter_appear")
+        audio_manager:play_sound("teletransporter_appear")
       end
   end
 
@@ -139,7 +143,6 @@ function enemy_manager:launch_small_boss_if_not_dead(map)
     local placeholder = map:get_entity(placeholder)
     local x,y,layer = placeholder:get_position()
     local game = map:get_game()
-    local music = sol.audio.get_music()
     placeholder:set_enabled(false)
     local enemy = map:create_enemy{
        breed = dungeon_infos["small_boss"]["breed"],
@@ -149,14 +152,14 @@ function enemy_manager:launch_small_boss_if_not_dead(map)
         layer = layer
       }
    enemy:register_event("on_dead", function()
-      enemy:launch_small_boss_dead(music)
+      enemy:launch_small_boss_dead()
    end)
    for tile in map:get_entities("tiles_small_boss_") do
     local layer = tile:get_property('start_layer')
     tile:set_layer(layer)
    end
    map:close_doors(door_prefix)
-   sol.audio.play_music("maps/dungeons/small_boss")
+   audio_manager:play_music("21_mini_boss_battle")
       
 end
 
@@ -186,7 +189,7 @@ function enemy_manager:launch_boss_if_not_dead(map)
         enemy:launch_boss_dead(door_prefix, savegame)
      end)
     map:close_doors(door_prefix)
-    sol.audio.play_music("maps/dungeons/boss")
+    audio_manager:play_music("22_boss_battle")
     game:start_dialog("maps.dungeons." .. dungeon .. ".boss_welcome")
         
 end

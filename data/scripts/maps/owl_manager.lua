@@ -1,5 +1,8 @@
 local owl_manager = {}
 
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
+
 -- Function that makes it possible to make the owl appear to launch a dialogue.
 function owl_manager:appear(map, step, callback)
 
@@ -25,7 +28,7 @@ function owl_manager:appear(map, step, callback)
       map:set_cinematic_mode(true, options)
       -- Init and launch cinematic mode
       -- Init music
-      sol.audio.play_music("scripts/meta/map/the_wise_owl")
+      audio_manager:play_music("08_the_owl")
      -- Init hero
       hero:set_direction(1)
       -- Init owl shadow
@@ -85,7 +88,7 @@ function owl_manager:appear(map, step, callback)
 end
 
 -- Function to manage the owls in the dungeons
-function owl_manager:manage_map(map)
+function owl_manager:init(map)
 
   local game = map:get_game()
   for beak in map:get_entities("owl") do

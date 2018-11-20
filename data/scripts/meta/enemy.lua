@@ -1,7 +1,9 @@
 -- Initialize enemy behavior specific to this quest.
 
+-- Include scripts
 local enemy_meta = sol.main.get_metatable("enemy")
 local enemy_manager = require("scripts/maps/enemy_manager")
+local audio_manager = require("scripts/audio_manager")
 
 -- Redefine how to calculate the damage inflicted by the sword.
 function enemy_meta:on_hurt_by_sword(hero, enemy_sprite)
@@ -42,7 +44,7 @@ function enemy_meta:receive_attack_consequence(attack, reaction)
         self:restart()
       end)
   elseif reaction == "protected" then
-    sol.audio.play_sound("sword_tapping")
+    audio_manager:play_sound("sword_tapping")
   elseif reaction == "custom" then
     if self.on_custom_attack_received ~= nil then
       self:on_custom_attack_received(attack)
@@ -51,14 +53,16 @@ function enemy_meta:receive_attack_consequence(attack, reaction)
 
 end
 
-function enemy_meta:launch_small_boss_dead(music)
+function enemy_meta:launch_small_boss_dead()
 
   local game = self:get_game()
   local map = game:get_map()
   local dungeon = game:get_dungeon_index()
+  local dungeon_info = game:get_dungeon()
   local savegame = "dungeon_" .. dungeon .. "_small_boss"
   local door_prefix = "door_group_small_boss"
-  sol.audio.play_music(music)
+  local music = dungeon_info.music
+  audio_manager:play_music(music)
   game:set_value(savegame, true)
   map:open_doors(door_prefix)
   enemy_manager:create_teletransporter_if_small_boss_dead(map, true)
@@ -84,7 +88,7 @@ function enemy_meta:launch_boss_dead()
   local dungeon = game:get_dungeon_index()
   local savegame = "dungeon_" .. dungeon .. "_boss"
   local door_prefix = "door_group_boss"
-  sol.audio.play_music("maps/dungeons/instruments")
+  audio_manager:play_music("23_boss_defeated")
   game:set_value(savegame, true)
   map:open_doors(door_prefix)
   local heart_container = map:get_entity("heart_container")
@@ -122,5 +126,64 @@ function enemy_meta:on_attacking_hero(hero, enemy_sprite)
   end
 end
 
+-- Create an exclamation symbol near npc
+function enemy_meta:create_symbol_exclamation(x, y, layer)
+  
+  local map = self:get_map()
+  local x, y, layer = self:get_position()
+  audio_manager:play_sound("menus/menu_select")
+  local symbol = map:create_custom_entity({
+    sprite = "entities/symbol_exclamation",
+    x = x - 16,
+    y = y - 16,
+    width = 16,
+    height = 16,
+    layer = layer + 1,
+    direction = 0
+  })
+
+  return symbol
+  
+end
+
+-- Create an interrogation symbol near npc
+function enemy_meta:create_symbol_interrogation()
+  
+  local map = self:get_map()
+  local x, y, layer = self:get_position()
+  audio_manager:play_sound("menus/menu_select")
+  local symbol = map:create_custom_entity({
+    sprite = "entities/symbol_interrogation",
+    x = x,
+    y = y,
+    width = 16,
+    height = 16,
+    layer = layer + 1,
+    direction = 0
+  })
+
+  return symbol
+  
+end
+
+-- Create a collapse symbol near npc
+function enemy_meta:create_symbol_collapse()
+  
+  local map = self:get_map()
+  local width, height = self:get_sprite():get_size()
+  local x, y, layer = self:get_position()
+  local symbol = map:create_custom_entity({
+    sprite = "entities/symbol_collapse",
+    x = x,
+    y = y - height / 2,
+    width = 16,
+    height = 16,
+    layer = layer + 1,
+    direction = 0
+  })
+
+  return symbol
+  
+end
 
 return true

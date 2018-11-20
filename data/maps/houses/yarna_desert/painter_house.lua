@@ -1,35 +1,47 @@
--- Lua script of map houses/yarna_desert/house_of_the_painter.
--- This script is executed every time the hero enters this map.
-
--- Feel free to modify the code below.
--- You can add more events and remove the ones you don't need.
-
--- See the Solarus Lua API documentation:
--- http://www.solarus-games.org/doc/latest
-
+-- Variables
 local map = ...
 local game = map:get_game()
 
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
 
--- Event called at initialization time, as soon as this map is loaded.
-function map:on_started()
 
+-- Map events
+function map:on_started(destination)
 
+  -- Music
+  map:init_music()
+    -- Entities
+  map:init_map_entities()
+
+end
+
+-- Initialize the music of the map
+function map:init_music()
+
+  audio_manager:play_music("12_house")
+
+end
+
+-- Initializes Entities based on player's progress
+function map:init_map_entities()
+ 
   sol.timer.start(hippo, 2000, function()
     hippo:get_sprite():set_animation("embarrassed")
   end)
 
 end
 
+-- Discussion with hippo
 function map:talk_to_hippo()
 
-  --local hero = map:get_hero()
   local direction = hero:get_direction()
   hippo:get_sprite():set_direction(direction)
   game:start_dialog("maps.houses.yarna_desert.painter_house.hippo_1")
 
 end
 
+-- Discussion with painter
 function map:talk_to_painter()
 
   local direction4 = painter:get_direction4_to(hero)
@@ -41,6 +53,7 @@ function map:talk_to_painter()
 
 end
 
+-- NPCs events
 function hippo:on_interaction()
 
   map:talk_to_hippo()
@@ -77,6 +90,7 @@ function painter_invisible_4:on_interaction()
 
 end
 
+-- Wardrobes
 for wardrobe in map:get_entities("wardrobe") do
   function wardrobe:on_interaction()
     game:start_dialog("maps.houses.wardrobe_1", game:get_player_name())

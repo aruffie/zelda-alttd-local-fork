@@ -40,7 +40,7 @@ function entity:on_created()
             and (not hero:is_jumping()) and hero:get_state() ~= "jumping" then
         time_above = time_above + timer_delay
         if time_above >= time_resistance then
-          sol.audio.play_sound(break_sound)
+          audio_manager:play_sound(break_sound)
           local entity_name = entity:get_name()
           if entity_name then
             local prefix = entity_name .. "_unstable_associate_"

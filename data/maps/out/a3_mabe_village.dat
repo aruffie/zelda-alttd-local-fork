@@ -14532,6 +14532,12 @@ npc{
   layer = 0,
   x = 560,
   y = 285,
+  properties = {
+    {
+      key = "model",
+      value = "marin",
+    },
+  },
   direction = 3,
   subtype = 1,
   sprite = "npc/marin",
@@ -15897,7 +15903,7 @@ custom_entity{
   name = "kids_alert_position_center",
   layer = 0,
   x = 120,
-  y = 733,
+  y = 717,
   width = 16,
   height = 16,
   direction = 0,
@@ -18097,7 +18103,7 @@ custom_entity{
 custom_entity{
   layer = 0,
   x = 120,
-  y = 701,
+  y = 717,
   width = 16,
   height = 16,
   direction = 0,
@@ -18141,7 +18147,7 @@ custom_entity{
 custom_entity{
   layer = 0,
   x = 120,
-  y = 717,
+  y = 701,
   width = 16,
   height = 16,
   direction = 0,
@@ -21476,6 +21482,26 @@ npc{
   direction = 3,
   subtype = 1,
   sprite = "npc/kid_3",
+}
+
+custom_entity{
+  name = "kids_alert_position_hero_1",
+  layer = 0,
+  x = 120,
+  y = 685,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+custom_entity{
+  name = "kids_alert_position_hero_2",
+  layer = 0,
+  x = 120,
+  y = 733,
+  width = 16,
+  height = 16,
+  direction = 0,
 }
 
 tile{

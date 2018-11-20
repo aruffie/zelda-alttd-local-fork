@@ -76,6 +76,6 @@ function enemy:on_attacking_hero(hero)
   -- If hero has magic, it is drained.
   if game:get_magic() > 0 then
     game:remove_magic(4)
-    sol.audio.play_sound("magic_bar")
+    audio_manager:play_sound("magic_bar")
   end
 end

@@ -1,24 +1,21 @@
--- Outside - West Mt Tarmaranch
-
 -- Variables
 local map = ...
 local game = map:get_game()
 local hero = map:get_hero()
 
+-- Include scripts
 local travel_manager = require("scripts/maps/travel_manager")
+local audio_manager = require("scripts/audio_manager")
 
--- Methods - Functions
-
-
--- Events
-
+-- Map events
 function map:on_started()
 
- map:init_music()
- map:set_digging_allowed(true)
-
-  -- Travel
-  travel_transporter:set_enabled(false)
+  -- Music
+  map:init_music()
+  -- Entities
+  map:init_map_entities()
+  -- Digging
+  map:set_digging_allowed(true)
 
 end
 
@@ -27,22 +24,31 @@ function map:init_music()
 
   local x_hero, y_hero = hero:get_position()
   if y_hero < 384 then
-    if game:get_player_name():lower() == "marin" then
-      sol.audio.play_music("maps/out/mt_tamaranch_marin")
-    else
-      sol.audio.play_music("maps/out/mt_tamaranch")
-    end
+    audio_manager:play_music("46_tal_tal_mountain_range")
   else
-      sol.audio.play_music("maps/out/overworld")
+    audio_manager:play_music("10_overworld")
   end
 
 end
 
-function travel_sensor:on_activated()
-
-    travel_manager:init(map, 2)
-
+-- Initializes Entities based on player's progress
+function map:init_map_entities()
+  
+  -- Travel
+  travel_transporter:set_enabled(false)
+  
 end
 
---Weak doors play secret sound on opened
-function weak_door_1:on_opened() sol.audio.play_sound("secret_1") end
+--Doors events
+function weak_door_1:on_opened()
+  
+  audio_manager:play_sound("secret_1")
+  
+end
+
+-- Sensors events
+function travel_sensor:on_activated()
+
+  travel_manager:init(map, 2)
+
+end

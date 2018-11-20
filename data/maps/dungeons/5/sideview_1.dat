@@ -8,7 +8,7 @@ properties{
   world = "dungeon_1",
   floor = 0,
   tileset = "sideview/sideview",
-  music = "maps/dungeons/passageways",
+  music = "same",
 }
 
 tile{
@@ -1147,24 +1147,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 464,
-  y = 88,
-  width = 32,
-  height = 24,
-  pattern = "32",
-}
-
-tile{
-  layer = 0,
-  x = 192,
-  y = 88,
-  width = 32,
-  height = 24,
-  pattern = "32",
-}
-
-tile{
-  layer = 0,
   x = 112,
   y = 80,
   width = 16,
@@ -1197,6 +1179,24 @@ tile{
   width = 16,
   height = 16,
   pattern = "7",
+}
+
+tile{
+  layer = 0,
+  x = 192,
+  y = 88,
+  width = 32,
+  height = 24,
+  pattern = "wall_torch.1",
+}
+
+tile{
+  layer = 0,
+  x = 464,
+  y = 88,
+  width = 32,
+  height = 24,
+  pattern = "wall_torch.1",
 }
 
 separator{
@@ -1255,7 +1255,6 @@ dynamic_tile{
   pattern = "40",
   width = 16,
   height = 192,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -1266,7 +1265,6 @@ dynamic_tile{
   pattern = "40",
   width = 16,
   height = 64,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -1277,7 +1275,6 @@ dynamic_tile{
   pattern = "40",
   width = 16,
   height = 64,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -1288,7 +1285,6 @@ dynamic_tile{
   pattern = "40",
   width = 16,
   height = 192,
-  enabled_at_start = true,
 }
 
 enemy{

@@ -2,6 +2,7 @@
 
 local language_manager = require("scripts/language_manager")
 local game_manager = require("scripts/game_manager")
+local audio_manager = require("scripts/audio_manager")
 
 local messagebox_builder = {}
 
@@ -258,11 +259,11 @@ function messagebox_builder:show(context, text_lines, button_1_text, button_2_te
     end
   end
 
-  -- Notify that this cursor movement is not allowed.
-  function messagebox_menu:notify_cursor_not_allowed()
-    self.cursor_sprite:set_frame(0)
-    sol.audio.play_sound("picked_item")    
-  end
+-- Notify that this cursor movement is not allowed.
+function messagebox_menu:notify_cursor_not_allowed()
+  self.cursor_sprite:set_frame(0)
+  audio_manager:play_sound("picked_item")    
+end
 
 
   --------------
@@ -284,31 +285,30 @@ function messagebox_builder:show(context, text_lines, button_1_text, button_2_te
   -- Handle player input.
   function messagebox_menu:on_command_pressed(command)
 
-    -- Action: click on the button.
-    if command == "action" then
-      if self.cursor_position == 1 then
-        sol.audio.play_sound("cursor")
-        self:accept()
-      else
-        sol.audio.play_sound("cursor")
-        self:reject()
-      end
-    -- Left/Right: move the cursor.
-    elseif command == "left" or command == "right" then
-      if self.cursor_position == 1 and command == "right" then
-        -- Go to button 2.
-        self:set_cursor_position(2)
-        sol.audio.play_sound("cursor")    
-      elseif self.cursor_position == 2 and command == "left" then
-        -- Go to button 1.
-        self:set_cursor_position(1)
-        sol.audio.play_sound("cursor")    
-      else
-        -- Blocked.
-        self:notify_cursor_not_allowed()
-      end
-    -- Up/down: blocked.
-    elseif command == "up" or command == "down" then
+-- Handle player input.
+function messagebox_menu:on_command_pressed(command)
+  print(command)
+  -- Action: click on the button.
+  if command == "action" then
+    if self.cursor_position == 1 then
+      audio_manager:play_sound("menus/menu_cursor")
+      self:accept()
+    else
+      audio_manager:play_sound("menus/menu_cursor")
+      self:reject()
+    end
+  -- Left/Right: move the cursor.
+  elseif command == "left" or command == "right" then
+    if self.cursor_position == 1 and command == "right" then
+      -- Go to button 2.
+      self:set_cursor_position(2)
+      audio_manager:play_sound("menus/menu_cursor")    
+    elseif self.cursor_position == 2 and command == "left" then
+      -- Go to button 1.
+      self:set_cursor_position(1)
+      audio_manager:play_sound("menus/menu_cursor")    
+    else
+      -- Blocked.
       self:notify_cursor_not_allowed()
     end
 
@@ -328,11 +328,11 @@ function messagebox_builder:show(context, text_lines, button_1_text, button_2_te
         if self.cursor_position == 1 and key == "right" then
           -- Go to button 2.
           self:set_cursor_position(2)
-          sol.audio.play_sound("cursor")    
+          audio_manager:play_sound("menus/menu_cursor")    
         elseif self.cursor_position == 2 and key == "left" then
           -- Go to button 1.
           self:set_cursor_position(1)
-          sol.audio.play_sound("cursor")    
+          audio_manager:play_sound("menus/menu_cursor")    
         else
           -- Blocked.
           self:notify_cursor_not_allowed()

@@ -1,6 +1,6 @@
 local enemy = ...
 
--- Molblin: goes in a random direction.
+-- Moblin: goes in a random direction.
 
 enemy:set_life(1)
 enemy:set_damage(1)

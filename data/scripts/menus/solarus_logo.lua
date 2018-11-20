@@ -9,6 +9,10 @@
 -- function solarus_logo:on_finished()
 --   -- Do whatever you want next (show a title screen, start a game...)
 -- end
+
+-- Includes scripts
+local audio_manager = require("scripts/audio_manager")
+
 local solarus_logo_menu = {}
 
 -- Main surface of the menu.
@@ -97,7 +101,7 @@ function solarus_logo_menu:step1()
   sword:stop_movement()
   sword:set_xy(-48, 48)
   -- Play a sound.
-  sol.audio.play_sound("diarandor/solarus_logo")
+  audio_manager:play_sound("menus/solarus_logo")
   -- Update the surface.
   rebuild_surface()
 end

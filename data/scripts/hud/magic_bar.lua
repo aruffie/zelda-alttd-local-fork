@@ -45,7 +45,7 @@ function magic_bar_builder:new(game, config)
 
         -- Play the magic bar sound.
         if (magic - magic_bar.magic_displayed) % 10 == 1 then
-          sol.audio.play_sound("magic_bar")
+          audio_manager:play_sound("magic_bar")
         end
       end
     end

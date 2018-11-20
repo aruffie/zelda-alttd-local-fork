@@ -7,6 +7,7 @@ properties{
   max_layer = 2,
   world = "inside_world",
   tileset = "dungeon/green",
+  music = "same",
 }
 
 tile{
@@ -1568,24 +1569,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 112,
-  y = 48,
-  width = 16,
-  height = 16,
-  pattern = "torch_big.bottom",
-}
-
-tile{
-  layer = 0,
-  x = 192,
-  y = 48,
-  width = 16,
-  height = 16,
-  pattern = "torch_big.bottom",
-}
-
-tile{
-  layer = 0,
   x = 64,
   y = 280,
   width = 16,
@@ -2649,15 +2632,6 @@ custom_entity{
   sprite = "entities/moblin_carpet",
 }
 
-sensor{
-  name = "sensor_4",
-  layer = 0,
-  x = 888,
-  y = 109,
-  width = 32,
-  height = 48,
-}
-
 wall{
   layer = 0,
   x = 64,
@@ -2779,7 +2753,7 @@ enemy{
   name = "enemy_group_2_4",
   layer = 0,
   x = 216,
-  y = 125,
+  y = 109,
   direction = 3,
   breed = "moblin_dog_spear",
 }
@@ -2788,7 +2762,7 @@ enemy{
   name = "enemy_group_2_1",
   layer = 0,
   x = 104,
-  y = 125,
+  y = 109,
   direction = 3,
   breed = "moblin_dog_spear",
 }
@@ -2828,7 +2802,7 @@ sensor{
   name = "sensor_2",
   layer = 0,
   x = 72,
-  y = 213,
+  y = 229,
   width = 16,
   height = 16,
 }
@@ -3094,6 +3068,68 @@ npc{
   sprite = "enemies/boss/moblin_chief",
 }
 
+custom_entity{
+  name = "moblin_fire_light",
+  layer = 0,
+  x = 160,
+  y = 365,
+  width = 16,
+  height = 16,
+  direction = 0,
+  model = "light",
+}
+
+custom_entity{
+  name = "placeholder_hero_1",
+  layer = 0,
+  x = 104,
+  y = 173,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+wall{
+  name = "wall_enemies",
+  layer = 0,
+  x = 48,
+  y = 112,
+  enabled_at_start = false,
+  width = 224,
+  height = 8,
+  stops_enemies = true,
+}
+
+block{
+  layer = 0,
+  x = 904,
+  y = 109,
+  sprite = "entities/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 904,
+  y = 141,
+  sprite = "entities/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+custom_entity{
+  name = "placeholder_hero_2",
+  layer = 0,
+  x = 888,
+  y = 125,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
 tile{
   layer = 1,
   x = 336,
@@ -3110,24 +3146,6 @@ tile{
   width = 8,
   height = 96,
   pattern = "door_cache.4-3",
-}
-
-tile{
-  layer = 1,
-  x = 112,
-  y = 32,
-  width = 16,
-  height = 16,
-  pattern = "torch_big.top",
-}
-
-tile{
-  layer = 1,
-  x = 192,
-  y = 32,
-  width = 16,
-  height = 16,
-  pattern = "torch_big.top",
 }
 
 tile{
@@ -3488,24 +3506,6 @@ tile{
   width = 32,
   height = 32,
   pattern = "ceiling.2",
-}
-
-tile{
-  layer = 2,
-  x = 144,
-  y = 288,
-  width = 16,
-  height = 16,
-  pattern = "torch",
-}
-
-tile{
-  layer = 2,
-  x = 160,
-  y = 288,
-  width = 16,
-  height = 16,
-  pattern = "torch",
 }
 
 tile{

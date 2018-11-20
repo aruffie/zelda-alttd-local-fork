@@ -7,7 +7,7 @@ properties{
   max_layer = 2,
   world = "dungeon_4",
   tileset = "sideview/sideview",
-  music = "maps/dungeons/passageways",
+  music = "same",
 }
 
 tile{

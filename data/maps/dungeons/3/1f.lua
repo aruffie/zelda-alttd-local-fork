@@ -1,12 +1,4 @@
--- Lua script of map dungeons/1/1f.
--- This script is executed every time the hero enters this map.
-
--- Feel free to modify the code below.
--- You can add more events and remove the ones you don't need.
-
--- See the Solarus Lua API documentation:
--- http://www.solarus-games.org/doc/latest
-
+-- Variables
 local map = ...
 local separator = ...
 local game = map:get_game()
@@ -45,7 +37,7 @@ end
 -- Enemies
 
 -- Treasures
-treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_7_", "pickable_small_key_1", nil)
+treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_7_", "pickable_small_key_1")
 
 -- Doors
 door_manager:open_when_pot_break(map, "door_group_1_")
@@ -84,6 +76,6 @@ treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_5_", "chest_ru
 
 -- Separator events
 
-separator_manager:manage_map(map)
-owl_manager:manage_map(map)
+separator_manager:init(map)
+owl_manager:init(map)
 

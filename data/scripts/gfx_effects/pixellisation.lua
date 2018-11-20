@@ -29,7 +29,7 @@ function lib.start_effect(surface, game, mode, sfx, callback)
     return
   end
   if sfx then
-    sol.audio.play_sound(sfx)
+    audio_manager:play_sound(sfx)
   end
   local is_dezooming=(mode=="out")
   surface:set_shader(shader) --Attach the shader to the surface

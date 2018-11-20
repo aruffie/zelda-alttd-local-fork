@@ -21,7 +21,7 @@ function claw_manager:init_map(map)
   claw_manager:launch_step_1(map)
   claw_timer = sol.timer.start(claw_up, 60, function()
     if claw_is_sound_activated then
-      sol.audio.play_sound("trendy_game_lever")
+      audio_manager:play_sound("trendy_game_lever")
     end
     return true
   end)
@@ -182,7 +182,7 @@ function claw_manager:launch_step_4(map)
         for pickable in map:get_entities("game_item") do
           if claw_entity_found == nil and claw_crane:overlaps(pickable, "sprite") then
             claw_entity_found = pickable
-            sol.audio.play_sound("trendy_game_win")
+            audio_manager:play_sound("trendy_game_win")
             claw_entity_found:set_position(claw_crane_x, claw_crane_y + 8)
           end
         end

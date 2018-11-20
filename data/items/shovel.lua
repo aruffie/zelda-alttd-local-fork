@@ -23,14 +23,14 @@ function item:on_using()
   local dig_indexes = item:test_dig()
   if dig_indexes == nil then
     -- No digging possible here.
-    sol.audio.play_sound("sword_tapping")
+    audio_manager:play_sound("sword_tapping")
     hero:set_animation("shovel_fail", function()
       hero:unfreeze()
     end)
 
   else
     -- Digging here is allowed.
-    sol.audio.play_sound("dig")
+    audio_manager:play_sound("dig")
     hero:set_animation("shovel", function()
       hero:unfreeze()
     end)

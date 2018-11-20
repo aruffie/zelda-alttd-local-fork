@@ -9,6 +9,16 @@ animation{
   },
 }
 animation{
+  name = "banana_get",
+  src_image = "npc/monkey.png",
+  directions = {
+    { x = 48, y = 32, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 24 },
+    { x = 48, y = 32, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 24 },
+    { x = 48, y = 32, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 24 },
+    { x = 48, y = 32, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 24 },
+  },
+}
+animation{
   name = "jumping",
   src_image = "npc/monkey.png",
   frame_delay = 250,

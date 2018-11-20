@@ -150,7 +150,7 @@ function enemy:wake_up()
   local sprite = self:get_sprite()
   sprite:set_animation(properties.awaking_animation)
   if properties.awakening_sound ~= nil then
-    sol.audio.play_sound(properties.awakening_sound)
+    audio_manager:play_sound(properties.awakening_sound)
   end
 end
 

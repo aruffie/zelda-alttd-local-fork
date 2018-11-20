@@ -25,5 +25,5 @@ function item:on_obtaining(variant)
     game:set_value("force_tunic", 2)
     game:set_value("defense_tunic", 1)
   end
-  sol.audio.play_sound("treasure")
+  audio_manager:play_sound("treasure")
 end

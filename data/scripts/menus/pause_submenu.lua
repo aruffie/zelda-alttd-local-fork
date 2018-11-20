@@ -149,7 +149,7 @@ end
 
 -- Goes to the next pause screen.
 function submenu:next_submenu()
-  sol.audio.play_sound("pause_closed")
+  audio_manager:play_sound("menus/pause_closed")
   sol.menu.stop(self)
   local submenus = self.game.pause_submenus
   local submenu_index = self.game:get_value("pause_last_submenu")
@@ -160,7 +160,7 @@ end
 
 -- Goes to the previous pause screen.
 function submenu:previous_submenu()
-  sol.audio.play_sound("pause_closed")
+  audio_manager:play_sound("menus/pause_closed")
   sol.menu.stop(self)
   local submenus = self.game.pause_submenus
   local submenu_index = self.game:get_value("pause_last_submenu")
@@ -174,7 +174,7 @@ function submenu:show_save_messagebox()
   self.backup_dialog_opened = self.dialog_opened
   self.dialog_opened = true
 
-  sol.audio.play_sound("pause_open")
+  audio_manager:play_sound("menus/pause_open")
   messagebox:show(self, 
     -- Text lines.
     {
@@ -205,7 +205,7 @@ function submenu:show_continue_messagebox()
   self.backup_dialog_opened = self.dialog_opened
   self.dialog_opened = true
 
-  sol.audio.play_sound("pause_open")
+  audio_manager:play_sound("menus/pause_open")
   messagebox:show(self, 
     -- Text lines.
     {

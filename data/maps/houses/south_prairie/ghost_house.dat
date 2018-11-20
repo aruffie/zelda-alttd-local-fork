@@ -5,8 +5,8 @@ properties{
   height = 256,
   min_layer = 0,
   max_layer = 2,
-  tileset = "dungeon/gray",
-  music = "maps/houses/ghost_house",
+  tileset = "dungeon/light_brown",
+  music = "same",
 }
 
 tile{

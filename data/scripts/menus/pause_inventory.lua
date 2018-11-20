@@ -199,7 +199,7 @@ function inventory_submenu:on_command_pressed(command)
       if self.cursor_column == 0 then
         self:previous_submenu()
       else
-        sol.audio.play_sound("cursor")
+        audio_manager:play_sound("menus/menu_cursor")
         self:set_cursor_position(self.cursor_row, self.cursor_column - 1)
       end
       handled = true
@@ -212,18 +212,18 @@ function inventory_submenu:on_command_pressed(command)
       if self.cursor_column == limit then
         self:next_submenu()
       else
-        sol.audio.play_sound("cursor")
+        audio_manager:play_sound("menus/menu_cursor")
         self:set_cursor_position(self.cursor_row, self.cursor_column + 1)
       end
       handled = true
 
     elseif command == "up" and self.cursor_column < 4 then
-      sol.audio.play_sound("cursor")
+      audio_manager:play_sound("menus/menu_cursor")
       self:set_cursor_position((self.cursor_row + 3) % 4, self.cursor_column)
       handled = true
 
     elseif command == "down" and self.cursor_column < 4 then
-      sol.audio.play_sound("cursor")
+      audio_manager:play_sound("menus/menu_cursor")
       self:set_cursor_position((self.cursor_row + 1) % 4, self.cursor_column)
       handled = true
 
@@ -351,7 +351,7 @@ function inventory_submenu:assign_item(slot)
       self.item_assigned_destination = slot
 
       -- Play the sound.
-      sol.audio.play_sound("throw")
+      audio_manager:play_sound("throw")
 
       -- Compute the movement.
       local x1 = 63 + 32 * self.cursor_column

@@ -47,7 +47,7 @@ function item:brandish(callback)
   local nb = self:get_game():get_item("golden_leaves_counter"):get_amount()
   local x_hero,y_hero, layer_hero = hero:get_position()
   hero:set_animation("brandish")
-  sol.audio.play_sound("treasure_2")
+  audio_manager:play_sound("treasure_2")
   local entity = map:create_custom_entity({
     name = "brandish_sword",
     sprite = "entities/items",

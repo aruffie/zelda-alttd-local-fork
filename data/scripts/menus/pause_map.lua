@@ -151,7 +151,7 @@ function map_submenu:world_map_on_command_pressed(command)
     if self.world_map_cursor_x <= 0 then
       self:previous_submenu()      
     else
-      sol.audio.play_sound("cursor")
+      audio_manager:play_sound("menus/menu_cursor")
       self:set_world_map_cursor_position(self.world_map_cursor_x - 1, self.world_map_cursor_y)
     end
   elseif command == "right" then
@@ -159,16 +159,16 @@ function map_submenu:world_map_on_command_pressed(command)
     if self.world_map_cursor_x >= 16 - 1 then
       self:next_submenu()      
     else
-      sol.audio.play_sound("cursor")
+      audio_manager:play_sound("menus/menu_cursor")
       self:set_world_map_cursor_position(self.world_map_cursor_x + 1, self.world_map_cursor_y)
     end  
   elseif command == "up" then
     handled = true
-    sol.audio.play_sound("cursor")
+    audio_manager:play_sound("menus/menu_cursor")
     self:set_world_map_cursor_position(self.world_map_cursor_x, (self.world_map_cursor_y - 1) % 16)
   elseif command == "down" then
     handled = true
-    sol.audio.play_sound("cursor")
+    audio_manager:play_sound("menus/menu_cursor")
     self:set_world_map_cursor_position(self.world_map_cursor_x, (self.world_map_cursor_y + 1) % 16)
   end
 
@@ -403,11 +403,11 @@ function map_submenu:dungeon_map_on_command_pressed(command)
     local floor = command == "up" and self.selected_floor + 1 or self.selected_floor - 1
     if floor >= self.dungeon.lowest_floor and floor <= self.dungeon.highest_floor then
       -- The new floor is valid.
-      sol.audio.play_sound("cursor")
+      audio_manager:play_sound("menus/menu_cursor")
       self:set_dungeon_floor(floor)
     else
       -- The new floor is invalid.
-      sol.audio.play_sound("wrong")            
+      audio_manager:play_sound("menus/wrong")            
     end
   end
 

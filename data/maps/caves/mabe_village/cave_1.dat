@@ -7,7 +7,7 @@ properties{
   max_layer = 2,
   world = "inside_world",
   tileset = "dungeon/dark_brown",
-  music = "maps/caves/cave",
+  music = "same",
 }
 
 tile{
@@ -863,7 +863,7 @@ custom_entity{
   name = "cave_rock_1",
   layer = 0,
   x = 88,
-  y = 133,
+  y = 141,
   width = 16,
   height = 16,
   direction = 0,

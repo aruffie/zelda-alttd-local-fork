@@ -15,7 +15,7 @@ function fairy_manager:launch_fairy_if_hero_not_max_life(map, fairy_name, music_
         entities_ignore_suspend = {fairy}
       }
       map:set_cinematic_mode(true, options)
-      sol.audio.play_music("scripts/meta/map/fairy_fountain")
+      audio_manager:play_music("72_great_fairy_fountain")
       fairy:get_sprite():fade_in(100, function()
         game:start_dialog("scripts.meta.map.fairy", function()
           local hearts = {}
@@ -75,7 +75,7 @@ function fairy_manager:create_hearts(map, index, fairy_name, hearts, music_name)
                 direction = 0
               })
               index = index + 1
-              sol.audio.play_sound("fairy_heal")
+              audio_manager:play_sound("fairy_heal")
               fairy_manager:create_hearts(map, index, fairy_name, hearts, music_name)
             else
               fairy_manager:animate_hearts(map, fairy_name, hearts, music_name)
@@ -145,13 +145,13 @@ function fairy_manager:get_life_and_disappear(map, fairy_name, hearts, music_nam
     heart:remove()
   end
   game:add_life(max_life)
-  sol.audio.play_sound("fairy_vanish")
+  audio_manager:play_sound("fairy_vanish")
   fairy:get_sprite():fade_out(100, function()
-      local options = {
-        entities_ignore_suspend = {fairy}
-      }
-      map:set_cinematic_mode(false, options)
-    sol.audio.play_music(music_name)
+    local options = {
+      entities_ignore_suspend = {fairy}
+    }
+    map:set_cinematic_mode(false, options)
+    audio_manager:play_music(music_name)
   end)
         
 end

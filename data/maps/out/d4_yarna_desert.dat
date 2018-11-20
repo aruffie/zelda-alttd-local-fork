@@ -7,7 +7,7 @@ properties{
   max_layer = 2,
   world = "outside_world",
   tileset = "out/outside",
-  music = "maps/out/animal_village",
+  music = "same",
 }
 
 tile{
@@ -8799,7 +8799,6 @@ dynamic_tile{
   pattern = "6020",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 sensor{
@@ -8819,7 +8818,6 @@ dynamic_tile{
   pattern = "6020",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 sensor{
@@ -8839,7 +8837,6 @@ dynamic_tile{
   pattern = "6020",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 sensor{
@@ -8859,7 +8856,6 @@ dynamic_tile{
   pattern = "6020",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 sensor{
@@ -10967,7 +10963,6 @@ dynamic_tile{
   pattern = "1062",
   width = 32,
   height = 8,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -10978,7 +10973,6 @@ dynamic_tile{
   pattern = "957",
   width = 32,
   height = 16,
-  enabled_at_start = true,
 }
 
 door{
@@ -11395,17 +11389,6 @@ npc{
   y = 669,
   direction = 3,
   subtype = 1,
-}
-
-custom_entity{
-  name = "snores",
-  layer = 0,
-  x = 424,
-  y = 653,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/snores",
 }
 
 sensor{
@@ -13576,6 +13559,17 @@ custom_entity{
   direction = 3,
   sprite = "npc/butterfly_red",
   model = "butterfly",
+}
+
+custom_entity{
+  name = "snores",
+  layer = 1,
+  x = 424,
+  y = 653,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/snores",
 }
 
 npc{

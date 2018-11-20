@@ -1,38 +1,34 @@
---Inside - Telephone booth 1
-
 -- Variables
 local map = ...
 local game = map:get_game()
 
 -- Include scripts
 local phone_manager = require("scripts/maps/phone_manager")
+local audio_manager = require("scripts/audio_manager")
 
+-- Map events
+function map:on_started(destination)
 
--- Methods - Functions
+  -- Music
+  map:init_music()
+
+end
 
 -- Initialize the music of the map
 function map:init_music()
 
   if game:get_value("main_quest_step") == 3  then
-    sol.audio.play_music("maps/out/sword_search")
+    audio_manager:play_music("07_koholint_island")
   else
-    sol.audio.play_music("maps/houses/telephone_booth")
+    audio_manager:play_music("13_phone")
   end
 
 end
 
--- Map events
-
-function map:on_started(destination)
-
-  map:init_music()
-
-
-end
-
+-- NPCs events
 function phone_interaction:on_interaction()
 
-      phone_manager:talk(map)
+  phone_manager:talk(map)
 
 end
 

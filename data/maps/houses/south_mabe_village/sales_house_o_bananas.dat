@@ -7,7 +7,7 @@ properties{
   max_layer = 2,
   world = "inside_world",
   tileset = "dungeon/light_brown",
-  music = "maps/houses/inside",
+  music = "same",
 }
 
 tile{
@@ -586,6 +586,69 @@ tile{
   pattern = "water_shallow.corner.2",
 }
 
+tile{
+  layer = 0,
+  x = 256,
+  y = 120,
+  width = 24,
+  height = 32,
+  pattern = "window.4-1",
+}
+
+tile{
+  layer = 0,
+  x = 40,
+  y = 168,
+  width = 32,
+  height = 16,
+  pattern = "wall_pillar.3-9",
+}
+
+tile{
+  layer = 0,
+  x = 40,
+  y = 56,
+  width = 32,
+  height = 16,
+  pattern = "wall_pillar.3-9",
+}
+
+tile{
+  layer = 0,
+  x = 248,
+  y = 168,
+  width = 32,
+  height = 16,
+  pattern = "wall_pillar.4-9",
+}
+
+tile{
+  layer = 0,
+  x = 248,
+  y = 56,
+  width = 32,
+  height = 16,
+  pattern = "wall_pillar.4-9",
+}
+
+tile{
+  layer = 0,
+  x = 224,
+  y = 16,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.1-4",
+}
+
+tile{
+  layer = 0,
+  x = 96,
+  y = 160,
+  width = 16,
+  height = 16,
+  pattern = "table_piece.1",
+}
+
 destination{
   name = "sales_house_o_bananas_2_B",
   layer = 0,
@@ -716,6 +779,15 @@ tile{
   width = 32,
   height = 8,
   pattern = "door_top.2-1",
+}
+
+tile{
+  layer = 1,
+  x = 40,
+  y = 120,
+  width = 24,
+  height = 32,
+  pattern = "window.3-1",
 }
 
 tile{

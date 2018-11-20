@@ -80,7 +80,7 @@ powder:add_collision_test(bush_collision_test, function(powder, entity)
 
     powder:stop_movement()
     sprite:set_animation("stopped")
-    sol.audio.play_sound("flame")
+    audio_manager:play_sound("flame")
 
     -- TODO remove this when the engine provides a function destructible:destroy()
     local bush_sprite_id = bush_sprite:get_animation_set()
@@ -97,7 +97,7 @@ powder:add_collision_test(bush_collision_test, function(powder, entity)
       })
     end
 
-    sol.audio.play_sound(bush:get_destruction_sound())
+    audio_manager:play_sound(bush:get_destruction_sound())
     bush:remove()
 
     local bush_destroyed_sprite = powder:create_sprite(bush_sprite_id)

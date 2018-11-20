@@ -23,7 +23,6 @@ function entity:on_created()
 
 end
 
-
 function entity:move_frog()
 
   local direction4 = math.random(3)
@@ -37,10 +36,10 @@ function entity:move_frog()
   movement:set_distance(16)
   movement:start(entity)
   function movement:on_finished()
-        sprite:set_animation("stopped")
-        sol.timer.start(entity, duration, function()
-          entity:move_frog()
-        end)
+    sprite:set_animation("stopped")
+    sol.timer.start(entity, duration, function()
+      entity:move_frog()
+    end)
   end
 
 end

@@ -1,24 +1,24 @@
--- Lua script of map sideviews/kanalet_castle/sideview_1.
--- This script is executed every time the hero enters this map.
-
--- Feel free to modify the code below.
--- You can add more events and remove the ones you don't need.
-
--- See the Solarus Lua API documentation:
--- http://www.solarus-games.org/doc/latest
-
+-- Variables
 local map = ...
 local game = map:get_game()
 
--- Event called at initialization time, as soon as this map is loaded.
-function map:on_started()
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
 
-    map:set_side_view(true)
+-- Map events
+function map:on_started(destination)
 
+  -- Music
+  map:init_music()
+  -- Sideview
+  map:set_side_view(true)
+
+  
 end
 
--- Event called after the opening transition effect of the map,
--- that is, when the player takes control of the hero.
-function map:on_opening_transition_finished()
+-- Initialize the music of the map
+function map:init_music()
+
+  audio_manager:play_music("20_sidescrolling")
 
 end

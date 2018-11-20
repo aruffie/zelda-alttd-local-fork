@@ -8,7 +8,7 @@ properties{
   world = "dungeon_7",
   floor = 1,
   tileset = "dungeon/gray_blue",
-  music = "maps/dungeons/7/dungeon",
+  music = "same",
 }
 
 tile{
@@ -6203,6 +6203,27 @@ tile{
   pattern = "barrier.1-1",
 }
 
+tile{
+  layer = 0,
+  x = 144,
+  y = 848,
+  width = 64,
+  height = 64,
+  pattern = "floor.7-1",
+}
+
+wall{
+  layer = 0,
+  x = 1152,
+  y = 728,
+  width = 16,
+  height = 80,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
 crystal_block{
   layer = 0,
   x = 400,
@@ -6998,18 +7019,6 @@ enemy{
   y = 333,
   direction = 3,
   breed = "stalfos_red",
-}
-
-wall{
-  layer = 0,
-  x = 1152,
-  y = 728,
-  width = 16,
-  height = 80,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
 }
 
 tile{

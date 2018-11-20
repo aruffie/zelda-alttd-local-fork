@@ -43,11 +43,11 @@ function rupees_builder:new(game, config)
 
       -- Play a sound if we have just reached the final value.
       if rupees.money_displayed == money then
-        sol.audio.play_sound("rupee_counter_end")
+        audio_manager:play_sound("rupee_counter_end")
 
       -- While the counter is scrolling, play a sound every 3 values.
       elseif rupees.money_displayed % 3 == 0 then
-        sol.audio.play_sound("rupee_counter_end")
+        audio_manager:play_sound("rupee_counter_end")
       end
     end
 

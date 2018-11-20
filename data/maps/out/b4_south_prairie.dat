@@ -14473,6 +14473,15 @@ tile{
   pattern = "1085",
 }
 
+tile{
+  layer = 0,
+  x = 640,
+  y = 288,
+  width = 8,
+  height = 8,
+  pattern = "123",
+}
+
 destructible{
   layer = 0,
   x = 344,
@@ -20419,6 +20428,45 @@ wall{
   x = 0,
   y = 744,
   width = 448,
+  height = 16,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 0,
+  x = 264,
+  y = 728,
+  width = 16,
+  height = 16,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 0,
+  x = 424,
+  y = 728,
+  width = 24,
+  height = 16,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 0,
+  x = 184,
+  y = 728,
+  width = 16,
   height = 16,
   stops_hero = true,
   stops_npcs = true,

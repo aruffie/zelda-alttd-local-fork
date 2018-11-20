@@ -4,6 +4,7 @@
 -- require("scripts/menus/pause")
 
 require("scripts/multi_events")
+local audio_manager = require("scripts/audio_manager")
 
 -- Creates a pause menu for the specified game.
 local function initialize_pause_features(game)
@@ -53,7 +54,7 @@ local function initialize_pause_features(game)
     game:set_value("pause_last_submenu", submenu_index)
 
     -- Play the sound of pausing the game.
-    sol.audio.play_sound("pause_open")
+    audio_manager:play_sound("menus/menu_select")
 
     -- Forces the dialog_box to be at bottom.
     local dialog_box = game:get_dialog_box()
@@ -72,7 +73,7 @@ local function initialize_pause_features(game)
   function pause_menu:on_finished()
 
     -- Play the sound of unpausing the game.
-    sol.audio.play_sound("pause_closed")
+    audio_manager:play_sound("menus/pause_menu_close")
 
     -- Clear the submenus table.
     game.pause_submenus = {}

@@ -27,7 +27,7 @@ function laser_manager:init_map(map, entity, source, callback)
   laser_sprite = sol.sprite.create("entities/lightning_strike")
   -- Play a repeated sound.
   sound_timer = sol.timer.start(map, 150, function()
-    sol.audio.play_sound("laser")
+    audio_manager:play_sound("laser")
     return true  -- Repeat the timer.
   end)
   local camera = map:get_camera()

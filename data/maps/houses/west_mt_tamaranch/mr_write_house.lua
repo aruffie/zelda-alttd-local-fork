@@ -1,30 +1,26 @@
--- Lua script of map houses/west_mt_tamaranch/.
--- This script is executed every time the hero enters this map.
-
--- Feel free to modify the code below.
--- You can add more events and remove the ones you don't need.
-
--- See the Solarus Lua API documentation:
--- http://www.solarus-games.org/doc/latest
-
+-- Variables
 local map = ...
 local game = map:get_game()
-
 local draw_picture = false
 
--- Event called at initialization time, as soon as this map becomes is loaded.
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
+
 function map:on_started()
 
-
-
-end
-
--- Event called after the opening transition effect of the map,
--- that is, when the player takes control of the hero.
-function map:on_opening_transition_finished()
+  -- Music
+  map:init_music()
 
 end
 
+-- Initialize the music of the map
+function map:init_music()
+  
+  audio_manager:play_music("27_mr_write_house")
+
+end
+
+-- Discussion with mr Write
 function map:talk_to_mr_write() 
 
   local direction4 = mr_write:get_direction4_to(hero)
@@ -45,60 +41,62 @@ function map:talk_to_mr_write()
         mr_write_sprite:set_animation("waiting")
        end)
     else
-        game:start_dialog("maps.houses.west_mt_tamaranch.mr_write_house.mr_write_2", function()
-          hero:freeze()
-          game:set_hud_enabled(false)
-          game:set_pause_allowed(false)
-          draw_picture = true
-          local disappear_picture = false
-          local opacity = 0
-          local peach_sprite = sol.sprite.create("pictures/peach")
-          local white_surface =  sol.surface.create(320, 256)
-          local black_surface = sol.surface.create(320, 80)
-          white_surface:fill_color({255, 255, 255})
-          black_surface:fill_color({0, 0, 0})
-          function map:on_draw(dst_surface)
-            if draw_picture then
-              white_surface:set_opacity(opacity)
-              peach_sprite:draw(white_surface, 116, 64)
-              white_surface:draw(dst_surface)
-              black_surface:draw(white_surface, 0, 179)
-              if disappear_picture == false then
-                opacity = opacity + 2
-                if opacity > 255 then
-                  opacity = 255
-                end
-              else
-                opacity = opacity - 2
-                if opacity <= 0 then
-                  draw_picture = false
-                  game:start_dialog("maps.houses.west_mt_tamaranch.mr_write_house.mr_write_3", function(answer)
-                    if answer == 1 then
-                      hero:start_treasure("magnifying_lens", 10, nil, function()
-                        game:set_hud_enabled(true)
-                        game:set_pause_allowed(true)
-                        hero:unfreeze()
-                        mr_write_sprite:set_direction(3)
-                        mr_write_sprite:set_animation("waiting")
-                      end)
-                    else
-                      map:talk_to_mr_write_2()
-                    end
-                  end)
-                end
+      game:start_dialog("maps.houses.west_mt_tamaranch.mr_write_house.mr_write_2", function()
+        hero:freeze()
+        game:set_hud_enabled(false)
+        game:set_pause_allowed(false)
+        draw_picture = true
+        local disappear_picture = false
+        local opacity = 0
+        local peach_sprite = sol.sprite.create("pictures/peach")
+        local white_surface =  sol.surface.create(320, 256)
+        local black_surface = sol.surface.create(320, 80)
+        white_surface:fill_color({255, 255, 255})
+        black_surface:fill_color({0, 0, 0})
+        function map:on_draw(dst_surface)
+          if draw_picture then
+            white_surface:set_opacity(opacity)
+            peach_sprite:draw(white_surface, 116, 64)
+            white_surface:draw(dst_surface)
+            black_surface:draw(white_surface, 0, 179)
+            if disappear_picture == false then
+              opacity = opacity + 2
+              if opacity > 255 then
+                opacity = 255
+              end
+            else
+              opacity = opacity - 2
+              if opacity <= 0 then
+                draw_picture = false
+                game:start_dialog("maps.houses.west_mt_tamaranch.mr_write_house.mr_write_3", function(answer)
+                  if answer == 1 then
+                    hero:start_treasure("magnifying_lens", 10, nil, function()
+                      game:set_hud_enabled(true)
+                      game:set_pause_allowed(true)
+                      hero:unfreeze()
+                      mr_write_sprite:set_direction(3)
+                      mr_write_sprite:set_animation("waiting")
+                    end)
+                  else
+                    map:talk_to_mr_write_2()
+                  end
+                end)
               end
             end
           end
-          sol.timer.start(mr_write, 5000, function()
-            disappear_picture = true
-          end)
+        end
+        sol.timer.start(mr_write, 5000, function()
+          disappear_picture = true
         end)
+      end)
     end
   end
 
 end
 
+-- Discussion with mr Write 2
 function map:talk_to_mr_write_2()
+  
   game:start_dialog("maps.houses.west_mt_tamaranch.mr_write_house.mr_write_4", function(answer)
     if answer == 1 then
       hero:start_treasure("magnifying_lens", 10, nil,  function()
@@ -110,29 +108,31 @@ function map:talk_to_mr_write_2()
       map:talk_to_mr_write_2()
     end
   end)
+
 end
 
+-- NPCs events
 function mr_write:on_collision_fire()
 
-      return false
+  return false
 
 end
 
 function mr_write:on_interaction()
 
-      map:talk_to_mr_write()
+  map:talk_to_mr_write()
 
 end
 
 function mr_write_invisible:on_interaction()
 
-      map:talk_to_mr_write()
+  map:talk_to_mr_write()
 
 end
 
 function mr_write_invisible_2:on_interaction()
 
-      map:talk_to_mr_write()
+  map:talk_to_mr_write()
 
 end
 
@@ -145,6 +145,6 @@ end
 function mario:on_interaction()
   
   local music_random = math.random(4) 
-  sol.audio.play_sound("mario" .. music_random)
+  audio_manager:play_sound("mario" .. music_random)
 
 end

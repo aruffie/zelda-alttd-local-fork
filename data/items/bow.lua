@@ -12,7 +12,7 @@ end
 function item:on_using()
 
   if self:get_amount() == 0 then
-    sol.audio.play_sound("wrong")
+    audio_manager:play_sound("wrong")
   else
     -- we remove the arrow from the equipment after a small delay because the hero
     -- does not shoot immediately

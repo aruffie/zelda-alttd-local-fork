@@ -460,6 +460,42 @@ tile{
   pattern = "window.4-1",
 }
 
+tile{
+  layer = 0,
+  x = 40,
+  y = 160,
+  width = 32,
+  height = 16,
+  pattern = "wall_pillar.3-9",
+}
+
+tile{
+  layer = 0,
+  x = 40,
+  y = 64,
+  width = 32,
+  height = 16,
+  pattern = "wall_pillar.3-9",
+}
+
+tile{
+  layer = 0,
+  x = 248,
+  y = 160,
+  width = 32,
+  height = 16,
+  pattern = "wall_pillar.4-9",
+}
+
+tile{
+  layer = 0,
+  x = 248,
+  y = 64,
+  width = 32,
+  height = 16,
+  pattern = "wall_pillar.4-9",
+}
+
 sensor{
   name = "link_search_sword_sensor_2",
   layer = 0,
@@ -503,17 +539,6 @@ sensor{
   y = 549,
   width = 16,
   height = 16,
-}
-
-custom_entity{
-  name = "snores",
-  layer = 0,
-  x = 128,
-  y = 69,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/snores",
 }
 
 npc{
@@ -630,17 +655,6 @@ npc{
   subtype = 1,
 }
 
-custom_entity{
-  name = "snores_tarin",
-  layer = 0,
-  x = 80,
-  y = 69,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/snores",
-}
-
 npc{
   name = "tarin_npc",
   layer = 0,
@@ -672,6 +686,16 @@ npc{
   behavior = "dialog#maps.houses.mabe_village.marin_house.letter",
 }
 
+npc{
+  name = "bed_tarin",
+  layer = 0,
+  x = 88,
+  y = 77,
+  direction = 3,
+  subtype = 0,
+  sprite = "entities/bed",
+}
+
 tile{
   layer = 1,
   x = 144,
@@ -699,16 +723,6 @@ npc{
   sprite = "entities/bed",
 }
 
-npc{
-  name = "bed_tarin",
-  layer = 1,
-  x = 88,
-  y = 77,
-  direction = 3,
-  subtype = 0,
-  sprite = "entities/bed",
-}
-
 custom_entity{
   name = "placeholder_tarin_sleep",
   layer = 1,
@@ -717,6 +731,28 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
+}
+
+custom_entity{
+  name = "snores_tarin",
+  layer = 1,
+  x = 72,
+  y = 69,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/snores",
+}
+
+custom_entity{
+  name = "snores",
+  layer = 1,
+  x = 128,
+  y = 69,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/snores",
 }
 
 tile{

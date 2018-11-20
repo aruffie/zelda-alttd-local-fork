@@ -1,58 +1,143 @@
 local shop_manager = {}
 local language_manager = require("scripts/language_manager")
 
-local map
-
-
 function shop_manager:init(map)
 
-  map.shop_manager_products = {}
-  map.shop_manager_product = nil
+  local game = map:get_game()
+  local hero = map:get_hero()
+  local shop_products = require("scripts/maps/lib/shop_config")
+  -- We go through the list of products
+  for name, params in pairs(shop_products) do
+    -- If the quest condition is true, create the product.
+    shop_manager:add_product(map, name, params)
+  end
+  
+  -- Events
   map:register_event("on_command_pressed", function(map, command)
     local hero = map:get_hero()
-    if command == "action" and hero:get_state() == "carrying" then
-      for k, product in pairs(map.shop_manager_products) do
-          if hero:get_distance(product["placeholder"]) < 24 and hero:get_direction() == 1 then
-            if map.shop_manager_product == product["item"] then
-              shop_manager:reset_product(map, product)
-            end
+    if command == "attack" then -- Disable sword
+      return true
+    elseif command == "action" and shop_manager.product ~= nil then
+      for k, product in pairs(shop_products) do
+        local placeholder = map:get_entity("placeholder_" .. product.placeholder)
+        local x_placeholder, y_placeholder = placeholder:get_position()
+        local x_hero, y_hero = hero:get_position()
+        if math.abs(y_placeholder - y_hero) < 48 and hero:get_direction() == 1 then
+          if shop_manager.product.name == k then
+            local carried_object = hero:get_carried_object()
+            local state = sol.state.create()
+            state:set_carried_object_action("remove")
+            hero:start_state(state)
+            hero:unfreeze()
+            shop_manager:add_product(map, shop_manager.product.name, shop_manager.product.params)
+            shop_manager.product = nil
+            return false
           end
         end
-      return true  -- Stop the propagation to other objects.
+      end
+      local merchant = map:get_entity("merchant")
+      local merchant_invisible = map:get_entity("merchant_invisible")
+      if hero:get_distance(merchant) <=16  or hero:get_distance(merchant_invisible) <=16  then
+        local direction4 = merchant:get_direction4_to(hero)
+        merchant:get_sprite():set_direction(direction4)
+        shop_manager:buy_product(map)
+      end
+      return true
+    elseif (command == "up" or command == "down" or command == "left" or command == "right") and link_move == true then
+      return true
     end
   end)
 
 end
 
--- Clear a product in the shop
-
-function shop_manager:reset_product(map, product)
-
-  local hero = map:get_hero()
-  shop_manager:add_product(map, product["product"], product["placeholder"])
-  -- To force removal of the carried object
-  hero:freeze()
-  hero:unfreeze()
-  map.shop_manager_product = nil
-
-end
-
--- Buy a product in the shop
-
-function shop_manager:buy_product(map, product)
-       
+function shop_manager:add_product(map, name, params)
+  
   local game = map:get_game()
-  local product_table = map.shop_manager_products[product]
-  local product_key, product_variant, product_price, product_quantity, product_dialog_id = unpack(product_table["product"])
-  game:start_dialog("maps.houses.mabe_village.shop_2.product" .. "_" .. product_dialog_id, function(answer)
+  if params.activation_condition ~= nil and params.activation_condition(map) then
+      local placeholder = map:get_entity("placeholder_" .. params.placeholder)
+      if placeholder ~= nil then
+        local x_placeholder, y_placeholder, layer_placeholder = placeholder:get_position()
+        -- Create product
+        local product = map:create_custom_entity({
+          name = "product_" .. name,
+          sprite = params.sprite,
+          x = x_placeholder,
+          y = y_placeholder,
+          width = 16,
+          height = 16,
+          layer = layer_placeholder,
+          direction = 0
+        })
+        local product_lifting = map:create_custom_entity({
+          name = "product_lifting_" .. name,
+          sprite = params.sprite,
+          x = x_placeholder,
+          y = y_placeholder + 24,
+          width = 16,
+          height = 16,
+          layer = layer_placeholder,
+          direction = 0
+        })
+        product_lifting:set_weight(0)
+        product_lifting:bring_to_back()
+        product_lifting:get_sprite():set_animation("invisible")
+        function product_lifting:on_lifting()
+          local sprite = product_lifting:get_sprite()
+          shop_manager.product = {
+            name = name,
+            params = params
+          }
+          product:remove()
+          game:set_custom_command_effect("action", "none")
+        end
+        -- Create price and quantity
+        local price_text = sol.text_surface.create({
+          horizontal_alignment = "center",
+          text = params.price
+        })
+        local quantity_text = nil
+        if params.quantity > 1 then
+          quantity_text = sol.text_surface.create({
+            font = font_number,
+            text = params.quantity,
+            font_size = 8,
+            color = {255,255,255}
+          })
+        end
+        function product:on_pre_draw()
+           map:draw_visual(price_text, x_placeholder, y_placeholder - 26)
+           if quantity_text ~= nil then
+            map:draw_visual(quantity_text, x_placeholder + 5, y_placeholder - 4)
+           end
+        end
+      end  
+    end
+ end
+ 
+ function shop_manager:buy_product(map)
+   
+  if shop_manager.product == nil then
+    return false
+  end
+  local game = map:get_game()
+  local hero = map:get_hero()
+  game:start_dialog("maps.houses.mabe_village.shop_2.product" .. "_" .. shop_manager.product.params.dialog_id, function(answer)
     if answer == 1 then
+              print(shop_manager.product.name)
       local error = false
       -- Hearts
-      if product_key == "heart" then
-        if  game:get_life() == game:get_max_life() then
+      if shop_manager.product.name == "heart" then
+        if game:get_life() == game:get_max_life() then
           error = true
         end
-      elseif product_key == "shield" then
+      elseif shop_manager.product.name == "bombs" then
+        local item = game:get_item("bombs_counter")
+        print(item:get_amount())
+        print(item:get_max_amount())
+        if item:get_amount() >= item:get_max_amount() then
+          error = true
+        end
+      elseif shop_manager.product.name == "shield" then
         local item = game:get_item("shield")
         local variant = item:get_variant()
         if variant > 0 then
@@ -63,7 +148,17 @@ function shop_manager:buy_product(map, product)
           game:start_dialog("maps.houses.mabe_village.shop_2.merchant_4")
       else
         local money = game:get_money()
-        if money >= product_price then
+        if money >= shop_manager.product.params.price then
+          local carried_object = hero:get_carried_object()
+          local state = sol.state.create()
+          state:set_carried_object_action("remove")
+          hero:start_state(state)
+          hero:unfreeze()
+          game:remove_money(shop_manager.product.params.price)
+          shop_manager.product.params.buy_callback(map)
+          print("ok")
+          game:start_dialog("maps.houses.mabe_village.shop_2.merchant_6")
+          shop_manager.product = nil
         else
           game:start_dialog("maps.houses.mabe_village.shop_2.merchant_3")
         end
@@ -71,89 +166,6 @@ function shop_manager:buy_product(map, product)
     end
   end)
 
-end
-
--- Add a product in the shop
-
-function shop_manager:add_product(map, product, placeholder)
-
-        local game = map:get_game()
-        game:set_custom_command_effect("action", nil)
-        local item, variant, price, quantity = unpack(product)
-        item = "entities/" .. item
-        local hero = map:get_hero()
-        placeholder:set_enabled(false)
-        local x,y,layer= placeholder:get_position()
-        local surface = sol.surface.create(320, 256)
-        local font = language_manager:get_menu_font(id)
-        local destructible = map:create_destructible{
-                    sprite = item,
-                    x = x,
-                    y = y,
-                    layer = layer
-         }
-        destructible:get_sprite():set_direction(1)
-        local price_text = sol.text_surface.create({
-          horizontal_alignment = "center",
-          text = price
-        })
-        local quantity_text = nil
-        if quantity > 1 then
-          quantity_text = sol.text_surface.create({
-            font = font,
-            text = "x" .. quantity,
-            font_size = 8,
-            color = {255,255,255}
-          })
-        end
-        local entity = map:create_custom_entity{
-                    x = x,
-                    y = y,
-                    layer = layer,
-                    direction = 0,
-                    width= 8,
-                    height= 8
-         }
-
-        function destructible:on_lifting()
-
-          game:set_custom_command_effect("action", "none")
-          shop_manager:remove_product(map, item)
-          map.shop_manager_product  = item
-
-        end
-
-        function entity:on_pre_draw()
-
-           map:draw_visual(price_text, x, y - 20)
-           if quantity_text ~= nil then
-            map:draw_visual(quantity_text, x + 5, y - 4)
-           end
-
-        end
-
-           map.shop_manager_products[item]= {
-            destructible = destructible,
-            placeholder = placeholder,
-            entity = entity,
-            price = price,
-            item = item,
-            product = product,
-            variant = variant,
-            quantity_text = quantity_text, 
-            price_text = price_text        
-          }
-        
-end
-
--- Add a product in the shop
-
-function shop_manager:remove_product(map, item)
-
-        local entity = map.shop_manager_products[item]['entity']
-        local game = map:get_game()
-       entity:remove()
-        
-end
+ end  
 
 return shop_manager

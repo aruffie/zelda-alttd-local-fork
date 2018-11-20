@@ -36,7 +36,7 @@ function item:on_using()
       game:set_suspended(true)
       game:set_hud_enabled(false)
       game:set_value("teleport_warp_effect", "start");
-      sol.audio.play_sound("items/ocarina_2_warp")
+      audio_manager:play_sound("items/ocarina_2_warp")
        -- Execute In effect
       effect_model.start_effect(surface, game, "in", false, function()
           local dungeon = game:get_dungeon()

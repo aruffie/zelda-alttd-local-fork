@@ -44,7 +44,7 @@ function enemy:on_created()
   sprite_spike:set_animation("stopped")
   function sprite:on_animation_finished(animation)
     if animation == "punching" then
-      sol.audio.play_sound("boss_1_explode_part")
+      audio_manager:play_sound("boss_1_explode_part")
       sprite:set_animation("walking")
       enemy:go_spike()
       enemy:go_on_the_other_side()
@@ -53,7 +53,7 @@ function enemy:on_created()
   -- Sound
   sol.timer.start(spike, 150, function()
     if spike_move then
-      sol.audio.play_sound("rolling_spike")
+      audio_manager:play_sound("rolling_spike")
     end
     return true
   end)
@@ -88,7 +88,7 @@ function enemy:push_spike()
 
    enemy_step = 2
    sol.timer.start(enemy, 250, function()
-      sol.audio.play_sound("boss_1_explode_part")
+    audio_manager:play_sound("boss_1_explode_part")
    end)
    sprite:set_animation("punching")
 

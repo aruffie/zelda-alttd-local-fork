@@ -14,7 +14,7 @@ Recall that BAD GROUNDS include holes, lava, and also deep water only if the her
 the "swim" ability. Unstable floors can be used on weak floors that break, perhaps on moving
 platforms too, and any other type of custom grounds/floors that do not not allow saving solid ground position.
 
-This is intended to be used by other scripts (like the jumping script), when necessary, in this way:
+This can be used by other scripts in this way:
 
   hero:save_solid_ground(hero:get_last_stable_position())
 
@@ -24,7 +24,7 @@ This is intended to be used by other scripts (like the jumping script), when nec
 
 1) HOW TO include this feature. First, include the script with:
 
-  require("scripts/maps/unstable_floor_manager.lua")
+  require("scripts/maps/unstable_floor_manager")
 
 -Use the multi-events script if you need to add some code there or you may break the feature temporarily.
 -Do NOT redefine the event "hero/hero_meta.on_position_changed", or you will fully break the feature.
@@ -87,8 +87,9 @@ hero_meta:register_event("on_position_changed", function(hero)
 
   local map = hero:get_map()
   local x, y, layer = hero:get_ground_position() -- Check GROUND position.
-  if not (hero.is_jumping and hero:is_jumping())
-        and hero:get_state() ~= "jumping" then
+  local state = hero:get_state_object() 
+  local state_ignore_ground = state and not state:get_can_come_from_bad_ground()
+  if (not state_ignore_ground) and hero:get_state() ~= "jumping" then
     if not map:is_unstable_floor(x, y, layer) then
       local position = hero.last_stable_position
       position.x, position.y, position.layer = hero:get_position()

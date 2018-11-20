@@ -69,7 +69,7 @@ function enemy:disappear()
     self:set_can_attack(false)
     self:stop_movement()
     sprite:set_animation("destroy")
-    sol.audio.play_sound("stone")
+    audio_manager:play_sound("stone")
     sol.timer.stop_all(self)
   end
 end

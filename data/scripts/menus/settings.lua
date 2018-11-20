@@ -4,6 +4,7 @@ local settings_menu = {}
 
 local language_manager = require("scripts/language_manager")
 local game_manager = require("scripts/game_manager")
+local audio_manager = require("scripts/audio_manager")
 
 function settings_menu:on_started()
 
@@ -263,7 +264,7 @@ function settings_menu:on_key_pressed(key)
             local option = self.options[self.cursor_position]
             local next_value = self:get_option_next_value(option, key)
             if next_value ~= option.value then
-              sol.audio.play_sound("cursor")
+              audio_manager:play_sound("menus/menu_cursor")
               self:set_option(option, next_value)
               self:load_option(option)
             else
@@ -286,11 +287,11 @@ function settings_menu:on_key_pressed(key)
             -- Update if different.
             if new_cursor_position ~= self.cursor_position and new_position_is_valid then
               self:set_cursor_position(new_cursor_position)
-              sol.audio.play_sound("cursor")
+              audio_manager:play_sound("menus/menu_cursor")
             else 
               -- Only restart the animation.
               self.cursor_sprite:set_frame(0)
-              sol.audio.play_sound("picked_item")
+              audio_manager:play_sound("picked_item")
             end
           else
             self:notify_cursor_not_allowed()
@@ -320,7 +321,7 @@ end
 -- Notify that this cursor movement is not allowed.
 function settings_menu:notify_cursor_not_allowed()
   self.cursor_sprite:set_frame(0)
-  sol.audio.play_sound("picked_item")    
+  audio_manager:play_sound("picked_item")    
 end
 
 -- Get the curor's next position, either it is valid or not.
@@ -419,7 +420,7 @@ end
 -- Quits this menu.
 function settings_menu:close(callback)
   
-  sol.audio.play_sound("pause_closed")
+  audio_manager:play_sound("menus/pause_menu_close")
 
   -- Block cursor
   self.finished = true

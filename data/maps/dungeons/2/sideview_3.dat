@@ -8,7 +8,7 @@ properties{
   world = "dungeon_2",
   floor = 0,
   tileset = "sideview/sideview",
-  music = "maps/dungeons/passageways",
+  music = "same",
 }
 
 tile{
@@ -803,33 +803,6 @@ tile{
   pattern = "7",
 }
 
-tile{
-  layer = 0,
-  x = 416,
-  y = 168,
-  width = 8,
-  height = 16,
-  pattern = "83",
-}
-
-tile{
-  layer = 0,
-  x = 440,
-  y = 168,
-  width = 8,
-  height = 16,
-  pattern = "85",
-}
-
-tile{
-  layer = 0,
-  x = 424,
-  y = 168,
-  width = 16,
-  height = 16,
-  pattern = "84",
-}
-
 separator{
   layer = 0,
   x = 312,
@@ -846,7 +819,6 @@ dynamic_tile{
   pattern = "40",
   width = 16,
   height = 120,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -857,7 +829,6 @@ dynamic_tile{
   pattern = "40",
   width = 16,
   height = 144,
-  enabled_at_start = true,
 }
 
 teletransporter{
@@ -896,5 +867,26 @@ destination{
   x = 552,
   y = 29,
   direction = 3,
+}
+
+custom_entity{
+  layer = 0,
+  x = 504,
+  y = 181,
+  properties = {
+    {
+      key = "distance",
+      value = "80",
+    },
+    {
+      key = "orientation",
+      value = "x",
+    },
+  },
+  width = 32,
+  height = 16,
+  direction = 2,
+  sprite = "entities/moving_platform_dg_2",
+  model = "bee",
 }
 

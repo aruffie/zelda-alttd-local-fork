@@ -14,7 +14,7 @@
 -- with this program. If not, see <http://www.gnu.org/licenses/>.
 
 -- Initialize sensor behavior specific to this quest.
-local music_manager = require("scripts/music_manager.lua")
+local audio_manager = require("scripts/audio_manager")
 
 local sensor_meta = sol.main.get_metatable("sensor")
 
@@ -107,11 +107,7 @@ function sensor_meta:on_activated()
   local music_prefix = name:match("^music_sensor")
   if music_prefix ~= nil then
     local music = self:get_property("music")
-    if music == "maps/out/mt_tamaranch" and
-        game:get_player_name():lower() == "marin" then
-      music = "maps/out/mt_tamaranch_marin"
-    end
-    music_manager:play_music_fade(map, music)
+    audio_manager:play_music_fade(map, music)
   end
 end
 
@@ -130,7 +126,7 @@ function sensor_meta:on_activated_repeat()
       if hero:get_direction() == 1
 	         and door:is_enabled() then
         door:set_enabled(false)
-        sol.audio.play_sound("door_open")
+        audio_manager:play_sound("door_open")
       end
     end
   end

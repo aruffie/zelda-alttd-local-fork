@@ -3,7 +3,9 @@
 -- Usage:
 -- require("scripts/menus/game_over")
 
+-- Include scripts
 require("scripts/multi_events")
+local audio_manager = require("scripts/audio_manager")
 
 -- Creates and sets up a game-over menu for the specified game.
 local function initialize_game_over_features(game)
@@ -74,7 +76,7 @@ local function initialize_game_over_features(game)
       fade_sprite.on_animation_finished = function()
         if state == "closing_game" then
           state = "red_screen"
-          sol.audio.play_sound("hero_dying")
+          audio_manager:play_sound("hero_dying")
           hero_dead_sprite:set_paused(false)
           hero_dead_sprite:set_direction(0)
           hero_dead_sprite:set_animation("dying")
@@ -108,7 +110,7 @@ local function initialize_game_over_features(game)
           else
             -- No fairy: game over.
             state = "menu"
-            sol.audio.play_music("scripts/menus/game_over")
+            audio_manager:play_music("82_game_over")
             fairy_sprite:set_xy(76, 112)  -- Cursor.
             cursor_position = 0
             local death_count = game:get_value("death_count") or 0
@@ -172,13 +174,13 @@ local function initialize_game_over_features(game)
     end
 
     if command == "down" then
-      sol.audio.play_sound("cursor")
+      audio_manager:play_sound("menus/menu_cursor")
       cursor_position = (cursor_position + 1) % 4
       local fairy_x, fairy_y = fairy_sprite:get_xy()
       fairy_y = 112 + cursor_position * 16
       fairy_sprite:set_xy(fairy_x, fairy_y)
     elseif command == "up" then
-      sol.audio.play_sound("cursor")
+      audio_manager:play_sound("menus/menu_cursor")
       cursor_position = (cursor_position + 3) % 4
       local fairy_x, fairy_y = fairy_sprite:get_xy()
       fairy_y = 112 + cursor_position * 16
@@ -186,7 +188,7 @@ local function initialize_game_over_features(game)
     elseif command == "action" or command == "attack" then
 
       state = "finished"
-      sol.audio.play_sound("danger")
+      audio_manager:play_sound("danger")
       game:set_hud_enabled(false)
       game:add_life(7 * 4)  -- Restore 7 hearts.
 

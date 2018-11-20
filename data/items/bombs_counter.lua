@@ -20,7 +20,7 @@ function item:on_using()
 
   if item:get_amount() == 0 then
     if sound_timer == nil then
-      sol.audio.play_sound("wrong")
+      audio_manager:play_sound("wrong")
       sound_timer = sol.timer.start(game, 500, function()
         sound_timer = nil
       end)
@@ -28,7 +28,7 @@ function item:on_using()
   else
     item:remove_amount(1)
     local x, y, layer = item:create_bomb()
-    sol.audio.play_sound("bomb")
+    audio_manager:play_sound("bomb")
   end
   item:set_finished()
 end

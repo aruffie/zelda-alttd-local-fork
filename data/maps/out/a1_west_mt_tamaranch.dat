@@ -13105,7 +13105,7 @@ sensor{
   properties = {
     {
       key = "music",
-      value = "maps/out/overworld",
+      value = "10_overworld",
     },
   },
   width = 16,
@@ -13120,7 +13120,7 @@ sensor{
   properties = {
     {
       key = "music",
-      value = "maps/out/mt_tamaranch",
+      value = "46_tal_tal_mountain_range",
     },
   },
   width = 16,
@@ -13135,7 +13135,7 @@ sensor{
   properties = {
     {
       key = "music",
-      value = "maps/out/overworld",
+      value = "10_overworld",
     },
   },
   width = 16,
@@ -13150,7 +13150,7 @@ sensor{
   properties = {
     {
       key = "music",
-      value = "maps/out/overworld",
+      value = "10_overworld",
     },
   },
   width = 16,

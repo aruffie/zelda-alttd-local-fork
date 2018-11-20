@@ -1,24 +1,33 @@
--- Lua script of map houses/kanalet_castle/kanalet_castle_2f.
--- This script is executed every time the hero enters this map.
-
--- Feel free to modify the code below.
--- You can add more events and remove the ones you don't need.
-
--- See the Solarus Lua API documentation:
--- http://www.solarus-games.org/doc/latest
-
+-- Variables
 local map = ...
 local game = map:get_game()
 
--- Event called at initialization time, as soon as this map becomes is loaded.
-function map:on_started()
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
+local separator_manager = require("scripts/maps/separator_manager")
+local treasure_manager = require("scripts/maps/treasure_manager")
+local door_manager = require("scripts/maps/door_manager")
 
-  -- You can initialize the movement and sprites of various
-  -- map entities here.
+-- Map events
+function map:on_started(destination)
+
+  -- Music
+  map:init_music()
+  -- Pickables
+  treasure_manager:disappear_pickable(map, "pickable_golden_leaf_4")
+  
 end
 
--- Event called after the opening transition effect of the map,
--- that is, when the player takes control of the hero.
-function map:on_opening_transition_finished()
+
+-- Initialize the music of the map
+function map:init_music()
+
+  audio_manager:play_music("32_kanalet_castle")
 
 end
+
+-- Treasures events
+treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_2_", "pickable_golden_leaf_4")
+
+-- Separators
+separator_manager:init(map)

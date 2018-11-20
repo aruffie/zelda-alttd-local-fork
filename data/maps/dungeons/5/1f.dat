@@ -8,7 +8,16 @@ properties{
   world = "dungeon_5",
   floor = 0,
   tileset = "dungeon/brown",
-  music = "maps/dungeons/5/dungeon",
+  music = "same",
+}
+
+tile{
+  layer = 0,
+  x = 1000,
+  y = 1576,
+  width = 560,
+  height = 176,
+  pattern = "floor_low.3-1",
 }
 
 tile{
@@ -464,9 +473,9 @@ tile{
 tile{
   layer = 0,
   x = 1872,
-  y = 544,
+  y = 672,
   width = 96,
-  height = 144,
+  height = 16,
   pattern = "floor_low.3-1",
 }
 
@@ -539,15 +548,6 @@ tile{
   y = 1232,
   width = 64,
   height = 96,
-  pattern = "floor_low.3-1",
-}
-
-tile{
-  layer = 0,
-  x = 1000,
-  y = 1576,
-  width = 560,
-  height = 176,
   pattern = "floor_low.3-1",
 }
 
@@ -9223,7 +9223,7 @@ tile{
   x = 776,
   y = 560,
   width = 48,
-  height = 32,
+  height = 16,
   pattern = "floor.20-1",
 }
 
@@ -12897,6 +12897,195 @@ tile{
   width = 16,
   height = 16,
   pattern = "floor.20-1",
+}
+
+tile{
+  layer = 0,
+  x = 1872,
+  y = 560,
+  width = 96,
+  height = 16,
+  pattern = "floor_low.3-1",
+}
+
+wall{
+  layer = 0,
+  x = 920,
+  y = 1096,
+  width = 80,
+  height = 16,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 0,
+  x = 1056,
+  y = 1240,
+  width = 16,
+  height = 80,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 0,
+  x = 1880,
+  y = 896,
+  width = 80,
+  height = 16,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 0,
+  x = 1560,
+  y = 1192,
+  width = 80,
+  height = 16,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 0,
+  x = 1432,
+  y = 1240,
+  width = 16,
+  height = 80,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 0,
+  x = 1112,
+  y = 1496,
+  width = 16,
+  height = 80,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 0,
+  x = 1432,
+  y = 1752,
+  width = 16,
+  height = 80,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 0,
+  x = 1240,
+  y = 1912,
+  width = 80,
+  height = 16,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 0,
+  x = 920,
+  y = 1704,
+  width = 80,
+  height = 16,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 0,
+  x = 600,
+  y = 1464,
+  width = 80,
+  height = 16,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 0,
+  x = 280,
+  y = 680,
+  width = 80,
+  height = 16,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 0,
+  x = 1432,
+  y = 216,
+  width = 16,
+  height = 80,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 0,
+  x = 1240,
+  y = 168,
+  width = 80,
+  height = 16,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 0,
+  x = 792,
+  y = 216,
+  width = 16,
+  height = 80,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 0,
+  x = 280,
+  y = 120,
+  width = 80,
+  height = 16,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
 }
 
 block{
@@ -18474,174 +18663,6 @@ door{
   sprite = "entities/doors/door_normal",
   opening_condition = "dungeon_1_small_keys",
   opening_condition_consumed = true,
-}
-
-wall{
-  layer = 0,
-  x = 920,
-  y = 1096,
-  width = 80,
-  height = 16,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
-}
-
-wall{
-  layer = 0,
-  x = 1056,
-  y = 1240,
-  width = 16,
-  height = 80,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
-}
-
-wall{
-  layer = 0,
-  x = 1112,
-  y = 1496,
-  width = 16,
-  height = 80,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
-}
-
-wall{
-  layer = 0,
-  x = 1432,
-  y = 1752,
-  width = 16,
-  height = 80,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
-}
-
-wall{
-  layer = 0,
-  x = 1432,
-  y = 1240,
-  width = 16,
-  height = 80,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
-}
-
-wall{
-  layer = 0,
-  x = 1432,
-  y = 216,
-  width = 16,
-  height = 80,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
-}
-
-wall{
-  layer = 0,
-  x = 792,
-  y = 216,
-  width = 16,
-  height = 80,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
-}
-
-wall{
-  layer = 0,
-  x = 280,
-  y = 120,
-  width = 80,
-  height = 16,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
-}
-
-wall{
-  layer = 0,
-  x = 280,
-  y = 680,
-  width = 80,
-  height = 16,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
-}
-
-wall{
-  layer = 0,
-  x = 600,
-  y = 1464,
-  width = 80,
-  height = 16,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
-}
-
-wall{
-  layer = 0,
-  x = 920,
-  y = 1704,
-  width = 80,
-  height = 16,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
-}
-
-wall{
-  layer = 0,
-  x = 1560,
-  y = 1192,
-  width = 80,
-  height = 16,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
-}
-
-wall{
-  layer = 0,
-  x = 1880,
-  y = 896,
-  width = 80,
-  height = 16,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
-}
-
-wall{
-  layer = 0,
-  x = 1240,
-  y = 168,
-  width = 80,
-  height = 16,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
 }
 
 teletransporter{

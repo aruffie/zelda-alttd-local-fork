@@ -2,76 +2,73 @@
 local map = ...
 local game = map:get_game()
 
+-- Include scripts
 local travel_manager = require("scripts/maps/travel_manager")
+local audio_manager = require("scripts/audio_manager")
 
 -- Map events
 function map:on_started()
 
+  -- Music
+  map:init_music()
+  -- Entities
+  map:init_map_entities()
+  -- Digging
   map:set_digging_allowed(true)
-  -- Travel
-  travel_transporter:set_enabled(false)
 
 end
 
 -- Initialize the music of the map
 function map:init_music()
   
-  if game:get_value("main_quest_step") == 3  then
-    sol.audio.play_music("maps/out/animal_village")
-  else
-      sol.audio.play_music("maps/out/overworld")
-  end
+  audio_manager:play_music("40_animal_village")
 
+end
+
+-- Initializes Entities based on player's progress
+function map:init_map_entities()
+  
+    -- Travel
+  travel_transporter:set_enabled(false)
+  
 end
 
 -- Discussion with Rabbit 1
 function map:talk_to_rabbit_1()
 
-      game:start_dialog("maps.out.yarna_desert.rabbit_1_1")
+  game:start_dialog("maps.out.yarna_desert.rabbit_1_1")
 
 end
 
 -- Discussion with Rabbit 2
 function map:talk_to_rabbit_2()
 
-      game:start_dialog("maps.out.yarna_desert.rabbit_2_1")
+  game:start_dialog("maps.out.yarna_desert.rabbit_2_1")
 
 end
 
 -- Discussion with Rabbit 3
 function map:talk_to_rabbit_3()
 
-      game:start_dialog("maps.out.yarna_desert.rabbit_3_1")
+  game:start_dialog("maps.out.yarna_desert.rabbit_3_1")
 
 end
 
 -- Discussion with Walrus
 function map:talk_to_walrus()
 
-      game:start_dialog("maps.out.yarna_desert.walrus_1")
+  game:start_dialog("maps.out.yarna_desert.walrus_1")
 
 end
 
--- Sensor events
-function travel_sensor:on_activated()
+-- Doors events
+function weak_door_1:on_opened()
 
-    travel_manager:init(map, 4)
+  audio_manager:play_sound("secret_1")
 
 end
 
--- Separator events
-separator_1:register_event("on_activating", function(separator, direction4)
-
-  if direction4 == 1 then
-      sol.audio.play_music("maps/out/animal_village")
-  elseif direction4 == 3 then
-      sol.audio.play_music("maps/out/overworld")
-  end
-
-
-end)
-
--- NPC events
+-- NPCs events
 function rabbit_1:on_interaction()
 
   map:talk_to_rabbit_1()
@@ -96,9 +93,20 @@ function walrus_invisible:on_interaction()
 
 end
 
--- Dors events
-function weak_door_1:on_opened()
+-- Sensors events
+function travel_sensor:on_activated()
 
-  sol.audio.play_sound("secret_1")
+  travel_manager:init(map, 4)
 
 end
+
+-- Separators events
+separator_1:register_event("on_activating", function(separator, direction4)
+
+  if direction4 == 1 then
+    audio_manager:play_music("40_animal_village")
+  elseif direction4 == 3 then
+    audio_manager:play_music("10_overworld")
+  end
+
+end)

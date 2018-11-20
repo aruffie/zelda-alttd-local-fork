@@ -101,7 +101,7 @@ for _, entity_meta in pairs({enemy_meta, hero_meta}) do
     end
     -- Play sound if any.
     if sound_id then
-      sol.audio.play_sound(sound_id)
+      audio_manager:play_sound(sound_id)
     end
     -- Create movement.
     local m = sol.movement.create("straight")

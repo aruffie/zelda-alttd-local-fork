@@ -9,3 +9,5 @@ install_manifest.txt
 cmake_install.cmake
 *.luac
 Thumbs.db
+data/error.txt
+.idea

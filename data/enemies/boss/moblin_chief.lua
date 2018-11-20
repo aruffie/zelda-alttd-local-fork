@@ -23,6 +23,7 @@ local x -- X Enemy
 local y -- Y Enemy
 local x_initial
 local y_initial
+local symbol_collapse
 local arrow
 local launch_boss
 
@@ -43,8 +44,6 @@ function enemy:on_restarted()
      enemy:go_to_initial_position()
   end
 end
-
-
 
 -- Calculate distance, angle and new position enemy
 function enemy:calculate_parameters()
@@ -70,6 +69,9 @@ end
 
 function enemy:go_to_initial_position()
 
+    if symbol_collapse ~= nil then
+      symbol_collapse:remove()
+    end
     enemy:set_attack_consequence("sword", "protected")
     sprite:set_animation("walking")
     local movement_initial = sol.movement.create("target")
@@ -129,7 +131,7 @@ function enemy:throw_arrow()
         height = 8,
         layer = layer_enemy
       } 
-       movement_type = "arrow"
+      movement_type = "arrow"
       local movement_arrow = sol.movement.create("straight")
       movement_arrow:set_speed(128)
       movement_arrow:set_smooth(false)
@@ -157,7 +159,14 @@ function enemy:charge()
     movement_charge:set_speed(128)
     movement_charge:set_smooth(false)
     movement_charge:set_angle(angle)
-   function  movement_charge:on_obstacle_reached()
+    function  movement_charge:on_obstacle_reached()
+      local camera = map:get_camera()
+      local shake_config = {
+        count = 10,
+        amplitude = 4,
+        speed = 180,
+      }
+      camera:shake(shake_config)
       movement_charge:stop()
       enemy:set_shocked()
     end
@@ -169,19 +178,22 @@ end
 
 function enemy:set_shocked()
 
-    enemy:calculate_parameters()
-    sol.audio.play_sound("enemy_bounce")
-    sprite:set_animation("shocked")
-    enemy:set_attack_consequence("sword", 1)
-    local movement_jump = sol.movement.create("jump")
-    movement_jump:set_direction8(direction)
-    movement_jump:set_distance(32)
-    movement_jump:set_speed(128)
-    movement_jump:set_ignore_obstacles(true)
-    sol.timer.start(enemy, 4000, function()
-        enemy:go_to_initial_position()
-    end)
-    movement_jump:start(enemy)
+  enemy:calculate_parameters()
+  audio_manager:play_sound("enemy_bounce")
+  sprite:set_animation("shocked")
+  enemy:set_attack_consequence("sword", 1)
+  local movement_jump = sol.movement.create("jump")
+  movement_jump:set_direction8(direction)
+  movement_jump:set_distance(32)
+  movement_jump:set_speed(128)
+  movement_jump:set_ignore_obstacles(true)
+  sol.timer.start(enemy, 4000, function()
+      enemy:go_to_initial_position()
+  end)
+  function movement_jump:on_finished()
+    symbol_collapse = enemy:create_symbol_collapse()
+  end
+  movement_jump:start(enemy)
 
 end
 

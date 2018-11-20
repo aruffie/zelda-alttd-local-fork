@@ -25,12 +25,12 @@ function seagull:on_created()
   x,y,layer = seagull:get_position()
   seagull:set_can_traverse(true)
   sol.timer.start(seagull, 50, function()
-          if hero:get_distance(seagull) < 24 and is_escape == false and is_move == false then
-            seagull:escape_hero()
-          end
-          if hero:get_distance(x,y) > 50 and is_escape == true and is_move == false  then
-            seagull:join_origin()
-          end
+    if hero:get_distance(seagull) < 24 and is_escape == false and is_move == false then
+      seagull:escape_hero()
+    end
+    if hero:get_distance(x,y) > 50 and is_escape == true and is_move == false  then
+      seagull:join_origin()
+    end
     return true
   end)
 
@@ -40,7 +40,7 @@ end
 function seagull:escape_hero()
 
   is_move = true
-  sol.audio.play_sound("seagull")
+  audio_manager:play_sound("seagull")
   -- Set the sprite.
   sprite:set_animation("walking")
   sprite:set_direction(1)
@@ -72,7 +72,7 @@ function seagull:join_origin()
     sprite:set_animation("stopped")
     is_escape = false
     is_move = false
-    sol.audio.play_sound("seagull")
+    audio_manager:play_sound("seagull")
   end
 end
 

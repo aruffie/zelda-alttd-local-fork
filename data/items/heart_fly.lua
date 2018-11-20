@@ -10,7 +10,7 @@ end
 function item:on_obtaining(variant, savegame_variable)
 
    if game:get_life() == game:get_max_life() then
-      sol.audio.play_sound("picked_item")
+      audio_manager:play_sound("picked_item")
     else
       game:add_life(12)
     end

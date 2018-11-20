@@ -1,18 +1,10 @@
--- Lua script of map dungeons/1/1f.
--- This script is executed every time the hero enters this map.
-
--- Feel free to modify the code below.
--- You can add more events and remove the ones you don't need.
-
--- See the Solarus Lua API documentation:
--- http://www.solarus-games.org/doc/latest
-
+-- Variables
 local map = ...
-local separator = ...
 local game = map:get_game()
 local is_small_boss_active = false
 local is_boss_active = false
 
+-- Include scripts
 local door_manager = require("scripts/maps/door_manager")
 local treasure_manager = require("scripts/maps/treasure_manager")
 local switch_manager = require("scripts/maps/switch_manager")
@@ -20,28 +12,31 @@ local enemy_manager = require("scripts/maps/enemy_manager")
 local separator_manager = require("scripts/maps/separator_manager")
 local owl_manager = require("scripts/maps/owl_manager")
 
+-- Map events
 function map:on_started()
 
- local hero = map:get_hero()
-  -- Init music
+  -- Music
   game:play_dungeon_music()
-  -- Pickables
-  treasure_manager:disappear_pickable(map, "pickable_small_key_1")
-  treasure_manager:disappear_pickable(map, "heart_container")
+  -- Owl
+  owl_manager:init(map)
   -- Chests
   treasure_manager:appear_chest_if_savegame_exist(map, "chest_small_key_2",  "dungeon_1_small_key_2")
   treasure_manager:appear_chest_if_savegame_exist(map, "chest_map",  "dungeon_1_map")
   treasure_manager:appear_chest_if_savegame_exist(map, "chest_beak_of_stone",  "dungeon_1_beak_of_stone")
   treasure_manager:appear_chest_if_savegame_exist(map, "chest_rupee_1",  "dungeon_1_rupee_1")
-  -- Switchs
-  switch_manager:activate_switch_if_savegame_exist(map, "switch_1",  "dungeon_1_small_key_2")
-  enemy_manager:create_teletransporter_if_small_boss_dead(map, false)
-  -- Heart
-  treasure_manager:appear_heart_container_if_boss_dead(map)
   -- Doors
   map:set_doors_open("door_group_2_", true)
   map:set_doors_open("door_group_1_", true)
   map:set_doors_open("door_group_small_boss", true)
+  -- Ennemies
+  enemy_manager:create_teletransporter_if_small_boss_dead(map, false)
+  -- Heart
+  treasure_manager:appear_heart_container_if_boss_dead(map)
+  -- Pickables
+  treasure_manager:disappear_pickable(map, "pickable_small_key_1")
+  treasure_manager:disappear_pickable(map, "heart_container")
+  -- Switchs
+  switch_manager:activate_switch_if_savegame_exist(map, "switch_1",  "dungeon_1_small_key_2")
 
 end
 
@@ -55,23 +50,33 @@ function map:on_opening_transition_finished(destination)
 
 end
 
--- Enemies
-enemy_manager:execute_when_vegas_dead(map, "enemy_group_13")
+function map:on_obtaining_treasure(item, variant, savegame_variable)
 
--- Treasures
-treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_7_", "pickable_small_key_1", nil)
-treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_12_", "chest_rupee_1")
-treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_13_", "chest_beak_of_stone")
-treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_4_", "chest_map")
+  if savegame_variable == "dungeon_1_big_treasure" then
+    treasure_manager:get_instrument(map)
+  end
 
--- Doors
+end
+
+-- Blocks events
+door_manager:open_when_block_moved(map, "auto_block_1", "door_group_2")
+
+-- Doors events
 door_manager:open_when_enemies_dead(map,  "enemy_group_6_",  "door_group_1")
 door_manager:open_when_enemies_dead(map,  "enemy_group_3_",  "door_group_5")
 door_manager:open_if_small_boss_dead(map)
 door_manager:open_if_boss_dead(map)
 
--- Blocks
-door_manager:open_when_block_moved(map, "auto_block_1", "door_group_2")
+function weak_wall_A_1:on_opened()
+
+  weak_wall_closed_A_1:remove();
+  weak_wall_closed_A_2:remove();
+  audio_manager:play_sound("secret_1")
+
+end
+
+-- Enemies events
+enemy_manager:execute_when_vegas_dead(map, "enemy_group_13")
 
 -- Sensors events
 function sensor_1:on_activated()
@@ -129,6 +134,12 @@ function sensor_8:on_activated()
 
 end
 
+-- Separators events
+auto_separator_17:register_event("on_activating", function(separator, direction4)
+    
+  map:set_doors_open("door_group_2", false)
+  
+end)
 
 -- Switchs events
 function switch_1:on_activated()
@@ -138,26 +149,10 @@ function switch_1:on_activated()
 end
 
 -- Treasures events
-function map:on_obtaining_treasure(item, variant, savegame_variable)
+treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_7_", "pickable_small_key_1")
+treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_12_", "chest_rupee_1")
+treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_13_", "chest_beak_of_stone")
+treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_4_", "chest_map")
 
-    if savegame_variable == "dungeon_1_big_treasure" then
-      treasure_manager:get_instrument(map, 1)
-    end
-
-end
-
--- Doors events
-function weak_wall_A_1:on_opened()
-
-  weak_wall_closed_A_1:remove();
-  weak_wall_closed_A_2:remove();
-  sol.audio.play_sound("secret_1")
-
-end
-
-auto_separator_17:register_event("on_activating", function(separator, direction4)
-    map:set_doors_open("door_group_2", false)
-end)
-
-separator_manager:manage_map(map)
-owl_manager:manage_map(map)
+-- Separators
+separator_manager:init(map)

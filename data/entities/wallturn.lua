@@ -26,7 +26,7 @@ function entity:on_created()
       local map_id = map:get_id()
       hero:set_enabled(false)
       sprite:set_animation("revolving_tunic_1")
-      sol.audio.play_sound("wallturn")
+      audio_manager:play_sound("wallturn")
       function sprite:on_animation_finished(animation)
         if animation == "revolving_tunic_1" or animation == "revolving_tunic_2" or animation == "revolving_tunic_2" then
           sprite:set_animation("stopped")

@@ -7,6 +7,7 @@ properties{
   max_layer = 2,
   world = "outside_world",
   tileset = "out/outside",
+  music = "same",
 }
 
 tile{
@@ -6642,7 +6643,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 teletransporter{
@@ -6725,7 +6726,6 @@ dynamic_tile{
   pattern = "1062",
   width = 32,
   height = 8,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -6736,7 +6736,6 @@ dynamic_tile{
   pattern = "957",
   width = 32,
   height = 16,
-  enabled_at_start = true,
 }
 
 door{
@@ -6815,7 +6814,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/keyhole_dungeon_6",
-  model = "obstacle",
+  model = "statue",
 }
 
 wall{
@@ -6849,7 +6848,6 @@ dynamic_tile{
   pattern = "617",
   width = 16,
   height = 16,
-  enabled_at_start = true,
 }
 
 wall{
@@ -6872,7 +6870,6 @@ dynamic_tile{
   pattern = "941",
   width = 48,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -6882,7 +6879,6 @@ dynamic_tile{
   pattern = "941",
   width = 48,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -6892,7 +6888,6 @@ dynamic_tile{
   pattern = "941",
   width = 48,
   height = 16,
-  enabled_at_start = true,
 }
 
 dynamic_tile{
@@ -6902,7 +6897,6 @@ dynamic_tile{
   pattern = "941",
   width = 48,
   height = 16,
-  enabled_at_start = true,
 }
 
 custom_entity{
@@ -7178,7 +7172,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7190,7 +7184,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7202,7 +7196,7 @@ custom_entity{
   height = 80,
   direction = 2,
   sprite = "entities/entrance_dungeon_6",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7214,7 +7208,7 @@ custom_entity{
   height = 32,
   direction = 0,
   sprite = "entities/entrance_southern_face_shrine",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7226,7 +7220,7 @@ custom_entity{
   height = 32,
   direction = 2,
   sprite = "entities/entrance_southern_face_shrine",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7249,7 +7243,7 @@ custom_entity{
   height = 88,
   direction = 1,
   sprite = "entities/entrance_southern_face_shrine",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7503,7 +7497,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7515,7 +7509,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7527,7 +7521,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7539,7 +7533,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7551,7 +7545,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7563,7 +7557,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7575,7 +7569,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7587,7 +7581,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7599,7 +7593,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7611,7 +7605,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7623,7 +7617,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7635,7 +7629,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7647,7 +7641,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7659,7 +7653,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7671,7 +7665,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7683,7 +7677,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7695,7 +7689,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7707,7 +7701,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7719,7 +7713,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7731,7 +7725,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7743,7 +7737,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7755,7 +7749,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7767,7 +7761,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7779,7 +7773,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7791,7 +7785,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7803,7 +7797,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7815,7 +7809,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7827,7 +7821,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7839,7 +7833,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7851,7 +7845,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7863,7 +7857,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7875,7 +7869,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7887,7 +7881,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7899,7 +7893,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7911,7 +7905,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7923,7 +7917,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7935,7 +7929,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7947,7 +7941,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7959,7 +7953,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7971,7 +7965,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7983,7 +7977,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -7995,7 +7989,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8007,7 +8001,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8019,7 +8013,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8031,7 +8025,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8043,7 +8037,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8055,7 +8049,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8067,7 +8061,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8079,7 +8073,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8091,7 +8085,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8103,7 +8097,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8115,7 +8109,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8127,7 +8121,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8139,7 +8133,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8151,7 +8145,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8163,7 +8157,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8175,7 +8169,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8187,7 +8181,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8199,7 +8193,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8211,7 +8205,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8223,7 +8217,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8235,7 +8229,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8247,7 +8241,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8259,7 +8253,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8271,7 +8265,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8283,7 +8277,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8295,7 +8289,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8307,7 +8301,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8319,7 +8313,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8331,7 +8325,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8343,7 +8337,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8355,7 +8349,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8367,7 +8361,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8379,7 +8373,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8391,7 +8385,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8403,7 +8397,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8415,7 +8409,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8427,7 +8421,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8439,7 +8433,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8451,7 +8445,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8463,7 +8457,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8475,7 +8469,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8487,7 +8481,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8499,7 +8493,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8511,7 +8505,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8523,7 +8517,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8535,7 +8529,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8547,7 +8541,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8559,7 +8553,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8571,7 +8565,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8583,7 +8577,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8595,7 +8589,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8607,7 +8601,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8619,7 +8613,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8631,7 +8625,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8643,7 +8637,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8655,7 +8649,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8667,7 +8661,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8679,7 +8673,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8691,7 +8685,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8703,7 +8697,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8715,7 +8709,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8727,7 +8721,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8739,7 +8733,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8751,7 +8745,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8763,7 +8757,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8775,7 +8769,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8787,7 +8781,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8799,7 +8793,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8811,7 +8805,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8823,7 +8817,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8835,7 +8829,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8847,7 +8841,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8859,7 +8853,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8871,7 +8865,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8883,7 +8877,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8895,7 +8889,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8907,7 +8901,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8919,7 +8913,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8931,7 +8925,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8943,7 +8937,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8955,7 +8949,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8967,7 +8961,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8979,7 +8973,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 custom_entity{
@@ -8991,7 +8985,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mask_shrine_column",
-  model = "obstacle",
+  model = "statue",
 }
 
 teletransporter{

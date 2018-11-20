@@ -2215,11 +2215,32 @@ regretter...
 }
 
 dialog{
-  id = "maps.houses.mabe_village.shop_2.product_bombs",
+  id = "maps.houses.mabe_village.shop_2.merchant_6",
+  text = [[
+Merci beaucoup ! 
+Et au plaisir !
+]],
+}
+
+dialog{
+  id = "maps.houses.mabe_village.shop_2.product_bomb",
   question = "1",
   text = [[
 10 Bombes   
 10 rubis !   
+
+
+Oui
+Non
+]],
+}
+
+dialog{
+  id = "maps.houses.mabe_village.shop_2.product_bow",
+  question = "1",
+  text = [[
+Arc & Flèches : 
+980 rubis !   
 
 
 Oui
@@ -4442,7 +4463,7 @@ rose...
 
 dialog{
   id = "scripts.menus.pause_inventory.magnifying_lens.3",
-  icon = "102",
+  icon = "103",
   skip = "all",
   text = [[
 De la patée pour
@@ -4454,7 +4475,7 @@ que ceci ?
 
 dialog{
   id = "scripts.menus.pause_inventory.magnifying_lens.4",
-  icon = "103",
+  icon = "102",
   skip = "all",
   text = [[
 Un petit lot

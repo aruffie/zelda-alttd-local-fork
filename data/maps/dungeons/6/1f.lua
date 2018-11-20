@@ -53,8 +53,8 @@ end
 -- Treasures
 
 treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_5", "chest_map")
-treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_9", "pickable_small_key_1", nil)
-treasure_manager:appear_pickable_when_flying_tiles_dead(map, "enemy_group_29_enemy", "pickable_small_key_2", nil)
+treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_9", "pickable_small_key_1")
+treasure_manager:appear_pickable_when_flying_tiles_dead(map, "enemy_group_29_enemy", "pickable_small_key_2")
 
 -- Doors
 
@@ -311,5 +311,5 @@ auto_separator_17:register_event("on_activating", function(separator, direction4
   end
 end)
 
-separator_manager:manage_map(map)
-owl_manager:manage_map(map)
+separator_manager:init(map)
+owl_manager:init(map)

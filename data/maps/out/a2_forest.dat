@@ -7,7 +7,7 @@ properties{
   max_layer = 2,
   world = "outside_world",
   tileset = "out/light_world_legacy",
-  music = "maps/out/mysterious_forest",
+  music = "same",
 }
 
 tile{
@@ -8990,6 +8990,24 @@ tile{
   width = 48,
   height = 16,
   pattern = "1340",
+}
+
+tile{
+  layer = 0,
+  x = 824,
+  y = 216,
+  width = 16,
+  height = 8,
+  pattern = "510",
+}
+
+tile{
+  layer = 0,
+  x = 872,
+  y = 216,
+  width = 16,
+  height = 8,
+  pattern = "510",
 }
 
 sensor{

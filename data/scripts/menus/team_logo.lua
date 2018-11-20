@@ -5,6 +5,8 @@
 -- sol.menu.start(team_logo)
 
 -----------------------------------------------------------------
+-- Includes scripts
+local audio_manager = require("scripts/audio_manager")
 
 local team_logo_menu = {}
 
@@ -135,7 +137,7 @@ function team_logo_menu:go_to_step(step)
     rotation_count = 0
     logo_sprite:set_animation("shine")
     logo_sprite:set_direction(0)
-    sol.audio.play_sound("zonzifleur/solarus_team_logo")
+    audio_manager:play_sound("menus/solarus_team_logo")
 
   -- Step 3: everything is displayed, no more animation.
   elseif step == FINAL then

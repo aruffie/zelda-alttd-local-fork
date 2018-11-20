@@ -48,7 +48,7 @@ local function shoot()
   sprite:set_animation("shooting")
   enemy:stop_movement()
   sol.timer.start(enemy, 300, function()
-    sol.audio.play_sound("stone")
+    audio_manager:play_sound("stone")
     local stone = enemy:create_enemy({
       breed = "octorok_stone",
       x = dxy[direction + 1][1],

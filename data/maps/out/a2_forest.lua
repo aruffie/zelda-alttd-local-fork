@@ -17,6 +17,7 @@ map.raccoon_warning_done = false
 
 -- Include scripts
 require("scripts/multi_events")
+local audio_manager = require("scripts/audio_manager")
 local fairy_manager = require("scripts/maps/fairy_manager")
 local owl_manager = require("scripts/maps/owl_manager")
 
@@ -31,6 +32,8 @@ end
 -- Map events
 function map:on_started(destination)
 
+  -- Music
+  map:init_music()
   -- Remove the big stone if you come from the secret cave
   if destination == stair_bombs_upgrade then secret_stone:set_enabled(false) end
   -- Tail key chest
@@ -96,6 +99,13 @@ function map:on_started(destination)
 
 end
 
+-- Initialize the music of the map
+function map:init_music()
+  
+audio_manager:play_music("16_mysterious_forest")
+
+end
+
 map:register_event("on_draw", function(map, destination_surface)
 
  -- Make the overlay scroll with the camera, but slightly faster to make
@@ -128,7 +138,7 @@ end,true)
 -- Initialize the music of the map
 function map:init_music()
 
-  sol.audio.play_music("maps/out/mysterious_forest")
+  audio_manager:play_music("16_mysterious_forest")
 
 end
 
@@ -283,7 +293,7 @@ function separator:on_activated()
   end
 end
 
--- NPC events
+-- NPCs events
 function tarin:on_interaction()
 
   if game:get_value("main_quest_step") < 5 then
@@ -341,13 +351,13 @@ function change_movement_raccoon()
     function movement:on_finished()
       local direction4 = hero:get_direction4_to(tarin)
       hero:get_sprite():set_direction(direction4)
-      sol.audio.play_sound("bounce")
+      audio_manager:play_sound("bounce")
       raccoon_index = raccoon_index + 1
       change_movement_raccoon()
     end
   else
     local x, y, layer = tarin:get_position()
-    sol.audio.play_sound("explosion")
+    audio_manager:play_sound("explosion")
     map:create_explosion{
       layer = layer,
       x = x,
@@ -367,7 +377,7 @@ function change_movement_raccoon()
         movement1:set_ignore_obstacles(true)
         movement1:set_ignore_suspend(true)
         movement1:start(camera, function()
-          sol.audio.play_sound("secret_1")
+          audio_manager:play_sound("secret_1")
           local timer2 = sol.timer.start(map, 1000, function()
             local movement2 = sol.movement.create("straight")
             movement2:set_angle(3 * math.pi / 2)
