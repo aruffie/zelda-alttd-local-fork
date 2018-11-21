@@ -1,4 +1,4 @@
--- Magical powder
+-- Variables
 local item = ...
 
 function item:on_created()
