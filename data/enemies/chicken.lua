@@ -1,6 +1,6 @@
+-- Variables
 local enemy = ...
 local map = enemy:get_map()
-
 local angry = false
 local num_times_hurt = 0
 
@@ -12,6 +12,7 @@ function enemy:on_created()
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)
   enemy:set_hurt_style("monster")
+  
 end
 
 function enemy:on_movement_changed(movement)
@@ -19,6 +20,7 @@ function enemy:on_movement_changed(movement)
   local direction4 = movement:get_direction4()
   local sprite = self:get_sprite()
   sprite:set_direction(direction4)
+  
 end
 
 function enemy:on_obstacle_reached(movement)
@@ -28,6 +30,7 @@ function enemy:on_obstacle_reached(movement)
   else
     enemy:go_angry()
   end
+  
 end
 
 function enemy:on_restarted()
@@ -44,6 +47,7 @@ function enemy:on_restarted()
       return true  -- Repeat the timer.
     end)
   end
+  
 end
 
 function enemy:go_random()
@@ -53,6 +57,7 @@ function enemy:go_random()
   movement:set_speed(32)
   movement:start(enemy)
   enemy:set_can_attack(false)
+  
 end
 
 function enemy:go_angry()
@@ -65,6 +70,7 @@ function enemy:go_angry()
   movement:start(enemy)
   enemy:get_sprite():set_animation("angry")
   enemy:set_can_attack(true)
+  
 end
 
 function enemy:on_hurt()
@@ -74,4 +80,5 @@ function enemy:on_hurt()
     -- Make all chickens of the map attack the hero.
     map.angry_chickens = true
   end
+  
 end

@@ -1146,6 +1146,7 @@ sound{ id = "snes/enemies/boss_hit", description = "Boss hit" }
 sound{ id = "snes/enemies/enemy_die", description = "Enemy die" }
 sound{ id = "snes/enemies/enemy_hit", description = "Enemy hit" }
 sound{ id = "snes/enemies/laser", description = "Laser" }
+sound{ id = "snes/hero/bound", description = "Bound" }
 sound{ id = "snes/hero/dying", description = "Dying" }
 sound{ id = "snes/hero/fall", description = "Fall" }
 sound{ id = "snes/hero/hurt", description = "Hurt" }
@@ -1156,6 +1157,8 @@ sound{ id = "snes/hero/rebound", description = "Rebound" }
 sound{ id = "snes/hero/run", description = "Run" }
 sound{ id = "snes/hero/shock", description = "Shock" }
 sound{ id = "snes/hero/throw", description = "Throw" }
+sound{ id = "snes/items/bomb_explode", description = "Bomb explode" }
+sound{ id = "snes/items/boomerang", description = "Boomerang" }
 sound{ id = "snes/items/bow_arrow", description = "Bow arrow" }
 sound{ id = "snes/items/fanfare_item", description = "Fanfare item" }
 sound{ id = "snes/items/fanfare_item_extended", description = "Fanfare item extended" }
@@ -2123,6 +2126,20 @@ file{ path = "sounds/snes/menus/solarus_logo.ogg", author = "Diarandor", license
 file{ path = "sounds/snes/menus/solarus_team_logo.ogg", author = "Zonzifleur", license = "CC BY-SA 4.0" }
 file{ path = "sounds/snes/menus/text_done.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/menus/text_letter.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/others/beehive_bees.ogg", author = "Nintendo", }
+file{ path = "sounds/snes/others/bush_cut.ogg", author = "Nintendo", }
+file{ path = "sounds/snes/others/chest_open.ogg", author = "Nintendo", }
+file{ path = "sounds/snes/others/cucco.ogg", author = "Nintendo", }
+file{ path = "sounds/snes/others/dungeon_door_slam.ogg", author = "Nintendo", }
+file{ path = "sounds/snes/others/dungeon_open.ogg", author = "Nintendo", }
+file{ path = "sounds/snes/others/dungeon_switch.ogg", author = "Nintendo", }
+file{ path = "sounds/snes/others/dungeon_teleport.ogg", author = "Nintendo", }
+file{ path = "sounds/snes/others/error.ogg", author = "Nintendo", }
+file{ path = "sounds/snes/others/monkey.ogg", author = "Nintendo", }
+file{ path = "sounds/snes/others/rock_push.ogg", author = "Nintendo", }
+file{ path = "sounds/snes/others/rock_shatter.ogg", author = "Nintendo", }
+file{ path = "sounds/snes/others/secret1.ogg", author = "Nintendo", }
+file{ path = "sounds/snes/others/secret2.ogg", author = "Nintendo", }
 file{ path = "sounds/splash.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/stairs_down_end.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/stairs_down_start.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
