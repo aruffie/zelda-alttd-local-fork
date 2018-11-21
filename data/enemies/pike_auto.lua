@@ -1,9 +1,11 @@
+-- Variables
 local enemy = ...
-
 -- Pike that always moves, horizontally or vertically
 -- depending on its direction.
-
 local recent_obstacle = 0
+
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
 
 function enemy:on_created()
 
@@ -41,9 +43,9 @@ function enemy:on_obstacle_reached()
   local x, y = self:get_position()
   local hero_x, hero_y = self:get_map():get_entity("hero"):get_position()
   if recent_obstacle == 0
-      and math.abs(x - hero_x) < 184
-      and math.abs(y - hero_y) < 144 then
-    audio_manager:play_sound("sword_tapping")
+    and math.abs(x - hero_x) < 184
+    and math.abs(y - hero_y) < 144 then
+    audio_manager:play_sound("items/sword_tap")
   end
 
   recent_obstacle = 8

@@ -1,13 +1,4 @@
--- Lua script of custom entity frog.
--- This script is executed every time a custom entity with this model is created.
-
--- Feel free to modify the code below.
--- You can add more events and remove the ones you don't need.
-
--- See the Solarus Lua API documentation for the full specification
--- of types, events and methods:
--- http://www.solarus-games.org/doc/latest
-
+-- Variables
 local seagull = ...
 local game = seagull:get_game()
 local map = game:get_map()
@@ -19,6 +10,10 @@ local y
 local layer
 local is_escape = false
 local is_move = false
+
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
+
 -- Event called when the custom entity is initialized.
 function seagull:on_created()
 
@@ -40,7 +35,7 @@ end
 function seagull:escape_hero()
 
   is_move = true
-  audio_manager:play_sound("seagull")
+  audio_manager:play_sound("others/seagull")
   -- Set the sprite.
   sprite:set_animation("walking")
   sprite:set_direction(1)
@@ -72,7 +67,7 @@ function seagull:join_origin()
     sprite:set_animation("stopped")
     is_escape = false
     is_move = false
-    audio_manager:play_sound("seagull")
+    audio_manager:play_sound("others/seagull")
   end
 end
 

@@ -14429,6 +14429,16 @@ door{
   layer = 0,
   x = 664,
   y = 1144,
+  properties = {
+    {
+      key = "is_weak",
+      value = "true",
+    },
+    {
+      key = "sound_sword",
+      value = "items/sword_tap_bombable",
+    },
+  },
   direction = 0,
   sprite = "entities/doors/door_weak_wall",
   savegame_variable = "dungeon_1_weak_wall_A",

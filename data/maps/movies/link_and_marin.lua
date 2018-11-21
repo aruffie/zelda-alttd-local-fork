@@ -7,9 +7,13 @@
 -- See the Solarus Lua API documentation:
 -- http://www.solarus-games.org/doc/latest
 
+-- Variables
 local map = ...
 local game = map:get_game()
 local player_name = game:get_player_name()
+
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
 local language_manager = require("scripts/language_manager")
 
 -- Sunset effect
@@ -103,7 +107,7 @@ function map:start_cinematic()
     map:start_dialog()
    end)
   sol.timer.start(seagull_1, 200, function()
-     audio_manager:play_sound("seagull")
+     audio_manager:play_sound("others/seagull")
      seagull_1:get_sprite():set_animation("walking")
      local movement_seagull_1 = sol.movement.create("target")
      movement_seagull_1:set_speed(100)
@@ -112,7 +116,7 @@ function map:start_cinematic()
      movement_seagull_1:start(seagull_1)
   end)
   sol.timer.start(seagull_2, 1000, function()
-     audio_manager:play_sound("seagull")
+     audio_manager:play_sound("others/seagull")
      seagull_2:get_sprite():set_animation("walking")
      local movement_seagull_2 = sol.movement.create("target")
      movement_seagull_2:set_speed(100)
@@ -122,7 +126,7 @@ function map:start_cinematic()
   end)
 
   sol.timer.start(seagull_3, 8000, function()
-     audio_manager:play_sound("seagull")
+     audio_manager:play_sound("others/seagull")
      seagull_3:get_sprite():set_animation("walking")
      local movement_seagull_3 = sol.movement.create("target")
      movement_seagull_3:set_speed(100)

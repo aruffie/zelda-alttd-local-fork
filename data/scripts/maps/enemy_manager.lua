@@ -108,7 +108,7 @@ function enemy_manager:create_teletransporter_if_small_boss_dead(map, sound)
           hero:set_position(teletransporter_B_x, teletransporter_B_y)
           hero_sprite:set_ignore_suspend(true)
           hero_sprite:set_animation("teleporting")
-          audio_manager:play_sound("teletransporter")
+          audio_manager:play_sound("others/dungeon_teleport")
           function hero_sprite:on_animation_finished(animation)
             if animation == "teleporting" then
               game:set_suspended(false)
