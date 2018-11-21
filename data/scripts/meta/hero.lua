@@ -10,11 +10,12 @@ require("scripts/multi_events")
 hero_meta:register_event("on_state_changed", function(hero)
     
   local current_state = hero:get_state()
-  print(current_state)
+  -- Current states
   if current_state == "lifting" then
     audio_manager:play_sound("hero/pickup") 
   end
-    if hero.previous_state == "carrying" then
+  -- Previous states
+  if hero.previous_state == "carrying" then
     hero:notify_object_thrown()
   end
   hero.previous_state = current_state
@@ -77,12 +78,12 @@ hero_meta:register_event("on_position_changed", function(hero)
     game:set_explored_dungeon_room(nil, nil, room)
     
   end
+  
 end)
 
 hero_meta:register_event("on_state_changed", function(hero , state)
 
   local game = hero:get_game()
-
   -- Avoid to lose any life when drowning.
   if state == "back to solid ground" then
     local ground = hero:get_ground_below()
@@ -90,6 +91,7 @@ hero_meta:register_event("on_state_changed", function(hero , state)
       game:add_life(1)
     end
   end
+  
 end)
 
 -- Return true if the hero is walking.
@@ -97,6 +99,7 @@ function hero_meta:is_walking()
 
   local m = self:get_movement()
   return m and m.get_speed and m:get_speed() > 0
+  
 end
 
 function hero_meta:on_taking_damage(damage)
@@ -112,6 +115,7 @@ function hero_meta:on_taking_damage(damage)
   local final_damage = math.ceil(damage/defense)
   -- Remove life.
   game:remove_life(damage)
+  
 end
 
 -- Set fixed stopped/walking animations for the hero (or nil to disable them).
@@ -125,15 +129,16 @@ function hero_meta:set_fixed_animations(new_stopped_animation, new_walking_anima
     if self:is_walking() then self:set_animation(fixed_walking_animation or "walking")
     else self:set_animation(fixed_stopped_animation or "stopped") end
   end
+  
 end
 
 -- Initialize hero behavior specific to this quest.
-
 local hero_meta = sol.main.get_metatable("hero")
 
 hero_meta:register_event("on_created", function(hero)
 
   hero:initialize_fixing_functions() -- Used to fix direction and animations.
+  
 end)
 
 --------------------------------------------------
@@ -146,25 +151,31 @@ function hero_meta:is_walking()
 
   local m = self:get_movement()
   return m and m.get_speed and m:get_speed() > 0
+  
 end
 
 -- Get fixed direction for the hero.
 function hero_meta:get_fixed_direction()
 
   return fixed_direction
+  
 end
 
 -- Get fixed stopped/walking animations for the hero.
 function hero_meta:get_fixed_animations()
 
   return fixed_stopped_animation, fixed_walking_animation
+  
 end
 
 -- Set a fixed direction for the hero (or nil to disable it).
 function hero_meta:set_fixed_direction(new_direction)
 
   fixed_direction = new_direction
-  if fixed_direction then self:get_sprite("tunic"):set_direction(fixed_direction) end
+  if fixed_direction then
+    self:get_sprite("tunic"):set_direction(fixed_direction)
+  end
+  
 end
 
 -- Set fixed stopped/walking animations for the hero (or nil to disable them).
@@ -178,6 +189,7 @@ function hero_meta:set_fixed_animations(new_stopped_animation, new_walking_anima
     if self:is_walking() then self:set_animation(fixed_walking_animation or "walking")
     else self:set_animation(fixed_stopped_animation or "stopped") end
   end
+  
 end
 
 -- Initialize events to fix direction and animation for the tunic sprite of the hero.
@@ -213,7 +225,7 @@ function hero_meta:initialize_fixing_functions()
     old_set_tunic(self, sprite_id)
     self:initialize_fixing_functions()
   end
+  
 end
-
 
 return true

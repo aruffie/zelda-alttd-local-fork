@@ -1,13 +1,15 @@
+-- Variables
 local entity = ...
 local game = entity:get_game()
 local map = entity:get_map()
 local hero = game:get_hero()
-
 local hero_meta = sol.main.get_metatable("hero")
 local wall = nil
 
 function entity:on_created()
+  
   self:set_traversable_by(false)
+  
 end
 
 function entity:on_interaction()
@@ -55,9 +57,6 @@ function entity:on_interaction()
     hero:unfreeze()
     hero:set_invincible(false)
     game:simulate_command_pressed("action")
-
-    
-
     x, y, layer = hero:get_position()
     wall = map:create_wall{
       x = x-8,
@@ -68,10 +67,13 @@ function entity:on_interaction()
       stops_hero = true
     }
   end)
+
 end
 
 hero_meta:register_event("notify_object_thrown", function(hero)
+    
   if wall ~= nil then
     wall:remove()
   end
+  
 end)
