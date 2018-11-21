@@ -1,16 +1,23 @@
--- Heart
+-- Variables
 local item = ...
+
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
 
 function item:on_created()
 
-  self:set_shadow("small")
-  self:set_can_disappear(true)
-  self:set_brandish_when_picked(false)
+  item:set_shadow("small")
+  item:set_can_disappear(true)
+  item:set_brandish_when_picked(false)
+  item:set_sound_when_picked(nil)
+  
 end
 
 function item:on_obtaining(variant, savegame_variable)
 
-  self:get_game():add_life(4)
+  audio_manager:play_sound("items/get_item")
+  item:get_game():add_life(4)
+  
 end
 
 function item:on_pickable_created(pickable)

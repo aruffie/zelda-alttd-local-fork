@@ -917,12 +917,9 @@ sound{ id = "bow", description = "Empty sound" }
 sound{ id = "cane", description = "Empty sound" }
 sound{ id = "chest", description = "Empty sound" }
 sound{ id = "chest_open", description = "Empty sound" }
-sound{ id = "diarandor/solarus_logo", description = "Solarus logo" }
 sound{ id = "door_closed", description = "Empty sound" }
 sound{ id = "door_open", description = "Empty sound" }
 sound{ id = "door_unlocked", description = "Empty sound" }
-sound{ id = "enemies/sea_urchin_1", description = "enemies/sea_urchin_1" }
-sound{ id = "enemies/sea_urchin_2", description = "enemies/sea_urchin_2" }
 sound{ id = "enemy_hurt", description = "Empty sound" }
 sound{ id = "enemy_killed", description = "Empty sound" }
 sound{ id = "explosion", description = "Empty sound" }
@@ -1118,25 +1115,8 @@ sound{ id = "hero_hurt", description = "Empty sound" }
 sound{ id = "hero_lands", description = "Empty sound" }
 sound{ id = "hero_pushes", description = "Empty sound" }
 sound{ id = "hookshot", description = "Empty sound" }
-sound{ id = "instruments/instrument", description = "Instrument" }
-sound{ id = "instruments/instrument_1", description = "Instrument 1" }
-sound{ id = "instruments/instrument_2", description = "Instrument 2" }
-sound{ id = "instruments/instrument_3", description = "Instrument 3" }
-sound{ id = "instruments/instrument_4", description = "Instrument 4" }
-sound{ id = "instruments/instrument_5", description = "Instrument 5" }
-sound{ id = "instruments/instrument_6", description = "Instrument 6" }
-sound{ id = "instruments/instrument_7", description = "Instrument 7" }
-sound{ id = "instruments/instrument_8", description = "Instrument 8" }
-sound{ id = "items/ocarina", description = "items/ocarina" }
-sound{ id = "items/ocarina_1", description = "items/ocarina_1" }
-sound{ id = "items/ocarina_2", description = "items/ocarina_2" }
-sound{ id = "items/ocarina_2_warp", description = "items/ocarina_2_warp" }
-sound{ id = "items/ocarina_3", description = "items/ocarina_3" }
-sound{ id = "items/ocarina_3_revive_1", description = "items/ocarina_3_revive_1" }
-sound{ id = "items/ocarina_3_revive_2", description = "items/ocarina_3_revive_2" }
 sound{ id = "jump", description = "Empty sound" }
 sound{ id = "lift", description = "Empty sound" }
-sound{ id = "message._end", description = "Empty sound" }
 sound{ id = "monster_hurt", description = "Empty sound" }
 sound{ id = "picked_item", description = "Empty sound" }
 sound{ id = "running", description = "Empty sound" }
@@ -1215,8 +1195,6 @@ sound{ id = "victory", description = "Empty sound" }
 sound{ id = "walk_on_grass", description = "Empty sound" }
 sound{ id = "walk_on_water", description = "Empty sound" }
 sound{ id = "wrong", description = "Empty sound" }
-sound{ id = "zonzifleur/solarus_team_logo", description = "Solarus Team logo" }
-
 item{ id = "angler_key", description = "Angler key" }
 item{ id = "arrow", description = "Arrow" }
 item{ id = "beak_of_stone", description = "Beak of stone" }
@@ -2069,7 +2047,6 @@ file{ path = "sounds/hero_pushes.ogg", author = "Franck Jousseaume", license = "
 file{ path = "sounds/hookshot.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/jump.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/lift.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
-file{ path = "sounds/message._end.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/monster_hurt.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/picked_item.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/running.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }

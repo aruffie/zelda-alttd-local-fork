@@ -1,13 +1,18 @@
+-- Variables
 local item = ...
 
-function item:on_created()
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
 
-  self:set_brandish_when_picked(true)
+function item:on_created()
+  
+  item:set_sound_when_brandished(nil)
 
 end
 
 function item:on_obtaining(variant, savegame_variable)
 
-    self:get_game():get_item("seashells_counter"):add_amount(1)
+  audio_manager:play_sound("items/fanfare_item")
+  item:get_game():get_item("seashells_counter"):add_amount(1)
  
 end

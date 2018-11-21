@@ -743,7 +743,7 @@ function keyboardbox_menu:shift()
     self.letter_case = "lower" -- By default    
   end
 
-  audio_manager:play_sound("picked_item")
+  audio_manager:play_sound("others/error")
 
 end
 
@@ -751,7 +751,7 @@ end
 function keyboardbox_menu:set_layout(layout)
 
   self.layout_page = layout
-  audio_manager:play_sound("picked_item")
+  audio_manager:play_sound("others/error")
 
 end
 

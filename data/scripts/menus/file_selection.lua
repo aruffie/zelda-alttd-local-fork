@@ -399,7 +399,7 @@ function file_selection_menu:move_cursor(key)
     if self.cursor_position <= self.slot_count then
       self.slots[self.cursor_position].hero_sprite:set_frame(0)
     end
-    audio_manager:play_sound("picked_item")
+    audio_manager:play_sound("others/error")
   end
 
   return handled

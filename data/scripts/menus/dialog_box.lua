@@ -151,7 +151,7 @@ local function initialize_dialog_box_features(game)
     if not dialog_box:is_full() then
       dialog_box:add_character()
     else
-      audio_manager:play_sound("menus/text_letter")
+      audio_manager:play_sound("menus/text_done")
       if dialog_box:has_more_lines()
         or dialog_box.dialog.next ~= nil
         or dialog_box.selected_answer ~= nil then

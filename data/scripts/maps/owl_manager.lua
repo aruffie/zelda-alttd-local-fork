@@ -1,3 +1,4 @@
+-- Variables
 local owl_manager = {}
 
 -- Include scripts
@@ -40,6 +41,13 @@ function owl_manager:appear(map, step, callback)
       owl:get_sprite():set_direction(3)
       owl:bring_to_front()
       -- Init movement 1
+      local timer_sound = sol.timer.start(owl, 500, function()
+        if owl:get_distance(hero) < 120 then  
+          audio_manager:play_sound("others/owl_fly_in")
+        end
+        return true
+      end)
+      timer_sound:set_suspended_with_map(false)
       local m = sol.movement.create("target")
       m:set_target(x_hero, y_hero - 32)
       m:set_speed(60)
@@ -52,20 +60,29 @@ function owl_manager:appear(map, step, callback)
         owl_shadow:set_position(x_owl, y_owl + 32 - offset)
       end
       movement(m, owl)
+      timer_sound:stop()
       owl_shadow:set_enabled(false)
       owl:get_sprite():set_animation("talking")
       owl_shadow:get_sprite():set_animation("talking")
+      local timer_sound2 = sol.timer.start(owl, 500, function()
+        local index = math.random(1,2)
+        audio_manager:play_sound("others/owl_hoot" .. index)
+        return true
+      end)
+      timer_sound2:set_suspended_with_map(false)
       dialog("scripts.meta.map.owl_"..step)
+      timer_sound2:stop()
       owl:get_sprite():set_animation("walking")
       owl:get_sprite():set_direction(1)
       owl_shadow:get_sprite():set_animation("walking")
       owl_shadow:get_sprite():set_direction(1)
       -- Init movement 2
       owl_shadow:set_enabled(true)
+      audio_manager:play_sound("others/owl_fly_away")
       local position = map:get_entity("owl_"..step.."_position")
       local m2 = sol.movement.create("target")
       m2:set_target(position)
-      m2:set_speed(100)
+      m2:set_speed(120)
       m2:set_ignore_obstacles(true)
       m2:set_ignore_suspend(true)
       function m2:on_position_changed()
