@@ -1142,6 +1142,33 @@ sound{ id = "picked_item", description = "Empty sound" }
 sound{ id = "running", description = "Empty sound" }
 sound{ id = "running_obstacle", description = "Empty sound" }
 sound{ id = "shield", description = "Empty sound" }
+sound{ id = "snes/enemies/boss_hit", description = "Boss hit" }
+sound{ id = "snes/enemies/enemy_die", description = "Enemy die" }
+sound{ id = "snes/enemies/enemy_hit", description = "Enemy hit" }
+sound{ id = "snes/hero/dying", description = "Dying" }
+sound{ id = "snes/hero/fall", description = "Fall" }
+sound{ id = "snes/hero/hurt", description = "Hurt" }
+sound{ id = "snes/hero/jump", description = "Jump" }
+sound{ id = "snes/hero/land", description = "Land" }
+sound{ id = "snes/hero/pickup", description = "Pickup" }
+sound{ id = "snes/hero/shock", description = "Shock" }
+sound{ id = "snes/hero/throw", description = "Throw" }
+sound{ id = "snes/items/bow_arrow", description = "Bow arrow" }
+sound{ id = "snes/items/fanfare_item", description = "Fanfare item" }
+sound{ id = "snes/items/fanfare_item_extended", description = "Fanfare item extended" }
+sound{ id = "snes/items/fire_rod", description = "Fire rod" }
+sound{ id = "snes/items/get_rupee", description = "Get rupee" }
+sound{ id = "snes/items/hookshot", description = "Hookshot" }
+sound{ id = "snes/items/shield", description = "Shield" }
+sound{ id = "snes/items/shovel_dig", description = "Shovel dig" }
+sound{ id = "snes/items/sword_charge", description = "Sword charge" }
+sound{ id = "snes/items/sword_slash1", description = "Sword slash 1" }
+sound{ id = "snes/items/sword_slash2", description = "Sword slash 2" }
+sound{ id = "snes/items/sword_slash3", description = "Sword slash 3" }
+sound{ id = "snes/items/sword_slash4", description = "Sword slash 4" }
+sound{ id = "snes/items/sword_spin", description = "Sword spin" }
+sound{ id = "snes/items/sword_tap", description = "Sword tap" }
+sound{ id = "snes/items/sword_tap_bombable", description = "Sword tap bombable" }
 sound{ id = "snes/menus/solarus_logo", description = "Solarus logo" }
 sound{ id = "snes/menus/solarus_team_logo", description = "Solarus team logo" }
 sound{ id = "splash", description = "Empty sound" }
@@ -2025,7 +2052,40 @@ file{ path = "sounds/running.ogg", author = "Franck Jousseaume", license = "CC B
 file{ path = "sounds/running_obstacle.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/shield.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/snes", author = "Nintendo, Diarando,, Zonzifleur", license = "Proprietary, Fair use, CC BY-SA 4.0" }
+file{ path = "sounds/snes/enemies", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/enemies/boss_hit.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/enemies/enemy_die.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/enemies/enemy_hit.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/hero", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/hero/dying.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/hero/fall.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/hero/hurt.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/hero/jump.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/hero/land.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/hero/pickup.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/hero/shock.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/hero/throw.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/items", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/items/bow_arrow.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/items/fanfare_item.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/items/fanfare_item_extended.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/items/fire_rod.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/items/get_rupee.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/items/hookshot.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/items/shield.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/items/shovel_dig.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/items/sword_charge.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/items/sword_slash1.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/items/sword_slash2.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/items/sword_slash3.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/items/sword_slash4.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/items/sword_spin.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/items/sword_tap.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/items/sword_tap_bombable.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/menus", author = "Nintendo, Diarando, Zonzifleur", license = "Proprietary, Fair use, CC BY-SA 4.0" }
+file{ path = "sounds/snes/menus/menu_cursor.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/menus/pause_menu_close.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/menus/pause_menu_open.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/menus/solarus_logo.ogg", author = "Diarandor", license = "CC BY-SA 4.0" }
 file{ path = "sounds/snes/menus/solarus_team_logo.ogg", author = "Zonzifleur", license = "CC BY-SA 4.0" }
 file{ path = "sounds/splash.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }

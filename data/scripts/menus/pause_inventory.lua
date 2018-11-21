@@ -353,7 +353,7 @@ function inventory_submenu:assign_item(slot)
       self.item_assigned_destination = slot
 
       -- Play the sound.
-      audio_manager:play_sound("throw")
+      audio_manager:play_sound("menus/menu_select")
 
       -- Compute the movement.
       local x1 = 63 + 32 * self.cursor_column

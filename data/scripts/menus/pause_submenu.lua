@@ -150,7 +150,7 @@ end
 
 -- Goes to the next pause screen.
 function submenu:next_submenu()
-  audio_manager:play_sound("menus/pause_closed")
+  audio_manager:play_sound("menus/pause_menu_close")
   sol.menu.stop(self)
   local submenus = self.game.pause_submenus
   local submenu_index = self.game:get_value("pause_last_submenu")
@@ -161,7 +161,7 @@ end
 
 -- Goes to the previous pause screen.
 function submenu:previous_submenu()
-  audio_manager:play_sound("menus/pause_closed")
+  audio_manager:play_sound("menus/pause_menu_close")
   sol.menu.stop(self)
   local submenus = self.game.pause_submenus
   local submenu_index = self.game:get_value("pause_last_submenu")

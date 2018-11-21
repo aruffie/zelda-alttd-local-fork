@@ -10,9 +10,22 @@ require("scripts/multi_events")
 hero_meta:register_event("on_state_changed", function(hero)
     
   local current_state = hero:get_state()
-  -- Current states
+  -- Sounds
   if current_state == "lifting" then
     audio_manager:play_sound("hero/pickup") 
+  elseif current_state == "sword loading" then
+    audio_manager:play_sound("items/sword_charge") 
+  elseif current_state == "sword spin attack" then
+    audio_manager:play_sound("items/sword_spin") 
+  elseif current_state == "sword swinging" then
+    local index = math.random(1, 4)
+    audio_manager:play_sound("items/sword_slash" .. index) 
+  elseif current_state == "sword tapping" then
+    audio_manager:play_sound("items/sword_tap") 
+  elseif current_state == "hurt" then
+    audio_manager:play_sound("hero/hurt") 
+  elseif current_state == "falling" then
+    audio_manager:play_sound("hero/fall") 
   end
   -- Previous states
   if hero.previous_state == "carrying" then

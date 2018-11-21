@@ -1,12 +1,15 @@
 -- Sword
 local item = ...
 local game = item:get_game()
+require("scripts/multi_events")
+
 
 function item:on_created()
 
   self:set_savegame_variable("possession_sword")
   self:set_brandish_when_picked(false)
   self:set_shadow(nil)
+  
 end
 
 function item:on_variant_changed(variant)

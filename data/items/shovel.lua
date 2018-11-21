@@ -2,6 +2,8 @@
 local item = ...
 local game = item:get_game()
 
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
 require("scripts/multi_events")
 
 local map_meta = sol.main.get_metatable("map")
@@ -23,14 +25,14 @@ function item:on_using()
   local dig_indexes = item:test_dig()
   if dig_indexes == nil then
     -- No digging possible here.
-    audio_manager:play_sound("sword_tapping")
+    audio_manager:play_sound("items/sword_tap")
     hero:set_animation("shovel_fail", function()
       hero:unfreeze()
     end)
 
   else
     -- Digging here is allowed.
-    audio_manager:play_sound("dig")
+    audio_manager:play_sound("items/shovel_dig")
     hero:set_animation("shovel", function()
       hero:unfreeze()
     end)
