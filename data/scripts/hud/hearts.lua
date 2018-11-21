@@ -1,5 +1,7 @@
 -- Hearts view used in game screen and in the savegames selection screen.
 
+local audio_manager = require("scripts/audio_manager")
+
 local hearts_builder = {}
 
 function hearts_builder:new(game, config)

@@ -1,19 +1,28 @@
 local submenu = require("scripts/menus/pause_submenu")
 local audio_manager = require("scripts/audio_manager")
+
 local map_submenu = submenu:new()
 
 function map_submenu:on_started()
 
+  -- Call parent.
   submenu.on_started(self)
+      
+  -- Set title
+  self:set_title(sol.language.get_string("map.title"))
 
-  self.map_surface = sol.surface.create(320, 256)
-  self.map_surface:clear()
+  -- Build map according to the hero's position.
   self.dungeon = self.game:get_dungeon()
-  self.dungeon_index = self.game:get_dungeon_index()
   if self.dungeon then
-     self:build_dungeon_map()
+    -- The hero is inside a dungeon.
+    self.dungeon_index = self.game:get_dungeon_index()
+    self:build_dungeon_map()
   else
+    -- The hero is on the world map.
     self:build_world_map()
+    -- Get the previously saved cursor_position
+    local cursor_x, cursor_y = self.game:get_value("pause_submenu_map_world_x"), self.game:get_value("pause_submenu_map_world_y")
+    self:set_world_map_cursor_position(cursor_x, cursor_y)
   end
  
 end
@@ -25,23 +34,30 @@ function map_submenu:on_draw(dst_surface)
   
   -- Draw caption.
   self:draw_caption(dst_surface)
-  
-  self.map_surface:draw(dst_surface, 0, 0)
-  
+    
   -- Draw map.
   if self.dungeon then
-     self:draw_dungeon_map(self.map_surface)
+     self:draw_dungeon_map(dst_surface)
   else
-    self:draw_world_map(self.map_surface)
+    self:draw_world_map(dst_surface)
   end
-  
-  -- Draw save dialog if necessary/
-  self:draw_save_dialog_if_any(dst_surface)
 
 end
 
 function map_submenu:on_finished()
-
+  if self.dungeon then
+    -- TODO save floor.
+  else
+    -- Save cursor pos.
+    if self.game then
+      if self.world_map_cursor_x ~= -1 then
+        self.game:set_value("pause_submenu_map_world_x", self.world_map_cursor_x)
+      end
+      if self.world_map_cursor_y ~= -1 then
+        self.game:set_value("pause_submenu_map_world_y", self.world_map_cursor_y)
+      end
+    end
+  end
 end
 
 function map_submenu:on_command_pressed(command)
@@ -49,62 +65,151 @@ function map_submenu:on_command_pressed(command)
   local handled = submenu.on_command_pressed(self, command)
 
   if not handled then
-    if command == "action" then
-      if self.game:get_command_effect("action") == nil and self.game:get_custom_command_effect("action") == "info" then
-        self:show_info_message()
-        handled = true
-      end
-    elseif command == "left" then
-        self:previous_submenu()
-        handled = true
-    elseif command == "right" then
-        self:next_submenu()
-        handled = true
-    elseif command == "up" or command == "down" then
-      if self.game:is_in_dungeon() then
-        local new_selected_floor
-        if command == "up" then
-          new_selected_floor = self.selected_floor + 1
-        else
-          new_selected_floor = self.selected_floor - 1
-        end
-        
-        if new_selected_floor >= self.dungeon.lowest_floor and new_selected_floor <= self.dungeon.highest_floor then
-          -- The new floor is valid.
-          audio_manager:play_sound("menus/menu_cursor")
-          self.sprite_hero_head:set_frame(0)
-          self.selected_floor = new_selected_floor
-          self:load_dungeon_map_image()
-          if self.selected_floor <= self.highest_floor_displayed - 7 then
-            self.highest_floor_displayed = self.highest_floor_displayed - 1
-          elseif self.selected_floor > self.highest_floor_displayed then
-            self.highest_floor_displayed = self.highest_floor_displayed + 1
-          end
-
-        end
-      end
-      handled = true
+    if self.dungeon then
+      handled = self:dungeon_map_on_command_pressed(command)
+    else
+      handled = self:world_map_on_command_pressed(command)
     end
   end
 
   return handled
 end
 
+---------------
+-- World map --
+---------------
+
 function map_submenu:build_world_map()
 
-  self.pause_menu_background_img = sol.surface.create("menus/pause_menu_world_background.png")
-  self.pause_menu_world_map_img = sol.surface.create("menus/pause_menu_world_map.png")
-  self.pause_menu_world_map_zone = sol.surface.create("menus/pause_menu_world_map_zone.png")
-  self.pause_menu_world_map_zone_position = sol.surface.create("menus/pause_menu_world_map_zone_position.png")
-  self.pause_menu_world_map_grid = sol.surface.create("menus/pause_menu_world_map_grid.png")
+  self.world_map_bg = sol.surface.create("menus/pause/map/world/world_map_background.png")
+  self.world_map = sol.surface.create("menus/pause/map/world/world_map.png")
+  self.world_map_fog = sol.surface.create("menus/pause/map/world/world_map_fog.png")
+  self.world_map_grid = sol.surface.create("menus/pause/map/world/world_map_grid.png")
+  self.world_map_letters = sol.surface.create("menus/pause/map/world/world_map_letters.png")
+  self.world_map_numbers = sol.surface.create("menus/pause/map/world/world_map_numbers.png")
+  self.world_map_hero = sol.sprite.create("menus/pause/map/world/world_map_hero")
+  self.world_map_cursor = sol.sprite.create("menus/pause/map/world/world_map_cursor")
+  self:set_world_map_cursor_position(0, 0)
 
 end
+
+function map_submenu:draw_world_map(dst_surface)
+
+  local width, height = dst_surface:get_size()
+  local center_x = width / 2
+  local center_y = height / 2
+  local menu_x, menu_y = center_x - self.width / 2, center_y - self.height / 2
+
+  -- Background.
+  local world_map_bg_w, world_map_bg_h = self.world_map_bg:get_size() 
+  local world_map_bg_x, world_map_bg_y = menu_x + (self.width - world_map_bg_w) / 2, menu_y + (self.height - world_map_bg_h) / 2 + 6
+  self.world_map_bg:draw(dst_surface, world_map_bg_x, world_map_bg_y)
+  
+  -- Full map.
+  local world_map_w, world_map_h = self.world_map:get_size()
+  local world_map_x, world_map_y = world_map_bg_x + (world_map_bg_w - world_map_w) / 2, world_map_bg_y + 10
+  self.world_map:draw(dst_surface, world_map_x, world_map_y)
+
+  -- Fog (hide places where the player has not been yet).
+  local fog_w, fog_h = self.world_map_fog:get_size()
+  local fog_x, fog_y = world_map_x, world_map_y
+  for i = 0, 15 do
+    local fog_x = world_map_x
+    for j = 0, 15 do
+      local save_map_discovering = self.game:get_value('map_discovering_'..(j)..'_'..(i))
+      if save_map_discovering == nil then
+        self.world_map_fog:draw(dst_surface, fog_x, fog_y)
+      end
+      fog_x = fog_x + fog_w - 1
+    end
+    fog_y = fog_y + fog_h - 1
+  end    
+
+  -- Grid.
+  self.world_map_grid:draw(dst_surface, world_map_x, world_map_y)
+  self.world_map_letters:draw(dst_surface, world_map_x, world_map_y - 9)
+  self.world_map_numbers:draw(dst_surface, world_map_x - 9, world_map_y)
+
+  -- Hero position.
+  local map_hero_position_x, map_hero_position_y = self.game:get_value("map_hero_position_x"), self.game:get_value("map_hero_position_y")
+  if map_hero_position_x ~= nil and map_hero_position_y ~= nil then
+    local x = world_map_x + map_hero_position_x * 8
+    local y = world_map_y + map_hero_position_y * 8
+    self.world_map_hero:draw(dst_surface, x, y)
+  end
+
+  -- Cursor.
+  if not self.dialog_opened then
+    local cursor_x, cursor_y = world_map_x + self.world_map_cursor_x * 8, world_map_y + self.world_map_cursor_y * 8
+    self.world_map_cursor:draw(dst_surface, cursor_x, cursor_y)
+  end
+end
+
+function map_submenu:world_map_on_command_pressed(command)
+  local handled = false
+
+  if command == "left" then
+    handled = true
+    if self.world_map_cursor_x <= 0 then
+      self:previous_submenu()      
+    else
+      audio_manager:play_sound("menus/menu_cursor")
+      self:set_world_map_cursor_position(self.world_map_cursor_x - 1, self.world_map_cursor_y)
+    end
+  elseif command == "right" then
+    handled = true
+    if self.world_map_cursor_x >= 16 - 1 then
+      self:next_submenu()      
+    else
+      audio_manager:play_sound("menus/menu_cursor")
+      self:set_world_map_cursor_position(self.world_map_cursor_x + 1, self.world_map_cursor_y)
+    end  
+  elseif command == "up" then
+    handled = true
+    audio_manager:play_sound("menus/menu_cursor")
+    self:set_world_map_cursor_position(self.world_map_cursor_x, (self.world_map_cursor_y - 1) % 16)
+  elseif command == "down" then
+    handled = true
+    audio_manager:play_sound("menus/menu_cursor")
+    self:set_world_map_cursor_position(self.world_map_cursor_x, (self.world_map_cursor_y + 1) % 16)
+  end
+
+  return handled
+end
+
+function map_submenu:set_world_map_cursor_position(cursor_x, cursor_y)
+  -- Ensure values are correct.
+  if not cursor_x then
+    cursor_x = 0
+  end
+  if not cursor_y then
+    cursor_y = 0
+  end
+  self.world_map_cursor_x = cursor_x % 16
+  self.world_map_cursor_y = cursor_y % 16
+  
+  -- Restart cursor animation.
+  self.world_map_cursor:set_animation("normal")
+  
+  -- Change the action icon.
+  self.game:set_custom_command_effect("action", nil)
+  
+  -- Caption.
+  local letter = 'A'
+  letter = string.char(letter:byte() + self.world_map_cursor_x)
+  local caption_text = letter..(self.world_map_cursor_y + 1)
+  self:set_caption(caption_text)
+end
+
+-----------------
+-- Dungeon map --
+-----------------
 
 function map_submenu:build_dungeon_map()
 
     local width, height = sol.video.get_quest_size()
     local center_x, center_y = width / 2, height / 2
-    self.pause_menu_background_img = sol.surface.create("menus/pause_menu_dungeon_background.png")
+    self.dungeon_map_bg = sol.surface.create("menus/pause/map/dungeon/dungeon_background.png")
     self.sprite_map  = sol.sprite.create("entities/items")
     self.sprite_map:set_animation("map")
     self.sprite_compass  = sol.sprite.create("entities/items")
@@ -113,12 +218,12 @@ function map_submenu:build_dungeon_map()
     self.sprite_boss_key:set_animation("boss_key")
     self.sprite_beak_of_stone  = sol.sprite.create("entities/items")
     self.sprite_beak_of_stone:set_animation("beak_of_stone")
-    self.sprite_hero_head  = sol.sprite.create("menus/hero_head")
-    self.boss_icon_img = sol.surface.create("menus/boss_icon.png")
-    self.chest_icon_img = sol.surface.create("menus/chest_icon.png")
-    self.up_arrow_sprite = sol.sprite.create("menus/arrow")
+    self.sprite_hero_head  = sol.sprite.create("menus/pause/map/dungeon/hero_head")
+    self.boss_icon_img = sol.surface.create("menus/pause/map/dungeon/boss_icon.png")
+    self.chest_icon_img = sol.surface.create("menus/pause/map/dungeon/chest_icon.png")
+    self.up_arrow_sprite = sol.sprite.create("menus/pause/arrow")
     self.up_arrow_sprite:set_direction(1)
-    self.down_arrow_sprite = sol.sprite.create("menus/arrow")
+    self.down_arrow_sprite = sol.sprite.create("menus/pause/arrow")
     self.down_arrow_sprite:set_direction(3)
     self.floors_img = sol.surface.create("floors.png", true)
     self.floors_img:set_xy(center_x - 160, center_y - 120)
@@ -152,83 +257,64 @@ function map_submenu:build_dungeon_map()
   self.rooms_no_map_compass_sprite = sol.sprite.create("menus/dungeon_maps/map_" .. self.dungeon_index .. "_no_map_compass")
 end
 
-function map_submenu:draw_world_map(dst_surface)
-
-  local x = 97
-  local y = 70
-  self.pause_menu_world_map_img:draw(dst_surface, x, y)
-  for i = 0, 15 do
-    local x = 97
-    for j = 0, 15 do
-      local save_map_discovering = self.game:get_value('map_discovering_'..(j)..'_'..(i))
-      if save_map_discovering == nil then
-        self.pause_menu_world_map_zone:draw(dst_surface, x, y)
-      end
-      x = x + 8
-    end
-    y = y + 8
-  end
-  self.pause_menu_world_map_grid:draw_region(0, 0, 128, 128, self.map_surface, 97, 70) 
-  local map_hero_position_x = self.game:get_value("map_hero_position_x")
-  local map_hero_position_y = self.game:get_value("map_hero_position_y")
-  if (map_hero_position_x ~= nil and map_hero_position_y ~= nil) then
-    local x = 97 + map_hero_position_x * 8
-    local y = 70 + map_hero_position_y * 8
-    self.pause_menu_world_map_zone_position:draw(dst_surface, x, y)
-  end
-  self.pause_menu_background_img:draw(dst_surface)
-
-end
-
 function map_submenu:draw_dungeon_map(dst_surface)
 
-  -- Draw dungeon background frames.
   local width, height = dst_surface:get_size()
   local center_x, center_y = width / 2, height / 2
-  self.pause_menu_background_img:draw(dst_surface, center_x - 110, center_y - 59)
+  local menu_x, menu_y = center_x - self.width / 2, center_y - self.height / 2
   
+  -- Background.
+  local dungeon_map_bg_w, dungeon_map_bg_h = self.dungeon_map_bg:get_size() 
+  local dungeon_map_bg_x, dungeon_map_bg_y = menu_x + (self.width - dungeon_map_bg_w) / 2, menu_y + (self.height - dungeon_map_bg_h) / 2 + 9
+  self.dungeon_map_bg:draw(dst_surface, dungeon_map_bg_x, dungeon_map_bg_y)
+
   -- Draw items.
-  self:draw_dungeon_map_items(dst_surface)
+  local items_x, items_y = dungeon_map_bg_x, dungeon_map_bg_y + dungeon_map_bg_h - 28
+  self:draw_dungeon_map_items(dst_surface, items_x, items_y)
   
   -- Draw floors.
-  self:draw_dungeon_map_floors(dst_surface)
+  local floors_x, floors_y = menu_x + 64, menu_y + 60
+  self:draw_dungeon_map_floors(dst_surface, floors_x, floors_y)
   
   -- Draw rooms.
-  self:draw_dungeon_map_rooms(dst_surface)
-
+  local rooms_x, rooms_y = menu_x + 142, menu_y + 64
+  self:draw_dungeon_map_rooms(dst_surface, rooms_x, rooms_y)
 end
 
-function map_submenu:draw_dungeon_map_items(dst_surface)
+function map_submenu:draw_dungeon_map_items(dst_surface, items_x, items_y)
 
-  local items_y = 188
-  local items_x = 63
-
+  items_x = items_x + 12
+  items_y = items_y + 18
+  local item_count = 4
+  local item_width = 16
+  local item_spacing = (80 - item_count * item_width) / (item_count - 1)
+  
   if self.game:has_dungeon_map() then
     self.sprite_map:draw(dst_surface, items_x, items_y)
   end
   if self.game:has_dungeon_compass() then
-    self.sprite_compass:draw(dst_surface, items_x + 20, items_y)
+    self.sprite_compass:draw(dst_surface, items_x + item_width + item_spacing, items_y)
   end
   if self.game:has_dungeon_boss_key() then
-    self.sprite_boss_key:draw(dst_surface, items_x + 40, items_y)
+    self.sprite_boss_key:draw(dst_surface, items_x + 2 * (item_width + item_spacing), items_y)
   end
   if self.game:has_dungeon_beak_of_stone() then
-    self.sprite_beak_of_stone:draw(dst_surface, items_x + 58, items_y)
+    self.sprite_beak_of_stone:draw(dst_surface, items_x + 3 * (item_width + item_spacing), items_y)
   end
 
 end
 
-function map_submenu:draw_dungeon_map_floors(dst_surface)
+function map_submenu:draw_dungeon_map_floors(dst_surface, floors_x, floors_y)
 
+  -- Draw all the floors.
   local src_x = 96
   local src_y = (15 - self.highest_floor_displayed) * 12
   local src_width = 32
   local src_height = self.nb_floors_displayed * 12 + 1
-  local dst_x = 77
-  local dst_y = 60 + (8 - self.nb_floors_displayed) * 6
+  local dst_x = floors_x + 17
+  local dst_y = floors_y + (8 - self.nb_floors_displayed) * 6
   local old_dst_y = dst_y
-  self.floors_img:draw_region(src_x, src_y, src_width, src_height,
-      dst_surface, dst_x, dst_y)
+  self.floors_img:draw_region(src_x, src_y, src_width, src_height, dst_surface, dst_x, dst_y)
 
   -- Draw the current floor with other colors.
   src_x = 64
@@ -236,13 +322,15 @@ function map_submenu:draw_dungeon_map_floors(dst_surface)
   src_height = 13
   dst_y = old_dst_y + (self.highest_floor_displayed - self.selected_floor) * 12
   self.floors_img:draw_region(src_x, src_y, src_width, src_height, dst_surface, dst_x, dst_y)
-  dst_x = 60
+  dst_x = floors_x
   dst_y = old_dst_y + (self.highest_floor_displayed - self.hero_floor) * 12 + 8
+
+  -- Draw the hero head beside the current floor.
   self.sprite_hero_head:draw(dst_surface, dst_x, dst_y)
 
 end
 
-function map_submenu:draw_dungeon_map_rooms(dst_surface)
+function map_submenu:draw_dungeon_map_rooms(dst_surface, rooms_x, rooms_y)
 
   self.rooms_surface:clear()
   if self.game:has_dungeon_map() then
@@ -286,20 +374,68 @@ function map_submenu:draw_dungeon_map_rooms(dst_surface)
   end
   local offsetX = 0
   local offsetY = 0
-  if self.dungeon.cols%2 ~= 0 then
+  if self.dungeon.cols % 2 ~= 0 then
     offsetX = (8 - self.dungeon.cols) * 8
   end
-  if self.dungeon.rows%2 ~= 0 then
+  if self.dungeon.rows % 2 ~= 0 then
     offsetY = (8 - self.dungeon.rows) * 8
   end
 
-   self.rooms_surface:draw(self.map_surface,  offsetX + 140,  offsetY + 70)
+   self.rooms_surface:draw(dst_surface,  offsetX + rooms_x,  offsetY + rooms_y)
+
+end
+
+function map_submenu:dungeon_map_on_command_pressed(command)
+  local handled = false
+
+  if command == "action" then
+    if self.game:get_command_effect("action") == nil and self.game:get_custom_command_effect("action") == "info" then
+      handled = true
+      self:show_info_message()
+    end
+  elseif command == "left" then
+    handled = true
+    self:previous_submenu()
+  elseif command == "right" then
+    handled = true
+    self:next_submenu()
+  elseif command == "up" or command == "down" then
+    handled = true
+    -- Navigate between floors.
+    local floor = command == "up" and self.selected_floor + 1 or self.selected_floor - 1
+    if floor >= self.dungeon.lowest_floor and floor <= self.dungeon.highest_floor then
+      -- The new floor is valid.
+      audio_manager:play_sound("menus/menu_cursor")
+      self:set_dungeon_floor(floor)
+    else
+      -- The new floor is invalid.
+      audio_manager:play_sound("menus/wrong")            
+    end
+  end
+
+  return handled
+end
+
+function map_submenu:set_dungeon_floor(floor)
+  -- Reset animation.
+  self.sprite_hero_head:set_frame(0)
+
+  -- Change the floor.
+  self.selected_floor = floor
+  self:load_dungeon_map_image()
+  
+  -- Other floors.
+  if self.selected_floor <= self.highest_floor_displayed - 7 then
+    self.highest_floor_displayed = self.highest_floor_displayed - 1
+  elseif self.selected_floor > self.highest_floor_displayed then
+    self.highest_floor_displayed = self.highest_floor_displayed + 1
+  end
 
 end
 
 -- Rebuilds the minimap of the current floor of the dungeon.
 function map_submenu:load_dungeon_map_image()
-
+  -- TODO
 end
 
 return map_submenu
