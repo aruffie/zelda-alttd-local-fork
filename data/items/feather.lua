@@ -1,3 +1,4 @@
+-- Variables
 local item = ...
 
 -- Include scripts
@@ -9,7 +10,7 @@ require("scripts/states/runjump")
 function item:on_created()
 
   item:set_savegame_variable("possession_feather")
-  item:set_sound_when_brandished("treasure_2")
+  item:set_sound_when_brandished(nil)
   item:set_assignable(true)
   --[[ Redefine event game.on_command_pressed.
   -- Avoids restarting hero animation when feather command is pressed

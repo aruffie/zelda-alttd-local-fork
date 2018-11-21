@@ -2077,22 +2077,33 @@ file{ path = "sounds/snes/enemies", author = "Nintendo", license = "Proprietary,
 file{ path = "sounds/snes/enemies/boss_hit.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/enemies/enemy_die.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/enemies/enemy_hit.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/enemies/laser.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/hero", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/hero/bound.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/hero/dying.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/hero/fall.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/hero/hurt.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/hero/jump.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/hero/land.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/hero/pickup.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/hero/rebound.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/hero/run.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/hero/shock.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/hero/throw.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
-file{ path = "sounds/snes/items", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/items", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/items/bomb_explode.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/items/boomerang.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/items/bow_arrow.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/items/fanfare_heart_container.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/items/fanfare_item.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/items/fanfare_item_extended.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/items/fire_rod.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/items/get_item.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/items/get_item2.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/items/get_rupee.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/items/get_sword.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/items/hookshot.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/items/magic_powder.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/items/shield.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/items/shovel_dig.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/items/sword_charge.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
@@ -2105,10 +2116,13 @@ file{ path = "sounds/snes/items/sword_tap.ogg", author = "Nintendo", license = "
 file{ path = "sounds/snes/items/sword_tap_bombable.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/menus", author = "Nintendo, Diarando, Zonzifleur", license = "Proprietary, Fair use, CC BY-SA 4.0" }
 file{ path = "sounds/snes/menus/menu_cursor.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/menus/menu_select.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/menus/pause_menu_close.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/menus/pause_menu_open.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/menus/solarus_logo.ogg", author = "Diarandor", license = "CC BY-SA 4.0" }
 file{ path = "sounds/snes/menus/solarus_team_logo.ogg", author = "Zonzifleur", license = "CC BY-SA 4.0" }
+file{ path = "sounds/snes/menus/text_done.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/menus/text_letter.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/splash.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/stairs_down_end.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/stairs_down_start.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }

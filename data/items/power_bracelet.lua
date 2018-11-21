@@ -7,7 +7,7 @@ local audio_manager = require("scripts/audio_manager")
 function item:on_created()
 
   self:set_savegame_variable("possession_power_bracelet")
-  self:set_sound_when_brandished("treasure_2")
+  self:set_sound_when_brandished(nil)
 
 end
 

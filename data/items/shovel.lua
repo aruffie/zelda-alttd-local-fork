@@ -1,12 +1,11 @@
--- Shovel
+-- Variables
 local item = ...
 local game = item:get_game()
+local map_meta = sol.main.get_metatable("map")
 
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
 require("scripts/multi_events")
-
-local map_meta = sol.main.get_metatable("map")
 
 function item:on_created()
 
@@ -205,6 +204,7 @@ function item:get_position_from_index(index)
   local i = math.floor(index / columns)
   local j = index % columns
   return j * 8, i * 8
+  
 end
 
 function map_meta:get_size_8()

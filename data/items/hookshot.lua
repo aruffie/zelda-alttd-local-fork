@@ -45,15 +45,25 @@
 -- his position is automatically adjusted to the last legal position along
 -- the way.
 
+-- Variables
 local item = ...
-
 local config = require("items/hookshot_config")
+
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
 
 function item:on_created()
 
   item:set_savegame_variable("possession_hookshot")
-  item:set_sound_when_brandished("treasure_2")
+  item:set_sound_when_brandished(nil)
   item:set_assignable(true)
+  
+end
+
+function item:on_obtaining()
+  
+  audio_manager:play_sound("items/fanfare_item_extended")
+        
 end
 
 -- Function called when the hero uses the hookshot item.
