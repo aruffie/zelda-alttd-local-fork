@@ -19,6 +19,9 @@ B) Implement unstable grounds for lava, prickles, holes, platforms, etc.
 --]]
 
 require("scripts/multi_events")
+
+local audio_manager = require("scripts/audio_manager")
+
 local map_meta = sol.main.get_metatable("map")
 map_meta.side_view = false
 
