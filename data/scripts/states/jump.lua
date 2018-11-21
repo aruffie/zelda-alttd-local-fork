@@ -17,7 +17,7 @@ local max_distance = 31 -- Max distance of jump in pixels.
 local jumping_speed = math.floor(1000 * max_distance / jump_duration)
 local sprites_info = {} -- Used to restore some properties when the state is changed.
 -- Sounds:
-local jumping_sound = "jump"
+local jumping_sound = "hero/jump"
 
 function hero_meta:is_jumping()
   return is_hero_jumping

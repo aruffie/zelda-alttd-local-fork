@@ -1,12 +1,13 @@
--- Octorok: shoots stones.
-
+-- Variables
 local enemy = ...
 
 local children = {}
-
 local can_shoot = true
 local position_x, position_y = enemy:get_position()
 local distance_max = 100
+
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
 
 function enemy:on_created()
 
@@ -49,7 +50,7 @@ local function shoot()
   sprite:set_animation("shooting")
   enemy:stop_movement()
   sol.timer.start(enemy, 300, function()
-    audio_manager:play_sound("stone")
+    audio_manager:play_sound("others/rock_shatter")
     local stone = enemy:create_enemy({
       breed = "octorok_stone",
       x = dxy[direction + 1][1],

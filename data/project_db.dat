@@ -1055,7 +1055,7 @@ sound{ id = "gb/others/beehive_fall", description = "Beehive fall" }
 sound{ id = "gb/others/beehive_poke1", description = "Beehive poke 1" }
 sound{ id = "gb/others/beehive_poke2", description = "Beehive poke 2" }
 sound{ id = "gb/others/bowwow", description = "Bowwow" }
-sound{ id = "gb/others/bush_cut", description = "Bus cut" }
+sound{ id = "gb/others/bush_cut", description = "Bush cut" }
 sound{ id = "gb/others/camera", description = "Camera" }
 sound{ id = "gb/others/chest_open", description = "Chest open" }
 sound{ id = "gb/others/cucco", description = "Cucco" }

@@ -1,15 +1,26 @@
 -- Initialize hero behavior specific to this quest.
 
-require("scripts/multi_events")
+-- Variables
 local hero_meta = sol.main.get_metatable("hero")
 
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
+require("scripts/multi_events")
+
 hero_meta:register_event("on_state_changed", function(hero)
+    
   local current_state = hero:get_state()
-  if hero.previous_state == "carrying" then
+  print(current_state)
+  if current_state == "lifting" then
+    audio_manager:play_sound("hero/pickup") 
+  end
+    if hero.previous_state == "carrying" then
     hero:notify_object_thrown()
   end
   hero.previous_state = current_state
+  
 end)
+
 hero_meta:register_event("notify_object_thrown", function() end)
 
 hero_meta:register_event("on_position_changed", function(hero)
