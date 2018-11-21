@@ -99,7 +99,7 @@ function item:on_using()
   if hero.is_jumping and hero:is_jumping() then return end
     
   -- Play shield sound.
-  audio_manager:play_sound("shield_brandish")
+  audio_manager:play_sound("items/shield")
 
   -- Freeze hero and save state.
   hero:set_using_shield(true)
