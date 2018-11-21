@@ -5,11 +5,14 @@ IMPORTANT:
 If an instance of unstable floor has a name entity_name, when the floor is destroyed we
 also destroy all other entities with the prefix: entity_name .. "_unstable_associate_"
 --]]
+-- variables
 local entity = ...
-
 local default_sprite_id = "entities/cave_hole"
-local break_sound = "explosion"
+local break_sound = "others/ground_crumble"
 local time_resistance = 800 -- The time it resists with hero above. In milliseconds.
+
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
 
 -- Event called when the custom entity is initialized.
 function entity:on_created()

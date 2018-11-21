@@ -41,7 +41,7 @@ either from the Editor, or in the script with:
   entity:set_property("unstable_floor", "true")
 
 --]]
-
+-- Variables
 local game_meta = sol.main.get_metatable("game")
 local map_meta = sol.main.get_metatable("map")
 local hero_meta = sol.main.get_metatable("hero")

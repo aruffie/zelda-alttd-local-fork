@@ -11,6 +11,7 @@ require("scripts/multi_events")
 
 hero_meta:register_event("on_state_changed", function(hero)
     
+  local game = hero:get_game()
   local current_state = hero:get_state()
   -- Sounds
   if current_state == "lifting" then
@@ -53,7 +54,7 @@ hero_meta:register_event("on_state_changed", function(hero)
   elseif current_state == "frozen" then
     -- Frozen
     local entity = hero:get_facing_entity()
-    if entity ~= nil and entity:get_type() == "chest" then
+    if entity ~= nil and entity:get_type() == "chest" and game:is_command_pressed("action") then
       audio_manager:play_sound("others/chest_open")
     end
   elseif current_state == "free" then
