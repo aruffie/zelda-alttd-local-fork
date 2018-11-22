@@ -1,16 +1,21 @@
+-- Lua script of item "melody 2".
+-- This script is executed only once for the whole game.
+
 -- Variables
 local item = ...
 local game = item:get_game()
 
 require("scripts/multi_events")
 
-function item:on_started()
+-- Event called when the game is initialized.
+function item:on_created()
 
-  self:set_savegame_variable("possession_melody_2")
-  self:set_assignable(true)
+  item:set_savegame_variable("possession_melody_2")
+  item:set_assignable(true)
 
 end
 
+-- Event called when the hero is using this item.
 function item:on_using()
 
   local map = game:get_map()

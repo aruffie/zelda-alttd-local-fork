@@ -1,3 +1,6 @@
+-- Lua script of item "hammer".
+-- This script is executed only once for the whole game.
+
 -- Variables
 local item = ...
 local game = item:get_game()
@@ -5,6 +8,7 @@ local game = item:get_game()
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
 
+-- Event called when the game is initialized.
 function item:on_created()
 
   item:set_savegame_variable("possession_hammer")
@@ -20,6 +24,7 @@ function item:on_obtaining()
         
 end
 
+-- Event called when the hero is using this item.
 function item:on_using()
 
   local map = game:get_map()

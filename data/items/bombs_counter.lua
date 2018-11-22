@@ -1,9 +1,13 @@
+-- Lua script of item "bombs counter".
+-- This script is executed only once for the whole game.
+
 -- Variables
 local item = ...
 
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
 
+-- Event called when the game is initialized.
 function item:on_created()
 
   self:set_savegame_variable("possession_bombs_counter")
@@ -24,7 +28,7 @@ function item:on_using()
 
   if item:get_amount() == 0 then
     if sound_timer == nil then
-      audio_manager:play_sound("wrong")
+      audio_manager:play_sound("others/error")
       sound_timer = sol.timer.start(game, 500, function()
         sound_timer = nil
       end)

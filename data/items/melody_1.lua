@@ -1,15 +1,20 @@
+-- Lua script of item "melody 1".
+-- This script is executed only once for the whole game.
+
 -- Variables
 local item = ...
 local game = item:get_game()
 
-function item:on_started()
-
+-- Event called when the game is initialized.
+function item:on_created()
+  
   self:set_brandish_when_picked(false)
   self:set_savegame_variable("possession_melody_1")
   self:set_assignable(true)
 
 end
 
+-- Event called when the hero is using this item.
 function item:on_using()
 
   local map = game:get_map()

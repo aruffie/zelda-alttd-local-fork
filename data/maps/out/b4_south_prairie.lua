@@ -107,7 +107,7 @@ for sign in map:get_entities("sign_") do
       else
         game:set_value("wart_cave_start", nil)
         game:start_dialog("maps.out.south_prairie.surprise_error")
-        audio_manager:play_sound("wrong")
+        audio_manager:play_sound("others/error")
         next_sign = 1
       end
     else

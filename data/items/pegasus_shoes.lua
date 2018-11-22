@@ -1,3 +1,6 @@
+-- Lua script of item "pegasus shoes".
+-- This script is executed only once for the whole game.
+
 -- Variables
 local item = ...
 
@@ -6,6 +9,7 @@ local audio_manager = require("scripts/audio_manager")
 require("scripts/multi_events")
 require("scripts/states/run")
 
+-- Event called when the game is initialized.
 function item:on_created()
 
   self:set_savegame_variable("possession_pegasus_shoes")

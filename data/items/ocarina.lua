@@ -1,3 +1,6 @@
+-- Lua script of item "ocarina".
+-- This script is executed only once for the whole game.
+
 local item = ...
 local game = item:get_game()
 
@@ -9,7 +12,7 @@ function item:on_created()
   
 end
 
-
+-- Event called when the hero is using this item.
 function item:on_using()
 
   item:playing_song("items/ocarina")

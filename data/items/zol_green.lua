@@ -1,7 +1,11 @@
+-- Lua script of item "zol green".
+-- This script is executed only once for the whole game.
+
 -- Variables
 local item = ...
 local game = item:get_game()
 
+-- Event called when the game is initialized.
 function item:on_created()
 
   item:set_sound_when_brandished(nil)

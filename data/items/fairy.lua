@@ -1,9 +1,13 @@
+-- Lua script of item "fairy".
+-- This script is executed only once for the whole game.
+
 -- Variables
 local item = ...
 
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
 
+-- Event called when the game is initialized.
 function item:on_created()
 
   item:set_shadow(nil)
@@ -12,7 +16,8 @@ function item:on_created()
   
 end
 
--- A fairy appears on the map: create its movement.
+-- Event called when a pickable treasure representing this item
+-- is created on the map.
 function item:on_pickable_created(pickable)
 
   -- Create a movement that goes into random directions,

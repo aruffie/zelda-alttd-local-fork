@@ -619,7 +619,7 @@ function keyboardbox_menu:validate_cursor()
   -- Check if the key is a letter or a special key.
   local keyboard_layout = self:get_keyboard_layout()
   if keyboard_layout == nil then
-    audio_manager:play_sound("wrong")
+    audio_manager:play_sound("others/error")
     return
   end
 
@@ -645,7 +645,7 @@ function keyboardbox_menu:validate_cursor()
       -- Accepts this menu.
       self:accept()
     else
-      audio_manager:play_sound("wrong")
+      audio_manager:play_sound("others/error")
     end
   end
 
@@ -707,7 +707,7 @@ function keyboardbox_menu:add_letter(letter)
     audio_manager:play_sound("menus/menu_select")
   else
     self.textfield_cursor_sprite:set_frame(0)
-    audio_manager:play_sound("wrong")
+    audio_manager:play_sound("others/error")
   end
 
 end
@@ -807,7 +807,7 @@ function keyboardbox_menu:accept()
       end)
     end)
   else
-    audio_manager:play_sound("wrong")        
+    audio_manager:play_sound("others/error")
   end
 
 end

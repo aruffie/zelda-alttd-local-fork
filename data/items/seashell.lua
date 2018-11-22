@@ -1,9 +1,13 @@
+-- Lua script of item "seashell".
+-- This script is executed only once for the whole game.
+
 -- Variables
 local item = ...
 
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
 
+-- Event called when the game is initialized.
 function item:on_created()
   
   item:set_sound_when_brandished(nil)

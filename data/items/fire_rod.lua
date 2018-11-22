@@ -1,12 +1,17 @@
+-- Lua script of item "fire rod".
+-- This script is executed only once for the whole game.
+
 local item = ...
 local game = item:get_game()
-
 local magic_needed = 0  -- Number of magic points required.
 
+-- Event called when the game is initialized.
+function item:on_created()
 function item:on_created()
 
   item:set_savegame_variable("possession_fire_rod")
   item:set_assignable(true)
+  
 end
 
 -- Shoots some fire on the map.
@@ -36,8 +41,10 @@ function item:shoot()
   movement:set_angle(angle)
   movement:set_smooth(false)
   movement:start(fire)
+  
 end
 
+-- Event called when the hero is using this item.
 function item:on_using()
 
   local map = item:get_map()
@@ -77,6 +84,7 @@ function item:on_using()
     fire_rod:remove()
     item:set_finished()
   end)
+
 end
 
 -- Initialize the metatable of appropriate entities to work with the fire.
@@ -88,7 +96,6 @@ local function initialize_meta()
     -- Already done.
     return
   end
-
   enemy_meta.fire_reaction = 3  -- 3 life points by default.
   enemy_meta.fire_reaction_sprite = {}
   function enemy_meta:get_fire_reaction(sprite)
@@ -102,25 +109,32 @@ local function initialize_meta()
   function enemy_meta:set_fire_reaction(reaction, sprite)
 
     self.fire_reaction = reaction
+    
   end
 
   function enemy_meta:set_fire_reaction_sprite(sprite, reaction)
 
     self.fire_reaction_sprite[sprite] = reaction
+    
   end
 
   -- Change the default enemy:set_invincible() to also
   -- take into account the fire.
   local previous_set_invincible = enemy_meta.set_invincible
   function enemy_meta:set_invincible()
+    
     previous_set_invincible(self)
     self:set_fire_reaction("ignored")
+    
   end
   local previous_set_invincible_sprite = enemy_meta.set_invincible_sprite
   function enemy_meta:set_invincible_sprite(sprite)
+    
     previous_set_invincible_sprite(self, sprite)
     self:set_fire_reaction_sprite(sprite, "ignored")
+    
   end
 
 end
+
 initialize_meta()

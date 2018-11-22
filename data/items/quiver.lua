@@ -1,13 +1,20 @@
+-- Lua script of item "quiver".
+-- This script is executed only once for the whole game.
+
+-- Variables
 local item = ...
 
+-- Event called when the game is initialized.
 function item:on_created()
 
   self:set_savegame_variable("possession_quiver")
+  
 end
 
 function item:on_started()
 
   self:on_variant_changed(self:get_variant())
+  
 end
 
 function item:on_variant_changed(variant)
@@ -28,6 +35,7 @@ function item:on_variant_changed(variant)
     -- Unlock pickable arrows.
     arrow:set_obtainable(true)
   end
+  
 end
 
 function item:on_obtaining(variant, savegame_variable)
@@ -36,5 +44,6 @@ function item:on_obtaining(variant, savegame_variable)
     local bow = self:get_game():get_item("bow")
     bow:set_amount(bow:get_max_amount())
   end
+  
 end
 

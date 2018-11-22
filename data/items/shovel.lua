@@ -1,3 +1,6 @@
+-- Lua script of item "shovel".
+-- This script is executed only once for the whole game.
+
 -- Variables
 local item = ...
 local game = item:get_game()
@@ -7,6 +10,7 @@ local map_meta = sol.main.get_metatable("map")
 local audio_manager = require("scripts/audio_manager")
 require("scripts/multi_events")
 
+-- Event called when the game is initialized.
 function item:on_created()
 
   item:set_savegame_variable("possession_shovel")
@@ -14,6 +18,7 @@ function item:on_created()
 
 end
 
+-- Event called when the hero is using this item.
 function item:on_using()
 
   local game = item:get_game()
