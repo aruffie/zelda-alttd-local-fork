@@ -1156,6 +1156,7 @@ item{ id = "boomerang", description = "Boomerang" }
 item{ id = "boss_key", description = "Boss key" }
 item{ id = "bow", description = "Bow" }
 item{ id = "compass", description = "Compass" }
+item{ id = "console", description = "Console" }
 item{ id = "drug", description = "Drug" }
 item{ id = "face_key", description = "Face key" }
 item{ id = "fairy", description = "Fairy" }
@@ -1164,6 +1165,7 @@ item{ id = "fire_rod", description = "Fire rod" }
 item{ id = "flippers", description = "Flippers" }
 item{ id = "golden_leaf", description = "Golden leaf" }
 item{ id = "golden_leaves_counter", description = "Golden leafs counter" }
+item{ id = "guardian_acorn", description = "Guardian acorn" }
 item{ id = "hammer", description = "Hammer" }
 item{ id = "heart", description = "Heart" }
 item{ id = "heart_container", description = "Heart container" }
@@ -1189,6 +1191,7 @@ item{ id = "pegasus_shoes", description = "Pegasus shoes" }
 item{ id = "photo", description = "Photo" }
 item{ id = "photos_counter", description = "Photos counter" }
 item{ id = "piece_of_heart", description = "Piece of heart" }
+item{ id = "piece_of_power", description = "Piece of power" }
 item{ id = "power_bracelet", description = "Power bracelet" }
 item{ id = "quiver", description = "Quiver" }
 item{ id = "random", description = "Random" }
@@ -1362,6 +1365,7 @@ file{ path = "items/boomerang.lua", license = "GPL v3" }
 file{ path = "items/boss_key.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/bow.lua", license = "GPL v3" }
 file{ path = "items/compass.lua", license = "GPL v3" }
+file{ path = "items/console.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/drug.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/face_key.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/fairy.lua", license = "GPL v3" }
@@ -1370,6 +1374,7 @@ file{ path = "items/fire_rod.lua", license = "GPL v3" }
 file{ path = "items/flippers.lua", license = "GPL v3" }
 file{ path = "items/golden_leaf.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/golden_leaves_counter.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "items/guardian_acorn.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/hammer.lua", license = "GPL v3" }
 file{ path = "items/heart.lua", license = "GPL v3" }
 file{ path = "items/heart_container.lua", license = "GPL v3" }

@@ -7,7 +7,6 @@ local magic_needed = 0  -- Number of magic points required.
 
 -- Event called when the game is initialized.
 function item:on_created()
-function item:on_created()
 
   item:set_savegame_variable("possession_fire_rod")
   item:set_assignable(true)
