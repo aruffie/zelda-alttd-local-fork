@@ -1,13 +1,4 @@
--- Lua script of enemy buzz_blob.
--- This script is executed every time an enemy with this model is created.
-
--- Feel free to modify the code below.
--- You can add more events and remove the ones you don't need.
-
--- See the Solarus Lua API documentation for the full specification
--- of types, events and methods:
--- http://www.solarus-games.org/doc/latest
-
+-- Variables
 local enemy = ...
 local game = enemy:get_game()
 local map = enemy:get_map()
@@ -16,6 +7,9 @@ local hero_electric = false
 local effect_model = require("scripts/gfx_effects/electric")
 local sprite
 local movement
+
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
 require("scripts/multi_events")
 
 -- Event called when the enemy is initialized.
@@ -42,7 +36,6 @@ function enemy:on_restarted()
 
 end
 
-
 function enemy:on_custom_attack_received(attack)
 
   if attack == "sword" then
@@ -51,7 +44,7 @@ function enemy:on_custom_attack_received(attack)
     hero:get_sprite():set_ignore_suspend(true)
     game:set_suspended(true)
     sprite:set_animation("buzzing")
-    audio_manager:play_sound("shock")
+    audio_manager:play_sound("hero/shock")
     hero:set_animation("electrocute")
     effect_model.start_effect(surface, game, 'in', false)
     local camera = map:get_camera()

@@ -1,15 +1,15 @@
--- Vacuum cleaner: makes lava and holes become traversable ground.
+-- Variables
 local entity = ...
 local map = entity:get_map()
 local game = map:get_game()
 local hero = map:get_hero()
-
 local speed = 30 -- Change this for a different speed.
 local needs_destruction -- Destroy if "action" or "attack" commads are pressed.
 local next_direction
 local interaction_finished = false -- True if first interaction has finished (command released).
 local sprite = "entities/vacuum_cleaner_ground" -- [TODO: change default value]. Used to create ground sprites.
 
+-- Event called when the custom entity is initialized.
 function entity:on_created()
   self:set_traversable_by(false)
   self:set_can_traverse_ground("lava", true)

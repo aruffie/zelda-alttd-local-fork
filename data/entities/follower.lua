@@ -1,7 +1,5 @@
+-- Variable
 local follower = ...
-
-require("scripts/multi_events")
-
 local game = follower:get_game()
 local map = follower:get_map()
 local sprite = follower:get_sprite()
@@ -9,9 +7,8 @@ local hero = game:get_hero()
 local state = "following"
 local movement
 
-follower:set_optimization_distance(0)
-follower:set_drawn_in_y_order(true)
-follower:set_traversable_by(true)
+-- Include scripts
+require("scripts/multi_events")
 
 local function follow_hero()
 
@@ -63,8 +60,12 @@ function follower:is_very_close_to_hero()
   
 end
 
+-- Event called when the custom entity is initialized.
 follower:register_event("on_created", function()
     
+  follower:set_optimization_distance(0)
+  follower:set_drawn_in_y_order(true)
+  follower:set_traversable_by(true)
   follower:set_position(hero:get_position())
   follower:get_sprite():set_direction(hero:get_direction())
   follow_hero()

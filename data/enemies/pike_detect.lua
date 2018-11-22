@@ -1,10 +1,12 @@
+-- Variables
 local enemy = ...
-
 -- Pike that moves when the hero is close.
-
 local state = "stopped"  -- "stopped", "moving", "going_back" or "paused".
 local initial_xy = {}
 local activation_distance = 24
+
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
 
 function enemy:on_created()
 
@@ -104,7 +106,7 @@ function enemy:go_back()
     m:set_target(initial_xy.x, initial_xy.y)
     m:set_smooth(false)
     m:start(self)
-    audio_manager:play_sound("sword_tapping")
+    audio_manager:play_sound("items/sword_tap")
 
   elseif state == "going_back" then
 

@@ -1,14 +1,21 @@
--- Tunic
-local item = ...
-local game = item:get_game()
+-- Lua script of item "tunic".
+-- This script is executed only once for the whole game.
 
+-- Variables
+local item = ...
+
+-- Event called when the game is initialized.
 function item:on_created()
 
-  self:set_savegame_variable("possession_tunic")
+  item:set_savegame_variable("possession_tunic")
+  
 end
 
 function item:on_obtaining(variant)
 
+  local game = item:get_game()
+  -- Audio
+  audio_manager:play_sound("items/fanfare_item_extended")
   -- Give the built-in ability "tunic", but only after the treasure sequence is done.
   game:set_ability("tunic", variant)
   -- Update force and defense for the tunic.
@@ -25,5 +32,5 @@ function item:on_obtaining(variant)
     game:set_value("force_tunic", 2)
     game:set_value("defense_tunic", 1)
   end
-  audio_manager:play_sound("treasure")
+  
 end

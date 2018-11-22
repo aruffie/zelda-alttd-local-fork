@@ -17,7 +17,7 @@ end
 function language_manager:get_dialog_font(language)
 
   -- No font differences between languages (for now).
-  return "la", 11
+  return "Alttp", 8
 end
 
 -- Returns the font and font size to be used to display text in menus
@@ -25,7 +25,7 @@ end
 function language_manager:get_menu_font(language)
 
   -- No font differences between languages (for now).
-  return "minecraftia", 8
+  return "Alttp", 8
 end
 
 return language_manager

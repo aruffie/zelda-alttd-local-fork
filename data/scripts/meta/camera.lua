@@ -1,5 +1,6 @@
 -- Provides additional camera features for this quest.
 
+-- Variables
 local camera_meta = sol.main.get_metatable("camera")
 
 function camera_meta:shake(config, callback)

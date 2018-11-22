@@ -112,7 +112,7 @@ function map:tarin_search_honey()
   local tarin_sprite = tarin:get_sprite()
   tarin_sprite:set_ignore_suspend(true)
   tarin_sprite:set_animation("brandish")
-  audio_manager:play_sound("treasure")
+  audio_manager:play_sound("items/fanfare_item_extended")
   local baton_entity = map:create_custom_entity({
     name = "brandish_baton",
     sprite = "entities/items",
@@ -272,13 +272,13 @@ end
 -- Doors events
 function weak_door_1:on_opened()
   
-  audio_manager:play_sound("secret_1")
+  audio_manager:play_sound("others/secret1")
   
 end
 
 function weak_door_2:on_opened()
   
-  audio_manager:play_sound("secret_1")
+  audio_manager:play_sound("others/secret1")
 
 end
 
@@ -312,7 +312,7 @@ function dungeon_3_lock:on_interaction()
           speed = 90,
       }
       camera:shake(shake_config, function()
-        audio_manager:play_sound("secret_2")
+        audio_manager:play_sound("others/secret2")
         local sprite = dungeon_3_entrance:get_sprite()
         sprite:set_animation("opening")
         sol.timer.start(map, 800, function() 

@@ -1,3 +1,9 @@
-local obstacle = ...
+-- Variables
+local entity = ...
 
-obstacle:set_traversable_by(false)
+-- Event called when the custom entity is initialized.
+function entity:on_created()
+
+  entity:set_traversable_by(false)
+
+end

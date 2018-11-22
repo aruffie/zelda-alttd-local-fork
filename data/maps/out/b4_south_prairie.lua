@@ -77,7 +77,7 @@ end
 -- Doors events
 function weak_door_1:on_opened()
 
-  audio_manager:play_sound("secret_1")
+  audio_manager:play_sound("others/secret1")
 
 end
 
@@ -96,7 +96,7 @@ for sign in map:get_entities("sign_") do
         if next_sign and next_sign < 14 then
           game:start_dialog("maps.out.south_prairie.surprise_" .. directions[next_sign])
         elseif next_sign == 14 then
-          audio_manager:play_sound("secret_1")
+          audio_manager:play_sound("others/secret1")
           game:start_dialog("maps.out.south_prairie.surprise_success")
           game:set_value("wart_cave", true)
           for wart_cave in map:get_entities("wart_cave") do
@@ -107,7 +107,7 @@ for sign in map:get_entities("sign_") do
       else
         game:set_value("wart_cave_start", nil)
         game:start_dialog("maps.out.south_prairie.surprise_error")
-        audio_manager:play_sound("wrong")
+        audio_manager:play_sound("others/error")
         next_sign = 1
       end
     else

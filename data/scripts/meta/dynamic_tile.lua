@@ -1,5 +1,6 @@
 -- Initialize dynamic tile behavior specific to this quest.
 
+-- Variables
 local dynamic_tile_meta = sol.main.get_metatable("dynamic_tile")
 
 function dynamic_tile_meta:on_created()

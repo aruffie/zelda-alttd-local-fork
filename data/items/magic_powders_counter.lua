@@ -1,31 +1,40 @@
+-- Lua script of item "magic powders counter".
+-- This script is executed only once for the whole game.
+
+-- Variables
 local item = ...
 local game = item:get_game()
 
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
 
+-- Event called when the game is initialized.
 function item:on_created()
 
   self:set_savegame_variable("possession_magic_powders_counter")
   self:set_amount_savegame_variable("amount_magic_powders_counter")
   self:set_assignable(true)
+  
 end
 
 function item:on_obtaining(variant, savegame_variable)
 
-  self:set_max_amount(20)
-  self:set_amount(20)
-  --local item = game:get_item("mushroom")
-  --item:set_savegame_variable(nil)
+  -- Sound
+  audio_manager:play_sound("items/fanfare_item")
+  item:set_max_amount(20)
+  item:set_amount(20)
 
 end
 
+-- Event called when the hero is using this item.
 function item:on_using()
 
    local amount =   self:get_amount()
    amount = amount - 1
   if amount < 0 then
-    audio_manager:play_sound("wrong")
+    audio_manager:play_sound("others/error")
   else
-    audio_manager:play_sound("magic_powder")
+   audio_manager:play_sound("items/magic_powder")
    local map = game:get_map()
    local hero = map:get_hero()
    local x,y,layer = hero:get_position()

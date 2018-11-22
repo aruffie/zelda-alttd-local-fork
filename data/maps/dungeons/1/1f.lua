@@ -71,7 +71,7 @@ function weak_wall_A_1:on_opened()
 
   weak_wall_closed_A_1:remove();
   weak_wall_closed_A_2:remove();
-  audio_manager:play_sound("secret_1")
+  audio_manager:play_sound("others/secret1")
 
 end
 

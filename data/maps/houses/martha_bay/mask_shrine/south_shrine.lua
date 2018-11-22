@@ -31,7 +31,7 @@ end
 --BOSS
 if boss ~= nil then
  function boss:on_dead()
-  audio_manager:play_sound("secret_1") 
+  audio_manager:play_sound("others/secret1") 
   audio_manager:play_music("southern_shrine")
   map:open_doors("door_boss") 
  end

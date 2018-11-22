@@ -76,6 +76,7 @@ text{ key = "inventory.caption.item.tail_key.1", value = "Clé flagello" }
 text{ key = "inventory.caption.item.tunic.1", value = "Cotte de Mailles$verte" }
 text{ key = "inventory.caption.item.tunic.2", value = "Cotte de Mailles$bleue" }
 text{ key = "inventory.caption.item.tunic.3", value = "Cotte de Mailles$rouge" }
+text{ key = "inventory.title", value = "Inventaire" }
 text{ key = "map.caption.dungeon_name_1", value = "Cave Flagello" }
 text{ key = "map.caption.dungeon_name_10", value = "Précipice aquatique" }
 text{ key = "map.caption.dungeon_name_2", value = "Grotte du génie" }
@@ -87,6 +88,7 @@ text{ key = "map.caption.dungeon_name_7", value = "Tour du vautour" }
 text{ key = "map.caption.dungeon_name_8", value = "Roc de la tortue" }
 text{ key = "map.caption.dungeon_name_9", value = "Donjon des couleurs" }
 text{ key = "map.caption.world_map", value = "Carte de Cocolint" }
+text{ key = "map.title", value = "Carte" }
 text{ key = "messagebox.no", value = "Non" }
 text{ key = "messagebox.yes", value = "Oui" }
 text{ key = "options.caption.press_action_change_mode", value = "Appuyez sur Action$pour changer de mode" }
@@ -104,9 +106,11 @@ text{ key = "options.command.up", value = "Haut" }
 text{ key = "options.commands_column", value = "Commandes" }
 text{ key = "options.joypad_column", value = "Joypad" }
 text{ key = "options.keyboard_column", value = "Clavier" }
+text{ key = "options.title", value = "Options" }
 text{ key = "options.video.fullscreen", value = "Plein écran" }
 text{ key = "options.video.windowed", value = "Fenêtré" }
 text{ key = "quest_status.caption.pieces_of_heart", value = "Fragments de Coeur" }
+text{ key = "quest_status.title", value = "Statut Quête" }
 text{ key = "save_dialog.continue_question_0", value = "Voulez-vous continuer" }
 text{ key = "save_dialog.continue_question_1", value = "la partie ?" }
 text{ key = "save_dialog.no", value = "Non" }

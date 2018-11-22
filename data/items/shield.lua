@@ -1,3 +1,6 @@
+-- Lua script of item "shield".
+-- This script is executed only once for the whole game.
+
 --[[ Pushing commands for the shield:
 This is defined for entities of types: "hero", "enemy" and "sprite".
 Collisions with sprites of enemies override collisions with enemies.
@@ -45,14 +48,13 @@ enemy/sprite:set_default_behavior_on_hero_shield(behavior)
 -num_directions: 4 or "any".
 --]]
 
+-- Variables
 local item = ...
-require("scripts/pushing_manager")
 local audio_manager = require("scripts/audio_manager")
 local enemy_meta = sol.main.get_metatable("enemy")
 local hero_meta = sol.main.get_metatable("hero")
 local sprite_meta = sol.main.get_metatable("sprite")
 local game = item:get_game()
-
 local direction_fix_enabled = true
 local shield_state -- Values: "preparing", "using".
 local shield_command_released
@@ -65,10 +67,16 @@ local block_sound_id = "shield2"
 local strong_sound_id = "shield"
 local weak_sound_id = "shield_push"
 
+local audio_manager = require("scripts/audio_manager")
+require("scripts/pushing_manager")
+
+-- Event called when the game is initialized.
 function item:on_created()
+  
   self:set_savegame_variable("possession_shield")
   self:on_variant_changed(self:get_variant())
   self:set_sound_when_brandished(nil)
+  
 end
 
 function item:on_variant_changed(variant)
@@ -82,7 +90,7 @@ function item:on_obtaining()
         
 end
 
--- Program custom shield.
+-- Event called when the hero is using this item.
 function item:on_using()
   local map = self:get_map()
   local hero = game:get_hero()
@@ -97,7 +105,7 @@ function item:on_using()
   if hero.is_jumping and hero:is_jumping() then return end
     
   -- Play shield sound.
-  audio_manager:play_sound("shield_brandish")
+  audio_manager:play_sound("items/shield")
 
   -- Freeze hero and save state.
   hero:set_using_shield(true)

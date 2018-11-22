@@ -1,5 +1,7 @@
 -- Title screen with an animation before the logo appears.
 
+local audio_manager = require("scripts/audio_manager")
+
 local introduction_screen = {}
 
 function introduction_screen:on_started()

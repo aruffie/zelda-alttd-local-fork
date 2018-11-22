@@ -1,5 +1,8 @@
 local fairy_manager = {}
 
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
+
 -- Launch fairy if hero is injured
 function fairy_manager:launch_fairy_if_hero_not_max_life(map, fairy_name, music_name)
 
@@ -75,7 +78,7 @@ function fairy_manager:create_hearts(map, index, fairy_name, hearts, music_name)
                 direction = 0
               })
               index = index + 1
-              audio_manager:play_sound("fairy_heal")
+              audio_manager:play_sound("others/great_fairy_heal")
               fairy_manager:create_hearts(map, index, fairy_name, hearts, music_name)
             else
               fairy_manager:animate_hearts(map, fairy_name, hearts, music_name)
@@ -145,13 +148,13 @@ function fairy_manager:get_life_and_disappear(map, fairy_name, hearts, music_nam
     heart:remove()
   end
   game:add_life(max_life)
-  audio_manager:play_sound("fairy_vanish")
+  audio_manager:play_sound("others/great_fairy_vanish")
   fairy:get_sprite():fade_out(100, function()
     local options = {
       entities_ignore_suspend = {fairy}
     }
     map:set_cinematic_mode(false, options)
-    audio_manager:play_music(music_name)
+    sol.audio.play_music(music_name)
   end)
         
 end
@@ -160,8 +163,8 @@ end
 -- Init fairy
 function fairy_manager:init_map(map, fairy_name)
 
-    local fairy = map:get_entity(fairy_name)
-    fairy:set_enabled(false)
+  local fairy = map:get_entity(fairy_name)
+  fairy:set_enabled(false)
         
 end
 

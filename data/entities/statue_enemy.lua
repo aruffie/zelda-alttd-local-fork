@@ -1,5 +1,4 @@
--- An entity the hookshot can attach to.
--- To be used with the scripted hookshot item.
+-- Variables
 local entity = ...
 local game = entity:get_game()
 local map = game:get_map()
@@ -24,7 +23,7 @@ function entity:on_created()
       })
       local sprite_stones = stones:get_sprite()
       sprite_stones:set_animation("destroyed")
-      audio_manager:play_sound("secret_1")
+      audio_manager:play_sound("others/secret1")
       entity:remove()
       function sprite_stones:on_animation_finished(animation)
         if animation == "destroyed" then

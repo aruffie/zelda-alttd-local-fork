@@ -214,7 +214,7 @@ function map:launch_cinematic_1()
     wait(500)
 
     hero:set_enabled(true)
-    audio_manager:play_sound("hero/jump")
+    audio_manager:play_sound("hero/land")
     bed:get_sprite():set_animation("empty_open")
     bed:set_layer(0)
     hero:set_animation("jumping")

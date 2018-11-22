@@ -1,3 +1,6 @@
+-- Lua script of item "hookshot".
+-- This script is executed only once for the whole game.
+
 -- Hookshot similar to the one of Zelda A Link to the Past.
 -- Author: Christopho
 --
@@ -45,15 +48,26 @@
 -- his position is automatically adjusted to the last legal position along
 -- the way.
 
+-- Variables
 local item = ...
+local config = require("items/lib/hookshot_config")
 
-local config = require("items/hookshot_config")
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
 
+-- Event called when the game is initialized.
 function item:on_created()
 
   item:set_savegame_variable("possession_hookshot")
-  item:set_sound_when_brandished("treasure_2")
+  item:set_sound_when_brandished(nil)
   item:set_assignable(true)
+  
+end
+
+function item:on_obtaining()
+  
+  audio_manager:play_sound("items/fanfare_item_extended")
+        
 end
 
 -- Function called when the hero uses the hookshot item.
@@ -74,7 +88,6 @@ function item:on_using()
   local hooked_entity
   local hooked
   local leader
-
   local go
   local go_back
   local hook_to_entity

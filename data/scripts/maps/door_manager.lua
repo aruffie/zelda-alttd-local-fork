@@ -14,7 +14,7 @@ function door_manager:open_when_enemies_dead(map, enemy_prefix, door_prefix, sou
     if not map:has_entities(enemy_prefix) then
         map:open_doors(door_prefix)
         if sound then
-          audio_manager:play_sound("secret_1")
+          audio_manager:play_sound("others/secret1")
         end
    end
   end
@@ -37,7 +37,7 @@ function door_manager:open_when_flying_tiles_dead(map, enemy_prefix, door_prefix
      end
      if open_door then
         map:open_doors(door_prefix)
-        audio_manager:play_sound("secret_1")
+        audio_manager:play_sound("others/secret1")
      end
   end
    for enemy in map:get_entities(enemy_prefix) do
@@ -93,7 +93,7 @@ function door_manager:open_when_blocks_moved(map, block_prefix, door_prefix)
     remaining = remaining - 1
     if remaining == 0 then
         map:open_doors(door_prefix)
-        audio_manager:play_sound("secret_1")
+        audio_manager:play_sound("others/secret1")
    end
   end
   for block in map:get_entities(block_prefix) do
@@ -109,7 +109,7 @@ function door_manager:open_when_switch_activated(map, switch_prefix, door_prefix
     if not switch.is_activated then
       switch.is_activated = true
       map:open_doors(door_prefix)
-      audio_manager:play_sound("secret_1")
+      audio_manager:play_sound("others/secret1")
     end
    end
   for switch in map:get_entities(switch_prefix) do
@@ -126,7 +126,7 @@ function door_manager:open_when_block_moved(map, block_prefix, door_prefix)
     if not block.is_moved then
       block.is_moved = true
       map:open_doors(door_prefix)
-      audio_manager:play_sound("secret_1")
+      audio_manager:play_sound("others/secret1")
     end
    end
   for block in map:get_entities(block_prefix) do
@@ -143,7 +143,7 @@ function door_manager:open_when_pot_break(map, door_prefix)
   detect_entity:add_collision_test("touching", function(entity_source, entity_dest)
     if entity_dest:get_type() == "carried_object" then
         map:open_doors(door_prefix)
-        audio_manager:play_sound("secret_1")
+        audio_manager:play_sound("others/secret1")
     end
   end)
 
@@ -157,7 +157,7 @@ function door_manager:destroy_wall(map, weak_wall_prefix)
   if game:get_value("dungeon_" .. dungeon .. "_" .. weak_wall_prefix) == nil then
     game:set_value("dungeon_" .. dungeon .. "_" .. weak_wall_prefix, true)
     map:remove_entities(weak_wall_prefix)
-    audio_manager:play_sound("secret_1")
+    audio_manager:play_sound("others/secret1")
   end
 
 end
@@ -189,7 +189,7 @@ function door_manager:open_when_torches_lit(map, torch_prefix, door_prefix)
       remaining = remaining - 1
       if remaining == 0 then
         map:open_doors(door_prefix)
-        audio_manager:play_sound("secret_1")
+        audio_manager:play_sound("others/secret1")
       end
     end
   end
@@ -203,7 +203,7 @@ function door_manager:open_when_torches_lit(map, torch_prefix, door_prefix)
   end
   if has_torches and remaining == 0 then
     -- All torches of this door are already lit.
-        audio_manager:play_sound("secret_1")
+        audio_manager:play_sound("others/secret1")
         map:open_doors(door_prefix)
   end
 end

@@ -1,15 +1,87 @@
 -- Initialize hero behavior specific to this quest.
 
-require("scripts/multi_events")
+-- Variables
 local hero_meta = sol.main.get_metatable("hero")
 
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
+local timer_sword_loading = nil
+local timer_sword_tapping = nil
+require("scripts/multi_events")
+
 hero_meta:register_event("on_state_changed", function(hero)
+    
+  local game = hero:get_game()
   local current_state = hero:get_state()
+  -- Sounds
+  if current_state == "lifting" then
+    audio_manager:play_sound("hero/pickup") 
+  elseif current_state == "sword loading" then
+    timer_sword_loading = sol.timer.start(hero, 1000, function()
+      audio_manager:play_sound("items/sword_charge") 
+    end)
+  elseif current_state == "sword spin attack" then
+    -- Sword spin attack
+    audio_manager:play_sound("items/sword_spin") 
+  elseif current_state == "sword swinging" then
+    -- Sword swinging
+    local index = math.random(1, 4)
+    audio_manager:play_sound("items/sword_slash" .. index) 
+  elseif current_state == "sword tapping" then
+    if timer_sword_tapping == nil then
+      timer_sword_tapping = sol.timer.start(hero, 250, function()
+        local sound_sword = false
+        local entity = hero:get_facing_entity()
+        if entity ~= nil and entity:get_type() == "door" then
+          sound_sword = entity:get_property("sound_sword")          
+        end
+        if sound_sword then
+          audio_manager:play_sound("items/sword_tap_bombable")
+        else
+          audio_manager:play_sound("items/sword_tap") 
+        end
+        return true
+      end)
+    end
+  elseif current_state == "hurt" then
+    -- Hurt
+    audio_manager:play_sound("hero/hurt") 
+  elseif current_state == "falling" then
+    -- Falling
+    audio_manager:play_sound("hero/fall") 
+  elseif current_state == "jumping" then
+    audio_manager:play_sound("hero/throw")
+  elseif current_state == "frozen" then
+    -- Frozen
+    local entity = hero:get_facing_entity()
+    if entity ~= nil and entity:get_type() == "chest" and game:is_command_pressed("action") then
+      audio_manager:play_sound("others/chest_open")
+    end
+  elseif current_state == "free" then
+    -- Throw
+    if hero.previous_state == "carrying" then
+      audio_manager:play_sound("hero/throw")
+    end
+    
+  end
+  -- Reset timer sword loading
+  if current_state ~= "sword loading" and timer_sword_loading ~= nil then
+    timer_sword_loading:stop()
+    timer_sword_loading = nil
+  end
+  -- Reset timer sword tapping
+  if current_state ~= "sword tapping" and timer_sword_tapping ~= nil then
+    timer_sword_tapping:stop()
+    timer_sword_tapping = nil
+  end  
+  -- Previous states
   if hero.previous_state == "carrying" then
     hero:notify_object_thrown()
   end
   hero.previous_state = current_state
+  
 end)
+
 hero_meta:register_event("notify_object_thrown", function() end)
 
 hero_meta:register_event("on_position_changed", function(hero)
@@ -59,19 +131,19 @@ hero_meta:register_event("on_position_changed", function(hero)
     local room_old = game:get_value("room")
     if game:has_dungeon_compass() and room_old ~= room and game:is_secret_room(nil, nil, room)  and game:is_secret_signal_room(nil, nil, room) then
       local timer = sol.timer.start(map, 500, function()
-        audio_manager:play_sound("compass_signal")
+        audio_manager:play_sound("others/dungeon_signal")
       end)
     end
     game:set_value("room", room)
     game:set_explored_dungeon_room(nil, nil, room)
     
   end
+  
 end)
 
 hero_meta:register_event("on_state_changed", function(hero , state)
 
   local game = hero:get_game()
-
   -- Avoid to lose any life when drowning.
   if state == "back to solid ground" then
     local ground = hero:get_ground_below()
@@ -79,6 +151,7 @@ hero_meta:register_event("on_state_changed", function(hero , state)
       game:add_life(1)
     end
   end
+  
 end)
 
 -- Return true if the hero is walking.
@@ -86,6 +159,7 @@ function hero_meta:is_walking()
 
   local m = self:get_movement()
   return m and m.get_speed and m:get_speed() > 0
+  
 end
 
 function hero_meta:on_taking_damage(damage)
@@ -101,6 +175,7 @@ function hero_meta:on_taking_damage(damage)
   local final_damage = math.ceil(damage/defense)
   -- Remove life.
   game:remove_life(damage)
+  
 end
 
 -- Set fixed stopped/walking animations for the hero (or nil to disable them).
@@ -114,15 +189,16 @@ function hero_meta:set_fixed_animations(new_stopped_animation, new_walking_anima
     if self:is_walking() then self:set_animation(fixed_walking_animation or "walking")
     else self:set_animation(fixed_stopped_animation or "stopped") end
   end
+  
 end
 
 -- Initialize hero behavior specific to this quest.
-
 local hero_meta = sol.main.get_metatable("hero")
 
 hero_meta:register_event("on_created", function(hero)
 
   hero:initialize_fixing_functions() -- Used to fix direction and animations.
+  
 end)
 
 --------------------------------------------------
@@ -135,25 +211,31 @@ function hero_meta:is_walking()
 
   local m = self:get_movement()
   return m and m.get_speed and m:get_speed() > 0
+  
 end
 
 -- Get fixed direction for the hero.
 function hero_meta:get_fixed_direction()
 
   return fixed_direction
+  
 end
 
 -- Get fixed stopped/walking animations for the hero.
 function hero_meta:get_fixed_animations()
 
   return fixed_stopped_animation, fixed_walking_animation
+  
 end
 
 -- Set a fixed direction for the hero (or nil to disable it).
 function hero_meta:set_fixed_direction(new_direction)
 
   fixed_direction = new_direction
-  if fixed_direction then self:get_sprite("tunic"):set_direction(fixed_direction) end
+  if fixed_direction then
+    self:get_sprite("tunic"):set_direction(fixed_direction)
+  end
+  
 end
 
 -- Set fixed stopped/walking animations for the hero (or nil to disable them).
@@ -167,6 +249,7 @@ function hero_meta:set_fixed_animations(new_stopped_animation, new_walking_anima
     if self:is_walking() then self:set_animation(fixed_walking_animation or "walking")
     else self:set_animation(fixed_stopped_animation or "stopped") end
   end
+  
 end
 
 -- Initialize events to fix direction and animation for the tunic sprite of the hero.
@@ -202,7 +285,7 @@ function hero_meta:initialize_fixing_functions()
     old_set_tunic(self, sprite_id)
     self:initialize_fixing_functions()
   end
+  
 end
-
 
 return true

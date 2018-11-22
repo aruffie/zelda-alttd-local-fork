@@ -188,7 +188,7 @@ local function initialize_game_over_features(game)
     elseif command == "action" or command == "attack" then
 
       state = "finished"
-      audio_manager:play_sound("danger")
+      audio_manager:play_sound("others/low_health")
       game:set_hud_enabled(false)
       game:add_life(7 * 4)  -- Restore 7 hearts.
 

@@ -1,15 +1,15 @@
+-- Lua script of item "bomb".
+-- This script is executed only once for the whole game.
+
+-- Variables
 local item = ...
 
+-- Event called when the game is initialized.
 function item:on_created()
 
-  self:set_can_disappear(true)
-  self:set_brandish_when_picked(false)
-  self:set_savegame_variable("possession_bomb")
-
-end
-
-function item:on_started()
-
+  item:set_can_disappear(true)
+  item:set_brandish_when_picked(false)
+  item:set_savegame_variable("possession_bomb")
 
 end
 
@@ -21,7 +21,7 @@ function item:on_obtaining(variant, savegame_variable)
   if amount == nil then
     error("Invalid variant '" .. variant .. "' for item 'bomb'")
   end
-  self:get_game():get_item("bombs_counter"):add_amount(amount)
+  item:get_game():get_item("bombs_counter"):add_amount(amount)
 
 end
 

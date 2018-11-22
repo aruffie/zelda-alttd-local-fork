@@ -1,9 +1,9 @@
-local enemy = ...
-
 -- Bubble: an invincible enemy that moves in diagonal directions
 -- and bounces against walls.
 -- It removes life and magic points from the hero.
 
+-- Variables
+local enemy = ...
 local last_direction8 = 0
 
 -- The enemy appears: set its properties.
@@ -17,6 +17,7 @@ function enemy:on_created()
   self:set_can_hurt_hero_running(true)
   self:set_invincible()
   self:set_obstacle_behavior("swimming")
+  
 end
 
 -- The enemy was stopped for some reason and should restart.
@@ -24,6 +25,7 @@ function enemy:on_restarted()
 
   local direction8 = math.random(4) * 2 - 1
   self:go(direction8)
+  
 end
 
 -- An obstacle is reached: make the Bubble bounce.
@@ -53,6 +55,7 @@ function enemy:on_obstacle_reached()
   else
     self:go(try3)
   end
+  
 end
 
 -- Makes the Bubble go towards a diagonal direction (1, 3, 5 or 7).
@@ -64,10 +67,12 @@ function enemy:go(direction8)
   m:set_angle(direction8 * math.pi / 4)
   m:start(self)
   last_direction8 = direction8
+  
 end
 
 -- Bubbles have a specific attack that drains magic.
 function enemy:on_attacking_hero(hero)
+  
   local game = enemy:get_game()
 
   -- In any case, we do the hurt animation as usual
@@ -78,4 +83,5 @@ function enemy:on_attacking_hero(hero)
     game:remove_magic(4)
     audio_manager:play_sound("magic_bar")
   end
+  
 end

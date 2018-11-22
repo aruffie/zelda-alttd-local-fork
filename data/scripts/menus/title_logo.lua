@@ -2,6 +2,8 @@
 -- Author: Olivier Cléro (oclero@hotmail.com)
 
 local language_manager = require("scripts/language_manager")
+local text_fx_helper = require("scripts/text_fx_helper")
+local audio_manager = require("scripts/audio_manager")
 
 local title_logo = {}
 
@@ -28,22 +30,12 @@ function title_logo:on_started()
   self.copyright_text = sol.text_surface.create{
     horizontal_alignment = "center",
     vertical_alignment = "middle",
-    font = font,
-    font_size = font_size,
+    font = "04b03",
+    font_size = 8,
     text_key = "title_screen.copyright",
     color = {255, 255, 255},
   }
   self.copyright_text:set_xy(center_x, self.surface_h - 16)
-  self.copyright_text_shadow = sol.text_surface.create{
-    horizontal_alignment = "center",
-    vertical_alignment = "middle",
-    font = font,
-    font_size = font_size,
-    text_key = "title_screen.copyright",
-    color = {0, 0, 112},
-  }
-  self.copyright_text_shadow:set_xy(center_x, self.surface_h - 16 + 1)
-  self.copyright_text_shadow:set_opacity(127)
 
   self.press_space_text = sol.text_surface.create{
     horizontal_alignment = "center",
@@ -54,14 +46,6 @@ function title_logo:on_started()
     color = {255, 255, 255},
   }
   self.press_space_text:set_xy(center_x, self.surface_h - 80)
-  self.press_space_text_stroke = sol.text_surface.create{
-    horizontal_alignment = "center",
-    vertical_alignment = "middle",
-    font = font,
-    font_size = font_size,
-    text_key = "title_screen.press_space",
-    color = {0, 0, 112},
-  }
 
   -- Make the "Press space" text clip every 500ms.
   self.show_press_space = false
@@ -92,8 +76,7 @@ function title_logo:on_draw(dst_surface)
   self.surface:clear()
 
   -- Copyright.
-  self.copyright_text_shadow:draw(self.surface)
-  self.copyright_text:draw(self.surface)
+  text_fx_helper:draw_text_with_shadow(self.surface, self.copyright_text, {0, 0, 112})
   
   -- Draw the logo's different parts.
   if self.phase >= 1 then
@@ -106,7 +89,7 @@ function title_logo:on_draw(dst_surface)
         self.alttd_logo_sprite:draw(self.surface, 111, 85)
         
         if self.phase >= 4 and self.show_press_space then
-          self:draw_text_stroke(self.surface, self.press_space_text, self.press_space_text_stroke)
+          text_fx_helper:draw_text_with_stroke(self.surface, self.press_space_text, {0, 0, 112})
         end
       end
     end
@@ -116,23 +99,6 @@ function title_logo:on_draw(dst_surface)
   local width, height = dst_surface:get_size()
   self.surface:draw(dst_surface, (width - self.surface_w) / 2, (height - self.surface_h) / 2)
 
-end
-
-function title_logo:draw_text_stroke(dst_surface, text, text_stroke)
-
-  -- Draw the 8 texts composing the stroke.
-  local x, y = text:get_xy()
-  text_stroke:draw(dst_surface, x - 1, y)
-  text_stroke:draw(dst_surface, x - 1, y - 1)
-  text_stroke:draw(dst_surface, x - 1, y + 1)
-  text_stroke:draw(dst_surface, x + 1, y)
-  text_stroke:draw(dst_surface, x + 1, y - 1)
-  text_stroke:draw(dst_surface, x + 1, y + 1)
-  text_stroke:draw(dst_surface, x, y - 1)
-  text_stroke:draw(dst_surface, x, y + 1)
-
-  -- Draw text above the stroke.
-  text:draw(dst_surface)
 end
 
 function title_logo:on_key_pressed(key)

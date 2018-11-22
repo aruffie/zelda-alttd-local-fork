@@ -9,7 +9,7 @@ local audio_manager = require("scripts/audio_manager")
 function settings_menu:on_started()
 
   -- Fix the font shift (issue with Minecraftia)
-  self.font_y_shift = 2
+  self.font_y_shift = 0
 
   -- Create static surfaces.
   self.frame_img = sol.surface.create("menus/settings/settings_frame.png")
@@ -291,7 +291,7 @@ function settings_menu:on_key_pressed(key)
             else 
               -- Only restart the animation.
               self.cursor_sprite:set_frame(0)
-              audio_manager:play_sound("picked_item")
+              audio_manager:play_sound("menus/menu_cursor")
             end
           else
             self:notify_cursor_not_allowed()
@@ -321,7 +321,7 @@ end
 -- Notify that this cursor movement is not allowed.
 function settings_menu:notify_cursor_not_allowed()
   self.cursor_sprite:set_frame(0)
-  audio_manager:play_sound("picked_item")    
+  audio_manager:play_sound("others/error")    
 end
 
 -- Get the curor's next position, either it is valid or not.

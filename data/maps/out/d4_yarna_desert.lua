@@ -64,7 +64,7 @@ end
 -- Doors events
 function weak_door_1:on_opened()
 
-  audio_manager:play_sound("secret_1")
+  audio_manager:play_sound("others/secret1")
 
 end
 

@@ -5,6 +5,18 @@ local enemy_meta = sol.main.get_metatable("enemy")
 local enemy_manager = require("scripts/maps/enemy_manager")
 local audio_manager = require("scripts/audio_manager")
 
+function enemy_meta:on_hurt()
+  
+  audio_manager:play_sound("enemies/enemy_hit")
+   
+end
+
+function enemy_meta:on_dying()
+  
+  audio_manager:play_sound("enemies/enemy_die")
+  
+end
+
 -- Redefine how to calculate the damage inflicted by the sword.
 function enemy_meta:on_hurt_by_sword(hero, enemy_sprite)
 

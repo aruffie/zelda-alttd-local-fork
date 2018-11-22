@@ -1,20 +1,27 @@
+-- Lua script of item "fairy".
+-- This script is executed only once for the whole game.
+
+-- Variables
 local item = ...
-local game = item:get_game()
 
--- This script defines the behavior of pickable fairies present on the map.
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
 
+-- Event called when the game is initialized.
 function item:on_created()
 
-  self:set_shadow(nil)
-  self:set_can_disappear(true)
-  self:set_brandish_when_picked(false)
+  item:set_shadow(nil)
+  item:set_can_disappear(true)
+  item:set_brandish_when_picked(false)
+  
 end
 
--- A fairy appears on the map: create its movement.
+-- Event called when a pickable treasure representing this item
+-- is created on the map.
 function item:on_pickable_created(pickable)
 
-   -- Create a movement that goes into random directions,
-   -- with a speed of 28 pixels per second.
+  -- Create a movement that goes into random directions,
+  -- with a speed of 28 pixels per second.
   local movement = sol.movement.create("random")
   movement:set_speed(28)
   movement:set_ignore_obstacles(true)
@@ -30,7 +37,6 @@ function item:on_pickable_created(pickable)
   function pickable:on_movement_changed(movement)
 
     if pickable:get_followed_entity() == nil then
-
       local sprite = pickable:get_sprite()
       local angle = movement:get_angle()  -- Retrieve the current movement's direction.
       if angle >= math.pi / 2 and angle < 3 * math.pi / 2 then
@@ -40,18 +46,18 @@ function item:on_pickable_created(pickable)
       end
     end
   end
-
   movement:start(pickable)
+  
 end
 
 -- Obtaining a fairy.
 function item:on_obtaining(variant, savegame_variable)
 
-      if game:get_life() == game:get_max_life() then
-        audio_manager:play_sound("picked_item")
-      else
-        game:add_life(7 * 4)
-      end
+  if item:get_game():get_life() == game:get_max_life() then
+    audio_manager:play_sound("items/get_item2")
+  else
+    item:get_game():add_life(7 * 4)
+  end
 
 end
 

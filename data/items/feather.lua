@@ -1,12 +1,20 @@
+-- Lua script of item "feather".
+-- This script is executed only once for the whole game.
+
+-- Variables
 local item = ...
 
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
 require("scripts/multi_events")
 require("scripts/states/jump")
 require("scripts/states/runjump")
+
+-- Event called when the game is initialized.
 function item:on_created()
 
   item:set_savegame_variable("possession_feather")
-  item:set_sound_when_brandished("treasure_2")
+  item:set_sound_when_brandished(nil)
   item:set_assignable(true)
   --[[ Redefine event game.on_command_pressed.
   -- Avoids restarting hero animation when feather command is pressed
@@ -30,4 +38,11 @@ function item:on_created()
       end
     end
   end)
+
+end
+
+function item:on_obtaining()
+  
+  audio_manager:play_sound("items/fanfare_item_extended")
+        
 end

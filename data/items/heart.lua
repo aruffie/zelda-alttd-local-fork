@@ -1,18 +1,31 @@
--- Heart
+-- Lua script of item "heart".
+-- This script is executed only once for the whole game.
+
+-- Variables
 local item = ...
 
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
+
+-- Event called when the game is initialized.
 function item:on_created()
 
-  self:set_shadow("small")
-  self:set_can_disappear(true)
-  self:set_brandish_when_picked(false)
+  item:set_shadow("small")
+  item:set_can_disappear(true)
+  item:set_brandish_when_picked(false)
+  item:set_sound_when_picked(nil)
+  
 end
 
 function item:on_obtaining(variant, savegame_variable)
 
-  self:get_game():add_life(4)
+  -- Life
+  item:get_game():add_life(4)
+  
 end
 
+-- Event called when a pickable treasure representing this item
+-- is created on the map.
 function item:on_pickable_created(pickable)
 
   if pickable:get_falling_height() ~= 0 then

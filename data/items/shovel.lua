@@ -1,11 +1,16 @@
--- Shovel
+-- Lua script of item "shovel".
+-- This script is executed only once for the whole game.
+
+-- Variables
 local item = ...
 local game = item:get_game()
-
-require("scripts/multi_events")
-
 local map_meta = sol.main.get_metatable("map")
 
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
+require("scripts/multi_events")
+
+-- Event called when the game is initialized.
 function item:on_created()
 
   item:set_savegame_variable("possession_shovel")
@@ -13,6 +18,7 @@ function item:on_created()
 
 end
 
+-- Event called when the hero is using this item.
 function item:on_using()
 
   local game = item:get_game()
@@ -23,14 +29,14 @@ function item:on_using()
   local dig_indexes = item:test_dig()
   if dig_indexes == nil then
     -- No digging possible here.
-    audio_manager:play_sound("sword_tapping")
+    audio_manager:play_sound("items/sword_tap")
     hero:set_animation("shovel_fail", function()
       hero:unfreeze()
     end)
 
   else
     -- Digging here is allowed.
-    audio_manager:play_sound("dig")
+    audio_manager:play_sound("items/shovel_dig")
     hero:set_animation("shovel", function()
       hero:unfreeze()
     end)
@@ -203,6 +209,7 @@ function item:get_position_from_index(index)
   local i = math.floor(index / columns)
   local j = index % columns
   return j * 8, i * 8
+  
 end
 
 function map_meta:get_size_8()

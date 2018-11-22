@@ -23,6 +23,8 @@ hero/enemy:set_being_pushed_by(pushing_entity, boolean)
 -num_directions: 4 or "any".
 -on_pushing, on_pushed (callback functions)
 --]]
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
 require("scripts/ground_effects") -- Used for enemies pushed into bad grounds.
 local hero_meta = sol.main.get_metatable("hero")
 local enemy_meta = sol.main.get_metatable("enemy")

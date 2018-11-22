@@ -264,7 +264,7 @@ function map:launch_cinematic_1()
       entity:remove()
     end
     wait(1000)
-    audio_manager:play_sound("secret_1")
+    audio_manager:play_sound("others/secret1")
     game:play_dungeon_music()
     game:set_value("dungeon_2_wall_1", true)
     map:set_cinematic_mode(false, options)

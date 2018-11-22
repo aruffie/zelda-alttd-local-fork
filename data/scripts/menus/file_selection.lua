@@ -18,7 +18,7 @@ local audio_manager = require("scripts/audio_manager")
 function file_selection_menu:on_started()
 
   -- Fix the font shift (issue with Minecraftia)
-  self.font_y_shift = 2
+  self.font_y_shift = 0
 
   -- Create static surfaces.
   self.surface = sol.surface.create(320, 240)
@@ -399,7 +399,7 @@ function file_selection_menu:move_cursor(key)
     if self.cursor_position <= self.slot_count then
       self.slots[self.cursor_position].hero_sprite:set_frame(0)
     end
-    audio_manager:play_sound("picked_item")
+    audio_manager:play_sound("others/error")
   end
 
   return handled

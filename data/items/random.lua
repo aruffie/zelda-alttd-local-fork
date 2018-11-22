@@ -1,3 +1,7 @@
+-- Lua script of item "random".
+-- This script is executed only once for the whole game.
+
+-- Variables
 local item = ...
 
 -- When it is created, this item creates another item randomly chosen
@@ -10,6 +14,8 @@ local probabilities = {
   [{ "heart", 1}]       = 100,  -- Heart.
 }
 
+-- Event called when a pickable treasure representing this item
+-- is created on the map.
 function item:on_pickable_created(pickable)
 
   local treasure_name, treasure_variant = self:choose_random_item()

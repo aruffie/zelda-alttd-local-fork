@@ -1,4 +1,4 @@
-Binbin : Direction de projet, développement, mapping
+﻿Benjamin Schweitzer: Direction de projet, développement, mapping
 Christopho : Développement, mapping
 Diarandor : Graphisme, développement 
 Fire luigi : Graphisme
@@ -7,11 +7,11 @@ LeSymphonGeek: Musique (potentiellement)
 Marine : Musique
 Maxs : Musique (potentiellement)
 Mymy : Mapping
-Neovyse : Graphisme, développement, mapping
+Olivier Cléro : Graphisme, développement, mapping
 Newlink : Graphisme
 Snes Style Remixes : Musique
 Stdgregwar : Développement
-Van Steertghem : Graphisme, mapping
+Julien Van Steertghem : Graphisme, mapping
 Valoo0278 : Mapping
 Vlag : Développement
 Zakarisz : Développement

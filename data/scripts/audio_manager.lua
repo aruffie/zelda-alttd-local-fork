@@ -91,16 +91,25 @@ function audio_manager:play_music_fade(context, music)
   
 end
 
+-- Get current sounds and musics directory
+function audio_manager:get_directory()
+  
+  local game = sol.main.game
+  local mode = (game ~= nil) and game:get_value("mode") or "snes"
+  local directory = (mode == "gb") and "gb" or "snes"
+  local directory = "gb" -- todo remove later
+
+  return directory
+
+end
+
 -- Play music according to the mode of play
 function audio_manager:play_music(id_music)
   
   if id_music == nil then
     return false
   end
-  local game = sol.main.game
-  local mode = (game ~= nil) and game:get_value("mode") or "snes"
-  local directory = (mode == "gb") and "gb" or "snes"
-  local directory = "gb" -- todo remove later
+  local directory = audio_manager:get_directory()
   
   sol.audio.play_music(directory .. "/" .. id_music) 
 
@@ -112,11 +121,7 @@ function audio_manager:play_sound(id_sound)
   if id_sound == nil then
     return false
   end
-  local game = sol.main.game
-  
-  local mode = (game ~= nil) and game:get_value("mode") or "snes"
-  local directory = (mode == "gb") and "gb" or "snes"
-  local directory = "gb" -- todo remove later
+  local directory = audio_manager:get_directory()
   sol.audio.play_sound(directory .. "/" .. id_sound) 
 
 end
@@ -128,6 +133,7 @@ function audio_manager:refresh_music()
   local id_music = sol.audio.get_music()
   local mode = (game ~= nil) and game:get_value("mode") or "snes"
   local directory = (mode == "gb") and "gb" or "snes"
+  -- Todo replace by local directory = audio_manager:get_directory()
   if directory == "gb" then
     id_music = id_music:gsub("snes/", "gb/")
   else

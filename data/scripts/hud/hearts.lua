@@ -1,5 +1,7 @@
 -- Hearts view used in game screen and in the savegames selection screen.
 
+local audio_manager = require("scripts/audio_manager")
+
 local hearts_builder = {}
 
 function hearts_builder:new(game, config)
@@ -61,14 +63,13 @@ function hearts_builder:new(game, config)
         hearts.nb_current_hearts_displayed = hearts.nb_current_hearts_displayed + 1
         if game:is_started()
             and hearts.nb_current_hearts_displayed % 4 == 0 then
-          audio_manager:play_sound("heart")
+          audio_manager:play_sound("items/get_item")
         end
       end
     end
 
     -- If we are in-game, play an animation and a sound if the life is low.
     if game:is_started() then
-
       if game:get_life() <= game:get_max_life() / 4
           and not game:is_suspended() then
         need_rebuild = true
@@ -102,7 +103,7 @@ function hearts_builder:new(game, config)
 
     if game:get_life() <= game:get_max_life() / 4 then
 
-      audio_manager:play_sound("danger")
+      audio_manager:play_sound("others/low_health")
       hearts.danger_sound_timer = sol.timer.start(hearts, 750, function()
         hearts:repeat_danger_sound()
       end)

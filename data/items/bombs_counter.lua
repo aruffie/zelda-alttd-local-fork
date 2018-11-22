@@ -1,5 +1,13 @@
+-- Lua script of item "bombs counter".
+-- This script is executed only once for the whole game.
+
+-- Variables
 local item = ...
 
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
+
+-- Event called when the game is initialized.
 function item:on_created()
 
   self:set_savegame_variable("possession_bombs_counter")
@@ -20,7 +28,7 @@ function item:on_using()
 
   if item:get_amount() == 0 then
     if sound_timer == nil then
-      audio_manager:play_sound("wrong")
+      audio_manager:play_sound("others/error")
       sound_timer = sol.timer.start(game, 500, function()
         sound_timer = nil
       end)
@@ -31,6 +39,7 @@ function item:on_using()
     audio_manager:play_sound("bomb")
   end
   item:set_finished()
+  
 end
 
 function item:create_bomb()
@@ -48,13 +57,11 @@ function item:create_bomb()
   elseif direction == 3 then
     y = y + 16
   end
-
   local bomb = map:create_bomb{
     x = x,
     y = y,
     layer = layer
   }
-
   map.current_bombs = map.current_bombs or {}
   map.current_bombs[bomb] = true
 
@@ -70,6 +77,7 @@ function item:remove_bombs_on_map()
     bomb:remove()
   end
   map.current_bombs = {}
+  
 end
 
 

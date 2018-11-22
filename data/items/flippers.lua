@@ -1,11 +1,19 @@
--- Flippers
+-- Lua script of item "flippers".
+-- This script is executed only once for the whole game.
+
+-- Variables
 local item = ...
 local game = item:get_game()
+
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
+
+-- Event called when the game is initialized.
 function item:on_created()
 
-  self:set_savegame_variable("possession_flippers")
+  item:set_savegame_variable("possession_flippers")
   item.is_hero_diving = false
-
+  item:set_sound_when_brandished(nil) 
 
 end
 
@@ -16,10 +24,18 @@ function item:on_variant_changed(variant)
 
 end
 
+function item:on_obtaining()
+  
+  audio_manager:play_sound("items/fanfare_item_extended")
+        
+end
+
 game:register_event("on_command_pressed", function(game, command)
-      if command == "attack" and game:get_hero():get_state() == "swimming" and item.is_hero_diving == false then
-         item:start_diving()
-      end
+    
+  if command == "attack" and game:get_hero():get_state() == "swimming" and item.is_hero_diving == false then
+     item:start_diving()
+  end
+  
 end)
 
 -- Start diving hero
@@ -38,7 +54,7 @@ function item:start_diving()
     hero:unfreeze()
     hero:set_tunic_sprite_id("hero/diving")
     hero:set_invincible(true)
-    sol.timer.start(item,2000,function()
+    sol.timer.start(item, 2000, function()
       item:stop_diving()
     end)
   end)
