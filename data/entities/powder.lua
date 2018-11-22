@@ -1,8 +1,11 @@
 -- A flame that can hurt enemies.
+-- Variables
 local powder = ...
 local sprite
+local enemies_touched = {}
 
-local enemies_touched = { }
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
 
 powder:set_size(8, 8)
 powder:set_origin(4, 5)
@@ -141,5 +144,7 @@ powder:add_collision_test("sprite", function(powder, entity)
 end)
 
 function powder:on_obstacle_reached()
+  
   powder:remove()
+  
 end

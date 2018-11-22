@@ -358,7 +358,7 @@ function change_movement_raccoon()
     end
   else
     local x, y, layer = tarin:get_position()
-    audio_manager:play_sound("others/bomb_explode")
+    audio_manager:play_sound("items/bomb_explode")
     map:create_explosion{
       layer = layer,
       x = x,

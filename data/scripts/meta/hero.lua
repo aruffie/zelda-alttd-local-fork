@@ -7,6 +7,7 @@ local hero_meta = sol.main.get_metatable("hero")
 local audio_manager = require("scripts/audio_manager")
 local timer_sword_loading = nil
 local timer_sword_tapping = nil
+local timer_stairs = nil
 require("scripts/multi_events")
 
 hero_meta:register_event("on_state_changed", function(hero)
@@ -14,6 +15,7 @@ hero_meta:register_event("on_state_changed", function(hero)
   local game = hero:get_game()
   local current_state = hero:get_state()
   -- Sounds
+  print(current_state)
   if current_state == "lifting" then
     audio_manager:play_sound("hero/pickup") 
   elseif current_state == "sword loading" then
@@ -29,7 +31,7 @@ hero_meta:register_event("on_state_changed", function(hero)
     audio_manager:play_sound("items/sword_slash" .. index) 
   elseif current_state == "sword tapping" then
     if timer_sword_tapping == nil then
-      timer_sword_tapping = sol.timer.start(hero, 250, function()
+      timer_sword_tapping = sol.timer.start(hero, 150, function()
         local sound_sword = false
         local entity = hero:get_facing_entity()
         if entity ~= nil and entity:get_type() == "door" then
@@ -51,6 +53,13 @@ hero_meta:register_event("on_state_changed", function(hero)
     audio_manager:play_sound("hero/fall") 
   elseif current_state == "jumping" then
     audio_manager:play_sound("hero/throw")
+  elseif current_state == "stairs" then
+    if timer_stairs == nil then
+      timer_stairs = sol.timer.start(hero, 0, function()
+        audio_manager:play_sound("others/stairs")
+        return 400
+      end)
+    end
   elseif current_state == "frozen" then
     -- Frozen
     local entity = hero:get_facing_entity()
@@ -73,6 +82,11 @@ hero_meta:register_event("on_state_changed", function(hero)
   if current_state ~= "sword tapping" and timer_sword_tapping ~= nil then
     timer_sword_tapping:stop()
     timer_sword_tapping = nil
+  end  
+  -- Reset timer stairs
+  if current_state ~= "stairs" and timer_stairs ~= nil then
+    timer_stairs:stop()
+    timer_stairs = nil
   end  
   -- Previous states
   if hero.previous_state == "carrying" then

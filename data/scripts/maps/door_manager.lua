@@ -1,11 +1,13 @@
-require("scripts/multi_events")
+-- Variables
 local door_manager = {}
 
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
+require("scripts/multi_events")
 
 
 -- Open doors when all ennemis in the room are dead
 function door_manager:open_when_enemies_dead(map, enemy_prefix, door_prefix, sound)
-
 
   local function enemy_on_dead()
     if sound == nil then
@@ -240,7 +242,8 @@ end
 function door_manager:close_if_enemies_not_dead(map, enemy_prefix, door_prefix)
 
    if map:has_entities(enemy_prefix) then
-        map:close_doors(door_prefix)
+      audio_manager:play_sound("others/dungeon_door_slam")
+      map:close_doors(door_prefix)
   end
         
 end

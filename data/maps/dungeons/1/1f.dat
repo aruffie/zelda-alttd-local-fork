@@ -13776,8 +13776,8 @@ door{
 door{
   name = "door_small_key_3_1",
   layer = 0,
-  x = 1824,
-  y = 1192,
+  x = 1560,
+  y = 1144,
   direction = 2,
   sprite = "entities/doors/door_small_key",
   savegame_variable = "dungeon_1_door_small_key_3",

@@ -22,6 +22,7 @@ function item:on_obtaining(variant, savegame_variable)
 
   local map = item:get_map()
   local hero = map:get_hero()
+  -- Sound
   if hero:get_state() == "treasure" then
     audio_manager:play_sound("items/fanfare_item")
   else

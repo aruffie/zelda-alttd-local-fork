@@ -6,6 +6,9 @@ local animation_launch = false
 local sprite = entity:get_sprite()
 local wallturn_teletransporter = map:get_entity("wallturn_teletransporter")
 
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
+
 -- Event called when the custom entity is initialized.
 function entity:on_created()
 
