@@ -7,7 +7,7 @@ local audio_manager = require("scripts/audio_manager")
 
 function enemy_meta:on_hurt()
   
-   audio_manager:play_sound("enemies/enemy_hit")
+  audio_manager:play_sound("enemies/enemy_hit")
    
 end
 

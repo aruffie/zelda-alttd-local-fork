@@ -6,6 +6,7 @@ local hero = game:get_hero()
 local hero_meta = sol.main.get_metatable("hero")
 local wall = nil
 
+-- Event called when the custom entity is initialized.
 function entity:on_created()
   
   self:set_traversable_by(false)

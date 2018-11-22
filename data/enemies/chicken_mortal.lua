@@ -1,3 +1,4 @@
+-- Variables
 local enemy = ...
 local map = enemy:get_map()
 
@@ -24,4 +25,5 @@ function enemy:on_restarted()
   movement:set_speed(64)
   movement:start(enemy)
   enemy:get_sprite():set_animation("running")
+  
 end

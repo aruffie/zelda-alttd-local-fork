@@ -1,13 +1,4 @@
--- Lua script of custom entity diggable.
--- This script is executed every time a custom entity with this model is created.
-
--- Feel free to modify the code below.
--- You can add more events and remove the ones you don't need.
-
--- See the Solarus Lua API documentation for the full specification
--- of types, events and methods:
--- http://www.solarus-games.org/doc/latest
-
+-- Variables
 local entity = ...
 local game = entity:get_game()
 local map = entity:get_map()
@@ -16,7 +7,6 @@ local map = entity:get_map()
 function entity:on_created()
 
   local shovel = game:get_item("shovel")
-
   local x, y, width, height = entity:get_bounding_box()
   local layer = entity:get_layer()
   local index = shovel:get_index_from_position(x, y, layer)
@@ -27,4 +17,5 @@ function entity:on_created()
   map:set_digging_allowed_square(index_3, false)
   map:set_digging_allowed_square(index_4, false)
   entity:remove()
+  
 end

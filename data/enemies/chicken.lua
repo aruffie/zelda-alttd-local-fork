@@ -4,6 +4,10 @@ local map = enemy:get_map()
 local angry = false
 local num_times_hurt = 0
 
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
+
+
 function enemy:on_created()
 
   enemy:set_life(10000)
@@ -75,6 +79,8 @@ end
 
 function enemy:on_hurt()
 
+  -- Sound
+  audio_manager:play_sound("others/cucco")
   num_times_hurt = num_times_hurt + 1
   if num_times_hurt == 3 and not map.angry_chickens then
     -- Make all chickens of the map attack the hero.

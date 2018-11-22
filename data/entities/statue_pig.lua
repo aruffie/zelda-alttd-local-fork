@@ -1,15 +1,13 @@
--- An entity the hookshot can attach to.
--- To be used with the scripted hookshot item.
+-- Variables
 local entity = ...
 local game = entity:get_game()
 local map = game:get_map()
 
-entity:set_traversable_by(false)
-
+-- Event called when the custom entity is initialized.
 function entity:on_created()
 
-  self:add_collision_test("overlapping", function(pig, explosion)
-
+  entity:set_traversable_by(false)
+  entity:add_collision_test("overlapping", function(pig, explosion)
     if explosion:get_type() == "explosion" then
       local x,y,layer = self:get_position()
       local stones = map:create_custom_entity({
@@ -33,7 +31,6 @@ function entity:on_created()
         end
       end
     end
-
   end)
 
 end

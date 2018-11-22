@@ -29,7 +29,6 @@ function seagull:on_created()
     return true
   end)
 
-
 end
 
 function seagull:escape_hero()
@@ -49,6 +48,7 @@ function seagull:escape_hero()
     is_escape = true
     is_move = false
   end
+  
 end
 
 function seagull:join_origin()
@@ -69,5 +69,6 @@ function seagull:join_origin()
     is_move = false
     audio_manager:play_sound("others/seagull")
   end
+  
 end
 

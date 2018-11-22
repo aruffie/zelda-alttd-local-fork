@@ -1217,7 +1217,6 @@ item{ id = "golden_leaves_counter", description = "Golden leafs counter" }
 item{ id = "hammer", description = "Hammer" }
 item{ id = "heart", description = "Heart" }
 item{ id = "heart_container", description = "Heart container" }
-item{ id = "heart_fly", description = "Heart fly" }
 item{ id = "hookshot", description = "Hookshot" }
 item{ id = "instrument_1", description = "Full Moon Cello" }
 item{ id = "instrument_2", description = "Conch horn" }
@@ -1424,7 +1423,6 @@ file{ path = "items/golden_leaves_counter.lua", author = "Benjamin Schweitzer", 
 file{ path = "items/hammer.lua", license = "GPL v3" }
 file{ path = "items/heart.lua", license = "GPL v3" }
 file{ path = "items/heart_container.lua", license = "GPL v3" }
-file{ path = "items/heart_fly.lua", license = "GPL v3" }
 file{ path = "items/hookshot.lua", license = "GPL v3" }
 file{ path = "items/hookshot_config.lua", license = "GPL v3" }
 file{ path = "items/instrument_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
@@ -1791,6 +1789,7 @@ file{ path = "maps/sideviews/martha_bay/sideview_1.dat", author = "Benjamin Schw
 file{ path = "maps/sideviews/martha_bay/sideview_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/sideviews/martha_bay/sideview_2.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
 file{ path = "maps/sideviews/martha_bay/sideview_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "musics", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
 file{ path = "musics/gb", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "musics/gb/01_introduction.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "musics/gb/02_title.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
@@ -1889,7 +1888,17 @@ file{ path = "scripts/menus/title.lua", author = "Olivier Cléro", license = "GP
 file{ path = "scripts/menus/title_background.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/menus/title_logo.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/menus/zeldaforce_logo.lua", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/meta", license = "GPL v3" }
+file{ path = "scripts/meta/block.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "scripts/meta/camera.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "scripts/meta/destructible.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "scripts/meta/door.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "scripts/meta/dynamic_tile.lua", license = "GPL v3" }
+file{ path = "scripts/meta/enemy.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "scripts/meta/hero.lua", license = "GPL v3" }
+file{ path = "scripts/meta/npc.lua", license = "GPL v3" }
 file{ path = "scripts/meta/sensor.lua", author = "Christopho", license = "GPL v3" }
+file{ path = "scripts/meta/switch.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "shaders/pixellisation.dat", author = "PhoenixII54", }
 file{ path = "shaders/pixellisation.frag.glsl", author = "PhoenixII54", }
 file{ path = "shaders/radial_fade_out.dat", author = "PhoenixII54", }

@@ -1,25 +1,27 @@
-local moving_platform = ...
+-- Variables
+local entity = ...
 local movement
 local angle = 0
 local direction = 0
 local sprite
 
-function moving_platform:on_created()
+-- Event called when the custom entity is initialized.
+function entity:on_created()
   
-  sprite = moving_platform:get_sprite()
-  moving_platform:set_traversable_by(false)
+  sprite = entity:get_sprite()
+  entity:set_traversable_by(false)
   distance = self:get_property("distance")
   if distance == nil then
     distance = 0
   end
   angle = sprite:get_direction() * math.pi / 2
   
-  moving_platform:go()
+  entity:go()
 
 end
 
 
-function moving_platform:go()
+function entity:go()
 
   -- Set the movement.
   movement = sol.movement.create("straight")

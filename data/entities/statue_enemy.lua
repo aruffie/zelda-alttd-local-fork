@@ -1,5 +1,4 @@
--- An entity the hookshot can attach to.
--- To be used with the scripted hookshot item.
+-- Variables
 local entity = ...
 local game = entity:get_game()
 local map = game:get_map()

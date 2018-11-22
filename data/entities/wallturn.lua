@@ -1,13 +1,4 @@
--- Lua script of custom entity wallturn.
--- This script is executed every time a custom entity with this model is created.
-
--- Feel free to modify the code below.
--- You can add more events and remove the ones you don't need.
-
--- See the Solarus Lua API documentation for the full specification
--- of types, events and methods:
--- http://www.solarus-games.org/doc/latest
-
+-- Variables
 local entity = ...
 local game = entity:get_game()
 local map = entity:get_map()
@@ -26,7 +17,7 @@ function entity:on_created()
       local map_id = map:get_id()
       hero:set_enabled(false)
       sprite:set_animation("revolving_tunic_1")
-      audio_manager:play_sound("wallturn")
+      audio_manager:play_sound("others/dungeon_one_way_door")
       function sprite:on_animation_finished(animation)
         if animation == "revolving_tunic_1" or animation == "revolving_tunic_2" or animation == "revolving_tunic_2" then
           sprite:set_animation("stopped")
@@ -44,7 +35,7 @@ function entity:on_created()
             animation_launch = false
           end)
         end
-        end
+      end
     end
 
   end)
