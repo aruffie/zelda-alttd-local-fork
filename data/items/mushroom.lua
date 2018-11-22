@@ -1,12 +1,22 @@
--- Mushroom
+-- Variables
 local item = ...
+
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
 
 function item:on_created()
 
-  self:set_savegame_variable("possession_mushroom")
-  self:set_sound_when_brandished("treasure_2")
-  self:set_assignable(true)
+  item:set_savegame_variable("possession_mushroom")
+  item:set_sound_when_brandished(nil)
+  item:set_assignable(true)
 
+end
+
+function item:on_obtaining()
+  
+  -- Sound
+  audio_manager:play_sound("items/fanfare_item_extended")
+        
 end
 
 function item:on_using()
@@ -27,10 +37,10 @@ function item:on_using()
   })
   mushroom_entity:get_sprite():set_animation("mushroom")
   mushroom_entity:get_sprite():set_direction(0)
-  self:get_game():start_dialog("items.mushroom.1", function()
-        hero:set_animation("stopped")
-        map:remove_entities("brandish")
-        hero:unfreeze()
+  item:get_game():start_dialog("items.mushroom.1", function()
+    hero:set_animation("stopped")
+    map:remove_entities("brandish")
+    hero:unfreeze()
   end)
 
 end

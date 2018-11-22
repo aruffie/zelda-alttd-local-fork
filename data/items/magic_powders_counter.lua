@@ -15,8 +15,10 @@ end
 
 function item:on_obtaining(variant, savegame_variable)
 
-  self:set_max_amount(20)
-  self:set_amount(20)
+  -- Sound
+  audio_manager:play_sound("items/fanfare_item")
+  item:set_max_amount(20)
+  item:set_amount(20)
 
 end
 

@@ -5,7 +5,7 @@ function item:on_created()
 
   item:set_can_disappear(true)
   item:set_brandish_when_picked(false)
-  sitemelf:set_savegame_variable("possession_bomb")
+  item:set_savegame_variable("possession_bomb")
 
 end
 

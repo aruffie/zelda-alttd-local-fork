@@ -15,8 +15,6 @@ end
 
 function item:on_obtaining(variant, savegame_variable)
 
-  -- Sound
-  audio_manager:play_sound("items/get_item")
   -- Life
   item:get_game():add_life(4)
   
