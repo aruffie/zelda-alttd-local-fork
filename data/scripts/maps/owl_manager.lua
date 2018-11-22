@@ -64,7 +64,7 @@ function owl_manager:appear(map, step, callback)
       owl_shadow:set_enabled(false)
       owl:get_sprite():set_animation("talking")
       owl_shadow:get_sprite():set_animation("talking")
-      local timer_sound2 = sol.timer.start(owl, 500, function()
+      local timer_sound2 = sol.timer.start(owl, 1000, function()
         local index = math.random(1,2)
         audio_manager:play_sound("others/owl_hoot" .. index)
         return true

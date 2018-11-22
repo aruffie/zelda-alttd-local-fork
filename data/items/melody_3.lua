@@ -1,17 +1,7 @@
--- Lua script of item melody_3.
--- This script is executed only once for the whole game.
-
--- Feel free to modify the code below.
--- You can add more events and remove the ones you don't need.
-
--- See the Solarus Lua API documentation for the full specification
--- of types, events and methods:
--- http://www.solarus-games.org/doc/latest
-
+-- Variables
 local item = ...
 local game = item:get_game()
 
--- Event called when the game is initialized.
 function item:on_started()
 
   self:set_savegame_variable("possession_melody_3")
@@ -19,7 +9,6 @@ function item:on_started()
 
 end
 
--- Event called when the hero is using this item.
 function item:on_using()
 
     local map = game:get_map()
@@ -33,12 +22,5 @@ function item:on_using()
     end)
 
   item:set_finished()
-end
-
--- Event called when a pickable treasure representing this item
--- is created on the map.
-function item:on_pickable_created(pickable)
-
-  -- You can set a particular movement here if you don't like the default one.
-
+  
 end

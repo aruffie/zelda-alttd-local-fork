@@ -1,8 +1,5 @@
--- Sword
+-- Variable
 local item = ...
-local game = item:get_game()
-require("scripts/multi_events")
-
 
 function item:on_created()
 
@@ -15,7 +12,7 @@ end
 function item:on_variant_changed(variant)
 
   -- The possession state of the sword determines the built-in ability "sword".
-  game:set_ability("sword", variant)
-  game:set_value("force_sword", variant)
+  item:get_game():set_ability("sword", variant)
+  item:get_game():set_value("force_sword", variant)
 
 end

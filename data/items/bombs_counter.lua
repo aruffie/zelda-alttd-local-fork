@@ -1,4 +1,8 @@
+-- Variables
 local item = ...
+
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
 
 function item:on_created()
 
@@ -31,6 +35,7 @@ function item:on_using()
     audio_manager:play_sound("bomb")
   end
   item:set_finished()
+  
 end
 
 function item:create_bomb()
@@ -48,13 +53,11 @@ function item:create_bomb()
   elseif direction == 3 then
     y = y + 16
   end
-
   local bomb = map:create_bomb{
     x = x,
     y = y,
     layer = layer
   }
-
   map.current_bombs = map.current_bombs or {}
   map.current_bombs[bomb] = true
 
@@ -70,6 +73,7 @@ function item:remove_bombs_on_map()
     bomb:remove()
   end
   map.current_bombs = {}
+  
 end
 
 

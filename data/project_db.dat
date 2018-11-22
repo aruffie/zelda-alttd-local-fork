@@ -1195,6 +1195,7 @@ sound{ id = "victory", description = "Empty sound" }
 sound{ id = "walk_on_grass", description = "Empty sound" }
 sound{ id = "walk_on_water", description = "Empty sound" }
 sound{ id = "wrong", description = "Empty sound" }
+
 item{ id = "angler_key", description = "Angler key" }
 item{ id = "arrow", description = "Arrow" }
 item{ id = "beak_of_stone", description = "Beak of stone" }
@@ -1401,6 +1402,67 @@ shader{ id = "radial_fade_out", description = "Radial fade out" }
 shader{ id = "sepia", description = "Sepia" }
 shader{ id = "toon", description = "Toon" }
 
+file{ path = "items", license = "GPL v3" }
+file{ path = "items/angler_key.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "items/arrow.lua", license = "GPL v3" }
+file{ path = "items/beak_of_stone.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "items/bird_key.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "items/bomb.lua", license = "GPL v3" }
+file{ path = "items/bombs_counter.lua", license = "GPL v3" }
+file{ path = "items/boomerang.lua", license = "GPL v3" }
+file{ path = "items/boss_key.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "items/bow.lua", license = "GPL v3" }
+file{ path = "items/compass.lua", license = "GPL v3" }
+file{ path = "items/drug.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "items/face_key.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "items/fairy.lua", license = "GPL v3" }
+file{ path = "items/feather.lua", author = "Diarandor", license = "GPL v3" }
+file{ path = "items/fire_rod.lua", license = "GPL v3" }
+file{ path = "items/flippers.lua", license = "GPL v3" }
+file{ path = "items/golden_leaf.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "items/golden_leaves_counter.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "items/hammer.lua", license = "GPL v3" }
+file{ path = "items/heart.lua", license = "GPL v3" }
+file{ path = "items/heart_container.lua", license = "GPL v3" }
+file{ path = "items/heart_fly.lua", license = "GPL v3" }
+file{ path = "items/hookshot.lua", license = "GPL v3" }
+file{ path = "items/hookshot_config.lua", license = "GPL v3" }
+file{ path = "items/instrument_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "items/instrument_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "items/instrument_3.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "items/instrument_4.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "items/instrument_5.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "items/instrument_6.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "items/instrument_7.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "items/instrument_8.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "items/magic_powder.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "items/magic_powders_counter.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "items/magnifying_lens.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "items/map.lua", license = "GPL v3" }
+file{ path = "items/melody_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "items/melody_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "items/melody_3.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "items/mushroom.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "items/ocarina.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "items/pegasus_shoes.lua", author = "Diarandor", license = "GPL v3" }
+file{ path = "items/photo.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "items/photos_counter.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "items/piece_of_heart.lua", license = "GPL v3" }
+file{ path = "items/power_bracelet.lua", license = "GPL v3" }
+file{ path = "items/quiver.lua", license = "GPL v3" }
+file{ path = "items/random.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "items/rupee.lua", license = "GPL v3" }
+file{ path = "items/rupee_bag.lua", license = "GPL v3" }
+file{ path = "items/seashell.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "items/seashells_counter.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "items/shield.lua", license = "GPL v3" }
+file{ path = "items/shovel.lua", author = "Christopho", license = "GPL v3" }
+file{ path = "items/slim_key.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "items/small_key.lua", license = "GPL v3" }
+file{ path = "items/sword.lua", license = "GPL v3" }
+file{ path = "items/tail_key.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "items/tunic.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "items/zol_green.lua", license = "GPL v3" }
 file{ path = "languages", author = "Nintendo, Benjamin Schweitzer, Christopho, Julien Van Steerteghem", license = "Proprietary, Fair use" }
 file{ path = "languages/fr", author = "Nintendo, Benjamin Schweitzer, Christopho, Julien Van Steerteghem", license = "Proprietary, Fair use" }
 file{ path = "languages/fr/images", author = "Nintendo, Benjamin Schweitzer, Christopho, Julien Van Steerteghem", license = "Proprietary, Fair use" }

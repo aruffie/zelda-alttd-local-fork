@@ -1,14 +1,9 @@
+-- Variables
 local item = ...
 
 function item:on_created()
 
-  self:set_savegame_variable("possession_instrument_7")
-  self:set_brandish_when_picked(false)
-
-end
-
-function item:on_obtaining(variant, savegame_variable)
-
-    --self:get_game():set_value("main_quest_step", 8)
+  item:set_savegame_variable("possession_instrument_7")
+  item:set_brandish_when_picked(false)
 
 end

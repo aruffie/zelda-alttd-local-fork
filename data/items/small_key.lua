@@ -1,14 +1,22 @@
+-- Variables
 local item = ...
+
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
 
 function item:on_created()
 
-  self:set_shadow("small")
-  self:set_brandish_when_picked(false)
-  self:set_sound_when_picked("picked_small_key")
+  item:set_shadow("small")
+  item:set_brandish_when_picked(false)
+  item:set_sound_when_picked(nil)
+  
 end
 
 function item:on_obtaining(variant, savegame_variable)
 
-  self:get_game():add_small_key()
+  -- Sound
+  audio_manager:play_sound("items/get_item2")
+  -- Add key
+  item:get_game():add_small_key()
+  
 end
-
