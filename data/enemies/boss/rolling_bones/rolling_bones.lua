@@ -1,13 +1,7 @@
--- Lua script of enemy blob_green.
+-- Lua script of enemy rolling bones.
 -- This script is executed every time an enemy with this model is created.
 
--- Feel free to modify the code below.
--- You can add more events and remove the ones you don't need.
-
--- See the Solarus Lua API documentation for the full specification
--- of types, events and methods:
--- http://www.solarus-games.org/doc/latest
-
+-- Variables
 local enemy = ...
 local spike
 local game = enemy:get_game()
@@ -23,7 +17,6 @@ local enemy_step = 1
 local angle_to_spike
 
 -- Event called when the enemy is initialized.
-
 function enemy:on_created()
 
   local x_enemy,y_enemy,layer_enemy = enemy:get_position()

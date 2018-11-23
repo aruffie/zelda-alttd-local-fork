@@ -1,13 +1,7 @@
--- Lua script of enemy stone_hinox.
+-- Lua script of enemy stone hinox.
 -- This script is executed every time an enemy with this model is created.
 
--- Feel free to modify the code below.
--- You can add more events and remove the ones you don't need.
-
--- See the Solarus Lua API documentation for the full specification
--- of types, events and methods:
--- http://www.solarus-games.org/doc/latest
-
+-- Variables
 local enemy = ...
 local game = enemy:get_game()
 local map = enemy:get_map()
@@ -24,15 +18,15 @@ function enemy:on_created()
   enemy:set_life(1)
   enemy:set_damage(1)
   enemy:set_hurt_style("boss")
+  
 end
 
 -- Event called when the enemy should start or restart its movements.
--- This is called for example after the enemy is created or after
--- it was hurt or immobilized.
 function enemy:on_restarted()
 
   movement = sol.movement.create("target")
   movement:set_target(hero)
   movement:set_speed(48)
   movement:start(enemy)
+  
 end

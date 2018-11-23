@@ -1,13 +1,7 @@
--- Lua script of enemy moblin_chief.
+-- Lua script of enemy moblin chief.
 -- This script is executed every time an enemy with this model is created.
 
--- Feel free to modify the code below.
--- You can add more events and remove the ones you don't need.
-
--- See the Solarus Lua API documentation for the full specification
--- of types, events and methods:
--- http://www.solarus-games.org/doc/latest
-
+-- Variables
 local enemy = ...
 local game = enemy:get_game()
 local map = enemy:get_map()
@@ -40,9 +34,11 @@ function enemy:on_created()
 end
 
 function enemy:on_restarted()
+  
   if launch_boss then
      enemy:go_to_initial_position()
   end
+  
 end
 
 -- Calculate distance, angle and new position enemy
@@ -69,34 +65,34 @@ end
 
 function enemy:go_to_initial_position()
 
-    if symbol_collapse ~= nil then
-      symbol_collapse:remove()
-    end
-    enemy:set_attack_consequence("sword", "protected")
-    sprite:set_animation("walking")
-    local movement_initial = sol.movement.create("target")
-    movement_initial:set_speed(96)
-    movement_initial:set_target(x_initial, y_initial)
-    movement_initial:start(enemy)
-    function movement_initial:on_finished()
-      enemy:start_battle()
-    end
+  if symbol_collapse ~= nil then
+    symbol_collapse:remove()
+  end
+  enemy:set_attack_consequence("sword", "protected")
+  sprite:set_animation("walking")
+  local movement_initial = sol.movement.create("target")
+  movement_initial:set_speed(96)
+  movement_initial:set_target(x_initial, y_initial)
+  movement_initial:start(enemy)
+  function movement_initial:on_finished()
+    enemy:start_battle()
+  end
 
 end
 
 function enemy:start_battle()
 
-    launch_boss = true
-    enemy:calculate_parameters()
-    enemy:set_attack_consequence("sword", "protected")
-    local movement_battle = sol.movement.create("target")
-    movement_type = "battle"
-    movement_battle:set_speed(96)
-    movement_battle:set_target(x, y)
-    movement_battle:start(enemy)
-    function movement_battle:on_finished()
-      enemy:choose_attack()
-    end
+  launch_boss = true
+  enemy:calculate_parameters()
+  enemy:set_attack_consequence("sword", "protected")
+  local movement_battle = sol.movement.create("target")
+  movement_type = "battle"
+  movement_battle:set_speed(96)
+  movement_battle:set_target(x, y)
+  movement_battle:start(enemy)
+  function movement_battle:on_finished()
+    enemy:choose_attack()
+  end
 
 end
 
@@ -109,6 +105,7 @@ function enemy:choose_attack()
     enemy:charge()
     attacks = 0
   end
+  
 end
 
 
@@ -123,29 +120,29 @@ function enemy:throw_arrow()
   end
   sol.timer.start(enemy, 200, function()
       arrow = map:create_enemy{
-        breed =  'arrow',
-        direction = direction_arrow,
-        x = x_enemy,
-        y = y_enemy - 8,
-        width = 16,
-        height = 8,
-        layer = layer_enemy
-      } 
-      movement_type = "arrow"
-      local movement_arrow = sol.movement.create("straight")
-      movement_arrow:set_speed(128)
-      movement_arrow:set_smooth(false)
-      movement_arrow:set_angle(angle)
-      movement_arrow:start(arrow)
-       function  movement_arrow:on_obstacle_reached()
-          movement_arrow:stop()
-          arrow:get_sprite():set_animation("reached_obstacle")
-          sol.timer.start(enemy, 1000, function()
-              arrow:remove()
-              enemy:go_to_initial_position()
-          end)
-        end
-    end)
+      breed =  'arrow',
+      direction = direction_arrow,
+      x = x_enemy,
+      y = y_enemy - 8,
+      width = 16,
+      height = 8,
+      layer = layer_enemy
+    } 
+    movement_type = "arrow"
+    local movement_arrow = sol.movement.create("straight")
+    movement_arrow:set_speed(128)
+    movement_arrow:set_smooth(false)
+    movement_arrow:set_angle(angle)
+    movement_arrow:start(arrow)
+    function  movement_arrow:on_obstacle_reached()
+      movement_arrow:stop()
+      arrow:get_sprite():set_animation("reached_obstacle")
+      sol.timer.start(enemy, 1000, function()
+        arrow:remove()
+        enemy:go_to_initial_position()
+      end)
+    end
+  end)
 end
 
 function enemy:charge()
@@ -174,7 +171,6 @@ function enemy:charge()
   end)
 
 end
-
 
 function enemy:set_shocked()
 

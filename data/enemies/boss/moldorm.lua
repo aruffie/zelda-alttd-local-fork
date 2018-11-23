@@ -1,9 +1,11 @@
--- Moldorm boss script.
+-- Lua script of enemy moldorm.
+-- This script is executed every time an enemy with this model is created.
+
+-- Variables
 local enemy = ...
 local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
-
 local sprites_folder = "enemies/boss/moldorm/" -- Rename this if necessary.
 local body_parts = {} -- In this order: head, body_1, body_2, body_3, tail.
 local normal_angle_speed, max_angle_speed = math.pi/2, math.pi -- Radians per second.
@@ -105,11 +107,18 @@ function enemy:on_created()
 
   -- Start movement.
   tail:go_random()
+  
 end
 
 -- Getter/setter for hurt state.
-function enemy:is_hurt() return is_hurt end
+function enemy:is_hurt()
+  
+  return is_hurt
+  
+end
+
 function enemy:set_hurt_state(hurt)
+  
   is_hurt = hurt
   -- Tail part: invincibility properties.
   if enemy == enemy:get_tail() then
@@ -128,10 +137,16 @@ function enemy:set_hurt_state(hurt)
       m:set_angular_speed(normal_angle_speed)
     end
   end
+  
 end
 
 -- Attaching state.
-function enemy:is_reattaching() return is_reattaching end
+function enemy:is_reattaching()
+  
+  return is_reattaching
+  
+end
+
 function enemy:set_reattaching_state(state) is_reattaching = state end
 
 -- Stop movements and timers only on head when the tail is hurt.
@@ -145,11 +160,13 @@ function enemy:on_hurt()
       e:set_hurt_state(false)
     end)
   end
+  
 end
 
 -- Create list with new movement info: radius, center, is_clockwise, init_angle, max_angle.
 -- Remark: Only the head can call this function.
 function enemy:create_new_movement_info()
+  
   if enemy ~= enemy:get_head() then return end
   -- Create random properties.
   local radius = math.floor(math.random(min_radius, max_radius))
@@ -191,10 +208,12 @@ function enemy:create_new_movement_info()
     init_angle = init_angle, max_angle = max_angle
   }
   return info
+  
 end
 
 -- Create a movement with the info.
 function enemy:start_movement(info)
+  
   local m = sol.movement.create("circle")
   m:set_radius(info.radius)
   m:set_center(info.center.x, info.center.y)
@@ -204,32 +223,42 @@ function enemy:start_movement(info)
   if enemy:is_hurt() then m:set_angular_speed(max_angle_speed)
   else m:set_angular_speed(normal_angle_speed) end
   m:start(enemy)
+  
 end
 
 -- Add next movement to the movement list.
 function enemy:add_next_movement_info(info)
+  
   local list = enemy.movement_list
   list[#list + 1] = info
+  
 end
 
 -- Check if there is next movement in the movement list.
 function enemy:has_next_movement_info()
+  
   local list = enemy.movement_list
   return #list > 0
+  
 end
 
 -- Get the info for the current movement.
 function enemy:get_current_movement_info()
+  
   return enemy.movement_list[1]
+  
 end
 
 -- Destroy all movements info.
 function enemy:clear_movement_info()
+  
   enemy.movement_list = {num_positions = {}}
+  
 end
 
 -- Remove last movement to the movement list.
 function enemy:remove_last_movement_info()
+  
   if enemy:has_next_movement_info() then
     local list = enemy.movement_list
     for i = 1, #list -1 do
@@ -237,12 +266,15 @@ function enemy:remove_last_movement_info()
     end
     list[#list] = nil
   end
+  
 end
 
 -- Notify obstacle to reverse direction.
 function enemy:notify_obstacle()
+  
   local info = enemy:get_current_movement_info()
   found_obstacle = true
+  
 end
 
 -- Start next movement, if any. If "is_random" is true, use random direction.

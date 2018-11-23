@@ -7,13 +7,21 @@ local audio_manager = require("scripts/audio_manager")
 
 function enemy_meta:on_hurt()
   
-  audio_manager:play_sound("enemies/enemy_hit")
+  if self:get_hurt_style() == "boss" then
+    audio_manager:play_sound("enemies/boss_hit")
+  else
+    audio_manager:play_sound("enemies/enemy_hit")
+  end
    
 end
 
 function enemy_meta:on_dying()
   
-  audio_manager:play_sound("enemies/enemy_die")
+  if self:get_hurt_style() == "boss" then
+    audio_manager:play_sound("enemies/boss_die")
+  else
+    audio_manager:play_sound("enemies/enemy_die")
+  end
   
 end
 
