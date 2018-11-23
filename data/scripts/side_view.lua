@@ -112,7 +112,7 @@ function map_meta:launch_side_view()
     if (not is_jumping) and (not is_grabbed_to_ladder) and is_space_below then
       hero:set_position(x, y + 1, layer) -- Shift position.
       if hero:test_obstacles(0, 1) then
-        audio_manager:play_sound("hero_lands")
+        audio_manager:play_sound("hero/land")
       end
     end
 

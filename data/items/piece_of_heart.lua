@@ -5,6 +5,9 @@
 local item = ...
 local game = item:get_game()
 
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
+
 -- Event called when the game is initialized.
 function item:on_created()
 
@@ -32,6 +35,13 @@ function item:get_max_pieces_of_heart()
 
   return 12
   
+end
+
+function item:on_obtaining()
+  
+  -- Sound
+  audio_manager:play_sound("items/fanfare_item")
+        
 end
 
 function item:on_obtained(variant)

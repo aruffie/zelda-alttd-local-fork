@@ -31,7 +31,7 @@ hero_meta:register_event("on_state_changed", function(hero)
     audio_manager:play_sound("items/sword_slash" .. index) 
   elseif current_state == "sword tapping" then
     if timer_sword_tapping == nil then
-      timer_sword_tapping = sol.timer.start(hero, 150, function()
+      timer_sword_tapping = sol.timer.start(hero, 250, function()
         local sound_sword = false
         local entity = hero:get_facing_entity()
         if entity ~= nil and entity:get_type() == "door" then
