@@ -91,7 +91,7 @@ function item:on_using()
       end
       entities_touched[entity] = true
 
-      audio_manager:play_sound("switch")
+      audio_manager:play_sound("others/dungeon_switch")
       map:change_crystal_state()
 
     -- Activate solid switches.
@@ -102,7 +102,7 @@ function item:on_using()
          sprite:get_animation_set() == "entities/solid_switch" then
 
         if not switch:is_activated() then
-          audio_manager:play_sound("switch")
+          audio_manager:play_sound("others/dungeon_switch")
           switch:set_activated(true)
         end
       end

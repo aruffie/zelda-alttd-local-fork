@@ -11,6 +11,7 @@ local switch_manager = require("scripts/maps/switch_manager")
 local enemy_manager = require("scripts/maps/enemy_manager")
 local separator_manager = require("scripts/maps/separator_manager")
 local owl_manager = require("scripts/maps/owl_manager")
+require("scripts/multi_events")
 
 -- Map events
 function map:on_started()
@@ -128,11 +129,11 @@ function sensor_7:on_activated()
 
 end
 
-function sensor_8:on_activated()
+sensor_8:register_event("on_activated", function()
 
   door_manager:open_if_block_moved(map,  "auto_block_1" , "door_group_2_")
 
-end
+end)
 
 -- Separators events
 auto_separator_17:register_event("on_activating", function(separator, direction4)
@@ -142,11 +143,11 @@ auto_separator_17:register_event("on_activating", function(separator, direction4
 end)
 
 -- Switchs events
-function switch_1:on_activated()
+switch_1:register_event("on_activated", function()
 
   treasure_manager:appear_chest(map, "chest_small_key_2", true)
 
-end
+end)
 
 -- Treasures events
 treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_7_", "pickable_small_key_1")

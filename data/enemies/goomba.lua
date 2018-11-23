@@ -49,7 +49,7 @@ function enemy:on_restarted()
             movement:stop()
             sprite:set_animation("crushed")
             function sprite:on_animation_finished(animation)
-              audio_manager:play_sound("switch")
+              audio_manager:play_sound("others/dungeon_switch")
               enemy:remove()
             end
           end
