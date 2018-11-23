@@ -242,6 +242,7 @@ sprite{ id = "enemies/camo_goblin_red", description = "Camo goblin red" }
 sprite{ id = "enemies/cheep_cheep", description = "Cheep cheep" }
 sprite{ id = "enemies/chicken", description = "Chicken" }
 sprite{ id = "enemies/chicken_mortal", description = "Chicken mortal" }
+sprite{ id = "enemies/coconut", description = "Monkey coconut" }
 sprite{ id = "enemies/crow", description = "Crow" }
 sprite{ id = "enemies/cukeman", description = "Cukeman" }
 sprite{ id = "enemies/darknut", description = "Darknut sword" }
@@ -284,7 +285,6 @@ sprite{ id = "enemies/moblin_dog_sword", description = "Moblin dog sword" }
 sprite{ id = "enemies/moblin_pig_sword", description = "Moblin pig sword" }
 sprite{ id = "enemies/moblin_spear", description = "Moblin spear" }
 sprite{ id = "enemies/monkey", description = "Monkey" }
-sprite{ id = "enemies/monkey_coconut", description = "Monkey coconut" }
 sprite{ id = "enemies/octorok", description = "Octorok" }
 sprite{ id = "enemies/octorok_stone", description = "Octorok stone" }
 sprite{ id = "enemies/orb_monster_blue", description = "Orb monster blue" }
@@ -1235,6 +1235,7 @@ enemy{ id = "camo_goblin_green", description = "Camo goblin green" }
 enemy{ id = "camo_goblin_red", description = "Camo goblin red" }
 enemy{ id = "chicken", description = "Chicken" }
 enemy{ id = "chicken_mortal", description = "Chicken mortal" }
+enemy{ id = "coconut", description = "Monkey coconut" }
 enemy{ id = "crow", description = "Crow" }
 enemy{ id = "darknut", description = "Darknut" }
 enemy{ id = "death_ball", description = "Death ball" }
@@ -1267,7 +1268,6 @@ enemy{ id = "moblin_dog_spear", description = "Moblin dog spear" }
 enemy{ id = "moblin_dog_sword", description = "Moblin dog sword" }
 enemy{ id = "moblin_pig_sword", description = "Moblin pig sword" }
 enemy{ id = "monkey", description = "Monkey" }
-enemy{ id = "monkey_coconut", description = "Monkey coconut" }
 enemy{ id = "octorok", description = "Octorok" }
 enemy{ id = "octorok_stone", description = "Octorok stone" }
 enemy{ id = "orb_monster_blue", description = "Orb monster blue" }
@@ -1355,6 +1355,85 @@ shader{ id = "radial_fade_out", description = "Radial fade out" }
 shader{ id = "sepia", description = "Sepia" }
 shader{ id = "toon", description = "Toon" }
 
+file{ path = "enemies", license = "GPL v3" }
+file{ path = "enemies/arm_mimic.lua", license = "GPL v3" }
+file{ path = "enemies/armos.lua", license = "GPL v3" }
+file{ path = "enemies/arrow.lua", license = "GPL v3" }
+file{ path = "enemies/beamos.lua", license = "GPL v3" }
+file{ path = "enemies/boo_buddy.lua", license = "GPL v3" }
+file{ path = "enemies/boss", license = "GPL v3" }
+file{ path = "enemies/bubble.lua", license = "GPL v3" }
+file{ path = "enemies/buzz_blob.lua", license = "GPL v3" }
+file{ path = "enemies/camo_goblin_blue.lua", license = "GPL v3" }
+file{ path = "enemies/camo_goblin_green.lua", license = "GPL v3" }
+file{ path = "enemies/camo_goblin_red.lua", license = "GPL v3" }
+file{ path = "enemies/chicken.lua", license = "GPL v3" }
+file{ path = "enemies/chicken_mortal.lua", license = "GPL v3" }
+file{ path = "enemies/coconut.lua", license = "GPL v3" }
+file{ path = "enemies/crow.lua", license = "GPL v3" }
+file{ path = "enemies/darknut.lua", license = "GPL v3" }
+file{ path = "enemies/death_ball.lua", license = "GPL v3" }
+file{ path = "enemies/dog.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "enemies/evil_tile.lua", license = "GPL v3" }
+file{ path = "enemies/eyegore_statue.lua", license = "GPL v3" }
+file{ path = "enemies/face_lamp.lua", license = "GPL v3" }
+file{ path = "enemies/fireball.lua", license = "GPL v3" }
+file{ path = "enemies/fireball_small_triple_red.lua", license = "GPL v3" }
+file{ path = "enemies/flying_octorok.lua", license = "GPL v3" }
+file{ path = "enemies/flying_tile.lua", license = "GPL v3" }
+file{ path = "enemies/gel_red.lua", license = "GPL v3" }
+file{ path = "enemies/generic_towards_hero.lua", license = "GPL v3" }
+file{ path = "enemies/generic_waiting_for_hero.lua", license = "GPL v3" }
+file{ path = "enemies/ghini.lua", license = "GPL v3" }
+file{ path = "enemies/giant_goponga_flower.lua", license = "GPL v3" }
+file{ path = "enemies/goomba.lua", license = "GPL v3" }
+file{ path = "enemies/goponga_flower.lua", license = "GPL v3" }
+file{ path = "enemies/hardhat_beetle_blue.lua", license = "GPL v3" }
+file{ path = "enemies/hardhat_beetle_red.lua", license = "GPL v3" }
+file{ path = "enemies/helmasaur_masked.lua", license = "GPL v3" }
+file{ path = "enemies/hooded_stalfos.lua", license = "GPL v3" }
+file{ path = "enemies/keese.lua", license = "GPL v3" }
+file{ path = "enemies/leever.lua", license = "GPL v3" }
+file{ path = "enemies/lib", license = "GPL v3" }
+file{ path = "enemies/like_like.lua", license = "GPL v3" }
+file{ path = "enemies/mad_bomber.lua", license = "GPL v3" }
+file{ path = "enemies/maskass.lua", license = "GPL v3" }
+file{ path = "enemies/moblin.lua", license = "GPL v3" }
+file{ path = "enemies/moblin_dog_spear.lua", license = "GPL v3" }
+file{ path = "enemies/moblin_dog_sword.lua", license = "GPL v3" }
+file{ path = "enemies/moblin_pig_sword.lua", license = "GPL v3" }
+file{ path = "enemies/monkey.lua", license = "GPL v3" }
+file{ path = "enemies/octorok.lua", license = "GPL v3" }
+file{ path = "enemies/octorok_stone.lua", license = "GPL v3" }
+file{ path = "enemies/orb_monster_blue.lua", license = "GPL v3" }
+file{ path = "enemies/orb_monster_green.lua", license = "GPL v3" }
+file{ path = "enemies/orb_monster_red.lua", license = "GPL v3" }
+file{ path = "enemies/peahat.lua", license = "GPL v3" }
+file{ path = "enemies/pike_auto.lua", license = "GPL v3" }
+file{ path = "enemies/pike_detect.lua", license = "GPL v3" }
+file{ path = "enemies/pike_fixed.lua", license = "GPL v3" }
+file{ path = "enemies/pokey_full.lua", license = "GPL v3" }
+file{ path = "enemies/pols_voice.lua", license = "GPL v3" }
+file{ path = "enemies/raven.lua", license = "GPL v3" }
+file{ path = "enemies/red_bombite.lua", license = "GPL v3" }
+file{ path = "enemies/river_zora.lua", license = "GPL v3" }
+file{ path = "enemies/sand_crab.lua", license = "GPL v3" }
+file{ path = "enemies/sea_urchin.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "enemies/spike.lua", license = "GPL v3" }
+file{ path = "enemies/spiked_thwomp.lua", license = "GPL v3" }
+file{ path = "enemies/stalfos_blue.lua", license = "GPL v3" }
+file{ path = "enemies/stalfos_grey.lua", license = "GPL v3" }
+file{ path = "enemies/stalfos_red.lua", license = "GPL v3" }
+file{ path = "enemies/star.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "enemies/tektite_blue.lua", license = "GPL v3" }
+file{ path = "enemies/vegas.lua", license = "GPL v3" }
+file{ path = "enemies/water_tektite.lua", license = "GPL v3" }
+file{ path = "enemies/wizzrobe_beam.lua", license = "GPL v3" }
+file{ path = "enemies/wizzrobe_blue.lua", license = "GPL v3" }
+file{ path = "enemies/wizzrobe_white.lua", license = "GPL v3" }
+file{ path = "enemies/zol_green.lua", license = "GPL v3" }
+file{ path = "enemies/zol_red.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "enemies/zombie.lua", license = "GPL v3" }
 file{ path = "items", license = "GPL v3" }
 file{ path = "items/angler_key.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/arrow.lua", license = "GPL v3" }

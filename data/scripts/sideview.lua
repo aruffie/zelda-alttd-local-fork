@@ -5,7 +5,7 @@ INFO: This scripts implements gravity for sideview maps.
 Import this script and call in map.on_started or in
 map.on_opening_transition_finished this line:
 
-  map:launch_side_view()
+  map:launch_sideview()
 
 Pickables always fall by default. 
 To allow gravity on entities there are 2 options:
@@ -23,7 +23,7 @@ require("scripts/multi_events")
 local audio_manager = require("scripts/audio_manager")
 
 local map_meta = sol.main.get_metatable("map")
-map_meta.side_view = false
+map_meta.sideview = false
 
 local gravity_delay = 5 -- Delay for the gravity timer.
 local update_timer -- Release up/down commands when leaving ladders, and fix direction.
@@ -31,18 +31,18 @@ local gravity_timer -- Used for gravity.
 local game, map, hero
 
 -- Getter/setter for sideview feature.
-function map_meta:is_side_view()
-  return self.side_view
+function map_meta:is_sideview()
+  return self.sideview
 end
-function map_meta:set_side_view(active)
-  if active == self.side_view then return end
+function map_meta:set_sideview(active)
+  if active == self.sideview then return end
   if active then
-    self:launch_side_view()
+    self:launch_sideview()
   elseif (not active) then
     gravity_timer:stop(); gravity_timer = nil
     update_timer:stop(); update_timer = nil
   end
-  self.side_view = active
+  self.sideview = active
 end
 
 
@@ -87,7 +87,7 @@ end
 
 
 -- Initialize gravity timer for falling feature.
-function map_meta:launch_side_view()
+function map_meta:launch_sideview()
 
   -- Initialize script variables.
   map = self

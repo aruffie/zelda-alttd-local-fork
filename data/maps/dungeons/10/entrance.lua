@@ -11,7 +11,7 @@ local map = ...
 local game = map:get_game()
 
 function map:on_started()
-  map:set_side_view(true)
+  map:set_sideview(true)
 end
 
 function map:on_opening_transition_finished()

@@ -1,6 +1,10 @@
+-- Lua script of enemy "pike detect".
+-- This script is executed every time an enemy with this model is created.
+
+-- Pike that moves when the hero is close.
+
 -- Variables
 local enemy = ...
--- Pike that moves when the hero is close.
 local state = "stopped"  -- "stopped", "moving", "going_back" or "paused".
 local initial_xy = {}
 local activation_distance = 24

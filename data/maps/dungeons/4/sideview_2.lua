@@ -11,7 +11,7 @@ function map:on_started()
   map:init_music("20_sidescrolling")
   
   -- Sideview
-  map:set_side_view(true)
+  map:set_sideview(true)
 
 end
 

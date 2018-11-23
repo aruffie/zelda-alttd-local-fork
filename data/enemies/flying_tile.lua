@@ -1,5 +1,8 @@
-local enemy = ...
+-- Lua script of enemy "flying tile".
+-- This script is executed every time an enemy with this model is created.
 
+-- Variables
+local enemy = ...
 local shadow_sprite = nil
 local initial_y = nil
 local state = nil  -- "raising", "attacking" or "destroying".
@@ -39,6 +42,7 @@ function enemy:on_restarted()
   m:start(self)
   sol.timer.start(self, 2000, function() self:go_hero() end)
   enemy.state = "raising"
+  
 end
 
 function enemy:go_hero()
@@ -50,10 +54,13 @@ function enemy:go_hero()
   m:set_smooth(false)
   m:start(self)
   enemy.state = "attacking"
+  
 end
 
 function enemy:on_obstacle_reached()
+  
   self:disappear()
+  
 end
 
 function enemy:on_custom_attack_received(attack, sprite)
@@ -61,6 +68,7 @@ function enemy:on_custom_attack_received(attack, sprite)
   if enemy.state == "attacking" then
     self:disappear()
   end
+  
 end
 
 function enemy:disappear()
@@ -78,6 +86,7 @@ function enemy:disappear()
       enemy:on_flying_tile_dead()
     end
   end
+  
 end
 
 function enemy:on_pre_draw()
@@ -92,5 +101,6 @@ function enemy:on_pre_draw()
     end
     self:get_map():draw_visual(shadow_sprite, x, y)
   end
+  
 end
 

@@ -1,3 +1,7 @@
+-- Lua script of enemy "beamos".
+-- This script is executed every time an enemy with this model is created.
+
+-- Variables
 local enemy = ...
 local particle_sprite = "enemies/beamos_particle"
 local damage = 1
@@ -7,15 +11,16 @@ local time_between_particles = 20
 local particles_per_beam = 30
 local stop_time = 1000
 
--- Beamos
-
+-- Event called when the enemy is initialized.
 function enemy:on_created()
+  
   self:set_life(1); self:set_damage(2)
   self:create_sprite("enemies/beamos")
   self:set_size(16,32); self:set_origin(8,27)
   self:set_invincible(); self:set_can_attack(false); self:set_traversable(true)
   self:set_pushed_back_when_hurt(false)
   self:set_attack_consequence("explosion", 1)
+  
 end
 
 function enemy:on_restarted()

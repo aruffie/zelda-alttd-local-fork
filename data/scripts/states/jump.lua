@@ -170,7 +170,7 @@ function hero_meta:start_custom_jump()
   local hero = self
   local game = self:get_game()
   local map = self:get_map()
-  local is_sideview_map = map.is_side_view and map:is_side_view()
+  local is_sideview_map = map.is_sideview and map:is_sideview()
    -- Select Max height.
   if is_sideview_map then max_height = max_height_sideview
   else max_height = max_height_normal end
@@ -279,7 +279,7 @@ function hero_meta:start_custom_jump()
   local jump_timer = sol.timer.start(map, jump_duration, function()
 
     hero:set_walking_speed(ws) -- Restore initial walking speed.
-    if map.is_side_view == nil or map:is_side_view() == false then
+    if map.is_sideview == nil or map:is_sideview() == false then
       tile:remove()  -- Delete shadow platform tile.
     end
     -- If ground is empty, move hero to lower layer.

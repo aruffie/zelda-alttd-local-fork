@@ -142,7 +142,7 @@ function hero_meta:start_runjump()
   local hero = self
   local game = hero:get_game()
   local map = hero:get_map()
-  local is_sideview_map = map.is_side_view and map:is_side_view()
+  local is_sideview_map = map.is_sideview and map:is_sideview()
   
   -- Do not runjump if the hero is not moving (i.e., "running stopped").
   if not hero:is_walking() then return end

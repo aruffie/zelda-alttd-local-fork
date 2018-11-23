@@ -24,7 +24,7 @@ This includes the creation of movements from the arrow key commands pressed.
   control_menu:get_can_override()
   control_menu:set_on_top(on_top)
   control_menu:get_on_top()
-  control_menu:is_side_view()
+  control_menu:is_sideview()
   -- Events that can be overriden:
   control_menu:on_command_pressed(command)
   control_menu:on_command_released(command)
@@ -83,14 +83,14 @@ function game_meta:create_control_menu(can_override)
   function control_menu:set_on_top(on_top) control_menu.on_top = on_top end
   function control_menu:get_on_top() return control_menu.on_top end
   -- To know if the behavior is sideview.
-  function control_menu:is_side_view()
+  function control_menu:is_sideview()
     local map = control_menu.entity:get_map()
-    return map.is_side_view and map:is_side_view()
+    return map.is_sideview and map:is_sideview()
   end
 
   -- Handle commands for input events.
   function control_menu:on_command_pressed(command)
-    if not control_menu:is_side_view() then
+    if not control_menu:is_sideview() then
       control_menu:handle_command(command, "pressed")
     else
       control_menu:handle_command(command, "pressed")
@@ -98,7 +98,7 @@ function game_meta:create_control_menu(can_override)
     end
   end
   function control_menu:on_command_released(command)
-    if not control_menu:is_side_view() then
+    if not control_menu:is_sideview() then
       control_menu:handle_command(command, "released")
     else
       control_menu:handle_command(command, "released")

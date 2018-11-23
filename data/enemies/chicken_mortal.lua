@@ -1,3 +1,6 @@
+-- Lua script of enemy "chicken mortal".
+-- This script is executed every time an enemy with this model is created.
+
 -- Variables
 local enemy = ...
 local map = enemy:get_map()
