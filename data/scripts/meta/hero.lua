@@ -135,7 +135,10 @@ hero_meta:register_event("on_position_changed", function(hero)
       game:set_value("map_hero_position_y", square_total_y)
       
       -- Save the map discovering.
-      game:set_value("map_discovering_" .. square_total_x .. "_" .. square_total_y, true)
+      assert(square_total_x >= 0 and square_total_y >= 0, "Negative coordinates for map discovering: "..square_total_x.." "..square_total_y)
+      if square_total_x >= 0 and square_total_y >= 0 then
+        game:set_value("map_discovering_" .. square_total_x .. "_" .. square_total_y, true)
+      end
     end
   else
     local map_width, map_height = map:get_size()
