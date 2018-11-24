@@ -16,9 +16,14 @@ local spike_direction = math.pi
 local enemy_step = 1
 local angle_to_spike
 
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
+require("scripts/multi_events")
+
 -- Event called when the enemy is initialized.
 function enemy:on_created()
 
+print("grr")
   local x_enemy,y_enemy,layer_enemy = enemy:get_position()
   sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
   sprite:set_direction(2)
@@ -37,7 +42,7 @@ function enemy:on_created()
   sprite_spike:set_animation("stopped")
   function sprite:on_animation_finished(animation)
     if animation == "punching" then
-      audio_manager:play_sound("boss_1_explode_part")
+      audio_manager:play_sound("enemies/blade_trap")
       sprite:set_animation("walking")
       enemy:go_spike()
       enemy:go_on_the_other_side()
@@ -46,7 +51,7 @@ function enemy:on_created()
   -- Sound
   sol.timer.start(spike, 150, function()
     if spike_move then
-      audio_manager:play_sound("rolling_spike")
+      audio_manager:play_sound("enemies/rolling_bones_roller")
     end
     return true
   end)
@@ -81,7 +86,7 @@ function enemy:push_spike()
 
    enemy_step = 2
    sol.timer.start(enemy, 250, function()
-    audio_manager:play_sound("boss_1_explode_part")
+    audio_manager:play_sound("enemies/blade_trap")
    end)
    sprite:set_animation("punching")
 
@@ -174,7 +179,7 @@ function enemy:change_angle()
 
 end
 
-function enemy:on_hurt(attack)
+enemy:register_event("on_hurt", function()
 
   if enemy:get_life() <= 0 then
     movement_spike:stop()
@@ -184,8 +189,7 @@ function enemy:on_hurt(attack)
     end
   end
 
-end
-
+end)
 
 -- Event called when the enemy should start or restart its movements.
 -- This is called for example after the enemy is created or after

@@ -15,7 +15,6 @@ hero_meta:register_event("on_state_changed", function(hero)
   local game = hero:get_game()
   local current_state = hero:get_state()
   -- Sounds
-  print(current_state)
   if current_state == "lifting" then
     audio_manager:play_sound("hero/pickup") 
   elseif current_state == "sword loading" then

@@ -13973,7 +13973,7 @@ enemy{
   x = 1192,
   y = 1453,
   direction = 0,
-  breed = "zol_green",
+  breed = "gel_red",
 }
 
 enemy{
@@ -13982,7 +13982,7 @@ enemy{
   x = 1048,
   y = 1453,
   direction = 0,
-  breed = "zol_green",
+  breed = "gel_red",
 }
 
 enemy{
@@ -15179,7 +15179,7 @@ custom_entity{
 }
 
 door{
-  name = "door_group_boss_2",
+  name = "door_group_boss_1",
   layer = 0,
   x = 2072,
   y = 792,
@@ -17183,7 +17183,7 @@ custom_entity{
 }
 
 door{
-  name = "door_group_boss_1",
+  name = "door_group_boss_2",
   layer = 0,
   x = 2072,
   y = 728,
@@ -18570,8 +18570,8 @@ tile{
 
 tile{
   layer = 2,
-  x = 1928,
-  y = 1456,
+  x = 1936,
+  y = 1296,
   width = 288,
   height = 224,
   pattern = "ceiling.1",

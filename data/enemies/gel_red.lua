@@ -1,20 +1,22 @@
+-- Lua script of enemy "gel red".
+-- This script is executed every time an enemy with this model is created.
+
 -- Variables
 local enemy = ...
-
--- Include scripts
-local audio_manager = require("scripts/audio_manager")
-local behavior = require("enemies/lib/towards_hero")
+local game = enemy:get_game()
+local map = enemy:get_map()
+local hero = map:get_hero()
+local sprite
+local movement
 
 -- Event called when the enemy is initialized.
 function enemy:on_created()
 
-  local properties = {
-    sprite = "enemies/" .. enemy:get_breed(),
-    life = 1,
-    damage = 1,
-    normal_speed = 16,
-    faster_speed = 16,
-  }
-  behavior:create(enemy, properties)
+  sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+  enemy:set_traversable(false)
+  enemy:set_life(1)
+  enemy:set_damage(1)
+  enemy:set_invincible(true)
+  enemy:set_attacking_collision_mode("touching")
 
 end

@@ -14,12 +14,11 @@ function door_manager:open_when_enemies_dead(map, enemy_prefix, door_prefix, sou
       sound = true
     end
     if not map:has_entities(enemy_prefix) then
-        map:open_doors(door_prefix)
-        if sound then
-          audio_manager:play_sound("others/dungeon_door_open")
-          audio_manager:play_sound("others/secret1")
-
-        end
+      map:open_doors(door_prefix)
+      if sound then
+        audio_manager:play_sound("others/dungeon_door_open")
+        audio_manager:play_sound("others/secret1")
+      end
    end
   end
    for enemy in map:get_entities(enemy_prefix) do

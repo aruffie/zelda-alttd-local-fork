@@ -1927,7 +1927,6 @@ file{ path = "scripts/meta", license = "GPL v3" }
 file{ path = "scripts/meta/block.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "scripts/meta/camera.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "scripts/meta/destructible.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "scripts/meta/door.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "scripts/meta/dynamic_tile.lua", license = "GPL v3" }
 file{ path = "scripts/meta/enemy.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "scripts/meta/hero.lua", license = "GPL v3" }
