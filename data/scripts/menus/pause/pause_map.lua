@@ -1,4 +1,4 @@
-local submenu = require("scripts/menus/pause_submenu")
+local submenu = require("scripts/menus/pause/pause_submenu")
 local audio_manager = require("scripts/audio_manager")
 
 local map_submenu = submenu:new()
@@ -98,26 +98,26 @@ function map_submenu:draw_world_map(dst_surface)
   local width, height = dst_surface:get_size()
   local center_x = width / 2
   local center_y = height / 2
-  local menu_x, menu_y = center_x - self.width / 2, center_y - self.height / 2
+  local menu_x, menu_y =  math.ceil(center_x - self.width / 2), math.ceil(center_y - self.height / 2)
 
   -- Background.
   local world_map_bg_w, world_map_bg_h = self.world_map_bg:get_size() 
-  local world_map_bg_x, world_map_bg_y = menu_x + (self.width - world_map_bg_w) / 2, menu_y + (self.height - world_map_bg_h) / 2 + 6
+  local world_map_bg_x, world_map_bg_y = math.ceil(menu_x + (self.width - world_map_bg_w) / 2), math.ceil(menu_y + (self.height - world_map_bg_h) / 2 + 8)
   self.world_map_bg:draw(dst_surface, world_map_bg_x, world_map_bg_y)
   
   -- Full map.
   local world_map_w, world_map_h = self.world_map:get_size()
-  local world_map_x, world_map_y = world_map_bg_x + (world_map_bg_w - world_map_w) / 2, world_map_bg_y + 10
+  local world_map_x, world_map_y = math.ceil(world_map_bg_x + (world_map_bg_w - world_map_w) / 2), world_map_bg_y + 2
   self.world_map:draw(dst_surface, world_map_x, world_map_y)
 
   -- Fog (hide places where the player has not been yet).
+  local grid_x, grid_y = world_map_x + 1, world_map_y + 1
   local fog_w, fog_h = self.world_map_fog:get_size()
-  local fog_x, fog_y = world_map_x, world_map_y
+  local fog_x, fog_y = grid_x, grid_y
   for i = 0, 15 do
-    local fog_x = world_map_x
+    local fog_x = grid_x
     for j = 0, 15 do
-      local save_map_discovering = self.game:get_value('map_discovering_'..(j)..'_'..(i))
-      if save_map_discovering == nil then
+      if self:world_map_has_fog(i, j) then
         self.world_map_fog:draw(dst_surface, fog_x, fog_y)
       end
       fog_x = fog_x + fog_w - 1
@@ -126,9 +126,9 @@ function map_submenu:draw_world_map(dst_surface)
   end    
 
   -- Grid.
-  self.world_map_grid:draw(dst_surface, world_map_x, world_map_y)
-  self.world_map_letters:draw(dst_surface, world_map_x, world_map_y - 9)
-  self.world_map_numbers:draw(dst_surface, world_map_x - 9, world_map_y)
+  self.world_map_grid:draw(dst_surface, grid_x, grid_y)
+  --self.world_map_letters:draw(dst_surface, world_map_x, world_map_y - 7)
+  --self.world_map_numbers:draw(dst_surface, world_map_x - 9, world_map_y)
 
   -- Hero position.
   local map_hero_position_x, map_hero_position_y = self.game:get_value("map_hero_position_x"), self.game:get_value("map_hero_position_y")
@@ -140,9 +140,20 @@ function map_submenu:draw_world_map(dst_surface)
 
   -- Cursor.
   if not self.dialog_opened then
-    local cursor_x, cursor_y = world_map_x + self.world_map_cursor_x * 8, world_map_y + self.world_map_cursor_y * 8
+    local cursor_x, cursor_y = grid_x + self.world_map_cursor_x * 8, grid_y + self.world_map_cursor_y * 8
     self.world_map_cursor:draw(dst_surface, cursor_x, cursor_y)
   end
+end
+
+-- Tells if the coordinate i, j has fog (i.e. the player has not visited yet this place).
+function map_submenu:world_map_has_fog(i, j)
+  if i < 0 or j < 0 then
+    return true
+  else
+    local save_map_discovering = self.game:get_value('map_discovering_'..(j)..'_'..(i))
+    return save_map_discovering
+  end
+
 end
 
 function map_submenu:world_map_on_command_pressed(command)

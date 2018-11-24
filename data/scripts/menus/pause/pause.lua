@@ -1,7 +1,7 @@
 -- Script that creates a pause menu for a game.
 
 -- Usage:
--- require("scripts/menus/pause")
+-- require("scripts/menus/pause/pause")
 
 require("scripts/multi_events")
 local audio_manager = require("scripts/audio_manager")
@@ -14,10 +14,10 @@ local function initialize_pause_features(game)
     return
   end
 
-  local inventory_builder = require("scripts/menus/pause_inventory")
-  local map_builder = require("scripts/menus/pause_map")
-  local quest_builder = require("scripts/menus/pause_quest")
-  local options_builder = require("scripts/menus/pause_options")
+  local inventory_builder = require("scripts/menus/pause/pause_inventory")
+  local map_builder = require("scripts/menus/pause/pause_map")
+  local quest_builder = require("scripts/menus/pause/pause_quest")
+  local options_builder = require("scripts/menus/pause/pause_options")
 
   local pause_menu = {}
   game.pause_menu = pause_menu

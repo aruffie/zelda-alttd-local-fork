@@ -1,4 +1,4 @@
-local submenu = require("scripts/menus/pause_submenu")
+local submenu = require("scripts/menus/pause/pause_submenu")
 local language_manager = require("scripts/language_manager")
 local audio_manager = require("scripts/audio_manager")
 
