@@ -91,6 +91,18 @@ function map_submenu:build_world_map()
   self.world_map_cursor = sol.sprite.create("menus/pause/map/world/world_map_cursor")
   self:set_world_map_cursor_position(0, 0)
 
+  -- Save the fog (optimization).
+  self.fog = {}
+  for i = 0, 15 do
+    self.fog[i] = {}
+    for j = 0, 15 do
+      local saved_discovering = self.game:get_value('map_discovering_'..(j)..'_'..(i))
+      if saved_discovering == nil then
+        saved_discovering = false
+      end
+      self.fog[i][j] = not saved_discovering
+    end
+  end
 end
 
 function map_submenu:draw_world_map(dst_surface)
@@ -117,7 +129,7 @@ function map_submenu:draw_world_map(dst_surface)
   for i = 0, 15 do
     local fog_x = grid_x
     for j = 0, 15 do
-      if self:world_map_has_fog(i, j) then
+      if self.fog[i][j] then
         self.world_map_fog:draw(dst_surface, fog_x, fog_y)
       end
       fog_x = fog_x + fog_w - 1
@@ -143,17 +155,6 @@ function map_submenu:draw_world_map(dst_surface)
     local cursor_x, cursor_y = grid_x + self.world_map_cursor_x * 8, grid_y + self.world_map_cursor_y * 8
     self.world_map_cursor:draw(dst_surface, cursor_x, cursor_y)
   end
-end
-
--- Tells if the coordinate i, j has fog (i.e. the player has not visited yet this place).
-function map_submenu:world_map_has_fog(i, j)
-  if i < 0 or j < 0 then
-    return true
-  else
-    local save_map_discovering = self.game:get_value('map_discovering_'..(j)..'_'..(i))
-    return save_map_discovering
-  end
-
 end
 
 function map_submenu:world_map_on_command_pressed(command)
