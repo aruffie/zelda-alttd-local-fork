@@ -1,4 +1,4 @@
-local submenu = require("scripts/menus/pause_submenu")
+local submenu = require("scripts/menus/pause/pause_submenu")
 local audio_manager = require("scripts/audio_manager")
 
 local quest_submenu = submenu:new()

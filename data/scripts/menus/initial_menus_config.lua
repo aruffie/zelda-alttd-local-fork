@@ -11,7 +11,7 @@ local initial_menus = {
   "scripts/menus/team_logo",
   "scripts/menus/language",
   "scripts/menus/copyright_menu",
-  "scripts/menus/title",
+  "scripts/menus/title_screen/title",
 }
 
 return initial_menus

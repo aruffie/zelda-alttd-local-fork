@@ -3,9 +3,9 @@
 
 local title = {}
 
-local title_background = require("scripts/menus/title_background")
-local title_logo = require("scripts/menus/title_logo")
-local file_selection = require("scripts/menus/file_selection")
+local title_background = require("scripts/menus/title_screen/title_background")
+local title_logo = require("scripts/menus/title_screen/title_logo")
+local file_selection = require("scripts/menus/title_screen/file_selection")
 local audio_manager = require("scripts/audio_manager")
 local multi_events = require("scripts/multi_events")
 

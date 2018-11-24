@@ -1913,15 +1913,16 @@ file{ path = "scripts/gfx_effects/electric.lua", author = "Stdgregwar", license 
 file{ path = "scripts/gfx_effects/fade_to_white.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/gfx_effects/pixellisation.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/gfx_effects/radial_fade_out.lua", author = "PhoenixII54", license = "GPL v3" }
-file{ path = "scripts/menus/file_selection.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/menus/keyboardbox.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/menus/messagebox.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/menus/settings.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/menus/solarus_logo.lua", author = "Maxs", license = "GPL v3" }
 file{ path = "scripts/menus/team_logo.lua", author = "Olivier Cléro", license = "GPL v3" }
-file{ path = "scripts/menus/title.lua", author = "Olivier Cléro", license = "GPL v3" }
-file{ path = "scripts/menus/title_background.lua", author = "Olivier Cléro", license = "GPL v3" }
-file{ path = "scripts/menus/title_logo.lua", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/menus/title_screen", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/menus/title_screen/file_selection.lua", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/menus/title_screen/title.lua", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/menus/title_screen/title_background.lua", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/menus/title_screen/title_logo.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/menus/zeldaforce_logo.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/meta", license = "GPL v3" }
 file{ path = "scripts/meta/block.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
