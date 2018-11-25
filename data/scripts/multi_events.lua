@@ -59,20 +59,20 @@ end
 
 local function register_event(object, event_name, callback, first)
   local events = get_events(object)
-  if (not events[event_name]) and object[event_name] then
+  if (not events[event_name]) and rawget(object,event_name) then
     --a callback was registered without register_event
     --insert mt_trampoline behind it
     --print("[Warning] using register event after a regular :on_ setting")
     local unregistered = object[event_name]
     local tramp = mt_trampoline(object,event_name)
     object[event_name] = function(...)
-      return tramp(...) or unregistered(...)
+      return unregistered(...) or tramp(...) 
     end
   end
   object._events = nil --remove events to allow modification
   events[event_name] = true --set event as registered
   local previous_callbacks = object[event_name] or mt_trampoline(object,event_name)
-  if first then
+  if not first then
     object[event_name] = function(...)
       return callback(...) or previous_callbacks(...)
     end
@@ -89,7 +89,7 @@ end
 function multi_events:enable(object)
   object.register_event = register_event
 
-  local old_newindex = object.__newindex
+  local old_newindex = object.__newindex or rawset
   function object.__newindex(t,k,v)
     local events = get_events(t)
     if events and events[k] then
