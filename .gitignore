@@ -11,3 +11,4 @@ cmake_install.cmake
 Thumbs.db
 data/error.txt
 .idea
+desktop.ini
