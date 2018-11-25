@@ -1,10 +1,10 @@
 quest{
   solarus_version = "1.6",
   write_dir = "zelda-alttd",
-  title = "Link's Awakening: A Link To The Dream",
+  title = "Zelda Link's Awakening: A Link To The Dream",
   short_description = "A 16-bit hommage to the Game Boy classic",
   long_description = [[
-(Re)discover the Game Boy classic Link's Awakening (1993) in this SNES-like remake, and get on a fabulous and poetic adventure.]],
+(Re)discover the Game Boy classic The Legend of Zelda Link's Awakening (1993) in this SNES-like remake, and get on a fabulous and poetic adventure.]],
   author = "Binbin, Christopho",
   quest_version = "1.0.0",
   release_date = "",
