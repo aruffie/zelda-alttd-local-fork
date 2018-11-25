@@ -23,7 +23,6 @@ require("scripts/multi_events")
 -- Event called when the enemy is initialized.
 function enemy:on_created()
 
-print("grr")
   local x_enemy,y_enemy,layer_enemy = enemy:get_position()
   sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
   sprite:set_direction(2)
