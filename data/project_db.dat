@@ -148,6 +148,7 @@ map{ id = "sideviews/martha_bay/sideview_1", description = "Sideview 1" }
 map{ id = "sideviews/martha_bay/sideview_2", description = "Sideview 2" }
 map{ id = "trial/1", description = "Level 1" }
 map{ id = "trial/2", description = "Level 2" }
+map{ id = "trial/3", description = "Level 3" }
 
 tileset{ id = "dungeon/blue", description = "Blue" }
 tileset{ id = "dungeon/brown", description = "Brown" }
