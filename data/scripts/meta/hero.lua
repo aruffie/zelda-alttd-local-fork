@@ -58,6 +58,7 @@ hero_meta:register_event("on_state_changed", function(hero)
         audio_manager:play_sound("others/stairs")
         return 400
       end)
+      timer_stairs:set_suspended_with_map(false)
     end
   elseif current_state == "frozen" then
     -- Frozen
