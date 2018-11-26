@@ -394,7 +394,7 @@ enemy{
   x = 88,
   y = 93,
   direction = 0,
-  breed = "zol_green",
+  breed = "zol_red",
 }
 
 enemy{
@@ -403,7 +403,7 @@ enemy{
   x = 232,
   y = 93,
   direction = 0,
-  breed = "zol_green",
+  breed = "zol_red",
 }
 
 enemy{
@@ -412,7 +412,7 @@ enemy{
   x = 232,
   y = 173,
   direction = 0,
-  breed = "zol_green",
+  breed = "zol_red",
 }
 
 enemy{
@@ -421,7 +421,7 @@ enemy{
   x = 88,
   y = 173,
   direction = 0,
-  breed = "zol_green",
+  breed = "zol_red",
 }
 
 tile{
