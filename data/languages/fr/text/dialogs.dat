@@ -4669,6 +4669,13 @@ ennemis.
 }
 
 dialog{
+  id = "scripts.menus.pause_inventory.shovel.1",
+  text = [[
+Une pelle pour creuser et chercher des trésors fabuleux !
+]],
+}
+
+dialog{
   id = "scripts.menus.pause_inventory.slim_key.1",
   icon = "43",
   skip = "all",

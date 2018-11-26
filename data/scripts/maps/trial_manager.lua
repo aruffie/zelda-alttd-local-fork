@@ -5,7 +5,6 @@ local trial_manager = {}
 local audio_manager = require("scripts/audio_manager")
 require("scripts/multi_events")
 
-
 function trial_manager:init_map(map)
   
   teletransporter:set_enabled(false)
@@ -26,6 +25,5 @@ function trial_manager:teletransporter_appear()
   -- Activate teletransporter next map
   
 end
-
 
 return trial_manager
