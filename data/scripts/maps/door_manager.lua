@@ -31,48 +31,48 @@ end
 -- Open doors when all flying tiles in the room are dead
 function door_manager:open_when_flying_tiles_dead(map, enemy_prefix, door_prefix)
 
-    local function enemy_on_flying_tile_dead()
-     local open_door = true
-     for enemy in map:get_entities(enemy_prefix) do
-       if enemy.state ~= "destroying" then
-        open_door = false
-       end
-     end
-     if open_door then
-        map:open_doors(door_prefix)
-        audio_manager:play_sound("others/dungeon_door_open")
-        audio_manager:play_sound("others/secret1")
-     end
+  local function enemy_on_flying_tile_dead()
+  local open_door = true
+  for enemy in map:get_entities(enemy_prefix) do
+    if enemy.state ~= "destroying" then
+    open_door = false
+    end
+  end
+  if open_door then
+    map:open_doors(door_prefix)
+    audio_manager:play_sound("others/dungeon_door_open")
+    audio_manager:play_sound("others/secret1")
+  end
   end
    for enemy in map:get_entities(enemy_prefix) do
      enemy.on_flying_tile_dead = enemy_on_flying_tile_dead
-   end
+  end
 
 end
 
 -- Open doors when small boss is dead
 function door_manager:open_if_small_boss_dead(map)
 
-    local game = map:get_game()
-    local dungeon = game:get_dungeon_index()
-    local savegame = "dungeon_" .. dungeon .. "_small_boss"
-    local door_prefix = "door_group_small_boss"
-    if game:get_value(savegame) then
-        map:set_doors_open(door_prefix, true)
-    end
+  local game = map:get_game()
+  local dungeon = game:get_dungeon_index()
+  local savegame = "dungeon_" .. dungeon .. "_small_boss"
+  local door_prefix = "door_group_small_boss"
+  if game:get_value(savegame) then
+      map:set_doors_open(door_prefix, true)
+  end
 
 end
 
 -- Open doors when boss is dead
 function door_manager:open_if_boss_dead(map)
 
-    local game = map:get_game()
-    local dungeon = game:get_dungeon_index()
-    local savegame = "dungeon_" .. dungeon .. "_boss"
-    local door_prefix = "door_group_boss"
-    if game:get_value(savegame) then
-        map:set_doors_open(door_prefix, true)
-    end
+  local game = map:get_game()
+  local dungeon = game:get_dungeon_index()
+  local savegame = "dungeon_" .. dungeon .. "_boss"
+  local door_prefix = "door_group_boss"
+  if game:get_value(savegame) then
+      map:set_doors_open(door_prefix, true)
+  end
 
 end
 

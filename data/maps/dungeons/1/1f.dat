@@ -14220,7 +14220,7 @@ enemy{
   x = 800,
   y = 1157,
   direction = 0,
-  breed = "zol_green",
+  breed = "small_moldorm",
   treasure_name = "random",
 }
 
@@ -17156,7 +17156,7 @@ enemy{
   x = 1088,
   y = 1149,
   direction = 0,
-  breed = "zol_green",
+  breed = "small_moldorm",
   treasure_name = "random",
 }
 
