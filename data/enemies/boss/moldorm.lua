@@ -15,6 +15,9 @@ local hurt_duration = 4000
 local delay_between_parts = 120
 local is_hurt, is_reattaching, found_obtacle
 
+-- Include scripts
+require("scripts/multi_events")
+
 -- Event called when the enemy is initialized.
 function enemy:on_created()
 
@@ -150,7 +153,7 @@ end
 function enemy:set_reattaching_state(state) is_reattaching = state end
 
 -- Stop movements and timers only on head when the tail is hurt.
-function enemy:on_hurt()
+enemy:register_event("on_hurt", function()
   -- Start hurt states.
   for i = 1, 6 do
     local e = enemy:get_body_part(i)
@@ -161,7 +164,7 @@ function enemy:on_hurt()
     end)
   end
   
-end
+end)
 
 -- Create list with new movement info: radius, center, is_clockwise, init_angle, max_angle.
 -- Remark: Only the head can call this function.

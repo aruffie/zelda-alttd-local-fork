@@ -9,32 +9,33 @@ local audio_manager = require("scripts/audio_manager")
 function enemy_manager:execute_when_vegas_dead(map, enemy_prefix)
 
   local function enemy_on_symbol_fixed(enemy)
-    local direction = enemy:get_sprite():get_direction()
-    local all_immobilized = true
-    local all_same_direction = true
-    for vegas in map:get_entities(enemy_prefix) do
-      local sprite = vegas:get_sprite()
-      if not vegas:is_symbol_fixed() then
-        all_immobilized = false
-      end
-      if vegas:get_sprite():get_direction() ~= direction then
-        all_same_direction = false
-      end
+  local direction = enemy:get_sprite():get_direction()
+  local all_immobilized = true
+  local all_same_direction = true
+  for vegas in map:get_entities(enemy_prefix) do
+    local sprite = vegas:get_sprite()
+    if not vegas:is_symbol_fixed() then
+      all_immobilized = false
     end
+    if vegas:get_sprite():get_direction() ~= direction then
+      all_same_direction = false
+    end
+  end
 
-    if not all_immobilized then
+  if not all_immobilized then
+    return
+  end
+
+  sol.timer.start(map, 500, function()
+    if not all_same_direction then
+      audio_manager:play_sound("others/error")
+      for vegas in map:get_entities(enemy_prefix) do
+        vegas:set_symbol_fixed(false)
+      end
       return
     end
-
-    sol.timer.start(map, 500, function()
-      if not all_same_direction then
-        audio_manager:play_sound("others/error")
-        for vegas in map:get_entities(enemy_prefix) do
-          vegas:set_symbol_fixed(false)
-        end
-        return
-      end
-      -- Kill them.
+    audio_manager:play_sound("enemies/enemy_die")
+    -- Kill them.
     for vegas in map:get_entities(enemy_prefix) do
         vegas:set_life(0)
       end

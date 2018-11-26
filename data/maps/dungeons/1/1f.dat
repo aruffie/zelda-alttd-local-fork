@@ -17209,17 +17209,6 @@ destination{
 }
 
 custom_entity{
-  name = "boss_symbol_2",
-  layer = 0,
-  x = 2080,
-  y = 653,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/boss_symbol_dungeon_1",
-}
-
-custom_entity{
   name = "boss_symbol",
   layer = 0,
   x = 2080,

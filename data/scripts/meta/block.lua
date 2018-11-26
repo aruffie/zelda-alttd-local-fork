@@ -9,7 +9,6 @@ local audio_manager = require("scripts/audio_manager")
 function block_meta:on_moving()
     
   local x_start, y_start = self:get_position() 
-  print(x_start .. " - " .. y_start)
   sol.timer.start(self, 50, function()
     local x_end, y_end = self:get_position()  
     if x_start ~= x_end or y_start ~= y_end then

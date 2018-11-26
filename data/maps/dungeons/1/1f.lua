@@ -81,6 +81,12 @@ door_small_key_2_1:register_event("on_opened", function()
       
 end)
 
+door_group_boss_1:register_event("on_opened", function()
+    
+  audio_manager:play_sound("others/dungeon_door_open")
+      
+end)
+
 
 weak_wall_A_1:register_event("on_opened", function()
 
