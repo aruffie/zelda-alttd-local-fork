@@ -147,7 +147,7 @@ hero_meta:register_event("on_position_changed", function(hero)
     local row = math.floor(y / room_height)
     local room = row * num_columns + column + 1
     local room_old = game:get_value("room")
-    if game:has_dungeon_compass() and room_old ~= room and game:is_secret_room(nil, nil, room)  and game:is_secret_signal_room(nil, nil, room) then
+    if game:has_dungeon_compass() and room_old ~= room and game:is_secret_room(nil, nil, room) and game:is_secret_signal_room(nil, nil, room) then
       local timer = sol.timer.start(map, 500, function()
         audio_manager:play_sound("others/dungeon_signal")
       end)

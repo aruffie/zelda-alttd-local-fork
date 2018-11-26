@@ -21,6 +21,10 @@ local symbol_collapse
 local arrow
 local launch_boss
 
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
+require("scripts/multi_events")
+
 function enemy:on_created()
 
   sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
@@ -91,7 +95,9 @@ function enemy:start_battle()
   movement_battle:set_target(x, y)
   movement_battle:start(enemy)
   function movement_battle:on_finished()
+    
     enemy:choose_attack()
+    
   end
 
 end
@@ -143,6 +149,7 @@ function enemy:throw_arrow()
       end)
     end
   end)
+
 end
 
 function enemy:charge()
@@ -175,7 +182,7 @@ end
 function enemy:set_shocked()
 
   enemy:calculate_parameters()
-  audio_manager:play_sound("enemy_bounce")
+  audio_manager:play_sound("enemies/enemy_rebound")
   sprite:set_animation("shocked")
   enemy:set_attack_consequence("sword", 1)
   local movement_jump = sol.movement.create("jump")
@@ -192,5 +199,13 @@ function enemy:set_shocked()
   movement_jump:start(enemy)
 
 end
+
+enemy:register_event("on_hurt", function()
+
+  if symbol_collapse ~= nil then
+    symbol_collapse:remove()
+  end
+
+end)
 
 

@@ -159,7 +159,6 @@ function map:launch_cinematic_2()
     movement1:set_ignore_suspend(true)
     movement(movement1, camera)
     wait(1000)
-    audio_manager:play_sound("others/dungeon_shake")
     local timer_sound = sol.timer.start(hero, 0, function()
       audio_manager:play_sound("others/dungeon_shake")
       return 450

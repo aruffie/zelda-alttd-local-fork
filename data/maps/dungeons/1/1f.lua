@@ -69,25 +69,6 @@ door_manager:open_when_enemies_dead(map,  "enemy_group_3_",  "door_group_5")
 door_manager:open_if_small_boss_dead(map)
 door_manager:open_if_boss_dead(map)
 
-door_small_key_3_1:register_event("on_opened", function()
-    
-  audio_manager:play_sound("others/dungeon_door_open")
-      
-end)
-
-door_small_key_2_1:register_event("on_opened", function()
-    
-  audio_manager:play_sound("others/dungeon_door_open")
-      
-end)
-
-door_group_boss_1:register_event("on_opened", function()
-    
-  audio_manager:play_sound("others/dungeon_door_open")
-      
-end)
-
-
 weak_wall_A_1:register_event("on_opened", function()
 
   weak_wall_closed_A_1:remove();

@@ -17663,7 +17663,6 @@ switch{
   y = 1712,
   subtype = "walkable",
   sprite = "entities/switch",
-  sound = "switch",
   needs_block = false,
   inactivate_when_leaving = false,
 }

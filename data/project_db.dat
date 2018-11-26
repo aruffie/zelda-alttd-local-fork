@@ -146,6 +146,7 @@ map{ id = "sideviews/kanalet_castle/sideview_1", description = "Sideview 1" }
 map{ id = "sideviews/mabe_village/sideview_1", description = "Sideview 1" }
 map{ id = "sideviews/martha_bay/sideview_1", description = "Sideview 1" }
 map{ id = "sideviews/martha_bay/sideview_2", description = "Sideview 2" }
+map{ id = "trial/1", description = "Level 1" }
 
 tileset{ id = "dungeon/blue", description = "Blue" }
 tileset{ id = "dungeon/brown", description = "Brown" }
@@ -893,6 +894,7 @@ sound{ id = "gb/enemies/enemy_fall", description = "Enemy fall" }
 sound{ id = "gb/enemies/enemy_hit", description = "Enemy hit" }
 sound{ id = "gb/enemies/enemy_hit_power", description = "Enemy hit power" }
 sound{ id = "gb/enemies/enemy_jump", description = "Enemy jump" }
+sound{ id = "gb/enemies/enemy_rebound", description = "Enemy rebound" }
 sound{ id = "gb/enemies/evil_eagle_flap", description = "Evil eagle flap" }
 sound{ id = "gb/enemies/evil_eagle_fly_away", description = "Evil eagle fly away" }
 sound{ id = "gb/enemies/evil_eagle_flyby", description = "Evil eagle flyby" }
@@ -959,6 +961,7 @@ sound{ id = "gb/hero/swim", description = "Swim" }
 sound{ id = "gb/hero/throw", description = "Throw" }
 sound{ id = "gb/hero/wade1", description = "Wade 1" }
 sound{ id = "gb/hero/wade2", description = "Wade 2" }
+sound{ id = "gb/items/bomb_drop", description = "Bomb drop" }
 sound{ id = "gb/items/bomb_explode", description = "Bomb explode" }
 sound{ id = "gb/items/boomerang", description = "Boomerang" }
 sound{ id = "gb/items/bow_arrow", description = "Bow arrow" }

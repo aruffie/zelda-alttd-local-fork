@@ -126,7 +126,7 @@ function sensor_meta:on_activated_repeat()
       if hero:get_direction() == 1
 	         and door:is_enabled() then
         door:set_enabled(false)
-        --audio_manager:play_sound("door_open")
+        audio_manager:play_sound("others/dungeon_door_open")
       end
     end
   end
