@@ -11181,114 +11181,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 576,
-  y = 640,
-  width = 96,
-  height = 56,
-  pattern = "4148",
-}
-
-tile{
-  layer = 0,
-  x = 584,
-  y = 704,
-  width = 80,
-  height = 16,
-  pattern = "5999",
-}
-
-tile{
-  layer = 0,
-  x = 664,
-  y = 696,
-  width = 8,
-  height = 24,
-  pattern = "6000",
-}
-
-tile{
-  layer = 0,
-  x = 584,
-  y = 704,
-  width = 24,
-  height = 16,
-  pattern = "5998",
-}
-
-tile{
-  layer = 0,
-  x = 640,
-  y = 704,
-  width = 24,
-  height = 16,
-  pattern = "5998",
-}
-
-tile{
-  layer = 0,
-  x = 632,
-  y = 704,
-  width = 8,
-  height = 16,
-  pattern = "5975",
-}
-
-tile{
-  layer = 0,
-  x = 608,
-  y = 704,
-  width = 8,
-  height = 16,
-  pattern = "5974",
-}
-
-tile{
-  layer = 0,
-  x = 576,
-  y = 680,
-  width = 16,
-  height = 16,
-  pattern = "5995",
-}
-
-tile{
-  layer = 0,
-  x = 656,
-  y = 680,
-  width = 16,
-  height = 16,
-  pattern = "5994",
-}
-
-tile{
-  layer = 0,
-  x = 664,
-  y = 640,
-  width = 8,
-  height = 40,
-  pattern = "5981",
-}
-
-tile{
-  layer = 0,
-  x = 576,
-  y = 640,
-  width = 8,
-  height = 40,
-  pattern = "5982",
-}
-
-tile{
-  layer = 0,
-  x = 584,
-  y = 632,
-  width = 80,
-  height = 8,
-  pattern = "4148",
-}
-
-tile{
-  layer = 0,
   x = 608,
   y = 720,
   width = 8,
@@ -11834,15 +11726,6 @@ tile{
   width = 8,
   height = 8,
   pattern = "14795",
-}
-
-tile{
-  layer = 0,
-  x = 576,
-  y = 696,
-  width = 8,
-  height = 24,
-  pattern = "5996",
 }
 
 tile{
@@ -20475,6 +20358,30 @@ wall{
   stops_projectiles = true,
 }
 
+custom_entity{
+  name = "ghost_house",
+  layer = 0,
+  x = 640,
+  y = 709,
+  width = 40,
+  height = 24,
+  direction = 0,
+  sprite = "entities/ghost_house",
+  model = "obstacle",
+}
+
+custom_entity{
+  name = "ghost_house_2",
+  layer = 0,
+  x = 584,
+  y = 709,
+  width = 40,
+  height = 24,
+  direction = 2,
+  sprite = "entities/ghost_house",
+  model = "obstacle",
+}
+
 tile{
   layer = 1,
   x = 632,
@@ -21980,159 +21887,6 @@ tile{
 
 tile{
   layer = 1,
-  x = 592,
-  y = 640,
-  width = 8,
-  height = 32,
-  pattern = "5984",
-}
-
-tile{
-  layer = 1,
-  x = 584,
-  y = 640,
-  width = 8,
-  height = 32,
-  pattern = "5992",
-}
-
-tile{
-  layer = 1,
-  x = 600,
-  y = 640,
-  width = 48,
-  height = 32,
-  pattern = "5986",
-}
-
-tile{
-  layer = 1,
-  x = 592,
-  y = 680,
-  width = 64,
-  height = 16,
-  pattern = "5992",
-}
-
-tile{
-  layer = 1,
-  x = 584,
-  y = 696,
-  width = 80,
-  height = 8,
-  pattern = "5997",
-}
-
-tile{
-  layer = 1,
-  x = 608,
-  y = 688,
-  width = 32,
-  height = 16,
-  pattern = "5976",
-}
-
-tile{
-  layer = 1,
-  x = 584,
-  y = 672,
-  width = 16,
-  height = 8,
-  pattern = "5987",
-}
-
-tile{
-  layer = 1,
-  x = 600,
-  y = 672,
-  width = 48,
-  height = 8,
-  pattern = "5988",
-}
-
-tile{
-  layer = 1,
-  x = 648,
-  y = 672,
-  width = 16,
-  height = 8,
-  pattern = "5989",
-}
-
-tile{
-  layer = 1,
-  x = 648,
-  y = 640,
-  width = 8,
-  height = 32,
-  pattern = "5985",
-}
-
-tile{
-  layer = 1,
-  x = 656,
-  y = 640,
-  width = 8,
-  height = 32,
-  pattern = "5992",
-}
-
-tile{
-  layer = 1,
-  x = 576,
-  y = 632,
-  width = 8,
-  height = 8,
-  pattern = "4147",
-}
-
-tile{
-  layer = 1,
-  x = 664,
-  y = 632,
-  width = 8,
-  height = 8,
-  pattern = "4149",
-}
-
-tile{
-  layer = 1,
-  x = 648,
-  y = 632,
-  width = 24,
-  height = 8,
-  pattern = "5979",
-}
-
-tile{
-  layer = 1,
-  x = 600,
-  y = 632,
-  width = 48,
-  height = 8,
-  pattern = "5978",
-}
-
-tile{
-  layer = 1,
-  x = 576,
-  y = 632,
-  width = 24,
-  height = 8,
-  pattern = "5977",
-}
-
-tile{
-  layer = 1,
-  x = 600,
-  y = 640,
-  width = 16,
-  height = 24,
-  pattern = "6002",
-}
-
-tile{
-  layer = 1,
   x = 952,
   y = 256,
   width = 48,
@@ -22504,6 +22258,18 @@ enemy{
   direction = 3,
   breed = "monkey",
   treasure_name = "random",
+}
+
+custom_entity{
+  name = "ghost_house_3",
+  layer = 1,
+  x = 584,
+  y = 653,
+  width = 96,
+  height = 64,
+  direction = 1,
+  sprite = "entities/ghost_house",
+  model = "obstacle",
 }
 
 custom_entity{

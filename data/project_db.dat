@@ -424,6 +424,7 @@ sprite{ id = "entities/entrance_dungeon_door", description = "Entrance dungeons"
 sprite{ id = "entities/entrance_moblin_cave", description = "Entrance moblin cave" }
 sprite{ id = "entities/entrance_southern_face_shrine", description = "Entrance southern face shrine" }
 sprite{ id = "entities/explosion", description = "Explosion" }
+sprite{ id = "entities/explosion_boss", description = "Explosion boss" }
 sprite{ id = "entities/eye_switch_blue", description = "Eye switch blue" }
 sprite{ id = "entities/eye_switch_red", description = "Eye switch red" }
 sprite{ id = "entities/eye_switch_yellow", description = "Eye switch yellow" }
@@ -434,6 +435,7 @@ sprite{ id = "entities/flame_fountain_machine", description = "Flame fountain ma
 sprite{ id = "entities/floating_tree_rafting", description = "Floating tree rafting" }
 sprite{ id = "entities/frog_canvas", description = "Frog canvas" }
 sprite{ id = "entities/game_board", description = "Game_board" }
+sprite{ id = "entities/ghost_house", description = "Ghost house" }
 sprite{ id = "entities/grass", description = "Grass" }
 sprite{ id = "entities/graveyard_tree", description = "Graveyard tree" }
 sprite{ id = "entities/graveyard_tree_footer_brown", description = "Graveyard tree footer brown" }
