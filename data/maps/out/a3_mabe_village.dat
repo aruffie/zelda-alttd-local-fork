@@ -14443,6 +14443,12 @@ teletransporter{
   layer = 0,
   x = 328,
   y = 456,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "houses/mabe_village/meow_meow_house",
@@ -15883,6 +15889,12 @@ teletransporter{
   layer = 0,
   x = 392,
   y = 456,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "houses/mabe_village/meow_meow_house",
