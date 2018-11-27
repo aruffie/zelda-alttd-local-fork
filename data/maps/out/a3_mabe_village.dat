@@ -14185,6 +14185,12 @@ teletransporter{
   layer = 0,
   x = 608,
   y = 496,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "houses/mabe_village/marin_house",
@@ -14254,6 +14260,12 @@ teletransporter{
   layer = 0,
   x = 616,
   y = 672,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "houses/mabe_village/telephone_booth_1",
@@ -14310,6 +14322,12 @@ teletransporter{
   layer = 0,
   x = 824,
   y = 328,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "houses/mabe_village/shop_2",
@@ -14338,6 +14356,12 @@ teletransporter{
   layer = 0,
   x = 824,
   y = 672,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "houses/mabe_village/shop_1",
@@ -14367,6 +14391,12 @@ teletransporter{
   layer = 0,
   x = 368,
   y = 680,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "houses/mabe_village/grand_pa_house",
@@ -14386,6 +14416,12 @@ teletransporter{
   layer = 0,
   x = 648,
   y = 72,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "houses/mabe_village/quadruplets_house",
@@ -14405,6 +14441,12 @@ teletransporter{
   layer = 0,
   x = 592,
   y = 72,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "houses/mabe_village/quadruplets_house",
@@ -14424,6 +14466,12 @@ teletransporter{
   layer = 0,
   x = 768,
   y = 56,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "houses/mabe_village/dream_shine_upper_level",
@@ -14508,6 +14556,12 @@ teletransporter{
   layer = 0,
   x = 128,
   y = 552,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/mabe_village/cave_1",
@@ -14527,6 +14581,12 @@ teletransporter{
   layer = 0,
   x = 72,
   y = 624,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "houses/mabe_village/library",

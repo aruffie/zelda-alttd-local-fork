@@ -11514,6 +11514,12 @@ teletransporter{
   layer = 0,
   x = 808,
   y = 432,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "houses/south_mabe_village/sales_house_o_bananas",

@@ -1368,6 +1368,12 @@ teletransporter{
   layer = 0,
   x = 464,
   y = 464,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/a2_forest",
@@ -1604,6 +1610,12 @@ teletransporter{
   layer = 0,
   x = 160,
   y = 208,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/a2_forest",

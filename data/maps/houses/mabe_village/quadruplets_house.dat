@@ -1425,6 +1425,12 @@ teletransporter{
   layer = 1,
   x = 224,
   y = 232,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/a3_mabe_village",
@@ -1444,6 +1450,12 @@ teletransporter{
   layer = 1,
   x = 432,
   y = 232,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/a3_mabe_village",
