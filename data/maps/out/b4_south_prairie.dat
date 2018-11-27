@@ -14456,8 +14456,8 @@ destructible{
 
 destructible{
   layer = 0,
-  x = 424,
-  y = 509,
+  x = 456,
+  y = 493,
   sprite = "entities/stone_small_white",
   destruction_sound = "stone",
   weight = 1,
@@ -17478,8 +17478,8 @@ custom_entity{
 
 destructible{
   layer = 0,
-  x = 440,
-  y = 509,
+  x = 472,
+  y = 493,
   sprite = "entities/stone_small_white",
   destruction_sound = "stone",
   weight = 1,
@@ -20382,6 +20382,18 @@ custom_entity{
   model = "obstacle",
 }
 
+custom_entity{
+  name = "ghost_house_3",
+  layer = 0,
+  x = 584,
+  y = 653,
+  width = 96,
+  height = 64,
+  direction = 1,
+  sprite = "entities/ghost_house",
+  model = "obstacle",
+}
+
 tile{
   layer = 1,
   x = 632,
@@ -22258,18 +22270,6 @@ enemy{
   direction = 3,
   breed = "monkey",
   treasure_name = "random",
-}
-
-custom_entity{
-  name = "ghost_house_3",
-  layer = 1,
-  x = 584,
-  y = 653,
-  width = 96,
-  height = 64,
-  direction = 1,
-  sprite = "entities/ghost_house",
-  model = "obstacle",
 }
 
 custom_entity{
