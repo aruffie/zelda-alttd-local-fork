@@ -522,6 +522,7 @@ sprite{ id = "entities/rock_block", description = "Rock block" }
 sprite{ id = "entities/rooster_dead", description = "Rooster dead" }
 sprite{ id = "entities/rupee_fly", description = "Rupee fly" }
 sprite{ id = "entities/rupee_icon", description = "Rupee icon" }
+sprite{ id = "entities/secret_ground", description = "Secret ground" }
 sprite{ id = "entities/shadow", description = "Shadow" }
 sprite{ id = "entities/shield", description = "Shield" }
 sprite{ id = "entities/shop_board", description = "Shop board" }
