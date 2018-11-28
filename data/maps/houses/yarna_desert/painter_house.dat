@@ -694,6 +694,17 @@ npc{
   sprite = "npc/painter",
 }
 
+custom_entity{
+  name = "alligo_canvas",
+  layer = 0,
+  x = 256,
+  y = 37,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/alligo_canvas",
+}
+
 tile{
   layer = 1,
   x = 144,

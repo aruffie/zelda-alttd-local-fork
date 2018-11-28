@@ -778,6 +778,17 @@ custom_entity{
   sprite = "entities/bananas",
 }
 
+custom_entity{
+  name = "alligo_canvas",
+  layer = 0,
+  x = 112,
+  y = 37,
+  width = 16,
+  height = 16,
+  direction = 2,
+  sprite = "entities/alligo_canvas",
+}
+
 tile{
   layer = 1,
   x = 144,
