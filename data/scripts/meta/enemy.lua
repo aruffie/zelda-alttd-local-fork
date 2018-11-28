@@ -161,8 +161,8 @@ function enemy_meta:on_position_changed(x, y, layer)
       
 end
 
--- Create an exclamation symbol near npc
-function enemy_meta:create_symbol_exclamation(x, y, layer)
+-- Create an exclamation symbol near enemy
+function enemy_meta:create_symbol_exclamation()
   
   local map = self:get_map()
   local x, y, layer = self:get_position()
@@ -181,7 +181,7 @@ function enemy_meta:create_symbol_exclamation(x, y, layer)
   
 end
 
--- Create an interrogation symbol near npc
+-- Create an interrogation symbol near enemy
 function enemy_meta:create_symbol_interrogation()
   
   local map = self:get_map()
@@ -201,7 +201,7 @@ function enemy_meta:create_symbol_interrogation()
   
 end
 
--- Create a collapse symbol near npc
+-- Create a collapse symbol near enemy
 function enemy_meta:create_symbol_collapse()
   
   local map = self:get_map()

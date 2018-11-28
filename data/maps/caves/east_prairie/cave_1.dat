@@ -1239,7 +1239,7 @@ teletransporter{
   width = 16,
   height = 16,
   destination_map = "out/c3_east_prairie",
-  destination = "cave_c3_1_west",
+  destination = "ground_secret_appear_6",
 }
 
 stairs{
