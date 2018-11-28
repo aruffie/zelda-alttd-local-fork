@@ -221,11 +221,11 @@ function auto_separator_26:on_activating(direction4)
 end
 
 -- Switchs events
-function switch_1:on_activated()
+switch_1:register_event("on_activated", function()
 
   treasure_manager:appear_chest(map, "chest_small_key_4", true)
 
-end
+end)
 
 -- Treasures events
 treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_2_", "pickable_small_key_1")
