@@ -20,6 +20,18 @@ animation{
   },
 }
 animation{
+  name = "naked",
+  src_image = "entities/destructibles.png",
+  frame_delay = 100,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 496, y = 0, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13 },
+    { x = 496, y = 0, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13 },
+    { x = 496, y = 0, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13 },
+    { x = 496, y = 0, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13 },
+  },
+}
+animation{
   name = "sliced",
   src_image = "entities/destructibles.png",
   frame_delay = 40,
