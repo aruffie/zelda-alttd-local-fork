@@ -9,8 +9,7 @@ local diving_sound = "diving"
 
 -- Parameters:
 local is_hero_diving
-local speed_default = 88
-local speed_diving = 66
+local speed_diving = 88
 
 -- Include scripts
 require("scripts/multi_events")
@@ -45,7 +44,7 @@ hero_meta:register_event("on_position_changed", function(hero, x, y, layer)
     hero:unfreeze()
   end
   if current_state_object ~= nil and current_state_object:get_description() == "diving" then
-    hero:get_movement():set_speed(44)
+    hero:get_movement():set_speed(speed_diving)
   end
     
 end)
@@ -66,12 +65,12 @@ function state:on_started(previous_state_name, previous_state)
   local hero_sprite = hero:get_sprite()
   local sword_sprite = hero:get_sprite("sword")
   -- Change tunic animations during the diving state.
-  function hero_sprite:on_animation_changed(animation)
-    if animation == "diving" then
-      hero_sprite:set_animation("underwater")
+  function hero_sprite:on_animation_finished(animation)
+    if animation == "plunging" then
+      hero_sprite:set_animation("diving")
     end
   end
-  hero_sprite:set_animation("diving")
+  hero_sprite:set_animation("plunging")
   
 end
 
