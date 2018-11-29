@@ -10975,3 +10975,39 @@ tile{
   pattern = "7691",
 }
 
+custom_entity{
+  name = "richard_statue",
+  layer = 2,
+  x = 344,
+  y = 205,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statue_richard",
+  model = "obstacle",
+}
+
+custom_entity{
+  name = "richard_statue_2",
+  layer = 2,
+  x = 264,
+  y = 573,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statue_richard",
+  model = "obstacle",
+}
+
+custom_entity{
+  name = "richard_statue_3",
+  layer = 2,
+  x = 424,
+  y = 573,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statue_richard",
+  model = "obstacle",
+}
+

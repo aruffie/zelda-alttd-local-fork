@@ -571,6 +571,7 @@ sprite{ id = "entities/statue_mermaid", description = "Statue mermaid" }
 sprite{ id = "entities/statue_owl_dungeon_free", description = "Statue owl dungeon free" }
 sprite{ id = "entities/statue_pig", description = "Statue pig" }
 sprite{ id = "entities/statue_pig_destroyed", description = "Statue pig destroyed" }
+sprite{ id = "entities/statue_richard", description = "Statue richard" }
 sprite{ id = "entities/statue_shell_house", description = "Statue shell house" }
 sprite{ id = "entities/statue_small", description = "Statue small" }
 sprite{ id = "entities/statue_small_dungeon_3", description = "Statue small dungeon 3" }
