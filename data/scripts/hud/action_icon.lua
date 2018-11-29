@@ -89,7 +89,7 @@ function action_icon_builder:new(game, config)
   -- Computes the region to draw on the foreground.
   function action_icon:get_region_y(effect_displayed)
     local result = 0
-    if action_icon.effect_displayed ~= nil then
+    if action_icon.effect_displayed ~= nil and action_icon.effect_displayed ~= "" then
       result = action_icon.text_h * action_icon.effects_indexes[action_icon.effect_displayed]
     end
     return result

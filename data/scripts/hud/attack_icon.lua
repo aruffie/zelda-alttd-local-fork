@@ -83,7 +83,7 @@ function attack_icon_builder:new(game, config)
       if attack_icon.effect_displayed == "sword" then
         -- Create an icon with the current sword.
         result = (4 * attack_icon.text_h) + attack_icon.text_h * attack_icon.sword_displayed
-      elseif attack_icon.effect_displayed ~= nil then
+      elseif attack_icon.effect_displayed ~= nil and attack_icon.effect_displayed ~= "" then
         -- Create an icon with the name of the current effect.
         result = attack_icon.text_h * attack_icon.effects_indexes[attack_icon.effect_displayed]
       end
