@@ -652,7 +652,6 @@ sprite{ id = "hero/tunic2", description = "Hero tunic 2" }
 sprite{ id = "hero/tunic3", description = "Hero tunic 3" }
 sprite{ id = "hud/dialog_box_message_end", description = "Dialog end" }
 sprite{ id = "hud/empty_heart", description = "Empty heart" }
-sprite{ id = "hud/gameover_fade", description = "Game-over fade" }
 sprite{ id = "hud/heart", description = "Heart" }
 sprite{ id = "hud/icon_action", description = "Action icon" }
 sprite{ id = "hud/icon_attack", description = "Attack icon" }
@@ -682,6 +681,8 @@ sprite{ id = "menus/dungeon_maps/map_5_no_map", description = "Map 5 no map" }
 sprite{ id = "menus/dungeon_maps/map_5_no_map_compass", description = "Map 5 no map compass" }
 sprite{ id = "menus/file_selection/file_selection_cursor", description = "File selection menu cursor" }
 sprite{ id = "menus/file_selection/file_selection_hero", description = "Link's sprite for file selection menu" }
+sprite{ id = "menus/game_over/game_over_fade", description = "Game-over fade" }
+sprite{ id = "menus/game_over/game_over_title", description = "Game-over title" }
 sprite{ id = "menus/keyboardbox/keyboardbox_cursor", description = "Keyboard Box cursor" }
 sprite{ id = "menus/keyboardbox/keyboardbox_textfield", description = "Keyboard Box textfield" }
 sprite{ id = "menus/keyboardbox/keyboardbox_textfield_cursor", description = "Keyboard Box textfield's cursor" }
