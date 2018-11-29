@@ -5,11 +5,12 @@ local hero_meta = sol.main.get_metatable("hero")
 local map_meta = sol.main.get_metatable("map")
 local game_meta = sol.main.get_metatable("game")
 -- Sounds:
-local dinving_sound = "diving"
+local diving_sound = "diving"
 
 -- Parameters:
 local is_hero_diving
-local diving_state -- Values: nil, "stopped", "moving".
+local speed_default = 88
+local speed_diving = 66
 
 -- Include scripts
 require("scripts/multi_events")
@@ -35,11 +36,28 @@ game_meta:register_event("on_started", function(game)
   
 end)
 
+hero_meta:register_event("on_position_changed", function(hero, x, y, layer)
+    
+  local map = hero:get_map()
+  local current_state = hero:get_state()
+  local current_state_object = hero: get_state_object()
+  if map:get_ground(x, y, layer) ~= "deep_water" and current_state_object ~= nil and current_state_object:get_description() == "diving" then
+    hero:unfreeze()
+  end
+  if current_state_object ~= nil and current_state_object:get_description() == "diving" then
+    hero:get_movement():set_speed(44)
+  end
+    
+end)
+
 -- Initialize diving state.
 local state = sol.state.create()
 state:set_description("diving")
-state:set_can_control_movement(false)
-state:set_can_control_direction(false)
+state:set_can_control_movement(true)
+state:set_can_control_direction(true)
+state:set_can_use_sword(false)
+state:set_can_use_item(false)
+
 
 function state:on_started(previous_state_name, previous_state)
   
@@ -48,7 +66,12 @@ function state:on_started(previous_state_name, previous_state)
   local hero_sprite = hero:get_sprite()
   local sword_sprite = hero:get_sprite("sword")
   -- Change tunic animations during the diving state.
-  hero_sprite:set_animation("sword_loading_walking") -- TODO
+  function hero_sprite:on_animation_changed(animation)
+    if animation == "diving" then
+      hero_sprite:set_animation("underwater")
+    end
+  end
+  hero_sprite:set_animation("diving")
   
 end
 
@@ -58,3 +81,29 @@ function state:on_finished(next_state_name, next_state)
   diving_state = nil
 
 end
+
+-- Start diving
+function hero_meta:start_diving()
+  
+  local hero = self
+  local game = hero:get_game()
+  local map = hero:get_map()
+  -- Allow to dive only under certain states.
+  local hero_state = hero:get_state()
+  if hero_state ~= "swimming" then
+    return
+  end
+  -- Play diving sound.
+  -- Todo audio_manager:play_sound(diving_sound)
+  -- Start jumping state.
+  hero:start_state(state)
+  -- Start diving
+  sol.timer.start(hero, 2000, function()
+    -- Finish diving.
+    hero:unfreeze()
+  end)
+  
+end
+
+
+

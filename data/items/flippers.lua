@@ -7,7 +7,7 @@ local game = item:get_game()
 
 -- Include scripts
 require("scripts/multi_events")
-require("scripts/states/jump")
+require("scripts/states/diving")
 local audio_manager = require("scripts/audio_manager")
 
 -- Event called when the game is initialized.
@@ -36,8 +36,8 @@ game:register_event("on_command_pressed", function(game, command)
     
   local map = game:get_map()
   local hero = map:get_hero()
-  if command == "attack" and game:get_hero():get_state() == "swimming" and item.is_hero_diving == false then
-    hero:start_state("diving")
+  if command == "attack" and game:get_hero():get_state() == "swimming" then
+    hero:start_diving() 
   end
   
 end)
