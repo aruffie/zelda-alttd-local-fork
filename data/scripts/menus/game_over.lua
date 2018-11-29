@@ -174,7 +174,7 @@ local function initialize_game_over_features(game)
 
     game_over_menu.hero_dead_sprite:set_paused(false)
     game_over_menu.hero_dead_sprite:set_animation("dying")
-    audio_manager:play_sound("hero_dying")
+    audio_manager:play_sound("hero/dying")
 
     sol.timer.start(game_over_menu, 2000, function()
       game_over_menu:next_step()
