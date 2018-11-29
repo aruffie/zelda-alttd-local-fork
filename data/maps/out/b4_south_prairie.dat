@@ -14489,6 +14489,12 @@ npc{
   layer = 0,
   x = 392,
   y = 141,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+  },
   direction = 3,
   subtype = 0,
   sprite = "entities/sign",
@@ -14499,6 +14505,12 @@ npc{
   layer = 0,
   x = 56,
   y = 325,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+  },
   direction = 3,
   subtype = 0,
   sprite = "entities/sign",
@@ -14529,6 +14541,12 @@ npc{
   layer = 0,
   x = 136,
   y = 189,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+  },
   direction = 3,
   subtype = 0,
   sprite = "entities/sign",
@@ -14539,6 +14557,12 @@ npc{
   layer = 0,
   x = 152,
   y = 173,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+  },
   direction = 3,
   subtype = 0,
   sprite = "entities/sign",
@@ -14549,6 +14573,12 @@ npc{
   layer = 0,
   x = 328,
   y = 189,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+  },
   direction = 3,
   subtype = 0,
   sprite = "entities/sign",
@@ -14559,6 +14589,12 @@ npc{
   layer = 0,
   x = 328,
   y = 333,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+  },
   direction = 3,
   subtype = 0,
   sprite = "entities/sign",
@@ -14569,6 +14605,12 @@ npc{
   layer = 0,
   x = 296,
   y = 61,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+  },
   direction = 3,
   subtype = 0,
   sprite = "entities/sign",
@@ -14579,6 +14621,12 @@ npc{
   layer = 0,
   x = 296,
   y = 253,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+  },
   direction = 3,
   subtype = 0,
   sprite = "entities/sign",
@@ -14589,6 +14637,12 @@ npc{
   layer = 0,
   x = 392,
   y = 253,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+  },
   direction = 3,
   subtype = 0,
   sprite = "entities/sign",
@@ -14599,6 +14653,12 @@ npc{
   layer = 0,
   x = 152,
   y = 141,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+  },
   direction = 3,
   subtype = 0,
   sprite = "entities/sign",
@@ -14609,6 +14669,12 @@ npc{
   layer = 0,
   x = 376,
   y = 173,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+  },
   direction = 3,
   subtype = 0,
   sprite = "entities/sign",
@@ -14629,6 +14695,12 @@ npc{
   layer = 0,
   x = 376,
   y = 237,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+  },
   direction = 3,
   subtype = 0,
   sprite = "entities/sign",
@@ -14649,25 +14721,44 @@ npc{
   layer = 0,
   x = 40,
   y = 237,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+  },
   direction = 3,
   subtype = 0,
   sprite = "entities/sign",
 }
 
 npc{
+  name = "sign_16",
   layer = 0,
   x = 696,
   y = 269,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+  },
   direction = 3,
   subtype = 0,
   sprite = "entities/sign",
-  behavior = "dialog#maps.out.south_prairie.sign_1",
 }
 
 npc{
+  name = "sign_15",
   layer = 0,
   x = 792,
   y = 285,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+  },
   direction = 3,
   subtype = 0,
   sprite = "entities/sign",
@@ -20172,6 +20263,12 @@ npc{
   layer = 0,
   x = 56,
   y = 61,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+  },
   direction = 3,
   subtype = 0,
   sprite = "entities/sign",

@@ -14238,13 +14238,23 @@ destructible{
 }
 
 npc{
+  name = "sign_1",
   layer = 0,
   x = 160,
   y = 349,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+    {
+      key = "dialog_id",
+      value = "maps.out.mabe_village.sign_1",
+    },
+  },
   direction = 3,
   subtype = 0,
   sprite = "entities/sign",
-  behavior = "dialog#maps.out.mabe_village.sign_1",
 }
 
 destination{

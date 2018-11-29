@@ -10343,33 +10343,63 @@ tile{
 }
 
 npc{
+  name = "sign_2",
   layer = 0,
   x = 184,
   y = 221,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+    {
+      key = "dialog_id",
+      value = "maps.out.east_prairie.sign_2",
+    },
+  },
   direction = 3,
   subtype = 0,
   sprite = "entities/sign",
-  behavior = "dialog#maps.out.east_prairie.sign_2",
 }
 
 npc{
+  name = "sign_1",
   layer = 0,
   x = 376,
   y = 109,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+    {
+      key = "dialog_id",
+      value = "maps.out.east_prairie.sign_1",
+    },
+  },
   direction = 3,
   subtype = 0,
   sprite = "entities/sign",
-  behavior = "dialog#maps.out.east_prairie.sign_1",
 }
 
 npc{
+  name = "sign_3",
   layer = 0,
   x = 552,
   y = 437,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+    {
+      key = "dialog_id",
+      value = "maps.out.east_prairie.sign_3",
+    },
+  },
   direction = 3,
   subtype = 0,
   sprite = "entities/sign",
-  behavior = "dialog#maps.out.east_prairie.sign_3",
 }
 
 npc{
@@ -11569,13 +11599,23 @@ custom_entity{
 }
 
 npc{
+  name = "sign_4",
   layer = 0,
   x = 648,
   y = 197,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+    {
+      key = "dialog_id",
+      value = "maps.out.east_prairie.sign_4",
+    },
+  },
   direction = 3,
   subtype = 0,
   sprite = "entities/sign",
-  behavior = "dialog#maps.out.east_prairie.sign_4",
 }
 
 enemy{

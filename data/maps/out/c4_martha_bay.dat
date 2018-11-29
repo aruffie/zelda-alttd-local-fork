@@ -11830,9 +11830,20 @@ destructible{
 }
 
 npc{
+  name = "dialog_1",
   layer = 0,
   x = 936,
   y = 101,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+    {
+      key = "dialog_id",
+      value = "maps.out.yarna_desert.sign_1",
+    },
+  },
   direction = 3,
   subtype = 0,
   sprite = "entities/sign",

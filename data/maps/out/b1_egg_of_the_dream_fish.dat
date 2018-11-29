@@ -17496,13 +17496,23 @@ destructible{
 }
 
 npc{
+  name = "sign_3",
   layer = 0,
   x = 552,
   y = 293,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+    {
+      key = "dialog_id",
+      value = "maps.out.egg_of_the_dream_fish.sign_3",
+    },
+  },
   direction = 3,
   subtype = 0,
   sprite = "entities/sign",
-  behavior = "dialog#maps.out.egg_of_the_dream_fish.sign_3",
 }
 
 destination{
@@ -17637,13 +17647,23 @@ chest{
 }
 
 npc{
+  name = "sign_1",
   layer = 0,
   x = 552,
   y = 645,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+    {
+      key = "dialog_id",
+      value = "maps.out.egg_of_the_dream_fish.sign_1",
+    },
+  },
   direction = 3,
   subtype = 0,
   sprite = "entities/sign",
-  behavior = "dialog#maps.out.egg_of_the_dream_fish.sign_1",
 }
 
 dynamic_tile{
@@ -17736,13 +17756,23 @@ jumper{
 }
 
 npc{
+  name = "sign_2",
   layer = 0,
   x = 408,
   y = 461,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+    {
+      key = "dialog_id",
+      value = "maps.out.egg_of_the_dream_fish.sign_2",
+    },
+  },
   direction = 3,
   subtype = 0,
   sprite = "entities/sign",
-  behavior = "dialog#maps.out.egg_of_the_dream_fish.sign_2",
 }
 
 destructible{

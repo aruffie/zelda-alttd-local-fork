@@ -8733,6 +8733,12 @@ npc{
   layer = 0,
   x = 304,
   y = 645,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+  },
   direction = 3,
   subtype = 0,
   sprite = "entities/sign",

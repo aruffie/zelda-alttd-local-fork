@@ -18514,13 +18514,23 @@ destructible{
 }
 
 npc{
+  name = "sign_1",
   layer = 0,
   x = 312,
   y = 69,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+    {
+      key = "dialog_id",
+      value = "maps.out.graveyard.sign_1",
+    },
+  },
   direction = 3,
   subtype = 0,
   sprite = "entities/sign",
-  behavior = "dialog#maps.out.graveyard.sign_1",
 }
 
 destructible{
@@ -18554,13 +18564,23 @@ destructible{
 }
 
 npc{
+  name = "sign_2",
   layer = 0,
   x = 464,
   y = 533,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+    {
+      key = "dialog_id",
+      value = "maps.out.graveyard.sign_2",
+    },
+  },
   direction = 3,
   subtype = 0,
   sprite = "entities/sign",
-  behavior = "dialog#maps.out.graveyard.sign_2",
 }
 
 destructible{

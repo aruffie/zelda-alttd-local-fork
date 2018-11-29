@@ -4,6 +4,7 @@ local game = map:get_game()
 local tarin_chased_by_bees = false
 
 -- Include scripts
+require("scripts/multi_events")
 local owl_manager = require("scripts/maps/owl_manager")
 local travel_manager = require("scripts/maps/travel_manager")
 local audio_manager = require("scripts/audio_manager")
@@ -283,16 +284,16 @@ function weak_door_2:on_opened()
 end
 
 -- NPCs events
-function sign_start:on_interaction()
+sign_start:register_event("on_interaction", function(npc)
 
   game:start_dialog("maps.out.south_prairie.surprise_3")
   game:set_value("wart_cave_start", true)
 
-end
+end)
 
 function tarin:on_interaction()
 
-      map:talk_to_tarin()
+  map:talk_to_tarin()
 
 end
 

@@ -9887,13 +9887,23 @@ teletransporter{
 }
 
 npc{
+  name = "sign_2",
   layer = 0,
   x = 288,
   y = 429,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+    {
+      key = "dialog_id",
+      value = "maps.out.south_mabe_village.sign_2",
+    },
+  },
   direction = 3,
   subtype = 0,
   sprite = "entities/sign",
-  behavior = "dialog#maps.out.south_mabe_village.sign_2",
 }
 
 jumper{
@@ -9967,13 +9977,23 @@ jumper{
 }
 
 npc{
+  name = "sign_1",
   layer = 0,
   x = 80,
   y = 45,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+    {
+      key = "dialog_id",
+      value = "maps.out.south_mabe_village.sign_1",
+    },
+  },
   direction = 3,
   subtype = 0,
   sprite = "entities/sign",
-  behavior = "dialog#maps.out.south_mabe_village.sign_1",
 }
 
 enemy{

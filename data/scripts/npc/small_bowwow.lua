@@ -1,8 +1,15 @@
 return function(small_bowwow)
   
+  -- Variables
   local game = small_bowwow:get_game()
   local map = small_bowwow:get_map()
   local sprite = small_bowwow:get_sprite()
+  
+  -- Include scripts
+  require("scripts/multi_events")
+  local audio_manager = require("scripts/audio_manager")
+  
+  -- Small bowow animation
   local function launch_animation()
     
     local rand4 = math.random(4)
@@ -18,21 +25,23 @@ return function(small_bowwow)
     
   end
 
-  function small_bowwow:on_obstacle_reached(movement)
+  -- Small bowwow events
+  small_bowwow:register_event("on_created", function()
 
     launch_animation()
 
-  end
+  end)
 
-
-  function small_bowwow:on_movement_finished(movement)
+  small_bowwow:register_event("on_obstacle_reached", function()
 
     launch_animation()
 
-  end
+  end)
 
-  launch_animation()
+  small_bowwow:register_event("on_movement_finished", function()
+
+    launch_animation()
+
+  end)
   
 end
-
-

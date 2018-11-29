@@ -9057,13 +9057,23 @@ chest{
 }
 
 npc{
+  name = "sign_1",
   layer = 0,
   x = 600,
   y = 477,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+    {
+      key = "dialog_id",
+      value = "maps.out.forest.sign_1",
+    },
+  },
   direction = 3,
   subtype = 0,
   sprite = "entities/sign",
-  behavior = "dialog#maps.out.forest.sign_1",
 }
 
 destructible{

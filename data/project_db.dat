@@ -1021,6 +1021,7 @@ sound{ id = "gb/others/bush_cut", description = "Bush cut" }
 sound{ id = "gb/others/camera", description = "Camera" }
 sound{ id = "gb/others/chest_open", description = "Chest open" }
 sound{ id = "gb/others/cucco", description = "Cucco" }
+sound{ id = "gb/others/dungeon_crystal", description = "Dungeon crystal" }
 sound{ id = "gb/others/dungeon_door_open", description = "Dungeon door open" }
 sound{ id = "gb/others/dungeon_door_slam", description = "Dungeon door slam" }
 sound{ id = "gb/others/dungeon_one_way_door", description = "Dungeon one way door" }

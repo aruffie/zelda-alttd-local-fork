@@ -11634,13 +11634,23 @@ teletransporter{
 }
 
 npc{
+  name = "sign_2",
   layer = 0,
   x = 64,
   y = 669,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+    {
+      key = "dialog_id",
+      value = "maps.out.west_mt_tamaranch.sign_2",
+    },
+  },
   direction = 3,
   subtype = 0,
   sprite = "entities/sign",
-  behavior = "dialog#maps.out.west_mt_tamaranch.sign_2",
 }
 
 teletransporter{
@@ -11733,13 +11743,23 @@ jumper{
 }
 
 npc{
+  name = "sign_1",
   layer = 0,
   x = 576,
   y = 685,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+    {
+      key = "dialog_id",
+      value = "maps.out.west_mt_tamaranch.sign_1",
+    },
+  },
   direction = 3,
   subtype = 0,
   sprite = "entities/sign",
-  behavior = "dialog#maps.out.west_mt_tamaranch.sign_1",
 }
 
 dynamic_tile{

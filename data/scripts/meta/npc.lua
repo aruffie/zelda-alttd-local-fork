@@ -5,23 +5,23 @@ local npc_meta = sol.main.get_metatable("npc")
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
 
-function npc_meta:on_created()
+npc_meta:register_event("on_created", function(npc)
 
-  local name = self:get_name()
+  local name = npc:get_name()
   if name == nil then
     return
   end
 
   if name:match("^walking_npc") then
-    self:random_walk()
+    npc:random_walk()
   end
   
-  local model = self:get_property("model")
+  local model = npc:get_property("model")
   if model ~= nil then
-    require("scripts/npc/" .. model)(self)
+    require("scripts/npc/" .. model)(npc)
   end
   
-end
+end)
 
 -- Make signs hooks for the hookshot.
 function npc_meta:is_hookable()
