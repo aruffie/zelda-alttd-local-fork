@@ -11,9 +11,10 @@ local sprite = "entities/vacuum_cleaner_ground" -- [TODO: change default value].
 
 -- Event called when the custom entity is initialized.
 function entity:on_created()
-  self:set_traversable_by(false)
-  self:set_can_traverse_ground("lava", true)
-  self:set_can_traverse_ground("hole", true)
+  
+  entity:set_traversable_by(false)
+  entity:set_can_traverse_ground("lava", true)
+  entity:set_can_traverse_ground("hole", true)
   for _, ground in pairs({"empty", "traversable", "wall",
       "low_wall", "wall_top_right", "wall_top_left", "wall_bottom_left",
       "wall_bottom_right", "wall_top_right_water", "wall_top_left_water", 
@@ -21,11 +22,13 @@ function entity:on_created()
       "shallow_water", "grass", "ice", "ladder", "prickles"}) do
     self:set_can_traverse_ground(ground, false)
   end
+  
 end
 
 -- Return the direction pressed, if any.
 -- Return nil if no direction or more than one direction is pressed.
 function entity:get_direction_pressed()
+  
   local dir_names = {[0] = "right", "up", "left", "down"}
   local dir_pressed
   local num_directions = 0
@@ -35,8 +38,12 @@ function entity:get_direction_pressed()
       dir_pressed = dir
     end
   end
-  if num_directions ~= 1 then return end
+  if num_directions ~= 1 then
+    return
+  end
+  
   return dir_pressed
+  
 end
 
 function entity:check_commands_pressed()
@@ -61,9 +68,10 @@ function entity:check_commands_pressed()
 end
 
 function entity:move()
+  
   -- Check commands.
   sol.timer.stop_all(self)
-  self:check_commands_pressed()
+  entity:check_commands_pressed()
   -- TODO: start the moving sound with a timer.
 
   -- Create traversable tile (custom entity!).
@@ -85,14 +93,16 @@ function entity:move()
     if needs_destruction then entity:remove() end
     entity:move()
   end
+  
 end
 
 -- Start using the vacuum cleaner.
 function entity:on_interaction()
+  
   hero:freeze()
   hero:set_invincible()
   next_direction = hero:get_direction()
-  self:move()
+  entity:move()
   -- Notify when command action has been released after first interaction.
   sol.timer.start(map, 20, function()
     if not game:is_command_pressed("action") then
@@ -101,23 +111,37 @@ function entity:on_interaction()
     end
     return true
   end)
+
 end
 
 function entity:on_removed()
+  
   -- TODO: make the disappearing effects: sound and animation.
   hero:set_invincible(false)
   hero:unfreeze()  
+  
 end
 
 -- Functions to initialize tile pattern from the map script.
-function entity:get_tile_sprite() return sprite end
-function entity:set_tile_sprite(new_sprite) sprite = new_sprite end
+function entity:get_tile_sprite()
+  
+  return sprite
+
+end
+function entity:set_tile_sprite(new_sprite)
+  
+  sprite = new_sprite
+  
+end
 
 function entity:create_tile()
+  
   local x, y, layer = self:get_position()
   local prop = {x = x, y = y, layer = layer, direction = 0, width = 16, height = 16, sprite = sprite}
   local tile = self:get_map():create_custom_entity(prop)
   tile:bring_to_back()
   tile:snap_to_grid()
+  
   return tile
+  
 end

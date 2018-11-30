@@ -7,7 +7,6 @@ local game_meta = sol.main.get_metatable("game")
 local audio_manager = require("scripts/audio_manager")
 require("scripts/multi_events")
 
-
 game_meta:register_event("on_map_changed", function(game, map)
   
   -- Init infinite timer and check if sound is played

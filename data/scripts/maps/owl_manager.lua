@@ -125,5 +125,4 @@ function owl_manager:init(map)
 
 end
 
-
 return owl_manager

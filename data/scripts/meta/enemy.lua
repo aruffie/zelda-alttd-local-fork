@@ -46,6 +46,7 @@ function enemy_meta:on_hurt_by_sword(hero, enemy_sprite)
   -- Remove life.
   local life_lost = force
   self:remove_life(life_lost)
+  
 end
 
 -- Helper function to inflict an explicit reaction from a scripted weapon.
@@ -148,6 +149,7 @@ function enemy_meta:on_attacking_hero(hero, enemy_sprite)
   else
     hero:start_hurt(enemy, damage)
   end
+  
 end
 
 function enemy_meta:on_position_changed(x, y, layer)

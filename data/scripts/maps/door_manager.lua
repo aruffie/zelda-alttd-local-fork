@@ -239,7 +239,6 @@ function door_manager:close_when_torches_unlit(map, torch_prefix, door_prefix)
   end
 end
 
-
 -- Close doors if ennemis in the room are not dead
 function door_manager:close_if_enemies_not_dead(map, enemy_prefix, door_prefix)
 
