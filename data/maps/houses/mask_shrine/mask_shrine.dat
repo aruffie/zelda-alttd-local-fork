@@ -2696,13 +2696,15 @@ destructible{
   damage_on_enemies = 2,
 }
 
-npc{
+custom_entity{
+  name = "mask_shrine_fresco",
   layer = 0,
   x = 160,
   y = 37,
-  direction = 3,
-  subtype = 0,
-  sprite = "entities/hint_stone",
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/mask_shrine_fresco",
 }
 
 tile{

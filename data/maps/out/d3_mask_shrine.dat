@@ -8994,8 +8994,7 @@ teletransporter{
   y = 488,
   width = 16,
   height = 16,
-  destination_map = "houses/mask_shrine/south_shrine",
-  destination = "south_shrine_1_B",
+  destination_map = "houses/mask_shrine/mask_shrine",
 }
 
 destination{
