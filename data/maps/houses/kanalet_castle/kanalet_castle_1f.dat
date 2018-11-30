@@ -1244,6 +1244,76 @@ tile{
   pattern = "wall_pillar.2-2",
 }
 
+tile{
+  layer = 0,
+  x = 64,
+  y = 288,
+  width = 32,
+  height = 32,
+  pattern = "60",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 160,
+  y = 288,
+  width = 32,
+  height = 32,
+  pattern = "62",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 64,
+  y = 200,
+  width = 32,
+  height = 32,
+  pattern = "60",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 160,
+  y = 200,
+  width = 32,
+  height = 32,
+  pattern = "62",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 400,
+  y = 304,
+  width = 32,
+  height = 32,
+  pattern = "60",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 496,
+  y = 304,
+  width = 32,
+  height = 32,
+  pattern = "62",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 432,
+  y = 280,
+  width = 64,
+  height = 16,
+  pattern = "68",
+  tileset = "addition/dungeon",
+}
+
 destination{
   name = "kanalet_castle_1_B",
   layer = 0,
@@ -1290,89 +1360,6 @@ switch{
   sound = "switch",
   needs_block = false,
   inactivate_when_leaving = false,
-}
-
-custom_entity{
-  name = "kanalet_statue",
-  layer = 0,
-  x = 408,
-  y = 317,
-  width = 32,
-  height = 32,
-  direction = 0,
-  sprite = "entities/kanalet_statue",
-  model = "statue",
-}
-
-custom_entity{
-  name = "kanalet_statue_2",
-  layer = 0,
-  x = 504,
-  y = 317,
-  width = 32,
-  height = 32,
-  direction = 2,
-  sprite = "entities/kanalet_statue",
-  model = "statue",
-}
-
-custom_entity{
-  name = "kanalet_statue_5",
-  layer = 0,
-  x = 72,
-  y = 301,
-  width = 32,
-  height = 32,
-  direction = 0,
-  sprite = "entities/kanalet_statue",
-  model = "statue",
-}
-
-custom_entity{
-  name = "kanalet_statue_7",
-  layer = 0,
-  x = 168,
-  y = 301,
-  width = 32,
-  height = 32,
-  direction = 2,
-  sprite = "entities/kanalet_statue",
-  model = "statue",
-}
-
-custom_entity{
-  name = "kanalet_statue_9",
-  layer = 0,
-  x = 72,
-  y = 213,
-  width = 32,
-  height = 32,
-  direction = 0,
-  sprite = "entities/kanalet_statue",
-  model = "statue",
-}
-
-custom_entity{
-  name = "kanalet_statue_10",
-  layer = 0,
-  x = 168,
-  y = 213,
-  width = 32,
-  height = 32,
-  direction = 2,
-  sprite = "entities/kanalet_statue",
-  model = "statue",
-}
-
-custom_entity{
-  name = "kanalet_canevas",
-  layer = 0,
-  x = 440,
-  y = 293,
-  width = 64,
-  height = 16,
-  direction = 0,
-  sprite = "entities/kanalet_canvas",
 }
 
 wall{
@@ -2474,78 +2461,72 @@ tile{
   pattern = "stairs_inner_up.1.top.border.2-1",
 }
 
+tile{
+  layer = 1,
+  x = 64,
+  y = 280,
+  width = 32,
+  height = 8,
+  pattern = "61",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 160,
+  y = 280,
+  width = 32,
+  height = 8,
+  pattern = "63",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 64,
+  y = 192,
+  width = 32,
+  height = 8,
+  pattern = "61",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 160,
+  y = 192,
+  width = 32,
+  height = 8,
+  pattern = "63",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 400,
+  y = 296,
+  width = 32,
+  height = 8,
+  pattern = "61",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 496,
+  y = 296,
+  width = 32,
+  height = 8,
+  pattern = "63",
+  tileset = "addition/dungeon",
+}
+
 destination{
   name = "stairs_1_A",
   layer = 1,
   x = 168,
   y = 29,
   direction = 3,
-}
-
-custom_entity{
-  name = "kanalet_statue_3",
-  layer = 1,
-  x = 416,
-  y = 301,
-  width = 16,
-  height = 16,
-  direction = 1,
-  sprite = "entities/kanalet_statue",
-}
-
-custom_entity{
-  name = "kanalet_statue_4",
-  layer = 1,
-  x = 512,
-  y = 301,
-  width = 16,
-  height = 16,
-  direction = 1,
-  sprite = "entities/kanalet_statue",
-}
-
-custom_entity{
-  name = "kanalet_statue_6",
-  layer = 1,
-  x = 80,
-  y = 285,
-  width = 16,
-  height = 16,
-  direction = 1,
-  sprite = "entities/kanalet_statue",
-}
-
-custom_entity{
-  name = "kanalet_statue_8",
-  layer = 1,
-  x = 176,
-  y = 285,
-  width = 16,
-  height = 16,
-  direction = 1,
-  sprite = "entities/kanalet_statue",
-}
-
-custom_entity{
-  name = "kanalet_statue_11",
-  layer = 1,
-  x = 80,
-  y = 197,
-  width = 16,
-  height = 16,
-  direction = 1,
-  sprite = "entities/kanalet_statue",
-}
-
-custom_entity{
-  name = "kanalet_statue_12",
-  layer = 1,
-  x = 176,
-  y = 197,
-  width = 16,
-  height = 16,
-  direction = 1,
-  sprite = "entities/kanalet_statue",
 }
 
 teletransporter{

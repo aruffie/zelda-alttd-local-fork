@@ -24772,6 +24772,16 @@ tile{
   pattern = "5982",
 }
 
+tile{
+  layer = 1,
+  x = 608,
+  y = 632,
+  width = 32,
+  height = 24,
+  pattern = "72",
+  tileset = "addition/dungeon",
+}
+
 custom_entity{
   name = "butterfly_1",
   layer = 1,
@@ -24974,17 +24984,6 @@ custom_entity{
   direction = 3,
   sprite = "npc/butterfly_red",
   model = "butterfly",
-}
-
-custom_entity{
-  name = "phone_statue",
-  layer = 1,
-  x = 616,
-  y = 637,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/phone_statue",
 }
 
 dynamic_tile{

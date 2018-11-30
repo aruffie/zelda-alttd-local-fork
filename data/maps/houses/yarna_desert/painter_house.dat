@@ -505,6 +505,26 @@ tile{
   pattern = "bug_cage",
 }
 
+tile{
+  layer = 0,
+  x = 240,
+  y = 24,
+  width = 32,
+  height = 16,
+  pattern = "70",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 184,
+  y = 120,
+  width = 32,
+  height = 24,
+  pattern = "73",
+  tileset = "addition/dungeon",
+}
+
 destination{
   name = "painter_house_1_B",
   layer = 0,
@@ -624,17 +644,6 @@ npc{
   sprite = "npc/hippo",
 }
 
-custom_entity{
-  layer = 0,
-  x = 192,
-  y = 141,
-  width = 32,
-  height = 16,
-  direction = 0,
-  sprite = "entities/painting",
-  model = "obstacle",
-}
-
 wall{
   layer = 0,
   x = 168,
@@ -694,17 +703,6 @@ npc{
   sprite = "npc/painter",
 }
 
-custom_entity{
-  name = "alligo_canvas",
-  layer = 0,
-  x = 256,
-  y = 37,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/alligo_canvas",
-}
-
 tile{
   layer = 1,
   x = 144,
@@ -748,6 +746,16 @@ tile{
   width = 24,
   height = 24,
   pattern = "287",
+}
+
+tile{
+  layer = 1,
+  x = 184,
+  y = 96,
+  width = 32,
+  height = 24,
+  pattern = "74",
+  tileset = "addition/dungeon",
 }
 
 tile{

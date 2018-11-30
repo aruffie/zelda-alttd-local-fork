@@ -1366,25 +1366,23 @@ tile{
   pattern = "table_piece.1",
 }
 
-custom_entity{
-  name = "frog_canvas",
+tile{
   layer = 2,
-  x = 208,
-  y = 37,
-  width = 16,
+  x = 192,
+  y = 24,
+  width = 32,
   height = 16,
-  direction = 0,
-  sprite = "entities/frog_canvas",
+  pattern = "69",
+  tileset = "addition/dungeon",
 }
 
-custom_entity{
-  name = "frog_canvas_2",
+tile{
   layer = 2,
-  x = 264,
-  y = 37,
-  width = 16,
+  x = 240,
+  y = 24,
+  width = 32,
   height = 16,
-  direction = 0,
-  sprite = "entities/frog_canvas",
+  pattern = "69",
+  tileset = "addition/dungeon",
 }
 

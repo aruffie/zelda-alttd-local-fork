@@ -114,6 +114,34 @@ teletransporter{
 tile{
   layer = 0,
   x = 1968,
+  y = 304,
+  width = 224,
+  height = 160,
+  pattern = "floor.9-1",
+}
+
+tile{
+  layer = 0,
+  x = 2000,
+  y = 320,
+  width = 160,
+  height = 72,
+  pattern = "alter_floor",
+}
+
+tile{
+  layer = 0,
+  x = 2032,
+  y = 336,
+  width = 96,
+  height = 32,
+  pattern = "1",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1968,
   y = 816,
   width = 224,
   height = 160,
@@ -491,15 +519,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 1968,
-  y = 304,
-  width = 224,
-  height = 160,
-  pattern = "floor.9-1",
-}
-
-tile{
-  layer = 0,
   x = 2016,
   y = 408,
   width = 128,
@@ -811,15 +830,6 @@ tile{
   width = 112,
   height = 32,
   pattern = "floor.9-1",
-}
-
-tile{
-  layer = 0,
-  x = 2000,
-  y = 320,
-  width = 160,
-  height = 72,
-  pattern = "alter_floor",
 }
 
 tile{
@@ -13404,6 +13414,46 @@ tile{
   pattern = "floor_low.10-2",
 }
 
+tile{
+  layer = 0,
+  x = 128,
+  y = 784,
+  width = 64,
+  height = 24,
+  pattern = "9",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 2048,
+  y = 272,
+  width = 64,
+  height = 24,
+  pattern = "9",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 2200,
+  y = 352,
+  width = 24,
+  height = 64,
+  pattern = "22",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1936,
+  y = 352,
+  width = 24,
+  height = 64,
+  pattern = "23",
+  tileset = "addition/dungeon",
+}
+
 wall{
   layer = 0,
   x = 1512,
@@ -14772,50 +14822,6 @@ destination{
   direction = 1,
 }
 
-custom_entity{
-  name = "symbol_egg_1",
-  layer = 0,
-  x = 2056,
-  y = 285,
-  width = 64,
-  height = 24,
-  direction = 3,
-  sprite = "entities/statue_dungeon_1_egg",
-}
-
-custom_entity{
-  name = "symbol_egg_2",
-  layer = 0,
-  x = 1944,
-  y = 365,
-  width = 24,
-  height = 64,
-  direction = 0,
-  sprite = "entities/statue_dungeon_1_egg",
-}
-
-custom_entity{
-  name = "symbol_egg_3",
-  layer = 0,
-  x = 2208,
-  y = 365,
-  width = 24,
-  height = 64,
-  direction = 2,
-  sprite = "entities/statue_dungeon_1_egg",
-}
-
-custom_entity{
-  name = "windfish_symbol",
-  layer = 0,
-  x = 2040,
-  y = 349,
-  width = 96,
-  height = 32,
-  direction = 0,
-  sprite = "entities/windfish_symbol_dungeon_1",
-}
-
 pickable{
   name = "instrument",
   layer = 0,
@@ -15094,17 +15100,6 @@ block{
   pushable = false,
   pullable = false,
   maximum_moves = 0,
-}
-
-custom_entity{
-  name = "symbol_egg_4",
-  layer = 0,
-  x = 136,
-  y = 797,
-  width = 64,
-  height = 24,
-  direction = 3,
-  sprite = "entities/statue_dungeon_1_egg",
 }
 
 custom_entity{

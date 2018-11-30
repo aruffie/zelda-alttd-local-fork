@@ -4115,6 +4115,46 @@ tile{
   pattern = "door_stairs.spiral_up.1",
 }
 
+tile{
+  layer = 0,
+  x = 1072,
+  y = 1360,
+  width = 96,
+  height = 32,
+  pattern = "3",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1088,
+  y = 1296,
+  width = 64,
+  height = 24,
+  pattern = "28",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 976,
+  y = 1376,
+  width = 24,
+  height = 64,
+  pattern = "31",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1240,
+  y = 1376,
+  width = 24,
+  height = 64,
+  pattern = "30",
+  tileset = "addition/dungeon",
+}
+
 wall{
   layer = 0,
   x = 1240,
@@ -7322,50 +7362,6 @@ npc{
   direction = 3,
   subtype = 1,
   sprite = "entities/statue_dungeon_3_owl",
-}
-
-custom_entity{
-  name = "windfish_symbol",
-  layer = 0,
-  x = 1080,
-  y = 1373,
-  width = 96,
-  height = 40,
-  direction = 3,
-  sprite = "entities/windfish_symbol_dungeon_3",
-}
-
-custom_entity{
-  name = "symbol_egg_2",
-  layer = 0,
-  x = 984,
-  y = 1389,
-  width = 24,
-  height = 64,
-  direction = 0,
-  sprite = "entities/statue_dungeon_3_egg",
-}
-
-custom_entity{
-  name = "symbol_egg_4",
-  layer = 0,
-  x = 1096,
-  y = 1309,
-  width = 64,
-  height = 24,
-  direction = 3,
-  sprite = "entities/statue_dungeon_3_egg",
-}
-
-custom_entity{
-  name = "symbol_egg_3",
-  layer = 0,
-  x = 1248,
-  y = 1389,
-  width = 24,
-  height = 64,
-  direction = 2,
-  sprite = "entities/statue_dungeon_3_egg",
 }
 
 door{

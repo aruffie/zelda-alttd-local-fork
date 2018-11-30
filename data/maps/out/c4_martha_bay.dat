@@ -15692,25 +15692,23 @@ tile{
   pattern = "1455",
 }
 
-custom_entity{
-  name = "phone_statue",
+tile{
   layer = 1,
-  x = 136,
-  y = 341,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/phone_statue",
+  x = 128,
+  y = 336,
+  width = 32,
+  height = 24,
+  pattern = "72",
+  tileset = "addition/dungeon",
 }
 
-custom_entity{
-  name = "phone_statue_2",
+tile{
   layer = 1,
-  x = 912,
-  y = 301,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/phone_statue",
+  x = 904,
+  y = 296,
+  width = 32,
+  height = 24,
+  pattern = "72",
+  tileset = "addition/dungeon",
 }
 

@@ -13429,14 +13429,13 @@ tile{
   pattern = "4593",
 }
 
-custom_entity{
-  name = "phone_statue",
+tile{
   layer = 1,
-  x = 152,
-  y = 85,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/phone_statue",
+  x = 144,
+  y = 80,
+  width = 32,
+  height = 24,
+  pattern = "72",
+  tileset = "addition/dungeon",
 }
 

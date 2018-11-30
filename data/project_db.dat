@@ -109,7 +109,7 @@ map{ id = "houses/mabe_village/telephone_booth_1", description = "Telephone boot
 map{ id = "houses/mambos_cave/cuccos_house", description = "Cucco's house" }
 map{ id = "houses/martha_bay/telephone_booth_7", description = "Telephone booth 7" }
 map{ id = "houses/martha_bay/telephone_booth_8", description = "Telephone booth 8" }
-map{ id = "houses/mask_shrine/south_shrine", description = "South shrine" }
+map{ id = "houses/mask_shrine/mask_shrine", description = "Mask shrine" }
 map{ id = "houses/prairie/telephone_booth_4", description = "Telephone booth 4" }
 map{ id = "houses/rafting/rafting_house", description = "Rafting's house" }
 map{ id = "houses/south_mabe_village/sales_house_o_bananas", description = "Sale's House O' Bananas" }
@@ -151,6 +151,7 @@ map{ id = "trial/1", description = "Level 1" }
 map{ id = "trial/2", description = "Level 2" }
 map{ id = "trial/3", description = "Level 3" }
 
+tileset{ id = "addition/dungeon", description = "Addition dungeon" }
 tileset{ id = "dungeon/blue", description = "Blue" }
 tileset{ id = "dungeon/brown", description = "Brown" }
 tileset{ id = "dungeon/dark_brown", description = "Dark brown" }
@@ -339,7 +340,6 @@ sprite{ id = "enemies/wizzrobe_white", description = "Wizzrobe white" }
 sprite{ id = "enemies/zol_green", description = "Zol green" }
 sprite{ id = "enemies/zol_red", description = "Zol red" }
 sprite{ id = "enemies/zombie", description = "Zombie" }
-sprite{ id = "entities/alligo_canvas", description = "Alligo canvas" }
 sprite{ id = "entities/alligo_flag", description = "Alligo flag" }
 sprite{ id = "entities/arrow", description = "Arrow" }
 sprite{ id = "entities/arrow_fly", description = "Arrow fly" }
@@ -466,9 +466,7 @@ sprite{ id = "entities/instrument_big_sparkle", description = "Instrument big sp
 sprite{ id = "entities/instrument_small_sparkle", description = "Instrument small sparkle" }
 sprite{ id = "entities/iron_ball", description = "Iron ball" }
 sprite{ id = "entities/items", description = "Items" }
-sprite{ id = "entities/kanalet_canvas", description = "Kanalet canvas" }
 sprite{ id = "entities/kanalet_darknut_statue", description = "Kanalet darknut statue" }
-sprite{ id = "entities/kanalet_statue", description = "Kanalet statue" }
 sprite{ id = "entities/keyhole_dungeon_4", description = "Keyhole dungeon 4" }
 sprite{ id = "entities/keyhole_dungeon_6", description = "Keyhole dungeon 6" }
 sprite{ id = "entities/keyhole_dungeon_7", description = "Keyhole dungeon 7" }
@@ -511,7 +509,6 @@ sprite{ id = "entities/palm_footer_green", description = "Palm footer green" }
 sprite{ id = "entities/palm_footer_yellow", description = "Palm footer yellow" }
 sprite{ id = "entities/palm_yarna", description = "Palm yarna" }
 sprite{ id = "entities/pencil", description = "Pencil" }
-sprite{ id = "entities/phone_statue", description = "Phone statue" }
 sprite{ id = "entities/pillar", description = "Pillar" }
 sprite{ id = "entities/pillar_base", description = "Pillar base" }
 sprite{ id = "entities/pot", description = "Pot" }
@@ -541,29 +538,17 @@ sprite{ id = "entities/star", description = "Star" }
 sprite{ id = "entities/statue", description = "Statue" }
 sprite{ id = "entities/statue_big_dungeon_3", description = "Statue dungeon 3" }
 sprite{ id = "entities/statue_dungeon_1_block", description = "Statue dungeon 1 block" }
-sprite{ id = "entities/statue_dungeon_1_egg", description = "Statue dungeon 1 egg" }
 sprite{ id = "entities/statue_dungeon_1_key", description = "Statue dungeon 1 key" }
 sprite{ id = "entities/statue_dungeon_1_owl", description = "Statue dungeon 1 owl" }
-sprite{ id = "entities/statue_dungeon_2", description = "Statue dungeon 2" }
-sprite{ id = "entities/statue_dungeon_2_egg", description = "Statue dungeon 2 egg" }
 sprite{ id = "entities/statue_dungeon_2_head", description = "Statue dungeon 2 head" }
 sprite{ id = "entities/statue_dungeon_2_owl", description = "Statue dungeon 2 owl" }
 sprite{ id = "entities/statue_dungeon_3", description = "Statue dungeon 3" }
-sprite{ id = "entities/statue_dungeon_3_egg", description = "Statue dungeon 3 egg" }
 sprite{ id = "entities/statue_dungeon_3_key", description = "Statue dungeon 3 key" }
 sprite{ id = "entities/statue_dungeon_3_owl", description = "Statue dungeon 3 owl" }
-sprite{ id = "entities/statue_dungeon_4_egg", description = "Statue dungeon 4 egg" }
 sprite{ id = "entities/statue_dungeon_4_owl", description = "Statue dungeon 4 owl" }
-sprite{ id = "entities/statue_dungeon_5_egg", description = "Statue dungeon 5 egg" }
 sprite{ id = "entities/statue_dungeon_5_owl", description = "Statue dungeon 5 owl" }
-sprite{ id = "entities/statue_dungeon_6", description = "Statue dungeon 6" }
-sprite{ id = "entities/statue_dungeon_6_egg", description = "Statue dungeon 6 egg" }
-sprite{ id = "entities/statue_dungeon_6_head", description = "Statue dungeon 6 head" }
 sprite{ id = "entities/statue_dungeon_6_owl", description = "Statue dungeon 6 owl" }
-sprite{ id = "entities/statue_dungeon_7", description = "Statue dungeon 7" }
-sprite{ id = "entities/statue_dungeon_7_egg", description = "Statue dungeon 7 egg" }
 sprite{ id = "entities/statue_dungeon_7_owl", description = "Statue dungeon 7 owl" }
-sprite{ id = "entities/statue_dungeon_8_egg", description = "Statue dungeon 8 egg" }
 sprite{ id = "entities/statue_dungeon_8_owl", description = "Statue dungeon 8 owl" }
 sprite{ id = "entities/statue_koopa_hookable", description = "Statue koopa hookable" }
 sprite{ id = "entities/statue_liftable_dungeon_6", description = "Statue liftable dungeon 6" }
@@ -614,14 +599,6 @@ sprite{ id = "entities/weak_floor_light_1", description = "Weak floor light 1" }
 sprite{ id = "entities/weak_floor_light_2", description = "Weak floor light 2" }
 sprite{ id = "entities/weak_floor_light_3", description = "Weak floor light 3" }
 sprite{ id = "entities/weak_floor_light_4", description = "Weak floor light 4" }
-sprite{ id = "entities/windfish_symbol_dungeon_1", description = "Windfish symbol dungeon 1" }
-sprite{ id = "entities/windfish_symbol_dungeon_2", description = "Windfish symbol dungeon 2" }
-sprite{ id = "entities/windfish_symbol_dungeon_3", description = "Windfish symbol dungeon 3" }
-sprite{ id = "entities/windfish_symbol_dungeon_4", description = "Windfish symbol dungeon 4" }
-sprite{ id = "entities/windfish_symbol_dungeon_5", description = "Windfish symbol dungeon 5" }
-sprite{ id = "entities/windfish_symbol_dungeon_6", description = "Windfish symbol dungeon 6" }
-sprite{ id = "entities/windfish_symbol_dungeon_7", description = "Windfish symbol dungeon 7" }
-sprite{ id = "entities/windfish_symbol_dungeon_8", description = "Windfish symbol dungeon 8" }
 sprite{ id = "entities/witch_house", description = "Witch house" }
 sprite{ id = "entities/wood_bridge", description = "Wood bridge" }
 sprite{ id = "entities/yarna_skull", description = "Yarna skull" }
