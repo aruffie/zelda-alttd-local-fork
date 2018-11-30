@@ -9,7 +9,6 @@ local audio_manager = require("scripts/audio_manager")
 function door_meta:on_opened()
   
   local sprite = self:get_sprite()
-  print(sprite:get_animation())
   if sprite:get_animation() == "opening" then
     audio_manager:play_sound("others/dungeon_door_open")
   end

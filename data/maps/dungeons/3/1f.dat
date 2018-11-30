@@ -10240,7 +10240,7 @@ destructible{
 }
 
 custom_entity{
-  name = "detect_door_group_1",
+  name = "door_group_1_detect",
   layer = 0,
   x = 1120,
   y = 1829,

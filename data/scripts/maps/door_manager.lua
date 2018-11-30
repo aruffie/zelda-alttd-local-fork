@@ -141,13 +141,15 @@ end
 -- Open doors when pot break
 function door_manager:open_when_pot_break(map, door_prefix)
 
-  local detect_entity = map:get_entity("detect_" .. door_prefix)
-  detect_entity:add_collision_test("touching", function(entity_source, entity_dest)
-    if entity_dest:get_type() == "carried_object" then
-        map:open_doors(door_prefix)
-        audio_manager:play_sound("others/secret1")
-    end
-  end)
+  local detect_entity = map:get_entity(door_prefix .. "detect")
+  if detect_entity ~= nil then
+    detect_entity:add_collision_test("touching", function(entity_source, entity_dest)
+      if entity_dest:get_type() == "carried_object" then
+          map:open_doors(door_prefix)
+          audio_manager:play_sound("others/secret1")
+      end
+    end)
+  end
 
 end
 

@@ -20491,6 +20491,26 @@ custom_entity{
   model = "obstacle",
 }
 
+destructible{
+  layer = 0,
+  x = 424,
+  y = 509,
+  sprite = "entities/stone_small_white",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+destructible{
+  layer = 0,
+  x = 440,
+  y = 509,
+  sprite = "entities/stone_small_white",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
 tile{
   layer = 1,
   x = 632,

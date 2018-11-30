@@ -123,7 +123,6 @@ function shop_manager:add_product(map, name, params)
   local hero = map:get_hero()
   game:start_dialog("maps.houses.mabe_village.shop_2.product" .. "_" .. shop_manager.product.params.dialog_id, function(answer)
     if answer == 1 then
-              print(shop_manager.product.name)
       local error = false
       -- Hearts
       if shop_manager.product.name == "heart" then
@@ -132,8 +131,6 @@ function shop_manager:add_product(map, name, params)
         end
       elseif shop_manager.product.name == "bombs" then
         local item = game:get_item("bombs_counter")
-        print(item:get_amount())
-        print(item:get_max_amount())
         if item:get_amount() >= item:get_max_amount() then
           error = true
         end
@@ -156,7 +153,6 @@ function shop_manager:add_product(map, name, params)
           hero:unfreeze()
           game:remove_money(shop_manager.product.params.price)
           shop_manager.product.params.buy_callback(map)
-          print("ok")
           game:start_dialog("maps.houses.mabe_village.shop_2.merchant_6")
           shop_manager.product = nil
         else

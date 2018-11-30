@@ -10342,6 +10342,15 @@ tile{
   pattern = "2211",
 }
 
+tile{
+  layer = 0,
+  x = 576,
+  y = 624,
+  width = 8,
+  height = 8,
+  pattern = "100",
+}
+
 npc{
   name = "sign_2",
   layer = 0,
