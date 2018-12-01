@@ -2586,6 +2586,16 @@ tile{
   tileset = "addition/dungeon",
 }
 
+tile{
+  layer = 0,
+  x = 144,
+  y = 16,
+  width = 32,
+  height = 24,
+  pattern = "11",
+  tileset = "addition/dungeon",
+}
+
 jumper{
   layer = 0,
   x = 112,
@@ -2694,17 +2704,6 @@ destructible{
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
-}
-
-custom_entity{
-  name = "mask_shrine_fresco",
-  layer = 0,
-  x = 160,
-  y = 37,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/mask_shrine_fresco",
 }
 
 tile{

@@ -13454,6 +13454,16 @@ tile{
   tileset = "addition/dungeon",
 }
 
+tile{
+  layer = 0,
+  x = 2064,
+  y = 816,
+  width = 32,
+  height = 32,
+  pattern = "13",
+  tileset = "addition/dungeon",
+}
+
 wall{
   layer = 0,
   x = 1512,
@@ -17201,17 +17211,6 @@ destination{
   x = 2080,
   y = 437,
   direction = 1,
-}
-
-custom_entity{
-  name = "boss_symbol",
-  layer = 0,
-  x = 2080,
-  y = 845,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/boss_symbol_dungeon_1",
 }
 
 tile{

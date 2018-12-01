@@ -17204,6 +17204,16 @@ tile{
   tileset = "addition/dungeon",
 }
 
+tile{
+  layer = 0,
+  x = 2064,
+  y = 816,
+  width = 32,
+  height = 32,
+  pattern = "14",
+  tileset = "addition/dungeon",
+}
+
 wall{
   layer = 0,
   x = 1880,
@@ -17302,8 +17312,8 @@ wall{
 
 wall{
   layer = 0,
-  x = 1840,
-  y = 336,
+  x = 1832,
+  y = 344,
   width = 32,
   height = 24,
   stops_hero = true,
@@ -20813,8 +20823,8 @@ enemy{
 chest{
   name = "chest_boss_key",
   layer = 0,
-  x = 1856,
-  y = 357,
+  x = 1848,
+  y = 365,
   treasure_name = "boss_key",
   treasure_savegame_variable = "dungeon_2_boss_key",
   sprite = "entities/big_chest",
@@ -23091,17 +23101,6 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-}
-
-custom_entity{
-  name = "boss_symbol",
-  layer = 0,
-  x = 2080,
-  y = 845,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/boss_symbol_dungeon_2",
 }
 
 tile{
