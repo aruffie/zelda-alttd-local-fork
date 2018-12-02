@@ -7,7 +7,7 @@ local make_shadow_s = sol.shader.create("make_shadow1d")
 local cast_shadow_s = sol.shader.create("cast_shadow1d")
 local angular_resolution = 256
 local shadow_map = sol.surface.create(angular_resolution,1)
-shadow_map:set_blend_mode("add")
+--shadow_map:set_blend_mode("add")
 shadow_map:set_shader(cast_shadow_s)
 local chunk_size = 512
 
@@ -131,8 +131,13 @@ function light_mgr:compute_light_shadow_map(light)
   end
 
 
+  occ_map:set_shader(make_shadow_s)
+  occ_map:set_blend_mode('none')
   occ_map:draw(shadow_map)
-  return shadow_map
+  cast_shadow_s:set_uniform("shadow_map",shadow_map)
+  occ_map:set_shader(cast_shadow_s)
+  occ_map:set_blend_mode('add')
+  return occ_map
 end
 
 local function table_filter(table, pred)

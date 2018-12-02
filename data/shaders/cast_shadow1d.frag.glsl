@@ -21,6 +21,7 @@ COMPAT_VARYING vec2 sol_vtex_coord;
 
 //uniform values
 uniform sampler2D sol_texture;
+uniform sampler2D shadow_map;
 uniform vec2 resolution;
 uniform vec3 lcolor;
 uniform int sol_time;
@@ -32,7 +33,7 @@ uniform bool oscillate;
 
 //sample from the 1D distance map
 float sample(vec2 coord, float r) {
-	return step(r, COMPAT_TEXTURE(sol_texture, coord).r);
+	return step(r, COMPAT_TEXTURE(shadow_map, coord).r);
 }
 
 void main(void) {
@@ -76,6 +77,6 @@ void main(void) {
   
   float cone = smoothstep(aperture-halo,aperture+halo,dot(dir,normalize(norm)));
   float b = step(cut,r);
-  FragColor *= cone*b;
+  FragColor.rgb *= cone*b;
   //color = vec4(1,0,0,1);
 }

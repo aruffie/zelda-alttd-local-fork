@@ -24,7 +24,7 @@ COMPAT_VARYING vec2 sol_vtex_coord;
 COMPAT_VARYING vec4 sol_vcolor;
 
 void main() {
-    gl_Position = sol_mvp_matrix * vec4(sol_vertex*scale, 0.0, 1.0);
+    gl_Position = sol_mvp_matrix * vec4(sol_vertex, 0.0, 1.0);
     sol_vcolor = sol_color;
     sol_vtex_coord = (sol_uv_matrix * vec3(sol_tex_coord, 1.0)).xy;
 }
