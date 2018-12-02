@@ -11593,14 +11593,14 @@ tile{
   pattern = "84",
 }
 
-custom_entity{
+tile{
   layer = 0,
-  x = 424,
-  y = 45,
+  x = 416,
+  y = 32,
   width = 32,
   height = 32,
-  direction = 0,
-  sprite = "entities/teletransporter",
+  pattern = "17",
+  tileset = "addition/out",
 }
 
 teletransporter{
@@ -11835,7 +11835,7 @@ npc{
   y = 293,
   direction = 3,
   subtype = 1,
-  sprite = "entities/owl_blue",
+  sprite = "npc/statues/owl",
   behavior = "dialog#maps.out.west_mt_tamaranch.owl_statue_1",
 }
 
@@ -13909,11 +13909,11 @@ tile{
 tile{
   layer = 1,
   x = 368,
-  y = 600,
+  y = 608,
   width = 32,
   height = 24,
-  pattern = "72",
-  tileset = "addition/dungeon",
+  pattern = "32",
+  tileset = "addition/out",
 }
 
 tile{
@@ -13922,8 +13922,8 @@ tile{
   y = 144,
   width = 32,
   height = 24,
-  pattern = "72",
-  tileset = "addition/dungeon",
+  pattern = "32",
+  tileset = "addition/out",
 }
 
 custom_entity{

@@ -7361,7 +7361,7 @@ npc{
   y = 549,
   direction = 3,
   subtype = 1,
-  sprite = "entities/statue_dungeon_3_owl",
+  sprite = "npc/statues/owl_dungeon_3",
 }
 
 door{

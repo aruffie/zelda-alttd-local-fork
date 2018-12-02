@@ -17965,7 +17965,7 @@ npc{
   y = 645,
   direction = 3,
   subtype = 1,
-  sprite = "entities/owl_blue",
+  sprite = "npc/statues/owl",
   behavior = "dialog#maps.out.west_mt_tamaranch.owl_statue_1",
 }
 
@@ -19321,15 +19321,14 @@ tile{
   pattern = "1444",
 }
 
-custom_entity{
-  name = "photographer_sign",
+tile{
   layer = 1,
-  x = 728,
-  y = 645,
+  x = 720,
+  y = 632,
   width = 48,
   height = 16,
-  direction = 3,
-  sprite = "entities/signs",
+  pattern = "22",
+  tileset = "addition/out",
 }
 
 custom_entity{

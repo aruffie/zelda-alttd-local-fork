@@ -2305,6 +2305,56 @@ tile{
   pattern = "1044",
 }
 
+tile{
+  layer = 0,
+  x = 336,
+  y = 352,
+  width = 160,
+  height = 128,
+  pattern = "72",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 496,
+  y = 352,
+  width = 16,
+  height = 128,
+  pattern = "71",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 336,
+  y = 336,
+  width = 160,
+  height = 16,
+  pattern = "68",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 320,
+  y = 352,
+  width = 16,
+  height = 128,
+  pattern = "70",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 336,
+  y = 480,
+  width = 160,
+  height = 16,
+  pattern = "69",
+  tileset = "addition/out",
+}
+
 teletransporter{
   name = "to_c3",
   layer = 0,

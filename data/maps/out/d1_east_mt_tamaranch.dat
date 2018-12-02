@@ -12691,14 +12691,14 @@ tile{
   pattern = "12344",
 }
 
-custom_entity{
+tile{
   layer = 0,
-  x = 184,
-  y = 469,
+  x = 176,
+  y = 456,
   width = 32,
   height = 32,
-  direction = 0,
-  sprite = "entities/teletransporter",
+  pattern = "17",
+  tileset = "addition/out",
 }
 
 teletransporter{
@@ -12810,7 +12810,7 @@ npc{
   y = 285,
   direction = 3,
   subtype = 1,
-  sprite = "entities/owl_blue",
+  sprite = "npc/statues/owl",
   behavior = "dialog#maps.out.east_mt_tamaranch.owl_statue_1",
 }
 

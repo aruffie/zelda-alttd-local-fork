@@ -1,0 +1,45 @@
+animation{
+  name = "waiting",
+  src_image = "npc/animals/alligator.png",
+  frame_delay = 250,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 80, frame_width = 40, frame_height = 40, origin_x = 12, origin_y = 37, num_frames = 4 },
+    { x = 0, y = 80, frame_width = 40, frame_height = 40, origin_x = 12, origin_y = 37, num_frames = 4 },
+    { x = 0, y = 80, frame_width = 40, frame_height = 40, origin_x = 12, origin_y = 37, num_frames = 4 },
+    { x = 0, y = 80, frame_width = 40, frame_height = 40, origin_x = 12, origin_y = 37, num_frames = 4 },
+  },
+}
+animation{
+  name = "begin_eating",
+  src_image = "npc/animals/alligator.png",
+  frame_delay = 250,
+  directions = {
+    { x = 0, y = 0, frame_width = 40, frame_height = 40, origin_x = 12, origin_y = 37, num_frames = 5 },
+    { x = 0, y = 0, frame_width = 40, frame_height = 40, origin_x = 12, origin_y = 37, num_frames = 5 },
+    { x = 0, y = 0, frame_width = 40, frame_height = 40, origin_x = 12, origin_y = 37, num_frames = 5 },
+    { x = 0, y = 0, frame_width = 40, frame_height = 40, origin_x = 12, origin_y = 37, num_frames = 5 },
+  },
+}
+animation{
+  name = "eating",
+  src_image = "npc/animals/alligator.png",
+  frame_delay = 250,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 40, frame_width = 40, frame_height = 40, origin_x = 12, origin_y = 37, num_frames = 4 },
+    { x = 0, y = 40, frame_width = 40, frame_height = 40, origin_x = 12, origin_y = 37, num_frames = 4 },
+    { x = 0, y = 40, frame_width = 40, frame_height = 40, origin_x = 12, origin_y = 37, num_frames = 4 },
+    { x = 0, y = 40, frame_width = 40, frame_height = 40, origin_x = 12, origin_y = 37, num_frames = 4 },
+  },
+}
+animation{
+  name = "stopped",
+  src_image = "npc/animals/alligator.png",
+  directions = {
+    { x = 0, y = 80, frame_width = 40, frame_height = 40, origin_x = 12, origin_y = 37 },
+    { x = 0, y = 80, frame_width = 40, frame_height = 40, origin_x = 12, origin_y = 37 },
+    { x = 0, y = 80, frame_width = 40, frame_height = 40, origin_x = 12, origin_y = 37 },
+    { x = 0, y = 80, frame_width = 40, frame_height = 40, origin_x = 12, origin_y = 37 },
+  },
+}

@@ -14671,7 +14671,7 @@ npc{
   y = 805,
   direction = 3,
   subtype = 1,
-  sprite = "entities/statue_dungeon_1_owl",
+  sprite = "npc/statues/owl_dungeon_1",
 }
 
 npc{
@@ -14681,7 +14681,7 @@ npc{
   y = 549,
   direction = 3,
   subtype = 1,
-  sprite = "entities/statue_dungeon_1_owl",
+  sprite = "npc/statues/owl_dungeon_1",
 }
 
 npc{
@@ -14691,7 +14691,7 @@ npc{
   y = 549,
   direction = 3,
   subtype = 1,
-  sprite = "entities/statue_dungeon_1_owl",
+  sprite = "npc/statues/owl_dungeon_1",
 }
 
 enemy{

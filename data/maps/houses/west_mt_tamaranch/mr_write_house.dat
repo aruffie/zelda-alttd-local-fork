@@ -435,18 +435,6 @@ npc{
 }
 
 custom_entity{
-  name = "mr_write",
-  layer = 0,
-  x = 184,
-  y = 109,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "npc/mr_write",
-  model = "mr_write_and_christine",
-}
-
-custom_entity{
   layer = 0,
   x = 216,
   y = 77,
@@ -675,12 +663,13 @@ custom_entity{
 }
 
 npc{
-  name = "mr_write_invisible_2",
+  name = "mr_write",
   layer = 0,
   x = 184,
-  y = 101,
+  y = 109,
   direction = 3,
   subtype = 1,
+  sprite = "npc/villagers/mr_write",
 }
 
 npc{

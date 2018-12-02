@@ -2652,14 +2652,225 @@ tile{
   tileset = "addition/dungeon",
 }
 
-custom_entity{
+tile{
+  layer = 0,
+  x = 408,
+  y = 64,
+  width = 8,
+  height = 8,
+  pattern = "21",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 544,
+  y = 64,
+  width = 8,
+  height = 8,
+  pattern = "77",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 408,
+  y = 168,
+  width = 8,
+  height = 8,
+  pattern = "78",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 544,
+  y = 168,
+  width = 8,
+  height = 8,
+  pattern = "79",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 408,
+  y = 136,
+  width = 8,
+  height = 16,
+  pattern = "81",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 544,
+  y = 136,
+  width = 8,
+  height = 16,
+  pattern = "82",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 408,
+  y = 88,
+  width = 8,
+  height = 16,
+  pattern = "81",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 544,
+  y = 88,
+  width = 8,
+  height = 16,
+  pattern = "82",
+  tileset = "addition/dungeon",
+}
+
+tile{
   layer = 0,
   x = 416,
-  y = 77,
-  width = 144,
-  height = 112,
-  direction = 0,
-  sprite = "entities/moblin_carpet",
+  y = 64,
+  width = 128,
+  height = 8,
+  pattern = "86",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 408,
+  y = 72,
+  width = 8,
+  height = 16,
+  pattern = "84",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 408,
+  y = 104,
+  width = 8,
+  height = 32,
+  pattern = "84",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 408,
+  y = 152,
+  width = 8,
+  height = 16,
+  pattern = "84",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 416,
+  y = 168,
+  width = 128,
+  height = 8,
+  pattern = "87",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 544,
+  y = 152,
+  width = 8,
+  height = 16,
+  pattern = "85",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 544,
+  y = 104,
+  width = 8,
+  height = 32,
+  pattern = "85",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 544,
+  y = 72,
+  width = 8,
+  height = 16,
+  pattern = "85",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 416,
+  y = 72,
+  width = 128,
+  height = 96,
+  pattern = "80",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 464,
+  y = 104,
+  width = 32,
+  height = 24,
+  pattern = "83",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 144,
+  y = 56,
+  width = 32,
+  height = 24,
+  pattern = "92",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 136,
+  y = 56,
+  width = 8,
+  height = 24,
+  pattern = "90",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 176,
+  y = 56,
+  width = 8,
+  height = 24,
+  pattern = "91",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 136,
+  y = 24,
+  enabled_at_start = false,
+  width = 48,
+  height = 32,
+  pattern = "93",
+  tileset = "addition/dungeon",
 }
 
 custom_entity{
@@ -2912,23 +3123,11 @@ custom_entity{
   model = "bowwow",
 }
 
-custom_entity{
-  name = "moblin_throne",
-  layer = 0,
-  x = 144,
-  y = 37,
-  width = 48,
-  height = 56,
-  direction = 0,
-  sprite = "entities/moblin_throne",
-  model = "obstacle",
-}
-
 enemy{
   name = "enemy_group_3_1",
   layer = 0,
   x = 480,
-  y = 133,
+  y = 125,
   direction = 2,
   breed = "boss/moblin_chief",
 }
@@ -2953,16 +3152,6 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-}
-
-npc{
-  name = "moblin_chief",
-  layer = 0,
-  x = 160,
-  y = 77,
-  direction = 3,
-  subtype = 1,
-  sprite = "enemies/boss/moblin_chief",
 }
 
 custom_entity{
@@ -3025,6 +3214,16 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
+}
+
+npc{
+  name = "moblin_chief",
+  layer = 0,
+  x = 160,
+  y = 77,
+  direction = 3,
+  subtype = 1,
+  sprite = "enemies/boss/moblin_chief",
 }
 
 tile{

@@ -11217,15 +11217,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 616,
-  y = 704,
-  width = 16,
-  height = 16,
-  pattern = "6008",
-}
-
-tile{
-  layer = 0,
   x = 576,
   y = 600,
   width = 32,
@@ -14365,6 +14356,156 @@ tile{
   pattern = "123",
 }
 
+tile{
+  layer = 0,
+  x = 576,
+  y = 696,
+  width = 40,
+  height = 24,
+  pattern = "55",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 632,
+  y = 696,
+  width = 40,
+  height = 24,
+  pattern = "56",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 616,
+  y = 704,
+  width = 16,
+  height = 16,
+  pattern = "54",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 48,
+  y = 312,
+  width = 16,
+  height = 8,
+  pattern = "74",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 48,
+  y = 296,
+  width = 16,
+  height = 16,
+  pattern = "73",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 64,
+  y = 296,
+  width = 16,
+  height = 8,
+  pattern = "74",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 64,
+  y = 280,
+  width = 16,
+  height = 16,
+  pattern = "73",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 80,
+  y = 312,
+  width = 16,
+  height = 8,
+  pattern = "74",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 80,
+  y = 296,
+  width = 16,
+  height = 16,
+  pattern = "73",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 96,
+  y = 312,
+  width = 16,
+  height = 8,
+  pattern = "74",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 96,
+  y = 296,
+  width = 16,
+  height = 16,
+  pattern = "73",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 48,
+  y = 112,
+  width = 16,
+  height = 8,
+  pattern = "74",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 48,
+  y = 96,
+  width = 16,
+  height = 16,
+  pattern = "73",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 320,
+  y = 232,
+  width = 16,
+  height = 8,
+  pattern = "74",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 320,
+  y = 216,
+  width = 16,
+  height = 16,
+  pattern = "73",
+  tileset = "addition/out",
+}
+
 destructible{
   layer = 0,
   x = 344,
@@ -14893,7 +15034,7 @@ npc{
   y = 45,
   direction = 3,
   subtype = 1,
-  sprite = "entities/owl_blue",
+  sprite = "npc/statues/owl",
   behavior = "dialog#maps.out.south_prairie.owl_statue_1",
 }
 
@@ -20182,61 +20323,6 @@ destructible{
   ground = "grass",
 }
 
-custom_entity{
-  layer = 0,
-  x = 56,
-  y = 109,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 72,
-  y = 293,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 56,
-  y = 309,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 88,
-  y = 309,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 104,
-  y = 309,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
 destructible{
   layer = 0,
   x = 56,
@@ -20245,17 +20331,6 @@ destructible{
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
-}
-
-custom_entity{
-  layer = 0,
-  x = 328,
-  y = 229,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
 }
 
 npc{
@@ -20455,42 +20530,6 @@ wall{
   stops_projectiles = true,
 }
 
-custom_entity{
-  name = "ghost_house",
-  layer = 0,
-  x = 640,
-  y = 709,
-  width = 40,
-  height = 24,
-  direction = 0,
-  sprite = "entities/ghost_house",
-  model = "obstacle",
-}
-
-custom_entity{
-  name = "ghost_house_2",
-  layer = 0,
-  x = 584,
-  y = 709,
-  width = 40,
-  height = 24,
-  direction = 2,
-  sprite = "entities/ghost_house",
-  model = "obstacle",
-}
-
-custom_entity{
-  name = "ghost_house_3",
-  layer = 0,
-  x = 584,
-  y = 653,
-  width = 96,
-  height = 64,
-  direction = 1,
-  sprite = "entities/ghost_house",
-  model = "obstacle",
-}
-
 destructible{
   layer = 0,
   x = 424,
@@ -20509,6 +20548,19 @@ destructible{
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
+}
+
+wall{
+  layer = 0,
+  x = 576,
+  y = 640,
+  width = 96,
+  height = 56,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
 }
 
 tile{
@@ -22138,6 +22190,26 @@ tile{
   width = 8,
   height = 8,
   pattern = "105 (copy)",
+}
+
+tile{
+  layer = 1,
+  x = 576,
+  y = 640,
+  width = 96,
+  height = 56,
+  pattern = "57",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 616,
+  y = 696,
+  width = 16,
+  height = 8,
+  pattern = "58",
+  tileset = "addition/out",
 }
 
 custom_entity{

@@ -9874,6 +9874,36 @@ tile{
   pattern = "6008",
 }
 
+tile{
+  layer = 0,
+  x = 880,
+  y = 272,
+  width = 16,
+  height = 16,
+  pattern = "2",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 832,
+  y = 272,
+  width = 16,
+  height = 16,
+  pattern = "8",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 856,
+  y = 304,
+  width = 16,
+  height = 16,
+  pattern = "9",
+  tileset = "addition/out",
+}
+
 teletransporter{
   name = "to_a3",
   layer = 0,
@@ -11369,28 +11399,6 @@ custom_entity{
   model = "obstacle",
 }
 
-custom_entity{
-  layer = 0,
-  x = 888,
-  y = 285,
-  width = 16,
-  height = 16,
-  direction = 2,
-  sprite = "entities/statue_dungeon_1_block",
-  model = "statue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 840,
-  y = 285,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_dungeon_1_block",
-  model = "statue",
-}
-
 npc{
   name = "dungeon_1_lock",
   layer = 0,
@@ -11457,17 +11465,6 @@ custom_entity{
   direction = 0,
   sprite = "entities/non_diggable",
   model = "non_diggable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 864,
-  y = 317,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_dungeon_1_key",
-  model = "statue",
 }
 
 enemy{
@@ -12554,6 +12551,47 @@ tile{
   pattern = "6074",
 }
 
+tile{
+  layer = 1,
+  x = 880,
+  y = 248,
+  width = 16,
+  height = 24,
+  pattern = "10",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 832,
+  y = 248,
+  width = 16,
+  height = 24,
+  pattern = "11",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 856,
+  y = 280,
+  width = 16,
+  height = 24,
+  pattern = "12",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 808,
+  y = 368,
+  enabled_at_start = false,
+  width = 32,
+  height = 32,
+  pattern = "33",
+  tileset = "addition/out",
+}
+
 custom_entity{
   layer = 1,
   x = 568,
@@ -13070,16 +13108,5 @@ npc{
   direction = 3,
   subtype = 0,
   sprite = "npc/owl",
-}
-
-custom_entity{
-  name = "alligo_flag",
-  layer = 2,
-  x = 816,
-  y = 397,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/alligo_flag",
 }
 

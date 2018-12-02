@@ -1990,22 +1990,61 @@ tile{
   pattern = "wall_low_border.corner.3-3",
 }
 
+tile{
+  layer = 0,
+  x = 72,
+  y = 152,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 88,
+  y = 168,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 360,
+  y = 168,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 408,
+  y = 168,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 632,
+  y = 72,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
 custom_entity{
   name = "cave_rock_4",
   layer = 0,
   x = 848,
   y = 101,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_2",
-  layer = 0,
-  x = 96,
-  y = 181,
   width = 16,
   height = 16,
   direction = 0,
@@ -2239,17 +2278,6 @@ enemy{
 }
 
 custom_entity{
-  name = "cave_rock_1",
-  layer = 0,
-  x = 80,
-  y = 165,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
   name = "cave_rock_3",
   layer = 0,
   x = 848,
@@ -2265,17 +2293,6 @@ custom_entity{
   layer = 0,
   x = 832,
   y = 101,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_6",
-  layer = 0,
-  x = 640,
-  y = 85,
   width = 16,
   height = 16,
   direction = 0,
@@ -2770,169 +2787,134 @@ tile{
   pattern = "floor_low.16-2",
 }
 
-custom_entity{
-  name = "cave_rock_24",
+tile{
   layer = 1,
-  x = 784,
-  y = 197,
+  x = 160,
+  y = 168,
   width = 16,
   height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
+  pattern = "94",
+  tileset = "addition/dungeon",
 }
 
-custom_entity{
-  name = "cave_rock_25",
+tile{
   layer = 1,
-  x = 736,
-  y = 157,
+  x = 200,
+  y = 128,
   width = 16,
   height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
+  pattern = "94",
+  tileset = "addition/dungeon",
 }
 
-custom_entity{
-  name = "cave_rock_26",
+tile{
   layer = 1,
-  x = 664,
-  y = 173,
+  x = 216,
+  y = 160,
   width = 16,
   height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
+  pattern = "94",
+  tileset = "addition/dungeon",
 }
 
-custom_entity{
-  name = "cave_rock_27",
+tile{
   layer = 1,
-  x = 592,
-  y = 133,
+  x = 288,
+  y = 112,
   width = 16,
   height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
+  pattern = "94",
+  tileset = "addition/dungeon",
 }
 
-custom_entity{
-  name = "cave_rock_28",
+tile{
   layer = 1,
-  x = 568,
-  y = 181,
+  x = 360,
+  y = 104,
   width = 16,
   height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
+  pattern = "94",
+  tileset = "addition/dungeon",
 }
 
-custom_entity{
-  name = "cave_rock_29",
+tile{
   layer = 1,
-  x = 544,
-  y = 141,
+  x = 432,
+  y = 120,
   width = 16,
   height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
+  pattern = "94",
+  tileset = "addition/dungeon",
 }
 
-custom_entity{
-  name = "cave_rock_30",
+tile{
   layer = 1,
-  x = 488,
-  y = 117,
+  x = 480,
+  y = 104,
   width = 16,
   height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
+  pattern = "94",
+  tileset = "addition/dungeon",
 }
 
-custom_entity{
-  name = "cave_rock_31",
+tile{
   layer = 1,
-  x = 440,
-  y = 133,
+  x = 536,
+  y = 128,
   width = 16,
   height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
+  pattern = "94",
+  tileset = "addition/dungeon",
 }
 
-custom_entity{
-  name = "cave_rock_32",
+tile{
   layer = 1,
-  x = 368,
-  y = 117,
+  x = 560,
+  y = 168,
   width = 16,
   height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
+  pattern = "94",
+  tileset = "addition/dungeon",
 }
 
-custom_entity{
-  name = "cave_rock_33",
+tile{
   layer = 1,
-  x = 296,
-  y = 125,
+  x = 584,
+  y = 120,
   width = 16,
   height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
+  pattern = "94",
+  tileset = "addition/dungeon",
 }
 
-custom_entity{
-  name = "cave_rock_34",
+tile{
   layer = 1,
-  x = 208,
-  y = 141,
+  x = 656,
+  y = 160,
   width = 16,
   height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
+  pattern = "94",
+  tileset = "addition/dungeon",
 }
 
-custom_entity{
-  name = "cave_rock_35",
+tile{
   layer = 1,
-  x = 224,
-  y = 173,
+  x = 728,
+  y = 144,
   width = 16,
   height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
+  pattern = "94",
+  tileset = "addition/dungeon",
 }
 
-custom_entity{
-  name = "cave_rock_36",
+tile{
   layer = 1,
-  x = 168,
-  y = 181,
+  x = 776,
+  y = 184,
   width = 16,
   height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_37",
-  layer = 1,
-  x = 368,
-  y = 181,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_38",
-  layer = 1,
-  x = 416,
-  y = 181,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
+  pattern = "94",
+  tileset = "addition/dungeon",
 }
 
 tile{

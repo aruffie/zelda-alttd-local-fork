@@ -18397,6 +18397,76 @@ tile{
   pattern = "13904",
 }
 
+tile{
+  layer = 0,
+  x = 344,
+  y = 432,
+  width = 16,
+  height = 16,
+  pattern = "49",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 360,
+  y = 432,
+  width = 40,
+  height = 16,
+  pattern = "38",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 360,
+  y = 448,
+  width = 32,
+  height = 8,
+  pattern = "42",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 400,
+  y = 424,
+  width = 8,
+  height = 24,
+  pattern = "45",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 312,
+  y = 448,
+  width = 32,
+  height = 8,
+  pattern = "41",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 304,
+  y = 432,
+  width = 40,
+  height = 16,
+  pattern = "39",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 296,
+  y = 424,
+  width = 8,
+  height = 24,
+  pattern = "44",
+  tileset = "addition/out",
+}
+
 destructible{
   layer = 0,
   x = 704,
@@ -22256,30 +22326,6 @@ destructible{
   damage_on_enemies = 2,
 }
 
-custom_entity{
-  name = "witch_house",
-  layer = 0,
-  x = 368,
-  y = 437,
-  width = 48,
-  height = 32,
-  direction = 0,
-  sprite = "entities/witch_house",
-  model = "obstacle",
-}
-
-custom_entity{
-  name = "witch_house_3",
-  layer = 0,
-  x = 304,
-  y = 437,
-  width = 48,
-  height = 32,
-  direction = 2,
-  sprite = "entities/witch_house",
-  model = "obstacle",
-}
-
 enemy{
   layer = 0,
   x = 192,
@@ -24853,6 +24899,66 @@ tile{
   pattern = "1452",
 }
 
+tile{
+  layer = 1,
+  x = 312,
+  y = 376,
+  width = 80,
+  height = 8,
+  pattern = "48",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 392,
+  y = 384,
+  width = 16,
+  height = 40,
+  pattern = "51",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 312,
+  y = 384,
+  width = 80,
+  height = 48,
+  pattern = "47",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 392,
+  y = 424,
+  width = 8,
+  height = 8,
+  pattern = "52",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 304,
+  y = 424,
+  width = 8,
+  height = 8,
+  pattern = "53",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 296,
+  y = 384,
+  width = 16,
+  height = 40,
+  pattern = "50",
+  tileset = "addition/out",
+}
+
 custom_entity{
   name = "butterfly_1",
   layer = 1,
@@ -25123,18 +25229,6 @@ custom_entity{
   height = 16,
   direction = 1,
   sprite = "entities/graveyard_tree",
-}
-
-custom_entity{
-  name = "witch_house_4",
-  layer = 1,
-  x = 304,
-  y = 389,
-  width = 112,
-  height = 56,
-  direction = 1,
-  sprite = "entities/witch_house",
-  model = "obstacle",
 }
 
 custom_entity{

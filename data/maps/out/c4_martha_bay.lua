@@ -30,7 +30,8 @@ function map:init_map_entities()
   --Mermaid statue pushed
   if game:get_value("mermaid_statue_pushed") then
       mermaid_statue_npc:set_enabled(false)
-      mermaid_statue:set_position(424,373)
+      mermaid_statue_1:set_position(416,373)
+      mermaid_statue_2:set_position(416,344)
   end
   
 end
@@ -44,12 +45,15 @@ function mermaid_statue_npc:on_interaction()
       hero:freeze()
       mermaid_statue_npc:set_enabled(false)
       audio_manager:play_sound("hero_pushes")
-        local mermaid_statue_x,mermaid_statue_y = map:get_entity("mermaid_statue"):get_position()
+        local mermaid_statue_1_x,mermaid_statue_1_y = mermaid_statue_1:get_position()
+        local mermaid_statue_2_x,mermaid_statue_2_y = mermaid_statue_2:get_position()
         local i = 0
         sol.timer.start(map, 50, function()
           i = i + 1
-          mermaid_statue_x = mermaid_statue_x - 1
-          mermaid_statue:set_position(mermaid_statue_x, mermaid_statue_y)
+          mermaid_statue_1_x = mermaid_statue_1_x - 1
+          mermaid_statue_2_x = mermaid_statue_2_x - 1
+          mermaid_statue_1:set_position(mermaid_statue_1_x, mermaid_statue_1_y)
+          mermaid_statue_2:set_position(mermaid_statue_2_x, mermaid_statue_2_y)
           if i < 32 then
             return true
           end

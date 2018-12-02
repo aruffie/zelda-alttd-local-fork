@@ -575,17 +575,6 @@ stairs{
   subtype = 4,
 }
 
-custom_entity{
-  name = "cave_bones_1",
-  layer = 0,
-  x = 224,
-  y = 157,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_bones",
-}
-
 destructible{
   name = "auto_destructible_1",
   layer = 0,
@@ -614,39 +603,6 @@ destructible{
   sprite = "entities/skull_white",
   destruction_sound = "stone",
   weight = 1,
-}
-
-custom_entity{
-  name = "cave_rock_1",
-  layer = 0,
-  x = 224,
-  y = 117,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_2",
-  layer = 0,
-  x = 240,
-  y = 133,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_3",
-  layer = 0,
-  x = 80,
-  y = 133,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
 }
 
 destination{
@@ -1041,6 +997,66 @@ tile{
   pattern = "door_top.stairs_up.2-1",
 }
 
+tile{
+  layer = 1,
+  x = 72,
+  y = 48,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 72,
+  y = 120,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 216,
+  y = 104,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 232,
+  y = 120,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 88,
+  y = 48,
+  width = 16,
+  height = 16,
+  pattern = "95",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 216,
+  y = 144,
+  width = 16,
+  height = 16,
+  pattern = "95",
+  tileset = "addition/dungeon",
+}
+
 jumper{
   layer = 1,
   x = 112,
@@ -1079,28 +1095,6 @@ jumper{
   height = 40,
   direction = 4,
   jump_length = 40,
-}
-
-custom_entity{
-  name = "cave_bones_2",
-  layer = 1,
-  x = 96,
-  y = 61,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_bones",
-}
-
-custom_entity{
-  name = "cave_rock_4",
-  layer = 1,
-  x = 80,
-  y = 61,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
 }
 
 custom_entity{

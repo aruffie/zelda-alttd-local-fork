@@ -341,7 +341,6 @@ sprite{ id = "enemies/wizzrobe_white", description = "Wizzrobe white" }
 sprite{ id = "enemies/zol_green", description = "Zol green" }
 sprite{ id = "enemies/zol_red", description = "Zol red" }
 sprite{ id = "enemies/zombie", description = "Zombie" }
-sprite{ id = "entities/alligo_flag", description = "Alligo flag" }
 sprite{ id = "entities/arrow", description = "Arrow" }
 sprite{ id = "entities/arrow_fly", description = "Arrow fly" }
 sprite{ id = "entities/ball", description = "Ball" }
@@ -470,19 +469,13 @@ sprite{ id = "entities/keyhole_dungeon_7", description = "Keyhole dungeon 7" }
 sprite{ id = "entities/la_beach/la_background", description = "entities/la_beach/la_background" }
 sprite{ id = "entities/la_beach/la_swell", description = "entities/la_beach/la_swell" }
 sprite{ id = "entities/la_beach/la_wreck", description = "entities/la_beach/la_wreck" }
-sprite{ id = "entities/lanmola_statue", description = "Lanmola statue" }
 sprite{ id = "entities/letter", description = "Letter" }
 sprite{ id = "entities/lightning_strike", description = "Lightning strike" }
 sprite{ id = "entities/lightning_strike_core", description = "Lightning strike core" }
 sprite{ id = "entities/mad_batter_set", description = "Mad batter set" }
 sprite{ id = "entities/mask_helmasaur", description = "Mask helmasaur" }
-sprite{ id = "entities/mask_shrine_column", description = "Mask shrine column" }
-sprite{ id = "entities/mask_shrine_fresco", description = "Mask shrine fresco" }
-sprite{ id = "entities/mask_shrine_slabs", description = "Mask shrine slabs" }
 sprite{ id = "entities/mega_thwomp", description = "Mega thwomp" }
-sprite{ id = "entities/moblin_carpet", description = "Moblin carpet" }
 sprite{ id = "entities/moblin_fire", description = "Moblin fire" }
-sprite{ id = "entities/moblin_throne", description = "Moblin throne" }
 sprite{ id = "entities/movies/background_introduction", description = "Background introduction" }
 sprite{ id = "entities/movies/swell", description = "Swell" }
 sprite{ id = "entities/movies/wreck", description = "Wreck" }
@@ -498,14 +491,11 @@ sprite{ id = "entities/orb_monster_orb_green", description = "Orb monster orb gr
 sprite{ id = "entities/orb_monster_orb_red", description = "Orb monster orb red" }
 sprite{ id = "entities/outside_door", description = "Outside closed door" }
 sprite{ id = "entities/outside_ladder", description = "Outside ladder" }
-sprite{ id = "entities/owl_blue", description = "Owl blue" }
-sprite{ id = "entities/painting", description = "Painting" }
 sprite{ id = "entities/palm", description = "Palm" }
 sprite{ id = "entities/palm_banana", description = "Palm banana" }
 sprite{ id = "entities/palm_footer_brown", description = "Palm footer brown" }
 sprite{ id = "entities/palm_footer_green", description = "Palm footer green" }
 sprite{ id = "entities/palm_footer_yellow", description = "Palm footer yellow" }
-sprite{ id = "entities/palm_yarna", description = "Palm yarna" }
 sprite{ id = "entities/pencil", description = "Pencil" }
 sprite{ id = "entities/pillar", description = "Pillar" }
 sprite{ id = "entities/pillar_base", description = "Pillar base" }
@@ -522,10 +512,8 @@ sprite{ id = "entities/secret_ground", description = "Secret ground" }
 sprite{ id = "entities/shadow", description = "Shadow" }
 sprite{ id = "entities/shield", description = "Shield" }
 sprite{ id = "entities/shop_board", description = "Shop board" }
-sprite{ id = "entities/shop_office", description = "Shop office" }
 sprite{ id = "entities/shovel", description = "Shovel" }
 sprite{ id = "entities/sign", description = "Sign" }
-sprite{ id = "entities/signs", description = "Signs" }
 sprite{ id = "entities/skull_brown", description = "Skull brown" }
 sprite{ id = "entities/skull_green", description = "Skull green" }
 sprite{ id = "entities/skull_white", description = "Skull white" }
@@ -533,30 +521,15 @@ sprite{ id = "entities/snores", description = "Snoring" }
 sprite{ id = "entities/solid_switch", description = "Solid switch" }
 sprite{ id = "entities/somaria_block", description = "Somaria block" }
 sprite{ id = "entities/star", description = "Star" }
-sprite{ id = "entities/statue", description = "Statue" }
 sprite{ id = "entities/statue_big_dungeon_3", description = "Statue dungeon 3" }
-sprite{ id = "entities/statue_dungeon_1_block", description = "Statue dungeon 1 block" }
 sprite{ id = "entities/statue_dungeon_1_key", description = "Statue dungeon 1 key" }
-sprite{ id = "entities/statue_dungeon_1_owl", description = "Statue dungeon 1 owl" }
 sprite{ id = "entities/statue_dungeon_2_head", description = "Statue dungeon 2 head" }
-sprite{ id = "entities/statue_dungeon_2_owl", description = "Statue dungeon 2 owl" }
 sprite{ id = "entities/statue_dungeon_3", description = "Statue dungeon 3" }
 sprite{ id = "entities/statue_dungeon_3_key", description = "Statue dungeon 3 key" }
-sprite{ id = "entities/statue_dungeon_3_owl", description = "Statue dungeon 3 owl" }
-sprite{ id = "entities/statue_dungeon_4_owl", description = "Statue dungeon 4 owl" }
-sprite{ id = "entities/statue_dungeon_5_owl", description = "Statue dungeon 5 owl" }
-sprite{ id = "entities/statue_dungeon_6_owl", description = "Statue dungeon 6 owl" }
-sprite{ id = "entities/statue_dungeon_7_owl", description = "Statue dungeon 7 owl" }
-sprite{ id = "entities/statue_dungeon_8_owl", description = "Statue dungeon 8 owl" }
 sprite{ id = "entities/statue_koopa_hookable", description = "Statue koopa hookable" }
 sprite{ id = "entities/statue_liftable_dungeon_6", description = "Statue liftable dungeon 6" }
-sprite{ id = "entities/statue_mermaid", description = "Statue mermaid" }
-sprite{ id = "entities/statue_owl_dungeon_free", description = "Statue owl dungeon free" }
 sprite{ id = "entities/statue_pig", description = "Statue pig" }
 sprite{ id = "entities/statue_pig_destroyed", description = "Statue pig destroyed" }
-sprite{ id = "entities/statue_richard", description = "Statue richard" }
-sprite{ id = "entities/statue_shell_house", description = "Statue shell house" }
-sprite{ id = "entities/statue_small", description = "Statue small" }
 sprite{ id = "entities/statue_small_dungeon_3", description = "Statue small dungeon 3" }
 sprite{ id = "entities/statue_small_key_dungeon_3", description = "Statue small key dungeon 3" }
 sprite{ id = "entities/stone_large_white", description = "Large white stone" }
@@ -587,8 +560,6 @@ sprite{ id = "entities/wallturn_dungeon_6_front", description = "Wallturn dungeo
 sprite{ id = "entities/wallturn_dungeon_7_front", description = "Wallturn dungeon 7" }
 sprite{ id = "entities/wallturn_dungeon_8_front", description = "Wallturn dungeon 8" }
 sprite{ id = "entities/wallturn_dungeon_9_front", description = "Wallturn dungeon 9" }
-sprite{ id = "entities/water_tree", description = "Water tree" }
-sprite{ id = "entities/water_tree_junction", description = "Water tree junction" }
 sprite{ id = "entities/weak_floor_dark_1", description = "Weak floor dark 1" }
 sprite{ id = "entities/weak_floor_dark_2", description = "Weak floor dark 2" }
 sprite{ id = "entities/weak_floor_dark_3", description = "Weak floor dark 3" }
@@ -597,9 +568,6 @@ sprite{ id = "entities/weak_floor_light_1", description = "Weak floor light 1" }
 sprite{ id = "entities/weak_floor_light_2", description = "Weak floor light 2" }
 sprite{ id = "entities/weak_floor_light_3", description = "Weak floor light 3" }
 sprite{ id = "entities/weak_floor_light_4", description = "Weak floor light 4" }
-sprite{ id = "entities/witch_house", description = "Witch house" }
-sprite{ id = "entities/wood_bridge", description = "Wood bridge" }
-sprite{ id = "entities/yarna_skull", description = "Yarna skull" }
 sprite{ id = "ground_effects/fall_on_hole", description = "ground_effects/fall_on_hole" }
 sprite{ id = "ground_effects/lava_splash", description = "ground_effects/lava_splash" }
 sprite{ id = "ground_effects/leaves", description = "ground_effects/leaves" }
@@ -686,7 +654,7 @@ sprite{ id = "menus/title_screen/title_zelda", description = "Title screen: Zeld
 sprite{ id = "menus/title_screen/wave_big", description = "Title screen: big wave" }
 sprite{ id = "menus/title_screen/wave_small", description = "Title screen: small wave" }
 sprite{ id = "menus/title_screen/wreck", description = "Tiltle screen: wreck" }
-sprite{ id = "npc/alligator", description = "Alligator" }
+sprite{ id = "npc/animals/alligator", description = "Alligator" }
 sprite{ id = "npc/bear", description = "Bear" }
 sprite{ id = "npc/bee", description = "Bee" }
 sprite{ id = "npc/big_rabbit", description = "Big rabbit" }
@@ -735,7 +703,6 @@ sprite{ id = "npc/monkey_brown", description = "Monkey brown" }
 sprite{ id = "npc/monty_mole", description = "Monty mole" }
 sprite{ id = "npc/mosquito", description = "Mosquito" }
 sprite{ id = "npc/mouse", description = "Mouse" }
-sprite{ id = "npc/mr_write", description = "Mr Write" }
 sprite{ id = "npc/owl", description = "Owl" }
 sprite{ id = "npc/owl_shadow", description = "Owl shadow" }
 sprite{ id = "npc/painter", description = "Painter" }
@@ -749,9 +716,20 @@ sprite{ id = "npc/richard", description = "Richard" }
 sprite{ id = "npc/seagull", description = "Seagull" }
 sprite{ id = "npc/seagull_small", description = "Small seagull for backgrounds" }
 sprite{ id = "npc/small_bowwow", description = "Small bowwow" }
+sprite{ id = "npc/statues/owl", description = "Owl" }
+sprite{ id = "npc/statues/owl_dungeon", description = "Owl dungeon" }
+sprite{ id = "npc/statues/owl_dungeon_1", description = "Owl dungeon 1" }
+sprite{ id = "npc/statues/owl_dungeon_2", description = "Owl dungeon 2" }
+sprite{ id = "npc/statues/owl_dungeon_3", description = "Owl dungeon 3" }
+sprite{ id = "npc/statues/owl_dungeon_4", description = "Owl dungeon 4" }
+sprite{ id = "npc/statues/owl_dungeon_5", description = "Owl dungeon 5" }
+sprite{ id = "npc/statues/owl_dungeon_6", description = "Owl dungeon 6" }
+sprite{ id = "npc/statues/owl_dungeon_7", description = "Owl dungeon 7" }
+sprite{ id = "npc/statues/owl_dungeon_8", description = "owl dungeon 8" }
 sprite{ id = "npc/tarin", description = "Tarin" }
 sprite{ id = "npc/village_bird", description = "Village bird" }
 sprite{ id = "npc/village_teddy", description = "Village teddy" }
+sprite{ id = "npc/villagers/mr_write", description = "Villagers" }
 sprite{ id = "npc/walrus", description = "Walrus" }
 sprite{ id = "npc/wart", description = "Wart" }
 sprite{ id = "npc/warts_brother", description = "Wart's brother" }
@@ -2277,9 +2255,9 @@ file{ path = "sprites/menus/zeldaforce_logo/zeldaforce_logo_triforce_right.png",
 file{ path = "sprites/menus/zeldaforce_logo/zeldaforce_logo_triforce_top.png", author = "Olivier Cléro", license = "© Zeldaforce" }
 file{ path = "sprites/menus/zeldaforce_logo/zeldaforce_logo_z.png", author = "Olivier Cléro", license = "© Zeldaforce" }
 file{ path = "sprites/npc", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use, CC BY-SA 4.0" }
-file{ path = "sprites/npc/alligator.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/alligator.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
 file{ path = "sprites/npc/animals.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
+file{ path = "sprites/npc/animals/alligator.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
+file{ path = "sprites/npc/animals/alligator.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
 file{ path = "sprites/npc/bear.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
 file{ path = "sprites/npc/bear.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
 file{ path = "sprites/npc/bee.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
@@ -2367,8 +2345,6 @@ file{ path = "sprites/npc/mosquito.dat", author = "Julien Van Steerteghem", lice
 file{ path = "sprites/npc/mosquito.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
 file{ path = "sprites/npc/mouse.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
 file{ path = "sprites/npc/mouse.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/mr_write.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/mr_write.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
 file{ path = "sprites/npc/owl.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
 file{ path = "sprites/npc/owl.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
 file{ path = "sprites/npc/owl_shadow.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }

@@ -742,7 +742,7 @@ npc{
   y = 125,
   direction = 3,
   subtype = 1,
-  sprite = "npc/alligator",
+  sprite = "npc/animals/alligator",
 }
 
 wall{

@@ -20385,7 +20385,7 @@ npc{
   y = 549,
   direction = 3,
   subtype = 1,
-  sprite = "entities/statue_dungeon_2_owl",
+  sprite = "npc/statues/owl_dungeon_2",
 }
 
 enemy{
@@ -20870,7 +20870,7 @@ npc{
   y = 1061,
   direction = 3,
   subtype = 1,
-  sprite = "entities/statue_dungeon_2_owl",
+  sprite = "npc/statues/owl_dungeon_2",
 }
 
 enemy{
@@ -20907,7 +20907,7 @@ npc{
   y = 1317,
   direction = 3,
   subtype = 1,
-  sprite = "entities/statue_dungeon_2_owl",
+  sprite = "npc/statues/owl_dungeon_2",
   behavior = "dialog#",
 }
 

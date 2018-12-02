@@ -13833,6 +13833,266 @@ tile{
   pattern = "100",
 }
 
+tile{
+  layer = 0,
+  x = 600,
+  y = 256,
+  width = 16,
+  height = 152,
+  pattern = "3979",
+}
+
+tile{
+  layer = 0,
+  x = 600,
+  y = 256,
+  width = 16,
+  height = 32,
+  pattern = "31",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 600,
+  y = 304,
+  width = 16,
+  height = 16,
+  pattern = "30",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 600,
+  y = 336,
+  width = 16,
+  height = 16,
+  pattern = "30",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 600,
+  y = 352,
+  width = 16,
+  height = 16,
+  pattern = "31",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 600,
+  y = 376,
+  width = 16,
+  height = 32,
+  pattern = "30",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 480,
+  y = 344,
+  width = 8,
+  height = 16,
+  pattern = "36",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 160,
+  y = 80,
+  enabled_at_start = false,
+  width = 16,
+  height = 16,
+  pattern = "73",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 192,
+  y = 80,
+  enabled_at_start = false,
+  width = 16,
+  height = 16,
+  pattern = "73",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 208,
+  y = 80,
+  enabled_at_start = false,
+  width = 16,
+  height = 16,
+  pattern = "73",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 176,
+  y = 64,
+  enabled_at_start = false,
+  width = 16,
+  height = 16,
+  pattern = "73",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 224,
+  y = 64,
+  enabled_at_start = false,
+  width = 48,
+  height = 16,
+  pattern = "73",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 192,
+  y = 0,
+  enabled_at_start = false,
+  width = 16,
+  height = 16,
+  pattern = "73",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 192,
+  y = 16,
+  enabled_at_start = false,
+  width = 16,
+  height = 16,
+  pattern = "73",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 272,
+  y = 0,
+  enabled_at_start = false,
+  width = 48,
+  height = 16,
+  pattern = "73",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 272,
+  y = 16,
+  enabled_at_start = false,
+  width = 48,
+  height = 16,
+  pattern = "73",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 336,
+  y = 0,
+  enabled_at_start = false,
+  width = 16,
+  height = 16,
+  pattern = "73",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 336,
+  y = 16,
+  enabled_at_start = false,
+  width = 16,
+  height = 16,
+  pattern = "73",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 192,
+  y = 96,
+  width = 32,
+  height = 8,
+  pattern = "74",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 224,
+  y = 80,
+  width = 48,
+  height = 8,
+  pattern = "74",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 176,
+  y = 80,
+  width = 16,
+  height = 8,
+  pattern = "74",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 192,
+  y = 32,
+  width = 16,
+  height = 8,
+  pattern = "74",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 272,
+  y = 32,
+  width = 48,
+  height = 8,
+  pattern = "74",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 336,
+  y = 32,
+  width = 16,
+  height = 8,
+  pattern = "74",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 160,
+  y = 96,
+  width = 16,
+  height = 8,
+  pattern = "74",
+  tileset = "addition/out",
+}
+
 teletransporter{
   name = "to_c3",
   layer = 0,
@@ -13869,16 +14129,6 @@ teletransporter{
   destination = "_side",
 }
 
-dynamic_tile{
-  name = "bridge",
-  layer = 0,
-  x = 600,
-  y = 256,
-  pattern = "3979",
-  width = 16,
-  height = 152,
-}
-
 destructible{
   layer = 0,
   x = 520,
@@ -13897,193 +14147,6 @@ destructible{
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
-}
-
-custom_entity{
-  layer = 0,
-  x = 168,
-  y = 93,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 184,
-  y = 77,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 200,
-  y = 93,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 216,
-  y = 93,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 232,
-  y = 77,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 248,
-  y = 77,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 264,
-  y = 77,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 200,
-  y = 13,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 280,
-  y = 13,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 296,
-  y = 13,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 312,
-  y = 13,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 280,
-  y = 29,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 296,
-  y = 29,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 312,
-  y = 29,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 344,
-  y = 13,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 344,
-  y = 29,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 200,
-  y = 29,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
 }
 
 destructible{
@@ -14431,7 +14494,7 @@ npc{
   y = 189,
   direction = 3,
   subtype = 1,
-  sprite = "entities/owl_blue",
+  sprite = "npc/statues/owl",
   behavior = "dialog#maps.out.west_mt_tamaranch.owl_statue_1",
 }
 
@@ -14483,105 +14546,6 @@ teletransporter{
   height = 16,
   destination_map = "houses/martha_bay/telephone_booth_7",
   destination = "telephone_booth_7_1_B",
-}
-
-custom_entity{
-  name = "wood_bridge",
-  layer = 0,
-  x = 608,
-  y = 405,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/wood_bridge",
-}
-
-custom_entity{
-  name = "wood_bridge_2",
-  layer = 0,
-  x = 608,
-  y = 381,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/wood_bridge",
-}
-
-custom_entity{
-  name = "wood_bridge_3",
-  layer = 0,
-  x = 608,
-  y = 365,
-  width = 16,
-  height = 16,
-  direction = 2,
-  sprite = "entities/wood_bridge",
-}
-
-custom_entity{
-  name = "wood_bridge_4",
-  layer = 0,
-  x = 608,
-  y = 269,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/wood_bridge",
-}
-
-custom_entity{
-  name = "wood_bridge_6",
-  layer = 0,
-  x = 608,
-  y = 293,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/wood_bridge",
-}
-
-custom_entity{
-  name = "wood_bridge_7",
-  layer = 0,
-  x = 608,
-  y = 309,
-  width = 16,
-  height = 16,
-  direction = 2,
-  sprite = "entities/wood_bridge",
-}
-
-custom_entity{
-  name = "wood_bridge_8",
-  layer = 0,
-  x = 608,
-  y = 325,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/wood_bridge",
-}
-
-custom_entity{
-  name = "wood_bridge_9",
-  layer = 0,
-  x = 608,
-  y = 349,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/wood_bridge",
-}
-
-custom_entity{
-  name = "mermaid_statue",
-  layer = 0,
-  x = 456,
-  y = 373,
-  width = 32,
-  height = 32,
-  direction = 0,
-  sprite = "entities/statue_mermaid",
 }
 
 npc{
@@ -15694,21 +15658,42 @@ tile{
 
 tile{
   layer = 1,
-  x = 128,
-  y = 336,
+  x = 904,
+  y = 296,
+  enabled_at_start = false,
   width = 32,
   height = 24,
-  pattern = "72",
-  tileset = "addition/dungeon",
+  pattern = "32",
+  tileset = "addition/out",
 }
 
 tile{
   layer = 1,
-  x = 904,
-  y = 296,
+  x = 128,
+  y = 336,
   width = 32,
   height = 24,
-  pattern = "72",
-  tileset = "addition/dungeon",
+  pattern = "32",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 448,
+  y = 360,
+  width = 32,
+  height = 32,
+  pattern = "34",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 448,
+  y = 344,
+  width = 32,
+  height = 16,
+  pattern = "35",
+  tileset = "addition/out",
 }
 

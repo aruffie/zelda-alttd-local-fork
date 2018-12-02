@@ -8533,6 +8533,26 @@ tile{
   pattern = "101",
 }
 
+tile{
+  layer = 0,
+  x = 248,
+  y = 560,
+  width = 32,
+  height = 16,
+  pattern = "13",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 408,
+  y = 560,
+  width = 32,
+  height = 16,
+  pattern = "13",
+  tileset = "addition/out",
+}
+
 custom_entity{
   layer = 0,
   x = 592,
@@ -10823,8 +10843,78 @@ tile{
   y = 8,
   width = 32,
   height = 24,
-  pattern = "72",
-  tileset = "addition/dungeon",
+  pattern = "6",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 328,
+  y = 192,
+  width = 32,
+  height = 16,
+  pattern = "13",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 248,
+  y = 512,
+  width = 32,
+  height = 48,
+  pattern = "14",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 280,
+  y = 544,
+  width = 8,
+  height = 16,
+  pattern = "16",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 240,
+  y = 544,
+  width = 8,
+  height = 16,
+  pattern = "15",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 408,
+  y = 512,
+  width = 32,
+  height = 48,
+  pattern = "14",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 440,
+  y = 544,
+  width = 8,
+  height = 16,
+  pattern = "16",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 400,
+  y = 544,
+  width = 8,
+  height = 16,
+  pattern = "15",
+  tileset = "addition/out",
 }
 
 destination{
@@ -10974,39 +11064,33 @@ tile{
   pattern = "7691",
 }
 
-custom_entity{
-  name = "richard_statue",
+tile{
   layer = 2,
-  x = 344,
-  y = 205,
-  width = 16,
+  x = 320,
+  y = 176,
+  width = 8,
   height = 16,
-  direction = 0,
-  sprite = "entities/statue_richard",
-  model = "obstacle",
+  pattern = "15",
+  tileset = "addition/out",
 }
 
-custom_entity{
-  name = "richard_statue_2",
+tile{
   layer = 2,
-  x = 264,
-  y = 573,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_richard",
-  model = "obstacle",
+  x = 328,
+  y = 144,
+  width = 32,
+  height = 48,
+  pattern = "14",
+  tileset = "addition/out",
 }
 
-custom_entity{
-  name = "richard_statue_3",
+tile{
   layer = 2,
-  x = 424,
-  y = 573,
-  width = 16,
+  x = 360,
+  y = 176,
+  width = 8,
   height = 16,
-  direction = 0,
-  sprite = "entities/statue_richard",
-  model = "obstacle",
+  pattern = "16",
+  tileset = "addition/out",
 }
 
