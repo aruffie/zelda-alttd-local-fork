@@ -3,7 +3,7 @@
 
 return {
   marin = {
-    sprite = "npc/marin",
+    sprite = "npc/villagers/marin",
     activation_condition = function(map)
       if map:get_game():is_in_dungeon() then
         return false
@@ -13,7 +13,7 @@ return {
     end
   },
   bowwow = {
-    sprite = "npc/bowwow",
+    sprite = "npc/animals/bowwow",
     activation_condition = function(map)
       local excluded_maps = {
         ["houses/mabe_village/meow_meow_house"] = true

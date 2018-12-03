@@ -20356,7 +20356,7 @@ npc{
   y = 701,
   direction = 3,
   subtype = 1,
-  sprite = "npc/marin",
+  sprite = "npc/villagers/marin",
 }
 
 sensor{
