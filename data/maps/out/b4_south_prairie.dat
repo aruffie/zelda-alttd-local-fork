@@ -22469,7 +22469,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "npc/seagull",
+  sprite = "entities/animals/seagull",
   model = "seagull",
 }
 
@@ -22481,7 +22481,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "npc/seagull",
+  sprite = "entities/animals/seagull",
   model = "seagull",
 }
 

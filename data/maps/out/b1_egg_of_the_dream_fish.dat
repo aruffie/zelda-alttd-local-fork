@@ -19339,7 +19339,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "npc/mosquito",
+  sprite = "entities/insects/mosquito",
   model = "bee",
 }
 
@@ -19392,6 +19392,6 @@ npc{
   y = -3,
   direction = 3,
   subtype = 0,
-  sprite = "npc/owl",
+  sprite = "npc/animals/owl",
 }
 

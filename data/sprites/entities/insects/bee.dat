@@ -1,6 +1,6 @@
 animation{
   name = "normal",
-  src_image = "npc/bee.png",
+  src_image = "entities/insects/bee.png",
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {

@@ -738,7 +738,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "npc/bird",
+  sprite = "entities/animals/bird",
   model = "bird",
 }
 

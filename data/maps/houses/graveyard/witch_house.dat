@@ -583,7 +583,7 @@ npc{
   y = 141,
   direction = 3,
   subtype = 1,
-  sprite = "npc/witch",
+  sprite = "npc/villagers/witch",
 }
 
 custom_entity{
@@ -633,7 +633,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "npc/mouse",
+  sprite = "entities/animals/mouse",
   model = "mouse",
 }
 

@@ -1,6 +1,6 @@
 animation{
   name = "normal",
-  src_image = "npc/mosquito.png",
+  src_image = "entities/insects/mosquito.png",
   frame_delay = 20,
   frame_to_loop_on = 0,
   directions = {

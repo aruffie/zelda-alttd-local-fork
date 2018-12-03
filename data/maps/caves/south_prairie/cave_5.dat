@@ -715,10 +715,10 @@ npc{
   name = "wart",
   layer = 0,
   x = 160,
-  y = 77,
+  y = 93,
   direction = 3,
   subtype = 1,
-  sprite = "npc/wart",
+  sprite = "npc/animals/wart",
 }
 
 npc{

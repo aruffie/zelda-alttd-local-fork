@@ -13934,7 +13934,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "npc/mosquito",
+  sprite = "entities/insects/mosquito",
   model = "bee",
 }
 
@@ -13946,7 +13946,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "npc/mosquito",
+  sprite = "entities/insects/mosquito",
   model = "bee",
 }
 
@@ -13958,7 +13958,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "npc/mosquito",
+  sprite = "entities/insects/mosquito",
   model = "bee",
 }
 
@@ -13970,7 +13970,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "npc/mosquito",
+  sprite = "entities/insects/mosquito",
   model = "bee",
 }
 
@@ -13982,7 +13982,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "npc/mosquito",
+  sprite = "entities/insects/mosquito",
   model = "bee",
 }
 
@@ -13994,7 +13994,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "npc/mosquito",
+  sprite = "entities/insects/mosquito",
   model = "bee",
 }
 

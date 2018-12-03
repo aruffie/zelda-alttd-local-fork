@@ -34,11 +34,11 @@ function title_background:on_started()
   title_background.clouds_top:fill_color({223, 243, 255})
 
   -- Configure static seagulls.
-  title_background.seagull_1 = sol.sprite.create("npc/seagull")
+  title_background.seagull_1 = sol.sprite.create("entities/animals/seagull")
   title_background.seagull_1:set_animation("stopped")
   title_background.seagull_1:set_direction(0)
     
-  title_background.seagull_2 = sol.sprite.create("npc/seagull")
+  title_background.seagull_2 = sol.sprite.create("entities/animals/seagull")
   title_background.seagull_2:set_animation("stopped")
   title_background.seagull_2:set_direction(2)
 
@@ -368,10 +368,10 @@ function title_background:move_seagull(seagull)
   
   if seagull.sprite == nil then
     if seagull.type == "foreground" then 
-      seagull.sprite = sol.sprite.create("npc/seagull")
+      seagull.sprite = sol.sprite.create("entities/animals/seagull")
       seagull.sprite:set_animation("walking")  
     else
-      seagull.sprite = sol.sprite.create("npc/seagull_small")
+      seagull.sprite = sol.sprite.create("entities/animals/seagull_small")
       seagull.sprite:set_animation("default")
     end
 

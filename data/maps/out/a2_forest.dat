@@ -13699,7 +13699,7 @@ npc{
   y = 501,
   direction = 3,
   subtype = 0,
-  sprite = "npc/owl",
+  sprite = "npc/animals/owl",
 }
 
 separator{
@@ -13727,6 +13727,6 @@ npc{
   y = -43,
   direction = 3,
   subtype = 0,
-  sprite = "npc/owl",
+  sprite = "npc/animals/owl",
 }
 

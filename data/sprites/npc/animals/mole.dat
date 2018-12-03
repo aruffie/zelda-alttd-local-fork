@@ -1,6 +1,6 @@
 animation{
   name = "wainting",
-  src_image = "npc/monty_mole.png",
+  src_image = "npc/animals/mole.png",
   frame_delay = 200,
   frame_to_loop_on = 0,
   directions = {

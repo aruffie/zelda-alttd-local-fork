@@ -13088,7 +13088,7 @@ npc{
   y = 445,
   direction = 3,
   subtype = 0,
-  sprite = "npc/owl",
+  sprite = "npc/animals/owl",
 }
 
 sensor{
@@ -13107,6 +13107,6 @@ npc{
   y = 93,
   direction = 3,
   subtype = 0,
-  sprite = "npc/owl",
+  sprite = "npc/animals/owl",
 }
 

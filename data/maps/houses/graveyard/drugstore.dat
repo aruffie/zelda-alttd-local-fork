@@ -697,7 +697,7 @@ npc{
   y = 53,
   direction = 3,
   subtype = 1,
-  sprite = "npc/monique",
+  sprite = "npc/villagers/monique",
 }
 
 tile{

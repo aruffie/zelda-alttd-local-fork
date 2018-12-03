@@ -1,0 +1,24 @@
+animation{
+  name = "waiting",
+  src_image = "npc/animals/wart.png",
+  frame_delay = 500,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 240, y = 0, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 37, num_frames = 2 },
+    { x = 0, y = 0, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 37, num_frames = 2 },
+    { x = 0, y = 0, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 37, num_frames = 2 },
+    { x = 240, y = 0, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 37, num_frames = 2 },
+  },
+}
+animation{
+  name = "singing",
+  src_image = "npc/animals/wart.png",
+  frame_delay = 500,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 160, y = 0, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 37, num_frames = 3 },
+    { x = 40, y = 0, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 37, num_frames = 3 },
+    { x = 160, y = 0, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 37, num_frames = 3 },
+    { x = 40, y = 0, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 37, num_frames = 3 },
+  },
+}

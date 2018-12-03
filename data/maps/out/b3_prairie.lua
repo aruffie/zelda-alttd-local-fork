@@ -149,7 +149,7 @@ function map:tarin_search_honey()
           audio_manager:play_sound("beehive_bees")
           local bee = map:create_custom_entity({
             name = "bee_chase_" .. i,
-            sprite = "npc/bee",
+            sprite = "entities/insects/bee",
             x = x_honey,
             y = y_honey,
             width = 16,

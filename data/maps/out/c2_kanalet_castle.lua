@@ -185,7 +185,7 @@ function map:launch_cinematic_1()
       local target_entity = map:get_entity("monkey_" .. i)
       local monkey_entity = map:create_custom_entity({
         name = "monk_"..i,
-        sprite = "npc/monkey_brown",
+        sprite = "entities/animals/monkey",
         x = x_monkey,
         y = y_monkey,
         width = 24,

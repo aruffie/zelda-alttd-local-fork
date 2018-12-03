@@ -1,6 +1,6 @@
 animation{
   name = "hold",
-  src_image = "npc/flying_rooster.png",
+  src_image = "npc/animals/flying_rooster.png",
   frame_delay = 120,
   frame_to_loop_on = 0,
   directions = {
@@ -12,7 +12,7 @@ animation{
 }
 animation{
   name = "rebirth",
-  src_image = "npc/flying_rooster.png",
+  src_image = "npc/animals/flying_rooster.png",
   directions = {
     { x = 48, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
     { x = 48, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
@@ -22,7 +22,7 @@ animation{
 }
 animation{
   name = "stopped",
-  src_image = "npc/flying_rooster.png",
+  src_image = "npc/animals/flying_rooster.png",
   frame_delay = 250,
   frame_to_loop_on = 0,
   directions = {
@@ -34,7 +34,7 @@ animation{
 }
 animation{
   name = "walking",
-  src_image = "npc/flying_rooster.png",
+  src_image = "npc/animals/flying_rooster.png",
   frame_delay = 250,
   frame_to_loop_on = 0,
   directions = {

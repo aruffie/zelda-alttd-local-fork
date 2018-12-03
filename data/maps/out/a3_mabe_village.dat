@@ -14637,7 +14637,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "npc/bowwow",
+  sprite = "npc/animals/bowwow",
   model = "bowwow",
 }
 

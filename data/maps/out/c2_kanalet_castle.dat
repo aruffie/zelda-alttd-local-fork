@@ -8677,7 +8677,7 @@ npc{
   y = 693,
   direction = 3,
   subtype = 1,
-  sprite = "npc/monkey",
+  sprite = "npc/animals/kiki",
 }
 
 pickable{

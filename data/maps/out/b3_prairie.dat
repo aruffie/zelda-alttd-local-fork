@@ -25760,7 +25760,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "npc/bee",
+  sprite = "entities/insects/bee",
   model = "bee",
 }
 
@@ -25772,7 +25772,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "npc/bee",
+  sprite = "entities/insects/bee",
   model = "bee",
 }
 
@@ -25850,7 +25850,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "npc/bee",
+  sprite = "entities/insects/bee",
   model = "bee",
 }
 
@@ -25862,7 +25862,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "npc/bee",
+  sprite = "entities/insects/bee",
   model = "bee",
 }
 
@@ -25880,7 +25880,7 @@ custom_entity{
   name = "tarin_invisible",
   layer = 1,
   x = 840,
-  y = 141,
+  y = 133,
   width = 16,
   height = 16,
   direction = 0,
@@ -25903,7 +25903,7 @@ npc{
   y = 277,
   direction = 3,
   subtype = 0,
-  sprite = "npc/owl",
+  sprite = "npc/animals/owl",
 }
 
 npc{
@@ -25913,7 +25913,7 @@ npc{
   y = 453,
   direction = 3,
   subtype = 0,
-  sprite = "npc/owl",
+  sprite = "npc/animals/owl",
 }
 
 sensor{

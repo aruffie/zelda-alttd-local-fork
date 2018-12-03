@@ -11794,7 +11794,7 @@ npc{
   y = 221,
   direction = 2,
   subtype = 1,
-  sprite = "npc/monty_mole",
+  sprite = "npc/animals/mole",
 }
 
 npc{
