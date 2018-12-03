@@ -74,7 +74,7 @@ local function initialize_game_over_features(game)
       local x, y = game_over_menu.title_x + letter.offset, - game_over_menu.title_h
       sprite:set_xy(x, y)
       letter.sprite = sprite
-      letter.automation = automation:new(game_over_menu, sprite, "outElastic", game_over_menu.anim_duration, { y = game_over_menu.title_y})
+      letter.automation = automation:new(game_over_menu, sprite, "elastic_out", game_over_menu.anim_duration, { y = game_over_menu.title_y})
     end
     
     -- Sprites.
