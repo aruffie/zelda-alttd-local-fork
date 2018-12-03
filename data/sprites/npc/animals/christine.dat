@@ -1,6 +1,6 @@
 animation{
   name = "waiting",
-  src_image = "npc/christine.png",
+  src_image = "npc/animals/christine.png",
   frame_delay = 200,
   frame_to_loop_on = 0,
   directions = {
@@ -12,7 +12,7 @@ animation{
 }
 animation{
   name = "stopped",
-  src_image = "npc/christine.png",
+  src_image = "npc/animals/christine.png",
   frame_delay = 200,
   frame_to_loop_on = 0,
   directions = {

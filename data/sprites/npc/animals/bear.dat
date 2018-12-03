@@ -1,6 +1,6 @@
 animation{
   name = "waiting",
-  src_image = "npc/bear.png",
+  src_image = "npc/animals/bear.png",
   frame_delay = 250,
   frame_to_loop_on = 0,
   directions = {
@@ -12,7 +12,7 @@ animation{
 }
 animation{
   name = "stopped",
-  src_image = "npc/bear.png",
+  src_image = "npc/animals/bear.png",
   directions = {
     { x = 0, y = 128, frame_width = 48, frame_height = 64, origin_x = 24, origin_y = 61 },
     { x = 0, y = 192, frame_width = 48, frame_height = 64, origin_x = 24, origin_y = 61 },

@@ -797,10 +797,10 @@ npc{
   name = "fairy",
   layer = 0,
   x = 160,
-  y = 85,
+  y = 77,
   direction = 3,
   subtype = 1,
-  sprite = "npc/fairy",
+  sprite = "npc/others/fairy",
 }
 
 sensor{

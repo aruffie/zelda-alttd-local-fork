@@ -650,7 +650,7 @@ npc{
   y = 117,
   direction = 3,
   subtype = 1,
-  sprite = "npc/bear",
+  sprite = "npc/animals/bear",
 }
 
 npc{
@@ -709,7 +709,7 @@ npc{
   y = 133,
   direction = 3,
   subtype = 1,
-  sprite = "npc/cooking_rabbit",
+  sprite = "npc/animals/cook_rabbit",
 }
 
 tile{

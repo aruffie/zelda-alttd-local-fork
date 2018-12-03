@@ -742,18 +742,6 @@ custom_entity{
   model = "bird",
 }
 
-custom_entity{
-  name = "christine",
-  layer = 0,
-  x = 192,
-  y = 141,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "npc/christine",
-  model = "mr_write_and_christine",
-}
-
 npc{
   name = "christine_invisible",
   layer = 0,
@@ -802,6 +790,16 @@ npc{
   y = 37,
   direction = 3,
   subtype = 1,
+}
+
+npc{
+  name = "christine",
+  layer = 0,
+  x = 192,
+  y = 141,
+  direction = 3,
+  subtype = 1,
+  sprite = "npc/animals/christine",
 }
 
 tile{

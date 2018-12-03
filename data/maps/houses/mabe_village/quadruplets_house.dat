@@ -1469,7 +1469,7 @@ npc{
   y = 101,
   direction = 3,
   subtype = 1,
-  sprite = "npc/quadruplet_father",
+  sprite = "npc/villagers/quadruplet_father",
 }
 
 npc{
@@ -1479,7 +1479,7 @@ npc{
   y = 109,
   direction = 3,
   subtype = 1,
-  sprite = "npc/quadruplet_mother",
+  sprite = "npc/villagers/quadruplet_mother",
 }
 
 npc{

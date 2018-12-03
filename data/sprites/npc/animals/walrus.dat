@@ -1,6 +1,6 @@
 animation{
   name = "sleeping",
-  src_image = "npc/walrus.png",
+  src_image = "npc/animals/walrus.png",
   frame_delay = 250,
   frame_to_loop_on = 0,
   directions = {
@@ -12,7 +12,7 @@ animation{
 }
 animation{
   name = "awakening",
-  src_image = "npc/walrus.png",
+  src_image = "npc/animals/walrus.png",
   frame_delay = 300,
   frame_to_loop_on = 0,
   directions = {
@@ -24,7 +24,7 @@ animation{
 }
 animation{
   name = "diving",
-  src_image = "npc/walrus.png",
+  src_image = "npc/animals/walrus.png",
   frame_delay = 120,
   frame_to_loop_on = 0,
   directions = {
@@ -36,7 +36,7 @@ animation{
 }
 animation{
   name = "jumping",
-  src_image = "npc/walrus.png",
+  src_image = "npc/animals/walrus.png",
   frame_delay = 150,
   frame_to_loop_on = 0,
   directions = {

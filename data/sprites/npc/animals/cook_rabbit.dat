@@ -1,6 +1,6 @@
 animation{
   name = "normal",
-  src_image = "npc/cooking_rabbit.png",
+  src_image = "npc/animals/cook_rabbit.png",
   frame_delay = 150,
   frame_to_loop_on = 0,
   directions = {

@@ -15814,7 +15814,7 @@ npc{
   y = 69,
   direction = 2,
   subtype = 1,
-  sprite = "npc/fishman",
+  sprite = "npc/villagers/fishman_1",
 }
 
 dynamic_tile{
@@ -19012,7 +19012,7 @@ npc{
   y = 709,
   direction = 3,
   subtype = 1,
-  sprite = "npc/grand_ma",
+  sprite = "npc/villagers/grand_ma",
 }
 
 destination{

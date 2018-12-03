@@ -1,6 +1,6 @@
 animation{
   name = "walking",
-  src_image = "npc/grand_ma.png",
+  src_image = "npc/villagers/grand_ma.png",
   frame_delay = 200,
   frame_to_loop_on = 0,
   directions = {
@@ -12,7 +12,7 @@ animation{
 }
 animation{
   name = "brandish",
-  src_image = "npc/grand_ma.png",
+  src_image = "npc/villagers/grand_ma.png",
   directions = {
     { x = 192, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29 },
     { x = 192, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29 },
@@ -22,7 +22,7 @@ animation{
 }
 animation{
   name = "nobroom",
-  src_image = "npc/grand_ma.png",
+  src_image = "npc/villagers/grand_ma.png",
   frame_delay = 200,
   frame_to_loop_on = 0,
   directions = {
@@ -34,7 +34,7 @@ animation{
 }
 animation{
   name = "stopped",
-  src_image = "npc/grand_ma.png",
+  src_image = "npc/villagers/grand_ma.png",
   frame_delay = 200,
   frame_to_loop_on = 0,
   directions = {

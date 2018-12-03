@@ -9136,10 +9136,10 @@ npc{
   name = "fairy",
   layer = 0,
   x = 856,
-  y = 221,
+  y = 237,
   direction = 3,
   subtype = 1,
-  sprite = "npc/fairy",
+  sprite = "npc/others/fairy",
 }
 
 sensor{

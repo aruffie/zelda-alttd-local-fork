@@ -1,6 +1,6 @@
 animation{
   name = "stopped",
-  src_image = "npc/quadruplet_father.png",
+  src_image = "npc/villagers/quadruplet_father.png",
   frame_delay = 200,
   frame_to_loop_on = 0,
   directions = {
@@ -12,7 +12,7 @@ animation{
 }
 animation{
   name = "calling",
-  src_image = "npc/quadruplet_father.png",
+  src_image = "npc/villagers/quadruplet_father.png",
   frame_delay = 150,
   frame_to_loop_on = 0,
   directions = {
@@ -24,7 +24,7 @@ animation{
 }
 animation{
   name = "eating",
-  src_image = "npc/quadruplet_father.png",
+  src_image = "npc/villagers/quadruplet_father.png",
   frame_delay = 150,
   frame_to_loop_on = 0,
   directions = {
@@ -36,7 +36,7 @@ animation{
 }
 animation{
   name = "sitting",
-  src_image = "npc/quadruplet_father.png",
+  src_image = "npc/villagers/quadruplet_father.png",
   frame_delay = 150,
   frame_to_loop_on = 0,
   directions = {
@@ -48,7 +48,7 @@ animation{
 }
 animation{
   name = "walking",
-  src_image = "npc/quadruplet_father.png",
+  src_image = "npc/villagers/quadruplet_father.png",
   frame_delay = 250,
   frame_to_loop_on = 0,
   directions = {

@@ -14461,7 +14461,7 @@ npc{
   y = 229,
   direction = 3,
   subtype = 1,
-  sprite = "npc/quadruplet_father",
+  sprite = "npc/villagers/quadruplet_father",
 }
 
 custom_entity{
