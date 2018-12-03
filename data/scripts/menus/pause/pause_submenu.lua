@@ -175,7 +175,6 @@ function submenu:show_save_messagebox()
   self.backup_dialog_opened = self.dialog_opened
   self.dialog_opened = true
 
-  audio_manager:play_sound("menus/pause_menu_open")
   messagebox:show(self, 
     -- Text lines.
     {
@@ -206,7 +205,6 @@ function submenu:show_continue_messagebox()
   self.backup_dialog_opened = self.dialog_opened
   self.dialog_opened = true
 
-  audio_manager:play_sound("menus/pause_menu_open")
   messagebox:show(self, 
     -- Text lines.
     {

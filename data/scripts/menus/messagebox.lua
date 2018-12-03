@@ -236,6 +236,7 @@ function messagebox_builder:show(context, text_lines, button_1_text, button_2_te
   -- Sets the step.
   function messagebox_menu:set_step(step)
     if step == "appearing" then
+      audio_manager:play_sound("menus/pause_menu_open")
       messagebox_menu.step = step
       messagebox_menu.accepts_user_input = false
       messagebox_menu.cursor_sprite:set_paused(true)
@@ -253,6 +254,7 @@ function messagebox_builder:show(context, text_lines, button_1_text, button_2_te
       messagebox_menu.cursor_sprite:set_paused(false)
       
     elseif step == "disappearing" then
+      audio_manager:play_sound("menus/pause_menu_close")
       messagebox_menu.step = step
       messagebox_menu.accepts_user_input = false
       messagebox_menu.cursor_sprite:set_paused(true)
