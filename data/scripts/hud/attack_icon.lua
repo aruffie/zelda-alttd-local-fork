@@ -131,6 +131,8 @@ function attack_icon_builder:new(game, config)
 
   -- Called when the menu is started.
   function attack_icon:on_started()
+    attack_icon:update_effect_displayed(false)
+
     -- Check every 50ms if the icon needs a refresh.
     sol.timer.start(attack_icon, 50, function()
       attack_icon:update_effect_displayed(true)

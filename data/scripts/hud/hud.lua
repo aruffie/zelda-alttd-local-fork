@@ -10,9 +10,9 @@ local hud_config = require("scripts/hud/hud_config")
 local function initialize_hud_features(game)
 
   if game.set_hud_enabled ~= nil then
-    -- Already done.
-    game:set_hud_enabled(true)
+    -- If the initialization is already done, just display the HUD.
     game:set_hud_mode("normal")
+    game:set_hud_enabled(true)
     return
   end
 
@@ -46,8 +46,8 @@ local function initialize_hud_features(game)
   end
 
   -- Enables or disables the HUD.
-  function game:set_hud_enabled(enable)
-    return hud:set_enabled(enable)
+  function game:set_hud_enabled(enabled)
+    return hud:set_enabled(enabled)
   end
 
   -- Returns the custom command effect for the command.
@@ -101,7 +101,6 @@ local function initialize_hud_features(game)
 
   -- Destroys the HUD.
   function hud:quit()
-
     if hud:is_enabled() then
       -- Stop all HUD elements.
       hud:set_enabled(false)
@@ -334,12 +333,19 @@ local function initialize_hud_features(game)
 
       for _, menu in ipairs(hud.elements) do
         if enabled then
-          -- Start each HUD element.
-          sol.menu.start(game, menu)
+          if not sol.menu.is_started(menu) then
+            -- Start each HUD element.
+            sol.menu.start(game, menu)
+          end
         else
           -- Stop each HUD element.
           sol.menu.stop(menu)
         end
+      end
+
+      -- Bring to front.
+      if enabled then
+        hud:bring_to_front()
       end
     end
   end
@@ -349,12 +355,16 @@ local function initialize_hud_features(game)
   function hud:set_item_icon_active(item_index, is_active)
     item_icons[item_index].set_active(is_active)
   end
+  
+  -- Brings the whole HUD to the front.
+  function hud:bring_to_front()
+    for _, menu in ipairs(hud.elements) do
+      sol.menu.bring_to_front(menu)
+    end
+  end
 
-  -- Brings the HUD to the front.
+  -- Brings only the icons of the HUD to the front.
   function hud:bring_icons_to_front()
-    -- for _, menu in ipairs(hud.elements) do
-    --   sol.menu.bring_to_front(menu)
-    -- end
     sol.menu.bring_to_front(attack_icon)
     sol.menu.bring_to_front(action_icon)
     sol.menu.bring_to_front(pause_icon)

@@ -115,11 +115,6 @@ local function initialize_game_over_features(game)
     game_over_menu:set_step(1)
   end
 
-  -- Called when this menu is finished.
-  function game_over_menu:on_finished()
-    game_over_menu:restore_game_state()
-  end
-
   -- Saves the current game state, to restore it after the menu
   -- is finished.
   function game_over_menu:backup_game_state()
@@ -132,7 +127,7 @@ local function initialize_game_over_features(game)
   end
 
   -- Restores the game state to what it was before starting the menu.
-  function game_over_menu:restore_game_state()
+  function game_over_menu:restore_game_state(restore_music)
     -- Restore hero.
     local hero = game:get_hero()
     if hero ~= nil then
@@ -145,7 +140,9 @@ local function initialize_game_over_features(game)
     game:set_hud_mode(game_over_menu.backup_hud_mode)
     
     -- Restore music.
-    sol.audio.play_music(game_over_menu.backup_music)
+    if restore_music then
+      sol.audio.play_music(game_over_menu.backup_music)
+    end
   end
 
   -- Goes to the menu's next step.
@@ -223,6 +220,7 @@ local function initialize_game_over_features(game)
           game_over_menu.fade_sprite:set_animation("open", function()
             sol.audio.play_music(game_over_menu.backup_music)
             game:stop_game_over()
+            game_over_menu:restore_game_state(true)
             sol.menu.stop(game_over_menu)
           end)
         end)
@@ -306,10 +304,11 @@ local function initialize_game_over_features(game)
           -- Restore some life.
           local restored_heart_count = 7
           game:add_life(restored_heart_count * 4)
-
+          
           -- Wait for the hearts to be refilled before quitting the menu.
           sol.timer.start(game_over_menu, 250 * restored_heart_count, function()
-            game_over_menu:restore_game_state()
+            game_over_menu:restore_game_state(false)
+            game:set_hud_enabled(false)
             game:start()
           end)
         elseif result == 2 then
