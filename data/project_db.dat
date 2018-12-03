@@ -1895,9 +1895,9 @@ file{ path = "musics/snes/27_mr_write_house.ogg", author = "Nintendo, Farockt", 
 file{ path = "musics/snes/41_christine_house.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/46_tal_tal_mountain_range.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
 file{ path = "scripts", license = "GPL v3" }
-file{ path = "scripts/automation", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/automation", author = "Olivier Cléro", license = "BSD, GPL v3" }
 file{ path = "scripts/automation/automation.lua", author = "Olivier Cléro", license = "GPL v3" }
-file{ path = "scripts/automation/easing.lua", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/automation/easing.lua", author = "Robert Penner, Olivier Cléro", license = "BSD" }
 file{ path = "scripts/gfx_effects", author = "PhoenixII54, Stdgregwar", license = "GPL v3" }
 file{ path = "scripts/gfx_effects/distorsion.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/gfx_effects/electric.lua", author = "Stdgregwar", license = "GPL v3" }
