@@ -48,6 +48,9 @@ function attack_icon_builder:new(game, config)
 
   -- Set if the icon is enabled or disabled.
   function attack_icon:set_enabled(enabled)
+    if enabled then
+      attack_icon:update_effect_displayed(false)
+    end
     attack_icon.hud_icon:set_enabled(enabled)
   end
   
@@ -91,31 +94,48 @@ function attack_icon_builder:new(game, config)
     return result
   end
 
+  -- Called when the command effect changes.
+  function attack_icon:on_command_effect_changed(effect)
+  end
+
   -- Checks if the icon needs a refresh.
-  function attack_icon:check()
-    local effect = game.get_custom_command_effect ~= nil and game:get_custom_command_effect("attack") or game:get_command_effect("attack")
-    local sword = game:get_ability("sword")
+  function attack_icon:update_effect_displayed(flip_icon)
+    if not attack_icon.hud_icon.animating then
+      local effect = game.get_custom_command_effect ~= nil and game:get_custom_command_effect("attack") or game:get_command_effect("attack")
+      local sword = game:get_ability("sword")
+      attack_icon:set_effect_displayed(effect, sword, flip_icon)
+    end
+  end
+
+  -- Sets the effect to be displayed on the icon.
+  function attack_icon:set_effect_displayed(effect, sword, flip_icon)
     if effect ~= attack_icon.effect_displayed or sword ~= attack_icon.sword_displayed then
-      -- Store the current commands to display on the icon.
+      -- Store the current command.
       attack_icon.effect_displayed = effect
       attack_icon.sword_displayed = sword
 
-      attack_icon.hud_icon:flip_icon(function()
-        -- Redraw the surface.
-        attack_icon:rebuild_foreground()
-      end)
+      -- Update the icon foreground.
+      attack_icon:rebuild_foreground()
+      
+      -- Flip the icon.
+      if flip_icon then
+        attack_icon.hud_icon:flip_icon()
+      end
 
+      -- Update the icon visibility.
+      if attack_icon.on_command_effect_changed then
+        attack_icon:on_command_effect_changed(effect)
+      end
     end
-
-    -- Schedule the next check.
-    sol.timer.start(attack_icon, 50, function()
-      attack_icon:check()
-    end)
   end
 
   -- Called when the menu is started.
   function attack_icon:on_started()
-    attack_icon:check()
+    -- Check every 50ms if the icon needs a refresh.
+    sol.timer.start(attack_icon, 50, function()
+      attack_icon:update_effect_displayed(true)
+      return true
+    end)
   end
 
   -- Returns the menu.

@@ -58,6 +58,9 @@ function action_icon_builder:new(game, config)
 
   -- Set if the icon is enabled or disabled.
   function action_icon:set_enabled(enabled)
+    if enabled then
+      action_icon:update_effect_displayed(false)
+    end
     action_icon.hud_icon:set_enabled(enabled)
   end
   
@@ -95,28 +98,46 @@ function action_icon_builder:new(game, config)
     return result
   end
 
+  -- Called when the command effect changes.
+  function action_icon:on_command_effect_changed(effect)
+  end
+
   -- Checks if the icon needs a refresh.
-  function action_icon:check()
-    local effect = game.get_custom_command_effect ~= nil and game:get_custom_command_effect("action") or game:get_command_effect("action")
+  function action_icon:update_effect_displayed(flip_icon)
+    if not action_icon.hud_icon.animating then
+      local effect = game.get_custom_command_effect ~= nil and game:get_custom_command_effect("action") or game:get_command_effect("action")
+      action_icon:set_effect_displayed(effect, flip_icon)
+    end
+  end
+
+  -- Sets the effect to be displayed on the icon.
+  function action_icon:set_effect_displayed(effect, flip_icon)
     if effect ~= action_icon.effect_displayed then
       -- Store the current command.
       action_icon.effect_displayed = effect
+        
+      -- Update the icon foreground.
+      action_icon:rebuild_foreground()
       
-      action_icon.hud_icon:flip_icon(function()
-        -- Redraw the surface.
-        action_icon:rebuild_foreground()
-      end)
-    end
+      -- Flip the icon.
+      if flip_icon then
+        action_icon.hud_icon:flip_icon()
+      end
 
-    -- Schedule the next check.
-    sol.timer.start(action_icon, 50, function()
-      action_icon:check()
-    end)
+      -- Update the icon visibility.
+      if action_icon.on_command_effect_changed then
+        action_icon:on_command_effect_changed(effect)
+      end
+    end
   end
 
   -- Called when the menu is started.
   function action_icon:on_started()
-    action_icon:check()
+    -- Check every 50ms if the icon needs a refresh.
+    sol.timer.start(action_icon, 50, function()
+      action_icon:update_effect_displayed(true)
+      return true
+    end)
   end
 
   -- Returns the menu.
