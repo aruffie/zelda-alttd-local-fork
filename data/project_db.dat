@@ -1474,20 +1474,20 @@ file{ path = "languages/fr", author = "Nintendo, Benjamin Schweitzer, Christopho
 file{ path = "languages/fr/images", author = "Nintendo, Benjamin Schweitzer, Christopho, Julien Van Steerteghem", license = "Proprietary, Fair use" }
 file{ path = "languages/fr/text", author = "Nintendo, Benjamin Schweitzer, Christopho, Julien Van Steerteghem", license = "Proprietary, Fair use" }
 file{ path = "logos", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
-file{ path = "logos/icon_1024.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
-file{ path = "logos/icon_128.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
-file{ path = "logos/icon_16.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
-file{ path = "logos/icon_20.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
-file{ path = "logos/icon_24.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
-file{ path = "logos/icon_256.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
-file{ path = "logos/icon_32.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
-file{ path = "logos/icon_40.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
-file{ path = "logos/icon_48.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
-file{ path = "logos/icon_512.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
-file{ path = "logos/icon_64.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
-file{ path = "logos/icon_96.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
-file{ path = "logos/logo.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
-file{ path = "logos/logo_2x.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/icon_1024.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/icon_128.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/icon_16.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/icon_20.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/icon_24.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/icon_256.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/icon_32.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/icon_40.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/icon_48.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/icon_512.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/icon_64.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/icon_96.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/logo.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/logo_2x.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "main.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "maps", author = "Benjamin Schweitzer,  Christopho, Olivier Cléro, Mymy, ZeldoRetro", license = "GPL v3, CC BY-SA 4.0" }
 file{ path = "maps/caves", author = "Benjamin Schweitzer, ZeldoRetro", license = "GPL v3, CC BY-SA 4.0" }
