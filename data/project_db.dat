@@ -1401,6 +1401,12 @@ file{ path = "enemies/wizzrobe_white.lua", license = "GPL v3" }
 file{ path = "enemies/zol_green.lua", license = "GPL v3" }
 file{ path = "enemies/zol_red.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "enemies/zombie.lua", license = "GPL v3" }
+file{ path = "fonts/04b03.ttf", author = "Yuji Oshimoto", license = "Free for personal use" }
+file{ path = "fonts/Alttp.ttf", author = "Nintendo, Enkidulga, Olivier Cléro", license = "Proprietary, Fair use" }
+file{ path = "fonts/green_digits.png", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "fonts/la.png", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "fonts/minecraftia_mono.png", author = "Andrew Tyler", license = "Free for personal use" }
+file{ path = "fonts/white_digits.png", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "items", license = "GPL v3" }
 file{ path = "items/angler_key.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/arrow.lua", license = "GPL v3" }
@@ -1467,116 +1473,131 @@ file{ path = "languages", author = "Nintendo, Benjamin Schweitzer, Christopho, J
 file{ path = "languages/fr", author = "Nintendo, Benjamin Schweitzer, Christopho, Julien Van Steerteghem", license = "Proprietary, Fair use" }
 file{ path = "languages/fr/images", author = "Nintendo, Benjamin Schweitzer, Christopho, Julien Van Steerteghem", license = "Proprietary, Fair use" }
 file{ path = "languages/fr/text", author = "Nintendo, Benjamin Schweitzer, Christopho, Julien Van Steerteghem", license = "Proprietary, Fair use" }
+file{ path = "logos", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/icon_1024.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/icon_128.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/icon_16.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/icon_20.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/icon_24.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/icon_256.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/icon_32.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/icon_40.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/icon_48.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/icon_512.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/icon_64.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/icon_96.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/logo.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/logo_2x.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "main.lua", author = "Christopho", license = "GPL v3" }
-file{ path = "maps", author = "Benjamin Schweitzer,  Christopho, Olivier Cléro, Mymy, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/cave.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps", author = "Benjamin Schweitzer,  Christopho, Olivier Cléro, Mymy, ZeldoRetro", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves", author = "Benjamin Schweitzer, ZeldoRetro", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/cave.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/cave.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/east_mt_tamaranch", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/east_mt_tamaranch/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_mt_tamaranch", author = "Benjamin Schweitzer, ZeldoRetro", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/east_mt_tamaranch/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/east_mt_tamaranch/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/east_mt_tamaranch/cave_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/east_mt_tamaranch/cave_3.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_3.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/east_mt_tamaranch/cave_3.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/east_mt_tamaranch/cave_4.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_4.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/east_mt_tamaranch/cave_4.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/east_mt_tamaranch/cave_5.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_5.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/east_mt_tamaranch/cave_5.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/east_mt_tamaranch/cave_6.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_6.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/east_mt_tamaranch/cave_6.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/east_mt_tamaranch/cave_7.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_7.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/east_mt_tamaranch/cave_7.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/east_mt_tamaranch/fairy_fountain.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_mt_tamaranch/fairy_fountain.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/east_mt_tamaranch/fairy_fountain.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/east_prairie", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/east_prairie/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_prairie", author = "Benjamin Schweitzer, ZeldoRetro", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/east_prairie/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/east_prairie/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/east_prairie/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_prairie/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/east_prairie/cave_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/east_prairie/cave_3.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_prairie/cave_3.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/east_prairie/cave_3.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/egg_of_the_dream_fish", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/egg_of_the_dream_fish/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/egg_of_the_dream_fish", author = "Benjamin Schweitzer, ZeldoRetro", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/egg_of_the_dream_fish/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/egg_of_the_dream_fish/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/egg_of_the_dream_fish/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/egg_of_the_dream_fish/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/egg_of_the_dream_fish/cave_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/egg_of_the_dream_fish/cave_3.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/egg_of_the_dream_fish/cave_3.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/egg_of_the_dream_fish/cave_3.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/egg_of_the_dream_fish/cave_4.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/egg_of_the_dream_fish/cave_4.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/egg_of_the_dream_fish/cave_4.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/egg_of_the_dream_fish/cave_5.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/egg_of_the_dream_fish/cave_5.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/egg_of_the_dream_fish/cave_5.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/egg_of_the_dream_fish/moblins_cave.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/egg_of_the_dream_fish/moblins_cave.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/egg_of_the_dream_fish/moblins_cave.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/forest", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/forest/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/forest", author = "Benjamin Schweitzer, ZeldoRetro", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/forest/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/forest/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/forest/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/forest/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/forest/cave_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/forest/cave_3.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/forest/cave_3.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/forest/cave_3.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/graveyard", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/graveyard/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/graveyard", author = "Benjamin Schweitzer, ZeldoRetro", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/graveyard/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/graveyard/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/kanalet_castle", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/kanalet_castle/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/kanalet_castle", author = "Benjamin Schweitzer, ZeldoRetro", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/kanalet_castle/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/kanalet_castle/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/caves/mabe_village", author = "Benjamin Schweitzer, ZeldoRetro o", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/mabe_village/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/mabe_village/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/mabe_village/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/mabe_village/weathercock.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/mabe_village/weathercock.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/mabe_village/weathercock.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/mambos_cave", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/mambos_cave/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/mambos_cave", author = "Benjamin Schweitzer, ZeldoRetro", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/mambos_cave/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/mambos_cave/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/mambos_cave/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/mambos_cave/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/mambos_cave/cave_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/mambos_cave/cave_3.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/mambos_cave/cave_3.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/mambos_cave/cave_3.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/caves/mambos_cave/cave_4.dat", author = "Benjamin Schweitzer, Zeldo", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/mambos_cave/cave_4.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/martha_bay", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/martha_bay/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/martha_bay", author = "Benjamin Schweitzer, ZeldoRetro", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/martha_bay/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/martha_bay/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/martha_bay/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/martha_bay/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/martha_bay/cave_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/mask_shrine", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/mask_shrine/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/mask_shrine", author = "Benjamin Schweitzer, ZeldoRetro", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/mask_shrine/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/mask_shrine/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/mask_shrine/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/mask_shrine/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/mask_shrine/cave_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/mask_shrine/cave_3.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/mask_shrine/cave_3.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/mask_shrine/cave_3.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/mask_shrine/fairy_fountain.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/mask_shrine/fairy_fountain.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/mask_shrine/fairy_fountain.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/prairie", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/prairie/cave_1.dat", author = "ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/prairie", author = "Benjamin Schweitzer, ZeldoRetro", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/prairie/cave_1.dat", author = "ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/prairie/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/prairie/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/prairie/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/prairie/cave_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/prairie/fairy_fountain.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/prairie/fairy_fountain.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/prairie/fairy_fountain.lua", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/south_prairie", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/south_prairie/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/south_prairie", author = "Benjamin Schweitzer, ZeldoRetro", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/south_prairie/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/south_prairie/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/south_prairie/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/south_prairie/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/south_prairie/cave_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/south_prairie/cave_3.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/south_prairie/cave_3.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/south_prairie/cave_3.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/south_prairie/cave_4.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/south_prairie/cave_4.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/south_prairie/cave_4.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/south_prairie/cave_5.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/south_prairie/cave_5.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/south_prairie/cave_5.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/west_mt_tamaranch", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/west_mt_tamaranch/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/west_mt_tamaranch", author = "Benjamin Schweitzer, ZeldoRetro", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/west_mt_tamaranch/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/west_mt_tamaranch/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/west_mt_tamaranch/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/west_mt_tamaranch/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/west_mt_tamaranch/cave_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/yarna_desert", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/yarna_desert/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/yarna_desert", author = "Benjamin Schweitzer, ZeldoRetro", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/yarna_desert/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/yarna_desert/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/yarna_desert/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/yarna_desert/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/yarna_desert/cave_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/dungeons", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
 file{ path = "maps/dungeons/1", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
@@ -1874,6 +1895,9 @@ file{ path = "musics/snes/27_mr_write_house.ogg", author = "Nintendo, Farockt", 
 file{ path = "musics/snes/41_christine_house.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/46_tal_tal_mountain_range.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
 file{ path = "scripts", license = "GPL v3" }
+file{ path = "scripts/automation", author = "Olivier Cléro", license = "BSD, GPL v3" }
+file{ path = "scripts/automation/automation.lua", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/automation/easing.lua", author = "Robert Penner, Olivier Cléro", license = "BSD" }
 file{ path = "scripts/gfx_effects", author = "PhoenixII54, Stdgregwar", license = "GPL v3" }
 file{ path = "scripts/gfx_effects/distorsion.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/gfx_effects/electric.lua", author = "Stdgregwar", license = "GPL v3" }
@@ -1904,7 +1928,7 @@ file{ path = "shaders/pixellisation.dat", author = "PhoenixII54", }
 file{ path = "shaders/pixellisation.frag.glsl", author = "PhoenixII54", }
 file{ path = "shaders/radial_fade_out.dat", author = "PhoenixII54", }
 file{ path = "shaders/radial_fade_out.frag.glsl", author = "PhoenixII54", }
-file{ path = "sounds", author = "Nintendo, Diarando, Franck Jousseaume, Zonzifleur", license = "Proprietary, Fair use, CC BY-SA 4.0" }
+file{ path = "sounds", author = "Nintendo, Diarandor, Franck Jousseaume, Zonzifleur", license = "Proprietary, Fair use, CC BY-SA 4.0" }
 file{ path = "sounds/arrow_hit.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/boomerang.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/boss_hurt.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
@@ -1919,7 +1943,7 @@ file{ path = "sounds/door_unlocked.ogg", author = "Franck Jousseaume", license =
 file{ path = "sounds/enemy_hurt.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/enemy_killed.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/explosion.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
-file{ path = "sounds/gb", author = "Nintendo, Diarando,, Zonzifleur", license = "Proprietary, Fair use, CC BY-SA 4.0" }
+file{ path = "sounds/gb", author = "Nintendo, Diarandor, Zonzifleur", license = "Proprietary, Fair use, CC BY-SA 4.0" }
 file{ path = "sounds/gb/enemies", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/gb/enemies/angler_fish_lunge.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/gb/enemies/anti_kirby.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
@@ -2043,7 +2067,7 @@ file{ path = "sounds/gb/items/sword_slash4.ogg", author = "Nintendo", }
 file{ path = "sounds/gb/items/sword_spin.ogg", author = "Nintendo", }
 file{ path = "sounds/gb/items/sword_tap.ogg", author = "Nintendo", }
 file{ path = "sounds/gb/items/sword_tap_bombable.ogg", author = "Nintendo", }
-file{ path = "sounds/gb/menus", author = "Nintendo, Diarando, Zonzifleur", license = "Proprietary, Fair use, CC BY-SA 4.0" }
+file{ path = "sounds/gb/menus", author = "Nintendo, Diarandor, Zonzifleur", license = "Proprietary, Fair use, CC BY-SA 4.0" }
 file{ path = "sounds/gb/menus/menu_cursor.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/gb/menus/menu_select.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/gb/menus/pause_menu_close.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
@@ -2124,7 +2148,7 @@ file{ path = "sounds/picked_item.ogg", author = "Franck Jousseaume", license = "
 file{ path = "sounds/running.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/running_obstacle.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/shield.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
-file{ path = "sounds/snes", author = "Nintendo, Diarando,, Zonzifleur", license = "Proprietary, Fair use, CC BY-SA 4.0" }
+file{ path = "sounds/snes", author = "Nintendo, Diarandor, Zonzifleur", license = "Proprietary, Fair use, CC BY-SA 4.0" }
 file{ path = "sounds/snes/enemies", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/enemies/boss_hit.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/enemies/enemy_die.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
@@ -2166,7 +2190,7 @@ file{ path = "sounds/snes/items/sword_slash4.ogg", author = "Nintendo", license 
 file{ path = "sounds/snes/items/sword_spin.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/items/sword_tap.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/items/sword_tap_bombable.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
-file{ path = "sounds/snes/menus", author = "Nintendo, Diarando, Zonzifleur", license = "Proprietary, Fair use, CC BY-SA 4.0" }
+file{ path = "sounds/snes/menus", author = "Nintendo, Diarandor, Zonzifleur", license = "Proprietary, Fair use, CC BY-SA 4.0" }
 file{ path = "sounds/snes/menus/menu_cursor.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/menus/menu_select.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/menus/pause_menu_close.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
