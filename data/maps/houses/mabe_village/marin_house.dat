@@ -548,7 +548,7 @@ npc{
   y = 85,
   direction = 2,
   subtype = 1,
-  sprite = "npc/marin",
+  sprite = "npc/villagers/marin",
 }
 
 npc{
@@ -558,7 +558,7 @@ npc{
   y = 157,
   direction = 2,
   subtype = 1,
-  sprite = "npc/tarin",
+  sprite = "npc/villagers/tarin",
 }
 
 destination{
@@ -737,6 +737,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
+  sprite = "npc/villagers/tarin",
 }
 
 custom_entity{

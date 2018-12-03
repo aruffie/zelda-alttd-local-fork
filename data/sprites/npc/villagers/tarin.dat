@@ -1,6 +1,6 @@
 animation{
   name = "waiting",
-  src_image = "npc/tarin.png",
+  src_image = "npc/villagers/tarin.png",
   frame_delay = 300,
   frame_to_loop_on = 0,
   directions = {
@@ -46,7 +46,7 @@ animation{
 }
 animation{
   name = "run_bee",
-  src_image = "npc/tarin.png",
+  src_image = "npc/villagers/tarin.png",
   frame_delay = 70,
   frame_to_loop_on = 0,
   directions = {
@@ -58,7 +58,7 @@ animation{
 }
 animation{
   name = "searching_honey",
-  src_image = "npc/tarin.png",
+  src_image = "npc/villagers/tarin.png",
   frame_delay = 250,
   frame_to_loop_on = 0,
   directions = {
@@ -82,7 +82,7 @@ animation{
 }
 animation{
   name = "sleeping",
-  src_image = "npc/tarin.png",
+  src_image = "npc/villagers/tarin.png",
   frame_delay = 400,
   frame_to_loop_on = 0,
   directions = {
@@ -94,7 +94,7 @@ animation{
 }
 animation{
   name = "stopped",
-  src_image = "npc/tarin.png",
+  src_image = "npc/villagers/tarin.png",
   directions = {
     { x = 48, y = 32, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29 },
     { x = 0, y = 72, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29 },
@@ -116,7 +116,7 @@ animation{
 }
 animation{
   name = "walking",
-  src_image = "npc/tarin.png",
+  src_image = "npc/villagers/tarin.png",
   frame_delay = 300,
   frame_to_loop_on = 0,
   directions = {

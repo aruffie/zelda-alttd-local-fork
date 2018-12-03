@@ -696,11 +696,11 @@ npc{
 npc{
   name = "painter",
   layer = 0,
-  x = 176,
+  x = 184,
   y = 149,
   direction = 3,
   subtype = 1,
-  sprite = "npc/painter",
+  sprite = "npc/animals/painter",
 }
 
 tile{

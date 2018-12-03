@@ -23330,7 +23330,7 @@ npc{
   y = 141,
   direction = 2,
   subtype = 1,
-  sprite = "npc/tarin",
+  sprite = "npc/villagers/tarin",
 }
 
 custom_entity{

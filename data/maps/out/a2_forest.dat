@@ -11696,7 +11696,7 @@ npc{
   y = 325,
   direction = 3,
   subtype = 1,
-  sprite = "npc/tarin",
+  sprite = "npc/villagers/tarin",
 }
 
 wall{

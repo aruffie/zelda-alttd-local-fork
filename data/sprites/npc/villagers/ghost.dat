@@ -1,6 +1,6 @@
 animation{
   name = "waiting",
-  src_image = "npc/ghost.png",
+  src_image = "npc/villagers/ghost.png",
   frame_delay = 300,
   frame_to_loop_on = 0,
   directions = {
@@ -12,7 +12,7 @@ animation{
 }
 animation{
   name = "goodbye",
-  src_image = "npc/ghost.png",
+  src_image = "npc/villagers/ghost.png",
   frame_delay = 250,
   frame_to_loop_on = 0,
   directions = {
@@ -24,7 +24,7 @@ animation{
 }
 animation{
   name = "stopped",
-  src_image = "npc/ghost.png",
+  src_image = "npc/villagers/ghost.png",
   frame_delay = 300,
   frame_to_loop_on = 0,
   directions = {
@@ -36,7 +36,7 @@ animation{
 }
 animation{
   name = "walking",
-  src_image = "npc/ghost.png",
+  src_image = "npc/villagers/ghost.png",
   frame_delay = 250,
   frame_to_loop_on = 0,
   directions = {

@@ -14616,7 +14616,7 @@ npc{
   },
   direction = 3,
   subtype = 1,
-  sprite = "npc/marin",
+  sprite = "npc/villagers/marin",
 }
 
 npc{

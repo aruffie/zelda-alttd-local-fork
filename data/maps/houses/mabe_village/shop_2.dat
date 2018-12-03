@@ -340,7 +340,7 @@ npc{
   y = 165,
   direction = 2,
   subtype = 1,
-  sprite = "npc/merchant",
+  sprite = "npc/villagers/merchant",
 }
 
 sensor{
@@ -368,7 +368,7 @@ npc{
   y = 141,
   direction = 3,
   subtype = 1,
-  sprite = "npc/merchant",
+  sprite = "npc/villagers/merchant",
 }
 
 custom_entity{

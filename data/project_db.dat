@@ -655,6 +655,7 @@ sprite{ id = "menus/title_screen/wave_big", description = "Title screen: big wav
 sprite{ id = "menus/title_screen/wave_small", description = "Title screen: small wave" }
 sprite{ id = "menus/title_screen/wreck", description = "Tiltle screen: wreck" }
 sprite{ id = "npc/animals/alligator", description = "Alligator" }
+sprite{ id = "npc/animals/painter", description = "Painter" }
 sprite{ id = "npc/bear", description = "Bear" }
 sprite{ id = "npc/bee", description = "Bee" }
 sprite{ id = "npc/big_rabbit", description = "Big rabbit" }
@@ -674,8 +675,6 @@ sprite{ id = "npc/fishman_b", description = "Fishman B" }
 sprite{ id = "npc/flying_rooster", description = "Flying rooster" }
 sprite{ id = "npc/fox_musician", description = "Fox musician" }
 sprite{ id = "npc/frog", description = "Frog" }
-sprite{ id = "npc/game_man", description = "Game man" }
-sprite{ id = "npc/ghost", description = "Ghost" }
 sprite{ id = "npc/goriya", description = "Goriya" }
 sprite{ id = "npc/grand_ma", description = "Grand-mother" }
 sprite{ id = "npc/grand_pa", description = "Grand pa" }
@@ -693,9 +692,6 @@ sprite{ id = "npc/manbopals_grey", description = "Manbopals grey" }
 sprite{ id = "npc/manbopals_pink", description = "Manbopals pink" }
 sprite{ id = "npc/manbopals_red", description = "Manbopals red" }
 sprite{ id = "npc/manbopals_yellow", description = "Manbopals yellow" }
-sprite{ id = "npc/marin", description = "Marin" }
-sprite{ id = "npc/meow_meow", description = "Meow meow" }
-sprite{ id = "npc/merchant", description = "Merchant" }
 sprite{ id = "npc/mermaid", description = "Mermaid" }
 sprite{ id = "npc/monique", description = "Monique" }
 sprite{ id = "npc/monkey", description = "Monkey" }
@@ -703,16 +699,14 @@ sprite{ id = "npc/monkey_brown", description = "Monkey brown" }
 sprite{ id = "npc/monty_mole", description = "Monty mole" }
 sprite{ id = "npc/mosquito", description = "Mosquito" }
 sprite{ id = "npc/mouse", description = "Mouse" }
+sprite{ id = "npc/others/phone", description = "Phone" }
 sprite{ id = "npc/owl", description = "Owl" }
 sprite{ id = "npc/owl_shadow", description = "Owl shadow" }
-sprite{ id = "npc/painter", description = "Painter" }
-sprite{ id = "npc/phone", description = "Phone" }
 sprite{ id = "npc/photographer", description = "Photographer" }
 sprite{ id = "npc/quadruplet_father", description = "Quadruplet's father" }
 sprite{ id = "npc/quadruplet_mother", description = "Quadruplet's mother" }
 sprite{ id = "npc/rabbit", description = "Rabbit" }
 sprite{ id = "npc/raft_man", description = "Raft_man" }
-sprite{ id = "npc/richard", description = "Richard" }
 sprite{ id = "npc/seagull", description = "Seagull" }
 sprite{ id = "npc/seagull_small", description = "Small seagull for backgrounds" }
 sprite{ id = "npc/small_bowwow", description = "Small bowwow" }
@@ -726,10 +720,16 @@ sprite{ id = "npc/statues/owl_dungeon_5", description = "Owl dungeon 5" }
 sprite{ id = "npc/statues/owl_dungeon_6", description = "Owl dungeon 6" }
 sprite{ id = "npc/statues/owl_dungeon_7", description = "Owl dungeon 7" }
 sprite{ id = "npc/statues/owl_dungeon_8", description = "owl dungeon 8" }
-sprite{ id = "npc/tarin", description = "Tarin" }
 sprite{ id = "npc/village_bird", description = "Village bird" }
 sprite{ id = "npc/village_teddy", description = "Village teddy" }
-sprite{ id = "npc/villagers/mr_write", description = "Villagers" }
+sprite{ id = "npc/villagers/game_man", description = "Game man" }
+sprite{ id = "npc/villagers/ghost", description = "Ghost" }
+sprite{ id = "npc/villagers/marin", description = "Marin" }
+sprite{ id = "npc/villagers/merchant", description = "Merchant" }
+sprite{ id = "npc/villagers/mr_write", description = "Mr Write" }
+sprite{ id = "npc/villagers/mrs_meow_meow", description = "Mrs Meow Meow" }
+sprite{ id = "npc/villagers/richard", description = "Richard" }
+sprite{ id = "npc/villagers/tarin", description = "Tarin" }
 sprite{ id = "npc/walrus", description = "Walrus" }
 sprite{ id = "npc/wart", description = "Wart" }
 sprite{ id = "npc/warts_brother", description = "Wart's brother" }
@@ -2290,10 +2290,6 @@ file{ path = "sprites/npc/flying_rooster.png", author = "Nintendo, Julien Van St
 file{ path = "sprites/npc/fox_musician.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
 file{ path = "sprites/npc/frog.dat", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
 file{ path = "sprites/npc/frog.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/game_man.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/game_man.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/ghost.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/ghost.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
 file{ path = "sprites/npc/goriya.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
 file{ path = "sprites/npc/goriya.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
 file{ path = "sprites/npc/grand_ma.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
@@ -2325,12 +2321,6 @@ file{ path = "sprites/npc/manbopals_red.dat", author = "Julien Van Steerteghem",
 file{ path = "sprites/npc/manbopals_red.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
 file{ path = "sprites/npc/manbopals_yellow.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
 file{ path = "sprites/npc/manbopals_yellow.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/marin.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/marin.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/meow_meow.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/meow_meow.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/merchant.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/merchant.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
 file{ path = "sprites/npc/mermaid.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
 file{ path = "sprites/npc/mermaid.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
 file{ path = "sprites/npc/monique.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
@@ -2349,10 +2339,6 @@ file{ path = "sprites/npc/owl.dat", author = "Julien Van Steerteghem", license =
 file{ path = "sprites/npc/owl.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
 file{ path = "sprites/npc/owl_shadow.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
 file{ path = "sprites/npc/owl_shadow.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/painter.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/painter.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/phone.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/phone.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
 file{ path = "sprites/npc/photographer.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
 file{ path = "sprites/npc/photographer.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
 file{ path = "sprites/npc/quadruplet_father.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
@@ -2363,16 +2349,12 @@ file{ path = "sprites/npc/rabbit.dat", author = "Julien Van Steerteghem", licens
 file{ path = "sprites/npc/racoon.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
 file{ path = "sprites/npc/raft_man.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
 file{ path = "sprites/npc/raft_man.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/richard.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/richard.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
 file{ path = "sprites/npc/seagull.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
 file{ path = "sprites/npc/seagull.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
 file{ path = "sprites/npc/seagull_small.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
 file{ path = "sprites/npc/seagull_small.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
 file{ path = "sprites/npc/small_bowwow.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
 file{ path = "sprites/npc/small_bowwow.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/tarin.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/tarin.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
 file{ path = "sprites/npc/village_bird.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
 file{ path = "sprites/npc/village_teddy.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
 file{ path = "sprites/npc/walrus.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }

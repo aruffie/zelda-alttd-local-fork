@@ -375,7 +375,7 @@ npc{
   y = 205,
   direction = 2,
   subtype = 1,
-  sprite = "npc/game_man",
+  sprite = "npc/villagers/game_man",
 }
 
 custom_entity{
