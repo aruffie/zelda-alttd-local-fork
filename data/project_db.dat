@@ -1401,6 +1401,12 @@ file{ path = "enemies/wizzrobe_white.lua", license = "GPL v3" }
 file{ path = "enemies/zol_green.lua", license = "GPL v3" }
 file{ path = "enemies/zol_red.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "enemies/zombie.lua", license = "GPL v3" }
+file{ path = "fonts/04b03.ttf", author = "Yuji Oshimoto", license = "Free for personal use" }
+file{ path = "fonts/Alttp.ttf", author = "Nintendo, Enkidulga, Olivier Cléro", license = "Proprietary, Fair use" }
+file{ path = "fonts/green_digits.png", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "fonts/la.png", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "fonts/minecraftia_mono.png", author = "Andrew Tyler", license = "Free for personal use" }
+file{ path = "fonts/white_digits.png", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "items", license = "GPL v3" }
 file{ path = "items/angler_key.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/arrow.lua", license = "GPL v3" }
