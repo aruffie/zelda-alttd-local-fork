@@ -14005,6 +14005,6 @@ npc{
   y = 53,
   direction = 3,
   subtype = 0,
-  sprite = "npc/owl",
+  sprite = "npc/animals/owl",
 }
 

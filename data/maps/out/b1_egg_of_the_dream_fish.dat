@@ -19351,7 +19351,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "npc/mosquito",
+  sprite = "entities/insects/mosquito",
   model = "bee",
 }
 

@@ -24967,7 +24967,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "npc/butterfly_yellow",
+  sprite = "entities/insects/butterfly_2",
   model = "butterfly",
 }
 
@@ -24979,7 +24979,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "npc/butterfly_blue",
+  sprite = "entities/insects/butterfly_1",
   model = "butterfly",
 }
 
@@ -24991,7 +24991,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "npc/butterfly_red",
+  sprite = "entities/insects/butterfly_3",
   model = "butterfly",
 }
 
@@ -25003,7 +25003,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "npc/butterfly_blue",
+  sprite = "entities/insects/butterfly_1",
   model = "butterfly",
 }
 
@@ -25015,7 +25015,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "npc/butterfly_red",
+  sprite = "entities/insects/butterfly_3",
   model = "butterfly",
 }
 
@@ -25027,7 +25027,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "npc/butterfly_yellow",
+  sprite = "entities/insects/butterfly_2",
   model = "butterfly",
 }
 
@@ -25249,6 +25249,30 @@ custom_entity{
   height = 16,
   direction = 1,
   sprite = "entities/graveyard_tree",
+}
+
+custom_entity{
+  name = "butterfly_7",
+  layer = 1,
+  x = 208,
+  y = 93,
+  width = 16,
+  height = 16,
+  direction = 3,
+  sprite = "entities/insects/butterfly_4",
+  model = "butterfly",
+}
+
+custom_entity{
+  name = "butterfly_8",
+  layer = 1,
+  x = 200,
+  y = 445,
+  width = 16,
+  height = 16,
+  direction = 3,
+  sprite = "entities/insects/butterfly_4",
+  model = "butterfly",
 }
 
 enemy{

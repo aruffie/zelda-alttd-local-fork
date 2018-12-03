@@ -9346,16 +9346,6 @@ teletransporter{
   destination = "forest_cave_2_1_B",
 }
 
-npc{
-  name = "tarin_2",
-  layer = 0,
-  x = 912,
-  y = 517,
-  direction = 3,
-  subtype = 0,
-  sprite = "npc/tarin",
-}
-
 destructible{
   layer = 0,
   x = 712,
@@ -11935,6 +11925,16 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/mushroom_move",
+}
+
+npc{
+  name = "tarin_2",
+  layer = 0,
+  x = 912,
+  y = 517,
+  direction = 3,
+  subtype = 0,
+  sprite = "npc/villagers/tarin",
 }
 
 tile{

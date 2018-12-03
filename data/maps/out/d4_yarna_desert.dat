@@ -11399,7 +11399,7 @@ npc{
   y = 141,
   direction = 2,
   subtype = 1,
-  sprite = "npc/rabbit",
+  sprite = "npc/animals/rabbit_1",
 }
 
 npc{
@@ -11409,7 +11409,7 @@ npc{
   y = 141,
   direction = 2,
   subtype = 1,
-  sprite = "npc/rabbit",
+  sprite = "npc/animals/rabbit_1",
 }
 
 npc{
@@ -11419,7 +11419,7 @@ npc{
   y = 325,
   direction = 3,
   subtype = 1,
-  sprite = "npc/big_rabbit",
+  sprite = "npc/animals/rabbit_2",
 }
 
 destructible{
@@ -11804,7 +11804,7 @@ npc{
   y = 269,
   direction = 2,
   subtype = 1,
-  sprite = "npc/fox_musician",
+  sprite = "npc/animals/fox",
 }
 
 npc{
@@ -11814,7 +11814,7 @@ npc{
   y = 253,
   direction = 2,
   subtype = 1,
-  sprite = "npc/elephant_musician",
+  sprite = "npc/animals/elephant",
 }
 
 npc{
@@ -11824,7 +11824,7 @@ npc{
   y = 269,
   direction = 2,
   subtype = 1,
-  sprite = "npc/bird_musician",
+  sprite = "npc/animals/bird_2",
 }
 
 destructible{
@@ -14123,6 +14123,6 @@ npc{
   y = 541,
   direction = 3,
   subtype = 0,
-  sprite = "npc/owl",
+  sprite = "npc/animals/owl",
 }
 

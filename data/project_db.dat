@@ -473,6 +473,10 @@ sprite{ id = "entities/horse_head", description = "Horse head" }
 sprite{ id = "entities/house_dungeon_7", description = "House dungeon 7" }
 sprite{ id = "entities/ice_block", description = "Ice block" }
 sprite{ id = "entities/insects/bee", description = "Bee" }
+sprite{ id = "entities/insects/butterfly_1", description = "Butterfly 1" }
+sprite{ id = "entities/insects/butterfly_2", description = "Butterfly 2" }
+sprite{ id = "entities/insects/butterfly_3", description = "Butterfly 3" }
+sprite{ id = "entities/insects/butterfly_4", description = "Butterfly 4" }
 sprite{ id = "entities/insects/mosquito", description = "Mosquito" }
 sprite{ id = "entities/instrument_big_sparkle", description = "Instrument big sparkle" }
 sprite{ id = "entities/instrument_small_sparkle", description = "Instrument small sparkle" }
@@ -673,36 +677,31 @@ sprite{ id = "menus/title_screen/wave_small", description = "Title screen: small
 sprite{ id = "menus/title_screen/wreck", description = "Tiltle screen: wreck" }
 sprite{ id = "npc/animals/alligator", description = "Alligator" }
 sprite{ id = "npc/animals/bear", description = "Bear" }
+sprite{ id = "npc/animals/bird_1", description = "Bird" }
+sprite{ id = "npc/animals/bird_2", description = "Bird 2" }
 sprite{ id = "npc/animals/bowwow", description = "Bowwow" }
 sprite{ id = "npc/animals/christine", description = "Christine" }
 sprite{ id = "npc/animals/cook_rabbit", description = "Cook rabbit" }
+sprite{ id = "npc/animals/elephant", description = "Elephant" }
 sprite{ id = "npc/animals/flying_rooster", description = "Flying rooster" }
+sprite{ id = "npc/animals/fox", description = "Fox" }
+sprite{ id = "npc/animals/hippopotamus", description = "Hippopotamus" }
 sprite{ id = "npc/animals/kiki", description = "Kiki" }
 sprite{ id = "npc/animals/mambo", description = "Mambo" }
 sprite{ id = "npc/animals/mole", description = "Mole" }
 sprite{ id = "npc/animals/owl", description = "Owl" }
 sprite{ id = "npc/animals/painter", description = "Painter" }
 sprite{ id = "npc/animals/photographer", description = "Photographer" }
+sprite{ id = "npc/animals/rabbit_1", description = "Rabbit 1" }
+sprite{ id = "npc/animals/rabbit_2", description = "Rabbit 2" }
 sprite{ id = "npc/animals/small_bowwow", description = "Small bowwow" }
+sprite{ id = "npc/animals/teddy", description = "Teddy" }
 sprite{ id = "npc/animals/walrus", description = "Walrus" }
 sprite{ id = "npc/animals/wart", description = "Wart" }
-sprite{ id = "npc/big_rabbit", description = "Big rabbit" }
-sprite{ id = "npc/bird_musician", description = "Bird musician" }
-sprite{ id = "npc/butterfly_blue", description = "Butterfly blue" }
-sprite{ id = "npc/butterfly_red", description = "Butterfly red" }
-sprite{ id = "npc/butterfly_yellow", description = "Butterfly yellow" }
-sprite{ id = "npc/elephant_musician", description = "Elephant musician" }
-sprite{ id = "npc/fox_musician", description = "Fox musician" }
-sprite{ id = "npc/hippo", description = "Hippo" }
-sprite{ id = "npc/kid_1", description = "Kid 1" }
-sprite{ id = "npc/kid_2", description = "Kid 2" }
-sprite{ id = "npc/kid_3", description = "Kid 3" }
-sprite{ id = "npc/kid_4", description = "Kid 4" }
 sprite{ id = "npc/others/fairy", description = "Fairy" }
 sprite{ id = "npc/others/goriya", description = "Goriya" }
 sprite{ id = "npc/others/mad_bat", description = "Mad bat" }
 sprite{ id = "npc/others/phone", description = "Phone" }
-sprite{ id = "npc/rabbit", description = "Rabbit" }
 sprite{ id = "npc/statues/owl", description = "Owl" }
 sprite{ id = "npc/statues/owl_dungeon", description = "Owl dungeon" }
 sprite{ id = "npc/statues/owl_dungeon_1", description = "Owl dungeon 1" }
@@ -713,8 +712,6 @@ sprite{ id = "npc/statues/owl_dungeon_5", description = "Owl dungeon 5" }
 sprite{ id = "npc/statues/owl_dungeon_6", description = "Owl dungeon 6" }
 sprite{ id = "npc/statues/owl_dungeon_7", description = "Owl dungeon 7" }
 sprite{ id = "npc/statues/owl_dungeon_8", description = "owl dungeon 8" }
-sprite{ id = "npc/village_bird", description = "Village bird" }
-sprite{ id = "npc/village_teddy", description = "Village teddy" }
 sprite{ id = "npc/villagers/cucco_man", description = "Cucco's man" }
 sprite{ id = "npc/villagers/fishman_1", description = "Fishman 1" }
 sprite{ id = "npc/villagers/fishman_2", description = "Fishman 2" }
@@ -722,6 +719,10 @@ sprite{ id = "npc/villagers/game_man", description = "Game man" }
 sprite{ id = "npc/villagers/ghost", description = "Ghost" }
 sprite{ id = "npc/villagers/grand_ma", description = "Grand ma" }
 sprite{ id = "npc/villagers/grand_pa", description = "Grand pa" }
+sprite{ id = "npc/villagers/kid_1", description = "Kid 1" }
+sprite{ id = "npc/villagers/kid_2", description = "Kid 2" }
+sprite{ id = "npc/villagers/kid_3", description = "Kid 3" }
+sprite{ id = "npc/villagers/kid_4", description = "Kid 4" }
 sprite{ id = "npc/villagers/marin", description = "Marin" }
 sprite{ id = "npc/villagers/merchant", description = "Merchant" }
 sprite{ id = "npc/villagers/mermaid", description = "Mermaid" }
@@ -2280,27 +2281,9 @@ file{ path = "sprites/menus/zeldaforce_logo/zeldaforce_logo_triforce_right.png",
 file{ path = "sprites/menus/zeldaforce_logo/zeldaforce_logo_triforce_top.png", author = "Olivier Cléro", license = "© Zeldaforce" }
 file{ path = "sprites/menus/zeldaforce_logo/zeldaforce_logo_z.png", author = "Olivier Cléro", license = "© Zeldaforce" }
 file{ path = "sprites/npc", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use, CC BY-SA 4.0" }
-file{ path = "sprites/npc/animals.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
 file{ path = "sprites/npc/animals/alligator.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
 file{ path = "sprites/npc/animals/alligator.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/big_rabbit.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/bird_musician.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/butterfly.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/butterfly_blue.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/butterfly_red.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/butterfly_yellow.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/elephant_musician.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/fox_musician.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
 file{ path = "sprites/npc/hippo.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/kid_1.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/kid_2.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/kid_3.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/kid_4.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/kids.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/rabbit.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/racoon.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/village_bird.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/village_teddy.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
 file{ path = "tilesets/dungeon/blue.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
 file{ path = "tilesets/dungeon/blue.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
 file{ path = "tilesets/dungeon/blue.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
