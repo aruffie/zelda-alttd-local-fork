@@ -153,8 +153,8 @@ function messagebox_builder:show(context, text_lines, button_1_text, button_2_te
     -- Animate the movement.
     local frame_x, frame_y = math.ceil((quest_w - messagebox_menu.frame_w) / 2), math.ceil((quest_h - messagebox_menu.frame_h) / 2)
     self.surface:set_xy(frame_x, frame_y + 32)
-    messagebox_menu.opening_automation = automation:new(messagebox_menu, self.surface, "outCubic", 200, { y = frame_y })
-    messagebox_menu.closing_automation = automation:new(messagebox_menu, self.surface, "outCubic", 200, { y = frame_y + 64 })
+    messagebox_menu.opening_automation = automation:new(messagebox_menu, self.surface, "cubic_out", 200, { y = frame_y })
+    messagebox_menu.closing_automation = automation:new(messagebox_menu, self.surface, "cubic_out", 200, { y = frame_y + 64 })
 
     -- State.
     messagebox_menu.accepts_user_input = false

@@ -7,14 +7,14 @@
 -- end
 -- my_automation:start()
 
-local easing_functions = require("scripts/automation/easing")
+local easing = require("scripts/automation/easing")
 
 local automation_builder = {}
 
 function automation_builder:new(context, target_entity, curve_type, duration, end_properties, on_finished)
 
   -- No automation if incorrect parameters.
-  local easing_func = easing_functions[curve_type]
+  local easing_func = easing[curve_type]
   assert(easing_func ~= nil, "Automation curve type not found:"..curve_type)
   if easing_func == nil then
     return nil
