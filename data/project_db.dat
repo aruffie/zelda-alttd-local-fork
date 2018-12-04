@@ -386,10 +386,6 @@ sprite{ id = "entities/conveyor_belt3", description = "Conveyor belt 3" }
 sprite{ id = "entities/conveyor_belt4", description = "Conveyor belt 4" }
 sprite{ id = "entities/crystal", description = "Crystal" }
 sprite{ id = "entities/crystal_block", description = "Crystal block" }
-sprite{ id = "entities/decorations/beach_debris_1", description = "Beach debris 1" }
-sprite{ id = "entities/decorations/beach_debris_2", description = "Beach debris 2" }
-sprite{ id = "entities/decorations/beach_debris_3", description = "Beach debris 3" }
-sprite{ id = "entities/decorations/beach_debris_4", description = "Beach debris 4" }
 sprite{ id = "entities/decorations/bubble_swamp", description = "Bubble swamp" }
 sprite{ id = "entities/decorations/fire", description = "Fire" }
 sprite{ id = "entities/destination", description = "Destination of teletransporter" }
@@ -452,6 +448,7 @@ sprite{ id = "entities/graveyard_tree_footer_green", description = "Graveyard tr
 sprite{ id = "entities/ground_dug", description = "Ground dug" }
 sprite{ id = "entities/grounds/color_platform_green", description = "Color platform green" }
 sprite{ id = "entities/grounds/color_platform_orange", description = "Color platform orange" }
+sprite{ id = "entities/grounds/color_platform_red", description = "Color platform red" }
 sprite{ id = "entities/hammer_stake_brown", description = "Hammer stake brown" }
 sprite{ id = "entities/hammer_stake_green", description = "Hammer stake green" }
 sprite{ id = "entities/hammer_stake_yellow", description = "Hammer stake yellow" }

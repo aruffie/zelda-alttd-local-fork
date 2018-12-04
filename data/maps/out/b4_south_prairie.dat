@@ -14506,6 +14506,86 @@ tile{
   tileset = "addition/out",
 }
 
+tile{
+  layer = 0,
+  x = 224,
+  y = 464,
+  width = 16,
+  height = 16,
+  pattern = "59",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 328,
+  y = 424,
+  width = 16,
+  height = 16,
+  pattern = "59",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 360,
+  y = 576,
+  width = 16,
+  height = 16,
+  pattern = "59",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 176,
+  y = 680,
+  width = 16,
+  height = 16,
+  pattern = "59",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 48,
+  y = 680,
+  width = 16,
+  height = 16,
+  pattern = "59",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 120,
+  y = 632,
+  width = 16,
+  height = 16,
+  pattern = "65",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 176,
+  y = 480,
+  width = 16,
+  height = 16,
+  pattern = "65",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 384,
+  y = 464,
+  width = 16,
+  height = 16,
+  pattern = "65",
+  tileset = "addition/out",
+}
+
 destructible{
   layer = 0,
   x = 344,
@@ -17535,73 +17615,12 @@ custom_entity{
 
 custom_entity{
   layer = 0,
-  x = 368,
-  y = 589,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/decorations/beach_debris_3",
-}
-
-custom_entity{
-  layer = 0,
-  x = 336,
-  y = 437,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/decorations/beach_debris_3",
-}
-
-custom_entity{
-  layer = 0,
-  x = 232,
-  y = 477,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/decorations/beach_debris_3",
-}
-
-custom_entity{
-  layer = 0,
   x = 120,
   y = 581,
   width = 16,
   height = 16,
   direction = 0,
   sprite = "entities/decorations/beach_debris_3",
-}
-
-custom_entity{
-  layer = 0,
-  x = 184,
-  y = 693,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/decorations/beach_debris_3",
-}
-
-custom_entity{
-  layer = 0,
-  x = 56,
-  y = 693,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/decorations/beach_debris_3",
-}
-
-custom_entity{
-  layer = 0,
-  x = 392,
-  y = 477,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/decorations/beach_debris_4",
-  model = "obstacle",
 }
 
 custom_entity{
@@ -17684,28 +17703,6 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/palm_footer_brown",
-}
-
-custom_entity{
-  layer = 0,
-  x = 184,
-  y = 493,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/decorations/beach_debris_4",
-  model = "obstacle",
-}
-
-custom_entity{
-  layer = 0,
-  x = 128,
-  y = 645,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/decorations/beach_debris_4",
-  model = "obstacle",
 }
 
 destructible{
