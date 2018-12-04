@@ -14544,7 +14544,7 @@ destructible{
   layer = 0,
   x = 160,
   y = 517,
-  sprite = "entities/stone_small_white",
+  sprite = "entities/destructibles/stone_white_small",
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,

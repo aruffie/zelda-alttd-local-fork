@@ -1,9 +1,0 @@
-animation{
-  name = "default",
-  src_image = "entities/egg.png",
-  frame_delay = 1000,
-  frame_to_loop_on = 0,
-  directions = {
-    { x = 0, y = 0, frame_width = 96, frame_height = 112, origin_x = 48, origin_y = 109 },
-  },
-}

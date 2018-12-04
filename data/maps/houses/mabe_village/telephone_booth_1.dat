@@ -341,7 +341,7 @@ npc{
   y = 165,
   direction = 3,
   subtype = 1,
-  sprite = "npc/phone",
+  sprite = "npc/others/phone",
 }
 
 destination{

@@ -14820,7 +14820,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/wallturn_dungeon_1_front",
+  sprite = "entities/doors/door_wallturn_dungeon_1",
   model = "wallturn",
 }
 

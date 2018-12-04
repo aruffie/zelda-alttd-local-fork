@@ -373,19 +373,11 @@ sprite{ id = "entities/blue_cristal", description = "Blue cristal" }
 sprite{ id = "entities/bomb", description = "Bomb" }
 sprite{ id = "entities/bomb_fly", description = "Bomb fly" }
 sprite{ id = "entities/bombite_explosion", description = "Bombite_explosion" }
-sprite{ id = "entities/book_blue", description = "Book blue" }
-sprite{ id = "entities/book_green", description = "Book green" }
-sprite{ id = "entities/book_orange", description = "Book orange" }
-sprite{ id = "entities/book_red", description = "Book red" }
 sprite{ id = "entities/boomerang1", description = "Boomerang 1" }
 sprite{ id = "entities/boomerang2", description = "Boomerang 2" }
-sprite{ id = "entities/boss_symbol_dungeon_1", description = "Boss symbol dungeon 1" }
-sprite{ id = "entities/boss_symbol_dungeon_2", description = "Boss symbol dungeon 2" }
 sprite{ id = "entities/bow", description = "Bow" }
 sprite{ id = "entities/bubble_swamp", description = "Bubble swamp" }
-sprite{ id = "entities/bush", description = "Bush" }
 sprite{ id = "entities/bush_grass", description = "Bush grass" }
-sprite{ id = "entities/camera", description = "Camera" }
 sprite{ id = "entities/cave_bones", description = "Cave bones" }
 sprite{ id = "entities/cave_rock", description = "Cave rock" }
 sprite{ id = "entities/chain", description = "Chain" }
@@ -405,22 +397,33 @@ sprite{ id = "entities/conveyor_belt4", description = "Conveyor belt 4" }
 sprite{ id = "entities/crystal", description = "Crystal" }
 sprite{ id = "entities/crystal_block", description = "Crystal block" }
 sprite{ id = "entities/destination", description = "Destination of teletransporter" }
+sprite{ id = "entities/destructibles/bush", description = "Bush" }
+sprite{ id = "entities/destructibles/grass", description = "Grass" }
+sprite{ id = "entities/destructibles/stone_white_large", description = "Stone white large" }
+sprite{ id = "entities/destructibles/stone_white_small", description = "Stone white small" }
 sprite{ id = "entities/doors/boss_door_frame_renverse", description = "Boss door frame renverse" }
 sprite{ id = "entities/doors/boss_door_frames", description = "Boss door frames" }
 sprite{ id = "entities/doors/door_big_key", description = "Door big key" }
 sprite{ id = "entities/doors/door_boss_key", description = "Door boss key" }
+sprite{ id = "entities/doors/door_egg", description = "Door egg" }
+sprite{ id = "entities/doors/door_egg_top", description = "Door egg top" }
 sprite{ id = "entities/doors/door_normal", description = "Door" }
 sprite{ id = "entities/doors/door_normal_cave", description = "Door cave" }
 sprite{ id = "entities/doors/door_small_key", description = "Door small key" }
 sprite{ id = "entities/doors/door_very_weak_wall", description = "Door very weak wall" }
+sprite{ id = "entities/doors/door_wallturn_dungeon_1", description = "Door wallturn dungeon 1" }
+sprite{ id = "entities/doors/door_wallturn_dungeon_2", description = "Door wallturn dungeon 2" }
+sprite{ id = "entities/doors/door_wallturn_dungeon_3", description = "Door wallturn dungeon 3" }
+sprite{ id = "entities/doors/door_wallturn_dungeon_5", description = "Door wallturn dungeon 5" }
+sprite{ id = "entities/doors/door_wallturn_dungeon_6", description = "Door wallturn dungeon 6" }
+sprite{ id = "entities/doors/door_wallturn_dungeon_7", description = "Door wallturn dungeon 7" }
+sprite{ id = "entities/doors/door_wallturn_dungeon_8", description = "Door wallturn dungeon 8" }
+sprite{ id = "entities/doors/door_wallturn_dungeon_9", description = "Door wallturn dungeon 9" }
 sprite{ id = "entities/doors/door_weak_block", description = "Door weak block" }
 sprite{ id = "entities/doors/door_weak_block_cave", description = "Door weak block cave" }
 sprite{ id = "entities/doors/door_weak_wall", description = "Door_weak_wall" }
 sprite{ id = "entities/doors/door_weak_wall_cave", description = "Door weak wall cave" }
 sprite{ id = "entities/doors/door_weak_wall_out", description = "Door weak wall out" }
-sprite{ id = "entities/egg", description = "Egg" }
-sprite{ id = "entities/egg_door", description = "Egg door" }
-sprite{ id = "entities/egg_door_top", description = "Egg door top" }
 sprite{ id = "entities/entrance_dungeon_1", description = "Entrance dungeon 1" }
 sprite{ id = "entities/entrance_dungeon_2", description = "Entrance dungeon 2" }
 sprite{ id = "entities/entrance_dungeon_2_bottom", description = "Entrance dungeon 2 (bottom)" }
@@ -447,7 +450,6 @@ sprite{ id = "entities/flame_fountain_machine", description = "Flame fountain ma
 sprite{ id = "entities/floating_tree_rafting", description = "Floating tree rafting" }
 sprite{ id = "entities/game_board", description = "Game_board" }
 sprite{ id = "entities/ghost_house", description = "Ghost house" }
-sprite{ id = "entities/grass", description = "Grass" }
 sprite{ id = "entities/graveyard_tree", description = "Graveyard tree" }
 sprite{ id = "entities/graveyard_tree_footer_brown", description = "Graveyard tree footer brown" }
 sprite{ id = "entities/graveyard_tree_footer_green", description = "Graveyard tree footer green" }
@@ -464,7 +466,6 @@ sprite{ id = "entities/heart_fly", description = "Heart fly" }
 sprite{ id = "entities/heart_fly_shadow", description = "Heart fly shadow" }
 sprite{ id = "entities/hibiscus_pot", description = "Hibiscus pot" }
 sprite{ id = "entities/hint_stone", description = "Hint stone" }
-sprite{ id = "entities/hole", description = "Hole" }
 sprite{ id = "entities/hook", description = "Hook" }
 sprite{ id = "entities/hook_bridge", description = "Hook bridge" }
 sprite{ id = "entities/hook_bridge_deployed", description = "hook_bridge_deployed" }
@@ -482,7 +483,6 @@ sprite{ id = "entities/instrument_big_sparkle", description = "Instrument big sp
 sprite{ id = "entities/instrument_small_sparkle", description = "Instrument small sparkle" }
 sprite{ id = "entities/iron_ball", description = "Iron ball" }
 sprite{ id = "entities/items", description = "Items" }
-sprite{ id = "entities/kanalet_darknut_statue", description = "Kanalet darknut statue" }
 sprite{ id = "entities/keyhole_dungeon_4", description = "Keyhole dungeon 4" }
 sprite{ id = "entities/keyhole_dungeon_6", description = "Keyhole dungeon 6" }
 sprite{ id = "entities/keyhole_dungeon_7", description = "Keyhole dungeon 7" }
@@ -531,6 +531,10 @@ sprite{ id = "entities/rupee_fly", description = "Rupee fly" }
 sprite{ id = "entities/rupee_icon", description = "Rupee icon" }
 sprite{ id = "entities/secret_ground", description = "Secret ground" }
 sprite{ id = "entities/shadow", description = "Shadow" }
+sprite{ id = "entities/shadows/owl", description = "Owl" }
+sprite{ id = "entities/shadows/shadow_big", description = "Shadow big" }
+sprite{ id = "entities/shadows/shadow_big_dynamic", description = "Shadow big dynamic" }
+sprite{ id = "entities/shadows/shadow_small", description = "Shadow small" }
 sprite{ id = "entities/shield", description = "Shield" }
 sprite{ id = "entities/shop_board", description = "Shop board" }
 sprite{ id = "entities/shovel", description = "Shovel" }
@@ -553,10 +557,8 @@ sprite{ id = "entities/statue_pig", description = "Statue pig" }
 sprite{ id = "entities/statue_pig_destroyed", description = "Statue pig destroyed" }
 sprite{ id = "entities/statue_small_dungeon_3", description = "Statue small dungeon 3" }
 sprite{ id = "entities/statue_small_key_dungeon_3", description = "Statue small key dungeon 3" }
-sprite{ id = "entities/stone_large_white", description = "Large white stone" }
-sprite{ id = "entities/stone_small_black", description = "Small black stone" }
+sprite{ id = "entities/statues/statue_darknut", description = "Statue darknut" }
 sprite{ id = "entities/stone_small_brown", description = "Stone small brown" }
-sprite{ id = "entities/stone_small_white", description = "Small white stone" }
 sprite{ id = "entities/sun", description = "Sun" }
 sprite{ id = "entities/swell", description = "Swell" }
 sprite{ id = "entities/switch", description = "Switch" }
@@ -573,14 +575,6 @@ sprite{ id = "entities/turtlerock_arms", description = "Turtlerock arms" }
 sprite{ id = "entities/turtlerock_head", description = "Turtlerock head" }
 sprite{ id = "entities/vacuum_cleaner", description = "Vacuum cleaner" }
 sprite{ id = "entities/vacuum_cleaner_ground", description = "Vacuum cleaner ground" }
-sprite{ id = "entities/wallturn_dungeon_1_front", description = "Wallturn" }
-sprite{ id = "entities/wallturn_dungeon_2_front", description = "Wallturn dungeon 2" }
-sprite{ id = "entities/wallturn_dungeon_3_front", description = "Wallturn dungeon 3" }
-sprite{ id = "entities/wallturn_dungeon_5_front", description = "Wallturn dungeon 5" }
-sprite{ id = "entities/wallturn_dungeon_6_front", description = "Wallturn dungeon 6" }
-sprite{ id = "entities/wallturn_dungeon_7_front", description = "Wallturn dungeon 7" }
-sprite{ id = "entities/wallturn_dungeon_8_front", description = "Wallturn dungeon 8" }
-sprite{ id = "entities/wallturn_dungeon_9_front", description = "Wallturn dungeon 9" }
 sprite{ id = "entities/weak_floor_dark_1", description = "Weak floor dark 1" }
 sprite{ id = "entities/weak_floor_dark_2", description = "Weak floor dark 2" }
 sprite{ id = "entities/weak_floor_dark_3", description = "Weak floor dark 3" }
@@ -698,6 +692,10 @@ sprite{ id = "npc/animals/small_bowwow", description = "Small bowwow" }
 sprite{ id = "npc/animals/teddy", description = "Teddy" }
 sprite{ id = "npc/animals/walrus", description = "Walrus" }
 sprite{ id = "npc/animals/wart", description = "Wart" }
+sprite{ id = "npc/books/book_1", description = "Book 1" }
+sprite{ id = "npc/books/book_2", description = "Book 2" }
+sprite{ id = "npc/books/book_3", description = "Book 3" }
+sprite{ id = "npc/books/book_4", description = "Book 4" }
 sprite{ id = "npc/others/fairy", description = "Fairy" }
 sprite{ id = "npc/others/goriya", description = "Goriya" }
 sprite{ id = "npc/others/mad_bat", description = "Mad bat" }
@@ -737,10 +735,6 @@ sprite{ id = "npc/villagers/tarin", description = "Tarin" }
 sprite{ id = "npc/villagers/witch", description = "Witch" }
 sprite{ id = "pictures/peach", description = "Peach" }
 sprite{ id = "portables/horse_head", description = "Horse head" }
-sprite{ id = "shadows/owl", description = "Owl" }
-sprite{ id = "shadows/shadow_big", description = "Shadow big" }
-sprite{ id = "shadows/shadow_big_dynamic", description = "Shadow big dynamic" }
-sprite{ id = "shadows/shadow_small", description = "Shadow small" }
 
 music{ id = "gb/01_introduction", description = "01 - Introduction" }
 music{ id = "gb/02_title", description = "02 - Title" }
@@ -1269,7 +1263,6 @@ enemy{ id = "zol_green", description = "Zol green" }
 enemy{ id = "zol_red", description = "Zol red" }
 enemy{ id = "zombie", description = "Zombie" }
 
-entity{ id = "bee", description = "Bee" }
 entity{ id = "bird", description = "Bird" }
 entity{ id = "bowwow", description = "Bowwow" }
 entity{ id = "bubble", description = "Bubble" }
@@ -1283,9 +1276,9 @@ entity{ id = "frog", description = "Frog" }
 entity{ id = "green_crystal", description = "Green crystal" }
 entity{ id = "heavy_object", description = "Heavy object" }
 entity{ id = "heavy_statue", description = "Heavy statue" }
-entity{ id = "hole", description = "Hole" }
 entity{ id = "hook_bridge", description = "hook bridge" }
 entity{ id = "hookable", description = "Hookable" }
+entity{ id = "insect", description = "Insect" }
 entity{ id = "light", description = "Light" }
 entity{ id = "mouse", description = "Mouse" }
 entity{ id = "moving_platform", description = "Movin platform" }
@@ -2283,7 +2276,6 @@ file{ path = "sprites/menus/zeldaforce_logo/zeldaforce_logo_z.png", author = "Ol
 file{ path = "sprites/npc", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use, CC BY-SA 4.0" }
 file{ path = "sprites/npc/animals/alligator.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
 file{ path = "sprites/npc/animals/alligator.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/hippo.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
 file{ path = "tilesets/dungeon/blue.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
 file{ path = "tilesets/dungeon/blue.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
 file{ path = "tilesets/dungeon/blue.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }

@@ -13,7 +13,6 @@ animation{
 animation{
   name = "playing_1",
   src_image = "npc/villagers/kid_3.png",
-  frame_delay = 500,
   directions = {
     { x = 48, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
     { x = 48, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
@@ -24,7 +23,6 @@ animation{
 animation{
   name = "playing_2",
   src_image = "npc/villagers/kid_3.png",
-  frame_delay = 500,
   directions = {
     { x = 72, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
     { x = 72, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
