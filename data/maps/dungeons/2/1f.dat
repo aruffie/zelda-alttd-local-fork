@@ -17473,7 +17473,7 @@ chest{
   treasure_name = "rupee",
   treasure_variant = 4,
   treasure_savegame_variable = "dungeon_2_rupee_1",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 door{
@@ -17842,7 +17842,7 @@ chest{
   y = 1677,
   treasure_name = "small_key",
   treasure_savegame_variable = "dungeon_2_small_key_3",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 switch{
@@ -17851,7 +17851,7 @@ switch{
   x = 1856,
   y = 1712,
   subtype = "walkable",
-  sprite = "entities/switch",
+  sprite = "entities/switchs/switch",
   needs_block = false,
   inactivate_when_leaving = false,
 }
@@ -18946,7 +18946,7 @@ chest{
   y = 77,
   treasure_name = "power_bracelet",
   treasure_savegame_variable = "dungeon_2_power_bracelet",
-  sprite = "entities/big_chest",
+  sprite = "entities/chests/chest_big",
 }
 
 block{
@@ -20180,7 +20180,7 @@ chest{
   y = 1613,
   treasure_name = "compass",
   treasure_savegame_variable = "dungeon_2_compass",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 pickable{
@@ -20199,7 +20199,7 @@ chest{
   y = 1629,
   treasure_name = "small_key",
   treasure_savegame_variable = "dungeon_2_small_key_4",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 custom_entity{
@@ -20317,7 +20317,7 @@ chest{
   y = 1117,
   treasure_name = "beak_of_stone",
   treasure_savegame_variable = "dungeon_2_beak_of_stone",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 enemy{
@@ -20425,7 +20425,7 @@ chest{
   y = 333,
   treasure_name = "map",
   treasure_savegame_variable = "dungeon_2_map",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 enemy{
@@ -20512,7 +20512,7 @@ chest{
   treasure_name = "rupee",
   treasure_variant = 3,
   treasure_savegame_variable = "dungeon_2_rupee_2",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 custom_entity{
@@ -20625,7 +20625,7 @@ chest{
   y = 93,
   treasure_name = "small_key",
   treasure_savegame_variable = "dungeon_2_small_key_5",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 enemy{
@@ -20827,7 +20827,7 @@ chest{
   y = 365,
   treasure_name = "boss_key",
   treasure_savegame_variable = "dungeon_2_boss_key",
-  sprite = "entities/big_chest",
+  sprite = "entities/chests/chest_big",
 }
 
 enemy{

@@ -8964,7 +8964,7 @@ chest{
   y = 877,
   treasure_name = "beak_of_stone",
   treasure_savegame_variable = "dungeon_3_beak_of_stone",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 crystal_block{
@@ -9025,7 +9025,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/green_cristal",
+  sprite = "entities/destructibles/crystal_green",
   model = "green_crystal",
 }
 
@@ -9036,7 +9036,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/green_cristal",
+  sprite = "entities/destructibles/crystal_green",
   model = "green_crystal",
 }
 
@@ -9641,7 +9641,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/green_cristal",
+  sprite = "entities/destructibles/crystal_green",
   model = "green_crystal",
 }
 
@@ -9652,7 +9652,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/green_cristal",
+  sprite = "entities/destructibles/crystal_green",
   model = "green_crystal",
 }
 
@@ -9663,7 +9663,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/green_cristal",
+  sprite = "entities/destructibles/crystal_green",
   model = "green_crystal",
 }
 
@@ -9674,7 +9674,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/green_cristal",
+  sprite = "entities/destructibles/crystal_green",
   model = "green_crystal",
 }
 
@@ -9892,7 +9892,7 @@ chest{
   x = 1192,
   y = 1373,
   treasure_name = "zol_green",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 destructible{
@@ -10286,7 +10286,7 @@ chest{
   y = 1613,
   treasure_name = "small_key",
   treasure_savegame_variable = "dungeon_3_small_key_1",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 door{
@@ -10421,7 +10421,7 @@ chest{
   treasure_name = "rupee",
   treasure_variant = 6,
   treasure_savegame_variable = "dungeon_3_rupee_1",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 enemy{
@@ -10481,7 +10481,7 @@ chest{
   y = 1869,
   treasure_name = "small_key",
   treasure_savegame_variable = "dungeon_3_small_key_2",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 sensor{
@@ -10695,7 +10695,7 @@ chest{
   y = 77,
   treasure_name = "compass",
   treasure_savegame_variable = "dungeon_3_compass",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 pickable{
@@ -10946,7 +10946,7 @@ chest{
   y = 341,
   treasure_name = "pegasus_shoes",
   treasure_savegame_variable = "dungeon_3_pegasus_shoes",
-  sprite = "entities/big_chest",
+  sprite = "entities/chests/chest_big",
 }
 
 destination{
@@ -12225,7 +12225,7 @@ chest{
   y = 1389,
   treasure_name = "map",
   treasure_savegame_variable = "dungeon_3_map",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 jumper{
@@ -12643,7 +12643,7 @@ chest{
   y = 317,
   treasure_name = "boss_key",
   treasure_savegame_variable = "dungeon_5_boss_key",
-  sprite = "entities/big_chest",
+  sprite = "entities/chests/chest_big",
 }
 
 custom_entity{
@@ -12665,7 +12665,7 @@ chest{
   treasure_name = "rupee",
   treasure_variant = 3,
   treasure_savegame_variable = "dungeon_3_rupee_2",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 tile{

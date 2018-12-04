@@ -1,6 +1,6 @@
 animation{
   name = "normal",
-  src_image = "entities/ice_block.png",
+  src_image = "entities/destructibles/block_ice.png",
   frame_delay = 250,
   frame_to_loop_on = 0,
   directions = {

@@ -1281,7 +1281,7 @@ chest{
   treasure_name = "rupee",
   treasure_variant = 3,
   treasure_savegame_variable = "east_mt_tamaranch_cave_3_chest",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 chest{
@@ -1291,7 +1291,7 @@ chest{
   treasure_name = "rupee",
   treasure_variant = 3,
   treasure_savegame_variable = "east_mt_tamaranch_cave_3_chest",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 chest{
@@ -1301,7 +1301,7 @@ chest{
   treasure_name = "rupee",
   treasure_variant = 3,
   treasure_savegame_variable = "east_mt_tamaranch_cave_3_chest",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 chest{
@@ -1311,7 +1311,7 @@ chest{
   treasure_name = "rupee",
   treasure_variant = 3,
   treasure_savegame_variable = "east_mt_tamaranch_cave_3_chest",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 chest{
@@ -1321,7 +1321,7 @@ chest{
   treasure_name = "rupee",
   treasure_variant = 3,
   treasure_savegame_variable = "east_mt_tamaranch_cave_3_chest",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 tile{

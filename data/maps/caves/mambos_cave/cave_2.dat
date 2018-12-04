@@ -981,7 +981,7 @@ chest{
   x = 128,
   y = 165,
   treasure_savegame_variable = "mambos_cave_cave_2_enemy_chest",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 enemy{

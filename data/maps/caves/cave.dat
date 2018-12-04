@@ -584,7 +584,7 @@ chest{
   treasure_name = "rupee",
   treasure_variant = 6,
   treasure_savegame_variable = "unknown_cave_rupee",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 enemy{

@@ -1063,7 +1063,7 @@ custom_entity{
   width = 128,
   height = 112,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1074,7 +1074,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1085,7 +1085,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1096,7 +1096,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1107,7 +1107,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1118,7 +1118,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1129,7 +1129,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1140,7 +1140,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1151,7 +1151,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1162,7 +1162,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1173,7 +1173,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1184,7 +1184,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1195,7 +1195,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1206,7 +1206,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1217,7 +1217,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1228,7 +1228,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1239,7 +1239,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1250,7 +1250,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1261,7 +1261,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1272,7 +1272,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1283,7 +1283,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1294,7 +1294,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1305,7 +1305,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1316,7 +1316,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1327,7 +1327,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1338,7 +1338,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1349,7 +1349,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1360,7 +1360,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1371,7 +1371,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1382,7 +1382,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1393,7 +1393,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1404,7 +1404,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1415,7 +1415,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1426,7 +1426,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1437,7 +1437,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1448,7 +1448,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1459,7 +1459,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1470,7 +1470,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1481,7 +1481,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1492,7 +1492,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1503,7 +1503,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1514,7 +1514,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1525,7 +1525,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1536,7 +1536,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1547,7 +1547,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1558,7 +1558,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1569,7 +1569,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1580,7 +1580,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1591,7 +1591,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1602,7 +1602,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1613,7 +1613,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1624,7 +1624,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1635,7 +1635,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1646,7 +1646,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1657,7 +1657,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1668,7 +1668,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1679,7 +1679,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1690,7 +1690,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1701,7 +1701,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1712,7 +1712,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1723,7 +1723,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1734,7 +1734,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1745,7 +1745,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1756,7 +1756,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1767,7 +1767,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1778,7 +1778,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1789,7 +1789,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1800,7 +1800,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1811,7 +1811,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1822,7 +1822,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1833,7 +1833,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1844,7 +1844,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1855,7 +1855,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1866,7 +1866,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1877,7 +1877,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1888,7 +1888,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1899,7 +1899,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1910,7 +1910,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1921,7 +1921,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1932,7 +1932,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1943,7 +1943,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1954,7 +1954,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1965,7 +1965,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1976,7 +1976,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1987,7 +1987,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -1998,7 +1998,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -2009,7 +2009,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -2020,7 +2020,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -2031,7 +2031,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -2042,7 +2042,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -2053,7 +2053,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -2064,7 +2064,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -2075,7 +2075,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -2086,7 +2086,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -2097,7 +2097,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -2108,7 +2108,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -2119,7 +2119,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 
@@ -2130,7 +2130,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/non_diggable",
+  sprite = "entities/utils/non_diggable",
   model = "non_diggable",
 }
 

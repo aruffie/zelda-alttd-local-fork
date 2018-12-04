@@ -6773,7 +6773,7 @@ chest{
   layer = 0,
   x = 136,
   y = 589,
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 block{
@@ -7522,14 +7522,14 @@ chest{
   layer = 1,
   x = 56,
   y = 61,
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 chest{
   layer = 1,
   x = 1224,
   y = 61,
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 block{

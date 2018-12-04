@@ -23163,7 +23163,7 @@ custom_entity{
   width = 48,
   height = 48,
   direction = 0,
-  sprite = "entities/statue_pig",
+  sprite = "entities/statues/statue_pig",
   model = "statue_pig",
 }
 

@@ -4,5 +4,7 @@ animation{
   directions = {
     { x = 0, y = 0, frame_width = 32, frame_height = 32, origin_x = 8, origin_y = 16 },
     { x = 32, y = 0, frame_width = 32, frame_height = 32, origin_x = 8, origin_y = 16 },
+    { x = 32, y = 0, frame_width = 32, frame_height = 32, origin_x = 8, origin_y = 16 },
+    { x = 32, y = 0, frame_width = 32, frame_height = 32, origin_x = 8, origin_y = 16 },
   },
 }

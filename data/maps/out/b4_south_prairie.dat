@@ -14582,7 +14582,7 @@ chest{
   treasure_name = "rupee",
   treasure_variant = 4,
   treasure_savegame_variable = "south_prairie_chest_1",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 destructible{
@@ -17540,7 +17540,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/beach_debris_3",
+  sprite = "entities/decorations/beach_debris_3",
 }
 
 custom_entity{
@@ -17550,7 +17550,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/beach_debris_3",
+  sprite = "entities/decorations/beach_debris_3",
 }
 
 custom_entity{
@@ -17560,7 +17560,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/beach_debris_3",
+  sprite = "entities/decorations/beach_debris_3",
 }
 
 custom_entity{
@@ -17570,7 +17570,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/beach_debris_3",
+  sprite = "entities/decorations/beach_debris_3",
 }
 
 custom_entity{
@@ -17580,7 +17580,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/beach_debris_3",
+  sprite = "entities/decorations/beach_debris_3",
 }
 
 custom_entity{
@@ -17590,7 +17590,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/beach_debris_3",
+  sprite = "entities/decorations/beach_debris_3",
 }
 
 custom_entity{
@@ -17600,7 +17600,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/beach_debris_4",
+  sprite = "entities/decorations/beach_debris_4",
   model = "obstacle",
 }
 
@@ -17693,7 +17693,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/beach_debris_4",
+  sprite = "entities/decorations/beach_debris_4",
   model = "obstacle",
 }
 
@@ -17704,7 +17704,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/beach_debris_4",
+  sprite = "entities/decorations/beach_debris_4",
   model = "obstacle",
 }
 

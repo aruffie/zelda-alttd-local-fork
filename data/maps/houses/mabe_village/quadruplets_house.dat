@@ -1617,7 +1617,7 @@ chest{
   x = 408,
   y = 165,
   treasure_name = "magnifying_lens",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 tile{

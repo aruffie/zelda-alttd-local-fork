@@ -1854,7 +1854,7 @@ destructible{
   x = 616,
   y = 317,
   treasure_name = "random",
-  sprite = "entities/blue_cristal",
+  sprite = "entities/destructibles/crystal_blue",
   destruction_sound = "stone",
   weight = -1,
   can_be_cut = true,
@@ -1867,7 +1867,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/green_cristal",
+  sprite = "entities/destructibles/crystal_green",
   model = "green_crystal",
 }
 

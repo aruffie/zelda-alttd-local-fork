@@ -19829,7 +19829,7 @@ chest{
   layer = 0,
   x = 920,
   y = 605,
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 custom_entity{
@@ -19865,14 +19865,14 @@ chest{
   layer = 0,
   x = 1392,
   y = 317,
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 chest{
   layer = 0,
   x = 2376,
   y = 317,
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 block{
@@ -20019,7 +20019,7 @@ chest{
   layer = 0,
   x = 1784,
   y = 1677,
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 block{
@@ -21096,7 +21096,7 @@ chest{
   layer = 0,
   x = 1064,
   y = 1373,
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 block{
@@ -21145,7 +21145,7 @@ chest{
   layer = 0,
   x = 2504,
   y = 1885,
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 pickable{

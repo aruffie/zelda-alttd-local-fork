@@ -1356,7 +1356,7 @@ switch{
   x = 576,
   y = 192,
   subtype = "walkable",
-  sprite = "entities/switch",
+  sprite = "entities/switchs/switch",
   sound = "switch",
   needs_block = false,
   inactivate_when_leaving = false,

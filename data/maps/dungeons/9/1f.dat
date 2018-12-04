@@ -11209,7 +11209,7 @@ chest{
   y = 853,
   treasure_name = "beak_of_stone",
   treasure_savegame_variable = "dungeon_9_beak_of_stone",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 destination{
@@ -11228,7 +11228,7 @@ chest{
   y = 901,
   treasure_name = "compass",
   treasure_savegame_variable = "dungeon_9_compass",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 npc{
@@ -11354,7 +11354,7 @@ chest{
   y = 1197,
   treasure_name = "small_key",
   treasure_savegame_variable = "dungeon_9_small_key_2",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 door{
@@ -11494,7 +11494,7 @@ switch{
   x = 688,
   y = 560,
   subtype = "walkable",
-  sprite = "entities/switch",
+  sprite = "entities/switchs/switch",
   sound = "switch",
   needs_block = false,
   inactivate_when_leaving = false,
@@ -11520,7 +11520,7 @@ chest{
   y = 333,
   treasure_name = "map",
   treasure_savegame_variable = "dungeon_9_map",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 pickable{
@@ -14116,7 +14116,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -14748,7 +14748,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -14765,7 +14765,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -14782,7 +14782,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -14799,7 +14799,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -14816,7 +14816,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -14833,7 +14833,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -14850,7 +14850,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -14867,7 +14867,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -14884,7 +14884,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -14901,7 +14901,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -14918,7 +14918,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -14935,7 +14935,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -14952,7 +14952,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -14969,7 +14969,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -14986,7 +14986,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15003,7 +15003,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15020,7 +15020,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15037,7 +15037,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15054,7 +15054,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15071,7 +15071,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15088,7 +15088,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15105,7 +15105,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15122,7 +15122,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15139,7 +15139,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15156,7 +15156,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15173,7 +15173,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15190,7 +15190,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15207,7 +15207,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15224,7 +15224,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15241,7 +15241,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15258,7 +15258,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15275,7 +15275,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15292,7 +15292,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15309,7 +15309,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15326,7 +15326,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15343,7 +15343,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15360,7 +15360,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15377,7 +15377,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15394,7 +15394,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15411,7 +15411,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15428,7 +15428,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15445,7 +15445,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15462,7 +15462,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15479,7 +15479,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15496,7 +15496,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15513,7 +15513,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15530,7 +15530,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15547,7 +15547,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15564,7 +15564,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15581,7 +15581,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15598,7 +15598,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15615,7 +15615,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15632,7 +15632,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15649,7 +15649,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15666,7 +15666,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15683,7 +15683,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15700,7 +15700,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15717,7 +15717,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15734,7 +15734,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15751,7 +15751,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15768,7 +15768,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15785,7 +15785,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15802,7 +15802,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15819,7 +15819,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15836,7 +15836,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15853,7 +15853,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -15870,7 +15870,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -15887,7 +15887,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -15904,7 +15904,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -15921,7 +15921,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -15938,7 +15938,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -15955,7 +15955,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -15972,7 +15972,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -15989,7 +15989,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -16006,7 +16006,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -16023,7 +16023,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -16040,7 +16040,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -16057,7 +16057,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -16074,7 +16074,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -16091,7 +16091,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -16108,7 +16108,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -16125,7 +16125,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16142,7 +16142,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16159,7 +16159,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16176,7 +16176,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16193,7 +16193,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16210,7 +16210,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16227,7 +16227,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16244,7 +16244,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16261,7 +16261,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16278,7 +16278,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16295,7 +16295,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16312,7 +16312,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16329,7 +16329,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16346,7 +16346,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16363,7 +16363,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16380,7 +16380,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16397,7 +16397,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16414,7 +16414,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16431,7 +16431,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16448,7 +16448,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16465,7 +16465,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16482,7 +16482,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16499,7 +16499,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16516,7 +16516,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16533,7 +16533,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16550,7 +16550,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16567,7 +16567,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16584,7 +16584,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16601,7 +16601,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16618,7 +16618,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16635,7 +16635,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16652,7 +16652,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16669,7 +16669,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16686,7 +16686,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16703,7 +16703,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16720,7 +16720,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16737,7 +16737,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16754,7 +16754,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16771,7 +16771,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16788,7 +16788,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16805,7 +16805,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16822,7 +16822,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16839,7 +16839,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16856,7 +16856,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16873,7 +16873,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16890,7 +16890,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16907,7 +16907,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16924,7 +16924,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16941,7 +16941,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16958,7 +16958,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16975,7 +16975,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16992,7 +16992,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17009,7 +17009,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17026,7 +17026,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17043,7 +17043,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17060,7 +17060,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17077,7 +17077,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17094,7 +17094,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17120,7 +17120,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17137,7 +17137,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17154,7 +17154,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17171,7 +17171,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17188,7 +17188,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17205,7 +17205,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17222,7 +17222,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17239,7 +17239,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17256,7 +17256,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17273,7 +17273,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17290,7 +17290,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17307,7 +17307,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17324,7 +17324,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17341,7 +17341,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17358,7 +17358,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17375,7 +17375,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17392,7 +17392,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17409,7 +17409,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17426,7 +17426,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17443,7 +17443,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17460,7 +17460,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17477,7 +17477,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17494,7 +17494,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17511,7 +17511,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17528,7 +17528,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17545,7 +17545,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17562,7 +17562,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17579,7 +17579,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17596,7 +17596,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17613,7 +17613,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17630,7 +17630,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17647,7 +17647,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17664,7 +17664,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17681,7 +17681,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17698,7 +17698,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17715,7 +17715,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17732,7 +17732,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17749,7 +17749,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17766,7 +17766,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17783,7 +17783,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17800,7 +17800,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17817,7 +17817,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17834,7 +17834,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17851,7 +17851,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17868,7 +17868,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17894,7 +17894,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -17911,7 +17911,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -17928,7 +17928,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -17954,7 +17954,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -17971,7 +17971,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -17988,7 +17988,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -18005,7 +18005,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -18022,7 +18022,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -18039,7 +18039,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -18056,7 +18056,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -18073,7 +18073,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -18090,7 +18090,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -18107,7 +18107,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -18124,7 +18124,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -18141,7 +18141,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18158,7 +18158,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18175,7 +18175,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18192,7 +18192,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18209,7 +18209,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18226,7 +18226,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18243,7 +18243,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18260,7 +18260,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18277,7 +18277,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18294,7 +18294,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18311,7 +18311,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18328,7 +18328,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18345,7 +18345,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18362,7 +18362,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18379,7 +18379,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18396,7 +18396,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18413,7 +18413,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18430,7 +18430,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18447,7 +18447,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18464,7 +18464,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18481,7 +18481,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18498,7 +18498,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18515,7 +18515,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18532,7 +18532,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18549,7 +18549,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18566,7 +18566,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18583,7 +18583,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18600,7 +18600,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18617,7 +18617,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18634,7 +18634,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18651,7 +18651,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18668,7 +18668,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18685,7 +18685,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18702,7 +18702,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18728,7 +18728,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18745,7 +18745,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18762,7 +18762,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18779,7 +18779,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18796,7 +18796,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18813,7 +18813,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18830,7 +18830,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18847,7 +18847,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18864,7 +18864,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18881,7 +18881,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18898,7 +18898,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18915,7 +18915,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18932,7 +18932,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18949,7 +18949,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18966,7 +18966,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18983,7 +18983,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -19000,7 +19000,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -19017,7 +19017,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -19034,7 +19034,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -19051,7 +19051,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -19068,7 +19068,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -19085,7 +19085,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -19111,7 +19111,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19128,7 +19128,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19145,7 +19145,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19162,7 +19162,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19179,7 +19179,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19196,7 +19196,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19213,7 +19213,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19230,7 +19230,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19247,7 +19247,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19264,7 +19264,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19281,7 +19281,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19298,7 +19298,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19315,7 +19315,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19332,7 +19332,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19349,7 +19349,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19366,7 +19366,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19383,7 +19383,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19400,7 +19400,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19417,7 +19417,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19434,7 +19434,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -20731,7 +20731,7 @@ chest{
   y = 53,
   treasure_name = "boss_key",
   treasure_savegame_variable = "dungeon_9_boss_key",
-  sprite = "entities/big_chest",
+  sprite = "entities/chests/chest_big",
 }
 
 jumper{

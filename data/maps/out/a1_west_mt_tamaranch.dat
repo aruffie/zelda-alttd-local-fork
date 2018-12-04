@@ -12838,7 +12838,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/bubble_swamp",
+  sprite = "entities/decorations/bubble_swamp",
   model = "bubble",
 }
 
@@ -12850,7 +12850,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/bubble_swamp",
+  sprite = "entities/decorations/bubble_swamp",
   model = "bubble",
 }
 
@@ -12862,7 +12862,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/bubble_swamp",
+  sprite = "entities/decorations/bubble_swamp",
   model = "bubble",
 }
 
@@ -12874,7 +12874,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/bubble_swamp",
+  sprite = "entities/decorations/bubble_swamp",
   model = "bubble",
 }
 
@@ -12886,7 +12886,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/bubble_swamp",
+  sprite = "entities/decorations/bubble_swamp",
   model = "bubble",
 }
 
@@ -12898,7 +12898,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/bubble_swamp",
+  sprite = "entities/decorations/bubble_swamp",
   model = "bubble",
 }
 
@@ -12910,7 +12910,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/bubble_swamp",
+  sprite = "entities/decorations/bubble_swamp",
   model = "bubble",
 }
 
@@ -12922,7 +12922,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/bubble_swamp",
+  sprite = "entities/decorations/bubble_swamp",
   model = "bubble",
 }
 

@@ -739,7 +739,7 @@ chest{
   y = 573,
   treasure_name = "small_key",
   treasure_savegame_variable = "dungeon_6_small_key_2",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 enemy{
@@ -18843,7 +18843,7 @@ chest{
   y = 845,
   treasure_name = "map",
   treasure_savegame_variable = "dungeon_6_map",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 crystal{
@@ -19328,7 +19328,7 @@ chest{
   treasure_name = "rupee",
   treasure_variant = 4,
   treasure_savegame_variable = "dungeon_6_rupee_1",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 custom_entity{
@@ -19418,7 +19418,7 @@ chest{
   y = 557,
   treasure_name = "beak_of_stone",
   treasure_savegame_variable = "dungeon_6_beak_of_stone",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 chest{
@@ -19428,7 +19428,7 @@ chest{
   y = 397,
   treasure_name = "compass",
   treasure_savegame_variable = "dungeon_6_compass",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 custom_entity{
@@ -21688,7 +21688,7 @@ switch{
   x = 368,
   y = 816,
   subtype = "walkable",
-  sprite = "entities/switch",
+  sprite = "entities/switchs/switch",
   sound = "switch",
   needs_block = false,
   inactivate_when_leaving = false,
@@ -21782,7 +21782,7 @@ chest{
   treasure_name = "rupee",
   treasure_variant = 5,
   treasure_savegame_variable = "dungeon_6_rupee_2",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 door{
@@ -27239,7 +27239,7 @@ chest{
   treasure_name = "power_bracelet",
   treasure_variant = 2,
   treasure_savegame_variable = "dungeon_6_power_bracelet",
-  sprite = "entities/big_chest",
+  sprite = "entities/chests/chest_big",
 }
 
 crystal_block{
@@ -27990,7 +27990,7 @@ chest{
   treasure_name = "rupee",
   treasure_variant = 5,
   treasure_savegame_variable = "dungeon_6_rupee_3",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 chest{
@@ -28000,7 +28000,7 @@ chest{
   y = 1453,
   treasure_name = "drug",
   treasure_savegame_variable = "dungeon_6_drug",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 jumper{
@@ -28061,7 +28061,7 @@ chest{
   treasure_name = "rupee",
   treasure_variant = 5,
   treasure_savegame_variable = "dungeon_6_rupee_4",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 jumper{
@@ -28131,7 +28131,7 @@ chest{
   y = 349,
   treasure_name = "boss_key",
   treasure_savegame_variable = "dungeon_6_boss_key",
-  sprite = "entities/big_chest",
+  sprite = "entities/chests/chest_big",
 }
 
 custom_entity{
