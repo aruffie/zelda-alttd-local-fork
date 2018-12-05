@@ -55,7 +55,7 @@ function npc_meta:create_symbol_exclamation(x, y, layer)
   local x, y, layer = self:get_position()
   audio_manager:play_sound("menus/menu_select")
   local symbol = map:create_custom_entity({
-    sprite = "entities/symbol_exclamation",
+    sprite = "entities/symbols/exclamation",
     x = x - 16,
     y = y - 16,
     width = 16,
@@ -75,7 +75,7 @@ function npc_meta:create_symbol_interrogation()
   local x, y, layer = self:get_position()
   audio_manager:play_sound("menus/menu_select")
   local symbol = map:create_custom_entity({
-    sprite = "entities/symbol_interrogation",
+    sprite = "entities/symbols/interrogation",
     x = x - 16,
     y = y - 16,
     width = 16,
@@ -94,7 +94,7 @@ function npc_meta:create_symbol_collapse()
   local map = self:get_map()
   local x, y, layer = self:get_position()
   local symbol = map:create_custom_entity({
-    sprite = "entities/symbol_collapse",
+    sprite = "entities/symbols/collapse",
     x = x - 16,
     y = y - 16,
     width = 16,

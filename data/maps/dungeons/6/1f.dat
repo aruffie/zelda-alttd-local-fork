@@ -24322,7 +24322,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/horse_head",
+  sprite = "entities/objects/horse_head",
 }
 
 custom_entity{
@@ -24333,7 +24333,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "entities/horse_head",
+  sprite = "entities/objects/horse_head",
 }
 
 custom_entity{
@@ -24344,7 +24344,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "entities/horse_head",
+  sprite = "entities/objects/horse_head",
 }
 
 custom_entity{
@@ -24355,7 +24355,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/horse_head",
+  sprite = "entities/objects/horse_head",
 }
 
 enemy{

@@ -314,7 +314,7 @@ function hero_meta:create_symbol_exclamation()
   local x, y, layer = self:get_position()
   audio_manager:play_sound("menus/menu_select")
   local symbol = map:create_custom_entity({
-    sprite = "entities/symbol_exclamation",
+    sprite = "entities/symbols/exclamation",
     x = x - 16,
     y = y - 16,
     width = 16,
@@ -334,7 +334,7 @@ function hero_meta:create_symbol_interrogation()
   local x, y, layer = self:get_position()
   audio_manager:play_sound("menus/menu_select")
   local symbol = map:create_custom_entity({
-    sprite = "entities/symbol_interrogation",
+    sprite = "entities/symbols/interrogation",
     x = x,
     y = y,
     width = 16,
@@ -354,7 +354,7 @@ function hero_meta:create_symbol_collapse()
   local width, height = self:get_sprite():get_size()
   local x, y, layer = self:get_position()
   local symbol = map:create_custom_entity({
-    sprite = "entities/symbol_collapse",
+    sprite = "entities/symbols/collapse",
     x = x,
     y = y - height / 2,
     width = 16,

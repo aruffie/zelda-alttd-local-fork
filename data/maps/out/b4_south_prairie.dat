@@ -14718,7 +14718,7 @@ npc{
   },
   direction = 3,
   subtype = 0,
-  sprite = "entities/sign",
+  sprite = "entities/destructibles/sign",
 }
 
 npc{
@@ -14734,7 +14734,7 @@ npc{
   },
   direction = 3,
   subtype = 0,
-  sprite = "entities/sign",
+  sprite = "entities/destructibles/sign",
 }
 
 destructible{
@@ -14770,7 +14770,7 @@ npc{
   },
   direction = 3,
   subtype = 0,
-  sprite = "entities/sign",
+  sprite = "entities/destructibles/sign",
 }
 
 npc{
@@ -14786,7 +14786,7 @@ npc{
   },
   direction = 3,
   subtype = 0,
-  sprite = "entities/sign",
+  sprite = "entities/destructibles/sign",
 }
 
 npc{
@@ -14802,7 +14802,7 @@ npc{
   },
   direction = 3,
   subtype = 0,
-  sprite = "entities/sign",
+  sprite = "entities/destructibles/sign",
 }
 
 npc{
@@ -14818,7 +14818,7 @@ npc{
   },
   direction = 3,
   subtype = 0,
-  sprite = "entities/sign",
+  sprite = "entities/destructibles/sign",
 }
 
 npc{
@@ -14834,7 +14834,7 @@ npc{
   },
   direction = 3,
   subtype = 0,
-  sprite = "entities/sign",
+  sprite = "entities/destructibles/sign",
 }
 
 npc{
@@ -14850,7 +14850,7 @@ npc{
   },
   direction = 3,
   subtype = 0,
-  sprite = "entities/sign",
+  sprite = "entities/destructibles/sign",
 }
 
 npc{
@@ -14866,7 +14866,7 @@ npc{
   },
   direction = 3,
   subtype = 0,
-  sprite = "entities/sign",
+  sprite = "entities/destructibles/sign",
 }
 
 npc{
@@ -14882,7 +14882,7 @@ npc{
   },
   direction = 3,
   subtype = 0,
-  sprite = "entities/sign",
+  sprite = "entities/destructibles/sign",
 }
 
 npc{
@@ -14898,7 +14898,7 @@ npc{
   },
   direction = 3,
   subtype = 0,
-  sprite = "entities/sign",
+  sprite = "entities/destructibles/sign",
 }
 
 destructible{
@@ -14924,7 +14924,7 @@ npc{
   },
   direction = 3,
   subtype = 0,
-  sprite = "entities/sign",
+  sprite = "entities/destructibles/sign",
 }
 
 destructible{
@@ -14950,7 +14950,7 @@ npc{
   },
   direction = 3,
   subtype = 0,
-  sprite = "entities/sign",
+  sprite = "entities/destructibles/sign",
 }
 
 npc{
@@ -14966,7 +14966,7 @@ npc{
   },
   direction = 3,
   subtype = 0,
-  sprite = "entities/sign",
+  sprite = "entities/destructibles/sign",
 }
 
 npc{
@@ -14982,7 +14982,7 @@ npc{
   },
   direction = 3,
   subtype = 0,
-  sprite = "entities/sign",
+  sprite = "entities/destructibles/sign",
   behavior = "dialog#maps.out.south_prairie.sign_2",
 }
 
@@ -20343,7 +20343,7 @@ npc{
   },
   direction = 3,
   subtype = 0,
-  sprite = "entities/sign",
+  sprite = "entities/destructibles/sign",
 }
 
 npc{

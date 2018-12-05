@@ -9370,7 +9370,7 @@ npc{
   y = 685,
   direction = 3,
   subtype = 0,
-  sprite = "entities/sign",
+  sprite = "entities/destructibles/sign",
   behavior = "dialog#island.beach_board",
 }
 
@@ -9497,7 +9497,7 @@ npc{
   y = 997,
   direction = 3,
   subtype = 0,
-  sprite = "entities/sign",
+  sprite = "entities/destructibles/sign",
   behavior = "dialog#island.south_sign",
 }
 
@@ -16625,7 +16625,7 @@ npc{
   y = 253,
   direction = 3,
   subtype = 0,
-  sprite = "entities/sign",
+  sprite = "entities/destructibles/sign",
   behavior = "dialog#island.dontgo_board",
 }
 
@@ -16913,7 +16913,7 @@ npc{
   y = 101,
   direction = 3,
   subtype = 0,
-  sprite = "entities/sign",
+  sprite = "entities/destructibles/sign",
   behavior = "dialog#island.grump_tower_sign",
 }
 
@@ -16978,7 +16978,7 @@ npc{
   y = 525,
   direction = 3,
   subtype = 0,
-  sprite = "entities/sign",
+  sprite = "entities/destructibles/sign",
   behavior = "dialog#island.zoo_sign",
 }
 

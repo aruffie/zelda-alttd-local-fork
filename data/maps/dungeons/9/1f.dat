@@ -13979,7 +13979,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/eye_switch_red",
+  sprite = "entities/switchs/switch_eye_red",
   model = "eye_switch",
 }
 
@@ -19451,7 +19451,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/eye_switch_red",
+  sprite = "entities/switchs/switch_eye_red",
   model = "eye_switch",
 }
 
@@ -19468,7 +19468,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/eye_switch_blue",
+  sprite = "entities/switchs/switch_eye_blue",
   model = "eye_switch",
 }
 
@@ -19485,7 +19485,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/eye_switch_blue",
+  sprite = "entities/switchs/switch_eye_blue",
   model = "eye_switch",
 }
 
@@ -19502,7 +19502,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/eye_switch_blue",
+  sprite = "entities/switchs/switch_eye_blue",
   model = "eye_switch",
 }
 
@@ -19519,7 +19519,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/eye_switch_blue",
+  sprite = "entities/switchs/switch_eye_blue",
   model = "eye_switch",
 }
 
@@ -19536,7 +19536,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/eye_switch_blue",
+  sprite = "entities/switchs/switch_eye_blue",
   model = "eye_switch",
 }
 
@@ -19553,7 +19553,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/eye_switch_blue",
+  sprite = "entities/switchs/switch_eye_blue",
   model = "eye_switch",
 }
 
@@ -19570,7 +19570,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/eye_switch_blue",
+  sprite = "entities/switchs/switch_eye_blue",
   model = "eye_switch",
 }
 
@@ -19587,7 +19587,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/eye_switch_red",
+  sprite = "entities/switchs/switch_eye_red",
   model = "eye_switch",
 }
 
@@ -19604,7 +19604,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/eye_switch_red",
+  sprite = "entities/switchs/switch_eye_red",
   model = "eye_switch",
 }
 
@@ -19621,7 +19621,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/eye_switch_red",
+  sprite = "entities/switchs/switch_eye_red",
   model = "eye_switch",
 }
 
@@ -19638,7 +19638,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/eye_switch_red",
+  sprite = "entities/switchs/switch_eye_red",
   model = "eye_switch",
 }
 
@@ -19655,7 +19655,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/eye_switch_red",
+  sprite = "entities/switchs/switch_eye_red",
   model = "eye_switch",
 }
 
@@ -19672,7 +19672,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/eye_switch_blue",
+  sprite = "entities/switchs/switch_eye_blue",
   model = "eye_switch",
 }
 
@@ -19689,7 +19689,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/eye_switch_blue",
+  sprite = "entities/switchs/switch_eye_blue",
   model = "eye_switch",
 }
 
@@ -19706,7 +19706,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/eye_switch_yellow",
+  sprite = "entities/switchs/switch_eye_yellow",
   model = "eye_switch",
 }
 

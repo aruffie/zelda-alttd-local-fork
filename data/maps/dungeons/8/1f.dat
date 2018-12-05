@@ -19839,7 +19839,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/vacuum_cleaner",
+  sprite = "entities/objects/vacuum_cleaner",
   model = "vacuum_cleaner",
 }
 

@@ -14254,7 +14254,7 @@ npc{
   },
   direction = 3,
   subtype = 0,
-  sprite = "entities/sign",
+  sprite = "entities/destructibles/sign",
 }
 
 destination{
