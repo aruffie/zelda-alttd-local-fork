@@ -18687,7 +18687,7 @@ destination{
   name = "witch_2_A",
   layer = 0,
   x = 352,
-  y = 477,
+  y = 461,
   direction = 3,
 }
 
@@ -18784,9 +18784,9 @@ dynamic_tile{
 sensor{
   name = "open_house_witch_1_A_door_sensor",
   layer = 0,
-  x = 352,
+  x = 344,
   y = 461,
-  width = 16,
+  width = 32,
   height = 16,
 }
 
@@ -24967,7 +24967,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "entities/insects/butterfly_2",
+  sprite = "entities/insects/butterfly_yellow",
   model = "butterfly",
 }
 
@@ -24979,7 +24979,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "entities/insects/butterfly_1",
+  sprite = "entities/insects/butterfly_blue",
   model = "butterfly",
 }
 
@@ -24991,7 +24991,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "entities/insects/butterfly_3",
+  sprite = "entities/insects/butterfly_red",
   model = "butterfly",
 }
 
@@ -25003,7 +25003,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "entities/insects/butterfly_1",
+  sprite = "entities/insects/butterfly_blue",
   model = "butterfly",
 }
 
@@ -25015,7 +25015,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "entities/insects/butterfly_3",
+  sprite = "entities/insects/butterfly_red",
   model = "butterfly",
 }
 
@@ -25027,7 +25027,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "entities/insects/butterfly_2",
+  sprite = "entities/insects/butterfly_yellow",
   model = "butterfly",
 }
 
@@ -25259,7 +25259,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "entities/insects/butterfly_4",
+  sprite = "entities/insects/butterfly_green",
   model = "butterfly",
 }
 
@@ -25271,7 +25271,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "entities/insects/butterfly_4",
+  sprite = "entities/insects/butterfly_green",
   model = "butterfly",
 }
 

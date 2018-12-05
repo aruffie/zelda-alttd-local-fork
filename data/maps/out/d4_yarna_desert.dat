@@ -11945,7 +11945,7 @@ npc{
   y = 61,
   direction = 3,
   subtype = 1,
-  sprite = "entities/owl_blue",
+  sprite = "npc/statues/owl",
   behavior = "dialog#maps.out.south_prairie.owl_statue_1",
 }
 
@@ -13993,7 +13993,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "npc/butterfly_yellow",
+  sprite = "entities/insects/butterfly_yellow",
   model = "butterfly",
 }
 
@@ -14005,7 +14005,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "npc/butterfly_red",
+  sprite = "entities/insects/butterfly_red",
   model = "butterfly",
 }
 
@@ -14017,7 +14017,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "npc/butterfly_blue",
+  sprite = "entities/insects/butterfly_blue",
   model = "butterfly",
 }
 
@@ -14029,7 +14029,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "npc/butterfly_yellow",
+  sprite = "entities/insects/butterfly_yellow",
   model = "butterfly",
 }
 
@@ -14041,7 +14041,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "npc/butterfly_red",
+  sprite = "entities/insects/butterfly_red",
   model = "butterfly",
 }
 
@@ -14053,7 +14053,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "npc/butterfly_blue",
+  sprite = "entities/insects/butterfly_blue",
   model = "butterfly",
 }
 
@@ -14065,7 +14065,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "npc/butterfly_yellow",
+  sprite = "entities/insects/butterfly_yellow",
   model = "butterfly",
 }
 
@@ -14077,7 +14077,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "npc/butterfly_red",
+  sprite = "entities/insects/butterfly_red",
   model = "butterfly",
 }
 
@@ -14089,7 +14089,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "npc/butterfly_blue",
+  sprite = "entities/insects/butterfly_blue",
   model = "butterfly",
 }
 
@@ -14101,7 +14101,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "npc/butterfly_red",
+  sprite = "entities/insects/butterfly_red",
   model = "butterfly",
 }
 

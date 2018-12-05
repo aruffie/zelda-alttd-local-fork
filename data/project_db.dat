@@ -462,10 +462,10 @@ sprite{ id = "entities/hook_bridge_deployed", description = "hook_bridge_deploye
 sprite{ id = "entities/hookshot", description = "Hookshot" }
 sprite{ id = "entities/house_dungeon_7", description = "House dungeon 7" }
 sprite{ id = "entities/insects/bee", description = "Bee" }
-sprite{ id = "entities/insects/butterfly_1", description = "Butterfly 1" }
-sprite{ id = "entities/insects/butterfly_2", description = "Butterfly 2" }
-sprite{ id = "entities/insects/butterfly_3", description = "Butterfly 3" }
-sprite{ id = "entities/insects/butterfly_4", description = "Butterfly 4" }
+sprite{ id = "entities/insects/butterfly_blue", description = "Butterfly 1" }
+sprite{ id = "entities/insects/butterfly_green", description = "Butterfly 4" }
+sprite{ id = "entities/insects/butterfly_red", description = "Butterfly 3" }
+sprite{ id = "entities/insects/butterfly_yellow", description = "Butterfly 2" }
 sprite{ id = "entities/insects/mosquito", description = "Mosquito" }
 sprite{ id = "entities/items", description = "Items" }
 sprite{ id = "entities/keyhole_dungeon_4", description = "Keyhole dungeon 4" }

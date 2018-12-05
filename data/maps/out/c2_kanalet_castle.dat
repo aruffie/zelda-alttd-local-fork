@@ -9450,7 +9450,7 @@ destructible{
   x = 608,
   y = 45,
   treasure_name = "random",
-  sprite = "entities/bush_grass",
+  sprite = "entities/destructibles/bush_grass",
   destruction_sound = "bush",
   weight = 1,
   can_be_cut = true,
