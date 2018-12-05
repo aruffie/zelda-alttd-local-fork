@@ -20,11 +20,11 @@ local hud_config = {
   },
 
   -- Magic bar.
-  {
-    menu_script = "scripts/hud/magic_bar",
-    x = -104,
-    y = 27,
-  },
+  -- {
+  --   menu_script = "scripts/hud/magic_bar",
+  --   x = -104,
+  --   y = 27,
+  -- },
 
   -- Rupee counter.
   {
