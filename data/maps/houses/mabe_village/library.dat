@@ -493,7 +493,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "npc/books/book_2",
+  sprite = "npc/books/book_green",
 }
 
 custom_entity{
@@ -504,7 +504,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "npc/books/book_3",
+  sprite = "npc/books/book_yellow",
 }
 
 custom_entity{
@@ -515,7 +515,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "npc/books/book_4",
+  sprite = "npc/books/book_red",
 }
 
 custom_entity{
@@ -526,7 +526,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "npc/books/book_1",
+  sprite = "npc/books/book_blue",
 }
 
 custom_entity{
@@ -537,7 +537,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "npc/books/book_3",
+  sprite = "npc/books/book_yellow",
 }
 
 custom_entity{
@@ -548,7 +548,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "npc/books/book_4",
+  sprite = "npc/books/book_red",
 }
 
 custom_entity{
@@ -559,7 +559,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "npc/books/book_1",
+  sprite = "npc/books/book_blue",
 }
 
 custom_entity{
@@ -570,7 +570,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "npc/books/book_4",
+  sprite = "npc/books/book_red",
 }
 
 custom_entity{
@@ -581,7 +581,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "npc/books/book_2",
+  sprite = "npc/books/book_green",
 }
 
 npc{
@@ -709,7 +709,7 @@ npc{
   y = 61,
   direction = 3,
   subtype = 0,
-  sprite = "npc/books/book_4",
+  sprite = "npc/books/book_red",
 }
 
 tile{

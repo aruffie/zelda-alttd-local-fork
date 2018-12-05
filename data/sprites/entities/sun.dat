@@ -1,0 +1,6 @@
+animation{
+  name = "ff",
+  src_image = "",
+  directions = {
+  },
+}

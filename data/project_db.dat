@@ -383,6 +383,7 @@ sprite{ id = "entities/crystal", description = "Crystal" }
 sprite{ id = "entities/crystal_block", description = "Crystal block" }
 sprite{ id = "entities/decorations/bubble_swamp", description = "Bubble swamp" }
 sprite{ id = "entities/decorations/fire", description = "Fire" }
+sprite{ id = "entities/decorations/sun", description = "Sun" }
 sprite{ id = "entities/destructibles/block_ice", description = "Block ice" }
 sprite{ id = "entities/destructibles/bush", description = "Bush" }
 sprite{ id = "entities/destructibles/bush_grass", description = "Bush grass" }
@@ -540,6 +541,7 @@ sprite{ id = "entities/statues/statue_darknut", description = "Statue darknut" }
 sprite{ id = "entities/statues/statue_koopa", description = "Statue koopa" }
 sprite{ id = "entities/statues/statue_pig", description = "Statue pig" }
 sprite{ id = "entities/stone_small_brown", description = "Stone small brown" }
+sprite{ id = "entities/sun", description = "Sun" }
 sprite{ id = "entities/swell", description = "Swell" }
 sprite{ id = "entities/switchs/switch", description = "Switch" }
 sprite{ id = "entities/switchs/switch_eye_blue", description = "Switch eye blue" }
@@ -677,10 +679,10 @@ sprite{ id = "npc/animals/small_bowwow", description = "Small bowwow" }
 sprite{ id = "npc/animals/teddy", description = "Teddy" }
 sprite{ id = "npc/animals/walrus", description = "Walrus" }
 sprite{ id = "npc/animals/wart", description = "Wart" }
-sprite{ id = "npc/books/book_1", description = "Book 1" }
-sprite{ id = "npc/books/book_2", description = "Book 2" }
-sprite{ id = "npc/books/book_3", description = "Book 3" }
-sprite{ id = "npc/books/book_4", description = "Book 4" }
+sprite{ id = "npc/books/book_blue", description = "Book blue" }
+sprite{ id = "npc/books/book_green", description = "Book green" }
+sprite{ id = "npc/books/book_red", description = "Book red" }
+sprite{ id = "npc/books/book_yellow", description = "Book yellow" }
 sprite{ id = "npc/others/fairy", description = "Fairy" }
 sprite{ id = "npc/others/goriya", description = "Goriya" }
 sprite{ id = "npc/others/mad_bat", description = "Mad bat" }
