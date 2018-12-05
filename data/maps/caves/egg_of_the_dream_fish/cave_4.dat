@@ -620,7 +620,7 @@ destructible{
   layer = 0,
   x = 224,
   y = 85,
-  sprite = "entities/skull_white",
+  sprite = "entities/destructibles/skull_white",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -630,7 +630,7 @@ destructible{
   layer = 0,
   x = 224,
   y = 101,
-  sprite = "entities/skull_white",
+  sprite = "entities/destructibles/skull_white",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -640,7 +640,7 @@ destructible{
   layer = 0,
   x = 240,
   y = 101,
-  sprite = "entities/skull_white",
+  sprite = "entities/destructibles/skull_white",
   destruction_sound = "stone",
   weight = 1,
 }

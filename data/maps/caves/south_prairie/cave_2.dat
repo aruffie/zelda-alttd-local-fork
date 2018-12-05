@@ -550,7 +550,7 @@ destructible{
   layer = 0,
   x = 520,
   y = 149,
-  sprite = "entities/skull_green",
+  sprite = "entities/destructibles/skull_green",
   destruction_sound = "stone",
   weight = 1,
 }

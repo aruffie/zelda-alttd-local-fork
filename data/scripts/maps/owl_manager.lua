@@ -20,7 +20,7 @@ function owl_manager:appear(map, step, callback)
       height = 8,
       direction = 0,
       layer = l_owl ,
-      sprite= "entities/shadows/owl"
+      sprite ="entities/shadows/owl"
     }
     map:start_coroutine(function()
       local options = {

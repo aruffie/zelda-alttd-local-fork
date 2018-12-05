@@ -2417,7 +2417,7 @@ destructible{
   layer = 0,
   x = 832,
   y = 133,
-  sprite = "entities/skull_green",
+  sprite = "entities/destructibles/skull_green",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -2426,7 +2426,7 @@ destructible{
   layer = 0,
   x = 512,
   y = 101,
-  sprite = "entities/skull_green",
+  sprite = "entities/destructibles/skull_green",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -2435,7 +2435,7 @@ destructible{
   layer = 0,
   x = 448,
   y = 149,
-  sprite = "entities/skull_green",
+  sprite = "entities/destructibles/skull_green",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -2444,7 +2444,7 @@ destructible{
   layer = 0,
   x = 400,
   y = 357,
-  sprite = "entities/skull_green",
+  sprite = "entities/destructibles/skull_green",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -2453,7 +2453,7 @@ destructible{
   layer = 0,
   x = 544,
   y = 373,
-  sprite = "entities/skull_green",
+  sprite = "entities/destructibles/skull_green",
   destruction_sound = "stone",
   weight = 1,
 }

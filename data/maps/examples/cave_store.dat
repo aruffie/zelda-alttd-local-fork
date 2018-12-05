@@ -1813,7 +1813,7 @@ destructible{
   layer = 0,
   x = 592,
   y = 317,
-  sprite = "entities/skull_white",
+  sprite = "entities/destructibles/skull_white",
   destruction_sound = "stone",
   weight = 1,
 }

@@ -1,6 +1,6 @@
 animation{
   name = "normal",
-  src_image = "entities/notes.png",
+  src_image = "entities/symbols/notes.png",
   frame_delay = 120,
   frame_to_loop_on = 0,
   directions = {

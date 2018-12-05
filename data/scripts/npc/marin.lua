@@ -30,7 +30,7 @@ return function(marin)
       width = 24,
       height = 32,
       direction = 0,
-      sprite = "entities/notes"
+      sprite = "entities/symbols/notes"
     }
     marin_notes_2 = map:create_custom_entity{
       x = x,
@@ -39,7 +39,7 @@ return function(marin)
       width = 24,
       height = 32,
       direction = 2,
-      sprite = "entities/notes"
+      sprite = "entities/symbols/notes"
     }
     marin:get_sprite():set_animation("singing")
     
@@ -87,7 +87,7 @@ return function(marin)
         width = 24,
         height = 32,
         direction = 0,
-        sprite = "entities/notes"
+        sprite = "entities/symbols/notes"
       }
       local hero_notes_2 = map:create_custom_entity{
         x = x,
@@ -96,7 +96,7 @@ return function(marin)
         width = 24,
         height = 32,
         direction = 2,
-        sprite = "entities/notes"
+        sprite = "entities/symbols/notes"
       }
       hero:set_animation("playing_ocarina")
       wait(8000)
