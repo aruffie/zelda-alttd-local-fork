@@ -52,6 +52,11 @@ function attack_icon_builder:new(game, config)
     attack_icon.hud_icon:set_active(active)
   end
 
+  -- Sets if the icon is transparent or not.
+  function attack_icon:set_transparent(transparent)
+    attack_icon.hud_icon:set_transparent(transparent)
+  end
+
   -- Gets the position of the icon.
   function attack_icon:get_dst_position()
     return attack_icon.hud_icon:get_dst_position()

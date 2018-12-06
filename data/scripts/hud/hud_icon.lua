@@ -29,6 +29,7 @@ function hud_icon_builder:new(icon_x, icon_y, dialog_icon_x, dialog_icon_y)
   hud_icon.enabled = true
   hud_icon.active = true
   hud_icon.animating = false
+  hud_icon.transparent = false
 
   -- Returns if the icon is active or not.
   function hud_icon:is_active()
@@ -75,6 +76,18 @@ function hud_icon_builder:new(icon_x, icon_y, dialog_icon_x, dialog_icon_y)
         end
       end
     end
+  end
+
+  -- Sets if the icon is transparent or not.
+  function hud_icon:set_transparent(transparent)
+    if transparent ~= hud_icon.transparent then
+      hud_icon.transparent = transparent
+    end  
+  end
+
+  -- Returns if the icon is transparent or not.
+  function hud_icon:is_transparent()
+    return hud_icon.transparent
   end
 
   -- Draws the icon.
@@ -130,11 +143,14 @@ function hud_icon_builder:new(icon_x, icon_y, dialog_icon_x, dialog_icon_y)
         end
   
         -- Active/inactive state.
-        if hud_icon.active then
-          hud_icon.surface:set_opacity(255)
-        else
-          hud_icon.surface:set_opacity(128)
+        local opacity = 255
+        if not hud_icon.active then
+          opacity = 128
         end
+        if hud_icon.transparent then
+          opacity = math.floor(opacity / 2)
+        end
+        hud_icon.surface:set_opacity(opacity)
         
         -- Draw the surface.
         hud_icon.surface:draw(dst_surface, surface_x, surface_y)

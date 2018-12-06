@@ -42,6 +42,11 @@ function pause_icon_builder:new(game, config)
     pause_icon.hud_icon:set_active(active)
   end
 
+  -- Sets if the icon is transparent or not.
+  function pause_icon:set_transparent(transparent)
+    pause_icon.hud_icon:set_transparent(transparent)
+  end
+
   -- Called when the menu is started.
   function pause_icon:on_started()
     pause_icon:rebuild_foreground()    

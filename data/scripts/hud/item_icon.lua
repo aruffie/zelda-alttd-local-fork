@@ -70,6 +70,11 @@ function item_icon_builder:new(game, config)
     item_icon.hud_icon:set_active(active)
   end
 
+  -- Sets if the icon is transparent or not.
+  function item_icon:set_transparent(transparent)
+    item_icon.hud_icon:set_transparent(transparent)
+  end
+  
   -- Checks periodically if the icon needs to be redrawn.
   function item_icon:check()
     local need_rebuild = false

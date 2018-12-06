@@ -44,6 +44,11 @@ function action_icon_builder:new(game, config)
     action_icon.hud_icon:set_active(active)
   end
 
+  -- Sets if the icon is transparent or not.
+  function action_icon:set_transparent(transparent)
+    action_icon.hud_icon:set_transparent(transparent)
+  end
+
   -- Gets the position of the icon.
   function action_icon:get_dst_position()
     return action_icon.hud_icon:get_dst_position()
