@@ -7,7 +7,7 @@ return {
     quantity = 1,
     placeholder = 1,
     variant = 1,
-    sprite = "entities/shovel",
+    sprite = "entities/items/shovel",
     dialog_id = "shovel",
     buy_callback = function(map)
       local item = map:get_game():get_item("shovel")
@@ -78,7 +78,7 @@ return {
     quantity = 1,
     placeholder = 3,
     variant = 1,
-    sprite = "entities/shield",
+    sprite = "entities/items/shield",
     dialog_id = "shield",
     buy_callback = function(map)
       local item = map:get_game():get_item("shield")
