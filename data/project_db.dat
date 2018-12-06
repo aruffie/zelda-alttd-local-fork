@@ -667,10 +667,12 @@ sprite{ id = "npc/books/book_blue", description = "Book blue" }
 sprite{ id = "npc/books/book_green", description = "Book green" }
 sprite{ id = "npc/books/book_red", description = "Book red" }
 sprite{ id = "npc/books/book_yellow", description = "Book yellow" }
+sprite{ id = "npc/others/blue_skeleton", description = "Blue skeleton" }
 sprite{ id = "npc/others/fairy", description = "Fairy" }
 sprite{ id = "npc/others/goriya", description = "Goriya" }
 sprite{ id = "npc/others/mad_bat", description = "Mad bat" }
 sprite{ id = "npc/others/phone", description = "Phone" }
+sprite{ id = "npc/others/red_skeleton", description = "Red skeleton" }
 sprite{ id = "npc/statues/owl", description = "Owl" }
 sprite{ id = "npc/statues/owl_dungeon", description = "Owl dungeon" }
 sprite{ id = "npc/statues/owl_dungeon_1", description = "Owl dungeon 1" }
