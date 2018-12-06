@@ -1872,13 +1872,10 @@ dialog{
   id = "maps.houses.mabe_village.marin_house.marin_2",
   text = [[
 Ah! Enfin...    
-J'ai cru que tu n'allais
-jamais te réveiller.   
-Tu devais cauchemarder.   
-Quoi ? Zelda ??   
-Tu dois être encore 
-patraque !
-Je suis Marine ! 
+J'ai cru que tu n'allais jamais te
+réveiller. Tu devais cauchemarder.   
+Quoi ? Zelda ?? Tu dois être encore 
+patraque ! Je suis Marine !
 Tu es sur l'île Cocolint !
 ]],
 }
@@ -1887,14 +1884,11 @@ dialog{
   id = "maps.houses.mabe_village.marin_house.tarin_1",
   text = [[
 Salut $v ! 
-T'es réveillé... 
-J'suis Tarkin...
+T'es réveillé... J'suis Tarkin...
 Tu t'sens mieux ?
-Quoi ? Comment j'sais
-ton nom ? Ben, c'est gravé
-sur le Bouclier !
-Ben, d'ailleurs il est à 
-toi ! J'te l'donne !
+Quoi ? Comment j'sais ton nom ?
+Ben, c'est gravé sur le Bouclier !
+Ben, d'ailleurs il est à toi ! J'te l'donne !
 ]],
 }
 

@@ -858,10 +858,10 @@ block{
   layer = 0,
   x = 240,
   y = 93,
-  sprite = "entities/blocks/richard_block",
+  sprite = "entities/blocks/box",
   pushable = true,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 custom_entity{

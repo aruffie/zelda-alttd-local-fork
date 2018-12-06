@@ -12701,6 +12701,96 @@ tile{
   tileset = "addition/out",
 }
 
+tile{
+  layer = 0,
+  x = 848,
+  y = 80,
+  width = 8,
+  height = 8,
+  pattern = "106",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 832,
+  y = 96,
+  width = 8,
+  height = 8,
+  pattern = "103",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 776,
+  y = 80,
+  width = 8,
+  height = 8,
+  pattern = "105",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 800,
+  y = 80,
+  width = 8,
+  height = 24,
+  pattern = "84",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 792,
+  y = 96,
+  width = 8,
+  height = 8,
+  pattern = "104",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 784,
+  y = 80,
+  width = 16,
+  height = 16,
+  pattern = "102",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 824,
+  y = 80,
+  width = 8,
+  height = 24,
+  pattern = "94",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 832,
+  y = 80,
+  width = 16,
+  height = 16,
+  pattern = "101",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 808,
+  y = 80,
+  width = 16,
+  height = 24,
+  pattern = "83",
+  tileset = "addition/out",
+}
+
 teletransporter{
   name = "to_d2",
   layer = 0,
@@ -12741,7 +12831,7 @@ custom_entity{
   width = 128,
   height = 96,
   direction = 0,
-  sprite = "entities/entrance_dungeon_7",
+  sprite = "entities/dungeons/dungeon_7",
 }
 
 destructible{
@@ -12840,53 +12930,6 @@ sensor{
   y = 477,
   width = 16,
   height = 16,
-}
-
-custom_entity{
-  name = "house_dungeon_7",
-  layer = 0,
-  x = 776,
-  y = 13,
-  width = 24,
-  height = 16,
-  direction = 2,
-  sprite = "entities/house_dungeon_7",
-  model = "obstacle",
-}
-
-custom_entity{
-  name = "house_dungeon_8",
-  layer = 0,
-  x = 824,
-  y = 13,
-  width = 24,
-  height = 16,
-  direction = 0,
-  sprite = "entities/house_dungeon_7",
-  model = "obstacle",
-}
-
-custom_entity{
-  name = "house_dungeon_9",
-  layer = 0,
-  x = 808,
-  y = 13,
-  width = 24,
-  height = 72,
-  direction = 1,
-  sprite = "entities/house_dungeon_7",
-  model = "obstacle",
-}
-
-custom_entity{
-  name = "house_dungeon_10",
-  layer = 0,
-  x = 808,
-  y = 77,
-  width = 24,
-  height = 16,
-  direction = 3,
-  sprite = "entities/house_dungeon_7",
 }
 
 pickable{
@@ -13710,6 +13753,26 @@ tile{
   width = 48,
   height = 8,
   pattern = "1453",
+}
+
+tile{
+  layer = 1,
+  x = 776,
+  y = 8,
+  width = 80,
+  height = 8,
+  pattern = "100",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 776,
+  y = 16,
+  width = 80,
+  height = 64,
+  pattern = "99",
+  tileset = "addition/out",
 }
 
 npc{

@@ -11603,6 +11603,16 @@ tile{
   tileset = "addition/out",
 }
 
+tile{
+  layer = 0,
+  x = 552,
+  y = 48,
+  width = 32,
+  height = 48,
+  pattern = "110",
+  tileset = "addition/out",
+}
+
 teletransporter{
   name = "to_b1",
   layer = 0,
@@ -12806,17 +12816,6 @@ pickable{
   y = 37,
   treasure_name = "piece_of_heart",
   treasure_savegame_variable = "piece_of_heart_12",
-}
-
-custom_entity{
-  name = "entrance_dg8_bis",
-  layer = 0,
-  x = 560,
-  y = 61,
-  width = 24,
-  height = 48,
-  direction = 0,
-  sprite = "entities/entrance_dungeon_8_bis",
 }
 
 custom_entity{

@@ -358,24 +358,19 @@ sprite{ id = "entities/arrow", description = "Arrow" }
 sprite{ id = "entities/arrow_fly", description = "Arrow fly" }
 sprite{ id = "entities/bed", description = "Hero's bed" }
 sprite{ id = "entities/blocks/block_small_key", description = "Block small key" }
-sprite{ id = "entities/blocks/richard_block", description = "Richard block" }
+sprite{ id = "entities/blocks/box", description = "Box" }
 sprite{ id = "entities/bomb", description = "Bomb" }
 sprite{ id = "entities/bomb_fly", description = "Bomb fly" }
 sprite{ id = "entities/bombite_explosion", description = "Bombite_explosion" }
 sprite{ id = "entities/boomerang1", description = "Boomerang 1" }
 sprite{ id = "entities/boomerang2", description = "Boomerang 2" }
 sprite{ id = "entities/bow", description = "Bow" }
-sprite{ id = "entities/cave_rock", description = "Cave rock" }
 sprite{ id = "entities/chain", description = "Chain" }
 sprite{ id = "entities/chests/chest_big", description = "Chest big" }
 sprite{ id = "entities/chests/chest_small", description = "Chest small" }
 sprite{ id = "entities/claw_chain", description = "Claw chain" }
 sprite{ id = "entities/claw_crane", description = "Claw crane" }
 sprite{ id = "entities/claw_up", description = "Claw up" }
-sprite{ id = "entities/conveyor_belt1", description = "Conveyor belt 1" }
-sprite{ id = "entities/conveyor_belt2", description = "Conveyor belt 2" }
-sprite{ id = "entities/conveyor_belt3", description = "Conveyor belt 3" }
-sprite{ id = "entities/conveyor_belt4", description = "Conveyor belt 4" }
 sprite{ id = "entities/crystal", description = "Crystal" }
 sprite{ id = "entities/crystal_block", description = "Crystal block" }
 sprite{ id = "entities/decorations/background_introduction", description = "Background introduction" }
@@ -421,6 +416,8 @@ sprite{ id = "entities/doors/door_wallturn_dungeon_9", description = "Door wallt
 sprite{ id = "entities/doors/door_weak_block", description = "Door weak block" }
 sprite{ id = "entities/doors/door_weak_block_cave", description = "Door weak block cave" }
 sprite{ id = "entities/doors/door_weak_wall_out", description = "Door weak wall out" }
+sprite{ id = "entities/dungeons/dungeon_6", description = "Dungeon 6" }
+sprite{ id = "entities/dungeons/dungeon_7", description = "Dungeon 7" }
 sprite{ id = "entities/effects/dark", description = "Dark" }
 sprite{ id = "entities/effects/fog", description = "Fog" }
 sprite{ id = "entities/effects/rain", description = "Rain" }
@@ -430,14 +427,8 @@ sprite{ id = "entities/entrance_dungeon_2", description = "Entrance dungeon 2" }
 sprite{ id = "entities/entrance_dungeon_2_bottom", description = "Entrance dungeon 2 (bottom)" }
 sprite{ id = "entities/entrance_dungeon_2_top", description = "Entrance dungeon 2 (top)" }
 sprite{ id = "entities/entrance_dungeon_4", description = "Entrance dungeon 4" }
-sprite{ id = "entities/entrance_dungeon_5", description = "Entrance dungeon 5" }
-sprite{ id = "entities/entrance_dungeon_6", description = "Entrance dungeon 6" }
-sprite{ id = "entities/entrance_dungeon_7", description = "Entrance dungeon 7" }
 sprite{ id = "entities/entrance_dungeon_7_door", description = "Entrance dungeon 7 door" }
-sprite{ id = "entities/entrance_dungeon_8_bis", description = "Entrance dungeon 8 bis" }
 sprite{ id = "entities/entrance_dungeon_door", description = "Entrance dungeons" }
-sprite{ id = "entities/entrance_moblin_cave", description = "Entrance moblin cave" }
-sprite{ id = "entities/entrance_southern_face_shrine", description = "Entrance southern face shrine" }
 sprite{ id = "entities/explosion", description = "Explosion" }
 sprite{ id = "entities/explosion_boss", description = "Explosion boss" }
 sprite{ id = "entities/fire_mask", description = "Fire mask" }
@@ -449,6 +440,10 @@ sprite{ id = "entities/graveyard_tree_footer_green", description = "Graveyard tr
 sprite{ id = "entities/grounds/color_platform_green", description = "Color platform green" }
 sprite{ id = "entities/grounds/color_platform_orange", description = "Color platform orange" }
 sprite{ id = "entities/grounds/color_platform_red", description = "Color platform red" }
+sprite{ id = "entities/grounds/conveyor_belt_1", description = "Conveyor belt 1" }
+sprite{ id = "entities/grounds/conveyor_belt_2", description = "Conveyor belt 2" }
+sprite{ id = "entities/grounds/conveyor_belt_3", description = "Conveyor belt 3" }
+sprite{ id = "entities/grounds/conveyor_belt_4", description = "Conveyor belt 4" }
 sprite{ id = "entities/grounds/ground_dug", description = "Ground dug" }
 sprite{ id = "entities/hammer_stake_brown", description = "Hammer stake brown" }
 sprite{ id = "entities/hammer_stake_green", description = "Hammer stake green" }
@@ -456,7 +451,6 @@ sprite{ id = "entities/hammer_stake_yellow", description = "Hammer stake yellow"
 sprite{ id = "entities/handle", description = "Handle" }
 sprite{ id = "entities/handle_base", description = "Handle base" }
 sprite{ id = "entities/handle_chain", description = "Handle chain" }
-sprite{ id = "entities/heart", description = "Heart" }
 sprite{ id = "entities/heart_fly", description = "Heart fly" }
 sprite{ id = "entities/heart_fly_shadow", description = "Heart fly shadow" }
 sprite{ id = "entities/hook", description = "Hook" }
@@ -472,6 +466,8 @@ sprite{ id = "entities/insects/butterfly_yellow", description = "Butterfly 2" }
 sprite{ id = "entities/insects/mosquito", description = "Mosquito" }
 sprite{ id = "entities/items", description = "Items" }
 sprite{ id = "entities/items/bananas", description = "Bananas" }
+sprite{ id = "entities/items/heart", description = "Heart" }
+sprite{ id = "entities/items/mushroom", description = "Mushroom" }
 sprite{ id = "entities/keyhole_dungeon_4", description = "Keyhole dungeon 4" }
 sprite{ id = "entities/keyhole_dungeon_6", description = "Keyhole dungeon 6" }
 sprite{ id = "entities/keyhole_dungeon_7", description = "Keyhole dungeon 7" }
@@ -484,7 +480,6 @@ sprite{ id = "entities/lightning_strike_core", description = "Lightning strike c
 sprite{ id = "entities/mask_helmasaur", description = "Mask helmasaur" }
 sprite{ id = "entities/mega_thwomp", description = "Mega thwomp" }
 sprite{ id = "entities/moving_platform_dg_2", description = "Moving platform dg 2" }
-sprite{ id = "entities/mushroom_move", description = "Mushroom move" }
 sprite{ id = "entities/objects/ball", description = "Ball" }
 sprite{ id = "entities/objects/flame_fountain_machine", description = "Flame fountain machine" }
 sprite{ id = "entities/objects/hibiscus_pot", description = "Hibiscus pot" }
@@ -520,7 +515,6 @@ sprite{ id = "entities/shadows/shadow_small", description = "Shadow small" }
 sprite{ id = "entities/shield", description = "Shield" }
 sprite{ id = "entities/shovel", description = "Shovel" }
 sprite{ id = "entities/statue_big_dungeon_3", description = "Statue dungeon 3" }
-sprite{ id = "entities/statue_dungeon_1_key", description = "Statue dungeon 1 key" }
 sprite{ id = "entities/statue_dungeon_3", description = "Statue dungeon 3" }
 sprite{ id = "entities/statue_dungeon_3_key", description = "Statue dungeon 3 key" }
 sprite{ id = "entities/statue_pig_destroyed", description = "Statue pig destroyed" }

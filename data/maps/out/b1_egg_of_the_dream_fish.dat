@@ -17390,6 +17390,26 @@ tile{
   tileset = "addition/out",
 }
 
+tile{
+  layer = 0,
+  x = 392,
+  y = 608,
+  width = 24,
+  height = 32,
+  pattern = "82",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 448,
+  y = 608,
+  width = 24,
+  height = 32,
+  pattern = "98",
+  tileset = "addition/out",
+}
+
 custom_entity{
   layer = 0,
   x = 8,
@@ -17966,26 +17986,6 @@ npc{
   subtype = 1,
   sprite = "npc/statues/owl",
   behavior = "dialog#maps.out.west_mt_tamaranch.owl_statue_1",
-}
-
-custom_entity{
-  layer = 0,
-  x = 400,
-  y = 621,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/entrance_moblin_cave",
-}
-
-custom_entity{
-  layer = 0,
-  x = 456,
-  y = 621,
-  width = 16,
-  height = 16,
-  direction = 2,
-  sprite = "entities/entrance_moblin_cave",
 }
 
 destination{

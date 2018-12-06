@@ -11877,7 +11877,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/mushroom_move",
+  sprite = "entities/items/mushroom",
 }
 
 npc{
