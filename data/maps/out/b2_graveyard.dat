@@ -18390,15 +18390,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 192,
-  y = 520,
-  width = 32,
-  height = 32,
-  pattern = "13904",
-}
-
-tile{
-  layer = 0,
   x = 344,
   y = 432,
   width = 16,
@@ -22526,18 +22517,6 @@ destination{
   direction = 3,
 }
 
-custom_entity{
-  name = "secret_stone",
-  layer = 0,
-  x = 200,
-  y = 533,
-  width = 32,
-  height = 32,
-  direction = 0,
-  sprite = "entities/destructibles/stone_white_large",
-  model = "heavy_object",
-}
-
 wall{
   layer = 0,
   x = 312,
@@ -22575,6 +22554,26 @@ wall{
   stops_enemies = true,
   stops_blocks = true,
   stops_projectiles = true,
+}
+
+destructible{
+  layer = 0,
+  x = 200,
+  y = 549,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+destructible{
+  layer = 0,
+  x = 216,
+  y = 549,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
 }
 
 tile{

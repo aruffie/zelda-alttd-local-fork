@@ -747,7 +747,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/snores",
+  sprite = "entities/symbols/snores",
 }
 
 custom_entity{
@@ -758,7 +758,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/snores",
+  sprite = "entities/symbols/snores",
 }
 
 tile{

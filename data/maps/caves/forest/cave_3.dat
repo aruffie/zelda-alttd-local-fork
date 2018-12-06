@@ -567,6 +567,46 @@ tile{
   pattern = "door.2.low_support.1-2",
 }
 
+tile{
+  layer = 0,
+  x = 72,
+  y = 120,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 216,
+  y = 104,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 232,
+  y = 120,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 216,
+  y = 144,
+  width = 16,
+  height = 16,
+  pattern = "95",
+  tileset = "addition/dungeon",
+}
+
 stairs{
   layer = 0,
   x = 144,
@@ -1009,48 +1049,8 @@ tile{
 
 tile{
   layer = 1,
-  x = 72,
-  y = 120,
-  width = 16,
-  height = 16,
-  pattern = "94",
-  tileset = "addition/dungeon",
-}
-
-tile{
-  layer = 1,
-  x = 216,
-  y = 104,
-  width = 16,
-  height = 16,
-  pattern = "94",
-  tileset = "addition/dungeon",
-}
-
-tile{
-  layer = 1,
-  x = 232,
-  y = 120,
-  width = 16,
-  height = 16,
-  pattern = "94",
-  tileset = "addition/dungeon",
-}
-
-tile{
-  layer = 1,
   x = 88,
   y = 48,
-  width = 16,
-  height = 16,
-  pattern = "95",
-  tileset = "addition/dungeon",
-}
-
-tile{
-  layer = 1,
-  x = 216,
-  y = 144,
   width = 16,
   height = 16,
   pattern = "95",

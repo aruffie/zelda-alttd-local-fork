@@ -8940,42 +8940,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 632,
-  y = 232,
-  width = 8,
-  height = 32,
-  pattern = "865",
-}
-
-tile{
-  layer = 0,
-  x = 640,
-  y = 232,
-  width = 16,
-  height = 8,
-  pattern = "867",
-}
-
-tile{
-  layer = 0,
-  x = 640,
-  y = 240,
-  width = 16,
-  height = 24,
-  pattern = "868",
-}
-
-tile{
-  layer = 0,
-  x = 656,
-  y = 232,
-  width = 8,
-  height = 32,
-  pattern = "866",
-}
-
-tile{
-  layer = 0,
   x = 440,
   y = 456,
   width = 16,
@@ -9008,6 +8972,15 @@ tile{
   width = 16,
   height = 8,
   pattern = "510",
+}
+
+tile{
+  layer = 0,
+  x = 648,
+  y = 232,
+  width = 16,
+  height = 16,
+  pattern = "825",
 }
 
 sensor{
@@ -11770,39 +11743,19 @@ wall{
 destination{
   name = "stair_bombs_upgrade",
   layer = 0,
-  x = 648,
+  x = 656,
   y = 261,
   direction = 3,
 }
 
 teletransporter{
   layer = 0,
-  x = 640,
-  y = 248,
+  x = 648,
+  y = 232,
   width = 16,
   height = 16,
   destination_map = "caves/forest/cave_3",
   destination = "stair",
-}
-
-stairs{
-  layer = 0,
-  x = 640,
-  y = 248,
-  direction = 1,
-  subtype = 3,
-}
-
-custom_entity{
-  name = "secret_stone",
-  layer = 0,
-  x = 640,
-  y = 245,
-  width = 32,
-  height = 32,
-  direction = 0,
-  sprite = "entities/destructibles/stone_white_large",
-  model = "heavy_object",
 }
 
 enemy{
@@ -11935,6 +11888,16 @@ npc{
   direction = 3,
   subtype = 0,
   sprite = "npc/villagers/tarin",
+}
+
+destructible{
+  layer = 0,
+  x = 656,
+  y = 245,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
 }
 
 tile{
