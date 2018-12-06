@@ -365,11 +365,19 @@ local function initialize_hud_features(game)
 
   -- Brings only the icons of the HUD to the front.
   function hud:bring_icons_to_front()
-    sol.menu.bring_to_front(attack_icon)
-    sol.menu.bring_to_front(action_icon)
-    sol.menu.bring_to_front(pause_icon)
+    if attack_icon then
+      sol.menu.bring_to_front(attack_icon)
+    end
+    if action_icon then
+      sol.menu.bring_to_front(action_icon)
+    end
+    if pause_icon then
+      sol.menu.bring_to_front(pause_icon)
+    end
     for _, item_icon in ipairs(item_icons) do
-     sol.menu.bring_to_front(item_icon)
+      if item_icon then
+        sol.menu.bring_to_front(item_icon)
+      end
     end
   end
 

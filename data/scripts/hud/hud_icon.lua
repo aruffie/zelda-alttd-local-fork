@@ -1,10 +1,17 @@
 -- Generic icon script.
 
+local language_manager = require("scripts/language_manager")
+local text_fx_helper = require("scripts/text_fx_helper")
+
 local hud_icon_builder = {}
 
 function hud_icon_builder:new(icon_x, icon_y, dialog_icon_x, dialog_icon_y)  
   local hud_icon = {}
   hud_icon.x, hud_icon.y = icon_x, icon_y
+
+  hud_icon.font, hud_icon.font_size = language_manager:get_hud_icons_font()
+  hud_icon.font_color = {255, 255, 255}
+  hud_icon.font_stroke_color = {0, 0, 0}
 
   -- Save
   hud_icon.normal_x, hud_icon.normal_y = icon_x, icon_y
@@ -14,6 +21,9 @@ function hud_icon_builder:new(icon_x, icon_y, dialog_icon_x, dialog_icon_y)
   hud_icon.surface = nil
   hud_icon.background_sprite = nil
   hud_icon.foreground = nil
+  hud_icon.foreground_w = 0
+  hud_icon.foreground_h = 0
+  hud_icon.foreground_text_cache = {}
   
   -- Initialize state.
   hud_icon.enabled = true
@@ -72,7 +82,7 @@ function hud_icon_builder:new(icon_x, icon_y, dialog_icon_x, dialog_icon_y)
     -- Draw only if needed.
     if hud_icon.enabled or hud_icon.animating then
       -- Update the surface if the foreground or the background size have changed since last draw.
-      hud_icon:update_surface_if_needed()
+      --hud_icon:update_surface_if_needed()
 
       -- Draw only if the surface previously created has a valid size.
       if hud_icon.surface ~= nil then
@@ -103,11 +113,18 @@ function hud_icon_builder:new(icon_x, icon_y, dialog_icon_x, dialog_icon_y)
           -- Draw the background on temp surface.
           hud_icon.background_sprite:draw(hud_icon.surface, background_x, background_y)
         end
-  
+
         -- Foreground.
         if not hud_icon.animating and hud_icon.foreground ~= nil then
           -- Coordinates of the foreground, in hud_icon.surface coordinates system.
           local foreground_x, foreground_y = (hud_icon.surface_w - hud_icon.foreground_w) / 2, (hud_icon.surface_h - hud_icon.foreground_h) / 2
+          
+          if hud_icon.foreground.get_origin then
+            local origin_x, origin_y = hud_icon.foreground:get_origin()
+            foreground_x = foreground_x + origin_x
+            foreground_y = foreground_y + origin_y
+          end
+
           -- Draw the background on temp surface.
           hud_icon.foreground:draw(hud_icon.surface, foreground_x, foreground_y)
         end
@@ -164,17 +181,16 @@ function hud_icon_builder:new(icon_x, icon_y, dialog_icon_x, dialog_icon_y)
 
   -- Sets the foreground drawn above the icon sprite.
   function hud_icon:set_foreground(foreground)
-    if hud_icon.foreground ~= foreground then
-      -- Update foreground size.
-      if foreground ~= nil then
-        hud_icon.foreground_w, hud_icon.foreground_h = foreground:get_size()
-      else
-        hud_icon.foreground_w, hud_icon.foreground_h = 0, 0
-      end
-
-      -- Update foreground.
-      hud_icon.foreground = foreground
+    -- Update foreground size.
+    if foreground ~= nil then
+      hud_icon.foreground_w, hud_icon.foreground_h = foreground:get_size()
+    else
+      hud_icon.foreground_w, hud_icon.foreground_h = 0, 0
     end
+  
+    -- Update foreground.
+    hud_icon.foreground = foreground
+    hud_icon:update_surface_if_needed()
   end
 
   -- Gets the foreground drawn above the icon sprite.
@@ -220,6 +236,38 @@ function hud_icon_builder:new(icon_x, icon_y, dialog_icon_x, dialog_icon_y)
   -- Gets the dialog position of the icon.
   function hud_icon:get_dialog_position()
     return hud_icon.dialog_x, hud_icon.dialog_y
+  end
+
+  -- Create a text foreground.
+  function hud_icon:set_foreground_text(text)
+    if text == nil or text == "" then
+      hud_icon:set_foreground(nil)
+    else
+      -- Check if already created before.
+      local cache_surface = hud_icon.foreground_text_cache[text]
+      if cache_surface == nil then
+        -- If not present in the cache, create it.
+        local text_surface = sol.text_surface.create({
+          horizontal_alignment = "center",
+          vertical_alignment = "middle",
+          text = text,
+          font = hud_icon.font,
+          font_size = hud_icon.font_size,
+          color = hud_icon.font_color,
+        })
+        local text_surface_w, text_surface_h = text_surface:get_size()
+        cache_surface = sol.surface.create(text_surface_w + 2, text_surface_h + 2)
+        local total_surface_w, total_surface_h = cache_surface:get_size()
+        text_surface:set_xy(total_surface_w / 2, total_surface_h / 2 - 2)
+        text_fx_helper:draw_text_with_stroke_and_shadow(cache_surface, text_surface, hud_icon.font_stroke_color, hud_icon.font_stroke_color)
+      
+        -- Then add it to the cache.
+        hud_icon.foreground_text_cache[text] = cache_surface
+      end
+      
+      -- Set the foreground.
+      hud_icon:set_foreground(cache_surface)
+    end
   end
 
   return hud_icon
