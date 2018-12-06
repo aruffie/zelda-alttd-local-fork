@@ -616,6 +616,7 @@ sprite{ id = "menus/dungeon_maps/map_5_no_map_compass", description = "Map 5 no 
 sprite{ id = "menus/file_selection/file_selection_cursor", description = "File selection menu cursor" }
 sprite{ id = "menus/file_selection/file_selection_hero", description = "Link's sprite for file selection menu" }
 sprite{ id = "menus/game_over/game_over_fade", description = "Game-over fade" }
+sprite{ id = "menus/game_over/game_over_stars", description = "Game-over stars" }
 sprite{ id = "menus/game_over/game_over_title", description = "Game-over title" }
 sprite{ id = "menus/keyboardbox/keyboardbox_cursor", description = "Keyboard Box cursor" }
 sprite{ id = "menus/keyboardbox/keyboardbox_textfield", description = "Keyboard Box textfield" }
@@ -1874,12 +1875,23 @@ file{ path = "scripts/gfx_effects/electric.lua", author = "Stdgregwar", license 
 file{ path = "scripts/gfx_effects/fade_to_white.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/gfx_effects/pixellisation.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/gfx_effects/radial_fade_out.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "scripts/menus/copyright_menu.lua", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/menus/dialog_box.lua", author = "Christopho", license = "GPL v3" }
+file{ path = "scripts/menus/game_over.lua", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/menus/initial_menus_config.lua", author = "Christopho", license = "GPL v3" }
+file{ path = "scripts/menus/introduction.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/menus/keyboardbox.lua", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/menus/language.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "scripts/menus/messagebox.lua", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/menus/pause/pause.lua", author = "Christopho", license = "GPL v3" }
+file{ path = "scripts/menus/pause/pause_inventory.lua", author = "Christopho", license = "GPL v3" }
+file{ path = "scripts/menus/pause/pause_map.lua", author = "Christopho, Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/menus/pause/pause_options.lua", author = "Christopho", license = "GPL v3" }
+file{ path = "scripts/menus/pause/pause_quest.lua", author = "Christopho", license = "GPL v3" }
+file{ path = "scripts/menus/pause/pause_submenu.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "scripts/menus/settings.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/menus/solarus_logo.lua", author = "Maxs", license = "GPL v3" }
 file{ path = "scripts/menus/team_logo.lua", author = "Olivier Cléro", license = "GPL v3" }
-file{ path = "scripts/menus/title_screen", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/menus/title_screen/file_selection.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/menus/title_screen/title.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/menus/title_screen/title_background.lua", author = "Olivier Cléro", license = "GPL v3" }
@@ -2209,6 +2221,18 @@ file{ path = "sprites/menus/file_selection/file_selection_frame.png", author = "
 file{ path = "sprites/menus/file_selection/file_selection_hero.png", author = "Xfixium, Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/file_selection/file_selection_slot.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/file_selection/file_selection_title.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/game_over/game_over_clouds_1.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/game_over/game_over_clouds_2.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/game_over/game_over_clouds_3.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/game_over/game_over_clouds_4.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/game_over/game_over_fade.dat", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/game_over/game_over_fade.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/game_over/game_over_moon.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/game_over/game_over_mountain.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/game_over/game_over_stars.dat", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/game_over/game_over_stars.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/game_over/game_over_title.dat", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/game_over/game_over_title.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/keyboardbox/keyboardbox_cursor.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/keyboardbox/keyboardbox_frame.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/keyboardbox/keyboardbox_keys.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }

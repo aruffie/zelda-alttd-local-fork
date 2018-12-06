@@ -1,0 +1,9 @@
+animation{
+  name = "shining",
+  src_image = "menus/game_over/game_over_stars.png",
+  frame_delay = 200,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 0, frame_width = 320, frame_height = 134, origin_x = 0, origin_y = 0, num_frames = 16, num_columns = 4 },
+  },
+}
