@@ -72,6 +72,15 @@ local function initialize_game_over_features(game)
     game_over_menu.background:fill_color({29, 34, 55})
     game_over_menu.background:set_opacity(0)
 
+    game_over_menu.mountain = sol.surface.create("menus/game_over/game_over_mountain.png")
+    game_over_menu.mountain:set_opacity(0)
+
+    game_over_menu.stars = sol.surface.create("menus/game_over/game_over_stars.png")
+    game_over_menu.stars:set_opacity(0)
+    
+    game_over_menu.moon = sol.surface.create("menus/game_over/game_over_moon.png")
+    game_over_menu.moon:set_opacity(0)
+
     -- Title
     game_over_menu.title_w, game_over_menu.title_h = 120, 23
     game_over_menu.title_x, game_over_menu.title_y = math.ceil((quest_w - game_over_menu.title_w) / 2), 48
@@ -203,6 +212,9 @@ local function initialize_game_over_features(game)
     sol.audio.stop_music()
     game_over_menu.fade_sprite:set_animation("close", function()
       game_over_menu.background:set_opacity(255)
+      game_over_menu.stars:fade_in()
+      game_over_menu.moon:fade_in()
+      game_over_menu.mountain:fade_in()
       local clouds_count = #game_over_menu.clouds
       local fade_delay = 20
       for i, clouds in ipairs(game_over_menu.clouds) do
@@ -344,12 +356,20 @@ local function initialize_game_over_features(game)
 
   -- Called when this menu has to be drawn.
   function game_over_menu:on_draw(dst_surface)
-    local dst_surface_x, dst_surface_h = dst_surface:get_size()
+    local dst_surface_w, dst_surface_h = dst_surface:get_size()
 
     -- Fade.
     if game_over_menu.step_index >= game_over_menu.step_indexes["fade_in"] then
       game_over_menu.fade_sprite:draw(dst_surface)
       game_over_menu.background:draw(dst_surface)
+      
+      local stars_w, stars_h = game_over_menu.stars:get_size()
+      game_over_menu.stars:draw(dst_surface, (dst_surface_w - stars_w) / 2, 0)
+
+      game_over_menu.moon:draw(dst_surface, 48, 72)
+
+      local mountain_w, mountain_h = game_over_menu.mountain:get_size()
+      game_over_menu.mountain:draw(dst_surface, (dst_surface_w - mountain_w) / 2, dst_surface_h - mountain_h)
 
       for i = #game_over_menu.clouds, 1, -1 do
         local clouds = game_over_menu.clouds[i]
