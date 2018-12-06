@@ -18850,6 +18850,26 @@ tile{
   tileset = "addition/out",
 }
 
+tile{
+  layer = 0,
+  x = 384,
+  y = 576,
+  width = 80,
+  height = 24,
+  pattern = "81",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 384,
+  y = 576,
+  width = 80,
+  height = 24,
+  pattern = "81",
+  tileset = "addition/out",
+}
+
 custom_entity{
   name = "statue_pig_destroyed",
   layer = 0,
@@ -23165,16 +23185,6 @@ custom_entity{
   direction = 0,
   sprite = "entities/statues/statue_pig",
   model = "statue_pig",
-}
-
-custom_entity{
-  layer = 0,
-  x = 392,
-  y = 589,
-  width = 80,
-  height = 24,
-  direction = 0,
-  sprite = "entities/entrance_dungeon_3",
 }
 
 custom_entity{

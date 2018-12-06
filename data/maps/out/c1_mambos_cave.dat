@@ -13105,6 +13105,26 @@ tile{
   pattern = "13893",
 }
 
+tile{
+  layer = 0,
+  x = 544,
+  y = 392,
+  width = 32,
+  height = 16,
+  pattern = "80",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 624,
+  y = 392,
+  width = 32,
+  height = 16,
+  pattern = "80",
+  tileset = "addition/out",
+}
+
 custom_entity{
   layer = 0,
   x = 776,
@@ -13398,26 +13418,6 @@ dynamic_tile{
   pattern = "617",
   width = 16,
   height = 16,
-}
-
-custom_entity{
-  layer = 0,
-  x = 560,
-  y = 405,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/fish_manbo",
-}
-
-custom_entity{
-  layer = 0,
-  x = 640,
-  y = 405,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/fish_manbo",
 }
 
 dynamic_tile{

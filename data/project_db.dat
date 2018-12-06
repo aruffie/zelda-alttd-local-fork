@@ -356,7 +356,6 @@ sprite{ id = "entities/animals/seagull_small", description = "Seagull small" }
 sprite{ id = "entities/animals/wart_brothers", description = "Wart's brothers" }
 sprite{ id = "entities/arrow", description = "Arrow" }
 sprite{ id = "entities/arrow_fly", description = "Arrow fly" }
-sprite{ id = "entities/bananas", description = "Bananas" }
 sprite{ id = "entities/bed", description = "Hero's bed" }
 sprite{ id = "entities/blocks/block_small_key", description = "Block small key" }
 sprite{ id = "entities/blocks/richard_block", description = "Richard block" }
@@ -422,10 +421,10 @@ sprite{ id = "entities/doors/door_wallturn_dungeon_9", description = "Door wallt
 sprite{ id = "entities/doors/door_weak_block", description = "Door weak block" }
 sprite{ id = "entities/doors/door_weak_block_cave", description = "Door weak block cave" }
 sprite{ id = "entities/doors/door_weak_wall_out", description = "Door weak wall out" }
+sprite{ id = "entities/effects/fog", description = "Fog" }
 sprite{ id = "entities/effects/rain", description = "Rain" }
 sprite{ id = "entities/effects/sparkle_big", description = "Sparkle big" }
 sprite{ id = "entities/effects/sparkle_small", description = "Sparkle small" }
-sprite{ id = "entities/entrance_dungeon_1", description = "Entrance dungeon 1" }
 sprite{ id = "entities/entrance_dungeon_2", description = "Entrance dungeon 2" }
 sprite{ id = "entities/entrance_dungeon_2_bottom", description = "Entrance dungeon 2 (bottom)" }
 sprite{ id = "entities/entrance_dungeon_2_top", description = "Entrance dungeon 2 (top)" }
@@ -442,7 +441,6 @@ sprite{ id = "entities/entrance_southern_face_shrine", description = "Entrance s
 sprite{ id = "entities/explosion", description = "Explosion" }
 sprite{ id = "entities/explosion_boss", description = "Explosion boss" }
 sprite{ id = "entities/fire_mask", description = "Fire mask" }
-sprite{ id = "entities/fish_manbo", description = "Fish Manbo" }
 sprite{ id = "entities/floating_tree_rafting", description = "Floating tree rafting" }
 sprite{ id = "entities/game_board", description = "Game_board" }
 sprite{ id = "entities/graveyard_tree", description = "Graveyard tree" }
@@ -473,6 +471,7 @@ sprite{ id = "entities/insects/butterfly_red", description = "Butterfly 3" }
 sprite{ id = "entities/insects/butterfly_yellow", description = "Butterfly 2" }
 sprite{ id = "entities/insects/mosquito", description = "Mosquito" }
 sprite{ id = "entities/items", description = "Items" }
+sprite{ id = "entities/items/bananas", description = "Bananas" }
 sprite{ id = "entities/keyhole_dungeon_4", description = "Keyhole dungeon 4" }
 sprite{ id = "entities/keyhole_dungeon_6", description = "Keyhole dungeon 6" }
 sprite{ id = "entities/keyhole_dungeon_7", description = "Keyhole dungeon 7" }
