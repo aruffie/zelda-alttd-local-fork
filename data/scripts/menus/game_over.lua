@@ -83,7 +83,7 @@ local function initialize_game_over_features(game)
 
     -- Title
     game_over_menu.title_w, game_over_menu.title_h = 120, 23
-    game_over_menu.title_x, game_over_menu.title_y = math.ceil((quest_w - game_over_menu.title_w) / 2), 48
+    game_over_menu.title_x, game_over_menu.title_y = math.ceil((quest_w - game_over_menu.title_w) / 2), 32
     game_over_menu.letters = {
       { name = "g", offset = 0},
       { name = "a", offset = 20},
