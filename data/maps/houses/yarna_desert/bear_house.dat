@@ -620,7 +620,7 @@ destructible{
   layer = 0,
   x = 80,
   y = 61,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -629,7 +629,7 @@ destructible{
   layer = 0,
   x = 96,
   y = 61,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -638,7 +638,7 @@ destructible{
   layer = 0,
   x = 112,
   y = 61,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }

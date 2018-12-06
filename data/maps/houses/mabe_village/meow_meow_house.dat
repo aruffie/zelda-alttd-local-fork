@@ -880,7 +880,7 @@ destructible{
   layer = 0,
   x = 216,
   y = 61,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -889,7 +889,7 @@ destructible{
   layer = 0,
   x = 216,
   y = 77,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -898,7 +898,7 @@ destructible{
   layer = 0,
   x = 216,
   y = 93,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -907,7 +907,7 @@ destructible{
   layer = 0,
   x = 216,
   y = 109,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -916,7 +916,7 @@ destructible{
   layer = 0,
   x = 216,
   y = 125,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -925,7 +925,7 @@ destructible{
   layer = 0,
   x = 216,
   y = 141,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -934,7 +934,7 @@ destructible{
   layer = 0,
   x = 216,
   y = 157,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -943,7 +943,7 @@ destructible{
   layer = 0,
   x = 232,
   y = 157,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -952,7 +952,7 @@ destructible{
   layer = 0,
   x = 232,
   y = 173,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -961,7 +961,7 @@ destructible{
   layer = 0,
   x = 232,
   y = 189,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -970,7 +970,7 @@ destructible{
   layer = 0,
   x = 232,
   y = 141,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -979,7 +979,7 @@ destructible{
   layer = 0,
   x = 232,
   y = 125,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -988,7 +988,7 @@ destructible{
   layer = 0,
   x = 232,
   y = 109,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -997,7 +997,7 @@ destructible{
   layer = 0,
   x = 232,
   y = 93,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -1006,7 +1006,7 @@ destructible{
   layer = 0,
   x = 232,
   y = 61,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -1015,7 +1015,7 @@ destructible{
   layer = 0,
   x = 232,
   y = 77,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }

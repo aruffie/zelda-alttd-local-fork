@@ -6392,7 +6392,7 @@ destructible{
   layer = 0,
   x = 152,
   y = 861,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -6400,7 +6400,7 @@ destructible{
   layer = 0,
   x = 152,
   y = 877,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -6408,7 +6408,7 @@ destructible{
   layer = 0,
   x = 152,
   y = 893,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -6416,7 +6416,7 @@ destructible{
   layer = 0,
   x = 152,
   y = 909,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -6424,7 +6424,7 @@ destructible{
   layer = 0,
   x = 168,
   y = 909,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -6432,7 +6432,7 @@ destructible{
   layer = 0,
   x = 168,
   y = 893,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -6440,7 +6440,7 @@ destructible{
   layer = 0,
   x = 168,
   y = 877,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -6448,7 +6448,7 @@ destructible{
   layer = 0,
   x = 168,
   y = 861,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -6456,7 +6456,7 @@ destructible{
   layer = 0,
   x = 184,
   y = 861,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -6464,7 +6464,7 @@ destructible{
   layer = 0,
   x = 184,
   y = 877,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -6472,7 +6472,7 @@ destructible{
   layer = 0,
   x = 184,
   y = 893,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -6480,7 +6480,7 @@ destructible{
   layer = 0,
   x = 184,
   y = 909,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -6808,7 +6808,7 @@ destructible{
   layer = 0,
   x = 408,
   y = 717,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -6816,7 +6816,7 @@ destructible{
   layer = 0,
   x = 552,
   y = 717,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -6824,7 +6824,7 @@ destructible{
   layer = 0,
   x = 536,
   y = 637,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -6832,7 +6832,7 @@ destructible{
   layer = 0,
   x = 200,
   y = 909,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -6840,7 +6840,7 @@ destructible{
   layer = 0,
   x = 200,
   y = 877,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -6848,7 +6848,7 @@ destructible{
   layer = 0,
   x = 200,
   y = 861,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -6856,7 +6856,7 @@ destructible{
   layer = 0,
   x = 200,
   y = 893,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 

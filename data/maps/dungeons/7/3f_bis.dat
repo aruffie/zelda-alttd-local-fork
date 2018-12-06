@@ -4342,7 +4342,7 @@ destructible{
   layer = 0,
   x = 56,
   y = 317,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -4350,7 +4350,7 @@ destructible{
   layer = 0,
   x = 56,
   y = 461,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -4358,7 +4358,7 @@ destructible{
   layer = 0,
   x = 264,
   y = 317,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -4366,7 +4366,7 @@ destructible{
   layer = 0,
   x = 264,
   y = 461,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 

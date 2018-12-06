@@ -1,6 +1,6 @@
 animation{
   name = "swell",
-  src_image = "entities/swell.png",
+  src_image = "entities/decorations/swell_1.png",
   frame_delay = 180,
   frame_to_loop_on = 0,
   directions = {

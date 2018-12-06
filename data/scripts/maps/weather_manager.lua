@@ -38,8 +38,8 @@ function weather_manager:launch_rain(map)
     end
 
 
-    local rainsprite1 = sol.sprite.create("entities/rain")
-    local rainsprite2 = sol.sprite.create("entities/rain")
+    local rainsprite1 = sol.sprite.create("entities/effects/rain")
+    local rainsprite2 = sol.sprite.create("entities/effects/rain")
     rainsprite2:set_direction(1)
 
     rainsprite1:set_blend_mode("add")

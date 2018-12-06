@@ -45,106 +45,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/swell",
-}
-
-custom_entity{
-  name = "swell_2",
-  layer = -1,
-  x = 40,
-  y = 421,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/swell",
-}
-
-custom_entity{
-  name = "swell_3",
-  layer = -1,
-  x = 72,
-  y = 421,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/swell",
-}
-
-custom_entity{
-  name = "swell_4",
-  layer = -1,
-  x = 104,
-  y = 421,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/swell",
-}
-
-custom_entity{
-  name = "swell_5",
-  layer = -1,
-  x = 136,
-  y = 421,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/swell",
-}
-
-custom_entity{
-  name = "swell_6",
-  layer = -1,
-  x = 168,
-  y = 421,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/swell",
-}
-
-custom_entity{
-  name = "swell_7",
-  layer = -1,
-  x = 200,
-  y = 421,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/swell",
-}
-
-custom_entity{
-  name = "swell_8",
-  layer = -1,
-  x = 232,
-  y = 421,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/swell",
-}
-
-custom_entity{
-  name = "swell_9",
-  layer = -1,
-  x = 264,
-  y = 421,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/swell",
-}
-
-custom_entity{
-  name = "swell_10",
-  layer = -1,
-  x = 296,
-  y = 421,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/swell",
+  sprite = "entities/decorations/swell",
 }
 
 custom_entity{
@@ -175,6 +76,105 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
+}
+
+custom_entity{
+  name = "swell_2",
+  layer = -1,
+  x = 40,
+  y = 421,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/decorations/swell",
+}
+
+custom_entity{
+  name = "swell_3",
+  layer = -1,
+  x = 72,
+  y = 421,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/decorations/swell",
+}
+
+custom_entity{
+  name = "swell_4",
+  layer = -1,
+  x = 104,
+  y = 421,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/decorations/swell",
+}
+
+custom_entity{
+  name = "swell_5",
+  layer = -1,
+  x = 136,
+  y = 421,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/decorations/swell",
+}
+
+custom_entity{
+  name = "swell_6",
+  layer = -1,
+  x = 168,
+  y = 421,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/decorations/swell",
+}
+
+custom_entity{
+  name = "swell_7",
+  layer = -1,
+  x = 200,
+  y = 421,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/decorations/swell",
+}
+
+custom_entity{
+  name = "swell_8",
+  layer = -1,
+  x = 232,
+  y = 421,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/decorations/swell",
+}
+
+custom_entity{
+  name = "swell_9",
+  layer = -1,
+  x = 264,
+  y = 421,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/decorations/swell",
+}
+
+custom_entity{
+  name = "swell_10",
+  layer = -1,
+  x = 296,
+  y = 421,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/decorations/swell",
 }
 
 tile{
@@ -324,7 +324,7 @@ tile{
 tile{
   layer = 0,
   x = 200,
-  y = 360,
+  y = 352,
   width = 96,
   height = 120,
   pattern = "2",
@@ -462,7 +462,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "npc/seagull",
+  sprite = "entities/animals/seagull",
   model = "seagull",
 }
 
@@ -474,7 +474,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "npc/seagull",
+  sprite = "entities/animals/seagull",
   model = "seagull",
 }
 
@@ -486,7 +486,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "npc/seagull",
+  sprite = "entities/animals/seagull",
   model = "seagull",
 }
 
@@ -498,7 +498,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "npc/seagull",
+  sprite = "entities/animals/seagull",
   model = "seagull",
 }
 

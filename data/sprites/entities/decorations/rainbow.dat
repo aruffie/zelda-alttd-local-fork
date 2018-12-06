@@ -1,0 +1,10 @@
+animation{
+  name = "default",
+  src_image = "entities/decorations/rainbow.png",
+  directions = {
+    { x = 0, y = 0, frame_width = 108, frame_height = 48, origin_x = 54, origin_y = 45 },
+    { x = 0, y = 0, frame_width = 108, frame_height = 48, origin_x = 54, origin_y = 45 },
+    { x = 0, y = 0, frame_width = 108, frame_height = 48, origin_x = 54, origin_y = 45 },
+    { x = 0, y = 0, frame_width = 108, frame_height = 48, origin_x = 54, origin_y = 45 },
+  },
+}

@@ -9683,7 +9683,7 @@ destructible{
   x = 1512,
   y = 685,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -9792,7 +9792,7 @@ destructible{
   x = 1512,
   y = 701,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -9801,7 +9801,7 @@ destructible{
   x = 1512,
   y = 717,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -9810,7 +9810,7 @@ destructible{
   x = 1528,
   y = 717,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -9819,7 +9819,7 @@ destructible{
   x = 1528,
   y = 701,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -9828,7 +9828,7 @@ destructible{
   x = 1528,
   y = 685,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -9837,7 +9837,7 @@ destructible{
   x = 1544,
   y = 685,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -9846,7 +9846,7 @@ destructible{
   x = 1544,
   y = 701,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -9855,7 +9855,7 @@ destructible{
   x = 1544,
   y = 717,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -9900,7 +9900,7 @@ destructible{
   x = 776,
   y = 93,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -9909,7 +9909,7 @@ destructible{
   x = 792,
   y = 93,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -9918,7 +9918,7 @@ destructible{
   x = 808,
   y = 93,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -9927,7 +9927,7 @@ destructible{
   x = 824,
   y = 93,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -9936,7 +9936,7 @@ destructible{
   x = 840,
   y = 109,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -9945,7 +9945,7 @@ destructible{
   x = 840,
   y = 125,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -9954,7 +9954,7 @@ destructible{
   x = 824,
   y = 141,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -9963,7 +9963,7 @@ destructible{
   x = 808,
   y = 141,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -9972,7 +9972,7 @@ destructible{
   x = 792,
   y = 141,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -9981,7 +9981,7 @@ destructible{
   x = 776,
   y = 141,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -9990,7 +9990,7 @@ destructible{
   x = 760,
   y = 125,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -9999,7 +9999,7 @@ destructible{
   x = 760,
   y = 109,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -10008,7 +10008,7 @@ destructible{
   x = 1096,
   y = 109,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -10017,7 +10017,7 @@ destructible{
   x = 1112,
   y = 109,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -10026,7 +10026,7 @@ destructible{
   x = 1112,
   y = 125,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -10035,7 +10035,7 @@ destructible{
   x = 1096,
   y = 125,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -10044,7 +10044,7 @@ destructible{
   x = 1096,
   y = 141,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -10053,7 +10053,7 @@ destructible{
   x = 1112,
   y = 141,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -10062,7 +10062,7 @@ destructible{
   x = 1112,
   y = 157,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -10071,7 +10071,7 @@ destructible{
   x = 1096,
   y = 157,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -10080,7 +10080,7 @@ destructible{
   x = 1368,
   y = 717,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -10089,7 +10089,7 @@ destructible{
   x = 1384,
   y = 717,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -10098,7 +10098,7 @@ destructible{
   x = 1400,
   y = 717,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -10107,7 +10107,7 @@ destructible{
   x = 1832,
   y = 717,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -10116,7 +10116,7 @@ destructible{
   x = 1816,
   y = 717,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -10125,7 +10125,7 @@ destructible{
   x = 1800,
   y = 717,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -10184,7 +10184,7 @@ destructible{
   x = 1016,
   y = 1981,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -10194,7 +10194,7 @@ destructible{
   x = 1032,
   y = 1981,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -10204,7 +10204,7 @@ destructible{
   x = 1032,
   y = 1997,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -10214,7 +10214,7 @@ destructible{
   x = 1224,
   y = 1981,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -10224,7 +10224,7 @@ destructible{
   x = 1208,
   y = 1981,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -10234,7 +10234,7 @@ destructible{
   x = 1208,
   y = 1997,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -10742,7 +10742,7 @@ destructible{
   x = 824,
   y = 157,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -10751,7 +10751,7 @@ destructible{
   x = 808,
   y = 157,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -10760,7 +10760,7 @@ destructible{
   x = 792,
   y = 157,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -10769,7 +10769,7 @@ destructible{
   x = 776,
   y = 157,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -10778,7 +10778,7 @@ destructible{
   x = 760,
   y = 141,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -10787,7 +10787,7 @@ destructible{
   x = 840,
   y = 141,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
