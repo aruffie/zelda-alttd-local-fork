@@ -28,4 +28,12 @@ function language_manager:get_menu_font(language)
   return "Alttp", 8
 end
 
+-- Returns the font and font size to be used to display text on HUD icons
+-- depending on the specified language (the current one by default).
+function language_manager:get_hud_icons_font(language)
+
+  -- No font differences between languages (for now).
+  return "Alttp", 8
+end
+
 return language_manager

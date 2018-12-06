@@ -20,8 +20,6 @@ local function initialize_hud_features(game)
   local hud = {
     enabled = false,
     elements = {},
-    showing_dialog = false,
-    top_left_opacity = 255,
     custom_command_effects = {},
   }
 
@@ -30,6 +28,7 @@ local function initialize_hud_features(game)
   local action_icon
   local attack_icon
   local pause_icon
+  local hearts_meter
 
   -----------------------------------------------------------------------------
   -- Game functions.
@@ -177,29 +176,29 @@ local function initialize_hud_features(game)
 
     local map = game:get_map()
     if map ~= nil then
-      -- If the hero is below the top-left icons, make them semi-transparent.
-      local hero = map:get_entity("hero")
-      local hero_x, hero_y = hero:get_position()
-      local camera_x, camera_y = map:get_camera():get_position()
-      local x = hero_x - camera_x
-      local y = hero_y - camera_y
-      local opacity = nil
+      local top_left_transparent = false
+      local top_right_transparent = false
 
-      if hud.top_left_opacity == 255 and not game:is_suspended() and x < 88 and y < 80 then
-        opacity = 96
-      elseif hud.top_left_opacity == 96 and (game:is_suspended() or x >= 88 or y >= 80) then
-        opacity = 255
+      -- Check if the hero is below the top-left icons, make them semi-transparent.
+      if not game:is_suspended() then
+        local hero = map:get_entity("hero")
+        local hero_x, hero_y = hero:get_position()
+        local camera_x, camera_y = map:get_camera():get_position()
+        local x, y = hero_x - camera_x, hero_y - camera_y
+        top_left_transparent = x < 92 and y < 72
+        top_right_transparent = x > 224 and y < 40
       end
 
-      if opacity ~= nil then
-        hud.top_left_opacity = opacity
-        for i, element_config in ipairs(hud_config) do
-          if element_config.x >= 0 and element_config.x < 72 and
-              element_config.y >= 0 and element_config.y < 64 then
-            hud.elements[i]:get_surface():set_opacity(opacity)
-          end
-        end
+      -- Set the transparency on the icons.
+      action_icon:set_transparent(top_left_transparent)
+      attack_icon:set_transparent(top_left_transparent)
+      pause_icon:set_transparent(top_left_transparent)
+      for _, item_icon in pairs(item_icons) do
+        item_icon:set_transparent(top_left_transparent)
       end
+
+      -- Set the transparency on the hearts.
+      hearts_meter:set_transparent(top_right_transparent)      
     end
 
     return true  -- Repeat the timer.
@@ -365,11 +364,19 @@ local function initialize_hud_features(game)
 
   -- Brings only the icons of the HUD to the front.
   function hud:bring_icons_to_front()
-    sol.menu.bring_to_front(attack_icon)
-    sol.menu.bring_to_front(action_icon)
-    sol.menu.bring_to_front(pause_icon)
+    if attack_icon then
+      sol.menu.bring_to_front(attack_icon)
+    end
+    if action_icon then
+      sol.menu.bring_to_front(action_icon)
+    end
+    if pause_icon then
+      sol.menu.bring_to_front(pause_icon)
+    end
     for _, item_icon in ipairs(item_icons) do
-     sol.menu.bring_to_front(item_icon)
+      if item_icon then
+        sol.menu.bring_to_front(item_icon)
+      end
     end
   end
 
@@ -400,6 +407,8 @@ local function initialize_hud_features(game)
       end
     elseif element_config.menu_script == "scripts/hud/pause_icon" then
       pause_icon = element
+    elseif element_config.menu_script == "scripts/hud/hearts" then
+      hearts_meter = element
     end
   end
 
@@ -413,7 +422,7 @@ local function initialize_hud_features(game)
   -- Start the HUD.
   hud:set_enabled(true)
   hud:set_mode("normal")
-  --sol.timer.start(game, 50, check_hud) -- TODO
+  sol.timer.start(game, 50, check_hud) -- TODO
 end
 
 -- Set up the HUD features on any game that starts.

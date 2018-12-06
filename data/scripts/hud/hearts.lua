@@ -17,6 +17,7 @@ function hearts_builder:new(game, config)
   hearts.nb_max_hearts_displayed = game:get_max_life() / 4
   hearts.nb_current_hearts_displayed = game:get_life()
   hearts.all_hearts_img = sol.surface.create("hud/hearts.png")
+  hearts.transparent = false
 
   function hearts:on_started()
 
@@ -156,7 +157,15 @@ function hearts_builder:new(game, config)
     end
 
     -- Everything was already drawn on self.surface.
+    hearts.surface:set_opacity(hearts.transparent and 128 or 255)
     hearts.surface:draw(dst_surface, x, y)
+  end
+
+  -- Sets if the element is semi-transparent or not.
+  function hearts:set_transparent(transparent)
+    if transparent ~= hearts.transparent then
+      hearts.transparent = transparent
+    end
   end
 
   hearts:rebuild_surface()

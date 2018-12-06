@@ -13,32 +13,7 @@ function action_icon_builder:new(game, config)
   action_icon.hud_icon:set_background_sprite(sol.sprite.create("hud/icon_action"))
   
   -- Initializes the icon.
-  action_icon.text = sol.surface.create("action_icon_text.png", true) -- language specific
-  action_icon.text_w, _ = action_icon.text:get_size()
-  action_icon.text_h = 24
-  action_icon.text_region_y = nil
-  action_icon.effects_indexes = {
-    ["validate"] = 1,
-    ["next"] = 2,
-    ["info"] = 3,
-    ["return"] = 4,
-    ["look"] = 5,
-    ["open"] = 6,
-    ["action"] = 7,
-    ["lift"] = 8,
-    ["throw"] = 9,
-    ["grab"] = 10,
-    ["stop"] = 11,
-    ["speak"] = 12,
-    ["change"] = 13,
-    ["swim"] = 14,
-    ["none"] = 15,
-  }
   action_icon.effect_displayed = nil
-
-  -- The surface used by the icon for the foreground is handled here.
-  action_icon.foreground = sol.surface.create(action_icon.text_w, action_icon.text_h)
-  action_icon.hud_icon:set_foreground(action_icon.foreground)
   
   -- Draws the icon surface.
   function action_icon:on_draw(dst_surface)
@@ -47,13 +22,13 @@ function action_icon_builder:new(game, config)
 
   -- Rebuild the foreground (called only when needed).
   function action_icon:rebuild_foreground()
-    action_icon.foreground:clear()
-
-    action_icon.text_region_y = action_icon:get_region_y(action_icon.effect_displayed)
-    if action_icon.text_region_y ~= nil then
-      -- Draw the static image of the icon.
-      action_icon.text:draw_region(0, action_icon.text_region_y, action_icon.text_w, action_icon.text_h, action_icon.foreground)
-    end    
+    if action_icon.effect_displayed == nil or action_icon.effect_displayed == "" then
+      -- No foreground if no effect.
+      action_icon.hud_icon:set_foreground(nil)
+    else
+      local text = sol.language.get_string("hud."..action_icon.effect_displayed)
+      action_icon.hud_icon:set_foreground_text(text)
+    end
   end
 
   -- Set if the icon is enabled or disabled.
@@ -67,6 +42,11 @@ function action_icon_builder:new(game, config)
   -- Set if the icon is active or inactive.
   function action_icon:set_active(active)
     action_icon.hud_icon:set_active(active)
+  end
+
+  -- Sets if the icon is transparent or not.
+  function action_icon:set_transparent(transparent)
+    action_icon.hud_icon:set_transparent(transparent)
   end
 
   -- Gets the position of the icon.
@@ -87,15 +67,6 @@ function action_icon_builder:new(game, config)
   -- Gets the dialog position of the icon.
   function action_icon:get_dialog_position()
     return action_icon.hud_icon:get_dialog_position()
-  end
-
-  -- Computes the region to draw on the foreground.
-  function action_icon:get_region_y(effect_displayed)
-    local result = 0
-    if action_icon.effect_displayed ~= nil and action_icon.effect_displayed ~= "" then
-      result = action_icon.text_h * action_icon.effects_indexes[action_icon.effect_displayed]
-    end
-    return result
   end
 
   -- Called when the command effect changes.
