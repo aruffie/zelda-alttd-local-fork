@@ -14093,6 +14093,106 @@ tile{
   tileset = "addition/out",
 }
 
+tile{
+  layer = 0,
+  x = 376,
+  y = 192,
+  width = 16,
+  height = 24,
+  pattern = "85",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 368,
+  y = 192,
+  width = 8,
+  height = 24,
+  pattern = "86",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 352,
+  y = 208,
+  width = 16,
+  height = 16,
+  pattern = "93",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 400,
+  y = 208,
+  width = 16,
+  height = 16,
+  pattern = "95",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 352,
+  y = 192,
+  width = 16,
+  height = 16,
+  pattern = "91",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 336,
+  y = 192,
+  width = 16,
+  height = 16,
+  pattern = "92",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 368,
+  y = 216,
+  width = 32,
+  height = 8,
+  pattern = "89",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 400,
+  y = 192,
+  width = 16,
+  height = 16,
+  pattern = "90",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 392,
+  y = 192,
+  width = 8,
+  height = 24,
+  pattern = "87",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 416,
+  y = 192,
+  width = 16,
+  height = 16,
+  pattern = "96",
+  tileset = "addition/out",
+}
+
 teletransporter{
   name = "to_c3",
   layer = 0,
@@ -14372,16 +14472,6 @@ npc{
   direction = 3,
   subtype = 0,
   sprite = "entities/destructibles/sign",
-}
-
-custom_entity{
-  layer = 0,
-  x = 384,
-  y = 189,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/entrance_dungeon_5",
 }
 
 destination{
@@ -15694,6 +15784,16 @@ tile{
   width = 32,
   height = 16,
   pattern = "35",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 336,
+  y = 152,
+  width = 96,
+  height = 40,
+  pattern = "88",
   tileset = "addition/out",
 }
 

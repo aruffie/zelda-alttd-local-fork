@@ -405,7 +405,7 @@ end
 
 function map:set_overlay()
 
-  map.overlay = sol.surface.create("entities/effects/forest.png")
+  map.overlay = sol.surface.create("entities/effects/fog.png")
   map.overlay:set_opacity(96)
   map.overlay_offset_x = 0  -- Used to keep continuity when getting lost.
   map.overlay_offset_y = 0

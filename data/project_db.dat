@@ -421,6 +421,7 @@ sprite{ id = "entities/doors/door_wallturn_dungeon_9", description = "Door wallt
 sprite{ id = "entities/doors/door_weak_block", description = "Door weak block" }
 sprite{ id = "entities/doors/door_weak_block_cave", description = "Door weak block cave" }
 sprite{ id = "entities/doors/door_weak_wall_out", description = "Door weak wall out" }
+sprite{ id = "entities/effects/dark", description = "Dark" }
 sprite{ id = "entities/effects/fog", description = "Fog" }
 sprite{ id = "entities/effects/rain", description = "Rain" }
 sprite{ id = "entities/effects/sparkle_big", description = "Sparkle big" }
@@ -428,7 +429,6 @@ sprite{ id = "entities/effects/sparkle_small", description = "Sparkle small" }
 sprite{ id = "entities/entrance_dungeon_2", description = "Entrance dungeon 2" }
 sprite{ id = "entities/entrance_dungeon_2_bottom", description = "Entrance dungeon 2 (bottom)" }
 sprite{ id = "entities/entrance_dungeon_2_top", description = "Entrance dungeon 2 (top)" }
-sprite{ id = "entities/entrance_dungeon_3", description = "Entrance dungeon 3" }
 sprite{ id = "entities/entrance_dungeon_4", description = "Entrance dungeon 4" }
 sprite{ id = "entities/entrance_dungeon_5", description = "Entrance dungeon 5" }
 sprite{ id = "entities/entrance_dungeon_6", description = "Entrance dungeon 6" }

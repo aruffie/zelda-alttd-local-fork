@@ -17380,6 +17380,16 @@ tile{
   pattern = "1643",
 }
 
+tile{
+  layer = 0,
+  x = 536,
+  y = -16,
+  width = 96,
+  height = 120,
+  pattern = "97",
+  tileset = "addition/out",
+}
+
 custom_entity{
   layer = 0,
   x = 8,
@@ -17388,17 +17398,6 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/entrance_dungeon_2_bottom",
-}
-
-custom_entity{
-  name = "egg",
-  layer = 0,
-  x = 584,
-  y = 101,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/egg",
 }
 
 teletransporter{
@@ -18244,19 +18243,6 @@ sensor{
   height = 16,
 }
 
-wall{
-  layer = 0,
-  x = 568,
-  y = 72,
-  width = 32,
-  height = 8,
-  stops_hero = true,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
-}
-
 custom_entity{
   name = "egg_door",
   layer = 0,
@@ -18265,7 +18251,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/egg_door",
+  sprite = "entities/doors/door_egg",
 }
 
 teletransporter{
@@ -18276,32 +18262,6 @@ teletransporter{
   height = 16,
   destination_map = "dungeons/11/1f",
   destination = "entrance",
-}
-
-wall{
-  layer = 0,
-  x = 568,
-  y = 80,
-  width = 8,
-  height = 24,
-  stops_hero = true,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
-}
-
-wall{
-  layer = 0,
-  x = 592,
-  y = 80,
-  width = 8,
-  height = 24,
-  stops_hero = true,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
 }
 
 enemy{
@@ -19363,7 +19323,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/egg_door_top",
+  sprite = "entities/doors/door_egg_top",
 }
 
 custom_entity{
