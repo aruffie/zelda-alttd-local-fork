@@ -17410,14 +17410,54 @@ tile{
   tileset = "addition/out",
 }
 
-custom_entity{
+tile{
+  layer = 0,
+  x = 64,
+  y = 416,
+  width = 16,
+  height = 24,
+  pattern = "141",
+  tileset = "addition/out",
+}
+
+tile{
   layer = 0,
   x = 8,
-  y = 437,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/entrance_dungeon_2_bottom",
+  y = 400,
+  width = 56,
+  height = 32,
+  pattern = "142",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 80,
+  y = 432,
+  width = 56,
+  height = 8,
+  pattern = "146",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 8,
+  y = 432,
+  width = 56,
+  height = 8,
+  pattern = "147",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 80,
+  y = 400,
+  width = 56,
+  height = 32,
+  pattern = "144",
+  tileset = "addition/out",
 }
 
 teletransporter{
@@ -18105,16 +18145,6 @@ sensor{
   y = 341,
   width = 32,
   height = 16,
-}
-
-custom_entity{
-  layer = 0,
-  x = 8,
-  y = 381,
-  width = 128,
-  height = 56,
-  direction = 0,
-  sprite = "entities/entrance_dungeon_2",
 }
 
 destination{
@@ -19291,6 +19321,26 @@ tile{
   tileset = "addition/out",
 }
 
+tile{
+  layer = 1,
+  x = 32,
+  y = 376,
+  width = 80,
+  height = 24,
+  pattern = "148",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 64,
+  y = 400,
+  width = 16,
+  height = 16,
+  pattern = "149",
+  tileset = "addition/out",
+}
+
 custom_entity{
   name = "mosquito_2",
   layer = 1,
@@ -19324,16 +19374,6 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/doors/door_egg_top",
-}
-
-custom_entity{
-  layer = 1,
-  x = 72,
-  y = 413,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/entrance_dungeon_2_top",
 }
 
 sensor{

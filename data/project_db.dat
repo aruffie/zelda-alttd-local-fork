@@ -103,6 +103,7 @@ map{ id = "houses/mabe_village/library", description = "Library" }
 map{ id = "houses/mabe_village/marin_house", description = "Marin house" }
 map{ id = "houses/mabe_village/meow_meow_house", description = "Meow meow house" }
 map{ id = "houses/mabe_village/quadruplets_house", description = "Quadruplets house" }
+map{ id = "houses/mabe_village/shop_1", description = "Shop 1" }
 map{ id = "houses/mabe_village/shop_2", description = "Shop 2" }
 map{ id = "houses/mabe_village/telephone_booth_1", description = "Telephone booth 1" }
 map{ id = "houses/mambos_cave/cuccos_house", description = "Cucco's house" }
@@ -423,10 +424,6 @@ sprite{ id = "entities/effects/fog", description = "Fog" }
 sprite{ id = "entities/effects/rain", description = "Rain" }
 sprite{ id = "entities/effects/sparkle_big", description = "Sparkle big" }
 sprite{ id = "entities/effects/sparkle_small", description = "Sparkle small" }
-sprite{ id = "entities/entrance_dungeon_2", description = "Entrance dungeon 2" }
-sprite{ id = "entities/entrance_dungeon_2_bottom", description = "Entrance dungeon 2 (bottom)" }
-sprite{ id = "entities/entrance_dungeon_2_top", description = "Entrance dungeon 2 (top)" }
-sprite{ id = "entities/entrance_dungeon_4", description = "Entrance dungeon 4" }
 sprite{ id = "entities/entrance_dungeon_7_door", description = "Entrance dungeon 7 door" }
 sprite{ id = "entities/entrance_dungeon_door", description = "Entrance dungeons" }
 sprite{ id = "entities/explosion", description = "Explosion" }
@@ -457,7 +454,6 @@ sprite{ id = "entities/hook", description = "Hook" }
 sprite{ id = "entities/hook_bridge", description = "Hook bridge" }
 sprite{ id = "entities/hook_bridge_deployed", description = "hook_bridge_deployed" }
 sprite{ id = "entities/hookshot", description = "Hookshot" }
-sprite{ id = "entities/house_dungeon_7", description = "House dungeon 7" }
 sprite{ id = "entities/insects/bee", description = "Bee" }
 sprite{ id = "entities/insects/butterfly_blue", description = "Butterfly 1" }
 sprite{ id = "entities/insects/butterfly_green", description = "Butterfly 4" }
@@ -668,6 +664,7 @@ sprite{ id = "npc/books/book_green", description = "Book green" }
 sprite{ id = "npc/books/book_red", description = "Book red" }
 sprite{ id = "npc/books/book_yellow", description = "Book yellow" }
 sprite{ id = "npc/others/blue_skeleton", description = "Blue skeleton" }
+sprite{ id = "npc/others/console", description = "Console" }
 sprite{ id = "npc/others/fairy", description = "Fairy" }
 sprite{ id = "npc/others/goriya", description = "Goriya" }
 sprite{ id = "npc/others/mad_bat", description = "Mad bat" }

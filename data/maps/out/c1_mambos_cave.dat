@@ -13125,14 +13125,64 @@ tile{
   tileset = "addition/out",
 }
 
-custom_entity{
+tile{
   layer = 0,
-  x = 776,
-  y = 405,
+  x = 768,
+  y = 416,
   width = 16,
+  height = 24,
+  pattern = "107",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 744,
+  y = 416,
+  width = 24,
   height = 16,
-  direction = 0,
-  sprite = "entities/entrance_dungeon_4",
+  pattern = "115",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 752,
+  y = 432,
+  width = 16,
+  height = 8,
+  pattern = "116",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 784,
+  y = 416,
+  width = 24,
+  height = 16,
+  pattern = "114",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 784,
+  y = 432,
+  width = 16,
+  height = 8,
+  pattern = "117",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 744,
+  y = 376,
+  width = 64,
+  height = 40,
+  pattern = "108",
+  tileset = "addition/out",
 }
 
 dynamic_tile{
