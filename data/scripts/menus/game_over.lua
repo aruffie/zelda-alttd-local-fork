@@ -75,7 +75,7 @@ local function initialize_game_over_features(game)
     game_over_menu.mountain = sol.surface.create("menus/game_over/game_over_mountain.png")
     game_over_menu.mountain:set_opacity(0)
 
-    game_over_menu.stars = sol.surface.create("menus/game_over/game_over_stars.png")
+    game_over_menu.stars = sol.sprite.create("menus/game_over/game_over_stars")
     game_over_menu.stars:set_opacity(0)
     
     game_over_menu.moon = sol.surface.create("menus/game_over/game_over_moon.png")

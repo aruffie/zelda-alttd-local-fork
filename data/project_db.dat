@@ -617,6 +617,7 @@ sprite{ id = "menus/dungeon_maps/map_5_no_map_compass", description = "Map 5 no 
 sprite{ id = "menus/file_selection/file_selection_cursor", description = "File selection menu cursor" }
 sprite{ id = "menus/file_selection/file_selection_hero", description = "Link's sprite for file selection menu" }
 sprite{ id = "menus/game_over/game_over_fade", description = "Game-over fade" }
+sprite{ id = "menus/game_over/game_over_stars", description = "Game-over stars" }
 sprite{ id = "menus/game_over/game_over_title", description = "Game-over title" }
 sprite{ id = "menus/keyboardbox/keyboardbox_cursor", description = "Keyboard Box cursor" }
 sprite{ id = "menus/keyboardbox/keyboardbox_textfield", description = "Keyboard Box textfield" }
