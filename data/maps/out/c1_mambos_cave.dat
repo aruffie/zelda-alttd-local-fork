@@ -13105,6 +13105,26 @@ tile{
   pattern = "13893",
 }
 
+tile{
+  layer = 0,
+  x = 544,
+  y = 392,
+  width = 32,
+  height = 16,
+  pattern = "80",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 624,
+  y = 392,
+  width = 32,
+  height = 16,
+  pattern = "80",
+  tileset = "addition/out",
+}
+
 custom_entity{
   layer = 0,
   x = 776,
@@ -13398,26 +13418,6 @@ dynamic_tile{
   pattern = "617",
   width = 16,
   height = 16,
-}
-
-custom_entity{
-  layer = 0,
-  x = 560,
-  y = 405,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/fish_manbo",
-}
-
-custom_entity{
-  layer = 0,
-  x = 640,
-  y = 405,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/fish_manbo",
 }
 
 dynamic_tile{
@@ -14325,7 +14325,7 @@ chest{
   treasure_name = "rupee",
   treasure_variant = 4,
   treasure_savegame_variable = "c1_mambos_cave_chest_1",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 custom_entity{
@@ -14461,7 +14461,7 @@ npc{
   y = 229,
   direction = 3,
   subtype = 1,
-  sprite = "npc/quadruplet_father",
+  sprite = "npc/villagers/quadruplet_father",
 }
 
 custom_entity{
@@ -14544,7 +14544,7 @@ destructible{
   layer = 0,
   x = 160,
   y = 517,
-  sprite = "entities/stone_small_white",
+  sprite = "entities/destructibles/stone_white_small",
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,

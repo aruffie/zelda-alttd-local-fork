@@ -5,15 +5,26 @@ local enemy_meta = sol.main.get_metatable("enemy")
 local enemy_manager = require("scripts/maps/enemy_manager")
 local audio_manager = require("scripts/audio_manager")
 
-function enemy_meta:on_hurt()
+function enemy_meta:on_hurt(attack)
   
-  audio_manager:play_sound("enemies/enemy_hit")
+  if self:get_hurt_style() == "boss" then
+    audio_manager:play_sound("enemies/boss_hit")
+  else
+    audio_manager:play_sound("enemies/enemy_hit")
+  end
    
 end
 
 function enemy_meta:on_dying()
   
-  audio_manager:play_sound("enemies/enemy_die")
+  if self:get_hurt_style() == "boss" then
+    audio_manager:play_sound("enemies/boss_die")
+    sol.timer.start(self, 200, function()
+      audio_manager:play_sound("items/bomb_explode")
+    end)
+  else
+    audio_manager:play_sound("enemies/enemy_die")
+  end
   
 end
 
@@ -34,6 +45,7 @@ function enemy_meta:on_hurt_by_sword(hero, enemy_sprite)
   -- Remove life.
   local life_lost = force
   self:remove_life(life_lost)
+  
 end
 
 -- Helper function to inflict an explicit reaction from a scripted weapon.
@@ -136,16 +148,28 @@ function enemy_meta:on_attacking_hero(hero, enemy_sprite)
   else
     hero:start_hurt(enemy, damage)
   end
+  
 end
 
--- Create an exclamation symbol near npc
-function enemy_meta:create_symbol_exclamation(x, y, layer)
+function enemy_meta:on_position_changed(x, y, layer)
+    
+  local enemy = self
+  local ground = enemy:get_map():get_ground(x, y, layer)
+  if ground == "hole" and enemy:get_sprite() ~= nil and enemy:get_sprite():get_animation() ~= "falling" then
+    enemy:get_sprite():set_animation("falling")
+    audio_manager:play_sound("enemies/enemy_fall")
+  end
+      
+end
+
+-- Create an exclamation symbol near enemy
+function enemy_meta:create_symbol_exclamation()
   
   local map = self:get_map()
   local x, y, layer = self:get_position()
   audio_manager:play_sound("menus/menu_select")
   local symbol = map:create_custom_entity({
-    sprite = "entities/symbol_exclamation",
+    sprite = "entities/symbols/exclamation",
     x = x - 16,
     y = y - 16,
     width = 16,
@@ -158,14 +182,14 @@ function enemy_meta:create_symbol_exclamation(x, y, layer)
   
 end
 
--- Create an interrogation symbol near npc
+-- Create an interrogation symbol near enemy
 function enemy_meta:create_symbol_interrogation()
   
   local map = self:get_map()
   local x, y, layer = self:get_position()
   audio_manager:play_sound("menus/menu_select")
   local symbol = map:create_custom_entity({
-    sprite = "entities/symbol_interrogation",
+    sprite = "entities/symbols/interrogation",
     x = x,
     y = y,
     width = 16,
@@ -178,14 +202,14 @@ function enemy_meta:create_symbol_interrogation()
   
 end
 
--- Create a collapse symbol near npc
+-- Create a collapse symbol near enemy
 function enemy_meta:create_symbol_collapse()
   
   local map = self:get_map()
   local width, height = self:get_sprite():get_size()
   local x, y, layer = self:get_position()
   local symbol = map:create_custom_entity({
-    sprite = "entities/symbol_collapse",
+    sprite = "entities/symbols/collapse",
     x = x,
     y = y - height / 2,
     width = 16,

@@ -20,7 +20,7 @@ function owl_manager:appear(map, step, callback)
       height = 8,
       direction = 0,
       layer = l_owl ,
-      sprite= "npc/owl_shadow"
+      sprite ="entities/shadows/owl"
     }
     map:start_coroutine(function()
       local options = {
@@ -124,6 +124,5 @@ function owl_manager:init(map)
   end
 
 end
-
 
 return owl_manager

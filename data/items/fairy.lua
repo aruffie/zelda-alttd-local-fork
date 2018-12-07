@@ -53,7 +53,7 @@ end
 -- Obtaining a fairy.
 function item:on_obtaining(variant, savegame_variable)
 
-  if item:get_game():get_life() == game:get_max_life() then
+  if item:get_game():get_life() == item:get_game():get_max_life() then
     audio_manager:play_sound("items/get_item2")
   else
     item:get_game():add_life(7 * 4)

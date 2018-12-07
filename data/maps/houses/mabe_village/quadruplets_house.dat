@@ -203,7 +203,7 @@ destructible{
   x = 104,
   y = 93,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -213,7 +213,7 @@ destructible{
   x = 120,
   y = 93,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -223,7 +223,7 @@ destructible{
   x = 136,
   y = 93,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -233,7 +233,7 @@ destructible{
   x = 152,
   y = 93,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -243,7 +243,7 @@ destructible{
   x = 168,
   y = 93,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -253,7 +253,7 @@ destructible{
   x = 184,
   y = 93,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -263,7 +263,7 @@ destructible{
   x = 200,
   y = 93,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -273,7 +273,7 @@ destructible{
   x = 216,
   y = 93,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -1425,6 +1425,12 @@ teletransporter{
   layer = 1,
   x = 224,
   y = 232,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/a3_mabe_village",
@@ -1444,6 +1450,12 @@ teletransporter{
   layer = 1,
   x = 432,
   y = 232,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/a3_mabe_village",
@@ -1457,7 +1469,7 @@ npc{
   y = 101,
   direction = 3,
   subtype = 1,
-  sprite = "npc/quadruplet_father",
+  sprite = "npc/villagers/quadruplet_father",
 }
 
 npc{
@@ -1467,7 +1479,7 @@ npc{
   y = 109,
   direction = 3,
   subtype = 1,
-  sprite = "npc/quadruplet_mother",
+  sprite = "npc/villagers/quadruplet_mother",
 }
 
 npc{
@@ -1565,7 +1577,7 @@ destructible{
   x = 128,
   y = 197,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -1575,7 +1587,7 @@ destructible{
   x = 112,
   y = 197,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -1585,7 +1597,7 @@ destructible{
   x = 96,
   y = 197,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -1595,7 +1607,7 @@ destructible{
   x = 80,
   y = 197,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -1605,7 +1617,7 @@ chest{
   x = 408,
   y = 165,
   treasure_name = "magnifying_lens",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 tile{

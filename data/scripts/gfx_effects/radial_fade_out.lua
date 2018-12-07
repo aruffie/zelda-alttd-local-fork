@@ -11,7 +11,7 @@ local lib={}
     callback (optional): the function to execute after the effect is finiched playing
 --]]
 require("scripts/multi_events")
-local duration=1500
+local duration=1000
 local max_radius=360
 
 function lib.start_effect(surface, game, mode, sfx, callback)

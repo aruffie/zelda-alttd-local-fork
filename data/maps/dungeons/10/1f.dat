@@ -15916,7 +15916,7 @@ chest{
   x = 64,
   y = 1413,
   treasure_name = "compass",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 enemy{
@@ -16006,7 +16006,7 @@ chest{
   y = 645,
   treasure_name = "small_key",
   treasure_savegame_variable = "dungeon_10_key_1",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 door{
@@ -16077,7 +16077,7 @@ chest{
   x = 2400,
   y = 109,
   treasure_name = "rupee",
-  sprite = "entities/big_chest",
+  sprite = "entities/chests/chest_big",
 }
 
 destructible{
@@ -16085,7 +16085,7 @@ destructible{
   x = 56,
   y = 1653,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -16095,7 +16095,7 @@ destructible{
   x = 72,
   y = 1653,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -16105,7 +16105,7 @@ destructible{
   x = 88,
   y = 1653,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -16115,7 +16115,7 @@ destructible{
   x = 88,
   y = 1669,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -16125,7 +16125,7 @@ destructible{
   x = 72,
   y = 1669,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -16135,7 +16135,7 @@ destructible{
   x = 56,
   y = 1669,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -16145,7 +16145,7 @@ destructible{
   x = 56,
   y = 1685,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -16155,7 +16155,7 @@ destructible{
   x = 72,
   y = 1685,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -16165,7 +16165,7 @@ destructible{
   x = 88,
   y = 1685,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -16229,7 +16229,7 @@ chest{
   y = 133,
   treasure_name = "boss_key",
   treasure_savegame_variable = "dungeon_10_boss_key",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 door{
@@ -16345,7 +16345,7 @@ destructible{
   x = 872,
   y = 1653,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -16355,7 +16355,7 @@ destructible{
   x = 888,
   y = 1653,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -16365,7 +16365,7 @@ destructible{
   x = 904,
   y = 1653,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -16375,7 +16375,7 @@ destructible{
   x = 904,
   y = 1669,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -16385,7 +16385,7 @@ destructible{
   x = 888,
   y = 1669,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -16395,7 +16395,7 @@ destructible{
   x = 872,
   y = 1669,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -16405,7 +16405,7 @@ destructible{
   x = 872,
   y = 1685,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -16415,7 +16415,7 @@ destructible{
   x = 888,
   y = 1685,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -16425,7 +16425,7 @@ destructible{
   x = 904,
   y = 1685,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -16590,7 +16590,7 @@ chest{
   layer = 0,
   x = 1984,
   y = 1413,
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 stairs{

@@ -595,6 +595,96 @@ tile{
   pattern = "door.2.low_support.1-2",
 }
 
+tile{
+  layer = 0,
+  x = 72,
+  y = 88,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 88,
+  y = 72,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 184,
+  y = 72,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 216,
+  y = 72,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 216,
+  y = 104,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 216,
+  y = 168,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 232,
+  y = 168,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 88,
+  y = 168,
+  width = 16,
+  height = 16,
+  pattern = "95",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 232,
+  y = 112,
+  width = 16,
+  height = 16,
+  pattern = "95",
+  tileset = "addition/dungeon",
+}
+
 destination{
   name = "stair",
   layer = 0,
@@ -625,10 +715,10 @@ npc{
   name = "wart",
   layer = 0,
   x = 160,
-  y = 77,
+  y = 93,
   direction = 3,
   subtype = 1,
-  sprite = "npc/wart",
+  sprite = "npc/animals/wart",
 }
 
 npc{
@@ -639,116 +729,6 @@ npc{
   direction = 3,
   subtype = 1,
   sprite = "npc/warts_brother",
-}
-
-custom_entity{
-  name = "cave_bones_1",
-  layer = 0,
-  x = 96,
-  y = 181,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_bones",
-}
-
-custom_entity{
-  name = "cave_bones_2",
-  layer = 0,
-  x = 240,
-  y = 125,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_bones",
-}
-
-custom_entity{
-  name = "cave_rock_1",
-  layer = 0,
-  x = 96,
-  y = 85,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_2",
-  layer = 0,
-  x = 80,
-  y = 101,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_3",
-  layer = 0,
-  x = 240,
-  y = 181,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_4",
-  layer = 0,
-  x = 224,
-  y = 181,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_5",
-  layer = 0,
-  x = 120,
-  y = 173,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_6",
-  layer = 0,
-  x = 224,
-  y = 117,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_7",
-  layer = 0,
-  x = 224,
-  y = 85,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_8",
-  layer = 0,
-  x = 192,
-  y = 85,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
 }
 
 npc{

@@ -19,8 +19,6 @@ function map:on_started(destination)
   map:init_map_entities()
   local item = game:get_item("magnifying_lens")
   local variant_lens = item:get_variant()
-  -- Signs
-  shop_sign_2:get_sprite():set_animation("crane_sign")
   -- Marin
   if game:get_value("main_quest_step") < 4 or game:get_value("main_quest_step") > 20  then
     marin:set_enabled(false)
@@ -130,7 +128,7 @@ function map:create_ball(player_1, player_2)
     height = 24,
     direction = 0,
     layer = 1 ,
-    sprite= "entities/ball"
+    sprite = "entities/objects/ball"
   }
   ball_shadow = map:create_custom_entity{
     name = "ball_shadow",
@@ -140,7 +138,7 @@ function map:create_ball(player_1, player_2)
     height = 24,
     direction = 0,
     layer = 0,
-    sprite= "entities/ball_shadow"
+    sprite = "entities/shadows/ball"
   }
   
 end

@@ -14,6 +14,7 @@ function item:on_created()
   self:set_amount_savegame_variable("amount_bombs_counter")
   self:set_assignable(true)
 
+
 end
 
 function item:on_obtaining(variant, savegame_variable)
@@ -36,7 +37,7 @@ function item:on_using()
   else
     item:remove_amount(1)
     local x, y, layer = item:create_bomb()
-    audio_manager:play_sound("bomb")
+    audio_manager:play_sound("items/bomb_drop")
   end
   item:set_finished()
   
@@ -62,6 +63,14 @@ function item:create_bomb()
     y = y,
     layer = layer
   }
+  local sprite = bomb:get_sprite()
+  function sprite:on_animation_changed(animation)
+    if animation == "stopped_explosion_soon" then
+      sol.timer.start(item, 1500, function()
+        audio_manager:play_sound("items/bomb_explode")
+      end)
+    end
+  end
   map.current_bombs = map.current_bombs or {}
   map.current_bombs[bomb] = true
 

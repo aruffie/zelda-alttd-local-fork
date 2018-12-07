@@ -1674,6 +1674,106 @@ tile{
   pattern = "floor.cracked.7-2",
 }
 
+tile{
+  layer = 0,
+  x = 232,
+  y = 168,
+  width = 16,
+  height = 16,
+  pattern = "95",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 296,
+  y = 96,
+  width = 16,
+  height = 16,
+  pattern = "95",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 520,
+  y = 152,
+  width = 16,
+  height = 16,
+  pattern = "95",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 440,
+  y = 160,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 384,
+  y = 120,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 312,
+  y = 120,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 272,
+  y = 72,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 240,
+  y = 72,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 232,
+  y = 152,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 88,
+  y = 88,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
 custom_entity{
   name = "cave_rock_1",
   layer = 0,
@@ -1776,7 +1876,7 @@ chest{
   treasure_name = "rupee",
   treasure_variant = 3,
   treasure_savegame_variable = "west_mt_tamaranch_cave_1_chest_2",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 enemy{
@@ -2356,7 +2456,7 @@ destructible{
   layer = 1,
   x = 520,
   y = 117,
-  sprite = "entities/skull_white",
+  sprite = "entities/destructibles/skull_white",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -2368,7 +2468,7 @@ chest{
   treasure_name = "rupee",
   treasure_variant = 4,
   treasure_savegame_variable = "west_mt_tamaranch_cave_1_chest_1",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 custom_entity{

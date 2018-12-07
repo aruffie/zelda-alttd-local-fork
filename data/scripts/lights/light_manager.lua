@@ -86,7 +86,7 @@ function light_mgr:compute_light_shadow_map(light)
   --setup shaders for this light
   local resolution = {radius,radius}
   make_shadow_s:set_uniform("resolution",resolution)
-  cast_shadow_s:set_uniform("scale",{size/angular_resolution,size})
+  shadow_map:set_scale(size/angular_resolution,size)
   cast_shadow_s:set_uniform("resolution",resolution)
   cast_shadow_s:set_uniform("lcolor",light.color)
   cast_shadow_s:set_uniform("dir",light.direction or {1,0})

@@ -7,6 +7,7 @@ local hero_meta = sol.main.get_metatable("hero")
 local audio_manager = require("scripts/audio_manager")
 local timer_sword_loading = nil
 local timer_sword_tapping = nil
+local timer_stairs = nil
 require("scripts/multi_events")
 
 hero_meta:register_event("on_state_changed", function(hero)
@@ -51,6 +52,14 @@ hero_meta:register_event("on_state_changed", function(hero)
     audio_manager:play_sound("hero/fall") 
   elseif current_state == "jumping" then
     audio_manager:play_sound("hero/throw")
+  elseif current_state == "stairs" then
+    if timer_stairs == nil then
+      timer_stairs = sol.timer.start(hero, 0, function()
+        audio_manager:play_sound("others/stairs")
+        return 400
+      end)
+      timer_stairs:set_suspended_with_map(false)
+    end
   elseif current_state == "frozen" then
     -- Frozen
     local entity = hero:get_facing_entity()
@@ -73,6 +82,11 @@ hero_meta:register_event("on_state_changed", function(hero)
   if current_state ~= "sword tapping" and timer_sword_tapping ~= nil then
     timer_sword_tapping:stop()
     timer_sword_tapping = nil
+  end  
+  -- Reset timer stairs
+  if current_state ~= "stairs" and timer_stairs ~= nil then
+    timer_stairs:stop()
+    timer_stairs = nil
   end  
   -- Previous states
   if hero.previous_state == "carrying" then
@@ -117,9 +131,14 @@ hero_meta:register_event("on_position_changed", function(hero)
       end
       square_total_x = (4*square_x)+square_min_x
       square_total_y = (4*square_y)+square_min_y
-      game:set_value("map_discovering_" .. square_total_x .. "_" .. square_total_y, true)
       game:set_value("map_hero_position_x", square_total_x)
       game:set_value("map_hero_position_y", square_total_y)
+      
+      -- Save the map discovering.
+      assert(square_total_x >= 0 and square_total_y >= 0, "Negative coordinates for map discovering: "..square_total_x.." "..square_total_y)
+      if square_total_x >= 0 and square_total_y >= 0 then
+        game:set_value("map_discovering_" .. square_total_x .. "_" .. square_total_y, true)
+      end
     end
   else
     local map_width, map_height = map:get_size()
@@ -129,7 +148,7 @@ hero_meta:register_event("on_position_changed", function(hero)
     local row = math.floor(y / room_height)
     local room = row * num_columns + column + 1
     local room_old = game:get_value("room")
-    if game:has_dungeon_compass() and room_old ~= room and game:is_secret_room(nil, nil, room)  and game:is_secret_signal_room(nil, nil, room) then
+    if game:has_dungeon_compass() and room_old ~= room and game:is_secret_room(nil, nil, room) and game:is_secret_signal_room(nil, nil, room) then
       local timer = sol.timer.start(map, 500, function()
         audio_manager:play_sound("others/dungeon_signal")
       end)
@@ -287,5 +306,66 @@ function hero_meta:initialize_fixing_functions()
   end
   
 end
+
+-- Create an exclamation symbol near hero
+function hero_meta:create_symbol_exclamation()
+  
+  local map = self:get_map()
+  local x, y, layer = self:get_position()
+  audio_manager:play_sound("menus/menu_select")
+  local symbol = map:create_custom_entity({
+    sprite = "entities/symbols/exclamation",
+    x = x - 16,
+    y = y - 16,
+    width = 16,
+    height = 16,
+    layer = layer + 1,
+    direction = 0
+  })
+
+  return symbol
+  
+end
+
+-- Create an interrogation symbol near hero
+function hero_meta:create_symbol_interrogation()
+  
+  local map = self:get_map()
+  local x, y, layer = self:get_position()
+  audio_manager:play_sound("menus/menu_select")
+  local symbol = map:create_custom_entity({
+    sprite = "entities/symbols/interrogation",
+    x = x,
+    y = y,
+    width = 16,
+    height = 16,
+    layer = layer + 1,
+    direction = 0
+  })
+
+  return symbol
+  
+end
+
+-- Create a collapse symbol near hero
+function hero_meta:create_symbol_collapse()
+  
+  local map = self:get_map()
+  local width, height = self:get_sprite():get_size()
+  local x, y, layer = self:get_position()
+  local symbol = map:create_custom_entity({
+    sprite = "entities/symbols/collapse",
+    x = x,
+    y = y - height / 2,
+    width = 16,
+    height = 16,
+    layer = layer + 1,
+    direction = 0
+  })
+
+  return symbol
+  
+end
+
 
 return true

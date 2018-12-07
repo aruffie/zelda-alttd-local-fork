@@ -6,7 +6,6 @@ local map = entity:get_map()
 local sprite = entity:get_sprite()
 local is_destroy = false
 
-
 -- Event called when the custom entity is initialized.
 function entity:on_created()
 

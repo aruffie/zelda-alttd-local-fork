@@ -358,7 +358,7 @@ function change_movement_raccoon()
     end
   else
     local x, y, layer = tarin:get_position()
-    audio_manager:play_sound("others/bomb_explode")
+    audio_manager:play_sound("items/bomb_explode")
     map:create_explosion{
       layer = layer,
       x = x,
@@ -405,7 +405,7 @@ end
 
 function map:set_overlay()
 
-  map.overlay = sol.surface.create("entities/overlay_forest.png")
+  map.overlay = sol.surface.create("entities/effects/fog.png")
   map.overlay:set_opacity(96)
   map.overlay_offset_x = 0  -- Used to keep continuity when getting lost.
   map.overlay_offset_y = 0

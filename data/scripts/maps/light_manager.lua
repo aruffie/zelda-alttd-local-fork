@@ -15,7 +15,7 @@ function light_manager:init(map)
   local camera_x, camera_y = map:get_camera():get_bounding_box()
   local x = 320 - hero_x + camera_x
   local y = 240 - hero_y + camera_y
-  local dark_surface = sol.surface.create("entities/dark.png")
+  local dark_surface = sol.surface.create("entities/effects/dark.png")
   dark_surface:draw_region(
       x, y, screen_width, screen_height, light_surface)
   if x < 0 then

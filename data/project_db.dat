@@ -103,13 +103,12 @@ map{ id = "houses/mabe_village/library", description = "Library" }
 map{ id = "houses/mabe_village/marin_house", description = "Marin house" }
 map{ id = "houses/mabe_village/meow_meow_house", description = "Meow meow house" }
 map{ id = "houses/mabe_village/quadruplets_house", description = "Quadruplets house" }
-map{ id = "houses/mabe_village/shop_1", description = "Shop 1" }
 map{ id = "houses/mabe_village/shop_2", description = "Shop 2" }
 map{ id = "houses/mabe_village/telephone_booth_1", description = "Telephone booth 1" }
 map{ id = "houses/mambos_cave/cuccos_house", description = "Cucco's house" }
 map{ id = "houses/martha_bay/telephone_booth_7", description = "Telephone booth 7" }
 map{ id = "houses/martha_bay/telephone_booth_8", description = "Telephone booth 8" }
-map{ id = "houses/mask_shrine/south_shrine", description = "South shrine" }
+map{ id = "houses/mask_shrine/mask_shrine", description = "Mask shrine" }
 map{ id = "houses/prairie/telephone_booth_4", description = "Telephone booth 4" }
 map{ id = "houses/rafting/rafting_house", description = "Rafting's house" }
 map{ id = "houses/south_mabe_village/sales_house_o_bananas", description = "Sale's House O' Bananas" }
@@ -146,7 +145,13 @@ map{ id = "sideviews/kanalet_castle/sideview_1", description = "Sideview 1" }
 map{ id = "sideviews/mabe_village/sideview_1", description = "Sideview 1" }
 map{ id = "sideviews/martha_bay/sideview_1", description = "Sideview 1" }
 map{ id = "sideviews/martha_bay/sideview_2", description = "Sideview 2" }
+map{ id = "trial/0", description = "Entry" }
+map{ id = "trial/1", description = "Level 1" }
+map{ id = "trial/2", description = "Level 2" }
+map{ id = "trial/3", description = "Level 3" }
 
+tileset{ id = "addition/dungeon", description = "Addition dungeon" }
+tileset{ id = "addition/out", description = "Out" }
 tileset{ id = "dungeon/blue", description = "Blue" }
 tileset{ id = "dungeon/brown", description = "Brown" }
 tileset{ id = "dungeon/dark_brown", description = "Dark brown" }
@@ -242,6 +247,7 @@ sprite{ id = "enemies/camo_goblin_red", description = "Camo goblin red" }
 sprite{ id = "enemies/cheep_cheep", description = "Cheep cheep" }
 sprite{ id = "enemies/chicken", description = "Chicken" }
 sprite{ id = "enemies/chicken_mortal", description = "Chicken mortal" }
+sprite{ id = "enemies/coconut", description = "Monkey coconut" }
 sprite{ id = "enemies/crow", description = "Crow" }
 sprite{ id = "enemies/cukeman", description = "Cukeman" }
 sprite{ id = "enemies/darknut", description = "Darknut sword" }
@@ -274,9 +280,6 @@ sprite{ id = "enemies/leever", description = "Leever" }
 sprite{ id = "enemies/like_like", description = "Like like" }
 sprite{ id = "enemies/mad_bomber", description = "Mad bomber" }
 sprite{ id = "enemies/maskass", description = "Maskass" }
-sprite{ id = "enemies/mini_moldorm", description = "Mini moldorm" }
-sprite{ id = "enemies/mini_moldorm_body", description = "Mini Moldorm body" }
-sprite{ id = "enemies/mini_moldorm_tail", description = "Mini moldorm tail" }
 sprite{ id = "enemies/mini_thwomp", description = "Mini thwomp" }
 sprite{ id = "enemies/moblin", description = "Moblin" }
 sprite{ id = "enemies/moblin_dog_spear", description = "Moblin dog spear" }
@@ -284,7 +287,6 @@ sprite{ id = "enemies/moblin_dog_sword", description = "Moblin dog sword" }
 sprite{ id = "enemies/moblin_pig_sword", description = "Moblin pig sword" }
 sprite{ id = "enemies/moblin_spear", description = "Moblin spear" }
 sprite{ id = "enemies/monkey", description = "Monkey" }
-sprite{ id = "enemies/monkey_coconut", description = "Monkey coconut" }
 sprite{ id = "enemies/octorok", description = "Octorok" }
 sprite{ id = "enemies/octorok_stone", description = "Octorok stone" }
 sprite{ id = "enemies/orb_monster_blue", description = "Orb monster blue" }
@@ -313,6 +315,9 @@ sprite{ id = "enemies/river_zora", description = "River zora" }
 sprite{ id = "enemies/rope", description = "Rope" }
 sprite{ id = "enemies/sand_crab", description = "Crab" }
 sprite{ id = "enemies/sea_urchin", description = "Sea urchin" }
+sprite{ id = "enemies/small_moldorm", description = "Mini moldorm" }
+sprite{ id = "enemies/small_moldorm_body", description = "Mini Moldorm body" }
+sprite{ id = "enemies/small_moldorm_tail", description = "Mini moldorm tail" }
 sprite{ id = "enemies/spike", description = "Spike" }
 sprite{ id = "enemies/spiked_thwomp", description = "Spiked thwomp" }
 sprite{ id = "enemies/spiny_beetle", description = "Spiny beetle" }
@@ -335,158 +340,151 @@ sprite{ id = "enemies/wizzrobe_white", description = "Wizzrobe white" }
 sprite{ id = "enemies/zol_green", description = "Zol green" }
 sprite{ id = "enemies/zol_red", description = "Zol red" }
 sprite{ id = "enemies/zombie", description = "Zombie" }
-sprite{ id = "entities/alligo_flag", description = "Alligo flag" }
+sprite{ id = "entities/animals/bird", description = "Bird" }
+sprite{ id = "entities/animals/frog", description = "Frog" }
+sprite{ id = "entities/animals/mambo_pal_1", description = "Mambo pal 1" }
+sprite{ id = "entities/animals/mambo_pal_2", description = "Mambo pal 2" }
+sprite{ id = "entities/animals/mambo_pal_3", description = "Mambo pal 3" }
+sprite{ id = "entities/animals/mambo_pal_4", description = "Mambo pal 4" }
+sprite{ id = "entities/animals/mambo_pal_5", description = "Mambo pal 5" }
+sprite{ id = "entities/animals/mambo_pal_6", description = "Mambo pal 6" }
+sprite{ id = "entities/animals/mambo_pal_7", description = "Mambo pal 7" }
+sprite{ id = "entities/animals/monkey", description = "Monkey" }
+sprite{ id = "entities/animals/mouse", description = "Mouse" }
+sprite{ id = "entities/animals/seagull", description = "Seagull" }
+sprite{ id = "entities/animals/seagull_small", description = "Seagull small" }
+sprite{ id = "entities/animals/wart_brothers", description = "Wart's brothers" }
 sprite{ id = "entities/arrow", description = "Arrow" }
 sprite{ id = "entities/arrow_fly", description = "Arrow fly" }
-sprite{ id = "entities/ball", description = "Ball" }
-sprite{ id = "entities/ball_shadow", description = "Ball shadow" }
-sprite{ id = "entities/bananas", description = "Bananas" }
-sprite{ id = "entities/beach_debris_1", description = "Beach debris 1" }
-sprite{ id = "entities/beach_debris_2", description = "Beach debris 2" }
-sprite{ id = "entities/beach_debris_3", description = "Beach debris 3" }
-sprite{ id = "entities/beach_debris_4", description = "Beach debris 4" }
-sprite{ id = "entities/bear_pots", description = "Bear pots" }
 sprite{ id = "entities/bed", description = "Hero's bed" }
-sprite{ id = "entities/big_chest", description = "Chest (big)" }
-sprite{ id = "entities/block", description = "Block" }
 sprite{ id = "entities/blocks/block_small_key", description = "Block small key" }
-sprite{ id = "entities/blocks/richard_block", description = "Richard block" }
-sprite{ id = "entities/blue_cristal", description = "Blue cristal" }
+sprite{ id = "entities/blocks/box", description = "Box" }
 sprite{ id = "entities/bomb", description = "Bomb" }
 sprite{ id = "entities/bomb_fly", description = "Bomb fly" }
 sprite{ id = "entities/bombite_explosion", description = "Bombite_explosion" }
-sprite{ id = "entities/book_blue", description = "Book blue" }
-sprite{ id = "entities/book_green", description = "Book green" }
-sprite{ id = "entities/book_orange", description = "Book orange" }
-sprite{ id = "entities/book_red", description = "Book red" }
 sprite{ id = "entities/boomerang1", description = "Boomerang 1" }
 sprite{ id = "entities/boomerang2", description = "Boomerang 2" }
-sprite{ id = "entities/boss_symbol_dungeon_1", description = "Boss symbol dungeon 1" }
-sprite{ id = "entities/boss_symbol_dungeon_2", description = "Boss symbol dungeon 2" }
 sprite{ id = "entities/bow", description = "Bow" }
-sprite{ id = "entities/bubble_swamp", description = "Bubble swamp" }
-sprite{ id = "entities/bush", description = "Bush" }
-sprite{ id = "entities/bush_grass", description = "Bush grass" }
-sprite{ id = "entities/camera", description = "Camera" }
-sprite{ id = "entities/cannonball", description = "Cannon ball" }
-sprite{ id = "entities/cave_bones", description = "Cave bones" }
-sprite{ id = "entities/cave_rock", description = "Cave rock" }
 sprite{ id = "entities/chain", description = "Chain" }
-sprite{ id = "entities/chest", description = "Chest (normal)" }
+sprite{ id = "entities/chests/chest_big", description = "Chest big" }
+sprite{ id = "entities/chests/chest_small", description = "Chest small" }
 sprite{ id = "entities/claw_chain", description = "Claw chain" }
 sprite{ id = "entities/claw_crane", description = "Claw crane" }
 sprite{ id = "entities/claw_up", description = "Claw up" }
-sprite{ id = "entities/color_platform_green", description = "Color platform green" }
-sprite{ id = "entities/color_platform_orange", description = "Color plateform orange" }
-sprite{ id = "entities/color_platform_red", description = "Color platform red" }
-sprite{ id = "entities/color_platform_yellow", description = "Color platform yellow" }
-sprite{ id = "entities/console", description = "Console" }
-sprite{ id = "entities/conveyor_belt1", description = "Conveyor belt 1" }
-sprite{ id = "entities/conveyor_belt2", description = "Conveyor belt 2" }
-sprite{ id = "entities/conveyor_belt3", description = "Conveyor belt 3" }
-sprite{ id = "entities/conveyor_belt4", description = "Conveyor belt 4" }
 sprite{ id = "entities/crystal", description = "Crystal" }
 sprite{ id = "entities/crystal_block", description = "Crystal block" }
-sprite{ id = "entities/destination", description = "Destination of teletransporter" }
-sprite{ id = "entities/dog_statue", description = "Dog statue" }
+sprite{ id = "entities/decorations/background_introduction", description = "Background introduction" }
+sprite{ id = "entities/decorations/bubble_swamp", description = "Bubble swamp" }
+sprite{ id = "entities/decorations/fire", description = "Fire" }
+sprite{ id = "entities/decorations/rainbow", description = "Rainbow" }
+sprite{ id = "entities/decorations/sun", description = "Sun" }
+sprite{ id = "entities/decorations/swell_1", description = "Swell 1" }
+sprite{ id = "entities/decorations/swell_2", description = "Swell 2" }
+sprite{ id = "entities/decorations/wreck", description = "Wreck" }
+sprite{ id = "entities/destructibles/block_ice", description = "Block ice" }
+sprite{ id = "entities/destructibles/bush", description = "Bush" }
+sprite{ id = "entities/destructibles/bush_grass", description = "Bush grass" }
+sprite{ id = "entities/destructibles/crystal_blue", description = "Crystal blue" }
+sprite{ id = "entities/destructibles/crystal_green", description = "Crystal green" }
+sprite{ id = "entities/destructibles/grass", description = "Grass" }
+sprite{ id = "entities/destructibles/pot", description = "Pot" }
+sprite{ id = "entities/destructibles/sign", description = "Sign" }
+sprite{ id = "entities/destructibles/skull_brown", description = "Skull brown" }
+sprite{ id = "entities/destructibles/skull_green", description = "Skull green" }
+sprite{ id = "entities/destructibles/skull_white", description = "Skull white" }
+sprite{ id = "entities/destructibles/statue_elephant", description = "Statue elephant" }
+sprite{ id = "entities/destructibles/stone_white_large", description = "Stone white large" }
+sprite{ id = "entities/destructibles/stone_white_small", description = "Stone white small" }
 sprite{ id = "entities/doors/boss_door_frame_renverse", description = "Boss door frame renverse" }
 sprite{ id = "entities/doors/boss_door_frames", description = "Boss door frames" }
 sprite{ id = "entities/doors/door_big_key", description = "Door big key" }
 sprite{ id = "entities/doors/door_boss_key", description = "Door boss key" }
+sprite{ id = "entities/doors/door_egg", description = "Door egg" }
+sprite{ id = "entities/doors/door_egg_top", description = "Door egg top" }
 sprite{ id = "entities/doors/door_normal", description = "Door" }
 sprite{ id = "entities/doors/door_normal_cave", description = "Door cave" }
 sprite{ id = "entities/doors/door_small_key", description = "Door small key" }
 sprite{ id = "entities/doors/door_very_weak_wall", description = "Door very weak wall" }
+sprite{ id = "entities/doors/door_wallturn_dungeon_1", description = "Door wallturn dungeon 1" }
+sprite{ id = "entities/doors/door_wallturn_dungeon_2", description = "Door wallturn dungeon 2" }
+sprite{ id = "entities/doors/door_wallturn_dungeon_3", description = "Door wallturn dungeon 3" }
+sprite{ id = "entities/doors/door_wallturn_dungeon_5", description = "Door wallturn dungeon 5" }
+sprite{ id = "entities/doors/door_wallturn_dungeon_6", description = "Door wallturn dungeon 6" }
+sprite{ id = "entities/doors/door_wallturn_dungeon_7", description = "Door wallturn dungeon 7" }
+sprite{ id = "entities/doors/door_wallturn_dungeon_8", description = "Door wallturn dungeon 8" }
+sprite{ id = "entities/doors/door_wallturn_dungeon_9", description = "Door wallturn dungeon 9" }
 sprite{ id = "entities/doors/door_weak_block", description = "Door weak block" }
 sprite{ id = "entities/doors/door_weak_block_cave", description = "Door weak block cave" }
-sprite{ id = "entities/doors/door_weak_wall", description = "Door_weak_wall" }
-sprite{ id = "entities/doors/door_weak_wall_cave", description = "Door weak wall cave" }
 sprite{ id = "entities/doors/door_weak_wall_out", description = "Door weak wall out" }
-sprite{ id = "entities/egg", description = "Egg" }
-sprite{ id = "entities/egg_door", description = "Egg door" }
-sprite{ id = "entities/egg_door_top", description = "Egg door top" }
-sprite{ id = "entities/entrance_dungeon_1", description = "Entrance dungeon 1" }
+sprite{ id = "entities/dungeons/dungeon_6", description = "Dungeon 6" }
+sprite{ id = "entities/dungeons/dungeon_7", description = "Dungeon 7" }
+sprite{ id = "entities/effects/dark", description = "Dark" }
+sprite{ id = "entities/effects/fog", description = "Fog" }
+sprite{ id = "entities/effects/rain", description = "Rain" }
+sprite{ id = "entities/effects/sparkle_big", description = "Sparkle big" }
+sprite{ id = "entities/effects/sparkle_small", description = "Sparkle small" }
 sprite{ id = "entities/entrance_dungeon_2", description = "Entrance dungeon 2" }
 sprite{ id = "entities/entrance_dungeon_2_bottom", description = "Entrance dungeon 2 (bottom)" }
 sprite{ id = "entities/entrance_dungeon_2_top", description = "Entrance dungeon 2 (top)" }
-sprite{ id = "entities/entrance_dungeon_3", description = "Entrance dungeon 3" }
 sprite{ id = "entities/entrance_dungeon_4", description = "Entrance dungeon 4" }
-sprite{ id = "entities/entrance_dungeon_5", description = "Entrance dungeon 5" }
-sprite{ id = "entities/entrance_dungeon_6", description = "Entrance dungeon 6" }
-sprite{ id = "entities/entrance_dungeon_7", description = "Entrance dungeon 7" }
 sprite{ id = "entities/entrance_dungeon_7_door", description = "Entrance dungeon 7 door" }
-sprite{ id = "entities/entrance_dungeon_8_bis", description = "Entrance dungeon 8 bis" }
 sprite{ id = "entities/entrance_dungeon_door", description = "Entrance dungeons" }
-sprite{ id = "entities/entrance_moblin_cave", description = "Entrance moblin cave" }
-sprite{ id = "entities/entrance_southern_face_shrine", description = "Entrance southern face shrine" }
 sprite{ id = "entities/explosion", description = "Explosion" }
-sprite{ id = "entities/eye_switch_blue", description = "Eye switch blue" }
-sprite{ id = "entities/eye_switch_red", description = "Eye switch red" }
-sprite{ id = "entities/eye_switch_yellow", description = "Eye switch yellow" }
-sprite{ id = "entities/fire", description = "Fire" }
+sprite{ id = "entities/explosion_boss", description = "Explosion boss" }
 sprite{ id = "entities/fire_mask", description = "Fire mask" }
-sprite{ id = "entities/fish_manbo", description = "Fish Manbo" }
-sprite{ id = "entities/flame_fountain_machine", description = "Flame fountain machine" }
 sprite{ id = "entities/floating_tree_rafting", description = "Floating tree rafting" }
-sprite{ id = "entities/frog_canvas", description = "Frog canvas" }
 sprite{ id = "entities/game_board", description = "Game_board" }
-sprite{ id = "entities/grass", description = "Grass" }
 sprite{ id = "entities/graveyard_tree", description = "Graveyard tree" }
 sprite{ id = "entities/graveyard_tree_footer_brown", description = "Graveyard tree footer brown" }
 sprite{ id = "entities/graveyard_tree_footer_green", description = "Graveyard tree footer green" }
-sprite{ id = "entities/green_cristal", description = "Green cristal" }
-sprite{ id = "entities/ground_dug", description = "Ground dug" }
+sprite{ id = "entities/grounds/color_platform_green", description = "Color platform green" }
+sprite{ id = "entities/grounds/color_platform_orange", description = "Color platform orange" }
+sprite{ id = "entities/grounds/color_platform_red", description = "Color platform red" }
+sprite{ id = "entities/grounds/conveyor_belt_1", description = "Conveyor belt 1" }
+sprite{ id = "entities/grounds/conveyor_belt_2", description = "Conveyor belt 2" }
+sprite{ id = "entities/grounds/conveyor_belt_3", description = "Conveyor belt 3" }
+sprite{ id = "entities/grounds/conveyor_belt_4", description = "Conveyor belt 4" }
+sprite{ id = "entities/grounds/ground_dug", description = "Ground dug" }
 sprite{ id = "entities/hammer_stake_brown", description = "Hammer stake brown" }
 sprite{ id = "entities/hammer_stake_green", description = "Hammer stake green" }
 sprite{ id = "entities/hammer_stake_yellow", description = "Hammer stake yellow" }
 sprite{ id = "entities/handle", description = "Handle" }
 sprite{ id = "entities/handle_base", description = "Handle base" }
 sprite{ id = "entities/handle_chain", description = "Handle chain" }
-sprite{ id = "entities/heart", description = "Heart" }
 sprite{ id = "entities/heart_fly", description = "Heart fly" }
 sprite{ id = "entities/heart_fly_shadow", description = "Heart fly shadow" }
-sprite{ id = "entities/hibiscus_pot", description = "Hibiscus pot" }
-sprite{ id = "entities/hint_stone", description = "Hint stone" }
-sprite{ id = "entities/hole", description = "Hole" }
 sprite{ id = "entities/hook", description = "Hook" }
 sprite{ id = "entities/hook_bridge", description = "Hook bridge" }
 sprite{ id = "entities/hook_bridge_deployed", description = "hook_bridge_deployed" }
 sprite{ id = "entities/hookshot", description = "Hookshot" }
-sprite{ id = "entities/horse_head", description = "Horse head" }
 sprite{ id = "entities/house_dungeon_7", description = "House dungeon 7" }
-sprite{ id = "entities/ice_block", description = "Ice block" }
-sprite{ id = "entities/instrument_big_sparkle", description = "Instrument big sparkle" }
-sprite{ id = "entities/instrument_small_sparkle", description = "Instrument small sparkle" }
-sprite{ id = "entities/iron_ball", description = "Iron ball" }
+sprite{ id = "entities/insects/bee", description = "Bee" }
+sprite{ id = "entities/insects/butterfly_blue", description = "Butterfly 1" }
+sprite{ id = "entities/insects/butterfly_green", description = "Butterfly 4" }
+sprite{ id = "entities/insects/butterfly_red", description = "Butterfly 3" }
+sprite{ id = "entities/insects/butterfly_yellow", description = "Butterfly 2" }
+sprite{ id = "entities/insects/mosquito", description = "Mosquito" }
 sprite{ id = "entities/items", description = "Items" }
-sprite{ id = "entities/kanalet_canvas", description = "Kanalet canvas" }
-sprite{ id = "entities/kanalet_darknut_statue", description = "Kanalet darknut statue" }
-sprite{ id = "entities/kanalet_statue", description = "Kanalet statue" }
+sprite{ id = "entities/items/bananas", description = "Bananas" }
+sprite{ id = "entities/items/heart", description = "Heart" }
+sprite{ id = "entities/items/mushroom", description = "Mushroom" }
 sprite{ id = "entities/keyhole_dungeon_4", description = "Keyhole dungeon 4" }
 sprite{ id = "entities/keyhole_dungeon_6", description = "Keyhole dungeon 6" }
 sprite{ id = "entities/keyhole_dungeon_7", description = "Keyhole dungeon 7" }
 sprite{ id = "entities/la_beach/la_background", description = "entities/la_beach/la_background" }
 sprite{ id = "entities/la_beach/la_swell", description = "entities/la_beach/la_swell" }
 sprite{ id = "entities/la_beach/la_wreck", description = "entities/la_beach/la_wreck" }
-sprite{ id = "entities/lanmola_statue", description = "Lanmola statue" }
 sprite{ id = "entities/letter", description = "Letter" }
 sprite{ id = "entities/lightning_strike", description = "Lightning strike" }
 sprite{ id = "entities/lightning_strike_core", description = "Lightning strike core" }
-sprite{ id = "entities/mad_batter_set", description = "Mad batter set" }
 sprite{ id = "entities/mask_helmasaur", description = "Mask helmasaur" }
-sprite{ id = "entities/mask_shrine_column", description = "Mask shrine column" }
-sprite{ id = "entities/mask_shrine_slabs", description = "Mask shrine slabs" }
 sprite{ id = "entities/mega_thwomp", description = "Mega thwomp" }
-sprite{ id = "entities/moblin_carpet", description = "Moblin carpet" }
-sprite{ id = "entities/moblin_fire", description = "Moblin fire" }
-sprite{ id = "entities/moblin_throne", description = "Moblin throne" }
-sprite{ id = "entities/movies/background_introduction", description = "Background introduction" }
-sprite{ id = "entities/movies/swell", description = "Swell" }
-sprite{ id = "entities/movies/wreck", description = "Wreck" }
 sprite{ id = "entities/moving_platform_dg_2", description = "Moving platform dg 2" }
-sprite{ id = "entities/mushroom_move", description = "Mushroom move" }
-sprite{ id = "entities/non_diggable", description = "Diggable" }
-sprite{ id = "entities/notes", description = "Notes" }
+sprite{ id = "entities/objects/ball", description = "Ball" }
+sprite{ id = "entities/objects/flame_fountain_machine", description = "Flame fountain machine" }
+sprite{ id = "entities/objects/hibiscus_pot", description = "Hibiscus pot" }
+sprite{ id = "entities/objects/horse_head", description = "Horse head" }
+sprite{ id = "entities/objects/vacuum_cleaner", description = "Vacuum cleaner" }
 sprite{ id = "entities/orb_monster_hole_blue", description = "Orb monster hole blue" }
 sprite{ id = "entities/orb_monster_hole_green", description = "Orb monster hole green" }
 sprite{ id = "entities/orb_monster_hole_red", description = "Orb monster hole red" }
@@ -495,88 +493,48 @@ sprite{ id = "entities/orb_monster_orb_green", description = "Orb monster orb gr
 sprite{ id = "entities/orb_monster_orb_red", description = "Orb monster orb red" }
 sprite{ id = "entities/outside_door", description = "Outside closed door" }
 sprite{ id = "entities/outside_ladder", description = "Outside ladder" }
-sprite{ id = "entities/owl_blue", description = "Owl blue" }
-sprite{ id = "entities/painting", description = "Painting" }
 sprite{ id = "entities/palm", description = "Palm" }
 sprite{ id = "entities/palm_banana", description = "Palm banana" }
 sprite{ id = "entities/palm_footer_brown", description = "Palm footer brown" }
 sprite{ id = "entities/palm_footer_green", description = "Palm footer green" }
 sprite{ id = "entities/palm_footer_yellow", description = "Palm footer yellow" }
-sprite{ id = "entities/palm_yarna", description = "Palm yarna" }
 sprite{ id = "entities/pencil", description = "Pencil" }
-sprite{ id = "entities/phone_statue", description = "Phone statue" }
-sprite{ id = "entities/pillar", description = "Pillar" }
-sprite{ id = "entities/pillar_base", description = "Pillar base" }
-sprite{ id = "entities/pot", description = "Pot" }
 sprite{ id = "entities/pot_sideview_dg_2", description = "Pot sideview dg 2" }
 sprite{ id = "entities/powder_fly", description = "Powder fly" }
 sprite{ id = "entities/raft", description = "Raft" }
-sprite{ id = "entities/rain", description = "Rain" }
 sprite{ id = "entities/rock_block", description = "Rock block" }
 sprite{ id = "entities/rooster_dead", description = "Rooster dead" }
 sprite{ id = "entities/rupee_fly", description = "Rupee fly" }
-sprite{ id = "entities/rupee_icon", description = "Rupee icon" }
+sprite{ id = "entities/secret_ground", description = "Secret ground" }
 sprite{ id = "entities/shadow", description = "Shadow" }
+sprite{ id = "entities/shadows/ball", description = "Ball" }
+sprite{ id = "entities/shadows/owl", description = "Owl" }
+sprite{ id = "entities/shadows/shadow_big", description = "Shadow big" }
+sprite{ id = "entities/shadows/shadow_big_dynamic", description = "Shadow big dynamic" }
+sprite{ id = "entities/shadows/shadow_small", description = "Shadow small" }
 sprite{ id = "entities/shield", description = "Shield" }
-sprite{ id = "entities/shop_board", description = "Shop board" }
-sprite{ id = "entities/shop_office", description = "Shop office" }
 sprite{ id = "entities/shovel", description = "Shovel" }
-sprite{ id = "entities/sign", description = "Sign" }
-sprite{ id = "entities/signs", description = "Signs" }
-sprite{ id = "entities/skull_brown", description = "Skull brown" }
-sprite{ id = "entities/skull_green", description = "Skull green" }
-sprite{ id = "entities/skull_white", description = "Skull white" }
-sprite{ id = "entities/snores", description = "Snoring" }
-sprite{ id = "entities/solid_switch", description = "Solid switch" }
-sprite{ id = "entities/somaria_block", description = "Somaria block" }
-sprite{ id = "entities/star", description = "Star" }
-sprite{ id = "entities/statue", description = "Statue" }
 sprite{ id = "entities/statue_big_dungeon_3", description = "Statue dungeon 3" }
-sprite{ id = "entities/statue_dungeon_1_block", description = "Statue dungeon 1 block" }
-sprite{ id = "entities/statue_dungeon_1_egg", description = "Statue dungeon 1 egg" }
-sprite{ id = "entities/statue_dungeon_1_key", description = "Statue dungeon 1 key" }
-sprite{ id = "entities/statue_dungeon_1_owl", description = "Statue dungeon 1 owl" }
-sprite{ id = "entities/statue_dungeon_2", description = "Statue dungeon 2" }
-sprite{ id = "entities/statue_dungeon_2_egg", description = "Statue dungeon 2 egg" }
-sprite{ id = "entities/statue_dungeon_2_head", description = "Statue dungeon 2 head" }
-sprite{ id = "entities/statue_dungeon_2_owl", description = "Statue dungeon 2 owl" }
 sprite{ id = "entities/statue_dungeon_3", description = "Statue dungeon 3" }
-sprite{ id = "entities/statue_dungeon_3_egg", description = "Statue dungeon 3 egg" }
 sprite{ id = "entities/statue_dungeon_3_key", description = "Statue dungeon 3 key" }
-sprite{ id = "entities/statue_dungeon_3_owl", description = "Statue dungeon 3 owl" }
-sprite{ id = "entities/statue_dungeon_4_egg", description = "Statue dungeon 4 egg" }
-sprite{ id = "entities/statue_dungeon_4_owl", description = "Statue dungeon 4 owl" }
-sprite{ id = "entities/statue_dungeon_5_egg", description = "Statue dungeon 5 egg" }
-sprite{ id = "entities/statue_dungeon_5_owl", description = "Statue dungeon 5 owl" }
-sprite{ id = "entities/statue_dungeon_6", description = "Statue dungeon 6" }
-sprite{ id = "entities/statue_dungeon_6_egg", description = "Statue dungeon 6 egg" }
-sprite{ id = "entities/statue_dungeon_6_head", description = "Statue dungeon 6 head" }
-sprite{ id = "entities/statue_dungeon_6_owl", description = "Statue dungeon 6 owl" }
-sprite{ id = "entities/statue_dungeon_7", description = "Statue dungeon 7" }
-sprite{ id = "entities/statue_dungeon_7_egg", description = "Statue dungeon 7 egg" }
-sprite{ id = "entities/statue_dungeon_7_owl", description = "Statue dungeon 7 owl" }
-sprite{ id = "entities/statue_dungeon_8_egg", description = "Statue dungeon 8 egg" }
-sprite{ id = "entities/statue_dungeon_8_owl", description = "Statue dungeon 8 owl" }
-sprite{ id = "entities/statue_koopa_hookable", description = "Statue koopa hookable" }
-sprite{ id = "entities/statue_liftable_dungeon_6", description = "Statue liftable dungeon 6" }
-sprite{ id = "entities/statue_mermaid", description = "Statue mermaid" }
-sprite{ id = "entities/statue_owl_dungeon_free", description = "Statue owl dungeon free" }
-sprite{ id = "entities/statue_pig", description = "Statue pig" }
 sprite{ id = "entities/statue_pig_destroyed", description = "Statue pig destroyed" }
-sprite{ id = "entities/statue_shell_house", description = "Statue shell house" }
-sprite{ id = "entities/statue_small", description = "Statue small" }
 sprite{ id = "entities/statue_small_dungeon_3", description = "Statue small dungeon 3" }
 sprite{ id = "entities/statue_small_key_dungeon_3", description = "Statue small key dungeon 3" }
-sprite{ id = "entities/stone_large_white", description = "Large white stone" }
-sprite{ id = "entities/stone_small_black", description = "Small black stone" }
+sprite{ id = "entities/statues/pillar", description = "Pillar" }
+sprite{ id = "entities/statues/statue_darknut", description = "Statue darknut" }
+sprite{ id = "entities/statues/statue_koopa", description = "Statue koopa" }
+sprite{ id = "entities/statues/statue_pig", description = "Statue pig" }
 sprite{ id = "entities/stone_small_brown", description = "Stone small brown" }
-sprite{ id = "entities/stone_small_white", description = "Small white stone" }
-sprite{ id = "entities/sun", description = "Sun" }
-sprite{ id = "entities/swell", description = "Swell" }
-sprite{ id = "entities/switch", description = "Switch" }
-sprite{ id = "entities/symbol_collapse", description = "Symbol collapse" }
-sprite{ id = "entities/symbol_exclamation", description = "Symbol exclamation" }
-sprite{ id = "entities/symbol_interrogation", description = "Symbol interrogation" }
+sprite{ id = "entities/switchs/switch", description = "Switch" }
+sprite{ id = "entities/switchs/switch_eye_blue", description = "Switch eye blue" }
+sprite{ id = "entities/switchs/switch_eye_red", description = "Switch eye red" }
+sprite{ id = "entities/switchs/switch_eye_yellow", description = "Switch eye yellow" }
+sprite{ id = "entities/symbols/collapse", description = "Collapse" }
+sprite{ id = "entities/symbols/exclamation", description = "Exclamation" }
+sprite{ id = "entities/symbols/interrogation", description = "Interrogation" }
+sprite{ id = "entities/symbols/notes", description = "Notes" }
+sprite{ id = "entities/symbols/oh", description = "Oh" }
+sprite{ id = "entities/symbols/snores", description = "Snores" }
 sprite{ id = "entities/teletransporter", description = "Teletransporter" }
 sprite{ id = "entities/teletransporter_blue", description = "Teletransporter blue" }
 sprite{ id = "entities/teletransporter_dungeon", description = "Teletransporter dungeon" }
@@ -585,18 +543,8 @@ sprite{ id = "entities/teletransporter_red", description = "Teletransporter red"
 sprite{ id = "entities/torch", description = "Torch" }
 sprite{ id = "entities/turtlerock_arms", description = "Turtlerock arms" }
 sprite{ id = "entities/turtlerock_head", description = "Turtlerock head" }
-sprite{ id = "entities/vacuum_cleaner", description = "Vacuum cleaner" }
+sprite{ id = "entities/utils/non_diggable", description = "Non diggable" }
 sprite{ id = "entities/vacuum_cleaner_ground", description = "Vacuum cleaner ground" }
-sprite{ id = "entities/wallturn_dungeon_1_front", description = "Wallturn" }
-sprite{ id = "entities/wallturn_dungeon_2_front", description = "Wallturn dungeon 2" }
-sprite{ id = "entities/wallturn_dungeon_3_front", description = "Wallturn dungeon 3" }
-sprite{ id = "entities/wallturn_dungeon_5_front", description = "Wallturn dungeon 5" }
-sprite{ id = "entities/wallturn_dungeon_6_front", description = "Wallturn dungeon 6" }
-sprite{ id = "entities/wallturn_dungeon_7_front", description = "Wallturn dungeon 7" }
-sprite{ id = "entities/wallturn_dungeon_8_front", description = "Wallturn dungeon 8" }
-sprite{ id = "entities/wallturn_dungeon_9_front", description = "Wallturn dungeon 9" }
-sprite{ id = "entities/water_tree", description = "Water tree" }
-sprite{ id = "entities/water_tree_junction", description = "Water tree junction" }
 sprite{ id = "entities/weak_floor_dark_1", description = "Weak floor dark 1" }
 sprite{ id = "entities/weak_floor_dark_2", description = "Weak floor dark 2" }
 sprite{ id = "entities/weak_floor_dark_3", description = "Weak floor dark 3" }
@@ -605,22 +553,10 @@ sprite{ id = "entities/weak_floor_light_1", description = "Weak floor light 1" }
 sprite{ id = "entities/weak_floor_light_2", description = "Weak floor light 2" }
 sprite{ id = "entities/weak_floor_light_3", description = "Weak floor light 3" }
 sprite{ id = "entities/weak_floor_light_4", description = "Weak floor light 4" }
-sprite{ id = "entities/windfish_symbol_dungeon_1", description = "Windfish symbol dungeon 1" }
-sprite{ id = "entities/windfish_symbol_dungeon_2", description = "Windfish symbol dungeon 2" }
-sprite{ id = "entities/windfish_symbol_dungeon_3", description = "Windfish symbol dungeon 3" }
-sprite{ id = "entities/windfish_symbol_dungeon_4", description = "Windfish symbol dungeon 4" }
-sprite{ id = "entities/windfish_symbol_dungeon_5", description = "Windfish symbol dungeon 5" }
-sprite{ id = "entities/windfish_symbol_dungeon_6", description = "Windfish symbol dungeon 6" }
-sprite{ id = "entities/windfish_symbol_dungeon_7", description = "Windfish symbol dungeon 7" }
-sprite{ id = "entities/windfish_symbol_dungeon_8", description = "Windfish symbol dungeon 8" }
-sprite{ id = "entities/witch_house", description = "Witch house" }
-sprite{ id = "entities/wood_bridge", description = "Wood bridge" }
-sprite{ id = "entities/yarna_skull", description = "Yarna skull" }
 sprite{ id = "ground_effects/fall_on_hole", description = "ground_effects/fall_on_hole" }
 sprite{ id = "ground_effects/lava_splash", description = "ground_effects/lava_splash" }
 sprite{ id = "ground_effects/leaves", description = "ground_effects/leaves" }
 sprite{ id = "ground_effects/water_splash", description = "ground_effects/water_splash" }
-sprite{ id = "hero/diving", description = "Diving" }
 sprite{ id = "hero/fire_rod", description = "Fire rod" }
 sprite{ id = "hero/ground1", description = "Grass under hero" }
 sprite{ id = "hero/ground2", description = "Shallow water under hero" }
@@ -644,7 +580,6 @@ sprite{ id = "hero/tunic2", description = "Hero tunic 2" }
 sprite{ id = "hero/tunic3", description = "Hero tunic 3" }
 sprite{ id = "hud/dialog_box_message_end", description = "Dialog end" }
 sprite{ id = "hud/empty_heart", description = "Empty heart" }
-sprite{ id = "hud/gameover_fade", description = "Game-over fade" }
 sprite{ id = "hud/heart", description = "Heart" }
 sprite{ id = "hud/icon_action", description = "Action icon" }
 sprite{ id = "hud/icon_attack", description = "Attack icon" }
@@ -674,6 +609,9 @@ sprite{ id = "menus/dungeon_maps/map_5_no_map", description = "Map 5 no map" }
 sprite{ id = "menus/dungeon_maps/map_5_no_map_compass", description = "Map 5 no map compass" }
 sprite{ id = "menus/file_selection/file_selection_cursor", description = "File selection menu cursor" }
 sprite{ id = "menus/file_selection/file_selection_hero", description = "Link's sprite for file selection menu" }
+sprite{ id = "menus/game_over/game_over_fade", description = "Game-over fade" }
+sprite{ id = "menus/game_over/game_over_stars", description = "Game-over stars" }
+sprite{ id = "menus/game_over/game_over_title", description = "Game-over title" }
 sprite{ id = "menus/keyboardbox/keyboardbox_cursor", description = "Keyboard Box cursor" }
 sprite{ id = "menus/keyboardbox/keyboardbox_textfield", description = "Keyboard Box textfield" }
 sprite{ id = "menus/keyboardbox/keyboardbox_textfield_cursor", description = "Keyboard Box textfield's cursor" }
@@ -702,81 +640,74 @@ sprite{ id = "menus/title_screen/title_zelda", description = "Title screen: Zeld
 sprite{ id = "menus/title_screen/wave_big", description = "Title screen: big wave" }
 sprite{ id = "menus/title_screen/wave_small", description = "Title screen: small wave" }
 sprite{ id = "menus/title_screen/wreck", description = "Tiltle screen: wreck" }
-sprite{ id = "npc/alligator", description = "Alligator" }
-sprite{ id = "npc/bear", description = "Bear" }
-sprite{ id = "npc/bee", description = "Bee" }
-sprite{ id = "npc/big_rabbit", description = "Big rabbit" }
-sprite{ id = "npc/bird", description = "Bird" }
-sprite{ id = "npc/bird_musician", description = "Bird musician" }
-sprite{ id = "npc/bowwow", description = "Bowwow" }
-sprite{ id = "npc/butterfly_blue", description = "Butterfly blue" }
-sprite{ id = "npc/butterfly_red", description = "Butterfly red" }
-sprite{ id = "npc/butterfly_yellow", description = "Butterfly yellow" }
-sprite{ id = "npc/christine", description = "Christine" }
-sprite{ id = "npc/cooking_rabbit", description = "Cooking rabbit" }
-sprite{ id = "npc/cucco_man", description = "Cucco man" }
-sprite{ id = "npc/elephant_musician", description = "Elephant musician" }
-sprite{ id = "npc/fairy", description = "Fairy" }
-sprite{ id = "npc/fishman", description = "Fishman" }
-sprite{ id = "npc/fishman_b", description = "Fishman B" }
-sprite{ id = "npc/flying_rooster", description = "Flying rooster" }
-sprite{ id = "npc/fox_musician", description = "Fox musician" }
-sprite{ id = "npc/frog", description = "Frog" }
-sprite{ id = "npc/game_man", description = "Game man" }
-sprite{ id = "npc/ghost", description = "Ghost" }
-sprite{ id = "npc/goriya", description = "Goriya" }
-sprite{ id = "npc/grand_ma", description = "Grand-mother" }
-sprite{ id = "npc/grand_pa", description = "Grand pa" }
-sprite{ id = "npc/hippo", description = "Hippo" }
-sprite{ id = "npc/kid_1", description = "Kid 1" }
-sprite{ id = "npc/kid_2", description = "Kid 2" }
-sprite{ id = "npc/kid_3", description = "Kid 3" }
-sprite{ id = "npc/kid_4", description = "Kid 4" }
-sprite{ id = "npc/mad_bat", description = "Mad bat" }
-sprite{ id = "npc/manbo", description = "Manbo" }
-sprite{ id = "npc/manbopals_blue", description = "Manbopals blue" }
-sprite{ id = "npc/manbopals_emerald", description = "Manbopals emerald" }
-sprite{ id = "npc/manbopals_green", description = "Manbopals green" }
-sprite{ id = "npc/manbopals_grey", description = "Manbopals grey" }
-sprite{ id = "npc/manbopals_pink", description = "Manbopals pink" }
-sprite{ id = "npc/manbopals_red", description = "Manbopals red" }
-sprite{ id = "npc/manbopals_yellow", description = "Manbopals yellow" }
-sprite{ id = "npc/marin", description = "Marin" }
-sprite{ id = "npc/meow_meow", description = "Meow meow" }
-sprite{ id = "npc/merchant", description = "Merchant" }
-sprite{ id = "npc/mermaid", description = "Mermaid" }
-sprite{ id = "npc/monique", description = "Monique" }
-sprite{ id = "npc/monkey", description = "Monkey" }
-sprite{ id = "npc/monkey_brown", description = "Monkey brown" }
-sprite{ id = "npc/monty_mole", description = "Monty mole" }
-sprite{ id = "npc/mosquito", description = "Mosquito" }
-sprite{ id = "npc/mouse", description = "Mouse" }
-sprite{ id = "npc/mr_write", description = "Mr Write" }
-sprite{ id = "npc/owl", description = "Owl" }
-sprite{ id = "npc/owl_shadow", description = "Owl shadow" }
-sprite{ id = "npc/painter", description = "Painter" }
-sprite{ id = "npc/phone", description = "Phone" }
-sprite{ id = "npc/photographer", description = "Photographer" }
-sprite{ id = "npc/quadruplet_father", description = "Quadruplet's father" }
-sprite{ id = "npc/quadruplet_mother", description = "Quadruplet's mother" }
-sprite{ id = "npc/rabbit", description = "Rabbit" }
-sprite{ id = "npc/raft_man", description = "Raft_man" }
-sprite{ id = "npc/richard", description = "Richard" }
-sprite{ id = "npc/seagull", description = "Seagull" }
-sprite{ id = "npc/seagull_small", description = "Small seagull for backgrounds" }
-sprite{ id = "npc/small_bowwow", description = "Small bowwow" }
-sprite{ id = "npc/tarin", description = "Tarin" }
-sprite{ id = "npc/village_bird", description = "Village bird" }
-sprite{ id = "npc/village_teddy", description = "Village teddy" }
-sprite{ id = "npc/walrus", description = "Walrus" }
-sprite{ id = "npc/wart", description = "Wart" }
-sprite{ id = "npc/warts_brother", description = "Wart's brother" }
-sprite{ id = "npc/witch", description = "Witch" }
+sprite{ id = "npc/animals/alligator", description = "Alligator" }
+sprite{ id = "npc/animals/bear", description = "Bear" }
+sprite{ id = "npc/animals/bird_1", description = "Bird" }
+sprite{ id = "npc/animals/bird_2", description = "Bird 2" }
+sprite{ id = "npc/animals/bowwow", description = "Bowwow" }
+sprite{ id = "npc/animals/christine", description = "Christine" }
+sprite{ id = "npc/animals/cook_rabbit", description = "Cook rabbit" }
+sprite{ id = "npc/animals/elephant", description = "Elephant" }
+sprite{ id = "npc/animals/flying_rooster", description = "Flying rooster" }
+sprite{ id = "npc/animals/fox", description = "Fox" }
+sprite{ id = "npc/animals/hippopotamus", description = "Hippopotamus" }
+sprite{ id = "npc/animals/kiki", description = "Kiki" }
+sprite{ id = "npc/animals/mambo", description = "Mambo" }
+sprite{ id = "npc/animals/mole", description = "Mole" }
+sprite{ id = "npc/animals/owl", description = "Owl" }
+sprite{ id = "npc/animals/painter", description = "Painter" }
+sprite{ id = "npc/animals/photographer", description = "Photographer" }
+sprite{ id = "npc/animals/rabbit_1", description = "Rabbit 1" }
+sprite{ id = "npc/animals/rabbit_2", description = "Rabbit 2" }
+sprite{ id = "npc/animals/small_bowwow", description = "Small bowwow" }
+sprite{ id = "npc/animals/teddy", description = "Teddy" }
+sprite{ id = "npc/animals/walrus", description = "Walrus" }
+sprite{ id = "npc/animals/wart", description = "Wart" }
+sprite{ id = "npc/books/book_blue", description = "Book blue" }
+sprite{ id = "npc/books/book_green", description = "Book green" }
+sprite{ id = "npc/books/book_red", description = "Book red" }
+sprite{ id = "npc/books/book_yellow", description = "Book yellow" }
+sprite{ id = "npc/others/blue_skeleton", description = "Blue skeleton" }
+sprite{ id = "npc/others/fairy", description = "Fairy" }
+sprite{ id = "npc/others/goriya", description = "Goriya" }
+sprite{ id = "npc/others/mad_bat", description = "Mad bat" }
+sprite{ id = "npc/others/phone", description = "Phone" }
+sprite{ id = "npc/others/red_skeleton", description = "Red skeleton" }
+sprite{ id = "npc/statues/owl", description = "Owl" }
+sprite{ id = "npc/statues/owl_dungeon", description = "Owl dungeon" }
+sprite{ id = "npc/statues/owl_dungeon_1", description = "Owl dungeon 1" }
+sprite{ id = "npc/statues/owl_dungeon_2", description = "Owl dungeon 2" }
+sprite{ id = "npc/statues/owl_dungeon_3", description = "Owl dungeon 3" }
+sprite{ id = "npc/statues/owl_dungeon_4", description = "Owl dungeon 4" }
+sprite{ id = "npc/statues/owl_dungeon_5", description = "Owl dungeon 5" }
+sprite{ id = "npc/statues/owl_dungeon_6", description = "Owl dungeon 6" }
+sprite{ id = "npc/statues/owl_dungeon_7", description = "Owl dungeon 7" }
+sprite{ id = "npc/statues/owl_dungeon_8", description = "owl dungeon 8" }
+sprite{ id = "npc/villagers/cucco_man", description = "Cucco's man" }
+sprite{ id = "npc/villagers/fishman_1", description = "Fishman 1" }
+sprite{ id = "npc/villagers/fishman_2", description = "Fishman 2" }
+sprite{ id = "npc/villagers/game_man", description = "Game man" }
+sprite{ id = "npc/villagers/ghost", description = "Ghost" }
+sprite{ id = "npc/villagers/grand_ma", description = "Grand ma" }
+sprite{ id = "npc/villagers/grand_pa", description = "Grand pa" }
+sprite{ id = "npc/villagers/kid_1", description = "Kid 1" }
+sprite{ id = "npc/villagers/kid_2", description = "Kid 2" }
+sprite{ id = "npc/villagers/kid_3", description = "Kid 3" }
+sprite{ id = "npc/villagers/kid_4", description = "Kid 4" }
+sprite{ id = "npc/villagers/marin", description = "Marin" }
+sprite{ id = "npc/villagers/merchant", description = "Merchant" }
+sprite{ id = "npc/villagers/mermaid", description = "Mermaid" }
+sprite{ id = "npc/villagers/monique", description = "Monique" }
+sprite{ id = "npc/villagers/mr_write", description = "Mr Write" }
+sprite{ id = "npc/villagers/mrs_meow_meow", description = "Mrs Meow Meow" }
+sprite{ id = "npc/villagers/quadruplet_father", description = "Quadruplet's father" }
+sprite{ id = "npc/villagers/quadruplet_mother", description = "Quadruplet's mother" }
+sprite{ id = "npc/villagers/raft_man", description = "Raft man" }
+sprite{ id = "npc/villagers/richard", description = "Richard" }
+sprite{ id = "npc/villagers/tarin", description = "Tarin" }
+sprite{ id = "npc/villagers/witch", description = "Witch" }
 sprite{ id = "pictures/peach", description = "Peach" }
 sprite{ id = "portables/horse_head", description = "Horse head" }
-sprite{ id = "shadows/shadow_big", description = "Shadow big" }
-sprite{ id = "shadows/shadow_big_dynamic", description = "Shadow big dynamic" }
-sprite{ id = "shadows/shadow_small", description = "Shadow small" }
 
 music{ id = "gb/01_introduction", description = "01 - Introduction" }
 music{ id = "gb/02_title", description = "02 - Title" }
@@ -893,6 +824,7 @@ sound{ id = "gb/enemies/enemy_fall", description = "Enemy fall" }
 sound{ id = "gb/enemies/enemy_hit", description = "Enemy hit" }
 sound{ id = "gb/enemies/enemy_hit_power", description = "Enemy hit power" }
 sound{ id = "gb/enemies/enemy_jump", description = "Enemy jump" }
+sound{ id = "gb/enemies/enemy_rebound", description = "Enemy rebound" }
 sound{ id = "gb/enemies/evil_eagle_flap", description = "Evil eagle flap" }
 sound{ id = "gb/enemies/evil_eagle_fly_away", description = "Evil eagle fly away" }
 sound{ id = "gb/enemies/evil_eagle_flyby", description = "Evil eagle flyby" }
@@ -959,6 +891,7 @@ sound{ id = "gb/hero/swim", description = "Swim" }
 sound{ id = "gb/hero/throw", description = "Throw" }
 sound{ id = "gb/hero/wade1", description = "Wade 1" }
 sound{ id = "gb/hero/wade2", description = "Wade 2" }
+sound{ id = "gb/items/bomb_drop", description = "Bomb drop" }
 sound{ id = "gb/items/bomb_explode", description = "Bomb explode" }
 sound{ id = "gb/items/boomerang", description = "Boomerang" }
 sound{ id = "gb/items/bow_arrow", description = "Bow arrow" }
@@ -1011,6 +944,8 @@ sound{ id = "gb/others/bush_cut", description = "Bush cut" }
 sound{ id = "gb/others/camera", description = "Camera" }
 sound{ id = "gb/others/chest_open", description = "Chest open" }
 sound{ id = "gb/others/cucco", description = "Cucco" }
+sound{ id = "gb/others/dungeon_crystal", description = "Dungeon crystal" }
+sound{ id = "gb/others/dungeon_door_open", description = "Dungeon door open" }
 sound{ id = "gb/others/dungeon_door_slam", description = "Dungeon door slam" }
 sound{ id = "gb/others/dungeon_one_way_door", description = "Dungeon one way door" }
 sound{ id = "gb/others/dungeon_open", description = "Dungeon open" }
@@ -1067,6 +1002,7 @@ sound{ id = "hero_pushes", description = "Empty sound" }
 sound{ id = "hookshot", description = "Empty sound" }
 sound{ id = "jump", description = "Empty sound" }
 sound{ id = "lift", description = "Empty sound" }
+sound{ id = "message_end", description = "Empty sound" }
 sound{ id = "monster_hurt", description = "Empty sound" }
 sound{ id = "picked_item", description = "Empty sound" }
 sound{ id = "running", description = "Empty sound" }
@@ -1156,6 +1092,7 @@ item{ id = "boomerang", description = "Boomerang" }
 item{ id = "boss_key", description = "Boss key" }
 item{ id = "bow", description = "Bow" }
 item{ id = "compass", description = "Compass" }
+item{ id = "console", description = "Console" }
 item{ id = "drug", description = "Drug" }
 item{ id = "face_key", description = "Face key" }
 item{ id = "fairy", description = "Fairy" }
@@ -1164,6 +1101,7 @@ item{ id = "fire_rod", description = "Fire rod" }
 item{ id = "flippers", description = "Flippers" }
 item{ id = "golden_leaf", description = "Golden leaf" }
 item{ id = "golden_leaves_counter", description = "Golden leafs counter" }
+item{ id = "guardian_acorn", description = "Guardian acorn" }
 item{ id = "hammer", description = "Hammer" }
 item{ id = "heart", description = "Heart" }
 item{ id = "heart_container", description = "Heart container" }
@@ -1189,6 +1127,7 @@ item{ id = "pegasus_shoes", description = "Pegasus shoes" }
 item{ id = "photo", description = "Photo" }
 item{ id = "photos_counter", description = "Photos counter" }
 item{ id = "piece_of_heart", description = "Piece of heart" }
+item{ id = "piece_of_power", description = "Piece of power" }
 item{ id = "power_bracelet", description = "Power bracelet" }
 item{ id = "quiver", description = "Quiver" }
 item{ id = "random", description = "Random" }
@@ -1231,6 +1170,7 @@ enemy{ id = "camo_goblin_green", description = "Camo goblin green" }
 enemy{ id = "camo_goblin_red", description = "Camo goblin red" }
 enemy{ id = "chicken", description = "Chicken" }
 enemy{ id = "chicken_mortal", description = "Chicken mortal" }
+enemy{ id = "coconut", description = "Monkey coconut" }
 enemy{ id = "crow", description = "Crow" }
 enemy{ id = "darknut", description = "Darknut" }
 enemy{ id = "death_ball", description = "Death ball" }
@@ -1263,7 +1203,6 @@ enemy{ id = "moblin_dog_spear", description = "Moblin dog spear" }
 enemy{ id = "moblin_dog_sword", description = "Moblin dog sword" }
 enemy{ id = "moblin_pig_sword", description = "Moblin pig sword" }
 enemy{ id = "monkey", description = "Monkey" }
-enemy{ id = "monkey_coconut", description = "Monkey coconut" }
 enemy{ id = "octorok", description = "Octorok" }
 enemy{ id = "octorok_stone", description = "Octorok stone" }
 enemy{ id = "orb_monster_blue", description = "Orb monster blue" }
@@ -1280,6 +1219,7 @@ enemy{ id = "red_bombite", description = "Red bombite" }
 enemy{ id = "river_zora", description = "River Zora" }
 enemy{ id = "sand_crab", description = "Sand crab" }
 enemy{ id = "sea_urchin", description = "Sea urchin" }
+enemy{ id = "small_moldorm", description = "Small moldorm" }
 enemy{ id = "spike", description = "Spike" }
 enemy{ id = "spiked_thwomp", description = "Spiked thwomp" }
 enemy{ id = "stalfos_blue", description = "Stalfos blue" }
@@ -1296,7 +1236,6 @@ enemy{ id = "zol_green", description = "Zol green" }
 enemy{ id = "zol_red", description = "Zol red" }
 enemy{ id = "zombie", description = "Zombie" }
 
-entity{ id = "bee", description = "Bee" }
 entity{ id = "bird", description = "Bird" }
 entity{ id = "bowwow", description = "Bowwow" }
 entity{ id = "bubble", description = "Bubble" }
@@ -1310,9 +1249,9 @@ entity{ id = "frog", description = "Frog" }
 entity{ id = "green_crystal", description = "Green crystal" }
 entity{ id = "heavy_object", description = "Heavy object" }
 entity{ id = "heavy_statue", description = "Heavy statue" }
-entity{ id = "hole", description = "Hole" }
 entity{ id = "hook_bridge", description = "hook bridge" }
 entity{ id = "hookable", description = "Hookable" }
+entity{ id = "insect", description = "Insect" }
 entity{ id = "light", description = "Light" }
 entity{ id = "mouse", description = "Mouse" }
 entity{ id = "moving_platform", description = "Movin platform" }
@@ -1351,6 +1290,91 @@ shader{ id = "radial_fade_out", description = "Radial fade out" }
 shader{ id = "sepia", description = "Sepia" }
 shader{ id = "toon", description = "Toon" }
 
+file{ path = "enemies", license = "GPL v3" }
+file{ path = "enemies/arm_mimic.lua", license = "GPL v3" }
+file{ path = "enemies/armos.lua", license = "GPL v3" }
+file{ path = "enemies/arrow.lua", license = "GPL v3" }
+file{ path = "enemies/beamos.lua", license = "GPL v3" }
+file{ path = "enemies/boo_buddy.lua", license = "GPL v3" }
+file{ path = "enemies/boss", license = "GPL v3" }
+file{ path = "enemies/bubble.lua", license = "GPL v3" }
+file{ path = "enemies/buzz_blob.lua", license = "GPL v3" }
+file{ path = "enemies/camo_goblin_blue.lua", license = "GPL v3" }
+file{ path = "enemies/camo_goblin_green.lua", license = "GPL v3" }
+file{ path = "enemies/camo_goblin_red.lua", license = "GPL v3" }
+file{ path = "enemies/chicken.lua", license = "GPL v3" }
+file{ path = "enemies/chicken_mortal.lua", license = "GPL v3" }
+file{ path = "enemies/coconut.lua", license = "GPL v3" }
+file{ path = "enemies/crow.lua", license = "GPL v3" }
+file{ path = "enemies/darknut.lua", license = "GPL v3" }
+file{ path = "enemies/death_ball.lua", license = "GPL v3" }
+file{ path = "enemies/dog.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "enemies/evil_tile.lua", license = "GPL v3" }
+file{ path = "enemies/eyegore_statue.lua", license = "GPL v3" }
+file{ path = "enemies/face_lamp.lua", license = "GPL v3" }
+file{ path = "enemies/fireball.lua", license = "GPL v3" }
+file{ path = "enemies/fireball_small_triple_red.lua", license = "GPL v3" }
+file{ path = "enemies/flying_octorok.lua", license = "GPL v3" }
+file{ path = "enemies/flying_tile.lua", license = "GPL v3" }
+file{ path = "enemies/gel_red.lua", license = "GPL v3" }
+file{ path = "enemies/generic_towards_hero.lua", license = "GPL v3" }
+file{ path = "enemies/generic_waiting_for_hero.lua", license = "GPL v3" }
+file{ path = "enemies/ghini.lua", license = "GPL v3" }
+file{ path = "enemies/giant_goponga_flower.lua", license = "GPL v3" }
+file{ path = "enemies/goomba.lua", license = "GPL v3" }
+file{ path = "enemies/goponga_flower.lua", license = "GPL v3" }
+file{ path = "enemies/hardhat_beetle_blue.lua", license = "GPL v3" }
+file{ path = "enemies/hardhat_beetle_red.lua", license = "GPL v3" }
+file{ path = "enemies/helmasaur_masked.lua", license = "GPL v3" }
+file{ path = "enemies/hooded_stalfos.lua", license = "GPL v3" }
+file{ path = "enemies/keese.lua", license = "GPL v3" }
+file{ path = "enemies/leever.lua", license = "GPL v3" }
+file{ path = "enemies/lib", license = "GPL v3" }
+file{ path = "enemies/like_like.lua", license = "GPL v3" }
+file{ path = "enemies/mad_bomber.lua", license = "GPL v3" }
+file{ path = "enemies/maskass.lua", license = "GPL v3" }
+file{ path = "enemies/moblin.lua", license = "GPL v3" }
+file{ path = "enemies/moblin_dog_spear.lua", license = "GPL v3" }
+file{ path = "enemies/moblin_dog_sword.lua", license = "GPL v3" }
+file{ path = "enemies/moblin_pig_sword.lua", license = "GPL v3" }
+file{ path = "enemies/monkey.lua", license = "GPL v3" }
+file{ path = "enemies/octorok.lua", license = "GPL v3" }
+file{ path = "enemies/octorok_stone.lua", license = "GPL v3" }
+file{ path = "enemies/orb_monster_blue.lua", license = "GPL v3" }
+file{ path = "enemies/orb_monster_green.lua", license = "GPL v3" }
+file{ path = "enemies/orb_monster_red.lua", license = "GPL v3" }
+file{ path = "enemies/peahat.lua", license = "GPL v3" }
+file{ path = "enemies/pike_auto.lua", license = "GPL v3" }
+file{ path = "enemies/pike_detect.lua", license = "GPL v3" }
+file{ path = "enemies/pike_fixed.lua", license = "GPL v3" }
+file{ path = "enemies/pokey_full.lua", license = "GPL v3" }
+file{ path = "enemies/pols_voice.lua", license = "GPL v3" }
+file{ path = "enemies/raven.lua", license = "GPL v3" }
+file{ path = "enemies/red_bombite.lua", license = "GPL v3" }
+file{ path = "enemies/river_zora.lua", license = "GPL v3" }
+file{ path = "enemies/sand_crab.lua", license = "GPL v3" }
+file{ path = "enemies/sea_urchin.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "enemies/spike.lua", license = "GPL v3" }
+file{ path = "enemies/spiked_thwomp.lua", license = "GPL v3" }
+file{ path = "enemies/stalfos_blue.lua", license = "GPL v3" }
+file{ path = "enemies/stalfos_grey.lua", license = "GPL v3" }
+file{ path = "enemies/stalfos_red.lua", license = "GPL v3" }
+file{ path = "enemies/star.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "enemies/tektite_blue.lua", license = "GPL v3" }
+file{ path = "enemies/vegas.lua", license = "GPL v3" }
+file{ path = "enemies/water_tektite.lua", license = "GPL v3" }
+file{ path = "enemies/wizzrobe_beam.lua", license = "GPL v3" }
+file{ path = "enemies/wizzrobe_blue.lua", license = "GPL v3" }
+file{ path = "enemies/wizzrobe_white.lua", license = "GPL v3" }
+file{ path = "enemies/zol_green.lua", license = "GPL v3" }
+file{ path = "enemies/zol_red.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "enemies/zombie.lua", license = "GPL v3" }
+file{ path = "fonts/04b03.ttf", author = "Yuji Oshimoto", license = "Free for personal use" }
+file{ path = "fonts/Alttp.ttf", author = "Nintendo, Enkidulga, Olivier Cléro", license = "Proprietary, Fair use" }
+file{ path = "fonts/green_digits.png", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "fonts/la.png", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "fonts/minecraftia_mono.png", author = "Andrew Tyler", license = "Free for personal use" }
+file{ path = "fonts/white_digits.png", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "items", license = "GPL v3" }
 file{ path = "items/angler_key.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/arrow.lua", license = "GPL v3" }
@@ -1362,6 +1386,7 @@ file{ path = "items/boomerang.lua", license = "GPL v3" }
 file{ path = "items/boss_key.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/bow.lua", license = "GPL v3" }
 file{ path = "items/compass.lua", license = "GPL v3" }
+file{ path = "items/console.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/drug.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/face_key.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/fairy.lua", license = "GPL v3" }
@@ -1370,6 +1395,7 @@ file{ path = "items/fire_rod.lua", license = "GPL v3" }
 file{ path = "items/flippers.lua", license = "GPL v3" }
 file{ path = "items/golden_leaf.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/golden_leaves_counter.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "items/guardian_acorn.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/hammer.lua", license = "GPL v3" }
 file{ path = "items/heart.lua", license = "GPL v3" }
 file{ path = "items/heart_container.lua", license = "GPL v3" }
@@ -1415,116 +1441,131 @@ file{ path = "languages", author = "Nintendo, Benjamin Schweitzer, Christopho, J
 file{ path = "languages/fr", author = "Nintendo, Benjamin Schweitzer, Christopho, Julien Van Steerteghem", license = "Proprietary, Fair use" }
 file{ path = "languages/fr/images", author = "Nintendo, Benjamin Schweitzer, Christopho, Julien Van Steerteghem", license = "Proprietary, Fair use" }
 file{ path = "languages/fr/text", author = "Nintendo, Benjamin Schweitzer, Christopho, Julien Van Steerteghem", license = "Proprietary, Fair use" }
+file{ path = "logos", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/icon_1024.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/icon_128.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/icon_16.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/icon_20.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/icon_24.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/icon_256.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/icon_32.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/icon_40.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/icon_48.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/icon_512.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/icon_64.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/icon_96.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/logo.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "logos/logo_2x.png", author = "Nintendo, Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "main.lua", author = "Christopho", license = "GPL v3" }
-file{ path = "maps", author = "Benjamin Schweitzer,  Christopho, Olivier Cléro, Mymy, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/cave.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps", author = "Benjamin Schweitzer,  Christopho, Olivier Cléro, Mymy, ZeldoRetro", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves", author = "Benjamin Schweitzer, ZeldoRetro", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/cave.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/cave.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/east_mt_tamaranch", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/east_mt_tamaranch/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_mt_tamaranch", author = "Benjamin Schweitzer, ZeldoRetro", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/east_mt_tamaranch/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/east_mt_tamaranch/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/east_mt_tamaranch/cave_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/east_mt_tamaranch/cave_3.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_3.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/east_mt_tamaranch/cave_3.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/east_mt_tamaranch/cave_4.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_4.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/east_mt_tamaranch/cave_4.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/east_mt_tamaranch/cave_5.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_5.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/east_mt_tamaranch/cave_5.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/east_mt_tamaranch/cave_6.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_6.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/east_mt_tamaranch/cave_6.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/east_mt_tamaranch/cave_7.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_mt_tamaranch/cave_7.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/east_mt_tamaranch/cave_7.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/east_mt_tamaranch/fairy_fountain.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_mt_tamaranch/fairy_fountain.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/east_mt_tamaranch/fairy_fountain.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/east_prairie", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/east_prairie/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_prairie", author = "Benjamin Schweitzer, ZeldoRetro", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/east_prairie/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/east_prairie/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/east_prairie/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_prairie/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/east_prairie/cave_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/east_prairie/cave_3.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/east_prairie/cave_3.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/east_prairie/cave_3.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/egg_of_the_dream_fish", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/egg_of_the_dream_fish/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/egg_of_the_dream_fish", author = "Benjamin Schweitzer, ZeldoRetro", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/egg_of_the_dream_fish/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/egg_of_the_dream_fish/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/egg_of_the_dream_fish/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/egg_of_the_dream_fish/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/egg_of_the_dream_fish/cave_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/egg_of_the_dream_fish/cave_3.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/egg_of_the_dream_fish/cave_3.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/egg_of_the_dream_fish/cave_3.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/egg_of_the_dream_fish/cave_4.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/egg_of_the_dream_fish/cave_4.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/egg_of_the_dream_fish/cave_4.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/egg_of_the_dream_fish/cave_5.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/egg_of_the_dream_fish/cave_5.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/egg_of_the_dream_fish/cave_5.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/egg_of_the_dream_fish/moblins_cave.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/egg_of_the_dream_fish/moblins_cave.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/egg_of_the_dream_fish/moblins_cave.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/forest", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/forest/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/forest", author = "Benjamin Schweitzer, ZeldoRetro", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/forest/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/forest/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/forest/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/forest/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/forest/cave_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/forest/cave_3.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/forest/cave_3.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/forest/cave_3.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/graveyard", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/graveyard/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/graveyard", author = "Benjamin Schweitzer, ZeldoRetro", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/graveyard/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/graveyard/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/kanalet_castle", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/kanalet_castle/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/kanalet_castle", author = "Benjamin Schweitzer, ZeldoRetro", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/kanalet_castle/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/kanalet_castle/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/caves/mabe_village", author = "Benjamin Schweitzer, ZeldoRetro o", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/mabe_village/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/mabe_village/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/mabe_village/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/mabe_village/weathercock.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/mabe_village/weathercock.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/mabe_village/weathercock.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/mambos_cave", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/mambos_cave/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/mambos_cave", author = "Benjamin Schweitzer, ZeldoRetro", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/mambos_cave/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/mambos_cave/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/mambos_cave/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/mambos_cave/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/mambos_cave/cave_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/mambos_cave/cave_3.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/mambos_cave/cave_3.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/mambos_cave/cave_3.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/caves/mambos_cave/cave_4.dat", author = "Benjamin Schweitzer, Zeldo", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/mambos_cave/cave_4.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/martha_bay", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/martha_bay/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/martha_bay", author = "Benjamin Schweitzer, ZeldoRetro", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/martha_bay/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/martha_bay/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/martha_bay/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/martha_bay/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/martha_bay/cave_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/mask_shrine", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/mask_shrine/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/mask_shrine", author = "Benjamin Schweitzer, ZeldoRetro", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/mask_shrine/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/mask_shrine/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/mask_shrine/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/mask_shrine/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/mask_shrine/cave_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/mask_shrine/cave_3.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/mask_shrine/cave_3.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/mask_shrine/cave_3.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/mask_shrine/fairy_fountain.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/mask_shrine/fairy_fountain.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/mask_shrine/fairy_fountain.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/prairie", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/prairie/cave_1.dat", author = "ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/prairie", author = "Benjamin Schweitzer, ZeldoRetro", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/prairie/cave_1.dat", author = "ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/prairie/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/prairie/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/prairie/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/prairie/cave_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/prairie/fairy_fountain.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/prairie/fairy_fountain.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/prairie/fairy_fountain.lua", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
-file{ path = "maps/caves/south_prairie", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/south_prairie/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/south_prairie", author = "Benjamin Schweitzer, ZeldoRetro", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/south_prairie/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/south_prairie/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/south_prairie/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/south_prairie/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/south_prairie/cave_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/south_prairie/cave_3.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/south_prairie/cave_3.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/south_prairie/cave_3.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/south_prairie/cave_4.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/south_prairie/cave_4.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/south_prairie/cave_4.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/south_prairie/cave_5.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/south_prairie/cave_5.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/south_prairie/cave_5.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/west_mt_tamaranch", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/west_mt_tamaranch/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/west_mt_tamaranch", author = "Benjamin Schweitzer, ZeldoRetro", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/west_mt_tamaranch/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/west_mt_tamaranch/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/west_mt_tamaranch/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/west_mt_tamaranch/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/west_mt_tamaranch/cave_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/yarna_desert", author = "Benjamin Schweitzer, ZeldoRetro ", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/caves/yarna_desert/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/yarna_desert", author = "Benjamin Schweitzer, ZeldoRetro", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/caves/yarna_desert/cave_1.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/yarna_desert/cave_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/caves/yarna_desert/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro ", license = "CC BY-SA 4.0" }
+file{ path = "maps/caves/yarna_desert/cave_2.dat", author = "Benjamin Schweitzer, ZeldoRetro", license = "CC BY-SA 4.0" }
 file{ path = "maps/caves/yarna_desert/cave_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/dungeons", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
 file{ path = "maps/dungeons/1", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
@@ -1640,7 +1681,6 @@ file{ path = "maps/houses/mabe_village/meow_meow_house.dat", author = "Benjamin 
 file{ path = "maps/houses/mabe_village/meow_meow_house.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/houses/mabe_village/quadruplets_house.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
 file{ path = "maps/houses/mabe_village/quadruplets_house.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/houses/mabe_village/shop_1.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
 file{ path = "maps/houses/mabe_village/shop_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/houses/mabe_village/shop_2.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
 file{ path = "maps/houses/mabe_village/shop_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
@@ -1822,38 +1862,51 @@ file{ path = "musics/snes/27_mr_write_house.ogg", author = "Nintendo, Farockt", 
 file{ path = "musics/snes/41_christine_house.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/46_tal_tal_mountain_range.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
 file{ path = "scripts", license = "GPL v3" }
+file{ path = "scripts/automation", author = "Olivier Cléro", license = "BSD, GPL v3" }
+file{ path = "scripts/automation/automation.lua", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/automation/easing.lua", author = "Robert Penner, Olivier Cléro", license = "BSD" }
 file{ path = "scripts/gfx_effects", author = "PhoenixII54, Stdgregwar", license = "GPL v3" }
 file{ path = "scripts/gfx_effects/distorsion.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/gfx_effects/electric.lua", author = "Stdgregwar", license = "GPL v3" }
 file{ path = "scripts/gfx_effects/fade_to_white.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/gfx_effects/pixellisation.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/gfx_effects/radial_fade_out.lua", author = "PhoenixII54", license = "GPL v3" }
-file{ path = "scripts/menus/file_selection.lua", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/menus/copyright_menu.lua", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/menus/dialog_box.lua", author = "Christopho", license = "GPL v3" }
+file{ path = "scripts/menus/game_over.lua", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/menus/initial_menus_config.lua", author = "Christopho", license = "GPL v3" }
+file{ path = "scripts/menus/introduction.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/menus/keyboardbox.lua", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/menus/language.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "scripts/menus/messagebox.lua", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/menus/pause/pause.lua", author = "Christopho", license = "GPL v3" }
+file{ path = "scripts/menus/pause/pause_inventory.lua", author = "Christopho", license = "GPL v3" }
+file{ path = "scripts/menus/pause/pause_map.lua", author = "Christopho, Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/menus/pause/pause_options.lua", author = "Christopho", license = "GPL v3" }
+file{ path = "scripts/menus/pause/pause_quest.lua", author = "Christopho", license = "GPL v3" }
+file{ path = "scripts/menus/pause/pause_submenu.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "scripts/menus/settings.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/menus/solarus_logo.lua", author = "Maxs", license = "GPL v3" }
 file{ path = "scripts/menus/team_logo.lua", author = "Olivier Cléro", license = "GPL v3" }
-file{ path = "scripts/menus/title.lua", author = "Olivier Cléro", license = "GPL v3" }
-file{ path = "scripts/menus/title_background.lua", author = "Olivier Cléro", license = "GPL v3" }
-file{ path = "scripts/menus/title_logo.lua", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/menus/title_screen/file_selection.lua", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/menus/title_screen/title.lua", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/menus/title_screen/title_background.lua", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/menus/title_screen/title_logo.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/menus/zeldaforce_logo.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/meta", license = "GPL v3" }
 file{ path = "scripts/meta/block.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "scripts/meta/camera.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "scripts/meta/destructible.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "scripts/meta/door.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "scripts/meta/dynamic_tile.lua", license = "GPL v3" }
 file{ path = "scripts/meta/enemy.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "scripts/meta/hero.lua", license = "GPL v3" }
 file{ path = "scripts/meta/npc.lua", license = "GPL v3" }
 file{ path = "scripts/meta/sensor.lua", author = "Christopho", license = "GPL v3" }
-file{ path = "scripts/meta/switch.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "shaders/pixellisation.dat", author = "PhoenixII54", }
 file{ path = "shaders/pixellisation.frag.glsl", author = "PhoenixII54", }
 file{ path = "shaders/radial_fade_out.dat", author = "PhoenixII54", }
 file{ path = "shaders/radial_fade_out.frag.glsl", author = "PhoenixII54", }
-file{ path = "sounds", author = "Nintendo, Diarando, Franck Jousseaume, Zonzifleur", license = "Proprietary, Fair use, CC BY-SA 4.0" }
+file{ path = "sounds", author = "Nintendo, Diarandor, Franck Jousseaume, Zonzifleur", license = "Proprietary, Fair use, CC BY-SA 4.0" }
 file{ path = "sounds/arrow_hit.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/boomerang.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/boss_hurt.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
@@ -1868,7 +1921,7 @@ file{ path = "sounds/door_unlocked.ogg", author = "Franck Jousseaume", license =
 file{ path = "sounds/enemy_hurt.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/enemy_killed.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/explosion.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
-file{ path = "sounds/gb", author = "Nintendo, Diarando,, Zonzifleur", license = "Proprietary, Fair use, CC BY-SA 4.0" }
+file{ path = "sounds/gb", author = "Nintendo, Diarandor, Zonzifleur", license = "Proprietary, Fair use, CC BY-SA 4.0" }
 file{ path = "sounds/gb/enemies", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/gb/enemies/angler_fish_lunge.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/gb/enemies/anti_kirby.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
@@ -1992,7 +2045,7 @@ file{ path = "sounds/gb/items/sword_slash4.ogg", author = "Nintendo", }
 file{ path = "sounds/gb/items/sword_spin.ogg", author = "Nintendo", }
 file{ path = "sounds/gb/items/sword_tap.ogg", author = "Nintendo", }
 file{ path = "sounds/gb/items/sword_tap_bombable.ogg", author = "Nintendo", }
-file{ path = "sounds/gb/menus", author = "Nintendo, Diarando, Zonzifleur", license = "Proprietary, Fair use, CC BY-SA 4.0" }
+file{ path = "sounds/gb/menus", author = "Nintendo, Diarandor, Zonzifleur", license = "Proprietary, Fair use, CC BY-SA 4.0" }
 file{ path = "sounds/gb/menus/menu_cursor.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/gb/menus/menu_select.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/gb/menus/pause_menu_close.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
@@ -2073,7 +2126,7 @@ file{ path = "sounds/picked_item.ogg", author = "Franck Jousseaume", license = "
 file{ path = "sounds/running.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/running_obstacle.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/shield.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
-file{ path = "sounds/snes", author = "Nintendo, Diarando,, Zonzifleur", license = "Proprietary, Fair use, CC BY-SA 4.0" }
+file{ path = "sounds/snes", author = "Nintendo, Diarandor, Zonzifleur", license = "Proprietary, Fair use, CC BY-SA 4.0" }
 file{ path = "sounds/snes/enemies", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/enemies/boss_hit.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/enemies/enemy_die.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
@@ -2115,7 +2168,7 @@ file{ path = "sounds/snes/items/sword_slash4.ogg", author = "Nintendo", license 
 file{ path = "sounds/snes/items/sword_spin.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/items/sword_tap.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/items/sword_tap_bombable.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
-file{ path = "sounds/snes/menus", author = "Nintendo, Diarando, Zonzifleur", license = "Proprietary, Fair use, CC BY-SA 4.0" }
+file{ path = "sounds/snes/menus", author = "Nintendo, Diarandor, Zonzifleur", license = "Proprietary, Fair use, CC BY-SA 4.0" }
 file{ path = "sounds/snes/menus/menu_cursor.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/menus/menu_select.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/menus/pause_menu_close.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
@@ -2164,6 +2217,18 @@ file{ path = "sprites/menus/file_selection/file_selection_frame.png", author = "
 file{ path = "sprites/menus/file_selection/file_selection_hero.png", author = "Xfixium, Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/file_selection/file_selection_slot.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/file_selection/file_selection_title.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/game_over/game_over_clouds_1.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/game_over/game_over_clouds_2.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/game_over/game_over_clouds_3.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/game_over/game_over_clouds_4.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/game_over/game_over_fade.dat", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/game_over/game_over_fade.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/game_over/game_over_moon.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/game_over/game_over_mountain.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/game_over/game_over_stars.dat", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/game_over/game_over_stars.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/game_over/game_over_title.dat", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/game_over/game_over_title.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/keyboardbox/keyboardbox_cursor.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/keyboardbox/keyboardbox_frame.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/keyboardbox/keyboardbox_keys.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
@@ -2204,136 +2269,8 @@ file{ path = "sprites/menus/zeldaforce_logo/zeldaforce_logo_triforce_right.png",
 file{ path = "sprites/menus/zeldaforce_logo/zeldaforce_logo_triforce_top.png", author = "Olivier Cléro", license = "© Zeldaforce" }
 file{ path = "sprites/menus/zeldaforce_logo/zeldaforce_logo_z.png", author = "Olivier Cléro", license = "© Zeldaforce" }
 file{ path = "sprites/npc", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use, CC BY-SA 4.0" }
-file{ path = "sprites/npc/alligator.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/alligator.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/animals.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/bear.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/bear.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/bee.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/bee.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/big_rabbit.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/bird.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/bird.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/bird_musician.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/bowwow.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/bowwow.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/butterfly.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/butterfly_blue.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/butterfly_red.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/butterfly_yellow.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/christine.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/christine.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/cooking_rabbit.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/cooking_rabbit.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/cucco_man.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/cucco_man.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/elephant_musician.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/fairy.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/fairy.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/fishman.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/fishman.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/fishman_b.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/fishman_b.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/flying_rooster.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/flying_rooster.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/fox_musician.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/frog.dat", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/frog.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/game_man.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/game_man.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/ghost.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/ghost.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/goriya.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/goriya.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/grand_ma.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/grand_ma.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/grand_pa.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/grand_pa.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/great_fairy.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/hippo.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/kid_1.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/kid_2.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/kid_3.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/kid_4.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/kids.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/mad_bat.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/mad_bat.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/manbo.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/manbo.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/manbopals_blue.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/manbopals_blue.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/manbopals_emerald.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/manbopals_emerald.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/manbopals_green.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/manbopals_green.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/manbopals_grey.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/manbopals_grey.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/manbopals_pink.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/manbopals_pink.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/manbopals_red.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/manbopals_red.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/manbopals_yellow.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/manbopals_yellow.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/marin.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/marin.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/meow_meow.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/meow_meow.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/merchant.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/merchant.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/mermaid.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/mermaid.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/monique.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/monique.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/monkey.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/monkey.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/monkey_brown.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/monkey_brown.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/monty_mole.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/monty_mole.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/mosquito.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/mosquito.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/mouse.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/mouse.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/mr_write.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/mr_write.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/owl.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/owl.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/owl_shadow.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/owl_shadow.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/painter.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/painter.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/phone.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/phone.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/photographer.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/photographer.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/quadruplet_father.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/quadruplet_father.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/quadruplet_mother.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/quadruplet_mother.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/rabbit.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/racoon.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/raft_man.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/raft_man.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/richard.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/richard.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/seagull.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/seagull.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/seagull_small.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/seagull_small.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/small_bowwow.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/small_bowwow.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/tarin.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/tarin.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/village_bird.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/village_teddy.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/walrus.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/walrus.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/wart.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/wart.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/warts_brother.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/warts_brother.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/npc/witch.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
-file{ path = "sprites/npc/witch.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
+file{ path = "sprites/npc/animals/alligator.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
+file{ path = "sprites/npc/animals/alligator.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
 file{ path = "tilesets/dungeon/blue.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
 file{ path = "tilesets/dungeon/blue.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
 file{ path = "tilesets/dungeon/blue.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }

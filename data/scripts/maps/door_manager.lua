@@ -1,21 +1,23 @@
-require("scripts/multi_events")
+-- Variables
 local door_manager = {}
 
+-- Include scripts
+require("scripts/multi_events")
+local audio_manager = require("scripts/audio_manager")
 
 
 -- Open doors when all ennemis in the room are dead
 function door_manager:open_when_enemies_dead(map, enemy_prefix, door_prefix, sound)
-
 
   local function enemy_on_dead()
     if sound == nil then
       sound = true
     end
     if not map:has_entities(enemy_prefix) then
-        map:open_doors(door_prefix)
-        if sound then
-          audio_manager:play_sound("others/secret1")
-        end
+      map:open_doors(door_prefix)
+      if sound then
+        audio_manager:play_sound("others/secret1")
+      end
    end
   end
    for enemy in map:get_entities(enemy_prefix) do
@@ -28,47 +30,47 @@ end
 -- Open doors when all flying tiles in the room are dead
 function door_manager:open_when_flying_tiles_dead(map, enemy_prefix, door_prefix)
 
-    local function enemy_on_flying_tile_dead()
-     local open_door = true
-     for enemy in map:get_entities(enemy_prefix) do
-       if enemy.state ~= "destroying" then
-        open_door = false
-       end
-     end
-     if open_door then
-        map:open_doors(door_prefix)
-        audio_manager:play_sound("others/secret1")
-     end
+  local function enemy_on_flying_tile_dead()
+  local open_door = true
+  for enemy in map:get_entities(enemy_prefix) do
+    if enemy.state ~= "destroying" then
+    open_door = false
+    end
+  end
+  if open_door then
+    map:open_doors(door_prefix)
+    audio_manager:play_sound("others/secret1")
+  end
   end
    for enemy in map:get_entities(enemy_prefix) do
      enemy.on_flying_tile_dead = enemy_on_flying_tile_dead
-   end
+  end
 
 end
 
 -- Open doors when small boss is dead
 function door_manager:open_if_small_boss_dead(map)
 
-    local game = map:get_game()
-    local dungeon = game:get_dungeon_index()
-    local savegame = "dungeon_" .. dungeon .. "_small_boss"
-    local door_prefix = "door_group_small_boss"
-    if game:get_value(savegame) then
-        map:set_doors_open(door_prefix, true)
-    end
+  local game = map:get_game()
+  local dungeon = game:get_dungeon_index()
+  local savegame = "dungeon_" .. dungeon .. "_small_boss"
+  local door_prefix = "door_group_small_boss"
+  if game:get_value(savegame) then
+      map:set_doors_open(door_prefix, true)
+  end
 
 end
 
 -- Open doors when boss is dead
 function door_manager:open_if_boss_dead(map)
 
-    local game = map:get_game()
-    local dungeon = game:get_dungeon_index()
-    local savegame = "dungeon_" .. dungeon .. "_boss"
-    local door_prefix = "door_group_boss"
-    if game:get_value(savegame) then
-        map:set_doors_open(door_prefix, true)
-    end
+  local game = map:get_game()
+  local dungeon = game:get_dungeon_index()
+  local savegame = "dungeon_" .. dungeon .. "_boss"
+  local door_prefix = "door_group_boss"
+  if game:get_value(savegame) then
+      map:set_doors_open(door_prefix, true)
+  end
 
 end
 
@@ -92,8 +94,8 @@ function door_manager:open_when_blocks_moved(map, block_prefix, door_prefix)
   local function block_on_moved()
     remaining = remaining - 1
     if remaining == 0 then
-        map:open_doors(door_prefix)
-        audio_manager:play_sound("others/secret1")
+      map:open_doors(door_prefix)
+      audio_manager:play_sound("others/secret1")
    end
   end
   for block in map:get_entities(block_prefix) do
@@ -139,13 +141,15 @@ end
 -- Open doors when pot break
 function door_manager:open_when_pot_break(map, door_prefix)
 
-  local detect_entity = map:get_entity("detect_" .. door_prefix)
-  detect_entity:add_collision_test("touching", function(entity_source, entity_dest)
-    if entity_dest:get_type() == "carried_object" then
-        map:open_doors(door_prefix)
-        audio_manager:play_sound("others/secret1")
-    end
-  end)
+  local detect_entity = map:get_entity(door_prefix .. "detect")
+  if detect_entity ~= nil then
+    detect_entity:add_collision_test("touching", function(entity_source, entity_dest)
+      if entity_dest:get_type() == "carried_object" then
+          map:open_doors(door_prefix)
+          audio_manager:play_sound("others/secret1")
+      end
+    end)
+  end
 
 end
 
@@ -203,8 +207,8 @@ function door_manager:open_when_torches_lit(map, torch_prefix, door_prefix)
   end
   if has_torches and remaining == 0 then
     -- All torches of this door are already lit.
-        audio_manager:play_sound("others/secret1")
-        map:open_doors(door_prefix)
+    audio_manager:play_sound("others/secret1")
+    map:open_doors(door_prefix)
   end
 end
 
@@ -235,15 +239,13 @@ function door_manager:close_when_torches_unlit(map, torch_prefix, door_prefix)
   end
 end
 
-
 -- Close doors if ennemis in the room are not dead
 function door_manager:close_if_enemies_not_dead(map, enemy_prefix, door_prefix)
 
    if map:has_entities(enemy_prefix) then
-        map:close_doors(door_prefix)
+    map:close_doors(door_prefix)
   end
         
 end
-
 
 return door_manager

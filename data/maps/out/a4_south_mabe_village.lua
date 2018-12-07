@@ -149,6 +149,7 @@ function map:launch_cinematic_2()
     }
     map:set_cinematic_mode(true, options)
     sol.audio.stop_music()
+    audio_manager:play_sound("others/chest_open")
     local camera = map:get_camera()
     local camera_x, camera_y = camera:get_position()
     local movement1 = sol.movement.create("straight")
@@ -158,13 +159,18 @@ function map:launch_cinematic_2()
     movement1:set_ignore_suspend(true)
     movement(movement1, camera)
     wait(1000)
-    audio_manager:play_sound("shake")
+    local timer_sound = sol.timer.start(hero, 0, function()
+      audio_manager:play_sound("others/dungeon_shake")
+      return 450
+    end)
+    timer_sound:set_suspended_with_map(false)
     local shake_config = {
         count = 32,
         amplitude = 4,
         speed = 90
     }
     wait_for(camera.shake,camera,shake_config)
+    timer_sound:stop()
     camera:start_manual()
     camera:set_position(camera_x, camera_y - 72)
     audio_manager:play_sound("others/secret2")

@@ -316,6 +316,15 @@ tile{
   pattern = "dresser.4a",
 }
 
+tile{
+  layer = 0,
+  x = 176,
+  y = 152,
+  width = 16,
+  height = 8,
+  pattern = "table.2",
+}
+
 npc{
   name = "phone",
   layer = 0,
@@ -323,7 +332,7 @@ npc{
   y = 165,
   direction = 3,
   subtype = 1,
-  sprite = "npc/phone",
+  sprite = "npc/others/phone",
 }
 
 destination{

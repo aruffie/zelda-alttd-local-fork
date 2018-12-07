@@ -7,6 +7,7 @@ local boss_key_enemies_index = 0
 
 -- Include scripts
 require("scripts/multi_events")
+local audio_manager = require("scripts/audio_manager")
 local door_manager = require("scripts/maps/door_manager")
 local treasure_manager = require("scripts/maps/treasure_manager")
 local switch_manager = require("scripts/maps/switch_manager")
@@ -156,10 +157,12 @@ auto_separator_2:register_event("on_activated", function(separator, direction4)
 end)
 
 auto_separator_4:register_event("on_activating", function(separator, direction4)
+    
   local x, y = hero:get_position()
   if direction4 == 2 then
     map:set_light(0)
   end
+  
 end)
 
 auto_separator_4:register_event("on_activated", function(separator, direction4)
@@ -167,13 +170,16 @@ auto_separator_4:register_event("on_activated", function(separator, direction4)
   if direction4 ~= 2 then
     map:set_light(1)
   end
+  
 end)
 
 auto_separator_11:register_event("on_activating", function(separator, direction4)
+    
   local x, y = hero:get_position()
   if direction4 == 1 then
     map:set_light(0)
   end
+  
 end)
 
 auto_separator_11:register_event("on_activated", function(separator, direction4)
@@ -181,6 +187,7 @@ auto_separator_11:register_event("on_activated", function(separator, direction4)
   if direction4 ~= 1 then
     map:set_light(1)
   end
+  
 end)
 
 auto_separator_21:register_event("on_activated", function(separator, direction4)
@@ -190,10 +197,12 @@ auto_separator_21:register_event("on_activated", function(separator, direction4)
 end)
 
 auto_separator_25:register_event("on_activating", function(separator, direction4)
+    
   local x, y = hero:get_position()
   if direction4 == 2 then
     map:set_light(0)
   end
+  
 end)
 
 auto_separator_25:register_event("on_activated", function(separator, direction4)
@@ -201,6 +210,7 @@ auto_separator_25:register_event("on_activated", function(separator, direction4)
   if direction4 ~= 2 then
     map:set_light(1)
   end
+  
 end)
 
 function auto_separator_26:on_activating(direction4)
@@ -211,11 +221,11 @@ function auto_separator_26:on_activating(direction4)
 end
 
 -- Switchs events
-function switch_1:on_activated()
+switch_1:register_event("on_activated", function()
 
   treasure_manager:appear_chest(map, "chest_small_key_4", true)
 
-end
+end)
 
 -- Treasures events
 treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_2_", "pickable_small_key_1")
@@ -235,7 +245,11 @@ function map:launch_cinematic_1()
     map:set_cinematic_mode(true, options)
     sol.audio.stop_music()
     wait(2000)
-    audio_manager:play_sound("shake")
+    local timer_sound = sol.timer.start(hero, 0, function()
+      audio_manager:play_sound("others/dungeon_shake")
+      return 450
+    end)
+    timer_sound:set_suspended_with_map(false)
     local camera = map:get_camera()
     local shake_config = {
         count = 32,
@@ -243,7 +257,8 @@ function map:launch_cinematic_1()
         speed = 90
     }
     wait_for(camera.shake,camera,shake_config)
-    audio_manager:play_sound("explosion")
+    timer_sound:stop()
+    audio_manager:play_sound("items/bomb_explode")
     local x,y,layer = placeholder_explosion_wall_1:get_position()
     map:create_explosion({
       x = x,

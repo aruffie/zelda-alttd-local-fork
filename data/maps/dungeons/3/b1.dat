@@ -4115,6 +4115,46 @@ tile{
   pattern = "door_stairs.spiral_up.1",
 }
 
+tile{
+  layer = 0,
+  x = 1072,
+  y = 1360,
+  width = 96,
+  height = 32,
+  pattern = "3",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1088,
+  y = 1296,
+  width = 64,
+  height = 24,
+  pattern = "28",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 976,
+  y = 1376,
+  width = 24,
+  height = 64,
+  pattern = "31",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1240,
+  y = 1376,
+  width = 24,
+  height = 64,
+  pattern = "30",
+  tileset = "addition/dungeon",
+}
+
 wall{
   layer = 0,
   x = 1240,
@@ -4204,7 +4244,7 @@ stream{
   x = 1528,
   y = 925,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -4212,7 +4252,7 @@ stream{
   x = 1544,
   y = 925,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -4220,7 +4260,7 @@ stream{
   x = 1528,
   y = 941,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -4228,7 +4268,7 @@ stream{
   x = 1544,
   y = 941,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -4236,7 +4276,7 @@ stream{
   x = 1480,
   y = 941,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -4244,7 +4284,7 @@ stream{
   x = 1496,
   y = 941,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -4252,7 +4292,7 @@ stream{
   x = 1512,
   y = 941,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 custom_entity{
@@ -4701,7 +4741,7 @@ stream{
   x = 1224,
   y = 1933,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 block{
@@ -4719,7 +4759,7 @@ stream{
   x = 1208,
   y = 1933,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -4727,7 +4767,7 @@ stream{
   x = 1208,
   y = 1949,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -4735,7 +4775,7 @@ stream{
   x = 1208,
   y = 1965,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -4743,7 +4783,7 @@ stream{
   x = 1192,
   y = 1949,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
   allow_movement = false,
   allow_attack = false,
   allow_item = false,
@@ -4754,7 +4794,7 @@ stream{
   x = 1192,
   y = 1965,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -4762,7 +4802,7 @@ stream{
   x = 1096,
   y = 1981,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -4770,7 +4810,7 @@ stream{
   x = 1176,
   y = 1965,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -4778,7 +4818,7 @@ stream{
   x = 1048,
   y = 1869,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -4786,7 +4826,7 @@ stream{
   x = 1048,
   y = 1885,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -4794,7 +4834,7 @@ stream{
   x = 1048,
   y = 1901,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 block{
@@ -4812,7 +4852,7 @@ stream{
   x = 1176,
   y = 1885,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -4820,7 +4860,7 @@ stream{
   x = 1160,
   y = 1901,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -4828,7 +4868,7 @@ stream{
   x = 1176,
   y = 1901,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -4836,7 +4876,7 @@ stream{
   x = 1176,
   y = 1917,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 block{
@@ -4854,7 +4894,7 @@ stream{
   x = 1144,
   y = 1917,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -4862,7 +4902,7 @@ stream{
   x = 1128,
   y = 1917,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -4870,7 +4910,7 @@ stream{
   x = 1144,
   y = 1901,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -4878,7 +4918,7 @@ stream{
   x = 1096,
   y = 1853,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -4886,7 +4926,7 @@ stream{
   x = 1112,
   y = 1853,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -4894,7 +4934,7 @@ stream{
   x = 1112,
   y = 1869,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 block{
@@ -4912,7 +4952,7 @@ stream{
   x = 1016,
   y = 1901,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -4920,7 +4960,7 @@ stream{
   x = 1064,
   y = 1949,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -4928,7 +4968,7 @@ stream{
   x = 1064,
   y = 1933,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -4936,7 +4976,7 @@ stream{
   x = 1080,
   y = 1933,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -4944,7 +4984,7 @@ stream{
   x = 1080,
   y = 1949,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -4952,7 +4992,7 @@ stream{
   x = 1096,
   y = 1933,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -4960,7 +5000,7 @@ stream{
   x = 1096,
   y = 1949,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
   allow_movement = false,
   allow_attack = false,
   allow_item = false,
@@ -4981,7 +5021,7 @@ stream{
   x = 1112,
   y = 1933,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -4989,7 +5029,7 @@ stream{
   x = 1112,
   y = 1885,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 block{
@@ -5007,7 +5047,7 @@ stream{
   x = 1096,
   y = 1869,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5015,7 +5055,7 @@ stream{
   x = 1064,
   y = 1917,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5023,7 +5063,7 @@ stream{
   x = 1080,
   y = 1917,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5031,7 +5071,7 @@ stream{
   x = 1048,
   y = 1949,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5039,7 +5079,7 @@ stream{
   x = 1048,
   y = 1965,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5047,7 +5087,7 @@ stream{
   x = 1048,
   y = 1981,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 block{
@@ -5065,7 +5105,7 @@ stream{
   x = 1064,
   y = 1885,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5073,7 +5113,7 @@ stream{
   x = 1080,
   y = 1885,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5081,7 +5121,7 @@ stream{
   x = 1080,
   y = 1901,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5089,7 +5129,7 @@ stream{
   x = 1064,
   y = 1901,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5097,7 +5137,7 @@ stream{
   x = 1016,
   y = 1853,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5105,7 +5145,7 @@ stream{
   x = 1032,
   y = 1853,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5113,7 +5153,7 @@ stream{
   x = 1048,
   y = 1853,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5121,7 +5161,7 @@ stream{
   x = 1208,
   y = 1917,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5129,7 +5169,7 @@ stream{
   x = 1128,
   y = 1933,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5137,7 +5177,7 @@ stream{
   x = 1144,
   y = 1933,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5145,7 +5185,7 @@ stream{
   x = 1192,
   y = 1933,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5153,7 +5193,7 @@ stream{
   x = 1176,
   y = 1949,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5161,7 +5201,7 @@ stream{
   x = 1160,
   y = 1965,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5169,7 +5209,7 @@ stream{
   x = 1144,
   y = 1949,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 block{
@@ -5187,7 +5227,7 @@ stream{
   x = 1128,
   y = 1949,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 block{
@@ -5205,7 +5245,7 @@ stream{
   x = 1064,
   y = 1997,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5213,7 +5253,7 @@ stream{
   x = 1080,
   y = 1997,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5221,7 +5261,7 @@ stream{
   x = 1080,
   y = 1981,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5229,7 +5269,7 @@ stream{
   x = 1080,
   y = 1965,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5237,7 +5277,7 @@ stream{
   x = 1064,
   y = 1965,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5245,7 +5285,7 @@ stream{
   x = 1064,
   y = 1981,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5253,7 +5293,7 @@ stream{
   x = 1016,
   y = 1917,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5261,7 +5301,7 @@ stream{
   x = 1032,
   y = 1917,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5269,7 +5309,7 @@ stream{
   x = 1032,
   y = 1933,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5277,7 +5317,7 @@ stream{
   x = 1016,
   y = 1933,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5285,7 +5325,7 @@ stream{
   x = 1032,
   y = 1949,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5293,7 +5333,7 @@ stream{
   x = 1016,
   y = 1949,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5301,7 +5341,7 @@ stream{
   x = 1016,
   y = 1965,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5309,7 +5349,7 @@ stream{
   x = 1032,
   y = 1965,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5317,7 +5357,7 @@ stream{
   x = 1016,
   y = 1981,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5325,7 +5365,7 @@ stream{
   x = 1032,
   y = 1981,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 block{
@@ -5353,7 +5393,7 @@ stream{
   x = 1032,
   y = 1901,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5361,7 +5401,7 @@ stream{
   x = 1032,
   y = 1885,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5369,7 +5409,7 @@ stream{
   x = 1016,
   y = 1885,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5377,7 +5417,7 @@ stream{
   x = 1016,
   y = 1869,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5385,7 +5425,7 @@ stream{
   x = 1032,
   y = 1869,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5393,7 +5433,7 @@ stream{
   x = 1096,
   y = 1885,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5401,7 +5441,7 @@ stream{
   x = 1096,
   y = 1901,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 block{
@@ -5419,7 +5459,7 @@ stream{
   x = 1096,
   y = 1997,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5427,7 +5467,7 @@ stream{
   x = 1112,
   y = 1981,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5435,7 +5475,7 @@ stream{
   x = 1112,
   y = 1997,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5443,7 +5483,7 @@ stream{
   x = 1112,
   y = 1949,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
   allow_movement = false,
   allow_attack = false,
   allow_item = false,
@@ -5464,7 +5504,7 @@ stream{
   x = 1128,
   y = 1853,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5472,7 +5512,7 @@ stream{
   x = 1144,
   y = 1853,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5480,7 +5520,7 @@ stream{
   x = 1160,
   y = 1853,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5488,7 +5528,7 @@ stream{
   x = 1176,
   y = 1853,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5496,7 +5536,7 @@ stream{
   x = 1192,
   y = 1853,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5504,7 +5544,7 @@ stream{
   x = 1128,
   y = 1869,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5512,7 +5552,7 @@ stream{
   x = 1144,
   y = 1869,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5520,7 +5560,7 @@ stream{
   x = 1160,
   y = 1869,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5528,7 +5568,7 @@ stream{
   x = 1176,
   y = 1869,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5536,7 +5576,7 @@ stream{
   x = 1192,
   y = 1869,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 block{
@@ -5574,7 +5614,7 @@ stream{
   x = 1128,
   y = 1981,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5582,7 +5622,7 @@ stream{
   x = 1128,
   y = 1997,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5590,7 +5630,7 @@ stream{
   x = 1144,
   y = 1997,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5598,7 +5638,7 @@ stream{
   x = 1144,
   y = 1981,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5606,7 +5646,7 @@ stream{
   x = 1160,
   y = 1981,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5614,7 +5654,7 @@ stream{
   x = 1160,
   y = 1997,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5622,7 +5662,7 @@ stream{
   x = 1176,
   y = 1997,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5630,7 +5670,7 @@ stream{
   x = 1176,
   y = 1981,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5638,7 +5678,7 @@ stream{
   x = 1192,
   y = 1981,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 block{
@@ -5656,7 +5696,7 @@ stream{
   x = 1208,
   y = 1981,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 block{
@@ -5674,7 +5714,7 @@ stream{
   x = 1160,
   y = 1885,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5682,7 +5722,7 @@ stream{
   x = 1160,
   y = 1917,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5690,7 +5730,7 @@ stream{
   x = 1160,
   y = 1933,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 block{
@@ -5708,7 +5748,7 @@ stream{
   x = 1208,
   y = 1901,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5716,7 +5756,7 @@ stream{
   x = 1208,
   y = 1885,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5724,7 +5764,7 @@ stream{
   x = 1208,
   y = 1869,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5732,7 +5772,7 @@ stream{
   x = 1208,
   y = 1853,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5740,7 +5780,7 @@ stream{
   x = 1224,
   y = 1853,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5748,7 +5788,7 @@ stream{
   x = 1224,
   y = 1869,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5756,7 +5796,7 @@ stream{
   x = 1224,
   y = 1885,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5764,7 +5804,7 @@ stream{
   x = 1224,
   y = 1901,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5772,7 +5812,7 @@ stream{
   x = 1224,
   y = 1917,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5780,7 +5820,7 @@ stream{
   x = 1176,
   y = 1229,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5788,7 +5828,7 @@ stream{
   x = 1080,
   y = 1213,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5796,7 +5836,7 @@ stream{
   x = 1080,
   y = 1229,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5804,7 +5844,7 @@ stream{
   x = 1096,
   y = 1229,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5812,7 +5852,7 @@ stream{
   x = 1096,
   y = 1213,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5820,7 +5860,7 @@ stream{
   x = 1112,
   y = 1213,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5828,7 +5868,7 @@ stream{
   x = 1112,
   y = 1229,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5836,7 +5876,7 @@ stream{
   x = 1128,
   y = 1229,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5844,7 +5884,7 @@ stream{
   x = 1128,
   y = 1213,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5852,7 +5892,7 @@ stream{
   x = 1144,
   y = 1229,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5860,7 +5900,7 @@ stream{
   x = 1160,
   y = 1229,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5868,7 +5908,7 @@ stream{
   x = 1160,
   y = 1213,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5876,7 +5916,7 @@ stream{
   x = 1144,
   y = 1213,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5884,7 +5924,7 @@ stream{
   x = 1176,
   y = 1213,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5892,7 +5932,7 @@ stream{
   x = 1176,
   y = 1181,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5900,7 +5940,7 @@ stream{
   x = 1192,
   y = 1181,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5908,7 +5948,7 @@ stream{
   x = 1208,
   y = 1181,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5916,7 +5956,7 @@ stream{
   x = 1224,
   y = 1181,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5924,7 +5964,7 @@ stream{
   x = 1224,
   y = 1165,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5932,7 +5972,7 @@ stream{
   x = 1224,
   y = 1149,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5940,7 +5980,7 @@ stream{
   x = 1224,
   y = 1133,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5948,7 +5988,7 @@ stream{
   x = 1208,
   y = 1149,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5956,7 +5996,7 @@ stream{
   x = 1208,
   y = 1133,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5964,7 +6004,7 @@ stream{
   x = 1208,
   y = 1165,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5972,7 +6012,7 @@ stream{
   x = 1192,
   y = 1165,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5980,7 +6020,7 @@ stream{
   x = 1192,
   y = 1149,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5988,7 +6028,7 @@ stream{
   x = 1176,
   y = 1149,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -5996,7 +6036,7 @@ stream{
   x = 1176,
   y = 1165,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6004,7 +6044,7 @@ stream{
   x = 1192,
   y = 1133,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6012,7 +6052,7 @@ stream{
   x = 1176,
   y = 1133,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6020,7 +6060,7 @@ stream{
   x = 1160,
   y = 1133,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6028,7 +6068,7 @@ stream{
   x = 1128,
   y = 1133,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6036,7 +6076,7 @@ stream{
   x = 1096,
   y = 1133,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6044,7 +6084,7 @@ stream{
   x = 1144,
   y = 1133,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6052,7 +6092,7 @@ stream{
   x = 1112,
   y = 1133,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6060,7 +6100,7 @@ stream{
   x = 1080,
   y = 1133,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6068,7 +6108,7 @@ stream{
   x = 1064,
   y = 1133,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6076,7 +6116,7 @@ stream{
   x = 1016,
   y = 1197,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6084,7 +6124,7 @@ stream{
   x = 1224,
   y = 1197,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6092,7 +6132,7 @@ stream{
   x = 1032,
   y = 1197,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6100,7 +6140,7 @@ stream{
   x = 1048,
   y = 1197,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6108,7 +6148,7 @@ stream{
   x = 1064,
   y = 1197,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6116,7 +6156,7 @@ stream{
   x = 1064,
   y = 1213,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6124,7 +6164,7 @@ stream{
   x = 1064,
   y = 1229,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6132,7 +6172,7 @@ stream{
   x = 1016,
   y = 1181,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6140,7 +6180,7 @@ stream{
   x = 1016,
   y = 1165,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6148,7 +6188,7 @@ stream{
   x = 1016,
   y = 1149,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6156,7 +6196,7 @@ stream{
   x = 1016,
   y = 1133,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6164,7 +6204,7 @@ stream{
   x = 1176,
   y = 1197,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6172,7 +6212,7 @@ stream{
   x = 1192,
   y = 1197,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6180,7 +6220,7 @@ stream{
   x = 1208,
   y = 1197,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6188,7 +6228,7 @@ stream{
   x = 1064,
   y = 1149,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6196,7 +6236,7 @@ stream{
   x = 1064,
   y = 1165,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6204,7 +6244,7 @@ stream{
   x = 1064,
   y = 1181,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6212,7 +6252,7 @@ stream{
   x = 1032,
   y = 1133,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6220,7 +6260,7 @@ stream{
   x = 1048,
   y = 1149,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6228,7 +6268,7 @@ stream{
   x = 1048,
   y = 1165,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6236,7 +6276,7 @@ stream{
   x = 1048,
   y = 1181,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6244,7 +6284,7 @@ stream{
   x = 1048,
   y = 1133,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6252,7 +6292,7 @@ stream{
   x = 1032,
   y = 1149,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6260,7 +6300,7 @@ stream{
   x = 1032,
   y = 1165,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6268,7 +6308,7 @@ stream{
   x = 1032,
   y = 1181,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 destructible{
@@ -6330,7 +6370,7 @@ stream{
   x = 776,
   y = 829,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6338,7 +6378,7 @@ stream{
   x = 776,
   y = 845,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6346,7 +6386,7 @@ stream{
   x = 776,
   y = 861,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6354,7 +6394,7 @@ stream{
   x = 776,
   y = 877,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6362,7 +6402,7 @@ stream{
   x = 776,
   y = 893,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6370,7 +6410,7 @@ stream{
   x = 776,
   y = 909,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6378,7 +6418,7 @@ stream{
   x = 776,
   y = 925,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6386,7 +6426,7 @@ stream{
   x = 776,
   y = 941,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6394,7 +6434,7 @@ stream{
   x = 776,
   y = 957,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6402,7 +6442,7 @@ stream{
   x = 776,
   y = 973,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6410,7 +6450,7 @@ stream{
   x = 808,
   y = 829,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6418,7 +6458,7 @@ stream{
   x = 808,
   y = 845,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6426,7 +6466,7 @@ stream{
   x = 808,
   y = 861,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6434,7 +6474,7 @@ stream{
   x = 808,
   y = 877,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6442,7 +6482,7 @@ stream{
   x = 808,
   y = 893,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6450,7 +6490,7 @@ stream{
   x = 808,
   y = 909,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6458,7 +6498,7 @@ stream{
   x = 808,
   y = 925,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6466,7 +6506,7 @@ stream{
   x = 808,
   y = 941,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6474,7 +6514,7 @@ stream{
   x = 808,
   y = 957,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6482,7 +6522,7 @@ stream{
   x = 808,
   y = 973,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6490,7 +6530,7 @@ stream{
   x = 760,
   y = 893,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6498,7 +6538,7 @@ stream{
   x = 760,
   y = 877,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6506,7 +6546,7 @@ stream{
   x = 760,
   y = 909,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6514,7 +6554,7 @@ stream{
   x = 760,
   y = 925,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6522,7 +6562,7 @@ stream{
   x = 744,
   y = 925,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6530,7 +6570,7 @@ stream{
   x = 728,
   y = 925,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6538,7 +6578,7 @@ stream{
   x = 728,
   y = 909,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6546,7 +6586,7 @@ stream{
   x = 744,
   y = 909,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6554,7 +6594,7 @@ stream{
   x = 744,
   y = 893,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6562,7 +6602,7 @@ stream{
   x = 728,
   y = 893,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6570,7 +6610,7 @@ stream{
   x = 728,
   y = 877,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6578,7 +6618,7 @@ stream{
   x = 744,
   y = 877,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 crystal{
@@ -6700,7 +6740,7 @@ stream{
   x = 1464,
   y = 941,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6708,7 +6748,7 @@ stream{
   x = 1464,
   y = 925,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6716,7 +6756,7 @@ stream{
   x = 1480,
   y = 925,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6724,7 +6764,7 @@ stream{
   x = 1496,
   y = 925,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6732,7 +6772,7 @@ stream{
   x = 1512,
   y = 925,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6740,7 +6780,7 @@ stream{
   x = 1528,
   y = 893,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6748,7 +6788,7 @@ stream{
   x = 1544,
   y = 893,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6756,7 +6796,7 @@ stream{
   x = 1528,
   y = 909,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6764,7 +6804,7 @@ stream{
   x = 1544,
   y = 909,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6772,7 +6812,7 @@ stream{
   x = 1544,
   y = 845,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6780,7 +6820,7 @@ stream{
   x = 1528,
   y = 845,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6788,7 +6828,7 @@ stream{
   x = 1544,
   y = 829,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6796,7 +6836,7 @@ stream{
   x = 1528,
   y = 829,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6804,7 +6844,7 @@ stream{
   x = 1512,
   y = 845,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6812,7 +6852,7 @@ stream{
   x = 1512,
   y = 829,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6820,7 +6860,7 @@ stream{
   x = 1496,
   y = 829,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6828,7 +6868,7 @@ stream{
   x = 1496,
   y = 845,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6836,7 +6876,7 @@ stream{
   x = 1480,
   y = 845,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6844,7 +6884,7 @@ stream{
   x = 1480,
   y = 829,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6852,7 +6892,7 @@ stream{
   x = 1464,
   y = 829,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6860,7 +6900,7 @@ stream{
   x = 1464,
   y = 845,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6868,7 +6908,7 @@ stream{
   x = 1448,
   y = 845,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6876,7 +6916,7 @@ stream{
   x = 1448,
   y = 829,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6884,7 +6924,7 @@ stream{
   x = 1432,
   y = 829,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6892,7 +6932,7 @@ stream{
   x = 1432,
   y = 845,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6900,7 +6940,7 @@ stream{
   x = 1416,
   y = 845,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6908,7 +6948,7 @@ stream{
   x = 1416,
   y = 829,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6916,7 +6956,7 @@ stream{
   x = 1400,
   y = 829,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6924,7 +6964,7 @@ stream{
   x = 1400,
   y = 845,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6932,7 +6972,7 @@ stream{
   x = 1384,
   y = 845,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6940,7 +6980,7 @@ stream{
   x = 1384,
   y = 829,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6948,7 +6988,7 @@ stream{
   x = 1368,
   y = 845,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6956,7 +6996,7 @@ stream{
   x = 1368,
   y = 829,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6964,7 +7004,7 @@ stream{
   x = 1544,
   y = 877,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6972,7 +7012,7 @@ stream{
   x = 1528,
   y = 877,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6980,7 +7020,7 @@ stream{
   x = 1544,
   y = 861,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6988,7 +7028,7 @@ stream{
   x = 1528,
   y = 861,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -6996,7 +7036,7 @@ stream{
   x = 1512,
   y = 877,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -7004,7 +7044,7 @@ stream{
   x = 1512,
   y = 861,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -7012,7 +7052,7 @@ stream{
   x = 1496,
   y = 861,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -7020,7 +7060,7 @@ stream{
   x = 1496,
   y = 877,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -7028,7 +7068,7 @@ stream{
   x = 1480,
   y = 877,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -7036,7 +7076,7 @@ stream{
   x = 1480,
   y = 861,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -7044,7 +7084,7 @@ stream{
   x = 1464,
   y = 861,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -7052,7 +7092,7 @@ stream{
   x = 1464,
   y = 877,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -7060,7 +7100,7 @@ stream{
   x = 1448,
   y = 877,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -7068,7 +7108,7 @@ stream{
   x = 1448,
   y = 861,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -7076,7 +7116,7 @@ stream{
   x = 1432,
   y = 861,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -7084,7 +7124,7 @@ stream{
   x = 1432,
   y = 877,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -7092,7 +7132,7 @@ stream{
   x = 1416,
   y = 877,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -7100,7 +7140,7 @@ stream{
   x = 1416,
   y = 861,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -7108,7 +7148,7 @@ stream{
   x = 1400,
   y = 861,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -7116,7 +7156,7 @@ stream{
   x = 1400,
   y = 877,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -7124,7 +7164,7 @@ stream{
   x = 1384,
   y = 877,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -7132,7 +7172,7 @@ stream{
   x = 1384,
   y = 861,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -7140,7 +7180,7 @@ stream{
   x = 1368,
   y = 877,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -7148,7 +7188,7 @@ stream{
   x = 1368,
   y = 861,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -7156,7 +7196,7 @@ stream{
   x = 1448,
   y = 941,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -7164,7 +7204,7 @@ stream{
   x = 1448,
   y = 925,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -7172,7 +7212,7 @@ stream{
   x = 1432,
   y = 941,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -7180,7 +7220,7 @@ stream{
   x = 1432,
   y = 925,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 teletransporter{
@@ -7321,51 +7361,7 @@ npc{
   y = 549,
   direction = 3,
   subtype = 1,
-  sprite = "entities/statue_dungeon_3_owl",
-}
-
-custom_entity{
-  name = "windfish_symbol",
-  layer = 0,
-  x = 1080,
-  y = 1373,
-  width = 96,
-  height = 40,
-  direction = 3,
-  sprite = "entities/windfish_symbol_dungeon_3",
-}
-
-custom_entity{
-  name = "symbol_egg_2",
-  layer = 0,
-  x = 984,
-  y = 1389,
-  width = 24,
-  height = 64,
-  direction = 0,
-  sprite = "entities/statue_dungeon_3_egg",
-}
-
-custom_entity{
-  name = "symbol_egg_4",
-  layer = 0,
-  x = 1096,
-  y = 1309,
-  width = 64,
-  height = 24,
-  direction = 3,
-  sprite = "entities/statue_dungeon_3_egg",
-}
-
-custom_entity{
-  name = "symbol_egg_3",
-  layer = 0,
-  x = 1248,
-  y = 1389,
-  width = 24,
-  height = 64,
-  direction = 2,
-  sprite = "entities/statue_dungeon_3_egg",
+  sprite = "npc/statues/owl_dungeon_3",
 }
 
 door{

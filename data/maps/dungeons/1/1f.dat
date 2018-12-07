@@ -114,6 +114,34 @@ teletransporter{
 tile{
   layer = 0,
   x = 1968,
+  y = 304,
+  width = 224,
+  height = 160,
+  pattern = "floor.9-1",
+}
+
+tile{
+  layer = 0,
+  x = 2000,
+  y = 320,
+  width = 160,
+  height = 72,
+  pattern = "alter_floor",
+}
+
+tile{
+  layer = 0,
+  x = 2032,
+  y = 336,
+  width = 96,
+  height = 32,
+  pattern = "1",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1968,
   y = 816,
   width = 224,
   height = 160,
@@ -491,15 +519,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 1968,
-  y = 304,
-  width = 224,
-  height = 160,
-  pattern = "floor.9-1",
-}
-
-tile{
-  layer = 0,
   x = 2016,
   y = 408,
   width = 128,
@@ -811,15 +830,6 @@ tile{
   width = 112,
   height = 32,
   pattern = "floor.9-1",
-}
-
-tile{
-  layer = 0,
-  x = 2000,
-  y = 320,
-  width = 160,
-  height = 72,
-  pattern = "alter_floor",
 }
 
 tile{
@@ -13404,6 +13414,56 @@ tile{
   pattern = "floor_low.10-2",
 }
 
+tile{
+  layer = 0,
+  x = 128,
+  y = 784,
+  width = 64,
+  height = 24,
+  pattern = "9",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 2048,
+  y = 272,
+  width = 64,
+  height = 24,
+  pattern = "9",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 2200,
+  y = 352,
+  width = 24,
+  height = 64,
+  pattern = "22",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1936,
+  y = 352,
+  width = 24,
+  height = 64,
+  pattern = "23",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 2064,
+  y = 816,
+  width = 32,
+  height = 32,
+  pattern = "13",
+  tileset = "addition/dungeon",
+}
+
 wall{
   layer = 0,
   x = 1512,
@@ -13776,8 +13836,8 @@ door{
 door{
   name = "door_small_key_3_1",
   layer = 0,
-  x = 1824,
-  y = 1192,
+  x = 1560,
+  y = 1144,
   direction = 2,
   sprite = "entities/doors/door_small_key",
   savegame_variable = "dungeon_1_door_small_key_3",
@@ -13872,8 +13932,7 @@ switch{
   x = 1136,
   y = 1392,
   subtype = "walkable",
-  sprite = "entities/switch",
-  sound = "switch",
+  sprite = "entities/switchs/switch",
   needs_block = false,
   inactivate_when_leaving = false,
 }
@@ -13974,7 +14033,7 @@ enemy{
   x = 1192,
   y = 1453,
   direction = 0,
-  breed = "zol_green",
+  breed = "gel_red",
 }
 
 enemy{
@@ -13983,7 +14042,7 @@ enemy{
   x = 1048,
   y = 1453,
   direction = 0,
-  breed = "zol_green",
+  breed = "gel_red",
 }
 
 enemy{
@@ -14221,7 +14280,7 @@ enemy{
   x = 800,
   y = 1157,
   direction = 0,
-  breed = "zol_green",
+  breed = "small_moldorm",
   treasure_name = "random",
 }
 
@@ -14612,7 +14671,7 @@ npc{
   y = 805,
   direction = 3,
   subtype = 1,
-  sprite = "entities/statue_dungeon_1_owl",
+  sprite = "npc/statues/owl_dungeon_1",
 }
 
 npc{
@@ -14622,7 +14681,7 @@ npc{
   y = 549,
   direction = 3,
   subtype = 1,
-  sprite = "entities/statue_dungeon_1_owl",
+  sprite = "npc/statues/owl_dungeon_1",
 }
 
 npc{
@@ -14632,7 +14691,7 @@ npc{
   y = 549,
   direction = 3,
   subtype = 1,
-  sprite = "entities/statue_dungeon_1_owl",
+  sprite = "npc/statues/owl_dungeon_1",
 }
 
 enemy{
@@ -14771,50 +14830,6 @@ destination{
   x = 1440,
   y = 1293,
   direction = 1,
-}
-
-custom_entity{
-  name = "symbol_egg_1",
-  layer = 0,
-  x = 2056,
-  y = 285,
-  width = 64,
-  height = 24,
-  direction = 3,
-  sprite = "entities/statue_dungeon_1_egg",
-}
-
-custom_entity{
-  name = "symbol_egg_2",
-  layer = 0,
-  x = 1944,
-  y = 365,
-  width = 24,
-  height = 64,
-  direction = 0,
-  sprite = "entities/statue_dungeon_1_egg",
-}
-
-custom_entity{
-  name = "symbol_egg_3",
-  layer = 0,
-  x = 2208,
-  y = 365,
-  width = 24,
-  height = 64,
-  direction = 2,
-  sprite = "entities/statue_dungeon_1_egg",
-}
-
-custom_entity{
-  name = "windfish_symbol",
-  layer = 0,
-  x = 2040,
-  y = 349,
-  width = 96,
-  height = 32,
-  direction = 0,
-  sprite = "entities/windfish_symbol_dungeon_1",
 }
 
 pickable{
@@ -15098,17 +15113,6 @@ block{
 }
 
 custom_entity{
-  name = "symbol_egg_4",
-  layer = 0,
-  x = 136,
-  y = 797,
-  width = 64,
-  height = 24,
-  direction = 3,
-  sprite = "entities/statue_dungeon_1_egg",
-}
-
-custom_entity{
   name = "placeholder_boss",
   layer = 0,
   x = 2080,
@@ -15180,7 +15184,7 @@ custom_entity{
 }
 
 door{
-  name = "door_group_boss_2",
+  name = "door_group_boss_1",
   layer = 0,
   x = 2072,
   y = 792,
@@ -17157,7 +17161,7 @@ enemy{
   x = 1088,
   y = 1149,
   direction = 0,
-  breed = "zol_green",
+  breed = "small_moldorm",
   treasure_name = "random",
 }
 
@@ -17184,7 +17188,7 @@ custom_entity{
 }
 
 door{
-  name = "door_group_boss_1",
+  name = "door_group_boss_2",
   layer = 0,
   x = 2072,
   y = 728,
@@ -17207,28 +17211,6 @@ destination{
   x = 2080,
   y = 437,
   direction = 1,
-}
-
-custom_entity{
-  name = "boss_symbol_2",
-  layer = 0,
-  x = 2080,
-  y = 653,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/boss_symbol_dungeon_1",
-}
-
-custom_entity{
-  name = "boss_symbol",
-  layer = 0,
-  x = 2080,
-  y = 845,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/boss_symbol_dungeon_1",
 }
 
 tile{

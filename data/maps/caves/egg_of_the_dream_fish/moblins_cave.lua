@@ -55,7 +55,7 @@ function map:init_map_entities()
   if step ~= 9 then
     moblin_chief:remove()
   else
-      moblin_chief:get_sprite():set_animation("sitting")
+    moblin_chief:get_sprite():set_animation("sitting")
   end
   -- Moblin fire
   if step < 9 then
@@ -118,7 +118,7 @@ function bowwow:on_interaction()
   for enemy in map:get_entities_by_type("enemy") do
     enemy:remove()
   end
-  audio_manager:play_sound("treasure_2")
+  audio_manager:play_sound("items/fanfare_item_extended")
   map:launch_cinematic_4()
 
 end

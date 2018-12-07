@@ -1,7 +1,11 @@
--- Variables
-local enemy = ...
+-- Lua script of enemy "pike auto".
+-- This script is executed every time an enemy with this model is created.
+
 -- Pike that always moves, horizontally or vertically
 -- depending on its direction.
+
+-- Variables
+local enemy = ...
 local recent_obstacle = 0
 
 -- Include scripts

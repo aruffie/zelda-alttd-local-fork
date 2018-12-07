@@ -19,8 +19,13 @@ end
 
 function item:on_obtaining(variant, savegame_variable)
 
-  -- Life
-  item:get_game():add_life(4)
+  -- Sound
+  if item:get_game():get_life() == item:get_game():get_max_life() then
+    audio_manager:play_sound("items/get_item")
+  else
+    -- Life
+    item:get_game():add_life(4)
+  end
   
 end
 

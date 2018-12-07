@@ -6,7 +6,7 @@ function laser_manager:init_map(map, entity, source, callback)
   local sound_timer
   local x,y,layer = entity:get_position()
   laser_core = map:create_custom_entity({
-    sprite="entities/lightning_strike_core",
+    sprite ="entities/lightning_strike_core",
     direction = direction,
     layer = layer,
     x = x,

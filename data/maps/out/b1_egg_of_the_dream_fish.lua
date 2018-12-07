@@ -41,8 +41,6 @@ function map:init_map_entities()
   if destination == stair_arrows_upgrade then
     secret_stone:set_enabled(false)
   end
-  -- Signs
-  photographer_sign:get_sprite():set_animation("photographer_sign")
   -- Egg
   self:set_egg_opened(false)
 

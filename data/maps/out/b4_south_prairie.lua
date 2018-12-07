@@ -7,6 +7,7 @@ local directions = {
 }
 
 -- Include scripts
+require("scripts/multi_events")
 local audio_manager = require("scripts/audio_manager")
 
 -- Map events
@@ -90,30 +91,33 @@ end
 
 -- Signs and wart
 for sign in map:get_entities("sign_") do
-  function sign:on_interaction()
-    if game:get_value("wart_cave") == nil then
-      if next_sign > 1 and self:get_name() == "sign_" .. next_sign or self:get_name() == "sign_" .. next_sign and next_sign == 1 and game:get_value("wart_cave_start") then
-        if next_sign and next_sign < 14 then
-          game:start_dialog("maps.out.south_prairie.surprise_" .. directions[next_sign])
-        elseif next_sign == 14 then
-          audio_manager:play_sound("others/secret1")
-          game:start_dialog("maps.out.south_prairie.surprise_success")
-          game:set_value("wart_cave", true)
-          for wart_cave in map:get_entities("wart_cave") do
-            wart_cave:set_enabled(true)
+  
+  sign:register_event("on_interaction", function(npc)
+    if sign:get_sprite():get_animation() == "stopped" then  
+      if game:get_value("wart_cave") == nil then
+        if next_sign > 1 and sign:get_name() == "sign_" .. next_sign or sign:get_name() == "sign_" .. next_sign and next_sign == 1 and game:get_value("wart_cave_start") then
+          if next_sign and next_sign < 14 then
+            game:start_dialog("maps.out.south_prairie.surprise_" .. directions[next_sign])
+          elseif next_sign == 14 then
+            audio_manager:play_sound("others/secret1")
+            game:start_dialog("maps.out.south_prairie.surprise_success")
+            game:set_value("wart_cave", true)
+            for wart_cave in map:get_entities("wart_cave") do
+              wart_cave:set_enabled(true)
+            end
           end
+          next_sign = next_sign + 1
+        else
+          game:set_value("wart_cave_start", nil)
+          game:start_dialog("maps.out.south_prairie.surprise_error")
+          audio_manager:play_sound("others/error")
+          next_sign = 1
         end
-        next_sign = next_sign + 1
       else
-        game:set_value("wart_cave_start", nil)
-        game:start_dialog("maps.out.south_prairie.surprise_error")
-        audio_manager:play_sound("others/error")
-        next_sign = 1
+        game:start_dialog("maps.out.south_prairie.surprise_finished")
       end
-    else
-      game:start_dialog("maps.out.south_prairie.surprise_finished")
-    end
- end
+    end  
+ end)
 end
 
 -- Sensors events

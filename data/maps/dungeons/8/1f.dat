@@ -19379,6 +19379,46 @@ tile{
   pattern = "alter_stairs",
 }
 
+tile{
+  layer = 0,
+  x = 1072,
+  y = 80,
+  width = 96,
+  height = 32,
+  pattern = "8",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1088,
+  y = 8,
+  width = 64,
+  height = 24,
+  pattern = "48",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 976,
+  y = 96,
+  width = 24,
+  height = 64,
+  pattern = "51",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1240,
+  y = 96,
+  width = 24,
+  height = 64,
+  pattern = "50",
+  tileset = "addition/dungeon",
+}
+
 separator{
   layer = 0,
   x = 2232,
@@ -19789,7 +19829,7 @@ chest{
   layer = 0,
   x = 920,
   y = 605,
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 custom_entity{
@@ -19799,7 +19839,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/vacuum_cleaner",
+  sprite = "entities/objects/vacuum_cleaner",
   model = "vacuum_cleaner",
 }
 
@@ -19825,14 +19865,14 @@ chest{
   layer = 0,
   x = 1392,
   y = 317,
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 chest{
   layer = 0,
   x = 2376,
   y = 317,
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 block{
@@ -19979,7 +20019,7 @@ chest{
   layer = 0,
   x = 1784,
   y = 1677,
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 block{
@@ -21056,7 +21096,7 @@ chest{
   layer = 0,
   x = 1064,
   y = 1373,
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 block{
@@ -21105,51 +21145,7 @@ chest{
   layer = 0,
   x = 2504,
   y = 1885,
-  sprite = "entities/chest",
-}
-
-custom_entity{
-  name = "windfish_symbol",
-  layer = 0,
-  x = 1080,
-  y = 93,
-  width = 96,
-  height = 40,
-  direction = 3,
-  sprite = "entities/windfish_symbol_dungeon_7",
-}
-
-custom_entity{
-  name = "symbol_egg_2",
-  layer = 0,
-  x = 984,
-  y = 109,
-  width = 24,
-  height = 64,
-  direction = 0,
-  sprite = "entities/statue_dungeon_8_egg",
-}
-
-custom_entity{
-  name = "symbol_egg_4",
-  layer = 0,
-  x = 1096,
-  y = 29,
-  width = 64,
-  height = 24,
-  direction = 3,
-  sprite = "entities/statue_dungeon_8_egg",
-}
-
-custom_entity{
-  name = "symbol_egg_3",
-  layer = 0,
-  x = 1248,
-  y = 109,
-  width = 24,
-  height = 64,
-  direction = 2,
-  sprite = "entities/statue_dungeon_8_egg",
+  sprite = "entities/chests/chest_small",
 }
 
 pickable{

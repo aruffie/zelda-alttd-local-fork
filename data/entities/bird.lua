@@ -16,6 +16,7 @@ function entity:on_created()
 
 end
 
+-- Start movement
 function entity:start_movement()
 
   entity:go_random()
@@ -26,6 +27,7 @@ function entity:start_movement()
 
 end
 
+-- Stop movement
 function entity:stop_movement()
 
   local duration = 1000 + math.random(1000)
@@ -37,6 +39,7 @@ function entity:stop_movement()
 
 end
 
+-- launch random movement
 function entity:go_random()
 
   entity:get_sprite():set_animation("walking")

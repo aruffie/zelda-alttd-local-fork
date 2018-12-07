@@ -569,7 +569,7 @@ destructible{
   x = 168,
   y = 77,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -579,7 +579,7 @@ destructible{
   x = 168,
   y = 93,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -589,7 +589,7 @@ destructible{
   x = 168,
   y = 125,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -599,7 +599,7 @@ destructible{
   x = 200,
   y = 125,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -609,7 +609,7 @@ destructible{
   x = 216,
   y = 125,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -619,7 +619,7 @@ destructible{
   x = 232,
   y = 125,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -629,7 +629,7 @@ destructible{
   x = 248,
   y = 125,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -639,7 +639,7 @@ destructible{
   x = 264,
   y = 125,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -667,7 +667,7 @@ destructible{
   x = 184,
   y = 125,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -686,7 +686,7 @@ destructible{
   x = 168,
   y = 109,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -697,7 +697,7 @@ npc{
   y = 53,
   direction = 3,
   subtype = 1,
-  sprite = "npc/monique",
+  sprite = "npc/villagers/monique",
 }
 
 tile{

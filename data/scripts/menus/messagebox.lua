@@ -1,82 +1,91 @@
 -- Simple message box dialog.
 
+local automation = require("scripts/automation/automation")
 local language_manager = require("scripts/language_manager")
 local game_manager = require("scripts/game_manager")
 local audio_manager = require("scripts/audio_manager")
 
 local messagebox_builder = {}
 
+local darken_background = true
+
 function messagebox_builder:show(context, text_lines, button_1_text, button_2_text, default_button_index, callback)
   
   -- Creates the menu.
   local messagebox_menu = {}
 
+  -- Callded when the menu is started.
   function messagebox_menu:on_started()
     -- Fix the font shift (issue with Minecraftia)
-    self.font_y_shift = -1
+    messagebox_menu.font_y_shift = 0
 
     -- Create static surfaces.
-    self.frame_img = sol.surface.create("menus/messagebox/messagebox_frame.png")
-    local frame_w, frame_h = self.frame_img:get_size()
-    self.surface = sol.surface.create(frame_w, frame_h)
-    self.button_img = sol.surface.create("menus/messagebox/messagebox_button.png")
+    messagebox_menu.frame_img = sol.surface.create("menus/messagebox/messagebox_frame.png")
+    messagebox_menu.frame_w, messagebox_menu.frame_h = messagebox_menu.frame_img:get_size()
+    messagebox_menu.surface = sol.surface.create(messagebox_menu.frame_w, messagebox_menu.frame_h)
+    messagebox_menu.button_img = sol.surface.create("menus/messagebox/messagebox_button.png")
+
+    local quest_w, quest_h = sol.video.get_quest_size()
+    messagebox_menu.dark_surface = sol.surface.create(quest_w, quest_h)
+    messagebox_menu.dark_surface:fill_color({112, 112, 112})
+    messagebox_menu.dark_surface:set_blend_mode("multiply")
 
     -- Create sprites.
-    self.cursor_sprite = sol.sprite.create("menus/messagebox/messagebox_cursor")
+    messagebox_menu.cursor_sprite = sol.sprite.create("menus/messagebox/messagebox_cursor")
 
     -- Get fonts.
     local menu_font, menu_font_size = language_manager:get_menu_font()
-    self.menu_font = menu_font
-    self.menu_font_size = menu_font_size
-    self.text_color = { 115, 59, 22 }
-    self.text_color_light = { 177, 146, 116 }
+    messagebox_menu.menu_font = menu_font
+    messagebox_menu.menu_font_size = menu_font_size
+    messagebox_menu.text_color = { 115, 59, 22 }
+    messagebox_menu.text_color_light = { 177, 146, 116 }
 
-    -- Elements positions relative to self.surface.
-    self.button_2_x = 136
-    self.button_y = frame_h - 28
-    self.cursor_x = 0
-    self.cursor_y = 0
-    self.text_y = 16
+    -- Elements positions relative to messagebox_menu.surface.
+    messagebox_menu.button_2_x = 136
+    messagebox_menu.button_y = messagebox_menu.frame_h - 28
+    messagebox_menu.cursor_x = 0
+    messagebox_menu.cursor_y = 0
+    messagebox_menu.text_y = 16
 
     -- Prepare texts.
-    self.text_lines = {}
+    messagebox_menu.text_lines = {}
     for i = 1, 3 do
       local text_line = sol.text_surface.create{
-        color = self.text_color,
-        font = self.menu_font,
-        font_size = self.menu_font_size,
+        color = messagebox_menu.text_color,
+        font = messagebox_menu.menu_font,
+        font_size = messagebox_menu.menu_font_size,
         horizontal_alignment = "center",
       }
-      self.text_lines[i] = text_line
+      messagebox_menu.text_lines[i] = text_line
     end
 
-    self.buttons = {}  
-    self.buttons[1] = { 
+    messagebox_menu.buttons = {}  
+    messagebox_menu.buttons[1] = { 
       x = 24,
       text = sol.text_surface.create{
-        color = self.text_color,
-        font = self.menu_font,
-        font_size = self.menu_font_size,
+        color = messagebox_menu.text_color,
+        font = messagebox_menu.menu_font,
+        font_size = messagebox_menu.menu_font_size,
         horizontal_alignment = "center",
       }
     }
-    self.buttons[2] = {
+    messagebox_menu.buttons[2] = {
       x = 136,
       text = sol.text_surface.create{
-        color = self.text_color,
-        font = self.menu_font,
-        font_size = self.menu_font_size,
+        color = messagebox_menu.text_color,
+        font = messagebox_menu.menu_font,
+        font_size = messagebox_menu.menu_font_size,
         horizontal_alignment = "center",
       }
     }
-    self.button_count = 2
+    messagebox_menu.button_count = 2
 
     -- Callback when the menu is done.
-    self.callback = function(result)
+    messagebox_menu.callback = function(result)
     end
 
     -- We handle command bindings manually because of the order of events in 1.6.
-    self.command_bindings = { 
+    messagebox_menu.command_bindings = { 
       ["action"] = "",
       ["attack"] = "",
       ["left"] = "",
@@ -95,21 +104,21 @@ function messagebox_builder:show(context, text_lines, button_1_text, button_2_te
     local game = sol.main.game
     if game ~= nil then
       -- Retrieve the keyboard bindings.
-      for key, _  in pairs(self.command_bindings) do
-        self.command_bindings[key] = game:get_command_keyboard_binding(key)
+      for key, _  in pairs(messagebox_menu.command_bindings) do
+        messagebox_menu.command_bindings[key] = game:get_command_keyboard_binding(key)
       end
       -- Invert the table for better performance when looking for a key.
-      self.command_bindings = invert_table(self.command_bindings)
+      messagebox_menu.command_bindings = invert_table(messagebox_menu.command_bindings)
 
       -- Custom commands effects
       if game.set_custom_command_effect ~= nil then
         -- Backup the current actions.
-        self.backup_actions = {
+        messagebox_menu.backup_actions = {
           ["action"] = "",
           ["attack"] = "",
         }
-        for key, _  in pairs(self.backup_actions) do
-          self.backup_actions[key] = game:get_custom_command_effect(key)
+        for key, _  in pairs(messagebox_menu.backup_actions) do
+          messagebox_menu.backup_actions[key] = game:get_custom_command_effect(key)
         end
 
         -- Set the new ones.
@@ -122,7 +131,7 @@ function messagebox_builder:show(context, text_lines, button_1_text, button_2_te
         end
       
       else
-        self.backup_actions = {
+        messagebox_menu.backup_actions = {
           ["action"] = "",
           ["attack"] = "",
         }
@@ -132,103 +141,133 @@ function messagebox_builder:show(context, text_lines, button_1_text, button_2_te
       game:bring_hud_to_front()
 
       -- Set the correct HUD mode.
-      self.backup_hud_mode = game:get_hud_mode()
+      messagebox_menu.backup_hud_mode = game:get_hud_mode()
       game:set_hud_mode("dialog")
     else
-      self.backup_actions = {
+      messagebox_menu.backup_actions = {
         ["action"] = "",
         ["attack"] = "",
       }
     end
 
+    -- Animate the movement.
+    local frame_x, frame_y = math.ceil((quest_w - messagebox_menu.frame_w) / 2), math.ceil((quest_h - messagebox_menu.frame_h) / 2)
+    self.surface:set_xy(frame_x, frame_y + 32)
+    messagebox_menu.opening_automation = automation:new(messagebox_menu, self.surface, "cubic_out", 200, { y = frame_y })
+    messagebox_menu.closing_automation = automation:new(messagebox_menu, self.surface, "cubic_out", 200, { y = frame_y + 64 })
+
+    -- State.
+    messagebox_menu.accepts_user_input = false
+    messagebox_menu.step = "appearing"
 
     -- Run the menu.
-    self.result = 2
-    self.cursor_position = 1
-    self:update_cursor()
+    messagebox_menu.result = 2
+    messagebox_menu.cursor_position = 1
+    messagebox_menu:update_cursor()
+    messagebox_menu:set_step("appearing")
   end
 
+  -- Callded when the menu is finished.
   function messagebox_menu:on_finished()
     local game = sol.main.game
     if game ~= nil then
       -- Restore HUD mode.
-      game:set_hud_mode(self.backup_hud_mode)
+      game:set_hud_mode(messagebox_menu.backup_hud_mode)
       
       -- Remove overriden command effects.
       if game.set_custom_command_effect ~= nil then
-        for key, value in pairs(self.backup_actions) do
+        for key, value in pairs(messagebox_menu.backup_actions) do
           game:set_custom_command_effect(key, value)
         end
       end
     end
 
     -- Calls the callback.
-    self:done()
+    messagebox_menu:done()
   end
-
-
-  -------------
-  -- Drawing --
-  -------------
 
   -- Draw the menu.
   function messagebox_menu:on_draw(dst_surface)
 
     -- Get the destination surface size to center everything.
     local width, height = dst_surface:get_size()
-
+    
     -- Dark surface.
-    self:update_dark_surface(width, height)
-    self.dark_surface:draw(dst_surface, 0, 0)
-
+    if darken_background then
+      messagebox_menu.dark_surface:draw(dst_surface, 0, 0)
+    end
+    
+    -- Clear surface.
+    messagebox_menu.surface:clear()
+    
     -- Frame.
-    local frame_w, frame_h = self.surface:get_size()
-    self.frame_img:draw(self.surface, 0, 0)
-
+    messagebox_menu.frame_img:draw(messagebox_menu.surface, 0, 0)
+     
     -- Text, vertically centered.
-    for i = 1, #self.text_lines do
-      local text_line = self.text_lines[i]
-      local text_line_y = self.text_y + (i - 1) * self.menu_font_size * 2
-      text_line:draw(self.surface, frame_w / 2, text_line_y + self.font_y_shift)
+    for i = 1, #messagebox_menu.text_lines do
+      local text_line = messagebox_menu.text_lines[i]
+      local text_line_y = messagebox_menu.text_y + (i - 1) * messagebox_menu.menu_font_size * 2
+      text_line:draw(messagebox_menu.surface, messagebox_menu.frame_w / 2, text_line_y + messagebox_menu.font_y_shift)
     end
 
     -- Buttons.
-    for i = 1, self.button_count do
-      local button_x = self.buttons[i].x
-      local button_text = self.buttons[i].text
-      self.button_img:draw(self.surface, button_x, self.button_y)
-      button_text:draw(self.surface, button_x + 32, self.button_y + 8 + self.font_y_shift)
+    for i = 1, messagebox_menu.button_count do
+      local button_x = messagebox_menu.buttons[i].x
+      local button_text = messagebox_menu.buttons[i].text
+      messagebox_menu.button_img:draw(messagebox_menu.surface, button_x, messagebox_menu.button_y)
+      button_text:draw(messagebox_menu.surface, button_x + 32, messagebox_menu.button_y + 8 + messagebox_menu.font_y_shift)
     end
 
     -- Cursor (if the position is valid).
-    if self.cursor_position > 0 then
+    if messagebox_menu.cursor_position > 0 then
       -- Draw the cursor sprite.
-      self.cursor_sprite:draw(self.surface, self.cursor_x, self.cursor_y)
+      messagebox_menu.cursor_sprite:draw(messagebox_menu.surface, messagebox_menu.cursor_x, messagebox_menu.cursor_y)
     end
 
     -- dst_surface may be larger: draw this menu at the center.
-    self.surface:draw(dst_surface, (width - frame_w) / 2, (height - frame_h) / 2)
+    messagebox_menu.surface:draw(dst_surface)
   end
 
-  -- Update the dark surface if necessary.
-  function messagebox_menu:update_dark_surface(width, height)
-
-    -- Check if the surface needs to be updated
-    if self.dark_surface ~= nil then
-      local dark_surface_w, dark_surface_h = self.dark_surface:get_size()
-      if width ~= dark_surface_w or height ~= dark_surface_h then
-        self.dark_surface = nil
-      end
-    end
-
-    -- (Re)create the surface if necessary.
-    if self.dark_surface == nil then
-      self.dark_surface = sol.surface.create(width, height)
-      self.dark_surface:fill_color({112, 112, 112})
-      self.dark_surface:set_blend_mode("multiply")
-    end
+  -- Gets the current step.
+  function messagebox_menu:get_step()
+    return messagebox_menu.step
   end
 
+  -- Sets the step.
+  function messagebox_menu:set_step(step)
+    if step == "appearing" then
+      audio_manager:play_sound("menus/pause_menu_open")
+      messagebox_menu.step = step
+      messagebox_menu.accepts_user_input = false
+      messagebox_menu.cursor_sprite:set_paused(true)
+      messagebox_menu.cursor_sprite:set_frame(0)
+
+      messagebox_menu.dark_surface:fade_in(5)
+      messagebox_menu.opening_automation:start()
+      messagebox_menu.surface:fade_in(10, function()
+        messagebox_menu:set_step("wait_for_input")
+      end)
+      
+    elseif step == "wait_for_input" then
+      messagebox_menu.step = step
+      messagebox_menu.accepts_user_input = true
+      messagebox_menu.cursor_sprite:set_paused(false)
+      
+    elseif step == "disappearing" then
+      audio_manager:play_sound("menus/pause_menu_close")
+      messagebox_menu.step = step
+      messagebox_menu.accepts_user_input = false
+      messagebox_menu.cursor_sprite:set_paused(true)
+      
+      sol.timer.start(messagebox_menu, 200, function()
+        messagebox_menu.dark_surface:fade_out(2)
+        messagebox_menu.closing_automation:start()
+        messagebox_menu.surface:fade_out(5, function()
+          sol.menu.stop(messagebox_menu)
+        end)
+      end)
+    end
+  end
 
   ------------
   -- Cursor --
@@ -238,32 +277,32 @@ function messagebox_builder:show(context, text_lines, button_1_text, button_2_te
   function messagebox_menu:update_cursor()
 
     -- Update coordinates.
-    if self.cursor_position > 0 and self.cursor_position <= self.button_count then
-      self.cursor_x = self.buttons[self.cursor_position].x + 32
+    if messagebox_menu.cursor_position > 0 and messagebox_menu.cursor_position <= messagebox_menu.button_count then
+      messagebox_menu.cursor_x = messagebox_menu.buttons[messagebox_menu.cursor_position].x + 32
     else
-      self.cursor_x = -999 -- Not visible
+      messagebox_menu.cursor_x = -999 -- Not visible
     end
 
-    self.cursor_y = self.button_y + 8
+    messagebox_menu.cursor_y = messagebox_menu.button_y + 8
 
-    -- Restart the animation.
-    self.cursor_sprite:set_frame(0)
+    -- Restart the automation.
+    messagebox_menu.cursor_sprite:set_frame(0)
   end
 
   -- Update the cursor position.
   function messagebox_menu:set_cursor_position(cursor_position)
 
-    if cursor_position ~= self.cursor_position then
-      self.cursor_position = cursor_position
-      self:update_cursor()
+    if cursor_position ~= messagebox_menu.cursor_position then
+      messagebox_menu.cursor_position = cursor_position
+      messagebox_menu:update_cursor()
     end
   end
 
--- Notify that this cursor movement is not allowed.
-function messagebox_menu:notify_cursor_not_allowed()
-  self.cursor_sprite:set_frame(0)
-  audio_manager:play_sound("others/error")    
-end
+  -- Notify that this cursor movement is not allowed.
+  function messagebox_menu:notify_cursor_not_allowed()
+    messagebox_menu.cursor_sprite:set_frame(0)
+    audio_manager:play_sound("others/error")    
+  end
 
 
   --------------
@@ -285,28 +324,32 @@ end
   -- Handle player input.
   function messagebox_menu:on_command_pressed(command)
 
+    if not messagebox_menu.accepts_user_input then
+      return true
+    end
+
     -- Action: click on the button.
     if command == "action" then
-      if self.cursor_position == 1 then
+      if messagebox_menu.cursor_position == 1 then
         audio_manager:play_sound("menus/menu_cursor")
-        self:accept()
+        messagebox_menu:accept()
       else
         audio_manager:play_sound("menus/menu_cursor")
-        self:reject()
+        messagebox_menu:reject()
       end
     -- Left/Right: move the cursor.
     elseif command == "left" or command == "right" then
-      if self.cursor_position == 1 and command == "right" then
+      if messagebox_menu.cursor_position == 1 and command == "right" then
         -- Go to button 2.
-        self:set_cursor_position(2)
+        messagebox_menu:set_cursor_position(2)
         audio_manager:play_sound("menus/menu_cursor")    
-      elseif self.cursor_position == 2 and command == "left" then
+      elseif messagebox_menu.cursor_position == 2 and command == "left" then
         -- Go to button 1.
-        self:set_cursor_position(1)
+        messagebox_menu:set_cursor_position(1)
         audio_manager:play_sound("menus/menu_cursor")    
       else
         -- Blocked.
-        self:notify_cursor_not_allowed()
+        messagebox_menu:notify_cursor_not_allowed()
       end
 
       -- Don't propagate the event to anything below the dialog box.
@@ -316,42 +359,46 @@ end
 
   -- Hander player input when there is no lauched game yet.
   function messagebox_menu:on_key_pressed(key)
+    
+    if not messagebox_menu.accepts_user_input then
+      return true
+    end
 
-    if not self:is_game_started() then
+    if not messagebox_menu:is_game_started() then
       -- Escape: cancel the dialog (same as choosing No).
       if key == "escape" then
-        self:reject()
+        messagebox_menu:reject()
       -- Left/right: moves the cursor.
       elseif key == "left" or key == "right" then
-        if self.cursor_position == 1 and key == "right" then
+        if messagebox_menu.cursor_position == 1 and key == "right" then
           -- Go to button 2.
-          self:set_cursor_position(2)
+          messagebox_menu:set_cursor_position(2)
           audio_manager:play_sound("menus/menu_cursor")    
-        elseif self.cursor_position == 2 and key == "left" then
+        elseif messagebox_menu.cursor_position == 2 and key == "left" then
           -- Go to button 1.
-          self:set_cursor_position(1)
+          messagebox_menu:set_cursor_position(1)
           audio_manager:play_sound("menus/menu_cursor")    
         else
           -- Blocked.
-          self:notify_cursor_not_allowed()
+          messagebox_menu:notify_cursor_not_allowed()
         end
       -- Up/down: blocked.
       elseif key == "up" or key == "down" then
-        self:notify_cursor_not_allowed()
+        messagebox_menu:notify_cursor_not_allowed()
       -- Space/Return: validate the button at the cursor.
       elseif key == "space" or key == "return" then
-        if self.cursor_position == 1 then
-          self:accept()
+        if messagebox_menu.cursor_position == 1 then
+          messagebox_menu:accept()
         else
-          self:reject()
+          messagebox_menu:reject()
         end
       end
     end
 
     -- Try to bind this key on a command.
-    local command = self.command_bindings[key]
+    local command = messagebox_menu.command_bindings[key]
     if command ~= nil then
-      self:on_command_pressed(command)
+      messagebox_menu:on_command_pressed(command)
     end
     
     -- Don't propagate the event to anything below the dialog box.
@@ -366,52 +413,52 @@ end
   function messagebox_menu:show(context, text_lines, button_1_text, button_2_text, default_button_index, callback)
 
     -- Show the menu.
-    sol.menu.start(context, self, true)
+    sol.menu.start(context, messagebox_menu, true)
     
     -- Text.
     local line_1 = text_lines[1] or ""
     local line_2 = text_lines[2] or ""
     local line_3 = text_lines[3] or ""
 
-    self.text_lines[1]:set_text(line_1)
-    self.text_lines[2]:set_text(line_2)
-    self.text_lines[3]:set_text(line_3)
+    messagebox_menu.text_lines[1]:set_text(line_1)
+    messagebox_menu.text_lines[2]:set_text(line_2)
+    messagebox_menu.text_lines[3]:set_text(line_3)
 
     -- Buttons.
     local button_1_text = button_1_text or sol.language.get_string("messagebox.yes")
     local button_2_text = button_2_text or sol.language.get_string("messagebox.no")
 
-    self.buttons[1].text:set_text(button_1_text)
-    self.buttons[2].text:set_text(button_2_text)
+    messagebox_menu.buttons[1].text:set_text(button_1_text)
+    messagebox_menu.buttons[2].text:set_text(button_2_text)
 
     -- Callback to call when the messagebox is closed.
-    self.callback = callback
+    messagebox_menu.callback = callback
 
     -- Default cursor position.
-    if default_button_index > 0 and default_button_index <= self.button_count then
-      self:set_cursor_position(default_button_index)
+    if default_button_index > 0 and default_button_index <= messagebox_menu.button_count then
+      messagebox_menu:set_cursor_position(default_button_index)
     else
-      self:set_cursor_position(1)    
+      messagebox_menu:set_cursor_position(1)    
     end
 
   end
 
   -- Accept the messagebox (i.e. validate or choose Yes).
   function messagebox_menu:accept()
-    self.result = 1
-    sol.menu.stop(self)
+    messagebox_menu:set_step("disappearing")
+    messagebox_menu.result = 1
   end
 
   -- Rejects the messagebox (i.e. cancel or choose No).
   function messagebox_menu:reject()
-    self.result = 2
-    sol.menu.stop(self)
+    messagebox_menu:set_step("disappearing")
+    messagebox_menu.result = 2
   end
 
   -- Calls the callback when the messagebox is done.
   function messagebox_menu:done()
-    if self.callback ~= nil then
-      self.callback(self.result)
+    if messagebox_menu.callback ~= nil then
+      messagebox_menu.callback(messagebox_menu.result)
     end
   end
 

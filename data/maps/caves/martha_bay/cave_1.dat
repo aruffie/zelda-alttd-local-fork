@@ -1675,6 +1675,46 @@ tile{
   pattern = "2767",
 }
 
+tile{
+  layer = 0,
+  x = 80,
+  y = 88,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 136,
+  y = 120,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 536,
+  y = 408,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 552,
+  y = 424,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
 destination{
   name = "stair_west",
   layer = 0,
@@ -1755,50 +1795,6 @@ enemy{
   direction = 0,
   breed = "zol_green",
   treasure_name = "random",
-}
-
-custom_entity{
-  name = "cave_rock_1",
-  layer = 0,
-  x = 88,
-  y = 101,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_2",
-  layer = 0,
-  x = 144,
-  y = 133,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_3",
-  layer = 0,
-  x = 560,
-  y = 437,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_4",
-  layer = 0,
-  x = 544,
-  y = 421,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
 }
 
 tile{

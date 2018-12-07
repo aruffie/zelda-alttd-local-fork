@@ -12691,14 +12691,104 @@ tile{
   pattern = "12344",
 }
 
-custom_entity{
+tile{
   layer = 0,
-  x = 184,
-  y = 469,
+  x = 176,
+  y = 456,
   width = 32,
   height = 32,
-  direction = 0,
-  sprite = "entities/teletransporter",
+  pattern = "17",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 848,
+  y = 80,
+  width = 8,
+  height = 8,
+  pattern = "106",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 832,
+  y = 96,
+  width = 8,
+  height = 8,
+  pattern = "103",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 776,
+  y = 80,
+  width = 8,
+  height = 8,
+  pattern = "105",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 800,
+  y = 80,
+  width = 8,
+  height = 24,
+  pattern = "84",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 792,
+  y = 96,
+  width = 8,
+  height = 8,
+  pattern = "104",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 784,
+  y = 80,
+  width = 16,
+  height = 16,
+  pattern = "102",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 824,
+  y = 80,
+  width = 8,
+  height = 24,
+  pattern = "94",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 832,
+  y = 80,
+  width = 16,
+  height = 16,
+  pattern = "101",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 808,
+  y = 80,
+  width = 16,
+  height = 24,
+  pattern = "83",
+  tileset = "addition/out",
 }
 
 teletransporter{
@@ -12741,14 +12831,14 @@ custom_entity{
   width = 128,
   height = 96,
   direction = 0,
-  sprite = "entities/entrance_dungeon_7",
+  sprite = "entities/dungeons/dungeon_7",
 }
 
 destructible{
   layer = 0,
   x = 536,
   y = 101,
-  sprite = "entities/stone_small_white",
+  sprite = "entities/destructibles/stone_white_small",
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
@@ -12758,7 +12848,7 @@ destructible{
   layer = 0,
   x = 552,
   y = 85,
-  sprite = "entities/stone_small_white",
+  sprite = "entities/destructibles/stone_white_small",
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
@@ -12768,7 +12858,7 @@ destructible{
   layer = 0,
   x = 184,
   y = 53,
-  sprite = "entities/stone_small_white",
+  sprite = "entities/destructibles/stone_white_small",
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
@@ -12778,7 +12868,7 @@ destructible{
   layer = 0,
   x = 200,
   y = 53,
-  sprite = "entities/stone_small_white",
+  sprite = "entities/destructibles/stone_white_small",
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
@@ -12788,7 +12878,7 @@ destructible{
   layer = 0,
   x = 184,
   y = 69,
-  sprite = "entities/stone_small_white",
+  sprite = "entities/destructibles/stone_white_small",
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
@@ -12798,7 +12888,7 @@ destructible{
   layer = 0,
   x = 200,
   y = 69,
-  sprite = "entities/stone_small_white",
+  sprite = "entities/destructibles/stone_white_small",
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
@@ -12810,7 +12900,7 @@ npc{
   y = 285,
   direction = 3,
   subtype = 1,
-  sprite = "entities/owl_blue",
+  sprite = "npc/statues/owl",
   behavior = "dialog#maps.out.east_mt_tamaranch.owl_statue_1",
 }
 
@@ -12842,53 +12932,6 @@ sensor{
   height = 16,
 }
 
-custom_entity{
-  name = "house_dungeon_7",
-  layer = 0,
-  x = 776,
-  y = 13,
-  width = 24,
-  height = 16,
-  direction = 2,
-  sprite = "entities/house_dungeon_7",
-  model = "obstacle",
-}
-
-custom_entity{
-  name = "house_dungeon_8",
-  layer = 0,
-  x = 824,
-  y = 13,
-  width = 24,
-  height = 16,
-  direction = 0,
-  sprite = "entities/house_dungeon_7",
-  model = "obstacle",
-}
-
-custom_entity{
-  name = "house_dungeon_9",
-  layer = 0,
-  x = 808,
-  y = 13,
-  width = 24,
-  height = 72,
-  direction = 1,
-  sprite = "entities/house_dungeon_7",
-  model = "obstacle",
-}
-
-custom_entity{
-  name = "house_dungeon_10",
-  layer = 0,
-  x = 808,
-  y = 77,
-  width = 24,
-  height = 16,
-  direction = 3,
-  sprite = "entities/house_dungeon_7",
-}
-
 pickable{
   name = "seashell_19",
   layer = 0,
@@ -12902,7 +12945,7 @@ destructible{
   layer = 0,
   x = 216,
   y = 53,
-  sprite = "entities/stone_small_white",
+  sprite = "entities/destructibles/stone_white_small",
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
@@ -12914,7 +12957,7 @@ chest{
   y = 197,
   treasure_name = "seashell",
   treasure_savegame_variable = "seashell_20",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 teletransporter{
@@ -13712,6 +13755,26 @@ tile{
   pattern = "1453",
 }
 
+tile{
+  layer = 1,
+  x = 776,
+  y = 8,
+  width = 80,
+  height = 8,
+  pattern = "100",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 776,
+  y = 16,
+  width = 80,
+  height = 64,
+  pattern = "99",
+  tileset = "addition/out",
+}
+
 npc{
   name = "travel_transporter",
   layer = 2,
@@ -13719,6 +13782,6 @@ npc{
   y = 469,
   direction = 3,
   subtype = 0,
-  sprite = "npc/owl",
+  sprite = "npc/animals/owl",
 }
 

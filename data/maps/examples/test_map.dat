@@ -58,7 +58,7 @@ chest{
   x = 72,
   y = 197,
   treasure_name = "power_bracelet",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 enemy{
@@ -81,7 +81,7 @@ destructible{
   layer = 0,
   x = 72,
   y = 181,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -90,7 +90,7 @@ destructible{
   layer = 0,
   x = 128,
   y = 141,
-  sprite = "entities/stone_small_white",
+  sprite = "entities/destructibles/stone_white_small",
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
@@ -100,7 +100,7 @@ destructible{
   layer = 0,
   x = 96,
   y = 141,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   can_be_cut = true,
   damage_on_enemies = 2,
@@ -110,7 +110,7 @@ destructible{
   layer = 0,
   x = 312,
   y = 165,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -119,7 +119,7 @@ destructible{
   layer = 0,
   x = 80,
   y = 141,
-  sprite = "entities/stone_small_white",
+  sprite = "entities/destructibles/stone_white_small",
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
@@ -140,7 +140,7 @@ chest{
   x = 112,
   y = 141,
   treasure_name = "magic_powder",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 chest{
@@ -148,7 +148,7 @@ chest{
   x = 312,
   y = 181,
   treasure_name = "shield",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 enemy{
@@ -164,7 +164,7 @@ chest{
   x = 312,
   y = 237,
   treasure_name = "sword",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 chest{
@@ -172,7 +172,7 @@ chest{
   x = 296,
   y = 237,
   treasure_name = "feather",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 chest{
@@ -180,7 +180,7 @@ chest{
   x = 280,
   y = 237,
   treasure_name = "pegasus_shoes",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 sensor{
@@ -196,7 +196,7 @@ destructible{
   layer = 0,
   x = 96,
   y = 157,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   can_be_cut = true,
   damage_on_enemies = 2,
@@ -206,7 +206,7 @@ destructible{
   layer = 0,
   x = 96,
   y = 173,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   can_be_cut = true,
   damage_on_enemies = 2,
@@ -216,7 +216,7 @@ destructible{
   layer = 0,
   x = 96,
   y = 189,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   can_be_cut = true,
   damage_on_enemies = 2,

@@ -1,24 +1,27 @@
 -- Initialize NPC behavior specific to this quest.
-
+-- Variables
 local npc_meta = sol.main.get_metatable("npc")
 
-function npc_meta:on_created()
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
 
-  local name = self:get_name()
+npc_meta:register_event("on_created", function(npc)
+
+  local name = npc:get_name()
   if name == nil then
     return
   end
 
   if name:match("^walking_npc") then
-    self:random_walk()
+    npc:random_walk()
   end
   
-  local model = self:get_property("model")
+  local model = npc:get_property("model")
   if model ~= nil then
-    require("scripts/npc/" .. model)(self)
+    require("scripts/npc/" .. model)(npc)
   end
   
-end
+end)
 
 -- Make signs hooks for the hookshot.
 function npc_meta:is_hookable()
@@ -52,7 +55,7 @@ function npc_meta:create_symbol_exclamation(x, y, layer)
   local x, y, layer = self:get_position()
   audio_manager:play_sound("menus/menu_select")
   local symbol = map:create_custom_entity({
-    sprite = "entities/symbol_exclamation",
+    sprite = "entities/symbols/exclamation",
     x = x - 16,
     y = y - 16,
     width = 16,
@@ -72,7 +75,7 @@ function npc_meta:create_symbol_interrogation()
   local x, y, layer = self:get_position()
   audio_manager:play_sound("menus/menu_select")
   local symbol = map:create_custom_entity({
-    sprite = "entities/symbol_interrogation",
+    sprite = "entities/symbols/interrogation",
     x = x - 16,
     y = y - 16,
     width = 16,
@@ -91,7 +94,7 @@ function npc_meta:create_symbol_collapse()
   local map = self:get_map()
   local x, y, layer = self:get_position()
   local symbol = map:create_custom_entity({
-    sprite = "entities/symbol_collapse",
+    sprite = "entities/symbols/collapse",
     x = x - 16,
     y = y - 16,
     width = 16,

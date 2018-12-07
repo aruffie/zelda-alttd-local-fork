@@ -577,6 +577,26 @@ tile{
   pattern = "bug_cage",
 }
 
+tile{
+  layer = 0,
+  x = 160,
+  y = 112,
+  width = 16,
+  height = 24,
+  pattern = "75",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 176,
+  y = 112,
+  width = 16,
+  height = 24,
+  pattern = "76",
+  tileset = "addition/dungeon",
+}
+
 destination{
   name = "bear_house_1_B",
   layer = 0,
@@ -600,7 +620,7 @@ destructible{
   layer = 0,
   x = 80,
   y = 61,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -609,7 +629,7 @@ destructible{
   layer = 0,
   x = 96,
   y = 61,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -618,7 +638,7 @@ destructible{
   layer = 0,
   x = 112,
   y = 61,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
 }
@@ -630,7 +650,7 @@ npc{
   y = 117,
   direction = 3,
   subtype = 1,
-  sprite = "npc/bear",
+  sprite = "npc/animals/bear",
 }
 
 npc{
@@ -689,29 +709,7 @@ npc{
   y = 133,
   direction = 3,
   subtype = 1,
-  sprite = "npc/cooking_rabbit",
-}
-
-custom_entity{
-  name = "bear_pots",
-  layer = 0,
-  x = 168,
-  y = 125,
-  width = 16,
-  height = 16,
-  direction = 2,
-  sprite = "entities/bear_pots",
-}
-
-custom_entity{
-  name = "bear_pots_2",
-  layer = 0,
-  x = 184,
-  y = 125,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/bear_pots",
+  sprite = "npc/animals/cook_rabbit",
 }
 
 tile{

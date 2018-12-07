@@ -1477,6 +1477,116 @@ tile{
   pattern = "wall_low.corner.2-2",
 }
 
+tile{
+  layer = 0,
+  x = 88,
+  y = 208,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 192,
+  y = 128,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 216,
+  y = 240,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 184,
+  y = 272,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 216,
+  y = 312,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 184,
+  y = 368,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 200,
+  y = 416,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 112,
+  y = 368,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 96,
+  y = 392,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 440,
+  y = 168,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 488,
+  y = 96,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
 door{
   name = "weak_door_1",
   layer = 0,
@@ -1495,7 +1605,7 @@ chest{
   treasure_name = "rupee",
   treasure_variant = 4,
   treasure_savegame_variable = "prairie_cave_1_chest_1",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 enemy{
@@ -2023,7 +2133,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/green_cristal",
+  sprite = "entities/destructibles/crystal_green",
   model = "green_crystal",
 }
 
@@ -2034,7 +2144,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/green_cristal",
+  sprite = "entities/destructibles/crystal_green",
   model = "green_crystal",
 }
 
@@ -2045,7 +2155,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/green_cristal",
+  sprite = "entities/destructibles/crystal_green",
   model = "green_crystal",
 }
 
@@ -2056,7 +2166,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/green_cristal",
+  sprite = "entities/destructibles/crystal_green",
   model = "green_crystal",
 }
 
@@ -2067,7 +2177,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/green_cristal",
+  sprite = "entities/destructibles/crystal_green",
   model = "green_crystal",
 }
 
@@ -2078,7 +2188,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/green_cristal",
+  sprite = "entities/destructibles/crystal_green",
   model = "green_crystal",
 }
 
@@ -2089,7 +2199,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/green_cristal",
+  sprite = "entities/destructibles/crystal_green",
   model = "green_crystal",
 }
 
@@ -2100,7 +2210,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/green_cristal",
+  sprite = "entities/destructibles/crystal_green",
   model = "green_crystal",
 }
 
@@ -2111,151 +2221,8 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/green_cristal",
+  sprite = "entities/destructibles/crystal_green",
   model = "green_crystal",
-}
-
-custom_entity{
-  name = "cave_rock_1",
-  layer = 0,
-  x = 496,
-  y = 109,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_2",
-  layer = 0,
-  x = 448,
-  y = 181,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_3",
-  layer = 0,
-  x = 200,
-  y = 141,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_4",
-  layer = 0,
-  x = 224,
-  y = 253,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_5",
-  layer = 0,
-  x = 192,
-  y = 285,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_6",
-  layer = 0,
-  x = 96,
-  y = 221,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_7",
-  layer = 0,
-  x = 144,
-  y = 197,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_8",
-  layer = 0,
-  x = 144,
-  y = 237,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_9",
-  layer = 0,
-  x = 224,
-  y = 325,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_10",
-  layer = 0,
-  x = 192,
-  y = 381,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_11",
-  layer = 0,
-  x = 208,
-  y = 429,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_12",
-  layer = 0,
-  x = 104,
-  y = 405,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_13",
-  layer = 0,
-  x = 120,
-  y = 381,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
 }
 
 tile{

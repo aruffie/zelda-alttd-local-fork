@@ -1045,50 +1045,6 @@ tile{
   pattern = "wall_low_border.corner.1-3",
 }
 
-custom_entity{
-  name = "cave_rock_11",
-  layer = 0,
-  x = 160,
-  y = 389,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_10",
-  layer = 0,
-  x = 208,
-  y = 405,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_8",
-  layer = 0,
-  x = 80,
-  y = 421,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_7",
-  layer = 0,
-  x = 80,
-  y = 373,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
 destination{
   name = "stair",
   layer = 0,
@@ -1325,7 +1281,7 @@ chest{
   treasure_name = "rupee",
   treasure_variant = 3,
   treasure_savegame_variable = "east_mt_tamaranch_cave_3_chest",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 chest{
@@ -1335,7 +1291,7 @@ chest{
   treasure_name = "rupee",
   treasure_variant = 3,
   treasure_savegame_variable = "east_mt_tamaranch_cave_3_chest",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 chest{
@@ -1345,7 +1301,7 @@ chest{
   treasure_name = "rupee",
   treasure_variant = 3,
   treasure_savegame_variable = "east_mt_tamaranch_cave_3_chest",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 chest{
@@ -1355,7 +1311,7 @@ chest{
   treasure_name = "rupee",
   treasure_variant = 3,
   treasure_savegame_variable = "east_mt_tamaranch_cave_3_chest",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 chest{
@@ -1365,95 +1321,7 @@ chest{
   treasure_name = "rupee",
   treasure_variant = 3,
   treasure_savegame_variable = "east_mt_tamaranch_cave_3_chest",
-  sprite = "entities/chest",
-}
-
-custom_entity{
-  name = "cave_rock_1",
-  layer = 0,
-  x = 208,
-  y = 117,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_2",
-  layer = 0,
-  x = 176,
-  y = 157,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_3",
-  layer = 0,
-  x = 176,
-  y = 85,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_4",
-  layer = 0,
-  x = 176,
-  y = 213,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_5",
-  layer = 0,
-  x = 176,
-  y = 293,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_6",
-  layer = 0,
-  x = 208,
-  y = 341,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_9",
-  layer = 0,
-  x = 128,
-  y = 437,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_12",
-  layer = 0,
-  x = 144,
-  y = 405,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
+  sprite = "entities/chests/chest_small",
 }
 
 tile{
@@ -2138,6 +2006,126 @@ tile{
   width = 24,
   height = 24,
   pattern = "wall.corner_reverse.4-3",
+}
+
+tile{
+  layer = 1,
+  x = 168,
+  y = 72,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 200,
+  y = 104,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 168,
+  y = 144,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 168,
+  y = 200,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 168,
+  y = 280,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 200,
+  y = 328,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 72,
+  y = 360,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 72,
+  y = 408,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 120,
+  y = 424,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 136,
+  y = 392,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 152,
+  y = 376,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 200,
+  y = 392,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
 }
 
 tile{

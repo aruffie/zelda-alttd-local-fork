@@ -371,7 +371,7 @@ function item:on_using()
     elseif entity_type == "crystal" then
       -- Activate crystals.
       if not hooked and not going_back then
-        audio_manager:play_sound("switch")
+        audio_manager:play_sound("dungeon_switch")
         map:change_crystal_state()
         go_back()
       end
@@ -388,7 +388,7 @@ function item:on_using()
         if switch:is_activated() then
           audio_manager:play_sound("sword_tapping")
         else
-          audio_manager:play_sound("switch")
+          audio_manager:play_sound("dungeon_switch")
           switch:set_activated(true)
         end
         go_back()

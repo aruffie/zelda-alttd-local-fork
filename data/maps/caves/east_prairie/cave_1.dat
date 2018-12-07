@@ -1198,6 +1198,66 @@ tile{
   pattern = "wall_low_border.1-3",
 }
 
+tile{
+  layer = 0,
+  x = 72,
+  y = 136,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 104,
+  y = 152,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 128,
+  y = 112,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 176,
+  y = 88,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 480,
+  y = 112,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 552,
+  y = 136,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
 destination{
   name = "stair_east",
   layer = 0,
@@ -1239,7 +1299,7 @@ teletransporter{
   width = 16,
   height = 16,
   destination_map = "out/c3_east_prairie",
-  destination = "cave_c3_1_west",
+  destination = "ground_secret_appear_6",
 }
 
 stairs{
@@ -1287,18 +1347,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 472,
-  y = 109,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
+  sprite = "entities/destructibles/crystal_green",
   model = "green_crystal",
 }
 
@@ -1309,7 +1358,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/green_cristal",
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  layer = 0,
+  x = 472,
+  y = 109,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
   model = "green_crystal",
 }
 
@@ -1320,7 +1380,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/green_cristal",
+  sprite = "entities/destructibles/crystal_green",
   model = "green_crystal",
 }
 
@@ -1331,7 +1391,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/green_cristal",
+  sprite = "entities/destructibles/crystal_green",
   model = "green_crystal",
 }
 
@@ -1342,74 +1402,8 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/green_cristal",
+  sprite = "entities/destructibles/crystal_green",
   model = "green_crystal",
-}
-
-custom_entity{
-  name = "cave_rock_1",
-  layer = 0,
-  x = 560,
-  y = 149,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_2",
-  layer = 0,
-  x = 488,
-  y = 125,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_3",
-  layer = 0,
-  x = 184,
-  y = 101,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_4",
-  layer = 0,
-  x = 80,
-  y = 149,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_5",
-  layer = 0,
-  x = 112,
-  y = 165,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_6",
-  layer = 0,
-  x = 136,
-  y = 125,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
 }
 
 tile{

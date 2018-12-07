@@ -649,6 +649,16 @@ tile{
   pattern = "table_piece.1",
 }
 
+tile{
+  layer = 0,
+  x = 96,
+  y = 24,
+  width = 32,
+  height = 16,
+  pattern = "71",
+  tileset = "addition/dungeon",
+}
+
 destination{
   name = "sales_house_o_bananas_2_B",
   layer = 0,
@@ -662,6 +672,12 @@ teletransporter{
   layer = 0,
   x = 152,
   y = 224,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/a4_south_mabe_village",
@@ -672,7 +688,7 @@ destructible{
   layer = 0,
   x = 224,
   y = 61,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -680,7 +696,7 @@ destructible{
   layer = 0,
   x = 240,
   y = 61,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -688,7 +704,7 @@ destructible{
   layer = 0,
   x = 240,
   y = 77,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -726,7 +742,7 @@ npc{
   y = 125,
   direction = 3,
   subtype = 1,
-  sprite = "npc/alligator",
+  sprite = "npc/animals/alligator",
 }
 
 wall{
@@ -749,7 +765,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/bananas",
+  sprite = "entities/items/bananas",
 }
 
 custom_entity{
@@ -759,7 +775,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/bananas",
+  sprite = "entities/items/bananas",
 }
 
 custom_entity{
@@ -769,7 +785,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/bananas",
+  sprite = "entities/items/bananas",
 }
 
 tile{

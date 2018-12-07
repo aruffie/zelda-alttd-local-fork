@@ -18,7 +18,7 @@ function entity:on_created()
     height = 8,
     direction = 0,
     layer = 0 ,
-    sprite= "entities/heart_fly_shadow"
+    sprite ="entities/heart_fly_shadow"
   }
   sprite = entity:get_sprite()
   sprite_shadow = shadow:get_sprite()

@@ -1,6 +1,6 @@
 animation{
   name = "normal",
-  src_image = "entities/boss_door.png",
+  src_image = "entities/doors/door_boss_key.png",
   directions = {
     { x = 408, y = 4, frame_width = 8, frame_height = 16, origin_x = 8, origin_y = 13 },
     { x = 392, y = 4, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13 },

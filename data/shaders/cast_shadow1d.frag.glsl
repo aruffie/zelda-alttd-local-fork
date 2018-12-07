@@ -76,6 +76,6 @@ void main(void) {
   
   float cone = smoothstep(aperture-halo,aperture+halo,dot(dir,normalize(norm)));
   float b = step(cut,r);
-  FragColor *= cone*b;
+  FragColor.rgb *= cone*b;
   //color = vec4(1,0,0,1);
 }

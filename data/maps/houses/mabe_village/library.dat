@@ -393,6 +393,12 @@ teletransporter{
   layer = 0,
   x = 152,
   y = 240,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/a3_mabe_village",
@@ -487,7 +493,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/book_green",
+  sprite = "npc/books/book_green",
 }
 
 custom_entity{
@@ -498,7 +504,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/book_orange",
+  sprite = "npc/books/book_yellow",
 }
 
 custom_entity{
@@ -509,7 +515,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/book_blue",
+  sprite = "npc/books/book_red",
 }
 
 custom_entity{
@@ -520,7 +526,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/book_red",
+  sprite = "npc/books/book_blue",
 }
 
 custom_entity{
@@ -531,7 +537,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/book_orange",
+  sprite = "npc/books/book_yellow",
 }
 
 custom_entity{
@@ -542,7 +548,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/book_green",
+  sprite = "npc/books/book_red",
 }
 
 custom_entity{
@@ -553,7 +559,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/book_blue",
+  sprite = "npc/books/book_blue",
 }
 
 custom_entity{
@@ -564,7 +570,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/book_red",
+  sprite = "npc/books/book_red",
 }
 
 custom_entity{
@@ -575,7 +581,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/book_red",
+  sprite = "npc/books/book_green",
 }
 
 npc{
@@ -703,7 +709,7 @@ npc{
   y = 61,
   direction = 3,
   subtype = 0,
-  sprite = "entities/book_green",
+  sprite = "npc/books/book_red",
 }
 
 tile{

@@ -61,7 +61,7 @@ function item:on_using()
       --}
       local dug_entity = map:create_custom_entity{
         name = "ground_dug",
-        sprite = "entities/ground_dug",
+        sprite = "entities/grounds/ground_dug",
         direction = 0,
         x = x + 8,
         y = y + 13,

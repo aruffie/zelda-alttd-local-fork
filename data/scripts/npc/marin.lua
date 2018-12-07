@@ -1,15 +1,15 @@
 return function(marin)
   
-  -- Include scripts
-  local audio_manager = require("scripts/audio_manager")
-  
+  -- Variables
   local game = marin:get_game()
   local map = marin:get_map()
   local marin_notes = nil
   local marin_notes_2 = nil
   local marin_is_sing = false
 
-
+  -- Include scripts
+  local audio_manager = require("scripts/audio_manager")
+  
   function marin:sing_start()
 
     local map = game:get_map()
@@ -30,7 +30,7 @@ return function(marin)
       width = 24,
       height = 32,
       direction = 0,
-      sprite = "entities/notes"
+      sprite = "entities/symbols/notes"
     }
     marin_notes_2 = map:create_custom_entity{
       x = x,
@@ -39,7 +39,7 @@ return function(marin)
       width = 24,
       height = 32,
       direction = 2,
-      sprite = "entities/notes"
+      sprite = "entities/symbols/notes"
     }
     marin:get_sprite():set_animation("singing")
     
@@ -67,67 +67,67 @@ return function(marin)
 
   function marin:launch_cinematic_marin_singing_with_hero(map)
 
-  local x_marin, y_marin, layer_marin = marin:get_position()
-  local x_hero, y_hero, layer_hero = hero:get_position()
-  map:start_coroutine(function()
-    local options = {
-      entities_ignore_suspend = {hero, marin}
-    }
-    map:set_cinematic_mode(true, options)
-    -- Marin sing alone
-    marin:sing_start_animation(map)
-    wait(7500)
-    hero:set_direction(3)
-    marin:sing_stop_animation(map)
-    -- Hero sing alone
-    local hero_notes = map:create_custom_entity{
-      x = x,
-      y = y - 16,
-      layer = layer + 1,
-      width = 24,
-      height = 32,
-      direction = 0,
-      sprite = "entities/notes"
-    }
-    local hero_notes_2 = map:create_custom_entity{
-      x = x,
-      y = y - 16,
-      layer = layer + 1,
-      width = 24,
-      height = 32,
-      direction = 2,
-      sprite = "entities/notes"
-    }
-    hero:set_animation("playing_ocarina")
-    wait(8000)
-    -- Marin sing too
-    marin:sing_start_animation()
-    map:set_cinematic_mode(false, options)
-    wait(17500)
-    hero:set_animation("stopped")
-    if hero_notes ~= nil then
-      hero_notes:remove()
-    end
-    if hero_notes_2 ~= nil then
-      hero_notes_2:remove()
-    end
-    marin:sing_stop()
-    local direction4 = hero:get_direction4_to(marin)
-    hero:set_direction(direction4)
-    if dialog("maps.out.mabe_village.marin_5") == 1 then
-      wait(500)
-      map:init_music()
-    else
-      dialog("maps.out.mabe_village.marin_6")
-      map:launch_cinematic_singing_with_hero()
-      local item_melody = game:get_item("melody_1")
-      item_melody:set_variant(1)
-      item_melody:brandish(function()
-        --game:set_value("main_quest_step", 19) 
-        game:start_dialog("maps.out.mabe_village.marin_7")
-      end)
-    end
-  end)
+    local x_marin, y_marin, layer_marin = marin:get_position()
+    local x_hero, y_hero, layer_hero = hero:get_position()
+    map:start_coroutine(function()
+      local options = {
+        entities_ignore_suspend = {hero, marin}
+      }
+      map:set_cinematic_mode(true, options)
+      -- Marin sing alone
+      marin:sing_start_animation(map)
+      wait(7500)
+      hero:set_direction(3)
+      marin:sing_stop_animation(map)
+      -- Hero sing alone
+      local hero_notes = map:create_custom_entity{
+        x = x,
+        y = y - 16,
+        layer = layer + 1,
+        width = 24,
+        height = 32,
+        direction = 0,
+        sprite = "entities/symbols/notes"
+      }
+      local hero_notes_2 = map:create_custom_entity{
+        x = x,
+        y = y - 16,
+        layer = layer + 1,
+        width = 24,
+        height = 32,
+        direction = 2,
+        sprite = "entities/symbols/notes"
+      }
+      hero:set_animation("playing_ocarina")
+      wait(8000)
+      -- Marin sing too
+      marin:sing_start_animation()
+      map:set_cinematic_mode(false, options)
+      wait(17500)
+      hero:set_animation("stopped")
+      if hero_notes ~= nil then
+        hero_notes:remove()
+      end
+      if hero_notes_2 ~= nil then
+        hero_notes_2:remove()
+      end
+      marin:sing_stop()
+      local direction4 = hero:get_direction4_to(marin)
+      hero:set_direction(direction4)
+      if dialog("maps.out.mabe_village.marin_5") == 1 then
+        wait(500)
+        map:init_music()
+      else
+        dialog("maps.out.mabe_village.marin_6")
+        map:launch_cinematic_singing_with_hero()
+        local item_melody = game:get_item("melody_1")
+        item_melody:set_variant(1)
+        item_melody:brandish(function()
+          --game:set_value("main_quest_step", 19) 
+          game:start_dialog("maps.out.mabe_village.marin_7")
+        end)
+      end
+    end)
 
   end
 

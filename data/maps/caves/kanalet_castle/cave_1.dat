@@ -514,6 +514,36 @@ tile{
   pattern = "door.2.low_support.1-2",
 }
 
+tile{
+  layer = 0,
+  x = 128,
+  y = 112,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 144,
+  y = 128,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 176,
+  y = 112,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
 destination{
   name = "stair",
   layer = 0,
@@ -546,40 +576,7 @@ chest{
   y = 109,
   treasure_name = "seashell",
   treasure_savegame_variable = "seashell_23",
-  sprite = "entities/chest",
-}
-
-custom_entity{
-  name = "cave_rock_1",
-  layer = 0,
-  x = 184,
-  y = 125,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_2",
-  layer = 0,
-  x = 152,
-  y = 141,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_3",
-  layer = 0,
-  x = 136,
-  y = 125,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
+  sprite = "entities/chests/chest_small",
 }
 
 tile{

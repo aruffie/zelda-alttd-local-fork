@@ -13,23 +13,11 @@ function attack_icon_builder:new(game, config)
   attack_icon.hud_icon:set_background_sprite(sol.sprite.create("hud/icon_attack"))
   
   -- Initializes the icon.
-  attack_icon.text = sol.surface.create("attack_icon_text.png", true) -- language specific
-  attack_icon.text_w, _ = attack_icon.text:get_size()
-  attack_icon.text_h = 24
-  attack_icon.text_region_y = nil
-  attack_icon.effects_indexes = {
-    ["save"] = 1,
-    ["return"] = 2,
-    ["validate"] = 3,
-    ["skip"] = 4,
-  }
   attack_icon.effect_displayed = nil
   attack_icon.sword_displayed = nil
-  
-  -- The surface used by the icon for the foreground is handled here.
-  attack_icon.foreground = sol.surface.create(attack_icon.text_w, attack_icon.text_h)
-  attack_icon.hud_icon:set_foreground(attack_icon.foreground)
-  
+  attack_icon.item_sprite = sol.sprite.create("entities/items")
+  attack_icon.item_sprite:set_animation("sword")
+
   -- Draws the icon surface.
   function attack_icon:on_draw(dst_surface)
     attack_icon.hud_icon:on_draw(dst_surface)
@@ -37,23 +25,36 @@ function attack_icon_builder:new(game, config)
 
   -- Rebuild the foreground (called only when needed).
   function attack_icon:rebuild_foreground()
-    attack_icon.foreground:clear()
-
-    attack_icon.text_region_y = attack_icon:get_region_y(attack_icon.effect_displayed, attack_icon.sword_displayed)
-    if attack_icon.text_region_y ~= nil then
-      -- Draw the static image of the icon.
-      attack_icon.text:draw_region(0, attack_icon.text_region_y, attack_icon.text_w, attack_icon.text_h, attack_icon.foreground)
-    end    
+    if attack_icon.effect_displayed == nil or attack_icon.effect_displayed == "" then
+      -- No foreground if no effect.
+      attack_icon.hud_icon:set_foreground(nil)
+    elseif attack_icon.effect_displayed == "sword" then
+      -- Sword icon.
+      attack_icon.item_sprite:set_direction(attack_icon.sword_displayed - 1)
+      attack_icon.hud_icon:set_foreground(attack_icon.item_sprite)
+    else
+      -- Text.
+      local text = sol.language.get_string("hud."..attack_icon.effect_displayed)
+      attack_icon.hud_icon:set_foreground_text(text)
+    end
   end
 
   -- Set if the icon is enabled or disabled.
   function attack_icon:set_enabled(enabled)
+    if enabled then
+      attack_icon:update_effect_displayed(false)
+    end
     attack_icon.hud_icon:set_enabled(enabled)
   end
   
   -- Set if the icon is active or inactive.
   function attack_icon:set_active(active)
     attack_icon.hud_icon:set_active(active)
+  end
+
+  -- Sets if the icon is transparent or not.
+  function attack_icon:set_transparent(transparent)
+    attack_icon.hud_icon:set_transparent(transparent)
   end
 
   -- Gets the position of the icon.
@@ -76,46 +77,50 @@ function attack_icon_builder:new(game, config)
     return attack_icon.hud_icon:get_dialog_position()
   end
 
-  -- Computes the region to draw on the foreground.
-  function attack_icon:get_region_y(effect_displayed, sword_displayed)
-    local result = 0
-    if attack_icon.effect_displayed ~= nil then
-      if attack_icon.effect_displayed == "sword" then
-        -- Create an icon with the current sword.
-        result = (4 * attack_icon.text_h) + attack_icon.text_h * attack_icon.sword_displayed
-      elseif attack_icon.effect_displayed ~= nil then
-        -- Create an icon with the name of the current effect.
-        result = attack_icon.text_h * attack_icon.effects_indexes[attack_icon.effect_displayed]
-      end
-    end
-    return result
+  -- Called when the command effect changes.
+  function attack_icon:on_command_effect_changed(effect)
   end
 
   -- Checks if the icon needs a refresh.
-  function attack_icon:check()
-    local effect = game.get_custom_command_effect ~= nil and game:get_custom_command_effect("attack") or game:get_command_effect("attack")
-    local sword = game:get_ability("sword")
+  function attack_icon:update_effect_displayed(flip_icon)
+    if not attack_icon.hud_icon.animating then
+      local effect = game.get_custom_command_effect ~= nil and game:get_custom_command_effect("attack") or game:get_command_effect("attack")
+      local sword = game:get_ability("sword")
+      attack_icon:set_effect_displayed(effect, sword, flip_icon)
+    end
+  end
+
+  -- Sets the effect to be displayed on the icon.
+  function attack_icon:set_effect_displayed(effect, sword, flip_icon)
     if effect ~= attack_icon.effect_displayed or sword ~= attack_icon.sword_displayed then
-      -- Store the current commands to display on the icon.
+      -- Store the current command.
       attack_icon.effect_displayed = effect
       attack_icon.sword_displayed = sword
 
-      attack_icon.hud_icon:flip_icon(function()
-        -- Redraw the surface.
-        attack_icon:rebuild_foreground()
-      end)
+      -- Update the icon foreground.
+      attack_icon:rebuild_foreground()
+      
+      -- Flip the icon.
+      if flip_icon then
+        attack_icon.hud_icon:flip_icon()
+      end
 
+      -- Update the icon visibility.
+      if attack_icon.on_command_effect_changed then
+        attack_icon:on_command_effect_changed(effect)
+      end
     end
-
-    -- Schedule the next check.
-    sol.timer.start(attack_icon, 50, function()
-      attack_icon:check()
-    end)
   end
 
   -- Called when the menu is started.
   function attack_icon:on_started()
-    attack_icon:check()
+    attack_icon:update_effect_displayed(false)
+
+    -- Check every 50ms if the icon needs a refresh.
+    sol.timer.start(attack_icon, 50, function()
+      attack_icon:update_effect_displayed(true)
+      return true
+    end)
   end
 
   -- Returns the menu.

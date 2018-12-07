@@ -1,0 +1,58 @@
+animation{
+  name = "walking",
+  src_image = "npc/animals/bowwow.png",
+  frame_delay = 30,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 0, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21, num_frames = 6 },
+    { x = 0, y = 24, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21, num_frames = 6 },
+    { x = 0, y = 48, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21, num_frames = 6 },
+    { x = 0, y = 72, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21, num_frames = 6 },
+  },
+}
+animation{
+  name = "angry",
+  src_image = "npc/animals/bowwow.png",
+  frame_delay = 20,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 96, y = 0, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21, num_frames = 6 },
+    { x = 96, y = 24, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21, num_frames = 6 },
+    { x = 96, y = 48, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21, num_frames = 6 },
+    { x = 96, y = 72, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21, num_frames = 6 },
+  },
+}
+animation{
+  name = "stopped",
+  src_image = "npc/animals/bowwow.png",
+  directions = {
+    { x = 0, y = 0, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21 },
+    { x = 0, y = 24, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21 },
+    { x = 0, y = 48, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21 },
+    { x = 0, y = 72, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21 },
+  },
+}
+animation{
+  name = "waiting",
+  src_image = "npc/animals/bowwow.png",
+  frame_delay = 40,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 0, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21, num_frames = 6 },
+    { x = 0, y = 24, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21, num_frames = 6 },
+    { x = 0, y = 48, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21, num_frames = 6 },
+    { x = 0, y = 72, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21, num_frames = 6 },
+  },
+}
+animation{
+  name = "walking_companion",
+  src_image = "npc/animals/bowwow.png",
+  frame_delay = 30,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 48, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21, num_frames = 6 },
+    { x = 0, y = 72, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21, num_frames = 6 },
+    { x = 0, y = 0, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21, num_frames = 6 },
+    { x = 0, y = 24, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21, num_frames = 6 },
+  },
+}

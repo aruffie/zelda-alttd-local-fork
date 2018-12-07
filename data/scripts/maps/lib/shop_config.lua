@@ -63,7 +63,7 @@ return {
     quantity = 3,
     placeholder = 2,
     variant = 1,
-    sprite = "entities/heart",
+    sprite = "entities/items/heart",
     dialog_id = "heart",
     buy_callback = function(map)
       local game = map:get_game()

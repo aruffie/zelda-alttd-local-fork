@@ -37,7 +37,7 @@ function item:playing_song(music, callback)
     width = 24,
     height = 32,
     direction = 0,
-    sprite = "entities/notes"
+    sprite = "entities/symbols/notes"
   }
   local notes2 = map:create_custom_entity{
     x = x,
@@ -46,7 +46,7 @@ function item:playing_song(music, callback)
     width = 24,
     height = 32,
     direction = 2,
-    sprite = "entities/notes"
+    sprite = "entities/symbols/notes"
   }
   audio_manager:play_sound(music)
   local timer = sol.timer.start(map, 4000, function()

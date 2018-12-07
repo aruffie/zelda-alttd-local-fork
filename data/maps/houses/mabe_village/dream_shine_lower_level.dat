@@ -548,7 +548,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/green_cristal",
+  sprite = "entities/destructibles/crystal_green",
   model = "green_crystal",
 }
 
@@ -1793,13 +1793,13 @@ chest{
   x = 256,
   y = 189,
   treasure_name = "ocarina",
-  sprite = "entities/big_chest",
+  sprite = "entities/chests/chest_big",
 }
 
 chest{
   layer = 2,
   x = 384,
   y = 189,
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 

@@ -17380,6 +17380,36 @@ tile{
   pattern = "1643",
 }
 
+tile{
+  layer = 0,
+  x = 536,
+  y = -16,
+  width = 96,
+  height = 120,
+  pattern = "97",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 392,
+  y = 608,
+  width = 24,
+  height = 32,
+  pattern = "82",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 448,
+  y = 608,
+  width = 24,
+  height = 32,
+  pattern = "98",
+  tileset = "addition/out",
+}
+
 custom_entity{
   layer = 0,
   x = 8,
@@ -17388,17 +17418,6 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/entrance_dungeon_2_bottom",
-}
-
-custom_entity{
-  name = "egg",
-  layer = 0,
-  x = 584,
-  y = 101,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/egg",
 }
 
 teletransporter{
@@ -17429,7 +17448,7 @@ destructible{
   layer = 0,
   x = 312,
   y = 69,
-  sprite = "entities/stone_small_white",
+  sprite = "entities/destructibles/stone_white_small",
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
@@ -17439,7 +17458,7 @@ destructible{
   layer = 0,
   x = 304,
   y = 117,
-  sprite = "entities/stone_small_white",
+  sprite = "entities/destructibles/stone_white_small",
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
@@ -17449,7 +17468,7 @@ destructible{
   layer = 0,
   x = 288,
   y = 93,
-  sprite = "entities/stone_small_white",
+  sprite = "entities/destructibles/stone_white_small",
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
@@ -17459,7 +17478,7 @@ destructible{
   layer = 0,
   x = 272,
   y = 69,
-  sprite = "entities/stone_small_white",
+  sprite = "entities/destructibles/stone_white_small",
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
@@ -17469,7 +17488,7 @@ destructible{
   layer = 0,
   x = 248,
   y = 93,
-  sprite = "entities/stone_small_white",
+  sprite = "entities/destructibles/stone_white_small",
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
@@ -17479,7 +17498,7 @@ destructible{
   layer = 0,
   x = 824,
   y = 253,
-  sprite = "entities/stone_small_white",
+  sprite = "entities/destructibles/stone_white_small",
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
@@ -17489,20 +17508,30 @@ destructible{
   layer = 0,
   x = 792,
   y = 253,
-  sprite = "entities/stone_small_white",
+  sprite = "entities/destructibles/stone_white_small",
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
 }
 
 npc{
+  name = "sign_3",
   layer = 0,
   x = 552,
   y = 293,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+    {
+      key = "dialog_id",
+      value = "maps.out.egg_of_the_dream_fish.sign_3",
+    },
+  },
   direction = 3,
   subtype = 0,
-  sprite = "entities/sign",
-  behavior = "dialog#maps.out.egg_of_the_dream_fish.sign_3",
+  sprite = "entities/destructibles/sign",
 }
 
 destination{
@@ -17540,7 +17569,7 @@ destructible{
   layer = 0,
   x = 808,
   y = 269,
-  sprite = "entities/stone_small_white",
+  sprite = "entities/destructibles/stone_white_small",
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
@@ -17633,17 +17662,27 @@ chest{
   treasure_name = "rupee",
   treasure_variant = 4,
   treasure_savegame_variable = "egg_of_the_dream_fish_chest_1",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 npc{
+  name = "sign_1",
   layer = 0,
   x = 552,
   y = 645,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+    {
+      key = "dialog_id",
+      value = "maps.out.egg_of_the_dream_fish.sign_1",
+    },
+  },
   direction = 3,
   subtype = 0,
-  sprite = "entities/sign",
-  behavior = "dialog#maps.out.egg_of_the_dream_fish.sign_1",
+  sprite = "entities/destructibles/sign",
 }
 
 dynamic_tile{
@@ -17669,7 +17708,7 @@ destructible{
   layer = 0,
   x = 232,
   y = 365,
-  sprite = "entities/stone_small_white",
+  sprite = "entities/destructibles/stone_white_small",
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
@@ -17679,7 +17718,7 @@ destructible{
   layer = 0,
   x = 232,
   y = 445,
-  sprite = "entities/stone_small_white",
+  sprite = "entities/destructibles/stone_white_small",
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
@@ -17689,7 +17728,7 @@ destructible{
   layer = 0,
   x = 232,
   y = 461,
-  sprite = "entities/stone_small_white",
+  sprite = "entities/destructibles/stone_white_small",
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
@@ -17699,7 +17738,7 @@ destructible{
   layer = 0,
   x = 120,
   y = 701,
-  sprite = "entities/stone_small_white",
+  sprite = "entities/destructibles/stone_white_small",
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
@@ -17709,7 +17748,7 @@ destructible{
   layer = 0,
   x = 120,
   y = 717,
-  sprite = "entities/stone_small_white",
+  sprite = "entities/destructibles/stone_white_small",
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
@@ -17719,7 +17758,7 @@ destructible{
   layer = 0,
   x = 104,
   y = 733,
-  sprite = "entities/stone_small_white",
+  sprite = "entities/destructibles/stone_white_small",
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
@@ -17736,20 +17775,30 @@ jumper{
 }
 
 npc{
+  name = "sign_2",
   layer = 0,
   x = 408,
   y = 461,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+    {
+      key = "dialog_id",
+      value = "maps.out.egg_of_the_dream_fish.sign_2",
+    },
+  },
   direction = 3,
   subtype = 0,
-  sprite = "entities/sign",
-  behavior = "dialog#maps.out.egg_of_the_dream_fish.sign_2",
+  sprite = "entities/destructibles/sign",
 }
 
 destructible{
   layer = 0,
   x = 344,
   y = 445,
-  sprite = "entities/stone_small_white",
+  sprite = "entities/destructibles/stone_white_small",
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
@@ -17759,7 +17808,7 @@ destructible{
   layer = 0,
   x = 360,
   y = 445,
-  sprite = "entities/stone_small_white",
+  sprite = "entities/destructibles/stone_white_small",
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
@@ -17769,7 +17818,7 @@ destructible{
   layer = 0,
   x = 376,
   y = 445,
-  sprite = "entities/stone_small_white",
+  sprite = "entities/destructibles/stone_white_small",
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
@@ -17779,7 +17828,7 @@ destructible{
   layer = 0,
   x = 392,
   y = 445,
-  sprite = "entities/stone_small_white",
+  sprite = "entities/destructibles/stone_white_small",
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
@@ -17789,7 +17838,7 @@ destructible{
   layer = 0,
   x = 392,
   y = 461,
-  sprite = "entities/stone_small_white",
+  sprite = "entities/destructibles/stone_white_small",
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
@@ -17799,7 +17848,7 @@ destructible{
   layer = 0,
   x = 424,
   y = 461,
-  sprite = "entities/stone_small_white",
+  sprite = "entities/destructibles/stone_white_small",
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
@@ -17809,7 +17858,7 @@ destructible{
   layer = 0,
   x = 424,
   y = 445,
-  sprite = "entities/stone_small_white",
+  sprite = "entities/destructibles/stone_white_small",
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
@@ -17819,7 +17868,7 @@ destructible{
   layer = 0,
   x = 248,
   y = 365,
-  sprite = "entities/stone_small_white",
+  sprite = "entities/destructibles/stone_white_small",
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
@@ -17829,7 +17878,7 @@ destructible{
   layer = 0,
   x = 360,
   y = 429,
-  sprite = "entities/stone_small_white",
+  sprite = "entities/destructibles/stone_white_small",
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
@@ -17840,7 +17889,7 @@ destructible{
   x = 768,
   y = 501,
   treasure_name = "random",
-  sprite = "entities/bush",
+  sprite = "entities/destructibles/bush",
   destruction_sound = "bush",
   weight = 1,
   can_be_cut = true,
@@ -17851,7 +17900,7 @@ destructible{
   x = 752,
   y = 501,
   treasure_name = "random",
-  sprite = "entities/bush",
+  sprite = "entities/destructibles/bush",
   destruction_sound = "bush",
   weight = 1,
   can_be_cut = true,
@@ -17862,7 +17911,7 @@ destructible{
   x = 784,
   y = 501,
   treasure_name = "random",
-  sprite = "entities/bush",
+  sprite = "entities/destructibles/bush",
   destruction_sound = "bush",
   weight = 1,
   can_be_cut = true,
@@ -17873,7 +17922,7 @@ destructible{
   x = 784,
   y = 517,
   treasure_name = "random",
-  sprite = "entities/bush",
+  sprite = "entities/destructibles/bush",
   destruction_sound = "bush",
   weight = 1,
   can_be_cut = true,
@@ -17884,7 +17933,7 @@ destructible{
   x = 784,
   y = 533,
   treasure_name = "random",
-  sprite = "entities/bush",
+  sprite = "entities/destructibles/bush",
   destruction_sound = "bush",
   weight = 1,
   can_be_cut = true,
@@ -17935,28 +17984,8 @@ npc{
   y = 645,
   direction = 3,
   subtype = 1,
-  sprite = "entities/owl_blue",
+  sprite = "npc/statues/owl",
   behavior = "dialog#maps.out.west_mt_tamaranch.owl_statue_1",
-}
-
-custom_entity{
-  layer = 0,
-  x = 400,
-  y = 621,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/entrance_moblin_cave",
-}
-
-custom_entity{
-  layer = 0,
-  x = 456,
-  y = 621,
-  width = 16,
-  height = 16,
-  direction = 2,
-  sprite = "entities/entrance_moblin_cave",
 }
 
 destination{
@@ -18010,7 +18039,7 @@ chest{
   treasure_name = "rupee",
   treasure_variant = 4,
   treasure_savegame_variable = "b1_egg_of_the_dream_fish_chest_1",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 destination{
@@ -18047,7 +18076,7 @@ custom_entity{
   width = 32,
   height = 32,
   direction = 0,
-  sprite = "entities/stone_large_white",
+  sprite = "entities/destructibles/stone_white_large",
   model = "heavy_object",
 }
 
@@ -18115,7 +18144,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/bubble_swamp",
+  sprite = "entities/decorations/bubble_swamp",
   model = "bubble",
 }
 
@@ -18127,7 +18156,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/bubble_swamp",
+  sprite = "entities/decorations/bubble_swamp",
   model = "bubble",
 }
 
@@ -18214,19 +18243,6 @@ sensor{
   height = 16,
 }
 
-wall{
-  layer = 0,
-  x = 568,
-  y = 72,
-  width = 32,
-  height = 8,
-  stops_hero = true,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
-}
-
 custom_entity{
   name = "egg_door",
   layer = 0,
@@ -18235,7 +18251,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/egg_door",
+  sprite = "entities/doors/door_egg",
 }
 
 teletransporter{
@@ -18246,32 +18262,6 @@ teletransporter{
   height = 16,
   destination_map = "dungeons/11/1f",
   destination = "entrance",
-}
-
-wall{
-  layer = 0,
-  x = 568,
-  y = 80,
-  width = 8,
-  height = 24,
-  stops_hero = true,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
-}
-
-wall{
-  layer = 0,
-  x = 592,
-  y = 80,
-  width = 8,
-  height = 24,
-  stops_hero = true,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
 }
 
 enemy{
@@ -19291,15 +19281,14 @@ tile{
   pattern = "1444",
 }
 
-custom_entity{
-  name = "photographer_sign",
+tile{
   layer = 1,
-  x = 728,
-  y = 645,
+  x = 720,
+  y = 632,
   width = 48,
   height = 16,
-  direction = 3,
-  sprite = "entities/signs",
+  pattern = "22",
+  tileset = "addition/out",
 }
 
 custom_entity{
@@ -19310,8 +19299,8 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "npc/mosquito",
-  model = "bee",
+  sprite = "entities/insects/mosquito",
+  model = "insect",
 }
 
 custom_entity{
@@ -19322,8 +19311,8 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "npc/mosquito",
-  model = "bee",
+  sprite = "entities/insects/mosquito",
+  model = "insect",
 }
 
 custom_entity{
@@ -19334,7 +19323,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/egg_door_top",
+  sprite = "entities/doors/door_egg_top",
 }
 
 custom_entity{
@@ -19363,6 +19352,6 @@ npc{
   y = -3,
   direction = 3,
   subtype = 0,
-  sprite = "npc/owl",
+  sprite = "npc/animals/owl",
 }
 

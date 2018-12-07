@@ -11,7 +11,7 @@ function map:on_started(destination)
   -- Music
   map:init_music()
   -- Sideview
-  map:set_side_view(true)
+  map:set_sideview(true)
 
   
 end

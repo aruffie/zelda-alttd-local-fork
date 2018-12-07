@@ -1,9 +1,10 @@
--- A flame that can hurt enemies.
--- It is meant to by created by the lamp and the fire rod.
+-- Variables
 local fire = ...
 local sprite
-
 local enemies_touched = { }
+
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
 
 fire:set_size(8, 8)
 fire:set_origin(4, 5)
@@ -13,7 +14,9 @@ sprite:set_direction(fire:get_direction())
 -- Remove the sprite if the animation finishes.
 -- Use animation "flying" if you want it to persist.
 function sprite:on_animation_finished()
+  
   fire:remove()
+  
 end
 
 -- Returns whether a destructible is a bush.

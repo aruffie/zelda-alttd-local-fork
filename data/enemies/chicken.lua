@@ -1,3 +1,6 @@
+-- Lua script of enemy "chicken".
+-- This script is executed every time an enemy with this model is created.
+
 -- Variables
 local enemy = ...
 local map = enemy:get_map()
@@ -6,7 +9,6 @@ local num_times_hurt = 0
 
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
-
 
 function enemy:on_created()
 

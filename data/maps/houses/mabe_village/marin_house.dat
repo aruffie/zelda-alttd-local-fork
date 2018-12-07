@@ -548,7 +548,7 @@ npc{
   y = 85,
   direction = 2,
   subtype = 1,
-  sprite = "npc/marin",
+  sprite = "npc/villagers/marin",
 }
 
 npc{
@@ -558,7 +558,7 @@ npc{
   y = 157,
   direction = 2,
   subtype = 1,
-  sprite = "npc/tarin",
+  sprite = "npc/villagers/tarin",
 }
 
 destination{
@@ -574,6 +574,12 @@ teletransporter{
   layer = 0,
   x = 152,
   y = 224,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/a3_mabe_village",
@@ -593,7 +599,7 @@ destructible{
   x = 96,
   y = 189,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -603,7 +609,7 @@ destructible{
   x = 80,
   y = 189,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -613,7 +619,7 @@ destructible{
   x = 80,
   y = 173,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -623,7 +629,7 @@ destructible{
   x = 96,
   y = 173,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -672,7 +678,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/bananas",
+  sprite = "entities/items/bananas",
 }
 
 npc{
@@ -741,7 +747,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/snores",
+  sprite = "entities/symbols/snores",
 }
 
 custom_entity{
@@ -752,7 +758,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/snores",
+  sprite = "entities/symbols/snores",
 }
 
 tile{

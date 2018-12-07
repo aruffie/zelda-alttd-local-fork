@@ -10978,20 +10978,20 @@ wall{
 
 npc{
   layer = 0,
-  x = 472,
-  y = 1085,
+  x = 464,
+  y = 1077,
   direction = 3,
   subtype = 1,
-  sprite = "enemies/stalfos_blue",
+  sprite = "npc/others/blue_skeleton",
 }
 
 npc{
   layer = 0,
-  x = 488,
-  y = 1085,
+  x = 496,
+  y = 1077,
   direction = 3,
   subtype = 1,
-  sprite = "enemies/stalfos_red",
+  sprite = "npc/others/red_skelelton",
 }
 
 destructible{
@@ -11494,7 +11494,7 @@ switch{
   x = 688,
   y = 560,
   subtype = "walkable",
-  sprite = "entities/switch",
+  sprite = "entities/switchs/switch",
   sound = "switch",
   needs_block = false,
   inactivate_when_leaving = false,

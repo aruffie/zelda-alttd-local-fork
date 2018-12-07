@@ -721,6 +721,36 @@ tile{
   pattern = "wall_low_border.corner.2-3",
 }
 
+tile{
+  layer = 0,
+  x = 72,
+  y = 120,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 96,
+  y = 168,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 224,
+  y = 104,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
 teletransporter{
   name = "fairy_fountain_2_B",
   layer = 0,
@@ -756,43 +786,10 @@ npc{
   name = "fairy",
   layer = 0,
   x = 160,
-  y = 85,
+  y = 77,
   direction = 3,
   subtype = 1,
-  sprite = "npc/fairy",
-}
-
-custom_entity{
-  name = "cave_rock_1",
-  layer = 0,
-  x = 80,
-  y = 133,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_3",
-  layer = 0,
-  x = 104,
-  y = 181,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
-}
-
-custom_entity{
-  name = "cave_rock_4",
-  layer = 0,
-  x = 232,
-  y = 117,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/cave_rock",
+  sprite = "npc/others/fairy",
 }
 
 sensor{

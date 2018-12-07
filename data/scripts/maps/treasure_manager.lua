@@ -175,7 +175,7 @@ function treasure_manager:get_instrument(map)
   -- Create custom entities
   local effect_entity_1 = map:create_custom_entity({
     name = "effect",
-    sprite = "entities/instrument_small_sparkle",
+    sprite = "entities/effects/sparkle_small",
     x = x_hero,
     y = y_hero - 24,
     width = 16,
@@ -185,7 +185,7 @@ function treasure_manager:get_instrument(map)
   })
  local effect_entity_2 = map:create_custom_entity({
     name = "effect",
-    sprite = "entities/instrument_big_sparkle",
+    sprite = "entities/effects/sparkle_big",
     x = x_hero,
     y = y_hero - 24,
     width = 16,
@@ -210,7 +210,7 @@ function treasure_manager:get_instrument(map)
     width = 24,
     height = 32,
     direction = 2,
-    sprite = "entities/notes"
+    sprite = "entities/symbols/notes"
   }
   local notes_2 = map:create_custom_entity{
     x = x_hero,
@@ -219,7 +219,7 @@ function treasure_manager:get_instrument(map)
     width = 24,
     height = 32,
     direction = 0,
-    sprite = "entities/notes"
+    sprite = "entities/symbols/notes"
   }
   instrument_entity:get_sprite():set_animation("instrument_" .. dungeon)
   instrument_entity:get_sprite():set_direction(0)

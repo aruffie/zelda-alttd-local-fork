@@ -435,25 +435,13 @@ npc{
 }
 
 custom_entity{
-  name = "mr_write",
-  layer = 0,
-  x = 184,
-  y = 109,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "npc/mr_write",
-  model = "mr_write_and_christine",
-}
-
-custom_entity{
   layer = 0,
   x = 216,
   y = 77,
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "npc/bird",
+  sprite = "entities/animals/bird",
   model = "bird",
 }
 
@@ -462,7 +450,7 @@ destructible{
   x = 96,
   y = 61,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -472,7 +460,7 @@ destructible{
   x = 112,
   y = 61,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -482,7 +470,7 @@ destructible{
   x = 112,
   y = 77,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -492,7 +480,7 @@ destructible{
   x = 96,
   y = 77,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -502,7 +490,7 @@ destructible{
   x = 96,
   y = 93,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -512,7 +500,7 @@ destructible{
   x = 112,
   y = 93,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -522,7 +510,7 @@ destructible{
   x = 112,
   y = 109,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -532,7 +520,7 @@ destructible{
   x = 96,
   y = 109,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -542,7 +530,7 @@ destructible{
   x = 96,
   y = 125,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -552,7 +540,7 @@ destructible{
   x = 112,
   y = 125,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -562,7 +550,7 @@ destructible{
   x = 112,
   y = 141,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -572,7 +560,7 @@ destructible{
   x = 96,
   y = 141,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -582,7 +570,7 @@ destructible{
   x = 96,
   y = 157,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -592,7 +580,7 @@ destructible{
   x = 112,
   y = 157,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -602,7 +590,7 @@ destructible{
   x = 112,
   y = 173,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -612,7 +600,7 @@ destructible{
   x = 96,
   y = 173,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -622,7 +610,7 @@ destructible{
   x = 96,
   y = 189,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -632,7 +620,7 @@ destructible{
   x = 112,
   y = 189,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -675,12 +663,13 @@ custom_entity{
 }
 
 npc{
-  name = "mr_write_invisible_2",
+  name = "mr_write",
   layer = 0,
   x = 184,
-  y = 101,
+  y = 109,
   direction = 3,
   subtype = 1,
+  sprite = "npc/villagers/mr_write",
 }
 
 npc{

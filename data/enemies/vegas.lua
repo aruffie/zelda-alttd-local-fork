@@ -1,6 +1,10 @@
+-- Variables
 local enemy = ...
 local sprite
 local symbol_fixed = false
+
+-- Include scripts
+require("scripts/multi_events")
 
 function enemy:on_created()
 
@@ -15,10 +19,9 @@ function enemy:on_created()
   enemy:set_attack_consequence("fire", 1)
   enemy:set_attack_consequence("thrown_item", 1)
   enemy:set_default_behavior_on_hero_shield("normal_shield_push")
-  --enemy:set_hookshot_reaction(1)
-  --enemy:set_fire_reaction(1)
 
   sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+  
 end
 
 function enemy:on_restarted()
@@ -49,17 +52,20 @@ function enemy:on_restarted()
   end)
 end
 
-function enemy:on_hurt()
+enemy:register_event("on_hurt", function()
 
   enemy:set_symbol_fixed(true)
   enemy:set_life(1)
   if enemy.on_symbol_fixed ~= nil then
     enemy:on_symbol_fixed()
   end
-end
+  
+end)
 
 function enemy:is_symbol_fixed()
+  
   return symbol_fixed
+  
 end
 
 function enemy:set_symbol_fixed(fixed)
@@ -72,6 +78,7 @@ function enemy:set_symbol_fixed(fixed)
   if not fixed then
     enemy:restart()
   end
+  
 end
 
 function enemy:on_shield_collision(shield)

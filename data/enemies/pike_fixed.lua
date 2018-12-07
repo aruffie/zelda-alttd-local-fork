@@ -1,3 +1,6 @@
+-- Lua script of enemy "pike fixed".
+-- This script is executed every time an enemy with this model is created.
+
 -- Variables
 local enemy = ...
 -- Pike that does not move.

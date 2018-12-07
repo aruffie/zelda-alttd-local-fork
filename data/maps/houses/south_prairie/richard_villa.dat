@@ -702,7 +702,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "npc/frog",
+  sprite = "entities/animals/frog",
   model = "frog",
 }
 
@@ -714,7 +714,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 1,
-  sprite = "npc/frog",
+  sprite = "entities/animals/frog",
   model = "frog",
 }
 
@@ -726,7 +726,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "npc/frog",
+  sprite = "entities/animals/frog",
   model = "frog",
 }
 
@@ -737,7 +737,7 @@ npc{
   y = 109,
   direction = 3,
   subtype = 1,
-  sprite = "npc/richard",
+  sprite = "npc/villagers/richard",
 }
 
 destructible{
@@ -745,7 +745,7 @@ destructible{
   x = 56,
   y = 173,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -755,7 +755,7 @@ destructible{
   x = 72,
   y = 173,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -765,7 +765,7 @@ destructible{
   x = 72,
   y = 189,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -775,7 +775,7 @@ destructible{
   x = 56,
   y = 189,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -785,7 +785,7 @@ destructible{
   x = 56,
   y = 205,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -795,7 +795,7 @@ destructible{
   x = 72,
   y = 205,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -858,10 +858,10 @@ block{
   layer = 0,
   x = 240,
   y = 93,
-  sprite = "entities/blocks/richard_block",
+  sprite = "entities/blocks/box",
   pushable = true,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 custom_entity{
@@ -872,7 +872,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "npc/frog",
+  sprite = "entities/animals/frog",
   model = "frog",
 }
 
@@ -884,7 +884,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 3,
-  sprite = "npc/frog",
+  sprite = "entities/animals/frog",
   model = "frog",
 }
 
@@ -1366,25 +1366,23 @@ tile{
   pattern = "table_piece.1",
 }
 
-custom_entity{
-  name = "frog_canvas",
+tile{
   layer = 2,
-  x = 208,
-  y = 37,
-  width = 16,
+  x = 192,
+  y = 24,
+  width = 32,
   height = 16,
-  direction = 0,
-  sprite = "entities/frog_canvas",
+  pattern = "69",
+  tileset = "addition/dungeon",
 }
 
-custom_entity{
-  name = "frog_canvas_2",
+tile{
   layer = 2,
-  x = 264,
-  y = 37,
-  width = 16,
+  x = 240,
+  y = 24,
+  width = 32,
   height = 16,
-  direction = 0,
-  sprite = "entities/frog_canvas",
+  pattern = "69",
+  tileset = "addition/dungeon",
 }
 

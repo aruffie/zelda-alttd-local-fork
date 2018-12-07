@@ -739,7 +739,7 @@ chest{
   y = 573,
   treasure_name = "small_key",
   treasure_savegame_variable = "dungeon_6_small_key_2",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 enemy{
@@ -18232,6 +18232,90 @@ tile{
   pattern = "door_main.2.pillar.2-2",
 }
 
+tile{
+  layer = 0,
+  x = 1408,
+  y = 272,
+  width = 64,
+  height = 24,
+  pattern = "40",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1296,
+  y = 352,
+  width = 24,
+  height = 64,
+  pattern = "43",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1560,
+  y = 352,
+  width = 24,
+  height = 64,
+  pattern = "42",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1392,
+  y = 336,
+  width = 96,
+  height = 32,
+  pattern = "6",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1040,
+  y = 1688,
+  enabled_at_start = false,
+  width = 32,
+  height = 32,
+  pattern = "66",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1040,
+  y = 1624,
+  enabled_at_start = false,
+  width = 32,
+  height = 32,
+  pattern = "66",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1168,
+  y = 1624,
+  enabled_at_start = false,
+  width = 32,
+  height = 32,
+  pattern = "66",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1168,
+  y = 1688,
+  enabled_at_start = false,
+  width = 32,
+  height = 32,
+  pattern = "66",
+  tileset = "addition/dungeon",
+}
+
 wall{
   layer = 0,
   x = 472,
@@ -18759,7 +18843,7 @@ chest{
   y = 845,
   treasure_name = "map",
   treasure_savegame_variable = "dungeon_6_map",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 crystal{
@@ -18862,7 +18946,7 @@ custom_entity{
   width = 16,
   height = 32,
   direction = 0,
-  sprite = "entities/statue_liftable_dungeon_6",
+  sprite = "entities/destructibles/statue_elephant",
   model = "heavy_object",
 }
 
@@ -18873,7 +18957,7 @@ custom_entity{
   width = 16,
   height = 32,
   direction = 0,
-  sprite = "entities/statue_liftable_dungeon_6",
+  sprite = "entities/destructibles/statue_elephant",
   model = "heavy_object",
 }
 
@@ -18882,7 +18966,7 @@ stream{
   x = 1384,
   y = 1661,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -18890,7 +18974,7 @@ stream{
   x = 1416,
   y = 1661,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -18898,7 +18982,7 @@ stream{
   x = 1384,
   y = 1741,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -18906,7 +18990,7 @@ stream{
   x = 1416,
   y = 1741,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -18914,7 +18998,7 @@ stream{
   x = 1400,
   y = 1661,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -18922,7 +19006,7 @@ stream{
   x = 1416,
   y = 1677,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -18930,7 +19014,7 @@ stream{
   x = 1416,
   y = 1693,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -18938,7 +19022,7 @@ stream{
   x = 1416,
   y = 1709,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -18946,7 +19030,7 @@ stream{
   x = 1384,
   y = 1677,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -18954,7 +19038,7 @@ stream{
   x = 1400,
   y = 1677,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -18962,7 +19046,7 @@ stream{
   x = 1384,
   y = 1709,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -18970,7 +19054,7 @@ stream{
   x = 1384,
   y = 1693,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -18978,7 +19062,7 @@ stream{
   x = 1384,
   y = 1725,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -18986,7 +19070,7 @@ stream{
   x = 1400,
   y = 1741,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -18994,7 +19078,7 @@ stream{
   x = 1400,
   y = 1725,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -19002,7 +19086,7 @@ stream{
   x = 1400,
   y = 1709,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -19010,7 +19094,7 @@ stream{
   x = 1400,
   y = 1693,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -19018,7 +19102,7 @@ stream{
   x = 1496,
   y = 1661,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -19026,7 +19110,7 @@ stream{
   x = 1496,
   y = 1677,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -19034,7 +19118,7 @@ stream{
   x = 1496,
   y = 1693,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -19042,7 +19126,7 @@ stream{
   x = 1496,
   y = 1709,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -19050,7 +19134,7 @@ stream{
   x = 1480,
   y = 1661,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -19058,7 +19142,7 @@ stream{
   x = 1480,
   y = 1677,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -19066,7 +19150,7 @@ stream{
   x = 1480,
   y = 1693,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -19074,7 +19158,7 @@ stream{
   x = 1480,
   y = 1709,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -19082,7 +19166,7 @@ stream{
   x = 1432,
   y = 1661,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -19090,7 +19174,7 @@ stream{
   x = 1432,
   y = 1677,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -19098,7 +19182,7 @@ stream{
   x = 1432,
   y = 1693,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -19106,7 +19190,7 @@ stream{
   x = 1432,
   y = 1709,
   direction = 6,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -19114,7 +19198,7 @@ stream{
   x = 1432,
   y = 1741,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -19122,7 +19206,7 @@ stream{
   x = 1448,
   y = 1709,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -19130,7 +19214,7 @@ stream{
   x = 1448,
   y = 1693,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -19138,7 +19222,7 @@ stream{
   x = 1448,
   y = 1677,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -19146,7 +19230,7 @@ stream{
   x = 1448,
   y = 1661,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -19154,7 +19238,7 @@ stream{
   x = 1464,
   y = 1661,
   direction = 0,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -19162,7 +19246,7 @@ stream{
   x = 1464,
   y = 1677,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -19170,7 +19254,7 @@ stream{
   x = 1464,
   y = 1693,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -19178,7 +19262,7 @@ stream{
   x = 1464,
   y = 1709,
   direction = 2,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 custom_entity{
@@ -19188,7 +19272,7 @@ custom_entity{
   width = 16,
   height = 32,
   direction = 0,
-  sprite = "entities/statue_liftable_dungeon_6",
+  sprite = "entities/destructibles/statue_elephant",
   model = "heavy_object",
 }
 
@@ -19199,7 +19283,7 @@ custom_entity{
   width = 16,
   height = 32,
   direction = 0,
-  sprite = "entities/statue_liftable_dungeon_6",
+  sprite = "entities/destructibles/statue_elephant",
   model = "heavy_object",
 }
 
@@ -19210,7 +19294,7 @@ custom_entity{
   width = 16,
   height = 32,
   direction = 0,
-  sprite = "entities/statue_liftable_dungeon_6",
+  sprite = "entities/destructibles/statue_elephant",
   model = "heavy_object",
 }
 
@@ -19221,7 +19305,7 @@ custom_entity{
   width = 16,
   height = 32,
   direction = 0,
-  sprite = "entities/statue_liftable_dungeon_6",
+  sprite = "entities/destructibles/statue_elephant",
   model = "heavy_object",
 }
 
@@ -19232,7 +19316,7 @@ custom_entity{
   width = 16,
   height = 32,
   direction = 0,
-  sprite = "entities/statue_liftable_dungeon_6",
+  sprite = "entities/destructibles/statue_elephant",
   model = "heavy_object",
 }
 
@@ -19244,7 +19328,7 @@ chest{
   treasure_name = "rupee",
   treasure_variant = 4,
   treasure_savegame_variable = "dungeon_6_rupee_1",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 custom_entity{
@@ -19254,7 +19338,7 @@ custom_entity{
   width = 16,
   height = 32,
   direction = 0,
-  sprite = "entities/statue_liftable_dungeon_6",
+  sprite = "entities/destructibles/statue_elephant",
   model = "heavy_object",
 }
 
@@ -19334,7 +19418,7 @@ chest{
   y = 557,
   treasure_name = "beak_of_stone",
   treasure_savegame_variable = "dungeon_6_beak_of_stone",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 chest{
@@ -19344,7 +19428,7 @@ chest{
   y = 397,
   treasure_name = "compass",
   treasure_savegame_variable = "dungeon_6_compass",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 custom_entity{
@@ -19354,7 +19438,7 @@ custom_entity{
   width = 16,
   height = 32,
   direction = 0,
-  sprite = "entities/statue_liftable_dungeon_6",
+  sprite = "entities/destructibles/statue_elephant",
   model = "heavy_object",
 }
 
@@ -19365,7 +19449,7 @@ custom_entity{
   width = 16,
   height = 32,
   direction = 0,
-  sprite = "entities/statue_liftable_dungeon_6",
+  sprite = "entities/destructibles/statue_elephant",
   model = "heavy_object",
 }
 
@@ -19376,7 +19460,7 @@ custom_entity{
   width = 16,
   height = 32,
   direction = 0,
-  sprite = "entities/statue_liftable_dungeon_6",
+  sprite = "entities/destructibles/statue_elephant",
   model = "heavy_object",
 }
 
@@ -19387,7 +19471,7 @@ custom_entity{
   width = 16,
   height = 32,
   direction = 0,
-  sprite = "entities/statue_liftable_dungeon_6",
+  sprite = "entities/destructibles/statue_elephant",
   model = "heavy_object",
 }
 
@@ -19398,7 +19482,7 @@ custom_entity{
   width = 16,
   height = 32,
   direction = 0,
-  sprite = "entities/statue_liftable_dungeon_6",
+  sprite = "entities/destructibles/statue_elephant",
   model = "heavy_object",
 }
 
@@ -19409,7 +19493,7 @@ custom_entity{
   width = 16,
   height = 32,
   direction = 0,
-  sprite = "entities/statue_liftable_dungeon_6",
+  sprite = "entities/destructibles/statue_elephant",
   model = "heavy_object",
 }
 
@@ -19417,39 +19501,6 @@ crystal{
   layer = 0,
   x = 2136,
   y = 349,
-}
-
-custom_entity{
-  layer = 0,
-  x = 1048,
-  y = 1701,
-  width = 32,
-  height = 32,
-  direction = 0,
-  sprite = "entities/statue_dungeon_6",
-  model = "statue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1048,
-  y = 1637,
-  width = 32,
-  height = 32,
-  direction = 0,
-  sprite = "entities/statue_dungeon_6",
-  model = "statue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1176,
-  y = 1637,
-  width = 32,
-  height = 32,
-  direction = 0,
-  sprite = "entities/statue_dungeon_6",
-  model = "statue",
 }
 
 enemy{
@@ -19489,7 +19540,7 @@ custom_entity{
   width = 16,
   height = 32,
   direction = 0,
-  sprite = "entities/statue_liftable_dungeon_6",
+  sprite = "entities/destructibles/statue_elephant",
   model = "heavy_object",
 }
 
@@ -19500,7 +19551,7 @@ custom_entity{
   width = 16,
   height = 32,
   direction = 0,
-  sprite = "entities/statue_liftable_dungeon_6",
+  sprite = "entities/destructibles/statue_elephant",
   model = "heavy_object",
 }
 
@@ -19511,7 +19562,7 @@ custom_entity{
   width = 16,
   height = 32,
   direction = 0,
-  sprite = "entities/statue_liftable_dungeon_6",
+  sprite = "entities/destructibles/statue_elephant",
   model = "heavy_object",
 }
 
@@ -19520,7 +19571,7 @@ destructible{
   x = 376,
   y = 845,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19530,7 +19581,7 @@ destructible{
   x = 392,
   y = 845,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19540,7 +19591,7 @@ destructible{
   x = 392,
   y = 829,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19550,7 +19601,7 @@ destructible{
   x = 408,
   y = 829,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19560,7 +19611,7 @@ destructible{
   x = 408,
   y = 845,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19570,7 +19621,7 @@ destructible{
   x = 424,
   y = 845,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19580,7 +19631,7 @@ destructible{
   x = 424,
   y = 829,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19590,7 +19641,7 @@ destructible{
   x = 440,
   y = 829,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19600,7 +19651,7 @@ destructible{
   x = 440,
   y = 845,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19610,7 +19661,7 @@ destructible{
   x = 520,
   y = 861,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19620,7 +19671,7 @@ destructible{
   x = 440,
   y = 861,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19630,7 +19681,7 @@ destructible{
   x = 424,
   y = 861,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19640,7 +19691,7 @@ destructible{
   x = 424,
   y = 877,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19650,7 +19701,7 @@ destructible{
   x = 440,
   y = 877,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19660,7 +19711,7 @@ destructible{
   x = 264,
   y = 653,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19670,7 +19721,7 @@ destructible{
   x = 248,
   y = 653,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19680,7 +19731,7 @@ destructible{
   x = 232,
   y = 653,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19690,7 +19741,7 @@ destructible{
   x = 216,
   y = 653,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19700,7 +19751,7 @@ destructible{
   x = 200,
   y = 653,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19710,7 +19761,7 @@ destructible{
   x = 200,
   y = 669,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19720,7 +19771,7 @@ destructible{
   x = 216,
   y = 669,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19730,7 +19781,7 @@ destructible{
   x = 232,
   y = 669,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19740,7 +19791,7 @@ destructible{
   x = 248,
   y = 669,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19750,7 +19801,7 @@ destructible{
   x = 264,
   y = 669,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19760,7 +19811,7 @@ destructible{
   x = 264,
   y = 685,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19770,7 +19821,7 @@ destructible{
   x = 248,
   y = 685,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19780,7 +19831,7 @@ destructible{
   x = 232,
   y = 685,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19790,7 +19841,7 @@ destructible{
   x = 216,
   y = 685,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19800,7 +19851,7 @@ destructible{
   x = 200,
   y = 685,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19810,7 +19861,7 @@ destructible{
   x = 200,
   y = 701,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19820,7 +19871,7 @@ destructible{
   x = 216,
   y = 701,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19830,7 +19881,7 @@ destructible{
   x = 232,
   y = 701,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19840,7 +19891,7 @@ destructible{
   x = 248,
   y = 701,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19850,7 +19901,7 @@ destructible{
   x = 264,
   y = 701,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19860,7 +19911,7 @@ destructible{
   x = 264,
   y = 717,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19870,7 +19921,7 @@ destructible{
   x = 248,
   y = 717,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19880,7 +19931,7 @@ destructible{
   x = 232,
   y = 717,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19890,7 +19941,7 @@ destructible{
   x = 216,
   y = 717,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19900,7 +19951,7 @@ destructible{
   x = 200,
   y = 717,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19910,7 +19961,7 @@ destructible{
   x = 744,
   y = 621,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19920,7 +19971,7 @@ destructible{
   x = 760,
   y = 621,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19930,7 +19981,7 @@ destructible{
   x = 760,
   y = 637,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19940,7 +19991,7 @@ destructible{
   x = 744,
   y = 637,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19950,7 +20001,7 @@ destructible{
   x = 744,
   y = 653,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19960,7 +20011,7 @@ destructible{
   x = 760,
   y = 653,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19970,7 +20021,7 @@ destructible{
   x = 840,
   y = 653,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19980,7 +20031,7 @@ destructible{
   x = 840,
   y = 637,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -19990,7 +20041,7 @@ destructible{
   x = 840,
   y = 621,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20000,7 +20051,7 @@ destructible{
   x = 856,
   y = 621,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20010,7 +20061,7 @@ destructible{
   x = 856,
   y = 637,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20020,7 +20071,7 @@ destructible{
   x = 856,
   y = 653,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20030,7 +20081,7 @@ destructible{
   x = 1336,
   y = 573,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20040,7 +20091,7 @@ destructible{
   x = 1336,
   y = 589,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20050,7 +20101,7 @@ destructible{
   x = 1352,
   y = 589,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20060,7 +20111,7 @@ destructible{
   x = 1352,
   y = 573,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20070,7 +20121,7 @@ destructible{
   x = 1528,
   y = 573,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20080,7 +20131,7 @@ destructible{
   x = 1544,
   y = 573,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20090,7 +20141,7 @@ destructible{
   x = 1544,
   y = 589,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20100,7 +20151,7 @@ destructible{
   x = 1528,
   y = 589,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20110,7 +20161,7 @@ destructible{
   x = 1528,
   y = 701,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20120,7 +20171,7 @@ destructible{
   x = 1544,
   y = 701,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20130,7 +20181,7 @@ destructible{
   x = 1544,
   y = 717,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20140,7 +20191,7 @@ destructible{
   x = 1528,
   y = 717,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20150,7 +20201,7 @@ destructible{
   x = 1352,
   y = 717,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20160,7 +20211,7 @@ destructible{
   x = 1336,
   y = 717,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20170,7 +20221,7 @@ destructible{
   x = 1336,
   y = 701,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20180,7 +20231,7 @@ destructible{
   x = 1352,
   y = 701,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20190,7 +20241,7 @@ destructible{
   x = 1688,
   y = 1133,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20200,7 +20251,7 @@ destructible{
   x = 1688,
   y = 1149,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20210,7 +20261,7 @@ destructible{
   x = 1688,
   y = 1165,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20220,7 +20271,7 @@ destructible{
   x = 1688,
   y = 1181,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20230,7 +20281,7 @@ destructible{
   x = 1832,
   y = 1181,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20240,7 +20291,7 @@ destructible{
   x = 1832,
   y = 1165,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20250,7 +20301,7 @@ destructible{
   x = 1832,
   y = 1149,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20260,7 +20311,7 @@ destructible{
   x = 1832,
   y = 1133,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20270,7 +20321,7 @@ destructible{
   x = 1656,
   y = 1741,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20280,7 +20331,7 @@ destructible{
   x = 1864,
   y = 1741,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20290,7 +20341,7 @@ destructible{
   x = 1992,
   y = 1613,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20300,7 +20351,7 @@ destructible{
   x = 1976,
   y = 1613,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20310,7 +20361,7 @@ destructible{
   x = 2088,
   y = 1085,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20320,7 +20371,7 @@ destructible{
   x = 2088,
   y = 1101,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20330,7 +20381,7 @@ destructible{
   x = 2104,
   y = 1101,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20340,7 +20391,7 @@ destructible{
   x = 2104,
   y = 1085,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20350,7 +20401,7 @@ destructible{
   x = 2120,
   y = 1085,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20360,7 +20411,7 @@ destructible{
   x = 2120,
   y = 1101,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20370,7 +20421,7 @@ destructible{
   x = 2136,
   y = 1101,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20380,7 +20431,7 @@ destructible{
   x = 2136,
   y = 1085,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20390,7 +20441,7 @@ destructible{
   x = 2152,
   y = 1085,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20400,7 +20451,7 @@ destructible{
   x = 2152,
   y = 1101,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20410,7 +20461,7 @@ destructible{
   x = 2168,
   y = 1101,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20420,7 +20471,7 @@ destructible{
   x = 2168,
   y = 1085,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20430,7 +20481,7 @@ destructible{
   x = 2184,
   y = 1085,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20440,7 +20491,7 @@ destructible{
   x = 2184,
   y = 1101,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20450,7 +20501,7 @@ destructible{
   x = 2184,
   y = 317,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20460,7 +20511,7 @@ destructible{
   x = 2168,
   y = 317,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20470,7 +20521,7 @@ destructible{
   x = 2152,
   y = 317,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20480,7 +20531,7 @@ destructible{
   x = 2136,
   y = 317,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20490,7 +20541,7 @@ destructible{
   x = 2120,
   y = 317,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20500,7 +20551,7 @@ destructible{
   x = 2104,
   y = 317,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20510,7 +20561,7 @@ destructible{
   x = 2088,
   y = 317,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20520,7 +20571,7 @@ destructible{
   x = 2072,
   y = 317,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20530,7 +20581,7 @@ destructible{
   x = 2056,
   y = 317,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20540,7 +20591,7 @@ destructible{
   x = 2040,
   y = 317,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20550,7 +20601,7 @@ destructible{
   x = 2024,
   y = 317,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20560,7 +20611,7 @@ destructible{
   x = 2008,
   y = 317,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20570,7 +20621,7 @@ destructible{
   x = 1992,
   y = 317,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20580,7 +20631,7 @@ destructible{
   x = 1976,
   y = 317,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20590,7 +20641,7 @@ destructible{
   x = 2184,
   y = 429,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20600,7 +20651,7 @@ destructible{
   x = 2168,
   y = 429,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20610,7 +20661,7 @@ destructible{
   x = 2152,
   y = 429,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20620,7 +20671,7 @@ destructible{
   x = 2136,
   y = 429,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20630,7 +20681,7 @@ destructible{
   x = 2120,
   y = 429,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20640,7 +20691,7 @@ destructible{
   x = 2104,
   y = 429,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20650,7 +20701,7 @@ destructible{
   x = 2088,
   y = 429,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20660,7 +20711,7 @@ destructible{
   x = 2072,
   y = 429,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20670,7 +20721,7 @@ destructible{
   x = 2056,
   y = 429,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20680,7 +20731,7 @@ destructible{
   x = 2040,
   y = 429,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20690,7 +20741,7 @@ destructible{
   x = 2024,
   y = 429,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20700,7 +20751,7 @@ destructible{
   x = 2008,
   y = 429,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20710,7 +20761,7 @@ destructible{
   x = 1992,
   y = 429,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20720,7 +20771,7 @@ destructible{
   x = 1976,
   y = 429,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20730,7 +20781,7 @@ destructible{
   x = 2184,
   y = 413,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20740,7 +20791,7 @@ destructible{
   x = 2184,
   y = 397,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20750,7 +20801,7 @@ destructible{
   x = 2184,
   y = 381,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20760,7 +20811,7 @@ destructible{
   x = 2184,
   y = 365,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20770,7 +20821,7 @@ destructible{
   x = 2184,
   y = 349,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20780,7 +20831,7 @@ destructible{
   x = 1976,
   y = 413,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20790,7 +20841,7 @@ destructible{
   x = 1976,
   y = 397,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20800,7 +20851,7 @@ destructible{
   x = 1976,
   y = 381,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20810,7 +20861,7 @@ destructible{
   x = 1976,
   y = 365,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20820,7 +20871,7 @@ destructible{
   x = 1976,
   y = 349,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20830,7 +20881,7 @@ destructible{
   x = 1976,
   y = 333,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20840,7 +20891,7 @@ destructible{
   x = 2184,
   y = 333,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20850,7 +20901,7 @@ destructible{
   x = 2408,
   y = 461,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20860,7 +20911,7 @@ destructible{
   x = 2408,
   y = 445,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20870,7 +20921,7 @@ destructible{
   x = 2424,
   y = 445,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20880,7 +20931,7 @@ destructible{
   x = 2424,
   y = 461,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20890,7 +20941,7 @@ destructible{
   x = 2456,
   y = 413,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20900,7 +20951,7 @@ destructible{
   x = 2456,
   y = 397,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20910,7 +20961,7 @@ destructible{
   x = 2472,
   y = 397,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20920,7 +20971,7 @@ destructible{
   x = 2472,
   y = 413,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20930,7 +20981,7 @@ destructible{
   x = 2392,
   y = 413,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20940,7 +20991,7 @@ destructible{
   x = 2392,
   y = 397,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20950,7 +21001,7 @@ destructible{
   x = 2376,
   y = 397,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20960,7 +21011,7 @@ destructible{
   x = 2376,
   y = 413,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20970,7 +21021,7 @@ destructible{
   x = 2312,
   y = 413,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20980,7 +21031,7 @@ destructible{
   x = 2312,
   y = 397,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -20990,7 +21041,7 @@ destructible{
   x = 2296,
   y = 397,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -21000,7 +21051,7 @@ destructible{
   x = 2296,
   y = 413,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -21010,7 +21061,7 @@ destructible{
   x = 2344,
   y = 365,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -21020,7 +21071,7 @@ destructible{
   x = 2344,
   y = 349,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -21030,7 +21081,7 @@ destructible{
   x = 2360,
   y = 365,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -21040,7 +21091,7 @@ destructible{
   x = 2360,
   y = 349,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -21050,7 +21101,7 @@ destructible{
   x = 2488,
   y = 365,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -21060,7 +21111,7 @@ destructible{
   x = 2488,
   y = 349,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -21070,7 +21121,7 @@ destructible{
   x = 2504,
   y = 349,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -21080,7 +21131,7 @@ destructible{
   x = 2504,
   y = 365,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -21090,7 +21141,7 @@ stream{
   x = 1416,
   y = 1725,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 stream{
@@ -21098,7 +21149,7 @@ stream{
   x = 1432,
   y = 1725,
   direction = 4,
-  sprite = "entities/conveyor_belt2",
+  sprite = "entities/grounds/conveyor_belt_2",
 }
 
 destination{
@@ -21413,7 +21464,7 @@ custom_entity{
   width = 16,
   height = 32,
   direction = 0,
-  sprite = "entities/statue_liftable_dungeon_6",
+  sprite = "entities/destructibles/statue_elephant",
   model = "heavy_object",
 }
 
@@ -21637,7 +21688,7 @@ switch{
   x = 368,
   y = 816,
   subtype = "walkable",
-  sprite = "entities/switch",
+  sprite = "entities/switchs/switch",
   sound = "switch",
   needs_block = false,
   inactivate_when_leaving = false,
@@ -21648,7 +21699,7 @@ destructible{
   x = 376,
   y = 829,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -21731,7 +21782,7 @@ chest{
   treasure_name = "rupee",
   treasure_variant = 5,
   treasure_savegame_variable = "dungeon_6_rupee_2",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 door{
@@ -22394,7 +22445,7 @@ destructible{
   x = 376,
   y = 973,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -22427,7 +22478,7 @@ destructible{
   x = 2296,
   y = 573,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -22437,7 +22488,7 @@ destructible{
   x = 2312,
   y = 573,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -22447,7 +22498,7 @@ destructible{
   x = 2312,
   y = 589,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -22457,7 +22508,7 @@ destructible{
   x = 2296,
   y = 589,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -22467,7 +22518,7 @@ destructible{
   x = 2392,
   y = 589,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -22477,7 +22528,7 @@ destructible{
   x = 2392,
   y = 573,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -22487,7 +22538,7 @@ destructible{
   x = 2408,
   y = 573,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -22497,7 +22548,7 @@ destructible{
   x = 2408,
   y = 589,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -22569,7 +22620,7 @@ custom_entity{
   width = 16,
   height = 32,
   direction = 0,
-  sprite = "entities/statue_liftable_dungeon_6",
+  sprite = "entities/destructibles/statue_elephant",
   model = "heavy_object",
 }
 
@@ -22602,17 +22653,6 @@ sensor{
   y = 1653,
   width = 16,
   height = 48,
-}
-
-custom_entity{
-  layer = 0,
-  x = 1176,
-  y = 1701,
-  width = 32,
-  height = 32,
-  direction = 0,
-  sprite = "entities/statue_dungeon_6",
-  model = "statue",
 }
 
 door{
@@ -22718,7 +22758,7 @@ destructible{
   x = 1992,
   y = 1597,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -22868,7 +22908,7 @@ destructible{
   x = 1688,
   y = 365,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -22878,7 +22918,7 @@ destructible{
   x = 1688,
   y = 381,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -22888,7 +22928,7 @@ destructible{
   x = 1688,
   y = 397,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -22898,7 +22938,7 @@ destructible{
   x = 1688,
   y = 413,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -22908,7 +22948,7 @@ destructible{
   x = 1832,
   y = 413,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -22918,7 +22958,7 @@ destructible{
   x = 1832,
   y = 397,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -22928,7 +22968,7 @@ destructible{
   x = 1832,
   y = 381,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -22938,7 +22978,7 @@ destructible{
   x = 1832,
   y = 365,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -24265,50 +24305,6 @@ custom_entity{
   sprite = "entities/statue_dungeon_6_egg",
 }
 
-custom_entity{
-  name = "windfish_symbol",
-  layer = 0,
-  x = 1400,
-  y = 349,
-  width = 96,
-  height = 40,
-  direction = 3,
-  sprite = "entities/windfish_symbol_dungeon_6",
-}
-
-custom_entity{
-  name = "symbol_egg_2",
-  layer = 0,
-  x = 1304,
-  y = 365,
-  width = 24,
-  height = 64,
-  direction = 0,
-  sprite = "entities/statue_dungeon_6_egg",
-}
-
-custom_entity{
-  name = "symbol_egg_4",
-  layer = 0,
-  x = 1416,
-  y = 285,
-  width = 64,
-  height = 24,
-  direction = 3,
-  sprite = "entities/statue_dungeon_6_egg",
-}
-
-custom_entity{
-  name = "symbol_egg_3",
-  layer = 0,
-  x = 1568,
-  y = 365,
-  width = 24,
-  height = 64,
-  direction = 2,
-  sprite = "entities/statue_dungeon_6_egg",
-}
-
 pickable{
   name = "instrument",
   layer = 0,
@@ -24326,7 +24322,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/horse_head",
+  sprite = "entities/objects/horse_head",
 }
 
 custom_entity{
@@ -24337,7 +24333,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "entities/horse_head",
+  sprite = "entities/objects/horse_head",
 }
 
 custom_entity{
@@ -24348,7 +24344,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 2,
-  sprite = "entities/horse_head",
+  sprite = "entities/objects/horse_head",
 }
 
 custom_entity{
@@ -24359,7 +24355,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/horse_head",
+  sprite = "entities/objects/horse_head",
 }
 
 enemy{
@@ -27195,15 +27191,44 @@ tile{
   pattern = "door_top.2-6",
 }
 
-custom_entity{
+tile{
   layer = 1,
-  x = 1048,
-  y = 1621,
+  x = 1040,
+  y = 1672,
   width = 32,
   height = 16,
-  direction = 0,
-  sprite = "entities/statue_dungeon_6_head",
-  model = "statue",
+  pattern = "67",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 1040,
+  y = 1608,
+  width = 32,
+  height = 16,
+  pattern = "67",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 1168,
+  y = 1608,
+  width = 32,
+  height = 16,
+  pattern = "67",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 1168,
+  y = 1672,
+  width = 32,
+  height = 16,
+  pattern = "67",
+  tileset = "addition/dungeon",
 }
 
 chest{
@@ -27214,7 +27239,7 @@ chest{
   treasure_name = "power_bracelet",
   treasure_variant = 2,
   treasure_savegame_variable = "dungeon_6_power_bracelet",
-  sprite = "entities/big_chest",
+  sprite = "entities/chests/chest_big",
 }
 
 crystal_block{
@@ -27880,7 +27905,7 @@ destructible{
   x = 576,
   y = 1341,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -27965,7 +27990,7 @@ chest{
   treasure_name = "rupee",
   treasure_variant = 5,
   treasure_savegame_variable = "dungeon_6_rupee_3",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 chest{
@@ -27975,7 +28000,7 @@ chest{
   y = 1453,
   treasure_name = "drug",
   treasure_savegame_variable = "dungeon_6_drug",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 jumper{
@@ -28036,7 +28061,7 @@ chest{
   treasure_name = "rupee",
   treasure_variant = 5,
   treasure_savegame_variable = "dungeon_6_rupee_4",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 jumper{
@@ -28106,7 +28131,7 @@ chest{
   y = 349,
   treasure_name = "boss_key",
   treasure_savegame_variable = "dungeon_6_boss_key",
-  sprite = "entities/big_chest",
+  sprite = "entities/chests/chest_big",
 }
 
 custom_entity{
@@ -28149,39 +28174,6 @@ custom_entity{
   direction = 0,
   sprite = "entities/heart_fly",
   model = "heart_fly",
-}
-
-custom_entity{
-  layer = 1,
-  x = 1048,
-  y = 1685,
-  width = 32,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_dungeon_6_head",
-  model = "statue",
-}
-
-custom_entity{
-  layer = 1,
-  x = 1176,
-  y = 1621,
-  width = 32,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_dungeon_6_head",
-  model = "statue",
-}
-
-custom_entity{
-  layer = 1,
-  x = 1176,
-  y = 1685,
-  width = 32,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_dungeon_6_head",
-  model = "statue",
 }
 
 npc{

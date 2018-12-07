@@ -3207,15 +3207,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 432,
-  y = 448,
-  width = 272,
-  height = 16,
-  pattern = "6161",
-}
-
-tile{
-  layer = 0,
   x = 896,
   y = 448,
   width = 8,
@@ -3461,7 +3452,7 @@ tile{
   layer = 0,
   x = 432,
   y = 448,
-  width = 272,
+  width = 224,
   height = 16,
   pattern = "907",
 }
@@ -4046,14 +4037,14 @@ tile{
   layer = 0,
   x = 432,
   y = 464,
-  width = 272,
+  width = 224,
   height = 8,
   pattern = "119",
 }
 
 tile{
   layer = 0,
-  x = 704,
+  x = 656,
   y = 448,
   width = 8,
   height = 16,
@@ -4064,7 +4055,7 @@ tile{
   layer = 0,
   x = 456,
   y = 440,
-  width = 248,
+  width = 200,
   height = 8,
   pattern = "123",
 }
@@ -8472,7 +8463,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 704,
+  x = 656,
   y = 440,
   width = 8,
   height = 8,
@@ -8481,7 +8472,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 704,
+  x = 672,
   y = 464,
   width = 8,
   height = 8,
@@ -10200,15 +10191,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 680,
-  y = 472,
-  width = 16,
-  height = 16,
-  pattern = "1128",
-}
-
-tile{
-  layer = 0,
   x = -16,
   y = 488,
   width = 32,
@@ -10223,42 +10205,6 @@ tile{
   width = 32,
   height = 32,
   pattern = "1501",
-}
-
-tile{
-  layer = 0,
-  x = 696,
-  y = 464,
-  width = 8,
-  height = 32,
-  pattern = "1131",
-}
-
-tile{
-  layer = 0,
-  x = 680,
-  y = 488,
-  width = 16,
-  height = 8,
-  pattern = "1130",
-}
-
-tile{
-  layer = 0,
-  x = 672,
-  y = 464,
-  width = 8,
-  height = 32,
-  pattern = "1129",
-}
-
-tile{
-  layer = 0,
-  x = 680,
-  y = 464,
-  width = 16,
-  height = 8,
-  pattern = "1127",
 }
 
 tile{
@@ -10396,34 +10342,386 @@ tile{
   pattern = "2211",
 }
 
+tile{
+  layer = 0,
+  x = 576,
+  y = 624,
+  width = 8,
+  height = 8,
+  pattern = "100",
+}
+
+tile{
+  layer = 0,
+  x = 592,
+  y = 168,
+  width = 16,
+  height = 16,
+  pattern = "28",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 640,
+  y = 168,
+  width = 16,
+  height = 16,
+  pattern = "26",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 256,
+  y = 496,
+  width = 112,
+  height = 16,
+  pattern = "73",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 352,
+  y = 432,
+  width = 16,
+  height = 64,
+  pattern = "73",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 256,
+  y = 512,
+  width = 112,
+  height = 8,
+  pattern = "74",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 368,
+  y = 432,
+  width = 48,
+  height = 16,
+  pattern = "73",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 368,
+  y = 448,
+  width = 48,
+  height = 8,
+  pattern = "74",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 432,
+  y = 480,
+  width = 16,
+  height = 128,
+  pattern = "73",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 384,
+  y = 608,
+  width = 64,
+  height = 8,
+  pattern = "74",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 384,
+  y = 592,
+  width = 48,
+  height = 16,
+  pattern = "73",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 368,
+  y = 608,
+  width = 16,
+  height = 64,
+  pattern = "73",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 368,
+  y = 672,
+  width = 16,
+  height = 8,
+  pattern = "74",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 304,
+  y = 656,
+  enabled_at_start = false,
+  width = 16,
+  height = 16,
+  pattern = "73",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 304,
+  y = 672,
+  width = 16,
+  height = 8,
+  pattern = "74",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 304,
+  y = 592,
+  width = 16,
+  height = 16,
+  pattern = "73",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 304,
+  y = 608,
+  width = 16,
+  height = 8,
+  pattern = "74",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 304,
+  y = 544,
+  width = 16,
+  height = 16,
+  pattern = "73",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 304,
+  y = 560,
+  width = 16,
+  height = 8,
+  pattern = "74",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 352,
+  y = 544,
+  width = 16,
+  height = 16,
+  pattern = "73",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 352,
+  y = 560,
+  width = 16,
+  height = 8,
+  pattern = "74",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 384,
+  y = 544,
+  width = 16,
+  height = 16,
+  pattern = "73",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 384,
+  y = 560,
+  width = 16,
+  height = 8,
+  pattern = "74",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 384,
+  y = 480,
+  enabled_at_start = false,
+  width = 16,
+  height = 16,
+  pattern = "73",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 384,
+  y = 496,
+  width = 16,
+  height = 8,
+  pattern = "74",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 288,
+  y = 704,
+  width = 64,
+  height = 16,
+  pattern = "73",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 288,
+  y = 720,
+  width = 64,
+  height = 8,
+  pattern = "74",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 272,
+  y = 736,
+  width = 48,
+  height = 16,
+  pattern = "73",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 272,
+  y = 752,
+  width = 48,
+  height = 16,
+  pattern = "73",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 336,
+  y = 736,
+  width = 16,
+  height = 16,
+  pattern = "73",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 336,
+  y = 752,
+  width = 16,
+  height = 16,
+  pattern = "73",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 192,
+  y = 752,
+  enabled_at_start = false,
+  width = 16,
+  height = 16,
+  pattern = "73",
+  tileset = "addition/out",
+}
+
 npc{
+  name = "sign_2",
   layer = 0,
   x = 184,
   y = 221,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+    {
+      key = "dialog_id",
+      value = "maps.out.east_prairie.sign_2",
+    },
+  },
   direction = 3,
   subtype = 0,
-  sprite = "entities/sign",
-  behavior = "dialog#maps.out.east_prairie.sign_2",
+  sprite = "entities/destructibles/sign",
 }
 
 npc{
+  name = "sign_1",
   layer = 0,
   x = 376,
   y = 109,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+    {
+      key = "dialog_id",
+      value = "maps.out.east_prairie.sign_1",
+    },
+  },
   direction = 3,
   subtype = 0,
-  sprite = "entities/sign",
-  behavior = "dialog#maps.out.east_prairie.sign_1",
+  sprite = "entities/destructibles/sign",
 }
 
 npc{
+  name = "sign_3",
   layer = 0,
   x = 552,
   y = 437,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+    {
+      key = "dialog_id",
+      value = "maps.out.east_prairie.sign_3",
+    },
+  },
   direction = 3,
   subtype = 0,
-  sprite = "entities/sign",
-  behavior = "dialog#maps.out.east_prairie.sign_3",
+  sprite = "entities/destructibles/sign",
 }
 
 npc{
@@ -10432,7 +10730,7 @@ npc{
   y = 557,
   direction = 3,
   subtype = 1,
-  sprite = "entities/owl_blue",
+  sprite = "npc/statues/owl",
 }
 
 teletransporter{
@@ -10485,534 +10783,6 @@ teletransporter{
 
 custom_entity{
   layer = 0,
-  x = 264,
-  y = 509,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 280,
-  y = 509,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 296,
-  y = 509,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 312,
-  y = 509,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 328,
-  y = 509,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 344,
-  y = 509,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 360,
-  y = 445,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 360,
-  y = 461,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 360,
-  y = 477,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 360,
-  y = 493,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 360,
-  y = 509,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 376,
-  y = 445,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 392,
-  y = 445,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 408,
-  y = 445,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 392,
-  y = 493,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 312,
-  y = 557,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 312,
-  y = 605,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 312,
-  y = 669,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 376,
-  y = 637,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 376,
-  y = 653,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 376,
-  y = 669,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 392,
-  y = 605,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 408,
-  y = 605,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 424,
-  y = 605,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 440,
-  y = 493,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 440,
-  y = 509,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 440,
-  y = 525,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 440,
-  y = 541,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 440,
-  y = 557,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 440,
-  y = 573,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 440,
-  y = 589,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 440,
-  y = 605,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 360,
-  y = 557,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 392,
-  y = 557,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 296,
-  y = 717,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 312,
-  y = 717,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 328,
-  y = 717,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 344,
-  y = 717,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 344,
-  y = 749,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 344,
-  y = 765,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 280,
-  y = 749,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 296,
-  y = 749,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 280,
-  y = 765,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 296,
-  y = 765,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 200,
-  y = 765,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 312,
-  y = 749,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 312,
-  y = 765,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 376,
-  y = 621,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
   x = 936,
   y = 509,
   width = 16,
@@ -11038,7 +10808,7 @@ destructible{
   x = 360,
   y = 53,
   treasure_name = "random",
-  sprite = "entities/bush",
+  sprite = "entities/destructibles/bush",
   destruction_sound = "bush",
   weight = 1,
   can_be_cut = true,
@@ -11049,7 +10819,7 @@ destructible{
   x = 360,
   y = 85,
   treasure_name = "random",
-  sprite = "entities/bush",
+  sprite = "entities/destructibles/bush",
   destruction_sound = "bush",
   weight = 1,
   can_be_cut = true,
@@ -11060,7 +10830,7 @@ destructible{
   x = 304,
   y = 53,
   treasure_name = "random",
-  sprite = "entities/bush",
+  sprite = "entities/destructibles/bush",
   destruction_sound = "bush",
   weight = 1,
   can_be_cut = true,
@@ -11071,7 +10841,7 @@ destructible{
   x = 280,
   y = 53,
   treasure_name = "random",
-  sprite = "entities/bush",
+  sprite = "entities/destructibles/bush",
   destruction_sound = "bush",
   weight = 1,
   can_be_cut = true,
@@ -11082,7 +10852,7 @@ destructible{
   x = 280,
   y = 85,
   treasure_name = "random",
-  sprite = "entities/bush",
+  sprite = "entities/destructibles/bush",
   destruction_sound = "bush",
   weight = 1,
   can_be_cut = true,
@@ -11093,7 +10863,7 @@ destructible{
   x = 280,
   y = 117,
   treasure_name = "random",
-  sprite = "entities/bush",
+  sprite = "entities/destructibles/bush",
   destruction_sound = "bush",
   weight = 1,
   can_be_cut = true,
@@ -11104,7 +10874,7 @@ destructible{
   x = 304,
   y = 133,
   treasure_name = "random",
-  sprite = "entities/bush",
+  sprite = "entities/destructibles/bush",
   destruction_sound = "bush",
   weight = 1,
   can_be_cut = true,
@@ -11115,7 +10885,7 @@ destructible{
   x = 248,
   y = 133,
   treasure_name = "random",
-  sprite = "entities/bush",
+  sprite = "entities/destructibles/bush",
   destruction_sound = "bush",
   weight = 1,
   can_be_cut = true,
@@ -11126,7 +10896,7 @@ destructible{
   x = 376,
   y = 141,
   treasure_name = "random",
-  sprite = "entities/bush",
+  sprite = "entities/destructibles/bush",
   destruction_sound = "bush",
   weight = 1,
   can_be_cut = true,
@@ -11137,7 +10907,7 @@ destructible{
   x = 392,
   y = 173,
   treasure_name = "random",
-  sprite = "entities/bush",
+  sprite = "entities/destructibles/bush",
   destruction_sound = "bush",
   weight = 1,
   can_be_cut = true,
@@ -11148,7 +10918,7 @@ destructible{
   x = 424,
   y = 301,
   treasure_name = "random",
-  sprite = "entities/bush",
+  sprite = "entities/destructibles/bush",
   destruction_sound = "bush",
   weight = 1,
   can_be_cut = true,
@@ -11159,7 +10929,7 @@ destructible{
   x = 440,
   y = 301,
   treasure_name = "random",
-  sprite = "entities/bush",
+  sprite = "entities/destructibles/bush",
   destruction_sound = "bush",
   weight = 1,
   can_be_cut = true,
@@ -11170,7 +10940,7 @@ destructible{
   x = 488,
   y = 301,
   treasure_name = "random",
-  sprite = "entities/bush",
+  sprite = "entities/destructibles/bush",
   destruction_sound = "bush",
   weight = 1,
   can_be_cut = true,
@@ -11181,7 +10951,7 @@ destructible{
   x = 552,
   y = 285,
   treasure_name = "random",
-  sprite = "entities/bush",
+  sprite = "entities/destructibles/bush",
   destruction_sound = "bush",
   weight = 1,
   can_be_cut = true,
@@ -11192,7 +10962,7 @@ destructible{
   x = 600,
   y = 269,
   treasure_name = "random",
-  sprite = "entities/bush",
+  sprite = "entities/destructibles/bush",
   destruction_sound = "bush",
   weight = 1,
   can_be_cut = true,
@@ -11203,7 +10973,7 @@ destructible{
   x = 632,
   y = 269,
   treasure_name = "random",
-  sprite = "entities/bush",
+  sprite = "entities/destructibles/bush",
   destruction_sound = "bush",
   weight = 1,
   can_be_cut = true,
@@ -11214,7 +10984,7 @@ destructible{
   x = 600,
   y = 301,
   treasure_name = "random",
-  sprite = "entities/bush",
+  sprite = "entities/destructibles/bush",
   destruction_sound = "bush",
   weight = 1,
   can_be_cut = true,
@@ -11225,7 +10995,7 @@ destructible{
   x = 736,
   y = 173,
   treasure_name = "random",
-  sprite = "entities/bush",
+  sprite = "entities/destructibles/bush",
   destruction_sound = "bush",
   weight = 1,
   can_be_cut = true,
@@ -11236,7 +11006,7 @@ destructible{
   x = 752,
   y = 173,
   treasure_name = "random",
-  sprite = "entities/bush",
+  sprite = "entities/destructibles/bush",
   destruction_sound = "bush",
   weight = 1,
   can_be_cut = true,
@@ -11247,7 +11017,7 @@ destructible{
   x = 768,
   y = 173,
   treasure_name = "random",
-  sprite = "entities/bush",
+  sprite = "entities/destructibles/bush",
   destruction_sound = "bush",
   weight = 1,
   can_be_cut = true,
@@ -11258,7 +11028,7 @@ destructible{
   x = 784,
   y = 173,
   treasure_name = "random",
-  sprite = "entities/bush",
+  sprite = "entities/destructibles/bush",
   destruction_sound = "bush",
   weight = 1,
   can_be_cut = true,
@@ -11269,7 +11039,7 @@ destructible{
   x = 784,
   y = 157,
   treasure_name = "random",
-  sprite = "entities/bush",
+  sprite = "entities/destructibles/bush",
   destruction_sound = "bush",
   weight = 1,
   can_be_cut = true,
@@ -11280,7 +11050,7 @@ destructible{
   x = 768,
   y = 157,
   treasure_name = "random",
-  sprite = "entities/bush",
+  sprite = "entities/destructibles/bush",
   destruction_sound = "bush",
   weight = 1,
   can_be_cut = true,
@@ -11291,7 +11061,7 @@ destructible{
   x = 768,
   y = 141,
   treasure_name = "random",
-  sprite = "entities/bush",
+  sprite = "entities/destructibles/bush",
   destruction_sound = "bush",
   weight = 1,
   can_be_cut = true,
@@ -11302,7 +11072,7 @@ destructible{
   x = 784,
   y = 141,
   treasure_name = "random",
-  sprite = "entities/bush",
+  sprite = "entities/destructibles/bush",
   destruction_sound = "bush",
   weight = 1,
   can_be_cut = true,
@@ -11313,7 +11083,7 @@ destructible{
   x = 784,
   y = 125,
   treasure_name = "random",
-  sprite = "entities/bush",
+  sprite = "entities/destructibles/bush",
   destruction_sound = "bush",
   weight = 1,
   can_be_cut = true,
@@ -11324,7 +11094,7 @@ destructible{
   x = 768,
   y = 125,
   treasure_name = "random",
-  sprite = "entities/bush",
+  sprite = "entities/destructibles/bush",
   destruction_sound = "bush",
   weight = 1,
   can_be_cut = true,
@@ -11335,36 +11105,10 @@ destructible{
   x = 768,
   y = 109,
   treasure_name = "random",
-  sprite = "entities/bush",
+  sprite = "entities/destructibles/bush",
   destruction_sound = "bush",
   weight = 1,
   can_be_cut = true,
-}
-
-destination{
-  name = "cave_c3_1_west",
-  layer = 0,
-  x = 688,
-  y = 477,
-  direction = 1,
-}
-
-teletransporter{
-  layer = 0,
-  x = 680,
-  y = 464,
-  width = 16,
-  height = 16,
-  destination_map = "caves/east_prairie/cave_1",
-  destination = "stair_west",
-}
-
-stairs{
-  layer = 0,
-  x = 680,
-  y = 464,
-  direction = 3,
-  subtype = 3,
 }
 
 destination{
@@ -11461,7 +11205,7 @@ destructible{
   y = 109,
   treasure_name = "seashell",
   treasure_savegame_variable = "seashell_7",
-  sprite = "entities/bush",
+  sprite = "entities/destructibles/bush",
   destruction_sound = "bush",
   weight = 1,
   can_be_cut = true,
@@ -11480,7 +11224,7 @@ destructible{
   layer = 0,
   x = 376,
   y = 605,
-  sprite = "entities/stone_small_white",
+  sprite = "entities/destructibles/stone_white_small",
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
@@ -11624,38 +11368,24 @@ enemy{
   treasure_name = "random",
 }
 
-custom_entity{
-  name = "statue_shell_house",
-  layer = 0,
-  x = 600,
-  y = 181,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_shell_house",
-  model = "obstacle",
-}
-
-custom_entity{
-  name = "statue_shell_house_2",
-  layer = 0,
-  x = 648,
-  y = 181,
-  width = 16,
-  height = 16,
-  direction = 2,
-  sprite = "entities/statue_shell_house",
-  model = "obstacle",
-}
-
 npc{
+  name = "sign_4",
   layer = 0,
   x = 648,
   y = 197,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+    {
+      key = "dialog_id",
+      value = "maps.out.east_prairie.sign_4",
+    },
+  },
   direction = 3,
   subtype = 0,
-  sprite = "entities/sign",
-  behavior = "dialog#maps.out.east_prairie.sign_4",
+  sprite = "entities/destructibles/sign",
 }
 
 enemy{
@@ -11665,6 +11395,116 @@ enemy{
   direction = 3,
   breed = "moblin",
   treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "ground_secret_entities_5",
+  layer = 0,
+  x = 680,
+  y = 472,
+  pattern = "1128",
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "ground_secret_entities_3",
+  layer = 0,
+  x = 696,
+  y = 464,
+  pattern = "1131",
+  width = 8,
+  height = 32,
+}
+
+dynamic_tile{
+  name = "ground_secret_entities_1",
+  layer = 0,
+  x = 680,
+  y = 488,
+  pattern = "1130",
+  width = 16,
+  height = 8,
+}
+
+dynamic_tile{
+  name = "ground_secret_entities_2",
+  layer = 0,
+  x = 672,
+  y = 464,
+  pattern = "1129",
+  width = 8,
+  height = 32,
+}
+
+dynamic_tile{
+  name = "ground_secret_entities_4",
+  layer = 0,
+  x = 680,
+  y = 464,
+  pattern = "1127",
+  width = 16,
+  height = 8,
+}
+
+destination{
+  name = "ground_secret_appear_6",
+  layer = 0,
+  x = 688,
+  y = 461,
+  direction = 1,
+}
+
+custom_entity{
+  name = "ground_secret",
+  layer = 0,
+  x = 680,
+  y = 477,
+  width = 32,
+  height = 32,
+  direction = 0,
+  sprite = "entities/secret_ground",
+}
+
+stairs{
+  name = "ground_secret_appear_8",
+  layer = 0,
+  x = 680,
+  y = 464,
+  direction = 3,
+  subtype = 3,
+}
+
+teletransporter{
+  name = "ground_secret_appear_7",
+  layer = 0,
+  x = 680,
+  y = 464,
+  width = 16,
+  height = 16,
+  destination_map = "caves/east_prairie/cave_1",
+  destination = "stair_west",
+}
+
+destructible{
+  name = "bush_ground_secret",
+  layer = 0,
+  x = 688,
+  y = 485,
+  sprite = "entities/destructibles/bush",
+  destruction_sound = "arrow_hit",
+  weight = 1,
+  can_be_cut = true,
+}
+
+custom_entity{
+  name = "ground_secret_placeholder",
+  layer = 0,
+  x = 712,
+  y = 485,
+  width = 16,
+  height = 16,
+  direction = 0,
 }
 
 tile{
@@ -13350,14 +13190,33 @@ tile{
   pattern = "4593",
 }
 
-custom_entity{
-  name = "phone_statue",
+tile{
   layer = 1,
-  x = 152,
-  y = 85,
+  x = 592,
+  y = 152,
   width = 16,
   height = 16,
-  direction = 0,
-  sprite = "entities/phone_statue",
+  pattern = "29",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 640,
+  y = 152,
+  width = 16,
+  height = 16,
+  pattern = "27",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 144,
+  y = 80,
+  width = 32,
+  height = 24,
+  pattern = "32",
+  tileset = "addition/out",
 }
 

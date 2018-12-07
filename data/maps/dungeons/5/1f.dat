@@ -12908,6 +12908,46 @@ tile{
   pattern = "floor_low.3-1",
 }
 
+tile{
+  layer = 0,
+  x = 768,
+  y = 16,
+  width = 64,
+  height = 24,
+  pattern = "36",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 656,
+  y = 96,
+  width = 24,
+  height = 64,
+  pattern = "39",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 920,
+  y = 96,
+  width = 24,
+  height = 64,
+  pattern = "38",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 752,
+  y = 80,
+  width = 96,
+  height = 32,
+  pattern = "5",
+  tileset = "addition/dungeon",
+}
+
 wall{
   layer = 0,
   x = 920,
@@ -15303,50 +15343,6 @@ npc{
   sprite = "entities/statue_dungeon_5_owl",
 }
 
-custom_entity{
-  name = "windfish_symbol",
-  layer = 0,
-  x = 760,
-  y = 93,
-  width = 96,
-  height = 40,
-  direction = 3,
-  sprite = "entities/windfish_symbol_dungeon_5",
-}
-
-custom_entity{
-  name = "symbol_egg_2",
-  layer = 0,
-  x = 664,
-  y = 109,
-  width = 24,
-  height = 64,
-  direction = 0,
-  sprite = "entities/statue_dungeon_5_egg",
-}
-
-custom_entity{
-  name = "symbol_egg_4",
-  layer = 0,
-  x = 776,
-  y = 29,
-  width = 64,
-  height = 24,
-  direction = 3,
-  sprite = "entities/statue_dungeon_5_egg",
-}
-
-custom_entity{
-  name = "symbol_egg_3",
-  layer = 0,
-  x = 928,
-  y = 109,
-  width = 24,
-  height = 64,
-  direction = 2,
-  sprite = "entities/statue_dungeon_5_egg",
-}
-
 pickable{
   name = "instrument",
   layer = 0,
@@ -17634,7 +17630,7 @@ switch{
   x = 1744,
   y = 864,
   subtype = "walkable",
-  sprite = "entities/switch",
+  sprite = "entities/switchs/switch",
   sound = "switch",
   needs_block = false,
   inactivate_when_leaving = false,

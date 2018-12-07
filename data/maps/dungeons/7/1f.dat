@@ -6212,6 +6212,26 @@ tile{
   pattern = "floor.7-1",
 }
 
+tile{
+  layer = 0,
+  x = 400,
+  y = 912,
+  width = 32,
+  height = 32,
+  pattern = "64",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 528,
+  y = 912,
+  width = 32,
+  height = 32,
+  pattern = "64",
+  tileset = "addition/dungeon",
+}
+
 wall{
   layer = 0,
   x = 1152,
@@ -6372,7 +6392,7 @@ destructible{
   layer = 0,
   x = 152,
   y = 861,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -6380,7 +6400,7 @@ destructible{
   layer = 0,
   x = 152,
   y = 877,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -6388,7 +6408,7 @@ destructible{
   layer = 0,
   x = 152,
   y = 893,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -6396,7 +6416,7 @@ destructible{
   layer = 0,
   x = 152,
   y = 909,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -6404,7 +6424,7 @@ destructible{
   layer = 0,
   x = 168,
   y = 909,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -6412,7 +6432,7 @@ destructible{
   layer = 0,
   x = 168,
   y = 893,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -6420,7 +6440,7 @@ destructible{
   layer = 0,
   x = 168,
   y = 877,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -6428,7 +6448,7 @@ destructible{
   layer = 0,
   x = 168,
   y = 861,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -6436,7 +6456,7 @@ destructible{
   layer = 0,
   x = 184,
   y = 861,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -6444,7 +6464,7 @@ destructible{
   layer = 0,
   x = 184,
   y = 877,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -6452,7 +6472,7 @@ destructible{
   layer = 0,
   x = 184,
   y = 893,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -6460,7 +6480,7 @@ destructible{
   layer = 0,
   x = 184,
   y = 909,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -6753,7 +6773,7 @@ chest{
   layer = 0,
   x = 136,
   y = 589,
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 block{
@@ -6788,7 +6808,7 @@ destructible{
   layer = 0,
   x = 408,
   y = 717,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -6796,7 +6816,7 @@ destructible{
   layer = 0,
   x = 552,
   y = 717,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -6804,7 +6824,7 @@ destructible{
   layer = 0,
   x = 536,
   y = 637,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -6812,7 +6832,7 @@ destructible{
   layer = 0,
   x = 200,
   y = 909,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -6820,7 +6840,7 @@ destructible{
   layer = 0,
   x = 200,
   y = 877,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -6828,7 +6848,7 @@ destructible{
   layer = 0,
   x = 200,
   y = 861,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -6836,7 +6856,7 @@ destructible{
   layer = 0,
   x = 200,
   y = 893,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   weight = 1,
 }
 
@@ -6926,26 +6946,6 @@ destination{
   x = 480,
   y = 957,
   direction = 1,
-}
-
-custom_entity{
-  layer = 0,
-  x = 416,
-  y = 941,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_dungeon_7",
-}
-
-custom_entity{
-  layer = 0,
-  x = 544,
-  y = 941,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_dungeon_7",
 }
 
 npc{
@@ -7498,18 +7498,38 @@ tile{
   pattern = "torch",
 }
 
+tile{
+  layer = 1,
+  x = 400,
+  y = 896,
+  width = 32,
+  height = 16,
+  pattern = "65",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 528,
+  y = 896,
+  width = 32,
+  height = 16,
+  pattern = "65",
+  tileset = "addition/dungeon",
+}
+
 chest{
   layer = 1,
   x = 56,
   y = 61,
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 chest{
   layer = 1,
   x = 1224,
   y = 61,
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 block{
