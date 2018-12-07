@@ -235,6 +235,7 @@ sprite{ id = "enemies/boss/moldorm/moldorm_head", description = "Moldorm head" }
 sprite{ id = "enemies/boss/rolling_bones/rolling_bones", description = "Rolling bones" }
 sprite{ id = "enemies/boss/rolling_bones/rolling_bones_spike", description = "Rolling bones spike" }
 sprite{ id = "enemies/boss/skeleton", description = "Skeleton" }
+sprite{ id = "enemies/boss/slime_eel", description = "Slime eel" }
 sprite{ id = "enemies/boss/smasher", description = "Smasher" }
 sprite{ id = "enemies/boss/stone_hinox", description = "Stone hinox" }
 sprite{ id = "enemies/boss/turtle_rock_head", description = "Turtle rock head" }
