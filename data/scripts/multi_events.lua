@@ -84,7 +84,7 @@ local function register_event(object, event_name, callback, first)
   object._events = nil --remove events to allow modification
   events[event_name] = true --set event as registered
   local previous_callbacks = object[event_name] or mt_trampoline(object,event_name)
-  if not first then
+  if first then
     object[event_name] = function(...)
       return callback(...) or previous_callbacks(...)
     end
