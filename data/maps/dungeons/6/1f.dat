@@ -27918,7 +27918,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/torch",
+  sprite = "entities/objects/torch",
   model = "torch",
 }
 
@@ -27930,7 +27930,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/torch",
+  sprite = "entities/objects/torch",
   model = "torch",
 }
 

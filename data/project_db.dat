@@ -483,6 +483,7 @@ sprite{ id = "entities/objects/flame_fountain_machine", description = "Flame fou
 sprite{ id = "entities/objects/hibiscus_pot", description = "Hibiscus pot" }
 sprite{ id = "entities/objects/horse_head", description = "Horse head" }
 sprite{ id = "entities/objects/raft", description = "Raft" }
+sprite{ id = "entities/objects/torch", description = "Torch" }
 sprite{ id = "entities/objects/vacuum_cleaner", description = "Vacuum cleaner" }
 sprite{ id = "entities/orb_monster_hole_blue", description = "Orb monster hole blue" }
 sprite{ id = "entities/orb_monster_hole_green", description = "Orb monster hole green" }
@@ -498,7 +499,7 @@ sprite{ id = "entities/palm_footer_brown", description = "Palm footer brown" }
 sprite{ id = "entities/palm_footer_green", description = "Palm footer green" }
 sprite{ id = "entities/palm_footer_yellow", description = "Palm footer yellow" }
 sprite{ id = "entities/pencil", description = "Pencil" }
-sprite{ id = "entities/pot_sideview_dg_2", description = "Pot sideview dg 2" }
+sprite{ id = "entities/destructibles/pot_sideview_dg_2", description = "Pot sideview dg 2" }
 sprite{ id = "entities/powder_fly", description = "Powder fly" }
 sprite{ id = "entities/rock_block", description = "Rock block" }
 sprite{ id = "entities/rooster_dead", description = "Rooster dead" }
@@ -536,7 +537,6 @@ sprite{ id = "entities/teletransporter_blue", description = "Teletransporter blu
 sprite{ id = "entities/teletransporter_dungeon", description = "Teletransporter dungeon" }
 sprite{ id = "entities/teletransporter_green", description = "Teletransporter green" }
 sprite{ id = "entities/teletransporter_red", description = "Teletransporter red" }
-sprite{ id = "entities/torch", description = "Torch" }
 sprite{ id = "entities/turtlerock_arms", description = "Turtlerock arms" }
 sprite{ id = "entities/turtlerock_head", description = "Turtlerock head" }
 sprite{ id = "entities/utils/non_diggable", description = "Non diggable" }

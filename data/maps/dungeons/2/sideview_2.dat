@@ -1106,7 +1106,7 @@ destructible{
   x = 200,
   y = 197,
   treasure_name = "random",
-  sprite = "entities/pot_sideview_dg_2",
+  sprite = "entities/destructibles/pot_sideview_dg_2",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -1116,7 +1116,7 @@ destructible{
   x = 552,
   y = 197,
   treasure_name = "random",
-  sprite = "entities/pot_sideview_dg_2",
+  sprite = "entities/destructibles/pot_sideview_dg_2",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -1126,7 +1126,7 @@ destructible{
   x = 536,
   y = 197,
   treasure_name = "random",
-  sprite = "entities/pot_sideview_dg_2",
+  sprite = "entities/destructibles/pot_sideview_dg_2",
   destruction_sound = "stone",
   weight = 1,
 }
