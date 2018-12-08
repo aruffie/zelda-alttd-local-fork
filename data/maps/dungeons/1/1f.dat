@@ -14119,7 +14119,7 @@ chest{
   y = 845,
   treasure_name = "feather",
   treasure_savegame_variable = "dungeon_1_feather",
-  sprite = "entities/chests/chest_big",
+  sprite = "entities/big_chest",
 }
 
 door{
@@ -18151,7 +18151,7 @@ chest{
   y = 837,
   treasure_name = "boss_key",
   treasure_savegame_variable = "dungeon_1_boss_key",
-  sprite = "entities/chests/chest_big",
+  sprite = "entities/big_chest",
 }
 
 custom_entity{
@@ -18161,7 +18161,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/heart_fly",
+  sprite = "entities/items/heart_fly",
   model = "pickable_fly",
 }
 

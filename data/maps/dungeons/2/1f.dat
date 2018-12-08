@@ -17214,16 +17214,6 @@ tile{
   tileset = "addition/dungeon",
 }
 
-tile{
-  layer = 0,
-  x = 1728,
-  y = 528,
-  width = 64,
-  height = 24,
-  pattern = "24",
-  tileset = "addition/dungeon",
-}
-
 wall{
   layer = 0,
   x = 1880,
@@ -17314,6 +17304,19 @@ wall{
   y = 680,
   width = 80,
   height = 16,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 0,
+  x = 1832,
+  y = 344,
+  width = 32,
+  height = 24,
+  stops_hero = true,
   stops_npcs = true,
   stops_enemies = true,
   stops_blocks = true,
@@ -18943,7 +18946,7 @@ chest{
   y = 77,
   treasure_name = "power_bracelet",
   treasure_savegame_variable = "dungeon_2_power_bracelet",
-  sprite = "entities/chests/chest_big",
+  sprite = "entities/big_chest",
 }
 
 block{
@@ -20824,7 +20827,7 @@ chest{
   y = 365,
   treasure_name = "boss_key",
   treasure_savegame_variable = "dungeon_2_boss_key",
-  sprite = "entities/chests/chest_big",
+  sprite = "entities/big_chest",
 }
 
 enemy{
@@ -21059,6 +21062,17 @@ destination{
   x = 480,
   y = 781,
   direction = 1,
+}
+
+custom_entity{
+  name = "symbol_egg_4",
+  layer = 0,
+  x = 1736,
+  y = 541,
+  width = 64,
+  height = 24,
+  direction = 3,
+  sprite = "entities/statue_dungeon_2_egg",
 }
 
 destination{
@@ -23970,7 +23984,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/heart_fly",
+  sprite = "entities/items/heart_fly",
   model = "pickable_fly",
 }
 
@@ -23981,7 +23995,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/heart_fly",
+  sprite = "entities/items/heart_fly",
   model = "heart_fly",
 }
 
@@ -24018,7 +24032,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/powder_fly",
+  sprite = "entities/items/magic_powder_fly",
   model = "pickable_fly",
 }
 

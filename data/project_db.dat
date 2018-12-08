@@ -357,12 +357,10 @@ sprite{ id = "entities/animals/seagull", description = "Seagull" }
 sprite{ id = "entities/animals/seagull_small", description = "Seagull small" }
 sprite{ id = "entities/animals/wart_brothers", description = "Wart's brothers" }
 sprite{ id = "entities/arrow", description = "Arrow" }
-sprite{ id = "entities/arrow_fly", description = "Arrow fly" }
 sprite{ id = "entities/bed", description = "Hero's bed" }
 sprite{ id = "entities/blocks/block_small_key", description = "Block small key" }
 sprite{ id = "entities/blocks/box", description = "Box" }
 sprite{ id = "entities/bomb", description = "Bomb" }
-sprite{ id = "entities/bomb_fly", description = "Bomb fly" }
 sprite{ id = "entities/bombite_explosion", description = "Bombite_explosion" }
 sprite{ id = "entities/boomerang1", description = "Boomerang 1" }
 sprite{ id = "entities/boomerang2", description = "Boomerang 2" }
@@ -448,8 +446,6 @@ sprite{ id = "entities/hammer_stake_yellow", description = "Hammer stake yellow"
 sprite{ id = "entities/handle", description = "Handle" }
 sprite{ id = "entities/handle_base", description = "Handle base" }
 sprite{ id = "entities/handle_chain", description = "Handle chain" }
-sprite{ id = "entities/heart_fly", description = "Heart fly" }
-sprite{ id = "entities/heart_fly_shadow", description = "Heart fly shadow" }
 sprite{ id = "entities/hook", description = "Hook" }
 sprite{ id = "entities/hook_bridge", description = "Hook bridge" }
 sprite{ id = "entities/hook_bridge_deployed", description = "hook_bridge_deployed" }
@@ -461,9 +457,14 @@ sprite{ id = "entities/insects/butterfly_red", description = "Butterfly 3" }
 sprite{ id = "entities/insects/butterfly_yellow", description = "Butterfly 2" }
 sprite{ id = "entities/insects/mosquito", description = "Mosquito" }
 sprite{ id = "entities/items", description = "Items" }
+sprite{ id = "entities/items/arrow_fly", description = "Arrow fly" }
 sprite{ id = "entities/items/bananas", description = "Bananas" }
+sprite{ id = "entities/items/bomb_fly", description = "Bomb fly" }
 sprite{ id = "entities/items/heart", description = "Heart" }
+sprite{ id = "entities/items/heart_fly", description = "Heart fly" }
+sprite{ id = "entities/items/magic_powder_fly", description = "Magic powder fly" }
 sprite{ id = "entities/items/mushroom", description = "Mushroom" }
+sprite{ id = "entities/items/rupee_fly", description = "Rupee fly" }
 sprite{ id = "entities/items/shield", description = "Shield" }
 sprite{ id = "entities/items/shovel", description = "Shovel" }
 sprite{ id = "entities/keyhole_dungeon_4", description = "Keyhole dungeon 4" }
@@ -499,15 +500,14 @@ sprite{ id = "entities/palm_footer_brown", description = "Palm footer brown" }
 sprite{ id = "entities/palm_footer_green", description = "Palm footer green" }
 sprite{ id = "entities/palm_footer_yellow", description = "Palm footer yellow" }
 sprite{ id = "entities/pencil", description = "Pencil" }
-sprite{ id = "entities/destructibles/pot_sideview_dg_2", description = "Pot sideview dg 2" }
-sprite{ id = "entities/powder_fly", description = "Powder fly" }
+sprite{ id = "entities/pot_sideview_dg_2", description = "Pot sideview dg 2" }
 sprite{ id = "entities/rock_block", description = "Rock block" }
 sprite{ id = "entities/rooster_dead", description = "Rooster dead" }
-sprite{ id = "entities/rupee_fly", description = "Rupee fly" }
 sprite{ id = "entities/secret_ground", description = "Secret ground" }
 sprite{ id = "entities/shadow", description = "Shadow" }
 sprite{ id = "entities/shadows/ball", description = "Ball" }
 sprite{ id = "entities/shadows/owl", description = "Owl" }
+sprite{ id = "entities/shadows/pickable_flying", description = "Pickable flying" }
 sprite{ id = "entities/shadows/shadow_big", description = "Shadow big" }
 sprite{ id = "entities/shadows/shadow_big_dynamic", description = "Shadow big dynamic" }
 sprite{ id = "entities/shadows/shadow_small", description = "Shadow small" }
@@ -532,11 +532,7 @@ sprite{ id = "entities/symbols/interrogation", description = "Interrogation" }
 sprite{ id = "entities/symbols/notes", description = "Notes" }
 sprite{ id = "entities/symbols/oh", description = "Oh" }
 sprite{ id = "entities/symbols/snores", description = "Snores" }
-sprite{ id = "entities/teletransporter", description = "Teletransporter" }
-sprite{ id = "entities/teletransporter_blue", description = "Teletransporter blue" }
 sprite{ id = "entities/teletransporter_dungeon", description = "Teletransporter dungeon" }
-sprite{ id = "entities/teletransporter_green", description = "Teletransporter green" }
-sprite{ id = "entities/teletransporter_red", description = "Teletransporter red" }
 sprite{ id = "entities/turtlerock_arms", description = "Turtlerock arms" }
 sprite{ id = "entities/turtlerock_head", description = "Turtlerock head" }
 sprite{ id = "entities/utils/non_diggable", description = "Non diggable" }

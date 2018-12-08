@@ -16309,7 +16309,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/bomb_fly",
+  sprite = "entities/items/bomb_fly",
   model = "bomb_fly",
 }
 
@@ -16320,7 +16320,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/heart_fly",
+  sprite = "entities/items/heart_fly",
   model = "heart_fly",
 }
 
@@ -16341,7 +16341,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/heart_fly",
+  sprite = "entities/items/heart_fly",
   model = "heart_fly",
 }
 
@@ -16370,7 +16370,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/heart_fly",
+  sprite = "entities/items/heart_fly",
   model = "heart_fly",
 }
 
