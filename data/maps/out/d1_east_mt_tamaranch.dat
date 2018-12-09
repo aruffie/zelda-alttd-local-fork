@@ -13611,6 +13611,26 @@ sensor{
   height = 16,
 }
 
+dynamic_tile{
+  layer = 0,
+  x = 624,
+  y = 80,
+  pattern = "113",
+  width = 16,
+  height = 16,
+  tileset = "addition/out",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 624,
+  y = 64,
+  pattern = "118",
+  width = 16,
+  height = 16,
+  tileset = "addition/out",
+}
+
 tile{
   layer = 1,
   x = 784,

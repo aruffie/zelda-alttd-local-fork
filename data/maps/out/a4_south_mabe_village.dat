@@ -10686,7 +10686,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/entrance_dungeon_door",
+  sprite = "entities/doors/door_entrance_dungeons",
 }
 
 custom_entity{
