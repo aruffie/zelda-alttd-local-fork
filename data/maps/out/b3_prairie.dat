@@ -26086,17 +26086,6 @@ custom_entity{
 }
 
 custom_entity{
-  name = "dungeon_3_statue_4",
-  layer = 1,
-  x = 424,
-  y = 701,
-  width = 16,
-  height = 8,
-  direction = 1,
-  sprite = "entities/statue_small_key_dungeon_3",
-}
-
-custom_entity{
   name = "bee_3",
   layer = 1,
   x = 768,
