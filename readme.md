@@ -32,7 +32,7 @@ The easiest way is by using Solarus Launcher, the GUI made to manage and play So
 Assuming the directory `zelda-alttd` contains either a subdirectory `data` or a `data.solarus` archive, and that Solarus is installed, type the following line in the console:
 
 ```
-$ solarus path/to/zelda-alttd
+$ solarus-run path/to/zelda-alttd
 ```
 
 
@@ -73,5 +73,5 @@ $ zelda-alttd
 which is equivalent to:
 
 ```
-$ solarus /usr/local/share/solarus/zelda-alttd
+$ solarus-run /usr/local/share/solarus/zelda-alttd
 ```
