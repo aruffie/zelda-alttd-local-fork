@@ -8,7 +8,7 @@ local audio_manager = require("scripts/audio_manager")
 
 function settings_menu:on_started()
 
-  -- Fix the font shift (issue with Minecraftia)
+  -- Fix the font shift (issue with some fonts)
   self.font_y_shift = 0
 
   -- Create static surfaces.
