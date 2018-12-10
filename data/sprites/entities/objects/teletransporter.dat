@@ -1,10 +1,10 @@
 animation{
   name = "normal",
-  src_image = "entities/teletransporter_dungeon.png",
+  src_image = "entities/objects/teletransporter.png",
   frame_delay = 80,
   frame_to_loop_on = 0,
   directions = {
-    { x = 48, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
     { x = 48, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
     { x = 48, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
     { x = 48, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },

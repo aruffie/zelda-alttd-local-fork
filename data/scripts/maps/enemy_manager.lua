@@ -63,7 +63,7 @@ function enemy_manager:create_teletransporter_if_small_boss_dead(map, sound)
         width = 24,
         height = 24,
         direction = 0,
-        sprite = "entities/teletransporter_dungeon",
+        sprite = "entities/objects/teletransporter",
         layer = teletransporter_A_layer,
       }
       local teletransporter_B = map:create_custom_entity{
@@ -72,7 +72,7 @@ function enemy_manager:create_teletransporter_if_small_boss_dead(map, sound)
         width = 16,
         height = 16,
         direction = 0,
-        sprite = "entities/teletransporter_dungeon",
+        sprite = "entities/objects/teletransporter",
         layer = teletransporter_B_layer,
         sound = "teletransporter"
       }
