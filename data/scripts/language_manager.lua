@@ -17,7 +17,15 @@ end
 function language_manager:get_dialog_font(language)
 
   -- No font differences between languages (for now).
-  return "Alttp", 8
+  return "alttp", 8
+end
+
+-- Returns the font and font size to be used for console
+-- depending on the specified language (the current one by default).
+function language_manager:get_monospace_font(language)
+
+  -- No font differences between languages (for now).
+  return "enter_command_mono", 16
 end
 
 -- Returns the font and font size to be used to display text in menus
@@ -25,7 +33,7 @@ end
 function language_manager:get_menu_font(language)
 
   -- No font differences between languages (for now).
-  return "Alttp", 8
+  return "alttp", 8
 end
 
 -- Returns the font and font size to be used to display text on HUD icons
@@ -33,7 +41,15 @@ end
 function language_manager:get_hud_icons_font(language)
 
   -- No font differences between languages (for now).
-  return "Alttp", 8
+  return "alttp", 8
+end
+
+-- Returns the font and font size to be used to display text for floors.
+-- depending on the specified language (the current one by default).
+function language_manager:get_floors_font(language)
+
+  -- No font differences between languages (for now).
+  return "alttp_floors", 7
 end
 
 return language_manager

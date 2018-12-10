@@ -1244,9 +1244,12 @@ entity{ id = "wallturn", description = "Wallturn" }
 language{ id = "fr", description = "Français" }
 
 font{ id = "04b03", description = "04b03" }
-font{ id = "Alttp", description = "Alttp" }
+font{ id = "alttp", description = "Alttp" }
+font{ id = "alttp_floors", description = "Alttp Floors" }
+font{ id = "enter_command_mono", description = "Enter Command Mono" }
 font{ id = "green_digits", description = "Green digits" }
 font{ id = "la", description = "Link's Awakening" }
+font{ id = "minecraftia", description = "Minecraftia" }
 font{ id = "minecraftia_mono", description = "Minecraftia Mono" }
 font{ id = "white_digits", description = "White digits" }
 
@@ -1342,7 +1345,6 @@ file{ path = "enemies/zol_green.lua", license = "GPL v3" }
 file{ path = "enemies/zol_red.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "enemies/zombie.lua", license = "GPL v3" }
 file{ path = "fonts/04b03.ttf", author = "Yuji Oshimoto", license = "Free for personal use" }
-file{ path = "fonts/Alttp.ttf", author = "Nintendo, Enkidulga, Olivier Cléro", license = "Proprietary, Fair use" }
 file{ path = "fonts/green_digits.png", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "fonts/la.png", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "fonts/minecraftia_mono.png", author = "Andrew Tyler", license = "Free for personal use" }

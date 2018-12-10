@@ -1,17 +1,21 @@
 -- A Lua console that can be enabled with F12 at any time during the program.
 local mode_7_manager = require("scripts/mode_7")
 
+local language_manager = require("scripts/language_manager")
+local mono_font, mono_font_size = language_manager:get_monospace_font()
+
 local console = {
-  font = "minecraftia_mono",            -- Font of the console (monospaced).
-  font_size = 9,                        -- Font size in pixels.
-  char_width = 6,                       -- Character width in pixels.
-  line_spacing = 3,                     -- Space between two lines in pixels.
+  font = mono_font,                     -- Font of the console.
+  font_size = mono_font_size,           -- Font size (px).
+  char_width = 6,                       -- Character width (px).
+  line_spacing = 0,                     -- Space between 2 lines (px).
 
-  margin = 4,                           -- Margin of the console in pixels.
-  padding = 6,                          -- Padding of the console in pixels.
+  margin = 4,                           -- Margin of the console (px).
+  padding = 6,                          -- Padding of the console (px).
 
-  color = {32, 32, 32},                 -- Background color of the console.
+  color = {20, 36, 50},                 -- Background color of the console.
   opacity = 248,                        -- Background opacity of the console.
+  font_color = {255, 255, 255},         -- Color of the font.
   selection_color = {64, 128, 192},     -- Color of the selection.
   selection_opacity = 80,               -- Selection opacity.
 
@@ -106,7 +110,7 @@ function console.print(...)
   -- get the current text of the line
   local text = ""
   if console.last_line <= console.max_lines then
-    text = console.text_surfaces[console.last_line]:get_text()
+    text = console.line_surfaces[console.last_line]:get_text()
   end
 
   -- for each argument
@@ -137,9 +141,9 @@ end
 function console.clear()
 
   -- clear text surfaces and icons
-  for i = 1 , #console.text_surfaces do
-    console.text_surfaces[i]:set_text("")
-    console.icons[i] = ""
+  for i = 1 , #console.line_surfaces do
+    console.line_surfaces[i]:set_text("")
+    console.line_icons[i] = ""
   end
 
   -- reset position
@@ -169,6 +173,7 @@ function console:init()
 
   local inner_width = console_width - dpadding
   local inner_height = console_height - dpadding
+  self.selection_height = self.font_size - 2
 
   -- create main surface
   self.main_surface = sol.surface.create(console_width, console_height)
@@ -185,15 +190,16 @@ function console:init()
   self.line_height = self.font_size + math.floor(spacing / self.max_lines)
 
   -- create text surfaces and icons
-  self.text_surfaces = {}
-  self.icons = {}
+  self.line_surfaces = {}
+  self.line_icons = {}
   for i = 1, self.max_lines do
-    self.text_surfaces[i] = sol.text_surface.create({
+    self.line_surfaces[i] = sol.text_surface.create({
       font = self.font,
+      color = self.font_color,
       font_size = self.font_size,
       vertical_alignment = "top"
     })
-    self.icons[i] = ""
+    self.line_icons[i] = ""
   end
 
   -- init position
@@ -203,9 +209,11 @@ function console:init()
 
   -- cursor sprite
   self.cursor_sprite = sol.sprite.create(self.cursor_sprite_id)
+  self.cursor_sprite_w, self.cursor_sprite_h = self.cursor_sprite:get_size()
 
   -- icons sprite
   self.icons_sprite = sol.sprite.create(self.icons_sprite_id)
+  self.icons_sprite_w, self.icons_sprite_h = self.icons_sprite:get_size()
 
   -- create history
   self.history = {}
@@ -258,7 +266,7 @@ function console:build_line()
 
   -- clear all next lines
   for i = self.last_line, self.max_lines do
-    self.text_surfaces[i]:set_text("")
+    self.line_surfaces[i]:set_text("")
   end
 
   -- rebuild the selection surface
@@ -283,31 +291,27 @@ function console:build_selection()
       local x = origin + (cur_char * self.char_width)
       local y = origin + ((cur_line - 1) * self.line_height)
       local w = origin + (sel_char * self.char_width) - x
-      self.selection_surface:fill_color(
-        self.selection_color, x, y, w, self.font_size)
+      self.selection_surface:fill_color(self.selection_color, x, y, w, self.selection_height)
     else
       -- print first selection line
       local x = origin + (cur_char * self.char_width)
       local y = origin + ((cur_line - 1) * self.line_height)
       local w = (self.max_chars * self.char_width) - x + origin
       if w > 0 then
-        self.selection_surface:fill_color(
-          self.selection_color, x, y, w, self.font_size)
+        self.selection_surface:fill_color(self.selection_color, x, y, w, self.selection_height)
       end
       -- print intermediate selection lines
       x = origin
       w = self.max_chars * self.char_width
       for i = cur_line + 1, sel_line - 1 do
         y = y + self.line_height
-        self.selection_surface:fill_color(
-          self.selection_color, x, y, w, self.font_size)
+        self.selection_surface:fill_color(self.selection_color, x, y, w, self.selection_height)
       end
       -- print last selection line
       y = y + self.line_height
       w = sel_char * self.char_width
       if w > 0 then
-        self.selection_surface:fill_color(
-          self.selection_color, x, y, w, self.font_size)
+        self.selection_surface:fill_color(self.selection_color, x, y, w, self.selection_height)
       end
     end
   end
@@ -341,14 +345,15 @@ function console:print_text(line_nb, text)
       self.current_line = self.current_line - 1
     end
 
-    self.text_surfaces[index]:set_text(ln)
+    local drawable_text = ln:gsub("\n", " ")
+    self.line_surfaces[index]:set_text(drawable_text)
   end
 end
 
 -- Prints error message.
 function console:print_error(message)
   -- set error icon at the last line
-  self.icons[self.last_line] = "error"
+  self.line_icons[self.last_line] = "error"
   -- print the message
   message = message:gsub("^.*%]:", "")
   self.print("  " .. message)
@@ -365,12 +370,12 @@ function console:go_to_line()
     shifted = true
 
     -- shift text surfaces
-    table.insert(self.text_surfaces, table.remove(self.text_surfaces, 1))
-    self.text_surfaces[self.last_line]:set_text("")
+    table.insert(self.line_surfaces, table.remove(self.line_surfaces, 1))
+    self.line_surfaces[self.last_line]:set_text("")
 
     -- shift icons
-    table.remove(self.icons, 1)
-    table.insert(self.icons, "")
+    table.remove(self.line_icons, 1)
+    table.insert(self.line_icons, "")
   end
 
   self.last_line = self.last_line + 1
@@ -522,7 +527,9 @@ function console:execute_command()
 
     -- set return icon at the last line
     if autoprint then
-      self.icons[self.last_line] = "return"
+      self.line_icons[self.last_line] = "return"
+    else
+      self.line_icons[self.last_line] = "print"
     end
 
     -- add the command to history
@@ -540,7 +547,7 @@ function console:execute_command()
     -- else if has results
     elseif results[1] then
       -- set return icon at the last line
-      self.icons[self.last_line] = "return"
+      self.line_icons[self.last_line] = "return"
       -- print results
       self.print(" ", unpack(results))
     end
@@ -773,12 +780,16 @@ function console:on_draw(dst_surface)
   -- draw text surfaces
   local x = origin
   local y = x
-  for i = 1, #self.text_surfaces do
-    self.text_surfaces[i]:draw(dst_surface, x, y)
-    if self.icons[i] ~= "" then
-      self.icons_sprite:set_animation(self.icons[i])
-      self.icons_sprite:draw(dst_surface, origin, y)
+  for i = 1, #self.line_surfaces do
+    local line_surface = self.line_surfaces[i]
+    local line_icon = self.line_icons[i]
+    if line_icon ~= "" then
+      self.icons_sprite:set_animation(line_icon)
+      local icon_y = y + math.floor((self.line_height - self.icons_sprite_h) / 2)
+      self.icons_sprite:draw(dst_surface, origin, icon_y)     
     end
+    
+    line_surface:draw(dst_surface, x, y)
     y = y + self.line_height
   end
 
@@ -788,8 +799,7 @@ function console:on_draw(dst_surface)
   -- draw cursor
   local line, char = self:get_cursor_position(self.cursor)
   x = origin + ((char - 1) * self.char_width)
-  y = origin + ((line - 1) * self.line_height)
-
+  y = origin + ((line - 1) * self.line_height) + math.floor((self.line_height - self.cursor_sprite_h) / 2)
   self.cursor_sprite:draw(dst_surface, x, y)
 end
 
