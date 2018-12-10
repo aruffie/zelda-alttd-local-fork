@@ -73,7 +73,7 @@ end
 -- Initialize all the menu's features.
 function keyboardbox_menu:on_started()
 
-  -- Fix the font shift (issue with Minecraftia)
+  -- Fix the font shift (issue with some fonts)
   self.font_y_shift = 0
 
   -- Elements positions relative to self.surface.

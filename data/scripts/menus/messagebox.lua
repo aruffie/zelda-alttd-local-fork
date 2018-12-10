@@ -16,7 +16,7 @@ function messagebox_builder:show(context, text_lines, button_1_text, button_2_te
 
   -- Callded when the menu is started.
   function messagebox_menu:on_started()
-    -- Fix the font shift (issue with Minecraftia)
+    -- Fix the font shift (issue with some fonts)
     messagebox_menu.font_y_shift = 0
 
     -- Create static surfaces.
