@@ -1301,7 +1301,7 @@ tile{
   layer = 0,
   x = 32,
   y = 680,
-  width = 544,
+  width = 688,
   height = 8,
   pattern = "1009",
 }
@@ -8067,74 +8067,11 @@ tile{
 
 tile{
   layer = 0,
-  x = 624,
-  y = 688,
-  width = 96,
-  height = 8,
-  pattern = "1010",
-}
-
-tile{
-  layer = 0,
   x = 400,
   y = 688,
-  width = 176,
+  width = 320,
   height = 8,
   pattern = "1010",
-}
-
-tile{
-  layer = 0,
-  x = 576,
-  y = 680,
-  width = 8,
-  height = 8,
-  pattern = "1023",
-}
-
-tile{
-  layer = 0,
-  x = 624,
-  y = 680,
-  width = 96,
-  height = 8,
-  pattern = "1009",
-}
-
-tile{
-  layer = 0,
-  x = 616,
-  y = 680,
-  width = 8,
-  height = 8,
-  pattern = "1017",
-}
-
-tile{
-  layer = 0,
-  x = 576,
-  y = 688,
-  width = 8,
-  height = 8,
-  pattern = "14793",
-}
-
-tile{
-  layer = 0,
-  x = 616,
-  y = 688,
-  width = 8,
-  height = 8,
-  pattern = "14794",
-}
-
-tile{
-  layer = 0,
-  x = 584,
-  y = 680,
-  width = 32,
-  height = 8,
-  pattern = "1029",
 }
 
 tile{
@@ -8553,16 +8490,6 @@ tile{
   tileset = "addition/out",
 }
 
-custom_entity{
-  layer = 0,
-  x = 592,
-  y = 677,
-  width = 32,
-  height = 16,
-  direction = 0,
-  sprite = "entities/outside_ladder",
-}
-
 teletransporter{
   name = "to_c3",
   layer = 0,
@@ -8948,16 +8875,6 @@ destructible{
   destruction_sound = "bush",
   weight = 1,
   can_be_cut = true,
-}
-
-dynamic_tile{
-  name = "invisible_tile",
-  layer = 0,
-  x = 592,
-  y = 664,
-  pattern = "617",
-  width = 16,
-  height = 16,
 }
 
 destructible{

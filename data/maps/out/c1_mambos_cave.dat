@@ -13111,7 +13111,7 @@ tile{
   y = 392,
   width = 32,
   height = 16,
-  pattern = "80",
+  pattern = "5",
   tileset = "addition/out",
 }
 
@@ -13121,7 +13121,7 @@ tile{
   y = 392,
   width = 32,
   height = 16,
-  pattern = "80",
+  pattern = "5",
   tileset = "addition/out",
 }
 
@@ -13193,6 +13193,16 @@ tile{
   width = 48,
   height = 16,
   pattern = "4",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 696,
+  y = 696,
+  width = 32,
+  height = 16,
+  pattern = "6",
   tileset = "addition/out",
 }
 
@@ -13459,26 +13469,6 @@ custom_entity{
   height = 24,
   direction = 0,
   model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 704,
-  y = 709,
-  width = 32,
-  height = 16,
-  direction = 0,
-  sprite = "entities/outside_ladder",
-}
-
-dynamic_tile{
-  name = "invisible_tile",
-  layer = 0,
-  x = 704,
-  y = 696,
-  pattern = "617",
-  width = 16,
-  height = 16,
 }
 
 dynamic_tile{

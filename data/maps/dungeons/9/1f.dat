@@ -12411,7 +12411,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/orb_monster_hole_red",
+  sprite = "entities/objects/orb_hole_red",
 }
 
 custom_entity{
@@ -12422,7 +12422,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/orb_monster_hole_green",
+  sprite = "entities/objects/orb_hole_green",
 }
 
 custom_entity{
@@ -12433,7 +12433,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/orb_monster_hole_red",
+  sprite = "entities/objects/orb_hole_red",
 }
 
 custom_entity{
@@ -12444,7 +12444,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/orb_monster_hole_green",
+  sprite = "entities/objects/orb_hole_green",
 }
 
 custom_entity{
@@ -12455,7 +12455,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/orb_monster_hole_green",
+  sprite = "entities/objects/orb_hole_green",
 }
 
 custom_entity{
@@ -12466,7 +12466,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/orb_monster_hole_blue",
+  sprite = "entities/objects/orb_hole_blue",
 }
 
 enemy{

@@ -2,9 +2,29 @@ animation{
   name = "normal",
   src_image = "entities/statues/statue_pig.png",
   directions = {
-    { x = 0, y = 0, frame_width = 48, frame_height = 48, origin_x = 8, origin_y = 13 },
-    { x = 0, y = 0, frame_width = 48, frame_height = 48, origin_x = 8, origin_y = 13 },
-    { x = 0, y = 0, frame_width = 48, frame_height = 48, origin_x = 8, origin_y = 13 },
-    { x = 0, y = 0, frame_width = 48, frame_height = 48, origin_x = 8, origin_y = 13 },
+    { x = 0, y = 0, frame_width = 80, frame_height = 80, origin_x = 8, origin_y = 13 },
+    { x = 0, y = 0, frame_width = 80, frame_height = 80, origin_x = 8, origin_y = 13 },
+    { x = 0, y = 0, frame_width = 80, frame_height = 80, origin_x = 8, origin_y = 13 },
+    { x = 0, y = 0, frame_width = 80, frame_height = 80, origin_x = 8, origin_y = 13 },
+  },
+}
+animation{
+  name = "destroyed",
+  src_image = "entities/statues/statue_pig.png",
+  directions = {
+    { x = 0, y = 0, frame_width = 80, frame_height = 80, origin_x = 8, origin_y = 13, num_frames = 7 },
+    { x = 0, y = 0, frame_width = 80, frame_height = 80, origin_x = 8, origin_y = 13, num_frames = 7 },
+    { x = 0, y = 0, frame_width = 80, frame_height = 80, origin_x = 8, origin_y = 13, num_frames = 7 },
+    { x = 0, y = 0, frame_width = 80, frame_height = 80, origin_x = 8, origin_y = 13, num_frames = 7 },
+  },
+}
+animation{
+  name = "stopped",
+  src_image = "entities/statues/statue_pig.png",
+  directions = {
+    { x = 0, y = 80, frame_width = 80, frame_height = 80, origin_x = 8, origin_y = 13 },
+    { x = 0, y = 80, frame_width = 80, frame_height = 80, origin_x = 8, origin_y = 13 },
+    { x = 0, y = 80, frame_width = 80, frame_height = 80, origin_x = 8, origin_y = 13 },
+    { x = 0, y = 80, frame_width = 80, frame_height = 80, origin_x = 8, origin_y = 13 },
   },
 }
