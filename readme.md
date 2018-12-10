@@ -57,8 +57,9 @@ $ make install
 ```
 
 This will install the following files:
- 1. The quest data archive `data.solarus` in `/usr/local/share/solarus/zelda-alttd/`
- 2. A script called `zelda-alttd` in `/usr/local/bin/`
+
+- The quest data archive `data.solarus` in `/usr/local/share/solarus/zelda-alttd/`
+- A script called `zelda-alttd` in `/usr/local/bin/`
 
 
 ### Run the quest
