@@ -528,8 +528,6 @@ function console:execute_command()
     -- set return icon at the last line
     if autoprint then
       self.line_icons[self.last_line] = "return"
-    else
-      self.line_icons[self.last_line] = "print"
     end
 
     -- add the command to history
