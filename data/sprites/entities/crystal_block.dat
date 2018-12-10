@@ -1,6 +1,6 @@
 animation{
   name = "orange_lowered",
-  src_image = "entities/objects/crystal_block.png",
+  src_image = "entities/crystal_block.png",
   frame_delay = 50,
   frame_to_loop_on = 3,
   directions = {
@@ -12,7 +12,7 @@ animation{
 }
 animation{
   name = "blue_lowered",
-  src_image = "entities/objects/crystal_block.png",
+  src_image = "entities/crystal_block.png",
   frame_delay = 50,
   frame_to_loop_on = 3,
   directions = {
@@ -24,7 +24,7 @@ animation{
 }
 animation{
   name = "blue_raised",
-  src_image = "entities/objects/crystal_block.png",
+  src_image = "entities/crystal_block.png",
   frame_delay = 50,
   frame_to_loop_on = 3,
   directions = {
@@ -36,7 +36,7 @@ animation{
 }
 animation{
   name = "orange_raised",
-  src_image = "entities/objects/crystal_block.png",
+  src_image = "entities/crystal_block.png",
   frame_delay = 50,
   frame_to_loop_on = 3,
   directions = {
