@@ -1,6 +1,6 @@
 animation{
   name = "normal",
-  src_image = "entities/lightning_strike_core.png",
+  src_image = "entities/effects/lightning_strike_core.png",
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {

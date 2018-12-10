@@ -406,6 +406,16 @@ tile{
   pattern = "painting",
 }
 
+tile{
+  layer = 0,
+  x = 176,
+  y = 104,
+  width = 16,
+  height = 16,
+  pattern = "140",
+  tileset = "addition/dungeon",
+}
+
 teletransporter{
   name = "mr_write_house_2_B",
   layer = 0,
@@ -650,16 +660,6 @@ npc{
   y = 53,
   direction = 3,
   subtype = 1,
-}
-
-custom_entity{
-  layer = 0,
-  x = 184,
-  y = 117,
-  width = 16,
-  height = 16,
-  direction = 1,
-  sprite = "entities/letter",
 }
 
 npc{

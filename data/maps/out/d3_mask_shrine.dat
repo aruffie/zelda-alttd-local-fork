@@ -7816,6 +7816,16 @@ tile{
   tileset = "addition/out",
 }
 
+tile{
+  layer = 0,
+  x = 176,
+  y = 56,
+  width = 16,
+  height = 24,
+  pattern = "3",
+  tileset = "addition/out",
+}
+
 teletransporter{
   name = "to_d2",
   layer = 0,
@@ -7973,18 +7983,6 @@ destination{
   x = 128,
   y = 213,
   direction = 3,
-}
-
-custom_entity{
-  name = "keyhole_dg_6",
-  layer = 0,
-  x = 184,
-  y = 77,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/keyhole_dungeon_6",
-  model = "statue",
 }
 
 wall{
