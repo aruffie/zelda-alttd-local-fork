@@ -5,21 +5,22 @@ local door_meta = sol.main.get_metatable("door")
 
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
+require("scripts/multi_events")
 
-function door_meta:on_opened()
+door_meta:register_event("on_opened", function(door)
   
-  local sprite = self:get_sprite()
+  local sprite = door:get_sprite()
   if sprite:get_animation() == "opening" then
     audio_manager:play_sound("others/dungeon_door_open")
   end
       
-end
+end)
 
-function door_meta:on_closed()
-  
-  local sprite = self:get_sprite()
+door_meta:register_event("on_closed", function(door)
+
+  local sprite = door:get_sprite()
   if sprite:get_animation() == "closing" then
     audio_manager:play_sound("others/dungeon_door_slam")
   end
-      
-end
+
+end)
