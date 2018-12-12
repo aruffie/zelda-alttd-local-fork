@@ -30,6 +30,11 @@ function action_icon_builder:new(game, config)
       action_icon.hud_icon:set_foreground_text(text)
     end
   end
+    
+  -- Returns if the icon is enabled or disabled.
+  function action_icon:is_enabled(active)
+    return action_icon.hud_icon:is_enabled()
+  end
 
   -- Set if the icon is enabled or disabled.
   function action_icon:set_enabled(enabled)
@@ -38,10 +43,20 @@ function action_icon_builder:new(game, config)
     end
     action_icon.hud_icon:set_enabled(enabled)
   end
-  
+      
+  -- Returns if the icon is active or inactive.
+  function action_icon:is_active(active)
+    return action_icon.hud_icon:is_active()
+  end
+
   -- Set if the icon is active or inactive.
   function action_icon:set_active(active)
     action_icon.hud_icon:set_active(active)
+  end
+
+  -- Returns if the icon is transparent or not.
+  function action_icon:is_transparent()
+    return action_icon.hud_icon:set_transparent()
   end
 
   -- Sets if the icon is transparent or not.

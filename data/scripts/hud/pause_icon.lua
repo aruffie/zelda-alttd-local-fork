@@ -32,14 +32,29 @@ function pause_icon_builder:new(game, config)
     end
   end
   
+  -- Returns if the icon is enabled or disabled.
+  function pause_icon:is_enabled(active)
+    return pause_icon.hud_icon:is_enabled()
+  end
+
   -- Set if the icon is enabled or disabled.
   function pause_icon:set_enabled(enabled)
     pause_icon.hud_icon:set_enabled(enabled)
   end
-  
+        
+  -- Returns if the icon is active or inactive.
+  function pause_icon:is_active(active)
+    return pause_icon.hud_icon:is_active()
+  end
+
   -- Set if the icon is active or inactive.
   function pause_icon:set_active(active)
     pause_icon.hud_icon:set_active(active)
+  end
+
+  -- Returns if the icon is transparent or not.
+  function pause_icon:is_transparent()
+    return pause_icon.hud_icon:set_transparent()
   end
 
   -- Sets if the icon is transparent or not.
