@@ -419,6 +419,7 @@ sprite{ id = "entities/doors/door_wallturn_dungeon_8", description = "Door wallt
 sprite{ id = "entities/doors/door_wallturn_dungeon_9", description = "Door wallturn dungeon 9" }
 sprite{ id = "entities/doors/door_weak_block", description = "Door weak block" }
 sprite{ id = "entities/doors/door_weak_block_cave", description = "Door weak block cave" }
+sprite{ id = "entities/doors/door_weak_wall", description = "Door weak wall" }
 sprite{ id = "entities/doors/door_weak_wall_out", description = "Door weak wall out" }
 sprite{ id = "entities/dungeons/dungeon_6", description = "Dungeon 6" }
 sprite{ id = "entities/dungeons/dungeon_7", description = "Dungeon 7" }
