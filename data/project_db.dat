@@ -498,6 +498,7 @@ sprite{ id = "entities/orb_monster_orb_blue", description = "Orb monster orb blu
 sprite{ id = "entities/orb_monster_orb_green", description = "Orb monster orb green" }
 sprite{ id = "entities/orb_monster_orb_red", description = "Orb monster orb red" }
 sprite{ id = "entities/outside_door", description = "Outside closed door" }
+sprite{ id = "entities/shadow", description = "Shadow" }
 sprite{ id = "entities/shadows/ball", description = "Ball" }
 sprite{ id = "entities/shadows/owl", description = "Owl" }
 sprite{ id = "entities/shadows/pickable_flying", description = "Pickable flying" }
