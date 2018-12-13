@@ -160,7 +160,6 @@ function enemy_manager:launch_small_boss_if_not_dead(map)
     tile:set_layer(layer)
   end
   map:close_doors(door_prefix)
-  audio_manager:play_sound("others/dungeon_door_slam")
   audio_manager:play_music("21_mini_boss_battle")
       
 end
@@ -191,7 +190,6 @@ function enemy_manager:launch_boss_if_not_dead(map)
         enemy:launch_boss_dead(door_prefix, savegame)
      end)
     map:close_doors(door_prefix)
-    audio_manager:play_sound("others/dungeon_door_slam")
     audio_manager:play_music("22_boss_battle")
     game:start_dialog("maps.dungeons." .. dungeon .. ".boss_welcome")
         

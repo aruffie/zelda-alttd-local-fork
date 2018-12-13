@@ -222,7 +222,7 @@ function hero_meta:start_custom_jump()
     local platform_properties = {x=x,y=y,layer=layer,direction=0,width=8,height=8}
     tile = map:create_custom_entity(platform_properties)
     tile:set_origin(4, 4)
-    local sprite = tile:create_sprite("shadows/shadow_big_dynamic")
+    local sprite = tile:create_sprite("entities/shadows/shadow")
     local nb_frames = sprite:get_num_frames()
     local frame_delay = math.floor(jump_duration/nb_frames)
     sprite:set_frame_delay(frame_delay)

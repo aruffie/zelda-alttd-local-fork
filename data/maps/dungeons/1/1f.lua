@@ -127,7 +127,6 @@ sensor_7:register_event("on_activated", function()
 
 
   map:close_doors("door_group_6_")
-  audio_manager:play_sound("others/dungeon_door_slam")
 
 end)
 

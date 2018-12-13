@@ -25,7 +25,6 @@ end)
 door_meta:register_event("on_closed", function(door)
 
   local sprite = door:get_sprite()
-  print(sprite:get_animation() )
   if sprite:get_animation() == "closing" then
     audio_manager:play_sound("others/dungeon_door_slam")
   end
