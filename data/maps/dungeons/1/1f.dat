@@ -16635,25 +16635,6 @@ destination{
   direction = 1,
 }
 
-custom_entity{
-  layer = 0,
-  x = 1096,
-  y = 1693,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/destructibles/statue_elephant",
-  model = "statue_elephant",
-}
-
-destructible{
-  layer = 0,
-  x = 1144,
-  y = 1693,
-  sprite = "entities/destructibles/statue_elephant",
-  weight = 2,
-}
-
 tile{
   layer = 1,
   x = 528,
