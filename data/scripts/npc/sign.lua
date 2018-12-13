@@ -13,7 +13,7 @@ return function(sign)
   -- Sign destruction
   function sign:destroy()
     
-    audio_manager:play_sound("others/rock_shatter")
+    audio_manager:play_sound("misc/rock_shatter")
     local sprite = sign:get_sprite()
     function sprite:on_animation_finished(animation)
       if animation == "sliced" then

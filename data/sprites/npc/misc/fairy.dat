@@ -1,6 +1,6 @@
 animation{
   name = "waiting",
-  src_image = "npc/others/fairy.png",
+  src_image = "npc/misc/fairy.png",
   frame_delay = 200,
   frame_to_loop_on = 0,
   directions = {

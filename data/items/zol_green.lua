@@ -15,7 +15,7 @@ end
 function item:on_obtaining()
 
   -- Sound
-  audio_manager:play_sound("others/error")
+  audio_manager:play_sound("misc/error")
   -- Create enemy
   local map = game:get_map()
   local x, y, layer = map:get_hero():get_position()

@@ -688,7 +688,7 @@ npc{
   y = 77,
   direction = 3,
   subtype = 0,
-  sprite = "entities/objects/bed",
+  sprite = "entities/misc/bed",
 }
 
 dynamic_tile{
@@ -726,7 +726,7 @@ npc{
   y = 77,
   direction = 3,
   subtype = 0,
-  sprite = "entities/objects/bed",
+  sprite = "entities/misc/bed",
 }
 
 custom_entity{

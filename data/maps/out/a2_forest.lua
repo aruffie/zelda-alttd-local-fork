@@ -208,7 +208,7 @@ function lost_sensor:on_activated()
   local marker_x, marker_y = lost_destination:get_position()
   local diff_x, diff_y = marker_x - sensor_x, marker_y - sensor_y
   hero:set_position(x + diff_x, y + diff_y)
-  audio_manager:play_sound("others/mysterious_woods_lost")
+  audio_manager:play_sound("misc/mysterious_woods_lost")
   map.overlay_offset_x = map.overlay_offset_x - diff_x  -- Keep continuity of the overlay effect.
   map.overlay_offset_y = map.overlay_offset_y - diff_y
   -- Keep the exact same destructible entities so that the player cannot see a difference.
@@ -378,7 +378,7 @@ function change_movement_raccoon()
         movement1:set_ignore_obstacles(true)
         movement1:set_ignore_suspend(true)
         movement1:start(camera, function()
-          audio_manager:play_sound("others/secret1")
+          audio_manager:play_sound("misc/secret1")
           local timer2 = sol.timer.start(map, 1000, function()
             local movement2 = sol.movement.create("straight")
             movement2:set_angle(3 * math.pi / 2)

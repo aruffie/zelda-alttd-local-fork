@@ -19810,7 +19810,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/objects/torch",
+  sprite = "entities/misc/torch",
   model = "torch",
 }
 
@@ -19821,7 +19821,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/objects/torch",
+  sprite = "entities/misc/torch",
   model = "torch",
 }
 
@@ -19839,7 +19839,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/objects/vacuum_cleaner",
+  sprite = "entities/misc/vacuum_cleaner",
   model = "vacuum_cleaner",
 }
 
@@ -21126,7 +21126,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/objects/torch",
+  sprite = "entities/misc/torch",
   model = "torch",
 }
 
@@ -21137,7 +21137,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/objects/torch",
+  sprite = "entities/misc/torch",
   model = "torch",
 }
 

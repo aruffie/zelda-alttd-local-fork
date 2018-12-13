@@ -17,7 +17,7 @@ end
 function item:on_using()
 
   if item:get_amount() == 0 then
-    audio_manager:play_sound("others/error")
+    audio_manager:play_sound("misc/error")
   else
     -- we remove the arrow from the equipment after a small delay because the hero
     -- does not shoot immediately

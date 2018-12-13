@@ -128,7 +128,7 @@ function map:create_ball(player_1, player_2)
     height = 24,
     direction = 0,
     layer = 1 ,
-    sprite = "entities/objects/ball"
+    sprite = "entities/misc/ball"
   }
   ball_shadow = map:create_custom_entity{
     name = "ball_shadow",
@@ -357,7 +357,7 @@ function push_weathercook_sensor:on_activated_repeat()
           weathercook_y_2 = weathercook_y_2 - 1
           weathercook_statue_2:set_position(weathercook_x_2, weathercook_y_2)
           if i < 32 then return true end
-          audio_manager:play_sound("others/secret2")
+          audio_manager:play_sound("misc/secret2")
           hero:unfreeze()
           game:set_value("mabe_village_weathercook_statue_pushed",true)
         end)

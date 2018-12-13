@@ -1,6 +1,6 @@
 animation{
   name = "stopped",
-  src_image = "entities/objects/vacuum_cleaner.png",
+  src_image = "entities/misc/vacuum_cleaner.png",
   frame_delay = 200,
   frame_to_loop_on = 0,
   directions = {
@@ -12,7 +12,7 @@ animation{
 }
 animation{
   name = "walking",
-  src_image = "entities/objects/vacuum_cleaner.png",
+  src_image = "entities/misc/vacuum_cleaner.png",
   frame_delay = 200,
   frame_to_loop_on = 0,
   directions = {

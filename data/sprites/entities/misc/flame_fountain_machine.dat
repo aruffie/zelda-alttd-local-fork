@@ -1,6 +1,6 @@
 animation{
   name = "normal",
-  src_image = "entities/objects/flame_fountain_machine.png",
+  src_image = "entities/misc/flame_fountain_machine.png",
   frame_delay = 100,
   frame_to_loop_on = 0,
   directions = {

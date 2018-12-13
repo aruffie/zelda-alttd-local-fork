@@ -40,7 +40,7 @@ function enemy:on_restarted()
     enemy:set_layer(0)
     local distance = enemy:get_distance(hero)
     if distance < 250 then
-      audio_manager:play_sound("others/rock_shatter")
+      audio_manager:play_sound("misc/rock_shatter")
     end
     sprite:set_animation("destroyed", function()
       enemy:remove()

@@ -57,7 +57,7 @@ function mermaid_statue_npc:on_interaction()
           if i < 32 then
             return true
           end
-          audio_manager:play_sound("others/secret1")
+          audio_manager:play_sound("misc/secret1")
           hero:unfreeze()
           game:set_value("mermaid_statue_pushed",true)
         end)

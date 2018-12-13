@@ -78,7 +78,7 @@ function fairy_manager:create_hearts(map, index, fairy_name, hearts, music_name)
                 direction = 0
               })
               index = index + 1
-              audio_manager:play_sound("others/great_fairy_heal")
+              audio_manager:play_sound("misc/great_fairy_heal")
               fairy_manager:create_hearts(map, index, fairy_name, hearts, music_name)
             else
               fairy_manager:animate_hearts(map, fairy_name, hearts, music_name)
@@ -148,7 +148,7 @@ function fairy_manager:get_life_and_disappear(map, fairy_name, hearts, music_nam
     heart:remove()
   end
   game:add_life(max_life)
-  audio_manager:play_sound("others/great_fairy_vanish")
+  audio_manager:play_sound("misc/great_fairy_vanish")
   fairy:get_sprite():fade_out(100, function()
     local options = {
       entities_ignore_suspend = {fairy}

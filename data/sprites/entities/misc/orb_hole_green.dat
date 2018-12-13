@@ -1,6 +1,6 @@
 animation{
   name = "default",
-  src_image = "entities/objects/orb_hole_green.png",
+  src_image = "entities/misc/orb_hole_green.png",
   directions = {
     { x = 0, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 21 },
     { x = 0, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 21 },
@@ -10,7 +10,7 @@ animation{
 }
 animation{
   name = "full",
-  src_image = "entities/objects/orb_hole_green.png",
+  src_image = "entities/misc/orb_hole_green.png",
   directions = {
     { x = 32, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 21 },
     { x = 32, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 21 },

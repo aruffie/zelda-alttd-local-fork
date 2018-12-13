@@ -763,7 +763,7 @@ npc{
   y = 189,
   direction = -1,
   subtype = 0,
-  sprite = "npc/others/console",
+  sprite = "npc/misc/console",
 }
 
 custom_entity{

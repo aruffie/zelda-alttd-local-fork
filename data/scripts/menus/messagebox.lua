@@ -301,7 +301,7 @@ function messagebox_builder:show(context, text_lines, button_1_text, button_2_te
   -- Notify that this cursor movement is not allowed.
   function messagebox_menu:notify_cursor_not_allowed()
     messagebox_menu.cursor_sprite:set_frame(0)
-    audio_manager:play_sound("others/error")    
+    audio_manager:play_sound("misc/error")    
   end
 
 

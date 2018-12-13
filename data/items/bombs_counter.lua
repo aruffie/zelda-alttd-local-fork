@@ -29,7 +29,7 @@ function item:on_using()
 
   if item:get_amount() == 0 then
     if sound_timer == nil then
-      audio_manager:play_sound("others/error")
+      audio_manager:play_sound("misc/error")
       sound_timer = sol.timer.start(game, 500, function()
         sound_timer = nil
       end)

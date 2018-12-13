@@ -1,6 +1,6 @@
 animation{
   name = "normal",
-  src_image = "entities/objects/raft.png",
+  src_image = "entities/misc/raft.png",
   frame_delay = 250,
   frame_to_loop_on = 0,
   directions = {

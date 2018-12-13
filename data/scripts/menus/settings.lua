@@ -321,7 +321,7 @@ end
 -- Notify that this cursor movement is not allowed.
 function settings_menu:notify_cursor_not_allowed()
   self.cursor_sprite:set_frame(0)
-  audio_manager:play_sound("others/error")    
+  audio_manager:play_sound("misc/error")    
 end
 
 -- Get the curor's next position, either it is valid or not.

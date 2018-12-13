@@ -800,7 +800,7 @@ npc{
   y = 77,
   direction = 3,
   subtype = 1,
-  sprite = "npc/others/fairy",
+  sprite = "npc/misc/fairy",
 }
 
 sensor{

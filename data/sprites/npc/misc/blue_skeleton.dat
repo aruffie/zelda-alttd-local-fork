@@ -1,6 +1,6 @@
 animation{
   name = "waiting",
-  src_image = "npc/others/red_skeleton.png",
+  src_image = "npc/misc/blue_skeleton.png",
   frame_delay = 200,
   frame_to_loop_on = 0,
   directions = {
@@ -12,7 +12,7 @@ animation{
 }
 animation{
   name = "walking",
-  src_image = "npc/others/red_skeleton.png",
+  src_image = "npc/misc/blue_skeleton.png",
   frame_delay = 200,
   frame_to_loop_on = 0,
   directions = {

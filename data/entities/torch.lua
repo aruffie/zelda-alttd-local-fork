@@ -15,7 +15,7 @@ function torch:on_created()
   torch:set_origin(8, 13)
   torch:set_traversable_by(false)
   if torch:get_sprite() == nil then
-    torch:create_sprite("entities/objects/torch")
+    torch:create_sprite("entities/misc/torch")
   end
   sprite = torch:get_sprite()
 

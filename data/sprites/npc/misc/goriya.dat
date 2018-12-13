@@ -1,6 +1,6 @@
 animation{
   name = "waiting",
-  src_image = "npc/others/goriya.png",
+  src_image = "npc/misc/goriya.png",
   frame_delay = 150,
   frame_to_loop_on = 0,
   directions = {
@@ -12,7 +12,7 @@ animation{
 }
 animation{
   name = "stopped",
-  src_image = "npc/others/goriya.png",
+  src_image = "npc/misc/goriya.png",
   frame_delay = 150,
   frame_to_loop_on = 0,
   directions = {
