@@ -72,13 +72,15 @@ end
 function map:on_opening_transition_finished(destination)
   
   -- Kids scared
+  local x_hero, y_hero = hero:get_position()
+  print(y_hero)
   if map:get_game():get_value("main_quest_step") == 8 or map:get_game():get_value("main_quest_step") == 9 then
     map:init_music()
     if destination == library_2_A then
       if not hero_is_alerted then
         hero_is_alerted = true
       end
-    elseif destination == nil and hero:get_direction() == 1 then
+    elseif destination == nil and hero:get_direction() == 1 and x_hero < 160 and y_hero > 760 then
       map:launch_cinematic_1(kids_alert_position_hero_2)
       hero_is_alerted = true
     else
