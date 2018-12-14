@@ -55,7 +55,7 @@ hero_meta:register_event("on_state_changed", function(hero)
   elseif current_state == "stairs" then
     if timer_stairs == nil then
       timer_stairs = sol.timer.start(hero, 0, function()
-        audio_manager:play_sound("others/stairs")
+        audio_manager:play_sound("misc/stairs")
         return 400
       end)
       timer_stairs:set_suspended_with_map(false)
@@ -64,7 +64,7 @@ hero_meta:register_event("on_state_changed", function(hero)
     -- Frozen
     local entity = hero:get_facing_entity()
     if entity ~= nil and entity:get_type() == "chest" and game:is_command_pressed("action") then
-      audio_manager:play_sound("others/chest_open")
+      audio_manager:play_sound("misc/chest_open")
     end
   elseif current_state == "free" then
     -- Throw
@@ -150,7 +150,7 @@ hero_meta:register_event("on_position_changed", function(hero)
     local room_old = game:get_value("room")
     if game:has_dungeon_compass() and room_old ~= room and game:is_secret_room(nil, nil, room) and game:is_secret_signal_room(nil, nil, room) then
       local timer = sol.timer.start(map, 500, function()
-        audio_manager:play_sound("others/dungeon_signal")
+        audio_manager:play_sound("misc/dungeon_signal")
       end)
     end
     game:set_value("room", room)

@@ -140,7 +140,7 @@ function dungeon_4_lock:on_interaction()
           speed = 90,
       }
       camera:shake(shake_config, function()
-        audio_manager:play_sound("others/secret2")
+        audio_manager:play_sound("misc/secret2")
         hero:unfreeze()
         map:init_music()
       end)

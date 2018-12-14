@@ -13111,7 +13111,7 @@ tile{
   y = 392,
   width = 32,
   height = 16,
-  pattern = "80",
+  pattern = "5",
   tileset = "addition/out",
 }
 
@@ -13121,18 +13121,99 @@ tile{
   y = 392,
   width = 32,
   height = 16,
-  pattern = "80",
+  pattern = "5",
   tileset = "addition/out",
 }
 
-custom_entity{
+tile{
   layer = 0,
-  x = 776,
-  y = 405,
+  x = 768,
+  y = 416,
   width = 16,
+  height = 24,
+  pattern = "107",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 744,
+  y = 416,
+  width = 24,
   height = 16,
-  direction = 0,
-  sprite = "entities/entrance_dungeon_4",
+  pattern = "115",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 752,
+  y = 432,
+  width = 16,
+  height = 8,
+  pattern = "116",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 784,
+  y = 416,
+  width = 24,
+  height = 16,
+  pattern = "114",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 784,
+  y = 432,
+  width = 16,
+  height = 8,
+  pattern = "117",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 744,
+  y = 376,
+  width = 64,
+  height = 40,
+  pattern = "108",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 752,
+  y = 488,
+  enabled_at_start = false,
+  width = 48,
+  height = 16,
+  pattern = "4",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 696,
+  y = 696,
+  width = 32,
+  height = 16,
+  pattern = "6",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 168,
+  y = 208,
+  width = 16,
+  height = 48,
+  pattern = "7",
+  tileset = "addition/out",
 }
 
 dynamic_tile{
@@ -13398,26 +13479,6 @@ custom_entity{
   height = 24,
   direction = 0,
   model = "hookable",
-}
-
-custom_entity{
-  layer = 0,
-  x = 704,
-  y = 709,
-  width = 32,
-  height = 16,
-  direction = 0,
-  sprite = "entities/outside_ladder",
-}
-
-dynamic_tile{
-  name = "invisible_tile",
-  layer = 0,
-  x = 704,
-  y = 696,
-  pattern = "617",
-  width = 16,
-  height = 16,
 }
 
 dynamic_tile{
@@ -14328,39 +14389,6 @@ chest{
   sprite = "entities/chests/chest_small",
 }
 
-custom_entity{
-  layer = 0,
-  x = 176,
-  y = 221,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/rock_block",
-  model = "obstacle",
-}
-
-custom_entity{
-  layer = 0,
-  x = 176,
-  y = 237,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/rock_block",
-  model = "obstacle",
-}
-
-custom_entity{
-  layer = 0,
-  x = 176,
-  y = 253,
-  width = 16,
-  height = 16,
-  direction = 1,
-  sprite = "entities/rock_block",
-  model = "obstacle",
-}
-
 destination{
   name = "cave_c1_cave_2",
   layer = 0,
@@ -14500,17 +14528,6 @@ stairs{
   y = 608,
   direction = 1,
   subtype = 3,
-}
-
-custom_entity{
-  name = "dungeon_4_lock",
-  layer = 0,
-  x = 776,
-  y = 501,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/keyhole_dungeon_4",
 }
 
 enemy{

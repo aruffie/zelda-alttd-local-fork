@@ -52,11 +52,9 @@ function map:set_egg_opened(is_opened)
   if is_opened then
     egg_door:get_sprite():set_animation("opened")
     egg_door_top:get_sprite():set_animation("opened")
-    egg:set_traversable_by(true)
   else
     egg_door:get_sprite():set_animation("closed")
     egg_door_top:get_sprite():set_animation("closed")
-    egg:set_traversable_by(false)
   end
   
 end

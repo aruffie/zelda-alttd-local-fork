@@ -708,7 +708,7 @@ npc{
   y = 93,
   direction = 3,
   subtype = 1,
-  sprite = "npc/others/phone",
+  sprite = "npc/misc/phone",
   behavior = "dialog#",
 }
 

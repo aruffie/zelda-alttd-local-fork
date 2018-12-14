@@ -20,7 +20,7 @@ function entity:on_created()
       local map_id = map:get_id()
       hero:set_enabled(false)
       sprite:set_animation("revolving_tunic_1")
-      audio_manager:play_sound("others/dungeon_one_way_door")
+      audio_manager:play_sound("misc/dungeon_one_way_door")
       function sprite:on_animation_finished(animation)
         if animation == "revolving_tunic_1" or animation == "revolving_tunic_2" or animation == "revolving_tunic_2" then
           sprite:set_animation("stopped")

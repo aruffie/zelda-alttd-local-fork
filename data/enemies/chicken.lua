@@ -82,7 +82,7 @@ end
 function enemy:on_hurt()
 
   -- Sound
-  audio_manager:play_sound("others/cucco")
+  audio_manager:play_sound("misc/cucco")
   num_times_hurt = num_times_hurt + 1
   if num_times_hurt == 3 and not map.angry_chickens then
     -- Make all chickens of the map attack the hero.

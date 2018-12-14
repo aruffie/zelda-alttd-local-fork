@@ -104,7 +104,7 @@ function hearts_builder:new(game, config)
 
     if game:get_life() <= game:get_max_life() / 4 then
 
-      audio_manager:play_sound("others/low_health")
+      audio_manager:play_sound("misc/low_health")
       hearts.danger_sound_timer = sol.timer.start(hearts, 750, function()
         hearts:repeat_danger_sound()
       end)

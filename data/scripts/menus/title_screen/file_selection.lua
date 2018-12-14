@@ -17,7 +17,7 @@ local audio_manager = require("scripts/audio_manager")
 
 function file_selection_menu:on_started()
 
-  -- Fix the font shift (issue with Minecraftia)
+  -- Fix the font shift (issue with some fonts)
   self.font_y_shift = 0
 
   -- Create static surfaces.
@@ -399,7 +399,7 @@ function file_selection_menu:move_cursor(key)
     if self.cursor_position <= self.slot_count then
       self.slots[self.cursor_position].hero_sprite:set_frame(0)
     end
-    audio_manager:play_sound("others/error")
+    audio_manager:play_sound("misc/error")
   end
 
   return handled
@@ -484,7 +484,7 @@ function file_selection_menu:on_key_pressed(key)
             end)
           end
         else
-          audio_manager:play_sound("others/errors")            
+          audio_manager:play_sound("misc/errors")            
         end
 
       elseif self.phase == self.phases.CHOOSE_DELETE then
@@ -507,7 +507,7 @@ function file_selection_menu:on_key_pressed(key)
               -- Update all the files.
               self:read_savefiles()
             else
-              audio_manager:play_sound("others/errors")            
+              audio_manager:play_sound("misc/errors")            
             end
             
             -- Go back to first phase.

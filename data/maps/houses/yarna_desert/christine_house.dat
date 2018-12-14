@@ -640,6 +640,26 @@ tile{
   pattern = "painting",
 }
 
+tile{
+  layer = 0,
+  x = 200,
+  y = 144,
+  width = 16,
+  height = 16,
+  pattern = "141",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 184,
+  y = 144,
+  width = 16,
+  height = 16,
+  pattern = "140",
+  tileset = "addition/dungeon",
+}
+
 destination{
   name = "christine_house_1_B",
   layer = 0,
@@ -759,28 +779,8 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/objects/hibiscus_pot",
+  sprite = "entities/misc/hibiscus_pot",
   model = "obstacle",
-}
-
-custom_entity{
-  layer = 0,
-  x = 192,
-  y = 157,
-  width = 16,
-  height = 16,
-  direction = 2,
-  sprite = "entities/letter",
-}
-
-custom_entity{
-  layer = 0,
-  x = 208,
-  y = 149,
-  width = 16,
-  height = 16,
-  direction = 1,
-  sprite = "entities/pencil",
 }
 
 npc{

@@ -1,12 +1,7 @@
--- Lua script of enemy goomba.
+-- Lua script of enemy "goomba".
 -- This script is executed every time an enemy with this model is created.
 
--- Feel free to modify the code below.
--- You can add more events and remove the ones you don't need.
-
--- See the Solarus Lua API documentation for the full specification
--- of types, events and methods:
--- http://www.solarus-games.org/doc/latest
+-- Variables
 local enemy = ...
 local game = enemy:get_game()
 local map = enemy:get_map()
@@ -14,11 +9,12 @@ local hero = map:get_hero()
 local sprite
 local movement
 
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
+
 -- Event called when the enemy is initialized.
 function enemy:on_created()
 
-  -- Initialize the properties of your enemy here,
-  -- like the sprite, the life and the damage.
   sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
   enemy:set_life(1)
   enemy:set_damage(1)
@@ -49,7 +45,7 @@ function enemy:on_restarted()
             movement:stop()
             sprite:set_animation("crushed")
             function sprite:on_animation_finished(animation)
-              audio_manager:play_sound("others/dungeon_switch")
+              audio_manager:play_sound("misc/dungeon_switch")
               enemy:remove()
             end
           end
@@ -68,6 +64,6 @@ function enemy:on_obstacle_reached()
   local sprite = self:get_sprite()
   local direction4 = sprite:get_direction()
   sprite:set_direction((direction4 + 2) % 4)
-
-  self:restart()
+  enemy:restart()
+  
 end

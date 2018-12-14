@@ -1,21 +1,23 @@
 local shop_manager = {}
 local language_manager = require("scripts/language_manager")
 
+-- Initialize the shop .
 function shop_manager:init(map)
-
   local game = map:get_game()
   local hero = map:get_hero()
   local shop_products = require("scripts/maps/lib/shop_config")
+
   -- We go through the list of products
   for name, params in pairs(shop_products) do
     -- If the quest condition is true, create the product.
     shop_manager:add_product(map, name, params)
   end
-  
+
   -- Events
   map:register_event("on_command_pressed", function(map, command)
     local hero = map:get_hero()
-    if command == "attack" then -- Disable sword
+    if command == "attack" and shop_manager.product ~= nil then
+      -- Disable sword when the hero is carrying a product.
       return true
     elseif command == "action" and shop_manager.product ~= nil then
       for k, product in pairs(shop_products) do
@@ -47,83 +49,93 @@ function shop_manager:init(map)
       return true
     end
   end)
-
 end
 
+-- Add a product to the shop.
 function shop_manager:add_product(map, name, params)
-  
   local game = map:get_game()
   if params.activation_condition ~= nil and params.activation_condition(map) then
-      local placeholder = map:get_entity("placeholder_" .. params.placeholder)
-      if placeholder ~= nil then
-        local x_placeholder, y_placeholder, layer_placeholder = placeholder:get_position()
-        -- Create product
-        local product = map:create_custom_entity({
-          name = "product_" .. name,
-          sprite = params.sprite,
-          x = x_placeholder,
-          y = y_placeholder,
-          width = 16,
-          height = 16,
-          layer = layer_placeholder,
-          direction = 0
+    local placeholder = map:get_entity("placeholder_" .. params.placeholder)
+
+    if placeholder ~= nil then
+      local x_placeholder, y_placeholder, layer_placeholder = placeholder:get_position()
+
+      -- Create product.
+      local product = map:create_custom_entity({
+        name = "product_" .. name,
+        sprite = params.sprite,
+        x = x_placeholder,
+        y = y_placeholder,
+        width = 16,
+        height = 16,
+        layer = layer_placeholder,
+        direction = 0
+      })
+
+      local product_lifting = map:create_custom_entity({
+        name = "product_lifting_" .. name,
+        sprite = params.sprite,
+        x = x_placeholder,
+        y = y_placeholder + 24,
+        width = 16,
+        height = 16,
+        layer = layer_placeholder,
+        direction = 0
+      })
+
+      product_lifting:set_weight(0)
+      product_lifting:bring_to_back()
+      product_lifting:get_sprite():set_animation("invisible")
+
+      function product_lifting:on_lifting()
+        local sprite = product_lifting:get_sprite()
+        shop_manager.product = {
+          name = name,
+          params = params
+        }
+        product:remove()
+        game:set_custom_command_effect("action", "none")
+      end
+
+      -- Create price and quantity.
+      local price_text = sol.text_surface.create({
+        horizontal_alignment = "center",
+        text = params.price
+      })
+
+      local quantity_text = nil
+      if params.quantity > 1 then
+        quantity_text = sol.text_surface.create({
+          font = font_number,
+          text = params.quantity,
+          font_size = 8,
+          color = {255,255,255}
         })
-        local product_lifting = map:create_custom_entity({
-          name = "product_lifting_" .. name,
-          sprite = params.sprite,
-          x = x_placeholder,
-          y = y_placeholder + 24,
-          width = 16,
-          height = 16,
-          layer = layer_placeholder,
-          direction = 0
-        })
-        product_lifting:set_weight(0)
-        product_lifting:bring_to_back()
-        product_lifting:get_sprite():set_animation("invisible")
-        function product_lifting:on_lifting()
-          local sprite = product_lifting:get_sprite()
-          shop_manager.product = {
-            name = name,
-            params = params
-          }
-          product:remove()
-          game:set_custom_command_effect("action", "none")
+      end
+
+      function product:on_pre_draw()
+        map:draw_visual(price_text, x_placeholder, y_placeholder - 26)
+        if quantity_text ~= nil then
+          map:draw_visual(quantity_text, x_placeholder + 5, y_placeholder - 4)
         end
-        -- Create price and quantity
-        local price_text = sol.text_surface.create({
-          horizontal_alignment = "center",
-          text = params.price
-        })
-        local quantity_text = nil
-        if params.quantity > 1 then
-          quantity_text = sol.text_surface.create({
-            font = font_number,
-            text = params.quantity,
-            font_size = 8,
-            color = {255,255,255}
-          })
-        end
-        function product:on_pre_draw()
-           map:draw_visual(price_text, x_placeholder, y_placeholder - 26)
-           if quantity_text ~= nil then
-            map:draw_visual(quantity_text, x_placeholder + 5, y_placeholder - 4)
-           end
-        end
-      end  
+      end
     end
- end
- 
- function shop_manager:buy_product(map)
-   
+  end
+end
+
+-- Buy a product to the shop.
+function shop_manager:buy_product(map)
   if shop_manager.product == nil then
     return false
   end
+  
   local game = map:get_game()
   local hero = map:get_hero()
+
   game:start_dialog("maps.houses.mabe_village.shop_2.product" .. "_" .. shop_manager.product.params.dialog_id, function(answer)
     if answer == 1 then
       local error = false
+
       -- Hearts
       if shop_manager.product.name == "heart" then
         if game:get_life() == game:get_max_life() then
@@ -141,6 +153,7 @@ function shop_manager:add_product(map, name, params)
           error = true
         end
       end
+
       if error then
           game:start_dialog("maps.houses.mabe_village.shop_2.merchant_4")
       else
@@ -161,7 +174,6 @@ function shop_manager:add_product(map, name, params)
       end
     end
   end)
-
- end  
+end
 
 return shop_manager

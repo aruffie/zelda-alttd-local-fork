@@ -15,10 +15,17 @@ game_meta:register_event("on_map_changed", function(game, map)
     local changed = map:get_crystal_state() ~= crystal_state
     crystal_state = map:get_crystal_state()
     if changed and not map:get_game():is_suspended() then
-      audio_manager:play_sound("others/dungeon_crystal")
+      audio_manager:play_sound("misc/dungeon_crystal")
     end
     return true
   end)
   timer:set_suspended_with_map(false)
+  
+end)
+game_meta:register_event("on_draw", function(game, dst_surface)
+  
+  if game.map_in_transition then
+    dst_surface:fill_color({0,0,0})
+  end
   
 end)

@@ -28,7 +28,7 @@ function enemy_manager:execute_when_vegas_dead(map, enemy_prefix)
 
   sol.timer.start(map, 500, function()
     if not all_same_direction then
-      audio_manager:play_sound("others/error")
+      audio_manager:play_sound("misc/error")
       for vegas in map:get_entities(enemy_prefix) do
         vegas:set_symbol_fixed(false)
       end
@@ -63,7 +63,7 @@ function enemy_manager:create_teletransporter_if_small_boss_dead(map, sound)
         width = 24,
         height = 24,
         direction = 0,
-        sprite = "entities/teletransporter_dungeon",
+        sprite = "entities/misc/teletransporter",
         layer = teletransporter_A_layer,
       }
       local teletransporter_B = map:create_custom_entity{
@@ -72,7 +72,7 @@ function enemy_manager:create_teletransporter_if_small_boss_dead(map, sound)
         width = 16,
         height = 16,
         direction = 0,
-        sprite = "entities/teletransporter_dungeon",
+        sprite = "entities/misc/teletransporter",
         layer = teletransporter_B_layer,
         sound = "teletransporter"
       }
@@ -86,7 +86,7 @@ function enemy_manager:create_teletransporter_if_small_boss_dead(map, sound)
           hero:set_position(teletransporter_A_x, teletransporter_A_y)
           hero_sprite:set_ignore_suspend(true)
           hero_sprite:set_animation("teleporting")
-          audio_manager:play_sound("others/dungeon_teleport")
+          audio_manager:play_sound("misc/dungeon_teleport")
           function hero_sprite:on_animation_finished(animation)
             if animation == "teleporting" then
               game:set_suspended(false)
@@ -109,7 +109,7 @@ function enemy_manager:create_teletransporter_if_small_boss_dead(map, sound)
           hero:set_position(teletransporter_B_x, teletransporter_B_y)
           hero_sprite:set_ignore_suspend(true)
           hero_sprite:set_animation("teleporting")
-          audio_manager:play_sound("others/dungeon_teleport")
+          audio_manager:play_sound("misc/dungeon_teleport")
           function hero_sprite:on_animation_finished(animation)
             if animation == "teleporting" then
               game:set_suspended(false)
@@ -123,7 +123,7 @@ function enemy_manager:create_teletransporter_if_small_boss_dead(map, sound)
         end
       end)
       if sound ~= nil and sound ~= false then
-        audio_manager:play_sound("others/dungeon_teleport_appear")
+        audio_manager:play_sound("misc/dungeon_teleport_appear")
       end
   end
 
@@ -160,7 +160,6 @@ function enemy_manager:launch_small_boss_if_not_dead(map)
     tile:set_layer(layer)
   end
   map:close_doors(door_prefix)
-  audio_manager:play_sound("others/dungeon_door_slam")
   audio_manager:play_music("21_mini_boss_battle")
       
 end
@@ -191,7 +190,6 @@ function enemy_manager:launch_boss_if_not_dead(map)
         enemy:launch_boss_dead(door_prefix, savegame)
      end)
     map:close_doors(door_prefix)
-    audio_manager:play_sound("others/dungeon_door_slam")
     audio_manager:play_music("22_boss_battle")
     game:start_dialog("maps.dungeons." .. dungeon .. ".boss_welcome")
         

@@ -43,7 +43,7 @@ function owl_manager:appear(map, step, callback)
       -- Init movement 1
       local timer_sound = sol.timer.start(owl, 500, function()
         if owl:get_distance(hero) < 120 then  
-          audio_manager:play_sound("others/owl_fly_in")
+          audio_manager:play_sound("misc/owl_fly_in")
         end
         return true
       end)
@@ -66,7 +66,7 @@ function owl_manager:appear(map, step, callback)
       owl_shadow:get_sprite():set_animation("talking")
       local timer_sound2 = sol.timer.start(owl, 1000, function()
         local index = math.random(1,2)
-        audio_manager:play_sound("others/owl_hoot" .. index)
+        audio_manager:play_sound("misc/owl_hoot" .. index)
         return true
       end)
       timer_sound2:set_suspended_with_map(false)
@@ -78,7 +78,7 @@ function owl_manager:appear(map, step, callback)
       owl_shadow:get_sprite():set_direction(1)
       -- Init movement 2
       owl_shadow:set_enabled(true)
-      audio_manager:play_sound("others/owl_fly_away")
+      audio_manager:play_sound("misc/owl_fly_away")
       local position = map:get_entity("owl_"..step.."_position")
       local m2 = sol.movement.create("target")
       m2:set_target(position)

@@ -55,7 +55,7 @@ local function shoot()
   sprite:set_animation("shooting")
   enemy:stop_movement()
   sol.timer.start(enemy, 300, function()
-    audio_manager:play_sound("others/rock_shatter")
+    audio_manager:play_sound("misc/rock_shatter")
     local stone = enemy:create_enemy({
       breed = "octorok_stone",
       x = dxy[direction + 1][1],

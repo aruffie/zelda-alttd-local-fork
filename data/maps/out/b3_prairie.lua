@@ -273,13 +273,13 @@ end
 -- Doors events
 function weak_door_1:on_opened()
   
-  audio_manager:play_sound("others/secret1")
+  audio_manager:play_sound("misc/secret1")
   
 end
 
 function weak_door_2:on_opened()
   
-  audio_manager:play_sound("others/secret1")
+  audio_manager:play_sound("misc/secret1")
 
 end
 
@@ -313,7 +313,7 @@ function dungeon_3_lock:on_interaction()
           speed = 90,
       }
       camera:shake(shake_config, function()
-        audio_manager:play_sound("others/secret2")
+        audio_manager:play_sound("misc/secret2")
         local sprite = dungeon_3_entrance:get_sprite()
         sprite:set_animation("opening")
         sol.timer.start(map, 800, function() 

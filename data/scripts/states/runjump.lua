@@ -187,7 +187,7 @@ function hero_meta:start_runjump()
   local x,y,layer = hero:get_position()
   local tile = map:create_custom_entity({x=x,y=y,layer=layer,direction=0,width=8,height=8})
   tile:set_origin(4, 4)
-  local sprite = tile:create_sprite("shadows/shadow_big_dynamic")
+  local sprite = tile:create_sprite("entities/shadows/shadow")
   local nb_frames = 32 -- Number of frames of the current animation.
   local frame_delay = jump_duration/nb_frames
   sprite:set_animation("walking")

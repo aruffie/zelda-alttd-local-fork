@@ -1359,6 +1359,16 @@ tile{
   pattern = "door_top.stairs_up.2-1",
 }
 
+tile{
+  layer = 1,
+  x = 152,
+  y = 168,
+  width = 16,
+  height = 16,
+  pattern = "139",
+  tileset = "addition/dungeon",
+}
+
 jumper{
   layer = 1,
   x = 136,
@@ -1387,16 +1397,6 @@ jumper{
   height = 48,
   direction = 4,
   jump_length = 40,
-}
-
-custom_entity{
-  layer = 1,
-  x = 160,
-  y = 181,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/rooster_dead",
 }
 
 tile{

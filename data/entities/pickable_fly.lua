@@ -18,7 +18,7 @@ function entity:on_created()
     height = 8,
     direction = 0,
     layer = 0 ,
-    sprite ="entities/heart_fly_shadow"
+    sprite ="entities/shadows/pickable_flying"
   }
   sprite = entity:get_sprite()
   sprite_shadow = shadow:get_sprite()
@@ -44,14 +44,14 @@ function entity:on_picked()
   
   local sprite_name = entity:get_sprite():get_animation_set()
   -- Heart item.
-  if sprite_name == "entities/heart_fly" then
+  if sprite_name == "entities/items/heart_fly" then
     if game:get_life() == game:get_max_life() then
       audio_manager:play_sound("items/get_item")
     else
      game:add_life(4)
     end
   -- Bomb item.
-  elseif sprite_name == "entities/bomb_fly" then
+  elseif sprite_name == "entities/items/bomb_fly" then
     if bombs_counter:get_amount() == bombs_counter:get_max_amount() then
       audio_manager:play_sound("items/get_item")
     else

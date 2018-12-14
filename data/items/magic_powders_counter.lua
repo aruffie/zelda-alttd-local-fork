@@ -32,7 +32,7 @@ function item:on_using()
    local amount =   self:get_amount()
    amount = amount - 1
   if amount < 0 then
-    audio_manager:play_sound("others/error")
+    audio_manager:play_sound("misc/error")
   else
    audio_manager:play_sound("items/magic_powder")
    local map = game:get_map()

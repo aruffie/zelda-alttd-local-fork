@@ -54,7 +54,7 @@ local function initialize_pause_features(game)
     game:set_value("pause_last_submenu", submenu_index)
 
     -- Play the sound of pausing the game.
-    audio_manager:play_sound("menus/menu_select")
+    audio_manager:play_sound("menus/pause_menu_open")
 
     -- Forces the dialog_box to be at bottom.
     local dialog_box = game:get_dialog_box()

@@ -126,7 +126,7 @@ function treasure_manager:appear_chest(map, chest, sound)
   local game = map:get_game()
   chest:set_enabled(true)
   if sound ~= nil and sound ~= false then
-    audio_manager:play_sound("others/secret1")
+    audio_manager:play_sound("misc/secret1")
   end
       
 end
@@ -138,7 +138,7 @@ function treasure_manager:appear_pickable(map, pickable, sound)
       local game = map:get_game()
       pickable:set_enabled(true)
       if sound ~= nil and sound ~= false then
-        audio_manager:play_sound("others/secret1")
+        audio_manager:play_sound("misc/secret1")
       end
     end
 

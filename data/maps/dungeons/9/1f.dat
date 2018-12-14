@@ -10496,6 +10496,326 @@ tile{
   pattern = "fairy_fountain.1",
 }
 
+tile{
+  layer = 0,
+  x = 368,
+  y = 896,
+  width = 48,
+  height = 48,
+  pattern = "138",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 400,
+  y = 944,
+  width = 48,
+  height = 32,
+  pattern = "138",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 416,
+  y = 928,
+  width = 32,
+  height = 16,
+  pattern = "138",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 544,
+  y = 896,
+  width = 48,
+  height = 48,
+  pattern = "138",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 512,
+  y = 928,
+  width = 32,
+  height = 16,
+  pattern = "138",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 512,
+  y = 944,
+  width = 48,
+  height = 32,
+  pattern = "138",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 384,
+  y = 832,
+  width = 192,
+  height = 32,
+  pattern = "137",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 432,
+  y = 816,
+  width = 96,
+  height = 16,
+  pattern = "137",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1328,
+  y = 1088,
+  width = 80,
+  height = 32,
+  pattern = "137",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1376,
+  y = 1072,
+  width = 32,
+  height = 16,
+  pattern = "137",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1472,
+  y = 1088,
+  width = 80,
+  height = 32,
+  pattern = "137",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1472,
+  y = 1072,
+  width = 32,
+  height = 16,
+  pattern = "137",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1328,
+  y = 1184,
+  width = 80,
+  height = 32,
+  pattern = "138",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1472,
+  y = 1184,
+  width = 80,
+  height = 32,
+  pattern = "138",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1376,
+  y = 1216,
+  width = 32,
+  height = 16,
+  pattern = "138",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1472,
+  y = 1216,
+  width = 32,
+  height = 16,
+  pattern = "138",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1648,
+  y = 336,
+  width = 16,
+  height = 128,
+  pattern = "138",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1664,
+  y = 352,
+  width = 16,
+  height = 96,
+  pattern = "138",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1680,
+  y = 368,
+  width = 16,
+  height = 64,
+  pattern = "138",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1696,
+  y = 384,
+  width = 16,
+  height = 32,
+  pattern = "138",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1696,
+  y = 304,
+  width = 160,
+  height = 16,
+  pattern = "136",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1712,
+  y = 320,
+  width = 128,
+  height = 16,
+  pattern = "136",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1728,
+  y = 336,
+  width = 96,
+  height = 16,
+  pattern = "136",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1744,
+  y = 352,
+  width = 64,
+  height = 16,
+  pattern = "136",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1760,
+  y = 368,
+  width = 32,
+  height = 16,
+  pattern = "136",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1760,
+  y = 448,
+  width = 112,
+  height = 16,
+  pattern = "137",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1776,
+  y = 432,
+  width = 96,
+  height = 16,
+  pattern = "137",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1792,
+  y = 416,
+  width = 80,
+  height = 16,
+  pattern = "137",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1808,
+  y = 400,
+  width = 64,
+  height = 16,
+  pattern = "137",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1824,
+  y = 384,
+  width = 48,
+  height = 16,
+  pattern = "137",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1840,
+  y = 368,
+  width = 32,
+  height = 16,
+  pattern = "137",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1856,
+  y = 352,
+  width = 16,
+  height = 16,
+  pattern = "137",
+  tileset = "addition/dungeon",
+}
+
 pickable{
   layer = 0,
   x = 744,
@@ -10575,46 +10895,6 @@ pickable{
   treasure_name = "rupee",
   treasure_variant = 2,
   treasure_savegame_variable = "dungeon_9_treasure",
-}
-
-custom_entity{
-  layer = 0,
-  x = 552,
-  y = 941,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 408,
-  y = 941,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 424,
-  y = 957,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 424,
-  y = 941,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
 }
 
 wall{
@@ -10765,7 +11045,7 @@ npc{
   y = 53,
   direction = 3,
   subtype = 1,
-  sprite = "npc/fairy",
+  sprite = "npc/misc/fairy",
 }
 
 crystal{
@@ -10797,7 +11077,7 @@ block{
   layer = 0,
   x = 776,
   y = 365,
-  sprite = "entities/block",
+  sprite = "entities/blocks/block",
   pushable = true,
   pullable = false,
   maximum_moves = 1,
@@ -10807,7 +11087,7 @@ block{
   layer = 0,
   x = 792,
   y = 381,
-  sprite = "entities/block",
+  sprite = "entities/blocks/block",
   pushable = true,
   pullable = false,
   maximum_moves = 1,
@@ -10817,7 +11097,7 @@ block{
   layer = 0,
   x = 808,
   y = 397,
-  sprite = "entities/block",
+  sprite = "entities/blocks/block",
   pushable = true,
   pullable = false,
   maximum_moves = 1,
@@ -10827,7 +11107,7 @@ block{
   layer = 0,
   x = 824,
   y = 413,
-  sprite = "entities/block",
+  sprite = "entities/blocks/block",
   pushable = true,
   pullable = false,
   maximum_moves = 1,
@@ -10982,7 +11262,7 @@ npc{
   y = 1077,
   direction = 3,
   subtype = 1,
-  sprite = "npc/others/blue_skeleton",
+  sprite = "npc/misc/blue_skeleton",
 }
 
 npc{
@@ -10991,7 +11271,7 @@ npc{
   y = 1077,
   direction = 3,
   subtype = 1,
-  sprite = "npc/others/red_skelelton",
+  sprite = "npc/misc/red_skeleton",
 }
 
 destructible{
@@ -10999,7 +11279,7 @@ destructible{
   x = 392,
   y = 973,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -11009,7 +11289,7 @@ destructible{
   x = 376,
   y = 829,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -11019,7 +11299,7 @@ destructible{
   x = 392,
   y = 829,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -11029,7 +11309,7 @@ destructible{
   x = 408,
   y = 829,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -11039,7 +11319,7 @@ destructible{
   x = 376,
   y = 845,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -11049,7 +11329,7 @@ destructible{
   x = 376,
   y = 861,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -11059,7 +11339,7 @@ destructible{
   x = 552,
   y = 829,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -11069,7 +11349,7 @@ destructible{
   x = 568,
   y = 829,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -11079,7 +11359,7 @@ destructible{
   x = 584,
   y = 829,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -11089,7 +11369,7 @@ destructible{
   x = 584,
   y = 845,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -11099,7 +11379,7 @@ destructible{
   x = 584,
   y = 861,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -11109,7 +11389,7 @@ destructible{
   x = 584,
   y = 957,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -11119,7 +11399,7 @@ destructible{
   x = 568,
   y = 957,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -11129,7 +11409,7 @@ destructible{
   x = 584,
   y = 973,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -11139,7 +11419,7 @@ destructible{
   x = 568,
   y = 973,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -11149,7 +11429,7 @@ destructible{
   x = 376,
   y = 957,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -11159,7 +11439,7 @@ destructible{
   x = 392,
   y = 957,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -11169,7 +11449,7 @@ destructible{
   x = 376,
   y = 973,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -11209,7 +11489,7 @@ chest{
   y = 853,
   treasure_name = "beak_of_stone",
   treasure_savegame_variable = "dungeon_9_beak_of_stone",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 destination{
@@ -11228,7 +11508,7 @@ chest{
   y = 901,
   treasure_name = "compass",
   treasure_savegame_variable = "dungeon_9_compass",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 npc{
@@ -11354,7 +11634,7 @@ chest{
   y = 1197,
   treasure_name = "small_key",
   treasure_savegame_variable = "dungeon_9_small_key_2",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 door{
@@ -11520,7 +11800,7 @@ chest{
   y = 333,
   treasure_name = "map",
   treasure_savegame_variable = "dungeon_9_map",
-  sprite = "entities/chest",
+  sprite = "entities/chests/chest_small",
 }
 
 pickable{
@@ -11625,606 +11905,6 @@ door{
   savegame_variable = "dungeon_9_door_boss",
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_9_boss_key",
-}
-
-custom_entity{
-  layer = 0,
-  x = 376,
-  y = 941,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 392,
-  y = 845,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 376,
-  y = 925,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 376,
-  y = 909,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 392,
-  y = 909,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 408,
-  y = 909,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 408,
-  y = 925,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 392,
-  y = 925,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 392,
-  y = 941,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 408,
-  y = 957,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 408,
-  y = 973,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 424,
-  y = 973,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 440,
-  y = 941,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 440,
-  y = 957,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 440,
-  y = 973,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 584,
-  y = 909,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 568,
-  y = 909,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 552,
-  y = 909,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 552,
-  y = 925,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 568,
-  y = 925,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 584,
-  y = 925,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 584,
-  y = 941,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 568,
-  y = 941,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 536,
-  y = 941,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 520,
-  y = 941,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 520,
-  y = 957,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 536,
-  y = 957,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 552,
-  y = 957,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 552,
-  y = 973,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 536,
-  y = 973,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 520,
-  y = 973,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 440,
-  y = 829,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 456,
-  y = 829,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 472,
-  y = 829,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 488,
-  y = 829,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 504,
-  y = 829,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 520,
-  y = 829,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 392,
-  y = 861,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 408,
-  y = 845,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 424,
-  y = 845,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 424,
-  y = 861,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 408,
-  y = 861,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 440,
-  y = 845,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 456,
-  y = 845,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 472,
-  y = 845,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 488,
-  y = 845,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 504,
-  y = 845,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 520,
-  y = 845,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 536,
-  y = 845,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 552,
-  y = 845,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 568,
-  y = 845,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 568,
-  y = 861,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 552,
-  y = 861,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 536,
-  y = 861,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 520,
-  y = 861,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 504,
-  y = 861,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 488,
-  y = 861,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 472,
-  y = 861,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 440,
-  y = 861,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 456,
-  y = 861,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
 }
 
 enemy{
@@ -12434,7 +12114,7 @@ destructible{
   x = 1080,
   y = 957,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -12444,7 +12124,7 @@ destructible{
   x = 1080,
   y = 973,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -12453,7 +12133,7 @@ block{
   layer = 0,
   x = 1432,
   y = 909,
-  sprite = "entities/block",
+  sprite = "entities/blocks/block",
   pushable = false,
   pullable = false,
   maximum_moves = 0,
@@ -12463,7 +12143,7 @@ block{
   layer = 0,
   x = 1448,
   y = 893,
-  sprite = "entities/block",
+  sprite = "entities/blocks/block",
   pushable = false,
   pullable = false,
   maximum_moves = 0,
@@ -12473,7 +12153,7 @@ block{
   layer = 0,
   x = 1416,
   y = 925,
-  sprite = "entities/block",
+  sprite = "entities/blocks/block",
   pushable = false,
   pullable = false,
   maximum_moves = 0,
@@ -12483,498 +12163,18 @@ block{
   layer = 0,
   x = 1400,
   y = 941,
-  sprite = "entities/block",
+  sprite = "entities/blocks/block",
   pushable = false,
   pullable = false,
   maximum_moves = 0,
 }
 
-custom_entity{
-  layer = 0,
-  x = 1480,
-  y = 1197,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1400,
-  y = 1117,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1400,
-  y = 1085,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1400,
-  y = 1101,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1384,
-  y = 1117,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1368,
-  y = 1117,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1352,
-  y = 1117,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1336,
-  y = 1117,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1480,
-  y = 1085,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1480,
-  y = 1101,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1480,
-  y = 1117,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1496,
-  y = 1117,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1512,
-  y = 1117,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1528,
-  y = 1117,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1544,
-  y = 1117,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1496,
-  y = 1197,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1512,
-  y = 1197,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1528,
-  y = 1197,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1544,
-  y = 1197,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1480,
-  y = 1213,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1480,
-  y = 1229,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1400,
-  y = 1197,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1400,
-  y = 1213,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1400,
-  y = 1229,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1384,
-  y = 1197,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1368,
-  y = 1197,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1352,
-  y = 1197,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1336,
-  y = 1197,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1336,
-  y = 1213,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1352,
-  y = 1213,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1368,
-  y = 1213,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1384,
-  y = 1213,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1384,
-  y = 1229,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1544,
-  y = 1213,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1528,
-  y = 1213,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1512,
-  y = 1213,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1496,
-  y = 1213,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1496,
-  y = 1229,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1496,
-  y = 1085,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1496,
-  y = 1101,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1512,
-  y = 1101,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1528,
-  y = 1101,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1544,
-  y = 1101,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1384,
-  y = 1085,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1384,
-  y = 1101,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1368,
-  y = 1101,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1352,
-  y = 1101,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1336,
-  y = 1101,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
 destructible{
   layer = 0,
   x = 1336,
   y = 1085,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -12984,7 +12184,7 @@ destructible{
   x = 1352,
   y = 1085,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -12994,7 +12194,7 @@ destructible{
   x = 1368,
   y = 1085,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -13004,7 +12204,7 @@ destructible{
   x = 1512,
   y = 1085,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -13014,7 +12214,7 @@ destructible{
   x = 1528,
   y = 1085,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -13024,7 +12224,7 @@ destructible{
   x = 1544,
   y = 1085,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -13034,7 +12234,7 @@ destructible{
   x = 1544,
   y = 1229,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -13044,7 +12244,7 @@ destructible{
   x = 1528,
   y = 1229,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -13054,7 +12254,7 @@ destructible{
   x = 1512,
   y = 1229,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -13064,7 +12264,7 @@ destructible{
   x = 1336,
   y = 1229,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -13074,7 +12274,7 @@ destructible{
   x = 1352,
   y = 1229,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -13084,7 +12284,7 @@ destructible{
   x = 1368,
   y = 1229,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -13147,326 +12347,6 @@ enemy{
   treasure_name = "random",
 }
 
-custom_entity{
-  layer = 0,
-  x = 1704,
-  y = 317,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_blue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1656,
-  y = 461,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1768,
-  y = 461,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1848,
-  y = 317,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_blue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1832,
-  y = 317,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_blue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1816,
-  y = 317,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_blue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1800,
-  y = 317,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_blue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1784,
-  y = 317,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_blue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1768,
-  y = 317,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_blue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1752,
-  y = 317,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_blue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1736,
-  y = 317,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_blue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1720,
-  y = 317,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_blue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1720,
-  y = 333,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_blue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1736,
-  y = 333,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_blue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1752,
-  y = 333,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_blue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1784,
-  y = 333,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_blue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1800,
-  y = 333,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_blue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1816,
-  y = 333,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_blue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1832,
-  y = 333,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_blue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1816,
-  y = 349,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_blue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1800,
-  y = 349,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_blue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1784,
-  y = 349,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_blue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1768,
-  y = 349,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_blue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1752,
-  y = 349,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_blue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1736,
-  y = 349,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_blue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1752,
-  y = 365,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_blue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1768,
-  y = 365,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_blue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1784,
-  y = 365,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_blue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1800,
-  y = 365,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_blue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1768,
-  y = 381,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_blue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1784,
-  y = 381,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_blue",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1768,
-  y = 333,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_blue",
-}
-
 enemy{
   name = "enemy_group_2_2",
   layer = 0,
@@ -13475,196 +12355,6 @@ enemy{
   direction = 3,
   breed = "zombie",
   treasure_name = "random",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1656,
-  y = 349,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1656,
-  y = 365,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1656,
-  y = 381,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1656,
-  y = 397,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1656,
-  y = 413,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1656,
-  y = 429,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1656,
-  y = 445,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1672,
-  y = 365,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1672,
-  y = 381,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1672,
-  y = 397,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1672,
-  y = 413,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1672,
-  y = 429,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1672,
-  y = 445,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1688,
-  y = 429,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1688,
-  y = 413,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1688,
-  y = 397,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1688,
-  y = 381,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1704,
-  y = 397,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1704,
-  y = 413,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_green",
 }
 
 sensor{
@@ -13684,276 +12374,6 @@ enemy{
   direction = 3,
   breed = "zombie",
   treasure_name = "random",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1784,
-  y = 445,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1800,
-  y = 429,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1816,
-  y = 413,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1832,
-  y = 397,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1848,
-  y = 381,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1864,
-  y = 365,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1864,
-  y = 381,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1864,
-  y = 397,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1848,
-  y = 397,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1832,
-  y = 413,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1848,
-  y = 413,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1864,
-  y = 413,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1816,
-  y = 429,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1832,
-  y = 429,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1848,
-  y = 429,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1864,
-  y = 429,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1800,
-  y = 445,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1816,
-  y = 445,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1832,
-  y = 445,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1848,
-  y = 445,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1864,
-  y = 445,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1864,
-  y = 461,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1848,
-  y = 461,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1832,
-  y = 461,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1816,
-  y = 461,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1800,
-  y = 461,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1784,
-  y = 461,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/teletransporter_red",
 }
 
 enemy{
@@ -13979,7 +12399,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/eye_switch_red",
+  sprite = "entities/switchs/switch_eye_red",
   model = "eye_switch",
 }
 
@@ -13991,7 +12411,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/orb_monster_hole_red",
+  sprite = "entities/misc/orb_hole_red",
 }
 
 custom_entity{
@@ -14002,7 +12422,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/orb_monster_hole_green",
+  sprite = "entities/misc/orb_hole_green",
 }
 
 custom_entity{
@@ -14013,7 +12433,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/orb_monster_hole_red",
+  sprite = "entities/misc/orb_hole_red",
 }
 
 custom_entity{
@@ -14024,7 +12444,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/orb_monster_hole_green",
+  sprite = "entities/misc/orb_hole_green",
 }
 
 custom_entity{
@@ -14035,7 +12455,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/orb_monster_hole_green",
+  sprite = "entities/misc/orb_hole_green",
 }
 
 custom_entity{
@@ -14046,7 +12466,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/orb_monster_hole_blue",
+  sprite = "entities/misc/orb_hole_blue",
 }
 
 enemy{
@@ -14116,7 +12536,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -14132,7 +12552,7 @@ block{
   layer = 0,
   x = 1480,
   y = 141,
-  sprite = "entities/block",
+  sprite = "entities/blocks/block",
   pushable = false,
   pullable = false,
   maximum_moves = 0,
@@ -14142,7 +12562,7 @@ block{
   layer = 0,
   x = 1480,
   y = 205,
-  sprite = "entities/block",
+  sprite = "entities/blocks/block",
   pushable = false,
   pullable = false,
   maximum_moves = 0,
@@ -14152,7 +12572,7 @@ block{
   layer = 0,
   x = 1480,
   y = 157,
-  sprite = "entities/block",
+  sprite = "entities/blocks/block",
   pushable = true,
   pullable = false,
   maximum_moves = 1,
@@ -14162,7 +12582,7 @@ block{
   layer = 0,
   x = 1480,
   y = 189,
-  sprite = "entities/block",
+  sprite = "entities/blocks/block",
   pushable = true,
   pullable = false,
   maximum_moves = 1,
@@ -14172,7 +12592,7 @@ block{
   layer = 0,
   x = 1480,
   y = 173,
-  sprite = "entities/block",
+  sprite = "entities/blocks/block",
   pushable = true,
   pullable = false,
   maximum_moves = 1,
@@ -14183,7 +12603,7 @@ destructible{
   x = 712,
   y = 573,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14193,7 +12613,7 @@ destructible{
   x = 728,
   y = 573,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14203,7 +12623,7 @@ destructible{
   x = 728,
   y = 589,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14213,7 +12633,7 @@ destructible{
   x = 712,
   y = 589,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14223,7 +12643,7 @@ destructible{
   x = 696,
   y = 589,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14233,7 +12653,7 @@ destructible{
   x = 872,
   y = 701,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14243,7 +12663,7 @@ destructible{
   x = 888,
   y = 701,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14253,7 +12673,7 @@ destructible{
   x = 904,
   y = 701,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14263,7 +12683,7 @@ destructible{
   x = 904,
   y = 717,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14273,7 +12693,7 @@ destructible{
   x = 888,
   y = 717,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14283,7 +12703,7 @@ destructible{
   x = 872,
   y = 717,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14292,7 +12712,7 @@ destructible{
   layer = 0,
   x = 696,
   y = 573,
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14301,7 +12721,7 @@ block{
   layer = 0,
   x = 840,
   y = 429,
-  sprite = "entities/block",
+  sprite = "entities/blocks/block",
   pushable = true,
   pullable = false,
   maximum_moves = 1,
@@ -14311,7 +12731,7 @@ block{
   layer = 0,
   x = 760,
   y = 349,
-  sprite = "entities/block",
+  sprite = "entities/blocks/block",
   pushable = true,
   pullable = false,
   maximum_moves = 1,
@@ -14322,7 +12742,7 @@ destructible{
   x = 696,
   y = 461,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14332,7 +12752,7 @@ destructible{
   x = 712,
   y = 461,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14342,7 +12762,7 @@ destructible{
   x = 712,
   y = 445,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14352,7 +12772,7 @@ destructible{
   x = 696,
   y = 445,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14362,7 +12782,7 @@ destructible{
   x = 696,
   y = 429,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14372,7 +12792,7 @@ destructible{
   x = 712,
   y = 429,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14382,7 +12802,7 @@ destructible{
   x = 760,
   y = 365,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14392,7 +12812,7 @@ destructible{
   x = 776,
   y = 381,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14402,7 +12822,7 @@ destructible{
   x = 792,
   y = 397,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14412,7 +12832,7 @@ destructible{
   x = 808,
   y = 413,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14422,7 +12842,7 @@ destructible{
   x = 824,
   y = 429,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14432,7 +12852,7 @@ destructible{
   x = 856,
   y = 429,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14442,7 +12862,7 @@ destructible{
   x = 872,
   y = 445,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14452,7 +12872,7 @@ destructible{
   x = 888,
   y = 461,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14462,7 +12882,7 @@ destructible{
   x = 904,
   y = 461,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14472,7 +12892,7 @@ destructible{
   x = 872,
   y = 429,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14482,7 +12902,7 @@ destructible{
   x = 888,
   y = 429,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14492,7 +12912,7 @@ destructible{
   x = 904,
   y = 429,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14502,7 +12922,7 @@ destructible{
   x = 904,
   y = 445,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14512,7 +12932,7 @@ destructible{
   x = 888,
   y = 445,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14540,7 +12960,7 @@ destructible{
   x = 584,
   y = 317,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14550,7 +12970,7 @@ destructible{
   x = 568,
   y = 317,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14560,7 +12980,7 @@ destructible{
   x = 552,
   y = 317,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14570,7 +12990,7 @@ destructible{
   x = 584,
   y = 333,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14580,7 +13000,7 @@ destructible{
   x = 584,
   y = 349,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14590,7 +13010,7 @@ destructible{
   x = 584,
   y = 429,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14600,7 +13020,7 @@ destructible{
   x = 584,
   y = 445,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14610,7 +13030,7 @@ destructible{
   x = 584,
   y = 461,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14620,7 +13040,7 @@ destructible{
   x = 568,
   y = 461,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14630,7 +13050,7 @@ destructible{
   x = 552,
   y = 461,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14640,7 +13060,7 @@ destructible{
   x = 376,
   y = 429,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14650,7 +13070,7 @@ destructible{
   x = 376,
   y = 445,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14660,7 +13080,7 @@ destructible{
   x = 376,
   y = 461,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14670,7 +13090,7 @@ destructible{
   x = 392,
   y = 461,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14680,7 +13100,7 @@ destructible{
   x = 408,
   y = 461,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14690,7 +13110,7 @@ destructible{
   x = 376,
   y = 349,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14700,7 +13120,7 @@ destructible{
   x = 376,
   y = 333,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14710,7 +13130,7 @@ destructible{
   x = 376,
   y = 317,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14720,7 +13140,7 @@ destructible{
   x = 392,
   y = 317,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14730,7 +13150,7 @@ destructible{
   x = 408,
   y = 317,
   treasure_name = "random",
-  sprite = "entities/pot",
+  sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
 }
@@ -14748,7 +13168,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -14765,7 +13185,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -14782,7 +13202,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -14799,7 +13219,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -14816,7 +13236,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -14833,7 +13253,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -14850,7 +13270,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -14867,7 +13287,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -14884,7 +13304,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -14901,7 +13321,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -14918,7 +13338,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -14935,7 +13355,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -14952,7 +13372,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -14969,7 +13389,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -14986,7 +13406,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15003,7 +13423,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15020,7 +13440,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15037,7 +13457,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15054,7 +13474,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15071,7 +13491,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15088,7 +13508,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15105,7 +13525,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15122,7 +13542,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15139,7 +13559,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15156,7 +13576,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15173,7 +13593,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15190,7 +13610,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15207,7 +13627,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15224,7 +13644,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15241,7 +13661,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15258,7 +13678,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15275,7 +13695,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15292,7 +13712,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15309,7 +13729,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15326,7 +13746,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15343,7 +13763,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15360,7 +13780,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15377,7 +13797,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15394,7 +13814,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15411,7 +13831,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15428,7 +13848,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15445,7 +13865,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15462,7 +13882,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15479,7 +13899,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15496,7 +13916,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15513,7 +13933,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15530,7 +13950,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15547,7 +13967,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15564,7 +13984,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15581,7 +14001,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15598,7 +14018,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15615,7 +14035,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15632,7 +14052,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15649,7 +14069,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15666,7 +14086,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15683,7 +14103,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15700,7 +14120,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15717,7 +14137,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15734,7 +14154,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15751,7 +14171,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15768,7 +14188,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15785,7 +14205,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15802,7 +14222,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15819,7 +14239,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15836,7 +14256,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -15853,7 +14273,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -15870,7 +14290,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -15887,7 +14307,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -15904,7 +14324,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -15921,7 +14341,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -15938,7 +14358,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -15955,7 +14375,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -15972,7 +14392,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -15989,7 +14409,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -16006,7 +14426,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -16023,7 +14443,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -16040,7 +14460,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -16057,7 +14477,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -16074,7 +14494,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -16091,7 +14511,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -16108,7 +14528,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -16125,7 +14545,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16142,7 +14562,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16159,7 +14579,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16176,7 +14596,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16193,7 +14613,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16210,7 +14630,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16227,7 +14647,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16244,7 +14664,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16261,7 +14681,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16278,7 +14698,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16295,7 +14715,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16312,7 +14732,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16329,7 +14749,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16346,7 +14766,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16363,7 +14783,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16380,7 +14800,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16397,7 +14817,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16414,7 +14834,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16431,7 +14851,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16448,7 +14868,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16465,7 +14885,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16482,7 +14902,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16499,7 +14919,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16516,7 +14936,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16533,7 +14953,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16550,7 +14970,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16567,7 +14987,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16584,7 +15004,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16601,7 +15021,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16618,7 +15038,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16635,7 +15055,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16652,7 +15072,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16669,7 +15089,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16686,7 +15106,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16703,7 +15123,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16720,7 +15140,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16737,7 +15157,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16754,7 +15174,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16771,7 +15191,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16788,7 +15208,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16805,7 +15225,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16822,7 +15242,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16839,7 +15259,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16856,7 +15276,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16873,7 +15293,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16890,7 +15310,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16907,7 +15327,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16924,7 +15344,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16941,7 +15361,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16958,7 +15378,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16975,7 +15395,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -16992,7 +15412,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17009,7 +15429,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17026,7 +15446,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17043,7 +15463,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17060,7 +15480,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17077,7 +15497,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17094,7 +15514,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17120,7 +15540,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17137,7 +15557,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17154,7 +15574,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17171,7 +15591,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17188,7 +15608,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17205,7 +15625,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17222,7 +15642,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17239,7 +15659,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17256,7 +15676,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17273,7 +15693,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17290,7 +15710,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17307,7 +15727,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17324,7 +15744,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17341,7 +15761,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17358,7 +15778,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17375,7 +15795,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17392,7 +15812,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17409,7 +15829,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17426,7 +15846,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17443,7 +15863,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17460,7 +15880,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17477,7 +15897,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17494,7 +15914,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17511,7 +15931,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17528,7 +15948,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17545,7 +15965,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17562,7 +15982,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17579,7 +15999,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17596,7 +16016,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17613,7 +16033,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17630,7 +16050,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17647,7 +16067,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17664,7 +16084,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17681,7 +16101,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17698,7 +16118,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17715,7 +16135,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17732,7 +16152,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17749,7 +16169,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17766,7 +16186,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17783,7 +16203,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17800,7 +16220,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17817,7 +16237,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17834,7 +16254,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17851,7 +16271,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17868,7 +16288,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -17894,7 +16314,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -17911,7 +16331,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -17928,7 +16348,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -17954,7 +16374,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -17971,7 +16391,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -17988,7 +16408,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -18005,7 +16425,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -18022,7 +16442,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -18039,7 +16459,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -18056,7 +16476,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -18073,7 +16493,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -18090,7 +16510,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -18107,7 +16527,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -18124,7 +16544,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -18141,7 +16561,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18158,7 +16578,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18175,7 +16595,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18192,7 +16612,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18209,7 +16629,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18226,7 +16646,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18243,7 +16663,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18260,7 +16680,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18277,7 +16697,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18294,7 +16714,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18311,7 +16731,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18328,7 +16748,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18345,7 +16765,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18362,7 +16782,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18379,7 +16799,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18396,7 +16816,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18413,7 +16833,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18430,7 +16850,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18447,7 +16867,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18464,7 +16884,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18481,7 +16901,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18498,7 +16918,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18515,7 +16935,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18532,7 +16952,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18549,7 +16969,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18566,7 +16986,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18583,7 +17003,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18600,7 +17020,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18617,7 +17037,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18634,7 +17054,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18651,7 +17071,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18668,7 +17088,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18685,7 +17105,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18702,7 +17122,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_green",
+  sprite = "entities/grounds/color_platform_green",
   model = "color_platform",
 }
 
@@ -18728,7 +17148,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18745,7 +17165,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18762,7 +17182,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18779,7 +17199,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18796,7 +17216,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18813,7 +17233,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18830,7 +17250,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18847,7 +17267,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18864,7 +17284,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18881,7 +17301,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18898,7 +17318,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18915,7 +17335,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18932,7 +17352,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18949,7 +17369,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18966,7 +17386,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -18983,7 +17403,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -19000,7 +17420,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -19017,7 +17437,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -19034,7 +17454,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -19051,7 +17471,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -19068,7 +17488,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -19085,7 +17505,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_red",
+  sprite = "entities/grounds/color_platform_red",
   model = "color_platform",
 }
 
@@ -19111,7 +17531,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19128,7 +17548,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19145,7 +17565,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19162,7 +17582,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19179,7 +17599,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19196,7 +17616,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19213,7 +17633,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19230,7 +17650,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19247,7 +17667,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19264,7 +17684,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19281,7 +17701,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19298,7 +17718,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19315,7 +17735,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19332,7 +17752,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19349,7 +17769,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19366,7 +17786,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19383,7 +17803,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19400,7 +17820,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19417,7 +17837,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19434,7 +17854,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/color_platform_orange",
+  sprite = "entities/grounds/color_platform_orange",
   model = "color_platform",
 }
 
@@ -19451,7 +17871,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/eye_switch_red",
+  sprite = "entities/switchs/switch_eye_red",
   model = "eye_switch",
 }
 
@@ -19468,7 +17888,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/eye_switch_blue",
+  sprite = "entities/switchs/switch_eye_blue",
   model = "eye_switch",
 }
 
@@ -19485,7 +17905,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/eye_switch_blue",
+  sprite = "entities/switchs/switch_eye_blue",
   model = "eye_switch",
 }
 
@@ -19502,7 +17922,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/eye_switch_blue",
+  sprite = "entities/switchs/switch_eye_blue",
   model = "eye_switch",
 }
 
@@ -19519,7 +17939,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/eye_switch_blue",
+  sprite = "entities/switchs/switch_eye_blue",
   model = "eye_switch",
 }
 
@@ -19536,7 +17956,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/eye_switch_blue",
+  sprite = "entities/switchs/switch_eye_blue",
   model = "eye_switch",
 }
 
@@ -19553,7 +17973,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/eye_switch_blue",
+  sprite = "entities/switchs/switch_eye_blue",
   model = "eye_switch",
 }
 
@@ -19570,7 +17990,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/eye_switch_blue",
+  sprite = "entities/switchs/switch_eye_blue",
   model = "eye_switch",
 }
 
@@ -19587,7 +18007,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/eye_switch_red",
+  sprite = "entities/switchs/switch_eye_red",
   model = "eye_switch",
 }
 
@@ -19604,7 +18024,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/eye_switch_red",
+  sprite = "entities/switchs/switch_eye_red",
   model = "eye_switch",
 }
 
@@ -19621,7 +18041,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/eye_switch_red",
+  sprite = "entities/switchs/switch_eye_red",
   model = "eye_switch",
 }
 
@@ -19638,7 +18058,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/eye_switch_red",
+  sprite = "entities/switchs/switch_eye_red",
   model = "eye_switch",
 }
 
@@ -19655,7 +18075,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/eye_switch_red",
+  sprite = "entities/switchs/switch_eye_red",
   model = "eye_switch",
 }
 
@@ -19672,7 +18092,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/eye_switch_blue",
+  sprite = "entities/switchs/switch_eye_blue",
   model = "eye_switch",
 }
 
@@ -19689,7 +18109,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/eye_switch_blue",
+  sprite = "entities/switchs/switch_eye_blue",
   model = "eye_switch",
 }
 
@@ -19706,7 +18126,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/eye_switch_yellow",
+  sprite = "entities/switchs/switch_eye_yellow",
   model = "eye_switch",
 }
 
@@ -19717,6 +18137,15 @@ npc{
   y = 109,
   direction = 3,
   subtype = 1,
+}
+
+custom_entity{
+  layer = 0,
+  x = 536,
+  y = 181,
+  width = 16,
+  height = 16,
+  direction = 0,
 }
 
 tile{

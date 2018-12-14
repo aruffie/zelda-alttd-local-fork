@@ -1507,7 +1507,7 @@ block{
   layer = 0,
   x = 480,
   y = 405,
-  sprite = "entities/stone_small_brown",
+  sprite = "entities/blocks/stone_brown",
   pushable = true,
   pullable = false,
   maximum_moves = 1,
@@ -1517,7 +1517,7 @@ block{
   layer = 0,
   x = 464,
   y = 389,
-  sprite = "entities/stone_small_brown",
+  sprite = "entities/blocks/stone_brown",
   pushable = true,
   pullable = false,
   maximum_moves = 1,
@@ -1539,7 +1539,7 @@ block{
   layer = 0,
   x = 240,
   y = 149,
-  sprite = "entities/stone_small_brown",
+  sprite = "entities/blocks/stone_brown",
   pushable = true,
   pullable = false,
   maximum_moves = 1,
@@ -1550,7 +1550,7 @@ block{
   layer = 0,
   x = 224,
   y = 165,
-  sprite = "entities/stone_small_brown",
+  sprite = "entities/blocks/stone_brown",
   pushable = true,
   pullable = false,
   maximum_moves = 1,
@@ -1561,7 +1561,7 @@ block{
   layer = 0,
   x = 208,
   y = 149,
-  sprite = "entities/stone_small_brown",
+  sprite = "entities/blocks/stone_brown",
   pushable = true,
   pullable = false,
   maximum_moves = 1,
@@ -1572,7 +1572,7 @@ block{
   layer = 0,
   x = 224,
   y = 133,
-  sprite = "entities/stone_small_brown",
+  sprite = "entities/blocks/stone_brown",
   pushable = true,
   pullable = false,
   maximum_moves = 1,
@@ -1583,7 +1583,7 @@ block{
   layer = 0,
   x = 224,
   y = 117,
-  sprite = "entities/stone_small_brown",
+  sprite = "entities/blocks/stone_brown",
   pushable = true,
   pullable = false,
   maximum_moves = 1,
@@ -1594,7 +1594,7 @@ block{
   layer = 0,
   x = 208,
   y = 117,
-  sprite = "entities/stone_small_brown",
+  sprite = "entities/blocks/stone_brown",
   pushable = true,
   pullable = false,
   maximum_moves = 1,
@@ -1605,7 +1605,7 @@ block{
   layer = 0,
   x = 192,
   y = 133,
-  sprite = "entities/stone_small_brown",
+  sprite = "entities/blocks/stone_brown",
   pushable = true,
   pullable = false,
   maximum_moves = 1,
@@ -1615,7 +1615,7 @@ block{
   layer = 0,
   x = 160,
   y = 149,
-  sprite = "entities/stone_small_brown",
+  sprite = "entities/blocks/stone_brown",
   pushable = true,
   pullable = false,
   maximum_moves = 0,
@@ -1626,7 +1626,7 @@ block{
   x = 144,
   y = 117,
   direction = 3,
-  sprite = "entities/stone_small_brown",
+  sprite = "entities/blocks/stone_brown",
   pushable = true,
   pullable = false,
   maximum_moves = 0,
@@ -1637,7 +1637,7 @@ block{
   x = 160,
   y = 101,
   direction = 3,
-  sprite = "entities/stone_small_brown",
+  sprite = "entities/blocks/stone_brown",
   pushable = true,
   pullable = false,
   maximum_moves = 0,
@@ -1647,7 +1647,7 @@ block{
   layer = 0,
   x = 144,
   y = 149,
-  sprite = "entities/stone_small_brown",
+  sprite = "entities/blocks/stone_brown",
   pushable = true,
   pullable = false,
   maximum_moves = 0,
@@ -1657,7 +1657,7 @@ block{
   layer = 0,
   x = 144,
   y = 165,
-  sprite = "entities/stone_small_brown",
+  sprite = "entities/blocks/stone_brown",
   pushable = true,
   pullable = false,
   maximum_moves = 0,
@@ -1667,7 +1667,7 @@ block{
   layer = 0,
   x = 128,
   y = 165,
-  sprite = "entities/stone_small_brown",
+  sprite = "entities/blocks/stone_brown",
   pushable = true,
   pullable = false,
   maximum_moves = 0,
@@ -1677,7 +1677,7 @@ block{
   layer = 0,
   x = 96,
   y = 149,
-  sprite = "entities/stone_small_brown",
+  sprite = "entities/blocks/stone_brown",
   pushable = true,
   pullable = false,
   maximum_moves = 0,
@@ -1687,7 +1687,7 @@ block{
   layer = 0,
   x = 96,
   y = 85,
-  sprite = "entities/stone_small_brown",
+  sprite = "entities/blocks/stone_brown",
   pushable = true,
   pullable = false,
   maximum_moves = 0,
@@ -1772,7 +1772,7 @@ block{
   x = 160,
   y = 85,
   direction = 3,
-  sprite = "entities/stone_small_brown",
+  sprite = "entities/blocks/stone_brown",
   pushable = true,
   pullable = false,
   maximum_moves = 0,
@@ -1782,7 +1782,7 @@ block{
   layer = 0,
   x = 112,
   y = 165,
-  sprite = "entities/stone_small_brown",
+  sprite = "entities/blocks/stone_brown",
   pushable = true,
   pullable = false,
   maximum_moves = 0,
@@ -1792,7 +1792,7 @@ block{
   layer = 0,
   x = 112,
   y = 181,
-  sprite = "entities/stone_small_brown",
+  sprite = "entities/blocks/stone_brown",
   pushable = true,
   pullable = false,
   maximum_moves = 0,
@@ -1935,7 +1935,7 @@ block{
   x = 176,
   y = 101,
   direction = 3,
-  sprite = "entities/stone_small_brown",
+  sprite = "entities/blocks/stone_brown",
   pushable = true,
   pullable = false,
   maximum_moves = 0,
@@ -1945,7 +1945,7 @@ block{
   layer = 0,
   x = 176,
   y = 133,
-  sprite = "entities/stone_small_brown",
+  sprite = "entities/blocks/stone_brown",
   pushable = true,
   pullable = false,
   maximum_moves = 0,
@@ -1989,7 +1989,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2221,7 +2221,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2233,7 +2233,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2245,7 +2245,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2257,7 +2257,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2269,7 +2269,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2281,7 +2281,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2293,7 +2293,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2305,7 +2305,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2317,7 +2317,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2329,7 +2329,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2341,7 +2341,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2353,7 +2353,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2365,7 +2365,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2377,7 +2377,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2389,7 +2389,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2401,7 +2401,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2413,7 +2413,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2425,7 +2425,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2437,7 +2437,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 

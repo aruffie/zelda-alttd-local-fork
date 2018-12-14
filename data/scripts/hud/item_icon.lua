@@ -59,15 +59,30 @@ function item_icon_builder:new(game, config)
       end
     end
   end
+  
+  -- Returns if the icon is enabled or disabled.
+  function item_icon:is_enabled(active)
+    return item_icon.hud_icon:is_enabled()
+  end
 
   -- Set if the icon is enabled or disabled.
   function item_icon:set_enabled(enabled)
     item_icon.hud_icon:set_enabled(enabled)
   end
-  
+          
+  -- Returns if the icon is active or inactive.
+  function item_icon:is_active(active)
+    return item_icon.hud_icon:is_active()
+  end
+
   -- Set if the icon is active or inactive.
   function item_icon:set_active(active)
     item_icon.hud_icon:set_active(active)
+  end
+
+  -- Returns if the icon is transparent or not.
+  function item_icon:is_transparent()
+    return item_icon.hud_icon:set_transparent()
   end
 
   -- Sets if the icon is transparent or not.

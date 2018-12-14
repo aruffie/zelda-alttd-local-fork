@@ -73,7 +73,7 @@ weak_wall_A_1:register_event("on_opened", function()
 
   weak_wall_closed_A_1:remove();
   weak_wall_closed_A_2:remove();
-  audio_manager:play_sound("others/secret1")
+  audio_manager:play_sound("misc/secret1")
 
 end)
 
@@ -127,7 +127,6 @@ sensor_7:register_event("on_activated", function()
 
 
   map:close_doors("door_group_6_")
-  audio_manager:play_sound("others/dungeon_door_slam")
 
 end)
 

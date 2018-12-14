@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.6)
-project(LAFD)
+project(ZELDA_ALTTD)
 
-set(quest_name "zelda_lafd")
+set(quest_name "zelda-alttd")
 
 # data files list
 file(GLOB_RECURSE data_files

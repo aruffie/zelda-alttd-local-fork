@@ -10,9 +10,9 @@ function destructible_meta:on_created(game)
     
   local directory = audio_manager:get_directory()
   if self:get_can_be_cut() then
-    self:set_destruction_sound(directory .. "/others/bush_cut")
+    self:set_destruction_sound(directory .. "/misc/bush_cut")
   else
-    self:set_destruction_sound(directory .. "/others/rock_shatter")
+    self:set_destruction_sound(directory .. "/misc/rock_shatter")
   end
     
 end

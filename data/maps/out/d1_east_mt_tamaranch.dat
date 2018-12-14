@@ -12791,6 +12791,17 @@ tile{
   tileset = "addition/out",
 }
 
+tile{
+  layer = 0,
+  x = 528,
+  y = 72,
+  enabled_at_start = false,
+  width = 16,
+  height = 16,
+  pattern = "1",
+  tileset = "addition/out",
+}
+
 teletransporter{
   name = "to_d2",
   layer = 0,
@@ -12902,17 +12913,6 @@ npc{
   subtype = 1,
   sprite = "npc/statues/owl",
   behavior = "dialog#maps.out.east_mt_tamaranch.owl_statue_1",
-}
-
-custom_entity{
-  name = "keyhole7",
-  layer = 0,
-  x = 536,
-  y = 85,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/keyhole_dungeon_7",
 }
 
 destination{
@@ -13609,6 +13609,26 @@ sensor{
   },
   width = 112,
   height = 16,
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 624,
+  y = 80,
+  pattern = "113",
+  width = 16,
+  height = 16,
+  tileset = "addition/out",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 624,
+  y = 64,
+  pattern = "118",
+  width = 16,
+  height = 16,
+  tileset = "addition/out",
 }
 
 tile{

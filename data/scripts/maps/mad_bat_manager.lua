@@ -38,7 +38,7 @@ function mad_bat_manager:awakening(map, mad_bat_name, savegame)
   bat_y = bat_y - 24
   local npc = map:create_custom_entity({
     name = mad_bat_name .. "_npc",
-    sprite = "npc/others/mad_bat",
+    sprite = "npc/misc/mad_bat",
     x = bat_x,
     y = bat_y,
     width = 16,

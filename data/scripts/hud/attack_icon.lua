@@ -38,6 +38,11 @@ function attack_icon_builder:new(game, config)
       attack_icon.hud_icon:set_foreground_text(text)
     end
   end
+    
+  -- Returns if the icon is enabled or disabled.
+  function attack_icon:is_enabled(active)
+    return attack_icon.hud_icon:is_enabled()
+  end
 
   -- Set if the icon is enabled or disabled.
   function attack_icon:set_enabled(enabled)
@@ -46,10 +51,20 @@ function attack_icon_builder:new(game, config)
     end
     attack_icon.hud_icon:set_enabled(enabled)
   end
-  
+    
+  -- Returns if the icon is active or inactive.
+  function attack_icon:is_active(active)
+    return attack_icon.hud_icon:is_active()
+  end
+
   -- Set if the icon is active or inactive.
   function attack_icon:set_active(active)
     attack_icon.hud_icon:set_active(active)
+  end
+
+  -- Returns if the icon is transparent or not.
+  function attack_icon:is_transparent()
+    return attack_icon.hud_icon:set_transparent()
   end
 
   -- Sets if the icon is transparent or not.

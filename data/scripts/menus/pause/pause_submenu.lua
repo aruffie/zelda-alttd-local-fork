@@ -15,7 +15,7 @@ function submenu:new(game)
 end
 
 function submenu:on_started()
-  -- Fix the font shift (issue with Minecraftia)
+  -- Fix the font shift (issue with some fonts)
   self.font_y_shift = 0
   
   -- State.
