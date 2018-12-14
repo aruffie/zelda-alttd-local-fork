@@ -13,9 +13,10 @@ local is_move = false
 
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
+require("scripts/multi_events")
 
 -- Event called when the custom entity is initialized.
-function seagull:on_created()
+seagull:register_event("on_created", function()
 
   x,y,layer = seagull:get_position()
   seagull:set_can_traverse(true)
@@ -29,7 +30,7 @@ function seagull:on_created()
     return true
   end)
 
-end
+end)
 
 function seagull:escape_hero()
 

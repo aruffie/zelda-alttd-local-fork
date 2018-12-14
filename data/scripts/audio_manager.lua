@@ -13,13 +13,14 @@
 -- You should have received a copy of the GNU General Public License along
 -- with this program. If not, see <http://www.gnu.org/licenses/>.
 
-require("scripts/multi_events")
-
+-- Variables
 local audio_manager = {}
-
 local music_fade_timer
 local initial_volume = sol.audio.get_music_volume()
 local next_music
+
+-- Include scripts
+require("scripts/multi_events")
 
 function audio_manager:play_music_fade(context, music)
 
@@ -132,8 +133,7 @@ function audio_manager:refresh_music()
   local game = sol.main.game
   local id_music = sol.audio.get_music()
   local mode = (game ~= nil) and game:get_value("mode") or "snes"
-  local directory = (mode == "gb") and "gb" or "snes"
-  -- Todo replace by local directory = audio_manager:get_directory()
+  local directory = audio_manager:get_directory()
   if directory == "gb" then
     id_music = id_music:gsub("snes/", "gb/")
   else

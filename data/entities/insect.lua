@@ -4,8 +4,11 @@ local game = entity:get_game()
 local map = entity:get_map()
 local sprite = entity:get_sprite()
 
+-- Include scripts
+require("scripts/multi_events")
+
 -- Event called when the custom entity is initialized.
-function entity:on_created()
+entity:register_event("on_created", function()
 
   entity:set_can_traverse("hero", false)
   local direction4 = math.random(4) - 1
@@ -14,7 +17,21 @@ function entity:on_created()
   m:start(entity)
   entity:go(direction4)
 
-end
+end)
+
+entity:register_event("on_movement_finished", function()
+
+  local direction4 = math.random(4) - 1
+  entity:go(direction4)
+
+end)
+
+entity:register_event("on_obstacle_reached", function()
+
+  local direction4 = math.random(4) - 1
+  entity:go(direction4)
+
+end)
 
 function entity:go(direction4)
 
@@ -29,18 +46,4 @@ function entity:go(direction4)
   m:set_speed(20)
   m:set_angle(direction4 * math.pi / 2)
   
-end
-
-function entity:on_movement_finished(movement)
-
-  local direction4 = math.random(4) - 1
-  entity:go(direction4)
-
-end
-
-function entity:on_obstacle_reached(movement)
-
-  local direction4 = math.random(4) - 1
-  entity:go(direction4)
-
 end

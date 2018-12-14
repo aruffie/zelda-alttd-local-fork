@@ -6,8 +6,11 @@ local shadow
 local sprite
 local sprite_shadow
 
+-- Include scripts
+require("scripts/multi_events")
+
 -- Event called when the custom entity is initialized.
-function entity:on_created()
+entity:register_event("on_created", function()
 
   entity:set_layer_independent_collisions(true)
   local x,y,layer = entity:get_position()
@@ -31,16 +34,15 @@ function entity:on_created()
     end
   end)
 
-end
+end)
 
-function entity:on_removed()
+entity:register_event("on_removed", function()
   
   shadow:remove()
   
-end
+end)
 
-
-function entity:on_picked()
+entity:register_event("on_picked", function()
   
   local sprite_name = entity:get_sprite():get_animation_set()
   -- Heart item.
@@ -60,6 +62,6 @@ function entity:on_picked()
 
   -- TODO: add more flying items here.
 
-end
+  end
 
-end
+end)

@@ -9,7 +9,11 @@ local torch = ...
 local map = torch:get_map()
 local sprite
 
-function torch:on_created()
+-- Include scripts
+require("scripts/multi_events")
+
+-- Event called when the custom entity is initialized.
+torch:register_event("on_created", function()
 
   torch:set_size(16, 16)
   torch:set_origin(8, 13)
@@ -28,7 +32,8 @@ function torch:on_created()
   if name ~= nil and name:match("^timed_torch") then
     torch:set_duration(10000)
   end
-end
+  
+end)
 
 function torch:is_lit()
   return sprite:get_animation() == "lit"

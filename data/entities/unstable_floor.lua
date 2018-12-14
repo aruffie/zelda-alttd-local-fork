@@ -13,9 +13,10 @@ local time_resistance = 800 -- The time it resists with hero above. In milliseco
 
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
+require("scripts/multi_events")
 
 -- Event called when the custom entity is initialized.
-function entity:on_created()
+entity:register_event("on_created", function()
 
   local hero = entity:get_map():get_hero()
   -- Add an unstable floor (do not save ground position!!!).
@@ -70,4 +71,4 @@ function entity:on_created()
     end)
   end)
 
-end
+end)

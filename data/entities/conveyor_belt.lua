@@ -3,8 +3,11 @@ local entity = ...
 local game = entity:get_game()
 local map = entity:get_map()
 
+-- Include scripts
+require("scripts/multi_events")
+
 -- Event called when the custom entity is initialized.
-function entity:on_created()
+entity:register_event("on_created", function()
 
   self:add_collision_test("containing", function(entity, other, entity_sprite, other_sprite)
     if other:get_type() == "pickable" then
@@ -18,4 +21,5 @@ function entity:on_created()
       movement:start(other)
     end
   end)
-end
+
+end)

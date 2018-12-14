@@ -3,9 +3,12 @@ local entity = ...
 local game = entity:get_game()
 local map = entity:get_map()
 
--- Event called when the custom entity is initialized.
-function entity:on_created()
+-- Include scripts
+require("scripts/multi_events")
 
+-- Event called when the custom entity is initialized.
+entity:register_event("on_created", function()
+    
   local sprite = entity:get_sprite()
   function sprite:on_animation_finished(animation)
     if animation == "walking" then
@@ -21,4 +24,4 @@ function entity:on_created()
     sprite:set_animation("walking")
   end)
 
-end
+end)

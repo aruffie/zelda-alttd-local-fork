@@ -6,10 +6,11 @@ local chains_entities = {}
 
 -- Include scripts
 local chain_manager = require("scripts/maps/chain_manager")
+require("scripts/multi_events")
 
 -- Event called when the custom entity is initialized.
-function entity:on_created()
-
+entity:register_event("on_created", function()
+    
   entity:set_traversable_by(false)
   entity:set_can_traverse("hero", false)
   -- Movement
@@ -22,5 +23,5 @@ function entity:on_created()
   local source = map:get_entity("chain_source")
   chain_manager:init_map(map, entity, source)
 
-end
+end)
 

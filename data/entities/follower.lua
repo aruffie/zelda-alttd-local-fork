@@ -10,56 +10,6 @@ local movement
 -- Include scripts
 require("scripts/multi_events")
 
-local function follow_hero()
-
-  movement = sol.movement.create("target")
-  movement:set_speed(100)
-  movement:set_ignore_obstacles(true)
-  movement:start(follower)
-  sprite:set_animation("walking")
-  follower:set_state("following")
-
-end
-
-local function stop_walking()
-  
-  if follower:get_state() ~= "following" then
-    return false
-  end
-  follower:stop_movement()
-  movement = nil
-  sprite:set_animation("stopped")
-  follower:set_state("stopped")
-    
-end
-
--- Get current follower state
-function follower:get_state()
-
-  return state
-  
-end
-
--- Set current follower state
--- following is default state
-function follower:set_state(new_state)
-
-  if new_state == nil then
-    new_state = "following"
-  end
-  
-  state = new_state
-  
-end
-
--- Check if follower is so closed to hero
-function follower:is_very_close_to_hero()
-
-  local distance = follower:get_distance(hero)
-  return distance < 24
-  
-end
-
 -- Event called when the custom entity is initialized.
 follower:register_event("on_created", function()
     
@@ -113,3 +63,53 @@ sol.timer.start(follower, 50, function()
   return true
 
 end)
+
+local function follow_hero()
+
+  movement = sol.movement.create("target")
+  movement:set_speed(100)
+  movement:set_ignore_obstacles(true)
+  movement:start(follower)
+  sprite:set_animation("walking")
+  follower:set_state("following")
+
+end
+
+local function stop_walking()
+  
+  if follower:get_state() ~= "following" then
+    return false
+  end
+  follower:stop_movement()
+  movement = nil
+  sprite:set_animation("stopped")
+  follower:set_state("stopped")
+    
+end
+
+-- Get current follower state
+function follower:get_state()
+
+  return state
+  
+end
+
+-- Set current follower state
+-- following is default state
+function follower:set_state(new_state)
+
+  if new_state == nil then
+    new_state = "following"
+  end
+  
+  state = new_state
+  
+end
+
+-- Check if follower is so closed to hero
+function follower:is_very_close_to_hero()
+
+  local distance = follower:get_distance(hero)
+  return distance < 24
+  
+end

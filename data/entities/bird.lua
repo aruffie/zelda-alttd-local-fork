@@ -4,8 +4,11 @@ local game = entity:get_game()
 local map = entity:get_map()
 local movement
 
+-- Include scripts
+require("scripts/multi_events")
+
 -- Event called when the custom entity is initialized.
-function entity:on_created()
+entity:register_event("on_created", function()
 
   entity:start_movement()
   sol.timer.start(entity, 50, function()
@@ -14,7 +17,7 @@ function entity:on_created()
     return true
   end)
 
-end
+end)
 
 -- Start movement
 function entity:start_movement()

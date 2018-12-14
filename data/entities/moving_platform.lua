@@ -5,8 +5,11 @@ local angle = 0
 local direction = 0
 local sprite
 
+-- Include scripts
+require("scripts/multi_events")
+
 -- Event called when the custom entity is initialized.
-function entity:on_created()
+entity:register_event("on_created", function()
   
   sprite = entity:get_sprite()
   entity:set_traversable_by(false)
@@ -18,7 +21,7 @@ function entity:on_created()
   
   entity:go()
 
-end
+end)
 
 
 function entity:go()

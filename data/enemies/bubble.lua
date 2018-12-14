@@ -80,11 +80,5 @@ function enemy:on_attacking_hero(hero)
 
   -- In any case, we do the hurt animation as usual
   hero:start_hurt(enemy, 2)
-
-  -- If hero has magic, it is drained.
-  if game:get_magic() > 0 then
-    game:remove_magic(4)
-    audio_manager:play_sound("magic_bar")
-  end
   
 end

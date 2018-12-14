@@ -4,15 +4,18 @@ local game = entity:get_game()
 local map = entity:get_map()
 local sprite = entity:get_sprite()
 
+-- Include scripts
+require("scripts/multi_events")
+
 -- Event called when the custom entity is initialized.
-function entity:on_created()
+entity:register_event("on_created", function()
 
   local duration = 500 + math.random(1000)
   sol.timer.start(entity, duration, function()
     entity:move_frog()
   end)
 
-end
+end)
 
 function entity:move_frog()
 

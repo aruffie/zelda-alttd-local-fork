@@ -76,7 +76,6 @@ function map:on_opening_transition_finished(destination)
     map:init_music()
     if destination == library_2_A then
       if not hero_is_alerted then
-        map:launch_cinematic_1(kids_alert_position_hero_1)
         hero_is_alerted = true
       end
     elseif destination == nil and hero:get_direction() == 1 then
@@ -93,6 +92,9 @@ end
 -- Initialize the music of the map
 function map:init_music()
   
+  if marin ~= nil and marin:is_sing() then
+    return
+  end
   if game:get_value("main_quest_step") == 3  then
     audio_manager:play_music("07_koholint_island")
   elseif map:get_game():get_value("main_quest_step") == 8 and hero:get_distance(kids_alert_position_center) < 160 or map:get_game():get_value("main_quest_step") == 9 and hero:get_distance(kids_alert_position_center) < 160 then

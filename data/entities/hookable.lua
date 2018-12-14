@@ -1,17 +1,19 @@
 -- Variables
-local hookable = ...
+local entity = ...
+
+-- Include scripts
+require("scripts/multi_events")
 
 -- Event called when the custom entity is initialized.
-function hookable:on_created()
+entity:register_event("on_created", function()
   
-  hookable:set_traversable_by(false)
-  hookable:set_drawn_in_y_order(true)
+  entity:set_traversable_by(false)
+  entity:set_drawn_in_y_order(true)
   
-end
-
+end)
 
 -- Tell the hookshot that it can hook to us.
-function hookable:is_hookable()
+function entity:is_hookable()
   
   return true
   

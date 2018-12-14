@@ -9,8 +9,11 @@ local next_direction
 local interaction_finished = false -- True if first interaction has finished (command released).
 local sprite = "entities/vacuum_cleaner_ground" -- [TODO: change default value]. Used to create ground sprites.
 
+-- Include scripts
+require("scripts/multi_events")
+
 -- Event called when the custom entity is initialized.
-function entity:on_created()
+entity:register_event("on_created", function()
   
   entity:set_traversable_by(false)
   entity:set_can_traverse_ground("lava", true)
@@ -23,7 +26,7 @@ function entity:on_created()
     self:set_can_traverse_ground(ground, false)
   end
   
-end
+end)
 
 -- Return the direction pressed, if any.
 -- Return nil if no direction or more than one direction is pressed.
@@ -97,7 +100,7 @@ function entity:move()
 end
 
 -- Start using the vacuum cleaner.
-function entity:on_interaction()
+entity:register_event("on_interaction", function()
   
   hero:freeze()
   hero:set_invincible()
@@ -112,15 +115,15 @@ function entity:on_interaction()
     return true
   end)
 
-end
+end)
 
-function entity:on_removed()
+entity:register_event("on_removed", function()
   
   -- TODO: make the disappearing effects: sound and animation.
   hero:set_invincible(false)
   hero:unfreeze()  
   
-end
+end)
 
 -- Functions to initialize tile pattern from the map script.
 function entity:get_tile_sprite()

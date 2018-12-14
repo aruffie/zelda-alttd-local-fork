@@ -8,12 +8,13 @@ local wallturn_teletransporter = map:get_entity("wallturn_teletransporter")
 
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
+require("scripts/multi_events")
 
 -- Event called when the custom entity is initialized.
-function entity:on_created()
+entity:register_event("on_created", function()
 
-  self:set_traversable_by(false)
-  self:add_collision_test("touching", function(wall, hero)
+  entity:set_traversable_by(false)
+  entity:add_collision_test("touching", function(wall, hero)
     if animation_launch == false and hero:get_type() == "hero" then
       animation_launch = true
       local x_t, y_t= wallturn_teletransporter:get_position()
@@ -43,4 +44,4 @@ function entity:on_created()
 
   end)
 
-end
+end)

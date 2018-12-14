@@ -6,21 +6,25 @@ local map = entity:get_map()
 local sprite = entity:get_sprite()
 local is_destroy = false
 
+-- Include scripts
+require("scripts/multi_events")
+
 -- Event called when the custom entity is initialized.
-function entity:on_created()
+entity:register_event("on_created", function()
 
   entity:set_traversable_by("hero", false)
   entity:set_traversable_by("enemy", false)
 
-end
+end)
 
-function entity:on_interaction()
+-- Event called when the custom entity is initialized.
+entity:register_event("on_interaction", function(entity)
 
   game:start_dialog("_cannot_break_without_boots");
 
-end
+end)
 
-local function on_collision(crystal, other, crystal_sprite, other_sprite)
+entity:add_collision_test("facing", function(crystal, other, crystal_sprite, other_sprite)
 
   if is_destroy == false and other:get_type() =="hero" and hero:get_state() == "running" then
     audio_manager:play_sound("misc/bush_cut")
@@ -32,6 +36,4 @@ local function on_collision(crystal, other, crystal_sprite, other_sprite)
     end)
   end
 
-end
-
-entity:add_collision_test("facing", on_collision)
+end)

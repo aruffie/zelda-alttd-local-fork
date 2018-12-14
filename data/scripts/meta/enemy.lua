@@ -155,7 +155,8 @@ function enemy_meta:on_position_changed(x, y, layer)
     
   local enemy = self
   local ground = enemy:get_map():get_ground(x, y, layer)
-  if ground == "hole" and enemy:get_sprite() ~= nil and enemy:get_sprite():get_animation() ~= "falling" then
+  local sprite = enemy:get_sprite()
+  if ground == "hole" and enemy:get_sprite() ~= nil and sprite:has_animation("falling") and sprite:get_animation() ~= "falling" then
     enemy:get_sprite():set_animation("falling")
     audio_manager:play_sound("enemies/enemy_fall")
   end
