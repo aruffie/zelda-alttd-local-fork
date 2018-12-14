@@ -22,3 +22,10 @@ game_meta:register_event("on_map_changed", function(game, map)
   timer:set_suspended_with_map(false)
   
 end)
+game_meta:register_event("on_draw", function(game, dst_surface)
+  
+  if game.map_in_transition then
+    dst_surface:fill_color({0,0,0})
+  end
+  
+end)
