@@ -18274,31 +18274,15 @@ tile{
 
 tile{
   layer = 0,
-  x = 1040,
-  y = 1688,
-  enabled_at_start = false,
-  width = 32,
-  height = 32,
-  pattern = "66",
-  tileset = "addition/dungeon",
-}
-
-tile{
-  layer = 0,
-  x = 1040,
-  y = 1624,
-  enabled_at_start = false,
-  width = 32,
-  height = 32,
-  pattern = "66",
-  tileset = "addition/dungeon",
-}
-
-tile{
-  layer = 0,
   x = 1168,
   y = 1624,
   enabled_at_start = false,
+  properties = {
+    {
+      key = "draw_in_y_order",
+      value = "true",
+    },
+  },
   width = 32,
   height = 32,
   pattern = "66",
@@ -18310,9 +18294,25 @@ tile{
   x = 1168,
   y = 1688,
   enabled_at_start = false,
+  properties = {
+    {
+      key = "draw_in_y_order",
+      value = "true",
+    },
+  },
   width = 32,
   height = 32,
   pattern = "66",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 760,
+  y = 784,
+  width = 64,
+  height = 24,
+  pattern = "40",
   tileset = "addition/dungeon",
 }
 
@@ -19456,9 +19456,9 @@ custom_entity{
 custom_entity{
   layer = 0,
   x = 1832,
-  y = 621,
+  y = 637,
   width = 16,
-  height = 32,
+  height = 16,
   direction = 0,
   sprite = "entities/destructibles/statue_elephant",
   model = "heavy_object",
@@ -19467,9 +19467,9 @@ custom_entity{
 custom_entity{
   layer = 0,
   x = 1688,
-  y = 621,
+  y = 637,
   width = 16,
-  height = 32,
+  height = 16,
   direction = 0,
   sprite = "entities/destructibles/statue_elephant",
   model = "heavy_object",
@@ -19478,9 +19478,9 @@ custom_entity{
 custom_entity{
   layer = 0,
   x = 1672,
-  y = 621,
+  y = 637,
   width = 16,
-  height = 32,
+  height = 16,
   direction = 0,
   sprite = "entities/destructibles/statue_elephant",
   model = "heavy_object",
@@ -19489,9 +19489,9 @@ custom_entity{
 custom_entity{
   layer = 0,
   x = 1848,
-  y = 621,
+  y = 637,
   width = 16,
-  height = 32,
+  height = 16,
   direction = 0,
   sprite = "entities/destructibles/statue_elephant",
   model = "heavy_object",
@@ -24294,17 +24294,6 @@ sensor{
   height = 16,
 }
 
-custom_entity{
-  name = "statue_egg_dungeon_6",
-  layer = 0,
-  x = 776,
-  y = 797,
-  width = 16,
-  height = 16,
-  direction = 3,
-  sprite = "entities/statue_dungeon_6_egg",
-}
-
 pickable{
   name = "instrument",
   layer = 0,
@@ -24390,6 +24379,38 @@ wall{
   stops_enemies = true,
   stops_blocks = true,
   stops_projectiles = true,
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 1040,
+  y = 1624,
+  properties = {
+    {
+      key = "draw_in_y_order",
+      value = "true",
+    },
+  },
+  pattern = "66",
+  width = 32,
+  height = 32,
+  tileset = "addition/dungeon",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 1032,
+  y = 1688,
+  properties = {
+    {
+      key = "draw_in_y_order",
+      value = "true",
+    },
+  },
+  pattern = "66",
+  width = 32,
+  height = 32,
+  tileset = "addition/dungeon",
 }
 
 tile{
@@ -27194,6 +27215,26 @@ tile{
 tile{
   layer = 1,
   x = 1040,
+  y = 1608,
+  width = 32,
+  height = 16,
+  pattern = "67",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 1168,
+  y = 1608,
+  width = 32,
+  height = 16,
+  pattern = "67",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 1168,
   y = 1672,
   width = 32,
   height = 16,
@@ -27203,27 +27244,7 @@ tile{
 
 tile{
   layer = 1,
-  x = 1040,
-  y = 1608,
-  width = 32,
-  height = 16,
-  pattern = "67",
-  tileset = "addition/dungeon",
-}
-
-tile{
-  layer = 1,
-  x = 1168,
-  y = 1608,
-  width = 32,
-  height = 16,
-  pattern = "67",
-  tileset = "addition/dungeon",
-}
-
-tile{
-  layer = 1,
-  x = 1168,
+  x = 1032,
   y = 1672,
   width = 32,
   height = 16,
@@ -28162,7 +28183,7 @@ npc{
   y = 677,
   direction = 3,
   subtype = 1,
-  sprite = "entities/statue_dungeon_6_owl",
+  sprite = "npc/statues/owl_dungeon_6",
 }
 
 custom_entity{
@@ -28183,7 +28204,7 @@ npc{
   y = 1573,
   direction = 3,
   subtype = 1,
-  sprite = "entities/statue_dungeon_6_owl",
+  sprite = "npc/statues/owl_dungeon_6",
 }
 
 pickable{

@@ -214,8 +214,9 @@ function lost_sensor:on_activated()
   -- Keep the exact same destructible entities so that the player cannot see a difference.
   tarin_2:set_enabled(true)
   tarin_2:get_sprite():fade_out(function()
-      tarin:get_sprite():set_animation("waiting_raccoon")
-      tarin_2:get_sprite():set_animation("waiting_raccoon")
+    tarin_2:set_enabled(false)
+    tarin:get_sprite():set_animation("waiting_raccoon")
+    tarin_2:get_sprite():set_animation("waiting_raccoon")
   end)
   -- Put Tarin above the grass.
   tarin:bring_to_front()

@@ -205,6 +205,22 @@ local function initialize_dungeon_features(game)
         y = 720 + 365,
         savegame_variable = "dungeon_5_boss",
       }
+    },
+    [6] = {
+      lowest_floor = 0,
+      highest_floor = 0,
+      rows = 7,
+      cols= 8,
+      music = "59_level_6_face_shrine",
+      music_instrument = "60_coral_triangle",
+      secrets = {
+      },
+      boss = {
+        floor = 0,
+        x = 640 + 1440,
+        y = 720 + 365,
+        savegame_variable = "dungeon_5_boss",
+      }
     }
   }
 

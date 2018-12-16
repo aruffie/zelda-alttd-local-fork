@@ -121,10 +121,10 @@ function map:launch_cinematic_1()
       entities_ignore_suspend = {hero}
     }
     map:set_cinematic_mode(true, options)
-    animation(hero,"pulling_sword")
-    hero:get_sprite():set_animation("pulling_sword_wait")
     sol.audio.stop_music()
     audio_manager:play_sound("items/get_sword")
+    animation(hero,"pulling_sword")
+    hero:get_sprite():set_animation("pulling_sword_wait")
     wait(3000)
     local map = game:get_map()
     dialog("_treasure.sword.1")

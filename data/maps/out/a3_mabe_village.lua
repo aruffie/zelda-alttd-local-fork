@@ -73,7 +73,6 @@ function map:on_opening_transition_finished(destination)
   
   -- Kids scared
   local x_hero, y_hero = hero:get_position()
-  print(y_hero)
   if map:get_game():get_value("main_quest_step") == 8 or map:get_game():get_value("main_quest_step") == 9 then
     map:init_music()
     if destination == library_2_A then
