@@ -1976,9 +1976,9 @@ dynamic_tile{
   layer = 0,
   x = 392,
   y = 424,
-  pattern = "926",
   width = 16,
   height = 16,
+  pattern = "926",
 }
 
 custom_entity{
@@ -2028,9 +2028,9 @@ dynamic_tile{
   layer = 0,
   x = 392,
   y = 408,
-  pattern = "926",
   width = 16,
   height = 16,
+  pattern = "926",
 }
 
 dynamic_tile{
@@ -2038,9 +2038,9 @@ dynamic_tile{
   layer = 0,
   x = 392,
   y = 392,
-  pattern = "926",
   width = 16,
   height = 16,
+  pattern = "926",
 }
 
 dynamic_tile{
@@ -2048,9 +2048,9 @@ dynamic_tile{
   layer = 0,
   x = 392,
   y = 376,
-  pattern = "926",
   width = 16,
   height = 16,
+  pattern = "926",
 }
 
 dynamic_tile{
@@ -2058,9 +2058,9 @@ dynamic_tile{
   layer = 0,
   x = 392,
   y = 360,
-  pattern = "926",
   width = 16,
   height = 16,
+  pattern = "926",
 }
 
 dynamic_tile{
@@ -2068,9 +2068,9 @@ dynamic_tile{
   layer = 0,
   x = 392,
   y = 344,
-  pattern = "926",
   width = 16,
   height = 16,
+  pattern = "926",
 }
 
 dynamic_tile{
@@ -2078,9 +2078,9 @@ dynamic_tile{
   layer = 0,
   x = 392,
   y = 328,
-  pattern = "926",
   width = 16,
   height = 16,
+  pattern = "926",
 }
 
 dynamic_tile{
@@ -2088,9 +2088,9 @@ dynamic_tile{
   layer = 0,
   x = 408,
   y = 328,
-  pattern = "926",
   width = 16,
   height = 16,
+  pattern = "926",
 }
 
 dynamic_tile{
@@ -2098,9 +2098,9 @@ dynamic_tile{
   layer = 0,
   x = 424,
   y = 328,
-  pattern = "926",
   width = 16,
   height = 16,
+  pattern = "926",
 }
 
 dynamic_tile{
@@ -2108,9 +2108,9 @@ dynamic_tile{
   layer = 0,
   x = 440,
   y = 328,
-  pattern = "926",
   width = 16,
   height = 16,
+  pattern = "926",
 }
 
 dynamic_tile{
@@ -2118,9 +2118,9 @@ dynamic_tile{
   layer = 0,
   x = 456,
   y = 328,
-  pattern = "926",
   width = 16,
   height = 16,
+  pattern = "926",
 }
 
 dynamic_tile{
@@ -2128,9 +2128,9 @@ dynamic_tile{
   layer = 0,
   x = 472,
   y = 328,
-  pattern = "926",
   width = 16,
   height = 16,
+  pattern = "926",
 }
 
 dynamic_tile{
@@ -2138,9 +2138,9 @@ dynamic_tile{
   layer = 0,
   x = 488,
   y = 328,
-  pattern = "926",
   width = 16,
   height = 16,
+  pattern = "926",
 }
 
 dynamic_tile{
@@ -2148,9 +2148,9 @@ dynamic_tile{
   layer = 0,
   x = 504,
   y = 328,
-  pattern = "926",
   width = 16,
   height = 16,
+  pattern = "926",
 }
 
 dynamic_tile{
@@ -2158,9 +2158,9 @@ dynamic_tile{
   layer = 0,
   x = 520,
   y = 328,
-  pattern = "926",
   width = 16,
   height = 16,
+  pattern = "926",
 }
 
 dynamic_tile{
@@ -2168,9 +2168,9 @@ dynamic_tile{
   layer = 0,
   x = 520,
   y = 344,
-  pattern = "926",
   width = 16,
   height = 16,
+  pattern = "926",
 }
 
 dynamic_tile{
@@ -2178,9 +2178,9 @@ dynamic_tile{
   layer = 0,
   x = 536,
   y = 344,
-  pattern = "926",
   width = 16,
   height = 16,
+  pattern = "926",
 }
 
 dynamic_tile{
@@ -2188,9 +2188,9 @@ dynamic_tile{
   layer = 0,
   x = 552,
   y = 344,
-  pattern = "926",
   width = 16,
   height = 16,
+  pattern = "926",
 }
 
 dynamic_tile{
@@ -2198,9 +2198,9 @@ dynamic_tile{
   layer = 0,
   x = 536,
   y = 360,
-  pattern = "926",
   width = 16,
   height = 16,
+  pattern = "926",
 }
 
 dynamic_tile{
@@ -2208,9 +2208,9 @@ dynamic_tile{
   layer = 0,
   x = 552,
   y = 360,
-  pattern = "926",
   width = 16,
   height = 16,
+  pattern = "926",
 }
 
 custom_entity{

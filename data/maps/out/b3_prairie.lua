@@ -43,7 +43,8 @@ function map:init_map_entities()
   travel_transporter:set_enabled(false)
   -- Statue pig
   if game:get_value("statue_pig_exploded") then
-    statue_pig:remove()
+    statue_pig:get_sprite():set_animation("stopped")
+    statue_pig:set_traversable_by(true)
   end
   dungeon_3_entrance:set_traversable_by(false)
   if game:get_value("main_quest_step") > 16 then

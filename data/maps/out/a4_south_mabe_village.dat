@@ -11258,9 +11258,9 @@ dynamic_tile{
   layer = 0,
   x = 808,
   y = 432,
-  pattern = "6020",
   width = 16,
   height = 16,
+  pattern = "6020",
 }
 
 wall{
@@ -11286,9 +11286,9 @@ dynamic_tile{
       value = "true",
     },
   },
-  pattern = "9",
   width = 16,
   height = 16,
+  pattern = "9",
   tileset = "addition/out",
 }
 
@@ -11302,9 +11302,9 @@ dynamic_tile{
       value = "true",
     },
   },
-  pattern = "8",
   width = 16,
   height = 16,
+  pattern = "8",
   tileset = "addition/out",
 }
 
@@ -11318,9 +11318,9 @@ dynamic_tile{
       value = "true",
     },
   },
-  pattern = "2",
   width = 16,
   height = 16,
+  pattern = "2",
   tileset = "addition/out",
 }
 

@@ -19060,17 +19060,6 @@ tile{
   tileset = "addition/out",
 }
 
-custom_entity{
-  name = "statue_pig_destroyed",
-  layer = 0,
-  x = 784,
-  y = 237,
-  width = 80,
-  height = 80,
-  direction = 0,
-  sprite = "entities/statue_pig_destroyed",
-}
-
 destructible{
   layer = 0,
   x = 264,
@@ -23213,9 +23202,9 @@ dynamic_tile{
   layer = 0,
   x = 480,
   y = 72,
-  pattern = "1062",
   width = 32,
   height = 8,
+  pattern = "1062",
 }
 
 dynamic_tile{
@@ -23223,9 +23212,9 @@ dynamic_tile{
   layer = 0,
   x = 480,
   y = 80,
-  pattern = "957",
   width = 32,
   height = 16,
+  pattern = "957",
 }
 
 door{
@@ -23305,9 +23294,9 @@ dynamic_tile{
   layer = 0,
   x = 752,
   y = 8,
-  pattern = "1062",
   width = 32,
   height = 8,
+  pattern = "1062",
 }
 
 dynamic_tile{
@@ -23315,9 +23304,9 @@ dynamic_tile{
   layer = 0,
   x = 752,
   y = 16,
-  pattern = "957",
   width = 32,
   height = 16,
+  pattern = "957",
 }
 
 door{

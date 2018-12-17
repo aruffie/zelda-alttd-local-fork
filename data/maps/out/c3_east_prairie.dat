@@ -10664,6 +10664,15 @@ tile{
   tileset = "addition/out",
 }
 
+tile{
+  layer = 0,
+  x = 680,
+  y = 472,
+  width = 16,
+  height = 16,
+  pattern = "1041",
+}
+
 npc{
   name = "sign_2",
   layer = 0,
@@ -11398,53 +11407,13 @@ enemy{
 }
 
 dynamic_tile{
-  name = "ground_secret_entities_5",
-  layer = 0,
-  x = 680,
-  y = 472,
-  pattern = "1128",
-  width = 16,
-  height = 16,
-}
-
-dynamic_tile{
-  name = "ground_secret_entities_3",
-  layer = 0,
-  x = 696,
-  y = 464,
-  pattern = "1131",
-  width = 8,
-  height = 32,
-}
-
-dynamic_tile{
-  name = "ground_secret_entities_1",
-  layer = 0,
-  x = 680,
-  y = 488,
-  pattern = "1130",
-  width = 16,
-  height = 8,
-}
-
-dynamic_tile{
-  name = "ground_secret_entities_2",
-  layer = 0,
-  x = 672,
-  y = 464,
-  pattern = "1129",
-  width = 8,
-  height = 32,
-}
-
-dynamic_tile{
   name = "ground_secret_entities_4",
   layer = 0,
   x = 680,
   y = 464,
-  pattern = "1127",
   width = 16,
   height = 8,
+  pattern = "1127",
 }
 
 destination{
@@ -11453,17 +11422,6 @@ destination{
   x = 688,
   y = 461,
   direction = 1,
-}
-
-custom_entity{
-  name = "ground_secret",
-  layer = 0,
-  x = 680,
-  y = 477,
-  width = 32,
-  height = 32,
-  direction = 0,
-  sprite = "entities/secret_ground",
 }
 
 stairs{
@@ -11495,16 +11453,6 @@ destructible{
   destruction_sound = "arrow_hit",
   weight = 1,
   can_be_cut = true,
-}
-
-custom_entity{
-  name = "ground_secret_placeholder",
-  layer = 0,
-  x = 712,
-  y = 485,
-  width = 16,
-  height = 16,
-  direction = 0,
 }
 
 tile{

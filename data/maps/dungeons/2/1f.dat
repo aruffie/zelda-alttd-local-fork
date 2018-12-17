@@ -13,6 +13,24 @@ properties{
 
 tile{
   layer = 0,
+  x = 368,
+  y = 592,
+  width = 32,
+  height = 80,
+  pattern = "floor_low.17-1",
+}
+
+tile{
+  layer = 0,
+  x = 368,
+  y = 720,
+  width = 224,
+  height = 8,
+  pattern = "wall_border.2-2",
+}
+
+tile{
+  layer = 0,
   x = 1328,
   y = 80,
   width = 192,
@@ -1197,15 +1215,6 @@ tile{
   width = 8,
   height = 8,
   pattern = "wall_border.corner.4-2",
-}
-
-tile{
-  layer = 0,
-  x = 368,
-  y = 720,
-  width = 224,
-  height = 8,
-  pattern = "wall_border.2-2",
 }
 
 tile{
@@ -14539,15 +14548,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 368,
-  y = 592,
-  width = 32,
-  height = 80,
-  pattern = "floor_low.17-1",
-}
-
-tile{
-  layer = 0,
   x = 400,
   y = 560,
   width = 160,
@@ -16996,68 +16996,15 @@ tile{
 
 tile{
   layer = 0,
-  x = 784,
-  y = 1616,
-  width = 32,
-  height = 32,
-  pattern = "52",
-  tileset = "addition/dungeon",
-}
-
-tile{
-  layer = 0,
-  x = 1376,
-  y = 1360,
-  width = 32,
-  height = 32,
-  pattern = "52",
-  tileset = "addition/dungeon",
-}
-
-tile{
-  layer = 0,
-  x = 1472,
-  y = 1360,
-  width = 32,
-  height = 32,
-  pattern = "52",
-  tileset = "addition/dungeon",
-}
-
-tile{
-  layer = 0,
   x = 2064,
   y = 1392,
-  width = 32,
-  height = 32,
-  pattern = "52",
-  tileset = "addition/dungeon",
-}
-
-tile{
-  layer = 0,
-  x = 1968,
-  y = 816,
-  width = 32,
-  height = 32,
-  pattern = "52",
-  tileset = "addition/dungeon",
-}
-
-tile{
-  layer = 0,
-  x = 1968,
-  y = 592,
-  width = 32,
-  height = 32,
-  pattern = "52",
-  tileset = "addition/dungeon",
-}
-
-tile{
-  layer = 0,
-  x = 2160,
-  y = 592,
+  enabled_at_start = false,
+  properties = {
+    {
+      key = "draw_in_y_order",
+      value = "true",
+    },
+  },
   width = 32,
   height = 32,
   pattern = "52",
@@ -17098,66 +17045,6 @@ tile{
   layer = 0,
   x = 1808,
   y = 568,
-  width = 32,
-  height = 32,
-  pattern = "52",
-  tileset = "addition/dungeon",
-}
-
-tile{
-  layer = 0,
-  x = 464,
-  y = 48,
-  width = 32,
-  height = 32,
-  pattern = "52",
-  tileset = "addition/dungeon",
-}
-
-tile{
-  layer = 0,
-  x = 704,
-  y = 672,
-  width = 32,
-  height = 32,
-  pattern = "52",
-  tileset = "addition/dungeon",
-}
-
-tile{
-  layer = 0,
-  x = 864,
-  y = 672,
-  width = 32,
-  height = 32,
-  pattern = "52",
-  tileset = "addition/dungeon",
-}
-
-tile{
-  layer = 0,
-  x = 864,
-  y = 592,
-  width = 32,
-  height = 32,
-  pattern = "52",
-  tileset = "addition/dungeon",
-}
-
-tile{
-  layer = 0,
-  x = 704,
-  y = 592,
-  width = 32,
-  height = 32,
-  pattern = "52",
-  tileset = "addition/dungeon",
-}
-
-tile{
-  layer = 0,
-  x = 464,
-  y = 1072,
   width = 32,
   height = 32,
   pattern = "52",
@@ -17221,6 +17108,56 @@ tile{
   width = 64,
   height = 24,
   pattern = "24",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 368,
+  y = 592,
+  width = 32,
+  height = 80,
+  pattern = "97",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 560,
+  y = 592,
+  width = 32,
+  height = 80,
+  pattern = "97",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 400,
+  y = 560,
+  width = 160,
+  height = 32,
+  pattern = "97",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 512,
+  y = 704,
+  width = 64,
+  height = 16,
+  pattern = "97",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 384,
+  y = 704,
+  width = 64,
+  height = 16,
+  pattern = "97",
   tileset = "addition/dungeon",
 }
 
@@ -21104,25 +21041,14 @@ pickable{
   treasure_savegame_variable = "dungeon_2_big_treasure",
 }
 
-custom_entity{
-  layer = 0,
-  x = 376,
-  y = 605,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
   name = "floor_30_unstable_associate_",
   layer = 0,
   x = 368,
   y = 592,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -21133,29 +21059,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 392,
-  y = 605,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__2",
+  name = "floor_31_unstable_associate_",
   layer = 0,
   x = 384,
   y = 592,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -21166,29 +21081,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 392,
-  y = 717,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__3",
+  name = "floor_32_unstable_associate_",
   layer = 0,
   x = 384,
   y = 704,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -21199,29 +21103,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 408,
-  y = 717,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__4",
+  name = "floor_33_unstable_associate_",
   layer = 0,
   x = 400,
   y = 704,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -21232,29 +21125,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 424,
-  y = 717,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__5",
+  name = "floor_34_unstable_associate_",
   layer = 0,
   x = 416,
   y = 704,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -21265,29 +21147,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 440,
-  y = 717,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__6",
+  name = "floor_35_unstable_associate_",
   layer = 0,
   x = 432,
   y = 704,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -21298,29 +21169,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 520,
-  y = 717,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__7",
+  name = "floor_36_unstable_associate_",
   layer = 0,
   x = 512,
   y = 704,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -21331,29 +21191,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 536,
-  y = 717,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__8",
+  name = "floor_37_unstable_associate_",
   layer = 0,
   x = 528,
   y = 704,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -21364,29 +21213,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 552,
-  y = 717,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__9",
+  name = "floor_38_unstable_associate_",
   layer = 0,
   x = 544,
   y = 704,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -21397,29 +21235,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 568,
-  y = 717,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__10",
+  name = "floor_39_unstable_associate_",
   layer = 0,
   x = 560,
   y = 704,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -21430,29 +21257,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 376,
-  y = 621,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__11",
+  name = "floor_40_unstable_associate_",
   layer = 0,
   x = 368,
   y = 608,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -21463,29 +21279,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 392,
-  y = 621,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__12",
+  name = "floor_41_unstable_associate_",
   layer = 0,
   x = 384,
   y = 608,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -21496,29 +21301,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 376,
-  y = 637,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__13",
+  name = "floor_42_unstable_associate_",
   layer = 0,
   x = 368,
   y = 624,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -21529,29 +21323,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 392,
-  y = 637,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__14",
+  name = "floor_43_unstable_associate_",
   layer = 0,
   x = 384,
   y = 624,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -21562,29 +21345,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 376,
-  y = 653,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__15",
+  name = "floor_44_unstable_associate_",
   layer = 0,
   x = 368,
   y = 640,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -21595,29 +21367,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 392,
-  y = 653,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__16",
+  name = "floor_45_unstable_associate_",
   layer = 0,
   x = 384,
   y = 640,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -21628,29 +21389,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 376,
-  y = 669,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__17",
+  name = "floor_46_unstable_associate_",
   layer = 0,
   x = 368,
   y = 656,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -21661,29 +21411,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 392,
-  y = 669,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__18",
+  name = "floor_47_unstable_associate_",
   layer = 0,
   x = 384,
   y = 656,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -21694,29 +21433,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 568,
-  y = 605,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__19",
+  name = "floor_48_unstable_associate_",
   layer = 0,
   x = 560,
   y = 592,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -21727,29 +21455,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 584,
-  y = 605,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__20",
+  name = "floor_49_unstable_associate_",
   layer = 0,
   x = 576,
   y = 592,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -21760,29 +21477,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 568,
-  y = 621,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__21",
+  name = "floor_50_unstable_associate_",
   layer = 0,
   x = 560,
   y = 608,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -21793,29 +21499,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 584,
-  y = 621,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__22",
+  name = "floor_51_unstable_associate_",
   layer = 0,
   x = 576,
   y = 608,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -21826,29 +21521,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 568,
-  y = 637,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__23",
+  name = "floor_52_unstable_associate_",
   layer = 0,
   x = 560,
   y = 624,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -21859,29 +21543,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 584,
-  y = 637,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__24",
+  name = "floor_53_unstable_associate_",
   layer = 0,
   x = 576,
   y = 624,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -21892,29 +21565,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 568,
-  y = 653,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__25",
+  name = "floor_54_unstable_associate_",
   layer = 0,
   x = 560,
   y = 640,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -21925,29 +21587,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 584,
-  y = 653,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__26",
+  name = "floor_55_unstable_associate_",
   layer = 0,
   x = 576,
   y = 640,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -21958,29 +21609,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 568,
-  y = 669,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__27",
+  name = "floor_56_unstable_associate_",
   layer = 0,
   x = 560,
   y = 656,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -21991,29 +21631,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 584,
-  y = 669,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__28",
+  name = "floor_57_unstable_associate_",
   layer = 0,
   x = 576,
   y = 656,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -22024,29 +21653,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 408,
-  y = 573,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__29",
+  name = "floor_58_unstable_associate_",
   layer = 0,
   x = 400,
   y = 560,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -22057,29 +21675,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 424,
-  y = 573,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__30",
+  name = "floor_59_unstable_associate_",
   layer = 0,
   x = 416,
   y = 560,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -22090,29 +21697,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 408,
-  y = 589,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__31",
+  name = "floor_60_unstable_associate_",
   layer = 0,
   x = 400,
   y = 576,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -22123,29 +21719,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 424,
-  y = 589,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__32",
+  name = "floor_61_unstable_associate_",
   layer = 0,
   x = 416,
   y = 576,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -22156,29 +21741,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 440,
-  y = 573,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__33",
+  name = "floor_62_unstable_associate_",
   layer = 0,
   x = 432,
   y = 560,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -22189,29 +21763,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 456,
-  y = 573,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__34",
+  name = "floor_63_unstable_associate_",
   layer = 0,
   x = 448,
   y = 560,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -22222,29 +21785,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 440,
-  y = 589,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__35",
+  name = "floor_64_unstable_associate_",
   layer = 0,
   x = 432,
   y = 576,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -22255,29 +21807,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 456,
-  y = 589,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__36",
+  name = "floor_65_unstable_associate_",
   layer = 0,
   x = 448,
   y = 576,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -22288,29 +21829,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 472,
-  y = 573,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__37",
+  name = "floor_66_unstable_associate_",
   layer = 0,
   x = 464,
   y = 560,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -22321,29 +21851,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 488,
-  y = 573,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__38",
+  name = "floor_67_unstable_associate_",
   layer = 0,
   x = 480,
   y = 560,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -22354,29 +21873,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 472,
-  y = 589,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__39",
+  name = "floor_68_unstable_associate_",
   layer = 0,
   x = 464,
   y = 576,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -22387,29 +21895,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 488,
-  y = 589,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__40",
+  name = "floor_69_unstable_associate_",
   layer = 0,
   x = 480,
   y = 576,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -22420,29 +21917,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 504,
-  y = 573,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__41",
+  name = "floor_70_unstable_associate_",
   layer = 0,
   x = 496,
   y = 560,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -22453,29 +21939,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 520,
-  y = 573,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__42",
+  name = "floor_71_unstable_associate_",
   layer = 0,
   x = 512,
   y = 560,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -22486,29 +21961,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 504,
-  y = 589,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__43",
+  name = "floor_72_unstable_associate_",
   layer = 0,
   x = 496,
   y = 576,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -22519,29 +21983,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 520,
-  y = 589,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__44",
+  name = "floor_73_unstable_associate_",
   layer = 0,
   x = 512,
   y = 576,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -22552,29 +22005,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 536,
-  y = 573,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__45",
+  name = "floor_74_unstable_associate__2",
   layer = 0,
   x = 528,
   y = 560,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -22585,29 +22027,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 552,
-  y = 573,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__46",
+  name = "floor_75_unstable_associate_",
   layer = 0,
   x = 544,
   y = 560,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -22618,29 +22049,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 536,
-  y = 589,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__47",
+  name = "floor_76_unstable_associate_",
   layer = 0,
   x = 528,
   y = 576,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -22651,29 +22071,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
-custom_entity{
-  layer = 0,
-  x = 552,
-  y = 589,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/hole",
-  model = "hole",
-}
-
 dynamic_tile{
-  name = "floor_30_unstable_associate__48",
+  name = "floor_77_unstable_associate_",
   layer = 0,
   x = 544,
   y = 576,
-  pattern = "922",
   width = 16,
   height = 16,
+  pattern = "922",
 }
 
 custom_entity{
@@ -22684,7 +22093,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/weak_floor_light_3",
+  sprite = "entities/grounds/weak_floor_light_3",
   model = "unstable_floor",
 }
 
@@ -23074,9 +22483,9 @@ dynamic_tile{
   layer = 0,
   x = 2144,
   y = 1040,
-  pattern = "wall.1-2",
   width = 48,
   height = 24,
+  pattern = "wall.1-2",
 }
 
 custom_entity{
@@ -23087,6 +22496,193 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 784,
+  y = 1616,
+  properties = {
+    {
+      key = "draw_in_y_order",
+      value = "true",
+    },
+  },
+  width = 32,
+  height = 32,
+  pattern = "52",
+  tileset = "addition/dungeon",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 1376,
+  y = 1360,
+  properties = {
+    {
+      key = "draw_in_y_order",
+      value = "true",
+    },
+  },
+  width = 32,
+  height = 32,
+  pattern = "52",
+  tileset = "addition/dungeon",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 1472,
+  y = 1360,
+  properties = {
+    {
+      key = "draw_in_y_order",
+      value = "true",
+    },
+  },
+  width = 32,
+  height = 32,
+  pattern = "52",
+  tileset = "addition/dungeon",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 1968,
+  y = 816,
+  properties = {
+    {
+      key = "draw_in_y_order",
+      value = "true",
+    },
+  },
+  width = 32,
+  height = 32,
+  pattern = "52",
+  tileset = "addition/dungeon",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 1968,
+  y = 592,
+  properties = {
+    {
+      key = "draw_in_y_order",
+      value = "true",
+    },
+  },
+  width = 32,
+  height = 32,
+  pattern = "52",
+  tileset = "addition/dungeon",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 2160,
+  y = 592,
+  properties = {
+    {
+      key = "draw_in_y_order",
+      value = "true",
+    },
+  },
+  width = 32,
+  height = 32,
+  pattern = "52",
+  tileset = "addition/dungeon",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 464,
+  y = 48,
+  properties = {
+    {
+      key = "draw_in_y_order",
+      value = "true",
+    },
+  },
+  width = 32,
+  height = 32,
+  pattern = "52",
+  tileset = "addition/dungeon",
+}
+
+dynamic_tile{
+  name = "draw_in_y_order",
+  layer = 0,
+  x = 464,
+  y = 1072,
+  width = 32,
+  height = 32,
+  pattern = "52",
+  tileset = "addition/dungeon",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 704,
+  y = 672,
+  properties = {
+    {
+      key = "draw_in_y_order",
+      value = "true",
+    },
+  },
+  width = 32,
+  height = 32,
+  pattern = "52",
+  tileset = "addition/dungeon",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 704,
+  y = 592,
+  properties = {
+    {
+      key = "draw_in_y_order",
+      value = "true",
+    },
+  },
+  width = 32,
+  height = 32,
+  pattern = "52",
+  tileset = "addition/dungeon",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 864,
+  y = 672,
+  properties = {
+    {
+      key = "draw_in_y_order",
+      value = "true",
+    },
+  },
+  width = 32,
+  height = 32,
+  pattern = "52",
+  tileset = "addition/dungeon",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 864,
+  y = 592,
+  properties = {
+    {
+      key = "draw_in_y_order",
+      value = "true",
+    },
+  },
+  width = 32,
+  height = 32,
+  pattern = "52",
+  tileset = "addition/dungeon",
 }
 
 tile{
@@ -23731,16 +23327,6 @@ tile{
 
 tile{
   layer = 1,
-  x = 784,
-  y = 1376,
-  width = 32,
-  height = 32,
-  pattern = "52",
-  tileset = "addition/dungeon",
-}
-
-tile{
-  layer = 1,
   x = 1376,
   y = 1344,
   width = 32,
@@ -24027,9 +23613,25 @@ dynamic_tile{
   layer = 1,
   x = 2136,
   y = 1040,
-  pattern = "door_cache.1-2",
   width = 64,
   height = 8,
+  pattern = "door_cache.1-2",
+}
+
+dynamic_tile{
+  layer = 1,
+  x = 784,
+  y = 1376,
+  properties = {
+    {
+      key = "draw_in_y_order",
+      value = "true",
+    },
+  },
+  width = 32,
+  height = 32,
+  pattern = "52",
+  tileset = "addition/dungeon",
 }
 
 tile{

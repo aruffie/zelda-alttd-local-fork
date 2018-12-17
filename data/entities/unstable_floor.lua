@@ -8,7 +8,7 @@ also destroy all other entities with the prefix: entity_name .. "_unstable_assoc
 -- Variables
 local entity = ...
 local default_sprite_id = "entities/cave_hole"
-local break_sound = "others/ground_crumble"
+local break_sound = "misc/ground_crumble"
 local time_resistance = 800 -- The time it resists with hero above. In milliseconds.
 
 -- Include scripts

@@ -2,9 +2,12 @@
 local entity = ...
 local game = entity:get_game()
 local map = game:get_map()
+local sprite = entity:get_sprite()
 
 -- Include scripts
 require("scripts/multi_events")
+local audio_manager = require("scripts/audio_manager")
+
 
 -- Event called when the custom entity is initialized.
 entity:register_event("on_created", function()
@@ -12,27 +15,16 @@ entity:register_event("on_created", function()
   entity:set_traversable_by(false)
   entity:add_collision_test("overlapping", function(pig, explosion)
     if explosion:get_type() == "explosion" then
-      local x,y,layer = self:get_position()
-      local stones = map:create_custom_entity({
-        name = "statue_pig_destroyed",
-        sprite = "entities/statue_pig_destroyed",
-        x = x - 16,
-        y = y - 16,
-        width = 80,
-        height = 80,
-        layer = layer,
-        direction = 0
-      })
-      local sprite_stones = stones:get_sprite()
-      sprite_stones:set_animation("destroyed")
       audio_manager:play_sound("misc/secret1")
-      entity:remove()
-      function sprite_stones:on_animation_finished(animation)
+      sprite:set_animation("destroyed")
+      sprite:register_event("on_animation_finished", function(sprite, animation)
+        print(animation)  
         if animation == "destroyed" then
-          stones:remove()
+          sprite:set_animation("stopped")
           game:set_value("statue_pig_exploded", true)
+          entity:set_traversable_by(true)
         end
-      end
+      end)
     end
   end)
 
