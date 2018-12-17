@@ -26,7 +26,7 @@ end
 function map:init_music()
   
   if game:get_value("main_quest_step") == 3  then
-    audio_manager:play_music("tarin_chased_by_bees")
+    audio_manager:play_music("07_koholint_island")
   else
     if marin_song then
       sol.audio.stop_music()
