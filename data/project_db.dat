@@ -398,6 +398,7 @@ sprite{ id = "entities/destructibles/skull_white", description = "Skull white" }
 sprite{ id = "entities/destructibles/statue_elephant", description = "Statue elephant" }
 sprite{ id = "entities/destructibles/stone_white_large", description = "Stone white large" }
 sprite{ id = "entities/destructibles/stone_white_small", description = "Stone white small" }
+sprite{ id = "entities/destructibles/stone_white_small_grass", description = "Stone white small grass" }
 sprite{ id = "entities/doors/boss_door_frame_renverse", description = "Boss door frame renverse" }
 sprite{ id = "entities/doors/boss_door_frames", description = "Boss door frames" }
 sprite{ id = "entities/doors/door_big_key", description = "Door big key" }

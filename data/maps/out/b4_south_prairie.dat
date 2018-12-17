@@ -15360,7 +15360,7 @@ destructible{
   y = 189,
   treasure_name = "random",
   sprite = "entities/destructibles/bush_grass",
-  destruction_sound = "bush",
+  destruction_sound = "arrow_hit",
   weight = 1,
   can_be_cut = true,
 }

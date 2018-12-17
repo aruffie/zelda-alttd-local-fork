@@ -11406,38 +11406,19 @@ enemy{
   treasure_name = "random",
 }
 
-dynamic_tile{
-  name = "ground_secret_entities_4",
-  layer = 0,
-  x = 680,
-  y = 464,
-  width = 16,
-  height = 8,
-  pattern = "1127",
-}
-
 destination{
   name = "ground_secret_appear_6",
   layer = 0,
   x = 688,
-  y = 461,
+  y = 469,
   direction = 1,
-}
-
-stairs{
-  name = "ground_secret_appear_8",
-  layer = 0,
-  x = 680,
-  y = 464,
-  direction = 3,
-  subtype = 3,
 }
 
 teletransporter{
   name = "ground_secret_appear_7",
   layer = 0,
   x = 680,
-  y = 464,
+  y = 472,
   width = 16,
   height = 16,
   destination_map = "caves/east_prairie/cave_1",
@@ -11449,7 +11430,7 @@ destructible{
   layer = 0,
   x = 688,
   y = 485,
-  sprite = "entities/destructibles/bush",
+  sprite = "entities/destructibles/bush_grass",
   destruction_sound = "arrow_hit",
   weight = 1,
   can_be_cut = true,
