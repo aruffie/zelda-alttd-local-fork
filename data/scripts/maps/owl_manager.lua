@@ -35,6 +35,7 @@ function owl_manager:appear(map, step, callback)
       -- Init owl shadow
       owl_shadow:get_sprite():set_animation("walking")
       owl_shadow:get_sprite():set_direction(1)
+      owl_shadow:get_sprite():set_blend_mode("multiply")
      -- Init owl
       owl:set_enabled(true)
       owl:get_sprite():set_animation("walking")
