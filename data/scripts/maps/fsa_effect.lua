@@ -31,8 +31,8 @@ function fsa:render_reflection(map)
     local cw,ch = reflection:get_size()
     local tx,ty = x % crw, y % crh
     if self.outside then
-      for i=-1,math.ceil(crw/cw)+1 do
-        for j=-1,math.ceil(crh/ch) do    
+      for i=-1,math.ceil(cw/crw) do
+        for j=-1,math.ceil(ch/crh) do    
           clouds:draw(reflection,tx+i*crw,ty+j*crh)
         end
       end
@@ -61,8 +61,10 @@ function fsa:draw_clouds_shadow(dst,cx,cy)
   local x,y = math.floor(t),math.floor(t)
   local cw,ch = dst:get_size()
   local tx,ty = (-cx+x) % csw, (-cy+y) % csh
-  for i=-1,math.ceil(csw/cw)+1 do
-    for j=-1,math.ceil(csh/ch) do
+  local imax = math.ceil(cw/csw)
+  local jmax = math.ceil(ch/csh)
+  for i=-1,imax do
+    for j=-1,jmax do
       clouds_shadow:draw(dst,tx+i*csw,ty+j*csh)
     end
   end
@@ -163,8 +165,8 @@ function fsa:render_fsa_texture(map)
   local dx,dy = camera:get_position()
   local tx = ew - dx % ew
   local ty = eh - dy % eh
-  for i=-1,math.ceil(ew/cw)+1 do
-    for j=-1,math.ceil(eh/ch) do
+  for i=-1,math.ceil(cw/ew) do
+    for j=-1,math.ceil(ch/eh) do
       effect:draw(fsa_texture,tx+i*ew,ty+j*eh)
     end
   end

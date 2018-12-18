@@ -1265,6 +1265,7 @@ shader{ id = "pixellisation", description = "Pixellisation effect" }
 shader{ id = "radial_fade_out", description = "Radial fade out" }
 shader{ id = "sepia", description = "Sepia" }
 shader{ id = "toon", description = "Toon" }
+shader{ id = "water_effect", description = "water_effect" }
 
 file{ path = "enemies", license = "GPL v3" }
 file{ path = "enemies/arm_mimic.lua", license = "GPL v3" }
