@@ -78,13 +78,10 @@ local function initialize_pause_features(game)
     -- Clear the submenus table.
     game.pause_submenus = {}
     
-    -- Restore the previous HUD state.
-    game:get_hud():set_mode("normal")
-    
     -- Restore the dialog_box position.
     game:get_dialog_box():set_position(self.backup_dialog_position)
     
-    -- Restor the HUD mode.
+    -- Restore the HUD mode.
     game:set_hud_mode(pause_menu.backup_hud_mode)
 
     -- Restore the built-in effect of action and attack commands.

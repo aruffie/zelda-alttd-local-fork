@@ -2,6 +2,7 @@ local cinematic_manager = {}
 local map_meta = sol.main.get_metatable("map")
 require("scripts/multi_events")
 
+-- Create the black stripe surface.
 local quest_w, quest_h = sol.video.get_quest_size()
 local black_stripe_h = 25
 local black_stripe_top = sol.surface.create(quest_w, black_stripe_h)
@@ -21,7 +22,9 @@ function map_meta:set_cinematic_mode(is_cinematic, options)
   local hero = map:get_hero()
   local camera = map:get_camera()
 
-  game:set_hud_enabled(not is_cinematic)
+  local hud_mode = is_cinematic and "dialog" or "normal"
+  game:set_hud_mode(hud_mode)
+  game:set_hud_additionnal_info_enabled(not is_cinematic)
   game:set_suspended(is_cinematic)
 
   -- Prevent or allow the player from pausing the game
@@ -59,8 +62,6 @@ function map_meta:set_cinematic_mode(is_cinematic, options)
         game.is_cinematic = is_cinematic
     end
   end)
-
-
 end
 
 -- Retrieve the cinematic status
@@ -72,11 +73,13 @@ function map_meta:is_cinematic()
 end
 
 map_meta:register_event("on_draw", function(map, dst_surface)
-    if map:is_cinematic() then
-      -- Draw cinematic black stripes.
-        black_stripe_top:draw(dst_surface, 0, -black_stripe_h)
-        black_stripe_bottom:draw(dst_surface, 0, quest_h)
-    end
+
+  if map:is_cinematic() then
+    -- Draw cinematic black stripes.
+      black_stripe_top:draw(dst_surface, 0, -black_stripe_h)
+      black_stripe_bottom:draw(dst_surface, 0, quest_h)
+  end
+
 end)
 
 return cinematic_manager

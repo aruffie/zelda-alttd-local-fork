@@ -28,7 +28,19 @@ local function initialize_hud_features(game)
   local action_icon
   local attack_icon
   local pause_icon
-  local hearts_meter
+  local hearts
+  local rupees
+  local keys
+
+  function set_menu_enabled(menu, enabled)
+    if enabled then
+      if not sol.menu.is_started(menu) then
+        sol.menu.start(game, menu)
+      end
+    else
+      sol.menu.stop(menu)
+    end
+  end
 
   -----------------------------------------------------------------------------
   -- Game functions.
@@ -60,10 +72,14 @@ local function initialize_hud_features(game)
   -- effect to be performed.
   -- Set the effect to nil to show the built-in effect again.
   function game:set_custom_command_effect(command, effect)
+    local old_command_effect = hud.custom_command_effects[command]
     hud.custom_command_effects[command] = effect
+    if effect ~= old_command_effect then
+      hud:adapt_to_curent_mode()
+    end
   end
 
-  -- Ensures the HUD is above evrything.
+  -- Ensures the HUD is above everything.
   function game:bring_hud_to_front()
     if game.get_hud ~= nil then
       local hud = game:get_hud()
@@ -73,7 +89,7 @@ local function initialize_hud_features(game)
     end
   end
 
-  -- Only shows basic HUD when in dialog mode.
+  -- Sets the HUD mode.
   function game:set_hud_mode(mode)
     if game.get_hud ~= nil then
       local hud = game:get_hud()
@@ -81,7 +97,7 @@ local function initialize_hud_features(game)
         hud:set_mode(mode)
       end
     end
-  end  
+  end
 
   -- Returns the HUD mode.
   function game:get_hud_mode()
@@ -92,7 +108,18 @@ local function initialize_hud_features(game)
       end
     end
     return nil
-  end  
+  end
+
+  -- Enable or disable additionnal HUD info.
+  -- Example: during cinematic, extra info should be hidden (hearts, rupees, etc.)
+  function game:set_hud_additionnal_info_enabled(enabled)
+    if game.get_hud ~= nil then
+      local hud = game:get_hud()
+      if hud ~= nil then
+        hud:set_additionnal_info_enabled(enabled)
+      end
+    end
+  end
 
  -----------------------------------------------------------------------------
   -- HUD functions.
@@ -155,7 +182,7 @@ local function initialize_hud_features(game)
 
   -- Call this function to notify the HUD that a dialog was just finished.
   local function hud_on_dialog_finished(game, dialog, info)
-    local old_mode = hud.backup_mode ~= nil and hud.backup_mode or "normal" 
+    local old_mode = hud.backup_mode ~= nil and hud.backup_mode or "normal"
     hud:set_mode(old_mode)
     hud.backup_mode = nil
 
@@ -190,15 +217,25 @@ local function initialize_hud_features(game)
       end
 
       -- Set the transparency on the icons.
-      action_icon:set_transparent(top_left_transparent)
-      attack_icon:set_transparent(top_left_transparent)
-      pause_icon:set_transparent(top_left_transparent)
+      if action_icon then
+        action_icon:set_transparent(top_left_transparent)
+      end
+      if attack_icon then
+        attack_icon:set_transparent(top_left_transparent)
+      end
+      if pause_icon then
+        pause_icon:set_transparent(top_left_transparent)
+      end
       for _, item_icon in pairs(item_icons) do
-        item_icon:set_transparent(top_left_transparent)
+        if item_icon then
+          item_icon:set_transparent(top_left_transparent)
+        end
       end
 
       -- Set the transparency on the hearts.
-      hearts_meter:set_transparent(top_right_transparent)      
+      if hearts then
+        hearts:set_transparent(top_right_transparent)
+      end
     end
 
     return true  -- Repeat the timer.
@@ -209,125 +246,131 @@ local function initialize_hud_features(game)
     return hud.mode
   end
 
-  -- Sets the mode of the HUD ("normal"-by default, "dialog", "pause" or "no_buttons").
+  -- Sets the mode of the HUD ("normal"-by default, "dialog", "pause", or "no_buttons").
   -- The icons adapt themselves to this mode.
   -- Ex: During a dialog, move the action icon and the sword icon, and hides the
   -- item icons.
   function hud:set_mode(mode)
-    if mode ~= hud.mode then
-      if mode == "dialog" then
-        hud.mode = mode
+    if mode == "normal" or mode == "dialog" or mode == "pause" or mode == "no_buttons" then
+      hud.mode = mode
+      hud:adapt_to_curent_mode()
+    else
+      print("HUD mode is not supported: "..mode)
+      hud:set_mode("normal") --fallback
+    end
+  end
 
-        if attack_icon ~= nil then
-          attack_icon:set_dst_position(attack_icon:get_dialog_position())
-          local effect = game.get_custom_command_effect ~= nil and game:get_custom_command_effect("attack") or game:get_command_effect("attack")
-          attack_icon:set_enabled(effect ~= nil)
-          attack_icon:set_active(true)
-        end
+  -- Adapts the icons to the current mode.
+  function hud:adapt_to_curent_mode()
+    if hud.mode == "dialog" then
+      if attack_icon ~= nil then
+        attack_icon:set_dst_position(attack_icon:get_dialog_position())
+        local effect = game.get_custom_command_effect ~= nil and game:get_custom_command_effect("attack") or game:get_command_effect("attack")
+        attack_icon:set_enabled(effect ~= nil)
+        attack_icon:set_active(true)
+      end
 
-        if action_icon ~= nil then
-          action_icon:set_dst_position(action_icon:get_dialog_position())
-          local effect = game.get_custom_command_effect ~= nil and game:get_custom_command_effect("action") or game:get_command_effect("action")
-          action_icon:set_enabled(effect ~= nil)
-          action_icon:set_active(true)
-        end
+      if action_icon ~= nil then
+        action_icon:set_dst_position(action_icon:get_dialog_position())
+        local effect = game.get_custom_command_effect ~= nil and game:get_custom_command_effect("action") or game:get_command_effect("action")
+        action_icon:set_enabled(effect ~= nil)
+        action_icon:set_active(true)
+      end
 
-        if pause_icon ~= nil then
-          pause_icon:set_enabled(false)
-          pause_icon:set_active(false)
-        end
+      if pause_icon ~= nil then
+        pause_icon:set_enabled(false)
+        pause_icon:set_active(false)
+      end
 
-        for _, item_icon in ipairs(item_icons) do
-          if item_icon ~= nil then
-            item_icon:set_enabled(false)
-            item_icon:set_active(false)
-          end
+      for _, item_icon in ipairs(item_icons) do
+        if item_icon ~= nil then
+          item_icon:set_enabled(false)
+          item_icon:set_active(false)
         end
-      elseif mode == "pause" then
-        hud.mode = mode
+      end
+    elseif hud.mode == "pause" then
+      if attack_icon ~= nil then
+        attack_icon:set_dst_position(attack_icon:get_normal_position())
+        local effect = game.get_custom_command_effect ~= nil and game:get_custom_command_effect("attack") or game:get_command_effect("attack")
+        attack_icon:set_enabled(effect ~= nil)
+        attack_icon:set_active(true)
+      end
 
-        if attack_icon ~= nil then
-          attack_icon:set_dst_position(attack_icon:get_normal_position())
-          local effect = game.get_custom_command_effect ~= nil and game:get_custom_command_effect("attack") or game:get_command_effect("attack")
-          attack_icon:set_enabled(effect ~= nil)
-          attack_icon:set_active(true)
-        end
+      if action_icon ~= nil then
+        action_icon:set_dst_position(action_icon:get_normal_position())
+        local effect = game.get_custom_command_effect ~= nil and game:get_custom_command_effect("action") or game:get_command_effect("action")
+        action_icon:set_enabled(effect ~= nil)
+        action_icon:set_active(true)
+      end
 
-        if action_icon ~= nil then
-          action_icon:set_dst_position(action_icon:get_normal_position())
-          local effect = game.get_custom_command_effect ~= nil and game:get_custom_command_effect("action") or game:get_command_effect("action")
-          action_icon:set_enabled(effect ~= nil)
-          action_icon:set_active(true)
-        end
+      if pause_icon ~= nil then
+        pause_icon:set_enabled(true)
+        pause_icon:set_active(true)
+      end
 
-        if pause_icon ~= nil then
-          pause_icon:set_enabled(true)
-          pause_icon:set_active(true)
+      for _, item_icon in ipairs(item_icons) do
+        if item_icon ~= nil then
+          item_icon:set_enabled(true)
+          item_icon:set_active(false)
         end
+      end
+    elseif hud.mode == "normal" then
+      if attack_icon ~= nil then
+        attack_icon:set_dst_position(attack_icon:get_normal_position())
+        local attack_icon_enabled = false
+        local effect = game.get_custom_command_effect ~= nil and game:get_custom_command_effect("attack") or game:get_command_effect("attack")
+        if effect then
+          attack_icon_enabled = true
+        else
+          -- Still display the attack icon when the hero does not have a sword, at the beginning of the game.
+          local hero_sword = game:get_ability("sword")
+          attack_icon_enabled = hero_sword == nil or hero_sword == 0
+        end
+        attack_icon:set_enabled(attack_icon_enabled)
+        attack_icon:set_active(true)
+      end
 
-        for _, item_icon in ipairs(item_icons) do
-          if item_icon ~= nil then
-            item_icon:set_enabled(true)
-            item_icon:set_active(false)
-          end
-        end
-      elseif mode == "normal" then
-        hud.mode = mode
+      if action_icon ~= nil then
+        action_icon:set_dst_position(action_icon:get_normal_position())
+        local effect = game.get_custom_command_effect ~= nil and game:get_custom_command_effect("action") or game:get_command_effect("action")
+        action_icon:set_enabled(effect ~= nil)
+        action_icon:set_active(true)
+      end
 
-        if attack_icon ~= nil then
-          attack_icon:set_dst_position(attack_icon:get_normal_position())
-          local effect = game.get_custom_command_effect ~= nil and game:get_custom_command_effect("attack") or game:get_command_effect("attack")
-          attack_icon:set_enabled(effect ~= nil)
-          attack_icon:set_active(true)
-        end
+      if pause_icon ~= nil then
+        pause_icon:set_enabled(true)
+        pause_icon:set_active(true)
+      end
 
-        if action_icon ~= nil then
-          action_icon:set_dst_position(action_icon:get_normal_position())
-          local effect = game.get_custom_command_effect ~= nil and game:get_custom_command_effect("action") or game:get_command_effect("action")
-          action_icon:set_enabled(effect ~= nil)
-          action_icon:set_active(true)
+      for _, item_icon in ipairs(item_icons) do
+        if item_icon ~= nil then
+          item_icon:set_enabled(true)
+          item_icon:set_active(true)
         end
+      end
+    elseif hud.mode == "no_buttons" then
+      if attack_icon ~= nil then
+        attack_icon:set_dst_position(attack_icon:get_normal_position())
+        attack_icon:set_enabled(false)
+        attack_icon:set_active(false)
+      end
 
-        if pause_icon ~= nil then
-          pause_icon:set_enabled(true)
-          pause_icon:set_active(true)
-        end
-        
-        for _, item_icon in ipairs(item_icons) do
-          if item_icon ~= nil then
-            item_icon:set_enabled(true)
-            item_icon:set_active(true)
-          end
-        end
-      elseif mode == "no_buttons" then
-        hud.mode = mode
-        
-        if attack_icon ~= nil then
-          attack_icon:set_dst_position(attack_icon:get_normal_position())
-          attack_icon:set_enabled(false)        
-          attack_icon:set_active(false)        
-        end
+      if action_icon ~= nil then
+        action_icon:set_dst_position(action_icon:get_normal_position())
+        action_icon:set_enabled(false)
+        action_icon:set_active(false)
+      end
 
-        if action_icon ~= nil then
-          action_icon:set_dst_position(action_icon:get_normal_position())
-          action_icon:set_enabled(false)        
-          action_icon:set_active(false)        
-        end
+      if pause_icon ~= nil then
+        pause_icon:set_enabled(false)
+        pause_icon:set_active(false)
+      end
 
-        if pause_icon ~= nil then
-          pause_icon:set_enabled(false)
-          pause_icon:set_active(false)
+      for _, item_icon in ipairs(item_icons) do
+        if item_icon ~= nil then
+          item_icon:set_enabled(false)
+          item_icon:set_active(false)
         end
-        
-        for _, item_icon in ipairs(item_icons) do
-          if item_icon ~= nil then
-            item_icon:set_enabled(false)
-            item_icon:set_active(false)
-          end
-        end
-      else
-        print("HUD mode is not supported: "..mode)
-        hud:set_mode("normal") --fallback
       end
     end
   end
@@ -342,16 +385,9 @@ local function initialize_hud_features(game)
     if enabled ~= hud.enabled then
       hud.enabled = enabled
 
+      -- Start or stop each element.
       for _, menu in ipairs(hud.elements) do
-        if enabled then
-          if not sol.menu.is_started(menu) then
-            -- Start each HUD element.
-            sol.menu.start(game, menu)
-          end
-        else
-          -- Stop each HUD element.
-          sol.menu.stop(menu)
-        end
+        set_menu_enabled(menu, enabled)
       end
 
       -- Bring to front.
@@ -385,7 +421,7 @@ local function initialize_hud_features(game)
       hud:set_item_icon_active(1, is_active)
     elseif command == "item_2" then
       hud:set_item_icon_active(2, is_active)
-    end 
+    end
   end
 
   -- Returns if the command icon is active or not.
@@ -402,7 +438,35 @@ local function initialize_hud_features(game)
       return hud:is_item_icon_active(2)
     else
       return false
-    end 
+    end
+  end
+
+  -- Sets the additionnal info (hearts, rupees, keys) enabled or not.
+  function hud:set_additionnal_info_enabled(enabled)
+    hud:set_hearts_enabled(enabled)
+    hud:set_rupees_enabled(enabled)
+    hud:set_keys_enabled(enabled)
+  end
+
+  -- Enables or disables the life counter.
+  function hud:set_hearts_enabled(enabled)
+    if hearts then
+      set_menu_enabled(hearts, enabled)
+    end
+  end
+
+  -- Enables or disables the life counter.
+  function hud:set_rupees_enabled(enabled)
+    if rupees then
+      set_menu_enabled(rupees, enabled)
+    end
+  end
+
+  -- Enables or disables the life counter.
+  function hud:set_keys_enabled(enabled)
+    if keys then
+      set_menu_enabled(keys, enabled)
+    end
   end
 
   -- Brings the whole HUD to the front.
@@ -458,7 +522,11 @@ local function initialize_hud_features(game)
     elseif element_config.menu_script == "scripts/hud/pause_icon" then
       pause_icon = element
     elseif element_config.menu_script == "scripts/hud/hearts" then
-      hearts_meter = element
+      hearts = element
+    elseif element_config.menu_script == "scripts/hud/small_keys" then
+      keys = element
+    elseif element_config.menu_script == "scripts/hud/rupees" then
+      rupees = element
     end
   end
 
