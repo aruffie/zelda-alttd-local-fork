@@ -82,7 +82,7 @@ uniform COMPAT_PRECISION int FrameCount;
 #define outsize vec4(OutputSize, 1.0 / OutputSize)
 
 vec4 VertexCoord = vec4(sol_vertex, 0.0, 1.0);
-vec4 TexCoord = vec4(sol_tex_coord, 0.0, 1.0);
+vec4 TexCoord = vec4((vec3(sol_tex_coord,1)*sol_uv_matrix).xy, 0.0, 1.0);
 
 void main()
 {

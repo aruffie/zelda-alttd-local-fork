@@ -1,4 +1,3 @@
-#version 120
 #if __VERSION__ >= 130
 #define COMPAT_VARYING in
 #define COMPAT_TEXTURE texture
