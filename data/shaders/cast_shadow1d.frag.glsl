@@ -31,7 +31,7 @@ uniform float cut;
 uniform bool oscillate;
 
 //sample from the 1D distance map
-float sample(vec2 coord, float r) {
+float tex(vec2 coord, float r) {
 	return step(r, COMPAT_TEXTURE(sol_texture, coord).r);
 }
 
@@ -47,7 +47,7 @@ void main(void) {
 	vec2 tc = vec2(coord, 0.0);
 	
 	//the center tex coord, which gives us hard shadows
-	float center = sample(tc, r);        
+	float center = tex(tc, r);        
 	
 	//we multiply the blur amount by our distance from center
 	//this leads to more blurriness as the shadow "fades away"
@@ -56,15 +56,15 @@ void main(void) {
 	//now we use a simple gaussian blur
 	float sum = 0.2;
 	
-	sum += sample(vec2(tc.x - 4.0*blur, tc.y), r) * 0.05;
-	sum += sample(vec2(tc.x - 3.0*blur, tc.y), r) * 0.09;
-	sum += sample(vec2(tc.x - 2.0*blur, tc.y), r) * 0.12;
-	sum += sample(vec2(tc.x - 1.0*blur, tc.y), r) * 0.15;
+	sum += tex(vec2(tc.x - 4.0*blur, tc.y), r) * 0.05;
+	sum += tex(vec2(tc.x - 3.0*blur, tc.y), r) * 0.09;
+	sum += tex(vec2(tc.x - 2.0*blur, tc.y), r) * 0.12;
+	sum += tex(vec2(tc.x - 1.0*blur, tc.y), r) * 0.15;
 	sum += center * 0.16;
-	sum += sample(vec2(tc.x + 1.0*blur, tc.y), r) * 0.15;
-	sum += sample(vec2(tc.x + 2.0*blur, tc.y), r) * 0.12;
-	sum += sample(vec2(tc.x + 3.0*blur, tc.y), r) * 0.09;
-	sum += sample(vec2(tc.x + 4.0*blur, tc.y), r) * 0.05;
+	sum += tex(vec2(tc.x + 1.0*blur, tc.y), r) * 0.15;
+	sum += tex(vec2(tc.x + 2.0*blur, tc.y), r) * 0.12;
+	sum += tex(vec2(tc.x + 3.0*blur, tc.y), r) * 0.09;
+	sum += tex(vec2(tc.x + 4.0*blur, tc.y), r) * 0.05;
 	
 	//sum of 1.0 -> in light, 0.0 -> in shadow
  	
