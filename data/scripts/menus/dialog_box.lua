@@ -6,7 +6,7 @@
 require("scripts/multi_events")
 local language_manager = require("scripts/language_manager")
 local audio_manager = require("scripts/audio_manager")
-
+local text_utils = require("scripts/libs/text_utils")
 -- Creates and sets up a dialog box for the specified game.
 local function initialize_dialog_box_features(game)
 
@@ -243,7 +243,19 @@ local function initialize_dialog_box_features(game)
     end
     -- Split the text in lines.
     text = text:gsub("\r\n", "\n"):gsub("\r", "\n")
-    self.line_it = text:gmatch("([^\n]*)\n")  -- Each line including empty ones.
+    local manual_line_it = text:gmatch("([^\n]*)\n")  -- Each line including empty ones.
+    
+    
+    self.line_it = iter(manual_line_it):flatmap(function(line)
+      return text_utils.word_wrap(
+        line,
+        text_utils.sol_text_wrap_predicate(
+          box_width-50,
+          self.font,
+          self.font_size
+        )
+      )
+    end)
 
     self.next_line = self.line_it()
     self.line_index = 1
