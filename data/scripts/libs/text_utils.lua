@@ -22,12 +22,13 @@ end
 -- `tu.word_wrap("long test ... phrase",tu.sol_text_wrap_predicate(300,"font_id",font_size))`
 ----------------------------------------
 function tu.word_wrap(text, predicate)
-  local words = text:gmatch("%S+")
+  local words = text:gmatch("%S+ *[!;:?]*")
   local last = ''
   local space = ''
   return iter(function()
     local line = last
     for w in words do
+      w = w:gsub("%s+$", "") -- remove space at word end
       local new_line = line .. space .. w
       if not predicate(new_line) then
         last = w
