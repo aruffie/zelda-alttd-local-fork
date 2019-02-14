@@ -2,7 +2,7 @@ properties{
   x = 0,
   y = 0,
   width = 320,
-  height = 256,
+  height = 240,
   min_layer = 0,
   max_layer = 2,
   world = "inside_world",
@@ -713,7 +713,7 @@ tile{
   x = 0,
   y = 0,
   width = 56,
-  height = 256,
+  height = 240,
   pattern = "ceiling.2",
 }
 
@@ -722,7 +722,7 @@ tile{
   x = 264,
   y = 0,
   width = 56,
-  height = 256,
+  height = 240,
   pattern = "ceiling.2",
 }
 
@@ -740,7 +740,7 @@ tile{
   x = 56,
   y = 224,
   width = 208,
-  height = 32,
+  height = 16,
   pattern = "ceiling.2",
 }
 

@@ -2,7 +2,7 @@ properties{
   x = 0,
   y = 0,
   width = 320,
-  height = 256,
+  height = 240,
   min_layer = 0,
   max_layer = 2,
   world = "inside_world",
@@ -13,7 +13,7 @@ properties{
 tile{
   layer = 0,
   x = 64,
-  y = 216,
+  y = 200,
   width = 192,
   height = 24,
   pattern = "wall.2-1",
@@ -22,7 +22,7 @@ tile{
 tile{
   layer = 0,
   x = 152,
-  y = 232,
+  y = 216,
   width = 16,
   height = 32,
   pattern = "floor_low.1-1",
@@ -31,7 +31,7 @@ tile{
 tile{
   layer = 0,
   x = 144,
-  y = 232,
+  y = 216,
   width = 8,
   height = 32,
   pattern = "barrier.2-1",
@@ -40,7 +40,7 @@ tile{
 tile{
   layer = 0,
   x = 168,
-  y = 232,
+  y = 216,
   width = 8,
   height = 32,
   pattern = "barrier.2-1",
@@ -49,7 +49,7 @@ tile{
 tile{
   layer = 0,
   x = 72,
-  y = 80,
+  y = 64,
   width = 176,
   height = 128,
   pattern = "floor_low.1-1",
@@ -58,7 +58,7 @@ tile{
 tile{
   layer = 0,
   x = 64,
-  y = 48,
+  y = 32,
   width = 192,
   height = 24,
   pattern = "wall.1-1",
@@ -67,7 +67,7 @@ tile{
 tile{
   layer = 0,
   x = 40,
-  y = 72,
+  y = 56,
   width = 24,
   height = 144,
   pattern = "wall.3-1",
@@ -76,7 +76,7 @@ tile{
 tile{
   layer = 0,
   x = 40,
-  y = 48,
+  y = 32,
   width = 24,
   height = 24,
   pattern = "wall.corner.1-1",
@@ -85,7 +85,7 @@ tile{
 tile{
   layer = 0,
   x = 256,
-  y = 72,
+  y = 56,
   width = 24,
   height = 144,
   pattern = "wall.4-1",
@@ -94,7 +94,7 @@ tile{
 tile{
   layer = 0,
   x = 256,
-  y = 48,
+  y = 32,
   width = 24,
   height = 24,
   pattern = "wall.corner.2-1",
@@ -103,7 +103,7 @@ tile{
 tile{
   layer = 0,
   x = 40,
-  y = 216,
+  y = 200,
   width = 24,
   height = 24,
   pattern = "wall.corner.3-1",
@@ -112,7 +112,7 @@ tile{
 tile{
   layer = 0,
   x = 256,
-  y = 216,
+  y = 200,
   width = 24,
   height = 24,
   pattern = "wall.corner.4-1",
@@ -121,7 +121,7 @@ tile{
 tile{
   layer = 0,
   x = 64,
-  y = 72,
+  y = 56,
   width = 8,
   height = 8,
   pattern = "wall_border.corner.1-1",
@@ -130,7 +130,7 @@ tile{
 tile{
   layer = 0,
   x = 248,
-  y = 72,
+  y = 56,
   width = 8,
   height = 8,
   pattern = "wall_border.corner.2-1",
@@ -139,7 +139,7 @@ tile{
 tile{
   layer = 0,
   x = 72,
-  y = 72,
+  y = 56,
   width = 176,
   height = 8,
   pattern = "wall_border.1-1",
@@ -148,7 +148,7 @@ tile{
 tile{
   layer = 0,
   x = 64,
-  y = 80,
+  y = 64,
   width = 8,
   height = 128,
   pattern = "wall_border.3-1",
@@ -157,7 +157,7 @@ tile{
 tile{
   layer = 0,
   x = 248,
-  y = 80,
+  y = 64,
   width = 8,
   height = 128,
   pattern = "wall_border.4-1",
@@ -166,7 +166,7 @@ tile{
 tile{
   layer = 0,
   x = 72,
-  y = 208,
+  y = 192,
   width = 176,
   height = 8,
   pattern = "wall_border.2-1",
@@ -175,7 +175,7 @@ tile{
 tile{
   layer = 0,
   x = 248,
-  y = 208,
+  y = 192,
   width = 8,
   height = 8,
   pattern = "wall_border.corner.4-1",
@@ -184,7 +184,7 @@ tile{
 tile{
   layer = 0,
   x = 64,
-  y = 208,
+  y = 192,
   width = 8,
   height = 8,
   pattern = "wall_border.corner.3-1",
@@ -193,7 +193,7 @@ tile{
 tile{
   layer = 0,
   x = 152,
-  y = 216,
+  y = 200,
   width = 16,
   height = 16,
   pattern = "door.2",
@@ -202,7 +202,7 @@ tile{
 tile{
   layer = 0,
   x = 168,
-  y = 216,
+  y = 200,
   width = 8,
   height = 16,
   pattern = "door.2.support.2-1",
@@ -211,7 +211,7 @@ tile{
 tile{
   layer = 0,
   x = 144,
-  y = 216,
+  y = 200,
   width = 8,
   height = 16,
   pattern = "door.2.support.1-1",
@@ -220,7 +220,7 @@ tile{
 tile{
   layer = 0,
   x = 200,
-  y = 216,
+  y = 200,
   width = 32,
   height = 24,
   pattern = "window.2-1",
@@ -229,7 +229,7 @@ tile{
 tile{
   layer = 0,
   x = 88,
-  y = 216,
+  y = 200,
   width = 32,
   height = 24,
   pattern = "window.2-1",
@@ -238,7 +238,7 @@ tile{
 tile{
   layer = 0,
   x = 144,
-  y = 56,
+  y = 40,
   width = 32,
   height = 16,
   pattern = "wall_torch.1",
@@ -247,7 +247,7 @@ tile{
 tile{
   layer = 0,
   x = 48,
-  y = 120,
+  y = 104,
   width = 16,
   height = 32,
   pattern = "wall_torch.3",
@@ -256,7 +256,7 @@ tile{
 tile{
   layer = 0,
   x = 256,
-  y = 120,
+  y = 104,
   width = 16,
   height = 32,
   pattern = "wall_torch.4",
@@ -265,7 +265,7 @@ tile{
 tile{
   layer = 0,
   x = 64,
-  y = 72,
+  y = 56,
   width = 8,
   height = 8,
   pattern = "111",
@@ -275,7 +275,7 @@ tile{
 tile{
   layer = 0,
   x = 248,
-  y = 72,
+  y = 56,
   width = 8,
   height = 8,
   pattern = "120",
@@ -285,7 +285,7 @@ tile{
 tile{
   layer = 0,
   x = 72,
-  y = 72,
+  y = 56,
   width = 176,
   height = 8,
   pattern = "129",
@@ -295,7 +295,7 @@ tile{
 tile{
   layer = 0,
   x = 248,
-  y = 80,
+  y = 64,
   width = 8,
   height = 88,
   pattern = "130",
@@ -305,7 +305,7 @@ tile{
 tile{
   layer = 0,
   x = 64,
-  y = 80,
+  y = 64,
   width = 8,
   height = 72,
   pattern = "127",
@@ -315,7 +315,7 @@ tile{
 tile{
   layer = 0,
   x = 64,
-  y = 152,
+  y = 136,
   width = 8,
   height = 8,
   pattern = "121",
@@ -325,7 +325,7 @@ tile{
 tile{
   layer = 0,
   x = 72,
-  y = 152,
+  y = 136,
   width = 16,
   height = 8,
   pattern = "128",
@@ -335,7 +335,7 @@ tile{
 tile{
   layer = 0,
   x = 88,
-  y = 152,
+  y = 136,
   width = 8,
   height = 8,
   pattern = "124",
@@ -345,7 +345,7 @@ tile{
 tile{
   layer = 0,
   x = 88,
-  y = 176,
+  y = 160,
   width = 8,
   height = 8,
   pattern = "131",
@@ -355,7 +355,7 @@ tile{
 tile{
   layer = 0,
   x = 248,
-  y = 176,
+  y = 160,
   width = 8,
   height = 8,
   pattern = "132",
@@ -365,7 +365,7 @@ tile{
 tile{
   layer = 0,
   x = 96,
-  y = 176,
+  y = 160,
   width = 152,
   height = 8,
   pattern = "134",
@@ -375,7 +375,7 @@ tile{
 tile{
   layer = 0,
   x = 96,
-  y = 168,
+  y = 152,
   width = 152,
   height = 8,
   pattern = "128",
@@ -385,7 +385,7 @@ tile{
 tile{
   layer = 0,
   x = 64,
-  y = 160,
+  y = 144,
   width = 8,
   height = 8,
   pattern = "133",
@@ -395,7 +395,7 @@ tile{
 tile{
   layer = 0,
   x = 72,
-  y = 160,
+  y = 144,
   width = 16,
   height = 8,
   pattern = "134",
@@ -405,7 +405,7 @@ tile{
 tile{
   layer = 0,
   x = 88,
-  y = 160,
+  y = 144,
   width = 8,
   height = 8,
   pattern = "127",
@@ -415,7 +415,7 @@ tile{
 tile{
   layer = 0,
   x = 88,
-  y = 168,
+  y = 152,
   width = 8,
   height = 8,
   pattern = "121",
@@ -425,7 +425,7 @@ tile{
 tile{
   layer = 0,
   x = 248,
-  y = 168,
+  y = 152,
   width = 8,
   height = 8,
   pattern = "122",
@@ -435,7 +435,7 @@ tile{
 tile{
   layer = 0,
   x = 72,
-  y = 80,
+  y = 64,
   width = 176,
   height = 72,
   pattern = "135",
@@ -445,7 +445,7 @@ tile{
 tile{
   layer = 0,
   x = 96,
-  y = 152,
+  y = 136,
   width = 152,
   height = 16,
   pattern = "135",
@@ -456,7 +456,7 @@ destination{
   name = "shop_1_1_B",
   layer = 0,
   x = 160,
-  y = 237,
+  y = 221,
   direction = 1,
 }
 
@@ -464,7 +464,7 @@ teletransporter{
   name = "shop_1_2_B",
   layer = 0,
   x = 152,
-  y = 240,
+  y = 224,
   width = 16,
   height = 16,
   destination_map = "out/a3_mabe_village",
@@ -475,7 +475,7 @@ npc{
   name = "merchant",
   layer = 0,
   x = 240,
-  y = 205,
+  y = 189,
   direction = 2,
   subtype = 1,
   sprite = "npc/villagers/game_man",
@@ -484,7 +484,7 @@ npc{
 custom_entity{
   layer = 0,
   x = 160,
-  y = 149,
+  y = 133,
   width = 16,
   height = 16,
   direction = 0,
@@ -495,7 +495,7 @@ custom_entity{
 custom_entity{
   layer = 0,
   x = 192,
-  y = 149,
+  y = 133,
   width = 16,
   height = 16,
   direction = 0,
@@ -506,7 +506,7 @@ custom_entity{
 custom_entity{
   layer = 0,
   x = 176,
-  y = 149,
+  y = 133,
   width = 16,
   height = 16,
   direction = 0,
@@ -517,7 +517,7 @@ custom_entity{
 custom_entity{
   layer = 0,
   x = 144,
-  y = 149,
+  y = 133,
   width = 16,
   height = 16,
   direction = 0,
@@ -528,7 +528,7 @@ custom_entity{
 custom_entity{
   layer = 0,
   x = 128,
-  y = 149,
+  y = 133,
   width = 16,
   height = 16,
   direction = 0,
@@ -539,21 +539,10 @@ custom_entity{
 custom_entity{
   layer = 0,
   x = 208,
-  y = 149,
+  y = 133,
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/conveyor_belt_3",
-  model = "conveyor_belt",
-}
-
-custom_entity{
-  layer = 0,
-  x = 224,
-  y = 149,
-  width = 16,
-  height = 16,
-  direction = 1,
   sprite = "entities/grounds/conveyor_belt_3",
   model = "conveyor_belt",
 }
@@ -586,6 +575,17 @@ custom_entity{
   y = 101,
   width = 16,
   height = 16,
+  direction = 1,
+  sprite = "entities/grounds/conveyor_belt_3",
+  model = "conveyor_belt",
+}
+
+custom_entity{
+  layer = 0,
+  x = 224,
+  y = 85,
+  width = 16,
+  height = 16,
   direction = 2,
   sprite = "entities/grounds/conveyor_belt_3",
   model = "conveyor_belt",
@@ -594,7 +594,7 @@ custom_entity{
 custom_entity{
   layer = 0,
   x = 208,
-  y = 101,
+  y = 85,
   width = 16,
   height = 16,
   direction = 2,
@@ -605,7 +605,7 @@ custom_entity{
 custom_entity{
   layer = 0,
   x = 192,
-  y = 101,
+  y = 85,
   width = 16,
   height = 16,
   direction = 2,
@@ -616,7 +616,7 @@ custom_entity{
 custom_entity{
   layer = 0,
   x = 176,
-  y = 101,
+  y = 85,
   width = 16,
   height = 16,
   direction = 2,
@@ -627,7 +627,7 @@ custom_entity{
 custom_entity{
   layer = 0,
   x = 160,
-  y = 101,
+  y = 85,
   width = 16,
   height = 16,
   direction = 2,
@@ -638,10 +638,21 @@ custom_entity{
 custom_entity{
   layer = 0,
   x = 144,
-  y = 101,
+  y = 85,
   width = 16,
   height = 16,
   direction = 2,
+  sprite = "entities/grounds/conveyor_belt_3",
+  model = "conveyor_belt",
+}
+
+custom_entity{
+  layer = 0,
+  x = 128,
+  y = 85,
+  width = 16,
+  height = 16,
+  direction = 3,
   sprite = "entities/grounds/conveyor_belt_3",
   model = "conveyor_belt",
 }
@@ -670,8 +681,8 @@ custom_entity{
 
 custom_entity{
   layer = 0,
-  x = 128,
-  y = 133,
+  x = 80,
+  y = 77,
   width = 16,
   height = 16,
   direction = 3,
@@ -724,21 +735,10 @@ custom_entity{
 }
 
 custom_entity{
-  layer = 0,
-  x = 80,
-  y = 157,
-  width = 16,
-  height = 16,
-  direction = 3,
-  sprite = "entities/grounds/conveyor_belt_3",
-  model = "conveyor_belt",
-}
-
-custom_entity{
   name = "claw_up",
   layer = 0,
   x = 80,
-  y = 61,
+  y = 45,
   width = 16,
   height = 16,
   direction = 0,
@@ -749,7 +749,7 @@ custom_entity{
   name = "claw_crane",
   layer = 0,
   x = 80,
-  y = 77,
+  y = 61,
   width = 16,
   height = 16,
   direction = 0,
@@ -760,7 +760,7 @@ npc{
   name = "console",
   layer = 0,
   x = 104,
-  y = 189,
+  y = 173,
   direction = -1,
   subtype = 0,
   sprite = "npc/misc/console",
@@ -770,7 +770,7 @@ custom_entity{
   name = "claw_shadow",
   layer = 0,
   x = 80,
-  y = 101,
+  y = 85,
   width = 16,
   height = 16,
   direction = 0,
@@ -781,7 +781,7 @@ pickable{
   name = "game_item_6",
   layer = 0,
   x = 176,
-  y = 133,
+  y = 117,
   treasure_name = "magnifying_lens",
   treasure_savegame_variable = "magnifying_lens_1",
 }
@@ -790,7 +790,7 @@ pickable{
   name = "game_item_3",
   layer = 0,
   x = 128,
-  y = 149,
+  y = 133,
   treasure_name = "shield",
 }
 
@@ -798,7 +798,7 @@ pickable{
   name = "game_item_1",
   layer = 0,
   x = 160,
-  y = 101,
+  y = 85,
   treasure_name = "magic_powder",
 }
 
@@ -806,7 +806,7 @@ pickable{
   name = "game_item_4",
   layer = 0,
   x = 224,
-  y = 149,
+  y = 133,
   treasure_name = "rupee",
   treasure_variant = 2,
 }
@@ -815,7 +815,7 @@ pickable{
   name = "game_item_2",
   layer = 0,
   x = 128,
-  y = 117,
+  y = 101,
   treasure_name = "rupee",
 }
 
@@ -823,14 +823,14 @@ pickable{
   name = "game_item_5",
   layer = 0,
   x = 224,
-  y = 117,
+  y = 101,
   treasure_name = "heart",
 }
 
 tile{
   layer = 1,
   x = 144,
-  y = 232,
+  y = 216,
   width = 32,
   height = 8,
   pattern = "door_top.2-1",
@@ -841,7 +841,7 @@ tile{
   x = 0,
   y = 0,
   width = 40,
-  height = 256,
+  height = 240,
   pattern = "ceiling.2",
 }
 
@@ -850,7 +850,7 @@ tile{
   x = 280,
   y = 0,
   width = 40,
-  height = 256,
+  height = 240,
   pattern = "ceiling.2",
 }
 
@@ -859,14 +859,14 @@ tile{
   x = 40,
   y = 0,
   width = 240,
-  height = 48,
+  height = 32,
   pattern = "ceiling.2",
 }
 
 tile{
   layer = 2,
   x = 40,
-  y = 240,
+  y = 224,
   width = 240,
   height = 16,
   pattern = "ceiling.2",
