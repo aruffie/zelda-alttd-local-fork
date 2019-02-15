@@ -2,7 +2,7 @@ properties{
   x = 0,
   y = 0,
   width = 640,
-  height = 256,
+  height = 240,
   min_layer = 0,
   max_layer = 2,
   world = "dungeon_2",
@@ -15,8 +15,8 @@ tile{
   layer = 0,
   x = 0,
   y = 0,
-  width = 640,
-  height = 256,
+  width = 616,
+  height = 240,
   pattern = "20",
 }
 
@@ -358,7 +358,7 @@ tile{
   x = 0,
   y = 72,
   width = 64,
-  height = 192,
+  height = 176,
   pattern = "61",
 }
 
@@ -376,7 +376,7 @@ tile{
   x = 80,
   y = 136,
   width = 64,
-  height = 128,
+  height = 112,
   pattern = "61",
 }
 
@@ -385,7 +385,7 @@ tile{
   x = 64,
   y = 120,
   width = 16,
-  height = 144,
+  height = 128,
   pattern = "61",
 }
 
@@ -448,7 +448,7 @@ tile{
   x = 160,
   y = 200,
   width = 32,
-  height = 64,
+  height = 48,
   pattern = "61",
 }
 
@@ -457,7 +457,7 @@ tile{
   x = 144,
   y = 184,
   width = 16,
-  height = 80,
+  height = 64,
   pattern = "61",
 }
 
@@ -484,7 +484,7 @@ tile{
   x = 192,
   y = 184,
   width = 64,
-  height = 80,
+  height = 64,
   pattern = "61",
 }
 
@@ -511,7 +511,7 @@ tile{
   x = 256,
   y = 200,
   width = 32,
-  height = 64,
+  height = 48,
   pattern = "61",
 }
 
@@ -529,7 +529,7 @@ tile{
   x = 288,
   y = 184,
   width = 128,
-  height = 80,
+  height = 64,
   pattern = "61",
 }
 
@@ -556,7 +556,7 @@ tile{
   x = 416,
   y = 200,
   width = 112,
-  height = 64,
+  height = 48,
   pattern = "61",
 }
 
@@ -574,7 +574,7 @@ tile{
   x = 528,
   y = 184,
   width = 32,
-  height = 80,
+  height = 64,
   pattern = "61",
 }
 
@@ -592,7 +592,7 @@ tile{
   x = 560,
   y = 72,
   width = 80,
-  height = 192,
+  height = 176,
   pattern = "61",
 }
 
@@ -808,7 +808,7 @@ separator{
   x = 312,
   y = 0,
   width = 16,
-  height = 256,
+  height = 240,
 }
 
 dynamic_tile{
@@ -816,9 +816,9 @@ dynamic_tile{
   layer = 0,
   x = 80,
   y = 0,
-  pattern = "40",
   width = 16,
   height = 120,
+  pattern = "40",
 }
 
 dynamic_tile{
@@ -826,9 +826,9 @@ dynamic_tile{
   layer = 0,
   x = 544,
   y = 0,
-  pattern = "40",
   width = 16,
   height = 144,
+  pattern = "40",
 }
 
 teletransporter{
