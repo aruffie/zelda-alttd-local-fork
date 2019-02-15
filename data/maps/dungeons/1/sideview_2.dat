@@ -131,15 +131,6 @@ tile{
 tile{
   layer = 0,
   x = 0,
-  y = 240,
-  width = 640,
-  height = 16,
-  pattern = "151",
-}
-
-tile{
-  layer = 0,
-  x = 0,
   y = 160,
   width = 16,
   height = 16,
@@ -781,7 +772,7 @@ separator{
   x = 312,
   y = 0,
   width = 16,
-  height = 256,
+  height = 240,
 }
 
 teletransporter{
