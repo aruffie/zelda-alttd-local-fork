@@ -22826,6 +22826,24 @@ tile{
   pattern = "wall_torch.2",
 }
 
+tile{
+  layer = 1,
+  x = 1024,
+  y = 200,
+  width = 32,
+  height = 16,
+  pattern = "wall_torch.2",
+}
+
+tile{
+  layer = 1,
+  x = 1200,
+  y = 200,
+  width = 32,
+  height = 16,
+  pattern = "wall_torch.2",
+}
+
 jumper{
   layer = 1,
   x = 832,
@@ -23639,24 +23657,6 @@ tile{
   width = 296,
   height = 32,
   pattern = "ceiling.1",
-}
-
-tile{
-  layer = 2,
-  x = 1024,
-  y = 200,
-  width = 32,
-  height = 16,
-  pattern = "wall_torch.2",
-}
-
-tile{
-  layer = 2,
-  x = 1200,
-  y = 200,
-  width = 32,
-  height = 16,
-  pattern = "wall_torch.2",
 }
 
 tile{
