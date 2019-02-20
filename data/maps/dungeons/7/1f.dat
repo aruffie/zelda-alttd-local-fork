@@ -13,6 +13,78 @@ properties{
 
 tile{
   layer = 0,
+  x = 400,
+  y = 512,
+  width = 16,
+  height = 16,
+  pattern = "floor.7-1",
+}
+
+tile{
+  layer = 0,
+  x = 432,
+  y = 520,
+  width = 144,
+  height = 96,
+  pattern = "floor.7-1",
+}
+
+tile{
+  layer = 0,
+  x = 256,
+  y = 568,
+  width = 128,
+  height = 32,
+  pattern = "floor.7-1",
+}
+
+tile{
+  layer = 0,
+  x = 376,
+  y = 520,
+  width = 64,
+  height = 96,
+  pattern = "hole",
+}
+
+tile{
+  layer = 0,
+  x = 376,
+  y = 520,
+  width = 16,
+  height = 16,
+  pattern = "wall_hole.corner.1-1",
+}
+
+tile{
+  layer = 0,
+  x = 392,
+  y = 520,
+  width = 32,
+  height = 16,
+  pattern = "wall_hole.1-1",
+}
+
+tile{
+  layer = 0,
+  x = 424,
+  y = 520,
+  width = 16,
+  height = 16,
+  pattern = "wall_hole.corner.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 424,
+  y = 536,
+  width = 16,
+  height = 80,
+  pattern = "wall_hole.4-1",
+}
+
+tile{
+  layer = 0,
   x = 584,
   y = 200,
   width = 16,
@@ -86,18 +158,9 @@ tile{
 tile{
   layer = 0,
   x = 384,
-  y = 568,
-  width = 192,
-  height = 112,
-  pattern = "floor.7-1",
-}
-
-tile{
-  layer = 0,
-  x = 256,
-  y = 584,
-  width = 128,
-  height = 32,
+  y = 616,
+  width = 208,
+  height = 64,
   pattern = "floor.7-1",
 }
 
@@ -151,15 +214,6 @@ tile{
   x = 1008,
   y = 520,
   width = 176,
-  height = 80,
-  pattern = "floor.7-1",
-}
-
-tile{
-  layer = 0,
-  x = 432,
-  y = 520,
-  width = 112,
   height = 80,
   pattern = "floor.7-1",
 }
@@ -284,27 +338,9 @@ tile{
 tile{
   layer = 0,
   x = 376,
-  y = 520,
-  width = 24,
-  height = 96,
-  pattern = "hole",
-}
-
-tile{
-  layer = 0,
-  x = 400,
-  y = 528,
-  width = 24,
-  height = 88,
-  pattern = "hole",
-}
-
-tile{
-  layer = 0,
-  x = 376,
   y = 536,
   width = 16,
-  height = 48,
+  height = 64,
   pattern = "wall_hole.3-1",
 }
 
@@ -482,7 +518,7 @@ tile{
 tile{
   layer = 0,
   x = 264,
-  y = 584,
+  y = 568,
   width = 112,
   height = 8,
   pattern = "wall_border.1-2",
@@ -1499,7 +1535,7 @@ tile{
 tile{
   layer = 0,
   x = 280,
-  y = 560,
+  y = 544,
   width = 80,
   height = 24,
   pattern = "wall.1-2",
@@ -1508,16 +1544,16 @@ tile{
 tile{
   layer = 0,
   x = 352,
-  y = 632,
+  y = 616,
   width = 24,
-  height = 64,
+  height = 80,
   pattern = "wall.3-2",
 }
 
 tile{
   layer = 0,
   x = 280,
-  y = 616,
+  y = 600,
   width = 80,
   height = 24,
   pattern = "wall.2-2",
@@ -2374,14 +2410,14 @@ tile{
   x = 264,
   y = 520,
   width = 24,
-  height = 48,
+  height = 32,
   pattern = "wall.4-2",
 }
 
 tile{
   layer = 0,
   x = 264,
-  y = 560,
+  y = 544,
   width = 24,
   height = 24,
   pattern = "wall.corner_reverse.2-2",
@@ -3256,14 +3292,14 @@ tile{
   x = 256,
   y = 528,
   width = 8,
-  height = 64,
+  height = 48,
   pattern = "wall_border.4-2",
 }
 
 tile{
   layer = 0,
   x = 256,
-  y = 584,
+  y = 568,
   width = 8,
   height = 8,
   pattern = "wall_border.corner_reverse.2-2",
@@ -3344,16 +3380,16 @@ tile{
 tile{
   layer = 0,
   x = 256,
-  y = 616,
+  y = 600,
   width = 8,
-  height = 192,
+  height = 208,
   pattern = "wall_border.4-2",
 }
 
 tile{
   layer = 0,
   x = 264,
-  y = 608,
+  y = 592,
   width = 8,
   height = 8,
   pattern = "wall_border.corner_reverse.4-2",
@@ -3362,7 +3398,7 @@ tile{
 tile{
   layer = 0,
   x = 264,
-  y = 608,
+  y = 592,
   width = 112,
   height = 8,
   pattern = "wall_border.2-2",
@@ -3391,14 +3427,14 @@ tile{
   x = 352,
   y = 520,
   width = 24,
-  height = 48,
+  height = 32,
   pattern = "wall.3-2",
 }
 
 tile{
   layer = 0,
   x = 352,
-  y = 560,
+  y = 544,
   width = 24,
   height = 24,
   pattern = "wall.corner_reverse.1-2",
@@ -3569,9 +3605,9 @@ tile{
 tile{
   layer = 0,
   x = 264,
-  y = 632,
+  y = 616,
   width = 24,
-  height = 160,
+  height = 176,
   pattern = "wall.4-2",
 }
 
@@ -3623,7 +3659,7 @@ tile{
 tile{
   layer = 0,
   x = 352,
-  y = 616,
+  y = 600,
   width = 24,
   height = 24,
   pattern = "wall.corner_reverse.3-2",
@@ -3632,7 +3668,7 @@ tile{
 tile{
   layer = 0,
   x = 256,
-  y = 608,
+  y = 592,
   width = 8,
   height = 8,
   pattern = "wall_border.corner_reverse.4-2",
@@ -5378,7 +5414,7 @@ tile{
 tile{
   layer = 0,
   x = 264,
-  y = 616,
+  y = 600,
   width = 24,
   height = 24,
   pattern = "wall.corner_reverse.4-2",
@@ -5391,15 +5427,6 @@ tile{
   width = 24,
   height = 24,
   pattern = "wall.corner.3-2",
-}
-
-tile{
-  layer = 0,
-  x = 416,
-  y = 520,
-  width = 24,
-  height = 96,
-  pattern = "hole",
 }
 
 tile{
@@ -5432,9 +5459,9 @@ tile{
 tile{
   layer = 0,
   x = 376,
-  y = 584,
+  y = 568,
   width = 8,
-  height = 24,
+  height = 40,
   pattern = "hole.3",
 }
 
@@ -5460,7 +5487,7 @@ tile{
   layer = 0,
   x = 384,
   y = 520,
-  width = 16,
+  width = 48,
   height = 8,
   pattern = "hole.1",
 }
@@ -5472,15 +5499,6 @@ tile{
   width = 8,
   height = 8,
   pattern = "hole.corner.2",
-}
-
-tile{
-  layer = 0,
-  x = 416,
-  y = 520,
-  width = 16,
-  height = 8,
-  pattern = "hole.1",
 }
 
 tile{
@@ -6169,6 +6187,69 @@ tile{
   pattern = "wall.corner_reverse.2-2",
 }
 
+tile{
+  layer = 0,
+  x = 1144,
+  y = 744,
+  width = 8,
+  height = 16,
+  pattern = "door.1.support.1-1",
+}
+
+tile{
+  layer = 0,
+  x = 1168,
+  y = 744,
+  width = 8,
+  height = 16,
+  pattern = "door.1.support.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 1144,
+  y = 680,
+  width = 8,
+  height = 16,
+  pattern = "door.2.support.1-1",
+}
+
+tile{
+  layer = 0,
+  x = 1168,
+  y = 680,
+  width = 8,
+  height = 16,
+  pattern = "door.2.support.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 424,
+  y = 600,
+  width = 16,
+  height = 16,
+  pattern = "wall_hole.corner.4-1",
+}
+
+tile{
+  layer = 0,
+  x = 376,
+  y = 600,
+  width = 16,
+  height = 16,
+  pattern = "wall_hole.corner.3-1",
+}
+
+tile{
+  layer = 0,
+  x = 392,
+  y = 600,
+  width = 32,
+  height = 16,
+  pattern = "wall_hole.2-1",
+}
+
 wall{
   layer = 0,
   x = 1152,
@@ -6276,7 +6357,7 @@ crystal_block{
   x = 400,
   y = 416,
   width = 16,
-  height = 112,
+  height = 96,
   subtype = 0,
 }
 
@@ -6621,6 +6702,7 @@ crystal{
 }
 
 enemy{
+  name = "enemy_group_9_1",
   layer = 0,
   x = 1112,
   y = 125,
@@ -6629,6 +6711,7 @@ enemy{
 }
 
 enemy{
+  name = "enemy_group_10_1",
   layer = 0,
   x = 800,
   y = 157,
@@ -6673,9 +6756,12 @@ crystal_block{
 }
 
 chest{
+  name = "chest_beak_of_stone",
   layer = 0,
   x = 136,
   y = 557,
+  treasure_name = "beak_of_stone",
+  treasure_savegame_variable = "dungeon_7_beak_of_stone",
   sprite = "entities/chests/chest_small",
 }
 
@@ -6808,6 +6894,7 @@ stairs{
 }
 
 teletransporter{
+  name = "stairs_4_A",
   layer = 0,
   x = 472,
   y = 72,
@@ -6826,6 +6913,7 @@ stairs{
 }
 
 teletransporter{
+  name = "stairs_8_A",
   layer = 0,
   x = 792,
   y = 72,
@@ -6835,29 +6923,11 @@ teletransporter{
   destination = "_same",
 }
 
-destination{
-  name = "destination",
-  layer = 0,
-  x = 480,
-  y = 893,
-  direction = 1,
-}
-
-npc{
-  name = "owl_2",
-  layer = 0,
-  x = 1112,
-  y = 85,
-  direction = 3,
-  subtype = 1,
-  sprite = "entities/statue_dungeon_7_owl",
-}
-
 enemy{
   name = "enemy_group_2_1",
   layer = 0,
-  x = 1112,
-  y = 829,
+  x = 1080,
+  y = 813,
   direction = 0,
   breed = "like_like",
 }
@@ -6881,16 +6951,7 @@ enemy{
 }
 
 enemy{
-  name = "enemy_group_5_2",
-  layer = 0,
-  x = 1128,
-  y = 621,
-  direction = 3,
-  breed = "like_like",
-}
-
-enemy{
-  name = "enemy_group_6_1",
+  name = "enemy_group_12_1",
   layer = 0,
   x = 856,
   y = 333,
@@ -6899,7 +6960,7 @@ enemy{
 }
 
 enemy{
-  name = "enemy_group_6_2",
+  name = "enemy_group_12_2",
   layer = 0,
   x = 744,
   y = 381,
@@ -6908,12 +6969,298 @@ enemy{
 }
 
 enemy{
-  name = "enemy_group_6_3",
+  name = "enemy_group_12_3",
   layer = 0,
   x = 824,
   y = 301,
   direction = 3,
   breed = "stalfos_red",
+}
+
+destination{
+  name = "destination_ocarina",
+  layer = 0,
+  x = 480,
+  y = 893,
+  direction = 1,
+}
+
+destination{
+  name = "dungeon_7_1_B",
+  layer = 0,
+  x = 480,
+  y = 917,
+  direction = 1,
+}
+
+enemy{
+  name = "enemy_group_2_2",
+  layer = 0,
+  x = 1136,
+  y = 861,
+  direction = 0,
+  breed = "like_like",
+}
+
+pickable{
+  name = "pickable_small_key_1",
+  layer = 0,
+  x = 1048,
+  y = 845,
+  treasure_name = "small_key",
+  treasure_savegame_variable = "dungeon_7_small_key_1",
+}
+
+door{
+  name = "door_small_key_1_1",
+  layer = 0,
+  x = 1152,
+  y = 744,
+  direction = 3,
+  sprite = "entities/doors/door_small_key",
+  savegame_variable = "dungeon_7_door_small_key_1",
+  opening_method = "interaction_if_savegame_variable",
+  opening_condition = "dungeon_7_small_keys",
+  opening_condition_consumed = true,
+}
+
+door{
+  name = "door_small_key_1_2",
+  layer = 0,
+  x = 1152,
+  y = 680,
+  direction = 1,
+  sprite = "entities/doors/door_small_key",
+  savegame_variable = "dungeon_7_door_small_key_1",
+  opening_method = "interaction_if_savegame_variable",
+  opening_condition = "dungeon_7_small_keys",
+  opening_condition_consumed = true,
+}
+
+destination{
+  name = "stairs_2_B",
+  layer = 0,
+  x = 1144,
+  y = 533,
+  direction = 3,
+}
+
+teletransporter{
+  name = "stairs_1_A",
+  layer = 0,
+  x = 1136,
+  y = 504,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/2f",
+  destination = "stairs_1_B",
+}
+
+stairs{
+  layer = 0,
+  x = 1136,
+  y = 504,
+  direction = 1,
+  subtype = 0,
+}
+
+teletransporter{
+  name = "dungeon_7_2_A",
+  layer = 0,
+  x = 472,
+  y = 936,
+  width = 16,
+  height = 16,
+  destination_map = "out/d1_east_mt_tamaranch",
+  destination = "dungeon_7_2_B",
+}
+
+destination{
+  name = "stairs_3_B",
+  layer = 0,
+  x = 480,
+  y = 109,
+  direction = 3,
+}
+
+enemy{
+  name = "enemy_group_6_1",
+  layer = 0,
+  x = 424,
+  y = 125,
+  direction = 0,
+  breed = "peahat",
+}
+
+enemy{
+  name = "enemy_group_6_2",
+  layer = 0,
+  x = 584,
+  y = 149,
+  direction = 0,
+  breed = "peahat",
+}
+
+enemy{
+  name = "enemy_group_6_3",
+  layer = 0,
+  x = 496,
+  y = 141,
+  direction = 0,
+  breed = "small_moldorm",
+}
+
+enemy{
+  name = "enemy_group_7_1",
+  layer = 0,
+  x = 232,
+  y = 141,
+  direction = 0,
+  breed = "goomba",
+}
+
+enemy{
+  name = "enemy_group_7_2",
+  layer = 0,
+  x = 104,
+  y = 109,
+  direction = 0,
+  breed = "evil_tile",
+}
+
+stairs{
+  layer = 0,
+  x = 200,
+  y = 504,
+  direction = 1,
+  subtype = 0,
+}
+
+teletransporter{
+  name = "stairs_5_A",
+  layer = 0,
+  x = 200,
+  y = 504,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/2f",
+  destination = "stairs_5_B",
+}
+
+destination{
+  name = "stairs_6_B",
+  layer = 0,
+  x = 208,
+  y = 541,
+  direction = 3,
+}
+
+enemy{
+  name = "enemy_group_8_1",
+  layer = 0,
+  x = 152,
+  y = 861,
+  direction = 0,
+  breed = "wizzrobe_white",
+}
+
+npc{
+  name = "owl_2",
+  layer = 0,
+  x = 1112,
+  y = 85,
+  direction = 3,
+  subtype = 1,
+  sprite = "npc/statues/owl_dungeon_7",
+}
+
+enemy{
+  name = "enemy_group_9_2",
+  layer = 0,
+  x = 1184,
+  y = 101,
+  direction = 0,
+  breed = "fireball",
+}
+
+enemy{
+  name = "enemy_group_9_3",
+  layer = 0,
+  x = 1016,
+  y = 141,
+  direction = 0,
+  breed = "generic_towards_hero",
+}
+
+destination{
+  name = "stairs_7_B",
+  layer = 0,
+  x = 800,
+  y = 109,
+  direction = 3,
+}
+
+enemy{
+  name = "enemy_group_10_2",
+  layer = 0,
+  x = 696,
+  y = 157,
+  direction = 0,
+  breed = "peahat",
+}
+
+enemy{
+  name = "enemy_group_10_3",
+  layer = 0,
+  x = 896,
+  y = 157,
+  direction = 0,
+  breed = "peahat",
+}
+
+enemy{
+  name = "enemy_group_11_1",
+  layer = 0,
+  x = 552,
+  y = 605,
+  direction = 3,
+  breed = "zombie",
+}
+
+enemy{
+  name = "enemy_group_11_2",
+  layer = 0,
+  x = 520,
+  y = 573,
+  direction = 3,
+  breed = "zombie",
+}
+
+enemy{
+  name = "enemy_group_11_3",
+  layer = 0,
+  x = 488,
+  y = 677,
+  direction = 3,
+  breed = "fireball",
+}
+
+custom_entity{
+  name = "teletransporter_B",
+  layer = 0,
+  x = 480,
+  y = 845,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+destination{
+  name = "teletransporter_destination_B",
+  layer = 0,
+  x = 480,
+  y = 829,
+  direction = 1,
 }
 
 tile{
@@ -7405,16 +7752,23 @@ tile{
 }
 
 chest{
+  name = "chest_rupee_1",
   layer = 1,
   x = 56,
-  y = 69,
+  y = 61,
+  treasure_name = "rupee",
+  treasure_variant = 20,
+  treasure_savegame_variable = "dongeon_7_rupee_1",
   sprite = "entities/chests/chest_small",
 }
 
 chest{
+  name = "chest_small_key_2",
   layer = 1,
   x = 1224,
   y = 61,
+  treasure_name = "small_key",
+  treasure_savegame_variable = "dungeon_7_small_key_2",
   sprite = "entities/chests/chest_small",
 }
 
@@ -7598,9 +7952,9 @@ wall{
 
 wall{
   layer = 1,
-  x = 1192,
+  x = 1208,
   y = 736,
-  width = 24,
+  width = 8,
   height = 24,
   stops_hero = true,
   stops_npcs = true,
@@ -7611,9 +7965,9 @@ wall{
 
 wall{
   layer = 1,
-  x = 1192,
+  x = 1208,
   y = 680,
-  width = 24,
+  width = 8,
   height = 24,
   stops_hero = true,
   stops_npcs = true,
@@ -7624,9 +7978,9 @@ wall{
 
 wall{
   layer = 1,
-  x = 1192,
+  x = 1208,
   y = 496,
-  width = 24,
+  width = 8,
   height = 24,
   stops_hero = true,
   stops_npcs = true,
@@ -7637,9 +7991,9 @@ wall{
 
 wall{
   layer = 1,
-  x = 1192,
+  x = 1208,
   y = 440,
-  width = 24,
+  width = 8,
   height = 24,
   stops_hero = true,
   stops_npcs = true,
@@ -7666,7 +8020,7 @@ wall{
   x = 656,
   y = 64,
   width = 24,
-  height = 24,
+  height = 8,
   stops_hero = true,
   stops_npcs = true,
   stops_enemies = true,
@@ -7679,7 +8033,7 @@ wall{
   x = 600,
   y = 64,
   width = 24,
-  height = 24,
+  height = 8,
   stops_hero = true,
   stops_npcs = true,
   stops_enemies = true,
@@ -7711,6 +8065,17 @@ wall{
   stops_enemies = true,
   stops_blocks = true,
   stops_projectiles = true,
+}
+
+custom_entity{
+  layer = 1,
+  x = 408,
+  y = 317,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/items/heart_fly",
+  model = "heart_fly",
 }
 
 tile{
@@ -7790,7 +8155,7 @@ tile{
   x = 288,
   y = 448,
   width = 48,
-  height = 112,
+  height = 96,
   pattern = "ceiling.1",
 }
 
@@ -7824,9 +8189,9 @@ tile{
 tile{
   layer = 2,
   x = 288,
-  y = 640,
+  y = 624,
   width = 64,
-  height = 144,
+  height = 160,
   pattern = "ceiling.1",
 }
 
@@ -8015,7 +8380,7 @@ tile{
   x = 336,
   y = 496,
   width = 16,
-  height = 64,
+  height = 48,
   pattern = "ceiling.1",
 }
 
@@ -8200,5 +8565,14 @@ separator{
   y = 712,
   width = 1280,
   height = 16,
+}
+
+enemy{
+  name = "enemy_group_3_2",
+  layer = 2,
+  x = 1000,
+  y = 781,
+  direction = 0,
+  breed = "face_lamp",
 }
 

@@ -76,8 +76,8 @@ map{ id = "dungeons/6/1f", description = "Dungeon 6 1F" }
 map{ id = "dungeons/7/1f", description = "Dungeon 7 1F" }
 map{ id = "dungeons/7/2f", description = "Dungeon 7 2F" }
 map{ id = "dungeons/7/3f", description = "Dungeon 7 3F" }
-map{ id = "dungeons/7/3f_bis", description = "Dungeon 7 3F Bis" }
-map{ id = "dungeons/7/sideview", description = "Boss room" }
+map{ id = "dungeons/7/3f_origin", description = "Dungeon 7 3F before collapse" }
+map{ id = "dungeons/7/sideview", description = "Sideview" }
 map{ id = "dungeons/8/1f", description = "Dungeon 8 1F" }
 map{ id = "dungeons/9/1f", description = "Dungeon 9 1F" }
 map{ id = "examples/beach_store", description = "Beach Store" }
@@ -1235,6 +1235,7 @@ entity{ id = "non_diggable", description = "Non diggable" }
 entity{ id = "obstacle", description = "Obstacle" }
 entity{ id = "pickable_fly", description = "Pickable fly" }
 entity{ id = "powder", description = "Powder" }
+entity{ id = "pull_handle", description = "Pull handle" }
 entity{ id = "seagull", description = "Seagull" }
 entity{ id = "statue", description = "Statue" }
 entity{ id = "statue_elephant", description = "Statue elephant" }
@@ -1615,8 +1616,8 @@ file{ path = "maps/dungeons/7/2f.dat", author = "Benjamin Schweitzer", license =
 file{ path = "maps/dungeons/7/2f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/dungeons/7/3f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
 file{ path = "maps/dungeons/7/3f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/dungeons/7/3f_bis.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/7/3f_bis.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/7/3f_origin.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/7/3f_origin.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/dungeons/8", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
 file{ path = "maps/dungeons/8/1f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
 file{ path = "maps/dungeons/8/1f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }

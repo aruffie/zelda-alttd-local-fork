@@ -2555,6 +2555,25 @@ tile{
   pattern = "95",
 }
 
+destination{
+  name = "stairs_11_B",
+  layer = 0,
+  x = 152,
+  y = 413,
+  direction = 1,
+}
+
+teletransporter{
+  name = "stairs_12_A",
+  layer = 0,
+  x = 144,
+  y = 400,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/3f",
+  destination = "stairs_12_B",
+}
+
 separator{
   layer = 2,
   x = 0,

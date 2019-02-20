@@ -1,4 +1,4 @@
--- Lua script of map dungeons/7/4f.
+-- Lua script of map dungeons/7/3f.
 -- This script is executed every time the hero enters this map.
 
 -- Feel free to modify the code below.

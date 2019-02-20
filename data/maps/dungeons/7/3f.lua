@@ -1,4 +1,4 @@
--- Lua script of map dungeons/7/3f.
+-- Lua script of map dungeons/7/4f.
 -- This script is executed every time the hero enters this map.
 
 -- Feel free to modify the code below.
@@ -7,18 +7,54 @@
 -- See the Solarus Lua API documentation:
 -- http://www.solarus-games.org/doc/latest
 
+-- Variables
 local map = ...
 local game = map:get_game()
 
--- Event called at initialization time, as soon as this map becomes is loaded.
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
+local door_manager = require("scripts/maps/door_manager")
+local treasure_manager = require("scripts/maps/treasure_manager")
+local switch_manager = require("scripts/maps/switch_manager")
+local enemy_manager = require("scripts/maps/enemy_manager")
+local separator_manager = require("scripts/maps/separator_manager")
+local owl_manager = require("scripts/maps/owl_manager")
+require("scripts/multi_events")
+
+-- Map events
 function map:on_started()
 
-  -- You can initialize the movement and sprites of various
-  -- map entities here.
+  -- Chests
+  treasure_manager:appear_chest_if_savegame_exist(map, "chest_boss_key",  "dungeon_7_boss_key")
+  treasure_manager:appear_chest_if_savegame_exist(map, "chest_drug",  "dungeon_7_drug")
+
+  -- Doors
+  map:set_doors_open("door_group_1_", true)
+
+  -- Ennemies
+  enemy_manager:create_teletransporter_if_small_boss_dead(map, false)
 end
 
--- Event called after the opening transition effect of the map,
--- that is, when the player takes control of the hero.
-function map:on_opening_transition_finished()
+function map:on_obtaining_treasure(item, variant, savegame_variable)
 
+  if savegame_variable == "dungeon_7_big_treasure" then
+    treasure_manager:get_instrument(map)
+  end
 end
+
+-- Doors events
+door_manager:open_if_small_boss_dead(map)
+door_manager:open_if_boss_dead(map)
+
+-- Sensors events
+sensor_1:register_event("on_activated", function()
+
+  if game:get_value("dungeon_7_small_boss") == false then
+    map:close_doors("door_group_1_")
+    enemy_manager:launch_small_boss_if_not_dead(map)
+  end
+end)
+
+-- Treasures events
+-- TODO appear "chest_boss_key" when blocks are correctly placed
+-- TODO appear "chest_drug" when horse heads are correctly thrown
