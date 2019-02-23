@@ -871,8 +871,8 @@ destination{
 
 custom_entity{
   layer = 0,
-  x = 504,
-  y = 181,
+  x = 408,
+  y = 85,
   properties = {
     {
       key = "distance",
@@ -888,5 +888,22 @@ custom_entity{
   direction = 2,
   sprite = "entities/moving_platform_dg_2",
   model = "insect",
+}
+
+custom_entity{
+  layer = 0,
+  x = 352,
+  y = 141,
+  properties = {
+    {
+      key = "amplitude_x",
+      value = "40",
+    },
+  },
+  width = 32,
+  height = 16,
+  direction = 0,
+  sprite = "entities/moving_platform_dg_2",
+  model = "moving_platform",
 }
 
