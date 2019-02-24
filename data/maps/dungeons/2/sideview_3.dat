@@ -855,6 +855,10 @@ custom_entity{
       key = "distance",
       value = "48",
     },
+    {
+      key = "is_semitransparent",
+      value = "true",
+    },
   },
   width = 32,
   height = 16,
