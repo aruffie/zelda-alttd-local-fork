@@ -410,33 +410,6 @@ tile{
 tile{
   layer = 0,
   x = 160,
-  y = 120,
-  width = 8,
-  height = 16,
-  pattern = "83",
-}
-
-tile{
-  layer = 0,
-  x = 184,
-  y = 120,
-  width = 8,
-  height = 16,
-  pattern = "85",
-}
-
-tile{
-  layer = 0,
-  x = 168,
-  y = 120,
-  width = 16,
-  height = 16,
-  pattern = "84",
-}
-
-tile{
-  layer = 0,
-  x = 160,
   y = 184,
   width = 32,
   height = 16,
@@ -871,33 +844,20 @@ destination{
 
 custom_entity{
   layer = 0,
-  x = 408,
-  y = 85,
+  x = 440,
+  y = 181,
   properties = {
+    {
+      key = "direction",
+      value = "0",
+    },
     {
       key = "distance",
-      value = "80",
+      value = "48",
     },
     {
-      key = "orientation",
-      value = "x",
-    },
-  },
-  width = 32,
-  height = 16,
-  direction = 2,
-  sprite = "entities/moving_platform_dg_2",
-  model = "insect",
-}
-
-custom_entity{
-  layer = 0,
-  x = 352,
-  y = 141,
-  properties = {
-    {
-      key = "amplitude_x",
-      value = "40",
+      key = "is_semisolid",
+      value = "true",
     },
   },
   width = 32,
@@ -905,5 +865,43 @@ custom_entity{
   direction = 0,
   sprite = "entities/moving_platform_dg_2",
   model = "moving_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 168,
+  y = 133,
+  properties = {
+    {
+      key = "direction",
+      value = "6",
+    },
+    {
+      key = "distance",
+      value = "48",
+    },
+  },
+  width = 32,
+  height = 16,
+  direction = 0,
+  sprite = "entities/moving_platform_dg_2",
+  model = "moving_platform",
+}
+
+custom_entity{
+  layer = 0,
+  x = 520,
+  y = 109,
+  properties = {
+    {
+      key = "activation_weight",
+      value = "0",
+    },
+  },
+  width = 32,
+  height = 16,
+  direction = 0,
+  sprite = "entities/moving_platform_dg_2",
+  model = "collapsing_platform",
 }
 
