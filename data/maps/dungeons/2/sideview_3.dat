@@ -888,3 +888,20 @@ custom_entity{
   model = "moving_platform",
 }
 
+custom_entity{
+  layer = 0,
+  x = 520,
+  y = 109,
+  properties = {
+    {
+      key = "activation_weight",
+      value = "0",
+    },
+  },
+  width = 32,
+  height = 16,
+  direction = 0,
+  sprite = "entities/moving_platform_dg_2",
+  model = "collapsing_platform",
+}
+
