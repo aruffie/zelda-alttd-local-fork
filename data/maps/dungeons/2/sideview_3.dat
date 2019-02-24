@@ -856,7 +856,7 @@ custom_entity{
       value = "48",
     },
     {
-      key = "is_semitransparent",
+      key = "is_semisolid",
       value = "true",
     },
   },

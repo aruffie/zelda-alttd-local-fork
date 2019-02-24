@@ -9,7 +9,7 @@ local old_x, old_y
 local direction, distance
 local ax, ay
 local angle
-local is_semitransparent
+local is_semi_solid
 -- Include scripts
 --require("scripts/multi_events")
 
@@ -26,9 +26,9 @@ entity:register_event("on_created", function()
   if distance == nil then
     distance= 0
   end
-  is_semitransparent = entity:get_property("is_semitransparent")
-  if is_semitransparent == nil then
-    is_semitransparent = false
+  is_semisolid = entity:get_property("is_semisolid")
+  if is_semisolid == nil then
+    is_semisolid = false
   end
   start_time=sol.main.get_elapsed_time()
   angle=(direction)/4*math.pi
@@ -60,10 +60,10 @@ function entity:on_update()
   --print ("HERO XY", hx, hy)
   --print("HERO WH", hw, hh)
 
-  if is_semitransparent then
+  if is_semisolid then
     if hy+hh<y+1 then
       entity:set_traversable_by("hero", false)
-      print("YOU SHALL NOT PASS !")
+      --print("YOU SHALL NOT PASS !")
       if hx<=x+w and hx+hw>=x and hy+hh==y then
       --print "TOUCH DOWN"
       move_hero_with_me()
@@ -72,7 +72,7 @@ function entity:on_update()
       end
     else
       entity:set_traversable_by("hero", true)
-      print("THIS PLATFORM DOESN'T EXIST")
+      --print("THIS PLATFORM DOESN'T EXIST")
     end
   else
     if hx<=x+w and hx+hw>=x and hy<=y+h and hy+hh>=y-1 then
