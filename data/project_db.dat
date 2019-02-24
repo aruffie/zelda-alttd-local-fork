@@ -1225,7 +1225,6 @@ entity{ id = "bird", description = "Bird" }
 entity{ id = "bowwow", description = "Bowwow" }
 entity{ id = "bubble", description = "Bubble" }
 entity{ id = "butterfly", description = "Butterfly" }
-entity{ id = "collapsing_platform", description = "Collapsing platform" }
 entity{ id = "color_platform", description = "Color platform" }
 entity{ id = "conveyor_belt", description = "Conveyor belt" }
 entity{ id = "eye_switch", description = "Eye switch" }
@@ -1240,11 +1239,12 @@ entity{ id = "hookable", description = "Hookable" }
 entity{ id = "insect", description = "Insect" }
 entity{ id = "light", description = "Light" }
 entity{ id = "mouse", description = "Mouse" }
-entity{ id = "moving_platform", description = "Movin platform" }
 entity{ id = "mr_write_and_christine", description = "Mr Write and Christine" }
 entity{ id = "non_diggable", description = "Non diggable" }
 entity{ id = "obstacle", description = "Obstacle" }
 entity{ id = "pickable_fly", description = "Pickable fly" }
+entity{ id = "platform_collapsing", description = "Collapsing platform" }
+entity{ id = "platform_moving", description = "Movin platform" }
 entity{ id = "powder", description = "Powder" }
 entity{ id = "pull_handle", description = "Pull handle" }
 entity{ id = "seagull", description = "Seagull" }

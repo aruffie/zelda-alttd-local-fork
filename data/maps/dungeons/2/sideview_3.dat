@@ -864,7 +864,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/moving_platform_dg_2",
-  model = "moving_platform",
+  model = "platform_moving",
 }
 
 custom_entity{
@@ -885,7 +885,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/moving_platform_dg_2",
-  model = "moving_platform",
+  model = "platform_moving",
 }
 
 custom_entity{
@@ -902,6 +902,6 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/moving_platform_dg_2",
-  model = "collapsing_platform",
+  model = "platform_collapsing",
 }
 
