@@ -66,4 +66,7 @@ function entity:on_update()
   m:set_speed(speed)
   move_hero_with_me()
   old_x, old_y = entity:get_bounding_box()
+  local chain = entity:get_map():get_entity(group.."_chain_"..id)
+  local cx, cy, cw=chain:get_bounding_box()
+  chain:set_size(cw, math.max(8, math.abs(cy-old_y)))
 end

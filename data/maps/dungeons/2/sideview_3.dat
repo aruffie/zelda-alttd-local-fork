@@ -922,6 +922,30 @@ destructible{
 }
 
 custom_entity{
+  name = "twin_platforms_A_chain_1",
+  layer = 0,
+  x = 536,
+  y = 125,
+  width = 16,
+  height = 32,
+  direction = 0,
+  sprite = "entities/vacuum_cleaner_ground",
+  tiled = true,
+}
+
+custom_entity{
+  name = "twin_platforms_A_chain_2",
+  layer = 0,
+  x = 504,
+  y = 125,
+  width = 16,
+  height = 32,
+  direction = 0,
+  sprite = "entities/vacuum_cleaner_ground",
+  tiled = true,
+}
+
+custom_entity{
   name = "twin_platforms_A_1",
   layer = 0,
   x = 536,
