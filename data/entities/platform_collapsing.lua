@@ -6,9 +6,9 @@ local sprite
 local movement
 local new_x, new_y
 local old_x, old_y
-local min_speed, max_speed = 0, 91
+local min_speed, max_speed = 0, 92
 
-local activation_weight
+local needs_carrying
 local w, h
 -- Include scripts
 --require("scripts/multi_events")
@@ -21,11 +21,10 @@ entity:register_event("on_created", function()
   old_x, old_y=entity:get_bounding_box()
 
   entity:set_traversable_by(false)
-  activation_weight = tonumber(entity:get_property("activation_weight"))
-  if activation_weight == nil then
-    activation_weight = 0
+  needs_carrying = entity:get_property("needs_carrying") --Set whether the hero needs to be carrying a to make the entity move when stepping on it
+  if needs_carrying == nil then
+    needs_carrying = false
   end
-
   movement = sol.movement.create("straight")
   movement:set_speed(min_speed)
   movement:set_angle(3*math.pi/2)
@@ -53,10 +52,12 @@ function entity:on_update()
   local x,y=entity:get_bounding_box()
   local hx, hy, hw, hh=hero:get_bounding_box()
   if hx+hw<=x+w and hx>=x and hy<=y+h-1 and hy+hh>=y-1 then
-    if activation_weight == 0 or (activation_weight==1 and hero:get_state() == "carrying") then
+    if (needs_carrying=="false") or (needs_carrying=="true" and hero:get_state() == "carrying") then
       speed=max_speed
     end
-    anim="moving_pot"
+    if needs_carrying=="true" then
+      anim="moving_pot"
+    end
   end
   sprite:set_animation(anim)
   movement:set_speed(speed)
