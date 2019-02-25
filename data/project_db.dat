@@ -1243,6 +1243,7 @@ entity{ id = "mr_write_and_christine", description = "Mr Write and Christine" }
 entity{ id = "non_diggable", description = "Non diggable" }
 entity{ id = "obstacle", description = "Obstacle" }
 entity{ id = "pickable_fly", description = "Pickable fly" }
+entity{ id = "platform_balance", description = "Twin linked platforms" }
 entity{ id = "platform_collapsing", description = "Collapsing platform" }
 entity{ id = "platform_moving", description = "Movin platform" }
 entity{ id = "powder", description = "Powder" }

@@ -322,7 +322,7 @@ tile{
   x = 544,
   y = 8,
   width = 16,
-  height = 136,
+  height = 144,
   pattern = "79",
 }
 
@@ -776,6 +776,15 @@ tile{
   pattern = "7",
 }
 
+tile{
+  layer = 0,
+  x = 480,
+  y = 96,
+  width = 32,
+  height = 16,
+  pattern = "58",
+}
+
 separator{
   layer = 0,
   x = 312,
@@ -800,7 +809,7 @@ dynamic_tile{
   x = 544,
   y = 0,
   width = 16,
-  height = 144,
+  height = 152,
   pattern = "40",
 }
 
@@ -894,8 +903,8 @@ custom_entity{
   y = 109,
   properties = {
     {
-      key = "activation_weight",
-      value = "0",
+      key = "needs_carrying",
+      value = "true",
     },
   },
   width = 32,
@@ -903,5 +912,36 @@ custom_entity{
   direction = 0,
   sprite = "entities/moving_platform_dg_2",
   model = "platform_collapsing",
+}
+
+destructible{
+  layer = 0,
+  x = 488,
+  y = 93,
+  sprite = "entities/destructibles/pot_sideview",
+}
+
+custom_entity{
+  name = "twin_platforms_A_1",
+  layer = 0,
+  x = 536,
+  y = 149,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/blocks/stone_brown",
+  model = "platform_balance",
+}
+
+custom_entity{
+  name = "twin_platforms_A_2",
+  layer = 0,
+  x = 504,
+  y = 149,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/blocks/stone_brown",
+  model = "platform_balance",
 }
 
