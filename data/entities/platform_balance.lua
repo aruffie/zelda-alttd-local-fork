@@ -1,18 +1,22 @@
 -- Variables
 local entity = ...
 
-local easings=require "scripts/automation/easing"
-
 local game = entity:get_game()
 local hero = game:get_hero()
-entity.is_reverse=false
-local m
-local new_x, new_y
-local old_x, old_y
-local min_speed, max_speed = 0, 92
-local speed
-local id, group --will be used to activate it's twin entity
-local w, h
+local max_dy=1
+local accel = 0.1
+local accel_duration = 1
+entity.direction = 0
+local old_x=0
+local old_y=0
+local _x, _y
+local id=""
+local speed=0
+local group="" --will be used to activate it's twin entity
+local w=16
+local h=16
+local twin=nil
+
 -- Include scripts
 --require("scripts/multi_events")
 
@@ -21,16 +25,12 @@ entity:register_event("on_created", function()
   local name=entity:get_name()
   id = tonumber(name:sub(-1))
   group = name:sub(1, -3)
-  sprite = entity:get_sprite()
   w, h = entity:get_size()
   old_x, old_y=entity:get_bounding_box()
   entity:set_traversable_by(false)
-  speed = min_speed
-  m = sol.movement.create("straight")
-  m:set_speed(speed)
-  m:set_angle(3*math.pi/2)
-  m:set_max_distance(0)
-  m:start(entity)
+  entity.is_on_twin=false
+  _x, _y = entity:get_position()
+  twin = entity:get_map():get_entity(group.."_"..(3-id))
 end)
 
 local function move_hero_with_me()
@@ -42,31 +42,44 @@ local function move_hero_with_me()
     end
 end
 
+local function compute_new_xy()
+  --print("Entity "..entity:get_name()..": am i  stuck ?"..(entity:test_obstacles(0, 1) and "Yes" or "No"))
+  if entity:test_obstacles(0, speed)==false and twin:test_obstacles(0, -speed)==false then
+    --Only move if any of the platforms can move
+    _y=_y+speed
+    entity:set_position(_x, _y)
+  else
+    speed = 0
+  end
+end
+local function is_on_platform(e) 
+  local x,y=e:get_bounding_box()
+  local hx, hy, hw, hh=hero:get_bounding_box()
+  return hx<x+w and hx+hw>x and hy<=y+h-1 and hy+hh>=y-1
+
+end
+
 function entity:on_update()
-  local state = hero:get_state()
   local x,y=entity:get_bounding_box()
   local hx, hy, hw, hh=hero:get_bounding_box()
-  if hx<x+w and hx+hw>x and hy<=y+h-1 and hy+hh>=y-1 then
-    entity:get_map():get_entity(group.."_"..(3-id)).is_reversed=true
-    is_on_platform = true
+  if is_on_platform(entity) then
+    --print("we are on "..entity:get_name())
+
+    speed = math.min(speed+0.01*max_dy, max_dy)
+  elseif is_on_platform(twin) then
+    speed = math.max(speed-0.01*max_dy, -max_dy)
   else
-    is_on_platform = false
-    entity:get_map():get_entity(group.."_"..(3-id)).is_reversed=false
+    if speed >0 then
+      speed = math.max(speed-0.01*max_dy, 0)
+    else
+      speed = math.min(speed+0.01*max_dy, 0)
+    end
   end
-  if entity.is_reversed then
-    m:set_angle(math.pi/2)
-  else
-    m:set_angle(3*math.pi/2)
-  end
-  if entity.is_reversed or is_on_platform then
-    speed = math.min(speed + 1, max_speed)
-  else
-    speed = math.max(speed - 1, min_speed)
-  end
-  m:set_speed(speed)
+
+  compute_new_xy()
   move_hero_with_me()
   old_x, old_y = entity:get_bounding_box()
   local chain = entity:get_map():get_entity(group.."_chain_"..id)
   local cx, cy, cw=chain:get_bounding_box()
-  chain:set_size(cw, math.max(8, math.abs(cy-old_y)))
+  chain:set_size(cw, math.max(8, old_y-cy))
 end
