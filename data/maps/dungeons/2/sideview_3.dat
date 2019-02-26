@@ -971,3 +971,11 @@ custom_entity{
   model = "platform_collapsing",
 }
 
+enemy{
+  layer = 0,
+  x = 152,
+  y = 69,
+  direction = 0,
+  breed = "mini_thwomp",
+}
+
