@@ -6,7 +6,7 @@ local sprite
 local movement
 local new_x, new_y
 local old_x, old_y
-local min_speed, max_speed = 0, 92
+local min_speed, max_speed = 0, 22
 
 local needs_carrying
 local w, h
@@ -60,7 +60,9 @@ function entity:on_update()
     end
   end
   sprite:set_animation(anim)
-  movement:set_speed(speed)
+  if speed ~= movement:get_speed() then
+    movement:set_speed(speed)
+  end
   move_hero_with_me()
   old_x, old_y = entity:get_bounding_box()
 end

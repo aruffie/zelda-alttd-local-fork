@@ -498,6 +498,8 @@ sprite{ id = "entities/misc/teletransporter", description = "Teletransporter" }
 sprite{ id = "entities/misc/torch", description = "Torch" }
 sprite{ id = "entities/misc/vacuum_cleaner", description = "Vacuum cleaner" }
 sprite{ id = "entities/moving_platform_dg_2", description = "Moving platform dg 2" }
+sprite{ id = "entities/moving_platform_dg_5", description = "Moving platform (dungeon 5)" }
+sprite{ id = "entities/moving_platform_dg_5_chain", description = "Moving platform chain (dungeon 5)" }
 sprite{ id = "entities/orb_monster_orb_blue", description = "Orb monster orb blue" }
 sprite{ id = "entities/orb_monster_orb_green", description = "Orb monster orb green" }
 sprite{ id = "entities/orb_monster_orb_red", description = "Orb monster orb red" }
@@ -1183,6 +1185,7 @@ enemy{ id = "leever", description = "Leever" }
 enemy{ id = "like_like", description = "Like Like" }
 enemy{ id = "mad_bomber", description = "Mad bomber" }
 enemy{ id = "maskass", description = "Maskass" }
+enemy{ id = "mini_thwomp", description = "Thwomp (small)" }
 enemy{ id = "moblin", description = "Moblin" }
 enemy{ id = "moblin_dog_spear", description = "Moblin dog spear" }
 enemy{ id = "moblin_dog_sword", description = "Moblin dog sword" }
@@ -1244,6 +1247,7 @@ entity{ id = "non_diggable", description = "Non diggable" }
 entity{ id = "obstacle", description = "Obstacle" }
 entity{ id = "pickable_fly", description = "Pickable fly" }
 entity{ id = "platform_balance", description = "Twin linked platforms" }
+entity{ id = "platform_chain", description = "Chain for twin platforms" }
 entity{ id = "platform_collapsing", description = "Collapsing platform" }
 entity{ id = "platform_moving", description = "Movin platform" }
 entity{ id = "powder", description = "Powder" }
