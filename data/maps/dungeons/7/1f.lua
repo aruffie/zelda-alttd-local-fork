@@ -7,11 +7,15 @@
 -- See the Solarus Lua API documentation:
 -- http://www.solarus-games.org/doc/latest
 
+-----------------------
 -- Variables
+-----------------------
 local map = ...
 local game = map:get_game()
 
+-----------------------
 -- Include scripts
+-----------------------
 local audio_manager = require("scripts/audio_manager")
 local door_manager = require("scripts/maps/door_manager")
 local treasure_manager = require("scripts/maps/treasure_manager")
@@ -21,8 +25,23 @@ local separator_manager = require("scripts/maps/separator_manager")
 local owl_manager = require("scripts/maps/owl_manager")
 require("scripts/multi_events")
 
+-----------------------
 -- Map events
+-----------------------
+local function map:on_enemies_dead(enemies_prefix, callback)
+
+  for enemy in self:get_entities(enemy_prefix) do
+    enemy:register_event("on_dead", function 
+    if not self:has_entities(enemy_prefix) then
+      callback()
+    end)
+  end
+end
+
 function map:on_started()
+
+  -- Owl
+  owl_manager:init(map)
 
   -- Music
   game:play_dungeon_music()
@@ -38,18 +57,30 @@ function map:on_opening_transition_finished(destination)
 
   if destination == dungeon_7_1_B then
     game:start_dialog("maps.dungeons.7.welcome")
+    game:play_dungeon_music()
   end
 end
 
+-----------------------
 -- Doors events
+-----------------------
 door_manager:open_if_boss_dead(map)
 door_manager:open_if_small_boss_dead(map)
 
+-----------------------
 -- Enemies events
--- TODO Make ennemy "enemy_group_3_2" inactive when "enemy_group_2_" are dead
+-----------------------
+-- Make face lamp stop shooting when other ennemies are dead
+map:on_enemies_dead("enemy_group_2_", function
+  enemy_group_3_2:set_shooting(false)
+end)
 
+-----------------------
 -- Treasures events
+-----------------------
 treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_2_", "pickable_small_key_1")
 
+-----------------------
 -- Separators
+-----------------------
 separator_manager:init(map)
