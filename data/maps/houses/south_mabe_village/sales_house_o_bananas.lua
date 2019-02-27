@@ -96,7 +96,7 @@ function map:launch_cinematic_1()
     })
     food:get_sprite():set_animation("magnifying_lens")
     food:get_sprite():set_direction(2)
-    audio_manager:play_sound("jump")
+    audio_manager:play_sound("hero/jump")
     alligator:get_sprite():set_animation("begin_eating")
     -- The hero throws the food
     local m2 = sol.movement.create("jump")
