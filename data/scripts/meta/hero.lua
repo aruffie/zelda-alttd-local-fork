@@ -142,7 +142,7 @@ hero_meta:register_event("on_position_changed", function(hero)
     end
   else
     local map_width, map_height = map:get_size()
-    local room_width, room_height = 320, 256  -- TODO don't hardcode these numbers
+    local room_width, room_height = 320, 240  -- TODO don't hardcode these numbers
     local num_columns = math.floor(map_width / room_width)
     local column = math.floor(x / room_width)
     local row = math.floor(y / room_height)

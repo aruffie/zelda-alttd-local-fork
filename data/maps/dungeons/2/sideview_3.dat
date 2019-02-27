@@ -322,7 +322,7 @@ tile{
   x = 544,
   y = 8,
   width = 16,
-  height = 136,
+  height = 160,
   pattern = "79",
 }
 
@@ -405,33 +405,6 @@ tile{
   width = 16,
   height = 16,
   pattern = "59",
-}
-
-tile{
-  layer = 0,
-  x = 160,
-  y = 120,
-  width = 8,
-  height = 16,
-  pattern = "83",
-}
-
-tile{
-  layer = 0,
-  x = 184,
-  y = 120,
-  width = 8,
-  height = 16,
-  pattern = "85",
-}
-
-tile{
-  layer = 0,
-  x = 168,
-  y = 120,
-  width = 16,
-  height = 16,
-  pattern = "84",
 }
 
 tile{
@@ -796,11 +769,20 @@ tile{
 
 tile{
   layer = 0,
-  x = 496,
-  y = 80,
+  x = 432,
+  y = 120,
   width = 16,
   height = 16,
   pattern = "7",
+}
+
+tile{
+  layer = 0,
+  x = 416,
+  y = 136,
+  width = 32,
+  height = 16,
+  pattern = "58",
 }
 
 separator{
@@ -827,7 +809,7 @@ dynamic_tile{
   x = 544,
   y = 0,
   width = 16,
-  height = 144,
+  height = 168,
   pattern = "40",
 }
 
@@ -871,22 +853,129 @@ destination{
 
 custom_entity{
   layer = 0,
-  x = 504,
+  x = 440,
   y = 181,
   properties = {
     {
-      key = "distance",
-      value = "80",
+      key = "direction",
+      value = "0",
     },
     {
-      key = "orientation",
-      value = "x",
+      key = "distance",
+      value = "48",
+    },
+    {
+      key = "is_semisolid",
+      value = "true",
     },
   },
   width = 32,
   height = 16,
-  direction = 2,
+  direction = 0,
   sprite = "entities/moving_platform_dg_2",
-  model = "insect",
+  model = "platform_moving",
+}
+
+custom_entity{
+  layer = 0,
+  x = 168,
+  y = 133,
+  properties = {
+    {
+      key = "direction",
+      value = "6",
+    },
+    {
+      key = "distance",
+      value = "48",
+    },
+  },
+  width = 32,
+  height = 16,
+  direction = 0,
+  sprite = "entities/moving_platform_dg_2",
+  model = "platform_moving",
+}
+
+destructible{
+  layer = 0,
+  x = 424,
+  y = 133,
+  sprite = "entities/destructibles/pot_sideview",
+}
+
+custom_entity{
+  name = "twin_platforms_A_chain_1",
+  layer = 0,
+  x = 504,
+  y = 69,
+  width = 16,
+  height = 88,
+  direction = 0,
+  sprite = "entities/moving_platform_dg_5_chain",
+  tiled = true,
+  model = "platform_chain",
+}
+
+custom_entity{
+  name = "twin_platforms_A_chain_2",
+  layer = 0,
+  x = 536,
+  y = 69,
+  width = 16,
+  height = 32,
+  direction = 0,
+  sprite = "entities/moving_platform_dg_5_chain",
+  tiled = true,
+  model = "platform_chain",
+}
+
+custom_entity{
+  name = "twin_platforms_A_1",
+  layer = 0,
+  x = 504,
+  y = 157,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/moving_platform_dg_5",
+  model = "platform_balance",
+}
+
+custom_entity{
+  name = "twin_platforms_A_2",
+  layer = 0,
+  x = 536,
+  y = 101,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/moving_platform_dg_5",
+  model = "platform_balance",
+}
+
+custom_entity{
+  layer = 0,
+  x = 456,
+  y = 149,
+  properties = {
+    {
+      key = "needs_carrying",
+      value = "true",
+    },
+  },
+  width = 32,
+  height = 16,
+  direction = 0,
+  sprite = "entities/moving_platform_dg_2",
+  model = "platform_collapsing",
+}
+
+enemy{
+  layer = 0,
+  x = 152,
+  y = 69,
+  direction = 0,
+  breed = "mini_thwomp",
 }
 

@@ -435,6 +435,7 @@ sprite{ id = "entities/effects/sparkle_small", description = "Sparkle small" }
 sprite{ id = "entities/explosion", description = "Explosion" }
 sprite{ id = "entities/explosion_boss", description = "Explosion boss" }
 sprite{ id = "entities/fire_mask", description = "Fire mask" }
+sprite{ id = "entities/fisher_boat", description = "Fisher boat" }
 sprite{ id = "entities/grounds/color_platform_green", description = "Color platform green" }
 sprite{ id = "entities/grounds/color_platform_orange", description = "Color platform orange" }
 sprite{ id = "entities/grounds/color_platform_red", description = "Color platform red" }
@@ -497,6 +498,8 @@ sprite{ id = "entities/misc/teletransporter", description = "Teletransporter" }
 sprite{ id = "entities/misc/torch", description = "Torch" }
 sprite{ id = "entities/misc/vacuum_cleaner", description = "Vacuum cleaner" }
 sprite{ id = "entities/moving_platform_dg_2", description = "Moving platform dg 2" }
+sprite{ id = "entities/moving_platform_dg_5", description = "Moving platform (dungeon 5)" }
+sprite{ id = "entities/moving_platform_dg_5_chain", description = "Moving platform chain (dungeon 5)" }
 sprite{ id = "entities/orb_monster_orb_blue", description = "Orb monster orb blue" }
 sprite{ id = "entities/orb_monster_orb_green", description = "Orb monster orb green" }
 sprite{ id = "entities/orb_monster_orb_red", description = "Orb monster orb red" }
@@ -703,7 +706,7 @@ music{ id = "gb/19_level_1_tail_cave", description = "19 - Level 1 - Tail cave" 
 music{ id = "gb/20_sidescrolling", description = "20 - Sidescrolling" }
 music{ id = "gb/21_mini_boss_battle", description = "21 - Mini boss battle" }
 music{ id = "gb/22_boss_battle", description = "22 - Boss battle" }
-music{ id = "gb/23_boss_defeated", description = "23 - boss defeated" }
+music{ id = "gb/23_boss_defeated", description = "23 - Boss defeated" }
 music{ id = "gb/24_instrument_of_the_sirens", description = "24 - Instrument of the sirens" }
 music{ id = "gb/25_the_full_moon_cello", description = "25 - The full moon cello" }
 music{ id = "gb/26_bowwow_dognapped", description = "26 - Bowow dognapped" }
@@ -746,6 +749,8 @@ music{ id = "gb/71_color_dungeon", description = "71 - Color dungeon" }
 music{ id = "gb/72_great_fairy_fountain", description = "72 - Great fairy fountain" }
 music{ id = "gb/74_wind_fish_egg", description = "74 - Wind fish egg" }
 music{ id = "gb/82_game_over", description = "82 - Game over" }
+music{ id = "snes/02_title", description = "02 - Title" }
+music{ id = "snes/02_title_no_intro", description = "02 - Title no intro" }
 music{ id = "snes/06_marin_house", description = "06 - Marin's House" }
 music{ id = "snes/07_koholint_island", description = "07 - Koholint Island.ogg" }
 music{ id = "snes/08_the_owl", description = "08 - The Owl" }
@@ -760,11 +765,18 @@ music{ id = "snes/15_trendy_game", description = "15 - Trendy Game" }
 music{ id = "snes/16_mysterious_forest", description = "16 - Mysterious Forest" }
 music{ id = "snes/18_cave", description = "18 - Cave" }
 music{ id = "snes/19_level_1_tail_cave", description = "19 - Level 1 - Tail cave" }
+music{ id = "snes/20_sidescrolling", description = "20 - Sidescrolling" }
 music{ id = "snes/21_mini_boss_battle", description = "21 - Mini boss battle" }
 music{ id = "snes/22_boss_battle", description = "22 - Boss battle" }
+music{ id = "snes/23_boss_defeated", description = "23 - Boss defeated" }
+music{ id = "snes/24_instrument_of_the_sirens", description = "24 - Instrument of the sirens" }
+music{ id = "snes/25_the_full_moon_cello", description = "25 - The full moon cello" }
+music{ id = "snes/26_bowwow_dognapped", description = "26 - Bowow dognapped" }
 music{ id = "snes/27_mr_write_house", description = "27 - Mr Write" }
 music{ id = "snes/41_christine_house", description = "41 - Christine's House" }
 music{ id = "snes/46_tal_tal_mountain_range", description = "46 - Tal tal Mountain Range" }
+music{ id = "snes/51_house_by_the_bay", description = "51 - House by the bay" }
+music{ id = "snes/52_fishing_under_the_bridge", description = "52 - Fishing under the bridge" }
 
 sound{ id = "arrow_hit", description = "Empty sound" }
 sound{ id = "boomerang", description = "Empty sound" }
@@ -1174,6 +1186,7 @@ enemy{ id = "leever", description = "Leever" }
 enemy{ id = "like_like", description = "Like Like" }
 enemy{ id = "mad_bomber", description = "Mad bomber" }
 enemy{ id = "maskass", description = "Maskass" }
+enemy{ id = "mini_thwomp", description = "Thwomp (small)" }
 enemy{ id = "moblin", description = "Moblin" }
 enemy{ id = "moblin_dog_spear", description = "Moblin dog spear" }
 enemy{ id = "moblin_dog_sword", description = "Moblin dog sword" }
@@ -1231,12 +1244,15 @@ entity{ id = "insect", description = "Insect" }
 entity{ id = "iron_ball", description = "Iron ball" }
 entity{ id = "light", description = "Light" }
 entity{ id = "mouse", description = "Mouse" }
-entity{ id = "moving_platform", description = "Movin platform" }
 entity{ id = "mr_write_and_christine", description = "Mr Write and Christine" }
 entity{ id = "non_diggable", description = "Non diggable" }
 entity{ id = "obstacle", description = "Obstacle" }
 entity{ id = "pickable_fly", description = "Pickable fly" }
 entity{ id = "pillar", description = "Pillar" }
+entity{ id = "platform_balance", description = "Twin linked platforms" }
+entity{ id = "platform_chain", description = "Chain for twin platforms" }
+entity{ id = "platform_collapsing", description = "Collapsing platform" }
+entity{ id = "platform_moving", description = "Movin platform" }
 entity{ id = "powder", description = "Powder" }
 entity{ id = "pull_handle", description = "Pull handle" }
 entity{ id = "seagull", description = "Seagull" }
