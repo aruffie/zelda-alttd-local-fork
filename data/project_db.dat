@@ -76,7 +76,6 @@ map{ id = "dungeons/6/1f", description = "Dungeon 6 1F" }
 map{ id = "dungeons/7/1f", description = "Dungeon 7 1F" }
 map{ id = "dungeons/7/2f", description = "Dungeon 7 2F" }
 map{ id = "dungeons/7/3f", description = "Dungeon 7 3F" }
-map{ id = "dungeons/7/3f_origin", description = "Dungeon 7 3F before collapse" }
 map{ id = "dungeons/7/sideview", description = "Sideview" }
 map{ id = "dungeons/8/1f", description = "Dungeon 8 1F" }
 map{ id = "dungeons/9/1f", description = "Dungeon 9 1F" }
@@ -469,6 +468,7 @@ sprite{ id = "entities/insects/butterfly_green", description = "Butterfly 4" }
 sprite{ id = "entities/insects/butterfly_red", description = "Butterfly 3" }
 sprite{ id = "entities/insects/butterfly_yellow", description = "Butterfly 2" }
 sprite{ id = "entities/insects/mosquito", description = "Mosquito" }
+sprite{ id = "entities/iron_ball", description = "Iron ball" }
 sprite{ id = "entities/items", description = "Items" }
 sprite{ id = "entities/items/arrow_fly", description = "Arrow fly" }
 sprite{ id = "entities/items/bananas", description = "Bananas" }
@@ -511,6 +511,7 @@ sprite{ id = "entities/shadows/pickable_flying", description = "Pickable flying"
 sprite{ id = "entities/shadows/shadow", description = "Shadow" }
 sprite{ id = "entities/star", description = "Star" }
 sprite{ id = "entities/statues/pillar", description = "Pillar" }
+sprite{ id = "entities/statues/pillar_base", description = "Pillar base" }
 sprite{ id = "entities/statues/statue_darknut", description = "Statue darknut" }
 sprite{ id = "entities/statues/statue_koopa", description = "Statue koopa" }
 sprite{ id = "entities/statues/statue_pig", description = "Statue pig" }
@@ -1240,12 +1241,14 @@ entity{ id = "heavy_statue", description = "Heavy statue" }
 entity{ id = "hook_bridge", description = "hook bridge" }
 entity{ id = "hookable", description = "Hookable" }
 entity{ id = "insect", description = "Insect" }
+entity{ id = "iron_ball", description = "Iron ball" }
 entity{ id = "light", description = "Light" }
 entity{ id = "mouse", description = "Mouse" }
 entity{ id = "mr_write_and_christine", description = "Mr Write and Christine" }
 entity{ id = "non_diggable", description = "Non diggable" }
 entity{ id = "obstacle", description = "Obstacle" }
 entity{ id = "pickable_fly", description = "Pickable fly" }
+entity{ id = "pillar", description = "Pillar" }
 entity{ id = "platform_balance", description = "Twin linked platforms" }
 entity{ id = "platform_chain", description = "Chain for twin platforms" }
 entity{ id = "platform_collapsing", description = "Collapsing platform" }
@@ -1632,8 +1635,6 @@ file{ path = "maps/dungeons/7/2f.dat", author = "Benjamin Schweitzer", license =
 file{ path = "maps/dungeons/7/2f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/dungeons/7/3f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
 file{ path = "maps/dungeons/7/3f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/dungeons/7/3f_origin.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/7/3f_origin.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/dungeons/8", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
 file{ path = "maps/dungeons/8/1f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
 file{ path = "maps/dungeons/8/1f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
@@ -2204,6 +2205,7 @@ file{ path = "sounds/victory.ogg", author = "Franck Jousseaume", license = "CC B
 file{ path = "sounds/walk_on_grass.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/walk_on_water.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/wrong.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sprites/entities/iron_ball.dat", author = "Christopho", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/file_selection/file_selection_button.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/file_selection/file_selection_cursor.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/file_selection/file_selection_frame.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }

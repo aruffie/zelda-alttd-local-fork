@@ -591,7 +591,7 @@ tile{
   layer = 0,
   x = 688,
   y = 760,
-  width = 224,
+  width = 240,
   height = 160,
   pattern = "floor.7-1",
 }
@@ -9927,6 +9927,7 @@ block{
   layer = 0,
   x = 536,
   y = 429,
+  direction = 0,
   sprite = "entities/blocks/block",
   pushable = true,
   pullable = false,
@@ -9968,86 +9969,6 @@ crystal_block{
   width = 16,
   height = 16,
   subtype = 1,
-}
-
-custom_entity{
-  layer = 0,
-  x = 792,
-  y = 365,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/pillar_base",
-}
-
-custom_entity{
-  layer = 0,
-  x = 792,
-  y = 349,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/pillar",
-}
-
-custom_entity{
-  layer = 0,
-  x = 792,
-  y = 589,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/pillar_base",
-}
-
-custom_entity{
-  layer = 0,
-  x = 792,
-  y = 573,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/pillar",
-}
-
-custom_entity{
-  layer = 0,
-  x = 488,
-  y = 589,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/pillar_base",
-}
-
-custom_entity{
-  layer = 0,
-  x = 488,
-  y = 573,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/pillar",
-}
-
-custom_entity{
-  layer = 0,
-  x = 488,
-  y = 365,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/pillar_base",
-}
-
-custom_entity{
-  layer = 0,
-  x = 488,
-  y = 349,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/pillar",
 }
 
 crystal_block{
@@ -10247,23 +10168,25 @@ chest{
 }
 
 block{
+  name = "block_1_1",
   layer = 0,
   x = 1016,
   y = 357,
   sprite = "entities/blocks/block",
   pushable = false,
   pullable = false,
-  maximum_moves = 0,
+  max_moves = 0,
 }
 
 block{
+  name = "block_1_2",
   layer = 0,
   x = 1016,
   y = 373,
   sprite = "entities/blocks/block",
   pushable = false,
   pullable = false,
-  maximum_moves = 0,
+  max_moves = 0,
 }
 
 chest{
@@ -10356,7 +10279,7 @@ crystal_block{
 destination{
   name = "stairs_1_B",
   layer = 0,
-  x = 1176,
+  x = 1160,
   y = 565,
   direction = 0,
 }
@@ -10491,7 +10414,7 @@ destination{
   name = "stairs_4_B",
   layer = 0,
   x = 480,
-  y = 109,
+  y = 85,
   direction = 3,
 }
 
@@ -10518,7 +10441,7 @@ destination{
   name = "stairs_5_B",
   layer = 0,
   x = 240,
-  y = 541,
+  y = 517,
   direction = 3,
 }
 
@@ -10621,7 +10544,7 @@ destination{
   name = "stairs_8_B",
   layer = 0,
   x = 800,
-  y = 109,
+  y = 85,
   direction = 3,
 }
 
@@ -10881,7 +10804,7 @@ destination{
   name = "stairs_10_B",
   layer = 0,
   x = 872,
-  y = 781,
+  y = 757,
   direction = 3,
 }
 
@@ -11495,6 +11418,127 @@ teletransporter{
   destination = "_same",
 }
 
+stairs{
+  layer = 0,
+  x = 1112,
+  y = 336,
+  direction = 1,
+  subtype = 4,
+}
+
+stairs{
+  layer = 0,
+  x = 984,
+  y = 792,
+  direction = 1,
+  subtype = 4,
+}
+
+custom_entity{
+  name = "pillar_base_1",
+  layer = 0,
+  x = 792,
+  y = 365,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/pillar_base",
+  model = "pillar",
+}
+
+custom_entity{
+  name = "pillar_2",
+  layer = 0,
+  x = 792,
+  y = 333,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/pillar",
+}
+
+custom_entity{
+  name = "pillar_base_2",
+  layer = 0,
+  x = 488,
+  y = 365,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/pillar_base",
+  model = "pillar",
+}
+
+custom_entity{
+  name = "pillar_3",
+  layer = 0,
+  x = 488,
+  y = 333,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/pillar",
+}
+
+custom_entity{
+  name = "pillar_base_3",
+  layer = 0,
+  x = 488,
+  y = 589,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/pillar_base",
+  model = "pillar",
+}
+
+custom_entity{
+  name = "pillar_4",
+  layer = 0,
+  x = 488,
+  y = 557,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/pillar",
+}
+
+custom_entity{
+  name = "pillar_base_4",
+  layer = 0,
+  x = 792,
+  y = 589,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/pillar_base",
+  model = "pillar",
+}
+
+custom_entity{
+  name = "pillar_5",
+  layer = 0,
+  x = 792,
+  y = 557,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/pillar",
+}
+
+door{
+  name = "block_small_key_1",
+  layer = 0,
+  x = 984,
+  y = 816,
+  direction = 0,
+  sprite = "entities/blocks/block_small_key",
+  savegame_variable = "dungeon_7_block_small_key_1",
+  opening_method = "interaction_if_savegame_variable",
+  opening_condition = "dungeon_7_small_keys",
+  opening_condition_consumed = true,
+}
+
 tile{
   layer = 1,
   x = 432,
@@ -11928,13 +11972,15 @@ tile{
 }
 
 custom_entity{
+  name = "iron_ball",
   layer = 1,
-  x = 1112,
-  y = 293,
+  x = 1120,
+  y = 309,
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "enemies/stone_hinox_boulder",
+  sprite = "entities/iron_ball",
+  model = "iron_ball",
 }
 
 jumper{
@@ -11975,7 +12021,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/items/heart_fly",
-  model = "bird",
+  model = "pickable_fly",
 }
 
 jumper{
@@ -12013,9 +12059,149 @@ jumper{
   x = 1008,
   y = 568,
   width = 8,
-  height = 104,
+  height = 112,
   direction = 0,
   jump_length = 40,
+}
+
+wall{
+  layer = 1,
+  x = 904,
+  y = 680,
+  width = 8,
+  height = 24,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 1,
+  x = 1008,
+  y = 680,
+  width = 8,
+  height = 24,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 1,
+  x = 1008,
+  y = 736,
+  width = 8,
+  height = 24,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 1,
+  x = 904,
+  y = 736,
+  width = 8,
+  height = 24,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 1,
+  x = 912,
+  y = 552,
+  width = 16,
+  height = 8,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 1,
+  x = 1096,
+  y = 328,
+  width = 16,
+  height = 8,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 1,
+  x = 1128,
+  y = 328,
+  width = 16,
+  height = 8,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+jumper{
+  layer = 1,
+  x = 912,
+  y = 784,
+  width = 64,
+  height = 8,
+  direction = 6,
+  jump_length = 40,
+}
+
+wall{
+  layer = 1,
+  x = 1000,
+  y = 784,
+  width = 16,
+  height = 8,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 1,
+  x = 976,
+  y = 784,
+  width = 8,
+  height = 8,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 1,
+  x = 1008,
+  y = 560,
+  width = 8,
+  height = 8,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
 }
 
 tile{

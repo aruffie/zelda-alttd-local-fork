@@ -7041,7 +7041,7 @@ destination{
   name = "stairs_2_B",
   layer = 0,
   x = 1144,
-  y = 533,
+  y = 517,
   direction = 3,
 }
 
@@ -7079,7 +7079,7 @@ destination{
   name = "stairs_3_B",
   layer = 0,
   x = 480,
-  y = 109,
+  y = 85,
   direction = 3,
 }
 
@@ -7151,7 +7151,7 @@ destination{
   name = "stairs_6_B",
   layer = 0,
   x = 208,
-  y = 541,
+  y = 517,
   direction = 3,
 }
 
@@ -7196,7 +7196,7 @@ destination{
   name = "stairs_7_B",
   layer = 0,
   x = 800,
-  y = 109,
+  y = 85,
   direction = 3,
 }
 
@@ -8075,7 +8075,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/items/heart_fly",
-  model = "heart_fly",
+  model = "pickable_fly",
 }
 
 tile{

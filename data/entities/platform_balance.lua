@@ -33,15 +33,20 @@ entity:register_event("on_created", function()
   twin = entity:get_map():get_entity(group.."_"..(3-id))
 end)
 
+local function is_on_platform(e) 
+  local x,y=e:get_bounding_box()
+  local hx, hy, hw, hh=hero:get_bounding_box()
+  return hx<x+w and hx+hw>x and hy<=y+h-1 and hy+hh>=y-1
+end
+
 local function move_hero_with_me()
     local x,y=entity:get_bounding_box()
     local dx, dy = x-old_x, y-old_y
     local xx, yy = hero:get_position()
-    if not hero:test_obstacles(0, dy) then
+    if not hero:test_obstacles(0, dy) and is_on_platform(entity) then
       hero:set_position(xx+dx, yy+dy)
     end
 end
-
 local function compute_new_xy()
   --print("Entity "..entity:get_name()..": am i  stuck ?"..(entity:test_obstacles(0, 1) and "Yes" or "No"))
   if entity:test_obstacles(0, speed)==false and twin:test_obstacles(0, -speed)==false then
@@ -52,12 +57,7 @@ local function compute_new_xy()
     speed = 0
   end
 end
-local function is_on_platform(e) 
-  local x,y=e:get_bounding_box()
-  local hx, hy, hw, hh=hero:get_bounding_box()
-  return hx<x+w and hx+hw>x and hy<=y+h-1 and hy+hh>=y-1
 
-end
 
 function entity:on_update()
   local x,y=entity:get_bounding_box()
