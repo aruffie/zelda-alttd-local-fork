@@ -13,6 +13,24 @@ properties{
 
 tile{
   layer = 0,
+  x = 1784,
+  y = 216,
+  width = 8,
+  height = 48,
+  pattern = "barrier.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 1760,
+  y = 216,
+  width = 8,
+  height = 48,
+  pattern = "barrier.2-1",
+}
+
+tile{
+  layer = 0,
   x = 1808,
   y = 152,
   width = 64,
@@ -5566,24 +5584,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 1760,
-  y = 232,
-  width = 8,
-  height = 48,
-  pattern = "barrier.2-1",
-}
-
-tile{
-  layer = 0,
-  x = 1784,
-  y = 232,
-  width = 8,
-  height = 48,
-  pattern = "barrier.2-1",
-}
-
-tile{
-  layer = 0,
   x = 1624,
   y = 160,
   width = 48,
@@ -7943,7 +7943,7 @@ tile{
 tile{
   layer = 0,
   x = 936,
-  y = 664,
+  y = 624,
   width = 48,
   height = 16,
   pattern = "floor.3-1",
@@ -8761,6 +8761,18 @@ tile{
 
 wall{
   layer = 0,
+  x = 1768,
+  y = 200,
+  width = 16,
+  height = 80,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 0,
   x = 920,
   y = 624,
   width = 80,
@@ -8777,18 +8789,6 @@ wall{
   y = 88,
   width = 80,
   height = 16,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
-}
-
-wall{
-  layer = 0,
-  x = 1768,
-  y = 200,
-  width = 16,
-  height = 80,
   stops_npcs = true,
   stops_enemies = true,
   stops_blocks = true,
