@@ -3,6 +3,7 @@ local map = ...
 local game = map:get_game()
 
 -- Include scripts
+require("scripts/multi_events")
 local audio_manager = require("scripts/audio_manager")
 
 function map:on_started()
@@ -12,7 +13,6 @@ function map:on_started()
   
   -- Sideview
   map:set_sideview(true)
-
 end
 
 -- Initialize the music of the map
