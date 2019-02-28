@@ -2873,16 +2873,6 @@ tile{
   tileset = "addition/dungeon",
 }
 
-custom_entity{
-  layer = 0,
-  x = 424,
-  y = 285,
-  width = 144,
-  height = 112,
-  direction = 0,
-  sprite = "entities/moblin_carpet",
-}
-
 wall{
   layer = 0,
   x = 64,
@@ -2912,7 +2902,7 @@ block{
   layer = 0,
   x = 904,
   y = 125,
-  sprite = sprite = "entities/blocks/block",,
+  sprite = "entities/blocks/block",
   pushable = false,
   pullable = false,
   maximum_moves = 0,

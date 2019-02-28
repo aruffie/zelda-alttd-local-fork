@@ -98,7 +98,6 @@ function audio_manager:get_directory()
   local game = sol.main.game
   local mode = (game ~= nil) and game:get_value("mode") or "snes"
   local directory = (mode == "gb") and "gb" or "snes"
-  local directory = "gb" -- todo remove later
 
   return directory
 

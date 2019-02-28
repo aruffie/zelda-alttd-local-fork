@@ -16,6 +16,9 @@ local properties = {
   damage = 4,
   hurt_style = "monster",
   push_hero_on_sword = true,
+  crash_sound="items/bomb_drop",
+  faster_speed=200,
+  outer_detection_range=8,
 }
 
 behavior:create(enemy, properties)
