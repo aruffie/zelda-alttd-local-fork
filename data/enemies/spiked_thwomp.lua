@@ -17,6 +17,7 @@ local properties = {
   hurt_style = "monster",
   push_hero_on_sword = true,
   is_walkable = true,
+  crash_sound = "items/bomb_explode",
 }
 
 behavior:create(enemy, properties)

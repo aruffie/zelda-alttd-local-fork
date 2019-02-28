@@ -64,7 +64,9 @@ function behavior:create(enemy, properties)
   if properties.obstacle_behavior == nil then
     properties.obstacle_behavior = "normal"
   end
-
+  if properties.crash_sound == nil then
+    properties.crash_sound = "items/bomb_drop"
+  end
   if properties.is_walkable == nil then
     properties.is_walkable = false
   end
@@ -116,20 +118,23 @@ function behavior:create(enemy, properties)
 
 
   function enemy:on_obstacle_reached(movement)
-    if falling then
-      local sprite = self:get_sprite()
-      sprite:set_animation("normal")
-      self:go_home()
-      self:check_hero()
+    if falling and not sound_played then
+      audio_manager:play_sound(properties.crash_sound)
+      sound_played = true
+      sol.timer.stop_all(self)
+      sol.timer.start(enemy, 1000, function()
+        local sprite = self:get_sprite()
+        sprite:set_animation("normal")
+        enemy:go_home()
+      end)      
     end
   end
 
   function enemy:on_restarted()
     if falling then
-    self:fall()
+      self:fall()
     else
       self.go_home()
-      self:check_hero()
     end
   end
 
@@ -153,7 +158,7 @@ function behavior:create(enemy, properties)
   end
 
   function enemy:fall()
-    print("Crushing time!")
+    --print("Crushing time!")
     falling=true
     audio_manager:play_sound("hero/throw")
     enemy:get_sprite():set_animation("falling")    
@@ -165,7 +170,8 @@ function behavior:create(enemy, properties)
   end
 
   function enemy:go_home()
-    falling=false
+    falling = false
+    sound_played = false
     returning_home=true 
     enemy:get_sprite():set_animation("normal")
     local m = sol.movement.create("target")
@@ -174,6 +180,7 @@ function behavior:create(enemy, properties)
     m:set_ignore_obstacles(properties.ignore_obstacles)
     m:start(enemy, function()
       returning_home=false
+      enemy:check_hero()
     end)
   end
 end
