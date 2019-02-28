@@ -28,7 +28,7 @@ require("scripts/multi_events")
 -----------------------
 -- Map events
 -----------------------
-local function map:fill_empty_rooms()
+local function fill_empty_rooms()
 
   -- Get pillar states
   local are_pillars_broken = true
@@ -40,19 +40,21 @@ local function map:fill_empty_rooms()
   end
 
   -- Copy the correct region
-  local reference_entity = are_pillars_broken and "door_group_boss_1" or "big_chasm"
-  local entities_shift = {x = are_pillars_broken and -340 or 340, y = 720}
+  local reference_entity = (are_pillars_broken and "final" or "initial") .. "_floor_region"
+  local entities_shift = {x = are_pillars_broken and -320 or 320, y = 720}
 
-  for entity in self:get_entities_in_region(reference_entity) do
-    local entity_position = entity.get_position()
-    entity.set_position(entity_position.x - entities_shift.x, entity_position.y - entities_shift.y)
+  for entity in map:get_entities_in_region(map:get_entity(reference_entity)) do
+    if entity:get_type() ~= "separator" then
+      local entity_x, entity_y = entity:get_position()
+      entity:set_position(entity_x - entities_shift.x, entity_y - entities_shift.y)
+    end
   end
 end
 
 function map:on_started()
 
   -- Rooms
-  self:fill_empty_rooms()
+  fill_empty_rooms()
 
   -- Chests
   treasure_manager:appear_chest_if_savegame_exist(map, "chest_boss_key", "dungeon_7_boss_key")
@@ -88,7 +90,7 @@ end)
 -----------------------
 -- Treasures events
 -----------------------
-treasure_manager:appear_pickable_when_blocks_moved(map, "block_2_", "chest_boss_key")
+--treasure_manager:appear_pickable_when_blocks_moved(map, "block_2_", "chest_boss_key")
 -- TODO appear "chest_drug_1" when horse heads are correctly thrown
 
 -----------------------

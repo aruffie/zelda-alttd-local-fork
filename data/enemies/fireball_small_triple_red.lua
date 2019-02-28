@@ -1,8 +1,9 @@
 -- 3 fireballs shot by enemies like Zora and that go toward the hero.
 -- They can be hit with the sword, this changes their direction.
 local enemy = ...
-
 local sprites = {}
+
+local audio_manager = require("scripts/audio_manager")
 
 function enemy:on_created()
 
@@ -80,7 +81,7 @@ function enemy:on_custom_attack_received(attack, sprite)
     end
 
     go(angle)
-    audio_manager:play_sound("enemy_hurt")
+    audio_manager:play_sound("enemies/enemy_hit")
 
     -- The trailing fireballs are now on the hero: don't attack temporarily
     enemy:set_can_attack(false)

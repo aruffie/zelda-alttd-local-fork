@@ -39,8 +39,9 @@ function map:on_started()
   treasure_manager:appear_chest_if_savegame_exist(map, "chest_bomb_1", "dungeon_7_bomb_1")
 
   -- Doors
-  map:set_doors_open("door_group_1_", false)
   map:set_doors_open("door_group_2_", true)
+  door_manager:check_destroy_wall(map, "weak_wall_A")
+  door_manager:check_destroy_wall(map, "weak_wall_B")
 
   -- Pickables
   treasure_manager:disappear_pickable(map, "pickable_small_key_2")
@@ -51,36 +52,29 @@ end
 -----------------------
 -- Doors events
 -----------------------
-door_manager:open_when_flying_tiles_dead(map,  "enemy_group_10_",  "door_group_2_")
+wallturn:add_collision_test("touching", function(wall, hero)
+  door_group_1_1:set_open()
+end)
+
+sensor_1:register_event("on_activated", function()
+  map:close_doors("door_group_1_")
+  map:close_doors("door_group_2_")
+end)
+
+door_manager:open_when_flying_tiles_dead(map, "enemy_group_10_", "door_group_2_")
 
 weak_wall_A_1:register_event("on_opened", function()
-  weak_wall_closed_A_1:remove();
-  weak_wall_closed_A_2:remove();
-  audio_manager:play_sound("misc/secret1")
+  doors_manager:destroy_wall(map, "weak_wall_A")
 end)
 
 weak_wall_B_1:register_event("on_opened", function()
-  weak_wall_closed_B_1:remove();
-  weak_wall_closed_B_2:remove();
-  audio_manager:play_sound("misc/secret1")
+  doors_manager:destroy_wall(map, "weak_wall_B")
 end)
 
 -----------------------
 -- Treasures events
 -----------------------
 treasure_manager:appear_pickable_when_enemies_dead(map, "hinox_master", "pickable_small_key_2")
-
------------------------
--- Sensors events
------------------------
-sensor_1:register_event("on_activated", function()
-  map:open_doors("door_group_1_")
-end)
-
-sensor_2:register_event("on_activated", function()
-  map:close_doors("door_group_1_")
-  map:close_doors("door_group_2_")
-end)
 
 -----------------------
 -- Enemies events

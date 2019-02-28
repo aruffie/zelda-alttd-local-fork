@@ -4,8 +4,8 @@
 
 -- Custom entities that have the same name suffixed by "_chain" will follow the moves.
 local pull_handle = ...
-local game = entity:get_game()
-local map = entity:get_map()
+local game = pull_handle:get_game()
+local map = pull_handle:get_map()
 
 -- Include scripts
 require("scripts/multi_events")

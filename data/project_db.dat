@@ -510,8 +510,8 @@ sprite{ id = "entities/shadows/owl", description = "Owl" }
 sprite{ id = "entities/shadows/pickable_flying", description = "Pickable flying" }
 sprite{ id = "entities/shadows/shadow", description = "Shadow" }
 sprite{ id = "entities/star", description = "Star" }
-sprite{ id = "entities/statues/pillar", description = "Pillar" }
-sprite{ id = "entities/statues/pillar_base", description = "Pillar base" }
+sprite{ id = "entities/statues/pillar", description = "Pillar base" }
+sprite{ id = "entities/statues/pillar_top", description = "Pillar top" }
 sprite{ id = "entities/statues/statue_darknut", description = "Statue darknut" }
 sprite{ id = "entities/statues/statue_koopa", description = "Statue koopa" }
 sprite{ id = "entities/statues/statue_pig", description = "Statue pig" }
@@ -583,6 +583,10 @@ sprite{ id = "menus/dungeon_maps/map_5", description = "Map 5" }
 sprite{ id = "menus/dungeon_maps/map_5_compass", description = "map 5 compass" }
 sprite{ id = "menus/dungeon_maps/map_5_no_map", description = "Map 5 no map" }
 sprite{ id = "menus/dungeon_maps/map_5_no_map_compass", description = "Map 5 no map compass" }
+sprite{ id = "menus/dungeon_maps/map_7", description = "Map 7" }
+sprite{ id = "menus/dungeon_maps/map_7_compass", description = "Map 7 compass" }
+sprite{ id = "menus/dungeon_maps/map_7_no_map", description = "Map 7 no map" }
+sprite{ id = "menus/dungeon_maps/map_7_no_map_compass", description = "Map 7 no map compass" }
 sprite{ id = "menus/file_selection/file_selection_cursor", description = "File selection menu cursor" }
 sprite{ id = "menus/file_selection/file_selection_hero", description = "Link's sprite for file selection menu" }
 sprite{ id = "menus/game_over/game_over_fade", description = "Game-over fade" }
@@ -817,6 +821,7 @@ sound{ id = "gb/enemies/evil_eagle_flap", description = "Evil eagle flap" }
 sound{ id = "gb/enemies/evil_eagle_fly_away", description = "Evil eagle fly away" }
 sound{ id = "gb/enemies/evil_eagle_flyby", description = "Evil eagle flyby" }
 sound{ id = "gb/enemies/evil_eagle_skid", description = "Evil eagle skid" }
+sound{ id = "gb/enemies/face_lamp", description = "Empty sound" }
 sound{ id = "gb/enemies/floor_tiles", description = "Floor tiles" }
 sound{ id = "gb/enemies/genie_appear", description = "Genie appear" }
 sound{ id = "gb/enemies/genie_bottle_smash", description = "Genie bottle smash" }
@@ -863,6 +868,7 @@ sound{ id = "gb/enemies/turtle_rock_shed_full", description = "Turtle rock shed 
 sound{ id = "gb/enemies/turtlerock_blink2", description = "Turtlerock blink 2" }
 sound{ id = "gb/enemies/turtlerock_shed", description = "Turtlerock shed" }
 sound{ id = "gb/enemies/vacuum_mouth", description = "Vacuum mouth" }
+sound{ id = "gb/enemies/wizzrobe", description = "Empty sound" }
 sound{ id = "gb/hero/bounce", description = "Bounce" }
 sound{ id = "gb/hero/dizzy", description = "Dizzy" }
 sound{ id = "gb/hero/dying", description = "Dying" }
@@ -1000,6 +1006,7 @@ sound{ id = "snes/enemies/boss_hit", description = "Boss hit" }
 sound{ id = "snes/enemies/enemy_die", description = "Enemy die" }
 sound{ id = "snes/enemies/enemy_hit", description = "Enemy hit" }
 sound{ id = "snes/enemies/laser", description = "Laser" }
+sound{ id = "snes/enemies/wizzrobe", description = "snes/enemies/wizzrobe" }
 sound{ id = "snes/hero/bound", description = "Bound" }
 sound{ id = "snes/hero/dying", description = "Dying" }
 sound{ id = "snes/hero/fall", description = "Fall" }
