@@ -70,7 +70,9 @@ function behavior:create(enemy, properties)
   if properties.is_walkable == nil then
     properties.is_walkable = false
   end
-
+  if properties.outer_detection_range == nil then
+    properties.outer_detection_range=0
+  end
   properties.movement_create = function()
       local m = sol.movement.create("straight")
       return m
@@ -116,6 +118,15 @@ function behavior:create(enemy, properties)
     end
   end
 
+  function enemy:look_at_hero()
+    local hero = self:get_map():get_entity("hero")
+    local angle = self:get_angle(hero)
+    local sprite = self:get_sprite()
+    local n = sprite:get_num_directions()
+    local dir_arc = 2*math.pi/n
+    local index = math.floor((angle+dir_arc/2)*n/(2*math.pi))%n
+    sprite:set_direction(index)
+  end
 
   function enemy:on_obstacle_reached(movement)
     if falling and not sound_played then
@@ -138,18 +149,18 @@ function behavior:create(enemy, properties)
     end
   end
 
+  function enemy:on_update()
+    self:look_at_hero()
+  end
+
   function enemy:check_hero()
 
     local hero = self:get_map():get_entity("hero")
     local x, _, w = self:get_bounding_box()
     local hx = hero:get_position()
-    local hero_is_under_me = hx>=x and hx<=x+w and self:is_in_same_region(hero)
-    local angle = self:get_angle(hero)
-    local sprite = self:get_sprite()
-    local n = sprite:get_num_directions()
-    local dir_arc = 2*math.pi/n
-    local index = math.floor((angle+dir_arc/2)*n/(2*math.pi))%n
-    sprite:set_direction(index)
+    local hero_is_under_me = hx>=x-properties.outer_detection_range and
+                             hx<=x+w+properties.outer_detection_range and
+                             self:is_in_same_region(hero)
     if hero_is_under_me and not falling and not returning_home then
       self:fall()
     end

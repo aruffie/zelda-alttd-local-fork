@@ -18,6 +18,7 @@ local properties = {
   push_hero_on_sword = true,
   is_walkable = true,
   crash_sound = "items/bomb_explode",
+  outer_detection_range = 16
 }
 
 behavior:create(enemy, properties)
