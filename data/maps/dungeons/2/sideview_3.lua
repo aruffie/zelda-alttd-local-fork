@@ -9,7 +9,7 @@ local audio_manager = require("scripts/audio_manager")
 function map:on_started()
 
   -- Music
-  map:init_music("20_sidescrolling")
+  map:init_music()
   
   -- Sideview
   map:set_sideview(true)
@@ -18,6 +18,6 @@ end
 -- Initialize the music of the map
 function map:init_music()
 
-  audio_manager:play_music("18_cave")
+  audio_manager:play_music("20_sidescrolling")
 
 end
