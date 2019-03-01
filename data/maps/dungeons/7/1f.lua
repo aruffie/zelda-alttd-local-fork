@@ -28,16 +28,6 @@ require("scripts/multi_events")
 -----------------------
 -- Map events
 -----------------------
-local function map:on_enemies_dead(enemies_prefix, callback)
-
-  for enemy in self:get_entities(enemy_prefix) do
-    enemy:register_event("on_dead", function 
-    if not self:has_entities(enemy_prefix) then
-      callback()
-    end)
-  end
-end
-
 function map:on_started()
 
   -- Owl
@@ -57,21 +47,14 @@ function map:on_opening_transition_finished(destination)
 
   if destination == dungeon_7_1_B then
     game:start_dialog("maps.dungeons.7.welcome")
-    game:play_dungeon_music()
   end
 end
-
------------------------
--- Doors events
------------------------
-door_manager:open_if_boss_dead(map)
-door_manager:open_if_small_boss_dead(map)
 
 -----------------------
 -- Enemies events
 -----------------------
 -- Make face lamp stop shooting when other ennemies are dead
-map:on_enemies_dead("enemy_group_2_", function
+enemy_manager:on_enemies_dead(map, "enemy_group_2_", function()
   enemy_group_3_2:set_shooting(false)
 end)
 

@@ -45,6 +45,7 @@ state:set_can_traverse("stairs", false)
 state:set_affected_by_ground("hole", false) 
 state:set_affected_by_ground("lava", false) 
 state:set_affected_by_ground("deep_water", false) 
+state:set_affected_by_ground("prickles", false) 
 
 
 function state:on_started(previous_state_name, previous_state)

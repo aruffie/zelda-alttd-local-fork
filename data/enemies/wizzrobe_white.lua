@@ -5,6 +5,8 @@ local map = enemy:get_map()
 local children = {}
 local is_appear = false
 
+local audio_manager = require("scripts/audio_manager")
+
 function enemy:update_attack()
 
   if is_appear then
@@ -83,7 +85,7 @@ function enemy:shoot()
   children[#children + 1] = beam
 
   if not map.wizzrobe_recent_sound then
-    audio_manager:play_sound("zora")
+    audio_manager:play_sound("enemies/wizzrobe")
     -- Avoid loudy simultaneous sounds if there are several wizzrobes.
     map.wizzrobe_recent_sound = true
     sol.timer.start(map, 200, function()

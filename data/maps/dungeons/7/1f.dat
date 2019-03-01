@@ -6,7 +6,7 @@ properties{
   min_layer = 0,
   max_layer = 2,
   world = "dungeon_7",
-  floor = 1,
+  floor = 0,
   tileset = "dungeon/gray_blue",
   music = "same",
 }
@@ -5513,9 +5513,9 @@ tile{
 tile{
   layer = 0,
   x = 736,
-  y = 800,
+  y = 848,
   width = 128,
-  height = 64,
+  height = 16,
   pattern = "spikes",
 }
 
@@ -6053,9 +6053,9 @@ tile{
 tile{
   layer = 0,
   x = 1056,
-  y = 584,
+  y = 600,
   width = 16,
-  height = 208,
+  height = 160,
   pattern = "floor.7-1",
 }
 
@@ -6248,6 +6248,33 @@ tile{
   width = 32,
   height = 16,
   pattern = "wall_hole.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 736,
+  y = 784,
+  width = 128,
+  height = 16,
+  pattern = "spikes",
+}
+
+tile{
+  layer = 0,
+  x = 736,
+  y = 800,
+  width = 16,
+  height = 48,
+  pattern = "spikes",
+}
+
+tile{
+  layer = 0,
+  x = 848,
+  y = 800,
+  width = 16,
+  height = 48,
+  pattern = "spikes",
 }
 
 wall{
@@ -6689,9 +6716,9 @@ crystal_block{
 crystal_block{
   layer = 0,
   x = 784,
-  y = 288,
+  y = 304,
   width = 16,
-  height = 240,
+  height = 224,
   subtype = 0,
 }
 
@@ -6985,14 +7012,6 @@ destination{
   direction = 1,
 }
 
-destination{
-  name = "dungeon_7_1_B",
-  layer = 0,
-  x = 480,
-  y = 917,
-  direction = 1,
-}
-
 enemy{
   name = "enemy_group_2_2",
   layer = 0,
@@ -7125,7 +7144,7 @@ enemy{
   x = 104,
   y = 109,
   direction = 0,
-  breed = "evil_tile",
+  breed = "spiked_thwomp",
 }
 
 stairs{
@@ -7179,7 +7198,7 @@ enemy{
   layer = 0,
   x = 1184,
   y = 101,
-  direction = 0,
+  direction = 2,
   breed = "fireball",
 }
 
@@ -7189,7 +7208,7 @@ enemy{
   x = 1016,
   y = 141,
   direction = 0,
-  breed = "generic_towards_hero",
+  breed = "spiked_thwomp",
 }
 
 destination{
@@ -7241,7 +7260,7 @@ enemy{
   layer = 0,
   x = 488,
   y = 677,
-  direction = 3,
+  direction = 0,
   breed = "fireball",
 }
 
@@ -7260,6 +7279,14 @@ destination{
   layer = 0,
   x = 480,
   y = 829,
+  direction = 1,
+}
+
+destination{
+  name = "dungeon_7_1_B",
+  layer = 0,
+  x = 480,
+  y = 917,
   direction = 1,
 }
 
@@ -7757,7 +7784,7 @@ chest{
   x = 56,
   y = 61,
   treasure_name = "rupee",
-  treasure_variant = 20,
+  treasure_variant = 3,
   treasure_savegame_variable = "dongeon_7_rupee_1",
   sprite = "entities/chests/chest_small",
 }
@@ -8520,6 +8547,7 @@ tile{
 }
 
 separator{
+  name = "auto_separator_1",
   layer = 2,
   x = 312,
   y = 0,
@@ -8528,6 +8556,7 @@ separator{
 }
 
 separator{
+  name = "auto_separator_2",
   layer = 2,
   x = 632,
   y = 0,
@@ -8536,6 +8565,7 @@ separator{
 }
 
 separator{
+  name = "auto_separator_3",
   layer = 2,
   x = 952,
   y = 0,
@@ -8544,6 +8574,7 @@ separator{
 }
 
 separator{
+  name = "auto_separator_4",
   layer = 2,
   x = 0,
   y = 232,
@@ -8552,6 +8583,7 @@ separator{
 }
 
 separator{
+  name = "auto_separator_5",
   layer = 2,
   x = 0,
   y = 472,
@@ -8560,6 +8592,7 @@ separator{
 }
 
 separator{
+  name = "auto_separator_6",
   layer = 2,
   x = 0,
   y = 712,

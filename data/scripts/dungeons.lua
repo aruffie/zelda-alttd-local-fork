@@ -221,6 +221,39 @@ local function initialize_dungeon_features(game)
         y = 720 + 365,
         savegame_variable = "dungeon_5_boss",
       }
+    },
+    [7] = {
+      lowest_floor = 0,
+      highest_floor = 2,
+      rows = 4,
+      cols = 4,
+      music = "19_level_1_tail_cave", -- TODO
+      music_instrument = "25_the_full_moon_cello", -- TODO
+      destination_ocarina = {
+        map_id = "dungeons/7/1f",
+        destination_name = "destination_ocarina"
+      },
+      teletransporter_end_dungeon = {
+        map_id = "out/d1_east_mt_tamaranch",
+        destination_name = "dungeon_7_2_B"
+      },
+      secrets = {
+        -- TODO
+      },
+      small_boss = {
+        -- TODO
+        floor = 3,
+        breed = "chicken",
+        x = 640 + 1440,
+        y = 720 + 365
+      },
+      boss = {
+        -- TODO
+        floor = 3,
+        breed = "chicken",
+        x = 640 + 1440,
+        y = 720 + 365
+      }
     }
   }
 

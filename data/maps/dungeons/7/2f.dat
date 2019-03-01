@@ -6,7 +6,7 @@ properties{
   min_layer = 0,
   max_layer = 2,
   world = "dungeon_7",
-  floor = 2,
+  floor = 1,
   tileset = "dungeon/gray_blue",
   music = "same",
 }
@@ -36,60 +36,6 @@ tile{
   width = 544,
   height = 176,
   pattern = "floor.7-1",
-}
-
-tile{
-  layer = 0,
-  x = 392,
-  y = 696,
-  width = 8,
-  height = 48,
-  pattern = "barrier.2-1",
-}
-
-tile{
-  layer = 0,
-  x = 400,
-  y = 696,
-  width = 16,
-  height = 48,
-  pattern = "floor.7-1",
-}
-
-tile{
-  layer = 0,
-  x = 416,
-  y = 696,
-  width = 8,
-  height = 48,
-  pattern = "barrier.2-1",
-}
-
-tile{
-  layer = 0,
-  x = 392,
-  y = 456,
-  width = 8,
-  height = 48,
-  pattern = "barrier.2-1",
-}
-
-tile{
-  layer = 0,
-  x = 400,
-  y = 456,
-  width = 16,
-  height = 48,
-  pattern = "floor.7-1",
-}
-
-tile{
-  layer = 0,
-  x = 416,
-  y = 456,
-  width = 8,
-  height = 48,
-  pattern = "barrier.2-1",
 }
 
 tile{
@@ -6691,42 +6637,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 1144,
-  y = 544,
-  width = 24,
-  height = 8,
-  pattern = "stairs_down.2.border.3-4",
-}
-
-tile{
-  layer = 0,
-  x = 1144,
-  y = 568,
-  width = 24,
-  height = 8,
-  pattern = "stairs_down.2.border.2-4",
-}
-
-tile{
-  layer = 0,
-  x = 1144,
-  y = 552,
-  width = 24,
-  height = 16,
-  pattern = "stairs_down.2-4",
-}
-
-tile{
-  layer = 0,
-  x = 1136,
-  y = 544,
-  width = 8,
-  height = 32,
-  pattern = "163",
-}
-
-tile{
-  layer = 0,
   x = 1040,
   y = 272,
   width = 24,
@@ -9326,8 +9236,128 @@ tile{
   pattern = "floor_low.18-Alpha",
 }
 
+tile{
+  layer = 0,
+  x = 1160,
+  y = 536,
+  width = 8,
+  height = 24,
+  pattern = "stairs_down.2.border.3-2",
+}
+
+tile{
+  layer = 0,
+  x = 1136,
+  y = 528,
+  width = 32,
+  height = 8,
+  pattern = "stairs_down.2.border.1-2",
+}
+
+tile{
+  layer = 0,
+  x = 1144,
+  y = 536,
+  width = 16,
+  height = 24,
+  pattern = "stairs_down.2-2",
+}
+
+tile{
+  layer = 0,
+  x = 1136,
+  y = 536,
+  width = 8,
+  height = 24,
+  pattern = "stairs_down.2.border.2-2",
+}
+
+tile{
+  layer = 0,
+  x = 152,
+  y = 440,
+  width = 16,
+  height = 16,
+  pattern = "door.2",
+}
+
+tile{
+  layer = 0,
+  x = 416,
+  y = 456,
+  width = 8,
+  height = 48,
+  pattern = "barrier.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 392,
+  y = 456,
+  width = 8,
+  height = 48,
+  pattern = "barrier.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 400,
+  y = 456,
+  width = 16,
+  height = 48,
+  pattern = "floor.7-1",
+}
+
+tile{
+  layer = 0,
+  x = 400,
+  y = 696,
+  width = 16,
+  height = 48,
+  pattern = "floor.7-1",
+}
+
+tile{
+  layer = 0,
+  x = 416,
+  y = 696,
+  width = 8,
+  height = 48,
+  pattern = "barrier.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 392,
+  y = 696,
+  width = 8,
+  height = 48,
+  pattern = "barrier.2-1",
+}
+
+door{
+  name = "weak_wall_B_2",
+  layer = 0,
+  x = 400,
+  y = 744,
+  properties = {
+    {
+      key = "is_weak",
+      value = "true",
+    },
+    {
+      key = "sound_sword",
+      value = "items/sword_tap_bombable",
+    },
+  },
+  direction = 3,
+  sprite = "entities/doors/door_weak_wall",
+  savegame_variable = "dungeon_7_weak_wall_A",
+  opening_method = "explosion",
+}
+
 dynamic_tile{
-  name = "weak_wall_closed_B_1",
+  name = "weak_wall_B_3",
   layer = 0,
   x = 392,
   y = 680,
@@ -9337,7 +9367,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
-  name = "weak_wall_closed_A_1",
+  name = "weak_wall_A_3",
   layer = 0,
   x = 392,
   y = 496,
@@ -10200,15 +10230,6 @@ chest{
   sprite = "entities/chests/chest_big",
 }
 
-crystal_block{
-  layer = 0,
-  x = 1216,
-  y = 432,
-  width = 16,
-  height = 96,
-  subtype = 1,
-}
-
 stairs{
   layer = 0,
   x = 472,
@@ -10279,16 +10300,16 @@ crystal_block{
 destination{
   name = "stairs_1_B",
   layer = 0,
-  x = 1160,
-  y = 565,
-  direction = 0,
+  x = 1152,
+  y = 557,
+  direction = 3,
 }
 
 teletransporter{
   name = "stairs_2_A",
   layer = 0,
-  x = 1152,
-  y = 552,
+  x = 1144,
+  y = 544,
   width = 16,
   height = 16,
   destination_map = "dungeons/7/1f",
@@ -10297,9 +10318,9 @@ teletransporter{
 
 stairs{
   layer = 0,
-  x = 1152,
-  y = 552,
-  direction = 2,
+  x = 1144,
+  y = 544,
+  direction = 1,
   subtype = 3,
 }
 
@@ -10449,8 +10470,8 @@ enemy{
   name = "enemy_group_4_2",
   layer = 0,
   x = 176,
-  y = 573,
-  direction = 0,
+  y = 581,
+  direction = 3,
   breed = "fireball",
 }
 
@@ -10459,7 +10480,7 @@ enemy{
   layer = 0,
   x = 88,
   y = 533,
-  direction = 0,
+  direction = 2,
   breed = "fireball",
 }
 
@@ -10574,16 +10595,7 @@ sensor{
   name = "sensor_1",
   layer = 0,
   x = 160,
-  y = 517,
-  width = 16,
-  height = 16,
-}
-
-sensor{
-  name = "sensor_2",
-  layer = 0,
-  x = 160,
-  y = 429,
+  y = 437,
   width = 16,
   height = 16,
 }
@@ -10735,7 +10747,7 @@ door{
 }
 
 dynamic_tile{
-  name = "weak_wall_closed_A_2",
+  name = "weak_wall_A_4",
   layer = 0,
   x = 392,
   y = 440,
@@ -10745,7 +10757,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
-  name = "weak_wall_closed_B_2",
+  name = "weak_wall_B_4",
   layer = 0,
   x = 392,
   y = 736,
@@ -11435,95 +11447,26 @@ stairs{
 }
 
 custom_entity{
-  name = "pillar_base_1",
+  name = "pillar_1",
   layer = 0,
   x = 792,
   y = 365,
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/statues/pillar_base",
+  sprite = "entities/statues/pillar",
   model = "pillar",
 }
 
 custom_entity{
-  name = "pillar_2",
+  name = "pillar_top_1",
   layer = 0,
   x = 792,
   y = 333,
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/statues/pillar",
-}
-
-custom_entity{
-  name = "pillar_base_2",
-  layer = 0,
-  x = 488,
-  y = 365,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statues/pillar_base",
-  model = "pillar",
-}
-
-custom_entity{
-  name = "pillar_3",
-  layer = 0,
-  x = 488,
-  y = 333,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statues/pillar",
-}
-
-custom_entity{
-  name = "pillar_base_3",
-  layer = 0,
-  x = 488,
-  y = 589,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statues/pillar_base",
-  model = "pillar",
-}
-
-custom_entity{
-  name = "pillar_4",
-  layer = 0,
-  x = 488,
-  y = 557,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statues/pillar",
-}
-
-custom_entity{
-  name = "pillar_base_4",
-  layer = 0,
-  x = 792,
-  y = 589,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statues/pillar_base",
-  model = "pillar",
-}
-
-custom_entity{
-  name = "pillar_5",
-  layer = 0,
-  x = 792,
-  y = 557,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statues/pillar",
+  sprite = "entities/statues/pillar_top",
 }
 
 door{
@@ -11537,6 +11480,84 @@ door{
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_7_small_keys",
   opening_condition_consumed = true,
+}
+
+crystal_block{
+  layer = 0,
+  x = 1216,
+  y = 432,
+  width = 16,
+  height = 96,
+  subtype = 0,
+}
+
+custom_entity{
+  name = "pillar_2",
+  layer = 0,
+  x = 792,
+  y = 589,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/pillar",
+  model = "pillar",
+}
+
+custom_entity{
+  name = "pillar_top_2",
+  layer = 0,
+  x = 792,
+  y = 557,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/pillar_top",
+}
+
+custom_entity{
+  name = "pillar_3",
+  layer = 0,
+  x = 488,
+  y = 589,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/pillar",
+  model = "pillar",
+}
+
+custom_entity{
+  name = "pillar_top_3",
+  layer = 0,
+  x = 488,
+  y = 557,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/pillar_top",
+}
+
+custom_entity{
+  name = "pillar_4",
+  layer = 0,
+  x = 488,
+  y = 365,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/pillar",
+  model = "pillar",
+}
+
+custom_entity{
+  name = "pillar_top_4",
+  layer = 0,
+  x = 488,
+  y = 333,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/pillar_top",
 }
 
 tile{
@@ -12528,7 +12549,44 @@ tile{
   pattern = "barrier.border-1",
 }
 
+tile{
+  layer = 2,
+  x = 392,
+  y = 496,
+  width = 32,
+  height = 8,
+  pattern = "door_cache.1-2",
+}
+
+tile{
+  layer = 2,
+  x = 392,
+  y = 736,
+  width = 32,
+  height = 8,
+  pattern = "door_cache.1-2",
+}
+
+tile{
+  layer = 2,
+  x = 392,
+  y = 456,
+  width = 32,
+  height = 8,
+  pattern = "door_cache.2-2",
+}
+
+tile{
+  layer = 2,
+  x = 392,
+  y = 696,
+  width = 32,
+  height = 8,
+  pattern = "door_cache.2-2",
+}
+
 separator{
+  name = "auto_separator_1",
   layer = 2,
   x = 312,
   y = 0,
@@ -12537,6 +12595,7 @@ separator{
 }
 
 separator{
+  name = "auto_separator_2",
   layer = 2,
   x = 632,
   y = 0,
@@ -12545,6 +12604,7 @@ separator{
 }
 
 separator{
+  name = "auto_separator_3",
   layer = 2,
   x = 952,
   y = 0,
@@ -12553,6 +12613,7 @@ separator{
 }
 
 separator{
+  name = "auto_separator_4",
   layer = 2,
   x = 0,
   y = 232,
@@ -12561,6 +12622,7 @@ separator{
 }
 
 separator{
+  name = "auto_separator_5",
   layer = 2,
   x = 0,
   y = 472,
@@ -12569,6 +12631,7 @@ separator{
 }
 
 separator{
+  name = "auto_separator_6",
   layer = 2,
   x = 0,
   y = 712,
