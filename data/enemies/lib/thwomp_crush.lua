@@ -108,6 +108,7 @@ function behavior:create(enemy, properties)
       })
       platform:set_size(w,1)
       platform:set_origin(0,0)
+      platform:set_enabled(self:is_enabled())
     end
   end
 
@@ -130,8 +131,9 @@ function behavior:create(enemy, properties)
 
   function enemy:on_obstacle_reached(movement)
     if falling and not sound_played then
-      audio_manager:play_sound(properties.crash_sound)
       sound_played = true
+      audio_manager:play_sound(properties.crash_sound)
+
       sol.timer.stop_all(self)
       sol.timer.start(enemy, 1000, function()
         local sprite = self:get_sprite()
@@ -178,6 +180,24 @@ function behavior:create(enemy, properties)
     m:set_angle(3*math.pi/2)
     m:set_ignore_obstacles(properties.ignore_obstacles)
     m:start(enemy)
+  end
+
+  function enemy:on_removed()
+    if platform then
+     platform:remove()
+    end
+  end
+
+  function enemy:on_disbled()
+    if platform then
+      platform:set_enabled(false)
+    end    
+  end
+
+  function enemy:on_enabled()
+    if platform then
+      platform:set_enabled(true)
+    end    
   end
 
   function enemy:go_home()
