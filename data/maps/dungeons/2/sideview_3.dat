@@ -908,7 +908,7 @@ destructible{
 custom_entity{
   name = "twin_platforms_A_chain_1",
   layer = 0,
-  x = 304,
+  x = 392,
   y = 101,
   width = 16,
   height = 48,
@@ -921,7 +921,7 @@ custom_entity{
 custom_entity{
   name = "twin_platforms_A_chain_2",
   layer = 0,
-  x = 336,
+  x = 360,
   y = 101,
   width = 16,
   height = 48,
@@ -934,7 +934,7 @@ custom_entity{
 custom_entity{
   name = "twin_platforms_A_1",
   layer = 0,
-  x = 304,
+  x = 392,
   y = 149,
   width = 16,
   height = 16,
@@ -946,7 +946,7 @@ custom_entity{
 custom_entity{
   name = "twin_platforms_A_2",
   layer = 0,
-  x = 336,
+  x = 360,
   y = 149,
   width = 16,
   height = 16,
@@ -974,8 +974,8 @@ custom_entity{
 
 enemy{
   layer = 0,
-  x = 376,
-  y = 117,
+  x = 232,
+  y = 133,
   direction = 0,
   breed = "mini_thwomp",
 }
