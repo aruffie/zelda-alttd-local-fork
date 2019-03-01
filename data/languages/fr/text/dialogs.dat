@@ -1064,7 +1064,9 @@ dialog{
   id = "_treasure.shield.1",
   icon = "63",
   text = [[
-Vous récupérez votre bouclier !
+Vous récupérez votre
+bouclier !
+
 Utilisez-le pour repousser vos ennemis !
 ]],
 }
@@ -1109,11 +1111,10 @@ dialog{
   id = "_treasure.sword.1",
   icon = "66",
   text = [[
-Tu as retrouvé ton
-Epée !  $0
+Tu as retrouvé ton Epée !
 
-C'est la tienne car il 
-y a ton nom dessus !
+
+C'est la tienne car il y a ton nom dessus !
 ]],
 }
 
@@ -1122,11 +1123,10 @@ dialog{
   icon = "67",
   next = "_treasure.sword.2.1",
   text = [[
-Tu as une       
-nouvelle Epée!$0 
-N'oublie pas de 
-graver ton nom  
-dessus!
+Tu as une nouvelle Epée !
+
+
+N'oublie pas de graver ton nom dessus!
 ]],
 }
 
@@ -4681,8 +4681,7 @@ dialog{
   id = "scripts.meta.map.fairy",
   text = [[
 Voici un petit bonus.    
-Je restaure tous tes
-Coeurs !
+Je restaure tous tes Coeurs !
 ]],
 }
 
@@ -4690,12 +4689,9 @@ dialog{
   id = "scripts.meta.map.mad_bat_1",
   text = [[
 Dis donc toi !   
-Merci de m'avoir
-dérangé pendant 
-ma sieste !      
-Tiens, j'ai un  
-cadeau pour toi.
-Tu es prêt ? 
+Merci de m'avoir dérangé pendant ma sieste !      
+Tiens, j'ai un cadeau pour toi.
+Tu es prêt ?
 ]],
 }
 
@@ -4703,9 +4699,8 @@ dialog{
   id = "scripts.meta.map.mad_bat_2_arrows",
   question = "1",
   text = [[
-Tu veux plus de 
-Flèches ?  
-      
+Tu veux plus de Flèches ?
+    
 Tu es prêt ? 
 Oui
 Non
@@ -4716,9 +4711,8 @@ dialog{
   id = "scripts.meta.map.mad_bat_2_bombs",
   question = "1",
   text = [[
-Tu veux plus de 
-Bombes ?      
-   
+Tu veux plus de Bombes ?      
+  
 Tu es prêt ?     
 Oui
 Non
@@ -4729,8 +4723,7 @@ dialog{
   id = "scripts.meta.map.mad_bat_2_magic_powder",
   question = "1",
   text = [[
-Tu veux plus de 
-Poudre Magique ? 
+Tu veux plus de Poudre Magique ? 
 
 Tu es prêt ?     
 Oui
@@ -4742,11 +4735,8 @@ dialog{
   id = "scripts.meta.map.mad_bat_3",
   text = [[
 Hi hi hi !       
-C'est bien fait 
-pour toi !       
-Tu as vu tout   
-ce que tu dois  
-porter !!!       
+C'est bien fait pour toi !       
+Tu as vu tout ce que tu dois porter !!!       
 Allez, salut !
 ]],
 }
@@ -4761,71 +4751,35 @@ Hou hou
 dialog{
   id = "scripts.meta.map.owl_1",
   text = [[
-Hou hou ! Cette épée est
-donc à toi !
-... Je comprends pourquoi 
-les monstres s'agitent
-tant : celui qui doit 
-réveiller le Poisson-Rêve 
-est arrivé ! On dit que pour 
-quitter l'île, cette
-personne doit d'abord le
-réveiller... Viens me voir 
-dans la Forêt Enchantée, 
-au Nord du village. Je t'y
-attends. Hou hou !
+Hou hou ! Cette épée est donc à toi !
+... Je comprends pourquoi les monstres s'agitent tant : celui qui doit réveiller le Poisson-Rêve est arrivé !
+On dit que pour quitter l'île, cette personne doit d'abord le
+réveiller... Viens me voir dans la Forêt Enchantée, au Nord du village.
+Je t'y attends. Hou hou !
 ]],
 }
 
 dialog{
   id = "scripts.meta.map.owl_10",
   text = [[
-Hou ! Je vois que
-tu as lu ce     
-Marbre ancien.  
-Il dit que l'île
-est issue       
-des songes      
-du Poisson-Rêve,
-mais personne   
-n'en est sûr... 
-Qui peut savoir 
-ce que contient 
-un coffre tant  
-qu'il n'a pas   
-été ouvert ?     
-Qui peut deviner
-s'il rêve tant  
-qu'il ne s'est  
+Hou ! Je vois que tu as lu ce Marbre ancien.  
+Il dit que l'île est issue des songes du Poisson-Rêve, mais personnen'en est sûr... 
+Qui peut savoir ce que contient un coffre tant qu'il n'a pas été ouvert ?     
+Qui peut deviner s'il rêve tant qu'il ne s'est  
 pas réveillé ?   
-Le Poisson-Rêve 
-est le seul qui 
-sait... Suis ton
-instinct. Ainsi,
-tu sauras...    
-Hou hou !
+Le Poisson-Rêve est le seul qui sait...
+Suis ton instinct.
+Ainsi, tu sauras... Hou hou !
 ]],
 }
 
 dialog{
   id = "scripts.meta.map.owl_11",
   text = [[
-Hou ! Les        
-monstres de     
-cette île ont   
-peur que le     
-Poisson-Rêve    
-ne s'éveille.   
-Leur pouvoir    
-est bien réel !  
-Ils pourraient  
-conquérir l'île 
-et anéantir     
-leurs ennemis.  
-Va à la tour    
-de la montagne  
-en volant comme 
-un oiseau! Hou !
+Hou ! Les monstres de cette île ont peur que le Poisson-Rêve ne s'éveille.   
+Leur pouvoir est bien réel !  
+Ils pourraient conquérir l'île et anéantir leurs ennemis.  
+Va à la tour de la montagne en volant comme un oiseau! Hou !
 ]],
 }
 
@@ -4833,58 +4787,31 @@ dialog{
   id = "scripts.meta.map.owl_12",
   text = [[
 Hou hou !        
-Ton périple est 
-ardu mais tu y  
-es presque...   
-Va vers l'Est.  
-Le Poisson du   
-Vent a besoin de
-sommeil. 
+Ton périple est ardu mais tu y  es presque...   
+Va vers l'Est. Le Poisson du Vent a besoin de sommeil.
 ]],
 }
 
 dialog{
   id = "scripts.meta.map.owl_13",
   text = [[
-Hou ! Cela       
-fait longtemps  
-qu'on ne s'est  
-rencontrés !     
-Plonge dans la  
-Baie de Martha  
-et entre        
-dans la gueule  
-du Poisson-Chat.
-Plus tu es près 
-du Poisson-Rêve,
-plus son sommeil
+Hou ! Cela fait longtemps qu'on ne s'est rencontrés !     
+Plonge dans la Baie de Martha et entre dans la gueule du Poisson-Chat.
+Plus tu es près du Poisson-Rêve, plus son sommeil
 est agité...    
-Tu es dans la   
-bonne voie. Hou !
+Tu es dans la bonne voie. Hou !
 ]],
 }
 
 dialog{
   id = "scripts.meta.map.owl_14",
   text = [[
-Hou ! Cette fille
-a chanté en face
-de l'Oeuf sa    
-"Ballade du     
-Poisson-Rêve".  
-Mais c'est la   
-Chanson d'Eveil !
-Désirait-elle   
-vraiment        
-le réveiller?   
-Le prochain     
-Instrument est  
-dans le Roc     
-de la Tortue.   
-Anime ces rocs. 
-Sois brave !     
-Le Poisson-Rêve 
-attend...       
+Hou ! Cette fille a chanté en face de l'Oeuf sa "Ballade du Poisson-Rêve".  
+Mais c'est la Chanson d'Eveil !
+Désirait-elle vraiment le réveiller ?   
+Le prochainInstrument est dans le Roc de la Tortue.   
+Anime ces rocs. Sois brave !     
+Le Poisson-Rêve attend...       
 Hou hou !
 ]],
 }
@@ -4892,77 +4819,50 @@ Hou hou !
 dialog{
   id = "scripts.meta.map.owl_15",
   text = [[
-Hou hou !        
-Le Poisson-Rêve 
-t'attend. Entre 
-dans l'Oeuf...  
-Hou hou!
+Hou hou ! Le Poisson-Rêve t'attend.
+Entre dans l'Oeuf...  
+Hou hou !
 ]],
 }
 
 dialog{
   id = "scripts.meta.map.owl_2",
   text = [[
-Hou ! Bienvenue à
-la Forêt Enchantée, mon 
-brave garçon !   
-L'île Cocolint abonde en
-mystères et n'existe sur
-aucune carte. 
-Son règlement est unique ! 
-Tu ne pourras pas 
-la quitter tant que le 
-Poisson-Rêve dormira.        
-A propos, as-tu visité la 
-Cave Flagello, située au Sud   
-du village ? Vas-y avec la 
-Clé cachée dans la Forêt.
-Le Poisson-Rêve te regarde.
-Hou !
+Hou ! Bienvenue à la Forêt Enchantée, mon brave garçon !   
+L'île Cocolint abonde en mystères et n'existe sur aucune carte. 
+Son règlement est unique !
+Tu ne pourras pas la quitter tant que le Poisson-Rêve dormira.        
+A propos, as-tu visité la Cave Flagello, située au Sud du village ?
+Vas-y avec la Clé cachée dans la Forêt.
+Le Poisson-Rêve te regarde. Hou !
 ]],
 }
 
 dialog{
   id = "scripts.meta.map.owl_3",
   text = [[
-Hou ! Avec cette clé, va
-à la Cave Flagello. Prends
-l'Instrument qui y est
-dissimulé. Dépêche-toi !    
-Le Poisson-Rêve attend !
-Hou !
+Hou ! Avec cette clé, va à la Cave Flagello. Prends l'Instrument qui y est dissimulé.
+Dépêche-toi ! Le Poisson-Rêve attend ! Hou !
 ]],
 }
 
 dialog{
   id = "scripts.meta.map.owl_4",
   text = [[
-Hou ! C'est un des
-Instruments des Sirènes !    
-Tu es brave et je t'avais      
-sous-estimé...  
-Cet Instrument - utilisé 
-avec les 7 autres -  
-a le pouvoir de réveiller    
-le Poisson-Rêve.
-Collecte ces 8 Instruments !  
-Je suis ici pour t'indiquer
-le chemin... Maintenant,     
-va au Marais des Anémones,   
-situé au Nord ! Hou !
+Hou ! C'est un des Instruments des Sirènes !    
+Tu es brave et je t'avais sous-estimé...  
+Cet Instrument - utilisé avec les 7 autres - a le pouvoir de réveiller le Poisson-Rêve.
+Collecte ces 8 Instruments !
+Je suis ici pour t'indiquer le chemin...
+Maintenant, va au Marais des Anémones, situé au Nord ! Hou !
 ]],
 }
 
 dialog{
   id = "scripts.meta.map.owl_5",
   text = [[
-Hou ! Ton        
-compagnon       
-a l'air féroce ! 
-N'oublie pas,le 
-2ème Instrument 
-se trouve dans  
-le Marais !
+Hou ! Ton compagnon a l'air féroce ! 
+N'oublie pas, le 2ème Instrument se trouve dans le Marais !
 ]],
 }
 
@@ -4970,66 +4870,38 @@ dialog{
   id = "scripts.meta.map.owl_6",
   text = [[
 Hou !            
-Le Poisson-Rêve sommeille
-dans l'Oeuf, là haut.
-Il rêve, rêve !  
-Il se réveillera si tu te 
-tiens face à I'Oeuf et 
-que tu joues des 8 
-Instruments.  
-Ainsi seulement, pourras-tu      
-quitter l'île...
-Hou! !
+Le Poisson-Rêve sommeille dans l'Oeuf, là haut.
+Il rêve, rêve ! Il se réveillera si tu te tiens face à I'Oeuf et que tu joues des 8 Instruments.  
+Ainsi seulement, pourras-tu quitter l'île...
+Hou !
 ]],
 }
 
 dialog{
   id = "scripts.meta.map.owl_7",
   text = [[
-Hou ! Combien d'Instruments   
-as-tu collectés ?
-Quand tu joueras des 
-Instruments face à l'Oeuf, 
-le Poisson-Rêve se 
-réveillera et tu pourras 
-quitter l'île.
-Va vite vers les
-Dunes de Yarna ! 
-L'horrible monstre noir    
-des sables t'indiquera     
-le chemin ! Hou hou !
+Hou ! Combien d'Instruments as-tu collectés ?
+Quand tu joueras des Instruments face à l'Oeuf, le Poisson-Rêve se réveillera et tu pourras quitter l'île.
+Va vite vers les Dunes de Yarna ! 
+L'horrible monstre noir des sables t'indiquera le chemin !
+Hou hou !
 ]],
 }
 
 dialog{
   id = "scripts.meta.map.owl_8",
   text = [[
-Hou ! Cette clé  
-évoque          
-un poisson      
-remontant       
-une cascade. Va 
-à cette cascade,
-fais disparaître
-l'eau et        
-saute du sommet.
+Hou ! Cette clé évoque un poisson remontant une cascade.
+Va à cette cascade, fais disparaître l'eau et saute du sommet.
 ]],
 }
 
 dialog{
   id = "scripts.meta.map.owl_9",
   text = [[
-Hou ! Au Sud     
-et au Nord,     
-se trouvent     
-deux temples.   
-Va d'abord au   
-Sud, là où des  
-Ruines antiques 
-parlent         
-du Poisson-Rêve.
-Tu en sauras    
-sûrement plus...
+Hou ! Au Sud et au Nord, se trouvent deux temples.   
+Va d'abord au Sud, là où des Ruines antiques parlent du Poisson-Rêve.
+Tu en sauras sûrement plus...
 ]],
 }
 
