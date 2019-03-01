@@ -1064,11 +1064,8 @@ dialog{
   id = "_treasure.shield.1",
   icon = "63",
   text = [[
-Vous récupérez votre 
-bouclier ! $0
-
-Utilisez-le pour
-repousser vos ennemis !
+Vous récupérez votre bouclier !
+Utilisez-le pour repousser vos ennemis !
 ]],
 }
 
@@ -1172,13 +1169,10 @@ dialog{
   id = "items.mushroom.1",
   skip = "all",
   text = [[
-C'est le champignon que
-vous avez trouvé dans 
-les bois. Quel est-il ?$0
-Vous le placez au-dessus
-de votre tête et un arôme 
-subtil exalte ton sens 
-de l'odorat...
+C'est le champignon que vous avez trouvé dans 
+les bois.
+Quel est-il ?$0
+Vous le placez au-dessus de votre tête et un arôme subtil exalte ton sens de l'odorat...
 ]],
 }
 
@@ -1595,9 +1589,7 @@ dialog{
 Heu... Hum...
 Comment dire ? Téléphone...
 A l'extérieur...
-Pépé le Ramollo n'a pas
-l'air d'être un grand
-causeur...
+Pépé le Ramollo n'a pas l'air d'être un grand causeur...
 ]],
 }
 
@@ -1858,12 +1850,8 @@ dialog{
   id = "maps.houses.mabe_village.marin_house.marin_1",
   skip = "all",
   text = [[
-Suis la route du Sud,
-vers la plage là où  je 
-t'ai trouvé. Depuis que
-tu as échoué ici, des
-monstres terribles
-rôdent dans le coin.
+Suis la route du Sud, vers la plage là où je t'ai trouvé.
+Depuis que tu as échoué ici, des monstres terribles rôdent dans le coin.
 Sois prudent...
 ]],
 }
@@ -1872,10 +1860,10 @@ dialog{
   id = "maps.houses.mabe_village.marin_house.marin_2",
   text = [[
 Ah! Enfin...    
-J'ai cru que tu n'allais jamais te
-réveiller. Tu devais cauchemarder.   
-Quoi ? Zelda ?? Tu dois être encore 
-patraque ! Je suis Marine !
+J'ai cru que tu n'allais jamais te réveiller.
+Tu devais cauchemarder.   
+Quoi ? Zelda ?? Tu dois être encore patraque !
+Je suis Marine !
 Tu es sur l'île Cocolint !
 ]],
 }
@@ -1888,7 +1876,8 @@ T'es réveillé... J'suis Tarkin...
 Tu t'sens mieux ?
 Quoi ? Comment j'sais ton nom ?
 Ben, c'est gravé sur le Bouclier !
-Ben, d'ailleurs il est à toi ! J'te l'donne !
+Ben, d'ailleurs il est à toi !
+J'te l'donne !
 ]],
 }
 
@@ -1897,13 +1886,9 @@ dialog{
   skip = "all",
   text = [[
 Salut $v !    
-Au fait ! Y'a un autre 
-bidule qui est resté sur
-la plage. Si tu y vas, fais
-attention aux monstres !
-Car, depuis que t'es ici 
-$v, des monstres, 
-y'en a partout !
+Au fait ! Y'a un autre bidule qui est resté sur la plage.
+Si tu y vas, fais attention aux monstres !
+Car, depuis que t'es ici $v, des monstres, y'en a partout !
 ]],
 }
 
@@ -1911,9 +1896,8 @@ dialog{
   id = "maps.houses.mabe_village.marin_house.tarin_3",
   skip = "all",
   text = [[
-Hé mon gars, attends un 
-peu ! J'ai quêqu' chose
-à te dire !
+Hé mon gars, attends un peu !
+J'ai quêqu' chose à te dire !
 ]],
 }
 
@@ -1921,8 +1905,8 @@ dialog{
   id = "maps.houses.mabe_village.marin_house.tarin_4",
   skip = "all",
   text = [[
-Je suis éreinté ! J'vais 
-faire un p'tit somme. 
+Je suis éreinté !
+J'vais faire un p'tit somme. 
 ZZZ...ZZZ...
 ]],
 }
@@ -1931,13 +1915,9 @@ dialog{
   id = "maps.houses.mabe_village.marin_house.tarin_5",
   skip = "all",
   text = [[
-J'avais la dalle alors 
-j'suis allé chercher 
-des bananes sur la 
-plage !   
+J'avais la dalle alors j'suis allé chercher des bananes sur la plage !   
 MIAM MIAM !     
-Link si t'en veux,   
-fais comm'moi.
+Link si t'en veux, fais comm'moi.
 ]],
 }
 
@@ -1945,48 +1925,37 @@ dialog{
   id = "maps.houses.mabe_village.meow_meow_house.meow_meow_1",
   text = [[
 Hmmm...         
-Mon Toutou est si fier     
-de son pelage !
+Mon Toutou est si fier de son pelage !
 ]],
 }
 
 dialog{
   id = "maps.houses.mabe_village.meow_meow_house.meow_meow_2",
   text = [[
-Au secours ! Quelle
-horreur ! Toutou a été
-chien-nappé par des Moblins !    
-OHH ! AHH ! Je t'en prie,
-va secourir mon Toutou !
+Au secours ! Quelle horreur !
+Toutou a été chien-nappé par des Moblins !    
+OHH ! AHH ! Je t'en prie, va secourir mon Toutou !
 ]],
 }
 
 dialog{
   id = "maps.houses.mabe_village.meow_meow_house.meow_meow_3",
   text = [[
-Ah! Tu m'as ramené 
-mon Toutou adoré !   
-Quelle joie !    
-Et en plus, tu veux 
-aller le promener ?    
-Cela m'arrange ! 
-Du fond de mon coeur,
-merci !
+Ah ! Tu m'as ramené mon Toutou adoré !   
+Quelle joie ! Et en plus, tu veux aller le promener ?    
+Cela m'arrange !
+Du fond de mon coeur, merci !
 ]],
 }
 
 dialog{
   id = "maps.houses.mabe_village.meow_meow_house.meow_meow_4",
   text = [[
-Je te suis vraiment 
-reconnaissante ! 
-C'est si gentil d'avoir 
-ramené mon Toutou !     
-Comment te prouver      
-ma gratitude??  
+Je te suis vraiment reconnaissante ! 
+C'est si gentil d'avoir ramené mon Toutou !     
+Comment te prouver ma gratitude ??  
 BISOU BISOU...  
-Tu as eu la récompense 
-de Mme Miaou Miaou.
+Tu as eu la récompense de Mme Miaou Miaou.
 Petit veinard...
 ]],
 }
@@ -2003,9 +1972,8 @@ dialog{
   id = "maps.houses.mabe_village.meow_meow_house.small_bowwow_2_1",
   text = [[
 Ouaf Ouaf ! 
-Je suis un chien très
-branché ! J'aimerais avoir 
-des accessoires à la mode !
+Je suis un chien très branché !
+J'aimerais avoir des accessoires à la mode !
 ]],
 }
 
@@ -2014,13 +1982,10 @@ dialog{
   question = "1",
   text = [[
 Ouaf Ouaf ! 
-Je suis un 
-chien très branché !
-Ce ruban, c'est d'un
-chic ! Il me le faut 
-absolument... Tu 
-l'échanges contre
-ma pâtée ? 
+Je suis un chien très branché !
+Ce ruban, c'est d'un chic !
+Il me le faut absolument...
+Tu l'échanges contre ma pâtée ? 
 
 
 Oui
@@ -2031,8 +1996,7 @@ Non
 dialog{
   id = "maps.houses.mabe_village.meow_meow_house.small_bowwow_2_3",
   text = [[
-Je n'arrive pas à 
-y croire...   
+Je n'arrive pas à y croire...   
 Tu es nul !
 ]],
 }
@@ -2041,20 +2005,16 @@ dialog{
   id = "maps.houses.mabe_village.meow_meow_house.small_bowwow_2_4",
   text = [[
 Génial, merci !  
-En échange,     
-voici ma patée ...
+En échange, voici ma patée...
 ]],
 }
 
 dialog{
   id = "maps.houses.mabe_village.quadruplets_house.father_1",
   text = [[
-Je suis Papounet le papa 
-des quadruplés.     
-Plus tard, je me perdrai 
-dans les montagnes.      
-Tu viendras m'aider,
-hein ?
+Je suis Papounet le papa des quadruplés.     
+Plus tard, je me perdrai dans les montagnes.      
+Tu viendras m'aider, hein ?
 ]],
 }
 
@@ -2069,13 +2029,9 @@ dialog{
   id = "maps.houses.mabe_village.quadruplets_house.mother_1",
   text = [[
 J'ai trop de bébés ! 
-Ils se ressemblent tous
-en plus !
-Au fait sais-tu où      
-trouver un Yoshi ? 
-J'en ai vu un au jeu du 
-hasard mais je n'ai pas
-pu l'avoir.
+Ils se ressemblent tous en plus !
+Au fait sais-tu où trouver un Yoshi ? 
+J'en ai vu un au jeu du hasard mais je n'ai pas pu l'avoir.
 ]],
 }
 
@@ -2083,10 +2039,7 @@ dialog{
   id = "maps.houses.mabe_village.quadruplets_house.mother_2",
   question = "1",
   text = [[
-Tu offres ce Yoshi        
-à mon bébé ? 
-
- 
+Tu offres ce Yoshi à mon bébé ?  
 Oui
 Non
 ]],
@@ -2095,8 +2048,7 @@ Non
 dialog{
   id = "maps.houses.mabe_village.quadruplets_house.mother_3",
   text = [[
-Tant pis...     
-C'est dommage !
+Tant pis... C'est dommage !
 ]],
 }
 
@@ -2104,27 +2056,22 @@ dialog{
   id = "maps.houses.mabe_village.quadruplets_house.mother_4",
   text = [[
 Oh ! Merci !      
-Tu es un gentil
-garçon.
-En échange, je  
-te donne ceci.
+Tu es un gentil garçon.
+En échange, je te donne ceci.
 ]],
 }
 
 dialog{
   id = "maps.houses.mabe_village.quadruplets_house.mother_5",
   text = [[
-Ces quatre là se ressemblent
-tant que moi-même,   
-je m'y perds...
+Ces quatre là se ressemblent tant que moi-même, je m'y perds...
 ]],
 }
 
 dialog{
   id = "maps.houses.mabe_village.quadruplets_house.mother_6",
   text = [[
-Mon mari est perdu dans les
-bois !
+Mon mari est perdu dans les bois !
 Va le sauver !
 ]],
 }
@@ -2905,8 +2852,7 @@ Je te suis reconnaissant.
 dialog{
   id = "maps.houses.wardrobe_1",
   text = [[
-$v a inspecté la
-commode.
+$v a inspecté la commode.
 C'est un objet d'art... ...
 ]],
 }
