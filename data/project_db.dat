@@ -475,6 +475,12 @@ sprite{ id = "entities/items/bananas", description = "Bananas" }
 sprite{ id = "entities/items/bomb_fly", description = "Bomb fly" }
 sprite{ id = "entities/items/heart", description = "Heart" }
 sprite{ id = "entities/items/heart_fly", description = "Heart fly" }
+sprite{ id = "entities/items/item_shop_arrow", description = "Item shop arrow" }
+sprite{ id = "entities/items/item_shop_bomb", description = "Item shop bomb" }
+sprite{ id = "entities/items/item_shop_bow", description = "Item shop bow" }
+sprite{ id = "entities/items/item_shop_heart", description = "Item shop heart" }
+sprite{ id = "entities/items/item_shop_shield", description = "Item shop shield" }
+sprite{ id = "entities/items/item_shop_shovel", description = "Item shop shovel" }
 sprite{ id = "entities/items/magic_powder_fly", description = "Magic powder fly" }
 sprite{ id = "entities/items/mushroom", description = "Mushroom" }
 sprite{ id = "entities/items/rupee_fly", description = "Rupee fly" }
@@ -504,6 +510,7 @@ sprite{ id = "entities/orb_monster_orb_blue", description = "Orb monster orb blu
 sprite{ id = "entities/orb_monster_orb_green", description = "Orb monster orb green" }
 sprite{ id = "entities/orb_monster_orb_red", description = "Orb monster orb red" }
 sprite{ id = "entities/outside_door", description = "Outside closed door" }
+sprite{ id = "entities/prices_shop", description = "Prices shop" }
 sprite{ id = "entities/shadow", description = "Shadow" }
 sprite{ id = "entities/shadows/ball", description = "Ball" }
 sprite{ id = "entities/shadows/owl", description = "Owl" }
