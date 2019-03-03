@@ -1,0 +1,10 @@
+animation{
+  name = "default",
+  src_image = "entities/prices_shop.png",
+  directions = {
+    { x = 0, y = 0, frame_width = 40, frame_height = 16, origin_x = 20, origin_y = 13 },
+    { x = 0, y = 16, frame_width = 40, frame_height = 16, origin_x = 20, origin_y = 13 },
+    { x = 0, y = 32, frame_width = 40, frame_height = 16, origin_x = 20, origin_y = 13 },
+    { x = 0, y = 48, frame_width = 40, frame_height = 16, origin_x = 20, origin_y = 13 },
+  },
+}
