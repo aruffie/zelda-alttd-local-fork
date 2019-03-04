@@ -1001,7 +1001,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/destructibles/block_ice",
-  model = "plateform_ice_block",
+  model = "platform_ice_block",
 }
 
 custom_entity{
@@ -1012,7 +1012,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/destructibles/block_ice",
-  model = "plateform_ice_block",
+  model = "platform_ice_block",
 }
 
 custom_entity{
@@ -1023,7 +1023,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/destructibles/block_ice",
-  model = "plateform_ice_block",
+  model = "platform_ice_block",
 }
 
 custom_entity{
@@ -1034,6 +1034,6 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/destructibles/block_ice",
-  model = "plateform_ice_block",
+  model = "platform_ice_block",
 }
 

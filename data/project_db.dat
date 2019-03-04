@@ -1264,10 +1264,10 @@ entity{ id = "non_diggable", description = "Non diggable" }
 entity{ id = "obstacle", description = "Obstacle" }
 entity{ id = "pickable_fly", description = "Pickable fly" }
 entity{ id = "pillar", description = "Pillar" }
-entity{ id = "plateform_ice_block" }
 entity{ id = "platform_balance", description = "Twin linked platforms" }
 entity{ id = "platform_chain", description = "Chain for twin platforms" }
 entity{ id = "platform_collapsing", description = "Collapsing platform" }
+entity{ id = "platform_ice_block" }
 entity{ id = "platform_moving", description = "Movin platform" }
 entity{ id = "platform_thwomp", description = "Platform (Spiked Thwomp top)" }
 entity{ id = "powder", description = "Powder" }
@@ -1385,10 +1385,10 @@ file{ path = "enemies/wizzrobe_white.lua", license = "GPL v3" }
 file{ path = "enemies/zol_green.lua", license = "GPL v3" }
 file{ path = "enemies/zol_red.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "enemies/zombie.lua", license = "GPL v3" }
-file{ path = "entities/plateform_ice_block.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "entities/platform_balance.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "entities/platform_chain.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "entities/platform_collapsing.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "entities/platform_ice_block.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "entities/platform_moving.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "entities/platform_thwomp.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "fonts/04b03.ttf", author = "Yuji Oshimoto", license = "Free for personal use" }
