@@ -869,6 +869,10 @@ custom_entity{
       key = "is_semisolid",
       value = "true",
     },
+    {
+      key = "cycle_duration",
+      value = "6000",
+    },
   },
   width = 32,
   height = 16,
@@ -889,6 +893,10 @@ custom_entity{
     {
       key = "distance",
       value = "48",
+    },
+    {
+      key = "cycle_duration",
+      value = "6000",
     },
   },
   width = 32,
@@ -987,8 +995,7 @@ enemy{
   name = "auto_enemy",
   layer = 0,
   x = 520,
-  y = 141,
-  enabled_at_start = false,
+  y = 125,
   direction = 0,
   breed = "spiked_thwomp",
 }
