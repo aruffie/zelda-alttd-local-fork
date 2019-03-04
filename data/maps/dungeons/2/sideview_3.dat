@@ -978,6 +978,7 @@ enemy{
   layer = 0,
   x = 232,
   y = 133,
+  enabled_at_start = false,
   direction = 0,
   breed = "mini_thwomp",
 }
@@ -987,7 +988,52 @@ enemy{
   layer = 0,
   x = 520,
   y = 141,
+  enabled_at_start = false,
   direction = 0,
   breed = "spiked_thwomp",
+}
+
+custom_entity{
+  layer = 0,
+  x = 120,
+  y = 117,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/block_ice",
+  model = "plateform_ice_block",
+}
+
+custom_entity{
+  layer = 0,
+  x = 136,
+  y = 117,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/block_ice",
+  model = "plateform_ice_block",
+}
+
+custom_entity{
+  layer = 0,
+  x = 120,
+  y = 101,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/block_ice",
+  model = "plateform_ice_block",
+}
+
+custom_entity{
+  layer = 0,
+  x = 104,
+  y = 117,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/block_ice",
+  model = "plateform_ice_block",
 }
 
