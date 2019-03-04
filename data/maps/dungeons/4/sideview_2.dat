@@ -2,7 +2,7 @@ properties{
   x = 0,
   y = 0,
   width = 640,
-  height = 256,
+  height = 240,
   min_layer = 0,
   max_layer = 2,
   world = "dungeon_4",
@@ -15,7 +15,7 @@ tile{
   x = 0,
   y = 0,
   width = 640,
-  height = 256,
+  height = 240,
   pattern = "20",
 }
 
@@ -312,7 +312,7 @@ tile{
   x = 576,
   y = 72,
   width = 64,
-  height = 192,
+  height = 176,
   pattern = "61",
 }
 
@@ -321,7 +321,7 @@ tile{
   x = 560,
   y = 72,
   width = 16,
-  height = 128,
+  height = 160,
   pattern = "60",
 }
 
@@ -339,7 +339,7 @@ tile{
   x = 0,
   y = 232,
   width = 576,
-  height = 32,
+  height = 16,
   pattern = "61",
 }
 
@@ -350,15 +350,6 @@ tile{
   width = 448,
   height = 16,
   pattern = "58",
-}
-
-tile{
-  layer = 0,
-  x = 560,
-  y = 200,
-  width = 16,
-  height = 32,
-  pattern = "61",
 }
 
 tile{
@@ -888,7 +879,7 @@ separator{
   x = 312,
   y = 0,
   width = 16,
-  height = 256,
+  height = 240,
 }
 
 enemy{

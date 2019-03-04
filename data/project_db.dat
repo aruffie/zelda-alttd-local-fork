@@ -76,7 +76,7 @@ map{ id = "dungeons/6/1f", description = "Dungeon 6 1F" }
 map{ id = "dungeons/7/1f", description = "Dungeon 7 1F" }
 map{ id = "dungeons/7/2f", description = "Dungeon 7 2F" }
 map{ id = "dungeons/7/3f", description = "Dungeon 7 3F" }
-map{ id = "dungeons/7/3f_bis", description = "Dungeon 7 3F Bis" }
+map{ id = "dungeons/7/sideview", description = "Sideview" }
 map{ id = "dungeons/8/1f", description = "Dungeon 8 1F" }
 map{ id = "dungeons/9/1f", description = "Dungeon 9 1F" }
 map{ id = "examples/beach_store", description = "Beach Store" }
@@ -468,6 +468,7 @@ sprite{ id = "entities/insects/butterfly_green", description = "Butterfly 4" }
 sprite{ id = "entities/insects/butterfly_red", description = "Butterfly 3" }
 sprite{ id = "entities/insects/butterfly_yellow", description = "Butterfly 2" }
 sprite{ id = "entities/insects/mosquito", description = "Mosquito" }
+sprite{ id = "entities/iron_ball", description = "Iron ball" }
 sprite{ id = "entities/items", description = "Items" }
 sprite{ id = "entities/items/arrow_fly", description = "Arrow fly" }
 sprite{ id = "entities/items/bananas", description = "Bananas" }
@@ -503,6 +504,8 @@ sprite{ id = "entities/misc/teletransporter", description = "Teletransporter" }
 sprite{ id = "entities/misc/torch", description = "Torch" }
 sprite{ id = "entities/misc/vacuum_cleaner", description = "Vacuum cleaner" }
 sprite{ id = "entities/moving_platform_dg_2", description = "Moving platform dg 2" }
+sprite{ id = "entities/moving_platform_dg_5", description = "Moving platform (dungeon 5)" }
+sprite{ id = "entities/moving_platform_dg_5_chain", description = "Moving platform chain (dungeon 5)" }
 sprite{ id = "entities/orb_monster_orb_blue", description = "Orb monster orb blue" }
 sprite{ id = "entities/orb_monster_orb_green", description = "Orb monster orb green" }
 sprite{ id = "entities/orb_monster_orb_red", description = "Orb monster orb red" }
@@ -514,7 +517,8 @@ sprite{ id = "entities/shadows/owl", description = "Owl" }
 sprite{ id = "entities/shadows/pickable_flying", description = "Pickable flying" }
 sprite{ id = "entities/shadows/shadow", description = "Shadow" }
 sprite{ id = "entities/star", description = "Star" }
-sprite{ id = "entities/statues/pillar", description = "Pillar" }
+sprite{ id = "entities/statues/pillar", description = "Pillar base" }
+sprite{ id = "entities/statues/pillar_top", description = "Pillar top" }
 sprite{ id = "entities/statues/statue_darknut", description = "Statue darknut" }
 sprite{ id = "entities/statues/statue_koopa", description = "Statue koopa" }
 sprite{ id = "entities/statues/statue_pig", description = "Statue pig" }
@@ -586,6 +590,10 @@ sprite{ id = "menus/dungeon_maps/map_5", description = "Map 5" }
 sprite{ id = "menus/dungeon_maps/map_5_compass", description = "map 5 compass" }
 sprite{ id = "menus/dungeon_maps/map_5_no_map", description = "Map 5 no map" }
 sprite{ id = "menus/dungeon_maps/map_5_no_map_compass", description = "Map 5 no map compass" }
+sprite{ id = "menus/dungeon_maps/map_7", description = "Map 7" }
+sprite{ id = "menus/dungeon_maps/map_7_compass", description = "Map 7 compass" }
+sprite{ id = "menus/dungeon_maps/map_7_no_map", description = "Map 7 no map" }
+sprite{ id = "menus/dungeon_maps/map_7_no_map_compass", description = "Map 7 no map compass" }
 sprite{ id = "menus/file_selection/file_selection_cursor", description = "File selection menu cursor" }
 sprite{ id = "menus/file_selection/file_selection_hero", description = "Link's sprite for file selection menu" }
 sprite{ id = "menus/game_over/game_over_fade", description = "Game-over fade" }
@@ -820,6 +828,7 @@ sound{ id = "gb/enemies/evil_eagle_flap", description = "Evil eagle flap" }
 sound{ id = "gb/enemies/evil_eagle_fly_away", description = "Evil eagle fly away" }
 sound{ id = "gb/enemies/evil_eagle_flyby", description = "Evil eagle flyby" }
 sound{ id = "gb/enemies/evil_eagle_skid", description = "Evil eagle skid" }
+sound{ id = "gb/enemies/face_lamp", description = "Empty sound" }
 sound{ id = "gb/enemies/floor_tiles", description = "Floor tiles" }
 sound{ id = "gb/enemies/genie_appear", description = "Genie appear" }
 sound{ id = "gb/enemies/genie_bottle_smash", description = "Genie bottle smash" }
@@ -866,6 +875,7 @@ sound{ id = "gb/enemies/turtle_rock_shed_full", description = "Turtle rock shed 
 sound{ id = "gb/enemies/turtlerock_blink2", description = "Turtlerock blink 2" }
 sound{ id = "gb/enemies/turtlerock_shed", description = "Turtlerock shed" }
 sound{ id = "gb/enemies/vacuum_mouth", description = "Vacuum mouth" }
+sound{ id = "gb/enemies/wizzrobe", description = "Empty sound" }
 sound{ id = "gb/hero/bounce", description = "Bounce" }
 sound{ id = "gb/hero/dizzy", description = "Dizzy" }
 sound{ id = "gb/hero/dying", description = "Dying" }
@@ -1003,6 +1013,7 @@ sound{ id = "snes/enemies/boss_hit", description = "Boss hit" }
 sound{ id = "snes/enemies/enemy_die", description = "Enemy die" }
 sound{ id = "snes/enemies/enemy_hit", description = "Enemy hit" }
 sound{ id = "snes/enemies/laser", description = "Laser" }
+sound{ id = "snes/enemies/wizzrobe", description = "snes/enemies/wizzrobe" }
 sound{ id = "snes/hero/bound", description = "Bound" }
 sound{ id = "snes/hero/dying", description = "Dying" }
 sound{ id = "snes/hero/fall", description = "Fall" }
@@ -1189,6 +1200,7 @@ enemy{ id = "leever", description = "Leever" }
 enemy{ id = "like_like", description = "Like Like" }
 enemy{ id = "mad_bomber", description = "Mad bomber" }
 enemy{ id = "maskass", description = "Maskass" }
+enemy{ id = "mini_thwomp", description = "Thwomp (small)" }
 enemy{ id = "moblin", description = "Moblin" }
 enemy{ id = "moblin_dog_spear", description = "Moblin dog spear" }
 enemy{ id = "moblin_dog_sword", description = "Moblin dog sword" }
@@ -1243,14 +1255,21 @@ entity{ id = "heavy_statue", description = "Heavy statue" }
 entity{ id = "hook_bridge", description = "hook bridge" }
 entity{ id = "hookable", description = "Hookable" }
 entity{ id = "insect", description = "Insect" }
+entity{ id = "iron_ball", description = "Iron ball" }
 entity{ id = "light", description = "Light" }
 entity{ id = "mouse", description = "Mouse" }
-entity{ id = "moving_platform", description = "Movin platform" }
 entity{ id = "mr_write_and_christine", description = "Mr Write and Christine" }
 entity{ id = "non_diggable", description = "Non diggable" }
 entity{ id = "obstacle", description = "Obstacle" }
 entity{ id = "pickable_fly", description = "Pickable fly" }
+entity{ id = "pillar", description = "Pillar" }
+entity{ id = "platform_balance", description = "Twin linked platforms" }
+entity{ id = "platform_chain", description = "Chain for twin platforms" }
+entity{ id = "platform_collapsing", description = "Collapsing platform" }
+entity{ id = "platform_moving", description = "Movin platform" }
+entity{ id = "platform_thwomp", description = "Platform (Spiked Thwomp top)" }
 entity{ id = "powder", description = "Powder" }
+entity{ id = "pull_handle", description = "Pull handle" }
 entity{ id = "seagull", description = "Seagull" }
 entity{ id = "statue", description = "Statue" }
 entity{ id = "statue_elephant", description = "Statue elephant" }
@@ -1631,8 +1650,6 @@ file{ path = "maps/dungeons/7/2f.dat", author = "Benjamin Schweitzer", license =
 file{ path = "maps/dungeons/7/2f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/dungeons/7/3f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
 file{ path = "maps/dungeons/7/3f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/dungeons/7/3f_bis.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/7/3f_bis.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/dungeons/8", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
 file{ path = "maps/dungeons/8/1f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
 file{ path = "maps/dungeons/8/1f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
@@ -2203,6 +2220,7 @@ file{ path = "sounds/victory.ogg", author = "Franck Jousseaume", license = "CC B
 file{ path = "sounds/walk_on_grass.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/walk_on_water.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/wrong.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sprites/entities/iron_ball.dat", author = "Christopho", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/file_selection/file_selection_button.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/file_selection/file_selection_cursor.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/file_selection/file_selection_frame.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }

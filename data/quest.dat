@@ -9,8 +9,8 @@ quest{
   quest_version = "1.0.0",
   release_date = "",
   website = "http://www.zeldaforce.net",
-  normal_quest_size = "320x256",
-  min_quest_size = "320x256",
-  max_quest_size = "320x256",
+  normal_quest_size = "320x240",
+  min_quest_size = "320x240",
+  max_quest_size = "320x240",
 }
 
