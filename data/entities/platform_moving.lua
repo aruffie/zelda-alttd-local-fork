@@ -10,6 +10,7 @@ local direction, distance
 local ax, ay
 local angle
 local is_semisolid
+local elapsed_time
 -- Include scripts
 --require("scripts/multi_events")
 
@@ -27,6 +28,10 @@ entity:register_event("on_created", function()
   if distance == nil then
     distance= 0
   end
+  duration = entity:get_property("cycle_duration")
+  if duration == nil then
+    duration= 4000
+  end
   local semisolid = entity:get_property("is_semisolid")
   if semisolid == nil then
     is_semisolid = false
@@ -36,7 +41,7 @@ entity:register_event("on_created", function()
     is_semisolid=false
   end
 
-  start_time=sol.main.get_elapsed_time()
+  elapsed_time=0
   angle=(direction)/4*math.pi
   ax = math.cos(angle)*distance/2
   ay = -math.sin(angle)*distance/2
@@ -72,8 +77,8 @@ local function update_hero_position()
 end
 
 function entity:on_update()
-  local dt=sol.main.get_elapsed_time()-start_time
-  local a=-math.cos(dt/1200)+1
+  elapsed_time=elapsed_time+10
+  local a=-math.cos(elapsed_time/duration*math.pi*2)+1
   local new_x = start_x + a*ax
   local new_y = start_y + a*ay
   entity:set_position(new_x,new_y)
