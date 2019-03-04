@@ -60,6 +60,25 @@ local function move_hero_with_me()
       hero:set_position(xx+dx, yy+dy)
     end
 end
+
+  function entity:on_removed()
+    if chain then
+     chain:remove()
+    end
+  end
+
+  function entity:on_disbled()
+    if chain then
+      chain:set_enabled(false)
+    end    
+  end
+
+  function entity:on_enabled()
+    if chain then
+      chain:set_enabled(true)
+    end    
+  end
+
 local function compute_new_xy()
   --print("Entity "..entity:get_name()..": am i  stuck ?"..(entity:test_obstacles(0, 1) and "Yes" or "No"))
   if entity:test_obstacles(0, speed)==false and twin:test_obstacles(0, -speed)==false then
