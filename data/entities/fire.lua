@@ -36,10 +36,8 @@ local function is_ice_block(entity)
 
   local sprite = entity:get_sprite()
   if sprite == nil then
-    --print "NO SPRITE FOUND. ABORT"
     return false
   end
-  --print "SPRITE OK"
   local sprite_id = sprite:get_animation_set()
   return sprite_id == "entities/destructibles/block_ice"
 end
@@ -47,16 +45,11 @@ end
 local function bush_collision_test(fire, other)
 
   if other:get_type() ~= "destructible" and other:get_type() ~= "custom_entity" then
-    --print "NOT THE DESIRED TYPE. EXIT"
     return false
   end
-  --print "TYPE OK"
-  --print("is bush ? "..(is_bush(other) and "yes" or "no")..", is ice block ? "..(is_ice_block(other) and "yes" or "no"))
   if not (is_bush(other) or is_ice_block(other)) then
-    --print "NOT A BUSH OR AN ICE BLOCK. EXIT"
     return
   end
-  -- print "BUSH OR ICE BLOCK DETECTED"
   -- Check if the fire box touches the one of the bush.
   -- To do this, we extend it of one pixel in all 4 directions.
   local x, y, width, height = fire:get_bounding_box()
@@ -83,12 +76,10 @@ fire.apply_cliffs = true
 
 -- Burn bushes.
 fire:add_collision_test(bush_collision_test, function(fire, entity)
-  print "TEST OK"
   local map = fire:get_map()
 
   if entity:get_type() == "destructible" or entity:get_type() == "custom_entity" then
     if not (is_bush(entity) or is_ice_block(entity)) then
-      print "NOT A COMPATIBLE BLOCK. EXIT"
       return
     end
     local bush = entity
@@ -97,11 +88,9 @@ fire:add_collision_test(bush_collision_test, function(fire, entity)
     if (is_bush(bush) and bush_sprite:get_animation() ~= "on_ground")
       or (is_ice_block(bush) and bush_sprite:get_animation() ~= "normal") then
       -- Possibly already being destroyed.
-      print "ALREADY DESTROYED. EXIT"
       return
     end
     if is_ice_block(bush) then --Remove ice blocks, but do not stop the movement.
-      print ("MELT ME DOWN !")
       bush:remove()
       --audio_manager:play_sound("items/magic_powder_ignite")
       return
