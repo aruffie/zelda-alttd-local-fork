@@ -52,6 +52,16 @@ animation{
   },
 }
 animation{
+  name = "brandish_swim",
+  src_image = "hero/miscellaneous.png",
+  directions = {
+    { x = 48, y = 0, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21 },
+    { x = 48, y = 0, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21 },
+    { x = 48, y = 0, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21 },
+    { x = 48, y = 0, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21 },
+  },
+}
+animation{
   name = "calling",
   src_image = "hero/calling.png",
   frame_delay = 300,
