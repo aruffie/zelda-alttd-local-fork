@@ -16,6 +16,7 @@ local group="" --will be used to activate it's twin entity
 local w=16
 local h=16
 local twin=nil
+local chain=nil
 
 -- Include scripts
 --require("scripts/multi_events")
@@ -29,8 +30,20 @@ entity:register_event("on_created", function()
   old_x, old_y=entity:get_bounding_box()
   entity:set_traversable_by(false)
   entity.is_on_twin=false
-  _x, _y = entity:get_position()
+  _x, _y, _layer = entity:get_position()
   twin = entity:get_map():get_entity(group.."_"..(3-id))
+  chain = entity:get_map():create_custom_entity({
+    x=_x,
+    y=_y%16,
+    layer=_layer,
+    direction = 0,
+    width=w,
+    height =_y-(_y%16),
+    sprite = "entities/moving_platform_dg_5_chain",
+    model = "platform_chain", 
+  })
+  chain:set_tiled(true)
+  chain:set_origin(8, 13)
 end)
 
 local function is_on_platform(e) 
@@ -79,9 +92,9 @@ function entity:on_update()
   compute_new_xy()
   move_hero_with_me()
   old_x, old_y = entity:get_bounding_box()
-  local chain = entity:get_map():get_entity(group.."_chain_"..id)
-
-  chain:set_position(old_x+8, (old_y+13)%16) 
-  local cx, cy, cw=chain:get_bounding_box()
-  chain:set_size(cw, math.max(8, old_y-cy))
+  --local chain = entity:get_map():get_entity(group.."_chain_"..id)
+  local dy = old_y+13
+  chain:set_position(old_x+8, dy%16) 
+  
+  chain:set_size(w, math.max(8, dy-(dy%16)))
 end
