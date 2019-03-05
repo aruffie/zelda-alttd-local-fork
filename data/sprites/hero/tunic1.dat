@@ -523,6 +523,18 @@ animation{
   },
 }
 animation{
+  name = "stopped_swim_scroll",
+  src_image = "hero/swimming_scroll.png",
+  frame_delay = 200,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+  },
+}
+animation{
   name = "stopped_with_shield",
   src_image = "hero/stopped.tunic.png",
   directions = {
