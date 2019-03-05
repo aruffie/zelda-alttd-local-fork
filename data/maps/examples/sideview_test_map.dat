@@ -5,6 +5,24 @@ properties{
   height = 240,
   min_layer = 0,
   max_layer = 2,
-  tileset = "addition/dungeon",
+  tileset = "sideview/sideview",
+  music = "same",
+}
+
+tile{
+  layer = 0,
+  x = 0,
+  y = 176,
+  width = 320,
+  height = 16,
+  pattern = "87",
+}
+
+destination{
+  name = "destination",
+  layer = 0,
+  x = 128,
+  y = 77,
+  direction = 1,
 }
 
