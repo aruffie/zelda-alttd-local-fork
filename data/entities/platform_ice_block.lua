@@ -12,17 +12,21 @@ function entity:on_created()
   self:get_sprite():set_animation("normal")
 end
 
+function entity:melt()
+  local sprite=entity:get_sprite()
+  sprite:set_animation("destroy", function()
+    entity:remove()
+  end)
+end
+
 function entity:on_update()
   local x,y,w,h=entity:get_bounding_box()
   local hx, hy, hw, hh=hero:get_bounding_box()
   if hx<x+w+1 and hx+hw>x-1 and hy<=y+h-1 and hy+hh>=y+1 then
     if not(map.frozen) then
-      print("Iced")
       game:start_dialog("entities.ice_block.frozen", function()
         map.frozen=true
       end)
     end
   end
 end
-return behavior
-

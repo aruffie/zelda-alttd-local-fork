@@ -91,7 +91,7 @@ fire:add_collision_test(bush_collision_test, function(fire, entity)
       return
     end
     if is_ice_block(bush) then --Remove ice blocks, but do not stop the movement.
-      bush:remove()
+      bush:melt()
       --audio_manager:play_sound("items/magic_powder_ignite")
       return
     end
