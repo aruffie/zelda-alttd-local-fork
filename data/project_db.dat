@@ -483,6 +483,7 @@ sprite{ id = "entities/items/item_shop_bow", description = "Item shop bow" }
 sprite{ id = "entities/items/item_shop_heart", description = "Item shop heart" }
 sprite{ id = "entities/items/item_shop_shield", description = "Item shop shield" }
 sprite{ id = "entities/items/item_shop_shovel", description = "Item shop shovel" }
+sprite{ id = "entities/items/item_yoshi_price", description = "Item yoshi price" }
 sprite{ id = "entities/items/magic_powder_fly", description = "Magic powder fly" }
 sprite{ id = "entities/items/mushroom", description = "Mushroom" }
 sprite{ id = "entities/items/rupee_fly", description = "Rupee fly" }
