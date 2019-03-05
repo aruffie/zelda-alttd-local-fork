@@ -508,6 +508,87 @@ tile{
   tileset = "addition/dungeon",
 }
 
+tile{
+  layer = 0,
+  x = 72,
+  y = 136,
+  width = 8,
+  height = 8,
+  pattern = "carpet.7",
+}
+
+tile{
+  layer = 0,
+  x = 80,
+  y = 96,
+  width = 160,
+  height = 8,
+  pattern = "carpet.2",
+}
+
+tile{
+  layer = 0,
+  x = 72,
+  y = 104,
+  width = 8,
+  height = 32,
+  pattern = "carpet.4",
+}
+
+tile{
+  layer = 0,
+  x = 80,
+  y = 136,
+  width = 160,
+  height = 8,
+  pattern = "carpet.8",
+}
+
+tile{
+  layer = 0,
+  x = 240,
+  y = 96,
+  width = 8,
+  height = 8,
+  pattern = "carpet.3",
+}
+
+tile{
+  layer = 0,
+  x = 240,
+  y = 104,
+  width = 8,
+  height = 32,
+  pattern = "carpet.6",
+}
+
+tile{
+  layer = 0,
+  x = 80,
+  y = 104,
+  width = 160,
+  height = 32,
+  pattern = "carpet.5",
+}
+
+tile{
+  layer = 0,
+  x = 240,
+  y = 136,
+  width = 8,
+  height = 8,
+  pattern = "carpet.9",
+}
+
+tile{
+  layer = 0,
+  x = 72,
+  y = 96,
+  width = 8,
+  height = 8,
+  pattern = "carpet.1",
+}
+
 destination{
   name = "shop_2_1_B",
   layer = 0,
@@ -565,7 +646,7 @@ npc{
   name = "merchant_angry",
   layer = 0,
   x = 160,
-  y = 141,
+  y = 125,
   direction = 3,
   subtype = 1,
   sprite = "npc/villagers/merchant",

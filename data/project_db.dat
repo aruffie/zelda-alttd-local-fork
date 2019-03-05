@@ -378,6 +378,7 @@ sprite{ id = "entities/crystal_block", description = "Crystal block" }
 sprite{ id = "entities/decorations/background_introduction", description = "Background introduction" }
 sprite{ id = "entities/decorations/bubble_swamp", description = "Bubble swamp" }
 sprite{ id = "entities/decorations/fire", description = "Fire" }
+sprite{ id = "entities/decorations/mini_candle", description = "Mini candle" }
 sprite{ id = "entities/decorations/rainbow", description = "Rainbow" }
 sprite{ id = "entities/decorations/sun", description = "Sun" }
 sprite{ id = "entities/decorations/swell_1", description = "Swell 1" }
@@ -444,6 +445,7 @@ sprite{ id = "entities/grounds/conveyor_belt_1", description = "Conveyor belt 1"
 sprite{ id = "entities/grounds/conveyor_belt_2", description = "Conveyor belt 2" }
 sprite{ id = "entities/grounds/conveyor_belt_3", description = "Conveyor belt 3" }
 sprite{ id = "entities/grounds/conveyor_belt_4", description = "Conveyor belt 4" }
+sprite{ id = "entities/grounds/conveyor_belt_minigame", description = "Conveyor belt minigame" }
 sprite{ id = "entities/grounds/ground_dug", description = "Ground dug" }
 sprite{ id = "entities/grounds/weak_floor_dark_1", description = "Weak floor dark 1" }
 sprite{ id = "entities/grounds/weak_floor_dark_2", description = "Weak floor dark 2" }
@@ -482,6 +484,7 @@ sprite{ id = "entities/items/item_shop_bow", description = "Item shop bow" }
 sprite{ id = "entities/items/item_shop_heart", description = "Item shop heart" }
 sprite{ id = "entities/items/item_shop_shield", description = "Item shop shield" }
 sprite{ id = "entities/items/item_shop_shovel", description = "Item shop shovel" }
+sprite{ id = "entities/items/item_yoshi_price", description = "Item yoshi price" }
 sprite{ id = "entities/items/magic_powder_fly", description = "Magic powder fly" }
 sprite{ id = "entities/items/mushroom", description = "Mushroom" }
 sprite{ id = "entities/items/rupee_fly", description = "Rupee fly" }

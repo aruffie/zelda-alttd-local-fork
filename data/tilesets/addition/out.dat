@@ -1725,6 +1725,16 @@ tile_pattern{
 }
 
 tile_pattern{
+  id = "80",
+  ground = "traversable",
+  default_layer = 0,
+  x = 352,
+  y = 176,
+  width = 40,
+  height = 32,
+}
+
+tile_pattern{
   id = "81",
   ground = "wall",
   default_layer = 0,

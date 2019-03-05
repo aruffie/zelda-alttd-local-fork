@@ -15822,9 +15822,9 @@ dynamic_tile{
   layer = 0,
   x = 328,
   y = 456,
-  pattern = "6020",
   width = 16,
   height = 16,
+  pattern = "6020",
 }
 
 destructible{
@@ -15852,9 +15852,9 @@ dynamic_tile{
   layer = 0,
   x = 592,
   y = 72,
-  pattern = "6020",
   width = 16,
   height = 16,
+  pattern = "6020",
 }
 
 sensor{
@@ -15871,9 +15871,9 @@ dynamic_tile{
   layer = 0,
   x = 648,
   y = 72,
-  pattern = "6020",
   width = 16,
   height = 16,
+  pattern = "6020",
 }
 
 sensor{
@@ -15890,9 +15890,9 @@ dynamic_tile{
   layer = 0,
   x = 824,
   y = 328,
-  pattern = "6020",
   width = 16,
   height = 16,
+  pattern = "6020",
 }
 
 sensor{
@@ -15909,9 +15909,9 @@ dynamic_tile{
   layer = 0,
   x = 824,
   y = 672,
-  pattern = "6020",
   width = 16,
   height = 16,
+  pattern = "6020",
 }
 
 sensor{
@@ -15928,9 +15928,9 @@ dynamic_tile{
   layer = 0,
   x = 368,
   y = 680,
-  pattern = "6020",
   width = 16,
   height = 16,
+  pattern = "6020",
 }
 
 sensor{
@@ -21522,9 +21522,9 @@ dynamic_tile{
   layer = 0,
   x = 616,
   y = 280,
-  pattern = "6124",
   width = 32,
   height = 32,
+  pattern = "6124",
 }
 
 npc{
@@ -21551,9 +21551,9 @@ dynamic_tile{
   layer = 0,
   x = 376,
   y = 472,
-  pattern = "1108",
   width = 8,
   height = 16,
+  pattern = "1108",
 }
 
 npc{
@@ -25006,13 +25006,13 @@ custom_entity{
   model = "butterfly",
 }
 
-dynamic_tile{
-  name = "weathercook_statue_1",
-  layer = 1,
+tile{
+  layer = 2,
   x = 616,
-  y = 264,
-  pattern = "6439",
-  width = 32,
-  height = 24,
+  y = 256,
+  width = 40,
+  height = 32,
+  pattern = "80",
+  tileset = "addition/out",
 }
 

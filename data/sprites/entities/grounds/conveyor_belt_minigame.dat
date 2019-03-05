@@ -1,0 +1,9 @@
+animation{
+  name = "default",
+  src_image = "entities/grounds/conveyor_belt_minigame.png",
+  frame_delay = 200,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 0, frame_width = 112, frame_height = 64, origin_x = 8, origin_y = 13, num_frames = 2 },
+  },
+}
