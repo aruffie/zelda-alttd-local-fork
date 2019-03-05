@@ -452,6 +452,87 @@ tile{
   tileset = "addition/dungeon",
 }
 
+tile{
+  layer = 0,
+  x = 144,
+  y = 88,
+  width = 64,
+  height = 8,
+  pattern = "carpet.2",
+}
+
+tile{
+  layer = 0,
+  x = 144,
+  y = 96,
+  width = 64,
+  height = 24,
+  pattern = "carpet.5",
+}
+
+tile{
+  layer = 0,
+  x = 144,
+  y = 112,
+  width = 64,
+  height = 8,
+  pattern = "carpet.8",
+}
+
+tile{
+  layer = 0,
+  x = 136,
+  y = 88,
+  width = 8,
+  height = 8,
+  pattern = "carpet.1",
+}
+
+tile{
+  layer = 0,
+  x = 208,
+  y = 112,
+  width = 8,
+  height = 8,
+  pattern = "carpet.9",
+}
+
+tile{
+  layer = 0,
+  x = 208,
+  y = 88,
+  width = 8,
+  height = 24,
+  pattern = "carpet.6",
+}
+
+tile{
+  layer = 0,
+  x = 136,
+  y = 96,
+  width = 8,
+  height = 24,
+  pattern = "carpet.4",
+}
+
+tile{
+  layer = 0,
+  x = 208,
+  y = 88,
+  width = 8,
+  height = 8,
+  pattern = "carpet.3",
+}
+
+tile{
+  layer = 0,
+  x = 136,
+  y = 112,
+  width = 8,
+  height = 8,
+  pattern = "carpet.7",
+}
+
 destination{
   name = "shop_1_1_B",
   layer = 0,
@@ -479,204 +560,6 @@ npc{
   direction = 2,
   subtype = 1,
   sprite = "npc/villagers/game_man",
-}
-
-custom_entity{
-  layer = 0,
-  x = 160,
-  y = 133,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/grounds/conveyor_belt_3",
-  model = "conveyor_belt",
-}
-
-custom_entity{
-  layer = 0,
-  x = 192,
-  y = 133,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/grounds/conveyor_belt_3",
-  model = "conveyor_belt",
-}
-
-custom_entity{
-  layer = 0,
-  x = 176,
-  y = 133,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/grounds/conveyor_belt_3",
-  model = "conveyor_belt",
-}
-
-custom_entity{
-  layer = 0,
-  x = 144,
-  y = 133,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/grounds/conveyor_belt_3",
-  model = "conveyor_belt",
-}
-
-custom_entity{
-  layer = 0,
-  x = 128,
-  y = 133,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/grounds/conveyor_belt_3",
-  model = "conveyor_belt",
-}
-
-custom_entity{
-  layer = 0,
-  x = 208,
-  y = 133,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/grounds/conveyor_belt_3",
-  model = "conveyor_belt",
-}
-
-custom_entity{
-  layer = 0,
-  x = 224,
-  y = 133,
-  width = 16,
-  height = 16,
-  direction = 1,
-  sprite = "entities/grounds/conveyor_belt_3",
-  model = "conveyor_belt",
-}
-
-custom_entity{
-  layer = 0,
-  x = 224,
-  y = 117,
-  width = 16,
-  height = 16,
-  direction = 1,
-  sprite = "entities/grounds/conveyor_belt_3",
-  model = "conveyor_belt",
-}
-
-custom_entity{
-  layer = 0,
-  x = 224,
-  y = 101,
-  width = 16,
-  height = 16,
-  direction = 1,
-  sprite = "entities/grounds/conveyor_belt_3",
-  model = "conveyor_belt",
-}
-
-custom_entity{
-  layer = 0,
-  x = 224,
-  y = 85,
-  width = 16,
-  height = 16,
-  direction = 2,
-  sprite = "entities/grounds/conveyor_belt_3",
-  model = "conveyor_belt",
-}
-
-custom_entity{
-  layer = 0,
-  x = 208,
-  y = 85,
-  width = 16,
-  height = 16,
-  direction = 2,
-  sprite = "entities/grounds/conveyor_belt_3",
-  model = "conveyor_belt",
-}
-
-custom_entity{
-  layer = 0,
-  x = 192,
-  y = 85,
-  width = 16,
-  height = 16,
-  direction = 2,
-  sprite = "entities/grounds/conveyor_belt_3",
-  model = "conveyor_belt",
-}
-
-custom_entity{
-  layer = 0,
-  x = 176,
-  y = 85,
-  width = 16,
-  height = 16,
-  direction = 2,
-  sprite = "entities/grounds/conveyor_belt_3",
-  model = "conveyor_belt",
-}
-
-custom_entity{
-  layer = 0,
-  x = 160,
-  y = 85,
-  width = 16,
-  height = 16,
-  direction = 2,
-  sprite = "entities/grounds/conveyor_belt_3",
-  model = "conveyor_belt",
-}
-
-custom_entity{
-  layer = 0,
-  x = 144,
-  y = 85,
-  width = 16,
-  height = 16,
-  direction = 2,
-  sprite = "entities/grounds/conveyor_belt_3",
-  model = "conveyor_belt",
-}
-
-custom_entity{
-  layer = 0,
-  x = 128,
-  y = 85,
-  width = 16,
-  height = 16,
-  direction = 3,
-  sprite = "entities/grounds/conveyor_belt_3",
-  model = "conveyor_belt",
-}
-
-custom_entity{
-  layer = 0,
-  x = 128,
-  y = 101,
-  width = 16,
-  height = 16,
-  direction = 3,
-  sprite = "entities/grounds/conveyor_belt_3",
-  model = "conveyor_belt",
-}
-
-custom_entity{
-  layer = 0,
-  x = 128,
-  y = 117,
-  width = 16,
-  height = 16,
-  direction = 3,
-  sprite = "entities/grounds/conveyor_belt_3",
-  model = "conveyor_belt",
 }
 
 custom_entity{
@@ -777,54 +660,37 @@ custom_entity{
   sprite = "shadows/shadow_big",
 }
 
-pickable{
-  name = "game_item_6",
+custom_entity{
+  name = "candle",
   layer = 0,
-  x = 176,
-  y = 117,
-  treasure_name = "magnifying_lens",
-  treasure_savegame_variable = "magnifying_lens_1",
+  x = 152,
+  y = 109,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/decorations/mini_candle",
 }
 
-pickable{
-  name = "game_item_3",
+custom_entity{
+  name = "candle_2",
+  layer = 0,
+  x = 200,
+  y = 109,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/decorations/mini_candle",
+}
+
+custom_entity{
+  name = "conveyor_minigame",
   layer = 0,
   x = 128,
-  y = 133,
-  treasure_name = "shield",
-}
-
-pickable{
-  name = "game_item_1",
-  layer = 0,
-  x = 160,
   y = 85,
-  treasure_name = "magic_powder",
-}
-
-pickable{
-  name = "game_item_4",
-  layer = 0,
-  x = 224,
-  y = 133,
-  treasure_name = "rupee",
-  treasure_variant = 2,
-}
-
-pickable{
-  name = "game_item_2",
-  layer = 0,
-  x = 128,
-  y = 101,
-  treasure_name = "rupee",
-}
-
-pickable{
-  name = "game_item_5",
-  layer = 0,
-  x = 224,
-  y = 101,
-  treasure_name = "heart",
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/grounds/conveyor_belt_minigame",
 }
 
 tile{
@@ -834,6 +700,39 @@ tile{
   width = 32,
   height = 8,
   pattern = "door_top.2-1",
+}
+
+pickable{
+  name = "game_item_2",
+  layer = 1,
+  x = 128,
+  y = 101,
+  treasure_name = "rupee",
+}
+
+pickable{
+  name = "game_item_3",
+  layer = 1,
+  x = 128,
+  y = 125,
+  treasure_name = "shield",
+}
+
+pickable{
+  name = "game_item_4",
+  layer = 1,
+  x = 224,
+  y = 133,
+  treasure_name = "rupee",
+  treasure_variant = 2,
+}
+
+pickable{
+  name = "game_item_5",
+  layer = 1,
+  x = 224,
+  y = 93,
+  treasure_name = "heart",
 }
 
 tile{
@@ -870,5 +769,24 @@ tile{
   width = 240,
   height = 16,
   pattern = "ceiling.2",
+}
+
+tile{
+  layer = 2,
+  x = 160,
+  y = 88,
+  width = 32,
+  height = 24,
+  pattern = "101",
+  tileset = "addition/dungeon",
+}
+
+pickable{
+  name = "game_item_6",
+  layer = 2,
+  x = 176,
+  y = 101,
+  treasure_name = "magnifying_lens",
+  treasure_savegame_variable = "magnifying_lens_1",
 }
 
