@@ -1166,6 +1166,16 @@ d'énergie !
 }
 
 dialog{
+  id = "entities.ice_block.frozen",
+  text = [[
+Brrrr... Ce sont
+des blocs       
+de glace!!      
+Je suis gelé!
+]],
+}
+
+dialog{
   id = "items.mushroom.1",
   skip = "all",
   text = [[

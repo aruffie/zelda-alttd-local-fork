@@ -869,6 +869,10 @@ custom_entity{
       key = "is_semisolid",
       value = "true",
     },
+    {
+      key = "cycle_duration",
+      value = "6000",
+    },
   },
   width = 32,
   height = 16,
@@ -889,6 +893,10 @@ custom_entity{
     {
       key = "distance",
       value = "48",
+    },
+    {
+      key = "cycle_duration",
+      value = "6000",
     },
   },
   width = 32,
@@ -978,6 +986,7 @@ enemy{
   layer = 0,
   x = 232,
   y = 133,
+  enabled_at_start = false,
   direction = 0,
   breed = "mini_thwomp",
 }
@@ -986,8 +995,52 @@ enemy{
   name = "auto_enemy",
   layer = 0,
   x = 520,
-  y = 141,
+  y = 125,
   direction = 0,
   breed = "spiked_thwomp",
+}
+
+custom_entity{
+  layer = 0,
+  x = 120,
+  y = 117,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/block_ice",
+  model = "platform_ice_block",
+}
+
+custom_entity{
+  layer = 0,
+  x = 136,
+  y = 117,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/block_ice",
+  model = "platform_ice_block",
+}
+
+custom_entity{
+  layer = 0,
+  x = 120,
+  y = 101,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/block_ice",
+  model = "platform_ice_block",
+}
+
+custom_entity{
+  layer = 0,
+  x = 104,
+  y = 117,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/block_ice",
+  model = "platform_ice_block",
 }
 
