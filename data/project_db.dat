@@ -88,6 +88,7 @@ map{ id = "examples/kakariko_village", description = "ALTTP Kakariko Village" }
 map{ id = "examples/others", description = "Others" }
 map{ id = "examples/outside_store", description = "Outside Store" }
 map{ id = "examples/sideview_cave", description = "Sideview cave example" }
+map{ id = "examples/sideview_test_map", description = "Test map (sideviews)" }
 map{ id = "examples/test_map", description = "Test map" }
 map{ id = "houses/east_prairie/telephone_booth_5", description = "Telephone booth 5" }
 map{ id = "houses/egg_of_the_dream_fish/photographer_house", description = "Photographer house" }
@@ -435,7 +436,6 @@ sprite{ id = "entities/effects/sparkle_big", description = "Sparkle big" }
 sprite{ id = "entities/effects/sparkle_small", description = "Sparkle small" }
 sprite{ id = "entities/explosion", description = "Explosion" }
 sprite{ id = "entities/explosion_boss", description = "Explosion boss" }
-sprite{ id = "entities/fire", description = "Fire rod flames" }
 sprite{ id = "entities/fire_mask", description = "Fire mask" }
 sprite{ id = "entities/fisher_boat", description = "Fisher boat" }
 sprite{ id = "entities/grounds/color_platform_green", description = "Color platform green" }
@@ -1270,7 +1270,6 @@ entity{ id = "pillar", description = "Pillar" }
 entity{ id = "platform_balance", description = "Twin linked platforms" }
 entity{ id = "platform_chain", description = "Chain for twin platforms" }
 entity{ id = "platform_collapsing", description = "Collapsing platform" }
-entity{ id = "platform_ice_block" }
 entity{ id = "platform_moving", description = "Movin platform" }
 entity{ id = "platform_thwomp", description = "Platform (Spiked Thwomp top)" }
 entity{ id = "powder", description = "Powder" }
@@ -1348,7 +1347,6 @@ file{ path = "enemies/hooded_stalfos.lua", license = "GPL v3" }
 file{ path = "enemies/keese.lua", license = "GPL v3" }
 file{ path = "enemies/leever.lua", license = "GPL v3" }
 file{ path = "enemies/lib", license = "GPL v3" }
-file{ path = "enemies/lib/thwomp_crush.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "enemies/like_like.lua", license = "GPL v3" }
 file{ path = "enemies/mad_bomber.lua", license = "GPL v3" }
 file{ path = "enemies/maskass.lua", license = "GPL v3" }
@@ -1388,12 +1386,6 @@ file{ path = "enemies/wizzrobe_white.lua", license = "GPL v3" }
 file{ path = "enemies/zol_green.lua", license = "GPL v3" }
 file{ path = "enemies/zol_red.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "enemies/zombie.lua", license = "GPL v3" }
-file{ path = "entities/platform_balance.lua", author = "PhoenixII54", license = "GPL v3" }
-file{ path = "entities/platform_chain.lua", author = "PhoenixII54", license = "GPL v3" }
-file{ path = "entities/platform_collapsing.lua", author = "PhoenixII54", license = "GPL v3" }
-file{ path = "entities/platform_ice_block.lua", author = "PhoenixII54", license = "GPL v3" }
-file{ path = "entities/platform_moving.lua", author = "PhoenixII54", license = "GPL v3" }
-file{ path = "entities/platform_thwomp.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "fonts/04b03.ttf", author = "Yuji Oshimoto", license = "Free for personal use" }
 file{ path = "fonts/green_digits.png", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "fonts/la.png", author = "Nintendo", license = "Proprietary, Fair use" }
