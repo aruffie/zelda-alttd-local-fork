@@ -433,6 +433,18 @@ animation{
   },
 }
 animation{
+  name = "stopped_swimming_scroll",
+  src_image = "hero/swimming_scroll.png",
+  frame_delay = 200,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 96, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 0, y = 96, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 0, y = 120, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 0, y = 120, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+  },
+}
+animation{
   name = "stopped_with_shield",
   src_image = "hero/stopped.tunic.png",
   directions = {
@@ -463,6 +475,18 @@ animation{
     { x = 240, y = 360, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 29, num_frames = 3 },
     { x = 240, y = 400, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 29, num_frames = 3 },
     { x = 240, y = 440, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 29, num_frames = 3 },
+  },
+}
+animation{
+  name = "swimming_scroll",
+  src_image = "hero/swimming_scroll.png",
+  frame_delay = 100,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 96, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 0, y = 96, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 0, y = 120, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 0, y = 120, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
   },
 }
 animation{
