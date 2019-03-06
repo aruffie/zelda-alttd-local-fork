@@ -4,6 +4,9 @@ require("scripts/multi_events")
 local walking_speed = 88
 local timer
 local sprite
+local vspeed =0
+local gravity = 0.1
+local max_vspeed=2.5
 
 local movement=sol.movement.create("straight")
 movement:set_angle(-1)
@@ -28,6 +31,25 @@ function hero_meta:on_position_changed()
   print"MOVE DETECTED"
 end
 --]]
+function apply_gravity(entity)
+    --Apply gravity
+  local vspeed = entity.vspeed or 0
+  vspeed = vspeed+gravity
+  local x,y=entity:get_position()
+  local dy=0
+  while dy<=vspeed do 
+    if entity:test_obstacles(0,dy) then --we just landed.
+       vspeed = 0
+       --print("Ground hit. Last valid position:"..y+dy)
+       break
+    end
+    dy=dy+0.1
+  end
+
+  entity:set_position(x,y+dy)
+  entity.vspeed = vspeed   
+end
+
 local function update_hero(hero, game)
   --print "LOOP"
   local speed = 0
@@ -69,6 +91,8 @@ local function update_hero(hero, game)
   local m = hero:get_movement()
   local debug_speed = m and m:get_speed() or 0
   --print("current speed: "..debug_speed)
+  
+  apply_gravity(hero)
 end
 
 hero_meta:register_event("on_state_changed", function(hero, state)

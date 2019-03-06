@@ -12,10 +12,29 @@ properties{
 tile{
   layer = 0,
   x = 0,
-  y = 176,
+  y = 192,
   width = 320,
-  height = 16,
-  pattern = "87",
+  height = 48,
+  pattern = "120",
+}
+
+tile{
+  layer = 0,
+  x = 0,
+  y = 184,
+  enabled_at_start = false,
+  width = 320,
+  height = 8,
+  pattern = "111",
+}
+
+tile{
+  layer = 0,
+  x = 0,
+  y = 192,
+  width = 320,
+  height = 8,
+  pattern = "114",
 }
 
 destination{
