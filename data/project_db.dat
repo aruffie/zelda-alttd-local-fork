@@ -345,6 +345,8 @@ sprite{ id = "enemies/zol_green", description = "Zol green" }
 sprite{ id = "enemies/zol_red", description = "Zol red" }
 sprite{ id = "enemies/zombie", description = "Zombie" }
 sprite{ id = "entities/animals/bird", description = "Bird" }
+sprite{ id = "entities/animals/fishing_big_fish", description = "Fishing big fish" }
+sprite{ id = "entities/animals/fishing_small_fish", description = "Fishing small fish" }
 sprite{ id = "entities/animals/frog", description = "Frog" }
 sprite{ id = "entities/animals/mambo_pal_1", description = "Mambo pal 1" }
 sprite{ id = "entities/animals/mambo_pal_2", description = "Mambo pal 2" }
