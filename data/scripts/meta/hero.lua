@@ -108,8 +108,8 @@ hero_meta:register_event("on_position_changed", function(hero)
     local world = map:get_world()
     local square_x = 0
     local square_y = 0
-    local square_mini_x = 0
-    local square_mini_y = 0
+    local square_min_x = 0
+    local square_min_y = 0
     local square_total_x = 0
     local square_total_y = 0
     local map_max_x = 3840
@@ -225,13 +225,6 @@ end)
 --------------------------------------------------
 local fixed_direction, fixed_stopped_animation, fixed_walking_animation
 
--- Return true if the hero is walking.
-function hero_meta:is_walking()
-
-  local m = self:get_movement()
-  return m and m.get_speed and m:get_speed() > 0
-  
-end
 
 -- Get fixed direction for the hero.
 function hero_meta:get_fixed_direction()
