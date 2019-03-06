@@ -34,7 +34,9 @@ end
 function apply_gravity(entity)
     --Apply gravity
   local vspeed = entity.vspeed or 0
-  vspeed = vspeed+gravity
+  if vspeed<=vspeed_max then
+    vspeed = vspeed+gravity
+  end
   local x,y=entity:get_position()
   local dy=0
   while dy<=vspeed do 
