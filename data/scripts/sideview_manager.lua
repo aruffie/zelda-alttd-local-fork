@@ -1,73 +1,97 @@
 local map_meta = sol.main.get_metatable("map")
 local hero_meta = sol.main.get_metatable("hero")
 require("scripts/multi_events")
-local __hero
+local walking_speed = 88
+local timer
+local sprite
 
 local movement=sol.movement.create("straight")
-movement:set_speed(88)
+movement:set_angle(-1)
+movement:set_speed(0)
+local is_sideview = false
 
 function map_meta:set_sideview(sideview)
-  self.sideview=sideview
+  is_sideview=sideview
 end
 
 function map_meta:is_sideview(sideview)
-  return self.sideview or false
+  return is_sideview
 end
 
-
-local moving
-local already_moving
-
-hero_meta:register_event("on_created", function(hero)
-  __hero = hero
-end)
-
-local function update_hero()
+--[[
+function movement:on_changed()
+  print ("CHANGE IN MOVEMENT DETECTED", "New angle: "..movement:get_angle(), "New speed: "..movement:get_speed())
+end
+--]]
+--[[
+function hero_meta:on_position_changed()
+  print"MOVE DETECTED"
+end
+--]]
+local function update_hero(hero, game)
   --print "LOOP"
-  local game = __hero:get_game()
-    --print "COMMAND ?"
-    if game:is_command_pressed("down")then
+  local speed = 0
+  local angle = movement:get_angle()
+  --print "COMMAND ?"
+  if game:is_command_pressed("right") and not game:is_command_pressed("left") then
+    --print "RIGHT"
+    speed=walking_speed
+    angle=0
+  elseif game:is_command_pressed("left") and not game:is_command_pressed("right") then
+    ---print "LEFT"
+    angle=math.pi
+    speed=walking_speed
+    --elseif game:is_command_pressed("down") then
     --  print "DOWN"
-      movement:set_angle(3*math.pi/2)
-      moving = true
-    elseif game:is_command_pressed("left") then
-     -- print "LEFT"
-      movement:set_angle(math.pi)
-      moving = true
-    elseif game:is_command_pressed("right") then
-     -- print "RIGHT"
-      movement:set_angle(math.pi*2)
-      moving = true
-    else --reset movement
-      moving = false
 
-      if already_moving then
-        already_moving = false
-        print "STOP"
-        movement:stop()
+    --  movement:set_angle(3*math.pi/2)
+  else --reset movement
+    --print "STOP"
+  end
+  --print ("Movement speed:"..movement:get_speed()..", New speed:"..speed)
+  if movement:get_speed() ~= speed then
+    if speed>0 then
+
+      sprite:set_animation("walking")
+    else
+      sprite:set_animation("stopped")
+    end
+    --print(sol.main.get_elapsed_time(), "set_speed", movement:get_speed(), " -> ", speed)
+    movement:set_speed(speed) 
+  end
+  if movement:get_angle() ~= angle then
+    --print(sol.main.get_elapsed_time(), "set_angle", movement:get_angle(), " -> ", angle)
+    movement:set_angle(angle) 
+    sprite:set_direction(math.floor(angle*2/math.pi))
+  end
+
+  --for debug only
+  local m = hero:get_movement()
+  local debug_speed = m and m:get_speed() or 0
+  --print("current speed: "..debug_speed)
+end
+
+hero_meta:register_event("on_state_changed", function(hero, state)
+    --print ("STATE CHANGED:"..state)
+    local game = hero:get_game()
+    
+    if timer then
+      print "STOP TIMER"
+      timer:stop()
+      timer = nil
+    end
+
+    local map = hero:get_map()
+    if is_sideview then
+      sprite=hero:get_sprite()     
+      if state == "free"  then
+
+        movement:start(hero)
+        print "START TIMER"
+        timer = sol.timer.start(hero, 10, function()
+            update_hero(hero, game) 
+            return true
+          end)
       end
     end
-    if moving and not already_moving then
-      print "MOVE"
-      already_moving = true
-      movement:start(__hero)
-      __hero:unfreeze()
-
-    end
-
-    local m = __hero:get_movement()
-    local speed = m and m:get_speed() or 0
-    print("current speed: "..speed)
-  return true
-end
-       
-hero_meta:register_event("on_state_changed", function(hero, state)
-  print ("STATE CHANGED:"..state)
-  local map = hero:get_map()
-  if map.is_sideview and map:is_sideview() then
-    print "START TIMER"
-    if state == "free"  then
-       sol.timer.start(hero, 10, update_hero)
-    end
-  end
-end)
+  end)
