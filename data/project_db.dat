@@ -1017,7 +1017,7 @@ sound{ id = "snes/enemies/boss_hit", description = "Boss hit" }
 sound{ id = "snes/enemies/enemy_die", description = "Enemy die" }
 sound{ id = "snes/enemies/enemy_hit", description = "Enemy hit" }
 sound{ id = "snes/enemies/laser", description = "Laser" }
-sound{ id = "snes/enemies/wizzrobe", description = "snes/enemies/wizzrobe" }
+sound{ id = "snes/enemies/wizzrobe", description = "Wizzrobe" }
 sound{ id = "snes/hero/bound", description = "Bound" }
 sound{ id = "snes/hero/dying", description = "Dying" }
 sound{ id = "snes/hero/fall", description = "Fall" }
@@ -1259,7 +1259,6 @@ entity{ id = "heavy_statue", description = "Heavy statue" }
 entity{ id = "hook_bridge", description = "hook bridge" }
 entity{ id = "hookable", description = "Hookable" }
 entity{ id = "insect", description = "Insect" }
-entity{ id = "iron_ball", description = "Iron ball" }
 entity{ id = "light", description = "Light" }
 entity{ id = "mouse", description = "Mouse" }
 entity{ id = "mr_write_and_christine", description = "Mr Write and Christine" }
@@ -1273,6 +1272,7 @@ entity{ id = "platform_collapsing", description = "Collapsing platform" }
 entity{ id = "platform_ice_block" }
 entity{ id = "platform_moving", description = "Movin platform" }
 entity{ id = "platform_thwomp", description = "Platform (Spiked Thwomp top)" }
+entity{ id = "portable", description = "Portable" }
 entity{ id = "powder", description = "Powder" }
 entity{ id = "pull_handle", description = "Pull handle" }
 entity{ id = "seagull", description = "Seagull" }

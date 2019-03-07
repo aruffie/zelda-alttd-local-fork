@@ -90,7 +90,7 @@ end)
 -----------------------
 -- Treasures events
 -----------------------
---treasure_manager:appear_pickable_when_blocks_moved(map, "block_2_", "chest_boss_key")
+treasure_manager:appear_pickable_when_blocks_moved(map, "block_2_", "chest_boss_key")
 -- TODO appear "chest_drug_1" when horse heads are correctly thrown
 
 -----------------------

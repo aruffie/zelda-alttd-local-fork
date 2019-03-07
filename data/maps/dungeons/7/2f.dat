@@ -11458,17 +11458,6 @@ custom_entity{
   model = "pillar",
 }
 
-custom_entity{
-  name = "pillar_top_1",
-  layer = 0,
-  x = 792,
-  y = 333,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statues/pillar_top",
-}
-
 door{
   name = "block_small_key_1",
   layer = 0,
@@ -11504,17 +11493,6 @@ custom_entity{
 }
 
 custom_entity{
-  name = "pillar_top_2",
-  layer = 0,
-  x = 792,
-  y = 557,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statues/pillar_top",
-}
-
-custom_entity{
   name = "pillar_3",
   layer = 0,
   x = 488,
@@ -11527,17 +11505,6 @@ custom_entity{
 }
 
 custom_entity{
-  name = "pillar_top_3",
-  layer = 0,
-  x = 488,
-  y = 557,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statues/pillar_top",
-}
-
-custom_entity{
   name = "pillar_4",
   layer = 0,
   x = 488,
@@ -11547,17 +11514,6 @@ custom_entity{
   direction = 0,
   sprite = "entities/statues/pillar",
   model = "pillar",
-}
-
-custom_entity{
-  name = "pillar_top_4",
-  layer = 0,
-  x = 488,
-  y = 333,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statues/pillar_top",
 }
 
 tile{
@@ -11992,18 +11948,6 @@ tile{
   pattern = "door_top.stairs_up.2-2",
 }
 
-custom_entity{
-  name = "iron_ball",
-  layer = 1,
-  x = 1120,
-  y = 309,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/iron_ball",
-  model = "iron_ball",
-}
-
 jumper{
   layer = 1,
   x = 1088,
@@ -12223,6 +12167,88 @@ wall{
   stops_enemies = true,
   stops_blocks = true,
   stops_projectiles = true,
+}
+
+wall{
+  layer = 1,
+  x = 1144,
+  y = 272,
+  width = 8,
+  height = 24,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 1,
+  x = 1088,
+  y = 272,
+  width = 8,
+  height = 24,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+custom_entity{
+  name = "pillar_top_4",
+  layer = 1,
+  x = 488,
+  y = 333,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/pillar_top",
+}
+
+custom_entity{
+  name = "pillar_top_3",
+  layer = 1,
+  x = 488,
+  y = 557,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/pillar_top",
+}
+
+custom_entity{
+  name = "pillar_top_2",
+  layer = 1,
+  x = 792,
+  y = 557,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/pillar_top",
+}
+
+custom_entity{
+  name = "pillar_top_1",
+  layer = 1,
+  x = 792,
+  y = 333,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/pillar_top",
+}
+
+custom_entity{
+  name = "iron_ball",
+  layer = 1,
+  x = 1120,
+  y = 309,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/iron_ball",
+  model = "portable",
 }
 
 tile{

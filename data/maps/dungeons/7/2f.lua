@@ -52,7 +52,7 @@ end
 -----------------------
 -- Doors events
 -----------------------
-wallturn:add_collision_test("touching", function(wall, hero)
+wallturn:add_collision_test("touching", function(wallturn, hero)
   door_group_1_1:set_open()
 end)
 
