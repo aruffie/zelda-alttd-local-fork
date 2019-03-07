@@ -96,7 +96,19 @@ animation{
   },
 }
 animation{
-  name = "climbing",
+  name = "climbing_stopped",
+  src_image = "hero/climbing.png",
+  frame_delay = 150,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
+  },
+}
+animation{
+  name = "climbing_walking",
   src_image = "hero/climbing.png",
   frame_delay = 150,
   frame_to_loop_on = 0,
@@ -508,18 +520,6 @@ animation{
     { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 22 },
     { x = 0, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 22 },
     { x = 0, y = 72, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 22 },
-  },
-}
-animation{
-  name = "stopped_climbing",
-  src_image = "hero/climbing.png",
-  frame_delay = 150,
-  frame_to_loop_on = 0,
-  directions = {
-    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
-    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
-    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
-    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
   },
 }
 animation{

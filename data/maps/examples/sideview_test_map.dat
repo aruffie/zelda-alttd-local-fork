@@ -12,6 +12,33 @@ properties{
 tile{
   layer = 0,
   x = 0,
+  y = 128,
+  width = 320,
+  height = 16,
+  pattern = "107",
+}
+
+tile{
+  layer = 0,
+  x = 0,
+  y = 0,
+  width = 320,
+  height = 128,
+  pattern = "108",
+}
+
+tile{
+  layer = 0,
+  x = 0,
+  y = 144,
+  width = 320,
+  height = 64,
+  pattern = "109",
+}
+
+tile{
+  layer = 0,
+  x = 0,
   y = 192,
   width = 320,
   height = 48,
@@ -37,11 +64,67 @@ tile{
   pattern = "114",
 }
 
+tile{
+  layer = 0,
+  x = 0,
+  y = 96,
+  width = 32,
+  height = 96,
+  pattern = "128",
+}
+
+tile{
+  layer = 0,
+  x = 32,
+  y = 96,
+  width = 16,
+  height = 96,
+  pattern = "79",
+}
+
+tile{
+  layer = 0,
+  x = 48,
+  y = 128,
+  width = 32,
+  height = 32,
+  pattern = "128",
+}
+
 destination{
   name = "destination",
   layer = 0,
-  x = 128,
+  x = 16,
   y = 77,
   direction = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 72,
+  y = 125,
+  sprite = "entities/destructibles/pot_sideview",
+}
+
+pickable{
+  layer = 0,
+  x = 248,
+  y = 61,
+  treasure_name = "rupee",
+  treasure_variant = 2,
+}
+
+destructible{
+  layer = 0,
+  x = 56,
+  y = 125,
+  sprite = "entities/destructibles/pot_sideview",
+}
+
+destructible{
+  layer = 0,
+  x = 88,
+  y = 125,
+  sprite = "entities/destructibles/pot_sideview",
 }
 
