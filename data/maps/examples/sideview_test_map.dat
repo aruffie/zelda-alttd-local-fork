@@ -91,6 +91,60 @@ tile{
   pattern = "128",
 }
 
+tile{
+  layer = 0,
+  x = 48,
+  y = 96,
+  width = 16,
+  height = 16,
+  pattern = "79",
+}
+
+tile{
+  layer = 0,
+  x = 64,
+  y = 96,
+  width = 16,
+  height = 16,
+  pattern = "79",
+}
+
+tile{
+  layer = 0,
+  x = 80,
+  y = 96,
+  width = 16,
+  height = 16,
+  pattern = "79",
+}
+
+tile{
+  layer = 0,
+  x = 96,
+  y = 96,
+  width = 16,
+  height = 16,
+  pattern = "79",
+}
+
+tile{
+  layer = 0,
+  x = 112,
+  y = 96,
+  width = 16,
+  height = 16,
+  pattern = "79",
+}
+
+tile{
+  layer = 0,
+  x = 112,
+  y = 144,
+  width = 16,
+  height = 16,
+  pattern = "79",
+}
+
 destination{
   name = "destination",
   layer = 0,
@@ -125,6 +179,12 @@ destructible{
   layer = 0,
   x = 88,
   y = 125,
+  properties = {
+    {
+      key = "has_gravity",
+      value = "",
+    },
+  },
   sprite = "entities/destructibles/pot_sideview",
 }
 
