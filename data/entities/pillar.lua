@@ -34,7 +34,7 @@ pillar:register_event("on_created", function(pillar)
 end)
 
 -- Start an explosion placed randomly around the entity coordinates and restart it while the entity is enabled
-function map:start_chained_explosion_on_entity(entity, distance, callback)
+function map:start_chained_explosion_on_entity(entity, max_distance, callback)
 
   local x, y, layer = entity:get_position()
   math.randomseed(sol.main.get_elapsed_time())
@@ -42,11 +42,11 @@ function map:start_chained_explosion_on_entity(entity, distance, callback)
   -- TODO audio_manager:play_sound("explosion")
 
   local explosion = map:create_explosion(
-      {name = "chained_explosion", x = x + math.random(-distance, distance), y = y + math.random(-distance, distance), layer = layer})
+      {name = "chained_explosion", x = x + math.random(-max_distance, max_distance), y = y + math.random(-max_distance, max_distance), layer = layer})
   if explosion ~= nil then -- Avoid Errors when closing the game while a chained explosion is running
     explosion:register_event("on_removed", function(explosion)
       if entity:is_enabled() then
-        map:start_chained_explosion_on_entity(entity, distance, callback)
+        map:start_chained_explosion_on_entity(entity, max_distance, callback)
       else
         callback()
       end
@@ -54,19 +54,11 @@ function map:start_chained_explosion_on_entity(entity, distance, callback)
   end
 end
 
--- Shake the screen while the loop_callback return true
+-- Shake the screen
 function map:start_earthquake(shake_config)
 
   map:start_coroutine(function()
     local camera = map:get_camera()
-    local camera_x, camera_y = camera:get_position()
-    local movement = sol.movement.create("straight")
-    movement:set_angle(math.pi / 2)
-    movement:set_max_distance(72)
-    movement:set_speed(75)
-    movement:set_ignore_suspend(true)
-    movement:start(camera)
-    
     local timer_sound = sol.timer.start(hero, 0, function()
       -- TODO audio_manager:play_sound("misc/dungeon_shake")
       return 450

@@ -5594,15 +5594,6 @@ tile{
 tile{
   layer = 0,
   x = 1112,
-  y = 328,
-  width = 16,
-  height = 8,
-  pattern = "stairs_inner_up.1.top-1",
-}
-
-tile{
-  layer = 0,
-  x = 1112,
   y = 336,
   width = 16,
   height = 24,
@@ -6291,15 +6282,6 @@ tile{
   width = 8,
   height = 8,
   pattern = "stairs_inner_up.1.top.border.2-1",
-}
-
-tile{
-  layer = 0,
-  x = 984,
-  y = 784,
-  width = 16,
-  height = 8,
-  pattern = "stairs_inner_up.1.top-1",
 }
 
 tile{
@@ -9335,6 +9317,563 @@ tile{
   pattern = "barrier.2-1",
 }
 
+tile{
+  layer = 0,
+  x = 1200,
+  y = 256,
+  width = 48,
+  height = 24,
+  pattern = "wall.1-2",
+}
+
+tile{
+  layer = 0,
+  x = 1240,
+  y = 256,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner.2-2",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_47_1",
+  layer = 0,
+  x = 112,
+  y = 304,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_18_1",
+  layer = 0,
+  x = 112,
+  y = 288,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_41_1",
+  layer = 0,
+  x = 128,
+  y = 288,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_27_1",
+  layer = 0,
+  x = 128,
+  y = 304,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_2_1",
+  layer = 0,
+  x = 144,
+  y = 304,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_14_1",
+  layer = 0,
+  x = 144,
+  y = 288,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_9_1",
+  layer = 0,
+  x = 160,
+  y = 288,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_32_1",
+  layer = 0,
+  x = 160,
+  y = 304,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_10_1",
+  layer = 0,
+  x = 176,
+  y = 304,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_42_1",
+  layer = 0,
+  x = 176,
+  y = 288,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_39_1",
+  layer = 0,
+  x = 192,
+  y = 304,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_20_1",
+  layer = 0,
+  x = 192,
+  y = 288,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_13_1",
+  layer = 0,
+  x = 240,
+  y = 320,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_46_1",
+  layer = 0,
+  x = 240,
+  y = 304,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_22_1",
+  layer = 0,
+  x = 256,
+  y = 304,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_35_1",
+  layer = 0,
+  x = 256,
+  y = 320,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_26_1",
+  layer = 0,
+  x = 256,
+  y = 336,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_5_1",
+  layer = 0,
+  x = 240,
+  y = 336,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_28_1",
+  layer = 0,
+  x = 240,
+  y = 352,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_50_1",
+  layer = 0,
+  x = 256,
+  y = 352,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_15_1",
+  layer = 0,
+  x = 256,
+  y = 368,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_40_1",
+  layer = 0,
+  x = 240,
+  y = 368,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_33_1",
+  layer = 0,
+  x = 208,
+  y = 384,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_12_1",
+  layer = 0,
+  x = 208,
+  y = 400,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_25_1",
+  layer = 0,
+  x = 208,
+  y = 416,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_48_1",
+  layer = 0,
+  x = 96,
+  y = 416,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_7_1",
+  layer = 0,
+  x = 96,
+  y = 384,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_19_1",
+  layer = 0,
+  x = 96,
+  y = 400,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_11_1",
+  layer = 0,
+  x = 112,
+  y = 368,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_34_1",
+  layer = 0,
+  x = 128,
+  y = 368,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_29_1",
+  layer = 0,
+  x = 144,
+  y = 368,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_36_1",
+  layer = 0,
+  x = 160,
+  y = 368,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_4_1",
+  layer = 0,
+  x = 176,
+  y = 368,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_45_1",
+  layer = 0,
+  x = 192,
+  y = 368,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_30_1",
+  layer = 0,
+  x = 192,
+  y = 352,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_17_1",
+  layer = 0,
+  x = 176,
+  y = 352,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_44_1",
+  layer = 0,
+  x = 160,
+  y = 352,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_23_1",
+  layer = 0,
+  x = 144,
+  y = 352,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_3_1",
+  layer = 0,
+  x = 128,
+  y = 352,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_38_1",
+  layer = 0,
+  x = 112,
+  y = 352,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_31_1",
+  layer = 0,
+  x = 64,
+  y = 368,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_24_1",
+  layer = 0,
+  x = 48,
+  y = 352,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_43_1",
+  layer = 0,
+  x = 64,
+  y = 352,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_21_1",
+  layer = 0,
+  x = 64,
+  y = 336,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_16_1",
+  layer = 0,
+  x = 48,
+  y = 336,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_37_1",
+  layer = 0,
+  x = 48,
+  y = 320,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_6_1",
+  layer = 0,
+  x = 64,
+  y = 320,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_49_1",
+  layer = 0,
+  x = 64,
+  y = 304,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
+teletransporter{
+  name = "enemy_group_10_after_8_1",
+  layer = 0,
+  x = 48,
+  y = 304,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "_same",
+}
+
 door{
   name = "weak_wall_B_2",
   layer = 0,
@@ -9408,61 +9947,12 @@ teletransporter{
 }
 
 teletransporter{
-  layer = 0,
-  x = 208,
-  y = 384,
-  width = 16,
-  height = 48,
-  destination_map = "dungeons/7/1f",
-  destination = "_same",
-}
-
-teletransporter{
-  layer = 0,
-  x = 96,
-  y = 384,
-  width = 16,
-  height = 48,
-  destination_map = "dungeons/7/1f",
-  destination = "_same",
-}
-
-teletransporter{
-  layer = 0,
-  x = 112,
-  y = 352,
-  width = 96,
-  height = 32,
-  destination_map = "dungeons/7/1f",
-  destination = "_same",
-}
-
-teletransporter{
-  layer = 0,
-  x = 240,
-  y = 304,
-  width = 32,
-  height = 80,
-  destination_map = "dungeons/7/1f",
-  destination = "_same",
-}
-
-teletransporter{
-  layer = 0,
-  x = 112,
-  y = 288,
-  width = 96,
-  height = 32,
-  destination_map = "dungeons/7/1f",
-  destination = "_same",
-}
-
-teletransporter{
+  name = "enemy_group_10_before_1_2",
   layer = 0,
   x = 48,
-  y = 304,
-  width = 32,
-  height = 80,
+  y = 368,
+  width = 16,
+  height = 16,
   destination_map = "dungeons/7/1f",
   destination = "_same",
 }
@@ -9483,9 +9973,9 @@ custom_entity{
   name = "pull_handle_chain",
   layer = 0,
   x = 1224,
-  y = 221,
+  y = 285,
   width = 16,
-  height = 72,
+  height = 8,
   direction = 0,
   sprite = "entities/handle_chain",
   tiled = true,
@@ -10534,16 +11024,6 @@ destination{
 }
 
 enemy{
-  name = "enemy_group_10_1",
-  layer = 0,
-  x = 56,
-  y = 317,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
   name = "enemy_group_5_1",
   layer = 0,
   x = 1176,
@@ -10820,496 +11300,6 @@ destination{
   direction = 3,
 }
 
-enemy{
-  name = "enemy_group_10_2",
-  layer = 0,
-  x = 72,
-  y = 317,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_3",
-  layer = 0,
-  x = 72,
-  y = 333,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_4",
-  layer = 0,
-  x = 56,
-  y = 333,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_5",
-  layer = 0,
-  x = 56,
-  y = 349,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_6",
-  layer = 0,
-  x = 72,
-  y = 349,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_7",
-  layer = 0,
-  x = 72,
-  y = 365,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_8",
-  layer = 0,
-  x = 56,
-  y = 365,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_9",
-  layer = 0,
-  x = 56,
-  y = 381,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_10",
-  layer = 0,
-  x = 72,
-  y = 381,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_11",
-  layer = 0,
-  x = 136,
-  y = 301,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_12",
-  layer = 0,
-  x = 120,
-  y = 301,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_13",
-  layer = 0,
-  x = 120,
-  y = 317,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_14",
-  layer = 0,
-  x = 136,
-  y = 317,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_15",
-  layer = 0,
-  x = 168,
-  y = 301,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_16",
-  layer = 0,
-  x = 152,
-  y = 301,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_17",
-  layer = 0,
-  x = 152,
-  y = 317,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_18",
-  layer = 0,
-  x = 168,
-  y = 317,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_19",
-  layer = 0,
-  x = 200,
-  y = 301,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_20",
-  layer = 0,
-  x = 184,
-  y = 301,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_21",
-  layer = 0,
-  x = 184,
-  y = 317,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_22",
-  layer = 0,
-  x = 200,
-  y = 317,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_23",
-  layer = 0,
-  x = 136,
-  y = 365,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_24",
-  layer = 0,
-  x = 120,
-  y = 365,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_25",
-  layer = 0,
-  x = 120,
-  y = 381,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_26",
-  layer = 0,
-  x = 136,
-  y = 381,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_27",
-  layer = 0,
-  x = 168,
-  y = 365,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_28",
-  layer = 0,
-  x = 152,
-  y = 365,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_29",
-  layer = 0,
-  x = 152,
-  y = 381,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_30",
-  layer = 0,
-  x = 168,
-  y = 381,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_31",
-  layer = 0,
-  x = 200,
-  y = 365,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_32",
-  layer = 0,
-  x = 184,
-  y = 365,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_33",
-  layer = 0,
-  x = 184,
-  y = 381,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_34",
-  layer = 0,
-  x = 200,
-  y = 381,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_35",
-  layer = 0,
-  x = 264,
-  y = 317,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_36",
-  layer = 0,
-  x = 248,
-  y = 317,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_37",
-  layer = 0,
-  x = 248,
-  y = 333,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_38",
-  layer = 0,
-  x = 264,
-  y = 333,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_39",
-  layer = 0,
-  x = 264,
-  y = 349,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_40",
-  layer = 0,
-  x = 248,
-  y = 349,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_41",
-  layer = 0,
-  x = 248,
-  y = 365,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_42",
-  layer = 0,
-  x = 264,
-  y = 365,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_43",
-  layer = 0,
-  x = 248,
-  y = 381,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_44",
-  layer = 0,
-  x = 264,
-  y = 381,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_45",
-  layer = 0,
-  x = 216,
-  y = 397,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_46",
-  layer = 0,
-  x = 216,
-  y = 413,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_47",
-  layer = 0,
-  x = 216,
-  y = 429,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_48",
-  layer = 0,
-  x = 104,
-  y = 397,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_49",
-  layer = 0,
-  x = 104,
-  y = 413,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_10_50",
-  layer = 0,
-  x = 104,
-  y = 429,
-  direction = 0,
-  breed = "flying_tile",
-  treasure_name = "random",
-}
-
 teletransporter{
   layer = 0,
   x = 400,
@@ -11514,6 +11504,1006 @@ custom_entity{
   direction = 0,
   sprite = "entities/statues/pillar",
   model = "pillar",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_1_1",
+  layer = 0,
+  x = 48,
+  y = 368,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_1",
+  layer = 0,
+  x = 56,
+  y = 381,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_2_1",
+  layer = 0,
+  x = 144,
+  y = 304,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_2",
+  layer = 0,
+  x = 152,
+  y = 317,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_3_1",
+  layer = 0,
+  x = 128,
+  y = 352,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_3",
+  layer = 0,
+  x = 136,
+  y = 365,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_4_1",
+  layer = 0,
+  x = 176,
+  y = 368,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_4",
+  layer = 0,
+  x = 184,
+  y = 381,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_5_1",
+  layer = 0,
+  x = 240,
+  y = 336,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_5",
+  layer = 0,
+  x = 248,
+  y = 349,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_6_1",
+  layer = 0,
+  x = 64,
+  y = 320,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_6",
+  layer = 0,
+  x = 72,
+  y = 333,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_7_1",
+  layer = 0,
+  x = 96,
+  y = 384,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_7",
+  layer = 0,
+  x = 104,
+  y = 397,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_8_1",
+  layer = 0,
+  x = 48,
+  y = 304,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_8",
+  layer = 0,
+  x = 56,
+  y = 317,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_9_1",
+  layer = 0,
+  x = 160,
+  y = 288,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_9",
+  layer = 0,
+  x = 168,
+  y = 301,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_10_1",
+  layer = 0,
+  x = 176,
+  y = 304,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_10",
+  layer = 0,
+  x = 184,
+  y = 317,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_11_1",
+  layer = 0,
+  x = 112,
+  y = 368,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_11",
+  layer = 0,
+  x = 120,
+  y = 381,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_12_1",
+  layer = 0,
+  x = 208,
+  y = 400,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_12",
+  layer = 0,
+  x = 216,
+  y = 413,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_13_1",
+  layer = 0,
+  x = 240,
+  y = 320,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_13",
+  layer = 0,
+  x = 248,
+  y = 333,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_14_1",
+  layer = 0,
+  x = 144,
+  y = 288,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_14",
+  layer = 0,
+  x = 152,
+  y = 301,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_15_1",
+  layer = 0,
+  x = 256,
+  y = 368,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_15",
+  layer = 0,
+  x = 264,
+  y = 381,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_16_1",
+  layer = 0,
+  x = 48,
+  y = 336,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_16",
+  layer = 0,
+  x = 56,
+  y = 349,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_17_1",
+  layer = 0,
+  x = 176,
+  y = 352,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_17",
+  layer = 0,
+  x = 184,
+  y = 365,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_18_1",
+  layer = 0,
+  x = 112,
+  y = 288,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_18",
+  layer = 0,
+  x = 120,
+  y = 301,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_19_1",
+  layer = 0,
+  x = 96,
+  y = 400,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_19",
+  layer = 0,
+  x = 104,
+  y = 413,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_20_1",
+  layer = 0,
+  x = 192,
+  y = 288,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_20",
+  layer = 0,
+  x = 200,
+  y = 301,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_21_1",
+  layer = 0,
+  x = 64,
+  y = 336,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_21",
+  layer = 0,
+  x = 72,
+  y = 349,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_22_1",
+  layer = 0,
+  x = 256,
+  y = 304,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_22",
+  layer = 0,
+  x = 264,
+  y = 317,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_23_1",
+  layer = 0,
+  x = 144,
+  y = 352,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_23",
+  layer = 0,
+  x = 152,
+  y = 365,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_24_1",
+  layer = 0,
+  x = 48,
+  y = 352,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_24",
+  layer = 0,
+  x = 56,
+  y = 365,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_25_1",
+  layer = 0,
+  x = 208,
+  y = 416,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_25",
+  layer = 0,
+  x = 216,
+  y = 429,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_26_1",
+  layer = 0,
+  x = 256,
+  y = 336,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_26",
+  layer = 0,
+  x = 264,
+  y = 349,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_27_1",
+  layer = 0,
+  x = 128,
+  y = 304,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_27",
+  layer = 0,
+  x = 136,
+  y = 317,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_28_1",
+  layer = 0,
+  x = 240,
+  y = 352,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_28",
+  layer = 0,
+  x = 248,
+  y = 365,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_29_1",
+  layer = 0,
+  x = 144,
+  y = 368,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_29",
+  layer = 0,
+  x = 152,
+  y = 381,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_30_1",
+  layer = 0,
+  x = 192,
+  y = 352,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_30",
+  layer = 0,
+  x = 200,
+  y = 365,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_31_1",
+  layer = 0,
+  x = 64,
+  y = 368,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_31",
+  layer = 0,
+  x = 72,
+  y = 381,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_32_1",
+  layer = 0,
+  x = 160,
+  y = 304,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_32",
+  layer = 0,
+  x = 168,
+  y = 317,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_33_1",
+  layer = 0,
+  x = 208,
+  y = 384,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_33",
+  layer = 0,
+  x = 216,
+  y = 397,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_34_1",
+  layer = 0,
+  x = 128,
+  y = 368,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_34",
+  layer = 0,
+  x = 136,
+  y = 381,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_35_1",
+  layer = 0,
+  x = 256,
+  y = 320,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_35",
+  layer = 0,
+  x = 264,
+  y = 333,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_36_1",
+  layer = 0,
+  x = 160,
+  y = 368,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_36",
+  layer = 0,
+  x = 168,
+  y = 381,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_37_1",
+  layer = 0,
+  x = 48,
+  y = 320,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_37",
+  layer = 0,
+  x = 56,
+  y = 333,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_38_1",
+  layer = 0,
+  x = 112,
+  y = 352,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_38",
+  layer = 0,
+  x = 120,
+  y = 365,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_39_1",
+  layer = 0,
+  x = 192,
+  y = 304,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_39",
+  layer = 0,
+  x = 200,
+  y = 317,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_40_1",
+  layer = 0,
+  x = 240,
+  y = 368,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_40",
+  layer = 0,
+  x = 248,
+  y = 381,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_41_1",
+  layer = 0,
+  x = 128,
+  y = 288,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_41",
+  layer = 0,
+  x = 136,
+  y = 301,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_42_1",
+  layer = 0,
+  x = 176,
+  y = 288,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_42",
+  layer = 0,
+  x = 184,
+  y = 301,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_43_1",
+  layer = 0,
+  x = 64,
+  y = 352,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_43",
+  layer = 0,
+  x = 72,
+  y = 365,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_44_1",
+  layer = 0,
+  x = 160,
+  y = 352,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_44",
+  layer = 0,
+  x = 168,
+  y = 365,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_45_1",
+  layer = 0,
+  x = 192,
+  y = 368,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_45",
+  layer = 0,
+  x = 200,
+  y = 381,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_46_1",
+  layer = 0,
+  x = 240,
+  y = 304,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_46",
+  layer = 0,
+  x = 248,
+  y = 317,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_47_1",
+  layer = 0,
+  x = 112,
+  y = 304,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_47",
+  layer = 0,
+  x = 120,
+  y = 317,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_48_1",
+  layer = 0,
+  x = 96,
+  y = 416,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_48",
+  layer = 0,
+  x = 104,
+  y = 429,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_49_1",
+  layer = 0,
+  x = 64,
+  y = 304,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_49",
+  layer = 0,
+  x = 72,
+  y = 317,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "enemy_group_10_before_50_1",
+  layer = 0,
+  x = 256,
+  y = 352,
+  width = 16,
+  height = 16,
+  pattern = "floor.18-1",
+}
+
+enemy{
+  name = "enemy_group_10_enemy_50",
+  layer = 0,
+  x = 264,
+  y = 365,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
 }
 
 tile{
@@ -11869,24 +12859,6 @@ tile{
 
 tile{
   layer = 1,
-  x = 1200,
-  y = 256,
-  width = 48,
-  height = 24,
-  pattern = "wall.1-2",
-}
-
-tile{
-  layer = 1,
-  x = 1240,
-  y = 256,
-  width = 24,
-  height = 24,
-  pattern = "wall.corner.2-2",
-}
-
-tile{
-  layer = 1,
   x = 144,
   y = 456,
   width = 32,
@@ -11946,6 +12918,24 @@ tile{
   width = 16,
   height = 8,
   pattern = "door_top.stairs_up.2-2",
+}
+
+tile{
+  layer = 1,
+  x = 1112,
+  y = 328,
+  width = 16,
+  height = 8,
+  pattern = "stairs_inner_up.1.top-1",
+}
+
+tile{
+  layer = 1,
+  x = 984,
+  y = 784,
+  width = 16,
+  height = 8,
+  pattern = "stairs_inner_up.1.top-1",
 }
 
 jumper{
