@@ -29,13 +29,21 @@ local function is_ladder(map, x,y, layer)
   return map:get_ground(x,y, layer)=="ladder"
 end
 
+function map_meta:set_sideview(enabled)
+  self.sideview=enabled
+end
+function map_meta:is_sideview()
+  return self.sideview or nil
+end
+
 --[[
   Returns whether the ground under the top-middle or the bottom-middle points of the bounding box of a given entity is a ladder.
 --]]
+
 local function test_ladder(entity)
   local map=entity:get_map()
-  local x,y,w,h = entity:get_bounding_box() 
-  return is_ladder(map, x+w/2, y) or is_ladder(map, x+w/2, y+h-1)
+  local x,y,layer= entity:get_position() 
+  return is_ladder(map, x, y-2, layer) or is_ladder(map, x, y+2, layer)
 end
 
 local function apply_gravity(entity)
@@ -117,13 +125,13 @@ local function update_movement(hero, speed, angle, state)
 end
 
 local function update_hero(hero)
-  
+
   local game = hero:get_game()
-  
+
   local function command(id)
     return game:is_command_pressed(id)
   end
-  
+
   local x,y,layer = hero:get_position()
   local map = game:get_map()
   local speed = 0
@@ -175,7 +183,7 @@ local function update_hero(hero)
 end
 
 game_meta:register_event("on_map_changed", function(game, map)
-    if map.is_sideview then
+    if map:is_sideview() then
       map:get_hero().on_ladder = test_ladder(map:get_hero(), -1) 
       sol.timer.start(map, 10, function()
           update_entities(map)
@@ -198,7 +206,7 @@ hero_meta:register_event("on_state_changed", function(hero, state)
       timer = nil
     end
 
-    if map.is_sideview then
+    if map:is_sideview() then
       if state == "free" or state == "carrying" then
         movement=sol.movement.create("straight")
         movement:set_angle(-1)

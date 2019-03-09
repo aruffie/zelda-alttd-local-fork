@@ -171,7 +171,7 @@ function hero_meta:start_custom_jump()
   local hero = self
   local game = self:get_game()
   local map = self:get_map()
-  local is_sideview_map = map.is_sideview and map:is_sideview()
+  local is_sideview_map = map.is_sideview~=nil and map:is_sideview()
    -- Select Max height.
   if is_sideview_map then max_height = max_height_sideview
   else max_height = max_height_normal end

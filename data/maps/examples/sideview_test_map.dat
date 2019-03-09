@@ -76,9 +76,9 @@ tile{
 tile{
   layer = 0,
   x = 32,
-  y = 96,
+  y = 32,
   width = 16,
-  height = 96,
+  height = 160,
   pattern = "79",
 }
 
@@ -94,7 +94,7 @@ tile{
 tile{
   layer = 0,
   x = 48,
-  y = 96,
+  y = 32,
   width = 16,
   height = 16,
   pattern = "79",
@@ -103,7 +103,7 @@ tile{
 tile{
   layer = 0,
   x = 64,
-  y = 96,
+  y = 32,
   width = 16,
   height = 16,
   pattern = "79",
@@ -112,7 +112,7 @@ tile{
 tile{
   layer = 0,
   x = 80,
-  y = 96,
+  y = 32,
   width = 16,
   height = 16,
   pattern = "79",
@@ -121,7 +121,7 @@ tile{
 tile{
   layer = 0,
   x = 96,
-  y = 96,
+  y = 32,
   width = 16,
   height = 16,
   pattern = "79",
@@ -130,7 +130,7 @@ tile{
 tile{
   layer = 0,
   x = 112,
-  y = 96,
+  y = 32,
   width = 16,
   height = 16,
   pattern = "79",
@@ -138,8 +138,17 @@ tile{
 
 tile{
   layer = 0,
-  x = 112,
+  x = 128,
   y = 144,
+  width = 16,
+  height = 16,
+  pattern = "79",
+}
+
+tile{
+  layer = 0,
+  x = 128,
+  y = 32,
   width = 16,
   height = 16,
   pattern = "79",
