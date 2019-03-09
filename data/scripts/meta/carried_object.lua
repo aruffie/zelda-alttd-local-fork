@@ -6,7 +6,7 @@ local old_on_thrown=carried_meta.on_thrown
 function carried_meta:on_thrown()
   local map = self:get_map() 
   local hero = map:get_hero()
-  if map:is_sideview() then --Make me follow gravity
+  if map.is_sideview then --Make me follow gravity
     m:set_angle(hero:get_sprite():get_direction()*math.pi/2)
     m:set_speed(92)
     m:start(self)
@@ -19,7 +19,7 @@ local old_on_update=carried_meta.on_update
 function carried_meta:on_update()
   local map = self:get_map() 
   local hero = map:get_hero()
-  if map:is_sideview() and hero:get_state()~="carrying" and hero:get_state()~="lifting"  then
+  if map.is_sideview and hero:get_state()~="carrying" and hero:get_state()~="lifting"  then
     --do some stuff ?
   else
     --Call regular behavior

@@ -1,39 +1,41 @@
+--[[
+Sideview manager
+
+This script implements gravity and interaction of the hero with ladders, which are used in sideview maps.
+
+To initialize, just require it in a game setup script, like features.lua, 
+   then call map:set_sidewiew(true) in the on_started event of each map you want to be in sideview mode.
+   
+If you need to make things jump like the hero when he uses the feather, then simply do <your_entity>.vspeed=<some_negative_number>, then the gravity will do the rest.
+
+In the same way, you can make any entity be affected by gravity by adding "has_gravity" in it's custom properties.
+
+--]]
+
 local map_meta = sol.main.get_metatable("map")
 local hero_meta = sol.main.get_metatable("hero")
 local game_meta = sol.main.get_metatable("game")
 require("scripts/multi_events")
 local walking_speed = 88
 local climbing_speed= 44
-local timer
-local vspeed =0
+local timer 
 local gravity = 0.2
 local max_vspeed=2.5
 local movement
-local is_sideview = false
 
-function map_meta:set_sideview(sideview)
-  is_sideview=sideview
-end
-
-function map_meta:is_sideview(sideview)
-  return is_sideview
-end
-
-local function is_xy_ladder(map, x,y, layer)
+--Returns whether the ground at given XY coordinates is a ladder.
+local function is_ladder(map, x,y, layer)
   layer=layer or 0
   return map:get_ground(x,y, layer)=="ladder"
 end
 
-local function is_ladder(map, dy, layer)
-  layer = layer or 0
-  return map:get_ground(x,y+dy, layer)=="ladder"
-end
-
-local function test_ladder(entity, offset)
-  offset = offset or 0
+--[[
+  Returns whether the ground under the top-middle or the bottom-middle points of the bounding box of a given entity is a ladder.
+--]]
+local function test_ladder(entity)
   local map=entity:get_map()
   local x,y,w,h = entity:get_bounding_box() 
-  return is_xy_ladder(map, x+w/2, y) or is_xy_ladder(map, x+w/2, y+h+offset)
+  return is_ladder(map, x+w/2, y) or is_ladder(map, x+w/2, y+h-1)
 end
 
 local function apply_gravity(entity)
@@ -47,7 +49,7 @@ local function apply_gravity(entity)
   while dy<=vspeed do 
     if entity:test_obstacles(0,dy) or 
     entity:get_type()=="hero" and
-    (not test_ladder(entity, -1) and test_ladder(entity, dy)) then --we just landed.
+    (not test_ladder(entity) and is_ladder(entity:get_map(), x, y+3+dy)) then --we just landed.
       vspeed = 0
       --print("Ground hit. Last valid position:"..y+dy)
       break
@@ -114,51 +116,50 @@ local function update_movement(hero, speed, angle, state)
   end
 end
 
-local function update_hero(hero, game)
+local function update_hero(hero)
+  
+  local game = hero:get_game()
+  
   local function command(id)
     return game:is_command_pressed(id)
   end
+  
   local x,y,layer = hero:get_position()
-
-  --print "LOOP"
   local map = game:get_map()
-
-
   local speed = 0
   local angle = movement:get_angle()
   local dx, dy
   local animation=""
-  --print "COMMAND ?"
 
   if command("up") and (not command("down")) then
-    --print "RIGHT"
     angle=math.pi/2
-    if test_ladder(hero, -1) then
+    if test_ladder(hero) then
       hero.on_ladder = true
       speed=climbing_speed
     end
   elseif command("down") and (not command("up")) then
     ---print "LEFT"
     angle=1.5*math.pi
-    if test_ladder(hero) then
+    if test_ladder(hero) or is_ladder(map, x, y+3) then
       hero.on_ladder = true
       speed=climbing_speed
     end
   end
 
-  if not test_ladder(hero) then
+  if not (test_ladder(hero) or is_ladder(map, x, y+3)) then
     hero.on_ladder = false
   end
 
-
   if command("right") and not command("left") then
-    --print "RIGHT"
     speed=walking_speed
     angle=0
   elseif command("left") and not command("right") then
-    ---print "LEFT"
     angle=math.pi
     speed=walking_speed
+  end
+
+  if hero:test_obstacles(0,1) and test_ladder(hero, -1) and is_ladder(map,x,y+3) then 
+    hero.on_ladder=true
   end
 
 --print ("Movement speed:"..movement:get_speed()..", New speed:"..speed)
@@ -174,9 +175,8 @@ local function update_hero(hero, game)
 end
 
 game_meta:register_event("on_map_changed", function(game, map)
-    print "MAP JUST CHANGED"
-    if map:is_sideview() then
-      print "INITIALIZE GRAVITY"
+    if map.is_sideview then
+      map:get_hero().on_ladder = test_ladder(map:get_hero(), -1) 
       sol.timer.start(map, 10, function()
           update_entities(map)
           return true
@@ -188,7 +188,8 @@ game_meta:register_event("on_map_changed", function(game, map)
 hero_meta:register_event("on_state_changed", function(hero, state)
     --print ("STATE CHANGED:"..state)
     local game = hero:get_game()
-    if movement then 
+    local map = hero:get_map()
+    if movement then
       movement:stop()
       movement = nil
     end
@@ -197,15 +198,14 @@ hero_meta:register_event("on_state_changed", function(hero, state)
       timer = nil
     end
 
-    local map = hero:get_map()
-    if is_sideview then
+    if map.is_sideview then
       if state == "free" or state == "carrying" then
         movement=sol.movement.create("straight")
         movement:set_angle(-1)
         movement:set_speed(0)
         movement:start(hero)
         timer = sol.timer.start(hero, 10, function()
-            update_hero(hero, game) 
+            update_hero(hero) 
             return true
           end)
       end

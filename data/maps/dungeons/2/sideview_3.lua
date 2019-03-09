@@ -12,7 +12,7 @@ function map:on_started()
   map:init_music()
   
   -- Sideview
-  map:set_sideview(true)
+  map.is_sideview=true
 end
 
 -- Initialize the music of the map
