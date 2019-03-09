@@ -3749,16 +3749,6 @@ tile{
 tile{
   layer = 0,
   x = 1424,
-  y = 496,
-  width = 16,
-  height = 16,
-  pattern = "97",
-  tileset = "addition/dungeon",
-}
-
-tile{
-  layer = 0,
-  x = 1424,
   y = 392,
   width = 32,
   height = 16,
@@ -4332,28 +4322,6 @@ custom_entity{
   direction = 0,
   sprite = "entities/destructibles/crystal_green",
   model = "green_crystal",
-}
-
-dynamic_tile{
-  name = "floor_x_unstable_associate_",
-  layer = 0,
-  x = 1408,
-  y = 496,
-  width = 16,
-  height = 16,
-  pattern = "926",
-}
-
-custom_entity{
-  name = "floor_x",
-  layer = 0,
-  x = 1400,
-  y = 509,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
-  model = "unstable_floor",
 }
 
 dynamic_tile{
