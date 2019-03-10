@@ -1243,12 +1243,14 @@ enemy{ id = "zol_green", description = "Zol green" }
 enemy{ id = "zol_red", description = "Zol red" }
 enemy{ id = "zombie", description = "Zombie" }
 
+entity{ id = "ball", description = "ball" }
 entity{ id = "bird", description = "Bird" }
 entity{ id = "bowwow", description = "Bowwow" }
 entity{ id = "bubble", description = "Bubble" }
 entity{ id = "butterfly", description = "Butterfly" }
 entity{ id = "color_platform", description = "Color platform" }
 entity{ id = "conveyor_belt", description = "Conveyor belt" }
+entity{ id = "dice", description = "Dice" }
 entity{ id = "eye_switch", description = "Eye switch" }
 entity{ id = "fire", description = "Fire" }
 entity{ id = "follower", description = "Follower" }
@@ -1272,7 +1274,6 @@ entity{ id = "platform_collapsing", description = "Collapsing platform" }
 entity{ id = "platform_ice_block" }
 entity{ id = "platform_moving", description = "Movin platform" }
 entity{ id = "platform_thwomp", description = "Platform (Spiked Thwomp top)" }
-entity{ id = "portable", description = "Portable" }
 entity{ id = "powder", description = "Powder" }
 entity{ id = "pull_handle", description = "Pull handle" }
 entity{ id = "seagull", description = "Seagull" }

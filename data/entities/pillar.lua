@@ -101,10 +101,10 @@ function pillar:start_breaking()
   end)
 end
 
--- Function called by the iron ball ("portable" custom entity)
-function pillar:hit_by_portable_entity(portable)
+-- Function called by the iron ball
+function pillar:hit_by_carriable(carriable)
   
-  if portable:get_name() == "iron_ball" then
+  if carriable:get_name() == "iron_ball" then
     pillar:start_breaking()
   end
 end
