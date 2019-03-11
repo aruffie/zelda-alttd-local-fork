@@ -11,174 +11,174 @@ local timer_stairs = nil
 require("scripts/multi_events")
 
 hero_meta:register_event("on_state_changed", function(hero)
-    
-  local game = hero:get_game()
-  local current_state = hero:get_state()
-  -- Sounds
-  if current_state == "lifting" then
-    audio_manager:play_sound("hero/pickup") 
-  elseif current_state == "sword loading" then
-    timer_sword_loading = sol.timer.start(hero, 1000, function()
-      audio_manager:play_sound("items/sword_charge") 
-    end)
-  elseif current_state == "sword spin attack" then
-    -- Sword spin attack
-    audio_manager:play_sound("items/sword_spin") 
-  elseif current_state == "sword swinging" then
-    -- Sword swinging
-    local index = math.random(1, 4)
-    audio_manager:play_sound("items/sword_slash" .. index) 
-  elseif current_state == "sword tapping" then
-    if timer_sword_tapping == nil then
-      timer_sword_tapping = sol.timer.start(hero, 250, function()
-        local sound_sword = false
-        local entity = hero:get_facing_entity()
-        if entity ~= nil and entity:get_type() == "door" then
-          sound_sword = entity:get_property("sound_sword")          
-        end
-        if sound_sword then
-          audio_manager:play_sound("items/sword_tap_bombable")
-        else
-          audio_manager:play_sound("items/sword_tap") 
-        end
-        return true
-      end)
-    end
-  elseif current_state == "hurt" then
-    -- Hurt
-    audio_manager:play_sound("hero/hurt") 
-  elseif current_state == "falling" then
-    -- Falling
-    audio_manager:play_sound("hero/fall") 
-  elseif current_state == "jumping" then
-    audio_manager:play_sound("hero/throw")
-  elseif current_state == "stairs" then
-    if timer_stairs == nil then
-      timer_stairs = sol.timer.start(hero, 0, function()
-        audio_manager:play_sound("misc/stairs")
-        return 400
-      end)
-      timer_stairs:set_suspended_with_map(false)
-    end
-  elseif current_state == "frozen" then
-    -- Frozen
-    local entity = hero:get_facing_entity()
-    if entity ~= nil and entity:get_type() == "chest" and game:is_command_pressed("action") then
-      audio_manager:play_sound("misc/chest_open")
-    end
-  elseif current_state == "free" then
-    -- Throw
-    if hero.previous_state == "carrying" then
+
+    local game = hero:get_game()
+    local current_state = hero:get_state()
+    -- Sounds
+    if current_state == "lifting" then
+      audio_manager:play_sound("hero/pickup") 
+    elseif current_state == "sword loading" then
+      timer_sword_loading = sol.timer.start(hero, 1000, function()
+          audio_manager:play_sound("items/sword_charge") 
+        end)
+    elseif current_state == "sword spin attack" then
+      -- Sword spin attack
+      audio_manager:play_sound("items/sword_spin") 
+    elseif current_state == "sword swinging" then
+      -- Sword swinging
+      local index = math.random(1, 4)
+      audio_manager:play_sound("items/sword_slash" .. index) 
+    elseif current_state == "sword tapping" then
+      if timer_sword_tapping == nil then
+        timer_sword_tapping = sol.timer.start(hero, 250, function()
+            local sound_sword = false
+            local entity = hero:get_facing_entity()
+            if entity ~= nil and entity:get_type() == "door" then
+              sound_sword = entity:get_property("sound_sword")          
+            end
+            if sound_sword then
+              audio_manager:play_sound("items/sword_tap_bombable")
+            else
+              audio_manager:play_sound("items/sword_tap") 
+            end
+            return true
+          end)
+      end
+    elseif current_state == "hurt" then
+      -- Hurt
+      audio_manager:play_sound("hero/hurt") 
+    elseif current_state == "falling" then
+      -- Falling
+      audio_manager:play_sound("hero/fall") 
+    elseif current_state == "jumping" then
       audio_manager:play_sound("hero/throw")
+    elseif current_state == "stairs" then
+      if timer_stairs == nil then
+        timer_stairs = sol.timer.start(hero, 0, function()
+            audio_manager:play_sound("misc/stairs")
+            return 400
+          end)
+        timer_stairs:set_suspended_with_map(false)
+      end
+    elseif current_state == "frozen" then
+      -- Frozen
+      local entity = hero:get_facing_entity()
+      if entity ~= nil and entity:get_type() == "chest" and game:is_command_pressed("action") then
+        audio_manager:play_sound("misc/chest_open")
+      end
+    elseif current_state == "free" then
+      -- Throw
+      if hero.previous_state == "carrying" then
+        audio_manager:play_sound("hero/throw")
+      end
+
     end
-    
-  end
-  -- Reset timer sword loading
-  if current_state ~= "sword loading" and timer_sword_loading ~= nil then
-    timer_sword_loading:stop()
-    timer_sword_loading = nil
-  end
-  -- Reset timer sword tapping
-  if current_state ~= "sword tapping" and timer_sword_tapping ~= nil then
-    timer_sword_tapping:stop()
-    timer_sword_tapping = nil
-  end  
-  -- Reset timer stairs
-  if current_state ~= "stairs" and timer_stairs ~= nil then
-    timer_stairs:stop()
-    timer_stairs = nil
-  end  
-  -- Previous states
-  if hero.previous_state == "carrying" then
-    hero:notify_object_thrown()
-  end
-  hero.previous_state = current_state
-  
-end)
+    -- Reset timer sword loading
+    if current_state ~= "sword loading" and timer_sword_loading ~= nil then
+      timer_sword_loading:stop()
+      timer_sword_loading = nil
+    end
+    -- Reset timer sword tapping
+    if current_state ~= "sword tapping" and timer_sword_tapping ~= nil then
+      timer_sword_tapping:stop()
+      timer_sword_tapping = nil
+    end  
+    -- Reset timer stairs
+    if current_state ~= "stairs" and timer_stairs ~= nil then
+      timer_stairs:stop()
+      timer_stairs = nil
+    end  
+    -- Previous states
+    if hero.previous_state == "carrying" then
+      hero:notify_object_thrown()
+    end
+    hero.previous_state = current_state
+
+  end)
 
 hero_meta:register_event("notify_object_thrown", function() end)
 
 hero_meta:register_event("on_position_changed", function(hero)
 
-  local game = hero:get_game()
-  local map = game:get_map()
-  local dungeon = game:get_dungeon()
-  local x, y = hero:get_center_position()
-  if dungeon == nil then
-    local world = map:get_world()
-    local square_x = 0
-    local square_y = 0
-    local square_min_x = 0
-    local square_min_y = 0
-    local square_total_x = 0
-    local square_total_y = 0
-    local map_max_x = 3840
-    local map_max_y = 3072
-    if world == "outside_world" then
-      local map_x, map_y = map:get_location()
-      local map_size_x, map_size_y = map:get_size()
-      square_x = math.floor((map_x + 960) / (960) - 1)
-      square_y = math.floor((map_y + 768) / (768) - 1)
-      if x == 0 then
-        square_min_x = 0
-      else
-        square_min_x = math.floor((x+240)/(240)-1)
+    local game = hero:get_game()
+    local map = game:get_map()
+    local dungeon = game:get_dungeon()
+    local x, y = hero:get_center_position()
+    if dungeon == nil then
+      local world = map:get_world()
+      local square_x = 0
+      local square_y = 0
+      local square_min_x = 0
+      local square_min_y = 0
+      local square_total_x = 0
+      local square_total_y = 0
+      local map_max_x = 3840
+      local map_max_y = 3072
+      if world == "outside_world" then
+        local map_x, map_y = map:get_location()
+        local map_size_x, map_size_y = map:get_size()
+        square_x = math.floor((map_x + 960) / (960) - 1)
+        square_y = math.floor((map_y + 768) / (768) - 1)
+        if x == 0 then
+          square_min_x = 0
+        else
+          square_min_x = math.floor((x+240)/(240)-1)
+        end
+        if y == 0 then
+          square_min_y = 0
+        else
+          square_min_y = math.floor((y+192)/(192)-1)
+        end
+        square_total_x = (4*square_x)+square_min_x
+        square_total_y = (4*square_y)+square_min_y
+        game:set_value("map_hero_position_x", square_total_x)
+        game:set_value("map_hero_position_y", square_total_y)
+
+        -- Save the map discovering.
+        assert(square_total_x >= 0 and square_total_y >= 0, "Negative coordinates for map discovering: "..square_total_x.." "..square_total_y)
+        if square_total_x >= 0 and square_total_y >= 0 then
+          game:set_value("map_discovering_" .. square_total_x .. "_" .. square_total_y, true)
+        end
       end
-      if y == 0 then
-        square_min_y = 0
-      else
-        square_min_y = math.floor((y+192)/(192)-1)
+    else
+      local map_width, map_height = map:get_size()
+      local room_width, room_height = 320, 240  -- TODO don't hardcode these numbers
+      local num_columns = math.floor(map_width / room_width)
+      local column = math.floor(x / room_width)
+      local row = math.floor(y / room_height)
+      local room = row * num_columns + column + 1
+      local room_old = game:get_value("room")
+      if game:has_dungeon_compass() and room_old ~= room and game:is_secret_room(nil, nil, room) and game:is_secret_signal_room(nil, nil, room) then
+        local timer = sol.timer.start(map, 500, function()
+            audio_manager:play_sound("misc/dungeon_signal")
+          end)
       end
-      square_total_x = (4*square_x)+square_min_x
-      square_total_y = (4*square_y)+square_min_y
-      game:set_value("map_hero_position_x", square_total_x)
-      game:set_value("map_hero_position_y", square_total_y)
-      
-      -- Save the map discovering.
-      assert(square_total_x >= 0 and square_total_y >= 0, "Negative coordinates for map discovering: "..square_total_x.." "..square_total_y)
-      if square_total_x >= 0 and square_total_y >= 0 then
-        game:set_value("map_discovering_" .. square_total_x .. "_" .. square_total_y, true)
-      end
+      game:set_value("room", room)
+      game:set_explored_dungeon_room(nil, nil, room)
+
     end
-  else
-    local map_width, map_height = map:get_size()
-    local room_width, room_height = 320, 240  -- TODO don't hardcode these numbers
-    local num_columns = math.floor(map_width / room_width)
-    local column = math.floor(x / room_width)
-    local row = math.floor(y / room_height)
-    local room = row * num_columns + column + 1
-    local room_old = game:get_value("room")
-    if game:has_dungeon_compass() and room_old ~= room and game:is_secret_room(nil, nil, room) and game:is_secret_signal_room(nil, nil, room) then
-      local timer = sol.timer.start(map, 500, function()
-        audio_manager:play_sound("misc/dungeon_signal")
-      end)
-    end
-    game:set_value("room", room)
-    game:set_explored_dungeon_room(nil, nil, room)
-    
-  end
-  
-end)
+
+  end)
 
 hero_meta:register_event("on_state_changed", function(hero , state)
 
-  local game = hero:get_game()
-  -- Avoid to lose any life when drowning.
-  if state == "back to solid ground" then
-    local ground = hero:get_ground_below()
-    if ground == "deep_water" then
-      game:add_life(1)
+    local game = hero:get_game()
+    -- Avoid to lose any life when drowning.
+    if state == "back to solid ground" then
+      local ground = hero:get_ground_below()
+      if ground == "deep_water" then
+        game:add_life(1)
+      end
     end
-  end
-  
-end)
+
+  end)
 
 -- Return true if the hero is walking.
 function hero_meta:is_walking()
 
   local m = self:get_movement()
   return m and m.get_speed and m:get_speed() > 0
-  
+
 end
 
 function hero_meta:on_taking_damage(damage)
@@ -194,7 +194,7 @@ function hero_meta:on_taking_damage(damage)
   local final_damage = math.ceil(damage/defense)
   -- Remove life.
   game:remove_life(damage)
-  
+
 end
 
 -- Set fixed stopped/walking animations for the hero (or nil to disable them).
@@ -208,17 +208,17 @@ function hero_meta:set_fixed_animations(new_stopped_animation, new_walking_anima
     if self:is_walking() then self:set_animation(fixed_walking_animation or "walking")
     else self:set_animation(fixed_stopped_animation or "stopped") end
   end
-  
+
 end
 
 -- Initialize hero behavior specific to this quest.
-local hero_meta = sol.main.get_metatable("hero")
 
 hero_meta:register_event("on_created", function(hero)
 
-  hero:initialize_fixing_functions() -- Used to fix direction and animations.
-  
-end)
+    hero:initialize_fixing_functions() -- Used to fix direction and animations.
+
+  end)
+
 
 --------------------------------------------------
 -- Functions to fix tunic animation and direction.
@@ -230,14 +230,14 @@ local fixed_direction, fixed_stopped_animation, fixed_walking_animation
 function hero_meta:get_fixed_direction()
 
   return fixed_direction
-  
+
 end
 
 -- Get fixed stopped/walking animations for the hero.
 function hero_meta:get_fixed_animations()
 
   return fixed_stopped_animation, fixed_walking_animation
-  
+
 end
 
 -- Set a fixed direction for the hero (or nil to disable it).
@@ -247,7 +247,7 @@ function hero_meta:set_fixed_direction(new_direction)
   if fixed_direction then
     self:get_sprite("tunic"):set_direction(fixed_direction)
   end
-  
+
 end
 
 -- Set fixed stopped/walking animations for the hero (or nil to disable them).
@@ -261,7 +261,7 @@ function hero_meta:set_fixed_animations(new_stopped_animation, new_walking_anima
     if self:is_walking() then self:set_animation(fixed_walking_animation or "walking")
     else self:set_animation(fixed_stopped_animation or "stopped") end
   end
-  
+
 end
 
 -- Initialize events to fix direction and animation for the tunic sprite of the hero.
@@ -297,67 +297,67 @@ function hero_meta:initialize_fixing_functions()
     old_set_tunic(self, sprite_id)
     self:initialize_fixing_functions()
   end
-  
+
 end
 
 -- Create an exclamation symbol near hero
 function hero_meta:create_symbol_exclamation()
-  
+
   local map = self:get_map()
   local x, y, layer = self:get_position()
   audio_manager:play_sound("menus/menu_select")
   local symbol = map:create_custom_entity({
-    sprite = "entities/symbols/exclamation",
-    x = x - 16,
-    y = y - 16,
-    width = 16,
-    height = 16,
-    layer = layer + 1,
-    direction = 0
-  })
+      sprite = "entities/symbols/exclamation",
+      x = x - 16,
+      y = y - 16,
+      width = 16,
+      height = 16,
+      layer = layer + 1,
+      direction = 0
+    })
 
   return symbol
-  
+
 end
 
 -- Create an interrogation symbol near hero
 function hero_meta:create_symbol_interrogation()
-  
+
   local map = self:get_map()
   local x, y, layer = self:get_position()
   audio_manager:play_sound("menus/menu_select")
   local symbol = map:create_custom_entity({
-    sprite = "entities/symbols/interrogation",
-    x = x,
-    y = y,
-    width = 16,
-    height = 16,
-    layer = layer + 1,
-    direction = 0
-  })
+      sprite = "entities/symbols/interrogation",
+      x = x,
+      y = y,
+      width = 16,
+      height = 16,
+      layer = layer + 1,
+      direction = 0
+    })
 
   return symbol
-  
+
 end
 
 -- Create a collapse symbol near hero
 function hero_meta:create_symbol_collapse()
-  
+
   local map = self:get_map()
   local width, height = self:get_sprite():get_size()
   local x, y, layer = self:get_position()
   local symbol = map:create_custom_entity({
-    sprite = "entities/symbols/collapse",
-    x = x,
-    y = y - height / 2,
-    width = 16,
-    height = 16,
-    layer = layer + 1,
-    direction = 0
-  })
+      sprite = "entities/symbols/collapse",
+      x = x,
+      y = y - height / 2,
+      width = 16,
+      height = 16,
+      layer = layer + 1,
+      direction = 0
+    })
 
   return symbol
-  
+
 end
 
 

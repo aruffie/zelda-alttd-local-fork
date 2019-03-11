@@ -10,6 +10,14 @@ If you need to make things jump like the hero when he uses the feather, then sim
 
 In the same way, you can make any entity be affected by gravity by adding "has_gravity" in it's custom properties.
 
+
+TODO check these points:
+- Désactiver l"attaque tournoyante quand on monte à l'échelle
+- Bug de vitesse quand on marche sur les échelles en concentrant l'épée*
+- QUand Link marche sur les échelles y a un petit espace entre lui et l'échelle. Ca donne l'impression qu'il vole
+- Chez moi je narrive pas à descendre sur l'échelle isolée
+- Quand Link est au dessus d'un pot et qu'il le ramasse, il descend (à cause dela gravité) un peu trop tot je trouve.
+- si je ramasse un pot et que je suis à cheval sur un autre pot, je sais pas si y a moyen de le faire descendre quand meme dans certains cas car on dirait qu'il vole un peu
 --]]
 
 local map_meta = sol.main.get_metatable("map")
@@ -182,15 +190,43 @@ local function update_hero(hero)
   update_movement(hero, speed, angle, animation)
 end
 
+local shadow = sol.sprite.create("entities/shadow")
+
+local function draw_hero(hero, has_shadow, offset)
+  local x,y = hero:get_position()
+  local map = hero:get_map()
+
+  if has_shadow then
+    map:draw_visual(shadow, x,y)
+  end
+
+  for _, sprite in hero:get_sprites() do
+    map:draw_visual(sprite, x, y+offset)
+  end
+
+  local carried_object=hero:get_carried_object()
+  if carried_object then
+    map:draw_visual(carried_object:get_sprite(), x,y-16+offset)
+  end
+end
+
 game_meta:register_event("on_map_changed", function(game, map)
+    local hero = map:get_hero()
     if map:is_sideview() then
-      map:get_hero().on_ladder = test_ladder(map:get_hero(), -1) 
+      hero.on_ladder = test_ladder(map:get_hero(), -1) 
+      hero:set_draw_override(function()
+          draw_hero(hero, false, 2)
+        end)
       sol.timer.start(map, 10, function()
           update_entities(map)
           return true
         end)
-    end
-  end)
+    else
+      hero:set_draw_override(function()
+          draw_hero(hero, true, 0)
+      end)
+  end
+end)
 
 
 hero_meta:register_event("on_state_changed", function(hero, state)
