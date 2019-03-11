@@ -11,26 +11,21 @@
 ----------------------------------
 --
 -- A carriable entity that can be thrown and bounce like a ball.
--- Randomly change the direction of the current sprite animation at each bounce.
+-- Randomly change the entity direction at each bounce among all available ones.
+--
+-- Events : dice:on_bounce(num_bounce), dice:on_finish_throw(), entity:hit_by_carriable(dice)
+-- Methods : dice:throw(direction)
 --
 ----------------------------------
+
 local dice = ...
 local carriable_behavior = require("entities/lib/carriable")
 
 local properties = {
-
-  vshift = 0, -- Vertical shift to draw the sprite while lifting/carrying.
-  num_bounces = 3, -- Number of bounces when falling (it can be 0).
-  bounce_distances = {80, 16, 4}, -- Distances for each bounce.
-  bounce_heights = {"same", 4, 2}, -- Heights for each bounce.
-  bounce_durations = {400, 160, 70}, -- Duration for each bounce.
-  bounce_sound = "bomb", -- Default id of the bouncing sound.
-  shadow_type = "normal", -- Type of shadow for the falling trajectory.
-  hurt_damage = 2,  -- Damage to enemies.
+  hurt_damage = 0
 }
 
 dice:register_event("on_bounce", function(dice, num_bounce)
-
   math.randomseed(sol.main.get_elapsed_time())
   dice:set_direction(math.random(0, dice:get_sprite():get_num_directions()-1))
 end)

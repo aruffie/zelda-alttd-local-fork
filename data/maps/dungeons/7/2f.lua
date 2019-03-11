@@ -91,10 +91,9 @@ enemy_manager:execute_when_vegas_dead(map, "enemy_group_7_")
 -----------------------
 -- Treasures events
 -----------------------
--- TODO appear chest "chest_map" when horse heads are correctly thrown
+treasure_manager:appear_chest_when_horse_heads_upright(map, "horse_head_", "chest_map")
 treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_3_", "chest_compass")
 treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_7_", "chest_bomb_1")
-
 
 -----------------------
 -- Separators

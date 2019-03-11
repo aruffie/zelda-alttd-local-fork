@@ -10,23 +10,17 @@
 
 ----------------------------------
 --
--- A carriable entity that can be thrown and bounce like a ball
+-- A carriable entity that can be thrown and bounce like a ball.
 --
+-- Events : ball:on_bounce(num_bounce), ball:on_finish_throw(), entity:hit_by_carriable(ball)
+-- Methods : ball:throw(direction)
 ----------------------------------
 
 local ball = ...
 local carriable_behavior = require("entities/lib/carriable")
 
 local properties = {
-
-  vshift = 0, -- Vertical shift to draw the sprite while lifting/carrying.
-  num_bounces = 3, -- Number of bounces when falling (it can be 0).
-  bounce_distances = {80, 16, 4}, -- Distances for each bounce.
-  bounce_heights = {"same", 4, 2}, -- Heights for each bounce.
-  bounce_durations = {400, 160, 70}, -- Duration for each bounce.
-  bounce_sound = "bomb", -- Default id of the bouncing sound.
-  shadow_type = "normal", -- Type of shadow for the falling trajectory.
-  hurt_damage = 2,  -- Damage to enemies.
+  hurt_damage = 2
 }
 
 carriable_behavior.apply(ball, properties)

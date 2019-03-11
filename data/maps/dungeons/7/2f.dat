@@ -10857,8 +10857,8 @@ chest{
 enemy{
   name = "enemy_group_2_1",
   layer = 0,
-  x = 736,
-  y = -19,
+  x = 816,
+  y = 181,
   direction = 0,
   breed = "bubble",
 }

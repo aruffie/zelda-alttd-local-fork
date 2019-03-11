@@ -13,7 +13,7 @@ local game = pillar:get_game()
 local map = pillar:get_map()
 local hero = map:get_hero()
 
-local audio_manager = require("scripts/audio_manager")
+local map_tools = require("scripts/maps/map_tools")
 
 pillar:register_event("on_created", function(pillar)
 
@@ -33,42 +33,6 @@ pillar:register_event("on_created", function(pillar)
   end)
 end)
 
--- Start an explosion placed randomly around the entity coordinates and restart it while the entity is enabled
-function map:start_chained_explosion_on_entity(entity, max_distance, callback)
-
-  local x, y, layer = entity:get_position()
-  math.randomseed(sol.main.get_elapsed_time())
-  
-  -- TODO audio_manager:play_sound("explosion")
-
-  local explosion = map:create_explosion(
-      {name = "chained_explosion", x = x + math.random(-max_distance, max_distance), y = y + math.random(-max_distance, max_distance), layer = layer})
-  if explosion ~= nil then -- Avoid Errors when closing the game while a chained explosion is running
-    explosion:register_event("on_removed", function(explosion)
-      if entity:is_enabled() then
-        map:start_chained_explosion_on_entity(entity, max_distance, callback)
-      else
-        callback()
-      end
-    end)
-  end
-end
-
--- Shake the screen
-function map:start_earthquake(shake_config)
-
-  map:start_coroutine(function()
-    local camera = map:get_camera()
-    local timer_sound = sol.timer.start(hero, 0, function()
-      -- TODO audio_manager:play_sound("misc/dungeon_shake")
-      return 450
-    end)
-    timer_sound:set_suspended_with_map(false)
-    wait_for(camera.shake, camera, shake_config)
-    timer_sound:stop()
-  end)
-end
-
 function pillar:start_breaking()
 
   -- Save the pillar state
@@ -78,12 +42,12 @@ function pillar:start_breaking()
   hero:freeze()
 
   -- Start earthquake
-  map:start_earthquake({count = 64, amplitude = 4, speed = 90})
+  map_tools.start_earthquake({count = 64, amplitude = 4, speed = 90})
 
   -- Start 3 chained explosions
   for i = 1, 3 do
     sol.timer.start((i - 1) * 500, function()
-      map:start_chained_explosion_on_entity(pillar, 32, function()
+      map_tools.start_chained_explosion_on_entity(pillar, 32, function()
         -- If this is the last explosion, unfreeze the hero
         if map:get_entities_count("chained_explosion") == 1 then
           hero:unfreeze()

@@ -10,15 +10,33 @@
 
 ----------------------------------
 --
--- Behavior of an undestructible solarus destructible, 
--- behaving the same way than solarus destructible except it won't break.
+-- Behavior of an undestructible destructible, 
+-- behaving the same way than build-in destructible except it bounces and doesn't break.
 -- 
 -- Events : carriable:on_bounce(num_bounce), carriable:on_finish_throw(), entity:hit_by_carriable(carriable)
 -- Methods : carriable:throw(direction)
 --
+-- Usage : 
+-- local my_carriable_entity = ...
+-- local carriable_behavior = require("entities/lib/carriable")
+-- local properties = { --[[ Some properties --]] }
+-- carriable_behavior.apply(my_carriable_entity, properties)
+--
 ----------------------------------
 
 local carriable_behavior = {}
+
+local default_properties = {
+
+  vshift = 0, -- Vertical shift to draw the sprite while lifting/carrying.
+  num_bounces = 3, -- Number of bounces when falling (it can be 0).
+  bounce_distances = {80, 16, 4}, -- Distances for each bounce.
+  bounce_heights = {"same", 4, 2}, -- Heights for each bounce.
+  bounce_durations = {400, 160, 70}, -- Duration for each bounce.
+  bounce_sound = "bomb", -- Default id of the bouncing sound.
+  shadow_type = "normal", -- Type of shadow for the falling trajectory.
+  hurt_damage = 1,  -- Damage to enemies.
+}
 
 function carriable_behavior.apply(carriable, properties)
 
@@ -45,16 +63,26 @@ function carriable_behavior.apply(carriable, properties)
   -- Define falling trajectory for the thrown carriable
   carriable:register_event("throw", function(carriable, direction)
 
+    -- Properties
+    local vshift = properties.vshift or default_properties.vshift
+    local num_bounces = properties.num_bounces or default_properties.num_bounces
+    local bounce_distances = properties.bounce_distances or default_properties.bounce_distances
+    local bounce_heights = properties.bounce_heights or default_properties.bounce_heights
+    local bounce_durations = properties.bounce_durations or default_properties.bounce_durations
+    local bounce_sound = properties.bounce_sound or default_properties.bounce_sound
+    local shadow_type = properties.shadow_type or default_properties.shadow_type
+    local hurt_damage = properties.hurt_damage or default_properties.hurt_damage
+
     -- Initialize throwing state
+    local is_obstacle_reached = false
     local sprite = carriable:get_sprite()
     local current_bounce = 1
     local current_instant = 0
     local dx, dy = math.cos(direction * math.pi / 2), -math.sin(direction * math.pi / 2)
-    local is_obstacle_reached = false
 
     carriable:set_traversable_by("hero", true)
     carriable:set_direction(direction)
-    sprite:set_xy(0, -22 + properties.vshift)
+    sprite:set_xy(0, -22 + vshift)
 
     -- Hit effects
     function hit_effects(carriable, entity)
@@ -66,7 +94,7 @@ function carriable_behavior.apply(carriable, properties)
         end
         -- If the entity is an enemy, hurt it
         if entity:get_type() == "enemy" then
-          entity:hurt(properties.hurt_damage)
+          entity:hurt(hurt_damage)
           is_obstacle_reached = true
         end
         -- Stop the movement if a hit effect is triggered
@@ -83,10 +111,10 @@ function carriable_behavior.apply(carriable, properties)
 
     -- Create a custom_entity for shadow (this one is drawn below).
     local px, py, pz = carriable:get_position()
-    if properties.shadow_type then
+    if shadow_type then
       local shadow_properties = {x = px, y = py, layer = pz, direction = 0, width = 16, height = 16}
       shadow = map:create_custom_entity(shadow_properties)
-      if properties.shadow_type == "normal" then
+      if shadow_type == "normal" then
         shadow:create_sprite("entities/shadows/shadow")
         shadow:bring_to_back()
       end
@@ -113,17 +141,17 @@ function carriable_behavior.apply(carriable, properties)
     -- Function to bounce when carriable is thrown.
     function carriable:bounce()
       -- Finish bouncing if we have already done all bounces.
-      if current_bounce > properties.num_bounces then 
+      if current_bounce > num_bounces then 
         carriable:finish_bounce()    
         return
       end  
       -- Initialize parameters for the bounce.
   	  local x, y, z
       local _, sy = sprite:get_xy()
-      local dist = properties.bounce_distances[current_bounce]
-      local h = properties.bounce_heights[current_bounce]
+      local dist = bounce_distances[current_bounce]
+      local h = bounce_heights[current_bounce]
       if h == "same" then h = -sy end
-      local dur = properties.bounce_durations[current_bounce]  
+      local dur = bounce_durations[current_bounce]  
       local speed = 1000 * dist / dur -- Speed of the straight movement (pixels per second).
       local t = current_instant
       
@@ -138,7 +166,7 @@ function carriable_behavior.apply(carriable, properties)
         movement:set_angle(direction * math.pi / 2)
         movement:set_speed(speed)
         movement:set_max_distance(dist)
-        movement:set_smooth(true) -- TODO check for collision bugs when set to false
+        movement:set_smooth(true) -- TODO check for collision issues when set to false
         movement:start(carriable)
       end
       
@@ -150,10 +178,10 @@ function carriable_behavior.apply(carriable, properties)
         if shadow then shadow:set_position(carriable:get_position()) end
         -- Update shift of sprite.
         if t <= dur then 
-          sprite:set_xy(0, carriable:current_height() + properties.vshift)
+          sprite:set_xy(0, carriable:current_height() + vshift)
         -- Stop the timer. Start next bounce or finish bounces. 
         else -- The carriable hits the ground.
-          map:ground_collision(carriable, properties.bounce_sound) -- TODO Check for bad ground.
+          map:ground_collision(carriable, bounce_sound) -- TODO Check for bad ground.
           -- Check if the carriable exists (it can be removed on holes, water and lava).
           if carriable:exists() then 
             if carriable.on_bounce then
@@ -178,6 +206,7 @@ function carriable_behavior.apply(carriable, properties)
     -- General properties
     local carriable_name = carriable:get_name()
     local carriable_model = carriable:get_model()
+    carriable:set_follow_streams(true)
     carriable:set_traversable_by(false)
     carriable:set_drawn_in_y_order(true)
     carriable:set_weight(0)
@@ -196,8 +225,9 @@ function carriable_behavior.apply(carriable, properties)
     carriable:set_can_traverse("teletransporter", true)
     carriable:set_can_traverse(false)
 
-    -- Behavior when carried
     carriable:register_event("on_lifting", function(carriable, hero, carried_object)
+      -- TODO Find a proper way to keep events registered outside this script alive when the entity is replaced by the carried object
+      local carriable_on_finish_throw = carriable.on_finish_throw
       
       -- Remove the build-in carried object when thrown and replace it by the initial custom entity with custom thrown trajectory.
       carried_object:register_event("on_thrown", function(carried_object)
@@ -207,10 +237,11 @@ function carriable_behavior.apply(carriable, properties)
         local direction = hero:get_direction()
         local animation_set = carried_object:get_sprite():get_animation_set()
         local properties = {name = carriable_name, model = carriable_model,
-            x = x, y = y, layer = layer, direction = direction, sprite = animation_set,
+            x = x, y = y, layer = layer, direction = direction,
             width = 16, height = 16, sprite = animation_set}
         carried_object:remove()
         local thrown_carriable = map:create_custom_entity(properties)
+        thrown_carriable.on_finish_throw = carriable_on_finish_throw
         thrown_carriable:throw(direction)
       end)
     end)
