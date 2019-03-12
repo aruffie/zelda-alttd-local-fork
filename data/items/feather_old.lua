@@ -1,3 +1,7 @@
+--[[
+return
+
+
 -- Lua script of item "feather".
 -- This script is executed only once for the whole game.
 
@@ -16,9 +20,9 @@ function item:on_created()
   item:set_savegame_variable("possession_feather")
   item:set_sound_when_brandished(nil)
   item:set_assignable(true)
-  --[[ Redefine event game.on_command_pressed.
+  --[ Redefine event game.on_command_pressed.
   -- Avoids restarting hero animation when feather command is pressed
-  -- in the middle of a jump, and using weapons while jumping. --]]
+  -- in the middle of a jump, and using weapons while jumping. --]
   local game = self:get_game()
   game:set_ability("jump_over_water", 0) -- Disable auto-jump on water border.
   game:register_event("on_command_pressed", function(self, command)
@@ -46,3 +50,4 @@ function item:on_obtaining()
   audio_manager:play_sound("items/fanfare_item_extended")
         
 end
+]]

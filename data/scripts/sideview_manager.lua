@@ -35,6 +35,7 @@ local gravity = 0.05
 local max_vspeed=2.3
 local movement
 
+
 --Returns whether the ground at given XY coordinates is a ladder.
 local function is_ladder(map, x,y, layer)
   layer=layer or 0

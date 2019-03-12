@@ -1102,6 +1102,7 @@ item{ id = "console", description = "Console" }
 item{ id = "drug", description = "Drug" }
 item{ id = "face_key", description = "Face key" }
 item{ id = "fairy", description = "Fairy" }
+item{ id = "feather", description = "Feather v2" }
 item{ id = "feather_old", description = "feather" }
 item{ id = "fire_rod", description = "Fire rod" }
 item{ id = "flippers", description = "Flippers" }
