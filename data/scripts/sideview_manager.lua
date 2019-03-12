@@ -12,12 +12,16 @@ In the same way, you can make any entity be affected by gravity by adding "has_g
 
 
 TODO check these points:
-- Désactiver l"attaque tournoyante quand on monte à l'échelle
-- Bug de vitesse quand on marche sur les échelles en concentrant l'épée*
-- QUand Link marche sur les échelles y a un petit espace entre lui et l'échelle. Ca donne l'impression qu'il vole
-- Chez moi je narrive pas à descendre sur l'échelle isolée
-- Quand Link est au dessus d'un pot et qu'il le ramasse, il descend (à cause dela gravité) un peu trop tot je trouve.
-- si je ramasse un pot et que je suis à cheval sur un autre pot, je sais pas si y a moyen de le faire descendre quand meme dans certains cas car on dirait qu'il vole un peu
+- [ ] Désactiver l'attaque tournoyante quand on monte à l'échelle
+- [ ] Bug de vitesse quand on marche sur les échelles en concentrant l'épée 
+- [en cours] QUand Link marche sur les échelles y a un petit espace entre lui et l'échelle. Ca donne l'impression qu'il vole
+-- [X] Décaler le sprite de Link
+-- [ ] Décaler le sprite des pots --> Fonctionne mais le pot est dans un état indéfini entre le moment ou on commence à la soulever et le moment ou il est au dessus de la têde du héros 
+-- [ ] Décaler le sprite des items en cours d'utilisation.
+
+- [ ] Chez moi je narrive pas à descendre sur l'échelle isolée
+- [ ] Quand Link est au dessus d'un pot et qu'il le ramasse, il descend (à cause dela gravité) un peu trop tot je trouve.
+- [ ] si je ramasse un pot et que je suis à cheval sur un autre pot, je sais pas si y a moyen de le faire descendre quand meme dans certains cas car on dirait qu'il vole un peu
 --]]
 
 local map_meta = sol.main.get_metatable("map")
@@ -27,8 +31,8 @@ require("scripts/multi_events")
 local walking_speed = 88
 local climbing_speed= 44
 local timer 
-local gravity = 0.2
-local max_vspeed=2.5
+local gravity = 0.05
+local max_vspeed=2.3
 local movement
 
 --Returns whether the ground at given XY coordinates is a ladder.
@@ -64,10 +68,8 @@ local function apply_gravity(entity)
   local dy=0
   while dy<=vspeed do 
     if entity:test_obstacles(0,dy) or 
-    entity:get_type()=="hero" and
-    (not test_ladder(entity) and is_ladder(entity:get_map(), x, y+3+dy)) then --we just landed.
+    test_ladder(entity)==false and is_ladder(entity:get_map(), x, y+3+dy) then --we just landed.
       vspeed = 0
-      --print("Ground hit. Last valid position:"..y+dy)
       break
     end
     dy=dy+0.1
@@ -190,23 +192,28 @@ local function update_hero(hero)
   update_movement(hero, speed, angle, animation)
 end
 
-local shadow = sol.sprite.create("entities/shadow")
-
 local function draw_hero(hero, has_shadow, offset)
   local x,y = hero:get_position()
   local map = hero:get_map()
 
-  if has_shadow then
-    map:draw_visual(shadow, x,y)
+--  print "DRAW HERO"
+  for set, sprite in hero:get_sprites() do
+    if set~="shadow" or has_shadow then
+      map:draw_visual(sprite, x, y+offset)
+    end
   end
-
-  for _, sprite in hero:get_sprites() do
-    map:draw_visual(sprite, x, y+offset)
+  for i, carried_entity in map:get_entities_by_type("carried_object") do
+    --print "carried entity found"
   end
-
   local carried_object=hero:get_carried_object()
   if carried_object then
-    map:draw_visual(carried_object:get_sprite(), x,y-16+offset)
+    --print "DRAW POT"
+    for set, sprite in carried_object:get_sprites() do
+--      print (set)
+      if set~="shadow" or has_shadow then
+        map:draw_visual(sprite, x,y-16+offset)
+      end
+    end
   end
 end
 
@@ -224,9 +231,9 @@ game_meta:register_event("on_map_changed", function(game, map)
     else
       hero:set_draw_override(function()
           draw_hero(hero, true, 0)
-      end)
-  end
-end)
+        end)
+    end
+  end)
 
 
 hero_meta:register_event("on_state_changed", function(hero, state)
