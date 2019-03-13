@@ -138,6 +138,12 @@ local function update_entities(map)
   end
 end
 
+local function is_on_ground(entity, dy)
+  dy = dy or 0
+  local x,y = entity:get_position()
+  return entity:test_obstacles(0, 1) or not test_ladder(entity) and is_ladder(entity:get_map(), x, y+3)
+end
+
 --[[
   Updates the movement of the hero, after performing checks in order to avoid a bug based on setting them every frame.
   Also updates the sprite of the hero.
@@ -164,13 +170,13 @@ local function update_movement(hero, speed, angle, state)
   --]]
   if speed == 0 then
     new_animation = prefix.."stopped"
-    if state == "" and not hero:test_obstacles(0, 1) then
+    if state == "" and not is_on_ground(hero) then
       new_animation ="jumping"
     end
   else
     if state=="climbing" then
       new_animation = "climbing_walking"
-    elseif hero:test_obstacles(0, 1) then
+    elseif is_on_ground(hero) then
       if state == "carrying" then
         new_animation="carrying_walking"
       else
