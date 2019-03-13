@@ -21,7 +21,7 @@ TODO check these points:
 
 - [ ] Chez moi je narrive pas à descendre sur l'échelle isolée
 - [ ] Quand Link est au dessus d'un pot et qu'il le ramasse, il descend (à cause dela gravité) un peu trop tot je trouve.
-- [ ] si je ramasse un pot et que je suis à cheval sur un autre pot, je sais pas si y a moyen de le faire descendre quand meme dans certains cas car on dirait qu'il vole un peu
+- [nécéssite de changer le comportement des cillosions et/ou les hitbox] si je ramasse un pot et que je suis à cheval sur un autre pot, je sais pas si y a moyen de le faire descendre quand meme dans certains cas car on dirait qu'il vole un peu
 --]]
 
 local map_meta = sol.main.get_metatable("map")
@@ -36,28 +36,52 @@ local max_vspeed=2.3
 local movement
 
 
---Returns whether the ground at given XY coordinates is a ladder.
+--[[
+  Returns whether the ground at given XY coordinates is a ladder.
+  This is actually a shortcut to avoid multiples instances of "map:get_ground(x,y, layer)=="ladder" in tests.
+  Parameters : 
+   map, the map object
+   x,y, the corrdinates of the point to test
+--]]
 local function is_ladder(map, x,y, layer)
   layer=layer or 0
   return map:get_ground(x,y, layer)=="ladder"
 end
 
+--[[
+  Sets whether we are in sideview mode in the current map.
+  Parameter: enabled (boolean or nil).
+--]]
 function map_meta:set_sideview(enabled)
   self.sideview=enabled
 end
-function map_meta:is_sideview()
-  return self.sideview or nil
-end
 
 --[[
-  Returns whether the ground under the top-middle or the bottom-middle points of the bounding box of a given entity is a ladder.
+  Returns whether the current map is in sideview mode.
 --]]
+function map_meta:is_sideview()
+  return self.sideview
+end
 
+
+--[[
+  Checks if the ground under the top-middle or the bottom-middle points of the bounding box of a given entity is a ladder.
+  Returns : xhether a ladder was detected
+--]]
 local function test_ladder(entity)
   local map=entity:get_map()
   local x,y,layer= entity:get_position() 
   return is_ladder(map, x, y-2, layer) or is_ladder(map, x, y+2, layer)
 end
+
+--[[
+  The core function of the side views : 
+  it applies a semi-realistic gravity to the given entity, and resets the vertical speed if :
+    we reached a solid obstacle,
+    we laanded on top of a ladder
+    
+    Parameter : entity, the entity to apply the gravity on.
+--]]
 
 local function apply_gravity(entity)
   --Apply gravity
@@ -67,9 +91,10 @@ local function apply_gravity(entity)
   end
   local x,y=entity:get_position()
   local dy=0
+  --TODO : push the entity out of any obstacle it could be stuck in.
   while dy<=vspeed do 
     if entity:test_obstacles(0,dy) or 
-    test_ladder(entity)==false and is_ladder(entity:get_map(), x, y+3+dy) then --we just landed.
+    test_ladder(entity)==false and is_ladder(entity:get_map(), x, y+3+dy) then --we are on an obstacle, reset speed.
       vspeed = 0
       break
     end
@@ -80,43 +105,84 @@ local function apply_gravity(entity)
   entity.vspeed = vspeed   
 end
 
-
-local function update_entities(map)    -- Allow other entities to fall with the gravity timer.
-  -- Pickables always fall by default. Entities with "g_" prefix or defining
-  -- the custom property "sidemap_gravity" different from nil will fall.
+--[[
+-- Loops through every active entity and checks if it should be affected by gravity, calling apply_gravity if applicable.
+  Pickables and the hero are always affected.
+  Other entities will not be affeted unless they have a name with the "g_" prefix or
+  if they have defined a custom property called "sidemap_gravity".
+  
+  Parameter : map, the map object.
+--]]
+local function update_entities(map)  
   for entity in map:get_entities() do
-    -- Check entitites that can fall.
-    local is_affected
-    local has_property = entity:get_property("has_gravity")
-    if entity:get_type() == "pickable" or entity:get_type()=="carried_object" then
-      is_affected = true
-    elseif entity:get_type()=="hero" then
-      if entity.on_ladder then
-        is_affected = false
-      else
+    if entity:is_enabled() then
+      -- Check entitites that can fall.
+      local is_affected
+      local has_property = entity:get_property("has_gravity")
+      if entity:get_type() == "pickable" or entity:get_type()=="carried_object" then
         is_affected = true
+      elseif entity:get_type()=="hero" then
+        if entity.on_ladder then
+          is_affected = false
+        else
+          is_affected = true
+        end
+      else
+        is_affected = false
       end
-    else
-      is_affected = false
-    end
-    -- Make entity fall.
-    if has_property or is_affected then
-      apply_gravity(entity)
+      -- Make entity fall.
+      if has_property or is_affected then
+        apply_gravity(entity)
+      end
     end
   end
 end
 
+--[[
+  Updates the movement of the hero, after performing checks in order to avoid a bug based on setting them every frame.
+  Also updates the sprite of the hero.
+  
+  Parameters:
+    hero : the hero object.
+    speed : the new speed of the movement.
+    angle : the new angle of the movement.
+    state : the prefix of the animation to apply on the sprite (nil means use no prefix)
+--]]
+
 local function update_movement(hero, speed, angle, state)
   local sprite = hero:get_sprite()
   state = state and state or ""
+  local prefix = ""
   if state ~= "" then
-    state = state.."_"
+    prefix = state.."_" 
   end
-
-  if speed>0 then
-    new_animation=state.."walking"
+  local new_animation
+  --[[
+            | stopped(speed = 0)  carry    walk
+  on ground | stopped             carry    walk  
+  falling   [ stopped             carry    jump
+  --]]
+  if speed == 0 then
+    new_animation = prefix.."stopped"
+    if state == "" and not hero:test_obstacles(0, 1) then
+      new_animation ="jumping"
+    end
   else
-    new_animation=state.."stopped"
+    if state=="climbing" then
+      new_animation = "climbing_walking"
+    elseif hero:test_obstacles(0, 1) then
+      if state == "carrying" then
+        new_animation="carrying_walking"
+      else
+        new_animation="walking"
+      end
+    else
+      if state == "carrying" then
+        new_animation="carrying_stopped"
+      else
+        new_animation = "jumping"
+      end
+    end
   end
   --print(new_animation)
 
@@ -135,6 +201,15 @@ local function update_movement(hero, speed, angle, state)
   end
 end
 
+--[[
+  TODO find a better explanation for this core function
+
+  Updates the internal state of the hero, by reading the currently pressed arrow keys commands.
+  This is also where it get attached to the ladder if it is against one by pressing
+  
+  Parameter : hero, the hero object.
+--]]
+
 local function update_hero(hero)
 
   local game = hero:get_game()
@@ -150,13 +225,13 @@ local function update_hero(hero)
   local dx, dy
   local animation=""
 
-  if command("up") and (not command("down")) then
+  if command("up") and not command("down") then
     angle=math.pi/2
     if test_ladder(hero) then
       hero.on_ladder = true
       speed=climbing_speed
     end
-  elseif command("down") and (not command("up")) then
+  elseif command("down") and not command("up") then
     ---print "LEFT"
     angle=1.5*math.pi
     if test_ladder(hero) or is_ladder(map, x, y+3) then
@@ -193,6 +268,12 @@ local function update_hero(hero)
   update_movement(hero, speed, angle, animation)
 end
 
+--[[
+  Draws the sprites of the hero at a given offset from it's actual position, as well as the ones from any entity attached to it, if applicable.
+  Also allows to skip drawing the shadow if needed, which is the case in sideview mode.
+  
+  TODO check for any missing attached entity and add it here.
+--]]
 local function draw_hero(hero, has_shadow, offset)
   local x,y = hero:get_position()
   local map = hero:get_map()
@@ -218,8 +299,13 @@ local function draw_hero(hero, has_shadow, offset)
   end
 end
 
+--[[
+  Redeclaration of the "on map changed' event to take account of the sideview mode.
+  This override completely refefines how the hero is drawed by setting the draw_override, as well as starting the routine which updates the gravity of the entitites for sideviews.
+--]]
 game_meta:register_event("on_map_changed", function(game, map)
     local hero = map:get_hero()
+    hero.vspeeed = 0
     if map:is_sideview() then
       hero.on_ladder = test_ladder(map:get_hero(), -1) 
       hero:set_draw_override(function()
@@ -235,7 +321,6 @@ game_meta:register_event("on_map_changed", function(game, map)
         end)
     end
   end)
-
 
 hero_meta:register_event("on_state_changed", function(hero, state)
     --print ("STATE CHANGED:"..state)
