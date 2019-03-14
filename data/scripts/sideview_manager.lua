@@ -97,9 +97,8 @@ end
 local function apply_gravity(entity)
   --Apply gravity
   local vspeed = entity.vspeed or 0
-  if vspeed<=max_vspeed then
-    vspeed = vspeed+gravity
-  end
+  vspeed = math.min(vspeed+gravity, max_vspeed)
+
   local x,y=entity:get_position()
   local dy=0
   --TODO : push the entity out of any obstacle it could be stuck in.
