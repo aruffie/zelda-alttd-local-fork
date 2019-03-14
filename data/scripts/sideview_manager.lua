@@ -8,7 +8,7 @@ To initialize, just require it in a game setup script, like features.lua,
    
 If you need to make things jump like the hero when he uses the feather, then simply do <your_entity>.vspeed=<some_negative_number>, then the gravity will do the rest.
 
-In the same way, you can make any entity be affected by gravity by adding "has_gravity" in it's custom properties.
+In the same way, you can make any entity be affected by gravity by adding "has_gravity" in its custom properties.
 
 
 TODO check these points:
@@ -30,11 +30,8 @@ local game_meta = sol.main.get_metatable("game")
 require("scripts/multi_events")
 local walking_speed = 88
 local climbing_speed= 44
-local timer 
 local gravity = 0.05
 local max_vspeed=2.3
-local movement
-
 
 --[[
   Returns whether the ground at given XY coordinates is a ladder.
@@ -60,9 +57,23 @@ end
   Returns whether the current map is in sideview mode.
 --]]
 function map_meta:is_sideview()
-  return self.sideview
+  return self.sideview or false
 end
 
+--[[
+  Sets the vertical speed on the entity, in pixels/frame.
+  Parameter: vspeed, the new vertical speed.
+--]]
+function map_meta:set_vertical_speed(entity, vspeed)
+  entity.vspeed = vspeed
+end
+
+--[[
+  Returns whether the current vertical speed of the entity, in pixels/frame.
+--]]
+function map_meta:get_vertical_speed(entity)
+  return entity.vspeed or 0
+end
 
 --[[
   Checks if the ground under the top-middle or the bottom-middle points of the bounding box of a given entity is a ladder.
@@ -108,8 +119,7 @@ end
 --[[
 -- Loops through every active entity and checks if it should be affected by gravity, calling apply_gravity if applicable.
   Pickables and the hero are always affected.
-  Other entities will not be affeted unless they have a name with the "g_" prefix or
-  if they have defined a custom property called "sidemap_gravity".
+  Other entities will not be affeted unless they have defined a custom property called "sidemap_gravity".
   
   Parameter : map, the map object.
 --]]
@@ -156,6 +166,7 @@ end
 --]]
 
 local function update_movement(hero, speed, angle, state)
+  local movement = hero.movement
   local sprite = hero:get_sprite()
   state = state and state or ""
   local prefix = ""
@@ -169,22 +180,26 @@ local function update_movement(hero, speed, angle, state)
   falling   [ stopped             carry    jump
   --]]
   if speed == 0 then
-    new_animation = prefix.."stopped"
-    if state == "" and not is_on_ground(hero) then
-      new_animation ="jumping"
+    new_animation = prefix.."stopped"  
+    if state == "lifting" then
+      new_animation = "lifting_heavy"
+    elseif  state == "" and not is_on_ground(hero) then
+      new_animation = "jumping"
     end
-  else
-    if state=="climbing" then
+  else 
+    if state == "lifting" then
+      new_animation = "lifting_heavy"
+    elseif state == "climbing" then
       new_animation = "climbing_walking"
     elseif is_on_ground(hero) then
       if state == "carrying" then
-        new_animation="carrying_walking"
+        new_animation = "carrying_walking"
       else
-        new_animation="walking"
+        new_animation = "walking"
       end
     else
       if state == "carrying" then
-        new_animation="carrying_stopped"
+        new_animation = "carrying_stopped"
       else
         new_animation = "jumping"
       end
@@ -217,7 +232,7 @@ end
 --]]
 
 local function update_hero(hero)
-
+  local movement = hero.movement
   local game = hero:get_game()
 
   local function command(id)
@@ -267,6 +282,8 @@ local function update_hero(hero)
     animation = "climbing"
   elseif hero:get_state() == "carrying" then
     animation = "carrying"    
+  elseif hero:get_state() == "lifting" then
+    animation = "lifting"
   else
     animation = ""
   end
@@ -310,32 +327,37 @@ end
   This override completely refefines how the hero is drawed by setting the draw_override, as well as starting the routine which updates the gravity of the entitites for sideviews.
 --]]
 game_meta:register_event("on_map_changed", function(game, map)
-    local hero = map:get_hero()
-    hero.vspeeed = 0
+
+    local hero = map:get_hero() --TODO account for multiple heroes
+    local has_shadow=true
+    local v_offset = 0
+
     if map:is_sideview() then
+      has_shadow = false
+      v_offset = 2
       hero.on_ladder = test_ladder(map:get_hero(), -1) 
-      hero:set_draw_override(function()
-          draw_hero(hero, false, 2)
-        end)
+      hero.vspeeed = 0
       sol.timer.start(map, 10, function()
           update_entities(map)
           return true
         end)
-    else
-      hero:set_draw_override(function()
-          draw_hero(hero, true, 0)
-        end)
     end
+
+    hero:set_draw_override(function()  
+        draw_hero(hero, has_shadow, v_offset)
+      end)
   end)
 
 hero_meta:register_event("on_state_changed", function(hero, state)
     --print ("STATE CHANGED:"..state)
     local game = hero:get_game()
     local map = hero:get_map()
+    local movement = hero.movement
     if movement then
       movement:stop()
       movement = nil
     end
+    local timer = hero.timer
     if timer then
       timer:stop()
       timer = nil
@@ -343,10 +365,11 @@ hero_meta:register_event("on_state_changed", function(hero, state)
 
     if map:is_sideview() then
       if state == "free" or state == "carrying" then
-        movement=sol.movement.create("straight")
+        local movement=sol.movement.create("straight")
         movement:set_angle(-1)
         movement:set_speed(0)
         movement:start(hero)
+        hero.movement = movement
         timer = sol.timer.start(hero, 10, function()
             update_hero(hero) 
             return true
