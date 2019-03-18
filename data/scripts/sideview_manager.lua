@@ -97,9 +97,13 @@ end
 local function apply_gravity(entity)
   --Apply gravity
   local vspeed = entity.vspeed or 0
-  vspeed = math.min(vspeed+gravity, max_vspeed)
-
-  local x,y=entity:get_position()
+  local x,y,layer = entity:get_position()
+  local map = entity:get_map()
+  if map:get_ground(x,y,layer)=="deep_water" then
+    vspeed = math.min(vspeed+gravity/2, 0.85)
+  else
+    vspeed = math.min(vspeed+gravity, max_vspeed)
+  end
   local dy=0
   --TODO : push the entity out of any obstacle it could be stuck in.
   while dy<=vspeed do 
@@ -208,6 +212,13 @@ local function update_animation(hero)
   falling   [ stopped             carry    jump
   --]]
   -- print("state to display :"..state)
+  if state == "swimming" then
+    if movement:get_speed() ~= 0 then
+      new_animation = "swimming_scroll"
+    else
+      new_animation = "stopped_swimming_scroll"
+    end
+  end
   if state == "lifting" then
     new_animation = "lifting_heavy"
   end
@@ -219,6 +230,9 @@ local function update_animation(hero)
       new_animation = "sword_loading_stopped"
       hero:get_sprite("sword"):set_animation("sword_loading_stopped")    
     end
+--    if hero:get_ground_below() == "deep_water" then
+--      new_animation = "swimming_scroll_loading"
+--    end
   end
   if state=="free" then
     if movement:get_speed() == 0 then
@@ -242,7 +256,7 @@ local function update_animation(hero)
   -- print(new_animation)
 
   if new_animation and new_animation ~= sprite:get_animation() then
-    sprite:set_frame(0)
+--    sprite:set_frame(0)
     sprite:set_animation(new_animation)
   end
 end
@@ -320,7 +334,7 @@ local function draw_hero(hero, has_shadow, offset)
 --  print "DRAW HERO"
   for set, sprite in hero:get_sprites() do
     if set~="shadow" or has_shadow then
-      print ("Displaying sprite element : "..set..' with animation: '..sprite:get_animation())
+--      print ("Displaying sprite element : "..set..' with animation: '..sprite:get_animation())
       map:draw_visual(sprite, x, y+offset)
     end
   end
