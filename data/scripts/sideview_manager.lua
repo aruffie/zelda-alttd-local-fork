@@ -155,21 +155,50 @@ end
 
 --[[
   Updates the movement of the hero, after performing checks in order to avoid a bug based on setting them every frame.
-  Also updates the sprite of the hero.
   
   Parameters:
     hero : the hero object.
     speed : the new speed of the movement.
     angle : the new angle of the movement.
-    state : the prefix of the animation to apply on the sprite (nil means use no prefix)
 --]]
 
 local function update_movement(hero, speed, angle, state)
   local movement = hero.movement
   local sprite = hero:get_sprite()
-  state = state and state or ""
+  --print(new_animation)
+
+  if movement:get_speed() ~= speed then
+    --print(sol.main.get_elapsed_time(), "set_speed", movement:get_speed(), " -> ", speed)
+    sprite:set_frame(0)
+    movement:set_speed(speed) 
+  end
+
+  if movement:get_angle() ~= angle then
+    sprite:set_frame(0)
+    --print(sol.main.get_elapsed_time(), "set_angle", movement:get_angle(), " -> ", angle)
+    movement:set_angle(angle) 
+    local state =hero:get_state()
+    if state ~= "sword loading" and state ~="sword tapping" and state ~= "sword swinging" then
+      sprite:set_direction(math.floor(angle*2/math.pi))
+    end
+  end
+
+end
+
+--[[
+  Updates the sprite animation of the given hero.
+  
+  Parameters:
+    hero : the hero object.
+--]]
+
+local function update_animation(hero)
+  local state = hero:get_state()
+  local movement = hero.movement
+  local x,y,layer = hero:get_position()
+  local sprite = hero:get_sprite()
   local prefix = ""
-  if state ~= "" then
+  if state ~= "free" then
     prefix = state.."_" 
   end
   local new_animation
@@ -178,45 +207,42 @@ local function update_movement(hero, speed, angle, state)
   on ground | stopped             carry    walk  
   falling   [ stopped             carry    jump
   --]]
-  if speed == 0 then
-    new_animation = prefix.."stopped"  
-    if state == "lifting" then
-      new_animation = "lifting_heavy"
-    elseif  state == "" and not is_on_ground(hero) then
-      new_animation = "jumping"
+  -- print("state to display :"..state)
+  if state == "lifting" then
+    new_animation = "lifting_heavy"
+  end
+  if state == "sword loading" then
+    if movement:get_speed() ~= 0 then
+      new_animation = "sword_loading_walking"
+      hero:get_sprite("sword"):set_animation("sword_loading_walking")
+    else
+      new_animation = "sword_loading_stopped"
+      hero:get_sprite("sword"):set_animation("sword_loading_stopped")    
     end
-  else 
-    if state == "lifting" then
-      new_animation = "lifting_heavy"
-    elseif state == "climbing" then
-      new_animation = "climbing_walking"
-    elseif is_on_ground(hero) then
-      if state == "carrying" then
-        new_animation = "carrying_walking"
+  end
+  if state=="free" then
+    if movement:get_speed() == 0 then
+      if hero.on_ladder and test_ladder(hero) then
+        new_animation = "climbing_stopped"
+      elseif not is_on_ground(hero) then
+        new_animation = "jumping"
+      else
+        new_animation = "stopped"
+      end
+    else
+      if hero.on_ladder and test_ladder(hero) then
+        new_animation = "climbing_walking"
+      elseif not is_on_ground(hero) then
+        new_animation = "jumping"
       else
         new_animation = "walking"
       end
-    else
-      if state == "carrying" then
-        new_animation = "carrying_stopped"
-      else
-        new_animation = "jumping"
-      end
     end
   end
-  --print(new_animation)
+  -- print(new_animation)
 
-  if movement:get_speed() ~= speed then
-    --print(sol.main.get_elapsed_time(), "set_speed", movement:get_speed(), " -> ", speed)
-    movement:set_speed(speed) 
-  end
-
-  if movement:get_angle() ~= angle then
-    --print(sol.main.get_elapsed_time(), "set_angle", movement:get_angle(), " -> ", angle)
-    movement:set_angle(angle) 
-    sprite:set_direction(math.floor(angle*2/math.pi))
-  end
-  if new_animation ~= sprite:get_animation() then
+  if new_animation and new_animation ~= sprite:get_animation() then
+    sprite:set_frame(0)
     sprite:set_animation(new_animation)
   end
 end
@@ -245,6 +271,7 @@ local function update_hero(hero)
   local dx, dy
   local animation=""
 
+  --TODO enhance the movement angle calculation.
   if command("up") and not command("down") then
     angle=math.pi/2
     if test_ladder(hero) then
@@ -272,22 +299,12 @@ local function update_hero(hero)
     speed=walking_speed
   end
 
-  if hero:test_obstacles(0,1) and test_ladder(hero, -1) and is_ladder(map,x,y+3) then 
+  if hero:test_obstacles(0,1) and test_ladder(hero) and is_ladder(map,x,y+3) then 
     hero.on_ladder=true
   end
 
---print ("Movement speed:"..movement:get_speed()..", New speed:"..speed)
-  if hero.on_ladder and test_ladder(hero, -1) then
-    animation = "climbing"
-  elseif hero:get_state() == "carrying" then
-    animation = "carrying"    
-  elseif hero:get_state() == "lifting" then
-    animation = "lifting"
-  else
-    animation = ""
-  end
-
-  update_movement(hero, speed, angle, animation)
+  update_movement(hero, speed, angle)
+  update_animation(hero)
 end
 
 --[[
@@ -303,6 +320,7 @@ local function draw_hero(hero, has_shadow, offset)
 --  print "DRAW HERO"
   for set, sprite in hero:get_sprites() do
     if set~="shadow" or has_shadow then
+      print ("Displaying sprite element : "..set..' with animation: '..sprite:get_animation())
       map:draw_visual(sprite, x, y+offset)
     end
   end
@@ -363,7 +381,7 @@ hero_meta:register_event("on_state_changed", function(hero, state)
     end
 
     if map:is_sideview() then
-      if state == "free" or state == "carrying" then
+      if state == "free" or state == "carrying" or state == "sword loading" then --TODO indentify every applisacle states
         local movement=sol.movement.create("straight")
         movement:set_angle(-1)
         movement:set_speed(0)
@@ -373,6 +391,8 @@ hero_meta:register_event("on_state_changed", function(hero, state)
             update_hero(hero) 
             return true
           end)
+      elseif state == "grabbing" then -- prevent the hero from pulling things in sideviews
+        hero:unfreeze()
       end
     end
   end)
