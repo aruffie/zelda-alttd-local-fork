@@ -8,17 +8,18 @@
 -- http://www.solarus-games.org/doc/latest
 
 local map = ...
-local game = map:get_game()
 
 -- Event called at initialization time, as soon as this map is loaded.
+
 function map:on_started()
   map:set_sideview(true)
-  -- You can initialize the movement and sprites of various
-  -- map entities here.
-end
-
--- Event called after the opening transition effect of the map,
--- that is, when the player takes control of the hero.
-function map:on_opening_transition_finished()
-
-end
+--  sol.timer.start(self, 10, function()
+--      for entity in map:get_entities() do
+--        local x,y=entity:get_position()
+--        if not entity:test_obstacles(0,1) then
+--          entity:set_position(x,y+1)
+--        end
+--      end
+--      return true
+--    end)
+end 

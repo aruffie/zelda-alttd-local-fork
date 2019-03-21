@@ -29,9 +29,10 @@ local hero_meta = sol.main.get_metatable("hero")
 local game_meta = sol.main.get_metatable("game")
 require("scripts/multi_events")
 local walking_speed = 88
-local climbing_speed= 44
-local gravity = 0.05
-local max_vspeed=2.3
+local swimming_speed = 66
+local climbing_speed = 44
+local gravity = 0.2
+local max_vspeed=0.9
 
 --[[
   Returns whether the ground at given XY coordinates is a ladder.
@@ -50,7 +51,7 @@ end
   Parameter: enabled (boolean or nil).
 --]]
 function map_meta:set_sideview(enabled)
-  self.sideview=enabled
+  self.sideview=enabled or false
 end
 
 --[[
@@ -86,15 +87,44 @@ local function test_ladder(entity)
 end
 
 --[[
-  The core function of the side views : 
+  Updated version of the core function of the side views : 
+  it applies a semi-realistic gravity to the given entity, and resets the vertical speed if :
+    we reached a solid obstacle,
+    we laanded on top of a ladder
+    Parameter : entity, the entity to apply the gravity on.
+--]]
+
+local function apply_gravity(entity)
+  local x,y,layer = entity:get_position()
+  local map = entity:get_map()
+
+  --update vertical speed
+  local vspeed = entity.vspeed or 0
+  if entity:test_obstacles(0,1) or 
+  entity.on_ladder or
+  test_ladder(entity)==false and is_ladder(entity:get_map(), x, y+3) then --we are on an obstacle, reset speed.
+    entity.vspeed = nil
+    return false
+  end
+  entity:set_position(x,y+1)
+  if map:get_ground(x,y,layer)=="deep_water" then
+    vspeed = math.min(vspeed+gravity/3, 0.2)
+  else
+    vspeed = math.min(vspeed+gravity, max_vspeed)
+  end
+  entity.vspeed = vspeed
+  return math.floor(10/vspeed)
+end
+
+--[[
+  The previous version of the core function of the side views : 
   it applies a semi-realistic gravity to the given entity, and resets the vertical speed if :
     we reached a solid obstacle,
     we laanded on top of a ladder
     
     Parameter : entity, the entity to apply the gravity on.
 --]]
-
-local function apply_gravity(entity)
+local function apply_gravity_old(entity)
   --Apply gravity
   local vspeed = entity.vspeed or 0
   local x,y,layer = entity:get_position()
@@ -118,7 +148,6 @@ local function apply_gravity(entity)
   entity:set_position(x,y+dy)
   entity.vspeed = vspeed   
 end
-
 --[[
 -- Loops through every active entity and checks if it should be affected by gravity, calling apply_gravity if applicable.
   Pickables and the hero are always affected.
@@ -132,20 +161,24 @@ local function update_entities(map)
       -- Check entitites that can fall.
       local is_affected
       local has_property = entity:get_property("has_gravity")
-      if entity:get_type() == "pickable" or entity:get_type()=="carried_object" then
+      if entity:get_type() == "pickable" or entity:get_type()=="carried_object" or entity:get_type() =="hero" then
         is_affected = true
-      elseif entity:get_type()=="hero" then
-        if entity.on_ladder then
-          is_affected = false
-        else
-          is_affected = true
-        end
       else
         is_affected = false
       end
       -- Make entity fall.
       if has_property or is_affected then
-        apply_gravity(entity)
+        --start gravity effect timer loop
+        if entity.gravity_timer==nil then
+          entity.gravity_timer=sol.timer.start(entity, 10, function()
+              local new_delay = apply_gravity(entity)
+              if not new_delay then
+                entity.gravity_timer=nil
+              end
+              --print("new delay"..new_delay)
+              return new_delay
+            end)
+        end
       end
     end
   end
@@ -172,22 +205,18 @@ local function update_movement(hero, speed, angle, state)
   --print(new_animation)
 
   if movement:get_speed() ~= speed then
-    --print(sol.main.get_elapsed_time(), "set_speed", movement:get_speed(), " -> ", speed)
-    sprite:set_frame(0)
+    print(sol.main.get_elapsed_time(), "set_speed", movement:get_speed(), " -> ", speed)
     movement:set_speed(speed) 
   end
 
   if movement:get_angle() ~= angle then
-    sprite:set_frame(0)
     --print(sol.main.get_elapsed_time(), "set_angle", movement:get_angle(), " -> ", angle)
     movement:set_angle(angle) 
-    local state =hero:get_state()
-    if state ~= "sword loading" and state ~="sword tapping" and state ~= "sword swinging" then
-      sprite:set_direction(math.floor(angle*2/math.pi))
-    end
   end
-
 end
+hero_meta:register_event("on_movement_changed", function(hero, movement)
+    --print("New movement: speed" ..movement:get_speed().. ", angle:"..movement:get_angle()*180/math.pi)
+  end)
 
 --[[
   Updates the sprite animation of the given hero.
@@ -196,8 +225,9 @@ end
     hero : the hero object.
 --]]
 
-local function update_animation(hero)
+local function update_animation(hero, direction)
   local state = hero:get_state()
+  local map = hero:get_map()
   local movement = hero.movement
   local x,y,layer = hero:get_position()
   local sprite = hero:get_sprite()
@@ -239,7 +269,11 @@ local function update_animation(hero)
       if hero.on_ladder and test_ladder(hero) then
         new_animation = "climbing_stopped"
       elseif not is_on_ground(hero) then
-        new_animation = "jumping"
+        if map:get_ground(x,y+1,layer)=="deep_water" then
+          new_animation ="stopped_swimming_scroll"
+        else
+          new_animation = "jumping"
+        end
       else
         new_animation = "stopped"
       end
@@ -247,7 +281,11 @@ local function update_animation(hero)
       if hero.on_ladder and test_ladder(hero) then
         new_animation = "climbing_walking"
       elseif not is_on_ground(hero) then
-        new_animation = "jumping"
+        if map:get_ground(x,y+1,layer)=="deep_water" then
+          new_animation ="swimming_scroll"
+        else
+          new_animation = "jumping"
+        end
       else
         new_animation = "walking"
       end
@@ -258,6 +296,10 @@ local function update_animation(hero)
   if new_animation and new_animation ~= sprite:get_animation() then
 --    sprite:set_frame(0)
     sprite:set_animation(new_animation)
+  end
+  
+  if state ~= "sword loading" and state ~="sword tapping" and state ~= "sword swinging" then
+      sprite:set_direction(direction)
   end
 end
 
@@ -282,20 +324,31 @@ local function update_hero(hero)
   local map = game:get_map()
   local speed = 0
   local angle = movement:get_angle()
-  local dx, dy
+  local direction = hero:get_sprite():get_direction()
+  local dx=0
+  local dy=0
   local animation=""
 
   --TODO enhance the movement angle calculation.
   if command("up") and not command("down") then
-    angle=math.pi/2
+    direction=1
     if test_ladder(hero) then
+      dy = 1
       hero.on_ladder = true
       speed=climbing_speed
+    elseif map:get_ground(x,y,layer)=="deep_water" then 
+      dy = 1
+      speed = swimming_speed
     end
   elseif command("down") and not command("up") then
     ---print "LEFT"
-    angle=1.5*math.pi
-    if test_ladder(hero) or is_ladder(map, x, y+3) then
+    direction=3
+    if map:get_ground(x,y+3, layer) =="deep_water" then
+      dy=-1
+      speed = swimming_speed
+    end
+    if test_ladder(hero) or is_ladder(map, x, y+3, layer) then
+      dy=-1
       hero.on_ladder = true
       speed=climbing_speed
     end
@@ -306,19 +359,28 @@ local function update_hero(hero)
   end
 
   if command("right") and not command("left") then
+    direction = 0
+    dx=1
     speed=walking_speed
-    angle=0
+    if hero:get_ground_below()=="deep_water" then
+      speed = swimming_speed
+    end
+
   elseif command("left") and not command("right") then
-    angle=math.pi
+    dx=-1
+    direction=2
     speed=walking_speed
+    if hero:get_ground_below()=="deep_water" then
+      speed = swimming_speed
+    end
   end
 
   if hero:test_obstacles(0,1) and test_ladder(hero) and is_ladder(map,x,y+3) then 
     hero.on_ladder=true
   end
 
-  update_movement(hero, speed, angle)
-  update_animation(hero)
+  update_movement(hero, speed, math.atan2(dy,dx)%(2*math.pi))
+  update_animation(hero, direction)
 end
 
 --[[
@@ -362,6 +424,11 @@ game_meta:register_event("on_map_changed", function(game, map)
     local hero = map:get_hero() --TODO account for multiple heroes
     local has_shadow=true
     local v_offset = 0
+    local timer = hero.timer
+    if timer then
+      timer:stop()
+      timer = nil
+    end
 
     if map:is_sideview() then
       has_shadow = false
@@ -395,13 +462,13 @@ hero_meta:register_event("on_state_changed", function(hero, state)
     end
 
     if map:is_sideview() then
-      if state == "free" or state == "carrying" or state == "sword loading" then --TODO indentify every applisacle states
+      if state == "free" or state == "carrying" or state == "sword loading" or state == "swimming" then --TODO indentify every applisacle states
         local movement=sol.movement.create("straight")
         movement:set_angle(-1)
         movement:set_speed(0)
         movement:start(hero)
         hero.movement = movement
-        timer = sol.timer.start(hero, 10, function()
+        hero.timer = sol.timer.start(hero, 10, function()
             update_hero(hero) 
             return true
           end)
