@@ -13,6 +13,7 @@ local game = pillar:get_game()
 local map = pillar:get_map()
 local hero = map:get_hero()
 
+local cinematic_manager = require("scripts/maps/cinematic_manager")
 local map_tools = require("scripts/maps/map_tools")
 
 pillar:register_event("on_created", function(pillar)
@@ -38,8 +39,8 @@ function pillar:start_breaking()
   -- Save the pillar state
   game:set_value(map:get_world() .. "_" .. pillar:get_name(), true)
 
-  -- Freeze the hero
-  hero:freeze()
+  -- Set cinematic mode
+  -- TODO map:set_cinematic_mode(true, {entities_ignore_suspend = {hero, pillar}})
 
   -- Start earthquake
   map_tools.start_earthquake({count = 64, amplitude = 4, speed = 90})
@@ -48,9 +49,9 @@ function pillar:start_breaking()
   for i = 1, 3 do
     sol.timer.start((i - 1) * 500, function()
       map_tools.start_chained_explosion_on_entity(pillar, 32, function()
-        -- If this is the last explosion, unfreeze the hero
+        -- If this is the last explosion, restore initial states
         if map:get_entities_count("chained_explosion") == 1 then
-          hero:unfreeze()
+          -- TODO map:set_cinematic_mode(false)
         end
       end)
     end)
@@ -66,7 +67,7 @@ function pillar:start_breaking()
 end
 
 -- Function called by the iron ball
-function pillar:hit_by_carriable(carriable)
+function pillar:on_hit_by_carriable(carriable)
   
   if carriable:get_name() == "iron_ball" then
     pillar:start_breaking()

@@ -74,14 +74,14 @@ function treasure_manager:appear_pickable_when_blocks_moved(map, block_prefix, p
       local pickable_entity = map:get_entity(pickable)
       if pickable_entity ~= nil then
         local treasure, variant, savegame = pickable_entity:get_treasure()
-        if  not savegame or savegame and not game:get_value(savegame) then
+        if not savegame or savegame and not game:get_value(savegame) then
          self:appear_pickable(map, pickable, true)
         end
       end
    end
   end
   for block in map:get_entities(block_prefix) do
-    enemy:register_event("on_moved", block_on_moved)
+    block:register_event("on_moved", block_on_moved)
   end
 
 end

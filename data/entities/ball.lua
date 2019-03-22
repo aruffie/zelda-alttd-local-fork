@@ -12,15 +12,17 @@
 --
 -- A carriable entity that can be thrown and bounce like a ball.
 --
--- Events : ball:on_bounce(num_bounce), ball:on_finish_throw(), entity:hit_by_carriable(ball)
--- Methods : ball:throw(direction)
 ----------------------------------
 
 local ball = ...
 local carriable_behavior = require("entities/lib/carriable")
+carriable_behavior.apply(ball, {bounce_sound = "items/shield", respawn_delay = 2000})
 
-local properties = {
-  hurt_damage = 2
-}
+-- Behavior when hitting an entity or an obstacle while the thrown movement is still running.
+ball:register_event("on_hit", function(ball, entity)
 
-carriable_behavior.apply(ball, properties)
+  -- If the entity is an enemy other than the bubble, hurt him.
+  if entity and entity:get_type() == "enemy" and entity:get_breed() ~= "bubble" then
+    entity:hurt(2)
+  end
+end)

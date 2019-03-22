@@ -13,21 +13,16 @@
 -- A carriable entity that can be thrown and bounce like a ball.
 -- Randomly change the entity direction at each bounce among all available ones.
 --
--- Events : dice:on_bounce(num_bounce), dice:on_finish_throw(), entity:hit_by_carriable(dice)
--- Methods : dice:throw(direction)
---
 ----------------------------------
 
 local dice = ...
 local carriable_behavior = require("entities/lib/carriable")
+carriable_behavior.apply(dice, {})
 
-local properties = {
-  hurt_damage = 0
-}
-
+-- Behavior on bounce.
 dice:register_event("on_bounce", function(dice, num_bounce)
+
+  -- Randomly change the entity direction among all available ones.
   math.randomseed(sol.main.get_elapsed_time())
   dice:set_direction(math.random(0, dice:get_sprite():get_num_directions()-1))
 end)
-
-carriable_behavior.apply(dice, properties)

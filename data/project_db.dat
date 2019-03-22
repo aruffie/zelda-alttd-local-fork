@@ -1150,6 +1150,7 @@ item{ id = "tail_key", description = "Tail key" }
 item{ id = "tunic", description = "Tunic (green/blue/red)" }
 item{ id = "zol_green", description = "Zol green" }
 
+enemy{ id = "anti_kirby", description = "Anti-kirby" }
 enemy{ id = "arm_mimic", description = "Arm mimic" }
 enemy{ id = "armos", description = "Armos" }
 enemy{ id = "arrow", description = "Arrow" }
@@ -1224,6 +1225,7 @@ enemy{ id = "pols_voice", description = "Pols voice" }
 enemy{ id = "raven", description = "Raven" }
 enemy{ id = "red_bombite", description = "Red bombite" }
 enemy{ id = "river_zora", description = "River Zora" }
+enemy{ id = "rope", description = "Rope" }
 enemy{ id = "sand_crab", description = "Sand crab" }
 enemy{ id = "sea_urchin", description = "Sea urchin" }
 enemy{ id = "small_moldorm", description = "Small moldorm" }
@@ -1372,6 +1374,7 @@ file{ path = "enemies/pols_voice.lua", license = "GPL v3" }
 file{ path = "enemies/raven.lua", license = "GPL v3" }
 file{ path = "enemies/red_bombite.lua", license = "GPL v3" }
 file{ path = "enemies/river_zora.lua", license = "GPL v3" }
+file{ path = "enemies/rope.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "enemies/sand_crab.lua", license = "GPL v3" }
 file{ path = "enemies/sea_urchin.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "enemies/spike.lua", license = "GPL v3" }
