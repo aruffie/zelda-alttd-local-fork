@@ -32,7 +32,7 @@ local walking_speed = 88
 local swimming_speed = 66
 local climbing_speed = 44
 local gravity = 0.2
-local max_vspeed=0.9
+local max_vspeed=2
 
 --[[
   Returns whether the ground at given XY coordinates is a ladder.
@@ -99,21 +99,27 @@ local function apply_gravity(entity)
   local map = entity:get_map()
 
   --update vertical speed
-  local vspeed = entity.vspeed or 0
-  if entity:test_obstacles(0,1) or 
-  entity.on_ladder or
-  test_ladder(entity)==false and is_ladder(entity:get_map(), x, y+3) then --we are on an obstacle, reset speed.
-    entity.vspeed = nil
-    return false
+  local vspeed = entity.vspeed or 0 
+  if vspeed >= 0 then
+    if entity:test_obstacles(0,1) or 
+    entity.on_ladder or
+    test_ladder(entity)==false and is_ladder(entity:get_map(), x, y+3) then --we are on an obstacle, reset speed.
+      entity.vspeed = nil
+      return false
+    end
+    entity:set_position(x,y+1)
+  else
+    if not entity:test_obstacles(0,-1) then
+      entity:set_position(x,y-1)
+    end
   end
-  entity:set_position(x,y+1)
   if map:get_ground(x,y,layer)=="deep_water" then
     vspeed = math.min(vspeed+gravity/3, 0.2)
   else
     vspeed = math.min(vspeed+gravity, max_vspeed)
   end
   entity.vspeed = vspeed
-  return math.floor(10/vspeed)
+  return math.min(math.floor(10/math.abs(vspeed)), 100)
 end
 
 --[[
@@ -230,7 +236,7 @@ local function update_animation(hero, direction)
   local map = hero:get_map()
   local movement = hero.movement
   local x,y,layer = hero:get_position()
-  local sprite = hero:get_sprite()
+  local sprite = hero:get_sprite("tunic")
   local prefix = ""
   if state ~= "free" then
     prefix = state.."_" 
@@ -260,9 +266,10 @@ local function update_animation(hero, direction)
       new_animation = "sword_loading_stopped"
       hero:get_sprite("sword"):set_animation("sword_loading_stopped")    
     end
---    if hero:get_ground_below() == "deep_water" then
---      new_animation = "swimming_scroll_loading"
---    end
+    if hero:get_ground_below() == "deep_water" then
+      new_animation = "swimming_scroll_loading"
+      hero:get_sprite("sword"):set_animation("sword_loading_swimming_scroll")  
+    end
   end
   if state=="free" then
     if movement:get_speed() == 0 then
@@ -297,9 +304,9 @@ local function update_animation(hero, direction)
 --    sprite:set_frame(0)
     sprite:set_animation(new_animation)
   end
-  
+
   if state ~= "sword loading" and state ~="sword tapping" and state ~= "sword swinging" then
-      sprite:set_direction(direction)
+    sprite:set_direction(direction)
   end
 end
 
@@ -444,6 +451,18 @@ game_meta:register_event("on_map_changed", function(game, map)
     hero:set_draw_override(function()  
         draw_hero(hero, has_shadow, v_offset)
       end)
+  end)
+
+hero_meta:register_event("on_state_changing", function(hero, state, new_state)
+    local map = hero:get_map()
+    print ("changing state from ".. state .." to ".. new_state)
+    if state =="sword loading" and new_state == "swimming" then
+      if map:is_sideview() then
+        hero:start_attack_loading()
+      end
+
+
+    end
   end)
 
 hero_meta:register_event("on_state_changed", function(hero, state)

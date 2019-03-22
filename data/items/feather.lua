@@ -17,7 +17,7 @@ local is_jumping
 local y_offset = 0
 local y_vel=0
 local y_accel = 0.1-- Event called when the hero is using this item.
-local max_yvel = 2
+local max_yvel = 5
 
 
 -- Event called when the game is initialized.
@@ -67,10 +67,14 @@ function item:on_using()
           return update_jump(hero)
         end)
     else
-      print "SIDEVIEW JUMP"
-      if hero.vspeed == 0 then
-        hero.on_ladder = false
-        hero.vspeed = -max_yvel
+      print "SIDEVIEW JUMP requested "
+      local vspeed = hero.vspeed or 0
+      if vspeed == 0 then
+        print "validated, now jump :"
+        sol.timer.start(10, function()
+            hero.on_ladder = false
+            hero.vspeed = -max_yvel
+          end)
       end
     end
   end
