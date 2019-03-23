@@ -158,20 +158,17 @@ function door_manager:destroy_wall(map, weak_wall_prefix)
 
   local game = map:get_game()
   local dungeon = game:get_dungeon_index()
-  if game:get_value("dungeon_" .. dungeon .. "_" .. weak_wall_prefix) == nil then
-    game:set_value("dungeon_" .. dungeon .. "_" .. weak_wall_prefix, true)
-    map:remove_entities(weak_wall_prefix)
-    audio_manager:play_sound("misc/secret1")
-  end
+  map:remove_entities(weak_wall_prefix)
+  audio_manager:play_sound("misc/secret1")
 
 end
 
--- Destroy wall by explosion
-function door_manager:check_destroy_wall(map, weak_wall_prefix)
+-- Check if wall is exploded and destroy
+function door_manager:open_weak_wall_if_savegame_exist(map, weak_wall_prefix, savegame)
 
   local game = map:get_game()
   local dungeon = game:get_dungeon_index()
-  if game:get_value("dungeon_" .. dungeon .. "_" .. weak_wall_prefix) == true then
+  if game:get_value(savegame) == true then
     map:remove_entities(weak_wall_prefix)
   end
 

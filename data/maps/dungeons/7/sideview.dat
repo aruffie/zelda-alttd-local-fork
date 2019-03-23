@@ -2566,7 +2566,7 @@ destination{
 teletransporter{
   name = "stairs_12_A",
   layer = 0,
-  x = 144,
+  x = 120,
   y = 400,
   width = 16,
   height = 16,

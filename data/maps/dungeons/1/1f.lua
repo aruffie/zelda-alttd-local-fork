@@ -30,7 +30,7 @@ function map:on_started()
   map:set_doors_open("door_group_2_", true)
   map:set_doors_open("door_group_1_", true)
   map:set_doors_open("door_group_small_boss", true)
-  -- Ennemies
+  -- Enemies
   enemy_manager:create_teletransporter_if_small_boss_dead(map, false)
   -- Heart
   treasure_manager:appear_heart_container_if_boss_dead(map)
