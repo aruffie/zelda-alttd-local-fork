@@ -1019,7 +1019,7 @@ sound{ id = "snes/enemies/boss_hit", description = "Boss hit" }
 sound{ id = "snes/enemies/enemy_die", description = "Enemy die" }
 sound{ id = "snes/enemies/enemy_hit", description = "Enemy hit" }
 sound{ id = "snes/enemies/laser", description = "Laser" }
-sound{ id = "snes/enemies/wizzrobe", description = "snes/enemies/wizzrobe" }
+sound{ id = "snes/enemies/wizzrobe", description = "Wizzrobe" }
 sound{ id = "snes/hero/bound", description = "Bound" }
 sound{ id = "snes/hero/dying", description = "Dying" }
 sound{ id = "snes/hero/fall", description = "Fall" }
@@ -1152,6 +1152,7 @@ item{ id = "tail_key", description = "Tail key" }
 item{ id = "tunic", description = "Tunic (green/blue/red)" }
 item{ id = "zol_green", description = "Zol green" }
 
+enemy{ id = "anti_kirby", description = "Anti-kirby" }
 enemy{ id = "arm_mimic", description = "Arm mimic" }
 enemy{ id = "armos", description = "Armos" }
 enemy{ id = "arrow", description = "Arrow" }
@@ -1226,6 +1227,7 @@ enemy{ id = "pols_voice", description = "Pols voice" }
 enemy{ id = "raven", description = "Raven" }
 enemy{ id = "red_bombite", description = "Red bombite" }
 enemy{ id = "river_zora", description = "River Zora" }
+enemy{ id = "rope", description = "Rope" }
 enemy{ id = "sand_crab", description = "Sand crab" }
 enemy{ id = "sea_urchin", description = "Sea urchin" }
 enemy{ id = "small_moldorm", description = "Small moldorm" }
@@ -1245,12 +1247,14 @@ enemy{ id = "zol_green", description = "Zol green" }
 enemy{ id = "zol_red", description = "Zol red" }
 enemy{ id = "zombie", description = "Zombie" }
 
+entity{ id = "ball", description = "ball" }
 entity{ id = "bird", description = "Bird" }
 entity{ id = "bowwow", description = "Bowwow" }
 entity{ id = "bubble", description = "Bubble" }
 entity{ id = "butterfly", description = "Butterfly" }
 entity{ id = "color_platform", description = "Color platform" }
 entity{ id = "conveyor_belt", description = "Conveyor belt" }
+entity{ id = "dice", description = "Dice" }
 entity{ id = "eye_switch", description = "Eye switch" }
 entity{ id = "fire", description = "Fire" }
 entity{ id = "follower", description = "Follower" }
@@ -1261,7 +1265,6 @@ entity{ id = "heavy_statue", description = "Heavy statue" }
 entity{ id = "hook_bridge", description = "hook bridge" }
 entity{ id = "hookable", description = "Hookable" }
 entity{ id = "insect", description = "Insect" }
-entity{ id = "iron_ball", description = "Iron ball" }
 entity{ id = "light", description = "Light" }
 entity{ id = "mouse", description = "Mouse" }
 entity{ id = "mr_write_and_christine", description = "Mr Write and Christine" }
@@ -1371,6 +1374,7 @@ file{ path = "enemies/pols_voice.lua", license = "GPL v3" }
 file{ path = "enemies/raven.lua", license = "GPL v3" }
 file{ path = "enemies/red_bombite.lua", license = "GPL v3" }
 file{ path = "enemies/river_zora.lua", license = "GPL v3" }
+file{ path = "enemies/rope.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "enemies/sand_crab.lua", license = "GPL v3" }
 file{ path = "enemies/sea_urchin.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "enemies/spike.lua", license = "GPL v3" }

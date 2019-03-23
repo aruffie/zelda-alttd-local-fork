@@ -23,6 +23,7 @@ local switch_manager = require("scripts/maps/switch_manager")
 local enemy_manager = require("scripts/maps/enemy_manager")
 local separator_manager = require("scripts/maps/separator_manager")
 local owl_manager = require("scripts/maps/owl_manager")
+local flying_tile_manager = require("scripts/maps/flying_tile_manager")
 require("scripts/multi_events")
 
 -----------------------
@@ -45,6 +46,9 @@ function map:on_started()
 
   -- Pickables
   treasure_manager:disappear_pickable(map, "pickable_small_key_2")
+
+  -- Ennemies
+  flying_tile_manager:init(map, "enemy_group_10")
 end
 
 -- TODO Move blocks "block_1_" when handle is pulled
@@ -52,16 +56,18 @@ end
 -----------------------
 -- Doors events
 -----------------------
-wallturn:add_collision_test("touching", function(wall, hero)
+wallturn:add_collision_test("touching", function(wallturn, hero)
   door_group_1_1:set_open()
+  flying_tile_manager:reset(map, "enemy_group_10")
 end)
 
 sensor_1:register_event("on_activated", function()
   map:close_doors("door_group_1_")
   map:close_doors("door_group_2_")
+  flying_tile_manager:launch(map, "enemy_group_10")
 end)
 
-door_manager:open_when_flying_tiles_dead(map, "enemy_group_10_", "door_group_2_")
+door_manager:open_when_flying_tiles_dead(map, "enemy_group_10", "door_group_2_")
 
 weak_wall_A_1:register_event("on_opened", function()
   doors_manager:destroy_wall(map, "weak_wall_A")
@@ -85,7 +91,7 @@ enemy_manager:execute_when_vegas_dead(map, "enemy_group_7_")
 -----------------------
 -- Treasures events
 -----------------------
--- TODO appear chest "chest_map" when horse heads are correctly thrown
+treasure_manager:appear_chest_when_horse_heads_upright(map, "horse_head_", "chest_map")
 treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_3_", "chest_compass")
 treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_7_", "chest_bomb_1")
 
