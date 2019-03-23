@@ -55,7 +55,7 @@ hero_meta:register_event("on_state_changed", function(hero)
   elseif current_state == "stairs" then
     if timer_stairs == nil then
       timer_stairs = sol.timer.start(hero, 0, function()
-        audio_manager:play_sound("misc/stairs")
+        --TODO audio_manager:play_sound("misc/stairs")
         return 400
       end)
       timer_stairs:set_suspended_with_map(false)

@@ -11,7 +11,9 @@ function carried_meta:on_thrown()
     m:set_speed(80)
     m:start(self)
   else --Call regular behavior
-    old_on_thrown(self)
+    if old_on_thrown ~= nil then
+      old_on_thrown(self)
+    end
   end
 end
 

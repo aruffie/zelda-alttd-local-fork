@@ -20,10 +20,9 @@ function door_manager:open_when_enemies_dead(map, enemy_prefix, door_prefix, sou
       end
    end
   end
-   for enemy in map:get_entities(enemy_prefix) do
-     --enemy.on_dead = enemy_on_dead
-     enemy:register_event("on_dead", enemy_on_dead)
-   end
+  for enemy in map:get_entities(enemy_prefix) do
+    enemy:register_event("on_dead", enemy_on_dead)
+  end
 
 end
 
@@ -31,19 +30,20 @@ end
 function door_manager:open_when_flying_tiles_dead(map, enemy_prefix, door_prefix)
 
   local function enemy_on_flying_tile_dead()
-  local open_door = true
-  for enemy in map:get_entities(enemy_prefix) do
-    if enemy.state ~= "destroying" then
-    open_door = false
+    local open_door = true
+    for enemy in map:get_entities(enemy_prefix) do
+      local name = enemy:get_name()
+      if enemy.state ~= "destroying" and not name:find("^" .. enemy_prefix .. "_after") and not name:find("^" .. enemy_prefix .. "_before") then
+        open_door = false
+      end
+    end
+    if open_door then
+      map:open_doors(door_prefix)
+      audio_manager:play_sound("misc/secret1")
     end
   end
-  if open_door then
-    map:open_doors(door_prefix)
-    audio_manager:play_sound("misc/secret1")
-  end
-  end
-   for enemy in map:get_entities(enemy_prefix) do
-     enemy.on_flying_tile_dead = enemy_on_flying_tile_dead
+  for enemy in map:get_entities(enemy_prefix) do
+    enemy.on_flying_tile_dead = enemy_on_flying_tile_dead
   end
 
 end

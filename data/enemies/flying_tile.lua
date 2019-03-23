@@ -28,7 +28,6 @@ function enemy:on_created()
   self:set_origin(8, 13)
   self:set_invincible()
   self:set_attack_consequence("sword", "custom")
-
   shadow_sprite = sol.sprite.create("entities/shadow")
   shadow_sprite:set_animation("big")
 end
@@ -42,7 +41,7 @@ function enemy:on_restarted()
   m:set_path{2,2}
   m:set_speed(16)
   m:start(self)
-  --sol.timer.start(self, 2000, function() self:go_hero() end)
+  sol.timer.start(self, 2000, function() self:go_hero() end)
   enemy.state = "raising"
   
 end

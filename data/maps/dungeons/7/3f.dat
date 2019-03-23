@@ -5574,6 +5574,7 @@ enemy{
   layer = 0,
   x = 368,
   y = 877,
+  enabled_at_start = false,
   direction = 0,
   breed = "peahat",
 }
@@ -5583,6 +5584,7 @@ enemy{
   layer = 0,
   x = 464,
   y = 829,
+  enabled_at_start = false,
   direction = 0,
   breed = "peahat",
 }
@@ -5593,7 +5595,7 @@ enemy{
   x = 504,
   y = 877,
   direction = 0,
-  breed = "spiked_thwomp",
+  breed = "rope",
 }
 
 enemy{
@@ -5965,6 +5967,14 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
+}
+
+destination{
+  name = "destination",
+  layer = 0,
+  x = 544,
+  y = 869,
+  direction = 1,
 }
 
 tile{

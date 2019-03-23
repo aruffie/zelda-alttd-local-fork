@@ -11,7 +11,7 @@ function treasure_manager:appear_chest_when_enemies_dead(map, enemy_prefix, ches
     if not map:has_entities(enemy_prefix) then
        local chest_entity = map:get_entity(chest)
        local treasure, variant, savegame = chest_entity:get_treasure()
-      if  not savegame or savegame and not game:get_value(savegame) then
+      if not savegame or savegame and not game:get_value(savegame) then
          self:appear_chest(map, chest, true)
       end
     end
@@ -19,6 +19,26 @@ function treasure_manager:appear_chest_when_enemies_dead(map, enemy_prefix, ches
 
   for enemy in map:get_entities(enemy_prefix) do
     enemy:register_event("on_dead", enemy_on_dead)
+  end
+
+end
+
+function treasure_manager:appear_chest_when_horse_heads_upright(map, entity_prefix, chest)
+    
+  local function entity_on_finish_throw()
+    local is_upright = true
+    for entity in map:get_entities(entity_prefix) do
+      if entity:get_direction() ~= 1 then
+        is_upright = false
+      end
+    end
+    if is_upright then
+      self:appear_chest(map, chest, true)
+    end
+  end
+
+  for entity in map:get_entities(entity_prefix) do
+    entity:register_event("on_finish_throw", entity_on_finish_throw)
   end
 
 end
@@ -54,14 +74,14 @@ function treasure_manager:appear_pickable_when_blocks_moved(map, block_prefix, p
       local pickable_entity = map:get_entity(pickable)
       if pickable_entity ~= nil then
         local treasure, variant, savegame = pickable_entity:get_treasure()
-        if  not savegame or savegame and not game:get_value(savegame) then
+        if not savegame or savegame and not game:get_value(savegame) then
          self:appear_pickable(map, pickable, true)
         end
       end
    end
   end
   for block in map:get_entities(block_prefix) do
-    enemy:register_event("on_moved", block_on_moved)
+    block:register_event("on_moved", block_on_moved)
   end
 
 end
