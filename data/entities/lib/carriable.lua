@@ -1,12 +1,3 @@
--- Lua script of carriable behavior for custom entities.
-
--- Feel free to modify the code below.
--- You can add more events and remove the ones you don't need.
-
--- See the Solarus Lua API documentation for the full specification
--- of types, events and methods:
--- http://www.solarus-games.org/doc/latest
-
 ----------------------------------
 --
 -- Undestructible destructible map entity, behaving the same way than build-in destructible except it bounces instead of breaking.
@@ -80,7 +71,7 @@ function carriable_behavior.apply(carriable, properties)
     return false
   end
 
-  -- Simulate the movement that was actually not commited and return a table with overlapping entities, or nil there aren't.
+  -- Simulate the movement that hasn't been commited and return a table with overlapping entities.
   -- TODO Check for something like movement:on_obstacle_reached(entities) and remove this temp function
   local function get_overlapping_entities_on_obstacle_reached(movement)
     local overlapping_entities = {}
