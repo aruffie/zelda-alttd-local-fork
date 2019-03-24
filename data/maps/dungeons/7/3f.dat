@@ -5969,14 +5969,6 @@ custom_entity{
   direction = 0,
 }
 
-destination{
-  name = "destination",
-  layer = 0,
-  x = 544,
-  y = 869,
-  direction = 1,
-}
-
 tile{
   layer = 1,
   x = 1088,

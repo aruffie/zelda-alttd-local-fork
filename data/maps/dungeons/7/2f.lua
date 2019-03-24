@@ -78,11 +78,6 @@ weak_wall_B_1:register_event("on_opened", function()
 end)
 
 -----------------------
--- Treasures events
------------------------
-treasure_manager:appear_pickable_when_enemies_dead(map, "hinox_master", "pickable_small_key_2")
-
------------------------
 -- Enemies events
 -----------------------
 enemy_manager:execute_when_vegas_dead(map, "enemy_group_3_")
@@ -94,6 +89,7 @@ enemy_manager:execute_when_vegas_dead(map, "enemy_group_7_")
 treasure_manager:appear_chest_when_horse_heads_upright(map, "horse_head_", "chest_map")
 treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_3_", "chest_compass")
 treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_7_", "chest_bomb_1")
+treasure_manager:appear_pickable_when_enemies_dead(map, "hinox_master", "pickable_small_key_2")
 
 -----------------------
 -- Separators

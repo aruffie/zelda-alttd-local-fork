@@ -19,9 +19,12 @@ local map_tools = require("scripts/maps/map_tools")
 pillar:register_event("on_created", function(pillar)
 
   pillar:set_traversable_by(false)
-
-  -- Disable the pillar if the corresponding world savegame exists
-  if game:get_value(map:get_world() .. "_" .. pillar:get_name()) then
+  
+  -- Display the top sprite if the corresponding world savegame doesn't exist, else disable the pillar.
+  if not game:get_value(map:get_world() .. "_" .. pillar:get_name()) then
+    local pillar_top_sprite = pillar:create_sprite("entities/statues/pillar_top", "top")
+    pillar_top_sprite:set_xy(0, -32)
+  else
     pillar:set_enabled(false)
   end
 
@@ -60,9 +63,8 @@ function pillar:start_breaking()
   sol.timer.start(500, function()
 
     -- Start collapse animation on the pillar and its top entity
-    local pillar_top_sprite = map:get_entity(pillar:get_name():gsub("pillar_", "pillar_top_", 1)):get_sprite()
     pillar:get_sprite():set_animation("collapse")
-    pillar_top_sprite:set_animation("collapse")
+    pillar:get_sprite("top"):set_animation("collapse")
   end)
 end
 
