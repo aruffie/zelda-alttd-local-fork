@@ -777,15 +777,6 @@ tile{
   pattern = "7",
 }
 
-tile{
-  layer = 0,
-  x = 416,
-  y = 136,
-  width = 32,
-  height = 16,
-  pattern = "58",
-}
-
 separator{
   layer = 0,
   x = 312,
@@ -867,7 +858,7 @@ custom_entity{
     },
     {
       key = "is_semisolid",
-      value = "true",
+      value = "false",
     },
     {
       key = "cycle_duration",
@@ -904,143 +895,5 @@ custom_entity{
   direction = 0,
   sprite = "entities/moving_platform_dg_2",
   model = "platform_moving",
-}
-
-destructible{
-  layer = 0,
-  x = 424,
-  y = 133,
-  sprite = "entities/destructibles/pot_sideview",
-}
-
-custom_entity{
-  name = "twin_platforms_A_chain_1",
-  layer = 0,
-  x = 392,
-  y = 13,
-  enabled_at_start = false,
-  width = 16,
-  height = 136,
-  direction = 0,
-  sprite = "entities/moving_platform_dg_5_chain",
-  tiled = true,
-  model = "platform_chain",
-}
-
-custom_entity{
-  name = "twin_platforms_A_chain_2",
-  layer = 0,
-  x = 360,
-  y = 13,
-  enabled_at_start = false,
-  width = 16,
-  height = 136,
-  direction = 0,
-  sprite = "entities/moving_platform_dg_5_chain",
-  tiled = true,
-  model = "platform_chain",
-}
-
-custom_entity{
-  name = "twin_platforms_A_1",
-  layer = 0,
-  x = 392,
-  y = 149,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/moving_platform_dg_5",
-  model = "platform_balance",
-}
-
-custom_entity{
-  name = "twin_platforms_A_2",
-  layer = 0,
-  x = 360,
-  y = 149,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/moving_platform_dg_5",
-  model = "platform_balance",
-}
-
-custom_entity{
-  layer = 0,
-  x = 456,
-  y = 149,
-  properties = {
-    {
-      key = "needs_carrying",
-      value = "true",
-    },
-  },
-  width = 32,
-  height = 16,
-  direction = 0,
-  sprite = "entities/moving_platform_dg_2",
-  model = "platform_collapsing",
-}
-
-enemy{
-  layer = 0,
-  x = 232,
-  y = 133,
-  enabled_at_start = false,
-  direction = 0,
-  breed = "mini_thwomp",
-}
-
-enemy{
-  name = "auto_enemy",
-  layer = 0,
-  x = 520,
-  y = 125,
-  direction = 0,
-  breed = "spiked_thwomp",
-}
-
-custom_entity{
-  layer = 0,
-  x = 120,
-  y = 117,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/destructibles/block_ice",
-  model = "platform_ice_block",
-}
-
-custom_entity{
-  layer = 0,
-  x = 136,
-  y = 117,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/destructibles/block_ice",
-  model = "platform_ice_block",
-}
-
-custom_entity{
-  layer = 0,
-  x = 120,
-  y = 101,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/destructibles/block_ice",
-  model = "platform_ice_block",
-}
-
-custom_entity{
-  layer = 0,
-  x = 104,
-  y = 117,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/destructibles/block_ice",
-  model = "platform_ice_block",
 }
 
