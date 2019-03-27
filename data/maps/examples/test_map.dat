@@ -232,6 +232,16 @@ teletransporter{
   sprite = "entities/outside_door",
 }
 
+teletransporter{
+  layer = 0,
+  x = 48,
+  y = 240,
+  width = 16,
+  height = 16,
+  destination_map = "examples/sideview_test_map",
+  sprite = "entities/misc/teletransporter",
+}
+
 custom_entity{
   layer = 1,
   x = 240,
