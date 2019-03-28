@@ -76,6 +76,23 @@ function map_meta:get_vertical_speed(entity)
   return entity.vspeed or 0
 end
 
+local debug_respawn_surface = sol.surface.create(16,16)
+debug_respawn_surface:fill_color({255,127,0})
+
+map_meta:register_event("on_draw", function(map, dst_surface)
+    -- if map:is_sideview() then
+    local x,y = map:get_camera():get_position()
+    local xx,yy=map:get_hero():get_solid_ground_position()
+    debug_respawn_surface:draw(dst_surface, xx-x-8, yy-y-13)
+    --end
+  end)
+map_meta:register_event("on_opening_transition_finished", function(map, dst_surface)
+    if map:is_sideview() then
+      map:get_hero():save_solid_ground()
+    end
+  end)
+
+
 --[[
   Checks if the ground under the top-middle or the bottom-middle points of the bounding box of a given entity is a ladder.
   Returns : xhether a ladder was detected
@@ -97,13 +114,16 @@ end
 local function apply_gravity(entity)
   local x,y,layer = entity:get_position()
   local map = entity:get_map()
-
+  local w,h = map:get_size()
   --update vertical speed
   local vspeed = entity.vspeed or 0 
   if vspeed >= 0 then
     if entity:test_obstacles(0,1) or 
     entity.on_ladder or
     test_ladder(entity)==false and is_ladder(entity:get_map(), x, y+3) then --we are on an obstacle, reset speed.
+      if entity:get_type()=="hero" and y+2<h and entity:test_obstacles(0,1) and map:get_ground(x,y+3,layer)=="wall" then
+        entity:save_solid_ground(x,y,layer)
+      end
       entity.vspeed = nil
       return false
     end
@@ -130,11 +150,14 @@ end
     
     Parameter : entity, the entity to apply the gravity on.
 --]]
+
 local function apply_gravity_old(entity)
   --Apply gravity
   local vspeed = entity.vspeed or 0
   local x,y,layer = entity:get_position()
+
   local map = entity:get_map()
+  local w,h = map:get_size()
   if map:get_ground(x,y,layer)=="deep_water" then
     vspeed = math.min(vspeed+gravity/2, 0.85)
   else
@@ -154,6 +177,7 @@ local function apply_gravity_old(entity)
   entity:set_position(x,y+dy)
   entity.vspeed = vspeed   
 end
+
 --[[
 -- Loops through every active entity and checks if it should be affected by gravity, calling apply_gravity if applicable.
   Pickables and the hero are always affected.
@@ -208,7 +232,7 @@ end
 local function update_movement(hero, speed, angle, state)
   local movement = hero.movement
   --print(new_animation)
-  
+
   if movement and movement:get_speed() ~= speed then
     --print(sol.main.get_elapsed_time(), "set_speed", movement:get_speed(), " -> ", speed)
     movement:set_speed(speed) 
@@ -223,6 +247,17 @@ end
 
 hero_meta:register_event("on_movement_changed", function(hero, movement)
     --print("New movement: speed" ..movement:get_speed().. ", angle:"..movement:get_angle()*180/math.pi)
+  end)
+
+hero_meta:register_event("on_position_changed", function(hero, x,y,layer)
+    local map = hero:get_map()
+    if map:is_sideview() then
+      local w,h = map:get_size()
+      if y+3>=h then
+        hero:set_position(hero:get_solid_ground_position())
+        hero:start_hurt(1)
+      end
+    end
   end)
 
 --[[
@@ -306,7 +341,7 @@ local function update_animation(hero, direction)
 
   if new_animation and new_animation ~= sprite:get_animation() then
 --    sprite:set_frame(0)
-    print("changing animation from \'"..sprite:get_animation().."\' to \'"..new_animation)
+    --print("changing animation from \'"..sprite:get_animation().."\' to \'"..new_animation)
     sprite:set_animation(new_animation)
   end
 
@@ -440,7 +475,6 @@ game_meta:register_event("on_map_changed", function(game, map)
       timer:stop()
       timer = nil
     end
-
     if map:is_sideview() then
       has_shadow = false
       v_offset = 2
