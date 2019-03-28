@@ -85,9 +85,9 @@ tile{
 tile{
   layer = 0,
   x = 352,
-  y = 32,
+  y = 48,
   width = 16,
-  height = 160,
+  height = 144,
   pattern = "79",
 }
 
@@ -103,7 +103,7 @@ tile{
 tile{
   layer = 0,
   x = 368,
-  y = 32,
+  y = 48,
   width = 16,
   height = 16,
   pattern = "79",
@@ -112,7 +112,7 @@ tile{
 tile{
   layer = 0,
   x = 384,
-  y = 32,
+  y = 48,
   width = 16,
   height = 16,
   pattern = "79",
@@ -121,7 +121,7 @@ tile{
 tile{
   layer = 0,
   x = 400,
-  y = 32,
+  y = 48,
   width = 16,
   height = 16,
   pattern = "79",
@@ -130,7 +130,7 @@ tile{
 tile{
   layer = 0,
   x = 416,
-  y = 32,
+  y = 48,
   width = 16,
   height = 16,
   pattern = "79",
@@ -139,7 +139,7 @@ tile{
 tile{
   layer = 0,
   x = 432,
-  y = 32,
+  y = 48,
   width = 16,
   height = 16,
   pattern = "79",
@@ -157,7 +157,7 @@ tile{
 tile{
   layer = 0,
   x = 448,
-  y = 32,
+  y = 48,
   width = 16,
   height = 16,
   pattern = "79",
@@ -325,6 +325,51 @@ tile{
   width = 8,
   height = 8,
   pattern = "112",
+}
+
+tile{
+  layer = 0,
+  x = 448,
+  y = 0,
+  width = 16,
+  height = 16,
+  pattern = "15",
+}
+
+tile{
+  layer = 0,
+  x = 472,
+  y = 0,
+  width = 16,
+  height = 16,
+  pattern = "142",
+}
+
+tile{
+  layer = 0,
+  x = 464,
+  y = 0,
+  width = 8,
+  height = 16,
+  pattern = "141",
+}
+
+tile{
+  layer = 0,
+  x = 488,
+  y = 0,
+  width = 8,
+  height = 16,
+  pattern = "143",
+}
+
+tile{
+  layer = 0,
+  x = 496,
+  y = 0,
+  width = 16,
+  height = 16,
+  pattern = "16",
 }
 
 destination{
@@ -591,5 +636,25 @@ custom_entity{
   direction = 0,
   sprite = "entities/fisher_boat",
   model = "platform_moving",
+}
+
+custom_entity{
+  layer = 0,
+  x = 456,
+  y = 13,
+  width = 16,
+  height = 16,
+  direction = 0,
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 0,
+  x = 504,
+  y = 13,
+  width = 16,
+  height = 16,
+  direction = 0,
+  model = "hookable",
 }
 

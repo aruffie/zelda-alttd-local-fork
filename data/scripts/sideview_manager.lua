@@ -77,7 +77,7 @@ function map_meta:get_vertical_speed(entity)
 end
 
 local debug_respawn_surface = sol.surface.create(16,16)
-debug_respawn_surface:fill_color({255,127,0})
+debug_respawn_surface:fill_color({255,127,0,64})
 
 map_meta:register_event("on_draw", function(map, dst_surface)
     -- if map:is_sideview() then
@@ -476,6 +476,8 @@ game_meta:register_event("on_map_changed", function(game, map)
       timer = nil
     end
     if map:is_sideview() then
+      hero:set_size(8,16)
+      hero:set_origin(4,13)
       has_shadow = false
       v_offset = 2
       hero.on_ladder = test_ladder(map:get_hero(), -1) 
@@ -484,6 +486,9 @@ game_meta:register_event("on_map_changed", function(game, map)
           update_entities(map)
           return true
         end)
+    else
+      hero:set_size(16,16)
+      hero:set_origin(8,13)
     end
 
     hero:set_draw_override(function()  
