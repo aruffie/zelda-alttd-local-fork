@@ -2,7 +2,7 @@ properties{
   x = 0,
   y = 0,
   width = 320,
-  height = 512,
+  height = 480,
   min_layer = 0,
   max_layer = 2,
   world = "inside_world",
@@ -129,96 +129,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 192,
-  y = 184,
-  width = 16,
-  height = 24,
-  pattern = "wall_low.1-2",
-}
-
-tile{
-  layer = 0,
-  x = 168,
-  y = 208,
-  width = 24,
-  height = 80,
-  pattern = "wall_low.3-2",
-}
-
-tile{
-  layer = 0,
-  x = 112,
-  y = 280,
-  width = 64,
-  height = 24,
-  pattern = "wall_low.1-2",
-}
-
-tile{
-  layer = 0,
-  x = 80,
-  y = 320,
-  width = 96,
-  height = 24,
-  pattern = "wall_low.2-2",
-}
-
-tile{
-  layer = 0,
-  x = 240,
-  y = 320,
-  width = 24,
-  height = 64,
-  pattern = "wall_low.4-2",
-}
-
-tile{
-  layer = 0,
-  x = 192,
-  y = 336,
-  width = 16,
-  height = 24,
-  pattern = "wall_low.2-2",
-}
-
-tile{
-  layer = 0,
-  x = 200,
-  y = 352,
-  width = 24,
-  height = 64,
-  pattern = "wall_low.3-2",
-}
-
-tile{
-  layer = 0,
-  x = 256,
-  y = 400,
-  width = 24,
-  height = 48,
-  pattern = "wall_low.4-2",
-}
-
-tile{
-  layer = 0,
-  x = 168,
-  y = 432,
-  width = 24,
-  height = 16,
-  pattern = "wall_low.3-2",
-}
-
-tile{
-  layer = 0,
-  x = 192,
-  y = 448,
-  width = 64,
-  height = 24,
-  pattern = "wall_low.2-2",
-}
-
-tile{
-  layer = 0,
   x = 56,
   y = 40,
   width = 24,
@@ -336,218 +246,11 @@ tile{
 
 tile{
   layer = 0,
-  x = 168,
-  y = 184,
-  width = 24,
-  height = 24,
-  pattern = "wall_low.corner.1-2",
-}
-
-tile{
-  layer = 0,
-  x = 200,
-  y = 184,
-  width = 24,
-  height = 24,
-  pattern = "wall_low.corner_reverse.1-2",
-}
-
-tile{
-  layer = 0,
-  x = 240,
-  y = 224,
-  width = 24,
-  height = 24,
-  pattern = "wall_low.corner.4-2",
-}
-
-tile{
-  layer = 0,
-  x = 240,
-  y = 296,
-  width = 24,
-  height = 24,
-  pattern = "wall_low.corner.2-2",
-}
-
-tile{
-  layer = 0,
-  x = 56,
-  y = 320,
-  width = 24,
-  height = 24,
-  pattern = "wall_low.corner.3-2",
-}
-
-tile{
-  layer = 0,
-  x = 168,
-  y = 336,
-  width = 24,
-  height = 24,
-  pattern = "wall_low.corner.3-2",
-}
-
-tile{
-  layer = 0,
-  x = 200,
-  y = 336,
-  width = 24,
-  height = 24,
-  pattern = "wall_low.corner_reverse.3-2",
-}
-
-tile{
-  layer = 0,
-  x = 240,
-  y = 376,
-  width = 24,
-  height = 24,
-  pattern = "wall_low.corner_reverse.2-2",
-}
-
-tile{
-  layer = 0,
-  x = 256,
-  y = 376,
-  width = 24,
-  height = 24,
-  pattern = "wall_low.corner.2-2",
-}
-
-tile{
-  layer = 0,
-  x = 168,
-  y = 408,
-  width = 24,
-  height = 24,
-  pattern = "wall_low.corner.1-2",
-}
-
-tile{
-  layer = 0,
-  x = 168,
-  y = 448,
-  width = 24,
-  height = 24,
-  pattern = "wall_low.corner.3-2",
-}
-
-tile{
-  layer = 0,
-  x = 256,
-  y = 448,
-  width = 24,
-  height = 24,
-  pattern = "wall_low.corner.4-2",
-}
-
-tile{
-  layer = 0,
   x = 96,
   y = 112,
   width = 24,
   height = 24,
   pattern = "wall_low.corner_reverse.4-2",
-}
-
-tile{
-  layer = 0,
-  x = 96,
-  y = 280,
-  width = 24,
-  height = 24,
-  pattern = "wall_low.corner_reverse.2-2",
-}
-
-tile{
-  layer = 0,
-  x = 192,
-  y = 408,
-  width = 16,
-  height = 24,
-  pattern = "wall_low.1-2",
-}
-
-tile{
-  layer = 0,
-  x = 200,
-  y = 408,
-  width = 24,
-  height = 24,
-  pattern = "wall_low.corner_reverse.1-2",
-}
-
-tile{
-  layer = 0,
-  x = 168,
-  y = 280,
-  width = 24,
-  height = 24,
-  pattern = "wall_low.corner_reverse.1-2",
-}
-
-tile{
-  layer = 0,
-  x = 168,
-  y = 320,
-  width = 24,
-  height = 24,
-  pattern = "wall_low.corner_reverse.3-2",
-}
-
-tile{
-  layer = 0,
-  x = 224,
-  y = 240,
-  width = 24,
-  height = 64,
-  pattern = "wall_low.4-2",
-}
-
-tile{
-  layer = 0,
-  x = 224,
-  y = 224,
-  width = 24,
-  height = 24,
-  pattern = "wall_low.corner_reverse.4-2",
-}
-
-tile{
-  layer = 0,
-  x = 224,
-  y = 296,
-  width = 24,
-  height = 24,
-  pattern = "wall_low.corner_reverse.2-2",
-}
-
-tile{
-  layer = 0,
-  x = 232,
-  y = 448,
-  width = 16,
-  height = 16,
-  pattern = "door_stairs.straight_up.2",
-}
-
-tile{
-  layer = 0,
-  x = 248,
-  y = 448,
-  width = 8,
-  height = 16,
-  pattern = "door.2.low_support.2-2",
-}
-
-tile{
-  layer = 0,
-  x = 224,
-  y = 448,
-  width = 8,
-  height = 16,
-  pattern = "door.2.low_support.1-2",
 }
 
 tile{
@@ -625,15 +328,6 @@ tile{
 tile{
   layer = 0,
   x = 232,
-  y = 448,
-  width = 16,
-  height = 16,
-  pattern = "door_stairs.straight_up.2",
-}
-
-tile{
-  layer = 0,
-  x = 232,
   y = 48,
   width = 16,
   height = 16,
@@ -662,42 +356,6 @@ tile{
   layer = 0,
   x = 64,
   y = 80,
-  width = 16,
-  height = 8,
-  pattern = "wall_low_border.1-3",
-}
-
-tile{
-  layer = 0,
-  x = 192,
-  y = 208,
-  width = 32,
-  height = 8,
-  pattern = "wall_low_border.1-3",
-}
-
-tile{
-  layer = 0,
-  x = 192,
-  y = 432,
-  width = 32,
-  height = 8,
-  pattern = "wall_low_border.1-3",
-}
-
-tile{
-  layer = 0,
-  x = 240,
-  y = 400,
-  width = 16,
-  height = 8,
-  pattern = "wall_low_border.1-3",
-}
-
-tile{
-  layer = 0,
-  x = 224,
-  y = 320,
   width = 16,
   height = 8,
   pattern = "wall_low_border.1-3",
@@ -741,33 +399,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 192,
-  y = 208,
-  width = 8,
-  height = 96,
-  pattern = "wall_low_border.3-3",
-}
-
-tile{
-  layer = 0,
-  x = 224,
-  y = 336,
-  width = 8,
-  height = 96,
-  pattern = "wall_low_border.3-3",
-}
-
-tile{
-  layer = 0,
-  x = 192,
-  y = 320,
-  width = 8,
-  height = 16,
-  pattern = "wall_low_border.3-3",
-}
-
-tile{
-  layer = 0,
   x = 64,
   y = 104,
   width = 16,
@@ -786,15 +417,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 80,
-  y = 312,
-  width = 112,
-  height = 8,
-  pattern = "wall_low_border.2-3",
-}
-
-tile{
-  layer = 0,
   x = 208,
   y = 104,
   width = 16,
@@ -807,33 +429,6 @@ tile{
   x = 240,
   y = 88,
   width = 16,
-  height = 8,
-  pattern = "wall_low_border.2-3",
-}
-
-tile{
-  layer = 0,
-  x = 224,
-  y = 216,
-  width = 16,
-  height = 8,
-  pattern = "wall_low_border.2-3",
-}
-
-tile{
-  layer = 0,
-  x = 192,
-  y = 328,
-  width = 32,
-  height = 8,
-  pattern = "wall_low_border.2-3",
-}
-
-tile{
-  layer = 0,
-  x = 200,
-  y = 440,
-  width = 48,
   height = 8,
   pattern = "wall_low_border.2-3",
 }
@@ -867,8 +462,254 @@ tile{
 
 tile{
   layer = 0,
+  x = 80,
+  y = 80,
+  width = 8,
+  height = 8,
+  pattern = "wall_low_border.corner_reverse.1-3",
+}
+
+tile{
+  layer = 0,
+  x = 80,
+  y = 104,
+  width = 8,
+  height = 8,
+  pattern = "wall_low_border.corner_reverse.3-3",
+}
+
+tile{
+  layer = 0,
+  x = 224,
+  y = 104,
+  width = 8,
+  height = 8,
+  pattern = "wall_low_border.corner_reverse.3-3",
+}
+
+tile{
+  layer = 0,
+  x = 88,
+  y = 104,
+  width = 8,
+  height = 8,
+  pattern = "wall_low_border.corner_reverse.4-3",
+}
+
+tile{
+  layer = 0,
+  x = 232,
+  y = 88,
+  width = 8,
+  height = 8,
+  pattern = "wall_low_border.corner_reverse.4-3",
+}
+
+tile{
+  layer = 0,
+  x = 104,
+  y = 64,
+  width = 8,
+  height = 8,
+  pattern = "wall_low_border.corner.2-3",
+}
+
+tile{
+  layer = 0,
+  x = 248,
+  y = 64,
+  width = 8,
+  height = 8,
+  pattern = "wall_low_border.corner.2-3",
+}
+
+tile{
+  layer = 0,
+  x = 80,
+  y = 64,
+  width = 8,
+  height = 8,
+  pattern = "wall_low_border.corner.1-3",
+}
+
+tile{
+  layer = 0,
+  x = 208,
+  y = 64,
+  width = 8,
+  height = 8,
+  pattern = "wall_low_border.corner.1-3",
+}
+
+tile{
+  layer = 0,
+  x = 64,
+  y = 104,
+  width = 8,
+  height = 8,
+  pattern = "wall_low_border.corner.3-3",
+}
+
+tile{
+  layer = 0,
+  x = 208,
+  y = 104,
+  width = 8,
+  height = 8,
+  pattern = "wall_low_border.corner.3-3",
+}
+
+tile{
+  layer = 0,
+  x = 104,
+  y = 104,
+  width = 8,
+  height = 8,
+  pattern = "wall_low_border.corner.4-3",
+}
+
+tile{
+  layer = 0,
+  x = 248,
+  y = 88,
+  width = 8,
+  height = 8,
+  pattern = "wall_low_border.corner.4-3",
+}
+
+tile{
+  layer = 0,
+  x = 64,
+  y = 80,
+  width = 8,
+  height = 8,
+  pattern = "wall_low_border.corner.1-3",
+}
+
+tile{
+  layer = 0,
+  x = 88,
+  y = 72,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
   x = 216,
+  y = 72,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 232,
+  y = 72,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 192,
+  y = 168,
+  width = 16,
+  height = 24,
+  pattern = "wall_low.1-2",
+}
+
+tile{
+  layer = 0,
+  x = 168,
+  y = 192,
+  width = 24,
+  height = 80,
+  pattern = "wall_low.3-2",
+}
+
+tile{
+  layer = 0,
+  x = 168,
+  y = 168,
+  width = 24,
+  height = 24,
+  pattern = "wall_low.corner.1-2",
+}
+
+tile{
+  layer = 0,
+  x = 200,
+  y = 168,
+  width = 24,
+  height = 24,
+  pattern = "wall_low.corner_reverse.1-2",
+}
+
+tile{
+  layer = 0,
+  x = 240,
+  y = 208,
+  width = 24,
+  height = 24,
+  pattern = "wall_low.corner.4-2",
+}
+
+tile{
+  layer = 0,
+  x = 224,
   y = 224,
+  width = 24,
+  height = 64,
+  pattern = "wall_low.4-2",
+}
+
+tile{
+  layer = 0,
+  x = 224,
+  y = 208,
+  width = 24,
+  height = 24,
+  pattern = "wall_low.corner_reverse.4-2",
+}
+
+tile{
+  layer = 0,
+  x = 192,
+  y = 192,
+  width = 32,
+  height = 8,
+  pattern = "wall_low_border.1-3",
+}
+
+tile{
+  layer = 0,
+  x = 192,
+  y = 192,
+  width = 8,
+  height = 96,
+  pattern = "wall_low_border.3-3",
+}
+
+tile{
+  layer = 0,
+  x = 224,
+  y = 200,
+  width = 16,
+  height = 8,
+  pattern = "wall_low_border.2-3",
+}
+
+tile{
+  layer = 0,
+  x = 216,
+  y = 208,
   width = 8,
   height = 96,
   pattern = "wall_low_border.4-3",
@@ -876,8 +717,369 @@ tile{
 
 tile{
   layer = 0,
+  x = 224,
+  y = 192,
+  width = 8,
+  height = 8,
+  pattern = "wall_low_border.corner_reverse.1-3",
+}
+
+tile{
+  layer = 0,
+  x = 216,
+  y = 200,
+  width = 8,
+  height = 8,
+  pattern = "wall_low_border.corner_reverse.4-3",
+}
+
+tile{
+  layer = 0,
+  x = 192,
+  y = 192,
+  width = 8,
+  height = 8,
+  pattern = "wall_low_border.corner.1-3",
+}
+
+tile{
+  layer = 0,
   x = 232,
+  y = 200,
+  width = 8,
+  height = 8,
+  pattern = "wall_low_border.corner.4-3",
+}
+
+tile{
+  layer = 0,
+  x = 200,
+  y = 208,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 112,
+  y = 248,
+  width = 64,
+  height = 24,
+  pattern = "wall_low.1-2",
+}
+
+tile{
+  layer = 0,
+  x = 80,
+  y = 288,
+  width = 96,
+  height = 24,
+  pattern = "wall_low.2-2",
+}
+
+tile{
+  layer = 0,
+  x = 240,
+  y = 288,
+  width = 24,
+  height = 64,
+  pattern = "wall_low.4-2",
+}
+
+tile{
+  layer = 0,
+  x = 192,
+  y = 304,
+  width = 16,
+  height = 24,
+  pattern = "wall_low.2-2",
+}
+
+tile{
+  layer = 0,
+  x = 200,
   y = 320,
+  width = 24,
+  height = 64,
+  pattern = "wall_low.3-2",
+}
+
+tile{
+  layer = 0,
+  x = 256,
+  y = 368,
+  width = 24,
+  height = 48,
+  pattern = "wall_low.4-2",
+}
+
+tile{
+  layer = 0,
+  x = 168,
+  y = 400,
+  width = 24,
+  height = 16,
+  pattern = "wall_low.3-2",
+}
+
+tile{
+  layer = 0,
+  x = 192,
+  y = 416,
+  width = 64,
+  height = 24,
+  pattern = "wall_low.2-2",
+}
+
+tile{
+  layer = 0,
+  x = 240,
+  y = 264,
+  width = 24,
+  height = 24,
+  pattern = "wall_low.corner.2-2",
+}
+
+tile{
+  layer = 0,
+  x = 56,
+  y = 288,
+  width = 24,
+  height = 24,
+  pattern = "wall_low.corner.3-2",
+}
+
+tile{
+  layer = 0,
+  x = 168,
+  y = 304,
+  width = 24,
+  height = 24,
+  pattern = "wall_low.corner.3-2",
+}
+
+tile{
+  layer = 0,
+  x = 200,
+  y = 304,
+  width = 24,
+  height = 24,
+  pattern = "wall_low.corner_reverse.3-2",
+}
+
+tile{
+  layer = 0,
+  x = 240,
+  y = 344,
+  width = 24,
+  height = 24,
+  pattern = "wall_low.corner_reverse.2-2",
+}
+
+tile{
+  layer = 0,
+  x = 256,
+  y = 344,
+  width = 24,
+  height = 24,
+  pattern = "wall_low.corner.2-2",
+}
+
+tile{
+  layer = 0,
+  x = 168,
+  y = 376,
+  width = 24,
+  height = 24,
+  pattern = "wall_low.corner.1-2",
+}
+
+tile{
+  layer = 0,
+  x = 168,
+  y = 416,
+  width = 24,
+  height = 24,
+  pattern = "wall_low.corner.3-2",
+}
+
+tile{
+  layer = 0,
+  x = 256,
+  y = 416,
+  width = 24,
+  height = 24,
+  pattern = "wall_low.corner.4-2",
+}
+
+tile{
+  layer = 0,
+  x = 96,
+  y = 248,
+  width = 24,
+  height = 24,
+  pattern = "wall_low.corner_reverse.2-2",
+}
+
+tile{
+  layer = 0,
+  x = 192,
+  y = 376,
+  width = 16,
+  height = 24,
+  pattern = "wall_low.1-2",
+}
+
+tile{
+  layer = 0,
+  x = 200,
+  y = 376,
+  width = 24,
+  height = 24,
+  pattern = "wall_low.corner_reverse.1-2",
+}
+
+tile{
+  layer = 0,
+  x = 168,
+  y = 248,
+  width = 24,
+  height = 24,
+  pattern = "wall_low.corner_reverse.1-2",
+}
+
+tile{
+  layer = 0,
+  x = 168,
+  y = 288,
+  width = 24,
+  height = 24,
+  pattern = "wall_low.corner_reverse.3-2",
+}
+
+tile{
+  layer = 0,
+  x = 224,
+  y = 264,
+  width = 24,
+  height = 24,
+  pattern = "wall_low.corner_reverse.2-2",
+}
+
+tile{
+  layer = 0,
+  x = 232,
+  y = 416,
+  width = 16,
+  height = 16,
+  pattern = "door_stairs.straight_up.2",
+}
+
+tile{
+  layer = 0,
+  x = 248,
+  y = 416,
+  width = 8,
+  height = 16,
+  pattern = "door.2.low_support.2-2",
+}
+
+tile{
+  layer = 0,
+  x = 224,
+  y = 416,
+  width = 8,
+  height = 16,
+  pattern = "door.2.low_support.1-2",
+}
+
+tile{
+  layer = 0,
+  x = 232,
+  y = 416,
+  width = 16,
+  height = 16,
+  pattern = "door_stairs.straight_up.2",
+}
+
+tile{
+  layer = 0,
+  x = 192,
+  y = 400,
+  width = 32,
+  height = 8,
+  pattern = "wall_low_border.1-3",
+}
+
+tile{
+  layer = 0,
+  x = 240,
+  y = 368,
+  width = 16,
+  height = 8,
+  pattern = "wall_low_border.1-3",
+}
+
+tile{
+  layer = 0,
+  x = 224,
+  y = 288,
+  width = 16,
+  height = 8,
+  pattern = "wall_low_border.1-3",
+}
+
+tile{
+  layer = 0,
+  x = 224,
+  y = 304,
+  width = 8,
+  height = 96,
+  pattern = "wall_low_border.3-3",
+}
+
+tile{
+  layer = 0,
+  x = 192,
+  y = 288,
+  width = 8,
+  height = 16,
+  pattern = "wall_low_border.3-3",
+}
+
+tile{
+  layer = 0,
+  x = 80,
+  y = 280,
+  width = 112,
+  height = 8,
+  pattern = "wall_low_border.2-3",
+}
+
+tile{
+  layer = 0,
+  x = 192,
+  y = 296,
+  width = 32,
+  height = 8,
+  pattern = "wall_low_border.2-3",
+}
+
+tile{
+  layer = 0,
+  x = 200,
+  y = 408,
+  width = 48,
+  height = 8,
+  pattern = "wall_low_border.2-3",
+}
+
+tile{
+  layer = 0,
+  x = 232,
+  y = 288,
   width = 8,
   height = 80,
   pattern = "wall_low_border.4-3",
@@ -886,7 +1088,7 @@ tile{
 tile{
   layer = 0,
   x = 248,
-  y = 408,
+  y = 376,
   width = 8,
   height = 32,
   pattern = "wall_low_border.4-3",
@@ -894,26 +1096,8 @@ tile{
 
 tile{
   layer = 0,
-  x = 80,
-  y = 80,
-  width = 8,
-  height = 8,
-  pattern = "wall_low_border.corner_reverse.1-3",
-}
-
-tile{
-  layer = 0,
-  x = 224,
-  y = 208,
-  width = 8,
-  height = 8,
-  pattern = "wall_low_border.corner_reverse.1-3",
-}
-
-tile{
-  layer = 0,
   x = 192,
-  y = 304,
+  y = 272,
   width = 8,
   height = 8,
   pattern = "wall_low_border.corner_reverse.1-3",
@@ -922,7 +1106,7 @@ tile{
 tile{
   layer = 0,
   x = 224,
-  y = 432,
+  y = 400,
   width = 8,
   height = 8,
   pattern = "wall_low_border.corner_reverse.1-3",
@@ -931,7 +1115,7 @@ tile{
 tile{
   layer = 0,
   x = 96,
-  y = 304,
+  y = 272,
   width = 96,
   height = 8,
   pattern = "wall_low_border.1-3",
@@ -940,7 +1124,7 @@ tile{
 tile{
   layer = 0,
   x = 88,
-  y = 304,
+  y = 272,
   width = 8,
   height = 8,
   pattern = "wall_low_border.corner_reverse.2-3",
@@ -949,7 +1133,7 @@ tile{
 tile{
   layer = 0,
   x = 216,
-  y = 320,
+  y = 288,
   width = 8,
   height = 8,
   pattern = "wall_low_border.corner_reverse.2-3",
@@ -958,7 +1142,7 @@ tile{
 tile{
   layer = 0,
   x = 232,
-  y = 400,
+  y = 368,
   width = 8,
   height = 8,
   pattern = "wall_low_border.corner_reverse.2-3",
@@ -966,8 +1150,8 @@ tile{
 
 tile{
   layer = 0,
-  x = 80,
-  y = 104,
+  x = 192,
+  y = 280,
   width = 8,
   height = 8,
   pattern = "wall_low_border.corner_reverse.3-3",
@@ -976,124 +1160,43 @@ tile{
 tile{
   layer = 0,
   x = 224,
-  y = 104,
+  y = 296,
   width = 8,
   height = 8,
   pattern = "wall_low_border.corner_reverse.3-3",
+}
+
+tile{
+  layer = 0,
+  x = 232,
+  y = 288,
+  width = 8,
+  height = 8,
+  pattern = "wall_low_border.corner.2-3",
+}
+
+tile{
+  layer = 0,
+  x = 248,
+  y = 368,
+  width = 8,
+  height = 8,
+  pattern = "wall_low_border.corner.2-3",
 }
 
 tile{
   layer = 0,
   x = 192,
-  y = 312,
-  width = 8,
-  height = 8,
-  pattern = "wall_low_border.corner_reverse.3-3",
-}
-
-tile{
-  layer = 0,
-  x = 224,
-  y = 328,
-  width = 8,
-  height = 8,
-  pattern = "wall_low_border.corner_reverse.3-3",
-}
-
-tile{
-  layer = 0,
-  x = 88,
-  y = 104,
-  width = 8,
-  height = 8,
-  pattern = "wall_low_border.corner_reverse.4-3",
-}
-
-tile{
-  layer = 0,
-  x = 232,
-  y = 88,
-  width = 8,
-  height = 8,
-  pattern = "wall_low_border.corner_reverse.4-3",
-}
-
-tile{
-  layer = 0,
-  x = 216,
-  y = 216,
-  width = 8,
-  height = 8,
-  pattern = "wall_low_border.corner_reverse.4-3",
-}
-
-tile{
-  layer = 0,
-  x = 104,
-  y = 64,
-  width = 8,
-  height = 8,
-  pattern = "wall_low_border.corner.2-3",
-}
-
-tile{
-  layer = 0,
-  x = 248,
-  y = 64,
-  width = 8,
-  height = 8,
-  pattern = "wall_low_border.corner.2-3",
-}
-
-tile{
-  layer = 0,
-  x = 232,
-  y = 320,
-  width = 8,
-  height = 8,
-  pattern = "wall_low_border.corner.2-3",
-}
-
-tile{
-  layer = 0,
-  x = 248,
   y = 400,
   width = 8,
   height = 8,
-  pattern = "wall_low_border.corner.2-3",
-}
-
-tile{
-  layer = 0,
-  x = 80,
-  y = 64,
-  width = 8,
-  height = 8,
-  pattern = "wall_low_border.corner.1-3",
-}
-
-tile{
-  layer = 0,
-  x = 208,
-  y = 64,
-  width = 8,
-  height = 8,
   pattern = "wall_low_border.corner.1-3",
 }
 
 tile{
   layer = 0,
   x = 192,
-  y = 432,
-  width = 8,
-  height = 8,
-  pattern = "wall_low_border.corner.1-3",
-}
-
-tile{
-  layer = 0,
-  x = 192,
-  y = 440,
+  y = 408,
   width = 8,
   height = 8,
   pattern = "wall_low_border.corner.3-3",
@@ -1102,16 +1205,7 @@ tile{
 tile{
   layer = 0,
   x = 80,
-  y = 312,
-  width = 8,
-  height = 8,
-  pattern = "wall_low_border.corner.3-3",
-}
-
-tile{
-  layer = 0,
-  x = 64,
-  y = 104,
+  y = 280,
   width = 8,
   height = 8,
   pattern = "wall_low_border.corner.3-3",
@@ -1120,7 +1214,7 @@ tile{
 tile{
   layer = 0,
   x = 192,
-  y = 328,
+  y = 296,
   width = 8,
   height = 8,
   pattern = "wall_low_border.corner.3-3",
@@ -1128,101 +1222,17 @@ tile{
 
 tile{
   layer = 0,
-  x = 208,
-  y = 104,
-  width = 8,
-  height = 8,
-  pattern = "wall_low_border.corner.3-3",
-}
-
-tile{
-  layer = 0,
-  x = 192,
-  y = 208,
-  width = 8,
-  height = 8,
-  pattern = "wall_low_border.corner.1-3",
-}
-
-tile{
-  layer = 0,
-  x = 104,
-  y = 104,
-  width = 8,
-  height = 8,
-  pattern = "wall_low_border.corner.4-3",
-}
-
-tile{
-  layer = 0,
   x = 248,
-  y = 88,
+  y = 408,
   width = 8,
   height = 8,
   pattern = "wall_low_border.corner.4-3",
-}
-
-tile{
-  layer = 0,
-  x = 232,
-  y = 216,
-  width = 8,
-  height = 8,
-  pattern = "wall_low_border.corner.4-3",
-}
-
-tile{
-  layer = 0,
-  x = 248,
-  y = 440,
-  width = 8,
-  height = 8,
-  pattern = "wall_low_border.corner.4-3",
-}
-
-tile{
-  layer = 0,
-  x = 64,
-  y = 80,
-  width = 8,
-  height = 8,
-  pattern = "wall_low_border.corner.1-3",
-}
-
-tile{
-  layer = 0,
-  x = 88,
-  y = 72,
-  width = 16,
-  height = 16,
-  pattern = "94",
-  tileset = "addition/dungeon",
-}
-
-tile{
-  layer = 0,
-  x = 216,
-  y = 72,
-  width = 16,
-  height = 16,
-  pattern = "94",
-  tileset = "addition/dungeon",
-}
-
-tile{
-  layer = 0,
-  x = 232,
-  y = 72,
-  width = 16,
-  height = 16,
-  pattern = "94",
-  tileset = "addition/dungeon",
 }
 
 tile{
   layer = 0,
   x = 200,
-  y = 224,
+  y = 240,
   width = 16,
   height = 16,
   pattern = "94",
@@ -1241,8 +1251,8 @@ tile{
 
 tile{
   layer = 0,
-  x = 200,
-  y = 304,
+  x = 232,
+  y = 376,
   width = 16,
   height = 16,
   pattern = "94",
@@ -1252,17 +1262,7 @@ tile{
 tile{
   layer = 0,
   x = 232,
-  y = 408,
-  width = 16,
-  height = 16,
-  pattern = "94",
-  tileset = "addition/dungeon",
-}
-
-tile{
-  layer = 0,
-  x = 232,
-  y = 424,
+  y = 392,
   width = 16,
   height = 16,
   pattern = "94",
@@ -1290,26 +1290,6 @@ chest{
 }
 
 enemy{
-  name = "enemy_group_1_1",
-  layer = 0,
-  x = 104,
-  y = 317,
-  direction = 0,
-  breed = "zol_green",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_1_2",
-  layer = 0,
-  x = 200,
-  y = 333,
-  direction = 0,
-  breed = "zol_green",
-  treasure_name = "random",
-}
-
-enemy{
   name = "enemy_group_2_1",
   layer = 0,
   x = 232,
@@ -1317,32 +1297,6 @@ enemy{
   direction = 0,
   breed = "zol_green",
   treasure_name = "random",
-}
-
-destination{
-  name = "stair",
-  layer = 0,
-  x = 240,
-  y = 461,
-  direction = 1,
-}
-
-teletransporter{
-  layer = 0,
-  x = 232,
-  y = 448,
-  width = 16,
-  height = 16,
-  destination_map = "houses/south_prairie/richard_villa",
-  destination = "stair",
-}
-
-stairs{
-  layer = 0,
-  x = 232,
-  y = 448,
-  direction = 3,
-  subtype = 2,
 }
 
 destination{
@@ -1371,22 +1325,50 @@ stairs{
   subtype = 0,
 }
 
-tile{
-  layer = 1,
-  x = 208,
-  y = 464,
-  width = 64,
-  height = 8,
-  pattern = "door_cache_low.2-2",
+enemy{
+  name = "enemy_group_1_1",
+  layer = 0,
+  x = 104,
+  y = 285,
+  direction = 0,
+  breed = "zol_green",
+  treasure_name = "random",
 }
 
-tile{
-  layer = 1,
-  x = 224,
-  y = 464,
-  width = 32,
-  height = 8,
-  pattern = "door_top.low.2-3",
+enemy{
+  name = "enemy_group_1_2",
+  layer = 0,
+  x = 200,
+  y = 301,
+  direction = 0,
+  breed = "zol_green",
+  treasure_name = "random",
+}
+
+destination{
+  name = "stair",
+  layer = 0,
+  x = 240,
+  y = 429,
+  direction = 1,
+}
+
+teletransporter{
+  layer = 0,
+  x = 232,
+  y = 416,
+  width = 16,
+  height = 16,
+  destination_map = "houses/south_prairie/richard_villa",
+  destination = "stair",
+}
+
+stairs{
+  layer = 0,
+  x = 232,
+  y = 416,
+  direction = 3,
+  subtype = 2,
 }
 
 tile{
@@ -1439,7 +1421,7 @@ tile{
   x = 272,
   y = 144,
   width = 16,
-  height = 208,
+  height = 184,
   pattern = "ceiling.2",
 }
 
@@ -1449,42 +1431,6 @@ tile{
   y = 160,
   width = 16,
   height = 208,
-  pattern = "ceiling.2",
-}
-
-tile{
-  layer = 1,
-  x = 48,
-  y = 352,
-  width = 112,
-  height = 16,
-  pattern = "ceiling.2",
-}
-
-tile{
-  layer = 1,
-  x = 144,
-  y = 368,
-  width = 16,
-  height = 128,
-  pattern = "ceiling.2",
-}
-
-tile{
-  layer = 1,
-  x = 288,
-  y = 352,
-  width = 16,
-  height = 144,
-  pattern = "ceiling.2",
-}
-
-tile{
-  layer = 1,
-  x = 160,
-  y = 480,
-  width = 128,
-  height = 16,
   pattern = "ceiling.2",
 }
 
@@ -1529,26 +1475,8 @@ tile{
   x = 32,
   y = 152,
   width = 24,
-  height = 192,
+  height = 160,
   pattern = "wall.3-3",
-}
-
-tile{
-  layer = 1,
-  x = 280,
-  y = 376,
-  width = 24,
-  height = 96,
-  pattern = "wall.4-3",
-}
-
-tile{
-  layer = 1,
-  x = 168,
-  y = 472,
-  width = 112,
-  height = 24,
-  pattern = "wall.2-3",
 }
 
 tile{
@@ -1608,42 +1536,6 @@ tile{
 tile{
   layer = 1,
   x = 32,
-  y = 344,
-  width = 24,
-  height = 24,
-  pattern = "wall.corner.3-3",
-}
-
-tile{
-  layer = 1,
-  x = 280,
-  y = 352,
-  width = 24,
-  height = 24,
-  pattern = "wall.corner.2-3",
-}
-
-tile{
-  layer = 1,
-  x = 144,
-  y = 472,
-  width = 24,
-  height = 24,
-  pattern = "wall.corner.3-3",
-}
-
-tile{
-  layer = 1,
-  x = 280,
-  y = 472,
-  width = 24,
-  height = 24,
-  pattern = "wall.corner.4-3",
-}
-
-tile{
-  layer = 1,
-  x = 32,
   y = 136,
   width = 24,
   height = 24,
@@ -1670,51 +1562,6 @@ tile{
 
 tile{
   layer = 1,
-  x = 264,
-  y = 248,
-  width = 24,
-  height = 112,
-  pattern = "wall.4-3",
-}
-
-tile{
-  layer = 1,
-  x = 264,
-  y = 352,
-  width = 24,
-  height = 24,
-  pattern = "wall.corner_reverse.2-3",
-}
-
-tile{
-  layer = 1,
-  x = 56,
-  y = 344,
-  width = 96,
-  height = 24,
-  pattern = "wall.2-3",
-}
-
-tile{
-  layer = 1,
-  x = 144,
-  y = 360,
-  width = 24,
-  height = 112,
-  pattern = "wall.3-3",
-}
-
-tile{
-  layer = 1,
-  x = 232,
-  y = 464,
-  width = 16,
-  height = 8,
-  pattern = "door_top.stairs_up.2-1",
-}
-
-tile{
-  layer = 1,
   x = 232,
   y = 40,
   width = 16,
@@ -1724,37 +1571,10 @@ tile{
 
 tile{
   layer = 1,
-  x = 144,
-  y = 344,
-  width = 24,
-  height = 24,
-  pattern = "wall.corner_reverse.3-3",
-}
-
-tile{
-  layer = 1,
   x = 136,
   y = 40,
   width = 48,
-  height = 144,
-  pattern = "floor_low.5-1",
-}
-
-tile{
-  layer = 1,
-  x = 168,
-  y = 360,
-  width = 32,
-  height = 48,
-  pattern = "floor_low.5-1",
-}
-
-tile{
-  layer = 1,
-  x = 248,
-  y = 248,
-  width = 16,
-  height = 48,
+  height = 128,
   pattern = "floor_low.5-1",
 }
 
@@ -1763,7 +1583,7 @@ tile{
   x = 184,
   y = 136,
   width = 16,
-  height = 48,
+  height = 32,
   pattern = "floor_low.5-1",
 }
 
@@ -1772,26 +1592,8 @@ tile{
   x = 120,
   y = 136,
   width = 48,
-  height = 144,
+  height = 112,
   pattern = "floor_low.5-1",
-}
-
-tile{
-  layer = 1,
-  x = 256,
-  y = 248,
-  width = 8,
-  height = 48,
-  pattern = "wall_border.4-3",
-}
-
-tile{
-  layer = 1,
-  x = 168,
-  y = 360,
-  width = 8,
-  height = 48,
-  pattern = "wall_border.3-3",
 }
 
 tile{
@@ -1804,12 +1606,291 @@ tile{
 }
 
 tile{
-  layer = 2,
-  x = 16,
-  y = 496,
-  width = 288,
+  layer = 1,
+  x = 264,
+  y = 232,
+  width = 24,
+  height = 112,
+  pattern = "wall.4-3",
+}
+
+tile{
+  layer = 1,
+  x = 248,
+  y = 232,
+  width = 16,
+  height = 32,
+  pattern = "floor_low.5-1",
+}
+
+tile{
+  layer = 1,
+  x = 256,
+  y = 232,
+  width = 8,
+  height = 32,
+  pattern = "wall_border.4-3",
+}
+
+tile{
+  layer = 1,
+  x = 208,
+  y = 432,
+  width = 64,
+  height = 8,
+  pattern = "door_cache_low.2-2",
+}
+
+tile{
+  layer = 1,
+  x = 224,
+  y = 432,
+  width = 32,
+  height = 8,
+  pattern = "door_top.low.2-3",
+}
+
+tile{
+  layer = 1,
+  x = 48,
+  y = 320,
+  width = 112,
   height = 16,
   pattern = "ceiling.2",
+}
+
+tile{
+  layer = 1,
+  x = 144,
+  y = 336,
+  width = 16,
+  height = 128,
+  pattern = "ceiling.2",
+}
+
+tile{
+  layer = 1,
+  x = 288,
+  y = 320,
+  width = 16,
+  height = 144,
+  pattern = "ceiling.2",
+}
+
+tile{
+  layer = 1,
+  x = 160,
+  y = 448,
+  width = 128,
+  height = 16,
+  pattern = "ceiling.2",
+}
+
+tile{
+  layer = 1,
+  x = 280,
+  y = 344,
+  width = 24,
+  height = 96,
+  pattern = "wall.4-3",
+}
+
+tile{
+  layer = 1,
+  x = 168,
+  y = 440,
+  width = 112,
+  height = 24,
+  pattern = "wall.2-3",
+}
+
+tile{
+  layer = 1,
+  x = 32,
+  y = 312,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner.3-3",
+}
+
+tile{
+  layer = 1,
+  x = 280,
+  y = 320,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner.2-3",
+}
+
+tile{
+  layer = 1,
+  x = 144,
+  y = 440,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner.3-3",
+}
+
+tile{
+  layer = 1,
+  x = 280,
+  y = 440,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner.4-3",
+}
+
+tile{
+  layer = 1,
+  x = 264,
+  y = 320,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner_reverse.2-3",
+}
+
+tile{
+  layer = 1,
+  x = 56,
+  y = 312,
+  width = 96,
+  height = 24,
+  pattern = "wall.2-3",
+}
+
+tile{
+  layer = 1,
+  x = 144,
+  y = 328,
+  width = 24,
+  height = 112,
+  pattern = "wall.3-3",
+}
+
+tile{
+  layer = 1,
+  x = 232,
+  y = 432,
+  width = 16,
+  height = 8,
+  pattern = "door_top.stairs_up.2-1",
+}
+
+tile{
+  layer = 1,
+  x = 144,
+  y = 312,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner_reverse.3-3",
+}
+
+tile{
+  layer = 1,
+  x = 168,
+  y = 328,
+  width = 32,
+  height = 48,
+  pattern = "floor_low.5-1",
+}
+
+tile{
+  layer = 1,
+  x = 168,
+  y = 328,
+  width = 8,
+  height = 48,
+  pattern = "wall_border.3-3",
+}
+
+tile{
+  layer = 1,
+  x = 136,
+  y = 48,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 168,
+  y = 80,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 152,
+  y = 120,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 136,
+  y = 168,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 120,
+  y = 208,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 152,
+  y = 232,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 184,
+  y = 152,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 184,
+  y = 328,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 176,
+  y = 360,
+  width = 16,
+  height = 16,
+  pattern = "94",
+  tileset = "addition/dungeon",
 }
 
 tile{
@@ -1817,7 +1898,7 @@ tile{
   x = 0,
   y = 0,
   width = 16,
-  height = 512,
+  height = 480,
   pattern = "ceiling.2",
 }
 
@@ -1835,7 +1916,7 @@ tile{
   x = 304,
   y = 0,
   width = 16,
-  height = 512,
+  height = 480,
   pattern = "ceiling.2",
 }
 
@@ -1853,7 +1934,7 @@ tile{
   x = 288,
   y = 144,
   width = 16,
-  height = 208,
+  height = 176,
   pattern = "ceiling.2",
 }
 
@@ -1862,14 +1943,23 @@ tile{
   x = 16,
   y = 160,
   width = 16,
-  height = 336,
+  height = 320,
+  pattern = "ceiling.2",
+}
+
+tile{
+  layer = 2,
+  x = 16,
+  y = 464,
+  width = 288,
+  height = 16,
   pattern = "ceiling.2",
 }
 
 tile{
   layer = 2,
   x = 32,
-  y = 368,
+  y = 336,
   width = 112,
   height = 128,
   pattern = "ceiling.2",
