@@ -9,7 +9,7 @@ local dice = ...
 local carriable_behavior = require("entities/lib/carriable")
 carriable_behavior.apply(dice, {})
 
--- Set the thrown animation when thrown.
+-- Set the corresponding animation when thrown.
 dice:register_event("on_thrown", function(dice, direction)
   dice:get_sprite():set_animation("thrown")
 end)

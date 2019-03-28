@@ -41,8 +41,8 @@ function map:on_started()
 
   -- Doors
   map:set_doors_open("door_group_2_", true)
-  door_manager:check_destroy_wall(map, "weak_wall_A")
-  door_manager:check_destroy_wall(map, "weak_wall_B")
+  door_manager:open_weak_wall_if_savegame_exist(map, "weak_wall_A", "dungeon_7_weak_wall_A")
+  door_manager:open_weak_wall_if_savegame_exist(map, "weak_wall_B", "dungeon_7_weak_wall_B")
 
   -- Pickables
   treasure_manager:disappear_pickable(map, "pickable_small_key_2")

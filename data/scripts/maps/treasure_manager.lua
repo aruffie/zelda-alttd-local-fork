@@ -24,23 +24,50 @@ function treasure_manager:appear_chest_when_enemies_dead(map, enemy_prefix, ches
 end
 
 function treasure_manager:appear_chest_when_horse_heads_upright(map, entity_prefix, chest)
+
+  local function horse_head_on_finish_throw(horse_head)
     
-  local function entity_on_finish_throw()
-    local is_upright = true
+    -- Get horse heads global states.
+    horse_head.is_thrown = true
+    local are_all_heads_thrown = true
+    local are_all_heads_upright = true
     for entity in map:get_entities(entity_prefix) do
-      if entity:get_direction() ~= 1 then
-        is_upright = false
+      if not entity.is_thrown then
+        are_all_heads_thrown = false
+        break
+      elseif entity:get_direction() ~= 1 then
+        are_all_heads_upright = false
       end
     end
-    if is_upright then
-      self:appear_chest(map, chest, true)
+
+    -- If they have been all thrown.
+    if are_all_heads_thrown then
+      if are_all_heads_upright then
+        -- Make the chest appear if they are upright.
+        self:appear_chest(map, chest, true)
+      else
+        -- Else play error song and reset direction.
+        audio_manager:play_sound("misc/error")
+        sol.timer.start(500, function()
+          for entity in map:get_entities(entity_prefix) do
+            entity:set_direction(0)
+          end
+        end)
+      end
+      -- Make all horse heads liftable again.
+      for entity in map:get_entities(entity_prefix) do
+        entity:set_weight(0)
+        entity.is_thrown = nil
+      end
+    else
+      -- Else make this horse head not liftable.
+      horse_head:set_weight(-1)
     end
   end
 
   for entity in map:get_entities(entity_prefix) do
-    entity:register_event("on_finish_throw", entity_on_finish_throw)
+    entity:register_event("on_finish_throw", horse_head_on_finish_throw)
   end
-
 end
 
 function treasure_manager:appear_pickable_when_enemies_dead(map, enemy_prefix, pickable)
