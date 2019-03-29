@@ -15446,7 +15446,7 @@ tile{
   layer = 0,
   x = 600,
   y = 856,
-  width = 80,
+  width = 64,
   height = 16,
   pattern = "floor.3-1",
 }
@@ -17541,7 +17541,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 416,
+  x = 408,
   y = 1296,
   width = 16,
   height = 32,
@@ -17550,7 +17550,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 528,
+  x = 536,
   y = 1296,
   width = 16,
   height = 32,
@@ -18117,7 +18117,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 656,
+  x = 664,
   y = 856,
   width = 16,
   height = 16,
@@ -18126,7 +18126,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 656,
+  x = 664,
   y = 848,
   width = 16,
   height = 8,
@@ -18135,7 +18135,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 656,
+  x = 664,
   y = 872,
   width = 16,
   height = 8,
@@ -18402,16 +18402,6 @@ tile{
   width = 32,
   height = 32,
   pattern = "66",
-  tileset = "addition/dungeon",
-}
-
-tile{
-  layer = 0,
-  x = 760,
-  y = 736,
-  width = 64,
-  height = 24,
-  pattern = "40",
   tileset = "addition/dungeon",
 }
 
@@ -18791,6 +18781,195 @@ tile{
   width = 8,
   height = 8,
   pattern = "hole.corner.4",
+}
+
+tile{
+  layer = 0,
+  x = 1008,
+  y = 1616,
+  width = 16,
+  height = 16,
+  pattern = "torch_big.bottom",
+}
+
+tile{
+  layer = 0,
+  x = 1216,
+  y = 1616,
+  width = 16,
+  height = 16,
+  pattern = "torch_big.bottom",
+}
+
+tile{
+  layer = 0,
+  x = 1080,
+  y = 1520,
+  width = 80,
+  height = 48,
+  pattern = "floor.20-1",
+}
+
+tile{
+  layer = 0,
+  x = 792,
+  y = 1456,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.1-5",
+}
+
+tile{
+  layer = 0,
+  x = 408,
+  y = 1456,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.1-5",
+}
+
+tile{
+  layer = 0,
+  x = 536,
+  y = 1456,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.1-5",
+}
+
+tile{
+  layer = 0,
+  x = 408,
+  y = 1392,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.2-5",
+}
+
+tile{
+  layer = 0,
+  x = 536,
+  y = 1392,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.2-5",
+}
+
+tile{
+  layer = 0,
+  x = 24,
+  y = 624,
+  width = 16,
+  height = 32,
+  pattern = "wall_torch.3",
+}
+
+tile{
+  layer = 0,
+  x = 24,
+  y = 544,
+  width = 16,
+  height = 32,
+  pattern = "wall_torch.3",
+}
+
+tile{
+  layer = 0,
+  x = 464,
+  y = 912,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.2-5",
+}
+
+tile{
+  layer = 0,
+  x = 80,
+  y = 912,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.2-5",
+}
+
+tile{
+  layer = 0,
+  x = 224,
+  y = 912,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.2-5",
+}
+
+tile{
+  layer = 0,
+  x = 80,
+  y = 672,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.2-5",
+}
+
+tile{
+  layer = 0,
+  x = 224,
+  y = 672,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.2-5",
+}
+
+tile{
+  layer = 0,
+  x = 224,
+  y = 512,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.1-5",
+}
+
+tile{
+  layer = 0,
+  x = 80,
+  y = 496,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.1-5",
+}
+
+tile{
+  layer = 0,
+  x = 720,
+  y = 736,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.1-5",
+}
+
+tile{
+  layer = 0,
+  x = 848,
+  y = 736,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.1-5",
+}
+
+tile{
+  layer = 0,
+  x = 720,
+  y = 912,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.2-5",
+}
+
+tile{
+  layer = 0,
+  x = 848,
+  y = 912,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.2-5",
 }
 
 dynamic_tile{
@@ -20613,7 +20792,7 @@ custom_entity{
   x = 456,
   y = 1117,
   width = 16,
-  height = 32,
+  height = 16,
   direction = 0,
   sprite = "entities/destructibles/statue_elephant",
   model = "heavy_object",
@@ -20624,7 +20803,7 @@ custom_entity{
   x = 488,
   y = 1277,
   width = 16,
-  height = 32,
+  height = 16,
   direction = 0,
   sprite = "entities/destructibles/statue_elephant",
   model = "heavy_object",
@@ -20635,7 +20814,7 @@ custom_entity{
   x = 472,
   y = 1277,
   width = 16,
-  height = 32,
+  height = 16,
   direction = 0,
   sprite = "entities/destructibles/statue_elephant",
   model = "heavy_object",
@@ -22279,7 +22458,7 @@ enemy{
   x = 536,
   y = 1549,
   direction = 0,
-  breed = "zol_green",
+  breed = "small_moldorm",
   treasure_name = "random",
 }
 
@@ -22691,7 +22870,7 @@ enemy{
   x = 720,
   y = 1357,
   direction = 0,
-  breed = "zol_green",
+  breed = "small_moldorm",
   treasure_name = "random",
 }
 
@@ -22762,7 +22941,7 @@ door{
 }
 
 custom_entity{
-  name = "detect_door_group_3",
+  name = "door_group_3_detect",
   layer = 0,
   x = 144,
   y = 517,
@@ -23501,9 +23680,9 @@ door{
 enemy{
   name = "enemy_group_20_1",
   layer = 0,
-  x = 568,
-  y = 1013,
-  direction = 0,
+  x = 752,
+  y = 1309,
+  direction = 1,
   breed = "fireball",
   treasure_name = "random",
 }
@@ -24502,24 +24681,6 @@ dynamic_tile{
   pattern = "wall.3-2",
 }
 
-sensor{
-  name = "sensor_14",
-  layer = 0,
-  x = 592,
-  y = 869,
-  width = 16,
-  height = 16,
-}
-
-sensor{
-  name = "sensor_15",
-  layer = 0,
-  x = 1760,
-  y = 1013,
-  width = 16,
-  height = 16,
-}
-
 dynamic_tile{
   name = "weak_wall_group_2_2",
   layer = 0,
@@ -24575,26 +24736,6 @@ sensor{
   y = 765,
   width = 16,
   height = 16,
-}
-
-teletransporter{
-  layer = 0,
-  x = 1112,
-  y = 1488,
-  width = 16,
-  height = 16,
-  destination_map = "out/a3_mabe_village",
-}
-
-teletransporter{
-  name = "destination2_2",
-  layer = 0,
-  x = 1216,
-  y = 536,
-  width = 16,
-  height = 16,
-  destination_map = "dungeons/6/1f",
-  destination = "dungeon_6_1_B",
 }
 
 sensor{
@@ -25016,6 +25157,90 @@ enemy{
   direction = 0,
   breed = "flying_tile",
   treasure_name = "random",
+}
+
+custom_entity{
+  layer = 0,
+  x = 472,
+  y = 1117,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/statue_elephant",
+  model = "heavy_object",
+}
+
+enemy{
+  name = "enemy_group_29_1",
+  layer = 0,
+  x = 104,
+  y = 365,
+  direction = 1,
+  breed = "fireball",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "enemy_group_29_2",
+  layer = 0,
+  x = 152,
+  y = 293,
+  direction = 0,
+  breed = "fireball",
+  treasure_name = "random",
+}
+
+wall{
+  layer = 0,
+  x = 64,
+  y = 392,
+  width = 16,
+  height = 16,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+enemy{
+  name = "enemy_group_29_3",
+  layer = 0,
+  x = 520,
+  y = 349,
+  direction = 1,
+  breed = "star",
+  treasure_name = "random",
+}
+
+dynamic_tile{
+  name = "weak_wall_group_1_1",
+  layer = 0,
+  x = 600,
+  y = 840,
+  width = 24,
+  height = 48,
+  pattern = "wall.4-2",
+}
+
+door{
+  name = "weak_wall_group_1",
+  layer = 0,
+  x = 600,
+  y = 856,
+  properties = {
+    {
+      key = "is_weak",
+      value = "true",
+    },
+    {
+      key = "sound_sword",
+      value = "items/sword_tap_bombable",
+    },
+  },
+  direction = 2,
+  sprite = "entities/doors/door_weak_wall",
+  savegame_variable = "dungeon_6_weak_wall_group_1",
+  opening_method = "explosion",
 }
 
 tile{
@@ -27605,6 +27830,24 @@ tile{
   pattern = "barrier.border-1",
 }
 
+tile{
+  layer = 1,
+  x = 1008,
+  y = 1600,
+  width = 16,
+  height = 16,
+  pattern = "torch_big.top",
+}
+
+tile{
+  layer = 1,
+  x = 1216,
+  y = 1600,
+  width = 16,
+  height = 16,
+  pattern = "torch_big.top",
+}
+
 chest{
   name = "chest_power_bracelet",
   layer = 1,
@@ -28248,7 +28491,7 @@ custom_entity{
   name = "auto_torch_group_1_1",
   layer = 1,
   x = 728,
-  y = 845,
+  y = 813,
   width = 16,
   height = 16,
   direction = 0,
@@ -28260,7 +28503,7 @@ custom_entity{
   name = "auto_torch_group_1_2",
   layer = 1,
   x = 856,
-  y = 845,
+  y = 813,
   width = 16,
   height = 16,
   direction = 0,
@@ -28507,7 +28750,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/items/heart_fly",
-  model = "heart_fly",
+  model = "pickable_fly",
 }
 
 npc{
@@ -28537,6 +28780,49 @@ jumper{
   height = 8,
   direction = 6,
   jump_length = 40,
+}
+
+custom_entity{
+  layer = 1,
+  x = 600,
+  y = 341,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/items/bomb_fly",
+  model = "pickable_fly",
+}
+
+enemy{
+  name = "enemy_group_29_4",
+  layer = 1,
+  x = 1096,
+  y = 293,
+  direction = 0,
+  breed = "bubble",
+  treasure_name = "random",
+}
+
+custom_entity{
+  layer = 1,
+  x = 112,
+  y = 829,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/items/arrow_fly",
+  model = "pickable_fly",
+}
+
+custom_entity{
+  layer = 1,
+  x = 1224,
+  y = 565,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/items/arrow_fly",
+  model = "pickable_fly",
 }
 
 tile{
@@ -29406,9 +29692,9 @@ tile{
 separator{
   name = "auto_separator_11",
   layer = 2,
-  x = 0,
+  x = 320,
   y = 712,
-  width = 2560,
+  width = 2240,
   height = 16,
 }
 
@@ -29463,7 +29749,7 @@ separator{
   x = 952,
   y = 0,
   width = 16,
-  height = 1680,
+  height = 1440,
 }
 
 separator{
@@ -29517,6 +29803,42 @@ separator{
   x = 632,
   y = 0,
   width = 16,
-  height = 1680,
+  height = 720,
+}
+
+separator{
+  name = "auto_separator_17",
+  layer = 2,
+  x = 952,
+  y = 1440,
+  width = 16,
+  height = 240,
+}
+
+separator{
+  name = "auto_separator_16",
+  layer = 2,
+  x = 0,
+  y = 712,
+  width = 320,
+  height = 16,
+}
+
+separator{
+  name = "auto_separator_14",
+  layer = 2,
+  x = 632,
+  y = 720,
+  width = 16,
+  height = 240,
+}
+
+separator{
+  name = "auto_separator_19",
+  layer = 2,
+  x = 632,
+  y = 960,
+  width = 16,
+  height = 720,
 }
 

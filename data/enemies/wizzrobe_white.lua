@@ -20,7 +20,7 @@ end
 function enemy:on_created()
 
   enemy:set_life(3)
-  enemy:set_damage(5)
+  enemy:set_damage(0)
   enemy:create_sprite("enemies/" .. enemy:get_breed())
 end
 
@@ -30,6 +30,7 @@ function enemy:appear()
   local sprite = enemy:get_sprite()
   enemy:set_visible(true)
   sprite:fade_in(20, function()
+      enemy:set_damage(5)
       is_appear = true
       enemy:update_attack()
       enemy:shoot()
@@ -37,12 +38,12 @@ function enemy:appear()
 
 end
 
-
 -- Wizzrobe disappear
 function enemy:disappear()
 
   local sprite = enemy:get_sprite()
   sprite:fade_out(20, function()
+      enemy:set_damage(0)
       is_appear = false
       enemy:update_attack()
       local hero = enemy:get_map():get_hero()
