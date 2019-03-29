@@ -104,7 +104,7 @@ local function test_ladder(entity)
 end
 
 --[[
-  Updated version of the core function of the side views : 
+  This is the core function of the side views : 
   it applies a semi-realistic gravity to the given entity, and resets the vertical speed if :
     we reached a solid obstacle,
     we laanded on top of a ladder
@@ -142,49 +142,6 @@ local function apply_gravity(entity)
   return math.min(math.floor(10/math.abs(vspeed)), 100)
 end
 
---[[
-  The previous version of the core function of the side views : 
-  it applies a semi-realistic gravity to the given entity, and resets the vertical speed if :
-    we reached a solid obstacle,
-    we laanded on top of a ladder
-    
-    Parameter : entity, the entity to apply the gravity on.
---]]
-
-local function apply_gravity_old(entity)
-  --Apply gravity
-  local vspeed = entity.vspeed or 0
-  local x,y,layer = entity:get_position()
-
-  local map = entity:get_map()
-  local w,h = map:get_size()
-  if map:get_ground(x,y,layer)=="deep_water" then
-    vspeed = math.min(vspeed+gravity/2, 0.85)
-  else
-    vspeed = math.min(vspeed+gravity, max_vspeed)
-  end
-  local dy=0
-  --TODO : push the entity out of any obstacle it could be stuck in.
-  while dy<=vspeed do 
-    if entity:test_obstacles(0,dy) or 
-    test_ladder(entity)==false and is_ladder(entity:get_map(), x, y+3+dy) then --we are on an obstacle, reset speed.
-      vspeed = 0
-      break
-    end
-    dy=dy+0.1
-  end
-
-  entity:set_position(x,y+dy)
-  entity.vspeed = vspeed   
-end
-
---[[
--- Loops through every active entity and checks if it should be affected by gravity, calling apply_gravity if applicable.
-  Pickables and the hero are always affected.
-  Other entities will not be affeted unless they have defined a custom property called "sidemap_gravity".
-  
-  Parameter : map, the map object.
---]]
 local function update_entities(map)  
   for entity in map:get_entities() do
     if entity:is_enabled() then
@@ -244,11 +201,12 @@ local function update_movement(hero, speed, angle, state)
   end
 end
 
-
+--Debug function, remove me once everything is finalized
 hero_meta:register_event("on_movement_changed", function(hero, movement)
     --print("New movement: speed" ..movement:get_speed().. ", angle:"..movement:get_angle()*180/math.pi)
   end)
 
+--Respawn wnen falling into a pit
 hero_meta:register_event("on_position_changed", function(hero, x,y,layer)
     local map = hero:get_map()
     if map:is_sideview() then
@@ -430,70 +388,25 @@ local function update_hero(hero)
 end
 
 --[[
-  Draws the sprites of the hero at a given offset from it's actual position, as well as the ones from any entity attached to it, if applicable.
-  Also allows to skip drawing the shadow if needed, which is the case in sideview mode.
-  
-  TODO check for any missing attached entity and add it here.
---]]
-local function draw_hero(hero, has_shadow, offset)
-  local x,y = hero:get_position()
-  local map = hero:get_map()
-
---  print "DRAW HERO"
-  for set, sprite in hero:get_sprites() do
-    if set~="shadow" or has_shadow then
---      print ("Displaying sprite element : "..set..' with animation: '..sprite:get_animation())
-      map:draw_visual(sprite, x, y+offset)
-    end
-  end
-  for i, carried_entity in map:get_entities_by_type("carried_object") do
-    --print "carried entity found"
-  end
-  local carried_object=hero:get_carried_object()
-  if carried_object then
-    --print "DRAW POT"
-    for set, sprite in carried_object:get_sprites() do
---      print (set)
-      if set~="shadow" or has_shadow then
-        map:draw_visual(sprite, x,y-16+offset)
-      end
-    end
-  end
-end
-
---[[
   Redeclaration of the "on map changed' event to take account of the sideview mode.
   This override completely refefines how the hero is drawed by setting the draw_override, as well as starting the routine which updates the gravity of the entitites for sideviews.
 --]]
 game_meta:register_event("on_map_changed", function(game, map)
 
     local hero = map:get_hero() --TODO account for multiple heroes
-    local has_shadow=true
-    local v_offset = 0
     local timer = hero.timer
     if timer then
       timer:stop()
       timer = nil
     end
     if map:is_sideview() then
-      hero:set_size(8,16)
-      hero:set_origin(4,13)
-      has_shadow = false
-      v_offset = 2
       hero.on_ladder = test_ladder(map:get_hero(), -1) 
       hero.vspeeed = 0
       sol.timer.start(map, 10, function()
           update_entities(map)
           return true
         end)
-    else
-      hero:set_size(16,16)
-      hero:set_origin(8,13)
     end
-
-    hero:set_draw_override(function()  
-        draw_hero(hero, has_shadow, v_offset)
-      end)
   end)
 
 hero_meta:register_event("on_state_changing", function(hero, state, new_state)
