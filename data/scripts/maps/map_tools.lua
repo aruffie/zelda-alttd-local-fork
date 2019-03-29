@@ -9,7 +9,7 @@ function map_tools.start_earthquake(shake_config)
   map:start_coroutine(function()
     local camera = map:get_camera()
     local timer_sound = sol.timer.start(map, 0, function()
-      -- TODO audio_manager:play_sound("misc/dungeon_shake")
+      audio_manager:play_sound("misc/dungeon_shake")
       return 450
     end)
     timer_sound:set_suspended_with_map(false)
@@ -25,7 +25,7 @@ function map_tools.start_chained_explosion_on_entity(entity, max_distance, callb
   local x, y, layer = entity:get_position()
   math.randomseed(sol.main.get_elapsed_time())
   
-  -- TODO audio_manager:play_sound("explosion")
+  audio_manager:play_sound("explosion")
 
   local explosion = map:create_explosion(
       {name = "chained_explosion", x = x + math.random(-max_distance, max_distance), y = y + math.random(-max_distance, max_distance), layer = layer})

@@ -12519,14 +12519,6 @@ custom_entity{
   sprite = "entities/handle_base",
 }
 
-destination{
-  name = "destination",
-  layer = 0,
-  x = 736,
-  y = 165,
-  direction = 1,
-}
-
 tile{
   layer = 1,
   x = 432,

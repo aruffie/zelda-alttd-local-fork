@@ -68,7 +68,7 @@ function flying_tile_manager:launch(map, enemy_prefix)
 
       -- Play a sound repeatedly as long as at least one tile is moving.
       sol.timer.start(map, 150, function()
-        -- TODO audio_manager:play_sound("walk_on_grass")
+        audio_manager:play_sound("walk_on_grass")
         -- Repeat the sound until the last tile starts animation "destroy".
         local again = false
         local remaining = map:get_entities_count(enemy_prefix .. "_enemy")

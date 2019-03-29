@@ -1,7 +1,7 @@
 ----------------------------------
 --
 -- Undestructible destructible map entity, behaving the same way than build-in destructible except it bounces instead of breaking.
--- A hit happen when the entity reaches an obstacle, or when the carriable sprite overlaps another entity sprite while the throw is still running.
+-- A hit happen when the entity reaches an obstacle or when the carriable sprite overlaps another entity sprite while the throw is still running.
 -- 
 -- Methods : carriable:throw(direction)
 -- Events :  carriable:on_thrown(direction)
@@ -13,7 +13,7 @@
 -- Usage : 
 -- local my_entity = ...
 -- local carriable_behavior = require("entities/lib/carriable")
--- carriable_behavior.apply(my_entity, --[[ Custom properties --]] )
+-- carriable_behavior.apply(my_entity, { --[[ Custom properties --]] } )
 --
 ----------------------------------
 

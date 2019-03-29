@@ -100,7 +100,7 @@ function hero_meta:start_diving()
     return
   end
   -- Play diving sound.
-  -- Todo audio_manager:play_sound(diving_sound)
+  audio_manager:play_sound(diving_sound)
   -- Start jumping state.
   hero:start_state(state)
   -- Start diving

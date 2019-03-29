@@ -21,7 +21,7 @@ function map_meta:create_ground_effect(effect, x, y, layer, sound_id)
     effect:remove()
   end
   if sound_id then -- Play sound.
-    -- TODO audio_manager:play_sound(sound_id)
+    audio_manager:play_sound(sound_id)
   end  
   return ground_effect
 end
@@ -76,7 +76,7 @@ function map_meta:ground_collision(entity, collision_sound, callback_bad_ground)
       self:create_ground_effect("leaves", x, y, layer, "walk_on_grass")
     elseif ground ~= "empty" then -- Normal traversable ground. No ground effect, just a sound.
       local sound = collision_sound or "hero_lands"
-      -- TODO audio_manager:play_sound(sound)
+      audio_manager:play_sound(sound)
     end
   end
 end
