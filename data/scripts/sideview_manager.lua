@@ -28,6 +28,7 @@ local map_meta = sol.main.get_metatable("map")
 local hero_meta = sol.main.get_metatable("hero")
 local game_meta = sol.main.get_metatable("game")
 require("scripts/multi_events")
+require("scripts/states/sideview_swim")
 local walking_speed = 88
 local swimming_speed = 66
 local climbing_speed = 44
@@ -203,7 +204,7 @@ end
 
 --Debug function, remove me once everything is finalized
 hero_meta:register_event("on_movement_changed", function(hero, movement)
-    --print("New movement: speed" ..movement:get_speed().. ", angle:"..movement:get_angle()*180/math.pi)
+    print("New movement: speed" ..movement:get_speed().. ", angle:"..movement:get_angle()*180/math.pi)
   end)
 
 --Respawn wnen falling into a pit
@@ -226,7 +227,7 @@ hero_meta:register_event("on_position_changed", function(hero, x,y,layer)
 --]]
 
 local function update_animation(hero, direction)
-  local state = hero:get_state()
+  local state, cstate = hero:get_state()
   local map = hero:get_map()
   local movement = hero.movement
   local x,y,layer = hero:get_position()
@@ -242,7 +243,7 @@ local function update_animation(hero, direction)
   falling   [ stopped             carry    jump
   --]]
   -- print("state to display :"..state)
-  if state == "swimming" then
+  if state == "swimming" or (state=="custom" and cstate:get_description()=="sideview_swim") then
     if movement:get_speed() ~= 0 then
       new_animation = "swimming_scroll"
     else
@@ -305,6 +306,9 @@ local function update_animation(hero, direction)
 
   if state ~= "sword loading" and state ~="sword tapping" and state ~= "sword swinging" then
     sprite:set_direction(direction)
+    hero:get_sprite("sword_stars"):set_direction(direction)
+  else
+    hero:get_sprite("sword_stars"):set_direction(direction<2 and 0 or 2)
   end
 end
 
@@ -366,7 +370,7 @@ local function update_hero(hero)
     direction = 0
     dx=1
     speed=walking_speed
-    if hero:get_ground_below()=="deep_water" then
+    if map:get_ground(x,y,layer)=="deep_water" then
       speed = swimming_speed
     end
 
@@ -374,7 +378,7 @@ local function update_hero(hero)
     dx=-1
     direction=2
     speed=walking_speed
-    if hero:get_ground_below()=="deep_water" then
+    if map:get_ground(x,y,layer)=="deep_water" then
       speed = swimming_speed
     end
   end
@@ -412,56 +416,68 @@ game_meta:register_event("on_map_changed", function(game, map)
 hero_meta:register_event("on_state_changing", function(hero, state, new_state)
     local map = hero:get_map()
     --print ("changing state from ".. state .." to ".. new_state)
-    if state =="sword loading" and new_state == "swimming" then
-      if map:is_sideview() then
-        hero:start_attack_loading()
-      end
-    end
+--    if state =="sword loading" and new_state == "swimming" then
+--      if map:is_sideview() then
+--        hero:start_attack_loading()
+--      end
+--    end
   end)
 
 hero_meta:register_event("on_state_changed", function(hero, state)
     --print ("STATE CHANGED:"..state)
     local game = hero:get_game()
     local map = hero:get_map()
-    local movement = hero.movement
 
     if map:is_sideview() then
       if state == "free"
-      or      state == "carrying" 
-      or      state == "sword loading"
-      or      state == "swimming"
+      or state == "carrying" 
+      or state == "sword loading"
+      or state == "swimming" 
+      or state == "custom"
       then --TODO indentify every applisacle states
-        local movement=sol.movement.create("straight")
-        movement:set_angle(-1)
-        movement:set_speed(0)
-        movement:start(hero)
-        hero.movement = movement
-        hero.timer = sol.timer.start(hero, 10, function()
-            update_hero(hero) 
-            return true
-          end)
+        if hero.movement == nil then
+          print "create movement"
+          local movement=sol.movement.create("straight")
+          movement:set_angle(-1)
+          movement:set_speed(0)
+          movement:start(hero)
+          hero.movement = movement
+        end
+        if state == "swimming" or state =="free" and map:get_ground(hero:get_position())=="deep_water" then -- switch to the custom state
+          hero:start_swimming()
+        end
+        if hero.timer == nil then
+          print "create timer"
+          hero.timer = sol.timer.start(hero, 10, function()
+              update_hero(hero) 
+              return true
+            end)
+        end
       elseif state == "grabbing" then -- prevent the hero from pulling things in sideviews
         hero:unfreeze()
       else
-        if movement then
-          movement:stop()
+        print "Resetting parameters"
+        if hero.movement~=nil then
+          print "remove movement"
+          hero.movement:stop()
           hero.movement = nil
         end
         local timer = hero.timer
-        if timer then
+        if timer~=nil then
+          print"remove timer"
           timer:stop()
-          timer = nil
+          hero.timer = nil
         end
       end
     else
-      if movement then
-        movement:stop()
+      if hero.movement~=nil then
+        hero.movement:stop()
         hero.movement = nil
       end
       local timer = hero.timer
-      if timer then
+      if timer~=nil then
         timer:stop()
-        timer = nil
+        hero.timer = nil
       end
     end
   end)

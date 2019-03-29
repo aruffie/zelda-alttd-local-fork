@@ -65,7 +65,7 @@ function item:on_using()
   local map = game:get_map()
   if hero.is_jumping~=true then
     if not map:is_sideview() then
-      
+
       --TODO use custom state for actual jumping
 --      print "JUMP"
       hero.is_jumping = true
@@ -76,7 +76,7 @@ function item:on_using()
     else
 --      print "SIDEVIEW JUMP requested "
       local vspeed = hero.vspeed or 0
-      if vspeed == 0 then
+      if vspeed == 0 or map:get_ground(hero:get_position())=="deep_water" then
 --        print "validated, now jump :"
         sol.timer.start(10, function()
             hero.on_ladder = false
