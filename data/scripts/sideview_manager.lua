@@ -306,9 +306,12 @@ local function update_animation(hero, direction)
 
   if state ~= "sword loading" and state ~="sword tapping" and state ~= "sword swinging" then
     sprite:set_direction(direction)
-    hero:get_sprite("sword_stars"):set_direction(direction)
   else
-    hero:get_sprite("sword_stars"):set_direction(direction<2 and 0 or 2)
+    if map:get_ground(x,y,layer)=="deep_water" then
+      hero:get_sprite("sword_stars"):set_direction(direction<2 and 0 or 2)    
+    else
+      hero:get_sprite("sword_stars"):set_direction(direction)
+    end
   end
 end
 
