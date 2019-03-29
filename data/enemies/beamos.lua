@@ -11,6 +11,8 @@ local time_between_particles = 20
 local particles_per_beam = 30
 local stop_time = 1000
 
+local audio_manager = require("scripts/audio_manager")
+
 -- Event called when the enemy is initialized.
 function enemy:on_created()
   
@@ -36,7 +38,7 @@ function enemy:on_restarted()
   local function shoot(tx, ty)
     -- Create new particle.
     local e = enemy:create_enemy(properties)
-    audio_manager:play_sound("beamos")
+    -- TODO audio_manager:play_sound("beamos")
     -- Create movement. Destroy enemy when the movement ends.
     local m = sol.movement.create("target")
     m:set_target(tx, ty); m:set_speed(speed)

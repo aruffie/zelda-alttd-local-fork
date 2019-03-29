@@ -113,6 +113,24 @@ teletransporter{
 
 tile{
   layer = 0,
+  x = 720,
+  y = 1248,
+  width = 160,
+  height = 144,
+  pattern = "floor.9-1",
+}
+
+tile{
+  layer = 0,
+  x = 880,
+  y = 1280,
+  width = 32,
+  height = 80,
+  pattern = "floor.9-1",
+}
+
+tile{
+  layer = 0,
   x = 1968,
   y = 288,
   width = 224,
@@ -389,15 +407,6 @@ tile{
   width = 128,
   height = 24,
   pattern = "1086",
-}
-
-tile{
-  layer = 0,
-  x = 720,
-  y = 1248,
-  width = 192,
-  height = 112,
-  pattern = "floor.9-1",
 }
 
 tile{
@@ -13597,6 +13606,15 @@ tile{
   pattern = "floor_border.2",
 }
 
+tile{
+  layer = 0,
+  x = 688,
+  y = 1280,
+  width = 32,
+  height = 80,
+  pattern = "floor.9-1",
+}
+
 wall{
   layer = 0,
   x = 1512,
@@ -13743,7 +13761,7 @@ wall{
 }
 
 dynamic_tile{
-  name = "weak_wall_closed_A_2",
+  name = "weak_wall_group_1_2",
   layer = 0,
   x = 600,
   y = 1056,
@@ -13753,7 +13771,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
-  name = "weak_wall_closed_A_1",
+  name = "weak_wall_group_1_1",
   layer = 0,
   x = 656,
   y = 1056,
@@ -14607,7 +14625,7 @@ destination{
 }
 
 door{
-  name = "weak_wall_A_1",
+  name = "weak_wall_group_1",
   layer = 0,
   x = 664,
   y = 1072,
@@ -14623,18 +14641,7 @@ door{
   },
   direction = 0,
   sprite = "entities/doors/door_weak_wall",
-  savegame_variable = "dungeon_1_weak_wall_A",
-  opening_method = "explosion",
-}
-
-door{
-  name = "weak_wall_A_2",
-  layer = 0,
-  x = 600,
-  y = 1072,
-  direction = 2,
-  sprite = "entities/doors/door_weak_wall",
-  savegame_variable = "dungeon_1_weak_wall_A",
+  savegame_variable = "dungeon_1_weak_wall_group_1",
   opening_method = "explosion",
 }
 
@@ -16642,17 +16649,6 @@ destination{
   x = 2080,
   y = 437,
   direction = 1,
-}
-
-custom_entity{
-  layer = 0,
-  x = 1096,
-  y = 1573,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/destructibles/statue_elephant",
-  model = "statue_elephant",
 }
 
 block{

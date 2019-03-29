@@ -11,7 +11,7 @@ function treasure_manager:appear_chest_when_enemies_dead(map, enemy_prefix, ches
     if not map:has_entities(enemy_prefix) then
        local chest_entity = map:get_entity(chest)
        local treasure, variant, savegame = chest_entity:get_treasure()
-      if  not savegame or savegame and not game:get_value(savegame) then
+      if not savegame or savegame and not game:get_value(savegame) then
          self:appear_chest(map, chest, true)
       end
     end
@@ -21,6 +21,53 @@ function treasure_manager:appear_chest_when_enemies_dead(map, enemy_prefix, ches
     enemy:register_event("on_dead", enemy_on_dead)
   end
 
+end
+
+function treasure_manager:appear_chest_when_horse_heads_upright(map, entity_prefix, chest)
+
+  local function horse_head_on_finish_throw(horse_head)
+    
+    -- Get horse heads global states.
+    horse_head.is_thrown = true
+    local are_all_heads_thrown = true
+    local are_all_heads_upright = true
+    for entity in map:get_entities(entity_prefix) do
+      if not entity.is_thrown then
+        are_all_heads_thrown = false
+        break
+      elseif entity:get_direction() ~= 1 then
+        are_all_heads_upright = false
+      end
+    end
+
+    -- If they have been all thrown.
+    if are_all_heads_thrown then
+      if are_all_heads_upright then
+        -- Make the chest appear if they are upright.
+        self:appear_chest(map, chest, true)
+      else
+        -- Else play error song and reset direction.
+        audio_manager:play_sound("misc/error")
+        sol.timer.start(500, function()
+          for entity in map:get_entities(entity_prefix) do
+            entity:set_direction(0)
+          end
+        end)
+      end
+      -- Make all horse heads liftable again.
+      for entity in map:get_entities(entity_prefix) do
+        entity:set_weight(0)
+        entity.is_thrown = nil
+      end
+    else
+      -- Else make this horse head not liftable.
+      horse_head:set_weight(-1)
+    end
+  end
+
+  for entity in map:get_entities(entity_prefix) do
+    entity:register_event("on_finish_throw", horse_head_on_finish_throw)
+  end
 end
 
 function treasure_manager:appear_pickable_when_enemies_dead(map, enemy_prefix, pickable)
@@ -54,14 +101,14 @@ function treasure_manager:appear_pickable_when_blocks_moved(map, block_prefix, p
       local pickable_entity = map:get_entity(pickable)
       if pickable_entity ~= nil then
         local treasure, variant, savegame = pickable_entity:get_treasure()
-        if  not savegame or savegame and not game:get_value(savegame) then
+        if not savegame or savegame and not game:get_value(savegame) then
          self:appear_pickable(map, pickable, true)
         end
       end
    end
   end
   for block in map:get_entities(block_prefix) do
-    enemy:register_event("on_moved", block_on_moved)
+    block:register_event("on_moved", block_on_moved)
   end
 
 end

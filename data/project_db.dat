@@ -596,6 +596,10 @@ sprite{ id = "menus/dungeon_maps/map_5", description = "Map 5" }
 sprite{ id = "menus/dungeon_maps/map_5_compass", description = "map 5 compass" }
 sprite{ id = "menus/dungeon_maps/map_5_no_map", description = "Map 5 no map" }
 sprite{ id = "menus/dungeon_maps/map_5_no_map_compass", description = "Map 5 no map compass" }
+sprite{ id = "menus/dungeon_maps/map_6", description = "Map 6" }
+sprite{ id = "menus/dungeon_maps/map_6_compass", description = "Map 6 compass" }
+sprite{ id = "menus/dungeon_maps/map_6_no_map", description = "Map 6 no map" }
+sprite{ id = "menus/dungeon_maps/map_6_no_map_compass", description = "Map 6 no map compass" }
 sprite{ id = "menus/dungeon_maps/map_7", description = "Map 7" }
 sprite{ id = "menus/dungeon_maps/map_7_compass", description = "Map 7 compass" }
 sprite{ id = "menus/dungeon_maps/map_7_no_map", description = "Map 7 no map" }
@@ -794,6 +798,8 @@ music{ id = "snes/41_christine_house", description = "41 - Christine's House" }
 music{ id = "snes/46_tal_tal_mountain_range", description = "46 - Tal tal Mountain Range" }
 music{ id = "snes/51_house_by_the_bay", description = "51 - House by the bay" }
 music{ id = "snes/52_fishing_under_the_bridge", description = "52 - Fishing under the bridge" }
+music{ id = "snes/53_level_5_catfish_maw", description = "53 - Level 5 - Catfish's maw" }
+music{ id = "snes/59_level_6_face_shrine", description = "59- Level 6 - Face shrine" }
 
 sound{ id = "arrow_hit", description = "Empty sound" }
 sound{ id = "boomerang", description = "Empty sound" }
@@ -1019,7 +1025,7 @@ sound{ id = "snes/enemies/boss_hit", description = "Boss hit" }
 sound{ id = "snes/enemies/enemy_die", description = "Enemy die" }
 sound{ id = "snes/enemies/enemy_hit", description = "Enemy hit" }
 sound{ id = "snes/enemies/laser", description = "Laser" }
-sound{ id = "snes/enemies/wizzrobe", description = "snes/enemies/wizzrobe" }
+sound{ id = "snes/enemies/wizzrobe", description = "Wizzrobe" }
 sound{ id = "snes/hero/bound", description = "Bound" }
 sound{ id = "snes/hero/dying", description = "Dying" }
 sound{ id = "snes/hero/fall", description = "Fall" }
@@ -1153,6 +1159,7 @@ item{ id = "tail_key", description = "Tail key" }
 item{ id = "tunic", description = "Tunic (green/blue/red)" }
 item{ id = "zol_green", description = "Zol green" }
 
+enemy{ id = "anti_kirby", description = "Anti-kirby" }
 enemy{ id = "arm_mimic", description = "Arm mimic" }
 enemy{ id = "armos", description = "Armos" }
 enemy{ id = "arrow", description = "Arrow" }
@@ -1227,6 +1234,7 @@ enemy{ id = "pols_voice", description = "Pols voice" }
 enemy{ id = "raven", description = "Raven" }
 enemy{ id = "red_bombite", description = "Red bombite" }
 enemy{ id = "river_zora", description = "River Zora" }
+enemy{ id = "rope", description = "Rope" }
 enemy{ id = "sand_crab", description = "Sand crab" }
 enemy{ id = "sea_urchin", description = "Sea urchin" }
 enemy{ id = "small_moldorm", description = "Small moldorm" }
@@ -1246,12 +1254,14 @@ enemy{ id = "zol_green", description = "Zol green" }
 enemy{ id = "zol_red", description = "Zol red" }
 enemy{ id = "zombie", description = "Zombie" }
 
+entity{ id = "ball", description = "ball" }
 entity{ id = "bird", description = "Bird" }
 entity{ id = "bowwow", description = "Bowwow" }
 entity{ id = "bubble", description = "Bubble" }
 entity{ id = "butterfly", description = "Butterfly" }
 entity{ id = "color_platform", description = "Color platform" }
 entity{ id = "conveyor_belt", description = "Conveyor belt" }
+entity{ id = "dice", description = "Dice" }
 entity{ id = "eye_switch", description = "Eye switch" }
 entity{ id = "fire", description = "Fire" }
 entity{ id = "follower", description = "Follower" }
@@ -1262,7 +1272,6 @@ entity{ id = "heavy_statue", description = "Heavy statue" }
 entity{ id = "hook_bridge", description = "hook bridge" }
 entity{ id = "hookable", description = "Hookable" }
 entity{ id = "insect", description = "Insect" }
-entity{ id = "iron_ball", description = "Iron ball" }
 entity{ id = "light", description = "Light" }
 entity{ id = "mouse", description = "Mouse" }
 entity{ id = "mr_write_and_christine", description = "Mr Write and Christine" }
@@ -1372,6 +1381,7 @@ file{ path = "enemies/pols_voice.lua", license = "GPL v3" }
 file{ path = "enemies/raven.lua", license = "GPL v3" }
 file{ path = "enemies/red_bombite.lua", license = "GPL v3" }
 file{ path = "enemies/river_zora.lua", license = "GPL v3" }
+file{ path = "enemies/rope.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "enemies/sand_crab.lua", license = "GPL v3" }
 file{ path = "enemies/sea_urchin.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "enemies/spike.lua", license = "GPL v3" }

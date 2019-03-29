@@ -5574,6 +5574,7 @@ enemy{
   layer = 0,
   x = 368,
   y = 877,
+  enabled_at_start = false,
   direction = 0,
   breed = "peahat",
 }
@@ -5583,6 +5584,7 @@ enemy{
   layer = 0,
   x = 464,
   y = 829,
+  enabled_at_start = false,
   direction = 0,
   breed = "peahat",
 }
@@ -5593,7 +5595,7 @@ enemy{
   x = 504,
   y = 877,
   direction = 0,
-  breed = "spiked_thwomp",
+  breed = "rope",
 }
 
 enemy{
