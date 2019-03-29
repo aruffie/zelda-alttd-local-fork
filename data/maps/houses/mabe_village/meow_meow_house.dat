@@ -2,7 +2,7 @@ properties{
   x = 0,
   y = 0,
   width = 480,
-  height = 256,
+  height = 240,
   min_layer = 0,
   max_layer = 2,
   world = "inside_world",
@@ -820,7 +820,7 @@ teletransporter{
   name = "meow_meow_house_2_B",
   layer = 0,
   x = 136,
-  y = 232,
+  y = 224,
   properties = {
     {
       key = "effect",
@@ -845,7 +845,7 @@ teletransporter{
   name = "meow_meow_house_2_D",
   layer = 0,
   x = 376,
-  y = 232,
+  y = 224,
   properties = {
     {
       key = "effect",
@@ -2553,7 +2553,7 @@ tile{
   x = 0,
   y = 0,
   width = 16,
-  height = 256,
+  height = 240,
   pattern = "ceiling.2",
 }
 
@@ -2571,7 +2571,7 @@ tile{
   x = 16,
   y = 224,
   width = 448,
-  height = 32,
+  height = 16,
   pattern = "ceiling.2",
 }
 
@@ -2580,7 +2580,7 @@ tile{
   x = 464,
   y = 0,
   width = 16,
-  height = 256,
+  height = 240,
   pattern = "ceiling.2",
 }
 

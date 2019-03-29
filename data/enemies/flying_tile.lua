@@ -7,6 +7,8 @@ local shadow_sprite = nil
 local initial_y = nil
 local state = nil  -- "raising", "attacking" or "destroying".
 
+local audio_manager = require("scripts/audio_manager")
+
 function enemy:on_created()
 
   self:set_life(1)
@@ -26,7 +28,6 @@ function enemy:on_created()
   self:set_origin(8, 13)
   self:set_invincible()
   self:set_attack_consequence("sword", "custom")
-
   shadow_sprite = sol.sprite.create("entities/shadow")
   shadow_sprite:set_animation("big")
 end
@@ -80,7 +81,7 @@ function enemy:disappear()
     self:set_can_attack(false)
     self:stop_movement()
     sprite:set_animation("destroy")
-    audio_manager:play_sound("stone")
+    -- TODO audio_manager:play_sound("stone")
     sol.timer.stop_all(self)
     if enemy.on_flying_tile_dead ~= nil then
       enemy:on_flying_tile_dead()

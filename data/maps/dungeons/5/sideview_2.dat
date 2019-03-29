@@ -2,7 +2,7 @@ properties{
   x = 0,
   y = 0,
   width = 640,
-  height = 256,
+  height = 240,
   min_layer = 0,
   max_layer = 2,
   world = "dungeon_1",
@@ -13,10 +13,10 @@ properties{
 
 tile{
   layer = 0,
-  x = 0,
+  x = 8,
   y = 0,
-  width = 640,
-  height = 256,
+  width = 632,
+  height = 240,
   pattern = "20",
 }
 
@@ -349,7 +349,7 @@ tile{
   x = 608,
   y = 160,
   width = 16,
-  height = 96,
+  height = 80,
   pattern = "61",
 }
 
@@ -610,7 +610,7 @@ tile{
   x = 624,
   y = 160,
   width = 16,
-  height = 96,
+  height = 80,
   pattern = "62",
 }
 
@@ -619,7 +619,7 @@ tile{
   x = 80,
   y = 208,
   width = 528,
-  height = 48,
+  height = 32,
   pattern = "61",
 }
 
@@ -808,7 +808,7 @@ tile{
   x = 0,
   y = 0,
   width = 16,
-  height = 256,
+  height = 240,
   pattern = "60",
 }
 
@@ -817,7 +817,7 @@ tile{
   x = 16,
   y = 0,
   width = 16,
-  height = 256,
+  height = 240,
   pattern = "61",
 }
 
@@ -826,7 +826,7 @@ tile{
   x = 32,
   y = 160,
   width = 48,
-  height = 96,
+  height = 80,
   pattern = "61",
 }
 
@@ -1204,7 +1204,7 @@ separator{
   x = 312,
   y = 0,
   width = 16,
-  height = 256,
+  height = 240,
 }
 
 teletransporter{
@@ -1252,9 +1252,9 @@ dynamic_tile{
   layer = 0,
   x = 80,
   y = 0,
-  pattern = "40",
   width = 16,
   height = 192,
+  pattern = "40",
 }
 
 dynamic_tile{
@@ -1262,9 +1262,9 @@ dynamic_tile{
   layer = 0,
   x = 272,
   y = 128,
-  pattern = "40",
   width = 16,
   height = 64,
+  pattern = "40",
 }
 
 dynamic_tile{
@@ -1272,9 +1272,9 @@ dynamic_tile{
   layer = 0,
   x = 352,
   y = 128,
-  pattern = "40",
   width = 16,
   height = 64,
+  pattern = "40",
 }
 
 dynamic_tile{
@@ -1282,9 +1282,9 @@ dynamic_tile{
   layer = 0,
   x = 576,
   y = 0,
-  pattern = "40",
   width = 16,
   height = 192,
+  pattern = "40",
 }
 
 enemy{

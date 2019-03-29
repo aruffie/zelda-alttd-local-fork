@@ -52,6 +52,16 @@ animation{
   },
 }
 animation{
+  name = "brandish_swim",
+  src_image = "hero/miscellaneous.png",
+  directions = {
+    { x = 48, y = 0, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21 },
+    { x = 48, y = 0, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21 },
+    { x = 48, y = 0, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21 },
+    { x = 48, y = 0, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21 },
+  },
+}
+animation{
   name = "calling",
   src_image = "hero/calling.png",
   frame_delay = 300,
@@ -86,7 +96,19 @@ animation{
   },
 }
 animation{
-  name = "climbing",
+  name = "climbing_stopped",
+  src_image = "hero/climbing.png",
+  frame_delay = 150,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
+  },
+}
+animation{
+  name = "climbing_walking",
   src_image = "hero/climbing.png",
   frame_delay = 150,
   frame_to_loop_on = 0,
@@ -513,6 +535,18 @@ animation{
   },
 }
 animation{
+  name = "stopped_swimming_scroll",
+  src_image = "hero/swimming_scroll.png",
+  frame_delay = 200,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+  },
+}
+animation{
   name = "stopped_with_shield",
   src_image = "hero/stopped.tunic.png",
   directions = {
@@ -543,6 +577,30 @@ animation{
     { x = 240, y = 40, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 29, num_frames = 3 },
     { x = 240, y = 80, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 29, num_frames = 3 },
     { x = 240, y = 120, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 29, num_frames = 3 },
+  },
+}
+animation{
+  name = "swimming_scroll",
+  src_image = "hero/swimming_scroll.png",
+  frame_delay = 100,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+  },
+}
+animation{
+  name = "swimming_scroll_loading",
+  src_image = "hero/swimming_scroll_loading.png",
+  frame_delay = 200,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
   },
 }
 animation{

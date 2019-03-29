@@ -5,6 +5,8 @@ local map = enemy:get_map()
 local children = {}
 local is_appear = false
 
+local audio_manager = require("scripts/audio_manager")
+
 function enemy:update_attack()
 
   if is_appear then
@@ -18,7 +20,7 @@ end
 function enemy:on_created()
 
   enemy:set_life(3)
-  enemy:set_damage(5)
+  enemy:set_damage(0)
   enemy:create_sprite("enemies/" .. enemy:get_breed())
 end
 
@@ -28,6 +30,7 @@ function enemy:appear()
   local sprite = enemy:get_sprite()
   enemy:set_visible(true)
   sprite:fade_in(20, function()
+      enemy:set_damage(5)
       is_appear = true
       enemy:update_attack()
       enemy:shoot()
@@ -35,12 +38,12 @@ function enemy:appear()
 
 end
 
-
 -- Wizzrobe disappear
 function enemy:disappear()
 
   local sprite = enemy:get_sprite()
   sprite:fade_out(20, function()
+      enemy:set_damage(0)
       is_appear = false
       enemy:update_attack()
       local hero = enemy:get_map():get_hero()
@@ -83,7 +86,7 @@ function enemy:shoot()
   children[#children + 1] = beam
 
   if not map.wizzrobe_recent_sound then
-    audio_manager:play_sound("zora")
+    audio_manager:play_sound("enemies/wizzrobe")
     -- Avoid loudy simultaneous sounds if there are several wizzrobes.
     map.wizzrobe_recent_sound = true
     sol.timer.start(map, 200, function()

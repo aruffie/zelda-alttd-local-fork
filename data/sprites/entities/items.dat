@@ -390,6 +390,15 @@ animation{
   },
 }
 animation{
+  name = "item_console",
+  src_image = "entities/items.png",
+  frame_delay = 300,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 16, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13 },
+  },
+}
+animation{
   name = "lamp",
   src_image = "entities/items.png",
   directions = {

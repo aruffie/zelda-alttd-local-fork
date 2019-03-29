@@ -26,18 +26,19 @@ function item:on_variant_changed(variant)
 end
 
 function item:on_obtaining()
-  
+
   audio_manager:play_sound("items/fanfare_item_extended")
-        
+
 end
 
 -- Diving
 game:register_event("on_command_pressed", function(game, command)
-    
-  local map = game:get_map()
-  local hero = map:get_hero()
-  if command == "attack" and game:get_hero():get_state() == "swimming" then
-    hero:start_diving() 
-  end
-  
-end)
+
+    local map = game:get_map()
+    local hero = map:get_hero()
+    if command == "attack" and game:get_hero():get_state() == "swimming" then
+      hero:start_diving() 
+
+    end
+
+  end)
