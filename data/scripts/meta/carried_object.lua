@@ -4,7 +4,7 @@ local m = sol.movement.create("straight")
 
 local old_on_thrown=carried_meta.on_thrown
 function carried_meta:on_thrown()
-  local map = self:get_map() 
+  local map = self:get_map()
   local hero = map:get_hero()
   if map:is_sideview() then --Make me follow gravity
     m:set_angle(hero:get_sprite():get_direction()*math.pi/2)
@@ -19,7 +19,7 @@ end
 
 local old_on_update=carried_meta.on_update
 function carried_meta:on_update()
-  local map = self:get_map() 
+  local map = self:get_map()
   local hero = map:get_hero()
   if map:is_sideview() and hero:get_state()~="carrying" and hero:get_state()~="lifting"  then
     --do some stuff ?

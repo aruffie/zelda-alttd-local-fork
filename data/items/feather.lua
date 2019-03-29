@@ -13,10 +13,9 @@ local hero_meta= sol.main.get_metatable("hero")
 local item = ...
 local game = item:get_game()
 --local hero = game:get_hero()
-local is_jumping
 local y_offset = 0
 local y_vel=0
-local y_accel = 0.1-- Event called when the hero is using this item.
+local y_accel = 0.3
 local max_yvel = 5
 
 
@@ -32,11 +31,11 @@ end
 
 
 function hero_meta:is_jumping()
-  return is_jumping
+  return hero.is_jumping
 end
 
 function hero_meta:set_jumping(jumping)
-  is_jumping = jumping
+  hero.is_jumping = jumping
 end
 
 local function update_jump(hero)
@@ -48,7 +47,12 @@ local function update_jump(hero)
   y_offset= y_offset+y_vel
   y_vel = y_vel + y_accel
   if y_offset >=0 then
-    is_jumping = false
+    for name, sprite in hero:get_sprites() do
+      if name~="shadow" then
+        sprite:set_xy(0, 0)
+      end
+    end    
+    hero.is_jumping = false
     return false
   end
   return true
@@ -56,21 +60,24 @@ end
 
 
 function item:on_using()
+--  print "FEATHER TIME"
   local hero = game:get_hero()
   local map = game:get_map()
-  if not is_jumping then
+  if hero.is_jumping~=true then
     if not map:is_sideview() then
-      print "JUMP"
-      is_jumping = true
+      
+      --TODO use custom state for actual jumping
+--      print "JUMP"
+      hero.is_jumping = true
       y_vel = -max_yvel
       sol.timer.start(game, 10, function() 
           return update_jump(hero)
         end)
     else
-      print "SIDEVIEW JUMP requested "
+--      print "SIDEVIEW JUMP requested "
       local vspeed = hero.vspeed or 0
       if vspeed == 0 then
-        print "validated, now jump :"
+--        print "validated, now jump :"
         sol.timer.start(10, function()
             hero.on_ladder = false
             hero.vspeed = -max_yvel
