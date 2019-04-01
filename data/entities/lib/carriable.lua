@@ -36,7 +36,7 @@ function carriable_behavior.apply(carriable, properties)
 
   local map = carriable:get_map()
 
-  -- Function to call hit events.
+  -- Function to call hit events, the entity parameter may be nil.
   local function call_hit_events(entity)
     if entity and entity.on_hit_by_carriable then
       entity:on_hit_by_carriable(carriable)

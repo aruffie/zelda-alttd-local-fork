@@ -524,7 +524,6 @@ sprite{ id = "entities/shadows/pickable_flying", description = "Pickable flying"
 sprite{ id = "entities/shadows/shadow", description = "Shadow" }
 sprite{ id = "entities/star", description = "Star" }
 sprite{ id = "entities/statues/pillar", description = "Pillar base" }
-sprite{ id = "entities/statues/pillar_top", description = "Pillar top" }
 sprite{ id = "entities/statues/statue_darknut", description = "Statue darknut" }
 sprite{ id = "entities/statues/statue_koopa", description = "Statue koopa" }
 sprite{ id = "entities/statues/statue_pig", description = "Statue pig" }

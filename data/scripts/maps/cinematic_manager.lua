@@ -32,9 +32,11 @@ function map_meta:set_cinematic_mode(is_cinematic, options)
 
   -- Entities
   if options and options.entities_ignore_suspend then
-      for i,entity in ipairs(options.entities_ignore_suspend ) do
-        entity:get_sprite():set_ignore_suspend(is_cinematic)
+    for i, entity in ipairs(options.entities_ignore_suspend ) do
+      for sprite_name, sprite in entity:get_sprites() do
+        sprite:set_ignore_suspend(is_cinematic)
       end
+    end
   end
   -- Hero
   if is_cinematic then
