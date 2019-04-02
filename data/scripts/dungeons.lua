@@ -227,8 +227,8 @@ local function initialize_dungeon_features(game)
       highest_floor = 2,
       rows = 4,
       cols = 4,
-      music = "19_level_1_tail_cave", -- TODO
-      music_instrument = "25_the_full_moon_cello", -- TODO
+      music = "64_level_7_eagle_tower",
+      music_instrument = "67_organ_of_evening_calm",
       destination_ocarina = {
         map_id = "dungeons/7/1f",
         destination_name = "destination_ocarina"
@@ -238,7 +238,56 @@ local function initialize_dungeon_features(game)
         destination_name = "dungeon_7_2_B"
       },
       secrets = {
-        -- TODO
+        [0] = {        
+          [19] = {
+            savegame = "dongeon_7_rupee_1",
+            signal = false
+          },
+          [22] = {
+            savegame = "dungeon_7_small_key_2",
+            signal = true
+          },
+          [35] = {
+            savegame = "dungeon_7_beak_of_stone",
+            signal = false
+          },
+          [46] = {
+            savegame = "dungeon_7_small_key_1",
+            signal = true
+          }
+        },
+        [1] = {        
+          [20] = {
+            savegame = "dungeon_7_compass",
+            signal = false
+          },
+          [21] = {
+            savegame = "dungeon_7_map",
+            signal = false
+          },
+          [38] = {
+            savegame = "dungeon_7_mirror_shield",
+            signal = false
+          },
+          [43] = {
+            savegame = "dungeon_7_small_key_3",
+            signal = true
+          },
+          [44] = {
+            savegame = "dungeon_7_bomb_1",
+            signal = false
+          }
+        },
+        [2] = {        
+          [21] = {
+            savegame = "dungeon_7_drug_1",
+            signal = false
+          },
+          [30] = {
+            savegame = "dungeon_7_boss_key",
+            signal = true
+          }
+        },
       },
       small_boss = {
         -- TODO

@@ -7,29 +7,29 @@ flying_tile_manager.is_launch = false
 flying_tile_manager.timer = nil
 
 function flying_tile_manager:init(map, enemy_prefix)
-  
-    if flying_tile_manager.is_init == false and  flying_tile_manager.is_launch == false then
-      flying_tile_manager.is_init = true
-      map:set_entities_enabled(enemy_prefix .. "_enemy", false)
-      map:set_entities_enabled(enemy_prefix .. "_after", false)
-      map:set_entities_enabled(enemy_prefix .. "_before", true)
-    end
+
+  if flying_tile_manager.is_init == false and  flying_tile_manager.is_launch == false then
+    flying_tile_manager.is_init = true
+    map:set_entities_enabled(enemy_prefix .. "_enemy", false)
+    map:set_entities_enabled(enemy_prefix .. "_after", false)
+    map:set_entities_enabled(enemy_prefix .. "_before", true)
+  end
 
 end
 
 function flying_tile_manager:reset(map, enemy_prefix)
   
-    if flying_tile_manager.timer ~= nil then
-      flying_tile_manager.timer:stop()
-    end
-    flying_tile_manager.is_launch = false
-    flying_tile_manager.is_init = false
-    map:set_entities_enabled(enemy_prefix .. "_enemy", false)
-    map:set_entities_enabled(enemy_prefix .. "_after", false)
-      map:set_entities_enabled(enemy_prefix .. "_before", true)
-     for enemy in map:get_entities(enemy_prefix) do
-        sol.timer.stop_all(enemy)
-     end
+  if flying_tile_manager.timer ~= nil then
+    flying_tile_manager.timer:stop()
+  end
+  flying_tile_manager.is_launch = false
+  flying_tile_manager.is_init = false
+  map:set_entities_enabled(enemy_prefix .. "_enemy", false)
+  map:set_entities_enabled(enemy_prefix .. "_after", false)
+  map:set_entities_enabled(enemy_prefix .. "_before", true)
+  for enemy in map:get_entities(enemy_prefix) do
+    sol.timer.stop_all(enemy)
+  end
 
 end
 
@@ -68,7 +68,7 @@ function flying_tile_manager:launch(map, enemy_prefix)
 
       -- Play a sound repeatedly as long as at least one tile is moving.
       sol.timer.start(map, 150, function()
-        -- TODO audio_manager:play_sound("walk_on_grass")
+        audio_manager:play_sound("walk_on_grass")
         -- Repeat the sound until the last tile starts animation "destroy".
         local again = false
         local remaining = map:get_entities_count(enemy_prefix .. "_enemy")

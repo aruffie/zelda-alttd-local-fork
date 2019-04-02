@@ -81,7 +81,7 @@ function enemy:disappear()
     self:set_can_attack(false)
     self:stop_movement()
     sprite:set_animation("destroy")
-    -- TODO audio_manager:play_sound("stone")
+    audio_manager:play_sound("stone")
     sol.timer.stop_all(self)
     if enemy.on_flying_tile_dead ~= nil then
       enemy:on_flying_tile_dead()

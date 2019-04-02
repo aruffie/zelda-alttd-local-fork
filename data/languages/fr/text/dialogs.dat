@@ -2,11 +2,8 @@ dialog{
   id = "_cannot_break_without_boots",
   skip = "all",
   text = [[
-Oh ! Quel        
-drôle d'objet !  
-Peut-être que tu
-peux le briser  
-en fonçant dedans.
+Oh ! Quel drôle d'objet !  
+Peut-être que tu peux le briser en fonçant dedans.
 ]],
 }
 
@@ -24,8 +21,7 @@ dialog{
   id = "_cannot_lift_still_too_heavy",
   skip = "all",
   text = [[
-C'est beaucoup trop
-lourd pour toi !
+C'est beaucoup trop lourd pour toi !
 ]],
 }
 
@@ -33,12 +29,8 @@ dialog{
   id = "_cannot_lift_too_heavy",
   skip = "all",
   text = [[
-Oh là là, c'est bien trop
-lourd !
-
-Tu n'y arriveras jamais
-rien que par la force
-de tes bras !
+Oh là là, c'est bien trop lourd !
+Tu n'y arriveras jamais rien que par la force de tes bras !
 ]],
 }
 
@@ -1068,6 +1060,18 @@ Vous récupérez votre
 bouclier !
 
 Utilisez-le pour repousser vos ennemis !
+]],
+}
+
+dialog{
+  id = "_treasure.shield.2",
+  icon = "63",
+  text = [[
+Tu as trouvé le 
+Bouclier-Reflet !
+
+Maintenant, tu peux bloquer 
+le laser...
 ]],
 }
 
@@ -3295,11 +3299,8 @@ Et toi ?
 dialog{
   id = "maps.out.mabe_village.grand_ma_2",
   text = [[
-Il s'est passé une
-véritable tragédie chez
-ma voisine d'en face !
-Que faire ? Moi, je ne
-sais que balayer !!
+Il s'est passé une véritable tragédie chez ma voisine d'en face !
+Que faire ? Moi, je ne sais que balayer !!
 ]],
 }
 
@@ -3319,17 +3320,14 @@ Non
 dialog{
   id = "maps.out.mabe_village.grand_ma_4",
   text = [[
-Alors, TU balaieras l'île !
+Alors, Tu balaieras l'île !
 ]],
 }
 
 dialog{
   id = "maps.out.mabe_village.grand_ma_5",
   text = [[
-En récompense, je te 
-donne un Hameçon      
-que j'ai trouvé au bord de      
-la rivière.
+En récompense, je te donne un Hameçon que j'ai trouvé au bord de la rivière.
 ]],
 }
 
@@ -3345,11 +3343,8 @@ C'est le top...
 dialog{
   id = "maps.out.mabe_village.kid_5_1",
   text = [[
-Souvent, Marine 
-va toute seule regarder la 
-mer. Pourquoi ? Je ne 
-sais pas moi, je ne suis      
-qu'un gosse !
+Souvent, Marine va toute seule regarder la mer. Pourquoi ?
+Je ne sais pas moi, je ne suis qu'un gosse !
 ]],
 }
 
@@ -3358,8 +3353,7 @@ dialog{
   skip = "all",
   text = [[
 M'sieu !
-Pour sauvegarder, appuyez 
-sur PAUSE puis sur ÉPÉE ! 
+Pour sauvegarder, appuyez sur PAUSE puis sur ÉPÉE ! 
 Ça n'a aucun sens ? 
 Heu, je n'en sais pas plus,
 je ne suis qu'un gosse !
@@ -3370,10 +3364,9 @@ dialog{
   id = "maps.out.mabe_village.kids_10",
   skip = "all",
   text = [[
-Où allez-vous tous les
-deux ? Mais non, je    
-n'insinue rien ! Moi, je 
-ne suis qu'un gosse !
+Où allez-vous tous les deux ?
+Mais non, je n'insinue rien !
+Moi, je ne suis qu'un gosse !
 ]],
 }
 
@@ -3382,12 +3375,9 @@ dialog{
   skip = "all",
   text = [[
 Hé M'sieu !      
-A propos du Gîte des
-Rêves... A l'intérieur,  
-il y a un...   
-Mais comme je ne suis
-qu'un gosse, je n'en  
-dirai pas plus !
+A propos du Gîte des Rêves...
+A l'intérieur, il y a un...   
+Mais comme je ne suis qu'un gosse, je n'en dirai pas plus !
 ]],
 }
 
@@ -3395,13 +3385,8 @@ dialog{
   id = "maps.out.mabe_village.kids_2",
   skip = "all",
   text = [[
-Ben... Après une
-sauvegarde, vous pouvez
-redémarrer à la dernière
-porte par laquelle vous 
-êtes passé ! Pourquoi ? 
-Je n'en sais rien,  je suis 
-un môme !
+Ben... Après une sauvegarde, vous pouvez redémarrer à la dernière porte par laquelle vous êtes passé ! Pourquoi ? 
+Je n'en sais rien,  je suis un môme !
 ]],
 }
 
@@ -3409,11 +3394,8 @@ dialog{
   id = "maps.out.mabe_village.kids_3",
   skip = "all",
   text = [[
-Consultez la carte de 
-l'île en appuyant sur PAUSE.
-Après, je ne sais pas trop 
-car je ne suis qu'un
-gosse !
+Consultez la carte de l'île en appuyant sur PAUSE.
+Après, je ne sais pas trop car je ne suis qu'un gosse !
 ]],
 }
 
@@ -3421,11 +3403,8 @@ dialog{
   id = "maps.out.mabe_village.kids_4",
   skip = "all",
   text = [[
-Si vos coeurs diminuent 
-trop, entrez dans une
-maison ou une grotte.
-Pourquoi ? Je ne sais pas,
-je suis trop petit !
+Si vos coeurs diminuent trop, entrez dans une maison ou une grotte.
+Pourquoi ? Je ne sais pas, je suis trop petit !
 ]],
 }
 
@@ -3433,10 +3412,8 @@ dialog{
   id = "maps.out.mabe_village.kids_5",
   skip = "all",
   text = [[
-M'sieu ! Que     
-pensez-vous de Marine ? 
-Moi ? Ben ! Je ne suis 
-qu'un gosse !
+M'sieu ! Que pensez-vous de Marine ? 
+Moi ? Ben ! Je ne suis qu'un gosse !
 ]],
 }
 
@@ -3444,10 +3421,8 @@ dialog{
   id = "maps.out.mabe_village.kids_6",
   skip = "all",
   text = [[
-M'sieu! D'où vous 
-venez ? De l'extérieur ? 
-Je ne connais pas ce 
-mot, je suis trop petit !
+M'sieu! D'où vous venez ? De l'extérieur ? 
+Je ne connais pas ce mot, je suis trop petit !
 ]],
 }
 
@@ -3455,11 +3430,9 @@ dialog{
   id = "maps.out.mabe_village.kids_7",
   skip = "all",
   text = [[
-L'Oeuf Sacré du Mt
-Tamaranch ? Il paraît
-que le Poisson-Rêve    
-dort dedans. Je ne sais
-pas, je suis un môme !
+L'Oeuf Sacré du Mt Tamaranch ?
+Il paraît que le Poisson-Rêve dort dedans.
+Je ne sais pas, je suis un môme !
 ]],
 }
 
@@ -3467,13 +3440,9 @@ dialog{
   id = "maps.out.mabe_village.kids_8",
   skip = "all",
   text = [[
-Depuis quand nous 
-vivons sur cette île ?  
-Qu'est-ce que cela 
-signifie : depuis 
-quand ?   
-N'oubliez pas que je 
-ne suis qu'un gosse !
+Depuis quand nous vivons sur cette île ?  
+Qu'est-ce que cela signifie : depuis quand ?   
+N'oubliez pas que je ne suis qu'un gosse !
 ]],
 }
 
@@ -3481,11 +3450,8 @@ dialog{
   id = "maps.out.mabe_village.kids_9",
   skip = "all",
   text = [[
-Souvent, Marine va
-toute seule regarder 
-la mer. Pourquoi ? 
-Je ne sais pas moi,   
-je ne suis qu'un gosse !
+Souvent, Marine va toute seule regarder la mer.
+Pourquoi ? Je ne sais pas moi, je ne suis qu'un gosse !
 ]],
 }
 
@@ -3493,23 +3459,15 @@ dialog{
   id = "maps.out.mabe_village.kids_alert_moblins",
   text = [[
 M'sieu ! M'sieu !         
-C'est terrible, c'est 
-horrible ! C'est  c'est... 
-des Gogo... des Momo...
-des Moblins sont venus 
-dans le village ! 
-Ils étaient une armée... 
-Ils...ils... Ils sont
-sortis ! Ils sont entrés !
-Oui, c'est ça ! Ils sont
-entrés là et ils ont pris le 
-Minou, non non... 
+C'est terrible, c'est horrible !
+C'est  c'est... des Gogo... des Momo... des Moblins sont venus dans le village ! 
+Ils étaient une armée... Ils...ils...
+Ils sont sortis ! Ils sont entrés !
+Oui, c'est ça ! Ils sont entrés là et ils ont pris le Minou, non non... 
 Ils ont pris Toutou !!        
 ... ... ... ... 
 ... ... ... ... 
-Il vaudrait mieux que tu
-ailles voir ce qui s'est
-passé !
+Il vaudrait mieux que tu ailles voir ce qui s'est passé !
 ]],
 }
 
@@ -3518,12 +3476,8 @@ dialog{
   skip = "all",
   text = [[
 Bonjour $v !  
-Tarkin est parti dans la
-forêt chercher des 
-champignons.    
-Moi, je préfère chanter.        
-Ecoute ceci : c'est la 
-Ballade du Poisson-Rêve.
+Tarkin est parti dans la forêt chercher des champignons.    
+Moi, je préfère chanter. Ecoute ceci : c'est la Ballade du Poisson-Rêve.
 ]],
 }
 
@@ -3531,11 +3485,9 @@ dialog{
   id = "maps.out.mabe_village.marin_2",
   skip = "all",
   text = [[
-$v, Tarkin fait 
-la sieste à la maison.
+$v, Tarkin fait la sieste à la maison.
 Je préfère chanter. Oui !
-Pourquoi pas la Ballade
-du Poisson-Rêve ?
+Pourquoi pas la Ballade du Poisson-Rêve ?
 ]],
 }
 
@@ -3544,8 +3496,7 @@ dialog{
   skip = "all",
   text = [[
 J'adore chanter!
-Et toi $v , qu'est-ce 
-que tu aimes ?
+Et toi $v , qu'est-ce que tu aimes ?
 ]],
 }
 
@@ -3553,10 +3504,8 @@ dialog{
   id = "maps.out.mabe_village.marin_4",
   skip = "all",
   text = [[
-Mais c'est un Ocarina         
-que tu as là !   
-Veux-tu en jouer pendant   
-que je chante ?
+Mais c'est un Ocarina que tu as là !   
+Veux-tu en jouer pendant que je chante ?
 ]],
 }
 
@@ -3564,9 +3513,9 @@ dialog{
   id = "maps.out.mabe_village.marin_5",
   question = "1",
   text = [[
-Alors,comment tu la 
-trouves ?  
+Alors,comment tu la trouves ?  
 N'est-elle pas émouvante ?      
+
 Sauras-tu t'en souvenir ?       
 Oui
 Non
@@ -3584,21 +3533,15 @@ C'est ma chanson préférée !!
 dialog{
   id = "maps.out.mabe_village.marin_7",
   text = [[
-Tu fredonneras cette chanson   
-de temps à autre pour ne
-pas l'oublier !
+Tu fredonneras cette chanson de temps à autre pour ne pas l'oublier !
 ]],
 }
 
 dialog{
   id = "maps.out.mabe_village.marin_8",
   text = [[
-On dit que la Ballade      
-du Poisson-Rêve 
-est la Chanson d'Eveil. 
-Si le Poisson-Rêve se 
-réveille, exaucera-t'il 
-mon voeu ?
+On dit que la Ballade du Poisson-Rêve est la Chanson d'Eveil. 
+Si le Poisson-Rêve se réveille, exaucera-t'il mon voeu ?
 ]],
 }
 
@@ -3614,9 +3557,8 @@ Forêt Enchantée
 dialog{
   id = "maps.out.mabe_village.thief_message",
   text = [[
-Tu as pu sortir sans 
-payer ?  Tu n'as pas 
-honte, voyou ?!
+Tu as pu sortir sans payer ?
+Tu n'as pas honte, voyou ?!
 ]],
 }
 
@@ -3632,10 +3574,9 @@ dialog{
   id = "maps.out.mambos_cave.father_1",
   question = "1",
   text = [[
-Je te l'avais prédit : je
-me suis perdu ! J'ai trop 
-faim pour faire un pas de 
-plus. Me nourriras-tu ?
+Je te l'avais prédit : je me suis perdu !
+J'ai trop faim pour faire un pas de plus.
+Me nourriras-tu ?
 Oui
 Non
 ]],
@@ -3652,8 +3593,7 @@ dialog{
   id = "maps.out.mambos_cave.father_3",
   text = [[
 Cet ¨ a l'air délicieux !      
-En remerciement, je 
-mange l'¨.
+En remerciement, je mange l'¨.
 ]],
 }
 
@@ -3679,10 +3619,9 @@ dialog{
   id = "maps.out.mambos_cave.father_6",
   question = "1",
   text = [[
-Je te l'avais prédit : je
-me suis perdu ! J'ai trop 
-faim pour faire un pas de 
-plus. Me nourriras-tu ?
+Je te l'avais prédit : je me suis perdu !
+J'ai trop faim pour faire un pas de plus.
+Me nourriras-tu ?
 Non !
 Non
 ]],
@@ -3692,9 +3631,8 @@ dialog{
   id = "maps.out.martha_bay.mermaid_statue_no_scale",
   skip = "all",
   text = [[
-C'est une Statue
-de Sirène. Il y a
-une écaille manquante.
+C'est une statue de Sirène.
+Il y a une écaille manquante.
 DIALOGUE A MODIFIER!
 ]],
 }
@@ -3703,19 +3641,15 @@ dialog{
   id = "maps.out.martha_bay.mermaid_statue_scale",
   skip = "all",
   text = [[
-Tu déposes
-l'écaille qui
-manquait sur la
-Petite Sirène !
+Tu déposes l'écaille qui manquait sur la petite sirène !
 ]],
 }
 
 dialog{
   id = "maps.out.prairie.dungeon_3_lock",
   text = [[
-Une serrure ici?
-Hum, voyons :   
-Serrure Cyclope
+Une serrure ici ?
+Hum, voyons : Serrure Cyclope
 ]],
 }
 
@@ -3744,8 +3678,7 @@ dialog{
   text = [[
 $v ! 
 Ton truc me plaît.  
-J'te donne du Miel pour       
-c'Bâton. Alors ? 
+J'te donne du Miel pour c'Bâton. Alors ? 
 Oui
 Non
 ]],
@@ -3762,8 +3695,7 @@ dialog{
   id = "maps.out.south_mabe_village.dungeon_1_lock",
   text = [[
 Une serrure ici ?
-Hum, voyons :   
-Serrure Flagello
+Hum, voyons : Serrure Flagello
 ]],
 }
 
@@ -3781,8 +3713,7 @@ dialog{
   skip = "all",
   text = [[
 Attention aux oursins !    
-Se protéger avec un
-bouclier !
+Se protéger avec un bouclier !
 ]],
 }
 
@@ -3790,10 +3721,8 @@ dialog{
   id = "maps.out.south_prairie.marin_1",
   question = "1",
   text = [[
-Oh $v, tu savais où    
-me trouver !     
-Veux-tu qu'on parle
-un peu ?   
+Oh $v, tu savais où me trouver !     
+Veux-tu qu'on parle un peu ?   
 Oui
 Non
 ]],
@@ -3802,16 +3731,14 @@ Non
 dialog{
   id = "maps.out.south_prairie.marin_2",
   text = [[
-Peuh ! Je regarderai
-la mer alors !
+Peuh ! Je regarderai la mer alors !
 ]],
 }
 
 dialog{
   id = "maps.out.south_prairie.owl_statue_1",
   text = [[
-SOUS TES PIEDS, DORT 
-UN SECRET.
+SOUS TES PIEDS, DORT UN SECRET.
 ]],
 }
 
@@ -3861,8 +3788,7 @@ _ Par ici !
 dialog{
   id = "maps.out.south_prairie.surprise_error",
   text = [[
-RETOUR A LA     
-CASE DEPART !
+RETOUR A LA CASE DEPART !
 ]],
 }
 
@@ -3877,7 +3803,7 @@ Signé : WART
 dialog{
   id = "maps.out.south_prairie.surprise_success",
   text = [[
-TU AS REUSS I!   
+TU AS REUSSI!   
 PAR ICI >       
 SURPRISE !!
 ]],
@@ -3910,8 +3836,7 @@ _ Forêt Enchantée
 dialog{
   id = "maps.out.yarna_desert.rabbit_1_1",
   text = [[
-Une chanson de Marine 
-par un si beau jour,
+Une chanson de Marine par un si beau jour,
 ce serait le pied !
 ]],
 }
@@ -3919,16 +3844,10 @@ ce serait le pied !
 dialog{
   id = "maps.out.yarna_desert.rabbit_2_1",
   text = [[
-Savais-tu que les Villages    
-des Animaux et des 
-Mouettes étaient des villes
-jumelées ? Des villes, c'est un
-bien grand mot...    
-Villages jumeaux serait
-mieux !   
-D'après une source sûre,    
-à l'intérieur du Gîte des
-Rêves, il y a un...    
+Savais-tu que les Villages des Animaux et des Mouettes étaient des villes jumelées ? 
+Des villes, c'est unbien grand mot...
+Villages jumeaux serait mieux !   
+D'après une source sûre, à l'intérieur du Gîte des Rêves, il y a un...    
 Crois-tu que c'est vrai ?
 ]],
 }
@@ -3937,25 +3856,22 @@ dialog{
   id = "maps.out.yarna_desert.rabbit_3_1",
   text = [[
 Je ne peux aller au Village. 
-Les monstres sont si
-nombreux !
-Marine est-elle en vie?
+Les monstres sont si nombreux !
+Marine est-elle en vi e?
 ]],
 }
 
 dialog{
   id = "maps.out.yarna_desert.sign_1",
   text = [[
-> Enfin ! Vill.  
-des Animaux
+> Enfin ! Vill. des Animaux
 ]],
 }
 
 dialog{
   id = "maps.out.yarna_desert.sign_2",
   text = [[
-> Entrée des    
-Dunes de Yarna
+> Entrée des Dunes de Yarna
 ]],
 }
 
