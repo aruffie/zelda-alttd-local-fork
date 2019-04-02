@@ -62,7 +62,7 @@ function carriable_behavior.apply(carriable, properties)
   -- Return true if the parameter is an obstacle entity.
   -- TODO Check for something like entity1:is_traversable_by(entity2) and remove this temp function
   local function is_obstacle(entity)
-    local obstacle_entities = {"crystal", "crystal_block", "enemy"}
+    local obstacle_entities = {"crystal", "enemy"}
     for _, entity_type in pairs(obstacle_entities) do
       if entity:get_type() == entity_type then
         return true

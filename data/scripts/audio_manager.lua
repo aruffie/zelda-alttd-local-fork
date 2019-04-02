@@ -103,6 +103,16 @@ function audio_manager:get_directory()
 
 end
 
+-- sol.audio.play_music() equivalent, warn instead of error when playing not existing music
+local function lenient_play_music(id_music)
+
+  if sol.file.exists("musics/" .. id_music .. ".ogg") or sol.file.exists("musics/" .. id_music .. ".it") or sol.file.exists("musics/" .. id_music .. ".spc") then
+    sol.audio.play_music(id_music)
+  else
+    print("Warning : the music " .. id_music .. " doesn't exist")
+  end
+end
+
 -- Play music according to the mode of play
 function audio_manager:play_music(id_music)
   
@@ -111,7 +121,7 @@ function audio_manager:play_music(id_music)
   end
   local directory = audio_manager:get_directory()
   
-  sol.audio.play_music(directory .. "/" .. id_music) 
+  lenient_play_music(directory .. "/" .. id_music)
 
 end
 
@@ -126,7 +136,7 @@ function audio_manager:play_sound(id_sound)
   if sol.file.exists("sounds/" .. id_sound .. ".ogg") then
     sol.audio.play_sound(id_sound)
   else
-    print("Warning : the sound " .. id_sound .. ".ogg doesn't exist")
+    print("Warning : the sound " .. id_sound .. " doesn't exist")
   end
 
 end
@@ -143,7 +153,7 @@ function audio_manager:refresh_music()
   else
     id_music = id_music:gsub("gb/", "snes/")
   end
-  sol.audio.play_music(id_music) 
+  lenient_play_music(id_music)
 
 end
 

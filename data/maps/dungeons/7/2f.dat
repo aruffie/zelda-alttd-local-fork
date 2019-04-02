@@ -466,7 +466,7 @@ tile{
   x = 688,
   y = 264,
   width = 208,
-  height = 272,
+  height = 288,
   pattern = "floor.7-1",
 }
 
@@ -1987,7 +1987,7 @@ tile{
   x = 904,
   y = 392,
   width = 24,
-  height = 144,
+  height = 160,
   pattern = "wall.4-2",
 }
 
@@ -2525,9 +2525,9 @@ tile{
 tile{
   layer = 0,
   x = 880,
-  y = 528,
+  y = 544,
   width = 8,
-  height = 144,
+  height = 128,
   pattern = "wall_border.4-2",
 }
 
@@ -4901,7 +4901,7 @@ tile{
 tile{
   layer = 0,
   x = 904,
-  y = 536,
+  y = 552,
   width = 24,
   height = 24,
   pattern = "wall.corner.4-2",
@@ -4910,7 +4910,7 @@ tile{
 tile{
   layer = 0,
   x = 888,
-  y = 536,
+  y = 552,
   width = 24,
   height = 24,
   pattern = "wall.corner_reverse.4-2",
@@ -5324,7 +5324,7 @@ tile{
 tile{
   layer = 0,
   x = 880,
-  y = 528,
+  y = 544,
   width = 8,
   height = 8,
   pattern = "wall_border.corner_reverse.4-2",
@@ -5333,7 +5333,7 @@ tile{
 tile{
   layer = 0,
   x = 888,
-  y = 528,
+  y = 544,
   width = 16,
   height = 8,
   pattern = "wall_border.2-2",
@@ -5342,7 +5342,7 @@ tile{
 tile{
   layer = 0,
   x = 896,
-  y = 528,
+  y = 544,
   width = 8,
   height = 8,
   pattern = "wall_border.corner.4-2",
@@ -5353,7 +5353,7 @@ tile{
   x = 896,
   y = 368,
   width = 8,
-  height = 160,
+  height = 176,
   pattern = "wall_border.4-2",
 }
 
@@ -11178,12 +11178,12 @@ enemy{
 }
 
 pickable{
-  name = "pickable_small_key_2",
+  name = "pickable_small_key_3",
   layer = 0,
   x = 72,
   y = 821,
   treasure_name = "small_key",
-  treasure_savegame_variable = "dungeon_7_small_key_2",
+  treasure_savegame_variable = "dungeon_7_small_key_3",
 }
 
 door{
@@ -11259,9 +11259,9 @@ enemy{
 
 teletransporter{
   layer = 0,
-  x = 448,
+  x = 416,
   y = 784,
-  width = 80,
+  width = 112,
   height = 32,
   destination_map = "dungeons/7/1f",
   destination = "_same",
@@ -12519,14 +12519,6 @@ custom_entity{
   sprite = "entities/handle_base",
 }
 
-destination{
-  name = "destination",
-  layer = 0,
-  x = 728,
-  y = 381,
-  direction = 1,
-}
-
 block{
   layer = 0,
   x = 424,
@@ -12558,9 +12550,9 @@ tile{
 tile{
   layer = 1,
   x = 912,
-  y = 568,
+  y = 584,
   width = 96,
-  height = 216,
+  height = 200,
   pattern = "994",
 }
 
@@ -12630,9 +12622,9 @@ tile{
 tile{
   layer = 1,
   x = 912,
-  y = 560,
+  y = 576,
   width = 96,
-  height = 224,
+  height = 208,
   pattern = "floor_low.2-Alpha",
 }
 
@@ -12650,7 +12642,7 @@ tile{
   x = 984,
   y = 480,
   width = 24,
-  height = 64,
+  height = 80,
   pattern = "wall.3-2",
 }
 
@@ -12659,14 +12651,14 @@ tile{
   x = 928,
   y = 480,
   width = 24,
-  height = 64,
+  height = 80,
   pattern = "wall.4-2",
 }
 
 tile{
   layer = 1,
   x = 944,
-  y = 536,
+  y = 552,
   width = 48,
   height = 24,
   pattern = "wall.1-2",
@@ -12675,7 +12667,7 @@ tile{
 tile{
   layer = 1,
   x = 984,
-  y = 536,
+  y = 552,
   width = 24,
   height = 24,
   pattern = "wall.corner_reverse.1-2",
@@ -12684,7 +12676,7 @@ tile{
 tile{
   layer = 1,
   x = 928,
-  y = 536,
+  y = 552,
   width = 24,
   height = 24,
   pattern = "wall.corner_reverse.2-2",
@@ -12819,7 +12811,7 @@ tile{
 tile{
   layer = 1,
   x = 912,
-  y = 560,
+  y = 576,
   width = 96,
   height = 8,
   pattern = "wall_border.1-2",
@@ -13030,9 +13022,9 @@ custom_entity{
 jumper{
   layer = 1,
   x = 904,
-  y = 560,
+  y = 576,
   width = 8,
-  height = 120,
+  height = 104,
   direction = 4,
   jump_length = 40,
 }
@@ -13060,9 +13052,9 @@ jumper{
 jumper{
   layer = 1,
   x = 1008,
-  y = 568,
+  y = 576,
   width = 8,
-  height = 112,
+  height = 104,
   direction = 0,
   jump_length = 40,
 }
@@ -13122,7 +13114,7 @@ wall{
 wall{
   layer = 1,
   x = 912,
-  y = 552,
+  y = 568,
   width = 16,
   height = 8,
   stops_hero = true,
@@ -13185,19 +13177,6 @@ wall{
   layer = 1,
   x = 976,
   y = 784,
-  width = 8,
-  height = 8,
-  stops_hero = true,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
-}
-
-wall{
-  layer = 1,
-  x = 1008,
-  y = 560,
   width = 8,
   height = 8,
   stops_hero = true,
@@ -13493,7 +13472,7 @@ tile{
   x = 952,
   y = 488,
   width = 32,
-  height = 48,
+  height = 64,
   pattern = "ceiling.1",
 }
 

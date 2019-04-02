@@ -29,7 +29,7 @@ pillar:register_event("on_created", function(pillar)
     pillar:set_enabled(false)
   end
 
-  -- Call events and disable entity when collapse ended.
+  -- Disable entity when collapse ended.
   pillar:get_sprite():register_event("on_animation_finished", function(pillar_sprite, animation)
     if animation == "collapse" then
       pillar:set_enabled(false)
@@ -73,7 +73,7 @@ function pillar:start_breaking()
   for i = 1, 3 do
     explosion_timer = sol.timer.start((i - 1) * 500, function()
       map_tools.start_chained_explosion_on_entity(pillar, 32, function()
-        -- If this is the last explosion, restore initial states and call the collapse finished event.
+        -- If this is the last explosion, stop the cinematic and call the collapse finished event.
         if not pillar:is_enabled() and map:get_entities_count("chained_explosion") == 1 then
           make_all_invincible(false)
           map:set_cinematic_mode(false, {entities_ignore_suspend = {pillar}}) 

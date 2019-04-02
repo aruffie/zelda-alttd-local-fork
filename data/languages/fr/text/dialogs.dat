@@ -1064,6 +1064,18 @@ Utilisez-le pour repousser vos ennemis !
 }
 
 dialog{
+  id = "_treasure.shield.2",
+  icon = "63",
+  text = [[
+Tu as trouvé le 
+Bouclier-Reflet !
+
+Maintenant, tu peux bloquer 
+le laser...
+]],
+}
+
+dialog{
   id = "_treasure.shovel.1",
   icon = "48",
   text = [[

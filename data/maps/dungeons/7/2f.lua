@@ -51,6 +51,7 @@ end
 -- Tower collapsing cinematic.
 local function start_tower_cinematic()
   -- TODO
+  print("TODO Insert tower cinematic here")
 end
 
 -- Start tower collapsing cinematic when all given pillars are broken.
