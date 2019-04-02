@@ -496,6 +496,7 @@ sprite{ id = "entities/items/shovel", description = "Shovel" }
 sprite{ id = "entities/la_beach/la_background", description = "entities/la_beach/la_background" }
 sprite{ id = "entities/la_beach/la_swell", description = "entities/la_beach/la_swell" }
 sprite{ id = "entities/la_beach/la_wreck", description = "entities/la_beach/la_wreck" }
+sprite{ id = "entities/ledger_hook", description = "Ledger hook" }
 sprite{ id = "entities/mask_helmasaur", description = "Mask helmasaur" }
 sprite{ id = "entities/mega_thwomp", description = "Mega thwomp" }
 sprite{ id = "entities/misc/ball", description = "Ball" }
