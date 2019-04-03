@@ -244,14 +244,16 @@ game_meta:register_event("on_map_changed", function(game, map)
       hero:set_origin(4,13)
       has_shadow = false
       v_offset = 2
+      hero:set_draw_override(function()  
+        hero:draw_override(has_shadow, v_offset)
+      end)
     else
+      hero:set_draw_override(nil)
       hero:set_size(16,16)
       hero:set_origin(8,13)
     end
 
-    hero:set_draw_override(function()  
-        hero:draw_override(has_shadow, v_offset)
-      end)
+
   end)
 
 -- Set fixed stopped/walking animations for the hero (or nil to disable them).
