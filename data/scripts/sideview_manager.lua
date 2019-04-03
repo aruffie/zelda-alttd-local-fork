@@ -51,29 +51,29 @@ end
   Sets whether we are in sideview mode in the current map.
   Parameter: enabled (boolean or nil).
 --]]
-function map_meta:set_sideview(enabled)
-  self.sideview=enabled or false
+function map_meta.set_sideview(map, enabled)
+  map.sideview=enabled or false
 end
 
 --[[
   Returns whether the current map is in sideview mode.
 --]]
-function map_meta:is_sideview()
-  return self.sideview or false
+function map_meta.is_sideview(map)
+  return map.sideview or false
 end
 
 --[[
   Sets the vertical speed on the entity, in pixels/frame.
   Parameter: vspeed, the new vertical speed.
 --]]
-function map_meta:set_vertical_speed(entity, vspeed)
+function map_meta.set_vertical_speed(entity, vspeed)
   entity.vspeed = vspeed
 end
 
 --[[
   Returns whether the current vertical speed of the entity, in pixels/frame.
 --]]
-function map_meta:get_vertical_speed(entity)
+function map_meta.get_vertical_speed(entity)
   return entity.vspeed or 0
 end
 
@@ -204,7 +204,7 @@ end
 
 --Debug function, remove me once everything is finalized
 hero_meta:register_event("on_movement_changed", function(hero, movement)
-    print("New movement: speed" ..movement:get_speed().. ", angle:"..movement:get_angle()*180/math.pi)
+    --print("New movement: speed" ..movement:get_speed().. ", angle:"..movement:get_angle()*180/math.pi)
   end)
 
 --Respawn wnen falling into a pit
@@ -269,7 +269,7 @@ local function update_animation(hero, direction)
     end
   end
 
-  if state=="free" then
+  if state=="free" and not (hero.frozen) then
     if movement:get_speed() == 0 then
       if hero.on_ladder and test_ladder(hero) then
         new_animation = "climbing_stopped"
@@ -401,11 +401,6 @@ end
 game_meta:register_event("on_map_changed", function(game, map)
 
     local hero = map:get_hero() --TODO account for multiple heroes
-    local timer = hero.timer
-    if timer then
-      timer:stop()
-      timer = nil
-    end
     if map:is_sideview() then
       hero.on_ladder = test_ladder(map:get_hero(), -1) 
       hero.vspeeed = 0
@@ -439,7 +434,7 @@ hero_meta:register_event("on_state_changed", function(hero, state)
       or state == "custom"
       then --TODO indentify every applisacle states
         if hero.movement == nil then
-          print "create movement"
+--          print "create movement"
           local movement=sol.movement.create("straight")
           movement:set_angle(-1)
           movement:set_speed(0)
@@ -450,7 +445,7 @@ hero_meta:register_event("on_state_changed", function(hero, state)
           hero:start_swimming()
         end
         if hero.timer == nil then
-          print "create timer"
+--          print "create timer"
           hero.timer = sol.timer.start(hero, 10, function()
               update_hero(hero) 
               return true
@@ -461,24 +456,28 @@ hero_meta:register_event("on_state_changed", function(hero, state)
       else
         print "Resetting parameters"
         if hero.movement~=nil then
-          print "remove movement"
+--          print "remove movement"
           hero.movement:stop()
           hero.movement = nil
         end
         local timer = hero.timer
         if timer~=nil then
-          print"remove timer"
+--          print"remove timer"
           timer:stop()
           hero.timer = nil
         end
       end
     else
+      
       if hero.movement~=nil then
+--        print "remove movement"
         hero.movement:stop()
         hero.movement = nil
       end
+      
       local timer = hero.timer
-      if timer~=nil then
+      if ttmer~=nil then
+--        print"remove timer"
         timer:stop()
         hero.timer = nil
       end

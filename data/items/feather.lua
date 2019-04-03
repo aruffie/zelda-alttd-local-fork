@@ -8,7 +8,7 @@
 -- of types, events and methods:
 -- http://www.solarus-games.org/doc/latest
 
-local hero_meta= sol.main.get_metatable("hero")
+local hero_meta = sol.main.get_metatable("hero")
 
 local item = ...
 local game = item:get_game()
@@ -30,11 +30,11 @@ function item:on_started()
 end
 
 
-function hero_meta:is_jumping()
+function hero_meta.is_jumping(hero)
   return hero.is_jumping
 end
 
-function hero_meta:set_jumping(jumping)
+function hero_meta.set_jumping(hero, jumping)
   hero.is_jumping = jumping
 end
 
