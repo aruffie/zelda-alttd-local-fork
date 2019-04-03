@@ -229,6 +229,15 @@ function hero_meta.draw_override(hero, has_shadow, offset)
   end
 end
 
+function hero_meta.is_jumping(hero)
+  return hero.is_jumping
+end
+
+function hero_meta.set_jumping(hero, jumping)
+  hero.is_jumping = jumping
+end
+
+
 --[[
   Redeclaration of the "on map changed' event to take account of the sideview mode.
   This override completely refefines how the hero is drawed by setting the draw_override, as well as starting the routine which updates the gravity of the entitites for sideviews.
