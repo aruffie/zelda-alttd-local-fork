@@ -785,26 +785,6 @@ separator{
   height = 240,
 }
 
-dynamic_tile{
-  name = "invisible_tile_1",
-  layer = 0,
-  x = 80,
-  y = 0,
-  width = 16,
-  height = 120,
-  pattern = "40",
-}
-
-dynamic_tile{
-  name = "invisible_tile_2",
-  layer = 0,
-  x = 544,
-  y = 0,
-  width = 16,
-  height = 168,
-  pattern = "40",
-}
-
 teletransporter{
   name = "stairs_2_A",
   layer = 0,
@@ -821,7 +801,7 @@ destination{
   layer = 0,
   x = 88,
   y = 29,
-  direction = 3,
+  direction = 1,
 }
 
 teletransporter{
@@ -840,7 +820,7 @@ destination{
   layer = 0,
   x = 552,
   y = 29,
-  direction = 3,
+  direction = 1,
 }
 
 custom_entity{

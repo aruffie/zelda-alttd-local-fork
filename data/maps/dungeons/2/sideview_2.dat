@@ -1095,10 +1095,17 @@ custom_entity{
   layer = 0,
   x = 152,
   y = 157,
+  properties = {
+    {
+      key = "needs_carrying",
+      value = "true",
+    },
+  },
   width = 32,
   height = 16,
   direction = 0,
   sprite = "entities/moving_platform_dg_2",
+  model = "platform_collapsing",
 }
 
 destructible{
@@ -1136,9 +1143,54 @@ custom_entity{
   layer = 0,
   x = 440,
   y = 157,
+  properties = {
+    {
+      key = "needs_carrying",
+      value = "false",
+    },
+  },
   width = 32,
   height = 16,
   direction = 0,
   sprite = "entities/moving_platform_dg_2",
+  model = "platform_collapsing",
+}
+
+teletransporter{
+  name = "stairs_1_A",
+  layer = 0,
+  x = 544,
+  y = 0,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/2/1f",
+  destination = "stairs_5_B",
+}
+
+destination{
+  name = "stairs_1_B",
+  layer = 0,
+  x = 552,
+  y = 29,
+  direction = 1,
+}
+
+teletransporter{
+  name = "stairs_2_A",
+  layer = 0,
+  x = 80,
+  y = 0,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/2/1f",
+  destination = "stairs_6_B",
+}
+
+destination{
+  name = "stairs_2_B",
+  layer = 0,
+  x = 88,
+  y = 29,
+  direction = 1,
 }
 

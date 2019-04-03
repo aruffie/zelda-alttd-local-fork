@@ -149,7 +149,7 @@ local function initialize_dungeon_features(game)
       },
       boss = {
         floor = 0,
-        breed = "boss/genie",
+        breed = "boss/genie/genie",
         x = 640 + 1440,
         y = 720 + 365
       }

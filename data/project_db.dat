@@ -208,7 +208,7 @@ sprite{ id = "enemies/boss/dodongo_snake/dodongo_snake_body", description = "Dod
 sprite{ id = "enemies/boss/evil_orb", description = "Evil orb" }
 sprite{ id = "enemies/boss/evil_orb/orb_evil_orb", description = "Orb evil orb" }
 sprite{ id = "enemies/boss/facade", description = "Facade" }
-sprite{ id = "enemies/boss/genie", description = "Genie" }
+sprite{ id = "enemies/boss/genie/genie", description = "Genie" }
 sprite{ id = "enemies/boss/genie/genie_bottle", description = "Genie bottle" }
 sprite{ id = "enemies/boss/genie/genie_fire_ball", description = "Genie fire ball" }
 sprite{ id = "enemies/boss/genie_enemies/genie_bottle", description = "Genie bottle" }
@@ -1168,7 +1168,7 @@ enemy{ id = "beamos", description = "Beamos" }
 enemy{ id = "boo_buddy", description = "Boo buddy" }
 enemy{ id = "boss/evil_orb", description = "Evil orb" }
 enemy{ id = "boss/facade", description = "Facade" }
-enemy{ id = "boss/genie", description = "Genie" }
+enemy{ id = "boss/genie/genie", description = "Genie" }
 enemy{ id = "boss/genie/genie_bottle", description = "Genie bottle" }
 enemy{ id = "boss/giant_buzz_blob", description = "Giant buzz blob" }
 enemy{ id = "boss/gohma_blue", description = "Gohma blue" }
@@ -1268,8 +1268,6 @@ entity{ id = "fire", description = "Fire" }
 entity{ id = "follower", description = "Follower" }
 entity{ id = "frog", description = "Frog" }
 entity{ id = "green_crystal", description = "Green crystal" }
-entity{ id = "heavy_object", description = "Heavy object" }
-entity{ id = "heavy_statue", description = "Heavy statue" }
 entity{ id = "hook_bridge", description = "hook bridge" }
 entity{ id = "hookable", description = "Hookable" }
 entity{ id = "insect", description = "Insect" }
@@ -1283,6 +1281,7 @@ entity{ id = "pillar", description = "Pillar" }
 entity{ id = "platform_balance", description = "Twin linked platforms" }
 entity{ id = "platform_chain", description = "Chain for twin platforms" }
 entity{ id = "platform_collapsing", description = "Collapsing platform" }
+entity{ id = "platform_ice_block", description = "Platform ice block" }
 entity{ id = "platform_moving", description = "Movin platform" }
 entity{ id = "platform_thwomp", description = "Platform (Spiked Thwomp top)" }
 entity{ id = "powder", description = "Powder" }
@@ -1290,7 +1289,6 @@ entity{ id = "pull_handle", description = "Pull handle" }
 entity{ id = "seagull", description = "Seagull" }
 entity{ id = "statue", description = "Statue" }
 entity{ id = "statue_elephant", description = "Statue elephant" }
-entity{ id = "statue_enemy", description = "Statue enemy" }
 entity{ id = "statue_pig", description = "Statue pig" }
 entity{ id = "torch", description = "Torch" }
 entity{ id = "unstable_floor", description = "Unstable Floor" }

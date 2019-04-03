@@ -342,18 +342,10 @@ dialog{
   id = "_treasure.compass.1",
   icon = "71",
   text = [[
-Tu as la        
-Boussole!       
-Maintenant,     
-tu peux voir où 
-sont cachés     
-les Coffres et  
-le Boss! Si une 
-Clé est dans une
-salle, un son te
-préviendra!     
-C'est ça        
-le progrès...
+Tu as la Boussole!       
+Maintenant, tu peux voir où sont cachés les Coffres et le Boss !
+Si une Clé est dans une salle, un son te préviendra !     
+C'est ça le progrès...
 ]],
 }
 
