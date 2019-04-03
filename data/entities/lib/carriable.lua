@@ -1,7 +1,7 @@
 ----------------------------------
 --
 -- Undestructible destructible map entity, behaving the same way than build-in destructible except it bounces instead of breaking.
--- A hit happen when the entity reaches an obstacle, or when the carriable sprite overlaps another entity sprite while the throw is still running.
+-- A hit happen when the entity reaches an obstacle or when the carriable sprite overlaps another entity sprite while the throw is still running.
 -- 
 -- Methods : carriable:throw(direction)
 -- Events :  carriable:on_thrown(direction)
@@ -13,7 +13,7 @@
 -- Usage : 
 -- local my_entity = ...
 -- local carriable_behavior = require("entities/lib/carriable")
--- carriable_behavior.apply(my_entity, --[[ Custom properties --]] )
+-- carriable_behavior.apply(my_entity, { --[[ Custom properties --]] } )
 --
 ----------------------------------
 
@@ -36,7 +36,7 @@ function carriable_behavior.apply(carriable, properties)
 
   local map = carriable:get_map()
 
-  -- Function to call hit events.
+  -- Function to call hit events, the entity parameter may be nil.
   local function call_hit_events(entity)
     if entity and entity.on_hit_by_carriable then
       entity:on_hit_by_carriable(carriable)
@@ -62,7 +62,7 @@ function carriable_behavior.apply(carriable, properties)
   -- Return true if the parameter is an obstacle entity.
   -- TODO Check for something like entity1:is_traversable_by(entity2) and remove this temp function
   local function is_obstacle(entity)
-    local obstacle_entities = {"crystal", "crystal_block", "enemy"}
+    local obstacle_entities = {"crystal", "enemy"}
     for _, entity_type in pairs(obstacle_entities) do
       if entity:get_type() == entity_type then
         return true

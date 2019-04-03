@@ -14629,18 +14629,6 @@ npc{
   sprite = "npc/villagers/kid_1",
 }
 
-custom_entity{
-  name = "bowwow",
-  layer = 0,
-  x = 392,
-  y = 501,
-  width = 16,
-  height = 16,
-  direction = 3,
-  sprite = "npc/animals/bowwow",
-  model = "bowwow",
-}
-
 teletransporter{
   name = "to_d1",
   layer = 0,
@@ -21584,6 +21572,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
+}
+
+custom_entity{
+  name = "bowwow",
+  layer = 0,
+  x = 392,
+  y = 501,
+  width = 16,
+  height = 16,
+  direction = 3,
+  sprite = "npc/animals/bowwow",
+  model = "bowwow",
 }
 
 tile{

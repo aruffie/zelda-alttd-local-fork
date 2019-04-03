@@ -27,12 +27,14 @@ function treasure_manager:appear_chest_when_horse_heads_upright(map, entity_pref
 
   local function horse_head_on_finish_throw(horse_head)
     
+    -- Make this horse head not liftable.
+    horse_head:set_weight(-1)
+
     -- Get horse heads global states.
-    horse_head.is_thrown = true
     local are_all_heads_thrown = true
     local are_all_heads_upright = true
     for entity in map:get_entities(entity_prefix) do
-      if not entity.is_thrown then
+      if entity:get_weight() ~= -1 then
         are_all_heads_thrown = false
         break
       elseif entity:get_direction() ~= 1 then
@@ -40,7 +42,7 @@ function treasure_manager:appear_chest_when_horse_heads_upright(map, entity_pref
       end
     end
 
-    -- If they have been all thrown.
+    -- If they all have been thrown.
     if are_all_heads_thrown then
       if are_all_heads_upright then
         -- Make the chest appear if they are upright.
@@ -57,11 +59,7 @@ function treasure_manager:appear_chest_when_horse_heads_upright(map, entity_pref
       -- Make all horse heads liftable again.
       for entity in map:get_entities(entity_prefix) do
         entity:set_weight(0)
-        entity.is_thrown = nil
       end
-    else
-      -- Else make this horse head not liftable.
-      horse_head:set_weight(-1)
     end
   end
 

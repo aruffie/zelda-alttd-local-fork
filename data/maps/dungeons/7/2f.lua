@@ -24,11 +24,53 @@ local enemy_manager = require("scripts/maps/enemy_manager")
 local separator_manager = require("scripts/maps/separator_manager")
 local owl_manager = require("scripts/maps/owl_manager")
 local flying_tile_manager = require("scripts/maps/flying_tile_manager")
+local map_tools = require("scripts/maps/map_tools")
 require("scripts/multi_events")
 
 -----------------------
 -- Map events
 -----------------------
+-- Save iron ball position when the throw ends.
+local function save_iron_ball_position_on_finish_throw()
+  iron_ball:register_event("on_finish_throw", function()
+    map_tools.save_entity_position(iron_ball)
+  end)
+end
+
+-- Call entity:start_breaking() when one of the given entity is hit by the iron ball.
+local function start_breaking_on_hit_by_iron_ball(entities_prefix)
+  for entity in map:get_entities(entities_prefix) do
+    entity:register_event("on_hit_by_carriable", function(entity, carriable)   
+      if carriable:get_name() == "iron_ball" then
+        entity:start_breaking()
+      end
+    end)
+  end
+end
+
+-- Tower collapsing cinematic.
+local function start_tower_cinematic()
+  -- TODO
+  print("TODO Insert tower cinematic here")
+end
+
+-- Start tower collapsing cinematic when all given pillars are broken.
+local function start_tower_cinematic_on_all_collapse_finished(pillar_prefix)
+  for pillar in map:get_entities(pillar_prefix) do
+    pillar:register_event("on_collapse_finished", function()
+      are_all_pillar_broken = true
+      for pillar in map:get_entities(pillar_prefix) do
+        if pillar:is_enabled() then
+          are_all_pillar_broken = false
+        end
+      end
+      if are_all_pillar_broken then
+        start_tower_cinematic()
+      end
+    end)
+  end
+end
+
 function map:on_started()
 
   -- Owl
@@ -49,6 +91,9 @@ function map:on_started()
 
   -- Ennemies
   flying_tile_manager:init(map, "enemy_group_10")
+
+  -- Entities
+  iron_ball:set_position(map_tools.get_entity_saved_position(iron_ball)) -- Keep iron ball position even if the game was closed.
 end
 
 -- TODO Move blocks "block_1_" when handle is pulled
@@ -90,6 +135,13 @@ treasure_manager:appear_chest_when_horse_heads_upright(map, "horse_head_", "ches
 treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_3_", "chest_compass")
 treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_7_", "chest_bomb_1")
 treasure_manager:appear_pickable_when_enemies_dead(map, "hinox_master", "pickable_small_key_2")
+
+-----------------------
+-- Entities events
+-----------------------
+save_iron_ball_position_on_finish_throw()
+start_breaking_on_hit_by_iron_ball("pillar_")
+start_tower_cinematic_on_all_collapse_finished("pillar_")
 
 -----------------------
 -- Separators
