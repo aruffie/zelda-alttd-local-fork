@@ -1230,6 +1230,7 @@ enemy{ id = "peahat", description = "Peahat" }
 enemy{ id = "pike_auto", description = "Pike auto" }
 enemy{ id = "pike_detect", description = "Pike detect" }
 enemy{ id = "pike_fixed", description = "Pike fixed" }
+enemy{ id = "piranha_plant", description = "Piranha plant" }
 enemy{ id = "pokey_full", description = "Pokey full" }
 enemy{ id = "pols_voice", description = "Pols voice" }
 enemy{ id = "raven", description = "Raven" }

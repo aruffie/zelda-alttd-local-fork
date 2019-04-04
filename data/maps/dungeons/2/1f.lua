@@ -39,7 +39,6 @@ function map:on_started()
   map:set_doors_open("door_group_small_boss", true)
   door_manager:open_when_torches_lit(map, "auto_torch_group_1_", "door_group_1_")
   door_manager:open_when_enemies_dead(map,  "enemy_group_8_",  "door_group_4_")
-  door_manager:open_when_enemies_dead(map,  "enemy_group_16_",  "door_group_3_")
   -- Ennemies
   enemy_manager:create_teletransporter_if_small_boss_dead(map, false)
   -- Pickables
@@ -170,9 +169,9 @@ function sensor_2:on_activated()
     is_small_boss_active = true
     enemy_manager:launch_small_boss_if_not_dead(map)
   else
-    map:close_doors("door_group_small_boss_1")
     map:close_doors("door_group_small_boss_2")
   end
+  map:close_doors("door_group_wallturn")
 
 end
 
@@ -237,6 +236,13 @@ auto_separator_21:register_event("on_activated", function(separator, direction4)
     map:set_light(0)
 
 end)
+
+auto_separator_23:register_event("on_activated", function(separator, direction4)
+
+    map:set_light(1)
+
+end)
+
 
 auto_separator_25:register_event("on_activating", function(separator, direction4)
     

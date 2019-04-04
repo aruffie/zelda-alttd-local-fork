@@ -1,24 +1,13 @@
 animation{
-  name = "exit",
-  src_image = "enemies/piranha_plant.png",
-  frame_delay = 80,
-  directions = {
-    { x = 0, y = 32, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 13, num_frames = 4 },
-    { x = 0, y = 32, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 13, num_frames = 4 },
-    { x = 0, y = 32, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 13, num_frames = 4 },
-    { x = 0, y = 32, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 13, num_frames = 4 },
-  },
-}
-animation{
   name = "biting",
   src_image = "enemies/piranha_plant.png",
   frame_delay = 200,
   frame_to_loop_on = 0,
   directions = {
-    { x = 0, y = 0, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 13, num_frames = 2 },
-    { x = 0, y = 0, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 13, num_frames = 2 },
-    { x = 0, y = 0, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 13, num_frames = 2 },
-    { x = 0, y = 0, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 13, num_frames = 2 },
+    { x = 0, y = 0, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 2 },
+    { x = 0, y = 0, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 2 },
+    { x = 0, y = 0, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 2 },
+    { x = 0, y = 0, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 2 },
   },
 }
 animation{
@@ -26,10 +15,21 @@ animation{
   src_image = "enemies/piranha_plant.png",
   frame_delay = 80,
   directions = {
-    { x = 0, y = 64, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 13, num_frames = 4 },
-    { x = 0, y = 64, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 13, num_frames = 4 },
-    { x = 0, y = 64, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 13, num_frames = 4 },
-    { x = 0, y = 64, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 13, num_frames = 4 },
+    { x = 0, y = 64, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 4 },
+    { x = 0, y = 64, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 4 },
+    { x = 0, y = 64, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 4 },
+    { x = 0, y = 64, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 4 },
+  },
+}
+animation{
+  name = "exit",
+  src_image = "enemies/piranha_plant.png",
+  frame_delay = 80,
+  directions = {
+    { x = 0, y = 32, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 4 },
+    { x = 0, y = 32, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 4 },
+    { x = 0, y = 32, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 4 },
+    { x = 0, y = 32, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 4 },
   },
 }
 animation{
@@ -38,9 +38,9 @@ animation{
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {
-    { x = 16, y = 0, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 13, num_frames = 3 },
-    { x = 16, y = 0, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 13, num_frames = 3 },
-    { x = 16, y = 0, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 13, num_frames = 3 },
-    { x = 16, y = 0, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 13, num_frames = 3 },
+    { x = 16, y = 0, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 3 },
+    { x = 16, y = 0, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 3 },
+    { x = 16, y = 0, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 3 },
+    { x = 16, y = 0, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 3 },
   },
 }

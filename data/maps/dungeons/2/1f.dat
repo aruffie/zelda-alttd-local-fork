@@ -10967,7 +10967,7 @@ tile{
 tile{
   layer = 0,
   x = 848,
-  y = 120,
+  y = 112,
   width = 48,
   height = 16,
   pattern = "hole",
@@ -10976,7 +10976,7 @@ tile{
 tile{
   layer = 0,
   x = 880,
-  y = 120,
+  y = 112,
   width = 16,
   height = 16,
   pattern = "wall_hole.4-1",
@@ -11030,7 +11030,7 @@ tile{
 tile{
   layer = 0,
   x = 856,
-  y = 120,
+  y = 112,
   width = 40,
   height = 8,
   pattern = "hole.1",
@@ -11039,7 +11039,7 @@ tile{
 tile{
   layer = 0,
   x = 856,
-  y = 128,
+  y = 120,
   width = 40,
   height = 8,
   pattern = "hole.2",
@@ -11048,7 +11048,7 @@ tile{
 tile{
   layer = 0,
   x = 848,
-  y = 128,
+  y = 120,
   width = 8,
   height = 8,
   pattern = "hole.corner.3",
@@ -11057,7 +11057,7 @@ tile{
 tile{
   layer = 0,
   x = 848,
-  y = 120,
+  y = 112,
   width = 8,
   height = 8,
   pattern = "hole.corner.1",
@@ -17871,7 +17871,7 @@ sensor{
 }
 
 door{
-  name = "door_group_small_boss_1",
+  name = "door_group_wallturn",
   layer = 0,
   x = 472,
   y = 680,
@@ -18239,7 +18239,7 @@ destructible{
 destructible{
   layer = 0,
   x = 880,
-  y = 181,
+  y = 173,
   treasure_name = "random",
   sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
@@ -18249,7 +18249,7 @@ destructible{
 destructible{
   layer = 0,
   x = 880,
-  y = 165,
+  y = 157,
   treasure_name = "random",
   sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
@@ -18259,17 +18259,7 @@ destructible{
 destructible{
   layer = 0,
   x = 864,
-  y = 165,
-  treasure_name = "random",
-  sprite = "entities/destructibles/pot",
-  destruction_sound = "stone",
-  weight = 1,
-}
-
-destructible{
-  layer = 0,
-  x = 864,
-  y = 165,
+  y = 157,
   treasure_name = "random",
   sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
@@ -19898,7 +19888,7 @@ enemy{
 destructible{
   layer = 0,
   x = 864,
-  y = 149,
+  y = 141,
   treasure_name = "random",
   sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
@@ -19908,7 +19898,7 @@ destructible{
 destructible{
   layer = 0,
   x = 880,
-  y = 149,
+  y = 141,
   treasure_name = "random",
   sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
@@ -20474,6 +20464,12 @@ custom_entity{
   layer = 0,
   x = 480,
   y = 757,
+  properties = {
+    {
+      key = "door_prefix",
+      value = "door_group_wallturn",
+    },
+  },
   width = 16,
   height = 16,
   direction = 0,
@@ -21941,7 +21937,7 @@ dynamic_tile{
 destructible{
   layer = 0,
   x = 864,
-  y = 181,
+  y = 173,
   treasure_name = "random",
   sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
@@ -21951,7 +21947,7 @@ destructible{
 destructible{
   layer = 0,
   x = 864,
-  y = 197,
+  y = 189,
   treasure_name = "random",
   sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
@@ -21961,7 +21957,7 @@ destructible{
 destructible{
   layer = 0,
   x = 880,
-  y = 197,
+  y = 189,
   treasure_name = "random",
   sprite = "entities/destructibles/pot",
   destruction_sound = "stone",

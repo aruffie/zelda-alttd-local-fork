@@ -102,7 +102,8 @@ dialog{
   id = "_treasure.beak_of_stone.1",
   icon = "39",
   text = [[
-Vous trouvez un bec de pierre !
+Vous trouvez un bec
+de pierre !
 Allez compléter une statue de chouette.
 ]],
 }
