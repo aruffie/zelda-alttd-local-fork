@@ -44,7 +44,6 @@ entity:register_event("on_created", function()
         end
       end
     end
-
   end)
 
 end)

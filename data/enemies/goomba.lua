@@ -18,6 +18,7 @@ function enemy:on_created()
   sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
   enemy:set_life(1)
   enemy:set_damage(1)
+  enemy:set_pushed_back_when_hurt(false)
   
 end
 
@@ -34,7 +35,7 @@ function enemy:on_restarted()
   movement:set_speed(32)
   movement:set_loop(true)
   movement:start(self)
- sol.timer.start(enemy, 10, function()
+  sol.timer.start(enemy, 10, function()
       if not is_dead then
         local x_hero, y_hero = hero:get_position()
         local x_enemy, y_enemy = enemy:get_position()
