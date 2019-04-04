@@ -64,8 +64,7 @@ dialog{
   id = "_treasure.angler_key.1",
   icon = "41",
   text = [[
-Tu as la        
-Clé Poisson!
+Tu as la Clé Poisson !
 ]],
 }
 
@@ -74,18 +73,8 @@ dialog{
   icon = "83",
   next = "_treasure.arrow.1.1",
   text = [[
-Tu as trouvé une
-Flèche !$0
-Utilise l'Arc et les
-]],
-}
-
-dialog{
-  id = "_treasure.arrow.1.1",
-  text = [[
-Flèches pour vaincre
-des ennemis à
-distance.
+Tu as trouvé une Flèche !$0
+Utilise l'Arc et les Flèches pour vaincre des ennemis à distance.
 ]],
 }
 
@@ -94,8 +83,7 @@ dialog{
   icon = "83",
   next = "_treasure.arrow.1.1",
   text = [[
-Tu as trouvé 5
-Flèches !$0
+Tu as trouvé 5 Flèches !$0
 Utilise l'Arc et les
 ]],
 }
@@ -105,8 +93,7 @@ dialog{
   icon = "83",
   next = "_treasure.arrow.1.1",
   text = [[
-Tu as trouvé 10
-Flèches !$0
+Tu as trouvé 10 Flèches !$0
 Utilise l'Arc et les
 ]],
 }
@@ -115,24 +102,8 @@ dialog{
   id = "_treasure.beak_of_stone.1",
   icon = "39",
   text = [[
-Vous trouvez un 
-bec de pierre !
-Allez compléter
-une statue de
-chouette.
-]],
-}
-
-dialog{
-  id = "_treasure.big_key.1",
-  icon = "73",
-  text = [[
-Tu as trouvé la
-Grande Clé ! Tu peux
-désormais ouvrir les
-portes spéciales et
-découvrir de
-nouveaux trésors !
+Vous trouvez un bec de pierre !
+Allez compléter une statue de chouette.
 ]],
 }
 
@@ -140,21 +111,7 @@ dialog{
   id = "_treasure.bird_key.1",
   icon = "42",
   text = [[
-Tu as la        
-Clé Vautour!
-]],
-}
-
-dialog{
-  id = "_treasure.blue_potion.1",
-  icon = "98",
-  text = [[
-Tu as trouvé de la
-Potion Bleue !$0
-
-Bois-la pour
-retrouver toute ta
-vie et ta magie !
+Tu as la Clé Vautour !
 ]],
 }
 
@@ -163,18 +120,8 @@ dialog{
   icon = "82",
   next = "_treasure.bomb.1.1",
   text = [[
-Tu as trouvé une
-Bombe !$0
-Utilise une Bombe
-]],
-}
-
-dialog{
-  id = "_treasure.bomb.1.1",
-  text = [[
-pour faire exploser
-un ennemi ou un
-obstacle.
+Tu as trouvé une bombe !$0
+Utilise une bombe pour faire exploser un ennemi ou un obstacle.
 ]],
 }
 
@@ -183,9 +130,8 @@ dialog{
   icon = "82",
   next = "_treasure.bomb.1.1",
   text = [[
-Tu as trouvé 3
-Bombes !$0
-Utilise une Bombe
+Tu as trouvé 3 bombes !$0
+Utilise une bombe
 ]],
 }
 
@@ -243,22 +189,7 @@ dialog{
   id = "_treasure.boomerang.1",
   icon = "4",
   text = [[
-Tu as échangé
-ton objet contre
-le Boomerang.
-]],
-}
-
-dialog{
-  id = "_treasure.boomerang.2",
-  icon = "35",
-  text = [[
-Tu as trouvé le
-Super Boomerang !$0
-
-Il est plus rapide
-et plus puissant que
-l'ancien !
+Tu as échangé ton objet contre le Boomerang.
 ]],
 }
 
@@ -266,51 +197,8 @@ dialog{
   id = "_treasure.boss_key.1",
   icon = "74",
   text = [[
-Tu as trouvé la
-Clé du Maître ! Tu
-peux maintenant
-entrer dans le
-repaire du maître
-des lieux !
-]],
-}
-
-dialog{
-  id = "_treasure.bottle_1.3",
-  icon = "9",
-  text = [[
-Tu as trouvé de la
-Potion Rouge !$0
-
-Bois-la pour
-retrouver toute ton
-énergie vitale.
-]],
-}
-
-dialog{
-  id = "_treasure.bottle_1.4",
-  icon = "10",
-  text = [[
-Tu as trouvé de la
-Potion Verte !$0
-
-Bois-la pour
-retrouver toute ton
-énergie magique.
-]],
-}
-
-dialog{
-  id = "_treasure.bottle_1.5",
-  icon = "11",
-  text = [[
-Tu as trouvé de la
-Potion Bleue !$0
-
-Bois-la pour
-retrouver toute ta
-vie et ta magie !
+Tu as trouvé la Clé du Maître !
+Tu peux maintenant entrer dans le repaire du maître des lieux !
 ]],
 }
 
@@ -319,22 +207,7 @@ dialog{
   icon = "2",
   text = [[
 Tu as trouvé l'Arc !$0
-Trouve des Flèches
-et tu pourras
-vaincre à distance
-les ennemis
-coriaces !
-]],
-}
-
-dialog{
-  id = "_treasure.bow.2",
-  icon = "3",
-  text = [[
-Tu as trouvé l'Arc !$0
-Tu peux vaincre les
-ennemis coriaces
-à distance !
+Trouve des Flèches et tu pourras vaincre à distance les ennemis coriaces !
 ]],
 }
 
@@ -353,11 +226,8 @@ dialog{
   id = "_treasure.drug.1",
   icon = "49",
   text = [[
-Vous trouvez le 
-médicament      
-secret! A quoi  
-cela peut-il    
-servir?
+Vous trouvez le médicament secret !
+A quoi cela peut-il servir ?
 ]],
 }
 
@@ -365,8 +235,7 @@ dialog{
   id = "_treasure.face_key.1",
   icon = "44",
   text = [[
-Tu as la        
-Clé Masque!
+Tu as la Clé Masque !
 ]],
 }
 
@@ -375,8 +244,7 @@ dialog{
   icon = "0",
   text = [[
 Tu as la Plume !$0
-Soudain, tu es plus 
-léger que l'air !
+Soudain, tu es plus léger que l'air !
 ]],
 }
 
@@ -384,11 +252,9 @@ dialog{
   id = "_treasure.fire_rod.1",
   icon = "118",
   text = [[
-Tu as le Bâton  
-de Feu! $0         
-Brûle! Brûle!   
-Brûle tout      
-ce que tu veux!
+Tu as le Bâton de Feu! $0         
+Brûle ! Brûle !   
+Brûle tout ce que tu veux !
 ]],
 }
 
@@ -396,12 +262,9 @@ dialog{
   id = "_treasure.flippers.1",
   icon = "26",
   text = [[
-Tu as           
-les Palmes!$0     
-Appuie sur B    
-quand tu nages: 
-tu pourras alors
-plonger!
+Tu as les Palmes!$0     
+Appuie sur B quand tu nages : 
+tu pourras alors plonger !
 ]],
 }
 
@@ -409,12 +272,8 @@ dialog{
   id = "_treasure.golden_leaf.1",
   icon = "115",
   text = [[
-Une Feuille     
-d'Or !           
-Appuyez sur     
-START pour voir 
-combien vous en 
-avez !
+Une Feuille d'Or !           
+Appuyez sur PAUSE pour voir combien vous en avez !
 ]],
 }
 
@@ -422,12 +281,8 @@ dialog{
   id = "_treasure.golden_leaf.2",
   icon = "115",
   text = [[
-Une Feuille     
-d'Or !           
-Appuyez sur     
-START pour voir 
-combien vous en 
-avez !
+Une Feuille d'Or !           
+Appuyez sur PAUSE pour voir combien vous en avez !
 ]],
 }
 
@@ -435,12 +290,8 @@ dialog{
   id = "_treasure.golden_leaf.3",
   icon = "115",
   text = [[
-Une Feuille     
-d'Or !           
-Appuyez sur     
-START pour voir 
-combien vous en 
-avez !
+Une Feuille d'Or !           
+Appuyez sur PAUSE pour voir combien vous en avez !
 ]],
 }
 
@@ -448,12 +299,8 @@ dialog{
   id = "_treasure.golden_leaf.4",
   icon = "115",
   text = [[
-Une Feuille     
-d'Or !           
-Appuyez sur     
-START pour voir 
-combien vous en 
-avez !
+Une Feuille d'Or !           
+Appuyez sur PAUSE pour voir combien vous en avez !
 ]],
 }
 
@@ -461,25 +308,9 @@ dialog{
   id = "_treasure.golden_leaf.5",
   icon = "115",
   text = [[
-Tu as trouvé    
-la dernière     
-Feuille d'Or !   
-Amène-les chez  
-Richard. Parle- 
-lui de la Clé...
-]],
-}
-
-dialog{
-  id = "_treasure.green_potion.1",
-  icon = "97",
-  text = [[
-Tu as trouvé de la
-Potion Verte !$0
-
-Bois-la pour
-retrouver toute ton
-énergie magique.
+Tu as trouvé la dernière Feuille d'Or !   
+Amène-les chez Richard.
+Parle-lui de la Clé...
 ]],
 }
 
@@ -487,8 +318,7 @@ dialog{
   id = "_treasure.hammer.1",
   icon = "114",
   text = [[
-Tu as trouvé le 
-marteau !
+Tu as trouvé le Marteau !
 ]],
 }
 
@@ -496,8 +326,7 @@ dialog{
   id = "_treasure.heart.1",
   icon = "84",
   text = [[
-Tu as trouvé un
-Coeur !
+Tu as trouvé un Coeur !
 ]],
 }
 
@@ -505,11 +334,8 @@ dialog{
   id = "_treasure.heart_container.1",
   icon = "80",
   text = [[
-Tu as trouvé un
-Réceptacle de Coeur.
-
-Tu obtiens un Coeur
-supplémentaire !
+Tu as trouvé un Réceptacle de Coeur.
+Tu obtiens un Coeur supplémentaire !
 ]],
 }
 
@@ -517,122 +343,64 @@ dialog{
   id = "_treasure.hookshot.1",
   icon = "6",
   text = [[
-Tu as le        
-Grappin!  $0      
-Tu vas voir     
-comment la      
-chaîne s'étire!
+Tu as le Grappin!  $0      
+Tu vas voir comment la chaîne s'étire !
 ]],
 }
 
 dialog{
   id = "_treasure.instrument_1.1",
   text = [[
-Tu as le violon des
-vagues !
+Tu as le Violon des Vagues !
 ]],
 }
 
 dialog{
   id = "_treasure.instrument_2.1",
   text = [[
-Tu as la conque
-de l'écume !
+Tu as la Conque de l'écume !
 ]],
 }
 
 dialog{
   id = "_treasure.instrument_3.1",
   text = [[
-Tu as la cloche
-des algues !
+Tu as la Cloche des Algues !
 ]],
 }
 
 dialog{
   id = "_treasure.instrument_4.1",
   text = [[
-Tu as la harpe
-du reflux !
+Tu as la Harpe du Reflux !
 ]],
 }
 
 dialog{
   id = "_treasure.instrument_5.1",
   text = [[
-Tu as le xylophone
-marin !
+Tu as le Xylophone Marin !
 ]],
 }
 
 dialog{
   id = "_treasure.instrument_6.1",
   text = [[
-Tu as le triangle
-de corail !
+Tu as le Triangle de Corail !
 ]],
 }
 
 dialog{
   id = "_treasure.instrument_7.1",
   text = [[
-Tu as l'orgue
-de l'embellie !
+Tu as l'Orgue de l'Embellie !
 ]],
 }
 
 dialog{
   id = "_treasure.instrument_8.1",
   text = [[
-Tu as le tambour
-des marées !
-]],
-}
-
-dialog{
-  id = "_treasure.lamp.1",
-  icon = "5",
-  next = "warning_magic",
-  text = [[
-Tu as trouvé la
-Lanterne !$0 Elle
-t'éclaire dans le
-noir et te permet
-d'allumer des
-braseros.
-]],
-}
-
-dialog{
-  id = "_treasure.magic_cape.1",
-  icon = "27",
-  text = [[
-Tu as trouvé la Cape
-Magique !$0
-
-Elle t'avertira si
-tu t'approches d'un
-mur fragile.
-]],
-}
-
-dialog{
-  id = "_treasure.magic_flask.1",
-  icon = "85",
-  text = [[
-Tu as trouvé une
-petite bouteille
-d'énergie magique !
-]],
-}
-
-dialog{
-  id = "_treasure.magic_flask.2",
-  icon = "86",
-  text = [[
-Tu as trouvé une
-grande bouteille
-d'énergie magique !
+Tu as le Tambour des Marées !
 ]],
 }
 
@@ -640,10 +408,8 @@ dialog{
   id = "_treasure.magic_powders_counter.1",
   icon = "37",
   text = [[
-Tu as gagné la Poudre
-Magique ! $0
-Tu peux la saupoudrer
-sur plein de trucs.
+Tu as gagné la Poudre Magique ! $0
+Tu peux la saupoudrer sur plein de trucs.
 ]],
 }
 
@@ -651,10 +417,8 @@ dialog{
   id = "_treasure.magnifying_lens.1",
   icon = "100",
   text = [[
-Tu as gagné un 
-Yoshi !       
-On le voit dans tous
-les jeux, celui-là !
+Tu as gagné un Yoshi !       
+On le voit dans tous les jeux, celui-là !
 ]],
 }
 
@@ -662,10 +426,9 @@ dialog{
   id = "_treasure.magnifying_lens.10",
   icon = "109",
   text = [[
-Mr Wright t'a   
-offert un ¯.    
+Mr Wright t'a offert un ¯.    
 Mais... cette photo...  
-ce n'est pas...
+Ce n'est pas...
 ]],
 }
 
@@ -673,10 +436,8 @@ dialog{
   id = "_treasure.magnifying_lens.11",
   icon = "110",
   text = [[
-Tu as échangé le ¯
-contre le ¬ !           
-Que feras-tu de
-celui-ci ?
+Tu as échangé le ¯ contre le ¬ !           
+Que feras-tu de celui-ci ?
 ]],
 }
 
@@ -684,8 +445,7 @@ dialog{
   id = "_treasure.magnifying_lens.12",
   icon = "111",
   text = [[
-é  devient un   
-collier ê !      
+é  devient un collier ê !      
 Génial !
 ]],
 }
@@ -694,11 +454,8 @@ dialog{
   id = "_treasure.magnifying_lens.13",
   icon = "112",
   text = [[
-Vous échangez le
-collier contre  
-une écaille...  
-A quoi sert-    
-elle ?
+Vous échangez le collier contre une écaille...  
+A quoi sert-elle ?
 ]],
 }
 
@@ -706,11 +463,8 @@ dialog{
   id = "_treasure.magnifying_lens.14",
   icon = "113",
   text = [[
-Tu as la Loupe! 
-Elle te montrera
-ce que tu ne    
-pouvais pas voir
-auparavant !
+Tu as la Loupe ! 
+Elle te montrera ce que tu ne pouvais pas voir auparavant !
 ]],
 }
 
@@ -718,12 +472,8 @@ dialog{
   id = "_treasure.magnifying_lens.2",
   icon = "101",
   text = [[
-Tu échanges ton 
-¢ contre ce £.      
- 
-Peut-être le    
-troqueras-tu    
-par la suite...
+Tu échanges ton ¢ contre ce £.      
+Peut-être le troqueras-tu par la suite...
 ]],
 }
 
@@ -731,9 +481,7 @@ dialog{
   id = "_treasure.magnifying_lens.3",
   icon = "103",
   text = [[
-Tu as échangé   
-le £ contre     
-la ¤ !
+Tu as échangé le £ contre la ¤ !
 ]],
 }
 
@@ -741,9 +489,7 @@ dialog{
   id = "_treasure.magnifying_lens.4",
   icon = "102",
   text = [[
-Tu lui as donné 
-une ¤ en
-échange de bananes ¥.
+Tu lui as donné une ¤ en échange de bananes ¥.
 ]],
 }
 
@@ -751,9 +497,7 @@ dialog{
   id = "_treasure.magnifying_lens.5",
   icon = "104",
   text = [[
-Tu prends le bâton        
-que le singe a
-laissé.
+Tu prends le bâton que le singe a laissé.
 ]],
 }
 
@@ -761,11 +505,8 @@ dialog{
   id = "_treasure.magnifying_lens.6",
   icon = "105",
   text = [[
-Tu as échangé   
-le ¦ contre     
-le Miel §.     
-Pour quoi faire,
-tu verras bien !
+Tu as échangé le ¦ contre le Miel §.     
+Pour quoi faire, tu verras bien !
 ]],
 }
 
@@ -773,9 +514,7 @@ dialog{
   id = "_treasure.magnifying_lens.7",
   icon = "106",
   text = [[
-Tu as échangé   
-le § contre     
-l'Ananas ¨.    
+Tu as échangé le § contre l'Ananas ¨.    
 Il est juteux !
 ]],
 }
@@ -784,8 +523,7 @@ dialog{
   id = "_treasure.magnifying_lens.8",
   icon = "107",
   text = [[
-Tu as échangé l'¨
-contre l'© !!
+Tu as échangé l'¨ contre l'© !!
 ]],
 }
 
@@ -793,10 +531,7 @@ dialog{
   id = "_treasure.magnifying_lens.9",
   icon = "108",
   text = [[
-Tu as échangé   
-l' © contre une 
-lettre de chèvreª
-... Super ! 
+Tu as échangé l' © contre une lettre de chèvreª ... Super ! 
 ]],
 }
 
@@ -804,10 +539,7 @@ dialog{
   id = "_treasure.map.1",
   icon = "70",
   text = [[
-Tu as une Carte!
-Appuie sur      
-START pour      
-la consulter!
+Tu as une Carte! Appuie sur PAUSE pour la consulter !
 ]],
 }
 
@@ -815,12 +547,8 @@ dialog{
   id = "_treasure.melody_1.1",
   icon = "45",
   text = [[
-Tu as appris    
-la Ballade      
-du Poisson-Rêve.
-La jolie chanson
-de Marine est   
-gravée en toi.
+Tu as appris la Ballade du Poisson-Rêve.
+La jolie chanson de Marine est gravée en toi.
 ]],
 }
 
@@ -828,11 +556,8 @@ dialog{
   id = "_treasure.melody_2.1",
   icon = "46",
   text = [[
-Tu as appris le 
-Mambo de Manbo ! 
-Quand tu        
-sors de l'eau,  
-joue cet air !
+Tu as appris le Mambo de Manbo ! 
+Quand tu sors de l'eau, joue cet air !
 ]],
 }
 
@@ -840,13 +565,9 @@ dialog{
   id = "_treasure.melody_3.1",
   icon = "47",
   text = [[
-Tu as appris    
-la chanson des  
-Grenouilles.    
+Tu as appris la chanson des Grenouilles.    
 C'est cool non ? 
-Tu peux donc    
-insuffler la vie
-dans les objets.
+Tu peux donc insuffler la vie dans les objets.
 ]],
 }
 
@@ -854,10 +575,8 @@ dialog{
   id = "_treasure.mushroom.1",
   icon = "36",
   text = [[
-Tu as trouvé le 
-Champignon !$0
-Un arôme subtil exalte
-ton sens de l'odorat.
+Tu as trouvé le Champignon !$0
+Un arôme subtil exalte ton sens de l'odorat.
 ]],
 }
 
@@ -866,9 +585,7 @@ dialog{
   icon = "117",
   text = [[
 Tu as l'Ocarina ! $0
-J'espère que    
-tu pourras jouer
-plusieurs airs !
+J'espère que tu pourras jouer plusieurs airs !
 ]],
 }
 
@@ -876,12 +593,8 @@ dialog{
   id = "_treasure.pegasus_shoes.1",
   icon = "13",
   text = [[
-Tu as les Bottes
-de Pégase! $0     
-Garde le bouton 
-enfoncé et      
-tu fileras      
-comme le vent!
+Tu as les Bottes de Pégase! $0     
+Garde le bouton enfoncé et tu fileras comme le vent !
 ]],
 }
 
@@ -889,8 +602,7 @@ dialog{
   id = "_treasure.photo.1",
   icon = "116",
   text = [[
-Tu as récupéré 
-une photo !
+Tu as récupéré une photo !
 ]],
 }
 
@@ -898,8 +610,7 @@ dialog{
   id = "_treasure.piece_of_heart.1",
   icon = "79",
   text = [[
-Tu as trouvé un
-Fragment de Coeur !
+Tu as trouvé un Fragment de Coeur !
 ]],
 }
 
@@ -907,11 +618,8 @@ dialog{
   id = "_treasure.piece_of_heart.2",
   icon = "78",
   text = [[
-Tu as collecté  
-4 Fragments     
-de Coeur. Tu as 
-maintenant un   
-Coeur complet!
+Tu as collecté 4 Fragments de Coeur.
+Tu as maintenant un Coeur complet !
 ]],
 }
 
@@ -919,12 +627,8 @@ dialog{
   id = "_treasure.power_bracelet.1",
   icon = "32",
   text = [[
-Tu as trouvé    
-le Bracelet !    
-Génial ! Tu peux 
-soulever des    
-jarres et des   
-pierres !
+Tu as trouvé le Bracelet !    
+Génial ! Tu peux soulever des jarres et des pierres !
 ]],
 }
 
@@ -932,11 +636,8 @@ dialog{
   id = "_treasure.power_bracelet.2",
   icon = "33",
   text = [[
-Tu as trouvé le 
-Super Bracelet ! 
-Tu pourrais même
-soulever...     
-un éléphant !
+Tu as trouvé le Super Bracelet ! 
+Tu pourrais même soulever... un éléphant !
 ]],
 }
 
@@ -967,24 +668,10 @@ au lieu de 30 !
 }
 
 dialog{
-  id = "_treasure.red_potion.1",
-  icon = "96",
-  text = [[
-Tu as trouvé de la
-Potion Rouge !$0
-
-Bois-la pour
-retrouver toute ton
-énergie vitale.
-]],
-}
-
-dialog{
   id = "_treasure.rupee.1",
   icon = "90",
   text = [[
-Tu as trouvé un
-rubis !
+Tu as trouvé un Rubis !
 ]],
 }
 
@@ -992,7 +679,7 @@ dialog{
   id = "_treasure.rupee.2",
   icon = "91",
   text = [[
-Tu as trouvé 5 rubis.       
+Tu as trouvé 5 Rubis.       
 O joie !
 ]],
 }
@@ -1001,7 +688,7 @@ dialog{
   id = "_treasure.rupee.3",
   icon = "92",
   text = [[
-Tu as trouvé 20 rubis.       
+Tu as trouvé 20 Rubis.       
 O joie !
 ]],
 }
@@ -1010,7 +697,7 @@ dialog{
   id = "_treasure.rupee.4",
   icon = "90",
   text = [[
-Tu as trouvé 50 rubis.       
+Tu as trouvé 50 Rubis.       
 Merveilleux !
 ]],
 }
@@ -1019,7 +706,7 @@ dialog{
   id = "_treasure.rupee.5",
   icon = "90",
   text = [[
-Tu as trouvé 100 rubis.      
+Tu as trouvé 100 Rubis.      
 Fantastique !
 ]],
 }
@@ -1028,7 +715,7 @@ dialog{
   id = "_treasure.rupee.6",
   icon = "90",
   text = [[
-Tu as trouvé 200 rubis.      
+Tu as trouvé 200 Rubis.      
 Quelle extase !
 ]],
 }
@@ -1037,10 +724,8 @@ dialog{
   id = "_treasure.seashell.1",
   icon = "38",
   text = [[
-Tu as trouvé un 
-coquillage !     
-Collectes-en beaucoup
-pour faire du troc...
+Tu as trouvé un Coquillage !     
+Collectes-en beaucoup pour faire du troc...
 ]],
 }
 
@@ -1048,9 +733,7 @@ dialog{
   id = "_treasure.shield.1",
   icon = "63",
   text = [[
-Vous récupérez votre
-bouclier !
-
+Vous récupérez votre Bouclier !
 Utilisez-le pour repousser vos ennemis !
 ]],
 }
@@ -1059,11 +742,8 @@ dialog{
   id = "_treasure.shield.2",
   icon = "63",
   text = [[
-Tu as trouvé le 
-Bouclier-Reflet !
-
-Maintenant, tu peux bloquer 
-le laser...
+Tu as trouvé le Bouclier-Reflet !
+Maintenant, tu peux bloquer le laser...
 ]],
 }
 
@@ -1071,10 +751,8 @@ dialog{
   id = "_treasure.shovel.1",
   icon = "48",
   text = [[
-Tu as la Pelle!$0 
-Maintenant,     
-tu peux creuser 
-où tu veux!
+Tu as la Pelle !$0 
+Maintenant, tu peux creuser où tu veux !
 ]],
 }
 
@@ -1082,11 +760,8 @@ dialog{
   id = "_treasure.slim_key.1",
   icon = "43",
   text = [[
-Tu as la        
-Clé Cyclope!    
-Vite! Va vers   
-l'entrée de     
-La Prairie!
+Tu as la Clé Cyclope  !    
+Vite ! Va vers l'entrée de La Prairie !
 ]],
 }
 
@@ -1094,12 +769,8 @@ dialog{
   id = "_treasure.small_key.1",
   icon = "72",
   text = [[
-Tu as trouvé une
-Petite Clé !
-
-Tu peux ouvrir une
-porte verrouillée
-dans les environs.
+Tu as trouvé une Petite Clé !
+Tu peux ouvrir une porte verrouillée dans les environs.
 ]],
 }
 
@@ -1108,8 +779,6 @@ dialog{
   icon = "66",
   text = [[
 Tu as retrouvé ton Epée !
-
-
 C'est la tienne car il y a ton nom dessus !
 ]],
 }
@@ -1120,9 +789,7 @@ dialog{
   next = "_treasure.sword.2.1",
   text = [[
 Tu as une nouvelle Epée !
-
-
-N'oublie pas de graver ton nom dessus!
+N'oublie pas de graver ton nom dessus !
 ]],
 }
 
@@ -1130,10 +797,8 @@ dialog{
   id = "_treasure.tail_key.1",
   icon = "40",
   text = [[
-Tu as la Clé
-Flagello ! Tu peux
-ouvrir la porte de la
-Cave Flagello !
+Tu as la Clé Flagello !
+Tu peux ouvrir la porte de la Cave Flagello !
 ]],
 }
 
@@ -1141,11 +806,8 @@ dialog{
   id = "_treasure.tunic.2",
   icon = "61",
   text = [[
-Vous obtenez les
-habits bleus ! $0
-   
-Votre endurance 
-est doublée !
+Vous obtenez les Habits Bleus ! $0   
+Votre endurance est doublée !
 ]],
 }
 
@@ -1153,11 +815,8 @@ dialog{
   id = "_treasure.tunic.3",
   icon = "62",
   text = [[
-Vous obtenez les
-habits rouges !$0
-  
-Vous débordez   
-d'énergie !
+Vous obtenez les Habits Rouges !$0
+Vous débordez d'énergie !
 ]],
 }
 
