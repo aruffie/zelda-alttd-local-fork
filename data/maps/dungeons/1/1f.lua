@@ -7,20 +7,16 @@ local is_boss_active = false
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
 local door_manager = require("scripts/maps/door_manager")
-local treasure_manager = require("scripts/maps/treasure_manager")
-local switch_manager = require("scripts/maps/switch_manager")
 local enemy_manager = require("scripts/maps/enemy_manager")
-local separator_manager = require("scripts/maps/separator_manager")
 local owl_manager = require("scripts/maps/owl_manager")
+local switch_manager = require("scripts/maps/switch_manager")
+local treasure_manager = require("scripts/maps/treasure_manager")
+local separator_manager = require("scripts/maps/separator_manager")
 require("scripts/multi_events")
 
 -- Map events
 function map:on_started()
 
-  -- Music
-  game:play_dungeon_music()
-  -- Owl
-  owl_manager:init(map)
   -- Chests
   treasure_manager:appear_chest_if_savegame_exist(map, "chest_small_key_2",  "dungeon_1_small_key_2")
   treasure_manager:appear_chest_if_savegame_exist(map, "chest_map",  "dungeon_1_map")
@@ -44,6 +40,10 @@ function map:on_started()
   enemy_manager:execute_when_vegas_dead(map, "enemy_group_13")
   -- Heart
   treasure_manager:appear_heart_container_if_boss_dead(map)
+  -- Music
+  game:play_dungeon_music()
+  -- Owls
+  owl_manager:init(map)
   -- Pickables
   treasure_manager:disappear_pickable(map, "pickable_small_key_1")
   treasure_manager:disappear_pickable(map, "heart_container")
@@ -73,8 +73,11 @@ function map:on_obtaining_treasure(item, variant, savegame_variable)
 
 end
 
+-- Doors events
 weak_wall_group_1:register_event("on_opened", function()
+    
   door_manager:destroy_wall(map, "weak_wall_group_1_")
+  
 end)
 
 -- Sensors events

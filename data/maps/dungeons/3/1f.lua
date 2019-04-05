@@ -1,27 +1,44 @@
 -- Variables
 local map = ...
-local separator = ...
 local game = map:get_game()
 local is_small_boss_active = false
 local is_boss_active = false
 
-require("scripts/multi_events")
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
 local door_manager = require("scripts/maps/door_manager")
-local treasure_manager = require("scripts/maps/treasure_manager")
-local switch_manager = require("scripts/maps/switch_manager")
 local enemy_manager = require("scripts/maps/enemy_manager")
-local separator_manager = require("scripts/maps/separator_manager")
 local owl_manager = require("scripts/maps/owl_manager")
+local switch_manager = require("scripts/maps/switch_manager")
+local treasure_manager = require("scripts/maps/treasure_manager")
+local separator_manager = require("scripts/maps/separator_manager")
+require("scripts/multi_events")
 
-
+-- Map events
 function map:on_started()
 
-  -- Init music
-  game:play_dungeon_music()
-  map:set_doors_open("door_group_1", true)
+  -- Chests
   treasure_manager:appear_chest_if_savegame_exist(map, "chest_small_key_1",  "dungeon_3_small_key_3")
   treasure_manager:appear_chest_if_savegame_exist(map, "chest_rupee_1",  "dungeon_3_rupee_1")
+  treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_2_", "chest_small_key_1_")
+  treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_5_", "chest_rupee_1_")
+  -- Doors
+  map:set_doors_open("door_group_1_", true)
+  door_manager:open_when_pot_break(map, "door_group_1_")
+  door_manager:open_when_enemies_dead(map,  "enemy_group_3_",  "door_group_2_")
+  -- Enemies
+  enemy_manager:create_teletransporter_if_small_boss_dead(map, false)
+  -- Heart
+  treasure_manager:appear_heart_container_if_boss_dead(map)
+  -- Music
+  game:play_dungeon_music()
+  -- Owls
+  owl_manager:init(map)
+  -- Pickables
   treasure_manager:disappear_pickable(map, "pickable_small_key_1")
+  treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_7_", "pickable_small_key_1")
+  -- Separators
+  separator_manager:init(map)
 
 end
 
@@ -32,21 +49,18 @@ function map:on_opening_transition_finished(destination)
       game:start_dialog("maps.dungeons.3.welcome")
     end
     map:close_doors("door_group_1")
+    
 end
 
--- Enemies
+function map:on_obtaining_treasure(item, variant, savegame_variable)
 
--- Treasures
-treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_7_", "pickable_small_key_1")
+  if savegame_variable == "dungeon_3_big_treasure" then
+    treasure_manager:get_instrument(map)
+  end
 
--- Doors
-door_manager:open_when_pot_break(map, "door_group_1_")
-door_manager:open_when_enemies_dead(map,  "enemy_group_3_",  "door_group_2_")
-
---Blocks
+end
 
 -- Sensors events
-
 function sensor_1:on_activated()
 
   door_manager:close_if_enemies_not_dead(map, "enemy_group_3_", "door_group_2_")
@@ -64,18 +78,3 @@ function sensor_3:on_activated()
   door_manager:close_if_enemies_not_dead(map, "enemy_group_3_", "door_group_2_")
 
 end
-
-
--- Enemies events
-
--- Switchs events
-
--- Treasures events
-treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_2_", "chest_small_key_1_")
-treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_5_", "chest_rupee_1_")
-
--- Separator events
-
-separator_manager:init(map)
-owl_manager:init(map)
-

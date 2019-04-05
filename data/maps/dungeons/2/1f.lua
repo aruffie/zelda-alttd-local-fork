@@ -6,25 +6,19 @@ local is_boss_active = false
 local boss_key_enemies_index = 0
 
 -- Include scripts
-require("scripts/multi_events")
 local audio_manager = require("scripts/audio_manager")
 local door_manager = require("scripts/maps/door_manager")
-local treasure_manager = require("scripts/maps/treasure_manager")
-local switch_manager = require("scripts/maps/switch_manager")
 local enemy_manager = require("scripts/maps/enemy_manager")
 local light_manager = require("scripts/maps/light_manager")
-local separator_manager = require("scripts/maps/separator_manager")
 local owl_manager = require("scripts/maps/owl_manager")
+local switch_manager = require("scripts/maps/switch_manager")
+local treasure_manager = require("scripts/maps/treasure_manager")
+local separator_manager = require("scripts/maps/separator_manager")
+require("scripts/multi_events")
 
 -- Map events
 function map:on_started(destination)
 
-  -- Music
-  game:play_dungeon_music()
-  -- Light
-  light_manager:init(map)
-  -- Owl
-  owl_manager:init(map)
   -- Chests
   treasure_manager:appear_chest_if_savegame_exist(map, "chest_compass",  "dungeon_2_compass")
   treasure_manager:appear_chest_if_savegame_exist(map, "chest_small_key_4",  "dungeon_2_small_key_4")
@@ -41,6 +35,12 @@ function map:on_started(destination)
   door_manager:open_when_enemies_dead(map,  "enemy_group_8_",  "door_group_4_")
   -- Ennemies
   enemy_manager:create_teletransporter_if_small_boss_dead(map, false)
+  -- Light
+  light_manager:init(map)
+  -- Music
+  game:play_dungeon_music()
+  -- Owls
+  owl_manager:init(map)
   -- Pickables
   treasure_manager:disappear_pickable(map, "pickable_small_key_1")
   treasure_manager:disappear_pickable(map, "pickable_small_key_2")
@@ -66,7 +66,6 @@ function map:on_started(destination)
   if destination == stairs_2_B then
     map:set_light(0)
   end
-
 
 end
 
