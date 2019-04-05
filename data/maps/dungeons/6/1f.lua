@@ -11,9 +11,9 @@ local door_manager = require("scripts/maps/door_manager")
 local enemy_manager = require("scripts/maps/enemy_manager")
 local flying_tile_manager = require("scripts/maps/flying_tile_manager")
 local owl_manager = require("scripts/maps/owl_manager")
+local separator_manager = require("scripts/maps/separator_manager")
 local switch_manager = require("scripts/maps/switch_manager")
 local treasure_manager = require("scripts/maps/treasure_manager")
-local separator_manager = require("scripts/maps/separator_manager")
 
 -- Map events
 function map:on_started()

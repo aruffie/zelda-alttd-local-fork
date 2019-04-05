@@ -9,9 +9,9 @@ local audio_manager = require("scripts/audio_manager")
 local door_manager = require("scripts/maps/door_manager")
 local enemy_manager = require("scripts/maps/enemy_manager")
 local owl_manager = require("scripts/maps/owl_manager")
+local separator_manager = require("scripts/maps/separator_manager")
 local switch_manager = require("scripts/maps/switch_manager")
 local treasure_manager = require("scripts/maps/treasure_manager")
-local separator_manager = require("scripts/maps/separator_manager")
 require("scripts/multi_events")
 
 -- Map events
