@@ -186,6 +186,61 @@ animation{
   },
 }
 animation{
+  name = "fishing_caught_fish",
+  src_image = "hero/fishing.tunic.png",
+  frame_delay = 80,
+  directions = {
+    { x = 288, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21, num_frames = 3 },
+    { x = 288, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21, num_frames = 3 },
+    { x = 288, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21, num_frames = 3 },
+    { x = 288, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21, num_frames = 3 },
+  },
+}
+animation{
+  name = "fishing_move",
+  src_image = "hero/fishing.tunic.png",
+  frame_delay = 80,
+  directions = {
+    { x = 240, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21 },
+    { x = 240, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21 },
+    { x = 240, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21 },
+    { x = 240, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21 },
+  },
+}
+animation{
+  name = "fishing_pull",
+  src_image = "hero/fishing.tunic.png",
+  frame_delay = 80,
+  directions = {
+    { x = 288, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21 },
+    { x = 288, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21 },
+    { x = 288, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21 },
+    { x = 288, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21 },
+  },
+}
+animation{
+  name = "fishing_start",
+  src_image = "hero/fishing.tunic.png",
+  frame_delay = 80,
+  directions = {
+    { x = 0, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21, num_frames = 6 },
+    { x = 0, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21, num_frames = 6 },
+    { x = 0, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21, num_frames = 6 },
+    { x = 0, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21, num_frames = 6 },
+  },
+}
+animation{
+  name = "fishing_stopped",
+  src_image = "hero/fishing.tunic.png",
+  frame_delay = 80,
+  directions = {
+    { x = 192, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21 },
+    { x = 192, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21 },
+    { x = 192, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21 },
+    { x = 192, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21 },
+  },
+}
+animation{
   name = "flying",
   src_image = "hero/flying.png",
   frame_delay = 180,
