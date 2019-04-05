@@ -19943,7 +19943,7 @@ chest{
 }
 
 custom_entity{
-  name = "torch_group_6_1",
+  name = "timed_torch_group_6_1",
   layer = 0,
   x = 376,
   y = 93,
@@ -19955,7 +19955,7 @@ custom_entity{
 }
 
 custom_entity{
-  name = "torch_group_6_2",
+  name = "timed_torch_group_6_2",
   layer = 0,
   x = 472,
   y = 189,
@@ -20255,7 +20255,7 @@ enemy{
 }
 
 custom_entity{
-  name = "auto_torch_group_4_1",
+  name = "timed_torch_group_4_1",
   layer = 0,
   x = 376,
   y = 909,
@@ -20267,7 +20267,7 @@ custom_entity{
 }
 
 custom_entity{
-  name = "auto_torch_group_4_2",
+  name = "timed_torch_group_4_2",
   layer = 0,
   x = 376,
   y = 781,
@@ -20440,7 +20440,7 @@ teletransporter{
   width = 16,
   height = 16,
   destination_map = "dungeons/2/sideview_3",
-  destination = "stairs_1_B",
+  destination = "stairs_2_B",
 }
 
 destination{
@@ -23140,7 +23140,7 @@ dynamic_tile{
 custom_entity{
   layer = 1,
   x = 1800,
-  y = 1573,
+  y = 1565,
   width = 16,
   height = 16,
   direction = 0,

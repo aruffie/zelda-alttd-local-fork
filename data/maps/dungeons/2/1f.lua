@@ -17,7 +17,7 @@ local separator_manager = require("scripts/maps/separator_manager")
 local owl_manager = require("scripts/maps/owl_manager")
 
 -- Map events
-function map:on_started()
+function map:on_started(destination)
 
   -- Music
   game:play_dungeon_music()
@@ -62,6 +62,10 @@ function map:on_started()
       entity:remove()
     end
   end
+  -- Init light
+  if destination == stairs_2_B then
+    map:set_light(0)
+  end
 
 
 end
@@ -70,8 +74,6 @@ function map:on_opening_transition_finished(destination)
   
   if destination == dungeon_2_1_B then
     game:start_dialog("maps.dungeons.2.welcome")
-  elseif destination == stairs_2_B then
-    map:set_light(0)
   end
   
 end
