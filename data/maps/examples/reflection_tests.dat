@@ -60,3 +60,12 @@ enemy{
   breed = "keese",
 }
 
+npc{
+  layer = 0,
+  x = 64,
+  y = 141,
+  direction = 3,
+  subtype = 1,
+  sprite = "npc/statues/owl",
+}
+

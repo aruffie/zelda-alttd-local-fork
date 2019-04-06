@@ -43,26 +43,42 @@ function fsa:render_reflection(map)
     end
   end
   
+  local cx, cy = map:get_camera():get_position()
+  local cw, ch = map:get_camera():get_size()
+  
   -- draw an entity's reflection
   local function draw_entity_reflection(ent, sprite_name)
     
     local sprite = ent:get_sprite(sprite_name)
+    if not sprite then return end
+    
     local osx,osy = sprite:get_scale()
     sprite:set_scale(osx, -osy)
     local hx,hy = ent:get_position()
-    local cx,cy = map:get_camera():get_position()
+    
     local tx,ty = hx-cx, hy-cy + (ent.flying_height or 0)
     sprite:draw(reflection, tx, ty)
     sprite:set_scale(osx, osy)
   end
   
-  local hero = map:get_hero()
-  draw_entity_reflection(hero, 'tunic')
+  
+  local reflection_filter = {
+    hero = {'tunic', 'sword', 'shield'}, -- TODO check why shield does not display
+    enemy = true,
+    npc = true
+  }
   
   -- for each enemy in map
-  for enemy in map:get_entities_by_type('enemy') do
-    if not enemy.dont_reflect then
-      draw_entity_reflection(enemy)
+  for ent in map:get_entities_in_rectangle(cx, cy, cw, ch) do --TODO check if margins are necessary
+    local filter = reflection_filter[ent:get_type()]
+    if filter and not ent.dont_reflect then
+      if type(filter) == 'table' then
+        for _, name in ipairs(filter) do
+          draw_entity_reflection(ent, name)
+        end
+      else
+        draw_entity_reflection(ent)
+      end
     end
   end
   
