@@ -1,6 +1,6 @@
 animation{
   name = "walking",
-  src_image = "enemies/green_bombite.png",
+  src_image = "enemies/bombite_green.png",
   frame_delay = 150,
   frame_to_loop_on = 0,
   directions = {
@@ -12,7 +12,7 @@ animation{
 }
 animation{
   name = "walking_counter",
-  src_image = "enemies/green_bombite.png",
+  src_image = "enemies/bombite_green.png",
   frame_delay = 150,
   frame_to_loop_on = 0,
   directions = {
@@ -24,7 +24,7 @@ animation{
 }
 animation{
   name = "walking_explode",
-  src_image = "enemies/green_bombite.png",
+  src_image = "enemies/bombite_green.png",
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {
@@ -36,7 +36,7 @@ animation{
 }
 animation{
   name = "walking_smile",
-  src_image = "enemies/green_bombite.png",
+  src_image = "enemies/bombite_green.png",
   frame_delay = 150,
   frame_to_loop_on = 0,
   directions = {

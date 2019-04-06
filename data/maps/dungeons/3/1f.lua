@@ -18,14 +18,16 @@ require("scripts/multi_events")
 function map:on_started()
 
   -- Chests
-  treasure_manager:appear_chest_if_savegame_exist(map, "chest_small_key_1",  "dungeon_3_small_key_3")
+  treasure_manager:appear_chest_if_savegame_exist(map, "chest_small_key_1",  "dungeon_3_small_key_1")
   treasure_manager:appear_chest_if_savegame_exist(map, "chest_rupee_1",  "dungeon_3_rupee_1")
-  treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_2_", "chest_small_key_1_")
-  treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_5_", "chest_rupee_1_")
+  treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_2_", "chest_small_key_1")
+  treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_5_", "chest_rupee_1")
   -- Doors
-  map:set_doors_open("door_group_1_", true)
+  map:set_doors_open("door_group_2", true)
+  map:set_doors_open("door_group_3_", true)
   door_manager:open_when_pot_break(map, "door_group_1_")
   door_manager:open_when_enemies_dead(map,  "enemy_group_3_",  "door_group_2_")
+  door_manager:open_when_enemies_dead(map,  "enemy_group_12_",  "door_group_3_")
   -- Enemies
   enemy_manager:create_teletransporter_if_small_boss_dead(map, false)
   -- Heart
@@ -44,11 +46,9 @@ end
 
 function map:on_opening_transition_finished(destination)       
 
-    map:set_doors_open("door_group_2", true)
     if destination == dungeon_3_1_B then
       game:start_dialog("maps.dungeons.3.welcome")
     end
-    map:close_doors("door_group_1")
     
 end
 
@@ -76,5 +76,17 @@ end
 function sensor_3:on_activated()
 
   door_manager:close_if_enemies_not_dead(map, "enemy_group_3_", "door_group_2_")
+
+end
+
+function sensor_4:on_activated()
+
+  door_manager:close_if_enemies_not_dead(map, "enemy_group_12_", "door_group_3_")
+
+end
+
+function sensor_5:on_activated()
+
+  door_manager:close_if_enemies_not_dead(map, "enemy_group_12_", "door_group_3_")
 
 end

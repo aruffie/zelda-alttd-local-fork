@@ -2,19 +2,19 @@ animation{
   name = "normal",
   src_image = "npc/statues/owl_dungeon.png",
   directions = {
-    { x = 0, y = 0, frame_width = 4, frame_height = 32, origin_x = 4, origin_y = 13 },
-    { x = 4, y = 0, frame_width = 24, frame_height = 32, origin_x = 8, origin_y = 13 },
-    { x = 28, y = 0, frame_width = 5, frame_height = 32, origin_x = 8, origin_y = 13 },
-    { x = 28, y = 0, frame_width = 5, frame_height = 32, origin_x = 8, origin_y = 13 },
+    { x = 4, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29 },
+    { x = 4, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29 },
+    { x = 4, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29 },
+    { x = 4, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29 },
   },
 }
 animation{
   name = "full",
   src_image = "npc/statues/owl_dungeon.png",
   directions = {
-    { x = 0, y = 0, frame_width = 4, frame_height = 32, origin_x = 8, origin_y = 13 },
-    { x = 36, y = 0, frame_width = 24, frame_height = 32, origin_x = 8, origin_y = 13 },
-    { x = 28, y = 0, frame_width = 5, frame_height = 32, origin_x = 8, origin_y = 13 },
-    { x = 28, y = 0, frame_width = 5, frame_height = 32, origin_x = 8, origin_y = 13 },
+    { x = 36, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29 },
+    { x = 36, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29 },
+    { x = 36, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29 },
+    { x = 36, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29 },
   },
 }

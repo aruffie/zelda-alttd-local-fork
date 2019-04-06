@@ -197,6 +197,8 @@ sprite{ id = "enemies/beetle_green", description = "Beetle green" }
 sprite{ id = "enemies/beetle_red", description = "Beetle red" }
 sprite{ id = "enemies/bloober", description = "Bloober" }
 sprite{ id = "enemies/bomber", description = "Bomber" }
+sprite{ id = "enemies/bombite_green", description = "Green bombite" }
+sprite{ id = "enemies/bombite_red", description = "Red bombite" }
 sprite{ id = "enemies/boo_buddy", description = "Boo buddy" }
 sprite{ id = "enemies/boss/angler's_fish", description = "Angler's fish" }
 sprite{ id = "enemies/boss/big_armos_knight", description = "Big armos knight" }
@@ -274,7 +276,6 @@ sprite{ id = "enemies/giant_goponga_flower", description = "Giant Goponga Flower
 sprite{ id = "enemies/gibdo", description = "Gibdo" }
 sprite{ id = "enemies/goomba", description = "Goomba" }
 sprite{ id = "enemies/goponga_flower", description = "Goponga flower" }
-sprite{ id = "enemies/green_bombite", description = "Green bombite" }
 sprite{ id = "enemies/hardhat_beetle_blue", description = "Hardhat beetle blue" }
 sprite{ id = "enemies/hardhat_beetle_red", description = "Hardhat beetle red" }
 sprite{ id = "enemies/helmasaur_masked", description = "Helmasaur masked" }
@@ -315,7 +316,6 @@ sprite{ id = "enemies/pokey_full", description = "Pokey full" }
 sprite{ id = "enemies/pokey_head", description = "Pokey_head" }
 sprite{ id = "enemies/pols_voice", description = "Pols voice" }
 sprite{ id = "enemies/raven", description = "Raven" }
-sprite{ id = "enemies/red_bombite", description = "Red bombite" }
 sprite{ id = "enemies/river_zora", description = "River zora" }
 sprite{ id = "enemies/rope", description = "Rope" }
 sprite{ id = "enemies/sand_crab", description = "Crab" }
@@ -1165,6 +1165,7 @@ enemy{ id = "arm_mimic", description = "Arm mimic" }
 enemy{ id = "armos", description = "Armos" }
 enemy{ id = "arrow", description = "Arrow" }
 enemy{ id = "beamos", description = "Beamos" }
+enemy{ id = "bombite_red", description = "Bombite red" }
 enemy{ id = "boo_buddy", description = "Boo buddy" }
 enemy{ id = "boss/evil_orb", description = "Evil orb" }
 enemy{ id = "boss/facade", description = "Facade" }
@@ -1226,6 +1227,7 @@ enemy{ id = "octorok_stone", description = "Octorok stone" }
 enemy{ id = "orb_monster_blue", description = "Orb monster blue" }
 enemy{ id = "orb_monster_green", description = "Orb monster green" }
 enemy{ id = "orb_monster_red", description = "Orb monster red" }
+enemy{ id = "pairodd", description = "Pairodd" }
 enemy{ id = "peahat", description = "Peahat" }
 enemy{ id = "pike_auto", description = "Pike auto" }
 enemy{ id = "pike_detect", description = "Pike detect" }
@@ -1234,7 +1236,6 @@ enemy{ id = "piranha_plant", description = "Piranha plant" }
 enemy{ id = "pokey_full", description = "Pokey full" }
 enemy{ id = "pols_voice", description = "Pols voice" }
 enemy{ id = "raven", description = "Raven" }
-enemy{ id = "red_bombite", description = "Red bombite" }
 enemy{ id = "river_zora", description = "River Zora" }
 enemy{ id = "rope", description = "Rope" }
 enemy{ id = "sand_crab", description = "Sand crab" }
@@ -1324,6 +1325,7 @@ file{ path = "enemies/arm_mimic.lua", license = "GPL v3" }
 file{ path = "enemies/armos.lua", license = "GPL v3" }
 file{ path = "enemies/arrow.lua", license = "GPL v3" }
 file{ path = "enemies/beamos.lua", license = "GPL v3" }
+file{ path = "enemies/bombite_red.lua", license = "GPL v3" }
 file{ path = "enemies/boo_buddy.lua", license = "GPL v3" }
 file{ path = "enemies/boss", license = "GPL v3" }
 file{ path = "enemies/bubble.lua", license = "GPL v3" }
@@ -1379,7 +1381,6 @@ file{ path = "enemies/pike_fixed.lua", license = "GPL v3" }
 file{ path = "enemies/pokey_full.lua", license = "GPL v3" }
 file{ path = "enemies/pols_voice.lua", license = "GPL v3" }
 file{ path = "enemies/raven.lua", license = "GPL v3" }
-file{ path = "enemies/red_bombite.lua", license = "GPL v3" }
 file{ path = "enemies/river_zora.lua", license = "GPL v3" }
 file{ path = "enemies/rope.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "enemies/sand_crab.lua", license = "GPL v3" }

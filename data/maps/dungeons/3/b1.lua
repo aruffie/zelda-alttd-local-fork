@@ -19,5 +19,12 @@ function map:on_started()
 
   -- Music
   game:play_dungeon_music()
+  -- Owls
+  owl_manager:init(map)
+  -- Pickables
+  treasure_manager:disappear_pickable(map, "pickable_small_key_2")
+  treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_2_", "pickable_small_key_2")
+  -- Separators
+  separator_manager:init(map)
 
 end
