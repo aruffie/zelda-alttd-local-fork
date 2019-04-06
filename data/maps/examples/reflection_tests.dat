@@ -5,7 +5,7 @@ properties{
   height = 256,
   min_layer = 0,
   max_layer = 2,
-  world = "outside_world",
+  world = "outside_worl",
   tileset = "addition/out",
   music = "same",
 }
@@ -42,14 +42,6 @@ enemy{
   y = 77,
   direction = 0,
   breed = "octorok_stone",
-}
-
-enemy{
-  layer = 0,
-  x = 88,
-  y = 213,
-  direction = 0,
-  breed = "flying_octorok",
 }
 
 enemy{

@@ -7,6 +7,7 @@
 -- - Bombs.
 
 local separator_manager = {}
+local light_manager_fsa = require("scripts/lights/light_manager")
 require("scripts/multi_events")
 
 function separator_manager:init(map)
@@ -39,6 +40,10 @@ function separator_manager:init(map)
             direction = enemy_place.direction,
             name = enemy_place.name,
           })
+        
+          -- add enemy to the light manager of fsa mode, since it has been recreated
+          light_manager_fsa:add_occluder(enemy)
+          
           enemy:set_treasure(unpack(enemy_place.treasure))
           enemy.on_dead = old_enemy.on_dead  -- For door_manager.
           enemy.on_symbol_fixed = old_enemy.on_symbol_fixed -- For Vegas enemies

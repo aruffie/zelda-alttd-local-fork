@@ -263,10 +263,12 @@ local function setup_inside_lights(map)
                  l.dir,l.cut,l.aperture)
   end
 
+
   --TODO add other non-satic occluders
   for en in map:get_entities_by_type("enemy") do
     light_mgr:add_occluder(en)
   end
+  
   for en in map:get_entities_by_type("npc") do
     light_mgr:add_occluder(en)
   end
