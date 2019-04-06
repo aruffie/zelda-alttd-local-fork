@@ -2,20 +2,41 @@ animation{
   name = "stopped",
   src_image = "entities/statues/pillar.png",
   directions = {
-    { x = 0, y = 0, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45 },
-    { x = 0, y = 0, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45 },
-    { x = 0, y = 0, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45 },
-    { x = 0, y = 0, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45 },
+    { x = 0, y = 48, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 29 },
+    { x = 0, y = 48, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 29 },
+    { x = 0, y = 48, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 29 },
+    { x = 0, y = 48, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 29 },
   },
 }
 animation{
-  name = "destroy",
+  name = "collapse",
   src_image = "entities/statues/pillar.png",
   frame_delay = 500,
   directions = {
-    { x = 0, y = 0, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45, num_frames = 3 },
-    { x = 0, y = 0, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45, num_frames = 3 },
-    { x = 0, y = 0, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45, num_frames = 3 },
-    { x = 0, y = 0, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45, num_frames = 3 },
+    { x = 0, y = 48, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 5 },
+    { x = 0, y = 48, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 5 },
+    { x = 0, y = 48, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 5 },
+    { x = 0, y = 48, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 5 },
+  },
+}
+animation{
+  name = "collapse_top",
+  src_image = "entities/statues/pillar.png",
+  frame_delay = 500,
+  directions = {
+    { x = 0, y = 0, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45, num_frames = 5 },
+    { x = 0, y = 0, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45, num_frames = 5 },
+    { x = 0, y = 0, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45, num_frames = 5 },
+    { x = 0, y = 0, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45, num_frames = 5 },
+  },
+}
+animation{
+  name = "stopped_top",
+  src_image = "entities/statues/pillar.png",
+  directions = {
+    { x = 0, y = 0, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45 },
+    { x = 0, y = 0, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45 },
+    { x = 0, y = 0, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45 },
+    { x = 0, y = 0, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45 },
   },
 }

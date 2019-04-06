@@ -1,8 +1,9 @@
 -- Beam shot by Wizzrobe and that can bounce on the sword.
 
 local enemy = ...
-
 local bounced = false
+
+local audio_manager = require("scripts/audio_manager")
 
 function enemy:on_created()
 

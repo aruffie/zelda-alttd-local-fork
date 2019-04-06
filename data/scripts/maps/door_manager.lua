@@ -20,10 +20,9 @@ function door_manager:open_when_enemies_dead(map, enemy_prefix, door_prefix, sou
       end
    end
   end
-   for enemy in map:get_entities(enemy_prefix) do
-     --enemy.on_dead = enemy_on_dead
-     enemy:register_event("on_dead", enemy_on_dead)
-   end
+  for enemy in map:get_entities(enemy_prefix) do
+    enemy:register_event("on_dead", enemy_on_dead)
+  end
 
 end
 
@@ -31,19 +30,20 @@ end
 function door_manager:open_when_flying_tiles_dead(map, enemy_prefix, door_prefix)
 
   local function enemy_on_flying_tile_dead()
-  local open_door = true
-  for enemy in map:get_entities(enemy_prefix) do
-    if enemy.state ~= "destroying" then
-    open_door = false
+    local open_door = true
+    for enemy in map:get_entities(enemy_prefix) do
+      local name = enemy:get_name()
+      if enemy.state ~= "destroying" and not name:find("^" .. enemy_prefix .. "_after") and not name:find("^" .. enemy_prefix .. "_before") then
+        open_door = false
+      end
+    end
+    if open_door then
+      map:open_doors(door_prefix)
+      audio_manager:play_sound("misc/secret1")
     end
   end
-  if open_door then
-    map:open_doors(door_prefix)
-    audio_manager:play_sound("misc/secret1")
-  end
-  end
-   for enemy in map:get_entities(enemy_prefix) do
-     enemy.on_flying_tile_dead = enemy_on_flying_tile_dead
+  for enemy in map:get_entities(enemy_prefix) do
+    enemy.on_flying_tile_dead = enemy_on_flying_tile_dead
   end
 
 end
@@ -142,9 +142,11 @@ end
 function door_manager:open_when_pot_break(map, door_prefix)
 
   local detect_entity = map:get_entity(door_prefix .. "detect")
+  local hero = map:get_hero()
   if detect_entity ~= nil then
     detect_entity:add_collision_test("touching", function(entity_source, entity_dest)
-      if entity_dest:get_type() == "carried_object" then
+      if hero:get_state() == 'free' and entity_dest:get_type() == "carried_object" then
+          detect_entity:remove()
           map:open_doors(door_prefix)
           audio_manager:play_sound("misc/secret1")
       end
@@ -158,20 +160,17 @@ function door_manager:destroy_wall(map, weak_wall_prefix)
 
   local game = map:get_game()
   local dungeon = game:get_dungeon_index()
-  if game:get_value("dungeon_" .. dungeon .. "_" .. weak_wall_prefix) == nil then
-    game:set_value("dungeon_" .. dungeon .. "_" .. weak_wall_prefix, true)
-    map:remove_entities(weak_wall_prefix)
-    audio_manager:play_sound("misc/secret1")
-  end
+  map:remove_entities(weak_wall_prefix)
+  audio_manager:play_sound("misc/secret1")
 
 end
 
--- Destroy wall by explosion
-function door_manager:check_destroy_wall(map, weak_wall_prefix)
+-- Check if wall is exploded and destroy
+function door_manager:open_weak_wall_if_savegame_exist(map, weak_wall_prefix, savegame)
 
   local game = map:get_game()
   local dungeon = game:get_dungeon_index()
-  if game:get_value("dungeon_" .. dungeon .. "_" .. weak_wall_prefix) == true then
+  if game:get_value(savegame) == true then
     map:remove_entities(weak_wall_prefix)
   end
 

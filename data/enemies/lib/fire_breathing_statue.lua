@@ -17,6 +17,8 @@ local behavior = {}
 -- }
 -- behavior:create(enemy, properties)
 
+local audio_manager = require("scripts/audio_manager")
+
 function behavior:create(enemy, properties)
 
   local children = {}

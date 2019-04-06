@@ -12830,9 +12830,9 @@ dynamic_tile{
   layer = 0,
   x = 168,
   y = 208,
-  pattern = "940",
   width = 32,
   height = 16,
+  pattern = "940",
 }
 
 custom_entity{
@@ -13303,9 +13303,9 @@ dynamic_tile{
   layer = 0,
   x = 768,
   y = 264,
-  pattern = "1800",
   width = 32,
   height = 8,
+  pattern = "1800",
 }
 
 dynamic_tile{
@@ -13313,9 +13313,9 @@ dynamic_tile{
   layer = 0,
   x = 768,
   y = 272,
-  pattern = "1706",
   width = 32,
   height = 16,
+  pattern = "1706",
 }
 
 door{
@@ -13372,18 +13372,18 @@ dynamic_tile{
   layer = 0,
   x = 344,
   y = 768,
-  pattern = "941",
   width = 48,
   height = 16,
+  pattern = "941",
 }
 
 dynamic_tile{
   layer = 0,
   x = 344,
   y = 752,
-  pattern = "940",
   width = 48,
   height = 16,
+  pattern = "940",
 }
 
 wall{
@@ -13464,18 +13464,18 @@ dynamic_tile{
   layer = 0,
   x = 64,
   y = 768,
-  pattern = "941",
   width = 48,
   height = 16,
+  pattern = "941",
 }
 
 dynamic_tile{
   layer = 0,
   x = 64,
   y = 752,
-  pattern = "940",
   width = 48,
   height = 16,
+  pattern = "940",
 }
 
 wall{
@@ -13615,9 +13615,9 @@ dynamic_tile{
   layer = 0,
   x = 624,
   y = 80,
-  pattern = "113",
   width = 16,
   height = 16,
+  pattern = "113",
   tileset = "addition/out",
 }
 
@@ -13625,10 +13625,29 @@ dynamic_tile{
   layer = 0,
   x = 624,
   y = 64,
-  pattern = "118",
   width = 16,
   height = 16,
+  pattern = "118",
   tileset = "addition/out",
+}
+
+destination{
+  name = "dungeon_7_2_B",
+  layer = 0,
+  x = 632,
+  y = 109,
+  direction = 3,
+}
+
+teletransporter{
+  name = "dungeon_7_1_A",
+  layer = 0,
+  x = 624,
+  y = 64,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "dungeon_7_1_B",
 }
 
 tile{

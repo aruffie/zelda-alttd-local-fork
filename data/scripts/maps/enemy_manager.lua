@@ -6,6 +6,19 @@ enemy_manager.is_transported = false
 require("scripts/multi_events")
 local audio_manager = require("scripts/audio_manager")
 
+function enemy_manager:on_enemies_dead(map, enemies_prefix, callback)
+
+  local function enemy_on_dead()
+    if not map:has_entities(enemies_prefix) then
+      callback()
+    end
+  end
+
+  for enemy in map:get_entities(enemies_prefix) do
+    enemy:register_event("on_dead", enemy_on_dead)
+  end
+end
+
 function enemy_manager:execute_when_vegas_dead(map, enemy_prefix)
 
   local function enemy_on_symbol_fixed(enemy)

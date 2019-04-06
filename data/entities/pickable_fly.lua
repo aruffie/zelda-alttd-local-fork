@@ -7,26 +7,30 @@ local sprite
 local sprite_shadow
 
 -- Include scripts
+local audio_manager = require("scripts/audio_manager")
 require("scripts/multi_events")
 
 -- Event called when the custom entity is initialized.
 entity:register_event("on_created", function()
 
   entity:set_layer_independent_collisions(true)
-  local x,y,layer = entity:get_position()
+  local x, y, layer = entity:get_position()
+  sprite = entity:get_sprite()
+  sprite:set_animation("normal")
+  local sprite_origin_x, sprite_origin_y = sprite:get_origin()
+
   shadow = map:create_custom_entity{
-    x = x,
-    y = y,
+    x = x + sprite_origin_x - 8,
+    y = y + sprite_origin_y - 4,
     width = 16,
     height = 8,
     direction = 0,
     layer = 0 ,
     sprite ="entities/shadows/pickable_flying"
   }
-  sprite = entity:get_sprite()
   sprite_shadow = shadow:get_sprite()
-  sprite:set_animation("normal")
   sprite_shadow:set_animation("normal")
+
   entity:add_collision_test("center", function(entity, other_entity)
     if other_entity:get_type()== "hero" and other_entity:is_jumping() then
       entity:on_picked()
@@ -54,10 +58,28 @@ entity:register_event("on_picked", function()
     end
   -- Bomb item.
   elseif sprite_name == "entities/items/bomb_fly" then
+    bombs_counter = game:get_item("bombs_counter")
     if bombs_counter:get_amount() == bombs_counter:get_max_amount() then
       audio_manager:play_sound("items/get_item")
     else
-      game:get_item("bombs_counter"):add_amount(1)
+      audio_manager:play_sound("items/get_item2")
+      bombs_counter:add_amount(1)
+    end
+  -- Arrow item.
+  elseif sprite_name == "entities/items/arrow_fly" then
+    bow = game:get_item("bow")
+    if bow:get_amount() == bow:get_max_amount() then
+      audio_manager:play_sound("items/get_item")
+    else
+      audio_manager:play_sound("items/get_item2")
+      bow:add_amount(1)
+    end
+  -- Rupee item.
+  elseif sprite_name == "entities/items/rupee_fly" then
+    if game:get_money() == game:get_max_life() then
+      audio_manager:play_sound("items/get_item")
+    else
+      game:add_money(1)
     end
 
   -- TODO: add more flying items here.

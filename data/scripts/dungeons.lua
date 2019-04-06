@@ -149,7 +149,7 @@ local function initialize_dungeon_features(game)
       },
       boss = {
         floor = 0,
-        breed = "boss/genie",
+        breed = "boss/genie/genie",
         x = 640 + 1440,
         y = 720 + 365
       }
@@ -220,6 +220,88 @@ local function initialize_dungeon_features(game)
         x = 640 + 1440,
         y = 720 + 365,
         savegame_variable = "dungeon_5_boss",
+      }
+    },
+    [7] = {
+      lowest_floor = 0,
+      highest_floor = 2,
+      rows = 4,
+      cols = 4,
+      music = "64_level_7_eagle_tower",
+      music_instrument = "67_organ_of_evening_calm",
+      destination_ocarina = {
+        map_id = "dungeons/7/1f",
+        destination_name = "destination_ocarina"
+      },
+      teletransporter_end_dungeon = {
+        map_id = "out/d1_east_mt_tamaranch",
+        destination_name = "dungeon_7_2_B"
+      },
+      secrets = {
+        [0] = {        
+          [19] = {
+            savegame = "dongeon_7_rupee_1",
+            signal = false
+          },
+          [22] = {
+            savegame = "dungeon_7_small_key_2",
+            signal = true
+          },
+          [35] = {
+            savegame = "dungeon_7_beak_of_stone",
+            signal = false
+          },
+          [46] = {
+            savegame = "dungeon_7_small_key_1",
+            signal = true
+          }
+        },
+        [1] = {        
+          [20] = {
+            savegame = "dungeon_7_compass",
+            signal = false
+          },
+          [21] = {
+            savegame = "dungeon_7_map",
+            signal = false
+          },
+          [38] = {
+            savegame = "dungeon_7_mirror_shield",
+            signal = false
+          },
+          [43] = {
+            savegame = "dungeon_7_small_key_3",
+            signal = true
+          },
+          [44] = {
+            savegame = "dungeon_7_bomb_1",
+            signal = false
+          }
+        },
+        [2] = {        
+          [21] = {
+            savegame = "dungeon_7_drug_1",
+            signal = false
+          },
+          [30] = {
+            savegame = "dungeon_7_boss_key",
+            signal = true
+          }
+        },
+      },
+      small_boss = {
+        -- TODO
+        floor = 3,
+        breed = "chicken",
+        x = 640 + 1440,
+        y = 720 + 365
+      },
+      boss = {
+        -- TODO
+        floor = 3,
+        breed = "chicken",
+        x = 640 + 1440,
+        y = 720 + 365
       }
     }
   }

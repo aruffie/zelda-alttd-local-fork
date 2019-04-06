@@ -2,7 +2,7 @@ properties{
   x = 0,
   y = 0,
   width = 640,
-  height = 256,
+  height = 240,
   min_layer = 0,
   max_layer = 2,
   world = "dungeon_2",
@@ -16,16 +16,16 @@ tile{
   x = 0,
   y = 0,
   width = 640,
-  height = 256,
+  height = 248,
   pattern = "95",
 }
 
 tile{
   layer = 0,
-  x = 8,
+  x = 0,
   y = 0,
-  width = 632,
-  height = 256,
+  width = 640,
+  height = 248,
   pattern = "20",
 }
 
@@ -340,7 +340,7 @@ tile{
   x = 80,
   y = 216,
   width = 480,
-  height = 48,
+  height = 32,
   pattern = "61",
 }
 
@@ -376,7 +376,7 @@ tile{
   x = 0,
   y = 200,
   width = 80,
-  height = 64,
+  height = 48,
   pattern = "61",
 }
 
@@ -952,7 +952,7 @@ tile{
   x = 560,
   y = 200,
   width = 80,
-  height = 64,
+  height = 48,
   pattern = "61",
 }
 
@@ -1087,7 +1087,7 @@ separator{
   x = 312,
   y = 0,
   width = 16,
-  height = 256,
+  height = 240,
 }
 
 custom_entity{
@@ -1095,10 +1095,17 @@ custom_entity{
   layer = 0,
   x = 152,
   y = 157,
+  properties = {
+    {
+      key = "needs_carrying",
+      value = "true",
+    },
+  },
   width = 32,
   height = 16,
   direction = 0,
   sprite = "entities/moving_platform_dg_2",
+  model = "platform_collapsing",
 }
 
 destructible{
@@ -1136,9 +1143,54 @@ custom_entity{
   layer = 0,
   x = 440,
   y = 157,
+  properties = {
+    {
+      key = "needs_carrying",
+      value = "false",
+    },
+  },
   width = 32,
   height = 16,
   direction = 0,
   sprite = "entities/moving_platform_dg_2",
+  model = "platform_collapsing",
+}
+
+teletransporter{
+  name = "stairs_1_A",
+  layer = 0,
+  x = 544,
+  y = 0,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/2/1f",
+  destination = "stairs_5_B",
+}
+
+destination{
+  name = "stairs_1_B",
+  layer = 0,
+  x = 552,
+  y = 29,
+  direction = 1,
+}
+
+teletransporter{
+  name = "stairs_2_A",
+  layer = 0,
+  x = 80,
+  y = 0,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/2/1f",
+  destination = "stairs_6_B",
+}
+
+destination{
+  name = "stairs_2_B",
+  layer = 0,
+  x = 88,
+  y = 29,
+  direction = 1,
 }
 

@@ -1,16 +1,17 @@
+-- Lua script of enemy "zol green".
+-- This script is executed every time an enemy with this model is created.
+
+-- Variables
 local enemy = ...
-
--- Zol green
-
-enemy:set_life(1)
-enemy:set_damage(1)
-
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local max_distance = 50
 local is_awake = false
 
 function enemy:on_created()
 
+  enemy:set_life(1)
+  enemy:set_damage(1)
+  
 end
 
 -- The enemy was stopped for some reason and should restart.

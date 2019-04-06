@@ -31,16 +31,25 @@ local function is_bush(destructible)
   return sprite_id == "entities/destructibles/bush" or sprite_id:match("^entities/destructibles/bush_")
 end
 
-local function bush_collision_test(fire, other)
+-- Returns whether a destructible is a bush.
+local function is_ice_block(entity)
 
-  if other:get_type() ~= "destructible" then
+  local sprite = entity:get_sprite()
+  if sprite == nil then
     return false
   end
+  local sprite_id = sprite:get_animation_set()
+  return sprite_id == "entities/destructibles/block_ice"
+end
 
-  if not is_bush(other) then
+local function bush_collision_test(fire, other)
+
+  if other:get_type() ~= "destructible" and other:get_type() ~= "custom_entity" then
+    return false
+  end
+  if not (is_bush(other) or is_ice_block(other)) then
     return
   end
-
   -- Check if the fire box touches the one of the bush.
   -- To do this, we extend it of one pixel in all 4 directions.
   local x, y, width, height = fire:get_bounding_box()
@@ -67,24 +76,29 @@ fire.apply_cliffs = true
 
 -- Burn bushes.
 fire:add_collision_test(bush_collision_test, function(fire, entity)
-
   local map = fire:get_map()
 
-  if entity:get_type() == "destructible" then
-    if not is_bush(entity) then
+  if entity:get_type() == "destructible" or entity:get_type() == "custom_entity" then
+    if not (is_bush(entity) or is_ice_block(entity)) then
       return
     end
     local bush = entity
 
     local bush_sprite = entity:get_sprite()
-    if bush_sprite:get_animation() ~= "on_ground" then
+    if (is_bush(bush) and bush_sprite:get_animation() ~= "on_ground")
+      or (is_ice_block(bush) and bush_sprite:get_animation() ~= "normal") then
       -- Possibly already being destroyed.
       return
     end
-
+    if is_ice_block(bush) then --Remove ice blocks, but do not stop the movement.
+      bush:melt()
+      --audio_manager:play_sound("items/magic_powder_ignite")
+      return
+    end
     fire:stop_movement()
     sprite:set_animation("stopped")
-    audio_manager:play_sound("flame")
+    --audio_manager:play_sound("flame")
+
 
     -- TODO remove this when the engine provides a function destructible:destroy()
     local bush_sprite_id = bush_sprite:get_animation_set()

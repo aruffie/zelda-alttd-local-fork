@@ -18,8 +18,6 @@ function map:on_started(destination)
   map:init_map_entities()
   -- Digging
   map:set_digging_allowed(true)
-  -- Owl
-  owl_6:set_enabled(false)
   
 end
 
@@ -37,6 +35,8 @@ end
 -- Initializes Entities based on player's progress
 function map:init_map_entities()
   
+    -- Owl
+  owl_6:set_enabled(false)
   -- Remove the big stone if you come from the secret cave
   if destination == stair_arrows_upgrade then
     secret_stone:set_enabled(false)

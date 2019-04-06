@@ -11,6 +11,8 @@ local time_between_particles = 20
 local particles_per_beam = 30
 local stop_time = 1000
 
+local audio_manager = require("scripts/audio_manager")
+
 -- Event called when the enemy is initialized.
 function enemy:on_created()
   

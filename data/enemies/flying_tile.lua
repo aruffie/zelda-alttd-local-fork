@@ -7,6 +7,8 @@ local shadow_sprite = nil
 local initial_y = nil
 local state = nil  -- "raising", "attacking" or "destroying".
 
+local audio_manager = require("scripts/audio_manager")
+
 function enemy:on_created()
 
   self:set_life(1)
@@ -26,7 +28,6 @@ function enemy:on_created()
   self:set_origin(8, 13)
   self:set_invincible()
   self:set_attack_consequence("sword", "custom")
-
   shadow_sprite = sol.sprite.create("entities/shadow")
   shadow_sprite:set_animation("big")
 end

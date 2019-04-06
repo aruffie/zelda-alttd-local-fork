@@ -98,10 +98,19 @@ function audio_manager:get_directory()
   local game = sol.main.game
   local mode = (game ~= nil) and game:get_value("mode") or "snes"
   local directory = (mode == "gb") and "gb" or "snes"
-  local directory = "gb" -- todo remove later
 
   return directory
 
+end
+
+-- sol.audio.play_music() equivalent, warn instead of error when playing not existing music
+local function lenient_play_music(id_music)
+
+  if sol.file.exists("musics/" .. id_music .. ".ogg") or sol.file.exists("musics/" .. id_music .. ".it") or sol.file.exists("musics/" .. id_music .. ".spc") then
+    sol.audio.play_music(id_music)
+  else
+    print("Warning : the music " .. id_music .. " doesn't exist")
+  end
 end
 
 -- Play music according to the mode of play
@@ -112,7 +121,7 @@ function audio_manager:play_music(id_music)
   end
   local directory = audio_manager:get_directory()
   
-  sol.audio.play_music(directory .. "/" .. id_music) 
+  lenient_play_music(directory .. "/" .. id_music)
 
 end
 
@@ -122,8 +131,13 @@ function audio_manager:play_sound(id_sound)
   if id_sound == nil then
     return false
   end
-  local directory = audio_manager:get_directory()
-  sol.audio.play_sound(directory .. "/" .. id_sound) 
+  local id_sound = audio_manager:get_directory() .. "/" .. id_sound
+
+  if sol.file.exists("sounds/" .. id_sound .. ".ogg") then
+    sol.audio.play_sound(id_sound)
+  else
+    print("Warning : the sound " .. id_sound .. " doesn't exist")
+  end
 
 end
 
@@ -139,7 +153,7 @@ function audio_manager:refresh_music()
   else
     id_music = id_music:gsub("gb/", "snes/")
   end
-  sol.audio.play_music(id_music) 
+  lenient_play_music(id_music)
 
 end
 

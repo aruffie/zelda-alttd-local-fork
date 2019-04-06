@@ -16,24 +16,27 @@ entity:register_event("on_created", function()
   entity:set_traversable_by(false)
   entity:add_collision_test("touching", function(wall, hero)
     if animation_launch == false and hero:get_type() == "hero" then
+      local door_prefix = entity:get_property("door_prefix")
+      if door_prefix then
+        map:set_doors_open(door_prefix, true)
+      end
       animation_launch = true
       local x_t, y_t= wallturn_teletransporter:get_position()
       local map_id = map:get_id()
-      hero:set_enabled(false)
+      hero:set_position(x_t, y_t)
+      hero:freeze()
       sprite:set_animation("revolving_tunic_1")
       audio_manager:play_sound("misc/dungeon_one_way_door")
       function sprite:on_animation_finished(animation)
         if animation == "revolving_tunic_1" or animation == "revolving_tunic_2" or animation == "revolving_tunic_2" then
           sprite:set_animation("stopped")
           entity:set_traversable_by(true)
-          hero:set_position(x_t, y_t)
-          hero:set_enabled(true)
+          hero:set_animation("walking")
           hero:set_direction(1)
           local movement = sol.movement.create("path")
           movement:set_path{2,2,2,2,2,2,2,2}
           movement:set_ignore_obstacles(true)
           movement:start(hero, function()
-            hero:freeze()
             hero:unfreeze()
             entity:set_traversable_by(false)
             animation_launch = false
@@ -41,7 +44,6 @@ entity:register_event("on_created", function()
         end
       end
     end
-
   end)
 
 end)
