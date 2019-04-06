@@ -1,0 +1,62 @@
+properties{
+  x = 0,
+  y = 0,
+  width = 320,
+  height = 256,
+  min_layer = 0,
+  max_layer = 2,
+  world = "outside_world",
+  tileset = "addition/out",
+  music = "same",
+}
+
+tile{
+  layer = 0,
+  x = 0,
+  y = 0,
+  width = 320,
+  height = 256,
+  pattern = "917",
+  tileset = "out/outside",
+}
+
+destination{
+  name = "destination",
+  layer = 0,
+  x = 160,
+  y = 125,
+  direction = 1,
+}
+
+enemy{
+  layer = 0,
+  x = 80,
+  y = 45,
+  direction = 0,
+  breed = "octorok",
+}
+
+enemy{
+  layer = 0,
+  x = 200,
+  y = 77,
+  direction = 0,
+  breed = "octorok_stone",
+}
+
+enemy{
+  layer = 0,
+  x = 88,
+  y = 213,
+  direction = 0,
+  breed = "flying_octorok",
+}
+
+enemy{
+  layer = 0,
+  x = 248,
+  y = 181,
+  direction = 0,
+  breed = "keese",
+}
+

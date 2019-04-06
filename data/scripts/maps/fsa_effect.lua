@@ -1,12 +1,11 @@
 local fsa = {}
 
 local light_mgr = require("scripts/lights/light_manager")
---local chunk_provider = require("scripts/maps/chunk_provider")
 
 local tmp = sol.surface.create(sol.video.get_quest_size())
 local reflection = sol.surface.create(sol.video.get_quest_size())
 local fsa_texture = sol.surface.create(sol.video.get_quest_size())
---local water_mask = sol.surface.create(sol.video.get_quest_size())
+
 local clouds = sol.surface.create("work/clouds_reflection.png")
 local clouds_shadow = sol.surface.create("work/clouds_shadow.png")
 clouds_shadow:set_blend_mode("multiply")
@@ -16,12 +15,15 @@ local effect = sol.surface.create"work/fsaeffect.png"
 local shader = sol.shader.create"water_effect"
 shader:set_uniform("reflection",reflection)
 shader:set_uniform("fsa_texture",fsa_texture)
---shader:set_uniform("water_mask",water_mask)
+
+
 tmp:set_shader(shader)
 local ew,eh = effect:get_size()
 
 local clouds_speed = 0.01;
 local crw,crh = clouds:get_size()
+
+
 -- render all needed reflection on reflection map
 function fsa:render_reflection(map)
   reflection:clear()
@@ -40,17 +42,30 @@ function fsa:render_reflection(map)
       reflection:fill_color{128,128,128}
     end
   end
-  do --draw hero reflection --TODO add other reflections
-    local hero = map:get_hero()
-    local tunic = hero:get_sprite('tunic')
-    local osx,osy = tunic:get_scale()
-    tunic:set_scale(osx,-osy)
-    local hx,hy = hero:get_position()
+  
+  -- draw an entity's reflection
+  local function draw_entity_reflection(ent, sprite_name)
+    
+    local sprite = ent:get_sprite(sprite_name)
+    local osx,osy = sprite:get_scale()
+    sprite:set_scale(osx, -osy)
+    local hx,hy = ent:get_position()
     local cx,cy = map:get_camera():get_position()
-    local tx,ty = hx-cx,hy-cy
-    tunic:draw(reflection,tx,ty)
-    tunic:set_scale(osx,osy)
+    local tx,ty = hx-cx, hy-cy + (ent.flying_height or 0)
+    sprite:draw(reflection, tx, ty)
+    sprite:set_scale(osx, osy)
   end
+  
+  local hero = map:get_hero()
+  draw_entity_reflection(hero, 'tunic')
+  
+  -- for each enemy in map
+  for enemy in map:get_entities_by_type('enemy') do
+    if not enemy.dont_reflect then
+      draw_entity_reflection(enemy)
+    end
+  end
+  
 end
 
 local csw,csh = clouds_shadow:get_size()
@@ -277,7 +292,7 @@ function fsa:on_map_changed(map)
   --self.water_mask_provider = chunk_provider.create(map, water_predicate)
 end
 
-function fsa:on_map_draw(map,dst)
+function fsa:on_map_draw(map, dst)
   --dst:set_shader(shader)
   dst:draw(tmp)
   fsa:render_reflection(map)

@@ -1,5 +1,7 @@
 local enemy = ...
 
+enemy.flying_height = 10
+
 -- Molblin: goes in a random direction.
 
 enemy:set_life(1)

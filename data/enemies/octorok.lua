@@ -14,12 +14,10 @@ local previous_on_removed = enemy.on_removed
 local audio_manager = require("scripts/audio_manager")
 
 function enemy:on_created()
-
   enemy:set_life(1)
   enemy:set_damage(1)
   enemy:create_sprite("enemies/" .. enemy:get_breed())
   enemy:set_can_be_pushed_by_shield(true)
-
 end
 
 local function go_hero()
