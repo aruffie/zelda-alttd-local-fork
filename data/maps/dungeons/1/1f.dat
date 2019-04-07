@@ -8,7 +8,7 @@ properties{
   world = "dungeon_1",
   floor = 0,
   tileset = "dungeon/pink",
-  music = "same",
+  music = "",
 }
 
 tile{
@@ -10475,7 +10475,7 @@ tile{
 tile{
   layer = 0,
   x = 600,
-  y = 1072,
+  y = 1064,
   width = 16,
   height = 8,
   pattern = "door_blast.4.support.1-1",
@@ -10484,7 +10484,7 @@ tile{
 tile{
   layer = 0,
   x = 600,
-  y = 1096,
+  y = 1088,
   width = 16,
   height = 8,
   pattern = "door_blast.4.support.2-1",
@@ -10826,7 +10826,7 @@ tile{
 tile{
   layer = 0,
   x = 600,
-  y = 1080,
+  y = 1072,
   width = 16,
   height = 16,
   pattern = "door.4",

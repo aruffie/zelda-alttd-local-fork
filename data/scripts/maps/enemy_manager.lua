@@ -159,6 +159,7 @@ function enemy_manager:launch_small_boss_if_not_dead(map)
     local game = map:get_game()
     placeholder:set_enabled(false)
     local enemy = map:create_enemy{
+       name = "enemy_small_boss",
        breed = dungeon_infos["small_boss"]["breed"],
        direction = 2,
         x = x,

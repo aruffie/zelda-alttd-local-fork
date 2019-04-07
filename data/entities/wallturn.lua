@@ -4,7 +4,7 @@ local game = entity:get_game()
 local map = entity:get_map()
 local animation_launch = false
 local sprite = entity:get_sprite()
-local wallturn_teletransporter = map:get_entity("wallturn_teletransporter")
+local wallturn_teletransporter = map:get_entity(entity:get_name() .. "_teletransporter")
 
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")

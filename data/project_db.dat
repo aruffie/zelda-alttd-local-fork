@@ -241,6 +241,7 @@ sprite{ id = "enemies/boss/rolling_bones/rolling_bones", description = "Rolling 
 sprite{ id = "enemies/boss/rolling_bones/rolling_bones_spike", description = "Rolling bones spike" }
 sprite{ id = "enemies/boss/skeleton", description = "Skeleton" }
 sprite{ id = "enemies/boss/slime_eel", description = "Slime eel" }
+sprite{ id = "enemies/boss/slime_eye", description = "Slime eye" }
 sprite{ id = "enemies/boss/smasher", description = "Smasher" }
 sprite{ id = "enemies/boss/stone_hinox", description = "Stone hinox" }
 sprite{ id = "enemies/boss/turtle_rock_head", description = "Turtle rock head" }
@@ -1180,6 +1181,7 @@ enemy{ id = "boss/moblin_chief", description = "Moblin chief" }
 enemy{ id = "boss/moldorm", description = "Moldorm" }
 enemy{ id = "boss/rolling_bones/rolling_bones", description = "Rolling bones" }
 enemy{ id = "boss/rolling_bones/rolling_bones_spike", description = "Rolling bones spike" }
+enemy{ id = "boss/slime_eye", description = "Slime eye" }
 enemy{ id = "boss/stone_hinox", description = "Stone hinox" }
 enemy{ id = "bubble", description = "Bubble" }
 enemy{ id = "buzz_blob", description = "Buzz blob" }

@@ -990,6 +990,14 @@ dialog{
 }
 
 dialog{
+  id = "maps.dungeons.3.boss_welcome",
+  text = [[
+BONK ! BONK !     
+Tu ne m'auras pas ! BONK !
+]],
+}
+
+dialog{
   id = "maps.dungeons.3.indication",
   text = [[
 ...CASCADE...   

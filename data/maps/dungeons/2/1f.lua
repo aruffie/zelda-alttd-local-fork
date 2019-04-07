@@ -217,7 +217,6 @@ end)
 
 auto_separator_11:register_event("on_activating", function(separator, direction4)
     
-  local x, y = hero:get_position()
   if direction4 == 1 then
     map:set_light(0)
   end

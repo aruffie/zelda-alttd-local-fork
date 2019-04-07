@@ -6608,9 +6608,9 @@ door{
   y = 1640,
   direction = 1,
   sprite = "entities/doors/door_boss_key",
-  savegame_variable = "dungeon_1_door_boss",
+  savegame_variable = "dungeon_3_door_boss",
   opening_method = "interaction_if_savegame_variable",
-  opening_condition = "dungeon_1_boss_key",
+  opening_condition = "dungeon_3_boss_key",
 }
 
 door{
@@ -6620,9 +6620,9 @@ door{
   y = 1704,
   direction = 3,
   sprite = "entities/doors/door_boss_key",
-  savegame_variable = "dungeon_1_door_boss",
+  savegame_variable = "dungeon_3_door_boss",
   opening_method = "interaction_if_savegame_variable",
-  opening_condition = "dungeon_1_boss_key",
+  opening_condition = "dungeon_3_boss_key",
 }
 
 door{
@@ -7067,6 +7067,172 @@ custom_entity{
   direction = 0,
   sprite = "entities/destructibles/crystal_green",
   model = "green_crystal",
+}
+
+enemy{
+  name = "enemy_group_4_1",
+  layer = 0,
+  x = 1464,
+  y = 1741,
+  direction = 3,
+  breed = "pairodd",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "enemy_group_4_2",
+  layer = 0,
+  x = 1368,
+  y = 1789,
+  direction = 3,
+  breed = "pairodd",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "enemy_group_4_3",
+  layer = 0,
+  x = 1496,
+  y = 1869,
+  direction = 3,
+  breed = "pairodd",
+  treasure_name = "random",
+}
+
+door{
+  name = "door_group_1_1",
+  layer = 0,
+  x = 1304,
+  y = 1800,
+  direction = 0,
+  sprite = "entities/doors/door_normal",
+  opening_condition = "dungeon_1_small_keys",
+  opening_condition_consumed = true,
+}
+
+door{
+  name = "door_group_1_2",
+  layer = 0,
+  x = 1240,
+  y = 1800,
+  direction = 2,
+  sprite = "entities/doors/door_normal",
+  opening_condition = "dungeon_1_small_keys",
+  opening_condition_consumed = true,
+}
+
+stairs{
+  layer = 0,
+  x = 1520,
+  y = 1704,
+  direction = 1,
+  subtype = 3,
+}
+
+destination{
+  name = "stairs_3_B",
+  layer = 0,
+  x = 1528,
+  y = 1717,
+  direction = 3,
+}
+
+teletransporter{
+  name = "stairs_3_A",
+  layer = 0,
+  x = 1520,
+  y = 1704,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/3/sideview_1",
+  destination = "stairs_1_B",
+}
+
+enemy{
+  name = "enemy_group_5_1",
+  layer = 0,
+  x = 1192,
+  y = 1869,
+  direction = 3,
+  breed = "keese",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "enemy_group_5_2",
+  layer = 0,
+  x = 1160,
+  y = 1837,
+  direction = 3,
+  breed = "keese",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "enemy_group_5_3",
+  layer = 0,
+  x = 1144,
+  y = 1773,
+  direction = 3,
+  breed = "keese",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "enemy_group_5_4",
+  layer = 0,
+  x = 1048,
+  y = 1805,
+  direction = 3,
+  breed = "keese",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "enemy_group_5_5",
+  layer = 0,
+  x = 1080,
+  y = 1741,
+  direction = 3,
+  breed = "keese",
+  treasure_name = "random",
+}
+
+pickable{
+  name = "pickable_small_key_7",
+  layer = 0,
+  x = 1064,
+  y = 1757,
+  treasure_name = "small_key",
+  treasure_savegame_variable = "dungeon_3_small_key_4",
+}
+
+custom_entity{
+  name = "placeholder_boss",
+  layer = 0,
+  x = 1120,
+  y = 1565,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+pickable{
+  name = "heart_container",
+  layer = 0,
+  x = 1120,
+  y = 1565,
+  treasure_name = "heart_container",
+  treasure_savegame_variable = "dungeon_1_heart_container",
+}
+
+sensor{
+  name = "sensor_1",
+  layer = 0,
+  x = 1120,
+  y = 1637,
+  width = 16,
+  height = 16,
 }
 
 tile{
@@ -7840,6 +8006,6 @@ pickable{
   x = 1120,
   y = 1301,
   treasure_name = "instrument_3",
-  treasure_savegame_variable = "dungeon_3_instrument",
+  treasure_savegame_variable = "dungeon_3_big_treasure",
 }
 

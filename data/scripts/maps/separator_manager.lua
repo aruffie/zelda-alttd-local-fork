@@ -153,7 +153,7 @@ function separator_manager:init(map)
 
   for enemy in map:get_entities_by_type("enemy") do
     enemy:register_event("on_dead", function()
-      if enemy:get_breed() ~= "hardhat_beetle_blue" and enemy:get_breed() ~= "arm_mimic" and enemy:get_breed() ~= "boss/skeleton"
+      if enemy:get_breed() ~= "hardhat_beetle_blue" and enemy:get_breed() ~= "arm_mimic" and enemy:get_breed() ~= "boss/skeleton" and enemy:get_breed() ~= "bombite_red"
   then
           enemy_places[enemy:get_name()] = nil
       end
