@@ -15245,8 +15245,8 @@ custom_entity{
 pickable{
   name = "heart_container",
   layer = 0,
-  x = 2080,
-  y = 613,
+  x = 2056,
+  y = 605,
   treasure_name = "heart_container",
   treasure_savegame_variable = "dungeon_1_heart_container",
 }

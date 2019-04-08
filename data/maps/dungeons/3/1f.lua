@@ -24,6 +24,7 @@ function map:on_started()
   treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_5_", "chest_rupee_1")
   treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_15_", "chest_rupee_2")
   -- Doors
+  map:set_doors_open("door_group_1", true)
   map:set_doors_open("door_group_2", true)
   map:set_doors_open("door_group_3_", true)
   map:set_doors_open("door_group_5_", true)
@@ -60,6 +61,7 @@ function map:on_opening_transition_finished(destination)
 
     if destination == dungeon_3_1_B then
       game:start_dialog("maps.dungeons.3.welcome")
+        map:close_doors("door_group_1_")
     end
     
 end
