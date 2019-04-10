@@ -113,19 +113,28 @@ teletransporter{
 
 tile{
   layer = 0,
-  x = 720,
-  y = 1248,
-  width = 160,
-  height = 144,
+  x = 880,
+  y = 1280,
+  width = 32,
+  height = 80,
   pattern = "floor.9-1",
 }
 
 tile{
   layer = 0,
-  x = 880,
+  x = 688,
   y = 1280,
   width = 32,
   height = 80,
+  pattern = "floor.9-1",
+}
+
+tile{
+  layer = 0,
+  x = 720,
+  y = 1248,
+  width = 160,
+  height = 144,
   pattern = "floor.9-1",
 }
 
@@ -13604,15 +13613,6 @@ tile{
   width = 32,
   height = 8,
   pattern = "floor_border.2",
-}
-
-tile{
-  layer = 0,
-  x = 688,
-  y = 1280,
-  width = 32,
-  height = 80,
-  pattern = "floor.9-1",
 }
 
 wall{

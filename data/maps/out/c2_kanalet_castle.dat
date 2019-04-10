@@ -8507,9 +8507,9 @@ dynamic_tile{
   layer = 0,
   x = 312,
   y = 552,
-  pattern = "4070",
   width = 64,
   height = 24,
+  pattern = "4070",
 }
 
 destructible{
@@ -8592,9 +8592,9 @@ dynamic_tile{
   layer = 0,
   x = 776,
   y = 536,
-  pattern = "3979",
   width = 16,
   height = 88,
+  pattern = "3979",
 }
 
 npc{
@@ -9310,7 +9310,7 @@ destination{
   name = "kanalet_castle_underground_2_B",
   layer = 0,
   x = 344,
-  y = 45,
+  y = 61,
   direction = 1,
 }
 
@@ -9487,6 +9487,15 @@ enemy{
 
 tile{
   layer = 1,
+  x = 208,
+  y = 112,
+  width = 272,
+  height = 208,
+  pattern = "139",
+}
+
+tile{
+  layer = 1,
   x = 8,
   y = 664,
   width = 8,
@@ -9505,15 +9514,6 @@ tile{
 
 tile{
   layer = 1,
-  x = 208,
-  y = 104,
-  width = 272,
-  height = 216,
-  pattern = "435",
-}
-
-tile{
-  layer = 1,
   x = 240,
   y = 128,
   width = 208,
@@ -9528,87 +9528,6 @@ tile{
   width = 80,
   height = 48,
   pattern = "9121",
-}
-
-tile{
-  layer = 1,
-  x = 304,
-  y = 320,
-  width = 80,
-  height = 48,
-  pattern = "435",
-}
-
-tile{
-  layer = 1,
-  x = 208,
-  y = 224,
-  width = 64,
-  height = 96,
-  pattern = "1037",
-}
-
-tile{
-  layer = 1,
-  x = 416,
-  y = 224,
-  width = 64,
-  height = 96,
-  pattern = "1037",
-}
-
-tile{
-  layer = 1,
-  x = 304,
-  y = 288,
-  width = 80,
-  height = 80,
-  pattern = "1037",
-}
-
-tile{
-  layer = 1,
-  x = 320,
-  y = 272,
-  width = 48,
-  height = 16,
-  pattern = "1037",
-}
-
-tile{
-  layer = 1,
-  x = 272,
-  y = 272,
-  width = 16,
-  height = 48,
-  pattern = "1037",
-}
-
-tile{
-  layer = 1,
-  x = 288,
-  y = 288,
-  width = 16,
-  height = 32,
-  pattern = "1037",
-}
-
-tile{
-  layer = 1,
-  x = 400,
-  y = 272,
-  width = 16,
-  height = 48,
-  pattern = "1037",
-}
-
-tile{
-  layer = 1,
-  x = 384,
-  y = 288,
-  width = 16,
-  height = 32,
-  pattern = "1037",
 }
 
 tile{
@@ -10756,16 +10675,6 @@ tile{
 
 tile{
   layer = 1,
-  x = 800,
-  y = 8,
-  width = 32,
-  height = 24,
-  pattern = "6",
-  tileset = "addition/out",
-}
-
-tile{
-  layer = 1,
   x = 328,
   y = 192,
   width = 32,
@@ -10832,6 +10741,15 @@ tile{
   height = 16,
   pattern = "15",
   tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 304,
+  y = 320,
+  width = 80,
+  height = 48,
+  pattern = "139",
 }
 
 destination{
