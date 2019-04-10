@@ -32,7 +32,7 @@ function separator_manager:init(map)
         -- Re-create enemies in the new active region.
         if enemy:is_in_same_region(hero) then
           local old_enemy = enemy_place.enemy
-          local enemy = map:create_enemy({
+          local enemy = map:create_enemy({ --TODO modifiy create_enemy to add enemy to light manager
             x = enemy_place.x,
             y = enemy_place.y,
             layer = enemy_place.layer,

@@ -2,9 +2,13 @@ local fsa = {}
 
 local light_mgr = require("scripts/lights/light_manager")
 
+local quest_w, quest_h = sol.video.get_quest_size()
+
 local tmp = sol.surface.create(sol.video.get_quest_size())
 local reflection = sol.surface.create(sol.video.get_quest_size())
 local fsa_texture = sol.surface.create(sol.video.get_quest_size())
+
+local distort_map = sol.surface.create(sol.video.get_quest_size())
 
 local clouds = sol.surface.create("work/clouds_reflection.png")
 local clouds_shadow = sol.surface.create("work/clouds_shadow.png")
@@ -13,9 +17,20 @@ clouds_shadow:set_blend_mode("multiply")
 local effect = sol.surface.create"work/fsaeffect.png"
 --effect:set_blend_mode"multiply"
 local shader = sol.shader.create"water_effect"
-shader:set_uniform("reflection",reflection)
-shader:set_uniform("fsa_texture",fsa_texture)
 
+shader:set_uniform("reflection", reflection)
+shader:set_uniform("fsa_texture", fsa_texture)
+
+local heat_wave = sol.shader.create"heat_wave"
+local distort_shader = sol.shader.create"distort"
+
+heat_wave:set_uniform("distort_factor", 1.0/64.0)
+heat_wave:set_uniform("wave_factor", 0.3)
+heat_wave:set_uniform("speed", 0.003)
+
+distort_shader:set_uniform("distort_factor", {128.0 / quest_w, 128.0 / quest_h})
+
+distort_map:set_shader(distort_shader)
 
 tmp:set_shader(shader)
 local ew,eh = effect:get_size()
@@ -147,6 +162,15 @@ local function get_lights_from_map(map)
     ["window.3-1"] = win_col,
     ["window.4-1"] = win_col,
   }
+  
+  local distort_angle = {
+    ["wall_torch.1"] = 0,
+    ["wall_torch.2"] = math.pi,
+    ["wall_torch.3"] = math.pi*0.5,
+    ["wall_torch.4"] = math.pi*1.5,
+    ["torch"] = 0,
+    ["torch_big.top"] = 0,
+  }
 
   function environment.tile(props)
     if light_tile_ids[props.pattern] then
@@ -161,6 +185,7 @@ local function get_lights_from_map(map)
                      cut = dirs[props.pattern] and win_cut or "0",
                      aperture = dirs[props.pattern] and win_aperture or "1.5",
                      color = colors[props.pattern],
+                     distort_angle = distort_angle[props.pattern]
                    }
       )
     end
@@ -205,8 +230,8 @@ end
 
 
 -- create a light that will automagically register to the light_manager
-local function create_light(map,x,y,layer,radius,color,dir,cut,aperture)
-  local function dircutappprops(dir, cut, aperture)
+local function create_light(map, x, y, layer, radius, color, dir, cut, aperture, distort_angle)
+  local function dircutappprops()
     if dir and cut and aperture then
       return {key="direction",value=dir},
       {key="cut",value=cut},
@@ -225,7 +250,8 @@ local function create_light(map,x,y,layer,radius,color,dir,cut,aperture)
     properties = {
       {key="radius",value = radius},
       {key="color",value = color},
-      dircutappprops(dir,cut,aperture)
+      {key=distort_angle and "distort_angle" or "no_distort", value = tostring(distort_angle) or "0"}, -- TODO find better way
+      dircutappprops()
     }
   }
 end
@@ -260,7 +286,7 @@ local function setup_inside_lights(map)
 
   for _,l in ipairs(map_lights) do
     create_light(map,l.x,l.y,l.layer,l.radius or default_radius,l.color or default_color,
-                 l.dir,l.cut,l.aperture)
+                 l.dir,l.cut,l.aperture,l.distort_angle)
   end
 
 
@@ -319,14 +345,43 @@ function fsa:on_map_draw(map, dst)
   
   local camera = map:get_camera()
   local dx,dy = camera:get_position()
+  local cw, ch = camera:get_size()
   local layer = map:get_hero():get_layer()
-  --water_mask:clear()
-  --self.water_mask_provider:fill_surf(water_mask,dx,dy,layer)
+ 
+
+  tmp:set_shader(shader)
   tmp:draw(dst)
   if self.outside then
     fsa:draw_clouds_shadow(dst,dx,dy)
   else
     light_mgr:draw(dst,map)
+  end
+  
+  if true then
+    -- draw heatwave on tmp
+    if map.fsa_heat_wave then
+      tmp:set_shader(heat_wave)
+      tmp:draw(distort_map)
+    end
+    
+    
+    for ent in map:get_entities_in_rectangle(dx, dy, cw, ch) do
+      local dist_m = ent.on_draw_distort
+      if dist_m then
+        dist_m(ent, distort_map)
+      end
+    end
+    
+    -- copy dst on tmp
+    dst:draw(tmp)
+    
+    distort_shader:set_uniform('diffuse', tmp)
+    
+    -- draw distorted tmp
+    distort_map:draw(dst)
+    
+    -- clear distortion
+    distort_map:fill_color({128,128,0,255})
   end
 end
 
