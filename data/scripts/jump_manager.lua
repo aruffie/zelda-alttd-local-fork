@@ -31,7 +31,7 @@ function jm.start(entity)
     entity:set_jumping(true)
 --    print "JUMP"
     entity.y_vel = -max_yvel
-    sol.timer.start(entity, 100, function()
+    sol.timer.start(entity, 10, function()
         local r=jm.update_jump(entity)
         if not r then
           return false
