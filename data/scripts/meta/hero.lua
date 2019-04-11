@@ -197,57 +197,27 @@ function hero_meta:on_taking_damage(damage)
 
 end
 
---[[
-  Draw the sprites of the hero at a given offset from it's actual position, as well as the ones from any entity attached to it, if applicable.
-  Also allows to skip drawing the shadow if needed, which is the case in sideview mode.
-  
-  TODO check for any missing attached entity and add it here.
---]]
-function hero_meta.draw_override(hero, has_shadow, offset)
-  local x,y = hero:get_position()
-  local map = hero:get_map()
-
---  print "DRAW HERO"
-  for set, sprite in hero:get_sprites() do
-    if set~="shadow" or has_shadow then
---      print ("Displaying sprite element : "..set..' with animation: '..sprite:get_animation())
-      map:draw_visual(sprite, x, y+offset)
-    end
-  end
-  for i, carried_entity in map:get_entities_by_type("carried_object") do
-    --print "carried entity found"
-  end
-  local carried_object=hero:get_carried_object()
-  if carried_object then
-    --print "DRAW POT"
-    for set, sprite in carried_object:get_sprites() do
---      print (set)
-      if set~="shadow" or has_shadow then
-        map:draw_visual(sprite, x,y-16+offset)
-      end
-    end
-  end
-end
-
 function hero_meta.is_jumping(hero)
-  return hero.is_jumping
+  return hero.jumping
 end
 
 function hero_meta.set_jumping(hero, jumping)
-  hero.is_jumping = jumping
+  hero.jumping = jumping
 end
 
 
---[[
-  Redeclaration of the "on map changed' event to take account of the sideview mode.
-  This override completely refefines how the hero is drawed by setting the draw_override, as well as starting the routine which updates the gravity of the entitites for sideviews.
---]]
+--Utility function : it loops through all the sprites of a given hero and shifts them by the given amount of pixels in the X and Y directions.
 local function set_sprite_offset(hero, ox, oy)
   for set, sprite in hero:get_sprites() do
     sprite:set_xy(ox or 0, oy or 0)
   end
 end
 
+--[[
+  Redeclaration of the "on map changed' event to take account of the sideview mode.
+  This override shifts the hero's sprites down by 2 pixels when entering a side view map and also reduces the width of his hitbos to help with falling through 16px gaps.
+  Note : it is supposed to add a shadow under it if we enter a non side view map but in the current state of the engine, the functions hero:bring_sprite_to_back and hero:being_sprite_to_front do not work as intended (so no shadow for now).
+--]]
 local game_meta = sol.main.get_metatable("game")
 game_meta:register_event("on_map_changed", function(game, map)
 
@@ -258,18 +228,12 @@ game_meta:register_event("on_map_changed", function(game, map)
       hero:set_size(8,16)
       hero:set_origin(4,13)
       set_sprite_offset(hero, 0,2)
-      --      has_shadow = false
---      v_offset = 2
---      hero:set_draw_override(function()  
---        hero:draw_override(has_shadow, v_offset)
---      end)
     else
---      hero:set_draw_override(nil)
       hero:set_size(16,16)
       hero:set_origin(8,13)
+      hero:set_jumping(false)
       set_sprite_offset(hero, 0,0)
     end
-
 
   end)
 
@@ -435,6 +399,5 @@ function hero_meta:create_symbol_collapse()
   return symbol
 
 end
-
 
 return true

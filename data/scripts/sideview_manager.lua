@@ -204,15 +204,15 @@ end
 --end
 
 --Debug function, remove me once everything is finalized
-hero_meta:register_event("on_movement_changed", function(hero, movement)
-    print "Movement has changed :"
-    if movement.get_speed then
-      print("New speed=" ..movement:get_speed())
-    end
-    if movement.get_angle then
-      print("new angle:"..movement:get_angle()*180/math.pi)
-    end
-  end)
+--hero_meta:register_event("on_movement_changed", function(hero, movement)
+--    print "Movement has changed :"
+--    if movement.get_speed then
+--      print("New speed=" ..movement:get_speed())
+--    end
+--    if movement.get_angle then
+--      print("new angle:"..movement:get_angle()*180/math.pi)
+--    end
+--  end)
 
 --Respawn wnen falling into a pit
 hero_meta:register_event("on_position_changed", function(hero, x,y,layer)
@@ -237,7 +237,6 @@ local function update_animation(hero, direction)
 
   local state, cstate = hero:get_state()
   local map = hero:get_map()
---  local movement = hero.movement
   local movement = hero:get_movement()
   local x,y,layer = hero:get_position()
   local sprite = hero:get_sprite("tunic")
