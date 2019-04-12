@@ -35,6 +35,16 @@ Tu n'y arriveras jamais rien que par la force de tes bras !
 }
 
 dialog{
+  id = "_frozen_by_ice_block",
+  text = [[
+Brrrr... Ce sont
+des blocs       
+de glace!!      
+Je suis gelé!
+]],
+}
+
+dialog{
   id = "_shop.amount_full",
   text = [[
 Tu es déjà au maximum !
@@ -818,16 +828,6 @@ dialog{
   text = [[
 Vous obtenez les Habits Rouges !$0
 Vous débordez d'énergie !
-]],
-}
-
-dialog{
-  id = "entities.ice_block.frozen",
-  text = [[
-Brrrr... Ce sont
-des blocs       
-de glace!!      
-Je suis gelé!
 ]],
 }
 
