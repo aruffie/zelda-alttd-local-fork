@@ -1,10 +1,11 @@
 properties{
   x = 1920,
-  y = 2304,
+  y = 2312,
   width = 960,
   height = 768,
   min_layer = 0,
   max_layer = 2,
+  world = "outside_world",
   tileset = "out/outside",
   music = "same",
 }
@@ -14670,9 +14671,9 @@ dynamic_tile{
   layer = 0,
   x = 336,
   y = 712,
-  pattern = "707",
   width = 48,
   height = 8,
+  pattern = "707",
 }
 
 tile{

@@ -17929,9 +17929,9 @@ dynamic_tile{
   layer = 0,
   x = 480,
   y = 632,
-  pattern = "4070",
   width = 64,
   height = 24,
+  pattern = "4070",
 }
 
 teletransporter{

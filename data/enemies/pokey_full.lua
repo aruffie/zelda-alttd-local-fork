@@ -24,14 +24,3 @@ function enemy:on_created()
   enemy:set_life(1)
   enemy:set_damage(1)
 end
-
--- Event called when the enemy should start or restart its movements.
--- This is called for example after the enemy is created or after
--- it was hurt or immobilized.
-function enemy:on_restarted()
-
-  movement = sol.movement.create("target")
-  movement:set_target(hero)
-  movement:set_speed(48)
-  movement:start(enemy)
-end

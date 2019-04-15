@@ -3462,8 +3462,7 @@ _ Forêt Enchantée
 dialog{
   id = "maps.out.yarna_desert.rabbit_1_1",
   text = [[
-Une chanson de Marine par un si beau jour,
-ce serait le pied !
+Une chanson de Marine par un si beau jour, ce serait le pied !
 ]],
 }
 
@@ -3471,7 +3470,7 @@ dialog{
   id = "maps.out.yarna_desert.rabbit_2_1",
   text = [[
 Savais-tu que les Villages des Animaux et des Mouettes étaient des villes jumelées ? 
-Des villes, c'est unbien grand mot...
+Des villes, c'est un bien grand mot...
 Villages jumeaux serait mieux !   
 D'après une source sûre, à l'intérieur du Gîte des Rêves, il y a un...    
 Crois-tu que c'est vrai ?
@@ -3483,7 +3482,7 @@ dialog{
   text = [[
 Je ne peux aller au Village. 
 Les monstres sont si nombreux !
-Marine est-elle en vi e?
+Marine est-elle en vie ?
 ]],
 }
 

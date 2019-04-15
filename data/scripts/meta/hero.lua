@@ -11,90 +11,90 @@ local timer_stairs = nil
 require("scripts/multi_events")
 
 hero_meta:register_event("on_state_changed", function(hero)
-    
-  local game = hero:get_game()
-  local current_state = hero:get_state()
-  -- Sounds
-  if current_state == "lifting" then
-    audio_manager:play_sound("hero/pickup") 
-  elseif current_state == "sword loading" then
-    timer_sword_loading = sol.timer.start(hero, 1000, function()
-      audio_manager:play_sound("items/sword_charge") 
-    end)
-  elseif current_state == "sword spin attack" then
-    -- Sword spin attack
-    audio_manager:play_sound("items/sword_spin") 
-  elseif current_state == "sword swinging" then
-    -- Sword swinging
-    local index = math.random(1, 4)
-    audio_manager:play_sound("items/sword_slash" .. index) 
-  elseif current_state == "sword tapping" then
-    if timer_sword_tapping == nil then
-      timer_sword_tapping = sol.timer.start(hero, 250, function()
-        local sound_sword = false
-        local entity = hero:get_facing_entity()
-        if entity ~= nil and entity:get_type() == "door" then
-          sound_sword = entity:get_property("sound_sword")          
-        end
-        if sound_sword then
-          audio_manager:play_sound("items/sword_tap_bombable")
-        else
-          audio_manager:play_sound("items/sword_tap") 
-        end
-        return true
-      end)
-    end
-  elseif current_state == "hurt" then
-    -- Hurt
-    audio_manager:play_sound("hero/hurt") 
-  elseif current_state == "falling" then
-    -- Falling
-    audio_manager:play_sound("hero/fall") 
-  elseif current_state == "jumping" then
-    audio_manager:play_sound("hero/throw")
-  elseif current_state == "stairs" then
-    if timer_stairs == nil then
-      timer_stairs = sol.timer.start(hero, 0, function()
-        --TODO audio_manager:play_sound("misc/stairs")
-        return 400
-      end)
-      timer_stairs:set_suspended_with_map(false)
-    end
-  elseif current_state == "frozen" then
-    -- Frozen
-    local entity = hero:get_facing_entity()
-    if entity ~= nil and entity:get_type() == "chest" and game:is_command_pressed("action") then
-      audio_manager:play_sound("misc/chest_open")
-    end
-  elseif current_state == "free" then
-    -- Throw
-    if hero.previous_state == "carrying" then
+
+    local game = hero:get_game()
+    local current_state = hero:get_state()
+    -- Sounds
+    if current_state == "lifting" then
+      audio_manager:play_sound("hero/pickup") 
+    elseif current_state == "sword loading" then
+      timer_sword_loading = sol.timer.start(hero, 1000, function()
+          audio_manager:play_sound("items/sword_charge") 
+        end)
+    elseif current_state == "sword spin attack" then
+      -- Sword spin attack
+      audio_manager:play_sound("items/sword_spin") 
+    elseif current_state == "sword swinging" then
+      -- Sword swinging
+      local index = math.random(1, 4)
+      audio_manager:play_sound("items/sword_slash" .. index) 
+    elseif current_state == "sword tapping" then
+      if timer_sword_tapping == nil then
+        timer_sword_tapping = sol.timer.start(hero, 250, function()
+            local sound_sword = false
+            local entity = hero:get_facing_entity()
+            if entity ~= nil and entity:get_type() == "door" then
+              sound_sword = entity:get_property("sound_sword")          
+            end
+            if sound_sword then
+              audio_manager:play_sound("items/sword_tap_bombable")
+            else
+              audio_manager:play_sound("items/sword_tap") 
+            end
+            return true
+          end)
+      end
+    elseif current_state == "hurt" then
+      -- Hurt
+      audio_manager:play_sound("hero/hurt") 
+    elseif current_state == "falling" then
+      -- Falling
+      audio_manager:play_sound("hero/fall") 
+    elseif current_state == "jumping" then
       audio_manager:play_sound("hero/throw")
+    elseif current_state == "stairs" then
+      if timer_stairs == nil then
+        timer_stairs = sol.timer.start(hero, 0, function()
+            --TODO audio_manager:play_sound("misc/stairs")
+            return 400
+          end)
+        timer_stairs:set_suspended_with_map(false)
+      end
+    elseif current_state == "frozen" then
+      -- Frozen
+      local entity = hero:get_facing_entity()
+      if entity ~= nil and entity:get_type() == "chest" and game:is_command_pressed("action") then
+        audio_manager:play_sound("misc/chest_open")
+      end
+    elseif current_state == "free" then
+      -- Throw
+      if hero.previous_state == "carrying" then
+        audio_manager:play_sound("hero/throw")
+      end
+
     end
-    
-  end
-  -- Reset timer sword loading
-  if current_state ~= "sword loading" and timer_sword_loading ~= nil then
-    timer_sword_loading:stop()
-    timer_sword_loading = nil
-  end
-  -- Reset timer sword tapping
-  if current_state ~= "sword tapping" and timer_sword_tapping ~= nil then
-    timer_sword_tapping:stop()
-    timer_sword_tapping = nil
-  end  
-  -- Reset timer stairs
-  if current_state ~= "stairs" and timer_stairs ~= nil then
-    timer_stairs:stop()
-    timer_stairs = nil
-  end  
-  -- Previous states
-  if hero.previous_state == "carrying" then
-    hero:notify_object_thrown()
-  end
-  hero.previous_state = current_state
-  
-end)
+    -- Reset timer sword loading
+    if current_state ~= "sword loading" and timer_sword_loading ~= nil then
+      timer_sword_loading:stop()
+      timer_sword_loading = nil
+    end
+    -- Reset timer sword tapping
+    if current_state ~= "sword tapping" and timer_sword_tapping ~= nil then
+      timer_sword_tapping:stop()
+      timer_sword_tapping = nil
+    end  
+    -- Reset timer stairs
+    if current_state ~= "stairs" and timer_stairs ~= nil then
+      timer_stairs:stop()
+      timer_stairs = nil
+    end  
+    -- Previous states
+    if hero.previous_state == "carrying" then
+      hero:notify_object_thrown()
+    end
+    hero.previous_state = current_state
+
+  end)
 
 hero_meta:register_event("notify_object_thrown", function() end)
 
@@ -197,50 +197,26 @@ function hero_meta:on_taking_damage(damage)
 
 end
 
---[[
-  Draw the sprites of the hero at a given offset from it's actual position, as well as the ones from any entity attached to it, if applicable.
-  Also allows to skip drawing the shadow if needed, which is the case in sideview mode.
-  
-  TODO check for any missing attached entity and add it here.
---]]
-function hero_meta.draw_override(hero, has_shadow, offset)
-  local x,y = hero:get_position()
-  local map = hero:get_map()
-
---  print "DRAW HERO"
-  for set, sprite in hero:get_sprites() do
-    if set~="shadow" or has_shadow then
---      print ("Displaying sprite element : "..set..' with animation: '..sprite:get_animation())
-      map:draw_visual(sprite, x, y+offset)
-    end
-  end
-  for i, carried_entity in map:get_entities_by_type("carried_object") do
-    --print "carried entity found"
-  end
-  local carried_object=hero:get_carried_object()
-  if carried_object then
-    --print "DRAW POT"
-    for set, sprite in carried_object:get_sprites() do
---      print (set)
-      if set~="shadow" or has_shadow then
-        map:draw_visual(sprite, x,y-16+offset)
-      end
-    end
-  end
-end
-
 function hero_meta.is_jumping(hero)
-  return hero.is_jumping
+  return hero.jumping
 end
 
 function hero_meta.set_jumping(hero, jumping)
-  hero.is_jumping = jumping
+  hero.jumping = jumping
 end
 
 
+--Utility function : it loops through all the sprites of a given hero and shifts them by the given amount of pixels in the X and Y directions.
+local function set_sprite_offset(hero, ox, oy)
+  for set, sprite in hero:get_sprites() do
+    sprite:set_xy(ox or 0, oy or 0)
+  end
+end
+
 --[[
   Redeclaration of the "on map changed' event to take account of the sideview mode.
-  This override completely refefines how the hero is drawed by setting the draw_override, as well as starting the routine which updates the gravity of the entitites for sideviews.
+  This override shifts the hero's sprites down by 2 pixels when entering a side view map and also reduces the width of his hitbos to help with falling through 16px gaps.
+  Note : it is supposed to add a shadow under it if we enter a non side view map but in the current state of the engine, the functions hero:bring_sprite_to_back and hero:being_sprite_to_front do not work as intended (so no shadow for now).
 --]]
 local game_meta = sol.main.get_metatable("game")
 game_meta:register_event("on_map_changed", function(game, map)
@@ -251,17 +227,13 @@ game_meta:register_event("on_map_changed", function(game, map)
     if map:is_sideview() then
       hero:set_size(8,16)
       hero:set_origin(4,13)
-      has_shadow = false
-      v_offset = 2
-      hero:set_draw_override(function()  
-        hero:draw_override(has_shadow, v_offset)
-      end)
+      set_sprite_offset(hero, 0,2)
     else
-      hero:set_draw_override(nil)
       hero:set_size(16,16)
       hero:set_origin(8,13)
+      hero:set_jumping(false)
+      set_sprite_offset(hero, 0,0)
     end
-
 
   end)
 
@@ -427,6 +399,5 @@ function hero_meta:create_symbol_collapse()
   return symbol
 
 end
-
 
 return true

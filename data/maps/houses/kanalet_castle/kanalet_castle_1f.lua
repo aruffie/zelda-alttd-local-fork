@@ -12,10 +12,14 @@ function map:on_started(destination)
 
   -- Music
   map:init_music()
-  -- Entities
-  map:init_map_entities()
   -- Pickables
   treasure_manager:disappear_pickable(map, "pickable_golden_leaf_3")
+  -- Separators
+  separator_manager:init(map)
+  -- Switchs
+  switch_manager:activate_switch_if_savegame_exist(map, "switch_1",  "castle_door_is_open")
+  -- Treasures events
+  treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_3_", "pickable_golden_leaf_3")
   
 end
 
@@ -24,16 +28,6 @@ function map:init_music()
 
   audio_manager:play_music("32_kanalet_castle")
 
-end
-
--- Initializes Entities based on player's progress
-function map:init_map_entities()
-
-  -- Switch 1
-  if game:get_value("castle_door_is_open") then
-    switch_1:set_activated(true)
-  end
-  
 end
 
 -- Switchs events
@@ -45,9 +39,6 @@ function switch_1:on_activated()
   end
   
 end
-
--- Treasures events
-treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_3_", "pickable_golden_leaf_3")
 
 -- Cinematics
 -- This is the cinematic in which the hero open the main door of castle
@@ -76,6 +67,3 @@ function map:launch_cinematic_1()
   end)
 
 end
-
--- Separators
-separator_manager:init(map)

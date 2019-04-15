@@ -80,13 +80,14 @@ end
 local debug_respawn_surface = sol.surface.create(16,16)
 debug_respawn_surface:fill_color({255,127,0,64})
 
-map_meta:register_event("on_draw", function(map, dst_surface)
-    -- if map:is_sideview() then
-    local x,y = map:get_camera():get_position()
-    local xx,yy=map:get_hero():get_solid_ground_position()
-    debug_respawn_surface:draw(dst_surface, xx-x-8, yy-y-13)
-    --end
-  end)
+--map_meta:register_event("on_draw", function(map, dst_surface)
+--    -- if map:is_sideview() then
+--    local x,y = map:get_camera():get_position()
+--    local xx,yy=map:get_hero():get_solid_ground_position()
+--    debug_respawn_surface:draw(dst_surface, xx-x-8, yy-y-13)
+--    --end
+--  end)
+
 map_meta:register_event("on_opening_transition_finished", function(map, dst_surface)
     if map:is_sideview() then
       map:get_hero():save_solid_ground()
@@ -187,25 +188,31 @@ end
     angle : the new angle of the movement.
 --]]
 
-local function update_movement(hero, speed, angle, state)
-  local movement = hero.movement
-  --print(new_animation)
+--local function update_movement(hero, speed, angle, state)
+--  local movement = hero.movement
+--  --print(new_animation)
 
-  if movement and movement:get_speed() ~= speed then
-    --print(sol.main.get_elapsed_time(), "set_speed", movement:get_speed(), " -> ", speed)
-    movement:set_speed(speed) 
-  end
+--  if movement and movement:get_speed() ~= speed then
+--    --print(sol.main.get_elapsed_time(), "set_speed", movement:get_speed(), " -> ", speed)
+--    movement:set_speed(speed) 
+--  end
 
-  if movement and movement:get_angle() ~= angle then
-    --print(sol.main.get_elapsed_time(), "set_angle", movement:get_angle(), " -> ", angle)
-    movement:set_angle(angle) 
-  end
-end
+--  if movement and movement:get_angle() ~= angle then
+--    --print(sol.main.get_elapsed_time(), "set_angle", movement:get_angle(), " -> ", angle)
+--    movement:set_angle(angle) 
+--  end
+--end
 
 --Debug function, remove me once everything is finalized
-hero_meta:register_event("on_movement_changed", function(hero, movement)
-    --print("New movement: speed" ..movement:get_speed().. ", angle:"..movement:get_angle()*180/math.pi)
-  end)
+--hero_meta:register_event("on_movement_changed", function(hero, movement)
+--    print "Movement has changed :"
+--    if movement.get_speed then
+--      print("New speed=" ..movement:get_speed())
+--    end
+--    if movement.get_angle then
+--      print("new angle:"..movement:get_angle()*180/math.pi)
+--    end
+--  end)
 
 --Respawn wnen falling into a pit
 hero_meta:register_event("on_position_changed", function(hero, x,y,layer)
@@ -227,42 +234,36 @@ hero_meta:register_event("on_position_changed", function(hero, x,y,layer)
 --]]
 
 local function update_animation(hero, direction)
+
   local state, cstate = hero:get_state()
   local map = hero:get_map()
-  local movement = hero.movement
+  local movement = hero:get_movement()
   local x,y,layer = hero:get_position()
   local sprite = hero:get_sprite("tunic")
-  local prefix = ""
-  if state ~= "free" then
-    prefix = state.."_" 
-  end
+  direction = direction or sprite:get_direction()
   local new_animation
-  --[[
-            | stopped(speed = 0)  carry    walk
-  on ground | stopped             carry    walk  
-  falling   [ stopped             carry    jump
-  --]]
+
   -- print("state to display :"..state)
   if state == "swimming" or (state=="custom" and cstate:get_description()=="sideview_swim") then
-    if movement:get_speed() ~= 0 then
+    if movement and movement:get_speed() ~= 0 then
       new_animation = "swimming_scroll"
     else
       new_animation = "stopped_swimming_scroll"
     end
   end
 
-  if state == "lifting" then
-    new_animation = "lifting_heavy"
-  end
+--  if state == "lifting" then
+--    new_animation = "lifting_heavy"
+--  end
 
   if state == "sword loading" then
-    if movement:get_speed() ~= 0 then
-      new_animation = "sword_loading_walking"
-      hero:get_sprite("sword"):set_animation("sword_loading_walking")
-    else
-      new_animation = "sword_loading_stopped"
-      hero:get_sprite("sword"):set_animation("sword_loading_stopped")    
-    end
+--    if movement:get_speed() ~= 0 then
+--      new_animation = "sword_loading_walking"
+--      hero:get_sprite("sword"):set_animation("sword_loading_walking")
+--    else
+--      new_animation = "sword_loading_stopped"
+--      hero:get_sprite("sword"):set_animation("sword_loading_stopped")    
+--    end
     if hero:get_ground_below() == "deep_water" then
       new_animation = "swimming_scroll_loading"
       hero:get_sprite("sword"):set_animation("sword_loading_swimming_scroll")  
@@ -270,19 +271,7 @@ local function update_animation(hero, direction)
   end
 
   if state=="free" and not (hero.frozen) then
-    if movement:get_speed() == 0 then
-      if hero.on_ladder and test_ladder(hero) then
-        new_animation = "climbing_stopped"
-      elseif not is_on_ground(hero) then
-        if map:get_ground(x,y+4,layer)=="deep_water" then
-          new_animation ="stopped_swimming_scroll"
-        else
-          new_animation = "jumping"
-        end
-      else
-        new_animation = "stopped"
-      end
-    else
+    if movement and movement:get_speed() ~= 0 then
       if hero.on_ladder and test_ladder(hero) then
         new_animation = "climbing_walking"
       elseif not is_on_ground(hero) then
@@ -294,6 +283,18 @@ local function update_animation(hero, direction)
       else
         new_animation = "walking"
       end
+    else
+      if hero.on_ladder and test_ladder(hero) then
+        new_animation = "climbing_stopped"
+      elseif not is_on_ground(hero) then
+        if map:get_ground(x,y+4,layer)=="deep_water" then
+          new_animation ="stopped_swimming_scroll"
+        else
+          new_animation = "jumping"
+        end
+      else
+        new_animation = "stopped"
+      end 
     end
   end
   -- print(new_animation)
@@ -303,16 +304,18 @@ local function update_animation(hero, direction)
     --print("changing animation from \'"..sprite:get_animation().."\' to \'"..new_animation)
     sprite:set_animation(new_animation)
   end
-
-  if state ~= "sword loading" and state ~="sword tapping" and state ~= "sword swinging" then
-    sprite:set_direction(direction)
-  else
-    if map:get_ground(x,y,layer)=="deep_water" then
-      hero:get_sprite("sword_stars"):set_direction(direction<2 and 0 or 2)    
-    else
-      hero:get_sprite("sword_stars"):set_direction(direction)
-    end
-  end
+  
+--  if direction then
+--    if state ~= "sword loading" and state ~="sword tapping" and state ~= "sword swinging" then
+--      --sprite:set_direction(direction)
+--    else
+--      if map:get_ground(x,y,layer)=="deep_water" then
+--        hero:get_sprite("sword_stars"):set_direction(direction<2 and 0 or 2)    
+--      else
+--        hero:get_sprite("sword_stars"):set_direction(direction)
+--      end
+--    end
+--  end
 end
 
 --[[
@@ -325,7 +328,7 @@ end
 --]]
 
 local function update_hero(hero)
-  local movement = hero.movement or hero:get_movement()
+  local movement = hero:get_movement()
   local game = hero:get_game()
 
   local function command(id)
@@ -334,34 +337,27 @@ local function update_hero(hero)
 
   local x,y,layer = hero:get_position()
   local map = game:get_map()
-  local speed = 0
-  local angle = movement and movement:get_angle() or 0
-  local direction = hero:get_sprite():get_direction()
-  local dx=0
-  local dy=0
-  local animation=""
+  local speed
 
   --TODO enhance the movement angle calculation.
   if command("up") and not command("down") then
-    direction=1
     if test_ladder(hero) then
-      dy = 1
       hero.on_ladder = true
-      speed=climbing_speed
+      speed = climbing_speed
     elseif map:get_ground(x,y,layer)=="deep_water" then 
-      dy = 1
       speed = swimming_speed
+    else
+      game:simulate_command_released("up")
     end
   elseif command("down") and not command("up") then
     ---print "LEFT"
-    direction=3
-    if map:get_ground(x,y+3, layer) =="deep_water" then
-      dy=-1
+    if map:get_ground(x,y, layer) =="deep_water" then
       speed = swimming_speed
     elseif test_ladder(hero) or is_ladder(map, x, y+3, layer) then
-      dy=-1
       hero.on_ladder = true
-      speed=climbing_speed
+      speed = climbing_speed
+    else
+      game:simulate_command_released("down")
     end
   end
 
@@ -370,16 +366,12 @@ local function update_hero(hero)
   end
 
   if command("right") and not command("left") then
-    direction = 0
-    dx=1
     speed=walking_speed
     if map:get_ground(x,y,layer)=="deep_water" then
       speed = swimming_speed
     end
 
   elseif command("left") and not command("right") then
-    dx=-1
-    direction=2
     speed=walking_speed
     if map:get_ground(x,y,layer)=="deep_water" then
       speed = swimming_speed
@@ -390,8 +382,10 @@ local function update_hero(hero)
     hero.on_ladder=true
   end
 
-  update_movement(hero, speed, math.atan2(dy,dx)%(2*math.pi))
-  update_animation(hero, direction)
+  if speed and speed~=hero:get_walking_speed() then
+    hero:set_walking_speed(speed)
+  end
+  update_animation(hero)
 end
 
 --[[
@@ -402,12 +396,14 @@ game_meta:register_event("on_map_changed", function(game, map)
 
     local hero = map:get_hero() --TODO account for multiple heroes
     if map:is_sideview() then
-      hero.on_ladder = test_ladder(map:get_hero(), -1) 
+      hero.on_ladder = test_ladder(hero, -1) 
       hero.vspeeed = 0
       sol.timer.start(map, 10, function()
           update_entities(map)
           return true
         end)
+      else
+      hero:set_walking_speed(88)
     end
   end)
 
@@ -432,15 +428,7 @@ hero_meta:register_event("on_state_changed", function(hero, state)
       or state == "sword loading"
       or state == "swimming" 
       or state == "custom"
-      then --TODO indentify every applisacle states
-        if hero.movement == nil then
---          print "create movement"
-          local movement=sol.movement.create("straight")
-          movement:set_angle(-1)
-          movement:set_speed(0)
-          movement:start(hero)
-          hero.movement = movement
-        end
+      then --TODO identify every applicable states
         if state == "swimming" or state =="free" and map:get_ground(hero:get_position())=="deep_water" then -- switch to the custom state
           hero:start_swimming()
         end
@@ -455,11 +443,6 @@ hero_meta:register_event("on_state_changed", function(hero, state)
         hero:unfreeze()
       else
         print "Resetting parameters"
-        if hero.movement~=nil then
---          print "remove movement"
-          hero.movement:stop()
-          hero.movement = nil
-        end
         local timer = hero.timer
         if timer~=nil then
 --          print"remove timer"
@@ -468,15 +451,8 @@ hero_meta:register_event("on_state_changed", function(hero, state)
         end
       end
     else
-      
-      if hero.movement~=nil then
---        print "remove movement"
-        hero.movement:stop()
-        hero.movement = nil
-      end
-      
       local timer = hero.timer
-      if ttmer~=nil then
+      if timer~=nil then
 --        print"remove timer"
         timer:stop()
         hero.timer = nil

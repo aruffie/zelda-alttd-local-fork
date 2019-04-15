@@ -15,9 +15,12 @@ function map:on_started(destination)
   map:init_music()
   -- Pickables
   treasure_manager:disappear_pickable(map, "pickable_golden_leaf_4")
+  treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_2_", "pickable_golden_leaf_4")
+  -- Separators
+  separator_manager:init(map)
+
   
 end
-
 
 -- Initialize the music of the map
 function map:init_music()
@@ -25,9 +28,3 @@ function map:init_music()
   audio_manager:play_music("32_kanalet_castle")
 
 end
-
--- Treasures events
-treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_2_", "pickable_golden_leaf_4")
-
--- Separators
-separator_manager:init(map)
