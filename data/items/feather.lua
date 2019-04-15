@@ -8,7 +8,7 @@
 -- of types, events and methods:
 -- http://www.solarus-games.org/doc/latest
 
-local hero_meta= sol.main.get_metatable("hero")
+local hero_meta = sol.main.get_metatable("hero")
 
 local item = ...
 local game = item:get_game()
@@ -30,11 +30,11 @@ function item:on_started()
 end
 
 
-function hero_meta:is_jumping()
+function hero_meta.is_jumping(hero)
   return hero.is_jumping
 end
 
-function hero_meta:set_jumping(jumping)
+function hero_meta.set_jumping(hero, jumping)
   hero.is_jumping = jumping
 end
 
@@ -65,7 +65,7 @@ function item:on_using()
   local map = game:get_map()
   if hero.is_jumping~=true then
     if not map:is_sideview() then
-      
+
       --TODO use custom state for actual jumping
 --      print "JUMP"
       hero.is_jumping = true
@@ -76,7 +76,7 @@ function item:on_using()
     else
 --      print "SIDEVIEW JUMP requested "
       local vspeed = hero.vspeed or 0
-      if vspeed == 0 then
+      if vspeed == 0 or map:get_ground(hero:get_position())=="deep_water" then
 --        print "validated, now jump :"
         sol.timer.start(10, function()
             hero.on_ladder = false

@@ -38,7 +38,7 @@ function enemy:on_restarted()
   local function shoot(tx, ty)
     -- Create new particle.
     local e = enemy:create_enemy(properties)
-    -- TODO audio_manager:play_sound("beamos")
+    audio_manager:play_sound("beamos")
     -- Create movement. Destroy enemy when the movement ends.
     local m = sol.movement.create("target")
     m:set_target(tx, ty); m:set_speed(speed)

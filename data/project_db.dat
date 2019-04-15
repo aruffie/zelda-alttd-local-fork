@@ -184,6 +184,7 @@ sprite{ id = "dungeons/owl/pipes/yellow", description = "Yellow pipe with water 
 sprite{ id = "enemies/angler_brick", description = "Angler brick" }
 sprite{ id = "enemies/angler_fry", description = "Angler fry" }
 sprite{ id = "enemies/anti_kirby", description = "Anti kirby" }
+sprite{ id = "enemies/anti_kirby_aspiration", description = "Anti kirby aspiration" }
 sprite{ id = "enemies/arm_mimic", description = "Arm mimic" }
 sprite{ id = "enemies/armos", description = "Armos" }
 sprite{ id = "enemies/arrow", description = "Arrow" }
@@ -196,6 +197,8 @@ sprite{ id = "enemies/beetle_green", description = "Beetle green" }
 sprite{ id = "enemies/beetle_red", description = "Beetle red" }
 sprite{ id = "enemies/bloober", description = "Bloober" }
 sprite{ id = "enemies/bomber", description = "Bomber" }
+sprite{ id = "enemies/bombite_green", description = "Green bombite" }
+sprite{ id = "enemies/bombite_red", description = "Red bombite" }
 sprite{ id = "enemies/boo_buddy", description = "Boo buddy" }
 sprite{ id = "enemies/boss/angler's_fish", description = "Angler's fish" }
 sprite{ id = "enemies/boss/big_armos_knight", description = "Big armos knight" }
@@ -207,7 +210,7 @@ sprite{ id = "enemies/boss/dodongo_snake/dodongo_snake_body", description = "Dod
 sprite{ id = "enemies/boss/evil_orb", description = "Evil orb" }
 sprite{ id = "enemies/boss/evil_orb/orb_evil_orb", description = "Orb evil orb" }
 sprite{ id = "enemies/boss/facade", description = "Facade" }
-sprite{ id = "enemies/boss/genie", description = "Genie" }
+sprite{ id = "enemies/boss/genie/genie", description = "Genie" }
 sprite{ id = "enemies/boss/genie/genie_bottle", description = "Genie bottle" }
 sprite{ id = "enemies/boss/genie/genie_fire_ball", description = "Genie fire ball" }
 sprite{ id = "enemies/boss/genie_enemies/genie_bottle", description = "Genie bottle" }
@@ -238,6 +241,7 @@ sprite{ id = "enemies/boss/rolling_bones/rolling_bones", description = "Rolling 
 sprite{ id = "enemies/boss/rolling_bones/rolling_bones_spike", description = "Rolling bones spike" }
 sprite{ id = "enemies/boss/skeleton", description = "Skeleton" }
 sprite{ id = "enemies/boss/slime_eel", description = "Slime eel" }
+sprite{ id = "enemies/boss/slime_eye", description = "Slime eye" }
 sprite{ id = "enemies/boss/smasher", description = "Smasher" }
 sprite{ id = "enemies/boss/stone_hinox", description = "Stone hinox" }
 sprite{ id = "enemies/boss/turtle_rock_head", description = "Turtle rock head" }
@@ -273,7 +277,6 @@ sprite{ id = "enemies/giant_goponga_flower", description = "Giant Goponga Flower
 sprite{ id = "enemies/gibdo", description = "Gibdo" }
 sprite{ id = "enemies/goomba", description = "Goomba" }
 sprite{ id = "enemies/goponga_flower", description = "Goponga flower" }
-sprite{ id = "enemies/green_bombite", description = "Green bombite" }
 sprite{ id = "enemies/hardhat_beetle_blue", description = "Hardhat beetle blue" }
 sprite{ id = "enemies/hardhat_beetle_red", description = "Hardhat beetle red" }
 sprite{ id = "enemies/helmasaur_masked", description = "Helmasaur masked" }
@@ -314,7 +317,6 @@ sprite{ id = "enemies/pokey_full", description = "Pokey full" }
 sprite{ id = "enemies/pokey_head", description = "Pokey_head" }
 sprite{ id = "enemies/pols_voice", description = "Pols voice" }
 sprite{ id = "enemies/raven", description = "Raven" }
-sprite{ id = "enemies/red_bombite", description = "Red bombite" }
 sprite{ id = "enemies/river_zora", description = "River zora" }
 sprite{ id = "enemies/rope", description = "Rope" }
 sprite{ id = "enemies/sand_crab", description = "Crab" }
@@ -495,6 +497,7 @@ sprite{ id = "entities/items/shovel", description = "Shovel" }
 sprite{ id = "entities/la_beach/la_background", description = "entities/la_beach/la_background" }
 sprite{ id = "entities/la_beach/la_swell", description = "entities/la_beach/la_swell" }
 sprite{ id = "entities/la_beach/la_wreck", description = "entities/la_beach/la_wreck" }
+sprite{ id = "entities/ledger_hook", description = "Ledger hook" }
 sprite{ id = "entities/mask_helmasaur", description = "Mask helmasaur" }
 sprite{ id = "entities/mega_thwomp", description = "Mega thwomp" }
 sprite{ id = "entities/misc/ball", description = "Ball" }
@@ -524,7 +527,6 @@ sprite{ id = "entities/shadows/pickable_flying", description = "Pickable flying"
 sprite{ id = "entities/shadows/shadow", description = "Shadow" }
 sprite{ id = "entities/star", description = "Star" }
 sprite{ id = "entities/statues/pillar", description = "Pillar base" }
-sprite{ id = "entities/statues/pillar_top", description = "Pillar top" }
 sprite{ id = "entities/statues/statue_darknut", description = "Statue darknut" }
 sprite{ id = "entities/statues/statue_koopa", description = "Statue koopa" }
 sprite{ id = "entities/statues/statue_pig", description = "Statue pig" }
@@ -1164,10 +1166,11 @@ enemy{ id = "arm_mimic", description = "Arm mimic" }
 enemy{ id = "armos", description = "Armos" }
 enemy{ id = "arrow", description = "Arrow" }
 enemy{ id = "beamos", description = "Beamos" }
+enemy{ id = "bombite_red", description = "Bombite red" }
 enemy{ id = "boo_buddy", description = "Boo buddy" }
 enemy{ id = "boss/evil_orb", description = "Evil orb" }
 enemy{ id = "boss/facade", description = "Facade" }
-enemy{ id = "boss/genie", description = "Genie" }
+enemy{ id = "boss/genie/genie", description = "Genie" }
 enemy{ id = "boss/genie/genie_bottle", description = "Genie bottle" }
 enemy{ id = "boss/giant_buzz_blob", description = "Giant buzz blob" }
 enemy{ id = "boss/gohma_blue", description = "Gohma blue" }
@@ -1178,6 +1181,7 @@ enemy{ id = "boss/moblin_chief", description = "Moblin chief" }
 enemy{ id = "boss/moldorm", description = "Moldorm" }
 enemy{ id = "boss/rolling_bones/rolling_bones", description = "Rolling bones" }
 enemy{ id = "boss/rolling_bones/rolling_bones_spike", description = "Rolling bones spike" }
+enemy{ id = "boss/slime_eye", description = "Slime eye" }
 enemy{ id = "boss/stone_hinox", description = "Stone hinox" }
 enemy{ id = "bubble", description = "Bubble" }
 enemy{ id = "buzz_blob", description = "Buzz blob" }
@@ -1225,14 +1229,15 @@ enemy{ id = "octorok_stone", description = "Octorok stone" }
 enemy{ id = "orb_monster_blue", description = "Orb monster blue" }
 enemy{ id = "orb_monster_green", description = "Orb monster green" }
 enemy{ id = "orb_monster_red", description = "Orb monster red" }
+enemy{ id = "pairodd", description = "Pairodd" }
 enemy{ id = "peahat", description = "Peahat" }
 enemy{ id = "pike_auto", description = "Pike auto" }
 enemy{ id = "pike_detect", description = "Pike detect" }
 enemy{ id = "pike_fixed", description = "Pike fixed" }
+enemy{ id = "piranha_plant", description = "Piranha plant" }
 enemy{ id = "pokey_full", description = "Pokey full" }
 enemy{ id = "pols_voice", description = "Pols voice" }
 enemy{ id = "raven", description = "Raven" }
-enemy{ id = "red_bombite", description = "Red bombite" }
 enemy{ id = "river_zora", description = "River Zora" }
 enemy{ id = "rope", description = "Rope" }
 enemy{ id = "sand_crab", description = "Sand crab" }
@@ -1267,8 +1272,6 @@ entity{ id = "fire", description = "Fire" }
 entity{ id = "follower", description = "Follower" }
 entity{ id = "frog", description = "Frog" }
 entity{ id = "green_crystal", description = "Green crystal" }
-entity{ id = "heavy_object", description = "Heavy object" }
-entity{ id = "heavy_statue", description = "Heavy statue" }
 entity{ id = "hook_bridge", description = "hook bridge" }
 entity{ id = "hookable", description = "Hookable" }
 entity{ id = "insect", description = "Insect" }
@@ -1282,6 +1285,7 @@ entity{ id = "pillar", description = "Pillar" }
 entity{ id = "platform_balance", description = "Twin linked platforms" }
 entity{ id = "platform_chain", description = "Chain for twin platforms" }
 entity{ id = "platform_collapsing", description = "Collapsing platform" }
+entity{ id = "platform_ice_block", description = "Platform ice block" }
 entity{ id = "platform_moving", description = "Movin platform" }
 entity{ id = "platform_thwomp", description = "Platform (Spiked Thwomp top)" }
 entity{ id = "powder", description = "Powder" }
@@ -1289,7 +1293,6 @@ entity{ id = "pull_handle", description = "Pull handle" }
 entity{ id = "seagull", description = "Seagull" }
 entity{ id = "statue", description = "Statue" }
 entity{ id = "statue_elephant", description = "Statue elephant" }
-entity{ id = "statue_enemy", description = "Statue enemy" }
 entity{ id = "statue_pig", description = "Statue pig" }
 entity{ id = "torch", description = "Torch" }
 entity{ id = "unstable_floor", description = "Unstable Floor" }
@@ -1324,6 +1327,7 @@ file{ path = "enemies/arm_mimic.lua", license = "GPL v3" }
 file{ path = "enemies/armos.lua", license = "GPL v3" }
 file{ path = "enemies/arrow.lua", license = "GPL v3" }
 file{ path = "enemies/beamos.lua", license = "GPL v3" }
+file{ path = "enemies/bombite_red.lua", license = "GPL v3" }
 file{ path = "enemies/boo_buddy.lua", license = "GPL v3" }
 file{ path = "enemies/boss", license = "GPL v3" }
 file{ path = "enemies/bubble.lua", license = "GPL v3" }
@@ -1379,7 +1383,6 @@ file{ path = "enemies/pike_fixed.lua", license = "GPL v3" }
 file{ path = "enemies/pokey_full.lua", license = "GPL v3" }
 file{ path = "enemies/pols_voice.lua", license = "GPL v3" }
 file{ path = "enemies/raven.lua", license = "GPL v3" }
-file{ path = "enemies/red_bombite.lua", license = "GPL v3" }
 file{ path = "enemies/river_zora.lua", license = "GPL v3" }
 file{ path = "enemies/rope.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "enemies/sand_crab.lua", license = "GPL v3" }

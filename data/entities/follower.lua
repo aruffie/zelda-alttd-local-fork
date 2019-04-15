@@ -10,6 +10,30 @@ local movement
 -- Include scripts
 require("scripts/multi_events")
 
+
+local function follow_hero()
+
+  movement = sol.movement.create("target")
+  movement:set_speed(100)
+  movement:set_ignore_obstacles(true)
+  movement:start(follower)
+  sprite:set_animation("walking")
+  follower:set_state("following")
+
+end
+
+local function stop_walking()
+  
+  if follower:get_state() ~= "following" then
+    return false
+  end
+  follower:stop_movement()
+  movement = nil
+  sprite:set_animation("stopped")
+  follower:set_state("stopped")
+    
+end
+
 -- Event called when the custom entity is initialized.
 follower:register_event("on_created", function()
     
@@ -53,40 +77,6 @@ follower:register_event("on_movement_changed", function()
 
 end)
 
--- Launch timer on follower
-sol.timer.start(follower, 50, function()
-
-  if movement == nil and not follower:is_very_close_to_hero() and follower:get_state() == "stopped" then
-    follow_hero()
-  end
-
-  return true
-
-end)
-
-local function follow_hero()
-
-  movement = sol.movement.create("target")
-  movement:set_speed(100)
-  movement:set_ignore_obstacles(true)
-  movement:start(follower)
-  sprite:set_animation("walking")
-  follower:set_state("following")
-
-end
-
-local function stop_walking()
-  
-  if follower:get_state() ~= "following" then
-    return false
-  end
-  follower:stop_movement()
-  movement = nil
-  sprite:set_animation("stopped")
-  follower:set_state("stopped")
-    
-end
-
 -- Get current follower state
 function follower:get_state()
 
@@ -113,3 +103,14 @@ function follower:is_very_close_to_hero()
   return distance < 24
   
 end
+
+-- Launch timer on follower
+sol.timer.start(follower, 50, function()
+
+  if movement == nil and not follower:is_very_close_to_hero() and follower:get_state() == "stopped" then
+    follow_hero()
+  end
+
+  return true
+
+end)

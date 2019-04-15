@@ -631,3 +631,41 @@ custom_entity{
   sprite = "entities/mega_thwomp",
 }
 
+teletransporter{
+  name = "stairs_2_A",
+  layer = 0,
+  x = 64,
+  y = 0,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/3/1f",
+  destination = "stairs_3_B",
+}
+
+destination{
+  name = "stairs_2_B",
+  layer = 0,
+  x = 72,
+  y = 29,
+  direction = 1,
+}
+
+teletransporter{
+  name = "stairs_1_A",
+  layer = 0,
+  x = 560,
+  y = 224,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/3/b1",
+  destination = "stairs_3_B",
+}
+
+destination{
+  name = "stairs_1_B",
+  layer = 0,
+  x = 568,
+  y = 221,
+  direction = 1,
+}
+

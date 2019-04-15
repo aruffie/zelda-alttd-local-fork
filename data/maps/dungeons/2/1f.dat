@@ -10967,7 +10967,7 @@ tile{
 tile{
   layer = 0,
   x = 848,
-  y = 120,
+  y = 112,
   width = 48,
   height = 16,
   pattern = "hole",
@@ -10976,7 +10976,7 @@ tile{
 tile{
   layer = 0,
   x = 880,
-  y = 120,
+  y = 112,
   width = 16,
   height = 16,
   pattern = "wall_hole.4-1",
@@ -11030,7 +11030,7 @@ tile{
 tile{
   layer = 0,
   x = 856,
-  y = 120,
+  y = 112,
   width = 40,
   height = 8,
   pattern = "hole.1",
@@ -11039,7 +11039,7 @@ tile{
 tile{
   layer = 0,
   x = 856,
-  y = 128,
+  y = 120,
   width = 40,
   height = 8,
   pattern = "hole.2",
@@ -11048,7 +11048,7 @@ tile{
 tile{
   layer = 0,
   x = 848,
-  y = 128,
+  y = 120,
   width = 8,
   height = 8,
   pattern = "hole.corner.3",
@@ -11057,7 +11057,7 @@ tile{
 tile{
   layer = 0,
   x = 848,
-  y = 120,
+  y = 112,
   width = 8,
   height = 8,
   pattern = "hole.corner.1",
@@ -11718,33 +11718,6 @@ tile{
   width = 16,
   height = 16,
   pattern = "door_stairs.spiral_down.2",
-}
-
-tile{
-  layer = 0,
-  x = 2160,
-  y = 24,
-  width = 8,
-  height = 16,
-  pattern = "door.1.support.1-1",
-}
-
-tile{
-  layer = 0,
-  x = 2184,
-  y = 24,
-  width = 8,
-  height = 16,
-  pattern = "door.1.support.2-1",
-}
-
-tile{
-  layer = 0,
-  x = 2168,
-  y = 24,
-  width = 16,
-  height = 16,
-  pattern = "door_stairs.spiral_down.1",
 }
 
 tile{
@@ -13680,42 +13653,6 @@ tile{
   width = 16,
   height = 16,
   pattern = "floor.10-1",
-}
-
-tile{
-  layer = 0,
-  x = 792,
-  y = 608,
-  width = 8,
-  height = 32,
-  pattern = "162",
-}
-
-tile{
-  layer = 0,
-  x = 768,
-  y = 608,
-  width = 24,
-  height = 8,
-  pattern = "stairs_down.2.border.2-3",
-}
-
-tile{
-  layer = 0,
-  x = 768,
-  y = 632,
-  width = 24,
-  height = 8,
-  pattern = "stairs_down.2.border.3-3",
-}
-
-tile{
-  layer = 0,
-  x = 768,
-  y = 616,
-  width = 24,
-  height = 16,
-  pattern = "stairs_down.2-3",
 }
 
 tile{
@@ -16774,6 +16711,69 @@ tile{
   pattern = "torch_big.bottom",
 }
 
+tile{
+  layer = 0,
+  x = 776,
+  y = 600,
+  width = 8,
+  height = 24,
+  pattern = "stairs_down.2.border.3-2",
+}
+
+tile{
+  layer = 0,
+  x = 752,
+  y = 592,
+  width = 32,
+  height = 8,
+  pattern = "stairs_down.2.border.1-2",
+}
+
+tile{
+  layer = 0,
+  x = 760,
+  y = 600,
+  width = 16,
+  height = 24,
+  pattern = "stairs_down.2-2",
+}
+
+tile{
+  layer = 0,
+  x = 752,
+  y = 600,
+  width = 8,
+  height = 24,
+  pattern = "stairs_down.2.border.2-2",
+}
+
+tile{
+  layer = 0,
+  x = 2152,
+  y = 24,
+  width = 8,
+  height = 16,
+  pattern = "door.1.support.1-1",
+}
+
+tile{
+  layer = 0,
+  x = 2176,
+  y = 24,
+  width = 8,
+  height = 16,
+  pattern = "door.1.support.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 2160,
+  y = 24,
+  width = 16,
+  height = 16,
+  pattern = "door_stairs.spiral_down.1",
+}
+
 wall{
   layer = 0,
   x = 1880,
@@ -17109,7 +17109,7 @@ door{
   y = 1400,
   direction = 1,
   sprite = "entities/doors/door_small_key",
-  savegame_variable = "dungeon_2_door_small_key_1",
+  savegame_variable = "dungeon_2_door_small_key_2",
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_2_small_keys",
   opening_condition_consumed = true,
@@ -17122,7 +17122,7 @@ door{
   y = 1464,
   direction = 3,
   sprite = "entities/doors/door_small_key",
-  savegame_variable = "dungeon_2_door_small_key_1",
+  savegame_variable = "dungeon_2_door_small_key_2",
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_2_small_keys",
   opening_condition_consumed = true,
@@ -17871,7 +17871,7 @@ sensor{
 }
 
 door{
-  name = "door_group_small_boss_1",
+  name = "door_group_wallturn",
   layer = 0,
   x = 472,
   y = 680,
@@ -18239,7 +18239,7 @@ destructible{
 destructible{
   layer = 0,
   x = 880,
-  y = 181,
+  y = 173,
   treasure_name = "random",
   sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
@@ -18249,7 +18249,7 @@ destructible{
 destructible{
   layer = 0,
   x = 880,
-  y = 165,
+  y = 157,
   treasure_name = "random",
   sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
@@ -18259,17 +18259,7 @@ destructible{
 destructible{
   layer = 0,
   x = 864,
-  y = 165,
-  treasure_name = "random",
-  sprite = "entities/destructibles/pot",
-  destruction_sound = "stone",
-  weight = 1,
-}
-
-destructible{
-  layer = 0,
-  x = 864,
-  y = 165,
+  y = 157,
   treasure_name = "random",
   sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
@@ -19536,7 +19526,7 @@ enemy{
   name = "enemy_group_1_1",
   layer = 0,
   x = 856,
-  y = 1413,
+  y = 1397,
   properties = {
     {
       key = "clockwise",
@@ -19898,7 +19888,7 @@ enemy{
 destructible{
   layer = 0,
   x = 864,
-  y = 149,
+  y = 141,
   treasure_name = "random",
   sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
@@ -19908,7 +19898,7 @@ destructible{
 destructible{
   layer = 0,
   x = 880,
-  y = 149,
+  y = 141,
   treasure_name = "random",
   sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
@@ -19922,7 +19912,7 @@ door{
   y = 112,
   direction = 0,
   sprite = "entities/doors/door_small_key",
-  savegame_variable = "dungeon_2_door_small_key_1",
+  savegame_variable = "dungeon_2_door_small_key_4",
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_2_small_keys",
   opening_condition_consumed = true,
@@ -19935,7 +19925,7 @@ door{
   y = 112,
   direction = 2,
   sprite = "entities/doors/door_small_key",
-  savegame_variable = "dungeon_2_door_small_key_1",
+  savegame_variable = "dungeon_2_door_small_key_4",
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_2_small_keys",
   opening_condition_consumed = true,
@@ -19953,7 +19943,7 @@ chest{
 }
 
 custom_entity{
-  name = "torch_group_6_1",
+  name = "timed_torch_group_6_1",
   layer = 0,
   x = 376,
   y = 93,
@@ -19965,7 +19955,7 @@ custom_entity{
 }
 
 custom_entity{
-  name = "torch_group_6_2",
+  name = "timed_torch_group_6_2",
   layer = 0,
   x = 472,
   y = 189,
@@ -20102,7 +20092,7 @@ door{
   y = 112,
   direction = 0,
   sprite = "entities/doors/door_small_key",
-  savegame_variable = "dungeon_2_door_small_key_1",
+  savegame_variable = "dungeon_2_door_small_key_5",
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_2_small_keys",
   opening_condition_consumed = true,
@@ -20115,22 +20105,10 @@ door{
   y = 112,
   direction = 2,
   sprite = "entities/doors/door_small_key",
-  savegame_variable = "dungeon_2_door_small_key_1",
+  savegame_variable = "dungeon_2_door_small_key_5",
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_2_small_keys",
   opening_condition_consumed = true,
-}
-
-door{
-  name = "door_group_3_1",
-  layer = 0,
-  x = 2168,
-  y = 24,
-  direction = 3,
-  sprite = "entities/doors/door_normal",
-  opening_condition = "dungeon_1_small_keys",
-  opening_condition_consumed = true,
-  cannot_open_dialog = "Oups",
 }
 
 enemy{
@@ -20277,7 +20255,7 @@ enemy{
 }
 
 custom_entity{
-  name = "auto_torch_group_4_1",
+  name = "timed_torch_group_4_1",
   layer = 0,
   x = 376,
   y = 909,
@@ -20289,7 +20267,7 @@ custom_entity{
 }
 
 custom_entity{
-  name = "auto_torch_group_4_2",
+  name = "timed_torch_group_4_2",
   layer = 0,
   x = 376,
   y = 781,
@@ -20449,8 +20427,8 @@ teletransporter{
 destination{
   name = "stairs_1_B",
   layer = 0,
-  x = 480,
-  y = 661,
+  x = 2168,
+  y = 1013,
   direction = 3,
 }
 
@@ -20462,7 +20440,7 @@ teletransporter{
   width = 16,
   height = 16,
   destination_map = "dungeons/2/sideview_3",
-  destination = "stairs_1_B",
+  destination = "stairs_2_B",
 }
 
 destination{
@@ -20486,6 +20464,12 @@ custom_entity{
   layer = 0,
   x = 480,
   y = 757,
+  properties = {
+    {
+      key = "door_prefix",
+      value = "door_group_wallturn",
+    },
+  },
   width = 16,
   height = 16,
   direction = 0,
@@ -21953,7 +21937,7 @@ dynamic_tile{
 destructible{
   layer = 0,
   x = 864,
-  y = 181,
+  y = 173,
   treasure_name = "random",
   sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
@@ -21963,7 +21947,7 @@ destructible{
 destructible{
   layer = 0,
   x = 864,
-  y = 197,
+  y = 189,
   treasure_name = "random",
   sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
@@ -21973,7 +21957,7 @@ destructible{
 destructible{
   layer = 0,
   x = 880,
-  y = 197,
+  y = 189,
   treasure_name = "random",
   sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
@@ -21988,6 +21972,166 @@ block{
   pushable = false,
   pullable = false,
   maximum_moves = 0,
+}
+
+enemy{
+  name = "enemy_group_22_1",
+  layer = 0,
+  x = 2072,
+  y = 1053,
+  direction = 3,
+  breed = "keese",
+}
+
+enemy{
+  name = "enemy_group_22_2",
+  layer = 0,
+  x = 2072,
+  y = 1117,
+  direction = 3,
+  breed = "keese",
+}
+
+teletransporter{
+  name = "stairs_3_A",
+  layer = 0,
+  x = 760,
+  y = 600,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/2/sideview_1",
+  destination = "stairs_2_B",
+}
+
+destination{
+  name = "stairs_3_B",
+  layer = 0,
+  x = 768,
+  y = 629,
+  direction = 3,
+}
+
+stairs{
+  layer = 0,
+  x = 760,
+  y = 600,
+  direction = 1,
+  subtype = 3,
+}
+
+teletransporter{
+  name = "stairs_4_A",
+  layer = 0,
+  x = 1656,
+  y = 296,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/2/sideview_1",
+  destination = "stairs_1_B",
+}
+
+destination{
+  name = "stairs_4_B",
+  layer = 0,
+  x = 1664,
+  y = 325,
+  direction = 3,
+}
+
+stairs{
+  layer = 0,
+  x = 1656,
+  y = 296,
+  direction = 1,
+  subtype = 3,
+}
+
+stairs{
+  layer = 0,
+  x = 2160,
+  y = 24,
+  direction = 1,
+  subtype = 1,
+}
+
+teletransporter{
+  name = "stairs_5_A",
+  layer = 0,
+  x = 2160,
+  y = 24,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/2/sideview_2",
+  destination = "stairs_1_B",
+}
+
+destination{
+  name = "stairs_5_B",
+  layer = 0,
+  x = 2168,
+  y = 53,
+  direction = 3,
+}
+
+wall{
+  name = "wall_2_1",
+  layer = 0,
+  x = 2144,
+  y = 16,
+  width = 48,
+  height = 16,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+dynamic_tile{
+  name = "wall_2_2",
+  layer = 0,
+  x = 2144,
+  y = 16,
+  width = 48,
+  height = 24,
+  pattern = "wall.1-2",
+}
+
+custom_entity{
+  name = "placeholder_explosion_wall_2",
+  layer = 0,
+  x = 2168,
+  y = 37,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+teletransporter{
+  name = "stairs_6_A",
+  layer = 0,
+  x = 2168,
+  y = 744,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/2/sideview_2",
+  destination = "stairs_2_B",
+}
+
+destination{
+  name = "stairs_6_B",
+  layer = 0,
+  x = 2176,
+  y = 773,
+  direction = 3,
+}
+
+stairs{
+  layer = 0,
+  x = 2168,
+  y = 744,
+  direction = 1,
+  subtype = 1,
 }
 
 tile{
@@ -22312,24 +22456,6 @@ tile{
   width = 16,
   height = 8,
   pattern = "door_top.stairs_up.1-2",
-}
-
-tile{
-  layer = 1,
-  x = 2160,
-  y = 16,
-  width = 32,
-  height = 8,
-  pattern = "door_top.stairs.1-1",
-}
-
-tile{
-  layer = 1,
-  x = 2168,
-  y = 16,
-  width = 16,
-  height = 8,
-  pattern = "door_top.stairs_up.2-2",
 }
 
 tile{
@@ -22844,6 +22970,24 @@ tile{
   pattern = "wall_torch.2",
 }
 
+tile{
+  layer = 1,
+  x = 2152,
+  y = 16,
+  width = 32,
+  height = 8,
+  pattern = "door_top.stairs.1-1",
+}
+
+tile{
+  layer = 1,
+  x = 2160,
+  y = 16,
+  width = 16,
+  height = 8,
+  pattern = "door_top.stairs_up.2-2",
+}
+
 jumper{
   layer = 1,
   x = 832,
@@ -22991,6 +23135,27 @@ dynamic_tile{
   height = 32,
   pattern = "52",
   tileset = "addition/dungeon",
+}
+
+custom_entity{
+  layer = 1,
+  x = 1800,
+  y = 1565,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/items/magic_powder_fly",
+  model = "pickable_fly",
+}
+
+dynamic_tile{
+  name = "wall_2_3",
+  layer = 1,
+  x = 2136,
+  y = 16,
+  width = 64,
+  height = 8,
+  pattern = "door_cache.1-2",
 }
 
 tile{
@@ -23743,7 +23908,7 @@ tile{
 tile{
   layer = 2,
   x = 784,
-  y = 1360,
+  y = 1280,
   width = 32,
   height = 16,
   pattern = "53",

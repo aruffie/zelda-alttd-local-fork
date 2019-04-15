@@ -6,21 +6,18 @@ local is_small_boss_active = false
 local is_boss_active = false
 
 -- Include scripts
-local flying_tile_manager = require("scripts/maps/flying_tile_manager")
+local audio_manager = require("scripts/audio_manager")
 local door_manager = require("scripts/maps/door_manager")
-local treasure_manager = require("scripts/maps/treasure_manager")
-local switch_manager = require("scripts/maps/switch_manager")
 local enemy_manager = require("scripts/maps/enemy_manager")
-local separator_manager = require("scripts/maps/separator_manager")
+local flying_tile_manager = require("scripts/maps/flying_tile_manager")
 local owl_manager = require("scripts/maps/owl_manager")
+local separator_manager = require("scripts/maps/separator_manager")
+local switch_manager = require("scripts/maps/switch_manager")
+local treasure_manager = require("scripts/maps/treasure_manager")
 
 -- Map events
 function map:on_started()
 
-  -- Music
-  game:play_dungeon_music()
-  -- Owl
-  owl_manager:init(map)
   -- Chests
   treasure_manager:appear_chest_if_savegame_exist(map, "chest_map",  "dungeon_6_map")
   treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_5_", "chest_map")
@@ -52,6 +49,10 @@ function map:on_started()
   enemy_manager:create_teletransporter_if_small_boss_dead(map, false)
   -- Heart
   treasure_manager:appear_heart_container_if_boss_dead(map)
+  -- Music
+  game:play_dungeon_music()
+  -- Owl
+  owl_manager:init(map)
   -- Pickables
   treasure_manager:disappear_pickable(map, "pickable_small_key_1")
   treasure_manager:disappear_pickable(map, "pickable_small_key_2")
@@ -80,7 +81,9 @@ end
 
 -- Doors events
 weak_wall_group_1:register_event("on_opened", function()
+    
   door_manager:destroy_wall(map, "weak_wall_group_1_")
+  
 end)
 
 -- Sensors events
@@ -196,8 +199,8 @@ end
 
 function sensor_13:on_activated()
 
-    local x,y = infinite_hallway:get_position()
-    hero:set_position(x,y)
+  local x,y = infinite_hallway:get_position()
+  hero:set_position(x,y)
 
 end
 
@@ -274,11 +277,11 @@ end
 
 -- Separator events
 auto_separator_14:register_event("on_activating", function(separator, direction4)
-    print(direction4)
+    
   if direction4 == 0 then
     map:set_light(0)
-    print("ok")
   end
+  
 end)
 
 auto_separator_14:register_event("on_activated", function(separator, direction4)
@@ -286,6 +289,7 @@ auto_separator_14:register_event("on_activated", function(separator, direction4)
   if direction4 ~= 0 then
     map:set_light(1)
   end
+  
 end)
 
 auto_separator_16:register_event("on_activating", function(separator, direction4)
@@ -306,4 +310,5 @@ auto_separator_17:register_event("on_activating", function(separator, direction4
       door_manager:close_if_enemies_not_dead(map, "enemy_group_1", "door_group_1")
     end)
   end
+  
 end)

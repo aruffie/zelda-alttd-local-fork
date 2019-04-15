@@ -21,8 +21,3 @@ function enemy:on_created()
   enemy:set_visible(false)
 
 end
-
--- Event called when the enemy should start or restart its movements.
-function enemy:on_restarted()
-
-end
