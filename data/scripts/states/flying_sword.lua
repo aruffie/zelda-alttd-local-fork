@@ -2,23 +2,18 @@ local state = sol.state.create("jump")
 
 local jm=require("scripts/jump_manager")
 
-state:set_can_use_item(false)
-state:set_can_control_movement(true)
-state:set_can_control_direction(false)
-
-state:set_affected_by_ground("hole", false)
-state:set_affected_by_ground("lava", false)
-state:set_affected_by_ground("deep_water", false)
-
-local previous_sprites = {}
+local state = jm.init("flying_sword")
 
 local hero_meta= sol.main.get_metatable("hero")
 local sword_sprite
 local tunic_sprite
+
 function hero_meta.start_flying_attack(hero)
-  jm.start(hero)
   print "attack on air !"
-  hero:start_state(state)
+  if hero:get_state()~="custom" or hero:get_state_object():get_description()~="flying_sword" then
+    hero:start_state(state)
+  end
+  jm.start(hero)
 end
 
 function state:on_started(old_state_name, old_state_object)
@@ -31,10 +26,18 @@ function state:on_started(old_state_name, old_state_object)
   sword_sprite = entity:get_sprite("sword")
   sword_sprite:set_direction(tunic_sprite:get_direction())
 
-  if old_state_name == "sword swinging" or old_state_name == "custom" and old_state_object:get_description() == "jump" then
-    tunic_sprite:set_animation("sword", "sword_loading_stopped") 
-    sword_sprite:set_animation("sword", "sword_loading_stopped")
-  else
+  if old_state_name == "sword swinging" or old_state_name == "custom" and old_state_object:get_description() =="jump" then
+    tunic_sprite:set_animation("sword", function()
+        print "tunic attack finished"
+        tunic_sprite:set_animation("sword_loading_stopped")
+        sword_sprite:set_animation("sword_loading_stopped")
+      end)
+    sword_sprite:set_animation("sword")
+--      , function()
+--        print "sword attack finished"
+--        sword_sprite:set_animation("sword_loading_stopped")
+--      end)
+  elseif old_state_name == "sword loading" then
     tunic_sprite:set_animation("sword_loading_stopped")
     sword_sprite:set_animation("sword_loading_stopped")
   end
@@ -47,9 +50,6 @@ function state:on_command_released(command)
       entity:start_jumping()
     else
       tunic_sprite = entity:get_sprite("tunic")
-      sword_sprite = entity:get_sprite("sword")
-      sword_sprite:set_direction(tunic_sprite:get_direction())
-
       tunic_sprite:set_animation("stopped")
 
       entity:unfreeze()
@@ -59,5 +59,6 @@ function state:on_command_released(command)
 end
 
 function state:on_finished()
+  sword_sprite:stop_animation()
   sword_sprite = nil
 end

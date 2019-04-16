@@ -139,22 +139,88 @@ function debug:on_update()
         -- The movement has changed.
         hero_movement = hero:get_movement()
         if hero_movement ~= nil
-            and ctrl_pressed
-            and not hero_movement:get_ignore_obstacles() then
+        and ctrl_pressed
+        and not hero_movement:get_ignore_obstacles() then
           -- Also traverse obstacles in the new movement.
           hero_movement:set_ignore_obstacles(true)
         end
       end
       if hero_movement ~= nil then
         if not ctrl_pressed
-            and (sol.input.is_key_pressed("left control") or sol.input.is_key_pressed("right control") or sol.input.is_key_pressed("-")) then
+        and (sol.input.is_key_pressed("left control") or sol.input.is_key_pressed("right control") or sol.input.is_key_pressed("-")) then
           hero_movement:set_ignore_obstacles(true)
           ctrl_pressed = true
         elseif ctrl_pressed
-            and (not sol.input.is_key_pressed("left control") and not sol.input.is_key_pressed("right control")) then
+        and (not sol.input.is_key_pressed("left control") and not sol.input.is_key_pressed("right control")) then
           hero_movement:set_ignore_obstacles(false)
           ctrl_pressed = false
         end
+      end
+    end
+  end
+end
+
+--[[
+  ------------------------------------
+  Show the currently pressed commands on screen
+  ------------------------------------
+--]]
+local debug_command_sprite=sol.sprite.create("debug/commands")
+local commands = {
+  {
+    name = "action",
+    x = 8,
+    y = 8,
+  },
+  {
+    name = "attack", 
+    x = 16,
+    y = 8,
+  }, 
+  {
+    name = "item_1", 
+    x = 24,
+    y = 8,
+  },
+  {
+    name = "item_2", 
+    x = 32,
+    y = 8,
+  }, 
+  {
+    name = "pause", 
+    x = 40,
+    y = 8,
+  }, 
+  {
+    name = "up", 
+    x =  48,
+    y = 8,
+  }, 
+  {
+    name = "down", 
+    x = 56,
+    y = 8,
+  }, 
+  {
+    name = "left", 
+    x = 64,
+    y = 8,
+  }, 
+  {
+    name = "right",
+    x = 72,
+    y = 8,
+  },
+}
+
+function debug:on_draw(dst_surface)
+  local game = sol.main.get_game()
+  if game then
+    for _, command in pairs(commands) do
+      if game:is_command_pressed(command.name) then
+        debug_command_sprite:set_animation(command.name)
+        debug_command_sprite:draw(dst_surface, command.x, command.y)
       end
     end
   end

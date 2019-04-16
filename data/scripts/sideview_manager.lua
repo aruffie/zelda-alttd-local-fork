@@ -395,9 +395,9 @@ end
 game_meta:register_event("on_map_changed", function(game, map)
 
     local hero = map:get_hero() --TODO account for multiple heroes
+    hero.vspeeed = 0
     if map:is_sideview() then
       hero.on_ladder = test_ladder(hero, -1) 
-      hero.vspeeed = 0
       sol.timer.start(map, 10, function()
           update_entities(map)
           return true
