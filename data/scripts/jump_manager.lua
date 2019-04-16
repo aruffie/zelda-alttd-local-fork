@@ -1,6 +1,6 @@
 local jm={}
 
-local y_accel = 1
+local y_accel = 0.5
 local max_yvel = 5
 
 function jm.reset_collision_rules(state)
@@ -61,7 +61,7 @@ function jm.start(entity)
     jm.setup_collision_rules(entity:get_state_object())
 --    print "JUMP"
     entity.y_vel = -max_yvel
-    sol.timer.start(entity, 30, function()
+    sol.timer.start(entity, 20, function()
         local r=jm.update_jump(entity)
         if not r then
           return false
