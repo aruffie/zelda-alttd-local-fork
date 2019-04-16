@@ -17,7 +17,7 @@ carried_meta:register_event("on_thrown", function(entity)
 
 carried_meta:register_event("on_created", function(entity)
 
-    local map=self:get_map()
+    local map=entity:get_map()
     if map:is_sideview() then
       for name, s in entity:get_sprites() do
         s:set_xy(0,2)

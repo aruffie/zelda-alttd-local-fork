@@ -13,7 +13,6 @@ local hero_meta = sol.main.get_metatable("hero")
 local item = ...
 local game = item:get_game()
 --local hero = game:get_hero()
-local max_yvel = 5
 require("scripts/states/jump")
 require("scripts/states/flying_sword")
 
@@ -30,12 +29,12 @@ end
 require("scripts/multi_events")
 local game_meta = sol.main.get_metatable("game")
 game_meta:register_event("on_command_pressed", function(game, command)
-    print ("command ? > "..command)
+    --print ("command ? > "..command)
     local item_1=game:get_item_assigned("1")
     local item_2=game:get_item_assigned("2")
     if command=="item_1" and item_1 and item_1:get_name()=="feather"
     or command=="item_2" and item_2 and item_2:get_name()=="feather" then
-      print "manually jumping"
+     -- print "manually jumping"
       --  print "FEATHER TIME"
       local hero = game:get_hero()
       local map = game:get_map()
@@ -43,10 +42,10 @@ game_meta:register_event("on_command_pressed", function(game, command)
         if not map:is_sideview() then
           --é print "ok"
           local state = hero:get_state()
-          if state ~= "sword swinging" and state ~="sword loading" then 
-            hero:start_jumping()
-          else
+          if state == "sword swinging" or state =="sword loading" or state=="custom" and hero:get_state_object():get_description() == "flying_sword" then 
             hero:start_flying_attack()
+          else
+            hero:start_jumping()
           end
         else
 --      print "SIDEVIEW JUMP requested "
@@ -55,14 +54,14 @@ game_meta:register_event("on_command_pressed", function(game, command)
 --        print "validated, now jump :"
             sol.timer.start(10, function()
                 hero.on_ladder = false
-                hero.vspeed = -max_yvel
+                hero.vspeed = -5
               end)
           end
         end
       end
-
+      --Don"t propagate the input or else we will trigger the "item", which would ruin the purpose of the custom states 
       return true
-    end
+      end
   end)
 
 

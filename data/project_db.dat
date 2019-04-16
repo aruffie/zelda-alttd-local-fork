@@ -179,6 +179,7 @@ tileset{ id = "sideview/sideview", description = "Side view tileset" }
 
 sprite{ id = "console/cursor", description = "Console cursor" }
 sprite{ id = "console/icons", description = "Console icons" }
+sprite{ id = "debug/commands", description = "Commands" }
 sprite{ id = "dungeons/owl/pipes/red", description = "Red pipe with water flowing" }
 sprite{ id = "dungeons/owl/pipes/yellow", description = "Yellow pipe with water flowing" }
 sprite{ id = "enemies/angler_brick", description = "Angler brick" }
