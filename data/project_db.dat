@@ -183,14 +183,14 @@ sprite{ id = "dungeons/owl/pipes/red", description = "Red pipe with water flowin
 sprite{ id = "dungeons/owl/pipes/yellow", description = "Yellow pipe with water flowing" }
 sprite{ id = "enemies/angler_brick", description = "Angler brick" }
 sprite{ id = "enemies/angler_fry", description = "Angler fry" }
-sprite{ id = "enemies/anti_kirby", description = "Anti kirby" }
-sprite{ id = "enemies/anti_kirby_aspiration", description = "Anti kirby aspiration" }
+sprite{ id = "enemies/anti_kirby/anti_kirby_aspiration", description = "Anti kirby aspiration" }
+sprite{ id = "enemies/anti_kirby/antiy_kirby", description = "Anti kirby" }
 sprite{ id = "enemies/arm_mimic", description = "Arm mimic" }
 sprite{ id = "enemies/armos", description = "Armos" }
 sprite{ id = "enemies/arrow", description = "Arrow" }
-sprite{ id = "enemies/ballchain_soldier", description = "Ballchain soldier" }
-sprite{ id = "enemies/ballchain_soldier_ball", description = "Ballchain soldier ball" }
-sprite{ id = "enemies/ballchain_soldier_chain", description = "Ballchain soldier chain" }
+sprite{ id = "enemies/ballchain_soldier/ballchain_soldie", description = "Ballchain soldier" }
+sprite{ id = "enemies/ballchain_soldier/ballchain_soldier_ball", description = "Ballchain soldier ball" }
+sprite{ id = "enemies/ballchain_soldier/ballchain_soldier_chain", description = "Ballchain soldier chain" }
 sprite{ id = "enemies/beamos", description = "Beamos" }
 sprite{ id = "enemies/beetle_blue", description = "Beetle blue" }
 sprite{ id = "enemies/beetle_green", description = "Beetle green" }
@@ -200,15 +200,15 @@ sprite{ id = "enemies/bomber", description = "Bomber" }
 sprite{ id = "enemies/bombite_green", description = "Green bombite" }
 sprite{ id = "enemies/bombite_red", description = "Red bombite" }
 sprite{ id = "enemies/boo_buddy", description = "Boo buddy" }
-sprite{ id = "enemies/boss/angler's_fish", description = "Angler's fish" }
+sprite{ id = "enemies/boss/angler_fish", description = "Angler's fish" }
 sprite{ id = "enemies/boss/big_armos_knight", description = "Big armos knight" }
 sprite{ id = "enemies/boss/blaino", description = "Blaino" }
-sprite{ id = "enemies/boss/cue_ball", description = "Cue ball" }
-sprite{ id = "enemies/boss/cue_ball_splash_effect", description = "Cue ball splash effect" }
-sprite{ id = "enemies/boss/dodongo_snake", description = "Dodongo_snake" }
+sprite{ id = "enemies/boss/cue_ball/cue_ball", description = "Cue ball" }
+sprite{ id = "enemies/boss/cue_ball/cue_ball_splash_effect", description = "Cue ball splash effect" }
+sprite{ id = "enemies/boss/dodongo_snake/dodongo_snake", description = "Dodongo_snake" }
 sprite{ id = "enemies/boss/dodongo_snake/dodongo_snake_body", description = "Dodongo snake body" }
-sprite{ id = "enemies/boss/evil_orb", description = "Evil orb" }
-sprite{ id = "enemies/boss/evil_orb/orb_evil_orb", description = "Orb evil orb" }
+sprite{ id = "enemies/boss/evil_orb/evil_orb", description = "Evil orb" }
+sprite{ id = "enemies/boss/evil_orb/evil_orb_head", description = "Orb evil orb" }
 sprite{ id = "enemies/boss/facade", description = "Facade" }
 sprite{ id = "enemies/boss/genie/genie", description = "Genie" }
 sprite{ id = "enemies/boss/genie/genie_bottle", description = "Genie bottle" }
@@ -227,25 +227,17 @@ sprite{ id = "enemies/boss/hinox_master_red", description = "Hinox master red" }
 sprite{ id = "enemies/boss/hot_head", description = "Hot head" }
 sprite{ id = "enemies/boss/hot_head_form_b", description = "Hot head form b" }
 sprite{ id = "enemies/boss/hot_head_form_c", description = "Hot head form c" }
-sprite{ id = "enemies/boss/master_stalfos", description = "Master stalfos" }
+sprite{ id = "enemies/boss/master_stalfos/master_stalfos", description = "Master stalfos" }
 sprite{ id = "enemies/boss/master_stalfos/master_stalfos_shadow", description = "Master stalfos shadow" }
 sprite{ id = "enemies/boss/master_stalfos/master_stalfos_shield", description = "Master stalfos shield" }
 sprite{ id = "enemies/boss/master_stalfos/master_stalfos_sword", description = "Master stalfos sword" }
 sprite{ id = "enemies/boss/moblin_chief", description = "Moblin chief" }
-sprite{ id = "enemies/boss/moldorm/moldorm", description = "Moldorm tail" }
-sprite{ id = "enemies/boss/moldorm/moldorm_body_1", description = "Moldorm body 1" }
-sprite{ id = "enemies/boss/moldorm/moldorm_body_2", description = "Moldorm body 2" }
-sprite{ id = "enemies/boss/moldorm/moldorm_body_3", description = "Moldorm body 3" }
-sprite{ id = "enemies/boss/moldorm/moldorm_head", description = "Moldorm head" }
-sprite{ id = "enemies/boss/rolling_bones/rolling_bones", description = "Rolling bones" }
-sprite{ id = "enemies/boss/rolling_bones/rolling_bones_spike", description = "Rolling bones spike" }
-sprite{ id = "enemies/boss/skeleton", description = "Skeleton" }
 sprite{ id = "enemies/boss/slime_eel", description = "Slime eel" }
 sprite{ id = "enemies/boss/slime_eye", description = "Slime eye" }
 sprite{ id = "enemies/boss/smasher", description = "Smasher" }
 sprite{ id = "enemies/boss/stone_hinox", description = "Stone hinox" }
-sprite{ id = "enemies/boss/turtle_rock_head", description = "Turtle rock head" }
-sprite{ id = "enemies/boss/turtle_rock_head/turtle_rock_chain", description = "Turtle rock chain" }
+sprite{ id = "enemies/boss/turtle_rock/turtle_rock", description = "Turtle rock head" }
+sprite{ id = "enemies/boss/turtle_rock/turtle_rock_chain", description = "Turtle rock chain" }
 sprite{ id = "enemies/boulder", description = "Boulder" }
 sprite{ id = "enemies/bubble", description = "Bubble" }
 sprite{ id = "enemies/buzz_blob", description = "Buzz blob" }
@@ -278,7 +270,6 @@ sprite{ id = "enemies/gibdo", description = "Gibdo" }
 sprite{ id = "enemies/goomba", description = "Goomba" }
 sprite{ id = "enemies/goponga_flower", description = "Goponga flower" }
 sprite{ id = "enemies/hardhat_beetle_blue", description = "Hardhat beetle blue" }
-sprite{ id = "enemies/hardhat_beetle_red", description = "Hardhat beetle red" }
 sprite{ id = "enemies/helmasaur_masked", description = "Helmasaur masked" }
 sprite{ id = "enemies/helmasaur_naked", description = "Helmasaur naked" }
 sprite{ id = "enemies/hooded_stalfos", description = "Hooded stalfos" }
@@ -287,15 +278,14 @@ sprite{ id = "enemies/leever", description = "Leever" }
 sprite{ id = "enemies/like_like", description = "Like like" }
 sprite{ id = "enemies/mad_bomber", description = "Mad bomber" }
 sprite{ id = "enemies/maskass", description = "Maskass" }
-sprite{ id = "enemies/mini_thwomp", description = "Mini thwomp" }
 sprite{ id = "enemies/moblin", description = "Moblin" }
 sprite{ id = "enemies/moblin_dog_spear", description = "Moblin dog spear" }
 sprite{ id = "enemies/moblin_dog_sword", description = "Moblin dog sword" }
 sprite{ id = "enemies/moblin_pig_sword", description = "Moblin pig sword" }
 sprite{ id = "enemies/moblin_spear", description = "Moblin spear" }
-sprite{ id = "enemies/monkey", description = "Monkey" }
-sprite{ id = "enemies/octorok", description = "Octorok" }
-sprite{ id = "enemies/octorok_stone", description = "Octorok stone" }
+sprite{ id = "enemies/monkey/monkey", description = "Monkey" }
+sprite{ id = "enemies/octorok/octorok", description = "Octorok" }
+sprite{ id = "enemies/octorok/octorok_stone", description = "Octorok stone" }
 sprite{ id = "enemies/orb_monster_blue", description = "Orb monster blue" }
 sprite{ id = "enemies/orb_monster_green", description = "Orb monster green" }
 sprite{ id = "enemies/orb_monster_red", description = "Orb monster red" }
@@ -304,12 +294,12 @@ sprite{ id = "enemies/peahat", description = "Peahat" }
 sprite{ id = "enemies/pike_auto", description = "Pike auto" }
 sprite{ id = "enemies/pike_detect", description = "Pike detect" }
 sprite{ id = "enemies/pike_fixed", description = "Pike fixed" }
-sprite{ id = "enemies/pincer_body", description = "Pincer body" }
-sprite{ id = "enemies/pincer_eyes", description = "Pincer eyes" }
-sprite{ id = "enemies/pincer_head", description = "Pincer head" }
+sprite{ id = "enemies/pincer/pincer", description = "Pincer head" }
+sprite{ id = "enemies/pincer/pincer_body", description = "Pincer body" }
+sprite{ id = "enemies/pincer/pincer_eyes", description = "Pincer eyes" }
 sprite{ id = "enemies/piranha", description = "Piranha" }
 sprite{ id = "enemies/piranha_plant", description = "Piranha plant" }
-sprite{ id = "enemies/podoboo", description = "Podoboo" }
+sprite{ id = "enemies/podobo", description = "Podoboo" }
 sprite{ id = "enemies/pokey_2", description = "Pokey 2" }
 sprite{ id = "enemies/pokey_3", description = "Pokey_3" }
 sprite{ id = "enemies/pokey_ball", description = "pokey_ball" }
@@ -324,7 +314,7 @@ sprite{ id = "enemies/sea_urchin", description = "Sea urchin" }
 sprite{ id = "enemies/small_moldorm", description = "Mini moldorm" }
 sprite{ id = "enemies/small_moldorm_body", description = "Mini Moldorm body" }
 sprite{ id = "enemies/small_moldorm_tail", description = "Mini moldorm tail" }
-sprite{ id = "enemies/spike", description = "Spike" }
+sprite{ id = "enemies/spiked_beetle", description = "Spike" }
 sprite{ id = "enemies/spiked_thwomp", description = "Spiked thwomp" }
 sprite{ id = "enemies/spiny_beetle", description = "Spiny beetle" }
 sprite{ id = "enemies/stalfos_blue", description = "Stalfos blue" }
@@ -336,6 +326,7 @@ sprite{ id = "enemies/sword_darknut", description = "Sword darknut" }
 sprite{ id = "enemies/sword_moblin_dog", description = "Sword moblin dog" }
 sprite{ id = "enemies/sword_moblin_pig", description = "Sword moblin pig" }
 sprite{ id = "enemies/tektite", description = "Tektite" }
+sprite{ id = "enemies/thwimp", description = "Mini thwomp" }
 sprite{ id = "enemies/vegas", description = "Vegas" }
 sprite{ id = "enemies/vire", description = "Vire" }
 sprite{ id = "enemies/vire_blazing_bat", description = "Vire blazing bat" }
@@ -1072,6 +1063,7 @@ sound{ id = "snes/misc/dungeon_open", description = "Dungeon open" }
 sound{ id = "snes/misc/dungeon_switch", description = "Dungeon switch" }
 sound{ id = "snes/misc/dungeon_teleport", description = "Dungeon teleport" }
 sound{ id = "snes/misc/error", description = "Error" }
+sound{ id = "snes/misc/low_health", description = "Low health" }
 sound{ id = "snes/misc/monkey", description = "Monkey" }
 sound{ id = "snes/misc/rock_push", description = "Rock push" }
 sound{ id = "snes/misc/rock_shatter", description = "Rock shatter" }
@@ -1190,7 +1182,6 @@ enemy{ id = "camo_goblin_green", description = "Camo goblin green" }
 enemy{ id = "camo_goblin_red", description = "Camo goblin red" }
 enemy{ id = "chicken", description = "Chicken" }
 enemy{ id = "chicken_mortal", description = "Chicken mortal" }
-enemy{ id = "coconut", description = "Monkey coconut" }
 enemy{ id = "crow", description = "Crow" }
 enemy{ id = "darknut", description = "Darknut" }
 enemy{ id = "death_ball", description = "Death ball" }
@@ -1223,7 +1214,8 @@ enemy{ id = "moblin", description = "Moblin" }
 enemy{ id = "moblin_dog_spear", description = "Moblin dog spear" }
 enemy{ id = "moblin_dog_sword", description = "Moblin dog sword" }
 enemy{ id = "moblin_pig_sword", description = "Moblin pig sword" }
-enemy{ id = "monkey", description = "Monkey" }
+enemy{ id = "monkey/monkey", description = "Monkey" }
+enemy{ id = "monkey/monkey_coconut", description = "Monkey coconut" }
 enemy{ id = "octorok", description = "Octorok" }
 enemy{ id = "octorok_stone", description = "Octorok stone" }
 enemy{ id = "orb_monster_blue", description = "Orb monster blue" }
@@ -1243,7 +1235,7 @@ enemy{ id = "rope", description = "Rope" }
 enemy{ id = "sand_crab", description = "Sand crab" }
 enemy{ id = "sea_urchin", description = "Sea urchin" }
 enemy{ id = "small_moldorm", description = "Small moldorm" }
-enemy{ id = "spike", description = "Spike" }
+enemy{ id = "spiked_beetle", description = "Spiked beetle" }
 enemy{ id = "spiked_thwomp", description = "Spiked thwomp" }
 enemy{ id = "stalfos_blue", description = "Stalfos blue" }
 enemy{ id = "stalfos_grey", description = "Stalfos grey" }
@@ -1337,7 +1329,6 @@ file{ path = "enemies/camo_goblin_green.lua", license = "GPL v3" }
 file{ path = "enemies/camo_goblin_red.lua", license = "GPL v3" }
 file{ path = "enemies/chicken.lua", license = "GPL v3" }
 file{ path = "enemies/chicken_mortal.lua", license = "GPL v3" }
-file{ path = "enemies/coconut.lua", license = "GPL v3" }
 file{ path = "enemies/crow.lua", license = "GPL v3" }
 file{ path = "enemies/darknut.lua", license = "GPL v3" }
 file{ path = "enemies/death_ball.lua", license = "GPL v3" }
@@ -1370,7 +1361,8 @@ file{ path = "enemies/moblin.lua", license = "GPL v3" }
 file{ path = "enemies/moblin_dog_spear.lua", license = "GPL v3" }
 file{ path = "enemies/moblin_dog_sword.lua", license = "GPL v3" }
 file{ path = "enemies/moblin_pig_sword.lua", license = "GPL v3" }
-file{ path = "enemies/monkey.lua", license = "GPL v3" }
+file{ path = "enemies/monkey/monkey.lua", license = "GPL v3" }
+file{ path = "enemies/monkey/monkey_coconut.lua", license = "GPL v3" }
 file{ path = "enemies/octorok.lua", license = "GPL v3" }
 file{ path = "enemies/octorok_stone.lua", license = "GPL v3" }
 file{ path = "enemies/orb_monster_blue.lua", license = "GPL v3" }
@@ -1387,7 +1379,7 @@ file{ path = "enemies/river_zora.lua", license = "GPL v3" }
 file{ path = "enemies/rope.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "enemies/sand_crab.lua", license = "GPL v3" }
 file{ path = "enemies/sea_urchin.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "enemies/spike.lua", license = "GPL v3" }
+file{ path = "enemies/spiked_beetle.lua", license = "GPL v3" }
 file{ path = "enemies/spiked_thwomp.lua", license = "GPL v3" }
 file{ path = "enemies/stalfos_blue.lua", license = "GPL v3" }
 file{ path = "enemies/stalfos_grey.lua", license = "GPL v3" }
