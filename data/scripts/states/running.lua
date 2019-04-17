@@ -37,7 +37,7 @@ function state:on_started()
   local sprite=entity:get_sprite("tunic")
   sprite:set_animation("walking")
   sol.timer.start(entity, 500, function() --start movement and pull out sword if any
-      if game:get_ability("sword") then
+      if game:get_ability("sword")>0 and game:has_item("sword") then
         sprite:set_animation("sword_loading_walking")
         local sword_sprite = entity:get_sprite("sword")
         sword_sprite:set_animation("sword_loading_walking")
