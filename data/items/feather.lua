@@ -15,6 +15,7 @@ local game = item:get_game()
 --local hero = game:get_hero()
 require("scripts/states/jump")
 require("scripts/states/flying_sword")
+local jm=require("scripts/jump_manager")
 require("scripts/multi_events")
 
 -- Event called when the game is initialized.
@@ -32,14 +33,17 @@ function item:on_created()
 end
 
 local game_meta = sol.main.get_metatable("game")
+
+
 game_meta:register_event("on_started", function(game)
+    
     game:register_event("on_command_pressed", function(game, command)
-        --print ("command ? > "..command)
+        print ("command ? > "..command)
         local item_1=game:get_item_assigned(1)
         local item_2=game:get_item_assigned(2)
         if command=="item_1" and item_1 and item_1:get_name()=="feather"
         or command=="item_2" and item_2 and item_2:get_name()=="feather" then
-          -- print "manually jumping"
+           print "manually jumping"
           --  print "FEATHER TIME"
           local hero = game:get_hero()
           local map = game:get_map()
@@ -49,6 +53,8 @@ game_meta:register_event("on_started", function(game)
               local state = hero:get_state()
               if state == "sword swinging" or state =="sword loading" or state=="custom" and hero:get_state_object():get_description() == "flying_sword" then 
                 hero:start_flying_attack()
+              elseif state=="custom" and hero:get_state_object():get_description()=="running" then 
+                jm.start(hero)
               else
                 hero:start_jumping()
               end

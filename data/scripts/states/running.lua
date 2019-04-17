@@ -1,8 +1,10 @@
 local state = sol.state.create("running")
 local hero_meta=sol.main.get_metatable("hero")
+local jm=require("scripts/jump_manager")
+
 state:set_can_control_direction(false)
 state:set_can_control_movement(false)
-
+state:set_can_use_item("feather", true)
 local directions = {
   {
     key="right",
@@ -64,6 +66,7 @@ end
 function state:on_command_pressed(command)
   print "command ? "
   local entity=state:get_entity()
+  local game=entity:get_game()
   local s=entity:get_sprite()
   for _,c in pairs(directions) do
     if c.key == command and c.direction~=s:get_direction() then
