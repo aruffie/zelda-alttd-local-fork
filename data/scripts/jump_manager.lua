@@ -5,7 +5,7 @@ local max_yvel = 5
 
 function jm.reset_collision_rules(state)
 --  print "RESET"
-  if state and state:get_description() == "flying_sword" then
+  if state and (state:get_description() == "flying_sword" or state:get_description()=="running") then
 --    print "restoring jumping state collision rules"
     state:set_affected_by_ground("hole", true)
     state:set_affected_by_ground("lava", true)
@@ -18,7 +18,7 @@ end
 function jm.setup_collision_rules(state)
 --  local d = state and state:get_description() or "<none>"
 --  print ("SET collision for ".. d)
-  if state and (state:get_description()=="jumping" or state:get_description()=="flying_sword") then
+  if state and (state:get_description()=="jumping" or state:get_description()=="flying_sword" or state:get_description()=="running") then
 --    print "setting up jumping state collision rules"
     state:set_affected_by_ground("hole", false)
     state:set_affected_by_ground("lava", false)
@@ -44,7 +44,7 @@ function jm.update_jump(entity)
     end
 
     entity.jumping = false
-    if not sol.main.get_game():is_command_pressed("attack") then
+    if entity:get_state()~="custom" or entity:get_state_object():get_description()~="running" and not sol.main.get_game():is_command_pressed("attack") then
       entity:unfreeze()
     else
       jm.reset_collision_rules(entity:get_state_object())
