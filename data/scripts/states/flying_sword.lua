@@ -1,5 +1,3 @@
-local state = sol.state.create("jump")
-
 local jm=require("scripts/jump_manager")
 
 local state = jm.init("flying_sword")

@@ -9,12 +9,13 @@
 -- http://www.solarus-games.org/doc/latest
 
 local hero_meta = sol.main.get_metatable("hero")
-
+print "script loaded"
 local item = ...
 local game = item:get_game()
 --local hero = game:get_hero()
 require("scripts/states/jump")
 require("scripts/states/flying_sword")
+require("scripts/multi_events")
 
 -- Event called when the game is initialized.
 function item:on_started()
@@ -25,45 +26,49 @@ function item:on_started()
   -- like whether it can be saved, whether it has an amount
   -- and whether it can be assigned.
 end
+function item:on_created()
 
-require("scripts/multi_events")
+  print "feather got juste created"
+end
+
 local game_meta = sol.main.get_metatable("game")
-game_meta:register_event("on_command_pressed", function(game, command)
-    --print ("command ? > "..command)
-    local item_1=game:get_item_assigned("1")
-    local item_2=game:get_item_assigned("2")
-    if command=="item_1" and item_1 and item_1:get_name()=="feather"
-    or command=="item_2" and item_2 and item_2:get_name()=="feather" then
-     -- print "manually jumping"
-      --  print "FEATHER TIME"
-      local hero = game:get_hero()
-      local map = game:get_map()
-      if hero.is_jumping~=true then
-        if not map:is_sideview() then
-          --é print "ok"
-          local state = hero:get_state()
-          if state == "sword swinging" or state =="sword loading" or state=="custom" and hero:get_state_object():get_description() == "flying_sword" then 
-            hero:start_flying_attack()
-          else
-            hero:start_jumping()
-          end
-        else
+game_meta:register_event("on_started", function(game)
+    game:register_event("on_command_pressed", function(game, command)
+        --print ("command ? > "..command)
+        local item_1=game:get_item_assigned(1)
+        local item_2=game:get_item_assigned(2)
+        if command=="item_1" and item_1 and item_1:get_name()=="feather"
+        or command=="item_2" and item_2 and item_2:get_name()=="feather" then
+          -- print "manually jumping"
+          --  print "FEATHER TIME"
+          local hero = game:get_hero()
+          local map = game:get_map()
+          if hero.is_jumping~=true then
+            if not map:is_sideview() then
+              --é print "ok"
+              local state = hero:get_state()
+              if state == "sword swinging" or state =="sword loading" or state=="custom" and hero:get_state_object():get_description() == "flying_sword" then 
+                hero:start_flying_attack()
+              else
+                hero:start_jumping()
+              end
+            else
 --      print "SIDEVIEW JUMP requested "
-          local vspeed = hero.vspeed or 0
-          if vspeed == 0 or map:get_ground(hero:get_position())=="deep_water" then
+              local vspeed = hero.vspeed or 0
+              if vspeed == 0 or map:get_ground(hero:get_position())=="deep_water" then
 --        print "validated, now jump :"
-            sol.timer.start(10, function()
-                hero.on_ladder = false
-                hero.vspeed = -5
-              end)
+                sol.timer.start(10, function()
+                    hero.on_ladder = false
+                    hero.vspeed = -5
+                  end)
+              end
+            end
           end
+          --Don"t propagate the input or else we will trigger the "item", which would ruin the purpose of the custom states 
+          return true
         end
-      end
-      --Don"t propagate the input or else we will trigger the "item", which would ruin the purpose of the custom states 
-      return true
-      end
+      end)
   end)
-
 
 
 function item:on_using()
