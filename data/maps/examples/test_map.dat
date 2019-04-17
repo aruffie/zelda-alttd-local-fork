@@ -218,6 +218,15 @@ tile{
   pattern = "962",
 }
 
+tile{
+  layer = 0,
+  x = 256,
+  y = 296,
+  width = 64,
+  height = 64,
+  pattern = "917",
+}
+
 chest{
   layer = 0,
   x = 72,
