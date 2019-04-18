@@ -11144,7 +11144,7 @@ enemy{
   x = 1016,
   y = 1069,
   direction = 3,
-  breed = "gel_red",
+  breed = "gel",
   treasure_name = "random",
 }
 
@@ -11237,7 +11237,7 @@ enemy{
   x = 1016,
   y = 1581,
   direction = 3,
-  breed = "gel_red",
+  breed = "gel",
   treasure_name = "random",
 }
 
@@ -11824,7 +11824,7 @@ enemy{
   x = 1096,
   y = 629,
   direction = 3,
-  breed = "gel_red",
+  breed = "gel",
   treasure_name = "random",
 }
 
@@ -11834,7 +11834,7 @@ enemy{
   x = 1112,
   y = 613,
   direction = 3,
-  breed = "gel_red",
+  breed = "gel",
   treasure_name = "random",
 }
 
@@ -11844,7 +11844,7 @@ enemy{
   x = 1128,
   y = 629,
   direction = 3,
-  breed = "gel_red",
+  breed = "gel",
   treasure_name = "random",
 }
 
@@ -11854,7 +11854,7 @@ enemy{
   x = 1112,
   y = 645,
   direction = 3,
-  breed = "gel_red",
+  breed = "gel",
   treasure_name = "random",
 }
 

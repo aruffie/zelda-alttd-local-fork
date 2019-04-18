@@ -2926,7 +2926,7 @@ enemy{
   x = 192,
   y = 93,
   direction = 3,
-  breed = "moblin_dog_spear",
+  breed = "moblin_dog_spear/moblin_dog_spear",
 }
 
 enemy{
@@ -2935,7 +2935,7 @@ enemy{
   x = 128,
   y = 93,
   direction = 3,
-  breed = "moblin_dog_spear",
+  breed = "moblin_dog_spear/moblin_dog_spear",
 }
 
 enemy{
@@ -2944,7 +2944,7 @@ enemy{
   x = 216,
   y = 109,
   direction = 3,
-  breed = "moblin_dog_spear",
+  breed = "moblin_dog_spear/moblin_dog_spear",
 }
 
 enemy{
@@ -2953,7 +2953,7 @@ enemy{
   x = 104,
   y = 109,
   direction = 3,
-  breed = "moblin_dog_spear",
+  breed = "moblin_dog_spear/moblin_dog_spear",
 }
 
 door{
@@ -3121,7 +3121,7 @@ enemy{
   x = 160,
   y = 373,
   direction = 3,
-  breed = "moblin_dog_sword",
+  breed = "moblin_dog_sword/moblin_dog_sword",
 }
 
 door{

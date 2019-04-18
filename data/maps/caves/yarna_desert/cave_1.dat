@@ -2521,7 +2521,7 @@ enemy{
   x = 424,
   y = 333,
   direction = 0,
-  breed = "hardhat_beetle_blue",
+  breed = "hardhat_beetle",
   treasure_name = "random",
 }
 
@@ -2957,7 +2957,7 @@ enemy{
   x = 128,
   y = 325,
   direction = 0,
-  breed = "hardhat_beetle_blue",
+  breed = "hardhat_beetle",
   treasure_name = "random",
 }
 

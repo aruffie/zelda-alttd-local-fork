@@ -16974,7 +16974,7 @@ enemy{
   x = 456,
   y = 61,
   direction = 0,
-  breed = "stalfos_red",
+  breed = "stalfos",
   treasure_name = "random",
 }
 
@@ -16984,7 +16984,7 @@ enemy{
   x = 408,
   y = 125,
   direction = 0,
-  breed = "stalfos_red",
+  breed = "stalfos",
   treasure_name = "random",
 }
 
@@ -16994,7 +16994,7 @@ enemy{
   x = 1384,
   y = 1557,
   direction = 0,
-  breed = "stalfos_red",
+  breed = "stalfos",
   treasure_name = "random",
 }
 
@@ -17228,7 +17228,7 @@ enemy{
   x = 1400,
   y = 1333,
   direction = 3,
-  breed = "stalfos_red",
+  breed = "stalfos",
   treasure_name = "random",
 }
 
@@ -17238,7 +17238,7 @@ enemy{
   x = 1464,
   y = 1285,
   direction = 3,
-  breed = "stalfos_red",
+  breed = "stalfos",
   treasure_name = "random",
 }
 
@@ -17734,7 +17734,7 @@ enemy{
   x = 1352,
   y = 573,
   direction = 0,
-  breed = "water_tektite",
+  breed = "tektite_water",
   treasure_name = "random",
 }
 
@@ -17744,7 +17744,7 @@ enemy{
   x = 1432,
   y = 533,
   direction = 0,
-  breed = "water_tektite",
+  breed = "tektite_water",
   treasure_name = "random",
 }
 
@@ -17754,7 +17754,7 @@ enemy{
   x = 1464,
   y = 669,
   direction = 0,
-  breed = "water_tektite",
+  breed = "tektite_water",
   treasure_name = "random",
 }
 
@@ -17764,7 +17764,7 @@ enemy{
   x = 1544,
   y = 605,
   direction = 0,
-  breed = "water_tektite",
+  breed = "tektite_water",
   treasure_name = "random",
 }
 
@@ -17918,7 +17918,7 @@ enemy{
   x = 1080,
   y = 93,
   direction = 3,
-  breed = "stalfos_red",
+  breed = "stalfos",
   treasure_name = "random",
 }
 
@@ -17928,7 +17928,7 @@ enemy{
   x = 1112,
   y = 93,
   direction = 3,
-  breed = "stalfos_red",
+  breed = "stalfos",
   treasure_name = "random",
 }
 

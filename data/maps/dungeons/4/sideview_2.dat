@@ -887,7 +887,7 @@ enemy{
   x = 456,
   y = 69,
   direction = 0,
-  breed = "spiked_thwomp",
+  breed = "thwomp",
 }
 
 enemy{
@@ -895,6 +895,6 @@ enemy{
   x = 184,
   y = 101,
   direction = 0,
-  breed = "spiked_thwomp",
+  breed = "thwomp",
 }
 

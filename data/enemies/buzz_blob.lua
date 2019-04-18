@@ -1,3 +1,6 @@
+-- Lua script of enemy buzz_blob.
+-- This script is executed every time an enemy with this model is created.
+
 -- Variables
 local enemy = ...
 local game = enemy:get_game()
@@ -21,18 +24,6 @@ function enemy:on_created()
   enemy:set_life(1)
   enemy:set_damage(1)
   enemy:set_attack_consequence("sword",  "custom")
-
-end
-
--- Event called when the enemy should start or restart its movements.
--- This is called for example after the enemy is created or after
--- it was hurt or immobilized.
-function enemy:on_restarted()
-
-  movement = sol.movement.create("target")
-  movement:set_target(hero)
-  movement:set_speed(48)
-  movement:start(enemy)
 
 end
 

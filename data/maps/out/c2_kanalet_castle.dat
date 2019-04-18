@@ -9378,7 +9378,7 @@ enemy{
   x = 544,
   y = 53,
   direction = 2,
-  breed = "darknut",
+  breed = "darknut/darknut",
   treasure_name = "random",
 }
 
@@ -9463,7 +9463,7 @@ enemy{
   x = 552,
   y = 477,
   direction = 2,
-  breed = "darknut",
+  breed = "darknut/darknut",
   treasure_name = "random",
 }
 
@@ -9472,7 +9472,7 @@ enemy{
   x = 152,
   y = 493,
   direction = 0,
-  breed = "darknut",
+  breed = "darknut/darknut",
   treasure_name = "random",
 }
 
@@ -9481,7 +9481,7 @@ enemy{
   x = 152,
   y = 293,
   direction = 0,
-  breed = "darknut",
+  breed = "darknut/darknut",
   treasure_name = "random",
 }
 

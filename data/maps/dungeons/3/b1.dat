@@ -6804,7 +6804,7 @@ enemy{
   x = 1064,
   y = 829,
   direction = 3,
-  breed = "gel_red",
+  breed = "gel",
   treasure_name = "random",
 }
 

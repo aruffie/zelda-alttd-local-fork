@@ -14653,7 +14653,7 @@ enemy{
   x = 200,
   y = 157,
   direction = 2,
-  breed = "moblin",
+  breed = "moblin_pig_spear/moblin_pig_spear",
   treasure_name = "random",
 }
 
@@ -14662,7 +14662,7 @@ enemy{
   x = 176,
   y = 133,
   direction = 3,
-  breed = "moblin",
+  breed = "moblin_pig_spear/moblin_pig_spear",
   treasure_name = "random",
 }
 

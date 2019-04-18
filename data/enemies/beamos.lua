@@ -1,4 +1,4 @@
--- Lua script of enemy "beamos".
+-- Lua script of enemy beamos.
 -- This script is executed every time an enemy with this model is created.
 
 -- Variables
@@ -11,9 +11,10 @@ local time_between_particles = 20
 local particles_per_beam = 30
 local stop_time = 1000
 
+-- Scripts
 local audio_manager = require("scripts/audio_manager")
 
--- Event called when the enemy is initialized.
+-- The enemy appears: set its properties.
 function enemy:on_created()
   
   self:set_life(1); self:set_damage(2)

@@ -13649,7 +13649,7 @@ enemy{
   x = 1336,
   y = 1517,
   direction = 0,
-  breed = "water_tektite",
+  breed = "tektite_water",
 }
 
 enemy{
@@ -13658,7 +13658,7 @@ enemy{
   x = 1344,
   y = 1621,
   direction = 0,
-  breed = "water_tektite",
+  breed = "tektite_water",
 }
 
 enemy{
@@ -13667,7 +13667,7 @@ enemy{
   x = 1544,
   y = 1629,
   direction = 0,
-  breed = "water_tektite",
+  breed = "tektite_water",
 }
 
 enemy{
@@ -13676,7 +13676,7 @@ enemy{
   x = 1544,
   y = 1533,
   direction = 0,
-  breed = "water_tektite",
+  breed = "tektite_water",
 }
 
 chest{
@@ -13705,7 +13705,7 @@ enemy{
   x = 1368,
   y = 1389,
   direction = 0,
-  breed = "spike",
+  breed = "spiked_beetle",
 }
 
 enemy{
@@ -13714,7 +13714,7 @@ enemy{
   x = 1480,
   y = 1325,
   direction = 0,
-  breed = "spike",
+  breed = "spiked_beetle",
 }
 
 enemy{
@@ -13741,7 +13741,7 @@ enemy{
   x = 1160,
   y = 1349,
   direction = 0,
-  breed = "spike",
+  breed = "spiked_beetle",
 }
 
 enemy{
@@ -13750,7 +13750,7 @@ enemy{
   x = 1032,
   y = 1349,
   direction = 0,
-  breed = "spike",
+  breed = "spiked_beetle",
 }
 
 enemy{
@@ -13768,7 +13768,7 @@ enemy{
   x = 824,
   y = 1389,
   direction = 0,
-  breed = "water_tektite",
+  breed = "tektite_water",
 }
 
 chest{
@@ -13788,7 +13788,7 @@ enemy{
   x = 1752,
   y = 1037,
   direction = 0,
-  breed = "water_tektite",
+  breed = "tektite_water",
 }
 
 enemy{
@@ -13797,7 +13797,7 @@ enemy{
   x = 1832,
   y = 1085,
   direction = 0,
-  breed = "water_tektite",
+  breed = "tektite_water",
 }
 
 enemy{
@@ -13806,7 +13806,7 @@ enemy{
   x = 1864,
   y = 1037,
   direction = 0,
-  breed = "water_tektite",
+  breed = "tektite_water",
 }
 
 enemy{
@@ -14044,7 +14044,7 @@ enemy{
   x = 2104,
   y = 909,
   direction = 0,
-  breed = "water_tektite",
+  breed = "tektite_water",
 }
 
 enemy{
@@ -14089,7 +14089,7 @@ enemy{
   x = 2024,
   y = 653,
   direction = 0,
-  breed = "water_tektite",
+  breed = "tektite_water",
 }
 
 enemy{
@@ -14098,7 +14098,7 @@ enemy{
   x = 2120,
   y = 589,
   direction = 0,
-  breed = "water_tektite",
+  breed = "tektite_water",
 }
 
 enemy{
@@ -14125,7 +14125,7 @@ enemy{
   x = 2080,
   y = 365,
   direction = 0,
-  breed = "water_tektite",
+  breed = "tektite_water",
 }
 
 enemy{
@@ -14143,7 +14143,7 @@ enemy{
   x = 1784,
   y = 1325,
   direction = 0,
-  breed = "water_tektite",
+  breed = "tektite_water",
 }
 
 enemy{
@@ -14152,7 +14152,7 @@ enemy{
   x = 1864,
   y = 1341,
   direction = 0,
-  breed = "water_tektite",
+  breed = "tektite_water",
 }
 
 enemy{
@@ -14161,7 +14161,7 @@ enemy{
   x = 1728,
   y = 1373,
   direction = 0,
-  breed = "water_tektite",
+  breed = "tektite_water",
 }
 
 enemy{
@@ -14170,7 +14170,7 @@ enemy{
   x = 1112,
   y = 1165,
   direction = 0,
-  breed = "water_tektite",
+  breed = "tektite_water",
 }
 
 enemy{
@@ -14179,7 +14179,7 @@ enemy{
   x = 1064,
   y = 1053,
   direction = 0,
-  breed = "water_tektite",
+  breed = "tektite_water",
 }
 
 switch{
@@ -14424,7 +14424,7 @@ enemy{
   x = 1416,
   y = 1037,
   direction = 0,
-  breed = "water_tektite",
+  breed = "tektite_water",
 }
 
 enemy{
@@ -14433,7 +14433,7 @@ enemy{
   x = 1448,
   y = 1085,
   direction = 0,
-  breed = "water_tektite",
+  breed = "tektite_water",
 }
 
 enemy{
@@ -14442,7 +14442,7 @@ enemy{
   x = 1208,
   y = 1037,
   direction = 0,
-  breed = "water_tektite",
+  breed = "tektite_water",
 }
 
 enemy{
@@ -14509,7 +14509,7 @@ enemy{
   x = 744,
   y = 573,
   direction = 0,
-  breed = "water_tektite",
+  breed = "tektite_water",
 }
 
 enemy{
@@ -14518,7 +14518,7 @@ enemy{
   x = 824,
   y = 637,
   direction = 0,
-  breed = "water_tektite",
+  breed = "tektite_water",
 }
 
 enemy{
@@ -14527,7 +14527,7 @@ enemy{
   x = 1512,
   y = 829,
   direction = 0,
-  breed = "spike",
+  breed = "spiked_beetle",
 }
 
 enemy{
@@ -14536,7 +14536,7 @@ enemy{
   x = 1392,
   y = 893,
   direction = 0,
-  breed = "spike",
+  breed = "spiked_beetle",
 }
 
 enemy{
@@ -17047,7 +17047,7 @@ enemy{
   x = 1088,
   y = 525,
   direction = 0,
-  breed = "eyegore_statue",
+  breed = "eyegore_statue/eyegore_statue",
 }
 
 enemy{
@@ -17056,7 +17056,7 @@ enemy{
   x = 1120,
   y = 525,
   direction = 0,
-  breed = "eyegore_statue",
+  breed = "eyegore_statue/eyegore_statue",
 }
 
 enemy{
@@ -17065,7 +17065,7 @@ enemy{
   x = 1088,
   y = 45,
   direction = 0,
-  breed = "eyegore_statue",
+  breed = "eyegore_statue/eyegore_statue",
 }
 
 enemy{
@@ -17074,6 +17074,6 @@ enemy{
   x = 1120,
   y = 45,
   direction = 0,
-  breed = "eyegore_statue",
+  breed = "eyegore_statue/eyegore_statue",
 }
 

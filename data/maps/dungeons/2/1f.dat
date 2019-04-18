@@ -17090,7 +17090,7 @@ enemy{
   x = 1144,
   y = 1341,
   direction = 3,
-  breed = "stalfos_grey",
+  breed = "stalfos",
 }
 
 enemy{
@@ -17099,7 +17099,7 @@ enemy{
   x = 1112,
   y = 1341,
   direction = 3,
-  breed = "stalfos_red",
+  breed = "stalfos",
 }
 
 door{
@@ -17409,7 +17409,7 @@ enemy{
   x = 2080,
   y = 1373,
   direction = 3,
-  breed = "spike",
+  breed = "spiked_beetle",
 }
 
 enemy{
@@ -17418,7 +17418,7 @@ enemy{
   x = 2080,
   y = 1293,
   direction = 3,
-  breed = "spike",
+  breed = "spiked_beetle",
 }
 
 door{
@@ -19525,8 +19525,8 @@ block{
 enemy{
   name = "enemy_group_1_1",
   layer = 0,
-  x = 856,
-  y = 1397,
+  x = 792,
+  y = 1253,
   properties = {
     {
       key = "clockwise",
@@ -19734,7 +19734,7 @@ enemy{
   x = 512,
   y = 1053,
   direction = 3,
-  breed = "hardhat_beetle_blue",
+  breed = "hardhat_beetle",
 }
 
 chest{
@@ -20312,7 +20312,7 @@ enemy{
   x = 1480,
   y = 77,
   direction = 0,
-  breed = "hardhat_beetle_blue",
+  breed = "hardhat_beetle",
 }
 
 npc{

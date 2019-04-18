@@ -1,4 +1,4 @@
--- Lua script of enemy "chicken".
+-- Lua script of enemy chicken.
 -- This script is executed every time an enemy with this model is created.
 
 -- Variables
@@ -10,6 +10,7 @@ local num_times_hurt = 0
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
 
+-- The enemy appears: set its properties.
 function enemy:on_created()
 
   enemy:set_life(10000)

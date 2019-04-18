@@ -10651,7 +10651,7 @@ enemy{
   x = 328,
   y = 125,
   direction = 0,
-  breed = "octorok",
+  breed = "octorok/octorok",
 }
 
 enemy{
@@ -10659,7 +10659,7 @@ enemy{
   x = 176,
   y = 221,
   direction = 0,
-  breed = "octorok",
+  breed = "octorok/octorok",
 }
 
 enemy{
@@ -10667,7 +10667,7 @@ enemy{
   x = 320,
   y = 309,
   direction = 0,
-  breed = "octorok",
+  breed = "octorok/octorok",
 }
 
 enemy{
@@ -10675,7 +10675,7 @@ enemy{
   x = 432,
   y = 253,
   direction = 0,
-  breed = "octorok",
+  breed = "octorok/octorok",
 }
 
 enemy{
@@ -10683,7 +10683,7 @@ enemy{
   x = 144,
   y = 437,
   direction = 0,
-  breed = "octorok",
+  breed = "octorok/octorok",
 }
 
 enemy{
@@ -10691,7 +10691,7 @@ enemy{
   x = 72,
   y = 485,
   direction = 0,
-  breed = "octorok",
+  breed = "octorok/octorok",
 }
 
 enemy{
@@ -10699,7 +10699,7 @@ enemy{
   x = 568,
   y = 45,
   direction = 0,
-  breed = "octorok",
+  breed = "octorok/octorok",
 }
 
 enemy{
@@ -10707,7 +10707,7 @@ enemy{
   x = 632,
   y = 141,
   direction = 0,
-  breed = "octorok",
+  breed = "octorok/octorok",
 }
 
 enemy{
@@ -10715,7 +10715,7 @@ enemy{
   x = 832,
   y = 69,
   direction = 0,
-  breed = "octorok",
+  breed = "octorok/octorok",
 }
 
 enemy{
@@ -10723,7 +10723,7 @@ enemy{
   x = 792,
   y = 141,
   direction = 0,
-  breed = "octorok",
+  breed = "octorok/octorok",
 }
 
 enemy{
@@ -10731,7 +10731,7 @@ enemy{
   x = 640,
   y = 469,
   direction = 0,
-  breed = "octorok",
+  breed = "octorok/octorok",
 }
 
 enemy{
@@ -10739,7 +10739,7 @@ enemy{
   x = 600,
   y = 573,
   direction = 0,
-  breed = "octorok",
+  breed = "octorok/octorok",
 }
 
 sensor{

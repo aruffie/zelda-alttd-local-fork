@@ -14535,7 +14535,7 @@ enemy{
   x = 48,
   y = 637,
   direction = 0,
-  breed = "moblin",
+  breed = "moblin_pig_spear/moblin_pig_spear",
   treasure_name = "random",
 }
 
@@ -14544,7 +14544,7 @@ enemy{
   x = 88,
   y = 413,
   direction = 0,
-  breed = "moblin",
+  breed = "moblin_pig_spear/moblin_pig_spear",
   treasure_name = "random",
 }
 
@@ -14553,7 +14553,7 @@ enemy{
   x = 80,
   y = 533,
   direction = 1,
-  breed = "moblin",
+  breed = "moblin_pig_spear/moblin_pig_spear",
   treasure_name = "random",
 }
 
@@ -14572,7 +14572,7 @@ enemy{
   x = 392,
   y = 629,
   direction = 1,
-  breed = "moblin",
+  breed = "moblin_pig_spear/moblin_pig_spear",
   treasure_name = "random",
 }
 
@@ -14581,7 +14581,7 @@ enemy{
   x = 368,
   y = 645,
   direction = 1,
-  breed = "moblin",
+  breed = "moblin_pig_spear/moblin_pig_spear",
   treasure_name = "random",
 }
 
@@ -14590,7 +14590,7 @@ enemy{
   x = 328,
   y = 517,
   direction = 3,
-  breed = "moblin_pig_sword",
+  breed = "moblin_pig_sword/moblin_pig_sword",
   treasure_name = "random",
 }
 
@@ -14599,7 +14599,7 @@ enemy{
   x = 680,
   y = 597,
   direction = 2,
-  breed = "moblin",
+  breed = "moblin_pig_spear/moblin_pig_spear",
   treasure_name = "random",
 }
 
@@ -14608,7 +14608,7 @@ enemy{
   x = 576,
   y = 581,
   direction = 1,
-  breed = "moblin",
+  breed = "moblin_pig_spear/moblin_pig_spear",
   treasure_name = "random",
 }
 
