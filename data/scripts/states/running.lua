@@ -31,7 +31,7 @@ function hero_meta.run(hero)
 end
 
 function state:on_started()
-  print "Run, Forrest, ruuun !"
+--  print "Run, Forrest, ruuun !"
   local entity=state:get_entity()
   local game = state:get_game()
   local sprite=entity:get_sprite("tunic")
@@ -48,11 +48,11 @@ function state:on_started()
       m:set_speed(100)
       local direction =entity:get_sprite("tunic"):get_direction()
       local angle = direction*math.pi/2
-      print (angle)
+--      print (angle)
       m:set_angle(angle)
       m:start(entity)
       function m:on_obstacle_reached()
-        print ("BONK")
+--        print ("BONK")
         local parabola=sol.movement.create("jump")
         parabola:set_distance(32)
         parabola:set_direction8(2*((direction+2)%4))
