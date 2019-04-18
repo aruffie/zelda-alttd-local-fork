@@ -490,7 +490,7 @@ enemy{
   y = 45,
   enabled_at_start = false,
   direction = 0,
-  breed = "mini_thwomp",
+  breed = "thwimp",
 }
 
 enemy{
@@ -499,7 +499,7 @@ enemy{
   x = 152,
   y = 141,
   direction = 0,
-  breed = "spiked_thwomp",
+  breed = "thwomp",
 }
 
 custom_entity{

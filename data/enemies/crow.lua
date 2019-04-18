@@ -1,15 +1,19 @@
+-- Lua script of enemy crow.
+-- This script is executed every time an enemy with this model is created.
+
 -- Variables
 local enemy = ...
+local game = enemy:get_game()
+local map = enemy:get_map()
+local hero = map:get_hero()
+local sprite
+local movement
 
--- Event called when the enemy is initialized.
+-- The enemy appears: set its properties.
 function enemy:on_created()
 
-  -- Initialize the properties of your enemy here,
-  -- like the sprite, the life and the damage.
-  local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+  sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
   enemy:set_life(1)
   enemy:set_damage(1)
-  enemy:set_obstacle_behavior("flying")
-
+  
 end
-

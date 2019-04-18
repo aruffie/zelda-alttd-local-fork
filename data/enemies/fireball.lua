@@ -1,11 +1,10 @@
+-- Lua script of fireball.
+-- This script is executed every time an enemy with this model is created.
+
+-- Variables
 local enemy = ...
-
--- Fireball: an invincible enemy that moves in horizontal or vertical direction
--- and that runs along the walls
-
 local last_direction4 = 0
 local clockwise = false
-
 
 -- The enemy appears: set its properties.
 function enemy:on_created()
@@ -40,25 +39,26 @@ function enemy:on_obstacle_reached()
 end
 
 function enemy:on_position_changed()
-    if clockwise then
-      enemy:go_if_traversable((last_direction4 + 1) % 4)
-    else
-      enemy:go_if_traversable((last_direction4 - 1) % 4)
-    end
+  
+  if clockwise then
+    enemy:go_if_traversable((last_direction4 + 1) % 4)
+  else
+    enemy:go_if_traversable((last_direction4 - 1) % 4)
+  end
 
  end
 
 function enemy:go_if_traversable(direction4)
 
-    local dxy = {
-      { x =  1, y =  0},
-      { x =  0, y = -1},
-      { x = -1, y =  0},
-      { x =  0, y =  1}
-    }
-    if not self:test_obstacles(dxy[direction4 + 1].x, dxy[direction4 + 1].y) then
-      self:go(direction4)
-    end
+  local dxy = {
+    { x =  1, y =  0},
+    { x =  0, y = -1},
+    { x = -1, y =  0},
+    { x =  0, y =  1}
+  }
+  if not self:test_obstacles(dxy[direction4 + 1].x, dxy[direction4 + 1].y) then
+    self:go(direction4)
+  end
 
 end
 

@@ -1,3 +1,6 @@
+-- Lua script of enemy arm_mimic.
+-- This script is executed every time an enemy with this model is created.
+
 -- Variables
 local enemy = ...
 local game = enemy:get_game()
@@ -6,7 +9,7 @@ local hero = map:get_hero()
 local sprite
 local movement
 
--- Event called when the enemy is initialized.
+-- The enemy appears: set its properties.
 function enemy:on_created()
 
   -- Initialize the properties of your enemy here,
@@ -57,9 +60,9 @@ function enemy:on_restarted()
       local diff_x = x_new_hero - x_hero
       local diff_y = y_new_hero - y_hero
       if diff_x ~= 0 or diff_y  ~= 0 then
-            sprite:set_paused(false)
+        sprite:set_paused(false)
       else
-            sprite:set_paused(true)
+        sprite:set_paused(true)
       end
       x_enemy = x_enemy - diff_x
       y_enemy = y_enemy - diff_y

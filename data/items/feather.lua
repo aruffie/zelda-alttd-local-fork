@@ -13,6 +13,9 @@ print "script loaded"
 local item = ...
 local game = item:get_game()
 --local hero = game:get_hero()
+
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
 require("scripts/states/jump")
 require("scripts/states/flying_sword")
 local jm=require("scripts/jump_manager")
@@ -83,4 +86,11 @@ function item:on_using()
   -- Define here what happens when using this item
   -- and call item:set_finished() to release the hero when you have finished.
   item:set_finished()
+end
+
+
+function item:on_obtaining()
+  
+  audio_manager:play_sound("items/fanfare_item_extended")
+        
 end

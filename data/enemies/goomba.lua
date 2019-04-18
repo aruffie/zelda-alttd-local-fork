@@ -12,7 +12,7 @@ local movement
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
 
--- Event called when the enemy is initialized.
+-- The enemy appears: set its properties.
 function enemy:on_created()
 
   sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
@@ -22,9 +22,6 @@ function enemy:on_created()
   
 end
 
--- Event called when the enemy should start or restart its movements.
--- This is called for example after the enemy is created or after
--- it was hurt or immobilized.
 function enemy:on_restarted()
 
   local sprite = self:get_sprite()

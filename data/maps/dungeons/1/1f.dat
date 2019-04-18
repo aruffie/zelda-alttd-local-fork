@@ -14025,7 +14025,7 @@ enemy{
   x = 840,
   y = 1533,
   direction = 3,
-  breed = "hardhat_beetle_blue",
+  breed = "hardhat_beetle",
 }
 
 enemy{
@@ -14034,7 +14034,7 @@ enemy{
   x = 760,
   y = 1533,
   direction = 3,
-  breed = "hardhat_beetle_blue",
+  breed = "hardhat_beetle",
 }
 
 enemy{
@@ -14084,7 +14084,7 @@ enemy{
   x = 1096,
   y = 1277,
   direction = 3,
-  breed = "hardhat_beetle_blue",
+  breed = "hardhat_beetle",
 }
 
 enemy{
@@ -14174,7 +14174,7 @@ enemy{
   x = 1192,
   y = 1357,
   direction = 0,
-  breed = "gel_red",
+  breed = "gel",
 }
 
 enemy{
@@ -14183,7 +14183,7 @@ enemy{
   x = 1048,
   y = 1357,
   direction = 0,
-  breed = "gel_red",
+  breed = "gel",
 }
 
 enemy{
@@ -14192,7 +14192,7 @@ enemy{
   x = 1480,
   y = 1309,
   direction = 3,
-  breed = "stalfos_red",
+  breed = "stalfos",
   treasure_name = "random",
 }
 
@@ -14202,7 +14202,7 @@ enemy{
   x = 1400,
   y = 1309,
   direction = 3,
-  breed = "stalfos_red",
+  breed = "stalfos",
   treasure_name = "random",
 }
 
@@ -14232,7 +14232,7 @@ enemy{
   x = 1488,
   y = 805,
   direction = 3,
-  breed = "hardhat_beetle_blue",
+  breed = "hardhat_beetle",
 }
 
 enemy{
@@ -14375,7 +14375,7 @@ enemy{
   x = 1664,
   y = 1093,
   direction = 3,
-  breed = "stalfos_red",
+  breed = "stalfos",
   treasure_name = "random",
 }
 
@@ -14421,7 +14421,7 @@ enemy{
   x = 800,
   y = 1109,
   direction = 0,
-  breed = "small_moldorm",
+  breed = "mini_moldorm",
   treasure_name = "random",
 }
 
@@ -15078,7 +15078,7 @@ enemy{
   x = 1496,
   y = 1093,
   direction = 3,
-  breed = "stalfos_red",
+  breed = "stalfos",
   treasure_name = "random",
 }
 
@@ -16581,7 +16581,7 @@ enemy{
   x = 440,
   y = 605,
   direction = 0,
-  breed = "spike",
+  breed = "spiked_beetle",
 }
 
 enemy{
@@ -16590,7 +16590,7 @@ enemy{
   x = 504,
   y = 637,
   direction = 0,
-  breed = "spike",
+  breed = "spiked_beetle",
 }
 
 enemy{
@@ -16599,7 +16599,7 @@ enemy{
   x = 1088,
   y = 1085,
   direction = 0,
-  breed = "small_moldorm",
+  breed = "mini_moldorm",
   treasure_name = "random",
 }
 

@@ -1,4 +1,4 @@
--- Lua script of enemy "dog".
+-- Lua script of enemy dog.
 -- This script is executed every time an enemy with this model is created.
 
 -- Variables

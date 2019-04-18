@@ -1,4 +1,4 @@
--- Lua script of enemy "bubble".
+-- Lua script of enemy bubble.
 -- This script is executed every time an enemy with this model is created.
 
 -- Bubble: an invincible enemy that moves in diagonal directions

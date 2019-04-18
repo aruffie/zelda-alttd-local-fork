@@ -1661,7 +1661,7 @@ enemy{
   x = 200,
   y = 157,
   direction = 0,
-  breed = "hardhat_beetle_blue",
+  breed = "hardhat_beetle",
   treasure_name = "random",
 }
 
