@@ -10,7 +10,7 @@ local properties = {
   projectile_sound = "enemies/face_lamp",
 }
 
--- Event called when the enemy is initialized.
+-- The enemy appears: set its properties.
 function enemy:on_created()
 
   behavior:create(enemy, properties)

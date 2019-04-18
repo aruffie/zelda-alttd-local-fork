@@ -40,6 +40,7 @@ function enemy:on_obstacle_reached(movement)
   
 end
 
+-- The enemy was stopped for some reason and should restart.
 function enemy:on_restarted()
 
   if angry then

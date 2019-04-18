@@ -77,7 +77,6 @@ end
 function enemy:on_attacking_hero(hero)
   
   local game = enemy:get_game()
-
   -- In any case, we do the hurt animation as usual
   hero:start_hurt(enemy, 2)
   

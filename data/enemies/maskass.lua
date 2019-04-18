@@ -1,4 +1,4 @@
--- Lua script of enemy arm_mimic.
+-- Lua script of enemy maskass.
 -- This script is executed every time an enemy with this model is created.
 
 local enemy = ...
@@ -8,7 +8,7 @@ local hero = map:get_hero()
 local sprite
 local movement
 
--- Event called when the enemy is initialized.
+-- The enemy appears: set its properties.
 function enemy:on_created()
 
   -- Initialize the properties of your enemy here,
@@ -26,9 +26,7 @@ function enemy:on_created()
 
 end
 
--- Event called when the enemy should start or restart its movements.
--- This is called for example after the enemy is created or after
--- it was hurt or immobilized.
+-- The enemy was stopped for some reason and should restart.
 function enemy:on_restarted()
   
   local sprite = enemy:get_sprite()
@@ -47,9 +45,9 @@ function enemy:on_restarted()
     local diff_x = x_new_hero - x_hero
     local diff_y = y_new_hero - y_hero
     if diff_x ~= 0 or diff_y  ~= 0 then
-          sprite:set_paused(false)
+      sprite:set_paused(false)
     else
-          sprite:set_paused(true)
+      sprite:set_paused(true)
     end
     x_enemy = x_enemy - diff_x
     y_enemy = y_enemy - diff_y
@@ -58,11 +56,7 @@ function enemy:on_restarted()
     movement:start(enemy)
     x_hero = x_new_hero
     y_hero  = y_new_hero
-  return true
-end)
-
-end
-
-function enemy:on_custom_attack_received(attack)
+    return true
+  end)
 
 end

@@ -12,11 +12,9 @@ local movement
 -- The enemy appears: set its properties.
 function enemy:on_created()
 
-  -- Initialize the properties of your enemy here,
-  -- like the sprite, the life and the damage.
   sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
-  self:set_life(1)
-  self:set_damage(1)
+  enemy:set_life(1)
+  enemy:set_damage(1)
   enemy:set_attack_consequence("arrow", "custom")
   enemy:set_attack_consequence("boomerang", "custom")
   enemy:set_attack_consequence("sword", "custom")
@@ -27,9 +25,7 @@ function enemy:on_created()
 
 end
 
--- Event called when the enemy should start or restart its movements.
--- This is called for example after the enemy is created or after
--- it was hurt or immobilized.
+-- The enemy was stopped for some reason and should restart.
 function enemy:on_restarted()
   
   local sprite = enemy:get_sprite()
@@ -72,14 +68,14 @@ function enemy:on_restarted()
       movement:start(enemy)
       x_hero = x_new_hero
       y_hero  = y_new_hero
-  else
+    else
       self:set_attack_consequence("sword", 1)
       local x_new_hero, y_new_hero = hero:get_position()
       x_hero = x_new_hero
       y_hero  = y_new_hero
-  end
-  return true
-end)
+    end
+    return true
+  end)
 
 end
 

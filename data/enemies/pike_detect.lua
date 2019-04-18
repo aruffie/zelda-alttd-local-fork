@@ -12,6 +12,7 @@ local activation_distance = 24
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
 
+-- The enemy appears: set its properties.
 function enemy:on_created()
 
   self:set_life(1)

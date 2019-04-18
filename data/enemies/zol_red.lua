@@ -1,18 +1,19 @@
+-- Lua script of enemy zol_red.
+-- This script is executed every time an enemy with this model is created.
+
+-- Variables
 local enemy = ...
+local game = enemy:get_game()
+local map = enemy:get_map()
+local hero = map:get_hero()
+local sprite
+local movement
 
-local behavior = require("enemies/lib/towards_hero")
+-- The enemy appears: set its properties.
+function enemy:on_created()
 
-local properties = {
-  sprite = "enemies/" .. enemy:get_breed(),
-  life = 1,
-  damage = 1,
-  normal_speed = 16,
-  faster_speed = 16,
-}
-
-behavior:create(enemy, properties)
-
---enemy:set_random_treasures(
---  { "rupee", 1 },
---  { "rupee", 1 }
---)
+  sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+  enemy:set_life(1)
+  enemy:set_damage(1)
+  
+end

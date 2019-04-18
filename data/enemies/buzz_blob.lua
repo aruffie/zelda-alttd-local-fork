@@ -15,7 +15,7 @@ local movement
 local audio_manager = require("scripts/audio_manager")
 require("scripts/multi_events")
 
--- Event called when the enemy is initialized.
+-- The enemy appears: set its properties.
 function enemy:on_created()
 
   -- Initialize the properties of your enemy here,

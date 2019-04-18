@@ -11,6 +11,7 @@ local recent_obstacle = 0
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
 
+-- The enemy appears: set its properties.
 function enemy:on_created()
 
   self:set_life(1)
@@ -27,6 +28,7 @@ function enemy:on_created()
   self:set_attack_consequence("boomerang", "protected")
 end
 
+-- The enemy was stopped for some reason and should restart.
 function enemy:on_restarted()
 
   local sprite = self:get_sprite()
