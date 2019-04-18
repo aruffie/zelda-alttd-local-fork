@@ -11,7 +11,6 @@ require("scripts/states/running")
 
 -- Event called when the game is initialized.
 function item:on_created()
-  print "boots creation OK"
   self:set_savegame_variable("possession_pegasus_shoes")
   self:set_sound_when_brandished(nil)
   self:set_assignable(true)
@@ -23,20 +22,20 @@ end
 local game_meta = sol.main.get_metatable("game")
 game_meta:register_event("on_started", function(game)
     game:register_event("on_command_pressed", function(game, command)
-        print "run command ?"
+--        print "run command ?"
         if not game:is_suspended() then
-          print "basic check OK"
+--          print "basic check OK"
           local hero = game:get_hero()
           local item_1=game:get_item_assigned(1)
           local item_2=game:get_item_assigned(2)
           if command == "item_1" and item_1 and item_1:get_name() == "pegasus_shoes" or command == "item_2" and item_2 and item_2:get_name() == "pegasus_shoes" then
-            print "running using item"
+--            print "running using item"
             hero:run()
             return true
           elseif command == "action" then 
-            print "AAAaaand... ACTION !"
+--            print "AAAaaand... ACTION !"
             if game:get_command_effect("action") == nil and game:has_item("pegasus_shoes") then
-              print "THIS IS TEH ATCION URN"
+--              print "THIS IS TEH ATCION URN"
               hero:run()-- Call custom run script.
               return true
             end
