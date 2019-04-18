@@ -1381,7 +1381,6 @@ file{ path = "enemies/boss/grim_creeper.lua", license = "GPL v3" }
 file{ path = "enemies/boss/hinox_master.lua", license = "GPL v3" }
 file{ path = "enemies/boss/hot_head.lua", license = "GPL v3" }
 file{ path = "enemies/boss/lanmola.lua", license = "GPL v3" }
-file{ path = "enemies/boss/master_stalfos", author = "Benjamin Schweitzer", }
 file{ path = "enemies/boss/master_stalfos.lua", license = "GPL v3" }
 file{ path = "enemies/boss/moblin_chief.lua", license = "GPL v3" }
 file{ path = "enemies/boss/moldorm.lua", license = "GPL v3" }

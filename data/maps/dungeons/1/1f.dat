@@ -13383,168 +13383,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 896,
-  y = 760,
-  width = 8,
-  height = 80,
-  pattern = "barrier.2-1",
-}
-
-tile{
-  layer = 0,
-  x = 896,
-  y = 840,
-  width = 8,
-  height = 8,
-  pattern = "barrier.border-1",
-}
-
-tile{
-  layer = 0,
-  x = 904,
-  y = 840,
-  width = 112,
-  height = 8,
-  pattern = "barrier.1-1",
-}
-
-tile{
-  layer = 0,
-  x = 1016,
-  y = 816,
-  width = 8,
-  height = 24,
-  pattern = "barrier.2-1",
-}
-
-tile{
-  layer = 0,
-  x = 1016,
-  y = 840,
-  width = 8,
-  height = 8,
-  pattern = "barrier.border-1",
-}
-
-tile{
-  layer = 0,
-  x = 1016,
-  y = 808,
-  width = 8,
-  height = 8,
-  pattern = "barrier.border-1",
-}
-
-tile{
-  layer = 0,
-  x = 1168,
-  y = 808,
-  width = 8,
-  height = 8,
-  pattern = "barrier.border-1",
-}
-
-tile{
-  layer = 0,
-  x = 1168,
-  y = 840,
-  width = 8,
-  height = 8,
-  pattern = "barrier.border-1",
-}
-
-tile{
-  layer = 0,
-  x = 1344,
-  y = 840,
-  width = 8,
-  height = 8,
-  pattern = "barrier.border-1",
-}
-
-tile{
-  layer = 0,
-  x = 1384,
-  y = 840,
-  width = 8,
-  height = 8,
-  pattern = "barrier.border-1",
-}
-
-tile{
-  layer = 0,
-  x = 1416,
-  y = 840,
-  width = 8,
-  height = 8,
-  pattern = "barrier.border-1",
-}
-
-tile{
-  layer = 0,
-  x = 896,
-  y = 760,
-  width = 8,
-  height = 8,
-  pattern = "barrier.border-1",
-}
-
-tile{
-  layer = 0,
-  x = 1416,
-  y = 760,
-  width = 8,
-  height = 8,
-  pattern = "barrier.border-1",
-}
-
-tile{
-  layer = 0,
-  x = 1416,
-  y = 768,
-  width = 8,
-  height = 72,
-  pattern = "barrier.2-1",
-}
-
-tile{
-  layer = 0,
-  x = 1168,
-  y = 816,
-  width = 8,
-  height = 24,
-  pattern = "barrier.2-1",
-}
-
-tile{
-  layer = 0,
-  x = 1024,
-  y = 808,
-  width = 144,
-  height = 8,
-  pattern = "barrier.1-1",
-}
-
-tile{
-  layer = 0,
-  x = 1176,
-  y = 840,
-  width = 168,
-  height = 8,
-  pattern = "barrier.1-1",
-}
-
-tile{
-  layer = 0,
-  x = 1392,
-  y = 840,
-  width = 24,
-  height = 8,
-  pattern = "barrier.1-1",
-}
-
-tile{
-  layer = 0,
   x = 1672,
   y = 912,
   width = 8,
@@ -17397,6 +17235,168 @@ tile{
   width = 80,
   height = 48,
   pattern = "floor_low.10-Alpha",
+}
+
+tile{
+  layer = 1,
+  x = 1384,
+  y = 840,
+  width = 8,
+  height = 8,
+  pattern = "barrier.border-1",
+}
+
+tile{
+  layer = 1,
+  x = 1416,
+  y = 840,
+  width = 8,
+  height = 8,
+  pattern = "barrier.border-1",
+}
+
+tile{
+  layer = 1,
+  x = 1416,
+  y = 760,
+  width = 8,
+  height = 8,
+  pattern = "barrier.border-1",
+}
+
+tile{
+  layer = 1,
+  x = 1416,
+  y = 768,
+  width = 8,
+  height = 72,
+  pattern = "barrier.2-1",
+}
+
+tile{
+  layer = 1,
+  x = 1392,
+  y = 840,
+  width = 24,
+  height = 8,
+  pattern = "barrier.1-1",
+}
+
+tile{
+  layer = 1,
+  x = 896,
+  y = 760,
+  width = 8,
+  height = 80,
+  pattern = "barrier.2-1",
+}
+
+tile{
+  layer = 1,
+  x = 896,
+  y = 840,
+  width = 8,
+  height = 8,
+  pattern = "barrier.border-1",
+}
+
+tile{
+  layer = 1,
+  x = 904,
+  y = 840,
+  width = 112,
+  height = 8,
+  pattern = "barrier.1-1",
+}
+
+tile{
+  layer = 1,
+  x = 1016,
+  y = 816,
+  width = 8,
+  height = 24,
+  pattern = "barrier.2-1",
+}
+
+tile{
+  layer = 1,
+  x = 1016,
+  y = 840,
+  width = 8,
+  height = 8,
+  pattern = "barrier.border-1",
+}
+
+tile{
+  layer = 1,
+  x = 1016,
+  y = 808,
+  width = 8,
+  height = 8,
+  pattern = "barrier.border-1",
+}
+
+tile{
+  layer = 1,
+  x = 1168,
+  y = 808,
+  width = 8,
+  height = 8,
+  pattern = "barrier.border-1",
+}
+
+tile{
+  layer = 1,
+  x = 1168,
+  y = 840,
+  width = 8,
+  height = 8,
+  pattern = "barrier.border-1",
+}
+
+tile{
+  layer = 1,
+  x = 1344,
+  y = 840,
+  width = 8,
+  height = 8,
+  pattern = "barrier.border-1",
+}
+
+tile{
+  layer = 1,
+  x = 896,
+  y = 760,
+  width = 8,
+  height = 8,
+  pattern = "barrier.border-1",
+}
+
+tile{
+  layer = 1,
+  x = 1168,
+  y = 816,
+  width = 8,
+  height = 24,
+  pattern = "barrier.2-1",
+}
+
+tile{
+  layer = 1,
+  x = 1024,
+  y = 808,
+  width = 144,
+  height = 8,
+  pattern = "barrier.1-1",
+}
+
+tile{
+  layer = 1,
+  x = 1176,
+  y = 840,
+  width = 168,
+  height = 8,
+  pattern = "barrier.1-1",
 }
 
 wall{
