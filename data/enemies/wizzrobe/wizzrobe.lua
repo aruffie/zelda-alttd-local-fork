@@ -1,27 +1,23 @@
--- A wizard who shoots magic beams.
+-- Lua script of enemy wizzrobe.
+-- This script is executed every time an enemy with this model is created.
 
+-- Variables
 local enemy = ...
 local map = enemy:get_map()
 local children = {}
 local is_appear = false
+local previous_on_removed = enemy.on_removed
 
+-- Include scripts
 local audio_manager = require("scripts/audio_manager")
 
-function enemy:update_attack()
-
-  if is_appear then
-      enemy:set_attack_consequence("sword", 1)
-  else
-      enemy:set_invincible()
-  end
-
-end
-
+-- The enemy appears: set its properties.
 function enemy:on_created()
 
   enemy:set_life(3)
   enemy:set_damage(0)
   enemy:create_sprite("enemies/" .. enemy:get_breed())
+  
 end
 
 -- Wizzrobe appear
@@ -99,6 +95,17 @@ function enemy:shoot()
   end)  
 end
 
+function enemy:update_attack()
+
+  if is_appear then
+      enemy:set_attack_consequence("sword", 1)
+  else
+      enemy:set_invincible()
+  end
+
+end
+
+-- The enemy was stopped for some reason and should restart.
 function enemy:on_restarted()
 
   if is_appear == false then
@@ -111,7 +118,6 @@ function enemy:on_restarted()
 
 end
 
-local previous_on_removed = enemy.on_removed
 function enemy:on_removed()
 
   if previous_on_removed then
@@ -138,4 +144,5 @@ function enemy:on_custom_attack_received(attack)
   sol.timer.start(enemy, 400, function()
     enemy:restart()
   end)
+
 end

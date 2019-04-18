@@ -26,6 +26,7 @@ function enemy:on_created()
   
 end
 
+-- The enemy was stopped for some reason and should restart.
 function enemy:on_restarted()
   -- Create "movement" to make Beamos continually change direction and face hero.
   local m = sol.movement.create("target")
@@ -71,12 +72,18 @@ end
 
 -- Function to stop firing for a while.
 function enemy:stop_firing()
+  
   self:get_sprite():set_animation("walking")
   sol.timer.stop_all(enemy)
-  sol.timer.start(enemy, stop_time, function() enemy:on_restarted() end)
+  sol.timer.start(enemy, stop_time, function()
+    enemy:on_restarted()
+  end)
+  
 end
 
 function enemy:on_movement_changed(movement)
+  
   local direction8 = self:get_direction8_to(self:get_map():get_hero())
   self:get_sprite():set_direction(direction8)
+  
 end

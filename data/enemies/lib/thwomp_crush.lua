@@ -36,10 +36,6 @@ function behavior:create(enemy, properties)
   local home_x, home_y
   local platform
   local platform_dx, platform_dy
-  -- Set default properties.
-  if properties.life == nil then
-    properties.life = 2
-  end
   if properties.damage == nil then
     properties.damage = 2
   end
@@ -81,7 +77,6 @@ function behavior:create(enemy, properties)
 
   function enemy:on_created()
     home_x, home_y=self:get_position()
-    self:set_life(properties.life)
     self:set_damage(properties.damage)
     self:create_sprite(properties.sprite)
     self:set_hurt_style(properties.hurt_style)

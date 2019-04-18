@@ -1,15 +1,19 @@
+-- Lua script of enemy rope.
+-- This script is executed every time an enemy with this model is created.
+
+-- Variables
 local enemy = ...
+local game = enemy:get_game()
+local map = enemy:get_map()
+local hero = map:get_hero()
+local sprite
+local movement
 
--- Rope: a snake that follows the hero.
+-- The enemy appears: set its properties.
+function enemy:on_created()
 
-local behavior = require("enemies/lib/towards_hero")
-
-local properties = {
-  sprite = "enemies/" .. enemy:get_breed(),
-  life = 1,
-  damage = 1,
-  normal_speed = 64,
-  faster_speed = 64,
-}
-
-behavior:create(enemy, properties)
+  sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+  enemy:set_life(1)
+  enemy:set_damage(1)
+  
+end

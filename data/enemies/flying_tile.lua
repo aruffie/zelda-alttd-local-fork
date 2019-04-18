@@ -35,6 +35,7 @@ function enemy:on_created()
   
 end
 
+-- The enemy was stopped for some reason and should restart.
 function enemy:on_restarted()
 
   local x, y = self:get_position()

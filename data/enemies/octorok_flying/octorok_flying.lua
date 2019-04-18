@@ -8,6 +8,7 @@ local can_shoot = true
 local position_x, position_y = enemy:get_position()
 local distance_max = 100
 
+-- Event called when the enemy is initialized.
 function enemy:on_created()
 
   enemy:set_life(1)

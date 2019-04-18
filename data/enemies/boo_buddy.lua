@@ -12,7 +12,7 @@ local properties = {
   faster_speed = 16,
 }
 
--- Event called when the enemy is initialized.
+-- The enemy appears: set its properties.
 function enemy:on_created()
 
   behavior:create(enemy, properties)

@@ -1,5 +1,6 @@
 -- Lua script of enemy "piranha_plant".
 -- This script is executed every time an enemy with this model is created.
+
 -- Variables
 local enemy = ...
 

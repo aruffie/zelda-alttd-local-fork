@@ -1,13 +1,19 @@
+-- Lua script of enemy zombie.
+-- This script is executed every time an enemy with this model is created.
+
+-- Variables
 local enemy = ...
 local max_distance = 100
 local is_awake = false
-
--- Zombie
-
-enemy:set_life(1)
-enemy:set_damage(1)
-
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+
+-- The enemy appears: set its properties.
+function enemy:on_created()
+  
+  enemy:set_life(1)
+  enemy:set_damage(1)
+  
+end
 
 -- The enemy was stopped for some reason and should restart.
 function enemy:on_restarted()
@@ -53,25 +59,25 @@ end
 
 function enemy:go()
 
-    local distance = 36
-    local random = math.random(100)
-    distance = distance + random
-    local direction = enemy:get_direction4_to(enemy:get_map():get_hero())
-    sprite:set_animation("walking")
-    sprite:set_direction(direction)
-    local angle = enemy:get_angle(enemy:get_map():get_hero())
-    local m = sol.movement.create("straight")
-    m:set_speed(50)
-    m:set_max_distance(distance)
-    m:set_angle(angle)
-    m:start(enemy)
-    function m:on_finished()
-      enemy:disappear()
-    end
-    function m:on_obstacle_reached()
-      m:stop()
-      enemy:disappear()
-    end
+  local distance = 36
+  local random = math.random(100)
+  distance = distance + random
+  local direction = enemy:get_direction4_to(enemy:get_map():get_hero())
+  sprite:set_animation("walking")
+  sprite:set_direction(direction)
+  local angle = enemy:get_angle(enemy:get_map():get_hero())
+  local m = sol.movement.create("straight")
+  m:set_speed(50)
+  m:set_max_distance(distance)
+  m:set_angle(angle)
+  m:start(enemy)
+  function m:on_finished()
+    enemy:disappear()
+  end
+  function m:on_obstacle_reached()
+    m:stop()
+    enemy:disappear()
+  end
 
 end
 

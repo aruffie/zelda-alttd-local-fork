@@ -1,11 +1,13 @@
 -- Lua script of enemy anti_kirby.
 -- This script is executed every time an enemy with this model is created.
 
+-- Variables
 local enemy = ...
 local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
 
+-- The enemy appears: set its properties.
 function enemy:on_created()
 
   sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())

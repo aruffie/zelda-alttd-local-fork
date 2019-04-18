@@ -6,10 +6,11 @@ local symbol_fixed = false
 -- Include scripts
 require("scripts/multi_events")
 
+-- The enemy appears: set its properties.
 function enemy:on_created()
 
-  enemy:set_life(1000)
-  enemy:set_damage(1)
+  enemy:set_life(1)
+  enemy:set_damage(2)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)
   enemy:set_invincible(false)
@@ -24,6 +25,7 @@ function enemy:on_created()
   
 end
 
+-- The enemy was stopped for some reason and should restart.
 function enemy:on_restarted()
 
   if symbol_fixed then
@@ -31,16 +33,12 @@ function enemy:on_restarted()
     enemy:set_can_attack(false)
     return
   end
-
   enemy:set_can_attack(true)
-
   local movement = sol.movement.create("random_path")
   movement:set_speed(48)
   movement:start(enemy)
-
   -- Random symbol initially.
   sprite:set_direction(math.random(4) - 1)
-
   -- Switch symbol repeatedly.
   sol.timer.start(enemy, 500, function()
     if sprite:get_animation() ~= "walking" then
@@ -50,6 +48,7 @@ function enemy:on_restarted()
     sprite:set_direction((direction4 + 1) % 4)
     return true
   end)
+
 end
 
 enemy:register_event("on_hurt", function()
