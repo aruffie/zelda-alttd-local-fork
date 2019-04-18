@@ -265,7 +265,7 @@ sprite{ id = "enemies/eyegore_statue/eyegore_statue_fireball", description = "Ey
 sprite{ id = "enemies/face_lamp/face_lamp", description = "Face Lamp" }
 sprite{ id = "enemies/fireball", description = "Fireball" }
 sprite{ id = "enemies/flying_tile", description = "Flying Tile" }
-sprite{ id = "enemies/gel_red", description = "Gel Red" }
+sprite{ id = "enemies/gel", description = "Gel Red" }
 sprite{ id = "enemies/ghini", description = "Ghini" }
 sprite{ id = "enemies/ghini_giant", description = "Ghini Giant" }
 sprite{ id = "enemies/gibdo", description = "Gibdo" }
