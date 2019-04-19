@@ -84,24 +84,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 552,
-  y = 24,
-  width = 152,
-  height = 48,
-  pattern = "12842",
-}
-
-tile{
-  layer = 0,
-  x = 352,
-  y = 0,
-  width = 64,
-  height = 48,
-  pattern = "12842",
-}
-
-tile{
-  layer = 0,
   x = 384,
   y = 424,
   width = 32,
@@ -10398,15 +10380,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 552,
-  y = 32,
-  width = 152,
-  height = 32,
-  pattern = "4148",
-}
-
-tile{
-  layer = 0,
   x = 560,
   y = 72,
   width = 128,
@@ -10466,51 +10439,6 @@ tile{
   width = 8,
   height = 16,
   pattern = "5974",
-}
-
-tile{
-  layer = 0,
-  x = 552,
-  y = 48,
-  width = 16,
-  height = 16,
-  pattern = "5995",
-}
-
-tile{
-  layer = 0,
-  x = 688,
-  y = 48,
-  width = 16,
-  height = 16,
-  pattern = "5994",
-}
-
-tile{
-  layer = 0,
-  x = 696,
-  y = 32,
-  width = 8,
-  height = 16,
-  pattern = "5981",
-}
-
-tile{
-  layer = 0,
-  x = 552,
-  y = 32,
-  width = 8,
-  height = 16,
-  pattern = "5982",
-}
-
-tile{
-  layer = 0,
-  x = 560,
-  y = 24,
-  width = 136,
-  height = 8,
-  pattern = "4148",
 }
 
 tile{
@@ -14066,6 +13994,19 @@ tile{
   width = 32,
   height = 16,
   pattern = "1108",
+}
+
+wall{
+  layer = 0,
+  x = 552,
+  y = 24,
+  width = 152,
+  height = 48,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
 }
 
 wall{
@@ -21613,6 +21554,82 @@ custom_entity{
   model = "bowwow",
 }
 
+wall{
+  layer = 0,
+  x = 352,
+  y = 0,
+  width = 64,
+  height = 32,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+tile{
+  layer = 1,
+  x = 560,
+  y = 64,
+  width = 136,
+  height = 8,
+  pattern = "4148",
+}
+
+tile{
+  layer = 1,
+  x = 560,
+  y = 24,
+  width = 136,
+  height = 8,
+  pattern = "4148",
+}
+
+tile{
+  layer = 1,
+  x = 552,
+  y = 32,
+  width = 152,
+  height = 32,
+  pattern = "4148",
+}
+
+tile{
+  layer = 1,
+  x = 792,
+  y = 320,
+  width = 80,
+  height = 8,
+  pattern = "4145",
+}
+
+tile{
+  layer = 1,
+  x = 792,
+  y = 664,
+  width = 80,
+  height = 8,
+  pattern = "4154",
+}
+
+tile{
+  layer = 1,
+  x = 336,
+  y = 672,
+  width = 80,
+  height = 8,
+  pattern = "4148",
+}
+
+tile{
+  layer = 1,
+  x = 328,
+  y = 640,
+  width = 96,
+  height = 32,
+  pattern = "4148",
+}
+
 tile{
   layer = 1,
   x = 792,
@@ -24270,15 +24287,6 @@ tile{
 
 tile{
   layer = 1,
-  x = 328,
-  y = 640,
-  width = 96,
-  height = 32,
-  pattern = "4148",
-}
-
-tile{
-  layer = 1,
   x = 336,
   y = 632,
   width = 80,
@@ -24827,6 +24835,42 @@ tile{
   height = 24,
   pattern = "32",
   tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 552,
+  y = 48,
+  width = 16,
+  height = 16,
+  pattern = "5995",
+}
+
+tile{
+  layer = 1,
+  x = 688,
+  y = 48,
+  width = 16,
+  height = 16,
+  pattern = "5994",
+}
+
+tile{
+  layer = 1,
+  x = 696,
+  y = 32,
+  width = 8,
+  height = 16,
+  pattern = "5981",
+}
+
+tile{
+  layer = 1,
+  x = 552,
+  y = 32,
+  width = 8,
+  height = 16,
+  pattern = "5982",
 }
 
 custom_entity{
