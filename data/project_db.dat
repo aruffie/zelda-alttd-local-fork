@@ -397,26 +397,26 @@ sprite{ id = "entities/destructibles/stone_white_large", description = "Stone wh
 sprite{ id = "entities/destructibles/stone_white_small", description = "Stone white small" }
 sprite{ id = "entities/destructibles/stone_white_small_grass", description = "Stone white small grass" }
 sprite{ id = "entities/doors/door_boss", description = "Boss door" }
-sprite{ id = "entities/doors/door_boss_key", description = "Door boss key" }
-sprite{ id = "entities/doors/door_egg", description = "Door egg" }
-sprite{ id = "entities/doors/door_egg_top", description = "Door egg top" }
-sprite{ id = "entities/doors/door_entrance_dungeons", description = "Door entrance dungeons" }
+sprite{ id = "entities/doors/door_boss_key", description = "Boss key door" }
+sprite{ id = "entities/doors/door_egg", description = "Egg door" }
+sprite{ id = "entities/doors/door_egg_top", description = "Egg door top" }
+sprite{ id = "entities/doors/door_entrance_dungeons", description = "Dungeon entrance door" }
 sprite{ id = "entities/doors/door_normal", description = "Door" }
-sprite{ id = "entities/doors/door_normal_cave", description = "Door cave" }
-sprite{ id = "entities/doors/door_small_key", description = "Door small key" }
-sprite{ id = "entities/doors/door_very_weak_wall", description = "Door very weak wall" }
-sprite{ id = "entities/doors/door_wallturn_dungeon_1", description = "Door wallturn dungeon 1" }
-sprite{ id = "entities/doors/door_wallturn_dungeon_2", description = "Door wallturn dungeon 2" }
-sprite{ id = "entities/doors/door_wallturn_dungeon_3", description = "Door wallturn dungeon 3" }
-sprite{ id = "entities/doors/door_wallturn_dungeon_5", description = "Door wallturn dungeon 5" }
-sprite{ id = "entities/doors/door_wallturn_dungeon_6", description = "Door wallturn dungeon 6" }
-sprite{ id = "entities/doors/door_wallturn_dungeon_7", description = "Door wallturn dungeon 7" }
-sprite{ id = "entities/doors/door_wallturn_dungeon_8", description = "Door wallturn dungeon 8" }
-sprite{ id = "entities/doors/door_wallturn_dungeon_9", description = "Door wallturn dungeon 9" }
-sprite{ id = "entities/doors/door_weak_block", description = "Door weak block" }
-sprite{ id = "entities/doors/door_weak_block_cave", description = "Door weak block cave" }
-sprite{ id = "entities/doors/door_weak_wall", description = "Door weak wall" }
-sprite{ id = "entities/doors/door_weak_wall_out", description = "Door weak wall out" }
+sprite{ id = "entities/doors/door_normal_cave", description = "Cave door" }
+sprite{ id = "entities/doors/door_small_key", description = "Small key door" }
+sprite{ id = "entities/doors/door_very_weak_wall", description = "Very weak wall" }
+sprite{ id = "entities/doors/door_wallturn_dungeon_1", description = "Wallturn door (dungeon 1)" }
+sprite{ id = "entities/doors/door_wallturn_dungeon_2", description = "Wallturn door (dungeon 2)" }
+sprite{ id = "entities/doors/door_wallturn_dungeon_3", description = "Wallturn door (dungeon 3)" }
+sprite{ id = "entities/doors/door_wallturn_dungeon_5", description = "Wallturn door (dungeon 5)" }
+sprite{ id = "entities/doors/door_wallturn_dungeon_6", description = "Wallturn door (dungeon 6)" }
+sprite{ id = "entities/doors/door_wallturn_dungeon_7", description = "Wallturn door (dungeon 7)" }
+sprite{ id = "entities/doors/door_wallturn_dungeon_8", description = "Wallturn door (dungeon 8)" }
+sprite{ id = "entities/doors/door_wallturn_dungeon_9", description = "Wallturn door (dungeon 9)" }
+sprite{ id = "entities/doors/door_weak_block", description = "Weak block" }
+sprite{ id = "entities/doors/door_weak_block_cave", description = "Cave weak block" }
+sprite{ id = "entities/doors/door_weak_wall", description = "Weak wall" }
+sprite{ id = "entities/doors/door_weak_wall_out", description = "Outside weak wall" }
 sprite{ id = "entities/dungeons/dungeon_6", description = "Dungeon 6" }
 sprite{ id = "entities/dungeons/dungeon_7", description = "Dungeon 7" }
 sprite{ id = "entities/effects/dark", description = "Dark" }

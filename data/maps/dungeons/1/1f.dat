@@ -9936,7 +9936,7 @@ tile{
   x = 2088,
   y = 464,
   width = 8,
-  height = 48,
+  height = 32,
   pattern = "barrier.2-1",
 }
 
@@ -13443,6 +13443,47 @@ tile{
   pattern = "floor_border.2",
 }
 
+tile{
+  layer = 0,
+  x = 2064,
+  y = 744,
+  enabled_at_start = false,
+  width = 8,
+  height = 16,
+  pattern = "143",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 2088,
+  y = 744,
+  width = 8,
+  height = 16,
+  pattern = "144",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 2064,
+  y = 680,
+  width = 8,
+  height = 16,
+  pattern = "145",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 2088,
+  y = 680,
+  width = 8,
+  height = 16,
+  pattern = "146",
+  tileset = "addition/dungeon",
+}
+
 wall{
   layer = 0,
   x = 1512,
@@ -16419,35 +16460,13 @@ enemy{
   treasure_name = "random",
 }
 
-custom_entity{
-  name = "boss_door_frame_renverse",
-  layer = 0,
-  x = 2096,
-  y = 693,
-  width = 8,
-  height = 16,
-  direction = 0,
-  sprite = "entities/doors/boss_door_frame_renverse",
-}
-
-custom_entity{
-  name = "boss_door_frame_renverse_2",
-  layer = 0,
-  x = 2072,
-  y = 693,
-  width = 8,
-  height = 16,
-  direction = 2,
-  sprite = "entities/doors/boss_door_frame_renverse",
-}
-
 door{
   name = "door_group_boss_2",
   layer = 0,
   x = 2072,
   y = 680,
   direction = 3,
-  sprite = "entities/doors/door_boss_key",
+  sprite = "entities/doors/door_boss",
   savegame_variable = "dungeon_1_door_boss",
 }
 
@@ -16475,28 +16494,6 @@ block{
   pushable = false,
   pullable = false,
   maximum_moves = 0,
-}
-
-custom_entity{
-  name = "boss_door_frame_renverse_5",
-  layer = 0,
-  x = 2072,
-  y = 757,
-  width = 8,
-  height = 16,
-  direction = 2,
-  sprite = "entities/doors/boss_door_frames",
-}
-
-custom_entity{
-  name = "boss_door_frame_renverse_6",
-  layer = 0,
-  x = 2096,
-  y = 757,
-  width = 8,
-  height = 16,
-  direction = 0,
-  sprite = "entities/doors/boss_door_frames",
 }
 
 door{
@@ -17411,6 +17408,26 @@ tile{
   pattern = "door_cache.1-2",
 }
 
+tile{
+  layer = 1,
+  x = 2064,
+  y = 736,
+  width = 32,
+  height = 8,
+  pattern = "147",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 2064,
+  y = 696,
+  width = 32,
+  height = 8,
+  pattern = "148",
+  tileset = "addition/dungeon",
+}
+
 wall{
   layer = 1,
   x = 1080,
@@ -17485,17 +17502,6 @@ dynamic_tile{
   pattern = "door_top.1-2",
 }
 
-custom_entity{
-  name = "boss_door_frame_renverse_3",
-  layer = 1,
-  x = 2072,
-  y = 709,
-  width = 32,
-  height = 8,
-  direction = 3,
-  sprite = "entities/doors/boss_door_frame_renverse",
-}
-
 dynamic_tile{
   name = "weak_wall_group_1_4",
   layer = 1,
@@ -17514,17 +17520,6 @@ dynamic_tile{
   width = 8,
   height = 64,
   pattern = "door_cache.3-2",
-}
-
-custom_entity{
-  name = "boss_door_frame_renverse_4",
-  layer = 1,
-  x = 2072,
-  y = 749,
-  width = 32,
-  height = 8,
-  direction = 1,
-  sprite = "entities/doors/boss_door_frames",
 }
 
 tile{

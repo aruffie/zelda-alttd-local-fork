@@ -4603,24 +4603,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 168,
-  y = 264,
-  width = 8,
-  height = 16,
-  pattern = "door.1.support.2-1",
-}
-
-tile{
-  layer = 0,
-  x = 144,
-  y = 264,
-  width = 8,
-  height = 16,
-  pattern = "door.1.support.1-1",
-}
-
-tile{
-  layer = 0,
   x = 152,
   y = 264,
   width = 16,
@@ -4635,24 +4617,6 @@ tile{
   width = 16,
   height = 16,
   pattern = "door.2",
-}
-
-tile{
-  layer = 0,
-  x = 144,
-  y = 200,
-  width = 8,
-  height = 16,
-  pattern = "door.2.support.1-1",
-}
-
-tile{
-  layer = 0,
-  x = 168,
-  y = 200,
-  width = 8,
-  height = 16,
-  pattern = "door.2.support.2-1",
 }
 
 tile{
@@ -10545,6 +10509,46 @@ tile{
   tileset = "addition/dungeon",
 }
 
+tile{
+  layer = 0,
+  x = 144,
+  y = 264,
+  width = 8,
+  height = 16,
+  pattern = "143",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 168,
+  y = 264,
+  width = 8,
+  height = 16,
+  pattern = "144",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 144,
+  y = 200,
+  width = 8,
+  height = 16,
+  pattern = "145",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 168,
+  y = 200,
+  width = 8,
+  height = 16,
+  pattern = "146",
+  tileset = "addition/dungeon",
+}
+
 pickable{
   layer = 0,
   x = 744,
@@ -11576,7 +11580,7 @@ door{
   x = 152,
   y = 200,
   direction = 3,
-  sprite = "entities/doors/door_normal",
+  sprite = "entities/doors/door_boss",
 }
 
 door{
@@ -17201,6 +17205,18 @@ custom_entity{
   direction = 0,
 }
 
+door{
+  name = "door_group_boss_2",
+  layer = 0,
+  x = 152,
+  y = 200,
+  direction = 3,
+  sprite = "entities/doors/door_boss_key",
+  savegame_variable = "dungeon_9_door_boss",
+  opening_method = "interaction_if_savegame_variable",
+  opening_condition = "dungeon_9_boss_key",
+}
+
 tile{
   layer = 1,
   x = 1392,
@@ -17592,24 +17608,6 @@ tile{
   layer = 1,
   x = 464,
   y = 456,
-  width = 32,
-  height = 8,
-  pattern = "door_top.closed.2-6",
-}
-
-tile{
-  layer = 1,
-  x = 144,
-  y = 256,
-  width = 32,
-  height = 8,
-  pattern = "door_top.closed.1-6",
-}
-
-tile{
-  layer = 1,
-  x = 144,
-  y = 216,
   width = 32,
   height = 8,
   pattern = "door_top.closed.2-6",
@@ -18173,6 +18171,44 @@ tile{
   pattern = "fairy_fountain.2",
 }
 
+tile{
+  layer = 1,
+  x = 144,
+  y = 256,
+  width = 32,
+  height = 8,
+  pattern = "door_cache.1-6",
+}
+
+tile{
+  layer = 1,
+  x = 144,
+  y = 256,
+  width = 32,
+  height = 8,
+  pattern = "147",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 144,
+  y = 216,
+  width = 32,
+  height = 8,
+  pattern = "door_cache.2-6",
+}
+
+tile{
+  layer = 1,
+  x = 144,
+  y = 216,
+  width = 32,
+  height = 8,
+  pattern = "148",
+  tileset = "addition/dungeon",
+}
+
 dynamic_tile{
   name = "weak_door_1_opened_1",
   layer = 1,
@@ -18265,9 +18301,9 @@ tile{
 
 tile{
   layer = 2,
-  x = 296,
+  x = 304,
   y = 16,
-  width = 40,
+  width = 32,
   height = 1168,
   pattern = "ceiling.1",
 }

@@ -3432,15 +3432,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 2064,
-  y = 744,
-  width = 8,
-  height = 16,
-  pattern = "door.1.support.1-1",
-}
-
-tile{
-  layer = 0,
   x = 2072,
   y = 744,
   width = 16,
@@ -3455,24 +3446,6 @@ tile{
   width = 16,
   height = 16,
   pattern = "door.2",
-}
-
-tile{
-  layer = 0,
-  x = 2064,
-  y = 680,
-  width = 8,
-  height = 16,
-  pattern = "door.2.support.1-1",
-}
-
-tile{
-  layer = 0,
-  x = 2088,
-  y = 680,
-  width = 8,
-  height = 16,
-  pattern = "door.2.support.2-1",
 }
 
 tile{
@@ -3500,15 +3473,6 @@ tile{
   width = 8,
   height = 48,
   pattern = "barrier.2-1",
-}
-
-tile{
-  layer = 0,
-  x = 2088,
-  y = 744,
-  width = 8,
-  height = 16,
-  pattern = "door.1.support.2-1",
 }
 
 tile{
@@ -12360,15 +12324,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 2144,
-  y = 760,
-  width = 48,
-  height = 8,
-  pattern = "wall_border.1-2",
-}
-
-tile{
-  layer = 0,
   x = 2192,
   y = 760,
   width = 8,
@@ -12378,9 +12333,9 @@ tile{
 
 tile{
   layer = 0,
-  x = 2104,
+  x = 2112,
   y = 760,
-  width = 48,
+  width = 32,
   height = 16,
   pattern = "wall_hole.1-1",
 }
@@ -14764,15 +14719,6 @@ tile{
 tile{
   layer = 0,
   x = 2064,
-  y = 736,
-  width = 32,
-  height = 8,
-  pattern = "door_cache.1-2",
-}
-
-tile{
-  layer = 0,
-  x = 2064,
   y = 816,
   width = 32,
   height = 48,
@@ -16771,6 +16717,55 @@ tile{
   width = 16,
   height = 16,
   pattern = "door_stairs.spiral_down.1",
+}
+
+tile{
+  layer = 0,
+  x = 2064,
+  y = 744,
+  width = 8,
+  height = 16,
+  pattern = "143",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 2088,
+  y = 744,
+  width = 8,
+  height = 16,
+  pattern = "144",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 2064,
+  y = 680,
+  width = 8,
+  height = 16,
+  pattern = "145",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 2088,
+  y = 680,
+  width = 8,
+  height = 16,
+  pattern = "146",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 2144,
+  y = 760,
+  width = 48,
+  height = 8,
+  pattern = "wall_border.1-2",
 }
 
 wall{
@@ -22135,6 +22130,15 @@ stairs{
 
 tile{
   layer = 1,
+  x = 2064,
+  y = 736,
+  width = 32,
+  height = 8,
+  pattern = "door_cache.1-2",
+}
+
+tile{
+  layer = 1,
   x = 2136,
   y = 976,
   width = 64,
@@ -22306,9 +22310,9 @@ tile{
 
 tile{
   layer = 1,
-  x = 2048,
+  x = 2064,
   y = 696,
-  width = 64,
+  width = 32,
   height = 8,
   pattern = "door_cache.2-2",
 }
@@ -22666,24 +22670,6 @@ tile{
 
 tile{
   layer = 1,
-  x = 2064,
-  y = 736,
-  width = 32,
-  height = 8,
-  pattern = "door_top.stairs.1-1",
-}
-
-tile{
-  layer = 1,
-  x = 2064,
-  y = 696,
-  width = 32,
-  height = 8,
-  pattern = "door_top.stairs.2-1",
-}
-
-tile{
-  layer = 1,
   x = 784,
   y = 1656,
   width = 32,
@@ -22985,6 +22971,26 @@ tile{
   width = 16,
   height = 8,
   pattern = "door_top.stairs_up.2-2",
+}
+
+tile{
+  layer = 1,
+  x = 2064,
+  y = 736,
+  width = 32,
+  height = 8,
+  pattern = "147",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 2064,
+  y = 696,
+  width = 32,
+  height = 8,
+  pattern = "148",
+  tileset = "addition/dungeon",
 }
 
 jumper{
