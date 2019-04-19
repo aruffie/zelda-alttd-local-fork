@@ -1657,8 +1657,8 @@ tile{
 
 tile{
   layer = 0,
-  x = 120,
-  y = 112,
+  x = 128,
+  y = 384,
   width = 32,
   height = 32,
   pattern = "1084",
@@ -1666,8 +1666,8 @@ tile{
 
 tile{
   layer = 0,
-  x = 120,
-  y = 112,
+  x = 128,
+  y = 384,
   width = 32,
   height = 32,
   pattern = "1501",
@@ -2042,6 +2042,87 @@ tile{
   pattern = "2205",
 }
 
+tile{
+  layer = 0,
+  x = 24,
+  y = 120,
+  width = 16,
+  height = 16,
+  pattern = "262",
+}
+
+tile{
+  layer = 0,
+  x = 24,
+  y = 112,
+  width = 16,
+  height = 8,
+  pattern = "4037",
+}
+
+tile{
+  layer = 0,
+  x = 24,
+  y = 136,
+  width = 16,
+  height = 24,
+  pattern = "4051",
+}
+
+tile{
+  layer = 0,
+  x = 40,
+  y = 136,
+  width = 8,
+  height = 24,
+  pattern = "4050",
+}
+
+tile{
+  layer = 0,
+  x = 16,
+  y = 136,
+  width = 8,
+  height = 24,
+  pattern = "4049",
+}
+
+tile{
+  layer = 0,
+  x = 40,
+  y = 120,
+  width = 8,
+  height = 16,
+  pattern = "261",
+}
+
+tile{
+  layer = 0,
+  x = 16,
+  y = 120,
+  width = 8,
+  height = 16,
+  pattern = "260",
+}
+
+tile{
+  layer = 0,
+  x = 40,
+  y = 112,
+  width = 8,
+  height = 8,
+  pattern = "4036",
+}
+
+tile{
+  layer = 0,
+  x = 16,
+  y = 112,
+  width = 8,
+  height = 8,
+  pattern = "4035",
+}
+
 custom_entity{
   layer = 0,
   x = 360,
@@ -2060,6 +2141,27 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/entrance_dungeon_7",
+}
+
+wall{
+  layer = 0,
+  x = 24,
+  y = 112,
+  width = 16,
+  height = 40,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+sensor{
+  name = "layer_up_sensor_7",
+  layer = 0,
+  x = 32,
+  y = 141,
+  width = 16,
+  height = 16,
 }
 
 tile{
@@ -2564,5 +2666,149 @@ tile{
   width = 96,
   height = 8,
   pattern = "1464",
+}
+
+dynamic_tile{
+  layer = 1,
+  x = 24,
+  y = 136,
+  properties = {
+    {
+      key = "visible",
+      value = "false",
+    },
+  },
+  width = 16,
+  height = 24,
+  pattern = "4051",
+}
+
+dynamic_tile{
+  layer = 1,
+  x = 24,
+  y = 112,
+  properties = {
+    {
+      key = "visible",
+      value = "false",
+    },
+  },
+  width = 16,
+  height = 8,
+  pattern = "4037",
+}
+
+dynamic_tile{
+  name = "invisible_tile_2",
+  layer = 1,
+  x = 24,
+  y = 120,
+  properties = {
+    {
+      key = "visible",
+      value = "false",
+    },
+  },
+  width = 16,
+  height = 16,
+  pattern = "262",
+}
+
+wall{
+  layer = 1,
+  x = 24,
+  y = 112,
+  width = 16,
+  height = 40,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+}
+
+sensor{
+  name = "layer_down_sensor_7",
+  layer = 1,
+  x = 32,
+  y = 149,
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  layer = 1,
+  x = 40,
+  y = 120,
+  properties = {
+    {
+      key = "visible",
+      value = "false",
+    },
+  },
+  width = 8,
+  height = 16,
+  pattern = "261",
+}
+
+dynamic_tile{
+  layer = 1,
+  x = 16,
+  y = 120,
+  properties = {
+    {
+      key = "visible",
+      value = "false",
+    },
+  },
+  width = 8,
+  height = 16,
+  pattern = "260",
+}
+
+dynamic_tile{
+  layer = 1,
+  x = 40,
+  y = 112,
+  width = 8,
+  height = 8,
+  pattern = "4036",
+}
+
+dynamic_tile{
+  layer = 1,
+  x = 16,
+  y = 112,
+  width = 8,
+  height = 8,
+  pattern = "4035",
+}
+
+dynamic_tile{
+  layer = 1,
+  x = 40,
+  y = 136,
+  properties = {
+    {
+      key = "visible",
+      value = "false",
+    },
+  },
+  width = 8,
+  height = 24,
+  pattern = "4050",
+}
+
+dynamic_tile{
+  layer = 1,
+  x = 16,
+  y = 136,
+  properties = {
+    {
+      key = "visible",
+      value = "false",
+    },
+  },
+  width = 8,
+  height = 24,
+  pattern = "4049",
 }
 
