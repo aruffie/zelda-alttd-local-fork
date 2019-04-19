@@ -2425,6 +2425,16 @@ file{ path = "sprites/hero/loading.sword_stars2.png", author = "Nintendo", licen
 file{ path = "sprites/hero/plunging.png", author = "Nintendo", license = "Proprietary (Fair use)" }
 file{ path = "sprites/hero/pulling.png", author = "Nintendo", license = "Proprietary (Fair use)" }
 file{ path = "sprites/hero/running.png", author = "Nintendo", license = "Proprietary (Fair use)" }
+file{ path = "sprites/hero/spin_attack.sword1.png", author = "Nintendo", license = "Proprietary (Fair use)" }
+file{ path = "sprites/hero/spin_attack.sword2.png", author = "Nintendo", license = "Proprietary (Fair use)" }
+file{ path = "sprites/hero/spin_attack.sword3.png", author = "Nintendo", license = "Proprietary (Fair use)" }
+file{ path = "sprites/hero/spin_attack.sword4.png", author = "Nintendo", license = "Proprietary (Fair use)" }
+file{ path = "sprites/hero/swimming.png", author = "Nintendo", license = "Proprietary (Fair use)" }
+file{ path = "sprites/hero/sword.shield1.png", author = "Nintendo", license = "Proprietary (Fair use)" }
+file{ path = "sprites/hero/sword.shield2.png", author = "Nintendo", license = "Proprietary (Fair use)" }
+file{ path = "sprites/hero/sword.shield3.png", author = "Nintendo", license = "Proprietary (Fair use)" }
+file{ path = "sprites/hero/sword_tapping.shield.png", author = "Nintendo", license = "Proprietary (Fair use)" }
+file{ path = "sprites/hero/victory.sword.png", author = "Nintendo", license = "Proprietary (Fair use)" }
 file{ path = "sprites/menus/file_selection/file_selection_button.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/file_selection/file_selection_cursor.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/file_selection/file_selection_frame.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
