@@ -10527,15 +10527,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 600,
-  y = 1104,
-  width = 24,
-  height = 48,
-  pattern = "wall.4-2",
-}
-
-tile{
-  layer = 0,
   x = 1352,
   y = 856,
   width = 8,
@@ -13601,9 +13592,9 @@ dynamic_tile{
   name = "weak_wall_group_1_2",
   layer = 0,
   x = 600,
-  y = 1056,
+  y = 1064,
   width = 24,
-  height = 48,
+  height = 32,
   pattern = "wall.4-2",
 }
 
@@ -13611,9 +13602,9 @@ dynamic_tile{
   name = "weak_wall_group_1_1",
   layer = 0,
   x = 656,
-  y = 1056,
+  y = 1064,
   width = 24,
-  height = 48,
+  height = 32,
   pattern = "wall.3-2",
 }
 
@@ -17773,9 +17764,9 @@ tile{
 tile{
   layer = 2,
   x = 336,
-  y = 1208,
+  y = 1216,
   width = 288,
-  height = 216,
+  height = 208,
   pattern = "ceiling.1",
 }
 
