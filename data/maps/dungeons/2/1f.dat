@@ -1968,7 +1968,7 @@ tile{
   x = 1872,
   y = 1488,
   width = 8,
-  height = 144,
+  height = 80,
   pattern = "wall_border.4-2",
 }
 
@@ -9716,7 +9716,7 @@ tile{
   layer = 0,
   x = 1856,
   y = 1568,
-  width = 16,
+  width = 24,
   height = 16,
   pattern = "hole",
 }
@@ -9737,24 +9737,6 @@ tile{
   width = 8,
   height = 8,
   pattern = "hole.corner_reverse.4",
-}
-
-tile{
-  layer = 0,
-  x = 1856,
-  y = 1568,
-  width = 16,
-  height = 8,
-  pattern = "hole.1",
-}
-
-tile{
-  layer = 0,
-  x = 1856,
-  y = 1576,
-  width = 16,
-  height = 8,
-  pattern = "hole.2",
 }
 
 tile{
@@ -16768,6 +16750,42 @@ tile{
   pattern = "wall_border.1-2",
 }
 
+tile{
+  layer = 0,
+  x = 1864,
+  y = 1568,
+  width = 16,
+  height = 16,
+  pattern = "wall_hole.4-1",
+}
+
+tile{
+  layer = 0,
+  x = 1872,
+  y = 1584,
+  width = 8,
+  height = 48,
+  pattern = "wall_border.4-2",
+}
+
+tile{
+  layer = 0,
+  x = 1856,
+  y = 1568,
+  width = 24,
+  height = 8,
+  pattern = "hole.1",
+}
+
+tile{
+  layer = 0,
+  x = 1856,
+  y = 1576,
+  width = 24,
+  height = 8,
+  pattern = "hole.2",
+}
+
 wall{
   layer = 0,
   x = 2072,
@@ -23092,7 +23110,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/items/heart_fly",
-  model = "heart_fly",
+  model = "pickable_fly",
 }
 
 wall{
