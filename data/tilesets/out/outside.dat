@@ -8277,7 +8277,6 @@ tile_pattern{
   y = { 1344, 1360, 1376 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -8541,7 +8540,6 @@ tile_pattern{
   y = { 72, 80, 88 },
   width = 8,
   height = 8,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -9753,7 +9751,6 @@ tile_pattern{
   y = { 72, 80, 88 },
   width = 8,
   height = 8,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -10947,7 +10944,6 @@ tile_pattern{
   y = { 72, 80, 88 },
   width = 8,
   height = 8,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -15324,7 +15320,6 @@ tile_pattern{
   y = { 1688, 1704, 1720 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -22813,7 +22808,6 @@ tile_pattern{
   y = { 3536, 3536, 3536 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -22825,7 +22819,6 @@ tile_pattern{
   y = { 3552, 3552, 3552 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -22837,7 +22830,6 @@ tile_pattern{
   y = { 3560, 3560, 3560 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -22849,7 +22841,6 @@ tile_pattern{
   y = { 3560, 3560, 3560 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -22882,7 +22873,6 @@ tile_pattern{
   y = { 3584, 3584, 3584 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -22894,7 +22884,6 @@ tile_pattern{
   y = { 3600, 3600, 3600 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -22906,7 +22895,6 @@ tile_pattern{
   y = { 3616, 3616, 3616 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "vertical",
 }
 
@@ -22918,7 +22906,6 @@ tile_pattern{
   y = { 3632, 3632, 3632 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "vertical",
 }
 
@@ -22930,7 +22917,6 @@ tile_pattern{
   y = { 3648, 3648, 3648 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -22942,7 +22928,6 @@ tile_pattern{
   y = { 3664, 3664, 3664 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -22954,7 +22939,6 @@ tile_pattern{
   y = { 3680, 3680, 3680 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -22966,7 +22950,6 @@ tile_pattern{
   y = { 3696, 3696, 3696 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -22978,7 +22961,6 @@ tile_pattern{
   y = { 3712, 3712, 3712 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -23012,7 +22994,6 @@ tile_pattern{
   y = { 3728, 3728, 3728 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -23024,7 +23005,6 @@ tile_pattern{
   y = { 3744, 3744, 3744 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -23036,7 +23016,6 @@ tile_pattern{
   y = { 3760, 3760, 3760 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -23048,7 +23027,6 @@ tile_pattern{
   y = { 3776, 3776, 3776 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -23060,7 +23038,6 @@ tile_pattern{
   y = { 3784, 3784, 3784 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -23072,7 +23049,6 @@ tile_pattern{
   y = { 3792, 3792, 3792 },
   width = 8,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "vertical",
 }
 
@@ -23084,7 +23060,6 @@ tile_pattern{
   y = { 3792, 3792, 3792 },
   width = 8,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "vertical",
 }
 
@@ -23096,7 +23071,6 @@ tile_pattern{
   y = { 3808, 3808, 3808 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -23108,7 +23082,6 @@ tile_pattern{
   y = { 3824, 3824, 3824 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -23120,7 +23093,6 @@ tile_pattern{
   y = { 3840, 3840, 3840 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -23143,7 +23115,6 @@ tile_pattern{
   y = { 3856, 3856, 3856 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -23155,7 +23126,6 @@ tile_pattern{
   y = { 3872, 3872, 3872 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -23167,7 +23137,6 @@ tile_pattern{
   y = { 3888, 3888, 3888 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -23179,7 +23148,6 @@ tile_pattern{
   y = { 3904, 3904, 3904 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -23191,7 +23159,6 @@ tile_pattern{
   y = { 3920, 3920, 3920 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -23213,7 +23180,6 @@ tile_pattern{
   y = { 3936, 3936, 3936 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -23225,7 +23191,6 @@ tile_pattern{
   y = { 3952, 3952, 3952 },
   width = 8,
   height = 24,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -23237,7 +23202,6 @@ tile_pattern{
   y = { 3952, 3952, 3952 },
   width = 8,
   height = 24,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -23249,7 +23213,6 @@ tile_pattern{
   y = { 3976, 3976, 3976 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -41953,7 +41916,6 @@ tile_pattern{
   y = { 1216, 1216, 1216 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -42083,7 +42045,6 @@ tile_pattern{
   y = { 1232, 1232, 1232 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -42214,7 +42175,6 @@ tile_pattern{
   y = { 1240, 1240, 1240 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -43398,7 +43358,6 @@ tile_pattern{
   y = { 1240, 1240, 1240 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -43522,7 +43481,6 @@ tile_pattern{
   y = { 1248, 1248, 1248 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -43643,7 +43601,6 @@ tile_pattern{
   y = { 1264, 1264, 1264 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -43775,7 +43732,6 @@ tile_pattern{
   y = { 1280, 1280, 1280 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -43897,7 +43853,6 @@ tile_pattern{
   y = { 1296, 1296, 1296 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "vertical",
 }
 
@@ -47521,7 +47476,6 @@ tile_pattern{
   y = { 528, 536, 544 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -47533,7 +47487,6 @@ tile_pattern{
   y = { 528, 536, 544 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -47556,7 +47509,6 @@ tile_pattern{
   y = { 552, 560, 568 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -47568,7 +47520,6 @@ tile_pattern{
   y = { 552, 560, 568 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -47580,7 +47531,6 @@ tile_pattern{
   y = { 576, 584, 592 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -47592,7 +47542,6 @@ tile_pattern{
   y = { 576, 584, 592 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -47604,7 +47553,6 @@ tile_pattern{
   y = { 600, 608, 616 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -47616,7 +47564,6 @@ tile_pattern{
   y = { 600, 608, 616 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -47628,7 +47575,6 @@ tile_pattern{
   y = { 624, 632, 640 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -47640,7 +47586,6 @@ tile_pattern{
   y = { 624, 632, 640 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -47652,7 +47597,6 @@ tile_pattern{
   y = { 648, 656, 664 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -47664,7 +47608,6 @@ tile_pattern{
   y = { 648, 656, 664 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -47687,7 +47630,6 @@ tile_pattern{
   y = { 1056, 1064, 1072 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -47699,7 +47641,6 @@ tile_pattern{
   y = { 1056, 1064, 1072 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -47711,7 +47652,6 @@ tile_pattern{
   y = { 1080, 1088, 1096 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -47723,7 +47663,6 @@ tile_pattern{
   y = { 1080, 1088, 1096 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -47735,7 +47674,6 @@ tile_pattern{
   y = { 1104, 1112, 1120 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -47747,7 +47685,6 @@ tile_pattern{
   y = { 1104, 1112, 1120 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -47759,7 +47696,6 @@ tile_pattern{
   y = { 1128, 1136, 1144 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -47771,7 +47707,6 @@ tile_pattern{
   y = { 1128, 1136, 1144 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -47783,7 +47718,6 @@ tile_pattern{
   y = { 1152, 1160, 1168 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -47795,7 +47729,6 @@ tile_pattern{
   y = { 1152, 1160, 1168 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -47818,7 +47751,6 @@ tile_pattern{
   y = { 1176, 1184, 1192 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -47830,7 +47762,6 @@ tile_pattern{
   y = { 1176, 1184, 1192 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -47842,7 +47773,6 @@ tile_pattern{
   y = { 1584, 1592, 1600 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -47854,7 +47784,6 @@ tile_pattern{
   y = { 1584, 1592, 1600 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -47866,7 +47795,6 @@ tile_pattern{
   y = { 1608, 1616, 1624 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -47878,7 +47806,6 @@ tile_pattern{
   y = { 1608, 1616, 1624 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -47890,7 +47817,6 @@ tile_pattern{
   y = { 1632, 1640, 1648 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -47902,7 +47828,6 @@ tile_pattern{
   y = { 1632, 1640, 1648 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -47914,7 +47839,6 @@ tile_pattern{
   y = { 1656, 1664, 1672 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -47926,7 +47850,6 @@ tile_pattern{
   y = { 1656, 1664, 1672 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -47949,7 +47872,6 @@ tile_pattern{
   y = { 1680, 1688, 1696 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -47961,7 +47883,6 @@ tile_pattern{
   y = { 1680, 1688, 1696 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -47973,7 +47894,6 @@ tile_pattern{
   y = { 1704, 1712, 1720 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -47985,7 +47905,6 @@ tile_pattern{
   y = { 1704, 1712, 1720 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -47997,7 +47916,6 @@ tile_pattern{
   y = { 2112, 2120, 2128 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -48009,7 +47927,6 @@ tile_pattern{
   y = { 2112, 2120, 2128 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -48021,7 +47938,6 @@ tile_pattern{
   y = { 2136, 2144, 2152 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -48033,7 +47949,6 @@ tile_pattern{
   y = { 2136, 2144, 2152 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -48045,7 +47960,6 @@ tile_pattern{
   y = { 2160, 2168, 2176 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -48057,7 +47971,6 @@ tile_pattern{
   y = { 2160, 2168, 2176 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -48080,7 +47993,6 @@ tile_pattern{
   y = { 2184, 2192, 2200 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -48092,7 +48004,6 @@ tile_pattern{
   y = { 2184, 2192, 2200 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -48104,7 +48015,6 @@ tile_pattern{
   y = { 2208, 2216, 2224 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -48116,7 +48026,6 @@ tile_pattern{
   y = { 2208, 2216, 2224 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -48128,7 +48037,6 @@ tile_pattern{
   y = { 2232, 2240, 2248 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -48140,7 +48048,6 @@ tile_pattern{
   y = { 2232, 2240, 2248 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -48152,7 +48059,6 @@ tile_pattern{
   y = { 2640, 2648, 2656 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -48164,7 +48070,6 @@ tile_pattern{
   y = { 2640, 2648, 2656 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -48176,7 +48081,6 @@ tile_pattern{
   y = { 2664, 2672, 2680 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -48188,7 +48092,6 @@ tile_pattern{
   y = { 2664, 2672, 2680 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -48211,7 +48114,6 @@ tile_pattern{
   y = { 2688, 2696, 2704 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -48223,7 +48125,6 @@ tile_pattern{
   y = { 2688, 2696, 2704 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -48235,7 +48136,6 @@ tile_pattern{
   y = { 2712, 2720, 2728 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -48247,7 +48147,6 @@ tile_pattern{
   y = { 2712, 2720, 2728 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -48259,7 +48158,6 @@ tile_pattern{
   y = { 2736, 2744, 2752 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -48271,7 +48169,6 @@ tile_pattern{
   y = { 2736, 2744, 2752 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -48283,7 +48180,6 @@ tile_pattern{
   y = { 2760, 2768, 2776 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -48295,7 +48191,6 @@ tile_pattern{
   y = { 2760, 2768, 2776 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -48307,7 +48202,6 @@ tile_pattern{
   y = { 3888, 3896, 3904 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -48319,7 +48213,6 @@ tile_pattern{
   y = { 3888, 3896, 3904 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -48342,7 +48235,6 @@ tile_pattern{
   y = { 3912, 3920, 3928 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -48354,7 +48246,6 @@ tile_pattern{
   y = { 3912, 3920, 3928 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -48366,7 +48257,6 @@ tile_pattern{
   y = { 3936, 3944, 3952 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -48378,7 +48268,6 @@ tile_pattern{
   y = { 3936, 3944, 3952 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -48390,7 +48279,6 @@ tile_pattern{
   y = { 3960, 3968, 3976 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -48402,7 +48290,6 @@ tile_pattern{
   y = { 3960, 3968, 3976 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -48414,7 +48301,6 @@ tile_pattern{
   y = { 3984, 3992, 4000 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -48426,7 +48312,6 @@ tile_pattern{
   y = { 3984, 3992, 4000 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -48438,7 +48323,6 @@ tile_pattern{
   y = { 4008, 4016, 4024 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -48450,7 +48334,6 @@ tile_pattern{
   y = { 4008, 4016, 4024 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -51407,7 +51290,6 @@ tile_pattern{
   y = { 336, 352, 368 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -51529,7 +51411,6 @@ tile_pattern{
   y = { 336, 352, 368 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -51651,7 +51532,6 @@ tile_pattern{
   y = { 528, 544, 560 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -51773,7 +51653,6 @@ tile_pattern{
   y = { 528, 544, 560 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -51895,7 +51774,6 @@ tile_pattern{
   y = { 336, 352, 368 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -52017,7 +51895,6 @@ tile_pattern{
   y = { 336, 352, 368 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -52139,7 +52016,6 @@ tile_pattern{
   y = { 384, 400, 416 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -52261,7 +52137,6 @@ tile_pattern{
   y = { 384, 400, 416 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -52393,7 +52268,6 @@ tile_pattern{
   y = { 384, 400, 416 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -52509,7 +52383,6 @@ tile_pattern{
   y = { 384, 400, 416 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -52621,7 +52494,6 @@ tile_pattern{
   y = { 432, 448, 464 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -52733,7 +52605,6 @@ tile_pattern{
   y = { 432, 448, 464 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -52845,7 +52716,6 @@ tile_pattern{
   y = { 432, 448, 464 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -52957,7 +52827,6 @@ tile_pattern{
   y = { 432, 448, 464 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -53069,7 +52938,6 @@ tile_pattern{
   y = { 480, 496, 512 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -53181,7 +53049,6 @@ tile_pattern{
   y = { 480, 496, 512 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -53293,7 +53160,6 @@ tile_pattern{
   y = { 480, 496, 512 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -53405,7 +53271,6 @@ tile_pattern{
   y = { 480, 496, 512 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -53527,7 +53392,6 @@ tile_pattern{
   y = { 528, 544, 560 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -53639,7 +53503,6 @@ tile_pattern{
   y = { 528, 544, 560 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -53751,7 +53614,6 @@ tile_pattern{
   y = { 576, 592, 608 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -53863,7 +53725,6 @@ tile_pattern{
   y = { 576, 592, 608 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -54086,7 +53947,6 @@ tile_pattern{
   y = { 576, 592, 608 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -54198,7 +54058,6 @@ tile_pattern{
   y = { 576, 592, 608 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -54310,7 +54169,6 @@ tile_pattern{
   y = { 576, 592, 608 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -54422,7 +54280,6 @@ tile_pattern{
   y = { 528, 544, 560 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -54534,7 +54391,6 @@ tile_pattern{
   y = { 384, 400, 416 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -54656,7 +54512,6 @@ tile_pattern{
   y = { 336, 352, 368 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -56705,7 +56560,6 @@ tile_pattern{
   y = { 2288, 2288, 2288 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -56717,7 +56571,6 @@ tile_pattern{
   y = { 2296, 2296, 2296 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -56729,7 +56582,6 @@ tile_pattern{
   y = { 2296, 2296, 2296 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -56741,7 +56593,6 @@ tile_pattern{
   y = { 2304, 2304, 2304 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -56752,7 +56603,6 @@ tile_pattern{
   y = { 2320, 2320, 2320 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -56764,7 +56614,6 @@ tile_pattern{
   y = { 2336, 2336, 2336 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -56776,7 +56625,6 @@ tile_pattern{
   y = { 2352, 2352, 2352 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "vertical",
 }
 
@@ -56788,7 +56636,6 @@ tile_pattern{
   y = { 2368, 2368, 2368 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "vertical",
 }
 
@@ -56811,7 +56658,6 @@ tile_pattern{
   y = { 2384, 2384, 2384 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -56823,7 +56669,6 @@ tile_pattern{
   y = { 2400, 2400, 2400 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -56835,7 +56680,6 @@ tile_pattern{
   y = { 2416, 2416, 2416 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -56847,7 +56691,6 @@ tile_pattern{
   y = { 2432, 2432, 2432 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -56859,7 +56702,6 @@ tile_pattern{
   y = { 2448, 2448, 2448 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -56871,7 +56713,6 @@ tile_pattern{
   y = { 2464, 2464, 2464 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -56883,7 +56724,6 @@ tile_pattern{
   y = { 2480, 2480, 2480 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -56895,7 +56735,6 @@ tile_pattern{
   y = { 2496, 2496, 2496 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -56907,7 +56746,6 @@ tile_pattern{
   y = { 2512, 2512, 2512 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -56919,7 +56757,6 @@ tile_pattern{
   y = { 2520, 2520, 2520 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -56942,7 +56779,6 @@ tile_pattern{
   y = { 2528, 2528, 2528 },
   width = 8,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "vertical",
 }
 
@@ -56954,7 +56790,6 @@ tile_pattern{
   y = { 2528, 2528, 2528 },
   width = 8,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "vertical",
 }
 
@@ -56966,7 +56801,6 @@ tile_pattern{
   y = { 2544, 2544, 2544 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -56978,7 +56812,6 @@ tile_pattern{
   y = { 2560, 2560, 2560 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -56990,7 +56823,6 @@ tile_pattern{
   y = { 2576, 2576, 2576 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -57002,7 +56834,6 @@ tile_pattern{
   y = { 2592, 2592, 2592 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -57014,7 +56845,6 @@ tile_pattern{
   y = { 2608, 2608, 2608 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -57026,7 +56856,6 @@ tile_pattern{
   y = { 2624, 2624, 2624 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -57038,7 +56867,6 @@ tile_pattern{
   y = { 2640, 2640, 2640 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -57050,7 +56878,6 @@ tile_pattern{
   y = { 2656, 2656, 2656 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -57082,7 +56909,6 @@ tile_pattern{
   y = { 2672, 2672, 2672 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -57094,7 +56920,6 @@ tile_pattern{
   y = { 2688, 2688, 2688 },
   width = 8,
   height = 24,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -57106,7 +56931,6 @@ tile_pattern{
   y = { 2688, 2688, 2688 },
   width = 8,
   height = 24,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -57118,7 +56942,6 @@ tile_pattern{
   y = { 2712, 2712, 2712 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -60487,7 +60310,6 @@ tile_pattern{
   y = { 1312, 1312, 1312 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "vertical",
 }
 
@@ -60523,7 +60345,6 @@ tile_pattern{
   y = { 1328, 1328, 1328 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -60534,7 +60355,6 @@ tile_pattern{
   y = { 1344, 1344, 1344 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -60579,7 +60399,6 @@ tile_pattern{
   y = { 1360, 1360, 1360 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -60590,7 +60409,6 @@ tile_pattern{
   y = { 1376, 1376, 1376 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -60625,7 +60443,6 @@ tile_pattern{
   y = { 1392, 1392, 1392 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -60711,7 +60528,6 @@ tile_pattern{
   y = { 464, 472, 480 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -60723,7 +60539,6 @@ tile_pattern{
   y = { 464, 472, 480 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -60735,7 +60550,6 @@ tile_pattern{
   y = { 464, 472, 480 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -60747,7 +60561,6 @@ tile_pattern{
   y = { 464, 472, 480 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -60759,7 +60572,6 @@ tile_pattern{
   y = { 464, 472, 480 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -60771,7 +60583,6 @@ tile_pattern{
   y = { 464, 472, 480 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -60783,7 +60594,6 @@ tile_pattern{
   y = { 464, 472, 480 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -60805,7 +60615,6 @@ tile_pattern{
   y = { 464, 472, 480 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -60817,7 +60626,6 @@ tile_pattern{
   y = { 464, 472, 480 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -60829,7 +60637,6 @@ tile_pattern{
   y = { 464, 472, 480 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -60841,7 +60648,6 @@ tile_pattern{
   y = { 464, 472, 480 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -60853,7 +60659,6 @@ tile_pattern{
   y = { 464, 472, 480 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -60865,7 +60670,6 @@ tile_pattern{
   y = { 464, 472, 480 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -60877,7 +60681,6 @@ tile_pattern{
   y = { 464, 472, 480 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -60889,7 +60692,6 @@ tile_pattern{
   y = { 464, 472, 480 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -60901,7 +60703,6 @@ tile_pattern{
   y = { 488, 496, 504 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "horizontal",
 }
@@ -60914,7 +60715,6 @@ tile_pattern{
   y = { 488, 496, 504 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "horizontal",
 }
@@ -60948,7 +60748,6 @@ tile_pattern{
   y = { 488, 496, 504 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "none",
 }
@@ -60961,7 +60760,6 @@ tile_pattern{
   y = { 488, 496, 504 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "none",
 }
@@ -60974,7 +60772,6 @@ tile_pattern{
   y = { 488, 496, 504 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "none",
 }
@@ -60987,7 +60784,6 @@ tile_pattern{
   y = { 488, 496, 504 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "none",
 }
@@ -61000,7 +60796,6 @@ tile_pattern{
   y = { 488, 496, 504 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "none",
 }
@@ -61013,7 +60808,6 @@ tile_pattern{
   y = { 488, 496, 504 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "none",
 }
@@ -61026,7 +60820,6 @@ tile_pattern{
   y = { 488, 496, 504 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "horizontal",
 }
@@ -61039,7 +60832,6 @@ tile_pattern{
   y = { 488, 496, 504 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "none",
 }
@@ -61052,7 +60844,6 @@ tile_pattern{
   y = { 488, 496, 504 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "none",
 }
@@ -61065,7 +60856,6 @@ tile_pattern{
   y = { 488, 496, 504 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "none",
 }
@@ -61088,7 +60878,6 @@ tile_pattern{
   y = { 488, 496, 504 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "none",
 }
@@ -61101,7 +60890,6 @@ tile_pattern{
   y = { 488, 496, 504 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "none",
 }
@@ -61114,7 +60902,6 @@ tile_pattern{
   y = { 488, 496, 504 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "none",
 }
@@ -61517,7 +61304,6 @@ tile_pattern{
   y = { 688, 688, 688 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -61528,7 +61314,6 @@ tile_pattern{
   y = { 704, 704, 704 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -61540,7 +61325,6 @@ tile_pattern{
   y = { 712, 712, 712 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -61552,7 +61336,6 @@ tile_pattern{
   y = { 712, 712, 712 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -61574,7 +61357,6 @@ tile_pattern{
   y = { 720, 720, 720 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -61585,7 +61367,6 @@ tile_pattern{
   y = { 736, 736, 736 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -61597,7 +61378,6 @@ tile_pattern{
   y = { 752, 752, 752 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -61609,7 +61389,6 @@ tile_pattern{
   y = { 768, 768, 768 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "vertical",
 }
 
@@ -61621,7 +61400,6 @@ tile_pattern{
   y = { 784, 784, 784 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "vertical",
 }
 
@@ -61633,7 +61411,6 @@ tile_pattern{
   y = { 800, 800, 800 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -61645,7 +61422,6 @@ tile_pattern{
   y = { 816, 816, 816 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -61657,7 +61433,6 @@ tile_pattern{
   y = { 832, 832, 832 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -61669,7 +61444,6 @@ tile_pattern{
   y = { 848, 848, 848 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -61681,7 +61455,6 @@ tile_pattern{
   y = { 864, 864, 864 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -61703,7 +61476,6 @@ tile_pattern{
   y = { 880, 880, 880 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -61715,7 +61487,6 @@ tile_pattern{
   y = { 896, 896, 896 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -61727,7 +61498,6 @@ tile_pattern{
   y = { 912, 912, 912 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -61739,7 +61509,6 @@ tile_pattern{
   y = { 928, 928, 928 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -61751,7 +61520,6 @@ tile_pattern{
   y = { 936, 936, 936 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -61763,7 +61531,6 @@ tile_pattern{
   y = { 944, 944, 944 },
   width = 8,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "vertical",
 }
 
@@ -61775,7 +61542,6 @@ tile_pattern{
   y = { 944, 944, 944 },
   width = 8,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "vertical",
 }
 
@@ -61787,7 +61553,6 @@ tile_pattern{
   y = { 960, 960, 960 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -61798,7 +61563,6 @@ tile_pattern{
   y = { 976, 976, 976 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -61809,7 +61573,6 @@ tile_pattern{
   y = { 992, 992, 992 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -61830,7 +61593,6 @@ tile_pattern{
   y = { 1008, 1008, 1008 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -61841,7 +61603,6 @@ tile_pattern{
   y = { 1024, 1024, 1024 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -61853,7 +61614,6 @@ tile_pattern{
   y = { 1040, 1040, 1040 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -61865,7 +61625,6 @@ tile_pattern{
   y = { 1056, 1056, 1056 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -61877,7 +61636,6 @@ tile_pattern{
   y = { 1072, 1072, 1072 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -61888,7 +61646,6 @@ tile_pattern{
   y = { 1088, 1088, 1088 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -61900,7 +61657,6 @@ tile_pattern{
   y = { 1104, 1104, 1104 },
   width = 8,
   height = 24,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -61912,7 +61668,6 @@ tile_pattern{
   y = { 1104, 1104, 1104 },
   width = 8,
   height = 24,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -61924,7 +61679,6 @@ tile_pattern{
   y = { 1128, 1128, 1128 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -61935,7 +61689,6 @@ tile_pattern{
   y = { 1144, 1144, 1144 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -65165,7 +64918,6 @@ tile_pattern{
   y = { 1088, 1104, 1120 },
   width = 32,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -65186,7 +64938,6 @@ tile_pattern{
   y = { 1136, 1152, 1168 },
   width = 32,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -67344,7 +67095,6 @@ tile_pattern{
   y = { 1408, 1408, 1408 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -67811,7 +67561,6 @@ tile_pattern{
   y = { 864, 880, 896 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -67823,7 +67572,6 @@ tile_pattern{
   y = { 1424, 1424, 1424 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -67844,7 +67592,6 @@ tile_pattern{
   y = { 864, 880, 896 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -67856,7 +67603,6 @@ tile_pattern{
   y = { 864, 880, 896 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -67868,7 +67614,6 @@ tile_pattern{
   y = { 864, 880, 896 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -67880,7 +67625,6 @@ tile_pattern{
   y = { 864, 880, 896 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -67892,7 +67636,6 @@ tile_pattern{
   y = { 912, 928, 944 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -67903,7 +67646,6 @@ tile_pattern{
   y = { 912, 928, 944 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -67914,7 +67656,6 @@ tile_pattern{
   y = { 912, 928, 944 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -67925,7 +67666,6 @@ tile_pattern{
   y = { 912, 928, 944 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -67936,7 +67676,6 @@ tile_pattern{
   y = { 912, 928, 944 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -67947,7 +67686,6 @@ tile_pattern{
   y = { 960, 976, 992 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -67968,7 +67706,6 @@ tile_pattern{
   y = { 960, 976, 992 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -67979,7 +67716,6 @@ tile_pattern{
   y = { 960, 976, 992 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -67990,7 +67726,6 @@ tile_pattern{
   y = { 960, 976, 992 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -68001,7 +67736,6 @@ tile_pattern{
   y = { 1008, 1024, 1040 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -68012,7 +67746,6 @@ tile_pattern{
   y = { 1008, 1024, 1040 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -68023,7 +67756,6 @@ tile_pattern{
   y = { 1008, 1024, 1040 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -68034,7 +67766,6 @@ tile_pattern{
   y = { 1008, 1024, 1040 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -68045,7 +67776,6 @@ tile_pattern{
   y = { 1056, 1072, 1088 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -68056,7 +67786,6 @@ tile_pattern{
   y = { 1056, 1072, 1088 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -68067,7 +67796,6 @@ tile_pattern{
   y = { 1056, 1072, 1088 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -68088,7 +67816,6 @@ tile_pattern{
   y = { 1056, 1072, 1088 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -68099,7 +67826,6 @@ tile_pattern{
   y = { 1056, 1072, 1088 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -68110,7 +67836,6 @@ tile_pattern{
   y = { 1104, 1120, 1136 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -68121,7 +67846,6 @@ tile_pattern{
   y = { 1104, 1120, 1136 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -68132,7 +67856,6 @@ tile_pattern{
   y = { 1104, 1120, 1136 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -68143,7 +67866,6 @@ tile_pattern{
   y = { 1104, 1120, 1136 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -68154,7 +67876,6 @@ tile_pattern{
   y = { 1104, 1120, 1136 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -68165,7 +67886,6 @@ tile_pattern{
   y = { 1440, 1440, 1440 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -68176,7 +67896,6 @@ tile_pattern{
   y = { 1456, 1456, 1456 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -68188,7 +67907,6 @@ tile_pattern{
   y = { 1464, 1464, 1464 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -68221,7 +67939,6 @@ tile_pattern{
   y = { 1472, 1472, 1472 },
   width = 8,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "vertical",
 }
 
@@ -68233,7 +67950,6 @@ tile_pattern{
   y = { 1472, 1472, 1472 },
   width = 8,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "vertical",
 }
 
@@ -68494,7 +68210,6 @@ tile_pattern{
   y = { 1488, 1488, 1488 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -68505,7 +68220,6 @@ tile_pattern{
   y = { 1504, 1504, 1504 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -68578,7 +68292,6 @@ tile_pattern{
   y = { 1520, 1520, 1520 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -68619,7 +68332,6 @@ tile_pattern{
   y = { 1536, 1536, 1536 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -68630,7 +68342,6 @@ tile_pattern{
   y = { 1552, 1552, 1552 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -69122,7 +68833,6 @@ tile_pattern{
   y = { 1568, 1568, 1568 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -69276,7 +68986,6 @@ tile_pattern{
   y = { 1584, 1584, 1584 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -69397,7 +69106,6 @@ tile_pattern{
   y = { 1600, 1600, 1600 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -70313,7 +70021,6 @@ tile_pattern{
   y = { 872, 880, 888 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -70325,7 +70032,6 @@ tile_pattern{
   y = { 872, 880, 888 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -70337,7 +70043,6 @@ tile_pattern{
   y = { 872, 880, 888 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -70349,7 +70054,6 @@ tile_pattern{
   y = { 872, 880, 888 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -70361,7 +70065,6 @@ tile_pattern{
   y = { 872, 880, 888 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -70373,7 +70076,6 @@ tile_pattern{
   y = { 872, 880, 888 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -70395,7 +70097,6 @@ tile_pattern{
   y = { 872, 880, 888 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -70407,7 +70108,6 @@ tile_pattern{
   y = { 872, 880, 888 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -70419,7 +70119,6 @@ tile_pattern{
   y = { 872, 880, 888 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -70431,7 +70130,6 @@ tile_pattern{
   y = { 872, 880, 888 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -70443,7 +70141,6 @@ tile_pattern{
   y = { 872, 880, 888 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -70455,7 +70152,6 @@ tile_pattern{
   y = { 872, 880, 888 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -70467,7 +70163,6 @@ tile_pattern{
   y = { 872, 880, 888 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -70479,7 +70174,6 @@ tile_pattern{
   y = { 872, 880, 888 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -70491,7 +70185,6 @@ tile_pattern{
   y = { 872, 880, 888 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -70503,7 +70196,6 @@ tile_pattern{
   y = { 896, 904, 912 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "horizontal",
 }
@@ -70526,7 +70218,6 @@ tile_pattern{
   y = { 896, 904, 912 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "horizontal",
 }
@@ -70539,7 +70230,6 @@ tile_pattern{
   y = { 896, 904, 912 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "none",
 }
@@ -70552,7 +70242,6 @@ tile_pattern{
   y = { 896, 904, 912 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "none",
 }
@@ -70565,7 +70254,6 @@ tile_pattern{
   y = { 896, 904, 912 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "none",
 }
@@ -70578,7 +70266,6 @@ tile_pattern{
   y = { 896, 904, 912 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "none",
 }
@@ -70591,7 +70278,6 @@ tile_pattern{
   y = { 896, 904, 912 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "none",
 }
@@ -70604,7 +70290,6 @@ tile_pattern{
   y = { 896, 904, 912 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "none",
 }
@@ -70617,7 +70302,6 @@ tile_pattern{
   y = { 896, 904, 912 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "horizontal",
 }
@@ -70630,7 +70314,6 @@ tile_pattern{
   y = { 896, 904, 912 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "none",
 }
@@ -70643,7 +70326,6 @@ tile_pattern{
   y = { 896, 904, 912 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "none",
 }
@@ -70677,7 +70359,6 @@ tile_pattern{
   y = { 896, 904, 912 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "none",
 }
@@ -70690,7 +70371,6 @@ tile_pattern{
   y = { 896, 904, 912 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "none",
 }
@@ -70703,7 +70383,6 @@ tile_pattern{
   y = { 896, 904, 912 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "none",
 }
@@ -70716,7 +70395,6 @@ tile_pattern{
   y = { 896, 904, 912 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "none",
 }
@@ -71141,7 +70819,6 @@ tile_pattern{
   y = { 1616, 1616, 1616 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -71164,7 +70841,6 @@ tile_pattern{
   y = { 1632, 1632, 1632 },
   width = 8,
   height = 24,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -71176,7 +70852,6 @@ tile_pattern{
   y = { 1632, 1632, 1632 },
   width = 8,
   height = 24,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -71188,7 +70863,6 @@ tile_pattern{
   y = { 1656, 1656, 1656 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -71199,7 +70873,6 @@ tile_pattern{
   y = { 1672, 1672, 1672 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   scrolling = "parallax",
 }
 
@@ -75298,7 +74971,6 @@ tile_pattern{
   y = { 1616, 1632, 1648 },
   width = 32,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -75309,7 +74981,6 @@ tile_pattern{
   y = { 1664, 1680, 1696 },
   width = 32,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -76324,7 +75995,6 @@ tile_pattern{
   y = { 1392, 1408, 1424 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -76336,7 +76006,6 @@ tile_pattern{
   y = { 1392, 1408, 1424 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -76348,7 +76017,6 @@ tile_pattern{
   y = { 1392, 1408, 1424 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -76360,7 +76028,6 @@ tile_pattern{
   y = { 1392, 1408, 1424 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -76372,7 +76039,6 @@ tile_pattern{
   y = { 1440, 1456, 1472 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -76384,7 +76050,6 @@ tile_pattern{
   y = { 1440, 1456, 1472 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -76406,7 +76071,6 @@ tile_pattern{
   y = { 1440, 1456, 1472 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -76418,7 +76082,6 @@ tile_pattern{
   y = { 1440, 1456, 1472 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -76430,7 +76093,6 @@ tile_pattern{
   y = { 1392, 1408, 1424 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -76442,7 +76104,6 @@ tile_pattern{
   y = { 1440, 1456, 1472 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -76477,7 +76138,6 @@ tile_pattern{
   y = { 1488, 1504, 1520 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -76489,7 +76149,6 @@ tile_pattern{
   y = { 1488, 1504, 1520 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -76501,7 +76160,6 @@ tile_pattern{
   y = { 1488, 1504, 1520 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -76513,7 +76171,6 @@ tile_pattern{
   y = { 1488, 1504, 1520 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -76535,7 +76192,6 @@ tile_pattern{
   y = { 1536, 1552, 1568 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -76547,7 +76203,6 @@ tile_pattern{
   y = { 1536, 1552, 1568 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -76559,7 +76214,6 @@ tile_pattern{
   y = { 1536, 1552, 1568 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -76571,7 +76225,6 @@ tile_pattern{
   y = { 1536, 1552, 1568 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -76583,7 +76236,6 @@ tile_pattern{
   y = { 1584, 1600, 1616 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -76595,7 +76247,6 @@ tile_pattern{
   y = { 1584, 1600, 1616 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -76607,7 +76258,6 @@ tile_pattern{
   y = { 1584, 1600, 1616 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -76619,7 +76269,6 @@ tile_pattern{
   y = { 1584, 1600, 1616 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -76631,7 +76280,6 @@ tile_pattern{
   y = { 1584, 1600, 1616 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -76643,7 +76291,6 @@ tile_pattern{
   y = { 1632, 1648, 1664 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -76677,7 +76324,6 @@ tile_pattern{
   y = { 1632, 1648, 1664 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -76689,7 +76335,6 @@ tile_pattern{
   y = { 1632, 1648, 1664 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -76701,7 +76346,6 @@ tile_pattern{
   y = { 1632, 1648, 1664 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -76713,7 +76357,6 @@ tile_pattern{
   y = { 1632, 1648, 1664 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -81964,7 +81607,6 @@ tile_pattern{
   y = { 1744, 1744, 1744 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -81975,7 +81617,6 @@ tile_pattern{
   y = { 1760, 1760, 1760 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -81998,7 +81639,6 @@ tile_pattern{
   y = { 1768, 1768, 1768 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -82010,7 +81650,6 @@ tile_pattern{
   y = { 1768, 1768, 1768 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -82022,7 +81661,6 @@ tile_pattern{
   y = { 1776, 1776, 1776 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -82033,7 +81671,6 @@ tile_pattern{
   y = { 1792, 1792, 1792 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -82045,7 +81682,6 @@ tile_pattern{
   y = { 1808, 1808, 1808 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -82057,7 +81693,6 @@ tile_pattern{
   y = { 1824, 1824, 1824 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "vertical",
 }
 
@@ -82069,7 +81704,6 @@ tile_pattern{
   y = { 1840, 1840, 1840 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "vertical",
 }
 
@@ -82081,7 +81715,6 @@ tile_pattern{
   y = { 1856, 1856, 1856 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -82093,7 +81726,6 @@ tile_pattern{
   y = { 1872, 1872, 1872 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -82105,7 +81737,6 @@ tile_pattern{
   y = { 1888, 1888, 1888 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -82127,7 +81758,6 @@ tile_pattern{
   y = { 1904, 1904, 1904 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -82139,7 +81769,6 @@ tile_pattern{
   y = { 1920, 1920, 1920 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -82151,7 +81780,6 @@ tile_pattern{
   y = { 1936, 1936, 1936 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -82163,7 +81791,6 @@ tile_pattern{
   y = { 1952, 1952, 1952 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -82175,7 +81802,6 @@ tile_pattern{
   y = { 1968, 1968, 1968 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -82187,7 +81813,6 @@ tile_pattern{
   y = { 1984, 1984, 1984 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -82199,7 +81824,6 @@ tile_pattern{
   y = { 1992, 1992, 1992 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -82211,7 +81835,6 @@ tile_pattern{
   y = { 2000, 2000, 2000 },
   width = 8,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "vertical",
 }
 
@@ -82223,7 +81846,6 @@ tile_pattern{
   y = { 2000, 2000, 2000 },
   width = 8,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "vertical",
 }
 
@@ -82235,7 +81857,6 @@ tile_pattern{
   y = { 2016, 2016, 2016 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -82257,7 +81878,6 @@ tile_pattern{
   y = { 2032, 2032, 2032 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -82269,7 +81889,6 @@ tile_pattern{
   y = { 2048, 2048, 2048 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -82281,7 +81900,6 @@ tile_pattern{
   y = { 2064, 2064, 2064 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -82293,7 +81911,6 @@ tile_pattern{
   y = { 2080, 2080, 2080 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -82305,7 +81922,6 @@ tile_pattern{
   y = { 2096, 2096, 2096 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -82317,7 +81933,6 @@ tile_pattern{
   y = { 2112, 2112, 2112 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -82329,7 +81944,6 @@ tile_pattern{
   y = { 2128, 2128, 2128 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -82340,7 +81954,6 @@ tile_pattern{
   y = { 2144, 2144, 2144 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -82352,7 +81965,6 @@ tile_pattern{
   y = { 2160, 2160, 2160 },
   width = 8,
   height = 24,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -82364,7 +81976,6 @@ tile_pattern{
   y = { 2160, 2160, 2160 },
   width = 8,
   height = 24,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -82386,7 +81997,6 @@ tile_pattern{
   y = { 2184, 2184, 2184 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -82397,7 +82007,6 @@ tile_pattern{
   y = { 2200, 2200, 2200 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -82429,7 +82038,6 @@ tile_pattern{
   y = { 2144, 2160, 2176 },
   width = 32,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -82441,7 +82049,6 @@ tile_pattern{
   y = { 2192, 2208, 2224 },
   width = 32,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -87327,7 +86934,6 @@ tile_pattern{
   y = { 2728, 2728, 2728 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -88128,7 +87734,6 @@ tile_pattern{
   y = { 1920, 1936, 1952 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -88140,7 +87745,6 @@ tile_pattern{
   y = { 1920, 1936, 1952 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -88152,7 +87756,6 @@ tile_pattern{
   y = { 1920, 1936, 1952 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -88164,7 +87767,6 @@ tile_pattern{
   y = { 1920, 1936, 1952 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -88176,7 +87778,6 @@ tile_pattern{
   y = { 1920, 1936, 1952 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -88188,7 +87789,6 @@ tile_pattern{
   y = { 1968, 1984, 2000 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -88200,7 +87800,6 @@ tile_pattern{
   y = { 1968, 1984, 2000 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -88212,7 +87811,6 @@ tile_pattern{
   y = { 1968, 1984, 2000 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -88224,7 +87822,6 @@ tile_pattern{
   y = { 1968, 1984, 2000 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -88236,7 +87833,6 @@ tile_pattern{
   y = { 1968, 1984, 2000 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -88258,7 +87854,6 @@ tile_pattern{
   y = { 2016, 2032, 2048 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -88270,7 +87865,6 @@ tile_pattern{
   y = { 2016, 2032, 2048 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -88282,7 +87876,6 @@ tile_pattern{
   y = { 2016, 2032, 2048 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -88294,7 +87887,6 @@ tile_pattern{
   y = { 2016, 2032, 2048 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -88306,7 +87898,6 @@ tile_pattern{
   y = { 2064, 2080, 2096 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -88318,7 +87909,6 @@ tile_pattern{
   y = { 2064, 2080, 2096 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -88330,7 +87920,6 @@ tile_pattern{
   y = { 2064, 2080, 2096 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -88342,7 +87931,6 @@ tile_pattern{
   y = { 2064, 2080, 2096 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -88354,7 +87942,6 @@ tile_pattern{
   y = { 2112, 2128, 2144 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -88366,7 +87953,6 @@ tile_pattern{
   y = { 2112, 2128, 2144 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -88388,7 +87974,6 @@ tile_pattern{
   y = { 2112, 2128, 2144 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -88400,7 +87985,6 @@ tile_pattern{
   y = { 2112, 2128, 2144 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -88412,7 +87996,6 @@ tile_pattern{
   y = { 2112, 2128, 2144 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -88424,7 +88007,6 @@ tile_pattern{
   y = { 2160, 2176, 2192 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -88436,7 +88018,6 @@ tile_pattern{
   y = { 2160, 2176, 2192 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -88448,7 +88029,6 @@ tile_pattern{
   y = { 2160, 2176, 2192 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -88460,7 +88040,6 @@ tile_pattern{
   y = { 2160, 2176, 2192 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -88472,7 +88051,6 @@ tile_pattern{
   y = { 2160, 2176, 2192 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -93917,7 +93495,6 @@ tile_pattern{
   y = { 464, 472, 480 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -93929,7 +93506,6 @@ tile_pattern{
   y = { 464, 472, 480 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -93941,7 +93517,6 @@ tile_pattern{
   y = { 464, 472, 480 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -93953,7 +93528,6 @@ tile_pattern{
   y = { 464, 472, 480 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -93965,7 +93539,6 @@ tile_pattern{
   y = { 464, 472, 480 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -93977,7 +93550,6 @@ tile_pattern{
   y = { 464, 472, 480 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -93989,7 +93561,6 @@ tile_pattern{
   y = { 464, 472, 480 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -94001,7 +93572,6 @@ tile_pattern{
   y = { 464, 472, 480 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -94013,7 +93583,6 @@ tile_pattern{
   y = { 464, 472, 480 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -94025,7 +93594,6 @@ tile_pattern{
   y = { 464, 472, 480 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -94047,7 +93615,6 @@ tile_pattern{
   y = { 464, 472, 480 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -94059,7 +93626,6 @@ tile_pattern{
   y = { 464, 472, 480 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -94071,7 +93637,6 @@ tile_pattern{
   y = { 464, 472, 480 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -94083,7 +93648,6 @@ tile_pattern{
   y = { 464, 472, 480 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -94095,7 +93659,6 @@ tile_pattern{
   y = { 464, 472, 480 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -94129,7 +93692,6 @@ tile_pattern{
   y = { 488, 496, 504 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "horizontal",
 }
@@ -94142,7 +93704,6 @@ tile_pattern{
   y = { 488, 496, 504 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "horizontal",
 }
@@ -94155,7 +93716,6 @@ tile_pattern{
   y = { 488, 496, 504 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "none",
 }
@@ -94178,7 +93738,6 @@ tile_pattern{
   y = { 488, 496, 504 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "none",
 }
@@ -94191,7 +93750,6 @@ tile_pattern{
   y = { 488, 496, 504 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "none",
 }
@@ -94204,7 +93762,6 @@ tile_pattern{
   y = { 488, 496, 504 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "none",
 }
@@ -94217,7 +93774,6 @@ tile_pattern{
   y = { 488, 496, 504 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "none",
 }
@@ -94230,7 +93786,6 @@ tile_pattern{
   y = { 488, 496, 504 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "none",
 }
@@ -94264,7 +93819,6 @@ tile_pattern{
   y = { 488, 496, 504 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "none",
 }
@@ -94277,7 +93831,6 @@ tile_pattern{
   y = { 488, 496, 504 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "none",
 }
@@ -94290,7 +93843,6 @@ tile_pattern{
   y = { 488, 496, 504 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "none",
 }
@@ -94313,7 +93865,6 @@ tile_pattern{
   y = { 488, 496, 504 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "none",
 }
@@ -94326,7 +93877,6 @@ tile_pattern{
   y = { 488, 496, 504 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "none",
 }
@@ -94339,7 +93889,6 @@ tile_pattern{
   y = { 488, 496, 504 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "none",
 }
@@ -94472,7 +94021,6 @@ tile_pattern{
   y = { 488, 496, 504 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
   repeat_mode = "horizontal",
 }
@@ -98738,7 +98286,6 @@ tile_pattern{
   y = { 872, 880, 888 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -98750,7 +98297,6 @@ tile_pattern{
   y = { 872, 880, 888 },
   width = 16,
   height = 8,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -98761,7 +98307,6 @@ tile_pattern{
   y = { 872, 880, 888 },
   width = 8,
   height = 8,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -98782,7 +98327,6 @@ tile_pattern{
   y = { 872, 880, 888 },
   width = 8,
   height = 8,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -98793,7 +98337,6 @@ tile_pattern{
   y = { 872, 880, 888 },
   width = 8,
   height = 8,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -98804,7 +98347,6 @@ tile_pattern{
   y = { 872, 880, 888 },
   width = 8,
   height = 8,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -98815,7 +98357,6 @@ tile_pattern{
   y = { 872, 880, 888 },
   width = 8,
   height = 8,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -98826,7 +98367,6 @@ tile_pattern{
   y = { 872, 880, 888 },
   width = 8,
   height = 8,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -98837,7 +98377,6 @@ tile_pattern{
   y = { 872, 880, 888 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -98849,7 +98388,6 @@ tile_pattern{
   y = { 872, 880, 888 },
   width = 8,
   height = 8,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -98860,7 +98398,6 @@ tile_pattern{
   y = { 872, 880, 888 },
   width = 8,
   height = 8,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -98871,7 +98408,6 @@ tile_pattern{
   y = { 872, 880, 888 },
   width = 8,
   height = 8,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -98882,7 +98418,6 @@ tile_pattern{
   y = { 872, 880, 888 },
   width = 8,
   height = 8,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -98903,7 +98438,6 @@ tile_pattern{
   y = { 872, 880, 888 },
   width = 8,
   height = 8,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -98914,7 +98448,6 @@ tile_pattern{
   y = { 872, 880, 888 },
   width = 8,
   height = 8,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -98947,7 +98480,6 @@ tile_pattern{
   y = { 896, 904, 912 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
 }
 
@@ -98969,7 +98501,6 @@ tile_pattern{
   y = { 896, 904, 912 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
 }
 
@@ -98981,7 +98512,6 @@ tile_pattern{
   y = { 896, 904, 912 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
 }
 
@@ -98993,7 +98523,6 @@ tile_pattern{
   y = { 896, 904, 912 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
 }
 
@@ -99005,7 +98534,6 @@ tile_pattern{
   y = { 896, 904, 912 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
 }
 
@@ -99027,7 +98555,6 @@ tile_pattern{
   y = { 896, 904, 912 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
 }
 
@@ -99039,7 +98566,6 @@ tile_pattern{
   y = { 896, 904, 912 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
 }
 
@@ -99051,7 +98577,6 @@ tile_pattern{
   y = { 896, 904, 912 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
 }
 
@@ -99063,7 +98588,6 @@ tile_pattern{
   y = { 896, 904, 912 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
 }
 
@@ -99075,7 +98599,6 @@ tile_pattern{
   y = { 896, 904, 912 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
 }
 
@@ -99087,7 +98610,6 @@ tile_pattern{
   y = { 896, 904, 912 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
 }
 
@@ -99099,7 +98621,6 @@ tile_pattern{
   y = { 896, 904, 912 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
 }
 
@@ -99111,7 +98632,6 @@ tile_pattern{
   y = { 896, 904, 912 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
 }
 
@@ -99123,7 +98643,6 @@ tile_pattern{
   y = { 896, 904, 912 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   scrolling = "parallax",
 }
 
@@ -115728,7 +115247,6 @@ tile_pattern{
   y = { 2208, 2232, 2256 },
   width = 32,
   height = 24,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -119439,7 +118957,6 @@ tile_pattern{
   y = { 2352, 2376, 2400 },
   width = 32,
   height = 24,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -123073,7 +122590,6 @@ tile_pattern{
   y = { 2496, 2520, 2544 },
   width = 32,
   height = 24,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -126154,7 +125670,6 @@ tile_pattern{
   y = { 2640, 2664, 2688 },
   width = 32,
   height = 24,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -129102,7 +128617,6 @@ tile_pattern{
   y = { 2784, 2808, 2832 },
   width = 32,
   height = 24,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -138857,7 +138371,6 @@ tile_pattern{
   y = { 312, 328, 344 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -142985,12 +142498,10 @@ tile_pattern{
   id = "84",
   ground = "empty",
   default_layer = 0,
-  x = { 816, 824, 832 },
-  y = { 0, 0, 0 },
+  x = { 816, 824, 832, 824 },
+  y = { 0, 0, 0, 0 },
   width = 8,
   height = 8,
-  frame_delay = 250,
-  mirror_loop = true,
 }
 
 tile_pattern{
@@ -144186,12 +143697,10 @@ tile_pattern{
   id = "85",
   ground = "empty",
   default_layer = 0,
-  x = { 840, 848, 856 },
-  y = { 0, 0, 0 },
+  x = { 840, 848, 856, 848 },
+  y = { 0, 0, 0, 0 },
   width = 8,
   height = 8,
-  frame_delay = 250,
-  mirror_loop = true,
 }
 
 tile_pattern{
@@ -145392,7 +144901,6 @@ tile_pattern{
   y = { 8, 8, 8 },
   width = 8,
   height = 8,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -146596,7 +146104,6 @@ tile_pattern{
   y = { 8, 8, 8 },
   width = 8,
   height = 8,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -147189,7 +146696,6 @@ tile_pattern{
   y = { 656, 672, 688 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -147796,7 +147302,6 @@ tile_pattern{
   y = { 16, 16, 16 },
   width = 8,
   height = 8,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -149001,7 +148506,6 @@ tile_pattern{
   y = { 16, 16, 16 },
   width = 8,
   height = 8,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -150213,7 +149717,6 @@ tile_pattern{
   y = { 24, 24, 24 },
   width = 8,
   height = 8,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -151414,7 +150917,6 @@ tile_pattern{
   y = { 24, 24, 24 },
   width = 8,
   height = 8,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -151777,7 +151279,6 @@ tile_pattern{
   y = { 160, 160, 160 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -151898,7 +151399,6 @@ tile_pattern{
   y = { 176, 176, 176 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -152020,7 +151520,6 @@ tile_pattern{
   y = { 184, 184, 184 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -152142,7 +151641,6 @@ tile_pattern{
   y = { 184, 184, 184 },
   width = 8,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -152263,7 +151761,6 @@ tile_pattern{
   y = { 192, 192, 192 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -152384,7 +151881,6 @@ tile_pattern{
   y = { 208, 208, 208 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -152505,7 +152001,6 @@ tile_pattern{
   y = { 224, 224, 224 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -152621,7 +152116,6 @@ tile_pattern{
   y = { 32, 32, 32 },
   width = 8,
   height = 8,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -152632,7 +152126,6 @@ tile_pattern{
   y = { 240, 240, 240 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "vertical",
 }
 
@@ -152753,7 +152246,6 @@ tile_pattern{
   y = { 256, 256, 256 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "vertical",
 }
 
@@ -152873,7 +152365,6 @@ tile_pattern{
   y = { 272, 272, 272 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -152995,7 +152486,6 @@ tile_pattern{
   y = { 288, 288, 288 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -153116,7 +152606,6 @@ tile_pattern{
   y = { 304, 304, 304 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -153238,7 +152727,6 @@ tile_pattern{
   y = { 320, 320, 320 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -153358,7 +152846,6 @@ tile_pattern{
   y = { 336, 336, 336 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -153479,7 +152966,6 @@ tile_pattern{
   y = { 352, 352, 352 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -153599,7 +153085,6 @@ tile_pattern{
   y = { 368, 368, 368 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -153721,7 +153206,6 @@ tile_pattern{
   y = { 384, 384, 384 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -153843,7 +153327,6 @@ tile_pattern{
   y = { 32, 32, 32 },
   width = 8,
   height = 8,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -153854,7 +153337,6 @@ tile_pattern{
   y = { 400, 400, 400 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -153976,7 +153458,6 @@ tile_pattern{
   y = { 408, 408, 408 },
   width = 16,
   height = 8,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -154095,7 +153576,6 @@ tile_pattern{
   y = { 416, 416, 416 },
   width = 8,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "vertical",
 }
 
@@ -154217,7 +153697,6 @@ tile_pattern{
   y = { 416, 416, 416 },
   width = 8,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "vertical",
 }
 
@@ -154306,7 +153785,6 @@ tile_pattern{
   y = { 1000, 1016, 1032 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -154338,7 +153816,6 @@ tile_pattern{
   y = { 432, 432, 432 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -154460,7 +153937,6 @@ tile_pattern{
   y = { 448, 448, 448 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -154582,7 +154058,6 @@ tile_pattern{
   y = { 464, 464, 464 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -154702,7 +154177,6 @@ tile_pattern{
   y = { 480, 480, 480 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -154823,7 +154297,6 @@ tile_pattern{
   y = { 496, 496, 496 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -154943,7 +154416,6 @@ tile_pattern{
   y = { 512, 512, 512 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -155065,7 +154537,6 @@ tile_pattern{
   y = { 40, 40, 40 },
   width = 8,
   height = 8,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -155076,7 +154547,6 @@ tile_pattern{
   y = { 528, 528, 528 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -155196,7 +154666,6 @@ tile_pattern{
   y = { 544, 544, 544 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -155317,7 +154786,6 @@ tile_pattern{
   y = { 560, 560, 560 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -155439,7 +154907,6 @@ tile_pattern{
   y = { 576, 576, 576 },
   width = 8,
   height = 24,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -155560,7 +155027,6 @@ tile_pattern{
   y = { 576, 576, 576 },
   width = 8,
   height = 24,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -155681,7 +155147,6 @@ tile_pattern{
   y = { 600, 600, 600 },
   width = 16,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -155802,7 +155267,6 @@ tile_pattern{
   y = { 616, 616, 616 },
   width = 16,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "none",
 }
 
@@ -156281,7 +155745,6 @@ tile_pattern{
   y = { 40, 40, 40 },
   width = 8,
   height = 8,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -156292,7 +155755,6 @@ tile_pattern{
   y = { 560, 576, 592 },
   width = 32,
   height = 16,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -156413,7 +155875,6 @@ tile_pattern{
   y = { 608, 624, 640 },
   width = 32,
   height = 16,
-  frame_delay = 250,
   repeat_mode = "horizontal",
 }
 
@@ -157498,7 +156959,6 @@ tile_pattern{
   y = { 48, 48, 48 },
   width = 8,
   height = 8,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -158709,7 +158169,6 @@ tile_pattern{
   y = { 48, 48, 48 },
   width = 8,
   height = 8,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -159864,7 +159323,6 @@ tile_pattern{
   y = { 56, 56, 56 },
   width = 8,
   height = 8,
-  frame_delay = 250,
 }
 
 tile_pattern{
@@ -160983,7 +160441,6 @@ tile_pattern{
   y = { 56, 56, 56 },
   width = 8,
   height = 8,
-  frame_delay = 250,
 }
 
 tile_pattern{
