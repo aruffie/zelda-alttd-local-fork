@@ -36,7 +36,7 @@ vec2 rotate(vec2 v, float a) {
 void main(void) {
     float time = float(sol_time)*0.005;
     float mask = COMPAT_TEXTURE(sol_texture,sol_vtex_coord).r;
-    vec2 pls = vec2(sin(time+sol_vtex_coord.y*8)*0.03,0.01*cos(time*0.5+1.0))*mask;
+    vec2 pls = vec2(sin(time+sol_vtex_coord.y*8.0)*0.03,0.01*cos(time*0.5+1.0))*mask;
     pls = vec2(0.5)+rotate(pls, angle)*0.5;
     FragColor = vec4(pls,0,1);
     //color = vec4(1,0,0,1);
