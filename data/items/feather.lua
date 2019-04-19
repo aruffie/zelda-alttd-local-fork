@@ -42,27 +42,30 @@ game_meta:register_event("on_started", function(game)
         if command=="item_1" and item_1 and item_1:get_name()=="feather"
         or command=="item_2" and item_2 and item_2:get_name()=="feather" then
           if not game:is_paused() then
-              audio_manager:play_sound("hero/jump")
+
             --print "manually jumping"
             --  print "FEATHER TIME"
             local hero = game:get_hero()
             local map = game:get_map()
             if hero.is_jumping~=true then
               if not map:is_sideview() then
-                --é print "ok"
+                -- print "ok"
                 local state = hero:get_state()
-                if state == "sword swinging" or state =="sword loading" or state=="custom" and hero:get_state_object():get_description() == "flying_sword" then 
-                  hero:start_flying_attack()
-                elseif state=="custom" and hero:get_state_object():get_description()=="running" then 
-                  jm.start(hero)
-                else
-                  hero:start_jumping()
+                if state ~="falling" then
+                  if state == "sword swinging" or state =="sword loading" or state=="custom" and hero:get_state_object():get_description() == "flying_sword" then 
+                    hero:start_flying_attack()
+                  elseif state=="custom" and hero:get_state_object():get_description()=="running" then 
+                    jm.start(hero)
+                  else
+                    hero:start_jumping()
+                  end
                 end
               else
 --      print "SIDEVIEW JUMP requested "
                 local vspeed = hero.vspeed or 0
                 if vspeed == 0 or map:get_ground(hero:get_position())=="deep_water" then
 --        print "validated, now jump :"
+                  audio_manager:play_sound("hero/jump")
                   sol.timer.start(10, function()
                       hero.on_ladder = false
                       hero.vspeed = -5
