@@ -3,6 +3,7 @@ local jm={}
 local y_accel = 0.5
 local max_yvel = 5
 
+local audio_manager=require("scripts/audio_manager")
 function jm.reset_collision_rules(state)
 --  print "RESET"
   if state and (state:get_description() == "flying_sword" or state:get_description()=="running") then
@@ -56,6 +57,7 @@ end
 
 function jm.start(entity)
   if not entity:is_jumping() then
+    audio_manager:play_sound("hero/jump")
     --   print "TOPVIEW JUMP"
     entity:set_jumping(true)
     jm.setup_collision_rules(entity:get_state_object())

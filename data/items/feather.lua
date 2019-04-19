@@ -42,7 +42,7 @@ game_meta:register_event("on_started", function(game)
         if command=="item_1" and item_1 and item_1:get_name()=="feather"
         or command=="item_2" and item_2 and item_2:get_name()=="feather" then
           if not game:is_paused() then
-            audio_manager:play_sound("hero/jump")
+
             --print "manually jumping"
             --  print "FEATHER TIME"
             local hero = game:get_hero()
@@ -65,6 +65,7 @@ game_meta:register_event("on_started", function(game)
                 local vspeed = hero.vspeed or 0
                 if vspeed == 0 or map:get_ground(hero:get_position())=="deep_water" then
 --        print "validated, now jump :"
+                  audio_manager:play_sound("hero/jump")
                   sol.timer.start(10, function()
                       hero.on_ladder = false
                       hero.vspeed = -5
