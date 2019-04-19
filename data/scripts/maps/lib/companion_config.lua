@@ -1,5 +1,6 @@
 -- Configuration of the companion manager.
 -- Feel free to change these values.
+local audio_manager = require("scripts/audio_manager")
 
 return {
   marin = {
@@ -66,6 +67,7 @@ return {
         end
         function movement_1:on_finished()
           enemy:set_life(0)
+          audio_manager:play_sound("enemies/enemy_die")
           companion:set_state("stopped")
           companion:get_sprite():set_animation("stopped")
         end
