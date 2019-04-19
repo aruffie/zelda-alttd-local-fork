@@ -10549,6 +10549,36 @@ tile{
   tileset = "addition/dungeon",
 }
 
+wall{
+  layer = 0,
+  x = 152,
+  y = 200,
+  width = 16,
+  height = 80,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+door{
+  name = "door_group_boss_6",
+  layer = 0,
+  x = 152,
+  y = 200,
+  direction = 3,
+  sprite = "entities/doors/door_boss",
+}
+
+door{
+  name = "door_group_boss_7",
+  layer = 0,
+  x = 152,
+  y = 264,
+  direction = 1,
+  sprite = "entities/doors/door_boss",
+}
+
 pickable{
   layer = 0,
   x = 744,
@@ -10672,18 +10702,6 @@ wall{
   y = 112,
   width = 80,
   height = 16,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
-}
-
-wall{
-  layer = 0,
-  x = 152,
-  y = 200,
-  width = 16,
-  height = 80,
   stops_npcs = true,
   stops_enemies = true,
   stops_blocks = true,
@@ -11575,15 +11593,6 @@ sensor{
 }
 
 door{
-  name = "door_boss_1",
-  layer = 0,
-  x = 152,
-  y = 200,
-  direction = 3,
-  sprite = "entities/doors/door_boss",
-}
-
-door{
   name = "door_group_6",
   layer = 0,
   x = 344,
@@ -11629,7 +11638,6 @@ door{
 }
 
 door{
-  name = "door_group_boss_1",
   layer = 0,
   x = 152,
   y = 264,
@@ -17206,7 +17214,6 @@ custom_entity{
 }
 
 door{
-  name = "door_group_boss_2",
   layer = 0,
   x = 152,
   y = 200,

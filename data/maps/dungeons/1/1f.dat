@@ -13486,6 +13486,36 @@ tile{
 
 wall{
   layer = 0,
+  x = 2072,
+  y = 680,
+  width = 16,
+  height = 80,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+door{
+  name = "door_group_boss_6",
+  layer = 0,
+  x = 2072,
+  y = 680,
+  direction = 3,
+  sprite = "entities/doors/door_boss",
+}
+
+door{
+  name = "door_group_boss_7",
+  layer = 0,
+  x = 2072,
+  y = 744,
+  direction = 1,
+  sprite = "entities/doors/door_boss",
+}
+
+wall{
+  layer = 0,
   x = 1512,
   y = 920,
   width = 16,
@@ -13585,18 +13615,6 @@ wall{
   layer = 0,
   x = 2072,
   y = 920,
-  width = 16,
-  height = 80,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
-}
-
-wall{
-  layer = 0,
-  x = 2072,
-  y = 680,
   width = 16,
   height = 80,
   stops_npcs = true,
@@ -16460,16 +16478,6 @@ enemy{
   treasure_name = "random",
 }
 
-door{
-  name = "door_group_boss_2",
-  layer = 0,
-  x = 2072,
-  y = 680,
-  direction = 3,
-  sprite = "entities/doors/door_boss",
-  savegame_variable = "dungeon_1_door_boss",
-}
-
 destination{
   name = "destination_ocarina",
   layer = 0,
@@ -16497,7 +16505,6 @@ block{
 }
 
 door{
-  name = "door_group_boss_1",
   layer = 0,
   x = 2072,
   y = 744,
@@ -16506,6 +16513,15 @@ door{
   savegame_variable = "dungeon_1_door_boss",
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_1_boss_key",
+}
+
+door{
+  layer = 0,
+  x = 2072,
+  y = 680,
+  direction = 3,
+  sprite = "entities/doors/door_boss_key",
+  savegame_variable = "dungeon_1_door_boss",
 }
 
 tile{

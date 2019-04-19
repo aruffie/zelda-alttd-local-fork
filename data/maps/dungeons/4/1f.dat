@@ -12051,6 +12051,34 @@ tile{
   tileset = "addition/dungeon",
 }
 
+wall{
+  layer = 0,
+  x = 472,
+  y = 680,
+  width = 16,
+  height = 80,
+  stops_enemies = true,
+  stops_blocks = true,
+}
+
+door{
+  name = "door_group_boss_6",
+  layer = 0,
+  x = 472,
+  y = 680,
+  direction = 3,
+  sprite = "entities/doors/door_boss",
+}
+
+door{
+  name = "door_group_boss_7",
+  layer = 0,
+  x = 472,
+  y = 744,
+  direction = 1,
+  sprite = "entities/doors/door_boss",
+}
+
 block{
   layer = 0,
   x = 568,
@@ -12225,16 +12253,6 @@ wall{
   layer = 0,
   x = 1024,
   y = 920,
-  width = 16,
-  height = 80,
-  stops_enemies = true,
-  stops_blocks = true,
-}
-
-wall{
-  layer = 0,
-  x = 472,
-  y = 680,
   width = 16,
   height = 80,
   stops_enemies = true,
@@ -14810,7 +14828,6 @@ sensor{
 }
 
 door{
-  name = "door_boss_key_2",
   layer = 0,
   x = 472,
   y = 680,
@@ -14822,7 +14839,6 @@ door{
 }
 
 door{
-  name = "door_boss_key_1",
   layer = 0,
   x = 472,
   y = 744,

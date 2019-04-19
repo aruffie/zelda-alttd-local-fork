@@ -4150,6 +4150,36 @@ tile{
   tileset = "addition/dungeon",
 }
 
+wall{
+  layer = 0,
+  x = 1112,
+  y = 1640,
+  width = 16,
+  height = 80,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+door{
+  name = "door_group_boss_6",
+  layer = 0,
+  x = 1112,
+  y = 1640,
+  direction = 3,
+  sprite = "entities/doors/door_boss",
+}
+
+door{
+  name = "door_group_boss_7",
+  layer = 0,
+  x = 1112,
+  y = 1704,
+  direction = 1,
+  sprite = "entities/doors/door_boss",
+}
+
 block{
   layer = 0,
   x = 1192,
@@ -4677,18 +4707,6 @@ wall{
   y = 1800,
   width = 80,
   height = 16,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
-}
-
-wall{
-  layer = 0,
-  x = 1112,
-  y = 1640,
-  width = 16,
-  height = 80,
   stops_npcs = true,
   stops_enemies = true,
   stops_blocks = true,
@@ -6604,7 +6622,6 @@ npc{
 }
 
 door{
-  name = "door_group_boss_1",
   layer = 0,
   x = 1112,
   y = 1640,
@@ -6616,7 +6633,6 @@ door{
 }
 
 door{
-  name = "door_group_boss_2",
   layer = 0,
   x = 1112,
   y = 1704,

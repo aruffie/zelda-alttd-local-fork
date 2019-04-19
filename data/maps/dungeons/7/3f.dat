@@ -5538,16 +5538,6 @@ destination{
   direction = 1,
 }
 
-door{
-  name = "door_group_boss_2",
-  layer = 0,
-  x = 408,
-  y = 440,
-  direction = 3,
-  sprite = "entities/doors/door_boss_key",
-  savegame_variable = "dungeon_1_door_boss",
-}
-
 crystal_block{
   layer = 0,
   x = 272,
@@ -5975,7 +5965,6 @@ dynamic_tile{
 }
 
 door{
-  name = "door_group_boss_1",
   layer = 0,
   x = 88,
   y = 1224,
@@ -5984,6 +5973,35 @@ door{
   savegame_variable = "dungeon_7_door_boss",
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_7_boss_key",
+}
+
+door{
+  layer = 0,
+  x = 408,
+  y = 440,
+  direction = 3,
+  sprite = "entities/doors/door_boss_key",
+  savegame_variable = "dungeon_7_door_boss",
+  opening_method = "interaction_if_savegame_variable",
+  opening_condition = "dungeon_7_boss_key",
+}
+
+door{
+  name = "door_group_boss_6",
+  layer = 0,
+  x = 408,
+  y = 440,
+  direction = 3,
+  sprite = "entities/doors/door_boss",
+}
+
+door{
+  name = "door_group_boss_7",
+  layer = 0,
+  x = 88,
+  y = 1224,
+  direction = 1,
+  sprite = "entities/doors/door_boss",
 }
 
 tile{
@@ -6679,15 +6697,6 @@ dynamic_tile{
   width = 16,
   height = 16,
   pattern = "door_stairs.spiral_up.1",
-}
-
-dynamic_tile{
-  layer = 1,
-  x = 80,
-  y = 1216,
-  width = 32,
-  height = 8,
-  pattern = "door_top.1-1",
 }
 
 dynamic_tile{

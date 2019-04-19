@@ -16770,22 +16770,40 @@ tile{
 
 wall{
   layer = 0,
-  x = 1880,
-  y = 648,
-  width = 80,
-  height = 16,
+  x = 2072,
+  y = 680,
+  width = 16,
+  height = 80,
   stops_npcs = true,
   stops_enemies = true,
   stops_blocks = true,
   stops_projectiles = true,
 }
 
-wall{
+door{
+  name = "door_group_boss_6",
   layer = 0,
   x = 2072,
   y = 680,
-  width = 16,
-  height = 80,
+  direction = 3,
+  sprite = "entities/doors/door_boss",
+}
+
+door{
+  name = "door_group_boss_7",
+  layer = 0,
+  x = 2072,
+  y = 744,
+  direction = 1,
+  sprite = "entities/doors/door_boss",
+}
+
+wall{
+  layer = 0,
+  x = 1880,
+  y = 648,
+  width = 80,
+  height = 16,
   stops_npcs = true,
   stops_enemies = true,
   stops_blocks = true,
@@ -20136,7 +20154,6 @@ enemy{
 }
 
 door{
-  name = "door_group_boss_1",
   layer = 0,
   x = 2072,
   y = 680,
@@ -20148,7 +20165,6 @@ door{
 }
 
 door{
-  name = "door_group_boss_2",
   layer = 0,
   x = 2072,
   y = 744,
