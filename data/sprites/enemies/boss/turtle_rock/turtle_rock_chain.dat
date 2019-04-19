@@ -1,6 +1,6 @@
 animation{
   name = "default",
-  src_image = "enemies/boss/turtle_rock_head/turtle_rock_chain.png",
+  src_image = "enemies/boss/turtle_rock/turtle_rock_chain.png",
   directions = {
     { x = 64, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29 },
     { x = 64, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29 },
@@ -10,7 +10,7 @@ animation{
 }
 animation{
   name = "hurt",
-  src_image = "enemies/boss/turtle_rock_head/turtle_rock_chain.png",
+  src_image = "enemies/boss/turtle_rock/turtle_rock_chain.png",
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {
