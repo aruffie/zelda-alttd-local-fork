@@ -10847,7 +10847,7 @@ door{
   layer = 0,
   x = 752,
   y = 920,
-  direction = 1,
+  direction = 3,
   sprite = "entities/doors/door_weak_wall",
   savegame_variable = "dungeon_9_weak_door_1",
   opening_method = "explosion",
@@ -11188,7 +11188,7 @@ door{
   layer = 0,
   x = 600,
   y = 832,
-  direction = 2,
+  direction = 0,
   sprite = "entities/doors/door_normal",
 }
 
@@ -11274,7 +11274,7 @@ door{
   layer = 0,
   x = 1624,
   y = 352,
-  direction = 0,
+  direction = 2,
   sprite = "entities/doors/door_normal",
 }
 
@@ -11283,7 +11283,7 @@ door{
   layer = 0,
   x = 1752,
   y = 264,
-  direction = 3,
+  direction = 1,
   sprite = "entities/doors/door_small_key",
   savegame_variable = "dungeon_9_door_small_key_1",
   opening_method = "interaction_if_savegame_variable",
@@ -11316,7 +11316,7 @@ door{
   layer = 0,
   x = 1752,
   y = 200,
-  direction = 1,
+  direction = 3,
   sprite = "entities/doors/door_normal",
 }
 
@@ -11325,7 +11325,7 @@ door{
   layer = 0,
   x = 1624,
   y = 112,
-  direction = 0,
+  direction = 2,
   sprite = "entities/doors/door_normal",
 }
 
@@ -11334,7 +11334,7 @@ door{
   layer = 0,
   x = 1304,
   y = 1080,
-  direction = 0,
+  direction = 2,
   sprite = "entities/doors/door_normal",
 }
 
@@ -11352,7 +11352,7 @@ door{
   layer = 0,
   x = 1432,
   y = 984,
-  direction = 3,
+  direction = 1,
   sprite = "entities/doors/door_normal",
 }
 
@@ -11371,7 +11371,7 @@ door{
   layer = 0,
   x = 1112,
   y = 744,
-  direction = 3,
+  direction = 1,
   sprite = "entities/doors/door_small_key",
   savegame_variable = "dungeon_9_door_small_key_2",
   opening_method = "interaction_if_savegame_variable",
@@ -11402,7 +11402,7 @@ door{
   layer = 0,
   x = 1112,
   y = 920,
-  direction = 1,
+  direction = 3,
   sprite = "entities/doors/door_normal",
   opening_condition = "dungeon_1_small_keys",
   opening_condition_consumed = true,
@@ -11453,7 +11453,7 @@ door{
   layer = 0,
   x = 1112,
   y = 680,
-  direction = 1,
+  direction = 3,
   sprite = "entities/doors/door_normal",
 }
 
@@ -11462,7 +11462,7 @@ door{
   layer = 0,
   x = 984,
   y = 592,
-  direction = 0,
+  direction = 2,
   sprite = "entities/doors/door_normal",
 }
 
@@ -11471,7 +11471,7 @@ door{
   layer = 0,
   x = 664,
   y = 592,
-  direction = 0,
+  direction = 2,
   sprite = "entities/doors/door_normal",
   opening_condition = "dungeon_1_small_keys",
   opening_condition_consumed = true,
@@ -11482,7 +11482,7 @@ door{
   layer = 0,
   x = 792,
   y = 504,
-  direction = 3,
+  direction = 1,
   sprite = "entities/doors/door_normal",
   opening_condition = "dungeon_1_small_keys",
   opening_condition_consumed = true,
@@ -11514,7 +11514,7 @@ door{
   layer = 0,
   x = 344,
   y = 352,
-  direction = 0,
+  direction = 2,
   sprite = "entities/doors/door_small_key",
   savegame_variable = "dungeon_9_door_small_key_3",
   opening_method = "interaction_if_savegame_variable",
@@ -11557,7 +11557,7 @@ door{
   layer = 0,
   x = 280,
   y = 112,
-  direction = 2,
+  direction = 0,
   sprite = "entities/doors/door_normal",
 }
 
@@ -11575,7 +11575,7 @@ door{
   layer = 0,
   x = 152,
   y = 200,
-  direction = 1,
+  direction = 3,
   sprite = "entities/doors/door_normal",
 }
 
@@ -11584,7 +11584,7 @@ door{
   layer = 0,
   x = 344,
   y = 112,
-  direction = 0,
+  direction = 2,
   sprite = "entities/doors/door_normal",
 }
 
@@ -11602,7 +11602,7 @@ door{
   layer = 0,
   x = 600,
   y = 592,
-  direction = 2,
+  direction = 0,
   sprite = "entities/doors/door_normal",
 }
 
@@ -11620,7 +11620,7 @@ door{
   layer = 0,
   x = 472,
   y = 504,
-  direction = 3,
+  direction = 1,
   sprite = "entities/doors/door_normal",
 }
 
@@ -11629,7 +11629,7 @@ door{
   layer = 0,
   x = 152,
   y = 264,
-  direction = 3,
+  direction = 1,
   sprite = "entities/doors/door_boss_key",
   savegame_variable = "dungeon_9_door_boss",
   opening_method = "interaction_if_savegame_variable",

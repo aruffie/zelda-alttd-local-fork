@@ -1820,7 +1820,7 @@ door{
   layer = 0,
   x = 232,
   y = 288,
-  direction = 3,
+  direction = 1,
   sprite = "entities/doors/door_very_weak_wall",
   savegame_variable = "east_mt_tamaranch_cave_2_weak_1",
   opening_method = "explosion",

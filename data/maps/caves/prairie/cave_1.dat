@@ -1592,7 +1592,7 @@ door{
   layer = 0,
   x = 256,
   y = 168,
-  direction = 0,
+  direction = 2,
   sprite = "entities/doors/door_very_weak_wall",
   savegame_variable = "prairie_cave_1_weak_1",
   opening_method = "explosion",

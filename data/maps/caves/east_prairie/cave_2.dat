@@ -2367,7 +2367,7 @@ door{
   layer = 0,
   x = 368,
   y = 104,
-  direction = 0,
+  direction = 2,
   sprite = "entities/doors/door_weak_wall",
   savegame_variable = "east_prairie_cave_2_weak_1",
   opening_method = "explosion",

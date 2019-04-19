@@ -1044,7 +1044,7 @@ door{
   layer = -1,
   x = 152,
   y = 288,
-  direction = 3,
+  direction = 1,
   sprite = "entities/doors/door_normal",
 }
 
@@ -1062,7 +1062,7 @@ door{
   layer = -1,
   x = 152,
   y = 416,
-  direction = 1,
+  direction = 3,
   sprite = "entities/doors/door_normal",
 }
 
@@ -1361,18 +1361,18 @@ tile{
 tile{
   layer = 0,
   x = 40,
-  y = 520,
+  y = 528,
   width = 8,
-  height = 160,
+  height = 144,
   pattern = "wall_border.3-2",
 }
 
 tile{
   layer = 0,
   x = 272,
-  y = 520,
+  y = 528,
   width = 8,
-  height = 160,
+  height = 144,
   pattern = "wall_border.4-2",
 }
 
