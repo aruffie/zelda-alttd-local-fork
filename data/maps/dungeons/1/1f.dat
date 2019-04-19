@@ -7279,9 +7279,9 @@ tile{
 tile{
   layer = 0,
   x = 704,
-  y = 1064,
+  y = 1072,
   width = 8,
-  height = 40,
+  height = 32,
   pattern = "hole.3",
 }
 
@@ -12319,7 +12319,7 @@ tile{
 tile{
   layer = 0,
   x = 600,
-  y = 1024,
+  y = 1016,
   width = 16,
   height = 32,
   pattern = "wall_torch.4",
@@ -16896,24 +16896,6 @@ tile{
 
 tile{
   layer = 1,
-  x = 616,
-  y = 1048,
-  width = 8,
-  height = 64,
-  pattern = "door_cache.4-2",
-}
-
-tile{
-  layer = 1,
-  x = 656,
-  y = 1048,
-  width = 8,
-  height = 64,
-  pattern = "door_cache.3-2",
-}
-
-tile{
-  layer = 1,
   x = 1352,
   y = 848,
   width = 8,
@@ -17389,6 +17371,24 @@ tile{
   pattern = "barrier.1-1",
 }
 
+tile{
+  layer = 1,
+  x = 656,
+  y = 1064,
+  width = 8,
+  height = 32,
+  pattern = "door_top.blast.3-2",
+}
+
+tile{
+  layer = 1,
+  x = 616,
+  y = 1064,
+  width = 8,
+  height = 32,
+  pattern = "door_top.blast.4-2",
+}
+
 wall{
   layer = 1,
   x = 1080,
@@ -17472,6 +17472,26 @@ custom_entity{
   height = 8,
   direction = 3,
   sprite = "entities/doors/boss_door_frame_renverse",
+}
+
+dynamic_tile{
+  name = "weak_wall_group_1_4",
+  layer = 1,
+  x = 616,
+  y = 1048,
+  width = 8,
+  height = 64,
+  pattern = "door_cache.4-2",
+}
+
+dynamic_tile{
+  name = "weak_wall_group_1_3",
+  layer = 1,
+  x = 656,
+  y = 1048,
+  width = 8,
+  height = 64,
+  pattern = "door_cache.3-2",
 }
 
 tile{
