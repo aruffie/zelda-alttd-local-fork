@@ -51,7 +51,7 @@ game_meta:register_event("on_started", function(game)
               if not map:is_sideview() then
                 -- print "ok"
                 local state = hero:get_state()
-                if not state =="falling" then
+                if state ~="falling" then
                   if state == "sword swinging" or state =="sword loading" or state=="custom" and hero:get_state_object():get_description() == "flying_sword" then 
                     hero:start_flying_attack()
                   elseif state=="custom" and hero:get_state_object():get_description()=="running" then 
