@@ -23,6 +23,7 @@ tile{
   layer = 0,
   x = 1648,
   y = 640,
+  enabled_at_start = false,
   width = 224,
   height = 32,
   pattern = "floor_low.10-1",
@@ -124,7 +125,7 @@ tile{
   y = 528,
   width = 64,
   height = 32,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -133,7 +134,7 @@ tile{
   y = 592,
   width = 128,
   height = 48,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -178,7 +179,7 @@ tile{
   y = 1056,
   width = 96,
   height = 48,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -214,7 +215,7 @@ tile{
   y = 1296,
   width = 256,
   height = 48,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -232,7 +233,7 @@ tile{
   y = 1488,
   width = 48,
   height = 48,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -241,7 +242,7 @@ tile{
   y = 1488,
   width = 48,
   height = 48,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -268,7 +269,7 @@ tile{
   y = 1296,
   width = 48,
   height = 48,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -14083,7 +14084,7 @@ tile{
   y = 1392,
   width = 64,
   height = 112,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -14092,7 +14093,7 @@ tile{
   y = 1504,
   width = 32,
   height = 48,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -14236,7 +14237,7 @@ tile{
   y = 1296,
   width = 208,
   height = 48,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -14245,7 +14246,7 @@ tile{
   y = 1360,
   width = 64,
   height = 32,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -14254,7 +14255,7 @@ tile{
   y = 1488,
   width = 128,
   height = 32,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -14335,7 +14336,7 @@ tile{
   y = 1488,
   width = 32,
   height = 96,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -14344,7 +14345,7 @@ tile{
   y = 1488,
   width = 32,
   height = 96,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -14353,7 +14354,7 @@ tile{
   y = 1280,
   width = 64,
   height = 80,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -14362,7 +14363,7 @@ tile{
   y = 1248,
   width = 32,
   height = 48,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -14371,7 +14372,7 @@ tile{
   y = 1360,
   width = 32,
   height = 144,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -14389,7 +14390,7 @@ tile{
   y = 1568,
   width = 96,
   height = 32,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -14425,7 +14426,7 @@ tile{
   y = 1568,
   width = 112,
   height = 32,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -14434,7 +14435,7 @@ tile{
   y = 1392,
   width = 32,
   height = 96,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -14461,7 +14462,7 @@ tile{
   y = 1296,
   width = 128,
   height = 48,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -14497,7 +14498,7 @@ tile{
   y = 1248,
   width = 48,
   height = 32,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -14515,7 +14516,7 @@ tile{
   y = 1120,
   width = 48,
   height = 32,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -14524,7 +14525,7 @@ tile{
   y = 1008,
   width = 48,
   height = 32,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -14533,7 +14534,7 @@ tile{
   y = 1008,
   width = 48,
   height = 32,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -14542,7 +14543,7 @@ tile{
   y = 1120,
   width = 48,
   height = 32,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -14704,7 +14705,7 @@ tile{
   y = 816,
   width = 32,
   height = 48,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -14713,7 +14714,7 @@ tile{
   y = 768,
   width = 48,
   height = 32,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -14722,7 +14723,7 @@ tile{
   y = 768,
   width = 48,
   height = 32,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -14731,7 +14732,7 @@ tile{
   y = 880,
   width = 64,
   height = 32,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -15388,7 +15389,7 @@ tile{
   y = 320,
   width = 48,
   height = 80,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -15397,7 +15398,7 @@ tile{
   y = 320,
   width = 48,
   height = 80,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -15406,7 +15407,7 @@ tile{
   y = 192,
   width = 32,
   height = 96,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -15469,7 +15470,7 @@ tile{
   y = 96,
   width = 32,
   height = 48,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -15478,7 +15479,7 @@ tile{
   y = 48,
   width = 48,
   height = 32,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -15487,7 +15488,7 @@ tile{
   y = 160,
   width = 48,
   height = 32,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -15802,7 +15803,7 @@ tile{
   y = 560,
   width = 128,
   height = 32,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -15811,7 +15812,7 @@ tile{
   y = 592,
   width = 32,
   height = 48,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -15820,7 +15821,7 @@ tile{
   y = 624,
   width = 32,
   height = 48,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -15829,7 +15830,7 @@ tile{
   y = 432,
   width = 32,
   height = 96,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -15856,7 +15857,7 @@ tile{
   y = 192,
   width = 32,
   height = 96,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -15982,7 +15983,7 @@ tile{
   y = 104,
   width = 32,
   height = 32,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -16198,7 +16199,7 @@ tile{
   y = 48,
   width = 128,
   height = 32,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -16207,7 +16208,7 @@ tile{
   y = 96,
   width = 16,
   height = 16,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -16261,7 +16262,7 @@ tile{
   y = 48,
   width = 112,
   height = 32,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
@@ -16378,7 +16379,7 @@ tile{
   y = 104,
   width = 32,
   height = 48,
-  pattern = "floor_low.10-1",
+  pattern = "floor_low.10-2",
 }
 
 tile{
