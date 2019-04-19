@@ -10429,6 +10429,17 @@ tile{
   tileset = "addition/out",
 }
 
+custom_entity{
+  name = "dungeon_1_entrance",
+  layer = 0,
+  x = 864,
+  y = 237,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/doors/door_entrance_dungeons",
+}
+
 wall{
   layer = 0,
   x = 784,
@@ -10622,7 +10633,7 @@ destination{
   name = "dungeon_1_2_A",
   layer = 0,
   x = 864,
-  y = 269,
+  y = 253,
   direction = 3,
 }
 
@@ -11099,17 +11110,6 @@ teletransporter{
   destination = "dungeon_1_1_B",
 }
 
-custom_entity{
-  name = "dungeon_1_entrance",
-  layer = 0,
-  x = 864,
-  y = 237,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/doors/door_entrance_dungeons",
-}
-
 npc{
   name = "dungeon_1_lock",
   layer = 0,
@@ -11322,6 +11322,32 @@ dynamic_tile{
   height = 16,
   pattern = "2",
   tileset = "addition/out",
+}
+
+wall{
+  layer = 0,
+  x = 848,
+  y = 224,
+  width = 8,
+  height = 16,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 0,
+  x = 872,
+  y = 224,
+  width = 8,
+  height = 16,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
 }
 
 tile{

@@ -4164,7 +4164,7 @@ tile{
   x = 168,
   y = 424,
   width = 792,
-  height = 352,
+  height = 344,
   pattern = "14667",
 }
 
@@ -16618,7 +16618,7 @@ tile{
 tile{
   layer = 0,
   x = 936,
-  y = 752,
+  y = 744,
   width = 48,
   height = 40,
   pattern = "2202",
@@ -16627,7 +16627,7 @@ tile{
 tile{
   layer = 0,
   x = 936,
-  y = 792,
+  y = 784,
   width = 48,
   height = 8,
   pattern = "2203",
@@ -16636,7 +16636,7 @@ tile{
 tile{
   layer = 0,
   x = 984,
-  y = 752,
+  y = 744,
   width = 8,
   height = 40,
   pattern = "2205",
@@ -16645,7 +16645,7 @@ tile{
 tile{
   layer = 0,
   x = 928,
-  y = 752,
+  y = 744,
   width = 8,
   height = 40,
   pattern = "2204",
@@ -16654,7 +16654,7 @@ tile{
 tile{
   layer = 0,
   x = 936,
-  y = 736,
+  y = 728,
   width = 48,
   height = 16,
   pattern = "12842",
@@ -17730,9 +17730,9 @@ dynamic_tile{
   layer = 0,
   x = 736,
   y = 656,
-  pattern = "6020",
   width = 16,
   height = 16,
+  pattern = "6020",
 }
 
 sensor{
@@ -19269,7 +19269,7 @@ tile{
 tile{
   layer = 1,
   x = 936,
-  y = 728,
+  y = 720,
   width = 48,
   height = 48,
   pattern = "1455",
@@ -19278,7 +19278,7 @@ tile{
 tile{
   layer = 1,
   x = 936,
-  y = 720,
+  y = 712,
   width = 48,
   height = 8,
   pattern = "1451",
@@ -19287,7 +19287,7 @@ tile{
 tile{
   layer = 1,
   x = 984,
-  y = 728,
+  y = 720,
   width = 8,
   height = 48,
   pattern = "1452",
@@ -19296,7 +19296,7 @@ tile{
 tile{
   layer = 1,
   x = 936,
-  y = 776,
+  y = 768,
   width = 48,
   height = 8,
   pattern = "1453",
@@ -19305,7 +19305,7 @@ tile{
 tile{
   layer = 1,
   x = 928,
-  y = 728,
+  y = 720,
   width = 8,
   height = 48,
   pattern = "1444",
