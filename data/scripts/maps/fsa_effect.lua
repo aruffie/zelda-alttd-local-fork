@@ -361,6 +361,7 @@ function fsa:on_map_draw(map, dst)
     -- draw heatwave on tmp
     if map.fsa_heat_wave then
       tmp:set_shader(heat_wave)
+      heat_wave:set_uniform('camera_pos', {dx, dy})
       tmp:draw(distort_map)
     end
     
