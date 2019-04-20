@@ -11777,9 +11777,9 @@ dynamic_tile{
   layer = 0,
   x = 152,
   y = 592,
-  pattern = "6020",
   width = 16,
   height = 16,
+  pattern = "6020",
 }
 
 sensor{
@@ -12770,9 +12770,9 @@ dynamic_tile{
   layer = 0,
   x = 832,
   y = 184,
-  pattern = "1800",
   width = 32,
   height = 8,
+  pattern = "1800",
 }
 
 dynamic_tile{
@@ -12780,9 +12780,9 @@ dynamic_tile{
   layer = 0,
   x = 832,
   y = 192,
-  pattern = "1706",
   width = 32,
   height = 16,
+  pattern = "1706",
 }
 
 door{

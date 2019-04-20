@@ -8193,7 +8193,7 @@ tile{
 
 tile{
   layer = 1,
-  x = 672,
+  x = 656,
   y = 464,
   width = 8,
   height = 8,
@@ -10311,6 +10311,33 @@ tile{
   width = 8,
   height = 40,
   pattern = "2205",
+}
+
+tile{
+  layer = 1,
+  x = 424,
+  y = 464,
+  width = 8,
+  height = 8,
+  pattern = "115",
+}
+
+tile{
+  layer = 1,
+  x = 360,
+  y = 216,
+  width = 8,
+  height = 8,
+  pattern = "115",
+}
+
+tile{
+  layer = 1,
+  x = 352,
+  y = 208,
+  width = 8,
+  height = 8,
+  pattern = "115",
 }
 
 custom_entity{
