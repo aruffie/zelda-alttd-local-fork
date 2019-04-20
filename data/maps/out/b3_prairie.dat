@@ -10,6 +10,54 @@ properties{
   music = "same",
 }
 
+teletransporter{
+  name = "to_a3",
+  layer = 0,
+  x = -16,
+  y = 0,
+  width = 16,
+  height = 784,
+  transition = "scrolling",
+  destination_map = "out/a3_mabe_village",
+  destination = "_side",
+}
+
+teletransporter{
+  name = "to_b2",
+  layer = 0,
+  x = 0,
+  y = -16,
+  width = 960,
+  height = 16,
+  transition = "scrolling",
+  destination_map = "out/b2_graveyard",
+  destination = "_side",
+}
+
+teletransporter{
+  name = "to_b4",
+  layer = 0,
+  x = 0,
+  y = 768,
+  width = 960,
+  height = 16,
+  transition = "scrolling",
+  destination_map = "out/b4_south_prairie",
+  destination = "_side",
+}
+
+teletransporter{
+  name = "to_c3",
+  layer = 0,
+  x = 960,
+  y = 0,
+  width = 16,
+  height = 768,
+  transition = "scrolling",
+  destination_map = "out/c3_east_prairie",
+  destination = "_side",
+}
+
 tile{
   layer = 1,
   x = 0,
@@ -17670,18 +17718,6 @@ destructible{
   damage_on_enemies = 2,
 }
 
-teletransporter{
-  name = "to_a3",
-  layer = 1,
-  x = -16,
-  y = 0,
-  width = 16,
-  height = 784,
-  transition = "scrolling",
-  destination_map = "out/a3_mabe_village",
-  destination = "_side",
-}
-
 npc{
   name = "sign_start",
   layer = 1,
@@ -17718,30 +17754,6 @@ npc{
   behavior = "dialog#",
 }
 
-teletransporter{
-  name = "to_b2",
-  layer = 1,
-  x = 0,
-  y = -16,
-  width = 960,
-  height = 16,
-  transition = "scrolling",
-  destination_map = "out/b2_graveyard",
-  destination = "_side",
-}
-
-teletransporter{
-  name = "to_b4",
-  layer = 1,
-  x = 0,
-  y = 768,
-  width = 960,
-  height = 16,
-  transition = "scrolling",
-  destination_map = "out/b4_south_prairie",
-  destination = "_side",
-}
-
 destination{
   name = "telephone_booth_4_2_A",
   layer = 1,
@@ -17759,18 +17771,6 @@ teletransporter{
   height = 16,
   destination_map = "houses/prairie/telephone_booth_4",
   destination = "telephone_booth_4_1_B",
-}
-
-teletransporter{
-  name = "to_c3",
-  layer = 1,
-  x = 960,
-  y = 0,
-  width = 16,
-  height = 768,
-  transition = "scrolling",
-  destination_map = "out/c3_east_prairie",
-  destination = "_side",
 }
 
 destination{
