@@ -2226,15 +2226,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 952,
-  y = 488,
-  width = 8,
-  height = 40,
-  pattern = "2205",
-}
-
-tile{
-  layer = 0,
   x = 832,
   y = 528,
   width = 48,
@@ -15245,9 +15236,9 @@ dynamic_tile{
   layer = 0,
   x = 584,
   y = 288,
-  pattern = "6020",
   width = 16,
   height = 16,
+  pattern = "6020",
 }
 
 sensor{
@@ -15264,9 +15255,9 @@ dynamic_tile{
   layer = 0,
   x = 616,
   y = 704,
-  pattern = "6020",
   width = 16,
   height = 16,
+  pattern = "6020",
 }
 
 sensor{
@@ -20017,9 +20008,9 @@ dynamic_tile{
   layer = 0,
   x = 16,
   y = 632,
-  pattern = "1062",
   width = 32,
   height = 8,
+  pattern = "1062",
 }
 
 dynamic_tile{
@@ -20027,9 +20018,9 @@ dynamic_tile{
   layer = 0,
   x = 16,
   y = 640,
-  pattern = "957",
   width = 32,
   height = 16,
+  pattern = "957",
 }
 
 door{
@@ -20048,9 +20039,9 @@ dynamic_tile{
   layer = 0,
   x = 216,
   y = 232,
-  pattern = "1124",
   width = 8,
   height = 32,
+  pattern = "1124",
 }
 
 dynamic_tile{
@@ -20058,9 +20049,9 @@ dynamic_tile{
   layer = 0,
   x = 200,
   y = 240,
-  pattern = "1125",
   width = 16,
   height = 16,
+  pattern = "1125",
 }
 
 dynamic_tile{
@@ -20068,9 +20059,9 @@ dynamic_tile{
   layer = 0,
   x = 192,
   y = 232,
-  pattern = "1122",
   width = 8,
   height = 32,
+  pattern = "1122",
 }
 
 dynamic_tile{
@@ -20078,9 +20069,9 @@ dynamic_tile{
   layer = 0,
   x = 200,
   y = 232,
-  pattern = "1123",
   width = 16,
   height = 8,
+  pattern = "1123",
 }
 
 dynamic_tile{
@@ -20088,9 +20079,9 @@ dynamic_tile{
   layer = 0,
   x = 200,
   y = 256,
-  pattern = "1126",
   width = 16,
   height = 8,
+  pattern = "1126",
 }
 
 destination{
@@ -20135,9 +20126,9 @@ dynamic_tile{
   layer = 0,
   x = 80,
   y = 360,
-  pattern = "707",
   width = 96,
   height = 8,
+  pattern = "707",
 }
 
 destructible{
