@@ -17462,6 +17462,54 @@ tile{
 
 custom_entity{
   layer = 0,
+  x = 568,
+  y = 461,
+  width = 240,
+  height = 8,
+  direction = 3,
+  sprite = "entities/utils/cliff",
+  tiled = true,
+  model = "cliff",
+}
+
+custom_entity{
+  layer = 0,
+  x = 400,
+  y = 613,
+  width = 128,
+  height = 8,
+  direction = 3,
+  sprite = "entities/utils/cliff",
+  tiled = true,
+  model = "cliff",
+}
+
+custom_entity{
+  layer = 0,
+  x = 552,
+  y = 581,
+  width = 88,
+  height = 8,
+  direction = 3,
+  sprite = "entities/utils/cliff",
+  tiled = true,
+  model = "cliff",
+}
+
+custom_entity{
+  layer = 0,
+  x = 480,
+  y = 477,
+  width = 80,
+  height = 8,
+  direction = 3,
+  sprite = "entities/utils/cliff",
+  tiled = true,
+  model = "cliff",
+}
+
+custom_entity{
+  layer = 0,
   x = 648,
   y = 565,
   width = 8,
@@ -18371,18 +18419,6 @@ enemy{
 
 custom_entity{
   layer = 0,
-  x = 552,
-  y = 581,
-  width = 88,
-  height = 8,
-  direction = 3,
-  sprite = "entities/utils/cliff",
-  tiled = true,
-  model = "cliff",
-}
-
-custom_entity{
-  layer = 0,
   x = 640,
   y = 573,
   width = 8,
@@ -18400,18 +18436,6 @@ custom_entity{
   width = 8,
   height = 8,
   direction = 0,
-  sprite = "entities/utils/cliff",
-  tiled = true,
-  model = "cliff",
-}
-
-custom_entity{
-  layer = 0,
-  x = 400,
-  y = 613,
-  width = 128,
-  height = 8,
-  direction = 3,
   sprite = "entities/utils/cliff",
   tiled = true,
   model = "cliff",
@@ -18676,30 +18700,6 @@ custom_entity{
   width = 8,
   height = 8,
   direction = 2,
-  sprite = "entities/utils/cliff",
-  tiled = true,
-  model = "cliff",
-}
-
-custom_entity{
-  layer = 0,
-  x = 568,
-  y = 461,
-  width = 240,
-  height = 8,
-  direction = 3,
-  sprite = "entities/utils/cliff",
-  tiled = true,
-  model = "cliff",
-}
-
-custom_entity{
-  layer = 0,
-  x = 480,
-  y = 477,
-  width = 80,
-  height = 8,
-  direction = 3,
   sprite = "entities/utils/cliff",
   tiled = true,
   model = "cliff",

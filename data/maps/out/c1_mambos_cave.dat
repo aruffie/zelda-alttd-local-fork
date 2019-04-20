@@ -13227,6 +13227,18 @@ tile{
 
 custom_entity{
   layer = 0,
+  x = 200,
+  y = 565,
+  width = 80,
+  height = 8,
+  direction = 3,
+  sprite = "entities/utils/cliff",
+  tiled = true,
+  model = "cliff",
+}
+
+custom_entity{
+  layer = 0,
   x = 296,
   y = 501,
   width = 8,
@@ -14970,18 +14982,6 @@ custom_entity{
   x = 128,
   y = 549,
   width = 64,
-  height = 8,
-  direction = 3,
-  sprite = "entities/utils/cliff",
-  tiled = true,
-  model = "cliff",
-}
-
-custom_entity{
-  layer = 0,
-  x = 200,
-  y = 565,
-  width = 80,
   height = 8,
   direction = 3,
   sprite = "entities/utils/cliff",
