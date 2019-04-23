@@ -13484,6 +13484,16 @@ tile{
   tileset = "addition/dungeon",
 }
 
+tile{
+  layer = 0,
+  x = 2064,
+  y = 576,
+  width = 32,
+  height = 32,
+  pattern = "13",
+  tileset = "addition/dungeon",
+}
+
 wall{
   layer = 0,
   x = 2072,
@@ -15138,8 +15148,8 @@ custom_entity{
 pickable{
   name = "heart_container",
   layer = 0,
-  x = 2056,
-  y = 605,
+  x = 2080,
+  y = 597,
   treasure_name = "heart_container",
   treasure_savegame_variable = "dungeon_1_heart_container",
 }

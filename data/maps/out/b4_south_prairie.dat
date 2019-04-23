@@ -20074,6 +20074,12 @@ door{
   layer = 1,
   x = 24,
   y = 640,
+  properties = {
+    {
+      key = "sound_sword",
+      value = "items/sword_tap_bombable",
+    },
+  },
   direction = 0,
   sprite = "entities/doors/door_weak_wall_out",
   savegame_variable = "b4_south_prairie_weak_1",
