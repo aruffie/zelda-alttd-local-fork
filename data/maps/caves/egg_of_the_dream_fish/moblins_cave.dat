@@ -3201,6 +3201,12 @@ teletransporter{
   layer = 0,
   x = 152,
   y = 464,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/b1_egg_of_the_dream_fish",
@@ -3616,7 +3622,7 @@ tile{
   layer = 2,
   x = 0,
   y = 464,
-  width = 320,
+  width = 960,
   height = 16,
   pattern = "ceiling.2",
 }

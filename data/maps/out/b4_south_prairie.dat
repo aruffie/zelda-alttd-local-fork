@@ -15212,6 +15212,12 @@ teletransporter{
   layer = 1,
   x = 584,
   y = 288,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "houses/south_prairie/richard_villa",
@@ -15241,6 +15247,12 @@ teletransporter{
   layer = 1,
   x = 616,
   y = 704,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "houses/south_prairie/ghost_house",
@@ -19906,6 +19918,12 @@ teletransporter{
   layer = 1,
   x = 576,
   y = 120,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/south_prairie/cave_2",
@@ -19974,6 +19992,12 @@ teletransporter{
   layer = 1,
   x = 896,
   y = 440,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/martha_bay/cave_1",
@@ -20000,6 +20024,12 @@ teletransporter{
   layer = 1,
   x = 24,
   y = 640,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/south_prairie/cave_4",

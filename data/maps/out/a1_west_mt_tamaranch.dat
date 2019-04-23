@@ -11668,6 +11668,12 @@ teletransporter{
   layer = 0,
   x = 376,
   y = 648,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "houses/west_mt_tamaranch/telephone_booth_2",
@@ -11687,6 +11693,12 @@ teletransporter{
   layer = 0,
   x = 152,
   y = 592,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "houses/west_mt_tamaranch/mr_write_house",
@@ -11706,6 +11718,12 @@ teletransporter{
   layer = 0,
   x = 440,
   y = 184,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "houses/west_mt_tamaranch/telephone_booth_3",
@@ -11872,6 +11890,12 @@ teletransporter{
   layer = 0,
   x = 256,
   y = 424,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/west_mt_tamaranch/cave_1",
@@ -11891,6 +11915,12 @@ teletransporter{
   layer = 0,
   x = 176,
   y = 424,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/west_mt_tamaranch/cave_1",
@@ -12759,6 +12789,12 @@ teletransporter{
   layer = 0,
   x = 824,
   y = 80,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/west_mt_tamaranch/cave_2",

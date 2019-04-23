@@ -7357,6 +7357,12 @@ teletransporter{
   layer = 1,
   x = 344,
   y = 48,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/mask_shrine/fairy_fountain",
@@ -7399,6 +7405,12 @@ teletransporter{
   layer = 1,
   x = 720,
   y = 40,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/mask_shrine/cave_1",
@@ -7415,8 +7427,14 @@ destination{
 
 teletransporter{
   layer = 1,
-  x = 288,
+  x = 296,
   y = 232,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/mask_shrine/cave_3",
@@ -7428,6 +7446,12 @@ teletransporter{
   layer = 1,
   x = 120,
   y = 184,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/mask_shrine/cave_3",
@@ -9976,6 +10000,12 @@ teletransporter{
   layer = 2,
   x = 160,
   y = 488,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "houses/mask_shrine/mask_shrine",

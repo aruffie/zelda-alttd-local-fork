@@ -9297,6 +9297,12 @@ teletransporter{
   layer = 1,
   x = 152,
   y = 264,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/forest/cave_1",

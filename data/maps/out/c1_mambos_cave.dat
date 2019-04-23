@@ -14362,6 +14362,12 @@ teletransporter{
   layer = 0,
   x = 144,
   y = 184,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/egg_of_the_dream_fish/cave_3",
@@ -14393,6 +14399,12 @@ teletransporter{
   layer = 0,
   x = 192,
   y = 184,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/egg_of_the_dream_fish/cave_3",
@@ -14434,6 +14446,12 @@ teletransporter{
   layer = 0,
   x = 400,
   y = 232,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/mambos_cave/cave_1",
@@ -14465,6 +14483,12 @@ teletransporter{
   layer = 0,
   x = 448,
   y = 120,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/mambos_cave/cave_2",
@@ -14496,6 +14520,12 @@ teletransporter{
   layer = 0,
   x = 624,
   y = 120,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/mambos_cave/cave_3",
@@ -14549,6 +14579,12 @@ teletransporter{
   layer = 0,
   x = 864,
   y = 608,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/mambos_cave/cave_4",

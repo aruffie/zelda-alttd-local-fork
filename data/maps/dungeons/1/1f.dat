@@ -14023,6 +14023,12 @@ teletransporter{
   layer = 0,
   x = 1112,
   y = 1656,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/a4_south_mabe_village",
@@ -14499,7 +14505,7 @@ destination{
   name = "dungeon_1_1_B",
   layer = 0,
   x = 1120,
-  y = 1637,
+  y = 1653,
   direction = 1,
 }
 

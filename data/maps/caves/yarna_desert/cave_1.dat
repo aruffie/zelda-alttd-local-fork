@@ -2683,6 +2683,12 @@ teletransporter{
   layer = 0,
   x = 512,
   y = 432,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/d4_yarna_desert",
@@ -2693,7 +2699,7 @@ destination{
   name = "entrance",
   layer = 0,
   x = 520,
-  y = 413,
+  y = 429,
   direction = 1,
 }
 

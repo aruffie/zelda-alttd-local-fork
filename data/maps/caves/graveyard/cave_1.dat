@@ -1508,6 +1508,12 @@ teletransporter{
   layer = 0,
   x = 456,
   y = 96,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/b2_graveyard",
@@ -1547,6 +1553,12 @@ teletransporter{
   layer = 0,
   x = 104,
   y = 112,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/b2_graveyard",

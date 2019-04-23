@@ -12964,6 +12964,12 @@ teletransporter{
   layer = 0,
   x = 640,
   y = 392,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/east_mt_tamaranch/cave_1",
@@ -13013,6 +13019,12 @@ teletransporter{
   layer = 0,
   x = 280,
   y = 216,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/east_mt_tamaranch/cave_2",
@@ -13044,6 +13056,12 @@ teletransporter{
   layer = 0,
   x = 416,
   y = 248,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/east_mt_tamaranch/cave_2",
@@ -13075,6 +13093,12 @@ teletransporter{
   layer = 0,
   x = 304,
   y = 136,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/east_mt_tamaranch/cave_3",
@@ -13106,6 +13130,12 @@ teletransporter{
   layer = 0,
   x = 600,
   y = 152,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/east_mt_tamaranch/cave_4",
@@ -13137,6 +13167,12 @@ teletransporter{
   layer = 0,
   x = 752,
   y = 152,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/east_mt_tamaranch/cave_4",
@@ -13168,6 +13204,12 @@ teletransporter{
   layer = 0,
   x = 672,
   y = 152,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/east_mt_tamaranch/cave_4",
@@ -13199,6 +13241,12 @@ teletransporter{
   layer = 0,
   x = 776,
   y = 272,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/east_mt_tamaranch/fairy_fountain",
@@ -13217,6 +13265,12 @@ teletransporter{
   layer = 0,
   x = 824,
   y = 232,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/east_mt_tamaranch/cave_5",
@@ -13248,6 +13302,12 @@ teletransporter{
   layer = 0,
   x = 888,
   y = 152,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/east_mt_tamaranch/cave_6",
@@ -13279,6 +13339,12 @@ teletransporter{
   layer = 0,
   x = 808,
   y = 80,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/east_mt_tamaranch/cave_7",
@@ -13354,6 +13420,12 @@ teletransporter{
   layer = 0,
   x = 816,
   y = 512,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/mask_shrine/cave_1",
@@ -13408,6 +13480,12 @@ teletransporter{
   layer = 0,
   x = 808,
   y = 592,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "houses/mabe_village/marin_house",
@@ -13426,6 +13504,12 @@ teletransporter{
   layer = 0,
   x = 424,
   y = 472,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/mambos_cave/cave_4",
@@ -13644,6 +13728,12 @@ teletransporter{
   layer = 0,
   x = 624,
   y = 64,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "dungeons/7/1f",

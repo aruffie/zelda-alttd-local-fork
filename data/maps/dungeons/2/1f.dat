@@ -17109,6 +17109,12 @@ teletransporter{
   layer = 0,
   x = 792,
   y = 1656,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/b1_egg_of_the_dream_fish",
@@ -19521,7 +19527,7 @@ destination{
   name = "dungeon_2_1_B",
   layer = 0,
   x = 800,
-  y = 1637,
+  y = 1653,
   direction = 1,
 }
 
@@ -22161,6 +22167,17 @@ stairs{
   y = 744,
   direction = 1,
   subtype = 1,
+}
+
+wall{
+  layer = 0,
+  x = 792,
+  y = 1640,
+  width = 16,
+  height = 16,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
 }
 
 tile{

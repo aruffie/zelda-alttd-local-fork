@@ -2306,6 +2306,12 @@ teletransporter{
   layer = 0,
   x = 152,
   y = 104,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/east_prairie/cave_3",
@@ -2324,6 +2330,12 @@ teletransporter{
   layer = 0,
   x = 744,
   y = 192,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/c3_east_prairie",
@@ -2334,7 +2346,7 @@ destination{
   name = "entrance_north",
   layer = 0,
   x = 752,
-  y = 173,
+  y = 189,
   direction = 1,
 }
 
@@ -2453,6 +2465,12 @@ teletransporter{
   layer = 0,
   x = 440,
   y = 432,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/c4_martha_bay",
@@ -2463,7 +2481,7 @@ destination{
   name = "entrance_south",
   layer = 0,
   x = 448,
-  y = 413,
+  y = 437,
   direction = 1,
 }
 

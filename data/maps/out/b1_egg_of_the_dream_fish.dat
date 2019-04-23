@@ -17647,6 +17647,12 @@ teletransporter{
   layer = 0,
   x = 736,
   y = 656,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "houses/egg_of_the_dream_fish/photographer_house",
@@ -17748,6 +17754,12 @@ teletransporter{
   layer = 0,
   x = 424,
   y = 616,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/egg_of_the_dream_fish/moblins_cave",
@@ -18100,6 +18112,12 @@ teletransporter{
   layer = 0,
   x = 800,
   y = 216,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/egg_of_the_dream_fish/cave_1",
@@ -18118,6 +18136,12 @@ teletransporter{
   layer = 0,
   x = 792,
   y = 96,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/egg_of_the_dream_fish/cave_3",
@@ -18219,7 +18243,13 @@ teletransporter{
   name = "dungeon_2_1_A",
   layer = 0,
   x = 64,
-  y = 408,
+  y = 416,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "dungeons/2/1f",

@@ -10827,6 +10827,12 @@ teletransporter{
   layer = 0,
   x = 1112,
   y = 1896,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/b3_prairie",
@@ -10837,7 +10843,7 @@ destination{
   name = "dungeon_3_1_B",
   layer = 0,
   x = 1120,
-  y = 1877,
+  y = 1893,
   direction = 1,
 }
 
@@ -12525,6 +12531,17 @@ dynamic_tile{
   width = 24,
   height = 48,
   pattern = "wall.3-2",
+}
+
+wall{
+  layer = 0,
+  x = 1112,
+  y = 1880,
+  width = 16,
+  height = 16,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
 }
 
 tile{

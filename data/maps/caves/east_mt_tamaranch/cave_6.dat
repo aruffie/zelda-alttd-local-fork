@@ -859,7 +859,7 @@ destination{
   name = "entrance",
   layer = 0,
   x = 200,
-  y = 413,
+  y = 429,
   direction = 1,
 }
 
