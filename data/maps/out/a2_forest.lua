@@ -94,15 +94,15 @@ function map:on_started(destination)
     mushroom:set_enabled(false)
   end
   if map:get_game():get_value("owl_2") == true then
-        map:init_music()
-    end
+    map:init_music()
+  end
 
 end
 
 -- Initialize the music of the map
 function map:init_music()
   
-audio_manager:play_music("16_mysterious_forest")
+  audio_manager:play_music("16_mysterious_forest")
 
 end
 

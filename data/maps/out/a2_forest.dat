@@ -11933,6 +11933,7 @@ npc{
 }
 
 destructible{
+  name = "secret_stone",
   layer = 1,
   x = 656,
   y = 245,
