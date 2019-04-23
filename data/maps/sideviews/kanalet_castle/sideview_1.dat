@@ -986,6 +986,12 @@ teletransporter{
   layer = 0,
   x = 488,
   y = 48,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/c2_kanalet_castle",
@@ -1005,6 +1011,12 @@ teletransporter{
   layer = 0,
   x = 24,
   y = 48,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/c2_kanalet_castle",

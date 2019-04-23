@@ -1424,7 +1424,7 @@ teletransporter{
   name = "quadruplets_house_2_B",
   layer = 1,
   x = 224,
-  y = 224,
+  y = 216,
   properties = {
     {
       key = "effect",
@@ -1449,7 +1449,7 @@ teletransporter{
   name = "quadruplets_house_2_D",
   layer = 1,
   x = 432,
-  y = 224,
+  y = 216,
   properties = {
     {
       key = "effect",
@@ -1618,6 +1618,28 @@ chest{
   y = 157,
   treasure_name = "magnifying_lens",
   sprite = "entities/chests/chest_small",
+}
+
+wall{
+  layer = 1,
+  x = 224,
+  y = 200,
+  width = 16,
+  height = 16,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+}
+
+wall{
+  layer = 1,
+  x = 432,
+  y = 200,
+  width = 16,
+  height = 16,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
 }
 
 tile{

@@ -229,9 +229,9 @@ tile{
 tile{
   layer = 0,
   x = 168,
-  y = 224,
+  y = 216,
   width = 8,
-  height = 24,
+  height = 32,
   pattern = "barrier.2-1",
 }
 
@@ -671,7 +671,7 @@ teletransporter{
   name = "sales_house_o_bananas_1_B",
   layer = 0,
   x = 152,
-  y = 224,
+  y = 216,
   properties = {
     {
       key = "effect",
@@ -786,6 +786,17 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/items/bananas",
+}
+
+wall{
+  layer = 0,
+  x = 152,
+  y = 200,
+  width = 16,
+  height = 16,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
 }
 
 tile{
