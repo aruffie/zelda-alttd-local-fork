@@ -2559,6 +2559,5 @@ file{ path = "tilesets/out/light_world_legacy.dat", author = "Nintendo, FFomega"
 file{ path = "tilesets/out/light_world_legacy.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
 file{ path = "tilesets/out/light_world_legacy.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
 file{ path = "tilesets/out/outside.dat", author = "FFomega", license = "CC BY-SA 4.0" }
-file{ path = "tilesets/out/outside.dat~", author = "Nintendo, FFomega", license = "Mixed" }
 file{ path = "tilesets/out/outside.entities.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
 file{ path = "tilesets/out/outside.tiles.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
