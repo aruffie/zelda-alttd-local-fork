@@ -10024,6 +10024,15 @@ tile{
   pattern = "1042",
 }
 
+tile{
+  layer = 1,
+  x = 880,
+  y = 664,
+  width = 16,
+  height = 32,
+  pattern = "728",
+}
+
 destructible{
   layer = 1,
   x = 64,
