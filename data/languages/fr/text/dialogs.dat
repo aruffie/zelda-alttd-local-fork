@@ -1205,12 +1205,27 @@ dialog{
 }
 
 dialog{
+  id = "maps.dungeons.boss_key_required",
+  text = [[
+C'est la porte du repère du maître du donjon !
+Il te faut la Clé du Maître pour l'ouvrir.
+]],
+}
+
+dialog{
   id = "maps.dungeons.owl",
   text = [[
 Cette statue veut me
 dire quelque chose mais 
 je ne comprends rien ! 
 Elle n'a pas de bec...
+]],
+}
+
+dialog{
+  id = "maps.dungeons.small_key_required",
+  text = [[
+C'est fermé à clé !
 ]],
 }
 

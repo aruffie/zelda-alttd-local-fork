@@ -47,7 +47,7 @@ return {
         end
       end
       local index = math.random(1, #enemies)
-      if enemies[index] ~= nil then
+      if enemies[index] ~= nil and not enemies[index]:get_property("is_bowwow_friend") then
         companion:set_state("eat_enemy")
         -- Bowwow eat enemy
         local enemy = enemies[index]

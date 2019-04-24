@@ -19943,6 +19943,12 @@ enemy{
   layer = 1,
   x = 576,
   y = 341,
+  properties = {
+    {
+      key = "is_bowwow_friend",
+      value = "true",
+    },
+  },
   direction = 0,
   breed = "dog",
 }
@@ -20928,7 +20934,7 @@ custom_entity{
 
 custom_entity{
   layer = 1,
-  x = 568,
+  x = 576,
   y = 333,
   width = 16,
   height = 16,
@@ -21282,6 +21288,12 @@ enemy{
   layer = 1,
   x = 448,
   y = 445,
+  properties = {
+    {
+      key = "is_bowwow_friend",
+      value = "true",
+    },
+  },
   direction = 0,
   breed = "dog",
 }
@@ -21290,6 +21302,12 @@ enemy{
   layer = 1,
   x = 744,
   y = 637,
+  properties = {
+    {
+      key = "is_bowwow_friend",
+      value = "true",
+    },
+  },
   direction = 0,
   breed = "dog",
 }

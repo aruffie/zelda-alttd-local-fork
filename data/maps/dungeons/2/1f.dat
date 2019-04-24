@@ -16787,6 +16787,16 @@ tile{
   pattern = "hole.2",
 }
 
+tile{
+  layer = 0,
+  x = 2064,
+  y = 592,
+  width = 32,
+  height = 32,
+  pattern = "14",
+  tileset = "addition/dungeon",
+}
+
 wall{
   layer = 0,
   x = 2072,
@@ -17065,6 +17075,7 @@ door{
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_2_small_keys",
   opening_condition_consumed = true,
+  cannot_open_dialog = "maps.dungeons.small_key_required",
 }
 
 door{
@@ -17078,6 +17089,7 @@ door{
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_2_small_keys",
   opening_condition_consumed = true,
+  cannot_open_dialog = "maps.dungeons.small_key_required",
 }
 
 door{
@@ -17469,6 +17481,7 @@ door{
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_2_small_keys",
   opening_condition_consumed = true,
+  cannot_open_dialog = "maps.dungeons.small_key_required",
 }
 
 door{
@@ -17482,6 +17495,7 @@ door{
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_2_small_keys",
   opening_condition_consumed = true,
+  cannot_open_dialog = "maps.dungeons.small_key_required",
 }
 
 block{
@@ -19953,6 +19967,7 @@ door{
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_2_small_keys",
   opening_condition_consumed = true,
+  cannot_open_dialog = "maps.dungeons.small_key_required",
 }
 
 door{
@@ -19966,6 +19981,7 @@ door{
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_2_small_keys",
   opening_condition_consumed = true,
+  cannot_open_dialog = "maps.dungeons.small_key_required",
 }
 
 chest{
@@ -20133,6 +20149,7 @@ door{
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_2_small_keys",
   opening_condition_consumed = true,
+  cannot_open_dialog = "maps.dungeons.small_key_required",
 }
 
 door{
@@ -20146,6 +20163,7 @@ door{
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_2_small_keys",
   opening_condition_consumed = true,
+  cannot_open_dialog = "maps.dungeons.small_key_required",
 }
 
 enemy{
@@ -20187,6 +20205,7 @@ door{
   savegame_variable = "dungeon_2_door_boss",
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_2_boss_key",
+  cannot_open_dialog = "maps.dungeons.boss_key_required",
 }
 
 door{
@@ -20198,6 +20217,7 @@ door{
   savegame_variable = "dungeon_2_door_boss",
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_2_boss_key",
+  cannot_open_dialog = "maps.dungeons.boss_key_required",
 }
 
 sensor{
