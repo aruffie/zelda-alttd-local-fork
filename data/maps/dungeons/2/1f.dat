@@ -16787,6 +16787,16 @@ tile{
   pattern = "hole.2",
 }
 
+tile{
+  layer = 0,
+  x = 2064,
+  y = 592,
+  width = 32,
+  height = 32,
+  pattern = "14",
+  tileset = "addition/dungeon",
+}
+
 wall{
   layer = 0,
   x = 2072,
@@ -17065,6 +17075,7 @@ door{
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_2_small_keys",
   opening_condition_consumed = true,
+  cannot_open_dialog = "maps.dungeons.small_key_required",
 }
 
 door{
@@ -17078,6 +17089,7 @@ door{
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_2_small_keys",
   opening_condition_consumed = true,
+  cannot_open_dialog = "maps.dungeons.small_key_required",
 }
 
 door{
@@ -17109,6 +17121,12 @@ teletransporter{
   layer = 0,
   x = 792,
   y = 1656,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/b1_egg_of_the_dream_fish",
@@ -17463,6 +17481,7 @@ door{
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_2_small_keys",
   opening_condition_consumed = true,
+  cannot_open_dialog = "maps.dungeons.small_key_required",
 }
 
 door{
@@ -17476,6 +17495,7 @@ door{
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_2_small_keys",
   opening_condition_consumed = true,
+  cannot_open_dialog = "maps.dungeons.small_key_required",
 }
 
 block{
@@ -19521,7 +19541,7 @@ destination{
   name = "dungeon_2_1_B",
   layer = 0,
   x = 800,
-  y = 1637,
+  y = 1653,
   direction = 1,
 }
 
@@ -19947,6 +19967,7 @@ door{
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_2_small_keys",
   opening_condition_consumed = true,
+  cannot_open_dialog = "maps.dungeons.small_key_required",
 }
 
 door{
@@ -19960,6 +19981,7 @@ door{
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_2_small_keys",
   opening_condition_consumed = true,
+  cannot_open_dialog = "maps.dungeons.small_key_required",
 }
 
 chest{
@@ -20127,6 +20149,7 @@ door{
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_2_small_keys",
   opening_condition_consumed = true,
+  cannot_open_dialog = "maps.dungeons.small_key_required",
 }
 
 door{
@@ -20140,6 +20163,7 @@ door{
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_2_small_keys",
   opening_condition_consumed = true,
+  cannot_open_dialog = "maps.dungeons.small_key_required",
 }
 
 enemy{
@@ -20181,6 +20205,7 @@ door{
   savegame_variable = "dungeon_2_door_boss",
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_2_boss_key",
+  cannot_open_dialog = "maps.dungeons.boss_key_required",
 }
 
 door{
@@ -20192,6 +20217,7 @@ door{
   savegame_variable = "dungeon_2_door_boss",
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_2_boss_key",
+  cannot_open_dialog = "maps.dungeons.boss_key_required",
 }
 
 sensor{
@@ -22161,6 +22187,17 @@ stairs{
   y = 744,
   direction = 1,
   subtype = 1,
+}
+
+wall{
+  layer = 0,
+  x = 792,
+  y = 1640,
+  width = 16,
+  height = 16,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
 }
 
 tile{

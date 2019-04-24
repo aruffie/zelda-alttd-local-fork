@@ -202,9 +202,9 @@ tile{
 tile{
   layer = 0,
   x = 168,
-  y = 224,
+  y = 216,
   width = 8,
-  height = 24,
+  height = 32,
   pattern = "barrier.2-1",
 }
 
@@ -804,7 +804,13 @@ teletransporter{
   name = "richard_villa_2_B",
   layer = 0,
   x = 152,
-  y = 224,
+  y = 216,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/b4_south_prairie",
@@ -940,6 +946,17 @@ wall{
   y = 80,
   width = 16,
   height = 16,
+  stops_blocks = true,
+}
+
+wall{
+  layer = 0,
+  x = 152,
+  y = 200,
+  width = 16,
+  height = 16,
+  stops_npcs = true,
+  stops_enemies = true,
   stops_blocks = true,
 }
 

@@ -17776,6 +17776,12 @@ teletransporter{
   layer = 1,
   x = 104,
   y = 488,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "houses/prairie/telephone_booth_4",
@@ -17795,6 +17801,12 @@ teletransporter{
   layer = 1,
   x = 416,
   y = 600,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "dungeons/3/1f",
@@ -17823,6 +17835,12 @@ teletransporter{
   layer = 1,
   x = 488,
   y = 80,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/prairie/cave_1",
@@ -17842,6 +17860,12 @@ teletransporter{
   layer = 1,
   x = 256,
   y = 136,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/prairie/cave_2",
@@ -21653,6 +21677,12 @@ door{
   layer = 1,
   x = 488,
   y = 80,
+  properties = {
+    {
+      key = "sound_sword",
+      value = "items/sword_tap_bombable",
+    },
+  },
   direction = 0,
   sprite = "entities/doors/door_weak_wall_out",
   savegame_variable = "b3_prairie_weak_1",
@@ -21685,6 +21715,12 @@ teletransporter{
   layer = 1,
   x = 760,
   y = 16,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/prairie/fairy_fountain",
@@ -21736,6 +21772,12 @@ door{
   layer = 1,
   x = 760,
   y = 16,
+  properties = {
+    {
+      key = "sound_sword",
+      value = "items/sword_tap_bombable",
+    },
+  },
   direction = 0,
   sprite = "entities/doors/door_weak_wall_out",
   savegame_variable = "b3_prairie_weak_2",

@@ -392,27 +392,27 @@ tile{
 
 tile{
   layer = 0,
-  x = 2016,
+  x = 2032,
   y = 520,
-  width = 128,
+  width = 96,
   height = 24,
   pattern = "1086",
 }
 
 tile{
   layer = 0,
-  x = 2000,
+  x = 2016,
   y = 544,
-  width = 160,
+  width = 128,
   height = 112,
   pattern = "1086",
 }
 
 tile{
   layer = 0,
-  x = 2016,
+  x = 2032,
   y = 656,
-  width = 128,
+  width = 96,
   height = 24,
   pattern = "1086",
 }
@@ -2751,7 +2751,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 2008,
+  x = 2024,
   y = 656,
   width = 8,
   height = 8,
@@ -2760,7 +2760,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 1992,
+  x = 2008,
   y = 544,
   width = 8,
   height = 112,
@@ -2769,7 +2769,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 1992,
+  x = 2008,
   y = 656,
   width = 8,
   height = 8,
@@ -2778,7 +2778,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 2000,
+  x = 2016,
   y = 656,
   width = 8,
   height = 8,
@@ -2787,7 +2787,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 2160,
+  x = 2144,
   y = 544,
   width = 8,
   height = 112,
@@ -2796,7 +2796,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 2008,
+  x = 2024,
   y = 536,
   width = 8,
   height = 8,
@@ -2805,7 +2805,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 2144,
+  x = 2128,
   y = 536,
   width = 8,
   height = 8,
@@ -2814,7 +2814,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 2160,
+  x = 2144,
   y = 536,
   width = 8,
   height = 8,
@@ -2823,7 +2823,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 2152,
+  x = 2136,
   y = 536,
   width = 8,
   height = 8,
@@ -2832,7 +2832,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 2000,
+  x = 2016,
   y = 536,
   width = 8,
   height = 8,
@@ -2841,7 +2841,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 1992,
+  x = 2008,
   y = 536,
   width = 8,
   height = 8,
@@ -2850,7 +2850,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 2144,
+  x = 2128,
   y = 656,
   width = 8,
   height = 8,
@@ -2859,7 +2859,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 2152,
+  x = 2136,
   y = 656,
   width = 8,
   height = 8,
@@ -2868,7 +2868,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 2160,
+  x = 2144,
   y = 656,
   width = 8,
   height = 8,
@@ -7521,18 +7521,18 @@ tile{
 
 tile{
   layer = 0,
-  x = 2016,
+  x = 2032,
   y = 520,
-  width = 128,
+  width = 96,
   height = 8,
   pattern = "wall_border.1-2",
 }
 
 tile{
   layer = 0,
-  x = 2016,
+  x = 2032,
   y = 672,
-  width = 128,
+  width = 96,
   height = 8,
   pattern = "wall_border.2-2",
 }
@@ -8979,7 +8979,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 2144,
+  x = 2128,
   y = 520,
   width = 8,
   height = 16,
@@ -8988,7 +8988,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 2008,
+  x = 2024,
   y = 520,
   width = 8,
   height = 16,
@@ -8997,7 +8997,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 2008,
+  x = 2024,
   y = 664,
   width = 8,
   height = 16,
@@ -9006,7 +9006,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 2144,
+  x = 2128,
   y = 664,
   width = 8,
   height = 16,
@@ -10797,16 +10797,16 @@ tile{
 
 tile{
   layer = 0,
-  x = 2016,
+  x = 2032,
   y = 528,
-  width = 128,
+  width = 96,
   height = 144,
   pattern = "floor_low.10-Alpha",
 }
 
 tile{
   layer = 0,
-  x = 2000,
+  x = 2016,
   y = 544,
   width = 16,
   height = 112,
@@ -10815,7 +10815,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 2144,
+  x = 2128,
   y = 544,
   width = 16,
   height = 112,
@@ -13236,9 +13236,9 @@ tile{
 
 tile{
   layer = 0,
-  x = 2000,
+  x = 2016,
   y = 592,
-  width = 32,
+  width = 16,
   height = 16,
   pattern = "floor_low.10-2",
 }
@@ -13247,7 +13247,7 @@ tile{
   layer = 0,
   x = 2128,
   y = 592,
-  width = 32,
+  width = 16,
   height = 16,
   pattern = "floor_low.10-2",
 }
@@ -13481,6 +13481,16 @@ tile{
   width = 8,
   height = 16,
   pattern = "146",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 2064,
+  y = 576,
+  width = 32,
+  height = 32,
+  pattern = "13",
   tileset = "addition/dungeon",
 }
 
@@ -13872,6 +13882,7 @@ door{
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_1_small_keys",
   opening_condition_consumed = true,
+  cannot_open_dialog = "maps.dungeons.small_key_required",
 }
 
 door{
@@ -13884,6 +13895,7 @@ door{
   savegame_variable = "dungeon_1_door_small_key_3",
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_1_small_keys",
+  cannot_open_dialog = "maps.dungeons.small_key_required",
 }
 
 chest{
@@ -14003,6 +14015,7 @@ door{
   savegame_variable = "dungeon_1_door_small_key_2",
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_1_small_keys",
+  cannot_open_dialog = "maps.dungeons.small_key_required",
 }
 
 door{
@@ -14016,6 +14029,7 @@ door{
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_1_small_keys",
   opening_condition_consumed = true,
+  cannot_open_dialog = "maps.dungeons.small_key_required",
 }
 
 teletransporter{
@@ -14023,6 +14037,12 @@ teletransporter{
   layer = 0,
   x = 1112,
   y = 1656,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/a4_south_mabe_village",
@@ -14499,7 +14519,7 @@ destination{
   name = "dungeon_1_1_B",
   layer = 0,
   x = 1120,
-  y = 1637,
+  y = 1653,
   direction = 1,
 }
 
@@ -15132,8 +15152,8 @@ custom_entity{
 pickable{
   name = "heart_container",
   layer = 0,
-  x = 2056,
-  y = 605,
+  x = 2080,
+  y = 597,
   treasure_name = "heart_container",
   treasure_savegame_variable = "dungeon_1_heart_container",
 }
@@ -15166,46 +15186,6 @@ block{
   pushable = false,
   pullable = false,
   maximum_moves = 0,
-}
-
-enemy{
-  name = "enemy_group_6_3",
-  layer = 0,
-  x = 816,
-  y = 1341,
-  direction = 0,
-  breed = "keese",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_6_4",
-  layer = 0,
-  x = 816,
-  y = 1309,
-  direction = 0,
-  breed = "keese",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_6_1",
-  layer = 0,
-  x = 784,
-  y = 1309,
-  direction = 0,
-  breed = "keese",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_6_2",
-  layer = 0,
-  x = 784,
-  y = 1341,
-  direction = 0,
-  breed = "keese",
-  treasure_name = "random",
 }
 
 dynamic_tile{
@@ -16398,7 +16378,7 @@ custom_entity{
 
 wall{
   layer = 0,
-  x = 2000,
+  x = 2016,
   y = 520,
   width = 16,
   height = 24,
@@ -16407,7 +16387,7 @@ wall{
 
 wall{
   layer = 0,
-  x = 2144,
+  x = 2128,
   y = 520,
   width = 16,
   height = 24,
@@ -16416,7 +16396,16 @@ wall{
 
 wall{
   layer = 0,
-  x = 2144,
+  x = 2128,
+  y = 656,
+  width = 16,
+  height = 24,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 0,
+  x = 2016,
   y = 656,
   width = 16,
   height = 24,
@@ -16426,15 +16415,6 @@ wall{
 wall{
   layer = 0,
   x = 2000,
-  y = 656,
-  width = 16,
-  height = 24,
-  stops_enemies = true,
-}
-
-wall{
-  layer = 0,
-  x = 1984,
   y = 520,
   width = 16,
   height = 160,
@@ -16443,7 +16423,7 @@ wall{
 
 wall{
   layer = 0,
-  x = 2160,
+  x = 2144,
   y = 520,
   width = 16,
   height = 160,
@@ -16513,6 +16493,7 @@ door{
   savegame_variable = "dungeon_1_door_boss",
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_1_boss_key",
+  cannot_open_dialog = "maps.dungeons.boss_key_required",
 }
 
 door{
@@ -16522,6 +16503,7 @@ door{
   direction = 3,
   sprite = "entities/doors/door_boss_key",
   savegame_variable = "dungeon_1_door_boss",
+  cannot_open_dialog = "maps.dungeons.boss_key_required",
 }
 
 tile{
@@ -18670,5 +18652,45 @@ separator{
   y = 952,
   width = 2560,
   height = 16,
+}
+
+enemy{
+  name = "enemy_group_6_3",
+  layer = 2,
+  x = 816,
+  y = 1341,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "enemy_group_6_4",
+  layer = 2,
+  x = 816,
+  y = 1309,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "enemy_group_6_1",
+  layer = 2,
+  x = 784,
+  y = 1309,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "enemy_group_6_2",
+  layer = 2,
+  x = 784,
+  y = 1341,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random",
 }
 

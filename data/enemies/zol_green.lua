@@ -19,6 +19,7 @@ end
 function enemy:on_restarted()
 
   sprite:set_animation("invisible")
+  enemy:set_can_attack(false)
   sol.timer.start(enemy, 50, function()
     local tx, ty, _ = enemy:get_map():get_hero():get_position()
     if enemy:get_distance(tx, ty) < max_distance then
@@ -38,6 +39,7 @@ function enemy:appear()
   function sprite:on_animation_finished(animation)
     if animation == "appearing" then
       sprite:set_animation("shaking")
+      enemy:set_can_attack(true)
       sol.timer.start(enemy, 1000, function()
         enemy:go()
       end)
@@ -49,10 +51,11 @@ end
 function enemy:disappear()
 
   is_awake = false
+  enemy:set_can_attack(false)
   sprite:set_animation("disappearing")
   function sprite:on_animation_finished(animation)
     if animation == "disappearing" then
-     sprite:set_animation("invisible")
+      sprite:set_animation("invisible")
     end
   end
 

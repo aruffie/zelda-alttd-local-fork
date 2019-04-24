@@ -1260,6 +1260,12 @@ teletransporter{
   layer = 0,
   x = 96,
   y = 64,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/c3_east_prairie",
@@ -1308,6 +1314,12 @@ teletransporter{
   layer = 0,
   x = 528,
   y = 160,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/c3_east_prairie",

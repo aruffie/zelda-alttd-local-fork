@@ -657,6 +657,12 @@ teletransporter{
   layer = 0,
   x = 144,
   y = 176,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/b1_egg_of_the_dream_fish",

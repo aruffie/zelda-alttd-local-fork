@@ -2632,6 +2632,12 @@ teletransporter{
   layer = 0,
   x = 152,
   y = 696,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/d3_mask_shrine",
@@ -2642,7 +2648,7 @@ destination{
   name = "south_shrine_1_B",
   layer = 0,
   x = 160,
-  y = 677,
+  y = 693,
   direction = 1,
 }
 

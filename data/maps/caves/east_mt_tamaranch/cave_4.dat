@@ -1488,6 +1488,12 @@ teletransporter{
   layer = 0,
   x = 80,
   y = 192,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/d1_east_mt_tamaranch",
@@ -1498,7 +1504,7 @@ destination{
   name = "entrance_west",
   layer = 0,
   x = 88,
-  y = 173,
+  y = 189,
   direction = 1,
 }
 
@@ -1518,6 +1524,12 @@ teletransporter{
   layer = 0,
   x = 848,
   y = 192,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/d1_east_mt_tamaranch",
@@ -1528,7 +1540,7 @@ destination{
   name = "entrance_east",
   layer = 0,
   x = 856,
-  y = 173,
+  y = 189,
   direction = 1,
 }
 
@@ -1548,6 +1560,12 @@ teletransporter{
   layer = 0,
   x = 304,
   y = 192,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/d1_east_mt_tamaranch",
@@ -1558,7 +1576,7 @@ destination{
   name = "entrance_middle",
   layer = 0,
   x = 312,
-  y = 173,
+  y = 189,
   direction = 1,
 }
 

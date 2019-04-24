@@ -10024,6 +10024,15 @@ tile{
   pattern = "1042",
 }
 
+tile{
+  layer = 1,
+  x = 880,
+  y = 664,
+  width = 16,
+  height = 32,
+  pattern = "728",
+}
+
 destructible{
   layer = 1,
   x = 64,
@@ -11702,6 +11711,12 @@ teletransporter{
   layer = 1,
   x = 200,
   y = 96,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "houses/yarna_desert/painter_house",
@@ -11721,6 +11736,12 @@ teletransporter{
   layer = 1,
   x = 88,
   y = 96,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "houses/yarna_desert/rabbits_house",
@@ -11740,6 +11761,12 @@ teletransporter{
   layer = 1,
   x = 368,
   y = 296,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "houses/yarna_desert/bear_house",
@@ -11759,6 +11786,12 @@ teletransporter{
   layer = 1,
   x = 296,
   y = 96,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "houses/yarna_desert/christine_house",
@@ -11778,6 +11811,12 @@ teletransporter{
   layer = 1,
   x = 376,
   y = 96,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "houses/yarna_desert/empty_house",
@@ -12553,7 +12592,13 @@ destination{
 teletransporter{
   layer = 1,
   x = 440,
-  y = 40,
+  y = 32,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/yarna_desert/cave_1",
@@ -12577,7 +12622,7 @@ destination{
   name = "cave_d4_2",
   layer = 1,
   x = 912,
-  y = 61,
+  y = 53,
   direction = 3,
 }
 
@@ -12585,6 +12630,12 @@ teletransporter{
   layer = 1,
   x = 904,
   y = 24,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/yarna_desert/cave_2",

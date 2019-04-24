@@ -11,74 +11,6 @@ properties{
 }
 
 teletransporter{
-  name = "marin_house_1_A",
-  layer = 0,
-  x = 608,
-  y = 496,
-  properties = {
-    {
-      key = "effect",
-      value = "radial_fade_out",
-    },
-  },
-  width = 16,
-  height = 16,
-  destination_map = "houses/mabe_village/marin_house",
-  destination = "marin_house_1_B",
-}
-
-teletransporter{
-  name = "telephone_booth_1_1_A",
-  layer = 0,
-  x = 616,
-  y = 672,
-  properties = {
-    {
-      key = "effect",
-      value = "radial_fade_out",
-    },
-  },
-  width = 16,
-  height = 16,
-  destination_map = "houses/mabe_village/telephone_booth_1",
-  destination = "telephone_booth_1_1_B",
-}
-
-teletransporter{
-  name = "shop_2_1_A",
-  layer = 0,
-  x = 824,
-  y = 328,
-  properties = {
-    {
-      key = "effect",
-      value = "radial_fade_out",
-    },
-  },
-  width = 16,
-  height = 16,
-  destination_map = "houses/mabe_village/shop_2",
-  destination = "shop_2_1_B",
-}
-
-teletransporter{
-  name = "shop_1_1_A",
-  layer = 0,
-  x = 824,
-  y = 672,
-  properties = {
-    {
-      key = "effect",
-      value = "radial_fade_out",
-    },
-  },
-  width = 16,
-  height = 16,
-  destination_map = "houses/mabe_village/shop_1",
-  destination = "shop_1_1_B",
-}
-
-teletransporter{
   name = "to_a2",
   layer = 0,
   x = 0,
@@ -97,91 +29,6 @@ teletransporter{
 }
 
 teletransporter{
-  name = "grandpa_house_1_1_A",
-  layer = 0,
-  x = 368,
-  y = 680,
-  properties = {
-    {
-      key = "effect",
-      value = "radial_fade_out",
-    },
-  },
-  width = 16,
-  height = 16,
-  destination_map = "houses/mabe_village/grand_pa_house",
-  destination = "grandpa_house_1_B",
-}
-
-teletransporter{
-  name = "quadruplets_house_1_C",
-  layer = 0,
-  x = 648,
-  y = 72,
-  properties = {
-    {
-      key = "effect",
-      value = "radial_fade_out",
-    },
-  },
-  width = 16,
-  height = 16,
-  destination_map = "houses/mabe_village/quadruplets_house",
-  destination = "quadruplets_house_1_D",
-}
-
-teletransporter{
-  name = "quadruplets_house_1_A",
-  layer = 0,
-  x = 592,
-  y = 72,
-  properties = {
-    {
-      key = "effect",
-      value = "radial_fade_out",
-    },
-  },
-  width = 16,
-  height = 16,
-  destination_map = "houses/mabe_village/quadruplets_house",
-  destination = "quadruplets_house_1_B",
-}
-
-teletransporter{
-  name = "dream_shine_1_A",
-  layer = 0,
-  x = 768,
-  y = 56,
-  properties = {
-    {
-      key = "effect",
-      value = "radial_fade_out",
-    },
-  },
-  width = 16,
-  height = 16,
-  destination_map = "houses/mabe_village/dream_shine_upper_level",
-  destination = "dream_shine_1_B",
-}
-
-teletransporter{
-  name = "meow_meow_house_1_A",
-  layer = 0,
-  x = 328,
-  y = 456,
-  properties = {
-    {
-      key = "effect",
-      value = "radial_fade_out",
-    },
-  },
-  width = 16,
-  height = 16,
-  destination_map = "houses/mabe_village/meow_meow_house",
-  destination = "meow_meow_house_1_B",
-}
-
-teletransporter{
   name = "to_b3",
   layer = 0,
   x = 960,
@@ -194,40 +41,6 @@ teletransporter{
 }
 
 teletransporter{
-  name = "village_cave_1_A",
-  layer = 0,
-  x = 128,
-  y = 552,
-  properties = {
-    {
-      key = "effect",
-      value = "radial_fade_out",
-    },
-  },
-  width = 16,
-  height = 16,
-  destination_map = "caves/mabe_village/cave_1",
-  destination = "village_cave_1_B",
-}
-
-teletransporter{
-  name = "library_1_A",
-  layer = 0,
-  x = 72,
-  y = 624,
-  properties = {
-    {
-      key = "effect",
-      value = "radial_fade_out",
-    },
-  },
-  width = 16,
-  height = 16,
-  destination_map = "houses/mabe_village/library",
-  destination = "library_1_B",
-}
-
-teletransporter{
   name = "to_d1",
   layer = 0,
   x = 0,
@@ -237,33 +50,6 @@ teletransporter{
   transition = "scrolling",
   destination_map = "out/a4_south_mabe_village",
   destination = "_side",
-}
-
-teletransporter{
-  name = "meow_meow_house_1_C",
-  layer = 0,
-  x = 392,
-  y = 456,
-  properties = {
-    {
-      key = "effect",
-      value = "radial_fade_out",
-    },
-  },
-  width = 16,
-  height = 16,
-  destination_map = "houses/mabe_village/meow_meow_house",
-  destination = "meow_meow_house_1_D",
-}
-
-teletransporter{
-  layer = 0,
-  x = 624,
-  y = 296,
-  width = 16,
-  height = 16,
-  destination_map = "caves/mabe_village/weathercock",
-  destination = "stair",
 }
 
 tile{
@@ -20157,6 +19943,12 @@ enemy{
   layer = 1,
   x = 576,
   y = 341,
+  properties = {
+    {
+      key = "is_bowwow_friend",
+      value = "true",
+    },
+  },
   direction = 0,
   breed = "dog",
 }
@@ -21142,7 +20934,7 @@ custom_entity{
 
 custom_entity{
   layer = 1,
-  x = 568,
+  x = 576,
   y = 333,
   width = 16,
   height = 16,
@@ -21496,6 +21288,12 @@ enemy{
   layer = 1,
   x = 448,
   y = 445,
+  properties = {
+    {
+      key = "is_bowwow_friend",
+      value = "true",
+    },
+  },
   direction = 0,
   breed = "dog",
 }
@@ -21504,6 +21302,12 @@ enemy{
   layer = 1,
   x = 744,
   y = 637,
+  properties = {
+    {
+      key = "is_bowwow_friend",
+      value = "true",
+    },
+  },
   direction = 0,
   breed = "dog",
 }
@@ -21634,6 +21438,220 @@ sensor{
   y = 413,
   width = 256,
   height = 16,
+}
+
+teletransporter{
+  name = "meow_meow_house_1_A",
+  layer = 1,
+  x = 328,
+  y = 456,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
+  width = 16,
+  height = 16,
+  destination_map = "houses/mabe_village/meow_meow_house",
+  destination = "meow_meow_house_1_B",
+}
+
+teletransporter{
+  name = "meow_meow_house_1_C",
+  layer = 1,
+  x = 392,
+  y = 456,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
+  width = 16,
+  height = 16,
+  destination_map = "houses/mabe_village/meow_meow_house",
+  destination = "meow_meow_house_1_D",
+}
+
+teletransporter{
+  name = "marin_house_1_A",
+  layer = 1,
+  x = 608,
+  y = 496,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
+  width = 16,
+  height = 16,
+  destination_map = "houses/mabe_village/marin_house",
+  destination = "marin_house_1_B",
+}
+
+teletransporter{
+  name = "telephone_booth_1_1_A",
+  layer = 1,
+  x = 616,
+  y = 672,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
+  width = 16,
+  height = 16,
+  destination_map = "houses/mabe_village/telephone_booth_1",
+  destination = "telephone_booth_1_1_B",
+}
+
+teletransporter{
+  name = "shop_2_1_A",
+  layer = 1,
+  x = 824,
+  y = 328,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
+  width = 16,
+  height = 16,
+  destination_map = "houses/mabe_village/shop_2",
+  destination = "shop_2_1_B",
+}
+
+teletransporter{
+  name = "shop_1_1_A",
+  layer = 1,
+  x = 824,
+  y = 672,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
+  width = 16,
+  height = 16,
+  destination_map = "houses/mabe_village/shop_1",
+  destination = "shop_1_1_B",
+}
+
+teletransporter{
+  name = "grandpa_house_1_1_A",
+  layer = 1,
+  x = 368,
+  y = 680,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
+  width = 16,
+  height = 16,
+  destination_map = "houses/mabe_village/grand_pa_house",
+  destination = "grandpa_house_1_B",
+}
+
+teletransporter{
+  layer = 1,
+  x = 624,
+  y = 296,
+  width = 16,
+  height = 16,
+  destination_map = "caves/mabe_village/weathercock",
+  destination = "stair",
+}
+
+teletransporter{
+  name = "village_cave_1_A",
+  layer = 1,
+  x = 128,
+  y = 552,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
+  width = 16,
+  height = 16,
+  destination_map = "caves/mabe_village/cave_1",
+  destination = "village_cave_1_B",
+}
+
+teletransporter{
+  name = "library_1_A",
+  layer = 1,
+  x = 72,
+  y = 624,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
+  width = 16,
+  height = 16,
+  destination_map = "houses/mabe_village/library",
+  destination = "library_1_B",
+}
+
+teletransporter{
+  name = "quadruplets_house_1_C",
+  layer = 1,
+  x = 648,
+  y = 72,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
+  width = 16,
+  height = 16,
+  destination_map = "houses/mabe_village/quadruplets_house",
+  destination = "quadruplets_house_1_D",
+}
+
+teletransporter{
+  name = "quadruplets_house_1_A",
+  layer = 1,
+  x = 592,
+  y = 72,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
+  width = 16,
+  height = 16,
+  destination_map = "houses/mabe_village/quadruplets_house",
+  destination = "quadruplets_house_1_B",
+}
+
+teletransporter{
+  name = "dream_shine_1_A",
+  layer = 1,
+  x = 768,
+  y = 56,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
+  width = 16,
+  height = 16,
+  destination_map = "houses/mabe_village/dream_shine_upper_level",
+  destination = "dream_shine_1_B",
 }
 
 tile{
@@ -21980,8 +21998,8 @@ tile{
 
 tile{
   layer = 2,
-  x = 48,
-  y = 152,
+  x = -792,
+  y = 280,
   width = 96,
   height = 8,
   pattern = "4557",

@@ -679,7 +679,13 @@ teletransporter{
   name = "rabbits_house_2_B",
   layer = 0,
   x = 200,
-  y = 216,
+  y = 208,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/d4_yarna_desert",
@@ -829,6 +835,17 @@ destructible{
   sprite = "entities/destructibles/pot",
   weight = 1,
   damage_on_enemies = 2,
+}
+
+wall{
+  layer = 0,
+  x = 200,
+  y = 192,
+  width = 16,
+  height = 16,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
 }
 
 tile{

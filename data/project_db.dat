@@ -198,6 +198,7 @@ sprite{ id = "enemies/bloober", description = "Bloober" }
 sprite{ id = "enemies/bomber", description = "Bomber" }
 sprite{ id = "enemies/bombite_green", description = "Bombite Green" }
 sprite{ id = "enemies/bombite_red", description = "Bombite Red" }
+sprite{ id = "enemies/bone_putter", description = "Bone putter" }
 sprite{ id = "enemies/boo_buddy", description = "Boo Buddy" }
 sprite{ id = "enemies/boss/angler_fish/angler_fish", description = "Angler's fish" }
 sprite{ id = "enemies/boss/angler_fish/angler_fish_brick", description = "Angler brick" }

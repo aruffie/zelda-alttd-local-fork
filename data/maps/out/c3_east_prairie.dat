@@ -10777,6 +10777,12 @@ teletransporter{
   layer = 1,
   x = 184,
   y = 712,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/east_prairie/cave_2",
@@ -10837,6 +10843,12 @@ teletransporter{
   layer = 1,
   x = 152,
   y = 120,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "houses/east_prairie/telephone_booth_5",
@@ -10965,6 +10977,12 @@ teletransporter{
   layer = 1,
   x = 680,
   y = 472,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/east_prairie/cave_1",
@@ -11541,6 +11559,12 @@ teletransporter{
   layer = 1,
   x = 904,
   y = 464,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/east_prairie/cave_1",
@@ -14384,6 +14408,12 @@ teletransporter{
   layer = 2,
   x = 160,
   y = 648,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/east_prairie/cave_3",

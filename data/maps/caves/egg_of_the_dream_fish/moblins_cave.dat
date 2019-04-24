@@ -2873,6 +2873,30 @@ tile{
   tileset = "addition/dungeon",
 }
 
+wall{
+  layer = 0,
+  x = 64,
+  y = 200,
+  width = 16,
+  height = 80,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 0,
+  x = 600,
+  y = 112,
+  width = 80,
+  height = 16,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
 block{
   name = "chain_source",
   layer = 0,
@@ -3094,18 +3118,6 @@ npc{
 wall{
   layer = 0,
   x = 64,
-  y = 208,
-  width = 16,
-  height = 16,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
-}
-
-wall{
-  layer = 0,
-  x = 64,
   y = 264,
   width = 16,
   height = 16,
@@ -3200,7 +3212,13 @@ teletransporter{
   name = "moblins_cave_2_B",
   layer = 0,
   x = 152,
-  y = 464,
+  y = 456,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/b1_egg_of_the_dream_fish",
@@ -3214,6 +3232,18 @@ sensor{
   y = 445,
   width = 16,
   height = 16,
+}
+
+wall{
+  layer = 0,
+  x = 152,
+  y = 440,
+  width = 16,
+  height = 16,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
 }
 
 tile{
@@ -3616,7 +3646,7 @@ tile{
   layer = 2,
   x = 0,
   y = 464,
-  width = 320,
+  width = 960,
   height = 16,
   pattern = "ceiling.2",
 }

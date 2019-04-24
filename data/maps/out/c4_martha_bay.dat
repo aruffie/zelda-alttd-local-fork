@@ -6997,16 +6997,6 @@ teletransporter{
 
 teletransporter{
   layer = 0,
-  x = 408,
-  y = 648,
-  width = 16,
-  height = 16,
-  destination_map = "caves/martha_bay/cave_1",
-  destination = "stair_east",
-}
-
-teletransporter{
-  layer = 0,
   x = 456,
   y = 376,
   width = 16,
@@ -7026,38 +7016,6 @@ wall{
   stops_enemies = true,
   stops_blocks = true,
   stops_projectiles = true,
-}
-
-teletransporter{
-  layer = 0,
-  x = 88,
-  y = 104,
-  width = 16,
-  height = 16,
-  destination_map = "caves/east_prairie/cave_2",
-  destination = "entrance_south",
-}
-
-teletransporter{
-  name = "telephone_booth_8_1_A",
-  layer = 0,
-  x = 920,
-  y = 320,
-  width = 16,
-  height = 16,
-  destination_map = "houses/martha_bay/telephone_booth_8",
-  destination = "telephone_booth_8_1_B",
-}
-
-teletransporter{
-  name = "telephone_booth_7_1_A",
-  layer = 0,
-  x = 136,
-  y = 376,
-  width = 16,
-  height = 16,
-  destination_map = "houses/martha_bay/telephone_booth_7",
-  destination = "telephone_booth_7_1_B",
 }
 
 wall{
@@ -15953,6 +15911,72 @@ dynamic_tile{
   width = 8,
   height = 24,
   pattern = "4049",
+}
+
+teletransporter{
+  layer = 1,
+  x = 88,
+  y = 104,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
+  width = 16,
+  height = 16,
+  destination_map = "caves/east_prairie/cave_2",
+  destination = "entrance_south",
+}
+
+teletransporter{
+  name = "telephone_booth_7_1_A",
+  layer = 1,
+  x = 136,
+  y = 376,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
+  width = 16,
+  height = 16,
+  destination_map = "houses/martha_bay/telephone_booth_7",
+  destination = "telephone_booth_7_1_B",
+}
+
+teletransporter{
+  layer = 1,
+  x = 408,
+  y = 648,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
+  width = 16,
+  height = 16,
+  destination_map = "caves/martha_bay/cave_1",
+  destination = "stair_east",
+}
+
+teletransporter{
+  name = "telephone_booth_8_1_A",
+  layer = 1,
+  x = 912,
+  y = 336,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
+  width = 16,
+  height = 16,
+  destination_map = "houses/martha_bay/telephone_booth_8",
+  destination = "telephone_booth_8_1_B",
 }
 
 tile{
