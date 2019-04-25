@@ -8,7 +8,7 @@ local behavior = require("enemies/lib/towards_hero")
 local properties = {
   sprite = "enemies/" .. enemy:get_breed(),
   life = 1,
-  damage = 1,
+  damage = 4,
   normal_speed = 24,
   faster_speed = 24,
   detection_distance = 220,
@@ -25,7 +25,6 @@ function enemy:on_created()
   enemy:set_attack_consequence("thrown_item", 0)
   enemy:set_attack_consequence("explosion", 1)
   enemy:set_attack_consequence("boomerang", 'immobilized')
-  --enemy:set_attack_consequence("hookshot", 'immobilized')
   enemy:set_hammer_reaction(0)
   
 end
