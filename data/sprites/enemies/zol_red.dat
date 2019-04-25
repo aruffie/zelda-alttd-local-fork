@@ -11,20 +11,9 @@ animation{
   },
 }
 animation{
-  name = "appearing",
-  src_image = "enemies/zols_gels.png",
-  frame_delay = 80,
-  directions = {
-    { x = 0, y = 40, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 29, num_frames = 4 },
-    { x = 0, y = 40, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 29, num_frames = 4 },
-    { x = 0, y = 40, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 29, num_frames = 4 },
-    { x = 0, y = 40, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 29, num_frames = 4 },
-  },
-}
-animation{
   name = "hurt",
   src_image = "enemies/zols_gels.png",
-  frame_delay = 50,
+  frame_delay = 40,
   frame_to_loop_on = 0,
   directions = {
     { x = 168, y = 48, frame_width = 24, frame_height = 16, origin_x = 12, origin_y = 13, num_frames = 3 },
@@ -63,9 +52,9 @@ animation{
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {
-    { x = 240, y = 40, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 12, num_frames = 2 },
-    { x = 240, y = 40, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 12, num_frames = 2 },
-    { x = 240, y = 40, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 12, num_frames = 2 },
-    { x = 240, y = 40, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 12, num_frames = 2 },
+    { x = 240, y = 48, frame_width = 24, frame_height = 16, origin_x = 12, origin_y = 13, num_frames = 2 },
+    { x = 240, y = 48, frame_width = 24, frame_height = 16, origin_x = 12, origin_y = 13, num_frames = 2 },
+    { x = 240, y = 48, frame_width = 24, frame_height = 16, origin_x = 12, origin_y = 13, num_frames = 2 },
+    { x = 240, y = 48, frame_width = 24, frame_height = 16, origin_x = 12, origin_y = 13, num_frames = 2 },
   },
 }

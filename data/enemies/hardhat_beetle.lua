@@ -8,7 +8,7 @@ local behavior = require("enemies/lib/towards_hero")
 local properties = {
   sprite = "enemies/" .. enemy:get_breed(),
   life = 1,
-  damage = 1,
+  damage = 4,
   normal_speed = 24,
   faster_speed = 24,
   detection_distance = 220,
@@ -19,29 +19,12 @@ local properties = {
 function enemy:on_created()
 
   behavior:create(enemy, properties)
-  enemy:set_invincible(true)
-  enemy:set_attack_consequence("arrow", "custom")
-  enemy:set_attack_consequence("boomerang", "custom")
-  enemy:set_attack_consequence("sword", "custom")
-  enemy:set_attack_consequence("thrown_item", "custom")
-  enemy:set_fire_reaction("custom")
-  enemy:set_hammer_reaction("custom")
-  enemy:set_hookshot_reaction("custom")
+  --enemy:set_invincible()
+  enemy:set_attack_consequence("sword", 0)
+  enemy:set_attack_consequence("arrow", 0)
+  enemy:set_attack_consequence("thrown_item", 0)
+  enemy:set_attack_consequence("explosion", 1)
+  enemy:set_attack_consequence("boomerang", 'immobilized')
+  enemy:set_hammer_reaction(0)
   
-end
-
-function enemy:on_custom_attack_received(attack)
-
-  sol.timer.stop_all(enemy)  -- Stop the towards_hero behavior.
-  local hero = enemy:get_map():get_hero()
-  local angle = hero:get_angle(enemy)
-  local movement = sol.movement.create("straight")
-  movement:set_speed(128)
-  --movement:set_ignore_obstacles(true)
-  movement:set_angle(angle)
-  movement:start(enemy)
-  sol.timer.start(enemy, 400, function()
-    enemy:restart()
-  end)
-
 end
