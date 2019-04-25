@@ -310,7 +310,7 @@ function dungeon_3_lock:on_interaction()
       local camera = map:get_camera()
       local shake_config = {
           count = 32,
-          amplitude = 4,
+          amplitude = 2,
           speed = 90,
       }
       camera:shake(shake_config, function()

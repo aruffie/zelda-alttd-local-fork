@@ -167,7 +167,7 @@ function enemy:charge()
       local camera = map:get_camera()
       local shake_config = {
         count = 10,
-        amplitude = 4,
+        amplitude = 2,
         speed = 180,
       }
       camera:shake(shake_config)

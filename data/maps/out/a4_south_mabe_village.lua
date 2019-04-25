@@ -166,7 +166,7 @@ function map:launch_cinematic_2()
     timer_sound:set_suspended_with_map(false)
     local shake_config = {
         count = 32,
-        amplitude = 4,
+        amplitude = 2,
         speed = 90
     }
     wait_for(camera.shake,camera,shake_config)

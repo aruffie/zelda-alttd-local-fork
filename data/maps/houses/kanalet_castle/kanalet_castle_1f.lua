@@ -57,7 +57,7 @@ function map:launch_cinematic_1()
     audio_manager:play_sound("shake")
     local shake_config = {
         count = 32,
-        amplitude = 4,
+        amplitude = 2,
         speed = 90
     }
     wait_for(camera.shake,camera,shake_config)

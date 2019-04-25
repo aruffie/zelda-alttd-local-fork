@@ -16506,6 +16506,26 @@ door{
   cannot_open_dialog = "maps.dungeons.boss_key_required",
 }
 
+dynamic_tile{
+  name = "wall_1_2",
+  layer = 0,
+  x = 536,
+  y = 496,
+  width = 48,
+  height = 24,
+  pattern = "wall.1-2",
+}
+
+custom_entity{
+  name = "placeholder_explosion_wall_1",
+  layer = 0,
+  x = 560,
+  y = 517,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
 tile{
   layer = 1,
   x = 528,
@@ -17518,6 +17538,16 @@ dynamic_tile{
   width = 8,
   height = 64,
   pattern = "door_cache.3-2",
+}
+
+dynamic_tile{
+  name = "wall_1_3",
+  layer = 1,
+  x = 528,
+  y = 496,
+  width = 64,
+  height = 8,
+  pattern = "door_cache.1-2",
 }
 
 tile{
