@@ -228,11 +228,26 @@ game_meta:register_event("on_map_changed", function(game, map)
       hero:set_size(8,16)
       hero:set_origin(4,13)
       set_sprite_offset(hero, 0,2)
+      local s=hero:get_sprite("custom_shadow")
+      if s ~= nil then
+        hero:remove_sprite(s)
+      end
     else
       hero:set_size(16,16)
       hero:set_origin(8,13)
       hero:set_jumping(false)
       set_sprite_offset(hero, 0,0)
+      local s=hero:get_sprite("custom_shadow")
+      if s==nil then
+        print "No shadow. Add one"
+        s=hero:create_sprite("entities/shadow", "custom_shadow")
+        s:set_animation("big")
+        hero:bring_sprite_to_front(s)
+      else
+        print "Already has a shadow. Recycle it"
+        print("ID:", s:get_animation_set())
+        print ('Current animation :'..s:get_animation())
+      end
     end
 
   end)
