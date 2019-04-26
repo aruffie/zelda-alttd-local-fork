@@ -15,20 +15,20 @@ local audio_manager = require("scripts/audio_manager")
 -- The enemy appears: set its properties.
 function enemy:on_created()
 
-  self:set_life(1)
-  self:set_damage(4)
-  self:create_sprite("enemies/pike_detect")
-  self:set_size(16, 16)
-  self:set_origin(8, 13)
-  self:set_can_hurt_hero_running(true)
-  self:set_invincible()
-  self:set_attack_consequence("sword", "protected")
-  self:set_attack_consequence("thrown_item", "protected")
+  enemy:set_life(1)
+  enemy:set_damage(4)
+  enemy:create_sprite("enemies/pike_detect")
+  enemy:set_size(16, 16)
+  enemy:set_origin(8, 13)
+  enemy:set_can_hurt_hero_running(true)
+  enemy:set_invincible()
+  enemy:set_attack_consequence("sword", "protected")
+  enemy:set_attack_consequence("thrown_item", "protected")
   self:set_attack_consequence("arrow", "protected")
-  self:set_attack_consequence("hookshot", "protected")
-  self:set_attack_consequence("boomerang", "protected")
-
+  enemy:set_attack_consequence("hookshot", "protected")
+  enemy:set_attack_consequence("boomerang", "protected")
   initial_xy.x, initial_xy.y = self:get_position()
+  
 end
 
 function enemy:on_update()
@@ -55,6 +55,7 @@ function enemy:on_update()
       end
     end
   end
+  
 end
 
 function enemy:go(direction4)
@@ -81,16 +82,19 @@ function enemy:go(direction4)
     m:set_smooth(false)
     m:start(self)
   end
+  
 end
 
 function enemy:on_obstacle_reached()
 
   self:go_back()
+  
 end
 
 function enemy:on_movement_finished()
 
   self:go_back()
+  
 end
 
 function enemy:on_collision_enemy(other_enemy, other_sprite, my_sprite)
@@ -118,9 +122,12 @@ function enemy:go_back()
     state = "paused"
     sol.timer.start(self, 500, function() self:unpause() end)
   end
+  
 end
 
 function enemy:unpause()
+  
   state = "stopped"
+  
 end
 

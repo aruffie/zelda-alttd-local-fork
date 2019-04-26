@@ -1234,6 +1234,15 @@ tile{
   pattern = "981",
 }
 
+tile{
+  layer = 0,
+  x = 312,
+  y = 664,
+  width = 16,
+  height = 16,
+  pattern = "728",
+}
+
 destructible{
   layer = 0,
   x = 304,
@@ -20245,15 +20254,6 @@ tile{
   layer = 1,
   x = 208,
   y = 536,
-  width = 16,
-  height = 16,
-  pattern = "728",
-}
-
-tile{
-  layer = 1,
-  x = 312,
-  y = 664,
   width = 16,
   height = 16,
   pattern = "728",

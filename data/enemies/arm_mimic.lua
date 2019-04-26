@@ -14,14 +14,13 @@ function enemy:on_created()
 
   sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
   enemy:set_life(1)
-  enemy:set_damage(1)
-  enemy:set_attack_consequence("arrow", "custom")
-  enemy:set_attack_consequence("boomerang", "custom")
-  enemy:set_attack_consequence("sword", "custom")
-  enemy:set_attack_consequence("thrown_item", "custom")
-  enemy:set_fire_reaction("custom")
-  enemy:set_hammer_reaction("custom")
-  enemy:set_hookshot_reaction("custom")
+  enemy:set_damage(12)
+  enemy:set_attack_consequence("sword", 0)
+  enemy:set_attack_consequence("arrow", 0)
+  enemy:set_attack_consequence("thrown_item", 0)
+  enemy:set_attack_consequence("explosion", 1)
+  enemy:set_attack_consequence("boomerang", 'immobilized')
+  enemy:set_hammer_reaction(0)
 
 end
 
@@ -35,7 +34,7 @@ function enemy:on_restarted()
   local x_hero, y_hero = hero:get_position()
   sol.timer.start(enemy, 50, function()
     if hero:get_state() ~= "running" then
-      self:set_attack_consequence("sword", "custom")
+      enemy:set_attack_consequence("sword", 0)
       local direction = 0
       local movement_hero = hero:get_movement()
       if not movement_hero then
