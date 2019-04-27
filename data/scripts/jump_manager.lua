@@ -3,6 +3,9 @@ local jm={}
 local y_accel = 0.5
 local max_yvel = 5
 
+local debug_start_x, debug_start_y
+local debug_max_height = 0
+
 local audio_manager=require("scripts/audio_manager")
 function jm.reset_collision_rules(state)
 --  print "RESET"
@@ -32,18 +35,20 @@ end
 function jm.update_jump(entity)
   entity.y_offset=entity.y_offset or 0
   for name, sprite in entity:get_sprites() do
-    if name~="shadow" then
+    if name~="shadow" and name~="custom_shadow" then
       sprite:set_xy(0, math.min(entity.y_offset, 0))
     end
   end
 
   entity.y_offset= entity.y_offset+entity.y_vel
+  debug_max_height=math.min(debug_max_height, entity.y_offset)
   entity.y_vel = entity.y_vel + y_accel
   if entity.y_offset >=0 then --reset sprites offset and stop jumping
     for name, sprite in entity:get_sprites() do
       sprite:set_xy(0, 0)
     end
-
+    local final_x, final_y=entity:get_position()
+    print("Distance reached during jump: X="..final_x-debug_start_x..", Y="..final_y-debug_start_y..", height="..debug_max_height ..", final state="..entity:get_state())
     entity.jumping = false
     if entity:get_state()~="custom" or entity:get_state_object():get_description()~="running" and not sol.main.get_game():is_command_pressed("attack") then
       entity:unfreeze()
@@ -58,12 +63,13 @@ end
 function jm.start(entity)
   if not entity:is_jumping() then
     audio_manager:play_sound("hero/jump")
+    debug_start_x, debug_start_y=entity:get_position()
     --   print "TOPVIEW JUMP"
     entity:set_jumping(true)
     jm.setup_collision_rules(entity:get_state_object())
 --    print "JUMP"
     entity.y_vel = -max_yvel
-    sol.timer.start(entity, 20, function()
+    sol.timer.start(entity, 13, function()
         local r=jm.update_jump(entity)
         if not r then
           return false
