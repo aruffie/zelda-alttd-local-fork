@@ -26,6 +26,9 @@ function jm.setup_collision_rules(state)
     state:set_affected_by_ground("deep_water", false)
     state:set_affected_by_ground("prickles", false)
     state:set_can_use_stairs(false)
+    state:set_can_use_teletransporter(false)
+    state:set_can_use_switch(false)
+    state:set_can_use_stream(false)
   end
 end
 
