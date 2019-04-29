@@ -90,10 +90,12 @@ function map:on_started()
   door_manager:open_weak_wall_if_savegame_exist(map, "weak_wall_B", "dungeon_7_weak_wall_B")
 
   -- Pickables
-  treasure_manager:disappear_pickable(map, "pickable_small_key_2")
+  treasure_manager:disappear_pickable(map, "pickable_small_key_3")
 
   -- Ennemies
   flying_tile_manager:init(map, "enemy_group_10")
+  enemy_group_8_1:set_shooting(game:get_value("dungeon_7_hinox_master") or false) -- Face lamp.
+  enemy_group_8_2:set_shooting(game:get_value("dungeon_7_hinox_master") or false) -- Face lamp.
 
   -- Entities
   iron_ball:set_position(map_tools.get_entity_saved_position(iron_ball)) -- Keep iron ball position even if the game was closed.
@@ -130,6 +132,10 @@ end)
 -----------------------
 enemy_manager:execute_when_vegas_dead(map, "enemy_group_3_")
 enemy_manager:execute_when_vegas_dead(map, "enemy_group_7_")
+hinox_master:register_event("on_dead", function(hinox_master)
+  enemy_group_8_1:set_shooting(false) -- Face lamp.
+  enemy_group_8_2:set_shooting(false) -- Face lamp.
+end)
 
 -----------------------
 -- Treasures events
@@ -137,7 +143,7 @@ enemy_manager:execute_when_vegas_dead(map, "enemy_group_7_")
 treasure_manager:appear_chest_when_horse_heads_upright(map, "horse_head_", "chest_map")
 treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_3_", "chest_compass")
 treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_7_", "chest_bomb_1")
-treasure_manager:appear_pickable_when_enemies_dead(map, "hinox_master", "pickable_small_key_2")
+treasure_manager:appear_pickable_when_enemies_dead(map, "hinox_master", "pickable_small_key_3")
 
 -----------------------
 -- Entities events

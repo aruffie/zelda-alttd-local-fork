@@ -34,7 +34,7 @@ local function fill_empty_rooms()
   local are_pillars_broken = true
   for i = 1, 4 do
     if not game:get_value("dungeon_7_pillar_" .. i) then
-      --are_pillars_broken = false
+      are_pillars_broken = false
       break
     end
   end

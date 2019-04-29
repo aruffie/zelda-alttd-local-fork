@@ -53,9 +53,8 @@ end
 -----------------------
 -- Enemies events
 -----------------------
--- Make face lamp stop shooting when other ennemies are dead
 enemy_manager:on_enemies_dead(map, "enemy_group_2_", function()
-  enemy_group_3_2:set_shooting(false)
+  enemy_group_3_2:set_shooting(false) -- Face lamp.
 end)
 
 -----------------------
