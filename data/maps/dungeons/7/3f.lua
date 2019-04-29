@@ -34,7 +34,7 @@ local function fill_empty_rooms()
   local are_pillars_broken = true
   for i = 1, 4 do
     if not game:get_value("dungeon_7_pillar_" .. i) then
-      are_pillars_broken = false
+      --are_pillars_broken = false
       break
     end
   end
@@ -62,6 +62,7 @@ function map:on_started()
 
   -- Doors
   map:set_doors_open("door_group_1_", true)
+  map:set_doors_open("door_group_small_boss_", true)
 
   -- Ennemies
   enemy_manager:create_teletransporter_if_small_boss_dead(map, false)

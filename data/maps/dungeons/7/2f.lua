@@ -37,12 +37,15 @@ local function save_iron_ball_position_on_finish_throw()
   end)
 end
 
--- Call entity:start_breaking() when one of the given entity is hit by the iron ball.
+-- Break the given entities when hit by the iron ball.
 local function start_breaking_on_hit_by_iron_ball(entities_prefix)
   for entity in map:get_entities(entities_prefix) do
     entity:register_event("on_hit_by_carriable", function(entity, carriable)   
-      if carriable:get_name() == "iron_ball" then
-        entity:start_breaking()
+      if carriable:get_name() == "iron_ball" and entity:is_enabled() then
+        map_tools.start_earthquake({count = 64, amplitude = 4, speed = 90}) -- Start the earthquake when the hit occurs.
+        carriable:register_event("on_finish_throw", function(carriable)
+          entity:start_breaking() -- Start breaking the pillar when the iron ball is immobilized.
+        end)
       end
     end)
   end
@@ -115,11 +118,11 @@ end)
 door_manager:open_when_flying_tiles_dead(map, "enemy_group_10", "door_group_2_")
 
 weak_wall_A_1:register_event("on_opened", function()
-  doors_manager:destroy_wall(map, "weak_wall_A")
+  door_manager:destroy_wall(map, "weak_wall_A")
 end)
 
 weak_wall_B_1:register_event("on_opened", function()
-  doors_manager:destroy_wall(map, "weak_wall_B")
+  door_manager:destroy_wall(map, "weak_wall_B")
 end)
 
 -----------------------

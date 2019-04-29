@@ -10821,7 +10821,7 @@ custom_entity{
   y = 293,
   width = 16,
   height = 16,
-  direction = 0,
+  direction = 3,
   sprite = "entities/handle",
   model = "pull_handle",
 }

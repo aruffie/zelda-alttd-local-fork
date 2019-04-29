@@ -26,6 +26,7 @@ local default_properties = {
   bounce_durations = {400, 160, 70}, -- Duration for each bounce.
   bounce_heights = {"same", 4, 2}, -- Heights for each bounce.
   bounce_sound = nil, -- Default id of the bouncing sound. Nil means no sound.
+  hurt_strength = 2, -- Default life points subtracted on an enemy hit.
   respawn_delay = nil, -- Time before respawn when removed by bad grounds. Nil means no respawn.
   shadow_type = "normal", -- Type of shadow for the falling trajectory.
   slowdown_ratio = 0.5, -- Speed and distance decrease ratio at each obstacle hit.
@@ -98,6 +99,7 @@ function carriable_behavior.apply(carriable, properties)
     local bounce_durations = properties.bounce_durations or default_properties.bounce_durations
     local bounce_heights = properties.bounce_heights or default_properties.bounce_heights
     local bounce_sound = properties.bounce_sound or default_properties.bounce_sound
+    local hurt_strength = properties.hurt_strength or default_properties.hurt_strength
     local respawn_delay = properties.respawn_delay or default_properties.respawn_delay
     local shadow_type = properties.shadow_type or default_properties.shadow_type
     local slowdown_ratio = properties.slowdown_ratio or default_properties.slowdown_ratio
@@ -115,6 +117,13 @@ function carriable_behavior.apply(carriable, properties)
     set_hero_not_traversable_safely(carriable) -- Set the hero not traversable as soon as possible.
     carriable:set_direction(direction)
     sprite:set_xy(0, -22 + vshift)
+
+    -- Function to hurt an enemy vulnerable to thrown items.
+    local function hurt_if_vulnerable(entity)
+      if entity and entity:get_type() == "enemy" and entity:get_attack_consequence("thrown_item") ~= "ignored" then
+        entity:hurt(hurt_strength)
+      end
+    end
 
     -- Callback function for bad ground bounce.
     -- Remove the carriable and respawn it after a delay if the property is set.
@@ -153,6 +162,7 @@ function carriable_behavior.apply(carriable, properties)
     -- Callback function for collision test.
     -- Call hit events and reverse the movement if needed.
     local function carriable_on_collision(carriable, entity)
+      hurt_if_vulnerable(entity)
       call_hit_events(entity)
       if is_obstacle(entity) then
         reverse_direction(slowdown_ratio)
@@ -231,9 +241,10 @@ function carriable_behavior.apply(carriable, properties)
         function movement:on_obstacle_reached()
           local entities = get_overlapping_entities_on_obstacle_reached(movement)
           for _, entity in pairs(entities) do
+            hurt_if_vulnerable(entity)
             call_hit_events(entity)
           end
-          if #entities == 0 then -- Call events even if the obstacle is not an entity.
+          if #entities == 0 then -- Call hit events even if the obstacle is not an entity.
             call_hit_events(nil)
           end
           reverse_direction(slowdown_ratio)

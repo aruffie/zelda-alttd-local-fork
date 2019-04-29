@@ -233,6 +233,10 @@ local function initialize_dungeon_features(game)
         map_id = "dungeons/7/1f",
         destination_name = "destination_ocarina"
       },
+      teletransporter_sall_boss = {
+        map_id_A = "dungeons/7/3f",
+        map_id_B = "dungeons/7/1f"
+      },
       teletransporter_end_dungeon = {
         map_id = "out/d1_east_mt_tamaranch",
         destination_name = "dungeon_7_2_B"
@@ -292,14 +296,14 @@ local function initialize_dungeon_features(game)
       small_boss = {
         -- TODO
         floor = 3,
-        breed = "chicken",
+        breed = "zol_red",
         x = 640 + 1440,
         y = 720 + 365
       },
       boss = {
         -- TODO
         floor = 3,
-        breed = "chicken",
+        breed = "zol_red",
         x = 640 + 1440,
         y = 720 + 365
       }
