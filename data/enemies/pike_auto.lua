@@ -11,22 +11,25 @@ local recent_obstacle = 0
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
 
+-- The enemy appears: set its properties.
 function enemy:on_created()
 
-  self:set_life(1)
-  self:set_damage(4)
-  self:create_sprite("enemies/pike_auto")
-  self:set_size(16, 16)
-  self:set_origin(8, 13)
-  self:set_can_hurt_hero_running(true)
-  self:set_invincible()
-  self:set_attack_consequence("sword", "protected")
-  self:set_attack_consequence("thrown_item", "protected")
-  self:set_attack_consequence("arrow", "protected")
-  self:set_attack_consequence("hookshot", "protected")
-  self:set_attack_consequence("boomerang", "protected")
+  enemy:set_life(1)
+  enemy:set_damage(4)
+  enemy:create_sprite("enemies/pike_auto")
+  enemy:set_size(16, 16)
+  enemy:set_origin(8, 13)
+  enemy:set_can_hurt_hero_running(true)
+  enemy:set_invincible()
+  enemy:set_attack_consequence("sword", "protected")
+  enemy:set_attack_consequence("thrown_item", "protected")
+  enemy:set_attack_consequence("arrow", "protected")
+  enemy:set_attack_consequence("hookshot", "protected")
+  enemy:set_attack_consequence("boomerang", "protected")
+  
 end
 
+-- The enemy was stopped for some reason and should restart.
 function enemy:on_restarted()
 
   local sprite = self:get_sprite()

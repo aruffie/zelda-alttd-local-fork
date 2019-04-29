@@ -32,7 +32,7 @@ end
 -- Initializes Entities based on player's progress
 function map:init_map_entities()
   
-    owl_1:set_enabled(false)
+  owl_1:set_enabled(false)
   owl_4:set_enabled(false)
   if sword ~= nil then
     sword:get_sprite():set_direction(4)
@@ -166,7 +166,7 @@ function map:launch_cinematic_2()
     timer_sound:set_suspended_with_map(false)
     local shake_config = {
         count = 32,
-        amplitude = 4,
+        amplitude = 2,
         speed = 90
     }
     wait_for(camera.shake,camera,shake_config)

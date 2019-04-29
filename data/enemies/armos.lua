@@ -1,4 +1,4 @@
--- Lua script of enemy "armos".
+-- Lua script of enemy armos.
 -- This script is executed every time an enemy with this model is created.
 
 -- Variables
@@ -9,7 +9,7 @@ local hero = map:get_hero()
 local sprite
 local movement
 
--- Event called when the enemy is initialized.
+-- The enemy appears: set its properties.
 function enemy:on_created()
 
   sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())

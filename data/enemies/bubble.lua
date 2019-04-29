@@ -1,4 +1,4 @@
--- Lua script of enemy "bubble".
+-- Lua script of enemy bubble.
 -- This script is executed every time an enemy with this model is created.
 
 -- Bubble: an invincible enemy that moves in diagonal directions
@@ -77,7 +77,6 @@ end
 function enemy:on_attacking_hero(hero)
   
   local game = enemy:get_game()
-
   -- In any case, we do the hurt animation as usual
   hero:start_hurt(enemy, 2)
   

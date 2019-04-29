@@ -1,7 +1,9 @@
+-- Lua script of enemy boo_buddy.
+-- This script is executed every time an enemy with this model is created.
+
+-- Variables
 local enemy = ...
-
 local behavior = require("enemies/lib/towards_hero")
-
 local properties = {
   sprite = "enemies/" .. enemy:get_breed(),
   life = 1,
@@ -10,10 +12,10 @@ local properties = {
   faster_speed = 16,
 }
 
-behavior:create(enemy, properties)
+-- The enemy appears: set its properties.
+function enemy:on_created()
 
---enemy:set_random_treasures(
---  { "rupee", 1 },
---  { "rupee", 1 }
---)
+  behavior:create(enemy, properties)
+  
+end
 

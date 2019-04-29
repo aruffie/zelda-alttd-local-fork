@@ -8,7 +8,24 @@ properties{
   world = "dungeon_3",
   floor = -1,
   tileset = "dungeon/green",
-  music = "same",
+}
+
+tile{
+  layer = 0,
+  x = 1416,
+  y = 888,
+  width = 16,
+  height = 16,
+  pattern = "floor.3-1",
+}
+
+tile{
+  layer = 0,
+  x = 1320,
+  y = 888,
+  width = 240,
+  height = 24,
+  pattern = "wall.2-2",
 }
 
 tile{
@@ -106,7 +123,7 @@ tile{
   x = 1008,
   y = 1488,
   width = 224,
-  height = 160,
+  height = 144,
   pattern = "884",
 }
 
@@ -115,7 +132,7 @@ tile{
   x = 1008,
   y = 1488,
   width = 224,
-  height = 160,
+  height = 144,
   pattern = "floor.13-Alpha",
 }
 
@@ -1130,7 +1147,7 @@ tile{
 tile{
   layer = 0,
   x = 1296,
-  y = 920,
+  y = 888,
   width = 24,
   height = 24,
   pattern = "wall.corner.3-2",
@@ -1139,16 +1156,16 @@ tile{
 tile{
   layer = 0,
   x = 1296,
-  y = 760,
+  y = 792,
   width = 24,
-  height = 160,
+  height = 96,
   pattern = "wall.3-2",
 }
 
 tile{
   layer = 0,
   x = 1296,
-  y = 736,
+  y = 768,
   width = 24,
   height = 24,
   pattern = "wall.corner.1-2",
@@ -1157,7 +1174,7 @@ tile{
 tile{
   layer = 0,
   x = 1320,
-  y = 736,
+  y = 768,
   width = 240,
   height = 24,
   pattern = "wall.1-2",
@@ -1166,7 +1183,7 @@ tile{
 tile{
   layer = 0,
   x = 1560,
-  y = 736,
+  y = 768,
   width = 24,
   height = 24,
   pattern = "wall.corner.2-2",
@@ -1175,16 +1192,16 @@ tile{
 tile{
   layer = 0,
   x = 1560,
-  y = 760,
+  y = 792,
   width = 24,
-  height = 160,
+  height = 96,
   pattern = "wall.4-2",
 }
 
 tile{
   layer = 0,
   x = 1560,
-  y = 920,
+  y = 888,
   width = 24,
   height = 24,
   pattern = "wall.corner.4-2",
@@ -1193,16 +1210,7 @@ tile{
 tile{
   layer = 0,
   x = 1320,
-  y = 920,
-  width = 240,
-  height = 24,
-  pattern = "wall.2-2",
-}
-
-tile{
-  layer = 0,
-  x = 1320,
-  y = 760,
+  y = 792,
   width = 8,
   height = 8,
   pattern = "wall_border.corner.1-2",
@@ -1211,7 +1219,7 @@ tile{
 tile{
   layer = 0,
   x = 1552,
-  y = 760,
+  y = 792,
   width = 8,
   height = 8,
   pattern = "wall_border.corner.2-2",
@@ -1220,7 +1228,7 @@ tile{
 tile{
   layer = 0,
   x = 1328,
-  y = 760,
+  y = 792,
   width = 224,
   height = 8,
   pattern = "wall_border.1-2",
@@ -1229,7 +1237,7 @@ tile{
 tile{
   layer = 0,
   x = 1320,
-  y = 912,
+  y = 880,
   width = 8,
   height = 8,
   pattern = "wall_border.corner.3-2",
@@ -1238,7 +1246,7 @@ tile{
 tile{
   layer = 0,
   x = 1552,
-  y = 912,
+  y = 880,
   width = 8,
   height = 8,
   pattern = "wall_border.corner.4-2",
@@ -1247,7 +1255,7 @@ tile{
 tile{
   layer = 0,
   x = 1328,
-  y = 912,
+  y = 880,
   width = 224,
   height = 8,
   pattern = "wall_border.2-2",
@@ -1255,19 +1263,10 @@ tile{
 
 tile{
   layer = 0,
-  x = 1320,
-  y = 768,
-  width = 8,
-  height = 144,
-  pattern = "wall_border.3-2",
-}
-
-tile{
-  layer = 0,
   x = 1552,
-  y = 768,
+  y = 800,
   width = 8,
-  height = 144,
+  height = 80,
   pattern = "wall_border.4-2",
 }
 
@@ -1647,42 +1646,6 @@ tile{
   width = 16,
   height = 48,
   pattern = "floor.3-1",
-}
-
-tile{
-  layer = 0,
-  x = 1128,
-  y = 1704,
-  width = 8,
-  height = 16,
-  pattern = "door.1.support.2-1",
-}
-
-tile{
-  layer = 0,
-  x = 1104,
-  y = 1704,
-  width = 8,
-  height = 16,
-  pattern = "door.1.support.1-1",
-}
-
-tile{
-  layer = 0,
-  x = 1104,
-  y = 1640,
-  width = 8,
-  height = 16,
-  pattern = "door.2.support.1-1",
-}
-
-tile{
-  layer = 0,
-  x = 1128,
-  y = 1640,
-  width = 8,
-  height = 16,
-  pattern = "door.2.support.2-1",
 }
 
 tile{
@@ -3226,15 +3189,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 1104,
-  y = 1568,
-  width = 32,
-  height = 16,
-  pattern = "floor_boss-1",
-}
-
-tile{
-  layer = 0,
   x = 1512,
   y = 1704,
   width = 8,
@@ -3497,18 +3451,18 @@ tile{
 tile{
   layer = 0,
   x = 1328,
-  y = 768,
+  y = 800,
   width = 224,
-  height = 144,
+  height = 80,
   pattern = "884",
 }
 
 tile{
   layer = 0,
   x = 1328,
-  y = 768,
+  y = 800,
   width = 224,
-  height = 144,
+  height = 80,
   pattern = "floor.13-Alpha",
 }
 
@@ -3775,61 +3729,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 1488,
-  y = 816,
-  width = 32,
-  height = 32,
-  pattern = "statue_slab-2",
-}
-
-tile{
-  layer = 0,
-  x = 1520,
-  y = 880,
-  width = 32,
-  height = 32,
-  pattern = "statue_slab-2",
-}
-
-tile{
-  layer = 0,
-  x = 1456,
-  y = 880,
-  width = 32,
-  height = 32,
-  pattern = "statue_slab-2",
-}
-
-tile{
-  layer = 0,
-  x = 1360,
-  y = 880,
-  width = 32,
-  height = 32,
-  pattern = "statue_slab-2",
-}
-
-tile{
-  layer = 0,
-  x = 1360,
-  y = 816,
-  width = 32,
-  height = 32,
-  pattern = "statue_slab-2",
-}
-
-tile{
-  layer = 0,
-  x = 1424,
-  y = 816,
-  width = 32,
-  height = 32,
-  pattern = "statue_slab-2",
-}
-
-tile{
-  layer = 0,
-  x = 1456,
+  x = 1504,
   y = 816,
   width = 32,
   height = 32,
@@ -3838,7 +3738,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 1392,
+  x = 1472,
   y = 816,
   width = 32,
   height = 32,
@@ -3847,16 +3747,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 1488,
-  y = 880,
-  width = 32,
-  height = 32,
-  pattern = "statue_face-2",
-}
-
-tile{
-  layer = 0,
-  x = 1360,
+  x = 1344,
   y = 848,
   width = 32,
   height = 32,
@@ -3865,44 +3756,8 @@ tile{
 
 tile{
   layer = 0,
-  x = 1424,
-  y = 920,
-  width = 8,
-  height = 16,
-  pattern = "door.2.support.1-1",
-}
-
-tile{
-  layer = 0,
-  x = 1448,
-  y = 920,
-  width = 8,
-  height = 16,
-  pattern = "door.2.support.2-1",
-}
-
-tile{
-  layer = 0,
-  x = 1432,
-  y = 920,
-  width = 16,
-  height = 16,
-  pattern = "door.2",
-}
-
-tile{
-  layer = 0,
-  x = 1432,
-  y = 920,
-  width = 16,
-  height = 16,
-  pattern = "door_stairs.spiral_down.1",
-}
-
-tile{
-  layer = 0,
   x = 1360,
-  y = 744,
+  y = 776,
   width = 32,
   height = 16,
   pattern = "wall_torch.1",
@@ -3911,28 +3766,10 @@ tile{
 tile{
   layer = 0,
   x = 1488,
-  y = 744,
+  y = 768,
   width = 32,
   height = 16,
   pattern = "wall_torch.1",
-}
-
-tile{
-  layer = 0,
-  x = 1360,
-  y = 920,
-  width = 32,
-  height = 16,
-  pattern = "wall_torch.2",
-}
-
-tile{
-  layer = 0,
-  x = 1488,
-  y = 920,
-  width = 32,
-  height = 16,
-  pattern = "wall_torch.2",
 }
 
 tile{
@@ -4081,42 +3918,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 1152,
-  y = 744,
-  width = 8,
-  height = 16,
-  pattern = "door.1.support.2-1",
-}
-
-tile{
-  layer = 0,
-  x = 1128,
-  y = 744,
-  width = 8,
-  height = 16,
-  pattern = "door.1.support.1-1",
-}
-
-tile{
-  layer = 0,
-  x = 1136,
-  y = 744,
-  width = 16,
-  height = 16,
-  pattern = "door.1",
-}
-
-tile{
-  layer = 0,
-  x = 1136,
-  y = 744,
-  width = 16,
-  height = 16,
-  pattern = "door_stairs.spiral_up.1",
-}
-
-tile{
-  layer = 0,
   x = 1072,
   y = 1280,
   width = 96,
@@ -4155,16 +3956,198 @@ tile{
   tileset = "addition/dungeon",
 }
 
-wall{
+tile{
   layer = 0,
-  x = 1240,
-  y = 1800,
-  width = 80,
+  x = 1160,
+  y = 816,
+  width = 8,
+  height = 8,
+  pattern = "stairs_inner_up.1.top.border.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 1136,
+  y = 816,
+  width = 8,
+  height = 8,
+  pattern = "stairs_inner_up.1.top.border.1-1",
+}
+
+tile{
+  layer = 0,
+  x = 1144,
+  y = 816,
+  width = 16,
+  height = 8,
+  pattern = "stairs_inner_up.1.top-1",
+}
+
+tile{
+  layer = 0,
+  x = 1160,
+  y = 824,
+  width = 8,
+  height = 24,
+  pattern = "stairs_inner_up.1.border.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 1136,
+  y = 824,
+  width = 8,
+  height = 24,
+  pattern = "stairs_inner_up.1.border.1-1",
+}
+
+tile{
+  layer = 0,
+  x = 1144,
+  y = 824,
+  width = 16,
+  height = 24,
+  pattern = "stairs_inner_up.1-1",
+}
+
+tile{
+  layer = 0,
+  x = 1360,
+  y = 888,
+  width = 32,
   height = 16,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
+  pattern = "wall_torch.2",
+}
+
+tile{
+  layer = 0,
+  x = 1488,
+  y = 896,
+  width = 32,
+  height = 16,
+  pattern = "wall_torch.2",
+}
+
+tile{
+  layer = 0,
+  x = 1320,
+  y = 800,
+  width = 8,
+  height = 80,
+  pattern = "wall_border.3-2",
+}
+
+tile{
+  layer = 0,
+  x = 1440,
+  y = 816,
+  width = 32,
+  height = 32,
+  pattern = "statue_face-2",
+}
+
+tile{
+  layer = 0,
+  x = 1408,
+  y = 816,
+  width = 32,
+  height = 32,
+  pattern = "statue_face-2",
+}
+
+tile{
+  layer = 0,
+  x = 1376,
+  y = 816,
+  width = 32,
+  height = 32,
+  pattern = "statue_face-2",
+}
+
+tile{
+  layer = 0,
+  x = 1344,
+  y = 816,
+  width = 32,
+  height = 32,
+  pattern = "statue_face-2",
+}
+
+tile{
+  layer = 0,
+  x = 1432,
+  y = 888,
+  width = 8,
+  height = 16,
+  pattern = "door.2.support.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 1408,
+  y = 888,
+  width = 8,
+  height = 16,
+  pattern = "door.2.support.1-1",
+}
+
+tile{
+  layer = 0,
+  x = 1104,
+  y = 1544,
+  width = 32,
+  height = 32,
+  pattern = "15",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1416,
+  y = 888,
+  width = 16,
+  height = 16,
+  pattern = "door_stairs.straight_up.2",
+}
+
+tile{
+  layer = 0,
+  x = 1104,
+  y = 1640,
+  width = 8,
+  height = 16,
+  pattern = "145",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1128,
+  y = 1640,
+  width = 8,
+  height = 16,
+  pattern = "146",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1104,
+  y = 1704,
+  width = 8,
+  height = 16,
+  pattern = "143",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1128,
+  y = 1704,
+  width = 8,
+  height = 16,
+  pattern = "144",
+  tileset = "addition/dungeon",
 }
 
 wall{
@@ -4173,6 +4156,557 @@ wall{
   y = 1640,
   width = 16,
   height = 80,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+door{
+  name = "door_group_boss_6",
+  layer = 0,
+  x = 1112,
+  y = 1640,
+  direction = 3,
+  sprite = "entities/doors/door_boss",
+}
+
+door{
+  name = "door_group_boss_7",
+  layer = 0,
+  x = 1112,
+  y = 1704,
+  direction = 1,
+  sprite = "entities/doors/door_boss",
+}
+
+block{
+  layer = 0,
+  x = 1192,
+  y = 1869,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1208,
+  y = 1869,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1224,
+  y = 1869,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1224,
+  y = 1853,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1224,
+  y = 1837,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1096,
+  y = 1805,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1112,
+  y = 1805,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1112,
+  y = 1789,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1128,
+  y = 1789,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1128,
+  y = 1773,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1144,
+  y = 1773,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1192,
+  y = 1773,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1192,
+  y = 1789,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1192,
+  y = 1805,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1176,
+  y = 1821,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1096,
+  y = 1837,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1112,
+  y = 1837,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1128,
+  y = 1837,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1144,
+  y = 1837,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1160,
+  y = 1837,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1048,
+  y = 1805,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1048,
+  y = 1821,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1064,
+  y = 1757,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1064,
+  y = 1741,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1080,
+  y = 1741,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1080,
+  y = 1757,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1016,
+  y = 1869,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1032,
+  y = 1869,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1048,
+  y = 1869,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+custom_entity{
+  layer = 0,
+  x = 1480,
+  y = 1869,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1480,
+  y = 1853,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1480,
+  y = 1837,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1544,
+  y = 1821,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1544,
+  y = 1805,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1544,
+  y = 1789,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1416,
+  y = 1837,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1384,
+  y = 1869,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1384,
+  y = 1853,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1384,
+  y = 1837,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1400,
+  y = 1837,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1416,
+  y = 1837,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1336,
+  y = 1837,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1336,
+  y = 1853,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1336,
+  y = 1869,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1336,
+  y = 1869,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1480,
+  y = 1757,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1480,
+  y = 1741,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1480,
+  y = 1773,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1464,
+  y = 1773,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1448,
+  y = 1773,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+wall{
+  layer = 0,
+  x = 1240,
+  y = 1800,
+  width = 80,
+  height = 16,
   stops_npcs = true,
   stops_enemies = true,
   stops_blocks = true,
@@ -4241,60 +4775,12 @@ wall{
 
 stream{
   layer = 0,
-  x = 1528,
-  y = 861,
-  direction = 2,
-  sprite = "entities/grounds/conveyor_belt_2",
-}
-
-stream{
-  layer = 0,
   x = 1544,
   y = 861,
   direction = 2,
   sprite = "entities/grounds/conveyor_belt_2",
 }
 
-stream{
-  layer = 0,
-  x = 1528,
-  y = 877,
-  direction = 2,
-  sprite = "entities/grounds/conveyor_belt_2",
-}
-
-stream{
-  layer = 0,
-  x = 1544,
-  y = 877,
-  direction = 2,
-  sprite = "entities/grounds/conveyor_belt_2",
-}
-
-stream{
-  layer = 0,
-  x = 1480,
-  y = 877,
-  direction = 0,
-  sprite = "entities/grounds/conveyor_belt_2",
-}
-
-stream{
-  layer = 0,
-  x = 1496,
-  y = 877,
-  direction = 0,
-  sprite = "entities/grounds/conveyor_belt_2",
-}
-
-stream{
-  layer = 0,
-  x = 1512,
-  y = 877,
-  direction = 0,
-  sprite = "entities/grounds/conveyor_belt_2",
-}
-
 custom_entity{
   layer = 0,
   x = 1336,
@@ -4302,405 +4788,8 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/green_cristal",
+  sprite = "entities/destructibles/crystal_green",
   model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1336,
-  y = 1757,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1352,
-  y = 1757,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1336,
-  y = 1869,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1336,
-  y = 1853,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1336,
-  y = 1837,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1384,
-  y = 1869,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1384,
-  y = 1853,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1384,
-  y = 1837,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1400,
-  y = 1837,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1416,
-  y = 1837,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1480,
-  y = 1869,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1480,
-  y = 1853,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1480,
-  y = 1837,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1544,
-  y = 1821,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1544,
-  y = 1805,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1544,
-  y = 1789,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1368,
-  y = 1757,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1384,
-  y = 1773,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1400,
-  y = 1789,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1384,
-  y = 1789,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1416,
-  y = 1789,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1432,
-  y = 1789,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1448,
-  y = 1773,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1480,
-  y = 1773,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1464,
-  y = 1773,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1480,
-  y = 1757,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1480,
-  y = 1741,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-block{
-  layer = 0,
-  x = 1224,
-  y = 1869,
-  sprite = "entities/statue",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 0,
-}
-
-block{
-  layer = 0,
-  x = 1224,
-  y = 1853,
-  sprite = "entities/statue",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 0,
-}
-
-block{
-  layer = 0,
-  x = 1080,
-  y = 1741,
-  sprite = "entities/statue",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 0,
-}
-
-block{
-  layer = 0,
-  x = 1064,
-  y = 1741,
-  sprite = "entities/statue",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 0,
-}
-
-block{
-  layer = 0,
-  x = 1080,
-  y = 1757,
-  sprite = "entities/statue",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 0,
-}
-
-block{
-  layer = 0,
-  x = 1064,
-  y = 1757,
-  sprite = "entities/statue",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 0,
-}
-
-block{
-  layer = 0,
-  x = 1192,
-  y = 1789,
-  sprite = "entities/statue",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 0,
-}
-
-block{
-  layer = 0,
-  x = 1192,
-  y = 1805,
-  sprite = "entities/statue",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 0,
-}
-
-block{
-  layer = 0,
-  x = 1048,
-  y = 1821,
-  sprite = "entities/statue",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 0,
-}
-
-block{
-  layer = 0,
-  x = 1112,
-  y = 1805,
-  sprite = "entities/statue",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 0,
 }
 
 stream{
@@ -4711,16 +4800,6 @@ stream{
   sprite = "entities/grounds/conveyor_belt_2",
 }
 
-block{
-  layer = 0,
-  x = 1224,
-  y = 1837,
-  sprite = "entities/statue",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 0,
-}
-
 stream{
   layer = 0,
   x = 1208,
@@ -4777,16 +4856,6 @@ stream{
   sprite = "entities/grounds/conveyor_belt_2",
 }
 
-block{
-  layer = 0,
-  x = 1048,
-  y = 1805,
-  sprite = "entities/statue",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 0,
-}
-
 stream{
   layer = 0,
   x = 1176,
@@ -4817,16 +4886,6 @@ stream{
   y = 1805,
   direction = 2,
   sprite = "entities/grounds/conveyor_belt_2",
-}
-
-block{
-  layer = 0,
-  x = 1176,
-  y = 1821,
-  sprite = "entities/statue",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 0,
 }
 
 stream{
@@ -4877,16 +4936,6 @@ stream{
   sprite = "entities/grounds/conveyor_belt_2",
 }
 
-block{
-  layer = 0,
-  x = 1192,
-  y = 1773,
-  sprite = "entities/statue",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 0,
-}
-
 stream{
   layer = 0,
   x = 1016,
@@ -4919,16 +4968,6 @@ stream{
   sprite = "entities/grounds/conveyor_belt_2",
 }
 
-block{
-  layer = 0,
-  x = 1096,
-  y = 1837,
-  sprite = "entities/statue",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 0,
-}
-
 stream{
   layer = 0,
   x = 1112,
@@ -4943,16 +4982,6 @@ stream{
   y = 1773,
   direction = 2,
   sprite = "entities/grounds/conveyor_belt_2",
-}
-
-block{
-  layer = 0,
-  x = 1112,
-  y = 1789,
-  sprite = "entities/statue",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 0,
 }
 
 stream{
@@ -4993,16 +5022,6 @@ stream{
   y = 1853,
   direction = 4,
   sprite = "entities/grounds/conveyor_belt_2",
-}
-
-block{
-  layer = 0,
-  x = 1048,
-  y = 1869,
-  sprite = "entities/statue",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 0,
 }
 
 stream{
@@ -5093,26 +5112,6 @@ stream{
   sprite = "entities/grounds/conveyor_belt_2",
 }
 
-block{
-  layer = 0,
-  x = 1144,
-  y = 1837,
-  sprite = "entities/statue",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 0,
-}
-
-block{
-  layer = 0,
-  x = 1128,
-  y = 1837,
-  sprite = "entities/statue",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 0,
-}
-
 stream{
   layer = 0,
   x = 1064,
@@ -5225,26 +5224,6 @@ stream{
   sprite = "entities/grounds/conveyor_belt_2",
 }
 
-block{
-  layer = 0,
-  x = 1016,
-  y = 1869,
-  sprite = "entities/statue",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 0,
-}
-
-block{
-  layer = 0,
-  x = 1032,
-  y = 1869,
-  sprite = "entities/statue",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 0,
-}
-
 stream{
   layer = 0,
   x = 1032,
@@ -5301,16 +5280,6 @@ stream{
   sprite = "entities/grounds/conveyor_belt_2",
 }
 
-block{
-  layer = 0,
-  x = 1096,
-  y = 1805,
-  sprite = "entities/statue",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 0,
-}
-
 stream{
   layer = 0,
   x = 1096,
@@ -5335,16 +5304,6 @@ stream{
   sprite = "entities/grounds/conveyor_belt_2",
 }
 
-block{
-  layer = 0,
-  x = 1112,
-  y = 1837,
-  sprite = "entities/statue",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 0,
-}
-
 stream{
   layer = 0,
   x = 1128,
@@ -5425,36 +5384,6 @@ stream{
   sprite = "entities/grounds/conveyor_belt_2",
 }
 
-block{
-  layer = 0,
-  x = 1128,
-  y = 1773,
-  sprite = "entities/statue",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 0,
-}
-
-block{
-  layer = 0,
-  x = 1144,
-  y = 1773,
-  sprite = "entities/statue",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 0,
-}
-
-block{
-  layer = 0,
-  x = 1128,
-  y = 1789,
-  sprite = "entities/statue",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 0,
-}
-
 stream{
   layer = 0,
   x = 1128,
@@ -5525,16 +5454,6 @@ stream{
   y = 1853,
   direction = 4,
   sprite = "entities/grounds/conveyor_belt_2",
-}
-
-block{
-  layer = 0,
-  x = 1192,
-  y = 1869,
-  sprite = "entities/statue",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 0,
 }
 
 stream{
@@ -5543,16 +5462,6 @@ stream{
   y = 1853,
   direction = 4,
   sprite = "entities/grounds/conveyor_belt_2",
-}
-
-block{
-  layer = 0,
-  x = 1208,
-  y = 1869,
-  sprite = "entities/statue",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 0,
 }
 
 stream{
@@ -6307,7 +6216,7 @@ stream{
 
 crystal{
   layer = 0,
-  x = 1120,
+  x = 1152,
   y = 597,
 }
 
@@ -6422,14 +6331,6 @@ destructible{
 stream{
   layer = 0,
   x = 1464,
-  y = 877,
-  direction = 0,
-  sprite = "entities/grounds/conveyor_belt_2",
-}
-
-stream{
-  layer = 0,
-  x = 1464,
   y = 861,
   direction = 0,
   sprite = "entities/grounds/conveyor_belt_2",
@@ -6438,14 +6339,6 @@ stream{
 stream{
   layer = 0,
   x = 1480,
-  y = 861,
-  direction = 0,
-  sprite = "entities/grounds/conveyor_belt_2",
-}
-
-stream{
-  layer = 0,
-  x = 1496,
   y = 861,
   direction = 0,
   sprite = "entities/grounds/conveyor_belt_2",
@@ -6462,8 +6355,8 @@ stream{
 stream{
   layer = 0,
   x = 1528,
-  y = 829,
-  direction = 2,
+  y = 861,
+  direction = 0,
   sprite = "entities/grounds/conveyor_belt_2",
 }
 
@@ -6471,14 +6364,6 @@ stream{
   layer = 0,
   x = 1544,
   y = 829,
-  direction = 2,
-  sprite = "entities/grounds/conveyor_belt_2",
-}
-
-stream{
-  layer = 0,
-  x = 1528,
-  y = 845,
   direction = 2,
   sprite = "entities/grounds/conveyor_belt_2",
 }
@@ -6494,198 +6379,6 @@ stream{
 stream{
   layer = 0,
   x = 1544,
-  y = 797,
-  direction = 4,
-  sprite = "entities/grounds/conveyor_belt_2",
-}
-
-stream{
-  layer = 0,
-  x = 1528,
-  y = 797,
-  direction = 4,
-  sprite = "entities/grounds/conveyor_belt_2",
-}
-
-stream{
-  layer = 0,
-  x = 1544,
-  y = 781,
-  direction = 4,
-  sprite = "entities/grounds/conveyor_belt_2",
-}
-
-stream{
-  layer = 0,
-  x = 1528,
-  y = 781,
-  direction = 4,
-  sprite = "entities/grounds/conveyor_belt_2",
-}
-
-stream{
-  layer = 0,
-  x = 1512,
-  y = 797,
-  direction = 4,
-  sprite = "entities/grounds/conveyor_belt_2",
-}
-
-stream{
-  layer = 0,
-  x = 1512,
-  y = 781,
-  direction = 4,
-  sprite = "entities/grounds/conveyor_belt_2",
-}
-
-stream{
-  layer = 0,
-  x = 1496,
-  y = 781,
-  direction = 4,
-  sprite = "entities/grounds/conveyor_belt_2",
-}
-
-stream{
-  layer = 0,
-  x = 1496,
-  y = 797,
-  direction = 4,
-  sprite = "entities/grounds/conveyor_belt_2",
-}
-
-stream{
-  layer = 0,
-  x = 1480,
-  y = 797,
-  direction = 4,
-  sprite = "entities/grounds/conveyor_belt_2",
-}
-
-stream{
-  layer = 0,
-  x = 1480,
-  y = 781,
-  direction = 4,
-  sprite = "entities/grounds/conveyor_belt_2",
-}
-
-stream{
-  layer = 0,
-  x = 1464,
-  y = 781,
-  direction = 4,
-  sprite = "entities/grounds/conveyor_belt_2",
-}
-
-stream{
-  layer = 0,
-  x = 1464,
-  y = 797,
-  direction = 4,
-  sprite = "entities/grounds/conveyor_belt_2",
-}
-
-stream{
-  layer = 0,
-  x = 1448,
-  y = 797,
-  direction = 4,
-  sprite = "entities/grounds/conveyor_belt_2",
-}
-
-stream{
-  layer = 0,
-  x = 1448,
-  y = 781,
-  direction = 4,
-  sprite = "entities/grounds/conveyor_belt_2",
-}
-
-stream{
-  layer = 0,
-  x = 1432,
-  y = 781,
-  direction = 4,
-  sprite = "entities/grounds/conveyor_belt_2",
-}
-
-stream{
-  layer = 0,
-  x = 1432,
-  y = 797,
-  direction = 4,
-  sprite = "entities/grounds/conveyor_belt_2",
-}
-
-stream{
-  layer = 0,
-  x = 1416,
-  y = 797,
-  direction = 4,
-  sprite = "entities/grounds/conveyor_belt_2",
-}
-
-stream{
-  layer = 0,
-  x = 1416,
-  y = 781,
-  direction = 4,
-  sprite = "entities/grounds/conveyor_belt_2",
-}
-
-stream{
-  layer = 0,
-  x = 1400,
-  y = 781,
-  direction = 4,
-  sprite = "entities/grounds/conveyor_belt_2",
-}
-
-stream{
-  layer = 0,
-  x = 1400,
-  y = 797,
-  direction = 4,
-  sprite = "entities/grounds/conveyor_belt_2",
-}
-
-stream{
-  layer = 0,
-  x = 1384,
-  y = 797,
-  direction = 4,
-  sprite = "entities/grounds/conveyor_belt_2",
-}
-
-stream{
-  layer = 0,
-  x = 1384,
-  y = 781,
-  direction = 4,
-  sprite = "entities/grounds/conveyor_belt_2",
-}
-
-stream{
-  layer = 0,
-  x = 1368,
-  y = 797,
-  direction = 4,
-  sprite = "entities/grounds/conveyor_belt_2",
-}
-
-stream{
-  layer = 0,
-  x = 1368,
-  y = 781,
-  direction = 4,
-  sprite = "entities/grounds/conveyor_belt_2",
-}
-
-stream{
-  layer = 0,
-  x = 1544,
   y = 813,
   direction = 4,
   sprite = "entities/grounds/conveyor_belt_2",
@@ -6782,30 +6475,6 @@ stream{
 stream{
   layer = 0,
   x = 1448,
-  y = 877,
-  direction = 0,
-  sprite = "entities/grounds/conveyor_belt_2",
-}
-
-stream{
-  layer = 0,
-  x = 1448,
-  y = 861,
-  direction = 0,
-  sprite = "entities/grounds/conveyor_belt_2",
-}
-
-stream{
-  layer = 0,
-  x = 1432,
-  y = 877,
-  direction = 0,
-  sprite = "entities/grounds/conveyor_belt_2",
-}
-
-stream{
-  layer = 0,
-  x = 1432,
   y = 861,
   direction = 0,
   sprite = "entities/grounds/conveyor_belt_2",
@@ -6814,8 +6483,8 @@ stream{
 teletransporter{
   name = "stairs_1_A",
   layer = 0,
-  x = 1136,
-  y = 744,
+  x = 1144,
+  y = 824,
   width = 16,
   height = 16,
   destination_map = "dungeons/3/1f",
@@ -6824,17 +6493,17 @@ teletransporter{
 
 stairs{
   layer = 0,
-  x = 1136,
-  y = 744,
+  x = 1144,
+  y = 824,
   direction = 1,
-  subtype = 0,
+  subtype = 2,
 }
 
 destination{
   name = "stairs_1_B",
   layer = 0,
-  x = 1144,
-  y = 773,
+  x = 1152,
+  y = 837,
   direction = 3,
 }
 
@@ -6843,12 +6512,13 @@ door{
   layer = 0,
   x = 1112,
   y = 920,
-  direction = 1,
+  direction = 3,
   sprite = "entities/doors/door_small_key",
   savegame_variable = "dungeon_3_door_small_key_1",
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_3_small_keys",
   opening_condition_consumed = true,
+  cannot_open_dialog = "maps.dungeons.small_key_required",
 }
 
 door{
@@ -6856,12 +6526,13 @@ door{
   layer = 0,
   x = 1112,
   y = 984,
-  direction = 3,
+  direction = 1,
   sprite = "entities/doors/door_small_key",
   savegame_variable = "dungeon_3_door_small_key_1",
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_3_small_keys",
   opening_condition_consumed = true,
+  cannot_open_dialog = "maps.dungeons.small_key_required",
 }
 
 door{
@@ -6869,12 +6540,13 @@ door{
   layer = 0,
   x = 1056,
   y = 680,
-  direction = 1,
+  direction = 3,
   sprite = "entities/doors/door_small_key",
   savegame_variable = "dungeon_3_door_small_key_2",
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_3_small_keys",
   opening_condition_consumed = true,
+  cannot_open_dialog = "maps.dungeons.small_key_required",
 }
 
 door{
@@ -6882,12 +6554,13 @@ door{
   layer = 0,
   x = 1056,
   y = 744,
-  direction = 3,
+  direction = 1,
   sprite = "entities/doors/door_small_key",
   savegame_variable = "dungeon_3_door_small_key_2",
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_3_small_keys",
   opening_condition_consumed = true,
+  cannot_open_dialog = "maps.dungeons.small_key_required",
 }
 
 door{
@@ -6895,12 +6568,13 @@ door{
   layer = 0,
   x = 920,
   y = 832,
-  direction = 2,
+  direction = 0,
   sprite = "entities/doors/door_small_key",
   savegame_variable = "dungeon_3_door_small_key_3",
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_3_small_keys",
   opening_condition_consumed = true,
+  cannot_open_dialog = "maps.dungeons.small_key_required",
 }
 
 door{
@@ -6908,12 +6582,13 @@ door{
   layer = 0,
   x = 984,
   y = 832,
-  direction = 0,
+  direction = 2,
   sprite = "entities/doors/door_small_key",
   savegame_variable = "dungeon_3_door_small_key_3",
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_3_small_keys",
   opening_condition_consumed = true,
+  cannot_open_dialog = "maps.dungeons.small_key_required",
 }
 
 door{
@@ -6921,12 +6596,13 @@ door{
   layer = 0,
   x = 1240,
   y = 832,
-  direction = 2,
+  direction = 0,
   sprite = "entities/doors/door_small_key",
   savegame_variable = "dungeon_3_door_small_key_4",
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_3_small_keys",
   opening_condition_consumed = true,
+  cannot_open_dialog = "maps.dungeons.small_key_required",
 }
 
 door{
@@ -6934,46 +6610,47 @@ door{
   layer = 0,
   x = 1304,
   y = 832,
-  direction = 0,
+  direction = 2,
   sprite = "entities/doors/door_small_key",
   savegame_variable = "dungeon_3_door_small_key_4",
   opening_method = "interaction_if_savegame_variable",
   opening_condition = "dungeon_3_small_keys",
   opening_condition_consumed = true,
+  cannot_open_dialog = "maps.dungeons.small_key_required",
 }
 
 npc{
   name = "owl_2",
   layer = 0,
-  x = 1120,
-  y = 517,
+  x = 1088,
+  y = 597,
   direction = 3,
   subtype = 1,
-  sprite = "npc/statues/owl_dungeon_3",
+  sprite = "npc/statues/owl_dungeon",
 }
 
 door{
-  name = "door_group_boss_1",
   layer = 0,
   x = 1112,
   y = 1640,
-  direction = 1,
+  direction = 3,
   sprite = "entities/doors/door_boss_key",
-  savegame_variable = "dungeon_1_door_boss",
+  savegame_variable = "dungeon_3_door_boss",
   opening_method = "interaction_if_savegame_variable",
-  opening_condition = "dungeon_1_boss_key",
+  opening_condition = "dungeon_3_boss_key",
+  cannot_open_dialog = "maps.dungeons.boss_key_required",
 }
 
 door{
-  name = "door_group_boss_2",
   layer = 0,
   x = 1112,
   y = 1704,
-  direction = 3,
+  direction = 1,
   sprite = "entities/doors/door_boss_key",
-  savegame_variable = "dungeon_1_door_boss",
+  savegame_variable = "dungeon_3_door_boss",
   opening_method = "interaction_if_savegame_variable",
-  opening_condition = "dungeon_1_boss_key",
+  opening_condition = "dungeon_3_boss_key",
+  cannot_open_dialog = "maps.dungeons.boss_key_required",
 }
 
 door{
@@ -6981,7 +6658,7 @@ door{
   layer = 0,
   x = 1112,
   y = 1464,
-  direction = 3,
+  direction = 1,
   sprite = "entities/doors/door_normal",
   opening_condition = "dungeon_1_small_keys",
   opening_condition_consumed = true,
@@ -6992,20 +6669,10 @@ door{
   layer = 0,
   x = 1112,
   y = 1400,
-  direction = 1,
+  direction = 3,
   sprite = "entities/doors/door_normal",
   opening_condition = "dungeon_1_small_keys",
   opening_condition_consumed = true,
-}
-
-block{
-  layer = 0,
-  x = 1160,
-  y = 1837,
-  sprite = "entities/statue",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 0,
 }
 
 stream{
@@ -7118,6 +6785,482 @@ stream{
   y = 1133,
   direction = 0,
   sprite = "entities/grounds/conveyor_belt_2",
+}
+
+enemy{
+  name = "enemy_group_1_1",
+  layer = 0,
+  x = 1128,
+  y = 813,
+  direction = 3,
+  breed = "zol_green",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "enemy_group_1_2",
+  layer = 0,
+  x = 1176,
+  y = 813,
+  direction = 3,
+  breed = "zol_green",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "enemy_group_1_3",
+  layer = 0,
+  x = 1128,
+  y = 861,
+  direction = 3,
+  breed = "zol_green",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "enemy_group_1_4",
+  layer = 0,
+  x = 1176,
+  y = 861,
+  direction = 3,
+  breed = "zol_green",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "enemy_group_1_5",
+  layer = 0,
+  x = 1064,
+  y = 829,
+  direction = 3,
+  breed = "gel",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "enemy_group_2_1",
+  layer = 0,
+  x = 1192,
+  y = 637,
+  direction = 3,
+  breed = "stalfos_blue",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "enemy_group_2_2",
+  layer = 0,
+  x = 1016,
+  y = 621,
+  direction = 0,
+  breed = "hooded_stalfos",
+  treasure_name = "random",
+}
+
+pickable{
+  name = "pickable_small_key_2",
+  layer = 0,
+  x = 1064,
+  y = 589,
+  treasure_name = "small_key",
+  treasure_savegame_variable = "dungeon_3_small_key_2",
+}
+
+stream{
+  layer = 0,
+  x = 1496,
+  y = 861,
+  direction = 0,
+  sprite = "entities/grounds/conveyor_belt_2",
+}
+
+stream{
+  layer = 0,
+  x = 1352,
+  y = 813,
+  direction = 4,
+  sprite = "entities/grounds/conveyor_belt_2",
+}
+
+block{
+  layer = 0,
+  x = 1544,
+  y = 877,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1528,
+  y = 877,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1448,
+  y = 877,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1464,
+  y = 877,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1480,
+  y = 877,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1496,
+  y = 877,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1512,
+  y = 877,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+enemy{
+  name = "enemy_group_3_1",
+  layer = 0,
+  x = 1360,
+  y = 829,
+  direction = 3,
+  breed = "keese",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "enemy_group_3_2",
+  layer = 0,
+  x = 1528,
+  y = 877,
+  direction = 3,
+  breed = "keese",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "enemy_group_3_3",
+  layer = 0,
+  x = 1496,
+  y = 813,
+  direction = 3,
+  breed = "pairodd",
+  treasure_name = "random",
+}
+
+stairs{
+  layer = 0,
+  x = 1416,
+  y = 888,
+  direction = 3,
+  subtype = 2,
+}
+
+teletransporter{
+  name = "stairs_2_A",
+  layer = 0,
+  x = 1416,
+  y = 888,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/3/1f",
+  destination = "stairs_2_B",
+}
+
+destination{
+  name = "stairs_2_B",
+  layer = 0,
+  x = 1424,
+  y = 901,
+  direction = 1,
+}
+
+custom_entity{
+  layer = 0,
+  x = 1336,
+  y = 1757,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1352,
+  y = 1757,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1368,
+  y = 1757,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1384,
+  y = 1773,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1384,
+  y = 1789,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1432,
+  y = 1789,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1416,
+  y = 1789,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  layer = 0,
+  x = 1400,
+  y = 1789,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+enemy{
+  name = "enemy_group_4_1",
+  layer = 0,
+  x = 1464,
+  y = 1741,
+  direction = 3,
+  breed = "pairodd",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "enemy_group_4_2",
+  layer = 0,
+  x = 1368,
+  y = 1789,
+  direction = 3,
+  breed = "pairodd",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "enemy_group_4_3",
+  layer = 0,
+  x = 1496,
+  y = 1869,
+  direction = 3,
+  breed = "pairodd",
+  treasure_name = "random",
+}
+
+door{
+  name = "door_group_1_1",
+  layer = 0,
+  x = 1304,
+  y = 1800,
+  direction = 2,
+  sprite = "entities/doors/door_normal",
+  opening_condition = "dungeon_1_small_keys",
+  opening_condition_consumed = true,
+}
+
+door{
+  name = "door_group_1_2",
+  layer = 0,
+  x = 1240,
+  y = 1800,
+  direction = 0,
+  sprite = "entities/doors/door_normal",
+  opening_condition = "dungeon_1_small_keys",
+  opening_condition_consumed = true,
+}
+
+stairs{
+  layer = 0,
+  x = 1520,
+  y = 1704,
+  direction = 1,
+  subtype = 3,
+}
+
+destination{
+  name = "stairs_3_B",
+  layer = 0,
+  x = 1528,
+  y = 1717,
+  direction = 3,
+}
+
+teletransporter{
+  name = "stairs_3_A",
+  layer = 0,
+  x = 1520,
+  y = 1704,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/3/sideview_1",
+  destination = "stairs_1_B",
+}
+
+enemy{
+  name = "enemy_group_5_1",
+  layer = 0,
+  x = 1192,
+  y = 1869,
+  direction = 3,
+  breed = "keese",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "enemy_group_5_2",
+  layer = 0,
+  x = 1160,
+  y = 1837,
+  direction = 3,
+  breed = "keese",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "enemy_group_5_3",
+  layer = 0,
+  x = 1144,
+  y = 1773,
+  direction = 3,
+  breed = "keese",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "enemy_group_5_4",
+  layer = 0,
+  x = 1048,
+  y = 1805,
+  direction = 3,
+  breed = "keese",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "enemy_group_5_5",
+  layer = 0,
+  x = 1080,
+  y = 1741,
+  direction = 3,
+  breed = "keese",
+  treasure_name = "random",
+}
+
+pickable{
+  name = "pickable_small_key_7",
+  layer = 0,
+  x = 1064,
+  y = 1757,
+  treasure_name = "small_key",
+  treasure_savegame_variable = "dungeon_3_small_key_4",
+}
+
+custom_entity{
+  name = "placeholder_boss",
+  layer = 0,
+  x = 1120,
+  y = 1565,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+pickable{
+  name = "heart_container",
+  layer = 0,
+  x = 1120,
+  y = 1565,
+  treasure_name = "heart_container",
+  treasure_savegame_variable = "dungeon_1_heart_container",
+}
+
+sensor{
+  name = "sensor_1",
+  layer = 0,
+  x = 1120,
+  y = 1637,
+  width = 16,
+  height = 16,
 }
 
 tile{
@@ -7374,24 +7517,6 @@ tile{
 
 tile{
   layer = 1,
-  x = 1104,
-  y = 1696,
-  width = 32,
-  height = 8,
-  pattern = "door_top.stairs.1-1",
-}
-
-tile{
-  layer = 1,
-  x = 1104,
-  y = 1656,
-  width = 32,
-  height = 8,
-  pattern = "door_top.stairs.2-1",
-}
-
-tile{
-  layer = 1,
   x = 1296,
   y = 1792,
   width = 8,
@@ -7465,16 +7590,7 @@ tile{
 tile{
   layer = 1,
   x = 1408,
-  y = 936,
-  width = 64,
-  height = 8,
-  pattern = "door_cache.2-2",
-}
-
-tile{
-  layer = 1,
-  x = 1424,
-  y = 936,
+  y = 904,
   width = 32,
   height = 8,
   pattern = "door_top.stairs.2-1",
@@ -7482,20 +7598,31 @@ tile{
 
 tile{
   layer = 1,
-  x = 1432,
-  y = 936,
+  x = 1416,
+  y = 904,
   width = 16,
   height = 8,
-  pattern = "door_top.stairs_up.2-1",
+  pattern = "door_top.stairs_down.1-1",
 }
 
 tile{
   layer = 1,
-  x = 1128,
-  y = 736,
+  x = 1104,
+  y = 1656,
   width = 32,
   height = 8,
-  pattern = "door_top.stairs.1-1",
+  pattern = "148",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 1104,
+  y = 1696,
+  width = 32,
+  height = 8,
+  pattern = "147",
+  tileset = "addition/dungeon",
 }
 
 tile{
@@ -7510,9 +7637,9 @@ tile{
 tile{
   layer = 2,
   x = 1296,
-  y = 944,
+  y = 912,
   width = 288,
-  height = 752,
+  height = 784,
   pattern = "ceiling.1",
 }
 
@@ -7620,7 +7747,7 @@ tile{
   x = 1296,
   y = 0,
   width = 288,
-  height = 736,
+  height = 768,
   pattern = "ceiling.1",
 }
 
@@ -7909,6 +8036,6 @@ pickable{
   x = 1120,
   y = 1301,
   treasure_name = "instrument_3",
-  treasure_savegame_variable = "dungeon_3_instrument",
+  treasure_savegame_variable = "dungeon_3_big_treasure",
 }
 

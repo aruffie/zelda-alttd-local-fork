@@ -1647,13 +1647,19 @@ enemy{
   x = 184,
   y = 125,
   direction = 0,
-  breed = "hardhat_beetle_blue",
+  breed = "hardhat_beetle",
 }
 
 teletransporter{
   layer = 0,
   x = 168,
   y = 192,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/b1_egg_of_the_dream_fish",
@@ -1710,7 +1716,7 @@ destination{
   name = "entrance",
   layer = 0,
   x = 176,
-  y = 173,
+  y = 189,
   direction = 1,
 }
 

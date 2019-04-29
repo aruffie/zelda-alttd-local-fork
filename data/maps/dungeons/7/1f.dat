@@ -7001,7 +7001,7 @@ enemy{
   x = 824,
   y = 301,
   direction = 3,
-  breed = "stalfos_red",
+  breed = "stalfos",
 }
 
 destination{
@@ -7035,7 +7035,7 @@ door{
   layer = 0,
   x = 1152,
   y = 744,
-  direction = 3,
+  direction = 1,
   sprite = "entities/doors/door_small_key",
   savegame_variable = "dungeon_7_door_small_key_1",
   opening_method = "interaction_if_savegame_variable",
@@ -7048,7 +7048,7 @@ door{
   layer = 0,
   x = 1152,
   y = 680,
-  direction = 1,
+  direction = 3,
   sprite = "entities/doors/door_small_key",
   savegame_variable = "dungeon_7_door_small_key_1",
   opening_method = "interaction_if_savegame_variable",
@@ -7126,7 +7126,7 @@ enemy{
   x = 496,
   y = 141,
   direction = 0,
-  breed = "small_moldorm",
+  breed = "mini_moldorm",
 }
 
 enemy{
@@ -7180,7 +7180,7 @@ enemy{
   x = 152,
   y = 861,
   direction = 0,
-  breed = "wizzrobe_white",
+  breed = "wizzrobe/wizzrobe",
 }
 
 npc{

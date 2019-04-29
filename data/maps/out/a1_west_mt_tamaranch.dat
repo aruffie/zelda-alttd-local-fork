@@ -11668,6 +11668,12 @@ teletransporter{
   layer = 0,
   x = 376,
   y = 648,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "houses/west_mt_tamaranch/telephone_booth_2",
@@ -11687,6 +11693,12 @@ teletransporter{
   layer = 0,
   x = 152,
   y = 592,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "houses/west_mt_tamaranch/mr_write_house",
@@ -11706,6 +11718,12 @@ teletransporter{
   layer = 0,
   x = 440,
   y = 184,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "houses/west_mt_tamaranch/telephone_booth_3",
@@ -11777,9 +11795,9 @@ dynamic_tile{
   layer = 0,
   x = 152,
   y = 592,
-  pattern = "6020",
   width = 16,
   height = 16,
+  pattern = "6020",
 }
 
 sensor{
@@ -11796,7 +11814,7 @@ enemy{
   x = 912,
   y = 573,
   direction = 0,
-  breed = "giant_goponga_flower",
+  breed = "goponga_flower_giant",
 }
 
 enemy{
@@ -11872,6 +11890,12 @@ teletransporter{
   layer = 0,
   x = 256,
   y = 424,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/west_mt_tamaranch/cave_1",
@@ -11891,6 +11915,12 @@ teletransporter{
   layer = 0,
   x = 176,
   y = 424,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/west_mt_tamaranch/cave_1",
@@ -12759,6 +12789,12 @@ teletransporter{
   layer = 0,
   x = 824,
   y = 80,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "caves/west_mt_tamaranch/cave_2",
@@ -12770,9 +12806,9 @@ dynamic_tile{
   layer = 0,
   x = 832,
   y = 184,
-  pattern = "1800",
   width = 32,
   height = 8,
+  pattern = "1800",
 }
 
 dynamic_tile{
@@ -12780,9 +12816,9 @@ dynamic_tile{
   layer = 0,
   x = 832,
   y = 192,
-  pattern = "1706",
   width = 32,
   height = 16,
+  pattern = "1706",
 }
 
 door{
@@ -12974,7 +13010,7 @@ enemy{
   x = 80,
   y = 597,
   direction = 0,
-  breed = "moblin_dog_spear",
+  breed = "moblin_dog_spear/moblin_dog_spear",
   treasure_name = "random",
 }
 
@@ -12983,7 +13019,7 @@ enemy{
   x = 104,
   y = 461,
   direction = 2,
-  breed = "moblin_dog_spear",
+  breed = "moblin_dog_spear/moblin_dog_spear",
   treasure_name = "random",
 }
 
@@ -12992,7 +13028,7 @@ enemy{
   x = 400,
   y = 469,
   direction = 2,
-  breed = "moblin_dog_spear",
+  breed = "moblin_dog_spear/moblin_dog_spear",
   treasure_name = "random",
 }
 
@@ -13001,7 +13037,7 @@ enemy{
   x = 376,
   y = 485,
   direction = 0,
-  breed = "moblin_dog_spear",
+  breed = "moblin_dog_spear/moblin_dog_spear",
   treasure_name = "random",
 }
 
@@ -13010,7 +13046,7 @@ enemy{
   x = 288,
   y = 613,
   direction = 3,
-  breed = "moblin_dog_spear",
+  breed = "moblin_dog_spear/moblin_dog_spear",
   treasure_name = "random",
 }
 
@@ -13019,7 +13055,7 @@ enemy{
   x = 368,
   y = 701,
   direction = 0,
-  breed = "moblin_dog_spear",
+  breed = "moblin_dog_spear/moblin_dog_spear",
   treasure_name = "random",
 }
 
@@ -13028,7 +13064,7 @@ enemy{
   x = 336,
   y = 197,
   direction = 0,
-  breed = "moblin_dog_spear",
+  breed = "moblin_dog_spear/moblin_dog_spear",
   treasure_name = "random",
 }
 

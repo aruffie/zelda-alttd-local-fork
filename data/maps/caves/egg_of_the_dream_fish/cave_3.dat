@@ -4166,7 +4166,7 @@ door{
   layer = 0,
   x = 440,
   y = 176,
-  direction = 1,
+  direction = 3,
   sprite = "entities/doors/door_weak_wall",
   savegame_variable = "egg_of_the_dream_fish_cave_3_weak_1",
   opening_method = "explosion",
@@ -4235,6 +4235,12 @@ teletransporter{
   layer = 0,
   x = 1112,
   y = 432,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/c1_mambos_cave",
@@ -4245,7 +4251,7 @@ destination{
   name = "entrance_west",
   layer = 0,
   x = 1120,
-  y = 413,
+  y = 429,
   direction = 1,
 }
 
@@ -4265,6 +4271,12 @@ teletransporter{
   layer = 0,
   x = 1360,
   y = 432,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/c1_mambos_cave",
@@ -4275,7 +4287,7 @@ destination{
   name = "entrance_east",
   layer = 0,
   x = 1368,
-  y = 413,
+  y = 429,
   direction = 1,
 }
 
@@ -6496,6 +6508,12 @@ teletransporter{
   layer = 1,
   x = 552,
   y = 56,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/b1_egg_of_the_dream_fish",

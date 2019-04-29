@@ -141,6 +141,7 @@ function enemy_manager:launch_small_boss_if_not_dead(map)
     local game = map:get_game()
     placeholder:set_enabled(false)
     local enemy = map:create_enemy{
+       name = "enemy_small_boss",
        breed = dungeon_infos["small_boss"]["breed"],
        direction = 2,
         x = x,
@@ -167,14 +168,14 @@ function enemy_manager:launch_boss_if_not_dead(map)
     local dungeon = game:get_dungeon_index()
     local dungeon_infos = game:get_dungeon()
     local savegame = "dungeon_" .. dungeon .. "_boss"
-    local placeholder = "placeholder_boss"
     if game:get_value(savegame) then
       return false
     end
-    local placeholder = map:get_entity(placeholder)
+    local placeholder = map:get_entity("placeholder_boss")
     local x,y,layer = placeholder:get_position()
     placeholder:set_enabled(false)
     local enemy = map:create_enemy{
+      name = "boss",
       breed = dungeon_infos["boss"]["breed"],
       direction = 2,
       x = x,

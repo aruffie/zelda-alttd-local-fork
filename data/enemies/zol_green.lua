@@ -1,22 +1,25 @@
+-- Lua script of enemy zol_green.
+-- This script is executed every time an enemy with this model is created.
+
+-- Variables
 local enemy = ...
-
--- Zol green
-
-enemy:set_life(1)
-enemy:set_damage(1)
-
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local max_distance = 50
 local is_awake = false
 
+-- The enemy appears: set its properties.
 function enemy:on_created()
 
+  enemy:set_life(1)
+  enemy:set_damage(2)
+  
 end
 
 -- The enemy was stopped for some reason and should restart.
 function enemy:on_restarted()
 
   sprite:set_animation("invisible")
+  enemy:set_can_attack(false)
   sol.timer.start(enemy, 50, function()
     local tx, ty, _ = enemy:get_map():get_hero():get_position()
     if enemy:get_distance(tx, ty) < max_distance then
@@ -36,6 +39,7 @@ function enemy:appear()
   function sprite:on_animation_finished(animation)
     if animation == "appearing" then
       sprite:set_animation("shaking")
+      enemy:set_can_attack(true)
       sol.timer.start(enemy, 1000, function()
         enemy:go()
       end)
@@ -47,10 +51,11 @@ end
 function enemy:disappear()
 
   is_awake = false
+  enemy:set_can_attack(false)
   sprite:set_animation("disappearing")
   function sprite:on_animation_finished(animation)
     if animation == "disappearing" then
-     sprite:set_animation("invisible")
+      sprite:set_animation("invisible")
     end
   end
 
@@ -81,7 +86,6 @@ function enemy:go()
     end
   end)
   
-
 end
 
 

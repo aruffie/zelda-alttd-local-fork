@@ -1,5 +1,5 @@
 animation{
-  name = "normal",
+  name = "walking",
   src_image = "enemies/pairodd.png",
   frame_delay = 100,
   frame_to_loop_on = 0,

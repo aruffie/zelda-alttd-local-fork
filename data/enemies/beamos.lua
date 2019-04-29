@@ -1,4 +1,4 @@
--- Lua script of enemy "beamos".
+-- Lua script of enemy beamos.
 -- This script is executed every time an enemy with this model is created.
 
 -- Variables
@@ -11,9 +11,10 @@ local time_between_particles = 20
 local particles_per_beam = 30
 local stop_time = 1000
 
+-- Scripts
 local audio_manager = require("scripts/audio_manager")
 
--- Event called when the enemy is initialized.
+-- The enemy appears: set its properties.
 function enemy:on_created()
   
   self:set_life(1); self:set_damage(2)
@@ -25,6 +26,7 @@ function enemy:on_created()
   
 end
 
+-- The enemy was stopped for some reason and should restart.
 function enemy:on_restarted()
   -- Create "movement" to make Beamos continually change direction and face hero.
   local m = sol.movement.create("target")
@@ -70,12 +72,18 @@ end
 
 -- Function to stop firing for a while.
 function enemy:stop_firing()
+  
   self:get_sprite():set_animation("walking")
   sol.timer.stop_all(enemy)
-  sol.timer.start(enemy, stop_time, function() enemy:on_restarted() end)
+  sol.timer.start(enemy, stop_time, function()
+    enemy:on_restarted()
+  end)
+  
 end
 
 function enemy:on_movement_changed(movement)
+  
   local direction8 = self:get_direction8_to(self:get_map():get_hero())
   self:get_sprite():set_direction(direction8)
+  
 end

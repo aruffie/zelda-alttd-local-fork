@@ -1,10 +1,6 @@
 -- Lua script of enemy "star".
 -- This script is executed every time an enemy with this model is created.
 
--- Star: an invincible enemy that moves in diagonal directions
--- and bounces against walls.
--- It removes life and magic points from the hero.
-
 -- Variables
 local enemy = ...
 local last_direction8 = 0
@@ -13,10 +9,10 @@ local last_direction8 = 0
 function enemy:on_created()
 
   enemy:set_life(1)
-  enemy:set_damage(1)
+  enemy:set_damage(2)
   enemy:create_sprite("enemies/" .. enemy:get_breed())
-  enemy:set_size(8, 8)
-  enemy:set_origin(4, 4)
+  enemy:set_hookshot_reaction(1)
+  enemy:set_attack_consequence("boomerang", 1)
   
 end
 

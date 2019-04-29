@@ -53,7 +53,7 @@ function map:talk_to_richard()
             game:start_dialog("maps.houses.south_prairie.richard_villa.richard_3")
           end
       end)
-    else
+    else 
       if num == 5 then
         game:start_dialog("maps.houses.south_prairie.richard_villa.richard_7", function()
           game:set_value("main_quest_step", 15) 

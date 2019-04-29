@@ -149,7 +149,7 @@ local function initialize_dungeon_features(game)
       },
       boss = {
         floor = 0,
-        breed = "boss/genie",
+        breed = "boss/genie/genie",
         x = 640 + 1440,
         y = 720 + 365
       }
@@ -162,16 +162,26 @@ local function initialize_dungeon_features(game)
       music = "33_level_3_key_cavern",
       music_instrument = "34_the_sea_lily_bell",
       destination_ocarina = {
-          map_id = "dungeons/2/1f",
-          destination_name = "destination_ocarina"
+        map_id = "dungeons/2/1f",
+        destination_name = "destination_ocarina"
+      },
+      teletransporter_end_dungeon = {
+        map_id = "out/b3_prairie",
+        destination_name = "dungeon_3_2_A"
       },
       secrets = {
       },
+      small_boss = {
+        floor = 0,
+        breed = "keese",
+        x = 640 + 1440,
+        y = 720 + 365
+      },
       boss = {
         floor = 0,
+        breed = "boss/slime_eye",
         x = 640 + 1440,
-        y = 720 + 365,
-        savegame_variable = "dungeon_3_boss",
+        y = 720 + 365
       }
     },
    [4] = {

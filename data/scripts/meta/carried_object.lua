@@ -1,30 +1,33 @@
 local carried_meta = sol.main.get_metatable("carried_object")
-
+require ("scripts/multi_events")
 local m = sol.movement.create("straight")
 
-local old_on_thrown=carried_meta.on_thrown
-function carried_meta:on_thrown()
-  local map = self:get_map()
-  local hero = map:get_hero()
-  if map:is_sideview() then --Make me follow gravity
-    m:set_angle(hero:get_sprite():get_direction()*math.pi/2)
-    m:set_speed(92)
-    m:start(self)
-  else --Call regular behavior
-    if old_on_thrown ~= nil then
-      old_on_thrown(self)
-    end
-  end
-end
+carried_meta:register_event("on_thrown", function(entity)
 
-local old_on_update=carried_meta.on_update
-function carried_meta:on_update()
-  local map = self:get_map()
-  local hero = map:get_hero()
-  if map:is_sideview() and hero:get_state()~="carrying" and hero:get_state()~="lifting"  then
-    --do some stuff ?
-  else
-    --Call regular behavior
-    old_on_update(self)
-  end
-end
+    local map = entity:get_map()
+    local hero = map:get_hero()
+
+    if map:is_sideview() then --Make me follow gravity
+      m:set_angle(hero:get_sprite():get_direction()*math.pi/2)
+      m:set_speed(92)
+      m:start(entity)
+    end
+
+  end)
+
+carried_meta:register_event("on_created", function(entity)
+
+    local map=entity:get_map()
+    if map:is_sideview() then
+      for name, s in entity:get_sprites() do
+        s:set_xy(0,2)
+      end
+      
+      local shadow = entity:get_sprite("shadow")
+      if shadow then
+        print "SHADOW BE GONE !"
+        entity:remove_sprite(shadow)
+      end
+    end
+
+  end)

@@ -8,16 +8,17 @@
 -- of types, events and methods:
 -- http://www.solarus-games.org/doc/latest
 
-local hero_meta= sol.main.get_metatable("hero")
-
+local hero_meta = sol.main.get_metatable("hero")
 local item = ...
 local game = item:get_game()
 --local hero = game:get_hero()
-local y_offset = 0
-local y_vel=0
-local y_accel = 0.3
-local max_yvel = 5
 
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
+require("scripts/states/jump")
+require("scripts/states/flying_sword")
+local jm=require("scripts/jump_manager")
+require("scripts/multi_events")
 
 -- Event called when the game is initialized.
 function item:on_started()
@@ -29,64 +30,68 @@ function item:on_started()
   -- and whether it can be assigned.
 end
 
+local game_meta = sol.main.get_metatable("game")
 
-function hero_meta:is_jumping()
-  return hero.is_jumping
-end
 
-function hero_meta:set_jumping(jumping)
-  hero.is_jumping = jumping
-end
+game_meta:register_event("on_started", function(game)
 
-local function update_jump(hero)
-  for name, sprite in hero:get_sprites() do
-    if name~="shadow" then
-      sprite:set_xy(0, math.min(y_offset, 0))
-    end
-  end
-  y_offset= y_offset+y_vel
-  y_vel = y_vel + y_accel
-  if y_offset >=0 then
-    for name, sprite in hero:get_sprites() do
-      if name~="shadow" then
-        sprite:set_xy(0, 0)
-      end
-    end    
-    hero.is_jumping = false
-    return false
-  end
-  return true
-end
+    game:register_event("on_command_pressed", function(game, command)
+        --print ("command ? > "..command)
+        local item_1=game:get_item_assigned(1)
+        local item_2=game:get_item_assigned(2)
+        if command=="item_1" and item_1 and item_1:get_name()=="feather"
+        or command=="item_2" and item_2 and item_2:get_name()=="feather" then
+          if not game:is_paused() then
+
+            --print "manually jumping"
+            --  print "FEATHER TIME"
+            local hero = game:get_hero()
+            local map = game:get_map()
+            if hero.is_jumping~=true then
+              if not map:is_sideview() then
+                -- print "ok"
+                local state = hero:get_state()
+                if state ~="falling" then
+                  if state == "sword swinging" or state =="sword loading" or state=="custom" and hero:get_state_object():get_description() == "flying_sword" then 
+                    hero:start_flying_attack()
+                  elseif state=="custom" and hero:get_state_object():get_description()=="running" then 
+                    jm.start(hero)
+                  else
+                    hero:start_jumping()
+                  end
+                end
+              else
+--      print "SIDEVIEW JUMP requested "
+                local vspeed = hero.vspeed or 0
+                if vspeed == 0 or map:get_ground(hero:get_position())=="deep_water" then
+--        print "validated, now jump :"
+                  audio_manager:play_sound("hero/jump")
+                  sol.timer.start(10, function()
+                      hero.on_ladder = false
+                      hero.vspeed = -5
+                    end)
+                end
+              end
+            end
+            --Don"t propagate the input or else we will trigger the "item", which would ruin the purpose of the custom states 
+            return true
+          end
+        end
+      end)
+  end)
 
 
 function item:on_using()
---  print "FEATHER TIME"
-  local hero = game:get_hero()
-  local map = game:get_map()
-  if hero.is_jumping~=true then
-    if not map:is_sideview() then
-      
-      --TODO use custom state for actual jumping
---      print "JUMP"
-      hero.is_jumping = true
-      y_vel = -max_yvel
-      sol.timer.start(game, 10, function() 
-          return update_jump(hero)
-        end)
-    else
---      print "SIDEVIEW JUMP requested "
-      local vspeed = hero.vspeed or 0
-      if vspeed == 0 then
---        print "validated, now jump :"
-        sol.timer.start(10, function()
-            hero.on_ladder = false
-            hero.vspeed = -max_yvel
-          end)
-      end
-    end
-  end
+  print "this message should not be displayed if i am correct"
 
   -- Define here what happens when using this item
   -- and call item:set_finished() to release the hero when you have finished.
   item:set_finished()
+end
+
+
+function item:on_obtaining()
+
+  audio_manager:play_sound("items/fanfare_item_extended")
+
 end

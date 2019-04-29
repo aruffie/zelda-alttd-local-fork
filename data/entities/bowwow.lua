@@ -11,7 +11,7 @@ require("scripts/multi_events")
 -- Event called when the custom entity is initialized.
 entity:register_event("on_created", function()
     
-  entity:set_traversable_by(false)
+  entity:set_traversable_by(true)
   entity:set_can_traverse("hero", false)
   -- Movement
   local movement = sol.movement.create("random")

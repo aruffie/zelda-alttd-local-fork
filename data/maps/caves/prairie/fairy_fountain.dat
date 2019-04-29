@@ -776,6 +776,12 @@ teletransporter{
   layer = 0,
   x = 152,
   y = 192,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/b3_prairie",
@@ -786,7 +792,7 @@ destination{
   name = "fairy_fountain_1_B",
   layer = 0,
   x = 160,
-  y = 173,
+  y = 189,
   direction = 1,
 }
 
