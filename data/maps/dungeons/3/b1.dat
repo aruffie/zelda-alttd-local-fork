@@ -7229,7 +7229,7 @@ enemy{
 pickable{
   name = "pickable_small_key_7",
   layer = 0,
-  x = 1064,
+  x = 1048,
   y = 1757,
   treasure_name = "small_key",
   treasure_savegame_variable = "dungeon_3_small_key_4",

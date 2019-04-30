@@ -659,6 +659,16 @@ tile{
   tileset = "addition/dungeon",
 }
 
+custom_entity{
+  layer = 0,
+  x = 224,
+  y = 173,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/items/bananas",
+}
+
 destination{
   name = "sales_house_o_bananas_2_B",
   layer = 0,
@@ -772,16 +782,6 @@ custom_entity{
   layer = 0,
   x = 232,
   y = 181,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/items/bananas",
-}
-
-custom_entity{
-  layer = 0,
-  x = 224,
-  y = 173,
   width = 16,
   height = 16,
   direction = 0,
