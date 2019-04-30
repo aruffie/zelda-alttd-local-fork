@@ -21855,6 +21855,7 @@ pickable{
   layer = 1,
   x = 216,
   y = 437,
+  enabled_at_start = false,
   treasure_name = "seashell",
   treasure_savegame_variable = "seashell_13",
 }

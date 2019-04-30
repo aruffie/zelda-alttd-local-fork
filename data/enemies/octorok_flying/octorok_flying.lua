@@ -2,6 +2,7 @@
 
 -- Variables
 local enemy = ...
+local audio_manager=require("scripts/audio_manager")
 local children = {}
 local can_shoot = true
 local position_x, position_y = enemy:get_position()
