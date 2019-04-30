@@ -62,64 +62,65 @@ end
 
 function enemy_manager:create_teletransporter_if_small_boss_dead(map, sound)
 
-    local game = map:get_game()
-    local dungeon = game:get_dungeon_index()
-    local savegame = "dungeon_" .. dungeon .. "_small_boss"
-    if game:get_value(savegame) then
+  local game = map:get_game()
+  local dungeon = game:get_dungeon_index()
+  local savegame = "dungeon_" .. dungeon .. "_small_boss"
+  if game:get_value(savegame) then
 
-      local function create_teletransporter(teletransporter_suffix)
-        placeholder_teletransporter = map:get_entity("teletransporter_" .. teletransporter_suffix)
-        if placeholder_teletransporter then
-          local teletransporter_x,  teletransporter_y,  teletransporter_layer = placeholder_teletransporter:get_position()
-          teletransporter = map:create_custom_entity{
-            x = teletransporter_x,
-            y = teletransporter_y,
-            width = teletransporter_suffix == "A" and 24 or 16,
-            height = teletransporter_suffix == "A" and 24 or 16,
-            direction = 0,
-            sprite = "entities/misc/teletransporter",
-            layer = teletransporter_layer,
-            sound = teletransporter_suffix == "A" and "teletransporter" or nil
-          }
-          teletransporter:add_collision_test("center", function(teletransporter_source, hero)
-            local hero_sprite = hero:get_sprite()
-            if enemy_manager.is_transported  == false and hero:get_type() == "hero" then
-              enemy_manager.is_transported  = true
-              game:set_suspended(true)
-              game:set_pause_allowed(false)
-              teletransporter:get_sprite():set_ignore_suspend(true)
-              hero:set_position(teletransporter:get_position())
-              hero_sprite:set_ignore_suspend(true)
-              hero_sprite:set_animation("teleporting")
-              audio_manager:play_sound("misc/dungeon_teleport")
-              function hero_sprite:on_animation_finished(animation)
-                if animation == "teleporting" then
-                  game:set_suspended(false)
-                  game:set_pause_allowed(true)
-                  teletransporter:get_sprite():set_ignore_suspend(false)
-                  hero_sprite:set_ignore_suspend(false)
-                  -- Get destination map infos if available, else teleport on the same map.
-                  local destination_map = map:get_id()
-                  local dungeon_info = game:get_dungeon()
-                  if dungeon_info and dungeon_info.teletransporter_sall_boss then
-                    local map_info = dungeon_info.teletransporter_sall_boss
-                    destination_map = teletransporter_suffix == "A" and map_info.map_id_B or map_info.map_id_A
-                  end
-                  local destination_name = "teletransporter_destination_" .. (teletransporter_suffix == "A" and "B" or "A")
-                  hero:teleport(destination_map, destination_name)
-                  enemy_manager.is_transported  = false
+    local function create_teletransporter(teletransporter_suffix)
+      placeholder_teletransporter = map:get_entity("teletransporter_" .. teletransporter_suffix)
+      if placeholder_teletransporter then
+        local is_teletransporter_A = teletransporter_suffix == "A"
+        local teletransporter_x, teletransporter_y, teletransporter_layer = placeholder_teletransporter:get_position()
+        teletransporter = map:create_custom_entity{
+          x = teletransporter_x,
+          y = teletransporter_y,
+          width = is_teletransporter_A and 24 or 16,
+          height = is_teletransporter_A and 24 or 16,
+          direction = 0,
+          sprite = "entities/misc/teletransporter",
+          layer = teletransporter_layer,
+          sound = is_teletransporter_A and "teletransporter" or nil
+        }
+        teletransporter:add_collision_test("center", function(teletransporter_source, hero)
+          local hero_sprite = hero:get_sprite()
+          if enemy_manager.is_transported  == false and hero:get_type() == "hero" then
+            enemy_manager.is_transported  = true
+            game:set_suspended(true)
+            game:set_pause_allowed(false)
+            teletransporter:get_sprite():set_ignore_suspend(true)
+            hero:set_position(teletransporter:get_position())
+            hero_sprite:set_ignore_suspend(true)
+            hero_sprite:set_animation("teleporting")
+            audio_manager:play_sound("misc/dungeon_teleport")
+            function hero_sprite:on_animation_finished(animation)
+              if animation == "teleporting" then
+                game:set_suspended(false)
+                game:set_pause_allowed(true)
+                teletransporter:get_sprite():set_ignore_suspend(false)
+                hero_sprite:set_ignore_suspend(false)
+                local destination_map = map:get_id()
+                local dungeon_info = game:get_dungeon() -- Get destination map infos if available, else teleport on the same map.
+                if dungeon_info and dungeon_info.teletransporter_small_boss then
+                  local map_info = dungeon_info.teletransporter_small_boss
+                  destination_map = is_teletransporter_A and map_info.map_id_B or map_info.map_id_A
                 end
+                local destination_name = "teletransporter_destination_" .. (is_teletransporter_A and "B" or "A")
+                hero:teleport(destination_map, destination_name)
+                enemy_manager.is_transported  = false
               end
             end
-          end)
-        end
+          end
+        end)
       end
+    end
 
-      create_teletransporter("A")
-      create_teletransporter("B")
-      if sound ~= nil and sound ~= false then
-        audio_manager:play_sound("misc/dungeon_teleport_appear")
-      end
+    create_teletransporter("A")
+    create_teletransporter("B")
+
+    if sound ~= nil and sound ~= false then
+      audio_manager:play_sound("misc/dungeon_teleport_appear")
+    end
   end
 
 end

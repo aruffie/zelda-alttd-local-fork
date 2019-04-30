@@ -243,7 +243,7 @@ local function initialize_dungeon_features(game)
         map_id = "dungeons/7/1f",
         destination_name = "destination_ocarina"
       },
-      teletransporter_sall_boss = {
+      teletransporter_small_boss = {
         map_id_A = "dungeons/7/3f",
         map_id_B = "dungeons/7/1f"
       },
