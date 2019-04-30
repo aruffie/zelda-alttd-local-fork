@@ -42,7 +42,7 @@ entity:register_event("on_created", function()
             animation_launch = false
           end)
         end
-      end--]]
+      end
     end
   end)
 

@@ -4102,7 +4102,7 @@ tile{
   x = 1104,
   y = 936,
   width = 8,
-  height = 48,
+  height = 40,
   pattern = "barrier.2-1",
 }
 
@@ -4111,7 +4111,7 @@ tile{
   x = 1128,
   y = 936,
   width = 8,
-  height = 48,
+  height = 40,
   pattern = "barrier.2-1",
 }
 
@@ -11438,7 +11438,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/wallturn_dungeon_9_front",
+  sprite = "entities/doors/door_wallturn_dungeon_9",
   model = "wallturn",
 }
 
@@ -17371,28 +17371,10 @@ tile{
 tile{
   layer = 1,
   x = 1088,
-  y = 976,
-  width = 64,
-  height = 8,
-  pattern = "door_cache.1-6",
-}
-
-tile{
-  layer = 1,
-  x = 1088,
   y = 936,
   width = 64,
   height = 8,
   pattern = "door_cache.2-6",
-}
-
-tile{
-  layer = 1,
-  x = 1104,
-  y = 976,
-  width = 32,
-  height = 8,
-  pattern = "door_top.closed.1-6",
 }
 
 tile{

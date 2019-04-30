@@ -9123,7 +9123,7 @@ tile{
   x = 808,
   y = 456,
   width = 8,
-  height = 48,
+  height = 40,
   pattern = "barrier.2-1",
 }
 
@@ -9132,7 +9132,7 @@ tile{
   x = 784,
   y = 456,
   width = 8,
-  height = 48,
+  height = 40,
   pattern = "barrier.2-1",
 }
 

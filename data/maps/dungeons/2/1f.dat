@@ -5065,7 +5065,7 @@ tile{
   x = 464,
   y = 696,
   width = 8,
-  height = 48,
+  height = 40,
   pattern = "barrier.2-1",
 }
 
@@ -5074,7 +5074,7 @@ tile{
   x = 488,
   y = 696,
   width = 8,
-  height = 48,
+  height = 40,
   pattern = "barrier.2-1",
 }
 
@@ -22347,15 +22347,6 @@ tile{
 tile{
   layer = 1,
   x = 448,
-  y = 736,
-  width = 64,
-  height = 8,
-  pattern = "door_cache.1-2",
-}
-
-tile{
-  layer = 1,
-  x = 448,
   y = 696,
   width = 64,
   height = 8,
@@ -22576,15 +22567,6 @@ tile{
   width = 8,
   height = 32,
   pattern = "door_top.stairs.3-1",
-}
-
-tile{
-  layer = 1,
-  x = 464,
-  y = 736,
-  width = 32,
-  height = 8,
-  pattern = "door_top.stairs.1-1",
 }
 
 tile{

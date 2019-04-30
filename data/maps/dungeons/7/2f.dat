@@ -124,7 +124,7 @@ tile{
   x = 168,
   y = 456,
   width = 8,
-  height = 48,
+  height = 40,
   pattern = "barrier.2-1",
 }
 
@@ -133,7 +133,7 @@ tile{
   x = 144,
   y = 456,
   width = 8,
-  height = 48,
+  height = 40,
   pattern = "barrier.2-1",
 }
 
