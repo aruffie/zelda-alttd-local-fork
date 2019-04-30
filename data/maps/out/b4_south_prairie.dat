@@ -15189,6 +15189,7 @@ npc{
   direction = 3,
   subtype = 0,
   sprite = "entities/destructibles/sign",
+  behavior = "dialog#maps.out.south_prairie.sign_1",
 }
 
 npc{

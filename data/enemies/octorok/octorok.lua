@@ -3,7 +3,6 @@
 
 -- Variables
 local enemy = ...
-
 local children = {}
 local can_shoot = true
 local position_x, position_y = enemy:get_position()
