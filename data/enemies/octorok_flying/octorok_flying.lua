@@ -1,12 +1,14 @@
 -- Flying_octorok: shoots stones.
 
+-- Variables
 local enemy = ...
-
 local children = {}
-
 local can_shoot = true
 local position_x, position_y = enemy:get_position()
 local distance_max = 100
+
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
 
 -- Event called when the enemy is initialized.
 function enemy:on_created()
