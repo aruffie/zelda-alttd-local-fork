@@ -2325,15 +2325,6 @@ tile{
 
 tile{
   layer = 1,
-  x = 56,
-  y = 64,
-  width = 32,
-  height = 8,
-  pattern = "1711",
-}
-
-tile{
-  layer = 1,
   x = 192,
   y = 48,
   width = 16,
@@ -6691,9 +6682,9 @@ tile{
 tile{
   layer = 1,
   x = 568,
-  y = 16,
+  y = 0,
   width = 48,
-  height = 16,
+  height = 48,
   pattern = "1680",
 }
 
@@ -6816,15 +6807,6 @@ tile{
 
 tile{
   layer = 1,
-  x = 616,
-  y = 8,
-  width = 8,
-  height = 32,
-  pattern = "1755",
-}
-
-tile{
-  layer = 1,
   x = 624,
   y = 8,
   width = 8,
@@ -6839,15 +6821,6 @@ tile{
   width = 8,
   height = 32,
   pattern = "1736",
-}
-
-tile{
-  layer = 1,
-  x = 560,
-  y = 8,
-  width = 8,
-  height = 32,
-  pattern = "1756",
 }
 
 tile{
@@ -6889,24 +6862,6 @@ tile{
 tile{
   layer = 1,
   x = 568,
-  y = 8,
-  width = 48,
-  height = 8,
-  pattern = "1754",
-}
-
-tile{
-  layer = 1,
-  x = 568,
-  y = 0,
-  width = 48,
-  height = 8,
-  pattern = "1753",
-}
-
-tile{
-  layer = 1,
-  x = 568,
   y = -8,
   width = 48,
   height = 8,
@@ -6943,33 +6898,6 @@ tile{
 tile{
   layer = 1,
   x = 576,
-  y = 24,
-  width = 32,
-  height = 16,
-  pattern = "1680",
-}
-
-tile{
-  layer = 1,
-  x = 568,
-  y = 32,
-  width = 48,
-  height = 8,
-  pattern = "1751",
-}
-
-tile{
-  layer = 1,
-  x = 568,
-  y = 40,
-  width = 48,
-  height = 8,
-  pattern = "1752",
-}
-
-tile{
-  layer = 1,
-  x = 576,
   y = 80,
   width = 32,
   height = 8,
@@ -6992,15 +6920,6 @@ tile{
   width = 8,
   height = 24,
   pattern = "1708",
-}
-
-tile{
-  layer = 1,
-  x = 576,
-  y = 56,
-  width = 32,
-  height = 8,
-  pattern = "1711",
 }
 
 tile{
@@ -11613,6 +11532,90 @@ tile{
   tileset = "addition/out",
 }
 
+tile{
+  layer = 1,
+  x = 560,
+  y = 0,
+  width = 8,
+  height = 8,
+  pattern = "1781",
+}
+
+tile{
+  layer = 1,
+  x = 616,
+  y = 0,
+  width = 8,
+  height = 8,
+  pattern = "1782",
+}
+
+tile{
+  layer = 1,
+  x = 616,
+  y = 40,
+  width = 8,
+  height = 8,
+  pattern = "1783",
+}
+
+tile{
+  layer = 1,
+  x = 560,
+  y = 40,
+  width = 8,
+  height = 8,
+  pattern = "1784",
+}
+
+custom_entity{
+  layer = 1,
+  x = 744,
+  y = 181,
+  width = 192,
+  height = 8,
+  direction = 3,
+  sprite = "entities/utils/cliff",
+  tiled = true,
+  model = "cliff",
+}
+
+custom_entity{
+  layer = 1,
+  x = 328,
+  y = 293,
+  width = 80,
+  height = 8,
+  direction = 3,
+  sprite = "entities/utils/cliff",
+  tiled = true,
+  model = "cliff",
+}
+
+custom_entity{
+  layer = 1,
+  x = 120,
+  y = 389,
+  width = 240,
+  height = 8,
+  direction = 3,
+  sprite = "entities/utils/cliff",
+  tiled = true,
+  model = "cliff",
+}
+
+custom_entity{
+  layer = 1,
+  x = 408,
+  y = 341,
+  width = 512,
+  height = 8,
+  direction = 3,
+  sprite = "entities/utils/cliff",
+  tiled = true,
+  model = "cliff",
+}
+
 teletransporter{
   name = "to_b1",
   layer = 1,
@@ -13212,6 +13215,18 @@ sensor{
   height = 16,
 }
 
+custom_entity{
+  layer = 1,
+  x = 40,
+  y = 69,
+  width = 176,
+  height = 8,
+  direction = 3,
+  sprite = "entities/utils/cliff",
+  tiled = true,
+  model = "cliff",
+}
+
 tile{
   layer = 2,
   x = 120,
@@ -13959,6 +13974,24 @@ tile{
   height = 24,
   pattern = "32",
   tileset = "addition/out",
+}
+
+tile{
+  layer = 2,
+  x = 56,
+  y = 64,
+  width = 32,
+  height = 8,
+  pattern = "1711",
+}
+
+tile{
+  layer = 2,
+  x = 576,
+  y = 56,
+  width = 32,
+  height = 8,
+  pattern = "1711",
 }
 
 custom_entity{
