@@ -68,7 +68,7 @@ game_meta:register_event("on_started", function(game)
                   audio_manager:play_sound("hero/jump")
                   sol.timer.start(10, function()
                       hero.on_ladder = false
-                      hero.vspeed = -5
+                      hero.vspeed = -4
                     end)
                 end
               end

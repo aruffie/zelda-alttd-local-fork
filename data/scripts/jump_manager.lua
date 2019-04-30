@@ -1,6 +1,6 @@
 local jm={}
 
-local y_accel = 0.5
+local y_accel = 0.35
 local max_yvel = 5
 
 local debug_start_x, debug_start_y
@@ -16,6 +16,9 @@ function jm.reset_collision_rules(state)
     state:set_affected_by_ground("deep_water", true)
     state:set_affected_by_ground("prickles", true)
     state:set_can_use_stairs(true)
+    state:set_can_use_teletransporter(true)
+    state:set_can_use_switch(true)
+    state:set_can_use_stream(true)
   end
 end
 
@@ -72,7 +75,7 @@ function jm.start(entity)
     jm.setup_collision_rules(entity:get_state_object())
 --    print "JUMP"
     entity.y_vel = -max_yvel
-    sol.timer.start(entity, 13, function()
+    sol.timer.start(entity, 10, function()
         local r=jm.update_jump(entity)
         if not r then
           return false

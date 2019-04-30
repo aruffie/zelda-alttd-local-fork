@@ -8,7 +8,7 @@ local is_destroy = false
 
 -- Include scripts
 require("scripts/multi_events")
-
+local audio_manager=require("scripts/audio_manager")
 -- Event called when the custom entity is initialized.
 entity:register_event("on_created", function()
 
@@ -26,7 +26,7 @@ end)
 
 entity:add_collision_test("facing", function(crystal, other, crystal_sprite, other_sprite)
 
-  if is_destroy == false and other:get_type() =="hero" and hero:get_state() == "running" then
+  if is_destroy == false and other:get_type() =="hero" and hero:get_state() == "custom" and hero:get_state_object():get_description()=="running"  then
     audio_manager:play_sound("misc/bush_cut")
     sprite:set_animation('destroy')
     is_destroy = true

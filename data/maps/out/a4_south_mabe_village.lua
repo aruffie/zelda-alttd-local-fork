@@ -45,8 +45,10 @@ function map:init_map_entities()
   -- Seashell's tree
   local seashell_tree_found = false
   collision_seashell:add_collision_test("facing", function(entity, other, entity_sprite, other_sprite)
-    if other:get_type() == 'hero' and hero:get_state() == "running" and seashell_tree_found == false and game:get_value("seashell_14") == nil then
+    if other:get_type() == 'hero' and hero:get_state() == "custom" and hero:get_state_object():get_description()=="running" and seashell_tree_found == false and game:get_value("seashell_14") == nil then
+
       sol.timer.start(map, 250, function()
+        seashell_14:set_enabled(true)
         movement = sol.movement.create("jump")
         movement:set_speed(100)
         movement:set_distance(64)

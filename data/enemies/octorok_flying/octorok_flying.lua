@@ -1,7 +1,7 @@
 -- Flying_octorok: shoots stones.
 
 local enemy = ...
-
+local audio_manager=require("scripts/audio_manager")
 local children = {}
 
 local can_shoot = true

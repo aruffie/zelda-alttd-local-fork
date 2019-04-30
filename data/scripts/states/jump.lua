@@ -1,7 +1,7 @@
 --Newer version of the custom jump, allows for the sword to be used mid-air.
 require("scripts/states/flying_sword")
-local jm=require("scripts/jump_manager")
-local state = jm.init("jumping")
+local jump_manager=require("scripts/jump_manager")
+local state = jump_manager.init("jumping")
 
 
 
@@ -31,8 +31,8 @@ function hero_meta.start_jumping(hero)
   --TODO use custom state for actual jumping
 
   --Safety check: if we are not already in this state then start it
-  if hero:get_state() ~= "custom" or hero:get_state_object():get_description()~="jump" then
+  if hero:get_state() ~= "custom" or hero:get_state_object():get_description()~="jumping" then
     hero:start_state(state)
   end
-  jm.start(hero)
+  jump_manager.start(hero)
 end

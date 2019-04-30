@@ -205,6 +205,14 @@ function hero_meta.set_jumping(hero, jumping)
   hero.jumping = jumping
 end
 
+function hero_meta.is_running(hero)
+  return hero.running
+end
+
+function hero_meta.set_running(hero, running)
+  hero.running = running
+end
+
 
 --Utility function : it loops through all the sprites of a given hero and shifts them by the given amount of pixels in the X and Y directions.
 local function set_sprite_offset(hero, ox, oy)

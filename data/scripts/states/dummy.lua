@@ -1,3 +1,5 @@
+--A dummy empty testing state, with minimal code
+
 local state = sol.state.create("dummy")
 
 state:set_can_use_stairs(false)

@@ -495,6 +495,7 @@ hero_meta:register_event("on_state_changed", function(hero, state)
         end
       end
     else
+      --print "Entering top-view mode"
       local timer = hero.timer
       if timer~=nil then
 --        print"remove timer"
