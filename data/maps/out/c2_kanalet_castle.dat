@@ -5181,33 +5181,6 @@ tile{
 
 tile{
   layer = 1,
-  x = 824,
-  y = 56,
-  width = 16,
-  height = 8,
-  pattern = "1350",
-}
-
-tile{
-  layer = 1,
-  x = 792,
-  y = 56,
-  width = 16,
-  height = 8,
-  pattern = "1349",
-}
-
-tile{
-  layer = 1,
-  x = 808,
-  y = 48,
-  width = 16,
-  height = 16,
-  pattern = "12374",
-}
-
-tile{
-  layer = 1,
   x = 656,
   y = 160,
   width = 48,
@@ -8858,6 +8831,42 @@ tile{
   width = 8,
   height = 8,
   pattern = "105 (copy)",
+}
+
+tile{
+  layer = 1,
+  x = 800,
+  y = 48,
+  width = 32,
+  height = 16,
+  pattern = "14667",
+}
+
+tile{
+  layer = 1,
+  x = 808,
+  y = 48,
+  width = 16,
+  height = 16,
+  pattern = "12374",
+}
+
+tile{
+  layer = 1,
+  x = 792,
+  y = 56,
+  width = 16,
+  height = 8,
+  pattern = "1349",
+}
+
+tile{
+  layer = 1,
+  x = 824,
+  y = 56,
+  width = 16,
+  height = 8,
+  pattern = "1350",
 }
 
 dynamic_tile{
