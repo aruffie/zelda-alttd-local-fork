@@ -1,4 +1,11 @@
+----------------------------------
+--
 -- A pull handle that can be pulled and come back to its inital place.
+--
+-- Events :  pull_handle:on_pulling(movement_count)
+--           pull_handle:on_dropped()
+--
+----------------------------------
 
 local pull_handle = ...
 local game = pull_handle:get_game()
@@ -10,6 +17,7 @@ require("scripts/multi_events")
 -- Event called when the custom entity is initialized.
 pull_handle:register_event("on_created", function()
 
+  local movement_count = 0
   local initial_x, initial_y, initial_layer = pull_handle:get_position()
 
   -- Create the chain.
@@ -58,24 +66,39 @@ pull_handle:register_event("on_created", function()
       movement:set_max_distance(get_y_gap())
       movement:set_smooth(false)
       movement:start(handle_block)
-      -- Resize the chain on going back to initial place.
+      -- Resize the chain while going back to initial place.
       function movement:on_position_changed()
-        if get_y_gap() > 0 then
-          handle_chain:set_size(8, get_y_gap())
+        local y_gap = get_y_gap()
+        if y_gap > 0 then
+          handle_chain:set_size(8, y_gap)
         end
       end
       -- Reset move count when back to initial place.
       function movement:on_finished()
         handle_block:reset() 
+        movement_count = 0
+      end
+      -- Call the dropped event.
+      if pull_handle.on_dropped then
+        pull_handle:on_dropped()
       end
     end
   end)
 
-  -- Resize the chain at the beginning of each pull.
+  -- Behavior at the beginning of each pull.
   function handle_block:on_moving()
+    movement_count = movement_count + 1
+
+    -- Call the pulling event.
+    if pull_handle.on_pulling then
+      pull_handle:on_pulling(movement_count)
+    end
+
+    -- Resize the chain.
     handle_chain:set_size(8, get_y_gap() + 16)
   end
 
-  -- Prevent the initial custom entity from interactions.
-  pull_handle:set_enabled(false)
+  -- Hide the initial custom_entity and resize it to not conflict with the block grab.
+  pull_handle:remove_sprite(pull_handle:get_sprite(""))
+  pull_handle:set_size(8, 8)
 end)
