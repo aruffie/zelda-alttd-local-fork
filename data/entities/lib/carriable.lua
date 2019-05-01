@@ -21,16 +21,14 @@ local carriable_behavior = {}
 
 local default_properties = {
 
-  num_bounces = 3, -- Number of bounces when falling (it can be 0).
   bounce_distances = {80, 16, 4}, -- Distances for each bounce.
   bounce_durations = {400, 160, 70}, -- Duration for each bounce.
-  bounce_heights = {"same", 4, 2}, -- Heights for each bounce.
+  bounce_heights = {nil, 4, 2}, -- Heights for each bounce. Nil means sprite position.
   bounce_sound = nil, -- Default id of the bouncing sound. Nil means no sound.
   hurt_strength = 2, -- Default life points subtracted on an enemy hit.
   respawn_delay = nil, -- Time before respawn when removed by bad grounds. Nil means no respawn.
-  shadow_type = "normal", -- Type of shadow for the falling trajectory.
+  shadow_sprite = nil, -- Sprite of the shadow. A default one is used if nil.
   slowdown_ratio = 0.5, -- Speed and distance decrease ratio at each obstacle hit.
-  vshift = 0 -- Vertical shift to draw the sprite while lifting/carrying.
 }
 
 function carriable_behavior.apply(carriable, properties)
@@ -63,7 +61,7 @@ function carriable_behavior.apply(carriable, properties)
   -- Return true if the parameter is an obstacle entity.
   -- TODO Check for something like entity1:is_traversable_by(entity2) and remove this temp function
   local function is_obstacle(entity)
-    local obstacle_entities = {"crystal", "enemy"}
+    local obstacle_entities = {"crystal", "custom_entity", "enemy"}
     for _, entity_type in pairs(obstacle_entities) do
       if entity:get_type() == entity_type then
         return true
@@ -94,29 +92,29 @@ function carriable_behavior.apply(carriable, properties)
   carriable:register_event("throw", function(carriable, direction)
 
     -- Properties.
-    local num_bounces = properties.num_bounces or default_properties.num_bounces
     local bounce_distances = properties.bounce_distances or default_properties.bounce_distances
     local bounce_durations = properties.bounce_durations or default_properties.bounce_durations
     local bounce_heights = properties.bounce_heights or default_properties.bounce_heights
     local bounce_sound = properties.bounce_sound or default_properties.bounce_sound
     local hurt_strength = properties.hurt_strength or default_properties.hurt_strength
     local respawn_delay = properties.respawn_delay or default_properties.respawn_delay
-    local shadow_type = properties.shadow_type or default_properties.shadow_type
+    local shadow_sprite = properties.shadow_sprite or default_properties.shadow_sprite
     local slowdown_ratio = properties.slowdown_ratio or default_properties.slowdown_ratio
-    local vshift = properties.vshift or default_properties.vshift
 
     -- Initialize throwing state.
-    local sprite = carriable:get_sprite()
+    local num_bounces = #bounce_distances
+    local sprite = carriable:get_sprite("")
     local current_bounce = 1
     local current_instant = 0
     local is_bounce_movement_starting = true -- True when the carriable is not moving, but about to.
     local dx, dy = math.cos(direction * math.pi / 2), -math.sin(direction * math.pi / 2)
+    local _, hero_height = map:get_entity("hero"):get_size()
 
     carriable:set_traversable_by("hero", true)
     carriable:set_can_traverse("hero", true)
     set_hero_not_traversable_safely(carriable) -- Set the hero not traversable as soon as possible.
     carriable:set_direction(direction)
-    sprite:set_xy(0, -22 + vshift)
+    sprite:set_xy(0, -hero_height - 6)
 
     -- Function to hurt an enemy vulnerable to thrown items.
     local function hurt_if_vulnerable(entity)
@@ -131,7 +129,7 @@ function carriable_behavior.apply(carriable, properties)
       local initial_properties = {
           name = carriable:get_name(), model = carriable:get_model(), properties = carriable:get_properties(),
           x = carriable.respawn_position.x, y = carriable.respawn_position.y, layer = carriable.respawn_position.layer, 
-          direction = carriable:get_direction(), sprite = carriable:get_sprite():get_animation_set(),
+          direction = carriable:get_direction(), sprite = carriable:get_sprite(""):get_animation_set(),
           width = 16, height = 16}
       carriable:remove()
       if respawn_delay then
@@ -172,28 +170,17 @@ function carriable_behavior.apply(carriable, properties)
     -- A hit may happen on sprite collision without reaching an obstacle when entities are not on the same row nor column.
     carriable:add_collision_test("sprite", carriable_on_collision) -- TODO Seems buggy between custom entities
 
-    -- Create a custom_entity for shadow (this one is drawn below).
-    local px, py, pz = carriable:get_position()
-    if shadow_type then
-      local shadow_properties = {x = px, y = py, layer = pz, direction = 0, width = 16, height = 16}
-      shadow = map:create_custom_entity(shadow_properties)
-      if shadow_type == "normal" then
-        shadow:create_sprite("entities/shadows/shadow")
-        shadow:bring_to_back()
-      end
-      -- Remove shadow when the carriable is removed.
-      function carriable:on_removed()
-        shadow:remove()
-      end
+    -- Create a sprite for the shadow.
+    if not shadow_sprite then
+      shadow_sprite = carriable:create_sprite("entities/shadows/shadow", "shadow")
+      carriable:bring_sprite_to_back(shadow_sprite)
     end
 
     -- Function called when the carriable has fallen.
     local function finish_bounce()
       carriable:clear_collision_tests()
       carriable:stop_movement()
-      if shadow then
-        shadow:remove()
-      end
+      carriable:remove_sprite(shadow_sprite)
       if carriable.on_finish_throw then
         carriable:on_finish_throw() -- Call event
       end
@@ -213,11 +200,8 @@ function carriable_behavior.apply(carriable, properties)
       local t = current_instant
       local dist = bounce_distances[current_bounce]
       local dur = bounce_durations[current_bounce] 
-      local h = bounce_heights[current_bounce]
+      local h = bounce_heights[current_bounce] or -sy
       local speed = 1000 * dist / dur
-      if h == "same" then
-        h = -sy
-      end
       
       -- Function to compute height for each fall (bounce).
       local function current_height()
@@ -258,12 +242,9 @@ function carriable_behavior.apply(carriable, properties)
       sol.timer.start(carriable, refreshing_time, function()
         t = t + refreshing_time
         current_instant = t
-        if shadow then
-          shadow:set_position(carriable:get_position())
-        end
         -- Update shift of sprite.
         if t <= dur then 
-          sprite:set_xy(0, current_height() + vshift)
+          sprite:set_xy(0, current_height())
         -- Stop the timer. Start next bounce or finish bounces. 
         else -- The carriable hits the ground.
           map:ground_collision(carriable, bounce_sound, on_bad_ground_bounce)
@@ -302,12 +283,13 @@ function carriable_behavior.apply(carriable, properties)
 
     -- Traversable rules.
     carriable:set_can_traverse_ground("deep_water", true)
-    carriable:set_can_traverse_ground("shallow_water", true)
+    carriable:set_can_traverse_ground("grass", true)
     carriable:set_can_traverse_ground("hole", true)
     carriable:set_can_traverse_ground("lava", true)
-    carriable:set_can_traverse_ground("grass", true)
-    carriable:set_can_traverse_ground("prickles", true)
     carriable:set_can_traverse_ground("low_wall", true)
+    carriable:set_can_traverse_ground("prickles", true)
+    carriable:set_can_traverse_ground("shallow_water", true)
+    carriable:set_can_traverse("crystal_block", true)
     carriable:set_can_traverse("stream", true)
     carriable:set_can_traverse("switch", true)
     carriable:set_can_traverse("teletransporter", true)
@@ -327,7 +309,7 @@ function carriable_behavior.apply(carriable, properties)
         local hero = map:get_hero()
         local x, y, layer = hero:get_position()
         local direction = hero:get_direction()
-        local animation_set = carried_object:get_sprite():get_animation_set()
+        local animation_set = carried_object:get_sprite(""):get_animation_set()
         local initial_properties = {
             name = carriable_name, model = carriable_model, properties = carriable_properties,
             x = x, y = y, layer = layer, direction = direction, sprite = animation_set, width = 16, height = 16}
