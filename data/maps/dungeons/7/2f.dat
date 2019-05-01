@@ -9969,18 +9969,6 @@ wall{
   stops_projectiles = true,
 }
 
-custom_entity{
-  name = "pull_handle_chain",
-  layer = 0,
-  x = 1224,
-  y = 285,
-  width = 16,
-  height = 8,
-  direction = 0,
-  sprite = "entities/handle_chain",
-  tiled = true,
-}
-
 block{
   layer = 0,
   x = 392,
