@@ -14076,20 +14076,38 @@ tile{
 
 tile{
   layer = 1,
+  x = 568,
+  y = 648,
+  width = 8,
+  height = 40,
+  pattern = "2204",
+}
+
+tile{
+  layer = 1,
+  x = 672,
+  y = 648,
+  width = 8,
+  height = 40,
+  pattern = "2205",
+}
+
+tile{
+  layer = 1,
   x = 600,
-  y = 680,
+  y = 672,
   width = 16,
-  height = 8,
-  pattern = "1349",
+  height = 16,
+  pattern = "1351",
 }
 
 tile{
   layer = 1,
   x = 632,
-  y = 680,
+  y = 672,
   width = 16,
-  height = 8,
-  pattern = "1350",
+  height = 16,
+  pattern = "1352",
 }
 
 custom_entity{
@@ -23888,47 +23906,11 @@ tile{
 
 tile{
   layer = 2,
-  x = 568,
-  y = 648,
-  width = 8,
-  height = 40,
-  pattern = "2204",
-}
-
-tile{
-  layer = 2,
-  x = 672,
-  y = 648,
-  width = 8,
-  height = 40,
-  pattern = "2205",
-}
-
-tile{
-  layer = 2,
   x = 616,
   y = 664,
   width = 16,
   height = 8,
   pattern = "12375",
-}
-
-tile{
-  layer = 2,
-  x = 632,
-  y = 664,
-  width = 16,
-  height = 16,
-  pattern = "1351",
-}
-
-tile{
-  layer = 2,
-  x = 600,
-  y = 664,
-  width = 16,
-  height = 16,
-  pattern = "1352",
 }
 
 tile{
@@ -24968,6 +24950,24 @@ tile{
   height = 32,
   pattern = "80",
   tileset = "addition/out",
+}
+
+tile{
+  layer = 2,
+  x = 600,
+  y = 664,
+  width = 16,
+  height = 8,
+  pattern = "1349",
+}
+
+tile{
+  layer = 2,
+  x = 632,
+  y = 664,
+  width = 16,
+  height = 8,
+  pattern = "1350",
 }
 
 custom_entity{
