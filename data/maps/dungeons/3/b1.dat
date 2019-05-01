@@ -6484,7 +6484,7 @@ teletransporter{
   name = "stairs_1_A",
   layer = 0,
   x = 1144,
-  y = 824,
+  y = 832,
   width = 16,
   height = 16,
   destination_map = "dungeons/3/1f",
@@ -6494,7 +6494,7 @@ teletransporter{
 stairs{
   layer = 0,
   x = 1144,
-  y = 824,
+  y = 832,
   direction = 1,
   subtype = 2,
 }
@@ -6503,7 +6503,7 @@ destination{
   name = "stairs_1_B",
   layer = 0,
   x = 1152,
-  y = 837,
+  y = 845,
   direction = 3,
 }
 

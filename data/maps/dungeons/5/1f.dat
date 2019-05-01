@@ -17602,7 +17602,7 @@ destination{
 stairs{
   layer = 0,
   x = 1032,
-  y = 1752,
+  y = 1760,
   direction = 1,
   subtype = 3,
 }
@@ -17611,7 +17611,7 @@ teletransporter{
   name = "stairs_1_A",
   layer = 0,
   x = 1032,
-  y = 1752,
+  y = 1760,
   width = 16,
   height = 16,
   transition = "immediate",
@@ -17623,7 +17623,7 @@ destination{
   name = "stairs_1_B",
   layer = 0,
   x = 1040,
-  y = 1781,
+  y = 1773,
   direction = 3,
 }
 
@@ -18496,7 +18496,7 @@ teletransporter{
   name = "stairs_9_A",
   layer = 0,
   x = 1192,
-  y = 1016,
+  y = 1024,
   width = 16,
   height = 16,
   transition = "immediate",
@@ -18508,14 +18508,14 @@ destination{
   name = "stairs_9_B",
   layer = 0,
   x = 1200,
-  y = 1053,
+  y = 1037,
   direction = 3,
 }
 
 stairs{
   layer = 0,
   x = 1192,
-  y = 1016,
+  y = 1024,
   direction = 3,
   subtype = 3,
 }
@@ -18524,7 +18524,7 @@ teletransporter{
   name = "stairs_11_A",
   layer = 0,
   x = 1192,
-  y = 616,
+  y = 624,
   width = 16,
   height = 16,
   transition = "immediate",
@@ -18536,14 +18536,14 @@ destination{
   name = "stairs_11_B",
   layer = 0,
   x = 1200,
-  y = 653,
+  y = 637,
   direction = 3,
 }
 
 stairs{
   layer = 0,
   x = 1192,
-  y = 616,
+  y = 624,
   direction = 3,
   subtype = 3,
 }
@@ -18561,7 +18561,7 @@ block{
 stairs{
   layer = 0,
   x = 1848,
-  y = 1112,
+  y = 1120,
   direction = 1,
   subtype = 3,
 }
@@ -18570,7 +18570,7 @@ teletransporter{
   name = "stairs_13_A",
   layer = 0,
   x = 1848,
-  y = 1112,
+  y = 1120,
   width = 16,
   height = 16,
   transition = "immediate",
@@ -18582,14 +18582,14 @@ destination{
   name = "stairs_13_B",
   layer = 0,
   x = 1856,
-  y = 1141,
+  y = 1133,
   direction = 3,
 }
 
 stairs{
   layer = 0,
   x = 56,
-  y = 536,
+  y = 544,
   direction = 1,
   subtype = 3,
 }
@@ -18598,7 +18598,7 @@ teletransporter{
   name = "stairs_15_A",
   layer = 0,
   x = 56,
-  y = 536,
+  y = 544,
   width = 16,
   height = 16,
   transition = "immediate",
@@ -18610,7 +18610,7 @@ destination{
   name = "stairs_15_B",
   layer = 0,
   x = 64,
-  y = 573,
+  y = 557,
   direction = 3,
 }
 
