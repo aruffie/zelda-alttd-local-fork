@@ -15169,42 +15169,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 1656,
-  y = 296,
-  width = 16,
-  height = 24,
-  pattern = "stairs_down.2-2",
-}
-
-tile{
-  layer = 0,
-  x = 1648,
-  y = 288,
-  width = 32,
-  height = 8,
-  pattern = "stairs_down.2.border.1-2",
-}
-
-tile{
-  layer = 0,
-  x = 1648,
-  y = 296,
-  width = 8,
-  height = 24,
-  pattern = "stairs_down.2.border.2-2",
-}
-
-tile{
-  layer = 0,
-  x = 1672,
-  y = 296,
-  width = 8,
-  height = 24,
-  pattern = "stairs_down.2.border.3-2",
-}
-
-tile{
-  layer = 0,
   x = 1728,
   y = 400,
   width = 16,
@@ -16641,42 +16605,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 776,
-  y = 600,
-  width = 8,
-  height = 24,
-  pattern = "stairs_down.2.border.3-2",
-}
-
-tile{
-  layer = 0,
-  x = 752,
-  y = 592,
-  width = 32,
-  height = 8,
-  pattern = "stairs_down.2.border.1-2",
-}
-
-tile{
-  layer = 0,
-  x = 760,
-  y = 600,
-  width = 16,
-  height = 24,
-  pattern = "stairs_down.2-2",
-}
-
-tile{
-  layer = 0,
-  x = 752,
-  y = 600,
-  width = 8,
-  height = 24,
-  pattern = "stairs_down.2.border.2-2",
-}
-
-tile{
-  layer = 0,
   x = 2152,
   y = 24,
   width = 8,
@@ -16795,6 +16723,87 @@ tile{
   height = 32,
   pattern = "14",
   tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 760,
+  y = 592,
+  width = 16,
+  height = 8,
+  pattern = "stairs_inner_up.1.top-1",
+}
+
+tile{
+  layer = 0,
+  x = 776,
+  y = 600,
+  width = 8,
+  height = 24,
+  pattern = "stairs_inner_up.1.border.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 776,
+  y = 592,
+  width = 8,
+  height = 8,
+  pattern = "stairs_inner_up.1.top.border.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 760,
+  y = 600,
+  width = 16,
+  height = 24,
+  pattern = "stairs_inner_up.1-1",
+}
+
+tile{
+  layer = 0,
+  x = 752,
+  y = 592,
+  width = 8,
+  height = 8,
+  pattern = "stairs_inner_up.1.top.border.1-1",
+}
+
+tile{
+  layer = 0,
+  x = 752,
+  y = 600,
+  width = 8,
+  height = 24,
+  pattern = "stairs_inner_up.1.border.1-1",
+}
+
+tile{
+  layer = 0,
+  x = 1680,
+  y = 264,
+  width = 8,
+  height = 16,
+  pattern = "door.1.support.1-1",
+}
+
+tile{
+  layer = 0,
+  x = 1704,
+  y = 264,
+  width = 8,
+  height = 16,
+  pattern = "door.1.support.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 1688,
+  y = 264,
+  width = 16,
+  height = 16,
+  pattern = "door_stairs.straight_up.1",
 }
 
 wall{
@@ -17031,7 +17040,7 @@ crystal{
 
 destructible{
   layer = 0,
-  x = 1704,
+  x = 1672,
   y = 301,
   sprite = "entities/destructibles/pot",
   weight = 1,
@@ -17039,7 +17048,7 @@ destructible{
 
 destructible{
   layer = 0,
-  x = 1688,
+  x = 1656,
   y = 301,
   sprite = "entities/destructibles/pot",
   weight = 1,
@@ -17047,7 +17056,7 @@ destructible{
 
 destructible{
   layer = 0,
-  x = 1688,
+  x = 1656,
   y = 317,
   sprite = "entities/destructibles/pot",
   weight = 1,
@@ -20483,7 +20492,7 @@ destination{
   name = "stairs_1_B",
   layer = 0,
   x = 2168,
-  y = 1013,
+  y = 997,
   direction = 3,
 }
 
@@ -22051,7 +22060,7 @@ teletransporter{
   name = "stairs_3_A",
   layer = 0,
   x = 760,
-  y = 600,
+  y = 608,
   width = 16,
   height = 16,
   destination_map = "dungeons/2/sideview_1",
@@ -22062,23 +22071,23 @@ destination{
   name = "stairs_3_B",
   layer = 0,
   x = 768,
-  y = 629,
+  y = 621,
   direction = 3,
 }
 
 stairs{
   layer = 0,
   x = 760,
-  y = 600,
+  y = 608,
   direction = 1,
-  subtype = 3,
+  subtype = 2,
 }
 
 teletransporter{
   name = "stairs_4_A",
   layer = 0,
-  x = 1656,
-  y = 296,
+  x = 1688,
+  y = 264,
   width = 16,
   height = 16,
   destination_map = "dungeons/2/sideview_1",
@@ -22088,17 +22097,17 @@ teletransporter{
 destination{
   name = "stairs_4_B",
   layer = 0,
-  x = 1664,
-  y = 325,
+  x = 1696,
+  y = 277,
   direction = 3,
 }
 
 stairs{
   layer = 0,
-  x = 1656,
-  y = 296,
+  x = 1688,
+  y = 264,
   direction = 1,
-  subtype = 3,
+  subtype = 2,
 }
 
 stairs{
@@ -22177,7 +22186,7 @@ destination{
   name = "stairs_6_B",
   layer = 0,
   x = 2176,
-  y = 773,
+  y = 757,
   direction = 3,
 }
 
@@ -22198,6 +22207,15 @@ wall{
   stops_npcs = true,
   stops_enemies = true,
   stops_blocks = true,
+}
+
+tile{
+  layer = 1,
+  x = 1664,
+  y = 256,
+  width = 64,
+  height = 8,
+  pattern = "door_cache.1-2",
 }
 
 tile{
@@ -23020,15 +23038,6 @@ tile{
 
 tile{
   layer = 1,
-  x = 2160,
-  y = 16,
-  width = 16,
-  height = 8,
-  pattern = "door_top.stairs_up.2-2",
-}
-
-tile{
-  layer = 1,
   x = 2064,
   y = 736,
   width = 32,
@@ -23045,6 +23054,33 @@ tile{
   height = 8,
   pattern = "148",
   tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 2160,
+  y = 16,
+  width = 16,
+  height = 8,
+  pattern = "door_top.stairs_up.2-1",
+}
+
+tile{
+  layer = 1,
+  x = 1680,
+  y = 256,
+  width = 32,
+  height = 8,
+  pattern = "door_top.stairs.1-2",
+}
+
+tile{
+  layer = 1,
+  x = 1688,
+  y = 256,
+  width = 16,
+  height = 8,
+  pattern = "door_top.stairs_up.1-1",
 }
 
 jumper{
