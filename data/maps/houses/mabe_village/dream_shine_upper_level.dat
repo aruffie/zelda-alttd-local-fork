@@ -678,7 +678,7 @@ npc{
   y = 109,
   direction = 3,
   subtype = 0,
-  sprite = "entities/bed",
+  sprite = "entities/misc/bed",
 }
 
 custom_entity{

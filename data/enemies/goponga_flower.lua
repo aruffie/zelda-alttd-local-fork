@@ -21,7 +21,7 @@ function enemy:on_created()
   enemy:set_damage(4)
   enemy:set_push_hero_on_sword(true)
 
-  enemy:set_attack_consequence("sworjjd", function()
+  enemy:set_attack_consequence("sword", function()
       if not hero_is_bounce then
         hero_is_bounce = true
         audio_manager:play_sound("hero/bounce")

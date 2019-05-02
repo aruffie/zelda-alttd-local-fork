@@ -15495,24 +15495,6 @@ tile{
 
 tile{
   layer = 1,
-  x = 120,
-  y = 496,
-  width = 16,
-  height = 8,
-  pattern = "1350",
-}
-
-tile{
-  layer = 1,
-  x = 88,
-  y = 496,
-  width = 16,
-  height = 8,
-  pattern = "1349",
-}
-
-tile{
-  layer = 1,
   x = 104,
   y = 488,
   width = 16,
@@ -17611,6 +17593,24 @@ tile{
   width = 8,
   height = 8,
   pattern = "116",
+}
+
+tile{
+  layer = 1,
+  x = 88,
+  y = 488,
+  width = 16,
+  height = 16,
+  pattern = "1351",
+}
+
+tile{
+  layer = 1,
+  x = 120,
+  y = 488,
+  width = 16,
+  height = 16,
+  pattern = "1352",
 }
 
 wall{
@@ -24885,24 +24885,6 @@ tile{
 
 tile{
   layer = 2,
-  x = 120,
-  y = 480,
-  width = 16,
-  height = 16,
-  pattern = "1351",
-}
-
-tile{
-  layer = 2,
-  x = 88,
-  y = 480,
-  width = 16,
-  height = 16,
-  pattern = "1352",
-}
-
-tile{
-  layer = 2,
   x = 96,
   y = 472,
   width = 32,
@@ -26491,6 +26473,24 @@ tile{
   width = 16,
   height = 8,
   pattern = "959",
+}
+
+tile{
+  layer = 2,
+  x = 88,
+  y = 480,
+  width = 16,
+  height = 8,
+  pattern = "1349",
+}
+
+tile{
+  layer = 2,
+  x = 120,
+  y = 480,
+  width = 16,
+  height = 8,
+  pattern = "1350",
 }
 
 npc{

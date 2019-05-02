@@ -12,6 +12,7 @@
 -----------------------
 local map = ...
 local game = map:get_game()
+local blocks_start = {{}, {}}
 
 -----------------------
 -- Include scripts
@@ -30,6 +31,37 @@ require("scripts/multi_events")
 -----------------------
 -- Map events
 -----------------------
+-- Start a straight movement on an entity.
+local function start_straight_movement(entity, angle, distance, speed)
+  local movement = sol.movement.create("straight")
+  movement:set_angle(angle)
+  movement:set_max_distance(distance)
+  movement:set_speed(speed)
+  movement:set_smooth(false)
+  movement:start(entity)
+end
+
+-- Move iron blocks on y axis each time the handle is pulling.
+local function move_block_on_handle_pulled(block, angle, distance, speed)
+  pull_handle:register_event("on_pulling", function(pull_handle, movement_count)
+    local x, y, layer = block:get_position()
+    start_straight_movement(block, angle, distance, 10)
+  end)
+end
+
+-- Start movement to make iron blocks close the way out.
+local function start_blocks_closing()
+  start_straight_movement(block_1_1, 3 * math.pi / 2, 8, 2)
+  start_straight_movement(block_1_2, math.pi / 2, 8, 2)
+end
+
+-- Call start_blocks_closing when the pull handle is dropped.
+local function start_blocks_closing_on_handle_dropped()
+  pull_handle:register_event("on_dropped", function(pull_handle)
+    start_blocks_closing()
+  end)
+end
+
 -- Save iron ball position when the throw ends.
 local function save_iron_ball_position_on_finish_throw()
   iron_ball:register_event("on_finish_throw", function()
@@ -99,9 +131,12 @@ function map:on_started()
 
   -- Entities
   iron_ball:set_position(map_tools.get_entity_saved_position(iron_ball)) -- Keep iron ball position even if the game was closed.
-end
 
--- TODO Move blocks "block_1_" when handle is pulled
+  -- Blocks
+  blocks_start[1] = { block_1_1:get_position() } -- Keep initial blocks position.
+  blocks_start[2] = { block_1_2:get_position() }
+  start_blocks_closing()
+end
 
 -----------------------
 -- Doors events
@@ -148,6 +183,9 @@ treasure_manager:appear_pickable_when_enemies_dead(map, "hinox_master", "pickabl
 -----------------------
 -- Entities events
 -----------------------
+move_block_on_handle_pulled(block_1_1, math.pi / 2, 2)
+move_block_on_handle_pulled(block_1_2, 3 * math.pi / 2, 2)
+start_blocks_closing_on_handle_dropped()
 save_iron_ball_position_on_finish_throw()
 start_breaking_on_hit_by_iron_ball("pillar_")
 start_tower_cinematic_on_all_collapse_finished("pillar_")
@@ -155,4 +193,20 @@ start_tower_cinematic_on_all_collapse_finished("pillar_")
 -----------------------
 -- Separators
 -----------------------
+-- Replace blocks in the iron ball room.
+auto_separator_3:register_event("on_activating", function(separator, direction4)
+  if direction4 == 0 then
+    block_1_1:set_position(unpack(blocks_start[1]))
+    block_1_2:set_position(unpack(blocks_start[2]))
+    start_blocks_closing()
+  end
+end)
+auto_separator_5:register_event("on_activating", function(separator, direction4)
+  if direction4 == 1 then
+    block_1_1:set_position(unpack(blocks_start[1]))
+    block_1_2:set_position(unpack(blocks_start[2]))
+    start_blocks_closing()
+  end
+end)
+
 separator_manager:init(map)
