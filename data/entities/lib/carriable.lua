@@ -34,6 +34,7 @@ local default_properties = {
 function carriable_behavior.apply(carriable, properties)
 
   local map = carriable:get_map()
+  local sprite = carriable:get_sprite("")
 
   -- Function to call hit events, the entity parameter may be nil.
   local function call_hit_events(entity)
@@ -103,7 +104,6 @@ function carriable_behavior.apply(carriable, properties)
 
     -- Initialize throwing state.
     local num_bounces = #bounce_distances
-    local sprite = carriable:get_sprite("")
     local current_bounce = 1
     local current_instant = 0
     local is_bounce_movement_starting = true -- True when the carriable is not moving, but about to.
@@ -129,7 +129,7 @@ function carriable_behavior.apply(carriable, properties)
       local initial_properties = {
           name = carriable:get_name(), model = carriable:get_model(), properties = carriable:get_properties(),
           x = carriable.respawn_position.x, y = carriable.respawn_position.y, layer = carriable.respawn_position.layer, 
-          direction = carriable:get_direction(), sprite = carriable:get_sprite(""):get_animation_set(),
+          direction = carriable:get_direction(), sprite = sprite:get_animation_set(),
           width = 16, height = 16}
       carriable:remove()
       if respawn_delay then
@@ -309,7 +309,7 @@ function carriable_behavior.apply(carriable, properties)
         local hero = map:get_hero()
         local x, y, layer = hero:get_position()
         local direction = hero:get_direction()
-        local animation_set = carried_object:get_sprite(""):get_animation_set()
+        local animation_set = sprite:get_animation_set()
         local initial_properties = {
             name = carriable_name, model = carriable_model, properties = carriable_properties,
             x = x, y = y, layer = layer, direction = direction, sprite = animation_set, width = 16, height = 16}

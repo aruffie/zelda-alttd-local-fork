@@ -58,7 +58,7 @@ pull_handle:register_event("on_created", function()
   -- Setup the return movement when the hero drop the handle.
   local hero = map:get_hero()
   hero:register_event("on_state_changing", function(hero, state_name, next_state_name)
-    local is_letting_go = (state_name == "pulling" or state_name == "grabbing") and next_state_name == "free"
+    local is_letting_go = (state_name == "pulling" or state_name == "grabbing" or state_name == "pushing") and next_state_name == "free"
     if is_letting_go and get_y_gap() ~= 0 then
       local movement = sol.movement.create("straight")
       movement:set_angle(math.pi / 2)
