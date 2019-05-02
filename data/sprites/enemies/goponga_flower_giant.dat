@@ -21,6 +21,17 @@ animation{
   },
 }
 animation{
+  name = "bounce",
+  src_image = "enemies/goponga_flower_giant.png",
+  frame_delay = 50,
+  directions = {
+    { x = 0, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 28, num_frames = 2 },
+    { x = 0, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 28, num_frames = 2 },
+    { x = 0, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 28, num_frames = 2 },
+    { x = 0, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 28, num_frames = 2 },
+  },
+}
+animation{
   name = "hurt",
   src_image = "enemies/goponga_flower_giant.png",
   directions = {
