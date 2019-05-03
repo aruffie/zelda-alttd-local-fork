@@ -211,6 +211,7 @@ sprite{ id = "enemies/boss/cue_ball/cue_ball", description = "Cue ball" }
 sprite{ id = "enemies/boss/cue_ball/cue_ball_splash_effect", description = "Cue ball splash effect" }
 sprite{ id = "enemies/boss/dodongo_snake/dodongo_snake", description = "Dodongo_snake" }
 sprite{ id = "enemies/boss/dodongo_snake/dodongo_snake_body", description = "Dodongo snake body" }
+sprite{ id = "enemies/boss/evil_eagle", description = "Evil eagle" }
 sprite{ id = "enemies/boss/evil_orb/evil_orb", description = "Evil orb" }
 sprite{ id = "enemies/boss/evil_orb/evil_orb_head", description = "Orb evil orb" }
 sprite{ id = "enemies/boss/facade", description = "Facade" }
