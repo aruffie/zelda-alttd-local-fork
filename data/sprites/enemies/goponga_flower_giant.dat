@@ -1,13 +1,13 @@
 animation{
   name = "walking",
   src_image = "enemies/goponga_flower_giant.png",
-  frame_delay = 400,
+  frame_delay = 200,
   frame_to_loop_on = 0,
   directions = {
-    { x = 0, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 28, num_frames = 2 },
-    { x = 0, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 28, num_frames = 2 },
-    { x = 0, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 28, num_frames = 2 },
-    { x = 0, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 28, num_frames = 2 },
+    { x = 0, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 28, num_frames = 10 },
+    { x = 0, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 28, num_frames = 10 },
+    { x = 0, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 28, num_frames = 10 },
+    { x = 0, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 28, num_frames = 10 },
   },
 }
 animation{
@@ -25,10 +25,10 @@ animation{
   src_image = "enemies/goponga_flower_giant.png",
   frame_delay = 50,
   directions = {
-    { x = 0, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 28, num_frames = 2 },
-    { x = 0, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 28, num_frames = 2 },
-    { x = 0, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 28, num_frames = 2 },
-    { x = 0, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 28, num_frames = 2 },
+    { x = 0, y = 32, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 28, num_frames = 8 },
+    { x = 0, y = 32, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 28, num_frames = 8 },
+    { x = 0, y = 32, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 28, num_frames = 8 },
+    { x = 0, y = 32, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 28, num_frames = 8 },
   },
 }
 animation{
