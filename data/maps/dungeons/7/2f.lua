@@ -41,7 +41,7 @@ local function start_straight_movement(entity, angle, distance, speed)
 end
 
 -- Move iron blocks on y axis each time the handle is pulling.
-local function move_block_on_handle_pulled(block, angle, max_distance, speed, limit)
+local function move_block_on_handle_pulled(block, angle, max_distance)
   pull_handle:register_event("on_pulling", function(pull_handle, movement_count)
     -- Move max_distance unless the limit is reached.
     local _, block_y = block:get_position()
@@ -55,8 +55,8 @@ end
 
 -- Start movement to make iron blocks close the way out.
 local function start_blocks_closing()
-  start_straight_movement(block_1_1, 3 * math.pi / 2, 8, 2)
-  start_straight_movement(block_1_2, math.pi / 2, 8, 2)
+  start_straight_movement(block_1_1, 3 * math.pi / 2, 16, 2)
+  start_straight_movement(block_1_2, math.pi / 2, 16, 2)
 end
 
 -- Call start_blocks_closing when the pull handle is dropped.
@@ -137,9 +137,8 @@ function map:on_started()
   iron_ball:set_position(map_tools.get_entity_saved_position(iron_ball)) -- Keep iron ball position even if the game was closed.
 
   -- Blocks
-  block_1_1.start_x, block_1_1.start_y, block_1_1.start_layer = block_1_1:get_position() -- Keep initial blocks position.
+  block_1_1.start_x, block_1_1.start_y, block_1_1.start_layer = block_1_1:get_position()
   block_1_2.start_x, block_1_2.start_y, block_1_2.start_layer = block_1_2:get_position()
-  start_blocks_closing()
 end
 
 -----------------------
@@ -187,8 +186,8 @@ treasure_manager:appear_pickable_when_enemies_dead(map, "hinox_master", "pickabl
 -----------------------
 -- Entities events
 -----------------------
-move_block_on_handle_pulled(block_1_1, math.pi / 2, 2)
-move_block_on_handle_pulled(block_1_2, 3 * math.pi / 2, 2)
+move_block_on_handle_pulled(block_1_1, math.pi / 2, 4)
+move_block_on_handle_pulled(block_1_2, 3 * math.pi / 2, 4)
 start_blocks_closing_on_handle_dropped()
 save_iron_ball_position_on_finish_throw()
 start_breaking_on_hit_by_iron_ball("pillar_")

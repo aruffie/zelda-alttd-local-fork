@@ -1,6 +1,6 @@
 ----------------------------------
 --
--- A pull handle that can be pulled and come back to its inital place.
+-- A handle that can be pulled and come back to its inital place.
 --
 -- Events :  pull_handle:on_pulling(movement_count)
 --           pull_handle:on_released()
@@ -57,9 +57,9 @@ pull_handle:register_event("on_created", function()
 
   -- Switch the pull_handle and handle_block position and activation.
   local function switch_handle_entities()
-    pull_handle_position = {pull_handle:get_position()}
+    local x, y, layer = pull_handle:get_position()
     pull_handle:set_position(handle_block:get_position())
-    handle_block:set_position(unpack(pull_handle_position))
+    handle_block:set_position(x, y, layer)
     pull_handle:set_enabled(not pull_handle:is_enabled())
     handle_block:set_enabled(not handle_block:is_enabled())
   end
@@ -75,6 +75,7 @@ pull_handle:register_event("on_created", function()
   hero:register_event("on_state_changing", function(hero, state_name, next_state_name)
     local is_released = (state_name == "pulling" or state_name == "grabbing" or state_name == "pushing") and next_state_name == "free"
     if is_released and get_y_gap(handle_block) ~= 0 then
+
       -- Apply the go back movement to the initial custom entity to avoid traversable blocks behavior when moved.
       switch_handle_entities()
       local movement = sol.movement.create("straight")
@@ -83,6 +84,7 @@ pull_handle:register_event("on_created", function()
       movement:set_max_distance(get_y_gap(pull_handle))
       movement:set_smooth(false)
       movement:start(pull_handle)
+
       -- Resize the chain while going back to initial place.
       function movement:on_position_changed()
         local y_gap = get_y_gap(pull_handle)
@@ -90,12 +92,14 @@ pull_handle:register_event("on_created", function()
           handle_chain:set_size(8, y_gap)
         end
       end
+
       -- Switch handle entities to be able to pull it again and reset move count when the movement finished.
       function movement:on_finished()
         switch_handle_entities()
         handle_block:reset() 
         movement_count = 0
       end
+
       -- Call the released event.
       if pull_handle.on_released then
         pull_handle:on_released()
