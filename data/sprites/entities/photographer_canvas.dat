@@ -1,0 +1,10 @@
+animation{
+  name = "default",
+  src_image = "entities/photographer_canvas.png",
+  directions = {
+    { x = 24, y = 0, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 13 },
+    { x = 0, y = 16, frame_width = 24, frame_height = 16, origin_x = 8, origin_y = 13 },
+    { x = 40, y = 0, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 13 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 16, origin_x = 8, origin_y = 13 },
+  },
+}
