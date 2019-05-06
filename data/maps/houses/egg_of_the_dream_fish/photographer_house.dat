@@ -291,7 +291,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 200,
+  x = 208,
   y = 144,
   width = 16,
   height = 16,
@@ -466,6 +466,127 @@ tile{
   width = 16,
   height = 16,
   pattern = "153",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 96,
+  y = 160,
+  width = 16,
+  height = 8,
+  pattern = "table.8",
+}
+
+tile{
+  layer = 0,
+  x = 88,
+  y = 144,
+  width = 8,
+  height = 8,
+  pattern = "table.1",
+}
+
+tile{
+  layer = 0,
+  x = 88,
+  y = 152,
+  width = 8,
+  height = 8,
+  pattern = "table.4",
+}
+
+tile{
+  layer = 0,
+  x = 96,
+  y = 144,
+  width = 16,
+  height = 8,
+  pattern = "table.2",
+}
+
+tile{
+  layer = 0,
+  x = 112,
+  y = 160,
+  width = 8,
+  height = 8,
+  pattern = "table.9",
+}
+
+tile{
+  layer = 0,
+  x = 88,
+  y = 160,
+  width = 8,
+  height = 8,
+  pattern = "table.7",
+}
+
+tile{
+  layer = 0,
+  x = 96,
+  y = 152,
+  width = 16,
+  height = 8,
+  pattern = "table.5",
+}
+
+tile{
+  layer = 0,
+  x = 112,
+  y = 152,
+  width = 8,
+  height = 8,
+  pattern = "table.6",
+}
+
+tile{
+  layer = 0,
+  x = 112,
+  y = 144,
+  width = 8,
+  height = 8,
+  pattern = "table.3",
+}
+
+tile{
+  layer = 0,
+  x = 96,
+  y = 144,
+  width = 16,
+  height = 16,
+  pattern = "98",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = -40,
+  y = 112,
+  width = 16,
+  height = 8,
+  pattern = "142",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 112,
+  y = 80,
+  width = 24,
+  height = 32,
+  pattern = "155",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 184,
+  y = 80,
+  width = 24,
+  height = 32,
+  pattern = "155",
   tileset = "addition/dungeon",
 }
 
