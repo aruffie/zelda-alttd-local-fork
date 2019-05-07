@@ -1,7 +1,7 @@
 local jm={}
 
-local y_accel = 0.35
-local max_yvel = 5
+local y_accel = 0.1
+local max_yvel = 2
 
 local debug_start_x, debug_start_y
 local debug_max_height = 0
@@ -67,6 +67,7 @@ function jm.update_jump(entity)
 end
 
 function jm.start(entity)
+  print (entity:get_type())
   if not entity:is_jumping() then
     audio_manager:play_sound("hero/jump")
     debug_start_x, debug_start_y=entity:get_position()

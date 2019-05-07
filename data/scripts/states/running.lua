@@ -39,6 +39,7 @@ function state:on_started()
   sprite:set_animation("walking")
   entity.running_timer=sol.timer.start(entity, 500, function() --start movement and pull out sword if any
       entity.running_timer=nil
+      entity.running=true
       if game:get_ability("sword")>0 and game:has_item("sword") then
         sprite:set_animation("sword_loading_walking")
         local sword_sprite = entity:get_sprite("sword")
@@ -108,6 +109,7 @@ function state:on_finished()
     entity.running_timer:stop()
     entity.running_timer=nil
   end
+  entity.running=nil
   entity:stop_movement()
 end
 
