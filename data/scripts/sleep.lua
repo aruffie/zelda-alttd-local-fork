@@ -39,7 +39,7 @@ function hero_meta:launch_sleeping()
           local sa = sleeping_animation
           sleeping_animation = nil
           hero:freeze()
-          animation(hero, sa.animation_out)
+          animation(hero:get_sprite("tunic"), sa.animation_out)
           hero:unfreeze()
         end)
     end
@@ -50,7 +50,7 @@ function hero_meta:launch_sleeping()
           sleeping_animation = sleeping_animations[index]
           -- Immediate animation
           if sleeping_animation.type == 'immediate' then
-            animation(hero, sleeping_animation.animation_in)
+            animation(hero:get_sprite("tunic"), sleeping_animation.animation_in)
             hero:unfreeze()
             hero:launch_sleeping()
             sleeping_animation = nil
@@ -58,7 +58,7 @@ function hero_meta:launch_sleeping()
             -- Overtime animation
             hero:get_sprite():set_animation(sleeping_animation.animation_in)
             wait(sleeping_animation.duration)
-            animation(hero, sleeping_animation.animation_out)
+            animation(hero:get_sprite("tunic"), sleeping_animation.animation_out)
             hero:unfreeze()
             sleeping_animation = nil
           end
