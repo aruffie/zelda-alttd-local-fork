@@ -453,10 +453,10 @@ tile_pattern{
   id = "137",
   ground = "wall",
   default_layer = 0,
-  x = 424,
-  y = 112,
+  x = 512,
+  y = 0,
   width = 32,
-  height = 40,
+  height = 48,
 }
 
 tile_pattern{
@@ -969,6 +969,16 @@ tile_pattern{
   y = 144,
   width = 16,
   height = 16,
+}
+
+tile_pattern{
+  id = "25",
+  ground = "wall",
+  default_layer = 0,
+  x = 64,
+  y = 64,
+  width = 32,
+  height = 32,
 }
 
 tile_pattern{

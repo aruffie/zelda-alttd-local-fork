@@ -18321,7 +18321,7 @@ enemy{
 
 enemy{
   layer = 1,
-  x = 104,
+  x = 96,
   y = 445,
   direction = 0,
   breed = "goponga_flower",
@@ -18419,7 +18419,7 @@ teletransporter{
 
 enemy{
   layer = 1,
-  x = 104,
+  x = 96,
   y = 461,
   direction = 0,
   breed = "goponga_flower",
@@ -18428,7 +18428,7 @@ enemy{
 
 enemy{
   layer = 1,
-  x = 96,
+  x = 88,
   y = 477,
   direction = 0,
   breed = "goponga_flower",
@@ -18437,7 +18437,7 @@ enemy{
 
 enemy{
   layer = 1,
-  x = 64,
+  x = 72,
   y = 485,
   direction = 0,
   breed = "goponga_flower",
@@ -18446,8 +18446,8 @@ enemy{
 
 enemy{
   layer = 1,
-  x = 80,
-  y = 485,
+  x = 56,
+  y = 477,
   direction = 0,
   breed = "goponga_flower",
   treasure_name = "random",
@@ -18456,15 +18456,6 @@ enemy{
 enemy{
   layer = 1,
   x = 48,
-  y = 477,
-  direction = 0,
-  breed = "goponga_flower",
-  treasure_name = "random",
-}
-
-enemy{
-  layer = 1,
-  x = 40,
   y = 461,
   direction = 0,
   breed = "goponga_flower",
@@ -18473,7 +18464,7 @@ enemy{
 
 enemy{
   layer = 1,
-  x = 40,
+  x = 48,
   y = 445,
   direction = 0,
   breed = "goponga_flower",
