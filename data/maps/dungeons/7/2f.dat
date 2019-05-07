@@ -10675,28 +10675,6 @@ chest{
   sprite = "entities/chests/chest_small",
 }
 
-block{
-  name = "block_1_1",
-  layer = 0,
-  x = 1016,
-  y = 349,
-  sprite = "entities/blocks/block",
-  pushable = false,
-  pullable = false,
-  max_moves = 0,
-}
-
-block{
-  name = "block_1_2",
-  layer = 0,
-  x = 1016,
-  y = 381,
-  sprite = "entities/blocks/block",
-  pushable = false,
-  pullable = false,
-  max_moves = 0,
-}
-
 chest{
   name = "chest_mirror_shield",
   layer = 0,
@@ -12515,6 +12493,30 @@ block{
   pushable = false,
   pullable = false,
   maximum_moves = 0,
+}
+
+custom_entity{
+  name = "block_1_1",
+  layer = 0,
+  x = 1016,
+  y = 341,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/blocks/block",
+  model = "obstacle",
+}
+
+custom_entity{
+  name = "block_1_2",
+  layer = 0,
+  x = 1016,
+  y = 389,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/blocks/block",
+  model = "obstacle",
 }
 
 tile{

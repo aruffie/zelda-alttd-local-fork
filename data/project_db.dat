@@ -211,6 +211,7 @@ sprite{ id = "enemies/boss/cue_ball/cue_ball", description = "Cue ball" }
 sprite{ id = "enemies/boss/cue_ball/cue_ball_splash_effect", description = "Cue ball splash effect" }
 sprite{ id = "enemies/boss/dodongo_snake/dodongo_snake", description = "Dodongo_snake" }
 sprite{ id = "enemies/boss/dodongo_snake/dodongo_snake_body", description = "Dodongo snake body" }
+sprite{ id = "enemies/boss/evil_eagle", description = "Evil eagle" }
 sprite{ id = "enemies/boss/evil_orb/evil_orb", description = "Evil orb" }
 sprite{ id = "enemies/boss/evil_orb/evil_orb_head", description = "Orb evil orb" }
 sprite{ id = "enemies/boss/facade", description = "Facade" }
@@ -430,8 +431,8 @@ sprite{ id = "entities/effects/sparkle_big", description = "Sparkle big" }
 sprite{ id = "entities/effects/sparkle_small", description = "Sparkle small" }
 sprite{ id = "entities/explosion", description = "Explosion" }
 sprite{ id = "entities/explosion_boss", description = "Explosion boss" }
+sprite{ id = "entities/fire", description = "Fire" }
 sprite{ id = "entities/fire_mask", description = "Fire mask" }
-sprite{ id = "entities/fisher_boat", description = "Fisher boat" }
 sprite{ id = "entities/grounds/color_platform_green", description = "Color platform green" }
 sprite{ id = "entities/grounds/color_platform_orange", description = "Color platform orange" }
 sprite{ id = "entities/grounds/color_platform_red", description = "Color platform red" }
@@ -440,7 +441,9 @@ sprite{ id = "entities/grounds/conveyor_belt_2", description = "Conveyor belt 2"
 sprite{ id = "entities/grounds/conveyor_belt_3", description = "Conveyor belt 3" }
 sprite{ id = "entities/grounds/conveyor_belt_4", description = "Conveyor belt 4" }
 sprite{ id = "entities/grounds/conveyor_belt_minigame", description = "Conveyor belt minigame" }
+sprite{ id = "entities/grounds/fisher_boat", description = "Fisher boat" }
 sprite{ id = "entities/grounds/ground_dug", description = "Ground dug" }
+sprite{ id = "entities/grounds/rafting_arrow", description = "Rafting arrow" }
 sprite{ id = "entities/grounds/weak_floor_dark_1", description = "Weak floor dark 1" }
 sprite{ id = "entities/grounds/weak_floor_dark_2", description = "Weak floor dark 2" }
 sprite{ id = "entities/grounds/weak_floor_dark_3", description = "Weak floor dark 3" }
@@ -509,6 +512,7 @@ sprite{ id = "entities/orb_monster_orb_blue", description = "Orb monster orb blu
 sprite{ id = "entities/orb_monster_orb_green", description = "Orb monster orb green" }
 sprite{ id = "entities/orb_monster_orb_red", description = "Orb monster orb red" }
 sprite{ id = "entities/outside_door", description = "Outside closed door" }
+sprite{ id = "entities/photographer_canvas", description = "Photographer canvas" }
 sprite{ id = "entities/prices_shop", description = "Prices shop" }
 sprite{ id = "entities/shadow", description = "Shadow" }
 sprite{ id = "entities/shadows/ball", description = "Ball" }

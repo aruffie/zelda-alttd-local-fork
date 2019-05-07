@@ -1,6 +1,10 @@
 -- Variables
 local map = ...
 local game = map:get_game()
+local hero_has_already_talk = false
+
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
 
 -- Map events
 function map:on_started(destination)
@@ -13,11 +17,38 @@ end
 -- Initialize the music of the map
 function map:init_music()
 
-  -- Todo add music drugsto
+  audio_manager:play_music("14_shop")
+
+end
+
+-- Discussion with Monique
+function  map:talk_to_monique()
+  
+  if not hero_has_already_talk then
+    game:start_dialog("maps.houses.graveyard.drugstore.monique_1", function()
+      hero_has_already_talk = true
+    end)
+  else
+    game:start_dialog("maps.houses.graveyard.drugstore.monique_2", function(answer)
+      if answer then
+      else
+        game:start_dialog("maps.houses.graveyard.drugstore.monique_7")
+      end
+      hero_has_already_talk = false
+    end)
+  end
+  
 
 end
 
 -- NPCs events
+
+function monique:on_interaction()
+
+  map:talk_to_monique()
+
+end
+
 -- Wardrobes
 for wardrobe in map:get_entities("wardrobe") do
   function wardrobe:on_interaction()
