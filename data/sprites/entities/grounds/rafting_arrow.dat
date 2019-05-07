@@ -1,6 +1,6 @@
 animation{
   name = "default",
-  src_image = "entities/rafting_arrow.png",
+  src_image = "entities/grounds/rafting_arrow.png",
   frame_delay = 150,
   frame_to_loop_on = 0,
   directions = {
