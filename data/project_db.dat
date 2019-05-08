@@ -366,8 +366,8 @@ sprite{ id = "entities/boomerang1", description = "Boomerang 1" }
 sprite{ id = "entities/boomerang2", description = "Boomerang 2" }
 sprite{ id = "entities/bow", description = "Bow" }
 sprite{ id = "entities/chain", description = "Chain" }
-sprite{ id = "entities/chests/chest_big", description = "Chest big" }
-sprite{ id = "entities/chests/chest_small", description = "Chest small" }
+sprite{ id = "entities/chests/chest_big", description = "Big chest" }
+sprite{ id = "entities/chests/chest_small", description = "Small chest" }
 sprite{ id = "entities/claw_chain", description = "Claw chain" }
 sprite{ id = "entities/claw_crane", description = "Claw crane" }
 sprite{ id = "entities/claw_up", description = "Claw up" }
@@ -443,7 +443,6 @@ sprite{ id = "entities/grounds/conveyor_belt_4", description = "Conveyor belt 4"
 sprite{ id = "entities/grounds/conveyor_belt_minigame", description = "Conveyor belt minigame" }
 sprite{ id = "entities/grounds/fisher_boat", description = "Fisher boat" }
 sprite{ id = "entities/grounds/ground_dug", description = "Ground dug" }
-sprite{ id = "entities/grounds/rafting_arrow", description = "Rafting arrow" }
 sprite{ id = "entities/grounds/weak_floor_dark_1", description = "Weak floor dark 1" }
 sprite{ id = "entities/grounds/weak_floor_dark_2", description = "Weak floor dark 2" }
 sprite{ id = "entities/grounds/weak_floor_dark_3", description = "Weak floor dark 3" }
@@ -524,6 +523,7 @@ sprite{ id = "entities/statues/pillar", description = "Pillar base" }
 sprite{ id = "entities/statues/statue_darknut", description = "Statue darknut" }
 sprite{ id = "entities/statues/statue_koopa", description = "Statue koopa" }
 sprite{ id = "entities/statues/statue_pig", description = "Statue pig" }
+sprite{ id = "entities/streams/water_stream", description = "Water stream" }
 sprite{ id = "entities/switchs/switch", description = "Switch" }
 sprite{ id = "entities/switchs/switch_eye_blue", description = "Switch eye blue" }
 sprite{ id = "entities/switchs/switch_eye_red", description = "Switch eye red" }
