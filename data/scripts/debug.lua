@@ -169,48 +169,48 @@ local debug_command_sprite=sol.sprite.create("debug/commands")
 local commands = {
   {
     name = "action",
-    x = 8,
-    y = 8,
+    x = 310,
+    y = 227,
   },
   {
     name = "attack", 
-    x = 16,
-    y = 8,
+    x = 301,
+    y = 233,
   }, 
   {
     name = "item_1", 
-    x = 24,
-    y = 8,
+    x = 292,
+    y = 227,
   },
   {
     name = "item_2", 
-    x = 32,
-    y = 8,
+    x = 301,
+    y = 222,
   }, 
   {
     name = "pause", 
-    x = 40,
-    y = 8,
+    x = 283,
+    y = 227,
   }, 
   {
     name = "up", 
-    x =  48,
-    y = 8,
+    x = 270,
+    y = 222,
   }, 
   {
     name = "down", 
-    x = 56,
-    y = 8,
+    x = 270,
+    y = 232,
   }, 
   {
     name = "left", 
-    x = 64,
-    y = 8,
+    x = 266,
+    y = 227,
   }, 
   {
     name = "right",
-    x = 72,
-    y = 8,
+    x = 274,
+    y = 227,
   },
 }
 
