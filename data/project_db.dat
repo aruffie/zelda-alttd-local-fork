@@ -152,8 +152,8 @@ map{ id = "trial/1", description = "Level 1" }
 map{ id = "trial/2", description = "Level 2" }
 map{ id = "trial/3", description = "Level 3" }
 
-tileset{ id = "addition/dungeon", description = "Addition dungeon" }
-tileset{ id = "addition/out", description = "Out" }
+tileset{ id = "addition/dungeon", description = "Dungeon additions" }
+tileset{ id = "addition/out", description = "Out additions" }
 tileset{ id = "dungeon/blue", description = "Blue" }
 tileset{ id = "dungeon/brown", description = "Brown" }
 tileset{ id = "dungeon/dark_brown", description = "Dark brown" }
