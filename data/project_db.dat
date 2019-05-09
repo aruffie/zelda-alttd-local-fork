@@ -754,7 +754,9 @@ music{ id = "gb/49_manbo_mambo", description = "49 - Manbo's mambo" }
 music{ id = "gb/51_house_by_the_bay", description = "51 - House by the bay" }
 music{ id = "gb/52_fishing_under_the_bridge", description = "52 - Fishing under the bridge" }
 music{ id = "gb/53_level_5_catfish_maw", description = "53 - Level 5 - Catfish's maw" }
+music{ id = "gb/54_boss_warning", description = "54 - Boss warning" }
 music{ id = "gb/55_the_wind_marimba", description = "55 - The wind marimba" }
+music{ id = "gb/56_frogs_song_of_soul", description = "56 - Frogs Song Of Soul" }
 music{ id = "gb/58_southern_shrine", description = "58 - Southern shrine" }
 music{ id = "gb/59_level_6_face_shrine", description = "59- Level 6 - Face shrine" }
 music{ id = "gb/60_coral_triangle", description = "68 - Coral triangle" }
@@ -768,35 +770,50 @@ music{ id = "gb/72_great_fairy_fountain", description = "72 - Great fairy founta
 music{ id = "gb/74_wind_fish_egg", description = "74 - Wind fish egg" }
 music{ id = "gb/82_game_over", description = "82 - Game over" }
 music{ id = "snes/02_title", description = "02 - Title" }
-music{ id = "snes/02_title_no_intro", description = "02 - Title no intro" }
+music{ id = "snes/02_title_no_intro", description = "02 - Title No Intro" }
 music{ id = "snes/06_marin_house", description = "06 - Marin's House" }
 music{ id = "snes/07_koholint_island", description = "07 - Koholint Island.ogg" }
 music{ id = "snes/08_the_owl", description = "08 - The Owl" }
-music{ id = "snes/09_beginning_of_the_journey", description = "09 - Begining of the journey" }
+music{ id = "snes/09_beginning_of_the_journey", description = "09 - Begining Of The Journey" }
 music{ id = "snes/10_overworld", description = "10 - Overworld" }
 music{ id = "snes/11_mabe_village", description = "11 - Mabe Village" }
 music{ id = "snes/12_house", description = "12 - House" }
 music{ id = "snes/13_phone", description = "13 - Phone" }
 music{ id = "snes/14_shop", description = "14 - Shop" }
-music{ id = "snes/14_shop_high", description = "14 - Shop high" }
+music{ id = "snes/14_shop_high", description = "14 - Shop High" }
 music{ id = "snes/15_trendy_game", description = "15 - Trendy Game" }
 music{ id = "snes/16_mysterious_forest", description = "16 - Mysterious Forest" }
 music{ id = "snes/18_cave", description = "18 - Cave" }
-music{ id = "snes/19_level_1_tail_cave", description = "19 - Level 1 - Tail cave" }
+music{ id = "snes/19_level_1_tail_cave", description = "19 - Level 1 - Tail Cave" }
 music{ id = "snes/20_sidescrolling", description = "20 - Sidescrolling" }
-music{ id = "snes/21_mini_boss_battle", description = "21 - Mini boss battle" }
-music{ id = "snes/22_boss_battle", description = "22 - Boss battle" }
-music{ id = "snes/23_boss_defeated", description = "23 - Boss defeated" }
-music{ id = "snes/24_instrument_of_the_sirens", description = "24 - Instrument of the sirens" }
-music{ id = "snes/25_the_full_moon_cello", description = "25 - The full moon cello" }
-music{ id = "snes/26_bowwow_dognapped", description = "26 - Bowow dognapped" }
+music{ id = "snes/21_mini_boss_battle", description = "21 - Mini Boss Battle" }
+music{ id = "snes/22_boss_battle", description = "22 - Boss Battle" }
+music{ id = "snes/23_boss_defeated", description = "23 - Boss Defeated" }
+music{ id = "snes/24_instrument_of_the_sirens", description = "24 - Instrument Of The Sirens" }
+music{ id = "snes/25_the_full_moon_cello", description = "25 - The Full Moon Cello" }
+music{ id = "snes/26_bowwow_dognapped", description = "26 - Bowow Dognapped" }
 music{ id = "snes/27_mr_write_house", description = "27 - Mr Write" }
+music{ id = "snes/28_level_2_bottle_grotto", description = "28 - Level 2 - Bottle Grotto" }
+music{ id = "snes/29_the_conch_horn", description = "29 - The Conch Horn" }
+music{ id = "snes/30_richard_villa", description = "30 - Richard Villa" }
+music{ id = "snes/31_kiki_bridge", description = "31 - Kiki Bridge" }
+music{ id = "snes/32_kanalet_castle", description = "33 - Kanalet Castle" }
+music{ id = "snes/33_level_3_key_cavern", description = "33 - Level 3 - Key Cavern" }
+music{ id = "snes/34_the_sea_lily_bell", description = "34 - The Sea Lily Bell" }
 music{ id = "snes/41_christine_house", description = "41 - Christine's House" }
-music{ id = "snes/46_tal_tal_mountain_range", description = "46 - Tal tal Mountain Range" }
-music{ id = "snes/51_house_by_the_bay", description = "51 - House by the bay" }
-music{ id = "snes/52_fishing_under_the_bridge", description = "52 - Fishing under the bridge" }
+music{ id = "snes/46_tal_tal_mountain_range", description = "46 - Tal Tal Mountain Range" }
+music{ id = "snes/47_level_4_angler_tunnel", description = "47 - Level 4 - Angler Tunnel" }
+music{ id = "snes/48_the_surf_harp", description = "48 - The Surf Harp" }
+music{ id = "snes/51_house_by_the_bay", description = "51 - House By The Bay" }
+music{ id = "snes/52_fishing_under_the_bridge", description = "52 - Fishing Under The Bridge" }
 music{ id = "snes/53_level_5_catfish_maw", description = "53 - Level 5 - Catfish's maw" }
-music{ id = "snes/59_level_6_face_shrine", description = "59- Level 6 - Face shrine" }
+music{ id = "snes/54_boss_warning", description = "54 - Boss Warning" }
+music{ id = "snes/55_the_wind_marimba", description = "55 - The Wind Marimba" }
+music{ id = "snes/56_frogs_song_of_soul", description = "56 - Frogs Song Of Soul" }
+music{ id = "snes/59_level_6_face_shrine", description = "59 - Level 6 - Face Shrine" }
+music{ id = "snes/60_coral_triangle", description = "60 - Coral Triangle" }
+music{ id = "snes/67_organ_of_evening_calm", description = "67 - Organ of Evening Calm" }
+music{ id = "snes/70_thunder_drum", description = "70 - Thunder Drum" }
 
 sound{ id = "arrow_hit", description = "Empty sound" }
 sound{ id = "boomerang", description = "Empty sound" }
@@ -1980,6 +1997,7 @@ file{ path = "musics/gb/49_manbo_mambo.ogg", author = "Nintendo", license = "Pro
 file{ path = "musics/gb/51_house_by_the_bay.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "musics/gb/52_fishing_under_the_bridge.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "musics/gb/53_level_5_catfish_maw.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/54_boss_warning.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "musics/gb/55_the_wind_marimba.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "musics/gb/58_southern_shrine.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "musics/gb/59_level_6_face_shrine.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
@@ -1993,12 +2011,14 @@ file{ path = "musics/gb/71_color_dungeon.ogg", author = "Nintendo", license = "P
 file{ path = "musics/gb/72_great_fairy_fountain.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "musics/gb/74_wind_fish_egg.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "musics/gb/82_game_over.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
-file{ path = "musics/snes", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes", author = "Nintendo, Farockt, Loeder", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/02_title.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/02_title_no_intro.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/06_marin_house.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/07_koholint_island.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/08_the_owl.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/09_beginning_of_the_journey.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
-file{ path = "musics/snes/10_overworld.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/10_overworld.ogg", author = "Nintendo, Loeder", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/11_mabe_village.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/12_house.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/13_phone.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
@@ -2007,9 +2027,36 @@ file{ path = "musics/snes/14_shop_high.ogg", author = "Nintendo, Farockt", licen
 file{ path = "musics/snes/15_trendy_game.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/16_mysterious_forest.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/18_cave.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/19_level_1_tail_cave.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/20_sidescrolling.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/21_mini_boss_battle.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/22_boss_battle.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/23_boss_defeated.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/24_instrument_of_the_sirens.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/25_the_full_moon_cello.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/26_bowwow_dognapped.ogg", author = "Nintendo, Loeder", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/27_mr_write_house.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/28_level_2_bottle_grotto.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/29_the_conch_horn.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/30_richard_villa.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/31_kiki_bridge.ogg", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/32_kanalet_castle.ogg", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/33_level_3_key_cavern.ogg", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/34_the_sea_lily_bell.ogg", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/41_christine_house.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
-file{ path = "musics/snes/46_tal_tal_mountain_range.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/46_tal_tal_mountain_range.ogg", author = "Nintendo, Loeder", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/47_level_4_angler_tunnel.ogg", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/48_the_surf_harp.ogg", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/51_house_by_the_bay.ogg", author = "Nintendo, Loeder", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/52_fishing_under_the_bridge.ogg", author = "Nintendo, Loeder", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/53_level_5_catfish_maw.ogg", author = "Nintendo, Loeder", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/54_boss_warning.ogg", author = "Nintendo, Loeder", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/55_the_wind_marimba.ogg", author = "Nintendo, Loeder", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/56_frogs_song_of_soul.ogg", author = "Nintendo, Loeder", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/59_level_6_face_shrine.ogg", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/60_coral_triangle.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/67_organ_of_evening_calm.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/70_thunder_drum.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
 file{ path = "scripts", license = "GPL v3" }
 file{ path = "scripts/automation", author = "Olivier Cléro", license = "BSD, GPL v3" }
 file{ path = "scripts/automation/automation.lua", author = "Olivier Cléro", license = "GPL v3" }
