@@ -66,9 +66,6 @@ function pillar:start_breaking()
   map:set_cinematic_mode(true, {entities_ignore_suspend = {pillar}})
   make_all_invincible(true)
 
-  -- Start earthquake.
-  map_tools.start_earthquake({count = 64, amplitude = 4, speed = 90})
-
   -- Start 3 chained explosions.
   for i = 1, 3 do
     explosion_timer = sol.timer.start((i - 1) * 500, function()
@@ -80,6 +77,7 @@ function pillar:start_breaking()
           if pillar.on_collapse_finished then
             pillar:on_collapse_finished() -- Call event
           end
+          pillar:set_enabled(false)
         end
       end)
     end)

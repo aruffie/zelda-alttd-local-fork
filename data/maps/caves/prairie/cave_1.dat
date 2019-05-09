@@ -1592,7 +1592,7 @@ door{
   layer = 0,
   x = 256,
   y = 168,
-  direction = 0,
+  direction = 2,
   sprite = "entities/doors/door_very_weak_wall",
   savegame_variable = "prairie_cave_1_weak_1",
   opening_method = "explosion",
@@ -1640,6 +1640,12 @@ teletransporter{
   layer = 0,
   x = 128,
   y = 429,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/b3_prairie",
@@ -1650,7 +1656,7 @@ destination{
   name = "cave_1_1_B",
   layer = 0,
   x = 136,
-  y = 413,
+  y = 429,
   direction = 1,
 }
 

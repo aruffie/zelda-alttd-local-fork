@@ -25,6 +25,7 @@ function enemy:on_movement_changed(movement)
   
 end
 
+-- The enemy was stopped for some reason and should restart.
 function enemy:on_restarted()
 
   local movement = sol.movement.create("random")

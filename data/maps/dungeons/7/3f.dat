@@ -8,7 +8,6 @@ properties{
   world = "dungeon_7",
   floor = 2,
   tileset = "dungeon/gray_blue",
-  music = "same",
 }
 
 tile{
@@ -185,9 +184,9 @@ tile{
 tile{
   layer = 0,
   x = 688,
-  y = 40,
+  y = 48,
   width = 224,
-  height = 160,
+  height = 144,
   pattern = "floor.7-1",
 }
 
@@ -3941,15 +3940,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 408,
-  y = 456,
-  width = 16,
-  height = 48,
-  pattern = "floor.8-1",
-}
-
-tile{
-  layer = 0,
   x = 784,
   y = 456,
   width = 8,
@@ -4000,6 +3990,61 @@ tile{
   width = 16,
   height = 16,
   pattern = "door_stairs.spiral_down.1",
+}
+
+tile{
+  layer = 0,
+  x = 400,
+  y = 440,
+  width = 8,
+  height = 16,
+  pattern = "145",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 424,
+  y = 440,
+  width = 8,
+  height = 16,
+  pattern = "146",
+  tileset = "addition/dungeon",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 56,
+  y = 1216,
+  width = 80,
+  height = 24,
+  pattern = "wall.1-2",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 408,
+  y = 456,
+  width = 16,
+  height = 48,
+  pattern = "floor.8-1",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 440,
+  y = 1216,
+  width = 160,
+  height = 24,
+  pattern = "wall.1-2",
+}
+
+stream{
+  layer = 0,
+  x = 840,
+  y = 77,
+  direction = 0,
+  sprite = "entities/grounds/conveyor_belt_1",
 }
 
 dynamic_tile{
@@ -4478,15 +4523,6 @@ dynamic_tile{
 
 dynamic_tile{
   layer = 0,
-  x = 56,
-  y = 1216,
-  width = 80,
-  height = 24,
-  pattern = "wall.1-2",
-}
-
-dynamic_tile{
-  layer = 0,
   x = 440,
   y = 1240,
   width = 8,
@@ -4649,15 +4685,6 @@ dynamic_tile{
 
 dynamic_tile{
   layer = 0,
-  x = 440,
-  y = 1216,
-  width = 160,
-  height = 24,
-  pattern = "wall.1-2",
-}
-
-dynamic_tile{
-  layer = 0,
   x = 600,
   y = 1216,
   width = 24,
@@ -4762,28 +4789,6 @@ dynamic_tile{
   width = 24,
   height = 24,
   pattern = "wall.corner.1-2",
-}
-
-custom_entity{
-  name = "boss_door_frame_renverse_2",
-  layer = 0,
-  x = 408,
-  y = 453,
-  width = 8,
-  height = 16,
-  direction = 2,
-  sprite = "entities/doors/boss_door_frame_renverse",
-}
-
-custom_entity{
-  name = "boss_door_frame_renverse",
-  layer = 0,
-  x = 432,
-  y = 453,
-  width = 8,
-  height = 16,
-  direction = 0,
-  sprite = "entities/doors/boss_door_frame_renverse",
 }
 
 block{
@@ -4905,29 +4910,9 @@ crystal_block{
 stream{
   layer = 0,
   x = 712,
-  y = 157,
-  direction = 2,
-}
-
-stream{
-  layer = 0,
-  x = 712,
-  y = 125,
-  direction = 2,
-}
-
-stream{
-  layer = 0,
-  x = 712,
-  y = 109,
-  direction = 2,
-}
-
-stream{
-  layer = 0,
-  x = 712,
   y = 93,
   direction = 2,
+  sprite = "entities/grounds/conveyor_belt_1",
 }
 
 stream{
@@ -4935,237 +4920,7 @@ stream{
   x = 712,
   y = 77,
   direction = 0,
-}
-
-stream{
-  layer = 0,
-  x = 744,
-  y = 77,
-  direction = 0,
-}
-
-stream{
-  layer = 0,
-  x = 760,
-  y = 77,
-  direction = 0,
-}
-
-stream{
-  layer = 0,
-  x = 776,
-  y = 77,
-  direction = 0,
-}
-
-stream{
-  layer = 0,
-  x = 792,
-  y = 77,
-  direction = 0,
-}
-
-stream{
-  layer = 0,
-  x = 808,
-  y = 77,
-  direction = 0,
-}
-
-stream{
-  layer = 0,
-  x = 824,
-  y = 77,
-  direction = 0,
-}
-
-stream{
-  layer = 0,
-  x = 840,
-  y = 77,
-  direction = 0,
-}
-
-stream{
-  layer = 0,
-  x = 888,
-  y = 77,
-  direction = 6,
-}
-
-stream{
-  layer = 0,
-  x = 888,
-  y = 93,
-  direction = 6,
-}
-
-stream{
-  layer = 0,
-  x = 888,
-  y = 109,
-  direction = 6,
-}
-
-stream{
-  layer = 0,
-  x = 888,
-  y = 125,
-  direction = 6,
-}
-
-stream{
-  layer = 0,
-  x = 872,
-  y = 157,
-  direction = 4,
-}
-
-stream{
-  layer = 0,
-  x = 856,
-  y = 157,
-  direction = 4,
-}
-
-stream{
-  layer = 0,
-  x = 840,
-  y = 157,
-  direction = 4,
-}
-
-stream{
-  layer = 0,
-  x = 824,
-  y = 157,
-  direction = 4,
-}
-
-stream{
-  layer = 0,
-  x = 808,
-  y = 157,
-  direction = 4,
-}
-
-stream{
-  layer = 0,
-  x = 792,
-  y = 157,
-  direction = 4,
-}
-
-stream{
-  layer = 0,
-  x = 776,
-  y = 157,
-  direction = 4,
-}
-
-stream{
-  layer = 0,
-  x = 760,
-  y = 157,
-  direction = 4,
-}
-
-stream{
-  layer = 0,
-  x = 744,
-  y = 157,
-  direction = 4,
-}
-
-stream{
-  layer = 0,
-  x = 744,
-  y = 61,
-  direction = 0,
-}
-
-stream{
-  layer = 0,
-  x = 760,
-  y = 61,
-  direction = 0,
-}
-
-stream{
-  layer = 0,
-  x = 776,
-  y = 61,
-  direction = 0,
-}
-
-stream{
-  layer = 0,
-  x = 792,
-  y = 61,
-  direction = 0,
-}
-
-stream{
-  layer = 0,
-  x = 808,
-  y = 61,
-  direction = 0,
-}
-
-stream{
-  layer = 0,
-  x = 824,
-  y = 61,
-  direction = 0,
-}
-
-stream{
-  layer = 0,
-  x = 840,
-  y = 61,
-  direction = 0,
-}
-
-stream{
-  layer = 0,
-  x = 712,
-  y = 61,
-  direction = 0,
-}
-
-stream{
-  layer = 0,
-  x = 888,
-  y = 61,
-  direction = 6,
-}
-
-stream{
-  layer = 0,
-  x = 872,
-  y = 77,
-  direction = 6,
-}
-
-stream{
-  layer = 0,
-  x = 872,
-  y = 93,
-  direction = 6,
-}
-
-stream{
-  layer = 0,
-  x = 872,
-  y = 109,
-  direction = 6,
-}
-
-stream{
-  layer = 0,
-  x = 872,
-  y = 125,
-  direction = 6,
+  sprite = "entities/grounds/conveyor_belt_1",
 }
 
 stream{
@@ -5173,118 +4928,7 @@ stream{
   x = 872,
   y = 61,
   direction = 6,
-}
-
-stream{
-  layer = 0,
-  x = 728,
-  y = 125,
-  direction = 2,
-}
-
-stream{
-  layer = 0,
-  x = 728,
-  y = 109,
-  direction = 2,
-}
-
-stream{
-  layer = 0,
-  x = 728,
-  y = 93,
-  direction = 2,
-}
-
-stream{
-  layer = 0,
-  x = 728,
-  y = 77,
-  direction = 0,
-}
-
-stream{
-  layer = 0,
-  x = 728,
-  y = 61,
-  direction = 0,
-}
-
-stream{
-  layer = 0,
-  x = 728,
-  y = 157,
-  direction = 2,
-}
-
-stream{
-  layer = 0,
-  x = 728,
-  y = 141,
-  direction = 2,
-}
-
-stream{
-  layer = 0,
-  x = 712,
-  y = 141,
-  direction = 2,
-}
-
-stream{
-  layer = 0,
-  x = 888,
-  y = 141,
-  direction = 4,
-}
-
-stream{
-  layer = 0,
-  x = 856,
-  y = 141,
-  direction = 4,
-}
-
-stream{
-  layer = 0,
-  x = 840,
-  y = 141,
-  direction = 4,
-}
-
-stream{
-  layer = 0,
-  x = 824,
-  y = 141,
-  direction = 4,
-}
-
-stream{
-  layer = 0,
-  x = 808,
-  y = 141,
-  direction = 4,
-}
-
-stream{
-  layer = 0,
-  x = 792,
-  y = 141,
-  direction = 4,
-}
-
-stream{
-  layer = 0,
-  x = 776,
-  y = 141,
-  direction = 4,
-}
-
-stream{
-  layer = 0,
-  x = 760,
-  y = 141,
-  direction = 4,
+  sprite = "entities/grounds/conveyor_belt_1",
 }
 
 stream{
@@ -5292,34 +4936,7 @@ stream{
   x = 744,
   y = 141,
   direction = 4,
-}
-
-stream{
-  layer = 0,
-  x = 888,
-  y = 157,
-  direction = 4,
-}
-
-stream{
-  layer = 0,
-  x = 872,
-  y = 141,
-  direction = 4,
-}
-
-stream{
-  layer = 0,
-  x = 856,
-  y = 77,
-  direction = 0,
-}
-
-stream{
-  layer = 0,
-  x = 856,
-  y = 61,
-  direction = 0,
+  sprite = "entities/grounds/conveyor_belt_1",
 }
 
 enemy{
@@ -5369,7 +4986,7 @@ pickable{
   x = 800,
   y = 341,
   treasure_name = "instrument_7",
-  treasure_savegame_variable = "dungeon_7_instrument",
+  treasure_savegame_variable = "dungeon_7_big_treasure",
 }
 
 destination{
@@ -5381,14 +4998,14 @@ destination{
 }
 
 teletransporter{
-  name = "stairs_2_A",
+  name = "stairs_10_A_2",
   layer = 0,
   x = 880,
   y = 744,
   width = 16,
   height = 16,
-  destination_map = "dungeons/7/1f",
-  destination = "stairs_2_B",
+  destination_map = "dungeons/7/2f",
+  destination = "stairs_10_B",
 }
 
 stairs{
@@ -5432,7 +5049,7 @@ door{
   layer = 0,
   x = 920,
   y = 584,
-  direction = 2,
+  direction = 0,
   sprite = "entities/doors/door_normal",
   opening_condition = "dungeon_1_small_keys",
   opening_condition_consumed = true,
@@ -5443,7 +5060,7 @@ door{
   layer = 0,
   x = 984,
   y = 584,
-  direction = 0,
+  direction = 2,
   sprite = "entities/doors/door_normal",
   opening_condition = "dungeon_1_small_keys",
   opening_condition_consumed = true,
@@ -5454,7 +5071,7 @@ door{
   layer = 0,
   x = 1200,
   y = 504,
-  direction = 3,
+  direction = 1,
   sprite = "entities/doors/door_normal",
   opening_condition = "dungeon_1_small_keys",
   opening_condition_consumed = true,
@@ -5465,7 +5082,7 @@ door{
   layer = 0,
   x = 1200,
   y = 440,
-  direction = 1,
+  direction = 3,
   sprite = "entities/doors/door_normal",
   opening_condition = "dungeon_1_small_keys",
   opening_condition_consumed = true,
@@ -5491,7 +5108,7 @@ enemy{
   layer = 0,
   x = 1160,
   y = 349,
-  direction = 0,
+  direction = 3,
   breed = "fireball",
 }
 
@@ -5509,7 +5126,7 @@ enemy{
   layer = 0,
   x = 1008,
   y = 413,
-  direction = 0,
+  direction = 2,
   breed = "fireball",
 }
 
@@ -5539,16 +5156,6 @@ destination{
   x = 1120,
   y = 605,
   direction = 1,
-}
-
-door{
-  name = "door_group_boss_2",
-  layer = 0,
-  x = 408,
-  y = 440,
-  direction = 1,
-  sprite = "entities/doors/door_boss_key",
-  savegame_variable = "dungeon_1_door_boss",
 }
 
 crystal_block{
@@ -5692,15 +5299,6 @@ enemy{
   breed = "zol_green",
 }
 
-enemy{
-  name = "enemy_group_9_1",
-  layer = 0,
-  x = 872,
-  y = 157,
-  direction = 0,
-  breed = "beamos",
-}
-
 custom_entity{
   name = "horse_head_2",
   layer = 0,
@@ -5710,6 +5308,7 @@ custom_entity{
   height = 16,
   direction = 2,
   sprite = "entities/misc/horse_head",
+  model = "dice",
 }
 
 custom_entity{
@@ -5721,6 +5320,7 @@ custom_entity{
   height = 16,
   direction = 2,
   sprite = "entities/misc/horse_head",
+  model = "dice",
 }
 
 chest{
@@ -5734,11 +5334,11 @@ chest{
 }
 
 door{
-  name = "door_group_boss_4",
+  name = "door_group_boss_6",
   layer = 0,
   x = 792,
   y = 440,
-  direction = 1,
+  direction = 3,
   sprite = "entities/doors/door_normal",
   opening_condition = "dungeon_1_small_keys",
   opening_condition_consumed = true,
@@ -5869,23 +5469,23 @@ enemy{
 }
 
 door{
-  name = "door_group_boss_1",
+  name = "door_group_boss_2",
   layer = 0,
-  x = 88,
-  y = 1224,
+  x = 408,
+  y = 440,
   direction = 3,
   sprite = "entities/doors/door_boss_key",
-  savegame_variable = "dungeon_1_door_boss",
+  savegame_variable = "dungeon_7_door_boss",
   opening_method = "interaction_if_savegame_variable",
-  opening_condition = "dungeon_1_boss_key",
+  opening_condition = "dungeon_7_boss_key",
 }
 
 door{
-  name = "door_group_boss_3",
+  name = "door_group_boss_5",
   layer = 0,
   x = 472,
   y = 1224,
-  direction = 3,
+  direction = 1,
   sprite = "entities/doors/door_normal",
   opening_condition = "dungeon_1_small_keys",
   opening_condition_consumed = true,
@@ -5967,6 +5567,505 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
+}
+
+stream{
+  layer = 0,
+  x = 712,
+  y = 61,
+  direction = 0,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 728,
+  y = 61,
+  direction = 0,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 728,
+  y = 77,
+  direction = 0,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 744,
+  y = 61,
+  direction = 0,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 744,
+  y = 77,
+  direction = 0,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 760,
+  y = 77,
+  direction = 0,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 760,
+  y = 61,
+  direction = 0,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 776,
+  y = 61,
+  direction = 0,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 776,
+  y = 77,
+  direction = 0,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 792,
+  y = 61,
+  direction = 0,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 808,
+  y = 61,
+  direction = 0,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 792,
+  y = 77,
+  direction = 0,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 808,
+  y = 77,
+  direction = 0,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 61,
+  direction = 0,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 77,
+  direction = 0,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 840,
+  y = 61,
+  direction = 0,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 856,
+  y = 61,
+  direction = 0,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 856,
+  y = 77,
+  direction = 0,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 728,
+  y = 93,
+  direction = 2,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 728,
+  y = 109,
+  direction = 2,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 712,
+  y = 109,
+  direction = 2,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 712,
+  y = 125,
+  direction = 2,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 728,
+  y = 125,
+  direction = 2,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 728,
+  y = 141,
+  direction = 2,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 712,
+  y = 141,
+  direction = 2,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 712,
+  y = 157,
+  direction = 2,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 728,
+  y = 157,
+  direction = 2,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 744,
+  y = 157,
+  direction = 4,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 760,
+  y = 157,
+  direction = 4,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 760,
+  y = 141,
+  direction = 4,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 776,
+  y = 141,
+  direction = 4,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 776,
+  y = 157,
+  direction = 4,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 792,
+  y = 157,
+  direction = 4,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 792,
+  y = 141,
+  direction = 4,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 808,
+  y = 141,
+  direction = 4,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 808,
+  y = 157,
+  direction = 4,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 157,
+  direction = 4,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 141,
+  direction = 4,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 840,
+  y = 141,
+  direction = 4,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 840,
+  y = 157,
+  direction = 4,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 856,
+  y = 157,
+  direction = 4,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 856,
+  y = 141,
+  direction = 4,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 872,
+  y = 141,
+  direction = 4,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 888,
+  y = 141,
+  direction = 4,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 888,
+  y = 157,
+  direction = 4,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 872,
+  y = 157,
+  direction = 4,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+enemy{
+  name = "enemy_group_9_1",
+  layer = 0,
+  x = 872,
+  y = 157,
+  direction = 0,
+  breed = "beamos",
+}
+
+stream{
+  layer = 0,
+  x = 888,
+  y = 61,
+  direction = 6,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 888,
+  y = 77,
+  direction = 6,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 888,
+  y = 93,
+  direction = 6,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 888,
+  y = 109,
+  direction = 6,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 888,
+  y = 125,
+  direction = 6,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 872,
+  y = 125,
+  direction = 6,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 872,
+  y = 109,
+  direction = 6,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 872,
+  y = 93,
+  direction = 6,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+stream{
+  layer = 0,
+  x = 872,
+  y = 77,
+  direction = 6,
+  sprite = "entities/grounds/conveyor_belt_1",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 80,
+  y = 1224,
+  width = 8,
+  height = 16,
+  pattern = "143",
+  tileset = "addition/dungeon",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 104,
+  y = 1224,
+  width = 8,
+  height = 16,
+  pattern = "144",
+  tileset = "addition/dungeon",
+}
+
+door{
+  name = "door_group_boss_1",
+  layer = 0,
+  x = 88,
+  y = 1224,
+  direction = 1,
+  sprite = "entities/doors/door_boss_key",
+  savegame_variable = "dungeon_7_door_boss",
+  opening_method = "interaction_if_savegame_variable",
+  opening_condition = "dungeon_7_boss_key",
+}
+
+door{
+  name = "door_group_boss_4",
+  layer = 0,
+  x = 408,
+  y = 440,
+  direction = 3,
+  sprite = "entities/doors/door_boss",
+}
+
+door{
+  name = "door_group_boss_3",
+  layer = 0,
+  x = 88,
+  y = 1224,
+  direction = 1,
+  sprite = "entities/doors/door_boss",
 }
 
 tile{
@@ -6545,6 +6644,16 @@ tile{
   pattern = "barrier_big.border.2-3",
 }
 
+tile{
+  layer = 1,
+  x = 400,
+  y = 456,
+  width = 32,
+  height = 8,
+  pattern = "148",
+  tileset = "addition/dungeon",
+}
+
 dynamic_tile{
   layer = 1,
   x = 320,
@@ -6646,15 +6755,6 @@ dynamic_tile{
 
 dynamic_tile{
   layer = 1,
-  x = 80,
-  y = 1216,
-  width = 32,
-  height = 8,
-  pattern = "door_top.1-1",
-}
-
-dynamic_tile{
-  layer = 1,
   x = 160,
   y = 1200,
   width = 144,
@@ -6731,17 +6831,6 @@ jumper{
   jump_length = 40,
 }
 
-custom_entity{
-  name = "boss_door_frame_renverse_3",
-  layer = 1,
-  x = 408,
-  y = 469,
-  width = 32,
-  height = 8,
-  direction = 3,
-  sprite = "entities/doors/boss_door_frame_renverse",
-}
-
 enemy{
   name = "enemy_group_7_3",
   layer = 1,
@@ -6803,9 +6892,9 @@ jumper{
 jumper{
   layer = 1,
   x = 152,
-  y = 1240,
+  y = 1248,
   width = 8,
-  height = 56,
+  height = 48,
   direction = 4,
   jump_length = 40,
 }
@@ -7065,7 +7154,7 @@ wall{
   x = 152,
   y = 1216,
   width = 8,
-  height = 24,
+  height = 32,
   stops_hero = true,
   stops_npcs = true,
   stops_enemies = true,
@@ -7499,6 +7588,15 @@ tile{
 
 dynamic_tile{
   layer = 2,
+  x = 80,
+  y = 1216,
+  width = 32,
+  height = 8,
+  pattern = "door_cache.1-2",
+}
+
+dynamic_tile{
+  layer = 2,
   x = 0,
   y = 1200,
   width = 152,
@@ -7585,5 +7683,15 @@ dynamic_tile{
   width = 64,
   height = 32,
   pattern = "ceiling.1",
+}
+
+dynamic_tile{
+  layer = 2,
+  x = 80,
+  y = 1216,
+  width = 32,
+  height = 8,
+  pattern = "147",
+  tileset = "addition/dungeon",
 }
 

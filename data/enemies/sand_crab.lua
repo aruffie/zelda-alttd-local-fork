@@ -1,15 +1,16 @@
+-- Lua script of enemy sand crab.
+-- This script is executed every time an enemy with this model is created.
+
+-- Variables
 local enemy = ...
-
--- Molblin: goes in a random direction.
-
-enemy:set_life(2)
-enemy:set_damage(1)
-
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 
+-- The enemy appears: set its properties.
 function enemy:on_created()
 
-    self:set_can_be_pushed_by_shield(true)
+  enemy:set_life(2)
+  enemy:set_damage(1)
+  enemy:set_can_be_pushed_by_shield(true)
 
 end
 
@@ -27,14 +28,14 @@ end
 function enemy:on_movement_finished(movement)
 
   local direction4 = math.random(4) - 1
-  self:go(direction4)
+  enemy:go(direction4)
 
 end
 
 function enemy:on_obstacle_reached(movement)
 
   local direction4 = math.random(4) - 1
-  self:go(direction4)
+  enemy:go(direction4)
 
 end
 

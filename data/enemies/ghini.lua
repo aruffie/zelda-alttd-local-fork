@@ -18,6 +18,7 @@ function enemy:on_created()
   enemy:set_obstacle_behavior("flying")
 end
 
+-- The enemy was stopped for some reason and should restart.
 function enemy:on_restarted()
 
   sprite:set_animation("invisible")

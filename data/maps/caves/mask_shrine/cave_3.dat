@@ -1228,6 +1228,12 @@ teletransporter{
   layer = 0,
   x = 136,
   y = 48,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/d3_mask_shrine",
@@ -1313,6 +1319,12 @@ teletransporter{
   layer = 0,
   x = 552,
   y = 144,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/d3_mask_shrine",
@@ -1323,7 +1335,7 @@ destination{
   name = "stair_east",
   layer = 0,
   x = 560,
-  y = 157,
+  y = 149,
   direction = 3,
 }
 

@@ -855,7 +855,7 @@ destination{
   name = "village_cave_1_B",
   layer = 0,
   x = 176,
-  y = 141,
+  y = 117,
   direction = -1,
 }
 

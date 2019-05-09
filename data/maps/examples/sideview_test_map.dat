@@ -488,7 +488,6 @@ enemy{
   layer = 0,
   x = 328,
   y = 45,
-  enabled_at_start = false,
   direction = 0,
   breed = "thwimp",
 }

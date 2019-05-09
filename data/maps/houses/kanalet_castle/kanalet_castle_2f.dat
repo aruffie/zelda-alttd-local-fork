@@ -1776,7 +1776,7 @@ destination{
   name = "kanalet_castle_5_B",
   layer = 0,
   x = 160,
-  y = 437,
+  y = 453,
   direction = 1,
 }
 
@@ -1785,6 +1785,12 @@ teletransporter{
   layer = 0,
   x = 152,
   y = 456,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/c2_kanalet_castle",
@@ -1795,7 +1801,7 @@ destination{
   name = "kanalet_castle_3_B",
   layer = 0,
   x = 480,
-  y = 437,
+  y = 453,
   direction = 1,
 }
 
@@ -1804,6 +1810,12 @@ teletransporter{
   layer = 0,
   x = 472,
   y = 456,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/c2_kanalet_castle",
@@ -1874,7 +1886,7 @@ custom_entity{
 wall{
   layer = 0,
   x = 152,
-  y = 456,
+  y = 440,
   width = 16,
   height = 16,
   stops_npcs = true,
@@ -1885,7 +1897,7 @@ wall{
 wall{
   layer = 0,
   x = 472,
-  y = 456,
+  y = 440,
   width = 16,
   height = 16,
   stops_npcs = true,

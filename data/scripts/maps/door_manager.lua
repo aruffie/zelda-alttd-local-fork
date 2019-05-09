@@ -71,7 +71,7 @@ function door_manager:open_if_boss_dead(map)
   if game:get_value(savegame) then
       map:set_doors_open(door_prefix, true)
   end
-
+  map:set_doors_open(door_prefix, true)
 end
 
 -- Open doors if block moved

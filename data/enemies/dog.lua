@@ -6,6 +6,7 @@ local enemy = ...
 local map = enemy:get_map()
 local angry = false
 
+-- The enemy appears: set its properties.
 function enemy:on_created()
 
   enemy:set_life(10000)
@@ -15,6 +16,17 @@ function enemy:on_created()
   enemy:set_origin(8, 13)
   enemy:set_hurt_style("monster")
   
+end
+
+-- The enemy was stopped for some reason and should restart.
+function enemy:on_restarted()
+
+  if angry then
+    enemy:go_angry()
+  else
+    enemy:go_random()
+  end
+   
 end
 
 function enemy:on_movement_changed(movement)
@@ -29,16 +41,6 @@ function enemy:on_obstacle_reached(movement)
 
   enemy:go_random()
 
-end
-
-function enemy:on_restarted()
-
-  if angry then
-    enemy:go_angry()
-  else
-    enemy:go_random()
-  end
-   
 end
 
 function enemy:go_random()

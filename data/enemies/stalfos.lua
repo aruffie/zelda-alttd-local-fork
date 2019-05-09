@@ -1,11 +1,18 @@
+-- Lua script of enemy stalfos.
+-- This script is executed every time an enemy with this model is created.
+
+-- Variables
 local enemy = ...
-
--- Skeleton: goes in a random direction.
-
-enemy:set_life(3)
-enemy:set_damage(2)
-
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+
+-- The enemy appears: set its properties.
+function enemy:on_created()
+  
+  enemy:set_life(3)
+  enemy:set_damage(2)
+
+end
+
 
 -- The enemy was stopped for some reason and should restart.
 function enemy:on_restarted()

@@ -64,14 +64,17 @@ function map:init_map_entities()
   -- Seashell's tree
   local seashell_tree_found = false
   collision_seashell:add_collision_test("facing", function(entity, other, entity_sprite, other_sprite)
-    if other:get_type() == 'hero' and hero:get_state() == "running" and seashell_tree_found == false and game:get_value("seashell_13") == nil then
+    if other:get_type() == 'hero' and hero:get_state() == "custom" and hero:get_state_object():get_description()=="running" and seashell_tree_found == false and game:get_value("seashell_13") == nil then
       sol.timer.start(map, 250, function()
-        movement = sol.movement.create("jump")
+        seashell_13:set_enabled()
+        print("enabled ?", seashell_13:is_enabled(), "position:", seashell_13:get_position())
+        local movement = sol.movement.create("jump")
         movement:set_speed(100)
         movement:set_distance(64)
         movement:set_direction8(0)
         movement:set_ignore_obstacles(true)
         movement:start(seashell_13, function()
+            print ("finished! ", seashell_13:get_position())
           seashell_tree_found = true 
         end)
       end)
@@ -310,7 +313,7 @@ function dungeon_3_lock:on_interaction()
       local camera = map:get_camera()
       local shake_config = {
           count = 32,
-          amplitude = 4,
+          amplitude = 2,
           speed = 90,
       }
       camera:shake(shake_config, function()

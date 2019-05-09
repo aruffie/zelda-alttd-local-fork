@@ -1192,6 +1192,12 @@ teletransporter{
   layer = 0,
   x = 224,
   y = 192,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/d1_east_mt_tamaranch",
@@ -1202,7 +1208,7 @@ destination{
   name = "entrance",
   layer = 0,
   x = 232,
-  y = 173,
+  y = 189,
   direction = 1,
 }
 

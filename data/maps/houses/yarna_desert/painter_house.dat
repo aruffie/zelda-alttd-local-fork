@@ -537,7 +537,13 @@ teletransporter{
   name = "painter_house_2_B",
   layer = 0,
   x = 152,
-  y = 224,
+  y = 216,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/d4_yarna_desert",
@@ -701,6 +707,17 @@ npc{
   direction = 3,
   subtype = 1,
   sprite = "npc/animals/painter",
+}
+
+wall{
+  layer = 0,
+  x = 152,
+  y = 200,
+  width = 16,
+  height = 16,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
 }
 
 tile{

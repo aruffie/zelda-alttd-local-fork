@@ -8,6 +8,9 @@ function dynamic_tile_meta:on_created()
   if self:get_property("draw_in_y_order") then
     self:set_drawn_in_y_order(true)
   end
+  if self:get_property("visible") == "false" then
+    self:set_visible(false)
+  end
   local name = self:get_name()
   if name == nil then
     return
@@ -16,8 +19,7 @@ function dynamic_tile_meta:on_created()
   if name:match("^invisible_tile") then
     self:set_visible(false)
   end
-  
-  
+
 end
 
 return true

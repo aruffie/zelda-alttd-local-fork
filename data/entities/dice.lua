@@ -1,7 +1,7 @@
 ----------------------------------
 --
 -- A carriable entity that can be thrown and bounce like a ball.
--- Randomly change the entity direction at each bounce among all available ones.
+-- Randomly change the entity direction at each bounce among all "stopped" ones.
 --
 ----------------------------------
 

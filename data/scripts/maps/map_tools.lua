@@ -1,5 +1,4 @@
 local map_tools = {}
-local game = sol.main.get_game()
 
 local audio_manager = require("scripts/audio_manager")
 
@@ -52,6 +51,7 @@ end
 
 -- Save current entity position.
 function map_tools.save_entity_position(entity)
+  local game = sol.main.get_game()
   local world = entity:get_map():get_world()
   local entity_name = entity:get_name()
   local x, y, layer = entity:get_position()
@@ -62,6 +62,7 @@ end
 
 -- Get saved position for the entity, or current position if nothing saved.
 function map_tools.get_entity_saved_position(entity)
+  local game = sol.main.get_game()
   local world = entity:get_map():get_world()
   local entity_name = entity:get_name()
   local x, y, layer = entity:get_position()

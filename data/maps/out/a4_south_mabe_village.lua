@@ -32,7 +32,7 @@ end
 -- Initializes Entities based on player's progress
 function map:init_map_entities()
   
-    owl_1:set_enabled(false)
+  owl_1:set_enabled(false)
   owl_4:set_enabled(false)
   if sword ~= nil then
     sword:get_sprite():set_direction(4)
@@ -45,8 +45,10 @@ function map:init_map_entities()
   -- Seashell's tree
   local seashell_tree_found = false
   collision_seashell:add_collision_test("facing", function(entity, other, entity_sprite, other_sprite)
-    if other:get_type() == 'hero' and hero:get_state() == "running" and seashell_tree_found == false and game:get_value("seashell_14") == nil then
+    if other:get_type() == 'hero' and hero:get_state() == "custom" and hero:get_state_object():get_description()=="running" and seashell_tree_found == false and game:get_value("seashell_14") == nil then
+
       sol.timer.start(map, 250, function()
+        seashell_14:set_enabled(true)
         movement = sol.movement.create("jump")
         movement:set_speed(100)
         movement:set_distance(64)
@@ -166,7 +168,7 @@ function map:launch_cinematic_2()
     timer_sound:set_suspended_with_map(false)
     local shake_config = {
         count = 32,
-        amplitude = 4,
+        amplitude = 2,
         speed = 90
     }
     wait_for(camera.shake,camera,shake_config)

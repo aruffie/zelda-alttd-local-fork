@@ -152,8 +152,8 @@ map{ id = "trial/1", description = "Level 1" }
 map{ id = "trial/2", description = "Level 2" }
 map{ id = "trial/3", description = "Level 3" }
 
-tileset{ id = "addition/dungeon", description = "Addition dungeon" }
-tileset{ id = "addition/out", description = "Out" }
+tileset{ id = "addition/dungeon", description = "Dungeon additions" }
+tileset{ id = "addition/out", description = "Out additions" }
 tileset{ id = "dungeon/blue", description = "Blue" }
 tileset{ id = "dungeon/brown", description = "Brown" }
 tileset{ id = "dungeon/dark_brown", description = "Dark brown" }
@@ -198,6 +198,7 @@ sprite{ id = "enemies/bloober", description = "Bloober" }
 sprite{ id = "enemies/bomber", description = "Bomber" }
 sprite{ id = "enemies/bombite_green", description = "Bombite Green" }
 sprite{ id = "enemies/bombite_red", description = "Bombite Red" }
+sprite{ id = "enemies/bone_putter", description = "Bone putter" }
 sprite{ id = "enemies/boo_buddy", description = "Boo Buddy" }
 sprite{ id = "enemies/boss/angler_fish/angler_fish", description = "Angler's fish" }
 sprite{ id = "enemies/boss/angler_fish/angler_fish_brick", description = "Angler brick" }
@@ -210,6 +211,7 @@ sprite{ id = "enemies/boss/cue_ball/cue_ball", description = "Cue ball" }
 sprite{ id = "enemies/boss/cue_ball/cue_ball_splash_effect", description = "Cue ball splash effect" }
 sprite{ id = "enemies/boss/dodongo_snake/dodongo_snake", description = "Dodongo_snake" }
 sprite{ id = "enemies/boss/dodongo_snake/dodongo_snake_body", description = "Dodongo snake body" }
+sprite{ id = "enemies/boss/evil_eagle", description = "Evil eagle" }
 sprite{ id = "enemies/boss/evil_orb/evil_orb", description = "Evil orb" }
 sprite{ id = "enemies/boss/evil_orb/evil_orb_head", description = "Orb evil orb" }
 sprite{ id = "enemies/boss/facade", description = "Facade" }
@@ -265,7 +267,7 @@ sprite{ id = "enemies/eyegore_statue/eyegore_statue_fireball", description = "Ey
 sprite{ id = "enemies/face_lamp/face_lamp", description = "Face Lamp" }
 sprite{ id = "enemies/fireball", description = "Fireball" }
 sprite{ id = "enemies/flying_tile", description = "Flying Tile" }
-sprite{ id = "enemies/gel_red", description = "Gel Red" }
+sprite{ id = "enemies/gel", description = "Gel Red" }
 sprite{ id = "enemies/ghini", description = "Ghini" }
 sprite{ id = "enemies/ghini_giant", description = "Ghini Giant" }
 sprite{ id = "enemies/gibdo", description = "Gibdo" }
@@ -364,8 +366,8 @@ sprite{ id = "entities/boomerang1", description = "Boomerang 1" }
 sprite{ id = "entities/boomerang2", description = "Boomerang 2" }
 sprite{ id = "entities/bow", description = "Bow" }
 sprite{ id = "entities/chain", description = "Chain" }
-sprite{ id = "entities/chests/chest_big", description = "Chest big" }
-sprite{ id = "entities/chests/chest_small", description = "Chest small" }
+sprite{ id = "entities/chests/chest_big", description = "Big chest" }
+sprite{ id = "entities/chests/chest_small", description = "Small chest" }
 sprite{ id = "entities/claw_chain", description = "Claw chain" }
 sprite{ id = "entities/claw_crane", description = "Claw crane" }
 sprite{ id = "entities/claw_up", description = "Claw up" }
@@ -396,29 +398,27 @@ sprite{ id = "entities/destructibles/statue_elephant", description = "Statue ele
 sprite{ id = "entities/destructibles/stone_white_large", description = "Stone white large" }
 sprite{ id = "entities/destructibles/stone_white_small", description = "Stone white small" }
 sprite{ id = "entities/destructibles/stone_white_small_grass", description = "Stone white small grass" }
-sprite{ id = "entities/doors/boss_door_frame_renverse", description = "Boss door frame renverse" }
-sprite{ id = "entities/doors/boss_door_frames", description = "Boss door frames" }
-sprite{ id = "entities/doors/door_big_key", description = "Door big key" }
-sprite{ id = "entities/doors/door_boss_key", description = "Door boss key" }
-sprite{ id = "entities/doors/door_egg", description = "Door egg" }
-sprite{ id = "entities/doors/door_egg_top", description = "Door egg top" }
-sprite{ id = "entities/doors/door_entrance_dungeons", description = "Door entrance dungeons" }
+sprite{ id = "entities/doors/door_boss", description = "Boss door" }
+sprite{ id = "entities/doors/door_boss_key", description = "Boss key door" }
+sprite{ id = "entities/doors/door_egg", description = "Egg door" }
+sprite{ id = "entities/doors/door_egg_top", description = "Egg door top" }
+sprite{ id = "entities/doors/door_entrance_dungeons", description = "Dungeon entrance door" }
 sprite{ id = "entities/doors/door_normal", description = "Door" }
-sprite{ id = "entities/doors/door_normal_cave", description = "Door cave" }
-sprite{ id = "entities/doors/door_small_key", description = "Door small key" }
-sprite{ id = "entities/doors/door_very_weak_wall", description = "Door very weak wall" }
-sprite{ id = "entities/doors/door_wallturn_dungeon_1", description = "Door wallturn dungeon 1" }
-sprite{ id = "entities/doors/door_wallturn_dungeon_2", description = "Door wallturn dungeon 2" }
-sprite{ id = "entities/doors/door_wallturn_dungeon_3", description = "Door wallturn dungeon 3" }
-sprite{ id = "entities/doors/door_wallturn_dungeon_5", description = "Door wallturn dungeon 5" }
-sprite{ id = "entities/doors/door_wallturn_dungeon_6", description = "Door wallturn dungeon 6" }
-sprite{ id = "entities/doors/door_wallturn_dungeon_7", description = "Door wallturn dungeon 7" }
-sprite{ id = "entities/doors/door_wallturn_dungeon_8", description = "Door wallturn dungeon 8" }
-sprite{ id = "entities/doors/door_wallturn_dungeon_9", description = "Door wallturn dungeon 9" }
-sprite{ id = "entities/doors/door_weak_block", description = "Door weak block" }
-sprite{ id = "entities/doors/door_weak_block_cave", description = "Door weak block cave" }
-sprite{ id = "entities/doors/door_weak_wall", description = "Door weak wall" }
-sprite{ id = "entities/doors/door_weak_wall_out", description = "Door weak wall out" }
+sprite{ id = "entities/doors/door_normal_cave", description = "Cave door" }
+sprite{ id = "entities/doors/door_small_key", description = "Small key door" }
+sprite{ id = "entities/doors/door_very_weak_wall", description = "Very weak wall" }
+sprite{ id = "entities/doors/door_wallturn_dungeon_1", description = "Wallturn door (dungeon 1)" }
+sprite{ id = "entities/doors/door_wallturn_dungeon_2", description = "Wallturn door (dungeon 2)" }
+sprite{ id = "entities/doors/door_wallturn_dungeon_3", description = "Wallturn door (dungeon 3)" }
+sprite{ id = "entities/doors/door_wallturn_dungeon_5", description = "Wallturn door (dungeon 5)" }
+sprite{ id = "entities/doors/door_wallturn_dungeon_6", description = "Wallturn door (dungeon 6)" }
+sprite{ id = "entities/doors/door_wallturn_dungeon_7", description = "Wallturn door (dungeon 7)" }
+sprite{ id = "entities/doors/door_wallturn_dungeon_8", description = "Wallturn door (dungeon 8)" }
+sprite{ id = "entities/doors/door_wallturn_dungeon_9", description = "Wallturn door (dungeon 9)" }
+sprite{ id = "entities/doors/door_weak_block", description = "Weak block" }
+sprite{ id = "entities/doors/door_weak_block_cave", description = "Cave weak block" }
+sprite{ id = "entities/doors/door_weak_wall", description = "Weak wall" }
+sprite{ id = "entities/doors/door_weak_wall_out", description = "Outside weak wall" }
 sprite{ id = "entities/dungeons/dungeon_6", description = "Dungeon 6" }
 sprite{ id = "entities/dungeons/dungeon_7", description = "Dungeon 7" }
 sprite{ id = "entities/effects/dark", description = "Dark" }
@@ -431,8 +431,8 @@ sprite{ id = "entities/effects/sparkle_big", description = "Sparkle big" }
 sprite{ id = "entities/effects/sparkle_small", description = "Sparkle small" }
 sprite{ id = "entities/explosion", description = "Explosion" }
 sprite{ id = "entities/explosion_boss", description = "Explosion boss" }
+sprite{ id = "entities/fire", description = "Fire" }
 sprite{ id = "entities/fire_mask", description = "Fire mask" }
-sprite{ id = "entities/fisher_boat", description = "Fisher boat" }
 sprite{ id = "entities/grounds/color_platform_green", description = "Color platform green" }
 sprite{ id = "entities/grounds/color_platform_orange", description = "Color platform orange" }
 sprite{ id = "entities/grounds/color_platform_red", description = "Color platform red" }
@@ -441,6 +441,7 @@ sprite{ id = "entities/grounds/conveyor_belt_2", description = "Conveyor belt 2"
 sprite{ id = "entities/grounds/conveyor_belt_3", description = "Conveyor belt 3" }
 sprite{ id = "entities/grounds/conveyor_belt_4", description = "Conveyor belt 4" }
 sprite{ id = "entities/grounds/conveyor_belt_minigame", description = "Conveyor belt minigame" }
+sprite{ id = "entities/grounds/fisher_boat", description = "Fisher boat" }
 sprite{ id = "entities/grounds/ground_dug", description = "Ground dug" }
 sprite{ id = "entities/grounds/weak_floor_dark_1", description = "Weak floor dark 1" }
 sprite{ id = "entities/grounds/weak_floor_dark_2", description = "Weak floor dark 2" }
@@ -510,6 +511,7 @@ sprite{ id = "entities/orb_monster_orb_blue", description = "Orb monster orb blu
 sprite{ id = "entities/orb_monster_orb_green", description = "Orb monster orb green" }
 sprite{ id = "entities/orb_monster_orb_red", description = "Orb monster orb red" }
 sprite{ id = "entities/outside_door", description = "Outside closed door" }
+sprite{ id = "entities/photographer_canvas", description = "Photographer canvas" }
 sprite{ id = "entities/prices_shop", description = "Prices shop" }
 sprite{ id = "entities/shadow", description = "Shadow" }
 sprite{ id = "entities/shadows/ball", description = "Ball" }
@@ -521,6 +523,7 @@ sprite{ id = "entities/statues/pillar", description = "Pillar base" }
 sprite{ id = "entities/statues/statue_darknut", description = "Statue darknut" }
 sprite{ id = "entities/statues/statue_koopa", description = "Statue koopa" }
 sprite{ id = "entities/statues/statue_pig", description = "Statue pig" }
+sprite{ id = "entities/streams/water_stream", description = "Water stream" }
 sprite{ id = "entities/switchs/switch", description = "Switch" }
 sprite{ id = "entities/switchs/switch_eye_blue", description = "Switch eye blue" }
 sprite{ id = "entities/switchs/switch_eye_red", description = "Switch eye red" }
@@ -533,6 +536,7 @@ sprite{ id = "entities/symbols/oh", description = "Oh" }
 sprite{ id = "entities/symbols/snores", description = "Snores" }
 sprite{ id = "entities/turtlerock_arms", description = "Turtlerock arms" }
 sprite{ id = "entities/turtlerock_head", description = "Turtlerock head" }
+sprite{ id = "entities/utils/cliff", description = "Cliff marker" }
 sprite{ id = "entities/utils/non_diggable", description = "Non diggable" }
 sprite{ id = "entities/vacuum_cleaner_ground", description = "Vacuum cleaner ground" }
 sprite{ id = "ground_effects/fall_on_hole", description = "ground_effects/fall_on_hole" }
@@ -1017,8 +1021,12 @@ sound{ id = "shield", description = "Empty sound" }
 sound{ id = "snes/enemies/boss_hit", description = "Boss hit" }
 sound{ id = "snes/enemies/enemy_die", description = "Enemy die" }
 sound{ id = "snes/enemies/enemy_hit", description = "Enemy hit" }
+sound{ id = "snes/enemies/enemy_rebound", description = "Enemy rebound" }
 sound{ id = "snes/enemies/laser", description = "Laser" }
+sound{ id = "snes/enemies/sea_urchin_push1", description = "Sea urchin push 1" }
+sound{ id = "snes/enemies/sea_urchin_push2", description = "Sea urchin push 2" }
 sound{ id = "snes/enemies/wizzrobe", description = "Wizzrobe" }
+sound{ id = "snes/hero/bounce", description = "Bounce" }
 sound{ id = "snes/hero/bound", description = "Bound" }
 sound{ id = "snes/hero/dying", description = "Dying" }
 sound{ id = "snes/hero/fall", description = "Fall" }
@@ -1033,6 +1041,7 @@ sound{ id = "snes/hero/throw", description = "Throw" }
 sound{ id = "snes/items/bomb_explode", description = "Bomb explode" }
 sound{ id = "snes/items/boomerang", description = "Boomerang" }
 sound{ id = "snes/items/bow_arrow", description = "Bow arrow" }
+sound{ id = "snes/items/fanfare_heart_container", description = "Fanfare heart container" }
 sound{ id = "snes/items/fanfare_item", description = "Fanfare item" }
 sound{ id = "snes/items/fanfare_item_extended", description = "Fanfare item extended" }
 sound{ id = "snes/items/fire_rod", description = "Fire rod" }
@@ -1052,23 +1061,39 @@ sound{ id = "snes/items/sword_slash4", description = "Sword slash 4" }
 sound{ id = "snes/items/sword_spin", description = "Sword spin" }
 sound{ id = "snes/items/sword_tap", description = "Sword tap" }
 sound{ id = "snes/items/sword_tap_bombable", description = "Sword tap bombable" }
+sound{ id = "snes/menus/menu_cursor", description = "Menu cursor" }
+sound{ id = "snes/menus/menu_select", description = "Menu select" }
+sound{ id = "snes/menus/pause_menu_close", description = "Pause menu close" }
+sound{ id = "snes/menus/pause_menu_open", description = "Pause menu open" }
 sound{ id = "snes/menus/solarus_logo", description = "Solarus logo" }
 sound{ id = "snes/menus/solarus_team_logo", description = "Solarus team logo" }
+sound{ id = "snes/menus/text_done", description = "text done" }
+sound{ id = "snes/menus/text_letter", description = "Text letter" }
 sound{ id = "snes/misc/beehive_bees", description = "Beehive bees" }
+sound{ id = "snes/misc/bowwow", description = "Bowwow" }
 sound{ id = "snes/misc/bush_cut", description = "Bush cut" }
 sound{ id = "snes/misc/chest_open", description = "Chest open" }
 sound{ id = "snes/misc/cucco", description = "Cucco" }
+sound{ id = "snes/misc/dungeon_door_open", description = "Dungeon door open" }
 sound{ id = "snes/misc/dungeon_door_slam", description = "Dungeon door slam" }
 sound{ id = "snes/misc/dungeon_open", description = "Dungeon open" }
+sound{ id = "snes/misc/dungeon_signal", description = "Dungeon signal" }
 sound{ id = "snes/misc/dungeon_switch", description = "Dungeon switch" }
 sound{ id = "snes/misc/dungeon_teleport", description = "Dungeon teleport" }
 sound{ id = "snes/misc/error", description = "Error" }
+sound{ id = "snes/misc/ground_crumble", description = "Ground crumble" }
 sound{ id = "snes/misc/low_health", description = "Low health" }
 sound{ id = "snes/misc/monkey", description = "Monkey" }
+sound{ id = "snes/misc/mysterious_woods_lost", description = "Mysterious woods lost" }
+sound{ id = "snes/misc/owl_fly_away", description = "Owl fly away" }
+sound{ id = "snes/misc/owl_fly_in", description = "Owl fly in" }
+sound{ id = "snes/misc/owl_hoot1", description = "owl hoot 1" }
+sound{ id = "snes/misc/owl_hoot2", description = "Owl hoot 2" }
 sound{ id = "snes/misc/rock_push", description = "Rock push" }
 sound{ id = "snes/misc/rock_shatter", description = "Rock shatter" }
 sound{ id = "snes/misc/secret1", description = "Secret 1" }
 sound{ id = "snes/misc/secret2", description = "Secret 2" }
+sound{ id = "snes/misc/stairs", description = "Stairs" }
 sound{ id = "splash", description = "Empty sound" }
 sound{ id = "stairs_down_end", description = "Empty sound" }
 sound{ id = "stairs_down_start", description = "Empty sound" }
@@ -1288,6 +1313,7 @@ entity{ id = "bird", description = "Bird" }
 entity{ id = "bowwow", description = "Bowwow" }
 entity{ id = "bubble", description = "Bubble" }
 entity{ id = "butterfly", description = "Butterfly" }
+entity{ id = "cliff", description = "Cliff" }
 entity{ id = "color_platform", description = "Color platform" }
 entity{ id = "conveyor_belt", description = "Conveyor belt" }
 entity{ id = "dice", description = "Dice" }
@@ -1304,7 +1330,7 @@ entity{ id = "mouse", description = "Mouse" }
 entity{ id = "mr_write_and_christine", description = "Mr Write and Christine" }
 entity{ id = "non_diggable", description = "Non diggable" }
 entity{ id = "obstacle", description = "Obstacle" }
-entity{ id = "pickable_fly", description = "Pickable fly" }
+entity{ id = "pickable_fly", description = "Flying pickable" }
 entity{ id = "pillar", description = "Pillar" }
 entity{ id = "platform_balance", description = "Twin linked platforms" }
 entity{ id = "platform_chain", description = "Chain for twin platforms" }
@@ -1381,7 +1407,6 @@ file{ path = "enemies/boss/grim_creeper.lua", license = "GPL v3" }
 file{ path = "enemies/boss/hinox_master.lua", license = "GPL v3" }
 file{ path = "enemies/boss/hot_head.lua", license = "GPL v3" }
 file{ path = "enemies/boss/lanmola.lua", license = "GPL v3" }
-file{ path = "enemies/boss/master_stalfos", author = "Benjamin Schweitzer", }
 file{ path = "enemies/boss/master_stalfos.lua", license = "GPL v3" }
 file{ path = "enemies/boss/moblin_chief.lua", license = "GPL v3" }
 file{ path = "enemies/boss/moldorm.lua", license = "GPL v3" }
@@ -1496,6 +1521,7 @@ file{ path = "enemies/zol_green.lua", author = "Benjamin Schweitzer", license = 
 file{ path = "enemies/zol_red.lua", license = "GPL v3" }
 file{ path = "enemies/zombie.lua", license = "GPL v3" }
 file{ path = "enemies/zora.lua", license = "GPL v3" }
+file{ path = "entities/cliff.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "fonts/04b03.ttf", author = "Yuji Oshimoto", license = "Free for personal use" }
 file{ path = "fonts/green_digits.png", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "fonts/la.png", author = "Nintendo", license = "Proprietary, Fair use" }
@@ -2413,6 +2439,31 @@ file{ path = "sprites/enemies/zols_gels.png", license = "Proprietary, Fair use" 
 file{ path = "sprites/enemies/zombie.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/zora.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/entities/iron_ball.dat", author = "Christopho", license = "CC BY-SA 4.0" }
+file{ path = "sprites/entities/utils/cliff.dat", author = "Christopho", license = "CC BY-SA 4.0" }
+file{ path = "sprites/entities/utils/cliff.png", author = "Christopho", license = "CC BY-SA 4.0" }
+file{ path = "sprites/hero/boomerang.shield.png", author = "Nintendo", license = "Proprietary (Fair use)" }
+file{ path = "sprites/hero/falling.png", author = "Nintendo", license = "Proprietary (Fair use)" }
+file{ path = "sprites/hero/fire_rod.png", author = "Nintendo", license = "Proprietary (Fair use)" }
+file{ path = "sprites/hero/hammer.shield.png", author = "Nintendo", license = "Proprietary (Fair use)" }
+file{ path = "sprites/hero/hookshot.shield.png", author = "Nintendo", license = "Proprietary (Fair use)" }
+file{ path = "sprites/hero/loading.shield1.png", author = "Nintendo", license = "Proprietary (Fair use)" }
+file{ path = "sprites/hero/loading.shield2.png", author = "Nintendo", license = "Proprietary (Fair use)" }
+file{ path = "sprites/hero/loading.shield3.png", author = "Nintendo", license = "Proprietary (Fair use)" }
+file{ path = "sprites/hero/loading.sword_stars1.png", author = "Nintendo", license = "Proprietary (Fair use)" }
+file{ path = "sprites/hero/loading.sword_stars2.png", author = "Nintendo", license = "Proprietary (Fair use)" }
+file{ path = "sprites/hero/plunging.png", author = "Nintendo", license = "Proprietary (Fair use)" }
+file{ path = "sprites/hero/pulling.png", author = "Nintendo", license = "Proprietary (Fair use)" }
+file{ path = "sprites/hero/running.png", author = "Nintendo", license = "Proprietary (Fair use)" }
+file{ path = "sprites/hero/spin_attack.sword1.png", author = "Nintendo", license = "Proprietary (Fair use)" }
+file{ path = "sprites/hero/spin_attack.sword2.png", author = "Nintendo", license = "Proprietary (Fair use)" }
+file{ path = "sprites/hero/spin_attack.sword3.png", author = "Nintendo", license = "Proprietary (Fair use)" }
+file{ path = "sprites/hero/spin_attack.sword4.png", author = "Nintendo", license = "Proprietary (Fair use)" }
+file{ path = "sprites/hero/swimming.png", author = "Nintendo", license = "Proprietary (Fair use)" }
+file{ path = "sprites/hero/sword.shield1.png", author = "Nintendo", license = "Proprietary (Fair use)" }
+file{ path = "sprites/hero/sword.shield2.png", author = "Nintendo", license = "Proprietary (Fair use)" }
+file{ path = "sprites/hero/sword.shield3.png", author = "Nintendo", license = "Proprietary (Fair use)" }
+file{ path = "sprites/hero/sword_tapping.shield.png", author = "Nintendo", license = "Proprietary (Fair use)" }
+file{ path = "sprites/hero/victory.sword.png", author = "Nintendo", license = "Proprietary (Fair use)" }
 file{ path = "sprites/menus/file_selection/file_selection_button.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/file_selection/file_selection_cursor.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/file_selection/file_selection_frame.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
@@ -2473,54 +2524,55 @@ file{ path = "sprites/menus/zeldaforce_logo/zeldaforce_logo_z.png", author = "Ol
 file{ path = "sprites/npc", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use, CC BY-SA 4.0" }
 file{ path = "sprites/npc/animals/alligator.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
 file{ path = "sprites/npc/animals/alligator.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/blue.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/blue.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/blue.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/brown.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/brown.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/brown.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/dark_brown.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/dark_brown.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/dark_brown.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/dark_yellow.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/dark_yellow.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/dark_yellow.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/gray.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/gray.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/gray.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/gray_blue.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/gray_blue.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/gray_blue.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/gray_brown.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/gray_brown.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/gray_brown.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/gray_pink.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/gray_pink.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/gray_pink.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/gray_yellow.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/gray_yellow.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/gray_yellow.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/green.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/green.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/green.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/light_blue.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/light_blue.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/light_blue.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/light_brown.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/light_brown.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/light_brown.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/light_green.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/light_green.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/light_green.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/pink.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/pink.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/pink.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/purple.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/purple.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/purple.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/yellow.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/yellow.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/dungeon/yellow.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/dungeon", author = "Nintendo, FFomega", license = "Mixed" }
+file{ path = "tilesets/dungeon/blue.dat", author = "FFomega", license = "CC BY-SA 4.0" }
+file{ path = "tilesets/dungeon/blue.entities.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
+file{ path = "tilesets/dungeon/blue.tiles.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
+file{ path = "tilesets/dungeon/brown.dat", author = "FFomega", license = "CC BY-SA 4.0" }
+file{ path = "tilesets/dungeon/brown.entities.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
+file{ path = "tilesets/dungeon/brown.tiles.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
+file{ path = "tilesets/dungeon/dark_brown.dat", author = "FFomega", license = "CC BY-SA 4.0" }
+file{ path = "tilesets/dungeon/dark_brown.entities.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
+file{ path = "tilesets/dungeon/dark_brown.tiles.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
+file{ path = "tilesets/dungeon/dark_yellow.dat", author = "FFomega", license = "CC BY-SA 4.0" }
+file{ path = "tilesets/dungeon/dark_yellow.entities.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
+file{ path = "tilesets/dungeon/dark_yellow.tiles.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
+file{ path = "tilesets/dungeon/gray.dat", author = "FFomega", license = "CC BY-SA 4.0" }
+file{ path = "tilesets/dungeon/gray.entities.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
+file{ path = "tilesets/dungeon/gray.tiles.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
+file{ path = "tilesets/dungeon/gray_blue.dat", author = "FFomega", license = "CC BY-SA 4.0" }
+file{ path = "tilesets/dungeon/gray_blue.entities.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
+file{ path = "tilesets/dungeon/gray_blue.tiles.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
+file{ path = "tilesets/dungeon/gray_brown.dat", author = "FFomega", license = "CC BY-SA 4.0" }
+file{ path = "tilesets/dungeon/gray_brown.entities.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
+file{ path = "tilesets/dungeon/gray_brown.tiles.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
+file{ path = "tilesets/dungeon/gray_pink.dat", author = "FFomega", license = "CC BY-SA 4.0" }
+file{ path = "tilesets/dungeon/gray_pink.entities.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
+file{ path = "tilesets/dungeon/gray_pink.tiles.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
+file{ path = "tilesets/dungeon/gray_yellow.dat", author = "FFomega", license = "CC BY-SA 4.0" }
+file{ path = "tilesets/dungeon/gray_yellow.entities.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
+file{ path = "tilesets/dungeon/gray_yellow.tiles.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
+file{ path = "tilesets/dungeon/green.dat", author = "FFomega", license = "CC BY-SA 4.0" }
+file{ path = "tilesets/dungeon/green.entities.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
+file{ path = "tilesets/dungeon/green.tiles.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
+file{ path = "tilesets/dungeon/light_blue.dat", author = "FFomega", license = "CC BY-SA 4.0" }
+file{ path = "tilesets/dungeon/light_blue.entities.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
+file{ path = "tilesets/dungeon/light_blue.tiles.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
+file{ path = "tilesets/dungeon/light_brown.dat", author = "FFomega", license = "CC BY-SA 4.0" }
+file{ path = "tilesets/dungeon/light_brown.entities.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
+file{ path = "tilesets/dungeon/light_brown.tiles.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
+file{ path = "tilesets/dungeon/light_green.dat", author = "FFomega", license = "CC BY-SA 4.0" }
+file{ path = "tilesets/dungeon/light_green.entities.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
+file{ path = "tilesets/dungeon/light_green.tiles.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
+file{ path = "tilesets/dungeon/pink.dat", author = "FFomega", license = "CC BY-SA 4.0" }
+file{ path = "tilesets/dungeon/pink.entities.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
+file{ path = "tilesets/dungeon/pink.tiles.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
+file{ path = "tilesets/dungeon/purple.dat", author = "FFomega", license = "CC BY-SA 4.0" }
+file{ path = "tilesets/dungeon/purple.entities.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
+file{ path = "tilesets/dungeon/purple.tiles.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
+file{ path = "tilesets/dungeon/yellow.dat", author = "FFomega", license = "CC BY-SA 4.0" }
+file{ path = "tilesets/dungeon/yellow.entities.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
+file{ path = "tilesets/dungeon/yellow.tiles.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
 file{ path = "tilesets/movies", author = "Nintendo, Olivier Cléro", license = "Proprietary, Fair use" }
 file{ path = "tilesets/movies/beach.dat", author = "Nintendo, Olivier Cléro", license = "Proprietary, Fair use" }
 file{ path = "tilesets/movies/beach.entities.png", author = "Nintendo, Olivier Cléro", license = "Proprietary, Fair use" }
@@ -2528,10 +2580,10 @@ file{ path = "tilesets/movies/beach.tiles.png", author = "Nintendo, Olivier Clé
 file{ path = "tilesets/movies/beach_sunset.dat", author = "Nintendo, Olivier Cléro", license = "Proprietary, Fair use" }
 file{ path = "tilesets/movies/beach_sunset.entities.png", author = "Nintendo, Olivier Cléro", license = "Proprietary, Fair use" }
 file{ path = "tilesets/movies/beach_sunset.tiles.png", author = "Nintendo, Olivier Cléro", license = "Proprietary, Fair use" }
-file{ path = "tilesets/out", author = "Nintendo, FFomega", }
+file{ path = "tilesets/out", author = "Nintendo, FFomega", license = "Mixed" }
 file{ path = "tilesets/out/light_world_legacy.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
 file{ path = "tilesets/out/light_world_legacy.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
 file{ path = "tilesets/out/light_world_legacy.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/out/outside.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/out/outside.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/out/outside.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
+file{ path = "tilesets/out/outside.dat", author = "FFomega", license = "CC BY-SA 4.0" }
+file{ path = "tilesets/out/outside.entities.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
+file{ path = "tilesets/out/outside.tiles.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }

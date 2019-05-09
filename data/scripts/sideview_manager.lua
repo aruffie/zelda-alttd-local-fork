@@ -304,7 +304,7 @@ local function update_animation(hero, direction)
     --print("changing animation from \'"..sprite:get_animation().."\' to \'"..new_animation)
     sprite:set_animation(new_animation)
   end
-  
+
 --  if direction then
 --    if state ~= "sword loading" and state ~="sword tapping" and state ~= "sword swinging" then
 --      --sprite:set_direction(direction)
@@ -337,27 +337,33 @@ local function update_hero(hero)
 
   local x,y,layer = hero:get_position()
   local map = game:get_map()
-  local speed
+  local speed, hangle, vangle
+  local can_move_vertically = true
+  local _left, _right, _up, _down
 
   --TODO enhance the movement angle calculation.
   if command("up") and not command("down") then
+    _up=true
     if test_ladder(hero) then
       hero.on_ladder = true
       speed = climbing_speed
     elseif map:get_ground(x,y,layer)=="deep_water" then 
       speed = swimming_speed
     else
-      game:simulate_command_released("up")
+      can_move_vertically=false
+      --    game:simulate_command_released("up")
     end
   elseif command("down") and not command("up") then
     ---print "LEFT"
+    _down=true
     if map:get_ground(x,y, layer) =="deep_water" then
       speed = swimming_speed
     elseif test_ladder(hero) or is_ladder(map, x, y+3, layer) then
       hero.on_ladder = true
       speed = climbing_speed
     else
-      game:simulate_command_released("down")
+      can_move_vertically = false
+      --  game:simulate_command_released("down")
     end
   end
 
@@ -366,13 +372,17 @@ local function update_hero(hero)
   end
 
   if command("right") and not command("left") then
+    _right=true
+    hangle = 0
     speed=walking_speed
     if map:get_ground(x,y,layer)=="deep_water" then
       speed = swimming_speed
     end
 
   elseif command("left") and not command("right") then
+    _left=true
     speed=walking_speed
+    hangle = math.pi
     if map:get_ground(x,y,layer)=="deep_water" then
       speed = swimming_speed
     end
@@ -382,9 +392,43 @@ local function update_hero(hero)
     hero.on_ladder=true
   end
 
+  if can_move_vertically==false then
+    print "Trying to override the vertical movement"
+    local m=hero:get_movement()
+    if m then
+      local a=m:get_angle()
+      print (a)
+      if _up==true then
+        print "UP"
+        print(m:get_speed(), hero:get_walking_speed())
+        if _left==true or _right==true then
+          print "UP-DIAGONAL"
+          if hangle ~=a then 
+            m:set_angle(hangle)
+          end
+        else
+          speed = 0
+        end
+      elseif _down==true then
+        print "DOWN"
+        print (m:get_speed(), hero:get_walking_speed())
+        if _left==true or _right==true then
+          print "DOWN-DIAGONAL"
+          m:set_angle(hangle)
+          if hangle ~=a then 
+            m:set_angle(hangle)
+          end
+        else
+          speed = 0
+        end
+      end
+    end
+  end
+
   if speed and speed~=hero:get_walking_speed() then
     hero:set_walking_speed(speed)
   end
+
   update_animation(hero)
 end
 
@@ -402,7 +446,7 @@ game_meta:register_event("on_map_changed", function(game, map)
           update_entities(map)
           return true
         end)
-      else
+    else
       hero:set_walking_speed(88)
     end
   end)
@@ -451,6 +495,7 @@ hero_meta:register_event("on_state_changed", function(hero, state)
         end
       end
     else
+      --print "Entering top-view mode"
       local timer = hero.timer
       if timer~=nil then
 --        print"remove timer"
