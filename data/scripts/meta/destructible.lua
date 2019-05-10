@@ -17,7 +17,6 @@ function destructible_meta:on_created(game)
     
 end
 
-
 function destructible_meta:on_looked()
 
   -- Here, self is the destructible object.
@@ -31,4 +30,15 @@ function destructible_meta:on_looked()
     end
   end
   
+end
+
+function destructible_meta:is_hookable()
+
+  local ground = self:get_modified_ground()
+  if ground == "traversable" or
+      ground == "grass" then
+    return false
+  end
+  
+  return true
 end
