@@ -1995,7 +1995,7 @@ tile{
   layer = 0,
   x = 120,
   y = 448,
-  width = 64,
+  width = 80,
   height = 8,
   pattern = "1340",
 }
