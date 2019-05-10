@@ -21,6 +21,16 @@ tile{
 
 tile{
   layer = 0,
+  x = 848,
+  y = 352,
+  width = 64,
+  height = 16,
+  pattern = "69",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
   x = 384,
   y = 176,
   width = 8,
@@ -2002,7 +2012,7 @@ tile{
 tile{
   layer = 0,
   x = 704,
-  y = 368,
+  y = 336,
   width = 16,
   height = 16,
   pattern = "926",
@@ -2011,7 +2021,7 @@ tile{
 tile{
   layer = 0,
   x = 680,
-  y = 360,
+  y = 328,
   width = 16,
   height = 16,
   pattern = "983",
@@ -2020,7 +2030,7 @@ tile{
 tile{
   layer = 0,
   x = 680,
-  y = 360,
+  y = 328,
   width = 16,
   height = 16,
   pattern = "927",
@@ -2029,7 +2039,7 @@ tile{
 tile{
   layer = 0,
   x = 688,
-  y = 368,
+  y = 336,
   width = 16,
   height = 16,
   pattern = "983",
@@ -2038,7 +2048,7 @@ tile{
 tile{
   layer = 0,
   x = 576,
-  y = 368,
+  y = 336,
   width = 16,
   height = 16,
   pattern = "988",
@@ -2047,7 +2057,7 @@ tile{
 tile{
   layer = 0,
   x = 576,
-  y = 464,
+  y = 432,
   width = 16,
   height = 16,
   pattern = "963",
@@ -2056,7 +2066,7 @@ tile{
 tile{
   layer = 0,
   x = 688,
-  y = 464,
+  y = 432,
   width = 16,
   height = 16,
   pattern = "962",
@@ -2065,7 +2075,7 @@ tile{
 tile{
   layer = 0,
   x = 672,
-  y = 480,
+  y = 448,
   width = 16,
   height = 16,
   pattern = "962",
@@ -2074,7 +2084,7 @@ tile{
 tile{
   layer = 0,
   x = 608,
-  y = 368,
+  y = 336,
   width = 64,
   height = 8,
   pattern = "978",
@@ -2083,7 +2093,7 @@ tile{
 tile{
   layer = 0,
   x = 688,
-  y = 384,
+  y = 352,
   width = 16,
   height = 64,
   pattern = "1070",
@@ -2092,7 +2102,7 @@ tile{
 tile{
   layer = 0,
   x = 576,
-  y = 384,
+  y = 352,
   width = 16,
   height = 64,
   pattern = "1069",
@@ -2101,7 +2111,7 @@ tile{
 tile{
   layer = 0,
   x = 608,
-  y = 464,
+  y = 432,
   width = 64,
   height = 16,
   pattern = "958",
@@ -2110,7 +2120,7 @@ tile{
 tile{
   layer = 0,
   x = 608,
-  y = 456,
+  y = 424,
   width = 64,
   height = 8,
   pattern = "959",
@@ -2119,7 +2129,7 @@ tile{
 tile{
   layer = 0,
   x = 608,
-  y = 480,
+  y = 448,
   width = 64,
   height = 16,
   pattern = "1071",
@@ -2128,7 +2138,7 @@ tile{
 tile{
   layer = 0,
   x = 592,
-  y = 448,
+  y = 416,
   width = 16,
   height = 16,
   pattern = "955",
@@ -2137,7 +2147,7 @@ tile{
 tile{
   layer = 0,
   x = 592,
-  y = 464,
+  y = 432,
   width = 16,
   height = 16,
   pattern = "960",
@@ -2146,7 +2156,7 @@ tile{
 tile{
   layer = 0,
   x = 672,
-  y = 448,
+  y = 416,
   width = 16,
   height = 16,
   pattern = "956",
@@ -2155,7 +2165,7 @@ tile{
 tile{
   layer = 0,
   x = 672,
-  y = 464,
+  y = 432,
   width = 16,
   height = 16,
   pattern = "961",
@@ -2164,7 +2174,7 @@ tile{
 tile{
   layer = 0,
   x = 600,
-  y = 360,
+  y = 328,
   width = 80,
   height = 8,
   pattern = "1072",
@@ -2173,7 +2183,7 @@ tile{
 tile{
   layer = 0,
   x = 672,
-  y = 480,
+  y = 448,
   width = 16,
   height = 16,
   pattern = "924",
@@ -2182,7 +2192,7 @@ tile{
 tile{
   layer = 0,
   x = 688,
-  y = 464,
+  y = 432,
   width = 16,
   height = 16,
   pattern = "924",
@@ -2191,7 +2201,7 @@ tile{
 tile{
   layer = 0,
   x = 576,
-  y = 464,
+  y = 432,
   width = 16,
   height = 16,
   pattern = "922",
@@ -2200,7 +2210,7 @@ tile{
 tile{
   layer = 0,
   x = 560,
-  y = 464,
+  y = 432,
   width = 16,
   height = 16,
   pattern = "923",
@@ -2209,7 +2219,7 @@ tile{
 tile{
   layer = 0,
   x = 592,
-  y = 480,
+  y = 448,
   width = 16,
   height = 16,
   pattern = "963",
@@ -2218,7 +2228,7 @@ tile{
 tile{
   layer = 0,
   x = 592,
-  y = 480,
+  y = 448,
   width = 16,
   height = 16,
   pattern = "922",
@@ -2227,7 +2237,7 @@ tile{
 tile{
   layer = 0,
   x = 576,
-  y = 480,
+  y = 448,
   width = 16,
   height = 16,
   pattern = "923",
@@ -2236,7 +2246,7 @@ tile{
 tile{
   layer = 0,
   x = 688,
-  y = 480,
+  y = 448,
   width = 16,
   height = 16,
   pattern = "925",
@@ -2245,24 +2255,6 @@ tile{
 tile{
   layer = 0,
   x = 672,
-  y = 496,
-  width = 16,
-  height = 16,
-  pattern = "925",
-}
-
-tile{
-  layer = 0,
-  x = 592,
-  y = 496,
-  width = 16,
-  height = 16,
-  pattern = "923",
-}
-
-tile{
-  layer = 0,
-  x = 704,
   y = 464,
   width = 16,
   height = 16,
@@ -2271,8 +2263,26 @@ tile{
 
 tile{
   layer = 0,
+  x = 592,
+  y = 464,
+  width = 16,
+  height = 16,
+  pattern = "923",
+}
+
+tile{
+  layer = 0,
+  x = 704,
+  y = 432,
+  width = 16,
+  height = 16,
+  pattern = "925",
+}
+
+tile{
+  layer = 0,
   x = 584,
-  y = 344,
+  y = 312,
   width = 16,
   height = 16,
   pattern = "928",
@@ -2281,7 +2291,7 @@ tile{
 tile{
   layer = 0,
   x = 592,
-  y = 368,
+  y = 336,
   width = 16,
   height = 16,
   pattern = "986",
@@ -2290,7 +2300,7 @@ tile{
 tile{
   layer = 0,
   x = 672,
-  y = 368,
+  y = 336,
   width = 16,
   height = 16,
   pattern = "981",
@@ -2299,7 +2309,7 @@ tile{
 tile{
   layer = 0,
   x = 584,
-  y = 360,
+  y = 328,
   width = 16,
   height = 16,
   pattern = "988",
@@ -2308,7 +2318,7 @@ tile{
 tile{
   layer = 0,
   x = 584,
-  y = 360,
+  y = 328,
   width = 16,
   height = 16,
   pattern = "929",
@@ -2317,7 +2327,7 @@ tile{
 tile{
   layer = 0,
   x = 568,
-  y = 360,
+  y = 328,
   width = 16,
   height = 16,
   pattern = "928",
@@ -2326,7 +2336,7 @@ tile{
 tile{
   layer = 0,
   x = 560,
-  y = 368,
+  y = 336,
   width = 16,
   height = 16,
   pattern = "928",
@@ -2335,7 +2345,7 @@ tile{
 tile{
   layer = 0,
   x = 576,
-  y = 368,
+  y = 336,
   width = 16,
   height = 16,
   pattern = "929",
@@ -2344,7 +2354,7 @@ tile{
 tile{
   layer = 0,
   x = 680,
-  y = 344,
+  y = 312,
   width = 16,
   height = 16,
   pattern = "926",
@@ -2353,7 +2363,7 @@ tile{
 tile{
   layer = 0,
   x = 688,
-  y = 368,
+  y = 336,
   width = 16,
   height = 16,
   pattern = "927",
@@ -2362,7 +2372,7 @@ tile{
 tile{
   layer = 0,
   x = 696,
-  y = 360,
+  y = 328,
   width = 16,
   height = 16,
   pattern = "926",
@@ -2371,7 +2381,7 @@ tile{
 tile{
   layer = 0,
   x = 688,
-  y = 448,
+  y = 416,
   width = 16,
   height = 16,
   pattern = "1068",
@@ -2380,7 +2390,7 @@ tile{
 tile{
   layer = 0,
   x = 576,
-  y = 448,
+  y = 416,
   width = 16,
   height = 16,
   pattern = "1067",
@@ -2389,7 +2399,7 @@ tile{
 tile{
   layer = 0,
   x = 568,
-  y = 384,
+  y = 352,
   width = 8,
   height = 80,
   pattern = "1340",
@@ -2398,7 +2408,7 @@ tile{
 tile{
   layer = 0,
   x = 608,
-  y = 496,
+  y = 464,
   width = 48,
   height = 8,
   pattern = "1340",
@@ -2407,7 +2417,7 @@ tile{
 tile{
   layer = 0,
   x = 704,
-  y = 384,
+  y = 352,
   width = 8,
   height = 80,
   pattern = "1340",
@@ -2416,7 +2426,7 @@ tile{
 tile{
   layer = 0,
   x = 704,
-  y = 384,
+  y = 352,
   width = 16,
   height = 80,
   pattern = "920",
@@ -2425,7 +2435,7 @@ tile{
 tile{
   layer = 0,
   x = 608,
-  y = 496,
+  y = 464,
   width = 64,
   height = 16,
   pattern = "918",
@@ -2434,7 +2444,7 @@ tile{
 tile{
   layer = 0,
   x = 560,
-  y = 384,
+  y = 352,
   width = 16,
   height = 80,
   pattern = "921",
@@ -2443,7 +2453,7 @@ tile{
 tile{
   layer = 0,
   x = 600,
-  y = 352,
+  y = 320,
   width = 64,
   height = 8,
   pattern = "1340",
@@ -2452,7 +2462,7 @@ tile{
 tile{
   layer = 0,
   x = 600,
-  y = 344,
+  y = 312,
   width = 80,
   height = 16,
   pattern = "919",
@@ -4143,24 +4153,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 384,
-  y = 184,
-  width = 16,
-  height = 16,
-  pattern = "1039",
-}
-
-tile{
-  layer = 0,
-  x = 384,
-  y = 184,
-  width = 16,
-  height = 16,
-  pattern = "913",
-}
-
-tile{
-  layer = 0,
   x = 304,
   y = 272,
   width = 16,
@@ -4432,7 +4424,7 @@ tile{
 tile{
   layer = 0,
   x = 240,
-  y = 80,
+  y = 64,
   width = 16,
   height = 16,
   pattern = "8119",
@@ -4441,7 +4433,7 @@ tile{
 tile{
   layer = 0,
   x = 576,
-  y = 624,
+  y = 656,
   width = 16,
   height = 16,
   pattern = "8119",
@@ -4450,7 +4442,7 @@ tile{
 tile{
   layer = 0,
   x = 592,
-  y = 624,
+  y = 656,
   width = 16,
   height = 16,
   pattern = "8119",
@@ -4459,7 +4451,7 @@ tile{
 tile{
   layer = 0,
   x = 608,
-  y = 624,
+  y = 656,
   width = 16,
   height = 16,
   pattern = "8119",
@@ -4468,7 +4460,1748 @@ tile{
 tile{
   layer = 0,
   x = 624,
+  y = 656,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 544,
+  y = 176,
+  width = 96,
+  height = 32,
+  pattern = "72",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 528,
+  y = 176,
+  width = 16,
+  height = 32,
+  pattern = "70",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 640,
+  y = 176,
+  width = 16,
+  height = 32,
+  pattern = "71",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 544,
+  y = 160,
+  width = 96,
+  height = 16,
+  pattern = "68",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 544,
+  y = 208,
+  width = 96,
+  height = 16,
+  pattern = "69",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 688,
+  y = 176,
+  width = 96,
+  height = 32,
+  pattern = "72",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 672,
+  y = 176,
+  width = 16,
+  height = 32,
+  pattern = "70",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 784,
+  y = 176,
+  width = 16,
+  height = 32,
+  pattern = "71",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 688,
+  y = 160,
+  width = 96,
+  height = 16,
+  pattern = "68",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 688,
+  y = 208,
+  width = 96,
+  height = 16,
+  pattern = "69",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 688,
+  y = 112,
+  width = 128,
+  height = 16,
+  pattern = "69",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 848,
+  y = 112,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 864,
+  y = 128,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 880,
+  y = 80,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 416,
+  y = 32,
+  width = 160,
+  height = 16,
+  pattern = "68",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 416,
+  y = 48,
+  width = 160,
+  height = 16,
+  pattern = "69",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 432,
+  y = 48,
+  width = 128,
+  height = 16,
+  pattern = "68",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 432,
+  y = 64,
+  width = 128,
+  height = 16,
+  pattern = "69",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 448,
+  y = 80,
+  width = 32,
+  height = 16,
+  pattern = "69",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 448,
+  y = 64,
+  width = 32,
+  height = 16,
+  pattern = "68",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 368,
+  y = 144,
+  width = 128,
+  height = 16,
+  pattern = "68",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 368,
+  y = 160,
+  width = 128,
+  height = 16,
+  pattern = "69",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 384,
+  y = 176,
+  width = 96,
+  height = 16,
+  pattern = "69",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 384,
+  y = 160,
+  width = 96,
+  height = 16,
+  pattern = "68",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 848,
+  y = 96,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 864,
+  y = 112,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 880,
+  y = 64,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 896,
+  y = 80,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 48,
+  y = 400,
+  width = 512,
+  height = 16,
+  pattern = "69",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 224,
+  y = 384,
+  width = 96,
+  height = 16,
+  pattern = "69",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 224,
+  y = 368,
+  width = 96,
+  height = 16,
+  pattern = "68",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 48,
+  y = 384,
+  width = 512,
+  height = 16,
+  pattern = "68",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 64,
+  y = 416,
+  width = 512,
+  height = 16,
+  pattern = "69",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 64,
+  y = 400,
+  width = 512,
+  height = 16,
+  pattern = "68",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 528,
+  y = 416,
+  width = 16,
+  height = 32,
+  pattern = "70",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 544,
+  y = 416,
+  width = 16,
+  height = 32,
+  pattern = "71",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 544,
+  y = 432,
+  width = 16,
+  height = 32,
+  pattern = "70",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 560,
+  y = 432,
+  width = 16,
+  height = 32,
+  pattern = "71",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 560,
+  y = 448,
+  width = 16,
+  height = 32,
+  pattern = "70",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 576,
+  y = 448,
+  width = 16,
+  height = 32,
+  pattern = "71",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 688,
+  y = 448,
+  width = 16,
+  height = 32,
+  pattern = "70",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 576,
+  y = 480,
+  width = 128,
+  height = 16,
+  pattern = "69",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 704,
+  y = 432,
+  width = 16,
+  height = 32,
+  pattern = "70",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 704,
+  y = 448,
+  width = 16,
+  height = 32,
+  pattern = "71",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 704,
+  y = 416,
+  width = 96,
+  height = 16,
+  pattern = "69",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 720,
+  y = 416,
+  width = 16,
+  height = 32,
+  pattern = "70",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 736,
+  y = 416,
+  width = 16,
+  height = 32,
+  pattern = "71",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 720,
+  y = 432,
+  width = 16,
+  height = 32,
+  pattern = "71",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 576,
+  y = 464,
+  width = 128,
+  height = 16,
+  pattern = "68",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 720,
+  y = 368,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 752,
+  y = 336,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 736,
+  y = 272,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 752,
+  y = 240,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 720,
+  y = 384,
+  width = 96,
+  height = 16,
+  pattern = "68",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 720,
+  y = 400,
+  width = 96,
+  height = 16,
+  pattern = "69",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 704,
+  y = 400,
+  width = 96,
+  height = 16,
+  pattern = "68",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 848,
+  y = 240,
+  width = 64,
+  height = 16,
+  pattern = "68",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 848,
+  y = 256,
+  width = 64,
+  height = 16,
+  pattern = "69",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 864,
+  y = 272,
+  width = 32,
+  height = 16,
+  pattern = "69",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 864,
+  y = 256,
+  width = 32,
+  height = 16,
+  pattern = "68",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 864,
+  y = 336,
+  width = 32,
+  height = 16,
+  pattern = "69",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 864,
+  y = 288,
+  width = 32,
+  height = 16,
+  pattern = "68",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 864,
+  y = 368,
+  width = 32,
+  height = 16,
+  pattern = "69",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 864,
+  y = 352,
+  width = 32,
+  height = 16,
+  pattern = "68",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 848,
+  y = 336,
+  width = 64,
+  height = 16,
+  pattern = "68",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 912,
+  y = 240,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 912,
+  y = 256,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 912,
+  y = 336,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 912,
+  y = 352,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 864,
+  y = 304,
+  width = 32,
+  height = 32,
+  pattern = "72",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 896,
+  y = 304,
+  width = 16,
+  height = 32,
+  pattern = "71",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 848,
+  y = 304,
+  width = 16,
+  height = 32,
+  pattern = "70",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 416,
+  y = 608,
+  width = 512,
+  height = 16,
+  pattern = "69",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 416,
+  y = 592,
+  width = 512,
+  height = 16,
+  pattern = "68",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 432,
   y = 624,
+  width = 512,
+  height = 16,
+  pattern = "69",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 432,
+  y = 608,
+  width = 512,
+  height = 16,
+  pattern = "68",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 640,
+  y = 656,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 656,
+  y = 656,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 672,
+  y = 656,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 688,
+  y = 656,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 704,
+  y = 656,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 720,
+  y = 656,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 736,
+  y = 656,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 688,
+  y = 688,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 672,
+  y = 688,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 656,
+  y = 688,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 576,
+  y = 672,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 560,
+  y = 672,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 544,
+  y = 672,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 512,
+  y = 672,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 528,
+  y = 672,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 928,
+  y = 640,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 912,
+  y = 640,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 896,
+  y = 640,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 864,
+  y = 640,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 880,
+  y = 640,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 928,
+  y = 656,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 672,
+  y = 80,
+  width = 128,
+  height = 16,
+  pattern = "68",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 672,
+  y = 96,
+  width = 128,
+  height = 16,
+  pattern = "69",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 688,
+  y = 96,
+  width = 128,
+  height = 16,
+  pattern = "68",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 256,
+  y = 560,
+  width = 64,
+  height = 16,
+  pattern = "69",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 256,
+  y = 544,
+  width = 64,
+  height = 16,
+  pattern = "68",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 384,
+  y = 496,
+  width = 96,
+  height = 16,
+  pattern = "69",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 384,
+  y = 480,
+  width = 96,
+  height = 16,
+  pattern = "68",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 368,
+  y = 512,
+  width = 128,
+  height = 16,
+  pattern = "69",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 368,
+  y = 496,
+  width = 128,
+  height = 16,
+  pattern = "68",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 352,
+  y = 528,
+  width = 64,
+  height = 16,
+  pattern = "69",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 352,
+  y = 512,
+  width = 64,
+  height = 16,
+  pattern = "68",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 352,
+  y = 544,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 336,
+  y = 544,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 368,
+  y = 560,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 368,
+  y = 576,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 368,
+  y = 592,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 368,
+  y = 608,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 368,
+  y = 624,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 368,
+  y = 640,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 384,
+  y = 640,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 336,
+  y = 640,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 320,
+  y = 640,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 304,
+  y = 640,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 288,
+  y = 624,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 272,
+  y = 624,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 256,
+  y = 624,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 240,
+  y = 624,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 512,
+  y = 512,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 496,
+  y = 512,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 544,
+  y = 512,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 528,
+  y = 512,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 608,
+  y = 544,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 592,
+  y = 544,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 624,
+  y = 544,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 560,
+  y = 512,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 592,
+  y = 512,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 576,
+  y = 512,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 656,
+  y = 544,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 640,
+  y = 544,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 672,
+  y = 544,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 752,
+  y = 576,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 768,
+  y = 576,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 736,
+  y = 480,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 752,
+  y = 480,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 784,
+  y = 512,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 800,
+  y = 512,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 816,
+  y = 512,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 832,
+  y = 512,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 864,
+  y = 416,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 880,
+  y = 416,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 880,
+  y = 432,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 880,
+  y = 448,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 912,
+  y = 432,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 912,
+  y = 448,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 912,
+  y = 464,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 912,
+  y = 480,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 912,
+  y = 496,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 912,
+  y = 512,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 912,
+  y = 528,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 896,
+  y = 544,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 880,
+  y = 544,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 848,
+  y = 544,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 240,
+  y = 48,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 896,
+  y = 96,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 864,
+  y = 144,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 752,
+  y = 320,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 720,
+  y = 352,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 880,
+  y = 464,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 864,
+  y = 400,
+  width = 32,
+  height = 16,
+  pattern = "69",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 864,
+  y = 384,
+  width = 32,
+  height = 16,
+  pattern = "68",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 848,
+  y = 384,
+  width = 32,
+  height = 16,
+  pattern = "69",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 848,
+  y = 368,
+  width = 32,
+  height = 16,
+  pattern = "68",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 640,
+  y = 160,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 656,
+  y = 160,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 672,
+  y = 160,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 648,
+  y = 168,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 664,
+  y = 168,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 656,
+  y = 176,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 648,
+  y = 184,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 664,
+  y = 184,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 656,
+  y = 192,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 664,
+  y = 200,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 648,
+  y = 200,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 640,
+  y = 208,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 656,
+  y = 208,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 672,
+  y = 208,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 752,
+  y = 272,
+  width = 16,
+  height = 16,
+  pattern = "8119",
+}
+
+tile{
+  layer = 0,
+  x = 768,
+  y = 240,
   width = 16,
   height = 16,
   pattern = "8119",
@@ -5135,27 +6868,639 @@ stream{
 
 stream{
   layer = 0,
+  x = 56,
+  y = 269,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 72,
+  y = 269,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 88,
+  y = 269,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 56,
+  y = 285,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 72,
+  y = 285,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 88,
+  y = 285,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 56,
+  y = 301,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 72,
+  y = 301,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 88,
+  y = 301,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 56,
+  y = 317,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 72,
+  y = 317,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 88,
+  y = 317,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 56,
+  y = 333,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 72,
+  y = 333,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 88,
+  y = 333,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 56,
+  y = 349,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 72,
+  y = 349,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 88,
+  y = 349,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 104,
+  y = 365,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 120,
+  y = 365,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 136,
+  y = 365,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 56,
+  y = 381,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 72,
+  y = 381,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 88,
+  y = 381,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 104,
+  y = 381,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 120,
+  y = 381,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 136,
+  y = 381,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 152,
+  y = 381,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 168,
+  y = 381,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 184,
+  y = 381,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 200,
+  y = 381,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 216,
+  y = 381,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 216,
+  y = 365,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 56,
+  y = 365,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 72,
+  y = 365,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 88,
+  y = 365,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 104,
+  y = 349,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 184,
+  y = 365,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 232,
+  y = 365,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 232,
+  y = 349,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 232,
+  y = 333,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 248,
+  y = 333,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 248,
+  y = 349,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 248,
+  y = 365,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 264,
+  y = 365,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 264,
+  y = 349,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 264,
+  y = 333,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 280,
+  y = 333,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 280,
+  y = 349,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 280,
+  y = 365,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 296,
+  y = 365,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 296,
+  y = 349,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 296,
+  y = 333,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 312,
+  y = 333,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 312,
+  y = 349,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 312,
+  y = 365,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 328,
+  y = 365,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 328,
+  y = 349,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 328,
+  y = 333,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
   x = 344,
-  y = 93,
-  direction = 4,
+  y = 333,
+  direction = 0,
   sprite = "entities/streams/water_stream",
   allow_item = false,
 }
 
 stream{
   layer = 0,
-  x = 328,
-  y = 93,
-  direction = 4,
+  x = 344,
+  y = 349,
+  direction = 0,
   sprite = "entities/streams/water_stream",
   allow_item = false,
 }
 
 stream{
   layer = 0,
-  x = 312,
-  y = 93,
-  direction = 4,
+  x = 344,
+  y = 365,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 248,
+  y = 317,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 248,
+  y = 301,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 248,
+  y = 285,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 264,
+  y = 285,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 264,
+  y = 301,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 264,
+  y = 317,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 280,
+  y = 317,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 280,
+  y = 301,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 280,
+  y = 285,
+  direction = 0,
   sprite = "entities/streams/water_stream",
   allow_item = false,
 }
@@ -5163,26 +7508,8 @@ stream{
 stream{
   layer = 0,
   x = 296,
-  y = 93,
-  direction = 4,
-  sprite = "entities/streams/water_stream",
-  allow_item = false,
-}
-
-stream{
-  layer = 0,
-  x = 328,
-  y = 109,
-  direction = 4,
-  sprite = "entities/streams/water_stream",
-  allow_item = false,
-}
-
-stream{
-  layer = 0,
-  x = 312,
-  y = 109,
-  direction = 4,
+  y = 301,
+  direction = 0,
   sprite = "entities/streams/water_stream",
   allow_item = false,
 }
@@ -5190,8 +7517,71 @@ stream{
 stream{
   layer = 0,
   x = 296,
-  y = 109,
-  direction = 4,
+  y = 317,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 232,
+  y = 301,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 232,
+  y = 285,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 232,
+  y = 269,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 248,
+  y = 269,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 264,
+  y = 269,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 280,
+  y = 269,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 296,
+  y = 285,
+  direction = 6,
   sprite = "entities/streams/water_stream",
   allow_item = false,
 }
@@ -5199,53 +7589,1736 @@ stream{
 stream{
   layer = 0,
   x = 328,
+  y = 301,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 344,
+  y = 301,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 344,
+  y = 317,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 328,
+  y = 317,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 360,
+  y = 301,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 360,
+  y = 317,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 360,
+  y = 333,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 360,
+  y = 349,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 360,
+  y = 365,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 376,
+  y = 301,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 376,
+  y = 317,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 376,
+  y = 333,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 376,
+  y = 349,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 376,
+  y = 365,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 392,
+  y = 301,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 392,
+  y = 317,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 392,
+  y = 333,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 392,
+  y = 349,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 392,
+  y = 365,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 408,
+  y = 317,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 408,
+  y = 333,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 408,
+  y = 349,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 408,
+  y = 365,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 424,
+  y = 333,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 424,
+  y = 349,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 424,
+  y = 365,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 424,
+  y = 381,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 328,
+  y = 381,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 344,
+  y = 381,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 360,
+  y = 381,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 376,
+  y = 381,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 392,
+  y = 381,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 408,
+  y = 381,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 424,
+  y = 317,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 408,
+  y = 301,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 392,
+  y = 285,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 392,
+  y = 269,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 376,
+  y = 269,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 376,
+  y = 285,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 360,
+  y = 285,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 312,
+  y = 301,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 312,
+  y = 317,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 440,
+  y = 333,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 456,
+  y = 333,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 440,
+  y = 349,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 456,
+  y = 349,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 440,
+  y = 365,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 456,
+  y = 365,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 440,
+  y = 381,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 456,
+  y = 381,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 472,
+  y = 381,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 488,
+  y = 381,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 472,
+  y = 365,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 488,
+  y = 365,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 472,
+  y = 349,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 488,
+  y = 349,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 520,
+  y = 365,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 536,
+  y = 365,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 520,
+  y = 349,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 536,
+  y = 349,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 520,
+  y = 333,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 536,
+  y = 333,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 552,
+  y = 365,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 552,
+  y = 349,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 552,
+  y = 333,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 568,
+  y = 333,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 552,
+  y = 317,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 568,
+  y = 317,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 552,
+  y = 301,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 568,
+  y = 301,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 552,
+  y = 285,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 568,
+  y = 285,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 552,
+  y = 269,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 568,
+  y = 269,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 552,
+  y = 253,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 568,
+  y = 253,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 552,
+  y = 237,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 568,
+  y = 237,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 520,
+  y = 381,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 536,
+  y = 381,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 504,
+  y = 365,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 504,
+  y = 381,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 536,
+  y = 317,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 568,
+  y = 397,
+  direction = 2,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 568,
+  y = 381,
+  direction = 2,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 568,
+  y = 365,
+  direction = 2,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 568,
+  y = 349,
+  direction = 2,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 584,
+  y = 333,
+  direction = 2,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 584,
+  y = 301,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 584,
+  y = 285,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 584,
+  y = 269,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 584,
+  y = 253,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 584,
+  y = 237,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 600,
+  y = 301,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 600,
+  y = 285,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 600,
+  y = 269,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 600,
+  y = 253,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 600,
+  y = 237,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 616,
+  y = 301,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 616,
+  y = 285,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 616,
+  y = 269,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 616,
+  y = 253,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 616,
+  y = 237,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 632,
+  y = 301,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 632,
+  y = 285,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 632,
+  y = 269,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 632,
+  y = 253,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 632,
+  y = 237,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 648,
+  y = 301,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 648,
+  y = 285,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 648,
+  y = 269,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 648,
+  y = 253,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 648,
+  y = 237,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 664,
+  y = 301,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 664,
+  y = 285,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 664,
+  y = 269,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 664,
+  y = 253,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 664,
+  y = 237,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 680,
+  y = 301,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 680,
+  y = 285,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 680,
+  y = 269,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 680,
+  y = 253,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 680,
+  y = 237,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 696,
+  y = 301,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 696,
+  y = 285,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 696,
+  y = 269,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 696,
+  y = 253,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 696,
+  y = 237,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 584,
+  y = 317,
+  direction = 2,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 616,
+  y = 317,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 632,
+  y = 317,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 648,
+  y = 317,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 664,
+  y = 317,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 680,
+  y = 317,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 696,
+  y = 317,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 408,
+  y = 285,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 936,
+  y = 237,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 936,
+  y = 253,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 936,
+  y = 269,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 936,
+  y = 285,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 920,
+  y = 285,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 920,
+  y = 301,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 920,
+  y = 317,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 920,
+  y = 333,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 904,
+  y = 285,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 904,
+  y = 301,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 936,
+  y = 301,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 936,
+  y = 317,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 936,
+  y = 333,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 936,
+  y = 349,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 936,
+  y = 365,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 552,
+  y = 381,
+  direction = 2,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 600,
+  y = 317,
+  direction = 2,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 408,
+  y = 61,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 424,
   y = 77,
-  direction = 4,
+  direction = 6,
   sprite = "entities/streams/water_stream",
   allow_item = false,
 }
 
 stream{
   layer = 0,
-  x = 312,
+  x = 440,
+  y = 93,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 472,
+  y = 109,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 232,
   y = 77,
-  direction = 4,
+  direction = 6,
   sprite = "entities/streams/water_stream",
   allow_item = false,
 }
 
 stream{
   layer = 0,
-  x = 296,
+  x = 184,
+  y = 93,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 200,
+  y = 93,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 216,
+  y = 93,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 232,
+  y = 93,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 232,
+  y = 61,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 200,
+  y = 61,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 216,
+  y = 61,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 184,
   y = 77,
-  direction = 4,
+  direction = 0,
   sprite = "entities/streams/water_stream",
   allow_item = false,
 }
 
 stream{
   layer = 0,
-  x = 328,
-  y = 125,
-  direction = 4,
+  x = 200,
+  y = 77,
+  direction = 0,
   sprite = "entities/streams/water_stream",
   allow_item = false,
 }
 
 stream{
   layer = 0,
-  x = 312,
-  y = 125,
-  direction = 4,
+  x = 216,
+  y = 77,
+  direction = 0,
   sprite = "entities/streams/water_stream",
   allow_item = false,
 }
 
 stream{
   layer = 0,
-  x = 296,
+  x = 184,
+  y = 109,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 200,
+  y = 109,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 216,
+  y = 109,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 232,
+  y = 109,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 200,
   y = 125,
-  direction = 4,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 216,
+  y = 125,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 216,
+  y = 141,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 232,
+  y = 141,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 216,
+  y = 157,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 232,
+  y = 157,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 248,
+  y = 157,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 264,
+  y = 157,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 248,
+  y = 141,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 264,
+  y = 141,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 232,
+  y = 125,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 248,
+  y = 125,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 248,
+  y = 109,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 264,
+  y = 109,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 248,
+  y = 93,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 264,
+  y = 93,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 264,
+  y = 77,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 264,
+  y = 61,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 264,
+  y = 125,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 280,
+  y = 157,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 280,
+  y = 141,
+  direction = 0,
   sprite = "entities/streams/water_stream",
   allow_item = false,
 }
@@ -5254,7 +9327,4156 @@ stream{
   layer = 0,
   x = 280,
   y = 109,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 280,
+  y = 93,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 280,
+  y = 77,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 280,
+  y = 61,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 280,
+  y = 125,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 296,
+  y = 141,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 296,
+  y = 109,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 296,
+  y = 93,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 296,
+  y = 77,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 296,
+  y = 61,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 296,
+  y = 125,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 312,
+  y = 141,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 312,
+  y = 109,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 312,
+  y = 93,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 312,
+  y = 77,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 312,
+  y = 61,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 312,
+  y = 125,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 328,
+  y = 141,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 328,
+  y = 109,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 328,
+  y = 93,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 328,
+  y = 77,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 328,
+  y = 61,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 328,
+  y = 125,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 344,
+  y = 141,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 344,
+  y = 109,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 344,
+  y = 93,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 344,
+  y = 77,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 344,
+  y = 61,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 344,
+  y = 125,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 360,
+  y = 141,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 360,
+  y = 109,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 360,
+  y = 93,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 360,
+  y = 77,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 360,
+  y = 61,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 360,
+  y = 125,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 376,
+  y = 141,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 376,
+  y = 109,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 376,
+  y = 93,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 376,
+  y = 77,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 376,
+  y = 61,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 376,
+  y = 125,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 392,
+  y = 141,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 392,
+  y = 109,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 392,
+  y = 93,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 392,
+  y = 77,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 392,
+  y = 61,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 392,
+  y = 125,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 408,
+  y = 77,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 488,
+  y = 109,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 424,
+  y = 93,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 408,
+  y = 93,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 408,
+  y = 109,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 408,
+  y = 125,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 408,
+  y = 141,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 424,
+  y = 109,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 440,
+  y = 109,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 456,
+  y = 109,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 424,
+  y = 125,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 440,
+  y = 125,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 456,
+  y = 125,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 424,
+  y = 141,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 440,
+  y = 141,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 456,
+  y = 141,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 472,
+  y = 141,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 488,
+  y = 141,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 472,
+  y = 125,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 504,
+  y = 93,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 488,
+  y = 125,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 488,
+  y = 93,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 504,
+  y = 109,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 504,
+  y = 125,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 504,
+  y = 141,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 504,
+  y = 157,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 504,
+  y = 173,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 520,
+  y = 173,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 520,
+  y = 157,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 536,
+  y = 173,
+  direction = 2,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 536,
+  y = 157,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 536,
+  y = 141,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 520,
+  y = 141,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 520,
+  y = 125,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 536,
+  y = 125,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 536,
+  y = 109,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 520,
+  y = 109,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 520,
+  y = 93,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 536,
+  y = 93,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 664,
+  y = 93,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 664,
+  y = 109,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 664,
+  y = 125,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 680,
+  y = 125,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 584,
+  y = 45,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 584,
+  y = 61,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 616,
+  y = 61,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 600,
+  y = 61,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 600,
+  y = 45,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 616,
+  y = 45,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 632,
+  y = 45,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 632,
+  y = 61,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 664,
+  y = 61,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 648,
+  y = 61,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 648,
+  y = 45,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 664,
+  y = 45,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 680,
+  y = 45,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 680,
+  y = 61,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 712,
+  y = 61,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 696,
+  y = 61,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 696,
+  y = 45,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 712,
+  y = 45,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 568,
+  y = 77,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 568,
+  y = 93,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 600,
+  y = 93,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 584,
+  y = 93,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 584,
+  y = 77,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 600,
+  y = 77,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 616,
+  y = 77,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 616,
+  y = 93,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 648,
+  y = 93,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 632,
+  y = 93,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 632,
+  y = 77,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 648,
+  y = 77,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 616,
+  y = 109,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 616,
+  y = 125,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 648,
+  y = 125,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 632,
+  y = 125,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 632,
+  y = 109,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 648,
+  y = 109,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 568,
+  y = 109,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 568,
+  y = 125,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 600,
+  y = 125,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 584,
+  y = 125,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 584,
+  y = 109,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 600,
+  y = 109,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 664,
+  y = 77,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 680,
+  y = 77,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 696,
+  y = 77,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 712,
+  y = 77,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 552,
+  y = 93,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 552,
+  y = 109,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 552,
+  y = 125,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 600,
+  y = 141,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 600,
+  y = 157,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 552,
+  y = 141,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 552,
+  y = 157,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 584,
+  y = 157,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 568,
+  y = 157,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 568,
+  y = 141,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 584,
+  y = 141,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 664,
+  y = 141,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 664,
+  y = 157,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 616,
+  y = 141,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 616,
+  y = 157,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 648,
+  y = 157,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 632,
+  y = 157,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 632,
+  y = 141,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 648,
+  y = 141,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 728,
+  y = 141,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 728,
+  y = 157,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 680,
+  y = 141,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 680,
+  y = 157,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 712,
+  y = 157,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 696,
+  y = 157,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 696,
+  y = 141,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 712,
+  y = 141,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 792,
+  y = 141,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 792,
+  y = 157,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 744,
+  y = 141,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 744,
+  y = 157,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 776,
+  y = 157,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 760,
+  y = 157,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 760,
+  y = 141,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 776,
+  y = 141,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 776,
+  y = 61,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 776,
+  y = 77,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 728,
+  y = 61,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 728,
+  y = 77,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 760,
+  y = 77,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 744,
+  y = 77,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 744,
+  y = 61,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 760,
+  y = 61,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 840,
+  y = 61,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 840,
+  y = 77,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 792,
+  y = 61,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 792,
+  y = 77,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 77,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 808,
+  y = 77,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 808,
+  y = 61,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 61,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 776,
+  y = 45,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 728,
+  y = 45,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 744,
+  y = 45,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 760,
+  y = 45,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 840,
+  y = 45,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 792,
+  y = 45,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 808,
+  y = 45,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 45,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 792,
+  y = 173,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 808,
+  y = 141,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 808,
+  y = 157,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 141,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 157,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 840,
+  y = 141,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 840,
+  y = 157,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 856,
+  y = 141,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 856,
+  y = 157,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 109,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 125,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 840,
+  y = 109,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 840,
+  y = 125,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 808,
+  y = 173,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 173,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 840,
+  y = 173,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 856,
+  y = 173,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 872,
+  y = 173,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 888,
+  y = 173,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 904,
+  y = 173,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 920,
+  y = 173,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 888,
+  y = 157,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 904,
+  y = 157,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 920,
+  y = 157,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 936,
+  y = 173,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 936,
+  y = 157,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 936,
+  y = 125,
   direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 920,
+  y = 125,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 920,
+  y = 141,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 936,
+  y = 141,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 888,
+  y = 141,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 904,
+  y = 141,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 904,
+  y = 125,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 888,
+  y = 125,
+  direction = 2,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 872,
+  y = 109,
+  direction = 2,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 872,
+  y = 93,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 856,
+  y = 93,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 888,
+  y = 109,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 93,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 840,
+  y = 93,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 808,
+  y = 93,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 856,
+  y = 77,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 872,
+  y = 77,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 872,
+  y = 61,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 856,
+  y = 61,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 872,
+  y = 45,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 856,
+  y = 45,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 904,
+  y = 61,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 888,
+  y = 61,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 904,
+  y = 45,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 888,
+  y = 45,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 904,
+  y = 77,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 920,
+  y = 45,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 936,
+  y = 45,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 920,
+  y = 61,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 936,
+  y = 61,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 920,
+  y = 77,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 920,
+  y = 93,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 920,
+  y = 109,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 936,
+  y = 77,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 936,
+  y = 93,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 936,
+  y = 109,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 808,
+  y = 189,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 189,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 840,
+  y = 189,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 808,
+  y = 205,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 808,
+  y = 221,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 808,
+  y = 237,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 920,
+  y = 237,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 904,
+  y = 237,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 920,
+  y = 221,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 904,
+  y = 221,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 904,
+  y = 205,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 936,
+  y = 189,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 936,
+  y = 205,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 936,
+  y = 221,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 856,
+  y = 189,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 872,
+  y = 189,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 888,
+  y = 189,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 904,
+  y = 189,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 920,
+  y = 189,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 840,
+  y = 205,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 856,
+  y = 205,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 840,
+  y = 221,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 221,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 856,
+  y = 221,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 840,
+  y = 237,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 237,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 856,
+  y = 237,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 888,
+  y = 237,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 872,
+  y = 237,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 888,
+  y = 221,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 872,
+  y = 221,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 888,
+  y = 205,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 872,
+  y = 205,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 728,
+  y = 285,
+  direction = 2,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 712,
+  y = 381,
+  direction = 2,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 744,
+  y = 349,
+  direction = 2,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 744,
+  y = 253,
+  direction = 2,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 744,
+  y = 333,
+  direction = 2,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 712,
+  y = 301,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 712,
+  y = 285,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 712,
+  y = 269,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 712,
+  y = 253,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 712,
+  y = 237,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 712,
+  y = 317,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 728,
+  y = 253,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 728,
+  y = 237,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 728,
+  y = 269,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 728,
+  y = 317,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 728,
+  y = 301,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 728,
+  y = 333,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 760,
+  y = 269,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 760,
+  y = 301,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 776,
+  y = 237,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 776,
+  y = 269,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 792,
+  y = 253,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 792,
+  y = 237,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 792,
+  y = 269,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 792,
+  y = 301,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 792,
+  y = 285,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 792,
+  y = 317,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 776,
+  y = 301,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 776,
+  y = 285,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 776,
+  y = 317,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 776,
+  y = 349,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 776,
+  y = 333,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 776,
+  y = 365,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 792,
+  y = 349,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 792,
+  y = 333,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 792,
+  y = 365,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 744,
+  y = 365,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 760,
+  y = 365,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 744,
+  y = 381,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 760,
+  y = 381,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 776,
+  y = 381,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 792,
+  y = 381,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 808,
+  y = 253,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 808,
+  y = 269,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 253,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 269,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 840,
+  y = 253,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 840,
+  y = 269,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 840,
+  y = 301,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 840,
+  y = 317,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 301,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 317,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 808,
+  y = 301,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 808,
+  y = 317,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 840,
+  y = 333,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 840,
+  y = 349,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 333,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 349,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 808,
+  y = 333,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 808,
+  y = 349,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 840,
+  y = 365,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 840,
+  y = 381,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 365,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 381,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 808,
+  y = 365,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 808,
+  y = 381,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 808,
+  y = 285,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 840,
+  y = 285,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 285,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 856,
+  y = 301,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 856,
+  y = 285,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 744,
+  y = 301,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 744,
+  y = 317,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 760,
+  y = 317,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 744,
+  y = 269,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 760,
+  y = 237,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 744,
+  y = 237,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 792,
+  y = 221,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 712,
+  y = 333,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 696,
+  y = 333,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 712,
+  y = 349,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 728,
+  y = 349,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 712,
+  y = 365,
+  direction = 2,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 904,
+  y = 381,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 920,
+  y = 381,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 936,
+  y = 381,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 904,
+  y = 397,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 904,
+  y = 413,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 904,
+  y = 429,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 904,
+  y = 445,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 904,
+  y = 461,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 936,
+  y = 397,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 936,
+  y = 413,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 936,
+  y = 429,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 936,
+  y = 445,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 936,
+  y = 461,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 936,
+  y = 477,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 920,
+  y = 557,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 936,
+  y = 557,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 936,
+  y = 541,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 936,
+  y = 525,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 936,
+  y = 509,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 936,
+  y = 493,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 920,
+  y = 397,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 920,
+  y = 413,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 920,
+  y = 429,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 904,
+  y = 541,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 888,
+  y = 541,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 888,
+  y = 525,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 872,
+  y = 525,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 840,
+  y = 509,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 509,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 808,
+  y = 509,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 792,
+  y = 509,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 792,
+  y = 493,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 808,
+  y = 493,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 493,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 840,
+  y = 493,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 792,
+  y = 477,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 792,
+  y = 445,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 792,
+  y = 461,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 840,
+  y = 397,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 397,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 856,
+  y = 461,
+  direction = 2,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 872,
+  y = 461,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 856,
+  y = 413,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 413,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 840,
+  y = 413,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 856,
+  y = 429,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 808,
+  y = 429,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 429,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 840,
+  y = 429,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 872,
+  y = 477,
+  direction = 2,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 856,
+  y = 477,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 856,
+  y = 445,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 872,
+  y = 445,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 904,
+  y = 477,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 904,
+  y = 493,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 904,
+  y = 509,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 904,
+  y = 525,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 856,
+  y = 525,
+  direction = 2,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 872,
+  y = 541,
+  direction = 2,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 872,
+  y = 557,
+  direction = 2,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 872,
+  y = 573,
+  direction = 2,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 872,
+  y = 589,
+  direction = 2,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 904,
+  y = 573,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 888,
+  y = 573,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 904,
+  y = 589,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 888,
+  y = 589,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 936,
+  y = 589,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 920,
+  y = 589,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 920,
+  y = 573,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 936,
+  y = 573,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 872,
+  y = 509,
+  direction = 2,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 856,
+  y = 493,
+  direction = 2,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 888,
+  y = 509,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 888,
+  y = 493,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 872,
+  y = 493,
+  direction = 2,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 856,
+  y = 509,
+  direction = 2,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 840,
+  y = 477,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 840,
+  y = 445,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 808,
+  y = 477,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 477,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 808,
+  y = 461,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 461,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 808,
+  y = 445,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 445,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 840,
+  y = 461,
+  direction = 4,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 712,
+  y = 397,
+  direction = 2,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 504,
+  y = 333,
+  direction = 0,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 920,
+  y = 205,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  allow_item = false,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 205,
+  direction = 6,
   sprite = "entities/streams/water_stream",
   allow_item = false,
 }
@@ -6054,7 +14276,7 @@ tile{
 tile{
   layer = 1,
   x = 600,
-  y = 384,
+  y = 352,
   width = 80,
   height = 64,
   pattern = "129",
@@ -6063,7 +14285,7 @@ tile{
 tile{
   layer = 1,
   x = 608,
-  y = 392,
+  y = 360,
   width = 64,
   height = 48,
   pattern = "907",
@@ -6072,7 +14294,7 @@ tile{
 tile{
   layer = 1,
   x = 608,
-  y = 376,
+  y = 344,
   width = 64,
   height = 8,
   pattern = "1009",
@@ -6081,7 +14303,7 @@ tile{
 tile{
   layer = 1,
   x = 672,
-  y = 384,
+  y = 352,
   width = 8,
   height = 64,
   pattern = "1011",
@@ -6090,7 +14312,7 @@ tile{
 tile{
   layer = 1,
   x = 592,
-  y = 384,
+  y = 352,
   width = 8,
   height = 64,
   pattern = "977",
@@ -6099,7 +14321,7 @@ tile{
 tile{
   layer = 1,
   x = 600,
-  y = 384,
+  y = 352,
   width = 8,
   height = 64,
   pattern = "1012",
@@ -6108,7 +14330,7 @@ tile{
 tile{
   layer = 1,
   x = 608,
-  y = 440,
+  y = 408,
   width = 64,
   height = 8,
   pattern = "1007",
@@ -6117,7 +14339,7 @@ tile{
 tile{
   layer = 1,
   x = 608,
-  y = 448,
+  y = 416,
   width = 64,
   height = 8,
   pattern = "1008",
@@ -6126,7 +14348,7 @@ tile{
 tile{
   layer = 1,
   x = 680,
-  y = 384,
+  y = 352,
   width = 8,
   height = 64,
   pattern = "972",
@@ -6135,7 +14357,7 @@ tile{
 tile{
   layer = 1,
   x = 608,
-  y = 384,
+  y = 352,
   width = 64,
   height = 8,
   pattern = "1010",
@@ -6161,7 +14383,7 @@ tile{
 
 tile{
   layer = 1,
-  x = 416,
+  x = 424,
   y = 200,
   width = 96,
   height = 8,
@@ -7033,6 +15255,16 @@ dynamic_tile{
   width = 8,
   height = 24,
   pattern = "4049",
+}
+
+npc{
+  layer = 1,
+  x = 456,
+  y = 221,
+  direction = 3,
+  subtype = 1,
+  sprite = "npc/statues/owl",
+  behavior = "dialog#maps.out.west_mt_tamaranch.owl_statue_1",
 }
 
 tile{
