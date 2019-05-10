@@ -1486,6 +1486,7 @@ tile_pattern{
   y = 200,
   width = 32,
   height = 16,
+  repeat_mode = "horizontal",
 }
 
 tile_pattern{
@@ -1496,6 +1497,7 @@ tile_pattern{
   y = 216,
   width = 32,
   height = 16,
+  repeat_mode = "horizontal",
 }
 
 tile_pattern{
@@ -1516,6 +1518,7 @@ tile_pattern{
   y = 200,
   width = 16,
   height = 32,
+  repeat_mode = "vertical",
 }
 
 tile_pattern{
@@ -1526,6 +1529,7 @@ tile_pattern{
   y = 200,
   width = 16,
   height = 32,
+  repeat_mode = "vertical",
 }
 
 tile_pattern{
