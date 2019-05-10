@@ -35,8 +35,11 @@ end
 function destructible_meta:is_hookable()
 
   local ground = self:get_modified_ground()
+  local sprite = self:get_sprite()
+  local sprite_name = sprite:get_animation_set()
   if ground == "traversable" or
-      ground == "grass" then
+      ground == "grass" or 
+      sprite_name == "entities/destructibles/bush" then
     return false
   end
   
