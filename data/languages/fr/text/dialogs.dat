@@ -1230,7 +1230,7 @@ C'est fermé à clé !
 }
 
 dialog{
-  id = "maps.houses.graveyard.drugstore.monique_1",
+  id = "maps.houses.graveyard.drugstore.crazy_tracy_1",
   text = [[
 Je suis Monique la Lunatique.   
 Je vends des remèdes secrets qui te feront péter la forme !
@@ -1238,7 +1238,7 @@ Je vends des remèdes secrets qui te feront péter la forme !
 }
 
 dialog{
-  id = "maps.houses.graveyard.drugstore.monique_2",
+  id = "maps.houses.graveyard.drugstore.crazy_tracy_2",
   question = "1",
   text = [[
 Mon secret coûte 28 rubis.
@@ -1251,7 +1251,7 @@ Tu es intéressé?
 }
 
 dialog{
-  id = "maps.houses.graveyard.drugstore.monique_3",
+  id = "maps.houses.graveyard.drugstore.crazy_tracy_3",
   question = "1",
   text = [[
 Mon secret coûte 42 rubis.
@@ -1264,7 +1264,7 @@ Tu es intéressé?
 }
 
 dialog{
-  id = "maps.houses.graveyard.drugstore.monique_4",
+  id = "maps.houses.graveyard.drugstore.crazy_tracy_4",
   question = "1",
   text = [[
 Merci bien !     
@@ -1275,7 +1275,7 @@ Reviens quand  tu veux !!
 }
 
 dialog{
-  id = "maps.houses.graveyard.drugstore.monique_5",
+  id = "maps.houses.graveyard.drugstore.crazy_tracy_5",
   question = "1",
   text = [[
 Tu plaisantes ?? 
@@ -1284,7 +1284,7 @@ Reviens plutôt quand tu auras de l'argent...
 }
 
 dialog{
-  id = "maps.houses.graveyard.drugstore.monique_6",
+  id = "maps.houses.graveyard.drugstore.crazy_tracy_6",
   question = "1",
   text = [[
 ... ... ... ... 
@@ -1293,7 +1293,7 @@ Non, je ne t'en vendrai pas !!
 }
 
 dialog{
-  id = "maps.houses.graveyard.drugstore.monique_7",
+  id = "maps.houses.graveyard.drugstore.crazy_tracy_7",
   question = "1",
   text = [[
 Flûte, zut !!    

@@ -590,14 +590,14 @@ tile{
   layer = 0,
   x = 352,
   y = 88,
-  width = 88,
+  width = 96,
   height = 16,
   pattern = "hole",
 }
 
 tile{
   layer = 0,
-  x = 432,
+  x = 448,
   y = 96,
   width = 8,
   height = 8,
@@ -606,7 +606,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 432,
+  x = 448,
   y = 88,
   width = 8,
   height = 8,
@@ -617,7 +617,7 @@ tile{
   layer = 0,
   x = 360,
   y = 96,
-  width = 72,
+  width = 88,
   height = 8,
   pattern = "hole.2",
 }
@@ -626,7 +626,7 @@ tile{
   layer = 0,
   x = 360,
   y = 88,
-  width = 72,
+  width = 88,
   height = 8,
   pattern = "hole.1",
 }
@@ -651,7 +651,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 424,
+  x = 440,
   y = 120,
   width = 16,
   height = 32,
@@ -660,7 +660,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 432,
+  x = 448,
   y = 120,
   width = 8,
   height = 8,
@@ -669,16 +669,16 @@ tile{
 
 tile{
   layer = 0,
-  x = 424,
+  x = 440,
   y = 128,
   width = 8,
-  height = 24,
+  height = 8,
   pattern = "hole.3",
 }
 
 tile{
   layer = 0,
-  x = 424,
+  x = 440,
   y = 120,
   width = 8,
   height = 8,
@@ -836,16 +836,6 @@ tile{
   layer = 0,
   x = 520,
   y = 88,
-  width = 16,
-  height = 16,
-  pattern = "94",
-  tileset = "addition/dungeon",
-}
-
-tile{
-  layer = 0,
-  x = 536,
-  y = 120,
   width = 16,
   height = 16,
   pattern = "94",
@@ -1174,7 +1164,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 432,
+  x = 448,
   y = 144,
   width = 8,
   height = 8,
@@ -1185,7 +1175,7 @@ tile{
   layer = 0,
   x = 360,
   y = 144,
-  width = 72,
+  width = 88,
   height = 8,
   pattern = "hole.2",
 }
@@ -1194,7 +1184,7 @@ tile{
   layer = 0,
   x = 360,
   y = 136,
-  width = 64,
+  width = 80,
   height = 8,
   pattern = "hole.1",
 }
@@ -1219,101 +1209,11 @@ tile{
 
 tile{
   layer = 0,
-  x = 424,
+  x = 440,
   y = 136,
   width = 8,
   height = 8,
   pattern = "hole.corner_reverse.1",
-}
-
-tile{
-  layer = 0,
-  x = 520,
-  y = 136,
-  width = 16,
-  height = 16,
-  pattern = "hole",
-}
-
-tile{
-  layer = 0,
-  x = 528,
-  y = 136,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.2",
-}
-
-tile{
-  layer = 0,
-  x = 520,
-  y = 136,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.1",
-}
-
-tile{
-  layer = 0,
-  x = 520,
-  y = 144,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.3",
-}
-
-tile{
-  layer = 0,
-  x = 528,
-  y = 144,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.4",
-}
-
-tile{
-  layer = 0,
-  x = 504,
-  y = 136,
-  width = 16,
-  height = 16,
-  pattern = "hole",
-}
-
-tile{
-  layer = 0,
-  x = 512,
-  y = 136,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.2",
-}
-
-tile{
-  layer = 0,
-  x = 504,
-  y = 136,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.1",
-}
-
-tile{
-  layer = 0,
-  x = 504,
-  y = 144,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.3",
-}
-
-tile{
-  layer = 0,
-  x = 512,
-  y = 144,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.4",
 }
 
 tile{
@@ -1358,7 +1258,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 424,
+  x = 440,
   y = 104,
   width = 16,
   height = 16,
@@ -1368,9 +1268,9 @@ tile{
 
 tile{
   layer = 0,
-  x = 440,
+  x = 456,
   y = 88,
-  width = 32,
+  width = 16,
   height = 32,
   pattern = "97",
   tileset = "addition/dungeon",
@@ -1378,7 +1278,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 432,
+  x = 448,
   y = 128,
   width = 8,
   height = 16,
@@ -1415,11 +1315,31 @@ tile{
   tileset = "addition/dungeon",
 }
 
+tile{
+  layer = 0,
+  x = 504,
+  y = 136,
+  width = 32,
+  height = 16,
+  pattern = "97",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 488,
+  y = 120,
+  width = 16,
+  height = 16,
+  pattern = "97",
+  tileset = "addition/dungeon",
+}
+
 destructible{
   name = "auto_destructible_1",
   layer = 0,
   x = 544,
-  y = 149,
+  y = 133,
   treasure_name = "random",
   sprite = "entities/destructibles/crystal_blue",
   destruction_sound = "bush",
@@ -1431,67 +1351,12 @@ destructible{
   name = "auto_destructible_2",
   layer = 0,
   x = 560,
-  y = 149,
+  y = 133,
   treasure_name = "random",
   sprite = "entities/destructibles/crystal_blue",
   destruction_sound = "bush",
   weight = -1,
   can_be_cut = true,
-}
-
-block{
-  name = "auto_block_3",
-  layer = 0,
-  x = 528,
-  y = 149,
-  sprite = "entities/blocks/stone_brown",
-  pushable = true,
-  pullable = false,
-  maximum_moves = 0,
-}
-
-block{
-  name = "auto_block_4",
-  layer = 0,
-  x = 496,
-  y = 85,
-  sprite = "entities/blocks/stone_brown",
-  pushable = true,
-  pullable = false,
-  maximum_moves = 0,
-}
-
-block{
-  name = "auto_block_5",
-  layer = 0,
-  x = 496,
-  y = 101,
-  sprite = "entities/blocks/stone_brown",
-  pushable = true,
-  pullable = false,
-  maximum_moves = 1,
-}
-
-block{
-  name = "auto_block_6",
-  layer = 0,
-  x = 512,
-  y = 149,
-  sprite = "entities/blocks/stone_brown",
-  pushable = true,
-  pullable = false,
-  maximum_moves = 0,
-}
-
-block{
-  name = "auto_block_7",
-  layer = 0,
-  x = 480,
-  y = 117,
-  sprite = "entities/blocks/stone_brown",
-  pushable = true,
-  pullable = false,
-  maximum_moves = 1,
 }
 
 destructible{
@@ -1504,17 +1369,6 @@ destructible{
   destruction_sound = "bush",
   weight = -1,
   can_be_cut = true,
-}
-
-block{
-  name = "auto_block_9",
-  layer = 0,
-  x = 464,
-  y = 149,
-  sprite = "entities/blocks/stone_brown",
-  pushable = true,
-  pullable = false,
-  maximum_moves = 0,
 }
 
 enemy{
@@ -1540,56 +1394,12 @@ enemy{
 block{
   name = "auto_block_11",
   layer = 0,
-  x = 416,
+  x = 432,
   y = 117,
   sprite = "entities/blocks/stone_brown",
   pushable = true,
   pullable = false,
-  maximum_moves = 1,
-}
-
-block{
-  name = "auto_block_12",
-  layer = 0,
-  x = 448,
-  y = 149,
-  sprite = "entities/blocks/stone_brown",
-  pushable = true,
-  pullable = false,
-  maximum_moves = 0,
-}
-
-block{
-  name = "auto_block_13",
-  layer = 0,
-  x = 448,
-  y = 133,
-  sprite = "entities/blocks/stone_brown",
-  pushable = true,
-  pullable = false,
-  maximum_moves = 0,
-}
-
-block{
-  name = "auto_block_14",
-  layer = 0,
-  x = 464,
-  y = 133,
-  sprite = "entities/blocks/stone_brown",
-  pushable = true,
-  pullable = false,
-  maximum_moves = 0,
-}
-
-block{
-  name = "auto_block_16",
-  layer = 0,
-  x = 496,
-  y = 133,
-  sprite = "entities/blocks/stone_brown",
-  pushable = true,
-  pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 destination{
@@ -1628,17 +1438,6 @@ destructible{
   destruction_sound = "bush",
   weight = -1,
   can_be_cut = true,
-}
-
-block{
-  name = "auto_block_17",
-  layer = 0,
-  x = 496,
-  y = 117,
-  sprite = "entities/blocks/stone_brown",
-  pushable = true,
-  pullable = false,
-  maximum_moves = 1,
 }
 
 enemy{
@@ -1720,6 +1519,16 @@ destination{
   direction = 1,
 }
 
+enemy{
+  name = "enemy_group_1_1",
+  layer = 0,
+  x = 384,
+  y = 77,
+  direction = 0,
+  breed = "zol_green",
+  treasure_name = "random",
+}
+
 dynamic_tile{
   name = "floor_1_unstable_associate_",
   layer = 0,
@@ -1727,7 +1536,7 @@ dynamic_tile{
   y = 72,
   width = 16,
   height = 16,
-  pattern = "926",
+  pattern = "924",
 }
 
 custom_entity{
@@ -1738,7 +1547,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_4",
   model = "unstable_floor",
 }
 
@@ -1749,177 +1558,7 @@ dynamic_tile{
   y = 72,
   width = 16,
   height = 16,
-  pattern = "926",
-}
-
-dynamic_tile{
-  name = "floor_3_unstable_associate_",
-  layer = 0,
-  x = 440,
-  y = 72,
-  width = 16,
-  height = 16,
-  pattern = "926",
-}
-
-dynamic_tile{
-  name = "floor_4_unstable_associate_",
-  layer = 0,
-  x = 456,
-  y = 72,
-  width = 16,
-  height = 16,
-  pattern = "926",
-}
-
-dynamic_tile{
-  name = "floor_5_unstable_associate_",
-  layer = 0,
-  x = 472,
-  y = 72,
-  width = 16,
-  height = 16,
-  pattern = "926",
-}
-
-dynamic_tile{
-  name = "floor_6_unstable_associate_",
-  layer = 0,
-  x = 440,
-  y = 88,
-  width = 16,
-  height = 16,
-  pattern = "926",
-}
-
-dynamic_tile{
-  name = "floor_7_unstable_associate_",
-  layer = 0,
-  x = 456,
-  y = 88,
-  width = 16,
-  height = 16,
-  pattern = "926",
-}
-
-dynamic_tile{
-  name = "floor_8_unstable_associate_",
-  layer = 0,
-  x = 424,
-  y = 104,
-  width = 16,
-  height = 16,
-  pattern = "926",
-}
-
-dynamic_tile{
-  name = "floor_9_unstable_associate_",
-  layer = 0,
-  x = 440,
-  y = 104,
-  width = 16,
-  height = 16,
-  pattern = "926",
-}
-
-dynamic_tile{
-  name = "floor_10_unstable_associate_",
-  layer = 0,
-  x = 456,
-  y = 104,
-  width = 16,
-  height = 16,
-  pattern = "926",
-}
-
-dynamic_tile{
-  name = "floor_11_unstable_associate_",
-  layer = 0,
-  x = 472,
-  y = 136,
-  width = 16,
-  height = 16,
-  pattern = "926",
-}
-
-dynamic_tile{
-  name = "floor_12_unstable_associate_",
-  layer = 0,
-  x = 488,
-  y = 136,
-  width = 16,
-  height = 16,
-  pattern = "926",
-}
-
-dynamic_tile{
-  name = "floor_13_unstable_associate_",
-  layer = 0,
-  x = 408,
-  y = 152,
-  width = 16,
-  height = 16,
-  pattern = "926",
-}
-
-dynamic_tile{
-  name = "floor_14_unstable_associate_",
-  layer = 0,
-  x = 424,
-  y = 152,
-  width = 16,
-  height = 16,
-  pattern = "926",
-}
-
-dynamic_tile{
-  name = "floor_15_unstable_associate_",
-  layer = 0,
-  x = 488,
-  y = 152,
-  width = 16,
-  height = 16,
-  pattern = "926",
-}
-
-dynamic_tile{
-  name = "floor_16_unstable_associate_",
-  layer = 0,
-  x = 504,
-  y = 152,
-  width = 16,
-  height = 16,
-  pattern = "926",
-}
-
-dynamic_tile{
-  name = "floor_17_unstable_associate_",
-  layer = 0,
-  x = 520,
-  y = 152,
-  width = 16,
-  height = 16,
-  pattern = "926",
-}
-
-dynamic_tile{
-  name = "floor_18_unstable_associate_",
-  layer = 0,
-  x = 536,
-  y = 152,
-  width = 16,
-  height = 16,
-  pattern = "926",
-}
-
-dynamic_tile{
-  name = "floor_19_unstable_associate_",
-  layer = 0,
-  x = 552,
-  y = 152,
-  width = 16,
-  height = 16,
-  pattern = "926",
+  pattern = "924",
 }
 
 custom_entity{
@@ -1930,8 +1569,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_4",
   model = "unstable_floor",
+}
+
+dynamic_tile{
+  name = "floor_3_unstable_associate_",
+  layer = 0,
+  x = 440,
+  y = 72,
+  width = 16,
+  height = 16,
+  pattern = "924",
 }
 
 custom_entity{
@@ -1942,8 +1591,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_4",
   model = "unstable_floor",
+}
+
+dynamic_tile{
+  name = "floor_4_unstable_associate_",
+  layer = 0,
+  x = 456,
+  y = 72,
+  width = 16,
+  height = 16,
+  pattern = "924",
 }
 
 custom_entity{
@@ -1954,8 +1613,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_4",
   model = "unstable_floor",
+}
+
+dynamic_tile{
+  name = "floor_5_unstable_associate_",
+  layer = 0,
+  x = 472,
+  y = 72,
+  width = 16,
+  height = 16,
+  pattern = "924",
 }
 
 custom_entity{
@@ -1966,20 +1635,40 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_4",
   model = "unstable_floor",
+}
+
+dynamic_tile{
+  name = "floor_6_unstable_associate_",
+  layer = 0,
+  x = 488,
+  y = 120,
+  width = 16,
+  height = 16,
+  pattern = "924",
 }
 
 custom_entity{
   name = "floor_6",
   layer = 0,
-  x = 448,
-  y = 101,
+  x = 496,
+  y = 133,
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_4",
   model = "unstable_floor",
+}
+
+dynamic_tile{
+  name = "floor_7_unstable_associate_",
+  layer = 0,
+  x = 456,
+  y = 88,
+  width = 16,
+  height = 16,
+  pattern = "924",
 }
 
 custom_entity{
@@ -1990,20 +1679,40 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_4",
   model = "unstable_floor",
+}
+
+dynamic_tile{
+  name = "floor_8_unstable_associate_",
+  layer = 0,
+  x = 552,
+  y = 152,
+  width = 16,
+  height = 16,
+  pattern = "924",
 }
 
 custom_entity{
   name = "floor_8",
   layer = 0,
-  x = 432,
-  y = 117,
+  x = 560,
+  y = 165,
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_4",
   model = "unstable_floor",
+}
+
+dynamic_tile{
+  name = "floor_9_unstable_associate_",
+  layer = 0,
+  x = 440,
+  y = 104,
+  width = 16,
+  height = 16,
+  pattern = "924",
 }
 
 custom_entity{
@@ -2014,8 +1723,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_4",
   model = "unstable_floor",
+}
+
+dynamic_tile{
+  name = "floor_10_unstable_associate_",
+  layer = 0,
+  x = 456,
+  y = 104,
+  width = 16,
+  height = 16,
+  pattern = "924",
 }
 
 custom_entity{
@@ -2026,8 +1745,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_4",
   model = "unstable_floor",
+}
+
+dynamic_tile{
+  name = "floor_11_unstable_associate_",
+  layer = 0,
+  x = 472,
+  y = 136,
+  width = 16,
+  height = 16,
+  pattern = "924",
 }
 
 custom_entity{
@@ -2038,8 +1767,18 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_4",
   model = "unstable_floor",
+}
+
+dynamic_tile{
+  name = "floor_12_unstable_associate_",
+  layer = 0,
+  x = 488,
+  y = 136,
+  width = 16,
+  height = 16,
+  pattern = "924",
 }
 
 custom_entity{
@@ -2050,91 +1789,51 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_4",
   model = "unstable_floor",
+}
+
+dynamic_tile{
+  name = "floor_13_unstable_associate_",
+  layer = 0,
+  x = 504,
+  y = 136,
+  width = 16,
+  height = 16,
+  pattern = "924",
 }
 
 custom_entity{
   name = "floor_13",
   layer = 0,
-  x = 416,
-  y = 165,
+  x = 512,
+  y = 149,
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_4",
   model = "unstable_floor",
+}
+
+dynamic_tile{
+  name = "floor_14_unstable_associate_",
+  layer = 0,
+  x = 520,
+  y = 136,
+  width = 16,
+  height = 16,
+  pattern = "924",
 }
 
 custom_entity{
   name = "floor_14",
   layer = 0,
-  x = 432,
-  y = 165,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
-  model = "unstable_floor",
-}
-
-custom_entity{
-  name = "floor_15",
-  layer = 0,
-  x = 496,
-  y = 165,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
-  model = "unstable_floor",
-}
-
-custom_entity{
-  name = "floor_16",
-  layer = 0,
-  x = 512,
-  y = 165,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
-  model = "unstable_floor",
-}
-
-custom_entity{
-  name = "floor_17",
-  layer = 0,
   x = 528,
-  y = 165,
+  y = 149,
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
-  model = "unstable_floor",
-}
-
-custom_entity{
-  name = "floor_18",
-  layer = 0,
-  x = 544,
-  y = 165,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
-  model = "unstable_floor",
-}
-
-custom_entity{
-  name = "floor_19",
-  layer = 0,
-  x = 560,
-  y = 165,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_4",
   model = "unstable_floor",
 }
 
@@ -2148,14 +1847,224 @@ enemy{
   treasure_name = "random",
 }
 
-enemy{
-  name = "enemy_group_1_1",
+dynamic_tile{
+  name = "floor_15_unstable_associate_",
   layer = 0,
-  x = 448,
-  y = 85,
+  x = 408,
+  y = 152,
+  width = 16,
+  height = 16,
+  pattern = "924",
+}
+
+custom_entity{
+  name = "floor_15",
+  layer = 0,
+  x = 416,
+  y = 165,
+  width = 16,
+  height = 16,
   direction = 0,
-  breed = "zol_green",
-  treasure_name = "random",
+  sprite = "entities/grounds/weak_floor_light_4",
+  model = "unstable_floor",
+}
+
+dynamic_tile{
+  name = "floor_16_unstable_associate_",
+  layer = 0,
+  x = 424,
+  y = 152,
+  width = 16,
+  height = 16,
+  pattern = "924",
+}
+
+custom_entity{
+  name = "floor_16",
+  layer = 0,
+  x = 432,
+  y = 165,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/grounds/weak_floor_light_4",
+  model = "unstable_floor",
+}
+
+dynamic_tile{
+  name = "floor_17_unstable_associate_",
+  layer = 0,
+  x = 488,
+  y = 152,
+  width = 16,
+  height = 16,
+  pattern = "924",
+}
+
+custom_entity{
+  name = "floor_17",
+  layer = 0,
+  x = 496,
+  y = 165,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/grounds/weak_floor_light_4",
+  model = "unstable_floor",
+}
+
+dynamic_tile{
+  name = "floor_18_unstable_associate_",
+  layer = 0,
+  x = 504,
+  y = 152,
+  width = 16,
+  height = 16,
+  pattern = "924",
+}
+
+custom_entity{
+  name = "floor_18",
+  layer = 0,
+  x = 512,
+  y = 165,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/grounds/weak_floor_light_4",
+  model = "unstable_floor",
+}
+
+dynamic_tile{
+  name = "floor_19_unstable_associate_",
+  layer = 0,
+  x = 520,
+  y = 152,
+  width = 16,
+  height = 16,
+  pattern = "924",
+}
+
+custom_entity{
+  name = "floor_19",
+  layer = 0,
+  x = 528,
+  y = 165,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/grounds/weak_floor_light_4",
+  model = "unstable_floor",
+}
+
+dynamic_tile{
+  name = "floor_20_unstable_associate_",
+  layer = 0,
+  x = 536,
+  y = 152,
+  width = 16,
+  height = 16,
+  pattern = "924",
+}
+
+custom_entity{
+  name = "floor_20",
+  layer = 0,
+  x = 544,
+  y = 165,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/grounds/weak_floor_light_4",
+  model = "unstable_floor",
+}
+
+block{
+  name = "auto_block_3",
+  layer = 0,
+  x = 528,
+  y = 133,
+  sprite = "entities/blocks/stone_brown",
+  pushable = true,
+  pullable = false,
+  max_moves = 1,
+}
+
+block{
+  name = "auto_block_4",
+  layer = 0,
+  x = 496,
+  y = 85,
+  sprite = "entities/blocks/stone_brown",
+  pushable = true,
+  pullable = false,
+  max_moves = 1,
+}
+
+block{
+  name = "auto_block_5",
+  layer = 0,
+  x = 496,
+  y = 101,
+  sprite = "entities/blocks/stone_brown",
+  pushable = true,
+  pullable = false,
+  max_moves = 1,
+}
+
+block{
+  name = "auto_block_6",
+  layer = 0,
+  x = 512,
+  y = 133,
+  sprite = "entities/blocks/stone_brown",
+  pushable = true,
+  pullable = false,
+  max_moves = 1,
+}
+
+block{
+  name = "auto_block_7",
+  layer = 0,
+  x = 480,
+  y = 117,
+  sprite = "entities/blocks/stone_brown",
+  pushable = true,
+  pullable = false,
+  max_moves = 1,
+}
+
+block{
+  name = "auto_block_9",
+  layer = 0,
+  x = 464,
+  y = 149,
+  sprite = "entities/blocks/stone_brown",
+  pushable = true,
+  pullable = false,
+  max_moves = 1,
+}
+
+block{
+  name = "auto_block_14",
+  layer = 0,
+  x = 464,
+  y = 133,
+  sprite = "entities/blocks/stone_brown",
+  pushable = true,
+  pullable = false,
+  max_moves = 1,
+}
+
+block{
+  name = "auto_block_17",
+  layer = 0,
+  x = 496,
+  y = 117,
+  sprite = "entities/blocks/stone_brown",
+  pushable = true,
+  pullable = false,
+  max_moves = 1,
 }
 
 block{
@@ -2166,7 +2075,29 @@ block{
   sprite = "entities/blocks/stone_brown",
   pushable = true,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
+}
+
+block{
+  name = "auto_block_10",
+  layer = 0,
+  x = 544,
+  y = 149,
+  sprite = "entities/blocks/stone_brown",
+  pushable = true,
+  pullable = false,
+  max_moves = 1,
+}
+
+block{
+  name = "auto_block_12",
+  layer = 0,
+  x = 560,
+  y = 149,
+  sprite = "entities/blocks/stone_brown",
+  pushable = true,
+  pullable = false,
+  max_moves = 1,
 }
 
 tile{

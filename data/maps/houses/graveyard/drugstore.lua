@@ -22,17 +22,17 @@ function map:init_music()
 end
 
 -- Discussion with Monique
-function  map:talk_to_monique()
+function  map:talk_to_crazy_tracy()
   
   if not hero_has_already_talk then
-    game:start_dialog("maps.houses.graveyard.drugstore.monique_1", function()
+    game:start_dialog("maps.houses.graveyard.drugstore.crazy_tracy_1", function()
       hero_has_already_talk = true
     end)
   else
-    game:start_dialog("maps.houses.graveyard.drugstore.monique_2", function(answer)
+    game:start_dialog("maps.houses.graveyard.drugstore.crazy_tracy_2", function(answer)
       if answer then
       else
-        game:start_dialog("maps.houses.graveyard.drugstore.monique_7")
+        game:start_dialog("maps.houses.graveyard.drugstore.crazy_tracy_7")
       end
       hero_has_already_talk = false
     end)
@@ -43,9 +43,9 @@ end
 
 -- NPCs events
 
-function monique:on_interaction()
+function crazy_tracy:on_interaction()
 
-  map:talk_to_monique()
+  map:talk_to_crazy_tracy()
 
 end
 

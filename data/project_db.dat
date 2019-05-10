@@ -680,6 +680,7 @@ sprite{ id = "npc/statues/owl_dungeon_5", description = "Owl dungeon 5" }
 sprite{ id = "npc/statues/owl_dungeon_6", description = "Owl dungeon 6" }
 sprite{ id = "npc/statues/owl_dungeon_7", description = "Owl dungeon 7" }
 sprite{ id = "npc/statues/owl_dungeon_8", description = "owl dungeon 8" }
+sprite{ id = "npc/villagers/crazy_tracy", description = "Crazy Tracy" }
 sprite{ id = "npc/villagers/cucco_man", description = "Cucco's man" }
 sprite{ id = "npc/villagers/fishman_1", description = "Fishman 1" }
 sprite{ id = "npc/villagers/fishman_2", description = "Fishman 2" }
@@ -694,7 +695,6 @@ sprite{ id = "npc/villagers/kid_4", description = "Kid 4" }
 sprite{ id = "npc/villagers/marin", description = "Marin" }
 sprite{ id = "npc/villagers/merchant", description = "Merchant" }
 sprite{ id = "npc/villagers/mermaid", description = "Mermaid" }
-sprite{ id = "npc/villagers/monique", description = "Monique" }
 sprite{ id = "npc/villagers/mr_write", description = "Mr Write" }
 sprite{ id = "npc/villagers/mrs_meow_meow", description = "Mrs Meow Meow" }
 sprite{ id = "npc/villagers/quadruplet_father", description = "Quadruplet's father" }

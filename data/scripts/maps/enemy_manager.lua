@@ -72,7 +72,7 @@ function enemy_manager:create_teletransporter_if_small_boss_dead(map, sound)
       if placeholder_teletransporter then
         local is_teletransporter_A = teletransporter_suffix == "A"
         local teletransporter_x, teletransporter_y, teletransporter_layer = placeholder_teletransporter:get_position()
-        teletransporter = map:create_custom_entity{
+        local teletransporter = map:create_custom_entity{
           x = teletransporter_x,
           y = teletransporter_y,
           width = is_teletransporter_A and 24 or 16,
@@ -95,6 +95,7 @@ function enemy_manager:create_teletransporter_if_small_boss_dead(map, sound)
             audio_manager:play_sound("misc/dungeon_teleport")
             function hero_sprite:on_animation_finished(animation)
               if animation == "teleporting" then
+                print("ok")
                 game:set_suspended(false)
                 game:set_pause_allowed(true)
                 teletransporter:get_sprite():set_ignore_suspend(false)
