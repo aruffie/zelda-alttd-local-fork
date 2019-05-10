@@ -11568,6 +11568,15 @@ tile{
   pattern = "1352",
 }
 
+tile{
+  layer = 1,
+  x = 560,
+  y = -16,
+  width = 64,
+  height = 8,
+  pattern = "454",
+}
+
 custom_entity{
   layer = 1,
   x = 744,
