@@ -15477,15 +15477,6 @@ tile{
 
 tile{
   layer = 1,
-  x = 960,
-  y = 552,
-  width = 8,
-  height = 224,
-  pattern = "1012",
-}
-
-tile{
-  layer = 1,
   x = 96,
   y = 488,
   width = 32,
