@@ -72,7 +72,7 @@ function enemy_manager:create_teletransporter_if_small_boss_dead(map, sound)
       if placeholder_teletransporter then
         local is_teletransporter_A = teletransporter_suffix == "A"
         local teletransporter_x, teletransporter_y, teletransporter_layer = placeholder_teletransporter:get_position()
-        teletransporter = map:create_custom_entity{
+        local teletransporter = map:create_custom_entity{
           x = teletransporter_x,
           y = teletransporter_y,
           width = is_teletransporter_A and 24 or 16,
