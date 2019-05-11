@@ -47,6 +47,7 @@ function map:on_started(destination)
   treasure_manager:disappear_pickable(map, "heart_container")
   treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_2_", "pickable_small_key_1")
   treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_5_", "pickable_small_key_2")
+  treasure_manager:appear_heart_container_if_boss_dead(map)
   -- Separators
   separator_manager:init(map)
   -- Switchs

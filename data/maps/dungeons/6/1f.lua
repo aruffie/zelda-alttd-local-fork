@@ -47,8 +47,6 @@ function map:on_started()
   door_manager:open_when_enemies_dead(map,  "enemy_group_27_",  "door_group_20_", false)
   -- Enemies
   enemy_manager:create_teletransporter_if_small_boss_dead(map, false)
-  -- Heart
-  treasure_manager:appear_heart_container_if_boss_dead(map)
   -- Music
   game:play_dungeon_music()
   -- Owl
@@ -58,6 +56,7 @@ function map:on_started()
   treasure_manager:disappear_pickable(map, "pickable_small_key_2")
   treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_9_", "pickable_small_key_1")
   treasure_manager:appear_pickable_when_flying_tiles_dead(map, "enemy_group_29_enemy", "pickable_small_key_2")
+  treasure_manager:appear_heart_container_if_boss_dead(map)
   -- Separators
   separator_manager:init(map)
 
