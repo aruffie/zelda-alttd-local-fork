@@ -8869,6 +8869,69 @@ tile{
   pattern = "1352",
 }
 
+tile{
+  layer = 1,
+  x = 112,
+  y = 432,
+  width = 32,
+  height = 64,
+  pattern = "1037",
+}
+
+tile{
+  layer = 1,
+  x = 144,
+  y = 448,
+  width = 16,
+  height = 32,
+  pattern = "1037",
+}
+
+tile{
+  layer = 1,
+  x = 704,
+  y = 64,
+  width = 16,
+  height = 16,
+  pattern = "1037",
+}
+
+tile{
+  layer = 1,
+  x = 704,
+  y = 80,
+  width = 48,
+  height = 16,
+  pattern = "1037",
+}
+
+tile{
+  layer = 1,
+  x = 720,
+  y = 96,
+  width = 32,
+  height = 16,
+  pattern = "1037",
+}
+
+tile{
+  layer = 1,
+  x = 736,
+  y = 112,
+  width = 64,
+  height = 16,
+  pattern = "1037",
+}
+
+tile{
+  layer = 1,
+  x = 752,
+  y = 128,
+  width = 64,
+  height = 48,
+  pattern = "1037",
+}
+
 dynamic_tile{
   name = "bridge",
   layer = 1,

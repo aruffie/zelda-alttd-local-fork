@@ -1916,6 +1916,46 @@ tile{
   pattern = "4035",
 }
 
+tile{
+  layer = 0,
+  x = 24,
+  y = 216,
+  width = 16,
+  height = 8,
+  pattern = "129",
+}
+
+tile{
+  layer = 0,
+  x = 16,
+  y = 208,
+  enabled_at_start = false,
+  width = 8,
+  height = 16,
+  pattern = "143",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 24,
+  y = 208,
+  width = 16,
+  height = 16,
+  pattern = "145",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 40,
+  y = 208,
+  width = 8,
+  height = 16,
+  pattern = "154",
+  tileset = "addition/out",
+}
+
 custom_entity{
   layer = 0,
   x = 360,
@@ -1974,6 +2014,26 @@ sensor{
   layer = 0,
   x = 32,
   y = 125,
+  width = 16,
+  height = 16,
+}
+
+wall{
+  layer = 0,
+  x = 24,
+  y = 208,
+  width = 16,
+  height = 16,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+}
+
+sensor{
+  name = "layer_up_sensor_2",
+  layer = 0,
+  x = 32,
+  y = 221,
   width = 16,
   height = 16,
 }
@@ -2918,6 +2978,94 @@ sensor{
   y = 125,
   width = 16,
   height = 16,
+}
+
+dynamic_tile{
+  layer = 1,
+  x = 16,
+  y = 208,
+  properties = {
+    {
+      key = "visible",
+      value = "false",
+    },
+  },
+  width = 8,
+  height = 8,
+  pattern = "143",
+  tileset = "addition/out",
+}
+
+dynamic_tile{
+  layer = 1,
+  x = 24,
+  y = 208,
+  properties = {
+    {
+      key = "visible",
+      value = "false",
+    },
+  },
+  width = 16,
+  height = 16,
+  pattern = "145",
+  tileset = "addition/out",
+}
+
+dynamic_tile{
+  layer = 1,
+  x = 40,
+  y = 208,
+  properties = {
+    {
+      key = "visible",
+      value = "false",
+    },
+  },
+  width = 8,
+  height = 8,
+  pattern = "154",
+  tileset = "addition/out",
+}
+
+sensor{
+  name = "layer_down_sensor_13",
+  layer = 1,
+  x = 32,
+  y = 213,
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  layer = 1,
+  x = 16,
+  y = 216,
+  width = 8,
+  height = 8,
+  pattern = "143",
+  tileset = "addition/out",
+}
+
+dynamic_tile{
+  layer = 1,
+  x = 40,
+  y = 216,
+  width = 8,
+  height = 8,
+  pattern = "154",
+  tileset = "addition/out",
+}
+
+wall{
+  layer = 1,
+  x = 24,
+  y = 208,
+  width = 16,
+  height = 16,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
 }
 
 tile{
