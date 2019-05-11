@@ -14808,6 +14808,15 @@ tile{
   pattern = "728",
 }
 
+tile{
+  layer = 1,
+  x = 704,
+  y = 320,
+  width = 8,
+  height = 8,
+  pattern = "115",
+}
+
 destructible{
   layer = 1,
   x = 344,
@@ -14928,7 +14937,7 @@ destructible{
 }
 
 npc{
-  name = "sign_9",
+  name = "sign_frog_9",
   layer = 1,
   x = 392,
   y = 141,
@@ -14944,7 +14953,7 @@ npc{
 }
 
 npc{
-  name = "sign_4",
+  name = "sign_frog_4",
   layer = 1,
   x = 56,
   y = 325,
@@ -14980,7 +14989,7 @@ destructible{
 }
 
 npc{
-  name = "sign_1",
+  name = "sign_frog_1",
   layer = 1,
   x = 136,
   y = 189,
@@ -14996,7 +15005,7 @@ npc{
 }
 
 npc{
-  name = "sign_11",
+  name = "sign_frog_11",
   layer = 1,
   x = 152,
   y = 173,
@@ -15012,7 +15021,7 @@ npc{
 }
 
 npc{
-  name = "sign_2",
+  name = "sign_frog_2",
   layer = 1,
   x = 328,
   y = 189,
@@ -15028,7 +15037,7 @@ npc{
 }
 
 npc{
-  name = "sign_3",
+  name = "sign_frog_3",
   layer = 1,
   x = 328,
   y = 333,
@@ -15044,7 +15053,7 @@ npc{
 }
 
 npc{
-  name = "sign_6",
+  name = "sign_frog_6",
   layer = 1,
   x = 296,
   y = 61,
@@ -15060,7 +15069,7 @@ npc{
 }
 
 npc{
-  name = "sign_7",
+  name = "sign_frog_7",
   layer = 1,
   x = 296,
   y = 253,
@@ -15076,7 +15085,7 @@ npc{
 }
 
 npc{
-  name = "sign_8",
+  name = "sign_frog_8",
   layer = 1,
   x = 392,
   y = 253,
@@ -15092,7 +15101,7 @@ npc{
 }
 
 npc{
-  name = "sign_10",
+  name = "sign_frog_10",
   layer = 1,
   x = 152,
   y = 141,
@@ -15108,7 +15117,7 @@ npc{
 }
 
 npc{
-  name = "sign_12",
+  name = "sign_frog_12",
   layer = 1,
   x = 376,
   y = 173,
@@ -15134,7 +15143,7 @@ destructible{
 }
 
 npc{
-  name = "sign_13",
+  name = "sign_frog_13",
   layer = 1,
   x = 376,
   y = 237,
@@ -15160,7 +15169,7 @@ destructible{
 }
 
 npc{
-  name = "sign_14",
+  name = "sign_frog_14",
   layer = 1,
   x = 40,
   y = 237,
@@ -15176,7 +15185,7 @@ npc{
 }
 
 npc{
-  name = "sign_16",
+  name = "sign_1",
   layer = 1,
   x = 696,
   y = 269,
@@ -15185,15 +15194,18 @@ npc{
       key = "model",
       value = "sign",
     },
+    {
+      key = "dialog_id",
+      value = "maps.out.south_prairie.sign_1",
+    },
   },
   direction = 3,
   subtype = 0,
   sprite = "entities/destructibles/sign",
-  behavior = "dialog#maps.out.south_prairie.sign_1",
 }
 
 npc{
-  name = "sign_15",
+  name = "sign_2",
   layer = 1,
   x = 792,
   y = 285,
@@ -15202,11 +15214,14 @@ npc{
       key = "model",
       value = "sign",
     },
+    {
+      key = "dialog_id",
+      value = "maps.out.south_prairie.sign_2",
+    },
   },
   direction = 3,
   subtype = 0,
   sprite = "entities/destructibles/sign",
-  behavior = "dialog#maps.out.south_prairie.sign_2",
 }
 
 destination{
@@ -20216,7 +20231,7 @@ destructible{
 }
 
 npc{
-  name = "sign_5",
+  name = "sign_frog_5",
   layer = 1,
   x = 56,
   y = 61,

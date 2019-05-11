@@ -593,7 +593,7 @@ npc{
 }
 
 custom_entity{
-  name = "timed_torch_16",
+  name = "timed_torch_1",
   layer = 0,
   x = 200,
   y = 173,
