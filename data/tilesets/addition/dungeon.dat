@@ -668,6 +668,17 @@ tile_pattern{
 }
 
 tile_pattern{
+  id = "157",
+  ground = "lava",
+  default_layer = 0,
+  x = { 208, 224, 240, 256 },
+  y = { 312, 312, 312, 312 },
+  width = 16,
+  height = 16,
+  frame_delay = 150,
+}
+
+tile_pattern{
   id = "16",
   ground = "traversable",
   default_layer = 0,

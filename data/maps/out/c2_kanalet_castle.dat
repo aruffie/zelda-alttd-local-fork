@@ -11493,6 +11493,16 @@ tile{
   pattern = "1350",
 }
 
+tile{
+  layer = 2,
+  x = 800,
+  y = 8,
+  width = 32,
+  height = 24,
+  pattern = "32",
+  tileset = "addition/out",
+}
+
 destination{
   name = "kanalet_castle_4_A",
   layer = 2,
