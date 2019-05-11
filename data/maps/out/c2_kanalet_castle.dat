@@ -10334,6 +10334,78 @@ wall{
   stops_projectiles = true,
 }
 
+jumper{
+  layer = 1,
+  x = 792,
+  y = 576,
+  width = 8,
+  height = 32,
+  direction = 0,
+  jump_length = 16,
+}
+
+jumper{
+  layer = 1,
+  x = 768,
+  y = 576,
+  width = 8,
+  height = 32,
+  direction = 4,
+  jump_length = 16,
+}
+
+wall{
+  layer = 1,
+  x = 768,
+  y = 544,
+  width = 8,
+  height = 32,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 1,
+  x = 792,
+  y = 544,
+  width = 8,
+  height = 32,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 1,
+  x = 792,
+  y = 608,
+  width = 8,
+  height = 16,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 1,
+  x = 768,
+  y = 608,
+  width = 8,
+  height = 16,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
 tile{
   layer = 2,
   x = 592,
