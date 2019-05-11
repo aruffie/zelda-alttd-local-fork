@@ -11577,6 +11577,16 @@ tile{
   pattern = "454",
 }
 
+tile{
+  layer = 1,
+  x = 600,
+  y = 48,
+  width = 32,
+  height = 48,
+  pattern = "111",
+  tileset = "addition/out",
+}
+
 custom_entity{
   layer = 1,
   x = 744,
@@ -12864,17 +12874,6 @@ pickable{
   y = 37,
   treasure_name = "piece_of_heart",
   treasure_savegame_variable = "piece_of_heart_12",
-}
-
-custom_entity{
-  name = "entrance_dg8_bis_4",
-  layer = 1,
-  x = 616,
-  y = 61,
-  width = 24,
-  height = 48,
-  direction = 2,
-  sprite = "entities/entrance_dungeon_8_bis",
 }
 
 custom_entity{
