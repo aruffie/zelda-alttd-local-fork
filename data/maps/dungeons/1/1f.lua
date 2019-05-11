@@ -43,8 +43,6 @@ function map:on_started()
       map:launch_cinematic_1()
     end)
   end
-  -- Heart
-  treasure_manager:appear_heart_container_if_boss_dead(map)
   -- Music
   game:play_dungeon_music()
   -- Owls
@@ -53,6 +51,7 @@ function map:on_started()
   treasure_manager:disappear_pickable(map, "pickable_small_key_1")
   treasure_manager:disappear_pickable(map, "heart_container")
   treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_7_", "pickable_small_key_1")
+  treasure_manager:appear_heart_container_if_boss_dead(map)
   -- Separators
   separator_manager:init(map)
   -- Switchs
@@ -63,6 +62,7 @@ function map:on_started()
       entity:remove()
     end
   end
+
 
 end
 

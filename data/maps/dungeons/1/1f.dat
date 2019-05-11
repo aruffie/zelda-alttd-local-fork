@@ -15149,15 +15149,6 @@ custom_entity{
   direction = 0,
 }
 
-pickable{
-  name = "heart_container",
-  layer = 0,
-  x = 2080,
-  y = 597,
-  treasure_name = "heart_container",
-  treasure_savegame_variable = "dungeon_1_heart_container",
-}
-
 block{
   layer = 0,
   x = 840,
@@ -16524,6 +16515,16 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
+}
+
+pickable{
+  name = "heart_container",
+  layer = 0,
+  x = 1120,
+  y = 1509,
+  enabled_at_start = false,
+  treasure_name = "heart_container",
+  treasure_savegame_variable = "dungeon_1_heart_container",
 }
 
 tile{

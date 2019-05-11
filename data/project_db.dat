@@ -329,12 +329,12 @@ sprite{ id = "enemies/spiny_beetle", description = "Spiny Beetle" }
 sprite{ id = "enemies/stalfos", description = "Stalfos" }
 sprite{ id = "enemies/star", description = "Star" }
 sprite{ id = "enemies/tektite", description = "Tektite" }
+sprite{ id = "enemies/tektite_water", description = "Tektite Water" }
 sprite{ id = "enemies/thwimp", description = "Thwimp" }
 sprite{ id = "enemies/thwomp", description = "Thwomp" }
 sprite{ id = "enemies/vegas", description = "Vegas" }
 sprite{ id = "enemies/vire/vire", description = "Vire" }
 sprite{ id = "enemies/vire/vire_bat", description = "Vire Bat" }
-sprite{ id = "enemies/water_tektite", description = "Tektite Water" }
 sprite{ id = "enemies/wizzrobe/wizzrobe", description = "Wizzrobe" }
 sprite{ id = "enemies/wizzrobe/wizzrobe_beam", description = "Wizzrobe beam" }
 sprite{ id = "enemies/zol_green", description = "Zol green" }
@@ -2480,10 +2480,10 @@ file{ path = "sprites/enemies/spiny_beetle.png", license = "Proprietary, Fair us
 file{ path = "sprites/enemies/stalfos.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/star.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/tektite.png", license = "Proprietary, Fair use" }
+file{ path = "sprites/enemies/tektite_water.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/thwimp.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/thwomp.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/vegas.png", license = "Proprietary, Fair use" }
-file{ path = "sprites/enemies/water_tektite.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/zols_gels.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/zombie.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/zora.png", license = "Proprietary, Fair use" }
