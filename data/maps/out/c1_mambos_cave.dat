@@ -15982,7 +15982,7 @@ npc{
   name = "dungeon_4_lock",
   layer = 1,
   x = 776,
-  y = 501,
+  y = 493,
   direction = 3,
   subtype = 0,
 }

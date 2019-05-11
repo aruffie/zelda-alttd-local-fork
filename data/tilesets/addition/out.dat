@@ -1147,7 +1147,7 @@ tile_pattern{
 
 tile_pattern{
   id = "4",
-  ground = "wall",
+  ground = "empty",
   default_layer = 0,
   x = 432,
   y = 96,
