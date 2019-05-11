@@ -11587,6 +11587,15 @@ tile{
   tileset = "addition/out",
 }
 
+tile{
+  layer = 1,
+  x = 120,
+  y = 640,
+  width = 16,
+  height = 16,
+  pattern = "1785",
+}
+
 custom_entity{
   layer = 1,
   x = 744,
