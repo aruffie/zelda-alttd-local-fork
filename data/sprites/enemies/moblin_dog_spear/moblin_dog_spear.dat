@@ -68,3 +68,25 @@ animation{
     { x = 0, y = 336, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 45, num_frames = 2 },
   },
 }
+animation{
+  name = "turning_right_left",
+  src_image = "enemies/moblin_dog_spear/moblin_dog_spear.png",
+  frame_delay = 100,
+  directions = {
+    { x = 144, y = 240, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 45 },
+    { x = 144, y = 336, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 45 },
+    { x = 96, y = 240, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 45 },
+    { x = 96, y = 336, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 45 },
+  },
+}
+animation{
+  name = "turning_up_down",
+  src_image = "enemies/moblin_dog_spear/moblin_dog_spear.png",
+  frame_delay = 100,
+  directions = {
+    { x = 144, y = 384, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 45 },
+    { x = 96, y = 384, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 45 },
+    { x = 96, y = 288, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 45 },
+    { x = 144, y = 288, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 45 },
+  },
+}
