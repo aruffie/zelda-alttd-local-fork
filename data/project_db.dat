@@ -180,8 +180,10 @@ tileset{ id = "sideview/sideview", description = "Side view tileset" }
 sprite{ id = "console/cursor", description = "Console cursor" }
 sprite{ id = "console/icons", description = "Console icons" }
 sprite{ id = "debug/commands", description = "Commands" }
-sprite{ id = "dungeons/owl/pipes/red", description = "Red pipe with water flowing" }
-sprite{ id = "dungeons/owl/pipes/yellow", description = "Yellow pipe with water flowing" }
+sprite{ id = "dungeons/owl/pipes/anticlockwise_lava" }
+sprite{ id = "dungeons/owl/pipes/clockwise_lava" }
+sprite{ id = "dungeons/owl/pipes/straight_gel", description = "Straight gel pipe" }
+sprite{ id = "dungeons/owl/pipes/straight_lava", description = "Straight lava pipe" }
 sprite{ id = "enemies/anti_kirby/anti_kirby", description = "Anti Kirby" }
 sprite{ id = "enemies/anti_kirby/anti_kirby_aspiration", description = "Anti Kirby Aspiration" }
 sprite{ id = "enemies/arm_mimic", description = "Arm mimic" }
