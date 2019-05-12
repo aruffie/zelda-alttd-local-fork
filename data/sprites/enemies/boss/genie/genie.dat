@@ -15,10 +15,10 @@ animation{
   src_image = "enemies/boss/genie/genie.png",
   frame_delay = 120,
   directions = {
-    { x = 0, y = 216, frame_width = 72, frame_height = 72, origin_x = 8, origin_y = 13, num_frames = 13 },
-    { x = 0, y = 216, frame_width = 72, frame_height = 72, origin_x = 8, origin_y = 13, num_frames = 13 },
-    { x = 0, y = 216, frame_width = 72, frame_height = 72, origin_x = 8, origin_y = 13, num_frames = 13 },
-    { x = 0, y = 216, frame_width = 72, frame_height = 72, origin_x = 8, origin_y = 13, num_frames = 13 },
+    { x = 0, y = 216, frame_width = 72, frame_height = 72, origin_x = 36, origin_y = 69, num_frames = 13 },
+    { x = 0, y = 216, frame_width = 72, frame_height = 72, origin_x = 36, origin_y = 69, num_frames = 13 },
+    { x = 0, y = 216, frame_width = 72, frame_height = 72, origin_x = 36, origin_y = 69, num_frames = 13 },
+    { x = 0, y = 216, frame_width = 72, frame_height = 72, origin_x = 36, origin_y = 69, num_frames = 13 },
   },
 }
 animation{
@@ -26,10 +26,10 @@ animation{
   src_image = "enemies/boss/genie/genie.png",
   frame_delay = 120,
   directions = {
-    { x = 0, y = 144, frame_width = 72, frame_height = 72, origin_x = 8, origin_y = 13, num_frames = 13 },
-    { x = 0, y = 144, frame_width = 72, frame_height = 72, origin_x = 8, origin_y = 13, num_frames = 13 },
-    { x = 0, y = 144, frame_width = 72, frame_height = 72, origin_x = 8, origin_y = 13, num_frames = 13 },
-    { x = 0, y = 144, frame_width = 72, frame_height = 72, origin_x = 8, origin_y = 13, num_frames = 13 },
+    { x = 0, y = 144, frame_width = 72, frame_height = 72, origin_x = 36, origin_y = 69, num_frames = 13 },
+    { x = 0, y = 144, frame_width = 72, frame_height = 72, origin_x = 36, origin_y = 69, num_frames = 13 },
+    { x = 0, y = 144, frame_width = 72, frame_height = 72, origin_x = 36, origin_y = 69, num_frames = 13 },
+    { x = 0, y = 144, frame_width = 72, frame_height = 72, origin_x = 36, origin_y = 69, num_frames = 13 },
   },
 }
 animation{

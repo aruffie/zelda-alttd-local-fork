@@ -160,10 +160,12 @@ function carriable_behavior.apply(carriable, properties)
     -- Callback function for collision test.
     -- Call hit events and reverse the movement if needed.
     local function carriable_on_collision(carriable, entity)
-      hurt_if_vulnerable(entity)
-      call_hit_events(entity)
-      if is_obstacle(entity) then
-        reverse_direction(slowdown_ratio)
+      if entity and entity:is_enabled() then
+        hurt_if_vulnerable(entity)
+        call_hit_events(entity)
+        if is_obstacle(entity) then
+          reverse_direction(slowdown_ratio)
+        end
       end
     end
 
@@ -225,8 +227,10 @@ function carriable_behavior.apply(carriable, properties)
         function movement:on_obstacle_reached()
           local entities = get_overlapping_entities_on_obstacle_reached(movement)
           for _, entity in pairs(entities) do
-            hurt_if_vulnerable(entity)
-            call_hit_events(entity)
+            if entity and entity:is_enabled() then
+              hurt_if_vulnerable(entity)
+              call_hit_events(entity)
+            end
           end
           if #entities == 0 then -- Call hit events even if the obstacle is not an entity.
             call_hit_events(nil)
@@ -302,6 +306,7 @@ function carriable_behavior.apply(carriable, properties)
       local carriable_properties = carriable:get_properties()
       -- TODO Find a proper way to keep events registered outside this script alive when the entity is replaced by the carried object
       local carriable_on_finish_throw = carriable.on_finish_throw
+      local carriable_on_hit = carriable.on_hit
       
       -- Remove the build-in carried object when thrown and replace it by the initial custom entity with custom thrown trajectory.
       carried_object:register_event("on_thrown", function(carried_object)
@@ -318,6 +323,7 @@ function carriable_behavior.apply(carriable, properties)
         local thrown_carriable = map:create_custom_entity(initial_properties)
         thrown_carriable.respawn_position = carriable.respawn_position -- Keep the initial respawn position.
         thrown_carriable.on_finish_throw = carriable_on_finish_throw -- TODO remove
+        thrown_carriable.on_hit = carriable_on_hit -- TODO remove
         thrown_carriable:throw(direction)
       end)
     end)

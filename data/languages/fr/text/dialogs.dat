@@ -933,12 +933,38 @@ dialog{
 }
 
 dialog{
+  id = "maps.dungeons.2.boss_message_1",
+  text = [[
+NANANA !!!
+Tu ne m'auras pas tant que j'aurai ma jarre !
+]],
+}
+
+dialog{
+  id = "maps.dungeons.2.boss_message_2",
+  text = [[
+. . . . !
+Je ne peux pas bouger !
+Mais je vais bien.
+Ta petite épée ne pourra pas briser cette bouteille !
+]],
+}
+
+dialog{
+  id = "maps.dungeons.2.boss_message_3",
+  text = [[
+. . . . !
+Je ne peux pas bouger !
+Mais je vais bien.
+Ta petite épée ne pourra pas briser cette bouteille !
+]],
+}
+
+dialog{
   id = "maps.dungeons.2.boss_welcome",
   text = [[
 HI HI HI !!      
-Attends un peu,
-que je m'occupe de 
-toi... HI HI!
+Attends un peu, que je m'occupe de toi... HI HI !
 ]],
 }
 

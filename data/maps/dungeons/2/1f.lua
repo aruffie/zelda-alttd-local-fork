@@ -31,6 +31,7 @@ function map:on_started(destination)
   -- Doors
   map:set_doors_open("door_group_4_", true)
   map:set_doors_open("door_group_small_boss", true)
+  map:set_doors_open("door_group_boss", true)
   door_manager:open_when_torches_lit(map, "auto_torch_group_1_", "door_group_1_")
   door_manager:open_when_enemies_dead(map,  "enemy_group_8_",  "door_group_4_")
   -- Ennemies

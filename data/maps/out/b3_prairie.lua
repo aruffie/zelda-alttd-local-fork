@@ -52,7 +52,7 @@ function map:init_map_entities()
     map:open_dungeon_3()
   end
   -- Tarin
-  if game:get_value("main_quest_step") ~= 18 then
+  if game:get_valu  e("main_quest_step") ~= 18 then
     tarin:set_enabled(false)
   end
   -- Honey and bees

@@ -188,7 +188,13 @@ function enemy_manager:launch_boss_if_not_dead(map)
      end)
     map:close_doors(door_prefix)
     audio_manager:play_music("22_boss_battle")
-    game:start_dialog("maps.dungeons." .. dungeon .. ".boss_welcome")
+    sol.timer.start(enemy, 1000, function()
+      game:start_dialog("maps.dungeons." .. dungeon .. ".boss_welcome", function()
+        if enemy.launch_after_first_dialog then
+          enemy:launch_after_first_dialog()
+        end
+      end)
+    end)
         
 end
 

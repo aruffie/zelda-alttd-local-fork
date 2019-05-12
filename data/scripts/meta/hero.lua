@@ -229,14 +229,14 @@ end
 local game_meta = sol.main.get_metatable("game")
 game_meta:register_event("on_map_changed", function(game, map)
 
-    local hero = map:get_hero() --TODO account for multiple heroes
-    local has_shadow=true
+    local hero = map:get_hero()
+    local has_shadow = true
     local v_offset = 0
     if map:is_sideview() then
       hero:set_size(8,16)
       hero:set_origin(4,13)
       set_sprite_offset(hero, 0,2)
-      local s=hero:get_sprite("custom_shadow")
+      local s = hero:get_sprite("custom_shadow")
       if s ~= nil then
         hero:remove_sprite(s)
       end
@@ -245,16 +245,11 @@ game_meta:register_event("on_map_changed", function(game, map)
       hero:set_origin(8,13)
       hero:set_jumping(false)
       set_sprite_offset(hero, 0,0)
-      local s=hero:get_sprite("custom_shadow")
-      if s==nil then
-        --print "No shadow. Add one"
-        s=hero:create_sprite("entities/shadow", "custom_shadow")
+      local s = hero:get_sprite("custom_shadow")
+      if s == nil then
+        s = hero:create_sprite("entities/shadow", "custom_shadow")
         s:set_animation("big")
         hero:bring_sprite_to_back(s)
-      else
-       -- print "Already has a shadow. Recycle it"
-       -- print("ID:", s:get_animation_set())
-       -- print ('Current animation :'..s:get_animation())
       end
     end
 
