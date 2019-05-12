@@ -914,7 +914,7 @@ tile{
 tile{
   layer = 0,
   x = 576,
-  y = 656,
+  y = 672,
   width = 8,
   height = 8,
   pattern = "wall_border.corner.4-2",
@@ -7288,6 +7288,16 @@ destination{
   x = 480,
   y = 917,
   direction = 1,
+}
+
+teletransporter{
+  layer = 0,
+  x = 472,
+  y = 888,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/2f",
+  destination = "destination",
 }
 
 tile{

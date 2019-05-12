@@ -34,7 +34,7 @@ local default_properties = {
 function carriable_behavior.apply(carriable, properties)
 
   local map = carriable:get_map()
-  local sprite = carriable:get_sprite("")
+  local sprite = carriable:get_sprite()
 
   -- Function to call hit events, the entity parameter may be nil.
   local function call_hit_events(entity)
@@ -173,7 +173,7 @@ function carriable_behavior.apply(carriable, properties)
     -- Create a sprite for the shadow.
     if not shadow_sprite then
       shadow_sprite = carriable:create_sprite("entities/shadows/shadow", "shadow")
-      carriable:bring_sprite_to_back(shadow_sprite)
+      carriable:bring_sprite_to_back(shadow_sprite) -- TODO handle lifting when shadow still exists
     end
 
     -- Function called when the carriable has fallen.
@@ -302,7 +302,7 @@ function carriable_behavior.apply(carriable, properties)
       local carriable_properties = carriable:get_properties()
       -- TODO Find a proper way to keep events registered outside this script alive when the entity is replaced by the carried object
       local carriable_on_finish_throw = carriable.on_finish_throw
-      
+
       -- Remove the build-in carried object when thrown and replace it by the initial custom entity with custom thrown trajectory.
       carried_object:register_event("on_thrown", function(carried_object)
 

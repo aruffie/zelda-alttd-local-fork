@@ -48,7 +48,7 @@ pull_handle:register_event("on_created", function()
     x = initial_x,
     y = initial_y,
     direction = 3,
-    sprite = pull_handle:get_sprite(""):get_animation_set(),
+    sprite = pull_handle:get_sprite():get_animation_set(),
     pushable = false,
     pullable = true,
     max_moves = 4,
