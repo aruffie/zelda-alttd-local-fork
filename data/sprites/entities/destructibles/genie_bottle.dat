@@ -34,6 +34,16 @@ animation{
   },
 }
 animation{
+  name = "on_ground",
+  src_image = "entities/destructibles/genie_bottle_entity.png",
+  directions = {
+    { x = 0, y = 48, frame_width = 24, frame_height = 48, origin_x = 12, origin_y = 45 },
+    { x = 0, y = 48, frame_width = 24, frame_height = 48, origin_x = 12, origin_y = 45 },
+    { x = 0, y = 48, frame_width = 24, frame_height = 48, origin_x = 12, origin_y = 45 },
+    { x = 0, y = 48, frame_width = 24, frame_height = 48, origin_x = 12, origin_y = 45 },
+  },
+}
+animation{
   name = "shaking",
   src_image = "entities/destructibles/genie_bottle.png",
   frame_delay = 50,
@@ -49,9 +59,21 @@ animation{
   name = "stopped",
   src_image = "entities/destructibles/genie_bottle.png",
   directions = {
-    { x = 0, y = 0, frame_width = 24, frame_height = 48, origin_x = 12, origin_y = 45 },
-    { x = 0, y = 0, frame_width = 24, frame_height = 48, origin_x = 12, origin_y = 45 },
-    { x = 0, y = 0, frame_width = 24, frame_height = 48, origin_x = 12, origin_y = 45 },
-    { x = 0, y = 0, frame_width = 24, frame_height = 48, origin_x = 12, origin_y = 45 },
+    { x = 0, y = 48, frame_width = 24, frame_height = 48, origin_x = 12, origin_y = 45 },
+    { x = 0, y = 48, frame_width = 24, frame_height = 48, origin_x = 12, origin_y = 45 },
+    { x = 0, y = 48, frame_width = 24, frame_height = 48, origin_x = 12, origin_y = 45 },
+    { x = 0, y = 48, frame_width = 24, frame_height = 48, origin_x = 12, origin_y = 45 },
+  },
+}
+animation{
+  name = "walking",
+  src_image = "entities/destructibles/genie_bottle_entity.png",
+  frame_delay = 150,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 0, frame_width = 24, frame_height = 48, origin_x = 12, origin_y = 45, num_frames = 6 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 48, origin_x = 12, origin_y = 45, num_frames = 6 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 48, origin_x = 12, origin_y = 45, num_frames = 6 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 48, origin_x = 12, origin_y = 45, num_frames = 6 },
   },
 }
