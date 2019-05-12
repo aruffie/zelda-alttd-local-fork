@@ -87,6 +87,7 @@ function enemy:fight()
       
       end)
     end)
+    return 1
   end)
   
 end
