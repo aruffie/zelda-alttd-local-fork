@@ -317,6 +317,21 @@ local function initialize_dungeon_features(game)
         x = 640 + 1440,
         y = 720 + 365
       }
+    },
+    [10] = {
+      lowest_floor = 0,
+      highest_floor = 0,
+      rows = 8,
+      cols = 8,
+      music = "",
+      music_instrument = "",
+      secrets = {},
+      boss = {
+        floor = 0,
+        x = 640 + 1440,
+        y = 720 + 365,
+        savegame_variable = "dungeon_10_boss",
+      }
     }
   }
 
