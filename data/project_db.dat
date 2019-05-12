@@ -49,6 +49,7 @@ map{ id = "dungeons/1/1f", description = "Dungeon 1 1F" }
 map{ id = "dungeons/1/sideview_1", description = "Sideview 1" }
 map{ id = "dungeons/1/sideview_2", description = "Sideview 2" }
 map{ id = "dungeons/10/1f", description = "Dungeon 10 1F" }
+map{ id = "dungeons/10/sideview_1", description = "dungeons/10/sideview_1" }
 map{ id = "dungeons/10/temp_lobby" }
 map{ id = "dungeons/11/1f", description = "Dungeon 11 1F" }
 map{ id = "dungeons/11/b1", description = "Dungeon 11 B1" }
