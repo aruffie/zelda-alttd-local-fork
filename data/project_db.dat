@@ -49,6 +49,10 @@ map{ id = "dungeons/1/1f", description = "Dungeon 1 1F" }
 map{ id = "dungeons/1/sideview_1", description = "Sideview 1" }
 map{ id = "dungeons/1/sideview_2", description = "Sideview 2" }
 map{ id = "dungeons/10/1f", description = "Dungeon 10 1F" }
+map{ id = "dungeons/10/b1", description = "Dungeon 10 B1" }
+map{ id = "dungeons/10/entrance", description = "Dungeon 10 Entrance" }
+map{ id = "dungeons/10/sideview_1", description = "Sideview 1" }
+map{ id = "dungeons/10/sideview_1", description = "dungeons/10/sideview_1" }
 map{ id = "dungeons/10/temp_lobby" }
 map{ id = "dungeons/11/1f", description = "Dungeon 11 1F" }
 map{ id = "dungeons/11/b1", description = "Dungeon 11 B1" }
@@ -178,10 +182,8 @@ tileset{ id = "sideview/sideview", description = "Side view tileset" }
 sprite{ id = "console/cursor", description = "Console cursor" }
 sprite{ id = "console/icons", description = "Console icons" }
 sprite{ id = "debug/commands", description = "Commands" }
-sprite{ id = "dungeons/owl/pipes/anticlockwise_lava" }
-sprite{ id = "dungeons/owl/pipes/clockwise_lava" }
-sprite{ id = "dungeons/owl/pipes/straight_gel", description = "Straight gel pipe" }
-sprite{ id = "dungeons/owl/pipes/straight_lava", description = "Straight lava pipe" }
+sprite{ id = "dungeons/owl/pipes/red", description = "Red pipe with water flowing" }
+sprite{ id = "dungeons/owl/pipes/yellow", description = "Yellow pipe with water flowing" }
 sprite{ id = "enemies/anti_kirby/anti_kirby", description = "Anti Kirby" }
 sprite{ id = "enemies/anti_kirby/anti_kirby_aspiration", description = "Anti Kirby Aspiration" }
 sprite{ id = "enemies/arm_mimic", description = "Arm mimic" }
@@ -434,7 +436,6 @@ sprite{ id = "entities/explosion", description = "Explosion" }
 sprite{ id = "entities/explosion_boss", description = "Explosion boss" }
 sprite{ id = "entities/fire", description = "Fire" }
 sprite{ id = "entities/fire_mask", description = "Fire mask" }
-sprite{ id = "entities/fisherman_ledger", description = "Fisherman ledger" }
 sprite{ id = "entities/grounds/color_platform_green", description = "Color platform green" }
 sprite{ id = "entities/grounds/color_platform_orange", description = "Color platform orange" }
 sprite{ id = "entities/grounds/color_platform_red", description = "Color platform red" }
@@ -772,7 +773,6 @@ music{ id = "gb/71_color_dungeon", description = "71 - Color dungeon" }
 music{ id = "gb/72_great_fairy_fountain", description = "72 - Great fairy fountain" }
 music{ id = "gb/74_wind_fish_egg", description = "74 - Wind fish egg" }
 music{ id = "gb/82_game_over", description = "82 - Game over" }
-music{ id = "n64/great_bay_temple", description = "n64/great_bay_temple" }
 music{ id = "snes/02_title", description = "02 - Title" }
 music{ id = "snes/02_title_no_intro", description = "02 - Title No Intro" }
 music{ id = "snes/06_marin_house", description = "06 - Marin's House" }
@@ -1750,6 +1750,12 @@ file{ path = "maps/dungeons/1/sideview_2.lua", author = "Benjamin Schweitzer", l
 file{ path = "maps/dungeons/10", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
 file{ path = "maps/dungeons/10/1f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
 file{ path = "maps/dungeons/10/1f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/10/b1.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/10/b1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/10/entrance.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/10/entrance.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/10/sideview_1.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/10/sideview_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/dungeons/11", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
 file{ path = "maps/dungeons/11/1f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
 file{ path = "maps/dungeons/11/1f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }

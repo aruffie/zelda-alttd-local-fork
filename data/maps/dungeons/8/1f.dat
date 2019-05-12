@@ -1984,9 +1984,9 @@ tile{
 tile{
   layer = 0,
   x = 224,
-  y = 520,
+  y = 512,
   width = 16,
-  height = 32,
+  height = 48,
   pattern = "lava",
 }
 
@@ -7937,15 +7937,6 @@ tile{
   width = 32,
   height = 32,
   pattern = "lava",
-}
-
-tile{
-  layer = 0,
-  x = 768,
-  y = 760,
-  width = 32,
-  height = 32,
-  pattern = "statue_eye-2",
 }
 
 tile{
@@ -25724,6 +25715,33 @@ tile{
   pattern = "stairs_down.2.border.3-2",
 }
 
+tile{
+  layer = 0,
+  x = 1776,
+  y = 496,
+  width = 8,
+  height = 16,
+  pattern = "door.1.support.1-1",
+}
+
+tile{
+  layer = 0,
+  x = 1800,
+  y = 496,
+  width = 8,
+  height = 16,
+  pattern = "door.1.support.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 1784,
+  y = 496,
+  width = 16,
+  height = 16,
+  pattern = "door_stairs.spiral_up.1",
+}
+
 block{
   layer = 0,
   x = 72,
@@ -26083,15 +26101,8 @@ block{
   maximum_moves = 0,
 }
 
-destination{
-  name = "destination",
-  layer = 0,
-  x = 1120,
-  y = 1829,
-  direction = 1,
-}
-
 custom_entity{
+  name = "torch_1_1",
   layer = 0,
   x = 376,
   y = 1149,
@@ -26103,6 +26114,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "torch_1_2",
   layer = 0,
   x = 584,
   y = 1149,
@@ -26114,6 +26126,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "vacuum_cleaner_3",
   layer = 0,
   x = 104,
   y = 437,
@@ -26122,16 +26135,6 @@ custom_entity{
   direction = 0,
   sprite = "entities/misc/vacuum_cleaner",
   model = "vacuum_cleaner",
-}
-
-teletransporter{
-  layer = 0,
-  x = 1112,
-  y = 1784,
-  width = 16,
-  height = 16,
-  destination_map = "dungeons/8/1f",
-  destination = "destination_2",
 }
 
 chest{
@@ -27359,7 +27362,7 @@ pickable{
   x = 1120,
   y = 101,
   treasure_name = "instrument_8",
-  treasure_savegame_variable = "dungeon_8_instrument",
+  treasure_savegame_variable = "dungeon_8_big_treasure",
 }
 
 block{
@@ -27437,7 +27440,7 @@ door{
 }
 
 door{
-  name = "door_group_2_3",
+  name = "door_group_17_1",
   layer = 0,
   x = 792,
   y = 1464,
@@ -27448,7 +27451,7 @@ door{
 }
 
 door{
-  name = "door_group_2_4",
+  name = "door_group_17_2",
   layer = 0,
   x = 792,
   y = 1400,
@@ -27676,10 +27679,10 @@ door{
 chest{
   name = "chest_rupee_1",
   layer = 0,
-  x = 512,
-  y = 1525,
+  x = 584,
+  y = 1277,
   treasure_name = "rupee",
-  treasure_variant = 4,
+  treasure_variant = 3,
   treasure_savegame_variable = "dongeon_8_rupee_1",
   sprite = "entities/chests/chest_small",
 }
@@ -27840,6 +27843,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "vacuum_cleaner_1",
   layer = 0,
   x = 504,
   y = 1309,
@@ -28180,6 +28184,7 @@ block{
 }
 
 custom_entity{
+  name = "vacuum_cleaner_2",
   layer = 0,
   x = 2136,
   y = 1565,
@@ -30322,18 +30327,20 @@ door{
 }
 
 door{
+  name = "door_group_boss_1",
   layer = 0,
   x = 1112,
   y = 504,
   direction = 1,
   sprite = "entities/doors/door_boss_key",
-  savegame_variable = "dungeon_1_door_boss",
+  savegame_variable = "dungeon_8_door_boss",
   opening_method = "interaction_if_savegame_variable",
-  opening_condition = "dungeon_1_boss_key",
+  opening_condition = "dungeon_8_boss_key",
   cannot_open_dialog = "maps.dungeons.boss_key_required",
 }
 
 door{
+  name = "door_group_boss_2",
   layer = 0,
   x = 1112,
   y = 440,
@@ -30608,27 +30615,6 @@ custom_entity{
   model = "torch",
 }
 
-door{
-  name = "weak_wall_B_1",
-  layer = 0,
-  x = 1880,
-  y = 832,
-  properties = {
-    {
-      key = "is_weak",
-      value = "true",
-    },
-    {
-      key = "sound_sword",
-      value = "items/sword_tap_bombable",
-    },
-  },
-  direction = 0,
-  sprite = "entities/doors/door_weak_wall",
-  savegame_variable = "dungeon_8_weak_wall_B",
-  opening_method = "explosion",
-}
-
 dynamic_tile{
   name = "weak_wall_B_3",
   layer = 0,
@@ -30784,7 +30770,7 @@ door{
 }
 
 door{
-  name = "door_group_1_3",
+  name = "door_group_18_1",
   layer = 0,
   x = 1240,
   y = 832,
@@ -30795,7 +30781,7 @@ door{
 }
 
 door{
-  name = "door_group_1_4",
+  name = "door_group_18_2",
   layer = 0,
   x = 1304,
   y = 832,
@@ -30868,6 +30854,7 @@ enemy{
 }
 
 separator{
+  name = "auto_separator_7",
   layer = 0,
   x = 2232,
   y = 0,
@@ -30876,7 +30863,7 @@ separator{
 }
 
 door{
-  name = "door_group_14_3",
+  name = "door_group_20_1",
   layer = 0,
   x = 2464,
   y = 504,
@@ -30887,7 +30874,7 @@ door{
 }
 
 door{
-  name = "door_group_14_4",
+  name = "door_group_20_2",
   layer = 0,
   x = 2464,
   y = 440,
@@ -30966,27 +30953,6 @@ dynamic_tile{
   width = 24,
   height = 32,
   pattern = "wall.4-2",
-}
-
-door{
-  name = "weak_wall_C_2",
-  layer = 0,
-  x = 1944,
-  y = 1328,
-  properties = {
-    {
-      key = "is_weak",
-      value = "true",
-    },
-    {
-      key = "sound_sword",
-      value = "items/sword_tap_bombable",
-    },
-  },
-  direction = 2,
-  sprite = "entities/doors/door_weak_wall",
-  savegame_variable = "dungeon_8_weak_wall_C",
-  opening_method = "explosion",
 }
 
 dynamic_tile{
@@ -31170,27 +31136,6 @@ dynamic_tile{
   pattern = "wall.4-2",
 }
 
-door{
-  name = "weak_wall_E_1",
-  layer = 0,
-  x = 984,
-  y = 824,
-  properties = {
-    {
-      key = "is_weak",
-      value = "true",
-    },
-    {
-      key = "sound_sword",
-      value = "items/sword_tap_bombable",
-    },
-  },
-  direction = 2,
-  sprite = "entities/doors/door_weak_wall",
-  savegame_variable = "dungeon_8_weak_wall_E",
-  opening_method = "explosion",
-}
-
 dynamic_tile{
   name = "weak_wall_E_4",
   layer = 0,
@@ -31231,7 +31176,7 @@ block{
 }
 
 door{
-  name = "door_group_3_3",
+  name = "door_group_16_1",
   layer = 0,
   x = 600,
   y = 624,
@@ -31242,7 +31187,7 @@ door{
 }
 
 door{
-  name = "door_group_3_4",
+  name = "door_group_16_2",
   layer = 0,
   x = 664,
   y = 624,
@@ -31264,34 +31209,6 @@ wall{
   stops_projectiles = true,
 }
 
-door{
-  name = "door_small_key_3_1",
-  layer = 0,
-  x = 344,
-  y = 640,
-  direction = 2,
-  sprite = "entities/doors/door_small_key",
-  savegame_variable = "dungeon_8_door_small_key_2",
-  opening_method = "interaction_if_savegame_variable",
-  opening_condition = "dungeon_8_small_keys",
-  opening_condition_consumed = true,
-  cannot_open_dialog = "maps.dungeons.small_key_required",
-}
-
-door{
-  name = "door_small_key_3_2",
-  layer = 0,
-  x = 280,
-  y = 640,
-  direction = 0,
-  sprite = "entities/doors/door_small_key",
-  savegame_variable = "dungeon_8_door_small_key_2",
-  opening_method = "interaction_if_savegame_variable",
-  opening_condition = "dungeon_8_small_keys",
-  opening_condition_consumed = true,
-  cannot_open_dialog = "maps.dungeons.small_key_required",
-}
-
 enemy{
   name = "cue_ball",
   layer = 0,
@@ -31303,7 +31220,7 @@ enemy{
 }
 
 door{
-  name = "door_group_14_5",
+  name = "door_group_15_2",
   layer = 0,
   x = 64,
   y = 504,
@@ -31314,7 +31231,7 @@ door{
 }
 
 door{
-  name = "door_group_14_6",
+  name = "door_group_15_1",
   layer = 0,
   x = 64,
   y = 440,
@@ -31325,7 +31242,7 @@ door{
 }
 
 door{
-  name = "door_group_14_7",
+  name = "door_group_boss_3",
   layer = 0,
   x = 1112,
   y = 264,
@@ -31336,7 +31253,7 @@ door{
 }
 
 door{
-  name = "door_group_14_8",
+  name = "door_group_boss_4",
   layer = 0,
   x = 1112,
   y = 200,
@@ -31368,9 +31285,9 @@ pickable{
 wall{
   layer = 0,
   x = 736,
-  y = 512,
+  y = 504,
   width = 8,
-  height = 16,
+  height = 24,
   stops_hero = true,
   stops_npcs = true,
   stops_enemies = true,
@@ -31496,27 +31413,6 @@ door{
   opening_method = "explosion",
 }
 
-door{
-  name = "weak_wall_D_2",
-  layer = 0,
-  x = 2072,
-  y = 1400,
-  properties = {
-    {
-      key = "is_weak",
-      value = "true",
-    },
-    {
-      key = "sound_sword",
-      value = "items/sword_tap_bombable",
-    },
-  },
-  direction = 3,
-  sprite = "entities/doors/door_weak_wall",
-  savegame_variable = "dungeon_8_weak_wall_D",
-  opening_method = "explosion",
-}
-
 dynamic_tile{
   name = "weak_wall_D_4",
   layer = 0,
@@ -31571,27 +31467,6 @@ door{
   opening_method = "explosion",
 }
 
-door{
-  name = "weak_wall_F_1",
-  layer = 0,
-  x = 1112,
-  y = 920,
-  properties = {
-    {
-      key = "is_weak",
-      value = "true",
-    },
-    {
-      key = "sound_sword",
-      value = "items/sword_tap_bombable",
-    },
-  },
-  direction = 3,
-  sprite = "entities/doors/door_weak_wall",
-  savegame_variable = "dungeon_8_weak_wall_F",
-  opening_method = "explosion",
-}
-
 dynamic_tile{
   name = "weak_wall_F_3",
   layer = 0,
@@ -31633,8 +31508,8 @@ enemy{
 chest{
   name = "chest_rupee_2",
   layer = 0,
-  x = 584,
-  y = 1277,
+  x = 512,
+  y = 1525,
   treasure_name = "rupee",
   treasure_variant = 4,
   treasure_savegame_variable = "dongeon_8_rupee_2",
@@ -31645,7 +31520,7 @@ chest{
   name = "chest_rupee_3",
   layer = 0,
   x = 912,
-  y = 557,
+  y = 525,
   treasure_name = "rupee",
   treasure_variant = 4,
   treasure_savegame_variable = "dongeon_8_rupee_3",
@@ -31660,15 +31535,6 @@ chest{
   treasure_name = "drug",
   treasure_savegame_variable = "dungeon_8_drug_1",
   sprite = "entities/chests/chest_small",
-}
-
-enemy{
-  name = "enemy_group_23_1",
-  layer = 0,
-  x = 1776,
-  y = 1549,
-  direction = 0,
-  breed = "zol_green",
 }
 
 enemy{
@@ -31687,6 +31553,324 @@ enemy{
   y = 1853,
   direction = 0,
   breed = "arm_mimic",
+}
+
+destination{
+  name = "destination_ocarina",
+  layer = 0,
+  x = 1120,
+  y = 1853,
+  direction = 1,
+}
+
+custom_entity{
+  name = "teletransporter_B",
+  layer = 0,
+  x = 1120,
+  y = 1813,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+destination{
+  name = "teletransporter_destination_B",
+  layer = 0,
+  x = 1120,
+  y = 1797,
+  direction = 1,
+}
+
+destination{
+  name = "dungeon_8_1_B",
+  layer = 0,
+  x = 1120,
+  y = 1877,
+  direction = 1,
+}
+
+teletransporter{
+  name = "dungeon_7_2_A",
+  layer = 0,
+  x = 1112,
+  y = 1904,
+  width = 16,
+  height = 16,
+  destination_map = "out/d1_east_mt_tamaranch",
+  destination = "dungeon_7_2_B",
+}
+
+sensor{
+  name = "sensor_2",
+  layer = 0,
+  x = 2472,
+  y = 1637,
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_1",
+  layer = 0,
+  x = 272,
+  y = 1565,
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_3",
+  layer = 0,
+  x = 1552,
+  y = 1581,
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_4",
+  layer = 0,
+  x = 2080,
+  y = 917,
+  width = 16,
+  height = 16,
+}
+
+dynamic_tile{
+  name = "statue_eye_1",
+  layer = 0,
+  x = 768,
+  y = 760,
+  width = 32,
+  height = 32,
+  pattern = "statue_eye-2",
+}
+
+stairs{
+  layer = 0,
+  x = 792,
+  y = 504,
+  direction = 1,
+  subtype = 0,
+}
+
+teletransporter{
+  name = "dungeon_8_4_A",
+  layer = 0,
+  x = 792,
+  y = 504,
+  width = 16,
+  height = 16,
+  destination_map = "out/a1_west_mt_tamaranch",
+  destination = "dungeon_8_4_B",
+}
+
+destination{
+  name = "dungeon_8_3_B",
+  layer = 0,
+  x = 800,
+  y = 517,
+  direction = 1,
+}
+
+stairs{
+  layer = 0,
+  x = 1784,
+  y = 496,
+  direction = 1,
+  subtype = 0,
+}
+
+teletransporter{
+  name = "dungeon_8_6_A",
+  layer = 0,
+  x = 1784,
+  y = 496,
+  width = 16,
+  height = 16,
+  destination_map = "out/a1_west_mt_tamaranch",
+  destination = "dungeon_8_4_B",
+}
+
+destination{
+  name = "dungeon_8_5_B",
+  layer = 0,
+  x = 1792,
+  y = 509,
+  direction = 1,
+}
+
+door{
+  name = "weak_wall_C_2",
+  layer = 0,
+  x = 1944,
+  y = 1328,
+  properties = {
+    {
+      key = "is_weak",
+      value = "true",
+    },
+    {
+      key = "sound_sword",
+      value = "items/sword_tap_bombable",
+    },
+  },
+  direction = 2,
+  sprite = "entities/doors/door_weak_wall",
+  savegame_variable = "dungeon_8_weak_wall_C",
+  opening_method = "explosion",
+}
+
+door{
+  name = "weak_wall_D_2",
+  layer = 0,
+  x = 2072,
+  y = 1400,
+  properties = {
+    {
+      key = "is_weak",
+      value = "true",
+    },
+    {
+      key = "sound_sword",
+      value = "items/sword_tap_bombable",
+    },
+  },
+  direction = 3,
+  sprite = "entities/doors/door_weak_wall",
+  savegame_variable = "dungeon_8_weak_wall_D",
+  opening_method = "explosion",
+}
+
+door{
+  name = "weak_wall_B_1",
+  layer = 0,
+  x = 1880,
+  y = 832,
+  properties = {
+    {
+      key = "is_weak",
+      value = "true",
+    },
+    {
+      key = "sound_sword",
+      value = "items/sword_tap_bombable",
+    },
+  },
+  direction = 0,
+  sprite = "entities/doors/door_weak_wall",
+  savegame_variable = "dungeon_8_weak_wall_B",
+  opening_method = "explosion",
+}
+
+door{
+  name = "weak_wall_E_1",
+  layer = 0,
+  x = 984,
+  y = 824,
+  properties = {
+    {
+      key = "is_weak",
+      value = "true",
+    },
+    {
+      key = "sound_sword",
+      value = "items/sword_tap_bombable",
+    },
+  },
+  direction = 2,
+  sprite = "entities/doors/door_weak_wall",
+  savegame_variable = "dungeon_8_weak_wall_E",
+  opening_method = "explosion",
+}
+
+door{
+  name = "weak_wall_F_1",
+  layer = 0,
+  x = 1112,
+  y = 920,
+  properties = {
+    {
+      key = "is_weak",
+      value = "true",
+    },
+    {
+      key = "sound_sword",
+      value = "items/sword_tap_bombable",
+    },
+  },
+  direction = 3,
+  sprite = "entities/doors/door_weak_wall",
+  savegame_variable = "dungeon_8_weak_wall_F",
+  opening_method = "explosion",
+}
+
+sensor{
+  name = "sensor_5",
+  layer = 0,
+  x = 800,
+  y = 1493,
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_6",
+  layer = 0,
+  x = 272,
+  y = 653,
+  width = 16,
+  height = 16,
+}
+
+door{
+  name = "door_group_22_2",
+  layer = 0,
+  x = 280,
+  y = 640,
+  direction = 0,
+  sprite = "entities/doors/door_normal",
+  opening_condition = "dungeon_1_small_keys",
+  opening_condition_consumed = true,
+}
+
+door{
+  name = "door_group_22_1",
+  layer = 0,
+  x = 344,
+  y = 640,
+  direction = 2,
+  sprite = "entities/doors/door_normal",
+  opening_condition = "dungeon_1_small_keys",
+  opening_condition_consumed = true,
+}
+
+door{
+  name = "door_small_key_3_2",
+  layer = 0,
+  x = 280,
+  y = 640,
+  direction = 0,
+  sprite = "entities/doors/door_small_key",
+  savegame_variable = "dungeon_8_door_small_key_2",
+  opening_method = "interaction_if_savegame_variable",
+  opening_condition = "dungeon_8_small_keys",
+  opening_condition_consumed = true,
+  cannot_open_dialog = "maps.dungeons.small_key_required",
+}
+
+door{
+  name = "door_small_key_3_1",
+  layer = 0,
+  x = 344,
+  y = 640,
+  direction = 2,
+  sprite = "entities/doors/door_small_key",
+  savegame_variable = "dungeon_8_door_small_key_2",
+  opening_method = "interaction_if_savegame_variable",
+  opening_condition = "dungeon_8_small_keys",
+  opening_condition_consumed = true,
+  cannot_open_dialog = "maps.dungeons.small_key_required",
 }
 
 tile{
@@ -32202,6 +32386,24 @@ tile{
   width = 32,
   height = 8,
   pattern = "door_top.2-2",
+}
+
+tile{
+  layer = 1,
+  x = 1776,
+  y = 488,
+  width = 32,
+  height = 8,
+  pattern = "door_top.stairs.1-1",
+}
+
+tile{
+  layer = 1,
+  x = 1784,
+  y = 488,
+  width = 16,
+  height = 8,
+  pattern = "door_top.stairs_up.1-2",
 }
 
 block{
@@ -34225,6 +34427,7 @@ tile{
 }
 
 separator{
+  name = "auto_separator_14",
   layer = 2,
   x = 0,
   y = 1672,
@@ -34233,6 +34436,7 @@ separator{
 }
 
 separator{
+  name = "auto_separator_13",
   layer = 2,
   x = 0,
   y = 1432,
@@ -34241,6 +34445,7 @@ separator{
 }
 
 separator{
+  name = "auto_separator_12",
   layer = 2,
   x = 0,
   y = 1192,
@@ -34249,6 +34454,7 @@ separator{
 }
 
 separator{
+  name = "auto_separator_11",
   layer = 2,
   x = 0,
   y = 952,
@@ -34257,6 +34463,7 @@ separator{
 }
 
 separator{
+  name = "auto_separator_10",
   layer = 2,
   x = 0,
   y = 712,
@@ -34265,6 +34472,7 @@ separator{
 }
 
 separator{
+  name = "auto_separator_9",
   layer = 2,
   x = 0,
   y = 472,
@@ -34273,6 +34481,7 @@ separator{
 }
 
 separator{
+  name = "auto_separator_8",
   layer = 2,
   x = 0,
   y = 232,
@@ -34281,6 +34490,7 @@ separator{
 }
 
 separator{
+  name = "auto_separator_1",
   layer = 2,
   x = 312,
   y = 0,
@@ -34289,6 +34499,7 @@ separator{
 }
 
 separator{
+  name = "auto_separator_2",
   layer = 2,
   x = 632,
   y = 0,
@@ -34297,6 +34508,7 @@ separator{
 }
 
 separator{
+  name = "auto_separator_3",
   layer = 2,
   x = 952,
   y = 0,
@@ -34305,6 +34517,7 @@ separator{
 }
 
 separator{
+  name = "auto_separator_4",
   layer = 2,
   x = 1272,
   y = 0,
@@ -34313,6 +34526,7 @@ separator{
 }
 
 separator{
+  name = "auto_separator_6",
   layer = 2,
   x = 1912,
   y = -8,
@@ -34321,6 +34535,7 @@ separator{
 }
 
 separator{
+  name = "auto_separator_5",
   layer = 2,
   x = 1592,
   y = 0,
