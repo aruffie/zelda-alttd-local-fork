@@ -327,15 +327,15 @@ local function initialize_dungeon_features(game)
       music_instrument = "",
       secrets = {
         [0] = {
-          [0] = {
+          [1] = {
             savegame = "dungeon_10_boss_key",
             signal = true
           },
-          [10] = {
+          [11] = {
             savegame = "dungeon_10_compass",
             signal = false
           },
-          [25] = {
+          [26] = {
             savegame = "dungeon_10_hammer",
             signal = false
           },
@@ -351,7 +351,7 @@ local function initialize_dungeon_features(game)
             savegame = "dungeon_10_small_key_3",
             signal = true
           },
-          [61] = {
+          [62] = {
             savegame = "dungeon_10_map",
             signal = false
           }
