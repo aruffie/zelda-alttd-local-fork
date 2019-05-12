@@ -1334,6 +1334,7 @@ enemy{ id = "zora", description = "Zora" }
 
 entity{ id = "ball", description = "ball" }
 entity{ id = "bird", description = "Bird" }
+entity{ id = "bottle", description = "Bottle" }
 entity{ id = "bowwow", description = "Bowwow" }
 entity{ id = "bubble", description = "Bubble" }
 entity{ id = "butterfly", description = "Butterfly" }

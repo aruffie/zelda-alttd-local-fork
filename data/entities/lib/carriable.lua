@@ -160,10 +160,12 @@ function carriable_behavior.apply(carriable, properties)
     -- Callback function for collision test.
     -- Call hit events and reverse the movement if needed.
     local function carriable_on_collision(carriable, entity)
-      hurt_if_vulnerable(entity)
-      call_hit_events(entity)
-      if is_obstacle(entity) then
-        reverse_direction(slowdown_ratio)
+      if entity and entity:is_enabled() then
+        hurt_if_vulnerable(entity)
+        call_hit_events(entity)
+        if is_obstacle(entity) then
+          reverse_direction(slowdown_ratio)
+        end
       end
     end
 
@@ -225,8 +227,10 @@ function carriable_behavior.apply(carriable, properties)
         function movement:on_obstacle_reached()
           local entities = get_overlapping_entities_on_obstacle_reached(movement)
           for _, entity in pairs(entities) do
-            hurt_if_vulnerable(entity)
-            call_hit_events(entity)
+            if entity and entity:is_enabled() then
+              hurt_if_vulnerable(entity)
+              call_hit_events(entity)
+            end
           end
           if #entities == 0 then -- Call hit events even if the obstacle is not an entity.
             call_hit_events(nil)

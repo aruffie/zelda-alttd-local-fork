@@ -22227,6 +22227,16 @@ teletransporter{
   destination = "destination",
 }
 
+custom_entity{
+  name = "placeholder_bottle",
+  layer = 0,
+  x = 2080,
+  y = 613,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
 tile{
   layer = 1,
   x = 1664,
