@@ -325,7 +325,38 @@ local function initialize_dungeon_features(game)
       cols = 8,
       music = "",
       music_instrument = "",
-      secrets = {},
+      secrets = {
+        [0] = {
+          [0] = {
+            savegame = "dungeon_10_boss_key",
+            signal = true
+          },
+          [10] = {
+            savegame = "dungeon_10_compass",
+            signal = false
+          },
+          [25] = {
+            savegame = "dungeon_10_hammer",
+            signal = false
+          },
+          [36] = {
+            savegame = "dungeon_10_small_key_1",
+            signal = true
+          },
+          [44] = {
+            savegame = "dungeon_10_small_key_2",
+            signal = true
+          },
+          [51] = {
+            savegame = "dungeon_10_small_key_3",
+            signal = true
+          },
+          [61] = {
+            savegame = "dungeon_10_map",
+            signal = false
+          }
+        }
+      },
       boss = {
         floor = 0,
         x = 640 + 1440,

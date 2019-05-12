@@ -6,6 +6,7 @@ properties{
   min_layer = -1,
   max_layer = 2,
   world = "dungeon_10",
+  floor = 0,
   tileset = "dungeon/gray_yellow",
   music = "n64/great_bay_temple",
 }
@@ -16456,7 +16457,7 @@ chest{
   x = 800,
   y = 365,
   treasure_name = "compass",
-  treasure_savegame_variable = "dungeon_10_compass_chest",
+  treasure_savegame_variable = "dungeon_10_compass",
   sprite = "entities/chests/chest_small",
 }
 
