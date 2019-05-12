@@ -15,6 +15,7 @@ local hero = map:get_hero()
 local sprite
 local movement
 local genie
+local is_freeze
 
 -- Event called when the enemy is initialized.
 function enemy:on_created()
@@ -31,7 +32,13 @@ end
 -- The enemy was stopped for some reason and should restart.
 function enemy:on_restarted()
   
+  print("restarted")
   sprite:set_animation("stopped")
+  if is_freeze then
+    print("freeze")
+    enemy:freeze()
+  end
+    
   
 end
 
@@ -63,31 +70,39 @@ function enemy:fight()
   movement:set_speed(32)
   movement:start(enemy)
   enemy:set_attack_consequence("sword", function()
-    movement:stop()
-    sprite:set_animation("stopped")
-    enemy:set_attack_consequence("sword", 0)
-    enemy:set_enabled(false)
-    local x_enemy, y_enemy, layer_enemy = enemy:get_position()
-    local bottle_entity = map:create_custom_entity({
-      name = "bottle_entity",
-      sprite = "enemies/boss/genie/genie_bottle",
-      model = "bottle",
-      x = x_enemy,
-      y = y_enemy ,
-      width = 16,
-      height = 16,
-      layer = layer_enemy,
-      direction = 0
-    })
-    function bottle_entity:on_hit(entity)
-      print(entity)
+    if not is_freeze then
+      movement:stop()
+      enemy:freeze()
     end  
-    sol.timer.start(enemy, 1000, function()
-      game:start_dialog("maps.dungeons.2.boss_message_2", function()
-      
-      end)
-    end)
-    return 1
   end)
   
+end
+
+function enemy:freeze()
+  
+  is_freeze = true  
+  sprite:set_animation("stopped")
+  enemy:set_attack_consequence("sword", 0)
+    sol.timer.start(enemy, 1000, function()
+      print("message")
+      game:start_dialog("maps.dungeons.2.boss_message_2", function()
+        enemy:set_enabled(false)
+        local x_enemy, y_enemy, layer_enemy = enemy:get_position()
+        local bottle_entity = map:create_custom_entity({
+          name = "bottle_entity",
+          sprite = "enemies/boss/genie/genie_bottle",
+          model = "bottle",
+          x = x_enemy,
+          y = y_enemy ,
+          width = 16,
+          height = 16,
+          layer = layer_enemy,
+          direction = 0
+        })
+        function bottle_entity:on_hit(entity)
+
+          print(entity)
+        end
+      end)
+  end)
 end
