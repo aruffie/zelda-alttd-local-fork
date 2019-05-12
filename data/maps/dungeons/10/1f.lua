@@ -62,4 +62,5 @@ end
 function sensor_enemy_room_1:on_activated()
 
   map:close_doors("door_keese_1")
+  sensor_enemy_room_1:set_enabled(false)
 end

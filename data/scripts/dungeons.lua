@@ -317,6 +317,52 @@ local function initialize_dungeon_features(game)
         x = 640 + 1440,
         y = 720 + 365
       }
+    },
+    [10] = {
+      lowest_floor = 0,
+      highest_floor = 0,
+      rows = 8,
+      cols = 8,
+      music = "",
+      music_instrument = "",
+      secrets = {
+        [0] = {
+          [1] = {
+            savegame = "dungeon_10_boss_key",
+            signal = true
+          },
+          [11] = {
+            savegame = "dungeon_10_compass",
+            signal = false
+          },
+          [26] = {
+            savegame = "dungeon_10_hammer",
+            signal = false
+          },
+          [36] = {
+            savegame = "dungeon_10_small_key_1",
+            signal = true
+          },
+          [44] = {
+            savegame = "dungeon_10_small_key_2",
+            signal = true
+          },
+          [51] = {
+            savegame = "dungeon_10_small_key_3",
+            signal = true
+          },
+          [62] = {
+            savegame = "dungeon_10_map",
+            signal = false
+          }
+        }
+      },
+      boss = {
+        floor = 0,
+        x = 640 + 1440,
+        y = 720 + 365,
+        savegame_variable = "dungeon_10_boss",
+      }
     }
   }
 
