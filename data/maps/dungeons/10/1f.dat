@@ -1720,6 +1720,14 @@ stairs{
   subtype = 4,
 }
 
+stairs{
+  layer = -1,
+  x = 2048,
+  y = 1768,
+  direction = 1,
+  subtype = 4,
+}
+
 tile{
   layer = 0,
   x = 368,
@@ -16879,6 +16887,16 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/decorations/bubble_lava",
+}
+
+jumper{
+  layer = 0,
+  x = 2136,
+  y = 1800,
+  width = 8,
+  height = 24,
+  direction = 4,
+  jump_length = 40,
 }
 
 tile{
