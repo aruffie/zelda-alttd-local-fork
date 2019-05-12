@@ -326,6 +326,7 @@ sprite{ id = "enemies/sea_urchin", description = "Sea urchin" }
 sprite{ id = "enemies/spiked_beetle", description = "Spiked Beetle" }
 sprite{ id = "enemies/spiny_beetle", description = "Spiny Beetle" }
 sprite{ id = "enemies/stalfos", description = "Stalfos" }
+sprite{ id = "enemies/stalfos_blue", description = "Stalfos blue" }
 sprite{ id = "enemies/star", description = "Star" }
 sprite{ id = "enemies/tektite", description = "Tektite" }
 sprite{ id = "enemies/tektite_water", description = "Tektite Water" }
