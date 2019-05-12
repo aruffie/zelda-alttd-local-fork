@@ -59,7 +59,7 @@ function enemy:create_coconut(direction)
 
   local coconut = enemy:create_enemy({
     breed = "monkey/monkey_coconut",
-    layer= 2,
+    layer = 2,
     x = 0,
     y = 0,
     direction = direction

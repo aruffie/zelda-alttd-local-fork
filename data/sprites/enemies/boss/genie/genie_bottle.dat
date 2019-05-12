@@ -1,13 +1,11 @@
 animation{
-  name = "waiting",
+  name = "stopped",
   src_image = "enemies/boss/genie/genie_bottle.png",
-  frame_delay = 120,
-  frame_to_loop_on = 0,
   directions = {
-    { x = 0, y = 48, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45, num_frames = 4 },
-    { x = 0, y = 48, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45, num_frames = 4 },
-    { x = 0, y = 48, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45, num_frames = 4 },
-    { x = 0, y = 48, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45, num_frames = 4 },
+    { x = 0, y = 0, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45 },
+    { x = 0, y = 0, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45 },
+    { x = 0, y = 0, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45 },
+    { x = 0, y = 0, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45 },
   },
 }
 animation{
@@ -34,13 +32,15 @@ animation{
   },
 }
 animation{
-  name = "stopped",
+  name = "waiting",
   src_image = "enemies/boss/genie/genie_bottle.png",
+  frame_delay = 120,
+  frame_to_loop_on = 0,
   directions = {
-    { x = 0, y = 0, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45 },
-    { x = 0, y = 0, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45 },
-    { x = 0, y = 0, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45 },
-    { x = 0, y = 0, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45 },
+    { x = 0, y = 48, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45, num_frames = 4 },
+    { x = 0, y = 48, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45, num_frames = 4 },
+    { x = 0, y = 48, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45, num_frames = 4 },
+    { x = 0, y = 48, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45, num_frames = 4 },
   },
 }
 animation{
