@@ -41,7 +41,7 @@ end
 -- Init pipe puzzle in the dungeon
 local function init_pipes()
 
-  pipe_enable_flow("lava")
+  pipe_disable_flow("lava")
   pipe_disable_flow("gel")
 end
 
