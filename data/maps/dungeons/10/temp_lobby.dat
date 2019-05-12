@@ -329,6 +329,17 @@ chest{
   sprite = "entities/chests/chest_small",
 }
 
+teletransporter{
+  name = "to_outside",
+  layer = 0,
+  x = 152,
+  y = 200,
+  width = 16,
+  height = 16,
+  destination_map = "out/a3_mabe_village",
+  destination = "temp_from_owl_temple",
+}
+
 tile{
   layer = 1,
   x = 144,
@@ -336,17 +347,6 @@ tile{
   width = 32,
   height = 8,
   pattern = "door_top.closed.2-5",
-}
-
-teletransporter{
-  name = "to_outside",
-  layer = 1,
-  x = 152,
-  y = 200,
-  width = 16,
-  height = 16,
-  destination_map = "out/a3_mabe_village",
-  destination = "temp_from_owl_temple",
 }
 
 tile{

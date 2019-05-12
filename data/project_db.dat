@@ -577,6 +577,10 @@ sprite{ id = "hud/icon_item_2", description = "Item 2 icon" }
 sprite{ id = "hud/icon_pause", description = "Pause icon" }
 sprite{ id = "hud/magic_bar", description = "Magic bar" }
 sprite{ id = "menus/dungeon_maps/map_1", description = "Map 1" }
+sprite{ id = "menus/dungeon_maps/map_10", description = "menus/dungeon_maps/map_10" }
+sprite{ id = "menus/dungeon_maps/map_10_compass", description = "menus/dungeon_maps/map_10_compass" }
+sprite{ id = "menus/dungeon_maps/map_10_no_map", description = "menus/dungeon_maps/map_10_no_map" }
+sprite{ id = "menus/dungeon_maps/map_10_no_map_compass", description = "menus/dungeon_maps/map_10_no_map_compass" }
 sprite{ id = "menus/dungeon_maps/map_1_compass", description = "Map 1 compass" }
 sprite{ id = "menus/dungeon_maps/map_1_no_map", description = "Map 1 no map" }
 sprite{ id = "menus/dungeon_maps/map_1_no_map_compass", description = "Map 1 no map compass" }
