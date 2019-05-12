@@ -21382,7 +21382,7 @@ enemy{
 enemy{
   layer = 1,
   x = 744,
-  y = 637,
+  y = 645,
   properties = {
     {
       key = "is_bowwow_friend",
@@ -21758,6 +21758,17 @@ destination{
   x = 632,
   y = 221,
   direction = 3,
+}
+
+custom_entity{
+  name = "fisherman_ledger",
+  layer = 1,
+  x = 328,
+  y = 85,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/fisherman_ledger",
 }
 
 tile{
@@ -24987,7 +24998,7 @@ tile{
 tile{
   layer = 2,
   x = 608,
-  y = 632,
+  y = 624,
   width = 32,
   height = 24,
   pattern = "32",

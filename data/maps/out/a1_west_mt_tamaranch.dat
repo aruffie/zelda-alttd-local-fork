@@ -13244,6 +13244,44 @@ custom_entity{
   model = "cliff",
 }
 
+destination{
+  name = "dungeon_8_4_B",
+  layer = 1,
+  x = 72,
+  y = 109,
+  direction = 1,
+}
+
+teletransporter{
+  name = "dungeon_8_3_A",
+  layer = 1,
+  x = 64,
+  y = 80,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/8/1f",
+  destination = "dungeon_8_3_B",
+}
+
+destination{
+  name = "dungeon_8_6_B_2",
+  layer = 1,
+  x = 592,
+  y = 101,
+  direction = 1,
+}
+
+teletransporter{
+  name = "dungeon_8_5_A_2",
+  layer = 1,
+  x = 584,
+  y = 72,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/8/1f",
+  destination = "dungeon_8_3_B",
+}
+
 tile{
   layer = 2,
   x = 120,
