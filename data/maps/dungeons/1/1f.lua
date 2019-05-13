@@ -29,12 +29,12 @@ function map:on_started()
   map:set_doors_open("door_group_2_", true)
   map:set_doors_open("door_group_1_", true)
   map:set_doors_open("door_group_small_boss", true)
+  map:set_doors_open("door_group_boss", true)
   door_manager:open_weak_wall_if_savegame_exist(map, "weak_wall_group_1_", "dungeon_1_weak_wall_group_1")
   door_manager:open_when_enemies_dead(map,  "enemy_group_6_",  "door_group_1")
   door_manager:open_when_enemies_dead(map,  "enemy_group_3_",  "door_group_5")
   door_manager:open_when_block_moved(map, "auto_block_1", "door_group_2")
   door_manager:open_if_small_boss_dead(map)
-  door_manager:open_if_boss_dead(map)
   -- Enemies
   enemy_manager:create_teletransporter_if_small_boss_dead(map, false)
   enemy_manager:execute_when_vegas_dead(map, "enemy_group_13_")
@@ -43,8 +43,6 @@ function map:on_started()
       map:launch_cinematic_1()
     end)
   end
-  -- Heart
-  treasure_manager:appear_heart_container_if_boss_dead(map)
   -- Music
   game:play_dungeon_music()
   -- Owls
@@ -53,6 +51,7 @@ function map:on_started()
   treasure_manager:disappear_pickable(map, "pickable_small_key_1")
   treasure_manager:disappear_pickable(map, "heart_container")
   treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_7_", "pickable_small_key_1")
+  treasure_manager:appear_heart_container_if_boss_dead(map)
   -- Separators
   separator_manager:init(map)
   -- Switchs
@@ -63,6 +62,7 @@ function map:on_started()
       entity:remove()
     end
   end
+
 
 end
 

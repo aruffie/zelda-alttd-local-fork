@@ -366,7 +366,7 @@ function change_movement_raccoon()
       y = y,
     }
     raccoon_invisible:remove()
-    tarin:get_sprite():set_animation("waiting")
+    tarin:get_sprite():set_animation("tired_raccoon")
     local timer1 = sol.timer.start(map, 1000, function()
       game:set_value("main_quest_step", 5)
       racoon_position_8:set_enabled(false)

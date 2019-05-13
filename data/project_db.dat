@@ -52,6 +52,7 @@ map{ id = "dungeons/10/1f", description = "Dungeon 10 1F" }
 map{ id = "dungeons/10/b1", description = "Dungeon 10 B1" }
 map{ id = "dungeons/10/entrance", description = "Dungeon 10 Entrance" }
 map{ id = "dungeons/10/sideview_1", description = "Sideview 1" }
+map{ id = "dungeons/10/temp_lobby" }
 map{ id = "dungeons/11/1f", description = "Dungeon 11 1F" }
 map{ id = "dungeons/11/b1", description = "Dungeon 11 B1" }
 map{ id = "dungeons/11/b2", description = "Dungeon 11 B2" }
@@ -152,8 +153,8 @@ map{ id = "trial/1", description = "Level 1" }
 map{ id = "trial/2", description = "Level 2" }
 map{ id = "trial/3", description = "Level 3" }
 
-tileset{ id = "addition/dungeon", description = "Addition dungeon" }
-tileset{ id = "addition/out", description = "Out" }
+tileset{ id = "addition/dungeon", description = "Dungeon additions" }
+tileset{ id = "addition/out", description = "Out additions" }
 tileset{ id = "dungeon/blue", description = "Blue" }
 tileset{ id = "dungeon/brown", description = "Brown" }
 tileset{ id = "dungeon/dark_brown", description = "Dark brown" }
@@ -325,14 +326,15 @@ sprite{ id = "enemies/sea_urchin", description = "Sea urchin" }
 sprite{ id = "enemies/spiked_beetle", description = "Spiked Beetle" }
 sprite{ id = "enemies/spiny_beetle", description = "Spiny Beetle" }
 sprite{ id = "enemies/stalfos", description = "Stalfos" }
+sprite{ id = "enemies/stalfos_blue", description = "Stalfos blue" }
 sprite{ id = "enemies/star", description = "Star" }
 sprite{ id = "enemies/tektite", description = "Tektite" }
+sprite{ id = "enemies/tektite_water", description = "Tektite Water" }
 sprite{ id = "enemies/thwimp", description = "Thwimp" }
 sprite{ id = "enemies/thwomp", description = "Thwomp" }
 sprite{ id = "enemies/vegas", description = "Vegas" }
 sprite{ id = "enemies/vire/vire", description = "Vire" }
 sprite{ id = "enemies/vire/vire_bat", description = "Vire Bat" }
-sprite{ id = "enemies/water_tektite", description = "Tektite Water" }
 sprite{ id = "enemies/wizzrobe/wizzrobe", description = "Wizzrobe" }
 sprite{ id = "enemies/wizzrobe/wizzrobe_beam", description = "Wizzrobe beam" }
 sprite{ id = "enemies/zol_green", description = "Zol green" }
@@ -366,14 +368,15 @@ sprite{ id = "entities/boomerang1", description = "Boomerang 1" }
 sprite{ id = "entities/boomerang2", description = "Boomerang 2" }
 sprite{ id = "entities/bow", description = "Bow" }
 sprite{ id = "entities/chain", description = "Chain" }
-sprite{ id = "entities/chests/chest_big", description = "Chest big" }
-sprite{ id = "entities/chests/chest_small", description = "Chest small" }
+sprite{ id = "entities/chests/chest_big", description = "Big chest" }
+sprite{ id = "entities/chests/chest_small", description = "Small chest" }
 sprite{ id = "entities/claw_chain", description = "Claw chain" }
 sprite{ id = "entities/claw_crane", description = "Claw crane" }
 sprite{ id = "entities/claw_up", description = "Claw up" }
 sprite{ id = "entities/crystal", description = "Crystal" }
 sprite{ id = "entities/crystal_block", description = "Crystal block" }
 sprite{ id = "entities/decorations/background_introduction", description = "Background introduction" }
+sprite{ id = "entities/decorations/bubble_lava", description = "Bubble lava" }
 sprite{ id = "entities/decorations/bubble_swamp", description = "Bubble swamp" }
 sprite{ id = "entities/decorations/fire", description = "Fire" }
 sprite{ id = "entities/decorations/mini_candle", description = "Mini candle" }
@@ -387,6 +390,7 @@ sprite{ id = "entities/destructibles/bush", description = "Bush" }
 sprite{ id = "entities/destructibles/bush_grass", description = "Bush grass" }
 sprite{ id = "entities/destructibles/crystal_blue", description = "Crystal blue" }
 sprite{ id = "entities/destructibles/crystal_green", description = "Crystal green" }
+sprite{ id = "entities/destructibles/genie_bottle", description = "Genie bottle entity" }
 sprite{ id = "entities/destructibles/grass", description = "Grass" }
 sprite{ id = "entities/destructibles/pot", description = "Pot" }
 sprite{ id = "entities/destructibles/pot_sideview", description = "Pot sideview" }
@@ -443,7 +447,6 @@ sprite{ id = "entities/grounds/conveyor_belt_4", description = "Conveyor belt 4"
 sprite{ id = "entities/grounds/conveyor_belt_minigame", description = "Conveyor belt minigame" }
 sprite{ id = "entities/grounds/fisher_boat", description = "Fisher boat" }
 sprite{ id = "entities/grounds/ground_dug", description = "Ground dug" }
-sprite{ id = "entities/grounds/rafting_arrow", description = "Rafting arrow" }
 sprite{ id = "entities/grounds/weak_floor_dark_1", description = "Weak floor dark 1" }
 sprite{ id = "entities/grounds/weak_floor_dark_2", description = "Weak floor dark 2" }
 sprite{ id = "entities/grounds/weak_floor_dark_3", description = "Weak floor dark 3" }
@@ -524,6 +527,8 @@ sprite{ id = "entities/statues/pillar", description = "Pillar base" }
 sprite{ id = "entities/statues/statue_darknut", description = "Statue darknut" }
 sprite{ id = "entities/statues/statue_koopa", description = "Statue koopa" }
 sprite{ id = "entities/statues/statue_pig", description = "Statue pig" }
+sprite{ id = "entities/streams/water_stream", description = "Water stream" }
+sprite{ id = "entities/switchs/lever", description = "Lever" }
 sprite{ id = "entities/switchs/switch", description = "Switch" }
 sprite{ id = "entities/switchs/switch_eye_blue", description = "Switch eye blue" }
 sprite{ id = "entities/switchs/switch_eye_red", description = "Switch eye red" }
@@ -574,6 +579,10 @@ sprite{ id = "hud/icon_item_2", description = "Item 2 icon" }
 sprite{ id = "hud/icon_pause", description = "Pause icon" }
 sprite{ id = "hud/magic_bar", description = "Magic bar" }
 sprite{ id = "menus/dungeon_maps/map_1", description = "Map 1" }
+sprite{ id = "menus/dungeon_maps/map_10", description = "menus/dungeon_maps/map_10" }
+sprite{ id = "menus/dungeon_maps/map_10_compass", description = "menus/dungeon_maps/map_10_compass" }
+sprite{ id = "menus/dungeon_maps/map_10_no_map", description = "menus/dungeon_maps/map_10_no_map" }
+sprite{ id = "menus/dungeon_maps/map_10_no_map_compass", description = "menus/dungeon_maps/map_10_no_map_compass" }
 sprite{ id = "menus/dungeon_maps/map_1_compass", description = "Map 1 compass" }
 sprite{ id = "menus/dungeon_maps/map_1_no_map", description = "Map 1 no map" }
 sprite{ id = "menus/dungeon_maps/map_1_no_map_compass", description = "Map 1 no map compass" }
@@ -678,6 +687,7 @@ sprite{ id = "npc/statues/owl_dungeon_5", description = "Owl dungeon 5" }
 sprite{ id = "npc/statues/owl_dungeon_6", description = "Owl dungeon 6" }
 sprite{ id = "npc/statues/owl_dungeon_7", description = "Owl dungeon 7" }
 sprite{ id = "npc/statues/owl_dungeon_8", description = "owl dungeon 8" }
+sprite{ id = "npc/villagers/crazy_tracy", description = "Crazy Tracy" }
 sprite{ id = "npc/villagers/cucco_man", description = "Cucco's man" }
 sprite{ id = "npc/villagers/fishman_1", description = "Fishman 1" }
 sprite{ id = "npc/villagers/fishman_2", description = "Fishman 2" }
@@ -692,7 +702,6 @@ sprite{ id = "npc/villagers/kid_4", description = "Kid 4" }
 sprite{ id = "npc/villagers/marin", description = "Marin" }
 sprite{ id = "npc/villagers/merchant", description = "Merchant" }
 sprite{ id = "npc/villagers/mermaid", description = "Mermaid" }
-sprite{ id = "npc/villagers/monique", description = "Monique" }
 sprite{ id = "npc/villagers/mr_write", description = "Mr Write" }
 sprite{ id = "npc/villagers/mrs_meow_meow", description = "Mrs Meow Meow" }
 sprite{ id = "npc/villagers/quadruplet_father", description = "Quadruplet's father" }
@@ -754,7 +763,9 @@ music{ id = "gb/49_manbo_mambo", description = "49 - Manbo's mambo" }
 music{ id = "gb/51_house_by_the_bay", description = "51 - House by the bay" }
 music{ id = "gb/52_fishing_under_the_bridge", description = "52 - Fishing under the bridge" }
 music{ id = "gb/53_level_5_catfish_maw", description = "53 - Level 5 - Catfish's maw" }
+music{ id = "gb/54_boss_warning", description = "54 - Boss warning" }
 music{ id = "gb/55_the_wind_marimba", description = "55 - The wind marimba" }
+music{ id = "gb/56_frogs_song_of_soul", description = "56 - Frogs Song Of Soul" }
 music{ id = "gb/58_southern_shrine", description = "58 - Southern shrine" }
 music{ id = "gb/59_level_6_face_shrine", description = "59- Level 6 - Face shrine" }
 music{ id = "gb/60_coral_triangle", description = "68 - Coral triangle" }
@@ -768,35 +779,50 @@ music{ id = "gb/72_great_fairy_fountain", description = "72 - Great fairy founta
 music{ id = "gb/74_wind_fish_egg", description = "74 - Wind fish egg" }
 music{ id = "gb/82_game_over", description = "82 - Game over" }
 music{ id = "snes/02_title", description = "02 - Title" }
-music{ id = "snes/02_title_no_intro", description = "02 - Title no intro" }
+music{ id = "snes/02_title_no_intro", description = "02 - Title No Intro" }
 music{ id = "snes/06_marin_house", description = "06 - Marin's House" }
 music{ id = "snes/07_koholint_island", description = "07 - Koholint Island.ogg" }
 music{ id = "snes/08_the_owl", description = "08 - The Owl" }
-music{ id = "snes/09_beginning_of_the_journey", description = "09 - Begining of the journey" }
+music{ id = "snes/09_beginning_of_the_journey", description = "09 - Begining Of The Journey" }
 music{ id = "snes/10_overworld", description = "10 - Overworld" }
 music{ id = "snes/11_mabe_village", description = "11 - Mabe Village" }
 music{ id = "snes/12_house", description = "12 - House" }
 music{ id = "snes/13_phone", description = "13 - Phone" }
 music{ id = "snes/14_shop", description = "14 - Shop" }
-music{ id = "snes/14_shop_high", description = "14 - Shop high" }
+music{ id = "snes/14_shop_high", description = "14 - Shop High" }
 music{ id = "snes/15_trendy_game", description = "15 - Trendy Game" }
 music{ id = "snes/16_mysterious_forest", description = "16 - Mysterious Forest" }
 music{ id = "snes/18_cave", description = "18 - Cave" }
-music{ id = "snes/19_level_1_tail_cave", description = "19 - Level 1 - Tail cave" }
+music{ id = "snes/19_level_1_tail_cave", description = "19 - Level 1 - Tail Cave" }
 music{ id = "snes/20_sidescrolling", description = "20 - Sidescrolling" }
-music{ id = "snes/21_mini_boss_battle", description = "21 - Mini boss battle" }
-music{ id = "snes/22_boss_battle", description = "22 - Boss battle" }
-music{ id = "snes/23_boss_defeated", description = "23 - Boss defeated" }
-music{ id = "snes/24_instrument_of_the_sirens", description = "24 - Instrument of the sirens" }
-music{ id = "snes/25_the_full_moon_cello", description = "25 - The full moon cello" }
-music{ id = "snes/26_bowwow_dognapped", description = "26 - Bowow dognapped" }
+music{ id = "snes/21_mini_boss_battle", description = "21 - Mini Boss Battle" }
+music{ id = "snes/22_boss_battle", description = "22 - Boss Battle" }
+music{ id = "snes/23_boss_defeated", description = "23 - Boss Defeated" }
+music{ id = "snes/24_instrument_of_the_sirens", description = "24 - Instrument Of The Sirens" }
+music{ id = "snes/25_the_full_moon_cello", description = "25 - The Full Moon Cello" }
+music{ id = "snes/26_bowwow_dognapped", description = "26 - Bowow Dognapped" }
 music{ id = "snes/27_mr_write_house", description = "27 - Mr Write" }
+music{ id = "snes/28_level_2_bottle_grotto", description = "28 - Level 2 - Bottle Grotto" }
+music{ id = "snes/29_the_conch_horn", description = "29 - The Conch Horn" }
+music{ id = "snes/30_richard_villa", description = "30 - Richard Villa" }
+music{ id = "snes/31_kiki_bridge", description = "31 - Kiki Bridge" }
+music{ id = "snes/32_kanalet_castle", description = "33 - Kanalet Castle" }
+music{ id = "snes/33_level_3_key_cavern", description = "33 - Level 3 - Key Cavern" }
+music{ id = "snes/34_the_sea_lily_bell", description = "34 - The Sea Lily Bell" }
 music{ id = "snes/41_christine_house", description = "41 - Christine's House" }
-music{ id = "snes/46_tal_tal_mountain_range", description = "46 - Tal tal Mountain Range" }
-music{ id = "snes/51_house_by_the_bay", description = "51 - House by the bay" }
-music{ id = "snes/52_fishing_under_the_bridge", description = "52 - Fishing under the bridge" }
+music{ id = "snes/46_tal_tal_mountain_range", description = "46 - Tal Tal Mountain Range" }
+music{ id = "snes/47_level_4_angler_tunnel", description = "47 - Level 4 - Angler Tunnel" }
+music{ id = "snes/48_the_surf_harp", description = "48 - The Surf Harp" }
+music{ id = "snes/51_house_by_the_bay", description = "51 - House By The Bay" }
+music{ id = "snes/52_fishing_under_the_bridge", description = "52 - Fishing Under The Bridge" }
 music{ id = "snes/53_level_5_catfish_maw", description = "53 - Level 5 - Catfish's maw" }
-music{ id = "snes/59_level_6_face_shrine", description = "59- Level 6 - Face shrine" }
+music{ id = "snes/54_boss_warning", description = "54 - Boss Warning" }
+music{ id = "snes/55_the_wind_marimba", description = "55 - The Wind Marimba" }
+music{ id = "snes/56_frogs_song_of_soul", description = "56 - Frogs Song Of Soul" }
+music{ id = "snes/59_level_6_face_shrine", description = "59 - Level 6 - Face Shrine" }
+music{ id = "snes/60_coral_triangle", description = "60 - Coral Triangle" }
+music{ id = "snes/67_organ_of_evening_calm", description = "67 - Organ of Evening Calm" }
+music{ id = "snes/70_thunder_drum", description = "70 - Thunder Drum" }
 
 sound{ id = "arrow_hit", description = "Empty sound" }
 sound{ id = "boomerang", description = "Empty sound" }
@@ -1310,6 +1336,7 @@ enemy{ id = "zora", description = "Zora" }
 
 entity{ id = "ball", description = "ball" }
 entity{ id = "bird", description = "Bird" }
+entity{ id = "bottle", description = "Bottle" }
 entity{ id = "bowwow", description = "Bowwow" }
 entity{ id = "bubble", description = "Bubble" }
 entity{ id = "butterfly", description = "Butterfly" }
@@ -1730,9 +1757,7 @@ file{ path = "maps/dungeons/10", author = "Benjamin Schweitzer", license = "GPL 
 file{ path = "maps/dungeons/10/1f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
 file{ path = "maps/dungeons/10/1f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/dungeons/10/b1.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/10/b1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/dungeons/10/entrance.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/10/entrance.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/dungeons/10/sideview_1.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
 file{ path = "maps/dungeons/10/sideview_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/dungeons/11", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
@@ -1980,6 +2005,7 @@ file{ path = "musics/gb/49_manbo_mambo.ogg", author = "Nintendo", license = "Pro
 file{ path = "musics/gb/51_house_by_the_bay.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "musics/gb/52_fishing_under_the_bridge.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "musics/gb/53_level_5_catfish_maw.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "musics/gb/54_boss_warning.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "musics/gb/55_the_wind_marimba.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "musics/gb/58_southern_shrine.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "musics/gb/59_level_6_face_shrine.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
@@ -1993,12 +2019,14 @@ file{ path = "musics/gb/71_color_dungeon.ogg", author = "Nintendo", license = "P
 file{ path = "musics/gb/72_great_fairy_fountain.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "musics/gb/74_wind_fish_egg.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "musics/gb/82_game_over.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
-file{ path = "musics/snes", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes", author = "Nintendo, Farockt, Loeder", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/02_title.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/02_title_no_intro.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/06_marin_house.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/07_koholint_island.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/08_the_owl.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/09_beginning_of_the_journey.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
-file{ path = "musics/snes/10_overworld.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/10_overworld.ogg", author = "Nintendo, Loeder", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/11_mabe_village.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/12_house.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/13_phone.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
@@ -2007,9 +2035,36 @@ file{ path = "musics/snes/14_shop_high.ogg", author = "Nintendo, Farockt", licen
 file{ path = "musics/snes/15_trendy_game.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/16_mysterious_forest.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/18_cave.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/19_level_1_tail_cave.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/20_sidescrolling.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/21_mini_boss_battle.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/22_boss_battle.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/23_boss_defeated.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/24_instrument_of_the_sirens.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/25_the_full_moon_cello.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/26_bowwow_dognapped.ogg", author = "Nintendo, Loeder", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/27_mr_write_house.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/28_level_2_bottle_grotto.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/29_the_conch_horn.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/30_richard_villa.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/31_kiki_bridge.ogg", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/32_kanalet_castle.ogg", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/33_level_3_key_cavern.ogg", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/34_the_sea_lily_bell.ogg", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/41_christine_house.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
-file{ path = "musics/snes/46_tal_tal_mountain_range.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/46_tal_tal_mountain_range.ogg", author = "Nintendo, Loeder", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/47_level_4_angler_tunnel.ogg", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/48_the_surf_harp.ogg", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/51_house_by_the_bay.ogg", author = "Nintendo, Loeder", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/52_fishing_under_the_bridge.ogg", author = "Nintendo, Loeder", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/53_level_5_catfish_maw.ogg", author = "Nintendo, Loeder", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/54_boss_warning.ogg", author = "Nintendo, Loeder", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/55_the_wind_marimba.ogg", author = "Nintendo, Loeder", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/56_frogs_song_of_soul.ogg", author = "Nintendo, Loeder", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/59_level_6_face_shrine.ogg", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/60_coral_triangle.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/67_organ_of_evening_calm.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/70_thunder_drum.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
 file{ path = "scripts", license = "GPL v3" }
 file{ path = "scripts/automation", author = "Olivier Cléro", license = "BSD, GPL v3" }
 file{ path = "scripts/automation/automation.lua", author = "Olivier Cléro", license = "GPL v3" }
@@ -2431,10 +2486,10 @@ file{ path = "sprites/enemies/spiny_beetle.png", license = "Proprietary, Fair us
 file{ path = "sprites/enemies/stalfos.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/star.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/tektite.png", license = "Proprietary, Fair use" }
+file{ path = "sprites/enemies/tektite_water.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/thwimp.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/thwomp.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/vegas.png", license = "Proprietary, Fair use" }
-file{ path = "sprites/enemies/water_tektite.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/zols_gels.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/zombie.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/zora.png", license = "Proprietary, Fair use" }

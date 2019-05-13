@@ -8,12 +8,13 @@ return function(sign)
   -- Include scripts
   require("scripts/multi_events")
   local audio_manager = require("scripts/audio_manager")
-  sign:set_weight(0)
+  sign:set_weight(1)
 
 
   -- Sign destruction
   function sign:destroy()
     
+    sign:set_weight(-1)
     audio_manager:play_sound("misc/rock_shatter")
     local sprite = sign:get_sprite()
     function sprite:on_animation_finished(animation)

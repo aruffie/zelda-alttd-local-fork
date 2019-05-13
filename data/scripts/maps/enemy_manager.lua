@@ -72,7 +72,7 @@ function enemy_manager:create_teletransporter_if_small_boss_dead(map, sound)
       if placeholder_teletransporter then
         local is_teletransporter_A = teletransporter_suffix == "A"
         local teletransporter_x, teletransporter_y, teletransporter_layer = placeholder_teletransporter:get_position()
-        teletransporter = map:create_custom_entity{
+        local teletransporter = map:create_custom_entity{
           x = teletransporter_x,
           y = teletransporter_y,
           width = is_teletransporter_A and 24 or 16,
@@ -188,7 +188,13 @@ function enemy_manager:launch_boss_if_not_dead(map)
      end)
     map:close_doors(door_prefix)
     audio_manager:play_music("22_boss_battle")
-    game:start_dialog("maps.dungeons." .. dungeon .. ".boss_welcome")
+    sol.timer.start(enemy, 1000, function()
+      game:start_dialog("maps.dungeons." .. dungeon .. ".boss_welcome", function()
+        if enemy.launch_after_first_dialog then
+          enemy:launch_after_first_dialog()
+        end
+      end)
+    end)
         
 end
 

@@ -11568,6 +11568,34 @@ tile{
   pattern = "1352",
 }
 
+tile{
+  layer = 1,
+  x = 560,
+  y = -16,
+  width = 64,
+  height = 8,
+  pattern = "454",
+}
+
+tile{
+  layer = 1,
+  x = 600,
+  y = 48,
+  width = 32,
+  height = 48,
+  pattern = "111",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 120,
+  y = 640,
+  width = 16,
+  height = 16,
+  pattern = "1785",
+}
+
 custom_entity{
   layer = 1,
   x = 744,
@@ -12858,17 +12886,6 @@ pickable{
 }
 
 custom_entity{
-  name = "entrance_dg8_bis_4",
-  layer = 1,
-  x = 616,
-  y = 61,
-  width = 24,
-  height = 48,
-  direction = 2,
-  sprite = "entities/entrance_dungeon_8_bis",
-}
-
-custom_entity{
   name = "bubble_swamp",
   layer = 1,
   x = 672,
@@ -13225,6 +13242,44 @@ custom_entity{
   sprite = "entities/utils/cliff",
   tiled = true,
   model = "cliff",
+}
+
+destination{
+  name = "dungeon_8_4_B",
+  layer = 1,
+  x = 72,
+  y = 109,
+  direction = 1,
+}
+
+teletransporter{
+  name = "dungeon_8_3_A",
+  layer = 1,
+  x = 64,
+  y = 80,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/8/1f",
+  destination = "dungeon_8_3_B",
+}
+
+destination{
+  name = "dungeon_8_6_B_2",
+  layer = 1,
+  x = 592,
+  y = 101,
+  direction = 1,
+}
+
+teletransporter{
+  name = "dungeon_8_5_A_2",
+  layer = 1,
+  x = 584,
+  y = 72,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/8/1f",
+  destination = "dungeon_8_3_B",
 }
 
 tile{

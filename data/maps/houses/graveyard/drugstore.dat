@@ -806,13 +806,13 @@ destructible{
 }
 
 npc{
-  name = "monique",
+  name = "crazy_tracy",
   layer = 0,
   x = 136,
   y = 53,
   direction = 3,
   subtype = 1,
-  sprite = "npc/villagers/monique",
+  sprite = "npc/villagers/crazy_tracy",
 }
 
 wall{

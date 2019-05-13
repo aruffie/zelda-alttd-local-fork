@@ -11,3 +11,9 @@ function item:on_created()
 
 end
 
+function item:on_obtaining()
+  
+  audio_manager:play_sound("items/fanfare_item")
+        
+end
+

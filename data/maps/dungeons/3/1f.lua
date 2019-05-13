@@ -39,8 +39,6 @@ function map:on_started()
   door_manager:open_weak_wall_if_savegame_exist(map, "weak_wall_group_3_", "dungeon_3_weak_wall_group_3")
   -- Enemies
   enemy_manager:create_teletransporter_if_small_boss_dead(map, false)
-  -- Heart
-  treasure_manager:appear_heart_container_if_boss_dead(map)
   -- Music
   game:play_dungeon_music()
   -- Owls
@@ -52,6 +50,7 @@ function map:on_started()
   treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_7_", "pickable_small_key_4")
   treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_17_", "pickable_small_key_5")
   treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_16_", "pickable_small_key_6")
+  treasure_manager:appear_heart_container_if_boss_dead(map)
   -- Separators
   separator_manager:init(map)
 

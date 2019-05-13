@@ -180,10 +180,10 @@ end
 
 function treasure_manager:appear_pickable(map, pickable, sound)
 
-    local pickable = map:get_entity(pickable)
-    if pickable and not pickable:is_enabled() then
+    local pickable_entity = map:get_entity(pickable)
+    if pickable_entity and not pickable_entity:is_enabled() then
       local game = map:get_game()
-      pickable:set_enabled(true)
+      pickable_entity:set_enabled(true)
       if sound ~= nil and sound ~= false then
         audio_manager:play_sound("misc/secret1")
       end
@@ -197,6 +197,7 @@ function treasure_manager:appear_heart_container_if_boss_dead(map)
     local game = map:get_game()
     local dungeon = game:get_dungeon_index()
     local savegame = "dungeon_" .. dungeon .. "_boss"
+    print(game:get_value(savegame))
     if game:get_value(savegame) then
       self:appear_pickable(map, "heart_container", false)
     end

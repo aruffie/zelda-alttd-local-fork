@@ -3676,7 +3676,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 2136,
+  x = 2144,
   y = 680,
   width = 32,
   height = 16,
@@ -14389,7 +14389,7 @@ tile{
   x = 1376,
   y = 1568,
   width = 96,
-  height = 32,
+  height = 16,
   pattern = "floor_low.10-2",
 }
 
@@ -17275,7 +17275,7 @@ crystal_block{
 crystal_block{
   layer = 0,
   x = 1376,
-  y = 1600,
+  y = 1584,
   width = 96,
   height = 16,
   subtype = 0,
@@ -17286,7 +17286,7 @@ crystal_block{
   x = 1360,
   y = 1568,
   width = 16,
-  height = 32,
+  height = 16,
   subtype = 0,
 }
 
@@ -17295,7 +17295,7 @@ crystal_block{
   x = 1472,
   y = 1568,
   width = 16,
-  height = 32,
+  height = 16,
   subtype = 0,
 }
 
@@ -17444,7 +17444,7 @@ chest{
   name = "chest_small_key_3",
   layer = 0,
   x = 1384,
-  y = 1565,
+  y = 1581,
   treasure_name = "small_key",
   treasure_savegame_variable = "dungeon_2_small_key_3",
   sprite = "entities/chests/chest_small",
@@ -22207,6 +22207,34 @@ wall{
   stops_npcs = true,
   stops_enemies = true,
   stops_blocks = true,
+}
+
+destination{
+  name = "destination",
+  layer = 0,
+  x = 2080,
+  y = 661,
+  direction = 1,
+}
+
+teletransporter{
+  layer = 0,
+  x = 776,
+  y = 1640,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/2/1f",
+  destination = "destination",
+}
+
+custom_entity{
+  name = "placeholder_bottle",
+  layer = 0,
+  x = 2080,
+  y = 613,
+  width = 16,
+  height = 16,
+  direction = 0,
 }
 
 tile{

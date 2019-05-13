@@ -31,6 +31,7 @@ function map:on_started(destination)
   -- Doors
   map:set_doors_open("door_group_4_", true)
   map:set_doors_open("door_group_small_boss", true)
+  map:set_doors_open("door_group_boss", true)
   door_manager:open_when_torches_lit(map, "auto_torch_group_1_", "door_group_1_")
   door_manager:open_when_enemies_dead(map,  "enemy_group_8_",  "door_group_4_")
   -- Ennemies
@@ -47,6 +48,7 @@ function map:on_started(destination)
   treasure_manager:disappear_pickable(map, "heart_container")
   treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_2_", "pickable_small_key_1")
   treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_5_", "pickable_small_key_2")
+  treasure_manager:appear_heart_container_if_boss_dead(map)
   -- Separators
   separator_manager:init(map)
   -- Switchs
