@@ -1,6 +1,6 @@
 animation{
   name = "walking",
-  src_image = "enemies/stalfos_blue.png",
+  src_image = "enemies/stalfos_red.png",
   frame_delay = 150,
   frame_to_loop_on = 0,
   directions = {
@@ -12,7 +12,7 @@ animation{
 }
 animation{
   name = "hurt",
-  src_image = "enemies/stalfos_blue.png",
+  src_image = "enemies/stalfos_red.png",
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {
@@ -24,7 +24,7 @@ animation{
 }
 animation{
   name = "immobilized",
-  src_image = "enemies/stalfos_blue.png",
+  src_image = "enemies/stalfos_red.png",
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {
@@ -36,7 +36,7 @@ animation{
 }
 animation{
   name = "jumping",
-  src_image = "enemies/stalfos_blue.png",
+  src_image = "enemies/stalfos_red.png",
   frame_delay = 150,
   directions = {
     { x = 0, y = 24, frame_width = 28, frame_height = 24, origin_x = 14, origin_y = 21, num_frames = 2 },
@@ -47,7 +47,7 @@ animation{
 }
 animation{
   name = "shaking",
-  src_image = "enemies/stalfos_blue.png",
+  src_image = "enemies/stalfos_red.png",
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {
