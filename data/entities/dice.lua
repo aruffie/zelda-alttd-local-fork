@@ -10,11 +10,6 @@ local dice_sprite = dice:get_sprite()
 local carriable_behavior = require("entities/lib/carriable")
 carriable_behavior.apply(dice, {})
 
--- Set the corresponding animation when thrown.
-dice:register_event("on_thrown", function(dice, direction)
-  dice_sprite:set_animation("thrown")
-end)
-
 -- Set the stopped animation on bounce and randomly change the direction among all available ones.
 dice:register_event("on_bounce", function(dice, num_bounce)
   math.randomseed(sol.main.get_elapsed_time())
