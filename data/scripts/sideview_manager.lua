@@ -179,30 +179,6 @@ local function is_on_ground(entity, dy)
   return entity:test_obstacles(0, 1) or not test_ladder(entity) and is_ladder(entity:get_map(), x, y+3)
 end
 
---[[
-  Updates the movement of the hero, after performing checks in order to avoid a bug based on setting them every frame.
-  
-  Parameters:
-    hero : the hero object.
-    speed : the new speed of the movement.
-    angle : the new angle of the movement.
---]]
-
---local function update_movement(hero, speed, angle, state)
---  local movement = hero.movement
---  --print(new_animation)
-
---  if movement and movement:get_speed() ~= speed then
---    --print(sol.main.get_elapsed_time(), "set_speed", movement:get_speed(), " -> ", speed)
---    movement:set_speed(speed) 
---  end
-
---  if movement and movement:get_angle() ~= angle then
---    --print(sol.main.get_elapsed_time(), "set_angle", movement:get_angle(), " -> ", angle)
---    movement:set_angle(angle) 
---  end
---end
-
 --Debug function, remove me once everything is finalized
 --hero_meta:register_event("on_movement_changed", function(hero, movement)
 --    print "Movement has changed :"
@@ -393,16 +369,16 @@ local function update_hero(hero)
   end
 
   if can_move_vertically==false then
-    print "Trying to override the vertical movement"
+    --print "Trying to override the vertical movement"
     local m=hero:get_movement()
     if m then
       local a=m:get_angle()
-      print (a)
+      --print (a)
       if _up==true then
-        print "UP"
-        print(m:get_speed(), hero:get_walking_speed())
+        --print "UP"
+        --print(m:get_speed(), hero:get_walking_speed())
         if _left==true or _right==true then
-          print "UP-DIAGONAL"
+          --print "UP-DIAGONAL"
           if hangle ~=a then 
             m:set_angle(hangle)
           end
@@ -410,10 +386,10 @@ local function update_hero(hero)
           speed = 0
         end
       elseif _down==true then
-        print "DOWN"
-        print (m:get_speed(), hero:get_walking_speed())
+        --print "DOWN"
+        --print (m:get_speed(), hero:get_walking_speed())
         if _left==true or _right==true then
-          print "DOWN-DIAGONAL"
+          --print "DOWN-DIAGONAL"
           m:set_angle(hangle)
           if hangle ~=a then 
             m:set_angle(hangle)
