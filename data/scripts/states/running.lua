@@ -1,6 +1,7 @@
 local state = sol.state.create("running")
 local hero_meta=sol.main.get_metatable("hero")
 local jump_manager=require("scripts/jump_manager")
+local audio_manager=require("scripts/audio_manager")
 local map_tools=require("scripts/maps/map_tools")
 state:set_can_control_direction(false)
 state:set_can_control_movement(false)
@@ -23,11 +24,17 @@ local directions = {
     direction=3,
   },
 }
-
 function hero_meta.run(hero)
   local current_state=hero:get_state()
   if current_state~="custom" or hero:get_state_object():get_description()~="running" then
     hero:start_state(state)
+  end
+end
+
+local function stop_sound_loop(entity)
+  if entity.run_sound_timer~= nil then
+    entity.run_sound_timer:stop()
+    entity.run_sound_timer = nil
   end
 end
 
@@ -36,8 +43,21 @@ function state:on_started()
   local entity=state:get_entity()
   local game = state:get_game()
   local sprite=entity:get_sprite("tunic")
+  entity:get_sprite("trail"):set_animation("running")
   sprite:set_animation("walking")
-  entity.running_timer=sol.timer.start(entity, 500, function() --start movement and pull out sword if any
+
+  entity.run_sound_timer = sol.timer.start(state, 200, function()
+      if not entity.is_jumping or entity:is_jumping()==false then
+        if entity:get_ground_below() == "shallow_water" then
+          audio_manager:play_sound("hero/splash")
+        else
+          audio_manager:play_sound("hero/run")
+        end
+        return true
+      end
+    end)
+
+  entity.running_timer=sol.timer.start(state, 500, function() --start movement and pull out sword if any
       entity.running_timer=nil
       entity.running=true
       if game:get_ability("sword")>0 and game:has_item("sword") then
@@ -49,15 +69,18 @@ function state:on_started()
 
       local m=sol.movement.create("straight")
       m:set_speed(196)
-      local direction =entity:get_sprite("tunic"):get_direction()
+      local direction=sprite:get_direction()
       local angle = direction*math.pi/2
 --      print (angle)
       m:set_angle(angle)
       m:start(entity)
       function m:on_obstacle_reached()
+        entity:get_sprite("trail"):stop_animation()
+        stop_sound_loop(entity)
         entity.bonking=true
+        audio_manager:play_sound("items/bomb_explode")
 --        print ("BONK")
-local map=entity:get_map()
+        local map=entity:get_map()
         for e in map:get_entities_in_rectangle(entity:get_bounding_box()) do
           if entity:overlaps(e, "facing") then
             if e.on_boots_crash ~= nil then
@@ -75,6 +98,7 @@ local map=entity:get_map()
         parabola:set_direction8(2*((direction+2)%4))
         parabola:start(entity, function()
             --      entity:remove_sprite(collapse_sprite)
+            audio_manager:play_sound("hero/land")
             entity:unfreeze()
             entity.bonking=false
           end)
@@ -95,6 +119,7 @@ function state:on_command_pressed(command)
     end
   end
 end
+
 function state:on_command_released(command)
   if command == "action" then
     local entity=state:get_entity()
@@ -104,11 +129,10 @@ function state:on_command_released(command)
   end
 end
 function state:on_finished()
+
   local entity=state:get_entity()
-  if entity.running_timer~=nil then
-    entity.running_timer:stop()
-    entity.running_timer=nil
-  end
+  entity:get_sprite("trail"):stop_animation()
+
   entity.running=nil
   entity:stop_movement()
 end
