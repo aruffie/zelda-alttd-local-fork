@@ -33,8 +33,9 @@ local default_properties = {
 
 function carriable_behavior.apply(carriable, properties)
 
+  local game = carriable:get_game()
   local map = carriable:get_map()
-  local sprite = carriable:get_sprite("")
+  local sprite = carriable:get_sprite()
 
   -- Function to call hit events, the entity parameter may be nil.
   local function call_hit_events(entity)
@@ -110,11 +111,9 @@ function carriable_behavior.apply(carriable, properties)
     local dx, dy = math.cos(direction * math.pi / 2), -math.sin(direction * math.pi / 2)
     local _, hero_height = map:get_entity("hero"):get_size()
 
-    carriable:set_traversable_by("hero", true)
-    carriable:set_can_traverse("hero", true)
-    set_hero_not_traversable_safely(carriable) -- Set the hero not traversable as soon as possible.
     carriable:set_direction(direction)
     sprite:set_xy(0, -hero_height - 6)
+    set_hero_not_traversable_safely(carriable)
 
     -- Function to hurt an enemy vulnerable to thrown items.
     local function hurt_if_vulnerable(entity)
@@ -134,9 +133,7 @@ function carriable_behavior.apply(carriable, properties)
       carriable:remove()
       if respawn_delay then
         sol.timer.start(respawn_delay, function()
-          local respawned_carriable = map:create_custom_entity(initial_properties)
-          respawned_carriable:set_traversable_by("hero", true)
-          set_hero_not_traversable_safely(respawned_carriable) -- Set the hero not traversable as soon as possible.
+          map:create_custom_entity(initial_properties)
         end)
       end
     end
@@ -175,7 +172,7 @@ function carriable_behavior.apply(carriable, properties)
     -- Create a sprite for the shadow.
     if not shadow_sprite then
       shadow_sprite = carriable:create_sprite("entities/shadows/shadow", "shadow")
-      carriable:bring_sprite_to_back(shadow_sprite)
+      carriable:bring_sprite_to_back(shadow_sprite) -- TODO handle lifting when shadow still exists
     end
 
     -- Function called when the carriable has fallen.
@@ -299,33 +296,89 @@ function carriable_behavior.apply(carriable, properties)
     carriable:set_can_traverse("teletransporter", true)
     carriable:set_can_traverse(false)
 
-    -- Behavior when carried.
-    carriable:register_event("on_lifting", function(carriable, hero, carried_object)
-      local carriable_name = carriable:get_name()
-      local carriable_model = carriable:get_model()
-      local carriable_properties = carriable:get_properties()
-      -- TODO Find a proper way to keep events registered outside this script alive when the entity is replaced by the carried object
-      local carriable_on_finish_throw = carriable.on_finish_throw
-      local carriable_on_hit = carriable.on_hit
-      
-      -- Remove the build-in carried object when thrown and replace it by the initial custom entity with custom thrown trajectory.
-      carried_object:register_event("on_thrown", function(carried_object)
+    -- Set the hero not traversable as soon as possible, to avoid being stuck if the carriable is (re)created on the hero.
+    carriable:set_traversable_by("hero", true)
+    carriable:set_can_traverse("hero", true)
+    set_hero_not_traversable_safely(carriable)
 
-        local hero = map:get_hero()
-        local x, y, layer = hero:get_position()
-        local direction = hero:get_direction()
-        local animation_set = sprite:get_animation_set()
-        local initial_properties = {
-            name = carriable_name, model = carriable_model, properties = carriable_properties,
-            x = x, y = y, layer = layer, direction = direction, sprite = animation_set, width = 16, height = 16}
+    -- Behavior on interaction.
+    local hero = map:get_hero()
+    carriable:register_event("on_interaction", function(carriable)
 
-        carried_object:remove()
-        local thrown_carriable = map:create_custom_entity(initial_properties)
-        thrown_carriable.respawn_position = carriable.respawn_position -- Keep the initial respawn position.
-        thrown_carriable.on_finish_throw = carriable_on_finish_throw -- TODO remove
-        thrown_carriable.on_hit = carriable_on_hit -- TODO remove
-        thrown_carriable:throw(direction)
+      -- Start a custom lifting to not destroy the carriable and keep events registered outside the entity script alive.
+      local x, y, layer = hero:get_position()
+      adjust_direction = {
+        [0] = function () x = x + 16 end,
+        function () y = y - 16 end,
+        function () x = x - 16 end,
+        function () y = y + 16 end,
+      }
+      adjust_direction[hero:get_direction()]()
+      carriable:set_position(x, y, layer)
+      hero:freeze()
+
+      hero:set_animation("lifting", function()
+        -- Start a custom carrying state when the lifting animation finished.
+        local carrying_state = sol.state.create()
+        carrying_state:set_can_interact(false)
+        carrying_state:set_can_grab(false)
+        carrying_state:set_can_push(false)
+
+        function carrying_state:on_started()
+          if game:is_command_pressed("right") or game:is_command_pressed("left") or game:is_command_pressed("up") or game:is_command_pressed("down") then
+            hero:set_animation("carrying_walking")
+          else
+            hero:set_animation("carrying_stopped")
+          end
+          carriable:set_traversable_by("hero", true)
+          carriable:set_can_traverse("hero", true)
+          sprite:set_xy(0, -18)
+        end
+
+        -- Throw the carriable when the state finished, whatever the reason is.
+        function carrying_state:on_finished()
+          carriable:throw(hero:get_direction())
+        end
+
+        -- Make carriable follow hero moves.
+        function carrying_state:on_update()
+          local x, y, layer = hero:get_position()
+          carriable:set_position(x, y, layer)
+        end
+        
+        function carrying_state:on_command_pressed(command)
+          -- Throw the carriable on action command pressed.
+          if command == "action"  then
+            hero:unfreeze() -- Stop the carrying state.
+          end
+          -- Start walking animation on direction command pressed.
+          if command == "right" or command == "left" or command == "up" or command == "down" then
+            hero:set_animation("carrying_walking")
+          end
+        end
+
+        -- Start stopped animation if no direction command is pressed.
+        function carrying_state:on_command_released(command)
+          if not game:is_command_pressed("right") and not game:is_command_pressed("left") and not game:is_command_pressed("up") and not game:is_command_pressed("down") then
+            hero:set_animation("carrying_stopped")
+          end
+        end
+        hero:start_state(carrying_state)
       end)
+
+      -- Start lifting movement.
+      local lifting_trajectories = {
+        [0] = {{0, 0}, {0, 0}, {-3, -6}, {-5, -6},  {-5, -4}},
+        {{0, 0}, {0, 0}, {0, -1}, {0, -1}, {0, 0}},
+        {{0, 0}, {0, 0}, {3, -6},  {5, -6}, {5, -4}},
+        {{0, 0}, {0, 0}, {0, -10}, {0, -12}, {0, 0}}}
+      local movement = sol.movement.create("pixel")
+      movement:set_trajectory(lifting_trajectories[hero:get_direction()])
+      movement:set_ignore_obstacles(true)
+      movement:set_delay(100)
+      movement:start(carriable)
+      -- TODO carriable:set_drawn_in_y_order(false)
+      --carriable:bring_to_front()
     end)
   end)
 end
