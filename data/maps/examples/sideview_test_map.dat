@@ -633,7 +633,7 @@ custom_entity{
   width = 40,
   height = 16,
   direction = 0,
-  sprite = "entities/fisher_boat",
+  sprite = "entities/grounds/fisher_boat",
   model = "platform_moving",
 }
 
