@@ -120,6 +120,8 @@ function carriable_behavior.apply(carriable, properties)
     local _, hero_height = map:get_entity("hero"):get_size()
 
     carriable:set_direction(direction)
+    carriable:set_traversable_by("hero", true)
+    carriable:set_can_traverse("hero", true)
     set_hero_not_traversable_safely(carriable)
     sprite:set_xy(0, -hero_height - 6)
     set_animation_if_exists("thrown")
@@ -166,12 +168,10 @@ function carriable_behavior.apply(carriable, properties)
     -- Callback function for collision test.
     -- Call hit events and reverse the movement if needed.
     local function carriable_on_collision(carriable, entity)
-      if entity and entity:is_enabled() then
+      if entity and entity:is_enabled() and is_obstacle(entity) then
+        reverse_direction(slowdown_ratio)
         hurt_if_vulnerable(entity)
         call_hit_events(entity)
-        if is_obstacle(entity) then
-          reverse_direction(slowdown_ratio)
-        end
       end
     end
 
@@ -181,7 +181,7 @@ function carriable_behavior.apply(carriable, properties)
     -- Create a sprite for the shadow.
     if not shadow_sprite then
       shadow_sprite = carriable:create_sprite("entities/shadows/shadow", "shadow")
-      carriable:bring_sprite_to_back(shadow_sprite) -- TODO handle lifting when shadow still exists
+      carriable:bring_sprite_to_back(shadow_sprite)
     end
 
     -- Function called when the carriable has fallen.
@@ -233,6 +233,7 @@ function carriable_behavior.apply(carriable, properties)
         -- Call events and reverse direction on obstacle reached.
         function movement:on_obstacle_reached()
           local entities = get_overlapping_entities_on_obstacle_reached(movement)
+          reverse_direction(slowdown_ratio)
           for _, entity in pairs(entities) do
             if entity and entity:is_enabled() then
               hurt_if_vulnerable(entity)
@@ -242,7 +243,6 @@ function carriable_behavior.apply(carriable, properties)
           if #entities == 0 then -- Call hit events even if the obstacle is not an entity.
             call_hit_events(nil)
           end
-          reverse_direction(slowdown_ratio)
         end
         is_bounce_movement_starting = false
         movement:start(carriable)
@@ -291,7 +291,6 @@ function carriable_behavior.apply(carriable, properties)
     carriable:set_traversable_by(false)
     carriable:set_drawn_in_y_order(true)
     carriable:set_weight(0)
-    carriable:bring_to_front()
     set_animation_if_exists("stopped")
 
     -- Traversable rules.
@@ -303,9 +302,11 @@ function carriable_behavior.apply(carriable, properties)
     carriable:set_can_traverse_ground("prickles", true)
     carriable:set_can_traverse_ground("shallow_water", true)
     carriable:set_can_traverse("crystal_block", true)
+    carriable:set_can_traverse("stairs", true)
     carriable:set_can_traverse("stream", true)
     carriable:set_can_traverse("switch", true)
     carriable:set_can_traverse("teletransporter", true)
+    carriable:set_can_traverse("destination", true)
     carriable:set_can_traverse(false)
 
     -- Set the hero not traversable as soon as possible, to avoid being stuck if the carriable is (re)created on the hero.
@@ -325,16 +326,20 @@ function carriable_behavior.apply(carriable, properties)
         function () y = y + 16 end,
       }
       adjust_direction[hero:get_direction()]()
-      carriable:set_position(x, y, layer)
+      carriable:set_position(x, y, layer + 1) -- Move on the superior layer to fix display issues with multi-layer objects on the map.
       hero:freeze()
 
       -- Lifting movement.
+      local movement = carriable:get_movement()
       local lifting_trajectories = {
         [0] = {{0, 0}, {0, 0}, {-3, -6}, {-5, -6},  {-5, -4}},
         {{0, 0}, {0, 0}, {0, -1}, {0, -1}, {0, 0}},
         {{0, 0}, {0, 0}, {3, -6},  {5, -6}, {5, -4}},
         {{0, 0}, {0, 0}, {0, -10}, {0, -12}, {0, 0}}}
-      local movement = sol.movement.create("pixel")
+      if movement then
+        movement:stop()
+      end
+      movement = sol.movement.create("pixel")
       movement:set_trajectory(lifting_trajectories[hero:get_direction()])
       movement:set_ignore_obstacles(true)
       movement:set_delay(100)
@@ -348,29 +353,30 @@ function carriable_behavior.apply(carriable, properties)
         carrying_state:set_can_grab(false)
         carrying_state:set_can_push(false)
 
+        -- Initilize carrying object and animations.
         function carrying_state:on_started()
-          set_animation_if_exists("walking")
           if game:is_command_pressed("right") or game:is_command_pressed("left") or game:is_command_pressed("up") or game:is_command_pressed("down") then
             hero:set_animation("carrying_walking")
+            set_animation_if_exists("walking")
           else
             hero:set_animation("carrying_stopped")
-            sprite:set_paused(true)
+            set_animation_if_exists("stopped")
           end
-          carriable:set_traversable_by("hero", true)
-          carriable:set_can_traverse("hero", true)
+          carriable:set_direction(0)
           sprite:set_xy(0, -18)
-        end
-
-        -- Throw the carriable when the state finished, whatever the reason is.
-        function carrying_state:on_finished()
-          sprite:set_paused(false)
-          carriable:throw(hero:get_direction())
         end
 
         -- Make carriable follow hero moves.
         function carrying_state:on_update()
           local x, y, layer = hero:get_position()
+          carriable:set_position(x, y, layer + 1) -- Move on the superior layer to fix display issues with multi-layer objects on the map.
+        end
+
+        -- Throw the carriable when the state finished, whatever the reason is.
+        function carrying_state:on_finished()
+          local x, y, layer = hero:get_position()
           carriable:set_position(x, y, layer)
+          carriable:throw(hero:get_direction())
         end
         
         function carrying_state:on_command_pressed(command)
@@ -378,18 +384,18 @@ function carriable_behavior.apply(carriable, properties)
           if command == "action"  then
             hero:unfreeze() -- Stop the carrying state.
           end
-          -- Start walking animation on direction command pressed.
+          -- Start walking animations on direction command pressed.
           if command == "right" or command == "left" or command == "up" or command == "down" then
             hero:set_animation("carrying_walking")
-            sprite:set_paused(false)
+            set_animation_if_exists("walking")
           end
         end
 
-        -- Start stopped animation if no direction command is pressed.
+        -- Start stopped animations if no direction command is pressed.
         function carrying_state:on_command_released(command)
           if not game:is_command_pressed("right") and not game:is_command_pressed("left") and not game:is_command_pressed("up") and not game:is_command_pressed("down") then
             hero:set_animation("carrying_stopped")
-            sprite:set_paused(true)
+            set_animation_if_exists("stopped")
           end
           -- Workaround : Resynchronize carriable and hero sprites on direction command released.
           if command == "right" or command == "left" or command == "up" or command == "down" then
