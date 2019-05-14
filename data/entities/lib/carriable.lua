@@ -291,6 +291,7 @@ function carriable_behavior.apply(carriable, properties)
     carriable:set_traversable_by(false)
     carriable:set_drawn_in_y_order(true)
     carriable:set_weight(0)
+    carriable:bring_to_front()
     set_animation_if_exists("stopped")
 
     -- Traversable rules.
@@ -312,7 +313,7 @@ function carriable_behavior.apply(carriable, properties)
     carriable:set_can_traverse("hero", true)
     set_hero_not_traversable_safely(carriable)
 
-    -- Behavior on interaction.
+    -- Custom lifting and carrying steps.
     carriable:register_event("on_interaction", function(carriable)
 
       -- Start a custom lifting to not destroy the carriable and keep events registered outside the entity script alive.
@@ -327,8 +328,21 @@ function carriable_behavior.apply(carriable, properties)
       carriable:set_position(x, y, layer)
       hero:freeze()
 
+      -- Lifting movement.
+      local lifting_trajectories = {
+        [0] = {{0, 0}, {0, 0}, {-3, -6}, {-5, -6},  {-5, -4}},
+        {{0, 0}, {0, 0}, {0, -1}, {0, -1}, {0, 0}},
+        {{0, 0}, {0, 0}, {3, -6},  {5, -6}, {5, -4}},
+        {{0, 0}, {0, 0}, {0, -10}, {0, -12}, {0, 0}}}
+      local movement = sol.movement.create("pixel")
+      movement:set_trajectory(lifting_trajectories[hero:get_direction()])
+      movement:set_ignore_obstacles(true)
+      movement:set_delay(100)
+      movement:start(sprite)
+
+      -- Start a custom carrying state when the lifting animation finished.
       hero:set_animation("lifting", function()
-        -- Start a custom carrying state when the lifting animation finished.
+        
         local carrying_state = sol.state.create()
         carrying_state:set_can_interact(false)
         carrying_state:set_can_grab(false)
@@ -384,20 +398,6 @@ function carriable_behavior.apply(carriable, properties)
         end
         hero:start_state(carrying_state)
       end)
-
-      -- Start lifting movement.
-      local lifting_trajectories = {
-        [0] = {{0, 0}, {0, 0}, {-3, -6}, {-5, -6},  {-5, -4}},
-        {{0, 0}, {0, 0}, {0, -1}, {0, -1}, {0, 0}},
-        {{0, 0}, {0, 0}, {3, -6},  {5, -6}, {5, -4}},
-        {{0, 0}, {0, 0}, {0, -10}, {0, -12}, {0, 0}}}
-      local movement = sol.movement.create("pixel")
-      movement:set_trajectory(lifting_trajectories[hero:get_direction()])
-      movement:set_ignore_obstacles(true)
-      movement:set_delay(100)
-      movement:start(carriable)
-      -- TODO carriable:set_drawn_in_y_order(false)
-      --carriable:bring_to_front()
     end)
   end)
 end
