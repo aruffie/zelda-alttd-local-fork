@@ -1533,7 +1533,6 @@ file{ path = "enemies/sand_crab.lua", license = "GPL v3" }
 file{ path = "enemies/sea_urchin.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "enemies/spiked_beetle.lua", license = "GPL v3" }
 file{ path = "enemies/spiny_beetle.lua", license = "GPL v3" }
-file{ path = "enemies/stalfos.lua", license = "GPL v3" }
 file{ path = "enemies/star.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "enemies/tektite.lua", license = "GPL v3" }
 file{ path = "enemies/tektite_water.lua", license = "GPL v3" }

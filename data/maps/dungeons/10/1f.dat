@@ -16801,6 +16801,86 @@ jumper{
   jump_length = 40,
 }
 
+custom_entity{
+  layer = 0,
+  x = 424,
+  y = 1285,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/decorations/bubble_lava",
+}
+
+custom_entity{
+  layer = 0,
+  x = 400,
+  y = 1277,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/decorations/bubble_lava",
+}
+
+custom_entity{
+  layer = 0,
+  x = 384,
+  y = 1373,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/decorations/bubble_lava",
+}
+
+custom_entity{
+  layer = 0,
+  x = 432,
+  y = 1341,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/decorations/bubble_lava",
+}
+
+custom_entity{
+  layer = 0,
+  x = 464,
+  y = 1309,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/decorations/bubble_lava",
+}
+
+custom_entity{
+  layer = 0,
+  x = 496,
+  y = 1341,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/decorations/bubble_lava",
+}
+
+custom_entity{
+  layer = 0,
+  x = 496,
+  y = 1309,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/decorations/bubble_lava",
+}
+
+custom_entity{
+  layer = 0,
+  x = 520,
+  y = 1325,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/decorations/bubble_lava",
+}
+
 tile{
   layer = 1,
   x = 616,
