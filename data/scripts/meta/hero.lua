@@ -236,21 +236,13 @@ game_meta:register_event("on_map_changed", function(game, map)
       hero:set_size(8,16)
       hero:set_origin(4,13)
       set_sprite_offset(hero, 0,2)
-      local s = hero:get_sprite("custom_shadow")
-      if s ~= nil then
-        hero:remove_sprite(s)
-      end
+      hero:get_sprite("shadow"):stop_animation()
     else
       hero:set_size(16,16)
       hero:set_origin(8,13)
       hero:set_jumping(false)
       set_sprite_offset(hero, 0,0)
-      local s = hero:get_sprite("custom_shadow")
-      if s == nil then
-        s = hero:create_sprite("entities/shadow", "custom_shadow")
-        s:set_animation("big")
-        hero:bring_sprite_to_back(s)
-      end
+      hero:get_sprite("shadow"):set_animation("big")
     end
 
   end)
