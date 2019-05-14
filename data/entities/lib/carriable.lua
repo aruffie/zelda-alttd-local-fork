@@ -342,19 +342,19 @@ function carriable_behavior.apply(carriable, properties)
 
       -- Start a custom carrying state when the lifting animation finished.
       hero:set_animation("lifting", function()
-        
+
         local carrying_state = sol.state.create()
         carrying_state:set_can_interact(false)
         carrying_state:set_can_grab(false)
         carrying_state:set_can_push(false)
 
         function carrying_state:on_started()
+          set_animation_if_exists("walking")
           if game:is_command_pressed("right") or game:is_command_pressed("left") or game:is_command_pressed("up") or game:is_command_pressed("down") then
             hero:set_animation("carrying_walking")
-            set_animation_if_exists("walking")
           else
             hero:set_animation("carrying_stopped")
-            set_animation_if_exists("stopped")
+            sprite:set_paused(true)
           end
           carriable:set_traversable_by("hero", true)
           carriable:set_can_traverse("hero", true)
@@ -363,6 +363,7 @@ function carriable_behavior.apply(carriable, properties)
 
         -- Throw the carriable when the state finished, whatever the reason is.
         function carrying_state:on_finished()
+          sprite:set_paused(false)
           carriable:throw(hero:get_direction())
         end
 
@@ -380,7 +381,7 @@ function carriable_behavior.apply(carriable, properties)
           -- Start walking animation on direction command pressed.
           if command == "right" or command == "left" or command == "up" or command == "down" then
             hero:set_animation("carrying_walking")
-            set_animation_if_exists("walking")
+            sprite:set_paused(false)
           end
         end
 
@@ -388,7 +389,7 @@ function carriable_behavior.apply(carriable, properties)
         function carrying_state:on_command_released(command)
           if not game:is_command_pressed("right") and not game:is_command_pressed("left") and not game:is_command_pressed("up") and not game:is_command_pressed("down") then
             hero:set_animation("carrying_stopped")
-            set_animation_if_exists("stopped")
+            sprite:set_paused(true)
           end
           -- Workaround : Resynchronize carriable and hero sprites on direction command released.
           if command == "right" or command == "left" or command == "up" or command == "down" then
