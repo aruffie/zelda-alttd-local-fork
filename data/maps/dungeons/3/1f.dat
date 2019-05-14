@@ -10574,7 +10574,7 @@ teletransporter{
   name = "stairs_1_A",
   layer = 0,
   x = 1144,
-  y = 824,
+  y = 832,
   width = 16,
   height = 16,
   destination_map = "dungeons/3/b1",
@@ -10585,14 +10585,14 @@ destination{
   name = "stairs_1_B",
   layer = 0,
   x = 1152,
-  y = 837,
+  y = 845,
   direction = 3,
 }
 
 stairs{
   layer = 0,
   x = 1144,
-  y = 824,
+  y = 832,
   direction = 1,
   subtype = 3,
 }
@@ -12499,7 +12499,7 @@ block{
 stairs{
   layer = 0,
   x = 1336,
-  y = 552,
+  y = 560,
   direction = 1,
   subtype = 3,
 }
@@ -12508,7 +12508,7 @@ destination{
   name = "stairs_3_B",
   layer = 0,
   x = 1344,
-  y = 565,
+  y = 573,
   direction = 3,
 }
 
@@ -12516,7 +12516,7 @@ teletransporter{
   name = "stairs_3_A",
   layer = 0,
   x = 1336,
-  y = 552,
+  y = 560,
   width = 16,
   height = 16,
   destination_map = "dungeons/3/sideview_1",
@@ -14245,7 +14245,7 @@ teletransporter{
   name = "stairs_2_A",
   layer = 1,
   x = 1416,
-  y = 832,
+  y = 840,
   width = 16,
   height = 16,
   destination_map = "dungeons/3/b1",
@@ -14256,14 +14256,14 @@ destination{
   name = "stairs_2_B",
   layer = 1,
   x = 1424,
-  y = 845,
+  y = 853,
   direction = 3,
 }
 
 stairs{
   layer = 1,
   x = 1416,
-  y = 832,
+  y = 840,
   direction = 1,
   subtype = 3,
 }

@@ -12519,14 +12519,6 @@ custom_entity{
   model = "obstacle",
 }
 
-destination{
-  name = "destination",
-  layer = 0,
-  x = 1048,
-  y = 357,
-  direction = 1,
-}
-
 tile{
   layer = 1,
   x = 432,

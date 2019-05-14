@@ -23,4 +23,20 @@ function map:on_opening_transition_finished()
 --  print "DUMMY"
 --  dummy(hero)
 end
+local jumping_manager=require("scripts/jump_manager")
 
+function autojump:on_activated()
+  game:set_life(game:get_max_life())
+  if hero:is_running()==true then
+    jumping_manager.start(hero)
+  else
+    hero:start_jumping()
+  end
+end
+
+function jump_test_tp:on_activated()
+  local x,y=hero:get_position()
+  local xa=jump_test_tp:get_position()
+  local dx=xa-autojump:get_position()
+  hero:set_position(x-dx-16, y+16)
+end

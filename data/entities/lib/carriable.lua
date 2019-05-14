@@ -35,7 +35,15 @@ function carriable_behavior.apply(carriable, properties)
 
   local game = carriable:get_game()
   local map = carriable:get_map()
+  local hero = map:get_hero()
   local sprite = carriable:get_sprite()
+
+  -- Function to set the main sprite animation if it exists.
+  local function set_animation_if_exists(animation)
+    if sprite:has_animation(animation) and sprite:get_animation(animation) ~= animation then
+      sprite:set_animation(animation)
+    end
+  end
 
   -- Function to call hit events, the entity parameter may be nil.
   local function call_hit_events(entity)
@@ -112,8 +120,9 @@ function carriable_behavior.apply(carriable, properties)
     local _, hero_height = map:get_entity("hero"):get_size()
 
     carriable:set_direction(direction)
-    sprite:set_xy(0, -hero_height - 6)
     set_hero_not_traversable_safely(carriable)
+    sprite:set_xy(0, -hero_height - 6)
+    set_animation_if_exists("thrown")
 
     -- Function to hurt an enemy vulnerable to thrown items.
     local function hurt_if_vulnerable(entity)
@@ -180,6 +189,7 @@ function carriable_behavior.apply(carriable, properties)
       carriable:clear_collision_tests()
       carriable:stop_movement()
       carriable:remove_sprite(shadow_sprite)
+      set_animation_if_exists("stopped")
       if carriable.on_finish_throw then
         carriable:on_finish_throw() -- Call event
       end
@@ -281,6 +291,7 @@ function carriable_behavior.apply(carriable, properties)
     carriable:set_traversable_by(false)
     carriable:set_drawn_in_y_order(true)
     carriable:set_weight(0)
+    set_animation_if_exists("stopped")
 
     -- Traversable rules.
     carriable:set_can_traverse_ground("deep_water", true)
@@ -302,7 +313,6 @@ function carriable_behavior.apply(carriable, properties)
     set_hero_not_traversable_safely(carriable)
 
     -- Behavior on interaction.
-    local hero = map:get_hero()
     carriable:register_event("on_interaction", function(carriable)
 
       -- Start a custom lifting to not destroy the carriable and keep events registered outside the entity script alive.
@@ -327,8 +337,10 @@ function carriable_behavior.apply(carriable, properties)
         function carrying_state:on_started()
           if game:is_command_pressed("right") or game:is_command_pressed("left") or game:is_command_pressed("up") or game:is_command_pressed("down") then
             hero:set_animation("carrying_walking")
+            set_animation_if_exists("walking")
           else
             hero:set_animation("carrying_stopped")
+            set_animation_if_exists("stopped")
           end
           carriable:set_traversable_by("hero", true)
           carriable:set_can_traverse("hero", true)
@@ -354,6 +366,7 @@ function carriable_behavior.apply(carriable, properties)
           -- Start walking animation on direction command pressed.
           if command == "right" or command == "left" or command == "up" or command == "down" then
             hero:set_animation("carrying_walking")
+            set_animation_if_exists("walking")
           end
         end
 
@@ -361,6 +374,12 @@ function carriable_behavior.apply(carriable, properties)
         function carrying_state:on_command_released(command)
           if not game:is_command_pressed("right") and not game:is_command_pressed("left") and not game:is_command_pressed("up") and not game:is_command_pressed("down") then
             hero:set_animation("carrying_stopped")
+            set_animation_if_exists("stopped")
+          end
+          -- Workaround : Resynchronize carriable and hero sprites on direction command released.
+          if command == "right" or command == "left" or command == "up" or command == "down" then
+            sprite:set_frame(0)
+            hero:get_sprite():set_frame(0)
           end
         end
         hero:start_state(carrying_state)

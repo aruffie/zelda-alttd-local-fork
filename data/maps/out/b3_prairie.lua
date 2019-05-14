@@ -13,6 +13,7 @@ local audio_manager = require("scripts/audio_manager")
 function map:on_started(destination)
 
   -- Music
+  print ("at start:", seashell_13:get_position())
   map:init_music()
   -- Entities
   map:init_map_entities()
@@ -66,7 +67,7 @@ function map:init_map_entities()
   collision_seashell:add_collision_test("facing", function(entity, other, entity_sprite, other_sprite)
     if other:get_type() == 'hero' and hero:get_state() == "custom" and hero:get_state_object():get_description()=="running" and seashell_tree_found == false and game:get_value("seashell_13") == nil then
       sol.timer.start(map, 250, function()
-        seashell_13:set_enabled()
+        seashell_13:set_enabled(true)
         print("enabled ?", seashell_13:is_enabled(), "position:", seashell_13:get_position())
         local movement = sol.movement.create("jump")
         movement:set_speed(100)
