@@ -830,6 +830,87 @@ tile{
   pattern = "12748",
 }
 
+tile{
+  layer = 0,
+  x = 464,
+  y = 256,
+  width = 64,
+  height = 8,
+  pattern = "12831",
+}
+
+tile{
+  layer = 0,
+  x = 464,
+  y = 208,
+  width = 8,
+  height = 16,
+  pattern = "28",
+}
+
+tile{
+  layer = 0,
+  x = 472,
+  y = 208,
+  width = 8,
+  height = 16,
+  pattern = "62",
+}
+
+tile{
+  layer = 0,
+  x = 480,
+  y = 208,
+  width = 8,
+  height = 16,
+  pattern = "51",
+}
+
+tile{
+  layer = 0,
+  x = 496,
+  y = 208,
+  width = 8,
+  height = 16,
+  pattern = "59",
+}
+
+tile{
+  layer = 0,
+  x = 504,
+  y = 208,
+  width = 8,
+  height = 16,
+  pattern = "44",
+}
+
+tile{
+  layer = 0,
+  x = 512,
+  y = 208,
+  width = 8,
+  height = 16,
+  pattern = "58",
+}
+
+tile{
+  layer = 0,
+  x = 520,
+  y = 208,
+  width = 8,
+  height = 16,
+  pattern = "59",
+}
+
+tile{
+  layer = 0,
+  x = 464,
+  y = 232,
+  width = 64,
+  height = 8,
+  pattern = "12831",
+}
+
 chest{
   layer = 0,
   x = 72,
@@ -1043,6 +1124,35 @@ sensor{
   y = 317,
   width = 16,
   height = 192,
+}
+
+sensor{
+  name = "owl_test",
+  layer = 0,
+  x = 496,
+  y = 253,
+  width = 16,
+  height = 16,
+}
+
+npc{
+  name = "owl_7",
+  layer = 0,
+  x = 512,
+  y = 109,
+  direction = 3,
+  subtype = 0,
+  sprite = "npc/animals/owl",
+}
+
+custom_entity{
+  name = "owl_7_position",
+  layer = 0,
+  x = 480,
+  y = 109,
+  width = 16,
+  height = 16,
+  direction = 0,
 }
 
 tile{

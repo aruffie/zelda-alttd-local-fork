@@ -34,6 +34,17 @@ function autojump:on_activated()
   end
 end
 
+--Test the interaction between owl cinematic and items
+local owl_manager = require("scripts/maps/owl_manager")
+
+function owl_test:on_activated()
+  owl_manager:appear(map, 7, function()
+      print "Oot hoot"
+      sol.audio.stop_music()
+    end)  
+end
+
+
 function jump_test_tp:on_activated()
   local x,y=hero:get_position()
   local xa=jump_test_tp:get_position()
