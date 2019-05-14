@@ -31,9 +31,26 @@ require("scripts/multi_events")
 require("scripts/states/sideview_swim")
 local walking_speed = 88
 local swimming_speed = 66
-local climbing_speed = 44
 local gravity = 0.2
 local max_vspeed=2
+
+--[[
+  Returns whether there is an entity at given XY coordinates whth the custom property "ladder" set to true.
+  Parameters : 
+   map, the map object
+   x,y, the corrdinates of the point to test
+--]]
+local function is_dynamic_ladder(map, x,y, layer)
+  layer=layer or 0
+  for e in map:get_entities_in_rectangle(x,y,1,1) do
+    --print ("entity:", e)
+    if e:get_type()=="dynamic_tile" and e:get_property("ladder")=="true" then
+      --print "Found custom ladder tile"
+      return true
+    end
+  end
+  return false
+end
 
 --[[
   Returns whether the ground at given XY coordinates is a ladder.
@@ -44,7 +61,14 @@ local max_vspeed=2
 --]]
 local function is_ladder(map, x,y, layer)
   layer=layer or 0
-  return map:get_ground(x,y, layer)=="ladder"
+  for e in map:get_entities_in_rectangle(x,y,1,1) do
+    --print ("entity:", e)
+    if e:get_type()=="dynamic_tile" and e:get_property("ladder")=="true" then
+      --print "Found custom ladder tile"
+      return true
+    end
+  end
+  return map:get_ground(x,y, layer)=="ladder" 
 end
 
 --[[
@@ -120,8 +144,7 @@ local function apply_gravity(entity)
   --update vertical speed
   local vspeed = entity.vspeed or 0 
   if vspeed >= 0 then
-    if entity:test_obstacles(0,1) or 
-    entity.on_ladder or
+    if entity:test_obstacles(0,1) or entity.on_ladder or
     test_ladder(entity)==false and is_ladder(entity:get_map(), x, y+3) then --we are on an obstacle, reset speed.
       if entity:get_type()=="hero" and y+2<h and entity:test_obstacles(0,1) and map:get_ground(x,y+3,layer)=="wall" then
         entity:save_solid_ground(x,y,layer)
@@ -157,16 +180,18 @@ local function update_entities(map)
       end
       -- Make entity fall.
       if has_property or is_affected then
-        --start gravity effect timer loop
-        if entity.gravity_timer==nil then
-          entity.gravity_timer=sol.timer.start(entity, 10, function()
-              local new_delay = apply_gravity(entity)
-              if not new_delay then
-                entity.gravity_timer=nil
-              end
-              --print("new delay"..new_delay)
-              return new_delay
-            end)
+        if entity.vspeed and entity.vspeed<0 or not entity:test_obstacles(0,1) then
+          --start gravity effect timer loop
+          if entity.gravity_timer==nil then
+            entity.gravity_timer=sol.timer.start(entity, 10, function()
+                local new_delay = apply_gravity(entity)
+                if not new_delay then
+                  entity.gravity_timer=nil
+                end
+                --print("new delay"..new_delay)
+                return new_delay
+              end)
+          end
         end
       end
     end
@@ -228,18 +253,12 @@ local function update_animation(hero, direction)
     end
   end
 
---  if state == "lifting" then
---    new_animation = "lifting_heavy"
---  end
+  if state == "lifting" then
+    new_animation = "lifting_heavy"
+  end
 
   if state == "sword loading" then
---    if movement:get_speed() ~= 0 then
---      new_animation = "sword_loading_walking"
---      hero:get_sprite("sword"):set_animation("sword_loading_walking")
---    else
---      new_animation = "sword_loading_stopped"
---      hero:get_sprite("sword"):set_animation("sword_loading_stopped")    
---    end
+
     if hero:get_ground_below() == "deep_water" then
       new_animation = "swimming_scroll_loading"
       hero:get_sprite("sword"):set_animation("sword_loading_swimming_scroll")  
@@ -276,22 +295,10 @@ local function update_animation(hero, direction)
   -- print(new_animation)
 
   if new_animation and new_animation ~= sprite:get_animation() then
---    sprite:set_frame(0)
     --print("changing animation from \'"..sprite:get_animation().."\' to \'"..new_animation)
     sprite:set_animation(new_animation)
   end
 
---  if direction then
---    if state ~= "sword loading" and state ~="sword tapping" and state ~= "sword swinging" then
---      --sprite:set_direction(direction)
---    else
---      if map:get_ground(x,y,layer)=="deep_water" then
---        hero:get_sprite("sword_stars"):set_direction(direction<2 and 0 or 2)    
---      else
---        hero:get_sprite("sword_stars"):set_direction(direction)
---      end
---    end
---  end
 end
 
 --[[
@@ -313,37 +320,43 @@ local function update_hero(hero)
 
   local x,y,layer = hero:get_position()
   local map = game:get_map()
-  local speed, hangle, vangle
+  local speed=88
+  local hangle, vangle
   local can_move_vertically = true
   local _left, _right, _up, _down
-
-  --TODO enhance the movement angle calculation.
+  local ladder=test_ladder(hero)
+  
   if command("up") and not command("down") then
     _up=true
-    if test_ladder(hero) then
+    if ladder==true then
       hero.on_ladder = true
-      speed = climbing_speed
+      if is_dynamic_ladder(map, x,y,layer) then
+        --print "UP-erride"
+        speed = 52
+      end
     elseif map:get_ground(x,y,layer)=="deep_water" then 
       speed = swimming_speed
     else
       can_move_vertically=false
-      --    game:simulate_command_released("up")
     end
   elseif command("down") and not command("up") then
     ---print "LEFT"
     _down=true
-    if map:get_ground(x,y, layer) =="deep_water" then
+    if map:get_ground(x,y, layer) == "deep_water" then
       speed = swimming_speed
-    elseif test_ladder(hero) or is_ladder(map, x, y+3, layer) then
+    elseif ladder==true or is_ladder(map, x, y+3, layer) then
       hero.on_ladder = true
-      speed = climbing_speed
+      if is_dynamic_ladder(map, x,y,layer) then
+        --  print "DOWN-erride"
+        speed=52
+      end
     else
+      print "no V-Move"
       can_move_vertically = false
-      --  game:simulate_command_released("down")
     end
   end
 
-  if not (test_ladder(hero) or is_ladder(map, x, y+3)) then
+  if not (ladder==true or is_ladder(map, x, y+3)) then
     hero.on_ladder = false
   end
 
@@ -364,10 +377,13 @@ local function update_hero(hero)
     end
   end
 
+  --Force the hero on a ladder if we came from the side
   if hero:test_obstacles(0,1) and test_ladder(hero) and is_ladder(map,x,y+3) then 
+    print "entering ladder from the side"
     hero.on_ladder=true
   end
 
+  --Handle movement for vertical and/or diagonal input
   if can_move_vertically==false then
     --print "Trying to override the vertical movement"
     local m=hero:get_movement()
@@ -395,6 +411,7 @@ local function update_hero(hero)
             m:set_angle(hangle)
           end
         else
+          print "CANCEL DOWN V-MOVE"
           speed = 0
         end
       end
@@ -418,6 +435,9 @@ game_meta:register_event("on_map_changed", function(game, map)
     hero.vspeeed = 0
     if map:is_sideview() then
       hero.on_ladder = test_ladder(hero, -1) 
+      if hero.on_ladder == true then
+        hero:set_walking_speed(52)
+      end
       sol.timer.start(map, 10, function()
           update_entities(map)
           return true
@@ -429,12 +449,6 @@ game_meta:register_event("on_map_changed", function(game, map)
 
 hero_meta:register_event("on_state_changing", function(hero, state, new_state)
     local map = hero:get_map()
-    --print ("changing state from ".. state .." to ".. new_state)
---    if state =="sword loading" and new_state == "swimming" then
---      if map:is_sideview() then
---        hero:start_attack_loading()
---      end
---    end
   end)
 
 hero_meta:register_event("on_state_changed", function(hero, state)
