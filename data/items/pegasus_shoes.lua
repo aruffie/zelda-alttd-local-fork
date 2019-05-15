@@ -26,13 +26,7 @@ game_meta:register_event("on_started", function(game)
         if not game:is_suspended() then
 --          print "basic check OK"
           local hero = game:get_hero()
-          local item_1=game:get_item_assigned(1)
-          local item_2=game:get_item_assigned(2)
-          if command == "item_1" and item_1 and item_1:get_name() == "pegasus_shoes" or command == "item_2" and item_2 and item_2:get_name() == "pegasus_shoes" then
---            print "running using item"
-            hero:run()
-            return true
-          elseif command == "action" then 
+          if command == "action" then 
 --            print "AAAaaand... ACTION !"
             if game:get_command_effect("action") == nil and game:has_item("pegasus_shoes") then
 --              print "THIS IS TEH ATCION URN"
@@ -43,6 +37,11 @@ game_meta:register_event("on_started", function(game)
         end
       end)
   end)
+
+function item:start_using()
+  print "run 2.0"
+  item:get_game():get_hero():run()
+end
 
 function item:on_obtaining()
 
