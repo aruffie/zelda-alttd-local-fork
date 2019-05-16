@@ -1490,7 +1490,7 @@ file{ path = "enemies/keese.lua", license = "GPL v3" }
 file{ path = "enemies/leever.lua", license = "GPL v3" }
 file{ path = "enemies/lib", license = "GPL v3" }
 file{ path = "enemies/lib/fire_breathing_statue.lua", license = "GPL v3" }
-file{ path = "enemies/lib/thwomp_crush.lua", license = "GPL v3" }
+file{ path = "enemies/lib/thwomp_crush.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "enemies/lib/towards_hero.lua", license = "GPL v3" }
 file{ path = "enemies/lib/waiting_for_hero.lua", license = "GPL v3" }
 file{ path = "enemies/like_like.lua", license = "GPL v3" }
@@ -1536,8 +1536,8 @@ file{ path = "enemies/spiny_beetle.lua", license = "GPL v3" }
 file{ path = "enemies/star.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "enemies/tektite.lua", license = "GPL v3" }
 file{ path = "enemies/tektite_water.lua", license = "GPL v3" }
-file{ path = "enemies/thwimp.lua", license = "GPL v3" }
-file{ path = "enemies/thwomp.lua", license = "GPL v3" }
+file{ path = "enemies/thwimp.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "enemies/thwomp.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "enemies/vegas.lua", license = "GPL v3" }
 file{ path = "enemies/vire", license = "GPL v3" }
 file{ path = "enemies/vire/vire.lua", license = "GPL v3" }
@@ -1550,6 +1550,12 @@ file{ path = "enemies/zol_red.lua", license = "GPL v3" }
 file{ path = "enemies/zombie.lua", license = "GPL v3" }
 file{ path = "enemies/zora.lua", license = "GPL v3" }
 file{ path = "entities/cliff.lua", author = "Christopho", license = "GPL v3" }
+file{ path = "entities/platform_balance.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "entities/platform_chain.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "entities/platform_collapsing.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "entities/platform_ice_block.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "entities/platform_moving.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "entities/platform_thwomp.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "fonts/04b03.ttf", author = "Yuji Oshimoto", license = "Free for personal use" }
 file{ path = "fonts/green_digits.png", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "fonts/la.png", author = "Nintendo", license = "Proprietary, Fair use" }
@@ -1569,6 +1575,7 @@ file{ path = "items/console.lua", author = "Benjamin Schweitzer", license = "GPL
 file{ path = "items/drug.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/face_key.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/fairy.lua", license = "GPL v3" }
+file{ path = "items/feather.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "items/feather_old.lua", author = "Diarandor", license = "GPL v3" }
 file{ path = "items/fire_rod.lua", license = "GPL v3" }
 file{ path = "items/flippers.lua", license = "GPL v3" }
@@ -1597,7 +1604,7 @@ file{ path = "items/melody_2.lua", author = "Benjamin Schweitzer", license = "GP
 file{ path = "items/melody_3.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/mushroom.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/ocarina.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "items/pegasus_shoes.lua", author = "Diarandor", license = "GPL v3" }
+file{ path = "items/pegasus_shoes.lua", author = "Diarandor, PhoenixII54", license = "GPL v3" }
 file{ path = "items/photo.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/photos_counter.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/piece_of_heart.lua", license = "GPL v3" }
@@ -2076,6 +2083,7 @@ file{ path = "scripts/gfx_effects/electric.lua", author = "Stdgregwar", license 
 file{ path = "scripts/gfx_effects/fade_to_white.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/gfx_effects/pixellisation.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/gfx_effects/radial_fade_out.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "scripts/jump_manager.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/menus/copyright_menu.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/menus/dialog_box.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "scripts/menus/game_over.lua", author = "Olivier Cléro", license = "GPL v3" }
@@ -2101,12 +2109,18 @@ file{ path = "scripts/menus/zeldaforce_logo.lua", author = "Olivier Cléro", lic
 file{ path = "scripts/meta", license = "GPL v3" }
 file{ path = "scripts/meta/block.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "scripts/meta/camera.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "scripts/meta/carried_object.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/meta/destructible.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "scripts/meta/dynamic_tile.lua", license = "GPL v3" }
 file{ path = "scripts/meta/enemy.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "scripts/meta/hero.lua", license = "GPL v3" }
 file{ path = "scripts/meta/npc.lua", license = "GPL v3" }
 file{ path = "scripts/meta/sensor.lua", author = "Christopho", license = "GPL v3" }
+file{ path = "scripts/sideview_manager.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "scripts/states/jumping.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "scripts/states/jumping_sword.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "scripts/states/running.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "scripts/states/sideview_swim.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "shaders/pixellisation.dat", author = "PhoenixII54", }
 file{ path = "shaders/pixellisation.frag.glsl", author = "PhoenixII54", }
 file{ path = "shaders/radial_fade_out.dat", author = "PhoenixII54", }
@@ -2416,6 +2430,7 @@ file{ path = "sounds/victory.ogg", author = "Franck Jousseaume", license = "CC B
 file{ path = "sounds/walk_on_grass.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/walk_on_water.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/wrong.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sprites/debug", author = "PhoenixII54", }
 file{ path = "sprites/enemies/anti_kirby/anti_kirby.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/anti_kirby/anti_kirby_aspiration.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/arm_mimic.png", license = "Proprietary, Fair use" }

@@ -15,8 +15,8 @@ local game = item:get_game()
 
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
-require("scripts/states/jump")
-require("scripts/states/flying_sword")
+require("scripts/states/jumping")
+require("scripts/states/jumping_sword")
 local jm=require("scripts/jump_manager")
 require("scripts/multi_events")
 
