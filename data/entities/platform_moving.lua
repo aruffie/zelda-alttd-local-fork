@@ -2,6 +2,7 @@
 local entity = ...
 local game = entity:get_game()
 local hero = game:get_hero()
+local map = entity:get_map()
 --local movement
 local sprite
 local start_x, start_y
@@ -52,24 +53,24 @@ local function move_entity_with_me(other)
   local dx, dy = x-old_x, y-old_y
   local xx, yy = other:get_position()
 
-  hero:set_position(xx+dx, yy+dy)
+  other:set_position(xx+dx, yy+dy)
 
 end
 
 local function update_entity_position(other)
   local x,y,w,h=entity:get_bounding_box()
-  local hx, hy, hw ,hh = other:get_bounding_box()
+  local xx, yy, ww ,hh = other:get_bounding_box()
   if is_semisolid then
-    if hy+hh<=y+1 then
+    if yy+hh<=y+1 then
       entity:set_traversable_by("hero", false)
-      if hx<=x+w and hx+hw>=x and (hy+hh>=y-1 and hy+hh <= y+1) then
+      if xx<=x+w and xx+ww>=x and (yy+hh>=y-1 and yy+hh <= y+1) then
         move_entity_with_me(other)
       end
     else
       entity:set_traversable_by("hero", true)
     end
   else
-    if hx<=x+w and hx+hw>=x and hy<=y+h and hy+hh>=y-1 then
+    if xx<=x+w and xx+ww>=x and yy<=y+h and yy+hh>=y-1 then
       move_entity_with_me(other)
     end
   end
@@ -77,17 +78,23 @@ local function update_entity_position(other)
 end
 
 function entity:on_position_changed()
---  local x,y,w,h = entity:get_bounding_box()
---  for e in entity:get_map():get_entities_in_region(x-16, y-16, x+w+16, y+h+16) do
---    if e ~= entity then
---      local e_type = entity:get_type()
+
+  local x,y,w,h = entity:get_bounding_box()
+--  local i=0
+
+  for e in map:get_entities_in_rectangle(x-16, y-16, w+32, h+32) do
+
+    if e ~= entity then
+      local e_type = e:get_type()
 --      print(e_type)
---      if e_type == "hero" or e_type == "npc" or e_type == "enemy" or e_type == "pickable" then
---        update_entity_position(e)
---      end
---    end
---  end
-  update_entity_position(hero)
+      if e_type == "hero" or e_type == "npc" or e_type == "enemy" or e_type == "pickable" then
+        update_entity_position(e)
+      end
+    end
+--    i=i+1
+  end
+  print ("Job's done for" ..(entity:get_name() or "<some entity>")) 
+  -- print ("# of entities found by "..(entity:get_name() or "<some entity>")..": "..i) 
 end
 
 function entity:on_update()

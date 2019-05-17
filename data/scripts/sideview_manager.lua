@@ -173,7 +173,8 @@ local function update_entities(map)
       -- Check entitites that can fall.
       local is_affected
       local has_property = entity:get_property("has_gravity")
-      if entity:get_type() == "pickable" or entity:get_type()=="carried_object" or entity:get_type() =="hero" then
+      local e_type = entity:get_type()
+      if e_type == "pickable" or e_type=="carried_object" or e_type =="hero" then
         is_affected = true
       else
         is_affected = false
@@ -351,7 +352,7 @@ local function update_hero(hero)
         speed=52
       end
     else
-      print "no V-Move"
+      --print "no V-Move"
       can_move_vertically = false
     end
   end
@@ -379,7 +380,7 @@ local function update_hero(hero)
 
   --Force the hero on a ladder if we came from the side
   if hero:test_obstacles(0,1) and test_ladder(hero) and is_ladder(map,x,y+3) then 
-    print "entering ladder from the side"
+    --print "entering ladder from the side"
     hero.on_ladder=true
   end
 
@@ -411,7 +412,7 @@ local function update_hero(hero)
             m:set_angle(hangle)
           end
         else
-          print "CANCEL DOWN V-MOVE"
+          --print "CANCEL DOWN V-MOVE"
           speed = 0
         end
       end

@@ -395,8 +395,8 @@ destructible{
 
 pickable{
   layer = 0,
-  x = 568,
-  y = 61,
+  x = 584,
+  y = 109,
   treasure_name = "rupee",
   treasure_variant = 2,
 }
@@ -491,6 +491,7 @@ custom_entity{
 }
 
 enemy{
+  name = "THWIMP",
   layer = 0,
   x = 328,
   y = 45,
@@ -552,6 +553,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "H_PLATFORM",
   layer = 0,
   x = 200,
   y = 109,
@@ -581,6 +583,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "V_PLATFORM",
   layer = 0,
   x = 280,
   y = 109,
@@ -615,6 +618,7 @@ teletransporter{
 }
 
 custom_entity{
+  name = "S_PLAFFORM",
   layer = 0,
   x = 560,
   y = 157,
@@ -661,5 +665,50 @@ custom_entity{
   height = 16,
   direction = 0,
   model = "hookable",
+}
+
+npc{
+  layer = 0,
+  x = 560,
+  y = 141,
+  properties = {
+    {
+      key = "has_gravity",
+      value = "true",
+    },
+  },
+  direction = 3,
+  subtype = 1,
+  sprite = "npc/villagers/fishman_1",
+}
+
+npc{
+  layer = 0,
+  x = 208,
+  y = 93,
+  properties = {
+    {
+      key = "has_gravity",
+      value = "true",
+    },
+  },
+  direction = 3,
+  subtype = 1,
+  sprite = "npc/villagers/marin",
+}
+
+npc{
+  layer = 0,
+  x = 288,
+  y = 93,
+  properties = {
+    {
+      key = "has_gravity",
+      value = "true",
+    },
+  },
+  direction = 3,
+  subtype = 1,
+  sprite = "npc/villagers/tarin",
 }
 
