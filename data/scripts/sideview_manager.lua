@@ -32,7 +32,7 @@ require("scripts/states/sideview_swim")
 local walking_speed = 88
 local swimming_speed = 66
 local gravity = 0.2
-local max_vspeed=2
+local max_vspeed = 2
 
 --[[
   Returns whether there is an entity at given XY coordinates whth the custom property "ladder" set to true.
@@ -433,7 +433,7 @@ end
 game_meta:register_event("on_map_changed", function(game, map)
 
     local hero = map:get_hero() --TODO account for multiple heroes
-    hero.vspeeed = 0
+    hero.vspeed = 0
     if map:is_sideview() then
       hero.on_ladder = test_ladder(hero, -1) 
       if hero.on_ladder == true then
