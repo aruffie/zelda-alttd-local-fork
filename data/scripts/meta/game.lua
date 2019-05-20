@@ -35,12 +35,12 @@ game_meta:register_event("on_command_pressed", function(game, command)
     if not game:is_suspended() then
       local item_1 = game:get_item_assigned("1")
       local item_2 = game:get_item_assigned("2")
-      if command =="item_1" then
+      if command =="item_1" and item_1 then
         if item_1.start_using then
           item_1:start_using()
           return true
         end
-      elseif command=="item_2" then
+      elseif command=="item_2" and item_2 then
         if item_2.start_using then
           item_2:start_using()
           return true
