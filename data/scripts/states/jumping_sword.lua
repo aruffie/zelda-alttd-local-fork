@@ -24,7 +24,7 @@ function state:on_started(old_state_name, old_state_object)
   sword_sprite = entity:get_sprite("sword")
   sword_sprite:set_direction(tunic_sprite:get_direction())
 
-  if old_state_name == "sword swinging" or old_state_name == "custom" and old_state_object:get_description() =="jump" then
+  if old_state_name == "sword swinging" or old_state_name == "custom" and old_state_object:get_description() =="jumping" then
     tunic_sprite:set_animation("sword", function()
         print "tunic attack finished"
         tunic_sprite:set_animation("sword_loading_stopped")

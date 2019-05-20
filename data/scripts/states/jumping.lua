@@ -34,5 +34,6 @@ function hero_meta.start_jumping(hero)
   if hero:get_state() ~= "custom" or hero:get_state_object():get_description()~="jumping" then
     hero:start_state(state)
   end
+  -- Now, start the actual jump effect, regardless of whether we were alrealy jumping (the jumping manager will check the status on it's own).
   jump_manager.start(hero)
 end

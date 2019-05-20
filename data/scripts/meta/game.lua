@@ -30,6 +30,9 @@ game_meta:register_event("on_draw", function(game, dst_surface)
 
   end)
 
+
+-- Global override function for item use that completely avoids triggering the "item" state and allows full control over item behavior. All you need to do is to define item:start_using in your item script. If not, then it will just be ignored and trigger item:on_using as usual.
+
 game_meta:register_event("on_command_pressed", function(game, command)
     print "item_command ?"
     if not game:is_suspended() then

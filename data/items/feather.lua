@@ -93,7 +93,7 @@ function item:start_using()
       -- print "ok"
       local state = hero:get_state()
       if state ~="falling" then
-        if state == "sword swinging" or state =="sword loading" or state=="custom" and hero:get_state_object():get_description() == "flying_sword" then 
+        if state == "sword swinging" or state =="sword loading" or state=="custom" and hero:get_state_object():get_description() == "jumping_sword" then 
           hero:start_flying_attack()
         elseif state=="custom" and hero:get_state_object():get_description()=="running" then 
           jm.start(hero)
