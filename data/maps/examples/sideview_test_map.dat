@@ -669,7 +669,7 @@ custom_entity{
 
 npc{
   layer = 0,
-  x = 560,
+  x = 568,
   y = 141,
   properties = {
     {

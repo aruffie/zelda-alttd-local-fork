@@ -101,8 +101,8 @@ function map_meta.get_vertical_speed(entity)
   return entity.vspeed or 0
 end
 
-local debug_respawn_surface = sol.surface.create(16,16)
-debug_respawn_surface:fill_color({255,127,0,64})
+--local debug_respawn_surface = sol.surface.create(16,16)
+--debug_respawn_surface:fill_color({255,127,0,64})
 
 --map_meta:register_event("on_draw", function(map, dst_surface)
 --    -- if map:is_sideview() then
@@ -444,6 +444,7 @@ game_meta:register_event("on_map_changed", function(game, map)
           return true
         end)
     else
+      
       hero:set_walking_speed(88)
     end
   end)
@@ -458,12 +459,8 @@ hero_meta:register_event("on_state_changed", function(hero, state)
     local map = hero:get_map()
 
     if map:is_sideview() then
-      if state == "free"
-      or state == "carrying" 
-      or state == "sword loading"
-      or state == "swimming" 
-      or state == "custom"
-      then --TODO identify every applicable states
+      if state == "free" or state == "carrying" or state == "sword loading"
+      or state == "swimming" or state == "custom" then --TODO identify every applicable states
         if state == "swimming" or state =="free" and map:get_ground(hero:get_position())=="deep_water" then -- switch to the custom state
           hero:start_swimming()
         end
