@@ -71,17 +71,18 @@ end
 function entity:on_position_changed()
 
   local x,y,w,h = entity:get_bounding_box()
-
+  --Try to synchronize every compatible entity in range
   for other in map:get_entities_in_rectangle(x-16, y-16, w+32, h+32) do
 
-    if other ~= entity then
+    if other ~= entity then --This may be obvious, but you don't want to apply the synch in itself unless you want to be a bit trolly :p
       local e_type = other:get_type()
 --      print(e_type)
-      if e_type == "hero" or e_type == "npc" or e_type == "enemy" or e_type == "pickable" then
+      if e_type == "hero" or e_type == "npc" or e_type == "enemy" or e_type == "pickable" then --TODO identity all compatible entity types
         
         --Update entity position start
         local other_x, other_y, other_w , other_h = other:get_bounding_box()
         
+        -- Maybe use the same coordinates for entity's position range ?
         if is_semisolid then
           if other_y+other_h <= y+1 then
             if e_type == "hero" and is_solidified == true then
@@ -104,13 +105,14 @@ function entity:on_position_changed()
             move_entity_with_me(other)
           end
         end
-
         --update entity position end
         
       end
     end
   end
+  --Finally, update the previous position
   old_x, old_y = x, y
+  
 -- print ("Job's done for" ..(entity:get_name() or "<some entity>")) 
 end
 
