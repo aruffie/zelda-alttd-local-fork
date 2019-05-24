@@ -28,18 +28,17 @@ local game_meta = sol.main.get_metatable("game")
 
 --This function is automatically called when the item command is pressed. it is similar to item:on_using, without state changing 
 function item:start_using()
-
   local hero = game:get_hero()
   local map = game:get_map()
   if hero.is_jumping~=true then
     if not map:is_sideview() then
-      
+
       --in top view maps, we have to account for the terrain, so we need custom states.
       local state = hero:get_state()
-      
+
       --Fun fact : before adding this check, it was possible to glitch through pits by repeatedly jumping while sinking in the hole
       if state ~="falling" then 
-        
+
         --Jump with sword pulled out
         if state == "sword swinging" or state =="sword loading" or state=="custom" and hero:get_state_object():get_description() == "jumping_sword" then 
           hero:start_flying_attack()
@@ -68,11 +67,11 @@ end
 
 --Theorically, we cold entierely remove this event, but in the perspective of reusine this item in other projects, it is a perfect tool to check your configuration. 
 function item:on_using()
-  print "this message should never appear. If it does, then check your dependancies")
+  print "this message should never appear. If it does, then check your dependancies"
 
-  -- Define here what happens when using this item
-  -- and call item:set_finished() to release the hero when you have finished.
-  item:set_finished()
+-- Define here what happens when using this item
+-- and call item:set_finished() to release the hero when you have finished.
+item:set_finished()
 end
 
 
