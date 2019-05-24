@@ -47,18 +47,18 @@ entity:register_event("on_created", function()
     old_x, old_y=entity:get_bounding_box()
     entity:set_traversable_by(false)
     entity.is_on_twin=false
-    true_x, true_y, _layer = entity:get_position()
+    local true_layer
+    true_x, true_y = entity:get_position()
 
     --Create it's chain
     chain = entity:get_map():create_custom_entity({
         x=true_x,
         y=true_y%16,
-        layer=_layer,
+        layer=entity:get_layer(),
         direction = 0,
-        width=w,
+        width=16,
         height =true_y-(true_y%16),
-        sprite = "entities/moving_platform_dg_5_chain",
-        model = "platform_chain", 
+        sprite = "entities/moving_platform_dg_5_chain", 
       })
     chain:set_tiled(true)
     chain:set_origin(8, 13)
