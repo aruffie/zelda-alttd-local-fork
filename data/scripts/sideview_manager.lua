@@ -356,7 +356,7 @@ local function update_hero(hero)
 
   speed = movement and movement:get_speed() or 0
   local sprite = hero:get_sprite("tunic")
-  local sprite:get_direction()
+  local direction = sprite:get_direction()
   local new_animation
 
   -- print("state to display :"..state)
