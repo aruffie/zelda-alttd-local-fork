@@ -1,3 +1,5 @@
+--A generic platform, used by the Spiked Thwomp script to allows the hero to step safely on it
+
 -- Variables
 local entity = ...
 local game = entity:get_game()
