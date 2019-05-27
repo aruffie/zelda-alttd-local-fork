@@ -37,7 +37,7 @@ end
 local hero_meta=sol.main.get_metatable("hero")
 
 --This is the function that starts the whole jumping process
-function hero_meta.start_jumping(hero)
+function hero_meta.jump(hero)
 
   --Safety check: if we are not already in this state then start it
   if hero:get_state() ~= "custom" or hero:get_state_object():get_description()~="jumping" then

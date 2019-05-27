@@ -61,7 +61,7 @@ function state:on_command_released(command)
   local entity=state:get_entity()
   if command =="attack" then
     if entity:is_jumping() then
-      entity:start_jumping()
+      entity:jump()
     else
       tunic_sprite = entity:get_sprite("tunic")
       tunic_sprite:set_animation("stopped")

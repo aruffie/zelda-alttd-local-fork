@@ -47,7 +47,7 @@ function item:start_using()
           --Note : In Diarandor's version, it wound have required three seperate states: one for running,, one for jumping, AND one for run'n'jumping, now we can just use apply the jump effect to the running state. 
           jm.start(hero)
         else
-          hero:start_jumping()
+          hero:jump()
         end
       end
     else
