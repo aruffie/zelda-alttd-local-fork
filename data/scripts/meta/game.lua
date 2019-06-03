@@ -40,12 +40,24 @@ game_meta:register_event("on_command_pressed", function(game, command)
       local item_2 = game:get_item_assigned("2")
       if command =="item_1" and item_1 then
         if item_1.start_using then
+          print "item 1"
           item_1:start_using()
+          game.last_item_1=item_1:get_name()
+          sol.timer.start(game, 20, function()
+              print"reset item 1"
+              game.last_item_1=nil
+            end)
           return true
         end
       elseif command=="item_2" and item_2 then
         if item_2.start_using then
           item_2:start_using()
+          print "item 2"
+          game.last_item_2=item_2:get_name()
+          sol.timer.start(game, 20, function()
+              print "reset item 2"
+              game.last_item_2=nil
+            end)
           return true
         end
       end
