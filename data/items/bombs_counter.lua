@@ -26,6 +26,15 @@ function item:on_obtaining(variant, savegame_variable)
 
 end
 
+function item:start_combo(other)
+  if other:get_name()=="bow" and other.start_combo then
+    --Delegate to the bow since it already has the combo implemented
+    --TODO Maybe delegate to a manager instead?
+    other:start_combo(item)
+  end
+end
+
+
 -- Called when the player uses the bombs of his inventory by pressing the corresponding item key.
 function item:start_using()
 
@@ -42,15 +51,6 @@ function item:start_using()
     local bomb = item:create_bomb()
     audio_manager:play_sound("items/bomb_drop")
     
-    --Bomb and arrows combo
-    if (game.last_item_1=="bow" or game.last_item_2=="bow") and game:get_item("bow"):get_amount()>0 then
-      print "arrow and bomb"
-      local m=sol.movement.create("straight")
-      m:set_speed(96)
-      m:set_angle(hero:get_direction()*math.pi/2)
-      m:start(bomb, function()
-        end)
-      end 
     end
     item:set_finished()
 
