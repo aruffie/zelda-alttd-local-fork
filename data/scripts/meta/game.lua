@@ -42,6 +42,7 @@ game_meta:register_event("on_command_pressed", function(game, command)
       local name_2 = item_2:get_name()
       --mark items as triggered
       local handled = false
+
       if command =="item_1" and item_1~=nil then
         print "Item 1 triggered"
         game.last_item_1=name_1
@@ -61,32 +62,45 @@ game_meta:register_event("on_command_pressed", function(game, command)
             game.last_item_2=nil  
           end)
       end
+
       --If at least one item has been triggered, then start checking if botg items are in use at the same time
       if game.last_item_1~=nil or game.last_item_2~=nil then
+        --If there is no item assigned or no override was implemented to the items at all,
+        --then do not continue and do the default behavior instead
+        if (item_1==nil or not(item_1.start_combo or item_1.start_using))
+        and (item_2==nil or not(item_2.start_combo or item_2.start_using)) then
+          return false
+        end
+
         --This timer ensures we have enough time to press the other command before falling back to single-item behavior
         sol.timer.start(game, 20, function()
+
             --Do not trigger the combo twice in the same cycle
             if game.item_combo ~= true and game.last_item_1~=nil and game.last_item_2~=nil then
               print "Combination detected"
-              game.item_combo=true
+
               sol.timer.start(game, 30, function()
                   game.item_combo=nil
                 end)
 
-
               --Both items are trying to be used at the same time, so try to start the combo for them
               if item_1.start_combo then
+                game.item_combo=true
                 print ("Using combined behavior for item 1 ("..name_1..") with "..name_2)
                 item_1:start_combo(item_2)
                 return
               elseif item_2.start_combo then
+                game.item_combo=true
                 print ("Using combined behavior for item 2 ("..name_2..") with "..name_1)
                 item_2:start_combo(item_1)
                 return
               end
             end
-            -- If the combo was not successful, try using the override starter on each item individually
-            if not game.item_combo then
+
+            --At this point, the combo was not triggered at all
+            --or has already been handled in a previous cycle and not been cleaned yet
+            --so we try using the normal override on each item instead.
+            if game.item_combo==nil then
               if game.last_item_1 and item_1.start_using~=nil then
                 print "item 1"
                 item_1:start_using()
@@ -97,6 +111,7 @@ game_meta:register_event("on_command_pressed", function(game, command)
                 return
               end
             end
+            --if we reached this point then it means that the item had no override (and the execution will now default to the built-in bahavior)
           end)
 
 
