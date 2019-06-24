@@ -461,7 +461,7 @@ hero_meta:register_event("on_state_changed", function(hero, state)
       elseif state == "grabbing" then -- prevent the hero from pulling things in sideviews
         hero:unfreeze()
       else
-        print "Resetting parameters"
+        print "Resetting sideview hero timer"
         local timer = hero.timer
         if timer~=nil then
 --          print"remove timer"
