@@ -46,7 +46,7 @@ game_meta:register_event("on_command_pressed", function(game, command)
       if command =="item_1" and item_1~=nil then
         print "Item 1 triggered"
         game.last_item_1=name_1
-        handled = item_1.start_combo ~= nil or item_1.start_combo ~= nil
+        handled = item_1.start_using ~= nil or item_1.start_combo ~= nil
         sol.timer.start(game, 30, function()
             --Delay resetting combo register for next cycle after combo checking
             print "Item 1 resetted"
@@ -55,7 +55,7 @@ game_meta:register_event("on_command_pressed", function(game, command)
       elseif command == "item_2" and item_2~=nil then 
         print "Item 2 triggered"
         game.last_item_2=name_2
-        handled = item_2.start_combo ~= nil or item_2.start_combo ~= nil
+        handled = item_2.start_using ~= nil or item_2.start_combo ~= nil
         sol.timer.start(game, 30, function()
             --Delay resetting combo registers for next cycle after combo_checking
             print "Item 2 resetted"
@@ -69,6 +69,7 @@ game_meta:register_event("on_command_pressed", function(game, command)
         --then do not continue and do the default behavior instead
         if (item_1==nil or not(item_1.start_combo or item_1.start_using))
         and (item_2==nil or not(item_2.start_combo or item_2.start_using)) then
+          print "No override. Skip"
           return false
         end
 
