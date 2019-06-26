@@ -2,6 +2,7 @@
 
 -- Variables
 local game_meta = sol.main.get_metatable("game")
+local combo_timer_duration = 30
 
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
@@ -21,7 +22,11 @@ game_meta:register_event("on_map_changed", function(game, map)
       end)
     timer:set_suspended_with_map(false)
 
-  end)
+end)
+
+--This function blacks out the screen during map loading time while having custom transitions active
+--Note: this was supposed to be temporary until the engine-side map loader was optimized, 
+--  but since it doesn't take any extra resource, it can be kept permanently
 game_meta:register_event("on_draw", function(game, dst_surface)
 
     if game.map_in_transition then
@@ -30,57 +35,66 @@ game_meta:register_event("on_draw", function(game, dst_surface)
 
   end)
 
-
--- Global override function for item use that completely avoids triggering the "item" state and allows full control over item behavior. All you need to do is to define item:start_using in your item script. If not, then it will just be ignored and trigger item:on_using as usual.
-
+--[[
+ Global override for item use that completely avoids triggering the "item" state and allows full control over item behavior. 
+ To enable it, simply define item:start_using() in your item script.
+ It also handles a combo system which allows to have a special behavior for both assigned items.
+ To enable it, simply define item:start_combo(other) in your script.
+  That way, the other item implied in the combo will be passed automatically and you will be able to test for compatibility between both items.
+ Notes: 
+  if a combo was triggered but no special case was set, then it will first try to all back to individual item override.
+  in your combo override, you wll want to keep it's normal behavior (especially for items with limited amounts) so it doesn"t break them if you ran out of usage of the other item)
+  Similarily, if no override was set to single item behavior, then it will fall back to default behavior (item:on_using)
+   then it will just be ignored and trigger item:on_using as usual.
+  The sword, being an built-in equipment item with it's own command, is not concerned by this system by default.
+   However, you can still do combinations by testing for the ability in your item script itself, or even make it an assignable item.
+--]]
 game_meta:register_event("on_command_pressed", function(game, command)
-    print "item_command ?"
-    if not game:is_suspended() then
-      local item_1 = game:get_item_assigned("1")
-      local item_2 = game:get_item_assigned("2")
-      local name_1 = item_1:get_name()
-      local name_2 = item_2:get_name()
-      --mark items as triggered
-      local handled = false
-
-      if command =="item_1" and item_1~=nil then
-        print "Item 1 triggered"
-        game.last_item_1=name_1
-        handled = item_1.start_using ~= nil or item_1.start_combo ~= nil
-        sol.timer.start(game, 30, function()
-            --Delay resetting combo register for next cycle after combo checking
-            print "Item 1 resetted"
-            game.last_item_1=nil
-          end)
-      elseif command == "item_2" and item_2~=nil then 
-        print "Item 2 triggered"
-        game.last_item_2=name_2
-        handled = item_2.start_using ~= nil or item_2.start_combo ~= nil
-        sol.timer.start(game, 30, function()
-            --Delay resetting combo registers for next cycle after combo_checking
-            print "Item 2 resetted"
-            game.last_item_2=nil  
-          end)
-      end
-
-      --If at least one item has been triggered, then start checking if botg items are in use at the same time
-      if game.last_item_1~=nil or game.last_item_2~=nil then
-        --If there is no item assigned or no override was implemented to the items at all,
-        --then do not continue and do the default behavior instead
-        if (item_1==nil or not(item_1.start_combo or item_1.start_using))
+    if command == "item_1" or command =="item_2" then
+      print "item_command ?"
+      if not game:is_suspended() then
+        local item_1 = game:get_item_assigned("1")
+        local item_2 = game:get_item_assigned("2")
+        --if no item was assigned at this point, or if no override was added to assigned items, then do not go further
+        if item_1==nil and item_2~=nil or (item_1==nil or not(item_1.start_combo or item_1.start_using))
         and (item_2==nil or not(item_2.start_combo or item_2.start_using)) then
-          print "No override. Skip"
-          return false
+          return
         end
 
-        --This timer ensures we have enough time to press the other command before falling back to single-item behavior
-        sol.timer.start(game, 20, function()
+        local name_1 = item_1:get_name()
+        local name_2 = item_2:get_name()
 
+        --mark items as triggered
+        local handled = false
+
+        if command =="item_1" and item_1~=nil then
+          print "Item 1 triggered"
+          game.last_item_1=name_1
+          handled = item_1.start_using ~= nil or item_1.start_combo ~= nil
+          sol.timer.start(game, combo_timer_duration, function()
+              --Delay resetting combo register for next cycle after combo checking
+              print "Item 1 resetted"
+              game.last_item_1=nil
+            end)
+        elseif command == "item_2" and item_2~=nil then 
+          print "Item 2 triggered"
+          game.last_item_2=name_2
+          handled = item_2.start_using ~= nil or item_2.start_combo ~= nil
+          sol.timer.start(game, combo_timer_duration, function()
+              --Delay resetting combo registers for next cycle after combo_checking
+              print "Item 2 resetted"
+              game.last_item_2=nil  
+            end)
+        end
+
+        --This timer ensures we have enough time to press the other command before falling back to single-item behavior.
+        sol.timer.start(game, combo_timer_duration-10, function()
             --Do not trigger the combo twice in the same cycle
             if game.item_combo ~= true and game.last_item_1~=nil and game.last_item_2~=nil then
               print "Combination detected"
 
-              sol.timer.start(game, 30, function()
+              sol.timer.start(game, 10, function()
+                  print "Reset combo status"
                   game.item_combo=nil
                 end)
 
@@ -113,10 +127,9 @@ game_meta:register_event("on_command_pressed", function(game, command)
               end
             end
             --if we reached this point then it means that the item had no override (and the execution will now default to the built-in bahavior)
+            print "Back to default behavior"
           end)
-
-
+        return handled
       end
-      return handled
     end
   end)
