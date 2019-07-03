@@ -6,8 +6,12 @@ carried_meta:register_event("on_thrown", function(entity)
 
     local map = entity:get_map()
     local hero = map:get_hero()
-
     if map:is_sideview() then --Make me follow gravity
+      if shadow then
+        print "SHADOW BE GONE !"
+        shadow:stop_animation()
+      end
+
       m:set_angle(hero:get_sprite():get_direction()*math.pi/2)
       m:set_speed(92)
       m:start(entity)
@@ -22,11 +26,11 @@ carried_meta:register_event("on_created", function(entity)
       for name, s in entity:get_sprites() do
         s:set_xy(0,2)
       end
-      
+
       local shadow = entity:get_sprite("shadow")
       if shadow then
         print "SHADOW BE GONE !"
-        entity:remove_sprite(shadow)
+        shadow:stop_animation()
       end
     end
 

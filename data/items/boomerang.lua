@@ -13,7 +13,7 @@ function item:on_created()
 end
 
 -- Event called when the hero is using this item.
-function item:on_using()
+function item:start_using()
 
   local hero = self:get_map():get_entity("hero")
   if self:get_variant() == 1 then

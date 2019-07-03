@@ -230,8 +230,7 @@ local game_meta = sol.main.get_metatable("game")
 game_meta:register_event("on_map_changed", function(game, map)
 
     local hero = map:get_hero()
-    local has_shadow = true
-    local v_offset = 0
+    hero:set_jumping(false)
     if map:is_sideview() then
       hero:set_size(8,16)
       hero:set_origin(4,13)
@@ -240,7 +239,6 @@ game_meta:register_event("on_map_changed", function(game, map)
     else
       hero:set_size(16,16)
       hero:set_origin(8,13)
-      hero:set_jumping(false)
       set_sprite_offset(hero, 0,0)
       hero:get_sprite("shadow"):set_animation("big")
     end

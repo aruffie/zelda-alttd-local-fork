@@ -13,13 +13,4 @@ local map = ...
 
 function map:on_started()
   map:set_sideview(true)
---  sol.timer.start(self, 10, function()
---      for entity in map:get_entities() do
---        local x,y=entity:get_position()
---        if not entity:test_obstacles(0,1) then
---          entity:set_position(x,y+1)
---        end
---      end
---      return true
---    end)
 end 
