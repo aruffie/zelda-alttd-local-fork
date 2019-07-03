@@ -1,6 +1,10 @@
--- Lua script of item "pegasus shoes".
--- This script is executed only once for the whole game.
-
+--[[
+  Lua script of item "pegasus shoes".
+  
+  This newer version uses plainly the new global command overrides as it depends on not triggering the "item" state
+  The reason is that it would end any custon jumping state, which do trigger when jumping when running, with pontential bad consequences, such as falling into a pit while mid-air
+  
+--]]
 -- Variables
 local item = ...
 
@@ -14,7 +18,6 @@ function item:on_created()
   self:set_savegame_variable("possession_pegasus_shoes")
   self:set_sound_when_brandished(nil)
   self:set_assignable(true)
-  -- Redefine event game.on_command_pressed.
   local game = self:get_game()
   game:set_ability("jump_over_water", 0) -- Disable auto-jump on water border.
 end
@@ -22,21 +25,13 @@ end
 local game_meta = sol.main.get_metatable("game")
 game_meta:register_event("on_started", function(game)
     game:register_event("on_command_pressed", function(game, command)
---        print "run command ?"
+        --Note : there is no "item_X" command check here, since this item has been integrated intothe new global commande override system.
         if not game:is_suspended() then
---          print "basic check OK"
-          local hero = game:get_hero()
-          local item_1=game:get_item_assigned(1)
-          local item_2=game:get_item_assigned(2)
-          if command == "item_1" and item_1 and item_1:get_name() == "pegasus_shoes" or command == "item_2" and item_2 and item_2:get_name() == "pegasus_shoes" then
---            print "running using item"
-            hero:run()
-            return true
-          elseif command == "action" then 
---            print "AAAaaand... ACTION !"
+          if command == "action" then 
             if game:get_command_effect("action") == nil and game:has_item("pegasus_shoes") then
---              print "THIS IS TEH ATCION URN"
-              hero:run()-- Call custom run script.
+              
+              -- Call custom run script.
+              game:get_hero():run()
               return true
             end
           end
@@ -44,17 +39,17 @@ game_meta:register_event("on_started", function(game)
       end)
   end)
 
+--This function is automaticelly called by the new global command override system. 
+function item:start_using()
+  item:get_game():get_hero():run()
+end
+
 function item:on_obtaining()
 
   audio_manager:play_sound("items/fanfare_item_extended")
 
 end
 
-function item:on_variant_changed(variant)
-
---  self:get_game():set_ability("run", variant)
-
-end
 
 function item:on_using()
   print "if this message ever displays, then the dev has screwed up his command handling :)"
