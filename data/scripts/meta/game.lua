@@ -40,7 +40,7 @@ game_meta:register_event("on_draw", function(game, dst_surface)
  To enable it, simply define item:start_using() in your item script.
  It also handles a combo system which allows to have a special behavior for both assigned items.
  To enable it, simply define item:start_combo(other) in your script.
-  That way, the other item implied in the combo will be passed automatically and you will be able to test for compatibility https://gitlab.com/PhoenixII54between both items.
+  That way, the other item implied in the combo will be passed automatically and you will be able to test for compatibility between both items.
  Notes: 
   if a combo was triggered but no special case was set, then it will first try to all back to individual item override.
   in your combo override, you wll want to keep it's normal behavior (especially for items with limited amounts) so it doesn"t break them if you ran out of usage of the other item)
