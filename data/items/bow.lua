@@ -63,10 +63,12 @@ function item:start_combo(other)
       local direction = hero:get_direction()
       if direction == 0 then
         x = x + 16
+        y = y - 7
       elseif direction == 1 then
         y = y - 16
       elseif direction == 2 then
         x = x - 16
+        y = y - 7
       elseif direction == 3 then
         y = y + 16
       end
