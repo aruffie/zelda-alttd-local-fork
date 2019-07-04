@@ -35,11 +35,19 @@ end
 function item:start_combo(other)
 
   local map=game:get_map()
-  if item:get_amount() == 0 and other:get_name()=="bombs_counter" and other:get_amount()==0 then
-    audio_manager:play_sound("misc/error")
+  print ("trying to fire a combined arrow launch (arrows: "..item:get_amount()..", other: "..other:get_amount()..")")
+  if item:get_amount() == 0 then
+
+    if other.start_using then
+      other:start_using()
+    else
+      audio_manager:play_sound("misc/error")  
+    end
   else
     -- we remove the arrow from the equipment after a small delay because the hero
     -- does not shoot immediately
+
+    --TODO get rid of this useless timer once the bomb-arrow sprite is ready
     sol.timer.start(300, function()
         item:remove_amount(1)
       end)
@@ -47,47 +55,55 @@ function item:start_combo(other)
 
     if other:get_name()=="bombs_counter" and other:get_amount()>0 then
       --Bomb-arrows!
-      sol.timer.start(item, 400, function()
-          other:remove_amount(1)
-          print "Bomb and arrows!"
-          local hero=game:get_hero()
-          local x,y,layer=hero:get_position()
-          local direction = hero:get_direction()
-          if direction == 0 then
-            x = x + 16
-          elseif direction == 1 then
-            y = y - 16
-          elseif direction == 2 then
-            x = x - 16
-          elseif direction == 3 then
-            y = y + 16
-          end
+      --  sol.timer.start(item, 400, function()
+      other:remove_amount(1)
+      print "Bomb and arrows!"
+      local hero=game:get_hero()
+      local x,y,layer=hero:get_position()
+      local direction = hero:get_direction()
+      if direction == 0 then
+        x = x + 16
+      elseif direction == 1 then
+        y = y - 16
+      elseif direction == 2 then
+        x = x - 16
+      elseif direction == 3 then
+        y = y + 16
+      end
 
-          local bomb = map:create_bomb{
-            x = x,
-            y = y,
-            layer = layer
-          }
+      local bomb_arrow = map:create_custom_entity{
+        x = x,
+        y = y,
+        layer = layer,
+        width=8,
+        height=8,
+        sprite = "entities/bomb_arrow",
+        direction=direction,
+      }
+      bomb_arrow:set_origin(4,4)
+      bomb_arrow:set_can_traverse("explosion", true)
 
-          local m=sol.movement.create("straight")
-          m:set_speed(192)
-          m:set_angle(hero:get_direction()*math.pi/2)
-          m.on_obstacle_reached=function()
-            print "BOOM"
-            --Will it explode on it's own ? no :(
-            local x,y,layer=bomb:get_position()
-            map:create_explosion({
-                x=x, 
-                y=y,
-                layer=layer,
-              })
-            bomb:remove()
-          end
-          m:start(bomb)
-        end)
+      local m=sol.movement.create("straight")
+      m:set_speed(192)
+      m:set_angle(direction*math.pi/2)
+      m.on_obstacle_reached=function()
+        --TODO find a way to ignore axisting explosions
+        print "BOOM"
+        --Will it explode on it's own ? no :(
+        local x,y,layer=bomb_arrow:get_position()
+        map:create_explosion({
+            x=x, 
+            y=y,
+            layer=layer,
+          })
+        bomb_arrow:remove()
+      end
+      m:start(bomb_arrow)
+      --   end)
+    else
+      --Trigger normal arrow so we don't break the standard behavior
+      item:get_map():get_entity("hero"):start_bow()
     end
-    --Trigger arrow regardless of having bombs so we don't break the staandard behavior
-    item:get_map():get_entity("hero"):start_bow()
   end
 end
 
