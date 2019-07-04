@@ -91,6 +91,7 @@ function item:start_combo(other)
         print "BOOM"
         --Will it explode on it's own ? no :(
         local x,y,layer=bomb_arrow:get_position()
+        audio_manager:play_sound("items/bomb_explode")
         map:create_explosion({
             x=x, 
             y=y,
