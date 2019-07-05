@@ -5,6 +5,9 @@ light_mgr.light_acc:set_blend_mode('multiply')
 
 local make_shadow_s = sol.shader.create("make_shadow1d")
 local cast_shadow_s = sol.shader.create("cast_shadow1d")
+
+local fire_dist = sol.shader.create('fire_dist')
+
 local angular_resolution = 256
 local shadow_map = sol.surface.create(angular_resolution,1)
 shadow_map:set_blend_mode("add")
@@ -17,6 +20,10 @@ end
 
 function light_mgr:add_light(light,name)
   self.lights[name or light] = light
+end
+
+function light_mgr:get_fire_shader()
+  return fire_dist
 end
 
 local blocking_grounds = {

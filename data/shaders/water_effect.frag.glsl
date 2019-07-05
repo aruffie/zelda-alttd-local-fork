@@ -22,25 +22,28 @@ uniform int sol_time;
 COMPAT_VARYING vec2 sol_vtex_coord;
 COMPAT_VARYING vec4 sol_vcolor;
 
-vec3 keys[5] = vec3[](
- vec3(122.0,164.0,230.0)/255.0,
- vec3(88.0,128.0,200.0)/255.0,
- vec3(65.0,147.0,106.0)/255.0,
- vec3(65.0,164.0,114.0)/255.0,
- vec3(81.0,106.0,155.0)/255.0
-);
+vec3 keys[5];
 
 
 const float threshold = 0.01;
 
 void main() {
+
+    // ugly but only way to make it work with glsl es 2.0
+    keys[0] = vec3(122.0-32.0,164.0-32.0,230.0-32.0)/255.0;
+    keys[1] = vec3(88.0-32.0,128.0-32.0,200.0-32.0)/255.0;
+    keys[2] = vec3(65.0-32.0,147.0-32.0,106.0-32.0)/255.0;
+    keys[3] = vec3(65.0-32.0,164.0-32.0,114.0-32.0)/255.0;
+    keys[4] = vec3(81.0-32.0,106.0-32.0,155.0-32.0)/255.0;
+
+
     vec4 tex_color = COMPAT_TEXTURE(sol_texture, sol_vtex_coord);
     bool should_texture = false;
     if(distance(tex_color.rgb,keys[1]) > threshold) {
       should_texture = true;
     }
     bool should_refl = false;
-    for(int i = 0; i < keys.length(); i++) {
+    for(int i = 0; i < 5; i++) {
       if(distance(tex_color.rgb,keys[i]) < threshold) {
           should_refl = true; break;
       }
