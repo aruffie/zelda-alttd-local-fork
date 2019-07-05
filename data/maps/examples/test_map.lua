@@ -30,7 +30,7 @@ function autojump:on_activated()
   if hero:is_running()==true then
     jumping_manager.start(hero)
   else
-    hero:start_jumping()
+    hero:jump()
   end
 end
 

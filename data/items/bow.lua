@@ -74,16 +74,33 @@ function item:start_combo(other)
       end
 
       local bomb_arrow = map:create_custom_entity{
+        name="bomb_arrow",
         x = x,
         y = y,
         layer = layer,
         width=8,
         height=8,
+
         sprite = "entities/bomb_arrow",
         direction=direction,
       }
+      bomb_arrow.apply_cliffs=true,
       bomb_arrow:set_origin(4,4)
       bomb_arrow:set_can_traverse("explosion", true)
+      bomb_arrow:set_can_traverse("teletransporter", true)
+      bomb_arrow:set_can_traverse("custom_entity", true)
+      bomb_arrow:set_can_traverse("jumper", true)
+      bomb_arrow:set_can_traverse("npc", function(entity, other)
+          --TODO check for NPC type when a function like "npc:is_generalized()" is available
+          return other:is_drawn_in_y_order() or other:is_traversable()
+        end)
+      bomb_arrow:set_can_traverse_ground("hole", true)
+      bomb_arrow:set_can_traverse_ground("deep_water", true)
+      bomb_arrow:set_can_traverse_ground("shallow_water", true)
+      bomb_arrow:set_can_traverse_ground("low_wall", true)
+      bomb_arrow:set_can_traverse_ground("lava", true)
+      bomb_arrow:set_can_traverse_ground("prickles", true)
+
 
       local m=sol.movement.create("straight")
       m:set_speed(192)
