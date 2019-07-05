@@ -72,18 +72,16 @@ function behavior:create(enemy, properties)
     end
   end
 
-  function enemy:on_created()
 
-    self:set_life(properties.life)
-    self:set_damage(properties.damage)
-    self:create_sprite(properties.sprite)
-    self:set_hurt_style(properties.hurt_style)
-    self:set_pushed_back_when_hurt(properties.pushed_when_hurt)
-    self:set_push_hero_on_sword(properties.push_hero_on_sword)
-    self:set_obstacle_behavior(properties.obstacle_behavior)
-    self:set_size(16, 16)
-    self:set_origin(8, 13)
-  end
+    enemy:set_life(properties.life)
+    enemy:set_damage(properties.damage)
+    enemy:create_sprite(properties.sprite)
+    enemy:set_hurt_style(properties.hurt_style)
+    enemy:set_pushed_back_when_hurt(properties.pushed_when_hurt)
+    enemy:set_push_hero_on_sword(properties.push_hero_on_sword)
+    enemy:set_obstacle_behavior(properties.obstacle_behavior)
+    enemy:set_size(16, 16)
+    enemy:set_origin(8, 13)
 
   function enemy:on_movement_changed(movement)
 

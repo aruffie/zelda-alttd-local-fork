@@ -4,7 +4,7 @@ local game = entity:get_game()
 local map = entity:get_map()
 local animation_launch = false
 local sprite = entity:get_sprite()
-local wallturn_teletransporter = map:get_entity("wallturn_teletransporter")
+local wallturn_teletransporter = map:get_entity(entity:get_name() .. "_teletransporter")
 
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
@@ -23,8 +23,8 @@ entity:register_event("on_created", function()
       animation_launch = true
       local x_t, y_t= wallturn_teletransporter:get_position()
       local map_id = map:get_id()
+      hero:freeze() -- Freeze before changing the position to stop carried state properly if needed.
       hero:set_position(x_t, y_t)
-      hero:freeze()
       sprite:set_animation("revolving_tunic_1")
       audio_manager:play_sound("misc/dungeon_one_way_door")
       function sprite:on_animation_finished(animation)

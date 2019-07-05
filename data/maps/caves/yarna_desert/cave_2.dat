@@ -2415,7 +2415,7 @@ door{
   layer = 0,
   x = 136,
   y = 288,
-  direction = 1,
+  direction = 3,
   sprite = "entities/doors/door_weak_wall",
   savegame_variable = "yarna_desert_cave_2_weak_1",
   opening_method = "explosion",
@@ -2455,6 +2455,12 @@ teletransporter{
   layer = 0,
   x = 504,
   y = 432,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/d4_yarna_desert",

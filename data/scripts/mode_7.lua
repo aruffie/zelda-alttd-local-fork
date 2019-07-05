@@ -1,7 +1,7 @@
 -- Experimental mode 7 testing code.
 
 local mode_7_manager = {}
-
+local audio_manager = require("scripts/audio_manager")
 local world_width, world_height = 3840, 3072
 local map_texture
 local clouds_texture
@@ -99,7 +99,7 @@ function mode_7_manager:teleport(game, src_entity, destination_map_id, destinati
   local quest_width, quest_height = sol.video.get_quest_size()
   local hero = game:get_hero()
   local hero_sprite = sol.sprite.create(hero:get_tunic_sprite_id())
-  local owl_sprite = sol.sprite.create("npc/owl")
+  local owl_sprite = sol.sprite.create("npc/animals/owl")
   if map_texture == nil then
     map_texture = sol.surface.create("work/world_map_scale_1.png")
     cloud_texture = sol.surface.create("work/clouds_and_sea.png")

@@ -1361,6 +1361,12 @@ teletransporter{
   layer = 0,
   x = 152,
   y = 416,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/c4_martha_bay",

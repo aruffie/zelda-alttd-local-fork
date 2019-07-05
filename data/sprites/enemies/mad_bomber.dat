@@ -1,5 +1,5 @@
 animation{
-  name = "turning_head",
+  name = "walking",
   src_image = "enemies/mad_bomber.png",
   frame_delay = 250,
   frame_to_loop_on = 0,

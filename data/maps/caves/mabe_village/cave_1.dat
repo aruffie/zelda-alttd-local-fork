@@ -855,7 +855,7 @@ destination{
   name = "village_cave_1_B",
   layer = 0,
   x = 176,
-  y = 141,
+  y = 109,
   direction = -1,
 }
 
@@ -884,7 +884,7 @@ teletransporter{
   name = "village_cave_2_B",
   layer = 0,
   x = 168,
-  y = 104,
+  y = 96,
   properties = {
     {
       key = "effect",
@@ -900,7 +900,7 @@ teletransporter{
 stairs{
   layer = 0,
   x = 168,
-  y = 104,
+  y = 96,
   direction = 1,
   subtype = 2,
 }

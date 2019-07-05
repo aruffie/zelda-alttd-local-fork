@@ -527,6 +527,12 @@ teletransporter{
   layer = 0,
   x = 256,
   y = 208,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/b4_south_prairie",
@@ -537,7 +543,7 @@ destination{
   name = "entrance",
   layer = 0,
   x = 264,
-  y = 189,
+  y = 205,
   direction = 1,
 }
 

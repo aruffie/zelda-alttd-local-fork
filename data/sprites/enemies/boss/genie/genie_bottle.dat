@@ -1,13 +1,11 @@
 animation{
-  name = "waiting",
+  name = "stopped",
   src_image = "enemies/boss/genie/genie_bottle.png",
-  frame_delay = 120,
-  frame_to_loop_on = 0,
   directions = {
-    { x = 0, y = 48, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45, num_frames = 4 },
-    { x = 0, y = 48, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45, num_frames = 4 },
-    { x = 0, y = 48, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45, num_frames = 4 },
-    { x = 0, y = 48, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45, num_frames = 4 },
+    { x = 0, y = 48, frame_width = 24, frame_height = 48, origin_x = 12, origin_y = 45, num_frames = 4 },
+    { x = 0, y = 48, frame_width = 24, frame_height = 48, origin_x = 12, origin_y = 45, num_frames = 4 },
+    { x = 0, y = 48, frame_width = 24, frame_height = 48, origin_x = 12, origin_y = 45, num_frames = 4 },
+    { x = 0, y = 48, frame_width = 24, frame_height = 48, origin_x = 12, origin_y = 45, num_frames = 4 },
   },
 }
 animation{
@@ -27,20 +25,34 @@ animation{
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {
-    { x = 128, y = 0, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45, num_frames = 3 },
-    { x = 128, y = 0, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45, num_frames = 3 },
-    { x = 128, y = 0, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45, num_frames = 3 },
-    { x = 128, y = 0, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45, num_frames = 3 },
+    { x = 192, y = 0, frame_width = 24, frame_height = 48, origin_x = 12, origin_y = 45, num_frames = 3 },
+    { x = 192, y = 0, frame_width = 24, frame_height = 48, origin_x = 12, origin_y = 45, num_frames = 3 },
+    { x = 192, y = 0, frame_width = 24, frame_height = 48, origin_x = 12, origin_y = 45, num_frames = 3 },
+    { x = 192, y = 0, frame_width = 24, frame_height = 48, origin_x = 12, origin_y = 45, num_frames = 3 },
   },
 }
 animation{
-  name = "stopped",
+  name = "shaking",
   src_image = "enemies/boss/genie/genie_bottle.png",
+  frame_delay = 50,
+  frame_to_loop_on = 0,
   directions = {
-    { x = 0, y = 0, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45 },
-    { x = 0, y = 0, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45 },
-    { x = 0, y = 0, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45 },
-    { x = 0, y = 0, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45 },
+    { x = 240, y = 0, frame_width = 24, frame_height = 48, origin_x = 12, origin_y = 45, num_frames = 2 },
+    { x = 240, y = 0, frame_width = 24, frame_height = 48, origin_x = 12, origin_y = 45, num_frames = 2 },
+    { x = 240, y = 0, frame_width = 24, frame_height = 48, origin_x = 12, origin_y = 45, num_frames = 2 },
+    { x = 240, y = 0, frame_width = 24, frame_height = 48, origin_x = 12, origin_y = 45, num_frames = 2 },
+  },
+}
+animation{
+  name = "waiting",
+  src_image = "enemies/boss/genie/genie_bottle.png",
+  frame_delay = 120,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 0, frame_width = 24, frame_height = 48, origin_x = 12, origin_y = 45 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 48, origin_x = 12, origin_y = 45 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 48, origin_x = 12, origin_y = 45 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 48, origin_x = 12, origin_y = 45 },
   },
 }
 animation{
@@ -49,9 +61,9 @@ animation{
   frame_delay = 80,
   frame_to_loop_on = 0,
   directions = {
-    { x = 0, y = 0, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45, num_frames = 8 },
-    { x = 0, y = 0, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45, num_frames = 8 },
-    { x = 0, y = 0, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45, num_frames = 8 },
-    { x = 0, y = 0, frame_width = 16, frame_height = 48, origin_x = 8, origin_y = 45, num_frames = 8 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 48, origin_x = 12, origin_y = 45, num_frames = 8 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 48, origin_x = 12, origin_y = 45, num_frames = 8 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 48, origin_x = 12, origin_y = 45, num_frames = 8 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 48, origin_x = 12, origin_y = 45, num_frames = 8 },
   },
 }

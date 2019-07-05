@@ -3,6 +3,8 @@
 
 -- Variables
 local item = ...
+local game = item:get_game()
+local hero = game:get_hero()
 
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
@@ -24,23 +26,35 @@ function item:on_obtaining(variant, savegame_variable)
 
 end
 
--- Called when the player uses the bombs of his inventory by pressing the corresponding item key.
-function item:on_using()
+function item:start_combo(other)
+  if other:get_name()=="bow" and other.start_combo then
+    print "Combined items bomb"
+    --Delegate to the bow since it already has the combo implemented
+    --TODO Maybe delegate to a manager instead?
+    other:start_combo(item)
+  end
+end
 
+
+-- Called when the player uses the bombs of his inventory by pressing the corresponding item key.
+function item:start_using()
+  print "Single item bomb"
   if item:get_amount() == 0 then
     if sound_timer == nil then
       audio_manager:play_sound("misc/error")
       sound_timer = sol.timer.start(game, 500, function()
-        sound_timer = nil
-      end)
+          sound_timer = nil
+        end)
     end
   else
+
     item:remove_amount(1)
-    local x, y, layer = item:create_bomb()
+    local bomb = item:create_bomb()
     audio_manager:play_sound("items/bomb_drop")
+
   end
   item:set_finished()
-  
+
 end
 
 function item:create_bomb()
@@ -67,13 +81,13 @@ function item:create_bomb()
   function sprite:on_animation_changed(animation)
     if animation == "stopped_explosion_soon" then
       sol.timer.start(item, 1500, function()
-        audio_manager:play_sound("items/bomb_explode")
-      end)
+          audio_manager:play_sound("items/bomb_explode")
+        end)
     end
   end
   map.current_bombs = map.current_bombs or {}
   map.current_bombs[bomb] = true
-
+  return bomb
 end
 
 function item:remove_bombs_on_map()
@@ -86,7 +100,7 @@ function item:remove_bombs_on_map()
     bomb:remove()
   end
   map.current_bombs = {}
-  
+
 end
 
 

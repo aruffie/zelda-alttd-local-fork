@@ -2127,7 +2127,7 @@ enemy{
   x = 400,
   y = 149,
   direction = 0,
-  breed = "hardhat_beetle_blue",
+  breed = "hardhat_beetle",
   treasure_name = "random",
 }
 
@@ -2135,6 +2135,12 @@ teletransporter{
   layer = 0,
   x = 488,
   y = 432,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/d1_east_mt_tamaranch",
@@ -2145,7 +2151,7 @@ destination{
   name = "entrance",
   layer = 0,
   x = 496,
-  y = 413,
+  y = 429,
   direction = 1,
 }
 
@@ -3574,7 +3580,7 @@ enemy{
   x = 528,
   y = 117,
   direction = 0,
-  breed = "hardhat_beetle_blue",
+  breed = "hardhat_beetle",
   treasure_name = "random",
 }
 

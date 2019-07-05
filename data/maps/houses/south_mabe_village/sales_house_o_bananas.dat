@@ -229,9 +229,9 @@ tile{
 tile{
   layer = 0,
   x = 168,
-  y = 224,
+  y = 216,
   width = 8,
-  height = 24,
+  height = 32,
   pattern = "barrier.2-1",
 }
 
@@ -659,6 +659,16 @@ tile{
   tileset = "addition/dungeon",
 }
 
+custom_entity{
+  layer = 0,
+  x = 224,
+  y = 173,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/items/bananas",
+}
+
 destination{
   name = "sales_house_o_bananas_2_B",
   layer = 0,
@@ -671,7 +681,7 @@ teletransporter{
   name = "sales_house_o_bananas_1_B",
   layer = 0,
   x = 152,
-  y = 224,
+  y = 216,
   properties = {
     {
       key = "effect",
@@ -778,14 +788,15 @@ custom_entity{
   sprite = "entities/items/bananas",
 }
 
-custom_entity{
+wall{
   layer = 0,
-  x = 224,
-  y = 173,
+  x = 152,
+  y = 200,
   width = 16,
   height = 16,
-  direction = 0,
-  sprite = "entities/items/bananas",
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
 }
 
 tile{

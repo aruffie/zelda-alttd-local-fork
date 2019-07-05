@@ -90,7 +90,7 @@ function marin:on_interaction()
 end
 
 -- Signs and wart
-for sign in map:get_entities("sign_") do
+for sign in map:get_entities("sign_frog_") do
   
   sign:register_event("on_interaction", function(npc)
     if sign:get_sprite():get_animation() == "stopped" then  

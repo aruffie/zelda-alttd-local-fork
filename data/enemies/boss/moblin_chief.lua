@@ -167,7 +167,7 @@ function enemy:charge()
       local camera = map:get_camera()
       local shake_config = {
         count = 10,
-        amplitude = 4,
+        amplitude = 2,
         speed = 180,
       }
       camera:shake(shake_config)
@@ -189,7 +189,7 @@ function enemy:set_shocked()
   movement_jump:set_direction8(direction)
   movement_jump:set_distance(32)
   movement_jump:set_speed(128)
-  movement_jump:set_ignore_obstacles(true)
+  --movement_jump:set_ignore_obstacles(true)
   sol.timer.start(enemy, 4000, function()
       enemy:go_to_initial_position()
   end)

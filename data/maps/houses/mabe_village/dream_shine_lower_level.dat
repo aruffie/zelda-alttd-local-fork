@@ -572,7 +572,7 @@ destination{
   name = "dream_shine_to_upper_1_A",
   layer = 0,
   x = 176,
-  y = 429,
+  y = 453,
   direction = 1,
 }
 
@@ -580,7 +580,13 @@ teletransporter{
   name = "dream_shine_upper_2_A",
   layer = 0,
   x = 168,
-  y = 464,
+  y = 456,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "houses/mabe_village/dream_shine_upper_level",

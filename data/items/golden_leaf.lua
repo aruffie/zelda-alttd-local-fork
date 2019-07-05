@@ -4,6 +4,9 @@
 -- Variables
 local item = ...
 
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
+
 -- Event called when the game is initialized.
 function item:on_created()
 
@@ -38,9 +41,9 @@ function item:on_obtained(variant, savegame_variable)
   entity:get_sprite():set_animation("golden_leaf")
   entity:get_sprite():set_direction(0)
   self:get_game():start_dialog("_treasure.golden_leaf." .. nb, function()
-        hero:set_animation("stopped")
-        map:remove_entities("brandish")
-        hero:unfreeze()
+    hero:set_animation("stopped")
+    map:remove_entities("brandish")
+    hero:unfreeze()
   end)
 
 end

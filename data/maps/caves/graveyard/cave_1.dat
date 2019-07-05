@@ -1508,6 +1508,12 @@ teletransporter{
   layer = 0,
   x = 456,
   y = 96,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/b2_graveyard",
@@ -1547,6 +1553,12 @@ teletransporter{
   layer = 0,
   x = 104,
   y = 112,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/b2_graveyard",
@@ -1608,7 +1620,7 @@ door{
   layer = 0,
   x = 464,
   y = 128,
-  direction = 1,
+  direction = 3,
   sprite = "entities/doors/door_weak_block",
   savegame_variable = "graveyard_cave_1_weak_2",
   opening_method = "explosion",
@@ -1619,7 +1631,7 @@ door{
   layer = 0,
   x = 464,
   y = 144,
-  direction = 1,
+  direction = 3,
   sprite = "entities/doors/door_weak_block",
   savegame_variable = "graveyard_cave_1_weak_1",
   opening_method = "explosion",
@@ -1661,7 +1673,7 @@ enemy{
   x = 200,
   y = 157,
   direction = 0,
-  breed = "hardhat_beetle_blue",
+  breed = "hardhat_beetle",
   treasure_name = "random",
 }
 

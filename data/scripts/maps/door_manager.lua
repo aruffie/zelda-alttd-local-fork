@@ -53,23 +53,10 @@ function door_manager:open_if_small_boss_dead(map)
 
   local game = map:get_game()
   local dungeon = game:get_dungeon_index()
-  local savegame = "dungeon_" .. dungeon .. "_small_boss"
+  local small_boss_dead = "dungeon_" .. dungeon .. "_small_boss"
   local door_prefix = "door_group_small_boss"
-  if game:get_value(savegame) then
-      map:set_doors_open(door_prefix, true)
-  end
-
-end
-
--- Open doors when boss is dead
-function door_manager:open_if_boss_dead(map)
-
-  local game = map:get_game()
-  local dungeon = game:get_dungeon_index()
-  local savegame = "dungeon_" .. dungeon .. "_boss"
-  local door_prefix = "door_group_boss"
-  if game:get_value(savegame) then
-      map:set_doors_open(door_prefix, true)
+  if game:get_value(small_boss_dead) then
+    map:set_doors_open(door_prefix, true)
   end
 
 end

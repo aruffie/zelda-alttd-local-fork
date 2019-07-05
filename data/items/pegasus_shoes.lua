@@ -1,51 +1,57 @@
--- Lua script of item "pegasus shoes".
--- This script is executed only once for the whole game.
-
+--[[
+  Lua script of item "pegasus shoes".
+  
+  This newer version uses plainly the new global command overrides as it depends on not triggering the "item" state
+  The reason is that it would end any custon jumping state, which do trigger when jumping when running, with pontential bad consequences, such as falling into a pit while mid-air
+  
+--]]
 -- Variables
 local item = ...
 
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
 require("scripts/multi_events")
-require("scripts/states/run")
+require("scripts/states/running")
 
 -- Event called when the game is initialized.
 function item:on_created()
-
   self:set_savegame_variable("possession_pegasus_shoes")
   self:set_sound_when_brandished(nil)
   self:set_assignable(true)
-  -- Redefine event game.on_command_pressed.
   local game = self:get_game()
   game:set_ability("jump_over_water", 0) -- Disable auto-jump on water border.
-  game:register_event("on_command_pressed", function(self, command)
-    if not game:is_suspended() then
-      local item = game:get_item("pegasus_shoes")
-      local hero = game:get_hero()
-      local effect = game:get_command_effect(command)
-      local boots_possession = item:get_variant() > 0
-      local slot = ((effect == "use_item_1") and 1)
-          or ((effect == "use_item_2") and 2)
-      local is_using_boots_action = boots_possession and command == "action"
-                                      and game:get_command_effect("action") == "run"
-      local is_using_boots_item = slot and game:get_item_assigned(slot) == item
-      if is_using_boots_action or is_using_boots_item then
-        hero:start_running_stopped(command) -- Call custom run script.
-        return true
-      end
-    end
+end
+
+local game_meta = sol.main.get_metatable("game")
+game_meta:register_event("on_started", function(game)
+    game:register_event("on_command_pressed", function(game, command)
+        --Note : there is no "item_X" command check here, since this item has been integrated intothe new global commande override system.
+        if not game:is_suspended() then
+          if command == "action" then 
+            if game:get_command_effect("action") == nil and game:has_item("pegasus_shoes") then
+              
+              -- Call custom run script.
+              game:get_hero():run()
+              return true
+            end
+          end
+        end
+      end)
   end)
 
+--This function is automaticelly called by the new global command override system. 
+function item:start_using()
+  item:get_game():get_hero():run()
 end
 
 function item:on_obtaining()
-  
+
   audio_manager:play_sound("items/fanfare_item_extended")
-        
+
 end
 
-function item:on_variant_changed(variant)
 
-  self:get_game():set_ability("run", variant)
-  
+function item:on_using()
+  print "if this message ever displays, then the dev has screwed up his command handling :)"
+
 end

@@ -1,10 +1,13 @@
-local enemy = ...
+-- Lua script of enemy "gel red".
+-- This script is executed every time an enemy with this model is created.
 
--- Ghini
+-- Variables
+local enemy = ...
 local max_distance = 50
 local is_awake = false
 local game, map, sprite
 
+-- The enemy appears: set its properties.
 function enemy:on_created()
 
   game = self:get_game()

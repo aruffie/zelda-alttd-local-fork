@@ -337,7 +337,13 @@ teletransporter{
   name = "witch_house_2_B",
   layer = 0,
   x = 152,
-  y = 224,
+  y = 216,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
   destination_map = "out/b2_graveyard",
@@ -587,7 +593,7 @@ npc{
 }
 
 custom_entity{
-  name = "timed_torch_16",
+  name = "timed_torch_1",
   layer = 0,
   x = 200,
   y = 173,

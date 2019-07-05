@@ -37,7 +37,7 @@ function map:init_map_entities()
     book_secret:set_enabled(false)
   end
   collision_book:add_collision_test("facing", function(entity, other, entity_sprite, other_sprite)
-    if other:get_type() == 'hero' and hero:get_state() == "running" and game:get_value("get_secret_book") == nil then
+    if other:get_type() == 'hero' and hero:get_state() == "custom" and hero:get_state_object():get_description()=="running"  and game:get_value("get_secret_book") == nil then
       sol.timer.start(map, 250, function()
         movement = sol.movement.create("jump")
         movement:set_speed(100)

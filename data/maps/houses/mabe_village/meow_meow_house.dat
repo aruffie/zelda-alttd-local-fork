@@ -820,7 +820,7 @@ teletransporter{
   name = "meow_meow_house_2_B",
   layer = 0,
   x = 136,
-  y = 224,
+  y = 216,
   properties = {
     {
       key = "effect",
@@ -2136,18 +2136,6 @@ custom_entity{
 
 wall{
   layer = 0,
-  x = 136,
-  y = 200,
-  width = 16,
-  height = 16,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
-}
-
-wall{
-  layer = 0,
   x = 376,
   y = 200,
   width = 16,
@@ -2519,6 +2507,17 @@ custom_entity{
   direction = 0,
   sprite = "entities/utils/non_diggable",
   model = "non_diggable",
+}
+
+wall{
+  layer = 0,
+  x = 136,
+  y = 200,
+  width = 16,
+  height = 16,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
 }
 
 tile{

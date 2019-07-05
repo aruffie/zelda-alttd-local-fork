@@ -35,16 +35,16 @@ function enemy_meta:on_hurt_by_sword(hero, enemy_sprite)
   local hero = game:get_hero()
   -- Calculate force. Check tunic, sword, spin attack and powerups.
   -- TODO: define powerup function "hero:get_force_powerup()".
-  local force_sword = hero:get_game():get_value("force_sword") or 1
+  local base_life_points = self:get_attack_consequence("sword")
+  local force_sword = hero:get_game():get_value("force_sword") or 1 
   local force_tunic = game:get_value("force_tunic") or 1
   local force_powerup = hero.get_force_powerup and hero:get_force_powerup() or 1
-  local force = force_sword * force_tunic * force_powerup
+  local force = base_life_points * force_sword * force_tunic * force_powerup
   if hero:get_state() == "sword spin attack" then
     force = 2 * force -- Double force for spin attack.
   end
   -- Remove life.
-  local life_lost = force
-  self:remove_life(life_lost)
+  self:remove_life(force)
   
 end
 
@@ -133,9 +133,8 @@ end
 function enemy_meta:on_attacking_hero(hero, enemy_sprite)
   local enemy = self
   -- Do nothing if enemy sprite cannot hurt hero.
-  if enemy:get_sprite_damage(enemy_sprite) == 0 then return end
   local collision_mode = enemy:get_attacking_collision_mode()
-  if not hero:overlaps(enemy, collision_mode) then return end
+  if not enemy:overlaps(hero, collision_mode) then return end
   -- Do nothing when shield is protecting.
   if hero.is_shield_protecting_from_enemy
       and hero:is_shield_protecting_from_enemy(enemy, enemy_sprite) then

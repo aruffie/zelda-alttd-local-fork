@@ -1,3 +1,11 @@
+--[[
+  A simple ice block.
+  
+  If you touch it on the side, then you'll be frozen! (only triggers the message the first time per map visit)
+  You can melt it using the Fire rod (or any item, actually, since the only thing to do is to call entity:melt())
+  
+--]]
+
 local entity = ...
 local map = entity:get_map()
 local game = entity:get_game()
@@ -23,13 +31,14 @@ function entity:on_update()
   local x,y,w,h=entity:get_bounding_box()
   local hx, hy, hw, hh=hero:get_bounding_box()
   if hx<x+w+1 and hx+hw>x-1 and hy<=y+h-1 and hy+hh>=y+1 then
-    if not(map.frozen) then
+    --Freeze the hero!
+    if not(map.already_been_frozen) then
       hero.frozen = true
       local sprite = hero:get_sprite("tunic")
       sprite:set_animation("cold_link")
       sprite:set_ignore_suspend(true)
-      game:start_dialog("entities.ice_block.frozen", function()
-        map.frozen=true
+      game:start_dialog("_frozen_by_ice_block", function()
+        map.already_been_frozen=true
         hero.frozen = false
         sprite:set_ignore_suspend(false)
       end)

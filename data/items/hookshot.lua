@@ -166,7 +166,7 @@ function item:on_using()
     movement:start(hookshot)
 
     function movement:on_obstacle_reached()
-      audio_manager:play_sound("sword_tapping")
+      audio_manager:play_sound("items/sword_tap")
       go_back()
     end
 
@@ -176,10 +176,10 @@ function item:on_using()
 
     -- Play a repeated sound.
     sound_timer = sol.timer.start(map, 150, function()
-      audio_manager:play_sound("hookshot")
+      audio_manager:play_sound("items/hookshot")
       return true  -- Repeat the timer.
     end)
-    audio_manager:play_sound("hookshot")
+    audio_manager:play_sound("items/hookshot")
 
   end
 
@@ -386,7 +386,7 @@ function item:on_using()
           sprite:get_animation_set() == "entities/solid_switch" then
 
         if switch:is_activated() then
-          audio_manager:play_sound("sword_tapping")
+          audio_manager:play_sound("items/sword_tap")
         else
           audio_manager:play_sound("dungeon_switch")
           switch:set_activated(true)

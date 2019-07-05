@@ -275,7 +275,7 @@ function map:launch_cinematic_4()
     bowwow:remove()
     bowwow = map:create_custom_entity({
       name = "bowwow",
-      sprite = "npc/bowwow",
+      sprite = "npc/animals/bowwow",
       x = x,
       y = y,
       width = 16,

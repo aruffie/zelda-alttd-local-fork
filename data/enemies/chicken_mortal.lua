@@ -1,10 +1,11 @@
--- Lua script of enemy "chicken mortal".
+-- Lua script of enemy chicken mortal.
 -- This script is executed every time an enemy with this model is created.
 
 -- Variables
 local enemy = ...
 local map = enemy:get_map()
 
+-- The enemy appears: set its properties.
 function enemy:on_created()
 
   enemy:set_life(10)
@@ -24,6 +25,7 @@ function enemy:on_movement_changed(movement)
   
 end
 
+-- The enemy was stopped for some reason and should restart.
 function enemy:on_restarted()
 
   local movement = sol.movement.create("random")

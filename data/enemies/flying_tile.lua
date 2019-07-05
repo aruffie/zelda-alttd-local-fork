@@ -1,4 +1,4 @@
--- Lua script of enemy "flying tile".
+-- Lua script of enemy flying tile.
 -- This script is executed every time an enemy with this model is created.
 
 -- Variables
@@ -7,8 +7,10 @@ local shadow_sprite = nil
 local initial_y = nil
 local state = nil  -- "raising", "attacking" or "destroying".
 
+-- Include scripts
 local audio_manager = require("scripts/audio_manager")
 
+-- The enemy appears: set its properties.
 function enemy:on_created()
 
   self:set_life(1)
@@ -30,8 +32,10 @@ function enemy:on_created()
   self:set_attack_consequence("sword", "custom")
   shadow_sprite = sol.sprite.create("entities/shadow")
   shadow_sprite:set_animation("big")
+  
 end
 
+-- The enemy was stopped for some reason and should restart.
 function enemy:on_restarted()
 
   local x, y = self:get_position()

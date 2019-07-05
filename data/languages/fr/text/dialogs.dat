@@ -35,6 +35,16 @@ Tu n'y arriveras jamais rien que par la force de tes bras !
 }
 
 dialog{
+  id = "_frozen_by_ice_block",
+  text = [[
+Brrrr... Ce sont
+des blocs       
+de glace!!      
+Je suis gelé!
+]],
+}
+
+dialog{
   id = "_shop.amount_full",
   text = [[
 Tu es déjà au maximum !
@@ -822,16 +832,6 @@ Vous débordez d'énergie !
 }
 
 dialog{
-  id = "entities.ice_block.frozen",
-  text = [[
-Brrrr... Ce sont
-des blocs       
-de glace!!      
-Je suis gelé!
-]],
-}
-
-dialog{
   id = "items.mushroom.1",
   skip = "all",
   text = [[
@@ -875,7 +875,7 @@ dialog{
   id = "maps.caves.egg_of_the_dream_fish.moblins_cave.moblins_3",
   text = [[
 C'est qui cet intrus 
-tout vétu de vert ??!!!
+tout vêtu de vert ??!!!
 Attrapez-le !!!!
 ]],
 }
@@ -933,12 +933,38 @@ dialog{
 }
 
 dialog{
+  id = "maps.dungeons.2.boss_message_1",
+  text = [[
+NANANA !!!
+Tu ne m'auras pas tant que j'aurai ma jarre !
+]],
+}
+
+dialog{
+  id = "maps.dungeons.2.boss_message_2",
+  text = [[
+. . . . !
+Je ne peux pas bouger !
+Mais je vais bien.
+Ta petite épée ne pourra pas briser cette bouteille !
+]],
+}
+
+dialog{
+  id = "maps.dungeons.2.boss_message_3",
+  text = [[
+. . . . !
+Je ne peux pas bouger !
+Mais je vais bien.
+Ta petite épée ne pourra pas briser cette bouteille !
+]],
+}
+
+dialog{
   id = "maps.dungeons.2.boss_welcome",
   text = [[
 HI HI HI !!      
-Attends un peu,
-que je m'occupe de 
-toi... HI HI!
+Attends un peu, que je m'occupe de toi... HI HI !
 ]],
 }
 
@@ -986,6 +1012,14 @@ dialog{
           Niveau 2       
       Grotte du génie    
 
+]],
+}
+
+dialog{
+  id = "maps.dungeons.3.boss_welcome",
+  text = [[
+BONK ! BONK !     
+Tu ne m'auras pas ! BONK !
 ]],
 }
 
@@ -1197,12 +1231,99 @@ dialog{
 }
 
 dialog{
+  id = "maps.dungeons.boss_key_required",
+  text = [[
+C'est la porte du repère du maître du donjon !
+Il te faut la Clé du Maître pour l'ouvrir.
+]],
+}
+
+dialog{
   id = "maps.dungeons.owl",
   text = [[
 Cette statue veut me
 dire quelque chose mais 
 je ne comprends rien ! 
 Elle n'a pas de bec...
+]],
+}
+
+dialog{
+  id = "maps.dungeons.small_key_required",
+  text = [[
+C'est fermé à clé !
+]],
+}
+
+dialog{
+  id = "maps.houses.graveyard.drugstore.crazy_tracy_1",
+  text = [[
+Je suis Monique la Lunatique.   
+Je vends des remèdes secrets qui te feront péter la forme !
+]],
+}
+
+dialog{
+  id = "maps.houses.graveyard.drugstore.crazy_tracy_2",
+  question = "1",
+  text = [[
+Mon secret coûte $v rubis.
+
+
+Tu es intéressé?
+ Oui
+ Non
+]],
+}
+
+dialog{
+  id = "maps.houses.graveyard.drugstore.crazy_tracy_3",
+  text = [[
+Tu plaisantes ?? 
+Reviens plutôt quand tu auras de l'argent...
+]],
+}
+
+dialog{
+  id = "maps.houses.graveyard.drugstore.crazy_tracy_4",
+  text = [[
+... ... ... ... 
+Non, je ne t'en vendrai pas !!
+]],
+}
+
+dialog{
+  id = "maps.houses.graveyard.drugstore.crazy_tracy_5",
+  text = [[
+Flûte, zut !!    
+Je voulais juste te rendre plus puissant !       
+Tu n'es qu'une poule mouillée !
+]],
+}
+
+dialog{
+  id = "maps.houses.graveyard.drugstore.crazy_tracy_6",
+  text = [[
+Merci bien !     
+Voilà, je viens de l'appliquer sur toi !        
+Ce remède agira si tu perds tes Coeurs !     
+Reviens quand  tu veux !!
+]],
+}
+
+dialog{
+  id = "maps.houses.graveyard.drugstore.crazy_tracy_7",
+  text = [[
+Tu es un amour ! 
+Pour la peine, tu ne paieras que 7 rubis !
+]],
+}
+
+dialog{
+  id = "maps.houses.graveyard.drugstore.crazy_tracy_8",
+  text = [[
+Voici un petit bonus.    
+Je restaure tous tes Coeurs !
 ]],
 }
 
@@ -1232,6 +1353,16 @@ dialog{
 Ça y est ! Tout est prêt !  
 Attention, il y en a peu !  
 Veux-tu la tester ici ?
+]],
+}
+
+dialog{
+  id = "maps.houses.graveyard.witch_house.witch_4",
+  text = [[
+Bien joué !      
+Essaie donc ceci sur tes ennemis et... Surprise ! 
+Si tu es à court va chercher des champignons dans la forêt.
+Je te préparerai une nouvelle dose !
 ]],
 }
 
@@ -3454,8 +3585,7 @@ _ Forêt Enchantée
 dialog{
   id = "maps.out.yarna_desert.rabbit_1_1",
   text = [[
-Une chanson de Marine par un si beau jour,
-ce serait le pied !
+Une chanson de Marine par un si beau jour, ce serait le pied !
 ]],
 }
 
@@ -3463,7 +3593,7 @@ dialog{
   id = "maps.out.yarna_desert.rabbit_2_1",
   text = [[
 Savais-tu que les Villages des Animaux et des Mouettes étaient des villes jumelées ? 
-Des villes, c'est unbien grand mot...
+Des villes, c'est un bien grand mot...
 Villages jumeaux serait mieux !   
 D'après une source sûre, à l'intérieur du Gîte des Rêves, il y a un...    
 Crois-tu que c'est vrai ?
@@ -3475,7 +3605,7 @@ dialog{
   text = [[
 Je ne peux aller au Village. 
 Les monstres sont si nombreux !
-Marine est-elle en vi e?
+Marine est-elle en vie ?
 ]],
 }
 

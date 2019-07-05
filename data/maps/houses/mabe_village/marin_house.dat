@@ -573,7 +573,7 @@ teletransporter{
   name = "marin_house_2_B",
   layer = 0,
   x = 152,
-  y = 224,
+  y = 216,
   properties = {
     {
       key = "effect",
@@ -700,6 +700,17 @@ dynamic_tile{
   height = 16,
   pattern = "140",
   tileset = "addition/dungeon",
+}
+
+wall{
+  layer = 0,
+  x = 152,
+  y = 200,
+  width = 16,
+  height = 16,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
 }
 
 tile{

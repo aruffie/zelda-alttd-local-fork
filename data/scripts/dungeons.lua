@@ -162,16 +162,26 @@ local function initialize_dungeon_features(game)
       music = "33_level_3_key_cavern",
       music_instrument = "34_the_sea_lily_bell",
       destination_ocarina = {
-          map_id = "dungeons/2/1f",
-          destination_name = "destination_ocarina"
+        map_id = "dungeons/2/1f",
+        destination_name = "destination_ocarina"
+      },
+      teletransporter_end_dungeon = {
+        map_id = "out/b3_prairie",
+        destination_name = "dungeon_3_2_A"
       },
       secrets = {
       },
+      small_boss = {
+        floor = 0,
+        breed = "keese",
+        x = 640 + 1440,
+        y = 720 + 365
+      },
       boss = {
         floor = 0,
+        breed = "boss/slime_eye",
         x = 640 + 1440,
-        y = 720 + 365,
-        savegame_variable = "dungeon_3_boss",
+        y = 720 + 365
       }
     },
    [4] = {
@@ -233,6 +243,10 @@ local function initialize_dungeon_features(game)
         map_id = "dungeons/7/1f",
         destination_name = "destination_ocarina"
       },
+      teletransporter_small_boss = {
+        map_id_A = "dungeons/7/3f",
+        map_id_B = "dungeons/7/1f"
+      },
       teletransporter_end_dungeon = {
         map_id = "out/d1_east_mt_tamaranch",
         destination_name = "dungeon_7_2_B"
@@ -292,16 +306,62 @@ local function initialize_dungeon_features(game)
       small_boss = {
         -- TODO
         floor = 3,
-        breed = "chicken",
+        breed = "zol_red",
         x = 640 + 1440,
         y = 720 + 365
       },
       boss = {
         -- TODO
         floor = 3,
-        breed = "chicken",
+        breed = "zol_red",
         x = 640 + 1440,
         y = 720 + 365
+      }
+    },
+    [10] = {
+      lowest_floor = 0,
+      highest_floor = 0,
+      rows = 8,
+      cols = 8,
+      music = "",
+      music_instrument = "",
+      secrets = {
+        [0] = {
+          [1] = {
+            savegame = "dungeon_10_boss_key",
+            signal = true
+          },
+          [11] = {
+            savegame = "dungeon_10_compass",
+            signal = false
+          },
+          [26] = {
+            savegame = "dungeon_10_hammer",
+            signal = false
+          },
+          [36] = {
+            savegame = "dungeon_10_small_key_1",
+            signal = true
+          },
+          [44] = {
+            savegame = "dungeon_10_small_key_2",
+            signal = true
+          },
+          [51] = {
+            savegame = "dungeon_10_small_key_3",
+            signal = true
+          },
+          [62] = {
+            savegame = "dungeon_10_map",
+            signal = false
+          }
+        }
+      },
+      boss = {
+        floor = 0,
+        x = 640 + 1440,
+        y = 720 + 365,
+        savegame_variable = "dungeon_10_boss",
       }
     }
   }

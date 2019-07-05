@@ -392,7 +392,7 @@ teletransporter{
   name = "library_2_B",
   layer = 0,
   x = 152,
-  y = 224,
+  y = 216,
   properties = {
     {
       key = "effect",
@@ -710,6 +710,17 @@ npc{
   direction = 3,
   subtype = 0,
   sprite = "npc/books/book_red",
+}
+
+wall{
+  layer = 0,
+  x = 152,
+  y = 200,
+  width = 16,
+  height = 16,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
 }
 
 tile{

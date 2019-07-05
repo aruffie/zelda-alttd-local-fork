@@ -62,82 +62,65 @@ end
 
 function enemy_manager:create_teletransporter_if_small_boss_dead(map, sound)
 
-    local game = map:get_game()
-    local dungeon = game:get_dungeon_index()
-    local savegame = "dungeon_" .. dungeon .. "_small_boss"
-    if game:get_value(savegame) then
-      local placeholder_teletransporter_A = map:get_entity("teletransporter_A")
-      local placeholder_teletransporter_B = map:get_entity("teletransporter_B")
-      local teletransporter_A_x,  teletransporter_A_y,  teletransporter_A_layer = placeholder_teletransporter_A:get_position()
-      local teletransporter_B_x,  teletransporter_B_y,  teletransporter_B_layer = placeholder_teletransporter_B:get_position()
-      local teletransporter_A = map:create_custom_entity{
-        x = teletransporter_A_x,
-        y = teletransporter_A_y,
-        width = 24,
-        height = 24,
-        direction = 0,
-        sprite = "entities/misc/teletransporter",
-        layer = teletransporter_A_layer,
-      }
-      local teletransporter_B = map:create_custom_entity{
-        x = teletransporter_B_x ,
-        y = teletransporter_B_y,
-        width = 16,
-        height = 16,
-        direction = 0,
-        sprite = "entities/misc/teletransporter",
-        layer = teletransporter_B_layer,
-        sound = "teletransporter"
-      }
-      teletransporter_A:add_collision_test("center", function(teletransporter, hero)
-        local hero_sprite = hero:get_sprite()
-        if enemy_manager.is_transported  == false and hero:get_type() == "hero" then
-          enemy_manager.is_transported  = true
-          game:set_suspended(true)
-          game:set_pause_allowed(false)
-          teletransporter_A:get_sprite():set_ignore_suspend(true)
-          hero:set_position(teletransporter_A_x, teletransporter_A_y)
-          hero_sprite:set_ignore_suspend(true)
-          hero_sprite:set_animation("teleporting")
-          audio_manager:play_sound("misc/dungeon_teleport")
-          function hero_sprite:on_animation_finished(animation)
-            if animation == "teleporting" then
-              game:set_suspended(false)
-              game:set_pause_allowed(true)
-              teletransporter_B:get_sprite():set_ignore_suspend(false)
-              hero_sprite:set_ignore_suspend(false)
-              hero:teleport(map:get_id(), "teletransporter_destination_B")
-              enemy_manager.is_transported  = false
+  local game = map:get_game()
+  local dungeon = game:get_dungeon_index()
+  local savegame = "dungeon_" .. dungeon .. "_small_boss"
+  if game:get_value(savegame) then
+
+    local function create_teletransporter(teletransporter_suffix)
+      placeholder_teletransporter = map:get_entity("teletransporter_" .. teletransporter_suffix)
+      if placeholder_teletransporter then
+        local is_teletransporter_A = teletransporter_suffix == "A"
+        local teletransporter_x, teletransporter_y, teletransporter_layer = placeholder_teletransporter:get_position()
+        local teletransporter = map:create_custom_entity{
+          x = teletransporter_x,
+          y = teletransporter_y,
+          width = is_teletransporter_A and 24 or 16,
+          height = is_teletransporter_A and 24 or 16,
+          direction = 0,
+          sprite = "entities/misc/teletransporter",
+          layer = teletransporter_layer,
+          sound = is_teletransporter_A and "teletransporter" or nil
+        }
+        teletransporter:add_collision_test("center", function(teletransporter_source, hero)
+          local hero_sprite = hero:get_sprite()
+          if enemy_manager.is_transported  == false and hero:get_type() == "hero" then
+            enemy_manager.is_transported  = true
+            game:set_suspended(true)
+            game:set_pause_allowed(false)
+            teletransporter:get_sprite():set_ignore_suspend(true)
+            hero:set_position(teletransporter:get_position())
+            hero_sprite:set_ignore_suspend(true)
+            hero_sprite:set_animation("teleporting")
+            audio_manager:play_sound("misc/dungeon_teleport")
+            function hero_sprite:on_animation_finished(animation)
+              if animation == "teleporting" then
+                game:set_suspended(false)
+                game:set_pause_allowed(true)
+                teletransporter:get_sprite():set_ignore_suspend(false)
+                hero_sprite:set_ignore_suspend(false)
+                local destination_map = map:get_id()
+                local dungeon_info = game:get_dungeon() -- Get destination map infos if available, else teleport on the same map.
+                if dungeon_info and dungeon_info.teletransporter_small_boss then
+                  local map_info = dungeon_info.teletransporter_small_boss
+                  destination_map = is_teletransporter_A and map_info.map_id_B or map_info.map_id_A
+                end
+                local destination_name = "teletransporter_destination_" .. (is_teletransporter_A and "B" or "A")
+                hero:teleport(destination_map, destination_name)
+                enemy_manager.is_transported  = false
+              end
             end
           end
-        end
-      end)
-      teletransporter_B:add_collision_test("center", function(teletransporter, hero)
-        local hero_sprite = hero:get_sprite()
-        if enemy_manager.is_transported  == false and hero:get_type() == "hero" then
-          enemy_manager.is_transported  = true
-          game:set_suspended(true)
-          game:set_pause_allowed(false)
-          teletransporter_B:get_sprite():set_ignore_suspend(true)
-          hero:set_position(teletransporter_B_x, teletransporter_B_y)
-          hero_sprite:set_ignore_suspend(true)
-          hero_sprite:set_animation("teleporting")
-          audio_manager:play_sound("misc/dungeon_teleport")
-          function hero_sprite:on_animation_finished(animation)
-            if animation == "teleporting" then
-              game:set_suspended(false)
-              game:set_pause_allowed(true)
-              teletransporter_B:get_sprite():set_ignore_suspend(false)
-              hero_sprite:set_ignore_suspend(false)
-              hero:teleport(map:get_id(), "teletransporter_destination_A")
-              enemy_manager.is_transported  = false
-            end
-          end
-        end
-      end)
-      if sound ~= nil and sound ~= false then
-        audio_manager:play_sound("misc/dungeon_teleport_appear")
+        end)
       end
+    end
+
+    create_teletransporter("A")
+    create_teletransporter("B")
+
+    if sound ~= nil and sound ~= false then
+      audio_manager:play_sound("misc/dungeon_teleport_appear")
+    end
   end
 
 end
@@ -159,6 +142,7 @@ function enemy_manager:launch_small_boss_if_not_dead(map)
     local game = map:get_game()
     placeholder:set_enabled(false)
     local enemy = map:create_enemy{
+       name = "enemy_small_boss",
        breed = dungeon_infos["small_boss"]["breed"],
        direction = 2,
         x = x,
@@ -185,14 +169,14 @@ function enemy_manager:launch_boss_if_not_dead(map)
     local dungeon = game:get_dungeon_index()
     local dungeon_infos = game:get_dungeon()
     local savegame = "dungeon_" .. dungeon .. "_boss"
-    local placeholder = "placeholder_boss"
     if game:get_value(savegame) then
       return false
     end
-    local placeholder = map:get_entity(placeholder)
+    local placeholder = map:get_entity("placeholder_boss")
     local x,y,layer = placeholder:get_position()
     placeholder:set_enabled(false)
     local enemy = map:create_enemy{
+      name = "boss",
       breed = dungeon_infos["boss"]["breed"],
       direction = 2,
       x = x,
@@ -204,7 +188,13 @@ function enemy_manager:launch_boss_if_not_dead(map)
      end)
     map:close_doors(door_prefix)
     audio_manager:play_music("22_boss_battle")
-    game:start_dialog("maps.dungeons." .. dungeon .. ".boss_welcome")
+    sol.timer.start(enemy, 1000, function()
+      game:start_dialog("maps.dungeons." .. dungeon .. ".boss_welcome", function()
+        if enemy.launch_after_first_dialog then
+          enemy:launch_after_first_dialog()
+        end
+      end)
+    end)
         
 end
 

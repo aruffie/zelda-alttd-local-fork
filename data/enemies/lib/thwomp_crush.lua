@@ -36,10 +36,6 @@ function behavior:create(enemy, properties)
   local home_x, home_y
   local platform
   local platform_dx, platform_dy
-  -- Set default properties.
-  if properties.life == nil then
-    properties.life = 2
-  end
   if properties.damage == nil then
     properties.damage = 2
   end
@@ -74,55 +70,52 @@ function behavior:create(enemy, properties)
     properties.outer_detection_range=0
   end
   properties.movement_create = function()
-      local m = sol.movement.create("straight")
-      return m
+    local m = sol.movement.create("straight")
+    return m
   end
 
+  enemy.home_x, enemy.home_y=enemy:get_position()
+  enemy:set_damage(properties.damage)
+  enemy:create_sprite(properties.sprite)
+  enemy:set_hurt_style(properties.hurt_style)
+  enemy:set_pushed_back_when_hurt(properties.pushed_when_hurt)
+  enemy:set_push_hero_on_sword(properties.push_hero_on_sword)
+  enemy:set_obstacle_behavior(properties.obstacle_behavior)
+  local w,h =enemy:get_sprite():get_size()
+  enemy:set_size(w,h)
+  enemy:set_origin(w/2, h-3)
 
-  function enemy:on_created()
-    home_x, home_y=self:get_position()
-    self:set_life(properties.life)
-    self:set_damage(properties.damage)
-    self:create_sprite(properties.sprite)
-    self:set_hurt_style(properties.hurt_style)
-    self:set_pushed_back_when_hurt(properties.pushed_when_hurt)
-    self:set_push_hero_on_sword(properties.push_hero_on_sword)
-    self:set_obstacle_behavior(properties.obstacle_behavior)
-    local w,h =self:get_sprite():get_size()
-    self:set_size(w,h)
-    self:set_origin(w/2, h-3)
+  enemy:set_invincible()
+  enemy:get_sprite():set_animation("normal")
 
-    self:set_invincible()
-    self:get_sprite():set_animation("normal")
-
-    if properties.is_walkable then --Create a platform on it's top
-      local x,y,w,h=self:get_bounding_box()
-      platform = self:get_map():create_custom_entity({
+  if properties.is_walkable then --Create a platform on it's top
+    local x,y,w,h=enemy:get_bounding_box()
+    platform = enemy:get_map():create_custom_entity({
         x=x,
         y=y,
-        layer= self:get_layer(),
+        layer= enemy:get_layer(),
         direction = 3,
         width = w,
         height= 8,
         model = "platform_thwomp",
       })
-      platform:set_size(w,1)
-      platform:set_origin(0,0)
-      platform:set_enabled(self:is_enabled())
-    end
+    platform:set_size(w,1)
+    platform:set_origin(0,0)
+    platform:set_enabled(enemy:is_enabled())
   end
+
 
   function enemy:on_position_changed()
     if platform then
-      x, y=self:get_bounding_box()
+      x, y=enemy:get_bounding_box()
       platform:set_position(x, y)
     end
   end
 
   function enemy:look_at_hero()
-    local hero = self:get_map():get_entity("hero")
-    local angle = self:get_angle(hero)
-    local sprite = self:get_sprite()
+    local hero = enemy:get_map():get_entity("hero")
+    local angle = enemy:get_angle(hero)
+    local sprite = enemy:get_sprite()
     local n = sprite:get_num_directions()
     local dir_arc = 2*math.pi/n
     local index = math.floor((angle+dir_arc/2)*n/(2*math.pi))%n
@@ -134,40 +127,40 @@ function behavior:create(enemy, properties)
       sound_played = true
       audio_manager:play_sound(properties.crash_sound)
 
-      sol.timer.stop_all(self)
+      sol.timer.stop_all(enemy)
       sol.timer.start(enemy, 1000, function()
-        local sprite = self:get_sprite()
-        sprite:set_animation("normal")
-        enemy:go_home()
-      end)      
+          local sprite = enemy:get_sprite()
+          sprite:set_animation("normal")
+          enemy:go_home()
+        end)      
     end
   end
 
   function enemy:on_restarted()
     if falling then
-      self:fall()
+      enemy:fall()
     else
-      self.go_home()
+      enemy.go_home()
     end
   end
 
   function enemy:on_update()
-    self:look_at_hero()
+    enemy:look_at_hero()
   end
 
   function enemy:check_hero()
 
-    local hero = self:get_map():get_entity("hero")
-    local x, _, w = self:get_bounding_box()
+    local hero = enemy:get_map():get_entity("hero")
+    local x, _, w = enemy:get_bounding_box()
     local hx = hero:get_position()
     local hero_is_under_me = hx>=x-properties.outer_detection_range and
-                             hx<=x+w+properties.outer_detection_range and
-                             self:is_in_same_region(hero)
+    hx<=x+w+properties.outer_detection_range and
+    enemy:is_in_same_region(hero)
     if hero_is_under_me and not falling and not returning_home then
-      self:fall()
+      enemy:fall()
     end
-    sol.timer.stop_all(self)
-    sol.timer.start(self, 100, function() self:check_hero() end)
+    sol.timer.stop_all(enemy)
+    sol.timer.start(enemy, 100, function() enemy:check_hero() end)
   end
 
   function enemy:fall()
@@ -184,7 +177,7 @@ function behavior:create(enemy, properties)
 
   function enemy:on_removed()
     if platform then
-     platform:remove()
+      platform:remove()
     end
   end
 
@@ -207,12 +200,12 @@ function behavior:create(enemy, properties)
     enemy:get_sprite():set_animation("normal")
     local m = sol.movement.create("target")
     m:set_speed(properties.normal_speed)
-    m:set_target(home_x, home_y)
+    m:set_target(enemy.home_x, enemy.home_y)
     m:set_ignore_obstacles(properties.ignore_obstacles)
     m:start(enemy, function()
-      returning_home=false
-      enemy:check_hero()
-    end)
+        returning_home=false
+        enemy:check_hero()
+      end)
   end
 end
 

@@ -124,7 +124,7 @@ tile{
   x = 168,
   y = 456,
   width = 8,
-  height = 48,
+  height = 40,
   pattern = "barrier.2-1",
 }
 
@@ -133,7 +133,7 @@ tile{
   x = 144,
   y = 456,
   width = 8,
-  height = 48,
+  height = 40,
   pattern = "barrier.2-1",
 }
 
@@ -9889,7 +9889,7 @@ door{
       value = "items/sword_tap_bombable",
     },
   },
-  direction = 3,
+  direction = 1,
   sprite = "entities/doors/door_weak_wall",
   savegame_variable = "dungeon_7_weak_wall_A",
   opening_method = "explosion",
@@ -9967,18 +9967,6 @@ wall{
   stops_enemies = true,
   stops_blocks = true,
   stops_projectiles = true,
-}
-
-custom_entity{
-  name = "pull_handle_chain",
-  layer = 0,
-  x = 1224,
-  y = 285,
-  width = 16,
-  height = 8,
-  direction = 0,
-  sprite = "entities/handle_chain",
-  tiled = true,
 }
 
 block{
@@ -10687,28 +10675,6 @@ chest{
   sprite = "entities/chests/chest_small",
 }
 
-block{
-  name = "block_1_1",
-  layer = 0,
-  x = 1016,
-  y = 349,
-  sprite = "entities/blocks/block",
-  pushable = false,
-  pullable = false,
-  max_moves = 0,
-}
-
-block{
-  name = "block_1_2",
-  layer = 0,
-  x = 1016,
-  y = 381,
-  sprite = "entities/blocks/block",
-  pushable = false,
-  pullable = false,
-  max_moves = 0,
-}
-
 chest{
   name = "chest_mirror_shield",
   layer = 0,
@@ -10821,7 +10787,7 @@ custom_entity{
   y = 293,
   width = 16,
   height = 16,
-  direction = 0,
+  direction = 3,
   sprite = "entities/handle",
   model = "pull_handle",
 }
@@ -11011,7 +10977,7 @@ door{
   layer = 0,
   x = 152,
   y = 440,
-  direction = 1,
+  direction = 3,
   sprite = "entities/doors/door_normal",
   opening_condition = "dungeon_1_small_keys",
   opening_condition_consumed = true,
@@ -11056,7 +11022,7 @@ door{
   layer = 0,
   x = 280,
   y = 376,
-  direction = 2,
+  direction = 0,
   sprite = "entities/doors/door_normal",
   opening_condition = "dungeon_1_small_keys",
   opening_condition_consumed = true,
@@ -11067,7 +11033,7 @@ door{
   layer = 0,
   x = 344,
   y = 376,
-  direction = 0,
+  direction = 2,
   sprite = "entities/doors/door_normal",
   opening_condition = "dungeon_1_small_keys",
   opening_condition_consumed = true,
@@ -11201,7 +11167,7 @@ door{
       value = "items/sword_tap_bombable",
     },
   },
-  direction = 3,
+  direction = 1,
   sprite = "entities/doors/door_weak_wall",
   savegame_variable = "dungeon_7_weak_wall_A",
   opening_method = "explosion",
@@ -11222,7 +11188,7 @@ door{
       value = "items/sword_tap_bombable",
     },
   },
-  direction = 1,
+  direction = 3,
   sprite = "entities/doors/door_weak_wall",
   savegame_variable = "dungeon_7_weak_wall_B",
   opening_method = "explosion",
@@ -11456,7 +11422,7 @@ door{
   layer = 0,
   x = 984,
   y = 816,
-  direction = 0,
+  direction = 2,
   sprite = "entities/blocks/block_small_key",
   savegame_variable = "dungeon_7_block_small_key_1",
   opening_method = "interaction_if_savegame_variable",
@@ -12527,6 +12493,30 @@ block{
   pushable = false,
   pullable = false,
   maximum_moves = 0,
+}
+
+custom_entity{
+  name = "block_1_1",
+  layer = 0,
+  x = 1016,
+  y = 341,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/blocks/block",
+  model = "obstacle",
+}
+
+custom_entity{
+  name = "block_1_2",
+  layer = 0,
+  x = 1016,
+  y = 389,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/blocks/block",
+  model = "obstacle",
 }
 
 tile{
