@@ -80,20 +80,30 @@ function item:start_combo(other)
         layer = layer,
         width=8,
         height=8,
-
         sprite = "entities/bomb_arrow",
         direction=direction,
       }
+      
       bomb_arrow.apply_cliffs=true,
       bomb_arrow:set_origin(4,4)
+      bomb_arrow:set_can_traverse(false)
+      bomb_arrow:set_can_traverse("switch", true)
+      bomb_arrow:set_can_traverse("sensor", true)
+      bomb_arrow:set_can_traverse("stream", true)
+      bomb_arrow:set_can_traverse("stairs", true)
+      bomb_arrow:set_can_traverse("crystal_block", true)
+      bomb_arrow:set_can_traverse("pickable", true)
       bomb_arrow:set_can_traverse("explosion", true)
       bomb_arrow:set_can_traverse("teletransporter", true)
-      bomb_arrow:set_can_traverse("custom_entity", true)
+      bomb_arrow:set_can_traverse("custom_entity", function(e)
+          return e:is_traversable_by("custom_entity")
+        end)
       bomb_arrow:set_can_traverse("jumper", true)
       bomb_arrow:set_can_traverse("npc", function(entity, other)
           --TODO check for NPC type when a function like "npc:is_generalized()" is available
           return other:is_drawn_in_y_order() or other:is_traversable()
         end)
+      
       bomb_arrow:set_can_traverse_ground("hole", true)
       bomb_arrow:set_can_traverse_ground("deep_water", true)
       bomb_arrow:set_can_traverse_ground("shallow_water", true)
