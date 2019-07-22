@@ -363,6 +363,15 @@ tile{
   pattern = "16",
 }
 
+tile{
+  layer = 0,
+  x = 80,
+  y = 0,
+  width = 16,
+  height = 192,
+  pattern = "79",
+}
+
 dynamic_tile{
   layer = 0,
   x = 448,
