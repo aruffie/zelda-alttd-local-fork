@@ -24,12 +24,10 @@ local hero = game:get_hero()
 local max_dy=1
 local accel = 0.1
 local accel_duration = 1
-entity.direction = 0
 local old_x=0
 local old_y=0
 local true_x, true_y
-local speed=0
-local w, h
+entity.speed=0
 local twin=nil
 local chain=nil
 
@@ -43,7 +41,6 @@ entity:register_event("on_created", function()
     twin = entity:get_map():get_entity(name:sub(1, -3).."_"..(3-tonumber(name:sub(-1)))) 
 
     --Set me up
-    w, h = entity:get_size()
     old_x, old_y=entity:get_bounding_box()
     entity:set_traversable_by(false)
     entity.is_on_twin=false
@@ -64,13 +61,38 @@ entity:register_event("on_created", function()
     chain:set_origin(8, 13)
   end)
 
---Utility function, self-explanatory
-local function is_on_platform(e) 
-  local x,y=e:get_bounding_box()
-  local hx, hy, hw, hh=hero:get_bounding_box()
-  return hx<x+w and hx+hw>x and hy<=y+h-1 and hy+hh>=y-1
+local function is_on_platform(entity, other)
+  if entity~=other and other:get_type()~="camera" and other~=chain then
+    local x, y, w, h = entity:get_bounding_box()
+    local hx, hy, hw, hh = other:get_bounding_box()
+    return hx < x+w and hx+hw > x and hy <= y+h-1 and hy+hh >= y-1
+  end
+  return false
 end
 
+--Detects ehteher there is another entity on the platform, and moves it along
+entity:add_collision_test(
+
+  function(entity, other)
+    return is_on_platform(entity, other)
+  end,
+
+  function(entity, other)
+    local x,y=entity:get_bounding_box()
+    if other:get_type()=="hero" then
+      --Downward acceleration
+      entity.speed = math.min(entity.speed+0.01*max_dy/2, max_dy)
+      twin.speed=-entity.speed
+    end
+
+    --Move the other entity with me
+    local dx, dy = x-old_x, y-old_y
+    local xx, yy = other:get_position()
+    if not other:test_obstacles(0, dy) then
+      other:set_position(xx+dx, yy+dy)
+    end
+  end
+)
 
 function entity:on_removed()
   if chain then
@@ -90,43 +112,36 @@ function entity:on_enabled()
   end    
 end
 
-function entity:on_update()
-  local x,y=entity:get_bounding_box()
-  local hx, hy, hw, hh=hero:get_bounding_box()
-  if is_on_platform(entity) then
-    --print("we are on "..entity:get_name())
-
-    speed = math.min(speed+0.01*max_dy, max_dy)
-  elseif is_on_platform(twin) then
-    speed = math.max(speed-0.01*max_dy, -max_dy)
-  else
-    if speed >0 then
-      speed = math.max(speed-0.01*max_dy, 0)
-    else
-      speed = math.min(speed+0.01*max_dy, 0)
-    end
-  end
-
-  --Compute the new position
-  if entity:test_obstacles(0, speed)==false and twin:test_obstacles(0, -speed)==false then
-    --Only move if any of the platforms can move
-    true_y=true_y+speed
-    entity:set_position(true_x, true_y)
-  else
-    speed = 0
-  end
-
-  --Move the hero with me
-  local dx, dy = x-old_x, y-old_y
-  local xx, yy = hero:get_position()
-  if not hero:test_obstacles(0, dy) and is_on_platform(entity) then
-    hero:set_position(xx+dx, yy+dy)
-  end
-
-  old_x, old_y = entity:get_bounding_box()
-  --local chain = entity:get_map():get_entity(group.."_chain_"..id)
+--Synchronizes the associated chain
+function entity:on_position_changed(x,y,layer)
   local dy = old_y+13
   chain:set_position(old_x+8, dy%16) 
-
-  chain:set_size(w, math.max(8, dy-(dy%16)))
+  chain:set_size(16, math.max(8, dy-(dy%16)))
 end
+
+sol.timer.start(entity, 10, function() 
+    local x,y=entity:get_bounding_box()
+    local hx, hy, hw, hh=hero:get_bounding_box()
+
+    if is_on_platform(entity, hero)==false or is_on_platform(twin, hero) then
+      --slowly decelerate
+      if entity.speed>0 then
+        entity.speed = math.max(entity.speed-0.01*max_dy, 0)
+      else
+        entity.speed = math.min(entity.speed+0.01*max_dy, 0)
+      end
+    end
+
+    if entity:test_obstacles(0, math.floor(entity.speed)+1) or twin:test_obstacles(0, math.floor(twin.speed+1)) then
+      --reset speed if there an obstacle under either of the twins
+      print (entity:get_name().." cannot move (position: X "..x..", Y "..y)
+      entity.speed=0
+    else
+      --Compute the new position
+      true_y=true_y+entity.speed
+      entity:set_position(true_x, true_y)
+      --update old position
+      old_x, old_y = entity:get_bounding_box()
+    end
+    return true
+  end)

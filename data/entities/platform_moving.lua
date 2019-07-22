@@ -116,10 +116,11 @@ function entity:on_position_changed()
 -- print ("Job's done for" ..(entity:get_name() or "<some entity>")) 
 end
 
-function entity:on_update()
+sol.timer.start(entity, 10, function()
   elapsed_time=elapsed_time+10
   local a=-math.cos(elapsed_time/duration*math.pi*2)+1
   local new_x = start_x + a*ax
   local new_y = start_y + a*ay
   entity:set_position(new_x,new_y)
-end
+  return true
+end)
