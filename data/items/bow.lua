@@ -111,10 +111,10 @@ function item:start_combo(other)
       bomb_arrow:set_can_traverse_ground("lava", true)
       bomb_arrow:set_can_traverse_ground("prickles", true)
 
-
       local m=sol.movement.create("straight")
       m:set_speed(192)
       m:set_angle(direction*math.pi/2)
+      m:set_smooth(false)
       m.on_obstacle_reached=function()
         --TODO find a way to ignore axisting explosions
         print "BOOM"
