@@ -6,7 +6,7 @@ properties{
   min_layer = -2,
   max_layer = 2,
   world = "outside_world",
-  tileset = "out/outside",
+  tileset = "out/outside_main",
   music = "same",
 }
 
@@ -5497,6 +5497,7 @@ tile{
   width = 32,
   height = 8,
   pattern = "403",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -5533,6 +5534,7 @@ tile{
   width = 32,
   height = 8,
   pattern = "403",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -6991,6 +6993,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "6112",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -7000,6 +7003,7 @@ tile{
   width = 8,
   height = 16,
   pattern = "6111",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -7009,6 +7013,7 @@ tile{
   width = 8,
   height = 16,
   pattern = "6114",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -7018,6 +7023,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "6112",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -7027,6 +7033,7 @@ tile{
   width = 8,
   height = 16,
   pattern = "6109",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -7036,6 +7043,7 @@ tile{
   width = 8,
   height = 16,
   pattern = "6109",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -7054,6 +7062,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "6113",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -8386,6 +8395,7 @@ tile{
   width = 48,
   height = 16,
   pattern = "12842",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -8872,6 +8882,7 @@ tile{
   width = 48,
   height = 16,
   pattern = "12842",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -10744,6 +10755,7 @@ tile{
   width = 96,
   height = 16,
   pattern = "12842",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -11041,6 +11053,7 @@ tile{
   width = 48,
   height = 16,
   pattern = "12842",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -13772,6 +13785,7 @@ tile{
   width = 48,
   height = 16,
   pattern = "12842",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -16781,6 +16795,7 @@ tile{
   width = 80,
   height = 32,
   pattern = "6817",
+  tileset = "out/outside_buildings",
 }
 
 tile{
