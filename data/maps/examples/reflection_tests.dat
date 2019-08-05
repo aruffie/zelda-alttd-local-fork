@@ -17,7 +17,7 @@ tile{
   width = 320,
   height = 256,
   pattern = "917",
-  tileset = "out/outside",
+  tileset = "out/outside_main",
 }
 
 destination{

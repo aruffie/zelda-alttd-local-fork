@@ -179,6 +179,7 @@ tile{
   width = 144,
   height = 16,
   pattern = "49",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -216,7 +217,8 @@ tile{
   width = 144,
   height = 72,
   pattern = "10020",
-  tileset = "out/outside",
+  tileset = "out/outside_special",
+  tileset = "out/outside_main",
 }
 
 tile{
@@ -325,6 +327,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "15",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -334,6 +337,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "142",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -343,6 +347,7 @@ tile{
   width = 8,
   height = 16,
   pattern = "141",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -352,6 +357,7 @@ tile{
   width = 8,
   height = 16,
   pattern = "143",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -361,6 +367,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "16",
+  tileset = "out/outside_special",
 }
 
 tile{
