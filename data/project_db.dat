@@ -177,7 +177,6 @@ tileset{ id = "dungeon/yellow", description = "Yellow" }
 tileset{ id = "movies/beach", description = "Beach" }
 tileset{ id = "movies/beach_sunset", description = "Beach sunset" }
 tileset{ id = "out/light_world_legacy", description = "Light world legacy" }
-tileset{ id = "out/outside", description = "Outside" }
 tileset{ id = "out/outside_buildings", description = "Outside buildings" }
 tileset{ id = "out/outside_main", description = "Outside main" }
 tileset{ id = "out/outside_special", description = "Outside special" }
@@ -2661,9 +2660,6 @@ file{ path = "tilesets/out", author = "Nintendo, FFomega", license = "Mixed" }
 file{ path = "tilesets/out/light_world_legacy.dat", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
 file{ path = "tilesets/out/light_world_legacy.entities.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
 file{ path = "tilesets/out/light_world_legacy.tiles.png", author = "Nintendo, FFomega", license = "Proprietary, Fair use" }
-file{ path = "tilesets/out/outside.dat", author = "FFomega", license = "CC BY-SA 4.0" }
-file{ path = "tilesets/out/outside.entities.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
-file{ path = "tilesets/out/outside.tiles.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
 file{ path = "tilesets/out/outside_buildings.dat", author = "FFomega", license = "CC BY-SA 4.0" }
 file{ path = "tilesets/out/outside_buildings.tiles.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
 file{ path = "tilesets/out/outside_main.dat", author = "FFomega", license = "CC BY-SA 4.0" }
