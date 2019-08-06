@@ -113,13 +113,13 @@ function separator_manager:init(map)
   -- Store the position and properties of enemies.
   for enemy in map:get_entities_by_type("enemy") do
     local x, y, layer = enemy:get_position()
-    enemy_places[enemy:get_name()] = {
+    enemy_places[enemy:get_name() or ""] = {
       x = x,
       y = y,
       layer = layer,
       breed = enemy:get_breed(),
       direction = enemy:get_sprite():get_direction(),
-      name = enemy:get_name(),
+      name = enemy:get_name() or "",
       treasure = { enemy:get_treasure() },
       enemy = enemy
     }

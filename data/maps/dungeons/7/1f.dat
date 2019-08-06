@@ -7001,7 +7001,7 @@ enemy{
   x = 824,
   y = 301,
   direction = 3,
-  breed = "stalfos",
+  breed = "stalfos_blue",
 }
 
 destination{
