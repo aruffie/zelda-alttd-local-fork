@@ -9,6 +9,8 @@ local hero = map:get_hero()
 
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/" .. enemy:get_breed())
 
+-- TODO sounds, configuration variables
+
 -- Check if an attack should be triggered, continue walking else.
 function enemy:on_walk_finished()
 
@@ -62,18 +64,37 @@ end
 
 -- Make the enemy eat the hero.
 function enemy:eat_hero()
-  enemy:remove_sprite(enemy:get_sprite("aspiration"))
+  local aspiration_sprite = enemy:get_sprite("aspiration")
+  if aspiration_sprite then
+    enemy:remove_sprite(aspiration_sprite)
+  end
   sprite:stop_movement()
-  sprite:set_animation("eating_link")
   sprite:set_xy(0, 0)
+  sprite:set_animation("eating_link")
   hero:set_visible(false)
   hero:freeze()
 
+  -- Manually hurt and spit the hero after a delay.
   sol.timer.start(enemy, 2000, function()
-    local x, y, layer = enemy:get_position()
-    hero:set_position(x - (sprite:get_direction() - 1) * 4, y) -- Move the hero over the enemy's origin to control the hurt direction.
+    
+    hero:start_hurt(4)
+    hero:set_position(enemy:get_position())
     hero:set_visible()
-    hero:unfreeze()
+
+    local movement = sol.movement.create("straight")
+    movement:set_speed(220)
+    movement:set_max_distance(64)
+    movement:set_angle(sprite:get_direction() * math.pi / 2.0)
+    movement:start(hero)
+
+    function movement:on_finished()
+      hero:unfreeze()
+    end
+
+    function movement:on_obstacle_reached()
+      hero:unfreeze()
+    end
+
     enemy:reset_default_states()
   end)
 end
@@ -82,10 +103,10 @@ function enemy:on_update()
 
   -- Make the sprite jump if the enemy is not attacking.
   if not enemy.is_attacking then
-    sprite:set_xy(0, math.abs(math.cos(sol.main.get_elapsed_time() / 75) * 4))
+    sprite:set_xy(0, -math.abs(math.cos(sol.main.get_elapsed_time() / 75.0) * 4.0))
   end
 
-  -- If the hero touches the center of the enemy while it's aspiring, eat him.
+  -- If the hero touches the center of the enemy while aspiring, eat him.
   if enemy.is_aspiring then
     if enemy:overlaps(hero, "origin", sprite) then
       enemy.is_aspiring = false
@@ -105,13 +126,32 @@ function enemy:start_aspirate()
     enemy:set_can_attack(false)
     enemy.is_aspiring = true
 
-    -- TODO If the hero is on the side (left/right) where the enemy is looking at, aspire him.
-    local x, _, _ = enemy:get_position()
-    local hero_x, _, _ = hero:get_position()
-    local direction = sprite:get_direction()
-    if (direction == 0 and hero_x > x) or (direction == 2 and hero_x < x) then
-      
+    -- Bring hero closer while the enemy is aspiring.
+    local function aspire_hero()
+      local enemy_x, enemy_y, enemy_layer = enemy:get_position()
+      local hero_x, hero_y, hero_layer = hero:get_position()
+      local direction = sprite:get_direction()
+      if (direction == 0 and hero_x >= enemy_x) or (direction == 2 and hero_x <= enemy_x) then -- If the hero is on the side (left/right) where the enemy is looking at
+
+        -- Simulate smooth movement.
+        -- TODO when reaching an obstacle the map:get_ground() method seems to detect the wall too late
+        local x = hero_x - math.max(math.min(hero_x - enemy_x, 1), -1)
+        local y = hero_y - math.max(math.min(hero_y - enemy_y, 1), -1)
+        if string.match(map:get_ground(x, hero_y, hero_layer), "wall") then -- If the next x position would be a valid one.
+          x = hero_x
+        end
+        if string.match(map:get_ground(x, y, hero_layer), "wall") then -- If the next y position would be a valid one.
+          y = hero_y
+        end
+        hero:set_position(x, y, hero_layer)
+      end
+      if enemy.is_aspiring then
+        sol.timer.start(enemy, 50, function()
+          aspire_hero()
+        end)
+      end
     end
+    aspire_hero()
 
     -- Start aspire animation.
     sprite:set_animation("aspire")
@@ -119,7 +159,7 @@ function enemy:start_aspirate()
     aspiration_sprite:set_direction(sprite:get_direction())
     
     -- Make the enemy sprites elevate while aspiring.
-    function elevate(entity, angle)
+    local function elevate(entity, angle)
       local movement = sol.movement.create("straight")
       movement:set_speed(8)
       movement:set_max_distance(8)
@@ -134,15 +174,17 @@ function enemy:start_aspirate()
     -- Wait for a delay and start the touchdown movement.
     function elevate_movement:on_finished()
       sol.timer.start(enemy, 3000, function()
-        local touchdown_movement = elevate(sprite, 3.0 * math.pi / 2.0)
-        elevate(aspiration_sprite, 3.0 * math.pi / 2.0)
+        if enemy.is_aspiring then
+          local touchdown_movement = elevate(sprite, 3.0 * math.pi / 2.0)
+          elevate(aspiration_sprite, 3.0 * math.pi / 2.0)
 
-        -- Reset default states a little after touching the ground.
-        function touchdown_movement:on_finished() 
-          sol.timer.start(enemy, 400, function()
-            enemy:remove_sprite(aspiration_sprite)
-            enemy:reset_default_states()
-          end)
+          -- Reset default states a little after touching the ground.
+          function touchdown_movement:on_finished() 
+            sol.timer.start(enemy, 400, function()
+              enemy:remove_sprite(aspiration_sprite)
+              enemy:reset_default_states()
+            end)
+          end
         end
       end)
     end
@@ -154,8 +196,6 @@ function enemy:on_created()
   -- Game properties.
   enemy:set_life(4)
   enemy:set_damage(2)
-  enemy.is_attacking = false
-  enemy.is_aspiring = false
 
   -- Behavior for each items.
   enemy:set_attack_consequence("sword", "ignored")
@@ -165,14 +205,13 @@ function enemy:on_created()
   enemy:set_attack_consequence("fire", "ignored")
   enemy:set_attack_consequence("boomerang", 1)
   enemy:set_attack_consequence("explosion", 2)
-  --TODO enemy:set_attack_consequence("magic_rod", 2)
+  -- TODO enemy:set_attack_consequence("magic_rod", 2)
   enemy:set_hammer_reaction(0)
 
   -- Shadow.
   local shadow_sprite = enemy:create_sprite("entities/shadows/shadow", "shadow")
-  shadow_sprite:set_xy(-1, 5)
   enemy:bring_sprite_to_back(shadow_sprite)
 
   -- Initial movement.
-  enemy:start_walking()
+  enemy:reset_default_states()
 end
