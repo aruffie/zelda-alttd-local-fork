@@ -1,6 +1,7 @@
 -- Lua script of enemy beamos.
 -- This script is executed every time an enemy with this model is created.
 
+-- Global variables.
 local enemy = ...
 local map = enemy:get_map()
 local hero = map:get_hero()
@@ -9,10 +10,11 @@ local audio_manager = require("scripts/audio_manager")
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local angle_per_frame = 2 * math.pi / sprite:get_num_frames()
 
+-- Configuration variables.
 local triggering_angle = angle_per_frame * 1.5
 local start_shooting_delay = 200
-local unpause_animation_delay = 1000
-local is_exhausted_delay = 200
+local pause_duration = 1000
+local is_exhausted_duration = 200
 
 -- Properties
 function enemy:on_created()
@@ -45,11 +47,11 @@ function enemy:start_firing()
     })
 
     -- Unpause animation after some time.
-    sol.timer.start(enemy, unpause_animation_delay, function()
+    sol.timer.start(enemy, pause_duration, function()
       sprite:set_paused(false)
 
       -- Allow to shoot again after a delay.
-      sol.timer.start(enemy, is_exhausted_delay, function()
+      sol.timer.start(enemy, is_exhausted_duration, function()
         self.is_exhausted = false 
       end)
     end)
