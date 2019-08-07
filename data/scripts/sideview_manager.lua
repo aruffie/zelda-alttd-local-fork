@@ -114,6 +114,21 @@ local function test_ladder(entity)
   return is_ladder(map, x, y-2, layer) or is_ladder(map, x, y+2, layer)
 end
 
+local function check_for_water(entity)
+  local map=entity:get_map()
+  local x,y,layer= entity:get_position() 
+  local bx,by,w,h=entity:get_bounding_box()
+  local ox, oy=entity:get_origin()
+  --we need to have full clearance of water before we can go down (in sideview section, there is no such thing as a free ground on the side of water pool)
+  for i=bx, bx+w-1, 8 do
+    print ("Checking water at ("..i..", "..(by+h)..").")
+    if map:get_ground(i,by+h, layer)~="deep_water" then
+      return false
+    end
+  end
+  return map:get_ground(bx+w-1, by+h, layer) =="deep_water"
+
+end
 --[[
   This is the core function of the side views : 
   it applies a semi-realistic gravity to the given entity, and resets the vertical speed if :
@@ -146,15 +161,15 @@ local function apply_gravity(entity)
       entity:set_position(x,y-1)
     end
   end
-  
+
   --Update the vertical speed
   if map:get_ground(x,y,layer)=="deep_water" then
-    vspeed = math.min(vspeed+gravity/3, 0.2)
+    vspeed = 0.2 --Set a fixed speed for submerged gravity-affected entitied
   else
     vspeed = math.min(vspeed+gravity, max_vspeed)
   end
   entity.vspeed = vspeed
-  
+
   --Set the new delay for the timer
   return math.min(math.floor(10/math.abs(vspeed)), 100)
 end
@@ -174,6 +189,38 @@ local function update_entities(map)
       end
       -- Try to make entity be affected by gravity.
       if has_property or is_affected then
+        if not entity.show_hitbox then --DEBUG : draw hitbox information
+          entity.show_hitbox = true --Flag me s processed
+            local w,h=entity:get_size()
+            local s=sol.surface.create(w,h)
+            local ox, oy=entity:get_origin()
+            local b={255,0,0}
+            local c={0,255,0}
+            --draw the hitbox
+            s:fill_color(b, 0, 0, w,1)
+            s:fill_color(b, 0, h-1, w,1)
+            s:fill_color(b, 0, 0, 1,h)
+            s:fill_color(b, w-1, 0, 1, h)
+            --draw the origin (representing the actual position)
+            s:fill_color(c, 0, oy, w, 1)
+            s:fill_color(c, ox, 0 ,1,h)
+            entity.debug_hitbox=s
+          function entity:on_post_draw(camera)
+            local cx,cy=camera:get_position()
+            local x,y=entity:get_bounding_box()
+            entity.debug_hitbox:draw(camera:get_surface(), x-cx, y-cy)
+          end
+        end
+        if entity:get_type()~="hero" and entity.water_processed == nil and entity.vspeed == nil and entity:test_obstacles(0,1) and check_for_water(entity) then
+          --Force the entity to get down when in a water pool
+          entity.water_processed=true
+          sol.timer.start(entity, 50, function()
+              entity.water_processed=nil
+              local x,y=entity:get_position()
+              entity:set_position(x,y+1)
+            end)
+        end
+
         if entity.vspeed and entity.vspeed<0 or not entity:test_obstacles(0,1) then
           --Start gravity effect timer loop
           if entity.gravity_timer==nil then
@@ -246,8 +293,8 @@ local function update_hero(hero)
   local can_move_vertically = true
   local _left, _right, _up, _down
   local ladder=test_ladder(hero)
-  
-  
+
+
   -------------------------
   --Manage command inputs--
   -------------------------
@@ -433,7 +480,7 @@ game_meta:register_event("on_map_changed", function(game, map)
           return true
         end)
     else
-      
+
       hero:set_walking_speed(88)
     end
   end)
