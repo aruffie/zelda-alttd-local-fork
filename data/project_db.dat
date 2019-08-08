@@ -1270,7 +1270,7 @@ enemy{ id = "death_ball", description = "Death Ball" }
 enemy{ id = "dog", description = "Dog" }
 enemy{ id = "eyegore_statue/eyegore_statue", description = "Eyegore Statue" }
 enemy{ id = "eyegore_statue/eyegore_statue_fireball", description = "Eyegore Statue Fireball" }
-enemy{ id = "face_lamp", description = "Face Lamp" }
+enemy{ id = "face_lamp/face_lamp", description = "Face Lamp" }
 enemy{ id = "fireball", description = "Fireball" }
 enemy{ id = "flying_tile", description = "Flying Tile" }
 enemy{ id = "gel", description = "Gel" }
@@ -1473,7 +1473,6 @@ file{ path = "enemies/dog.lua", author = "Benjamin Schweitzer", license = "GPL v
 file{ path = "enemies/eyegore_statue", license = "GPL v3" }
 file{ path = "enemies/eyegore_statue/eyegore_statue.lua", license = "GPL v3" }
 file{ path = "enemies/eyegore_statue/eyegore_statue_fireball.lua", license = "GPL v3" }
-file{ path = "enemies/face_lamp.lua", license = "GPL v3" }
 file{ path = "enemies/fireball.lua", license = "GPL v3" }
 file{ path = "enemies/flying_tile.lua", license = "GPL v3" }
 file{ path = "enemies/gel.lua", license = "GPL v3" }

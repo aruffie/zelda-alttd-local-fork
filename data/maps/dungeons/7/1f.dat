@@ -8642,6 +8642,6 @@ enemy{
   x = 1000,
   y = 781,
   direction = 0,
-  breed = "face_lamp",
+  breed = "face_lamp/face_lamp",
 }
 
