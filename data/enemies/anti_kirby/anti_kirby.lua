@@ -5,16 +5,20 @@
 
 -- Global variables
 local enemy = ...
+require("enemies/lib/common_actions").learn(enemy)
+
 local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local aspiration_sprite = nil
+local eighth = math.pi / 4.0
 
 -- Configuration variables
 local suction_damage = 2
 local contact_damage = 4
 
+local walking_possible_angle = {eighth, 3.0 * eighth, 5.0 * eighth, 7.0 * eighth}
 local attack_triggering_distance = 100
 
 local walking_pause_duration = 1000
@@ -24,12 +28,21 @@ local before_aspiring_delay = 200
 local aspiration_on_hero_step_delay = 50
 local finish_aspiration_delay = 400
 
-local walking_step_speed = 48
-local walking_step_distance = 45
+local walking_speed = 48
+local walking_distance = 45
 local spit_speed = 220
 local spit_distance = 64
 local elevation_speed = 8
 local elevation_distance = 8
+
+-- Return the visual direction (left or right) depending on the sprite direction.
+function enemy:get_direction2()
+
+  if sprite:get_direction() < 2 then
+    return 0
+  end
+  return 1
+end
 
 -- Check if an attack should be triggered, continue walking else.
 function enemy:on_walk_finished()
@@ -43,47 +56,23 @@ function enemy:on_walk_finished()
     enemy:start_aspirate()
   else
     sol.timer.start(enemy, walking_pause_duration, function()
-      enemy:start_walking()
+      enemy:start_walking(walking_possible_angle, walking_speed, walking_distance, sprite)
     end)
-  end
-end
-
--- Make the enemy move randomly and diagonally, and stop after each steps.
-function enemy:start_walking()
-
-  -- Random diagonal movement.
-  math.randomseed(os.time())
-  local direction = math.random(4)
-  local movement = sol.movement.create("straight")
-  movement:set_speed(walking_step_speed)
-  movement:set_max_distance(walking_step_distance)
-  movement:set_angle(math.pi / 4.0 + math.pi / 2.0 * direction)
-  movement:set_smooth(true)
-  movement:start(self)
-  sprite:set_direction((direction == 1 or direction == 2) and 2 or 0) -- Only left or right possible.
-
-  function movement:on_finished()
-    enemy:on_walk_finished()
-  end
-
-  -- Consider the current move as finished if stuck.
-  function movement:on_obstacle_reached()
-    movement:stop()
-    enemy:on_walk_finished()
   end
 end
 
 -- Reset default states after an enemy attack.
 function enemy:reset_default_states()
+
   enemy.is_aspiring = false
   enemy.is_attacking = false
   enemy:set_can_attack(true)
-  sprite:set_animation("walking")
-  enemy:start_walking()
+  enemy:start_walking(walking_possible_angle, walking_speed, walking_distance, sprite)
 end
 
 -- Make the enemy eat the hero.
 function enemy:eat_hero()
+
   if aspiration_sprite then
     enemy:remove_sprite(aspiration_sprite)
     aspiration_sprite = nil
@@ -104,7 +93,7 @@ function enemy:eat_hero()
     local movement = sol.movement.create("straight")
     movement:set_speed(spit_speed)
     movement:set_max_distance(spit_distance)
-    movement:set_angle(sprite:get_direction() * math.pi / 2.0)
+    movement:set_angle(enemy:get_direction2() * math.pi)
     movement:start(hero)
 
     function movement:on_finished()
@@ -149,25 +138,13 @@ function enemy:start_aspirate()
 
     -- Bring hero closer while the enemy is aspiring.
     local function aspire_hero()
-      local enemy_x, enemy_y, enemy_layer = enemy:get_position()
-      local hero_x, hero_y, hero_layer = hero:get_position()
-      local direction = sprite:get_direction()
+      local enemy_x, _, _ = enemy:get_position()
+      local hero_x, _, _ = hero:get_position()
+      local direction = enemy:get_direction2()
 
       -- If the hero is on the side (left/right) where the enemy is looking at
-      if (direction == 0 and hero_x >= enemy_x) or (direction == 2 and hero_x <= enemy_x) then 
-
-        local move_x = math.max(math.min(enemy_x - hero_x, 1), -1)
-        local move_y = math.max(math.min(enemy_y - hero_y, 1), -1)
-
-        -- Do one step by axis to simulate a smooth movement.
-        if hero:test_obstacles(move_x, 0) then
-          move_x = 0
-        end
-        if hero:test_obstacles(move_x, move_y) then
-          move_y = 0
-        end
-
-        hero:set_position(hero_x + move_x, hero_y + move_y, hero_layer)
+      if (direction == 0 and hero_x >= enemy_x) or (direction == 1 and hero_x <= enemy_x) then 
+        enemy:attract_hero(1)
       end
 
       if enemy.is_aspiring then
@@ -219,6 +196,7 @@ function enemy:start_aspirate()
   end)
 end
 
+-- Initialization.
 function enemy:on_created()
 
   -- Game properties.
