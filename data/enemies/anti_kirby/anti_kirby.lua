@@ -8,8 +8,7 @@ local enemy = ...
 local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
-
-local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/" .. enemy:get_breed())
+local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local aspiration_sprite = nil
 
 -- Configuration variables
@@ -23,7 +22,7 @@ local eating_duration = 2000
 local elevated_duration = 3000
 local before_aspiring_delay = 200
 local aspiration_on_hero_step_delay = 50
-local before_walking_again_delay = 400
+local finish_aspiration_delay = 400
 
 local walking_step_speed = 48
 local walking_step_distance = 45
@@ -35,11 +34,11 @@ local elevation_distance = 8
 -- Check if an attack should be triggered, continue walking else.
 function enemy:on_walk_finished()
 
-  -- If the hero is near enough.
   local _, _, layer = enemy:get_position()
   local _, _, hero_layer = hero:get_position()
   local near_hero = (layer == hero_layer or enemy:has_layer_independent_collisions()) and enemy:get_distance(hero) < attack_triggering_distance
 
+  -- Start aspirate if the hero is near enough, continue walking else.
   if near_hero then
     enemy:start_aspirate()
   else
@@ -120,6 +119,7 @@ function enemy:eat_hero()
   end)
 end
 
+-- Passive behaviors needing constant checking.
 function enemy:on_update()
 
   -- Make the sprite jump if the enemy is not attacking.
@@ -180,7 +180,7 @@ function enemy:start_aspirate()
 
     -- Start aspire animation.
     sprite:set_animation("aspire")
-    aspiration_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/" .. enemy:get_breed() .. "_aspiration", "aspiration")
+    aspiration_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "_aspiration", "aspiration")
     aspiration_sprite:set_direction(sprite:get_direction())
     
     -- Make the enemy sprites elevate while aspiring.
@@ -205,7 +205,7 @@ function enemy:start_aspirate()
 
           -- Reset default states a little after touching the ground.
           function touchdown_movement:on_finished() 
-            sol.timer.start(enemy, before_walking_again_delay, function()
+            sol.timer.start(enemy, finish_aspiration_delay, function()
               enemy:remove_sprite(aspiration_sprite)
               aspiration_sprite = nil
               enemy:reset_default_states()

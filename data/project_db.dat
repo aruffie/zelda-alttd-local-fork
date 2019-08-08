@@ -1207,7 +1207,7 @@ item{ id = "tail_key", description = "Tail key" }
 item{ id = "tunic", description = "Tunic (green/blue/red)" }
 item{ id = "zol_green", description = "Zol green" }
 
-enemy{ id = "anti_kirby", description = "Anti-kirby" }
+enemy{ id = "anti_kirby/anti_kirby", description = "Anti-kirby" }
 enemy{ id = "arm_mimic", description = "Arm Mimic" }
 enemy{ id = "armos", description = "Armos" }
 enemy{ id = "arrow", description = "Arrow" }
@@ -1406,7 +1406,6 @@ shader{ id = "toon", description = "Toon" }
 shader{ id = "water_effect", description = "water_effect" }
 
 file{ path = "enemies", license = "GPL v3" }
-file{ path = "enemies/anti_kirby.lua", license = "GPL v3" }
 file{ path = "enemies/arm_mimic.lua", license = "GPL v3" }
 file{ path = "enemies/armos.lua", license = "GPL v3" }
 file{ path = "enemies/arrow.lua", license = "GPL v3" }
