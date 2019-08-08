@@ -75,7 +75,7 @@ function enemy:shoot()
   }
 
   local beam = enemy:create_enemy({
-    breed = "wizzrobe_beam",
+    breed = enemy:get_breed() .. "_beam",
     x = dxy[direction + 1][1],
     y = dxy[direction + 1][2],
   })
