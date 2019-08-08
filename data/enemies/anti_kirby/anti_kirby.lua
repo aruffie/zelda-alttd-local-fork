@@ -15,7 +15,7 @@ local aspiration_sprite = nil
 local suction_damage = 2
 local contact_damage = 4
 
-local attack_triggering_distance = 80
+local attack_triggering_distance = 100
 
 local walking_pause_duration = 1000
 local eating_duration = 2000
@@ -152,24 +152,24 @@ function enemy:start_aspirate()
       local enemy_x, enemy_y, enemy_layer = enemy:get_position()
       local hero_x, hero_y, hero_layer = hero:get_position()
       local direction = sprite:get_direction()
-      if (direction == 0 and hero_x >= enemy_x) or (direction == 2 and hero_x <= enemy_x) then -- If the hero is on the side (left/right) where the enemy is looking at
 
-        -- Simulate smooth movement.
-        -- TODO Don't hardcode the hero bounding box.
+      -- If the hero is on the side (left/right) where the enemy is looking at
+      if (direction == 0 and hero_x >= enemy_x) or (direction == 2 and hero_x <= enemy_x) then 
+
         local move_x = math.max(math.min(enemy_x - hero_x, 1), -1)
         local move_y = math.max(math.min(enemy_y - hero_y, 1), -1)
-        if string.match(map:get_ground(hero_x + move_x * 9, hero_y - 13, hero_layer), "wall")
-            or string.match(map:get_ground(hero_x + move_x * 9, hero_y + 3, hero_layer), "wall")
-            then -- Check if the x move would be valid regarding the hero bounding box.
+
+        -- Do one step by axis to simulate a smooth movement.
+        if hero:test_obstacles(move_x, 0) then
           move_x = 0
         end
-        if string.match(map:get_ground(hero_x + move_x - 8, hero_y + move_y + (move_y > 0 and 3 or -13), hero_layer), "wall")
-            or string.match(map:get_ground(hero_x + move_x + 8, hero_y + move_y + (move_y > 0 and 3 or -13), hero_layer), "wall")
-            then -- Check if the y move would be valid regarding the hero bounding box.
+        if hero:test_obstacles(move_x, move_y) then
           move_y = 0
         end
+
         hero:set_position(hero_x + move_x, hero_y + move_y, hero_layer)
       end
+
       if enemy.is_aspiring then
         sol.timer.start(enemy, aspiration_on_hero_step_delay, function()
           aspire_hero()
@@ -206,9 +206,11 @@ function enemy:start_aspirate()
           -- Reset default states a little after touching the ground.
           function touchdown_movement:on_finished() 
             sol.timer.start(enemy, finish_aspiration_delay, function()
-              enemy:remove_sprite(aspiration_sprite)
-              aspiration_sprite = nil
-              enemy:reset_default_states()
+              if enemy.is_aspiring then
+                enemy:remove_sprite(aspiration_sprite)
+                aspiration_sprite = nil
+                enemy:reset_default_states()
+              end
             end)
           end
         end
@@ -232,7 +234,6 @@ function enemy:on_created()
   enemy:set_attack_consequence("boomerang", 1)
   enemy:set_attack_consequence("explosion", 2)
   -- TODO enemy:set_attack_consequence("magic_rod", 2)
-  enemy:set_hammer_reaction(0)
 
   -- Shadow.
   local shadow_sprite = enemy:create_sprite("entities/shadows/shadow", "shadow")
