@@ -2,9 +2,10 @@
 --
 -- Add some basic and common methods/events to an enemy.
 --
--- Methods : enemy:start_walking()
---           enemy:attract_hero()
--- Events :  enemy:on_walk_finished()
+-- Methods : enemy:start_random_walking(possible_angles, walking_speed, walking_distance, sprite)
+--           enemy:attract_hero(distance)
+--           enemy:steal_item(item_name, variant, only_if_assigned)
+-- Events :  enemy:on_random_walk_finished()
 --
 -- Usage : 
 -- local my_enemy = ...
@@ -21,7 +22,7 @@ function common_actions.learn(enemy)
   local hero = map:get_hero()
 
   -- Make the enemy straight move randomly over one of the given angle.
-  function enemy:start_walking(possible_angles, walking_speed, walking_distance, sprite)
+  function enemy:start_random_walking(possible_angles, walking_speed, walking_distance, sprite)
 
     math.randomseed(sol.main.get_elapsed_time())
     local direction = math.random(#possible_angles)
@@ -36,13 +37,17 @@ function common_actions.learn(enemy)
     sprite:set_direction(movement:get_direction4())
 
     function movement:on_finished()
-      enemy:on_walk_finished()
+      if enemy.on_random_walk_finished then
+        enemy:on_random_walk_finished()
+      end
     end
 
     -- Consider the current move as finished if stuck.
     function movement:on_obstacle_reached()
       movement:stop()
-      enemy:on_walk_finished()
+      if enemy.on_random_walk_finished then
+        enemy:on_random_walk_finished()
+      end
     end
   end
 
@@ -62,6 +67,23 @@ function common_actions.learn(enemy)
       move_y = 0
     end
     hero:set_position(hero_x + move_x, hero_y + move_y, hero_layer)
+  end
+
+  -- Steal an item and drop it when died, possibility conditionned on the variant and the assignation to a slot.
+  function enemy:steal_item(item_name, variant, only_if_assigned)
+
+    if game:has_item(item_name) then
+      local item = game:get_item(item_name)
+      local item_slot = (game:get_item_assigned(1) == item and 1) or (game:get_item_assigned(2) == item and 2) or nil
+
+      if (not variant or item:get_variant() == variant) and (not only_if_assigned or item_slot) then     
+        enemy:set_treasure(item_name, item:get_variant())
+        item:set_variant(0)
+        if item_slot then
+          game:set_item_assigned(item_slot, nil)
+        end
+      end
+    end
   end
 end
 

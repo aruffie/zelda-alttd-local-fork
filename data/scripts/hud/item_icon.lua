@@ -35,11 +35,12 @@ function item_icon_builder:new(game, config)
   end
 
   -- Rebuild the foreground (called only when needed).
-  function item_icon:rebuild_foreground()    
-    if item_icon.item_displayed ~= nil then
-      -- Clear the surface.
-      item_icon.foreground:clear()
+  function item_icon:rebuild_foreground()  
+  
+    -- Clear the surface in all cases to handle the loose of an item.
+    item_icon.foreground:clear()  
 
+    if item_icon.item_displayed ~= nil then
       -- Item.
       local foreground_w, foreground_h = item_icon.foreground:get_size()
       item_icon.item_sprite:draw(item_icon.foreground, foreground_w / 2, foreground_h / 2 + 4)

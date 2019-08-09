@@ -31,7 +31,7 @@ function enemy:start_aspiring()
 end
 
 -- Start explusing the hero.
-function enemy:start_explusing()
+function enemy:start_expulsing()
   enemy.is_aspiring = false
   enemy.is_explusing = true
 end
@@ -46,11 +46,13 @@ end
 function enemy:on_created()
 
   enemy:set_life(1)
-  enemy:set_can_attack(false)
   enemy.is_aspiring = false
   enemy.is_explusing = false
 end
 
 function enemy:on_restarted()
+  
+  enemy:set_can_attack(false)
+  enemy:set_pushed_back_when_hurt(false)
   enemy:update_attraction()
 end

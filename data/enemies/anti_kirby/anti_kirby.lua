@@ -45,7 +45,7 @@ function enemy:get_direction2()
 end
 
 -- Check if an attack should be triggered, continue walking else.
-function enemy:on_walk_finished()
+function enemy:on_random_walk_finished()
 
   local _, _, layer = enemy:get_position()
   local _, _, hero_layer = hero:get_position()
@@ -56,7 +56,7 @@ function enemy:on_walk_finished()
     enemy:start_aspirate()
   else
     sol.timer.start(enemy, walking_pause_duration, function()
-      enemy:start_walking(walking_possible_angle, walking_speed, walking_distance, sprite)
+      enemy:start_random_walking(walking_possible_angle, walking_speed, walking_distance, sprite)
     end)
   end
 end
@@ -67,7 +67,7 @@ function enemy:reset_default_states()
   enemy.is_aspiring = false
   enemy.is_attacking = false
   enemy:set_can_attack(true)
-  enemy:start_walking(walking_possible_angle, walking_speed, walking_distance, sprite)
+  enemy:start_random_walking(walking_possible_angle, walking_speed, walking_distance, sprite)
 end
 
 -- Make the enemy eat the hero.
@@ -216,7 +216,9 @@ function enemy:on_created()
   -- Shadow.
   local shadow_sprite = enemy:create_sprite("entities/shadows/shadow", "shadow")
   enemy:bring_sprite_to_back(shadow_sprite)
+end
 
-  -- Initial movement.
+-- Initial movement.
+function enemy:on_restarted()
   enemy:reset_default_states()
 end
