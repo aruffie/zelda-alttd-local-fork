@@ -1,7 +1,7 @@
 properties{
   x = 0,
   y = 0,
-  width = 640,
+  width = 800,
   height = 240,
   min_layer = 0,
   max_layer = 2,
@@ -13,7 +13,7 @@ tile{
   layer = 0,
   x = 0,
   y = 144,
-  width = 640,
+  width = 800,
   height = 96,
   pattern = "109",
 }
@@ -31,7 +31,7 @@ tile{
   layer = 0,
   x = 0,
   y = 128,
-  width = 640,
+  width = 800,
   height = 16,
   pattern = "107",
 }
@@ -40,7 +40,7 @@ tile{
   layer = 0,
   x = 0,
   y = 0,
-  width = 640,
+  width = 800,
   height = 128,
   pattern = "108",
 }
@@ -176,7 +176,7 @@ tile{
   layer = 0,
   x = 496,
   y = 224,
-  width = 144,
+  width = 304,
   height = 16,
   pattern = "49",
 }
@@ -213,7 +213,7 @@ tile{
   x = 496,
   y = 152,
   enabled_at_start = false,
-  width = 144,
+  width = 304,
   height = 72,
   pattern = "10020",
   tileset = "out/outside",
@@ -395,8 +395,8 @@ destructible{
 
 pickable{
   layer = 0,
-  x = 584,
-  y = 109,
+  x = 576,
+  y = 117,
   treasure_name = "rupee",
   treasure_variant = 2,
 }
@@ -620,7 +620,7 @@ teletransporter{
 custom_entity{
   name = "S_PLAFFORM",
   layer = 0,
-  x = 560,
+  x = 648,
   y = 157,
   properties = {
     {
@@ -669,7 +669,7 @@ custom_entity{
 
 npc{
   layer = 0,
-  x = 568,
+  x = 656,
   y = 141,
   properties = {
     {
