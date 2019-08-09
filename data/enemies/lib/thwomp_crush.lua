@@ -88,6 +88,7 @@ function behavior:create(enemy, properties)
   enemy:set_invincible()
   enemy:get_sprite():set_animation("normal")
 
+
   if properties.is_walkable then --Create a platform on it's top
     local x,y,w,h=enemy:get_bounding_box()
     platform = enemy:get_map():create_custom_entity({
@@ -112,7 +113,7 @@ function behavior:create(enemy, properties)
     end
   end
 
-  function enemy:look_at_hero()
+  local function look_at_hero()
     local hero = enemy:get_map():get_entity("hero")
     local angle = enemy:get_angle(hero)
     local sprite = enemy:get_sprite()
@@ -120,6 +121,7 @@ function behavior:create(enemy, properties)
     local dir_arc = 2*math.pi/n
     local index = math.floor((angle+dir_arc/2)*n/(2*math.pi))%n
     sprite:set_direction(index)
+    return true
   end
 
   function enemy:on_obstacle_reached(movement)
@@ -130,26 +132,13 @@ function behavior:create(enemy, properties)
       sol.timer.stop_all(enemy)
       sol.timer.start(enemy, 1000, function()
           local sprite = enemy:get_sprite()
-          sprite:set_animation("normal")
           enemy:go_home()
         end)      
     end
   end
 
-  function enemy:on_restarted()
-    if falling then
-      enemy:fall()
-    else
-      enemy.go_home()
-    end
-  end
-
-  function enemy:on_update()
-    enemy:look_at_hero()
-  end
-
   function enemy:check_hero()
-
+    look_at_hero()
     local hero = enemy:get_map():get_entity("hero")
     local x, _, w = enemy:get_bounding_box()
     local hx = hero:get_position()
@@ -161,6 +150,14 @@ function behavior:create(enemy, properties)
     end
     sol.timer.stop_all(enemy)
     sol.timer.start(enemy, 100, function() enemy:check_hero() end)
+  end
+
+  function enemy:on_restarted()
+    if falling then
+      enemy:fall()
+    else
+      enemy.go_home()
+    end
   end
 
   function enemy:fall()
@@ -190,19 +187,20 @@ function behavior:create(enemy, properties)
   function enemy:on_enabled()
     if platform then
       platform:set_enabled(true)
-    end    
+    end  
   end
 
   function enemy:go_home()
     falling = false
     sound_played = false
     returning_home=true 
-    enemy:get_sprite():set_animation("normal")
+
     local m = sol.movement.create("target")
     m:set_speed(properties.normal_speed)
     m:set_target(enemy.home_x, enemy.home_y)
     m:set_ignore_obstacles(properties.ignore_obstacles)
     m:start(enemy, function()
+        enemy:get_sprite():set_animation("normal")
         returning_home=false
         enemy:check_hero()
       end)

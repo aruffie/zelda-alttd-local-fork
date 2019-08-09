@@ -20,15 +20,19 @@ COMPAT_VARYING vec2 sol_vtex_coord;
 COMPAT_VARYING vec2 plain_tex_coord;
 
 //uniform values
-uniform sampler2D sol_texture;
-uniform sampler2D diffuse;
+//uniform sampler2D sol_texture;
 
-uniform vec2 distort_factor;
+uniform float distort_factor;
+uniform float wave_factor;
+uniform float speed;
+uniform vec2 camera_pos;
+
+uniform int sol_time;
 
 COMPAT_VARYING vec4 color;
 
 void main(void) {
-    vec2 offset = (COMPAT_TEXTURE(sol_texture,sol_vtex_coord).xy-vec2(0.5))*distort_factor;
-    vec4 diff = COMPAT_TEXTURE(diffuse,sol_vtex_coord+offset);
-    FragColor = diff;
+    float ftime = float(sol_time)*speed+(gl_FragCoord.y+camera_pos.y)*wave_factor;
+    float offset = sin(ftime)*distort_factor;
+    FragColor = vec4(0.5+0.5*offset, 0.5, 0.0, 1.0);
 }

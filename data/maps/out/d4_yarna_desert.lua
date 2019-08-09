@@ -2,6 +2,7 @@
 local map = ...
 local game = map:get_game()
 
+
 -- Include scripts
 local travel_manager = require("scripts/maps/travel_manager")
 local audio_manager = require("scripts/audio_manager")
@@ -109,4 +110,12 @@ separator_1:register_event("on_activating", function(separator, direction4)
     audio_manager:play_music("10_overworld")
   end
 
+end)
+
+separator_2:register_event("on_activating", function(separator, direction4)
+  if direction4 == 0 then
+    map.fsa_heat_wave = true
+  elseif direction4 == 2 then
+    map.fsa_heat_wave = false
+  end
 end)

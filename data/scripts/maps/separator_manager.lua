@@ -7,6 +7,7 @@
 -- - Bombs.
 
 local separator_manager = {}
+local light_manager_fsa = require("scripts/lights/light_manager")
 require("scripts/multi_events")
 
 function separator_manager:init(map)
@@ -31,7 +32,7 @@ function separator_manager:init(map)
         -- Re-create enemies in the new active region.
         if enemy:is_in_same_region(hero) then
           local old_enemy = enemy_place.enemy
-          local enemy = map:create_enemy({
+          local enemy = map:create_enemy({ --TODO modifiy create_enemy to add enemy to light manager
             x = enemy_place.x,
             y = enemy_place.y,
             layer = enemy_place.layer,
@@ -39,6 +40,10 @@ function separator_manager:init(map)
             direction = enemy_place.direction,
             name = enemy_place.name,
           })
+        
+          -- add enemy to the light manager of fsa mode, since it has been recreated
+          light_manager_fsa:add_occluder(enemy)
+          
           enemy:set_treasure(unpack(enemy_place.treasure))
           enemy.on_dead = old_enemy.on_dead  -- For door_manager.
           enemy.on_symbol_fixed = old_enemy.on_symbol_fixed -- For Vegas enemies

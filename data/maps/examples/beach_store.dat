@@ -5,7 +5,7 @@ properties{
   height = 240,
   min_layer = 0,
   max_layer = 2,
-  tileset = "out/outside",
+  tileset = "out/outside_main",
 }
 
 tile{
@@ -222,6 +222,7 @@ tile{
   width = 80,
   height = 64,
   pattern = "371",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -240,6 +241,7 @@ tile{
   width = 64,
   height = 16,
   pattern = "371",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -249,6 +251,7 @@ tile{
   width = 48,
   height = 16,
   pattern = "371",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -258,6 +261,7 @@ tile{
   width = 32,
   height = 16,
   pattern = "371",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -267,6 +271,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "371",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -411,6 +416,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "371",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -438,6 +444,7 @@ tile{
   width = 64,
   height = 16,
   pattern = "371",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -1032,6 +1039,7 @@ tile{
   width = 48,
   height = 16,
   pattern = "12842",
+  tileset = "out/outside_special",
 }
 
 tile{

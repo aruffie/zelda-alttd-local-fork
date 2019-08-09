@@ -25,6 +25,8 @@ local radius = tonumber(light:get_property('radius')) or 120
 local size = radius*2
 local color_str = light:get_property('color') or '255,255,255'
 local color = {color_str:match('(%d+),(%d+),(%d+)')}
+local distort_angle = light:get_property('distort_angle')
+
 for i,k in ipairs(color) do
   color[i] = k/256.0
 end
@@ -55,11 +57,18 @@ end
 
 local x,y = light:get_position()
 
-local fire_dist = sol.shader.create('fire_dist')
+local fire_dist = light_mgr:get_fire_shader()
 local fire_sprite = light:get_sprite()
+
 if fire_sprite then
   light:remove_sprite(fire_sprite)
   fire_sprite:set_shader(fire_dist)
+  
+  local angle = tonumber(distort_angle)
+  if distort_angle then
+    fire_sprite:set_xy(-8*math.sin(angle),-8*math.cos(angle))
+    fire_sprite:set_rotation(angle)
+  end
 end
 
 
@@ -74,8 +83,11 @@ function light:on_created()
   light:set_size(size8,size8)
 end
 
-function light:draw_visual(dst,drawable,x,y)
+function light:draw_visual(dst, drawable, x, y)
   local cx,cy = map:get_camera():get_position()
+  
+  --dst = map:get_camera():get_surface()
+  
   drawable:draw(dst,x-cx,y-cy)
 end
 
@@ -104,8 +116,11 @@ function light:draw_light(dst, camera)
   self:draw_visual(dst,shad_map, self:get_topleft())
 end
 
-function light:draw_disturb(dst)
-  self:draw_visual(dst,fire_sprite,self:get_position())
+if distort_angle then -- distort_angle property indicate that we want distortion
+  function light:on_draw_distort(dst)
+    fire_dist:set_uniform("angle", tonumber(distort_angle))
+    self:draw_visual(dst, fire_sprite, self:get_position())
+  end
 end
 
 function light:track_entity(ent,dx,dy,dl)

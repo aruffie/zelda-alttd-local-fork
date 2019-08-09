@@ -6,7 +6,7 @@ properties{
   min_layer = 0,
   max_layer = 3,
   world = "outside_world",
-  tileset = "out/outside",
+  tileset = "out/outside_main",
   music = "same",
 }
 
@@ -26,6 +26,7 @@ tile{
   width = 192,
   height = 56,
   pattern = "7665",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -449,6 +450,7 @@ tile{
   width = 16,
   height = 8,
   pattern = "7667",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -467,6 +469,7 @@ tile{
   width = 32,
   height = 192,
   pattern = "7680",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -476,6 +479,7 @@ tile{
   width = 48,
   height = 56,
   pattern = "7665",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -485,6 +489,7 @@ tile{
   width = 32,
   height = 240,
   pattern = "7680",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -494,6 +499,7 @@ tile{
   width = 208,
   height = 56,
   pattern = "7665",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -512,6 +518,7 @@ tile{
   width = 32,
   height = 48,
   pattern = "7679",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -530,6 +537,7 @@ tile{
   width = 64,
   height = 24,
   pattern = "7664",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -539,6 +547,7 @@ tile{
   width = 16,
   height = 48,
   pattern = "7669",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -548,6 +557,7 @@ tile{
   width = 32,
   height = 56,
   pattern = "7665",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -557,6 +567,7 @@ tile{
   width = 32,
   height = 288,
   pattern = "7679",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -566,6 +577,7 @@ tile{
   width = 32,
   height = 80,
   pattern = "7679",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -620,6 +632,7 @@ tile{
   width = 32,
   height = 80,
   pattern = "7680",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -629,6 +642,7 @@ tile{
   width = 64,
   height = 24,
   pattern = "7664",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -638,6 +652,7 @@ tile{
   width = 32,
   height = 80,
   pattern = "7679",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -926,6 +941,7 @@ tile{
   width = 48,
   height = 56,
   pattern = "7665",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -935,6 +951,7 @@ tile{
   width = 32,
   height = 32,
   pattern = "7679",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -962,6 +979,7 @@ tile{
   width = 32,
   height = 48,
   pattern = "7680",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -1034,6 +1052,7 @@ tile{
   width = 48,
   height = 56,
   pattern = "7665",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -1043,6 +1062,7 @@ tile{
   width = 16,
   height = 48,
   pattern = "7669",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -1052,6 +1072,7 @@ tile{
   width = 16,
   height = 40,
   pattern = "7671",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -1061,6 +1082,7 @@ tile{
   width = 32,
   height = 32,
   pattern = "7679",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -1070,6 +1092,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7678",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -1079,6 +1102,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7678",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -1088,6 +1112,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7677",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -1097,6 +1122,7 @@ tile{
   width = 32,
   height = 32,
   pattern = "7680",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -1106,6 +1132,7 @@ tile{
   width = 8,
   height = 8,
   pattern = "12598",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -1115,6 +1142,7 @@ tile{
   width = 16,
   height = 40,
   pattern = "7671",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -1133,6 +1161,7 @@ tile{
   width = 32,
   height = 144,
   pattern = "7679",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -1142,6 +1171,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7678",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -1151,6 +1181,7 @@ tile{
   width = 16,
   height = 8,
   pattern = "7666",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -1160,6 +1191,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7675",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -1169,6 +1201,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7682",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -1394,6 +1427,7 @@ tile{
   width = 32,
   height = 48,
   pattern = "12598",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -1403,6 +1437,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7677",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -1412,6 +1447,7 @@ tile{
   width = 32,
   height = 48,
   pattern = "12598",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -1421,6 +1457,7 @@ tile{
   width = 16,
   height = 40,
   pattern = "7672",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -1511,6 +1548,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7676",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -2726,6 +2764,7 @@ tile{
   width = 16,
   height = 8,
   pattern = "7673",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -2735,6 +2774,7 @@ tile{
   width = 448,
   height = 24,
   pattern = "7664",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -2744,6 +2784,7 @@ tile{
   width = 16,
   height = 8,
   pattern = "7666",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -2753,6 +2794,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7675",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -2762,6 +2804,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7676",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -2771,6 +2814,7 @@ tile{
   width = 16,
   height = 8,
   pattern = "7674",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -2816,6 +2860,7 @@ tile{
   width = 16,
   height = 48,
   pattern = "7668",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -2888,6 +2933,7 @@ tile{
   width = 16,
   height = 8,
   pattern = "7667",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -2906,6 +2952,7 @@ tile{
   width = 16,
   height = 8,
   pattern = "7666",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -2915,6 +2962,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7675",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -2924,6 +2972,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7682",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -2933,6 +2982,7 @@ tile{
   width = 16,
   height = 8,
   pattern = "7673",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -2942,6 +2992,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7677",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -2951,6 +3002,7 @@ tile{
   width = 16,
   height = 48,
   pattern = "7668",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -2960,6 +3012,7 @@ tile{
   width = 32,
   height = 32,
   pattern = "7680",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -2969,6 +3022,7 @@ tile{
   width = 16,
   height = 40,
   pattern = "7671",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -3032,6 +3086,7 @@ tile{
   width = 16,
   height = 48,
   pattern = "7669",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -3158,6 +3213,7 @@ tile{
   width = 16,
   height = 48,
   pattern = "7669",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -3167,6 +3223,7 @@ tile{
   width = 16,
   height = 48,
   pattern = "7668",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -3176,6 +3233,7 @@ tile{
   width = 32,
   height = 56,
   pattern = "7665",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -3194,6 +3252,7 @@ tile{
   width = 32,
   height = 80,
   pattern = "7680",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -3203,6 +3262,7 @@ tile{
   width = 16,
   height = 40,
   pattern = "7672",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -3212,6 +3272,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7678",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -3221,6 +3282,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7677",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -3248,6 +3310,7 @@ tile{
   width = 16,
   height = 40,
   pattern = "7671",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -3257,6 +3320,7 @@ tile{
   width = 16,
   height = 48,
   pattern = "7668",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -3266,6 +3330,7 @@ tile{
   width = 16,
   height = 8,
   pattern = "7667",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -3275,6 +3340,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7676",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -3284,6 +3350,7 @@ tile{
   width = 16,
   height = 8,
   pattern = "7674",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -3293,6 +3360,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7685",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -3302,6 +3370,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7684",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -3311,6 +3380,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7683",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -3320,6 +3390,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7684",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -3329,6 +3400,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7677",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -3572,6 +3644,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7683",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -3581,6 +3654,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7678",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -3590,6 +3664,7 @@ tile{
   width = 16,
   height = 40,
   pattern = "7672",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -3709,6 +3784,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7685",
+  tileset = "out/outside_buildings",
 }
 
 teletransporter{
@@ -4376,6 +4452,7 @@ tile{
   width = 48,
   height = 16,
   pattern = "12842",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -4403,6 +4480,7 @@ tile{
   width = 48,
   height = 16,
   pattern = "12842",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -4448,6 +4526,7 @@ tile{
   width = 48,
   height = 16,
   pattern = "12842",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -4475,6 +4554,7 @@ tile{
   width = 48,
   height = 16,
   pattern = "12842",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -4511,6 +4591,7 @@ tile{
   width = 48,
   height = 16,
   pattern = "12842",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -4538,6 +4619,7 @@ tile{
   width = 16,
   height = 112,
   pattern = "6161",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -4547,6 +4629,7 @@ tile{
   width = 16,
   height = 80,
   pattern = "6161",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -5177,6 +5260,7 @@ tile{
   width = 96,
   height = 16,
   pattern = "12842",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -5213,6 +5297,7 @@ tile{
   width = 48,
   height = 16,
   pattern = "12842",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -5258,6 +5343,7 @@ tile{
   width = 48,
   height = 16,
   pattern = "12842",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -5303,6 +5389,7 @@ tile{
   width = 48,
   height = 16,
   pattern = "12842",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -5348,6 +5435,7 @@ tile{
   width = 48,
   height = 16,
   pattern = "12842",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -5861,6 +5949,7 @@ tile{
   width = 16,
   height = 8,
   pattern = "6178",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -5870,6 +5959,7 @@ tile{
   width = 16,
   height = 8,
   pattern = "6178",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -5879,6 +5969,7 @@ tile{
   width = 16,
   height = 48,
   pattern = "6179",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -5888,6 +5979,7 @@ tile{
   width = 16,
   height = 48,
   pattern = "6179",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -5897,6 +5989,7 @@ tile{
   width = 80,
   height = 112,
   pattern = "6160",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -5906,6 +5999,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "6180",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -5915,6 +6009,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "6180",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -6482,6 +6577,7 @@ tile{
   width = 48,
   height = 16,
   pattern = "12842",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -6491,6 +6587,7 @@ tile{
   width = 48,
   height = 16,
   pattern = "12842",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -6536,6 +6633,7 @@ tile{
   width = 240,
   height = 16,
   pattern = "12842",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -6545,6 +6643,7 @@ tile{
   width = 288,
   height = 16,
   pattern = "12842",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -6797,6 +6896,7 @@ tile{
   width = 80,
   height = 48,
   pattern = "6160",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -6842,6 +6942,7 @@ tile{
   width = 112,
   height = 56,
   pattern = "7665",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -6851,6 +6952,7 @@ tile{
   width = 24,
   height = 24,
   pattern = "7690",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -6860,6 +6962,7 @@ tile{
   width = 16,
   height = 24,
   pattern = "7692",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -6869,6 +6972,7 @@ tile{
   width = 24,
   height = 8,
   pattern = "7687",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -6878,6 +6982,7 @@ tile{
   width = 24,
   height = 24,
   pattern = "7689",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -6887,6 +6992,7 @@ tile{
   width = 24,
   height = 8,
   pattern = "7688",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -6896,6 +7002,7 @@ tile{
   width = 16,
   height = 48,
   pattern = "7668",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -6905,6 +7012,7 @@ tile{
   width = 16,
   height = 48,
   pattern = "7669",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -6914,6 +7022,7 @@ tile{
   width = 32,
   height = 48,
   pattern = "7679",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -6923,6 +7032,7 @@ tile{
   width = 32,
   height = 48,
   pattern = "7680",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -6932,6 +7042,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7683",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -6941,6 +7052,7 @@ tile{
   width = 96,
   height = 56,
   pattern = "7665",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -6950,6 +7062,7 @@ tile{
   width = 16,
   height = 40,
   pattern = "7672",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -6959,6 +7072,7 @@ tile{
   width = 96,
   height = 56,
   pattern = "7665",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -6968,6 +7082,7 @@ tile{
   width = 16,
   height = 40,
   pattern = "7671",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -6977,6 +7092,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7684",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -6986,6 +7102,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7677",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -6995,6 +7112,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7678",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -7004,6 +7122,7 @@ tile{
   width = 16,
   height = 48,
   pattern = "7669",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -7013,6 +7132,7 @@ tile{
   width = 32,
   height = 240,
   pattern = "7679",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -7022,6 +7142,7 @@ tile{
   width = 16,
   height = 48,
   pattern = "7668",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -7031,6 +7152,7 @@ tile{
   width = 32,
   height = 240,
   pattern = "7680",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -7040,6 +7162,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7678",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -7049,6 +7172,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7677",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -7058,6 +7182,7 @@ tile{
   width = 304,
   height = 24,
   pattern = "7664",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -7067,6 +7192,7 @@ tile{
   width = 16,
   height = 8,
   pattern = "7666",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -7076,6 +7202,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7675",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -7085,6 +7212,7 @@ tile{
   width = 16,
   height = 8,
   pattern = "7667",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -7094,6 +7222,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7676",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -8543,6 +8672,7 @@ tile{
   width = 32,
   height = 56,
   pattern = "241",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -8552,6 +8682,7 @@ tile{
   width = 32,
   height = 56,
   pattern = "7681",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -8561,6 +8692,7 @@ tile{
   width = 32,
   height = 56,
   pattern = "241",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -8570,6 +8702,7 @@ tile{
   width = 32,
   height = 56,
   pattern = "241",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -8579,6 +8712,7 @@ tile{
   width = 32,
   height = 56,
   pattern = "241",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -8588,6 +8722,7 @@ tile{
   width = 32,
   height = 56,
   pattern = "7681",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -8597,6 +8732,7 @@ tile{
   width = 32,
   height = 56,
   pattern = "7681",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -8606,6 +8742,7 @@ tile{
   width = 32,
   height = 56,
   pattern = "7681",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -8615,6 +8752,7 @@ tile{
   width = 32,
   height = 128,
   pattern = "6161",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -8759,6 +8897,7 @@ tile{
   width = 8,
   height = 24,
   pattern = "7697",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -8768,6 +8907,7 @@ tile{
   width = 8,
   height = 24,
   pattern = "7698",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -8777,6 +8917,7 @@ tile{
   width = 16,
   height = 24,
   pattern = "7700",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -8786,6 +8927,7 @@ tile{
   width = 16,
   height = 24,
   pattern = "7702",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -8795,6 +8937,7 @@ tile{
   width = 16,
   height = 40,
   pattern = "7672",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -8804,6 +8947,7 @@ tile{
   width = 16,
   height = 48,
   pattern = "7668",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -8813,6 +8957,7 @@ tile{
   width = 16,
   height = 40,
   pattern = "7671",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -8822,6 +8967,7 @@ tile{
   width = 16,
   height = 48,
   pattern = "7669",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -9589,6 +9735,7 @@ dynamic_tile{
   width = 64,
   height = 24,
   pattern = "4070",
+  tileset = "out/outside_buildings",
 }
 
 destructible{
@@ -10890,6 +11037,7 @@ tile{
   width = 272,
   height = 208,
   pattern = "139",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -10917,6 +11065,7 @@ tile{
   width = 208,
   height = 48,
   pattern = "9121",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -10926,6 +11075,7 @@ tile{
   width = 80,
   height = 48,
   pattern = "9121",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11025,6 +11175,7 @@ tile{
   width = 16,
   height = 8,
   pattern = "7691",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11034,6 +11185,7 @@ tile{
   width = 112,
   height = 56,
   pattern = "7665",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11043,6 +11195,7 @@ tile{
   width = 24,
   height = 24,
   pattern = "7690",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11052,6 +11205,7 @@ tile{
   width = 16,
   height = 24,
   pattern = "7692",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11061,6 +11215,7 @@ tile{
   width = 24,
   height = 8,
   pattern = "7687",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11070,6 +11225,7 @@ tile{
   width = 24,
   height = 24,
   pattern = "7689",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11079,6 +11235,7 @@ tile{
   width = 24,
   height = 8,
   pattern = "7688",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11088,6 +11245,7 @@ tile{
   width = 16,
   height = 48,
   pattern = "7668",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11097,6 +11255,7 @@ tile{
   width = 16,
   height = 48,
   pattern = "7669",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11106,6 +11265,7 @@ tile{
   width = 32,
   height = 48,
   pattern = "7679",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11115,6 +11275,7 @@ tile{
   width = 32,
   height = 48,
   pattern = "7680",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11124,6 +11285,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7683",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11133,6 +11295,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7684",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11142,6 +11305,7 @@ tile{
   width = 64,
   height = 56,
   pattern = "7665",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11151,6 +11315,7 @@ tile{
   width = 32,
   height = 64,
   pattern = "7679",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11160,6 +11325,7 @@ tile{
   width = 240,
   height = 24,
   pattern = "7664",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11169,6 +11335,7 @@ tile{
   width = 32,
   height = 80,
   pattern = "7680",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11178,6 +11345,7 @@ tile{
   width = 16,
   height = 48,
   pattern = "7668",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11187,6 +11355,7 @@ tile{
   width = 64,
   height = 56,
   pattern = "7665",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11196,6 +11365,7 @@ tile{
   width = 24,
   height = 24,
   pattern = "7690",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11205,6 +11375,7 @@ tile{
   width = 24,
   height = 8,
   pattern = "7687",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11214,6 +11385,7 @@ tile{
   width = 24,
   height = 24,
   pattern = "7689",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11223,6 +11395,7 @@ tile{
   width = 24,
   height = 8,
   pattern = "7688",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11232,6 +11405,7 @@ tile{
   width = 16,
   height = 40,
   pattern = "7672",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11241,6 +11415,7 @@ tile{
   width = 16,
   height = 48,
   pattern = "7669",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11250,6 +11425,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7677",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11259,6 +11435,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7678",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11268,6 +11445,7 @@ tile{
   width = 16,
   height = 40,
   pattern = "7672",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11277,6 +11455,7 @@ tile{
   width = 16,
   height = 40,
   pattern = "7671",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11286,6 +11465,7 @@ tile{
   width = 16,
   height = 24,
   pattern = "7692",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11295,6 +11475,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7677",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11304,6 +11485,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7678",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11313,6 +11495,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7675",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11322,6 +11505,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7676",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11331,6 +11515,7 @@ tile{
   width = 16,
   height = 40,
   pattern = "7671",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11385,6 +11570,7 @@ tile{
   width = 32,
   height = 56,
   pattern = "241",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -11394,6 +11580,7 @@ tile{
   width = 32,
   height = 56,
   pattern = "7681",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11403,6 +11590,7 @@ tile{
   width = 32,
   height = 56,
   pattern = "241",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -11412,6 +11600,7 @@ tile{
   width = 32,
   height = 56,
   pattern = "7681",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11421,6 +11610,7 @@ tile{
   width = 8,
   height = 8,
   pattern = "12611",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11430,6 +11620,7 @@ tile{
   width = 8,
   height = 8,
   pattern = "12611",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11439,6 +11630,7 @@ tile{
   width = 16,
   height = 8,
   pattern = "7667",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11448,6 +11640,7 @@ tile{
   width = 16,
   height = 8,
   pattern = "7666",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11457,6 +11650,7 @@ tile{
   width = 64,
   height = 8,
   pattern = "12598",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11466,6 +11660,7 @@ tile{
   width = 80,
   height = 8,
   pattern = "12596",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11545,6 +11740,7 @@ tile{
   width = 80,
   height = 48,
   pattern = "139",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -11608,6 +11804,7 @@ tile{
   width = 64,
   height = 24,
   pattern = "7704",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11786,6 +11983,7 @@ tile{
   width = 16,
   height = 8,
   pattern = "7691",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11795,6 +11993,7 @@ tile{
   width = 16,
   height = 8,
   pattern = "7691",
+  tileset = "out/outside_buildings",
 }
 
 tile{
