@@ -23,7 +23,7 @@ function common_actions.learn(enemy)
   -- Make the enemy straight move randomly over one of the given angle.
   function enemy:start_walking(possible_angles, walking_speed, walking_distance, sprite)
 
-    math.randomseed(os.time())
+    math.randomseed(sol.main.get_elapsed_time())
     local direction = math.random(#possible_angles)
     local movement = sol.movement.create("straight")
     movement:set_speed(walking_speed)

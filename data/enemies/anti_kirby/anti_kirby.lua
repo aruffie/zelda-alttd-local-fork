@@ -118,7 +118,7 @@ function enemy:on_update()
 
   -- If the hero touches the center of the enemy while aspiring, eat him.
   if enemy.is_aspiring then
-    if enemy:overlaps(hero, "origin", sprite) then
+    if enemy:overlaps(hero, "origin") then
       enemy.is_aspiring = false
       enemy:eat_hero()
     end
