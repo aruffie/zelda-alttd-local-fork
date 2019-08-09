@@ -3,16 +3,116 @@ properties{
   y = 0,
   width = 640,
   height = 512,
-  min_layer = 0,
+  min_layer = -1,
   max_layer = 2,
   tileset = "out/outside",
+}
+
+tile{
+  layer = -1,
+  x = 352,
+  y = 344,
+  width = 64,
+  height = 168,
+  pattern = "691",
+}
+
+tile{
+  layer = -1,
+  x = 336,
+  y = 312,
+  width = 16,
+  height = 32,
+  pattern = "1046",
+}
+
+tile{
+  layer = -1,
+  x = 416,
+  y = 312,
+  width = 16,
+  height = 32,
+  pattern = "1047",
+}
+
+tile{
+  layer = -1,
+  x = 416,
+  y = 504,
+  width = 16,
+  height = 8,
+  pattern = "1048",
+}
+
+tile{
+  layer = -1,
+  x = 336,
+  y = 504,
+  width = 16,
+  height = 8,
+  pattern = "1049",
+}
+
+tile{
+  layer = -1,
+  x = 352,
+  y = 312,
+  width = 64,
+  height = 32,
+  pattern = "1058",
+}
+
+tile{
+  layer = -1,
+  x = 336,
+  y = 344,
+  width = 16,
+  height = 160,
+  pattern = "973",
+}
+
+tile{
+  layer = -1,
+  x = 416,
+  y = 344,
+  width = 16,
+  height = 160,
+  pattern = "976",
+}
+
+tile{
+  layer = -1,
+  x = 352,
+  y = 504,
+  enabled_at_start = false,
+  width = 64,
+  height = 8,
+  pattern = "984",
+}
+
+tile{
+  layer = 0,
+  x = 336,
+  y = 0,
+  width = 304,
+  height = 312,
+  pattern = "14667",
+}
+
+tile{
+  layer = 0,
+  x = 432,
+  y = 312,
+  width = 208,
+  height = 200,
+  pattern = "14667",
 }
 
 tile{
   layer = 0,
   x = 0,
   y = 0,
-  width = 640,
+  width = 336,
   height = 512,
   pattern = "14667",
 }
@@ -1064,6 +1164,550 @@ tile{
   pattern = "9010",
 }
 
+tile{
+  layer = 0,
+  x = 328,
+  y = 312,
+  width = 8,
+  height = 208,
+  pattern = "972",
+}
+
+tile{
+  layer = 0,
+  x = 432,
+  y = 312,
+  width = 8,
+  height = 208,
+  pattern = "977",
+}
+
+tile{
+  layer = 0,
+  x = 336,
+  y = 304,
+  width = 96,
+  height = 8,
+  pattern = "959",
+}
+
+tile{
+  layer = 0,
+  x = 328,
+  y = 304,
+  width = 8,
+  height = 8,
+  pattern = "1044",
+}
+
+tile{
+  layer = 0,
+  x = 320,
+  y = 344,
+  enabled_at_start = false,
+  width = 8,
+  height = 168,
+  pattern = "1032",
+}
+
+tile{
+  layer = 0,
+  x = 440,
+  y = 352,
+  width = 8,
+  height = 160,
+  pattern = "1031",
+}
+
+tile{
+  layer = 0,
+  x = 320,
+  y = 312,
+  width = 8,
+  height = 32,
+  pattern = "1011",
+}
+
+tile{
+  layer = 0,
+  x = 320,
+  y = 344,
+  width = 8,
+  height = 8,
+  pattern = "1018",
+}
+
+tile{
+  layer = 0,
+  x = 320,
+  y = 296,
+  width = 16,
+  height = 16,
+  pattern = "1015",
+}
+
+tile{
+  layer = 0,
+  x = 336,
+  y = 296,
+  width = 16,
+  height = 8,
+  pattern = "1008",
+}
+
+tile{
+  layer = 0,
+  x = 336,
+  y = 288,
+  width = 16,
+  height = 8,
+  pattern = "1007",
+}
+
+tile{
+  layer = 0,
+  x = 352,
+  y = 296,
+  width = 8,
+  height = 8,
+  pattern = "1024",
+}
+
+tile{
+  layer = 0,
+  x = 360,
+  y = 296,
+  width = 48,
+  height = 8,
+  pattern = "1030",
+}
+
+tile{
+  layer = 0,
+  x = 440,
+  y = 344,
+  width = 8,
+  height = 8,
+  pattern = "1021",
+}
+
+tile{
+  layer = 0,
+  x = 440,
+  y = 312,
+  width = 8,
+  height = 32,
+  pattern = "1012",
+}
+
+tile{
+  layer = 0,
+  x = 432,
+  y = 296,
+  width = 16,
+  height = 16,
+  pattern = "1016",
+}
+
+tile{
+  layer = 0,
+  x = 416,
+  y = 296,
+  width = 16,
+  height = 8,
+  pattern = "1008",
+}
+
+tile{
+  layer = 0,
+  x = 416,
+  y = 288,
+  width = 16,
+  height = 8,
+  pattern = "1007",
+}
+
+tile{
+  layer = 0,
+  x = 408,
+  y = 296,
+  width = 8,
+  height = 8,
+  pattern = "1020",
+}
+
+tile{
+  layer = 0,
+  x = 328,
+  y = 288,
+  width = 8,
+  height = 8,
+  pattern = "14796",
+}
+
+tile{
+  layer = 0,
+  x = 408,
+  y = 288,
+  width = 8,
+  height = 8,
+  pattern = "14796",
+}
+
+tile{
+  layer = 0,
+  x = 352,
+  y = 288,
+  width = 8,
+  height = 8,
+  pattern = "14795",
+}
+
+tile{
+  layer = 0,
+  x = 432,
+  y = 288,
+  width = 8,
+  height = 8,
+  pattern = "14795",
+}
+
+tile{
+  layer = 0,
+  x = 360,
+  y = 232,
+  width = 48,
+  height = 8,
+  pattern = "959",
+}
+
+tile{
+  layer = 0,
+  x = 504,
+  y = 40,
+  width = 8,
+  height = 16,
+  pattern = "59",
+}
+
+tile{
+  layer = 0,
+  x = 528,
+  y = 40,
+  width = 8,
+  height = 16,
+  pattern = "59",
+}
+
+tile{
+  layer = 0,
+  x = 512,
+  y = 40,
+  width = 8,
+  height = 16,
+  pattern = "44",
+}
+
+tile{
+  layer = 0,
+  x = 520,
+  y = 40,
+  width = 8,
+  height = 16,
+  pattern = "58",
+}
+
+tile{
+  layer = 0,
+  x = 424,
+  y = 40,
+  width = 8,
+  height = 16,
+  pattern = "16",
+}
+
+tile{
+  layer = 0,
+  x = 488,
+  y = 40,
+  width = 8,
+  height = 16,
+  pattern = "53",
+}
+
+tile{
+  layer = 0,
+  x = 480,
+  y = 40,
+  width = 8,
+  height = 16,
+  pattern = "54",
+}
+
+tile{
+  layer = 0,
+  x = 432,
+  y = 40,
+  width = 8,
+  height = 16,
+  pattern = "54",
+}
+
+tile{
+  layer = 0,
+  x = 440,
+  y = 40,
+  width = 8,
+  height = 16,
+  pattern = "51",
+}
+
+tile{
+  layer = 0,
+  x = 448,
+  y = 40,
+  width = 8,
+  height = 16,
+  pattern = "51",
+}
+
+tile{
+  layer = 0,
+  x = 456,
+  y = 40,
+  width = 8,
+  height = 16,
+  pattern = "48",
+}
+
+tile{
+  layer = 0,
+  x = 472,
+  y = 40,
+  width = 8,
+  height = 16,
+  pattern = "48",
+}
+
+tile{
+  layer = 0,
+  x = 464,
+  y = 40,
+  width = 8,
+  height = 16,
+  pattern = "58",
+}
+
+tile{
+  layer = 0,
+  x = 384,
+  y = 80,
+  width = 16,
+  height = 16,
+  pattern = "2",
+  tileset = "addition/basic_terrain_test",
+}
+
+tile{
+  layer = 0,
+  x = 384,
+  y = 96,
+  width = 16,
+  height = 16,
+  pattern = "3",
+  tileset = "addition/basic_terrain_test",
+}
+
+tile{
+  layer = 0,
+  x = 384,
+  y = 112,
+  width = 16,
+  height = 16,
+  pattern = "4",
+  tileset = "addition/basic_terrain_test",
+}
+
+tile{
+  layer = 0,
+  x = 400,
+  y = 64,
+  width = 16,
+  height = 16,
+  pattern = "5",
+  tileset = "addition/basic_terrain_test",
+}
+
+tile{
+  layer = 0,
+  x = 400,
+  y = 80,
+  width = 16,
+  height = 16,
+  pattern = "6",
+  tileset = "addition/basic_terrain_test",
+}
+
+tile{
+  layer = 0,
+  x = 400,
+  y = 96,
+  width = 16,
+  height = 16,
+  pattern = "7",
+  tileset = "addition/basic_terrain_test",
+}
+
+tile{
+  layer = 0,
+  x = 424,
+  y = 144,
+  width = 8,
+  height = 8,
+  pattern = "16",
+  tileset = "addition/basic_terrain_test",
+}
+
+tile{
+  layer = 0,
+  x = 392,
+  y = 152,
+  width = 8,
+  height = 8,
+  pattern = "11",
+  tileset = "addition/basic_terrain_test",
+}
+
+tile{
+  layer = 0,
+  x = 384,
+  y = 152,
+  width = 8,
+  height = 8,
+  pattern = "10",
+  tileset = "addition/basic_terrain_test",
+}
+
+tile{
+  layer = 0,
+  x = 416,
+  y = 144,
+  width = 8,
+  height = 8,
+  pattern = "15",
+  tileset = "addition/basic_terrain_test",
+}
+
+tile{
+  layer = 0,
+  x = 392,
+  y = 144,
+  width = 8,
+  height = 8,
+  pattern = "9",
+  tileset = "addition/basic_terrain_test",
+}
+
+tile{
+  layer = 0,
+  x = 424,
+  y = 152,
+  width = 8,
+  height = 8,
+  pattern = "18",
+  tileset = "addition/basic_terrain_test",
+}
+
+tile{
+  layer = 0,
+  x = 416,
+  y = 152,
+  width = 8,
+  height = 8,
+  pattern = "17",
+  tileset = "addition/basic_terrain_test",
+}
+
+tile{
+  layer = 0,
+  x = 384,
+  y = 144,
+  width = 8,
+  height = 8,
+  pattern = "8",
+  tileset = "addition/basic_terrain_test",
+}
+
+tile{
+  layer = 0,
+  x = 400,
+  y = 112,
+  width = 16,
+  height = 16,
+  pattern = "12",
+  tileset = "addition/basic_terrain_test",
+}
+
+tile{
+  layer = 0,
+  x = 384,
+  y = 48,
+  width = 16,
+  height = 16,
+  pattern = "13",
+  tileset = "addition/basic_terrain_test",
+}
+
+tile{
+  layer = 0,
+  x = 400,
+  y = 48,
+  width = 16,
+  height = 16,
+  pattern = "14",
+  tileset = "addition/basic_terrain_test",
+}
+
+tile{
+  layer = 0,
+  x = 384,
+  y = 64,
+  width = 16,
+  height = 16,
+  pattern = "19",
+  tileset = "addition/basic_terrain_test",
+}
+
+jumper{
+  layer = 0,
+  x = 328,
+  y = 352,
+  width = 8,
+  height = 160,
+  direction = 0,
+  jump_length = 40,
+}
+
+jumper{
+  layer = 0,
+  x = 432,
+  y = 352,
+  width = 8,
+  height = 160,
+  direction = 4,
+  jump_length = 40,
+}
+
+jumper{
+  layer = 0,
+  x = 352,
+  y = 304,
+  width = 64,
+  height = 8,
+  direction = 6,
+  jump_length = 40,
+}
+
 chest{
   layer = 0,
   x = 72,
@@ -1282,7 +1926,7 @@ npc{
   name = "owl_7",
   layer = 0,
   x = 512,
-  y = 109,
+  y = 189,
   direction = 3,
   subtype = 0,
   sprite = "npc/animals/owl",
@@ -1292,7 +1936,7 @@ custom_entity{
   name = "owl_7_position",
   layer = 0,
   x = 480,
-  y = 109,
+  y = 189,
   width = 16,
   height = 16,
   direction = 0,
@@ -1300,50 +1944,271 @@ custom_entity{
 
 pickable{
   layer = 0,
-  x = 208,
-  y = 325,
+  x = 480,
+  y = 101,
   treasure_name = "arrow",
   treasure_variant = 3,
 }
 
 pickable{
   layer = 0,
-  x = 224,
-  y = 325,
+  x = 496,
+  y = 101,
   treasure_name = "arrow",
   treasure_variant = 3,
 }
 
 pickable{
   layer = 0,
-  x = 240,
-  y = 325,
+  x = 512,
+  y = 101,
   treasure_name = "arrow",
   treasure_variant = 3,
 }
 
 pickable{
   layer = 0,
-  x = 208,
-  y = 341,
+  x = 480,
+  y = 117,
   treasure_name = "bomb",
   treasure_variant = 2,
 }
 
 pickable{
   layer = 0,
-  x = 224,
-  y = 341,
+  x = 496,
+  y = 117,
   treasure_name = "bomb",
   treasure_variant = 2,
 }
 
 pickable{
   layer = 0,
-  x = 240,
-  y = 341,
+  x = 512,
+  y = 117,
   treasure_name = "bomb",
   treasure_variant = 2,
+}
+
+custom_entity{
+  layer = 0,
+  x = 336,
+  y = 365,
+  width = 8,
+  height = 160,
+  direction = 0,
+  sprite = "entities/utils/cliff",
+  tiled = true,
+  model = "cliff",
+}
+
+custom_entity{
+  layer = 0,
+  x = 360,
+  y = 317,
+  width = 64,
+  height = 8,
+  direction = 3,
+  sprite = "entities/utils/cliff",
+  tiled = true,
+  model = "cliff",
+}
+
+custom_entity{
+  layer = 0,
+  x = 440,
+  y = 365,
+  width = 8,
+  height = 160,
+  direction = 2,
+  sprite = "entities/utils/cliff",
+  tiled = true,
+  model = "cliff",
+}
+
+npc{
+  name = "marin_npc_test",
+  layer = 0,
+  x = 480,
+  y = 29,
+  direction = 3,
+  subtype = 1,
+  sprite = "npc/villagers/marin",
+}
+
+destination{
+  name = "destination_2",
+  layer = 0,
+  x = 368,
+  y = 29,
+  direction = 1,
+  sprite = "entities/vacuum_cleaner_ground",
+}
+
+teletransporter{
+  layer = 0,
+  x = 376,
+  y = 16,
+  width = 16,
+  height = 16,
+  destination_map = "examples/test_map",
+  sprite = "entities/misc/teletransporter",
+}
+
+pickable{
+  layer = 0,
+  x = 400,
+  y = 29,
+  treasure_name = "heart",
+}
+
+destructible{
+  layer = 0,
+  x = 416,
+  y = 29,
+  sprite = "entities/destructibles/bush",
+  weight = -1,
+  damage_on_enemies = 0,
+}
+
+chest{
+  layer = 0,
+  x = 432,
+  y = 29,
+  sprite = "entities/chests/chest_small",
+}
+
+jumper{
+  layer = 0,
+  x = 440,
+  y = 24,
+  width = 16,
+  height = 8,
+  direction = 6,
+  jump_length = 40,
+}
+
+enemy{
+  layer = 0,
+  x = 464,
+  y = 29,
+  direction = 0,
+  breed = "sea_urchin",
+}
+
+npc{
+  layer = 0,
+  x = 496,
+  y = 29,
+  direction = 3,
+  subtype = 0,
+  sprite = "npc/books/book_blue",
+}
+
+block{
+  layer = 0,
+  x = 512,
+  y = 29,
+  sprite = "entities/blocks/box",
+  pushable = true,
+  pullable = false,
+}
+
+switch{
+  layer = 0,
+  x = 520,
+  y = 16,
+  subtype = "walkable",
+  sprite = "entities/switchs/switch",
+  needs_block = false,
+  inactivate_when_leaving = false,
+}
+
+wall{
+  layer = 0,
+  x = 536,
+  y = 16,
+  width = 16,
+  height = 16,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+sensor{
+  layer = 0,
+  x = 560,
+  y = 29,
+  width = 16,
+  height = 16,
+}
+
+crystal{
+  layer = 0,
+  x = 576,
+  y = 29,
+}
+
+crystal_block{
+  layer = 0,
+  x = 584,
+  y = 16,
+  width = 16,
+  height = 16,
+  subtype = 0,
+}
+
+crystal_block{
+  layer = 0,
+  x = 600,
+  y = 16,
+  width = 16,
+  height = 16,
+  subtype = 1,
+}
+
+shop_treasure{
+  layer = 0,
+  x = 600,
+  y = 56,
+  treasure_name = "heart",
+  price = 0,
+  font = "la",
+  dialog = "",
+}
+
+stream{
+  layer = 0,
+  x = 608,
+  y = 101,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+}
+
+stream{
+  layer = 0,
+  x = 608,
+  y = 117,
+  direction = 6,
+  allow_movement = false,
+}
+
+door{
+  layer = 0,
+  x = 600,
+  y = 120,
+  direction = 3,
+  sprite = "entities/doors/door_boss_key",
+}
+
+stairs{
+  layer = 0,
+  x = 600,
+  y = 136,
+  direction = 1,
+  subtype = 0,
 }
 
 tile{

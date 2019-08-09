@@ -2,7 +2,7 @@
 
 -- Variables
 local game_meta = sol.main.get_metatable("game")
-local combo_timer_duration = 30
+local combo_timer_duration = 50
 
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
@@ -22,7 +22,7 @@ game_meta:register_event("on_map_changed", function(game, map)
       end)
     timer:set_suspended_with_map(false)
 
-end)
+  end)
 
 --This function blacks out the screen during map loading time while having custom transitions active
 --Note: this was supposed to be temporary until the engine-side map loader was optimized, 
@@ -49,6 +49,8 @@ game_meta:register_event("on_draw", function(game, dst_surface)
   The sword, being an built-in equipment item with it's own command, is not concerned by this system by default.
    However, you can still do combinations by testing for the ability in your item script itself, or even make it an assignable item.
 --]]
+
+
 game_meta:register_event("on_command_pressed", function(game, command)
     if command == "item_1" or command =="item_2" then
       print "item_command ?"
@@ -67,51 +69,72 @@ game_meta:register_event("on_command_pressed", function(game, command)
         --mark items as triggered
         local handled = false
 
+        local function try_combo()
+          print "in try_combo function"
+          if game.item_combo ~= true and game.last_item_1~=nil and game.last_item_2~=nil then
+            print "Combination detected"
+
+            sol.timer.start(game, combo_timer_duration+10, function()
+                print "Reset combo status"
+                game.item_combo=nil
+              end)
+
+            --Both items are trying to be used at the same time, so try to start the combo for them
+            if item_1.start_combo then
+              game.item_combo=true
+              print ("Using combined behavior for item 1 ("..name_1..") with "..name_2)
+              item_1:start_combo(item_2)
+              return true
+            elseif item_2.start_combo then
+              game.item_combo=true
+              print ("Using combined behavior for item 2 ("..name_2..") with "..name_1)
+              item_2:start_combo(item_1)
+              return true
+            end
+          end
+        end
+
         if command =="item_1" and item_1~=nil then
           print "Item 1 triggered"
           game.last_item_1=name_1
           handled = item_1.start_using ~= nil or item_1.start_combo ~= nil
-          sol.timer.start(game, combo_timer_duration, function()
+          sol.timer.start(game, combo_timer_duration+10, function()
               --Delay resetting combo register for next cycle after combo checking
               print "Item 1 resetted"
               game.last_item_1=nil
             end)
-        elseif command == "item_2" and item_2~=nil then 
+          if game.last_item_2~=nil then
+            print "Combo from item 1"
+            if try_combo() then
+              print "Combo 1 OK"
+              return true --Combo was successfull, stop propagating command
+            end
+          end
+
+        elseif command == "item_2" and item_2~=nil then
           print "Item 2 triggered"
           game.last_item_2=name_2
           handled = item_2.start_using ~= nil or item_2.start_combo ~= nil
-          sol.timer.start(game, combo_timer_duration, function()
+          sol.timer.start(game, combo_timer_duration+10, function()
               --Delay resetting combo registers for next cycle after combo_checking
               print "Item 2 resetted"
               game.last_item_2=nil  
             end)
-        end
-
-        --This timer ensures we have enough time to press the other command before falling back to single-item behavior.
-        sol.timer.start(game, combo_timer_duration-10, function()
-            --Do not trigger the combo twice in the same cycle
-            if game.item_combo ~= true and game.last_item_1~=nil and game.last_item_2~=nil then
-              print "Combination detected"
-
-              sol.timer.start(game, 10, function()
-                  print "Reset combo status"
-                  game.item_combo=nil
-                end)
-
-              --Both items are trying to be used at the same time, so try to start the combo for them
-              if item_1.start_combo then
-                game.item_combo=true
-                print ("Using combined behavior for item 1 ("..name_1..") with "..name_2)
-                item_1:start_combo(item_2)
-                return
-              elseif item_2.start_combo then
-                game.item_combo=true
-                print ("Using combined behavior for item 2 ("..name_2..") with "..name_1)
-                item_2:start_combo(item_1)
-                return
-              end
+          
+          if game.last_item_1~=nil then
+            print "combo from item 2"
+            if try_combo() then
+              print "combo 2 OK"
+              return true
             end
+          end
 
+        end
+        print "starting single-item check timer"
+        --At this point, no combo was triggered, so we start the combo cancelling timer
+        --This timer ensures we have enough time to press the other command before falling back to single-item behavior.
+        sol.timer.start(game, combo_timer_duration, function()
+            print "checking for single item"
             --At this point, the combo was not triggered at all
             --or has already been handled in a previous cycle and not been cleaned yet
             --so we try using the normal override on each item instead.

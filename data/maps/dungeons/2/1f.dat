@@ -17148,7 +17148,7 @@ enemy{
   x = 1144,
   y = 1341,
   direction = 3,
-  breed = "stalfos",
+  breed = "stalfos_red",
 }
 
 enemy{
@@ -17157,7 +17157,7 @@ enemy{
   x = 1112,
   y = 1341,
   direction = 3,
-  breed = "stalfos",
+  breed = "stalfos_blue",
 }
 
 door{
