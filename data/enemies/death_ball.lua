@@ -24,22 +24,17 @@ function enemy:update_attraction()
   end)
 end
 
--- Start aspiring the hero.
-function enemy:start_aspiring()
-  enemy.is_aspiring = true
-  enemy.is_explusing = false
-end
+-- Start an enemy state.
+function enemy:start_state(state)
 
--- Start explusing the hero.
-function enemy:start_expulsing()
-  enemy.is_aspiring = false
-  enemy.is_explusing = true
-end
-
--- Pause the hero attraction.
-function enemy:set_paused()
   enemy.is_aspiring = false
   enemy.is_explusing = false
+
+  if state == "aspiring" then
+    enemy.is_aspiring = true
+  elseif state == "expulsing" then
+    enemy.is_explusing = true
+  end
 end
 
 -- Initialization.
@@ -54,5 +49,6 @@ function enemy:on_restarted()
   
   enemy:set_can_attack(false)
   enemy:set_pushed_back_when_hurt(false)
+  enemy:start_state(enemy:get_property("default_state"))
   enemy:update_attraction()
 end
