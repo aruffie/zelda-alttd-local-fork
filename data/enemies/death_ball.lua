@@ -27,7 +27,6 @@ end
 
 -- Initialization.
 function enemy:on_created()
-
   enemy:set_life(1)
 end
 

@@ -112,7 +112,7 @@ function enemy:on_created()
   enemy:set_attack_consequence("fire", 2)
   enemy:set_attack_consequence("boomerang", 2)
   enemy:set_attack_consequence("explosion", 2)
-  -- TODO enemy:set_attack_consequence("magic_rod", 2)
+  enemy:set_hammer_reaction(2)
 end
 
 -- Initial movement.

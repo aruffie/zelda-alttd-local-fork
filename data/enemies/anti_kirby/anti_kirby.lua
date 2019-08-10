@@ -200,10 +200,10 @@ function enemy:on_created()
   enemy:set_attack_consequence("thrown_item", "ignored")
   enemy:set_attack_consequence("arrow", "ignored")
   enemy:set_attack_consequence("hookshot", "ignored")
-  enemy:set_attack_consequence("fire", "ignored")
   enemy:set_attack_consequence("boomerang", 1)
   enemy:set_attack_consequence("explosion", 2)
-  -- TODO enemy:set_attack_consequence("magic_rod", 2)
+  enemy:set_attack_consequence("fire", 2)
+  enemy:set_hammer_reaction("ignored")
 
   -- Shadow.
   local shadow_sprite = enemy:create_sprite("entities/shadows/shadow", "shadow")
