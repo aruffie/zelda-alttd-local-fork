@@ -4,7 +4,7 @@
 --
 -- Methods : enemy:is_near(entity, triggering_distance)
 --           enemy:start_random_walking(possible_angles, speed, distance, sprite, on_finished_callback)
---           enemy:start_walking_to(hero, speed, sprite)
+--           enemy:start_target_walking(hero, speed, sprite)
 --           enemy:start_attracting(entity, pixel_by_second, reverse_move, moving_condition_callback)
 --           enemy:stop_attracting()
 --           enemy:steal_item(item_name, variant, only_if_assigned)
@@ -67,7 +67,7 @@ function common_actions.learn(enemy)
   end
 
   -- Make the enemy move to the entity.
-  function enemy:start_walking_to(entity, speed, sprite)
+  function enemy:start_target_walking(entity, speed, sprite)
 
     local movement = sol.movement.create("target")
     movement:set_speed(speed)
@@ -78,7 +78,7 @@ function common_actions.learn(enemy)
     return movement
   end
 
-  -- Start attracting the given entity by pixel_by_second, or expulse if reverse_move is set.
+  -- Start attracting the given entity by pixel_by_second, or expulse it if reverse_move is set.
   function enemy:start_attracting(entity, pixel_by_second, reverse_move, moving_condition_callback)
 
     local move_ratio = reverse_move and -1 or 1
@@ -99,18 +99,13 @@ function common_actions.learn(enemy)
         axis_move[axis] = math.max(math.min(enemy_position[axis] - entity_position[axis], 1), -1) * move_ratio
         if axis_move[axis] ~= 0 then
 
-          -- Schedule the next move on this axis depending on the remaining distance and the pixel_by_second value.
-          axis_move_delay = math.abs(1000.0 / (pixel_by_second * trigonometric_functions[axis](angle)))
+          -- Schedule the next move on this axis depending on the remaining distance and the pixel_by_second value, avoiding too high and low timers.
+          axis_move_delay = 1000.0 / math.max(1, math.min(100, math.abs(pixel_by_second * trigonometric_functions[axis](angle))))
 
           -- Move the hero.
           if not entity:test_obstacles(axis_move[1], axis_move[2]) then
             entity:set_position(entity_position[1] + axis_move[1], entity_position[2] + axis_move[2], entity_position[3])
           end
-        end
-
-        -- Avoid too short timers.
-        if axis_move_delay < 10 then
-          axis_move_delay = 10
         end
       end
 

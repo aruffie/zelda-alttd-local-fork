@@ -27,7 +27,9 @@ end
 
 -- Initialization.
 function enemy:on_created()
+
   enemy:set_life(1)
+  enemy:set_drawn_in_y_order(false)
 end
 
 function enemy:on_restarted()
