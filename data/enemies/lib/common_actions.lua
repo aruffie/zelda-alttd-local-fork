@@ -4,6 +4,7 @@
 --
 -- Methods : enemy:is_near(entity, triggering_distance)
 --           enemy:start_random_walking(possible_angles, speed, distance, sprite, on_finished_callback)
+--           enemy:start_walking_to(hero, speed, sprite)
 --           enemy:start_attracting(entity, pixel_by_second, reverse_move, moving_condition_callback)
 --           enemy:stop_attracting()
 --           enemy:steal_item(item_name, variant, only_if_assigned)
@@ -61,6 +62,20 @@ function common_actions.learn(enemy)
         on_finished_callback()
       end
     end
+
+    return movement
+  end
+
+  -- Make the enemy move to the entity.
+  function enemy:start_walking_to(entity, speed, sprite)
+
+    local movement = sol.movement.create("target")
+    movement:set_speed(speed)
+    movement:set_target(entity)
+    movement:start(enemy)
+    sprite:set_animation("walking")
+
+    return movement
   end
 
   -- Start attracting the given entity by pixel_by_second, or expulse if reverse_move is set.

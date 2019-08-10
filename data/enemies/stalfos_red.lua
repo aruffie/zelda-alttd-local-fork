@@ -1,15 +1,22 @@
--- Lua script of enemy stalfos.
+-- Lua script of enemy blue stalfos.
 -- This script is executed every time an enemy with this model is created.
 
--- Variables
+-- Global variables
 local enemy = ...
-local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+require("enemies/lib/stalfos").apply(enemy)
 
--- The enemy appears: set its properties.
-function enemy:on_created()
-  
-  enemy:set_life(3)
-  enemy:set_damage(2)
+local game = enemy:get_game()
+local map = enemy:get_map()
+local hero = map:get_hero()
+
+-- Event triggered when the enemy is close enough to the hero.
+function enemy:on_attacking()
+
+  -- Start jumping away from the hero.
+  local enemy_x, enemy_y, _ = enemy:get_position()
+  local hero_x, hero_y, _ = hero:get_position()
+  enemy:start_jumping(enemy_x * 2.0 - hero_x, enemy_y * 2.0 - hero_y)
+
+  -- TODO
 
 end
-
