@@ -20,14 +20,13 @@ local walking_pause_duration = 1500
 
 local is_exhausted_duration = 500
 
--- Start a random straight movement of a random distance on one of the 2 axis.
+-- Start a random straight movement of a random distance vertically or horizontally, and loop it without delay.
 function enemy:start_walking()
-  enemy:start_random_walking(walking_possible_angle, walking_speed, walking_distance_grid * math.random(walking_max_move_by_step), sprite)
-end
 
--- Start another random move on walk finished.
-function enemy:on_random_walk_finished()
-  enemy:start_walking()
+  math.randomseed(sol.main.get_elapsed_time())
+  enemy:start_random_walking(walking_possible_angle, walking_speed, walking_distance_grid * math.random(walking_max_move_by_step), sprite, function()
+    enemy:start_walking()
+  end)
 end
 
 -- Free the hero after he was eaten.
@@ -82,7 +81,7 @@ end
 -- Passive behaviors needing constant checking.
 function enemy:on_update()
 
-  -- If the enemy is eating, make the hero stuck at the same position even external things may hurt or interfere.
+  -- If the enemy is eating, make the hero stuck at the same position even if external things may hurt or interfere.
   if enemy.is_eating then
     hero:set_position(enemy:get_position())
 

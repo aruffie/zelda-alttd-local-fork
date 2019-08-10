@@ -20,12 +20,12 @@ local contact_damage = 4
 
 local walking_possible_angle = {eighth, 3.0 * eighth, 5.0 * eighth, 7.0 * eighth}
 local attack_triggering_distance = 100
+local aspirating_pixel_by_second = 88
 
 local walking_pause_duration = 1000
 local eating_duration = 2000
 local elevated_duration = 3000
 local before_aspiring_delay = 200
-local aspiration_on_hero_step_delay = 50
 local finish_aspiration_delay = 400
 
 local walking_speed = 48
@@ -44,30 +44,32 @@ function enemy:get_direction2()
   return 1
 end
 
--- Check if an attack should be triggered, continue walking else.
-function enemy:on_random_walk_finished()
+-- Start a random diagonal straight movement of a fixed distance and speed, and loop it with delay.
+function enemy:start_walking()
 
-  local _, _, layer = enemy:get_position()
-  local _, _, hero_layer = hero:get_position()
-  local near_hero = (layer == hero_layer or enemy:has_layer_independent_collisions()) and enemy:get_distance(hero) < attack_triggering_distance
+  enemy:start_random_walking(walking_possible_angle, walking_speed, walking_distance, sprite, function()
 
-  -- Start aspirate if the hero is near enough, continue walking else.
-  if near_hero then
-    enemy:start_aspirate()
-  else
-    sol.timer.start(enemy, walking_pause_duration, function()
-      enemy:start_random_walking(walking_possible_angle, walking_speed, walking_distance, sprite)
-    end)
-  end
+    -- Start aspirate if the hero is near enough, continue walking else.
+    if enemy:is_near(hero, attack_triggering_distance) then
+      enemy:start_aspirate()
+    else
+      sol.timer.start(enemy, walking_pause_duration, function()
+        enemy:start_walking()
+      end)
+    end
+  end)
 end
 
 -- Reset default states after an enemy attack.
 function enemy:reset_default_states()
 
-  enemy.is_aspiring = false
+  if enemy.is_aspiring then
+    enemy.is_aspiring = false
+    enemy:stop_attracting()
+  end
   enemy.is_attacking = false
   enemy:set_can_attack(true)
-  enemy:start_random_walking(walking_possible_angle, walking_speed, walking_distance, sprite)
+  enemy:start_walking()
 end
 
 -- Make the enemy eat the hero.
@@ -120,6 +122,7 @@ function enemy:on_update()
   if enemy.is_aspiring then
     if enemy:overlaps(hero, "origin") then
       enemy.is_aspiring = false
+      enemy:stop_attracting()
       enemy:eat_hero()
     end
   end
@@ -136,24 +139,13 @@ function enemy:start_aspirate()
     enemy:set_can_attack(false)
     enemy.is_aspiring = true
 
-    -- Bring hero closer while the enemy is aspiring.
-    local function aspire_hero()
+    -- Bring hero closer while the enemy is aspiring if the hero is on the side (left/right) where the enemy is looking at.
+    enemy:start_attracting(hero, aspirating_pixel_by_second, false, function()
       local enemy_x, _, _ = enemy:get_position()
       local hero_x, _, _ = hero:get_position()
       local direction = enemy:get_direction2()
-
-      -- If the hero is on the side (left/right) where the enemy is looking at
-      if (direction == 0 and hero_x >= enemy_x) or (direction == 1 and hero_x <= enemy_x) then 
-        enemy:attract_hero(1)
-      end
-
-      if enemy.is_aspiring then
-        sol.timer.start(enemy, aspiration_on_hero_step_delay, function()
-          aspire_hero()
-        end)
-      end
-    end
-    aspire_hero()
+      return (direction == 0 and hero_x >= enemy_x) or (direction == 1 and hero_x <= enemy_x)
+    end)
 
     -- Start aspire animation.
     sprite:set_animation("aspire")
