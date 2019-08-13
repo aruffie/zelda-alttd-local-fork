@@ -5,7 +5,7 @@
 
 -- Global variables
 local enemy = ...
-require("enemies/lib/common_actions").learn(enemy)
+local common_actions = require("enemies/lib/common_actions")
 
 local game = enemy:get_game()
 local map = enemy:get_map()
@@ -21,10 +21,12 @@ local contact_damage = 4
 local walking_possible_angle = {eighth, 3.0 * eighth, 5.0 * eighth, 7.0 * eighth}
 local attack_triggering_distance = 100
 local aspirating_pixel_by_second = 88
+local flying_height = 8
 
 local walking_pause_duration = 1000
 local eating_duration = 2000
-local elevated_duration = 3000
+local elevating_duration = 3000
+local take_off_duration = 3000
 local before_aspiring_delay = 200
 local finish_aspiration_delay = 400
 
@@ -32,8 +34,6 @@ local walking_speed = 48
 local walking_distance = 45
 local spit_speed = 220
 local spit_distance = 64
-local elevation_speed = 8
-local elevation_distance = 8
 
 -- Return the visual direction (left or right) depending on the sprite direction.
 function enemy:get_direction2()
@@ -47,7 +47,7 @@ end
 -- Start a random diagonal straight movement of a fixed distance and speed, and loop it with delay.
 function enemy:start_walking()
 
-  enemy:start_random_walking(walking_possible_angle, walking_speed, walking_distance, sprite, function()
+  enemy:start_random_walking(walking_possible_angle, walking_speed, walking_distance, function()
 
     -- Start aspirate if the hero is near enough, continue walking else.
     if enemy:is_near(hero, attack_triggering_distance) then
@@ -146,44 +146,43 @@ function enemy:start_aspirate()
       local direction = enemy:get_direction2()
       return (direction == 0 and hero_x >= enemy_x) or (direction == 1 and hero_x <= enemy_x)
     end)
+    
+    -- Make the enemy sprites elevate while aspiring.
+    enemy:start_flying(take_off_duration, false, flying_height)
 
     -- Start aspire animation.
     sprite:set_animation("aspire")
     aspiration_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "_aspiration", "aspiration")
     aspiration_sprite:set_direction(sprite:get_direction())
-    
-    -- Make the enemy sprites elevate while aspiring.
-    local function elevate(entity, angle)
-      local movement = sol.movement.create("straight")
-      movement:set_speed(elevation_speed)
-      movement:set_max_distance(elevation_distance)
-      movement:set_angle(angle)
-      movement:set_ignore_obstacles(true)
-      movement:start(entity)
-      return movement
+    sol.timer.start(enemy, 10, function()
+      if aspiration_sprite then
+        aspiration_sprite:set_xy(sprite:get_xy())
+      end
+      return enemy.is_aspiring
+    end)
+  end)
+end
+
+-- Event called when the enemy took off while aspiring.
+function enemy:on_fly_took_off()
+
+  -- Wait for a delay and start the landing movement.
+  sol.timer.start(enemy, elevating_duration, function()
+    if enemy.is_aspiring then
+      enemy:stop_flying(take_off_duration, false)
     end
-    local elevate_movement = elevate(sprite, math.pi / 2.0)
-    elevate(aspiration_sprite, math.pi / 2.0)
+  end)
+end
 
-    -- Wait for a delay and start the touchdown movement.
-    function elevate_movement:on_finished()
-      sol.timer.start(enemy, elevated_duration, function()
-        if enemy.is_aspiring then
-          local touchdown_movement = elevate(sprite, 3.0 * math.pi / 2.0)
-          elevate(aspiration_sprite, 3.0 * math.pi / 2.0)
+-- Event called when the enemy landed while aspiring.
+function enemy:on_fly_landed() 
 
-          -- Reset default states a little after touching the ground.
-          function touchdown_movement:on_finished() 
-            sol.timer.start(enemy, finish_aspiration_delay, function()
-              if enemy.is_aspiring then
-                enemy:remove_sprite(aspiration_sprite)
-                aspiration_sprite = nil
-                enemy:reset_default_states()
-              end
-            end)
-          end
-        end
-      end)
+  -- Reset default states a little after touching the ground.
+  sol.timer.start(enemy, finish_aspiration_delay, function()
+    if enemy.is_aspiring then
+      enemy:remove_sprite(aspiration_sprite)
+      aspiration_sprite = nil
+      enemy:reset_default_states()
     end
   end)
 end
@@ -191,9 +190,13 @@ end
 -- Initialization.
 function enemy:on_created()
 
-  -- Game properties.
+  common_actions.learn(enemy, sprite)
   enemy:set_life(4)
-  enemy:set_damage(contact_damage)
+  enemy:add_shadow()
+end
+
+-- Restart settings.
+function enemy:on_restarted()
 
   -- Behavior for each items.
   enemy:set_attack_consequence("sword", "ignored")
@@ -205,12 +208,7 @@ function enemy:on_created()
   enemy:set_attack_consequence("fire", 2)
   enemy:set_hammer_reaction("ignored")
 
-  -- Shadow.
-  local shadow_sprite = enemy:create_sprite("entities/shadows/shadow", "shadow")
-  enemy:bring_sprite_to_back(shadow_sprite)
-end
-
--- Initial movement.
-function enemy:on_restarted()
+  -- States.
+  enemy:set_damage(contact_damage)
   enemy:reset_default_states()
 end

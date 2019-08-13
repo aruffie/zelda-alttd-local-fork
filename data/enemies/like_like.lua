@@ -3,7 +3,7 @@
 
 -- Global variables.
 local enemy = ...
-require("enemies/lib/common_actions").learn(enemy)
+local common_actions = require("enemies/lib/common_actions")
 
 local game = enemy:get_game()
 local map = enemy:get_map()
@@ -24,7 +24,7 @@ local is_exhausted_duration = 500
 function enemy:start_walking()
 
   math.randomseed(sol.main.get_elapsed_time())
-  enemy:start_random_walking(walking_possible_angle, walking_speed, walking_distance_grid * math.random(walking_max_move_by_step), sprite, function()
+  enemy:start_random_walking(walking_possible_angle, walking_speed, walking_distance_grid * math.random(walking_max_move_by_step), function()
     enemy:start_walking()
   end)
 end
@@ -48,7 +48,7 @@ function enemy:free_hero()
 end
 
 -- Store the number of command pressed while eaten and free the hero if necessary.
-game:register_event("on_command_pressed", function(carriable, command)
+game:register_event("on_command_pressed", function(game, command)
 
   if enemy.is_eating and (command == "attack" or command == "item_1" or command == "item_2") then
     enemy.command_pressed_count = enemy.command_pressed_count + 1
@@ -97,13 +97,13 @@ end
 -- Initialization.
 function enemy:on_created()
 
-  -- Game properties.
+  common_actions.learn(enemy, sprite)
   enemy:set_life(2)
-  enemy:set_damage(0)
-  enemy.is_eating = false
-  enemy.is_exhausted = false
-  enemy.command_pressed_count = 0
-  
+end
+
+-- Restart settings.
+function enemy:on_restarted()
+
   -- Behavior for each items.
   enemy:set_attack_consequence("sword", 1)
   enemy:set_attack_consequence("thrown_item", 2)
@@ -113,11 +113,12 @@ function enemy:on_created()
   enemy:set_attack_consequence("boomerang", 2)
   enemy:set_attack_consequence("explosion", 2)
   enemy:set_hammer_reaction(2)
-end
 
--- Initial movement.
-function enemy:on_restarted()
-
+  -- States.
+  enemy:set_damage(0)
   enemy:set_can_attack(false)
+  enemy.is_eating = false
+  enemy.is_exhausted = false
+  enemy.command_pressed_count = 0
   enemy:start_walking()
 end

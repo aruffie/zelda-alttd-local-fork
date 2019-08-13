@@ -39,9 +39,8 @@ function enemy:start_firing()
     self.is_exhausted = true 
 
     -- Create laser entities.
-    -- TODO
     self:create_enemy({
-      breed =  "eyegore_statue/eyegore_statue_fireball",
+      breed =  "eyegore_statue/eyegore_statue_fireball", -- TODO
       x = 0,
       y = 0
     })
