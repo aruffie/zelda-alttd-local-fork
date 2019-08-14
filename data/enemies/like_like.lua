@@ -9,7 +9,7 @@ local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
-local quarter = math.pi / 2.0
+local quarter = math.pi * 0.5
 
 -- Configuration variables
 local walking_possible_angle = {0, quarter, 2.0 * quarter, 3.0 * quarter}

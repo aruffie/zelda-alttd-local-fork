@@ -26,16 +26,14 @@
 
 local common_actions = {}
 
-function common_actions.learn(enemy, main_sprite)
+function common_actions.learn(enemy, main_sprite) -- Workaround. The solarus notion of main enemy sprite is not really reliable, pass it explicitely at creation.
 
   local game = enemy:get_game()
   local map = enemy:get_map()
   local hero = map:get_hero()
   local trigonometric_functions = {math.cos, math.sin}
 
-  local is_attracting = false
-  local is_jumping = false
-  local is_flying = false
+  local attracting_timers = {}
   
   -- Return true if the entity is closer to the enemy than triggering_distance
   function enemy:is_near(entity, triggering_distance)
@@ -100,11 +98,6 @@ function common_actions.learn(enemy, main_sprite)
   -- Make the enemy start jumping.
   function enemy:start_jumping(duration, unsensitive, height)
 
-    if is_jumping then
-      return
-    end
-    is_jumping = true
-
     -- Make enemy unable to interact with the hero if requested.
     if unsensitive then
       enemy:set_invincible()
@@ -119,13 +112,10 @@ function common_actions.learn(enemy, main_sprite)
       if elapsed_time < duration then
         main_sprite:set_xy(0, -math.sqrt(math.sin(elapsed_time / duration * math.pi)) * height)
         sol.timer.start(enemy, 10, function()
-          if is_jumping then
-            elapsed_time = elapsed_time + 10
-            update_sprite_height()
-          end
+          elapsed_time = elapsed_time + 10
+          update_sprite_height()
         end)
       else
-        is_jumping = false
         main_sprite:set_xy(0, 0)
 
         -- Call enemy:on_jump_finished() event.
@@ -140,11 +130,6 @@ function common_actions.learn(enemy, main_sprite)
   -- Make the enemy start flying.
   function enemy:start_flying(take_off_duration, unsensitive, height)
 
-    if is_flying then
-      return
-    end
-    is_flying = true
-
     -- Make enemy unable to interact with the hero if requested.
     if unsensitive then
       enemy:set_invincible()
@@ -156,24 +141,20 @@ function common_actions.learn(enemy, main_sprite)
     local movement = sol.movement.create("straight")
     movement:set_speed(height * 1000 / take_off_duration)
     movement:set_max_distance(height)
-    movement:set_angle(math.pi / 2.0)
+    movement:set_angle(math.pi * 0.5)
     movement:set_ignore_obstacles(true)
     movement:start(main_sprite)
 
-    -- Call the enemy:on_took_off() method once take off finished.
-    if enemy.on_fly_took_off then
-      sol.timer.start(enemy, take_off_duration, function()
+    -- Call the enemy:on_fly_took_off() method once take off finished.
+    function movement:on_finished()
+      if enemy.on_fly_took_off then
         enemy:on_fly_took_off()
-      end)
+      end
     end
   end
 
   -- Make the enemy stop flying.
   function enemy:stop_flying(landing_duration)
-
-    if not is_flying then
-      return
-    end
 
     -- Make the main sprite start landing.
     local _, height = main_sprite:get_xy()
@@ -181,24 +162,23 @@ function common_actions.learn(enemy, main_sprite)
     local movement = sol.movement.create("straight")
     movement:set_speed(height * 1000 / landing_duration)
     movement:set_max_distance(height)
-    movement:set_angle(-math.pi / 2.0)
+    movement:set_angle(-math.pi * 0.5)
     movement:set_ignore_obstacles(true)
     movement:start(main_sprite)
 
-    -- Call the enemy:on_took_off() method once landed finished.
-    sol.timer.start(enemy, landing_duration, function()
-      is_flying = false
+    -- Call the enemy:on_fly_landed() method once landed finished.
+    function movement:on_finished()
       if enemy.on_fly_landed then
         enemy:on_fly_landed()
       end
-    end)
+    end
   end
 
   -- Start attracting the given entity by pixel_by_second, or expulse it if reverse_move is set.
   function enemy:start_attracting(entity, pixel_by_second, reverse_move, moving_condition_callback)
 
     local move_ratio = reverse_move and -1 or 1
-    is_attracting = true
+    attracting_timers[entity] = {}
 
     local function attract_on_axis(axis)
 
@@ -226,10 +206,8 @@ function common_actions.learn(enemy, main_sprite)
       end
 
       -- Start the next move timer.
-      sol.timer.start(enemy, axis_move_delay, function()
-        if is_attracting then
-          attract_on_axis(axis)
-        end
+      attracting_timers[entity][axis] = sol.timer.start(enemy, axis_move_delay, function()
+        attract_on_axis(axis)
       end)
     end
 
@@ -239,7 +217,16 @@ function common_actions.learn(enemy, main_sprite)
 
   -- Stop looped timers related to the attractions.
   function enemy:stop_attracting()
-    is_attracting = false
+
+    for _, timers in pairs(attracting_timers) do
+      if timers then
+        for i = 1, 2 do
+          if timers[i] then
+            timers[i]:stop()
+          end
+        end
+      end
+    end
   end
 
   -- Steal an item and drop it when died, possibly conditionned on the variant and the assignation to a slot.

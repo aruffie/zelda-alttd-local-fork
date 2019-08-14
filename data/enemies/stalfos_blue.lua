@@ -13,6 +13,7 @@ local sprite = enemy:get_sprite()
 -- Configuration variables
 local attack_triggering_distance = 32
 local walking_speed = 32
+local jumping_speed = 128
 local jumping_height = 32
 local jumping_duration = 800
 local elevating_duration = 120
@@ -30,12 +31,24 @@ function enemy:start_walking()
   end
 end
 
+-- Make the enemy move by targetting the hero.
+function enemy:start_jumping_movement()
+
+  -- Start the on-floor jumping movement.
+  local target_x, target_y, _ = hero:get_position()
+  local movement = sol.movement.create("target")
+  movement:set_speed(jumping_speed)
+  movement:set_target(target_x, target_y)
+  movement:set_smooth(false)
+  movement:start(enemy)
+  sprite:set_animation("jumping")
+end
+
 -- Event triggered when the enemy is close enough to the hero.
 function enemy:start_attacking()
 
   -- Start jumping on the current hero position.
-  local target_x, target_y, _ = hero:get_position()
-  enemy:start_jumping_movement(target_x, target_y)
+  enemy:start_jumping_movement()
   enemy:start_flying(elevating_duration, true, jumping_height)
 
   -- Wait for a delay and start the stomp down.

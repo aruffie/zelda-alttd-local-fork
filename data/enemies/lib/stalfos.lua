@@ -2,8 +2,6 @@
 --
 -- Add stalfos behavior to an ennemy.
 --
--- Methods : enemy:start_jumping_movement(target_x, target_y)
---
 -- Usage : 
 -- local my_enemy = ...
 -- local behavior = require("enemies/lib/stalfos")
@@ -15,27 +13,12 @@
 local behavior = {}
 local common_actions = require("enemies/lib/common_actions")
 
--- Configuration variables
-local jumping_speed = 128
-
 function behavior.apply(enemy)
 
   local game = enemy:get_game()
   local map = enemy:get_map()
   local hero = map:get_hero()
   local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
-
-  -- Make the enemy move on the given target.
-  function enemy:start_jumping_movement(target_x, target_y)
-
-    -- Start the on-floor jumping movement.
-    local movement = sol.movement.create("target")
-    movement:set_speed(jumping_speed)
-    movement:set_target(target_x, target_y)
-    movement:set_smooth(false)
-    movement:start(enemy)
-    sprite:set_animation("jumping")
-  end
 
   -- Initialization.
   function enemy:on_created()

@@ -12,7 +12,7 @@ local map = enemy:get_map()
 local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local aspiration_sprite = nil
-local eighth = math.pi / 4.0
+local eighth = math.pi * 0.25
 
 -- Configuration variables
 local suction_damage = 2
@@ -25,8 +25,9 @@ local flying_height = 8
 
 local walking_pause_duration = 1000
 local eating_duration = 2000
-local elevating_duration = 3000
-local take_off_duration = 3000
+local take_off_duration = 1000
+local flying_duration = 3000
+local landing_duration = 1000
 local before_aspiring_delay = 200
 local finish_aspiration_delay = 400
 
@@ -115,7 +116,7 @@ function enemy:on_update()
 
   -- Make the sprite jump if the enemy is not attacking.
   if not enemy.is_attacking then
-    sprite:set_xy(0, -math.abs(math.cos(sol.main.get_elapsed_time() / 75.0) * 4.0))
+    sprite:set_xy(0, -math.abs(math.cos(sol.main.get_elapsed_time() * 0.01) * 4.0))
   end
 
   -- If the hero touches the center of the enemy while aspiring, eat him.
@@ -167,9 +168,9 @@ end
 function enemy:on_fly_took_off()
 
   -- Wait for a delay and start the landing movement.
-  sol.timer.start(enemy, elevating_duration, function()
+  sol.timer.start(enemy, flying_duration, function()
     if enemy.is_aspiring then
-      enemy:stop_flying(take_off_duration, false)
+      enemy:stop_flying(landing_duration, false)
     end
   end)
 end
