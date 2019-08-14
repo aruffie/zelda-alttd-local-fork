@@ -125,25 +125,49 @@ fire:add_collision_test(bush_collision_test, function(fire, entity)
   end
 end)
 
+-- Going off animation and remove
+function fire:extinguish()
+
+  fire:stop_movement()
+  sprite:set_animation("going_off")
+  function sprite:on_animation_finished()
+    fire:remove()
+  end
+end
+
 -- Hurt enemies.
 fire:add_collision_test("sprite", function(fire, entity)
 
-  if entity:get_type() == "enemy" then
+  if entity:get_type() == "enemy" and not enemies_touched[entity] and entity:get_attack_consequence("fire") ~= "ignored" then
     local enemy = entity
-    if enemies_touched[enemy] then
-      -- If protected we don't want to play the sound repeatedly.
-      return
-    end
     enemies_touched[enemy] = true
     local reaction = enemy:get_fire_reaction(enemy_sprite)
-    enemy:receive_attack_consequence("fire", reaction)
 
-    sol.timer.start(fire, 200, function()
+    if reaction == "protected" then
+      -- Just remove the entity if it has no effect on the enemy.
       fire:remove()
-    end)
+    else
+      -- Else immobilize the enemy and make it burn
+      fire:extinguish()
+      enemy:immobilize()
+      enemy:set_invincible()
+      burning_sprite = enemy:create_sprite("entities/fire", "burning") -- TODO
+      burning_sprite:set_animation("stopped")
+      function burning_sprite:on_animation_finished()
+        burning_sprite:remove()
+      end
+      
+      -- Then call the enemy:receive_attack_consequence after a delay.
+      sol.timer.start(sol.main, 2000, function()
+        if enemy then
+          enemy:restart()
+          enemy:receive_attack_consequence("fire", reaction)
+        end
+      end)
+    end
   end
 end)
 
 function fire:on_obstacle_reached()
-  fire:remove()
+  fire:extinguish()
 end

@@ -61,18 +61,6 @@ function enemy:start_walking()
   end)
 end
 
--- Reset default states after an enemy attack.
-function enemy:reset_default_states()
-
-  if enemy.is_aspiring then
-    enemy.is_aspiring = false
-    enemy:stop_attracting()
-  end
-  enemy.is_attacking = false
-  enemy:set_can_attack(true)
-  enemy:start_walking()
-end
-
 -- Make the enemy eat the hero.
 function enemy:eat_hero()
 
@@ -107,7 +95,7 @@ function enemy:eat_hero()
       hero:unfreeze()
     end
 
-    enemy:reset_default_states()
+    enemy:restart()
   end)
 end
 
@@ -183,7 +171,7 @@ function enemy:on_fly_landed()
     if enemy.is_aspiring then
       enemy:remove_sprite(aspiration_sprite)
       aspiration_sprite = nil
-      enemy:reset_default_states()
+      enemy:restart()
     end
   end)
 end
@@ -206,10 +194,13 @@ function enemy:on_restarted()
   enemy:set_attack_consequence("hookshot", "ignored")
   enemy:set_attack_consequence("boomerang", 1)
   enemy:set_attack_consequence("explosion", 2)
-  enemy:set_attack_consequence("fire", 2)
   enemy:set_hammer_reaction("ignored")
+  enemy:set_fire_reaction(2)
 
   -- States.
+  enemy:set_can_attack(true)
   enemy:set_damage(contact_damage)
-  enemy:reset_default_states()
+  enemy.is_aspiring = false
+  enemy.is_attacking = false
+  enemy:start_walking()
 end

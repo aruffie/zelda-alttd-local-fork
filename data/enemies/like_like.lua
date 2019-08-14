@@ -109,10 +109,10 @@ function enemy:on_restarted()
   enemy:set_attack_consequence("thrown_item", 2)
   enemy:set_attack_consequence("arrow", 2)
   enemy:set_attack_consequence("hookshot", 2)
-  enemy:set_attack_consequence("fire", 2)
   enemy:set_attack_consequence("boomerang", 2)
   enemy:set_attack_consequence("explosion", 2)
   enemy:set_hammer_reaction(2)
+  enemy:set_fire_reaction(2)
 
   -- States.
   enemy:set_damage(0)
