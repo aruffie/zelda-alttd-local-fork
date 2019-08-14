@@ -50,12 +50,14 @@ end
 -- Store the number of command pressed while eaten and free the hero if necessary.
 game:register_event("on_command_pressed", function(game, command)
 
-  if enemy.is_eating and (command == "attack" or command == "item_1" or command == "item_2") then
-    enemy.command_pressed_count = enemy.command_pressed_count + 1
+  if enemy:exists() and enemy:is_enabled() then
+    if enemy.is_eating and (command == "attack" or command == "item_1" or command == "item_2") then
+      enemy.command_pressed_count = enemy.command_pressed_count + 1
 
-    -- Once 8 action commands are pressed, get the hero rid of the enemy.
-    if enemy.command_pressed_count == 8 then
-      enemy:free_hero()
+      -- Once 8 action commands are pressed, get the hero rid of the enemy.
+      if enemy.command_pressed_count == 8 then
+        enemy:free_hero()
+      end
     end
   end
 end)

@@ -163,8 +163,10 @@ fire:add_collision_test("sprite", function(fire, entity)
     sol.timer.start(sol.main, 2000, function()
       if enemy then
         enemy:restart()
-        enemy:set_pushed_back_when_hurt(false) -- Pushed back already done by enemy:immobilize()
+        local is_pushed_back_when_hurt = enemy:is_pushed_back_when_hurt()
+        enemy:set_pushed_back_when_hurt(false) -- Push back already done by enemy:immobilize()
         enemy:receive_attack_consequence("fire", reaction)
+        enemy:set_pushed_back_when_hurt(is_pushed_back_when_hurt)
       end
     end)
   end
