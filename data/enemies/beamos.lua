@@ -39,10 +39,13 @@ function enemy:start_firing()
     self.is_exhausted = true 
 
     -- Create laser entities.
-    self:create_enemy({
+    local x, y, layer = enemy:get_position()
+    map:create_enemy({
       breed =  "eyegore_statue/eyegore_statue_fireball", -- TODO
-      x = 0,
-      y = 0
+      x = x,
+      y = y,
+      layer = layer,
+      direction = enemy:get_direction4_to(hero)
     })
 
     -- Unpause animation after some time.

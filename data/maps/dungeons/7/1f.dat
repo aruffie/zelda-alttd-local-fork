@@ -6974,7 +6974,7 @@ enemy{
   x = 1080,
   y = 605,
   direction = 3,
-  breed = "zombie",
+  breed = "gibdo",
 }
 
 enemy{
@@ -7243,7 +7243,7 @@ enemy{
   x = 552,
   y = 605,
   direction = 3,
-  breed = "zombie",
+  breed = "gibdo",
 }
 
 enemy{
@@ -7252,7 +7252,7 @@ enemy{
   x = 520,
   y = 573,
   direction = 3,
-  breed = "zombie",
+  breed = "gibdo",
 }
 
 enemy{

@@ -69,10 +69,14 @@ function enemy:on_jump_finished()
 
   -- Throw a bone club at the hero after a delay.
   sol.timer.start(enemy, throwing_bone_delay, function()
-    self:create_enemy({
-      breed =  "eyegore_statue/eyegore_statue_fireball", -- TODO
-      x = 0,
-      y = 0
+    
+    local x, y, layer = enemy:get_position()
+    map:create_enemy({
+      breed = "eyegore_statue/eyegore_statue_fireball", -- TODO
+      x = x,
+      y = y,
+      layer = layer,
+      direction = enemy:get_direction4_to(hero)
     })
   end)
 end

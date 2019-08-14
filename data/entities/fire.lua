@@ -142,20 +142,6 @@ fire:add_collision_test("sprite", function(fire, entity)
       fire:remove()
     end)
   end
-  if entity:get_type() == "enemy" then
-    local enemy = entity
-    if enemies_touched[enemy] then
-      -- If protected we don't want to play the sound repeatedly.
-      return
-    end
-    enemies_touched[enemy] = true
-    local reaction = enemy:get_fire_reaction(enemy_sprite)
-    enemy:receive_attack_consequence("fire", reaction)
-
-    sol.timer.start(fire, 200, function()
-      fire:remove()
-    end)
-  end
 end)
 
 function fire:on_obstacle_reached()
