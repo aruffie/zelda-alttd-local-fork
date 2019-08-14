@@ -40,7 +40,7 @@ function behavior.apply(enemy)
     enemy:set_attack_consequence("boomerang", 2)
     enemy:set_attack_consequence("explosion", 2)
     enemy:set_hammer_reaction(2)
-    enemy:set_fire_reaction("ignored")
+    enemy:set_fire_reaction("protected")
 
     -- States.
     enemy:set_can_attack(true)

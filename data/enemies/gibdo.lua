@@ -26,7 +26,7 @@ function enemy:start_walking()
   end)
 end
 
--- On hit by fire.
+-- On hit by fire, the gibdo become a red Stalfos.
 function enemy:on_custom_attack_received(attack)
 
   if attack == "fire" then

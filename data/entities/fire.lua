@@ -138,33 +138,35 @@ end
 -- Hurt enemies.
 fire:add_collision_test("sprite", function(fire, entity)
 
-  if entity:get_type() == "enemy" and not enemies_touched[entity] and entity:get_attack_consequence("fire") ~= "ignored" then
+  if entity:get_type() == "enemy" and not enemies_touched[entity] and entity:get_fire_reaction(entity) ~= "ignored" then
     local enemy = entity
     enemies_touched[enemy] = true
-    local reaction = enemy:get_fire_reaction(enemy_sprite)
+    local reaction = enemy:get_fire_reaction(enemy)
 
+    -- Just remove the entity if fire has no effect on the enemy.
     if reaction == "protected" then
-      -- Just remove the entity if it has no effect on the enemy.
       fire:remove()
-    else
-      -- Else immobilize the enemy and make it burn
-      fire:extinguish()
-      enemy:immobilize()
-      enemy:set_invincible()
-      burning_sprite = enemy:create_sprite("entities/fire", "burning") -- TODO
-      burning_sprite:set_animation("stopped")
-      function burning_sprite:on_animation_finished()
-        burning_sprite:remove()
-      end
-      
-      -- Then call the enemy:receive_attack_consequence after a delay.
-      sol.timer.start(sol.main, 2000, function()
-        if enemy then
-          enemy:restart()
-          enemy:receive_attack_consequence("fire", reaction)
-        end
-      end)
+      return
     end
+
+    -- Else immobilize the enemy and make it burn
+    fire:extinguish()
+    enemy:immobilize()
+    enemy:set_invincible()
+    burning_sprite = enemy:create_sprite("entities/fire", "burning") -- TODO
+    burning_sprite:set_animation("stopped")
+    function burning_sprite:on_animation_finished()
+      burning_sprite:remove()
+    end
+    
+    -- Then call the enemy:receive_attack_consequence after a delay.
+    sol.timer.start(sol.main, 2000, function()
+      if enemy then
+        enemy:restart()
+        enemy:set_pushed_back_when_hurt(false) -- Pushed back already done by enemy:immobilize()
+        enemy:receive_attack_consequence("fire", reaction)
+      end
+    end)
   end
 end)
 
