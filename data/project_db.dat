@@ -430,6 +430,7 @@ sprite{ id = "entities/dungeons/dungeon_6", description = "Dungeon 6" }
 sprite{ id = "entities/dungeons/dungeon_7", description = "Dungeon 7" }
 sprite{ id = "entities/effects/dark", description = "Dark" }
 sprite{ id = "entities/effects/explosion_green", description = "Explosion green" }
+sprite{ id = "entities/effects/flame", description = "Flame" }
 sprite{ id = "entities/effects/fog", description = "Fog" }
 sprite{ id = "entities/effects/lightning_strike", description = "Lightning strike" }
 sprite{ id = "entities/effects/lightning_strike_core", description = "Lightning stright core" }
