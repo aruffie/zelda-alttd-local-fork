@@ -1365,6 +1365,7 @@ entity{ id = "mr_write_and_christine", description = "Mr Write and Christine" }
 entity{ id = "non_diggable", description = "Non diggable" }
 entity{ id = "obstacle", description = "Obstacle" }
 entity{ id = "pickable_fly", description = "Flying pickable" }
+entity{ id = "pickable_sink", description = "Sinking pickable" }
 entity{ id = "pillar", description = "Pillar" }
 entity{ id = "platform_balance", description = "Twin linked platforms" }
 entity{ id = "platform_collapsing", description = "Collapsing platform" }
@@ -1557,6 +1558,7 @@ file{ path = "enemies/zol_red.lua", license = "GPL v3" }
 file{ path = "enemies/zombie.lua", license = "GPL v3" }
 file{ path = "enemies/zora.lua", license = "GPL v3" }
 file{ path = "entities/cliff.lua", author = "Christopho", license = "GPL v3" }
+file{ path = "entities/pickable_sink.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "entities/platform_balance.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "entities/platform_collapsing.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "entities/platform_ice_block.lua", author = "PhoenixII54", license = "GPL v3" }
@@ -2436,7 +2438,7 @@ file{ path = "sounds/victory.ogg", author = "Franck Jousseaume", license = "CC B
 file{ path = "sounds/walk_on_grass.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/walk_on_water.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/wrong.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
-file{ path = "sprites/debug", author = "PhoenixII54", }
+file{ path = "sprites/debug", author = "PhoenixII54", license = "CC-BY-SA 4.0" }
 file{ path = "sprites/enemies/anti_kirby/anti_kirby.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/anti_kirby/anti_kirby_aspiration.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/arm_mimic.png", license = "Proprietary, Fair use" }
