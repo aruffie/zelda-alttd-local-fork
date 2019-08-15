@@ -74,7 +74,7 @@ function enemy:on_jump_finished()
     
     local x, y, layer = enemy:get_position()
     map:create_enemy({
-      breed = "eyegore_statue/eyegore_statue_fireball", -- TODO
+      breed = "projectiles/bone",
       x = x,
       y = y,
       layer = layer,
