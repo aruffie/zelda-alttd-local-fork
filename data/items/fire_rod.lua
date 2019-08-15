@@ -105,7 +105,7 @@ local function initialize_meta()
     return self.fire_reaction
   end
 
-  function enemy_meta:set_fire_reaction(reaction, sprite)
+  function enemy_meta:set_fire_reaction(reaction)
 
     self.fire_reaction = reaction
     

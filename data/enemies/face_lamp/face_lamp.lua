@@ -4,16 +4,11 @@
 -- Variables
 local enemy = ...
 local behavior = require("enemies/lib/fire_breathing_statue")
+
 local properties = {
   sprite = "enemies/" .. enemy:get_breed(),
-  projectile_breed = "fireball_small_triple_red",
+  projectile_breed = "eyegore_statue/eyegore_statue_fireball",
   projectile_sound = "enemies/face_lamp",
 }
 
--- The enemy appears: set its properties.
-function enemy:on_created()
-
-  behavior:create(enemy, properties)
-  
-end
-
+behavior:create(enemy, properties)

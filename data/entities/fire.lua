@@ -125,39 +125,63 @@ fire:add_collision_test(bush_collision_test, function(fire, entity)
   end
 end)
 
+-- Going off animation and remove
+function fire:extinguish()
+
+  fire:stop_movement()
+  sprite:set_animation("going_off")
+  function sprite:on_animation_finished()
+    fire:remove()
+  end
+end
+
 -- Hurt enemies.
 fire:add_collision_test("sprite", function(fire, entity)
 
-  if entity:get_type() == "enemy" then
+  if entity:get_type() == "enemy" and not enemies_touched[entity] and entity:get_fire_reaction(entity) ~= "ignored" then
     local enemy = entity
-    if enemies_touched[enemy] then
-      -- If protected we don't want to play the sound repeatedly.
+    enemies_touched[enemy] = true
+    local reaction = enemy:get_fire_reaction(enemy)
+
+    -- Only remove the entity if fire has no effect on the enemy.
+    if reaction == "protected" then
+      fire:remove()
       return
     end
-    enemies_touched[enemy] = true
-    local reaction = enemy:get_fire_reaction(enemy_sprite)
-    enemy:receive_attack_consequence("fire", reaction)
 
-    sol.timer.start(fire, 200, function()
-      fire:remove()
-    end)
-  end
-  if entity:get_type() == "enemy" then
-    local enemy = entity
-    if enemies_touched[enemy] then
-      -- If protected we don't want to play the sound repeatedly.
-      return
+    -- Freeze the enemy and push it back.
+    sol.timer.stop_all(enemy)
+    enemy:stop_movement()
+    enemy:set_invincible()
+    local enemy_x, enemy_y, _ = enemy:get_position()
+    local fire_x, fire_y, _ = fire:get_position()
+    local movement = sol.movement.create("straight")
+    movement:set_speed(256)
+    movement:set_angle(math.atan2(fire_y - enemy_y, enemy_x - fire_x))
+    movement:set_max_distance(32)
+    movement:set_smooth(false)
+    movement:start(enemy)
+
+    -- Make it burn.
+    fire:extinguish()
+    burning_sprite = enemy:create_sprite("entities/effects/flame", "burning") -- TODO
+    function burning_sprite:on_animation_finished()
+      enemy:remove_sprite(burning_sprite)
     end
-    enemies_touched[enemy] = true
-    local reaction = enemy:get_fire_reaction(enemy_sprite)
-    enemy:receive_attack_consequence("fire", reaction)
-
-    sol.timer.start(fire, 200, function()
-      fire:remove()
+    
+    -- Then call the enemy:receive_attack_consequence after a delay.
+    sol.timer.start(sol.main, 1000, function()
+      if enemy then
+        enemy:restart() -- Restore damage settings before calling receive_attack_consequence().
+        local is_pushed_back_when_hurt = enemy:is_pushed_back_when_hurt()
+        enemy:set_pushed_back_when_hurt(false) -- Avoid pushing back again.
+        enemy:receive_attack_consequence("fire", reaction)
+        enemy:set_pushed_back_when_hurt(is_pushed_back_when_hurt)
+      end
     end)
   end
 end)
 
 function fire:on_obstacle_reached()
-  fire:remove()
+  fire:extinguish()
 end

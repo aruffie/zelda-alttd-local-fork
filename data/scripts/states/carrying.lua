@@ -106,7 +106,7 @@ function carrying_state.start(hero, carriable, carriable_sprite) -- Pass the car
         hero:set_animation("carrying_stopped")
         set_animation_if_exists("stopped")
       end
-      -- Workaround : Resynchronize carriable and hero sprites on direction command released.
+      -- Workaround : Resynchronize carriable and hero sprites on direction command released. -- TODO check for sprite:synchronize()
       if command == "right" or command == "left" or command == "up" or command == "down" then
         carriable_sprite:set_frame(0)
         hero:get_sprite():set_frame(0)
