@@ -25,14 +25,14 @@ end
 local game_meta = sol.main.get_metatable("game")
 game_meta:register_event("on_started", function(game)
     game:register_event("on_command_pressed", function(game, command)
-        --Note : there is no "item_X" command check here, since this item has been integrated intothe new global commande override system.
+        --Note : there is no "item_X" command check here, since this item has been integrated into the new global command override system.
         if not game:is_suspended() then
           if command == "action" then 
             if game:get_command_effect("action") == nil and game:has_item("pegasus_shoes") then
               
               -- Call custom run script.
               game:get_hero():run()
-              return true
+--              return true
             end
           end
         end
