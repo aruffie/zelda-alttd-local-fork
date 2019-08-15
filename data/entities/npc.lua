@@ -14,14 +14,14 @@ local map = entity:get_map()
 require("scripts/multi_events")
 --entity:set_traversable_by("hero", false)
 
-function entity:on_created()
-  print "Custom NPC was successfully created"
-end
+--function entity:on_created()
+--  print "Custom NPC was successfully created"
+--end
 
 entity:register_event("on_interaction", function()
-    print "Interacting with a custom NPC"
+--    print "Interacting with a custom NPC"
     local dialog=entity:get_property("dialog")
-    if dialog then 
+    if dialog and sol.language.get_dialog(dialog) then --Safety measures: do not trigger a non-existing dialog 
       game:start_dialog(dialog)
     end
   end)
