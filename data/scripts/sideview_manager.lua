@@ -339,7 +339,7 @@ local function update_hero(hero)
     _up=true
     if map:get_ground(x,y,layer)=="deep_water" then 
       speed = swimming_speed
-    elseif ladder==true then
+    elseif ladder == true  and not is_on_ground(hero) then
       hero.on_ladder = true
       if is_dynamic_ladder(map, x,y,layer) then
         --Lower the speed on dynamic tile-based ladders since they have plain "traversable" ground
@@ -347,7 +347,7 @@ local function update_hero(hero)
         speed = 52
       end
     else
-      can_move_vertically=false
+      can_move_vertically = false
     end
   elseif command("down") and not command("up") then
     ---debug_print "LEFT"
