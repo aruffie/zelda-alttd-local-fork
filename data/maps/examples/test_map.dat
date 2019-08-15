@@ -1601,7 +1601,6 @@ tile{
   width = 16,
   height = 16,
   pattern = "2",
-  tileset = "out/outside_special",
   tileset = "addition/basic_terrain_test",
 }
 
@@ -1612,7 +1611,6 @@ tile{
   width = 16,
   height = 16,
   pattern = "3",
-  tileset = "out/outside_special",
   tileset = "addition/basic_terrain_test",
 }
 
@@ -1623,7 +1621,6 @@ tile{
   width = 16,
   height = 16,
   pattern = "4",
-  tileset = "out/outside_special",
   tileset = "addition/basic_terrain_test",
 }
 
@@ -1634,7 +1631,6 @@ tile{
   width = 16,
   height = 16,
   pattern = "5",
-  tileset = "out/outside_special",
   tileset = "addition/basic_terrain_test",
 }
 
@@ -1645,7 +1641,6 @@ tile{
   width = 16,
   height = 16,
   pattern = "6",
-  tileset = "out/outside_special",
   tileset = "addition/basic_terrain_test",
 }
 
@@ -1656,7 +1651,6 @@ tile{
   width = 16,
   height = 16,
   pattern = "7",
-  tileset = "out/outside_special",
   tileset = "addition/basic_terrain_test",
 }
 
@@ -1667,7 +1661,6 @@ tile{
   width = 8,
   height = 8,
   pattern = "16",
-  tileset = "out/outside_special",
   tileset = "addition/basic_terrain_test",
 }
 
@@ -1678,7 +1671,6 @@ tile{
   width = 8,
   height = 8,
   pattern = "11",
-  tileset = "out/outside_special",
   tileset = "addition/basic_terrain_test",
 }
 
@@ -1689,7 +1681,6 @@ tile{
   width = 8,
   height = 8,
   pattern = "10",
-  tileset = "out/outside_special",
   tileset = "addition/basic_terrain_test",
 }
 
@@ -1700,7 +1691,6 @@ tile{
   width = 8,
   height = 8,
   pattern = "15",
-  tileset = "out/outside_special",
   tileset = "addition/basic_terrain_test",
 }
 
@@ -1711,7 +1701,6 @@ tile{
   width = 8,
   height = 8,
   pattern = "9",
-  tileset = "out/outside_special",
   tileset = "addition/basic_terrain_test",
 }
 
@@ -1722,7 +1711,6 @@ tile{
   width = 8,
   height = 8,
   pattern = "18",
-  tileset = "out/outside_special",
   tileset = "addition/basic_terrain_test",
 }
 
@@ -1733,7 +1721,6 @@ tile{
   width = 8,
   height = 8,
   pattern = "17",
-  tileset = "out/outside_special",
   tileset = "addition/basic_terrain_test",
 }
 
@@ -1744,7 +1731,6 @@ tile{
   width = 8,
   height = 8,
   pattern = "8",
-  tileset = "out/outside_special",
   tileset = "addition/basic_terrain_test",
 }
 
@@ -1755,7 +1741,6 @@ tile{
   width = 16,
   height = 16,
   pattern = "12",
-  tileset = "out/outside_special",
   tileset = "addition/basic_terrain_test",
 }
 
@@ -1766,7 +1751,6 @@ tile{
   width = 16,
   height = 16,
   pattern = "13",
-  tileset = "out/outside_special",
   tileset = "addition/basic_terrain_test",
 }
 
@@ -1777,7 +1761,6 @@ tile{
   width = 16,
   height = 16,
   pattern = "14",
-  tileset = "out/outside_special",
   tileset = "addition/basic_terrain_test",
 }
 
@@ -1788,7 +1771,6 @@ tile{
   width = 16,
   height = 16,
   pattern = "19",
-  tileset = "out/outside_special",
   tileset = "addition/basic_terrain_test",
 }
 
@@ -2323,6 +2305,17 @@ stairs{
   y = 136,
   direction = 1,
   subtype = 0,
+}
+
+custom_entity{
+  layer = 0,
+  x = 208,
+  y = 181,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "npc/villagers/crazy_tracy",
+  model = "npc",
 }
 
 tile{
