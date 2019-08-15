@@ -20,6 +20,13 @@ local walking_speed = 88
 local swimming_speed = 66
 local gravity = 0.2
 local max_vspeed = 2
+local __debug=false
+
+local function debug_print(...)
+  if __debug then
+    print(...)
+  end
+end
 
 --[[
   Returns whether there is an entity at given XY coordinates whth the custom property "ladder" set to true.
@@ -114,6 +121,21 @@ local function test_ladder(entity)
   return is_ladder(map, x, y-2, layer) or is_ladder(map, x, y+2, layer)
 end
 
+local function check_for_water(entity)
+  local map=entity:get_map()
+  local x,y,layer= entity:get_position() 
+  local bx,by,w,h=entity:get_bounding_box()
+  local ox, oy=entity:get_origin()
+  --we need to have full clearance of water before we can go down (in sideview section, there is no such thing as a free ground on the side of water pool)
+  for i=bx, bx+w-1, 8 do
+    --debug_print ("Checking water at ("..i..", "..(by+h)..").")
+    if map:get_ground(i,by+h, layer)~="deep_water" then
+      return false
+    end
+  end
+  return map:get_ground(bx+w-1, by+h, layer) =="deep_water"
+
+end
 --[[
   This is the core function of the side views : 
   it applies a semi-realistic gravity to the given entity, and resets the vertical speed if :
@@ -146,15 +168,15 @@ local function apply_gravity(entity)
       entity:set_position(x,y-1)
     end
   end
-  
+
   --Update the vertical speed
   if map:get_ground(x,y,layer)=="deep_water" then
-    vspeed = math.min(vspeed+gravity/3, 0.2)
+    vspeed = 0--Submerges entities have their own fixed time fall timer, so don't cumulate them (unless we remove it and keep it in a central place ?
   else
     vspeed = math.min(vspeed+gravity, max_vspeed)
   end
   entity.vspeed = vspeed
-  
+
   --Set the new delay for the timer
   return math.min(math.floor(10/math.abs(vspeed)), 100)
 end
@@ -167,13 +189,75 @@ local function update_entities(map)
       local is_affected
       local has_property = entity:get_property("has_gravity")
       local e_type = entity:get_type()
-      if e_type == "pickable" or e_type=="carried_object" or e_type =="hero" then
+      if e_type=="carried_object" or e_type =="hero" then
         is_affected = true
       else
         is_affected = false
       end
-      -- Try to make entity be affected by gravity.
-      if has_property or is_affected then
+      if e_type == "pickable" and entity:get_property("was_created_from_custom_pickable")~="true" then
+        --convert to custom entity with same properties
+        debug_print ("Converting a pickable to a custom entity")
+        local x, y, layer = entity:get_position()
+        local w, h = entity:get_size()
+        local ox, oy = entity:get_origin()
+        local s=entity:get_sprite()
+        local i, v, sgv=entity:get_treasure()
+        local e=map:create_custom_entity({
+            x=x,
+            y=y,
+            layer=layer,
+            width=w,
+            height=h,
+            direction=0,
+            sprite=s:get_animation_set(),
+            model="pickable_sink",
+            properties = {
+              {
+                key="has_gravity",
+                value= "true",
+              },
+            },
+          })
+        e:set_origin(ox,oy)
+        local sprite=e:get_sprite()
+        sprite:set_animation(s:get_animation())
+        sprite:set_direction(v-1)
+        sprite:set_xy(0,2) --shift down the visual
+        e.set_item(i, v, sgv) --Pass the treasure reference
+        entity:remove()
+      elseif has_property or is_affected then  -- Try to make entity be affected by gravity.
+        if __debug and not entity.show_hitbox then --DEBUG : draw hitbox information
+          entity.show_hitbox = true --Flag me s processed
+          local w,h=entity:get_size()
+          local s=sol.surface.create(w,h)
+          local ox, oy=entity:get_origin()
+          local b={255,0,0}
+          local c={0,255,0}
+          --draw the hitbox
+          s:fill_color(b, 0, 0, w,1)
+          s:fill_color(b, 0, h-1, w,1)
+          s:fill_color(b, 0, 0, 1,h)
+          s:fill_color(b, w-1, 0, 1, h)
+          --draw the origin (representing the actual position)
+          s:fill_color(c, 0, oy, w, 1)
+          s:fill_color(c, ox, 0 ,1,h)
+          entity.debug_hitbox=s
+          function entity:on_post_draw(camera)
+            local cx,cy=camera:get_position()
+            local x,y=entity:get_bounding_box()
+            entity.debug_hitbox:draw(camera:get_surface(), x-cx, y-cy)
+          end
+        end
+        if entity:get_type()~="hero" and entity.water_processed == nil and entity.vspeed == nil and entity:test_obstacles(0,1) and check_for_water(entity) then
+          --Force the entity to get down when in a water pool
+          entity.water_processed=true
+          sol.timer.start(entity, 50, function()
+              entity.water_processed=nil
+              local x,y=entity:get_position()
+              entity:set_position(x,y+1)
+            end)
+        end
+
         if entity.vspeed and entity.vspeed<0 or not entity:test_obstacles(0,1) then
           --Start gravity effect timer loop
           if entity.gravity_timer==nil then
@@ -199,12 +283,12 @@ end
 
 --Debug function, remove me once everything is finalized
 --hero_meta:register_event("on_movement_changed", function(hero, movement)
---    print "Movement has changed :"
+--    debug_print "Movement has changed :"
 --    if movement.get_speed then
---      print("New speed=" ..movement:get_speed())
+--      debug_print("New speed=" ..movement:get_speed())
 --    end
 --    if movement.get_angle then
---      print("new angle:"..movement:get_angle()*180/math.pi)
+--      debug_print("new angle:"..movement:get_angle()*180/math.pi)
 --    end
 --  end)
 
@@ -246,8 +330,8 @@ local function update_hero(hero)
   local can_move_vertically = true
   local _left, _right, _up, _down
   local ladder=test_ladder(hero)
-  
-  
+
+
   -------------------------
   --Manage command inputs--
   -------------------------
@@ -259,14 +343,14 @@ local function update_hero(hero)
       hero.on_ladder = true
       if is_dynamic_ladder(map, x,y,layer) then
         --Lower the speed on dynamic tile-based ladders since they have plain "traversable" ground
-        --print "UP-erride"
+        --debug_print "UP-erride"
         speed = 52
       end
     else
       can_move_vertically=false
     end
   elseif command("down") and not command("up") then
-    ---print "LEFT"
+    ---debug_print "LEFT"
     _down=true
     if map:get_ground(x,y, layer) == "deep_water" then
       speed = swimming_speed
@@ -274,11 +358,11 @@ local function update_hero(hero)
       hero.on_ladder = true
       if is_dynamic_ladder(map, x,y,layer) then
         --Lower the speed on dynamic tile-based ladders since they have plain "traversable" ground
-        --  print "DOWN-erride"
+        --  debug_print "DOWN-erride"
         speed=52
       end
     else
-      --print "no V-Move"
+      --debug_print "no V-Move"
       can_move_vertically = false
     end
   end
@@ -307,22 +391,22 @@ local function update_hero(hero)
 
   --Force the hero on a ladder if we came from the side
   if hero:test_obstacles(0,1) and test_ladder(hero) and is_ladder(map,x,y+3) then 
-    --print "entering ladder from the side"
+    --debug_print "entering ladder from the side"
     hero.on_ladder=true
   end
 
   --Handle movement for vertical and/or diagonal input
   if can_move_vertically==false then
-    --print "Trying to override the vertical movement"
+    --debug_print "Trying to override the vertical movement"
     local m=hero:get_movement()
     if m then
       local a=m:get_angle()
-      --print (a)
+      --debug_print (a)
       if _up==true then
-        --print "UP"
-        --print(m:get_speed(), hero:get_walking_speed())
+        --debug_print "UP"
+        --debug_print(m:get_speed(), hero:get_walking_speed())
         if _left==true or _right==true then
-          --print "UP-DIAGONAL"
+          --debug_print "UP-DIAGONAL"
           if hangle ~=a then 
             m:set_angle(hangle)
           end
@@ -330,16 +414,16 @@ local function update_hero(hero)
           speed = 0
         end
       elseif _down==true then
-        --print "DOWN"
-        --print (m:get_speed(), hero:get_walking_speed())
+        --debug_print "DOWN"
+        --debug_print (m:get_speed(), hero:get_walking_speed())
         if _left==true or _right==true then
-          --print "DOWN-DIAGONAL"
+          --debug_print "DOWN-DIAGONAL"
           m:set_angle(hangle)
           if hangle ~=a then 
             m:set_angle(hangle)
           end
         else
-          --print "CANCEL DOWN V-MOVE"
+          --debug_print "CANCEL DOWN V-MOVE"
           speed = 0
         end
       end
@@ -359,7 +443,7 @@ local function update_hero(hero)
   local direction = sprite:get_direction()
   local new_animation
 
-  -- print("state to display :"..state)
+  -- debug_print("state to display :"..state)
   if state == "swimming" or (state=="custom" and cstate:get_description()=="sideview_swim") then
     if speed ~= 0 then
       new_animation = "swimming_scroll"
@@ -407,10 +491,10 @@ local function update_hero(hero)
       end 
     end
   end
-  -- print(new_animation)
+  -- debug_print(new_animation)
 
   if new_animation and new_animation ~= sprite:get_animation() then
-    --print("changing animation from \'"..sprite:get_animation().."\' to \'"..new_animation)
+    --debug_print("changing animation from \'"..sprite:get_animation().."\' to \'"..new_animation)
     sprite:set_animation(new_animation)
   end
 end
@@ -433,14 +517,14 @@ game_meta:register_event("on_map_changed", function(game, map)
           return true
         end)
     else
-      
+
       hero:set_walking_speed(88)
     end
   end)
 
 
 hero_meta:register_event("on_state_changed", function(hero, state)
-    --print ("STATE CHANGED:"..state)
+    --debug_print ("STATE CHANGED:"..state)
     local game = hero:get_game()
     local map = hero:get_map()
 
@@ -452,7 +536,7 @@ hero_meta:register_event("on_state_changed", function(hero, state)
           hero:start_swimming()
         end
         if hero.timer == nil then
---          print "create timer"
+--          debug_print "create timer"
           hero.timer = sol.timer.start(hero, 10, function()
               update_hero(hero) 
               return true
@@ -461,19 +545,19 @@ hero_meta:register_event("on_state_changed", function(hero, state)
       elseif state == "grabbing" then -- prevent the hero from pulling things in sideviews
         hero:unfreeze()
       else
-        print "Resetting sideview hero timer"
+        debug_print "Resetting sideview hero timer"
         local timer = hero.timer
         if timer~=nil then
---          print"remove timer"
+--          debug_print"remove timer"
           timer:stop()
           hero.timer = nil
         end
       end
     else
-      --print "Entering top-view mode"
+      --debug_print "Entering top-view mode"
       local timer = hero.timer
       if timer~=nil then
---        print"remove timer"
+--        debug_print"remove timer"
         timer:stop()
         hero.timer = nil
       end

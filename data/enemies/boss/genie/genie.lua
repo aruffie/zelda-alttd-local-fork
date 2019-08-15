@@ -59,6 +59,7 @@ end
 
 function enemy:appear()
   
+  print("appear")
   local x_bottle,y_bottle, layer_bottle = genie_bottle:get_position()
   enemy:set_position(x_bottle, y_bottle - 32)
   enemy:set_visible(true)
@@ -73,6 +74,7 @@ end
 
 function enemy:disappear()
   
+  print("disappear")
   local x_bottle,y_bottle, layer_bottle = genie_bottle:get_position()
   enemy:set_position(x_bottle, y_bottle - 32)
   sprite:set_animation("disappearing", function()

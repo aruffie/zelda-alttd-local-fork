@@ -104,7 +104,6 @@ function enemy:freeze()
             is_freeze = false
             local x_enemy_entity, y_enemy_entity, layer_enemy_entity = bottle_entity:get_position()
             enemy:set_position(x_enemy_entity, y_enemy_entity)
-            print(bottle_entity)
             bottle_entity:set_enabled(false)
             enemy:set_enabled(true)
             enemy:go_initial_place()
