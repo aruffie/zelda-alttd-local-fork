@@ -15,14 +15,12 @@ function enemy:on_created()
   enemy:set_damage(2)
   enemy:set_hookshot_reaction(1)
   enemy:set_attack_consequence("boomerang", 1)
-  
 end
 
 -- The enemy was stopped for some reason and should restart.
 function enemy:on_restarted()
 
   enemy:go()
-
 end
 
 function enemy:go()
@@ -36,7 +34,6 @@ function enemy:go()
   sol.timer.start(enemy, duration_timer, function()
     enemy:jump()
   end)
-  
 end
 
 function enemy:jump()
@@ -55,8 +52,26 @@ function enemy:jump()
       enemy:go()
     end
   end)
-  
 end
 
+-- Create two gels when dead.
+function enemy:on_dead()
 
+    local x, y, layer = enemy:get_position()
+    enemy:remove()
+    map:create_enemy({
+      breed = "gel",
+      x = x - 5,
+      y = y,
+      layer = layer,
+      direction = enemy:get_direction4_to(hero)
+    })
+    map:create_enemy({
+      breed = "gel",
+      x = x + 5,
+      y = y,
+      layer = layer,
+      direction = enemy:get_direction4_to(hero)
+    })
+end
 

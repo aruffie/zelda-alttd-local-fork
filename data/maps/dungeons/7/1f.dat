@@ -6974,7 +6974,7 @@ enemy{
   x = 1080,
   y = 605,
   direction = 3,
-  breed = "zombie",
+  breed = "gibdo",
 }
 
 enemy{
@@ -7001,7 +7001,7 @@ enemy{
   x = 824,
   y = 301,
   direction = 3,
-  breed = "stalfos",
+  breed = "stalfos_blue",
 }
 
 destination{
@@ -7144,7 +7144,7 @@ enemy{
   x = 104,
   y = 109,
   direction = 0,
-  breed = "anti_kirby",
+  breed = "anti_kirby/anti_kirby",
 }
 
 stairs{
@@ -7208,7 +7208,7 @@ enemy{
   x = 1016,
   y = 141,
   direction = 0,
-  breed = "anti_kirby",
+  breed = "anti_kirby/anti_kirby",
 }
 
 destination{
@@ -7243,7 +7243,7 @@ enemy{
   x = 552,
   y = 605,
   direction = 3,
-  breed = "zombie",
+  breed = "gibdo",
 }
 
 enemy{
@@ -7252,7 +7252,7 @@ enemy{
   x = 520,
   y = 573,
   direction = 3,
-  breed = "zombie",
+  breed = "gibdo",
 }
 
 enemy{
@@ -8642,6 +8642,6 @@ enemy{
   x = 1000,
   y = 781,
   direction = 0,
-  breed = "face_lamp",
+  breed = "face_lamp/face_lamp",
 }
 
