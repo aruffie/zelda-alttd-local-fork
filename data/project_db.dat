@@ -321,6 +321,7 @@ sprite{ id = "enemies/pokey/pokey_3", description = "Pokey_3" }
 sprite{ id = "enemies/pokey/pokey_ball", description = "pokey Ball" }
 sprite{ id = "enemies/pokey/pokey_head", description = "Pokey Head" }
 sprite{ id = "enemies/pols_voice", description = "Pols voice" }
+sprite{ id = "enemies/projectiles/bone", description = "Bone" }
 sprite{ id = "enemies/raven", description = "Raven" }
 sprite{ id = "enemies/rope", description = "Rope" }
 sprite{ id = "enemies/sand_crab", description = "Sand Crab" }
@@ -1316,6 +1317,7 @@ enemy{ id = "piranha_plant", description = "Piranha Plant" }
 enemy{ id = "podobo", description = "Podobo" }
 enemy{ id = "pokey/pokey", description = "Pokey" }
 enemy{ id = "pols_voice", description = "Pols Voice" }
+enemy{ id = "projectiles/bone", description = "Bone" }
 enemy{ id = "raven", description = "Raven" }
 enemy{ id = "rope", description = "Rope" }
 enemy{ id = "sand_crab", description = "Sand Crab" }
