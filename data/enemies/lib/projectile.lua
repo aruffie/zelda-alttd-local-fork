@@ -36,7 +36,8 @@ function behavior.apply(enemy)
     movement:start(enemy)
   end
 
-  -- Destroy the enemy when the hero is touched.
+  -- Destroy the enemy when the hero is touched. 
+  -- TODO move in the shield script.
   function enemy:on_attacking_hero(hero, enemy_sprite)
     -- Don't hurt if the shield is protecting.
     if not hero:is_shield_protecting_from_enemy(enemy, enemy_sprite) or not game:has_item("shield") or game:get_item("shield"):get_variant() < enemy:get_minimum_shield_needed() then
