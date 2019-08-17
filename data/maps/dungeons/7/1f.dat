@@ -7144,7 +7144,7 @@ enemy{
   x = 104,
   y = 109,
   direction = 0,
-  breed = "anti_kirby/anti_kirby",
+  breed = "anti_kirby",
 }
 
 stairs{
@@ -7208,7 +7208,7 @@ enemy{
   x = 1016,
   y = 141,
   direction = 0,
-  breed = "anti_kirby/anti_kirby",
+  breed = "anti_kirby",
 }
 
 destination{

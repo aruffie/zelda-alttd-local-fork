@@ -1,5 +1,4 @@
--- Lua script of enemy coconut.
--- This script is executed every time an enemy with this model is created.
+-- Lua script of enemy coconut, mainly used by the Monkey enemy.
 
 -- Variables
 local enemy = ...

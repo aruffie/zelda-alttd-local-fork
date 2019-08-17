@@ -1,5 +1,6 @@
--- 3 fireballs shot by enemies like Zora and that go toward the hero.
+-- 3 fireballs shot by enemies like Zora, Eyegore statue or Face lamp and that go toward the hero.
 -- They can be hit with the sword, this changes their direction.
+
 local enemy = ...
 local sprites = {}
 

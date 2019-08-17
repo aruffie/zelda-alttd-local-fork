@@ -1,4 +1,4 @@
--- Stone shot by Octorok.
+-- Stone projectile, mainly used by the Octorok enemy.
 
 local enemy = ...
 local speed = 192

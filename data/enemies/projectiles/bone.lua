@@ -1,3 +1,5 @@
+-- Bone projectile, mainly used by the red Stalfos enemy.
+
 local enemy = ...
 local projectile_behavior = require("enemies/lib/projectile")
 

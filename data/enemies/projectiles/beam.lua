@@ -1,5 +1,4 @@
--- Lua script of enemy wizzrobe_beam.
--- This script is executed every time an enemy with this model is created.
+-- Beam projectile, mainly used by the Wizzrobe enemy.
 
 local enemy = ...
 local bounced = false
