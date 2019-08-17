@@ -11131,7 +11131,7 @@ enemy{
   x = 264,
   y = 909,
   direction = 3,
-  breed = "face_lamp/face_lamp",
+  breed = "face_lamp",
 }
 
 enemy{
@@ -11140,7 +11140,7 @@ enemy{
   x = 56,
   y = 909,
   direction = 3,
-  breed = "face_lamp/face_lamp",
+  breed = "face_lamp",
 }
 
 pickable{
