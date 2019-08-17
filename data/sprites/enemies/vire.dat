@@ -12,7 +12,7 @@ animation{
 }
 animation{
   name = "firing",
-  src_image = "enemies/vire/vire.png",
+  src_image = "enemies/vire.png",
   frame_delay = 80,
   directions = {
     { x = 0, y = 32, frame_width = 40, frame_height = 32, origin_x = 20, origin_y = 29, num_frames = 2 },
@@ -23,7 +23,7 @@ animation{
 }
 animation{
   name = "hurt",
-  src_image = "enemies/vire/vire.png",
+  src_image = "enemies/vire.png",
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {
@@ -35,7 +35,7 @@ animation{
 }
 animation{
   name = "immobilized",
-  src_image = "enemies/vire/vire.png",
+  src_image = "enemies/vire.png",
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {
@@ -47,7 +47,7 @@ animation{
 }
 animation{
   name = "shaking",
-  src_image = "enemies/vire/vire.png",
+  src_image = "enemies/vire.png",
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {
@@ -59,7 +59,7 @@ animation{
 }
 animation{
   name = "waiting",
-  src_image = "enemies/vire/vire.png",
+  src_image = "enemies/vire.png",
   frame_delay = 80,
   frame_to_loop_on = 0,
   directions = {
@@ -71,7 +71,7 @@ animation{
 }
 animation{
   name = "walking_speed",
-  src_image = "enemies/vire/vire.png",
+  src_image = "enemies/vire.png",
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {

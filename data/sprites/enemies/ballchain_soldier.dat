@@ -12,7 +12,7 @@ animation{
 }
 animation{
   name = "attack",
-  src_image = "enemies/ballchain_soldier/ballchain_soldier.png",
+  src_image = "enemies/ballchain_soldier.png",
   frame_delay = 150,
   directions = {
     { x = 0, y = 32, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 2 },
@@ -23,7 +23,7 @@ animation{
 }
 animation{
   name = "hurt",
-  src_image = "enemies/ballchain_soldier/ballchain_soldier.png",
+  src_image = "enemies/ballchain_soldier.png",
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {
@@ -35,7 +35,7 @@ animation{
 }
 animation{
   name = "take_ball",
-  src_image = "enemies/ballchain_soldier/ballchain_soldier.png",
+  src_image = "enemies/ballchain_soldier.png",
   frame_delay = 150,
   directions = {
     { x = 32, y = 32, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 2 },

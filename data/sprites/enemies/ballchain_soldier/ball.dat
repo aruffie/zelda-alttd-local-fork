@@ -10,7 +10,7 @@ animation{
 }
 animation{
   name = "hurt",
-  src_image = "enemies/ballchain_soldier/ballchain_soldier.png",
+  src_image = "enemies/ballchain_soldier.png",
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {

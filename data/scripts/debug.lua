@@ -7,7 +7,7 @@
 local mode_7_manager = require("scripts/mode_7")
 
 if not sol.file.exists("debug") and not sol.file.exists("debug") then
-  return true
+  --return true
 end
 
 local console = require("scripts/console")

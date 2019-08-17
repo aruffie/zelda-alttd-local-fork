@@ -12,7 +12,7 @@ animation{
 }
 animation{
   name = "chase",
-  src_image = "enemies/moblin_dog_sword/moblin_dog_sword_sword",
+  src_image = "enemies/moblin_dog_sword/sword.png",
   frame_delay = 100,
   frame_to_loop_on = 0,
   directions = {
@@ -24,7 +24,7 @@ animation{
 }
 animation{
   name = "hurt",
-  src_image = "enemies/moblin_dog_sword/moblin_dog_sword_sword",
+  src_image = "enemies/moblin_dog_sword/sword.png",
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {
@@ -36,7 +36,7 @@ animation{
 }
 animation{
   name = "immobilized",
-  src_image = "enemies/moblin_dog_sword/moblin_dog_sword_sword",
+  src_image = "enemies/moblin_dog_sword/sword.png",
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {
@@ -48,7 +48,7 @@ animation{
 }
 animation{
   name = "shaking",
-  src_image = "enemies/moblin_dog_sword/moblin_dog_sword_sword",
+  src_image = "enemies/moblin_dog_sword/sword.png",
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {

@@ -12,7 +12,7 @@ animation{
 }
 animation{
   name = "falling",
-  src_image = "enemies/moblin_dog_spear/moblin_dog_spear.png",
+  src_image = "enemies/moblin_dog_spear.png",
   frame_delay = 50,
   directions = {
     { x = 0, y = 192, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 32, num_frames = 5 },
@@ -23,7 +23,7 @@ animation{
 }
 animation{
   name = "hurt",
-  src_image = "enemies/moblin_dog_spear/moblin_dog_spear.png",
+  src_image = "enemies/moblin_dog_spear.png",
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {
@@ -35,7 +35,7 @@ animation{
 }
 animation{
   name = "immobilized",
-  src_image = "enemies/moblin_dog_spear/moblin_dog_spear.png",
+  src_image = "enemies/moblin_dog_spear.png",
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {
@@ -47,7 +47,7 @@ animation{
 }
 animation{
   name = "shaking",
-  src_image = "enemies/moblin_dog_spear/moblin_dog_spear.png",
+  src_image = "enemies/moblin_dog_spear.png",
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {
@@ -59,7 +59,7 @@ animation{
 }
 animation{
   name = "throwing",
-  src_image = "enemies/moblin_dog_spear/moblin_dog_spear.png",
+  src_image = "enemies/moblin_dog_spear.png",
   frame_delay = 100,
   directions = {
     { x = 0, y = 288, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 45, num_frames = 2 },
@@ -70,7 +70,7 @@ animation{
 }
 animation{
   name = "turning_right_left",
-  src_image = "enemies/moblin_dog_spear/moblin_dog_spear.png",
+  src_image = "enemies/moblin_dog_spear.png",
   frame_delay = 100,
   directions = {
     { x = 144, y = 240, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 45 },
@@ -81,7 +81,7 @@ animation{
 }
 animation{
   name = "turning_up_down",
-  src_image = "enemies/moblin_dog_spear/moblin_dog_spear.png",
+  src_image = "enemies/moblin_dog_spear.png",
   frame_delay = 100,
   directions = {
     { x = 144, y = 384, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 45 },

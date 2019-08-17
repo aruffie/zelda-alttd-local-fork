@@ -16,7 +16,7 @@ animation{
 }
 animation{
   name = "hurt",
-  src_image = "enemies/mini_moldorm/mini_moldorm.png",
+  src_image = "enemies/mini_moldorm.png",
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {
@@ -32,7 +32,7 @@ animation{
 }
 animation{
   name = "immobilized",
-  src_image = "enemies/mini_moldorm/mini_moldorm.png",
+  src_image = "enemies/mini_moldorm.png",
   frame_delay = 60,
   frame_to_loop_on = 0,
   directions = {
@@ -48,7 +48,7 @@ animation{
 }
 animation{
   name = "shaking",
-  src_image = "enemies/mini_moldorm/mini_moldorm.png",
+  src_image = "enemies/mini_moldorm.png",
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {
