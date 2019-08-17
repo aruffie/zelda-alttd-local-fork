@@ -1,4 +1,4 @@
--- Lua script of enemy vire/vire.
+-- Lua script of enemy vire.
 -- This script is executed every time an enemy with this model is created.
 
 --Variables

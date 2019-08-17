@@ -12841,7 +12841,7 @@ enemy{
   x = 896,
   y = 261,
   direction = 0,
-  breed = "pokey/pokey",
+  breed = "pokey",
 }
 
 enemy{
@@ -12850,7 +12850,7 @@ enemy{
   x = 808,
   y = 333,
   direction = 0,
-  breed = "pokey/pokey",
+  breed = "pokey",
 }
 
 enemy{
@@ -12859,7 +12859,7 @@ enemy{
   x = 784,
   y = 485,
   direction = 0,
-  breed = "pokey/pokey",
+  breed = "pokey",
 }
 
 enemy{
@@ -12868,7 +12868,7 @@ enemy{
   x = 872,
   y = 525,
   direction = 0,
-  breed = "pokey/pokey",
+  breed = "pokey",
 }
 
 enemy{
@@ -12877,7 +12877,7 @@ enemy{
   x = 816,
   y = 661,
   direction = 0,
-  breed = "pokey/pokey",
+  breed = "pokey",
 }
 
 sensor{

@@ -325,6 +325,7 @@ sprite{ id = "enemies/projectiles/beam", description = "Beam" }
 sprite{ id = "enemies/projectiles/bone", description = "Bone" }
 sprite{ id = "enemies/projectiles/coconut", description = "Coconut" }
 sprite{ id = "enemies/projectiles/fireball", description = "Fireball" }
+sprite{ id = "enemies/projectiles/laser", description = "Laser" }
 sprite{ id = "enemies/projectiles/stone", description = "Stone" }
 sprite{ id = "enemies/raven", description = "Raven" }
 sprite{ id = "enemies/rope", description = "Rope" }
@@ -1321,6 +1322,7 @@ enemy{ id = "projectiles/beam", description = "Beam" }
 enemy{ id = "projectiles/bone", description = "Bone" }
 enemy{ id = "projectiles/coconut", description = "Coconut" }
 enemy{ id = "projectiles/fireball", description = "Fireball" }
+enemy{ id = "projectiles/laser", description = "Laser" }
 enemy{ id = "projectiles/stone", description = "Stone" }
 enemy{ id = "raven", description = "Raven" }
 enemy{ id = "rope", description = "Rope" }
