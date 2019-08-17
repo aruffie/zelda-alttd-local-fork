@@ -141,7 +141,7 @@ function enemy:start_aspirate()
 
     -- Start aspire animation.
     sprite:set_animation("aspire")
-    aspiration_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "_aspiration", "aspiration")
+    aspiration_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/aspiration", "aspiration")
     aspiration_sprite:set_direction(sprite:get_direction())
     sol.timer.start(enemy, 10, function()
       if aspiration_sprite then
