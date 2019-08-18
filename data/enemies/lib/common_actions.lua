@@ -260,11 +260,11 @@ function common_actions.learn(enemy, main_sprite) -- Workaround. The solarus not
     enemy:set_attack_consequence_sprite(shadow_sprite, "hookshot", "ignored")
     enemy:set_attack_consequence_sprite(shadow_sprite, "boomerang", "ignored")
     enemy:set_attack_consequence_sprite(shadow_sprite, "fire", "ignored")
-    function enemy:on_attacking_hero(hero, enemy_sprite)
-      if enemy_sprite ~= shadow_sprite then
+    enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
+      if enemy:get_can_attack() and enemy_sprite ~= shadow_sprite then
         hero:start_hurt(enemy, enemy:get_damage())
       end
-    end
+    end)
   end
 end
 

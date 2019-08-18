@@ -1,27 +1,62 @@
--- Lua script of enemy gibdo.
+-- Lua script of enemy gel.
 -- This script is executed every time an enemy with this model is created.
 
 -- Global variables
 local enemy = ...
-local common_actions = require("enemies/lib/common_actions")
+local zol_behavior = require("enemies/lib/zol")
+require("scripts/multi_events")
 
-local game = enemy:get_game()
+local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local map = enemy:get_map()
 local hero = map:get_hero()
-local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 
 -- Configuration variables
-local attracting_pixel_by_second = 88
+local slow_speed = 22
+local stuck_duration = 2000
 
--- Initialization.
-function enemy:on_created()
+-- Passive behaviors needing constant checking.
+function enemy:on_update()
 
-  common_actions.learn(enemy, sprite)
-  enemy:set_life(6)
+  -- If the hero touches the center of the enemy, slow him down.
+  if enemy.can_slow_hero_down and enemy:overlaps(hero, "origin") then
+    enemy.can_slow_hero_down = false
+    enemy:slow_hero_down()
+  end
 end
 
+-- Make the hero slow down and make him unable to use weapons. 
+function enemy:slow_hero_down()
+
+  -- Stop potential current jump and slow the hero down
+  enemy:stop_movement()
+  sol.timer.stop_all(enemy)
+  sprite:set_xy(0, 0)
+  hero:set_walking_speed(slow_speed)
+  
+  -- Make the enemy follow the hero for a delay then make it jump away.
+  local movement = sol.movement.create("target")
+  movement:set_speed(slow_speed)
+  movement:set_target(hero)
+  movement:set_smooth(true)
+  movement:start(enemy)
+  sprite:set_animation("shaking")
+
+  -- TODO Make the hero unable to use weapon while slowed down.
+
+  -- Stop the slowdown after some time.
+  sol.timer.start(enemy, stuck_duration, function()
+    hero:set_walking_speed(88) -- TODO restore speed only if it's the last stuck gel.
+    enemy:start_attacking(true)
+  end)
+end
+
+-- Initialization.
+enemy:register_event("on_created", function(enemy)
+  zol_behavior.apply(enemy, {sprite = sprite, walking_speed = 2})
+end)
+
 -- Restart settings.
-function enemy:on_restarted()
+enemy:register_event("on_restarted", function(enemy)
 
   -- Behavior for each items.
   enemy:set_attack_consequence("thrown_item", 1)
@@ -34,13 +69,8 @@ function enemy:on_restarted()
   enemy:set_fire_reaction(1)
 
   -- States.
-  enemy:set_can_attack(true)
-  enemy:set_damage(1)
-  
-  -- Attract if the hero is near enough and a direction command is pressed
-  enemy:start_attracting(hero, attracting_pixel_by_second, false, function()
-    if enemy:is_near() then
-
-    end
-  end)
-end
+  enemy:set_can_attack(false)
+  enemy:set_damage(0)
+  enemy:set_drawn_in_y_order(false)
+  enemy.can_slow_hero_down = true
+end)

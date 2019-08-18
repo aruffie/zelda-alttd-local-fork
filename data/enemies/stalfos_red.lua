@@ -3,12 +3,12 @@
 
 -- Global variables
 local enemy = ...
-require("enemies/lib/stalfos").apply(enemy)
+local common_actions = require("enemies/lib/common_actions")
 
 local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
-local sprite = enemy:get_sprite()
+local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
 
 -- Configuration variables
@@ -50,7 +50,7 @@ end
 -- Event triggered when the enemy is close enough to the hero.
 function enemy:start_attacking()
 
-  -- Start jumping away from the hero and .
+  -- Start jumping away from the hero.
   enemy:start_jumping_movement()
   enemy:start_jumping(jumping_duration, true, jumping_height)
 end
@@ -81,4 +81,32 @@ function enemy:on_jump_finished()
       direction = enemy:get_direction4_to(hero)
     })
   end)
+end
+
+-- Initialization.
+function enemy:on_created()
+
+  common_actions.learn(enemy, sprite)
+  enemy:set_life(3)
+  enemy:add_shadow()
+end
+
+-- Restart settings.
+function enemy:on_restarted()
+
+  -- Behavior for each items.
+  enemy:set_attack_consequence("sword", 1)
+  enemy:set_attack_consequence("thrown_item", 2)
+  enemy:set_attack_consequence("arrow", 2)
+  enemy:set_attack_consequence("hookshot", 2)
+  enemy:set_attack_consequence("fire", 2)
+  enemy:set_attack_consequence("boomerang", 2)
+  enemy:set_attack_consequence("explosion", 2)
+  enemy:set_hammer_reaction(2)
+  enemy:set_fire_reaction("protected")
+
+  -- States.
+  enemy:set_can_attack(true)
+  enemy:set_damage(1)
+  enemy:start_walking()
 end
