@@ -16,6 +16,7 @@ local walking_possible_angle = {0, quarter, 2.0 * quarter, 3.0 * quarter}
 local walking_speed = 32
 local walking_distance_grid = 16
 local walking_max_move_by_step = 6
+local stalfos_shaking_duration = 500
 
 -- Start a random straight movement of a random distance vertically or horizontally, and loop it without delay.
 function enemy:start_walking()
@@ -32,13 +33,21 @@ function enemy:on_custom_attack_received(attack)
   if attack == "fire" then
     local x, y, layer = enemy:get_position()
     enemy:remove()
-    map:create_enemy({
+    stalfos = map:create_enemy({
       breed = "stalfos_red",
       x = x,
       y = y,
       layer = layer,
       direction = enemy:get_direction4_to(hero)
     })
+
+    -- Make the Stalfos immobile, then shake for some time, and then restart.
+    stalfos:stop_movement()
+    sol.timer.stop_all(stalfos)
+    stalfos:get_sprite("main"):set_animation("shaking")
+    sol.timer.start(enemy, stalfos_shaking_duration, function()
+      stalfos:restart()
+    end)
   end
 end
 

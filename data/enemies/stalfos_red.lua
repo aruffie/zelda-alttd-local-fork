@@ -8,7 +8,7 @@ local common_actions = require("enemies/lib/common_actions")
 local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
-local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed(), "main")
 local quarter = math.pi * 0.5
 
 -- Configuration variables
