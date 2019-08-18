@@ -58,7 +58,7 @@ function behavior.apply(enemy, properties)
 
     -- Start jumping to the hero.
     enemy:start_jumping_movement(offensive)
-    enemy:start_jumping(jumping_duration, false, jumping_height)
+    enemy:start_jumping(jumping_duration, jumping_height, false, false)
   end
 
   -- Make the enemy move to or away to the hero.

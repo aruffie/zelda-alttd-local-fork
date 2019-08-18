@@ -3,14 +3,16 @@
 -- Add some basic and common methods/events to an enemy.
 --
 -- Methods : enemy:is_near(entity, triggering_distance)
+--           enemy:is_leashed_by(entity)
 --           enemy:start_random_walking(possible_angles, speed, distance, on_finished_callback)
 --           enemy:start_target_walking(entity, speed)
---           enemy:start_jumping(duration, unsensitive, height)
---           enemy:start_flying(take_off_duration, unsensitive, height)
+--           enemy:start_jumping(duration, height, invincible, harmless)
+--           enemy:start_flying(take_off_duration, height, invincible, harmless)
 --           enemy:stop_flying(landing_duration)
 --           enemy:start_attracting(entity, pixel_by_second, reverse_move, moving_condition_callback)
 --           enemy:stop_attracting()
 --           enemy:start_leashed_by(entity, maximum_distance)
+--           enemy:stop_leashed_by(entity)
 --           enemy:steal_item(item_name, variant, only_if_assigned)
 --           enemy:add_shadow()
 -- Events:   enemy:on_jump_finished()
@@ -43,6 +45,11 @@ function common_actions.learn(enemy, main_sprite) -- Workaround. The solarus not
     local _, _, layer = enemy:get_position()
     local _, _, entity_layer = entity:get_position()
     return (layer == entity_layer or enemy:has_layer_independent_collisions()) and enemy:get_distance(entity) < triggering_distance
+  end
+
+  -- Return true if the enemy is currently leached by the entity.
+  function enemy:is_leashed_by(entity)
+    return leashing_timers[entity] ~= nil
   end
 
   -- Make the enemy straight move randomly over one of the given angle.
@@ -98,11 +105,13 @@ function common_actions.learn(enemy, main_sprite) -- Workaround. The solarus not
   end
 
   -- Make the enemy start jumping.
-  function enemy:start_jumping(duration, unsensitive, height)
+  function enemy:start_jumping(duration, height, invincible, harmless)
 
     -- Make enemy unable to interact with the hero if requested.
-    if unsensitive then
+    if invincible then
       enemy:set_invincible()
+    end
+    if harmless then
       enemy:set_can_attack(false)
       enemy:set_damage(0)
     end
@@ -130,11 +139,13 @@ function common_actions.learn(enemy, main_sprite) -- Workaround. The solarus not
   end
 
   -- Make the enemy start flying.
-  function enemy:start_flying(take_off_duration, unsensitive, height)
+  function enemy:start_flying(take_off_duration, height, invincible, harmless)
 
     -- Make enemy unable to interact with the hero if requested.
-    if unsensitive then
+    if invincible then
       enemy:set_invincible()
+    end
+    if harmless then
       enemy:set_can_attack(false)
       enemy:set_damage(0)
     end
@@ -261,9 +272,10 @@ function common_actions.learn(enemy, main_sprite) -- Workaround. The solarus not
   end
 
   -- Stop the leashing attraction on the given entity
-  function enemy:stop_leashing(entity)
+  function enemy:stop_leashed_by(entity)
     if leashing_timers[entity] then
       leashing_timers[entity]:stop()
+      leashing_timers[entity] = nil
     end
   end
 

@@ -52,7 +52,7 @@ function enemy:start_attacking()
 
   -- Start jumping away from the hero.
   enemy:start_jumping_movement()
-  enemy:start_jumping(jumping_duration, true, jumping_height)
+  enemy:start_jumping(jumping_duration, jumping_height, true, true)
 end
 
 -- Start attacking when the hero is near enough and an attack or item command is pressed, even if not assigned to an item.

@@ -104,7 +104,7 @@ function enemy:on_update()
 
   -- Make the sprite jump if the enemy is not attacking.
   if not enemy.is_attacking then
-    sprite:set_xy(0, -math.abs(math.cos(sol.main.get_elapsed_time() * 0.01) * 4.0))
+    sprite:set_xy(0, -math.abs(math.sin(sol.main.get_elapsed_time() * 0.01) * 4.0))
   end
 
   -- If the hero touches the center of the enemy while aspiring, eat him.
@@ -137,7 +137,7 @@ function enemy:start_aspirate()
     end)
     
     -- Make the enemy sprites elevate while aspiring.
-    enemy:start_flying(take_off_duration, false, flying_height)
+    enemy:start_flying(take_off_duration, flying_height, false, false)
 
     -- Start aspire animation.
     sprite:set_animation("aspire")

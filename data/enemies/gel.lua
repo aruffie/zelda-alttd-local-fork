@@ -7,6 +7,7 @@ local zol_behavior = require("enemies/lib/zol")
 require("scripts/multi_events")
 
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
 
@@ -14,32 +15,46 @@ local hero = map:get_hero()
 local slow_speed = 22
 local stuck_duration = 2000
 
--- Make the hero free after stuck on him
+-- Let go the hero.
 function enemy:free_hero()
-  enemy:stop_leashing(hero)
-  enemy:start_jump_attack(false)
-  hero:set_walking_speed(88) -- TODO restore speed only if it's the last stuck gel.
+
+  enemy:stop_leashed_by(hero)
+
+  -- Restore the hero speed and weapons only if there are no more leashed gel.
+  local is_hero_free = true
+  for enemy in map:get_entities_by_type("enemy") do
+    if enemy.is_leashed_by and enemy:is_leashed_by(hero) then
+      is_hero_free = false
+    end
+  end
+  if is_hero_free then
+    -- TODO
+    hero:set_walking_speed(88)
+  end
 end
 
--- Make the hero slow down and make him unable to use weapons. 
+-- Make the hero slow down and unable to use weapons. 
 function enemy:slow_hero_down()
 
-  -- Stop potential current jump and slow the hero down
+  -- Stop potential current jump and slow the hero down.
   enemy:stop_movement()
   sol.timer.stop_all(enemy)
   sprite:set_xy(0, 0)
   hero:set_walking_speed(slow_speed)
   
-  -- Make the enemy follow the hero for a delay then make it jump away.
-  local movement = sol.movement.create("target")
+  -- Make the enemy follow the hero.
   enemy:start_leashed_by(hero, 6)
   sprite:set_animation("shaking")
 
   -- TODO Make the hero unable to use weapon while slowed down.
+  --game:set_ability("sword", 0)
+  --game:set_item_assigned(1, nil)
+  --game:set_item_assigned(2, nil)
 
-  -- Stop the slowdown after some time.
+  -- Jump away after some time.
   sol.timer.start(enemy, stuck_duration, function()
     enemy:free_hero()
+    enemy:start_jump_attack(false)
   end)
 end
 
@@ -47,10 +62,15 @@ end
 function enemy:on_update()
 
   -- If the hero touches the center of the enemy, slow him down.
-  if enemy.can_slow_hero_down and enemy:overlaps(hero, "origin") then
+  if enemy.can_slow_hero_down and enemy:get_life() > 0 and enemy:overlaps(hero, "origin") then
     enemy.can_slow_hero_down = false
     enemy:slow_hero_down()
   end
+end
+
+-- Free the hero on dying
+function enemy:on_dying()
+  enemy:free_hero()
 end
 
 -- Initialization.

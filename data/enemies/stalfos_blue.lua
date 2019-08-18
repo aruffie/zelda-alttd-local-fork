@@ -49,7 +49,7 @@ function enemy:start_attacking()
 
   -- Start jumping on the current hero position.
   enemy:start_jumping_movement()
-  enemy:start_flying(elevating_duration, true, jumping_height)
+  enemy:start_flying(elevating_duration, jumping_height, true, true)
 
   -- Wait for a delay and start the stomp down.
   sol.timer.start(enemy, jumping_duration, function()

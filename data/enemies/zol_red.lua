@@ -11,7 +11,7 @@ local map = enemy:get_map()
 local hero = map:get_hero()
 
 -- Configuration variables
-local dying_duration = 250
+local dying_duration = 300
 
 -- Create two gels when dead.
 function enemy:on_dying()
