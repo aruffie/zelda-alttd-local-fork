@@ -14,14 +14,10 @@ local hero = map:get_hero()
 local slow_speed = 22
 local stuck_duration = 2000
 
--- Passive behaviors needing constant checking.
-function enemy:on_update()
-
-  -- If the hero touches the center of the enemy, slow him down.
-  if enemy.can_slow_hero_down and enemy:overlaps(hero, "origin") then
-    enemy.can_slow_hero_down = false
-    enemy:slow_hero_down()
-  end
+-- Make the hero free after stuck on him
+function enemy:free_hero()
+  hero:set_walking_speed(88) -- TODO restore speed only if it's the last stuck gel.
+  enemy:start_jump_attack(false)
 end
 
 -- Make the hero slow down and make him unable to use weapons. 
@@ -45,9 +41,25 @@ function enemy:slow_hero_down()
 
   -- Stop the slowdown after some time.
   sol.timer.start(enemy, stuck_duration, function()
-    hero:set_walking_speed(88) -- TODO restore speed only if it's the last stuck gel.
-    enemy:start_jump_attack(false)
+    enemy:free_hero()
   end)
+end
+
+-- Passive behaviors needing constant checking.
+function enemy:on_update()
+
+  -- If the hero touches the center of the enemy, slow him down.
+  local is_touching = enemy:overlaps(hero, "origin")
+  if enemy.can_slow_hero_down then
+    if is_touching then
+      enemy.can_slow_hero_down = false
+      enemy:slow_hero_down()
+    end
+  else
+    if not is_touching then
+      -- TODO enemy:free_hero()
+    end
+  end
 end
 
 -- Initialization.

@@ -12,33 +12,74 @@ local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 
 -- Configuration variables
 local frame_delay_step_duration = 500
+local taking_off_frame_delay_steps = {640, 320, 160, 80, 40}
+local landing_frame_delay_steps = {40, 40, 80, 160, 160, 320}
 local frame_delay_steps = {640, 320, 160, 80, 40}
 local take_off_duration = 1000
+local flying_duration = 4000
+local landing_duration = 2000
+local before_taking_off_delay = 2000
+local before_moving_in_the_air_delay = 1000
+local before_landing_delay = 500
+local before_restarting_delay = 1000
 local flying_height = 32
 
--- Start landing.
+-- Start a frame delay that will change later depending on the given table.
+function enemy:start_dynamic_frame_delay(steps_table, current_step, finished_callback)
+
+  local step = current_step + 1
+  sprite:set_frame_delay(steps_table[step])
+  sol.timer.start(enemy, frame_delay_step_duration, function()
+    if steps_table[step + 1] then
+      enemy:start_dynamic_frame_delay(steps_table, step, finished_callback)
+    elseif finished_callback then
+      finished_callback()
+    end
+  end)
+end
+
+-- Start landing after some time.
 function enemy:start_moving()
 
-  sprite:set_animation("walking")
+  sol.timer.start(enemy, before_taking_off_delay, function()
 
-  local function set_frame_delay_step(step)
-    step = step + 1
-    sprite:set_frame_delay(frame_delay_steps[step])
-    sol.timer.start(enemy, frame_delay_step_duration, function()
-      if frame_delay_steps[step + 1] then
-        set_frame_delay_step(step)
-      else
-        enemy:start_flying(take_off_duration, true, flying_height)
-      end
+    -- Make the flying animation start and rise the frame delay.
+    sprite:set_animation("walking")
+    enemy:start_dynamic_frame_delay(taking_off_frame_delay_steps, 0, function()
+      enemy:start_flying(take_off_duration, true, flying_height)
     end)
-  end
-  set_frame_delay_step(0)
+  end)
 end
 
 -- Event called when the enemy took off.
 function enemy:on_fly_took_off()
 
-  -- Start a circle movement with the hero as center.
+  -- Start in the air movements after some time.
+  sol.timer.start(enemy, before_moving_in_the_air_delay, function()
+
+    -- Start a circle movement with the hero as center.
+    local movement = sol.movement.create("straight")
+    movement:set_speed(24)
+    movement:set_max_distance(400)
+    movement:set_angle(0)
+    movement:start(enemy)
+
+    -- Start landing after some time.
+    sol.timer.start(enemy, flying_duration, function()
+      movement:stop()
+      sol.timer.start(enemy, before_landing_delay, function()
+        enemy:stop_flying(landing_duration)
+        enemy:start_dynamic_frame_delay(landing_frame_delay_steps, 0)
+      end)
+    end)
+  end)
+end
+
+-- Restart the enemy on landed.
+function enemy:on_fly_landed()
+  sol.timer.start(enemy, before_restarting_delay, function()
+    enemy:restart()
+  end)
 end
 
 -- Initialization.
@@ -65,5 +106,6 @@ function enemy:on_restarted()
   -- States.
   enemy:set_can_attack(true)
   enemy:set_damage(1)
+  sprite:set_animation("stopped")
   enemy:start_moving()
 end
