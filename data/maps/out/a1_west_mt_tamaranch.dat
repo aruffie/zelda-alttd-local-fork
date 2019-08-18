@@ -13116,7 +13116,7 @@ enemy{
   x = 80,
   y = 597,
   direction = 0,
-  breed = "moblin_dog_spear/moblin_dog_spear",
+  breed = "moblin_dog_spear",
   treasure_name = "random",
 }
 
@@ -13125,7 +13125,7 @@ enemy{
   x = 104,
   y = 461,
   direction = 2,
-  breed = "moblin_dog_spear/moblin_dog_spear",
+  breed = "moblin_dog_spear",
   treasure_name = "random",
 }
 
@@ -13134,7 +13134,7 @@ enemy{
   x = 400,
   y = 469,
   direction = 2,
-  breed = "moblin_dog_spear/moblin_dog_spear",
+  breed = "moblin_dog_spear",
   treasure_name = "random",
 }
 
@@ -13143,7 +13143,7 @@ enemy{
   x = 376,
   y = 485,
   direction = 0,
-  breed = "moblin_dog_spear/moblin_dog_spear",
+  breed = "moblin_dog_spear",
   treasure_name = "random",
 }
 
@@ -13152,7 +13152,7 @@ enemy{
   x = 288,
   y = 613,
   direction = 3,
-  breed = "moblin_dog_spear/moblin_dog_spear",
+  breed = "moblin_dog_spear",
   treasure_name = "random",
 }
 
@@ -13161,7 +13161,7 @@ enemy{
   x = 368,
   y = 701,
   direction = 0,
-  breed = "moblin_dog_spear/moblin_dog_spear",
+  breed = "moblin_dog_spear",
   treasure_name = "random",
 }
 
@@ -13170,7 +13170,7 @@ enemy{
   x = 336,
   y = 197,
   direction = 0,
-  breed = "moblin_dog_spear/moblin_dog_spear",
+  breed = "moblin_dog_spear",
   treasure_name = "random",
 }
 

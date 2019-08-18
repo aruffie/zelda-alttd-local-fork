@@ -20766,7 +20766,7 @@ enemy{
   x = 744,
   y = 1549,
   direction = 3,
-  breed = "wizzrobe/wizzrobe",
+  breed = "wizzrobe",
   treasure_name = "random",
 }
 
@@ -20776,7 +20776,7 @@ enemy{
   x = 840,
   y = 1549,
   direction = 3,
-  breed = "wizzrobe/wizzrobe",
+  breed = "wizzrobe",
   treasure_name = "random",
 }
 
@@ -20786,7 +20786,7 @@ enemy{
   x = 792,
   y = 1581,
   direction = 3,
-  breed = "wizzrobe/wizzrobe",
+  breed = "wizzrobe",
   treasure_name = "random",
 }
 
@@ -22403,7 +22403,7 @@ enemy{
   x = 536,
   y = 1597,
   direction = 3,
-  breed = "wizzrobe/wizzrobe",
+  breed = "wizzrobe",
   treasure_name = "random",
 }
 
@@ -22471,7 +22471,7 @@ enemy{
   x = 568,
   y = 1517,
   direction = 3,
-  breed = "wizzrobe/wizzrobe",
+  breed = "wizzrobe",
   treasure_name = "random",
 }
 
@@ -22510,7 +22510,7 @@ enemy{
   x = 200,
   y = 861,
   direction = 3,
-  breed = "wizzrobe/wizzrobe",
+  breed = "wizzrobe",
   treasure_name = "random",
 }
 
@@ -22520,7 +22520,7 @@ enemy{
   x = 168,
   y = 781,
   direction = 3,
-  breed = "wizzrobe/wizzrobe",
+  breed = "wizzrobe",
   treasure_name = "random",
 }
 
@@ -22530,7 +22530,7 @@ enemy{
   x = 104,
   y = 877,
   direction = 3,
-  breed = "wizzrobe/wizzrobe",
+  breed = "wizzrobe",
   treasure_name = "random",
 }
 
@@ -23181,7 +23181,7 @@ enemy{
   x = 2024,
   y = 1293,
   direction = 3,
-  breed = "wizzrobe/wizzrobe",
+  breed = "wizzrobe",
   treasure_name = "random",
 }
 
@@ -23191,7 +23191,7 @@ enemy{
   x = 2056,
   y = 1309,
   direction = 3,
-  breed = "wizzrobe/wizzrobe",
+  breed = "wizzrobe",
   treasure_name = "random",
 }
 
@@ -23201,7 +23201,7 @@ enemy{
   x = 2088,
   y = 1325,
   direction = 3,
-  breed = "wizzrobe/wizzrobe",
+  breed = "wizzrobe",
   treasure_name = "random",
 }
 
@@ -23211,7 +23211,7 @@ enemy{
   x = 2120,
   y = 1341,
   direction = 3,
-  breed = "wizzrobe/wizzrobe",
+  breed = "wizzrobe",
   treasure_name = "random",
 }
 
@@ -24602,7 +24602,7 @@ enemy{
   x = 1448,
   y = 1085,
   direction = 3,
-  breed = "wizzrobe/wizzrobe",
+  breed = "wizzrobe",
   treasure_name = "random",
 }
 
@@ -28533,7 +28533,7 @@ enemy{
   x = 1056,
   y = 365,
   direction = 3,
-  breed = "wizzrobe/wizzrobe",
+  breed = "wizzrobe",
   treasure_name = "random",
 }
 
@@ -28543,7 +28543,7 @@ enemy{
   x = 1184,
   y = 365,
   direction = 3,
-  breed = "wizzrobe/wizzrobe",
+  breed = "wizzrobe",
   treasure_name = "random",
 }
 

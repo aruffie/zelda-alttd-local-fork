@@ -17068,7 +17068,7 @@ enemy{
   x = 1088,
   y = 525,
   direction = 0,
-  breed = "eyegore_statue/eyegore_statue",
+  breed = "eyegore_statue",
 }
 
 enemy{
@@ -17077,7 +17077,7 @@ enemy{
   x = 1120,
   y = 525,
   direction = 0,
-  breed = "eyegore_statue/eyegore_statue",
+  breed = "eyegore_statue",
 }
 
 enemy{
@@ -17086,7 +17086,7 @@ enemy{
   x = 1088,
   y = 45,
   direction = 0,
-  breed = "eyegore_statue/eyegore_statue",
+  breed = "eyegore_statue",
 }
 
 enemy{
@@ -17095,6 +17095,6 @@ enemy{
   x = 1120,
   y = 45,
   direction = 0,
-  breed = "eyegore_statue/eyegore_statue",
+  breed = "eyegore_statue",
 }
 

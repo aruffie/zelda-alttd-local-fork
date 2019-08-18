@@ -27773,7 +27773,7 @@ enemy{
   x = 1096,
   y = 1565,
   direction = 0,
-  breed = "vire/vire",
+  breed = "vire",
 }
 
 enemy{
@@ -27782,7 +27782,7 @@ enemy{
   x = 136,
   y = 1309,
   direction = 0,
-  breed = "vire/vire",
+  breed = "vire",
 }
 
 enemy{
@@ -28607,7 +28607,7 @@ enemy{
   x = 1696,
   y = 1053,
   direction = 0,
-  breed = "vire/vire",
+  breed = "vire",
 }
 
 wall{
@@ -30356,7 +30356,7 @@ enemy{
   x = 728,
   y = 573,
   direction = 0,
-  breed = "vire/vire",
+  breed = "vire",
 }
 
 enemy{

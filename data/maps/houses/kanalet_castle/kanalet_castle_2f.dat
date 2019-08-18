@@ -2061,7 +2061,7 @@ enemy{
   x = 232,
   y = 125,
   direction = 3,
-  breed = "darknut/darknut",
+  breed = "darknut",
   treasure_name = "random",
 }
 

@@ -3,13 +3,16 @@
 -- Add some basic and common methods/events to an enemy.
 --
 -- Methods : enemy:is_near(entity, triggering_distance)
+--           enemy:is_leashed_by(entity)
 --           enemy:start_random_walking(possible_angles, speed, distance, on_finished_callback)
 --           enemy:start_target_walking(entity, speed)
---           enemy:start_jumping(duration, unsensitive, height)
---           enemy:start_flying(take_off_duration, unsensitive, height)
+--           enemy:start_jumping(duration, height, invincible, harmless)
+--           enemy:start_flying(take_off_duration, height, invincible, harmless)
 --           enemy:stop_flying(landing_duration)
 --           enemy:start_attracting(entity, pixel_by_second, reverse_move, moving_condition_callback)
 --           enemy:stop_attracting()
+--           enemy:start_leashed_by(entity, maximum_distance)
+--           enemy:stop_leashed_by(entity)
 --           enemy:steal_item(item_name, variant, only_if_assigned)
 --           enemy:add_shadow()
 -- Events:   enemy:on_jump_finished()
@@ -34,6 +37,7 @@ function common_actions.learn(enemy, main_sprite) -- Workaround. The solarus not
   local trigonometric_functions = {math.cos, math.sin}
 
   local attracting_timers = {}
+  local leashing_timers = {}
   
   -- Return true if the entity is closer to the enemy than triggering_distance
   function enemy:is_near(entity, triggering_distance)
@@ -41,6 +45,11 @@ function common_actions.learn(enemy, main_sprite) -- Workaround. The solarus not
     local _, _, layer = enemy:get_position()
     local _, _, entity_layer = entity:get_position()
     return (layer == entity_layer or enemy:has_layer_independent_collisions()) and enemy:get_distance(entity) < triggering_distance
+  end
+
+  -- Return true if the enemy is currently leached by the entity.
+  function enemy:is_leashed_by(entity)
+    return leashing_timers[entity] ~= nil
   end
 
   -- Make the enemy straight move randomly over one of the given angle.
@@ -96,11 +105,13 @@ function common_actions.learn(enemy, main_sprite) -- Workaround. The solarus not
   end
 
   -- Make the enemy start jumping.
-  function enemy:start_jumping(duration, unsensitive, height)
+  function enemy:start_jumping(duration, height, invincible, harmless)
 
     -- Make enemy unable to interact with the hero if requested.
-    if unsensitive then
+    if invincible then
       enemy:set_invincible()
+    end
+    if harmless then
       enemy:set_can_attack(false)
       enemy:set_damage(0)
     end
@@ -128,11 +139,13 @@ function common_actions.learn(enemy, main_sprite) -- Workaround. The solarus not
   end
 
   -- Make the enemy start flying.
-  function enemy:start_flying(take_off_duration, unsensitive, height)
+  function enemy:start_flying(take_off_duration, height, invincible, harmless)
 
     -- Make enemy unable to interact with the hero if requested.
-    if unsensitive then
+    if invincible then
       enemy:set_invincible()
+    end
+    if harmless then
       enemy:set_can_attack(false)
       enemy:set_damage(0)
     end
@@ -229,6 +242,43 @@ function common_actions.learn(enemy, main_sprite) -- Workaround. The solarus not
     end
   end
 
+  -- Set a maximum distance between the enemy and an entity, else replace the enemy near it.
+  function enemy:start_leashed_by(entity, maximum_distance)
+
+    leashing_timers[entity] = nil
+
+    local function leashing(entity, maximum_distance)
+
+      if enemy:get_distance(entity) > maximum_distance then
+        local enemy_x, enemy_y, layer = enemy:get_position()
+        local hero_x, hero_y, _ = hero:get_position()
+        local vX = enemy_x - hero_x;
+        local vY = enemy_y - hero_y;
+        local magV = math.sqrt(vX * vX + vY * vY);
+        local x = hero_x + vX / magV * maximum_distance;
+        local y = hero_y + vY / magV * maximum_distance;
+
+        -- Move the entity.
+        if not enemy:test_obstacles(x - enemy_x, y - enemy_y) then
+          enemy:set_position(x, y, layer)
+        end
+      end
+
+      leashing_timers[entity] = sol.timer.start(enemy, 10, function()
+        leashing(entity, maximum_distance)
+      end)
+    end
+    leashing(entity, maximum_distance)
+  end
+
+  -- Stop the leashing attraction on the given entity
+  function enemy:stop_leashed_by(entity)
+    if leashing_timers[entity] then
+      leashing_timers[entity]:stop()
+      leashing_timers[entity] = nil
+    end
+  end
+
   -- Steal an item and drop it when died, possibly conditionned on the variant and the assignation to a slot.
   function enemy:steal_item(item_name, variant, only_if_assigned)
 
@@ -260,11 +310,11 @@ function common_actions.learn(enemy, main_sprite) -- Workaround. The solarus not
     enemy:set_attack_consequence_sprite(shadow_sprite, "hookshot", "ignored")
     enemy:set_attack_consequence_sprite(shadow_sprite, "boomerang", "ignored")
     enemy:set_attack_consequence_sprite(shadow_sprite, "fire", "ignored")
-    function enemy:on_attacking_hero(hero, enemy_sprite)
-      if enemy_sprite ~= shadow_sprite then
+    enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
+      if enemy:get_can_attack() and enemy_sprite ~= shadow_sprite then
         hero:start_hurt(enemy, enemy:get_damage())
       end
-    end
+    end)
   end
 end
 
