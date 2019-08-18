@@ -46,7 +46,7 @@ function enemy:slow_hero_down()
   -- Stop the slowdown after some time.
   sol.timer.start(enemy, stuck_duration, function()
     hero:set_walking_speed(88) -- TODO restore speed only if it's the last stuck gel.
-    enemy:start_attacking(true)
+    enemy:start_jump_attack(false)
   end)
 end
 
