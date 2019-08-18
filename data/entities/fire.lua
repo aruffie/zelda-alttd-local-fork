@@ -168,6 +168,7 @@ fire:add_collision_test("sprite", function(fire, entity)
     function burning_sprite:on_animation_finished()
       enemy:remove_sprite(burning_sprite)
     end
+    audio_manager:play_sound("items/sword_slash4") -- TODO
     
     -- Then call the enemy:receive_attack_consequence after a delay.
     sol.timer.start(sol.main, 1000, function()
