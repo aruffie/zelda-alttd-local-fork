@@ -14,7 +14,6 @@ local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local frame_delay_step_duration = 500
 local taking_off_frame_delay_steps = {640, 320, 160, 80, 40}
 local landing_frame_delay_steps = {40, 40, 80, 160, 160, 320}
-local frame_delay_steps = {640, 320, 160, 80, 40}
 local take_off_duration = 1000
 local flying_duration = 4000
 local landing_duration = 2000

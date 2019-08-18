@@ -16,8 +16,9 @@ local stuck_duration = 2000
 
 -- Make the hero free after stuck on him
 function enemy:free_hero()
-  hero:set_walking_speed(88) -- TODO restore speed only if it's the last stuck gel.
+  enemy:stop_leashing(hero)
   enemy:start_jump_attack(false)
+  hero:set_walking_speed(88) -- TODO restore speed only if it's the last stuck gel.
 end
 
 -- Make the hero slow down and make him unable to use weapons. 
@@ -31,10 +32,7 @@ function enemy:slow_hero_down()
   
   -- Make the enemy follow the hero for a delay then make it jump away.
   local movement = sol.movement.create("target")
-  movement:set_speed(slow_speed)
-  movement:set_target(hero)
-  movement:set_smooth(true)
-  movement:start(enemy)
+  enemy:start_leashed_by(hero, 6)
   sprite:set_animation("shaking")
 
   -- TODO Make the hero unable to use weapon while slowed down.
@@ -49,16 +47,9 @@ end
 function enemy:on_update()
 
   -- If the hero touches the center of the enemy, slow him down.
-  local is_touching = enemy:overlaps(hero, "origin")
-  if enemy.can_slow_hero_down then
-    if is_touching then
-      enemy.can_slow_hero_down = false
-      enemy:slow_hero_down()
-    end
-  else
-    if not is_touching then
-      -- TODO enemy:free_hero()
-    end
+  if enemy.can_slow_hero_down and enemy:overlaps(hero, "origin") then
+    enemy.can_slow_hero_down = false
+    enemy:slow_hero_down()
   end
 end
 

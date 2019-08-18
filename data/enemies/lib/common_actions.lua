@@ -10,6 +10,7 @@
 --           enemy:stop_flying(landing_duration)
 --           enemy:start_attracting(entity, pixel_by_second, reverse_move, moving_condition_callback)
 --           enemy:stop_attracting()
+--           enemy:start_leashed_by(entity, maximum_distance)
 --           enemy:steal_item(item_name, variant, only_if_assigned)
 --           enemy:add_shadow()
 -- Events:   enemy:on_jump_finished()
@@ -34,6 +35,7 @@ function common_actions.learn(enemy, main_sprite) -- Workaround. The solarus not
   local trigonometric_functions = {math.cos, math.sin}
 
   local attracting_timers = {}
+  local leashing_timers = {}
   
   -- Return true if the entity is closer to the enemy than triggering_distance
   function enemy:is_near(entity, triggering_distance)
@@ -226,6 +228,42 @@ function common_actions.learn(enemy, main_sprite) -- Workaround. The solarus not
           end
         end
       end
+    end
+  end
+
+  -- Set a maximum distance between the enemy and an entity, else replace the enemy near it.
+  function enemy:start_leashed_by(entity, maximum_distance)
+
+    leashing_timers[entity] = nil
+
+    local function leashing(entity, maximum_distance)
+
+      if enemy:get_distance(entity) > maximum_distance then
+        local enemy_x, enemy_y, layer = enemy:get_position()
+        local hero_x, hero_y, _ = hero:get_position()
+        local vX = enemy_x - hero_x;
+        local vY = enemy_y - hero_y;
+        local magV = math.sqrt(vX * vX + vY * vY);
+        local x = hero_x + vX / magV * maximum_distance;
+        local y = hero_y + vY / magV * maximum_distance;
+
+        -- Move the entity.
+        if not enemy:test_obstacles(x - enemy_x, y - enemy_y) then
+          enemy:set_position(x, y, layer)
+        end
+      end
+
+      leashing_timers[entity] = sol.timer.start(enemy, 10, function()
+        leashing(entity, maximum_distance)
+      end)
+    end
+    leashing(entity, maximum_distance)
+  end
+
+  -- Stop the leashing attraction on the given entity
+  function enemy:stop_leashing(entity)
+    if leashing_timers[entity] then
+      leashing_timers[entity]:stop()
     end
   end
 
