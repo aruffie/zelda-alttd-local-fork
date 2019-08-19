@@ -1,68 +1,53 @@
--- Lua script of enemy "goomba".
+-- Lua script of enemy goomba.
 -- This script is executed every time an enemy with this model is created.
 
--- Variables
+-- Global variables
 local enemy = ...
+local common_actions = require("enemies/lib/common_actions")
+
 local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
-local sprite
-local movement
+local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+local quarter = math.pi * 0.5
 
--- Include scripts
-local audio_manager = require("scripts/audio_manager")
+-- Configuration variables
+local walking_possible_angle = {0, quarter, 2.0 * quarter, 3.0 * quarter}
+local walking_speed = 32
+local walking_distance_grid = 16
+local walking_max_move_by_step = 6
 
--- The enemy appears: set its properties.
+-- Start a random straight movement of a random distance vertically or horizontally, and loop it without delay.
+function enemy:start_walking()
+
+  enemy:start_random_walking(walking_possible_angle, walking_speed, walking_distance_grid * math.random(walking_max_move_by_step), function()
+    enemy:start_walking()
+  end)
+end
+
+-- Initialization.
 function enemy:on_created()
 
-  sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
-  enemy:set_life(1)
-  enemy:set_damage(1)
-  enemy:set_pushed_back_when_hurt(false)
-  
+  common_actions.learn(enemy, sprite)
+  enemy:set_life(6)
 end
 
--- The enemy was stopped for some reason and should restart.
+-- Restart settings.
 function enemy:on_restarted()
 
-  local sprite = self:get_sprite()
-  local is_dead = false
-  local direction4 = sprite:get_direction()
-  movement = sol.movement.create("path")
-  movement:set_path{direction4 * 2}
-  movement:set_speed(32)
-  movement:set_loop(true)
-  movement:start(self)
-  sol.timer.start(enemy, 10, function()
-    if not is_dead then
-      local x_hero, y_hero = hero:get_position()
-      local x_enemy, y_enemy = enemy:get_position()
-      if x_hero >= x_enemy - 16 and x_hero < x_enemy + 16 and y_hero < y_enemy then
-        enemy:set_can_attack(false)
-        if y_hero >= y_enemy - 16 and y_hero < y_enemy + 16 then
-          is_dead = true
-          movement:stop()
-          sprite:set_animation("crushed")
-          function sprite:on_animation_finished(animation)
-            audio_manager:play_sound("misc/dungeon_switch")
-            enemy:remove()
-          end
-        end
-      else
-        enemy:set_can_attack(true)
-      end
-    end
-    return true 
-  end)
- 
+  -- Behavior for each items.
+  enemy:set_attack_consequence("thrown_item", 1)
+  enemy:set_attack_consequence("hookshot", 1)
+  enemy:set_attack_consequence("sword", 1)
+  enemy:set_attack_consequence("arrow", 1)
+  enemy:set_attack_consequence("boomerang", 1)
+  enemy:set_attack_consequence("explosion", 1)
+  enemy:set_hammer_reaction(1)
+  enemy:set_fire_reaction(1)
+  -- TODO Jumping on top hurt the enemy
 
-end
-
-function enemy:on_obstacle_reached()
-
-  local sprite = self:get_sprite()
-  local direction4 = sprite:get_direction()
-  sprite:set_direction((direction4 + 2) % 4)
-  enemy:restart()
-  
+  -- States.
+  enemy:set_can_attack(true)
+  enemy:set_damage(1)
+  enemy:start_walking()
 end

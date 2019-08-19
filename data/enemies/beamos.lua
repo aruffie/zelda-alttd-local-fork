@@ -14,7 +14,7 @@ local angle_per_frame = 2 * math.pi / sprite:get_num_frames()
 local triggering_angle = angle_per_frame * 1.5
 local start_shooting_delay = 200
 local pause_duration = 1000
-local is_exhausted_duration = 200
+local is_exhausted_duration = 100
 
 -- Properties
 function enemy:on_created()
@@ -38,12 +38,12 @@ function enemy:start_firing()
 
     self.is_exhausted = true 
 
-    -- Create laser entities.
+    -- Create laser projectile.
     local x, y, layer = enemy:get_position()
     map:create_enemy({
       breed =  "projectiles/laser",
       x = x,
-      y = y,
+      y = y - 5,
       layer = layer,
       direction = enemy:get_direction4_to(hero)
     })

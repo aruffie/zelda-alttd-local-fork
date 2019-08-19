@@ -2,7 +2,9 @@
 --
 -- Add projectile behavior to an ennemy.
 --
--- Methods : enemy:go()
+-- Methods : enemy:set_default_speed(speed)
+--           enemy:go(angle, speed)
+-- Events :  enemy:on_hit()
 --
 -- Usage : 
 -- local my_enemy = ...
@@ -21,16 +23,33 @@ function behavior.apply(enemy)
   local map = enemy:get_map()
   local hero = map:get_hero()
 
-  -- Start going to the hero
-  function enemy:go()
+  local default_speed = 192
+
+  -- Call the on_hit() callback or remove the entity if not set on hit.
+  function enemy:hit_behavior()
+
+    if enemy.on_hit then
+      enemy:on_hit()
+    else
+      enemy:remove()
+    end
+  end
+
+  -- Set a projectile speed.
+  function enemy:set_default_speed(speed)
+    default_speed = speed
+  end
+
+  -- Start going to the given angle, or to the hero if nil.
+  function enemy:go(angle, speed)
 
     local movement = sol.movement.create("straight")
-    movement:set_speed(192)
-    movement:set_angle(enemy:get_angle(hero))
+    movement:set_angle(angle or enemy:get_angle(hero))
+    movement:set_speed(speed or default_speed)
     movement:set_smooth(false)
 
     function movement:on_obstacle_reached()
-      enemy:remove()
+      enemy:hit_behavior()
     end
 
     movement:start(enemy)
@@ -43,12 +62,12 @@ function behavior.apply(enemy)
     if not hero:is_shield_protecting_from_enemy(enemy, enemy_sprite) or not game:has_item("shield") or game:get_item("shield"):get_variant() < enemy:get_minimum_shield_needed() then
       hero:start_hurt(enemy, enemy_sprite, enemy:get_damage())
     end
-    enemy:remove()
+    enemy:hit_behavior()
   end
 
   -- Destroy the enemy if needed when touching the shield.
   function enemy:on_shield_collision(shield)
-    enemy:remove()
+    enemy:hit_behavior()
   end
 end
 
