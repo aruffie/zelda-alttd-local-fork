@@ -17,6 +17,7 @@ local taking_off_frame_delay_steps = {640, 320, 160, 80, 40}
 local landing_frame_delay_steps = {40, 40, 80, 160, 160, 320}
 local take_off_duration = 1000
 local flying_duration = 10000
+local flying_maximum_extra_duration = 1000
 local landing_duration = 2000
 local before_taking_off_delay = 2000
 local before_moving_in_the_air_delay = 1000
@@ -69,7 +70,7 @@ function enemy:on_fly_took_off()
     end
 
     -- Start landing after some time.
-    sol.timer.start(enemy, flying_duration, function()
+    sol.timer.start(enemy, flying_duration + math.random(flying_maximum_extra_duration), function()
       movement:stop()
       sol.timer.start(enemy, before_landing_delay, function()
         enemy:stop_flying(landing_duration)

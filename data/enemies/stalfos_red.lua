@@ -26,7 +26,6 @@ local throwing_bone_delay = 200
 -- Start a random straight movement of a random distance vertically or horizontally, and loop it without delay.
 function enemy:start_walking()
 
-  math.randomseed(sol.main.get_elapsed_time())
   enemy:start_random_walking(walking_possible_angle, walking_speed, walking_distance_grid * math.random(walking_max_move_by_step), function()
     enemy:start_walking()
   end)

@@ -12,7 +12,6 @@ carriable_behavior.apply(dice, {})
 
 -- Set the stopped animation on bounce and randomly change the direction among all available ones.
 dice:register_event("on_bounce", function(dice, num_bounce)
-  math.randomseed(sol.main.get_elapsed_time())
   dice_sprite:set_animation("stopped")
   dice:set_direction(math.random(0, dice:get_sprite():get_num_directions()-1))
 end)

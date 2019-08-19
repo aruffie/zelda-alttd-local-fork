@@ -79,7 +79,6 @@ function behavior.apply(enemy, properties)
   -- Stop being exhausted after a minimum delay + random time
   function enemy:schedule_exhausted_end()
 
-    math.randomseed(sol.main.get_elapsed_time())
     sol.timer.start(enemy, exhausted_duration + math.random(exhausted_maximum_extra_duration), function()
       enemy.is_exhausted = false
     end)

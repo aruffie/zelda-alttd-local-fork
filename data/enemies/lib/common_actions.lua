@@ -55,7 +55,6 @@ function common_actions.learn(enemy, main_sprite) -- Workaround. The solarus not
   -- Make the enemy straight move randomly over one of the given angle.
   function enemy:start_random_walking(possible_angles, speed, distance, on_finished_callback)
 
-    math.randomseed(sol.main.get_elapsed_time())
     local direction = math.random(#possible_angles)
     local movement = sol.movement.create("straight")
     movement:set_speed(speed)
