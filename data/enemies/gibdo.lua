@@ -42,10 +42,11 @@ function enemy:on_custom_attack_received(attack)
     })
 
     -- Make the Stalfos immobile, then shake for some time, and then restart.
+    stalfos:set_exhausted(true)
     stalfos:stop_movement()
     sol.timer.stop_all(stalfos)
-    stalfos:get_sprite("main"):set_animation("shaking")
-    sol.timer.start(enemy, stalfos_shaking_duration, function()
+    stalfos:get_sprite():set_animation("shaking")
+    sol.timer.start(stalfos, stalfos_shaking_duration, function()
       stalfos:restart()
     end)
   end

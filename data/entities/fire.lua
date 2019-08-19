@@ -168,7 +168,7 @@ fire:add_collision_test("sprite", function(fire, entity)
     if enemy_sprite:has_animation("burning") then
       enemy_sprite:set_animation("burning")
     else
-      burning_sprite = enemy:create_sprite("entities/effects/flame", "burning") -- TODO
+      local burning_sprite = enemy:create_sprite("entities/effects/flame", "burning") -- TODO
       function burning_sprite:on_animation_finished()
         enemy:remove_sprite(burning_sprite)
       end
