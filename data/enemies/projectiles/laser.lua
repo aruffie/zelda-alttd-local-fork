@@ -1,101 +1,76 @@
 -- Laser projectile, mainly used by the Beamos enemy.
 
 local enemy = ...
-local sprites = {}
+local projectile_behavior = require("enemies/lib/projectile")
 
-local audio_manager = require("scripts/audio_manager")
+-- Global variables
+local map = enemy:get_map()
+local hero = map:get_hero()
 
+local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+local child_particle = nil
+local new_particle_timer = nil
+
+-- Configuration variables
+local laser_particle_gap_delay = 50
+local particle_speed = 400
+
+-- Stop scheduling particle.
+function enemy:stop_scheduling_particle()
+
+  if new_particle_timer then
+    new_particle_timer:stop()
+    new_particle_timer = nil
+  end
+  if child_particle then
+    child_particle:stop_scheduling_particle()
+    child_particle = nil -- Avoid to go up the chain again.
+  end
+end
+
+-- Schedule the next laser particle.
+function enemy:schedule_next_particle()
+
+  local x, y, layer = enemy:get_position()
+  local angle = enemy:get_angle(hero)
+
+  new_particle_timer = sol.timer.start(enemy, laser_particle_gap_delay, function()
+    new_particle_timer = nil
+    local movement = enemy:get_movement()
+    child_particle = map:create_enemy({
+      breed = enemy:get_breed(),
+      x = x,
+      y = y,
+      layer = layer,
+      direction = enemy:get_direction4_to(hero)
+    })
+    child_particle:go(movement:get_angle(), movement:get_speed())
+  end)
+end
+
+-- Go up all entities to tell the last one to not generate new particle anymore when one particle is removed.
+enemy:register_event("on_removed", function(enemy)
+  enemy:stop_scheduling_particle()
+end)
+
+-- Initialization.
 function enemy:on_created()
 
+  projectile_behavior.apply(enemy)
   enemy:set_life(1)
+end
+
+-- Restart settings.
+function enemy:on_restarted()
+
+  enemy:set_speed(particle_speed)
   enemy:set_damage(2)
-  enemy:set_size(8, 8)
-  enemy:set_origin(4, 4)
   enemy:set_obstacle_behavior("flying")
   enemy:set_can_hurt_hero_running(true)
   enemy:set_minimum_shield_needed(2)
-  enemy:set_invincible()
-  enemy:set_attack_consequence("sword", "custom")
-
-  sprites[1] = enemy:create_sprite("enemies/" .. enemy:get_breed())
-  -- Sprites 2 and 3 do not belong to the enemy to avoid testing collisions with them.
-  sprites[2] = sol.sprite.create("enemies/" .. enemy:get_breed())
-  sprites[3] = sol.sprite.create("enemies/" .. enemy:get_breed())
-end
-
-local function go(angle)
-
-  local movement = sol.movement.create("straight")
-  movement:set_speed(192)
-  movement:set_angle(angle)
-  movement:set_smooth(false)
-
-  function movement:on_obstacle_reached()
-    enemy:remove()
-  end
-
-  -- Compute the coordinate offset of follower sprites.
-  local x = math.cos(angle) * 10
-  local y = -math.sin(angle) * 10
-  sprites[1]:set_xy(2 * x, 2 * y)
-  sprites[2]:set_xy(x, y)
-
-  sprites[1]:set_animation("walking")
-  sprites[2]:set_animation("following_1")
-  sprites[3]:set_animation("following_2")
-
-  movement:start(enemy)
-end
-
-function enemy:on_restarted()
-
-  local hero = enemy:get_map():get_hero()
-  local angle = enemy:get_angle(hero:get_center_position())
-  go(angle)
-end
-
--- Destroy the fireball when the hero is touched.
-function enemy:on_attacking_hero(hero, enemy_sprite)
-
-  hero:start_hurt(enemy, enemy_sprite, enemy:get_damage())
-  enemy:remove()
-end
-
--- Change the direction of the movement when hit with the sword.
-function enemy:on_custom_attack_received(attack, sprite)
-
-  if attack == "sword" and sprite == sprites[1] then
-    local hero = enemy:get_map():get_hero()
-    local movement = enemy:get_movement()
-    if movement == nil then
-      return
-    end
-
-    local old_angle = movement:get_angle()
-    local angle
-    local hero_direction = hero:get_direction()
-    if hero_direction == 0 or hero_direction == 2 then
-      angle = math.pi - old_angle
-    else
-      angle = 2 * math.pi - old_angle
-    end
-
-    go(angle)
-    audio_manager:play_sound("enemies/enemy_hit")
-
-    -- The trailing fireballs are now on the hero: don't attack temporarily
-    enemy:set_can_attack(false)
-    sol.timer.start(enemy, 500, function()
-      enemy:set_can_attack(true)
-    end)
-  end
-end
-
-function enemy:on_pre_draw()
-
-  local map = enemy:get_map()
-  local x, y = enemy:get_position()
-  map:draw_visual(sprites[2], x, y)
-  map:draw_visual(sprites[3], x, y)
+  enemy:set_invincible(true)
+  enemy:go()
+  enemy:schedule_next_particle()
+  sprite:set_animation("walking")
 end
 
