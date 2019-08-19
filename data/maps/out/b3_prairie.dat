@@ -21988,7 +21988,7 @@ enemy{
   x = 80,
   y = 605,
   direction = 1,
-  breed = "moblin_pig_sword/moblin_pig_sword",
+  breed = "moblin_pig_sword",
   treasure_name = "random",
 }
 
@@ -21997,7 +21997,7 @@ enemy{
   x = 272,
   y = 325,
   direction = 1,
-  breed = "octorok_flying/octorok_flying",
+  breed = "octorok_flying",
   treasure_name = "random",
 }
 

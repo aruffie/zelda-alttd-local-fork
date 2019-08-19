@@ -162,12 +162,18 @@ fire:add_collision_test("sprite", function(fire, entity)
     movement:set_smooth(false)
     movement:start(enemy)
 
-    -- Make it burn.
+    -- Remove the projectile and make the enemy burn.
     fire:extinguish()
-    burning_sprite = enemy:create_sprite("entities/effects/flame", "burning") -- TODO
-    function burning_sprite:on_animation_finished()
-      enemy:remove_sprite(burning_sprite)
+    local enemy_sprite = enemy:get_sprite()
+    if enemy_sprite:has_animation("burning") then
+      enemy_sprite:set_animation("burning")
+    else
+      local burning_sprite = enemy:create_sprite("entities/effects/flame", "burning") -- TODO
+      function burning_sprite:on_animation_finished()
+        enemy:remove_sprite(burning_sprite)
+      end
     end
+    audio_manager:play_sound("items/sword_slash4") -- TODO
     
     -- Then call the enemy:receive_attack_consequence after a delay.
     sol.timer.start(sol.main, 1000, function()

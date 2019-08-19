@@ -13,12 +13,13 @@ animation{
 animation{
   name = "burning",
   src_image = "enemies/gibdo.png",
-  frame_delay = 50,
+  frame_delay = 70,
+  frame_to_loop_on = 9,
   directions = {
-    { x = 0, y = 28, frame_width = 24, frame_height = 40, origin_x = 12, origin_y = 37, num_frames = 9 },
-    { x = 0, y = 28, frame_width = 24, frame_height = 40, origin_x = 12, origin_y = 37, num_frames = 9 },
-    { x = 0, y = 28, frame_width = 24, frame_height = 40, origin_x = 12, origin_y = 37, num_frames = 9 },
-    { x = 0, y = 28, frame_width = 24, frame_height = 40, origin_x = 12, origin_y = 37, num_frames = 9 },
+    { x = 0, y = 28, frame_width = 24, frame_height = 40, origin_x = 12, origin_y = 37, num_frames = 10 },
+    { x = 0, y = 28, frame_width = 24, frame_height = 40, origin_x = 12, origin_y = 37, num_frames = 10 },
+    { x = 0, y = 28, frame_width = 24, frame_height = 40, origin_x = 12, origin_y = 37, num_frames = 10 },
+    { x = 0, y = 28, frame_width = 24, frame_height = 40, origin_x = 12, origin_y = 37, num_frames = 10 },
   },
 }
 animation{

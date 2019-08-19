@@ -41,7 +41,7 @@ function enemy:start_firing()
     -- Create laser entities.
     local x, y, layer = enemy:get_position()
     map:create_enemy({
-      breed =  "eyegore_statue/eyegore_statue_fireball", -- TODO
+      breed =  "projectiles/laser",
       x = x,
       y = y,
       layer = layer,

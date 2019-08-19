@@ -12,7 +12,7 @@ local movement
 -- The enemy appears: set its properties.
 function enemy:on_created()
 
-  sprite = enemy:create_sprite("enemies/mini_moldorm/" .. enemy:get_breed())
+  sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
   enemy:set_life(1)
   enemy:set_damage(1)
   

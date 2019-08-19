@@ -22407,7 +22407,7 @@ enemy{
   x = 120,
   y = 413,
   direction = 3,
-  breed = "monkey/monkey",
+  breed = "monkey",
   treasure_name = "random",
 }
 
