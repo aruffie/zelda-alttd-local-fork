@@ -55,7 +55,6 @@ function common_actions.learn(enemy, main_sprite) -- Workaround. The solarus not
   -- Make the enemy straight move randomly over one of the given angle.
   function enemy:start_random_walking(possible_angles, speed, distance, on_finished_callback)
 
-    math.randomseed(sol.main.get_elapsed_time())
     local direction = math.random(#possible_angles)
     local movement = sol.movement.create("straight")
     movement:set_speed(speed)
@@ -299,21 +298,31 @@ function common_actions.learn(enemy, main_sprite) -- Workaround. The solarus not
   -- Add a shadow below the enemy.
   function enemy:add_shadow()
 
-    local shadow_sprite = enemy:create_sprite("entities/shadows/shadow", "shadow")
-    enemy:bring_sprite_to_back(shadow_sprite)
-
-    -- Make shadow sprite unable to interact with the hero.
-    enemy:set_attack_consequence_sprite(shadow_sprite, "sword", "ignored")
-    enemy:set_attack_consequence_sprite(shadow_sprite, "thrown_item", "ignored")
-    enemy:set_attack_consequence_sprite(shadow_sprite, "explosion", "ignored")
-    enemy:set_attack_consequence_sprite(shadow_sprite, "arrow", "ignored")
-    enemy:set_attack_consequence_sprite(shadow_sprite, "hookshot", "ignored")
-    enemy:set_attack_consequence_sprite(shadow_sprite, "boomerang", "ignored")
-    enemy:set_attack_consequence_sprite(shadow_sprite, "fire", "ignored")
-    enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
-      if enemy:get_can_attack() and enemy_sprite ~= shadow_sprite then
-        hero:start_hurt(enemy, enemy:get_damage())
-      end
+    local enemy_x, enemy_y, enemy_layer = enemy:get_position()
+    local shadow = map:create_custom_entity({
+      direction = main_sprite:get_direction(),
+      x = enemy_x,
+      y = enemy_y,
+      layer = enemy_layer,
+      width = 16,
+      height = 16,
+      sprite = "entities/shadows/shadow"
+    })
+    shadow:set_traversable_by(true)
+    function shadow:on_update()
+      shadow:set_position(enemy:get_position())
+    end
+    enemy:register_event("on_dying", function(enemy)
+      shadow:set_visible(false)
+    end)
+    enemy:register_event("on_removed", function(enemy)
+      shadow:remove()
+    end)
+    enemy:register_event("on_enabled", function(enemy)
+      shadow:enable()
+    end)
+    enemy:register_event("on_disabled", function(enemy)
+      shadow:disable()
     end)
   end
 end
