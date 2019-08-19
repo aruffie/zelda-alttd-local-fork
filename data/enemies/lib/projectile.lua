@@ -2,7 +2,8 @@
 --
 -- Add projectile behavior to an ennemy.
 --
--- Methods : enemy:go()
+-- Methods : enemy:set_default_speed(speed)
+--           enemy:go(angle, speed)
 -- Events :  enemy:on_hit()
 --
 -- Usage : 
@@ -35,11 +36,11 @@ function behavior.apply(enemy)
   end
 
   -- Set a projectile speed.
-  function enemy:set_speed(speed)
+  function enemy:set_default_speed(speed)
     default_speed = speed
   end
 
-  -- Start going to the hero
+  -- Start going to the given angle, or to the hero if nil.
   function enemy:go(angle, speed)
 
     local movement = sol.movement.create("straight")

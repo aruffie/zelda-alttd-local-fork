@@ -63,12 +63,12 @@ end
 -- Restart settings.
 function enemy:on_restarted()
 
-  enemy:set_speed(particle_speed)
   enemy:set_damage(2)
   enemy:set_obstacle_behavior("flying")
   enemy:set_can_hurt_hero_running(true)
   enemy:set_minimum_shield_needed(2)
   enemy:set_invincible(true)
+  enemy:set_default_speed(particle_speed)
   enemy:go()
   enemy:schedule_next_particle()
   sprite:set_animation("walking")
