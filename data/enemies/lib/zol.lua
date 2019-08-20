@@ -11,10 +11,11 @@
 
 -- Global variables
 local behavior = {}
-local common_actions = require("enemies/lib/common_actions")
 require("scripts/multi_events")
 
 function behavior.apply(enemy, properties)
+
+  require("enemies/lib/common_actions").learn(enemy)
 
   local map = enemy:get_map()
   local hero = map:get_hero()
@@ -31,7 +32,6 @@ function behavior.apply(enemy, properties)
   local exhausted_maximum_extra_duration = properties.exhausted_maximum_extra_duration or 2000
 
   -- Initialization
-  common_actions.learn(enemy, sprite)
   enemy:set_life(1)
   enemy:add_shadow()
 

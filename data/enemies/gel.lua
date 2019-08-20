@@ -94,6 +94,5 @@ enemy:register_event("on_restarted", function(enemy)
   -- States.
   enemy:set_can_attack(false)
   enemy:set_damage(0)
-  enemy:set_drawn_in_y_order(false)
   enemy.can_slow_hero_down = true
 end)
