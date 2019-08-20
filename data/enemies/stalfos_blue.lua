@@ -57,24 +57,17 @@ function enemy:start_attacking()
   end)
 end
 
+-- Start the attack animation when the jump reached the top.
+function enemy:on_flying_took_off()
+  sprite:set_animation("attack_landing")
+end
+
 -- Start walking again when the attack finished.
-function enemy:on_fly_landed()
+function enemy:on_flying_landed()
 
   -- Start a visual effect at the landing impact location.
-  local x, y, layer = enemy:get_position()
-  local impact_entity = map:create_custom_entity({
-      direction = 0,
-      x = x,
-      y = y,
-      layer = layer,
-      width = 80,
-      height = 32,
-      sprite = "entities/effects/sparkle_small" -- TODO
-  })
-  local impact_sprite = impact_entity:get_sprite()
-  function impact_sprite:on_animation_finished()
-    impact_entity:remove()
-  end
+  enemy:start_brief_effect("entities/effects/impact_projectile", "default", -12, 0)
+  enemy:start_brief_effect("entities/effects/impact_projectile", "default", 12, 0)
 
   enemy:restart()
 end

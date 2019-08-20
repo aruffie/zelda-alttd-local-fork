@@ -13,11 +13,12 @@
 --           enemy:stop_attracting()
 --           enemy:start_leashed_by(entity, maximum_distance)
 --           enemy:stop_leashed_by(entity)
+--           enemy:start_brief_effect(sprite_name, animation_set_id, x_offset, y_offset)
 --           enemy:steal_item(item_name, variant, only_if_assigned)
 --           enemy:add_shadow()
 -- Events:   enemy:on_jump_finished()
---           enemy:on_fly_took_off()
---           enemy:on_fly_landed()
+--           enemy:on_flying_took_off()
+--           enemy:on_flying_landed()
 --
 -- Usage : 
 -- local my_enemy = ...
@@ -157,10 +158,10 @@ function common_actions.learn(enemy, main_sprite) -- Workaround. The solarus not
     movement:set_ignore_obstacles(true)
     movement:start(main_sprite)
 
-    -- Call the enemy:on_fly_took_off() method once take off finished.
+    -- Call the enemy:on_flying_took_off() method once take off finished.
     function movement:on_finished()
-      if enemy.on_fly_took_off then
-        enemy:on_fly_took_off()
+      if enemy.on_flying_took_off then
+        enemy:on_flying_took_off()
       end
     end
   end
@@ -178,10 +179,10 @@ function common_actions.learn(enemy, main_sprite) -- Workaround. The solarus not
     movement:set_ignore_obstacles(true)
     movement:start(main_sprite)
 
-    -- Call the enemy:on_fly_landed() method once landed finished.
+    -- Call the enemy:on_flying_landed() method once landed finished.
     function movement:on_finished()
-      if enemy.on_fly_landed then
-        enemy:on_fly_landed()
+      if enemy.on_flying_landed then
+        enemy:on_flying_landed()
       end
     end
   end
@@ -276,6 +277,25 @@ function common_actions.learn(enemy, main_sprite) -- Workaround. The solarus not
       leashing_timers[entity]:stop()
       leashing_timers[entity] = nil
     end
+  end
+
+  -- Start a standalone sprite animation on the enemy position, that will be remove once finished.
+  function enemy:start_brief_effect(sprite_name, animation_set_id, x_offset, y_offset)
+
+    local x, y, layer = enemy:get_position()
+    local entity = map:create_custom_entity({
+        sprite = sprite_name,
+        x = x + (x_offset or 0),
+        y = y + (y_offset or 0),
+        layer = layer,
+        width = 80,
+        height = 32,
+        direction = 0
+    })
+    local sprite = entity:get_sprite()
+    sprite:set_animation(animation_set_id, function()
+      entity:remove()
+    end)
   end
 
   -- Steal an item and drop it when died, possibly conditionned on the variant and the assignation to a slot.

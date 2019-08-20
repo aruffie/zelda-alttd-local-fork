@@ -29,7 +29,7 @@ end
 function enemy:on_created()
 
   common_actions.learn(enemy, sprite)
-  enemy:set_life(6)
+  enemy:set_life(1)
 end
 
 -- Restart settings.

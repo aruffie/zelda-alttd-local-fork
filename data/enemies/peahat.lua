@@ -54,7 +54,7 @@ function enemy:start_moving()
 end
 
 -- Event called when the enemy took off.
-function enemy:on_fly_took_off()
+function enemy:on_flying_took_off()
 
   -- Start in the air movements after some time.
   sol.timer.start(enemy, before_moving_in_the_air_delay, function()
@@ -81,7 +81,7 @@ function enemy:on_fly_took_off()
 end
 
 -- Restart the enemy on landed.
-function enemy:on_fly_landed()
+function enemy:on_flying_landed()
   sol.timer.start(enemy, before_restarting_delay, function()
     enemy:restart()
   end)
