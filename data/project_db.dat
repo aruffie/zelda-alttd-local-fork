@@ -435,6 +435,7 @@ sprite{ id = "entities/effects/dark", description = "Dark" }
 sprite{ id = "entities/effects/explosion_green", description = "Explosion green" }
 sprite{ id = "entities/effects/flame", description = "Flame" }
 sprite{ id = "entities/effects/fog", description = "Fog" }
+sprite{ id = "entities/effects/impact_projectile", description = "Impact projectile" }
 sprite{ id = "entities/effects/lightning_strike", description = "Lightning strike" }
 sprite{ id = "entities/effects/lightning_strike_core", description = "Lightning stright core" }
 sprite{ id = "entities/effects/rain", description = "Rain" }
