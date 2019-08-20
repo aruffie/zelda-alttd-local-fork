@@ -31,14 +31,8 @@ function enemy:on_custom_attack_received(attack)
 
   if attack == "fire" then
     local x, y, layer = enemy:get_position()
+    stalfos = enemy:create_enemy({breed = "stalfos_red"})
     enemy:remove()
-    stalfos = map:create_enemy({
-      breed = "stalfos_red",
-      x = x,
-      y = y,
-      layer = layer,
-      direction = enemy:get_direction4_to(hero)
-    })
 
     -- Make the Stalfos immobile, then shake for some time, and then restart.
     stalfos:set_exhausted(true)
