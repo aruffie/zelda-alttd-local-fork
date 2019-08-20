@@ -61,20 +61,8 @@ end
 function enemy:on_fly_landed()
 
   -- Start a visual effect at the landing impact location.
-  local x, y, layer = enemy:get_position()
-  local impact_entity = map:create_custom_entity({
-      direction = 0,
-      x = x,
-      y = y,
-      layer = layer,
-      width = 80,
-      height = 32,
-      sprite = "entities/effects/sparkle_small" -- TODO
-  })
-  local impact_sprite = impact_entity:get_sprite()
-  function impact_sprite:on_animation_finished()
-    impact_entity:remove()
-  end
+  enemy:start_brief_effect("entities/effects/impact_projectile", nil, -12, 0)
+  enemy:start_brief_effect("entities/effects/impact_projectile", nil, 12, 0)
 
   enemy:restart()
 end

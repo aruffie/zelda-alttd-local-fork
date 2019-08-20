@@ -13,6 +13,7 @@
 --           enemy:stop_attracting()
 --           enemy:start_leashed_by(entity, maximum_distance)
 --           enemy:stop_leashed_by(entity)
+--           enemy:start_brief_effect(sprite, animation, x_offset, y_offset)
 --           enemy:steal_item(item_name, variant, only_if_assigned)
 --           enemy:add_shadow()
 -- Events:   enemy:on_jump_finished()
@@ -275,6 +276,25 @@ function common_actions.learn(enemy, main_sprite) -- Workaround. The solarus not
     if leashing_timers[entity] then
       leashing_timers[entity]:stop()
       leashing_timers[entity] = nil
+    end
+  end
+
+  -- Start a standalone sprite animation on the enemy position, that will be remove once finished.
+  function enemy:start_brief_effect(sprite, animation, x_offset, y_offset)
+
+    local x, y, layer = enemy:get_position()
+    local impact_entity = map:create_custom_entity({
+        sprite = sprite,
+        x = x + (x_offset or 0),
+        y = y + (y_offset or 0),
+        layer = layer,
+        width = 80,
+        height = 32,
+        direction = 0
+    })
+    local impact_sprite = impact_entity:get_sprite()
+    function impact_sprite:on_animation_finished()
+      impact_entity:remove()
     end
   end
 

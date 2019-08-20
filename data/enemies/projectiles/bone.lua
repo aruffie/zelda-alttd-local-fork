@@ -9,7 +9,7 @@ local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 -- Initialization.
 function enemy:on_created()
 
-  projectile_behavior.apply(enemy)
+  projectile_behavior.apply(enemy, sprite)
   enemy:set_life(1)
 end
 

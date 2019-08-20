@@ -9,13 +9,15 @@
 -- Usage : 
 -- local my_enemy = ...
 -- local behavior = require("enemies/lib/projectile")
--- behavior.apply(my_enemy)
+-- local main_sprite = enemy:create_sprite("my_enemy_main_sprite")
+-- behavior.apply(my_enemy, main_sprite)
 --
 ----------------------------------
 
 local behavior = {}
+local common_actions = require("enemies/lib/common_actions")
 
-function behavior.apply(enemy)
+function behavior.apply(enemy, sprite)
 
   local audio_manager = require("scripts/audio_manager")
 
@@ -25,9 +27,15 @@ function behavior.apply(enemy)
 
   local default_speed = 192
 
-  -- Call the on_hit() callback or remove the entity if not set on hit.
+  common_actions.learn(enemy, sprite)
+
+  -- Behavior on hit something.
   function enemy:hit_behavior()
 
+    -- Create an impact effect.
+    enemy:start_brief_effect("entities/effects/impact_projectile")
+
+    -- Call the on_hit() callback or remove the entity if not set on hit.
     if enemy.on_hit then
       enemy:on_hit()
     else
