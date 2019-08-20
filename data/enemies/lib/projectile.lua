@@ -33,7 +33,7 @@ function behavior.apply(enemy, sprite)
   function enemy:hit_behavior()
 
     -- Create an impact effect.
-    enemy:start_brief_effect("entities/effects/impact_projectile")
+    enemy:start_brief_effect("entities/effects/impact_projectile", "default")
 
     -- Call the on_hit() callback or remove the entity if not set on hit.
     if enemy.on_hit then

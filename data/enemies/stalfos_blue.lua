@@ -61,8 +61,8 @@ end
 function enemy:on_fly_landed()
 
   -- Start a visual effect at the landing impact location.
-  enemy:start_brief_effect("entities/effects/impact_projectile", nil, -12, 0)
-  enemy:start_brief_effect("entities/effects/impact_projectile", nil, 12, 0)
+  enemy:start_brief_effect("entities/effects/impact_projectile", "default", -12, 0)
+  enemy:start_brief_effect("entities/effects/impact_projectile", "default", 12, 0)
 
   enemy:restart()
 end
