@@ -3,7 +3,7 @@
 
 -- Global variables.
 local enemy = ...
-local common_actions = require("enemies/lib/common_actions")
+require("enemies/lib/common_actions").learn(enemy)
 
 local game = enemy:get_game()
 local map = enemy:get_map()
@@ -28,7 +28,6 @@ end
 -- Initialization.
 function enemy:on_created()
 
-  common_actions.learn(enemy, sprite)
   enemy:set_life(1)
   enemy:set_drawn_in_y_order(false)
 end

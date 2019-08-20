@@ -3,7 +3,7 @@
 
 -- Global variables
 local enemy = ...
-local common_actions = require("enemies/lib/common_actions")
+require("enemies/lib/common_actions").learn(enemy)
 require("scripts/multi_events")
 
 local game = enemy:get_game()
@@ -14,7 +14,6 @@ local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
 
-  common_actions.learn(enemy, sprite)
   enemy:set_life(6)
 end
 

@@ -23,14 +23,13 @@
 -- Usage : 
 -- local my_enemy = ...
 -- local common_actions = require("enemies/lib/common_actions")
--- local main_sprite = enemy:create_sprite("my_enemy_main_sprite")
--- common_actions.learn(my_enemy, main_sprite)
+-- common_actions.learn(my_enemy)
 --
 ----------------------------------
 
 local common_actions = {}
 
-function common_actions.learn(enemy, main_sprite) -- Workaround. The solarus notion of main enemy sprite is not really reliable, pass it explicitely at creation.
+function common_actions.learn(enemy)
 
   local game = enemy:get_game()
   local map = enemy:get_map()
@@ -78,11 +77,13 @@ function common_actions.learn(enemy, main_sprite) -- Workaround. The solarus not
       end
     end
 
-    -- Update the main sprite.
-    if main_sprite:has_animation("walking") then
-      main_sprite:set_animation("walking")
+    -- Update the enemy sprites.
+    for _, sprite in enemy:get_sprites() do
+      if sprite:has_animation("walking") then
+        sprite:set_animation("walking")
+      end
+      sprite:set_direction(movement:get_direction4())
     end
-    main_sprite:set_direction(movement:get_direction4())
 
     return movement
   end
@@ -95,11 +96,13 @@ function common_actions.learn(enemy, main_sprite) -- Workaround. The solarus not
     movement:set_target(entity)
     movement:start(enemy)
 
-    -- Update the main sprite.
-    if main_sprite:has_animation("walking") then
-      main_sprite:set_animation("walking")
+    -- Update enemy sprites.
+    for _, sprite in enemy:get_sprites() do
+      if sprite:has_animation("walking") then
+        sprite:set_animation("walking")
+      end
+      sprite:set_direction(movement:get_direction4())
     end
-    main_sprite:set_direction(movement:get_direction4())
 
     return movement
   end
@@ -121,13 +124,17 @@ function common_actions.learn(enemy, main_sprite) -- Workaround. The solarus not
 
     local function update_sprite_height()
       if elapsed_time < duration then
-        main_sprite:set_xy(0, -math.sqrt(math.sin(elapsed_time / duration * math.pi)) * height)
+        for _, sprite in enemy:get_sprites() do
+          sprite:set_xy(0, -math.sqrt(math.sin(elapsed_time / duration * math.pi)) * height)
+        end
         sol.timer.start(enemy, 10, function()
           elapsed_time = elapsed_time + 10
           update_sprite_height()
         end)
       else
-        main_sprite:set_xy(0, 0)
+        for _, sprite in enemy:get_sprites() do
+          sprite:set_xy(0, 0)
+        end
 
         -- Call enemy:on_jump_finished() event.
         if enemy.on_jump_finished then
@@ -150,18 +157,24 @@ function common_actions.learn(enemy, main_sprite) -- Workaround. The solarus not
       enemy:set_damage(0)
     end
 
-    -- Make the main sprite start elevating.
-    local movement = sol.movement.create("straight")
-    movement:set_speed(height * 1000 / take_off_duration)
-    movement:set_max_distance(height)
-    movement:set_angle(math.pi * 0.5)
-    movement:set_ignore_obstacles(true)
-    movement:start(main_sprite)
+    -- Make enemy sprites start elevating.
+    local event_registered = false
+    for _, sprite in enemy:get_sprites() do
+      local movement = sol.movement.create("straight")
+      movement:set_speed(height * 1000 / take_off_duration)
+      movement:set_max_distance(height)
+      movement:set_angle(math.pi * 0.5)
+      movement:set_ignore_obstacles(true)
+      movement:start(sprite)
 
-    -- Call the enemy:on_flying_took_off() method once take off finished.
-    function movement:on_finished()
-      if enemy.on_flying_took_off then
-        enemy:on_flying_took_off()
+      -- Call the enemy:on_flying_took_off() method once take off finished.
+      if not event_registered then
+        event_registered = true
+        function movement:on_finished()
+          if enemy.on_flying_took_off then
+            enemy:on_flying_took_off()
+          end
+        end
       end
     end
   end
@@ -169,20 +182,27 @@ function common_actions.learn(enemy, main_sprite) -- Workaround. The solarus not
   -- Make the enemy stop flying.
   function enemy:stop_flying(landing_duration)
 
-    -- Make the main sprite start landing.
-    local _, height = main_sprite:get_xy()
-    height = math.abs(height)
-    local movement = sol.movement.create("straight")
-    movement:set_speed(height * 1000 / landing_duration)
-    movement:set_max_distance(height)
-    movement:set_angle(-math.pi * 0.5)
-    movement:set_ignore_obstacles(true)
-    movement:start(main_sprite)
+    -- Make the enemy sprites start landing.
+    local event_registered = false
+    for _, sprite in enemy:get_sprites() do
+      local _, height = sprite:get_xy()
+      height = math.abs(height)
 
-    -- Call the enemy:on_flying_landed() method once landed finished.
-    function movement:on_finished()
-      if enemy.on_flying_landed then
-        enemy:on_flying_landed()
+      local movement = sol.movement.create("straight")
+      movement:set_speed(height * 1000 / landing_duration)
+      movement:set_max_distance(height)
+      movement:set_angle(-math.pi * 0.5)
+      movement:set_ignore_obstacles(true)
+      movement:start(sprite)
+
+      -- Call the enemy:on_flying_landed() method once landed finished.
+      if not event_registered then
+        event_registered = true
+        function movement:on_finished()
+          if enemy.on_flying_landed then
+            enemy:on_flying_landed()
+          end
+        end
       end
     end
   end
@@ -320,7 +340,7 @@ function common_actions.learn(enemy, main_sprite) -- Workaround. The solarus not
 
     local enemy_x, enemy_y, enemy_layer = enemy:get_position()
     local shadow = map:create_custom_entity({
-      direction = main_sprite:get_direction(),
+      direction = 0,
       x = enemy_x,
       y = enemy_y,
       layer = enemy_layer,

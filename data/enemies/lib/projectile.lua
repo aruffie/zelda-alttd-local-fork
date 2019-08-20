@@ -15,10 +15,10 @@
 ----------------------------------
 
 local behavior = {}
-local common_actions = require("enemies/lib/common_actions")
 
 function behavior.apply(enemy, sprite)
 
+  require("enemies/lib/common_actions").learn(enemy)
   local audio_manager = require("scripts/audio_manager")
 
   local game = enemy:get_game()
@@ -26,8 +26,6 @@ function behavior.apply(enemy, sprite)
   local hero = map:get_hero()
 
   local default_speed = 192
-
-  common_actions.learn(enemy, sprite)
 
   -- Behavior on hit something.
   function enemy:hit_behavior()

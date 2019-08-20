@@ -5,12 +5,14 @@
 
 -- Global variables
 local enemy = ...
-local common_actions = require("enemies/lib/common_actions")
+common_actions = require("enemies/lib/common_actions").learn(enemy)
 
 local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
-local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+local normal_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+local link_hat_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/anti_kirby_link")
+local sprite = normal_sprite
 local aspiration_sprite = nil
 local eighth = math.pi * 0.25
 
@@ -28,6 +30,7 @@ local eating_duration = 2000
 local take_off_duration = 1000
 local flying_duration = 3000
 local landing_duration = 1000
+local hat_duration = 10000
 local before_aspiring_delay = 200
 local finish_aspiration_delay = 400
 
@@ -43,6 +46,16 @@ function enemy:get_direction2()
     return 0
   end
   return 1
+end
+
+-- Set the main kirby sprite
+function enemy:set_main_sprite(main_sprite)
+
+  local direction = sprite:get_direction()
+  sprite:set_opacity(0)
+  sprite = main_sprite
+  sprite:set_opacity(255)
+  sprite:set_direction(direction)
 end
 
 -- Start a random diagonal straight movement of a fixed distance and speed, and loop it with delay.
@@ -73,10 +86,10 @@ function enemy:eat_hero()
   sprite:set_animation("eating_link")
   hero:set_visible(false)
   hero:freeze()
-
-  -- Manually hurt and spit the hero after a delay.
+  
   sol.timer.start(enemy, eating_duration, function()
     
+    -- Manually hurt and spit the hero after a delay.
     hero:start_hurt(suction_damage)
     hero:set_position(enemy:get_position())
     hero:set_visible()
@@ -94,6 +107,9 @@ function enemy:eat_hero()
     function movement:on_obstacle_reached()
       hero:unfreeze()
     end
+
+    -- Change the enemy sprite
+    enemy:set_main_sprite(link_hat_sprite)
 
     enemy:restart()
   end)
@@ -135,20 +151,14 @@ function enemy:start_aspirate()
       local direction = enemy:get_direction2()
       return (direction == 0 and hero_x >= enemy_x) or (direction == 1 and hero_x <= enemy_x)
     end)
-    
-    -- Make the enemy sprites elevate while aspiring.
-    enemy:start_flying(take_off_duration, flying_height, false, false)
 
     -- Start aspire animation.
     sprite:set_animation("aspire")
     aspiration_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/aspiration", "aspiration")
     aspiration_sprite:set_direction(sprite:get_direction())
-    sol.timer.start(enemy, 10, function()
-      if aspiration_sprite then
-        aspiration_sprite:set_xy(sprite:get_xy())
-      end
-      return enemy.is_aspiring
-    end)
+
+    -- Make the enemy sprites elevate while aspiring.
+    enemy:start_flying(take_off_duration, flying_height, false, false)
   end)
 end
 
@@ -179,9 +189,9 @@ end
 -- Initialization.
 function enemy:on_created()
 
-  common_actions.learn(enemy, sprite)
   enemy:set_life(4)
   enemy:add_shadow()
+  link_hat_sprite:set_opacity(0)
 end
 
 -- Restart settings.
