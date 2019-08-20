@@ -187,8 +187,10 @@ sprite{ id = "console/icons", description = "Console icons" }
 sprite{ id = "debug/commands", description = "Commands" }
 sprite{ id = "dungeons/owl/pipes/red", description = "Red pipe with water flowing" }
 sprite{ id = "dungeons/owl/pipes/yellow", description = "Yellow pipe with water flowing" }
+
 sprite{ id = "enemies/anti_kirby", description = "Anti Kirby" }
 sprite{ id = "enemies/anti_kirby/aspiration", description = "Anti Kirby Aspiration" }
+sprite{ id = "enemies/anti_kirby/anti_kirby_link", description = "Anti Kirby Link" }
 sprite{ id = "enemies/arm_mimic", description = "Arm mimic" }
 sprite{ id = "enemies/armos", description = "Armos" }
 sprite{ id = "enemies/arrow", description = "Arrow" }
@@ -436,6 +438,7 @@ sprite{ id = "entities/effects/dark", description = "Dark" }
 sprite{ id = "entities/effects/explosion_green", description = "Explosion green" }
 sprite{ id = "entities/effects/flame", description = "Flame" }
 sprite{ id = "entities/effects/fog", description = "Fog" }
+sprite{ id = "entities/effects/impact_projectile", description = "Impact projectile" }
 sprite{ id = "entities/effects/lightning_strike", description = "Lightning strike" }
 sprite{ id = "entities/effects/lightning_strike_core", description = "Lightning stright core" }
 sprite{ id = "entities/effects/rain", description = "Rain" }
