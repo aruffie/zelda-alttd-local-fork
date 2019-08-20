@@ -11,6 +11,17 @@ animation{
   },
 }
 animation{
+  name = "attack_landing",
+  src_image = "enemies/stalfos_blue.png",
+  frame_delay = 100,
+  directions = {
+    { x = 56, y = 24, frame_width = 28, frame_height = 24, origin_x = 14, origin_y = 21 },
+    { x = 56, y = 24, frame_width = 28, frame_height = 24, origin_x = 14, origin_y = 21 },
+    { x = 56, y = 24, frame_width = 28, frame_height = 24, origin_x = 14, origin_y = 21 },
+    { x = 56, y = 24, frame_width = 28, frame_height = 24, origin_x = 14, origin_y = 21 },
+  },
+}
+animation{
   name = "hurt",
   src_image = "enemies/stalfos_blue.png",
   frame_delay = 50,
