@@ -17,8 +17,8 @@
 --           enemy:steal_item(item_name, variant, only_if_assigned)
 --           enemy:add_shadow()
 -- Events:   enemy:on_jump_finished()
---           enemy:on_fly_took_off()
---           enemy:on_fly_landed()
+--           enemy:on_flying_took_off()
+--           enemy:on_flying_landed()
 --
 -- Usage : 
 -- local my_enemy = ...
@@ -158,10 +158,10 @@ function common_actions.learn(enemy, main_sprite) -- Workaround. The solarus not
     movement:set_ignore_obstacles(true)
     movement:start(main_sprite)
 
-    -- Call the enemy:on_fly_took_off() method once take off finished.
+    -- Call the enemy:on_flying_took_off() method once take off finished.
     function movement:on_finished()
-      if enemy.on_fly_took_off then
-        enemy:on_fly_took_off()
+      if enemy.on_flying_took_off then
+        enemy:on_flying_took_off()
       end
     end
   end
@@ -179,10 +179,10 @@ function common_actions.learn(enemy, main_sprite) -- Workaround. The solarus not
     movement:set_ignore_obstacles(true)
     movement:start(main_sprite)
 
-    -- Call the enemy:on_fly_landed() method once landed finished.
+    -- Call the enemy:on_flying_landed() method once landed finished.
     function movement:on_finished()
-      if enemy.on_fly_landed then
-        enemy:on_fly_landed()
+      if enemy.on_flying_landed then
+        enemy:on_flying_landed()
       end
     end
   end

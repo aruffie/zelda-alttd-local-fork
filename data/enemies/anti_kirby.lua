@@ -153,7 +153,7 @@ function enemy:start_aspirate()
 end
 
 -- Event called when the enemy took off while aspiring.
-function enemy:on_fly_took_off()
+function enemy:on_flying_took_off()
 
   -- Wait for a delay and start the landing movement.
   sol.timer.start(enemy, flying_duration, function()
@@ -164,7 +164,7 @@ function enemy:on_fly_took_off()
 end
 
 -- Event called when the enemy landed while aspiring.
-function enemy:on_fly_landed() 
+function enemy:on_flying_landed() 
 
   -- Reset default states a little after touching the ground.
   sol.timer.start(enemy, finish_aspiration_delay, function()
