@@ -189,6 +189,7 @@ sprite{ id = "dungeons/owl/pipes/red", description = "Red pipe with water flowin
 sprite{ id = "dungeons/owl/pipes/yellow", description = "Yellow pipe with water flowing" }
 sprite{ id = "enemies/anti_kirby/anti_kirby", description = "Anti Kirby" }
 sprite{ id = "enemies/anti_kirby/anti_kirby_aspiration", description = "Anti Kirby Aspiration" }
+sprite{ id = "enemies/anti_kirby/anti_kirby_link", description = "Anti Kirby Link" }
 sprite{ id = "enemies/arm_mimic", description = "Arm mimic" }
 sprite{ id = "enemies/armos", description = "Armos" }
 sprite{ id = "enemies/arrow", description = "Arrow" }
