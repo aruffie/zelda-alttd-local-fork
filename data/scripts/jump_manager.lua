@@ -95,13 +95,15 @@ function jm.start(entity)
     jm.setup_collision_rules(entity:get_state_object())
 --    print "JUMP"
     entity.y_vel = -max_yvel
-    sol.timer.start(entity, 10, function()
+    
+    local t=sol.timer.start(entity, 10, function()
         local r=jm.update_jump(entity)
         if not r then
           return false
         end
         return true
       end)
+    t:set_suspended_with_map(false)
   end
 end
 
