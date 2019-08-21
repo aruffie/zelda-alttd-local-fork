@@ -20314,6 +20314,12 @@ enemy{
   layer = 0,
   x = 704,
   y = 421,
+  properties = {
+    {
+      key = "default_state",
+      value = "attracting",
+    },
+  },
   direction = 0,
   breed = "death_ball",
 }
@@ -23263,7 +23269,7 @@ dynamic_tile{
 custom_entity{
   layer = 1,
   x = 1800,
-  y = 1565,
+  y = 1581,
   width = 16,
   height = 16,
   direction = 0,

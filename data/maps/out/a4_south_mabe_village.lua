@@ -39,6 +39,7 @@ function map:init_map_entities()
     sword:get_sprite():set_ignore_suspend(true)
   end
   dungeon_1_entrance:set_traversable_by(false)
+  dungeon_1_entrance:set_traversable_by('camera', true)
   if game:get_value("main_quest_step") > 6 then
     map:open_dungeon_1()
   end
