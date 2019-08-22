@@ -11936,14 +11936,6 @@ enemy{
 
 enemy{
   layer = 1,
-  x = 848,
-  y = 461,
-  direction = 0,
-  breed = "goponga_flower",
-}
-
-enemy{
-  layer = 1,
   x = 856,
   y = 589,
   direction = 0,
@@ -13366,6 +13358,14 @@ teletransporter{
   height = 16,
   destination_map = "dungeons/8/1f",
   destination = "dungeon_8_3_B",
+}
+
+enemy{
+  layer = 1,
+  x = 848,
+  y = 469,
+  direction = 0,
+  breed = "goponga_flower_giant",
 }
 
 tile{
