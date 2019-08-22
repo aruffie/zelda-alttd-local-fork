@@ -61,10 +61,24 @@ end
 function enemy:go_random()
 
   angry = false
-  local movement = sol.movement.create("random")
-  movement:set_speed(32)
-  movement:start(enemy)
-  enemy:set_can_attack(false)
+  local rand = math.random(100)
+  if rand < 90 then
+    enemy:get_sprite():set_animation("walking")
+    local movement = sol.movement.create("random")
+    movement:set_speed(32)
+    movement:start(enemy)
+    enemy:set_can_attack(false)
+  else
+    local movement = enemy:get_movement()
+    if movement then
+      movement:stop()
+    end
+    enemy:set_can_attack(false)
+    enemy:get_sprite():set_animation("feeding")
+    sol.timer.start(enemy, 1000, function()
+      enemy:go_random()
+    end)
+  end
   
 end
 
