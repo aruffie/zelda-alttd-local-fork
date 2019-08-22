@@ -134,7 +134,7 @@ function enemy:start_aspirate()
     enemy.is_aspiring = true
 
     -- Bring hero closer while the enemy is aspiring if the hero is on the side (left/right) where the enemy is looking at.
-    enemy:start_attracting(hero, aspirating_pixel_by_second, false, function()
+    enemy:start_attracting(hero, aspirating_pixel_by_second, function()
       local enemy_x, _, _ = enemy:get_position()
       local hero_x, _, _ = hero:get_position()
       local direction = enemy:get_direction2()

@@ -9,20 +9,72 @@ local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+local attracting_timer = nil
+local is_exhausted = false
 
 -- Configuration variables
 local attracting_pixel_by_second = 88
+local attracting_duration = 5000
+local exhausted_duration = 2000
+
+-- Set enemy attracting and exhausted durations.
+function enemy:set_attracting_durations(attracting, exhausted)
+
+  attracting_duration = attracting
+  exhausted_duration = exhausted
+end
+
+-- Function determining if the attraction should happen or not.
+local function is_hero_attractable()
+
+  if hero:get_state() == "falling" or is_exhausted then
+    return false
+  end
+  return true
+end
+
+-- Start attracting and the sprite animation for a delay, then stop attracting for delay.
+function enemy:start_attracting_timer()
+
+  is_exhausted = false
+  sprite:set_frame_delay(100)
+  attracting_timer = sol.timer.start(enemy, attracting_duration, function()
+
+    -- Stop attracting.
+    is_exhausted = true
+    sprite:set_frame_delay(0)
+    attracting_timer = sol.timer.start(enemy, exhausted_duration, function()
+      enemy:start_attracting_timer()
+    end)
+  end)
+end
 
 -- Start an enemy state.
 function enemy:start_state(state)
 
+  if attracting_timer then
+    attracting_timer:stop()
+  end
+
   if state == "attracting" then
-    enemy:start_attracting(hero, attracting_pixel_by_second)
+    enemy:start_attracting_timer()
+    enemy:start_attracting(hero, attracting_pixel_by_second, is_hero_attractable)
   elseif state == "expulsing" then
-    enemy:start_attracting(hero, attracting_pixel_by_second, true)
+    enemy:start_attracting_timer()
+    enemy:start_attracting(hero, -attracting_pixel_by_second, is_hero_attractable)
   else
     enemy:stop_attracting()
+    sprite:set_frame_delay(0)
   end
+end
+
+-- Stop attracting when dead.
+function enemy:on_dying()
+  
+  if attracting_timer then
+    attracting_timer:stop()
+  end
+  enemy:stop_attracting()
 end
 
 -- Initialization.
