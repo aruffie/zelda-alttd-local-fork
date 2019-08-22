@@ -10,9 +10,7 @@ common_actions = require("enemies/lib/common_actions").learn(enemy)
 local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
-local normal_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
-local link_hat_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/anti_kirby_link")
-local sprite = normal_sprite
+local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local aspiration_sprite = nil
 local eighth = math.pi * 0.25
 
@@ -46,16 +44,6 @@ function enemy:get_direction2()
     return 0
   end
   return 1
-end
-
--- Set the main kirby sprite
-function enemy:set_main_sprite(main_sprite)
-
-  local direction = sprite:get_direction()
-  sprite:set_opacity(0)
-  sprite = main_sprite
-  sprite:set_opacity(255)
-  sprite:set_direction(direction)
 end
 
 -- Start a random diagonal straight movement of a fixed distance and speed, and loop it with delay.
@@ -109,7 +97,8 @@ function enemy:eat_hero()
     end
 
     -- Change the enemy sprite
-    enemy:set_main_sprite(link_hat_sprite)
+    enemy:remove_sprite(sprite)
+    sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/anti_kirby_link")
 
     enemy:restart()
   end)
@@ -191,7 +180,6 @@ function enemy:on_created()
 
   enemy:set_life(4)
   enemy:add_shadow()
-  link_hat_sprite:set_opacity(0)
 end
 
 -- Restart settings.
