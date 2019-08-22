@@ -9,7 +9,7 @@
 --           enemy:start_jumping(duration, height, invincible, harmless)
 --           enemy:start_flying(take_off_duration, height, invincible, harmless)
 --           enemy:stop_flying(landing_duration)
---           enemy:start_attracting(entity, pixel_by_second, reverse_move, moving_condition_callback)
+--           enemy:start_attracting(entity, pixel_by_second, moving_condition_callback)
 --           enemy:stop_attracting()
 --           enemy:start_leashed_by(entity, maximum_distance)
 --           enemy:stop_leashed_by(entity)
@@ -207,10 +207,10 @@ function common_actions.learn(enemy)
     end
   end
 
-  -- Start attracting the given entity by pixel_by_second, or expulse it if reverse_move is set.
-  function enemy:start_attracting(entity, pixel_by_second, reverse_move, moving_condition_callback)
+  -- Start attracting the given entity by pixel_by_second, negative value possible.
+  function enemy:start_attracting(entity, pixel_by_second, moving_condition_callback)
 
-    local move_ratio = reverse_move and -1 or 1
+    local move_ratio = pixel_by_second > 0 and 1 or -1
     attracting_timers[entity] = {}
 
     local function attract_on_axis(axis)
