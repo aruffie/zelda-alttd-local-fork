@@ -74,6 +74,11 @@ function enemy:on_dying()
   enemy:free_hero()
 end
 
+-- Start walking again when the attack finished.
+enemy:register_event("on_jump_finished", function(enemy)
+  enemy:restart()
+end)
+
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
   zol_behavior.apply(enemy, {sprite = sprite, walking_speed = 2})

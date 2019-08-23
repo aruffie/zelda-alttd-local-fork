@@ -84,11 +84,6 @@ function behavior.apply(enemy, properties)
     end)
   end
 
-  -- Start walking again when the attack finished.
-  enemy:register_event("on_jump_finished", function(enemy)
-    enemy:restart()
-  end)
-
   -- Restart settings.
   enemy:register_event("on_restarted", function(enemy)
 
