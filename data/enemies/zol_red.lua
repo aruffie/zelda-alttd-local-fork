@@ -16,6 +16,7 @@ local dying_duration = 300
 -- Create two gels when dead.
 function enemy:on_dying()
 
+  -- TODO Get the exact list of weapons that kills the gel immediately, and ones that split it into gels.
   local x, y, layer = enemy:get_position()
   local function create_gel(x_offset)
     local gel = map:create_enemy({
@@ -57,4 +58,5 @@ enemy:register_event("on_restarted", function(enemy)
   -- States.
   enemy:set_pushed_back_when_hurt(false)
   enemy:set_damage(2)
+  enemy:start_walking()
 end)

@@ -96,7 +96,6 @@ function behavior.apply(enemy, properties)
     enemy.is_attacking = false
     enemy.is_exhausted = true
     enemy:schedule_exhausted_end()
-    enemy:start_walking()
   end)
 end
 
