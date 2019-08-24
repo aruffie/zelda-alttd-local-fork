@@ -65,12 +65,7 @@ end
 -- Make the enemy eat the hero.
 function enemy:eat_hero()
 
-  if aspiration_sprite then
-    enemy:remove_sprite(aspiration_sprite)
-    aspiration_sprite = nil
-  end
-  sprite:stop_movement()
-  sprite:set_xy(0, 0)
+  enemy:stop_aspirate()
   sprite:set_animation("eating_link")
   hero:set_visible(false)
   hero:freeze()
@@ -133,12 +128,12 @@ function enemy:start_aspirate()
     enemy:set_can_attack(false)
     enemy.is_aspiring = true
 
-    -- Bring hero closer while the enemy is aspiring if the hero is on the side (left/right) where the enemy is looking at.
+    -- Bring hero closer while the enemy is aspiring if the hero is on the side (left/right) where the enemy is looking at and near enough.
     enemy:start_attracting(hero, aspirating_pixel_by_second, function()
       local enemy_x, _, _ = enemy:get_position()
       local hero_x, _, _ = hero:get_position()
       local direction = enemy:get_direction2()
-      return (direction == 0 and hero_x >= enemy_x) or (direction == 1 and hero_x <= enemy_x)
+      return enemy:is_near(hero, attack_triggering_distance) and ((direction == 0 and hero_x >= enemy_x) or (direction == 1 and hero_x <= enemy_x))
     end)
 
     -- Start aspire animation.
@@ -149,6 +144,17 @@ function enemy:start_aspirate()
     -- Make the enemy sprites elevate while aspiring.
     enemy:start_flying(take_off_duration, flying_height, false, false)
   end)
+end
+
+-- Stop a possible running aspiration.
+function enemy:stop_aspirate()
+
+  if aspiration_sprite then
+    enemy:remove_sprite(aspiration_sprite)
+    aspiration_sprite = nil
+  end
+  sprite:set_xy(0, 0)
+  sprite:stop_movement()
 end
 
 -- Event called when the enemy took off while aspiring.
@@ -168,22 +174,31 @@ function enemy:on_flying_landed()
   -- Reset default states a little after touching the ground.
   sol.timer.start(enemy, finish_aspiration_delay, function()
     if enemy.is_aspiring then
-      enemy:remove_sprite(aspiration_sprite)
-      aspiration_sprite = nil
+      enemy:stop_aspirate()
       enemy:restart()
     end
   end)
 end
 
+-- Replace the sprite position on hurt.
+enemy:register_event("on_hurt", function(enemy)
+  enemy:stop_aspirate()
+end)
+
+-- Replace the sprite position on immobilized.
+enemy:register_event("on_immobilized", function(enemy)
+  enemy:stop_aspirate()
+end)
+
 -- Initialization.
-function enemy:on_created()
+enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(4)
   enemy:add_shadow()
-end
+end)
 
 -- Restart settings.
-function enemy:on_restarted()
+enemy:register_event("on_restarted", function(enemy)
 
   -- Behavior for each items.
   enemy:set_attack_consequence("sword", "ignored")
@@ -201,4 +216,4 @@ function enemy:on_restarted()
   enemy.is_aspiring = false
   enemy.is_attacking = false
   enemy:start_walking()
-end
+end)

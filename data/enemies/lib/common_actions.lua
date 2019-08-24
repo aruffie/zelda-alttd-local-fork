@@ -1,6 +1,7 @@
 ----------------------------------
 --
 -- Add some basic and common methods/events to an enemy.
+-- There is no passive behavior without an explicit start when learning this to an enemy.
 --
 -- Methods : enemy:is_near(entity, triggering_distance)
 --           enemy:is_leashed_by(entity)
