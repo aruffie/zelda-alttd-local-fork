@@ -11,6 +11,7 @@ local map = enemy:get_map()
 local hero = map:get_hero()
 local head_sprite, body_sprite, tail_sprite
 local last_positions, frame_count
+local walking_movement = nil
 local eighth = math.pi * 0.25
 local quarter = math.pi * 0.5
 
@@ -23,18 +24,32 @@ local keeping_angle_maximum_duration = 1000
 
 local highest_frame_lag = tail_frame_lag + 1 -- Avoid too much values in the last_positions table
 
--- Start a random straight movement of a random distance vertically or horizontally, and loop it without delay.
+-- Wrap angle in radians to [0 2*pi]
+local function wrapto2pi(angle)
+
+  return angle % (2.0 * math.pi) + (angle < 0 and 2.0 * math.pi or 0)
+end
+
+-- Start the enemy movement.
 function enemy:start_walking()
 
-  local movement = sol.movement.create("straight")
-  movement:set_speed(walking_speed)
-  movement:set_angle(math.random(4) * quarter)
-  movement:set_smooth(false)
-  movement:start(self)
+  walking_movement = sol.movement.create("straight")
+  walking_movement:set_speed(walking_speed)
+  walking_movement:set_angle(math.random(4) * quarter)
+  walking_movement:set_smooth(false)
+  walking_movement:start(self)
 
   -- Inverse the angle on obstacle reached.
-  function movement:on_obstacle_reached()
-    movement:set_angle(movement:get_angle() + math.pi)
+  function walking_movement:on_obstacle_reached()
+    walking_movement:set_angle(walking_movement:get_angle() + math.pi)
+  end
+
+  -- Slightly change the angle when walking.
+  function walking_movement:on_position_changed()
+    local angle = wrapto2pi(walking_movement:get_angle())
+    if walking_movement == enemy:get_movement() then
+      walking_movement:set_angle(angle + walking_angle)
+    end
   end
 
   -- Regularly and randomly change the angle.
@@ -46,18 +61,15 @@ function enemy:start_walking()
   end)
 end
 
--- Replace body and tails sprite on position changed.
+-- Update head, body and tails sprite on position changed whatever the movement is.
 enemy:register_event("on_position_changed", function(enemy)
-
-  local movement = enemy:get_movement()
-  local angle = movement:get_angle() % (2.0 * math.pi)
-  movement:set_angle(angle + walking_angle)
 
   -- Save current position
   local x, y, _ = enemy:get_position()
   last_positions[frame_count % highest_frame_lag] = {x = x, y = y}
 
   -- Set the head sprite direction.
+  local angle = wrapto2pi(enemy:get_movement():get_angle())
   local direction8 = math.floor((angle + eighth / 4.0) % (2.0 * math.pi) / eighth)
   if head_sprite:get_direction() ~= direction8 then
     head_sprite:set_direction(direction8)
