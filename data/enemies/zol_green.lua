@@ -11,7 +11,7 @@ local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
 local shadow
-local jump_count = 0
+local jump_count, current_max_jump
 
 -- Configuration variables
 local between_jump_duration = 500
@@ -31,6 +31,7 @@ function enemy:appear()
       enemy:set_can_attack(true)
       sol.timer.start(enemy, 1000, function()
         jump_count = 1
+        current_max_jump = math.random(max_jump_combo)
         enemy:start_jump_attack(true)
       end)
     end
@@ -64,10 +65,11 @@ function enemy:start_waiting_for_hero()
   end)
 end
 
--- Start a new jump if the hero is near enough and jump combo not finished, or make the enemy disappear.
-function enemy:on_attack_finished()
-
-  if enemy:get_distance(hero) > max_distance or jump_count >= math.random(max_jump_combo) then
+-- Start walking again when the attack finished.
+enemy:register_event("on_jump_finished", function(enemy)
+  
+  sprite:set_animation("shaking")
+  if enemy:get_distance(hero) > max_distance or jump_count >= current_max_jump then
     enemy:disappear()
   else
     sol.timer.start(enemy, between_jump_duration, function()
@@ -75,7 +77,7 @@ function enemy:on_attack_finished()
       enemy:start_jump_attack(true)
     end)
   end
-end
+end)
 
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
@@ -98,11 +100,7 @@ enemy:register_event("on_restarted", function(enemy)
 
   -- States.
   enemy:set_damage(2)
-  if not is_awake then
-    enemy:start_waiting_for_hero()
-    sprite:set_animation("invisible")
-    shadow:set_visible(false)
-  else 
-    enemy:on_attack_finished()
-  end
+  sprite:set_animation("invisible")
+  shadow:set_visible(false)
+  enemy:start_waiting_for_hero()
 end)
