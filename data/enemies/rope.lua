@@ -15,7 +15,7 @@ local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(6)
-end
+end)
 
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
@@ -33,4 +33,4 @@ enemy:register_event("on_restarted", function(enemy)
   -- States.
   enemy:set_can_attack(true)
   enemy:set_damage(1)
-end
+end)
