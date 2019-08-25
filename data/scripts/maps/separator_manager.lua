@@ -162,12 +162,10 @@ function separator_manager:init(map)
       destructible = destructible,
     }
   end
-
   for enemy in map:get_entities_by_type("enemy") do
     enemy:register_event("on_dead", function()
-      if enemy:get_name() and enemy:get_breed() ~= "hardhat_beetle" and enemy:get_breed() ~= "arm_mimic" and enemy:get_breed() ~= "boss/skeleton" and enemy:get_breed() ~= "bombite_red"
-  then
-          enemy_places[enemy] = nil
+      if not enemy:get_property("can_resurrect") then
+        enemy_places[enemy] = nil
       end
     end)
   end

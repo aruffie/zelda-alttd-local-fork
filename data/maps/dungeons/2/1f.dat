@@ -20517,7 +20517,7 @@ destination{
   name = "stairs_2_B",
   layer = 0,
   x = 528,
-  y = 917,
+  y = 933,
   direction = 1,
 }
 
@@ -22139,7 +22139,7 @@ destination{
   name = "stairs_5_B",
   layer = 0,
   x = 2168,
-  y = 53,
+  y = 37,
   direction = 3,
 }
 
@@ -22147,7 +22147,7 @@ wall{
   name = "wall_2_1",
   layer = 0,
   x = 2144,
-  y = 16,
+  y = 24,
   width = 48,
   height = 16,
   stops_hero = true,
