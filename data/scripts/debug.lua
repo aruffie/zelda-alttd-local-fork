@@ -14,6 +14,7 @@ local console = require("scripts/console")
 local game_manager = require("scripts/game_manager")
 
 local debug = {}
+local show_debug_info_screen=false
 
 function debug:on_key_pressed(key, modifiers)
 
@@ -32,6 +33,9 @@ function debug:on_key_pressed(key, modifiers)
     end
   elseif key == "f12" and not console.enabled then
     sol.menu.start(sol.main, console)
+  elseif key == "f10" then
+    print ("toggled debug screen")
+    show_debug_info_screen = not show_debug_info_screen
   elseif sol.main.game ~= nil and not console.enabled then
     local game = sol.main.game
     local map = game:get_map()
@@ -87,12 +91,12 @@ function debug:on_key_pressed(key, modifiers)
       shield:set_variant(variant)
     elseif key == "g" and hero ~= nil then
       local x, y, layer = hero:get_position()
-      if layer ~= 0 then
+      if layer ~= map:get_min_layer() then
         hero:set_position(x, y, layer - 1)
       end
     elseif key == "t" and hero ~= nil then
       local x, y, layer = hero:get_position()
-      if layer ~= 2 then
+      if layer ~= map:get_max_layer() then
         hero:set_position(x, y, layer + 1)
       end
     elseif key == "r" then
@@ -160,11 +164,14 @@ function debug:on_update()
   end
 end
 
+
 --[[
   ------------------------------------
-  Show the currently pressed commands on screen
+  DEBUG INFORMATION DISPLAY
   ------------------------------------
 --]]
+
+-- set up pressed commands display
 local debug_command_sprite=sol.sprite.create("debug/commands")
 local commands = {
   {
@@ -213,14 +220,109 @@ local commands = {
     y = 227,
   },
 }
+--set up debug informations display
+local debug_informations_text=sol.text_surface.create({
+    vertical_alignment="top",
+    font="enter_command_mono",
+    font_size=17, 
+  })
+local debug_informations_background=sol.surface.create(sol.video.get_quest_size())
+debug_informations_background:fill_color({64,64,64,192})
+
+local function show_text(dst, x,y,text)
+  debug_informations_text:set_text(text)
+  debug_informations_text:draw(dst, x, y)
+end
 
 function debug:on_draw(dst_surface)
   local game = sol.main.get_game()
   if game then
+
+    --Show cuttently active command keys
     for _, command in pairs(commands) do
       if game:is_command_pressed(command.name) then
         debug_command_sprite:set_animation(command.name)
         debug_command_sprite:draw(dst_surface, command.x, command.y)
+      end
+    end
+
+    --show various information about the game on-screen, such as the moement parameters. Can be switched on and off by pressing F11
+    --[[
+      Common fields : XY, direction4
+      
+      Field         Straight/         Pathfinding/
+                    Random/     Path  Rndm path      Circle     Jump  Pixel
+                    /target
+      -------------------------------------------
+        Speed       X           X      X                         X
+        Angle       X           X      X              
+        Max dist.   X           -.     -
+        smooth?     X           -      -
+        Path        -           X      -
+        Loop ?      -           X      -                                 X
+        Snaptogrid  -           X      -
+        Center      -           -      -              X
+        Radius                                        X
+        Radius_speed                                  X
+        Clockwise?                                    X
+        Angle from center                             X
+        Angular speed                                 X
+        Rotations                                     X
+        Duration                                      X
+        Loop delay                                    X
+        Direction8                                               X
+        Distance                                                 X
+        Trajectory                                                       X
+        Delay                                                            X
+        
+        
+        Lines 
+        Speed / Anguler speed
+        Angle / Angle from center
+        Smoot / Loop / clockwise - able
+    --]]
+    if show_debug_info_screen then
+      debug_informations_background:draw(dst_surface)
+      local hero=game:get_hero()
+      local hero_movement=hero:get_movement()
+
+      if hero_movement then
+        show_text(dst_surface, 0, 0, "Movement info")
+        local x,y=hero_movement:get_xy()
+        show_text(dst_surface, 0, 10, "Position: ("..x..", "..y..")")
+        show_text(dst_surface, 0, 20, "Direction:" ..hero_movement:get_direction4())
+        
+        if hero_movement.get_speed then
+          show_text(dst_surface, 0, 30, "Speed: "..hero_movement:get_speed().." px/s")
+        end
+        if hero_movement.get_angular_speed then
+          show_text(dst_surface, 0, 30, "A.Speed: "..hero_movement:get_anguler_speed().." rad/s")
+        end
+        
+        if hero_movement.get_angle then
+          show_text(dst_surface, 0, 40, "Angle: "..hero_movement:get_angle().." rad")
+        end
+        if hero_movement.get_angle_from_center then
+          show_text(dst_surface, 0, 40, "Circular Angle: "..hero_movement:get_angle_from_center().." rad")
+        end
+        
+        if hero_movement.get_max_distance then
+          show_text(dst_surface, 0, 50, "Distance: "..hero_movement:get_max_distance().." px")
+        end
+        
+        if hero_movement.is_smooth then
+          show_text(dst_surface, 0, 60, "Smooth? "..(hero_movement:is_smooth() and "Yes" or "No"))
+        end        if hero_movement.is_clockwise then
+          show_text(dst_surface, 0, 60, "Clockwise? "..(hero_movement:is_clockwise() and "Yes" or "No"))
+        end        if hero_movement.get_snap_to_grid then
+          show_text(dst_surface, 0, 60, "Snap to grid? "..(hero_movement:get_snap_to_grid() and "Yes" or "No"))
+        end
+        if hero_movement.get_path then
+          show_text(dst_surface, 0, 70, "Path"..hero_movement:get_path())
+        end        
+        if hero_movement.get_path then
+          show_text(dst_surface, 0, 70, "Path"..hero_movement:is_mooth())
+        end      
       end
     end
   end
