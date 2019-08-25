@@ -62,7 +62,7 @@ function enemy:go_random()
 
   angry = false
   local rand = math.random(100)
-  if rand < 90 then
+  if rand < 80 then
     enemy:get_sprite():set_animation("walking")
     local movement = sol.movement.create("random")
     movement:set_speed(32)

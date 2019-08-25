@@ -723,6 +723,14 @@ wall{
   stops_blocks = true,
 }
 
+enemy{
+  layer = 0,
+  x = 152,
+  y = 133,
+  direction = 0,
+  breed = "dog",
+}
+
 tile{
   layer = 1,
   x = 144,

@@ -5,6 +5,8 @@
 local enemy = ...
 local map = enemy:get_map()
 local angry = false
+local sprite
+local walking_timer
 
 -- The enemy appears: set its properties.
 function enemy:on_created()
@@ -15,6 +17,18 @@ function enemy:on_created()
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)
   enemy:set_hurt_style("monster")
+  sprite = enemy:get_sprite()
+  
+  function sprite:on_animation_finished(animation)
+    if animation == "prepare_waiting" then
+      sprite:set_animation("waiting")
+      sol.timer.start(enemy, 1000, function()
+        sprite:set_animation("prepare_walking")
+      end)
+    elseif animation == "prepare_walking" then
+      enemy:go_random()
+    end
+  end
   
 end
 
@@ -39,39 +53,32 @@ end
 
 function enemy:on_obstacle_reached(movement)
 
+  if walking_timer then
+    walking_timer:stop()
+  end
   enemy:go_random()
 
 end
 
+function enemy:launch_waiting()
+  
+  local movement = enemy:get_movement()
+  if movement then
+    movement:stop()
+  end
+  sprite:set_animation("prepare_waiting")
+  
+end
+
 function enemy:go_random()
 
-  angry = false
-  local sprite = enemy:get_sprite()
-  local rand = math.random(100)
-  if rand < 60 then
-    -- Dog walking
-    enemy:get_sprite():set_animation("walking")
-    local movement = sol.movement.create("random")
-    movement:set_speed(32)
-    movement:start(enemy)
-    enemy:set_can_attack(false)
-  else
-    -- Dog waiting
-    local movement = enemy:get_movement()
-    if movement then
-      movement:stop()
-    end
-    enemy:set_can_attack(false)
-    sprite:set_animation("prepare_waiting")
-    function sprite:on_animation_finished(animation)
-      if animation == "prepare_waiting" then
-        sprite:set_animation("waiting")
-      end
-      sol.timer.start(enemy, 1000, function()
-        enemy:go_random()
-      end)
-    end
-  end
+  sprite:set_animation("walking")
+  local movement = sol.movement.create("random")
+  movement:set_speed(32)
+  movement:start(enemy)
+  walking_timer = sol.timer.start(enemy, 5000, function()
+    enemy:launch_waiting()
+  end)
   
 end
 
