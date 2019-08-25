@@ -15,7 +15,7 @@
 --           enemy:stop_attracting()
 --           enemy:start_leashed_by(entity, maximum_distance)
 --           enemy:stop_leashed_by(entity)
---           enemy:start_brief_effect(sprite_name, animation_set_id, x_offset, y_offset)
+--           enemy:start_brief_effect(sprite_name, animation_set_id, x_offset, y_offset, maximum_duration)
 --           enemy:steal_item(item_name, variant, only_if_assigned)
 --           enemy:add_shadow(sprite_name)
 -- Events:   enemy:on_jump_finished()
@@ -307,8 +307,8 @@ function common_actions.learn(enemy)
     end
   end
 
-  -- Start a standalone sprite animation on the enemy position, that will be remove once finished.
-  function enemy:start_brief_effect(sprite_name, animation_set_id, x_offset, y_offset)
+  -- Start a standalone sprite animation on the enemy position, that will be removed once finished or maximum_duration reached if given.
+  function enemy:start_brief_effect(sprite_name, animation_set_id, x_offset, y_offset, maximum_duration)
 
     local x, y, layer = enemy:get_position()
     local entity = map:create_custom_entity({
@@ -320,10 +320,17 @@ function common_actions.learn(enemy)
         height = 32,
         direction = 0
     })
+
+    -- Remove the entity once animation finished or max_duration reached.
     local sprite = entity:get_sprite()
     sprite:set_animation(animation_set_id, function()
       entity:remove()
     end)
+    if maximum_duration then
+      sol.timer.start(entity, maximum_duration, function()
+        entity:remove()
+      end)
+    end
   end
 
   -- Steal an item and drop it when died, possibly conditionned on the variant and the assignation to a slot.

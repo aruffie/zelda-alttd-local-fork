@@ -105,6 +105,7 @@ function enemy:spit_hero(restart)
     -- Change the enemy sprite
     enemy:remove_sprite(sprite)
     sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/anti_kirby_link")
+    enemy:start_brief_effect("entities/effects/sparkle_small", "default", 0, 0)
 
     if restart then
       enemy:restart()
