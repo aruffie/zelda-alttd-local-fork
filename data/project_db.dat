@@ -788,6 +788,7 @@ music{ id = "gb/71_color_dungeon", description = "71 - Color dungeon" }
 music{ id = "gb/72_great_fairy_fountain", description = "72 - Great fairy fountain" }
 music{ id = "gb/74_wind_fish_egg", description = "74 - Wind fish egg" }
 music{ id = "gb/82_game_over", description = "82 - Game over" }
+music{ id = "n64/great_bay_temple", description = "Great bay temple" }
 music{ id = "snes/02_title", description = "02 - Title" }
 music{ id = "snes/02_title_no_intro", description = "02 - Title No Intro" }
 music{ id = "snes/06_marin_house", description = "06 - Marin's House" }
@@ -1355,7 +1356,6 @@ entity{ id = "bubble", description = "Bubble" }
 entity{ id = "butterfly", description = "Butterfly" }
 entity{ id = "cliff", description = "Cliff" }
 entity{ id = "color_platform", description = "Color platform" }
-entity{ id = "conveyor_belt", description = "Conveyor belt" }
 entity{ id = "dice", description = "Dice" }
 entity{ id = "eye_switch", description = "Eye switch" }
 entity{ id = "fire", description = "Fire" }
