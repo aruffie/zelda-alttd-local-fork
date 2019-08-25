@@ -17,7 +17,6 @@ local walking_speed = 32
 local walking_distance_grid = 16
 local walking_max_move_by_step = 6
 local walking_pause_duration = 1500
-
 local is_exhausted_duration = 500
 
 -- Start a random straight movement of a random distance vertically or horizontally, and loop it without delay.
@@ -82,13 +81,14 @@ end
 -- Passive behaviors needing constant checking.
 function enemy:on_update()
 
-  -- If the enemy is eating, make the hero stuck at the same position even if external things may hurt or interfere.
-  if enemy.is_eating then
-    hero:set_position(enemy:get_position())
+  if not enemy:is_immobilized() then
+    -- If the enemy is eating, make the hero stuck at the same position even if external things may hurt or interfere.
+    if enemy.is_eating then
+      hero:set_position(enemy:get_position())
+    end
 
-  -- If the hero touches the enemy while he is walking normally, eat him.
-  elseif not enemy.is_exhausted then
-    if hero:overlaps(enemy, "origin") then
+    -- If the hero touches the enemy while he is walking normally, eat him.
+    if not enemy.is_eating and not enemy.is_exhausted and hero:overlaps(enemy, "origin") then
       enemy.is_eating = false
       enemy:eat_hero()
     end
