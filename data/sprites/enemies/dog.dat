@@ -49,10 +49,10 @@ animation{
   src_image = "enemies/dog.png",
   frame_delay = 70,
   directions = {
-    { x = 96, y = 168, frame_width = 28, frame_height = 24, origin_x = 12, origin_y = 29, num_frames = 3 },
-    { x = 96, y = 168, frame_width = 28, frame_height = 24, origin_x = 12, origin_y = 29, num_frames = 3 },
-    { x = 96, y = 136, frame_width = 28, frame_height = 24, origin_x = 12, origin_y = 29, num_frames = 3 },
-    { x = 96, y = 136, frame_width = 28, frame_height = 24, origin_x = 12, origin_y = 29, num_frames = 3 },
+    { x = 96, y = 168, frame_width = 28, frame_height = 24, origin_x = 14, origin_y = 21, num_frames = 3 },
+    { x = 96, y = 168, frame_width = 28, frame_height = 24, origin_x = 14, origin_y = 21, num_frames = 3 },
+    { x = 96, y = 136, frame_width = 28, frame_height = 24, origin_x = 14, origin_y = 21, num_frames = 3 },
+    { x = 96, y = 136, frame_width = 28, frame_height = 24, origin_x = 14, origin_y = 21, num_frames = 3 },
   },
 }
 animation{
@@ -73,9 +73,9 @@ animation{
   frame_delay = 100,
   frame_to_loop_on = 0,
   directions = {
-    { x = 176, y = 168, frame_width = 28, frame_height = 24, origin_x = 12, origin_y = 29, num_frames = 3 },
-    { x = 176, y = 168, frame_width = 28, frame_height = 24, origin_x = 12, origin_y = 29, num_frames = 3 },
-    { x = 176, y = 136, frame_width = 28, frame_height = 24, origin_x = 12, origin_y = 29, num_frames = 3 },
-    { x = 176, y = 136, frame_width = 28, frame_height = 24, origin_x = 12, origin_y = 29, num_frames = 3 },
+    { x = 176, y = 168, frame_width = 28, frame_height = 24, origin_x = 14, origin_y = 21, num_frames = 3 },
+    { x = 176, y = 168, frame_width = 28, frame_height = 24, origin_x = 14, origin_y = 21, num_frames = 3 },
+    { x = 176, y = 136, frame_width = 28, frame_height = 24, origin_x = 14, origin_y = 21, num_frames = 3 },
+    { x = 176, y = 136, frame_width = 28, frame_height = 24, origin_x = 14, origin_y = 21, num_frames = 3 },
   },
 }
