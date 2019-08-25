@@ -447,6 +447,8 @@ function map:launch_cinematic_1(destination)
     end  
     hero:set_animation("stopped")
     dialog("maps.out.mabe_village.kids_alert_moblins")
+    hero:set_animation("scared")
+    wait(1000)
     self:get_game():set_value("main_quest_step", 9)
     map:set_cinematic_mode(false)
   end)

@@ -13923,6 +13923,12 @@ enemy{
   layer = 0,
   x = 840,
   y = 1533,
+  properties = {
+    {
+      key = "can_resurrect",
+      value = "true",
+    },
+  },
   direction = 3,
   breed = "hardhat_beetle",
 }
@@ -13932,6 +13938,12 @@ enemy{
   layer = 0,
   x = 760,
   y = 1533,
+  properties = {
+    {
+      key = "can_resurrect",
+      value = "true",
+    },
+  },
   direction = 3,
   breed = "hardhat_beetle",
 }
@@ -14099,7 +14111,7 @@ enemy{
   x = 1480,
   y = 1309,
   direction = 3,
-  breed = "stalfos",
+  breed = "stalfos_blue",
   treasure_name = "random",
 }
 
@@ -14109,7 +14121,7 @@ enemy{
   x = 1400,
   y = 1309,
   direction = 3,
-  breed = "stalfos",
+  breed = "stalfos_blue",
   treasure_name = "random",
 }
 
@@ -14282,7 +14294,7 @@ enemy{
   x = 1664,
   y = 1093,
   direction = 3,
-  breed = "stalfos",
+  breed = "stalfos_blue",
   treasure_name = "random",
 }
 
@@ -14985,7 +14997,7 @@ enemy{
   x = 1496,
   y = 1093,
   direction = 3,
-  breed = "stalfos",
+  breed = "stalfos_blue",
   treasure_name = "random",
 }
 

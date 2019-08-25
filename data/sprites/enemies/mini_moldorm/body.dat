@@ -2,7 +2,7 @@ animation{
   name = "walking",
   src_image = "enemies/mini_moldorm/tail.png",
   directions = {
-    { x = 0, y = 12, frame_width = 8, frame_height = 8, origin_x = 4, origin_y = 4 },
+    { x = 0, y = 0, frame_width = 12, frame_height = 12, origin_x = 6, origin_y = 7 },
   },
 }
 animation{
@@ -11,13 +11,13 @@ animation{
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {
-    { x = 0, y = 12, frame_width = 8, frame_height = 8, origin_x = 4, origin_y = 4, num_frames = 3 },
+    { x = 0, y = 0, frame_width = 12, frame_height = 12, origin_x = 6, origin_y = 7, num_frames = 3 },
   },
 }
 animation{
   name = "immobilized",
   src_image = "enemies/mini_moldorm/tail.png",
   directions = {
-    { x = 0, y = 12, frame_width = 8, frame_height = 8, origin_x = 4, origin_y = 4 },
+    { x = 0, y = 0, frame_width = 12, frame_height = 12, origin_x = 6, origin_y = 7 },
   },
 }

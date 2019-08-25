@@ -21,8 +21,8 @@ function separator_manager:init(map)
 
     local hero = map:get_hero()
     -- Enemies.
-    for k, enemy_place in pairs(enemy_places) do
-      local enemy = enemy_place.enemy
+    for enemy, enemy_place in pairs(enemy_places) do
+
       if enemy:get_breed() ~= "boss/skeleton" then
         -- First remove any enemy.
         if enemy:exists() then
@@ -31,26 +31,26 @@ function separator_manager:init(map)
 
         -- Re-create enemies in the new active region.
         if enemy:is_in_same_region(hero) then
-          local old_enemy = enemy_place.enemy
-          local enemy = map:create_enemy({ --TODO modifiy create_enemy to add enemy to light manager
+
+          local new_enemy = map:create_enemy({ --TODO modifiy create_enemy to add enemy to light manager
             x = enemy_place.x,
             y = enemy_place.y,
             layer = enemy_place.layer,
             breed = enemy_place.breed,
             direction = enemy_place.direction,
             name = enemy_place.name,
+            properties = enemy_place.properties
           })
         
           -- add enemy to the light manager of fsa mode, since it has been recreated
-          light_manager_fsa:add_occluder(enemy)
+          light_manager_fsa:add_occluder(new_enemy)
           
-          enemy:set_treasure(unpack(enemy_place.treasure))
-          enemy.on_dead = old_enemy.on_dead  -- For door_manager.
-          enemy.on_symbol_fixed = old_enemy.on_symbol_fixed -- For Vegas enemies
-          if old_enemy.on_flying_tile_dead ~= nil then
-            enemy.on_flying_tile_dead = old_enemy.on_flying_tile_dead -- For Flying tiles enemies
+          new_enemy:set_treasure(unpack(enemy_place.treasure))
+          new_enemy.on_dead = enemy.on_dead  -- For door_manager.
+          new_enemy.on_symbol_fixed = enemy.on_symbol_fixed -- For Vegas enemies
+          if enemy.on_flying_tile_dead ~= nil then
+            new_enemy.on_flying_tile_dead = enemy.on_flying_tile_dead -- For Flying tiles enemies
           end
-          enemy_place.enemy = enemy
         end
       end
     end
@@ -104,6 +104,13 @@ function separator_manager:init(map)
         end
       end
     end
+
+    -- Disable all enemies when leaving a zone.
+    for enemy in map:get_entities_by_type("enemy") do
+      if enemy:is_in_same_region(hero) and enemy:get_breed() ~= "boss/skeleton" then
+        enemy:remove()
+      end
+    end
   end
 
   for separator in map:get_entities("auto_separator") do
@@ -113,23 +120,19 @@ function separator_manager:init(map)
   -- Store the position and properties of enemies.
   for enemy in map:get_entities_by_type("enemy") do
     local x, y, layer = enemy:get_position()
-    if enemy:get_name() then
-      enemy_places[enemy:get_name()] = {
-        x = x,
-        y = y,
-        layer = layer,
-        breed = enemy:get_breed(),
-        direction = enemy:get_sprite():get_direction(),
-        name = enemy:get_name(),
-        treasure = { enemy:get_treasure() },
-        enemy = enemy
-      }
-    else
-      print("Warning : Enemy without name on : " .. x .. " " .. y)
-    end
+    enemy_places[enemy] = {
+      x = x,
+      y = y,
+      layer = layer,
+      breed = enemy:get_breed(),
+      direction = enemy:get_sprite():get_direction(),
+      name = enemy:get_name(),
+      treasure = { enemy:get_treasure() },
+      properties = enemy:get_properties()
+    }
 
     local hero = map:get_hero()
-    if not enemy:is_in_same_region(hero)  and enemy:get_breed() ~= "boss/skeleton" then
+    if not enemy:is_in_same_region(hero) and enemy:get_breed() ~= "boss/skeleton" then
       enemy:remove()
     end
   end
@@ -159,12 +162,10 @@ function separator_manager:init(map)
       destructible = destructible,
     }
   end
-
   for enemy in map:get_entities_by_type("enemy") do
     enemy:register_event("on_dead", function()
-      if enemy:get_name() and enemy:get_breed() ~= "hardhat_beetle" and enemy:get_breed() ~= "arm_mimic" and enemy:get_breed() ~= "boss/skeleton" and enemy:get_breed() ~= "bombite_red"
-  then
-          enemy_places[enemy:get_name()] = nil
+      if not enemy:get_property("can_resurrect") then
+        enemy_places[enemy] = nil
       end
     end)
   end

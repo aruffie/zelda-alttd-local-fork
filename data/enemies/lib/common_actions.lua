@@ -1,21 +1,23 @@
 ----------------------------------
 --
 -- Add some basic and common methods/events to an enemy.
+-- There is no passive behavior without an explicit start when learning this to an enemy.
 --
 -- Methods : enemy:is_near(entity, triggering_distance)
 --           enemy:is_leashed_by(entity)
+--           enemy:get_shadow()
 --           enemy:start_random_walking(possible_angles, speed, distance, on_finished_callback)
 --           enemy:start_target_walking(entity, speed)
 --           enemy:start_jumping(duration, height, invincible, harmless)
 --           enemy:start_flying(take_off_duration, height, invincible, harmless)
 --           enemy:stop_flying(landing_duration)
---           enemy:start_attracting(entity, pixel_by_second, reverse_move, moving_condition_callback)
+--           enemy:start_attracting(entity, pixel_by_second, moving_condition_callback)
 --           enemy:stop_attracting()
 --           enemy:start_leashed_by(entity, maximum_distance)
 --           enemy:stop_leashed_by(entity)
 --           enemy:start_brief_effect(sprite_name, animation_set_id, x_offset, y_offset)
 --           enemy:steal_item(item_name, variant, only_if_assigned)
---           enemy:add_shadow()
+--           enemy:add_shadow(sprite_name)
 -- Events:   enemy:on_jump_finished()
 --           enemy:on_flying_took_off()
 --           enemy:on_flying_landed()
@@ -38,6 +40,7 @@ function common_actions.learn(enemy)
 
   local attracting_timers = {}
   local leashing_timers = {}
+  local shadow = nil
   
   -- Return true if the entity is closer to the enemy than triggering_distance
   function enemy:is_near(entity, triggering_distance)
@@ -47,9 +50,14 @@ function common_actions.learn(enemy)
     return (layer == entity_layer or enemy:has_layer_independent_collisions()) and enemy:get_distance(entity) < triggering_distance
   end
 
-  -- Return true if the enemy is currently leached by the entity.
+  -- Return true if the enemy is currently leashed by the entity.
   function enemy:is_leashed_by(entity)
     return leashing_timers[entity] ~= nil
+  end
+
+  -- Return the current shadow entity
+  function enemy:get_shadow()
+    return shadow
   end
 
   -- Make the enemy straight move randomly over one of the given angle.
@@ -207,10 +215,10 @@ function common_actions.learn(enemy)
     end
   end
 
-  -- Start attracting the given entity by pixel_by_second, or expulse it if reverse_move is set.
-  function enemy:start_attracting(entity, pixel_by_second, reverse_move, moving_condition_callback)
+  -- Start attracting the given entity by pixel_by_second, negative value possible.
+  function enemy:start_attracting(entity, pixel_by_second, moving_condition_callback)
 
-    local move_ratio = reverse_move and -1 or 1
+    local move_ratio = pixel_by_second > 0 and 1 or -1
     attracting_timers[entity] = {}
 
     local function attract_on_axis(axis)
@@ -336,34 +344,36 @@ function common_actions.learn(enemy)
   end
 
   -- Add a shadow below the enemy.
-  function enemy:add_shadow()
+  function enemy:add_shadow(sprite_name)
 
-    local enemy_x, enemy_y, enemy_layer = enemy:get_position()
-    local shadow = map:create_custom_entity({
-      direction = 0,
-      x = enemy_x,
-      y = enemy_y,
-      layer = enemy_layer,
-      width = 16,
-      height = 16,
-      sprite = "entities/shadows/shadow"
-    })
-    shadow:set_traversable_by(true)
-    function shadow:on_update()
-      shadow:set_position(enemy:get_position())
+    if not shadow then
+      local enemy_x, enemy_y, enemy_layer = enemy:get_position()
+      shadow = map:create_custom_entity({
+        direction = 0,
+        x = enemy_x,
+        y = enemy_y,
+        layer = enemy_layer,
+        width = 16,
+        height = 16,
+        sprite = sprite_name or "entities/shadows/shadow"
+      })
+      shadow:set_traversable_by(true)
+      function shadow:on_update()
+        shadow:set_position(enemy:get_position())
+      end
+      enemy:register_event("on_dying", function(enemy)
+        shadow:set_visible(false)
+      end)
+      enemy:register_event("on_removed", function(enemy)
+        shadow:remove()
+      end)
+      enemy:register_event("on_enabled", function(enemy)
+        shadow:set_enabled()
+      end)
+      enemy:register_event("on_disabled", function(enemy)
+        shadow:set_enabled(false)
+      end)
     end
-    enemy:register_event("on_dying", function(enemy)
-      shadow:set_visible(false)
-    end)
-    enemy:register_event("on_removed", function(enemy)
-      shadow:remove()
-    end)
-    enemy:register_event("on_enabled", function(enemy)
-      shadow:enable()
-    end)
-    enemy:register_event("on_disabled", function(enemy)
-      shadow:disable()
-    end)
   end
 end
 

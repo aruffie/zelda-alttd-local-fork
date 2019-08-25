@@ -10,9 +10,7 @@ common_actions = require("enemies/lib/common_actions").learn(enemy)
 local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
-local normal_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
-local link_hat_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/anti_kirby_link")
-local sprite = normal_sprite
+local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local aspiration_sprite = nil
 local eighth = math.pi * 0.25
 
@@ -48,16 +46,6 @@ function enemy:get_direction2()
   return 1
 end
 
--- Set the main kirby sprite
-function enemy:set_main_sprite(main_sprite)
-
-  local direction = sprite:get_direction()
-  sprite:set_opacity(0)
-  sprite = main_sprite
-  sprite:set_opacity(255)
-  sprite:set_direction(direction)
-end
-
 -- Start a random diagonal straight movement of a fixed distance and speed, and loop it with delay.
 function enemy:start_walking()
 
@@ -77,18 +65,24 @@ end
 -- Make the enemy eat the hero.
 function enemy:eat_hero()
 
-  if aspiration_sprite then
-    enemy:remove_sprite(aspiration_sprite)
-    aspiration_sprite = nil
-  end
-  sprite:stop_movement()
-  sprite:set_xy(0, 0)
+  enemy.is_eating = true
+  enemy:stop_aspirate()
   sprite:set_animation("eating_link")
   hero:set_visible(false)
   hero:freeze()
   
   sol.timer.start(enemy, eating_duration, function()
-    
+    enemy:spit_hero(true)
+  end)
+end
+
+-- Make the enemy spit the hero if he was eaten.
+function enemy:spit_hero(restart)
+
+  if enemy.is_eating then
+
+    enemy.is_eating = false
+
     -- Manually hurt and spit the hero after a delay.
     hero:start_hurt(suction_damage)
     hero:set_position(enemy:get_position())
@@ -109,26 +103,11 @@ function enemy:eat_hero()
     end
 
     -- Change the enemy sprite
-    enemy:set_main_sprite(link_hat_sprite)
+    enemy:remove_sprite(sprite)
+    sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/anti_kirby_link")
 
-    enemy:restart()
-  end)
-end
-
--- Passive behaviors needing constant checking.
-function enemy:on_update()
-
-  -- Make the sprite jump if the enemy is not attacking.
-  if not enemy.is_attacking then
-    sprite:set_xy(0, -math.abs(math.sin(sol.main.get_elapsed_time() * 0.01) * 4.0))
-  end
-
-  -- If the hero touches the center of the enemy while aspiring, eat him.
-  if enemy.is_aspiring then
-    if enemy:overlaps(hero, "origin") then
-      enemy.is_aspiring = false
-      enemy:stop_attracting()
-      enemy:eat_hero()
+    if restart then
+      enemy:restart()
     end
   end
 end
@@ -137,19 +116,19 @@ end
 function enemy:start_aspirate()
 
   sprite:set_xy(0, 0)
-  enemy.is_attacking = true
+  enemy.is_jumping = false
 
   -- Wait a short delay before starting the aspiration.
   sol.timer.start(enemy, before_aspiring_delay, function()
     enemy:set_can_attack(false)
     enemy.is_aspiring = true
 
-    -- Bring hero closer while the enemy is aspiring if the hero is on the side (left/right) where the enemy is looking at.
-    enemy:start_attracting(hero, aspirating_pixel_by_second, false, function()
+    -- Bring hero closer while the enemy is aspiring if the hero is on the side (left/right) where the enemy is looking at and near enough.
+    enemy:start_attracting(hero, aspirating_pixel_by_second, function()
       local enemy_x, _, _ = enemy:get_position()
       local hero_x, _, _ = hero:get_position()
       local direction = enemy:get_direction2()
-      return (direction == 0 and hero_x >= enemy_x) or (direction == 1 and hero_x <= enemy_x)
+      return enemy:is_near(hero, attack_triggering_distance) and ((direction == 0 and hero_x >= enemy_x) or (direction == 1 and hero_x <= enemy_x))
     end)
 
     -- Start aspire animation.
@@ -160,6 +139,18 @@ function enemy:start_aspirate()
     -- Make the enemy sprites elevate while aspiring.
     enemy:start_flying(take_off_duration, flying_height, false, false)
   end)
+end
+
+-- Stop a possible running aspiration.
+function enemy:stop_aspirate()
+
+  enemy.is_aspiring = false
+  if aspiration_sprite then
+    enemy:remove_sprite(aspiration_sprite)
+    aspiration_sprite = nil
+  end
+  sprite:set_xy(0, 0)
+  sprite:stop_movement()
 end
 
 -- Event called when the enemy took off while aspiring.
@@ -179,38 +170,59 @@ function enemy:on_flying_landed()
   -- Reset default states a little after touching the ground.
   sol.timer.start(enemy, finish_aspiration_delay, function()
     if enemy.is_aspiring then
-      enemy:remove_sprite(aspiration_sprite)
-      aspiration_sprite = nil
+      enemy:stop_aspirate()
       enemy:restart()
     end
   end)
 end
 
+-- Passive behaviors needing constant checking.
+function enemy:on_update()
+
+  -- Make the sprite jump if the enemy is not attacking and not immobilized.
+  if enemy.is_jumping and not enemy:is_immobilized() then
+    sprite:set_xy(0, -math.abs(math.sin(sol.main.get_elapsed_time() * 0.01) * 4.0))
+  end
+
+  -- If the hero touches the center of the enemy while aspiring, eat him.
+  if enemy.is_aspiring then
+    if enemy:overlaps(hero, "origin") then
+      enemy:eat_hero()
+      enemy:stop_attracting()
+    end
+  end
+end
+
+-- Stop a possible state on immobilized.
+enemy:register_event("on_immobilized", function(enemy)
+  enemy:stop_aspirate()
+end)
+
 -- Initialization.
-function enemy:on_created()
+enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(4)
   enemy:add_shadow()
-  link_hat_sprite:set_opacity(0)
-end
+end)
 
 -- Restart settings.
-function enemy:on_restarted()
+enemy:register_event("on_restarted", function(enemy)
 
   -- Behavior for each items.
   enemy:set_attack_consequence("sword", "ignored")
   enemy:set_attack_consequence("thrown_item", "ignored")
   enemy:set_attack_consequence("arrow", "ignored")
-  enemy:set_attack_consequence("hookshot", "ignored")
   enemy:set_attack_consequence("boomerang", 1)
   enemy:set_attack_consequence("explosion", 2)
+  enemy:set_hookshot_reaction("ignored")
   enemy:set_hammer_reaction("ignored")
   enemy:set_fire_reaction(2)
 
   -- States.
   enemy:set_can_attack(true)
   enemy:set_damage(contact_damage)
-  enemy.is_aspiring = false
-  enemy.is_attacking = false
+  enemy:stop_aspirate()
+  enemy:spit_hero()
+  enemy.is_jumping = true
   enemy:start_walking()
-end
+end)

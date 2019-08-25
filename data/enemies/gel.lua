@@ -14,6 +14,7 @@ local hero = map:get_hero()
 -- Configuration variables
 local slow_speed = 22
 local stuck_duration = 2000
+local stuck_maximum_extra_duration = 500
 
 -- Let go the hero.
 function enemy:free_hero()
@@ -52,7 +53,7 @@ function enemy:slow_hero_down()
   --game:set_item_assigned(2, nil)
 
   -- Jump away after some time.
-  sol.timer.start(enemy, stuck_duration, function()
+  sol.timer.start(enemy, stuck_duration + math.random(stuck_maximum_extra_duration), function()
     enemy:free_hero()
     enemy:start_jump_attack(false)
   end)
@@ -72,6 +73,11 @@ end
 function enemy:on_dying()
   enemy:free_hero()
 end
+
+-- Start walking again when the attack finished.
+enemy:register_event("on_jump_finished", function(enemy)
+  enemy:restart()
+end)
 
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
@@ -95,4 +101,5 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_can_attack(false)
   enemy:set_damage(0)
   enemy.can_slow_hero_down = true
+  enemy:start_walking()
 end)
