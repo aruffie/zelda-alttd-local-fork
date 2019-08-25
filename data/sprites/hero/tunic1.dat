@@ -535,8 +535,8 @@ animation{
   },
 }
 animation{
-  name = "scary",
-  src_image = "hero/link_scary.png",
+  name = "scared",
+  src_image = "hero/link_scared.png",
   frame_delay = 100,
   frame_to_loop_on = 0,
   directions = {

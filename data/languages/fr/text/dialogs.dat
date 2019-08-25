@@ -3206,6 +3206,7 @@ Pourquoi ? Je ne sais pas moi, je ne suis qu'un gosse !
 
 dialog{
   id = "maps.out.mabe_village.kids_alert_moblins",
+  skip = "all",
   text = [[
 M'sieu ! M'sieu !         
 C'est terrible, c'est horrible !
