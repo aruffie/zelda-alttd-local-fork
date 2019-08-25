@@ -2539,15 +2539,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 184,
-  y = 160,
-  width = 16,
-  height = 256,
-  pattern = "79",
-}
-
-tile{
-  layer = 0,
   x = 136,
   y = 392,
   width = 32,
@@ -2572,6 +2563,24 @@ teletransporter{
   height = 16,
   destination_map = "dungeons/7/3f",
   destination = "stairs_12_B",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 184,
+  y = 168,
+  width = 16,
+  height = 248,
+  pattern = "79",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 184,
+  y = 160,
+  width = 16,
+  height = 8,
+  pattern = "78",
 }
 
 separator{
