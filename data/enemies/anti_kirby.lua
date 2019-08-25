@@ -105,6 +105,7 @@ function enemy:spit_hero(restart)
     -- Change the enemy sprite
     enemy:remove_sprite(sprite)
     sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/anti_kirby_link")
+    enemy:start_brief_effect("entities/effects/sparkle_small", "default", 0, 0)
 
     if restart then
       enemy:restart()
@@ -179,14 +180,14 @@ end
 -- Passive behaviors needing constant checking.
 function enemy:on_update()
 
-  -- Make the sprite jump if the enemy is not attacking and not immobilized.
-  if enemy.is_jumping and not enemy:is_immobilized() then
-    sprite:set_xy(0, -math.abs(math.sin(sol.main.get_elapsed_time() * 0.01) * 4.0))
-  end
+  if not enemy:is_immobilized() then
+    -- Make the sprite jump if the enemy is not attacking and not immobilized.
+    if enemy.is_jumping then
+      sprite:set_xy(0, -math.abs(math.sin(sol.main.get_elapsed_time() * 0.01) * 4.0))
+    end
 
-  -- If the hero touches the center of the enemy while aspiring, eat him.
-  if enemy.is_aspiring then
-    if enemy:overlaps(hero, "origin") then
+    -- If the hero touches the center of the enemy while aspiring, eat him.
+    if enemy.is_aspiring and enemy:overlaps(hero, "origin") then
       enemy:eat_hero()
       enemy:stop_attracting()
     end

@@ -24,12 +24,6 @@ local keeping_angle_maximum_duration = 1000
 
 local highest_frame_lag = tail_frame_lag + 1 -- Avoid too much values in the last_positions table
 
--- Wrap angle in radians to [0 2*pi]
-local function wrapto2pi(angle)
-
-  return angle % (2.0 * math.pi) + (angle < 0 and 2.0 * math.pi or 0)
-end
-
 -- Start the enemy movement.
 function enemy:start_walking()
 
@@ -46,7 +40,7 @@ function enemy:start_walking()
 
   -- Slightly change the angle when walking.
   function walking_movement:on_position_changed()
-    local angle = wrapto2pi(walking_movement:get_angle())
+    local angle = walking_movement:get_angle() % (2.0 * math.pi)
     if walking_movement == enemy:get_movement() then
       walking_movement:set_angle(angle + walking_angle)
     end
@@ -66,27 +60,24 @@ enemy:register_event("on_position_changed", function(enemy)
 
   -- Save current position
   local x, y, _ = enemy:get_position()
-  last_positions[frame_count % highest_frame_lag] = {x = x, y = y}
+  last_positions[frame_count] = {x = x, y = y}
 
   -- Set the head sprite direction.
-  local angle = wrapto2pi(enemy:get_movement():get_angle())
-  local direction8 = math.floor((angle + eighth / 4.0) % (2.0 * math.pi) / eighth)
+  local angle = (enemy:get_movement():get_angle() + eighth / 4.0) % (2.0 * math.pi)
+  local direction8 = math.floor(angle / eighth)
   if head_sprite:get_direction() ~= direction8 then
     head_sprite:set_direction(direction8)
   end
 
   -- Replace part sprites on a previous position.
   local function replace_part_sprite(sprite, frame_lag)
-    local previous_position = last_positions[(frame_count - frame_lag) % highest_frame_lag]
-    if not previous_position then
-      previous_position = last_positions[0]
-    end
+    local previous_position = last_positions[(frame_count - frame_lag) % highest_frame_lag] or last_positions[0]
     sprite:set_xy(previous_position.x - x, previous_position.y - y)
   end
   replace_part_sprite(body_sprite, body_frame_lag)
   replace_part_sprite(tail_sprite, tail_frame_lag)
 
-  frame_count = frame_count + 1
+  frame_count = (frame_count + 1) % highest_frame_lag
 end)
 
 -- Initialization.

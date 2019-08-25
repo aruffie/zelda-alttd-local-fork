@@ -4,6 +4,7 @@
 -- There is no passive behavior without an explicit start when learning this to an enemy.
 --
 -- Methods : enemy:is_near(entity, triggering_distance)
+--           enemy:is_aligned(entity, thickness)
 --           enemy:is_leashed_by(entity)
 --           enemy:get_shadow()
 --           enemy:start_random_walking(possible_angles, speed, distance, on_finished_callback)
@@ -15,7 +16,7 @@
 --           enemy:stop_attracting()
 --           enemy:start_leashed_by(entity, maximum_distance)
 --           enemy:stop_leashed_by(entity)
---           enemy:start_brief_effect(sprite_name, animation_set_id, x_offset, y_offset)
+--           enemy:start_brief_effect(sprite_name, animation_set_id, x_offset, y_offset, maximum_duration)
 --           enemy:steal_item(item_name, variant, only_if_assigned)
 --           enemy:add_shadow(sprite_name)
 -- Events:   enemy:on_jump_finished()
@@ -47,7 +48,16 @@ function common_actions.learn(enemy)
 
     local _, _, layer = enemy:get_position()
     local _, _, entity_layer = entity:get_position()
-    return (layer == entity_layer or enemy:has_layer_independent_collisions()) and enemy:get_distance(entity) < triggering_distance
+    return enemy:get_distance(entity) < triggering_distance and (layer == entity_layer or enemy:has_layer_independent_collisions())
+  end
+
+  -- Return true if the entity is on the same row or column than the entity.
+  function enemy:is_aligned(entity, thickness)
+
+    local half_thickness = thickness * 0.5
+    local x, y, layer = enemy:get_position()
+    local entity_x, entity_y, entity_layer = entity:get_position()
+    return (math.abs(entity_x - x) < half_thickness or math.abs(entity_y - y) < half_thickness) and layer == entity_layer
   end
 
   -- Return true if the enemy is currently leashed by the entity.
@@ -307,8 +317,8 @@ function common_actions.learn(enemy)
     end
   end
 
-  -- Start a standalone sprite animation on the enemy position, that will be remove once finished.
-  function enemy:start_brief_effect(sprite_name, animation_set_id, x_offset, y_offset)
+  -- Start a standalone sprite animation on the enemy position, that will be removed once finished or maximum_duration reached if given.
+  function enemy:start_brief_effect(sprite_name, animation_set_id, x_offset, y_offset, maximum_duration)
 
     local x, y, layer = enemy:get_position()
     local entity = map:create_custom_entity({
@@ -320,10 +330,17 @@ function common_actions.learn(enemy)
         height = 32,
         direction = 0
     })
+
+    -- Remove the entity once animation finished or max_duration reached.
     local sprite = entity:get_sprite()
     sprite:set_animation(animation_set_id, function()
       entity:remove()
     end)
+    if maximum_duration then
+      sol.timer.start(entity, maximum_duration, function()
+        entity:remove()
+      end)
+    end
   end
 
   -- Steal an item and drop it when died, possibly conditionned on the variant and the assignation to a slot.

@@ -69,7 +69,7 @@ function sprite:on_frame_changed(animation, frame)
     local enemy_angle = frame * angle_per_frame - math.pi * 0.5 -- Frame 0 of the sprite faces the south.
     local hero_angle = math.atan2(y - hero_y, hero_x - x)
 
-    if (math.abs(enemy_angle - hero_angle) + math.pi * 2.0) % (math.pi * 2.0) <= triggering_angle then
+    if math.abs(enemy_angle - hero_angle) % (math.pi * 2.0) <= triggering_angle then
       enemy:start_firing()
     end
   end
