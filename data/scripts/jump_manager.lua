@@ -20,10 +20,9 @@ local debug_start_x, debug_start_y
 local debug_max_height = 0
 
 local audio_manager=require("scripts/audio_manager")
+
 function jm.reset_collision_rules(state)
---  print "RESET"
   if state and (state:get_description() == "jumping_sword" or state:get_description() == "running") then
---    print "restoring jumping state collision rules"
     state:set_affected_by_ground("hole", true)
     state:set_affected_by_ground("lava", true)
     state:set_affected_by_ground("deep_water", true)
@@ -32,16 +31,14 @@ function jm.reset_collision_rules(state)
     state:set_can_use_teletransporter(true)
     state:set_can_use_switch(true)
     state:set_can_use_stream(true)
+    state:set_can_be_hurt(true)
   end
 end
 
 function jm.setup_collision_rules(state)
---  local d = state and state:get_description() or "<none>"
---  print ("SET collision for ".. d)
 -- TODO find a way to get rid of hardcoded state filter for more flexibility
 
   if state and (state:get_description() == "jumping" or state:get_description() =="jumping_sword" or state:get_description() == "running") then
---    print "setting up jumping state collision rules"
     state:set_affected_by_ground("hole", false)
     state:set_affected_by_ground("lava", false)
     state:set_affected_by_ground("deep_water", false)
@@ -50,6 +47,7 @@ function jm.setup_collision_rules(state)
     state:set_can_use_teletransporter(false)
     state:set_can_use_switch(false)
     state:set_can_use_stream(false)
+    state:set_can_be_hurt(false)
   end
 end
 
@@ -86,23 +84,21 @@ function jm.update_jump(entity)
 end
 
 function jm.start(entity)
-  --print (entity:get_type())
+
   if not entity:is_jumping() then
     audio_manager:play_sound("hero/jump")
     debug_start_x, debug_start_y=entity:get_position()
-    --   print "TOPVIEW JUMP"
     entity:set_jumping(true)
     jm.setup_collision_rules(entity:get_state_object())
---    print "JUMP"
     entity.y_vel = -max_yvel
     
     local t=sol.timer.start(entity, 10, function()
-        local r=jm.update_jump(entity)
-        if not r then
-          return false
-        end
-        return true
-      end)
+      local r=jm.update_jump(entity)
+      if not r then
+        return false
+      end
+      return true
+    end)
     t:set_suspended_with_map(false)
   end
 end

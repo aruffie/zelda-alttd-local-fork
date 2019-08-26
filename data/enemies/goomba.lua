@@ -27,7 +27,6 @@ end
 
 -- Initialization.
 function enemy:on_created()
-
   enemy:set_life(1)
 end
 
@@ -43,7 +42,7 @@ function enemy:on_restarted()
   enemy:set_attack_consequence("explosion", 1)
   enemy:set_hammer_reaction(1)
   enemy:set_fire_reaction(1)
-  -- TODO Jumping on top hurt the enemy
+  enemy:set_jump_on_reaction(1)
 
   -- States.
   enemy:set_can_attack(true)
