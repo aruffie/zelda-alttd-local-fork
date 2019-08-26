@@ -141,7 +141,7 @@ fire:add_collision_test("sprite", function(fire, entity)
   if entity:get_type() == "enemy" and not enemies_touched[entity] and entity:get_fire_reaction(entity) ~= "ignored" then
     local enemy = entity
     enemies_touched[enemy] = true
-    local reaction = enemy:get_fire_reaction(enemy)
+    local reaction = enemy:get_fire_reaction()
 
     -- Only remove the entity if fire has no effect on the enemy.
     if reaction == "protected" then
@@ -168,7 +168,7 @@ fire:add_collision_test("sprite", function(fire, entity)
     if enemy_sprite:has_animation("burning") then
       enemy_sprite:set_animation("burning")
     else
-      local burning_sprite = enemy:create_sprite("entities/effects/flame", "burning") -- TODO
+      local burning_sprite = enemy:create_sprite("entities/effects/flame", "burning")
       function burning_sprite:on_animation_finished()
         enemy:remove_sprite(burning_sprite)
       end

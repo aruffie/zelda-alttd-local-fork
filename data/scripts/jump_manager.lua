@@ -51,6 +51,22 @@ function jm.setup_collision_rules(state)
   end
 end
 
+-- Check if an enemy sensible to jump is overlapping the hero, then hurt him and bounce.
+local function on_bounce_height_reached(entity)
+
+  local map = entity:get_map()
+  local hero = map:get_hero()
+  for enemy in map:get_entities_by_type("enemy") do
+    if hero:overlaps(enemy, "sprite") then
+      local reaction = enemy:get_jump_on_reaction()
+      if reaction ~= "ignored" then
+        enemy:receive_attack_consequence("jump_on", reaction)
+        entity.y_vel = 0 - entity.y_vel
+      end
+    end
+  end
+end
+
 function jm.update_jump(entity)
 
   entity.y_offset=entity.y_offset or 0
@@ -65,6 +81,11 @@ function jm.update_jump(entity)
   debug_max_height=math.min(debug_max_height, entity.y_offset)
 
   entity.y_vel = entity.y_vel + gravity
+
+  -- Bounce on a possible enemy that can be hurt with jump.
+  if entity.y_vel > 0 and entity.y_offset > -8 then
+    on_bounce_height_reached(entity)
+  end
 
   if entity.y_offset >=0 then --reset sprites offset and stop jumping
     for name, sprite in entity:get_sprites() do
@@ -93,11 +114,7 @@ function jm.start(entity)
     entity.y_vel = -max_yvel
     
     local t=sol.timer.start(entity, 10, function()
-      local r=jm.update_jump(entity)
-      if not r then
-        return false
-      end
-      return true
+      return jm.update_jump(entity)
     end)
     t:set_suspended_with_map(false)
   end
