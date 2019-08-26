@@ -227,24 +227,15 @@ local debug_informations_text=sol.text_surface.create({
     font_size=17, 
   })
 local debug_informations_background=sol.surface.create(sol.video.get_quest_size())
-debug_informations_background:fill_color({64,64,64,192})
 
-local function show_text(dst, x,y,text)
+local function show_text(x,y,text)
   debug_informations_text:set_text(text)
-  debug_informations_text:draw(dst, x, y)
+  debug_informations_text:draw(debug_informations_background, x, y)
 end
 
 function debug:on_draw(dst_surface)
   local game = sol.main.get_game()
   if game then
-
-    --Show cuttently active command keys
-    for _, command in pairs(commands) do
-      if game:is_command_pressed(command.name) then
-        debug_command_sprite:set_animation(command.name)
-        debug_command_sprite:draw(dst_surface, command.x, command.y)
-      end
-    end
 
     --show various information about the game on-screen, such as the moement parameters. Can be switched on and off by pressing F11
     --[[
@@ -254,24 +245,24 @@ function debug:on_draw(dst_surface)
                     Random/     Path  Rndm path      Circle     Jump  Pixel
                     /target
       -------------------------------------------
-        Speed       X           X      X                         X
-        Angle       X           X      X              
-        Max dist.   X           -.     -
-        smooth?     X           -      -
-        Path        -           X      -
-        Loop ?      -           X      -                                 X
-        Snaptogrid  -           X      -
-        Center      -           -      -              X
-        Radius                                        X
-        Radius_speed                                  X
-        Clockwise?                                    X
-        Angle from center                             X
-        Angular speed                                 X
-        Rotations                                     X
-        Duration                                      X
-        Loop delay                                    X
-        Direction8                                               X
-        Distance                                                 X
+        Speed       X!           X!     X!                        X!
+        Angle       X!           X!     X!              
+        Max dist.   X!           -.     -
+        smooth?     X!           -      -
+        Path        -            X!     -
+        Loop ?      -            X!     -                              X!
+        Snaptogrid  -            X!     -
+        Center      -           -      -              X!
+        Radius                                        X!
+        Radius_speed                                  X!
+        Clockwise?                                    X!
+        Angle from center                             X!
+        Angular speed                                 X!
+        Rotations                                     X!
+        Duration                                      X!
+        Loop delay                                    X!
+        Direction8                                               X!
+        Distance                                                 X!
         Trajectory                                                       X
         Delay                                                            X
         
@@ -282,47 +273,82 @@ function debug:on_draw(dst_surface)
         Smoot / Loop / clockwise - able
     --]]
     if show_debug_info_screen then
-      debug_informations_background:draw(dst_surface)
+
       local hero=game:get_hero()
       local hero_movement=hero:get_movement()
+      local map=game:get_map()
+      debug_informations_background:clear()
+      debug_informations_background:fill_color({64,64,64,192})
 
-      if hero_movement then
-        show_text(dst_surface, 0, 0, "Movement info")
+      show_text(0, 0, "HP: "..game:get_life().."/"..game:get_max_life())
+      if game:get_max_magic() > 0 then
+        show_text(0, 10, "MP: "..game:get_magic().."/"..game:get_max_magic())
+      end
+      local x,y,layer=hero:get_position()
+      show_text(0, 20, "Map: "..map:get_id())
+      show_text(0, 30, "position: ("..x..";"..y..";"..layer..")")
+      local w=map:get_world()
+      if w then
+        show_text(0, 40, "World: "..w)
+        local wx,wy=map:get_location()
+        show_text(0, 50, "XY (world): ("..x+wx..";"..y+wy..")")
+      end
+      local s=hero:get_state()
+      show_text(0, 60, "state: "..(s~="custom" and s or hero:get_state_object():get_description()))
+      if hero_movement then 
+        show_text(0, 100, "Movement info")
         local x,y=hero_movement:get_xy()
-        show_text(dst_surface, 0, 10, "Position: ("..x..", "..y..")")
-        show_text(dst_surface, 0, 20, "Direction:" ..hero_movement:get_direction4())
-        
+        show_text(0, 110, "Position: ("..x..", "..y..")")
+        show_text(0, 120, "Direction 4: " ..hero_movement:get_direction4())
+
         if hero_movement.get_speed then
-          show_text(dst_surface, 0, 30, "Speed: "..hero_movement:get_speed().." px/s")
+          show_text(0, 130, "Speed: "..hero_movement:get_speed().." px/s")
         end
-        if hero_movement.get_angular_speed then
-          show_text(dst_surface, 0, 30, "A.Speed: "..hero_movement:get_anguler_speed().." rad/s")
-        end
-        
         if hero_movement.get_angle then
-          show_text(dst_surface, 0, 40, "Angle: "..hero_movement:get_angle().." rad")
+          show_text(0, 140, "Angle: "..hero_movement:get_angle().." rad")
         end
-        if hero_movement.get_angle_from_center then
-          show_text(dst_surface, 0, 40, "Circular Angle: "..hero_movement:get_angle_from_center().." rad")
-        end
-        
         if hero_movement.get_max_distance then
-          show_text(dst_surface, 0, 50, "Distance: "..hero_movement:get_max_distance().." px")
+          show_text(0, 150, "Max distance: "..hero_movement:get_max_distance().." px")
         end
-        
         if hero_movement.is_smooth then
-          show_text(dst_surface, 0, 60, "Smooth? "..(hero_movement:is_smooth() and "Yes" or "No"))
-        end        if hero_movement.is_clockwise then
-          show_text(dst_surface, 0, 60, "Clockwise? "..(hero_movement:is_clockwise() and "Yes" or "No"))
-        end        if hero_movement.get_snap_to_grid then
-          show_text(dst_surface, 0, 60, "Snap to grid? "..(hero_movement:get_snap_to_grid() and "Yes" or "No"))
+          show_text(0, 160, "Smooth? "..(hero_movement:is_smooth() and "Yes" or "No"))
         end
-        if hero_movement.get_path then
-          show_text(dst_surface, 0, 70, "Path"..hero_movement:get_path())
-        end        
-        if hero_movement.get_path then
-          show_text(dst_surface, 0, 70, "Path"..hero_movement:is_mooth())
-        end      
+
+        if hero_movement.get_path then --Path movement
+          local text="Path: "
+          for k,v in pairs(hero_movement:get_path()) do
+            text=text..v
+          end
+          show_text(0, 150, text)
+          show_text(0, 160, "Snap to grid? "..(hero_movement:get_snap_to_grid() and "Yes" or "No"))
+        end             
+        if hero_movement.get_angular_speed then --Circular movement
+          show_text(0, 130, "A.Speed: "..hero_movement:get_anguler_speed().." rad/s")
+          show_text(0, 140, "Circular Angle: "..hero_movement:get_angle_from_center().." rad")
+          show_text(0, 150, "Radius: "..hero_movement:get_radius().." px")
+          show_text(0, 160, "Radiud speed: "..hero_movement:get_radius_speed().."px/s")
+          show_text(0, 170, "Clockwise? "..(hero_movement:is_clockwise() and "Yes" or "No"))
+          show_text(0, 180, "Max rotations: "..hero_movement:get_max_rotations())
+          show_text(0, 190, "Duration: "..hero_movement:get_duration().." ms")
+          show_text(0, 200, "Loop delay: "..hero_movement:get_loop_delay().." ms")
+        end
+        if hero_movement.get_direction8 then --Built-in jump movement
+          show_text(0, 140, "Direction 8: "..hero_movement:get_direction8())
+          show_text(0, 150, "Jump distance: "..hero_movement:get_distance()..' px')
+        end
+        if hero_movement.get_trajectory then --Pixel-perfect movement
+          show_text(0, 140, "Trajectory: "..hero_movement:get_trajectory())
+          show_text(0, 150, "Delay: "..hero_movement:get_delay()..' ms')
+        end
+      end
+      debug_informations_background:draw(dst_surface)
+
+      --Show cuttently active command keys
+    end
+    for _, command in pairs(commands) do
+      if game:is_command_pressed(command.name) then
+        debug_command_sprite:set_animation(command.name)
+        debug_command_sprite:draw(dst_surface, command.x, command.y)
       end
     end
   end
