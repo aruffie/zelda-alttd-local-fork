@@ -6,7 +6,6 @@
 -- Methods : enemy:is_near(entity, triggering_distance)
 --           enemy:is_aligned(entity, thickness)
 --           enemy:is_leashed_by(entity)
---           enemy:get_shadow()
 --           enemy:start_random_walking(possible_angles, speed, distance, on_finished_callback)
 --           enemy:start_target_walking(entity, speed)
 --           enemy:start_jumping(duration, height, invincible, harmless)
@@ -18,7 +17,7 @@
 --           enemy:stop_leashed_by(entity)
 --           enemy:start_brief_effect(sprite_name, animation_set_id, x_offset, y_offset, maximum_duration)
 --           enemy:steal_item(item_name, variant, only_if_assigned)
---           enemy:add_shadow(sprite_name)
+--           enemy:add_shadow(sprite_name, animation_set_id)
 -- Events:   enemy:on_jump_finished()
 --           enemy:on_flying_took_off()
 --           enemy:on_flying_landed()
@@ -63,11 +62,6 @@ function common_actions.learn(enemy)
   -- Return true if the enemy is currently leashed by the entity.
   function enemy:is_leashed_by(entity)
     return leashing_timers[entity] ~= nil
-  end
-
-  -- Return the current shadow entity
-  function enemy:get_shadow()
-    return shadow
   end
 
   -- Make the enemy straight move randomly over one of the given angle.
@@ -361,7 +355,7 @@ function common_actions.learn(enemy)
   end
 
   -- Add a shadow below the enemy.
-  function enemy:add_shadow(sprite_name)
+  function enemy:add_shadow(sprite_name, animation_set_id)
 
     if not shadow then
       local enemy_x, enemy_y, enemy_layer = enemy:get_position()
@@ -374,6 +368,9 @@ function common_actions.learn(enemy)
         height = 16,
         sprite = sprite_name or "entities/shadows/shadow"
       })
+      if animation_set_id then
+        shadow:get_sprite():set_animation(animation_set_id)
+      end
       shadow:set_traversable_by(true)
       function shadow:on_update()
         shadow:set_position(enemy:get_position())
@@ -392,6 +389,7 @@ function common_actions.learn(enemy)
       end)
     end
   end
+  return shadow
 end
 
 return common_actions

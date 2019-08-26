@@ -45,6 +45,8 @@ end)
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
   zol_behavior.apply(enemy, {sprite = sprite})
+  enemy:set_life(1)
+  enemy:add_shadow()
 end)
 
 -- Restart settings.
