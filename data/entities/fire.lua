@@ -179,10 +179,10 @@ fire:add_collision_test("sprite", function(fire, entity)
     sol.timer.start(sol.main, 1000, function()
       if enemy then
         enemy:restart() -- Restore damage settings before calling receive_attack_consequence().
-        local is_pushed_back_when_hurt = enemy:is_pushed_back_when_hurt()
-        enemy:set_pushed_back_when_hurt(false) -- Avoid pushing back again.
-        enemy:receive_attack_consequence("fire", reaction)
-        enemy:set_pushed_back_when_hurt(is_pushed_back_when_hurt)
+        if reaction ~= "ignored" then
+          enemy:set_pushed_back_when_hurt(false) -- Avoid pushing back again.
+          enemy:receive_attack_consequence("fire", reaction)
+        end
       end
     end)
   end

@@ -73,7 +73,7 @@ local function initialize_meta()
     return
   end
 
-  enemy_meta.jump_on_reaction = "ignored"  -- Nothing happen by default.
+  enemy_meta.jump_on_reaction = "ignored"  -- Nothing happens by default.
   enemy_meta.jump_on_reaction_sprite = {}
 
   function enemy_meta:get_jump_on_reaction(sprite)
