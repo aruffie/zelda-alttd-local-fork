@@ -284,34 +284,44 @@ function debug:on_draw(dst_surface)
       if game:get_max_magic() > 0 then
         show_text(0, 10, "MP: "..game:get_magic().."/"..game:get_max_magic())
       end
-      local x,y,layer=hero:get_position()
-      show_text(0, 20, "Map: "..map:get_id())
-      show_text(0, 30, "position: ("..x..";"..y..";"..layer..")")
-      local w=map:get_world()
-      if w then
-        show_text(0, 40, "World: "..w)
-        local wx,wy=map:get_location()
-        show_text(0, 50, "XY (world): ("..x+wx..";"..y+wy..")")
+      if map then
+        local x,y,layer=hero:get_position()
+        show_text(0, 20, "Map: "..map:get_id())
+        show_text(0, 30, "position: ("..x..";"..y..";"..layer..")")
+        local w=map:get_world()
+        if w then
+          show_text(0, 40, "World: "..w)
+          local wx,wy=map:get_location()
+          show_text(0, 50, "XY (world): ("..x+wx..";"..y+wy..")")
+        end
       end
       local s=hero:get_state()
-      show_text(0, 60, "state: "..(s~="custom" and s or hero:get_state_object():get_description()))
+      show_text(0, 60, "state: "..s)
+      if s=="custom" then
+        local state=hero:get_state_object()
+        show_text(160,0,"Custom state info")
+        show_text(160,10,"Description: "..state:get_description())
+        show_text(100,20,"Visible ? "(state:is_visible() and "Yes" or "No")
+
+      end
       if hero_movement then 
         show_text(0, 100, "Movement info")
         local x,y=hero_movement:get_xy()
         show_text(0, 110, "Position: ("..x..", "..y..")")
         show_text(0, 120, "Direction 4: " ..hero_movement:get_direction4())
-
+        show_text(0,130, "Ignore obstacles? "..(hero_movement:get_ignore_obstacles() and "Yes" or "No"))
+        show_text(0,140, "Ignore suspended with game? "..(hero_movement:get_ignore_suspend() and "Yes" or "No"))
         if hero_movement.get_speed then
-          show_text(0, 130, "Speed: "..hero_movement:get_speed().." px/s")
+          show_text(0, 150, "Speed: "..hero_movement:get_speed().." px/s")
         end
         if hero_movement.get_angle then
-          show_text(0, 140, "Angle: "..hero_movement:get_angle().." rad")
+          show_text(0, 160, "Angle: "..hero_movement:get_angle().." rad")
         end
         if hero_movement.get_max_distance then
-          show_text(0, 150, "Max distance: "..hero_movement:get_max_distance().." px")
+          show_text(0, 170, "Max distance: "..hero_movement:get_max_distance().." px")
         end
         if hero_movement.is_smooth then
-          show_text(0, 160, "Smooth? "..(hero_movement:is_smooth() and "Yes" or "No"))
+          show_text(0, 180, "Smooth? "..(hero_movement:is_smooth() and "Yes" or "No"))
         end
 
         if hero_movement.get_path then --Path movement
@@ -319,26 +329,26 @@ function debug:on_draw(dst_surface)
           for k,v in pairs(hero_movement:get_path()) do
             text=text..v
           end
-          show_text(0, 150, text)
-          show_text(0, 160, "Snap to grid? "..(hero_movement:get_snap_to_grid() and "Yes" or "No"))
+          show_text(0, 170, text)
+          show_text(0, 180, "Snap to grid? "..(hero_movement:get_snap_to_grid() and "Yes" or "No"))
         end             
         if hero_movement.get_angular_speed then --Circular movement
-          show_text(0, 130, "A.Speed: "..hero_movement:get_anguler_speed().." rad/s")
-          show_text(0, 140, "Circular Angle: "..hero_movement:get_angle_from_center().." rad")
-          show_text(0, 150, "Radius: "..hero_movement:get_radius().." px")
-          show_text(0, 160, "Radiud speed: "..hero_movement:get_radius_speed().."px/s")
-          show_text(0, 170, "Clockwise? "..(hero_movement:is_clockwise() and "Yes" or "No"))
-          show_text(0, 180, "Max rotations: "..hero_movement:get_max_rotations())
-          show_text(0, 190, "Duration: "..hero_movement:get_duration().." ms")
-          show_text(0, 200, "Loop delay: "..hero_movement:get_loop_delay().." ms")
+          show_text(0, 150, "A.Speed: "..hero_movement:get_anguler_speed().." rad/s")
+          show_text(0, 160, "Circular Angle: "..hero_movement:get_angle_from_center().." rad")
+          show_text(0, 170, "Radius: "..hero_movement:get_radius().." px")
+          show_text(0, 180, "Radiud speed: "..hero_movement:get_radius_speed().."px/s")
+          show_text(0, 190, "Clockwise? "..(hero_movement:is_clockwise() and "Yes" or "No"))
+          show_text(0, 200, "Max rotations: "..hero_movement:get_max_rotations())
+          show_text(0, 210, "Duration: "..hero_movement:get_duration().." ms")
+          show_text(0, 220, "Loop delay: "..hero_movement:get_loop_delay().." ms")
         end
         if hero_movement.get_direction8 then --Built-in jump movement
-          show_text(0, 140, "Direction 8: "..hero_movement:get_direction8())
-          show_text(0, 150, "Jump distance: "..hero_movement:get_distance()..' px')
+          show_text(0, 160, "Direction 8: "..hero_movement:get_direction8())
+          show_text(0, 170, "Jump distance: "..hero_movement:get_distance()..' px')
         end
         if hero_movement.get_trajectory then --Pixel-perfect movement
-          show_text(0, 140, "Trajectory: "..hero_movement:get_trajectory())
-          show_text(0, 150, "Delay: "..hero_movement:get_delay()..' ms')
+          show_text(0, 160, "Trajectory: "..hero_movement:get_trajectory())
+          show_text(0, 170, "Delay: "..hero_movement:get_delay()..' ms')
         end
       end
       debug_informations_background:draw(dst_surface)
