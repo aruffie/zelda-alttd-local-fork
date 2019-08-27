@@ -14,7 +14,7 @@ local quarter = math.pi * 0.5
 local eighth = math.pi * 0.25
 
 -- Configuration variables
-local walking_possible_angle = {0, quarter, 2.0 * quarter, 3.0 * quarter}
+local walking_possible_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
 local walking_speed = 32
 local walking_distance_grid = 16
 local walking_max_move_by_step = 6
@@ -28,7 +28,7 @@ local is_exhausted_duration = 500
 -- Start the enemy movement.
 function enemy:start_walking()
 
-  local movement = enemy:start_random_walking(walking_possible_angle, walking_speed, walking_distance_grid * math.random(walking_max_move_by_step), function()
+  local movement = enemy:start_straight_walking(walking_possible_angles[math.random(4)], walking_speed, walking_distance_grid * math.random(walking_max_move_by_step), function()
     sol.timer.start(enemy, walking_pause_duration, function()
       if not enemy.is_charging then
         enemy:start_walking()

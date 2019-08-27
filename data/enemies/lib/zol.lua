@@ -5,7 +5,8 @@
 -- Usage : 
 -- local my_enemy = ...
 -- local behavior = require("enemies/lib/zol")
--- behavior.apply(my_enemy)
+-- local properties = {}
+-- behavior.apply(my_enemy, properties)
 --
 ----------------------------------
 
