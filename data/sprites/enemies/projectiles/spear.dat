@@ -9,7 +9,7 @@ animation{
   },
 }
 animation{
-  name = "default (copy)",
+  name = "hit",
   src_image = "enemies/projectiles/spear.png",
   frame_delay = 50,
   directions = {

@@ -31,17 +31,12 @@ function behavior.apply(enemy)
   local waiting_duration = 800
   local throwing_animation_duration = 200
 
-  -- Add two directions and get a result between 1 and 4.
-  local function add_direction(direction, number)
-    return (direction + number - 1) % 4 + 1
-  end
-
   -- Start the enemy movement.
   function enemy:start_walking(direction)
 
-    enemy:start_straight_walking(walking_possible_angles[direction], walking_speed, walking_distance_grid * math.random(walking_max_move_by_step), function()    
-      local seek_direction = math.random(4)
-      local waiting_animation = add_direction(direction, 1) == seek_direction and "seek_left" or add_direction(direction, -1) == seek_direction and "seek_right" or "immobilized"
+    enemy:start_straight_walking(walking_possible_angles[direction + 1], walking_speed, walking_distance_grid * math.random(walking_max_move_by_step), function()    
+      local next_direction = math.random(4) - 1
+      local waiting_animation = (direction + 1) % 4 == next_direction and "seek_left" or (direction - 1) % 4 == next_direction and "seek_right" or "immobilized"
       sprite:set_animation(waiting_animation)
 
       sol.timer.start(enemy, waiting_duration, function()
@@ -49,10 +44,10 @@ function behavior.apply(enemy)
         -- Throw an arrow if the hero is on the direction the enemy is looking at.
         if enemy:get_direction4_to(hero) == sprite:get_direction() then
           enemy:throw_spear(function()
-            enemy:start_walking(seek_direction)
+            enemy:start_walking(next_direction)
           end)
         else
-          enemy:start_walking(seek_direction)
+          enemy:start_walking(next_direction)
         end
       end)
     end)
@@ -63,14 +58,17 @@ function behavior.apply(enemy)
 
     sprite:set_animation("throwing")
     sol.timer.start(enemy, throwing_animation_duration, function()
+      local direction = sprite:get_direction()
       local x, y, layer = enemy:get_position()
-      map:create_enemy({
+      local spear = map:create_enemy({
         breed = "projectiles/spear",
         x = x,
         y = y,
         layer = layer,
-        direction = enemy:get_direction4_to(hero)
+        direction = direction
       })
+      spear:get_sprite():set_xy(direction == 1 and 8 or direction == 3 and -8 or 0, direction % 2 == 0 and -11 or 0) -- Adapt the spear offset to moblins sprite.
+      spear:go(direction * quarter) -- Reset the default move to go horizontally or vertically on the enemy direction.
       if on_finished_callback then
         on_finished_callback()
       end
@@ -98,7 +96,7 @@ function behavior.apply(enemy)
     -- States.
     enemy:set_can_attack(true)
     enemy:set_damage(1)
-    enemy:start_walking(math.random(4))
+    enemy:start_walking(math.random(4) - 1)
   end
 end
 

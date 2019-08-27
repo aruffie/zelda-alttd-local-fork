@@ -3,7 +3,7 @@
 -- Add projectile behavior to an ennemy.
 --
 -- Methods : enemy:set_default_speed(speed)
---           enemy:go(angle, speed)
+--           enemy:go([angle, [speed]])
 -- Events :  enemy:on_hit()
 --
 -- Usage : 
