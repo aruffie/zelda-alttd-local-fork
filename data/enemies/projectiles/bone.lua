@@ -8,7 +8,9 @@ local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 
 -- Create an impact effect on hit.
 function enemy:on_hit()
-  enemy:start_brief_effect("entities/effects/impact_projectile", "default")
+
+  local offset_x, offset_y = sprite:get_xy()
+  enemy:start_brief_effect("entities/effects/impact_projectile", "default", offset_x, offset_y)
 end
 
 -- Initialization.

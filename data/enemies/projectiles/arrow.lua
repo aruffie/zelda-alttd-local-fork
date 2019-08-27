@@ -52,5 +52,5 @@ function enemy:on_restarted()
   enemy:set_pushed_back_when_hurt(false)
   enemy:set_can_hurt_hero_running(true)
   enemy:set_minimum_shield_needed(1)
-  enemy:go(enemy:get_direction4_to(hero) * quarter)
+  enemy:go()
 end

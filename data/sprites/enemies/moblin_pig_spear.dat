@@ -33,14 +33,23 @@ animation{
   },
 }
 animation{
-  name = "inspect",
+  name = "seek_left",
   src_image = "enemies/moblin_pig_spear.png",
-  frame_delay = 1000,
   directions = {
-    { x = 336, y = 0, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 29, num_frames = 2 },
-    { x = 336, y = 48, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 29, num_frames = 2 },
-    { x = 336, y = 96, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 29, num_frames = 2 },
-    { x = 336, y = 144, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 29, num_frames = 2 },
+    { x = 336, y = 0, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 29 },
+    { x = 336, y = 48, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 29 },
+    { x = 384, y = 96, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 29 },
+    { x = 384, y = 144, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 29 },
+  },
+}
+animation{
+  name = "seek_right",
+  src_image = "enemies/moblin_pig_spear.png",
+  directions = {
+    { x = 384, y = 0, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 29 },
+    { x = 384, y = 48, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 29 },
+    { x = 336, y = 96, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 29 },
+    { x = 336, y = 144, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 29 },
   },
 }
 animation{

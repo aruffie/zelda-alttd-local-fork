@@ -6,7 +6,7 @@
 -- Methods : enemy:is_near(entity, triggering_distance)
 --           enemy:is_aligned(entity, thickness)
 --           enemy:is_leashed_by(entity)
---           enemy:start_random_walking(possible_angles, speed, distance, [on_finished_callback])
+--           enemy:start_straight_walking(angle, speed, [distance, [on_finished_callback]])
 --           enemy:start_target_walking(entity, speed)
 --           enemy:start_jumping(duration, height, [invincible, [harmless]])
 --           enemy:start_flying(take_off_duration, height, [invincible, [harmless]])
@@ -64,14 +64,13 @@ function common_actions.learn(enemy)
     return leashing_timers[entity] ~= nil
   end
 
-  -- Make the enemy straight move randomly over one of the given angle.
-  function enemy:start_random_walking(possible_angles, speed, distance, on_finished_callback)
+  -- Make the enemy straight move.
+  function enemy:start_straight_walking(angle, speed, distance, on_finished_callback)
 
-    local direction = math.random(#possible_angles)
     local movement = sol.movement.create("straight")
     movement:set_speed(speed)
-    movement:set_max_distance(distance)
-    movement:set_angle(possible_angles[direction])
+    movement:set_max_distance(distance or 0)
+    movement:set_angle(angle)
     movement:set_smooth(true)
     movement:start(self)
 

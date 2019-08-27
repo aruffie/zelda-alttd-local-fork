@@ -17,7 +17,9 @@ local particle_speed = 400
 
 -- Create an impact effect on hit.
 function enemy:on_hit()
-  enemy:start_brief_effect("entities/effects/impact_projectile", "default")
+
+  local offset_x, offset_y = sprite:get_xy()
+  enemy:start_brief_effect("entities/effects/impact_projectile", "default", offset_x, offset_y)
 end
 
 -- Stop scheduling particle.
