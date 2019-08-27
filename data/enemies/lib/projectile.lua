@@ -30,11 +30,11 @@ function behavior.apply(enemy, sprite)
   -- Call the on_hit() callback or remove the entity if not set on hit.
   function enemy:hit_behavior()
 
-    local keep_alive = false
+    local handled = false
     if enemy.on_hit then
-      keep_alive = enemy:on_hit()
+      handled = enemy:on_hit()
     end
-    if not keep_alive then
+    if not handled then
       enemy:remove()
     end
   end

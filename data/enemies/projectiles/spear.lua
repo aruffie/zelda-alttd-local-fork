@@ -1,4 +1,4 @@
--- Arrow projectile, throwed horizontally or vertically.
+-- Spear projectile, throwed horizontally or vertically, mostly used by spear Moblins enemies.
 
 local enemy = ...
 local projectile_behavior = require("enemies/lib/projectile")
@@ -22,10 +22,8 @@ function enemy:on_hit()
   enemy:set_damage(0)
 
   -- Remove the entity when planted animation finished + some time.
-  sprite:set_animation("reached_obstacle", function()
-    sol.timer.start(enemy, planted_duration, function()
-      enemy:remove()
-    end)
+  sol.timer.start(enemy, planted_duration, function()
+    enemy:remove()
   end)
 
   return true
