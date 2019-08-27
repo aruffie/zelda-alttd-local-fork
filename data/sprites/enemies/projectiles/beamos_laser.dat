@@ -1,0 +1,10 @@
+animation{
+  name = "default",
+  src_image = "enemies/projectiles/beamos_laser.png",
+  directions = {
+    { x = 0, y = 0, frame_width = 4, frame_height = 4, origin_x = 2, origin_y = 1 },
+    { x = 0, y = 0, frame_width = 4, frame_height = 4, origin_x = 2, origin_y = 1 },
+    { x = 0, y = 0, frame_width = 4, frame_height = 4, origin_x = 2, origin_y = 1 },
+    { x = 0, y = 0, frame_width = 4, frame_height = 4, origin_x = 2, origin_y = 1 },
+  },
+}
