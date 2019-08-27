@@ -322,6 +322,7 @@ sprite{ id = "enemies/pols_voice", description = "Pols voice" }
 sprite{ id = "enemies/projectiles/arrow", description = "Arrow" }
 sprite{ id = "enemies/projectiles/bat", description = "Bat" }
 sprite{ id = "enemies/projectiles/beam", description = "Beam" }
+sprite{ id = "enemies/projectiles/beamos_laser", description = "Beamos laser" }
 sprite{ id = "enemies/projectiles/bone", description = "Bone" }
 sprite{ id = "enemies/projectiles/coconut", description = "Coconut" }
 sprite{ id = "enemies/projectiles/fireball", description = "Fireball" }
