@@ -8,3 +8,14 @@ animation{
     { x = 0, y = 0, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8 },
   },
 }
+animation{
+  name = "default (copy)",
+  src_image = "enemies/projectiles/spear.png",
+  frame_delay = 50,
+  directions = {
+    { x = 16, y = 0, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8, num_frames = 8 },
+    { x = 16, y = 0, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8, num_frames = 8 },
+    { x = 16, y = 0, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8, num_frames = 8 },
+    { x = 16, y = 0, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8, num_frames = 8 },
+  },
+}
