@@ -61,6 +61,7 @@ game:register_event("on_command_pressed", function(game, command)
 end)
 
 -- Make the enemy eat the hero
+-- TODO Make a custom state instead of handling hero in enemy script.
 function enemy:eat_hero()
 
   enemy.is_eating = true

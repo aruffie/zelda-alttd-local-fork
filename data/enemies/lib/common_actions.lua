@@ -6,19 +6,18 @@
 -- Methods : enemy:is_near(entity, triggering_distance)
 --           enemy:is_aligned(entity, thickness)
 --           enemy:is_leashed_by(entity)
---           enemy:get_shadow()
---           enemy:start_random_walking(possible_angles, speed, distance, on_finished_callback)
+--           enemy:start_random_walking(possible_angles, speed, distance, [on_finished_callback])
 --           enemy:start_target_walking(entity, speed)
---           enemy:start_jumping(duration, height, invincible, harmless)
---           enemy:start_flying(take_off_duration, height, invincible, harmless)
+--           enemy:start_jumping(duration, height, [invincible, [harmless]])
+--           enemy:start_flying(take_off_duration, height, [invincible, [harmless]])
 --           enemy:stop_flying(landing_duration)
---           enemy:start_attracting(entity, pixel_by_second, moving_condition_callback)
+--           enemy:start_attracting(entity, pixel_by_second, [moving_condition_callback])
 --           enemy:stop_attracting()
 --           enemy:start_leashed_by(entity, maximum_distance)
 --           enemy:stop_leashed_by(entity)
---           enemy:start_brief_effect(sprite_name, animation_set_id, x_offset, y_offset, maximum_duration)
---           enemy:steal_item(item_name, variant, only_if_assigned)
---           enemy:add_shadow(sprite_name)
+--           enemy:start_brief_effect(sprite_name, [animation_set_id, [x_offset, [y_offset, [maximum_duration]]]])
+--           enemy:start_shadow([sprite_name, [animation_set_id]])
+--           enemy:steal_item(item_name, [variant, [only_if_assigned]])
 -- Events:   enemy:on_jump_finished()
 --           enemy:on_flying_took_off()
 --           enemy:on_flying_landed()
@@ -63,11 +62,6 @@ function common_actions.learn(enemy)
   -- Return true if the enemy is currently leashed by the entity.
   function enemy:is_leashed_by(entity)
     return leashing_timers[entity] ~= nil
-  end
-
-  -- Return the current shadow entity
-  function enemy:get_shadow()
-    return shadow
   end
 
   -- Make the enemy straight move randomly over one of the given angle.
@@ -343,25 +337,8 @@ function common_actions.learn(enemy)
     end
   end
 
-  -- Steal an item and drop it when died, possibly conditionned on the variant and the assignation to a slot.
-  function enemy:steal_item(item_name, variant, only_if_assigned)
-
-    if game:has_item(item_name) then
-      local item = game:get_item(item_name)
-      local item_slot = (game:get_item_assigned(1) == item and 1) or (game:get_item_assigned(2) == item and 2) or nil
-
-      if (not variant or item:get_variant() == variant) and (not only_if_assigned or item_slot) then     
-        enemy:set_treasure(item_name, item:get_variant()) -- TODO savegame variable
-        item:set_variant(0)
-        if item_slot then
-          game:set_item_assigned(item_slot, nil)
-        end
-      end
-    end
-  end
-
   -- Add a shadow below the enemy.
-  function enemy:add_shadow(sprite_name)
+  function enemy:start_shadow(sprite_name, animation_set_id)
 
     if not shadow then
       local enemy_x, enemy_y, enemy_layer = enemy:get_position()
@@ -374,6 +351,9 @@ function common_actions.learn(enemy)
         height = 16,
         sprite = sprite_name or "entities/shadows/shadow"
       })
+      if animation_set_id then
+        shadow:get_sprite():set_animation(animation_set_id)
+      end
       shadow:set_traversable_by(true)
       function shadow:on_update()
         shadow:set_position(enemy:get_position())
@@ -390,6 +370,24 @@ function common_actions.learn(enemy)
       enemy:register_event("on_disabled", function(enemy)
         shadow:set_enabled(false)
       end)
+    end
+    return shadow
+  end
+
+  -- Steal an item and drop it when died, possibly conditionned on the variant and the assignation to a slot.
+  function enemy:steal_item(item_name, variant, only_if_assigned)
+
+    if game:has_item(item_name) then
+      local item = game:get_item(item_name)
+      local item_slot = (game:get_item_assigned(1) == item and 1) or (game:get_item_assigned(2) == item and 2) or nil
+
+      if (not variant or item:get_variant() == variant) and (not only_if_assigned or item_slot) then     
+        enemy:set_treasure(item_name, item:get_variant()) -- TODO savegame variable
+        item:set_variant(0)
+        if item_slot then
+          game:set_item_assigned(item_slot, nil)
+        end
+      end
     end
   end
 end

@@ -15,6 +15,11 @@ local new_particle_timer = nil
 local laser_particle_gap_delay = 50
 local particle_speed = 400
 
+-- Create an impact effect on hit.
+function enemy:on_hit()
+  enemy:start_brief_effect("entities/effects/impact_projectile", "default")
+end
+
 -- Stop scheduling particle.
 function enemy:stop_scheduling_particle()
 

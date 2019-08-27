@@ -20,10 +20,9 @@ local debug_start_x, debug_start_y
 local debug_max_height = 0
 
 local audio_manager=require("scripts/audio_manager")
+
 function jm.reset_collision_rules(state)
---  print "RESET"
   if state and (state:get_description() == "jumping_sword" or state:get_description() == "running") then
---    print "restoring jumping state collision rules"
     state:set_affected_by_ground("hole", true)
     state:set_affected_by_ground("lava", true)
     state:set_affected_by_ground("deep_water", true)
@@ -32,16 +31,14 @@ function jm.reset_collision_rules(state)
     state:set_can_use_teletransporter(true)
     state:set_can_use_switch(true)
     state:set_can_use_stream(true)
+    state:set_can_be_hurt(true)
   end
 end
 
 function jm.setup_collision_rules(state)
---  local d = state and state:get_description() or "<none>"
---  print ("SET collision for ".. d)
 -- TODO find a way to get rid of hardcoded state filter for more flexibility
 
   if state and (state:get_description() == "jumping" or state:get_description() =="jumping_sword" or state:get_description() == "running") then
---    print "setting up jumping state collision rules"
     state:set_affected_by_ground("hole", false)
     state:set_affected_by_ground("lava", false)
     state:set_affected_by_ground("deep_water", false)
@@ -50,6 +47,23 @@ function jm.setup_collision_rules(state)
     state:set_can_use_teletransporter(false)
     state:set_can_use_switch(false)
     state:set_can_use_stream(false)
+    state:set_can_be_hurt(false)
+  end
+end
+
+-- Check if an enemy sensible to jump is overlapping the hero, then hurt it and bounce.
+local function on_bounce_possible(entity)
+
+  local map = entity:get_map()
+  local hero = map:get_hero()
+  for enemy in map:get_entities_by_type("enemy") do
+    if hero:overlaps(enemy, "overlapping") and enemy:get_life() > 0 and not enemy:is_immobilized() then
+      local reaction = enemy:get_jump_on_reaction()
+      if reaction ~= "ignored" then
+        enemy:receive_attack_consequence("jump_on", reaction)
+        entity.y_vel = 0 - math.abs(entity.y_vel)
+      end
+    end
   end
 end
 
@@ -67,6 +81,11 @@ function jm.update_jump(entity)
   debug_max_height=math.min(debug_max_height, entity.y_offset)
 
   entity.y_vel = entity.y_vel + gravity
+
+  -- Bounce on a possible enemy that can be hurt with jump.
+  if entity.y_vel > 0 and entity.y_offset > -8 then
+    on_bounce_possible(entity)
+  end
 
   if entity.y_offset >=0 then --reset sprites offset and stop jumping
     for name, sprite in entity:get_sprites() do
@@ -86,23 +105,17 @@ function jm.update_jump(entity)
 end
 
 function jm.start(entity)
-  --print (entity:get_type())
+
   if not entity:is_jumping() then
     audio_manager:play_sound("hero/jump")
     debug_start_x, debug_start_y=entity:get_position()
-    --   print "TOPVIEW JUMP"
     entity:set_jumping(true)
     jm.setup_collision_rules(entity:get_state_object())
---    print "JUMP"
     entity.y_vel = -max_yvel
     
     local t=sol.timer.start(entity, 10, function()
-        local r=jm.update_jump(entity)
-        if not r then
-          return false
-        end
-        return true
-      end)
+      return jm.update_jump(entity)
+    end)
     t:set_suspended_with_map(false)
   end
 end

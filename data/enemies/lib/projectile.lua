@@ -27,16 +27,14 @@ function behavior.apply(enemy, sprite)
 
   local default_speed = 192
 
-  -- Behavior on hit something.
+  -- Call the on_hit() callback or remove the entity if not set on hit.
   function enemy:hit_behavior()
 
-    -- Create an impact effect.
-    enemy:start_brief_effect("entities/effects/impact_projectile", "default")
-
-    -- Call the on_hit() callback or remove the entity if not set on hit.
+    local handled = false
     if enemy.on_hit then
-      enemy:on_hit()
-    else
+      handled = enemy:on_hit()
+    end
+    if not handled then
       enemy:remove()
     end
   end
@@ -53,28 +51,28 @@ function behavior.apply(enemy, sprite)
     movement:set_angle(angle or enemy:get_angle(hero))
     movement:set_speed(speed or default_speed)
     movement:set_smooth(false)
+    movement:start(enemy)
+    sprite:set_direction(movement:get_direction4())
 
     function movement:on_obstacle_reached()
       enemy:hit_behavior()
     end
-
-    movement:start(enemy)
   end
 
   -- Destroy the enemy when the hero is touched. 
   -- TODO adapt and move in the shield script for all enemy.
-  function enemy:on_attacking_hero(hero, enemy_sprite)
+  enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
     -- Don't hurt if the shield is protecting.
     if not hero:is_shield_protecting_from_enemy(enemy, enemy_sprite) or not game:has_item("shield") or game:get_item("shield"):get_variant() < enemy:get_minimum_shield_needed() then
       hero:start_hurt(enemy, enemy_sprite, enemy:get_damage())
     end
     enemy:hit_behavior()
-  end
+  end)
 
   -- Destroy the enemy if needed when touching the shield.
-  function enemy:on_shield_collision(shield)
+  enemy:register_event("on_shield_collision", function(enemy, shield)
     enemy:hit_behavior()
-  end
+  end)
 end
 
 return behavior

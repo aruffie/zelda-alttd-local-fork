@@ -6,6 +6,11 @@ local projectile_behavior = require("enemies/lib/projectile")
 -- Global variables
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 
+-- Create an impact effect on hit.
+function enemy:on_hit()
+  enemy:start_brief_effect("entities/effects/impact_projectile", "default")
+end
+
 -- Initialization.
 function enemy:on_created()
 

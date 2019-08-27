@@ -25,11 +25,6 @@ local alignement_thickness = 16
 local walking_pause_duration = 500
 local is_exhausted_duration = 500
 
--- Get the closest angle between 0, pi/2, pi and 3pi/2.
-local function get_closest_cardinal_angle(angle)
-  return ((angle + eighth) - ((angle + eighth) % quarter)) % (math.pi * 2.0)
-end
-
 -- Start the enemy movement.
 function enemy:start_walking()
 
@@ -51,7 +46,7 @@ function enemy:start_charging()
   local movement = sol.movement.create("straight")
   movement:set_speed(charging_speed)
   movement:set_max_distance(charging_max_distance)
-  movement:set_angle(get_closest_cardinal_angle(enemy:get_angle(hero)))
+  movement:set_angle(enemy:get_direction4_to(hero) * quarter)
   movement:set_smooth(false)
   movement:start(enemy)
   sprite:set_direction(movement:get_direction4())

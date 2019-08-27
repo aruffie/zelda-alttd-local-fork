@@ -78,9 +78,9 @@ end)
 
 -- Start walking again when the attack finished.
 function enemy:on_jump_finished()
-  enemy:restart()
 
   -- Throw a bone club at the hero after a delay if the enemy is still alive.
+  enemy:restart()
   sol.timer.start(enemy, throwing_bone_delay, function()
     
     if enemy:get_life() > 0 then
@@ -100,7 +100,7 @@ end
 function enemy:on_created()
 
   enemy:set_life(3)
-  enemy:add_shadow()
+  enemy:start_shadow()
 end
 
 -- Restart settings.
