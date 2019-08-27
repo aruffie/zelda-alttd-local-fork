@@ -148,6 +148,9 @@ fire:add_collision_test("sprite", function(fire, entity)
       fire:remove()
       return
     end
+    if reaction == "ignored" then
+      return
+    end
 
     -- Freeze the enemy and push it back.
     sol.timer.stop_all(enemy)
@@ -162,6 +165,14 @@ fire:add_collision_test("sprite", function(fire, entity)
     movement:set_smooth(false)
     movement:start(enemy)
 
+    -- Avoid enemy to restart before hurt.
+    function movement:on_finished()
+      enemy:stop_movement()
+    end
+    function movement:on_obstacle_reached()
+      enemy:stop_movement()
+    end
+
     -- Remove the projectile and make the enemy burn.
     fire:extinguish()
     local enemy_sprite = enemy:get_sprite()
@@ -175,14 +186,12 @@ fire:add_collision_test("sprite", function(fire, entity)
     end
     audio_manager:play_sound("items/sword_slash4") -- TODO
     
-    -- Then call the enemy:receive_attack_consequence after a delay.
+    -- Then hurt after a delay.
     sol.timer.start(sol.main, 1000, function()
       if enemy then
-        enemy:restart() -- Restore damage settings before calling receive_attack_consequence().
-        if reaction ~= "ignored" then
-          enemy:set_pushed_back_when_hurt(false) -- Avoid pushing back again.
-          enemy:receive_attack_consequence("fire", reaction)
-        end
+        enemy:restart() -- Restore damage settings.
+        enemy:set_pushed_back_when_hurt(false) -- Avoid pushing back again.
+        enemy:receive_attack_consequence("fire", reaction)
       end
     end)
   end

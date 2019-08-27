@@ -83,7 +83,7 @@ end)
 enemy:register_event("on_created", function(enemy)
   zol_behavior.apply(enemy, {sprite = sprite}) 
   enemy:set_life(1)
-  shadow = enemy:add_shadow()
+  shadow = enemy:start_shadow()
 end)
 
 -- Restart settings.

@@ -203,7 +203,7 @@ end)
 enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(4)
-  enemy:add_shadow()
+  enemy:start_shadow()
 end)
 
 -- Restart settings.

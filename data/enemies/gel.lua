@@ -85,7 +85,7 @@ end)
 enemy:register_event("on_created", function(enemy)
   zol_behavior.apply(enemy, {sprite = sprite, walking_speed = 2})
   enemy:set_life(1)
-  enemy:add_shadow(nil, "small")
+  enemy:start_shadow(nil, "small")
 end)
 
 -- Restart settings.

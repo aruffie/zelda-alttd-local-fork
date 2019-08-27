@@ -192,7 +192,6 @@ sprite{ id = "enemies/anti_kirby/anti_kirby_link", description = "Anti Kirby Lin
 sprite{ id = "enemies/anti_kirby/aspiration", description = "Anti Kirby Aspiration" }
 sprite{ id = "enemies/arm_mimic", description = "Arm mimic" }
 sprite{ id = "enemies/armos", description = "Armos" }
-sprite{ id = "enemies/arrow", description = "Arrow" }
 sprite{ id = "enemies/ballchain_soldier", description = "Ballchain Soldier" }
 sprite{ id = "enemies/ballchain_soldier/ball", description = "Ballchain Soldier Ball" }
 sprite{ id = "enemies/ballchain_soldier/chain", description = "Ballchain Soldier Chain" }
@@ -321,6 +320,7 @@ sprite{ id = "enemies/pokey/3", description = "Pokey 3" }
 sprite{ id = "enemies/pokey/ball", description = "pokey Ball" }
 sprite{ id = "enemies/pokey/head", description = "Pokey Head" }
 sprite{ id = "enemies/pols_voice", description = "Pols voice" }
+sprite{ id = "enemies/projectiles/arrow", description = "Arrow" }
 sprite{ id = "enemies/projectiles/bat", description = "Bat" }
 sprite{ id = "enemies/projectiles/beam", description = "Beam" }
 sprite{ id = "enemies/projectiles/bone", description = "Bone" }
@@ -1217,7 +1217,6 @@ item{ id = "zol_green", description = "Zol green" }
 enemy{ id = "anti_kirby", description = "Anti-kirby" }
 enemy{ id = "arm_mimic", description = "Arm Mimic" }
 enemy{ id = "armos", description = "Armos" }
-enemy{ id = "arrow", description = "Arrow" }
 enemy{ id = "ballchain_soldier", description = "Ballchain Soldier" }
 enemy{ id = "beamos", description = "Beamos" }
 enemy{ id = "beetle_blue", description = "Beetle Blue" }
@@ -1300,7 +1299,7 @@ enemy{ id = "maskass", description = "Maskass" }
 enemy{ id = "mini_moldorm", description = "Mini Moldorm" }
 enemy{ id = "moblin_dog_spear", description = "Moblin Dog Spear" }
 enemy{ id = "moblin_dog_sword", description = "Moblin Dog Sword" }
-enemy{ id = "moblin_pig_spear", description = "Moblin" }
+enemy{ id = "moblin_pig_spear", description = "Moblin Pig Spear" }
 enemy{ id = "moblin_pig_sword", description = "Moblin Pig Sword" }
 enemy{ id = "monkey", description = "Monkey" }
 enemy{ id = "octorok", description = "Octorok" }
@@ -1319,6 +1318,7 @@ enemy{ id = "piranha_plant", description = "Piranha Plant" }
 enemy{ id = "podobo", description = "Podobo" }
 enemy{ id = "pokey", description = "Pokey" }
 enemy{ id = "pols_voice", description = "Pols Voice" }
+enemy{ id = "projectiles/arrow", description = "Arrow" }
 enemy{ id = "projectiles/bat", description = "Bat" }
 enemy{ id = "projectiles/beam", description = "Beam" }
 enemy{ id = "projectiles/bone", description = "Bone" }
@@ -1419,7 +1419,6 @@ shader{ id = "water_effect", description = "water_effect" }
 file{ path = "enemies", license = "GPL v3" }
 file{ path = "enemies/arm_mimic.lua", license = "GPL v3" }
 file{ path = "enemies/armos.lua", license = "GPL v3" }
-file{ path = "enemies/arrow.lua", license = "GPL v3" }
 file{ path = "enemies/beamos.lua", license = "GPL v3" }
 file{ path = "enemies/beetle_blue.lua", license = "GPL v3" }
 file{ path = "enemies/beetle_green.lua", license = "GPL v3" }
@@ -1517,6 +1516,7 @@ file{ path = "enemies/piranha.lua", license = "GPL v3" }
 file{ path = "enemies/piranha_plant.lua", license = "GPL v3" }
 file{ path = "enemies/podobo.lua", license = "GPL v3" }
 file{ path = "enemies/pols_voice.lua", license = "GPL v3" }
+file{ path = "enemies/projectiles/arrow.lua", license = "GPL v3" }
 file{ path = "enemies/raven.lua", license = "GPL v3" }
 file{ path = "enemies/rope.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "enemies/sand_crab.lua", license = "GPL v3" }
@@ -2418,7 +2418,6 @@ file{ path = "sprites/debug", author = "PhoenixII54", license = "CC-BY-SA 4.0" }
 file{ path = "sprites/enemies/anti_kirby.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/arm_mimic.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/armos.png", license = "Proprietary, Fair use" }
-file{ path = "sprites/enemies/arrow.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/ballchain_soldier.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/beamos.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/beetle.png", license = "Proprietary, Fair use" }

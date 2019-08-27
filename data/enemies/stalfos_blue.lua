@@ -76,7 +76,7 @@ end
 function enemy:on_created()
 
   enemy:set_life(3)
-  enemy:add_shadow()
+  enemy:start_shadow()
 end
 
 -- Restart settings.
