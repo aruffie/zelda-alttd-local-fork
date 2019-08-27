@@ -6,6 +6,8 @@ local enemy = ...
 local map = enemy:get_map()
 local angry = false
 local num_times_hurt = 0
+local sprite
+local walking_timer
 
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
@@ -19,19 +21,22 @@ function enemy:on_created()
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)
   enemy:set_hurt_style("monster")
+  sprite = enemy:get_sprite()
   
 end
 
 function enemy:on_movement_changed(movement)
 
   local direction4 = movement:get_direction4()
-  local sprite = self:get_sprite()
   sprite:set_direction(direction4)
   
 end
 
 function enemy:on_obstacle_reached(movement)
 
+  if walking_timer then
+    walking_timer:stop()
+  end
   if not angry then
     enemy:go_random()
   else
@@ -58,27 +63,34 @@ function enemy:on_restarted()
   
 end
 
+function enemy:launch_feeding()
+  
+  local movement = enemy:get_movement()
+  if movement then
+    movement:stop()
+  end
+  sprite:set_animation("feeding")
+  sol.timer.start(enemy, 1000, function()
+    if not angry then
+      enemy:go_random()
+    end
+  end)
+  
+end
+
 function enemy:go_random()
 
+  enemy:set_can_attack(false)
   angry = false
-  local rand = math.random(100)
-  if rand < 90 then
-    enemy:get_sprite():set_animation("walking")
-    local movement = sol.movement.create("random")
-    movement:set_speed(32)
-    movement:start(enemy)
-    enemy:set_can_attack(false)
-  else
-    local movement = enemy:get_movement()
-    if movement then
-      movement:stop()
+  sprite:set_animation("walking")
+  local movement = sol.movement.create("random")
+  movement:set_speed(32)
+  movement:start(enemy)
+  sol.timer.start(enemy, 5000, function()
+    if not angry then
+      enemy:launch_feeding()
     end
-    enemy:set_can_attack(false)
-    enemy:get_sprite():set_animation("feeding")
-    sol.timer.start(enemy, 1000, function()
-      enemy:go_random()
-    end)
-  end
+  end)
   
 end
 
@@ -90,7 +102,7 @@ function enemy:go_angry()
   local movement = sol.movement.create("target")
   movement:set_speed(96)
   movement:start(enemy)
-  enemy:get_sprite():set_animation("angry")
+  sprite:set_animation("angry")
   enemy:set_can_attack(true)
   
 end
