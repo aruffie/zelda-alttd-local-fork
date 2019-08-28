@@ -87,8 +87,7 @@ end
 function enemy:on_restarted()
 
   angle = enemy:get_angle(hero)
-  enemy:set_damage(0)
-  enemy:set_can_attack(false)
+  enemy:set_damage(2)
   enemy:set_obstacle_behavior("flying")
   enemy:set_can_hurt_hero_running(true)
   enemy:set_minimum_shield_needed(2)
