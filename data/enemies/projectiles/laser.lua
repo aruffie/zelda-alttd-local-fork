@@ -1,83 +1,102 @@
 -- Laser projectile, mainly used by the Beamos enemy.
 
-local enemy = ...
-local projectile_behavior = require("enemies/lib/projectile")
-
 -- Global variables
+local enemy = ...
+common_actions = require("enemies/lib/common_actions").learn(enemy)
+
 local map = enemy:get_map()
 local hero = map:get_hero()
-
-local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
-local child_particle = nil
-local new_particle_timer = nil
+local angle, max_distance
+local is_in_progress = true
+local has_hit = false
 
 -- Configuration variables
-local laser_particle_gap_delay = 50
-local particle_speed = 400
+local particle_interval = 10
+local particle_speed = 500
+local firing_duration = 200
 
 -- Create an impact effect on hit.
-function enemy:on_hit()
+function enemy:on_hit(sprite)
 
   local offset_x, offset_y = sprite:get_xy()
   enemy:start_brief_effect("entities/effects/impact_projectile", "default", offset_x, offset_y)
 end
 
--- Stop scheduling particle.
-function enemy:stop_scheduling_particle()
+-- Create a new particle sprite to the enemy.
+function enemy:create_particle()
+ 
+  local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+  sprite:set_animation("default")
 
-  if new_particle_timer then
-    new_particle_timer:stop()
-    new_particle_timer = nil
-  end
-  if child_particle then
-    child_particle:stop_scheduling_particle()
-    child_particle = nil -- Avoid to go up the chain again.
+  local movement = sol.movement.create("straight")
+  movement:set_angle(angle)
+  movement:set_speed(particle_speed)
+  movement:set_smooth(false)
+  movement:start(sprite)
+
+  function movement:on_position_changed()
+    if sprite:get_movement() then -- Workaround: The event seems to be called again even if the movement is stopped and sprite already removed, ensure not to.
+      local offset_x, offset_y = movement:get_xy()
+      if enemy:test_obstacles(offset_x, offset_y) then
+        movement:stop()
+        enemy:remove_particle(sprite)
+      end
+    end
   end
 end
 
 -- Schedule the next laser particle.
 function enemy:schedule_next_particle()
 
-  local x, y, layer = enemy:get_position()
-  local angle = enemy:get_angle(hero)
-
-  new_particle_timer = sol.timer.start(enemy, laser_particle_gap_delay, function()
-    new_particle_timer = nil
-    local movement = enemy:get_movement()
-    child_particle = map:create_enemy({
-      breed = enemy:get_breed(),
-      x = x,
-      y = y,
-      layer = layer,
-      direction = enemy:get_direction4_to(hero)
-    })
-    child_particle:go(movement:get_angle(), movement:get_speed())
+  sol.timer.start(enemy, particle_interval, function()
+    if is_in_progress then
+      enemy:create_particle()
+      return particle_interval
+    end
   end)
 end
 
--- Go up all entities to tell the last one to not generate new particle anymore when one particle is removed.
-enemy:register_event("on_removed", function(enemy)
-  enemy:stop_scheduling_particle()
-end)
+-- Remove a particle and stop creating new ones.
+function enemy:remove_particle(sprite)
+
+  if not has_hit then
+    has_hit = true
+    enemy:on_hit(sprite)
+  end
+  enemy:remove_sprite(sprite)
+
+  -- Remove the enemy if no more particle.
+  has_sprite = false
+  for _, _ in enemy:get_sprites() do
+    has_sprite = true
+    break
+  end
+  if not has_sprite then
+    enemy:remove()
+  end
+end
 
 -- Initialization.
 function enemy:on_created()
-
-  projectile_behavior.apply(enemy, sprite)
   enemy:set_life(1)
+  enemy:set_size(4, 4)
+  enemy:set_origin(2, 2)
 end
 
 -- Restart settings.
 function enemy:on_restarted()
 
+  angle = enemy:get_angle(hero)
   enemy:set_damage(2)
   enemy:set_obstacle_behavior("flying")
   enemy:set_can_hurt_hero_running(true)
   enemy:set_minimum_shield_needed(2)
   enemy:set_invincible(true)
-  enemy:set_default_speed(particle_speed)
-  enemy:go()
+
+  -- Schedule the first particle and start the firing timer.
   enemy:schedule_next_particle()
-  sprite:set_animation("walking")
+  sol.timer.start(enemy, firing_duration, function()
+    is_in_progress = false
+  end)
 end
 
