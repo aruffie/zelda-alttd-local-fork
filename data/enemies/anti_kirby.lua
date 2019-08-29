@@ -18,7 +18,7 @@ local eighth = math.pi * 0.25
 local suction_damage = 2
 local contact_damage = 4
 
-local walking_possible_angle = {eighth, 3.0 * eighth, 5.0 * eighth, 7.0 * eighth}
+local walking_possible_angles = {eighth, 3.0 * eighth, 5.0 * eighth, 7.0 * eighth}
 local attack_triggering_distance = 100
 local aspirating_pixel_by_second = 88
 local flying_height = 8
@@ -46,10 +46,10 @@ function enemy:get_direction2()
   return 1
 end
 
--- Start a random diagonal straight movement of a fixed distance and speed, and loop it with delay.
+-- Start the enemy movement.
 function enemy:start_walking()
 
-  enemy:start_random_walking(walking_possible_angle, walking_speed, walking_distance, function()
+  enemy:start_straight_walking(walking_possible_angles[math.random(4)], walking_speed, walking_distance, function()
 
     -- Start aspirate if the hero is near enough, continue walking else.
     if enemy:is_near(hero, attack_triggering_distance) then
@@ -105,6 +105,7 @@ function enemy:spit_hero(restart)
     -- Change the enemy sprite
     enemy:remove_sprite(sprite)
     sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/anti_kirby_link")
+    enemy:start_brief_effect("entities/effects/sparkle_small", "default", 0, 0)
 
     if restart then
       enemy:restart()
@@ -179,14 +180,14 @@ end
 -- Passive behaviors needing constant checking.
 function enemy:on_update()
 
-  -- Make the sprite jump if the enemy is not attacking and not immobilized.
-  if enemy.is_jumping and not enemy:is_immobilized() then
-    sprite:set_xy(0, -math.abs(math.sin(sol.main.get_elapsed_time() * 0.01) * 4.0))
-  end
+  if not enemy:is_immobilized() then
+    -- Make the sprite jump if the enemy is not attacking and not immobilized.
+    if enemy.is_jumping then
+      sprite:set_xy(0, -math.abs(math.sin(sol.main.get_elapsed_time() * 0.01) * 4.0))
+    end
 
-  -- If the hero touches the center of the enemy while aspiring, eat him.
-  if enemy.is_aspiring then
-    if enemy:overlaps(hero, "origin") then
+    -- If the hero touches the center of the enemy while aspiring, eat him.
+    if enemy.is_aspiring and enemy:overlaps(hero, "origin") then
       enemy:eat_hero()
       enemy:stop_attracting()
     end
@@ -202,7 +203,7 @@ end)
 enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(4)
-  enemy:add_shadow()
+  enemy:start_shadow()
 end)
 
 -- Restart settings.

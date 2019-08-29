@@ -31,7 +31,7 @@ function enemy:start_firing()
   sprite:set_paused()
 
   -- Save the hero position at this point to use it as the target of the laser.
-  local firing_target_x, firing_target_y, firing_target_layer = hero:get_position()
+  local target_x, target_y, _ = hero:get_position()
 
   -- Start the laser after some time.
   sol.timer.start(enemy, start_shooting_delay, function()
@@ -69,7 +69,7 @@ function sprite:on_frame_changed(animation, frame)
     local enemy_angle = frame * angle_per_frame - math.pi * 0.5 -- Frame 0 of the sprite faces the south.
     local hero_angle = math.atan2(y - hero_y, hero_x - x)
 
-    if (math.abs(enemy_angle - hero_angle) + math.pi * 2.0) % (math.pi * 2.0) <= triggering_angle then
+    if math.abs(enemy_angle - hero_angle) % (math.pi * 2.0) <= triggering_angle then
       enemy:start_firing()
     end
   end

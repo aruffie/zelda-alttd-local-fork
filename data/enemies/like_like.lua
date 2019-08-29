@@ -12,18 +12,17 @@ local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
 
 -- Configuration variables
-local walking_possible_angle = {0, quarter, 2.0 * quarter, 3.0 * quarter}
+local walking_possible_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
 local walking_speed = 32
 local walking_distance_grid = 16
 local walking_max_move_by_step = 6
 local walking_pause_duration = 1500
-
 local is_exhausted_duration = 500
 
--- Start a random straight movement of a random distance vertically or horizontally, and loop it without delay.
+-- Start the enemy movement.
 function enemy:start_walking()
 
-  enemy:start_random_walking(walking_possible_angle, walking_speed, walking_distance_grid * math.random(walking_max_move_by_step), function()
+  enemy:start_straight_walking(walking_possible_angles[math.random(4)], walking_speed, walking_distance_grid * math.random(walking_max_move_by_step), function()
     enemy:start_walking()
   end)
 end
@@ -62,6 +61,7 @@ game:register_event("on_command_pressed", function(game, command)
 end)
 
 -- Make the enemy eat the hero
+-- TODO Make a custom state instead of handling hero in enemy script.
 function enemy:eat_hero()
 
   enemy.is_eating = true
@@ -82,13 +82,14 @@ end
 -- Passive behaviors needing constant checking.
 function enemy:on_update()
 
-  -- If the enemy is eating, make the hero stuck at the same position even if external things may hurt or interfere.
-  if enemy.is_eating then
-    hero:set_position(enemy:get_position())
+  if not enemy:is_immobilized() then
+    -- If the enemy is eating, make the hero stuck at the same position even if external things may hurt or interfere.
+    if enemy.is_eating then
+      hero:set_position(enemy:get_position())
+    end
 
-  -- If the hero touches the enemy while he is walking normally, eat him.
-  elseif not enemy.is_exhausted then
-    if hero:overlaps(enemy, "origin") then
+    -- If the hero touches the enemy while he is walking normally, eat him.
+    if not enemy.is_eating and not enemy.is_exhausted and hero:overlaps(enemy, "origin") then
       enemy.is_eating = false
       enemy:eat_hero()
     end

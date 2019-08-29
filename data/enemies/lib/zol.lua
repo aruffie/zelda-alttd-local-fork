@@ -5,7 +5,8 @@
 -- Usage : 
 -- local my_enemy = ...
 -- local behavior = require("enemies/lib/zol")
--- behavior.apply(my_enemy)
+-- local properties = {}
+-- behavior.apply(my_enemy, properties)
 --
 ----------------------------------
 
@@ -30,10 +31,6 @@ function behavior.apply(enemy, properties)
   local shaking_duration = properties.shaking_duration or 1000
   local exhausted_duration = properties.exhausted_duration or 2000
   local exhausted_maximum_extra_duration = properties.exhausted_maximum_extra_duration or 2000
-
-  -- Initialization
-  enemy:set_life(1)
-  enemy:add_shadow()
 
   -- Start moving to the hero, and jump when he is close enough.
   function enemy:start_walking()

@@ -62,10 +62,12 @@ end
 -- Passive behaviors needing constant checking.
 function enemy:on_update()
 
-  -- If the hero touches the center of the enemy, slow him down.
-  if enemy.can_slow_hero_down and enemy:get_life() > 0 and enemy:overlaps(hero, "origin") then
-    enemy.can_slow_hero_down = false
-    enemy:slow_hero_down()
+  if not enemy:is_immobilized() then
+    -- If the hero touches the center of the enemy, slow him down.
+    if enemy.can_slow_hero_down and enemy:get_life() > 0 and enemy:overlaps(hero, "origin") then
+      enemy.can_slow_hero_down = false
+      enemy:slow_hero_down()
+    end
   end
 end
 
@@ -82,6 +84,8 @@ end)
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
   zol_behavior.apply(enemy, {sprite = sprite, walking_speed = 2})
+  enemy:set_life(1)
+  enemy:start_shadow(nil, "small")
 end)
 
 -- Restart settings.

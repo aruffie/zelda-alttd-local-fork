@@ -4,20 +4,20 @@
 -- There is no passive behavior without an explicit start when learning this to an enemy.
 --
 -- Methods : enemy:is_near(entity, triggering_distance)
+--           enemy:is_aligned(entity, thickness)
 --           enemy:is_leashed_by(entity)
---           enemy:get_shadow()
---           enemy:start_random_walking(possible_angles, speed, distance, on_finished_callback)
+--           enemy:start_straight_walking(angle, speed, [distance, [on_finished_callback]])
 --           enemy:start_target_walking(entity, speed)
---           enemy:start_jumping(duration, height, invincible, harmless)
---           enemy:start_flying(take_off_duration, height, invincible, harmless)
+--           enemy:start_jumping(duration, height, [invincible, [harmless]])
+--           enemy:start_flying(take_off_duration, height, [invincible, [harmless]])
 --           enemy:stop_flying(landing_duration)
---           enemy:start_attracting(entity, pixel_by_second, moving_condition_callback)
+--           enemy:start_attracting(entity, pixel_by_second, [moving_condition_callback])
 --           enemy:stop_attracting()
 --           enemy:start_leashed_by(entity, maximum_distance)
 --           enemy:stop_leashed_by(entity)
---           enemy:start_brief_effect(sprite_name, animation_set_id, x_offset, y_offset)
---           enemy:steal_item(item_name, variant, only_if_assigned)
---           enemy:add_shadow(sprite_name)
+--           enemy:start_brief_effect(sprite_name, [animation_set_id, [x_offset, [y_offset, [maximum_duration]]]])
+--           enemy:start_shadow([sprite_name, [animation_set_id]])
+--           enemy:steal_item(item_name, [variant, [only_if_assigned]])
 -- Events:   enemy:on_jump_finished()
 --           enemy:on_flying_took_off()
 --           enemy:on_flying_landed()
@@ -47,7 +47,16 @@ function common_actions.learn(enemy)
 
     local _, _, layer = enemy:get_position()
     local _, _, entity_layer = entity:get_position()
-    return (layer == entity_layer or enemy:has_layer_independent_collisions()) and enemy:get_distance(entity) < triggering_distance
+    return enemy:get_distance(entity) < triggering_distance and (layer == entity_layer or enemy:has_layer_independent_collisions())
+  end
+
+  -- Return true if the entity is on the same row or column than the entity.
+  function enemy:is_aligned(entity, thickness)
+
+    local half_thickness = thickness * 0.5
+    local x, y, layer = enemy:get_position()
+    local entity_x, entity_y, entity_layer = entity:get_position()
+    return (math.abs(entity_x - x) < half_thickness or math.abs(entity_y - y) < half_thickness) and layer == entity_layer
   end
 
   -- Return true if the enemy is currently leashed by the entity.
@@ -55,19 +64,13 @@ function common_actions.learn(enemy)
     return leashing_timers[entity] ~= nil
   end
 
-  -- Return the current shadow entity
-  function enemy:get_shadow()
-    return shadow
-  end
+  -- Make the enemy straight move.
+  function enemy:start_straight_walking(angle, speed, distance, on_finished_callback)
 
-  -- Make the enemy straight move randomly over one of the given angle.
-  function enemy:start_random_walking(possible_angles, speed, distance, on_finished_callback)
-
-    local direction = math.random(#possible_angles)
     local movement = sol.movement.create("straight")
     movement:set_speed(speed)
-    movement:set_max_distance(distance)
-    movement:set_angle(possible_angles[direction])
+    movement:set_max_distance(distance or 0)
+    movement:set_angle(angle)
     movement:set_smooth(true)
     movement:start(self)
 
@@ -307,8 +310,8 @@ function common_actions.learn(enemy)
     end
   end
 
-  -- Start a standalone sprite animation on the enemy position, that will be remove once finished.
-  function enemy:start_brief_effect(sprite_name, animation_set_id, x_offset, y_offset)
+  -- Start a standalone sprite animation on the enemy position, that will be removed once finished or maximum_duration reached if given.
+  function enemy:start_brief_effect(sprite_name, animation_set_id, x_offset, y_offset, maximum_duration)
 
     local x, y, layer = enemy:get_position()
     local entity = map:create_custom_entity({
@@ -320,31 +323,21 @@ function common_actions.learn(enemy)
         height = 32,
         direction = 0
     })
+
+    -- Remove the entity once animation finished or max_duration reached.
     local sprite = entity:get_sprite()
     sprite:set_animation(animation_set_id, function()
       entity:remove()
     end)
-  end
-
-  -- Steal an item and drop it when died, possibly conditionned on the variant and the assignation to a slot.
-  function enemy:steal_item(item_name, variant, only_if_assigned)
-
-    if game:has_item(item_name) then
-      local item = game:get_item(item_name)
-      local item_slot = (game:get_item_assigned(1) == item and 1) or (game:get_item_assigned(2) == item and 2) or nil
-
-      if (not variant or item:get_variant() == variant) and (not only_if_assigned or item_slot) then     
-        enemy:set_treasure(item_name, item:get_variant()) -- TODO savegame variable
-        item:set_variant(0)
-        if item_slot then
-          game:set_item_assigned(item_slot, nil)
-        end
-      end
+    if maximum_duration then
+      sol.timer.start(entity, maximum_duration, function()
+        entity:remove()
+      end)
     end
   end
 
   -- Add a shadow below the enemy.
-  function enemy:add_shadow(sprite_name)
+  function enemy:start_shadow(sprite_name, animation_set_id)
 
     if not shadow then
       local enemy_x, enemy_y, enemy_layer = enemy:get_position()
@@ -357,6 +350,9 @@ function common_actions.learn(enemy)
         height = 16,
         sprite = sprite_name or "entities/shadows/shadow"
       })
+      if animation_set_id then
+        shadow:get_sprite():set_animation(animation_set_id)
+      end
       shadow:set_traversable_by(true)
       function shadow:on_update()
         shadow:set_position(enemy:get_position())
@@ -373,6 +369,24 @@ function common_actions.learn(enemy)
       enemy:register_event("on_disabled", function(enemy)
         shadow:set_enabled(false)
       end)
+    end
+    return shadow
+  end
+
+  -- Steal an item and drop it when died, possibly conditionned on the variant and the assignation to a slot.
+  function enemy:steal_item(item_name, variant, only_if_assigned)
+
+    if game:has_item(item_name) then
+      local item = game:get_item(item_name)
+      local item_slot = (game:get_item_assigned(1) == item and 1) or (game:get_item_assigned(2) == item and 2) or nil
+
+      if (not variant or item:get_variant() == variant) and (not only_if_assigned or item_slot) then     
+        enemy:set_treasure(item_name, item:get_variant()) -- TODO savegame variable
+        item:set_variant(0)
+        if item_slot then
+          game:set_item_assigned(item_slot, nil)
+        end
+      end
     end
   end
 end

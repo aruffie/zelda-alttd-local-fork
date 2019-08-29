@@ -26,57 +26,82 @@ end
 
 local game_meta = sol.main.get_metatable("game")
 
---This function is automatically called when the item command is pressed. it is similar to item:on_using, without state changing 
+-- This function is called when the item command is triggered. It is similar to item:on_using, without state changing.
 function item:start_using()
+
   local hero = game:get_hero()
   local map = game:get_map()
-  if hero.is_jumping~=true then
+  if not hero:is_jumping() then
     if not map:is_sideview() then
 
-      --in top view maps, we have to account for the terrain, so we need custom states.
+      -- Handle possible jump types differently in top view maps.
       local state = hero:get_state()
+      if state ~= "falling" then 
 
-      --Fun fact : before adding this check, it was possible to glitch through pits by repeatedly jumping while sinking in the hole
-      if state ~="falling" then 
-
-        --Jump with sword pulled out
-        if state == "sword swinging" or state =="sword loading" or state=="custom" and hero:get_state_object():get_description() == "jumping_sword" then 
-          hero:start_flying_attack()
-        elseif state=="custom" and hero:get_state_object():get_description()=="running" then 
-          --Run'n'jump! 
-          --Note : In Diarandor's version, it wound have required three seperate states: one for running,, one for jumping, AND one for run'n'jumping, now we can just use apply the jump effect to the running state. 
-          jm.start(hero)
+        if state == "sword swinging" or state == "sword loading" or state == "custom" and hero:get_state_object():get_description() == "jumping_sword" then 
+          hero:start_flying_attack() -- Offensive jump
+        elseif state == "custom" and hero:get_state_object():get_description() == "running" then 
+          jm.start(hero) -- Running jump
         else
-          hero:jump()
+          hero:jump() -- Normal jump
         end
       end
     else
-      --In side view maps, we don't have to care about the terrain and movement, which is already handled by the sideview manager, so all we have do to is apply a vertical impulsion to the hero.
+      -- Simply apply a vertical impulsion to the hero in sideview maps.
       local vspeed = hero.vspeed or 0
-      if vspeed == 0 or map:get_ground(hero:get_position())=="deep_water" then
---        print "validated, now jump :"
+      if vspeed == 0 or map:get_ground(hero:get_position()) == "deep_water" then
         audio_manager:play_sound("hero/jump")
         sol.timer.start(10, function()
-            hero.on_ladder = false
-            hero.vspeed = -4
-          end)
+          hero.on_ladder = false
+          hero.vspeed = -4
+        end)
       end
     end
   end
 end
 
---Theorically, we cold entierely remove this event, but in the perspective of reusine this item in other projects, it is a perfect tool to check your configuration. 
-function item:on_using()
-  print "this message should never appear. If it does, then check your dependancies"
-
--- Define here what happens when using this item
--- and call item:set_finished() to release the hero when you have finished.
-item:set_finished()
-end
-
-
+-- Play fanfare sound on obtaining.
 function item:on_obtaining()
-
   audio_manager:play_sound("items/fanfare_item_extended")
-
 end
+
+-- Initialize the metatable of appropriate entities to be able to set a reaction on jumped on.
+local function initialize_meta()
+
+  local enemy_meta = sol.main.get_metatable("enemy")
+  if enemy_meta.get_jump_on_reaction then
+    return
+  end
+
+  enemy_meta.jump_on_reaction = "ignored"  -- Nothing happens by default.
+  enemy_meta.jump_on_reaction_sprite = {}
+
+  function enemy_meta:get_jump_on_reaction(sprite)
+    if sprite and self.jump_on_reaction_sprite[sprite] then
+      return self.jump_on_reaction_sprite[sprite]
+    end
+    return self.jump_on_reaction
+  end
+
+  function enemy_meta:set_jump_on_reaction(reaction, sprite)
+    self.jump_on_reaction = reaction
+  end
+
+  function enemy_meta:set_jump_on_reaction_sprite(sprite, reaction)
+    self.jump_on_reaction_sprite[sprite] = reaction
+  end
+
+  -- Change the default enemy:set_invincible() to also
+  -- take into account the feather.
+  local previous_set_invincible = enemy_meta.set_invincible
+  function enemy_meta:set_invincible()
+    previous_set_invincible(self)
+    self:set_jump_on_reaction("ignored")
+  end
+  local previous_set_invincible_sprite = enemy_meta.set_invincible_sprite
+  function enemy_meta:set_invincible_sprite(sprite)
+    previous_set_invincible_sprite(self, sprite)
+    self:set_jump_on_reaction_sprite(sprite, "ignored")
+  end
+end
+initialize_meta()
