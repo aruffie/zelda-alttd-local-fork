@@ -979,7 +979,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 456,
+  x = 472,
   y = 296,
   width = 40,
   height = 8,
@@ -1453,15 +1453,6 @@ tile{
   width = 8,
   height = 8,
   pattern = "14795",
-}
-
-tile{
-  layer = 0,
-  x = 360,
-  y = 232,
-  width = 48,
-  height = 8,
-  pattern = "959",
 }
 
 tile{
@@ -2311,6 +2302,12 @@ custom_entity{
   layer = 0,
   x = 208,
   y = 181,
+  properties = {
+    {
+      key = "dialog",
+      value = "maps.out.martha_bay.mermaid_statue_no_scale",
+    },
+  },
   width = 16,
   height = 16,
   direction = 0,
