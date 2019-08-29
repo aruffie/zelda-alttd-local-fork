@@ -2,6 +2,7 @@
   Lua script of item "pegasus shoes".
   
   This newer version uses plainly the new global command overrides as it depends on not triggering the "item" state
+   Because of that, it must **NEVER** be triggered using the built-in method or else it will never finish and sftlock your game.
   The reason is that it would end any custon jumping state, which do trigger when jumping when running, with pontential bad consequences, such as falling into a pit while mid-air
   
 --]]
@@ -47,11 +48,5 @@ end
 function item:on_obtaining()
 
   audio_manager:play_sound("items/fanfare_item_extended")
-
-end
-
-
-function item:on_using()
-  print "if this message ever displays, then the dev has screwed up his command handling :)"
 
 end

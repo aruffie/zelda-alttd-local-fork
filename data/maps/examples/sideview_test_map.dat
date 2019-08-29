@@ -682,21 +682,6 @@ custom_entity{
 
 npc{
   layer = 0,
-  x = 344,
-  y = 93,
-  properties = {
-    {
-      key = "has_gravity",
-      value = "true",
-    },
-  },
-  direction = 3,
-  subtype = 1,
-  sprite = "npc/villagers/fishman_1",
-}
-
-npc{
-  layer = 0,
   x = 208,
   y = 93,
   properties = {
