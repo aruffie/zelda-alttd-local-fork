@@ -58,7 +58,7 @@ function jm.update_jump(entity)
   entity.y_offset=entity.y_offset or 0
 
   for name, sprite in entity:get_sprites() do
-    if name~="shadow" and name~="custom_shadow" then
+    if name~="shadow" and name~="shadow_override" then
       sprite:set_xy(0, math.min(entity.y_offset, 0)*y_factor)
     end
   end
