@@ -16,6 +16,7 @@ require("scripts/multi_events")
 function behavior.apply(enemy)
 
   require("enemies/lib/common_actions").learn(enemy)
+  require("enemies/lib/weapons").learn(enemy)
     
   local game = enemy:get_game()
   local map = enemy:get_map()
@@ -43,35 +44,15 @@ function behavior.apply(enemy)
 
         -- Throw an arrow if the hero is on the direction the enemy is looking at.
         if enemy:get_direction4_to(hero) == sprite:get_direction() then
-          enemy:throw_spear(function()
+          local x_offset = direction == 1 and 8 or direction == 3 and -8 or 0 -- Adapt the spear projectile offset to moblins sprite.
+          local y_offset = direction % 2 == 0 and -11 or 0
+          enemy:throw_projectile("spear", throwing_animation_duration, true, x_offset, y_offset, function()
             enemy:start_walking(next_direction)
           end)
         else
           enemy:start_walking(next_direction)
         end
       end)
-    end)
-  end
-
-  -- Throw a spear.
-  function enemy:throw_spear(on_finished_callback)
-
-    sprite:set_animation("throwing")
-    sol.timer.start(enemy, throwing_animation_duration, function()
-      local direction = sprite:get_direction()
-      local x, y, layer = enemy:get_position()
-      local spear = map:create_enemy({
-        breed = "projectiles/spear",
-        x = x,
-        y = y,
-        layer = layer,
-        direction = direction
-      })
-      spear:get_sprite():set_xy(direction == 1 and 8 or direction == 3 and -8 or 0, direction % 2 == 0 and -11 or 0) -- Adapt the spear offset to moblins sprite.
-      spear:go(direction * quarter) -- Reset the default move to go horizontally or vertically on the enemy direction.
-      if on_finished_callback then
-        on_finished_callback()
-      end
     end)
   end
 

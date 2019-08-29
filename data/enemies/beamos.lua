@@ -30,9 +30,6 @@ function enemy:start_firing()
   -- Pause the animation.
   sprite:set_paused()
 
-  -- Save the hero position at this point to use it as the target of the laser.
-  local target_x, target_y, _ = hero:get_position()
-
   -- Start the laser after some time.
   sol.timer.start(enemy, start_shooting_delay, function()
 

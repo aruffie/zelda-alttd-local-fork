@@ -15,8 +15,8 @@ local particle_interval = 10
 local particle_speed = 500
 local firing_duration = 200
 
--- Create an impact effect on hit.
-function enemy:on_hit(sprite)
+-- Create an impact effect on a particle position.
+function enemy:start_impact_effect(sprite)
 
   local offset_x, offset_y = sprite:get_xy()
   enemy:start_brief_effect("entities/effects/impact_projectile", "default", offset_x, offset_y)
@@ -60,13 +60,13 @@ end
 function enemy:remove_particle(sprite)
 
   if not has_hit then
-    has_hit = true
-    enemy:on_hit(sprite)
+    has_hit = true 
+    enemy:start_impact_effect(sprite)
   end
   enemy:remove_sprite(sprite)
 
   -- Remove the enemy if no more particle.
-  has_sprite = false
+  local has_sprite = false
   for _, _ in enemy:get_sprites() do
     has_sprite = true
     break
@@ -74,6 +74,13 @@ function enemy:remove_particle(sprite)
   if not has_sprite then
     enemy:remove()
   end
+end
+
+-- Create additional impact effect on hurt hero.
+function enemy:on_attacking_hero(hero, enemy_sprite)
+
+  hero:start_hurt(2)
+  enemy:start_impact_effect(enemy_sprite)
 end
 
 -- Initialization.
@@ -87,7 +94,6 @@ end
 function enemy:on_restarted()
 
   angle = enemy:get_angle(hero)
-  enemy:set_damage(2)
   enemy:set_obstacle_behavior("flying")
   enemy:set_can_hurt_hero_running(true)
   enemy:set_minimum_shield_needed(2)
