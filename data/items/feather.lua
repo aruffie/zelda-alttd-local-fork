@@ -2,7 +2,8 @@
 
   Lua script of item feather.
 
-  This newer version uses plainly the new global command overrides as it depends on not triggering the "item" state
+  This newer version uses plainly the new global command overrides as it depends on not triggering the "item" state.
+  Because of that, it must **NEVER** be triggered using the built-in method or else it will never finish and sftlock your game.
   The reason is that it would end any custon jumping state, with bad consequences, such as falling into a pit while mid-air
   
 --]]

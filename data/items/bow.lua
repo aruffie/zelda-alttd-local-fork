@@ -26,7 +26,7 @@ function item:start_using()
     sol.timer.start(300, function()
         item:remove_amount(1)
       end)
-    print "songle item arrow"
+--    print "songle item arrow"
     item:get_map():get_entity("hero"):start_bow()
   end
 
@@ -35,7 +35,7 @@ end
 function item:start_combo(other)
 
   local map=game:get_map()
-  print ("trying to fire a combined arrow launch (arrows: "..item:get_amount()..", other: "..other:get_amount()..")")
+--  print ("trying to fire a combined arrow launch (arrows: "..item:get_amount()..", other: "..other:get_amount()..")")
   if item:get_amount() == 0 then
 
     if other.start_using then
@@ -57,7 +57,7 @@ function item:start_combo(other)
       --Bomb-arrows!
       --  sol.timer.start(item, 400, function()
       other:remove_amount(1)
-      print "Bomb and arrows!"
+--      print "Bomb and arrows!"
       local hero=game:get_hero()
       local x,y,layer=hero:get_position()
       local direction = hero:get_direction()
@@ -117,7 +117,7 @@ function item:start_combo(other)
       m:set_smooth(false)
       m.on_obstacle_reached=function()
         --TODO find a way to ignore axisting explosions
-        print "BOOM"
+--        print "BOOM"
         --Will it explode on it's own ? no :(
         local x,y,layer=bomb_arrow:get_position()
         audio_manager:play_sound("items/bomb_explode")
