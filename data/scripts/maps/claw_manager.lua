@@ -1,5 +1,4 @@
 local claw_manager = {}
-local claw_step  = 1
 local claw_movement
 local claw_step = nil
 local claw_up_start_x = nil
@@ -14,7 +13,7 @@ function claw_manager:init_map(map)
   local hero = map:get_hero()
   local claw_up = map:get_entity("claw_up")
   local claw_up_sprite = claw_up:get_sprite()
- claw_step = 1
+  claw_step = 1
   claw_up_start_x, claw_up_start_y = claw_up:get_position()
   claw_up_sprite:set_animation("claw_on")
   hero:freeze()
@@ -28,7 +27,7 @@ function claw_manager:init_map(map)
   
 end
 
--- Step 1 - Claw horizontal movement
+-- Step 1 - Claw horizontal movement.
 function claw_manager:launch_step_1(map)
 
   local game = map:get_game()
@@ -64,7 +63,7 @@ function claw_manager:launch_step_1(map)
 
 end
 
--- Step 2 - Claw vertical movement
+-- Step 2 - Claw vertical movement.
 function claw_manager:launch_step_2(map)
 
   local game = map:get_game()
@@ -104,7 +103,7 @@ function claw_manager:launch_step_2(map)
 
 end
 
--- Step 3
+-- Step 3: Move the bottom of the claw downwards.
 function claw_manager:launch_step_3(map)
 
   local game = map:get_game()
@@ -156,7 +155,7 @@ function claw_manager:launch_step_3(map)
   end
 end
 
--- Step 4
+-- Step 4: Grab the pickable.
 function claw_manager:launch_step_4(map)
 
   local game = map:get_game()
@@ -193,7 +192,7 @@ function claw_manager:launch_step_4(map)
 
 end
 
--- Step 5
+-- Step 5: Make the bottom of the claw go back to the upper part.
 function claw_manager:launch_step_5(map)
 
   local game = map:get_game()
@@ -223,7 +222,7 @@ function claw_manager:launch_step_5(map)
 
 end
 
--- Step 6
+-- Step 6: Go back to the initial position.
 function claw_manager:launch_step_6(map)
 
   local game = map:get_game()
@@ -259,7 +258,7 @@ function claw_manager:launch_step_6(map)
 
 end
 
--- Step 7
+-- Step 7: Release the pickable.
 function claw_manager:launch_step_7(map)
 
   local game = map:get_game()

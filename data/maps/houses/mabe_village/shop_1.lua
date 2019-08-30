@@ -49,6 +49,7 @@ end
 -- NPCs events
 function merchant:on_interaction()
 
+  -- TODO Don't make the hero pay again if the mini-game is already started.
   map:talk_to_merchant()
 
 end
@@ -58,6 +59,8 @@ function console:on_interaction()
   if is_game_available then
     is_game_available = false
     claw_manager:init_map(map)
+  else
+    -- TODO: Tell the player to talk to the merchant first
   end
 
 end
