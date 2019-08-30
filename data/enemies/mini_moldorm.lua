@@ -48,7 +48,7 @@ function enemy:start_walking()
 
   -- Regularly and randomly change the angle.
   sol.timer.start(enemy, keeping_angle_maximum_duration, function()
-    if true then
+    if math.random(2) == 1 then
       walking_angle = 0 - walking_angle
     end
     return true
