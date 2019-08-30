@@ -155,7 +155,7 @@ function enemy:stop_aspirate()
 end
 
 -- Event called when the enemy took off while aspiring.
-function enemy:on_flying_took_off()
+enemy:register_event("on_flying_took_off", function(enemy)
 
   -- Wait for a delay and start the landing movement.
   sol.timer.start(enemy, flying_duration, function()
@@ -163,10 +163,10 @@ function enemy:on_flying_took_off()
       enemy:stop_flying(landing_duration, false)
     end
   end)
-end
+end)
 
 -- Event called when the enemy landed while aspiring.
-function enemy:on_flying_landed() 
+enemy:register_event("on_flying_landed", function(enemy)
 
   -- Reset default states a little after touching the ground.
   sol.timer.start(enemy, finish_aspiration_delay, function()
@@ -175,24 +175,26 @@ function enemy:on_flying_landed()
       enemy:restart()
     end
   end)
-end
+end)
 
 -- Passive behaviors needing constant checking.
-function enemy:on_update()
+enemy:register_event("on_update", function(enemy)
 
-  if not enemy:is_immobilized() then
-    -- Make the sprite jump if the enemy is not attacking and not immobilized.
-    if enemy.is_jumping then
-      sprite:set_xy(0, -math.abs(math.sin(sol.main.get_elapsed_time() * 0.01) * 4.0))
-    end
-
-    -- If the hero touches the center of the enemy while aspiring, eat him.
-    if enemy.is_aspiring and enemy:overlaps(hero, "origin") then
-      enemy:eat_hero()
-      enemy:stop_attracting()
-    end
+  if enemy:is_immobilized() then
+    return
   end
-end
+
+  -- Make the sprite jump if the enemy is not attacking and not immobilized.
+  if enemy.is_jumping then
+    sprite:set_xy(0, -math.abs(math.sin(sol.main.get_elapsed_time() * 0.01) * 4.0))
+  end
+
+  -- If the hero touches the center of the enemy while aspiring, eat him.
+  if enemy.is_aspiring and enemy:overlaps(hero, "origin") then
+    enemy:eat_hero()
+    enemy:stop_attracting()
+  end
+end)
 
 -- Stop a possible state on immobilized.
 enemy:register_event("on_immobilized", function(enemy)
@@ -203,6 +205,8 @@ end)
 enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(4)
+  enemy:set_size(16, 16)
+  enemy:set_origin(8, 13)
   enemy:start_shadow()
 end)
 
@@ -210,14 +214,11 @@ end)
 enemy:register_event("on_restarted", function(enemy)
 
   -- Behavior for each items.
-  enemy:set_attack_consequence("sword", "ignored")
-  enemy:set_attack_consequence("thrown_item", "ignored")
-  enemy:set_attack_consequence("arrow", "ignored")
-  enemy:set_attack_consequence("boomerang", 1)
-  enemy:set_attack_consequence("explosion", 2)
-  enemy:set_hookshot_reaction("ignored")
-  enemy:set_hammer_reaction("ignored")
-  enemy:set_fire_reaction(2)
+  enemy:set_hero_weapons_reactions({
+    boomerang = 1,
+    explosion = 2,
+    fire = 2,
+    default = "ignored"})
 
   -- States.
   enemy:set_can_attack(true)

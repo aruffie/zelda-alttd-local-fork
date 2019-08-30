@@ -1,56 +1,96 @@
+-- Lua script of enemy moblin pig sword.
+-- This script is executed every time an enemy with this model is created.
+
+-- Global variables
 local enemy = ...
+require("enemies/lib/common_actions").learn(enemy)
+require("enemies/lib/weapons").learn(enemy)
 
--- Molblin: goes in a random direction.
-
-enemy:set_life(1)
-enemy:set_damage(1)
-
+local game = enemy:get_game()
+local map = enemy:get_map()
+local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+local quarter = math.pi * 0.5
 
+local is_charging = false
+
+-- Configuration variables
+local charge_triggering_distance = 80
+local charging_speed = 56
+local walking_possible_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
+local walking_speed = 32
+local walking_distance_grid = 16
+local walking_max_move_by_step = 6
+local waiting_duration = 800
+
+-- Start the enemy initial movement.
+function enemy:start_walking()
+
+  if not is_charging and enemy:is_near(hero, charge_triggering_distance) then
+    enemy:start_charge_walking()
+  else
+    enemy:start_random_walking(math.random(4) - 1)
+  end
+end
+
+-- Start the enemy random movement.
+function enemy:start_random_walking(direction)
+
+  enemy:start_straight_walking(walking_possible_angles[direction + 1], walking_speed, walking_distance_grid * math.random(walking_max_move_by_step), function()    
+    local next_direction = math.random(4) - 1
+    local waiting_animation = (direction + 1) % 4 == next_direction and "seek_left" or (direction - 1) % 4 == next_direction and "seek_right" or "immobilized"
+    sprite:set_animation(waiting_animation)
+
+    sol.timer.start(enemy, waiting_duration, function()
+      if not is_charging then
+        enemy:start_random_walking(next_direction)
+      end
+    end)
+  end)
+end
+
+-- Start the enemy charge movement.
+function enemy:start_charge_walking()
+
+  is_charging = true
+  enemy:stop_movement()
+  enemy:start_target_walking(hero, charging_speed)
+end
+
+-- Passive behaviors needing constant checking.
+function enemy:on_update()
+
+  if enemy:is_immobilized() then
+    return
+  end
+
+  -- Start charging if the hero is near enough
+  if not is_charging and enemy:is_near(hero, charge_triggering_distance) then -- TODO is seeing hero ?
+    enemy:start_charge_walking()
+  end
+end
+
+-- Initialization.
 function enemy:on_created()
 
-  self:set_can_be_pushed_by_shield(true)
-
+  enemy:set_life(2)
+  enemy:set_size(16, 16)
+  enemy:set_origin(8, 13)
+  enemy:hold_sword(sprite)
 end
 
--- The enemy was stopped for some reason and should restart.
+-- Restart settings.
 function enemy:on_restarted()
 
-  local m = sol.movement.create("straight")
-  m:set_speed(0)
-  m:start(self)
-  local direction4 = math.random(4) - 1
-  self:go(direction4)
+  -- Behavior for each items.
+  enemy:set_hero_weapons_reactions({
+    sword = 1, 
+    jump_on = "ignored",
+    default = 2})
 
+  -- States.
+  is_charging = false
+  enemy:set_can_attack(true)
+  enemy:set_damage(1)
+  enemy:start_walking()
 end
-
-function enemy:on_movement_finished(movement)
-
-  local direction4 = math.random(4) - 1
-  self:go(direction4)
-
-end
-
-function enemy:on_obstacle_reached(movement)
-
-  local direction4 = math.random(4) - 1
-  self:go(direction4)
-
-end
-
--- Makes the enemy walk towards a direction.
-function enemy:go(direction4)
-
-  -- Set the sprite.
-  sprite:set_animation("walking")
-  sprite:set_direction(direction4)
-
-  -- Set the movement.
-  local m = self:get_movement()
-  local max_distance = 40 + math.random(120)
-  m:set_max_distance(max_distance)
-  m:set_smooth(true)
-  m:set_speed(40)
-  m:set_angle(direction4 * math.pi / 2)
-end
-

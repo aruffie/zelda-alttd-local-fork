@@ -58,43 +58,40 @@ function enemy:start_attacking()
 end
 
 -- Start the attack animation when the jump reached the top.
-function enemy:on_flying_took_off()
+enemy:register_event("on_flying_took_off", function(enemy)
   sprite:set_animation("attack_landing")
-end
+end)
 
 -- Start walking again when the attack finished.
-function enemy:on_flying_landed()
+enemy:register_event("on_flying_landed", function(enemy)
 
   -- Start a visual effect at the landing impact location.
   enemy:start_brief_effect("entities/effects/impact_projectile", "default", -12, 0)
   enemy:start_brief_effect("entities/effects/impact_projectile", "default", 12, 0)
-
   enemy:restart()
-end
+end)
 
 -- Initialization.
-function enemy:on_created()
+enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(3)
+  enemy:set_size(16, 16)
+  enemy:set_origin(8, 13)
   enemy:start_shadow()
-end
+end)
 
 -- Restart settings.
-function enemy:on_restarted()
+enemy:register_event("on_restarted", function(enemy)
 
   -- Behavior for each items.
-  enemy:set_attack_consequence("sword", 1)
-  enemy:set_attack_consequence("thrown_item", 2)
-  enemy:set_attack_consequence("arrow", 2)
-  enemy:set_attack_consequence("hookshot", 2)
-  enemy:set_attack_consequence("fire", 2)
-  enemy:set_attack_consequence("boomerang", 2)
-  enemy:set_attack_consequence("explosion", 2)
-  enemy:set_hammer_reaction(2)
-  enemy:set_fire_reaction("protected")
+  enemy:set_hero_weapons_reactions({
+    sword = 1,
+    jump_on = "ignored",
+    fire = "protected",
+    default = 2})
 
   -- States.
   enemy:set_can_attack(true)
   enemy:set_damage(1)
   enemy:start_walking()
-end
+end)

@@ -14,7 +14,7 @@ local hero = map:get_hero()
 local dying_duration = 300
 
 -- Create two gels when dead.
-function enemy:on_dying()
+enemy:register_event("on_dying", function(enemy)
 
   -- TODO Get the exact list of weapons that kills the zol immediately, and ones that split it into gels.
   local x, y, layer = enemy:get_position()
@@ -35,7 +35,7 @@ function enemy:on_dying()
     create_gel(-5)
     create_gel(5)
   end)
-end
+end)
 
 -- Start walking again when the attack finished.
 enemy:register_event("on_jump_finished", function(enemy)
@@ -44,8 +44,11 @@ end)
 
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
+
   zol_behavior.apply(enemy, {sprite = sprite})
   enemy:set_life(1)
+  enemy:set_size(16, 16)
+  enemy:set_origin(8, 13)
   enemy:start_shadow()
 end)
 
@@ -53,14 +56,9 @@ end)
 enemy:register_event("on_restarted", function(enemy)
 
   -- Behavior for each items.
-  enemy:set_attack_consequence("thrown_item", 1)
-  enemy:set_attack_consequence("hookshot", 1)
-  enemy:set_attack_consequence("sword", 1)
-  enemy:set_attack_consequence("arrow", 1)
-  enemy:set_attack_consequence("boomerang", 1)
-  enemy:set_attack_consequence("explosion", 1)
-  enemy:set_hammer_reaction(1)
-  enemy:set_fire_reaction(1)
+  enemy:set_hero_weapons_reactions({
+    jump_on = "ignored",
+    default = 1})
 
   -- States.
   enemy:set_pushed_back_when_hurt(false)

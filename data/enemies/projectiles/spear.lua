@@ -13,7 +13,7 @@ local quarter = math.pi * 0.5
 local planted_duration = 5000
 
 -- Create an impact effect on hit.
-function enemy:on_hit()
+enemy:register_event("on_hit", function(enemy)
 
   local direction = enemy:get_movement():get_direction4()
 
@@ -35,14 +35,13 @@ function enemy:on_hit()
   movement:set_smooth(false)
   movement:start(enemy)
 
-
   -- Remove the entity when planted animation finished + some time.
   sprite:set_animation("hit", function()
     enemy:remove()
   end)
 
   return true
-end
+end)
 
 -- Directly remove the enemy on attacking hero
 enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
@@ -50,14 +49,16 @@ enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
 end)
 
 -- Initialization.
-function enemy:on_created()
+enemy:register_event("on_created", function(enemy)
 
   projectile_behavior.apply(enemy, sprite)
   enemy:set_life(1)
-end
+  enemy:set_size(8, 8)
+  enemy:set_origin(4, 4)
+end)
 
 -- Restart settings.
-function enemy:on_restarted()
+enemy:register_event("on_restarted", function(enemy)
 
   sprite:set_animation("default")
   enemy:set_damage(2)
@@ -66,4 +67,4 @@ function enemy:on_restarted()
   enemy:set_can_hurt_hero_running(true)
   enemy:set_minimum_shield_needed(1)
   enemy:go()
-end
+end)

@@ -6,17 +6,20 @@
 -- Methods : enemy:is_near(entity, triggering_distance)
 --           enemy:is_aligned(entity, thickness)
 --           enemy:is_leashed_by(entity)
---           enemy:start_straight_walking(angle, speed, [distance, [on_finished_callback]])
+--           enemy:set_hero_weapons_reactions(reactions)
+--           enemy:start_straight_walking(angle, speed, [distance, [on_stopped_callback]])
 --           enemy:start_target_walking(entity, speed)
 --           enemy:start_jumping(duration, height, [invincible, [harmless]])
 --           enemy:start_flying(take_off_duration, height, [invincible, [harmless]])
 --           enemy:stop_flying(landing_duration)
---           enemy:start_attracting(entity, pixel_by_second, [moving_condition_callback])
+--           enemy:start_attracting(entity, speed, [moving_condition_callback])
 --           enemy:stop_attracting()
 --           enemy:start_leashed_by(entity, maximum_distance)
 --           enemy:stop_leashed_by(entity)
---           enemy:start_brief_effect(sprite_name, [animation_set_id, [x_offset, [y_offset, [maximum_duration]]]])
+--           enemy:start_pushed_back(entity, [speed, [duration, [on_finished_callback]]])
+--           enemy:start_pushing_back(entity, [speed, [duration, [on_finished_callback])
 --           enemy:start_shadow([sprite_name, [animation_set_id]])
+--           enemy:start_brief_effect(sprite_name, [animation_set_id, [x_offset, [y_offset, [maximum_duration]]]])
 --           enemy:steal_item(item_name, [variant, [only_if_assigned]])
 -- Events:   enemy:on_jump_finished()
 --           enemy:on_flying_took_off()
@@ -64,8 +67,22 @@ function common_actions.learn(enemy)
     return leashing_timers[entity] ~= nil
   end
 
+  -- Set a reaction to all weapons, reactions.default applied if a specific one is not set.
+  function enemy:set_hero_weapons_reactions(reactions)
+
+    enemy:set_attack_consequence("arrow", reactions.arrow or reactions.default or 1)
+    enemy:set_attack_consequence("boomerang", reactions.boomerang or reactions.default or "immobilized")
+    enemy:set_attack_consequence("explosion", reactions.explosion or reactions.default or 2)
+    enemy:set_attack_consequence("sword", reactions.sword or reactions.default or 1)
+    enemy:set_attack_consequence("thrown_item", reactions.thrown_item or reactions.default or 2)
+    enemy:set_fire_reaction(reactions.fire or reactions.default or 3)
+    enemy:set_hammer_reaction(reactions.hammer or reactions.default or 1)
+    enemy:set_hookshot_reaction(reactions.hookshot or reactions.default or "immobilized")
+    enemy:set_jump_on_reaction(reactions.jump_on or reactions.default or "ignored")
+  end
+
   -- Make the enemy straight move.
-  function enemy:start_straight_walking(angle, speed, distance, on_finished_callback)
+  function enemy:start_straight_walking(angle, speed, distance, on_stopped_callback)
 
     local movement = sol.movement.create("straight")
     movement:set_speed(speed)
@@ -74,17 +91,16 @@ function common_actions.learn(enemy)
     movement:set_smooth(true)
     movement:start(self)
 
+    -- Consider the current move as stopped if finished or stuck.
     function movement:on_finished()
-      if on_finished_callback then
-        on_finished_callback()
+      if on_stopped_callback then
+        on_stopped_callback()
       end
     end
-
-    -- Consider the current move as finished if stuck.
     function movement:on_obstacle_reached()
       movement:stop()
-      if on_finished_callback then
-        on_finished_callback()
+      if on_stopped_callback then
+        on_stopped_callback()
       end
     end
 
@@ -108,11 +124,20 @@ function common_actions.learn(enemy)
     movement:start(enemy)
 
     -- Update enemy sprites.
+    local direction = movement:get_direction4()
     for _, sprite in enemy:get_sprites() do
       if sprite:has_animation("walking") then
         sprite:set_animation("walking")
       end
-      sprite:set_direction(movement:get_direction4())
+      sprite:set_direction(direction)
+    end
+    function movement:on_position_changed()
+      if movement:get_direction4() ~= direction then
+        direction = movement:get_direction4()
+        for _, sprite in enemy:get_sprites() do
+          sprite:set_direction(direction)
+        end
+      end
     end
 
     return movement
@@ -218,10 +243,10 @@ function common_actions.learn(enemy)
     end
   end
 
-  -- Start attracting the given entity by pixel_by_second, negative value possible.
-  function enemy:start_attracting(entity, pixel_by_second, moving_condition_callback)
+  -- Start attracting the given entity, negative speed possible.
+  function enemy:start_attracting(entity, speed, moving_condition_callback)
 
-    local move_ratio = pixel_by_second > 0 and 1 or -1
+    local move_ratio = speed > 0 and 1 or -1
     attracting_timers[entity] = {}
 
     local function attract_on_axis(axis)
@@ -239,8 +264,8 @@ function common_actions.learn(enemy)
         axis_move[axis] = math.max(math.min(enemy_position[axis] - entity_position[axis], 1), -1) * move_ratio
         if axis_move[axis] ~= 0 then
 
-          -- Schedule the next move on this axis depending on the remaining distance and the pixel_by_second value, avoiding too high and low timers.
-          axis_move_delay = 1000.0 / math.max(1, math.min(100, math.abs(pixel_by_second * trigonometric_functions[axis](angle))))
+          -- Schedule the next move on this axis depending on the remaining distance and the speed value, avoiding too high and low timers.
+          axis_move_delay = 1000.0 / math.max(1, math.min(100, math.abs(speed * trigonometric_functions[axis](angle))))
 
           -- Move the entity.
           if not entity:test_obstacles(axis_move[1], axis_move[2]) then
@@ -310,6 +335,74 @@ function common_actions.learn(enemy)
     end
   end
 
+  -- Start pushing back the enemy.
+  function enemy:start_pushed_back(entity, speed, duration, on_finished_callback)
+
+    local movement = sol.movement.create("straight")
+    movement:set_speed(speed or 100)
+    movement:set_angle(entity:get_angle(enemy))
+    movement:set_smooth(false)
+    movement:start(enemy)
+
+    sol.timer.start(enemy, duration or 150, function()
+      movement:stop()
+      if on_finished_callback then
+        on_finished_callback()
+      end
+    end)
+  end
+
+  -- Start pushing the entity back.
+  function enemy:start_pushing_back(entity, speed, duration, on_finished_callback)
+    
+    -- Workaround: Movement crashes sometimes when used at the wrong time on the hero, use a negative attraction instead.
+    enemy:start_attracting(entity, -speed or 100)
+
+    sol.timer.start(enemy, duration or 150, function()
+      enemy:stop_attracting()
+      if on_finished_callback then
+        on_finished_callback()
+      end
+    end)
+  end
+
+  -- Add a shadow below the enemy.
+  function enemy:start_shadow(sprite_name, animation_set_id)
+
+    if not shadow then
+      local enemy_x, enemy_y, enemy_layer = enemy:get_position()
+      shadow = map:create_custom_entity({
+        direction = 0,
+        x = enemy_x,
+        y = enemy_y,
+        layer = enemy_layer,
+        width = 16,
+        height = 16,
+        sprite = sprite_name or "entities/shadows/shadow"
+      })
+      if animation_set_id then
+        shadow:get_sprite():set_animation(animation_set_id)
+      end
+      shadow:set_traversable_by(true)
+      enemy:register_event("on_position_changed", function(enemy)
+        shadow:set_position(enemy:get_position())
+      end)
+      enemy:register_event("on_dying", function(enemy)
+        shadow:set_enabled(false)
+      end)
+      enemy:register_event("on_removed", function(enemy)
+        shadow:remove()
+      end)
+      enemy:register_event("on_enabled", function(enemy)
+        shadow:set_enabled()
+      end)
+      enemy:register_event("on_disabled", function(enemy)
+        shadow:set_enabled(false)
+      end)
+    end
+    return shadow
+  end
+
   -- Start a standalone sprite animation on the enemy position, that will be removed once finished or maximum_duration reached if given.
   function enemy:start_brief_effect(sprite_name, animation_set_id, x_offset, y_offset, maximum_duration)
 
@@ -334,43 +427,6 @@ function common_actions.learn(enemy)
         entity:remove()
       end)
     end
-  end
-
-  -- Add a shadow below the enemy.
-  function enemy:start_shadow(sprite_name, animation_set_id)
-
-    if not shadow then
-      local enemy_x, enemy_y, enemy_layer = enemy:get_position()
-      shadow = map:create_custom_entity({
-        direction = 0,
-        x = enemy_x,
-        y = enemy_y,
-        layer = enemy_layer,
-        width = 16,
-        height = 16,
-        sprite = sprite_name or "entities/shadows/shadow"
-      })
-      if animation_set_id then
-        shadow:get_sprite():set_animation(animation_set_id)
-      end
-      shadow:set_traversable_by(true)
-      function shadow:on_update()
-        shadow:set_position(enemy:get_position())
-      end
-      enemy:register_event("on_dying", function(enemy)
-        shadow:set_visible(false)
-      end)
-      enemy:register_event("on_removed", function(enemy)
-        shadow:remove()
-      end)
-      enemy:register_event("on_enabled", function(enemy)
-        shadow:set_enabled()
-      end)
-      enemy:register_event("on_disabled", function(enemy)
-        shadow:set_enabled(false)
-      end)
-    end
-    return shadow
   end
 
   -- Steal an item and drop it when died, possibly conditionned on the variant and the assignation to a slot.

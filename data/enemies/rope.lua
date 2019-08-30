@@ -66,33 +66,33 @@ function enemy:start_charging()
 end
 
 -- Passive behaviors needing constant checking.
-function enemy:on_update()
+enemy:register_event("on_update", function(enemy)
 
-  if not enemy:is_immobilized() then
-    -- Start charging if the hero is aligned with the enemy.
-    if not enemy.is_charging and enemy:is_aligned(hero, alignement_thickness) then
-      enemy:start_charging()
-    end
+  if enemy:is_immobilized() then
+    return
   end
-end
+
+  -- Start charging if the hero is aligned with the enemy.
+  if not enemy.is_charging and enemy:is_aligned(hero, alignement_thickness) then
+    enemy:start_charging()
+  end
+end)
 
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
+
   enemy:set_life(1)
+  enemy:set_size(24, 24)
+  enemy:set_origin(12, 21)
 end)
 
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
   -- Behavior for each items.
-  enemy:set_attack_consequence("thrown_item", 1)
-  enemy:set_attack_consequence("hookshot", 1)
-  enemy:set_attack_consequence("sword", 1)
-  enemy:set_attack_consequence("arrow", 1)
-  enemy:set_attack_consequence("boomerang", 1)
-  enemy:set_attack_consequence("explosion", 1)
-  enemy:set_hammer_reaction(1)
-  enemy:set_fire_reaction(1)
+  enemy:set_hero_weapons_reactions({
+    jump_on = "ignored",
+    default = 1})
 
   -- States.
   enemy:set_can_attack(true)

@@ -19,6 +19,8 @@ local is_exhausted_duration = 100
 -- Properties
 function enemy:on_created()
 
+  enemy:set_size(16, 16)
+  enemy:set_origin(8, 13)
   self:set_invincible()
   self:set_damage(2)
   self.is_exhausted = false -- True after a shoot and before a delay.
@@ -29,9 +31,6 @@ function enemy:start_firing()
 
   -- Pause the animation.
   sprite:set_paused()
-
-  -- Save the hero position at this point to use it as the target of the laser.
-  local target_x, target_y, _ = hero:get_position()
 
   -- Start the laser after some time.
   sol.timer.start(enemy, start_shooting_delay, function()
