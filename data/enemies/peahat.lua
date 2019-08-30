@@ -54,7 +54,7 @@ function enemy:start_moving()
 end
 
 -- Event called when the enemy took off.
-function enemy:on_flying_took_off()
+enemy:register_event("on_flying_took_off", function(enemy)
 
   -- Start in the air movements after some time.
   sol.timer.start(enemy, before_moving_in_the_air_delay, function()
@@ -78,38 +78,35 @@ function enemy:on_flying_took_off()
       end)
     end)
   end)
-end
+end)
 
 -- Restart the enemy on landed.
-function enemy:on_flying_landed()
+enemy:register_event("on_flying_landed", function(enemy)
   sol.timer.start(enemy, before_restarting_delay, function()
     enemy:restart()
   end)
-end
+end)
 
 -- Initialization.
-function enemy:on_created()
+enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(1)
+  enemy:set_size(16, 16)
+  enemy:set_origin(8, 13)
   enemy:start_shadow()
-end
+end)
 
 -- Restart settings.
-function enemy:on_restarted()
+enemy:register_event("on_restarted", function(enemy)
 
   -- Behavior for each items.
-  enemy:set_attack_consequence("thrown_item", 1)
-  enemy:set_attack_consequence("hookshot", 1)
-  enemy:set_attack_consequence("sword", 1)
-  enemy:set_attack_consequence("arrow", 1)
-  enemy:set_attack_consequence("boomerang", 1)
-  enemy:set_attack_consequence("explosion", 1)
-  enemy:set_hammer_reaction(1)
-  enemy:set_fire_reaction(1)
+  enemy:set_hero_weapons_reactions({
+    jump_on = "ignored",
+    default = 1})
 
   -- States.
   enemy:set_can_attack(true)
   enemy:set_damage(1)
   sprite:set_animation("stopped")
   enemy:start_moving()
-end
+end)

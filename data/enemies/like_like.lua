@@ -45,21 +45,6 @@ function enemy:free_hero()
   enemy:start_walking()
 end
 
--- Store the number of command pressed while eaten and free the hero if necessary.
-game:register_event("on_command_pressed", function(game, command)
-
-  if enemy:exists() and enemy:is_enabled() then
-    if enemy.is_eating and (command == "attack" or command == "item_1" or command == "item_2") then
-      enemy.command_pressed_count = enemy.command_pressed_count + 1
-
-      -- Once 8 action commands are pressed, get the hero rid of the enemy.
-      if enemy.command_pressed_count == 8 then
-        enemy:free_hero()
-      end
-    end
-  end
-end)
-
 -- Make the enemy eat the hero
 -- TODO Make a custom state instead of handling hero in enemy script.
 function enemy:eat_hero()
@@ -79,41 +64,56 @@ function enemy:eat_hero()
   enemy:steal_item("shield", 1, true)
 end
 
--- Passive behaviors needing constant checking.
-function enemy:on_update()
+-- Store the number of command pressed while eaten and free the hero if necessary.
+game:register_event("on_command_pressed", function(game, command)
 
-  if not enemy:is_immobilized() then
-    -- If the enemy is eating, make the hero stuck at the same position even if external things may hurt or interfere.
-    if enemy.is_eating then
-      hero:set_position(enemy:get_position())
-    end
+  if enemy:exists() and enemy:is_enabled() then
+    if enemy.is_eating and (command == "attack" or command == "item_1" or command == "item_2") then
+      enemy.command_pressed_count = enemy.command_pressed_count + 1
 
-    -- If the hero touches the enemy while he is walking normally, eat him.
-    if not enemy.is_eating and not enemy.is_exhausted and hero:overlaps(enemy, "origin") then
-      enemy.is_eating = false
-      enemy:eat_hero()
+      -- Once 8 action commands are pressed, get the hero rid of the enemy.
+      if enemy.command_pressed_count == 8 then
+        enemy:free_hero()
+      end
     end
   end
-end
+end)
+
+-- Passive behaviors needing constant checking.
+enemy:register_event("on_update", function(enemy)
+
+  if enemy:is_immobilized() then
+    return
+  end
+
+  -- If the enemy is eating, make the hero stuck at the same position even if external things may hurt or interfere.
+  if enemy.is_eating then
+    hero:set_position(enemy:get_position())
+  end
+
+  -- If the hero touches the enemy while he is walking normally, eat him.
+  if not enemy.is_eating and not enemy.is_exhausted and hero:overlaps(enemy, "origin") then
+    enemy.is_eating = false
+    enemy:eat_hero()
+  end
+end)
 
 -- Initialization.
-function enemy:on_created()
+enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(2)
-end
+  enemy:set_size(16, 16)
+  enemy:set_origin(8, 13)
+end)
 
 -- Restart settings.
-function enemy:on_restarted()
+enemy:register_event("on_restarted", function(enemy)
 
   -- Behavior for each items.
-  enemy:set_attack_consequence("sword", 1)
-  enemy:set_attack_consequence("thrown_item", 2)
-  enemy:set_attack_consequence("arrow", 2)
-  enemy:set_attack_consequence("hookshot", 2)
-  enemy:set_attack_consequence("boomerang", 2)
-  enemy:set_attack_consequence("explosion", 2)
-  enemy:set_hammer_reaction(2)
-  enemy:set_fire_reaction(2)
+  enemy:set_hero_weapons_reactions({
+    sword = 1,
+    jump_on = "ignored",
+    default = 2})
 
   -- States.
   enemy:set_damage(0)
@@ -122,4 +122,4 @@ function enemy:on_restarted()
   enemy.is_exhausted = false
   enemy.command_pressed_count = 0
   enemy:start_walking()
-end
+end)

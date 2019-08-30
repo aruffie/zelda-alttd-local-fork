@@ -6,6 +6,7 @@
 -- Methods : enemy:is_near(entity, triggering_distance)
 --           enemy:is_aligned(entity, thickness)
 --           enemy:is_leashed_by(entity)
+--           enemy:set_hero_weapons_reactions(reactions)
 --           enemy:start_straight_walking(angle, speed, [distance, [on_stopped_callback]])
 --           enemy:start_target_walking(entity, speed)
 --           enemy:start_jumping(duration, height, [invincible, [harmless]])
@@ -64,6 +65,20 @@ function common_actions.learn(enemy)
   -- Return true if the enemy is currently leashed by the entity.
   function enemy:is_leashed_by(entity)
     return leashing_timers[entity] ~= nil
+  end
+
+  -- Set a reaction to all weapons, reactions.default applied if a specific one is not set.
+  function enemy:set_hero_weapons_reactions(reactions)
+
+    enemy:set_attack_consequence("arrow", reactions.arrow or reactions.default or 1)
+    enemy:set_attack_consequence("boomerang", reactions.boomerang or reactions.default or "immobilized")
+    enemy:set_attack_consequence("explosion", reactions.explosion or reactions.default or 2)
+    enemy:set_attack_consequence("sword", reactions.sword or reactions.default or 1)
+    enemy:set_attack_consequence("thrown_item", reactions.thrown_item or reactions.default or 2)
+    enemy:set_fire_reaction(reactions.fire or reactions.default or 3)
+    enemy:set_hammer_reaction(reactions.hammer or reactions.default or 1)
+    enemy:set_hookshot_reaction(reactions.hookshot or reactions.default or "immobilized")
+    enemy:set_jump_on_reaction(reactions.jump_on or reactions.default or "ignored")
   end
 
   -- Make the enemy straight move.
@@ -340,7 +355,7 @@ function common_actions.learn(enemy)
   -- Start pushing the entity back.
   function enemy:start_pushing_back(entity, speed, duration, on_finished_callback)
     
-    -- Workaround: Movement crash sometimes when used at the wrong time on the hero, use a negative attraction instead.
+    -- Workaround: Movement crashes sometimes when used at the wrong time on the hero, use a negative attraction instead.
     enemy:start_attracting(entity, -speed or 100)
 
     sol.timer.start(enemy, duration or 150, function()

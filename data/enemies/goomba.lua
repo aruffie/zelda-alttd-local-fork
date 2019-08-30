@@ -27,7 +27,7 @@ function enemy:start_walking()
 end
 
 -- Make enemy crushed when hero walking on him.
-function enemy:on_custom_attack_received(attack)
+enemy:register_event("on_custom_attack_received", function(enemy, attack)
 
   if attack == "jump_on" then
 
@@ -48,29 +48,26 @@ function enemy:on_custom_attack_received(attack)
       enemy:hurt(1)
     end)
   end
-end
+end)
 
 -- Initialization.
-function enemy:on_created()
+enemy:register_event("on_created", function(enemy)
+
   enemy:set_life(1)
-end
+  enemy:set_size(16, 16)
+  enemy:set_origin(8, 13)
+end)
 
 -- Restart settings.
-function enemy:on_restarted()
+enemy:register_event("on_restarted", function(enemy)
 
   -- Behavior for each items.
-  enemy:set_attack_consequence("thrown_item", 1)
-  enemy:set_attack_consequence("hookshot", 1)
-  enemy:set_attack_consequence("sword", 1)
-  enemy:set_attack_consequence("arrow", 1)
-  enemy:set_attack_consequence("boomerang", 1)
-  enemy:set_attack_consequence("explosion", 1)
-  enemy:set_hammer_reaction(1)
-  enemy:set_fire_reaction(1)
-  enemy:set_jump_on_reaction("custom") -- Set crushed.
+  enemy:set_hero_weapons_reactions({
+    jump_on = "custom", -- Set crushed.
+    default = 1})
 
   -- States.
   enemy:set_can_attack(true)
   enemy:set_damage(1)
   enemy:start_walking()
-end
+end)

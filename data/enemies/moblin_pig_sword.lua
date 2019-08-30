@@ -55,13 +55,11 @@ function enemy:start_charge_walking()
   is_charging = true
   enemy:stop_movement()
   enemy:start_target_walking(hero, charging_speed)
-sprite:set_animation("seek_left")
 end
 
-test_x, test_y = enemy:get_position()
 -- Passive behaviors needing constant checking.
 function enemy:on_update()
-enemy:set_position(test_x, test_y)
+
   if enemy:is_immobilized() then
     return
   end
@@ -74,7 +72,10 @@ end
 
 -- Initialization.
 function enemy:on_created()
-    enemy:set_life(2)
+
+  enemy:set_life(2)
+  enemy:set_size(16, 16)
+  enemy:set_origin(8, 13)
   enemy:hold_sword(sprite)
 end
 
@@ -82,14 +83,10 @@ end
 function enemy:on_restarted()
 
   -- Behavior for each items.
-  enemy:set_attack_consequence("sword", 1)
-  enemy:set_attack_consequence("thrown_item", 2)
-  enemy:set_attack_consequence("hookshot", 2)
-  enemy:set_attack_consequence("arrow", 2)
-  enemy:set_attack_consequence("boomerang", 2)
-  enemy:set_attack_consequence("explosion", 2)
-  enemy:set_hammer_reaction(2)
-  enemy:set_fire_reaction(2)
+  enemy:set_hero_weapons_reactions({
+    sword = 1, 
+    jump_on = "ignored",
+    default = 2})
 
   -- States.
   is_charging = false

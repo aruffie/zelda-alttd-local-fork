@@ -19,6 +19,8 @@ local is_exhausted_duration = 100
 -- Properties
 function enemy:on_created()
 
+  enemy:set_size(16, 16)
+  enemy:set_origin(8, 13)
   self:set_invincible()
   self:set_damage(2)
   self.is_exhausted = false -- True after a shoot and before a delay.

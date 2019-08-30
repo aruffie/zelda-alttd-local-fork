@@ -77,21 +77,21 @@ function enemy:remove_particle(sprite)
 end
 
 -- Create additional impact effect on hurt hero.
-function enemy:on_attacking_hero(hero, enemy_sprite)
+enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
 
   hero:start_hurt(2)
   enemy:start_impact_effect(enemy_sprite)
-end
+end)
 
 -- Initialization.
-function enemy:on_created()
+enemy:register_event("on_created", function(enemy)
   enemy:set_life(1)
   enemy:set_size(4, 4)
   enemy:set_origin(2, 2)
-end
+end)
 
 -- Restart settings.
-function enemy:on_restarted()
+enemy:register_event("on_restarted", function(enemy)
 
   angle = enemy:get_angle(hero)
   enemy:set_obstacle_behavior("flying")
@@ -104,5 +104,5 @@ function enemy:on_restarted()
   sol.timer.start(enemy, firing_duration, function()
     is_in_progress = false
   end)
-end
+end)
 

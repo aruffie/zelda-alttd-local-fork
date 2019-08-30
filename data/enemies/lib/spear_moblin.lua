@@ -57,28 +57,27 @@ function behavior.apply(enemy)
   end
 
   -- Initialization.
-  function enemy:on_created()
+  enemy:register_event("on_created", function(enemy)
+
     enemy:set_life(2)
-  end
+    enemy:set_size(16, 16)
+    enemy:set_origin(8, 13)
+  end)
 
   -- Restart settings.
-  function enemy:on_restarted()
+  enemy:register_event("on_restarted", function(enemy)
 
     -- Behavior for each items.
-    enemy:set_attack_consequence("sword", 1)
-    enemy:set_attack_consequence("thrown_item", 2)
-    enemy:set_attack_consequence("hookshot", 2)
-    enemy:set_attack_consequence("arrow", 2)
-    enemy:set_attack_consequence("boomerang", 2)
-    enemy:set_attack_consequence("explosion", 2)
-    enemy:set_hammer_reaction(2)
-    enemy:set_fire_reaction(2)
+    enemy:set_hero_weapons_reactions({
+      sword = 1, 
+      jump_on = "ignored",
+      default = 2})
 
     -- States.
     enemy:set_can_attack(true)
     enemy:set_damage(1)
     enemy:start_walking(math.random(4) - 1)
-  end
+  end)
 end
 
 return behavior

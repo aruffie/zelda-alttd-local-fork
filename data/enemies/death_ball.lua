@@ -69,26 +69,29 @@ function enemy:start_state(state)
 end
 
 -- Stop attracting when dead.
-function enemy:on_dying()
+enemy:register_event("on_dying", function(enemy)
   
   if attracting_timer then
     attracting_timer:stop()
   end
   enemy:stop_attracting()
-end
+end)
 
 -- Initialization.
-function enemy:on_created()
+enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(1)
+  enemy:set_size(16, 16)
+  enemy:set_origin(8, 13)
   enemy:set_drawn_in_y_order(false)
-end
+end)
 
-function enemy:on_restarted()
-  
+enemy:register_event("on_restarted", function(enemy)
+    
+  enemy:set_hero_weapons_reactions({jump_on = "ignored", default = 1})
   enemy:set_can_attack(false)
   enemy:set_pushed_back_when_hurt(false)
 
   -- Default state given by property.
   enemy:start_state(enemy:get_property("default_state"))
-end
+end)

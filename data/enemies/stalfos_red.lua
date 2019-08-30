@@ -61,11 +61,6 @@ function enemy:set_exhausted(exhausted)
   enemy.is_exhausted = exhausted
 end
 
--- Initialization.
-enemy:register_event("on_hurt", function(enemy)
-  enemy.is_exhausted = true
-end)
-
 -- Start attacking when the hero is near enough and an attack or item command is pressed, even if not assigned to an item.
 game:register_event("on_command_pressed", function(game, command)
 
@@ -77,7 +72,7 @@ game:register_event("on_command_pressed", function(game, command)
 end)
 
 -- Start walking again when the attack finished.
-function enemy:on_jump_finished()
+enemy:register_event("on_jump_finished", function(enemy)
 
   -- Throw a bone club at the hero after a delay if the enemy is still alive.
   enemy:restart()
@@ -94,28 +89,31 @@ function enemy:on_jump_finished()
       })
     end
   end)
-end
+end)
+
+-- Set exhausted on hurt.
+enemy:register_event("on_hurt", function(enemy)
+  enemy:set_exhausted(true)
+end)
 
 -- Initialization.
-function enemy:on_created()
+enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(3)
+  enemy:set_size(16, 16)
+  enemy:set_origin(8, 13)
   enemy:start_shadow()
-end
+end)
 
 -- Restart settings.
-function enemy:on_restarted()
+enemy:register_event("on_restarted", function(enemy)
 
   -- Behavior for each items.
-  enemy:set_attack_consequence("sword", 1)
-  enemy:set_attack_consequence("thrown_item", 2)
-  enemy:set_attack_consequence("arrow", 2)
-  enemy:set_attack_consequence("hookshot", 2)
-  enemy:set_attack_consequence("fire", 2)
-  enemy:set_attack_consequence("boomerang", 2)
-  enemy:set_attack_consequence("explosion", 2)
-  enemy:set_hammer_reaction(2)
-  enemy:set_fire_reaction("protected")
+  enemy:set_hero_weapons_reactions({
+    sword = 1,
+    jump_on = "ignored",
+    fire = "protected",
+    default = 2})
 
   -- States.
   sprite:set_xy(0, 0)
@@ -123,4 +121,4 @@ function enemy:on_restarted()
   enemy:set_can_attack(true)
   enemy:set_damage(1)
   enemy:start_walking()
-end
+end)
