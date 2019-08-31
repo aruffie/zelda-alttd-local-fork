@@ -57,15 +57,14 @@ end)
 enemy:register_event("on_restarted", function(enemy)
 
   -- Behavior for each items.
-  enemy:set_hero_weapons_reactions({
+  enemy:set_hero_weapons_reactions(1, {
     boomerang = 2,
     hammer = 2,
     explosion = 3,
     jump_on = "ignored",
     thrown_item = "ignored",
     hookshot = "immobilized",
-    fire = "custom", -- Transform into red Stalfos
-    default = 1})
+    fire = "custom"})
 
   -- States.
   enemy:set_can_attack(true)

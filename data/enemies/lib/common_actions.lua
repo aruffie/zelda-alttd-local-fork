@@ -6,7 +6,7 @@
 -- Methods : enemy:is_near(entity, triggering_distance)
 --           enemy:is_aligned(entity, thickness)
 --           enemy:is_leashed_by(entity)
---           enemy:set_hero_weapons_reactions(reactions)
+--           enemy:set_hero_weapons_reactions(default_reaction, [reactions])
 --           enemy:start_straight_walking(angle, speed, [distance, [on_stopped_callback]])
 --           enemy:start_target_walking(entity, speed)
 --           enemy:start_jumping(duration, height, [invincible, [harmless]])
@@ -67,18 +67,18 @@ function common_actions.learn(enemy)
     return leashing_timers[entity] ~= nil
   end
 
-  -- Set a reaction to all weapons, reactions.default applied if a specific one is not set.
-  function enemy:set_hero_weapons_reactions(reactions)
+  -- Set a reaction to all weapons, default_reaction applied for each specific one not set.
+  function enemy:set_hero_weapons_reactions(default_reaction, reactions)
 
-    enemy:set_attack_consequence("arrow", reactions.arrow or reactions.default or 1)
-    enemy:set_attack_consequence("boomerang", reactions.boomerang or reactions.default or "immobilized")
-    enemy:set_attack_consequence("explosion", reactions.explosion or reactions.default or 2)
-    enemy:set_attack_consequence("sword", reactions.sword or reactions.default or 1)
-    enemy:set_attack_consequence("thrown_item", reactions.thrown_item or reactions.default or 2)
-    enemy:set_fire_reaction(reactions.fire or reactions.default or 3)
-    enemy:set_hammer_reaction(reactions.hammer or reactions.default or 1)
-    enemy:set_hookshot_reaction(reactions.hookshot or reactions.default or "immobilized")
-    enemy:set_jump_on_reaction(reactions.jump_on or reactions.default or "ignored")
+    enemy:set_attack_consequence("arrow", reactions.arrow or default_reaction)
+    enemy:set_attack_consequence("boomerang", reactions.boomerang or default_reaction)
+    enemy:set_attack_consequence("explosion", reactions.explosion or default_reaction)
+    enemy:set_attack_consequence("sword", reactions.sword or default_reaction)
+    enemy:set_attack_consequence("thrown_item", reactions.thrown_item or default_reaction)
+    enemy:set_fire_reaction(reactions.fire or default_reaction)
+    enemy:set_hammer_reaction(reactions.hammer or default_reaction)
+    enemy:set_hookshot_reaction(reactions.hookshot or default_reaction)
+    enemy:set_jump_on_reaction(reactions.jump_on or default_reaction)
   end
 
   -- Make the enemy straight move.

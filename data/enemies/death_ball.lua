@@ -88,7 +88,7 @@ end)
 
 enemy:register_event("on_restarted", function(enemy)
     
-  enemy:set_hero_weapons_reactions({jump_on = "ignored", default = 1})
+  enemy:set_hero_weapons_reactions(1, {jump_on = "ignored"})
   enemy:set_can_attack(false)
   enemy:set_pushed_back_when_hurt(false)
 

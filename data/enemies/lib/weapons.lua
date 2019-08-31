@@ -128,7 +128,11 @@ function weapons.learn(enemy)
         end
       end
     end
-    sprite:set_animation("throwing", throw)
+    for _, sprite in enemy:get_sprites() do
+      if sprite:has_animation("throwing") then
+        sprite:set_animation("throwing")
+      end
+    end
 
     if throwing_duration then
       sol.timer.start(enemy, throwing_duration, function()

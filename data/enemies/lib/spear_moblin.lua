@@ -68,10 +68,9 @@ function behavior.apply(enemy)
   enemy:register_event("on_restarted", function(enemy)
 
     -- Behavior for each items.
-    enemy:set_hero_weapons_reactions({
+    enemy:set_hero_weapons_reactions(2, {
       sword = 1, 
-      jump_on = "ignored",
-      default = 2})
+      jump_on = "ignored"})
 
     -- States.
     enemy:set_can_attack(true)
