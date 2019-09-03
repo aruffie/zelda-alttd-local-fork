@@ -20,7 +20,7 @@ local waiting_duration = 800
 local throwing_duration = 200
 
 local projectile_breed = "arrow"
-local projectile_offset = {{0, -8}, {6, 0}, {0, -8}, {-1, 0}}
+local projectile_offset = {{0, -10}, {6, 0}, {0, -10}, {-1, 0}}
 
 -- Start the enemy movement.
 function enemy:start_walking(key)
