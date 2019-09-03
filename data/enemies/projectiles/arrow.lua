@@ -10,7 +10,7 @@ local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
 
 -- Configuration variables
-local planted_duration = 5000
+local planted_duration = 1000
 
 -- Create an impact effect on hit.
 enemy:register_event("on_hit", function(enemy)
@@ -23,6 +23,8 @@ enemy:register_event("on_hit", function(enemy)
 
   -- Remove the entity when planted animation finished + some time.
   sprite:set_animation("reached_obstacle", function()
+    sprite:set_paused()
+    sprite:set_frame(1)
     sol.timer.start(enemy, planted_duration, function()
       enemy:remove()
     end)
@@ -42,7 +44,7 @@ enemy:register_event("on_created", function(enemy)
   projectile_behavior.apply(enemy, sprite)
   enemy:set_life(1)
   enemy:set_size(8, 8)
-  enemy:set_origin(4, 4)
+  enemy:set_origin(4, 13)
 end)
 
 -- Restart settings.

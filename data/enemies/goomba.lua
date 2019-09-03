@@ -62,9 +62,7 @@ end)
 enemy:register_event("on_restarted", function(enemy)
 
   -- Behavior for each items.
-  enemy:set_hero_weapons_reactions({
-    jump_on = "custom", -- Set crushed.
-    default = 1})
+  enemy:set_hero_weapons_reactions(1, {jump_on = "custom"})
 
   -- States.
   enemy:set_can_attack(true)

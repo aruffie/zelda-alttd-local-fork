@@ -100,9 +100,7 @@ end)
 enemy:register_event("on_restarted", function(enemy)
 
   -- Behavior for each items.
-  enemy:set_hero_weapons_reactions({
-    jump_on = "ignored",
-    default = 1})
+  enemy:set_hero_weapons_reactions(1, {jump_on = "ignored"})
 
   -- States.
   enemy:set_can_attack(true)

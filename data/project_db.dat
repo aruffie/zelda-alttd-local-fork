@@ -281,7 +281,6 @@ sprite{ id = "enemies/goponga_flower_giant", description = "Goponga Flower Giant
 sprite{ id = "enemies/hardhat_beetle", description = "Hardhat Beetle" }
 sprite{ id = "enemies/helmasaur_masked", description = "Helmasaur Masked" }
 sprite{ id = "enemies/helmasaur_naked", description = "Helmasaur Naked" }
-sprite{ id = "enemies/hooded_stalfos", description = "Hooded Stalfos" }
 sprite{ id = "enemies/keese", description = "Keese" }
 sprite{ id = "enemies/leever", description = "Leever" }
 sprite{ id = "enemies/like_like", description = "Like Like" }
@@ -332,6 +331,7 @@ sprite{ id = "enemies/raven", description = "Raven" }
 sprite{ id = "enemies/rope", description = "Rope" }
 sprite{ id = "enemies/sand_crab", description = "Sand Crab" }
 sprite{ id = "enemies/sea_urchin", description = "Sea urchin" }
+sprite{ id = "enemies/shrouded_stalfos", description = "Shrouded Stalfos" }
 sprite{ id = "enemies/spiked_beetle", description = "Spiked Beetle" }
 sprite{ id = "enemies/spiny_beetle", description = "Spiny Beetle" }
 sprite{ id = "enemies/stalfos_blue", description = "Stalfos blue" }
@@ -1271,8 +1271,8 @@ enemy{ id = "chicken", description = "Chicken" }
 enemy{ id = "chicken_mortal", description = "Chicken Mortal" }
 enemy{ id = "crow", description = "Crow" }
 enemy{ id = "cukeman", description = "Cukeman" }
-enemy{ id = "darknut", description = "Darknut" }
-enemy{ id = "darknut_bow", description = "Darknut Bow" }
+enemy{ id = "darknut", description = "Darknut (Sword)" }
+enemy{ id = "darknut_bow", description = "Darknut (Bow)" }
 enemy{ id = "death_ball", description = "Death Ball" }
 enemy{ id = "dog", description = "Dog" }
 enemy{ id = "eyegore_statue", description = "Eyegore Statue" }
@@ -1291,17 +1291,16 @@ enemy{ id = "goponga_flower_giant", description = "Goponga Flower Giant" }
 enemy{ id = "hardhat_beetle", description = "Hardhat Beetle" }
 enemy{ id = "helmasaur_masked", description = "Helmasaur masked" }
 enemy{ id = "helmasaur_naked", description = "Helmasaur naked" }
-enemy{ id = "hooded_stalfos", description = "Hooded stalfos" }
 enemy{ id = "keese", description = "Keese" }
 enemy{ id = "leever", description = "Leever" }
 enemy{ id = "like_like", description = "Like Like" }
 enemy{ id = "mad_bomber", description = "Mad bomber" }
 enemy{ id = "maskass", description = "Maskass" }
 enemy{ id = "mini_moldorm", description = "Mini Moldorm" }
-enemy{ id = "moblin_dog_spear", description = "Moblin Dog Spear" }
-enemy{ id = "moblin_dog_sword", description = "Moblin Dog Sword" }
-enemy{ id = "moblin_pig_spear", description = "Moblin Pig Spear" }
-enemy{ id = "moblin_pig_sword", description = "Moblin Pig Sword" }
+enemy{ id = "moblin_dog_spear", description = "Moblin Dog (Spear)" }
+enemy{ id = "moblin_dog_sword", description = "Moblin Dog (Sword)" }
+enemy{ id = "moblin_pig_spear", description = "Moblin Pig (Spear)" }
+enemy{ id = "moblin_pig_sword", description = "Moblin Pig (Sword)" }
 enemy{ id = "monkey", description = "Monkey" }
 enemy{ id = "octorok", description = "Octorok" }
 enemy{ id = "octorok_flying", description = "Octorok Flying" }
@@ -1332,6 +1331,8 @@ enemy{ id = "raven", description = "Raven" }
 enemy{ id = "rope", description = "Rope" }
 enemy{ id = "sand_crab", description = "Sand Crab" }
 enemy{ id = "sea_urchin", description = "Sea Urchin" }
+enemy{ id = "shrouded_stalfos", description = "Shrouded Stalfos (Bow)" }
+enemy{ id = "shrouded_stalfos_sword", description = "Shrouded Stalfos (Sword)" }
 enemy{ id = "spiked_beetle", description = "Spiked Beetle" }
 enemy{ id = "spiny_beetle", description = "Spiny Beetle" }
 enemy{ id = "stalfos_blue", description = "Stalfos blue" }
@@ -1493,7 +1494,6 @@ file{ path = "enemies/goponga_flower_giant.lua", license = "GPL v3" }
 file{ path = "enemies/hardhat_beetle.lua", license = "GPL v3" }
 file{ path = "enemies/helmasaur_masked.lua", license = "GPL v3" }
 file{ path = "enemies/helmasaur_naked.lua", license = "GPL v3" }
-file{ path = "enemies/hooded_stalfos.lua", license = "GPL v3" }
 file{ path = "enemies/keese.lua", license = "GPL v3" }
 file{ path = "enemies/leever.lua", license = "GPL v3" }
 file{ path = "enemies/lib", license = "GPL v3" }
@@ -1522,6 +1522,7 @@ file{ path = "enemies/raven.lua", license = "GPL v3" }
 file{ path = "enemies/rope.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "enemies/sand_crab.lua", license = "GPL v3" }
 file{ path = "enemies/sea_urchin.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "enemies/shrouded_stalfos.lua", license = "GPL v3" }
 file{ path = "enemies/spiked_beetle.lua", license = "GPL v3" }
 file{ path = "enemies/spiny_beetle.lua", license = "GPL v3" }
 file{ path = "enemies/star.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
@@ -2450,7 +2451,6 @@ file{ path = "sprites/enemies/goponga_flower_giant.png", license = "Proprietary,
 file{ path = "sprites/enemies/hardhat_beetle.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/helmasaur_masked.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/helmasaur_naked.png", license = "Proprietary, Fair use" }
-file{ path = "sprites/enemies/hooded_stalfos.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/keese.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/leever.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/like_like.png", license = "Proprietary, Fair use" }
@@ -2476,6 +2476,7 @@ file{ path = "sprites/enemies/raven.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/rope.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/sand_crab.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/sea_urchin.png", license = "Proprietary, Fair use" }
+file{ path = "sprites/enemies/shrouded_stalfos.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/spiked_beetle.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/spiny_beetle.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/star.png", license = "Proprietary, Fair use" }

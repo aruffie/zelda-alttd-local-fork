@@ -17551,7 +17551,7 @@ enemy{
   x = 1352,
   y = 877,
   direction = 3,
-  breed = "hooded_stalfos",
+  breed = "shrouded_stalfos",
   treasure_name = "random",
 }
 
@@ -17817,7 +17817,7 @@ enemy{
   x = 1704,
   y = 605,
   direction = 3,
-  breed = "hooded_stalfos",
+  breed = "shrouded_stalfos",
   treasure_name = "random",
 }
 
@@ -17847,7 +17847,7 @@ enemy{
   x = 1784,
   y = 637,
   direction = 3,
-  breed = "hooded_stalfos",
+  breed = "shrouded_stalfos",
   treasure_name = "random",
 }
 
@@ -17867,7 +17867,7 @@ enemy{
   x = 1688,
   y = 365,
   direction = 3,
-  breed = "hooded_stalfos",
+  breed = "shrouded_stalfos",
   treasure_name = "random",
 }
 
@@ -18348,7 +18348,7 @@ enemy{
   x = 2008,
   y = 653,
   direction = 3,
-  breed = "hooded_stalfos",
+  breed = "shrouded_stalfos",
   treasure_name = "random",
 }
 

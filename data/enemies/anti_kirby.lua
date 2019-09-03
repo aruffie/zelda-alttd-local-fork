@@ -214,11 +214,10 @@ end)
 enemy:register_event("on_restarted", function(enemy)
 
   -- Behavior for each items.
-  enemy:set_hero_weapons_reactions({
+  enemy:set_hero_weapons_reactions("ignored", {
     boomerang = 1,
     explosion = 2,
-    fire = 2,
-    default = "ignored"})
+    fire = 2})
 
   -- States.
   enemy:set_can_attack(true)

@@ -3,7 +3,7 @@
 -- Add some basic weapon abilities to an enemy.
 -- There is no passive behavior without an explicit method call when learning this to an enemy.
 --
--- Methods : enemy:hold_sword(synchronization_sprite, [sprite_name, [x_offset, [y_offset]]])
+-- Methods : enemy:hold_sword([reference_sprite, [sprite_name, [x_offset, [y_offset]]]])
 --           enemy:throw_projectile(projectile_name, [throwing_duration, [aligned, [x_offset, [y_offset, [on_throwed_callback]]]])
 --
 -- Usage : 
@@ -25,9 +25,10 @@ function weapons.learn(enemy)
   local quarter = math.pi * 0.5
 
   -- Make the enemy hold a sword.
-  function enemy:hold_sword(synchronization_sprite, sword_sprite_name, x_offset, y_offset)
+  function enemy:hold_sword(reference_sprite, sword_sprite_name, x_offset, y_offset)
 
     local enemy_x, enemy_y, enemy_layer = enemy:get_position()
+    reference_sprite = reference_sprite or enemy:get_sprite()
     sword = map:create_custom_entity({
       direction = enemy:get_sprite():get_direction(),
       x = enemy_x,
@@ -41,11 +42,11 @@ function weapons.learn(enemy)
     -- Synchronize sprites.
     local sword_sprite = sword:get_sprite()
     sword_sprite:set_xy(x_offset or 0, y_offset or 0)
-    sword_sprite:synchronize(synchronization_sprite)
-    synchronization_sprite:register_event("on_direction_changed", function(synchronization_sprite)
-      sword_sprite:set_direction(synchronization_sprite:get_direction())
+    sword_sprite:synchronize(reference_sprite)
+    reference_sprite:register_event("on_direction_changed", function(reference_sprite)
+      sword_sprite:set_direction(reference_sprite:get_direction())
     end)
-    synchronization_sprite:register_event("on_animation_changed", function(synchronization_sprite, name)
+    reference_sprite:register_event("on_animation_changed", function(reference_sprite, name)
       if sword_sprite:has_animation(name) then
         sword_sprite:set_animation(name)
       end
@@ -76,14 +77,11 @@ function weapons.learn(enemy)
     end)
 
     -- Propagate enemy main events.
-    enemy:register_event("on_restarted", function(enemy)
-      is_pushed_back = false
-    end)
-    enemy:register_event("on_position_changed", function(enemy)
+    enemy:register_event("on_update", function(enemy)
       sword:set_position(enemy:get_position())
     end)
-    enemy:register_event("on_dying", function(enemy)
-      sword:set_enabled(false)
+    enemy:register_event("on_restarted", function(enemy)
+      is_pushed_back = false
     end)
     enemy:register_event("on_removed", function(enemy)
       sword:remove()
@@ -93,6 +91,11 @@ function weapons.learn(enemy)
     end)
     enemy:register_event("on_disabled", function(enemy)
       sword:set_enabled(false)
+    end)
+    enemy:register_event("on_dying", function(enemy)
+      sol.timer.start(sword, 300, function() -- Workaround: No event when the enemy became invisible, hardcode a timer.
+        sword:set_enabled(false)
+      end)
     end)
 
     return sword
@@ -125,7 +128,11 @@ function weapons.learn(enemy)
         end
       end
     end
-    sprite:set_animation("throwing", throw)
+    for _, sprite in enemy:get_sprites() do
+      if sprite:has_animation("throwing") then
+        sprite:set_animation("throwing")
+      end
+    end
 
     if throwing_duration then
       sol.timer.start(enemy, throwing_duration, function()

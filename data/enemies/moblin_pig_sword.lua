@@ -58,7 +58,7 @@ function enemy:start_charge_walking()
 end
 
 -- Passive behaviors needing constant checking.
-function enemy:on_update()
+enemy:register_event("on_update", function(enemy)
 
   if enemy:is_immobilized() then
     return
@@ -68,19 +68,19 @@ function enemy:on_update()
   if not is_charging and enemy:is_near(hero, charge_triggering_distance) then -- TODO is seeing hero ?
     enemy:start_charge_walking()
   end
-end
+end)
 
 -- Initialization.
-function enemy:on_created()
+enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(2)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)
-  enemy:hold_sword(sprite)
-end
+  enemy:hold_sword()
+end)
 
 -- Restart settings.
-function enemy:on_restarted()
+enemy:register_event("on_restarted", function(enemy)
 
   -- Behavior for each items.
   enemy:set_hero_weapons_reactions({
@@ -93,4 +93,4 @@ function enemy:on_restarted()
   enemy:set_can_attack(true)
   enemy:set_damage(1)
   enemy:start_walking()
-end
+end)

@@ -1,4 +1,4 @@
--- Lua script of enemy darknut_bow.
+-- Lua script of enemy shrouded stalfos.
 -- This script is executed every time an enemy with this model is created.
 
 local enemy = ...
@@ -20,25 +20,22 @@ local waiting_duration = 800
 local throwing_duration = 200
 
 local projectile_breed = "arrow"
-local projectile_offset = {{0, -11}, {8, 0}, {0, -11}, {-8, 0}}
+local projectile_offset = {{0, -8}, {0, -8}, {0, -8}, {0, -8}}
 
 -- Start the enemy movement.
 function enemy:start_walking(key)
 
-  enemy:start_straight_walking(walking_possible_angles[key], walking_speed, walking_distance_grid * math.random(walking_max_move_by_step), function()    
-    local next_key = math.random(4)
-    local waiting_animation = (key + 1) % 4 == next_key % 4 and "seek_left" or (key - 1) % 4 == next_key % 4 and "seek_right" or "immobilized"
-    sprite:set_animation(waiting_animation)
-
+  enemy:start_straight_walking(walking_possible_angles[key], walking_speed, walking_distance_grid * math.random(walking_max_move_by_step), function() 
+    sprite:set_animation("immobilized")
     sol.timer.start(enemy, waiting_duration, function()
 
       -- Throw an arrow if the hero is on the direction the enemy is looking at.
       if enemy:get_direction4_to(hero) == sprite:get_direction() then
         enemy:throw_projectile(projectile_breed, throwing_duration, true, projectile_offset[key][1], projectile_offset[key][2], function()
-          enemy:start_walking(next_key)
+          enemy:start_walking(math.random(4))
         end)
       else
-        enemy:start_walking(next_key)
+        enemy:start_walking(math.random(4))
       end
     end)
   end)
@@ -63,5 +60,5 @@ enemy:register_event("on_restarted", function(enemy)
   -- States.
   enemy:set_can_attack(true)
   enemy:set_damage(1)
-  enemy:start_walking(math.random(4) - 1)
+  enemy:start_walking(math.random(4))
 end)
