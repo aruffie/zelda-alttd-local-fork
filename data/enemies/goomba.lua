@@ -12,7 +12,7 @@ local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
 
 -- Configuration variables
-local walking_possible_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
+local walking_possible_angles = map:is_sideview() and {0, quarter, 2.0 * quarter, 3.0 * quarter} or {0, 0, 2 * quarter, 2 * quarter}
 local walking_speed = 32
 local walking_distance_grid = 16
 local walking_max_move_by_step = 6
@@ -24,6 +24,17 @@ function enemy:start_walking()
   enemy:start_straight_walking(walking_possible_angles[math.random(4)], walking_speed, walking_distance_grid * math.random(walking_max_move_by_step), function()
     enemy:start_walking()
   end)
+end
+
+-- Don't hurt the hero if enemy is below on sideview maps.
+function enemy:on_attacking_hero(hero, enemy_sprite)
+
+  local _, y, _ = enemy:get_position()
+  local _, hero_y, _ = hero:get_position()
+  if map:is_sideview() and hero_y < y then
+    return
+  end
+  hero:start_hurt(enemy, enemy:get_damage())
 end
 
 -- Make enemy crushed when hero walking on him.
