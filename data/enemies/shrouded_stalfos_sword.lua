@@ -1,37 +1,93 @@
--- Lua script of enemy shrouded_stalfos_sword.
+-- Lua script of enemy shrouded stalfos sword.
 -- This script is executed every time an enemy with this model is created.
 
--- Feel free to modify the code below.
--- You can add more events and remove the ones you don't need.
-
--- See the Solarus Lua API documentation for the full specification
--- of types, events and methods:
--- http://www.solarus-games.org/doc/latest
-
+-- Global variables
 local enemy = ...
+require("enemies/lib/common_actions").learn(enemy)
+require("enemies/lib/weapons").learn(enemy)
+
 local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
-local sprite
-local movement
+local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+local quarter = math.pi * 0.5
 
--- Event called when the enemy is initialized.
-function enemy:on_created()
+local is_charging = false
 
-  -- Initialize the properties of your enemy here,
-  -- like the sprite, the life and the damage.
-  sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
-  enemy:set_life(1)
+-- Configuration variables
+local charge_triggering_distance = 80
+local charging_speed = 56
+local walking_possible_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
+local walking_speed = 32
+local walking_distance_grid = 16
+local walking_max_move_by_step = 6
+local waiting_duration = 800
+
+-- Start the enemy initial movement.
+function enemy:start_walking()
+
+  if not is_charging and enemy:is_near(hero, charge_triggering_distance) then
+    enemy:start_charge_walking()
+  else
+    enemy:start_random_walking(math.random(4))
+  end
+end
+
+-- Start the enemy random movement.
+function enemy:start_random_walking(key)
+
+  enemy:start_straight_walking(walking_possible_angles[key], walking_speed, walking_distance_grid * math.random(walking_max_move_by_step), function()    
+    sprite:set_animation("immobilized")
+
+    sol.timer.start(enemy, waiting_duration, function()
+      if not is_charging then
+        enemy:start_random_walking(math.random(4))
+      end
+    end)
+  end)
+end
+
+-- Start the enemy charge movement.
+function enemy:start_charge_walking()
+
+  is_charging = true
+  enemy:stop_movement()
+  enemy:start_target_walking(hero, charging_speed)
+end
+
+-- Passive behaviors needing constant checking.
+enemy:register_event("on_update", function(enemy)
+
+  if enemy:is_immobilized() then
+    return
+  end
+
+  -- Start charging if the hero is near enough
+  if not is_charging and enemy:is_near(hero, charge_triggering_distance) then -- TODO is seeing hero ?
+    enemy:start_charge_walking()
+  end
+end)
+
+-- Initialization.
+enemy:register_event("on_created", function(enemy)
+
+  enemy:set_life(2)
+  enemy:set_size(16, 16)
+  enemy:set_origin(8, 13)
+  enemy:hold_sword("enemies/darknut/sword")
+end)
+
+-- Restart settings.
+enemy:register_event("on_restarted", function(enemy)
+
+  -- Behavior for each items.
+  enemy:set_hero_weapons_reactions(2, {
+    sword = 1, 
+    jump_on = "ignored"})
+
+  -- States.
+  is_charging = false
+  enemy:set_can_attack(true)
   enemy:set_damage(1)
-end
-
--- Event called when the enemy should start or restart its movements.
--- This is called for example after the enemy is created or after
--- it was hurt or immobilized.
-function enemy:on_restarted()
-
-  movement = sol.movement.create("target")
-  movement:set_target(hero)
-  movement:set_speed(48)
-  movement:start(enemy)
-end
+  enemy:start_walking()
+end)

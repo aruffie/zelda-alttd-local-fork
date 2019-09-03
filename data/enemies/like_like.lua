@@ -61,7 +61,7 @@ function enemy:eat_hero()
   hero:set_walking_speed(0)
 
   -- Eat the shield if it is the first variant and assigned to a slot.
-  enemy:steal_item("shield", 1, true)
+  enemy:steal_item("shield", 1, true, true)
 end
 
 -- Store the number of command pressed while eaten and free the hero if necessary.

@@ -3,7 +3,7 @@
 -- Add some basic weapon abilities to an enemy.
 -- There is no passive behavior without an explicit method call when learning this to an enemy.
 --
--- Methods : enemy:hold_sword([reference_sprite, [sprite_name, [x_offset, [y_offset]]]])
+-- Methods : enemy:hold_sword([sprite_name, [reference_sprite, [x_offset, [y_offset]]]])
 --           enemy:throw_projectile(projectile_name, [throwing_duration, [aligned, [x_offset, [y_offset, [on_throwed_callback]]]])
 --
 -- Usage : 
@@ -25,10 +25,12 @@ function weapons.learn(enemy)
   local quarter = math.pi * 0.5
 
   -- Make the enemy hold a sword.
-  function enemy:hold_sword(reference_sprite, sword_sprite_name, x_offset, y_offset)
+  function enemy:hold_sword(sprite_name, reference_sprite, x_offset, y_offset)
 
     local enemy_x, enemy_y, enemy_layer = enemy:get_position()
     reference_sprite = reference_sprite or enemy:get_sprite()
+
+    -- Create the welded custom entity
     sword = map:create_custom_entity({
       direction = enemy:get_sprite():get_direction(),
       x = enemy_x,
@@ -38,10 +40,10 @@ function weapons.learn(enemy)
       height = 16,
       sprite = sprite_name or "enemies/" .. enemy:get_breed() .. "/sword"
     })
+    enemy:start_welding(sword, x_offset, y_offset)
     
-    -- Synchronize sprites.
+    -- Synchronize sprite animation and direction.
     local sword_sprite = sword:get_sprite()
-    sword_sprite:set_xy(x_offset or 0, y_offset or 0)
     sword_sprite:synchronize(reference_sprite)
     reference_sprite:register_event("on_direction_changed", function(reference_sprite)
       sword_sprite:set_direction(reference_sprite:get_direction())
@@ -75,27 +77,8 @@ function weapons.learn(enemy)
         end
       end
     end)
-
-    -- Propagate enemy main events.
-    enemy:register_event("on_update", function(enemy)
-      sword:set_position(enemy:get_position())
-    end)
     enemy:register_event("on_restarted", function(enemy)
       is_pushed_back = false
-    end)
-    enemy:register_event("on_removed", function(enemy)
-      sword:remove()
-    end)
-    enemy:register_event("on_enabled", function(enemy)
-      sword:set_enabled()
-    end)
-    enemy:register_event("on_disabled", function(enemy)
-      sword:set_enabled(false)
-    end)
-    enemy:register_event("on_dying", function(enemy)
-      sol.timer.start(sword, 300, function() -- Workaround: No event when the enemy became invisible, hardcode a timer.
-        sword:set_enabled(false)
-      end)
     end)
 
     return sword

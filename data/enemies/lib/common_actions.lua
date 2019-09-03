@@ -14,13 +14,14 @@
 --           enemy:stop_flying(landing_duration)
 --           enemy:start_attracting(entity, speed, [moving_condition_callback])
 --           enemy:stop_attracting()
+--           enemy:start_welding(entity, [x_offset, [y_offset]])
 --           enemy:start_leashed_by(entity, maximum_distance)
 --           enemy:stop_leashed_by(entity)
 --           enemy:start_pushed_back(entity, [speed, [duration, [on_finished_callback]]])
 --           enemy:start_pushing_back(entity, [speed, [duration, [on_finished_callback])
 --           enemy:start_shadow([sprite_name, [animation_set_id]])
 --           enemy:start_brief_effect(sprite_name, [animation_set_id, [x_offset, [y_offset, [maximum_duration]]]])
---           enemy:steal_item(item_name, [variant, [only_if_assigned]])
+--           enemy:steal_item(item_name, [variant, [only_if_assigned, [drop_when_dead]]])
 -- Events:   enemy:on_jump_finished()
 --           enemy:on_flying_took_off()
 --           enemy:on_flying_landed()
@@ -298,6 +299,29 @@ function common_actions.learn(enemy)
     end
   end
 
+  -- Make the entity welded to the enemy at the given offset position and propagate main events.
+  function enemy:start_welding(entity, x_offset, y_offset)
+
+    enemy:register_event("on_update", function(enemy)
+      local x, y, layer = enemy:get_position()
+      entity:set_position(x + (x_offset or 0), y + (y_offset or 0), layer)
+    end)
+    enemy:register_event("on_removed", function(enemy)
+      entity:remove()
+    end)
+    enemy:register_event("on_enabled", function(enemy)
+      entity:set_enabled()
+    end)
+    enemy:register_event("on_disabled", function(enemy)
+      entity:set_enabled(false)
+    end)
+    enemy:register_event("on_dying", function(enemy)
+      sol.timer.start(sword, 300, function() -- No event when the enemy became invisible, hardcode a timer.
+        entity:set_enabled(false)
+      end)
+    end)
+  end
+
   -- Set a maximum distance between the enemy and an entity, else replace the enemy near it.
   function enemy:start_leashed_by(entity, maximum_distance)
 
@@ -380,25 +404,12 @@ function common_actions.learn(enemy)
         height = 16,
         sprite = sprite_name or "entities/shadows/shadow"
       })
+      enemy:start_welding(shadow)
+
       if animation_set_id then
         shadow:get_sprite():set_animation(animation_set_id)
       end
       shadow:set_traversable_by(true)
-      enemy:register_event("on_position_changed", function(enemy)
-        shadow:set_position(enemy:get_position())
-      end)
-      enemy:register_event("on_dying", function(enemy)
-        shadow:set_enabled(false)
-      end)
-      enemy:register_event("on_removed", function(enemy)
-        shadow:remove()
-      end)
-      enemy:register_event("on_enabled", function(enemy)
-        shadow:set_enabled()
-      end)
-      enemy:register_event("on_disabled", function(enemy)
-        shadow:set_enabled(false)
-      end)
     end
     return shadow
   end
@@ -430,14 +441,16 @@ function common_actions.learn(enemy)
   end
 
   -- Steal an item and drop it when died, possibly conditionned on the variant and the assignation to a slot.
-  function enemy:steal_item(item_name, variant, only_if_assigned)
+  function enemy:steal_item(item_name, variant, only_if_assigned, drop_when_dead)
 
     if game:has_item(item_name) then
       local item = game:get_item(item_name)
       local item_slot = (game:get_item_assigned(1) == item and 1) or (game:get_item_assigned(2) == item and 2) or nil
 
-      if (not variant or item:get_variant() == variant) and (not only_if_assigned or item_slot) then     
-        enemy:set_treasure(item_name, item:get_variant()) -- TODO savegame variable
+      if (not variant or item:get_variant() == variant) and (not only_if_assigned or item_slot) then 
+        if drop_when_dead then
+          enemy:set_treasure(item_name, item:get_variant()) -- TODO savegame variable
+        end
         item:set_variant(0)
         if item_slot then
           game:set_item_assigned(item_slot, nil)

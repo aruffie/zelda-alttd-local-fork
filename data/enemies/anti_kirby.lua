@@ -28,7 +28,6 @@ local eating_duration = 2000
 local take_off_duration = 1000
 local flying_duration = 3000
 local landing_duration = 1000
-local hat_duration = 10000
 local before_aspiring_delay = 200
 local finish_aspiration_delay = 400
 
@@ -72,12 +71,12 @@ function enemy:eat_hero()
   hero:freeze()
   
   sol.timer.start(enemy, eating_duration, function()
-    enemy:spit_hero(true)
+    enemy:spit_hero()
   end)
 end
 
 -- Make the enemy spit the hero if he was eaten.
-function enemy:spit_hero(restart)
+function enemy:spit_hero()
 
   if enemy.is_eating then
 
@@ -107,9 +106,7 @@ function enemy:spit_hero(restart)
     sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/anti_kirby_link")
     enemy:start_brief_effect("entities/effects/sparkle_small", "default", 0, 0)
 
-    if restart then
-      enemy:restart()
-    end
+    enemy:restart()
   end
 end
 
