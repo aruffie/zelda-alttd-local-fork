@@ -48,7 +48,6 @@ animation{
 animation{
   name = "seek_left",
   src_image = "enemies/darknut/sword.png",
-  frame_delay = 50,
   directions = {
     { x = 288, y = 144, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 34 },
     { x = 288, y = 0, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 34 },
@@ -59,7 +58,6 @@ animation{
 animation{
   name = "seek_right",
   src_image = "enemies/darknut/sword.png",
-  frame_delay = 50,
   directions = {
     { x = 288, y = 144, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 34 },
     { x = 288, y = 0, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 34 },

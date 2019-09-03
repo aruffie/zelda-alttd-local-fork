@@ -299,7 +299,7 @@ function common_actions.learn(enemy)
     end
   end
 
-  -- Make the entity welded to the enemy at the given offset position and propagate main events.
+  -- Make the entity welded to the enemy at the given offset position, and propagate main events.
   function enemy:start_welding(entity, x_offset, y_offset)
 
     enemy:register_event("on_update", function(enemy)
@@ -316,7 +316,7 @@ function common_actions.learn(enemy)
       entity:set_enabled(false)
     end)
     enemy:register_event("on_dying", function(enemy)
-      sol.timer.start(sword, 300, function() -- No event when the enemy became invisible, hardcode a timer.
+      sol.timer.start(entity, 300, function() -- No event when the enemy became invisible, hardcode a timer.
         entity:set_enabled(false)
       end)
     end)
