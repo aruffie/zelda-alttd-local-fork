@@ -20,7 +20,7 @@ local waiting_duration = 800
 local throwing_duration = 200
 
 local projectile_breed = "arrow"
-local projectile_offset = {{0, -11}, {8, 0}, {0, -11}, {-8, 0}}
+local projectile_offset = {{0, -8}, {6, 0}, {0, -8}, {-1, 0}}
 
 -- Start the enemy movement.
 function enemy:start_walking(key)
@@ -63,5 +63,5 @@ enemy:register_event("on_restarted", function(enemy)
   -- States.
   enemy:set_can_attack(true)
   enemy:set_damage(1)
-  enemy:start_walking(math.random(4) - 1)
+  enemy:start_walking(math.random(4))
 end)

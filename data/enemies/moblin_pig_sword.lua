@@ -29,21 +29,21 @@ function enemy:start_walking()
   if not is_charging and enemy:is_near(hero, charge_triggering_distance) then
     enemy:start_charge_walking()
   else
-    enemy:start_random_walking(math.random(4) - 1)
+    enemy:start_random_walking(math.random(4))
   end
 end
 
 -- Start the enemy random movement.
-function enemy:start_random_walking(direction)
+function enemy:start_random_walking(key)
 
-  enemy:start_straight_walking(walking_possible_angles[direction + 1], walking_speed, walking_distance_grid * math.random(walking_max_move_by_step), function()    
-    local next_direction = math.random(4) - 1
-    local waiting_animation = (direction + 1) % 4 == next_direction and "seek_left" or (direction - 1) % 4 == next_direction and "seek_right" or "immobilized"
+  enemy:start_straight_walking(walking_possible_angles[key], walking_speed, walking_distance_grid * math.random(walking_max_move_by_step), function()    
+    local next_key = math.random(4)
+    local waiting_animation = (key + 1) % 4 == next_key % 4 and "seek_left" or (key - 1) % 4 == next_key % 4 and "seek_right" or "immobilized"
     sprite:set_animation(waiting_animation)
 
     sol.timer.start(enemy, waiting_duration, function()
       if not is_charging then
-        enemy:start_random_walking(next_direction)
+        enemy:start_random_walking(next_key)
       end
     end)
   end)
@@ -83,10 +83,9 @@ end)
 enemy:register_event("on_restarted", function(enemy)
 
   -- Behavior for each items.
-  enemy:set_hero_weapons_reactions({
+  enemy:set_hero_weapons_reactions(2, {
     sword = 1, 
-    jump_on = "ignored",
-    default = 2})
+    jump_on = "ignored"})
 
   -- States.
   is_charging = false
