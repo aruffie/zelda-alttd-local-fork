@@ -832,6 +832,38 @@ Vous débordez d'énergie !
 }
 
 dialog{
+  id = "enemies.cukeman.1",
+  skip = "all",
+  text = [[
+Les nanas de la Hotline, c'est des pros !
+]],
+}
+
+dialog{
+  id = "enemies.cukeman.2",
+  skip = "all",
+  text = [[
+Il est 9h59, ça dissuade !
+]],
+}
+
+dialog{
+  id = "enemies.cukeman.3",
+  skip = "all",
+  text = [[
+Gros bisous de Kyoto. Véro
+]],
+}
+
+dialog{
+  id = "enemies.cukeman.4",
+  skip = "all",
+  text = [[
+Yo, t'es québlo !
+]],
+}
+
+dialog{
   id = "items.mushroom.1",
   skip = "all",
   text = [[

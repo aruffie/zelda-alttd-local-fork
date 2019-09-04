@@ -71,6 +71,7 @@ function common_actions.learn(enemy)
   -- Set a reaction to all weapons, default_reaction applied for each specific one not set.
   function enemy:set_hero_weapons_reactions(default_reaction, reactions)
 
+    reactions = reactions or {}
     enemy:set_attack_consequence("arrow", reactions.arrow or default_reaction)
     enemy:set_attack_consequence("boomerang", reactions.boomerang or default_reaction)
     enemy:set_attack_consequence("explosion", reactions.explosion or default_reaction)
@@ -79,7 +80,9 @@ function common_actions.learn(enemy)
     enemy:set_fire_reaction(reactions.fire or default_reaction)
     enemy:set_hammer_reaction(reactions.hammer or default_reaction)
     enemy:set_hookshot_reaction(reactions.hookshot or default_reaction)
+    enemy:set_magic_powder_reaction(reactions.magic_powder or default_reaction)
     enemy:set_jump_on_reaction(reactions.jump_on or default_reaction)
+    -- TODO pegasus boots
   end
 
   -- Make the enemy straight move.

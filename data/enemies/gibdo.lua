@@ -35,8 +35,9 @@ enemy:register_event("on_custom_attack_received", function(enemy, attack)
     enemy:remove()
 
     -- Make the Stalfos immobile, then shake for some time, and then restart.
-    stalfos:set_exhausted(true)
+    stalfos:set_invincible()
     stalfos:stop_movement()
+    stalfos:set_exhausted(true)
     sol.timer.stop_all(stalfos)
     stalfos:get_sprite():set_animation("shaking")
     sol.timer.start(stalfos, stalfos_shaking_duration, function()
