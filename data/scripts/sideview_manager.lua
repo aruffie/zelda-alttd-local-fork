@@ -136,6 +136,24 @@ local function check_for_water(entity)
   return map:get_ground(bx+w-1, by+h, layer) =="deep_water"
 
 end
+
+-- Check if an enemy sensible to jump is overlapping the hero, then hurt it and bounce.
+local function on_bounce_possible(entity)
+
+  local map = entity:get_map()
+  local hero = map:get_hero()
+  for enemy in map:get_entities_by_type("enemy") do
+    if hero:overlaps(enemy, "overlapping") and enemy:get_life() > 0 and not enemy:is_immobilized() then
+      local reaction = enemy:get_jump_on_reaction()
+      if reaction ~= "ignored" then
+        enemy:receive_attack_consequence("jump_on", reaction)
+        entity.vspeed = 0 - math.abs(entity.vspeed)
+      end
+    end
+  end
+  return entity.vspeed or 0
+end
+
 --[[
   This is the core function of the side views : 
   it applies a semi-realistic gravity to the given entity, and resets the vertical speed if :
@@ -143,7 +161,6 @@ end
     we laanded on top of a ladder
     Parameter : entity, the entity to apply the gravity on.
 --]]
-
 local function apply_gravity(entity)
   local x,y,layer = entity:get_position()
   local map = entity:get_map()
@@ -152,6 +169,7 @@ local function apply_gravity(entity)
   local vspeed = entity.vspeed or 0 
   if vspeed >= 0 then
     --Try to apply gravity
+    vspeed = on_bounce_possible(entity)
     if entity:test_obstacles(0,1) or entity.on_ladder or
     test_ladder(entity)==false and is_ladder(entity:get_map(), x, y+3) then
       --we are on an obstacle, so reset the speed and bail.

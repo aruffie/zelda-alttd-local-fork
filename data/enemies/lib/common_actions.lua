@@ -71,6 +71,7 @@ function common_actions.learn(enemy)
   -- Set a reaction to all weapons, default_reaction applied for each specific one not set.
   function enemy:set_hero_weapons_reactions(default_reaction, reactions)
 
+    reactions = reactions or {}
     enemy:set_attack_consequence("arrow", reactions.arrow or default_reaction)
     enemy:set_attack_consequence("boomerang", reactions.boomerang or default_reaction)
     enemy:set_attack_consequence("explosion", reactions.explosion or default_reaction)
@@ -79,7 +80,9 @@ function common_actions.learn(enemy)
     enemy:set_fire_reaction(reactions.fire or default_reaction)
     enemy:set_hammer_reaction(reactions.hammer or default_reaction)
     enemy:set_hookshot_reaction(reactions.hookshot or default_reaction)
+    enemy:set_magic_powder_reaction(reactions.magic_powder or default_reaction)
     enemy:set_jump_on_reaction(reactions.jump_on or default_reaction)
+    -- TODO pegasus boots
   end
 
   -- Make the enemy straight move.
@@ -299,7 +302,7 @@ function common_actions.learn(enemy)
     end
   end
 
-  -- Make the entity welded to the enemy at the given offset position and propagate main events.
+  -- Make the entity welded to the enemy at the given offset position, and propagate main events.
   function enemy:start_welding(entity, x_offset, y_offset)
 
     enemy:register_event("on_update", function(enemy)
@@ -316,7 +319,7 @@ function common_actions.learn(enemy)
       entity:set_enabled(false)
     end)
     enemy:register_event("on_dying", function(enemy)
-      sol.timer.start(sword, 300, function() -- No event when the enemy became invisible, hardcode a timer.
+      sol.timer.start(entity, 300, function() -- No event when the enemy became invisible, hardcode a timer.
         entity:set_enabled(false)
       end)
     end)
