@@ -56,7 +56,7 @@ enemy:register_event("on_custom_attack_received", function(enemy, attack)
         sprite:set_animation("walking")
         hero:unfreeze()
         hero:start_hurt(enemy:get_damage())
-        enemy:set_life(enemy:get_life() - 1)
+        enemy:remove_life(1)
     end)
 
   -- Transform into Cukeman on magic powder attack.
