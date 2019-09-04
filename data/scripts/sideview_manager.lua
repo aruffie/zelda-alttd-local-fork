@@ -167,9 +167,11 @@ local function apply_gravity(entity)
   local w,h = map:get_size()
   --update vertical speed
   local vspeed = entity.vspeed or 0 
+  if vspeed > 0 then
+    vspeed = on_bounce_possible(entity)
+  end
   if vspeed >= 0 then
     --Try to apply gravity
-    vspeed = on_bounce_possible(entity)
     if entity:test_obstacles(0,1) or entity.on_ladder or
     test_ladder(entity)==false and is_ladder(entity:get_map(), x, y+3) then
       --we are on an obstacle, so reset the speed and bail.
