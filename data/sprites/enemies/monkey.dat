@@ -23,7 +23,7 @@ animation{
   },
 }
 animation{
-  name = "falling_from_tree",
+  name = "falling",
   src_image = "enemies/monkey.png",
   frame_delay = 100,
   frame_to_loop_on = 0,

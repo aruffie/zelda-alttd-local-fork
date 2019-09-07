@@ -29,8 +29,8 @@ function behavior.apply(enemy, properties)
   local jumping_duration = properties.jumping_duration or 600
   local attack_triggering_distance = properties.attack_triggering_distance or 64
   local shaking_duration = properties.shaking_duration or 1000
-  local exhausted_duration = properties.exhausted_duration or 2000
-  local exhausted_maximum_extra_duration = properties.exhausted_maximum_extra_duration or 2000
+  local exhausted_minimum_duration = properties.exhausted_minimum_duration or 2000
+  local exhausted_maximum_duration = properties.exhausted_maximum_duration or 4000
 
   -- Start moving to the hero, and jump when he is close enough.
   function enemy:start_walking()
@@ -54,29 +54,17 @@ function behavior.apply(enemy, properties)
   function enemy:start_jump_attack(offensive)
 
     -- Start jumping to the hero.
-    enemy:start_jumping_movement(offensive)
-    enemy:start_jumping(jumping_duration, jumping_height, false, false)
-  end
-
-  -- Make the enemy move to or away to the hero.
-  function enemy:start_jumping_movement(offensive)
-
-    -- Start the on-floor jumping movement.
     local hero_x, hero_y, _ = hero:get_position()
     local enemy_x, enemy_y, _ = enemy:get_position()
-    local movement = sol.movement.create("straight")
-    movement:set_speed(jumping_speed)
-    movement:set_angle(math.atan2(hero_y - enemy_y, enemy_x - hero_x) + (offensive and math.pi or 0))
-    movement:set_max_distance(jumping_speed * 0.001 * jumping_duration)
-    movement:set_smooth(false)
-    movement:start(enemy)
+    local angle = math.atan2(hero_y - enemy_y, enemy_x - hero_x) + (offensive and math.pi or 0)
+    enemy:start_jumping(jumping_duration, jumping_height, angle, jumping_speed, false, false)
     sprite:set_animation("jump")
   end
 
   -- Stop being exhausted after a minimum delay + random time
   function enemy:schedule_exhausted_end()
 
-    sol.timer.start(enemy, exhausted_duration + math.random(exhausted_maximum_extra_duration), function()
+    sol.timer.start(enemy, math.random(exhausted_minimum_duration, exhausted_maximum_duration), function()
       enemy.is_exhausted = false
     end)
   end

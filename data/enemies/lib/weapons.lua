@@ -4,7 +4,7 @@
 -- There is no passive behavior without an explicit method call when learning this to an enemy.
 --
 -- Methods : enemy:hold_sword([sprite_name, [reference_sprite, [x_offset, [y_offset]]]])
---           enemy:throw_projectile(projectile_name, [throwing_duration, [aligned, [x_offset, [y_offset, [on_throwed_callback]]]])
+--           enemy:throw_projectile(projectile_name, [throwing_duration, [x_offset, [y_offset, [on_throwed_callback]]]])
 --
 -- Usage : 
 -- local my_enemy = ...
@@ -85,7 +85,7 @@ function weapons.learn(enemy)
   end
 
   -- Throw a projectile when throwing animation finished or duration reached.
-  function enemy:throw_projectile(projectile_name, throwing_duration, aligned, x_offset, y_offset, on_throwed_callback)
+  function enemy:throw_projectile(projectile_name, throwing_duration, x_offset, y_offset, on_throwed_callback)
 
     local sprite = enemy:get_sprite()
 
@@ -102,10 +102,7 @@ function weapons.learn(enemy)
           layer = layer,
           direction = direction
         })
-        projectile:get_sprite():set_xy(x_offset, y_offset) 
-        if aligned then
-          projectile:go(direction * quarter)
-        end
+        projectile:get_sprite():set_xy(x_offset, y_offset)
         if on_throwed_callback then
           on_throwed_callback()
         end

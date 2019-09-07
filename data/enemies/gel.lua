@@ -13,8 +13,8 @@ local hero = map:get_hero()
 
 -- Configuration variables
 local slow_speed = 22
-local stuck_duration = 2000
-local stuck_maximum_extra_duration = 500
+local stuck_minimum_duration = 2000
+local stuck_maximum_duration = 2500
 
 -- Let go the hero.
 function enemy:free_hero()
@@ -53,7 +53,7 @@ function enemy:slow_hero_down()
   --game:set_item_assigned(2, nil)
 
   -- Jump away after some time.
-  sol.timer.start(enemy, stuck_duration + math.random(stuck_maximum_extra_duration), function()
+  sol.timer.start(enemy, math.random(stuck_minimum_duration, stuck_maximum_duration), function()
     enemy:free_hero()
     enemy:start_jump_attack(false)
   end)
