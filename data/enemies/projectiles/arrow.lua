@@ -12,6 +12,11 @@ local quarter = math.pi * 0.5
 -- Configuration variables
 local planted_duration = 1000
 
+-- Start going to the hero by an horizontal or vertical move.
+function enemy:go()
+  enemy:straight_go(sprite:get_direction() * quarter)
+end
+
 -- Create an impact effect on hit.
 enemy:register_event("on_hit", function(enemy)
 
@@ -29,8 +34,6 @@ enemy:register_event("on_hit", function(enemy)
       enemy:remove()
     end)
   end)
-
-  return true
 end)
 
 -- Directly remove the enemy on attacking hero

@@ -31,27 +31,15 @@ function enemy:start_walking()
   end)
 end
 
--- Make the enemy move on the opposite of the hero.
-function enemy:start_jumping_movement()
-
-  -- Start the on-floor jumping movement.
-  local enemy_x, enemy_y, _ = enemy:get_position()
-  local hero_x, hero_y, _ = hero:get_position()
-  local movement = sol.movement.create("straight")
-  movement:set_speed(jumping_speed)
-  movement:set_angle(math.atan2(hero_y - enemy_y, enemy_x - hero_x))
-  movement:set_max_distance(jumping_speed * 0.001 * jumping_duration)
-  movement:set_smooth(false)
-  movement:start(enemy)
-  sprite:set_animation("jumping")
-end
-
 -- Event triggered when the enemy is close enough to the hero.
 function enemy:start_attacking()
 
   -- Start jumping away from the hero.
-  enemy:start_jumping_movement()
-  enemy:start_jumping(jumping_duration, jumping_height, true, true)
+  local hero_x, hero_y, _ = hero:get_position()
+  local enemy_x, enemy_y, _ = enemy:get_position()
+  local angle = math.atan2(hero_y - enemy_y, enemy_x - hero_x)
+  enemy:start_jumping(jumping_duration, jumping_height, angle, jumping_speed, true, true)
+  sprite:set_animation("jumping")
   enemy.is_exhausted = true
   
 end

@@ -3,7 +3,8 @@
 -- Add projectile behavior to an ennemy.
 --
 -- Methods : enemy:set_default_speed(speed)
---           enemy:go([angle, [speed]])
+--           enemy:straight_go([angle, [speed]])
+--           enemy:bounce_go(bounce_duration, height, [angle, [speed]])
 -- Events :  enemy:on_hit()
 --
 -- Usage : 
@@ -26,26 +27,20 @@ function behavior.apply(enemy, sprite)
   local hero = map:get_hero()
 
   local default_speed = 192
+  local default_bounce_duration = 600
+  local default_bounce_height = 12
+  
 
-  -- Call the on_hit() callback or remove the entity if not set on hit.
+  -- Call the on_hit() callback and remove the entity if it doesn't return false.
   function enemy:hit_behavior()
 
-    local handled = false
-    if enemy.on_hit then
-      handled = enemy:on_hit()
-    end
-    if not handled then
+    if not enemy.on_hit or enemy:on_hit() ~= false then
       enemy:remove()
     end
   end
 
-  -- Set a projectile speed.
-  function enemy:set_default_speed(speed)
-    default_speed = speed
-  end
-
   -- Start going to the given angle, or to the hero if nil.
-  function enemy:go(angle, speed)
+  function enemy:straight_go(angle, speed)
 
     local movement = sol.movement.create("straight")
     movement:set_angle(angle or enemy:get_angle(hero))
@@ -57,6 +52,11 @@ function behavior.apply(enemy, sprite)
     function movement:on_obstacle_reached()
       enemy:hit_behavior()
     end
+  end
+
+  -- Start bouncing to the given angle, or to the hero if nil.
+  function enemy:bounce_go(angle, speed)
+    enemy:start_jumping(default_bounce_duration, default_bounce_height, angle or enemy:get_angle(hero), speed or default_speed, false, false)
   end
 
   -- Destroy the enemy when the hero is touched. 

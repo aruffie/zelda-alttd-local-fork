@@ -9,7 +9,7 @@
 --           enemy:set_hero_weapons_reactions(default_reaction, [reactions])
 --           enemy:start_straight_walking(angle, speed, [distance, [on_stopped_callback]])
 --           enemy:start_target_walking(entity, speed)
---           enemy:start_jumping(duration, height, [invincible, [harmless]])
+--           enemy:start_jumping(duration, height, [angle, speed, [invincible, [harmless]]])
 --           enemy:start_flying(take_off_duration, height, [invincible, [harmless]])
 --           enemy:stop_flying(landing_duration)
 --           enemy:start_attracting(entity, speed, [moving_condition_callback])
@@ -20,7 +20,7 @@
 --           enemy:start_pushed_back(entity, [speed, [duration, [on_finished_callback]]])
 --           enemy:start_pushing_back(entity, [speed, [duration, [on_finished_callback])
 --           enemy:start_shadow([sprite_name, [animation_set_id]])
---           enemy:start_brief_effect(sprite_name, [animation_set_id, [x_offset, [y_offset, [maximum_duration]]]])
+--           enemy:start_brief_effect(sprite_name, [animation_set_id, [x_offset, [y_offset, [maximum_duration, [on_finished_callback]]]]])
 --           enemy:steal_item(item_name, [variant, [only_if_assigned, [drop_when_dead]]])
 -- Events:   enemy:on_jump_finished()
 --           enemy:on_flying_took_off()
@@ -148,16 +148,7 @@ function common_actions.learn(enemy)
   end
 
   -- Make the enemy start jumping.
-  function enemy:start_jumping(duration, height, invincible, harmless)
-
-    -- Make enemy unable to interact with the hero if requested.
-    if invincible then
-      enemy:set_invincible()
-    end
-    if harmless then
-      enemy:set_can_attack(false)
-      enemy:set_damage(0)
-    end
+  function enemy:start_jumping(duration, height, angle, speed, invincible, harmless)
 
     -- Update the sprite vertical offset at each frame.
     local elapsed_time = 0
@@ -183,10 +174,16 @@ function common_actions.learn(enemy)
       end
     end
     update_sprite_height()
-  end
 
-  -- Make the enemy start flying.
-  function enemy:start_flying(take_off_duration, height, invincible, harmless)
+    -- Move the enemy on-floor if requested.
+    if angle then
+      local movement = sol.movement.create("straight")
+      movement:set_speed(speed)
+      movement:set_angle(angle)
+      movement:set_max_distance(speed * duration * 0.001)
+      movement:set_smooth(false)
+      movement:start(enemy)
+    end
 
     -- Make enemy unable to interact with the hero if requested.
     if invincible then
@@ -196,6 +193,10 @@ function common_actions.learn(enemy)
       enemy:set_can_attack(false)
       enemy:set_damage(0)
     end
+  end
+
+  -- Make the enemy start flying.
+  function enemy:start_flying(take_off_duration, height, invincible, harmless)
 
     -- Make enemy sprites start elevating.
     local event_registered = false
@@ -216,6 +217,15 @@ function common_actions.learn(enemy)
           end
         end
       end
+    end
+
+    -- Make enemy unable to interact with the hero if requested.
+    if invincible then
+      enemy:set_invincible()
+    end
+    if harmless then
+      enemy:set_can_attack(false)
+      enemy:set_damage(0)
     end
   end
 
@@ -265,7 +275,7 @@ function common_actions.learn(enemy)
       if not moving_condition_callback or moving_condition_callback() then
 
         -- Always move pixel by pixel.
-        axis_move[axis] = math.max(math.min(enemy_position[axis] - entity_position[axis], 1), -1) * move_ratio
+        axis_move[axis] = math.max(-1, math.min(1, enemy_position[axis] - entity_position[axis])) * move_ratio
         if axis_move[axis] ~= 0 then
 
           -- Schedule the next move on this axis depending on the remaining distance and the speed value, avoiding too high and low timers.
@@ -418,7 +428,7 @@ function common_actions.learn(enemy)
   end
 
   -- Start a standalone sprite animation on the enemy position, that will be removed once finished or maximum_duration reached if given.
-  function enemy:start_brief_effect(sprite_name, animation_set_id, x_offset, y_offset, maximum_duration)
+  function enemy:start_brief_effect(sprite_name, animation_set_id, x_offset, y_offset, maximum_duration, on_finished_callback)
 
     local x, y, layer = enemy:get_position()
     local entity = map:create_custom_entity({

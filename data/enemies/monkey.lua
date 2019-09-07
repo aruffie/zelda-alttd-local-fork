@@ -1,68 +1,70 @@
 -- Lua script of enemy "monkey".
 -- This script is executed every time an enemy with this model is created.
 
--- Variables
+-- Global variables
 local enemy = ...
 local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
-local sprite
-local movement
+local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+local quarter = math.pi * 0.5
 
--- Event called when the enemy is initialized.
-function enemy:on_created()
+-- Configuration variables
+local waiting_duration = 2000
+local second_thow_delay = 200
 
-  sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
-  enemy:set_life(1)
-  enemy:set_damage(1)
+local coconut_initial_speed = 150
 
-end
-
--- Event called when the enemy should start or restart its movements.
--- This is called for example after the enemy is created or after
--- it was hurt or immobilized.
-function enemy:on_restarted()
-
-  enemy:attack(2)
-
-end
-
-function enemy:attack(direction)
+-- Start throwing animation and create a coconut enemy when finished.
+function enemy:start_throwing_coconut(direction, angle, on_throwed_callback)
 
   sprite:set_direction(direction)
-  sprite:set_animation("throwing")
-  enemy:create_coconut(direction)
-  function sprite:on_animation_finished(animation)
-    if animation == "throwing" then
-      sprite:set_animation("walking")
-      sol.timer.start(enemy, 200, function()
-        if direction == 2 then
-          enemy:attack(0)
-        else
-          enemy:wait(0)
-        end
-      end)
+  sprite:set_animation("throwing", function()
+    local coconut = enemy:create_enemy({breed = "projectiles/coconut"}) -- TODO Throw a bomb once in a while.
+    coconut:go(angle, coconut_initial_speed)
+    sprite:set_animation("walking")
+    if on_throwed_callback then
+      on_throwed_callback()
     end
-  end
+  end)
 end
 
+-- Throw two coconuts.
+function enemy:attack()
+ 
+  enemy:start_throwing_coconut(0, 3.0 * quarter + 0.5, function()
+    sol.timer.start(enemy, second_thow_delay, function()
+      enemy:start_throwing_coconut(2, 3.0 * quarter - 0.5, function()
+        enemy:wait()
+      end)
+    end)
+  end)
+end
+
+-- Wait a delay and start attacking.
 function enemy:wait()
 
   sprite:set_animation("walking")
-  sol.timer.start(enemy, 2000, function()
-    enemy:attack(2)
+  sol.timer.start(enemy, waiting_duration, function()
+    enemy:attack()
   end)
- 
 end
 
-function enemy:create_coconut(direction)
+-- Make the enemy knock off and run away.
+function enemy:start_knocking_off()
 
-  local coconut = enemy:create_enemy({
-    breed = "projectiles/monkey_coconut",
-    layer = 2,
-    x = 0,
-    y = 0,
-    direction = direction
-  })
-  
+  sprite:set_animation("falling")
+  -- TODO
 end
+
+-- Restart settings.
+enemy:register_event("on_restarted", function(enemy)
+
+  -- Behavior for each items.
+  enemy:set_invincible(true)
+
+  -- States.
+  enemy:set_damage(1)
+  enemy:set_can_attack(false)
+  enemy:wait()
+end)

@@ -6,6 +6,11 @@ local projectile_behavior = require("enemies/lib/projectile")
 -- Global variables
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 
+-- Start going to the hero.
+function enemy:go()
+  enemy:straight_go()
+end
+
 -- Create an impact effect on hit.
 enemy:register_event("on_hit", function(enemy)
 
