@@ -63,7 +63,7 @@ end)
 enemy:register_event("on_restarted", function(enemy)
 
   is_hitting = false
-  sprite:set_animation("normal")
+  sprite:set_animation("walking")
   enemy:set_damage(2)
   enemy:set_obstacle_behavior("flying")
   enemy:set_layer_independent_collisions(true)

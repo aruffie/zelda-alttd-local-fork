@@ -1,5 +1,5 @@
 animation{
-  name = "default",
+  name = "walking",
   src_image = "enemies/projectiles/laser.png",
   directions = {
     { x = 0, y = 0, frame_width = 4, frame_height = 4, origin_x = 2, origin_y = 2 },

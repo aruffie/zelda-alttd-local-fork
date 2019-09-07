@@ -26,7 +26,7 @@ end
 function enemy:create_particle()
  
   local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
-  sprite:set_animation("default")
+  sprite:set_animation("walking")
 
   local movement = sol.movement.create("straight")
   movement:set_angle(angle)

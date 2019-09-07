@@ -445,8 +445,8 @@ function common_actions.learn(enemy)
     local function on_finished()
       if on_finished_callback then
         on_finished_callback()
-        entity:remove()
       end
+      entity:remove()
     end
     local sprite = entity:get_sprite()
     sprite:set_animation(animation_set_id, function()

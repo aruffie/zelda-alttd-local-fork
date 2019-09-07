@@ -1,5 +1,5 @@
 animation{
-  name = "default",
+  name = "walking",
   src_image = "enemies/projectiles/bone.png",
   frame_delay = 40,
   frame_to_loop_on = 0,
