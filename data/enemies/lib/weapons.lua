@@ -30,7 +30,7 @@ function weapons.learn(enemy)
     local enemy_x, enemy_y, enemy_layer = enemy:get_position()
     reference_sprite = reference_sprite or enemy:get_sprite()
 
-    -- Create the welded custom entity
+    -- Create the welded custom entity.
     sword = map:create_custom_entity({
       direction = enemy:get_sprite():get_direction(),
       x = enemy_x,
@@ -42,7 +42,7 @@ function weapons.learn(enemy)
     })
     enemy:start_welding(sword, x_offset, y_offset)
     
-    -- Synchronize sprite animation and direction.
+    -- Synchronize sprites animation and direction.
     local sword_sprite = sword:get_sprite()
     sword_sprite:synchronize(reference_sprite)
     reference_sprite:register_event("on_direction_changed", function(reference_sprite)

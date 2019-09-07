@@ -22,7 +22,7 @@ function enemy:go(angle, speed)
   enemy:get_movement():set_ignore_obstacles(true)
 end
 
--- Start a new bounce when finished .
+-- Start a new bounce or destroy the enemy when bounce finished.
 enemy:register_event("on_jump_finished", function(enemy)
 
   bounce_count = bounce_count + 1
