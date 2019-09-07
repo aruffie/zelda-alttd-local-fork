@@ -677,6 +677,7 @@ sprite{ id = "npc/animals/small_bowwow", description = "Small bowwow" }
 sprite{ id = "npc/animals/teddy", description = "Teddy" }
 sprite{ id = "npc/animals/walrus", description = "Walrus" }
 sprite{ id = "npc/animals/wart", description = "Wart" }
+sprite{ id = "npc/animals/wind_fish", description = "Wind fish" }
 sprite{ id = "npc/books/book_blue", description = "Book blue" }
 sprite{ id = "npc/books/book_green", description = "Book green" }
 sprite{ id = "npc/books/book_red", description = "Book red" }
