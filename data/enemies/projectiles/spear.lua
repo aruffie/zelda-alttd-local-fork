@@ -12,6 +12,11 @@ local quarter = math.pi * 0.5
 -- Configuration variables
 local planted_duration = 5000
 
+-- Start another movement if direction changed.
+function sprite:on_direction_changed()
+  enemy:go()
+end
+
 -- Start going to the hero by an horizontal or vertical move.
 function enemy:go()
   enemy:straight_go(sprite:get_direction() * quarter)
@@ -44,6 +49,8 @@ enemy:register_event("on_hit", function(enemy)
   sprite:set_animation("hit", function()
     enemy:remove()
   end)
+
+  return false
 end)
 
 -- Directly remove the enemy on attacking hero
@@ -63,7 +70,7 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
-  sprite:set_animation("default")
+  sprite:set_animation("walking")
   enemy:set_damage(2)
   enemy:set_obstacle_behavior("flying")
   enemy:set_pushed_back_when_hurt(false)

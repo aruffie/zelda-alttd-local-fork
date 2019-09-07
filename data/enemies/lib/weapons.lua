@@ -102,7 +102,9 @@ function weapons.learn(enemy)
           layer = layer,
           direction = direction
         })
-        projectile:get_sprite():set_xy(x_offset, y_offset)
+        local projectile_sprite = projectile:get_sprite()
+        projectile_sprite:set_direction(direction)
+        projectile_sprite:set_xy(x_offset, y_offset)
         if on_throwed_callback then
           on_throwed_callback()
         end

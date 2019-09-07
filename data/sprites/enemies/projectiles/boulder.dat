@@ -1,5 +1,5 @@
 animation{
-  name = "normal",
+  name = "walking",
   src_image = "enemies/projectiles/boulder.png",
   frame_delay = 200,
   frame_to_loop_on = 0,
