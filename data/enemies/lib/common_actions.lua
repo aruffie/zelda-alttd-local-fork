@@ -442,13 +442,19 @@ function common_actions.learn(enemy)
     })
 
     -- Remove the entity once animation finished or max_duration reached.
+    local function on_finished()
+      if on_finished_callback then
+        on_finished_callback()
+        entity:remove()
+      end
+    end
     local sprite = entity:get_sprite()
     sprite:set_animation(animation_set_id, function()
-      entity:remove()
+      on_finished()
     end)
     if maximum_duration then
       sol.timer.start(entity, maximum_duration, function()
-        entity:remove()
+        on_finished()
       end)
     end
   end
