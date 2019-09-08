@@ -17,6 +17,7 @@ require("scripts/multi_events")
 --function entity:on_created()
 --  print "Custom NPC was successfully created"
 --end
+entity:set_can_traverse("custom_entity", false)
 
 entity:register_event("on_interaction", function()
 --    print "Interacting with a custom NPC"
