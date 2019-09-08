@@ -18,7 +18,7 @@
 --           enemy:start_leashed_by(entity, maximum_distance)
 --           enemy:stop_leashed_by(entity)
 --           enemy:start_pushed_back(entity, [speed, [duration, [on_finished_callback]]])
---           enemy:start_pushing_back(entity, [speed, [duration, [on_finished_callback])
+--           enemy:start_pushing_back(entity, [speed, [duration, [on_finished_callback]]])
 --           enemy:start_shadow([sprite_name, [animation_set_id]])
 --           enemy:start_brief_effect(sprite_name, [animation_set_id, [x_offset, [y_offset, [maximum_duration, [on_finished_callback]]]]])
 --           enemy:steal_item(item_name, [variant, [only_if_assigned, [drop_when_dead]]])
