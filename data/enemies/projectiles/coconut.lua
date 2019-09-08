@@ -18,11 +18,12 @@ local maximum_speed = 80
 
 -- Make the enemy bounce and go to a random target.
 function enemy:go(angle, speed)
+
   enemy:bounce_go(angle or math.random() * circle, speed or math.random(minimum_speed, maximum_speed))
   enemy:get_movement():set_ignore_obstacles(true)
 end
 
--- Start a new bounce when finished .
+-- Start a new bounce or destroy the enemy when bounce finished.
 enemy:register_event("on_jump_finished", function(enemy)
 
   bounce_count = bounce_count + 1

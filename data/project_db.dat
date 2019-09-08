@@ -249,6 +249,7 @@ sprite{ id = "enemies/boss/stone_hinox/stone_hinox", description = "Stone hinox"
 sprite{ id = "enemies/boss/stone_hinox/stone_hinox_boulder", description = "Stone hinox boulder" }
 sprite{ id = "enemies/boss/turtle_rock/turtle_rock", description = "Turtle rock head" }
 sprite{ id = "enemies/boss/turtle_rock/turtle_rock_chain", description = "Turtle rock chain" }
+sprite{ id = "enemies/boulder", description = "Boulder" }
 sprite{ id = "enemies/bubble", description = "Bubble" }
 sprite{ id = "enemies/bubble_giant", description = "Bubble Giant" }
 sprite{ id = "enemies/buzz_blob", description = "Buzz Blob" }
@@ -321,10 +322,10 @@ sprite{ id = "enemies/projectiles/arrow", description = "Arrow" }
 sprite{ id = "enemies/projectiles/bat", description = "Bat" }
 sprite{ id = "enemies/projectiles/beam", description = "Beam" }
 sprite{ id = "enemies/projectiles/bone", description = "Bone" }
-sprite{ id = "enemies/projectiles/boulder", description = "Boulder" }
 sprite{ id = "enemies/projectiles/coconut", description = "Coconut" }
 sprite{ id = "enemies/projectiles/fireball", description = "Fireball" }
 sprite{ id = "enemies/projectiles/laser", description = "Beamos laser" }
+sprite{ id = "enemies/projectiles/plasmaball", description = "Plasmaball" }
 sprite{ id = "enemies/projectiles/spear", description = "Moblin Pig Spear (Spear)" }
 sprite{ id = "enemies/projectiles/stone", description = "Stone" }
 sprite{ id = "enemies/raven", description = "Raven" }
@@ -677,7 +678,6 @@ sprite{ id = "npc/animals/small_bowwow", description = "Small bowwow" }
 sprite{ id = "npc/animals/teddy", description = "Teddy" }
 sprite{ id = "npc/animals/walrus", description = "Walrus" }
 sprite{ id = "npc/animals/wart", description = "Wart" }
-sprite{ id = "npc/animals/wind_fish", description = "Wind fish" }
 sprite{ id = "npc/books/book_blue", description = "Book blue" }
 sprite{ id = "npc/books/book_green", description = "Book green" }
 sprite{ id = "npc/books/book_red", description = "Book red" }
@@ -1261,6 +1261,7 @@ enemy{ id = "boss/stone_hinox", description = "Stone hinox" }
 enemy{ id = "boss/stone_hinox/stone_hinox", description = "Stone Hinox" }
 enemy{ id = "boss/stone_hinox/stone_hinox_boulder", description = "Stone Hinox Boulder" }
 enemy{ id = "boss/turtle_rock", description = "Turtle Rock" }
+enemy{ id = "boulder", description = "Boulder" }
 enemy{ id = "bubble", description = "Bubble" }
 enemy{ id = "bubble_giant", description = "Bubble Giant" }
 enemy{ id = "buzz_blob", description = "Buzz Blob" }
@@ -1323,10 +1324,10 @@ enemy{ id = "projectiles/arrow", description = "Arrow" }
 enemy{ id = "projectiles/bat", description = "Bat" }
 enemy{ id = "projectiles/beam", description = "Beam" }
 enemy{ id = "projectiles/bone", description = "Bone" }
-enemy{ id = "projectiles/boulder", description = "Boulder" }
 enemy{ id = "projectiles/coconut", description = "Coconut" }
 enemy{ id = "projectiles/fireball", description = "Fireball" }
 enemy{ id = "projectiles/laser", description = "Laser" }
+enemy{ id = "projectiles/plasmaball", description = "Plasmaball" }
 enemy{ id = "projectiles/spear", description = "Spear" }
 enemy{ id = "projectiles/stone", description = "Stone" }
 enemy{ id = "raven", description = "Raven" }
@@ -1467,6 +1468,7 @@ file{ path = "enemies/boss/stone_hinox.lua", license = "GPL v3" }
 file{ path = "enemies/boss/stone_hinox/stone_hinox.lua", license = "GPL v3" }
 file{ path = "enemies/boss/stone_hinox/stone_hinox_boulder.lua", license = "GPL v3" }
 file{ path = "enemies/boss/turtle_rock.lua", license = "GPL v3" }
+file{ path = "enemies/boulder.lua", license = "GPL v3" }
 file{ path = "enemies/bubble.lua", license = "GPL v3" }
 file{ path = "enemies/bubble_giant.lua", license = "GPL v3" }
 file{ path = "enemies/buzz_blob.lua", license = "GPL v3" }
@@ -1519,7 +1521,6 @@ file{ path = "enemies/piranha_plant.lua", license = "GPL v3" }
 file{ path = "enemies/podobo.lua", license = "GPL v3" }
 file{ path = "enemies/pols_voice.lua", license = "GPL v3" }
 file{ path = "enemies/projectiles/arrow.lua", license = "GPL v3" }
-file{ path = "enemies/projectiles/boulder.lua", license = "GPL v3" }
 file{ path = "enemies/raven.lua", license = "GPL v3" }
 file{ path = "enemies/rope.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "enemies/sand_crab.lua", license = "GPL v3" }
@@ -2430,6 +2431,7 @@ file{ path = "sprites/enemies/bomber.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/bombite_green.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/bombite_red.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/boo_buddy.png", license = "Proprietary, Fair use" }
+file{ path = "sprites/enemies/boulder.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/bubble.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/bubble_giant.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/buzz_blob.png", license = "Proprietary, Fair use" }
@@ -2470,7 +2472,6 @@ file{ path = "sprites/enemies/piranha.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/piranha_plant.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/podobo.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/pols_voice.png", license = "Proprietary, Fair use" }
-file{ path = "sprites/enemies/projectiles/boulder.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/projectiles/coconut.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/projectiles/fireball.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/projectiles/stone.png", license = "Proprietary, Fair use" }
