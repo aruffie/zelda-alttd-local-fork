@@ -27,27 +27,40 @@ function jm.reset_collision_rules(state)
     state:set_affected_by_ground("lava", true)
     state:set_affected_by_ground("deep_water", true)
     state:set_affected_by_ground("prickles", true)
+    state:set_affected_by_ground("grass", false)
+    state:set_affected_by_ground("shallow_water", false)
     state:set_can_use_stairs(true)
     state:set_can_use_teletransporter(true)
     state:set_can_use_switch(true)
     state:set_can_use_stream(true)
     state:set_can_be_hurt(true)
+    state:set_gravity_enabled(true)
+    --state:get_entity():get_sprite("ground"):set_animation(state.ground_animation())
+
   end
 end
 
 function jm.setup_collision_rules(state)
 -- TODO find a way to get rid of hardcoded state filter for more flexibility
 
-  if state and (state:get_description() == "jumping" or state:get_description() =="jumping_sword" or state:get_description() == "running") then
+  if state and (state:get_description() == "jumping" or state:get_description() =="jumping_sword" or state:get_description() == "running") then 
     state:set_affected_by_ground("hole", false)
     state:set_affected_by_ground("lava", false)
     state:set_affected_by_ground("deep_water", false)
+    state:set_affected_by_ground("grass", false)
+    state:set_affected_by_ground("shallow_water", false)
     state:set_affected_by_ground("prickles", false)
     state:set_can_use_stairs(false)
     state:set_can_use_teletransporter(false)
     state:set_can_use_switch(false)
     state:set_can_use_stream(false)
     state:set_can_be_hurt(false)
+    state:set_gravity_enabled(false)
+--    local sprite=state:get_entity():get_sprite("ground")
+--    if sprite then
+--      state.ground_animation=sprite:get_animation()
+--      sprite:stop_animation()
+--    end
   end
 end
 
@@ -104,18 +117,51 @@ function jm.update_jump(entity)
   return true
 end
 
-function jm.start(entity)
+local function check_control(entity)
+  local game=entity:get_game()
+  local _left=game:is_command_pressed("left")
+  local _right=game:is_command_pressed("right") 
+  local _up=game:is_command_pressed("up")
+  local _down=game:is_command_pressed("down")
+  local result=_left and not _right or _right and not _left or _up and not _down or _down and not _up
+  return result
+end
 
+function jm.start(entity)
+  if entity:get_type() ~= "hero" then
+    return
+  end
+  print "Starting custom jump"
   if not entity:is_jumping() then
     audio_manager:play_sound("hero/jump")
-    debug_start_x, debug_start_y=entity:get_position()
+    debug_start_x, debug_start_y=entity:get_position() --Temporary, remove me once everything has been finalized
     entity:set_jumping(true)
     jm.setup_collision_rules(entity:get_state_object())
     entity.y_vel = -max_yvel
-    
+
+    local movement=entity:get_movement()   
+    if movement and movement.get_speed then
+      local speed = movement:get_speed()  --PROBLEM: Always returns zero, but the debug screen one has the crrect values. So why is there a difference ?0
+
+      local state=entity:get_state_object()
+      function state:on_movement_changed(movement)
+        local new_speed=movement:get_speed()
+        if new_speed ~=speed then
+          print ("Movement has changed, new speed =".. new_speed)
+        end
+      end
+      if check_control(entity) and (entity:get_state()~= "custom" or state:get_description()~="running") then
+        print (state:is_affected_by_ground("hole"))
+        print ("changing speed from ".. speed .." to 88") 
+        movement:set_speed(88)
+      end      
+      speed = movement:get_speed()
+      print ("Current movement speed: "..speed)
+
+    end
     local t=sol.timer.start(entity, 10, function()
-      return jm.update_jump(entity)
-    end)
+        return jm.update_jump(entity)
+      end)
     t:set_suspended_with_map(false)
   end
 end
