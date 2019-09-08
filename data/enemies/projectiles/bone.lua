@@ -6,6 +6,11 @@ local projectile_behavior = require("enemies/lib/projectile")
 -- Global variables
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 
+-- Start going to the hero.
+function enemy:go()
+  enemy:straight_go()
+end
+
 -- Create an impact effect on hit.
 enemy:register_event("on_hit", function(enemy)
 
@@ -25,7 +30,7 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
-  sprite:set_animation("default")
+  sprite:set_animation("walking")
   enemy:set_damage(2)
   enemy:set_obstacle_behavior("flying")
   enemy:set_pushed_back_when_hurt(false)

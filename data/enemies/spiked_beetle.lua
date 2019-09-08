@@ -38,7 +38,7 @@ function enemy:start_walking()
 
   local movement = enemy:start_straight_walking(walking_possible_angles[math.random(4)], walking_speed, walking_distance_grid * math.random(walking_max_move_by_step), function()
     sol.timer.start(enemy, walking_pause_duration, function()
-      if not is_charging then
+      if not is_charging and not is_upside_down then
         enemy:start_walking()
       end
     end)
@@ -51,7 +51,7 @@ function enemy:start_charging()
   is_charging = true
 
   sol.timer.start(enemy, before_charging_delay, function()
-    if is_charging then
+    if is_charging and not is_upside_down then
 
       -- Charging movement.
       enemy:stop_movement()
@@ -66,7 +66,9 @@ function enemy:start_charging()
       -- Stop charging on movement finished or obstacle reached.
       local function stop_charging()
         sol.timer.start(enemy, is_exhausted_duration, function()
-          enemy:restart()
+          if is_charging and not is_upside_down then
+            enemy:restart()
+          end
         end)
       end
       function movement:on_finished()
@@ -79,30 +81,26 @@ function enemy:start_charging()
   end)
 end
 
--- Flip the enemy on collision with the shield
+-- Flip the enemy on collision with the shield and make it vulnerable.
 enemy:register_event("on_shield_collision", function(enemy, shield)
 
   if not is_upside_down then
     is_upside_down = true
+    is_charging = false
     enemy:stop_movement()
+    enemy:set_hero_weapons_reactions(2, {sword = 1})
     enemy:start_brief_effect("entities/effects/impact_projectile", "default")
-    sprite:set_animation("renverse")
 
     -- Make the enemy jump while flipping.
-    local movement = sol.movement.create("straight")
-    movement:set_speed(jumping_speed)
-    movement:set_angle(sprite:get_direction() * quarter + math.pi)
-    movement:set_max_distance(jumping_speed * 0.001 * jumping_duration)
-    movement:set_smooth(false)
-    movement:start(enemy)
-    enemy:start_jumping(jumping_duration, jumping_height, false, false)
+    local angle = sprite:get_direction() * quarter + math.pi
+    enemy:start_jumping(jumping_duration, jumping_height, angle, jumping_speed, false, false)
+    sprite:set_animation("renverse")
   end
 end)
 
 -- Wait for a delay and restart the enemy when flipped.
 enemy:register_event("on_jump_finished", function(enemy)
 
-  enemy:set_hero_weapons_reactions(2, {sword = 1})
   sol.timer.start(enemy, upside_down_duration, function()
     if is_upside_down then
       sprite:set_animation("shaking")
