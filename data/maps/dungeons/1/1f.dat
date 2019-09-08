@@ -14111,7 +14111,7 @@ enemy{
   x = 1480,
   y = 1309,
   direction = 3,
-  breed = "stalfos_blue",
+  breed = "stalfos_red",
   treasure_name = "random",
 }
 
@@ -14121,7 +14121,7 @@ enemy{
   x = 1400,
   y = 1309,
   direction = 3,
-  breed = "stalfos_blue",
+  breed = "stalfos_red",
   treasure_name = "random",
 }
 
@@ -14294,7 +14294,7 @@ enemy{
   x = 1664,
   y = 1093,
   direction = 3,
-  breed = "stalfos_blue",
+  breed = "stalfos_red",
   treasure_name = "random",
 }
 
@@ -14997,7 +14997,7 @@ enemy{
   x = 1496,
   y = 1093,
   direction = 3,
-  breed = "stalfos_blue",
+  breed = "stalfos_red",
   treasure_name = "random",
 }
 

@@ -28,7 +28,6 @@ local eating_duration = 2000
 local take_off_duration = 1000
 local flying_duration = 3000
 local landing_duration = 1000
-local hat_duration = 10000
 local before_aspiring_delay = 200
 local finish_aspiration_delay = 400
 
@@ -72,12 +71,12 @@ function enemy:eat_hero()
   hero:freeze()
   
   sol.timer.start(enemy, eating_duration, function()
-    enemy:spit_hero(true)
+    enemy:spit_hero()
   end)
 end
 
 -- Make the enemy spit the hero if he was eaten.
-function enemy:spit_hero(restart)
+function enemy:spit_hero()
 
   if enemy.is_eating then
 
@@ -107,9 +106,7 @@ function enemy:spit_hero(restart)
     sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/anti_kirby_link")
     enemy:start_brief_effect("entities/effects/sparkle_small", "default", 0, 0)
 
-    if restart then
-      enemy:restart()
-    end
+    enemy:restart()
   end
 end
 
@@ -155,7 +152,7 @@ function enemy:stop_aspirate()
 end
 
 -- Event called when the enemy took off while aspiring.
-function enemy:on_flying_took_off()
+enemy:register_event("on_flying_took_off", function(enemy)
 
   -- Wait for a delay and start the landing movement.
   sol.timer.start(enemy, flying_duration, function()
@@ -163,10 +160,10 @@ function enemy:on_flying_took_off()
       enemy:stop_flying(landing_duration, false)
     end
   end)
-end
+end)
 
 -- Event called when the enemy landed while aspiring.
-function enemy:on_flying_landed() 
+enemy:register_event("on_flying_landed", function(enemy)
 
   -- Reset default states a little after touching the ground.
   sol.timer.start(enemy, finish_aspiration_delay, function()
@@ -175,24 +172,26 @@ function enemy:on_flying_landed()
       enemy:restart()
     end
   end)
-end
+end)
 
 -- Passive behaviors needing constant checking.
-function enemy:on_update()
+enemy:register_event("on_update", function(enemy)
 
-  if not enemy:is_immobilized() then
-    -- Make the sprite jump if the enemy is not attacking and not immobilized.
-    if enemy.is_jumping then
-      sprite:set_xy(0, -math.abs(math.sin(sol.main.get_elapsed_time() * 0.01) * 4.0))
-    end
-
-    -- If the hero touches the center of the enemy while aspiring, eat him.
-    if enemy.is_aspiring and enemy:overlaps(hero, "origin") then
-      enemy:eat_hero()
-      enemy:stop_attracting()
-    end
+  if enemy:is_immobilized() then
+    return
   end
-end
+
+  -- Make the sprite jump if the enemy is not attacking and not immobilized.
+  if enemy.is_jumping then
+    sprite:set_xy(0, -math.abs(math.sin(sol.main.get_elapsed_time() * 0.01) * 4.0))
+  end
+
+  -- If the hero touches the center of the enemy while aspiring, eat him.
+  if enemy.is_aspiring and enemy:overlaps(hero, "origin") then
+    enemy:eat_hero()
+    enemy:stop_attracting()
+  end
+end)
 
 -- Stop a possible state on immobilized.
 enemy:register_event("on_immobilized", function(enemy)
@@ -203,6 +202,8 @@ end)
 enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(4)
+  enemy:set_size(16, 16)
+  enemy:set_origin(8, 13)
   enemy:start_shadow()
 end)
 
@@ -210,14 +211,10 @@ end)
 enemy:register_event("on_restarted", function(enemy)
 
   -- Behavior for each items.
-  enemy:set_attack_consequence("sword", "ignored")
-  enemy:set_attack_consequence("thrown_item", "ignored")
-  enemy:set_attack_consequence("arrow", "ignored")
-  enemy:set_attack_consequence("boomerang", 1)
-  enemy:set_attack_consequence("explosion", 2)
-  enemy:set_hookshot_reaction("ignored")
-  enemy:set_hammer_reaction("ignored")
-  enemy:set_fire_reaction(2)
+  enemy:set_hero_weapons_reactions("ignored", {
+    boomerang = 1,
+    explosion = 2,
+    fire = 2})
 
   -- States.
   enemy:set_can_attack(true)

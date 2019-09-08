@@ -6853,7 +6853,7 @@ enemy{
   x = 1016,
   y = 621,
   direction = 0,
-  breed = "hooded_stalfos",
+  breed = "shrouded_stalfos",
   treasure_name = "random",
 }
 

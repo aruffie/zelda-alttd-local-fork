@@ -1,5 +1,5 @@
 animation{
-  name = "default",
+  name = "walking",
   src_image = "enemies/projectiles/spear.png",
   directions = {
     { x = 0, y = 48, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8 },

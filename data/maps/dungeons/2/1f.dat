@@ -20143,7 +20143,7 @@ enemy{
   x = 1752,
   y = 333,
   direction = 0,
-  breed = "hooded_stalfos",
+  breed = "shrouded_stalfos",
   treasure_name = "random",
 }
 
@@ -20472,7 +20472,7 @@ enemy{
   x = 1336,
   y = 1581,
   direction = 0,
-  breed = "hooded_stalfos",
+  breed = "shrouded_stalfos",
 }
 
 stairs{

@@ -27,7 +27,7 @@ function enemy:start_walking()
 end
 
 -- On hit by fire, the gibdo become a red Stalfos.
-function enemy:on_custom_attack_received(attack)
+enemy:register_event("on_custom_attack_received", function(enemy, attack)
 
   if attack == "fire" then
     local x, y, layer = enemy:get_position()
@@ -35,37 +35,40 @@ function enemy:on_custom_attack_received(attack)
     enemy:remove()
 
     -- Make the Stalfos immobile, then shake for some time, and then restart.
-    stalfos:set_exhausted(true)
+    stalfos:set_invincible()
     stalfos:stop_movement()
+    stalfos:set_exhausted(true)
     sol.timer.stop_all(stalfos)
     stalfos:get_sprite():set_animation("shaking")
     sol.timer.start(stalfos, stalfos_shaking_duration, function()
       stalfos:restart()
     end)
   end
-end
+end)
 
 -- Initialization.
-function enemy:on_created()
+enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(6)
-end
+  enemy:set_size(16, 16)
+  enemy:set_origin(8, 13)
+end)
 
 -- Restart settings.
-function enemy:on_restarted()
+enemy:register_event("on_restarted", function(enemy)
 
   -- Behavior for each items.
-  enemy:set_attack_consequence("thrown_item", "ignored")
-  enemy:set_attack_consequence("hookshot", "immobilized")
-  enemy:set_attack_consequence("sword", 1)
-  enemy:set_attack_consequence("arrow", 1)
-  enemy:set_attack_consequence("boomerang", 2)
-  enemy:set_attack_consequence("explosion", 3)
-  enemy:set_hammer_reaction(2)
-  enemy:set_fire_reaction("custom") -- Transform into red Stalfos
+  enemy:set_hero_weapons_reactions(1, {
+    boomerang = 2,
+    hammer = 2,
+    explosion = 3,
+    jump_on = "ignored",
+    thrown_item = "ignored",
+    hookshot = "immobilized",
+    fire = "custom"})
 
   -- States.
   enemy:set_can_attack(true)
   enemy:set_damage(4)
   enemy:start_walking()
-end
+end)

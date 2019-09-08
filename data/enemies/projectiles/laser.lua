@@ -15,8 +15,8 @@ local particle_interval = 10
 local particle_speed = 500
 local firing_duration = 200
 
--- Create an impact effect on hit.
-function enemy:on_hit(sprite)
+-- Create an impact effect on a particle position.
+function enemy:start_impact_effect(sprite)
 
   local offset_x, offset_y = sprite:get_xy()
   enemy:start_brief_effect("entities/effects/impact_projectile", "default", offset_x, offset_y)
@@ -26,7 +26,7 @@ end
 function enemy:create_particle()
  
   local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
-  sprite:set_animation("default")
+  sprite:set_animation("walking")
 
   local movement = sol.movement.create("straight")
   movement:set_angle(angle)
@@ -60,13 +60,13 @@ end
 function enemy:remove_particle(sprite)
 
   if not has_hit then
-    has_hit = true
-    enemy:on_hit(sprite)
+    has_hit = true 
+    enemy:start_impact_effect(sprite)
   end
   enemy:remove_sprite(sprite)
 
   -- Remove the enemy if no more particle.
-  has_sprite = false
+  local has_sprite = false
   for _, _ in enemy:get_sprites() do
     has_sprite = true
     break
@@ -76,18 +76,24 @@ function enemy:remove_particle(sprite)
   end
 end
 
+-- Create additional impact effect on hurt hero.
+enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
+
+  hero:start_hurt(2)
+  enemy:start_impact_effect(enemy_sprite)
+end)
+
 -- Initialization.
-function enemy:on_created()
+enemy:register_event("on_created", function(enemy)
   enemy:set_life(1)
   enemy:set_size(4, 4)
   enemy:set_origin(2, 2)
-end
+end)
 
 -- Restart settings.
-function enemy:on_restarted()
+enemy:register_event("on_restarted", function(enemy)
 
   angle = enemy:get_angle(hero)
-  enemy:set_damage(2)
   enemy:set_obstacle_behavior("flying")
   enemy:set_can_hurt_hero_running(true)
   enemy:set_minimum_shield_needed(2)
@@ -98,5 +104,5 @@ function enemy:on_restarted()
   sol.timer.start(enemy, firing_duration, function()
     is_in_progress = false
   end)
-end
+end)
 

@@ -1,4 +1,4 @@
--- Lua script of enemy darknut.
+-- Lua script of enemy shrouded stalfos sword.
 -- This script is executed every time an enemy with this model is created.
 
 -- Global variables
@@ -37,13 +37,11 @@ end
 function enemy:start_random_walking(key)
 
   enemy:start_straight_walking(walking_possible_angles[key], walking_speed, walking_distance_grid * math.random(walking_max_move_by_step), function()    
-    local next_key = math.random(4)
-    local waiting_animation = (key + 1) % 4 == next_key % 4 and "seek_left" or (key - 1) % 4 == next_key % 4 and "seek_right" or "immobilized"
-    sprite:set_animation(waiting_animation)
+    sprite:set_animation("immobilized")
 
     sol.timer.start(enemy, waiting_duration, function()
       if not is_charging then
-        enemy:start_random_walking(next_key)
+        enemy:start_random_walking(math.random(4))
       end
     end)
   end)
@@ -76,7 +74,7 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(2)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)
-  enemy:hold_sword()
+  enemy:hold_sword("enemies/darknut/sword")
 end)
 
 -- Restart settings.

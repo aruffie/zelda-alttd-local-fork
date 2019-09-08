@@ -12,7 +12,7 @@ local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
 
 -- Configuration variables
-local walking_possible_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
+local walking_possible_angles = map:is_sideview() and {0, quarter, 2.0 * quarter, 3.0 * quarter} or {0, 0, 2 * quarter, 2 * quarter}
 local walking_speed = 32
 local walking_distance_grid = 16
 local walking_max_move_by_step = 6
@@ -26,8 +26,19 @@ function enemy:start_walking()
   end)
 end
 
+-- Don't hurt the hero if enemy is below on sideview maps.
+function enemy:on_attacking_hero(hero, enemy_sprite)
+
+  local _, y, _ = enemy:get_position()
+  local _, hero_y, _ = hero:get_position()
+  if map:is_sideview() and hero_y < y then
+    return
+  end
+  hero:start_hurt(enemy, enemy:get_damage())
+end
+
 -- Make enemy crushed when hero walking on him.
-function enemy:on_custom_attack_received(attack)
+enemy:register_event("on_custom_attack_received", function(enemy, attack)
 
   if attack == "jump_on" then
 
@@ -48,29 +59,24 @@ function enemy:on_custom_attack_received(attack)
       enemy:hurt(1)
     end)
   end
-end
+end)
 
 -- Initialization.
-function enemy:on_created()
+enemy:register_event("on_created", function(enemy)
+
   enemy:set_life(1)
-end
+  enemy:set_size(16, 16)
+  enemy:set_origin(8, 13)
+end)
 
 -- Restart settings.
-function enemy:on_restarted()
+enemy:register_event("on_restarted", function(enemy)
 
   -- Behavior for each items.
-  enemy:set_attack_consequence("thrown_item", 1)
-  enemy:set_attack_consequence("hookshot", 1)
-  enemy:set_attack_consequence("sword", 1)
-  enemy:set_attack_consequence("arrow", 1)
-  enemy:set_attack_consequence("boomerang", 1)
-  enemy:set_attack_consequence("explosion", 1)
-  enemy:set_hammer_reaction(1)
-  enemy:set_fire_reaction(1)
-  enemy:set_jump_on_reaction("custom") -- Set crushed.
+  enemy:set_hero_weapons_reactions(1, {jump_on = "custom"})
 
   -- States.
   enemy:set_can_attack(true)
   enemy:set_damage(1)
   enemy:start_walking()
-end
+end)

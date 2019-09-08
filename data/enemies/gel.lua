@@ -13,8 +13,8 @@ local hero = map:get_hero()
 
 -- Configuration variables
 local slow_speed = 22
-local stuck_duration = 2000
-local stuck_maximum_extra_duration = 500
+local stuck_minimum_duration = 2000
+local stuck_maximum_duration = 2500
 
 -- Let go the hero.
 function enemy:free_hero()
@@ -53,28 +53,30 @@ function enemy:slow_hero_down()
   --game:set_item_assigned(2, nil)
 
   -- Jump away after some time.
-  sol.timer.start(enemy, stuck_duration + math.random(stuck_maximum_extra_duration), function()
+  sol.timer.start(enemy, math.random(stuck_minimum_duration, stuck_maximum_duration), function()
     enemy:free_hero()
     enemy:start_jump_attack(false)
   end)
 end
 
 -- Passive behaviors needing constant checking.
-function enemy:on_update()
+enemy:register_event("on_update", function(enemy)
 
-  if not enemy:is_immobilized() then
-    -- If the hero touches the center of the enemy, slow him down.
-    if enemy.can_slow_hero_down and enemy:get_life() > 0 and enemy:overlaps(hero, "origin") then
-      enemy.can_slow_hero_down = false
-      enemy:slow_hero_down()
-    end
+  if enemy:is_immobilized() then
+    return
   end
-end
+
+  -- If the hero touches the center of the enemy, slow him down.
+  if enemy.can_slow_hero_down and enemy:get_life() > 0 and enemy:overlaps(hero, "origin") then
+    enemy.can_slow_hero_down = false
+    enemy:slow_hero_down()
+  end
+end)
 
 -- Free the hero on dying
-function enemy:on_dying()
+enemy:register_event("on_dying", function(enemy)
   enemy:free_hero()
-end
+end)
 
 -- Start walking again when the attack finished.
 enemy:register_event("on_jump_finished", function(enemy)
@@ -83,8 +85,11 @@ end)
 
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
+
   zol_behavior.apply(enemy, {sprite = sprite, walking_speed = 2})
   enemy:set_life(1)
+  enemy:set_size(12, 12)
+  enemy:set_origin(6, 9)
   enemy:start_shadow(nil, "small")
 end)
 
@@ -92,14 +97,7 @@ end)
 enemy:register_event("on_restarted", function(enemy)
 
   -- Behavior for each items.
-  enemy:set_attack_consequence("thrown_item", 1)
-  enemy:set_attack_consequence("hookshot", 1)
-  enemy:set_attack_consequence("sword", 1)
-  enemy:set_attack_consequence("arrow", 1)
-  enemy:set_attack_consequence("boomerang", 1)
-  enemy:set_attack_consequence("explosion", 1)
-  enemy:set_hammer_reaction(1)
-  enemy:set_fire_reaction(1)
+  enemy:set_hero_weapons_reactions(1, {jump_on = "ignored"})
 
   -- States.
   enemy:set_can_attack(false)
