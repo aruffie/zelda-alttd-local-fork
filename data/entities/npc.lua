@@ -1,12 +1,8 @@
--- Lua script of custom entity npc.
--- This script is executed every time a custom entity with this model is created.
+--[[
+  Custom NPc : allows to walk through it and still be able to talk to it.
+  It was made to implement the fisherman from Link's awakening, allowing the hero to jump on his boat while swimming under him.
+  --]]
 
--- Feel free to modify the code below.
--- You can add more events and remove the ones you don't need.
-
--- See the Solarus Lua API documentation for the full specification
--- of types, events and methods:
--- http://www.solarus-games.org/doc/latest
 
 local entity = ...
 local game = entity:get_game()

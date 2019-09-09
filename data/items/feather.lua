@@ -30,8 +30,9 @@ local game_meta = sol.main.get_metatable("game")
 -- This function is called when the item command is triggered. It is similar to item:on_using, without state changing.
 function item:start_using()
 
-  local hero = game:get_hero()
   local map = game:get_map()
+  local hero = map:get_hero()
+  
   if not hero:is_jumping() then
     if not map:is_sideview() then
 
@@ -42,7 +43,10 @@ function item:start_using()
         if state == "sword swinging" or state == "sword loading" or state == "custom" and hero:get_state_object():get_description() == "jumping_sword" then 
           hero:start_flying_attack() -- Offensive jump
         elseif state == "custom" and hero:get_state_object():get_description() == "running" then 
-          jm.start(hero) -- Running jump
+          jm.start(hero, nil, function()
+              print "testing optional parameters for the jump manager callback system"
+              hero:unfreeze()
+            end) -- Running jump
         else
           hero:jump() -- Normal jump
         end
@@ -53,9 +57,9 @@ function item:start_using()
       if vspeed == 0 or map:get_ground(hero:get_position()) == "deep_water" then
         audio_manager:play_sound("hero/jump")
         sol.timer.start(10, function()
-          hero.on_ladder = false
-          hero.vspeed = -4
-        end)
+            hero.on_ladder = false
+            hero.vspeed = -4
+          end)
       end
     end
   end

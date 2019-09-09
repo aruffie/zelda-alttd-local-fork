@@ -184,7 +184,7 @@ local function apply_gravity(entity)
     entity:set_position(x,y+1)
   else
     -- Try to get up
-    if not entity:test_obstacles(0,-1) then
+    if not entity:test_obstacles(0,-1) or map:get_ground(x,y+3) == "prickles" then
       entity:set_position(x,y-1)
     end
   end

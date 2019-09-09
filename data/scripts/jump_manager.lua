@@ -50,6 +50,9 @@ function jm.setup_collision_rules(state)
     state:set_affected_by_ground("grass", false)
     state:set_affected_by_ground("shallow_water", false)
     state:set_affected_by_ground("prickles", false)
+    --state:set_affected_by("enemy", function(enemy)
+        --return (state:get_entity().y_offset>-8 or not enemy:has_layer_independent_collisions()) --Only take damage by flying enemies, and only if we have enough height. Note : this is a tricky part since there is no enemy:is flying() method, unless i missed something.
+       -- end)
     state:set_can_use_stairs(false)
     state:set_can_use_teletransporter(false)
     state:set_can_use_switch(false)
@@ -81,44 +84,45 @@ local function on_bounce_possible(entity)
 end
 
 function jm.update_jump(entity, callback)
+  if not entity:get_game():is_paused() then
+    entity.y_offset=entity.y_offset or 0
 
-  entity.y_offset=entity.y_offset or 0
-
-  for name, sprite in entity:get_sprites() do
-    if name~="shadow" and name~="shadow_override" then
-      sprite:set_xy(0, math.min(entity.y_offset, 0)*y_factor)
-    end
-  end
-
-  entity.y_offset= entity.y_offset+entity.y_vel
-  debug_max_height=math.min(debug_max_height, entity.y_offset)
-
-  entity.y_vel = entity.y_vel + gravity
-
-  -- Bounce on a possible enemy that can be hurt with jump.
-  if entity.y_vel > 0 and entity.y_offset > -8 then
-    on_bounce_possible(entity)
-  end
-
-  if entity.y_offset >=0 then --reset sprites offset and stop jumping, and trigger the callback if any
     for name, sprite in entity:get_sprites() do
-      sprite:set_xy(0, 0)
+      if name~="shadow" and name~="shadow_override" then
+        sprite:set_xy(0, math.min(entity.y_offset, 0)*y_factor)
+      end
     end
-    local final_x, final_y=entity:get_position()
-    print("Distance reached during jump: X="..final_x-debug_start_x..", Y="..final_y-debug_start_y..", height="..debug_max_height)
-    entity.jumping = false
-    if callback then 
-      print "CALLBACK"
-      callback()
+
+    entity.y_offset= entity.y_offset+entity.y_vel
+    debug_max_height=math.min(debug_max_height, entity.y_offset)
+
+    entity.y_vel = entity.y_vel + gravity
+
+    -- Bounce on a possible enemy that can be hurt with jump.
+    if entity.y_vel > 0 and entity.y_offset > -8 then
+      on_bounce_possible(entity)
     end
-    
-    --SUGGESTION: Remove this and let the caller manage the end -of-jump through the callback ?
-    if entity:get_state()~="custom" or entity:get_state_object():get_description()~="running" and not sol.main.get_game():is_command_pressed("attack") then
-      entity:unfreeze()
-    else
-      jm.reset_collision_rules(entity:get_state_object())
+
+    if entity.y_offset >=0 then --reset sprites offset and stop jumping, and trigger the callback if any
+      for name, sprite in entity:get_sprites() do
+        sprite:set_xy(0, 0)
+      end
+      local final_x, final_y=entity:get_position()
+      print("Distance reached during jump: X="..final_x-debug_start_x..", Y="..final_y-debug_start_y..", height="..debug_max_height)
+      entity.jumping = false
+      if callback then 
+        print "CALLBACK"
+        callback()
+      end
+
+      --SUGGESTION: Remove this and let the caller manage the end -of-jump through the callback ?
+      if entity:get_state()~="custom" or entity:get_state_object():get_description()~="running" and not sol.main.get_game():is_command_pressed("attack") then
+        entity:unfreeze()
+      else
+        jm.reset_collision_rules(entity:get_state_object())
+      end
+      return false
     end
-    return false
   end
   return true
 end
