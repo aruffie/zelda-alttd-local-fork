@@ -80,7 +80,7 @@ local function on_bounce_possible(entity)
   end
 end
 
-function jm.update_jump(entity)
+function jm.update_jump(entity, callback)
 
   entity.y_offset=entity.y_offset or 0
 
@@ -100,13 +100,19 @@ function jm.update_jump(entity)
     on_bounce_possible(entity)
   end
 
-  if entity.y_offset >=0 then --reset sprites offset and stop jumping
+  if entity.y_offset >=0 then --reset sprites offset and stop jumping, and trigger the callback if any
     for name, sprite in entity:get_sprites() do
       sprite:set_xy(0, 0)
     end
     local final_x, final_y=entity:get_position()
     print("Distance reached during jump: X="..final_x-debug_start_x..", Y="..final_y-debug_start_y..", height="..debug_max_height)
     entity.jumping = false
+    if callback then 
+      print "CALLBACK"
+      callback()
+    end
+    
+    --SUGGESTION: Remove this and let the caller manage the end -of-jump through the callback ?
     if entity:get_state()~="custom" or entity:get_state_object():get_description()~="running" and not sol.main.get_game():is_command_pressed("attack") then
       entity:unfreeze()
     else
@@ -127,8 +133,16 @@ local function check_control(entity)
   return result
 end
 
-function jm.start(entity)
-  if entity:get_type() ~= "hero" then
+
+--[[Starts the actual parabole
+  Parameters
+    entity: the entity to start the jump on
+    v_speed: the vertical speed. Defaults to 2 px/tick.
+    Note : the inputted vspeed to automatically converted to an updraft movement, so yu can either input -3.14 or 3.14 as a desired speed.
+--]]
+
+function jm.start(entity, v_speed, callback)
+  if not entity or entity:get_type() ~= "hero" then
     return
   end
   print "Starting custom jump"
@@ -137,20 +151,20 @@ function jm.start(entity)
     debug_start_x, debug_start_y=entity:get_position() --Temporary, remove me once everything has been finalized
     entity:set_jumping(true)
     jm.setup_collision_rules(entity:get_state_object())
-    entity.y_vel = -max_yvel
+    entity.y_vel = v_speed and -math.abs(v_speed) or -max_yvel
 
     local movement=entity:get_movement()   
     if movement and movement.get_speed then
       local speed = movement:get_speed()  --PROBLEM: Always returns zero, but the debug screen one has the crrect values. So why is there a difference ?0
 
-      local state=entity:get_state_object()
-      function state:on_movement_changed(movement)
+      local state=entity:get_state_object() --
+      function state:on_movement_changed(movement) --DEBUG: remove me when the speed bug is fixed
         local new_speed=movement:get_speed()
         if new_speed ~=speed then
           print ("Movement has changed, new speed =".. new_speed)
         end
       end
-      if check_control(entity) and (entity:get_state()~= "custom" or state:get_description()~="running") then
+      if check_control(entity) and (state~= "custom" or state:get_description()~="running") then
         print (state:is_affected_by_ground("hole"))
         print ("changing speed from ".. speed .." to 88") 
         movement:set_speed(88)
@@ -160,7 +174,7 @@ function jm.start(entity)
 
     end
     local t=sol.timer.start(entity, 10, function()
-        return jm.update_jump(entity)
+        return jm.update_jump(entity, callback)
       end)
     t:set_suspended_with_map(false)
   end
