@@ -161,6 +161,12 @@ switch_1:register_event("on_activated", function()
 
 end)
 
+-- Enemies events
+enemy_manager:on_enemies_dead(map, "enemy_group_3_", function()
+  enemy_group_torch_1:set_shooting(false)
+  enemy_group_torch_2:set_shooting(false)
+end)
+
 -- Cinematics
 -- This is the cinematic that the hero kills "enemy_group_15"
 function map:launch_cinematic_1()

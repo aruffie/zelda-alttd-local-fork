@@ -1,26 +1,14 @@
--- Bat projectile, mainly used by the Vire enemy.
+-- Bone projectile, mainly used by the red Stalfos enemy.
 
 local enemy = ...
 local projectile_behavior = require("enemies/lib/projectile")
 
 -- Global variables
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
-local quarter = math.pi * 0.5
 
--- Configuration variables
-local impulse_speed = 22
-local impulse_distance = 30
-local before_charging_delay = 500
-
--- Start an impulse move then go to the hero.
-function enemy:go(direction)
-
-  enemy:start_straight_walking((direction or sprite:get_direction()) * quarter, impulse_speed, impulse_distance, function()
-    sol.timer.start(enemy, before_charging_delay, function()
-      enemy:straight_go()
-      enemy:get_movement():set_ignore_obstacles(true)
-    end)
-  end)
+-- Start going to the hero.
+function enemy:go()
+  enemy:straight_go()
   enemy:get_movement():set_ignore_obstacles(true)
 end
 
@@ -36,8 +24,8 @@ enemy:register_event("on_created", function(enemy)
 
   projectile_behavior.apply(enemy, sprite)
   enemy:set_life(1)
-  enemy:set_size(24, 16)
-  enemy:set_origin(12, 13)
+  enemy:set_size(8, 8)
+  enemy:set_origin(4, 5)
 end)
 
 -- Restart settings.

@@ -1220,6 +1220,7 @@ enemy{
   y = 189,
   direction = 0,
   breed = "goomba",
+  treasure_name = "heart",
 }
 
 enemy{
@@ -1228,6 +1229,7 @@ enemy{
   y = 189,
   direction = 0,
   breed = "goomba",
+  treasure_name = "heart",
 }
 
 dynamic_tile{

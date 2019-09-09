@@ -31,10 +31,9 @@ function enemy:on_attacking_hero(hero, enemy_sprite)
 
   local _, y, _ = enemy:get_position()
   local _, hero_y, _ = hero:get_position()
-  if map:is_sideview() and hero_y < y then
-    return
+  if not map:is_sideview() or hero_y >= y then
+    hero:start_hurt(enemy, enemy:get_damage())
   end
-  hero:start_hurt(enemy, enemy:get_damage())
 end
 
 -- Make enemy crushed when hero walking on him.

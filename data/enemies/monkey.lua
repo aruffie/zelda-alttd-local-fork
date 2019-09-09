@@ -64,7 +64,7 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_invincible(true)
 
   -- States.
-  enemy:set_damage(1)
+  enemy:set_damage(0)
   enemy:set_can_attack(false)
   enemy:wait()
 end)
