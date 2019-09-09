@@ -1765,6 +1765,15 @@ tile{
   tileset = "addition/basic_terrain_test",
 }
 
+wall{
+  layer = 0,
+  x = 248,
+  y = 424,
+  width = 32,
+  height = 32,
+  stops_enemies = true,
+}
+
 jumper{
   layer = 0,
   x = 328,
@@ -1891,14 +1900,6 @@ chest{
   y = 181,
   treasure_name = "shield",
   sprite = "entities/chests/chest_small",
-}
-
-enemy{
-  layer = 0,
-  x = 296,
-  y = 93,
-  direction = 0,
-  breed = "sea_urchin",
 }
 
 chest{
@@ -2313,6 +2314,42 @@ custom_entity{
   direction = 0,
   sprite = "npc/villagers/crazy_tracy",
   model = "npc",
+}
+
+custom_entity{
+  layer = 0,
+  x = 264,
+  y = 325,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+wall{
+  layer = 0,
+  x = 288,
+  y = 80,
+  width = 32,
+  height = 32,
+  stops_enemies = true,
+}
+
+enemy{
+  layer = 0,
+  x = 304,
+  y = 101,
+  direction = 0,
+  breed = "maskass",
+}
+
+enemy{
+  layer = 0,
+  x = 264,
+  y = 445,
+  direction = 0,
+  breed = "like_like",
 }
 
 tile{
