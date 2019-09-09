@@ -1765,6 +1765,15 @@ tile{
   tileset = "addition/basic_terrain_test",
 }
 
+wall{
+  layer = 0,
+  x = 248,
+  y = 424,
+  width = 32,
+  height = 32,
+  stops_enemies = true,
+}
+
 jumper{
   layer = 0,
   x = 328,
@@ -2333,6 +2342,14 @@ enemy{
   y = 101,
   direction = 0,
   breed = "maskass",
+}
+
+enemy{
+  layer = 0,
+  x = 264,
+  y = 445,
+  direction = 0,
+  breed = "like_like",
 }
 
 tile{

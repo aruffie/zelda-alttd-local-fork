@@ -33,7 +33,7 @@ function item:start_using()
   local map = game:get_map()
   local hero = map:get_hero()
   
-  if not hero:is_jumping() then
+  if not hero:is_jumping() and hero.is_eaten==nil then
     if not map:is_sideview() then
 
       -- Handle possible jump types differently in top view maps.

@@ -35,6 +35,7 @@ function enemy:free_hero()
   hero:get_sprite("shadow"):set_opacity(255)
   enemy.is_eating = false
   enemy.is_exhausted = true
+  hero.is_eaten=nil
 
   -- Make the enemy unable to directly eat again, nor the hero to hit him.
   sol.timer.start(enemy, is_exhausted_duration, function()
@@ -59,7 +60,7 @@ function enemy:eat_hero()
   hero:get_sprite("shadow"):set_opacity(0)
   hero:set_position(enemy:get_position())
   hero:set_walking_speed(0)
-
+  hero.is_eaten=true
   -- Eat the shield if it is the first variant and assigned to a slot.
   enemy:steal_item("shield", 1, true, true)
 end
