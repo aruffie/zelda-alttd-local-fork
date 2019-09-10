@@ -7,7 +7,7 @@ properties{
   max_layer = 2,
   world = "outside_world",
   tileset = "out/light_world_legacy",
-  music = "same",
+  music = "",
 }
 
 teletransporter{
@@ -11941,6 +11941,42 @@ destructible{
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
+}
+
+enemy{
+  layer = 1,
+  x = 344,
+  y = 501,
+  direction = 3,
+  breed = "moblin_dog_spear",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 1,
+  x = 120,
+  y = 621,
+  direction = 0,
+  breed = "moblin_dog_spear",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 1,
+  x = 176,
+  y = 581,
+  direction = 3,
+  breed = "moblin_dog_spear",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 1,
+  x = 560,
+  y = 677,
+  direction = 0,
+  breed = "moblin_dog_spear",
+  treasure_name = "random",
 }
 
 tile{
