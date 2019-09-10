@@ -23551,26 +23551,8 @@ enemy{
 
 enemy{
   layer = 1,
-  x = 784,
-  y = 493,
-  direction = 2,
-  breed = "ghini",
-  treasure_name = "random",
-}
-
-enemy{
-  layer = 1,
   x = 832,
   y = 541,
-  direction = 2,
-  breed = "ghini",
-  treasure_name = "random",
-}
-
-enemy{
-  layer = 1,
-  x = 880,
-  y = 493,
   direction = 2,
   breed = "ghini",
   treasure_name = "random",

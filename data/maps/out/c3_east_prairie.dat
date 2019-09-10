@@ -14527,6 +14527,15 @@ enemy{
   treasure_name = "random",
 }
 
+enemy{
+  layer = 2,
+  x = 24,
+  y = 237,
+  direction = 1,
+  breed = "octorok_flying",
+  treasure_name = "random",
+}
+
 tile{
   layer = 3,
   x = 208,
@@ -14849,14 +14858,5 @@ tile{
   width = 8,
   height = 8,
   pattern = "1043",
-}
-
-enemy{
-  layer = 3,
-  x = 24,
-  y = 237,
-  direction = 1,
-  breed = "octorok_flying",
-  treasure_name = "random",
 }
 
