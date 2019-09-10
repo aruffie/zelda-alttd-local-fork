@@ -24,8 +24,8 @@ enemy:register_event("on_created", function(enemy)
 
   projectile_behavior.apply(enemy, sprite)
   enemy:set_life(1)
-  enemy:set_size(8, 8)
-  enemy:set_origin(4, 5)
+  enemy:set_size(16, 16)
+  enemy:set_origin(8, 8)
 end)
 
 -- Restart settings.

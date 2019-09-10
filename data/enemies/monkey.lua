@@ -3,15 +3,24 @@
 
 -- Global variables
 local enemy = ...
+require("enemies/lib/common_actions").learn(enemy)
+
 local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
+local camera = map:get_camera()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
+local is_knocked_off = false
 
 -- Configuration variables
 local waiting_duration = 2000
 local second_thow_delay = 200
+local falling_duration = 600
+local falling_height = 16
+local falling_angle = 3 * quarter - 0.4
+local falling_speed = 100
+local running_speed = 100
 
 local coconut_initial_speed = 150
 
@@ -33,10 +42,13 @@ end
 function enemy:attack()
  
   enemy:start_throwing_coconut(0, 3.0 * quarter + 0.5, function()
-    sol.timer.start(enemy, second_thow_delay, function()
-      enemy:start_throwing_coconut(2, 3.0 * quarter - 0.5, function()
-        enemy:wait()
-      end)
+    attacking_timer = sol.timer.start(enemy, second_thow_delay, function()
+      if not is_knocked_off then
+        enemy:start_throwing_coconut(2, 3.0 * quarter - 0.5, function()
+          enemy:wait()
+enemy:start_knocking_off()
+        end)
+      end
     end)
   end)
 end
@@ -46,16 +58,43 @@ function enemy:wait()
 
   sprite:set_animation("walking")
   sol.timer.start(enemy, waiting_duration, function()
-    enemy:attack()
+    if not is_knocked_off then
+      enemy:attack()
+    end
   end)
 end
 
 -- Make the enemy knock off and run away.
 function enemy:start_knocking_off()
 
+  is_knocked_off = true
+  enemy:start_jumping(falling_duration, falling_height, falling_angle, falling_speed)
   sprite:set_animation("falling")
-  -- TODO
 end
+
+-- Start runing away after falling down.
+enemy:register_event("on_jump_finished", function(enemy)
+
+  sol.timer.start(enemy, waiting_duration, function()
+    local direction = math.random(4)
+    enemy:start_straight_walking(direction * quarter, running_speed)
+    sprite:set_animation("escape")
+
+    -- Remove the enemy once out of screen.
+    local movement = enemy:get_movement()
+    enemy:get_movement():set_ignore_obstacles(true)
+    function movement:on_position_changed()
+      if not enemy:overlaps(camera) then
+        enemy:remove()
+      end
+    end
+  end)
+end)
+
+-- Initialization.
+enemy:register_event("on_created", function(enemy)
+  enemy:start_shadow()
+end)
 
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
