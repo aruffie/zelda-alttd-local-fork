@@ -33,7 +33,7 @@ function item:start_using()
   local map = game:get_map()
   local hero = map:get_hero()
   
-  if not hero:is_jumping() and hero.is_eaten==nil then
+  if not hero:is_jumping() then
     if not map:is_sideview() then
 
       -- Handle possible jump types differently in top view maps.
@@ -43,10 +43,8 @@ function item:start_using()
         if state == "sword swinging" or state == "sword loading" or state == "custom" and hero:get_state_object():get_description() == "jumping_sword" then 
           hero:start_flying_attack() -- Offensive jump
         elseif state == "custom" and hero:get_state_object():get_description() == "running" then 
-          jm.start(hero, nil, function()
-              print "testing optional parameters for the jump manager callback system"
-              hero:unfreeze()
-            end) -- Running jump
+          print" run'n'jump"
+          jm.start(hero) -- Running jump
         else
           hero:jump() -- Normal jump
         end

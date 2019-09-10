@@ -112,10 +112,7 @@ function jm.update_jump(entity, callback)
         callback()
       end
 
-      --SUGGESTION: Remove this and let the caller manage the end -of-jump through the callback ?
-      if entity:get_state()~="custom" or entity:get_state_object():get_description()~="running" and not sol.main.get_game():is_command_pressed("attack") then
-        entity:unfreeze()
-      else
+      if entity:get_state()=="custom" and entity:get_state_object():get_description()=="running" or sol.main.get_game():is_command_pressed("attack") then
         jm.reset_collision_rules(entity:get_state_object())
       end
       return false
@@ -154,26 +151,29 @@ function jm.start(entity, v_speed, callback)
     jm.setup_collision_rules(entity:get_state_object())
     entity.y_vel = v_speed and -math.abs(v_speed) or -max_yvel
 
-    local movement=entity:get_movement()   
-    if movement and movement.get_speed then
-      local speed = movement:get_speed()  --PROBLEM: Always returns zero, but the debug screen one has the crrect values. So why is there a difference ?0
+    --TEMPORARY FIX TRY: force a jump to ignore ground speed inflence.
+--    local movement=entity:get_movement() 
+--    if movement and movement.get_speed then
+--      local speed = movement:get_speed()  --PROBLEM: Always returns zero, but the debug screen one has the crrect values. So why is there a difference ?0
 
-      local state=entity:get_state_object() --
-      function state:on_movement_changed(movement) --DEBUG: remove me when the speed bug is fixed
-        local new_speed=movement:get_speed()
-        if new_speed ~=speed then
-          print ("Movement has changed, new speed =".. new_speed)
-        end
-      end
-      if check_control(entity) and (state~= "custom" or state:get_description()~="running") then
-        print (state:is_affected_by_ground("hole"))
-        print ("changing speed from ".. speed .." to 88") 
-        movement:set_speed(88)
-      end      
-      speed = movement:get_speed()
-      print ("Current movement speed: "..speed)
+--      local state=entity:get_state_object() --
+--      function state:on_movement_changed(movement) --DEBUG: remove me when the speed bug is fixed
+--        local new_speed=movement:get_speed()
+--        if new_speed ~=speed then
+--          print ("Movement has changed, new speed =".. new_speed)
+--        end
+--      end
 
-    end
+--      if check_control(entity) and (entity:get_state()~= "custom" or state:get_description()~="running") then
+--        print (state:is_affected_by_ground("hole"))
+--        print ("changing speed from ".. speed .." to 88") 
+--        movement:set_speed(88)
+--      end
+--      speed = movement:get_speed()
+--      print ("Current movement speed: "..speed)
+
+--    end
+
     local t=sol.timer.start(entity, 10, function()
         return jm.update_jump(entity, callback)
       end)

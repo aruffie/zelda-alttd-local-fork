@@ -70,7 +70,7 @@ function state:on_started()
 
   --Prepare for running...
   entity.running_timer=sol.timer.start(state, 500, function() --start movement and pull out sword if any
-      entity.running_timer=nil
+      entity.running_timer=nil --TODO check if this isn't useless 
       entity.running=true
       if game:get_ability("sword")>0 and game:has_item("sword") then
         sprite:set_animation("sword_loading_walking")
@@ -81,73 +81,56 @@ function state:on_started()
 
       local m=sol.movement.create("straight")
       m:set_speed(196)
-      local direction=sprite:get_direction()
-      local angle = direction*math.pi/2
---      print (angle)
-      m:set_angle(angle)
+      m:set_angle(sprite:get_direction()*math.pi/2)
 
-      --Run !
-      m:start(entity)
       function m:on_obstacle_reached()
+        if not entity.bonking then
+          --Bonk !
+          entity:get_sprite("trail"):stop_animation()
+          stop_sound_loop(entity)
+          entity.bonking=true
+          audio_manager:play_sound("items/bomb_explode")
+          local map=entity:get_map()
 
-        --Bonk !
-        entity:get_sprite("trail"):stop_animation()
-        stop_sound_loop(entity)
-        entity.bonking=true
-        audio_manager:play_sound("items/bomb_explode")
-        local map=entity:get_map()
-
-        --Crash into entities (imported from the original custom script, don't know if it even works) 
-        for e in map:get_entities_in_rectangle(entity:get_bounding_box()) do
-          if entity:overlaps(e, "facing") then
-            if e.on_boots_crash ~= nil then
-              e:on_boots_crash()
+          --Crash into entities (imported from the original custom script, don't know if it even works) 
+          for e in map:get_entities_in_rectangle(entity:get_bounding_box()) do
+            if entity:overlaps(e, "facing") then
+              if e.on_boots_crash ~= nil then
+                e:on_boots_crash()
+              end
             end
           end
-        end
 
-        --Shake the camera 
-        --Note, the current implementation of the shake function was intended to be used on static screens, so until it's reworked, there will be some visual mishaps at the end of the effect (the camera will abruptly go back to the the hero)
-        local camera=map:get_camera()
-        camera:shake({count = 8, amplitude = 4, speed = 90})
+          --Shake the camera 
+          --Note, the current implementation of the shake function was intended to be used on static screens, so until it's reworked, there will be some visual mishaps at the end of the effect (the camera will abruptly go back to the the hero)
+          local camera=map:get_camera()
+          camera:shake({count = 8, amplitude = 4, speed = 90})
 --        map_tools.start_earthquake({count = 8, amplitude = 4, speed = 90}) 
 
-        --Play funny animation
-        local collapse_sprite=entity:get_sprite("tunic"):set_animation("collapse")
-        entity:get_sprite("sword"):stop_animation()
+          --Play funny animation
+          local collapse_sprite=entity:get_sprite("tunic"):set_animation("collapse")
+          entity:get_sprite("sword"):stop_animation()
 
-        --Bounce back
-        -- TODO replce with custom movement + jump manager parabola to allow hole crossing
-        if use_old_behavior then
-          local parabola=sol.movement.create("jump")
-          parabola:set_distance(32)
-          parabola:set_direction8(2*((direction+2)%4))
-          parabola:start(entity, function()
-              --      entity:remove_sprite(collapse_sprite)
-              audio_manager:play_sound("hero/land")
-              entity:unfreeze()
-              entity.bonking=false
-            end)
-        else
-          local bounce_back_movement=sol.movement.create("straight")
-          bounce_back_movement:set_angle(2*((direction+2)%4)*math.pi/4)
-          bounce_back_movement:set_speed(88)
-          bounce_back_movement.on_obstacle_reached=function(movement)
-            movement:set_angle(movement:get_angle()+math.pi) --bounce back on each wall reached (if you are between two walls when bonking.
 
-          end
           jump_manager.start(entity, 2, function()
+              entity.bonking=nil
+              audio_manager:play_sound("hero/land")
               entity:unfreeze()
               sol.timer.start(entity, 10, function()
                   entity:get_sprite():set_animation("collapse")
                 end)
             end)
-          bounce_back_movement:start(entity)
           entity:get_sprite():set_animation("collapse_pegasus")
+        else
+          audio_manager:play_sound("hero/land")
+          m:set_speed(88)
+          m:set_angle(m:get_angle()+math.pi)
         end
-
       end
-    end)
+
+    --Run !
+    m:start(entity)
+  end)
 end
 
 --Stops the run when the player changes the diection
@@ -155,7 +138,7 @@ function state:on_command_pressed(command)
   local entity=state:get_entity()
   local game=entity:get_game()
   local s=entity:get_sprite()
-  if entity.bonking~=true then
+  if not entity.bonking then
     for _,c in pairs(directions) do
       if c.key == command and c.direction~=s:get_direction() then
         entity:unfreeze()
@@ -184,7 +167,6 @@ function state:on_command_released(command)
         return true
       end
     end
-
   end
 end
 
