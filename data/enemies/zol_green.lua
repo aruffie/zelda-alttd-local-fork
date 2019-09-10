@@ -16,48 +16,39 @@ local jump_count, current_max_jump
 -- Configuration variables
 local between_jump_duration = 500
 local max_jump_combo = 8
-local max_distance = 60
-local is_awake = false
+local triggering_distance = 60
 
 -- Make the enemy appear.
 function enemy:appear()
 
-  is_awake = true
-  sprite:set_animation("appearing")
   shadow:set_visible()
-  function sprite:on_animation_finished(animation)
-    if animation == "appearing" then
-      sprite:set_animation("shaking")
-      enemy:set_can_attack(true)
-      sol.timer.start(enemy, 1000, function()
-        jump_count = 1
-        current_max_jump = math.random(max_jump_combo)
-        enemy:start_jump_attack(true)
-      end)
-    end
-  end
+  sprite:set_animation("appearing", function()
+    sprite:set_animation("shaking")
+    enemy:set_can_attack(true)
+    sol.timer.start(enemy, 1000, function()
+      jump_count = 1
+      current_max_jump = math.random(max_jump_combo)
+      enemy:start_jump_attack(true)
+    end)
+  end)
 end
 
 -- Make the enemy disappear.
 function enemy:disappear()
 
-  is_awake = false
-  enemy:set_can_attack(false)
   shadow:set_visible(false)
-  sprite:set_animation("disappearing")
-  function sprite:on_animation_finished(animation)
-    if animation == "disappearing" then
-      sprite:set_animation("invisible")
-      enemy:start_waiting_for_hero()
-    end
-  end
+  sprite:set_animation("disappearing", function()
+    sprite:set_animation("invisible")
+    enemy:set_can_attack(false)
+    enemy:wait()
+  end)
 end
 
 -- Wait for the hero to be close enough and appear if yes.
-function enemy:start_waiting_for_hero()
+function enemy:wait()
 
   sol.timer.start(enemy, 100, function()
-    if enemy:get_distance(hero) < max_distance then
+    if enemy:get_distance(hero) < triggering_distance then
       enemy:appear()
       return false
     end
@@ -69,7 +60,7 @@ end
 enemy:register_event("on_jump_finished", function(enemy)
   
   sprite:set_animation("shaking")
-  if enemy:get_distance(hero) > max_distance or jump_count >= current_max_jump then
+  if enemy:get_distance(hero) > triggering_distance or jump_count >= current_max_jump then
     enemy:disappear()
   else
     sol.timer.start(enemy, between_jump_duration, function()
@@ -99,5 +90,5 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_damage(2)
   sprite:set_animation("invisible")
   shadow:set_visible(false)
-  enemy:start_waiting_for_hero()
+  enemy:wait()
 end)

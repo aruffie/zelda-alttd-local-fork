@@ -1,93 +1,75 @@
 -- Lua script of enemy leever.
 -- This script is executed every time an enemy with this model is created.
 
--- Variables
+-- Global variables
 local enemy = ...
-local max_distance = 100
-local is_awake = false
-local positions = {}
-local distance_appearing = 64
+require("enemies/lib/common_actions").learn(enemy)
+require("scripts/multi_events")
 
-
-enemy:set_life(1)
-enemy:set_damage(1)
-
+local game = enemy:get_game()
+local map = enemy:get_map()
+local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+local quarter = math.pi * 0.5
+local eighth = math.pi * 0.25
 
--- The enemy appears: set its properties.
-function enemy:on_created()
+-- Configuration variables
+local walking_speed = 32
+local walking_minimum_duration = 3000
+local walking_maximum_duration = 5000
+local waiting_duration = 2000
 
-    self:set_can_be_pushed_by_shield(true)
+-- Start the enemy movement.
+function enemy:start_walking()
 
-end
-
--- The enemy was stopped for some reason and should restart.
-function enemy:on_restarted()
-  
-  sprite:set_animation("invisible")
-  sol.timer.start(enemy, 50, function()
-    local tx, ty, _ = enemy:get_map():get_hero():get_position()
-    if enemy:get_distance(tx, ty) < max_distance then
-      if is_awake == false then
-        enemy:appear()
-      end
-    end
-    return true
+  local movement = enemy:start_target_walking(hero, walking_speed)
+  sol.timer.start(enemy, math.random(walking_minimum_duration, walking_maximum_duration), function()
+    movement:stop()
+    enemy:disappear()
   end)
-
 end
 
+-- Make the enemy appear.
 function enemy:appear()
 
-  is_awake = true
-  sprite:set_animation("appearing")
-  function sprite:on_animation_finished(animation)
-    if animation == "appearing" then
-      enemy:go()
-    end
-  end
-
+  sprite:set_animation("appearing", function()
+    enemy:set_can_attack(true)
+    enemy:start_walking()
+  end)
 end
 
+-- Make the enemy disappear.
 function enemy:disappear()
 
-  sol.timer.start(enemy, 3000, function()
-  is_awake = false
+  sprite:set_animation("disappearing", function()
+    enemy:set_can_attack(false)
+    sprite:set_animation("invisible")
+    sol.timer.start(enemy, waiting_duration, function()
+      enemy:appear()
+    end)
   end)
-  sprite:set_animation("disappearing")
-  function sprite:on_animation_finished(animation)
-    if animation == "disappearing" then
-     sprite:set_animation("invisible")
-     local x,y = enemy:get_position()
-      -- todo
-    end
-  end
-
 end
 
-function enemy:go()
+-- Initialization.
+enemy:register_event("on_created", function(enemy)
 
-  local distance = 36
-  local random = math.random(100)
-  distance = distance + random
-  local direction = enemy:get_direction4_to(enemy:get_map():get_hero())
-  sprite:set_animation("walking")
-  sprite:set_direction(direction)
-  local angle = enemy:get_angle(enemy:get_map():get_hero())
-  local m = sol.movement.create("straight")
-  m:set_speed(50)
-  m:set_max_distance(distance)
-  m:set_angle(angle)
-  m:start(enemy)
-  function m:on_finished()
-    enemy:disappear()
-  end
-  function m:on_obstacle_reached()
-    m:stop()
-    enemy:disappear()
-  end
+  enemy:set_life(2)
+  enemy:set_size(16, 24)
+  enemy:set_origin(8, 21)
+end)
 
-end
+-- Restart settings.
+enemy:register_event("on_restarted", function(enemy)
 
+  -- Behavior for each items.
+  enemy:set_hero_weapons_reactions(2, {
+    sword = 1,
+    jump_on = "ignored"
+  })
 
+  -- States.
+  enemy:set_can_attack(false)
+  enemy:set_damage(2)
+  enemy:disappear()
+end)
 
