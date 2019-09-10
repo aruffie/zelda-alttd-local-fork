@@ -27,27 +27,40 @@ function jm.reset_collision_rules(state)
     state:set_affected_by_ground("lava", true)
     state:set_affected_by_ground("deep_water", true)
     state:set_affected_by_ground("prickles", true)
+    state:set_affected_by_ground("grass", false)
+    state:set_affected_by_ground("shallow_water", false)
     state:set_can_use_stairs(true)
     state:set_can_use_teletransporter(true)
     state:set_can_use_switch(true)
     state:set_can_use_stream(true)
     state:set_can_be_hurt(true)
+    state:set_gravity_enabled(true)
+    --state:get_entity():get_sprite("ground"):set_animation(state.ground_animation())
+
   end
 end
 
 function jm.setup_collision_rules(state)
 -- TODO find a way to get rid of hardcoded state filter for more flexibility
 
-  if state and (state:get_description() == "jumping" or state:get_description() =="jumping_sword" or state:get_description() == "running") then
+  if state and (state:get_description() == "jumping" or state:get_description() =="jumping_sword" or state:get_description() == "running") then 
     state:set_affected_by_ground("hole", false)
     state:set_affected_by_ground("lava", false)
     state:set_affected_by_ground("deep_water", false)
+    state:set_affected_by_ground("grass", false)
+    state:set_affected_by_ground("shallow_water", false)
     state:set_affected_by_ground("prickles", false)
     state:set_can_use_stairs(false)
     state:set_can_use_teletransporter(false)
     state:set_can_use_switch(false)
     state:set_can_use_stream(false)
     state:set_can_be_hurt(false)
+    state:set_gravity_enabled(false)
+--    local sprite=state:get_entity():get_sprite("ground")
+--    if sprite then
+--      state.ground_animation=sprite:get_animation()
+--      sprite:stop_animation()
+--    end
   end
 end
 
@@ -67,55 +80,103 @@ local function on_bounce_possible(entity)
   end
 end
 
-function jm.update_jump(entity)
+function jm.update_jump(entity, callback)
+  if not entity:get_game():is_paused() then
+    entity.y_offset=entity.y_offset or 0
 
-  entity.y_offset=entity.y_offset or 0
-
-  for name, sprite in entity:get_sprites() do
-    if name~="shadow" and name~="shadow_override" then
-      sprite:set_xy(0, math.min(entity.y_offset, 0)*y_factor)
-    end
-  end
-
-  entity.y_offset= entity.y_offset+entity.y_vel
-  debug_max_height=math.min(debug_max_height, entity.y_offset)
-
-  entity.y_vel = entity.y_vel + gravity
-
-  -- Bounce on a possible enemy that can be hurt with jump.
-  if entity.y_vel > 0 and entity.y_offset > -8 then
-    on_bounce_possible(entity)
-  end
-
-  if entity.y_offset >=0 then --reset sprites offset and stop jumping
     for name, sprite in entity:get_sprites() do
-      sprite:set_xy(0, 0)
+      if name~="shadow" and name~="shadow_override" then
+        sprite:set_xy(0, math.min(entity.y_offset, 0)*y_factor)
+      end
     end
-    local final_x, final_y=entity:get_position()
-    print("Distance reached during jump: X="..final_x-debug_start_x..", Y="..final_y-debug_start_y..", height="..debug_max_height)
-    entity.jumping = false
-    if entity:get_state()~="custom" or entity:get_state_object():get_description()~="running" and not sol.main.get_game():is_command_pressed("attack") then
-      entity:unfreeze()
-    else
-      jm.reset_collision_rules(entity:get_state_object())
+
+    entity.y_offset= entity.y_offset+entity.y_vel
+    debug_max_height=math.min(debug_max_height, entity.y_offset)
+
+    entity.y_vel = entity.y_vel + gravity
+
+    -- Bounce on a possible enemy that can be hurt with jump.
+    if entity.y_vel > 0 and entity.y_offset > -8 then
+      on_bounce_possible(entity)
     end
-    return false
+
+    if entity.y_offset >=0 then --reset sprites offset and stop jumping, and trigger the callback if any
+      for name, sprite in entity:get_sprites() do
+        sprite:set_xy(0, 0)
+      end
+      local final_x, final_y=entity:get_position()
+      print("Distance reached during jump: X="..final_x-debug_start_x..", Y="..final_y-debug_start_y..", height="..debug_max_height)
+      entity.jumping = false
+      if callback then 
+        print "CALLBACK"
+        callback()
+      end
+
+      --SUGGESTION: Remove this and let the caller manage the end -of-jump through the callback ?
+      if entity:get_state()~="custom" or entity:get_state_object():get_description()~="running" and not sol.main.get_game():is_command_pressed("attack") then
+        entity:unfreeze()
+      else
+        jm.reset_collision_rules(entity:get_state_object())
+      end
+      return false
+    end
   end
   return true
 end
 
-function jm.start(entity)
+local function check_control(entity)
+  local game=entity:get_game()
+  local _left=game:is_command_pressed("left")
+  local _right=game:is_command_pressed("right") 
+  local _up=game:is_command_pressed("up")
+  local _down=game:is_command_pressed("down")
+  local result=_left and not _right or _right and not _left or _up and not _down or _down and not _up
+  return result
+end
 
+
+--[[Starts the actual parabole
+  Parameters
+    entity: the entity to start the jump on
+    v_speed: the vertical speed. Defaults to 2 px/tick.
+    Note : the inputted vspeed to automatically converted to an updraft movement, so yu can either input -3.14 or 3.14 as a desired speed.
+--]]
+
+function jm.start(entity, v_speed, callback)
+  if not entity or entity:get_type() ~= "hero" then
+    return
+  end
+  print "Starting custom jump"
   if not entity:is_jumping() then
     audio_manager:play_sound("hero/jump")
-    debug_start_x, debug_start_y=entity:get_position()
+    debug_start_x, debug_start_y=entity:get_position() --Temporary, remove me once everything has been finalized
     entity:set_jumping(true)
     jm.setup_collision_rules(entity:get_state_object())
-    entity.y_vel = -max_yvel
-    
+    entity.y_vel = v_speed and -math.abs(v_speed) or -max_yvel
+
+    local movement=entity:get_movement()   
+    if movement and movement.get_speed then
+      local speed = movement:get_speed()  --PROBLEM: Always returns zero, but the debug screen one has the crrect values. So why is there a difference ?0
+
+      local state=entity:get_state_object() --
+      function state:on_movement_changed(movement) --DEBUG: remove me when the speed bug is fixed
+        local new_speed=movement:get_speed()
+        if new_speed ~=speed then
+          print ("Movement has changed, new speed =".. new_speed)
+        end
+      end
+      if check_control(entity) and (state~= "custom" or state:get_description()~="running") then
+        print (state:is_affected_by_ground("hole"))
+        print ("changing speed from ".. speed .." to 88") 
+        movement:set_speed(88)
+      end      
+      speed = movement:get_speed()
+      print ("Current movement speed: "..speed)
+
+    end
     local t=sol.timer.start(entity, 10, function()
-      return jm.update_jump(entity)
-    end)
+        return jm.update_jump(entity, callback)
+      end)
     t:set_suspended_with_map(false)
   end
 end

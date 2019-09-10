@@ -30,7 +30,7 @@ entity:register_event("on_created", function(entity)
       end)
 
     function entity.set_item(_item, _variant, _savegame_variable)
-      print("in custom pickable script, getting the item infos. item=".._item:get_name()..", variant=".._variant..", savegame variable="..(_savegame_variable or "<none>"))
+--      print("in custom pickable script, getting the item infos. item=".._item:get_name()..", variant=".._variant..", savegame variable="..(_savegame_variable or "<none>"))
       item=_item
       variant=_variant
       variable=_savegame_variable

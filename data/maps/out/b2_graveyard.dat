@@ -23551,26 +23551,8 @@ enemy{
 
 enemy{
   layer = 1,
-  x = 784,
-  y = 493,
-  direction = 2,
-  breed = "ghini",
-  treasure_name = "random",
-}
-
-enemy{
-  layer = 1,
   x = 832,
   y = 541,
-  direction = 2,
-  breed = "ghini",
-  treasure_name = "random",
-}
-
-enemy{
-  layer = 1,
-  x = 880,
-  y = 493,
   direction = 2,
   breed = "ghini",
   treasure_name = "random",
@@ -24020,6 +24002,14 @@ wall{
   stops_enemies = true,
   stops_blocks = true,
   stops_projectiles = true,
+}
+
+enemy{
+  layer = 1,
+  x = 128,
+  y = 277,
+  direction = 0,
+  breed = "zora",
 }
 
 tile{

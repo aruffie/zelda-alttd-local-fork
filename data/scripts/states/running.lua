@@ -117,15 +117,35 @@ function state:on_started()
         entity:get_sprite("sword"):stop_animation()
 
         --Bounce back
-        local parabola=sol.movement.create("jump")
-        parabola:set_distance(32)
-        parabola:set_direction8(2*((direction+2)%4))
-        parabola:start(entity, function()
-            --      entity:remove_sprite(collapse_sprite)
-            audio_manager:play_sound("hero/land")
-            entity:unfreeze()
-            entity.bonking=false
-          end)
+        -- TODO replce with custom movement + jump manager parabola to allow hole crossing
+        if use_old_behavior then
+          local parabola=sol.movement.create("jump")
+          parabola:set_distance(32)
+          parabola:set_direction8(2*((direction+2)%4))
+          parabola:start(entity, function()
+              --      entity:remove_sprite(collapse_sprite)
+              audio_manager:play_sound("hero/land")
+              entity:unfreeze()
+              entity.bonking=false
+            end)
+        else
+          local bounce_back_movement=sol.movement.create("straight")
+          bounce_back_movement:set_angle(2*((direction+2)%4)*math.pi/4)
+          bounce_back_movement:set_speed(88)
+          bounce_back_movement.on_obstacle_reached=function(movement)
+            movement:set_angle(movement:get_angle()+math.pi) --bounce back on each wall reached (if you are between two walls when bonking.
+
+          end
+          jump_manager.start(entity, 2, function()
+              entity:unfreeze()
+              sol.timer.start(entity, 10, function()
+                  entity:get_sprite():set_animation("collapse")
+                end)
+            end)
+          bounce_back_movement:start(entity)
+          entity:get_sprite():set_animation("collapse_pegasus")
+        end
+
       end
     end)
 end

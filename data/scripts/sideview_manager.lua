@@ -184,14 +184,14 @@ local function apply_gravity(entity)
     entity:set_position(x,y+1)
   else
     -- Try to get up
-    if not entity:test_obstacles(0,-1) then
+    if not entity:test_obstacles(0,-1) or map:get_ground(x,y+3) == "prickles" then
       entity:set_position(x,y-1)
     end
   end
 
   --Update the vertical speed
   if map:get_ground(x,y,layer)=="deep_water" then
-    vspeed = 0--Submerges entities have their own fixed time fall timer, so don't cumulate them (unless we remove it and keep it in a central place ?
+    vspeed = math.min (0, vspeed)--Submerges entities have their own fixed time fall timer, so don't cumulate them (unless we remove it and keep it in a central place ?
   else
     vspeed = math.min(vspeed+gravity, max_vspeed)
   end
@@ -301,16 +301,6 @@ local function is_on_ground(entity, dy)
   return entity:test_obstacles(0, 1) or not test_ladder(entity) and is_ladder(entity:get_map(), x, y+3)
 end
 
---Debug function, remove me once everything is finalized
---hero_meta:register_event("on_movement_changed", function(hero, movement)
---    debug_print "Movement has changed :"
---    if movement.get_speed then
---      debug_print("New speed=" ..movement:get_speed())
---    end
---    if movement.get_angle then
---      debug_print("new angle:"..movement:get_angle()*180/math.pi)
---    end
---  end)
 
 --Respawn wnen falling into a pit
 hero_meta:register_event("on_position_changed", function(hero, x,y,layer)
@@ -521,11 +511,11 @@ end
 
 --[[
   Redeclaration of the "on map changed' event to take account of the sideview mode.
-  This override completely refefines how the hero is drawed by setting the draw_override, as well as starting the routine which updates the gravity of the entitites for sideviews.
+  This override starts the routine which updates the gravity of the entitites for sideviews, and sets up the sprite of the hero by shifting it by 2 pixels when in sideviews.
 --]]
 game_meta:register_event("on_map_changed", function(game, map)
 
-    local hero = map:get_hero() --TODO account for multiple heroes
+    local hero = map:get_hero() --TODO account for multiple heroes in the future
     hero.vspeed = 0
     if map:is_sideview() then
       hero.on_ladder = test_ladder(hero, -1) 
