@@ -1,52 +1,54 @@
--- Lua script of item "hookshot".
--- This script is executed only once for the whole game.
+--[[
+Lua script of item "hookshot".
+ This script is executed only once for the whole game.
 
--- Hookshot similar to the one of Zelda A Link to the Past.
--- Author: Christopho
---
--- It can hurt enemies, activate crystals and solid switches,
--- catch entities and transport the hero accross cliffs and bad grounds.
--- Edit the file hookshot_config.lua to change settings like the speed
--- and which entities are hookable.
---
--- * Required resources:
---
--- - An animation "hookshot" in the hero sprites (at least for the tunic).
--- - A sprite "entities/hookshot" with animations "hookshot"
---   (the default) and "link".
--- - A sound "hookshot".
---
--- * Hurting enemies:
---
--- Two new methods are available on enemies:
--- enemy:get_hookshot_reaction() and enemy:set_hookshot_reaction().
--- Call enemy:set_hookshot_reaction() from your enemy scripts
--- to define how they react:
--- immobilize him, hurt him, do nothing, etc.
--- The allowed values are the same as in enemy:set_attack_consequence().
---
--- * Activating mechanisms:
---
--- Solid switches and crystals can be activated by the hookshot.
---
--- * Catching entities:
---
--- You can customize which entities can be caught.
--- A list of entity types that can be caught is defined in
--- hookshot_config.lua, feel free to change it.
--- You can also allow individual entities to be caught by defining a method
--- is_catchable_with_hookshot() returning true.
---
--- * Transporting the hero:
---
--- You can customize which entities the hookshot can hook to.
--- A list of entity types that are hookable is defined in
--- hookshot_config.lua, feel free to change it.
--- You can also allow individual entities to be hookable by defining a method
--- is_hookable() returning true.
--- If the hero arrives inside an obstacle after the hookshot transportation,
--- his position is automatically adjusted to the last legal position along
--- the way.
+ Hookshot similar to the one of Zelda A Link to the Past.
+ Author: Christopho
+
+ It can hurt enemies, activate crystals and solid switches,
+ catch entities and transport the hero accross cliffs and bad grounds.
+ Edit the file hookshot_config.lua to change settings like the speed
+ and which entities are hookable.
+
+ * Required resources:
+
+ - An animation "hookshot" in the hero sprites (at least for the tunic).
+ - A sprite "entities/hookshot" with animations "hookshot"
+   (the default) and "link".
+ - A sound "hookshot".
+
+ * Hurting enemies:
+
+ Two new methods are available on enemies:
+ enemy:get_hookshot_reaction() and enemy:set_hookshot_reaction().
+ Call enemy:set_hookshot_reaction() from your enemy scripts
+ to define how they react:
+ immobilize him, hurt him, do nothing, etc.
+ The allowed values are the same as in enemy:set_attack_consequence().
+
+ * Activating mechanisms:
+
+ Solid switches and crystals can be activated by the hookshot.
+
+ * Catching entities:
+
+ You can customize which entities can be caught.
+ A list of entity types that can be caught is defined in
+ hookshot_config.lua, feel free to change it.
+ You can also allow individual entities to be caught by defining a method
+ is_catchable_with_hookshot() returning true.
+
+ * Transporting the hero:
+
+ You can customize which entities the hookshot can hook to.
+ A list of entity types that are hookable is defined in
+ hookshot_config.lua, feel free to change it.
+ You can also allow individual entities to be hookable by defining a method
+ is_hookable() returning true.
+ If the hero arrives inside an obstacle after the hookshot transportation,
+ his position is automatically adjusted to the last legal position along
+ the way.
+--]]
 
 -- Variables
 local item = ...
@@ -61,13 +63,13 @@ function item:on_created()
   item:set_savegame_variable("possession_hookshot")
   item:set_sound_when_brandished(nil)
   item:set_assignable(true)
-  
+
 end
 
 function item:on_obtaining()
-  
+
   audio_manager:play_sound("items/fanfare_item_extended")
-        
+
 end
 
 -- Function called when the hero uses the hookshot item.
@@ -76,9 +78,14 @@ function item:on_using()
 
   local going_back = false
   local sound_timer
-  local direction
   local map = item:get_map()
   local hero = map:get_hero()
+  
+  if hero:is_jumping() or (map:is_sideview() and hero.vspeed~=nil) then 
+    item:set_finished()
+    return
+  end
+
   local x, y, layer = hero:get_position()
   local direction = hero:get_direction()
   local hookshot
@@ -101,14 +108,14 @@ function item:on_using()
     entity:set_can_traverse("hero", true)
     entity:set_can_traverse("jumper", true)
     entity:set_can_traverse("stairs", function(hookshot, stairs)
-      if not stairs:is_inner() then
-        return false
-      end
-      -- Inner stairs can be traversed if the hookshot is above.
-      local _, _, hookshot_layer = hookshot:get_position()
-      local _, _, stairs_layer = stairs:get_position()
-      return hookshot_layer > stairs_layer
-    end)
+        if not stairs:is_inner() then
+          return false
+        end
+        -- Inner stairs can be traversed if the hookshot is above.
+        local _, _, hookshot_layer = hookshot:get_position()
+        local _, _, stairs_layer = stairs:get_position()
+        return hookshot_layer > stairs_layer
+      end)
     entity:set_can_traverse("stream", true)
     entity:set_can_traverse("switch", true)
     entity:set_can_traverse("teletransporter", true)
@@ -146,9 +153,9 @@ function item:on_using()
     local top_left_x, top_left_y = candidate_x - origin_x, candidate_y - origin_y
     local width, height = hero:get_size()
     if map:get_ground(top_left_x, top_left_y, candidate_layer) == "empty" and
-        map:get_ground(top_left_x + width - 1, top_left_y, candidate_layer) == "empty" and
-        map:get_ground(top_left_x, top_left_y + height - 1, candidate_layer) == "empty" and
-        map:get_ground(top_left_x + width - 1, top_left_y + height - 1, candidate_layer) == "empty" then
+    map:get_ground(top_left_x + width - 1, top_left_y, candidate_layer) == "empty" and
+    map:get_ground(top_left_x, top_left_y + height - 1, candidate_layer) == "empty" and
+    map:get_ground(top_left_x + width - 1, top_left_y + height - 1, candidate_layer) == "empty" then
       -- We are on empty ground: the hero will fall one layer down.
       return test_hero_obstacle_layers(candidate_x, candidate_y, candidate_layer - 1)
     end
@@ -176,9 +183,9 @@ function item:on_using()
 
     -- Play a repeated sound.
     sound_timer = sol.timer.start(map, 150, function()
-      audio_manager:play_sound("items/hookshot")
-      return true  -- Repeat the timer.
-    end)
+        audio_manager:play_sound("items/hookshot")
+        return true  -- Repeat the timer.
+      end)
     audio_manager:play_sound("items/hookshot")
 
   end
@@ -230,13 +237,13 @@ function item:on_using()
     -- Using this intermediate custom entity rather than directly moving the hero
     -- allows better control on what can be traversed.
     leader = map:create_custom_entity({
-      direction = direction,
-      layer = layer,
-      x = x,
-      y = y,
-      width = 16,
-      height = 16,
-    })
+        direction = direction,
+        layer = layer,
+        x = x,
+        y = y,
+        width = 16,
+        height = 16,
+      })
     leader:set_origin(8, 13)
     set_can_traverse_rules(leader)
     leader.apply_cliffs = true
@@ -310,13 +317,13 @@ function item:on_using()
 
   -- Create the hookshot.
   hookshot = map:create_custom_entity({
-    direction = direction,
-    layer = layer,
-    x = x,
-    y = y,
-    width = 16,
-    height = 16,
-  })
+      direction = direction,
+      layer = layer,
+      x = x,
+      y = y,
+      width = 16,
+      height = 16,
+    })
   hookshot:set_origin(8, 13)
   hookshot:set_drawn_in_y_order(true)
 
@@ -360,51 +367,51 @@ function item:on_using()
   -- Set up collisions.
   hookshot:add_collision_test("overlapping", function(hookshot, entity)
 
-    local entity_type = entity:get_type()
+      local entity_type = entity:get_type()
 
-    if entity_type == "hero" then
-      -- Reaching the hero while going back: stop the hookshot.
-      if going_back then
-        stop()
-      end
-
-    elseif entity_type == "crystal" then
-      -- Activate crystals.
-      if not hooked and not going_back then
-        audio_manager:play_sound("dungeon_switch")
-        map:change_crystal_state()
-        go_back()
-      end
-
-    elseif entity_type == "switch" then
-      -- Activate solid switches.
-      local switch = entity
-      local sprite = switch:get_sprite()
-      if not hooked and
-          not going_back and
-          sprite ~= nil and
-          sprite:get_animation_set() == "entities/solid_switch" then
-
-        if switch:is_activated() then
-          audio_manager:play_sound("items/sword_tap")
-        else
-          audio_manager:play_sound("dungeon_switch")
-          switch:set_activated(true)
+      if entity_type == "hero" then
+        -- Reaching the hero while going back: stop the hookshot.
+        if going_back then
+          stop()
         end
-        go_back()
-      end
 
-    elseif entity.is_catchable_with_hookshot ~= nil and entity:is_catchable_with_hookshot() then
-      -- Catch the entity with the hookshot.
-      if not hooked and not going_back then
-        entities_caught[#entities_caught + 1] = entity
-        entity:set_position(hookshot:get_position())
-        hookshot:set_modified_ground("traversable")  -- Don't let the caught entity fall in holes.
-        go_back()
-      end
+      elseif entity_type == "crystal" then
+        -- Activate crystals.
+        if not hooked and not going_back then
+          audio_manager:play_sound("dungeon_switch")
+          map:change_crystal_state()
+          go_back()
+        end
 
-    end
-  end)
+      elseif entity_type == "switch" then
+        -- Activate solid switches.
+        local switch = entity
+        local sprite = switch:get_sprite()
+        if not hooked and
+        not going_back and
+        sprite ~= nil and
+        sprite:get_animation_set() == "entities/solid_switch" then
+
+          if switch:is_activated() then
+            audio_manager:play_sound("items/sword_tap")
+          else
+            audio_manager:play_sound("dungeon_switch")
+            switch:set_activated(true)
+          end
+          go_back()
+        end
+
+      elseif entity.is_catchable_with_hookshot ~= nil and entity:is_catchable_with_hookshot() then
+        -- Catch the entity with the hookshot.
+        if not hooked and not going_back then
+          entities_caught[#entities_caught + 1] = entity
+          entity:set_position(hookshot:get_position())
+          hookshot:set_modified_ground("traversable")  -- Don't let the caught entity fall in holes.
+          go_back()
+        end
+
+      end
+    end)
 
   local hook_point_dxy = {
     {  8,  0 },
@@ -440,31 +447,31 @@ function item:on_using()
 
   hookshot:add_collision_test(test_hook_collision, function(hookshot, entity)
 
-    if hooked or going_back then
-      return
-    end
+      if hooked or going_back then
+        return
+      end
 
-    if entity.is_hookable ~= nil and entity:is_hookable() then
-      -- Hook to this entity.
-      hook_to_entity(entity)
-    end
-  end)
+      if entity.is_hookable ~= nil and entity:is_hookable() then
+        -- Hook to this entity.
+        hook_to_entity(entity)
+      end
+    end)
 
   -- Detect enemies.
   hookshot:add_collision_test("sprite", function(hookshot, entity, hookshot_sprite, enemy_sprite)
 
-    local entity_type = entity:get_type()
-    if entity_type == "enemy" then
-      local enemy = entity
-      if hooked then
-        return
+      local entity_type = entity:get_type()
+      if entity_type == "enemy" then
+        local enemy = entity
+        if hooked then
+          return
+        end
+        local reaction = enemy:get_hookshot_reaction(enemy_sprite)
+        enemy:receive_attack_consequence("hookshot", reaction)
+        go_back()
       end
-      local reaction = enemy:get_hookshot_reaction(enemy_sprite)
-      enemy:receive_attack_consequence("hookshot", reaction)
-      go_back()
-    end
 
-  end)
+    end)
 
   -- Start the movement.
   go()
