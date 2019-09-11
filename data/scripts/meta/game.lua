@@ -152,7 +152,7 @@ game_meta:register_event("on_command_pressed", function(game, command)
             --if we reached this point then it means that the item had no override (and the execution will now default to the built-in bahavior)
 --            print "Back to default behavior"
           end)
-        --return handled
+        return handled
       end
     end
   end)

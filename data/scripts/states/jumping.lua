@@ -15,7 +15,7 @@ local state = jump_manager.init("jumping")
 
 
 function state:on_started(previous_state_name, previous_state_object)
-  
+
   local map = state:get_map()
   local hero = state:get_entity()
   local x,y,layer = hero:get_position() 
@@ -44,5 +44,7 @@ function hero_meta.jump(hero)
     hero:start_state(state)
   end
   -- Now, start the actual jump effect, regardless of whether we were alrealy jumping (the jumping manager will check the status on it's own).
-  jump_manager.start(hero)
+  jump_manager.start(hero, 2, function()
+      hero:unfreeze()
+    end)
 end
