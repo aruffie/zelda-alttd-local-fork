@@ -1,74 +1,49 @@
--- Stone projectile, mainly used by the Octorok enemy.
+-- Stone projectile, throwed horizontally or vertically, mostly used by octorok enemies.
 
 local enemy = ...
-local speed = 192
+local projectile_behavior = require("enemies/lib/projectile")
 
-function enemy:on_created()
+-- Global variables
+local map = enemy:get_map()
+local hero = map:get_hero()
+local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+local quarter = math.pi * 0.5
 
-  enemy:set_life(1)
-  enemy:set_damage(2)
-  enemy:create_sprite("enemies/" .. enemy:get_breed())
-  enemy:set_size(8, 8)
-  enemy:set_origin(4, 4)
-  enemy:set_invincible()
-  enemy:set_obstacle_behavior("flying")
-  self:set_can_be_pushed_by_shield(true)
-  self:set_can_push_hero_on_shield(true)
+-- COnfiguration variables
+local before_removing_delay = 500
+
+-- Start going to the hero by an horizontal or vertical move.
+function enemy:go()
+  enemy:straight_go(sprite:get_direction() * quarter)
 end
 
-function enemy:on_obstacle_reached()
+-- Create an impact effect on hit.
+enemy:register_event("on_hit", function(enemy)
+  enemy:start_brief_effect("entities/effects/impact_projectile", "default", sprite:get_xy())
+end)
 
+-- Directly remove the enemy on attacking hero
+enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
   enemy:remove()
-end
+end)
 
-function enemy:go(direction4)
+-- Initialization.
+enemy:register_event("on_created", function(enemy)
 
-  local angle = direction4 * math.pi / 2
-  local movement = sol.movement.create("straight")
-  movement:set_speed(speed)
-  movement:set_angle(angle)
-  movement:set_smooth(false)
-  movement:start(enemy)
+  projectile_behavior.apply(enemy, sprite)
+  enemy:set_life(1)
+  enemy:set_size(4, 4)
+  enemy:set_origin(4, 13)
+end)
 
-  enemy:get_sprite():set_direction(direction4)
-end
+-- Restart settings.
+enemy:register_event("on_restarted", function(enemy)
 
--- Allow to hurt enemies.
-function enemy:allow_hurt_enemies(allow_hurt)
-  -- Define event.
-  if not allow_hurt then
-    enemy.on_collision_enemy = nil
-    return
-  end
-  function enemy:on_collision_enemy(other_enemy, other_sprite, my_sprite)
-    local life_points = self:get_damage()
-    other_enemy:hurt(life_points)
-    -- Call custom event after hurting enemy.
-    self:on_hurt_enemy(other_enemy, other_sprite)
-  end
-end
-
--- Override normal push function.
-function enemy:on_shield_collision(shield)
-  local map = self:get_map()
-  -- Disable push for a while.
-  self:set_being_pushed(true)
-  sol.timer.start(map, 200, function()
-    self:set_being_pushed(false)
-  end)
-  -- Hurt enemies after bounce on shield.
-  self:allow_hurt_enemies(true)
-  -- Override movement.
-  local m = self:get_movement()
-  if not m then return end
-  m = sol.movement.create("straight")
-  m:set_angle(shield:get_direction4_to(self) * math.pi/2)
-  m:set_smooth(false)
-  m:set_speed(speed)
-  m:set_max_distance(300)
-  m:start(self)
-end
-
--- CUSTOM EVENT: called after hurting an enemy.
-function enemy:on_hurt_enemy(other_enemy, other_sprite)
-end
+  sprite:set_animation("walking")
+  enemy:set_damage(2)
+  enemy:set_obstacle_behavior("flying")
+  enemy:set_pushed_back_when_hurt(false)
+  enemy:set_can_hurt_hero_running(true)
+  enemy:set_minimum_shield_needed(1)
+  enemy:go()
+end)
