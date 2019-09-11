@@ -88,6 +88,7 @@ enemy:register_event("on_restarted", function(enemy)
 
   -- States.
   enemy:set_damage(2)
+  enemy:set_can_attack(false)
   sprite:set_animation("invisible")
   shadow:set_visible(false)
   enemy:wait()

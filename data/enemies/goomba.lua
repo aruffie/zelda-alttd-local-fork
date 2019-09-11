@@ -14,19 +14,20 @@ local quarter = math.pi * 0.5
 -- Configuration variables
 local walking_possible_angles = map:is_sideview() and {0, quarter, 2.0 * quarter, 3.0 * quarter} or {0, 0, 2 * quarter, 2 * quarter}
 local walking_speed = 32
-local walking_distance_grid = 16
-local walking_max_move_by_step = 6
+local walking_minimum_distance = 16
+local walking_maximum_distance = 96
 local crushed_duration = 500
 
 -- Start the enemy movement.
 function enemy:start_walking()
 
-  enemy:start_straight_walking(walking_possible_angles[math.random(4)], walking_speed, walking_distance_grid * math.random(walking_max_move_by_step), function()
+  enemy:start_straight_walking(walking_possible_angles[math.random(4)], walking_speed, math.random(walking_minimum_distance, walking_maximum_distance), function()
     enemy:start_walking()
   end)
 end
 
 -- Don't hurt the hero if enemy is below on sideview maps.
+-- TODO register_event() seems to not prevent the default behavior, check how to use it.
 function enemy:on_attacking_hero(hero, enemy_sprite)
 
   local _, y, _ = enemy:get_position()

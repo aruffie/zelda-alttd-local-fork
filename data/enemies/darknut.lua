@@ -19,8 +19,8 @@ local charge_triggering_distance = 80
 local charging_speed = 56
 local walking_possible_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
 local walking_speed = 32
-local walking_distance_grid = 16
-local walking_max_move_by_step = 6
+local walking_minimum_distance = 16
+local walking_maximum_distance = 96
 local waiting_duration = 800
 
 -- Start the enemy initial movement.
@@ -36,7 +36,7 @@ end
 -- Start the enemy random movement.
 function enemy:start_random_walking(key)
 
-  enemy:start_straight_walking(walking_possible_angles[key], walking_speed, walking_distance_grid * math.random(walking_max_move_by_step), function()    
+  enemy:start_straight_walking(walking_possible_angles[key], walking_speed, math.random(walking_minimum_distance, walking_maximum_distance), function()
     local next_key = math.random(4)
     local waiting_animation = (key + 1) % 4 == next_key % 4 and "seek_left" or (key - 1) % 4 == next_key % 4 and "seek_right" or "immobilized"
     sprite:set_animation(waiting_animation)

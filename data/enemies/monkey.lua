@@ -22,15 +22,17 @@ local falling_angle = 3 * quarter - 0.4
 local falling_speed = 100
 local running_speed = 100
 
-local coconut_initial_speed = 150
+local projectile_initial_speed = 150
 
 -- Start throwing animation and create a coconut enemy when finished.
 function enemy:start_throwing_coconut(direction, angle, on_throwed_callback)
 
   sprite:set_direction(direction)
   sprite:set_animation("throwing", function()
-    local coconut = enemy:create_enemy({breed = "projectiles/coconut"}) -- TODO Throw a bomb once in a while.
-    coconut:go(angle, coconut_initial_speed)
+    local projectile_breed = math.random(10) ~= 1 and "coconut" or "bomb" -- Throw a bomb once in a while.
+    local projectile = enemy:create_enemy({breed = "projectiles/" .. projectile_breed})
+
+    projectile:go(nil, nil, angle, projectile_initial_speed)
     sprite:set_animation("walking")
     if on_throwed_callback then
       on_throwed_callback()
@@ -46,7 +48,6 @@ function enemy:attack()
       if not is_knocked_off then
         enemy:start_throwing_coconut(2, 3.0 * quarter - 0.5, function()
           enemy:wait()
-enemy:start_knocking_off()
         end)
       end
     end)
