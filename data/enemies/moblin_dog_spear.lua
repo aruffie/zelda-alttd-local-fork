@@ -12,7 +12,7 @@ local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
 
 -- Configuration variables.
-local walking_possible_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
+local walking_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
 local walking_speed = 48
 local walking_minimum_distance = 16
 local walking_maximum_distance = 32
@@ -25,7 +25,7 @@ local projectile_offset = {{0, -11}, {8, 0}, {0, -11}, {-8, 0}}
 -- Start the enemy movement.
 function enemy:start_walking(key)
 
-  enemy:start_straight_walking(walking_possible_angles[key], walking_speed, math.random(walking_minimum_distance, walking_maximum_distance), function()    
+  enemy:start_straight_walking(walking_angles[key], walking_speed, math.random(walking_minimum_distance, walking_maximum_distance), function()    
     local next_key = math.random(4)
     local waiting_animation = (key + 1) % 4 == next_key % 4 and "seek_left" or (key - 1) % 4 == next_key % 4 and "seek_right" or "immobilized"
     sprite:set_animation(waiting_animation)
