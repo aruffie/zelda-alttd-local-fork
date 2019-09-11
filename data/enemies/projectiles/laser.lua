@@ -17,9 +17,7 @@ local firing_duration = 200
 
 -- Create an impact effect on a particle position.
 function enemy:start_impact_effect(sprite)
-
-  local offset_x, offset_y = sprite:get_xy()
-  enemy:start_brief_effect("entities/effects/impact_projectile", "default", offset_x, offset_y)
+  enemy:start_brief_effect("entities/effects/impact_projectile", "default", sprite:get_xy())
 end
 
 -- Create a new particle sprite to the enemy.
