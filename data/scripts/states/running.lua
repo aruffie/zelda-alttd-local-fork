@@ -104,7 +104,7 @@ function state:on_started()
           --Shake the camera 
           --Note, the current implementation of the shake function was intended to be used on static screens, so until it's reworked, there will be some visual mishaps at the end of the effect (the camera will abruptly go back to the the hero)
           local camera=map:get_camera()
-          camera:shake({count = 8, amplitude = 4, speed = 90})
+          camera:dynamic_shake({count = 50, amplitude = 2, speed = 90, entity=entity})
 --        map_tools.start_earthquake({count = 8, amplitude = 4, speed = 90}) 
 
           --Play funny animation
@@ -122,7 +122,7 @@ function state:on_started()
             end)
           entity:get_sprite():set_animation("collapse_pegasus")
         else
-          audio_manager:play_sound("hero/land")
+          --audio_manager:play_sound("hero/land")
           m:set_speed(88)
           m:set_angle(m:get_angle()+math.pi)
         end
