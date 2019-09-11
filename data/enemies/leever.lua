@@ -65,6 +65,9 @@ function enemy:disappear()
     enemy:set_can_attack(false)
     sprite:set_animation("invisible")
     sol.timer.start(enemy, waiting_duration, function()
+      if not camera:overlaps(enemy:get_position()) then
+        return waiting_duration
+      end
       enemy:appear()
     end)
   end)
