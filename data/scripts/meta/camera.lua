@@ -58,11 +58,12 @@ function camera_meta:shake(config, callback)
 
 end
 
+
+--shake while following an entity
 function camera_meta:dynamic_shake(config, callback)
 
   local shaking_count_max = config ~= nil and config.count or 9
   local amplitude = config ~= nil and config.amplitude or 4
-  local speed = config ~= nil and config.speed or 60
   local entity = config ~= nil and config.entity or self:get_map():get_hero()
 
   local camera = self
@@ -83,15 +84,7 @@ function camera_meta:dynamic_shake(config, callback)
 
   local function shake_step()
 
---    local movement = sol.movement.create("target")
---    movement:set_speed(speed)
---    movement:set_target(entity, offset_x-ox+ew/2-w/2, offset_y-oy+eh/2-h/2)
---    movement:set_smooth(false)
---    movement:set_ignore_obstacles(true)
-    local ex, ey, ew, eh=entity:get_bounding_box()
-
-    camera:set_position(clamp(ex+ew/2-w/2+offset_x, -amplitude/2, mw-w+amplitude/2), clamp(ey+ew/2-h/2+offset_y, -amplitude/2, mh-h+amplitude/2))
-    -- Determine direction.
+    -- Determine the shifting offset (maybe shift according to a given direction in the future?)
     if shaking_to_right then
       offset_x = amplitude/2 -- Right.
       offset_y = amplitude/2 
@@ -99,13 +92,14 @@ function camera_meta:dynamic_shake(config, callback)
       offset_x = -amplitude/2 -- Left.
       offset_y = -amplitude/2
     end
-
+    
+    local ex, ey, ew, eh=entity:get_bounding_box()
+    
+    camera:set_position(clamp(ex+ew/2-w/2+offset_x, -amplitude/2, mw-w+amplitude/2), clamp(ey+ew/2-h/2+offset_y, -amplitude/2, mh-h+amplitude/2))
+    
     -- Inverse direction for next time.
     shaking_to_right = not shaking_to_right
     shaking_count = shaking_count + 1
-
-    -- Launch the movement and repeat if needed.
---    movement:start(camera, function()
 
     -- Repeat shaking until the count_max is reached.
     if shaking_count <= shaking_count_max then

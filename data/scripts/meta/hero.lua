@@ -66,11 +66,6 @@ hero_meta:register_event("on_state_changed", function(hero)
       if entity ~= nil and entity:get_type() == "chest" and game:is_command_pressed("action") then
         audio_manager:play_sound("misc/chest_open")
       end
-    elseif current_state == "free" then
-      -- Throw
-      if hero.previous_state == "carrying" then
-        audio_manager:play_sound("hero/throw")
-      end
 
     end
     -- Reset timer sword loading
@@ -161,7 +156,7 @@ hero_meta:register_event("on_position_changed", function(hero)
   end)
 
 hero_meta:register_event("on_state_changed", function(hero , state)
-
+    
     local game = hero:get_game()
     -- Avoid to lose any life when drowning.
     if state == "back to solid ground" then

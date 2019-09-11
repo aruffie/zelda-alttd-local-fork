@@ -1,9 +1,11 @@
 local carried_meta = sol.main.get_metatable("carried_object")
 require ("scripts/multi_events")
+local audio_manager=require "scripts/audio_manager"
 local m = sol.movement.create("straight")
 
 carried_meta:register_event("on_thrown", function(entity)
-
+    
+    audio_manager:play_sound("hero/throw")
     local map = entity:get_map()
     local hero = map:get_hero()
     if map:is_sideview() then --Make me follow gravity

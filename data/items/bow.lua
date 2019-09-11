@@ -73,7 +73,7 @@ function item:start_combo(other)
         y = y + 16
       end
 
-      local bomb_arrow = map:create_custom_entity{
+      map:create_custom_entity{
         name="bomb_arrow",
         x = x,
         y = y,
@@ -81,54 +81,11 @@ function item:start_combo(other)
         width=8,
         height=8,
         sprite = "entities/bomb_arrow",
+        model = "bomb_arrow",
         direction=direction,
       }
       
-      bomb_arrow.apply_cliffs=true,
-      bomb_arrow:set_origin(4,4)
-      bomb_arrow:set_can_traverse(false)
-      bomb_arrow:set_can_traverse("switch", true)
-      bomb_arrow:set_can_traverse("sensor", true)
-      bomb_arrow:set_can_traverse("stream", true)
-      bomb_arrow:set_can_traverse("stairs", true)
-      bomb_arrow:set_can_traverse("crystal_block", true)
-      bomb_arrow:set_can_traverse("pickable", true)
-      bomb_arrow:set_can_traverse("explosion", true)
-      bomb_arrow:set_can_traverse("teletransporter", true)
-      bomb_arrow:set_can_traverse("custom_entity", function(e)
-          return e:is_traversable_by("custom_entity")
-        end)
-      bomb_arrow:set_can_traverse("jumper", true)
-      bomb_arrow:set_can_traverse("npc", function(entity, other)
-          --TODO check for NPC type when a function like "npc:is_generalized()" is available
-          return other:is_drawn_in_y_order() or other:is_traversable()
-        end)
-      
-      bomb_arrow:set_can_traverse_ground("hole", true)
-      bomb_arrow:set_can_traverse_ground("deep_water", true)
-      bomb_arrow:set_can_traverse_ground("shallow_water", true)
-      bomb_arrow:set_can_traverse_ground("low_wall", true)
-      bomb_arrow:set_can_traverse_ground("lava", true)
-      bomb_arrow:set_can_traverse_ground("prickles", true)
-
-      local m=sol.movement.create("straight")
-      m:set_speed(192)
-      m:set_angle(direction*math.pi/2)
-      m:set_smooth(false)
-      m.on_obstacle_reached=function()
-        --TODO find a way to ignore axisting explosions
---        print "BOOM"
-        --Will it explode on it's own ? no :(
-        local x,y,layer=bomb_arrow:get_position()
-        audio_manager:play_sound("items/bomb_explode")
-        map:create_explosion({
-            x=x, 
-            y=y,
-            layer=layer,
-          })
-        bomb_arrow:remove()
-      end
-      m:start(bomb_arrow)
+     
       --   end)
     else
       --Trigger normal arrow so we don't break the standard behavior
