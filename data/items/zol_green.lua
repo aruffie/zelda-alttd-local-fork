@@ -32,6 +32,6 @@ function item:on_obtaining()
 
 -- Skip the brandish animation
 -- when obtaining a Zol in a chest.
-  map:get_hero():set_animation("stopped")
+  map:get_hero():unfreeze()
     
 end
