@@ -29,21 +29,32 @@ end
 
 -- Free the hero after he was eaten.
 function enemy:free_hero()
-    
+
+  -- Make hero invisible.
   hero:set_walking_speed(88)
   hero:get_sprite():set_opacity(255)
   hero:get_sprite("shadow"):set_opacity(255)
+
+  -- Make enemy walking and exhausted.
   enemy.is_eating = false
   enemy.is_exhausted = true
-  hero.is_eaten=nil
-
-  -- Make the enemy unable to directly eat again, nor the hero to hit him.
-  sol.timer.start(enemy, is_exhausted_duration, function()
-    enemy:set_default_attack_consequences()
-    enemy.is_exhausted = false
-  end)
-
+  enemy.command_pressed_count = 0
+  enemy:set_damage(0)
+  enemy:set_can_attack(false)
   enemy:start_walking()
+
+  -- Set default states after exhausted delay.
+  sol.timer.start(enemy, is_exhausted_duration, function()
+    enemy.is_exhausted = false
+    enemy:set_damage(1)
+    enemy:set_can_attack(true)
+    hero:set_invincible(false)
+  
+    -- Behavior for each items.
+    enemy:set_hero_weapons_reactions(2, {
+      sword = 1,
+      jump_on = "ignored"})
+  end)
 end
 
 -- Make the enemy eat the hero
@@ -59,8 +70,9 @@ function enemy:eat_hero()
   hero:get_sprite():set_opacity(0)
   hero:get_sprite("shadow"):set_opacity(0)
   hero:set_position(enemy:get_position())
+  hero:set_invincible()
   hero:set_walking_speed(0)
-  hero.is_eaten=true
+
   -- Eat the shield if it is the first variant and assigned to a slot.
   enemy:steal_item("shield", 1, true, true)
 end
@@ -80,24 +92,17 @@ game:register_event("on_command_pressed", function(game, command)
   end
 end)
 
--- Passive behaviors needing constant checking.
-enemy:register_event("on_update", function(enemy)
+-- Eat the hero on hurt.
+-- TODO register_event() seems to not prevent the default behavior, check how to use it.
+function enemy:on_attacking_hero(hero, enemy_sprite)
 
-  if enemy:is_immobilized() then
-    return
-  end
-
-  -- If the enemy is eating, make the hero stuck at the same position even if external things may hurt or interfere.
-  if enemy.is_eating then
-    hero:set_position(enemy:get_position())
-  end
-
-  -- If the hero touches the enemy while he is walking normally, eat him.
-  if not enemy.is_eating and not enemy.is_exhausted and hero:overlaps(enemy, "origin") then
-    enemy.is_eating = false
+  if not enemy.is_eating and not enemy.is_exhausted then
+    enemy.is_eating = true
     enemy:eat_hero()
   end
-end)
+
+  return true
+end
 
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
@@ -109,17 +114,5 @@ end)
 
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
-
-  -- Behavior for each items.
-  enemy:set_hero_weapons_reactions(2, {
-    sword = 1,
-    jump_on = "ignored"})
-
-  -- States.
-  enemy:set_damage(0)
-  enemy:set_can_attack(false)
-  enemy.is_eating = false
-  enemy.is_exhausted = false
-  enemy.command_pressed_count = 0
-  enemy:start_walking()
+  enemy:free_hero()
 end)

@@ -33,12 +33,12 @@ function item:start_using()
   local map = game:get_map()
   local hero = map:get_hero()
   
-  if not hero:is_jumping() and hero.is_eaten==nil then
+  if not hero:is_jumping() then
     if not map:is_sideview() then
 
       -- Handle possible jump types differently in top view maps.
       local state = hero:get_state()
-      if state ~= "falling" then 
+      if state ~= "falling" then
 
         if state == "sword swinging" or state == "sword loading" or state == "custom" and hero:get_state_object():get_description() == "jumping_sword" then 
           hero:start_flying_attack() -- Offensive jump

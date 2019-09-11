@@ -27,6 +27,7 @@ function enemy:start_walking()
 end
 
 -- Don't hurt the hero if enemy is below on sideview maps.
+-- TODO register_event() seems to not prevent the default behavior, check how to use it.
 function enemy:on_attacking_hero(hero, enemy_sprite)
 
   local _, y, _ = enemy:get_position()
