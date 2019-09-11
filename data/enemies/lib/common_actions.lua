@@ -200,7 +200,7 @@ function common_actions.learn(enemy)
   function enemy:start_flying(take_off_duration, height, invincible, harmless)
 
     -- Make enemy sprites start elevating.
-    local event_registered = false
+    local event_called = false
     for _, sprite in enemy:get_sprites() do
       local movement = sol.movement.create("straight")
       movement:set_speed(height * 1000 / take_off_duration)
@@ -210,8 +210,8 @@ function common_actions.learn(enemy)
       movement:start(sprite)
 
       -- Call the enemy:on_flying_took_off() method once take off finished.
-      if not event_registered then
-        event_registered = true
+      if not event_called then
+        event_called = true
         function movement:on_finished()
           if enemy.on_flying_took_off then
             enemy:on_flying_took_off()
@@ -234,7 +234,7 @@ function common_actions.learn(enemy)
   function enemy:stop_flying(landing_duration)
 
     -- Make the enemy sprites start landing.
-    local event_registered = false
+    local event_called = false
     for _, sprite in enemy:get_sprites() do
       local _, height = sprite:get_xy()
       height = math.abs(height)
@@ -247,8 +247,8 @@ function common_actions.learn(enemy)
       movement:start(sprite)
 
       -- Call the enemy:on_flying_landed() method once landed finished.
-      if not event_registered then
-        event_registered = true
+      if not event_called then
+        event_called = true
         function movement:on_finished()
           if enemy.on_flying_landed then
             enemy:on_flying_landed()

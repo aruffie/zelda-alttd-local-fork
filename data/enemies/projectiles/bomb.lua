@@ -11,6 +11,7 @@ local hero = map:get_hero()
 local circle = 2.0 * math.pi
 local bounce_count = 0
 local throwing_angle
+local shadow = nil
 
 -- Configuration variables
 local before_blinking_minimum_delay = 300
@@ -25,6 +26,15 @@ function enemy:go(duration, height, angle, speed)
   throwing_angle = angle or math.random() * circle
   enemy:bounce_go(duration, height, angle, speed)
   enemy:get_movement():set_ignore_obstacles(true)
+end
+
+-- Show or hide the enemy and its shadow.
+function enemy:show(show)
+
+  enemy:set_visible(show)
+  if shadow then
+    shadow:set_visible(show)
+  end
 end
 
 -- Start a new bounce or destroy the enemy when bounce finished.
@@ -61,7 +71,7 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(1)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)
-  enemy:start_shadow()
+  shadow = enemy:start_shadow()
 end)
 
 -- Restart settings.
@@ -71,6 +81,6 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_damage(2)
   enemy:set_obstacle_behavior("flying")
   enemy:set_layer_independent_collisions(true)
-  enemy:set_invincible()
   enemy:set_can_hurt_hero_running(true)
+  enemy:set_invincible()
 end)
