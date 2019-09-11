@@ -38,7 +38,7 @@ enemy:register_event("on_hit", function(enemy)
   movement:set_speed(64)
   movement:set_max_distance(10)
   movement:set_angle((direction + 2) % 4 * quarter)
-  movement:set_ignore_suspend()
+  movement:set_ignore_obstacles()
   movement:start(enemy)
 
   -- Remove the entity when planted animation finished + some time.

@@ -18,7 +18,7 @@ local eighth = math.pi * 0.25
 local suction_damage = 2
 local contact_damage = 4
 
-local walking_possible_angles = {eighth, 3.0 * eighth, 5.0 * eighth, 7.0 * eighth}
+local walking_angles = {eighth, 3.0 * eighth, 5.0 * eighth, 7.0 * eighth}
 local attack_triggering_distance = 100
 local aspirating_pixel_by_second = 88
 local flying_height = 8
@@ -48,7 +48,7 @@ end
 -- Start the enemy movement.
 function enemy:start_walking()
 
-  enemy:start_straight_walking(walking_possible_angles[math.random(4)], walking_speed, walking_distance, function()
+  enemy:start_straight_walking(walking_angles[math.random(4)], walking_speed, walking_distance, function()
 
     -- Start aspirate if the hero is near enough, continue walking else.
     if enemy:is_near(hero, attack_triggering_distance) then

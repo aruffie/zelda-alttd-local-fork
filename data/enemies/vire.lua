@@ -11,6 +11,7 @@ local hero = map:get_hero()
 local camera = map:get_camera()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
+local attacking_timer = nil
 local attack_count = 0
 local is_charging = false
 
@@ -19,16 +20,17 @@ local take_off_duration = 1000
 local flying_height = 32
 local flying_speed = 24
 local charging_speed = 175
-local runaway_triggering_distance = 30
+local runaway_triggering_distance = 32
 local before_attacks_delay = 3000
 local between_attacks_delay = 2000
 local before_respawn_delay = 1000
 local disappear_distance = 64
 
-local function get_random_position_on_border(entity)
+-- Return a random position on the border of the screen.
+local function get_random_position_on_screen_border()
 
   local x, y = camera:get_position()
-  local width, height = entity:get_size()
+  local width, height = camera:get_size()
   local mid_point = width + height
   local random_point = math.random(mid_point * 2)
 
@@ -86,8 +88,7 @@ function enemy:start_charging(offensive)
     if not camera:overlaps(x - disappear_distance, y - disappear_distance, disappear_distance * 2, disappear_distance * 2) then
       movement:stop()
       sol.timer.start(enemy, before_respawn_delay, function()
-        enemy:replace_on_sprite()
-        enemy:set_position(get_random_position_on_border(camera))
+        enemy:set_position(get_random_position_on_screen_border())
         enemy:start_taking_off()
       end)
     end
@@ -97,14 +98,18 @@ end
 -- Throw two magma balls two times if far enough, then charge.
 function enemy:start_attacking()
   
+  attack_count = 0
   sol.timer.start(enemy, before_attacks_delay, function()
-    sol.timer.start(enemy, between_attacks_delay, function()
-      attack_count = attack_count + 1
-      if attack_count < 3 then
-        enemy:throw_magma_balls()
-        return true
+    attacking_timer = sol.timer.start(enemy, between_attacks_delay, function()
+      if not is_charging then
+        attack_count = attack_count + 1
+        if attack_count < 3 then
+          enemy:throw_magma_balls()
+          return true
+        end
+        attacking_timer = nil
+        enemy:start_charging(true)
       end
-      enemy:start_charging(true)
     end)
   end)
 end
@@ -113,7 +118,6 @@ end
 function enemy:start_flying_behavior(angle)
 
   is_charging = false
-  attack_count = 0
   enemy:start_straight_walking(angle or enemy:get_angle(hero), flying_speed)
   enemy:start_attacking()
   local movement = enemy:get_movement()
@@ -132,6 +136,9 @@ end
 -- Start enemy movement.
 function enemy:start_taking_off(direction)
 
+  if attacking_timer then
+    attacking_timer:stop()
+  end
   enemy:replace_on_sprite()
   enemy:start_flying_behavior(direction)
   enemy:start_flying(take_off_duration, flying_height, false, false)
