@@ -22,8 +22,8 @@ local throwing_bomb_minimum_delay = 2000
 local throwing_bomb_maximum_delay = 4000
 
 local bomb_throw_duration = 600
-local bomb_speed = 40
-local bomb_angle = 3.0 * quarter - 0.4
+local bomb_throw_speed = 40
+local bomb_throw_angle = 3.0 * quarter - 0.4
 
 -- Start the enemy movement.
 function enemy:start_walking()
@@ -42,15 +42,18 @@ function enemy:start_attacking()
 
   attacking_timer = sol.timer.start(enemy, math.random(throwing_bomb_minimum_delay, throwing_bomb_maximum_delay), function()
     local bomb = enemy:create_enemy({breed = "projectiles/bomb"})
-    bomb:go(bomb_throw_duration, flying_height, bomb_angle, 0)
 
-    -- Hide the begginning of the jump to make it visible only at the top.
+    -- Hide the begginning of the jump and make it visible only at the top.
     bomb:show(false)
-    sol.timer.start(bomb, bomb_throw_duration / 2.0, function()
+    sol.timer.start(bomb, bomb_throw_duration / 3.0, function()
       bomb:set_position(enemy:get_position())
       bomb:show(true)
-      bomb:get_movement():set_speed(bomb_speed)
+      bomb:get_movement():set_speed(bomb_throw_speed)
     end)
+
+    -- Throw the bomb.
+    bomb:go(bomb_throw_duration, flying_height, bomb_throw_angle, 0)
+    bomb:explode_on_next_bounce()
 
     return math.random(throwing_bomb_minimum_delay, throwing_bomb_maximum_delay)
   end)
@@ -78,7 +81,7 @@ enemy:register_event("on_restarted", function(enemy)
 
   -- States.
   enemy:set_can_attack(true)
-  enemy:set_damage(1)
+  enemy:set_damage(4)
   enemy:start_walking()
   enemy:start_attacking()
   sprite:set_xy(0, -flying_height) -- Directly fly without taking off movement.
