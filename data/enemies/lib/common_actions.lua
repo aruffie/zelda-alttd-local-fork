@@ -160,8 +160,10 @@ function common_actions.learn(enemy)
           sprite:set_xy(0, -math.sqrt(math.sin(elapsed_time / duration * math.pi)) * height)
         end
         sol.timer.start(enemy, 10, function()
-          elapsed_time = elapsed_time + 10
-          update_sprite_height()
+          if enemy:exists() and enemy:is_enabled() then
+            elapsed_time = elapsed_time + 10
+            update_sprite_height()
+          end
         end)
       else
         for _, sprite in enemy:get_sprites() do
@@ -169,7 +171,7 @@ function common_actions.learn(enemy)
         end
 
         -- Call enemy:on_jump_finished() event.
-        if enemy.on_jump_finished then
+        if enemy.on_jump_finished and enemy:exists() and enemy:is_enabled() then
           enemy:on_jump_finished()
         end
       end
@@ -200,7 +202,7 @@ function common_actions.learn(enemy)
   function enemy:start_flying(take_off_duration, height, invincible, harmless)
 
     -- Make enemy sprites start elevating.
-    local event_registered = false
+    local event_called = false
     for _, sprite in enemy:get_sprites() do
       local movement = sol.movement.create("straight")
       movement:set_speed(height * 1000 / take_off_duration)
@@ -210,8 +212,8 @@ function common_actions.learn(enemy)
       movement:start(sprite)
 
       -- Call the enemy:on_flying_took_off() method once take off finished.
-      if not event_registered then
-        event_registered = true
+      if not event_called then
+        event_called = true
         function movement:on_finished()
           if enemy.on_flying_took_off then
             enemy:on_flying_took_off()
@@ -234,7 +236,7 @@ function common_actions.learn(enemy)
   function enemy:stop_flying(landing_duration)
 
     -- Make the enemy sprites start landing.
-    local event_registered = false
+    local event_called = false
     for _, sprite in enemy:get_sprites() do
       local _, height = sprite:get_xy()
       height = math.abs(height)
@@ -247,8 +249,8 @@ function common_actions.learn(enemy)
       movement:start(sprite)
 
       -- Call the enemy:on_flying_landed() method once landed finished.
-      if not event_registered then
-        event_registered = true
+      if not event_called then
+        event_called = true
         function movement:on_finished()
           if enemy.on_flying_landed then
             enemy:on_flying_landed()
@@ -291,7 +293,9 @@ function common_actions.learn(enemy)
 
       -- Start the next move timer.
       attracting_timers[entity][axis] = sol.timer.start(enemy, axis_move_delay, function()
-        attract_on_axis(axis)
+        if enemy:exists() and enemy:is_enabled() then
+          attract_on_axis(axis)
+        end
       end)
     end
 
