@@ -321,6 +321,7 @@ sprite{ id = "enemies/pols_voice", description = "Pols voice" }
 sprite{ id = "enemies/projectiles/arrow", description = "Arrow" }
 sprite{ id = "enemies/projectiles/bat", description = "Bat" }
 sprite{ id = "enemies/projectiles/beam", description = "Beam" }
+sprite{ id = "enemies/projectiles/bomb", description = "Bomb" }
 sprite{ id = "enemies/projectiles/bone", description = "Bone" }
 sprite{ id = "enemies/projectiles/coconut", description = "Coconut" }
 sprite{ id = "enemies/projectiles/fireball", description = "Fireball" }
@@ -1323,6 +1324,7 @@ enemy{ id = "pols_voice", description = "Pols Voice" }
 enemy{ id = "projectiles/arrow", description = "Arrow" }
 enemy{ id = "projectiles/bat", description = "Bat" }
 enemy{ id = "projectiles/beam", description = "Beam" }
+enemy{ id = "projectiles/bomb", description = "Bomb" }
 enemy{ id = "projectiles/bone", description = "Bone" }
 enemy{ id = "projectiles/coconut", description = "Coconut" }
 enemy{ id = "projectiles/fireball", description = "Fireball" }
@@ -1539,7 +1541,6 @@ file{ path = "enemies/zol_red.lua", license = "GPL v3" }
 file{ path = "enemies/zombie.lua", license = "GPL v3" }
 file{ path = "enemies/zora.lua", license = "GPL v3" }
 file{ path = "entities/cliff.lua", author = "Christopho", license = "GPL v3" }
-file{ path = "entities/npc.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "entities/pickable_sink.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "entities/platform_balance.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "entities/platform_collapsing.lua", author = "PhoenixII54", license = "GPL v3" }
