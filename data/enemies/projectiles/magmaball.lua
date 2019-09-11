@@ -14,9 +14,7 @@ end
 
 -- Create an impact effect on hit.
 enemy:register_event("on_hit", function(enemy)
-
-  local offset_x, offset_y = sprite:get_xy()
-  enemy:start_brief_effect("entities/effects/impact_projectile", "default", offset_x, offset_y)
+  enemy:start_brief_effect("entities/effects/impact_projectile", "default", sprite:get_xy())
 end)
 
 -- Initialization.
@@ -24,8 +22,8 @@ enemy:register_event("on_created", function(enemy)
 
   projectile_behavior.apply(enemy, sprite)
   enemy:set_life(1)
-  enemy:set_size(8, 8)
-  enemy:set_origin(4, 5)
+  enemy:set_size(16, 16)
+  enemy:set_origin(8, 8)
 end)
 
 -- Restart settings.

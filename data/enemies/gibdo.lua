@@ -12,16 +12,16 @@ local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
 
 -- Configuration variables
-local walking_possible_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
+local walking_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
 local walking_speed = 32
-local walking_distance_grid = 16
-local walking_max_move_by_step = 6
+local walking_minimum_distance = 16
+local walking_maximum_distance = 96
 local stalfos_shaking_duration = 500
 
 -- Start the enemy movement.
 function enemy:start_walking()
 
-  enemy:start_straight_walking(walking_possible_angles[math.random(4)], walking_speed, walking_distance_grid * math.random(walking_max_move_by_step), function()
+  enemy:start_straight_walking(walking_angles[math.random(4)], walking_speed, math.random(walking_minimum_distance, walking_maximum_distance), function()
     enemy:start_walking()
   end)
 end

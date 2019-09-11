@@ -15,10 +15,10 @@ local eighth = math.pi * 0.25
 local is_upside_down = false
 
 -- Configuration variables
-local walking_possible_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
+local walking_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
 local walking_speed = 24
-local walking_distance_grid = 16
-local walking_max_move_by_step = 6
+local walking_minimum_distance = 16
+local walking_maximum_distance = 96
 local charging_speed = 100
 local charging_max_distance = 100
 local alignement_thickness = 16
@@ -36,7 +36,7 @@ local before_charging_delay = 100
 -- Start the enemy movement.
 function enemy:start_walking()
 
-  local movement = enemy:start_straight_walking(walking_possible_angles[math.random(4)], walking_speed, walking_distance_grid * math.random(walking_max_move_by_step), function()
+  local movement = enemy:start_straight_walking(walking_angles[math.random(4)], walking_speed, math.random(walking_minimum_distance, walking_maximum_distance), function()
     sol.timer.start(enemy, walking_pause_duration, function()
       if not is_charging and not is_upside_down then
         enemy:start_walking()

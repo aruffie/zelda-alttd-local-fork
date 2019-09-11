@@ -3,7 +3,7 @@
 -- Add some basic and common methods/events to an enemy.
 -- There is no passive behavior without an explicit start when learning this to an enemy.
 --
--- Methods : enemy:is_near(entity, triggering_distance)
+-- Methods : enemy:is_near(entity, triggering_distance, [x_offset, [y_offset]])
 --           enemy:is_aligned(entity, thickness)
 --           enemy:is_leashed_by(entity)
 --           enemy:set_hero_weapons_reactions(default_reaction, [reactions])
@@ -47,11 +47,12 @@ function common_actions.learn(enemy)
   local shadow = nil
   
   -- Return true if the entity is closer to the enemy than triggering_distance
-  function enemy:is_near(entity, triggering_distance)
+  function enemy:is_near(entity, triggering_distance, x_offset, y_offset)
 
-    local _, _, layer = enemy:get_position()
+    local x, y, layer = enemy:get_position()
     local _, _, entity_layer = entity:get_position()
-    return enemy:get_distance(entity) < triggering_distance and (layer == entity_layer or enemy:has_layer_independent_collisions())
+    return entity:get_distance(x + (x_offset or 0), y + (y_offset or 0)) < triggering_distance 
+      and (layer == entity_layer or enemy:has_layer_independent_collisions())
   end
 
   -- Return true if the entity is on the same row or column than the entity.

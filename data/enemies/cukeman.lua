@@ -15,10 +15,10 @@ local hero_electric = false
 local eighth = math.pi * 0.25
 
 -- Configuration variables
-local walking_possible_angles = {0, eighth, 2.0 * eighth, 3.0 * eighth, 4.0 * eighth, 5.0 * eighth, 6.0 * eighth, 7.0 * eighth}
+local walking_angles = {0, eighth, 2.0 * eighth, 3.0 * eighth, 4.0 * eighth, 5.0 * eighth, 6.0 * eighth, 7.0 * eighth}
 local walking_speed = 16
-local walking_distance_grid = 16
-local walking_max_move_by_step = 6
+local walking_minimum_distance = 16
+local walking_maximum_distance = 96
 local walking_pause_duration = 1500
 
 local message_triggering_distance = 28
@@ -26,7 +26,7 @@ local message_triggering_distance = 28
 -- Start the enemy movement.
 function enemy:start_walking()
 
-  enemy:start_straight_walking(walking_possible_angles[math.random(8)], walking_speed, walking_distance_grid * math.random(walking_max_move_by_step), function()
+  enemy:start_straight_walking(walking_angles[math.random(8)], walking_speed, math.random(walking_minimum_distance, walking_maximum_distance), function()
     enemy:start_walking()
   end)
 end

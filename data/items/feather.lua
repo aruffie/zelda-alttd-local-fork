@@ -38,7 +38,7 @@ function item:start_using()
 
       -- Handle possible jump types differently in top view maps.
       local state = hero:get_state()
-      if state ~= "falling" then 
+      if state ~= "falling" then
 
         if state == "sword swinging" or state == "sword loading" or state == "custom" and hero:get_state_object():get_description() == "jumping_sword" then 
           hero:start_flying_attack() -- Offensive jump

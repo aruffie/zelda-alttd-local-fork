@@ -9,9 +9,6 @@ local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
 
--- Configuration variables
-local planted_duration = 5000
-
 -- Start another movement if direction changed.
 function sprite:on_direction_changed()
   enemy:go()
@@ -34,15 +31,14 @@ enemy:register_event("on_hit", function(enemy)
   enemy:set_damage(0)
   
   -- Start an effect at the impact location.
-  local offset_x, offset_y = sprite:get_xy()
-  enemy:start_brief_effect("entities/effects/impact_projectile", "default", offset_x, offset_y)
+  enemy:start_brief_effect("entities/effects/impact_projectile", "default", sprite:get_xy())
 
   -- Slightly move back.
   local movement = sol.movement.create("straight")
   movement:set_speed(64)
   movement:set_max_distance(10)
   movement:set_angle((direction + 2) % 4 * quarter)
-  movement:set_smooth(false)
+  movement:set_ignore_obstacles()
   movement:start(enemy)
 
   -- Remove the entity when planted animation finished + some time.

@@ -14633,8 +14633,8 @@ enemy{
 enemy{
   name = "Breed_2",
   layer = 1,
-  x = 748,
-  y = 725,
+  x = 684,
+  y = 589,
   direction = 3,
   breed = "chicken",
 }
@@ -18992,8 +18992,8 @@ custom_entity{
 enemy{
   name = "Breed_4",
   layer = 1,
-  x = 508,
-  y = 685,
+  x = 348,
+  y = 605,
   direction = 3,
   breed = "chicken",
 }

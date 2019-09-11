@@ -23,32 +23,21 @@ function enemy:bounce()
   enemy:get_movement():set_ignore_obstacles(true)
 end
 
--- Start a new bounce when finished.
+-- Start a new bounce when jump finished.
 enemy:register_event("on_jump_finished", function(enemy)
   enemy:bounce()
 end)
 
--- Remove enemy if moving and out of the screen.
-enemy:register_event("on_position_changed", function(enemy)
-
-  local x, y, _ = enemy:get_position()
-  local _, origin_y = enemy:get_origin()
-  local _, camera_y, _ = camera:get_position()
-  local minimum_y = y - bounce_height - origin_y
-  if enemy:get_movement() and minimum_y > camera_y and not camera:overlaps(x, minimum_y) then
-    enemy:remove()
-  end
-end)
-
 -- Create an impact effect on hurt hero.
-enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
+-- TODO register_event() seems to not prevent the default behavior, check how to use it.
+function enemy:on_attacking_hero(hero, enemy_sprite)
 
   local x, y, _ = enemy:get_position()
   local offset_x, offset_y = sprite:get_xy()
   local hero_x, hero_y, _ = hero:get_position()
   enemy:start_brief_effect("entities/effects/impact_projectile", "default", (hero_x - x + offset_x) / 2, (hero_y - y + offset_y) / 2)
   hero:start_hurt(enemy, enemy_sprite, enemy:get_damage())
-end)
+end
 
 -- Initialization.
 enemy:register_event("on_created", function(enemy)

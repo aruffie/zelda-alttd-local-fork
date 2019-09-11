@@ -1,4 +1,4 @@
--- Lua script of enemy coconut, mainly used by the Monkey enemy.
+-- Lua script of enemy bomb, mainly used by the bomber and monkey enemies.
 
 -- Global variables
 local enemy = ...
@@ -10,16 +10,20 @@ local map = enemy:get_map()
 local hero = map:get_hero()
 local circle = 2.0 * math.pi
 local bounce_count = 0
+local throwing_angle
 
 -- Configuration variables
-local maximum_bounce = 4
-local minimum_speed = 40
-local maximum_speed = 80
+local before_blinking_minimum_delay = 300
+local before_blinking_maximum_delay = 1000
+local before_explosing_delay = 1000
+local bounce_height = 4
+local bounce_speed = 40
 
 -- Make the enemy bounce and go to a random target.
 function enemy:go(duration, height, angle, speed)
 
-  enemy:bounce_go(duration, height, angle or math.random() * circle, speed or math.random(minimum_speed, maximum_speed))
+  throwing_angle = angle or math.random() * circle
+  enemy:bounce_go(duration, height, angle, speed)
   enemy:get_movement():set_ignore_obstacles(true)
 end
 
@@ -27,22 +31,27 @@ end
 enemy:register_event("on_jump_finished", function(enemy)
 
   bounce_count = bounce_count + 1
-  if bounce_count < maximum_bounce then
-    enemy:go()
-  else
-    sprite:set_animation("destroyed", function()
-      enemy:remove()
+
+  if bounce_count == 1 then
+    sol.timer.start(enemy, math.random(before_blinking_minimum_delay, before_blinking_maximum_delay), function()
+      sprite:set_animation("explosion_soon")
+      sol.timer.start(enemy, before_explosing_delay, function()
+        local x, y, layer = enemy:get_position()
+        map:create_explosion({
+          x = x,
+          y = y,
+          layer = layer
+        })
+        enemy:remove()
+      end)
     end)
+    enemy:go(nil, bounce_height, throwing_angle, bounce_speed)
   end
 end)
 
--- Create an impact effect on hit.
+-- Don't remove on hit.
 enemy:register_event("on_hit", function(enemy)
-
-  local x, y, _ = enemy:get_position()
-  local offset_x, offset_y = sprite:get_xy()
-  local hero_x, hero_y, _ = hero:get_position()
-  enemy:start_brief_effect("entities/effects/impact_projectile", "default", (hero_x - x + offset_x) / 2, (hero_y - y + offset_y) / 2)
+  return false
 end)
 
 -- Initialization.
