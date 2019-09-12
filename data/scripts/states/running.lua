@@ -12,6 +12,7 @@ local audio_manager=require("scripts/audio_manager")
 local map_tools=require("scripts/maps/map_tools")
 state:set_can_control_direction(false)
 state:set_can_control_movement(false)
+state:set_can_use_item(false)
 state:set_can_use_item("feather", true)
 local directions = {
   {
