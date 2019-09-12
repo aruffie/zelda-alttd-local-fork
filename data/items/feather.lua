@@ -43,7 +43,7 @@ function item:start_using()
         if state == "sword swinging" or state == "sword loading" or state == "custom" and hero:get_state_object():get_description() == "jumping_sword" then 
           hero:start_flying_attack() -- Offensive jump
         elseif state == "custom" and hero:get_state_object():get_description() == "running" then 
-          print" run'n'jump"
+          --print" run'n'jump"
           jm.start(hero) -- Running jump
         else
           hero:jump() -- Normal jump
