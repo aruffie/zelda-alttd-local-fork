@@ -110,5 +110,6 @@ function sol.main:start_savegame(game)
   end
 
   sol.main.game = game
+  game:set_transition_style("immediate")
   game:start()
 end

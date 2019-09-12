@@ -11,6 +11,7 @@ local lib={}
     callback (optional): the function to execute after the effect is finiched playing
 --]]
 require("scripts/multi_events")
+local audio_manager=require "scripts/audio_manager"
 local duration=1000
 local max_radius=360
 

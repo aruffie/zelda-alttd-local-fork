@@ -80,7 +80,7 @@ local function initialize_dungeon_features(game)
         y = 720 + 365
       }
     },
-   [2] = {
+    [2] = {
       lowest_floor = 0,
       highest_floor = 0,
       rows = 7,
@@ -153,8 +153,8 @@ local function initialize_dungeon_features(game)
         x = 640 + 1440,
         y = 720 + 365
       }
-   },
-   [3] = {
+    },
+    [3] = {
       lowest_floor = 0,
       highest_floor = 0,
       rows = 8,
@@ -184,7 +184,7 @@ local function initialize_dungeon_features(game)
         y = 720 + 365
       }
     },
-   [4] = {
+    [4] = {
       lowest_floor = 0,
       highest_floor = 0,
       rows = 7,
@@ -200,7 +200,7 @@ local function initialize_dungeon_features(game)
         savegame_variable = "dungeon_4_boss",
       }
     },
-   [5] = {
+    [5] = {
       lowest_floor = 0,
       highest_floor = 0,
       rows = 7,
@@ -400,55 +400,55 @@ local function initialize_dungeon_features(game)
 
   function game:is_secret_room(dungeon_index, floor, room)
 
-      dungeon_index = dungeon_index or game:get_dungeon_index()
-      if floor == nil then
-        if game:get_map() ~= nil then
-          floor = game:get_map():get_floor()
-        else
-          floor = 0
-        end
-      end
-      if dungeons_info[dungeon_index] == nil then
-        return false
-      end
-      if dungeons_info[dungeon_index]["secrets"][floor] == nil then
-        return false
-      end
-      if dungeons_info[dungeon_index]["secrets"][floor][room] == nil then
-        return false
-      end
-      if game:get_value(dungeons_info[dungeon_index]["secrets"][floor][room]["savegame"]) then
-        return false
+    dungeon_index = dungeon_index or game:get_dungeon_index()
+    if floor == nil then
+      if game:get_map() ~= nil then
+        floor = game:get_map():get_floor()
       else
-        return true
+        floor = 0
       end
+    end
+    if dungeons_info[dungeon_index] == nil then
+      return false
+    end
+    if dungeons_info[dungeon_index]["secrets"][floor] == nil then
+      return false
+    end
+    if dungeons_info[dungeon_index]["secrets"][floor][room] == nil then
+      return false
+    end
+    if game:get_value(dungeons_info[dungeon_index]["secrets"][floor][room]["savegame"]) then
+      return false
+    else
+      return true
+    end
 
   end
 
   function game:is_secret_signal_room(dungeon_index, floor, room)
 
-      dungeon_index = dungeon_index or game:get_dungeon_index()
-      if floor == nil then
-        if game:get_map() ~= nil then
-          floor = game:get_map():get_floor()
-        else
-          floor = 0
-        end
-      end
-      if dungeons_info[dungeon_index] == nil then
-        return false
-      end
-      if dungeons_info[dungeon_index]["secrets"][floor] == nil then
-        return false
-      end
-      if dungeons_info[dungeon_index]["secrets"][floor][room] == nil then
-        return false
-      end
-      if dungeons_info[dungeon_index]["secrets"][floor][room]["signal"] then
-        return true
+    dungeon_index = dungeon_index or game:get_dungeon_index()
+    if floor == nil then
+      if game:get_map() ~= nil then
+        floor = game:get_map():get_floor()
       else
-        return false
+        floor = 0
       end
+    end
+    if dungeons_info[dungeon_index] == nil then
+      return false
+    end
+    if dungeons_info[dungeon_index]["secrets"][floor] == nil then
+      return false
+    end
+    if dungeons_info[dungeon_index]["secrets"][floor][room] == nil then
+      return false
+    end
+    if dungeons_info[dungeon_index]["secrets"][floor][room]["signal"] then
+      return true
+    else
+      return false
+    end
 
   end
 
@@ -592,16 +592,27 @@ local function initialize_dungeon_features(game)
   end
 
   -- Show the dungeon name when entering a dungeon.
-  game:register_event("notify_world_changed", function()
-    local dungeon_index = game:get_dungeon_index()
-    if dungeon_index ~= nil then
-      local map = game:get_map()
-      local timer = sol.timer.start(map, 10, function()
-        game:start_dialog("dungeons." .. dungeon_index .. ".welcome")
-      end)
-      timer:set_suspended_with_map(true)
-    end
-  end)
+  game:register_event("on_world_changed", function()
+
+      local dungeon_index = game:get_dungeon_index()
+      if dungeon_index ~= nil then
+        local map = game:get_map()
+        function map.do_after_transition()
+          local timer = sol.timer.start(map, 10, function()
+              game:start_dialog("maps.dungeons." .. dungeon_index .. ".welcome")
+            end)
+          timer:set_suspended_with_map(true)
+        end
+        if not game.teleport_in_progress then --
+          local opening_transition = require("scripts/gfx_effects/radial_fade_out")
+          opening_transition.start_effect(map:get_camera():get_surface(), game, "out", nil, function()
+              print "world!"
+              map.do_after_transition()
+            end)
+        end
+
+      end
+    end)
 
 end
 
