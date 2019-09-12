@@ -606,7 +606,6 @@ local function initialize_dungeon_features(game)
         if not game.teleport_in_progress then --
           local opening_transition = require("scripts/gfx_effects/radial_fade_out")
           opening_transition.start_effect(map:get_camera():get_surface(), game, "out", nil, function()
-              print "world!"
               map.do_after_transition()
             end)
         end

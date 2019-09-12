@@ -21,7 +21,7 @@ local tunic_sprite
 
 --this is the function that starts it all
 function hero_meta.start_flying_attack(hero)
-  print "attack on air !"
+  --print "attack on air !"
   if hero:get_state()~="custom" or hero:get_state_object():get_description()~="jumping_sword" then
     hero:start_state(state)
   end
@@ -30,7 +30,7 @@ end
 
 
 function state:on_started(old_state_name, old_state_object)
-  print "flying attaaaaack"
+--print "flying attaaaaack"
   local entity=state:get_entity()
   local game = state:get_game()
   local ability = game:get_ability("sword") --Should be at least 1 if your jump-enabling item script has checked this before starting this state 
@@ -42,7 +42,7 @@ function state:on_started(old_state_name, old_state_object)
 
   if old_state_name == "sword swinging" or old_state_name == "custom" and old_state_object:get_description() =="jumping" then
     tunic_sprite:set_animation("sword", function()
-        print "tunic attack finished"
+        --print "tunic attack finished"
         tunic_sprite:set_animation("sword_loading_stopped")
         sword_sprite:set_animation("sword_loading_stopped")
       end)

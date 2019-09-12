@@ -75,12 +75,6 @@ function map:on_opening_transition_finished(destination)
 
 end
 
-function map.do_after_transition()
-
-  print "hello!"
-
-end
-
 function map:on_obtaining_treasure(item, variant, savegame_variable)
 
   if savegame_variable == "dungeon_1_big_treasure" then

@@ -38,7 +38,6 @@ function debug:on_key_pressed(key, modifiers)
 
     --Debug info screen controls
   elseif key == "f10" then
-    print ("toggled debug screen")
     show_debug_info_screen = not show_debug_info_screen
   elseif key == "kp +" then
     debug_info_page=(debug_info_page+1)%debug_info_num_pages

@@ -105,10 +105,10 @@ function jm.update_jump(entity, callback)
         sprite:set_xy(0, 0)
       end
       local final_x, final_y=entity:get_position()
-      print("Distance reached during jump: X="..final_x-debug_start_x..", Y="..final_y-debug_start_y..", height="..debug_max_height)
+      --print("Distance reached during jump: X="..final_x-debug_start_x..", Y="..final_y-debug_start_y..", height="..debug_max_height)
       entity.jumping = false
       if callback then 
-        print "CALLBACK"
+        --print "CALLBACK"
         callback()
       end
 
@@ -143,7 +143,7 @@ function jm.start(entity, v_speed, callback)
   if not entity or entity:get_type() ~= "hero" then
     return
   end
-  print "Starting custom jump"
+--  print "Starting custom jump"
   if not entity:is_jumping() then
     audio_manager:play_sound("hero/jump")
     debug_start_x, debug_start_y=entity:get_position() --Temporary, remove me once everything has been finalized
