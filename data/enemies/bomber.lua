@@ -53,7 +53,7 @@ function enemy:start_attacking()
 
     -- Throw the bomb.
     bomb:go(bomb_throw_duration, flying_height, bomb_throw_angle, 0)
-    bomb:explode_on_next_bounce()
+    bomb:explode_at_bounce()
 
     return math.random(throwing_bomb_minimum_delay, throwing_bomb_maximum_delay)
   end)

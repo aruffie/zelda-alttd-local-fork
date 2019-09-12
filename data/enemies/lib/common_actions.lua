@@ -171,7 +171,7 @@ function common_actions.learn(enemy)
         end
 
         -- Call enemy:on_jump_finished() event.
-        if enemy.on_jump_finished and enemy:exists() and enemy:is_enabled() then
+        if enemy.on_jump_finished then
           enemy:on_jump_finished()
         end
       end
@@ -322,7 +322,7 @@ function common_actions.learn(enemy)
 
     enemy:register_event("on_update", function(enemy)
       local x, y, layer = enemy:get_position()
-      entity:set_position(x + (x_offset or 0), y + (y_offset or 0), layer)
+      entity:set_position(x + (x_offset or 0), y + (y_offset or 0))
     end)
     enemy:register_event("on_removed", function(enemy)
       entity:remove()
