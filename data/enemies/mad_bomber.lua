@@ -26,12 +26,19 @@ function enemy:wait()
   sol.timer.start(enemy, math.random(minimum_waiting_duration, maximum_waiting_duration), function()
     enemy:set_visible()
     sprite:set_animation("appearing", function()
+
+      -- Behavior for each items.
+      enemy:set_hero_weapons_reactions("ignored", {
+        sword = 1,
+        arrow = 1
+      })
       sprite:set_animation("walking")
 
+      -- Throw a bomb after some time and disappear.
       attacking_timer = sol.timer.start(enemy, before_throwing_bomb_delay, function()
         local bomb = enemy:create_enemy({breed = "projectiles/bomb"})
         bomb:go(bomb_throw_duration, bomb_throw_height, enemy:get_angle(hero), bomb_throw_speed)
-        bomb:explode_on_next_bounce()
+        bomb:explode_at_bounce()
 
         sprite:set_animation("disappearing", function()
           enemy:restart()
@@ -52,16 +59,11 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
-  -- Behavior for each items.
-  enemy:set_hero_weapons_reactions("ignored", {
-    sword = 1,
-    arrow = 1
-  })
-
   -- States.
   enemy:set_visible(false)
   enemy:set_can_attack(false)
   enemy:set_damage(0)
+  enemy:set_invincible()
   enemy:set_pushed_back_when_hurt(false)
   enemy:wait()
 end)

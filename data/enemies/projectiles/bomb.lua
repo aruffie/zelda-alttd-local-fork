@@ -12,7 +12,7 @@ local circle = 2.0 * math.pi
 local bounce_count = 0
 local throwing_angle
 local shadow = nil
-local explode_on_next_bounce = false
+local explode_at_bounce = false
 
 -- Configuration variables
 local before_blinking_minimum_delay = 1500
@@ -23,8 +23,8 @@ local bounce_height = 4
 local bounce_speed = 40
 
 -- Make the enemy explode at the next bounce.
-function enemy:explode_on_next_bounce()
-  explode_on_next_bounce = true
+function enemy:explode_at_bounce()
+  explode_at_bounce = true
 end
 
 -- Show or hide the enemy and its shadow.
@@ -47,7 +47,7 @@ end
 -- Start a new bounce or destroy the enemy if requested.
 enemy:register_event("on_jump_finished", function(enemy)
 
-  if explode_on_next_bounce then
+  if explode_at_bounce then
     enemy:explode()
     return
   end
