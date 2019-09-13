@@ -159,10 +159,10 @@ animation{
   name = "diving",
   src_image = "hero/underwater.png",
   directions = {
-    { x = 0, y = 0, frame_width = 16, frame_height = 8, origin_x = 8, origin_y = 5 },
-    { x = 0, y = 0, frame_width = 16, frame_height = 8, origin_x = 8, origin_y = 5 },
-    { x = 0, y = 0, frame_width = 16, frame_height = 8, origin_x = 8, origin_y = 5 },
-    { x = 0, y = 0, frame_width = 16, frame_height = 8, origin_x = 8, origin_y = 5 },
+    { x = 0, y = 0, frame_width = 12, frame_height = 6, origin_x = 6, origin_y = 3 },
+    { x = 0, y = 0, frame_width = 12, frame_height = 6, origin_x = 6, origin_y = 3 },
+    { x = 0, y = 0, frame_width = 12, frame_height = 6, origin_x = 6, origin_y = 3 },
+    { x = 0, y = 0, frame_width = 12, frame_height = 6, origin_x = 6, origin_y = 3 },
   },
 }
 animation{
