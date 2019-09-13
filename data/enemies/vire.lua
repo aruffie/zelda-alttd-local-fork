@@ -24,7 +24,6 @@ local runaway_triggering_distance = 32
 local before_attacks_delay = 3000
 local between_attacks_delay = 2000
 local before_respawn_delay = 1000
-local disappear_distance = 64
 
 -- Return a random position on the border of the screen.
 local function get_random_position_on_screen_border()
@@ -84,9 +83,9 @@ function enemy:start_charging(offensive)
 
   -- Start another flying elsewhere if completely out of the screen while charging.
   function movement:on_position_changed()
-    local x, y, _ = enemy:get_position()
-    if not camera:overlaps(x - disappear_distance, y - disappear_distance, disappear_distance * 2, disappear_distance * 2) then
+    if not camera:overlaps(enemy:get_max_bounding_box()) then
       movement:stop()
+      enemy:set_visible(false)
       sol.timer.start(enemy, before_respawn_delay, function()
         enemy:set_position(get_random_position_on_screen_border())
         enemy:start_taking_off()
@@ -115,33 +114,39 @@ function enemy:start_attacking()
 end
 
 -- Start enemy flying behavior.
-function enemy:start_flying_behavior(angle)
+function enemy:start_flying_movement(angle)
 
   is_charging = false
-  enemy:start_straight_walking(angle or enemy:get_angle(hero), flying_speed)
-  enemy:start_attacking()
-  local movement = enemy:get_movement()
+  local movement = enemy:start_straight_walking(angle or enemy:get_angle(hero), flying_speed)
   movement:set_ignore_obstacles(true)
 
-  -- TODO Replace and change the angle if the enemy has a part out screen.
-  --[[ function movement:on_position_changed()
-    local x, y, _ = enemy:get_position()
-    local x_offset, y_offset = sprite:get_xy()
-    if not camera:overlaps(x + x_offset, y + y_offset) then
-      movement:set_angle(movement:get_direction4() * quarter - quarter)
+  sol.timer.start(enemy, 10, function()
+    if enemy:is_sprite_contained(sprite, camera:get_bounding_box()) then
+
+      -- Clip and change the angle if the enemy has a part out screen.
+      function movement:on_position_changed()
+        if not enemy:is_sprite_contained(sprite, camera:get_bounding_box()) then
+          enemy:clip_sprite_into(sprite, camera:get_bounding_box())
+          enemy:start_flying_movement(movement:get_direction4() * quarter - quarter)
+          return false
+        end
+      end
     end
-  end --]]
+    return true
+  end)
 end
 
 -- Start enemy movement.
-function enemy:start_taking_off(direction)
+function enemy:start_taking_off(angle)
 
   if attacking_timer then
     attacking_timer:stop()
   end
   enemy:replace_on_sprite()
-  enemy:start_flying_behavior(direction)
+  enemy:set_visible()
+  enemy:start_flying_movement(angle)
   enemy:start_flying(take_off_duration, flying_height, false, false)
+  enemy:start_attacking()
 end
 
 -- Replace on sprite position when dying.
