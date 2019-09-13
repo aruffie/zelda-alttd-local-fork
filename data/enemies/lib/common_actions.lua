@@ -6,6 +6,7 @@
 -- Methods : enemy:is_near(entity, triggering_distance, [x_offset, [y_offset]])
 --           enemy:is_aligned(entity, thickness)
 --           enemy:is_leashed_by(entity)
+--           enemy:is_sprite_contained(sprite, x, y, width, height)
 --           enemy:set_hero_weapons_reactions(default_reaction, [reactions])
 --           enemy:start_straight_walking(angle, speed, [distance, [on_stopped_callback]])
 --           enemy:start_target_walking(entity, speed)
@@ -22,6 +23,7 @@
 --           enemy:start_shadow([sprite_name, [animation_set_id]])
 --           enemy:start_brief_effect(sprite_name, [animation_set_id, [x_offset, [y_offset, [maximum_duration, [on_finished_callback]]]]])
 --           enemy:steal_item(item_name, [variant, [only_if_assigned, [drop_when_dead]]])
+--           enemy:clip_sprite_into(sprite, x, y, width, height)
 -- Events:   enemy:on_jump_finished()
 --           enemy:on_flying_took_off()
 --           enemy:on_flying_landed()
@@ -67,6 +69,20 @@ function common_actions.learn(enemy)
   -- Return true if the enemy is currently leashed by the entity.
   function enemy:is_leashed_by(entity)
     return leashing_timers[entity] ~= nil
+  end
+
+  -- Return true if the sprite is fully inside the given rectangle.
+  function enemy:is_sprite_contained(sprite, x, y, width, height)
+
+    local enemy_x, enemy_y, _ = enemy:get_position()
+    local sprite_x, sprite_y = sprite:get_xy()
+    local sprite_width, sprite_height = sprite:get_size()
+    local origin_x, origin_y = sprite:get_origin()
+    local sprite_absolute_x = sprite_x - origin_x + enemy_x
+    local sprite_absolute_y = sprite_y - origin_y + enemy_y
+
+    return sprite_absolute_x >= x and sprite_absolute_x + sprite_width <= x + width 
+        and sprite_absolute_y >= y and sprite_absolute_y + sprite_height <= y + height 
   end
 
   -- Set a reaction to all weapons, default_reaction applied for each specific one not set.
@@ -317,11 +333,10 @@ function common_actions.learn(enemy)
     end
   end
 
-  -- Make the entity welded to the enemy at the given offset position, and propagate main events.
+  -- Make the entity welded to the enemy at the given offset position, and propagate main events and methods.
   function enemy:start_welding(entity, x_offset, y_offset)
 
-    enemy:register_event("on_update", function(enemy)
-      local x, y, layer = enemy:get_position()
+    enemy:register_event("on_position_changed", function(enemy, x, y, layer)
       entity:set_position(x + (x_offset or 0), y + (y_offset or 0))
     end)
     enemy:register_event("on_removed", function(enemy)
@@ -337,6 +352,9 @@ function common_actions.learn(enemy)
       sol.timer.start(entity, 300, function() -- No event when the enemy became invisible, hardcode a timer.
         entity:set_enabled(false)
       end)
+    end)
+    enemy:register_event("set_visible", function(enemy, visible)
+      entity:set_visible(visible)
     end)
   end
 
@@ -481,6 +499,22 @@ function common_actions.learn(enemy)
         end
       end
     end
+  end
+
+  -- Clip the enemy sprite in the given rectangle by moving the whole enemy.
+  function enemy:clip_sprite_into(sprite, x, y, width, height)
+
+    local enemy_x, enemy_y, _ = enemy:get_position()
+    local sprite_x, sprite_y = sprite:get_xy()
+    local sprite_width, sprite_height = sprite:get_size()
+    local origin_x, origin_y = sprite:get_origin()
+    local sprite_absolute_x = sprite_x - origin_x + enemy_x
+    local sprite_absolute_y = sprite_y - origin_y + enemy_y
+
+    local clipped_sprite_x = math.max(x, math.min(x + width - sprite_width, sprite_absolute_x))
+    local clipped_sprite_y = math.max(y, math.min(y + height - sprite_height, sprite_absolute_y))
+
+    enemy:set_position(clipped_sprite_x - sprite_x + origin_x, clipped_sprite_y - sprite_y + origin_y)
   end
 end
 
