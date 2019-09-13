@@ -32,22 +32,28 @@ function item:start_using()
 
   local map = game:get_map()
   local hero = map:get_hero()
-  
+
   if not hero:is_jumping() then
     if not map:is_sideview() then
 
       -- Handle possible jump types differently in top view maps.
       local state = hero:get_state()
-      if state ~= "falling" then
+      local cstate = hero:get_state_object()
+      local state_name
+      if cstate then
+        state_name=cstate:get_description()
+      end
+      if state =="falling" or state=="swimming" or state=="custom" and state_name == "diving" then
+        return
+      end
 
-        if state == "sword swinging" or state == "sword loading" or state == "custom" and hero:get_state_object():get_description() == "jumping_sword" then 
-          hero:start_flying_attack() -- Offensive jump
-        elseif state == "custom" and hero:get_state_object():get_description() == "running" then 
-          --print" run'n'jump"
-          jm.start(hero) -- Running jump
-        else
-          hero:jump() -- Normal jump
-        end
+      if state == "sword swinging" or state == "sword loading" or state == "custom" and state_name == "jumping_sword" then 
+        hero:start_flying_attack() -- Offensive jump
+      elseif state == "custom" and state_name == "running" then 
+        --print" run'n'jump"
+        jm.start(hero) -- Running jump
+      else
+        hero:jump() -- Normal jump
       end
     else
       -- Simply apply a vertical impulsion to the hero in sideview maps.

@@ -30,8 +30,11 @@ game_meta:register_event("on_started", function(game)
         if not game:is_suspended() then
           if command == "action" then 
             if game:get_command_effect("action") == nil and game:has_item("pegasus_shoes") then
-              
-              -- Call custom run script.
+              local hero=game:get_hero()
+              if hero:get_state()=="swimming" or hero:get_state()=="custom" and not hero:get_state_object():get_can_use_item("pegasus_shoes") then
+                return
+              end
+              -- Caéll custom run script.
               game:get_hero():run()
 --              return true
             end
