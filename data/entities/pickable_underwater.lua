@@ -21,12 +21,29 @@ entity:register_event("on_created", function(entity)
     -- Initialize the properties of your custom entity here,
     -- like the sprite, the size, and whether it can traverse other
     -- entities and be traversed by them.
+    local item_name=entity:get_property("treasure_name")
+    item=item_name and game:get_item(item_name) or nil
+    variant=tonumber(entity:get_property("treasure_variant")) or 1
+    savegame_variable=entity:get_property("treasure_savegame_variable")
+    if item then
+      entity:get_sprite():set_animation(item_name)
+    end
     entity:add_collision_test("touching", function(entity, other)
 
-        if other:get_type()=="hero" then
+        if other:get_type()=="hero" and (entity:get_map():is_sideview() or other:get_state()=="custom" and other:get_state_object():get_description()=="diving") then
           item:on_obtaining(variant, savegame_variable)
+          if item:get_brandish_when_picked() then
+            other:start_treasure(item_name, variant, savegame_variable, function()
+                other:unfreeze()
+              end)
+          else
+            if item.on_obtained then
+              item:on_obtained(variant, savegame_variable)
+            end
+          end
           entity:remove()
         end
+
       end)
 
     function entity.set_item(_item, _variant, _savegame_variable)

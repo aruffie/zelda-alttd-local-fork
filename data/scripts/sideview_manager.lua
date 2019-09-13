@@ -230,7 +230,7 @@ local function update_entities(map)
             height=h,
             direction=0,
             sprite=s:get_animation_set(),
-            model="pickable_sink",
+            model="pickable_underwater",
             properties = {
               {
                 key="has_gravity",
