@@ -2395,6 +2395,10 @@ custom_entity{
       key = "treasure_variant",
       value = "1",
     },
+    {
+      key = "treasure_savegame_variable",
+      value = "__test",
+    },
   },
   width = 16,
   height = 16,
