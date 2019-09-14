@@ -25,6 +25,10 @@ entity:register_event("on_created", function(entity)
     item=item_name and game:get_item(item_name) or nil
     variant=tonumber(entity:get_property("treasure_variant")) or 1
     savegame_variable=entity:get_property("treasure_savegame_variable")
+    if savegame_variable and game:get_value(savegame_variable) then
+      entity:remove()
+      return
+    end
     if item then
       entity:get_sprite():set_animation(item_name)
     end
