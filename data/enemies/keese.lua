@@ -68,6 +68,7 @@ enemy:register_event("on_restarted", function(enemy)
   -- States.
   enemy:set_can_attack(true)
   enemy:set_damage(2)
+  enemy:set_layer_independent_collisions(true)
   enemy:wait()
 end)
 
