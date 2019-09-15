@@ -63,10 +63,11 @@ function state:on_started(previous_state_name, previous_state)
   local psn = previous_state_name
   local hero = state:get_game():get_hero()
   local hero_sprite = hero:get_sprite()
-  local sword_sprite = hero:get_sprite("sword")
-  -- Change tunic animations during the diving state.
-  if not hero:get_map():is_sideview() then
 
+  local sword_sprite = hero:get_sprite("sword")
+  -- Change tunic animations during the diving state.é
+  if not hero:get_map():is_sideview() then
+    hero:get_sprite("shadow_override"):stop_animation()
     function hero_sprite:on_animation_finished(animation)
       if animation == "plunging" then
         hero_sprite:set_animation("diving")
@@ -83,7 +84,11 @@ end
 
 function state:on_finished(next_state_name, next_state)
 
-  local hero = state:get_game():get_hero()
+  local hero = state:get_entity()
+  local map=hero:get_map()
+  if not map:is_sideview() then
+    hero:get_sprite("shadow_override"):set_animation("big")
+  end
   diving_state = nil
 
 end

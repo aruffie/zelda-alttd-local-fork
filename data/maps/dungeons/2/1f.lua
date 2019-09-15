@@ -71,13 +71,6 @@ function map:on_started(destination)
 
 end
 
-function map:on_opening_transition_finished(destination)
-  
-  if destination == dungeon_2_1_B then
-    game:start_dialog("maps.dungeons.2.welcome")
-  end
-  
-end
 
 function map:on_obtaining_treasure(item, variant, savegame_variable)
 

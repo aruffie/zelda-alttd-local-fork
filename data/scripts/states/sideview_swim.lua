@@ -7,7 +7,9 @@ state:set_can_control_direction(true)
 
 local hero_meta=sol.main.get_metatable("hero")
 function hero_meta:start_swimming()
-  self:start_state(state)
+  if self:get_state()~="custom" or self:get_state_object():get_description()~="sideview_swim" then
+    self:start_state(state)
+  end
 end
 
 function state:on_position_changed(x,y,layer)

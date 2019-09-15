@@ -43,12 +43,6 @@ function map:on_started()
   treasure_manager:disappear_pickable(map, "pickable_small_key_1")
 end
 
-function map:on_opening_transition_finished(destination)
-
-  if destination == dungeon_7_1_B then
-    game:start_dialog("maps.dungeons.7.welcome")
-  end
-end
 
 -----------------------
 -- Enemies events

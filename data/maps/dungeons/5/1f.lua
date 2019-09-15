@@ -59,9 +59,6 @@ function map:on_opening_transition_finished(destination)
     map:set_doors_open("door_group_4_", true)
     switch_1:set_activated(true)
   end
-  if destination == dungeon_5_1_B then
-    game:start_dialog("maps.dungeons.5.welcome")
-  end
 
 end
 

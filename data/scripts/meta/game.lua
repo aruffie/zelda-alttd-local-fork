@@ -55,16 +55,25 @@ game_meta:register_event("on_command_pressed", function(game, command)
     if command == "item_1" or command =="item_2" then
 --      print "item_command ?"
       if not game:is_suspended() then
+        local hero=game:get_hero()
+        local state=hero:get_state()
+
+        --Prevent item to be used if the following rules are met:
+        --  Swimming in top-view maps
+        --  (more possible rules to come)
+        if not game:get_map():is_sideview() and hero:get_state()=="swimming" then 
+          return true
+        end
         local item_1 = game:get_item_assigned("1")
         local item_2 = game:get_item_assigned("2")
         --if no item was assigned at this point, or if no override was added to assigned items, then do not go further
-        if item_1==nil and item_2~=nil or (item_1==nil or not(item_1.start_combo or item_1.start_using))
+        if item_1==nil and item_2==nil or (item_1==nil or not(item_1.start_combo or item_1.start_using))
         and (item_2==nil or not(item_2.start_combo or item_2.start_using)) then
           return
         end
 
         local name_1 = item_1:get_name()
-        local name_2 = item_2:get_name()
+        local name_2 = item_2:get_name()    
 
         --mark items as triggered
         local handled = false
@@ -95,6 +104,12 @@ game_meta:register_event("on_command_pressed", function(game, command)
         end
 
         if command =="item_1" and item_1~=nil then
+          if state=="custom" then --Prevent item to trigger if custom state rules forbids it 
+            local cstate=hero:get_state_object()
+            if not cstate:get_can_use_item(name_1) then
+              return true
+            end
+          end
 --          print "Item 1 triggered"
           game.last_item_1=name_1
           handled = item_1.start_using ~= nil or item_1.start_combo ~= nil
@@ -112,7 +127,13 @@ game_meta:register_event("on_command_pressed", function(game, command)
           end
 
         elseif command == "item_2" and item_2~=nil then
- --         print "Item 2 triggered"
+          if state=="custom" then --Prevent item to trigger if custom state rules forbids it 
+            local cstate=hero:get_state_object()
+            if not cstate:get_can_use_item(name_1) then
+              return true
+            end
+          end
+          --         print "Item 2 triggered"
           game.last_item_2=name_2
           handled = item_2.start_using ~= nil or item_2.start_combo ~= nil
           sol.timer.start(game, combo_timer_duration+10, function()
@@ -120,7 +141,7 @@ game_meta:register_event("on_command_pressed", function(game, command)
 --              print "Item 2 resetted"
               game.last_item_2=nil  
             end)
-          
+
           if game.last_item_1~=nil then
 --            print "combo from item 2"
             if try_combo() then
@@ -134,7 +155,7 @@ game_meta:register_event("on_command_pressed", function(game, command)
         --At this point, no combo was triggered, so we start the combo cancelling timer
         --This timer ensures we have enough time to press the other command before falling back to single-item behavior.
         sol.timer.start(game, combo_timer_duration, function()
- --           print "checking for single item"
+            --           print "checking for single item"
             --At this point, the combo was not triggered at all
             --or has already been handled in a previous cycle and not been cleaned yet
             --so we try using the normal override on each item instead.

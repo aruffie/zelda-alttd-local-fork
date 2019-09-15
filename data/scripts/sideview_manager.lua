@@ -216,7 +216,7 @@ local function update_entities(map)
       end
       if e_type == "pickable" and entity:get_property("was_created_from_custom_pickable")~="true" then
         --convert to custom entity with same properties
-        debug_print ("Converting a pickable to a custom entity")
+        --debug_print ("Converting a pickable to a custom entity")
         local x, y, layer = entity:get_position()
         local w, h = entity:get_size()
         local ox, oy = entity:get_origin()
@@ -230,7 +230,7 @@ local function update_entities(map)
             height=h,
             direction=0,
             sprite=s:get_animation_set(),
-            model="pickable_sink",
+            model="pickable_underwater",
             properties = {
               {
                 key="has_gravity",
@@ -555,7 +555,7 @@ hero_meta:register_event("on_state_changed", function(hero, state)
       elseif state == "grabbing" then -- prevent the hero from pulling things in sideviews
         hero:unfreeze()
       else
-        debug_print "Resetting sideview hero timer"
+        --debug_print "Resetting sideview hero timer"
         local timer = hero.timer
         if timer~=nil then
 --          debug_print"remove timer"
