@@ -136,7 +136,7 @@ function fire:extinguish()
 end
 
 -- Hurt enemies.
-fire:add_collision_test("sprite", function(fire, entity)
+fire:add_collision_test("sprite", function(fire, entity, fire_sprite, entity_sprite)
 
   if entity:get_type() == "enemy" and not enemies_touched[entity] and entity:get_fire_reaction(entity) ~= "ignored" then
     local enemy = entity
@@ -152,15 +152,20 @@ fire:add_collision_test("sprite", function(fire, entity)
       return
     end
 
-    -- Freeze the enemy and push it back.
+    -- Freeze the enemy.
+    local reactions = enemy:get_hero_weapons_reactions()
     sol.timer.stop_all(enemy)
     enemy:stop_movement()
     enemy:set_invincible()
+    enemy:set_pushed_back_when_hurt(false) -- Avoid pushing back again.
+
+    -- Push it back.
     local enemy_x, enemy_y, _ = enemy:get_position()
+    local enemy_sprite_x, enemy_sprite_y = entity_sprite:get_xy()
     local fire_x, fire_y, _ = fire:get_position()
     local movement = sol.movement.create("straight")
     movement:set_speed(256)
-    movement:set_angle(math.atan2(fire_y - enemy_y, enemy_x - fire_x))
+    movement:set_angle(math.atan2(fire_y - enemy_y - enemy_sprite_y, enemy_x - fire_x - enemy_sprite_x))
     movement:set_max_distance(32)
     movement:set_smooth(false)
     movement:start(enemy)
@@ -180,6 +185,7 @@ fire:add_collision_test("sprite", function(fire, entity)
       enemy_sprite:set_animation("burning")
     else
       local burning_sprite = enemy:create_sprite("entities/effects/flame", "burning")
+      burning_sprite:set_xy(entity_sprite:get_xy())
       function burning_sprite:on_animation_finished()
         enemy:remove_sprite(burning_sprite)
       end
@@ -189,8 +195,7 @@ fire:add_collision_test("sprite", function(fire, entity)
     -- Then hurt after a delay.
     sol.timer.start(sol.main, 1000, function()
       if enemy then
-        enemy:restart() -- Restore damage settings.
-        enemy:set_pushed_back_when_hurt(false) -- Avoid pushing back again.
+        enemy:set_hero_weapons_reactions(nil, reactions) -- Restore damage settings.
         enemy:receive_attack_consequence("fire", reaction)
       end
     end)

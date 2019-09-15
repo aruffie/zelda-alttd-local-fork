@@ -57,7 +57,7 @@ function behavior.apply(enemy, properties)
     local hero_x, hero_y, _ = hero:get_position()
     local enemy_x, enemy_y, _ = enemy:get_position()
     local angle = math.atan2(hero_y - enemy_y, enemy_x - hero_x) + (offensive and math.pi or 0)
-    enemy:start_jumping(jumping_duration, jumping_height, angle, jumping_speed, false, false)
+    enemy:start_jumping(jumping_duration, jumping_height, angle, jumping_speed)
     sprite:set_animation("jump")
   end
 

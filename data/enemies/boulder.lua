@@ -19,8 +19,8 @@ local maximum_speed = 80
 -- Make the enemy bounce and go to a random target at the south the enemy.
 function enemy:bounce()
 
-  enemy:start_jumping(bounce_duration, bounce_height, math.pi + math.random() * math.pi, math.random(minimum_speed, maximum_speed), false, false)
-  enemy:get_movement():set_ignore_obstacles(true)
+  local movement = enemy:start_jumping(bounce_duration, bounce_height, math.pi + math.random() * math.pi, math.random(minimum_speed, maximum_speed))
+  movement:set_ignore_obstacles(true)
 end
 
 -- Start a new bounce when jump finished.

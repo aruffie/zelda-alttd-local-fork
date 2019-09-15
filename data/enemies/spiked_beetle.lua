@@ -93,7 +93,7 @@ enemy:register_event("on_shield_collision", function(enemy, shield)
 
     -- Make the enemy jump while flipping.
     local angle = sprite:get_direction() * quarter + math.pi
-    enemy:start_jumping(jumping_duration, jumping_height, angle, jumping_speed, false, false)
+    enemy:start_jumping(jumping_duration, jumping_height, angle, jumping_speed)
     sprite:set_animation("renverse")
   end
 end)

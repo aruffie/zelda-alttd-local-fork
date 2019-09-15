@@ -48,7 +48,8 @@ function enemy:start_moving()
     -- Make the flying animation start and gradually decrease the frame delay.
     sprite:set_animation("walking")
     enemy:start_dynamic_frame_delay(taking_off_frame_delay_steps, 0, function()
-      enemy:start_flying(take_off_duration, flying_height, true, true)
+      enemy:start_flying(take_off_duration, flying_height)
+      enemy:set_invincible()
     end)
   end)
 end
