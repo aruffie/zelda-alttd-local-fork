@@ -56,7 +56,7 @@ function behavior.apply(enemy, sprite)
 
   -- Start bouncing to the given angle, or to the hero if nil.
   function enemy:bounce_go(duration, height, angle, speed)
-    enemy:start_jumping(duration or default_bounce_duration, height or default_bounce_height, angle or enemy:get_angle(hero), speed or default_speed, false, false)
+    enemy:start_jumping(duration or default_bounce_duration, height or default_bounce_height, angle or enemy:get_angle(hero), speed or default_speed)
   end
 
   -- Destroy the enemy when the hero is touched. 

@@ -38,7 +38,7 @@ function enemy:start_attacking()
   local hero_x, hero_y, _ = hero:get_position()
   local enemy_x, enemy_y, _ = enemy:get_position()
   local angle = math.atan2(hero_y - enemy_y, enemy_x - hero_x)
-  enemy:start_jumping(jumping_duration, jumping_height, angle, jumping_speed, true, true)
+  enemy:start_jumping(jumping_duration, jumping_height, angle, jumping_speed)
   sprite:set_animation("jumping")
   enemy.is_exhausted = true
   

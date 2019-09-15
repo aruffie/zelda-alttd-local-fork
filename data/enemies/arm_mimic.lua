@@ -3,6 +3,8 @@
 
 -- Variables
 local enemy = ...
+require("enemies/lib/common_actions").learn(enemy)
+
 local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
@@ -15,13 +17,11 @@ function enemy:on_created()
   sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
   enemy:set_life(1)
   enemy:set_damage(12)
-  enemy:set_attack_consequence("sword", 0)
-  enemy:set_attack_consequence("arrow", 0)
-  enemy:set_attack_consequence("thrown_item", 0)
-  enemy:set_attack_consequence("explosion", 1)
-  enemy:set_attack_consequence("boomerang", 'immobilized')
-  enemy:set_hammer_reaction(0)
-
+  enemy:set_hero_weapons_reactions(1, {
+    boomerang = "immobilized",
+    hookshot = "immobilized",
+    jump_on = "ignored"
+  })
 end
 
 -- The enemy was stopped for some reason and should restart.

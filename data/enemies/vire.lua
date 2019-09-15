@@ -14,9 +14,13 @@ local quarter = math.pi * 0.5
 local attacking_timer = nil
 local attack_count = 0
 local is_charging = false
+local is_executed = false
 
 -- Configuration variables
 local take_off_duration = 1000
+local fall_down_duration = 150
+local fall_down_bounce_duration = 300
+local fall_down_bounce_height = 8
 local flying_height = 32
 local flying_speed = 24
 local charging_speed = 175
@@ -33,7 +37,7 @@ local function get_random_position_on_screen_border()
   local mid_point = width + height
   local random_point = math.random(mid_point * 2)
 
-  return x + (random_point > mid_point + width and 0 or math.max(width, random_point % mid_point)), 
+  return x + (random_point > mid_point + width and 0 or math.min(width, random_point % mid_point)), 
          y + math.min(height, math.max(0, random_point - width) % mid_point)
 end
 
@@ -87,8 +91,11 @@ function enemy:start_charging(offensive)
       movement:stop()
       enemy:set_visible(false)
       sol.timer.start(enemy, before_respawn_delay, function()
-        enemy:set_position(get_random_position_on_screen_border())
-        enemy:start_taking_off()
+        if is_charging then
+          sprite:set_xy(0, 0)
+          enemy:set_position(get_random_position_on_screen_border())
+          enemy:start_taking_off()
+        end
       end)
     end
   end
@@ -117,22 +124,32 @@ end
 function enemy:start_flying_movement(angle)
 
   is_charging = false
-  local movement = enemy:start_straight_walking(angle or enemy:get_angle(hero), flying_speed)
+  local movement
+
+  -- Start a straight movement if angle is given.
+  if angle then
+    movement = enemy:start_straight_walking(angle, flying_speed)
+
+    -- Clip and change the angle if the enemy has a part out screen.
+    movement:register_event("on_position_changed", function(movement)
+      if not is_charging and not enemy:is_sprite_contained(sprite, camera:get_bounding_box()) then
+        enemy:clip_sprite_into(sprite, camera:get_bounding_box())
+        enemy:start_flying_movement(movement:get_direction4() * quarter - quarter)
+        return false
+      end
+    end)
+  else
+
+    -- Start a target walking to the hero else.
+    movement = enemy:start_target_walking(hero, flying_speed)
+  end
   movement:set_ignore_obstacles(true)
 
-  sol.timer.start(enemy, 10, function()
-    if enemy:is_sprite_contained(sprite, camera:get_bounding_box()) then
-
-      -- Clip and change the angle if the enemy has a part out screen.
-      function movement:on_position_changed()
-        if not enemy:is_sprite_contained(sprite, camera:get_bounding_box()) then
-          enemy:clip_sprite_into(sprite, camera:get_bounding_box())
-          enemy:start_flying_movement(movement:get_direction4() * quarter - quarter)
-          return false
-        end
-      end
+  -- Run away if the hero is too close.
+  movement:register_event("on_position_changed", function(movement)
+    if enemy:is_near(hero, runaway_triggering_distance, sprite) then
+      enemy:start_charging(false)
     end
-    return true
   end)
 end
 
@@ -149,6 +166,21 @@ function enemy:start_taking_off(angle)
   enemy:start_attacking()
 end
 
+-- On hit by boomerang, fire or magic powder, make the enemy fall down and die without splitting into bats.
+enemy:register_event("on_custom_attack_received", function(enemy, attack)
+
+  if attack == "boomerang" or attack == "fire" or attack == "magic_powder" then
+
+    is_executed = true
+    enemy:stop_flying(fall_down_duration, function()
+      enemy:start_jumping(fall_down_bounce_duration, fall_down_bounce_height, nil, nil, function()
+        enemy:set_pushed_back_when_hurt(false)
+        enemy:hurt(3)
+      end)
+    end)
+  end
+end)
+
 -- Replace on sprite position when dying.
 enemy:register_event("on_dying", function(enemy)
   enemy:replace_on_sprite()
@@ -157,20 +189,9 @@ end)
 -- Create two bats projectiles on dead.
 enemy:register_event("on_dead", function(enemy)
 
-  enemy:create_projectile("bat", 0)
-  enemy:create_projectile("bat", 2)
-end)
-
--- Passive behaviors needing constant checking.
-enemy:register_event("on_update", function(enemy)
-
-  if enemy:is_immobilized() then
-    return
-  end
-
-  -- Run away if the hero is too close.
-  if not is_charging and enemy:is_near(hero, runaway_triggering_distance, sprite:get_xy()) then
-    enemy:start_charging(false)
+  if not is_executed then
+    enemy:create_projectile("bat", 0)
+    enemy:create_projectile("bat", 2)
   end
 end)
 
@@ -188,11 +209,11 @@ enemy:register_event("on_restarted", function(enemy)
 
   -- Behavior for each items.
   enemy:set_hero_weapons_reactions(1, {
-    boomerang = 3,
-    magic_powder = 3,
-    fire = 3,
     pegasus_boots = 2,
     hookshot = 2,
+    boomerang = "custom",
+    magic_powder = "custom",
+    fire = "custom",
     jump_on = "ignored"})
 
   -- States.
