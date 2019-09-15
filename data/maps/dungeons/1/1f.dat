@@ -16541,6 +16541,46 @@ enemy{
   treasure_name = "random",
 }
 
+enemy{
+  name = "enemy_group_6_1",
+  layer = 0,
+  x = 784,
+  y = 1309,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "enemy_group_6_2",
+  layer = 0,
+  x = 784,
+  y = 1341,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "enemy_group_6_3",
+  layer = 0,
+  x = 816,
+  y = 1341,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "enemy_group_6_4",
+  layer = 0,
+  x = 816,
+  y = 1309,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random",
+}
+
 tile{
   layer = 1,
   x = 528,
@@ -18688,45 +18728,5 @@ separator{
   y = 952,
   width = 2560,
   height = 16,
-}
-
-enemy{
-  name = "enemy_group_6_3",
-  layer = 2,
-  x = 816,
-  y = 1341,
-  direction = 0,
-  breed = "keese",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_6_4",
-  layer = 2,
-  x = 816,
-  y = 1309,
-  direction = 0,
-  breed = "keese",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_6_1",
-  layer = 2,
-  x = 784,
-  y = 1309,
-  direction = 0,
-  breed = "keese",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_6_2",
-  layer = 2,
-  x = 784,
-  y = 1341,
-  direction = 0,
-  breed = "keese",
-  treasure_name = "random",
 }
 
