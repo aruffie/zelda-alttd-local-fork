@@ -32,6 +32,7 @@ function item:start_using()
 
   local map = game:get_map()
   local hero = map:get_hero()
+  
 
   if not hero:is_jumping() then
     if not map:is_sideview() then
@@ -43,7 +44,7 @@ function item:start_using()
       if cstate then
         state_name=cstate:get_description()
       end
-      if state =="falling" or state=="swimming" or state=="custom" and state_name == "diving" then
+      if state =="falling" or state=="swimming" or hero.is_using_hookshot or state=="custom" and state_name == "diving" then
         return
       end
 

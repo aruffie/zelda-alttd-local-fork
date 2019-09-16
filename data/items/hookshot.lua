@@ -301,7 +301,7 @@ function item:on_using()
 
   -- Destroys the hookshot and restores control to the player.
   function stop()
-
+    hero.is_using_hookshot=nil
     hero:unfreeze()
     if hookshot ~= nil then
       sound_timer:stop()
@@ -313,6 +313,7 @@ function item:on_using()
   end
 
   hero:freeze()  -- Block the hero.
+  hero.is_using_hookshot=true
   hero:set_animation("hookshot")
 
   -- Create the hookshot.
