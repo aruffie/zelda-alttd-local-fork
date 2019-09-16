@@ -129,7 +129,7 @@ game_meta:register_event("on_command_pressed", function(game, command)
         elseif command == "item_2" and item_2~=nil then
           if state=="custom" then --Prevent item to trigger if custom state rules forbids it 
             local cstate=hero:get_state_object()
-            if not cstate:get_can_use_item(name_1) then
+            if not cstate:get_can_use_item(name_2) then
               return true
             end
           end
