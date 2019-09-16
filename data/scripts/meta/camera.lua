@@ -76,11 +76,37 @@ function camera_meta:dynamic_shake(config, callback)
 
   local w,h=camera:get_size()
 
-  local mw, mh=map:get_size()
-
   local function clamp(val, min, max)
     return math.max(min, math.min(val, max))
   end
+
+  local function get_region_bounding_box(map,x,y)
+    --By default, make the region bounding box match the map's
+    local bx1=0
+    local by1=0
+    local bx2, by2=map:get_size()
+    -- Then, shrink bounding box to actual region size by comparing with the separators; if any.
+    for e in map:get_entities_in_region(x,y) do
+      if e:get_type()=="separator" then
+        local ex,ey, ew, eh=e:get_bounding_box()
+        if ew>eh then --Horizontal separator
+          if y>ey then
+            by1=math.max(by1, ey+8)
+          else
+            by2=math.min(by2, ey+8)  
+          end
+        else
+          if x>ex then
+            bx1=math.max(bx1, ex+8)
+          else
+            bx2=math.min(bx2, ex+8)
+          end
+        end
+      end
+    end
+    return bx1, by1, bx2, by2
+  end
+  local x_min, y_min, x_max, y_max=get_region_bounding_box(map, entity:get_position())
 
   local function shake_step()
 
@@ -92,11 +118,11 @@ function camera_meta:dynamic_shake(config, callback)
       offset_x = -amplitude/2 -- Left.
       offset_y = -amplitude/2
     end
-    
+
     local ex, ey, ew, eh=entity:get_bounding_box()
-    
-    camera:set_position(clamp(ex+ew/2-w/2+offset_x, -amplitude/2, mw-w+amplitude/2), clamp(ey+ew/2-h/2+offset_y, -amplitude/2, mh-h+amplitude/2))
-    
+
+    camera:set_position(clamp(ex+ew/2-w/2+offset_x, x_min-amplitude/2, x_max-w+amplitude/2), clamp(ey+ew/2-h/2+offset_y, y_min-amplitude/2, y_max-h+amplitude/2))
+
     -- Inverse direction for next time.
     shaking_to_right = not shaking_to_right
     shaking_count = shaking_count + 1
