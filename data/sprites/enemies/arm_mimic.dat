@@ -1,11 +1,13 @@
 animation{
-  name = "stopped",
+  name = "walking",
   src_image = "enemies/arm_mimic.png",
+  frame_delay = 200,
+  frame_to_loop_on = 0,
   directions = {
-    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
-    { x = 0, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
-    { x = 48, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
-    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
+    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 2 },
+    { x = 0, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 48, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 2 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
   },
 }
 animation{
@@ -21,14 +23,12 @@ animation{
   },
 }
 animation{
-  name = "walking",
+  name = "immobilized",
   src_image = "enemies/arm_mimic.png",
-  frame_delay = 200,
-  frame_to_loop_on = 0,
   directions = {
-    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 2 },
-    { x = 0, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
-    { x = 48, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 2 },
-    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
+    { x = 0, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
+    { x = 48, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
   },
 }
