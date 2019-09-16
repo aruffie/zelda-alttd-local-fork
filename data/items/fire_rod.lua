@@ -21,10 +21,11 @@ function item:shoot()
   local direction = hero:get_direction()
 
   local x, y, layer = hero:get_center_position()
+  local ox, oy=hero:get_sprite("tunic"):get_xy()
   local fire = map:create_custom_entity({
     model = "fire",
-    x = x,
-    y = y + 3,
+    x = x+ox,
+    y = y+oy + 3,
     layer = layer,
     width = 8,
     height = 8,
@@ -44,18 +45,18 @@ function item:shoot()
 end
 
 -- Event called when the hero is using this item.
-function item:on_using()
+function item:start_using()
 
   local map = item:get_map()
   local hero = map:get_hero()
   local direction = hero:get_direction()
   hero:set_animation("rod")
-
+  local ox, oy=hero:get_sprite("tunic"):get_xy()
   -- Give the hero the animation of using the fire rod.
   local x, y, layer = hero:get_position()
   local fire_rod = map:create_custom_entity({
-    x = x,
-    y = y,
+    x = x+ox,
+    y = y+oy,
     layer = layer,
     width = 16,
     height = 16,
