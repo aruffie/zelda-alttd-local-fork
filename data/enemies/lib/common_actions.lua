@@ -3,15 +3,16 @@
 -- Add some basic and common methods/events to an enemy.
 -- There is no passive behavior without an explicit start when learning this to an enemy.
 --
--- Methods : enemy:is_near(entity, triggering_distance, [x_offset, [y_offset]])
+-- Methods : enemy:is_near(entity, triggering_distance, [sprite])
 --           enemy:is_aligned(entity, thickness)
 --           enemy:is_leashed_by(entity)
---           enemy:set_hero_weapons_reactions(default_reaction, [reactions])
+--           enemy:is_sprite_contained(sprite, x, y, width, height)
+--           enemy:clip_sprite_into(sprite, x, y, width, height)
 --           enemy:start_straight_walking(angle, speed, [distance, [on_stopped_callback]])
 --           enemy:start_target_walking(entity, speed)
---           enemy:start_jumping(duration, height, [angle, speed, [invincible, [harmless]]])
---           enemy:start_flying(take_off_duration, height, [invincible, [harmless]])
---           enemy:stop_flying(landing_duration)
+--           enemy:start_jumping(duration, height, [angle, speed, [on_finished_callback]])
+--           enemy:start_flying(take_off_duration, height, [on_finished_callback])
+--           enemy:stop_flying(landing_duration, [on_finished_callback])
 --           enemy:start_attracting(entity, speed, [moving_condition_callback])
 --           enemy:stop_attracting()
 --           enemy:start_welding(entity, [x_offset, [y_offset]])
@@ -47,11 +48,16 @@ function common_actions.learn(enemy)
   local shadow = nil
   
   -- Return true if the entity is closer to the enemy than triggering_distance
-  function enemy:is_near(entity, triggering_distance, x_offset, y_offset)
+  function enemy:is_near(entity, triggering_distance, sprite)
 
     local x, y, layer = enemy:get_position()
-    local _, _, entity_layer = entity:get_position()
-    return entity:get_distance(x + (x_offset or 0), y + (y_offset or 0)) < triggering_distance 
+    local x_offset, y_offset = 0, 0
+    local entity_layer = entity:get_layer()
+    if sprite then
+      x_offset, y_offset = sprite:get_xy()
+    end
+
+    return entity:get_distance(x + x_offset, y + y_offset) < triggering_distance 
       and (layer == entity_layer or enemy:has_layer_independent_collisions())
   end
 
@@ -69,21 +75,34 @@ function common_actions.learn(enemy)
     return leashing_timers[entity] ~= nil
   end
 
-  -- Set a reaction to all weapons, default_reaction applied for each specific one not set.
-  function enemy:set_hero_weapons_reactions(default_reaction, reactions)
+  -- Return true if the sprite is fully inside the given rectangle.
+  function enemy:is_sprite_contained(sprite, x, y, width, height)
 
-    reactions = reactions or {}
-    enemy:set_attack_consequence("arrow", reactions.arrow or default_reaction)
-    enemy:set_attack_consequence("boomerang", reactions.boomerang or default_reaction)
-    enemy:set_attack_consequence("explosion", reactions.explosion or default_reaction)
-    enemy:set_attack_consequence("sword", reactions.sword or default_reaction)
-    enemy:set_attack_consequence("thrown_item", reactions.thrown_item or default_reaction)
-    enemy:set_fire_reaction(reactions.fire or default_reaction)
-    enemy:set_hammer_reaction(reactions.hammer or default_reaction)
-    enemy:set_hookshot_reaction(reactions.hookshot or default_reaction)
-    enemy:set_magic_powder_reaction(reactions.magic_powder or default_reaction)
-    enemy:set_jump_on_reaction(reactions.jump_on or default_reaction)
-    -- TODO pegasus boots
+    local enemy_x, enemy_y, _ = enemy:get_position()
+    local sprite_x, sprite_y = sprite:get_xy()
+    local sprite_width, sprite_height = sprite:get_size()
+    local origin_x, origin_y = sprite:get_origin()
+    local sprite_absolute_x = sprite_x - origin_x + enemy_x
+    local sprite_absolute_y = sprite_y - origin_y + enemy_y
+
+    return sprite_absolute_x >= x and sprite_absolute_x + sprite_width <= x + width 
+        and sprite_absolute_y >= y and sprite_absolute_y + sprite_height <= y + height 
+  end
+
+  -- Clip the enemy sprite in the given rectangle by moving the whole enemy.
+  function enemy:clip_sprite_into(sprite, x, y, width, height)
+
+    local enemy_x, enemy_y, _ = enemy:get_position()
+    local sprite_x, sprite_y = sprite:get_xy()
+    local sprite_width, sprite_height = sprite:get_size()
+    local origin_x, origin_y = sprite:get_origin()
+    local sprite_absolute_x = sprite_x - origin_x + enemy_x
+    local sprite_absolute_y = sprite_y - origin_y + enemy_y
+
+    local clipped_sprite_x = math.max(x, math.min(x + width - sprite_width, sprite_absolute_x))
+    local clipped_sprite_y = math.max(y, math.min(y + height - sprite_height, sprite_absolute_y))
+
+    enemy:set_position(clipped_sprite_x - sprite_x + origin_x, clipped_sprite_y - sprite_y + origin_y)
   end
 
   -- Make the enemy straight move.
@@ -149,7 +168,7 @@ function common_actions.learn(enemy)
   end
 
   -- Make the enemy start jumping.
-  function enemy:start_jumping(duration, height, angle, speed, invincible, harmless)
+  function enemy:start_jumping(duration, height, angle, speed, on_finished_callback)
 
     -- Update the sprite vertical offset at each frame.
     local elapsed_time = 0
@@ -160,15 +179,20 @@ function common_actions.learn(enemy)
           sprite:set_xy(0, -math.sqrt(math.sin(elapsed_time / duration * math.pi)) * height)
         end
         sol.timer.start(enemy, 10, function()
-          elapsed_time = elapsed_time + 10
-          update_sprite_height()
+          if enemy:exists() and enemy:is_enabled() then
+            elapsed_time = elapsed_time + 10
+            update_sprite_height()
+          end
         end)
       else
         for _, sprite in enemy:get_sprites() do
           sprite:set_xy(0, 0)
         end
 
-        -- Call enemy:on_jump_finished() event.
+        -- Call events once jump finished.
+        if on_finished_callback then
+          on_finished_callback()
+        end
         if enemy.on_jump_finished then
           enemy:on_jump_finished()
         end
@@ -184,23 +208,16 @@ function common_actions.learn(enemy)
       movement:set_max_distance(speed * duration * 0.001)
       movement:set_smooth(false)
       movement:start(enemy)
-    end
-
-    -- Make enemy unable to interact with the hero if requested.
-    if invincible then
-      enemy:set_invincible()
-    end
-    if harmless then
-      enemy:set_can_attack(false)
-      enemy:set_damage(0)
+    
+      return movement
     end
   end
 
   -- Make the enemy start flying.
-  function enemy:start_flying(take_off_duration, height, invincible, harmless)
+  function enemy:start_flying(take_off_duration, height, on_finished_callback)
 
     -- Make enemy sprites start elevating.
-    local event_registered = false
+    local event_called = false
     for _, sprite in enemy:get_sprites() do
       local movement = sol.movement.create("straight")
       movement:set_speed(height * 1000 / take_off_duration)
@@ -209,32 +226,26 @@ function common_actions.learn(enemy)
       movement:set_ignore_obstacles(true)
       movement:start(sprite)
 
-      -- Call the enemy:on_flying_took_off() method once take off finished.
-      if not event_registered then
-        event_registered = true
+      -- Call events once take off finished.
+      if not event_called then
+        event_called = true
         function movement:on_finished()
+          if on_finished_callback then
+            on_finished_callback()
+          end
           if enemy.on_flying_took_off then
             enemy:on_flying_took_off()
           end
         end
       end
     end
-
-    -- Make enemy unable to interact with the hero if requested.
-    if invincible then
-      enemy:set_invincible()
-    end
-    if harmless then
-      enemy:set_can_attack(false)
-      enemy:set_damage(0)
-    end
   end
 
   -- Make the enemy stop flying.
-  function enemy:stop_flying(landing_duration)
+  function enemy:stop_flying(landing_duration, on_finished_callback)
 
     -- Make the enemy sprites start landing.
-    local event_registered = false
+    local event_called = false
     for _, sprite in enemy:get_sprites() do
       local _, height = sprite:get_xy()
       height = math.abs(height)
@@ -246,10 +257,13 @@ function common_actions.learn(enemy)
       movement:set_ignore_obstacles(true)
       movement:start(sprite)
 
-      -- Call the enemy:on_flying_landed() method once landed finished.
-      if not event_registered then
-        event_registered = true
+      -- Call events once landed finished.
+      if not event_called then
+        event_called = true
         function movement:on_finished()
+          if on_finished_callback then
+            on_finished_callback()
+          end
           if enemy.on_flying_landed then
             enemy:on_flying_landed()
           end
@@ -291,7 +305,9 @@ function common_actions.learn(enemy)
 
       -- Start the next move timer.
       attracting_timers[entity][axis] = sol.timer.start(enemy, axis_move_delay, function()
-        attract_on_axis(axis)
+        if enemy:exists() and enemy:is_enabled() then
+          attract_on_axis(axis)
+        end
       end)
     end
 
@@ -313,12 +329,11 @@ function common_actions.learn(enemy)
     end
   end
 
-  -- Make the entity welded to the enemy at the given offset position, and propagate main events.
+  -- Make the entity welded to the enemy at the given offset position, and propagate main events and methods.
   function enemy:start_welding(entity, x_offset, y_offset)
 
-    enemy:register_event("on_update", function(enemy)
-      local x, y, layer = enemy:get_position()
-      entity:set_position(x + (x_offset or 0), y + (y_offset or 0), layer)
+    enemy:register_event("on_position_changed", function(enemy, x, y, layer)
+      entity:set_position(x + (x_offset or 0), y + (y_offset or 0))
     end)
     enemy:register_event("on_removed", function(enemy)
       entity:remove()
@@ -333,6 +348,9 @@ function common_actions.learn(enemy)
       sol.timer.start(entity, 300, function() -- No event when the enemy became invisible, hardcode a timer.
         entity:set_enabled(false)
       end)
+    end)
+    enemy:register_event("set_visible", function(enemy, visible)
+      entity:set_visible(visible)
     end)
   end
 
@@ -424,6 +442,7 @@ function common_actions.learn(enemy)
         shadow:get_sprite():set_animation(animation_set_id)
       end
       shadow:set_traversable_by(true)
+      --TODO Always display the shadow on the lowest possible layer
     end
     return shadow
   end
@@ -465,9 +484,9 @@ function common_actions.learn(enemy)
 
     if game:has_item(item_name) then
       local item = game:get_item(item_name)
-      local item_slot = (game:get_item_assigned(1) == item and 1) or (game:get_item_assigned(2) == item and 2) or nil
+      local is_stealable = not only_if_assigned or (game:get_item_assigned(1) == item and 1) or (game:get_item_assigned(2) == item and 2)
 
-      if (not variant or item:get_variant() == variant) and (not only_if_assigned or item_slot) then 
+      if (not variant or item:get_variant() == variant) and is_stealable then 
         if drop_when_dead then
           enemy:set_treasure(item_name, item:get_variant()) -- TODO savegame variable
         end

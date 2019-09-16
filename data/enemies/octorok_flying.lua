@@ -57,7 +57,8 @@ game:register_event("on_command_pressed", function(game, command)
 
   if not is_jumping and command == "attack" and enemy:is_near(hero, jumping_triggering_distance) then
     is_jumping = true
-    enemy:start_jumping(jumping_duration, jumping_height, enemy:get_angle(hero), jumping_speed, true, true)
+    enemy:start_jumping(jumping_duration, jumping_height, enemy:get_angle(hero), jumping_speed)
+    enemy:set_invincible()
     sprite:set_animation("jumping")
     sprite:set_direction(enemy:get_movement():get_direction4())
   end

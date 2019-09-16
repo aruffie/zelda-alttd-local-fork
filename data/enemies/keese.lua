@@ -66,8 +66,9 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_hero_weapons_reactions(1, {jump_on = "ignored"})
 
   -- States.
-  enemy:set_can_attack(false)
+  enemy:set_can_attack(true)
   enemy:set_damage(2)
+  enemy:set_layer_independent_collisions(true)
   enemy:wait()
 end)
 

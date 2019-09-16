@@ -41,7 +41,7 @@ function enemy:start_attacking()
   movement:set_target(target_x, target_y)
   movement:set_smooth(false)
   movement:start(enemy)
-  enemy:start_flying(elevating_duration, jumping_height, true, true)
+  enemy:start_flying(elevating_duration, jumping_height)
   sprite:set_animation("jumping")
 
   -- Wait for a delay and start the stomp down.

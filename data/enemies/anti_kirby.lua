@@ -135,7 +135,7 @@ function enemy:start_aspirate()
     aspiration_sprite:set_direction(sprite:get_direction())
 
     -- Make the enemy sprites elevate while aspiring.
-    enemy:start_flying(take_off_duration, flying_height, false, false)
+    enemy:start_flying(take_off_duration, flying_height)
   end)
 end
 

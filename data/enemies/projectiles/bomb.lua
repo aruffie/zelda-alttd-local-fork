@@ -11,15 +11,32 @@ local hero = map:get_hero()
 local circle = 2.0 * math.pi
 local bounce_count = 0
 local throwing_angle
+local shadow = nil
+local explode_at_bounce = false
 
 -- Configuration variables
-local before_blinking_minimum_delay = 300
-local before_blinking_maximum_delay = 1000
+local before_blinking_minimum_delay = 1500
+local before_blinking_maximum_delay = 2000
 local before_explosing_delay = 1000
+local bounce_number = 2
 local bounce_height = 4
 local bounce_speed = 40
 
--- Make the enemy bounce and go to a random target.
+-- Make the enemy explode at the next bounce.
+function enemy:explode_at_bounce()
+  explode_at_bounce = true
+end
+
+-- Show or hide the enemy and its shadow.
+function enemy:show(show)
+
+  enemy:set_visible(show)
+  if shadow then
+    shadow:set_visible(show)
+  end
+end
+
+-- Make the enemy go to a random target and bounce.
 function enemy:go(duration, height, angle, speed)
 
   throwing_angle = angle or math.random() * circle
@@ -27,27 +44,34 @@ function enemy:go(duration, height, angle, speed)
   enemy:get_movement():set_ignore_obstacles(true)
 end
 
--- Start a new bounce or destroy the enemy when bounce finished.
+-- Start a new bounce or destroy the enemy if requested.
 enemy:register_event("on_jump_finished", function(enemy)
 
-  bounce_count = bounce_count + 1
+  if explode_at_bounce then
+    enemy:explode()
+    return
+  end
 
-  if bounce_count == 1 then
-    sol.timer.start(enemy, math.random(before_blinking_minimum_delay, before_blinking_maximum_delay), function()
-      sprite:set_animation("explosion_soon")
-      sol.timer.start(enemy, before_explosing_delay, function()
-        local x, y, layer = enemy:get_position()
-        map:create_explosion({
-          x = x,
-          y = y,
-          layer = layer
-        })
-        enemy:remove()
-      end)
-    end)
+  bounce_count = bounce_count + 1
+  if bounce_count < bounce_number then
     enemy:go(nil, bounce_height, throwing_angle, bounce_speed)
+  else
+    enemy:stop_movement()
   end
 end)
+
+-- Make the enemy explode.
+function enemy:explode()
+
+  local x, y, layer = enemy:get_position()
+  map:create_explosion({
+    x = x,
+    y = y - 5,
+    layer = layer
+  })
+  -- TODO Set explosion damage to 4
+  enemy:remove()
+end
 
 -- Don't remove on hit.
 enemy:register_event("on_hit", function(enemy)
@@ -61,16 +85,24 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(1)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)
-  enemy:start_shadow()
+  shadow = enemy:start_shadow()
 end)
 
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
   sprite:set_animation("walking")
-  enemy:set_damage(2)
+  enemy:set_damage(4)
   enemy:set_obstacle_behavior("flying")
   enemy:set_layer_independent_collisions(true)
-  enemy:set_invincible()
   enemy:set_can_hurt_hero_running(true)
+  enemy:set_invincible()
+
+  -- Make the bomb explode after some time
+  sol.timer.start(enemy, math.random(before_blinking_minimum_delay, before_blinking_maximum_delay), function()
+    sprite:set_animation("explosion_soon")
+    sol.timer.start(enemy, before_explosing_delay, function()
+      enemy:explode()
+    end)
+  end)
 end)

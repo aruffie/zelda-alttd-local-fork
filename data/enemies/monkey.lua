@@ -78,14 +78,13 @@ enemy:register_event("on_jump_finished", function(enemy)
 
   sol.timer.start(enemy, waiting_duration, function()
     local direction = math.random(4)
-    enemy:start_straight_walking(direction * quarter, running_speed)
+    local movement = enemy:start_straight_walking(direction * quarter, running_speed)
     sprite:set_animation("escape")
 
     -- Remove the enemy once out of screen.
-    local movement = enemy:get_movement()
-    enemy:get_movement():set_ignore_obstacles(true)
+    movement:set_ignore_obstacles(true)
     function movement:on_position_changed()
-      if not enemy:overlaps(camera) then
+      if not camera:overlaps(enemy:get_max_bounding_box()) then
         enemy:remove()
       end
     end

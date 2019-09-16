@@ -5,6 +5,42 @@ local enemy_meta = sol.main.get_metatable("enemy")
 local enemy_manager = require("scripts/maps/enemy_manager")
 local audio_manager = require("scripts/audio_manager")
 
+-- Get reaction to all weapons.
+function enemy_meta:get_hero_weapons_reactions()
+
+  local reactions = {}
+  reactions.arrow = self:get_attack_consequence("arrow")
+  reactions.boomerang = self:get_attack_consequence("boomerang")
+  reactions.explosion = self:get_attack_consequence("explosion")
+  reactions.sword = self:get_attack_consequence("sword")
+  reactions.thrown_item = self:get_attack_consequence("thrown_item")
+  reactions.fire = self:get_fire_reaction()
+  reactions.jump_on = self:get_jump_on_reaction()
+  reactions.hammer = self:get_hammer_reaction()
+  reactions.hookshot = self:get_hookshot_reaction()
+  reactions.magic_powder = self:get_magic_powder_reaction()
+  -- TODO pegasus boots
+
+  return reactions
+end
+
+-- Set a reaction to all weapons, default_reaction applied for each specific one not set.
+function enemy_meta:set_hero_weapons_reactions(default_reaction, reactions)
+
+  reactions = reactions or {}
+  self:set_attack_consequence("arrow", reactions.arrow or default_reaction)
+  self:set_attack_consequence("boomerang", reactions.boomerang or default_reaction)
+  self:set_attack_consequence("explosion", reactions.explosion or default_reaction)
+  self:set_attack_consequence("sword", reactions.sword or default_reaction)
+  self:set_attack_consequence("thrown_item", reactions.thrown_item or default_reaction)
+  self:set_fire_reaction(reactions.fire or default_reaction)
+  self:set_jump_on_reaction(reactions.jump_on or default_reaction)
+  self:set_hammer_reaction(reactions.hammer or default_reaction)
+  self:set_hookshot_reaction(reactions.hookshot or default_reaction)
+  self:set_magic_powder_reaction(reactions.magic_powder or default_reaction)
+  -- TODO pegasus boots
+end
+
 function enemy_meta:on_hurt(attack)
   
   if self:get_hurt_style() == "boss" then
