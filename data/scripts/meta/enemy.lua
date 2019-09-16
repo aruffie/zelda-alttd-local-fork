@@ -9,7 +9,7 @@ local audio_manager = require("scripts/audio_manager")
 function enemy_meta:get_hero_weapons_reactions()
 
   local reactions = {}
-  reactions.arrow = self:get_attack_consequence("arrow")
+  reactions.arrow = self:get_arrow_reaction("arrow")
   reactions.boomerang = self:get_attack_consequence("boomerang")
   reactions.explosion = self:get_attack_consequence("explosion")
   reactions.sword = self:get_attack_consequence("sword")
@@ -28,7 +28,7 @@ end
 function enemy_meta:set_hero_weapons_reactions(default_reaction, reactions)
 
   reactions = reactions or {}
-  self:set_attack_consequence("arrow", reactions.arrow or default_reaction)
+  self:set_arrow_reaction(reactions.arrow or default_reaction)
   self:set_attack_consequence("boomerang", reactions.boomerang or default_reaction)
   self:set_attack_consequence("explosion", reactions.explosion or default_reaction)
   self:set_attack_consequence("sword", reactions.sword or default_reaction)
