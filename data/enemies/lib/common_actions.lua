@@ -73,7 +73,7 @@ function common_actions.learn(enemy)
   function enemy:set_hero_weapons_reactions(default_reaction, reactions)
 
     reactions = reactions or {}
-    enemy:set_attack_consequence("arrow", reactions.arrow or default_reaction)
+    enemy:set_arrow_reaction(reactions.arrow or default_reaction)
     enemy:set_attack_consequence("boomerang", reactions.boomerang or default_reaction)
     enemy:set_attack_consequence("explosion", reactions.explosion or default_reaction)
     enemy:set_attack_consequence("sword", reactions.sword or default_reaction)

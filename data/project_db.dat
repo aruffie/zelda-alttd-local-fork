@@ -1355,6 +1355,7 @@ enemy{ id = "zol_red", description = "Zol red" }
 enemy{ id = "zombie", description = "Zombie" }
 enemy{ id = "zora", description = "Zora" }
 
+entity{ id = "arrow", description = "Arrow" }
 entity{ id = "ball", description = "ball" }
 entity{ id = "bird", description = "Bird" }
 entity{ id = "bomb_arrow", description = "Bomb arrow" }
