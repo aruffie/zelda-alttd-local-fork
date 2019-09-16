@@ -221,7 +221,7 @@ local function update_entities(map)
         local w, h = entity:get_size()
         local ox, oy = entity:get_origin()
         local s=entity:get_sprite()
-        local i, v, sgv=entity:get_treasure()
+        local item, variant, savegame_variable=entity:get_treasure()
         local e=map:create_custom_entity({
             x=x,
             y=y,
@@ -234,16 +234,30 @@ local function update_entities(map)
             properties = {
               {
                 key="has_gravity",
-                value= "true",
+                value="true",
+              },
+              {
+                key="treasure_name",
+                value=item:get_name(),
+              },
+              {
+                key="treasure_variant",
+                value=tostring(variant),
               },
             },
           })
+        if savegame_variable then
+          e:set_property(
+            {
+              key="treasure_savegame_variable",
+              value=savegame_variable,
+            })
+        end
         e:set_origin(ox,oy)
         local sprite=e:get_sprite()
         sprite:set_animation(s:get_animation())
-        sprite:set_direction(v-1)
+        sprite:set_direction(variant-1)
         sprite:set_xy(0,2) --shift down the visual
-        e.set_item(i, v, sgv) --Pass the treasure reference
         entity:remove()
       elseif has_property or is_affected then  -- Try to make entity be affected by gravity.
         if __debug and not entity.show_hitbox then --DEBUG : draw hitbox information

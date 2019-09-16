@@ -25,13 +25,21 @@ entity:register_event("on_created", function(entity)
     item=item_name and game:get_item(item_name) or nil
     variant=tonumber(entity:get_property("treasure_variant")) or 1
     savegame_variable=entity:get_property("treasure_savegame_variable")
-    if savegame_variable and game:get_value(savegame_variable) then
+    print ("save=", savegame_variable, "type=", sol.main.get_type(savegame_variable))
+
+    if savegame_variable~=nil and game:get_value(savegame_variable)=="true" then
       entity:remove()
       return
     end
-    if item then
-      entity:get_sprite():set_animation(item_name)
+
+    entity:get_sprite():set_animation(item_name)
+    if item:get_can_disappear() then --Self-destroy after 10 seconds
+      --TODO add blinking effect 
+      timer=sol.timer.start(entity, 10000, function()
+          entity:remove()
+        end)
     end
+
     entity:add_collision_test("touching", function(entity, other)
 
         if other:get_type()=="hero" and (entity:get_map():is_sideview() or other:get_state()=="custom" and other:get_state_object():get_description()=="diving") then
@@ -49,21 +57,6 @@ entity:register_event("on_created", function(entity)
         end
 
       end)
-
-    function entity.set_item(_item, _variant, _savegame_variable)
---      print("in custom pickable script, getting the item infos. item=".._item:get_name()..", variant=".._variant..", savegame variable="..(_savegame_variable or "<none>"))
-      item=_item
-      variant=_variant
-      variable=_savegame_variable
-
-      if item:get_can_disappear() then --Self-destroy after 10 seconds
-        --TODO add blinking effect 
-        timer=sol.timer.start(entity, 10000, function()
-            entity:remove()
-          end)
-      end
-
-    end
     local visible=true
     entity:register_event("on_draw", function()
         if timer and timer:get_remaining_time() <= 3000 then
