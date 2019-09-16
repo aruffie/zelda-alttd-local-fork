@@ -62,6 +62,7 @@ function item:create_bomb()
   local map = item:get_map()
   local hero = map:get_entity("hero")
   local x, y, layer = hero:get_position()
+        local ox, oy=hero:get_sprite("tunic"):get_xy()
   local direction = hero:get_direction()
   if direction == 0 then
     x = x + 16
@@ -73,8 +74,8 @@ function item:create_bomb()
     y = y + 16
   end
   local bomb = map:create_bomb{
-    x = x,
-    y = y,
+    x = x+ox,
+    y = y+oy,
     layer = layer
   }
   local sprite = bomb:get_sprite()

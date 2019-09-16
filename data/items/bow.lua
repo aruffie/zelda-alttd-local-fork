@@ -41,6 +41,7 @@ function item:start_combo(other)
 --      print "Bomb and arrows!"
       local hero=game:get_hero()
       local x,y,layer=hero:get_position()
+      local ox, oy=hero:get_sprite("tunic"):get_xy()
       local direction = hero:get_direction()
       if direction == 0 then
         x = x + 16
@@ -56,8 +57,8 @@ function item:start_combo(other)
 
       map:create_custom_entity{
         name="bomb_arrow",
-        x = x,
-        y = y,
+        x = x+ox,
+        y = y+oy,
         layer = layer,
         width=8,
         height=8,
@@ -89,12 +90,12 @@ function item:start_using()
     sol.audio.play_sound("bow")
       self:remove_amount(1)
       self:set_finished()
-
       local x, y = hero:get_center_position()
+      local ox, oy=hero:get_sprite("tunic"):get_xy()
       local _, _, layer = hero:get_position()
       local arrow = map:create_custom_entity({
-        x = x,
-        y = y,
+        x = x+ox,
+        y = y+oy,
         layer = layer,
         width = 16,
         height = 16,
