@@ -25,6 +25,7 @@ local flying_height = 32
 local flying_speed = 24
 local charging_speed = 175
 local runaway_triggering_distance = 32
+local fired_duration = 500
 local before_attacks_delay = 3000
 local between_attacks_delay = 2000
 local before_respawn_delay = 1000
@@ -67,10 +68,18 @@ end
 -- Throw two plasmballs.
 function enemy:throw_magma_balls()
 
-  enemy:create_projectile("magmaball")
-  local magmaball = enemy:create_projectile("magmaball")
-  local magmaball_movement = magmaball:get_movement()
-  magmaball_movement:set_angle(magmaball_movement:get_angle() - 0.4)
+  sprite:set_animation("firing", function()
+    sprite:set_animation("fired")
+    enemy:create_projectile("magmaball")
+    local magmaball = enemy:create_projectile("magmaball")
+    local magmaball_movement = magmaball:get_movement()
+    magmaball_movement:set_angle(magmaball_movement:get_angle() - 0.4)
+    sol.timer.start(enemy, fired_duration, function()
+      if not is_charging then
+        sprite:set_animation("walking")
+      end
+    end)
+  end)
 end
 
 -- Start charging to or away to the hero.
@@ -81,9 +90,9 @@ function enemy:start_charging(offensive)
   local enemy_x, enemy_y, _ = enemy:get_position()
   local x_offset, y_offset = sprite:get_xy()
   local angle = math.atan2(hero_y - enemy_y - y_offset, enemy_x - hero_x - x_offset) + (offensive and math.pi or 0)
-  enemy:start_straight_walking(angle, charging_speed)
-  local movement = enemy:get_movement()
+  local movement = enemy:start_straight_walking(angle, charging_speed)
   movement:set_ignore_obstacles(true)
+  sprite:set_animation("charging")
 
   -- Start another flying elsewhere if completely out of the screen while charging.
   function movement:on_position_changed()
@@ -181,14 +190,10 @@ enemy:register_event("on_custom_attack_received", function(enemy, attack)
   end
 end)
 
--- Replace on sprite position when dying.
+-- Replace on sprite position and create two bats projectiles on dying.
 enemy:register_event("on_dying", function(enemy)
+
   enemy:replace_on_sprite()
-end)
-
--- Create two bats projectiles on dead.
-enemy:register_event("on_dead", function(enemy)
-
   if not is_executed then
     enemy:create_projectile("bat", 0)
     enemy:create_projectile("bat", 2)
@@ -217,6 +222,7 @@ enemy:register_event("on_restarted", function(enemy)
     jump_on = "ignored"})
 
   -- States.
+  sprite:set_animation("walking")
   enemy:set_layer_independent_collisions(true)
   enemy:set_can_attack(true)
   enemy:set_damage(4)
