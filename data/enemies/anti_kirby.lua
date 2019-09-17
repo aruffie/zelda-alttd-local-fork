@@ -5,7 +5,7 @@
 
 -- Global variables
 local enemy = ...
-common_actions = require("enemies/lib/common_actions").learn(enemy)
+require("enemies/lib/common_actions").learn(enemy)
 
 local game = enemy:get_game()
 local map = enemy:get_map()

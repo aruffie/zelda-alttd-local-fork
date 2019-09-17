@@ -43,7 +43,6 @@ function map:on_started()
   treasure_manager:disappear_pickable(map, "pickable_small_key_1")
 end
 
-
 -----------------------
 -- Enemies events
 -----------------------

@@ -110,7 +110,7 @@ function enemy:start_charging(offensive)
   end
 end
 
--- Throw two magma balls two times if far enough, then charge.
+-- Throw two magma balls two times then charge.
 function enemy:start_attacking()
   
   attack_count = 0
@@ -147,9 +147,9 @@ function enemy:start_flying_movement(angle)
         return false
       end
     end)
-  else
 
-    -- Start a target walking to the hero else.
+  -- Start a target walking to the hero else.
+  else
     movement = enemy:start_target_walking(hero, flying_speed)
   end
   movement:set_ignore_obstacles(true)
@@ -171,7 +171,7 @@ function enemy:start_taking_off(angle)
   enemy:replace_on_sprite()
   enemy:set_visible()
   enemy:start_flying_movement(angle)
-  enemy:start_flying(take_off_duration, flying_height, false, false)
+  enemy:start_flying(take_off_duration, flying_height)
   enemy:start_attacking()
 end
 
