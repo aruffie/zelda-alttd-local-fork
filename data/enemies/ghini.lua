@@ -21,6 +21,7 @@ local take_off_duration = 1000
 local flying_speed = 88
 local flying_height = 16
 local flying_angle_modifier = 0.03
+local after_awake_delay = 1000
 
 -- Make the enemy flying movement.
 function enemy:start_flying_movement()
@@ -48,6 +49,7 @@ function enemy:start_flying_movement()
     local shortest_relative_angle = relative_angle < math.pi and relative_angle or relative_angle - circle
     angle = (angle + shortest_relative_angle * flying_angle_modifier) % circle
     movement:set_angle(angle)
+    sprite:set_direction(movement:get_direction4())
   end
 end
 
@@ -57,7 +59,9 @@ function enemy:wake_up()
   is_sleeping = false
   enemy:set_enabled(true)
   enemy:start_flying(take_off_duration, flying_height, function()
-    enemy:start_flying_movement()
+    sol.timer.start(enemy, after_awake_delay, function()
+      enemy:start_flying_movement()
+    end)
   end)
 end
 
@@ -89,7 +93,14 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_can_attack(true)
   enemy:set_damage(2)
   enemy:set_layer_independent_collisions(true)
+
+  -- Disable if sleeping, else start a fly that already took off.
   if is_sleeping then
     enemy:set_enabled(false)
+  else
+    sprite:set_xy(0, -flying_height)
+    sol.timer.start(enemy, 10, function()
+      enemy:start_flying_movement() -- Workaround: The camera position is 0, 0 here when entering a map, wait a frame before starting the move.
+    end)
   end
 end)
