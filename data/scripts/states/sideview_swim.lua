@@ -2,6 +2,7 @@ local state = sol.state.create("sideview_swim")
 state:set_can_use_sword(true)
 state:set_can_use_item(false)
 state:set_can_use_item("feather", true)
+state:set_can_use_item("hookshot", true)
 state:set_can_control_movement(true)
 state:set_can_control_direction(true)
 

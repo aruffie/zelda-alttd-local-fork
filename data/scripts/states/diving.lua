@@ -75,9 +75,6 @@ function state:on_started(previous_state_name, previous_state)
     end
 
     hero_sprite:set_animation("plunging")
-  else
-    state:set_can_use_sword(true)
-    hero:start_attack()
   end
 
 end
