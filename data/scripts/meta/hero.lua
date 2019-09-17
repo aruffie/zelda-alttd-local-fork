@@ -249,19 +249,6 @@ game_meta:register_event("on_map_changed", function(game, map)
 
     end)
 
--- Set fixed stopped/walking animations for the hero (or nil to disable them).
-  function hero_meta:set_fixed_animations(new_stopped_animation, new_walking_animation)
-
-    fixed_stopped_animation = new_stopped_animation
-    fixed_walking_animation = new_walking_animation
-    -- Initialize fixed animations if necessary.
-    local state = self:get_state()
-    if state == "free" then
-      if self:is_walking() then self:set_animation(fixed_walking_animation or "walking")
-      else self:set_animation(fixed_stopped_animation or "stopped") end
-    end
-
-  end
 
 -- Initialize hero behavior specific to this quest.
 
