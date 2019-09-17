@@ -143,7 +143,7 @@ fire:add_collision_test("sprite", function(fire, entity, fire_sprite, entity_spr
     enemies_touched[enemy] = true
     local reaction = enemy:get_fire_reaction()
 
-    -- Only remove the entity if fire has no effect on the enemy.
+    -- Remove the entity if fire has no effect on the enemy.
     if reaction == "protected" then
       fire:remove()
       return

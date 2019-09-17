@@ -3,26 +3,10 @@
 
 -- Variables
 local enemy = ...
+require("enemies/lib/common_actions").learn(enemy)
+
+local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local last_direction8 = 0
-
--- The enemy appears: set its properties.
-function enemy:on_created()
-
-  enemy:set_life(1)
-  enemy:set_damage(2)
-  enemy:create_sprite("enemies/" .. enemy:get_breed())
-  enemy:set_hookshot_reaction(1)
-  enemy:set_attack_consequence("boomerang", 1)
-  
-end
-
--- The enemy was stopped for some reason and should restart.
-function enemy:on_restarted()
-
-  local direction8 = math.random(4) * 2 - 1
-  enemy:go(direction8)
-  
-end
 
 -- An obstacle is reached: make the Star bounce.
 function enemy:on_obstacle_reached()
@@ -50,17 +34,35 @@ function enemy:on_obstacle_reached()
   else
     enemy:go(try3)
   end
-  
 end
 
 -- Makes the Star go towards a diagonal direction (1, 3, 5 or 7).
 function enemy:go(direction8)
 
-  local m = sol.movement.create("straight")
-  m:set_speed(80)
-  m:set_smooth(false)
-  m:set_angle(direction8 * math.pi / 4)
-  m:start(self)
+  local movement = sol.movement.create("straight")
+  movement:set_speed(80)
+  movement:set_smooth(false)
+  movement:set_angle(direction8 * math.pi / 4)
+  movement:start(self)
   last_direction8 = direction8
-  
 end
+
+-- Initialization.
+enemy:register_event("on_created", function(enemy)
+
+  enemy:set_life(1)
+  enemy:set_size(16, 16)
+  enemy:set_origin(8, 13)
+end)
+
+-- Restart settings.
+enemy:register_event("on_restarted", function(enemy)
+
+  -- Behavior for each items.
+  enemy:set_hero_weapons_reactions(1, {jump_on = "ignored"})
+
+  -- States.
+  enemy:set_can_attack(true)
+  enemy:set_damage(2)
+  enemy:go(math.random(4) * 2 - 1)
+end)

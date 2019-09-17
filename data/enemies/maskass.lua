@@ -23,7 +23,7 @@ end
 local function reverse_move(movement)
 
   local speed = movement:get_speed()
-  if speed > 0 then
+  if speed > 0 and enemy:get_life() > 0 then
     enemy:start_straight_walking(movement:get_angle() + math.pi, speed)
   else
     enemy:restart()
