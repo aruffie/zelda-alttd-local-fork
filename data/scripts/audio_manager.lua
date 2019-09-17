@@ -131,12 +131,15 @@ function audio_manager:play_sound(id_sound)
   if id_sound == nil then
     return false
   end
-  local id_sound = audio_manager:get_directory() .. "/" .. id_sound
+  local platform_id_sound = audio_manager:get_directory() .. "/" .. id_sound
 
-  if sol.file.exists("sounds/" .. id_sound .. ".ogg") then
-    sol.audio.play_sound(id_sound)
+  if sol.file.exists("sounds/" .. platform_id_sound .. ".ogg") then
+    sol.audio.play_sound(platform_id_sound)
   else
-    print("Warning : the sound " .. id_sound .. " doesn't exist")
+    print("Warning : the sound " .. platform_id_sound .. " doesn't exist")
+    -- Fallback to the GB sound.
+    platform_id_sound = "gb/" .. id_sound
+    sol.audio.play_sound(platform_id_sound)
   end
 
 end
