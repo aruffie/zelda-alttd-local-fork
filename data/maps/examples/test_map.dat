@@ -2208,7 +2208,7 @@ block{
   y = 29,
   sprite = "entities/blocks/box",
   pushable = true,
-  pullable = false,
+  pullable = true,
 }
 
 switch{
