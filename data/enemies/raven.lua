@@ -12,15 +12,15 @@ local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
 local circle = math.pi * 2.0
 local is_awake = false
-local is_manually_triggered = false
 local turning_time = 0
 
 -- Configuration variables
+local is_deeply_sleeping = enemy:get_property("is_deeply_sleeping")
 local after_awake_delay = 1000
 local take_off_duration = 1000
 local targeting_hero_duration = 1000
 local turning_duration = 500
-local flying_speed = 88
+local flying_speed = 120
 local flying_height = 24
 local triggering_distance = 60
 
@@ -100,8 +100,6 @@ end
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
 
-  is_manually_triggered = enemy:get_property("triggering") == "manual"
-
   enemy:set_life(2)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)
@@ -122,7 +120,7 @@ enemy:register_event("on_restarted", function(enemy)
   -- Wait for hero to be near enough 
   if is_awake then
     enemy:start_attacking()
-  elseif not is_manually_triggered then
+  elseif not is_deeply_sleeping then
     enemy:wait()
   end
 end)

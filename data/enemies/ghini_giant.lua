@@ -12,9 +12,9 @@ local camera = map:get_camera()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
 local circle = math.pi * 2.0
-local is_sleeping = false
 
 -- Configuration variables
+local is_sleeping = enemy:get_property("is_sleeping")
 local after_awake_delay = 1000
 local take_off_duration = 1000
 local flying_speed = 80
@@ -70,9 +70,6 @@ end
 
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
-
-  -- Get default state from custom property.
-  is_sleeping = enemy:get_property("default_state") == "sleeping"
 
   enemy:set_life(8)
   enemy:set_size(16, 16)

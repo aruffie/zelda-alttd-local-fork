@@ -20316,7 +20316,7 @@ enemy{
   y = 421,
   properties = {
     {
-      key = "default_state",
+      key = "initial_state",
       value = "attracting",
     },
   },
