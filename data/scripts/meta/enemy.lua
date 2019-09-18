@@ -19,7 +19,7 @@ function enemy_meta:get_hero_weapons_reactions()
   reactions.hammer = self:get_hammer_reaction()
   reactions.hookshot = self:get_hookshot_reaction()
   reactions.magic_powder = self:get_magic_powder_reaction()
-  -- TODO pegasus boots
+  reactions.thrust = self:get_thrust_reaction()
 
   return reactions
 end
@@ -38,7 +38,7 @@ function enemy_meta:set_hero_weapons_reactions(default_reaction, reactions)
   self:set_hammer_reaction(reactions.hammer or default_reaction)
   self:set_hookshot_reaction(reactions.hookshot or default_reaction)
   self:set_magic_powder_reaction(reactions.magic_powder or default_reaction)
-  -- TODO pegasus boots
+  self:set_thrust_reaction(reactions.thrust or default_reaction)
 end
 
 function enemy_meta:on_hurt(attack)

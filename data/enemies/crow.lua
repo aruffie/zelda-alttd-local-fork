@@ -46,7 +46,7 @@ function enemy:start_attacking()
   enemy:set_hero_weapons_reactions(1, {
     boomerang = 2,
     hookshot = 2,
-    charge = 2,
+    thrust = 2,
     jump_on = "ignored"
   })
 

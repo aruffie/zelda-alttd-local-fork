@@ -230,7 +230,7 @@ enemy:register_event("on_restarted", function(enemy)
 
   -- Behavior for each items.
   enemy:set_hero_weapons_reactions(1, {
-    pegasus_boots = 2,
+    thrust = 2,
     hookshot = 2,
     boomerang = "custom",
     magic_powder = "custom",
