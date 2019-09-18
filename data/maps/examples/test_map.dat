@@ -2350,7 +2350,7 @@ enemy{
   x = 304,
   y = 101,
   direction = 0,
-  breed = "maskass",
+  breed = "moblin_dog_spear",
 }
 
 enemy{
