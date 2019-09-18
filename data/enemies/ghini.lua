@@ -15,11 +15,12 @@ local circle = math.pi * 2.0
 local is_sleeping = false
 
 -- Configuration variables
+local after_awake_delay = 1000
 local take_off_duration = 1000
 local flying_speed = 80
 local flying_height = 16
-local flying_angle_modifier = 0.02
-local after_awake_delay = 1000
+local flying_angle_ratio = 0.02
+local target_validating_distance = 50
 
 -- Make the enemy flying movement.
 function enemy:start_flying_movement()
@@ -38,19 +39,20 @@ function enemy:start_flying_movement()
 
   function movement:on_position_changed()
 
-    -- Target a new point point when close enough to this one
-    if enemy:get_distance(target_x, target_y) < 1.0 / flying_angle_modifier then
+    -- Target a new point point when close enough to this one.
+    if enemy:get_distance(target_x, target_y) < target_validating_distance then
       enemy:start_flying_movement()
       return
     end
 
-    -- Else slowly turn to the target. 
+    -- Else slowly turn to the target.
+    local enemy_x, _, _ = enemy:get_position()
     local target_angle = enemy:get_angle(target_x, target_y)
     local relative_angle = (target_angle - angle) % circle
     local shortest_relative_angle = relative_angle < math.pi and relative_angle or relative_angle - circle
-    angle = (angle + shortest_relative_angle * flying_angle_modifier) % circle
+    angle = (angle + shortest_relative_angle * flying_angle_ratio) % circle
     movement:set_angle(angle)
-    sprite:set_direction(target_angle > quarter and target_angle < 3.0 * quarter and 2 or 0)
+    sprite:set_direction(target_x < enemy_x and 2 or 0)
   end
 end
 

@@ -18,7 +18,8 @@ local eighth = math.pi * 0.25
 local walking_speed = 32
 local walking_minimum_duration = 2000
 local walking_maximum_duration = 4000
-local waiting_duration = 2000
+local waiting_minimum_duration = 2000
+local waiting_maximum_duration = 4000
 
 -- Return a random visible position.
 local function get_random_visible_position()
@@ -76,7 +77,7 @@ function enemy:disappear()
   sprite:set_animation("disappearing", function()
     enemy:set_can_attack(false)
     sprite:set_animation("invisible")
-    sol.timer.start(enemy, waiting_duration, function()
+    sol.timer.start(enemy, math.random(waiting_minimum_duration, waiting_maximum_duration), function()
       if not camera:overlaps(enemy:get_max_bounding_box()) then
         return waiting_duration
       end

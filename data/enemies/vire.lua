@@ -51,6 +51,22 @@ function enemy:replace_on_sprite()
   sprite:set_xy(0, 0)
 end
 
+-- Clip the enemy sprite in the given rectangle by moving the whole enemy.
+function enemy:clip_sprite_into(sprite, x, y, width, height)
+
+  local enemy_x, enemy_y, _ = enemy:get_position()
+  local sprite_x, sprite_y = sprite:get_xy()
+  local sprite_width, sprite_height = sprite:get_size()
+  local origin_x, origin_y = sprite:get_origin()
+  local sprite_absolute_x = sprite_x - origin_x + enemy_x
+  local sprite_absolute_y = sprite_y - origin_y + enemy_y
+
+  local clipped_sprite_x = math.max(x, math.min(x + width - sprite_width, sprite_absolute_x))
+  local clipped_sprite_y = math.max(y, math.min(y + height - sprite_height, sprite_absolute_y))
+
+  enemy:set_position(clipped_sprite_x - sprite_x + origin_x, clipped_sprite_y - sprite_y + origin_y)
+end
+
 -- Create a projectile.
 function enemy:create_projectile(projectile, direction)
 
