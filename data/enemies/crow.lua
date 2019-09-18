@@ -11,7 +11,8 @@ local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
 local circle = math.pi * 2.0
-local is_attacking = false
+local is_awake = false
+local is_manually_triggered = false
 local turning_time = 0
 
 -- Configuration variables
@@ -41,8 +42,13 @@ end
 -- Start flying to the hero then slightly turn after a delay.
 function enemy:start_attacking()
 
-  is_attacking = true
-  local turning_angle = (math.random(2) - 1.5) * 0.04 
+  -- Behavior for each items.
+  enemy:set_hero_weapons_reactions(1, {
+    boomerang = 2,
+    hookshot = 2,
+    charge = 2,
+    jump_on = "ignored"
+  })
 
   -- Start a target walking from enemy sprite to hero.
   local movement = enemy:start_straight_walking(0, flying_speed)
@@ -53,6 +59,7 @@ function enemy:start_attacking()
   end
 
   -- Replace the on_position() event with the new movement after some time.
+  local turning_angle = (math.random(2) - 1.5) * 0.04 
   sol.timer.start(enemy, targeting_hero_duration, function()
     function movement:on_position_changed()
       local angle = movement:get_angle()
@@ -66,23 +73,29 @@ function enemy:start_attacking()
   end)
 end
 
+-- Make the enemy wake up.
+function enemy:wake_up()
+
+  is_awake = true
+  local x, _, _ = enemy:get_position()
+  local hero_x, _, _ = hero:get_position()
+
+  sprite:set_direction(hero_x < x and 2 or 0)
+  sprite:set_animation("flying")
+  enemy:start_flying(take_off_duration, flying_height, function()
+    sol.timer.start(enemy, after_awake_delay, function()
+      enemy:start_attacking()
+    end)
+  end)
+end
+
 -- Wait for the hero to be close enough and start flying if yes.
 function enemy:wait()
 
+  is_awake = true
   sol.timer.start(enemy, 100, function()
     if enemy:get_distance(hero) < triggering_distance then
-
-      local x, _, _ = enemy:get_position()
-      local hero_x, _, _ = hero:get_position()
-
-      sprite:set_direction(hero_x < x and 2 or 0)
-      sprite:set_animation("flying")
-      enemy:start_flying(take_off_duration, flying_height, function()
-        sol.timer.start(enemy, after_awake_delay, function()
-          enemy:start_attacking()
-        end)
-      end)
-
+      enemy:wake_up()
       return false
     end
     return true
@@ -91,6 +104,8 @@ end
 
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
+
+  is_manually_triggered = enemy:get_property("triggering") == "manual"
 
   enemy:set_life(2)
   enemy:set_size(16, 16)
@@ -101,22 +116,18 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
-  -- Behavior for each items.
-  enemy:set_hero_weapons_reactions(1, {
-    boomerang = 2,
-    hookshot = 2,
-    charge = 2,
-    jump_on = "ignored"
-  })
+  enemy:set_invincible()
 
   -- States.
   sprite:set_animation("waiting")
   enemy:set_can_attack(true)
   enemy:set_damage(4)
   enemy:set_layer_independent_collisions(true)
-  if not is_attacking then
-    enemy:wait()
-  else
+
+  -- Wait for hero to be near enough 
+  if is_awake then
     enemy:start_attacking()
+  elseif not is_manually_triggered then
+    enemy:wait()
   end
 end)

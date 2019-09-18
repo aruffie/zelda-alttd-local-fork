@@ -71,6 +71,7 @@ end
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
 
+  -- Get default state from custom property.
   is_sleeping = enemy:get_property("default_state") == "sleeping"
 
   enemy:set_life(8)
