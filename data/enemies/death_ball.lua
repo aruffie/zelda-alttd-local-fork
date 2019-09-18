@@ -13,6 +13,7 @@ local attracting_timer = nil
 local is_exhausted = false
 
 -- Configuration variables
+local initial_state = enemy:get_property("initial_state")
 local attracting_pixel_by_second = 88
 local attracting_duration = 5000
 local exhausted_duration = 2000
@@ -93,5 +94,5 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_pushed_back_when_hurt(false)
 
   -- Default state given by property.
-  enemy:start_state(enemy:get_property("default_state"))
+  enemy:start_state(initial_state)
 end)
