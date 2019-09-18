@@ -3869,6 +3869,32 @@ wall{
   stops_projectiles = true,
 }
 
+custom_entity{
+  name = "piece_of_heart_8",
+  layer = 0,
+  x = 120,
+  y = 645,
+  properties = {
+    {
+      key = "treasure_name",
+      value = "piece_of_heart",
+    },
+    {
+      key = "treasure_variant",
+      value = "1",
+    },
+    {
+      key = "treasure_savegame_variable",
+      value = "piece_of_heart_8",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/items",
+  model = "pickable_underwater",
+}
+
 tile{
   layer = 1,
   x = 304,
