@@ -83,7 +83,7 @@ enemy:register_event("on_restarted", function(enemy)
   -- Behavior for each items.
   enemy:set_hero_weapons_reactions(1, {
     hookshot = 2,
-    charge = 2,
+    thrust = 2,
     arrow = 4,
     fire = 4,
     boomerang = 8,

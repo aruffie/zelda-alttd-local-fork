@@ -78,9 +78,9 @@ enemy:register_event("on_restarted", function(enemy)
 
   -- Behavior for each items.
   enemy:set_hero_weapons_reactions(4, {
+    thrust = 2,
     hookshot = "immobilized",
-    sword = "custom",
-    --TODO pegasus_boots = 2
+    sword = "custom"
   })
 
   -- States.

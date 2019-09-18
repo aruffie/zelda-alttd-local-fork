@@ -43,7 +43,12 @@ end
 function enemy:start_attacking()
 
   -- Behavior for each items.
-  enemy:set_hero_weapons_reactions("ignored", {sword = 1})
+  enemy:set_hero_weapons_reactions(1, {
+    boomerang = 2,
+    hookshot = 2,
+    thrust = 2,
+    jump_on = "ignored"
+  })
 
   -- Start a target walking from enemy sprite to hero.
   local movement = enemy:start_straight_walking(0, flying_speed)

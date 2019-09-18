@@ -74,7 +74,7 @@ enemy:register_event("on_restarted", function(enemy)
   -- Behavior for each items.
   enemy:set_hero_weapons_reactions(3, {
     sword = 1,
-    pegasus_boots = 2,
+    thrust = 2,
     explosion = "ignored",
     jump_on = "ignored"
   })
