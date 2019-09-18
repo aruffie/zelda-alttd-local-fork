@@ -7,7 +7,8 @@
 --           enemy:is_aligned(entity, thickness)
 --           enemy:is_leashed_by(entity)
 --           enemy:is_sprite_contained(sprite, x, y, width, height)
---           enemy:clip_sprite_into(sprite, x, y, width, height)
+--           enemy:get_angle_from_sprite(sprite, entity)
+--
 --           enemy:start_straight_walking(angle, speed, [distance, [on_stopped_callback]])
 --           enemy:start_target_walking(entity, speed)
 --           enemy:start_jumping(duration, height, [angle, speed, [on_finished_callback]])
@@ -20,9 +21,11 @@
 --           enemy:stop_leashed_by(entity)
 --           enemy:start_pushed_back(entity, [speed, [duration, [on_finished_callback]]])
 --           enemy:start_pushing_back(entity, [speed, [duration, [on_finished_callback]]])
+--
 --           enemy:start_shadow([sprite_name, [animation_set_id]])
 --           enemy:start_brief_effect(sprite_name, [animation_set_id, [x_offset, [y_offset, [maximum_duration, [on_finished_callback]]]]])
 --           enemy:steal_item(item_name, [variant, [only_if_assigned, [drop_when_dead]]])
+--
 -- Events:   enemy:on_jump_finished()
 --           enemy:on_flying_took_off()
 --           enemy:on_flying_landed()
@@ -50,9 +53,9 @@ function common_actions.learn(enemy)
   -- Return true if the entity is closer to the enemy than triggering_distance
   function enemy:is_near(entity, triggering_distance, sprite)
 
+    local entity_layer = entity:get_layer()
     local x, y, layer = enemy:get_position()
     local x_offset, y_offset = 0, 0
-    local entity_layer = entity:get_layer()
     if sprite then
       x_offset, y_offset = sprite:get_xy()
     end
@@ -89,20 +92,14 @@ function common_actions.learn(enemy)
         and sprite_absolute_y >= y and sprite_absolute_y + sprite_height <= y + height 
   end
 
-  -- Clip the enemy sprite in the given rectangle by moving the whole enemy.
-  function enemy:clip_sprite_into(sprite, x, y, width, height)
+  -- Return the angle from the enemy sprite to given entity.
+  function enemy:get_angle_from_sprite(sprite, entity)
 
-    local enemy_x, enemy_y, _ = enemy:get_position()
+    local x, y, _ = enemy:get_position()
     local sprite_x, sprite_y = sprite:get_xy()
-    local sprite_width, sprite_height = sprite:get_size()
-    local origin_x, origin_y = sprite:get_origin()
-    local sprite_absolute_x = sprite_x - origin_x + enemy_x
-    local sprite_absolute_y = sprite_y - origin_y + enemy_y
+    local entity_x, entity_y, _ = entity:get_position()
 
-    local clipped_sprite_x = math.max(x, math.min(x + width - sprite_width, sprite_absolute_x))
-    local clipped_sprite_y = math.max(y, math.min(y + height - sprite_height, sprite_absolute_y))
-
-    enemy:set_position(clipped_sprite_x - sprite_x + origin_x, clipped_sprite_y - sprite_y + origin_y)
+    return math.atan2(y - entity_y + sprite_y, entity_x - x - sprite_x)
   end
 
   -- Make the enemy straight move.
