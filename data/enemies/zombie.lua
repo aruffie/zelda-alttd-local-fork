@@ -1,85 +1,108 @@
--- Lua script of enemy zombie.
+-- Lua script of enemy leever.
 -- This script is executed every time an enemy with this model is created.
 
--- Variables
+-- Global variables
 local enemy = ...
-local max_distance = 100
-local is_awake = false
+require("enemies/lib/common_actions").learn(enemy)
+require("scripts/multi_events")
+
+local game = enemy:get_game()
+local map = enemy:get_map()
+local hero = map:get_hero()
+local camera = map:get_camera()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+local quarter = math.pi * 0.5
+local eighth = math.pi * 0.25
 
--- The enemy appears: set its properties.
-function enemy:on_created()
-  
-  enemy:set_life(1)
-  enemy:set_damage(1)
-  
-end
+-- Configuration variables
+local walking_speed = 32
+local walking_minimum_duration = 2000
+local walking_maximum_duration = 4000
+local waiting_minimum_duration = 2000
+local waiting_maximum_duration = 4000
 
--- The enemy was stopped for some reason and should restart.
-function enemy:on_restarted()
-  
-  sprite:set_animation("invisible")
-  sol.timer.start(enemy, 50, function()
-    local tx, ty, _ = enemy:get_map():get_hero():get_position()
-    if enemy:get_distance(tx, ty) < max_distance then
-      if is_awake == false then
-        enemy:appear()
-      end
+-- Return a random visible position.
+local function get_random_visible_position()
+
+  local x, y, _ =  enemy:get_position()
+  local region_x, region_y, _ =  camera:get_position()
+  local region_width, region_height = camera:get_size()
+
+  while true do
+    random_x = math.random(region_x, region_x + region_width)
+    random_y = math.random(region_y, region_y + region_height)
+    if not enemy:test_obstacles(random_x - x, random_y - y) then
+      return random_x, random_y
     end
-    return true
-  end)
+  end
 
+  return nil
 end
 
+-- Start the enemy movement.
+function enemy:start_walking()
+
+  local movement = enemy:start_target_walking(hero, walking_speed)
+  movement:set_smooth(false)
+
+  local function disappear()
+    if movement then
+      movement:stop()
+      movement = nil
+      enemy:disappear()
+    end
+  end
+
+  function movement:on_obstacle_reached()
+    disappear()
+  end
+  sol.timer.start(enemy, math.random(walking_minimum_duration, walking_maximum_duration), function()
+    disappear()
+  end)
+end
+
+-- Make the enemy appear at a random position.
 function enemy:appear()
 
-  is_awake = true
-  sprite:set_animation("appearing")
-  function sprite:on_animation_finished(animation)
-    if animation == "appearing" then
-      enemy:go()
-    end
-  end
-
+  enemy:set_position(get_random_visible_position())
+  sprite:set_animation("appearing", function()
+    enemy:set_can_attack(true)
+    enemy:start_walking()
+  end)
 end
 
+-- Make the enemy disappear.
 function enemy:disappear()
 
-  sol.timer.start(enemy, 3000, function()
-  is_awake = false
+  sprite:set_animation("disappearing", function()
+    enemy:set_can_attack(false)
+    sprite:set_animation("invisible")
+    sol.timer.start(enemy, math.random(waiting_minimum_duration, waiting_maximum_duration), function()
+      if not camera:overlaps(enemy:get_max_bounding_box()) then
+        return waiting_duration
+      end
+      enemy:appear()
+    end)
   end)
-  sprite:set_animation("disappearing")
-  function sprite:on_animation_finished(animation)
-    if animation == "disappearing" then
-     sprite:set_animation("invisible")
-    end
-  end
-
 end
 
-function enemy:go()
+-- Initialization.
+enemy:register_event("on_created", function(enemy)
 
-  local distance = 36
-  local random = math.random(100)
-  distance = distance + random
-  local direction = enemy:get_direction4_to(enemy:get_map():get_hero())
-  sprite:set_animation("walking")
-  sprite:set_direction(direction)
-  local angle = enemy:get_angle(enemy:get_map():get_hero())
-  local m = sol.movement.create("straight")
-  m:set_speed(50)
-  m:set_max_distance(distance)
-  m:set_angle(angle)
-  m:start(enemy)
-  function m:on_finished()
-    enemy:disappear()
-  end
-  function m:on_obstacle_reached()
-    m:stop()
-    enemy:disappear()
-  end
+  enemy:set_life(1)
+  enemy:set_size(16, 24)
+  enemy:set_origin(8, 21)
+end)
 
-end
+-- Restart settings.
+enemy:register_event("on_restarted", function(enemy)
 
+  -- Behavior for each items.
+  enemy:set_hero_weapons_reactions(1, {jump_on = "ignored"})
 
+  -- States.
+  enemy:set_can_attack(false)
+  enemy:set_damage(2)
+  enemy:disappear()
+end)
 

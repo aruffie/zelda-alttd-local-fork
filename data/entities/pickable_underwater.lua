@@ -27,7 +27,7 @@ entity:register_event("on_created", function(entity)
     variant=tonumber(entity:get_property("treasure_variant")) or 1
     savegame_variable=entity:get_property("treasure_savegame_variable")
 
-    if savegame_variable~=nil and game:get_value(savegame_variable)=="true" then
+    if savegame_variable~=nil and game:get_value(savegame_variable) then
       entity:remove()
       return
     end
