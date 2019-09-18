@@ -50,9 +50,9 @@ function common_actions.learn(enemy)
   -- Return true if the entity is closer to the enemy than triggering_distance
   function enemy:is_near(entity, triggering_distance, sprite)
 
+    local entity_layer = entity:get_layer()
     local x, y, layer = enemy:get_position()
     local x_offset, y_offset = 0, 0
-    local entity_layer = entity:get_layer()
     if sprite then
       x_offset, y_offset = sprite:get_xy()
     end

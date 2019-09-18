@@ -13,14 +13,12 @@ local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
 local circle = math.pi * 2.0
 local is_sleeping = false
-local target_x, target_y
-local angle = math.random() * circle
 
 -- Configuration variables
 local take_off_duration = 1000
-local flying_speed = 88
+local flying_speed = 80
 local flying_height = 16
-local flying_angle_modifier = 0.03
+local flying_angle_modifier = 0.02
 local after_awake_delay = 1000
 
 -- Make the enemy flying movement.
@@ -28,11 +26,14 @@ function enemy:start_flying_movement()
 
   local camera_x, camera_y = camera:get_position()
   local camera_width, camera_height = camera:get_size()
-  target_x = math.random(camera_x, camera_x + camera_width)
-  target_y = math.random(camera_y, camera_y + camera_height)
+  local target_x = math.random(camera_x, camera_x + camera_width)
+  local target_y = math.random(camera_y + flying_height, camera_y + camera_height)
+
+  local movement = enemy:get_movement()
+  local angle = movement and movement:get_angle() or math.random() * circle
 
   -- Target a random point.
-  local movement = enemy:start_straight_walking(angle, flying_speed)
+  movement = enemy:start_straight_walking(angle, flying_speed)
   movement:set_ignore_obstacles(true)
 
   function movement:on_position_changed()
@@ -49,7 +50,7 @@ function enemy:start_flying_movement()
     local shortest_relative_angle = relative_angle < math.pi and relative_angle or relative_angle - circle
     angle = (angle + shortest_relative_angle * flying_angle_modifier) % circle
     movement:set_angle(angle)
-    sprite:set_direction(movement:get_direction4())
+    sprite:set_direction(target_angle > quarter and target_angle < 3.0 * quarter and 2 or 0)
   end
 end
 
@@ -94,7 +95,7 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_damage(2)
   enemy:set_layer_independent_collisions(true)
 
-  -- Disable if sleeping, else start a fly that already took off.
+  -- Wait for something external to wake up the enemy if default_state is sleeping, else start a fly that already took off.
   if is_sleeping then
     enemy:set_enabled(false)
   else
