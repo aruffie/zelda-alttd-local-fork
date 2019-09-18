@@ -3811,7 +3811,7 @@ dynamic_tile{
 }
 
 pickable{
-  name = "piece_of_heart_1",
+  name = "piece_of_heart_10",
   layer = 1,
   x = 136,
   y = 53,
