@@ -37,7 +37,10 @@ local directions = {
 function hero_meta.run(hero)
   local current_state=hero:get_state()
   if current_state~="custom" or hero:get_state_object():get_description()~="running" then
-    hero:start_state(state)
+    if not hero:get_map():is_sideview() or hero:get_direction()==0 or hero:get_direction()==2 then
+      --In diseviews, only allow to run sideways
+      hero:start_state(state)
+    end
   end
 end
 
@@ -129,9 +132,9 @@ function state:on_started()
         end
       end
 
-    --Run !
-    m:start(entity)
-  end)
+      --Run !
+      m:start(entity)
+    end)
 end
 
 --Stops the run when the player changes the diection

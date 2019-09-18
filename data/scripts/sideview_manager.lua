@@ -175,7 +175,7 @@ local function apply_gravity(entity)
     if entity:test_obstacles(0,1) or entity.on_ladder or
     test_ladder(entity)==false and is_ladder(entity:get_map(), x, y+3) then
       --we are on an obstacle, so reset the speed and bail.
-      if entity:get_type()=="hero" and y+2<h and entity:test_obstacles(0,1) and map:get_ground(x,y+3,layer)=="wall" then
+      if entity:get_type()=="hero" and y+2<h and entity:test_obstacles(0,1) and map:get_ground(x,y+3,layer)=="wall" and entity:get_ground_below()~="prickles" then
         entity:save_solid_ground(x,y,layer)
       end
       entity.vspeed = nil
@@ -184,7 +184,7 @@ local function apply_gravity(entity)
     entity:set_position(x,y+1)
   else
     -- Try to get up
-    if not entity:test_obstacles(0,-1) or map:get_ground(x,y+3,layer) == "prickles" then
+    if not entity:test_obstacles(0,-1) then
       entity:set_position(x,y-1)
     end
   end

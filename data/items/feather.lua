@@ -32,7 +32,7 @@ function item:start_using()
 
   local map = game:get_map()
   local hero = map:get_hero()
-  
+
 
   if not hero:is_jumping() then
     if not map:is_sideview() then
@@ -63,7 +63,10 @@ function item:start_using()
         audio_manager:play_sound("hero/jump")
         sol.timer.start(10, function()
             hero.on_ladder = false
-            hero.vspeed = -4
+            hero.vspeed = -4 --TODO don"t make underwater jumps so powerful
+            if map:get_ground(hero:get_position()) == "deep_water" then
+              hero.vspeed= -2
+            end
           end)
       end
     end
