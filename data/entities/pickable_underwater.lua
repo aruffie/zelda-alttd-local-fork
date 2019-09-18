@@ -21,6 +21,7 @@ entity:register_event("on_created", function(entity)
     -- Initialize the properties of your custom entity here,
     -- like the sprite, the size, and whether it can traverse other
     -- entities and be traversed by them.
+    entity:set_visible(false)
     local item_name=entity:get_property("treasure_name")
     item=item_name and game:get_item(item_name) or nil
     variant=tonumber(entity:get_property("treasure_variant")) or 1
