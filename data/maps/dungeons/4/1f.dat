@@ -14661,7 +14661,7 @@ enemy{
   x = 1080,
   y = 365,
   direction = 0,
-  breed = "helmasaur_masked",
+  breed = "helmasaur",
 }
 
 enemy{
@@ -14670,7 +14670,7 @@ enemy{
   x = 1160,
   y = 365,
   direction = 0,
-  breed = "helmasaur_masked",
+  breed = "helmasaur",
 }
 
 enemy{

@@ -3,7 +3,7 @@
 -- Add some basic weapon abilities to an enemy.
 -- There is no passive behavior without an explicit method call when learning this to an enemy.
 --
--- Methods : enemy:hold_sword([sprite_name, [reference_sprite, [x_offset, [y_offset]]]])
+-- Methods : enemy:hold_weapon([sprite_name, [reference_sprite, [x_offset, [y_offset]]]])
 --           enemy:throw_projectile(projectile_name, [throwing_duration, [x_offset, [y_offset, [on_throwed_callback]]]])
 --
 -- Usage : 
@@ -24,8 +24,8 @@ function weapons.learn(enemy)
   local hero = map:get_hero()
   local quarter = math.pi * 0.5
 
-  -- Make the enemy hold a sword.
-  function enemy:hold_sword(sprite_name, reference_sprite, x_offset, y_offset)
+  -- Make the enemy hold a basic weapon that hurt the hero on touched and push back on hit by sword.
+  function enemy:hold_weapon(sprite_name, reference_sprite, x_offset, y_offset)
 
     local enemy_x, enemy_y, enemy_layer = enemy:get_position()
     reference_sprite = reference_sprite or enemy:get_sprite()
@@ -97,14 +97,13 @@ function weapons.learn(enemy)
         local x, y, layer = enemy:get_position()
         local projectile = map:create_enemy({
           breed = "projectiles/" .. projectile_name,
-          x = x,
-          y = y,
+          x = x + x_offset,
+          y = y + y_offset,
           layer = layer,
           direction = direction
         })
         local projectile_sprite = projectile:get_sprite()
         projectile_sprite:set_direction(direction)
-        projectile_sprite:set_xy(x_offset, y_offset)
         if on_throwed_callback then
           on_throwed_callback()
         end

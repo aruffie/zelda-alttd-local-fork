@@ -279,8 +279,8 @@ sprite{ id = "enemies/goomba", description = "Goomba" }
 sprite{ id = "enemies/goponga_flower", description = "Goponga flower" }
 sprite{ id = "enemies/goponga_flower_giant", description = "Goponga Flower Giant" }
 sprite{ id = "enemies/hardhat_beetle", description = "Hardhat Beetle" }
-sprite{ id = "enemies/helmasaur_masked", description = "Helmasaur Masked" }
-sprite{ id = "enemies/helmasaur_naked", description = "Helmasaur Naked" }
+sprite{ id = "enemies/helmasaur", description = "Helmasaur" }
+sprite{ id = "enemies/helmasaur/mask", description = "enemies/helmasaur/mask" }
 sprite{ id = "enemies/keese", description = "Keese" }
 sprite{ id = "enemies/leever", description = "Leever" }
 sprite{ id = "enemies/like_like", description = "Like Like" }
@@ -1291,8 +1291,7 @@ enemy{ id = "goomba", description = "Goomba" }
 enemy{ id = "goponga_flower", description = "Goponga Flower" }
 enemy{ id = "goponga_flower_giant", description = "Goponga Flower Giant" }
 enemy{ id = "hardhat_beetle", description = "Hardhat Beetle" }
-enemy{ id = "helmasaur_masked", description = "Helmasaur masked" }
-enemy{ id = "helmasaur_naked", description = "Helmasaur naked" }
+enemy{ id = "helmasaur", description = "Helmasaur" }
 enemy{ id = "keese", description = "Keese" }
 enemy{ id = "leever", description = "Leever" }
 enemy{ id = "like_like", description = "Like Like" }
@@ -1380,7 +1379,8 @@ entity{ id = "non_diggable", description = "Non diggable" }
 entity{ id = "npc", description = "Non-playing character" }
 entity{ id = "obstacle", description = "Obstacle" }
 entity{ id = "pickable_fly", description = "Flying pickable" }
-entity{ id = "pickable_underwater", description = "Underwater pickable" }
+entity{ id = "pickable_sink", description = "Sinking pickable" }
+entity{ id = "pickable_underwater", description = "Pickable Underwater" }
 entity{ id = "pillar", description = "Pillar" }
 entity{ id = "platform_balance", description = "Twin linked platforms" }
 entity{ id = "platform_collapsing", description = "Collapsing platform" }
@@ -1498,8 +1498,7 @@ file{ path = "enemies/goomba.lua", license = "GPL v3" }
 file{ path = "enemies/goponga_flower.lua", license = "GPL v3" }
 file{ path = "enemies/goponga_flower_giant.lua", license = "GPL v3" }
 file{ path = "enemies/hardhat_beetle.lua", license = "GPL v3" }
-file{ path = "enemies/helmasaur_masked.lua", license = "GPL v3" }
-file{ path = "enemies/helmasaur_naked.lua", license = "GPL v3" }
+file{ path = "enemies/helmasaur.lua", license = "GPL v3" }
 file{ path = "enemies/keese.lua", license = "GPL v3" }
 file{ path = "enemies/leever.lua", license = "GPL v3" }
 file{ path = "enemies/lib", license = "GPL v3" }
@@ -2454,8 +2453,6 @@ file{ path = "sprites/enemies/goomba.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/goponga_flower.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/goponga_flower_giant.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/hardhat_beetle.png", license = "Proprietary, Fair use" }
-file{ path = "sprites/enemies/helmasaur_masked.png", license = "Proprietary, Fair use" }
-file{ path = "sprites/enemies/helmasaur_naked.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/keese.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/leever.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/like_like.png", license = "Proprietary, Fair use" }

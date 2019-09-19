@@ -5023,7 +5023,7 @@ enemy{
   x = 872,
   y = 845,
   direction = 0,
-  breed = "helmasaur_masked",
+  breed = "helmasaur",
 }
 
 enemy{
@@ -5032,7 +5032,7 @@ enemy{
   x = 800,
   y = 909,
   direction = 0,
-  breed = "helmasaur_masked",
+  breed = "helmasaur",
 }
 
 enemy{

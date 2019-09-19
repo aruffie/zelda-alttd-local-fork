@@ -16568,7 +16568,7 @@ enemy{
   x = 1688,
   y = 1821,
   direction = 0,
-  breed = "helmasaur_masked",
+  breed = "helmasaur",
   treasure_name = "random",
 }
 
@@ -16634,7 +16634,7 @@ enemy{
   x = 1176,
   y = 1821,
   direction = 0,
-  breed = "helmasaur_masked",
+  breed = "helmasaur",
   treasure_name = "random",
 }
 
@@ -16644,7 +16644,7 @@ enemy{
   x = 1064,
   y = 1821,
   direction = 0,
-  breed = "helmasaur_masked",
+  breed = "helmasaur",
   treasure_name = "random",
 }
 
@@ -16694,7 +16694,7 @@ enemy{
   x = 1352,
   y = 1805,
   direction = 0,
-  breed = "helmasaur_masked",
+  breed = "helmasaur",
   treasure_name = "random",
 }
 
@@ -17047,7 +17047,7 @@ enemy{
   x = 1352,
   y = 1549,
   direction = 0,
-  breed = "helmasaur_masked",
+  breed = "helmasaur",
   treasure_name = "random",
 }
 
@@ -17097,7 +17097,7 @@ enemy{
   x = 1096,
   y = 1565,
   direction = 0,
-  breed = "helmasaur_masked",
+  breed = "helmasaur",
   treasure_name = "random",
 }
 
@@ -17107,7 +17107,7 @@ enemy{
   x = 1192,
   y = 1613,
   direction = 0,
-  breed = "helmasaur_masked",
+  breed = "helmasaur",
   treasure_name = "random",
 }
 
@@ -17161,7 +17161,7 @@ enemy{
   x = 744,
   y = 1549,
   direction = 0,
-  breed = "helmasaur_masked",
+  breed = "helmasaur",
   treasure_name = "random",
 }
 
@@ -17171,7 +17171,7 @@ enemy{
   x = 792,
   y = 1581,
   direction = 0,
-  breed = "helmasaur_masked",
+  breed = "helmasaur",
   treasure_name = "random",
 }
 
@@ -18318,7 +18318,7 @@ enemy{
   x = 552,
   y = 1373,
   direction = 3,
-  breed = "helmasaur_masked",
+  breed = "helmasaur",
   treasure_name = "random",
 }
 
@@ -18328,7 +18328,7 @@ enemy{
   x = 504,
   y = 1389,
   direction = 3,
-  breed = "helmasaur_masked",
+  breed = "helmasaur",
   treasure_name = "random",
 }
 
@@ -18338,7 +18338,7 @@ enemy{
   x = 456,
   y = 1373,
   direction = 3,
-  breed = "helmasaur_masked",
+  breed = "helmasaur",
   treasure_name = "random",
 }
 
