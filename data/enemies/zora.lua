@@ -75,6 +75,7 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_can_attack(false)
   enemy:set_damage(2)
   enemy:set_invincible()
+  enemy:set_pushed_back_when_hurt(false)
   enemy:wait()
 end)
 
