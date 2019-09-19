@@ -484,7 +484,7 @@ function file_selection_menu:on_key_pressed(key)
             end)
           end
         else
-          audio_manager:play_sound("misc/errors")            
+          audio_manager:play_sound("misc/error")            
         end
 
       elseif self.phase == self.phases.CHOOSE_DELETE then
@@ -507,7 +507,7 @@ function file_selection_menu:on_key_pressed(key)
               -- Update all the files.
               self:read_savefiles()
             else
-              audio_manager:play_sound("misc/errors")            
+              audio_manager:play_sound("misc/error")            
             end
             
             -- Go back to first phase.

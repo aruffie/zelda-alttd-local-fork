@@ -97,9 +97,7 @@ hero_meta:register_event("on_position_changed", function(hero)
           position.x, position.y, position.layer = hero:get_position()
           local m=hero:get_movement()
           if m.get_angle then
-            local d=math.floor(m:get_angle()*8/(math.pi*2))
-            print ("direction:", d)
-            position.direction=d
+            position.direction=math.floor(m:get_angle()*8/(math.pi*2))
           else
             position.direction=m:get_direction4()*2
           end
@@ -118,7 +116,6 @@ hero_meta:register_event("on_state_changing", function(hero, old_state, state)
         local position = hero.last_stable_position
         local directions={{-8,0}, {-8, 8}, {0, 8}, {8, 8}, {8, 0}, {8, -8}, {0, -8}, {-8, -8}}
         local offset_x, offset_y=unpack(directions[position.direction+1])
-        print ("offset XY:", offset_x, offset_y)
 
         hero:set_position(position.x+offset_x, position.y+offset_y, position.layer)
 
