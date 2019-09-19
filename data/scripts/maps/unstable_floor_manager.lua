@@ -46,7 +46,7 @@ local game_meta = sol.main.get_metatable("game")
 local map_meta = sol.main.get_metatable("map")
 local hero_meta = sol.main.get_metatable("hero")
 local separator_meta = sol.main.get_metatable("separator")
-hero_meta.last_stable_position = {x = nil, y = nil, layer = nil}
+hero_meta.last_stable_position = {x = nil, y = nil, layer = nil, direction=nil}
 
 -- Function to check if the position is BAD ground, i.e., holes, lava, and maybe deep water too.
 -- Deep water is ONLY considered bad ground if the hero does NOT have the "swim" ability.
@@ -87,7 +87,7 @@ hero_meta:register_event("on_position_changed", function(hero)
 
     local map = hero:get_map()
     local game = hero:get_game()
-    if not game:get_dungeon_index() then
+    if not game:get_dungeon_index() and not map:is_sideview() and hero:get_state()~="back to solid ground" then
       local x, y, layer = hero:get_ground_position() -- Check GROUND position.
       local state = hero:get_state_object() 
       local state_ignore_ground = state and not state:get_can_come_from_bad_ground()
@@ -95,7 +95,33 @@ hero_meta:register_event("on_position_changed", function(hero)
         if not map:is_unstable_floor(x, y, layer) then
           local position = hero.last_stable_position
           position.x, position.y, position.layer = hero:get_position()
+          local m=hero:get_movement()
+          if m.get_angle then
+            local d=math.floor(m:get_angle()*8/(math.pi*2))
+            print ("direction:", d)
+            position.direction=d
+          else
+            position.direction=m:get_direction4()*2
+          end
         end
+      end
+    end
+  end)
+-- Update the last stable position of the hero.
+hero_meta:register_event("on_state_changing", function(hero, old_state, state)
+
+    local map = hero:get_map()
+    local game = hero:get_game()
+    if not game:get_dungeon_index() and not map:is_sideview() then
+      if old_state=="back to solid ground" and state=="free" then
+        print "RESPAWN"
+        local position = hero.last_stable_position
+        local directions={{-8,0}, {-8, 8}, {0, 8}, {8, 8}, {8, 0}, {8, -8}, {0, -8}, {-8, -8}}
+        local offset_x, offset_y=unpack(directions[position.direction+1])
+        print ("offset XY:", offset_x, offset_y)
+
+        hero:set_position(position.x+offset_x, position.y+offset_y, position.layer)
+
       end
     end
   end)

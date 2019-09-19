@@ -175,9 +175,6 @@ local function apply_gravity(entity)
     if entity:test_obstacles(0,1) or entity.on_ladder or
     test_ladder(entity)==false and is_ladder(entity:get_map(), x, y+3) then
       --we are on an obstacle, so reset the speed and bail.
-      if entity:get_type()=="hero" and y+2<h and entity:test_obstacles(0,1) and map:get_ground(x,y+3,layer)=="wall" and entity:get_ground_below()~="prickles" then
-        entity:save_solid_ground(x,y,layer)
-      end
       entity.vspeed = nil
       return false
     end
@@ -316,14 +313,21 @@ local function is_on_ground(entity, dy)
 end
 
 
---Respawn wnen falling into a pit
+--Manage the respawn
 hero_meta:register_event("on_position_changed", function(hero, x,y,layer)
     local map = hero:get_map()
     if map:is_sideview() then
       local w,h = map:get_size()
+      
+      --Respawn wnen falling into a pit
       if y+3>=h then
         hero:set_position(hero:get_solid_ground_position())
         hero:start_hurt(1)
+      end
+      
+      --save last stable ground
+      if y+2<h and hero:test_obstacles(0,1) and map:get_ground(x,y+3,layer)=="wall" and hero:get_ground_below()~="prickles" then
+        hero:save_solid_ground(x,y,layer)
       end
     end
   end)
