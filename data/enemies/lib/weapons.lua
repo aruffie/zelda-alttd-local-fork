@@ -97,14 +97,13 @@ function weapons.learn(enemy)
         local x, y, layer = enemy:get_position()
         local projectile = map:create_enemy({
           breed = "projectiles/" .. projectile_name,
-          x = x,
-          y = y,
+          x = x + x_offset,
+          y = y + y_offset,
           layer = layer,
           direction = direction
         })
         local projectile_sprite = projectile:get_sprite()
         projectile_sprite:set_direction(direction)
-        projectile_sprite:set_xy(x_offset, y_offset)
         if on_throwed_callback then
           on_throwed_callback()
         end
