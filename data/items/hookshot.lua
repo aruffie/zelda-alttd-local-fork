@@ -501,7 +501,7 @@ local function initialize_meta()
     return self.hookshot_reaction
   end
 
-  function enemy_meta:set_hookshot_reaction(reaction, sprite)
+  function enemy_meta:set_hookshot_reaction(reaction)
 
     self.hookshot_reaction = reaction
   end

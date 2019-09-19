@@ -74,7 +74,7 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(2)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)
-  enemy:hold_sword("enemies/darknut/sword")
+  enemy:hold_weapon("enemies/darknut/sword")
 end)
 
 -- Restart settings.
