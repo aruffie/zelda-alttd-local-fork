@@ -90,6 +90,7 @@ function state:on_started()
       entity.running_timer=nil --TODO check if this isn't useless 
       entity.running=true
       local sword_sprite
+      state:set_can_be_hurt(false)
       if game:get_ability("sword")>0 and game:has_item("sword") then
         sprite:set_animation("sword_loading_walking")
         sword_sprite = create_running_sword(hero, sprite:get_direction())

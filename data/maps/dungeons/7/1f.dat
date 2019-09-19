@@ -7290,6 +7290,46 @@ destination{
   direction = 1,
 }
 
+destructible{
+  layer = 0,
+  x = 520,
+  y = 877,
+  sprite = "entities/destructibles/pot",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 520,
+  y = 893,
+  sprite = "entities/destructibles/pot",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 440,
+  y = 877,
+  sprite = "entities/destructibles/pot",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 440,
+  y = 893,
+  sprite = "entities/destructibles/pot",
+  weight = 1,
+}
+
+enemy{
+  layer = 0,
+  x = 480,
+  y = 797,
+  direction = 0,
+  breed = "darknut",
+}
+
 tile{
   layer = 1,
   x = 64,

@@ -4,10 +4,10 @@ animation{
   frame_delay = 150,
   frame_to_loop_on = 0,
   directions = {
-    { x = 0, y = 0, frame_width = 24, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 4 },
-    { x = 0, y = 0, frame_width = 24, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 4 },
-    { x = 0, y = 0, frame_width = 24, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 4 },
-    { x = 0, y = 0, frame_width = 24, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 4 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29, num_frames = 4 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29, num_frames = 4 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29, num_frames = 4 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29, num_frames = 4 },
   },
 }
 animation{
@@ -16,10 +16,10 @@ animation{
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {
-    { x = 120, y = 0, frame_width = 24, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 3 },
-    { x = 120, y = 0, frame_width = 24, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 3 },
-    { x = 120, y = 0, frame_width = 24, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 3 },
-    { x = 120, y = 0, frame_width = 24, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 3 },
+    { x = 120, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29, num_frames = 3 },
+    { x = 120, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29, num_frames = 3 },
+    { x = 120, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29, num_frames = 3 },
+    { x = 120, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29, num_frames = 3 },
   },
 }
 animation{
@@ -28,22 +28,22 @@ animation{
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {
-    { x = 192, y = 0, frame_width = 24, frame_height = 32, origin_x = 8, origin_y = 29 },
-    { x = 192, y = 0, frame_width = 24, frame_height = 32, origin_x = 8, origin_y = 29 },
-    { x = 192, y = 0, frame_width = 24, frame_height = 32, origin_x = 8, origin_y = 29 },
-    { x = 192, y = 0, frame_width = 24, frame_height = 32, origin_x = 8, origin_y = 29 },
+    { x = 192, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29 },
+    { x = 192, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29 },
+    { x = 192, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29 },
+    { x = 192, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29 },
   },
 }
 animation{
-  name = "jump",
+  name = "jumping",
   src_image = "enemies/pols_voice.png",
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {
-    { x = 96, y = 0, frame_width = 24, frame_height = 32, origin_x = 8, origin_y = 29 },
-    { x = 96, y = 0, frame_width = 24, frame_height = 32, origin_x = 8, origin_y = 29 },
-    { x = 96, y = 0, frame_width = 24, frame_height = 32, origin_x = 8, origin_y = 29 },
-    { x = 96, y = 0, frame_width = 24, frame_height = 32, origin_x = 8, origin_y = 29 },
+    { x = 96, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29 },
+    { x = 96, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29 },
+    { x = 96, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29 },
+    { x = 96, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29 },
   },
 }
 animation{
@@ -52,9 +52,9 @@ animation{
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {
-    { x = 192, y = 0, frame_width = 24, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 2 },
-    { x = 192, y = 0, frame_width = 24, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 2 },
-    { x = 192, y = 0, frame_width = 24, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 2 },
-    { x = 192, y = 0, frame_width = 24, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 2 },
+    { x = 192, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29, num_frames = 2 },
+    { x = 192, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29, num_frames = 2 },
+    { x = 192, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29, num_frames = 2 },
+    { x = 192, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29, num_frames = 2 },
   },
 }

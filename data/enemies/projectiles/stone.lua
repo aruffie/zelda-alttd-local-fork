@@ -33,7 +33,7 @@ enemy:register_event("on_created", function(enemy)
   projectile_behavior.apply(enemy, sprite)
   enemy:set_life(1)
   enemy:set_size(4, 4)
-  enemy:set_origin(4, 13)
+  enemy:set_origin(2, 2)
 end)
 
 -- Restart settings.
