@@ -4,6 +4,7 @@
 local item = ...
 local game = item:get_game()
 local magic_needed = 0  -- Number of magic points required.
+local audio_manager=require("scripts/audio_manager")
 
 -- Event called when the game is initialized.
 function item:on_created()
@@ -50,6 +51,7 @@ function item:start_using()
   local map = item:get_map()
   local hero = map:get_hero()
   local direction = hero:get_direction()
+  audio_manager:play_sound("items/fire_rod")
   hero:set_animation("rod")
   local ox, oy=hero:get_sprite("tunic"):get_xy()
   -- Give the hero the animation of using the fire rod.
@@ -82,6 +84,7 @@ function item:start_using()
   -- Remove the fire rod and restore control after a delay.
   sol.timer.start(hero, 300, function()
     fire_rod:remove()
+    hero:unfreeze()
     item:set_finished()
   end)
 
