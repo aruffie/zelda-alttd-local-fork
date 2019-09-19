@@ -12,6 +12,7 @@ local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
 
 -- Configuration variables
+local is_archer = enemy:get_property("is_archer")
 local walking_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
 local walking_speed = 32
 local walking_minimum_distance = 16
@@ -41,7 +42,6 @@ function enemy:start_attacking()
   enemy:start_jumping(jumping_duration, jumping_height, angle, jumping_speed)
   sprite:set_animation("jumping")
   enemy.is_exhausted = true
-  
 end
 
 -- Make the enemy able to attack or not.
@@ -64,19 +64,21 @@ enemy:register_event("on_jump_finished", function(enemy)
 
   -- Throw a bone club at the hero after a delay if the enemy is still alive.
   enemy:restart()
-  sol.timer.start(enemy, throwing_bone_delay, function()
-    
-    if enemy:get_life() > 0 then
-      local x, y, layer = enemy:get_position()
-      map:create_enemy({
-        breed = "projectiles/bone",
-        x = x,
-        y = y,
-        layer = layer,
-        direction = enemy:get_direction4_to(hero)
-      })
-    end
-  end)
+  if is_archer then
+    sol.timer.start(enemy, throwing_bone_delay, function()
+      
+      if enemy:get_life() > 0 then
+        local x, y, layer = enemy:get_position()
+        map:create_enemy({
+          breed = "projectiles/bone",
+          x = x,
+          y = y,
+          layer = layer,
+          direction = enemy:get_direction4_to(hero)
+        })
+      end
+    end)
+  end
 end)
 
 -- Set exhausted on hurt.

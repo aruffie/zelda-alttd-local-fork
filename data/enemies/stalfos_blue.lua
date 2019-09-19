@@ -42,6 +42,8 @@ function enemy:start_attacking()
   movement:set_smooth(false)
   movement:start(enemy)
   enemy:start_flying(elevating_duration, jumping_height)
+  enemy:set_invincible()
+  enemy:set_can_attack(false)
   sprite:set_animation("jumping")
 
   -- Wait for a delay and start the stomp down.
@@ -83,6 +85,7 @@ enemy:register_event("on_restarted", function(enemy)
     fire = "protected"})
 
   -- States.
+  sprite:set_xy(0, 0)
   enemy:set_can_attack(true)
   enemy:set_damage(1)
   enemy:start_walking()

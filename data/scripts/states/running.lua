@@ -38,7 +38,7 @@ function hero_meta.run(hero)
   local current_state=hero:get_state()
   if current_state~="custom" or hero:get_state_object():get_description()~="running" then
     if not hero:get_map():is_sideview() or hero:get_direction()==0 or hero:get_direction()==2 then
-      --In diseviews, only allow to run sideways
+      --In sideviews, only allow to run sideways
       hero:start_state(state)
     end
   end
@@ -52,10 +52,23 @@ local function stop_sound_loop(entity)
   end
 end
 
+-- Create a new sword sprite to not trigger the "sword" attack on collision with enemies.
+local function create_running_sword(entity, direction)
+
+  local animation_set = entity:get_sprite("sword"):get_animation_set()
+  local sprite = entity:create_sprite(animation_set, "running_sword")
+  sprite:set_animation("sword_loading_walking")
+  sprite:set_direction(direction)
+
+  return sprite
+end
+
 function state:on_started()
 --  print "Run, Forrest, ruuun !"
   local entity=state:get_entity()
   local game = state:get_game()
+  local map = entity:get_map()
+  local hero = map:get_hero()
   local sprite=entity:get_sprite("tunic")
   entity:get_sprite("trail"):set_animation("running") 
   sprite:set_animation("walking")
@@ -76,16 +89,28 @@ function state:on_started()
   entity.running_timer=sol.timer.start(state, 500, function() --start movement and pull out sword if any
       entity.running_timer=nil --TODO check if this isn't useless 
       entity.running=true
+      local sword_sprite
+      state:set_can_be_hurt(false)
       if game:get_ability("sword")>0 and game:has_item("sword") then
         sprite:set_animation("sword_loading_walking")
-        local sword_sprite = entity:get_sprite("sword")
-        sword_sprite:set_animation("sword_loading_walking")
-        sword_sprite:set_direction(sprite:get_direction())
+        sword_sprite = create_running_sword(hero, sprite:get_direction())
       end
 
       local m=sol.movement.create("straight")
       m:set_speed(196)
       m:set_angle(sprite:get_direction()*math.pi/2)
+
+      -- Check if there is a collision with an enemy, then hurt it.
+      function m:on_position_changed()
+        for enemy in map:get_entities_by_type("enemy") do
+          if hero:overlaps(enemy, "sprite") and enemy:get_life() > 0 and not enemy:is_immobilized() then
+            local reaction = enemy:get_thrust_reaction()
+            if reaction ~= "ignored" then
+              enemy:receive_attack_consequence("thrust", reaction)
+            end
+          end
+        end
+      end
 
       function m:on_obstacle_reached()
         if not entity.bonking then
@@ -113,8 +138,9 @@ function state:on_started()
 
           --Play funny animation
           local collapse_sprite=entity:get_sprite("tunic"):set_animation("collapse")
-          entity:get_sprite("sword"):stop_animation()
-
+          if sword_sprite then
+            entity:remove_sprite(sword_sprite)
+          end
 
           jump_manager.start(entity, 2, function()
               entity.bonking=nil
@@ -176,7 +202,12 @@ end
 
 function state:on_finished()
   local entity=state:get_entity()
+  local sword_sprite = entity:get_sprite("running_sword")
+
   entity:get_sprite("trail"):stop_animation()
+  if sword_sprite then
+    entity:remove_sprite(sword_sprite)
+  end
 
   entity.running=nil
   entity:stop_movement()

@@ -25,38 +25,78 @@ end
 
 local game_meta = sol.main.get_metatable("game")
 game_meta:register_event("on_started", function(game)
-    game:register_event("on_command_pressed", function(game, command)
-        --Note : there is no "item_X" command check here, since this item has been integrated into the new global command override system.
-        if not game:is_suspended() then
-          if command == "action" then 
-            if game:get_command_effect("action") == nil and game:has_item("pegasus_shoes") then
-              local hero=game:get_hero()
-              local entity=hero:get_facing_entity() 
-              
-              if entity and entity:get_type()=="custom_entity" and entity:get_model() == "npc" then --secial case for the custom NPC entity, because it could not interact with
-                return 
-              end
+  game:register_event("on_command_pressed", function(game, command)
+    -- Note : there is no "item_X" command check here, since this item has been integrated into the new global command override system.
+    if not game:is_suspended() then
+      if command == "action" then 
+        if game:get_command_effect("action") == nil and game:has_item("pegasus_shoes") then
+          local hero=game:get_hero()
+          local entity=hero:get_facing_entity() 
 
-              local offsets = { {1, 0}, {0, -1}, {-1, 0}, {0, 1} }
-              if hero:test_obstacles(unpack(offsets[hero:get_direction() + 1])) or hero:get_state() == "frozen" or hero:get_state()=="swimming" or hero:get_state()=="custom" and not hero:get_state_object():get_can_use_item("pegasus_shoes") then
-                return
-              end
-              -- Caéll custom run script.
-              game:get_hero():run()
-              return true
-            end
+          if entity and entity:get_type()=="custom_entity" and entity:get_model() == "npc" then -- Special case for the custom NPC entity, because it could not interact with
+            return
           end
-        end
-      end)
-  end)
 
---This function is automaticelly called by the new global command override system. 
+          local offsets = { {1, 0}, {0, -1}, {-1, 0}, {0, 1} }
+          local state = hero:get_state()
+          if hero:test_obstacles(unpack(offsets[hero:get_direction() + 1])) or state == "frozen" or state == "swimming" or state == "custom" and not hero:get_state_object():get_can_use_item("pegasus_shoes") then
+            return
+          end
+          -- Call custom run script.
+          game:get_hero():run()
+          return true
+        end
+      end
+    end
+  end)
+end)
+
 function item:start_using()
   item:get_game():get_hero():run()
 end
 
 function item:on_obtaining()
-
   audio_manager:play_sound("items/fanfare_item_extended")
-
 end
+
+-- Initialize the metatable of appropriate entities to work with pegasus shoes.
+local function initialize_meta()
+
+  local enemy_meta = sol.main.get_metatable("enemy")
+  if enemy_meta.get_thrust_reaction ~= nil then
+    return
+  end
+
+  enemy_meta.thrust_reaction = 2  -- 2 life points by default.
+  enemy_meta.thrust_reaction_sprite = {}
+
+  function enemy_meta:get_thrust_reaction(sprite)
+    if sprite ~= nil and self.thrust_reaction_sprite[sprite] ~= nil then
+      return self.thrust_reaction_sprite[sprite]
+    end
+    return self.thrust_reaction
+  end
+
+  function enemy_meta:set_thrust_reaction(reaction)
+    self.thrust_reaction = reaction
+  end
+
+  function enemy_meta:set_thrust_reaction_sprite(sprite, reaction)
+    self.thrust_reaction_sprite[sprite] = reaction
+  end
+
+  -- Change the default enemy:set_invincible() to also
+  -- take into account the thrust.
+  local previous_set_invincible = enemy_meta.set_invincible
+  function enemy_meta:set_invincible()
+    previous_set_invincible(self)
+    self:set_thrust_reaction("ignored")
+  end
+  local previous_set_invincible_sprite = enemy_meta.set_invincible_sprite
+  function enemy_meta:set_invincible_sprite(sprite)
+    previous_set_invincible_sprite(self, sprite)
+    self:set_thrust_reaction_sprite(sprite, "ignored")
+  end
+end
+
+initialize_meta()

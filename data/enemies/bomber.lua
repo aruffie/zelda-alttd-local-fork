@@ -18,12 +18,14 @@ local walking_speed = 32
 local walking_minimum_distance = 16
 local walking_maximum_distance = 96
 local flying_height = 16
-local throwing_bomb_minimum_delay = 2000
-local throwing_bomb_maximum_delay = 4000
+local throwing_bomb_minimum_delay = 1500
+local throwing_bomb_maximum_delay = 3000
+local runaway_triggering_distance = 32
+local runaway_speed = 200
+local runaway_distance = 32
 
 local bomb_throw_duration = 600
-local bomb_throw_speed = 40
-local bomb_throw_angle = 3.0 * quarter - 0.4
+local bomb_throw_speed = 48
 
 -- Start the enemy movement.
 function enemy:start_walking()
@@ -52,12 +54,31 @@ function enemy:start_attacking()
     end)
 
     -- Throw the bomb.
-    bomb:go(bomb_throw_duration, flying_height, bomb_throw_angle, 0)
+    local angle = enemy:get_angle_from_sprite(sprite, hero)
+    bomb:go(bomb_throw_duration, flying_height, angle, 0)
     bomb:explode_at_bounce()
 
     return math.random(throwing_bomb_minimum_delay, throwing_bomb_maximum_delay)
   end)
 end
+
+-- Start the enemy runaway movement.
+function enemy:runaway()
+
+  enemy:start_straight_walking(enemy:get_angle_from_sprite(sprite, hero) + math.pi, runaway_speed, runaway_distance, function()
+    enemy:start_walking()
+  end)
+end
+
+-- Go away when attacking too close.
+game:register_event("on_command_pressed", function(game, command)
+
+  if enemy:exists() and enemy:is_enabled() and not enemy.is_exhausted then
+    if enemy:is_near(hero, runaway_triggering_distance) and (command == "attack" or command == "item_1" or command == "item_2") then
+      enemy:runaway()
+    end
+  end
+end)
 
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
@@ -74,7 +95,7 @@ enemy:register_event("on_restarted", function(enemy)
   -- Behavior for each items.
   enemy:set_hero_weapons_reactions(3, {
     sword = 1,
-    pegasus_boots = 2,
+    thrust = 2,
     explosion = "ignored",
     jump_on = "ignored"
   })

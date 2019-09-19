@@ -53,8 +53,16 @@ end
 function enemy:appear()
 
   enemy:set_position(get_random_visible_position())
+  enemy:set_visible()
   sprite:set_animation("appearing", function()
+
+    -- Behavior for each items.
+    enemy:set_hero_weapons_reactions(2, {
+      sword = 1,
+      jump_on = "ignored"
+    })
     enemy:set_can_attack(true)
+
     enemy:start_walking()
   end)
 end
@@ -63,14 +71,18 @@ end
 function enemy:disappear()
 
   sprite:set_animation("disappearing", function()
-    enemy:set_can_attack(false)
-    sprite:set_animation("invisible")
-    sol.timer.start(enemy, math.random(waiting_minimum_duration, waiting_maximum_duration), function()
-      if not camera:overlaps(enemy:get_max_bounding_box()) then
-        return waiting_duration
-      end
-      enemy:appear()
-    end)
+    enemy:restart()
+  end)
+end
+
+-- Wait a few time and appear.
+function enemy:wait()
+
+  sol.timer.start(enemy, math.random(waiting_minimum_duration, waiting_maximum_duration), function()
+    if not camera:overlaps(enemy:get_max_bounding_box()) then
+      return waiting_duration
+    end
+    enemy:appear()
   end)
 end
 
@@ -85,15 +97,11 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
-  -- Behavior for each items.
-  enemy:set_hero_weapons_reactions(2, {
-    sword = 1,
-    jump_on = "ignored"
-  })
-
   -- States.
+  enemy:set_visible(false)
   enemy:set_can_attack(false)
   enemy:set_damage(2)
-  enemy:disappear()
+  enemy:set_invincible()
+  enemy:wait()
 end)
 

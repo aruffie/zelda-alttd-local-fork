@@ -8,6 +8,7 @@
 --           enemy:is_leashed_by(entity)
 --           enemy:is_sprite_contained(sprite, x, y, width, height)
 --           enemy:get_angle_from_sprite(sprite, entity)
+--           enemy:get_central_symmetry_position(x, y)
 --
 --           enemy:start_straight_walking(angle, speed, [distance, [on_stopped_callback]])
 --           enemy:start_target_walking(entity, speed)
@@ -102,6 +103,13 @@ function common_actions.learn(enemy)
     return math.atan2(y - entity_y + sprite_y, entity_x - x - sprite_x)
   end
 
+  -- Return the central symmetry position over the given point.
+  function enemy:get_central_symmetry_position(x, y)
+
+    local enemy_x, enemy_y, _ = enemy:get_position()
+    return 2.0 * x - enemy_x, 2.0 * y - enemy_y
+  end
+
   -- Make the enemy straight move.
   function enemy:start_straight_walking(angle, speed, distance, on_stopped_callback)
 
@@ -176,6 +184,9 @@ function common_actions.learn(enemy)
           sprite:set_xy(0, -math.sqrt(math.sin(elapsed_time / duration * math.pi)) * height)
         end
         sol.timer.start(enemy, 10, function()
+          if game:is_suspended() then
+            return 10
+          end
           if enemy:exists() and enemy:is_enabled() then
             elapsed_time = elapsed_time + 10
             update_sprite_height()
@@ -302,6 +313,9 @@ function common_actions.learn(enemy)
 
       -- Start the next move timer.
       attracting_timers[entity][axis] = sol.timer.start(enemy, axis_move_delay, function()
+        if game:is_suspended() then
+          return 10
+        end
         if enemy:exists() and enemy:is_enabled() then
           attract_on_axis(axis)
         end
@@ -374,7 +388,12 @@ function common_actions.learn(enemy)
       end
 
       leashing_timers[entity] = sol.timer.start(enemy, 10, function()
-        leashing(entity, maximum_distance)
+        if game:is_suspended() then
+          return 10
+        end
+        if enemy:exists() and enemy:is_enabled() then
+          leashing(entity, maximum_distance)
+        end
       end)
     end
     leashing(entity, maximum_distance)
