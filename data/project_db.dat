@@ -881,7 +881,7 @@ sound{ id = "gb/enemies/face_lamp", description = "Empty sound" }
 sound{ id = "gb/enemies/floor_tiles", description = "Floor tiles" }
 sound{ id = "gb/enemies/genie_appear", description = "Genie appear" }
 sound{ id = "gb/enemies/genie_bottle_smash", description = "Genie bottle smash" }
-sound{ id = "gb/enemies/genie_disapear", description = "Genie disapear" }
+sound{ id = "gb/enemies/genie_disappear", description = "Genie disapear" }
 sound{ id = "gb/enemies/genie_fireball", description = "Genie fireball" }
 sound{ id = "gb/enemies/grimcreeper_big_keese", description = "Grimcreeper big keese" }
 sound{ id = "gb/enemies/hinox_grab", description = "Hinox grab" }
@@ -1067,7 +1067,6 @@ sound{ id = "snes/enemies/sea_urchin_push1", description = "Sea urchin push 1" }
 sound{ id = "snes/enemies/sea_urchin_push2", description = "Sea urchin push 2" }
 sound{ id = "snes/enemies/wizzrobe", description = "Wizzrobe" }
 sound{ id = "snes/hero/bounce", description = "Bounce" }
-sound{ id = "snes/hero/bound", description = "Bound" }
 sound{ id = "snes/hero/dying", description = "Dying" }
 sound{ id = "snes/hero/fall", description = "Fall" }
 sound{ id = "snes/hero/hurt", description = "Hurt" }
@@ -2162,7 +2161,7 @@ file{ path = "sounds/gb/enemies/evil_eagle_skid.ogg", author = "Nintendo", licen
 file{ path = "sounds/gb/enemies/floor_tiles.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/gb/enemies/genie_appear.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/gb/enemies/genie_bottle_smash.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
-file{ path = "sounds/gb/enemies/genie_disapear.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/genie_disappear.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/gb/enemies/genie_fireball.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/gb/enemies/grimcreeper_big_keese.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/gb/enemies/hinox_grab.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
@@ -2345,7 +2344,6 @@ file{ path = "sounds/snes/enemies/enemy_die.ogg", author = "Nintendo", license =
 file{ path = "sounds/snes/enemies/enemy_hit.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/enemies/laser.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/hero", author = "Nintendo", license = "Proprietary, Fair use" }
-file{ path = "sounds/snes/hero/bound.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/hero/dying.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/hero/fall.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/hero/hurt.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
