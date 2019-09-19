@@ -40,9 +40,9 @@ function enemy:start_go_away()
 end
 
 -- Set the enemy weak.
-function enemy:set_weak()
+function enemy:set_weak(weak)
 
-  is_weak = true
+  is_weak = weak
   enemy:restart()
 end
 
@@ -67,7 +67,7 @@ end
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
 
-  enemy:set_life(1)
+  enemy:set_life(4)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)
   enemy:start_shadow()
@@ -80,16 +80,21 @@ enemy:register_event("on_restarted", function(enemy)
   sprite:set_xy(0, -flying_height) -- Directly flying without landing.
   enemy:set_can_attack(true)
   enemy:set_damage(4)
+  enemy:set_layer_independent_collisions(true)
 
   if not is_weak then
-    enemy:set_hero_weapons_reactions(on_inoffensive_attack, {jump_on = "ignored"})
+    enemy:set_hero_weapons_reactions(on_inoffensive_attack, {
+      arrow = 1,
+      fire = 4,
+      jump_on = "ignored"
+    })
     enemy:start_walking()
   else
     enemy:set_hero_weapons_reactions("ignored", {
-      sword = 1,
-      arrow = 1,
-      fire = 1,
-      thrust = 1
+      sword = 4,
+      arrow = 4,
+      fire = 4,
+      thrust = 4
     })
     enemy:start_go_away()
   end
