@@ -1058,6 +1058,7 @@ sound{ id = "picked_item", description = "Empty sound" }
 sound{ id = "running", description = "Empty sound" }
 sound{ id = "running_obstacle", description = "Empty sound" }
 sound{ id = "shield", description = "Empty sound" }
+sound{ id = "snes/enemies/boss_die", description = "Boss dying" }
 sound{ id = "snes/enemies/boss_hit", description = "Boss hit" }
 sound{ id = "snes/enemies/enemy_die", description = "Enemy die" }
 sound{ id = "snes/enemies/enemy_hit", description = "Enemy hit" }
@@ -1077,7 +1078,11 @@ sound{ id = "snes/hero/pickup", description = "Pickup" }
 sound{ id = "snes/hero/rebound", description = "Rebound" }
 sound{ id = "snes/hero/run", description = "Run" }
 sound{ id = "snes/hero/shock", description = "Shock" }
+sound{ id = "snes/hero/swim", description = "Swimming" }
 sound{ id = "snes/hero/throw", description = "Throw" }
+sound{ id = "snes/hero/wade1", description = "Walk in water 1" }
+sound{ id = "snes/hero/wade2", description = "Walk in water 2" }
+sound{ id = "snes/items/bomb_drop", description = "Bomb drop" }
 sound{ id = "snes/items/bomb_explode", description = "Bomb explode" }
 sound{ id = "snes/items/boomerang", description = "Boomerang" }
 sound{ id = "snes/items/bow_arrow", description = "Bow arrow" }
@@ -1122,8 +1127,8 @@ sound{ id = "snes/misc/dungeon_switch", description = "Dungeon switch" }
 sound{ id = "snes/misc/dungeon_teleport", description = "Dungeon teleport" }
 sound{ id = "snes/misc/error", description = "Error" }
 sound{ id = "snes/misc/ground_crumble", description = "Ground crumble" }
+sound{ id = "snes/misc/kiki", description = "Monkey" }
 sound{ id = "snes/misc/low_health", description = "Low health" }
-sound{ id = "snes/misc/monkey", description = "Monkey" }
 sound{ id = "snes/misc/mysterious_woods_lost", description = "Mysterious woods lost" }
 sound{ id = "snes/misc/owl_fly_away", description = "Owl fly away" }
 sound{ id = "snes/misc/owl_fly_in", description = "Owl fly in" }
@@ -2339,6 +2344,7 @@ file{ path = "sounds/running_obstacle.ogg", author = "Franck Jousseaume", licens
 file{ path = "sounds/shield.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/snes", author = "Nintendo, Diarandor, Zonzifleur", license = "Proprietary, Fair use, CC BY-SA 4.0" }
 file{ path = "sounds/snes/enemies", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/enemies/boss_die.ogg", author = "Nintendo", license = "Proprietary, fair use" }
 file{ path = "sounds/snes/enemies/boss_hit.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/enemies/enemy_die.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/enemies/enemy_hit.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
@@ -2397,7 +2403,7 @@ file{ path = "sounds/snes/misc/dungeon_open.ogg", author = "Nintendo", }
 file{ path = "sounds/snes/misc/dungeon_switch.ogg", author = "Nintendo", }
 file{ path = "sounds/snes/misc/dungeon_teleport.ogg", author = "Nintendo", }
 file{ path = "sounds/snes/misc/error.ogg", author = "Nintendo", }
-file{ path = "sounds/snes/misc/monkey.ogg", author = "Nintendo", }
+file{ path = "sounds/snes/misc/kiki.ogg", author = "Nintendo", }
 file{ path = "sounds/snes/misc/rock_push.ogg", author = "Nintendo", }
 file{ path = "sounds/snes/misc/rock_shatter.ogg", author = "Nintendo", }
 file{ path = "sounds/snes/misc/secret1.ogg", author = "Nintendo", }
