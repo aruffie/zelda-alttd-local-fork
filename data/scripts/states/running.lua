@@ -77,7 +77,9 @@ function state:on_started()
   entity.run_sound_timer = sol.timer.start(state, 200, function()
       if not entity.is_jumping or entity:is_jumping()==false then
         if entity:get_ground_below() == "shallow_water" then
-          audio_manager:play_sound("hero/splash")
+          audio_manager:play_sound("hero/wade1")
+        elseif entity:get_ground_below()=="grass" then
+          audio_manager:play_sound("hero/walk on grass")
         else
           audio_manager:play_sound("hero/run")
         end

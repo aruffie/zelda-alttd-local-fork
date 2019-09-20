@@ -57,7 +57,7 @@ local function attach_to_obstacle()
 
   flying = false
   sprite:set_animation("reached_obstacle")
-  sol.audio.play_sound("arrow_hit")
+  sol.audio.play_sound("items/arrow_hit")
   arrow:stop_movement()
 
   -- Remove the hero after a delay.

@@ -1058,6 +1058,7 @@ sound{ id = "picked_item", description = "Empty sound" }
 sound{ id = "running", description = "Empty sound" }
 sound{ id = "running_obstacle", description = "Empty sound" }
 sound{ id = "shield", description = "Empty sound" }
+sound{ id = "snes/enemies/blade_trap", description = "Blade trap" }
 sound{ id = "snes/enemies/boss_die", description = "Boss dying" }
 sound{ id = "snes/enemies/boss_hit", description = "Boss hit" }
 sound{ id = "snes/enemies/enemy_die", description = "Enemy die" }
@@ -1069,6 +1070,7 @@ sound{ id = "snes/enemies/sea_urchin_push2", description = "Sea urchin push 2" }
 sound{ id = "snes/enemies/wizzrobe", description = "Wizzrobe" }
 sound{ id = "snes/hero/bounce", description = "Bounce" }
 sound{ id = "snes/hero/bound", description = "Bound" }
+sound{ id = "snes/hero/diving", description = "Diving" }
 sound{ id = "snes/hero/dying", description = "Dying" }
 sound{ id = "snes/hero/fall", description = "Fall" }
 sound{ id = "snes/hero/hurt", description = "Hurt" }
@@ -1078,10 +1080,13 @@ sound{ id = "snes/hero/pickup", description = "Pickup" }
 sound{ id = "snes/hero/rebound", description = "Rebound" }
 sound{ id = "snes/hero/run", description = "Run" }
 sound{ id = "snes/hero/shock", description = "Shock" }
+sound{ id = "snes/hero/splash", description = "Splash" }
 sound{ id = "snes/hero/swim", description = "Swimming" }
 sound{ id = "snes/hero/throw", description = "Throw" }
 sound{ id = "snes/hero/wade1", description = "Walk in water 1" }
 sound{ id = "snes/hero/wade2", description = "Walk in water 2" }
+sound{ id = "snes/hero/walk_on_gress", description = "Walk on grass" }
+sound{ id = "snes/items/arrow_hit", description = "Arrow (wall hit)" }
 sound{ id = "snes/items/bomb_drop", description = "Bomb drop" }
 sound{ id = "snes/items/bomb_explode", description = "Bomb explode" }
 sound{ id = "snes/items/boomerang", description = "Boomerang" }
@@ -1094,11 +1099,14 @@ sound{ id = "snes/items/get_item", description = "Get item" }
 sound{ id = "snes/items/get_item2", description = "Get item 2" }
 sound{ id = "snes/items/get_rupee", description = "Get rupee" }
 sound{ id = "snes/items/get_sword", description = "Get sword" }
+sound{ id = "snes/items/hammer", description = "Hammer (peg hit)" }
+sound{ id = "snes/items/hammer_stake", description = "Hammer" }
 sound{ id = "snes/items/hookshot", description = "Hookshot" }
 sound{ id = "snes/items/magic_powder", description = "Magic powder" }
 sound{ id = "snes/items/shield", description = "Shield" }
 sound{ id = "snes/items/shovel_dig", description = "Shovel dig" }
 sound{ id = "snes/items/sword_charge", description = "Sword charge" }
+sound{ id = "snes/items/sword_shoot", description = "Sword beam" }
 sound{ id = "snes/items/sword_slash1", description = "Sword slash 1" }
 sound{ id = "snes/items/sword_slash2", description = "Sword slash 2" }
 sound{ id = "snes/items/sword_slash3", description = "Sword slash 3" }
