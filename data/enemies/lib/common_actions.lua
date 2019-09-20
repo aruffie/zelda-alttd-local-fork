@@ -4,7 +4,7 @@
 -- There is no passive behavior without an explicit start when learning this to an enemy.
 --
 -- Methods : enemy:is_near(entity, triggering_distance, [sprite])
---           enemy:is_aligned(entity, thickness)
+--           enemy:is_aligned(entity, thickness, [sprite])
 --           enemy:is_leashed_by(entity)
 --           enemy:is_sprite_contained(sprite, x, y, width, height)
 --           enemy:get_angle_from_sprite(sprite, entity)
@@ -66,12 +66,17 @@ function common_actions.learn(enemy)
   end
 
   -- Return true if the entity is on the same row or column than the entity.
-  function enemy:is_aligned(entity, thickness)
+  function enemy:is_aligned(entity, thickness, sprite)
 
     local half_thickness = thickness * 0.5
-    local x, y, layer = enemy:get_position()
     local entity_x, entity_y, entity_layer = entity:get_position()
-    return (math.abs(entity_x - x) < half_thickness or math.abs(entity_y - y) < half_thickness) and layer == entity_layer
+    local x, y, layer = enemy:get_position()
+    local x_offset, y_offset = 0, 0
+    if sprite then
+      x_offset, y_offset = sprite:get_xy()
+    end
+
+    return (math.abs(entity_x - x - x_offset) < half_thickness or math.abs(entity_y - y - y_offset) < half_thickness) and layer == entity_layer
   end
 
   -- Return true if the enemy is currently leashed by the entity.

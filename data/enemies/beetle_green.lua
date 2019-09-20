@@ -1,28 +1,46 @@
+-- Lua script of enemy beetle green.
+-- This script is executed every time an enemy with this model is created.
+
+-- Global variables
 local enemy = ...
+require("enemies/lib/common_actions").learn(enemy)
+
 local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
-local sprite
-local movement
+local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+local quarter = math.pi * 0.5
 
-function enemy:on_created()
+-- Configuration variables
+local walking_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
+local walking_speed = 48
+local walking_minimum_distance = 16
+local walking_maximum_distance = 96
 
-  sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
-  enemy:set_life(4)
-  enemy:set_damage(0)
+-- Start the enemy movement.
+function enemy:start_walking()
+
+  enemy:start_straight_walking(walking_angles[math.random(4)], walking_speed, math.random(walking_minimum_distance, walking_maximum_distance), function()
+    enemy:start_walking()
+  end)
 end
 
-function enemy:on_restarted()
+-- Initialization.
+enemy:register_event("on_created", function(enemy)
 
-  movement = sol.movement.create("random")
-  movement:set_speed(48)
-  movement:start(enemy)
-end
+  enemy:set_life(1)
+  enemy:set_size(16, 16)
+  enemy:set_origin(8, 13)
+end)
 
-function enemy:on_movement_changed(movement)
+-- Restart settings.
+enemy:register_event("on_restarted", function(enemy)
 
-  local direction4 = movement:get_direction4()
-  local sprite = self:get_sprite()
-  sprite:set_direction(direction4)
-end
+  -- Behavior for each items.
+  enemy:set_hero_weapons_reactions(1)
 
+  -- States.
+  enemy:set_can_attack(true)
+  enemy:set_damage(2)
+  enemy:start_walking()
+end)
