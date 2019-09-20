@@ -118,7 +118,7 @@ function state:on_started()
           entity:get_sprite("trail"):stop_animation()
           stop_sound_loop(entity)
           entity.bonking=true
-          audio_manager:play_sound("items/bomb_explode")
+          audio_manager:play_sound("hero/rebound")
           local map=entity:get_map()
 
           --Crash into entities (imported from the original custom script, don't know if it even works) 

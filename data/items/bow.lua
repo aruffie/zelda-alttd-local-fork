@@ -87,26 +87,26 @@ function item:start_using()
     hero:set_animation("bow")
 
     sol.timer.start(map, 290, function()
-    sol.audio.play_sound("bow")
-      self:remove_amount(1)
-      self:set_finished()
-      local x, y = hero:get_center_position()
-      local ox, oy=hero:get_sprite("tunic"):get_xy()
-      local _, _, layer = hero:get_position()
-      local arrow = map:create_custom_entity({
-        x = x+ox,
-        y = y+oy,
-        layer = layer,
-        width = 16,
-        height = 16,
-        direction = hero:get_direction(),
-        model = "arrow",
-      })
+        audio_manager:play_sound("hero/bow")
+        self:remove_amount(1)
+        self:set_finished()
+        local x, y = hero:get_center_position()
+        local ox, oy=hero:get_sprite("tunic"):get_xy()
+        local _, _, layer = hero:get_position()
+        local arrow = map:create_custom_entity({
+            x = x+ox,
+            y = y+oy,
+            layer = layer,
+            width = 16,
+            height = 16,
+            direction = hero:get_direction(),
+            model = "arrow",
+          })
 
-      arrow:set_force(self:get_force())
-      arrow:set_sprite_id(self:get_arrow_sprite_id())
-      arrow:go()
-    end)
+        arrow:set_force(self:get_force())
+        arrow:set_sprite_id(self:get_arrow_sprite_id())
+        arrow:go()
+      end)
   end
 end
 

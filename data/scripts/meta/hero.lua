@@ -91,6 +91,19 @@ hero_meta:register_event("on_state_changed", function(hero)
 
   end)
 
+hero_meta:register_event("on_state_changing", function(hero, old_state, new_state)
+    if old_state=="jumping" and new_state=="free" then
+      local ground=hero:get_ground_below()
+      if ground=="shallow_water" then
+        audio_manager:play_sound("hero/wade1")
+      elseif ground=="grass" then
+        audio_manager:play_sound("walk_on_grass") --TODO use the actual sound effect
+      else
+        audio_manager:play_sound("hero/land")
+      end
+    end
+  end)
+
 hero_meta:register_event("notify_object_thrown", function() end)
 
 hero_meta:register_event("on_position_changed", function(hero)
@@ -156,7 +169,7 @@ hero_meta:register_event("on_position_changed", function(hero)
   end)
 
 hero_meta:register_event("on_state_changed", function(hero , state)
-    
+
     local game = hero:get_game()
     -- Avoid to lose any life when drowning.
     if state == "back to solid ground" then
@@ -241,162 +254,162 @@ game_meta:register_event("on_map_changed", function(game, map)
       set_sprite_offset(hero, 0,0)
 --      hero:get_sprite("shadow"):set_animation("big")
       if not hero:get_sprite("shadow_override") then
-          local s=hero:create_sprite("entities/shadow", "shadow_override")
-          s:set_animation("big")
-          hero:bring_sprite_to_back(s)
-        end
+        local s=hero:create_sprite("entities/shadow", "shadow_override")
+        s:set_animation("big")
+        hero:bring_sprite_to_back(s)
       end
+    end
 
-    end)
+  end)
 
 
 -- Initialize hero behavior specific to this quest.
 
-  hero_meta:register_event("on_created", function(hero)
+hero_meta:register_event("on_created", function(hero)
 
-      hero:initialize_fixing_functions() -- Used to fix direction and animations.
+    hero:initialize_fixing_functions() -- Used to fix direction and animations.
 
-    end)
+  end)
 
 
 --------------------------------------------------
 -- Functions to fix tunic animation and direction.
 --------------------------------------------------
-  local fixed_direction, fixed_stopped_animation, fixed_walking_animation
+local fixed_direction, fixed_stopped_animation, fixed_walking_animation
 
 
 -- Get fixed direction for the hero.
-  function hero_meta:get_fixed_direction()
+function hero_meta:get_fixed_direction()
 
-    return fixed_direction
+  return fixed_direction
 
-  end
+end
 
 -- Get fixed stopped/walking animations for the hero.
-  function hero_meta:get_fixed_animations()
+function hero_meta:get_fixed_animations()
 
-    return fixed_stopped_animation, fixed_walking_animation
+  return fixed_stopped_animation, fixed_walking_animation
 
-  end
+end
 
 -- Set a fixed direction for the hero (or nil to disable it).
-  function hero_meta:set_fixed_direction(new_direction)
+function hero_meta:set_fixed_direction(new_direction)
 
-    fixed_direction = new_direction
-    if fixed_direction then
-      self:get_sprite("tunic"):set_direction(fixed_direction)
-    end
-
+  fixed_direction = new_direction
+  if fixed_direction then
+    self:get_sprite("tunic"):set_direction(fixed_direction)
   end
+
+end
 
 -- Set fixed stopped/walking animations for the hero (or nil to disable them).
-  function hero_meta:set_fixed_animations(new_stopped_animation, new_walking_animation)
+function hero_meta:set_fixed_animations(new_stopped_animation, new_walking_animation)
 
-    fixed_stopped_animation = new_stopped_animation
-    fixed_walking_animation = new_walking_animation
-    -- Initialize fixed animations if necessary.
-    local state = self:get_state()
-    if state == "free" then
-      if self:is_walking() then self:set_animation(fixed_walking_animation or "walking")
-      else self:set_animation(fixed_stopped_animation or "stopped") end
-    end
-
+  fixed_stopped_animation = new_stopped_animation
+  fixed_walking_animation = new_walking_animation
+  -- Initialize fixed animations if necessary.
+  local state = self:get_state()
+  if state == "free" then
+    if self:is_walking() then self:set_animation(fixed_walking_animation or "walking")
+    else self:set_animation(fixed_stopped_animation or "stopped") end
   end
+
+end
 
 -- Initialize events to fix direction and animation for the tunic sprite of the hero.
 -- For this purpose, we redefine on_created and set_tunic_sprite_id events for the hero metatable.
-  function hero_meta:initialize_fixing_functions()
+function hero_meta:initialize_fixing_functions()
 
-    local hero = self
-    local sprite = hero:get_sprite("tunic")
+  local hero = self
+  local sprite = hero:get_sprite("tunic")
 
-    -- Define events for the tunic sprite.
-    function sprite:on_animation_changed(animation)
-      local tunic_animation = sprite:get_animation()
-      if tunic_animation == "stopped" and fixed_stopped_animation ~= nil then 
-        if fixed_stopped_animation ~= tunic_animation then
-          sprite:set_animation(fixed_stopped_animation)
-        end
-      elseif tunic_animation == "walking" and fixed_walking_animation ~= nil then 
-        if fixed_walking_animation ~= tunic_animation then
-          sprite:set_animation(fixed_walking_animation)
-        end
+  -- Define events for the tunic sprite.
+  function sprite:on_animation_changed(animation)
+    local tunic_animation = sprite:get_animation()
+    if tunic_animation == "stopped" and fixed_stopped_animation ~= nil then 
+      if fixed_stopped_animation ~= tunic_animation then
+        sprite:set_animation(fixed_stopped_animation)
       end
-      function sprite:on_direction_changed(animation, direction)
-        local fixed_direction = fixed_direction
-        local tunic_direction = sprite:get_direction()
-        if fixed_direction ~= nil and fixed_direction ~= tunic_direction then
-          sprite:set_direction(fixed_direction)
-        end
+    elseif tunic_animation == "walking" and fixed_walking_animation ~= nil then 
+      if fixed_walking_animation ~= tunic_animation then
+        sprite:set_animation(fixed_walking_animation)
       end
     end
-    -- Initialize fixing functions for the new sprite when the tunic sprite is changed.
-    local old_set_tunic = hero_meta.set_tunic_sprite_id -- We redefine this function.
-    function hero_meta:set_tunic_sprite_id(sprite_id)
-      old_set_tunic(self, sprite_id)
-      self:initialize_fixing_functions()
+    function sprite:on_direction_changed(animation, direction)
+      local fixed_direction = fixed_direction
+      local tunic_direction = sprite:get_direction()
+      if fixed_direction ~= nil and fixed_direction ~= tunic_direction then
+        sprite:set_direction(fixed_direction)
+      end
     end
-
   end
+  -- Initialize fixing functions for the new sprite when the tunic sprite is changed.
+  local old_set_tunic = hero_meta.set_tunic_sprite_id -- We redefine this function.
+  function hero_meta:set_tunic_sprite_id(sprite_id)
+    old_set_tunic(self, sprite_id)
+    self:initialize_fixing_functions()
+  end
+
+end
 
 -- Create an exclamation symbol near hero
-  function hero_meta:create_symbol_exclamation()
+function hero_meta:create_symbol_exclamation()
 
-    local map = self:get_map()
-    local x, y, layer = self:get_position()
-    audio_manager:play_sound("menus/menu_select")
-    local symbol = map:create_custom_entity({
-        sprite = "entities/symbols/exclamation",
-        x = x - 16,
-        y = y - 16,
-        width = 16,
-        height = 16,
-        layer = layer + 1,
-        direction = 0
-      })
+  local map = self:get_map()
+  local x, y, layer = self:get_position()
+  audio_manager:play_sound("menus/menu_select")
+  local symbol = map:create_custom_entity({
+      sprite = "entities/symbols/exclamation",
+      x = x - 16,
+      y = y - 16,
+      width = 16,
+      height = 16,
+      layer = layer + 1,
+      direction = 0
+    })
 
-    return symbol
+  return symbol
 
-  end
+end
 
 -- Create an interrogation symbol near hero
-  function hero_meta:create_symbol_interrogation()
+function hero_meta:create_symbol_interrogation()
 
-    local map = self:get_map()
-    local x, y, layer = self:get_position()
-    audio_manager:play_sound("menus/menu_select")
-    local symbol = map:create_custom_entity({
-        sprite = "entities/symbols/interrogation",
-        x = x,
-        y = y,
-        width = 16,
-        height = 16,
-        layer = layer + 1,
-        direction = 0
-      })
+  local map = self:get_map()
+  local x, y, layer = self:get_position()
+  audio_manager:play_sound("menus/menu_select")
+  local symbol = map:create_custom_entity({
+      sprite = "entities/symbols/interrogation",
+      x = x,
+      y = y,
+      width = 16,
+      height = 16,
+      layer = layer + 1,
+      direction = 0
+    })
 
-    return symbol
+  return symbol
 
-  end
+end
 
 -- Create a collapse symbol near hero
-  function hero_meta:create_symbol_collapse()
+function hero_meta:create_symbol_collapse()
 
-    local map = self:get_map()
-    local width, height = self:get_sprite():get_size()
-    local x, y, layer = self:get_position()
-    local symbol = map:create_custom_entity({
-        sprite = "entities/symbols/collapse",
-        x = x,
-        y = y - height / 2,
-        width = 16,
-        height = 16,
-        layer = layer + 1,
-        direction = 0
-      })
+  local map = self:get_map()
+  local width, height = self:get_sprite():get_size()
+  local x, y, layer = self:get_position()
+  local symbol = map:create_custom_entity({
+      sprite = "entities/symbols/collapse",
+      x = x,
+      y = y - height / 2,
+      width = 16,
+      height = 16,
+      layer = layer + 1,
+      direction = 0
+    })
 
-    return symbol
+  return symbol
 
-  end
+end
 
-  return true
+return true
