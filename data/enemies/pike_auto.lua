@@ -52,7 +52,7 @@ function enemy:on_obstacle_reached()
   if recent_obstacle == 0
     and math.abs(x - hero_x) < 184
     and math.abs(y - hero_y) < 144 then
-    audio_manager:play_sound("items/sword_tap")
+    audio_manager:play_sound("enemies/blade_trap")
   end
 
   recent_obstacle = 8

@@ -5,7 +5,7 @@ local hero_meta = sol.main.get_metatable("hero")
 local map_meta = sol.main.get_metatable("map")
 local game_meta = sol.main.get_metatable("game")
 -- Sounds:
-local diving_sound = "diving"
+local diving_sound = "hero/diving"
 
 -- Parameters:
 local is_hero_diving

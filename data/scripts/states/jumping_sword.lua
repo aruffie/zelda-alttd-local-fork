@@ -6,13 +6,10 @@
   Don't forget to require "states/jumping" along this file so you can jump with bare hands too.
 
   This script is mostly a wrapper, all this does is setup the custom state and pass it to the jump manager system, who will actually do the animation.
-  
-  Known (funny) bug:
-  Once the sword is pulled out, it's blade will continuously have the damage effect, allowing to cut grass like a land mower!
 --]]
 
 local jm=require("scripts/jump_manager")
-
+local audio_manager=require("scripts/audio_manager")
 local state = jm.init("jumping_sword")
 
 local hero_meta= sol.main.get_metatable("hero")
@@ -25,7 +22,15 @@ function hero_meta.start_flying_attack(hero)
   if hero:get_state()~="custom" or hero:get_state_object():get_description()~="jumping_sword" then
     hero:start_state(state)
   end
-  jm.start(hero)
+  jm.start(hero, nil, function()
+      if hero:get_ground_below() == "shallow_water" then
+        audio_manager:play_sound("hero/wade1")
+      elseif hero:get_ground_below()=="grass" then
+        audio_manager:play_sound("hero/walk on grass")
+      else
+        audio_manager:play_sound("hero/land")
+      end
+    end)
 end
 
 

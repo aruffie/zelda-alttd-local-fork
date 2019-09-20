@@ -9,6 +9,29 @@ local timer_sword_loading = nil
 local timer_sword_tapping = nil
 local timer_stairs = nil
 require("scripts/multi_events")
+hero_meta:register_event("on_movement_changed", function(hero, movement)
+    if not hero:get_map():is_sideview() then
+      if movement:get_speed() ~=0 and not hero.walking_sound_timer then
+        print "movement ok"
+        hero.walking_sound_timer=sol.timer.start(hero, 300, function()
+            print "footstep"
+            if hero:get_ground_below()=="shallow_water" then
+              audio_manager:play_sound("hero/wade"..(math.random(1, 2)))
+            elseif hero:get_ground_below()=="grass" then
+              audio_manager:play_sound("hero/walk_on_grass")
+            end
+            return true
+          end)
+      else
+        print "movement stop"
+        if hero.walking_sound_timer then
+          hero.walking_sound_timer:stop()
+          hero.walking_sound_timer=nil
+        end
+      end
+    end
+
+  end)
 
 hero_meta:register_event("on_state_changed", function(hero)
 
