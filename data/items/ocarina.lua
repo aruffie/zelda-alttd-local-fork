@@ -15,7 +15,7 @@ end
 -- Event called when the hero is using this item.
 function item:on_using()
 
-  item:playing_song("items/ocarina")
+  item:playing_song("items/ocarina_default")
   item:set_finished()
 
 end
