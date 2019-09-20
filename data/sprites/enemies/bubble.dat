@@ -10,3 +10,13 @@ animation{
     { x = 0, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 16, num_frames = 6 },
   },
 }
+animation{
+  name = "hurt",
+  src_image = "enemies/bubble.png",
+  directions = {
+    { x = 96, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 16 },
+    { x = 96, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 16 },
+    { x = 96, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 16 },
+    { x = 96, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 16 },
+  },
+}
