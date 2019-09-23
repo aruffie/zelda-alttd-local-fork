@@ -92,6 +92,7 @@ map{ id = "examples/reflection_tests", description = "Test reflections" }
 map{ id = "examples/sideview_cave", description = "Sideview cave example" }
 map{ id = "examples/sideview_test_map", description = "Test map (sideviews)" }
 map{ id = "examples/test_map", description = "Test map" }
+map{ id = "examples/test_map2", description = "Test map 2" }
 map{ id = "houses/east_prairie/telephone_booth_5", description = "Telephone booth 5" }
 map{ id = "houses/egg_of_the_dream_fish/photographer_house", description = "Photographer house" }
 map{ id = "houses/graveyard/drugstore", description = "Drugstore" }
@@ -2080,6 +2081,7 @@ file{ path = "scripts", license = "GPL v3" }
 file{ path = "scripts/automation", author = "Olivier Cléro", license = "BSD, GPL v3" }
 file{ path = "scripts/automation/automation.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/automation/easing.lua", author = "Robert Penner, Olivier Cléro", license = "BSD" }
+file{ path = "scripts/ceiling_drop_manager.lua", author = "MetalZelda, adapted by PhoenixII54", }
 file{ path = "scripts/gfx_effects", author = "PhoenixII54, Stdgregwar", license = "GPL v3" }
 file{ path = "scripts/gfx_effects/distorsion.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/gfx_effects/electric.lua", author = "Stdgregwar", license = "GPL v3" }

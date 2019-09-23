@@ -521,7 +521,7 @@ local function update_hero(hero)
         new_animation = "climbing_stopped"
       elseif not is_on_ground(hero) then
         if map:get_ground(x,y+4,layer)=="deep_water" then
-          new_animation ="stopped_swimming_scroll"
+          new_animation = "stopped_swimming_scroll"
         else
           new_animation = "jumping"
         end
@@ -557,7 +557,6 @@ game_meta:register_event("on_map_changed", function(game, map)
           return true
         end)
     else
-
       hero:set_walking_speed(88)
     end
   end)
