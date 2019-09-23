@@ -224,6 +224,89 @@ tile{
   pattern = "floor_low.2-1",
 }
 
+tile{
+  layer = 0,
+  x = 184,
+  y = 80,
+  enabled_at_start = false,
+  width = 64,
+  height = 64,
+  pattern = "water",
+}
+
+tile{
+  layer = 0,
+  x = 176,
+  y = 72,
+  width = 8,
+  height = 8,
+  pattern = "water_shallow.corner.1",
+}
+
+tile{
+  layer = 0,
+  x = 184,
+  y = 72,
+  width = 64,
+  height = 8,
+  pattern = "water_shallow.1",
+}
+
+tile{
+  layer = 0,
+  x = 248,
+  y = 144,
+  width = 8,
+  height = 8,
+  pattern = "water_shallow.corner.4",
+}
+
+tile{
+  layer = 0,
+  x = 248,
+  y = 80,
+  width = 8,
+  height = 64,
+  pattern = "water_shallow.4",
+}
+
+tile{
+  layer = 0,
+  x = 248,
+  y = 72,
+  width = 8,
+  height = 8,
+  pattern = "water_shallow.corner.2",
+}
+
+tile{
+  layer = 0,
+  x = 176,
+  y = 80,
+  width = 8,
+  height = 64,
+  pattern = "water_shallow.3",
+}
+
+tile{
+  layer = 0,
+  x = 184,
+  y = 144,
+  enabled_at_start = false,
+  width = 64,
+  height = 8,
+  pattern = "water_shallow.2",
+}
+
+tile{
+  layer = 0,
+  x = 176,
+  y = 144,
+  width = 8,
+  height = 8,
+  pattern = "water_shallow.corner.3",
+}
+
 destination{
   name = "from_hole",
   layer = 0,

@@ -38,6 +38,14 @@ require "scripts/multi_events"
 	- Remember that you can implement it anywhere else, the target only need to be an entity / sprite
 ]]
 
+local falling_state=sol.state.create("Dropping from ceiling")
+falling_state:set_can_control_movement(false)
+falling_state:set_can_control_direction(false)
+falling_state:set_affected_by_ground("deep_water", false)
+falling_state:set_affected_by_ground("hole", false)
+falling_state:set_affected_by_ground("lava", false)
+falling_state:set_can_use_item(false)
+
 function object:create(meta)
   local object_meta = sol.main.get_metatable(meta)
   local currently_falling = false
@@ -47,7 +55,7 @@ function object:create(meta)
 
     if entity:get_type() == "hero" then
       -- This means that self returns the hero entity, avoid him from moving.
-      entity:freeze()
+      entity:start_state(falling_state)
     end
 
     -- Get the current object position
@@ -64,7 +72,8 @@ function object:create(meta)
         sprite = "entities/shadow",
         direction = 0
       })
-
+    shadow:set_modified_ground("traversable")
+    shadow:set_can_traverse_ground("deep_water", true)
 
     local first_active_sprite = nil
 
@@ -85,14 +94,13 @@ function object:create(meta)
     if entity:get_type()=="hero" then
       entity.ceiling_drop_spin_timer=sol.timer.start(entity, 100, function()
           target_sprite:set_direction((target_sprite:get_direction()+1)%target_sprite:get_num_directions())
-
           return true
         end)
     end
     local movement = sol.movement.create("straight")
     movement:set_max_distance(height)
     movement:set_angle(3 * math.pi / 2)
-    movement:set_speed(300)
+    movement:set_speed(192)
     movement:set_ignore_obstacles(true)
     movement:start(target_sprite, function()
         -- Movement finished, disable the falling movement
