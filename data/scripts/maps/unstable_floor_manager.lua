@@ -48,6 +48,8 @@ local hero_meta = sol.main.get_metatable("hero")
 local separator_meta = sol.main.get_metatable("separator")
 hero_meta.last_stable_position = {x = nil, y = nil, layer = nil, direction=nil}
 
+
+
 -- Function to check if the position is BAD ground, i.e., holes, lava, and maybe deep water too.
 -- Deep water is ONLY considered bad ground if the hero does NOT have the "swim" ability.
 function map_meta:is_bad_ground(x, y, layer)
@@ -96,10 +98,12 @@ hero_meta:register_event("on_position_changed", function(hero)
           local position = hero.last_stable_position
           position.x, position.y, position.layer = hero:get_position()
           local m=hero:get_movement()
-          if m.get_angle then
-            position.direction=math.floor(m:get_angle()*8/(math.pi*2))
-          else
-            position.direction=m:get_direction4()*2
+          if m then
+            if m.get_angle then
+              position.direction=math.floor(m:get_angle()*8/(math.pi*2))
+            else
+              position.direction=m:get_direction4()*2
+            end
           end
         end
       end

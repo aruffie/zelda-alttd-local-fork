@@ -56,7 +56,7 @@ end
 function sol.main:on_finished()
 
   sol.main.save_settings()
-  
+
 end
 
 local eff_m = require('scripts/maps/effect_manager')
@@ -84,7 +84,7 @@ function sol.main:on_key_pressed(key, modifiers)
     eff_m:set_effect(sol.main.get_game())
     audio_manager:refresh_music()
   elseif key == "f11" or
-    (key == "return" and (modifiers.alt or modifiers.control)) then
+  (key == "return" and (modifiers.alt or modifiers.control)) then
     -- F11 or Ctrl + return or Alt + Return: switch fullscreen.
     sol.video.set_fullscreen(not sol.video.is_fullscreen())
     handled = true
@@ -109,7 +109,12 @@ function sol.main:start_savegame(game)
     sol.menu.stop(menu)
   end
 
+  local ceiling_drop_manager = require("scripts/ceiling_drop_manager")
+  for _, entity_type in pairs({"hero", "pickable"}) do
+    ceiling_drop_manager:create(entity_type)
+  end
   sol.main.game = game
   game:set_transition_style("immediate")
+
   game:start()
 end

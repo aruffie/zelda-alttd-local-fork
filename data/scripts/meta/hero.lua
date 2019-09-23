@@ -12,9 +12,9 @@ require("scripts/multi_events")
 hero_meta:register_event("on_movement_changed", function(hero, movement)
     if not hero:get_map():is_sideview() then
       if movement:get_speed() ~=0 and not hero.walking_sound_timer then
-        print "movement ok"
+        --print "movement ok"
         hero.walking_sound_timer=sol.timer.start(hero, 300, function()
-            print "footstep"
+            --print "footstep"
             if hero:get_ground_below()=="shallow_water" then
               audio_manager:play_sound("hero/wade"..(math.random(1, 2)))
             elseif hero:get_ground_below()=="grass" then
@@ -23,7 +23,7 @@ hero_meta:register_event("on_movement_changed", function(hero, movement)
             return true
           end)
       else
-        print "movement stop"
+        --print "movement stop"
         if hero.walking_sound_timer then
           hero.walking_sound_timer:stop()
           hero.walking_sound_timer=nil
@@ -261,6 +261,10 @@ local game_meta = sol.main.get_metatable("game")
 game_meta:register_event("on_map_changed", function(game, map)
 
     local hero = map:get_hero()
+    --print ("new map:", map:get_id())
+    local x,y, layer=hero:get_position()
+
+
     hero:set_jumping(false)
     if map:is_sideview() then
       hero:set_size(8,16)
@@ -280,6 +284,20 @@ game_meta:register_event("on_map_changed", function(game, map)
         local s=hero:create_sprite("entities/shadow", "shadow_override")
         s:set_animation("big")
         hero:bring_sprite_to_back(s)
+      end
+      --print ("layer="..layer..", map min/max layers:"..map:get_min_layer()..", "..map:get_max_layer())
+      local ground=game:get_value("tp_ground")
+      if ground=="hole" then
+        hero:fall_from_ceiling(120, nil, function()
+            local ground=hero:get_ground_below()
+            if ground=="shallow_water" then
+              audio_manager:play_sound("hero/wade1")
+            elseif ground=="grass" then
+              audio_manager:play_sound("walk_on_grass") --TODO use the actual sound effect
+            else
+              audio_manager:play_sound("hero/land")
+            end
+          end)
       end
     end
 

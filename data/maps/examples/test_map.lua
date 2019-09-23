@@ -28,6 +28,15 @@ function jump_test_tp:on_activated()
   hero:set_position(x-dx-16, y+16)
 end
 
+-- put the hero at the newt jump test line. Part of the jump state debug tests.
+function drop_test:on_activated()
+  hero.ceiling_drop_sprite_direction=hero:get_sprite():get_direction()
+  hero:fall_from_ceiling(127, "hero/jump", function()
+      hero:get_sprite():set_direction(hero.ceiling_drop_sprite_direction)
+  end)
+end
+  
+
 --DEBUG: Test the interaction between owl cinematic and items
 local owl_manager = require("scripts/maps/owl_manager")
 
