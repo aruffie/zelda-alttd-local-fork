@@ -74,6 +74,7 @@ function object:create(meta)
       })
     shadow:set_modified_ground("traversable")
     shadow:set_can_traverse_ground("deep_water", true)
+    shadow:set_can_traverse_ground("hole", true)
 
     local first_active_sprite = nil
 

@@ -307,6 +307,87 @@ tile{
   pattern = "water_shallow.corner.3",
 }
 
+tile{
+  layer = 0,
+  x = 128,
+  y = 152,
+  width = 16,
+  height = 16,
+  pattern = "1792",
+}
+
+tile{
+  layer = 0,
+  x = 112,
+  y = 144,
+  width = 16,
+  height = 24,
+  pattern = "barrier_big.2-2",
+}
+
+tile{
+  layer = 0,
+  x = 112,
+  y = 128,
+  width = 16,
+  height = 16,
+  pattern = "barrier_big.border.1-2",
+}
+
+tile{
+  layer = 0,
+  x = 144,
+  y = 128,
+  width = 16,
+  height = 16,
+  pattern = "barrier_big.border.1-2",
+}
+
+tile{
+  layer = 0,
+  x = 128,
+  y = 128,
+  width = 16,
+  height = 24,
+  pattern = "barrier_big.1-2",
+}
+
+tile{
+  layer = 0,
+  x = 144,
+  y = 144,
+  width = 16,
+  height = 24,
+  pattern = "barrier_big.2-2",
+}
+
+tile{
+  layer = 0,
+  x = 112,
+  y = 168,
+  width = 16,
+  height = 24,
+  pattern = "barrier_big.border.2-2",
+}
+
+tile{
+  layer = 0,
+  x = 144,
+  y = 168,
+  width = 16,
+  height = 24,
+  pattern = "barrier_big.border.2-2",
+}
+
+tile{
+  layer = 0,
+  x = 128,
+  y = 168,
+  width = 16,
+  height = 24,
+  pattern = "barrier_big.1-2",
+}
+
 destination{
   name = "from_hole",
   layer = 0,
@@ -339,6 +420,28 @@ teletransporter{
   height = 16,
   destination_map = "examples/test_map",
   destination = "from_cave",
+}
+
+switch{
+  name = "key_test_switch",
+  layer = 0,
+  x = 128,
+  y = 104,
+  subtype = "walkable",
+  sprite = "entities/switchs/switch",
+  sound = "arrow_hit",
+  needs_block = false,
+  inactivate_when_leaving = false,
+}
+
+custom_entity{
+  name = "key_spawn_point",
+  layer = 0,
+  x = 136,
+  y = 165,
+  width = 16,
+  height = 16,
+  direction = 0,
 }
 
 tile{
