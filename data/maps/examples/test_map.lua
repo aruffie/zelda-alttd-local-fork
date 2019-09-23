@@ -32,7 +32,6 @@ end
 function drop_test:on_activated()
   hero.ceiling_drop_sprite_direction=hero:get_sprite():get_direction()
   hero:fall_from_ceiling(127, "hero/jump", function()
-      print "drop is over"
       hero:get_sprite():set_direction(hero.ceiling_drop_sprite_direction)
   end)
 end
