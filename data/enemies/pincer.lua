@@ -19,53 +19,53 @@ local before_go_back_timer
 
 -- Configuration variables
 local charging_speed = 128
-local charging_distance = 48
+local charging_distance = 40
 local go_back_speed = 64
 local waiting_minimum_duration = 2000
 local waiting_maximum_duration = 4000
 local appearing_duration = 1000
 local before_go_back_delay = 600
 
--- Update the body sprites position depending on the head one.
-function enemy:update_body_sprites_position()
-
-  local head_x, head_y, _ = head_sprite:get_xy()
-  for i = 1, 3 do
-    body_sprites[i]:set_xy(head_x / 4.0 * i, head_y / 4.0 * i)
-  end
-end
-
--- Start charging the hero.
-function enemy:start_charging()
+-- Start charging to the given angle.
+function enemy:start_charging_movement(angle, speed)
 
   local movement = sol.movement.create("straight")
-  local angle = enemy:get_angle(hero)
-  movement:set_speed(charging_speed)
+  movement:set_speed(speed)
   movement:set_max_distance(charging_distance)
   movement:set_angle(angle)
   movement:start(head_sprite)
+
+  -- Update the body sprites position depending on the head one.
   function movement:on_position_changed()
-    enemy:update_body_sprites_position()
+    local head_x, head_y, _ = head_sprite:get_xy()
+    for i = 1, 3 do
+      body_sprites[i]:set_xy(head_x / 4.0 * i, head_y / 4.0 * i)
+    end
   end
 
+  return movement
+end
+
+-- Start charging to the hero and go back once finished.
+function enemy:start_charging()
+
+  -- Initialize sprites.
   head_sprite:set_direction(enemy:get_direction4_to(hero))
   for i = 1, 3 do
     body_sprites[i]:set_opacity(255)
   end
 
-  -- Go back on movement finished.
+  -- Start movement.
+  local angle = enemy:get_angle(hero)
+  local movement = enemy:start_charging_movement(angle, charging_speed)
+
+  -- Go back after a delay on movement finished.
   function movement:on_finished()
     before_go_back_timer = sol.timer.start(enemy, before_go_back_delay, function()
       before_go_back_timer = nil
-      local back_movement = sol.movement.create("straight")
-      back_movement:set_speed(go_back_speed)
-      back_movement:set_max_distance(charging_distance)
-      back_movement:set_angle(angle + math.pi)
-      back_movement:start(head_sprite)
-      function back_movement:on_position_changed()
-        enemy:update_body_sprites_position()
-      end
-      function back_movement:on_finished()
+      movement = enemy:start_charging_movement(angle + math.pi, go_back_speed)
+
+      function movement:on_finished()
         enemy:restart()
       end
     end)

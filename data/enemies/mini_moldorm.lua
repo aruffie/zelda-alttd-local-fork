@@ -12,8 +12,10 @@ local hero = map:get_hero()
 local head_sprite, body_sprite, tail_sprite
 local last_positions, frame_count
 local walking_movement = nil
+local sixteenth = math.pi * 0.125
 local eighth = math.pi * 0.25
 local quarter = math.pi * 0.5
+local circle = math.pi * 2.0
 
 -- Configuration variables
 local walking_speed = 88
@@ -67,8 +69,7 @@ enemy:register_event("on_position_changed", function(enemy)
   last_positions[frame_count] = {x = x, y = y}
 
   -- Set the head sprite direction.
-  local angle = (enemy:get_movement():get_angle() + eighth / 4.0) % (2.0 * math.pi)
-  local direction8 = math.floor(angle / eighth)
+  local direction8 = math.floor((enemy:get_movement():get_angle() + sixteenth) % circle / eighth)
   if head_sprite:get_direction() ~= direction8 then
     head_sprite:set_direction(direction8)
   end
