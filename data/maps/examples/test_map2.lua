@@ -15,3 +15,13 @@ function key_test_switch:on_activated()
       self:set_activated(false)
     end)
 end
+
+function key_test_switch_2:on_activated()
+  test_key:set_enabled(true)
+  test_key:fall_from_ceiling(192, nil, function()
+
+    end)
+    sol.timer.start(self, 1000, function()
+      self:set_activated(false)
+    end)
+end

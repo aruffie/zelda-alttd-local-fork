@@ -183,8 +183,8 @@ function treasure_manager:appear_pickable(map, pickable, sound)
   local pickable_entity = map:get_entity(pickable)
   if pickable_entity and not pickable_entity:is_enabled() then
     local game = map:get_game()
+    pickable_entity:set_enabled(true)
     pickable_entity:fall_from_ceiling(192, "hero/jump", function()
-        pickable_entity:set_enabled(true)
         if sound ~= nil and sound ~= false then
           audio_manager:play_sound("misc/secret1")
         end
