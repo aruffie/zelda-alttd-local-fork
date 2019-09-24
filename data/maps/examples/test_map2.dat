@@ -546,6 +546,57 @@ pickable{
   treasure_name = "small_key",
 }
 
+crystal{
+  layer = 0,
+  x = 176,
+  y = 189,
+}
+
+crystal_block{
+  layer = 0,
+  x = 184,
+  y = 168,
+  width = 32,
+  height = 16,
+  subtype = 0,
+}
+
+crystal_block{
+  layer = 0,
+  x = 232,
+  y = 168,
+  width = 32,
+  height = 16,
+  subtype = 0,
+}
+
+crystal_block{
+  layer = 0,
+  x = 184,
+  y = 184,
+  width = 32,
+  height = 16,
+  subtype = 1,
+}
+
+crystal_block{
+  layer = 0,
+  x = 232,
+  y = 184,
+  width = 32,
+  height = 16,
+  subtype = 1,
+}
+
+custom_entity{
+  layer = 0,
+  x = 208,
+  y = 197,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
 tile{
   layer = 2,
   x = 0,

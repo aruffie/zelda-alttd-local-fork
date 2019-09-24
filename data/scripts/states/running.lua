@@ -14,6 +14,7 @@ state:set_can_control_direction(false)
 state:set_can_control_movement(false)
 state:set_can_use_item(false)
 state:set_can_use_item("feather", true)
+state:set_can_traverse("crystal_block", true)
 local directions = {
   {
     key="right",

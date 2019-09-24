@@ -35,6 +35,7 @@ function jm.reset_collision_rules(state)
     state:set_can_use_stream(true)
     state:set_can_be_hurt(true)
     state:set_gravity_enabled(true)
+    state:set_can_traverse("crystal_block", nil)
     --state:get_entity():get_sprite("ground"):set_animation(state.ground_animation())
 
   end
@@ -50,6 +51,10 @@ function jm.setup_collision_rules(state)
     state:set_affected_by_ground("grass", false)
     state:set_affected_by_ground("shallow_water", false)
     state:set_affected_by_ground("prickles", false)
+    state:set_can_traverse("crystal_block", function(entity, crystal)
+        local anim=crystal:get_sprite():get_animation()
+        return entity.is_on_crystal_block or anim=="blue_lowered" or anim=="orange_lowered"
+      end)
     state:set_can_use_stairs(false)
     state:set_can_use_teletransporter(false)
     state:set_can_use_switch(false)
@@ -149,6 +154,16 @@ function jm.start(entity, v_speed, callback)
     audio_manager:play_sound("hero/jump")
     debug_start_x, debug_start_y=entity:get_position() --Temporary, remove me once everything has been finalized
     entity:set_jumping(true)
+    entity.is_on_raised_crystal_block=false
+    local x,y=entity:get_position()
+    for e in entity:get_map():get_entities_in_rectangle(x,y,1,1) do
+      if e:get_type()=="crystal_block" then
+        local anim=e:get_sprite():get_animation()
+        print (anim)
+        entity.is_on_raised_crystal_block = anim=="orange_raised" or anim=="blue_raised"
+      end
+    end
+
     jm.setup_collision_rules(entity:get_state_object())
     entity.y_vel = v_speed and -math.abs(v_speed) or -max_yvel
 

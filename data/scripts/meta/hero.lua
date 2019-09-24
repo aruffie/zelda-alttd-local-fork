@@ -74,7 +74,7 @@ hero_meta:register_event("on_state_changed", function(hero)
       -- Falling
       audio_manager:play_sound("hero/fall") 
     elseif current_state == "jumping" then
-      audio_manager:play_sound("hero/throw")
+      audio_manager:play_sound("hero/cliff_jump")
     elseif current_state == "stairs" then
       if timer_stairs == nil then
         timer_stairs = sol.timer.start(hero, 0, function()
@@ -121,6 +121,8 @@ hero_meta:register_event("on_state_changing", function(hero, old_state, new_stat
         audio_manager:play_sound("hero/wade1")
       elseif ground=="grass" then
         audio_manager:play_sound("walk_on_grass") --TODO use the actual sound effect
+      elseif ground=="deep_water" or ground=="lava" then
+        audio_manager:play_sound("hero/diving")
       else
         audio_manager:play_sound("hero/land")
       end
@@ -290,16 +292,13 @@ game_meta:register_event("on_map_changed", function(game, map)
       if ground=="hole" then
         hero:fall_from_ceiling(120, nil, function()
             local ground=hero:get_ground_below()
-            print ("landing on some "..ground)
             if ground=="shallow_water" then
               audio_manager:play_sound("hero/wade1")
             elseif ground=="grass" then
               audio_manager:play_sound("walk_on_grass") --TODO use the actual sound effect
             elseif ground=="deep_water" then
-              print "water-landed"
               audio_manager:play_sound("hero/diving")
             else
-              print "default-landed"
               audio_manager:play_sound("hero/land")
             end
           end)

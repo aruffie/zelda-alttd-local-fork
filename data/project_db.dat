@@ -838,6 +838,7 @@ music{ id = "snes/60_coral_triangle", description = "60 - Coral Triangle" }
 music{ id = "snes/67_organ_of_evening_calm", description = "67 - Organ of Evening Calm" }
 music{ id = "snes/70_thunder_drum", description = "70 - Thunder Drum" }
 
+sound{ id = "Franck Jousseaume", description = "Empty sound" }
 sound{ id = "arrow_hit", description = "Empty sound" }
 sound{ id = "boomerang", description = "Empty sound" }
 sound{ id = "boss_hurt", description = "Empty sound" }
@@ -1153,6 +1154,7 @@ sound{ id = "stairs_up_end", description = "Empty sound" }
 sound{ id = "stairs_up_start", description = "Empty sound" }
 sound{ id = "stone", description = "Empty sound" }
 sound{ id = "swim", description = "Empty sound" }
+sound{ id = "switch", description = "Empty sound" }
 sound{ id = "sword1", description = "Empty sound" }
 sound{ id = "sword_spin_attack_load", description = "Empty sound" }
 sound{ id = "sword_spin_attack_release", description = "Empty sound" }
@@ -2422,6 +2424,7 @@ file{ path = "sounds/stairs_up_end.ogg", author = "Franck Jousseaume", license =
 file{ path = "sounds/stairs_up_start.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/stone.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/swim.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/switch.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/sword1.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/sword_spin_attack_load.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/sword_spin_attack_release.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
