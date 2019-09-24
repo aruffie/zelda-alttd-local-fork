@@ -116,7 +116,6 @@ hero_meta:register_event("on_state_changing", function(hero, old_state, state)
     local game = hero:get_game()
     if not game:get_dungeon_index() and not map:is_sideview() then
       if old_state=="back to solid ground" and state=="free" then
-        print "RESPAWN"
         local position = hero.last_stable_position
         local directions={{-8,0}, {-8, 8}, {0, 8}, {8, 8}, {8, 0}, {8, -8}, {0, -8}, {-8, -8}}
         local offset_x, offset_y=unpack(directions[position.direction+1])
