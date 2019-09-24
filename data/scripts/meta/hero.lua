@@ -121,6 +121,8 @@ hero_meta:register_event("on_state_changing", function(hero, old_state, new_stat
         audio_manager:play_sound("hero/wade1")
       elseif ground=="grass" then
         audio_manager:play_sound("walk_on_grass") --TODO use the actual sound effect
+      elseif ground=="deep_water" or ground=="lava" then
+        audio_manager:play_sound("hero/diving")
       else
         audio_manager:play_sound("hero/land")
       end
