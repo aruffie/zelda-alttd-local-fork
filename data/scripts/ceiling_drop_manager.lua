@@ -108,7 +108,7 @@ function object:create(meta)
         first_active_sprite = nil
         currently_falling = false
 
-
+        shadow:remove()
 
         if meta == "hero" then
           entity.ceiling_drop_spin_timer:stop()
@@ -120,7 +120,7 @@ function object:create(meta)
           callback()
         end
 
-        shadow:remove()
+
       end)
 
 

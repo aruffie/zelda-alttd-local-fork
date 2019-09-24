@@ -290,11 +290,16 @@ game_meta:register_event("on_map_changed", function(game, map)
       if ground=="hole" then
         hero:fall_from_ceiling(120, nil, function()
             local ground=hero:get_ground_below()
+            print ("landing on some "..ground)
             if ground=="shallow_water" then
               audio_manager:play_sound("hero/wade1")
             elseif ground=="grass" then
               audio_manager:play_sound("walk_on_grass") --TODO use the actual sound effect
+            elseif ground=="deep_water" then
+              print "water-landed"
+              audio_manager:play_sound("hero/diving")
             else
+              print "default-landed"
               audio_manager:play_sound("hero/land")
             end
           end)
