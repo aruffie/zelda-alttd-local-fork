@@ -4,7 +4,7 @@ local audio_manager=require "scripts/audio_manager"
 require "scripts/multi_events"
 -- Falling from ceiling
 -- Works with any type of entity
--- Version 0.1 - MetalZelda
+-- Version 0.2 - MetalZelda, modified by PhoenixII54
 
 --[[
   Make it work:
