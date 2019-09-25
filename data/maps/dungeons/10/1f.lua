@@ -12,6 +12,8 @@ local game = map:get_game()
 local door_manager = require("scripts/maps/door_manager")
 local enemy_manager = require("scripts/maps/enemy_manager")
 
+local flow_states = {lava = true, gel = false}
+
 door_manager:open_when_enemies_dead(map,  "keese_1",  "door_keese_1")
 door_manager:open_when_enemies_dead(map,  "maskass_1",  "door_maskass_1")
 
@@ -19,16 +21,20 @@ door_manager:open_when_enemies_dead(map,  "maskass_1",  "door_maskass_1")
 local function pipe_enable_flow(type)
 
   for pipe in map:get_entities("pipe_" .. type) do
-    pipe:get_sprite():set_animation("flowing")
+    pipe:get_sprite():set_paused(false)
   end
+
+  flow_states[type] = true
 end
 
 -- Disable pipe flow of the given type
 local function pipe_disable_flow(type)
 
   for pipe in map:get_entities("pipe_" .. type) do
-    pipe:get_sprite():set_animation("not_flowing")
+    pipe:get_sprite():set_paused(true)
   end
+
+  flow_states[type] = false
 end
 
 -- Init door puzzles in the dungeon
@@ -42,7 +48,7 @@ end
 local function init_pipes()
 
   pipe_disable_flow("lava")
-  pipe_disable_flow("gel")
+  pipe_enable_flow("gel")
 end
 
 -- Init all puzzles in the dungeon
@@ -64,3 +70,21 @@ function sensor_enemy_room_1:on_activated()
   map:close_doors("door_keese_1")
   sensor_enemy_room_1:set_enabled(false)
 end
+
+lava_lever:register_event("on_activated", function()
+
+  if lava_lever:get_sprite():get_direction() == 0 then
+    pipe_enable_flow("lava")
+  else
+    pipe_disable_flow("lava")
+  end
+end)
+
+gel_lever:register_event("on_activated", function()
+
+  if gel_lever:get_sprite():get_direction() == 0 then
+    pipe_enable_flow("gel")
+  else
+    pipe_disable_flow("gel")
+  end
+end)

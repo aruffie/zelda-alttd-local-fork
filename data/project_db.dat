@@ -188,8 +188,10 @@ tileset{ id = "testing/labo", description = "Labo style tileset for systems test
 sprite{ id = "console/cursor", description = "Console cursor" }
 sprite{ id = "console/icons", description = "Console icons" }
 sprite{ id = "debug/commands", description = "Commands" }
-sprite{ id = "dungeons/owl/pipes/red", description = "Red pipe with water flowing" }
-sprite{ id = "dungeons/owl/pipes/yellow", description = "Yellow pipe with water flowing" }
+sprite{ id = "dungeons/owl/pipes/anticlockwise_lava", description = "dungeons/owl/pipes/anticlockwise_lava" }
+sprite{ id = "dungeons/owl/pipes/clockwise_lava", description = "dungeons/owl/pipes/clockwise_lava" }
+sprite{ id = "dungeons/owl/pipes/straight_gel", description = "Pipe with gel flowing" }
+sprite{ id = "dungeons/owl/pipes/straight_lava", description = "Pipe with lava flowing" }
 sprite{ id = "enemies/anti_kirby", description = "Anti Kirby" }
 sprite{ id = "enemies/anti_kirby/anti_kirby_link", description = "Anti Kirby Link" }
 sprite{ id = "enemies/anti_kirby/aspiration", description = "Anti Kirby Aspiration" }
@@ -1424,6 +1426,7 @@ entity{ id = "hook_bridge", description = "hook bridge" }
 entity{ id = "hookable", description = "Hookable" }
 entity{ id = "insect", description = "Insect" }
 entity{ id = "ladder", description = "Ladder" }
+entity{ id = "lever", description = "Lever" }
 entity{ id = "light", description = "Light" }
 entity{ id = "midpoint_teletransporter", description = "Teletransporter (mid point)" }
 entity{ id = "mouse", description = "Mouse" }
