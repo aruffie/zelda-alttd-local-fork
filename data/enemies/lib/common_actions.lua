@@ -9,6 +9,8 @@
 --           enemy:is_sprite_contained(sprite, x, y, width, height)
 --           enemy:get_angle_from_sprite(sprite, entity)
 --           enemy:get_central_symmetry_position(x, y)
+--           enemy:get_obstacles_bounce_angle([angle])
+--           enemy:get_obstacles_normal_angle()
 --
 --           enemy:start_straight_walking(angle, speed, [distance, [on_stopped_callback]])
 --           enemy:start_target_walking(entity, speed)
@@ -46,11 +48,16 @@ function common_actions.learn(enemy)
   local map = enemy:get_map()
   local hero = map:get_hero()
   local trigonometric_functions = {math.cos, math.sin}
+  local circle = 2.0 * math.pi
 
   local attracting_timers = {}
   local leashing_timers = {}
   local shadow = nil
   
+  local function xor(a, b)
+    return (a or b) and not (a and b)
+  end
+
   -- Return true if the entity is closer to the enemy than triggering_distance
   function enemy:is_near(entity, triggering_distance, sprite)
 
@@ -113,6 +120,48 @@ function common_actions.learn(enemy)
 
     local enemy_x, enemy_y, _ = enemy:get_position()
     return 2.0 * x - enemy_x, 2.0 * y - enemy_y
+  end
+
+  -- Return the angle after bouncing against close obstacles towards the given angle, or nil if no obstacles.
+  function enemy:get_obstacles_bounce_angle(angle)
+
+    local normal_angle = enemy:get_obstacles_normal_angle()
+    if not normal_angle then
+      return
+    end
+    angle = angle or enemy:get_movement():get_angle()
+
+    return (2.0 * normal_angle - angle + math.pi) % circle
+  end
+
+  -- Return the normal angle of close obstacles as a multiple of pi/4, or nil if none.
+  function enemy:get_obstacles_normal_angle()
+
+    local directions = {
+      [0] = {is_collision = enemy:test_obstacles( 1,  0), normal = math.pi},
+      [1] = {is_collision = enemy:test_obstacles( 1, -1), normal = 1.25 * math.pi},
+      [2] = {is_collision = enemy:test_obstacles( 0, -1), normal = 1.5 * math.pi},
+      [3] = {is_collision = enemy:test_obstacles(-1, -1), normal = 1.75 * math.pi},
+      [4] = {is_collision = enemy:test_obstacles(-1,  0), normal = 0},
+      [5] = {is_collision = enemy:test_obstacles(-1,  1), normal = 0.25 * math.pi},
+      [6] = {is_collision = enemy:test_obstacles( 0,  1), normal = 0.5 * math.pi},
+      [7] = {is_collision = enemy:test_obstacles( 1,  1), normal = 0.75 * math.pi}
+    }
+
+    -- Return the normal angle for this direction if collision on the direction or the two surrounding ones, and no obstacle in the two next or obstacle in both.
+    local function check_normal_angle(direction8)
+      return ((directions[direction8].is_collision or directions[(direction8 - 1) % 8].is_collision and directions[(direction8 + 1) % 8].is_collision) 
+          and not xor(directions[(direction8 - 2) % 8].is_collision, directions[(direction8 + 2) % 8].is_collision)
+          and directions[direction8].normal)
+    end
+
+    -- Check for obstacles on each direction8 and return the normal angle if it is the correct one.
+    local normal_angle
+    for direction8 = 0, 7 do
+      normal_angle = normal_angle or check_normal_angle(direction8)
+    end
+
+    return normal_angle
   end
 
   -- Make the enemy straight move.
