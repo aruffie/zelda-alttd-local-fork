@@ -65,10 +65,12 @@ function separator_manager:init(map)
 
   end
   
-    if map.blocks_remaining and #map.blocks_remaining ~= 0 then
-      for k,v in pairs(map.blocks_remaining) do --reset counters for blocks groups
-        if k then
-          map.blocks_remaining[k]=map:get_entities_count(k)
+    if map.blocks_remaining then
+      print "table OK"
+      for block_group, value in pairs(map.blocks_remaining) do --reset counters for blocks groups
+        print ("value for block group "..block_group.."="..value)
+        if block_group then
+          map.blocks_remaining[block_group]=map:get_entities_count(block_group)
         end
       end
     end
