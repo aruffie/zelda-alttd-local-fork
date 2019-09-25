@@ -14276,7 +14276,7 @@ block{
 }
 
 block{
-  name = "block_group_1_1",
+  name = "auto_block_group_1_1",
   layer = 0,
   x = 456,
   y = 109,
@@ -14284,7 +14284,7 @@ block{
   sprite = "entities/blocks/block",
   pushable = true,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 block{
@@ -14998,14 +14998,14 @@ block{
 }
 
 block{
-  name = "block_group_2_1",
+  name = "auto_block",
   layer = 0,
   x = 1736,
   y = 861,
   sprite = "entities/blocks/block",
   pushable = true,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 block{
