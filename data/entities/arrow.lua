@@ -14,6 +14,7 @@ local enemies_touched = {}
 local entity_reached
 local entity_reached_dxy
 local flying
+local audio_manager=require("scripts/audio_manager")
 
 function arrow:on_created()
 
@@ -57,7 +58,7 @@ local function attach_to_obstacle()
 
   flying = false
   sprite:set_animation("reached_obstacle")
-  sol.audio.play_sound("items/arrow_hit")
+  audio_manager.play_sound("items/arrow_hit")
   arrow:stop_movement()
 
   -- Remove the hero after a delay.

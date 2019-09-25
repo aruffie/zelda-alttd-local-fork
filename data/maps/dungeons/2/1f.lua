@@ -250,12 +250,6 @@ auto_separator_25:register_event("on_activated", function(separator, direction4)
 
   end)
 
-function auto_separator_26:on_activating(direction4)
-
-  map.blocks_remaining["auto_block_group_1"]=map:get_entities_count("auto_block_group_1")
-
-end
-
 -- Switchs events
 switch_1:register_event("on_activated", function()
 
