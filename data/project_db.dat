@@ -839,7 +839,6 @@ music{ id = "snes/60_coral_triangle", description = "60 - Coral Triangle" }
 music{ id = "snes/67_organ_of_evening_calm", description = "67 - Organ of Evening Calm" }
 music{ id = "snes/70_thunder_drum", description = "70 - Thunder Drum" }
 
-sound{ id = "Franck Jousseaume", description = "Empty sound" }
 sound{ id = "arrow_hit", description = "Empty sound" }
 sound{ id = "boomerang", description = "Empty sound" }
 sound{ id = "boss_hurt", description = "Empty sound" }
