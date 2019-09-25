@@ -17508,7 +17508,7 @@ door{
 }
 
 block{
-  name = "block_group_1_1",
+  name = "auto_block_group_1_1",
   layer = 0,
   x = 2056,
   y = 1085,
@@ -17516,11 +17516,11 @@ block{
   sprite = "entities/blocks/block",
   pushable = true,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 block{
-  name = "block_group_1_2",
+  name = "auto_block_group_1_2",
   layer = 0,
   x = 2104,
   y = 1085,
@@ -17528,7 +17528,7 @@ block{
   sprite = "entities/blocks/block",
   pushable = true,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 crystal_block{
