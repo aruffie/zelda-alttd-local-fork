@@ -33,18 +33,18 @@ function separator_manager:init(map)
         if enemy:is_in_same_region(hero) then
 
           local new_enemy = map:create_enemy({ --TODO modifiy create_enemy to add enemy to light manager
-            x = enemy_place.x,
-            y = enemy_place.y,
-            layer = enemy_place.layer,
-            breed = enemy_place.breed,
-            direction = enemy_place.direction,
-            name = enemy_place.name,
-            properties = enemy_place.properties
-          })
-        
+              x = enemy_place.x,
+              y = enemy_place.y,
+              layer = enemy_place.layer,
+              breed = enemy_place.breed,
+              direction = enemy_place.direction,
+              name = enemy_place.name,
+              properties = enemy_place.properties
+            })
+
           -- add enemy to the light manager of fsa mode, since it has been recreated
           light_manager_fsa:add_occluder(new_enemy)
-          
+
           new_enemy:set_treasure(unpack(enemy_place.treasure))
           new_enemy.on_dead = enemy.on_dead  -- For door_manager.
           new_enemy.on_symbol_fixed = enemy.on_symbol_fixed -- For Vegas enemies
@@ -61,6 +61,15 @@ function separator_manager:init(map)
       if not block:is_in_same_region(hero) then
         block:reset()
         block.is_moved = false
+      end
+
+  end
+  
+    if map.blocks_remaining and #map.blocks_remaining ~= 0 then
+      for k,v in pairs(map.blocks_remaining) do --reset counters for blocks groups
+        if k then
+          map.blocks_remaining[k]=map:get_entities_count(k)
+        end
       end
     end
 
@@ -86,19 +95,19 @@ function separator_manager:init(map)
         -- Re-create destructibles in all regions except the active one.
         if not destructible:is_in_same_region(hero) then
           local destructible = map:create_destructible({
-            x = destructible_place.x,
-            y = destructible_place.y,
-            layer = destructible_place.layer,
-            name = destructible_place.name,
-            sprite = destructible_place.sprite,
-            destruction_sound = destructible_place.destruction_sound,
-            weight = destructible_place.weight,
-            can_be_cut = destructible_place.can_be_cut,
-            can_explode = destructible_place.can_explode,
-            can_regenerate = destructible_place.can_regenerate,
-            damage_on_enemies = destructible_place.damage_on_enemies,
-            ground = destructible_place.ground,
-          })
+              x = destructible_place.x,
+              y = destructible_place.y,
+              layer = destructible_place.layer,
+              name = destructible_place.name,
+              sprite = destructible_place.sprite,
+              destruction_sound = destructible_place.destruction_sound,
+              weight = destructible_place.weight,
+              can_be_cut = destructible_place.can_be_cut,
+              can_explode = destructible_place.can_explode,
+              can_regenerate = destructible_place.can_regenerate,
+              damage_on_enemies = destructible_place.damage_on_enemies,
+              ground = destructible_place.ground,
+            })
           -- We don't recreate the treasure.
           destructible_place.destructible = destructible
         end
@@ -164,10 +173,10 @@ function separator_manager:init(map)
   end
   for enemy in map:get_entities_by_type("enemy") do
     enemy:register_event("on_dead", function()
-      if not enemy:get_property("can_resurrect") then
-        enemy_places[enemy] = nil
-      end
-    end)
+        if not enemy:get_property("can_resurrect") then
+          enemy_places[enemy] = nil
+        end
+      end)
   end
 
 end

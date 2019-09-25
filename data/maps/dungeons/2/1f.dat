@@ -16961,23 +16961,24 @@ block{
 }
 
 block{
+  name = "auto_block",
   layer = 0,
   x = 1752,
   y = 365,
   sprite = "entities/blocks/block",
   pushable = true,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 block{
+  name = "auto_block_2",
   layer = 0,
   x = 1768,
   y = 365,
   sprite = "entities/blocks/block",
   pushable = true,
   pullable = false,
-  maximum_moves = 2,
 }
 
 block{

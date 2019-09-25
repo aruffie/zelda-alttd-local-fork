@@ -17,7 +17,7 @@ local treasure_manager = require("scripts/maps/treasure_manager")
 require("scripts/multi_events")
 
 -- Map events
-function map:on_started(destination)
+map:register_event("on_started", function(map, destination)
 
   -- Chests
   treasure_manager:appear_chest_if_savegame_exist(map, "chest_compass",  "dungeon_2_compass")
@@ -69,7 +69,7 @@ function map:on_started(destination)
     map:set_light(0)
   end
 
-end
+end)
 
 
 function map:on_obtaining_treasure(item, variant, savegame_variable)
@@ -80,19 +80,13 @@ function map:on_obtaining_treasure(item, variant, savegame_variable)
 
 end
 
+local block_manager=require("scripts/maps/block_manager")
 function map:init_block_group_1()
 
   if not game:get_value("dungeon_2_wall_1") then
-    map.block_group_1_remaining = map:get_entities_count("auto_block_group_1_")
-    local function block_on_moved()
-      map.block_group_1_remaining = map.block_group_1_remaining - 1
-      if map.block_group_1_remaining == 0 then
+    block_manager:init_block_riddle(map, "auto_block_group_1_", function()
         map:launch_cinematic_1()
-      end
-    end
-    for block in map:get_entities("auto_block_group_1_") do
-      block.on_moved = block_on_moved
-    end
+    end)
   end
 
 end
@@ -258,7 +252,7 @@ auto_separator_25:register_event("on_activated", function(separator, direction4)
 
 function auto_separator_26:on_activating(direction4)
 
-  map.block_group_1_remaining=map:get_entities_count("auto_block_group_1")
+  map.blocks_remaining["auto_block_group_1"]=map:get_entities_count("auto_block_group_1")
 
 end
 
