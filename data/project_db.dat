@@ -833,6 +833,7 @@ music{ id = "snes/53_level_5_catfish_maw", description = "53 - Level 5 - Catfish
 music{ id = "snes/54_boss_warning", description = "54 - Boss Warning" }
 music{ id = "snes/55_the_wind_marimba", description = "55 - The Wind Marimba" }
 music{ id = "snes/56_frogs_song_of_soul", description = "56 - Frogs Song Of Soul" }
+music{ id = "snes/58_southern_shrine", description = "58 - Southern Shrine" }
 music{ id = "snes/59_level_6_face_shrine", description = "59 - Level 6 - Face Shrine" }
 music{ id = "snes/60_coral_triangle", description = "60 - Coral Triangle" }
 music{ id = "snes/67_organ_of_evening_calm", description = "67 - Organ of Evening Calm" }
@@ -2075,6 +2076,7 @@ file{ path = "musics/snes/53_level_5_catfish_maw.ogg", author = "Nintendo, Loede
 file{ path = "musics/snes/54_boss_warning.ogg", author = "Nintendo, Loeder", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/55_the_wind_marimba.ogg", author = "Nintendo, Loeder", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/56_frogs_song_of_soul.ogg", author = "Nintendo, Loeder", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/58_southern_shrine.ogg", author = "Nintendo, Loeder", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/59_level_6_face_shrine.ogg", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/60_coral_triangle.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/67_organ_of_evening_calm.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
