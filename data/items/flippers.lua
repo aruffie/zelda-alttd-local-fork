@@ -35,10 +35,13 @@ end
 game:register_event("on_command_pressed", function(game, command)
 
     local map = game:get_map()
-    local hero = map:get_hero()
-    if command == "attack" and game:get_hero():get_state() == "swimming" then
+    local hero = game:get_hero()
+    if command == "attack" and hero:get_state() == "swimming" then
       hero:start_diving() 
 
+    end
+    if command == "action" and hero:get_state()=="swimming" then
+      audio_manager:play_sound("hero/swim")
     end
 
   end)

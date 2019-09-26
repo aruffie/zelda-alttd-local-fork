@@ -24558,33 +24558,34 @@ block{
 }
 
 block{
+  name = "auto_block",
   layer = 0,
   x = 1528,
   y = 1069,
   sprite = "entities/blocks/block",
   pushable = true,
   pullable = false,
-  maximum_moves = 2,
 }
 
 block{
+  name = "auto_block_3",
   layer = 0,
   x = 1352,
   y = 1053,
   sprite = "entities/blocks/block",
   pushable = true,
   pullable = false,
-  maximum_moves = 2,
 }
 
 block{
+  name = "auto_block_2",
   layer = 0,
   x = 1352,
   y = 1037,
   sprite = "entities/blocks/block",
   pushable = true,
   pullable = false,
-  maximum_moves = 0,
+  max_moves = 0,
 }
 
 enemy{

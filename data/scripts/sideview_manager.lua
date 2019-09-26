@@ -16,6 +16,7 @@ local hero_meta = sol.main.get_metatable("hero")
 local game_meta = sol.main.get_metatable("game")
 require("scripts/multi_events")
 require("scripts/states/sideview_swim")
+local audio_manager=require("scripts/audio_manager")
 local walking_speed = 88
 local swimming_speed = 66
 local gravity = 0.2
@@ -175,6 +176,10 @@ local function apply_gravity(entity)
     if entity:test_obstacles(0,1) or entity.on_ladder or
     test_ladder(entity)==false and is_ladder(entity:get_map(), x, y+3) then
       --we are on an obstacle, so reset the speed and bail.
+      if entity:get_type()=="hero" and not entity.land_sound_played then
+        entity.land_sound_played=true
+        audio_manager:play_sound("hero/land")
+      end
       entity.vspeed = nil
       return false
     end
@@ -279,7 +284,7 @@ local function update_entities(map)
             entity.debug_hitbox:draw(camera:get_surface(), x-cx, y-cy)
           end
         end
-        if entity:get_type()~="hero" and entity.water_processed == nil and entity.vspeed == nil and entity:test_obstacles(0,1) and check_for_water(entity) then
+        if entity:get_type()~="hero" and not entity.water_processed and not entity.vspeed and entity:test_obstacles(0,1) and check_for_water(entity) then
           --Force the entity to get down when in a water pool
           entity.water_processed=true
           sol.timer.start(entity, 50, function()
@@ -292,6 +297,12 @@ local function update_entities(map)
         if entity.vspeed and entity.vspeed<0 or not entity:test_obstacles(0,1) then
           --Start gravity effect timer loop
           if entity.gravity_timer==nil then
+            if entity:get_type()=="hero" then
+              local x,y,l=entity:get_position()
+              if not test_ladder(entity) and not is_ladder(map,x,y+3,l) then
+                entity.land_sound_played=nil
+              end
+            end
             entity.gravity_timer=sol.timer.start(entity, 10, function()
                 local new_delay = apply_gravity(entity)
                 if not new_delay then
@@ -318,13 +329,13 @@ hero_meta:register_event("on_position_changed", function(hero, x,y,layer)
     local map = hero:get_map()
     if map:is_sideview() then
       local w,h = map:get_size()
-      
+
       --Respawn wnen falling into a pit
       if y+3>=h then
         hero:set_position(hero:get_solid_ground_position())
         hero:start_hurt(1)
       end
-      
+
       --save last stable ground
       if y+2<h and hero:test_obstacles(0,1) and map:get_ground(x,y+3,layer)=="wall" and hero:get_ground_below()~="prickles" then
         hero:save_solid_ground(x,y,layer)
@@ -426,9 +437,9 @@ local function update_hero(hero)
   --Handle movement for vertical and/or diagonal input
   if can_move_vertically==false then
     --debug_print "Trying to override the vertical movement"
-    local m=hero:get_movement()
-    if m then
-      local a=m:get_angle()
+
+    if movement then
+      local a=movement:get_angle()
       --debug_print (a)
       if _up==true then
         --debug_print "UP"
@@ -436,7 +447,7 @@ local function update_hero(hero)
         if _left==true or _right==true then
           --debug_print "UP-DIAGONAL"
           if hangle ~=a then 
-            m:set_angle(hangle)
+            movement:set_angle(hangle)
           end
         else
           speed = 0
@@ -446,9 +457,9 @@ local function update_hero(hero)
         --debug_print (m:get_speed(), hero:get_walking_speed())
         if _left==true or _right==true then
           --debug_print "DOWN-DIAGONAL"
-          m:set_angle(hangle)
+          movement:set_angle(hangle)
           if hangle ~=a then 
-            m:set_angle(hangle)
+            movement:set_angle(hangle)
           end
         else
           --debug_print "CANCEL DOWN V-MOVE"
@@ -510,7 +521,7 @@ local function update_hero(hero)
         new_animation = "climbing_stopped"
       elseif not is_on_ground(hero) then
         if map:get_ground(x,y+4,layer)=="deep_water" then
-          new_animation ="stopped_swimming_scroll"
+          new_animation = "stopped_swimming_scroll"
         else
           new_animation = "jumping"
         end
@@ -536,6 +547,7 @@ game_meta:register_event("on_map_changed", function(game, map)
     local hero = map:get_hero() --TODO account for multiple heroes in the future
     hero.vspeed = 0
     if map:is_sideview() then
+      hero.land_sound_played=true --do not play landing sound at the start of the map
       hero.on_ladder = test_ladder(hero, -1) 
       if hero.on_ladder == true then
         hero:set_walking_speed(52)
@@ -545,7 +557,6 @@ game_meta:register_event("on_map_changed", function(game, map)
           return true
         end)
     else
-
       hero:set_walking_speed(88)
     end
   end)

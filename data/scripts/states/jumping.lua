@@ -12,7 +12,7 @@
 require("scripts/states/jumping_sword")
 local jump_manager=require("scripts/jump_manager")
 local state = jump_manager.init("jumping")
-
+local audio_manager=require("scripts/audio_manager")
 
 function state:on_started(previous_state_name, previous_state_object)
 
@@ -45,6 +45,13 @@ function hero_meta.jump(hero)
   end
   -- Now, start the actual jump effect, regardless of whether we were alrealy jumping (the jumping manager will check the status on it's own).
   jump_manager.start(hero, 2, function()
+      if hero:get_ground_below() == "shallow_water" then
+        audio_manager:play_sound("hero/wade1")
+      elseif hero:get_ground_below()=="grass" then
+        audio_manager:play_sound("hero/walk on grass")
+      else
+        audio_manager:play_sound("hero/land")
+      end
       hero:unfreeze()
     end)
 end

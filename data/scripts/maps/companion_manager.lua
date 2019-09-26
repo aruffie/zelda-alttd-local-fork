@@ -3,7 +3,6 @@ local game_meta = sol.main.get_metatable("game")
 require("scripts/multi_events")
 
 game_meta:register_event("on_map_changed", function(game, map)
-
   local hero = map:get_hero()
   local x_hero, y_hero, layer_hero = hero:get_position()
   local companions = require("scripts/maps/lib/companion_config")

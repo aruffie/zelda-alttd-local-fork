@@ -14,6 +14,7 @@ state:set_can_control_direction(false)
 state:set_can_control_movement(false)
 state:set_can_use_item(false)
 state:set_can_use_item("feather", true)
+state:set_can_traverse("crystal_block", true)
 local directions = {
   {
     key="right",
@@ -77,7 +78,9 @@ function state:on_started()
   entity.run_sound_timer = sol.timer.start(state, 200, function()
       if not entity.is_jumping or entity:is_jumping()==false then
         if entity:get_ground_below() == "shallow_water" then
-          audio_manager:play_sound("hero/splash")
+          audio_manager:play_sound("hero/wade1")
+        elseif entity:get_ground_below()=="grass" then
+          audio_manager:play_sound("hero/walk on grass")
         else
           audio_manager:play_sound("hero/run")
         end
@@ -142,7 +145,7 @@ function state:on_started()
             entity:remove_sprite(sword_sprite)
           end
 
-          jump_manager.start(entity, 2, function()
+          jump_manager.start_parabola(entity, 2, function()
               entity.bonking=nil
               audio_manager:play_sound("hero/land")
               entity:unfreeze()

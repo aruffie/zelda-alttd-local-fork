@@ -124,37 +124,3 @@ function sensor_11:on_activated()
   sensor_10:on_activated()
 
 end
-
--- Separator events
-
-function auto_separator_5:on_activating(direction4)
-  
-  for block in map:get_entities("block_group_1_") do
-    block:reset()
-  end
-  
-end
-
-function auto_separator_6:on_activating(direction4)
-  
-  for block in map:get_entities("block_group_1_") do
-    block:reset()
-  end
-  
-end
-
-function auto_separator_12:on_activating(direction4)
-  
-  for block in map:get_entities("block_group_1_") do
-    block:reset()
-  end
-  
-end
-
-function auto_separator_13:on_activating(direction4)
-  
-  for block in map:get_entities("block_group_1_") do
-    block:reset()
-  end
-  
-end

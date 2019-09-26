@@ -12450,7 +12450,7 @@ block{
 }
 
 block{
-  name = "block_group_1_1",
+  name = "auto_block_3",
   layer = 0,
   x = 1800,
   y = 605,
@@ -12458,7 +12458,7 @@ block{
   sprite = "entities/blocks/block",
   pushable = true,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 block{
@@ -12472,7 +12472,7 @@ block{
 }
 
 block{
-  name = "block_group_1_2",
+  name = "auto_block_2",
   layer = 0,
   x = 1784,
   y = 621,
@@ -12480,7 +12480,7 @@ block{
   sprite = "entities/blocks/block",
   pushable = true,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 block{
@@ -13385,13 +13385,14 @@ block{
 }
 
 block{
+  name = "auto_block",
   layer = 0,
   x = 568,
   y = 821,
   sprite = "entities/blocks/block",
   pushable = true,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 destructible{
@@ -14410,13 +14411,14 @@ door{
 }
 
 block{
+  name = "auto_block_5",
   layer = 0,
   x = 2120,
   y = 845,
   sprite = "entities/blocks/block",
   pushable = true,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 door{
@@ -14500,19 +14502,20 @@ block{
   x = 1088,
   y = 669,
   sprite = "entities/blocks/block",
-  pushable = true,
+  pushable = false,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 block{
+  name = "auto_block_4",
   layer = 0,
   x = 1088,
   y = 653,
   sprite = "entities/blocks/block",
-  pushable = false,
+  pushable = true,
   pullable = false,
-  maximum_moves = 0,
+  max_moves = 0,
 }
 
 enemy{

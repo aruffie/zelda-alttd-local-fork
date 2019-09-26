@@ -115,7 +115,7 @@ function enemy:go_back()
     m:set_target(initial_xy.x, initial_xy.y)
     m:set_smooth(false)
     m:start(self)
-    audio_manager:play_sound("items/sword_tap")
+    audio_manager:play_sound("enemies/blade_trap")
 
   elseif state == "going_back" then
 

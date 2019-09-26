@@ -308,6 +308,7 @@ function debug:on_draw(dst_surface)
           end
         end
         show_text(0, 60, "state: "..s..(s=="custom" and "("..hero:get_state_object():get_description()..")" or ""))
+        show_text(0, 70, "ground:"..hero:get_ground_below())
         if hero_movement then 
           show_text(0, 100, "Movement info")
           local x,y=hero_movement:get_xy()

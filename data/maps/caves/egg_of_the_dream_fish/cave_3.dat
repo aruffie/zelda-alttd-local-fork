@@ -4221,6 +4221,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity",
   layer = 0,
   x = 1168,
   y = 405,
@@ -4304,6 +4305,7 @@ wall{
 }
 
 custom_entity{
+  name = "auto_entity_2",
   layer = 0,
   x = 1184,
   y = 405,
@@ -4315,6 +4317,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity_3",
   layer = 0,
   x = 1200,
   y = 405,
@@ -4326,6 +4329,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity_4",
   layer = 0,
   x = 1216,
   y = 405,

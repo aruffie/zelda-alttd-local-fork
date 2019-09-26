@@ -11,7 +11,7 @@ properties{
 tile{
   layer = -1,
   x = 352,
-  y = 344,
+  y = 336,
   width = 64,
   height = 168,
   pattern = "691",
@@ -132,7 +132,7 @@ tile{
   x = 136,
   y = 104,
   width = 48,
-  height = 128,
+  height = 96,
   pattern = "1041",
 }
 
@@ -284,9 +284,9 @@ tile{
 tile{
   layer = 0,
   x = 152,
-  y = 232,
+  y = 200,
   width = 16,
-  height = 64,
+  height = 32,
   pattern = "1041",
 }
 
@@ -310,481 +310,11 @@ tile{
 
 tile{
   layer = 0,
-  x = 192,
-  y = 352,
-  width = 128,
-  height = 32,
+  x = 88,
+  y = 328,
+  width = 96,
+  height = 80,
   pattern = "917",
-}
-
-tile{
-  layer = 0,
-  x = 192,
-  y = 384,
-  width = 128,
-  height = 128,
-  pattern = "263",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 192,
-  y = 384,
-  width = 16,
-  height = 16,
-  pattern = "440",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 208,
-  y = 400,
-  width = 16,
-  height = 16,
-  pattern = "440",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 224,
-  y = 384,
-  width = 16,
-  height = 16,
-  pattern = "440",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 240,
-  y = 400,
-  width = 16,
-  height = 16,
-  pattern = "440",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 256,
-  y = 384,
-  width = 16,
-  height = 16,
-  pattern = "440",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 272,
-  y = 400,
-  width = 16,
-  height = 16,
-  pattern = "440",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 288,
-  y = 384,
-  width = 16,
-  height = 16,
-  pattern = "440",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 304,
-  y = 400,
-  width = 16,
-  height = 16,
-  pattern = "440",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 192,
-  y = 416,
-  width = 16,
-  height = 16,
-  pattern = "440",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 224,
-  y = 416,
-  width = 16,
-  height = 16,
-  pattern = "440",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 256,
-  y = 416,
-  width = 16,
-  height = 16,
-  pattern = "440",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 288,
-  y = 416,
-  width = 16,
-  height = 16,
-  pattern = "440",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 304,
-  y = 432,
-  width = 16,
-  height = 16,
-  pattern = "440",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 288,
-  y = 448,
-  width = 16,
-  height = 16,
-  pattern = "440",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 272,
-  y = 432,
-  width = 16,
-  height = 16,
-  pattern = "440",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 240,
-  y = 432,
-  width = 16,
-  height = 16,
-  pattern = "440",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 208,
-  y = 432,
-  width = 16,
-  height = 16,
-  pattern = "440",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 192,
-  y = 448,
-  width = 16,
-  height = 16,
-  pattern = "440",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 208,
-  y = 464,
-  width = 16,
-  height = 16,
-  pattern = "440",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 224,
-  y = 448,
-  width = 16,
-  height = 16,
-  pattern = "440",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 240,
-  y = 464,
-  width = 16,
-  height = 16,
-  pattern = "440",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 256,
-  y = 448,
-  width = 16,
-  height = 16,
-  pattern = "440",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 272,
-  y = 464,
-  width = 16,
-  height = 16,
-  pattern = "440",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 304,
-  y = 464,
-  width = 16,
-  height = 16,
-  pattern = "440",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 288,
-  y = 480,
-  width = 16,
-  height = 16,
-  pattern = "440",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 256,
-  y = 480,
-  width = 16,
-  height = 16,
-  pattern = "440",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 224,
-  y = 480,
-  width = 16,
-  height = 16,
-  pattern = "440",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 192,
-  y = 480,
-  width = 16,
-  height = 16,
-  pattern = "440",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 208,
-  y = 496,
-  width = 16,
-  height = 16,
-  pattern = "440",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 240,
-  y = 496,
-  width = 16,
-  height = 16,
-  pattern = "440",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 272,
-  y = 496,
-  width = 16,
-  height = 16,
-  pattern = "440",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 304,
-  y = 496,
-  width = 16,
-  height = 16,
-  pattern = "440",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 208,
-  y = 496,
-  width = 8,
-  height = 16,
-  pattern = "14015",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 216,
-  y = 496,
-  width = 8,
-  height = 16,
-  pattern = "14020",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 224,
-  y = 496,
-  width = 8,
-  height = 16,
-  pattern = "14017",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 232,
-  y = 496,
-  width = 8,
-  height = 16,
-  pattern = "14016",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 192,
-  y = 496,
-  width = 8,
-  height = 16,
-  pattern = "14014",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 240,
-  y = 496,
-  width = 8,
-  height = 16,
-  pattern = "14020",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 248,
-  y = 496,
-  width = 8,
-  height = 16,
-  pattern = "14018",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 200,
-  y = 496,
-  width = 8,
-  height = 16,
-  pattern = "1",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 192,
-  y = 480,
-  width = 8,
-  height = 16,
-  pattern = "2",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 200,
-  y = 480,
-  width = 8,
-  height = 16,
-  pattern = "7",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 192,
-  y = 464,
-  width = 8,
-  height = 16,
-  pattern = "4",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 200,
-  y = 464,
-  width = 8,
-  height = 16,
-  pattern = "3",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 192,
-  y = 448,
-  width = 8,
-  height = 16,
-  pattern = "7",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 0,
-  x = 200,
-  y = 448,
-  width = 8,
-  height = 16,
-  pattern = "5",
-  tileset = "out/outside_special",
 }
 
 tile{
@@ -1768,16 +1298,90 @@ tile{
 tile{
   layer = 0,
   x = 88,
-  y = 360,
+  y = 408,
   width = 96,
   height = 96,
   pattern = "112",
 }
 
-wall{
+tile{
+  layer = 0,
+  x = 216,
+  y = 384,
+  width = 16,
+  height = 16,
+  pattern = "1128",
+}
+
+tile{
+  layer = 0,
+  x = 216,
+  y = 400,
+  width = 16,
+  height = 8,
+  pattern = "1130",
+}
+
+tile{
+  layer = 0,
+  x = 216,
+  y = 376,
+  width = 16,
+  height = 8,
+  pattern = "1127",
+}
+
+tile{
+  layer = 0,
+  x = 232,
+  y = 376,
+  width = 8,
+  height = 32,
+  pattern = "1131",
+}
+
+tile{
+  layer = 0,
+  x = 208,
+  y = 376,
+  width = 8,
+  height = 32,
+  pattern = "1129",
+}
+
+tile{
+  layer = 0,
+  x = 104,
+  y = 280,
+  width = 8,
+  height = 32,
+  pattern = "6087",
+  tileset = "out/outside_buildings",
+}
+
+tile{
+  layer = 0,
+  x = 80,
+  y = 280,
+  width = 8,
+  height = 32,
+  pattern = "6087",
+  tileset = "out/outside_buildings",
+}
+
+tile{
   layer = 0,
   x = 248,
-  y = 424,
+  y = 384,
+  width = 16,
+  height = 16,
+  pattern = "1041",
+}
+
+wall{
+  layer = 0,
+  x = 208,
+  y = 432,
   width = 32,
   height = 32,
   stops_enemies = true,
@@ -2338,8 +1942,8 @@ custom_entity{
 
 wall{
   layer = 0,
-  x = 288,
-  y = 80,
+  x = 248,
+  y = 432,
   width = 32,
   height = 32,
   stops_enemies = true,
@@ -2347,16 +1951,16 @@ wall{
 
 enemy{
   layer = 0,
-  x = 304,
-  y = 101,
+  x = 264,
+  y = 453,
   direction = 0,
   breed = "moblin_dog_spear",
 }
 
 enemy{
   layer = 0,
-  x = 264,
-  y = 445,
+  x = 224,
+  y = 453,
   direction = 0,
   breed = "like_like",
 }
@@ -2364,7 +1968,7 @@ enemy{
 custom_entity{
   layer = 0,
   x = 112,
-  y = 405,
+  y = 461,
   properties = {
     {
       key = "treasure_name",
@@ -2385,7 +1989,7 @@ custom_entity{
 custom_entity{
   layer = 0,
   x = 152,
-  y = 405,
+  y = 461,
   properties = {
     {
       key = "treasure_name",
@@ -2405,6 +2009,52 @@ custom_entity{
   direction = 0,
   sprite = "entities/items",
   model = "pickable_underwater",
+}
+
+destination{
+  name = "from_cave",
+  layer = 0,
+  x = 224,
+  y = 389,
+  direction = 1,
+}
+
+teletransporter{
+  layer = 0,
+  x = 216,
+  y = 376,
+  width = 16,
+  height = 16,
+  destination_map = "examples/test_map2",
+  destination = "from_stairs",
+}
+
+stairs{
+  layer = 0,
+  x = 216,
+  y = 376,
+  direction = 3,
+  subtype = 3,
+}
+
+sensor{
+  name = "drop_test",
+  layer = 0,
+  x = 96,
+  y = 301,
+  width = 16,
+  height = 16,
+}
+
+teletransporter{
+  layer = 0,
+  x = 248,
+  y = 384,
+  width = 16,
+  height = 16,
+  transition = "immediate",
+  destination_map = "examples/test_map2",
+  destination = "from_hole",
 }
 
 tile{

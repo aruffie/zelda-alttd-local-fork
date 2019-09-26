@@ -92,6 +92,7 @@ map{ id = "examples/reflection_tests", description = "Test reflections" }
 map{ id = "examples/sideview_cave", description = "Sideview cave example" }
 map{ id = "examples/sideview_test_map", description = "Test map (sideviews)" }
 map{ id = "examples/test_map", description = "Test map" }
+map{ id = "examples/test_map2", description = "Test map 2" }
 map{ id = "houses/east_prairie/telephone_booth_5", description = "Telephone booth 5" }
 map{ id = "houses/egg_of_the_dream_fish/photographer_house", description = "Photographer house" }
 map{ id = "houses/graveyard/drugstore", description = "Drugstore" }
@@ -829,6 +830,7 @@ music{ id = "snes/53_level_5_catfish_maw", description = "53 - Level 5 - Catfish
 music{ id = "snes/54_boss_warning", description = "54 - Boss Warning" }
 music{ id = "snes/55_the_wind_marimba", description = "55 - The Wind Marimba" }
 music{ id = "snes/56_frogs_song_of_soul", description = "56 - Frogs Song Of Soul" }
+music{ id = "snes/58_southern_shrine", description = "58 - Southern Shrine" }
 music{ id = "snes/59_level_6_face_shrine", description = "59 - Level 6 - Face Shrine" }
 music{ id = "snes/60_coral_triangle", description = "60 - Coral Triangle" }
 music{ id = "snes/67_organ_of_evening_calm", description = "67 - Organ of Evening Calm" }
@@ -1054,6 +1056,7 @@ sound{ id = "picked_item", description = "Empty sound" }
 sound{ id = "running", description = "Empty sound" }
 sound{ id = "running_obstacle", description = "Empty sound" }
 sound{ id = "shield", description = "Empty sound" }
+sound{ id = "snes/enemies/blade_trap", description = "Blade trap" }
 sound{ id = "snes/enemies/boss_die", description = "Boss dying" }
 sound{ id = "snes/enemies/boss_hit", description = "Boss hit" }
 sound{ id = "snes/enemies/enemy_die", description = "Enemy die" }
@@ -1064,6 +1067,7 @@ sound{ id = "snes/enemies/sea_urchin_push1", description = "Sea urchin push 1" }
 sound{ id = "snes/enemies/sea_urchin_push2", description = "Sea urchin push 2" }
 sound{ id = "snes/enemies/wizzrobe", description = "Wizzrobe" }
 sound{ id = "snes/hero/bounce", description = "Bounce" }
+sound{ id = "snes/hero/diving", description = "Diving" }
 sound{ id = "snes/hero/dying", description = "Dying" }
 sound{ id = "snes/hero/fall", description = "Fall" }
 sound{ id = "snes/hero/hurt", description = "Hurt" }
@@ -1073,10 +1077,13 @@ sound{ id = "snes/hero/pickup", description = "Pickup" }
 sound{ id = "snes/hero/rebound", description = "Rebound" }
 sound{ id = "snes/hero/run", description = "Run" }
 sound{ id = "snes/hero/shock", description = "Shock" }
+sound{ id = "snes/hero/splash", description = "Splash" }
 sound{ id = "snes/hero/swim", description = "Swimming" }
 sound{ id = "snes/hero/throw", description = "Throw" }
 sound{ id = "snes/hero/wade1", description = "Walk in water 1" }
 sound{ id = "snes/hero/wade2", description = "Walk in water 2" }
+sound{ id = "snes/hero/walk_on_gress", description = "Walk on grass" }
+sound{ id = "snes/items/arrow_hit", description = "Arrow (wall hit)" }
 sound{ id = "snes/items/bomb_drop", description = "Bomb drop" }
 sound{ id = "snes/items/bomb_explode", description = "Bomb explode" }
 sound{ id = "snes/items/boomerang", description = "Boomerang" }
@@ -1089,11 +1096,14 @@ sound{ id = "snes/items/get_item", description = "Get item" }
 sound{ id = "snes/items/get_item2", description = "Get item 2" }
 sound{ id = "snes/items/get_rupee", description = "Get rupee" }
 sound{ id = "snes/items/get_sword", description = "Get sword" }
+sound{ id = "snes/items/hammer", description = "Hammer (peg hit)" }
+sound{ id = "snes/items/hammer_stake", description = "Hammer" }
 sound{ id = "snes/items/hookshot", description = "Hookshot" }
 sound{ id = "snes/items/magic_powder", description = "Magic powder" }
 sound{ id = "snes/items/shield", description = "Shield" }
 sound{ id = "snes/items/shovel_dig", description = "Shovel dig" }
 sound{ id = "snes/items/sword_charge", description = "Sword charge" }
+sound{ id = "snes/items/sword_shoot", description = "Sword beam" }
 sound{ id = "snes/items/sword_slash1", description = "Sword slash 1" }
 sound{ id = "snes/items/sword_slash2", description = "Sword slash 2" }
 sound{ id = "snes/items/sword_slash3", description = "Sword slash 3" }
@@ -1141,6 +1151,7 @@ sound{ id = "stairs_up_end", description = "Empty sound" }
 sound{ id = "stairs_up_start", description = "Empty sound" }
 sound{ id = "stone", description = "Empty sound" }
 sound{ id = "swim", description = "Empty sound" }
+sound{ id = "switch", description = "Empty sound" }
 sound{ id = "sword1", description = "Empty sound" }
 sound{ id = "sword_spin_attack_load", description = "Empty sound" }
 sound{ id = "sword_spin_attack_release", description = "Empty sound" }
@@ -2061,6 +2072,7 @@ file{ path = "musics/snes/53_level_5_catfish_maw.ogg", author = "Nintendo, Loede
 file{ path = "musics/snes/54_boss_warning.ogg", author = "Nintendo, Loeder", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/55_the_wind_marimba.ogg", author = "Nintendo, Loeder", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/56_frogs_song_of_soul.ogg", author = "Nintendo, Loeder", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/58_southern_shrine.ogg", author = "Nintendo, Loeder", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/59_level_6_face_shrine.ogg", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/60_coral_triangle.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/67_organ_of_evening_calm.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
@@ -2069,6 +2081,7 @@ file{ path = "scripts", license = "GPL v3" }
 file{ path = "scripts/automation", author = "Olivier Cléro", license = "BSD, GPL v3" }
 file{ path = "scripts/automation/automation.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/automation/easing.lua", author = "Robert Penner, Olivier Cléro", license = "BSD" }
+file{ path = "scripts/ceiling_drop_manager.lua", author = "MetalZelda, adapted by PhoenixII54", }
 file{ path = "scripts/gfx_effects", author = "PhoenixII54, Stdgregwar", license = "GPL v3" }
 file{ path = "scripts/gfx_effects/distorsion.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/gfx_effects/electric.lua", author = "Stdgregwar", license = "GPL v3" }
@@ -2409,6 +2422,7 @@ file{ path = "sounds/stairs_up_end.ogg", author = "Franck Jousseaume", license =
 file{ path = "sounds/stairs_up_start.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/stone.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/swim.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/switch.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/sword1.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/sword_spin_attack_load.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/sword_spin_attack_release.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
