@@ -145,7 +145,7 @@ function state:on_started()
             entity:remove_sprite(sword_sprite)
           end
 
-          jump_manager.start(entity, 2, function()
+          jump_manager.start_parabola(entity, 2, function()
               entity.bonking=nil
               audio_manager:play_sound("hero/land")
               entity:unfreeze()
