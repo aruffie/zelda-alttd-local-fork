@@ -40,7 +40,7 @@ function map:on_started()
   enemy_manager:execute_when_vegas_dead(map, "enemy_group_13_")
   if not game:get_value("dungeon_1_wall_1") then
     enemy_manager:on_enemies_dead(map, "enemy_group_15_", function()
-        map:launch_cinematic_1()
+        door_manager:open_hidden_staircase(map, "wall_1", "dungeon_1_wall_1") 
       end)
   end
   -- Music
@@ -165,56 +165,3 @@ enemy_manager:on_enemies_dead(map, "enemy_group_3_", function()
     enemy_group_torch_1:set_shooting(false)
     enemy_group_torch_2:set_shooting(false)
   end)
-
--- Cinematics
--- This is the cinematic that the hero kills "enemy_group_15"
-function map:launch_cinematic_1()
-
-  map:start_coroutine(function()
-      local options = {
-        entities_ignore_suspend = {hero}
-      }
-      map:set_cinematic_mode(true, options)
-      sol.audio.stop_music()
-      wait(2000)
-      local timer_sound = sol.timer.start(hero, 0, function()
-          audio_manager:play_sound("misc/dungeon_shake")
-          return 450
-        end)
-      timer_sound:set_suspended_with_map(false)
-      local camera = map:get_camera()
-      local shake_config = {
-        count = 32,
-        amplitude = 2,
-        speed = 90
-      }
-      wait_for(camera.shake,camera,shake_config)
-      timer_sound:stop()
-      audio_manager:play_sound("items/bomb_explode")
-      local x,y,layer = placeholder_explosion_wall_1:get_position()
-      map:create_explosion({
-          x = x,
-          y = y,
-          layer = layer
-        })
-      map:create_explosion({
-          x = x - 8,
-          y = y - 8,
-          layer = layer
-        })
-      map:create_explosion({
-          x = x + 8,
-          y = y + 8,
-          layer = layer
-        })
-      for entity in map:get_entities("wall_1_") do
-        entity:remove()
-      end
-      wait(1000)
-      audio_manager:play_sound("misc/secret1")
-      game:play_dungeon_music()
-      game:set_value("dungeon_1_wall_1", true)
-      map:set_cinematic_mode(false, options)
-    end)
-
-end
