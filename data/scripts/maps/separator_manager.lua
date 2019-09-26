@@ -15,7 +15,10 @@ function separator_manager:init(map)
   local enemy_places = {}
   local unstable_floors_places = {}
   local destructible_places = {}
+  local block_places = {}
+  map.blocks_remaining = {}
   local game = map:get_game()
+
 
   -- Function called when a separator was just taken.
   local function separator_on_activated(separator)
@@ -57,25 +60,6 @@ function separator_manager:init(map)
     end
 
 
-    -- Blocks.
-    for block in map:get_entities("auto_block") do
-      -- Reset blocks in regions no longer visible.
-      if not block:is_in_same_region(hero) then
-        block:reset()
-        block.is_moved = false
-      end
-
-    end
-
-    if map.blocks_remaining then
-      print "table OK"
-      for block_group, value in pairs(map.blocks_remaining) do --reset counters for blocks groups
-        print ("value for block group "..block_group.."="..value)
-        if block_group then
-          map.blocks_remaining[block_group]=map:get_entities_count(block_group)
-        end
-      end
-    end
 
     -- Torches
     for torch in map:get_entities("auto_torch") do
@@ -90,6 +74,39 @@ function separator_manager:init(map)
   local function separator_on_activating(separator)
 
     local hero = map:get_hero()
+
+    -- Blocks.
+    for _, block_place in ipairs(block_places) do
+      local block=block_place.block
+      if not block:is_in_same_region(hero) then
+        if block:exists() then
+          -- Reset blocks in regions no longer visible.
+          block:reset()
+          block.is_moved = false
+        else
+          local block=map:create_block({
+              name=block_place.name, 
+              x=block_place.x,
+              y=block_place.y,
+              layer=block_place.layer,
+              direction=block_place.direction,
+              sprite=block_place.sprite, 
+              pushable=block_place.pushable, 
+              pullable=block_place.pullable,
+              max_moves=block_place.max_moves,
+              properties=block_place.properties,
+            })
+        end
+      end
+    end
+
+    --Reset counters for block riddles
+    for block_group in pairs(map.blocks_remaining) do 
+      if block_group then
+        map.blocks_remaining[block_group]=map:get_entities_count(block_group)
+      end
+    end
+
 
     --Unstable floors
     for _, floor_place in ipairs(unstable_floors_places) do
@@ -229,7 +246,22 @@ function separator_manager:init(map)
       }
     end
   end
-
+-- Store the position and properties of blocks.
+  for block in map:get_entities("auto_block") do
+    local x, y, layer = block:get_position()
+    block_places[#block_places + 1] = {
+      x = x,
+      y = y,
+      layer = layer,
+      name = block:get_name(),
+      sprite = get_destructible_sprite_name(block),
+      pushable=block:is_pushable(),
+      pullable=block:is_pullable(),
+      max_moves=block:get_max_moves(),
+      properties=block:get_properties(),
+      block = block,
+    }
+  end
   -- Store the position and properties of destructibles.
   for destructible in map:get_entities("auto_destructible") do
     local x, y, layer = destructible:get_position()
