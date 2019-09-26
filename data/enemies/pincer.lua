@@ -11,7 +11,7 @@ local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
 local camera = map:get_camera()
-local head_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+local head_sprite
 local body_sprites = {}
 local quarter = math.pi * 0.5
 local eighth = math.pi * 0.25
@@ -111,10 +111,12 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 8)
 
+  head_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
   for i = 1, 3 do
-    body_sprites[4 - i] = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/body")
-    enemy:bring_sprite_to_back(body_sprites[4 - i]) -- Bring last sprite to back first.
+    body_sprites[i] = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/body")
+    enemy:bring_sprite_to_front(body_sprites[i])
   end
+  enemy:bring_sprite_to_front(head_sprite)
 end)
 
 -- Restart settings.

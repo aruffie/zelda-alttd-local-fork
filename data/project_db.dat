@@ -312,10 +312,7 @@ sprite{ id = "enemies/piranha", description = "Piranha" }
 sprite{ id = "enemies/piranha_plant", description = "Piranha plant" }
 sprite{ id = "enemies/podobo", description = "Podoboo" }
 sprite{ id = "enemies/pokey", description = "Pokey" }
-sprite{ id = "enemies/pokey/2", description = "Pokey 2" }
-sprite{ id = "enemies/pokey/3", description = "Pokey 3" }
-sprite{ id = "enemies/pokey/ball", description = "pokey Ball" }
-sprite{ id = "enemies/pokey/head", description = "Pokey Head" }
+sprite{ id = "enemies/pokey/body", description = "Pokey Body" }
 sprite{ id = "enemies/pols_voice", description = "Pols voice" }
 sprite{ id = "enemies/projectiles/arrow", description = "Arrow" }
 sprite{ id = "enemies/projectiles/bat", description = "Bat" }
