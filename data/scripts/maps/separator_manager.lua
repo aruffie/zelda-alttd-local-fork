@@ -13,6 +13,7 @@ require("scripts/multi_events")
 function separator_manager:init(map)
 
   local enemy_places = {}
+  local unstable_floors_places = {}
   local destructible_places = {}
   local game = map:get_game()
 
@@ -55,6 +56,7 @@ function separator_manager:init(map)
       end
     end
 
+
     -- Blocks.
     for block in map:get_entities("auto_block") do
       -- Reset blocks in regions no longer visible.
@@ -63,8 +65,8 @@ function separator_manager:init(map)
         block.is_moved = false
       end
 
-  end
-  
+    end
+
     if map.blocks_remaining then
       print "table OK"
       for block_group, value in pairs(map.blocks_remaining) do --reset counters for blocks groups
@@ -88,6 +90,46 @@ function separator_manager:init(map)
   local function separator_on_activating(separator)
 
     local hero = map:get_hero()
+
+    --Unstable floors
+    for _, floor_place in ipairs(unstable_floors_places) do
+      local floor=floor_place.floor
+      if not floor:exists() then
+        if not floor:is_in_same_region(hero) then
+          if floor:get_type()=="dynamic_tile" then
+
+            local floor=map:create_dynamic_tile({
+                name=floor_place.name,
+                x=floor_place.x,
+                y=floor_place.y,
+                layer=floor_place.layer,
+                pattern=floor_place.pattern, 
+                width=floor_place.width,
+                height=floor_place.height,
+                properties=floor_place.properties,
+              })
+            floor:set_tileset(floor_place.tileset)
+            floor_place.floor=floor
+
+          elseif floor:get_type()=="custom_entity" then
+            local floor=map:create_custom_entity({
+                name=floor_place.name,
+                direction=floor_place.direction,
+                x=floor_place.x,
+                y=floor_place.y,
+                layer=floor_place.layer,
+                sprite=floor_place.sprite,
+                width=floor_place.width,
+                model=floor_place.model,
+                height=floor_place.height,
+                properties=floor_place.properties,
+              })
+            floor:set_tiled(floor_place.tiled)
+            floor_place.floor=floor
+          end
+        end
+      end
+    end
 
     -- Destructibles.
     for _, destructible_place in ipairs(destructible_places) do
@@ -153,6 +195,41 @@ function separator_manager:init(map)
     return sprite ~= nil and sprite:get_animation_set() or ""
   end
 
+  -- Store the position and properties of unstable floors.
+  for floor in map:get_entities("floor") do
+    local x, y, layer = floor:get_position()
+    local width, height = floor:get_size()
+    if floor:get_type()=="dynamic_tile" then
+      unstable_floors_places[#unstable_floors_places + 1] = {
+        x = x,
+        y = y,
+        layer = layer,
+        name = floor:get_name(),
+        pattern = floor:get_pattern_id(),
+        width=width,
+        height=height,
+        tileset=floor:get_tileset(),
+        properties=floor:get_properties(),
+        floor=floor, 
+      }
+    elseif floor:get_type()=="custom_entity" then
+      unstable_floors_places[#unstable_floors_places + 1] = {
+        x = x,
+        y = y,
+        layer = layer,
+        name = floor:get_name(),
+        sprite=get_destructible_sprite_name(floor), 
+        width=width,
+        height=height,
+        model=floor:get_model(),
+        direction=floor:get_direction(), 
+        tiled=floor:is_tiled(),
+        properties=floor:get_properties(),
+        floor=floor,
+      }
+    end
+  end
+
   -- Store the position and properties of destructibles.
   for destructible in map:get_entities("auto_destructible") do
     local x, y, layer = destructible:get_position()
@@ -173,6 +250,7 @@ function separator_manager:init(map)
       destructible = destructible,
     }
   end
+
   for enemy in map:get_entities_by_type("enemy") do
     enemy:register_event("on_dead", function()
         if not enemy:get_property("can_resurrect") then
