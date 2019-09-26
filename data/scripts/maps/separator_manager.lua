@@ -16,6 +16,7 @@ function separator_manager:init(map)
   local unstable_floors_places = {}
   local destructible_places = {}
   local block_places = {}
+  local entity_places = {}
   map.blocks_remaining = {}
   local game = map:get_game()
 
@@ -59,8 +60,6 @@ function separator_manager:init(map)
       end
     end
 
-
-
     -- Torches
     for torch in map:get_entities("auto_torch") do
       torch:set_lit(false)
@@ -97,6 +96,31 @@ function separator_manager:init(map)
               properties=block_place.properties,
             })
         end
+      end
+    end
+
+    -- custom entities.
+    for _, entity_place in ipairs(entity_places) do
+      local entity=entity_place.entity
+      if not entity:is_in_same_region(hero) then
+        if entity:exists() then
+          entity:remove()
+        end
+
+        local entity=map:create_custom_entity({
+            name=entity_place.name,
+            direction=entity_place.direction,
+            x=entity_place.x,
+            y=entity_place.y,
+            layer=entity_place.layer,
+            sprite=entity_place.sprite,
+            width=entity_place.width,
+            model=entity_place.model,
+            height=entity_place.height,
+            properties=entity_place.properties,
+          })
+        entity:set_tiled(entity_place.tiled)
+        entity_place.entity=entity
       end
     end
 
@@ -187,7 +211,7 @@ function separator_manager:init(map)
     separator:register_event("on_activating", separator_on_activating)
     separator:register_event("on_activated", separator_on_activated)
   end
-  -- Store the position and properties of enemies.
+-- Store the position and properties of enemies.
   for enemy in map:get_entities_by_type("enemy") do
     local x, y, layer = enemy:get_position()
     enemy_places[enemy] = {
@@ -207,12 +231,35 @@ function separator_manager:init(map)
     end
   end
 
-  local function get_destructible_sprite_name(destructible)
-    local sprite = destructible:get_sprite()
+  local function get_entity_sprite_name(entity)
+    local sprite = entity:get_sprite()
     return sprite ~= nil and sprite:get_animation_set() or ""
   end
 
-  -- Store the position and properties of unstable floors.
+-- Store the position and properties of custom entities
+  for entity in map:get_entities("auto_entity") do
+    local x, y, layer = entity:get_position()
+    local width, height = entity:get_size()
+
+    entity_places[#entity_places + 1] = {
+      x = x,
+      y = y,
+      layer = layer,
+      name = entity:get_name(),
+      sprite=get_entity_sprite_name(entity), 
+      width=width,
+      height=height,
+      model=entity:get_model(),
+      direction=entity:get_direction(), 
+      tiled=entity:is_tiled(),
+      properties=entity:get_properties(),
+      entity=entity,
+    }
+    if not entity:is_in_same_region(map:get_hero()) then
+      entity:remove()
+    end
+  end
+-- Store the position and properties of unstable floors.
   for floor in map:get_entities("floor") do
     local x, y, layer = floor:get_position()
     local width, height = floor:get_size()
@@ -235,7 +282,7 @@ function separator_manager:init(map)
         y = y,
         layer = layer,
         name = floor:get_name(),
-        sprite=get_destructible_sprite_name(floor), 
+        sprite=get_entity_sprite_name(floor), 
         width=width,
         height=height,
         model=floor:get_model(),
@@ -254,7 +301,7 @@ function separator_manager:init(map)
       y = y,
       layer = layer,
       name = block:get_name(),
-      sprite = get_destructible_sprite_name(block),
+      sprite = get_entity_sprite_name(block),
       pushable=block:is_pushable(),
       pullable=block:is_pullable(),
       max_moves=block:get_max_moves(),
@@ -262,7 +309,7 @@ function separator_manager:init(map)
       block = block,
     }
   end
-  -- Store the position and properties of destructibles.
+-- Store the position and properties of destructibles.
   for destructible in map:get_entities("auto_destructible") do
     local x, y, layer = destructible:get_position()
     destructible_places[#destructible_places + 1] = {
@@ -271,7 +318,7 @@ function separator_manager:init(map)
       layer = layer,
       name = destructible:get_name(),
       treasure = { destructible:get_treasure() },
-      sprite = get_destructible_sprite_name(destructible),
+      sprite = get_entity_sprite_name(destructible),
       destruction_sound = destructible:get_destruction_sound(),
       weight = destructible:get_weight(),
       can_be_cut = destructible:get_can_be_cut(),
