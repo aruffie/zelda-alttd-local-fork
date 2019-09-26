@@ -144,6 +144,57 @@ function door_manager:destroy_wall(map, weak_wall_prefix)
 
 end
 
+function door_manager:open_hidden_staircase(map, entity_group, savegame_variable)
+  local hero=map:get_hero()
+  local game=map:get_game()
+  map:start_coroutine(function()
+      local options = {
+        entities_ignore_suspend = {hero}
+      }
+      map:set_cinematic_mode(true, options)
+      sol.audio.stop_music()
+      wait(2000)
+      local timer_sound = sol.timer.start(hero, 0, function()
+          audio_manager:play_sound("misc/dungeon_shake")
+          return 450
+        end)
+      timer_sound:set_suspended_with_map(false)
+      local camera = map:get_camera()
+      local shake_config = {
+        count = 32,
+        amplitude = 2,
+        speed = 90
+      }
+      wait_for(camera.shake,camera,shake_config)
+      timer_sound:stop()
+      audio_manager:play_sound("items/bomb_explode")
+      local x,y,layer = map:get_entity("placeholder_explosion_"..entity_group):get_position()
+      map:create_explosion({
+          x = x,
+          y = y,
+          layer = layer
+        })
+      map:create_explosion({
+          x = x - 8,
+          y = y - 8,
+          layer = layer
+        })
+      map:create_explosion({
+          x = x + 8,
+          y = y + 8,
+          layer = layer
+        })
+      for entity in map:get_entities(entity_group) do
+        entity:remove()
+      end
+      wait(1000)
+      audio_manager:play_sound("misc/secret1")
+      game:play_dungeon_music()
+      game:set_value(savegame_variable, true)
+      map:set_cinematic_mode(false, options)
+    end)
+  end
+
 -- Check if wall is exploded and destroy
 function door_manager:open_weak_wall_if_savegame_exist(map, weak_wall_prefix, savegame)
 
