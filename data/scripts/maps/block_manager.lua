@@ -1,6 +1,9 @@
 local block_manager={}
 
 function block_manager:init_block_riddle(map, block_prefix, callback)
+  if not map.blocks_remaining then
+    map.blocks_remaining={}
+  end
   map.blocks_remaining[block_prefix] = map:get_entities_count(block_prefix)
   local game = map:get_game()
   local function block_on_moved()

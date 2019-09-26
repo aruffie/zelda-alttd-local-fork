@@ -14368,23 +14368,14 @@ block{
 }
 
 block{
+  name = "auto_block_2",
   layer = 0,
   x = 1192,
   y = 669,
   sprite = "entities/blocks/block",
   pushable = false,
   pullable = false,
-  maximum_moves = 0,
-}
-
-block{
-  layer = 0,
-  x = 1208,
-  y = 669,
-  sprite = "entities/blocks/block",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 0,
+  max_moves = 0,
 }
 
 block{
@@ -15817,8 +15808,8 @@ destructible{
   x = 1352,
   y = 1285,
   treasure_name = "random",
-  sprite = "entities/blue_cristal",
-  destruction_sound = "bush",
+  sprite = "entities/destructibles/crystal_blue",
+  destruction_sound = "arrow_hit",
   weight = -1,
   can_be_cut = true,
 }
@@ -15829,8 +15820,8 @@ destructible{
   x = 1336,
   y = 1269,
   treasure_name = "random",
-  sprite = "entities/blue_cristal",
-  destruction_sound = "bush",
+  sprite = "entities/destructibles/crystal_blue",
+  destruction_sound = "arrow_hit",
   weight = -1,
   can_be_cut = true,
 }
@@ -16342,101 +16333,14 @@ destructible{
 }
 
 custom_entity{
-  layer = 0,
-  x = 1400,
-  y = 813,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1464,
-  y = 837,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
+  name = "auto_entity_2",
   layer = 0,
   x = 1480,
   y = 853,
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1528,
-  y = 893,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1528,
-  y = 797,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1512,
-  y = 813,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1512,
-  y = 877,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1400,
-  y = 893,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1352,
-  y = 813,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
+  sprite = "entities/destructibles/crystal_green",
   model = "green_crystal",
 }
 
@@ -17488,61 +17392,6 @@ enemy{
   direction = 0,
   breed = "star",
   treasure_name = "random",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1384,
-  y = 893,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1368,
-  y = 893,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1352,
-  y = 893,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1368,
-  y = 813,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1384,
-  y = 813,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
 }
 
 enemy{
@@ -18790,6 +18639,162 @@ enemy{
   y = 1117,
   direction = 0,
   breed = "boss/gohma_red",
+}
+
+custom_entity{
+  name = "auto_entity",
+  layer = 0,
+  x = 1464,
+  y = 837,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  name = "auto_entity_3",
+  layer = 0,
+  x = 1512,
+  y = 813,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  name = "auto_entity_4",
+  layer = 0,
+  x = 1528,
+  y = 797,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  name = "auto_entity_5",
+  layer = 0,
+  x = 1512,
+  y = 877,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  name = "auto_entity_6",
+  layer = 0,
+  x = 1528,
+  y = 893,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  name = "auto_entity_7",
+  layer = 0,
+  x = 1400,
+  y = 893,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  name = "auto_entity_8",
+  layer = 0,
+  x = 1384,
+  y = 893,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  name = "auto_entity_9",
+  layer = 0,
+  x = 1368,
+  y = 893,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  name = "auto_entity_10",
+  layer = 0,
+  x = 1352,
+  y = 893,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  name = "auto_entity_11",
+  layer = 0,
+  x = 1352,
+  y = 813,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  name = "auto_entity_12",
+  layer = 0,
+  x = 1368,
+  y = 813,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  name = "auto_entity_13",
+  layer = 0,
+  x = 1384,
+  y = 813,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  name = "auto_entity_14",
+  layer = 0,
+  x = 1400,
+  y = 813,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
 }
 
 tile{

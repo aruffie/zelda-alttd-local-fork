@@ -9777,6 +9777,7 @@ stairs{
 }
 
 custom_entity{
+  name = "auto_entity_2",
   layer = 0,
   x = 1016,
   y = 1341,
@@ -9788,6 +9789,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity",
   layer = 0,
   x = 1016,
   y = 1325,
