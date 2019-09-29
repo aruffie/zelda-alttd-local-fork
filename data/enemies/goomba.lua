@@ -10,9 +10,10 @@ local map = enemy:get_map()
 local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
+local is_sideview = map.is_sideview and map:is_sideview()
 
 -- Configuration variables
-local walking_angles = map:is_sideview() and {0, quarter, 2.0 * quarter, 3.0 * quarter} or {0, 0, 2 * quarter, 2 * quarter}
+local walking_angles = is_sideview and {0, quarter, 2.0 * quarter, 3.0 * quarter} or {0, 0, 2 * quarter, 2 * quarter}
 local walking_speed = 32
 local walking_minimum_distance = 16
 local walking_maximum_distance = 96
@@ -32,7 +33,7 @@ function enemy:on_attacking_hero(hero, enemy_sprite)
 
   local _, y, _ = enemy:get_position()
   local _, hero_y, _ = hero:get_position()
-  if not map:is_sideview() or hero_y >= y then
+  if not is_sideview or hero_y >= y then
     hero:start_hurt(enemy, enemy:get_damage())
   end
 end
