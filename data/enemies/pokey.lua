@@ -3,7 +3,7 @@
 
 -- Global variables
 local enemy = ...
-require("enemies/lib/common_actions").learn(enemy)
+local common_action = require("enemies/lib/common_actions")
 
 local game = enemy:get_game()
 local map = enemy:get_map()
@@ -11,13 +11,15 @@ local hero = map:get_hero()
 local head_sprite
 local body_sprites = {}
 local quarter = math.pi * 0.5
+local before_walking_timer
 
 -- Configuration variables
-local life = 3
+local life_point = enemy:get_property("life_point") or 3
 local walking_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
 local walking_speed = 32
 local walking_minimum_distance = 16
 local walking_maximum_distance = 96
+local before_walking_delay = 500
 
 -- Start the enemy movement.
 function enemy:start_walking()
@@ -31,8 +33,9 @@ end
 function enemy:detach_body()
 
   -- Replace sprites position and detach a body if the body number is greater than the enemy life.
+  local life = enemy:get_life()
   for i = 1, #body_sprites do
-    if i > enemy:get_life() - 2 then
+    if i > life - 2 then
       enemy:remove_sprite(body_sprites[i])
       body_sprites[i] = nil
     else
@@ -41,9 +44,23 @@ function enemy:detach_body()
   end
   head_sprite:set_xy(0, -11 * #body_sprites)
 
-  -- TODO Create bouncing body entity.
+  -- Create bouncing body enemy.
+  if life > 1 then
+    enemy:create_enemy({breed = "projectiles/cactus"})
+  end
 
   enemy:hurt(1)
+end
+
+-- Wait a few time and start walking.
+function enemy:wait()
+
+  if before_walking_timer then
+    before_walking_timer:stop()
+  end
+  before_walking_timer = sol.timer.start(enemy, before_walking_delay, function()
+    enemy:start_walking()
+  end)
 end
 
 -- Detach a body on weak attack received.
@@ -54,14 +71,15 @@ end
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
 
-  enemy:set_life(life)
+  common_action.learn(enemy)
+  enemy:set_life(life_point)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)
   enemy:start_shadow()
 
   -- Create sprites.
   head_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
-  for i = 1, life - 1 do
+  for i = 1, life_point - 1 do
     body_sprites[i] = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/body")
     enemy:bring_sprite_to_front(body_sprites[i])
   end
@@ -87,6 +105,7 @@ enemy:register_event("on_restarted", function(enemy)
 
   -- States.
   enemy:set_can_attack(true)
+  enemy:set_pushed_back_when_hurt(false)
   enemy:set_damage(2)
-  enemy:start_walking()
+  enemy:wait()
 end)

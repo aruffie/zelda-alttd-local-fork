@@ -1336,6 +1336,7 @@ enemy{ id = "projectiles/bat", description = "Bat" }
 enemy{ id = "projectiles/beam", description = "Beam" }
 enemy{ id = "projectiles/bomb", description = "Bomb" }
 enemy{ id = "projectiles/bone", description = "Bone" }
+enemy{ id = "projectiles/cactus", description = "Cactus" }
 enemy{ id = "projectiles/coconut", description = "Coconut" }
 enemy{ id = "projectiles/fireball", description = "Fireball" }
 enemy{ id = "projectiles/laser", description = "Laser" }
