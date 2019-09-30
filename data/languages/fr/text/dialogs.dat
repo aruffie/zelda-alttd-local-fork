@@ -112,8 +112,7 @@ dialog{
   id = "_treasure.beak_of_stone.1",
   icon = "39",
   text = [[
-Vous trouvez un bec
-de pierre !
+Vous trouvez un bec de pierre !
 Allez compléter une statue de chouette.
 ]],
 }
@@ -550,7 +549,8 @@ dialog{
   id = "_treasure.map.1",
   icon = "70",
   text = [[
-Tu as une Carte! Appuie sur PAUSE pour la consulter !
+Tu as une Carte !
+Appuie sur PAUSE pour la consulter !
 ]],
 }
 
@@ -924,34 +924,28 @@ dialog{
   id = "maps.dungeons.1.indication",
   text = [[
 ...MARAIS...    
-La route mène au marais
-fleuri.
+La route mène au marais fleuri.
 ]],
 }
 
 dialog{
   id = "maps.dungeons.1.owl_1",
   text = [[
-Si tu vois les pointes,    
-pense à utiliser ton
-bouclier.
+Si tu vois les pointes, pense à utiliser ton bouclier.
 ]],
 }
 
 dialog{
   id = "maps.dungeons.1.owl_2",
   text = [[
-Si une porte ne s'ouvre
-pas, déplace un bloc.
+Si une porte ne s'ouvre pas, déplace un bloc.
 ]],
 }
 
 dialog{
   id = "maps.dungeons.1.owl_3",
   text = [[
-Si tu vois les pointes,    
-pense à utiliser ton
-bouclier.
+Si tu vois les pointes, pense à utiliser ton bouclier.
 ]],
 }
 
@@ -961,6 +955,13 @@ dialog{
   text = [[
           Niveau 1       
        Cave Flagello
+]],
+}
+
+dialog{
+  id = "maps.dungeons.10.welcome",
+  text = [[
+Temple du Hibou
 ]],
 }
 
@@ -1059,8 +1060,7 @@ dialog{
   id = "maps.dungeons.3.indication",
   text = [[
 ...CASCADE...   
-C'est caché     
-sous la cascade.
+C'est caché sous la cascade.
 ]],
 }
 
@@ -1077,8 +1077,7 @@ dialog{
   id = "maps.dungeons.4.indication",
   text = [[
 ...BAIE...      
-Ta route passe  
-par la baie.
+Ta route passe par la baie.
 ]],
 }
 
@@ -1106,8 +1105,7 @@ dialog{
   id = "maps.dungeons.5.indication",
   text = [[
 ...TEMPLE...    
-Il renferme le  
-secret de l'île.
+Il renferme le secret de l'île.
 ]],
 }
 
@@ -1140,8 +1138,7 @@ dialog{
   id = "maps.dungeons.7.indication",
   text = [[
 ...OCARINA...   
-Sa musique      
-te guidera.
+Sa musique te guidera.
 ]],
 }
 
@@ -1157,8 +1154,7 @@ dialog{
   id = "maps.dungeons.8.indication",
   text = [[
 L'heure a sonné.
-L'Oeuf Sacré    
-te réclame.
+L'Oeuf Sacré te réclame.
 ]],
 }
 
@@ -1273,9 +1269,7 @@ Il te faut la Clé du Maître pour l'ouvrir.
 dialog{
   id = "maps.dungeons.owl",
   text = [[
-Cette statue veut me
-dire quelque chose mais 
-je ne comprends rien ! 
+Cette statue veut me dire quelque chose mais je ne comprends rien ! 
 Elle n'a pas de bec...
 ]],
 }
@@ -1363,19 +1357,16 @@ dialog{
   id = "maps.houses.graveyard.witch_house.witch_1",
   text = [[
 C'est une perte de temps !       
-Pour ma poudre, il me
-faut le Champignon de 
-la forêt.
+Pour ma poudre, il me faut le Champignon de la forêt.
 ]],
 }
 
 dialog{
   id = "maps.houses.graveyard.witch_house.witch_2",
   text = [[
-Tu m'apportes le Champignon
-qui endort. Bon !
-Dare dare ! Je te concocte
-une mixture !!
+Tu m'apportes le Champignon qui endort. Bon !
+Dare dare !
+Je te concocte une mixture !!
 ]],
 }
 
@@ -2059,8 +2050,7 @@ DRING DRING !
 DRING ! Hello !   
 Madonna à l'appaouïelle.
 No darling... CLIC !           
-Tu as dû faire un faux 
-numéro !
+Tu as dû faire un faux numéro !
 ]],
 }
 
@@ -2472,12 +2462,11 @@ dialog{
   id = "maps.houses.south_mabe_village.sales_house_o_bananas.alligator_1",
   text = [[
 Bienvenue chez AlligoBanane !   
-lci j'entrepose. Mon hobby, 
-c'est collectionner des
-boîtes de conserve.    
-Mon frère cadet est un 
-artiste. Moi... Je suis plus 
-terre à terre.
+lci j'entrepose.
+Mon hobby, c'est collectionner des boîtes de conserve.    
+Mon frère cadet est un artiste
+Moi...
+Je suis plus terre à terre.
 J'adore manger !
 ]],
 }
@@ -2924,49 +2913,42 @@ Mt Tamaranch
 dialog{
   id = "maps.out.forest.raccoon",
   text = [[
-J'suis un raton-laveur 
-espiègle. Et j'aime pas
-du tout c'qu'est poudreux...
+J'suis un raton-laveur espiègle.
+Et j'aime pas du tout c'qu'est poudreux...
 ]],
 }
 
 dialog{
   id = "maps.out.forest.raccoon_lost_warning",
   text = [[
-Hé hé ! Tu vas te perdre
-dans la Forêt. Hi hi !
-Bien fait !!
+Hé hé !
+Tu vas te perdre dans la Forêt.
+Hi hi ! Bien fait !!
 ]],
 }
 
 dialog{
   id = "maps.out.forest.raccoon_to_tarin",
   text = [[
-J'ai croqué dans un 
-champignon. Et j'suis devenu 
-un raton-laveur ! Après, 
-j'sais plus trop, mais
-c'était trop rigolo !!
+J'ai croqué dans un champignon. Et j'suis devenu un raton-laveur !
+Après, j'sais plus trop, mais c'était trop rigolo !!
 ]],
 }
 
 dialog{
   id = "maps.out.forest.sign_1",
   text = [[
-Attention au plancher
-fissuré.
-        
-Rondouillards : 
-abstenez-vous !
+Attention au plancher fissuré.    
+Rondouillards : abstenez-vous !
 ]],
 }
 
 dialog{
   id = "maps.out.forest.tarin",
   text = [[
-Oh là là !! J'me sens tout
-drôle ! Faut m'reposer avant 
-d'rentrer.
+Oh là là !!
+J'me sens tout drôle !
+Faut m'reposer avant d'rentrer.
 ]],
 }
 
@@ -4026,9 +4008,7 @@ dialog{
   icon = "37",
   skip = "all",
   text = [[
-Essaie de la    
-saupoudrer sur  
-plein de choses !
+Essaie de la saupoudrer sur plein de choses !
 ]],
 }
 
@@ -4218,9 +4198,7 @@ dialog{
   icon = "36",
   skip = "all",
   text = [[
-Si tu brandis le
-Champignon, un arôme
-subtil se répandra !
+Si tu brandis le Champignon, un arôme subtil se répandra !
 ]],
 }
 
@@ -4308,8 +4286,7 @@ dialog{
   icon = "63",
   skip = "all",
   text = [[
-Permet de repousser vos
-ennemis.
+Permet de repousser vos ennemis.
 ]],
 }
 
@@ -4336,8 +4313,7 @@ dialog{
   icon = "66",
   skip = "all",
   text = [[
-Une belle épée avec
-ton nom écrit dessus.
+Une belle épée avec ton nom écrit dessus.
 ]],
 }
 
@@ -4357,8 +4333,7 @@ dialog{
   icon = "60",
   skip = "all",
   text = [[
-Une tunique verte pour
-le plus beau des héros !
+Une tunique verte pour le plus beau des héros !
 ]],
 }
 

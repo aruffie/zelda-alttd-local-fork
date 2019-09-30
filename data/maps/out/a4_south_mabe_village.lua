@@ -135,6 +135,11 @@ function map:launch_cinematic_1()
     wait(5400)
     map:remove_entities("brandish")
     animation(hero, "spin_attack")
+    for enemy in map:get_entities_by_type("enemy") do
+      if enemy:get_distance(hero) < 32 then
+        enemy:set_life(0)
+      end
+    end
     map:set_cinematic_mode(false, options)
     game:set_value("main_quest_step", 4)
     wait(300)

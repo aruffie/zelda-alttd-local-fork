@@ -187,7 +187,7 @@ function quest_submenu:on_draw(dst_surface)
     pieces_of_heart_x, 0,                 -- region position in image
     pieces_of_heart_w, pieces_of_heart_w, -- region size in image
     dst_surface,                          -- destination surface
-    menu_x + 146, menu_y + 168            -- position in destination surface
+    menu_x + 146, menu_y + 160            -- position in destination surface
   )
   
   -- Draw cursor only when the save dialog is not displayed.
