@@ -22,8 +22,8 @@ function destructible_meta:on_looked()
   -- Here, self is the destructible object.
   local game = self:get_game()
   local sprite = self:get_sprite()
-  if self:get_can_be_cut() == false then
-    if not game:has_ability("lift") then
+  if self:get_weight() > 0 and self:get_weight() > game:get_ability('lift')   then
+    if game:get_ability('lift') == 1 then
       game:start_dialog("_cannot_lift_too_heavy");
     else
       game:start_dialog("_cannot_lift_still_too_heavy");

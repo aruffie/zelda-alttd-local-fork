@@ -11979,6 +11979,43 @@ enemy{
   treasure_name = "random",
 }
 
+enemy{
+  layer = 1,
+  x = 896,
+  y = 685,
+  direction = 2,
+  breed = "moblin_dog_spear",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 1,
+  x = 808,
+  y = 685,
+  direction = 0,
+  breed = "moblin_dog_spear",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 1,
+  x = 856,
+  y = 685,
+  direction = 3,
+  breed = "zol_red",
+  treasure_name = "random",
+}
+
+wall{
+  layer = 1,
+  x = 792,
+  y = 616,
+  width = 112,
+  height = 16,
+  stops_enemies = true,
+  stops_projectiles = true,
+}
+
 tile{
   layer = 2,
   x = 536,

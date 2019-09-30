@@ -309,72 +309,74 @@ function debug:on_draw(dst_surface)
         end
         show_text(0, 60, "state: "..s..(s=="custom" and "("..hero:get_state_object():get_description()..")" or ""))
         show_text(0, 70, "ground:"..hero:get_ground_below())
-        if hero_movement then 
-          show_text(0, 100, "Movement info")
-          local x,y=hero_movement:get_xy()
-          show_text(0, 110, "Position: ("..x..", "..y..")")
-          show_text(0, 120, "Direction 4: " ..hero_movement:get_direction4())
-          show_text(0,130, "Ignore obstacles? "..(hero_movement:get_ignore_obstacles() and "Yes" or "No"))
-          show_text(0,140, "Ignore suspended with game? "..(hero_movement:get_ignore_suspend() and "Yes" or "No"))
-          if hero_movement.get_speed then
-            show_text(0, 150, "Speed: "..hero_movement:get_speed().." px/s")
-          end
-          if hero_movement.get_angle then
-            show_text(0, 160, "Angle: "..hero_movement:get_angle().." rad")
-          end
-          if hero_movement.get_max_distance then
-            show_text(0, 170, "Max distance: "..hero_movement:get_max_distance().." px")
-          end
-          if hero_movement.is_smooth then
-            show_text(0, 180, "Smooth? "..(hero_movement:is_smooth() and "Yes" or "No"))
-          end
+        show_text(0, 80, "jumping? "..(hero:is_jumping() and "Yes" or "No"))
+        show_text(100, 80, "Running? "..(hero:is_running() and "Yes" or "No"))
+          if hero_movement then 
+            show_text(0, 100, "Movement info")
+            local x,y=hero_movement:get_xy()
+            show_text(0, 110, "Position: ("..x..", "..y..")")
+            show_text(0, 120, "Direction 4: " ..hero_movement:get_direction4())
+            show_text(0,130, "Ignore obstacles? "..(hero_movement:get_ignore_obstacles() and "Yes" or "No"))
+            show_text(0,140, "Ignore suspended with game? "..(hero_movement:get_ignore_suspend() and "Yes" or "No"))
+            if hero_movement.get_speed then
+              show_text(0, 150, "Speed: "..hero_movement:get_speed().." px/s")
+            end
+            if hero_movement.get_angle then
+              show_text(0, 160, "Angle: "..hero_movement:get_angle().." rad")
+            end
+            if hero_movement.get_max_distance then
+              show_text(0, 170, "Max distance: "..hero_movement:get_max_distance().." px")
+            end
+            if hero_movement.is_smooth then
+              show_text(0, 180, "Smooth? "..(hero_movement:is_smooth() and "Yes" or "No"))
+            end
 
-          if hero_movement.get_path then --Path movement
-            local text="Path: "
-            for k,v in pairs(hero_movement:get_path()) do
-              text=text..v
+            if hero_movement.get_path then --Path movement
+              local text="Path: "
+              for k,v in pairs(hero_movement:get_path()) do
+                text=text..v
+              end
+              show_text(0, 170, text)
+              show_text(0, 180, "Snap to grid? "..(hero_movement:get_snap_to_grid() and "Yes" or "No"))
+            end             
+            if hero_movement.get_angular_speed then --Circular movement
+              show_text(0, 150, "A.Speed: "..hero_movement:get_anguler_speed().." rad/s")
+              show_text(0, 160, "Circular Angle: "..hero_movement:get_angle_from_center().." rad")
+              show_text(0, 170, "Radius: "..hero_movement:get_radius().." px")
+              show_text(0, 180, "Radiud speed: "..hero_movement:get_radius_speed().."px/s")
+              show_text(0, 190, "Clockwise? "..(hero_movement:is_clockwise() and "Yes" or "No"))
+              show_text(0, 200, "Max rotations: "..hero_movement:get_max_rotations())
+              show_text(0, 210, "Duration: "..hero_movement:get_duration().." ms")
+              show_text(0, 220, "Loop delay: "..hero_movement:get_loop_delay().." ms")
             end
-            show_text(0, 170, text)
-            show_text(0, 180, "Snap to grid? "..(hero_movement:get_snap_to_grid() and "Yes" or "No"))
-          end             
-          if hero_movement.get_angular_speed then --Circular movement
-            show_text(0, 150, "A.Speed: "..hero_movement:get_anguler_speed().." rad/s")
-            show_text(0, 160, "Circular Angle: "..hero_movement:get_angle_from_center().." rad")
-            show_text(0, 170, "Radius: "..hero_movement:get_radius().." px")
-            show_text(0, 180, "Radiud speed: "..hero_movement:get_radius_speed().."px/s")
-            show_text(0, 190, "Clockwise? "..(hero_movement:is_clockwise() and "Yes" or "No"))
-            show_text(0, 200, "Max rotations: "..hero_movement:get_max_rotations())
-            show_text(0, 210, "Duration: "..hero_movement:get_duration().." ms")
-            show_text(0, 220, "Loop delay: "..hero_movement:get_loop_delay().." ms")
-          end
-          if hero_movement.get_direction8 then --Built-in jump movement
-            show_text(0, 160, "Direction 8: "..hero_movement:get_direction8())
-            show_text(0, 170, "Jump distance: "..hero_movement:get_distance()..' px')
-          end
-          if hero_movement.get_trajectory then --Pixel-perfect movement
-            show_text(0, 160, "Trajectory: "..hero_movement:get_trajectory())
-            show_text(0, 170, "Delay: "..hero_movement:get_delay()..' ms')
-          end
-        end
-      elseif debug_info_page == 1 then
-        if s=="custom" then
-          local state=hero:get_state_object()
-          show_text(0,0,"Custom state info")
-          show_text(0,10,"Description: "..state:get_description())
-          show_text(0,20,"Visible ? "..(state:is_visible() and "Yes" or "No"))
-          show_text(0,30,"Can traverse :")
-          local can_traverse
-          local num_cols=3
-          for index, ground_type in pairs({"empty", "traversable", "wall", "low_wall", "wall_top_right", "wall_top_left", "wall_bottom_left", "wall_bottom_right", "wall_top_right_water", "wall_top_left_water", "wall_bottom_left_water", "wall_bottom_right_water", "deep_water", "shallow_water", "grass", "hole", "ice", "ladder", "prickles", "lava"}) do
-            can_traverse=state:get_can_traverse_ground(ground_type)
-            if can_traverse then
-              debug_informations_text:set_color({0,255,0})
-            else
-              debug_informations_text:set_color({255,0,0})                     
+            if hero_movement.get_direction8 then --Built-in jump movement
+              show_text(0, 160, "Direction 8: "..hero_movement:get_direction8())
+              show_text(0, 170, "Jump distance: "..hero_movement:get_distance()..' px')
             end
-            local w=debug_informations_background:get_size()
-            show_text((index-1)%num_cols*(w/num_cols), 40+10*math.floor((index-1)/num_cols), ground_type)
+            if hero_movement.get_trajectory then --Pixel-perfect movement
+              show_text(0, 160, "Trajectory: "..hero_movement:get_trajectory())
+              show_text(0, 170, "Delay: "..hero_movement:get_delay()..' ms')
+            end
           end
+        elseif debug_info_page == 1 then
+          if s=="custom" then
+            local state=hero:get_state_object()
+            show_text(0,0,"Custom state info")
+            show_text(0,10,"Description: "..state:get_description())
+            show_text(0,20,"Visible ? "..(state:is_visible() and "Yes" or "No"))
+            show_text(0,30,"Can traverse :")
+            local can_traverse
+            local num_cols=3
+            for index, ground_type in pairs({"empty", "traversable", "wall", "low_wall", "wall_top_right", "wall_top_left", "wall_bottom_left", "wall_bottom_right", "wall_top_right_water", "wall_top_left_water", "wall_bottom_left_water", "wall_bottom_right_water", "deep_water", "shallow_water", "grass", "hole", "ice", "ladder", "prickles", "lava"}) do
+              can_traverse=state:get_can_traverse_ground(ground_type)
+              if can_traverse then
+                debug_informations_text:set_color({0,255,0})
+              else
+                debug_informations_text:set_color({255,0,0})                     
+              end
+              local w=debug_informations_background:get_size()
+              show_text((index-1)%num_cols*(w/num_cols), 40+10*math.floor((index-1)/num_cols), ground_type)
+            end
 --          for index, entity_type in pairs({"hero", "dynamic_tile", "teletransporter", "destination", "pickable", "destructible", "carried_object", "chest", "shop_treasure", "enemy", "npc", "block", "jumper", "switch", "sensor", "separator", "wall", "crystal", "crystal_block", "stream", "door", "stairs", "bomb", "explosion", "fire", "arrow", "hookshot", "boomerang", "custom_entity")
 --            if can_traverse then
 --              debug_informations_text:set_color({0,192,0})
@@ -383,25 +385,25 @@ function debug:on_draw(dst_surface)
 --            end
 --            show_text(index%4*90, 40+10*math.floor(index/4), entity_type)
 --          end
-          --TODO add all rules display (on a new page?)
-        else
-          show_text(0,0, "<No custom state data>")
+            --TODO add all rules display (on a new page?)
+          else
+            show_text(0,0, "<No custom state data>")
+          end
+
         end
+        debug_informations_background:draw(dst_surface)
 
+        --Show cuttently active command keys
       end
-      debug_informations_background:draw(dst_surface)
-
-      --Show cuttently active command keys
-    end
-    for _, command in pairs(commands) do
-      if game:is_command_pressed(command.name) then
-        debug_command_sprite:set_animation(command.name)
-        debug_command_sprite:draw(dst_surface, command.x, command.y)
+      for _, command in pairs(commands) do
+        if game:is_command_pressed(command.name) then
+          debug_command_sprite:set_animation(command.name)
+          debug_command_sprite:draw(dst_surface, command.x, command.y)
+        end
       end
     end
   end
-end
 
-sol.menu.start(sol.main, debug)
+  sol.menu.start(sol.main, debug)
 
-return true
+  return true

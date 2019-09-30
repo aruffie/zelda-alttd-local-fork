@@ -5,6 +5,9 @@
   This newer version uses plainly the new global command overrides as it depends on not triggering the "item" state.
   Because of that, it must **NEVER** be triggered using the built-in method or else it will never finish and sftlock your game.
   The reason is that it would end any custon jumping state, with bad consequences, such as falling into a pit while mid-air
+  v1.0 was made by Diarandor, but had major flaws, such as being overcomplicated.
+  v2.0 was my first attempt to handle custom jumps. it woked, was fairly simple, but sword jumping -> hand-free jump chaining was buggy and proved the way it was handled jusr didn't work
+  v3.0 (current, experimantal): in top-view maps, we now entirely delegate the jump states management to the jump manager, isntead of lettgin each state decide what to do next.
   
 --]]
 local hero_meta = sol.main.get_metatable("hero")
@@ -13,9 +16,7 @@ local game = item:get_game()
 
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
-require("scripts/states/jumping")
-require("scripts/states/jumping_sword")
-local jm=require("scripts/jump_manager")
+local jump_manager=require("scripts/jump_manager")
 require("scripts/multi_events")
 
 -- Event called when the game is initialized.
@@ -37,25 +38,8 @@ function item:start_using()
   if not hero:is_jumping() then
     if not map:is_sideview() then
 
-      -- Handle possible jump types differently in top view maps.
-      local state = hero:get_state()
-      local cstate = hero:get_state_object()
-      local state_name
-      if cstate then
-        state_name=cstate:get_description()
-      end
-      if state =="falling" or state=="swimming" or hero.is_using_hookshot or state=="custom" and state_name == "diving" then
-        return
-      end
+        jump_manager.start(hero) -- Running jump
 
-      if state == "sword swinging" or state == "sword loading" or state == "custom" and state_name == "jumping_sword" then 
-        hero:start_flying_attack() -- Offensive jump
-      elseif state == "custom" and state_name == "running" then 
-        --print" run'n'jump"
-        jm.start(hero) -- Running jump
-      else
-        hero:jump() -- Normal jump
-      end
     else
       -- Simply apply a vertical impulsion to the hero in sideview maps.
       local vspeed = hero.vspeed or 0

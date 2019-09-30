@@ -855,8 +855,8 @@ destination{
   name = "village_cave_1_B",
   layer = 0,
   x = 176,
-  y = 109,
-  direction = -1,
+  y = 133,
+  direction = 3,
 }
 
 pickable{
