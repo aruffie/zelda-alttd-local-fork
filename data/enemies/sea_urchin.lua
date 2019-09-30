@@ -9,13 +9,13 @@ local map = game:get_map()
 
 function enemy:on_created()
 
-  --self:set_traversable(false)
+  self:set_traversable(false)
   self:set_life(1)
   self:set_damage(2)
   self:set_hurt_style("normal")
-  --self:set_attacking_collision_mode("touching")
+  self:set_attacking_collision_mode("touching")
   self:set_default_behavior_on_hero_shield("block_push")
-  --self:set_pushed_by_shield_property("sound_id", "enemies/sea_urchin_push" .. math.random(2))
+  self:set_pushed_by_shield_property("sound_id", "enemies/sea_urchin_push" .. math.random(2))
 
   
 end

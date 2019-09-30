@@ -51,7 +51,7 @@ end
 
 -- Make the enemy appear at a random position.
 function enemy:appear()
-
+print("ok")
   enemy:set_position(get_random_visible_position())
   enemy:set_visible()
   sprite:set_animation("appearing", function()
@@ -80,7 +80,7 @@ function enemy:wait()
 
   sol.timer.start(enemy, math.random(waiting_minimum_duration, waiting_maximum_duration), function()
     if not camera:overlaps(enemy:get_max_bounding_box()) then
-      return waiting_duration
+      return true
     end
     enemy:appear()
   end)
