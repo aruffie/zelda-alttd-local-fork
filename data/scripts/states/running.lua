@@ -7,7 +7,7 @@
 --]]
 local state = sol.state.create("running")
 local hero_meta=sol.main.get_metatable("hero")
-local jump_manager=require("scripts/jump_manager")
+local jump_manager
 local audio_manager=require("scripts/audio_manager")
 local map_tools=require("scripts/maps/map_tools")
 state:set_can_control_direction(false)
@@ -214,5 +214,9 @@ function state:on_finished()
 
   entity.running=nil
   entity:stop_movement()
+end
+
+return function(_jump_manager)
+  jump_manager=_jump_manager
 end
 
