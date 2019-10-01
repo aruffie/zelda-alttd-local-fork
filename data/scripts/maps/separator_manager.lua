@@ -17,7 +17,9 @@ function separator_manager:init(map)
   local destructible_places = {}
   local block_places = {}
   local entity_places = {}
-  map.blocks_remaining = {}
+  if not map.blocks_remaining then
+    map.blocks_remaining = {}
+  end
   local game = map:get_game()
 
 
@@ -125,6 +127,7 @@ function separator_manager:init(map)
     end
 
     --Reset counters for block riddles
+
     for block_group in pairs(map.blocks_remaining) do 
       if block_group then
         map.blocks_remaining[block_group]=map:get_entities_count(block_group)
