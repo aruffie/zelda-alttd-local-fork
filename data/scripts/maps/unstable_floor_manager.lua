@@ -89,7 +89,7 @@ hero_meta:register_event("on_position_changed", function(hero)
 
     local map = hero:get_map()
     local game = hero:get_game()
-    if not game:get_dungeon_index() and not map:is_sideview() and hero:get_state()~="back to solid ground" then
+    if not game:get_dungeon_index() and map:get_world()~="inside_world" and not map:is_sideview() and hero:get_state()~="back to solid ground" then
       local x, y, layer = hero:get_ground_position() -- Check GROUND position.
       local state = hero:get_state_object() 
       local state_ignore_ground = state and not state:get_can_come_from_bad_ground()
@@ -114,7 +114,7 @@ hero_meta:register_event("on_state_changing", function(hero, old_state, state)
 
     local map = hero:get_map()
     local game = hero:get_game()
-    if not game:get_dungeon_index() and not map:is_sideview() then
+    if not game:get_dungeon_index() and map:get_world()~="inside_world" and not map:is_sideview() then
       if old_state=="back to solid ground" and state=="free" then
         local position = hero.last_stable_position
         local directions={{-8,0}, {-8, 8}, {0, 8}, {8, 8}, {8, 0}, {8, -8}, {0, -8}, {-8, -8}}
