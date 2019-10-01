@@ -84,7 +84,7 @@ end
 function map:init_block_group_1()
 
   if not game:get_value("dungeon_2_wall_1") then
-    block_manager:init_block_riddle(map, "auto_block_group_1_", function()
+    block_manager:init_block_riddle(map, "auto_block_group_1", function()
       door_manager:open_hidden_staircase(map, "wall_1", "dungeon_2_wall_1") 
     end)
   end
