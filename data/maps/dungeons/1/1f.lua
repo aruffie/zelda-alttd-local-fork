@@ -62,8 +62,7 @@ function map:on_started()
       entity:remove()
     end
   end
-
-
+  
 end
 
 function map:on_opening_transition_finished(destination)

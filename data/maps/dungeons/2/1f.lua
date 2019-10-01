@@ -14,6 +14,7 @@ local owl_manager = require("scripts/maps/owl_manager")
 local separator_manager = require("scripts/maps/separator_manager")
 local switch_manager = require("scripts/maps/switch_manager")
 local treasure_manager = require("scripts/maps/treasure_manager")
+local block_manager=require("scripts/maps/block_manager")
 require("scripts/multi_events")
 
 -- Map events
@@ -80,13 +81,12 @@ function map:on_obtaining_treasure(item, variant, savegame_variable)
 
 end
 
-local block_manager=require("scripts/maps/block_manager")
 function map:init_block_group_1()
 
   if not game:get_value("dungeon_2_wall_1") then
     block_manager:init_block_riddle(map, "auto_block_group_1_", function()
-        door_manager:open_hidden_staircase(map, "wall_1", "dungeon_2_wall_1") 
-      end)
+      door_manager:open_hidden_staircase(map, "wall_1", "dungeon_2_wall_1") 
+    end)
   end
 
 end

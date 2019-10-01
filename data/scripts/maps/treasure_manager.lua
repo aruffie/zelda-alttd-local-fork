@@ -190,7 +190,6 @@ function treasure_manager:appear_heart_container_if_boss_dead(map)
   local game = map:get_game()
   local dungeon = game:get_dungeon_index()
   local savegame = "dungeon_" .. dungeon .. "_boss"
-  print(game:get_value(savegame))
   if game:get_value(savegame) then
     self:appear_pickable(map, "heart_container", false)
   end

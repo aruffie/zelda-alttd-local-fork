@@ -34,20 +34,20 @@ return {
         companion:set_state("stopped")
         return false
       end
-      local distance = 40
+      local distance = 48
       local map = companion:get_map()
       local hero = map:get_hero()
       local x,y, layer = companion:get_position()
       local width = distance * 2
       local height = distance * 2
       local enemies = {}
-      for entity in map:get_entities_in_rectangle(x - 16, y - 16 , width, height) do
+      for entity in map:get_entities_in_rectangle(x - 24, y - 24 , width, height) do
         if entity:get_type() == "enemy" then
           enemies[#enemies + 1] = entity
         end
       end
       local index = math.random(1, #enemies)
-      if enemies[index] ~= nil and not enemies[index]:get_property("is_bowwow_friend") then
+      if enemies[index] ~= nil and not string.match(enemies[index]:get_breed(), "projectiles") and not enemies[index]:get_property("is_bowwow_friend") then
         companion:set_state("eat_enemy")
         -- Bowwow eat enemy
         local enemy = enemies[index]
@@ -60,7 +60,7 @@ return {
         movement_1:set_ignore_obstacles(true)
         movement_1:start(companion)
         function movement_1:on_position_changed()
-          if companion:get_distance(hero) > distance then
+          if companion:get_distance(hero) > distance + 16 then
             companion:set_state("stopped")
             companion:get_sprite():set_animation("stopped")
           end

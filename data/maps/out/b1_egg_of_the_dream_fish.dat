@@ -6444,7 +6444,7 @@ tile{
   layer = 1,
   x = 176,
   y = 712,
-  width = 96,
+  width = 144,
   height = 40,
   pattern = "2202",
 }
@@ -6462,7 +6462,7 @@ tile{
   layer = 1,
   x = 176,
   y = 696,
-  width = 96,
+  width = 136,
   height = 16,
   pattern = "12842",
   tileset = "out/outside_special",
@@ -6479,8 +6479,8 @@ tile{
 
 tile{
   layer = 1,
-  x = 272,
-  y = 712,
+  x = 320,
+  y = 704,
   width = 8,
   height = 40,
   pattern = "2205",
