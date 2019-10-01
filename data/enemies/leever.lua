@@ -51,7 +51,7 @@ end
 
 -- Make the enemy appear at a random position.
 function enemy:appear()
-print("ok")
+
   enemy:set_position(get_random_visible_position())
   enemy:set_visible()
   sprite:set_animation("appearing", function()
