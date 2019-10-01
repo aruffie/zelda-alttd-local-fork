@@ -98,7 +98,7 @@ function enemy:wait()
 
   sol.timer.start(enemy, math.random(waiting_minimum_duration, waiting_maximum_duration), function()
     if not camera:overlaps(enemy:get_max_bounding_box()) then
-      return waiting_duration
+      return true
     end
     enemy:appear()
   end)
