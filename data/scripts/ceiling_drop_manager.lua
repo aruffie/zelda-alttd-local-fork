@@ -50,14 +50,19 @@ function object:create(meta)
   local object_meta = sol.main.get_metatable(meta)
   local currently_falling = false
 
+
   function object_meta.fall_from_ceiling(entity, height, sound, callback)
     currently_falling = true
+
+    local starting_sprite_direction=entity:get_sprite():get_direction()
 
     if entity:get_type() == "hero" then
       -- This means that self returns the hero entity, avoid him from moving.
       entity:start_state(falling_state)
-    end
+      starting_sprite_direction=entity:get_direction()
 
+    end
+    print (starting_sprite_direction)
     -- Get the current object position
     local cx, cy, clayer = entity:get_position()
     local map = entity:get_map()
@@ -90,10 +95,13 @@ function object:create(meta)
     local target_sprite = entity:get_sprite(first_active_sprite)
 
     if sound ~= nil then
-      audio_manager:play_sound(sound)
+      sol.timer.start(entity, 100, function()
+          audio_manager:play_sound(sound)
+        end)
     end
+
     if entity:get_type()=="hero" then
-      entity.ceiling_drop_spin_timer=sol.timer.start(entity, 100, function()
+      entity.ceiling_drop_spin_timer=sol.timer.start(entity, 50, function()
           target_sprite:set_direction((target_sprite:get_direction()+1)%target_sprite:get_num_directions())
           return true
         end)
@@ -111,11 +119,21 @@ function object:create(meta)
         shadow:remove()
 
         if meta == "hero" then
+--          local destination_name=map:get_game():get_value("tp_destination")
+--          if not (destination_name=="_side" or destination_name=="_same") then
+--            local destination=map:get_entity(destination_name)
+--            if destination:get_direction()~=-1 then
+--              entity:set_direction(destination:get_direction())
+--            end
+--          end
           entity.ceiling_drop_spin_timer:stop()
           entity.ceiling_drop_spin_timer=nil
           entity:unfreeze()
         end
-
+        if entity:get_type()=="hero" then
+          entity:set_direction(starting_sprite_direction)
+        end
+        entity:get_sprite():set_direction(starting_sprite_direction)
         if callback ~= nil then
           callback()
         end

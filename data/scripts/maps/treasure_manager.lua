@@ -174,15 +174,22 @@ function treasure_manager:appear_pickable(map, pickable, sound)
   local pickable_entity = map:get_entity(pickable)
   if pickable_entity and not pickable_entity:is_enabled() then
     local game = map:get_game()
-    pickable_entity:set_enabled(true)
-    pickable_entity:fall_from_ceiling(192, "hero/cliff_jump", function()
-        if sound ~= nil and sound ~= false then
-          audio_manager:play_sound("misc/secret1")
-        end
+    map:start_coroutine(function()
+        local options={
+          entities_ignore_suspend={pickable,},
+        }
+        map:set_cinematic_mode(true, options)
+        pickable_entity:set_enabled(true)
+        pickable_entity:fall_from_ceiling(192, "hero/cliff_jump", function()
+            if sound ~= nil and sound ~= false then
+              audio_manager:play_sound("misc/secret1")
+            end
+          end)
+        map:set_cinematic_mode(false, options)
       end)
   end
-
 end
+
 
 
 function treasure_manager:appear_heart_container_if_boss_dead(map)

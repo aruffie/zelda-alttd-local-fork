@@ -17,11 +17,17 @@ function key_test_switch:on_activated()
 end
 
 function key_test_switch_2:on_activated()
-  test_key:set_enabled(true)
-  test_key:fall_from_ceiling(192, nil, function()
-
-    end)
-    sol.timer.start(self, 1000, function()
-      self:set_activated(false)
+  map:start_coroutine(function()
+      local options={
+        --entities_ignore_suspend={test_key},
+      }
+      map:set_cinematic_mode(true, options)
+      test_key:set_enabled(true)
+      test_key:fall_from_ceiling(192, "hero/cliff_jump", function()
+          test_key:set_enabled(false)
+          key_test_switch_2:set_activated(false)
+        end)
+      wait(2000)
+      map:set_cinematic_mode(false, options)
     end)
 end

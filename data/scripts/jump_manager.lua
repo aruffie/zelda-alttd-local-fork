@@ -42,9 +42,9 @@ function jump_manager.reset_collision_rules(state)
     state:set_can_use_stream(true)
     state:set_can_be_hurt(true)
     state:set_gravity_enabled(true)
+    state:set_can_cut(true)
     state:set_can_traverse("crystal_block", nil)
     --state:get_entity():get_sprite("ground"):set_animation(state.ground_animation())
-
   end
 end
 
@@ -68,6 +68,7 @@ function jump_manager.setup_collision_rules(state)
     state:set_can_use_stream(false)
     state:set_can_be_hurt(false)
     state:set_can_grab(false)
+    state:set_can_cut(false) --TODO refine me
     state:set_gravity_enabled(false)
   end
 end
