@@ -30,9 +30,9 @@ end
 
 -- put the hero at the newt jump test line. Part of the jump state debug tests.
 function drop_test:on_activated()
-  hero.ceiling_drop_sprite_direction=hero:get_sprite():get_direction()
+  --hero.ceiling_drop_sprite_direction=hero:get_sprite():get_direction()
   hero:fall_from_ceiling(127, "hero/jump", function()
-      hero:get_sprite():set_direction(hero.ceiling_drop_sprite_direction)
+      --hero:get_sprite():set_direction(hero.ceiling_drop_sprite_direction)
   end)
 end
   
