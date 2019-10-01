@@ -68,13 +68,12 @@ game_meta:register_event("on_command_pressed", function(game, command)
         local item_1 = game:get_item_assigned("1")
         local item_2 = game:get_item_assigned("2")
         --if no item was assigned at this point, or if no override was added to assigned items, then do not go further
-        if item_1==nil and item_2==nil or (item_1==nil or not(item_1.start_combo or item_1.start_using))
-        and (item_2==nil or not(item_2.start_combo or item_2.start_using)) then
+        if command=="item_1" and not item_1 or command=="item_2" and not item_2 then
           return
         end
 
-        local name_1 = item_1:get_name()
-        local name_2 = item_2:get_name()    
+        local name_1 = item_1 and item_1:get_name() or ""
+        local name_2 = item_2 and item_2:get_name() or ""   
 
         --mark items as triggered
         local handled = false
@@ -90,12 +89,12 @@ game_meta:register_event("on_command_pressed", function(game, command)
               end)
 
             --Both items are trying to be used at the same time, so try to start the combo for them
-            if item_1.start_combo then
+            if item_1 and item_1.start_combo then
               game.item_combo=true
 --              print ("Using combined behavior for item 1 ("..name_1..") with "..name_2)
               item_1:start_combo(item_2)
               return true
-            elseif item_2.start_combo then
+            elseif item_2 and item_2.start_combo then
               game.item_combo=true
 --              print ("Using combined behavior for item 2 ("..name_2..") with "..name_1)
               item_2:start_combo(item_1)
