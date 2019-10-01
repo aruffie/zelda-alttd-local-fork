@@ -625,7 +625,7 @@ custom_entity{
 }
 
 custom_entity{
-  name = "twin_platforms_A_1",
+  name = "auto_entity_twin_platforms_A_1",
   layer = 0,
   x = 104,
   y = 349,
@@ -637,7 +637,7 @@ custom_entity{
 }
 
 custom_entity{
-  name = "twin_platforms_A_2",
+  name = "auto_entity_twin_platforms_A_2",
   layer = 0,
   x = 72,
   y = 349,
@@ -649,6 +649,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity",
   layer = 0,
   x = 424,
   y = 381,

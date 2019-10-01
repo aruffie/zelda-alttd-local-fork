@@ -9,6 +9,7 @@ map_meta:register_event("on_started", function(map, destination)
     local hero=map:get_hero()
       print ("(on_started) starting map starting map "..map:get_id()..",  direction", hero:get_direction())
   end)
+
 map_meta:register_event("on_opening_transition_finished", function(map, destination)
     local game=map:get_game()
     local hero=map:get_hero()
