@@ -10,8 +10,10 @@ function phone_manager:talk(map)
   local message_key = 1
   -- We go through the list of companions
   for key, params in pairs(messages) do
+    print(key)
     if params.activation_condition ~= nil and params.activation_condition(map) then
-      message_key = key
+      message_key = params.message_key
+      print(message_key)
     end
   end
   phone_sprite:set_animation("calling")
@@ -27,7 +29,7 @@ function phone_manager:talk(map)
       end)  
     end)
   end)
-
+  map:get_game():set_value("first_phone_call", true)
 end
 
 return phone_manager

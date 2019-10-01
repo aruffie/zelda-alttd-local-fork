@@ -131,6 +131,7 @@ function object:create(meta)
           entity:unfreeze()
         end
         if entity:get_type()=="hero" then
+          print("ok")
           entity:set_direction(starting_sprite_direction)
         end
         entity:get_sprite():set_direction(starting_sprite_direction)

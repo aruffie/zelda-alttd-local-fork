@@ -2172,6 +2172,17 @@ dialog{
   text = [[
 DRING DRING !!   
 Pépé le Ramollo à l'appareil... 
+Il y a une bibliothèque dans le village.
+Peut-être apportera-t'elle une réponse à tes questions ?  
+Salut ! CLIC !
+]],
+}
+
+dialog{
+  id = "maps.houses.phone_booth.3",
+  text = [[
+DRING DRING !!   
+Pépé le Ramollo à l'appareil... 
 Habitants de la Forêt Enchantée,
 les Moblins vivent également dans la cave du Plateau Tartare.
 Salut ! CLIC !
@@ -2179,7 +2190,7 @@ Salut ! CLIC !
 }
 
 dialog{
-  id = "maps.houses.phone_booth.20",
+  id = "maps.houses.phone_booth.30",
   text = [[
 DRING DRING !!   
 Pépé le Ramollo à l'appareil... 
@@ -2190,7 +2201,7 @@ Salut ! CLIC !
 }
 
 dialog{
-  id = "maps.houses.phone_booth.21",
+  id = "maps.houses.phone_booth.31",
   text = [[
 DRING DRING !!   
 Pépé le Ramollo à l'appareil... 
@@ -2203,7 +2214,7 @@ Salut ! CLIC !
 }
 
 dialog{
-  id = "maps.houses.phone_booth.22",
+  id = "maps.houses.phone_booth.32",
   text = [[
 DRING DRING !!   
 Pépé le Ramollo à l'appareil... 
@@ -2215,7 +2226,7 @@ Salut ! CLIC !
 }
 
 dialog{
-  id = "maps.houses.phone_booth.23",
+  id = "maps.houses.phone_booth.33",
   text = [[
 DRING DRING !!   
 Pépé le Ramollo à l'appareil... 
@@ -2228,7 +2239,7 @@ Salut ! CLIC !
 }
 
 dialog{
-  id = "maps.houses.phone_booth.24",
+  id = "maps.houses.phone_booth.34",
   text = [[
 DRING DRING !!   
 Oui c'est Pépé ! 
@@ -2239,25 +2250,13 @@ Vas-y mon gars !
 }
 
 dialog{
-  id = "maps.houses.phone_booth.3",
+  id = "maps.houses.phone_booth.4",
   text = [[
 DRING DRING !!   
 Pépé le Ramollo à l'appareil... 
 Les fleurs du Marais des Anémones sont les préférées de Toutou.
 C'est ce qu'on dit...    
 Pourquoi n'y vas-tu pas ? 
-Salut ! CLIC !
-]],
-}
-
-dialog{
-  id = "maps.houses.phone_booth.4",
-  text = [[
-DRING DRING !!   
-Pépé le Ramollo à l'appareil... 
-As-tu rencontré tous les gens de cette île ?   
-Au Sud-Est du village, à côté du Champ aux Pièges, vit un homme appelé Richard. 
-Je te conseille d'aller le voir.
 Salut ! CLIC !
 ]],
 }
@@ -2277,8 +2276,9 @@ dialog{
   text = [[
 DRING DRING !!   
 Pépé le Ramollo à l'appareil... 
-Il y a une bibliothèque dans le village.
-Peut-être apportera-t'elle une réponse à tes questions ?  
+As-tu rencontré tous les gens de cette île ?   
+Au Sud-Est du village, à côté du Champ aux Pièges, vit un homme appelé Richard. 
+Je te conseille d'aller le voir.
 Salut ! CLIC !
 ]],
 }

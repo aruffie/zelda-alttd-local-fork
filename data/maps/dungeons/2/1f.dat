@@ -17923,7 +17923,7 @@ destination{
 }
 
 sensor{
-  name = "sensor_1",
+  name = "save_solid_ground_sensor_1",
   layer = 0,
   x = 584,
   y = 653,
@@ -19739,7 +19739,7 @@ custom_entity{
 }
 
 sensor{
-  name = "sensor_3",
+  name = "save_solid_ground_sensor_3",
   layer = 0,
   x = 584,
   y = 1325,
@@ -19828,7 +19828,7 @@ enemy{
 }
 
 sensor{
-  name = "sensor_2",
+  name = "save_solid_ground_sensor_2",
   layer = 0,
   x = 480,
   y = 677,
@@ -20231,7 +20231,7 @@ door{
 }
 
 sensor{
-  name = "sensor_4",
+  name = "sensor_boss",
   layer = 0,
   x = 2080,
   y = 677,
@@ -22241,6 +22241,33 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
+}
+
+sensor{
+  name = "save_solid_ground_sensor_5",
+  layer = 0,
+  x = 696,
+  y = 653,
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "save_solid_ground_sensor_6",
+  layer = 0,
+  x = 696,
+  y = 125,
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "save_solid_ground_sensor_7",
+  layer = 0,
+  x = 480,
+  y = 1149,
+  width = 16,
+  height = 16,
 }
 
 tile{
