@@ -3,7 +3,7 @@
 
 -- Global variables
 local enemy = ...
-local common_action = require("enemies/lib/common_actions")
+require("enemies/lib/common_actions").learn(enemy)
 
 local game = enemy:get_game()
 local map = enemy:get_map()
@@ -71,7 +71,6 @@ end
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
 
-  common_action.learn(enemy)
   enemy:set_life(life_point)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)

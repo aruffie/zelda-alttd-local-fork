@@ -1,4 +1,4 @@
--- Cactus projectile, throwed away the hero, mostly used by pokey enemies.
+-- Cactus projectile, throwed away to the hero and bounce on obstacles, mostly used by pokey enemies.
 
 local enemy = ...
 local projectile_behavior = require("enemies/lib/projectile")
