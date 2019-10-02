@@ -7735,6 +7735,33 @@ tile{
   pattern = "978",
 }
 
+wall{
+  layer = 1,
+  x = 720,
+  y = 40,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 344,
+  y = 48,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 120,
+  y = 184,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
 custom_entity{
   layer = 1,
   x = 208,
@@ -10454,6 +10481,15 @@ tile{
   width = 8,
   height = 8,
   pattern = "14796",
+}
+
+wall{
+  layer = 2,
+  x = 160,
+  y = 488,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
 }
 
 enemy{

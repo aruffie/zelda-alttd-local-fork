@@ -20436,6 +20436,15 @@ tile{
   pattern = "728",
 }
 
+wall{
+  layer = 1,
+  x = 472,
+  y = 56,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
 destructible{
   layer = 1,
   x = 552,
@@ -24010,6 +24019,15 @@ enemy{
   y = 277,
   direction = 0,
   breed = "zora",
+}
+
+wall{
+  layer = 1,
+  x = 344,
+  y = 432,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
 }
 
 tile{

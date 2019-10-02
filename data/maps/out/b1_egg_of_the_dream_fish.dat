@@ -17478,6 +17478,33 @@ tile{
   pattern = "1943",
 }
 
+wall{
+  layer = 1,
+  x = 800,
+  y = 216,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 736,
+  y = 656,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 64,
+  y = 416,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
 custom_entity{
   layer = 1,
   x = 872,
@@ -19019,6 +19046,15 @@ custom_entity{
   sprite = "entities/utils/cliff",
   tiled = true,
   model = "cliff",
+}
+
+wall{
+  layer = 1,
+  x = 424,
+  y = 616,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
 }
 
 tile{

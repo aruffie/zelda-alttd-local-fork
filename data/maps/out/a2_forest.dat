@@ -12016,6 +12016,33 @@ wall{
   stops_projectiles = true,
 }
 
+wall{
+  layer = 1,
+  x = 152,
+  y = 264,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 576,
+  y = 72,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 632,
+  y = 456,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
 tile{
   layer = 2,
   x = 536,

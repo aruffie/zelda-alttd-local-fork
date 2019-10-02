@@ -14956,6 +14956,33 @@ tile{
   pattern = "907",
 }
 
+wall{
+  layer = 1,
+  x = 576,
+  y = 120,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 584,
+  y = 288,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 616,
+  y = 696,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
 destructible{
   layer = 1,
   x = 344,

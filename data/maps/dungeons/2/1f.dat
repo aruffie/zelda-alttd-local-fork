@@ -17925,7 +17925,7 @@ destination{
 sensor{
   name = "sensor_1",
   layer = 0,
-  x = 584,
+  x = 592,
   y = 653,
   properties = {
     {
@@ -19747,7 +19747,7 @@ custom_entity{
 sensor{
   name = "sensor_3",
   layer = 0,
-  x = 584,
+  x = 592,
   y = 1325,
   width = 16,
   height = 16,
@@ -22248,7 +22248,7 @@ custom_entity{
 sensor{
   name = "sensor_5",
   layer = 0,
-  x = 696,
+  x = 688,
   y = 653,
   properties = {
     {
@@ -22263,7 +22263,7 @@ sensor{
 sensor{
   name = "sensor_6",
   layer = 0,
-  x = 696,
+  x = 688,
   y = 125,
   properties = {
     {
@@ -22279,7 +22279,67 @@ sensor{
   name = "sensor_7",
   layer = 0,
   x = 480,
-  y = 1149,
+  y = 1157,
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_8",
+  layer = 0,
+  x = 1872,
+  y = 125,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_9",
+  layer = 0,
+  x = 2080,
+  y = 773,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_10",
+  layer = 0,
+  x = 2176,
+  y = 773,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_11",
+  layer = 0,
+  x = 768,
+  y = 637,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
 }

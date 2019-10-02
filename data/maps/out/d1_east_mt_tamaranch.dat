@@ -14187,6 +14187,87 @@ tile{
   pattern = "1052",
 }
 
+wall{
+  layer = 1,
+  x = 808,
+  y = 592,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 824,
+  y = 232,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 888,
+  y = 152,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 752,
+  y = 152,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 672,
+  y = 152,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 600,
+  y = 152,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 416,
+  y = 248,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 304,
+  y = 136,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 280,
+  y = 216,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
 custom_entity{
   layer = 1,
   x = 72,

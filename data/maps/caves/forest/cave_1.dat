@@ -1473,7 +1473,7 @@ sensor{
   name = "sensor_1",
   layer = 0,
   x = 472,
-  y = 405,
+  y = 413,
   properties = {
     {
       key = "save_solid_ground",

@@ -13479,7 +13479,7 @@ tile{
 sensor{
   name = "sensor_16",
   layer = 0,
-  x = 1656,
+  x = 1648,
   y = 1085,
   properties = {
     {
@@ -13487,15 +13487,6 @@ sensor{
       value = "true",
     },
   },
-  width = 16,
-  height = 16,
-}
-
-sensor{
-  name = "sensor_15",
-  layer = 0,
-  x = 1544,
-  y = 1085,
   width = 16,
   height = 16,
 }
@@ -14309,8 +14300,8 @@ enemy{
 enemy{
   name = "enemy_group_10_1",
   layer = 0,
-  x = 1664,
-  y = 1093,
+  x = 1672,
+  y = 1101,
   direction = 3,
   breed = "stalfos_red",
   treasure_name = "random",
@@ -14700,7 +14691,7 @@ destructible{
   name = "auto_destructible_1",
   layer = 0,
   x = 784,
-  y = 1141,
+  y = 1149,
   treasure_name = "random",
   sprite = "entities/destructibles/crystal_blue",
   destruction_sound = "arrow_hit",
@@ -14877,7 +14868,7 @@ destructible{
   name = "auto_destructible_2",
   layer = 0,
   x = 800,
-  y = 1133,
+  y = 1141,
   treasure_name = "random",
   sprite = "entities/destructibles/crystal_blue",
   destruction_sound = "arrow_hit",
@@ -14889,7 +14880,7 @@ destructible{
   name = "auto_destructible_3",
   layer = 0,
   x = 816,
-  y = 1141,
+  y = 1149,
   treasure_name = "random",
   sprite = "entities/destructibles/crystal_blue",
   destruction_sound = "arrow_hit",
@@ -16708,7 +16699,7 @@ block{
 sensor{
   name = "sensor_9",
   layer = 0,
-  x = 696,
+  x = 688,
   y = 1565,
   properties = {
     {
@@ -16723,7 +16714,7 @@ sensor{
 sensor{
   name = "sensor_10",
   layer = 0,
-  x = 1016,
+  x = 1008,
   y = 1325,
   properties = {
     {
@@ -16739,7 +16730,7 @@ sensor{
   name = "sensor_11",
   layer = 0,
   x = 800,
-  y = 1149,
+  y = 1157,
   properties = {
     {
       key = "save_solid_ground",
@@ -16754,7 +16745,7 @@ sensor{
   name = "sensor_12",
   layer = 0,
   x = 800,
-  y = 781,
+  y = 773,
   properties = {
     {
       key = "save_solid_ground",
@@ -16769,7 +16760,7 @@ sensor{
   name = "sensor_13",
   layer = 0,
   x = 800,
-  y = 669,
+  y = 677,
   properties = {
     {
       key = "save_solid_ground",
@@ -16784,7 +16775,7 @@ sensor{
   name = "sensor_14",
   layer = 0,
   x = 1520,
-  y = 909,
+  y = 917,
   properties = {
     {
       key = "save_solid_ground",
@@ -16798,7 +16789,7 @@ sensor{
 sensor{
   name = "sensor_17",
   layer = 0,
-  x = 584,
+  x = 592,
   y = 1085,
   properties = {
     {
@@ -16813,7 +16804,7 @@ sensor{
 sensor{
   name = "sensor_18",
   layer = 0,
-  x = 1864,
+  x = 1872,
   y = 1085,
   properties = {
     {
@@ -16828,8 +16819,23 @@ sensor{
 sensor{
   name = "sensor_19",
   layer = 0,
-  x = 584,
+  x = 592,
   y = 573,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_20",
+  layer = 0,
+  x = 560,
+  y = 533,
   properties = {
     {
       key = "save_solid_ground",

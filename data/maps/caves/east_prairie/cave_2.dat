@@ -2526,6 +2526,21 @@ enemy{
   treasure_name = "random",
 }
 
+sensor{
+  name = "sensor_1",
+  layer = 0,
+  x = 160,
+  y = 133,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
 tile{
   layer = 1,
   x = 352,
