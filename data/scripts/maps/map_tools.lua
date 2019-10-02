@@ -27,7 +27,6 @@ function map_tools.start_chained_explosion_on_entity(entity, max_distance, callb
 
   local map = entity:get_map()
   local x, y, layer = entity:get_position()
-  math.randomseed(sol.main.get_elapsed_time())
   
   audio_manager:play_sound("items/bomb_explode")
 

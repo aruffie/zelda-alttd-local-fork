@@ -68,13 +68,6 @@ function map:on_started()
 
 end
 
-function map:on_opening_transition_finished(destination)
-
-  if destination == dungeon_8_1_B  or destination == dungeon_8_1_B or destination == dungeon_8_1_B then
-    game:start_dialog("maps.dungeons.8.welcome")
-  end
-
-end
 
 function map:on_obtaining_treasure(item, variant, savegame_variable)
 

@@ -9777,6 +9777,7 @@ stairs{
 }
 
 custom_entity{
+  name = "auto_entity_2",
   layer = 0,
   x = 1016,
   y = 1341,
@@ -9788,6 +9789,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity",
   layer = 0,
   x = 1016,
   y = 1325,
@@ -10243,6 +10245,7 @@ block{
 }
 
 block{
+  name = "auto_block_2",
   layer = 0,
   x = 1528,
   y = 429,
@@ -10324,6 +10327,7 @@ block{
 }
 
 block{
+  name = "auto_block_3",
   layer = 0,
   x = 1480,
   y = 365,
@@ -10345,6 +10349,7 @@ block{
 }
 
 block{
+  name = "auto_block_4",
   layer = 0,
   x = 1480,
   y = 349,
@@ -10954,7 +10959,7 @@ enemy{
   x = 1144,
   y = 1541,
   direction = 3,
-  breed = "hooded_stalfos",
+  breed = "shrouded_stalfos",
   treasure_name = "random",
 }
 
@@ -11516,7 +11521,7 @@ enemy{
   x = 744,
   y = 165,
   direction = 3,
-  breed = "hooded_stalfos",
+  breed = "shrouded_stalfos",
   treasure_name = "random",
 }
 
@@ -11869,7 +11874,7 @@ enemy{
   x = 1512,
   y = 77,
   direction = 3,
-  breed = "hooded_stalfos",
+  breed = "shrouded_stalfos",
   treasure_name = "random",
 }
 
@@ -11922,7 +11927,7 @@ enemy{
   x = 1432,
   y = 613,
   direction = 3,
-  breed = "hooded_stalfos",
+  breed = "shrouded_stalfos",
   treasure_name = "random",
 }
 
@@ -11932,7 +11937,7 @@ enemy{
   x = 1496,
   y = 581,
   direction = 3,
-  breed = "hooded_stalfos",
+  breed = "shrouded_stalfos",
   treasure_name = "random",
 }
 
@@ -11942,7 +11947,7 @@ enemy{
   x = 1704,
   y = 653,
   direction = 3,
-  breed = "hooded_stalfos",
+  breed = "shrouded_stalfos",
   treasure_name = "random",
 }
 
@@ -11952,7 +11957,7 @@ enemy{
   x = 1752,
   y = 589,
   direction = 3,
-  breed = "hooded_stalfos",
+  breed = "shrouded_stalfos",
   treasure_name = "random",
 }
 
@@ -12326,6 +12331,7 @@ destructible{
 }
 
 block{
+  name = "auto_block",
   layer = 0,
   x = 1024,
   y = 621,
@@ -14184,7 +14190,7 @@ enemy{
   x = 1448,
   y = 1333,
   direction = 3,
-  breed = "hooded_stalfos",
+  breed = "shrouded_stalfos",
   treasure_name = "random",
 }
 

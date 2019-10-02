@@ -86,7 +86,7 @@ function entity:on_position_changed()
         if is_semisolid then
           if other_y+other_h <= y+1 then
             if e_type == "hero" and is_solidified == true then
-              print "ME SOLID NOW"
+--              print "ME SOLID NOW"
               is_solidified = false
               entity:set_traversable_by("hero", false)
             end
@@ -95,7 +95,7 @@ function entity:on_position_changed()
             end
           else
             if e_type == "hero" and is_solidified == false then
-              print "ME NON SOLID NOW"
+--              print "ME NON SOLID NOW"
               is_solidified = true
               entity:set_traversable_by("hero", true)
             end

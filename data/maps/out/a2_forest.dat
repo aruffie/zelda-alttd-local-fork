@@ -7,7 +7,7 @@ properties{
   max_layer = 2,
   world = "outside_world",
   tileset = "out/light_world_legacy",
-  music = "same",
+  music = "",
 }
 
 teletransporter{
@@ -9183,7 +9183,7 @@ enemy{
   x = 264,
   y = 621,
   direction = 2,
-  breed = "moblin_dog_spear/moblin_dog_spear",
+  breed = "moblin_dog_spear",
   treasure_name = "random",
 }
 
@@ -9192,7 +9192,7 @@ enemy{
   x = 416,
   y = 525,
   direction = 3,
-  breed = "moblin_dog_spear/moblin_dog_spear",
+  breed = "moblin_dog_spear",
   treasure_name = "random",
 }
 
@@ -9219,7 +9219,7 @@ enemy{
   x = 592,
   y = 509,
   direction = 2,
-  breed = "moblin_dog_spear/moblin_dog_spear",
+  breed = "moblin_dog_spear",
   treasure_name = "random",
 }
 
@@ -9228,7 +9228,7 @@ enemy{
   x = 584,
   y = 229,
   direction = 3,
-  breed = "moblin_dog_sword/moblin_dog_sword",
+  breed = "moblin_dog_sword",
   treasure_name = "random",
 }
 
@@ -9237,7 +9237,7 @@ enemy{
   x = 672,
   y = 109,
   direction = 2,
-  breed = "moblin_dog_spear/moblin_dog_spear",
+  breed = "moblin_dog_spear",
   treasure_name = "random",
 }
 
@@ -11805,7 +11805,7 @@ enemy{
   x = 656,
   y = 301,
   direction = 2,
-  breed = "moblin_dog_spear/moblin_dog_spear",
+  breed = "moblin_dog_spear",
   treasure_name = "random",
 }
 
@@ -11814,7 +11814,7 @@ enemy{
   x = 144,
   y = 477,
   direction = 3,
-  breed = "moblin_dog_spear/moblin_dog_spear",
+  breed = "moblin_dog_spear",
   treasure_name = "random",
 }
 
@@ -11823,7 +11823,7 @@ enemy{
   x = 856,
   y = 77,
   direction = 2,
-  breed = "moblin_dog_spear/moblin_dog_spear",
+  breed = "moblin_dog_spear",
   treasure_name = "random",
 }
 
@@ -11832,7 +11832,7 @@ enemy{
   x = 184,
   y = 141,
   direction = 2,
-  breed = "moblin_dog_spear/moblin_dog_spear",
+  breed = "moblin_dog_spear",
   treasure_name = "random",
 }
 
@@ -11841,7 +11841,7 @@ enemy{
   x = 88,
   y = 53,
   direction = 0,
-  breed = "moblin_dog_spear/moblin_dog_spear",
+  breed = "moblin_dog_spear",
   treasure_name = "random",
 }
 
@@ -11850,7 +11850,7 @@ enemy{
   x = 96,
   y = 557,
   direction = 0,
-  breed = "moblin_dog_spear/moblin_dog_spear",
+  breed = "moblin_dog_spear",
   treasure_name = "random",
 }
 
@@ -11859,7 +11859,7 @@ enemy{
   x = 680,
   y = 645,
   direction = 2,
-  breed = "moblin_dog_spear/moblin_dog_spear",
+  breed = "moblin_dog_spear",
   treasure_name = "random",
 }
 
@@ -11941,6 +11941,79 @@ destructible{
   destruction_sound = "stone",
   weight = 1,
   damage_on_enemies = 2,
+}
+
+enemy{
+  layer = 1,
+  x = 344,
+  y = 501,
+  direction = 3,
+  breed = "moblin_dog_spear",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 1,
+  x = 120,
+  y = 621,
+  direction = 0,
+  breed = "moblin_dog_spear",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 1,
+  x = 176,
+  y = 581,
+  direction = 3,
+  breed = "moblin_dog_spear",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 1,
+  x = 560,
+  y = 677,
+  direction = 0,
+  breed = "moblin_dog_spear",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 1,
+  x = 896,
+  y = 685,
+  direction = 2,
+  breed = "moblin_dog_spear",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 1,
+  x = 808,
+  y = 685,
+  direction = 0,
+  breed = "moblin_dog_spear",
+  treasure_name = "random",
+}
+
+enemy{
+  layer = 1,
+  x = 856,
+  y = 685,
+  direction = 3,
+  breed = "zol_red",
+  treasure_name = "random",
+}
+
+wall{
+  layer = 1,
+  x = 792,
+  y = 616,
+  width = 112,
+  height = 16,
+  stops_enemies = true,
+  stops_projectiles = true,
 }
 
 tile{

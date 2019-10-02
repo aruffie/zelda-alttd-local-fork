@@ -39,6 +39,7 @@ function map:init_map_entities()
     sword:get_sprite():set_ignore_suspend(true)
   end
   dungeon_1_entrance:set_traversable_by(false)
+  dungeon_1_entrance:set_traversable_by('camera', true)
   if game:get_value("main_quest_step") > 6 then
     map:open_dungeon_1()
   end
@@ -134,6 +135,11 @@ function map:launch_cinematic_1()
     wait(5400)
     map:remove_entities("brandish")
     animation(hero, "spin_attack")
+    for enemy in map:get_entities_by_type("enemy") do
+      if enemy:get_distance(hero) < 32 then
+        enemy:set_life(0)
+      end
+    end
     map:set_cinematic_mode(false, options)
     game:set_value("main_quest_step", 4)
     wait(300)
@@ -159,6 +165,7 @@ function map:launch_cinematic_2()
     movement1:set_max_distance(72)
     movement1:set_speed(75)
     movement1:set_ignore_suspend(true)
+    movement1:set_ignore_obstacles(true)
     movement(movement1, camera)
     wait(1000)
     local timer_sound = sol.timer.start(hero, 0, function()
@@ -183,6 +190,7 @@ function map:launch_cinematic_2()
     movement2:set_max_distance(72)
     movement2:set_speed(75)
     movement2:set_ignore_suspend(true)
+    movement2:set_ignore_obstacles(true)
     movement(movement2, camera)
     map:set_cinematic_mode(false, options)
     camera:start_tracking(hero)

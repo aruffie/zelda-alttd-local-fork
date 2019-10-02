@@ -293,42 +293,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 80,
-  y = 0,
-  width = 16,
-  height = 8,
-  pattern = "78",
-}
-
-tile{
-  layer = 0,
-  x = 544,
-  y = 0,
-  width = 16,
-  height = 8,
-  pattern = "78",
-}
-
-tile{
-  layer = 0,
-  x = 80,
-  y = 8,
-  width = 16,
-  height = 112,
-  pattern = "79",
-}
-
-tile{
-  layer = 0,
-  x = 544,
-  y = 8,
-  width = 16,
-  height = 160,
-  pattern = "79",
-}
-
-tile{
-  layer = 0,
   x = 0,
   y = 56,
   width = 64,
@@ -777,23 +741,39 @@ tile{
   pattern = "7",
 }
 
+dynamic_tile{
+  layer = 0,
+  x = 544,
+  y = 0,
+  width = 16,
+  height = 8,
+  pattern = "78",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 544,
+  y = 8,
+  width = 16,
+  height = 160,
+  pattern = "79",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 80,
+  y = 8,
+  width = 16,
+  height = 112,
+  pattern = "79",
+}
+
 separator{
   layer = 0,
   x = 312,
   y = 0,
   width = 16,
   height = 240,
-}
-
-teletransporter{
-  name = "stairs_2_A",
-  layer = 0,
-  x = 80,
-  y = 0,
-  width = 16,
-  height = 16,
-  destination_map = "dungeons/2/1f",
-  destination = "stairs_2_B",
 }
 
 destination{
@@ -875,5 +855,25 @@ custom_entity{
   direction = 0,
   sprite = "entities/moving_platform_dg_2",
   model = "platform_moving",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 80,
+  y = 0,
+  width = 16,
+  height = 8,
+  pattern = "78",
+}
+
+teletransporter{
+  name = "stairs_2_A",
+  layer = 0,
+  x = 80,
+  y = 0,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/2/1f",
+  destination = "stairs_2_B",
 }
 

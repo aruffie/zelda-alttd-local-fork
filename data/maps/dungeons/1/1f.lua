@@ -40,8 +40,8 @@ function map:on_started()
   enemy_manager:execute_when_vegas_dead(map, "enemy_group_13_")
   if not game:get_value("dungeon_1_wall_1") then
     enemy_manager:on_enemies_dead(map, "enemy_group_15_", function()
-      map:launch_cinematic_1()
-    end)
+        door_manager:open_hidden_staircase(map, "wall_1", "dungeon_1_wall_1") 
+      end)
   end
   -- Music
   game:play_dungeon_music()
@@ -62,8 +62,7 @@ function map:on_started()
       entity:remove()
     end
   end
-
-
+  
 end
 
 function map:on_opening_transition_finished(destination)
@@ -71,7 +70,6 @@ function map:on_opening_transition_finished(destination)
   map:set_doors_open("door_group_5_", true)
   if destination == dungeon_1_1_B then
     map:set_doors_open("door_group_2_", false)
-    game:start_dialog("maps.dungeons.1.welcome")
   end
 
 end
@@ -86,130 +84,83 @@ end
 
 -- Doors events
 weak_wall_group_1:register_event("on_opened", function()
-    
-  door_manager:destroy_wall(map, "weak_wall_group_1_")
-  
-end)
+
+    door_manager:destroy_wall(map, "weak_wall_group_1_")
+
+  end)
 
 -- Sensors events
 sensor_1:register_event("on_activated", function()
 
-  door_manager:close_if_enemies_not_dead(map, "enemy_group_6_", "door_group_1_")
+    door_manager:close_if_enemies_not_dead(map, "enemy_group_6_", "door_group_1_")
 
-end)
+  end)
 
 sensor_2:register_event("on_activated", function()
 
-  door_manager:close_if_enemies_not_dead(map, "enemy_group_6_", "door_group_1_")
+    door_manager:close_if_enemies_not_dead(map, "enemy_group_6_", "door_group_1_")
 
-end)
+  end)
 
 sensor_3:register_event("on_activated", function()
 
-  if is_small_boss_active == false then
-    is_small_boss_active = true
-    enemy_manager:launch_small_boss_if_not_dead(map)
-  end
+    if is_small_boss_active == false then
+      is_small_boss_active = true
+      enemy_manager:launch_small_boss_if_not_dead(map)
+    end
 
-end)
+  end)
 
 sensor_4:register_event("on_activated", function()
 
-  if is_boss_active == false then
-    is_boss_active = true
-    enemy_manager:launch_boss_if_not_dead(map)
-  end
+    if is_boss_active == false then
+      is_boss_active = true
+      enemy_manager:launch_boss_if_not_dead(map)
+    end
 
-end)
+  end)
 
 sensor_5:register_event("on_activated", function()
 
-  door_manager:close_if_enemies_not_dead(map, "enemy_group_3_", "door_group_5_")
+    door_manager:close_if_enemies_not_dead(map, "enemy_group_3_", "door_group_5_")
 
-end)
+  end)
 
 sensor_6:register_event("on_activated", function()
 
-  map:set_doors_open("door_group_6", true)
+    map:set_doors_open("door_group_6", true)
 
-end)
+  end)
 
 sensor_7:register_event("on_activated", function()
 
 
-  map:close_doors("door_group_6_")
+    map:close_doors("door_group_6_")
 
-end)
+  end)
 
 sensor_8:register_event("on_activated", function()
 
-  door_manager:open_if_block_moved(map,  "auto_block_1" , "door_group_2_")
+    door_manager:open_if_block_moved(map,  "auto_block_1" , "door_group_2_")
 
-end)
+  end)
 
 -- Separators events
 auto_separator_17:register_event("on_activating", function(separator, direction4)
-    
-  map:set_doors_open("door_group_2", false)
-  
-end)
+
+    map:set_doors_open("door_group_2", false)
+
+  end)
 
 -- Switchs events
 switch_1:register_event("on_activated", function()
 
-  treasure_manager:appear_chest(map, "chest_small_key_2", true)
+    treasure_manager:appear_chest(map, "chest_small_key_2", true)
 
-end)
-
--- Cinematics
--- This is the cinematic that the hero kills "enemy_group_15"
-function map:launch_cinematic_1()
-  
-  map:start_coroutine(function()
-    local options = {
-      entities_ignore_suspend = {hero}
-    }
-    map:set_cinematic_mode(true, options)
-    sol.audio.stop_music()
-    wait(2000)
-    local timer_sound = sol.timer.start(hero, 0, function()
-      audio_manager:play_sound("misc/dungeon_shake")
-      return 450
-    end)
-    timer_sound:set_suspended_with_map(false)
-    local camera = map:get_camera()
-    local shake_config = {
-        count = 32,
-        amplitude = 2,
-        speed = 90
-    }
-    wait_for(camera.shake,camera,shake_config)
-    timer_sound:stop()
-    audio_manager:play_sound("items/bomb_explode")
-    local x,y,layer = placeholder_explosion_wall_1:get_position()
-    map:create_explosion({
-      x = x,
-      y = y,
-      layer = layer
-    })
-    map:create_explosion({
-      x = x - 8,
-      y = y - 8,
-      layer = layer
-    })
-    map:create_explosion({
-      x = x + 8,
-      y = y + 8,
-      layer = layer
-    })
-    for entity in map:get_entities("wall_1_") do
-      entity:remove()
-    end
-    wait(1000)
-    audio_manager:play_sound("misc/secret1")
-    game:play_dungeon_music()
-    game:set_value("dungeon_1_wall_1", true)
-    map:set_cinematic_mode(false, options)
   end)
 
-end
+-- Enemies events
+enemy_manager:on_enemies_dead(map, "enemy_group_3_", function()
+    enemy_group_torch_1:set_shooting(false)
+    enemy_group_torch_2:set_shooting(false)
+  end)

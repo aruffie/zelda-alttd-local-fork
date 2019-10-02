@@ -4471,6 +4471,7 @@ block{
 }
 
 custom_entity{
+  name = "auto_entity_20",
   layer = 0,
   x = 1480,
   y = 1869,
@@ -4482,6 +4483,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity_19",
   layer = 0,
   x = 1480,
   y = 1853,
@@ -4493,6 +4495,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity_18",
   layer = 0,
   x = 1480,
   y = 1837,
@@ -4504,6 +4507,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity_17",
   layer = 0,
   x = 1544,
   y = 1821,
@@ -4515,6 +4519,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity_16",
   layer = 0,
   x = 1544,
   y = 1805,
@@ -4526,6 +4531,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity_15",
   layer = 0,
   x = 1544,
   y = 1789,
@@ -4548,6 +4554,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity_25",
   layer = 0,
   x = 1384,
   y = 1869,
@@ -4559,6 +4566,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity_24",
   layer = 0,
   x = 1384,
   y = 1853,
@@ -4570,6 +4578,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity_23",
   layer = 0,
   x = 1384,
   y = 1837,
@@ -4581,6 +4590,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity_22",
   layer = 0,
   x = 1400,
   y = 1837,
@@ -4592,6 +4602,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity_21",
   layer = 0,
   x = 1416,
   y = 1837,
@@ -4603,6 +4614,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity_26",
   layer = 0,
   x = 1336,
   y = 1837,
@@ -4614,6 +4626,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity_27",
   layer = 0,
   x = 1336,
   y = 1853,
@@ -4636,6 +4649,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity_28",
   layer = 0,
   x = 1336,
   y = 1869,
@@ -4647,6 +4661,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity_13",
   layer = 0,
   x = 1480,
   y = 1757,
@@ -4658,6 +4673,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity_14",
   layer = 0,
   x = 1480,
   y = 1741,
@@ -4669,6 +4685,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity_12",
   layer = 0,
   x = 1480,
   y = 1773,
@@ -4680,6 +4697,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity_11",
   layer = 0,
   x = 1464,
   y = 1773,
@@ -4691,6 +4709,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity_10",
   layer = 0,
   x = 1448,
   y = 1773,
@@ -4782,6 +4801,7 @@ stream{
 }
 
 custom_entity{
+  name = "auto_entity",
   layer = 0,
   x = 1336,
   y = 1741,
@@ -6853,7 +6873,7 @@ enemy{
   x = 1016,
   y = 621,
   direction = 0,
-  breed = "hooded_stalfos",
+  breed = "shrouded_stalfos",
   treasure_name = "random",
 }
 
@@ -7010,6 +7030,7 @@ destination{
 }
 
 custom_entity{
+  name = "auto_entity_2",
   layer = 0,
   x = 1336,
   y = 1757,
@@ -7021,6 +7042,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity_3",
   layer = 0,
   x = 1352,
   y = 1757,
@@ -7032,6 +7054,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity_4",
   layer = 0,
   x = 1368,
   y = 1757,
@@ -7043,6 +7066,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity_5",
   layer = 0,
   x = 1384,
   y = 1773,
@@ -7054,6 +7078,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity_6",
   layer = 0,
   x = 1384,
   y = 1789,
@@ -7065,6 +7090,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity_9",
   layer = 0,
   x = 1432,
   y = 1789,
@@ -7076,6 +7102,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity_8",
   layer = 0,
   x = 1416,
   y = 1789,
@@ -7087,6 +7114,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity_7",
   layer = 0,
   x = 1400,
   y = 1789,

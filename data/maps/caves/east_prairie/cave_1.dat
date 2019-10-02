@@ -1281,6 +1281,7 @@ stairs{
 }
 
 custom_entity{
+  name = "auto_entity",
   layer = 0,
   x = 472,
   y = 93,
@@ -1365,6 +1366,7 @@ enemy{
 }
 
 custom_entity{
+  name = "auto_entity_2",
   layer = 0,
   x = 472,
   y = 109,
@@ -1376,6 +1378,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity_3",
   layer = 0,
   x = 488,
   y = 125,
@@ -1387,6 +1390,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity_4",
   layer = 0,
   x = 504,
   y = 141,
@@ -1398,6 +1402,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity_5",
   layer = 0,
   x = 504,
   y = 157,

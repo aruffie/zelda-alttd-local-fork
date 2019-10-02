@@ -81,6 +81,14 @@ entity:register_event("on_picked", function()
     else
       game:add_money(1)
     end
+  elseif sprite_name == "entities/items/magic_powder_fly" then
+    local powder_counter=game:get_item("magic_powders_counter")
+    if powder_counter:get_amount() == powder_counter:get_max_amount() then
+      audio_manager:play_sound("items/get_item")
+    else
+      audio_manager:play_sound("items/get_item2")
+      powder_counter:add_amount(10)
+    end
 
   -- TODO: add more flying items here.
 

@@ -14,11 +14,13 @@ local angle_per_frame = 2 * math.pi / sprite:get_num_frames()
 local triggering_angle = angle_per_frame * 1.5
 local start_shooting_delay = 200
 local pause_duration = 1000
-local is_exhausted_duration = 200
+local is_exhausted_duration = 100
 
 -- Properties
 function enemy:on_created()
 
+  enemy:set_size(16, 16)
+  enemy:set_origin(8, 13)
   self:set_invincible()
   self:set_damage(2)
   self.is_exhausted = false -- True after a shoot and before a delay.
@@ -30,20 +32,17 @@ function enemy:start_firing()
   -- Pause the animation.
   sprite:set_paused()
 
-  -- Save the hero position at this point to use it as the target of the laser.
-  local firing_target_x, firing_target_y, firing_target_layer = hero:get_position()
-
   -- Start the laser after some time.
   sol.timer.start(enemy, start_shooting_delay, function()
 
     self.is_exhausted = true 
 
-    -- Create laser entities.
+    -- Create laser projectile.
     local x, y, layer = enemy:get_position()
     map:create_enemy({
-      breed =  "eyegore_statue/eyegore_statue_fireball", -- TODO
+      breed =  "projectiles/laser",
       x = x,
-      y = y,
+      y = y - 5,
       layer = layer,
       direction = enemy:get_direction4_to(hero)
     })
@@ -69,7 +68,7 @@ function sprite:on_frame_changed(animation, frame)
     local enemy_angle = frame * angle_per_frame - math.pi * 0.5 -- Frame 0 of the sprite faces the south.
     local hero_angle = math.atan2(y - hero_y, hero_x - x)
 
-    if (math.abs(enemy_angle - hero_angle) + math.pi * 2.0) % (math.pi * 2.0) <= triggering_angle then
+    if math.abs(enemy_angle - hero_angle) % (math.pi * 2.0) <= triggering_angle then
       enemy:start_firing()
     end
   end

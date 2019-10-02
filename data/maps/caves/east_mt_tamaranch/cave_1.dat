@@ -657,6 +657,32 @@ destination{
   direction = 1,
 }
 
+custom_entity{
+  name = "piece_of_heart_7",
+  layer = 0,
+  x = 176,
+  y = 141,
+  properties = {
+    {
+      key = "treasure_name",
+      value = "piece_of_heart",
+    },
+    {
+      key = "treasure_variant",
+      value = "1",
+    },
+    {
+      key = "treasure_savegame_variable",
+      value = "piece_of_heart_7",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/items",
+  model = "pickable_underwater",
+}
+
 tile{
   layer = 1,
   x = 288,
@@ -1078,15 +1104,6 @@ tile{
   width = 32,
   height = 32,
   pattern = "ceiling.2",
-}
-
-tile{
-  layer = 2,
-  x = 160,
-  y = 128,
-  width = 16,
-  height = 16,
-  pattern = "464",
 }
 
 tile{

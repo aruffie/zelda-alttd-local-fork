@@ -43,7 +43,7 @@ tile{
   y = 104,
   width = 128,
   height = 48,
-  pattern = "floor_low.16-1",
+  pattern = "floor_low.5-1",
 }
 
 tile{
@@ -52,7 +52,7 @@ tile{
   y = 40,
   width = 80,
   height = 176,
-  pattern = "floor_low.16-1",
+  pattern = "floor_low.5-1",
 }
 
 tile{
@@ -70,7 +70,7 @@ tile{
   y = 72,
   width = 112,
   height = 32,
-  pattern = "floor_low.16-1",
+  pattern = "floor_low.5-1",
 }
 
 tile{
@@ -106,7 +106,7 @@ tile{
   y = 72,
   width = 48,
   height = 128,
-  pattern = "floor_low.16-1",
+  pattern = "floor_low.5-1",
 }
 
 tile{
@@ -115,7 +115,7 @@ tile{
   y = 72,
   width = 48,
   height = 128,
-  pattern = "floor_low.16-1",
+  pattern = "floor_low.5-1",
 }
 
 tile{
@@ -124,7 +124,7 @@ tile{
   y = 40,
   width = 176,
   height = 176,
-  pattern = "floor_low.16-1",
+  pattern = "floor_low.5-1",
 }
 
 tile{
@@ -376,7 +376,7 @@ tile{
   y = 72,
   width = 48,
   height = 144,
-  pattern = "floor_low.16-1",
+  pattern = "floor_low.5-1",
 }
 
 tile{
@@ -385,7 +385,7 @@ tile{
   y = 72,
   width = 32,
   height = 144,
-  pattern = "floor_low.16-1",
+  pattern = "floor_low.5-1",
 }
 
 tile{
@@ -394,7 +394,7 @@ tile{
   y = 40,
   width = 176,
   height = 176,
-  pattern = "floor_low.16-1",
+  pattern = "floor_low.5-1",
 }
 
 tile{
@@ -655,7 +655,7 @@ tile{
   y = 72,
   width = 48,
   height = 128,
-  pattern = "floor_low.16-1",
+  pattern = "floor_low.5-1",
 }
 
 tile{
@@ -1287,7 +1287,7 @@ tile{
   y = 136,
   width = 112,
   height = 32,
-  pattern = "floor_low.16-1",
+  pattern = "floor_low.5-1",
 }
 
 tile{
@@ -1566,7 +1566,7 @@ tile{
   y = 280,
   width = 48,
   height = 160,
-  pattern = "floor_low.16-1",
+  pattern = "floor_low.5-1",
 }
 
 tile{
@@ -1575,7 +1575,7 @@ tile{
   y = 280,
   width = 48,
   height = 160,
-  pattern = "floor_low.16-1",
+  pattern = "floor_low.5-1",
 }
 
 tile{
@@ -1584,7 +1584,7 @@ tile{
   y = 280,
   width = 176,
   height = 176,
-  pattern = "floor_low.16-1",
+  pattern = "floor_low.5-1",
 }
 
 tile{
@@ -2766,6 +2766,26 @@ tile{
   pattern = "wall.corner_reverse.3-3",
 }
 
+tile{
+  layer = 0,
+  x = 48,
+  y = 112,
+  width = 16,
+  height = 32,
+  pattern = "97",
+  tileset = "addition/dungeon",
+}
+
+dynamic_tile{
+  name = "floor_2_unstable_associate__",
+  layer = 0,
+  x = 48,
+  y = 112,
+  width = 16,
+  height = 16,
+  pattern = "930",
+}
+
 wall{
   layer = 0,
   x = 64,
@@ -2843,7 +2863,7 @@ enemy{
   x = 192,
   y = 93,
   direction = 3,
-  breed = "moblin_dog_spear/moblin_dog_spear",
+  breed = "moblin_dog_spear",
 }
 
 enemy{
@@ -2852,7 +2872,7 @@ enemy{
   x = 128,
   y = 93,
   direction = 3,
-  breed = "moblin_dog_spear/moblin_dog_spear",
+  breed = "moblin_dog_spear",
 }
 
 enemy{
@@ -2861,7 +2881,7 @@ enemy{
   x = 216,
   y = 109,
   direction = 3,
-  breed = "moblin_dog_spear/moblin_dog_spear",
+  breed = "moblin_dog_spear",
 }
 
 enemy{
@@ -2870,7 +2890,7 @@ enemy{
   x = 104,
   y = 109,
   direction = 3,
-  breed = "moblin_dog_spear/moblin_dog_spear",
+  breed = "moblin_dog_spear",
 }
 
 door{
@@ -3026,7 +3046,7 @@ enemy{
   x = 160,
   y = 373,
   direction = 3,
-  breed = "moblin_dog_sword/moblin_dog_sword",
+  breed = "moblin_dog_sword",
 }
 
 door{
@@ -3086,8 +3106,8 @@ custom_entity{
 custom_entity{
   name = "placeholder_hero_1",
   layer = 0,
-  x = 104,
-  y = 157,
+  x = 88,
+  y = 173,
   width = 16,
   height = 16,
   direction = 0,
@@ -3137,6 +3157,40 @@ wall{
   stops_enemies = true,
   stops_blocks = true,
   stops_projectiles = true,
+}
+
+dynamic_tile{
+  name = "floor_1_unstable_associate_",
+  layer = 0,
+  x = 48,
+  y = 128,
+  width = 16,
+  height = 16,
+  pattern = "930",
+}
+
+custom_entity{
+  name = "floor_1",
+  layer = 0,
+  x = 56,
+  y = 141,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/grounds/weak_floor_light_1",
+  model = "unstable_floor",
+}
+
+custom_entity{
+  name = "floor_2",
+  layer = 0,
+  x = 56,
+  y = 125,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/grounds/weak_floor_light_1",
+  model = "unstable_floor",
 }
 
 tile{

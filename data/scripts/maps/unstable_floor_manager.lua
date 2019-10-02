@@ -46,7 +46,9 @@ local game_meta = sol.main.get_metatable("game")
 local map_meta = sol.main.get_metatable("map")
 local hero_meta = sol.main.get_metatable("hero")
 local separator_meta = sol.main.get_metatable("separator")
-hero_meta.last_stable_position = {x = nil, y = nil, layer = nil}
+hero_meta.last_stable_position = {x = nil, y = nil, layer = nil, direction=nil}
+
+
 
 -- Function to check if the position is BAD ground, i.e., holes, lava, and maybe deep water too.
 -- Deep water is ONLY considered bad ground if the hero does NOT have the "swim" ability.
@@ -55,7 +57,7 @@ function map_meta:is_bad_ground(x, y, layer)
   local game = self:get_game()
   local ground = self:get_ground(x, y, layer)
   if ground == "hole" or ground == "lava" or 
-      (ground == "deep_water" and game:get_ability("swim") == 0) then
+  (ground == "deep_water" and game:get_ability("swim") == 0) then
     return true
   end
   return false
@@ -85,17 +87,44 @@ end
 -- Update the last stable position of the hero.
 hero_meta:register_event("on_position_changed", function(hero)
 
-  local map = hero:get_map()
-  local x, y, layer = hero:get_ground_position() -- Check GROUND position.
-  local state = hero:get_state_object() 
-  local state_ignore_ground = state and not state:get_can_come_from_bad_ground()
-  if (not state_ignore_ground) and hero:get_state() ~= "jumping" then
-    if not map:is_unstable_floor(x, y, layer) then
-      local position = hero.last_stable_position
-      position.x, position.y, position.layer = hero:get_position()
+    local map = hero:get_map()
+    local game = hero:get_game()
+    if not game:get_dungeon_index() and map:get_world()~="inside_world" and not map:is_sideview() and hero:get_state()~="back to solid ground" then
+      local x, y, layer = hero:get_ground_position() -- Check GROUND position.
+      local state = hero:get_state_object() 
+      local state_ignore_ground = state and not state:get_can_come_from_bad_ground()
+      if (not state_ignore_ground) and hero:get_state() ~= "jumping" then
+        if not map:is_unstable_floor(x, y, layer) then
+          local position = hero.last_stable_position
+          position.x, position.y, position.layer = hero:get_position()
+          local m=hero:get_movement()
+          if m then
+            if m.get_angle then
+              position.direction=math.floor(m:get_angle()*8/(math.pi*2))
+            else
+              position.direction=m:get_direction4()*2
+            end
+          end
+        end
+      end
     end
-  end
-end)
+  end)
+-- Update the last stable position of the hero.
+hero_meta:register_event("on_state_changing", function(hero, old_state, state)
+
+    local map = hero:get_map()
+    local game = hero:get_game()
+    if not game:get_dungeon_index() and map:get_world()~="inside_world" and not map:is_sideview() then
+      if old_state=="back to solid ground" and state=="free" then
+        local position = hero.last_stable_position
+        local directions={{-8,0}, {-8, 8}, {0, 8}, {8, 8}, {8, 0}, {8, -8}, {0, -8}, {-8, -8}}
+        local offset_x, offset_y=unpack(directions[position.direction+1])
+
+        hero:set_position(position.x+offset_x, position.y+offset_y, position.layer)
+
+      end
+    end
+  end)
 
 -- Function to initialize the unstable floor manager.
 -- Use it always after calling "hero:reset_solid_ground()".
@@ -103,10 +132,10 @@ function hero_meta:initialize_unstable_floor_manager()
 
   local hero = self  
   hero:save_solid_ground(function()
-    -- Return the last stable position.
-    pos = hero.last_stable_position
-    return pos.x, pos.y, pos.layer
-  end)
+      -- Return the last stable position.
+      pos = hero.last_stable_position
+      return pos.x, pos.y, pos.layer
+    end)
 end
 
 -- Save current position of the hero as a stable one (even over unstable floors).
@@ -122,13 +151,13 @@ end
 -- Initialize the manager on the corresponding events.
 game_meta:register_event("on_map_changed", function(game, map)
 
-  local hero = game:get_hero()
-  hero:save_stable_floor_position()
-  hero:initialize_unstable_floor_manager()
-end)
+    local hero = game:get_hero()
+    hero:save_stable_floor_position()
+    hero:initialize_unstable_floor_manager()
+  end)
 separator_meta:register_event("on_activated", function(separator, dir4)
 
-  local hero = separator:get_map():get_hero()
-  hero:save_stable_floor_position()
-  hero:initialize_unstable_floor_manager()
-end)
+    local hero = separator:get_map():get_hero()
+    hero:save_stable_floor_position()
+    hero:initialize_unstable_floor_manager()
+  end)

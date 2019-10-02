@@ -16961,23 +16961,24 @@ block{
 }
 
 block{
+  name = "auto_block",
   layer = 0,
   x = 1752,
   y = 365,
   sprite = "entities/blocks/block",
   pushable = true,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 block{
+  name = "auto_block_2",
   layer = 0,
   x = 1768,
   y = 365,
   sprite = "entities/blocks/block",
   pushable = true,
   pullable = false,
-  maximum_moves = 2,
 }
 
 block{
@@ -17508,7 +17509,7 @@ door{
 }
 
 block{
-  name = "block_group_1_1",
+  name = "auto_block_group_1_1",
   layer = 0,
   x = 2056,
   y = 1085,
@@ -17516,11 +17517,11 @@ block{
   sprite = "entities/blocks/block",
   pushable = true,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 block{
-  name = "block_group_1_2",
+  name = "auto_block_group_1_2",
   layer = 0,
   x = 2104,
   y = 1085,
@@ -17528,7 +17529,7 @@ block{
   sprite = "entities/blocks/block",
   pushable = true,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 crystal_block{
@@ -17922,7 +17923,7 @@ destination{
 }
 
 sensor{
-  name = "sensor_1",
+  name = "save_solid_ground_sensor_1",
   layer = 0,
   x = 584,
   y = 653,
@@ -19738,7 +19739,7 @@ custom_entity{
 }
 
 sensor{
-  name = "sensor_3",
+  name = "save_solid_ground_sensor_3",
   layer = 0,
   x = 584,
   y = 1325,
@@ -19827,7 +19828,7 @@ enemy{
 }
 
 sensor{
-  name = "sensor_2",
+  name = "save_solid_ground_sensor_2",
   layer = 0,
   x = 480,
   y = 677,
@@ -20143,7 +20144,7 @@ enemy{
   x = 1752,
   y = 333,
   direction = 0,
-  breed = "hooded_stalfos",
+  breed = "shrouded_stalfos",
   treasure_name = "random",
 }
 
@@ -20230,7 +20231,7 @@ door{
 }
 
 sensor{
-  name = "sensor_4",
+  name = "sensor_boss",
   layer = 0,
   x = 2080,
   y = 677,
@@ -20314,6 +20315,12 @@ enemy{
   layer = 0,
   x = 704,
   y = 421,
+  properties = {
+    {
+      key = "initial_state",
+      value = "attracting",
+    },
+  },
   direction = 0,
   breed = "death_ball",
 }
@@ -20387,7 +20394,6 @@ npc{
   direction = 3,
   subtype = 1,
   sprite = "npc/statues/owl_dungeon_2",
-  behavior = "dialog#",
 }
 
 destructible{
@@ -20466,7 +20472,7 @@ enemy{
   x = 1336,
   y = 1581,
   direction = 0,
-  breed = "hooded_stalfos",
+  breed = "shrouded_stalfos",
 }
 
 stairs{
@@ -20511,7 +20517,7 @@ destination{
   name = "stairs_2_B",
   layer = 0,
   x = 528,
-  y = 917,
+  y = 933,
   direction = 1,
 }
 
@@ -22133,7 +22139,7 @@ destination{
   name = "stairs_5_B",
   layer = 0,
   x = 2168,
-  y = 53,
+  y = 37,
   direction = 3,
 }
 
@@ -22141,7 +22147,7 @@ wall{
   name = "wall_2_1",
   layer = 0,
   x = 2144,
-  y = 16,
+  y = 24,
   width = 48,
   height = 16,
   stops_hero = true,
@@ -22235,6 +22241,33 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
+}
+
+sensor{
+  name = "save_solid_ground_sensor_5",
+  layer = 0,
+  x = 696,
+  y = 653,
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "save_solid_ground_sensor_6",
+  layer = 0,
+  x = 696,
+  y = 125,
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "save_solid_ground_sensor_7",
+  layer = 0,
+  x = 480,
+  y = 1149,
+  width = 16,
+  height = 16,
 }
 
 tile{
@@ -23263,7 +23296,7 @@ dynamic_tile{
 custom_entity{
   layer = 1,
   x = 1800,
-  y = 1565,
+  y = 1581,
   width = 16,
   height = 16,
   direction = 0,

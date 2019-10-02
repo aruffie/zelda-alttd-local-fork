@@ -14,7 +14,7 @@ function item:on_created()
   self:set_savegame_variable("possession_magic_powders_counter")
   self:set_amount_savegame_variable("amount_magic_powders_counter")
   self:set_assignable(true)
-  
+
 end
 
 function item:on_obtaining(variant, savegame_variable)
@@ -29,25 +29,25 @@ end
 -- Event called when the hero is using this item.
 function item:on_using()
 
-   local amount =   self:get_amount()
-   amount = amount - 1
+  local amount =   self:get_amount()
+  amount = amount - 1
   if amount < 0 then
     audio_manager:play_sound("misc/error")
   else
-   audio_manager:play_sound("items/magic_powder")
-   local map = game:get_map()
-   local hero = map:get_hero()
-   local x,y,layer = hero:get_position()
-   hero:freeze()
-   hero:set_animation("magic_powder")
-   self:set_amount(amount)
+    audio_manager:play_sound("items/magic_powder")
+    local map = game:get_map()
+    local hero = map:get_hero()
+    local x,y,layer = hero:get_position()
+    hero:freeze()
+    hero:set_animation("magic_powder")
+    self:set_amount(amount)
     item:create_powder()
     sol.timer.start(item, 400, function()
-      if amount == 0 then
-        self:set_variant(0)
-      end
-      hero:unfreeze()
-    end)
+        if amount == 0 then
+          self:set_variant(0)
+        end
+        hero:unfreeze()
+      end)
   end
   self:set_finished()
 
@@ -71,10 +71,11 @@ function item:create_powder()
   end
 
   local x, y, layer = hero:get_position()
+  local ox, oy=hero:get_sprite("tunic"):get_xy()
   local powder = map:create_custom_entity{
     model = "powder",
-    x = x + dx,
-    y = y + dy,
+    x = x + dx + ox,
+    y = y + dy + oy,
     layer = layer,
     width = 16,
     height = 16,

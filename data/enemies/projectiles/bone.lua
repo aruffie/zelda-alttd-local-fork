@@ -1,44 +1,38 @@
-local enemy = ...
-local main_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
-local audio_manager = require("scripts/audio_manager")
+-- Bone projectile, mainly used by the red Stalfos enemy.
 
-local game = enemy:get_game()
-local map = enemy:get_map()
-local hero = map:get_hero()
+local enemy = ...
+local projectile_behavior = require("enemies/lib/projectile")
+
+-- Global variables
+local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+
+-- Start going to the hero.
+function enemy:go()
+  enemy:straight_go()
+end
+
+-- Create an impact effect on hit.
+enemy:register_event("on_hit", function(enemy)
+  enemy:start_brief_effect("entities/effects/impact_projectile", "default", sprite:get_xy())
+end)
 
 -- Initialization.
-function enemy:on_created()
+enemy:register_event("on_created", function(enemy)
 
+  projectile_behavior.apply(enemy, sprite)
   enemy:set_life(1)
-end
-
--- Start going to the hero
-function enemy:go()
-
-  local movement = sol.movement.create("straight")
-  movement:set_speed(192)
-  movement:set_angle(enemy:get_angle(hero))
-  movement:set_smooth(false)
-
-  function movement:on_obstacle_reached()
-    enemy:remove()
-  end
-
-  movement:start(enemy)
-end
+  enemy:set_size(16, 16)
+  enemy:set_origin(8, 8)
+end)
 
 -- Restart settings.
-function enemy:on_restarted()
+enemy:register_event("on_restarted", function(enemy)
 
+  sprite:set_animation("walking")
   enemy:set_damage(2)
   enemy:set_obstacle_behavior("flying")
+  enemy:set_pushed_back_when_hurt(false)
   enemy:set_can_hurt_hero_running(true)
   enemy:set_minimum_shield_needed(1)
   enemy:go()
-  main_sprite:set_animation("default")
-end
-
--- Destroy the enemy when the hero is touched.
-function enemy:on_attacking_hero(hero, enemy_sprite)
-  enemy:remove()
-end
+end)

@@ -1478,23 +1478,25 @@ destination{
 }
 
 block{
+  name = "auto_block_8",
   layer = 0,
   x = 480,
   y = 389,
   sprite = "entities/blocks/stone_brown",
   pushable = true,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 block{
+  name = "auto_block",
   layer = 0,
   x = 464,
   y = 373,
   sprite = "entities/blocks/stone_brown",
   pushable = true,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 chest{

@@ -9970,6 +9970,7 @@ wall{
 }
 
 block{
+  name = "auto_block_4",
   layer = 0,
   x = 392,
   y = 541,
@@ -9980,6 +9981,7 @@ block{
 }
 
 block{
+  name = "auto_block_5",
   layer = 0,
   x = 392,
   y = 557,
@@ -9990,66 +9992,7 @@ block{
 }
 
 block{
-  layer = 0,
-  x = 392,
-  y = 573,
-  sprite = "entities/blocks/block",
-  pushable = true,
-  pullable = false,
-  max_moves = 1,
-}
-
-block{
-  layer = 0,
-  x = 392,
-  y = 589,
-  sprite = "entities/blocks/block",
-  pushable = true,
-  pullable = false,
-  max_moves = 1,
-}
-
-block{
-  layer = 0,
-  x = 392,
-  y = 605,
-  sprite = "entities/blocks/block",
-  pushable = true,
-  pullable = false,
-  max_moves = 1,
-}
-
-block{
-  layer = 0,
-  x = 392,
-  y = 621,
-  sprite = "entities/blocks/block",
-  pushable = true,
-  pullable = false,
-  max_moves = 1,
-}
-
-block{
-  layer = 0,
-  x = 392,
-  y = 637,
-  sprite = "entities/blocks/block",
-  pushable = true,
-  pullable = false,
-  max_moves = 1,
-}
-
-block{
-  layer = 0,
-  x = 392,
-  y = 653,
-  sprite = "entities/blocks/block",
-  pushable = true,
-  pullable = false,
-  max_moves = 1,
-}
-
-block{
+  name = "auto_block_3",
   layer = 0,
   x = 392,
   y = 669,
@@ -10432,6 +10375,7 @@ block{
 }
 
 block{
+  name = "auto_block",
   layer = 0,
   x = 536,
   y = 429,
@@ -10452,6 +10396,7 @@ crystal_block{
 }
 
 block{
+  name = "auto_block_2",
   layer = 0,
   x = 696,
   y = 429,
@@ -11131,7 +11076,7 @@ enemy{
   x = 264,
   y = 909,
   direction = 3,
-  breed = "face_lamp/face_lamp",
+  breed = "face_lamp",
 }
 
 enemy{
@@ -11140,7 +11085,7 @@ enemy{
   x = 56,
   y = 909,
   direction = 3,
-  breed = "face_lamp/face_lamp",
+  breed = "face_lamp",
 }
 
 pickable{
@@ -12517,6 +12462,72 @@ custom_entity{
   direction = 0,
   sprite = "entities/blocks/block",
   model = "obstacle",
+}
+
+block{
+  name = "auto_block_6",
+  layer = 0,
+  x = 392,
+  y = 573,
+  sprite = "entities/blocks/block",
+  pushable = true,
+  pullable = false,
+  max_moves = 1,
+}
+
+block{
+  name = "auto_block_7",
+  layer = 0,
+  x = 392,
+  y = 589,
+  sprite = "entities/blocks/block",
+  pushable = true,
+  pullable = false,
+  max_moves = 1,
+}
+
+block{
+  name = "auto_block_8",
+  layer = 0,
+  x = 392,
+  y = 605,
+  sprite = "entities/blocks/block",
+  pushable = true,
+  pullable = false,
+  max_moves = 1,
+}
+
+block{
+  name = "auto_block_9",
+  layer = 0,
+  x = 392,
+  y = 621,
+  sprite = "entities/blocks/block",
+  pushable = true,
+  pullable = false,
+  max_moves = 1,
+}
+
+block{
+  name = "auto_block_10",
+  layer = 0,
+  x = 392,
+  y = 637,
+  sprite = "entities/blocks/block",
+  pushable = true,
+  pullable = false,
+  max_moves = 1,
+}
+
+block{
+  name = "auto_block_11",
+  layer = 0,
+  x = 392,
+  y = 653,
+  sprite = "entities/blocks/block",
+  pushable = true,
+  pullable = false,
+  max_moves = 1,
 }
 
 tile{

@@ -3,7 +3,7 @@
 
 -- Global variables
 local enemy = ...
-local common_actions = require("enemies/lib/common_actions")
+require("enemies/lib/common_actions").learn(enemy)
 
 local game = enemy:get_game()
 local map = enemy:get_map()
@@ -12,58 +12,63 @@ local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
 
 -- Configuration variables
-local walking_possible_angle = {0, quarter, 2.0 * quarter, 3.0 * quarter}
+local walking_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
 local walking_speed = 32
-local walking_distance_grid = 16
-local walking_max_move_by_step = 6
+local walking_minimum_distance = 16
+local walking_maximum_distance = 96
+local stalfos_shaking_duration = 500
 
--- Start a random straight movement of a random distance vertically or horizontally, and loop it without delay.
+-- Start the enemy movement.
 function enemy:start_walking()
 
-  math.randomseed(sol.main.get_elapsed_time())
-  enemy:start_random_walking(walking_possible_angle, walking_speed, walking_distance_grid * math.random(walking_max_move_by_step), function()
+  enemy:start_straight_walking(walking_angles[math.random(4)], walking_speed, math.random(walking_minimum_distance, walking_maximum_distance), function()
     enemy:start_walking()
   end)
 end
 
 -- On hit by fire, the gibdo become a red Stalfos.
-function enemy:on_custom_attack_received(attack)
+enemy:register_event("on_custom_attack_received", function(enemy, attack)
 
   if attack == "fire" then
     local x, y, layer = enemy:get_position()
+    stalfos = enemy:create_enemy({breed = "stalfos_red"})
     enemy:remove()
-    map:create_enemy({
-      breed = "stalfos_red",
-      x = x,
-      y = y,
-      layer = layer,
-      direction = enemy:get_direction4_to(hero)
-    })
+
+    -- Make the Stalfos immobile, then shake for some time, and then restart.
+    stalfos:set_invincible()
+    stalfos:stop_movement()
+    stalfos:set_exhausted(true)
+    sol.timer.stop_all(stalfos)
+    stalfos:get_sprite():set_animation("shaking")
+    sol.timer.start(stalfos, stalfos_shaking_duration, function()
+      stalfos:restart()
+    end)
   end
-end
+end)
 
 -- Initialization.
-function enemy:on_created()
+enemy:register_event("on_created", function(enemy)
 
-  common_actions.learn(enemy, sprite)
   enemy:set_life(6)
-end
+  enemy:set_size(16, 16)
+  enemy:set_origin(8, 13)
+end)
 
 -- Restart settings.
-function enemy:on_restarted()
+enemy:register_event("on_restarted", function(enemy)
 
   -- Behavior for each items.
-  enemy:set_attack_consequence("thrown_item", "ignored")
-  enemy:set_attack_consequence("hookshot", "immobilized")
-  enemy:set_attack_consequence("sword", 1)
-  enemy:set_attack_consequence("arrow", 1)
-  enemy:set_attack_consequence("boomerang", 2)
-  enemy:set_attack_consequence("explosion", 3)
-  enemy:set_hammer_reaction(2)
-  enemy:set_fire_reaction("custom") -- Transform into red Stalfos
+  enemy:set_hero_weapons_reactions(1, {
+    boomerang = 2,
+    hammer = 2,
+    explosion = 3,
+    jump_on = "ignored",
+    thrown_item = "ignored",
+    hookshot = "immobilized",
+    fire = "custom"})
 
   -- States.
   enemy:set_can_attack(true)
   enemy:set_damage(4)
   enemy:start_walking()
-end
+end)

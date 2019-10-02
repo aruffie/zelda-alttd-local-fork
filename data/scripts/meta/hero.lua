@@ -9,6 +9,29 @@ local timer_sword_loading = nil
 local timer_sword_tapping = nil
 local timer_stairs = nil
 require("scripts/multi_events")
+hero_meta:register_event("on_movement_changed", function(hero, movement)
+    if not hero:get_map():is_sideview() then
+      if movement:get_speed() ~=0 and not hero.walking_sound_timer then
+        --print "movement ok"
+        hero.walking_sound_timer=sol.timer.start(hero, 300, function()
+            --print "footstep"
+            if hero:get_ground_below()=="shallow_water" then
+              audio_manager:play_sound("hero/wade"..(math.random(1, 2)))
+            elseif hero:get_ground_below()=="grass" then
+              audio_manager:play_sound("hero/walk_on_grass")
+            end
+            return true
+          end)
+      else
+        --print "movement stop"
+        if hero.walking_sound_timer then
+          hero.walking_sound_timer:stop()
+          hero.walking_sound_timer=nil
+        end
+      end
+    end
+
+  end)
 
 hero_meta:register_event("on_state_changed", function(hero)
 
@@ -51,7 +74,7 @@ hero_meta:register_event("on_state_changed", function(hero)
       -- Falling
       audio_manager:play_sound("hero/fall") 
     elseif current_state == "jumping" then
-      audio_manager:play_sound("hero/throw")
+      audio_manager:play_sound("hero/cliff_jump")
     elseif current_state == "stairs" then
       if timer_stairs == nil then
         timer_stairs = sol.timer.start(hero, 0, function()
@@ -65,11 +88,6 @@ hero_meta:register_event("on_state_changed", function(hero)
       local entity = hero:get_facing_entity()
       if entity ~= nil and entity:get_type() == "chest" and game:is_command_pressed("action") then
         audio_manager:play_sound("misc/chest_open")
-      end
-    elseif current_state == "free" then
-      -- Throw
-      if hero.previous_state == "carrying" then
-        audio_manager:play_sound("hero/throw")
       end
 
     end
@@ -94,6 +112,21 @@ hero_meta:register_event("on_state_changed", function(hero)
     end
     hero.previous_state = current_state
 
+  end)
+
+hero_meta:register_event("on_state_changing", function(hero, old_state, new_state)
+    if old_state=="jumping" and new_state=="free" then
+      local ground=hero:get_ground_below()
+      if ground=="shallow_water" then
+        audio_manager:play_sound("hero/wade1")
+      elseif ground=="grass" then
+        audio_manager:play_sound("walk_on_grass") --TODO use the actual sound effect
+      elseif ground=="deep_water" or ground=="lava" then
+        audio_manager:play_sound("hero/diving")
+      else
+        audio_manager:play_sound("hero/land")
+      end
+    end
   end)
 
 hero_meta:register_event("notify_object_thrown", function() end)
@@ -230,34 +263,50 @@ local game_meta = sol.main.get_metatable("game")
 game_meta:register_event("on_map_changed", function(game, map)
 
     local hero = map:get_hero()
+    --print ("new map:", map:get_id())
+    local x,y, layer=hero:get_position()
+
+
     hero:set_jumping(false)
     if map:is_sideview() then
       hero:set_size(8,16)
       hero:set_origin(4,13)
       set_sprite_offset(hero, 0,2)
-      hero:get_sprite("shadow"):stop_animation()
+--      hero:get_sprite("shadow"):stop_animation()
+      local s=hero:get_sprite("shadow_override")
+      if s then
+        hero:remove_sprite(s)
+      end
     else
       hero:set_size(16,16)
       hero:set_origin(8,13)
       set_sprite_offset(hero, 0,0)
-      hero:get_sprite("shadow"):set_animation("big")
+--      hero:get_sprite("shadow"):set_animation("big")
+      if not hero:get_sprite("shadow_override") then
+        local s=hero:create_sprite("entities/shadow", "shadow_override")
+        s:set_animation("big")
+        hero:bring_sprite_to_back(s)
+      end
+      --print ("layer="..layer..", map min/max layers:"..map:get_min_layer()..", "..map:get_max_layer())
+--      local ground=game:get_value("tp_ground")
+--      if ground=="hole" then
+--        hero:fall_from_ceiling(120, nil, function()
+--            local ground=hero:get_ground_below()
+--            if ground=="shallow_water" then
+--              audio_manager:play_sound("hero/wade1")
+--            elseif ground=="grass" then
+--              audio_manager:play_sound("walk_on_grass") --TODO use the actual sound effect
+--            elseif ground=="deep_water" then
+--              audio_manager:play_sound("hero/diving")
+--            else
+--              audio_manager:play_sound("hero/land")
+--            end
+--          end)
+--      end
     end
 
   end)
 
--- Set fixed stopped/walking animations for the hero (or nil to disable them).
-function hero_meta:set_fixed_animations(new_stopped_animation, new_walking_animation)
-
-  fixed_stopped_animation = new_stopped_animation
-  fixed_walking_animation = new_walking_animation
-  -- Initialize fixed animations if necessary.
-  local state = self:get_state()
-  if state == "free" then
-    if self:is_walking() then self:set_animation(fixed_walking_animation or "walking")
-    else self:set_animation(fixed_stopped_animation or "stopped") end
-  end
-
-end
 
 -- Initialize hero behavior specific to this quest.
 

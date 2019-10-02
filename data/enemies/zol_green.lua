@@ -3,90 +3,93 @@
 
 -- Variables
 local enemy = ...
+local zol_behavior = require("enemies/lib/zol")
+require("scripts/multi_events")
+
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
-local max_distance = 50
-local is_awake = false
+local game = enemy:get_game()
+local map = enemy:get_map()
+local hero = map:get_hero()
+local shadow
+local jump_count, current_max_jump
 
--- The enemy appears: set its properties.
-function enemy:on_created()
+-- Configuration variables
+local between_jump_duration = 500
+local max_jump_combo = 8
+local triggering_distance = 60
 
-  enemy:set_life(1)
-  enemy:set_damage(2)
-  
+-- Make the enemy appear.
+function enemy:appear()
+
+  shadow:set_visible()
+  sprite:set_animation("appearing", function()
+    sprite:set_animation("shaking")
+    enemy:set_can_attack(true)
+    sol.timer.start(enemy, 1000, function()
+      jump_count = 1
+      current_max_jump = math.random(max_jump_combo)
+      enemy:start_jump_attack(true)
+    end)
+  end)
 end
 
--- The enemy was stopped for some reason and should restart.
-function enemy:on_restarted()
+-- Make the enemy disappear.
+function enemy:disappear()
 
-  sprite:set_animation("invisible")
-  enemy:set_can_attack(false)
-  sol.timer.start(enemy, 50, function()
-    local tx, ty, _ = enemy:get_map():get_hero():get_position()
-    if enemy:get_distance(tx, ty) < max_distance then
-      if is_awake == false then
-        enemy:appear()
-      end
+  shadow:set_visible(false)
+  sprite:set_animation("disappearing", function()
+    sprite:set_animation("invisible")
+    enemy:set_can_attack(false)
+    enemy:wait()
+  end)
+end
+
+-- Wait for the hero to be close enough and appear if yes.
+function enemy:wait()
+
+  sol.timer.start(enemy, 100, function()
+    if enemy:get_distance(hero) < triggering_distance then
+      enemy:appear()
+      return false
     end
     return true
   end)
-
 end
 
-function enemy:appear()
-
-  is_awake = true
-  sprite:set_animation("appearing")
-  function sprite:on_animation_finished(animation)
-    if animation == "appearing" then
-      sprite:set_animation("shaking")
-      enemy:set_can_attack(true)
-      sol.timer.start(enemy, 1000, function()
-        enemy:go()
-      end)
-    end
-  end
-
-end
-
-function enemy:disappear()
-
-  is_awake = false
-  enemy:set_can_attack(false)
-  sprite:set_animation("disappearing")
-  function sprite:on_animation_finished(animation)
-    if animation == "disappearing" then
-      sprite:set_animation("invisible")
-    end
-  end
-
-end
-
-
-function enemy:go()
-
-  sprite:set_animation("immobilized")
-  sol.timer.start(enemy, 200, function()
-    sprite:set_animation("jump")
-    local direction8 = enemy:get_direction8_to(enemy:get_map():get_hero())
-    local m = sol.movement.create("jump")
-    m:set_speed(35)
-    m:set_distance(16)
-    m:set_direction8(direction8)
-    m:start(enemy)
-    function m:on_finished()
-      sprite:set_animation("immobilized")
-      sol.timer.start(enemy, 500, function()
-        local tx, ty, _ = enemy:get_map():get_hero():get_position()
-        if enemy:get_distance(tx, ty) < max_distance then
-          enemy:go()
-        else
-          enemy:disappear()
-        end
-      end)
-    end
-  end)
+-- Start walking again when the attack finished.
+enemy:register_event("on_jump_finished", function(enemy)
   
-end
+  sprite:set_animation("shaking")
+  if enemy:get_distance(hero) > triggering_distance or jump_count >= current_max_jump then
+    enemy:disappear()
+  else
+    sol.timer.start(enemy, between_jump_duration, function()
+      jump_count = jump_count + 1
+      enemy:start_jump_attack(true)
+    end)
+  end
+end)
 
+-- Initialization.
+enemy:register_event("on_created", function(enemy)
 
+  zol_behavior.apply(enemy, {sprite = sprite}) 
+  enemy:set_life(1)
+  enemy:set_size(16, 16)
+  enemy:set_origin(8, 13)
+  shadow = enemy:start_shadow()
+end)
 
+-- Restart settings.
+enemy:register_event("on_restarted", function(enemy)
+
+  -- Behavior for each items.
+  enemy:set_hero_weapons_reactions(1, {jump_on = "ignored"})
+
+  -- States.
+  enemy:set_damage(2)
+  enemy:set_can_attack(false)
+  sprite:set_animation("invisible")
+  shadow:set_visible(false)
+  enemy:wait()
+end)
