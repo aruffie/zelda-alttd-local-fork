@@ -145,7 +145,7 @@ enemy_group_16_3:register_event("on_dead", function()
   end)
 
 -- Sensors events
-function save_solid_ground_sensor_1:on_activated()
+function sensor_1:on_activated()
 
   if is_small_boss_active == false then
     is_small_boss_active = true
@@ -154,7 +154,7 @@ function save_solid_ground_sensor_1:on_activated()
 
 end
 
-function save_solid_ground_sensor_2:on_activated()
+function sensor_2:on_activated()
 
   if is_small_boss_active == false then
     is_small_boss_active = true
@@ -166,7 +166,7 @@ function save_solid_ground_sensor_2:on_activated()
 
 end
 
-function save_solid_ground_sensor_3:on_activated()
+function sensor_3:on_activated()
 
   door_manager:close_if_enemies_not_dead(map, "enemy_group_8_", "door_group_4_")
 

@@ -13476,6 +13476,30 @@ tile{
   tileset = "addition/dungeon",
 }
 
+sensor{
+  name = "sensor_16",
+  layer = 0,
+  x = 1656,
+  y = 1085,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_15",
+  layer = 0,
+  x = 1544,
+  y = 1085,
+  width = 16,
+  height = 16,
+}
+
 wall{
   layer = 0,
   x = 2072,
@@ -14191,6 +14215,12 @@ sensor{
   layer = 0,
   x = 912,
   y = 1325,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
 }
@@ -14200,6 +14230,12 @@ sensor{
   layer = 0,
   x = 800,
   y = 1253,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
 }
@@ -14494,6 +14530,12 @@ sensor{
   layer = 0,
   x = 592,
   y = 1565,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
 }
@@ -14658,7 +14700,7 @@ destructible{
   name = "auto_destructible_1",
   layer = 0,
   x = 784,
-  y = 1149,
+  y = 1141,
   treasure_name = "random",
   sprite = "entities/destructibles/crystal_blue",
   destruction_sound = "arrow_hit",
@@ -14680,6 +14722,12 @@ sensor{
   layer = 0,
   x = 1264,
   y = 1317,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
   width = 16,
   height = 32,
 }
@@ -14748,6 +14796,12 @@ sensor{
   layer = 0,
   x = 688,
   y = 573,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
 }
@@ -14823,7 +14877,7 @@ destructible{
   name = "auto_destructible_2",
   layer = 0,
   x = 800,
-  y = 1149,
+  y = 1133,
   treasure_name = "random",
   sprite = "entities/destructibles/crystal_blue",
   destruction_sound = "arrow_hit",
@@ -14835,7 +14889,7 @@ destructible{
   name = "auto_destructible_3",
   layer = 0,
   x = 816,
-  y = 1149,
+  y = 1141,
   treasure_name = "random",
   sprite = "entities/destructibles/crystal_blue",
   destruction_sound = "arrow_hit",
@@ -16649,6 +16703,141 @@ block{
   pushable = true,
   pullable = false,
   maximum_moves = 1,
+}
+
+sensor{
+  name = "sensor_9",
+  layer = 0,
+  x = 696,
+  y = 1565,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_10",
+  layer = 0,
+  x = 1016,
+  y = 1325,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_11",
+  layer = 0,
+  x = 800,
+  y = 1149,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_12",
+  layer = 0,
+  x = 800,
+  y = 781,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_13",
+  layer = 0,
+  x = 800,
+  y = 669,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_14",
+  layer = 0,
+  x = 1520,
+  y = 909,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_17",
+  layer = 0,
+  x = 584,
+  y = 1085,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_18",
+  layer = 0,
+  x = 1864,
+  y = 1085,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_19",
+  layer = 0,
+  x = 584,
+  y = 573,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
 }
 
 tile{

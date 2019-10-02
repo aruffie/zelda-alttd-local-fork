@@ -11681,6 +11681,51 @@ tile{
   pattern = "1785",
 }
 
+wall{
+  layer = 1,
+  x = 376,
+  y = 648,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 152,
+  y = 592,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 176,
+  y = 424,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 256,
+  y = 424,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 440,
+  y = 184,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
 custom_entity{
   layer = 1,
   x = 744,
@@ -13366,6 +13411,15 @@ enemy{
   y = 469,
   direction = 0,
   breed = "goponga_flower_giant",
+}
+
+wall{
+  layer = 1,
+  x = 584,
+  y = 64,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
 }
 
 tile{

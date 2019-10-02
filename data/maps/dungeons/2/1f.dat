@@ -17923,10 +17923,16 @@ destination{
 }
 
 sensor{
-  name = "save_solid_ground_sensor_1",
+  name = "sensor_1",
   layer = 0,
   x = 584,
   y = 653,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
 }
@@ -19739,7 +19745,7 @@ custom_entity{
 }
 
 sensor{
-  name = "save_solid_ground_sensor_3",
+  name = "sensor_3",
   layer = 0,
   x = 584,
   y = 1325,
@@ -19828,10 +19834,16 @@ enemy{
 }
 
 sensor{
-  name = "save_solid_ground_sensor_2",
+  name = "sensor_2",
   layer = 0,
   x = 480,
   y = 677,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
 }
@@ -22223,16 +22235,6 @@ destination{
   direction = 1,
 }
 
-teletransporter{
-  layer = 0,
-  x = 776,
-  y = 1640,
-  width = 16,
-  height = 16,
-  destination_map = "dungeons/2/1f",
-  destination = "destination",
-}
-
 custom_entity{
   name = "placeholder_bottle",
   layer = 0,
@@ -22244,25 +22246,37 @@ custom_entity{
 }
 
 sensor{
-  name = "save_solid_ground_sensor_5",
+  name = "sensor_5",
   layer = 0,
   x = 696,
   y = 653,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
 }
 
 sensor{
-  name = "save_solid_ground_sensor_6",
+  name = "sensor_6",
   layer = 0,
   x = 696,
   y = 125,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
 }
 
 sensor{
-  name = "save_solid_ground_sensor_7",
+  name = "sensor_7",
   layer = 0,
   x = 480,
   y = 1149,
