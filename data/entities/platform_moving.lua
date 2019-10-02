@@ -32,7 +32,7 @@ require("scripts/multi_events")
 --function entity:on_created()
 entity:register_event("on_created", function()
     start_x, start_y = entity:get_position()
-    old_x, old_y = entity:get_position()
+    old_x, old_y = entity:get_bounding_box()
     entity:set_traversable_by(false)
     direction = entity:get_property("direction")
     if direction == nil then
@@ -74,7 +74,7 @@ function entity:on_position_changed()
     if other ~= entity then --This may be obvious, but you don't want to apply the synch in itself unless you want to be a bit trolly :p
       local e_type = other:get_type()
 --      print(e_type)
-      if e_type == "hero" or e_type == "npc" or e_type == "enemy" or e_type == "pickable" then --TODO identity all compatible entity types
+      if e_type == "hero" or e_type == "npc" or e_type == "enemy" or e_type == "pickable" or (e_type=="custom_entiy" and other:get_model()=="npc") then --TODO identity all compatible entity types
 
         --Update entity position start
         local other_x, other_y, other_w , other_h = other:get_bounding_box()
@@ -86,7 +86,7 @@ function entity:on_position_changed()
             is_solidified = false
             entity:set_traversable_by("hero", false)
           end
-          if other_x <= x+w and other_x+other_w >= x and other_y+other_h >= y-1 then
+          if other_x+other_w <= x+w and other_x >= x and other_y+other_h >= y-1 then
             move_entity_with_me(other)
           end
         else
