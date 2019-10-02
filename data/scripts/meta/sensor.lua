@@ -24,16 +24,16 @@ function sensor_meta:on_activated()
   local game = self:get_game()
   local map = self:get_map()
   local name = self:get_name()
-
+  print ("sensor "..name.."has been triggered")
   -- Sensors named "to_layer_X_sensor" move the hero on that layer.
   -- TODO use a custom entity or a wall to block enemies and thrown items?
-  if name:match("^layer_up_sensor") then
+  if name:match("^layer_up_sensor") or self:get_property("layer_up") then
     local x, y, layer = hero:get_position()
     if layer < map:get_max_layer() then
       hero:set_position(x, y, layer + 1)
     end
     return
-  elseif name:match("^layer_down_sensor") then
+  elseif name:match("^layer_down_sensor")or self:get_property("layer_down") then
     local x, y, layer = hero:get_position()
     if layer > map:get_min_layer() then
       hero:set_position(x, y, layer - 1)
@@ -43,15 +43,20 @@ function sensor_meta:on_activated()
 
   -- Sensors prefixed by "save_solid_ground_sensor" are where the hero come back
   -- when falling into a hole or other bad ground.
-  if name:match("^save_solid_ground_sensor") then
+  if name:match("^save_solid_ground_sensor") or self:get_property("save_solid_ground") then
+    print "save ground"
+    if not hero.respawn_point_saved then
     hero:save_solid_ground()
-    return
+    hero.respawn_point_saved=true
+    end
+    return --TODO remove me to allow properties cumulation !
   end
 
   -- Sensors prefixed by "reset_solid_ground_sensor" clear any place for the hero
   -- to come back when falling into a hole or other bad ground.
-  if name:match("^reset_solid_ground_sensor") then
+  if name:match("^reset_solid_ground_sensor") or self:get_property("reset_solid_ground") then
     hero:reset_solid_ground()
+    hero.respawn_point_saved=nil
     if hero.initialize_unstable_floor_manager then hero:initialize_unstable_floor_manager() end
     return
   end
@@ -80,7 +85,7 @@ function sensor_meta:on_activated()
   end
 
   -- Sensors named "open_loud_X_sensor" open doors prefixed with "X".
-  local door_prefix = name:match("^open_loud_([a-zA-X0-9_]+)_sensor")
+  door_prefix = name:match("^open_loud_([a-zA-X0-9_]+)_sensor")
   if door_prefix ~= nil then
     map:open_doors(door_prefix)
     return
