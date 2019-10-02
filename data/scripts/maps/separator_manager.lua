@@ -27,6 +27,7 @@ function separator_manager:init(map)
   local function separator_on_activated(separator)
 
     local hero = map:get_hero()
+    hero.respawn_point_saved=nil
     -- Enemies.
     for enemy, enemy_place in pairs(enemy_places) do
 
