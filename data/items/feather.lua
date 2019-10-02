@@ -34,14 +34,15 @@ function item:start_using()
   local map = game:get_map()
   local hero = map:get_hero()
 
-  if not hero:get_state()=="carrying" and not hero:get_state()=="lifting" then
-    if not hero:is_jumping() then
-      if not map:is_sideview() then
+  -- 
+  if not hero:is_jumping() then
+    if not map:is_sideview() then
 
-        jump_manager.start(hero) -- Running jump
+      jump_manager.start(hero) -- Running jump
 
-      else
-        -- Simply apply a vertical impulsion to the hero in sideview maps.
+    else
+      -- Simply apply a vertical impulsion to the hero in sideview maps.
+      if hero:get_state()~="carrying" and hero:get_state()~="lifting" then
         local vspeed = hero.vspeed or 0
         if vspeed == 0 or map:get_ground(hero:get_position()) == "deep_water" then
           audio_manager:play_sound("hero/jump")
@@ -52,10 +53,11 @@ function item:start_using()
                 hero.vspeed= -2
               end
             end)
-        end
+        end 
       end
     end
   end
+
 end
 
 -- Play fanfare sound on obtaining.
