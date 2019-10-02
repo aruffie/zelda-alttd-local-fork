@@ -25,6 +25,13 @@ local function pipe_enable_flow(type)
   end
 
   flow_states[type] = true
+
+  for pond in map:get_entities(type .. "_pond") do
+    pond:set_enabled(true)
+  end
+
+  map:get_game():set_value("dungeon_10_" .. type .. "_is_flowing", true)
+
 end
 
 -- Disable pipe flow of the given type
@@ -35,6 +42,13 @@ local function pipe_disable_flow(type)
   end
 
   flow_states[type] = false
+
+  for pond in map:get_entities(type .. "_pond") do
+    pond:set_enabled(false)
+  end
+
+  map:get_game():set_value("dungeon_10_" .. type .. "_is_flowing", false)
+
 end
 
 -- Init door puzzles in the dungeon
@@ -47,8 +61,21 @@ end
 -- Init pipe puzzle in the dungeon
 local function init_pipes()
 
-  pipe_disable_flow("lava")
-  pipe_enable_flow("gel")
+  if map:get_game():get_value("dungeon_10_lava_is_flowing") == false then
+    pipe_disable_flow("lava")
+    lava_lever:get_sprite():set_direction(1)
+  else
+    pipe_enable_flow("lava")
+    lava_lever:get_sprite():set_direction(0)
+  end
+
+  if map:get_game():get_value("dungeon_10_gel_is_flowing") == false then
+    pipe_disable_flow("gel")
+    gel_lever:get_sprite():set_direction(1)
+  else
+    pipe_enable_flow("gel")
+    gel_lever:get_sprite():set_direction(0)
+  end
 end
 
 -- Init all puzzles in the dungeon
@@ -87,4 +114,14 @@ gel_lever:register_event("on_activated", function()
   else
     pipe_disable_flow("gel")
   end
+end)
+
+sensor_6:register_event("on_activated", function()
+
+  map:set_doors_open("door_group_6_")
+end)
+
+sensor_7:register_event("on_activated", function()
+
+  map:close_doors("door_group_6_")
 end)
