@@ -145,17 +145,17 @@ enemy_group_16_3:register_event("on_dead", function()
   end)
 
 -- Sensors events
-function sensor_1:on_activated()
+sensor_1:register_event("on_activated", function()
 
   if is_small_boss_active == false then
     is_small_boss_active = true
     enemy_manager:launch_small_boss_if_not_dead(map)
   end
 
-end
+end)
 
-function sensor_2:on_activated()
-
+sensor_2:register_event("on_activated", function()
+    
   if is_small_boss_active == false then
     is_small_boss_active = true
     enemy_manager:launch_small_boss_if_not_dead(map)
@@ -164,29 +164,29 @@ function sensor_2:on_activated()
   end
   map:close_doors("door_group_wallturn")
 
-end
+end)
 
-function sensor_3:on_activated()
+sensor_3:register_event("on_activated", function()
 
   door_manager:close_if_enemies_not_dead(map, "enemy_group_8_", "door_group_4_")
 
-end
+end)
 
-function sensor_boss:on_activated()
+sensor_boss:register_event("on_activated", function()
 
   if is_boss_active == false then
     is_boss_active = true
     enemy_manager:launch_boss_if_not_dead(map)
   end
 
-end
+end)
 
 -- Separators events
 auto_separator_2:register_event("on_activated", function(separator, direction4)
 
     map:set_light(0)
 
-  end)
+end)
 
 auto_separator_4:register_event("on_activating", function(separator, direction4)
 
