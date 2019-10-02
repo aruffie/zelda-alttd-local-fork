@@ -22,12 +22,41 @@ local function initialize_game_over_features(game)
 
   -- Start the game over menu when the game needs it.
   game:register_event("on_game_over_started", function(game)
-    -- Attach the game-over menu to the map so that the map's fade-out
-    -- effect applies to it when restarting the game.
-    sol.menu.start(game:get_map(), game_over_menu)
-  end)
+      -- Attach the game-over menu to the map so that the map's fade-out
+      -- effect applies to it when restarting the game.
 
-  -- Called when this menu is started.
+      --Resurrect the hero with the drug
+      local item=game:get_item("drug")
+      if item:get_variant()==1 then
+        local map=game:get_map()
+        local hero=map:get_hero()
+        local starting_direction=hero:get_direction()
+        
+        map:start_coroutine(function()
+            local options={
+              entities_ignore_suspend = {hero},
+            }
+            map:set_cinematic_mode(true, options)
+            print "set direction"
+            hero:set_direction(0)
+            print "animation"
+           -- hero:get_sprite():set_animation("dying")
+            animation(hero, "dying")
+            print "rez"
+            wait(1000)
+            game:set_life(game:get_max_life())
+            wait(2000)
+            --TODO Link rising animation
+            item:set_variant(0)
+            map:set_cinematic_mode(false, options)
+          end)
+        game:stop_game_over()
+      else
+        sol.menu.start(game:get_map(), game_over_menu)
+      end
+    end)
+
+-- Called when this menu is started.
   function game_over_menu:on_started()
     local quest_w, quest_h = sol.video.get_quest_size()
 
@@ -58,15 +87,15 @@ local function initialize_game_over_features(game)
       clouds:set_opacity(0)
     end
     sol.timer.start(game_over_menu, 1000 / 15, function()
-      for i, clouds in ipairs(game_over_menu.clouds) do
-        clouds.delta = clouds.delta + 1
-        clouds.x = (clouds.delta / i) % clouds.width
-        if clouds.x == 0 then
-          clouds.delta = 0
+        for i, clouds in ipairs(game_over_menu.clouds) do
+          clouds.delta = clouds.delta + 1
+          clouds.x = (clouds.delta / i) % clouds.width
+          if clouds.x == 0 then
+            clouds.delta = 0
+          end
         end
-      end
-      return true
-    end)
+        return true
+      end)
 
     game_over_menu.background = sol.surface.create(quest_w, quest_h)
     game_over_menu.background:fill_color({29, 34, 55})
@@ -77,7 +106,7 @@ local function initialize_game_over_features(game)
 
     game_over_menu.stars = sol.sprite.create("menus/game_over/game_over_stars")
     game_over_menu.stars:set_opacity(0)
-    
+
     game_over_menu.moon = sol.surface.create("menus/game_over/game_over_moon.png")
     game_over_menu.moon:set_opacity(0)
 
@@ -146,8 +175,8 @@ local function initialize_game_over_features(game)
     game_over_menu:set_step(1)
   end
 
-  -- Saves the current game state, to restore it after the menu
-  -- is finished.
+-- Saves the current game state, to restore it after the menu
+-- is finished.
   function game_over_menu:backup_game_state()
     game_over_menu.backup_action = game:get_custom_command_effect("action")
     game_over_menu.backup_attack = game:get_custom_command_effect("attack")
@@ -157,7 +186,7 @@ local function initialize_game_over_features(game)
     game_over_menu.backup_hero_visible = hero:is_visible()
   end
 
-  -- Restores the game state to what it was before starting the menu.
+-- Restores the game state to what it was before starting the menu.
   function game_over_menu:restore_game_state(restore_music)
     -- Restore hero.
     local hero = game:get_hero()
@@ -176,12 +205,12 @@ local function initialize_game_over_features(game)
     end
   end
 
-  -- Goes to the menu's next step.
+-- Goes to the menu's next step.
   function game_over_menu:next_step()
     game_over_menu:set_step(game_over_menu.step_index + 1)
   end
 
-  -- Sets the specific step to the menu.
+-- Sets the specific step to the menu.
   function game_over_menu:set_step(step_index)
     step_index = math.min(step_index, #game_over_menu.steps)
     game_over_menu.step_index = step_index
@@ -202,36 +231,36 @@ local function initialize_game_over_features(game)
     end
   end
 
-  -- Step: Starting up.
+-- Step: Starting up.
   function game_over_menu:step_init()
     game_over_menu:next_step()
   end
 
-  -- Step: Black circle fade in around the hero.
+-- Step: Black circle fade in around the hero.
   function game_over_menu:step_fade_in()
     sol.audio.stop_music()
     game_over_menu.fade_sprite:set_animation("close", function()
-      game_over_menu.background:set_opacity(255)
-      game_over_menu.stars:fade_in()
-      game_over_menu.moon:fade_in()
-      game_over_menu.mountain:fade_in()
-      local clouds_count = #game_over_menu.clouds
-      local fade_delay = 20
-      for i, clouds in ipairs(game_over_menu.clouds) do
-        clouds.image:fade_in(fade_delay, function()
-          if i == clouds_count then
-            game_over_menu:next_step()
-          end
-        end)
-      end
-    end)
+        game_over_menu.background:set_opacity(255)
+        game_over_menu.stars:fade_in()
+        game_over_menu.moon:fade_in()
+        game_over_menu.mountain:fade_in()
+        local clouds_count = #game_over_menu.clouds
+        local fade_delay = 20
+        for i, clouds in ipairs(game_over_menu.clouds) do
+          clouds.image:fade_in(fade_delay, function()
+              if i == clouds_count then
+                game_over_menu:next_step()
+              end
+            end)
+        end
+      end)
 
     game_over_menu.hero_dead_sprite:set_paused(false)
     game_over_menu.hero_dead_sprite:set_animation("dying")
     audio_manager:play_sound("hero/dying")
   end
 
-  -- Step: heal the hero if he has a fairy in a bottle.
+-- Step: heal the hero if he has a fairy in a bottle.
   function game_over_menu:step_fairy()
     -- Check if the player has a fairy.
     local bottle_with_fairy = nil
@@ -248,22 +277,22 @@ local function initialize_game_over_features(game)
       movement:set_target(240, 22)
       movement:set_speed(96)
       movement:start(game_over_menu.fairy_sprite, function()
-        -- Restore 7 hearts.
-        local restored_heart_count = 7
-        game:add_life(restored_heart_count * 4)
+          -- Restore 7 hearts.
+          local restored_heart_count = 7
+          game:add_life(restored_heart_count * 4)
 
-        -- Wait for the hearts to be refilled.
-        sol.timer.start(game_over_menu, 250 * restored_heart_count, function()
-          game_over_menu.fairy_sprite:fade_out(10)
-          game_over_menu.background:set_opacity(0)
-          game_over_menu.fade_sprite:set_animation("open", function()
-            sol.audio.play_music(game_over_menu.backup_music)
-            game:stop_game_over()
-            game_over_menu:restore_game_state(true)
-            sol.menu.stop(game_over_menu)
-          end)
+          -- Wait for the hearts to be refilled.
+          sol.timer.start(game_over_menu, 250 * restored_heart_count, function()
+              game_over_menu.fairy_sprite:fade_out(10)
+              game_over_menu.background:set_opacity(0)
+              game_over_menu.fade_sprite:set_animation("open", function()
+                  sol.audio.play_music(game_over_menu.backup_music)
+                  game:stop_game_over()
+                  game_over_menu:restore_game_state(true)
+                  sol.menu.stop(game_over_menu)
+                end)
+            end)
         end)
-      end)
     else
       -- Add the death to the total death count.
       local death_count = game:get_value("death_count") or 0
@@ -274,38 +303,38 @@ local function initialize_game_over_features(game)
     end
   end
 
-  -- Step: show the Game Over title.
+-- Step: show the Game Over title.
   function game_over_menu:step_title()
     -- Play the game over music.
     audio_manager:play_music("82_game_over")
 
     -- Hide the hero.
     game_over_menu.hero_dead_sprite:fade_out(10, function()
-      -- Launch animations.
-      local letter_count = #game_over_menu.letters
-      for i, letter in ipairs(game_over_menu.letters) do
-        local timer_delay = (i - 1) * game_over_menu.anim_duration / 6
+        -- Launch animations.
+        local letter_count = #game_over_menu.letters
+        for i, letter in ipairs(game_over_menu.letters) do
+          local timer_delay = (i - 1) * game_over_menu.anim_duration / 6
 
-        if i == letter_count then
-          letter.automation.on_finished = function()
-            game_over_menu:next_step()
+          if i == letter_count then
+            letter.automation.on_finished = function()
+              game_over_menu:next_step()
+            end
           end
-        end
 
-        sol.timer.start(game_over_menu, timer_delay, function()
-          letter.automation:start()
-        end)
-      end
-    end)
+          sol.timer.start(game_over_menu, timer_delay, function()
+              letter.automation:start()
+            end)
+        end
+      end)
   end
 
-  -- Step: ask the player if he wants to save.
+-- Step: ask the player if he wants to save.
   function game_over_menu:step_ask_save()
     messagebox:show(game_over_menu,
       -- Text lines.
       {
-      sol.language.get_string("save_dialog.save_question_0"),
-      sol.language.get_string("save_dialog.save_question_1"),
+        sol.language.get_string("save_dialog.save_question_0"),
+        sol.language.get_string("save_dialog.save_question_1"),
       },
       -- Buttons
       sol.language.get_string("messagebox.yes"),
@@ -318,16 +347,16 @@ local function initialize_game_over_features(game)
           game:save()
         end
         game_over_menu:next_step()
-    end)
+      end)
   end
 
-  -- Step: ask the player if he wants to continue or not.
+-- Step: ask the player if he wants to continue or not.
   function game_over_menu:step_ask_continue()
     messagebox:show(game_over_menu,
       -- Text lines.
       {
-      sol.language.get_string("save_dialog.continue_question_0"),
-      sol.language.get_string("save_dialog.continue_question_1"),
+        sol.language.get_string("save_dialog.continue_question_0"),
+        sol.language.get_string("save_dialog.continue_question_1"),
       },
       -- Buttons
       sol.language.get_string("messagebox.yes"),
@@ -343,18 +372,18 @@ local function initialize_game_over_features(game)
 
           -- Wait for the hearts to be refilled before quitting the menu.
           sol.timer.start(game_over_menu, 250 * restored_heart_count, function()
-            game_over_menu:restore_game_state(false)
-            game:set_hud_enabled(false)
-            game:start()
-          end)
+              game_over_menu:restore_game_state(false)
+              game:set_hud_enabled(false)
+              game:start()
+            end)
         elseif result == 2 then
           -- Restart Solarus.
           sol.main.reset()
         end
-    end)
+      end)
   end
 
-  -- Called when this menu has to be drawn.
+-- Called when this menu has to be drawn.
   function game_over_menu:on_draw(dst_surface)
     local dst_surface_w, dst_surface_h = dst_surface:get_size()
 
@@ -362,7 +391,7 @@ local function initialize_game_over_features(game)
     if game_over_menu.step_index >= game_over_menu.step_indexes["fade_in"] then
       game_over_menu.fade_sprite:draw(dst_surface)
       game_over_menu.background:draw(dst_surface)
-      
+
       local stars_w, stars_h = game_over_menu.stars:get_size()
       game_over_menu.stars:draw(dst_surface, (dst_surface_w - stars_w) / 2, 0)
 
@@ -396,7 +425,7 @@ local function initialize_game_over_features(game)
 
   end
 
-  -- Called when a command is pressed by the player.
+-- Called when a command is pressed by the player.
   function game_over_menu:on_command_pressed(command)
     -- Block player's input as soon as the menu is opened.
     return true

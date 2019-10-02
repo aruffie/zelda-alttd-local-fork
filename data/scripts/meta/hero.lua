@@ -272,7 +272,7 @@ game_meta:register_event("on_map_changed", function(game, map)
       hero:set_size(8,16)
       hero:set_origin(4,13)
       set_sprite_offset(hero, 0,2)
---      hero:get_sprite("shadow"):stop_animation()
+      --hero:get_sprite("shadow"):stop_animation()
       local s=hero:get_sprite("shadow_override")
       if s then
         hero:remove_sprite(s)
@@ -287,22 +287,6 @@ game_meta:register_event("on_map_changed", function(game, map)
         s:set_animation("big")
         hero:bring_sprite_to_back(s)
       end
-      --print ("layer="..layer..", map min/max layers:"..map:get_min_layer()..", "..map:get_max_layer())
---      local ground=game:get_value("tp_ground")
---      if ground=="hole" then
---        hero:fall_from_ceiling(120, nil, function()
---            local ground=hero:get_ground_below()
---            if ground=="shallow_water" then
---              audio_manager:play_sound("hero/wade1")
---            elseif ground=="grass" then
---              audio_manager:play_sound("walk_on_grass") --TODO use the actual sound effect
---            elseif ground=="deep_water" then
---              audio_manager:play_sound("hero/diving")
---            else
---              audio_manager:play_sound("hero/land")
---            end
---          end)
---      end
     end
 
   end)
