@@ -1394,7 +1394,6 @@ entity{ id = "non_diggable", description = "Non diggable" }
 entity{ id = "npc", description = "Non-playing character" }
 entity{ id = "obstacle", description = "Obstacle" }
 entity{ id = "pickable_fly", description = "Flying pickable" }
-entity{ id = "pickable_sink", description = "Sinking pickable" }
 entity{ id = "pickable_underwater", description = "Pickable Underwater" }
 entity{ id = "pillar", description = "Pillar" }
 entity{ id = "platform_balance", description = "Twin linked platforms" }
