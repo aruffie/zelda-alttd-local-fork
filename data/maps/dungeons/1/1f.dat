@@ -14597,13 +14597,22 @@ destination{
 }
 
 custom_entity{
-  name = "teletransporter_A",
+  name = "midpoint_teletransporter_A",
   layer = 0,
   x = 2080,
   y = 1085,
+  enabled_at_start = false,
+  properties = {
+    {
+      key = "tp_midpoint_index",
+      value = "A",
+    },
+  },
   width = 16,
   height = 16,
   direction = 0,
+  sprite = "entities/misc/teletransporter",
+  model = "midpoint_teletransporter",
 }
 
 custom_entity{
@@ -14620,26 +14629,35 @@ destination{
   name = "teletransporter_destination_A",
   layer = 0,
   x = 2080,
-  y = 1069,
-  direction = 1,
+  y = 1085,
+  direction = -1,
 }
 
 custom_entity{
-  name = "teletransporter_B",
+  name = "midpoint_teletransporter_B",
   layer = 0,
   x = 1120,
   y = 1581,
+  enabled_at_start = false,
+  properties = {
+    {
+      key = "tp_midpoint_index",
+      value = "B",
+    },
+  },
   width = 16,
   height = 16,
   direction = 0,
+  sprite = "entities/misc/teletransporter",
+  model = "midpoint_teletransporter",
 }
 
 destination{
   name = "teletransporter_destination_B",
   layer = 0,
   x = 1120,
-  y = 1565,
-  direction = 1,
+  y = 1581,
+  direction = -1,
 }
 
 enemy{
