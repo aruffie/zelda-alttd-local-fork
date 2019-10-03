@@ -220,7 +220,7 @@ function map:talk_to_marin()
     end)
   elseif variant_ocarina == 1 and variant_melody_1 == 0 then
     game:start_dialog("maps.out.mabe_village.marin_4", function()
-      m:launch_cinematic_marin_singing_with_hero()
+      marin:launch_cinematic_marin_singing_with_hero()
     end)
   elseif game:get_value("main_quest_step") > 18 then
     game:start_dialog("maps.out.mabe_village.marin_8")
@@ -447,6 +447,8 @@ function map:launch_cinematic_1(destination)
     end  
     hero:set_animation("stopped")
     dialog("maps.out.mabe_village.kids_alert_moblins")
+    hero:set_animation("scared")
+    wait(1000)
     self:get_game():set_value("main_quest_step", 9)
     map:set_cinematic_mode(false)
   end)

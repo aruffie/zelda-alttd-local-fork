@@ -120,8 +120,8 @@ powder:add_collision_test("sprite", function(powder, entity)
       return
     end
     enemies_touched[enemy] = true
-    local reaction = enemy:get_fire_reaction(enemy_sprite)
-    enemy:receive_attack_consequence("fire", reaction)
+    local reaction = enemy:get_magic_powder_reaction(enemy_sprite)
+    enemy:receive_attack_consequence("magic_powder", reaction)
 
     sol.timer.start(powder, 200, function()
       powder:remove()
@@ -134,8 +134,8 @@ powder:add_collision_test("sprite", function(powder, entity)
       return
     end
     enemies_touched[enemy] = true
-    local reaction = enemy:get_fire_reaction(enemy_sprite)
-    enemy:receive_attack_consequence("fire", reaction)
+    local reaction = enemy:get_magic_powder_reaction(enemy_sprite)
+    enemy:receive_attack_consequence("magic_powder", reaction)
 
     sol.timer.start(powder, 200, function()
       powder:remove()

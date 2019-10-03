@@ -6974,7 +6974,7 @@ enemy{
   x = 1080,
   y = 605,
   direction = 3,
-  breed = "zombie",
+  breed = "gibdo",
 }
 
 enemy{
@@ -7001,7 +7001,7 @@ enemy{
   x = 824,
   y = 301,
   direction = 3,
-  breed = "stalfos",
+  breed = "stalfos_blue",
 }
 
 destination{
@@ -7180,7 +7180,7 @@ enemy{
   x = 152,
   y = 861,
   direction = 0,
-  breed = "wizzrobe/wizzrobe",
+  breed = "wizzrobe",
 }
 
 npc{
@@ -7243,7 +7243,7 @@ enemy{
   x = 552,
   y = 605,
   direction = 3,
-  breed = "zombie",
+  breed = "gibdo",
 }
 
 enemy{
@@ -7252,7 +7252,7 @@ enemy{
   x = 520,
   y = 573,
   direction = 3,
-  breed = "zombie",
+  breed = "gibdo",
 }
 
 enemy{
@@ -7288,6 +7288,46 @@ destination{
   x = 480,
   y = 917,
   direction = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 520,
+  y = 877,
+  sprite = "entities/destructibles/pot",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 520,
+  y = 893,
+  sprite = "entities/destructibles/pot",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 440,
+  y = 877,
+  sprite = "entities/destructibles/pot",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 440,
+  y = 893,
+  sprite = "entities/destructibles/pot",
+  weight = 1,
+}
+
+enemy{
+  layer = 0,
+  x = 480,
+  y = 797,
+  direction = 0,
+  breed = "darknut",
 }
 
 tile{

@@ -41,7 +41,7 @@ function map:on_started()
   owl_manager:init(map)
   -- Pickables
   treasure_manager:disappear_pickable(map, "pickable_small_key_1")
-  treasure_manager:appear_pickable_when_blocks_moved(map, "block_group_1_", "pickable_small_key_1")
+  treasure_manager:appear_pickable_when_blocks_moved(map, "auto_block_group_1_", "pickable_small_key_1")
   treasure_manager:appear_heart_container_if_boss_dead(map)
   treasure_manager:appear_heart_container_if_boss_dead(map)
   -- Separators
@@ -58,9 +58,6 @@ function map:on_opening_transition_finished(destination)
   if skeleton_step > 2 then
     map:set_doors_open("door_group_4_", true)
     switch_1:set_activated(true)
-  end
-  if destination == dungeon_5_1_B then
-    game:start_dialog("maps.dungeons.5.welcome")
   end
 
 end
@@ -238,7 +235,6 @@ function auto_separator_15:on_activating(direction4)
     skeleton_step = 1
   end
   switch_1:set_activated(false)
-  block_group_2_1:reset()
   if direction4 == 0 and skeleton_step <= 2 then
     map:close_doors("door_group_4_")
   end
@@ -252,7 +248,6 @@ function auto_separator_16:on_activating(direction4)
     skeleton_step = 1
   end
   switch_1:set_activated(false)
-  block_group_2_1:reset()
   if direction4 == 1 and skeleton_step <= 2 then
     map:close_doors("door_group_4_")
   end
@@ -266,7 +261,6 @@ function auto_separator_21:on_activating(direction4)
     skeleton_step = 1
   end
   switch_1:set_activated(false)
-  block_group_2_1:reset()
   if direction4 == 3 and skeleton_step <= 2 then
     map:close_doors("door_group_4_")
   end
@@ -288,7 +282,6 @@ end
 function separator_skeleton_2_1:on_activating(direction4)
   
   map:init_skeletons()
-  block_group_2_1:reset()
   
 end
 

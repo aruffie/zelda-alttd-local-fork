@@ -55,10 +55,11 @@ function item:on_using()
   elseif direction4 == 2 then x = x - 12
   else y = y + 12
   end
+  local ox, oy=hero:get_sprite("tunic"):get_xy()
 
   local hammer = map:create_custom_entity{
-    x = x,
-    y = y,
+    x = x+ox,
+    y = y+oy,
     layer = layer,
     width = 8,
     height = 8,

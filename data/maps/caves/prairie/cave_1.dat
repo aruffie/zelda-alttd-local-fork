@@ -1753,13 +1753,14 @@ block{
 }
 
 block{
+  name = "auto_block",
   layer = 0,
   x = 192,
   y = 309,
   sprite = "entities/blocks/stone_brown",
   pushable = true,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 block{
@@ -2093,6 +2094,7 @@ block{
 }
 
 custom_entity{
+  name = "auto_entity",
   layer = 0,
   x = 208,
   y = 309,
@@ -2104,6 +2106,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity_2",
   layer = 0,
   x = 224,
   y = 309,
@@ -2115,6 +2118,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity_3",
   layer = 0,
   x = 240,
   y = 309,
@@ -2126,6 +2130,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity_4",
   layer = 0,
   x = 160,
   y = 309,
@@ -2137,6 +2142,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity_5",
   layer = 0,
   x = 144,
   y = 309,
@@ -2148,6 +2154,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity_6",
   layer = 0,
   x = 128,
   y = 309,
@@ -2159,6 +2166,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity_7",
   layer = 0,
   x = 112,
   y = 309,
@@ -2170,6 +2178,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity_8",
   layer = 0,
   x = 96,
   y = 309,
@@ -2181,6 +2190,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity_9",
   layer = 0,
   x = 80,
   y = 309,
@@ -3204,7 +3214,7 @@ separator{
 separator{
   name = "auto_separator_1",
   layer = 2,
-  x = 328,
+  x = 320,
   y = 264,
   width = 320,
   height = 16,

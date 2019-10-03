@@ -56,13 +56,6 @@ function map:on_started()
 
 end
 
-function map:on_opening_transition_finished(destination)
-
-  if destination == entrance then
-    game:start_dialog("maps.dungeons.9.welcome")
-  end
-
-end
 
 -- Doors
 weak_wall_group_1:register_event("on_opened", function()

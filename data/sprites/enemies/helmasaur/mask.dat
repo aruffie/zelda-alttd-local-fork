@@ -1,0 +1,48 @@
+animation{
+  name = "walking",
+  src_image = "enemies/helmasaur/mask.png",
+  frame_delay = 200,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 84, frame_width = 28, frame_height = 28, origin_x = 14, origin_y = 25, num_frames = 4 },
+    { x = 0, y = 28, frame_width = 28, frame_height = 28, origin_x = 14, origin_y = 25, num_frames = 4 },
+    { x = 0, y = 56, frame_width = 28, frame_height = 28, origin_x = 14, origin_y = 25, num_frames = 4 },
+    { x = 0, y = 0, frame_width = 28, frame_height = 28, origin_x = 14, origin_y = 25, num_frames = 4 },
+  },
+}
+animation{
+  name = "hurt",
+  src_image = "enemies/helmasaur/mask.png",
+  frame_delay = 50,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 112, y = 84, frame_width = 28, frame_height = 28, origin_x = 14, origin_y = 25, num_frames = 3 },
+    { x = 112, y = 28, frame_width = 28, frame_height = 28, origin_x = 14, origin_y = 25, num_frames = 3 },
+    { x = 112, y = 56, frame_width = 28, frame_height = 28, origin_x = 14, origin_y = 25, num_frames = 3 },
+    { x = 112, y = 0, frame_width = 28, frame_height = 28, origin_x = 14, origin_y = 25, num_frames = 3 },
+  },
+}
+animation{
+  name = "immobilized",
+  src_image = "enemies/helmasaur/mask.png",
+  frame_delay = 200,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 84, frame_width = 28, frame_height = 28, origin_x = 14, origin_y = 25 },
+    { x = 0, y = 28, frame_width = 28, frame_height = 28, origin_x = 14, origin_y = 25 },
+    { x = 0, y = 56, frame_width = 28, frame_height = 28, origin_x = 14, origin_y = 25 },
+    { x = 0, y = 0, frame_width = 28, frame_height = 28, origin_x = 14, origin_y = 25 },
+  },
+}
+animation{
+  name = "shaking",
+  src_image = "enemies/helmasaur/mask.png",
+  frame_delay = 50,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 168, y = 84, frame_width = 28, frame_height = 28, origin_x = 14, origin_y = 25, num_frames = 2 },
+    { x = 168, y = 28, frame_width = 28, frame_height = 28, origin_x = 14, origin_y = 25, num_frames = 2 },
+    { x = 168, y = 56, frame_width = 28, frame_height = 28, origin_x = 14, origin_y = 25, num_frames = 2 },
+    { x = 168, y = 0, frame_width = 28, frame_height = 28, origin_x = 14, origin_y = 25, num_frames = 2 },
+  },
+}

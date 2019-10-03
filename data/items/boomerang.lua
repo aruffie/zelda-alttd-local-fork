@@ -12,7 +12,7 @@ function item:on_created()
 
 end
 
--- Event called when the hero is using this item.
+--TODO Remake me using a custom entity !!!!!
 function item:start_using()
 
   local hero = self:get_map():get_entity("hero")

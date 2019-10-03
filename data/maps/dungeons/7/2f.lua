@@ -130,8 +130,6 @@ function map:on_started()
 
   -- Ennemies
   flying_tile_manager:init(map, "enemy_group_10")
-  enemy_group_8_1:set_shooting(game:get_value("dungeon_7_hinox_master") or false) -- Face lamp.
-  enemy_group_8_2:set_shooting(game:get_value("dungeon_7_hinox_master") or false) -- Face lamp.
 
   -- Entities
   iron_ball:set_position(map_tools.get_entity_saved_position(iron_ball)) -- Keep iron ball position even if the game was closed.
@@ -171,9 +169,11 @@ end)
 enemy_manager:execute_when_vegas_dead(map, "enemy_group_3_")
 enemy_manager:execute_when_vegas_dead(map, "enemy_group_7_")
 hinox_master:register_event("on_dead", function(hinox_master)
-  enemy_group_8_1:set_shooting(false) -- Face lamp.
-  enemy_group_8_2:set_shooting(false) -- Face lamp.
+  enemy_group_8_1:set_shooting(false) -- Face lamps
+  enemy_group_8_2:set_shooting(false)
 end)
+enemy_group_8_1:set_shooting(game:get_value("dungeon_7_hinox_master") or false)
+enemy_group_8_2:set_shooting(game:get_value("dungeon_7_hinox_master") or false)
 
 -----------------------
 -- Treasures events

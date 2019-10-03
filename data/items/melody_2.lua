@@ -26,11 +26,11 @@ function item:on_using()
   local effect_model = require("scripts/gfx_effects/distorsion")
   hero:freeze()
   game:set_pause_allowed(false)
-  ocarina:playing_song("items/ocarina_2", function()
+  ocarina:playing_song("items/ocarina_mambo", function()
     game:set_suspended(true)
     game:set_hud_enabled(false)
     game:set_value("teleport_warp_effect", "start");
-    audio_manager:play_sound("items/ocarina_2_warp")
+    audio_manager:play_sound("items/ocarina_mambo_warp")
      -- Execute In effect
     effect_model.start_effect(surface, game, "in", false, function()
         local dungeon = game:get_dungeon()

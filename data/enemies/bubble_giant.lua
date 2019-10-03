@@ -3,17 +3,41 @@
 
 -- Variables
 local enemy = ...
-local game = enemy:get_game()
-local map = enemy:get_map()
-local hero = map:get_hero()
-local sprite
-local movement
+require("enemies/lib/common_actions").learn(enemy)
 
--- The enemy appears: set its properties.
-function enemy:on_created()
+local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+local eighth = math.pi * 0.25
+local circle = math.pi * 2.0
 
-  sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
-  enemy:set_life(1)
-  enemy:set_damage(1)
-  
+-- Configuration variables
+local walking_angles = {eighth, 3.0 * eighth, 5.0 * eighth, 7.0 * eighth}
+local walking_speed = 80
+
+-- Makes the enemy go towards a diagonal direction and bounce on obstacle reached.
+function enemy:start_walking(angle)
+
+  angle = angle or walking_angles[math.random(4)]
+
+  local movement = enemy:start_straight_walking(angle, walking_speed, nil, function()
+    enemy:start_walking(enemy:get_obstacles_bounce_angle(angle))
+  end)
+  movement:set_smooth(false)
 end
+
+-- Initialization.
+enemy:register_event("on_created", function(enemy)
+
+  enemy:set_life(1)
+  enemy:set_size(32, 32)
+  enemy:set_origin(16, 16)
+end)
+
+-- Restart settings.
+enemy:register_event("on_restarted", function(enemy)
+
+  -- States.
+  enemy:set_can_attack(true)
+  enemy:set_damage(2)
+  enemy:set_invincible()
+  enemy:start_walking()
+end)

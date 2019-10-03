@@ -1678,12 +1678,42 @@ enemy{
 }
 
 pickable{
-  name = "piece_of_heart_1",
+  name = "piece_of_heart_9",
   layer = 0,
   x = 536,
   y = 77,
   treasure_name = "piece_of_heart",
   treasure_savegame_variable = "piece_of_heart_9",
+}
+
+sensor{
+  name = "sensor_1",
+  layer = 0,
+  x = 112,
+  y = 141,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_2",
+  layer = 0,
+  x = 464,
+  y = 125,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
 }
 
 tile{

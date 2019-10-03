@@ -3,39 +3,23 @@
 
 -- Variables
 local item = ...
-local game=item:get_game()
-
+local game = item:get_game()
 local audio_manager=require("scripts/audio_manager")
--- Event called when the game is initialized.
+
 function item:on_created()
 
-  item:set_savegame_variable("possession_bow")
-  item:set_amount_savegame_variable("amount_bow")
-  item:set_assignable(true)
+  self:set_savegame_variable("possession_bow")
+  self:set_amount_savegame_variable("amount_bow")
+  self:set_assignable(true)
 
+  self:set_max_amount(30)
 end
 
--- Event called when the hero is using this item.
-function item:start_using()
-
-  if item:get_amount() == 0 then
-    audio_manager:play_sound("misc/error")
-  else
-    -- we remove the arrow from the equipment after a small delay because the hero
-    -- does not shoot immediately
-    sol.timer.start(300, function()
-        item:remove_amount(1)
-      end)
-    print "songle item arrow"
-    item:get_map():get_entity("hero"):start_bow()
-  end
-
-end
 -- Event called when the hero is using this item.
 function item:start_combo(other)
 
   local map=game:get_map()
-  print ("trying to fire a combined arrow launch (arrows: "..item:get_amount()..", other: "..other:get_amount()..")")
+--  print ("trying to fire a combined arrow launch (arrows: "..item:get_amount()..", other: "..other:get_amount()..")")
   if item:get_amount() == 0 then
 
     if other.start_using then
@@ -52,14 +36,12 @@ function item:start_combo(other)
         item:remove_amount(1)
       end)
 
-
     if other:get_name()=="bombs_counter" and other:get_amount()>0 then
-      --Bomb-arrows!
-      --  sol.timer.start(item, 400, function()
       other:remove_amount(1)
-      print "Bomb and arrows!"
+--      print "Bomb and arrows!"
       local hero=game:get_hero()
       local x,y,layer=hero:get_position()
+      local ox, oy=hero:get_sprite("tunic"):get_xy()
       local direction = hero:get_direction()
       if direction == 0 then
         x = x + 16
@@ -73,63 +55,17 @@ function item:start_combo(other)
         y = y + 16
       end
 
-      local bomb_arrow = map:create_custom_entity{
+      map:create_custom_entity{
         name="bomb_arrow",
-        x = x,
-        y = y,
+        x = x+ox,
+        y = y+oy,
         layer = layer,
         width=8,
         height=8,
         sprite = "entities/bomb_arrow",
+        model = "bomb_arrow",
         direction=direction,
       }
-      
-      bomb_arrow.apply_cliffs=true,
-      bomb_arrow:set_origin(4,4)
-      bomb_arrow:set_can_traverse(false)
-      bomb_arrow:set_can_traverse("switch", true)
-      bomb_arrow:set_can_traverse("sensor", true)
-      bomb_arrow:set_can_traverse("stream", true)
-      bomb_arrow:set_can_traverse("stairs", true)
-      bomb_arrow:set_can_traverse("crystal_block", true)
-      bomb_arrow:set_can_traverse("pickable", true)
-      bomb_arrow:set_can_traverse("explosion", true)
-      bomb_arrow:set_can_traverse("teletransporter", true)
-      bomb_arrow:set_can_traverse("custom_entity", function(e)
-          return e:is_traversable_by("custom_entity")
-        end)
-      bomb_arrow:set_can_traverse("jumper", true)
-      bomb_arrow:set_can_traverse("npc", function(entity, other)
-          --TODO check for NPC type when a function like "npc:is_generalized()" is available
-          return other:is_drawn_in_y_order() or other:is_traversable()
-        end)
-      
-      bomb_arrow:set_can_traverse_ground("hole", true)
-      bomb_arrow:set_can_traverse_ground("deep_water", true)
-      bomb_arrow:set_can_traverse_ground("shallow_water", true)
-      bomb_arrow:set_can_traverse_ground("low_wall", true)
-      bomb_arrow:set_can_traverse_ground("lava", true)
-      bomb_arrow:set_can_traverse_ground("prickles", true)
-
-      local m=sol.movement.create("straight")
-      m:set_speed(192)
-      m:set_angle(direction*math.pi/2)
-      m:set_smooth(false)
-      m.on_obstacle_reached=function()
-        --TODO find a way to ignore axisting explosions
-        print "BOOM"
-        --Will it explode on it's own ? no :(
-        local x,y,layer=bomb_arrow:get_position()
-        audio_manager:play_sound("items/bomb_explode")
-        map:create_explosion({
-            x=x, 
-            y=y,
-            layer=layer,
-          })
-        bomb_arrow:remove()
-      end
-      m:start(bomb_arrow)
-      --   end)
     else
       --Trigger normal arrow so we don't break the standard behavior
       item:get_map():get_entity("hero"):start_bow()
@@ -137,24 +73,134 @@ function item:start_combo(other)
   end
 end
 
+-- Using the bow.
+function item:start_using()
+
+
+  local map = game:get_map()
+  local hero = map:get_hero()
+
+  if self:get_amount() == 0 then
+    sol.audio.play_sound("wrong")
+    self:set_finished()
+  else
+    hero:set_animation("bow")
+
+    sol.timer.start(map, 290, function()
+        audio_manager:play_sound("hero/bow")
+        self:remove_amount(1)
+        self:set_finished()
+        local x, y = hero:get_center_position()
+        local ox, oy=hero:get_sprite("tunic"):get_xy()
+        local _, _, layer = hero:get_position()
+        local arrow = map:create_custom_entity({
+            x = x+ox,
+            y = y+oy,
+            layer = layer,
+            width = 16,
+            height = 16,
+            direction = hero:get_direction(),
+            model = "arrow",
+          })
+
+        arrow:set_force(self:get_force())
+        arrow:set_sprite_id(self:get_arrow_sprite_id())
+        arrow:go()
+      end)
+  end
+end
+
+-- Function called when the amount changes.
 function item:on_amount_changed(amount)
 
-  if item:get_variant() ~= 0 then
+  if self:get_variant() ~= 0 then
+    -- update the icon (with or without arrow).
     if amount == 0 then
-      item:set_variant(1)
+      self:set_variant(1)
     else
-      item:set_variant(2)
+      self:set_variant(2)
     end
   end
-
 end
 
 function item:on_obtaining(variant, savegame_variable)
 
-  local quiver = itrm:get_game():get_item("quiver")
-  if not quiver:has_variant() then
-    quiver:set_variant(1)
-  end
+  local arrow = game:get_item("arrow")
 
+  if variant > 0 then
+    self:set_max_amount(30)
+    -- Variant 1: bow without arrow.
+    -- Variant 2: bow with arrows.
+    if variant > 1 then
+      self:set_amount(self:get_max_amount())
+    end
+    arrow:set_obtainable(true)
+  else
+    -- Variant 0: no bow and arrows are not obtainable.
+    self:set_max_amount(0)
+    arrow:set_obtainable(false)
+  end
 end
 
+function item:get_force()
+
+  return 2
+end
+
+function item:get_arrow_sprite_id()
+
+  return "entities/arrow"
+end
+
+-- Initialize the metatable of appropriate entities to work with custom arrows.
+local function initialize_meta()
+
+  -- Add Lua arrow properties to enemies.
+  local enemy_meta = sol.main.get_metatable("enemy")
+  if enemy_meta.get_arrow_reaction ~= nil then
+    -- Already done.
+    return
+  end
+
+  enemy_meta.arrow_reaction = "force"
+  enemy_meta.arrow_reaction_sprite = {}
+  function enemy_meta:get_arrow_reaction(sprite)
+
+    if sprite ~= nil and self.arrow_reaction_sprite[sprite] ~= nil then
+      return self.arrow_reaction_sprite[sprite]
+    end
+
+    if self.arrow_reaction == "force" then
+      -- Replace by the current force value.
+      local game = self:get_game()
+      return game:get_item("bow"):get_force()
+    end
+
+    return self.arrow_reaction
+  end
+
+  function enemy_meta:set_arrow_reaction(reaction, sprite)
+
+    self.arrow_reaction = reaction
+  end
+
+  function enemy_meta:set_arrow_reaction_sprite(sprite, reaction)
+
+    self.arrow_reaction_sprite[sprite] = reaction
+  end
+
+  -- Change the default enemy:set_invincible() to also
+  -- take into account arrows.
+  local previous_set_invincible = enemy_meta.set_invincible
+  function enemy_meta:set_invincible()
+    previous_set_invincible(self)
+    self:set_arrow_reaction("ignored")
+  end
+  local previous_set_invincible_sprite = enemy_meta.set_invincible_sprite
+  function enemy_meta:set_invincible_sprite(sprite)
+    previous_set_invincible_sprite(self, sprite)
+    self:set_arrow_reaction_sprite(sprite, "ignored")
+  end
+end
+
+initialize_meta()

@@ -6,7 +6,7 @@ properties{
   min_layer = -2,
   max_layer = 2,
   world = "outside_world",
-  tileset = "out/outside",
+  tileset = "out/outside_main",
   music = "same",
 }
 
@@ -5497,6 +5497,7 @@ tile{
   width = 32,
   height = 8,
   pattern = "403",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -5533,6 +5534,7 @@ tile{
   width = 32,
   height = 8,
   pattern = "403",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -6991,6 +6993,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "6112",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -7000,6 +7003,7 @@ tile{
   width = 8,
   height = 16,
   pattern = "6111",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -7009,6 +7013,7 @@ tile{
   width = 8,
   height = 16,
   pattern = "6114",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -7018,6 +7023,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "6112",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -7027,6 +7033,7 @@ tile{
   width = 8,
   height = 16,
   pattern = "6109",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -7036,6 +7043,7 @@ tile{
   width = 8,
   height = 16,
   pattern = "6109",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -7054,6 +7062,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "6113",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -8386,6 +8395,7 @@ tile{
   width = 48,
   height = 16,
   pattern = "12842",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -8872,6 +8882,7 @@ tile{
   width = 48,
   height = 16,
   pattern = "12842",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -10744,6 +10755,7 @@ tile{
   width = 96,
   height = 16,
   pattern = "12842",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -11041,6 +11053,7 @@ tile{
   width = 48,
   height = 16,
   pattern = "12842",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -13772,6 +13785,7 @@ tile{
   width = 48,
   height = 16,
   pattern = "12842",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -14537,6 +14551,42 @@ tile{
   width = 32,
   height = 8,
   pattern = "1008",
+}
+
+wall{
+  layer = 1,
+  x = 448,
+  y = 120,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 400,
+  y = 232,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 192,
+  y = 184,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 144,
+  y = 184,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
 }
 
 custom_entity{
@@ -15662,7 +15712,7 @@ enemy{
   x = 48,
   y = 637,
   direction = 0,
-  breed = "moblin_pig_spear/moblin_pig_spear",
+  breed = "moblin_pig_spear",
   treasure_name = "random",
 }
 
@@ -15671,7 +15721,7 @@ enemy{
   x = 88,
   y = 413,
   direction = 0,
-  breed = "moblin_pig_spear/moblin_pig_spear",
+  breed = "moblin_pig_spear",
   treasure_name = "random",
 }
 
@@ -15680,7 +15730,7 @@ enemy{
   x = 80,
   y = 533,
   direction = 1,
-  breed = "moblin_pig_spear/moblin_pig_spear",
+  breed = "moblin_pig_spear",
   treasure_name = "random",
 }
 
@@ -15699,7 +15749,7 @@ enemy{
   x = 392,
   y = 629,
   direction = 1,
-  breed = "moblin_pig_spear/moblin_pig_spear",
+  breed = "moblin_pig_spear",
   treasure_name = "random",
 }
 
@@ -15708,7 +15758,7 @@ enemy{
   x = 368,
   y = 645,
   direction = 1,
-  breed = "moblin_pig_spear/moblin_pig_spear",
+  breed = "moblin_pig_spear",
   treasure_name = "random",
 }
 
@@ -15717,7 +15767,7 @@ enemy{
   x = 328,
   y = 517,
   direction = 3,
-  breed = "moblin_pig_sword/moblin_pig_sword",
+  breed = "moblin_pig_sword",
   treasure_name = "random",
 }
 
@@ -15726,7 +15776,7 @@ enemy{
   x = 680,
   y = 597,
   direction = 2,
-  breed = "moblin_pig_spear/moblin_pig_spear",
+  breed = "moblin_pig_spear",
   treasure_name = "random",
 }
 
@@ -15735,7 +15785,7 @@ enemy{
   x = 576,
   y = 581,
   direction = 1,
-  breed = "moblin_pig_spear/moblin_pig_spear",
+  breed = "moblin_pig_spear",
   treasure_name = "random",
 }
 
@@ -16684,6 +16734,15 @@ wall{
   stops_blocks = true,
 }
 
+wall{
+  layer = 1,
+  x = 544,
+  y = 16,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
 tile{
   layer = 2,
   x = 408,
@@ -16781,6 +16840,7 @@ tile{
   width = 80,
   height = 32,
   pattern = "6817",
+  tileset = "out/outside_buildings",
 }
 
 tile{

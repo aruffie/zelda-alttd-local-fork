@@ -26905,6 +26905,7 @@ block{
 }
 
 block{
+  name = "auto_block_14",
   layer = 0,
   x = 1144,
   y = 1261,
@@ -27305,6 +27306,7 @@ chest{
 }
 
 block{
+  name = "auto_block_16",
   layer = 0,
   x = 1480,
   y = 1261,
@@ -27315,6 +27317,7 @@ block{
 }
 
 block{
+  name = "auto_block_15",
   layer = 0,
   x = 1448,
   y = 1261,
@@ -27522,6 +27525,7 @@ door{
 }
 
 block{
+  name = "auto_block_5",
   layer = 0,
   x = 520,
   y = 1261,
@@ -27543,6 +27547,7 @@ block{
 }
 
 block{
+  name = "auto_block_6",
   layer = 0,
   x = 504,
   y = 1277,
@@ -27584,6 +27589,7 @@ block{
 }
 
 block{
+  name = "auto_block_7",
   layer = 0,
   x = 504,
   y = 1341,
@@ -27773,7 +27779,7 @@ enemy{
   x = 1096,
   y = 1565,
   direction = 0,
-  breed = "vire/vire",
+  breed = "vire",
 }
 
 enemy{
@@ -27782,7 +27788,7 @@ enemy{
   x = 136,
   y = 1309,
   direction = 0,
-  breed = "vire/vire",
+  breed = "vire",
 }
 
 enemy{
@@ -27855,6 +27861,7 @@ custom_entity{
 }
 
 block{
+  name = "auto_block_13",
   layer = 0,
   x = 1144,
   y = 1277,
@@ -27865,6 +27872,7 @@ block{
 }
 
 block{
+  name = "auto_block_12",
   layer = 0,
   x = 1144,
   y = 1293,
@@ -27875,6 +27883,7 @@ block{
 }
 
 block{
+  name = "auto_block_11",
   layer = 0,
   x = 1144,
   y = 1309,
@@ -27885,6 +27894,7 @@ block{
 }
 
 block{
+  name = "auto_block_10",
   layer = 0,
   x = 1144,
   y = 1325,
@@ -27895,6 +27905,7 @@ block{
 }
 
 block{
+  name = "auto_block_9",
   layer = 0,
   x = 1144,
   y = 1341,
@@ -28607,7 +28618,7 @@ enemy{
   x = 1696,
   y = 1053,
   direction = 0,
-  breed = "vire/vire",
+  breed = "vire",
 }
 
 wall{
@@ -30356,7 +30367,7 @@ enemy{
   x = 728,
   y = 573,
   direction = 0,
-  breed = "vire/vire",
+  breed = "vire",
 }
 
 enemy{
@@ -30524,6 +30535,7 @@ block{
 }
 
 block{
+  name = "auto_block_3",
   layer = 0,
   x = 488,
   y = 853,
@@ -30534,6 +30546,7 @@ block{
 }
 
 block{
+  name = "auto_block_2",
   layer = 0,
   x = 504,
   y = 853,
@@ -30544,6 +30557,7 @@ block{
 }
 
 block{
+  name = "auto_block",
   layer = 0,
   x = 520,
   y = 853,
@@ -30554,6 +30568,7 @@ block{
 }
 
 block{
+  name = "auto_block_4",
   layer = 0,
   x = 536,
   y = 853,
@@ -31165,6 +31180,7 @@ enemy{
 }
 
 block{
+  name = "auto_block_8",
   layer = 0,
   x = 520,
   y = 1357,

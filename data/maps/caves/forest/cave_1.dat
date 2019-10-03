@@ -1469,6 +1469,21 @@ tile{
   pattern = "barrier.1-1",
 }
 
+sensor{
+  name = "sensor_1",
+  layer = 0,
+  x = 472,
+  y = 413,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
 destination{
   name = "forest_cave_1_1_B",
   layer = 0,
@@ -1478,23 +1493,25 @@ destination{
 }
 
 block{
+  name = "auto_block_8",
   layer = 0,
   x = 480,
   y = 389,
   sprite = "entities/blocks/stone_brown",
   pushable = true,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 block{
+  name = "auto_block",
   layer = 0,
   x = 464,
   y = 373,
   sprite = "entities/blocks/stone_brown",
   pushable = true,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 chest{

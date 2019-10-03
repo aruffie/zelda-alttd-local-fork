@@ -1,62 +1,51 @@
 -- Lua script of enemy sand crab.
 -- This script is executed every time an enemy with this model is created.
 
--- Variables
+-- Global variables
 local enemy = ...
-local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+require("enemies/lib/common_actions").learn(enemy)
 
--- The enemy appears: set its properties.
-function enemy:on_created()
+local game = enemy:get_game()
+local map = enemy:get_map()
+local hero = map:get_hero()
+local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+local quarter = math.pi * 0.5
+
+-- Configuration variables
+local walking_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
+local walking_speeds = {80, 16, 80, 16}
+local walking_minimum_distance = 16
+local walking_maximum_distance = 96
+local crushed_duration = 500
+
+-- Start the enemy movement.
+function enemy:start_walking()
+
+  local direction = math.random(4)
+  enemy:start_straight_walking(walking_angles[direction], walking_speeds[direction], math.random(walking_minimum_distance, walking_maximum_distance), function()
+    enemy:start_walking()
+  end)
+end
+
+-- Initialization.
+enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(2)
-  enemy:set_damage(1)
-  enemy:set_can_be_pushed_by_shield(true)
+  enemy:set_size(32, 32)
+  enemy:set_origin(16, 29)
+end)
 
-end
+-- Restart settings.
+enemy:register_event("on_restarted", function(enemy)
 
--- The enemy was stopped for some reason and should restart.
-function enemy:on_restarted()
+  -- Behavior for each items.
+  enemy:set_hero_weapons_reactions(2, {
+    sword = 1,
+    jump_on = "ignored"
+  })
 
-  local m = sol.movement.create("straight")
-  m:set_speed(100)
-  m:start(self)
-  local direction4 = math.random(4) - 1
-  self:go(direction4)
-
-end
-
-function enemy:on_movement_finished(movement)
-
-  local direction4 = math.random(4) - 1
-  enemy:go(direction4)
-
-end
-
-function enemy:on_obstacle_reached(movement)
-
-  local direction4 = math.random(4) - 1
-  enemy:go(direction4)
-
-end
-
--- Makes the enemy walk towards a direction.
-function enemy:go(direction4)
- 
-  -- Set the sprite.
-  sprite:set_animation("walking")
-  sprite:set_direction(direction4)
-
-  -- Set the movement.
-  local speed = 15
-  if direction4 == 0 or direction4 == 2 then
-    speed = 75
-  end
-  local m = self:get_movement()
-  local max_distance = 40 + math.random(120)
-  m:set_max_distance(max_distance)
-  m:set_smooth(true)
-  m:set_speed(speed)
-  m:set_angle(direction4 * math.pi / 2)
-
-end
-
+  -- States.
+  enemy:set_can_attack(true)
+  enemy:set_damage(2)
+  enemy:start_walking()
+end)
