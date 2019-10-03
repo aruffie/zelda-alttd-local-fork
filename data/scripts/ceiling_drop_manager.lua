@@ -74,7 +74,7 @@ function object:create(meta)
         layer = clayer,
         width = 16,
         height = 16,
-        sprite = "entities/shadow",
+        sprite = "entities/shadows/shadow",
         direction = 0
       })
     shadow:set_modified_ground("traversable")

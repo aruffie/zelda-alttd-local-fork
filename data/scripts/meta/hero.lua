@@ -283,7 +283,7 @@ game_meta:register_event("on_map_changed", function(game, map)
       set_sprite_offset(hero, 0,0)
 --      hero:get_sprite("shadow"):set_animation("big")
       if not hero:get_sprite("shadow_override") then
-        local s=hero:create_sprite("entities/shadow", "shadow_override")
+        local s=hero:create_sprite("entities/shadows/shadow", "shadow_override")
         s:set_animation("big")
         hero:bring_sprite_to_back(s)
       end
