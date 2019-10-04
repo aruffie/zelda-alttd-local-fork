@@ -109,7 +109,7 @@ function sol.main:start_savegame(game)
     sol.menu.stop(menu)
   end
 
-  local ceiling_drop_manager = require("scripts/ceiling_drop_manager")
+  local ceiling_drop_manager = require("scripts/maps/ceiling_drop_manager")
   for _, entity_type in pairs({"hero", "pickable"}) do
     ceiling_drop_manager:create(entity_type)
   end

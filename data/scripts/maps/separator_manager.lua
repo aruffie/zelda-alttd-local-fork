@@ -7,7 +7,7 @@
 -- - Bombs.
 
 local separator_manager = {}
-local light_manager_fsa = require("scripts/lights/light_manager")
+local light_manager_fsa = require("scripts/maps/light_manager")
 require("scripts/multi_events")
 
 function separator_manager:init(map)

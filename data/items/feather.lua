@@ -16,7 +16,7 @@ local game = item:get_game()
 
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
-local jump_manager=require("scripts/jump_manager")
+local jump_manager=require("scripts/maps/jump_manager")
 require("scripts/multi_events")
 
 -- Event called when the game is initialized.
