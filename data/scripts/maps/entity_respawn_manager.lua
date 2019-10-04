@@ -321,10 +321,30 @@ function entity_respawn_manager:init(map)
           block = entity,
         }
       end
+      -- Store the position and properties of destructibles.
+      if entity_type=="destructible" then
+        saved_entities.destructibles[#saved_entities.destructibles + 1] = {
+          x = x,
+          y = y,
+          layer = layer,
+          name = entity:get_name(),
+          treasure = { entity:get_treasure() },
+          sprite = get_entity_sprite_name(entity),
+          destruction_sound = entity:get_destruction_sound(),
+          weight = entity:get_weight(),
+          can_be_cut = entity:get_can_be_cut(),
+          can_explode = entity:get_can_explode(),
+          can_regenerate = entity:get_can_regenerate(),
+          damage_on_enemies = entity:get_damage_on_enemies(),
+          ground = entity:get_modified_ground(),
+          properties=entity:get_properties(),
+          destructible = entity,
+        }
+      end
 
       if entity:get_property("auto_respawn")=="true" then
 -- Store the position and properties of custom entities
-        if entity_type=="custom_entity" and entity:get_model()~="unstable_floor" and entity.get_model()~="torch" then
+        if entity_type=="custom_entity" and entity:get_model()~="unstable_floor" and entity:get_model()~="torch" then
           saved_entities.custom_entities[#saved_entities.custom_entities + 1] = {
             x = x,
             y = y,
@@ -343,28 +363,6 @@ function entity_respawn_manager:init(map)
             entity:remove()
           end
 
-        end
-
-
--- Store the position and properties of destructibles.
-        if entity_type=="destructible" then
-          saved_entities.destructibles[#saved_entities.destructibles + 1] = {
-            x = x,
-            y = y,
-            layer = layer,
-            name = entity:get_name(),
-            treasure = { entity:get_treasure() },
-            sprite = get_entity_sprite_name(entity),
-            destruction_sound = entity:get_destruction_sound(),
-            weight = entity:get_weight(),
-            can_be_cut = entity:get_can_be_cut(),
-            can_explode = entity:get_can_explode(),
-            can_regenerate = entity:get_can_regenerate(),
-            damage_on_enemies = entity:get_damage_on_enemies(),
-            ground = entity:get_modified_ground(),
-            properties=entity:get_properties(),
-            destructible = entity,
-          }
         end
       end
     end
