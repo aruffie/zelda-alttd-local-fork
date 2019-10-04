@@ -18,6 +18,7 @@ function entity_respawn_manager:init(map)
   local saved_entities={
     enemies = {},
     unstable_floors = {},
+    torches = {}, 
     destructibles = {},
     blocks = {},
     custom_entities = {},
@@ -64,12 +65,14 @@ function entity_respawn_manager:init(map)
     end
   end
 
+
   function entity_respawn_manager:reset_torches(map)
     -- Torches
-    for torch in map:get_entities("auto_torch") do
+    for _, torch in pairs(saved_entities.torches) do
       torch:set_lit(false)
     end
   end
+
   function entity_respawn_manager:reset_bombs()
     -- Destroy bombs.
     game:get_item("bombs_counter"):remove_bombs_on_map()
@@ -228,10 +231,13 @@ function entity_respawn_manager:init(map)
     for entity in map:get_entities() do
       local x, y, layer = entity:get_position()
       local width, height = entity:get_size()
--- Store the position and properties of enemies.
-      if entity:get_type()=="enemy" then
+      local entity_type=entity:get_type()
+      -- print ("checking in a(n) ".. entity_type)
 
-        saved_entities.enemies[#saved_entities.enemies+1] = {
+-- Store the position and properties of enemies.
+      if entity_type=="enemy" then
+
+        saved_entities.enemies[entity] = {
           x = x,
           y = y,
           layer = layer,
@@ -248,22 +254,77 @@ function entity_respawn_manager:init(map)
           entity:remove()
         end
 
-
         entity:register_event("on_dead", function()
-            if not entity:get_property("can_resurrect") then
-              saved_entities.enemies[entity] = nil
+            if not entity:get_property("auto_respawn") then
+              saved_entities.enemies[self]= nil
             end
           end)
 
       end
 
+      if entity_type=="custom_entity" then
+        if entity:get_model()=="unstable_floor" then
+          local tile_name=entity:get_name().."_unstable_associate_"
+          local associated_tile=map:get_entity(tile_name)
+          -- Store the position and properties of unstable floors.
+          if associated_tile then
+            local x,y,layer=associated_tile:get_position()
+            saved_entities.unstable_floors[#saved_entities.unstable_floors + 1] = {
+              x = x,
+              y = y,
+              layer = layer,
+              name = associated_tile:get_name(),
+              pattern = associated_tile:get_pattern_id(),
+              width=width,
+              height=height,
+              tileset=associated_tile:get_tileset(),
+              properties=associated_tile:get_properties(),
+              floor=associated_tile, 
+            }
+          else 
+            print("Warning : could not find unstable floor tile "..tile_name)
+          end
+
+          saved_entities.unstable_floors[#saved_entities.unstable_floors + 1] = {
+            x = x,
+            y = y,
+            layer = layer,
+            name = entity:get_name(),
+            sprite=get_entity_sprite_name(entity), 
+            width=width,
+            height=height,
+            model=entity:get_model(),
+            direction=entity:get_direction(), 
+            tiled=entity:is_tiled(),
+            properties=entity:get_properties(),
+            floor=entity,
+          }
+        end
+
+        if entity:get_model()=="torch" then
+          saved_entities.torches[#saved_entities.torches]=entity
+        end 
+      end
+
+      if entity_type=="block" and entity:is_pushable() then
+        local x, y, layer = entity:get_position()
+        saved_entities.blocks[#saved_entities.blocks + 1] = {
+          x = x,
+          y = y,
+          layer = layer,
+          name = entity:get_name(),
+          sprite = get_entity_sprite_name(entity),
+          pushable=entity:is_pushable(),
+          pullable=entity:is_pullable(),
+          max_moves=entity:get_max_moves(),
+          properties=entity:get_properties(),
+          block = entity,
+        }
+      end
 
       if entity:get_property("auto_respawn")=="true" then
 -- Store the position and properties of custom entities
-        local entity_type=entity:get_type()
-        print ("checking in a(n) ".. entity_type)
-        if entity_type=="custom_entity" and entity:get_property("unstable_floor")~="true" then
-          print "save"
+        if entity_type=="custom_entity" and entity:get_model()~="unstable_floor" and entity.get_model()~="torch" then
           saved_entities.custom_entities[#saved_entities.custom_entities + 1] = {
             x = x,
             y = y,
@@ -281,57 +342,10 @@ function entity_respawn_manager:init(map)
           if not entity:is_in_same_region(map:get_hero()) then
             entity:remove()
           end
+
         end
 
--- Store the position and properties of unstable floors.
-        if entity:get_property("unstable_floor")=="true" then
-          if entity_type=="dynamic_tile" then
-            saved_entities.unstable_floors[#saved_entities.unstable_floors + 1] = {
-              x = x,
-              y = y,
-              layer = layer,
-              name = entity:get_name(),
-              pattern = entity:get_pattern_id(),
-              width=width,
-              height=height,
-              tileset=entity:get_tileset(),
-              properties=entity:get_properties(),
-              floor=entity, 
-            }
-          elseif entity_type=="custom_entity" then
-            saved_entities.unstable_floors[#saved_entities.unstable_floors + 1] = {
-              x = x,
-              y = y,
-              layer = layer,
-              name = entity:get_name(),
-              sprite=get_entity_sprite_name(entity), 
-              width=width,
-              height=height,
-              model=entity:get_model(),
-              direction=entity:get_direction(), 
-              tiled=entity:is_tiled(),
-              properties=entity:get_properties(),
-              floor=entity,
-            }
-          end
-        end
 
--- Store the position and properties of blocks.
-        if entity_type=="block" then
-          local x, y, layer = entity:get_position()
-          saved_entities.blocks[#saved_entities.blocks + 1] = {
-            x = x,
-            y = y,
-            layer = layer,
-            name = entity:get_name(),
-            sprite = get_entity_sprite_name(entity),
-            pushable=entity:is_pushable(),
-            pullable=entity:is_pullable(),
-            max_moves=entity:get_max_moves(),
-            properties=entity:get_properties(),
-            block = entity,
-          }
-        end
 -- Store the position and properties of destructibles.
         if entity_type=="destructible" then
           saved_entities.destructibles[#saved_entities.destructibles + 1] = {

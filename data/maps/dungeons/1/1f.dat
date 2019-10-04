@@ -15423,16 +15423,6 @@ dynamic_tile{
   layer = 0,
   x = 848,
   y = 1360,
-  properties = {
-    {
-      key = "unstable_floor",
-      value = "true",
-    },
-    {
-      key = "auto_respawn",
-      value = "true",
-    },
-  },
   width = 16,
   height = 16,
   pattern = "943",
@@ -15443,16 +15433,6 @@ custom_entity{
   layer = 0,
   x = 856,
   y = 1373,
-  properties = {
-    {
-      key = "unstable_floor",
-      value = "true",
-    },
-    {
-      key = "auto_respawn",
-      value = "true",
-    },
-  },
   width = 16,
   height = 16,
   direction = 0,
@@ -15465,16 +15445,6 @@ dynamic_tile{
   layer = 0,
   x = 864,
   y = 1360,
-  properties = {
-    {
-      key = "unstable_floor",
-      value = "true",
-    },
-    {
-      key = "auto_respawn",
-      value = "true",
-    },
-  },
   width = 16,
   height = 16,
   pattern = "943",
@@ -15485,16 +15455,6 @@ custom_entity{
   layer = 0,
   x = 872,
   y = 1373,
-  properties = {
-    {
-      key = "unstable_floor",
-      value = "true",
-    },
-    {
-      key = "auto_respawn",
-      value = "true",
-    },
-  },
   width = 16,
   height = 16,
   direction = 0,
@@ -16405,7 +16365,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "floor_54_unstable_associate_5",
+  name = "floor_54_unstable_associate_",
   layer = 0,
   x = 896,
   y = 1328,
