@@ -10,7 +10,8 @@
 local map = ...
 
 -- Event called at initialization time, as soon as this map is loaded.
-
+local separator_manager=require("scripts/maps/separator_manager")
 function map:on_started()
+  separator_manager:init(map)
   map:set_sideview(true)
 end 

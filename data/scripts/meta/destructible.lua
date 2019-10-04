@@ -7,14 +7,18 @@ local destructible_meta = sol.main.get_metatable("destructible")
 local audio_manager = require("scripts/audio_manager")
 
 function destructible_meta:on_created(game)
-    
+
   local directory = audio_manager:get_directory()
   if self:get_can_be_cut() then
     self:set_destruction_sound(directory .. "/misc/bush_cut") -- Todo
   else
     self:set_destruction_sound(directory .. "/misc/rock_shatter") -- Todo
   end
-    
+
+end
+
+function destructible_meta:on_lifting(carrier, carried_object)
+  carried_object:set_properties(self:get_properties())
 end
 
 function destructible_meta:on_looked()
@@ -29,7 +33,7 @@ function destructible_meta:on_looked()
       game:start_dialog("_cannot_lift_still_too_heavy");
     end
   end
-  
+
 end
 
 function destructible_meta:is_hookable()
@@ -38,10 +42,10 @@ function destructible_meta:is_hookable()
   local sprite = self:get_sprite()
   local sprite_name = sprite:get_animation_set()
   if ground == "traversable" or
-      ground == "grass" or 
-      sprite_name == "entities/destructibles/bush" then
+  ground == "grass" or 
+  sprite_name == "entities/destructibles/bush" then
     return false
   end
-  
+
   return true
 end

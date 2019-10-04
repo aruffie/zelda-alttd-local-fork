@@ -147,42 +147,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 400,
-  y = 288,
-  width = 16,
-  height = 16,
-  pattern = "79",
-}
-
-tile{
-  layer = 0,
-  x = 416,
-  y = 288,
-  width = 16,
-  height = 16,
-  pattern = "79",
-}
-
-tile{
-  layer = 0,
-  x = 432,
-  y = 288,
-  width = 16,
-  height = 16,
-  pattern = "79",
-}
-
-tile{
-  layer = 0,
-  x = 448,
-  y = 288,
-  width = 16,
-  height = 16,
-  pattern = "79",
-}
-
-tile{
-  layer = 0,
   x = 464,
   y = 368,
   width = 32,
@@ -492,7 +456,7 @@ tile{
   layer = 0,
   x = 424,
   y = 144,
-  width = 48,
+  width = 80,
   height = 16,
   pattern = "120",
 }
@@ -508,18 +472,9 @@ tile{
 
 tile{
   layer = 0,
-  x = 472,
-  y = 144,
-  width = 8,
-  height = 32,
-  pattern = "121",
-}
-
-tile{
-  layer = 0,
   x = 328,
   y = 160,
-  width = 144,
+  width = 176,
   height = 16,
   pattern = "120",
 }
@@ -582,14 +537,14 @@ tile{
   layer = 0,
   x = 328,
   y = 176,
-  width = 144,
+  width = 176,
   height = 8,
   pattern = "125",
 }
 
 tile{
   layer = 0,
-  x = 472,
+  x = 496,
   y = 176,
   width = 8,
   height = 8,
@@ -618,14 +573,14 @@ tile{
   layer = 0,
   x = 424,
   y = 144,
-  width = 48,
+  width = 80,
   height = 8,
   pattern = "114",
 }
 
 tile{
   layer = 0,
-  x = 472,
+  x = 496,
   y = 144,
   width = 8,
   height = 8,
@@ -762,6 +717,15 @@ tile{
   pattern = "20",
 }
 
+tile{
+  layer = 0,
+  x = 496,
+  y = 144,
+  width = 8,
+  height = 32,
+  pattern = "121",
+}
+
 dynamic_tile{
   layer = 0,
   x = 448,
@@ -815,6 +779,10 @@ destructible{
     {
       key = "has_gravity",
       value = "",
+    },
+    {
+      key = "auto_respawn",
+      value = "true",
     },
   },
   sprite = "entities/destructibles/pot_sideview",
@@ -880,6 +848,10 @@ custom_entity{
   properties = {
     {
       key = "needs_carrying",
+      value = "true",
+    },
+    {
+      key = "auto_respawn",
       value = "true",
     },
   },
@@ -1121,7 +1093,7 @@ custom_entity{
 custom_entity{
   name = "auto_entity_2",
   layer = 0,
-  x = 472,
+  x = 408,
   y = 301,
   properties = {
     {
@@ -1138,5 +1110,14 @@ custom_entity{
   direction = 0,
   sprite = "entities/moving_platform_dg_2",
   model = "platform_collapsing",
+}
+
+separator{
+  name = "auto_separator",
+  layer = 0,
+  x = 472,
+  y = 0,
+  width = 16,
+  height = 480,
 }
 
