@@ -9,13 +9,13 @@ local audio_manager = require("scripts/audio_manager")
 local door_manager = require("scripts/maps/door_manager")
 local enemy_manager = require("scripts/maps/enemy_manager")
 local owl_manager = require("scripts/maps/owl_manager")
-local separator_manager = require("scripts/maps/separator_manager")
 local switch_manager = require("scripts/maps/switch_manager")
 local treasure_manager = require("scripts/maps/treasure_manager")
 require("scripts/multi_events")
 
 -- Map events
-function map:on_started()
+
+map:register_event("on_started", function(map)
 
   -- Chests
   treasure_manager:appear_chest_if_savegame_exist(map, "chest_small_key_2",  "dungeon_1_small_key_2")
@@ -52,8 +52,6 @@ function map:on_started()
   treasure_manager:disappear_pickable(map, "heart_container")
   treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_7_", "pickable_small_key_1")
   treasure_manager:appear_heart_container_if_boss_dead(map)
-  -- Separators
-  separator_manager:init(map)
   -- Switchs
   switch_manager:activate_switch_if_savegame_exist(map, "switch_1",  "dungeon_1_small_key_2")
   -- Walls
@@ -63,7 +61,7 @@ function map:on_started()
     end
   end
   
-end
+end)
 
 function map:on_opening_transition_finished(destination)
 

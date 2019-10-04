@@ -12,6 +12,9 @@ require("scripts/multi_events")
 local entity_respawn_manager=require("scripts/maps/entity_respawn_manager")
 
 function separator_manager:init(map)
+  if map:get_world()=="outside_world" then
+    return
+  end
   entity_respawn_manager:init(map)
   entity_respawn_manager:save_entities(map)
   -- Function called when a separator was just taken.
@@ -35,7 +38,7 @@ function separator_manager:init(map)
     entity_respawn_manager:reset_destructibles(map)
   end
 
-  for separator in map:get_entities("auto_separator") do
+  for separator in map:get_entities_by_type("separator") do
     separator:register_event("on_activating", separator_on_activating)
     separator:register_event("on_activated", separator_on_activated)
   end
