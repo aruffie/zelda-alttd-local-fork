@@ -1555,7 +1555,8 @@ file{ path = "enemies/zol_red.lua", license = "GPL v3" }
 file{ path = "enemies/zombie.lua", license = "GPL v3" }
 file{ path = "enemies/zora.lua", license = "GPL v3" }
 file{ path = "entities/cliff.lua", author = "Christopho", license = "GPL v3" }
-file{ path = "entities/pickable_sink.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "entities/midpoint_teletransporter.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "entities/pickable_underwater.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "entities/platform_balance.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "entities/platform_collapsing.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "entities/platform_ice_block.lua", author = "PhoenixII54", license = "GPL v3" }
@@ -2083,14 +2084,16 @@ file{ path = "scripts", license = "GPL v3" }
 file{ path = "scripts/automation", author = "Olivier Cléro", license = "BSD, GPL v3" }
 file{ path = "scripts/automation/automation.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/automation/easing.lua", author = "Robert Penner, Olivier Cléro", license = "BSD" }
-file{ path = "scripts/ceiling_drop_manager.lua", author = "MetalZelda, adapted by PhoenixII54", }
 file{ path = "scripts/gfx_effects", author = "PhoenixII54, Stdgregwar", license = "GPL v3" }
 file{ path = "scripts/gfx_effects/distorsion.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/gfx_effects/electric.lua", author = "Stdgregwar", license = "GPL v3" }
 file{ path = "scripts/gfx_effects/fade_to_white.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/gfx_effects/pixellisation.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/gfx_effects/radial_fade_out.lua", author = "PhoenixII54", license = "GPL v3" }
-file{ path = "scripts/jump_manager.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "scripts/maps/ceiling_drop_manager.lua", author = "MetalZelda, adapted by PhoenixII54", }
+file{ path = "scripts/maps/entity_respawn_manager.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "scripts/maps/jump_manager.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "scripts/maps/sideview_manager.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/menus/copyright_menu.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/menus/dialog_box.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "scripts/menus/game_over.lua", author = "Olivier Cléro", license = "GPL v3" }
@@ -2123,7 +2126,6 @@ file{ path = "scripts/meta/enemy.lua", author = "Benjamin Schweitzer", license =
 file{ path = "scripts/meta/hero.lua", license = "GPL v3" }
 file{ path = "scripts/meta/npc.lua", license = "GPL v3" }
 file{ path = "scripts/meta/sensor.lua", author = "Christopho", license = "GPL v3" }
-file{ path = "scripts/sideview_manager.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/states/jumping.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/states/jumping_sword.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/states/running.lua", author = "PhoenixII54", license = "GPL v3" }
