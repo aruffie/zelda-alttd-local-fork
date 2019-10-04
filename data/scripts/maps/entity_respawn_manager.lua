@@ -255,6 +255,7 @@ function entity_respawn_manager:init(map)
         end
 
         entity:register_event("on_dead", function()
+            print("ok")
             if not entity:get_property("auto_respawn") then
               saved_entities.enemies[self]= nil
             end

@@ -2,16 +2,6 @@ local map_meta=sol.main.get_metatable("map")
 
 require ("scripts/multi_events")
 local audio_manager=require("scripts/audio_manager")
-local separator_manager=require("scripts/maps/separator_manager")
-
-map_meta:register_event("on_started", function(map, destination)
-
-    local game=map:get_game()
-    local hero=map:get_hero()
-    print ("(on_started) starting map starting map "..map:get_id()..",  direction", hero:get_direction())
-    separator_manager:init(map)
-
-  end)
 
 map_meta:register_event("on_opening_transition_finished", function(map, destination)
 
