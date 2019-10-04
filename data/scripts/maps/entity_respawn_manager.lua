@@ -29,9 +29,7 @@ function entity_respawn_manager:init(map)
   function entity_respawn_manager:respawn_enemies(map)
 
     -- Enemies.
-    for _, enemy_place in pairs(saved_entities.enemies) do
-      local enemy=enemy_place.enemy
-
+    for enemy, enemy_place in pairs(saved_entities.enemies) do
       if enemy:get_breed() ~= "boss/skeleton" then
         -- First remove any enemy.
         if enemy:exists() then
@@ -246,7 +244,6 @@ function entity_respawn_manager:init(map)
           name = entity:get_name(),
           treasure = { entity:get_treasure() },
           properties = entity:get_properties(),
-          enemy=entity,
         }
 
         local hero = map:get_hero()
@@ -256,8 +253,8 @@ function entity_respawn_manager:init(map)
 
         entity:register_event("on_dead", function()
             print("ok")
-            if not entity:get_property("auto_respawn") then
-              saved_entities.enemies[self]= nil
+            if not entity:get_property("can_resurrect") then
+              saved_entities.enemies[entity]= nil
             end
           end)
 
