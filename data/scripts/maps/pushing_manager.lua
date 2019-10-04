@@ -2,7 +2,7 @@
  Adds pushing functions to hero and enemies.
  This is used by the shield script, but can be used independently too.
  Usage:
- require("scripts/pushing_manager")
+ require("scripts/maps/pushing_manager")
 --]]
 --[[
 This is defined for entities of types: "hero" and "enemy".
