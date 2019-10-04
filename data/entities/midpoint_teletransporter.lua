@@ -12,6 +12,7 @@ local entity = ...
 local game = entity:get_game()
 local map = entity:get_map()
 local audio_manager=require("scripts/audio_manager")
+local entity_respawn_manager=require ("scripts/maps/entity_respawn_manager")
 local transition=require("scripts/gfx_effects/distorsion")
 
 local function call_with_delay_if_on_entity(entity_to_overlap, source_entity, delay, callback)
@@ -63,7 +64,7 @@ entity:add_collision_test("center", function(entity, other)
           end
           local destination_name = "teletransporter_destination_" .. (midpoint_index=="A" and "B" or "A")
           if destination_map==map:get_id() then
-            --map:respawn_entities() --TODO code this.
+            entity_respawn_manager:respawn_entities(map)
           end              
           --function lib.start_effect(surface, game, mode, sfx, callback)
           transition.start_effect(map:get_camera():get_surface(), game, "in", "misc/dungeon_teleport", function()

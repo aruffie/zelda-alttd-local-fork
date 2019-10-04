@@ -4,15 +4,15 @@ local audio_manager=require "scripts/audio_manager"
 local m = sol.movement.create("straight")
 
 carried_meta:register_event("on_thrown", function(entity)
-    
+
     audio_manager:play_sound("hero/throw")
     local map = entity:get_map()
     local hero = map:get_hero()
     local shadow = entity:get_sprite("shadow")    
     if shadow then
-        print "(throwing time) SHADOW BE GONE !"
-        shadow:stop_animation()
-      end
+      print "(throwing time) SHADOW BE GONE !"
+      shadow:stop_animation()
+    end
     if map:is_sideview() then --Make me follow gravity
 
 
@@ -27,10 +27,13 @@ carried_meta:register_event("on_created", function(entity)
 
     local map=entity:get_map()
     local shadow = entity:get_sprite("shadow")
+    for k,v in pairs(entity:get_properties()) do
+      print (k, v)
+    end
     if shadow then
-        print "(creation time) SHADOW BE GONE !"
-        shadow:stop_animation()
-      end
+      print "(creation time) SHADOW BE GONE !"
+      shadow:stop_animation()
+    end
     if map:is_sideview() then
       for name, s in entity:get_sprites() do
         s:set_xy(0,2)

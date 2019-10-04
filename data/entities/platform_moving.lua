@@ -86,7 +86,7 @@ function entity:on_position_changed()
             is_solidified = false
             entity:set_traversable_by("hero", false)
           end
-          if other_x+other_w <= x+w and other_x >= x and other_y+other_h >= y-1 then
+          if other_x+other_w/2 <= x+w-1 and other_x+other_w/2 >= x and other_y+other_h >= y-1 then
             move_entity_with_me(other)
           end
         else
