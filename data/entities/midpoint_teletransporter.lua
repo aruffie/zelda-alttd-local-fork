@@ -18,7 +18,7 @@ local transition=require("scripts/gfx_effects/distorsion")
 local function call_with_delay_if_on_entity(entity_to_overlap, source_entity, delay, callback)
   if not entity_to_overlap.call_timer then
     local delay_time_remaining=delay
-    
+
 --    print "Initialize pre-action timer"
     entity_to_overlap.call_timer=sol.timer.start(entity_to_overlap, 10, function()
 
@@ -32,12 +32,13 @@ local function call_with_delay_if_on_entity(entity_to_overlap, source_entity, de
         end
         delay_time_remaining=delay_time_remaining-10
         if delay_time_remaining==0 then
+          entity_to_overlap.call_timer=nil
           callback()
           return false
-          end
+        end
         return true
       end)
-    end
+  end
 end
 
 entity:add_collision_test("center", function(entity, other)
@@ -73,6 +74,7 @@ entity:add_collision_test("center", function(entity, other)
                   other.tp_cooldown_timer=sol.timer.start(other, 100, function()
                       other.is_being_transported=false
                     end)
+                  other:save_solid_ground()
                   game:set_suspended(false)
                   game:set_pause_allowed(true)
                   entity:get_sprite():set_ignore_suspend(false)
