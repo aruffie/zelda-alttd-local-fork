@@ -17886,42 +17886,6 @@ stairs{
   subtype = 4,
 }
 
-custom_entity{
-  name = "teletransporter_A",
-  layer = 0,
-  x = 480,
-  y = 621,
-  width = 16,
-  height = 16,
-  direction = 0,
-}
-
-destination{
-  name = "teletransporter_destination_A",
-  layer = 0,
-  x = 480,
-  y = 605,
-  direction = 1,
-}
-
-custom_entity{
-  name = "teletransporter_B",
-  layer = 0,
-  x = 800,
-  y = 1581,
-  width = 16,
-  height = 16,
-  direction = 0,
-}
-
-destination{
-  name = "teletransporter_destination_B",
-  layer = 0,
-  x = 800,
-  y = 1565,
-  direction = 1,
-}
-
 sensor{
   name = "sensor_1",
   layer = 0,
@@ -22344,6 +22308,60 @@ sensor{
   height = 16,
 }
 
+custom_entity{
+  name = "midpoint_teletransporter_B",
+  layer = 0,
+  x = 800,
+  y = 1581,
+  enabled_at_start = false,
+  properties = {
+    {
+      key = "tp_midpoint_index",
+      value = "B",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/misc/teletransporter",
+  model = "midpoint_teletransporter",
+}
+
+destination{
+  name = "teletransporter_destination_B",
+  layer = 0,
+  x = 800,
+  y = 1581,
+  direction = -1,
+}
+
+custom_entity{
+  name = "midpoint_teletransporter_A",
+  layer = 0,
+  x = 480,
+  y = 605,
+  enabled_at_start = false,
+  properties = {
+    {
+      key = "tp_midpoint_index",
+      value = "A",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/misc/teletransporter",
+  model = "midpoint_teletransporter",
+}
+
+destination{
+  name = "teletransporter_destination_A",
+  layer = 0,
+  x = 480,
+  y = 605,
+  direction = -1,
+}
+
 tile{
   layer = 1,
   x = 1664,
@@ -24155,7 +24173,7 @@ tile{
 }
 
 separator{
-  name = "auto_separator_2",
+  name = "separator_1",
   layer = 2,
   x = 632,
   y = 1200,
@@ -24164,7 +24182,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_3",
   layer = 2,
   x = 952,
   y = 1440,
@@ -24173,7 +24190,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_6",
   layer = 2,
   x = 1272,
   y = 0,
@@ -24182,7 +24198,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_7",
   layer = 2,
   x = 1592,
   y = 0,
@@ -24191,7 +24206,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_8",
   layer = 2,
   x = 1912,
   y = 0,
@@ -24200,7 +24214,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_14",
   layer = 2,
   x = 640,
   y = 1192,
@@ -24209,7 +24222,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_15",
   layer = 2,
   x = 0,
   y = 952,
@@ -24218,7 +24230,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_16",
   layer = 2,
   x = 640,
   y = 712,
@@ -24227,7 +24238,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_17",
   layer = 2,
   x = 0,
   y = 472,
@@ -24236,7 +24246,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_18",
   layer = 2,
   x = 0,
   y = 232,
@@ -24245,7 +24254,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_12",
   layer = 2,
   x = 0,
   y = 1432,
@@ -24254,7 +24262,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_13",
   layer = 2,
   x = 960,
   y = 1432,
@@ -24263,7 +24270,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_5",
   layer = 2,
   x = 952,
   y = 0,
@@ -24272,7 +24278,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_1",
   layer = 2,
   x = 312,
   y = 0,
@@ -24281,7 +24286,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_9",
   layer = 2,
   x = 2232,
   y = 0,
@@ -24290,7 +24294,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_10",
   layer = 2,
   x = 0,
   y = 1672,
@@ -24299,7 +24302,7 @@ separator{
 }
 
 separator{
-  name = "auto_separator_11",
+  name = "separator_3",
   layer = 2,
   x = 640,
   y = 1432,
@@ -24308,7 +24311,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_19",
   layer = 2,
   x = 632,
   y = 1440,
@@ -24317,7 +24319,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_20",
   layer = 2,
   x = 632,
   y = 240,
@@ -24326,7 +24327,7 @@ separator{
 }
 
 separator{
-  name = "auto_separator_21",
+  name = "separator_4",
   layer = 2,
   x = 320,
   y = 1192,
@@ -24335,7 +24336,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_22",
   layer = 2,
   x = 0,
   y = 1192,
@@ -24344,7 +24344,7 @@ separator{
 }
 
 separator{
-  name = "auto_separator_4",
+  name = "separator_2",
   layer = 2,
   x = 952,
   y = 1200,
@@ -24362,7 +24362,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_24",
   layer = 2,
   x = 0,
   y = 712,
@@ -24371,7 +24370,7 @@ separator{
 }
 
 separator{
-  name = "auto_separator_25",
+  name = "separator_5",
   layer = 2,
   x = 632,
   y = 0,

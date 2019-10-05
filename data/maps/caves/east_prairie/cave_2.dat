@@ -3723,7 +3723,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_2",
   layer = 2,
   x = -8,
   y = 232,

@@ -182,78 +182,93 @@ sensor_boss:register_event("on_activated", function()
 end)
 
 -- Separators events
-auto_separator_2:register_event("on_activated", function(separator, direction4)
+separator_1:register_event("on_activated", function(separator, direction4)
 
-    map:set_light(0)
+  map:set_light(0)
 
 end)
 
-auto_separator_4:register_event("on_activating", function(separator, direction4)
+separator_2:register_event("on_activating", function(separator, direction4)
 
-    local x, y = hero:get_position()
-    if direction4 == 2 then
-      map:set_light(0)
-    end
-
-  end)
-
-auto_separator_4:register_event("on_activated", function(separator, direction4)
-
-    if direction4 ~= 2 then
-      map:set_light(1)
-    end
-
-  end)
-
-auto_separator_11:register_event("on_activating", function(separator, direction4)
-
-    if direction4 == 1 then
-      map:set_light(0)
-    end
-
-  end)
-
-auto_separator_11:register_event("on_activated", function(separator, direction4)
-
-    if direction4 ~= 1 then
-      map:set_light(1)
-    end
-
-  end)
-
-auto_separator_21:register_event("on_activated", function(separator, direction4)
-
+  local x, y = hero:get_position()
+  if direction4 == 2 then
     map:set_light(0)
+  end
 
-  end)
+end)
 
-auto_separator_23:register_event("on_activated", function(separator, direction4)
+separator_2:register_event("on_activated", function(separator, direction4)
 
+  if direction4 ~= 2 then
     map:set_light(1)
+  end
+
+end)
+
+separator_3:register_event("on_activating", function(separator, direction4)
+
+  if direction4 == 1 then
+    map:set_light(0)
+  end
+
+end)
+
+separator_3:register_event("on_activated", function(separator, direction4)
+
+  if direction4 ~= 1 then
+    map:set_light(1)
+  end
+
+end)
+
+separator_4:register_event("on_activated", function(separator, direction4)
+
+  map:set_light(0)
+
+end)
+
+separator_4:register_event("on_activated", function(separator, direction4)
+
+  map:set_light(1)
 
   end)
 
 
-auto_separator_25:register_event("on_activating", function(separator, direction4)
+separator_5:register_event("on_activating", function(separator, direction4)
 
-    local x, y = hero:get_position()
-    if direction4 == 2 then
-      map:set_light(0)
-    end
+  local x, y = hero:get_position()
+  if direction4 == 2 then
+    map:set_light(0)
+  end
 
-  end)
+end)
 
-auto_separator_25:register_event("on_activated", function(separator, direction4)
+separator_5:register_event("on_activated", function(separator, direction4)
 
-    if direction4 ~= 2 then
-      map:set_light(1)
-    end
+  if direction4 ~= 2 then
+    map:set_light(1)
+  end
 
-  end)
+end)
 
 -- Switchs events
 switch_1:register_event("on_activated", function()
 
-    treasure_manager:appear_chest(map, "chest_small_key_4", true)
+  treasure_manager:appear_chest(map, "chest_small_key_4", true)
 
-  end)
+end)
+
+-- Torches events
+timed_torch_group_6_2:register_event("on_lit", function()
+    
+  enemy_group_17_1:set_weak(true)
+  enemy_group_17_2:set_weak(true)
+    
+end)
+
+timed_torch_group_6_2:register_event("on_unlit", function()
+    
+  enemy_group_17_1:set_weak(false)
+  enemy_group_17_2:set_weak(false)
+        
+end)

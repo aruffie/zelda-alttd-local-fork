@@ -3925,7 +3925,6 @@ tile{
 }
 
 separator{
-  name = "auto_separator_2",
   layer = 2,
   x = 312,
   y = 0,
@@ -3934,7 +3933,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_1",
   layer = 2,
   x = 0,
   y = 232,
