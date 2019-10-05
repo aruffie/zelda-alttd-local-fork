@@ -23,7 +23,6 @@ local function call_with_delay_if_on_entity(entity_to_overlap, source_entity, de
     entity_to_overlap.call_timer=sol.timer.start(entity_to_overlap, 10, function()
 
         if not source_entity:overlaps(entity_to_overlap, "center") then
-          print "action cancelled"
           if entity_to_overlap.call_timer then
             entity_to_overlap.call_timer:stop()
             entity_to_overlap.call_timer=nil
@@ -48,9 +47,7 @@ entity:add_collision_test("center", function(entity, other)
 
         other.just_recovered_from_bad_ground=true
         if other.tp_cooldown_timer==nil then
-          print "lock tp since we are recovering from falling into bad grounds" 
           other.tp_cooldown_timer=sol.timer.start(other, 100, function()
-              print "tp is now possible again (recovering from bad ground)"
               other.tp_cooldown_timer=nil
               other.just_recovered_from_bad_ground=nil
             end)
@@ -79,9 +76,8 @@ entity:add_collision_test("center", function(entity, other)
             --function lib.start_effect(surface, game, mode, sfx, callback)
             transition.start_effect(map:get_camera():get_surface(), game, "in", "misc/dungeon_teleport", function()
                 other:teleport(destination_map, destination_name)
-                transition.start_effect(map:get_camera():get_surface(), game, "out", "misc/dungeon_teleport", function()
+                transition.start_effect(map:get_camera():get_surface(), game, "out", nil, function()
                     other.tp_cooldown_timer=sol.timer.start(other, 100, function()
-                                      print "tp is now possible again (end of move)"
                         other.is_being_transported=false
                         other.tp_cooldown_timer=nil
                       end)
@@ -96,12 +92,8 @@ entity:add_collision_test("center", function(entity, other)
           end)
       else
         if other.tp_cooldown_timer then
-          print "tp is not available yet"
           other.tp_cooldown_timer:set_remaining_time(100)
         end
       end
     end
-
-
-
   end)
