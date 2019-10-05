@@ -10191,6 +10191,24 @@ tile{
   pattern = "117",
 }
 
+wall{
+  layer = 1,
+  x = 856,
+  y = 224,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 808,
+  y = 432,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
 custom_entity{
   layer = 1,
   x = 120,

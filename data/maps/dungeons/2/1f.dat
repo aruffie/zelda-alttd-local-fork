@@ -17886,47 +17886,17 @@ stairs{
   subtype = 4,
 }
 
-custom_entity{
-  name = "teletransporter_A",
-  layer = 0,
-  x = 480,
-  y = 621,
-  width = 16,
-  height = 16,
-  direction = 0,
-}
-
-destination{
-  name = "teletransporter_destination_A",
-  layer = 0,
-  x = 480,
-  y = 605,
-  direction = 1,
-}
-
-custom_entity{
-  name = "teletransporter_B",
-  layer = 0,
-  x = 800,
-  y = 1581,
-  width = 16,
-  height = 16,
-  direction = 0,
-}
-
-destination{
-  name = "teletransporter_destination_B",
-  layer = 0,
-  x = 800,
-  y = 1565,
-  direction = 1,
-}
-
 sensor{
   name = "sensor_1",
   layer = 0,
-  x = 584,
+  x = 592,
   y = 653,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
 }
@@ -19741,7 +19711,7 @@ custom_entity{
 sensor{
   name = "sensor_3",
   layer = 0,
-  x = 584,
+  x = 592,
   y = 1325,
   width = 16,
   height = 16,
@@ -19832,6 +19802,12 @@ sensor{
   layer = 0,
   x = 480,
   y = 677,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
 }
@@ -20231,7 +20207,7 @@ door{
 }
 
 sensor{
-  name = "sensor_4",
+  name = "sensor_boss",
   layer = 0,
   x = 2080,
   y = 677,
@@ -20394,7 +20370,6 @@ npc{
   direction = 3,
   subtype = 1,
   sprite = "npc/statues/owl_dungeon_2",
-  behavior = "dialog#",
 }
 
 destructible{
@@ -22224,16 +22199,6 @@ destination{
   direction = 1,
 }
 
-teletransporter{
-  layer = 0,
-  x = 776,
-  y = 1640,
-  width = 16,
-  height = 16,
-  destination_map = "dungeons/2/1f",
-  destination = "destination",
-}
-
 custom_entity{
   name = "placeholder_bottle",
   layer = 0,
@@ -22242,6 +22207,159 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
+}
+
+sensor{
+  name = "sensor_5",
+  layer = 0,
+  x = 688,
+  y = 653,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_6",
+  layer = 0,
+  x = 688,
+  y = 125,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_7",
+  layer = 0,
+  x = 480,
+  y = 1157,
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_8",
+  layer = 0,
+  x = 1872,
+  y = 125,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_9",
+  layer = 0,
+  x = 2080,
+  y = 773,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_10",
+  layer = 0,
+  x = 2176,
+  y = 773,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_11",
+  layer = 0,
+  x = 768,
+  y = 637,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+custom_entity{
+  name = "midpoint_teletransporter_B",
+  layer = 0,
+  x = 800,
+  y = 1581,
+  enabled_at_start = false,
+  properties = {
+    {
+      key = "tp_midpoint_index",
+      value = "B",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/misc/teletransporter",
+  model = "midpoint_teletransporter",
+}
+
+destination{
+  name = "teletransporter_destination_B",
+  layer = 0,
+  x = 800,
+  y = 1581,
+  direction = -1,
+}
+
+custom_entity{
+  name = "midpoint_teletransporter_A",
+  layer = 0,
+  x = 480,
+  y = 605,
+  enabled_at_start = false,
+  properties = {
+    {
+      key = "tp_midpoint_index",
+      value = "A",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/misc/teletransporter",
+  model = "midpoint_teletransporter",
+}
+
+destination{
+  name = "teletransporter_destination_A",
+  layer = 0,
+  x = 480,
+  y = 605,
+  direction = -1,
 }
 
 tile{
@@ -24055,7 +24173,7 @@ tile{
 }
 
 separator{
-  name = "auto_separator_2",
+  name = "separator_1",
   layer = 2,
   x = 632,
   y = 1200,
@@ -24064,7 +24182,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_3",
   layer = 2,
   x = 952,
   y = 1440,
@@ -24073,7 +24190,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_6",
   layer = 2,
   x = 1272,
   y = 0,
@@ -24082,7 +24198,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_7",
   layer = 2,
   x = 1592,
   y = 0,
@@ -24091,7 +24206,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_8",
   layer = 2,
   x = 1912,
   y = 0,
@@ -24100,7 +24214,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_14",
   layer = 2,
   x = 640,
   y = 1192,
@@ -24109,7 +24222,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_15",
   layer = 2,
   x = 0,
   y = 952,
@@ -24118,7 +24230,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_16",
   layer = 2,
   x = 640,
   y = 712,
@@ -24127,7 +24238,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_17",
   layer = 2,
   x = 0,
   y = 472,
@@ -24136,7 +24246,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_18",
   layer = 2,
   x = 0,
   y = 232,
@@ -24145,7 +24254,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_12",
   layer = 2,
   x = 0,
   y = 1432,
@@ -24154,7 +24262,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_13",
   layer = 2,
   x = 960,
   y = 1432,
@@ -24163,7 +24270,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_5",
   layer = 2,
   x = 952,
   y = 0,
@@ -24172,7 +24278,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_1",
   layer = 2,
   x = 312,
   y = 0,
@@ -24181,7 +24286,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_9",
   layer = 2,
   x = 2232,
   y = 0,
@@ -24190,7 +24294,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_10",
   layer = 2,
   x = 0,
   y = 1672,
@@ -24199,7 +24302,7 @@ separator{
 }
 
 separator{
-  name = "auto_separator_11",
+  name = "separator_3",
   layer = 2,
   x = 640,
   y = 1432,
@@ -24208,7 +24311,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_19",
   layer = 2,
   x = 632,
   y = 1440,
@@ -24217,7 +24319,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_20",
   layer = 2,
   x = 632,
   y = 240,
@@ -24226,7 +24327,7 @@ separator{
 }
 
 separator{
-  name = "auto_separator_21",
+  name = "separator_4",
   layer = 2,
   x = 320,
   y = 1192,
@@ -24235,7 +24336,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_22",
   layer = 2,
   x = 0,
   y = 1192,
@@ -24244,7 +24344,7 @@ separator{
 }
 
 separator{
-  name = "auto_separator_4",
+  name = "separator_2",
   layer = 2,
   x = 952,
   y = 1200,
@@ -24262,7 +24362,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_24",
   layer = 2,
   x = 0,
   y = 712,
@@ -24271,7 +24370,7 @@ separator{
 }
 
 separator{
-  name = "auto_separator_25",
+  name = "separator_5",
   layer = 2,
   x = 632,
   y = 0,

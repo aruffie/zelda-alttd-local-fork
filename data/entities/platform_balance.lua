@@ -30,6 +30,7 @@ local true_x, true_y
 entity.speed=0
 local twin=nil
 local chain=nil
+local solidified=true
 
 -- Include scripts
 --require("scripts/multi_events")
@@ -65,7 +66,7 @@ local function is_on_platform(entity, other)
   if entity~=other and other:get_type()~="camera" and other~=chain then
     local x, y, w, h = entity:get_bounding_box()
     local hx, hy, hw, hh = other:get_bounding_box()
-    return hx < x+w and hx+hw > x and hy <= y+h-1 and hy+hh >= y-1
+    return hx < x+w and hx+hw > x and hy <= y-1 and hy+hh >= y-1
   end
   return false
 end
@@ -120,8 +121,30 @@ function entity:on_position_changed(x,y,layer)
 end
 
 sol.timer.start(entity, 10, function() 
-    local x,y=entity:get_bounding_box()
+    local ex, ey, ew, eh=entity:get_bounding_box()
     local hx, hy, hw, hh=hero:get_bounding_box()
+    local x, y=entity:get_position()
+    local dx, dy = x-old_x, y-old_y
+
+    if hy+hh <= ey+1 then
+
+      if solidified == false then
+--              print "ME SOLID NOW"
+        solidified = true
+        entity:set_traversable_by("hero", false)
+        if hx+hw<=ex+ew and hx>=ex and hy<=ey+eh-1 and hy+hh>=ey-1 then
+          hero:set_position(hx+dx, hy+dy)
+        end
+      end
+
+
+    else
+      if solidified == true then
+--              print "ME NON SOLID NOW"
+        solidified = false
+        entity:set_traversable_by("hero", true)
+      end
+    end
 
     if is_on_platform(entity, hero)==false or is_on_platform(twin, hero) then
       --slowly decelerate

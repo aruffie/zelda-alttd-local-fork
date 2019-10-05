@@ -58,16 +58,17 @@ end
 
 function map:on_opening_transition_finished(destination)       
 
-    if destination == dungeon_3_1_B then
-        map:close_doors("door_group_1_")
-    end
-    
+  if destination == dungeon_3_1_B then
+      map:close_doors("door_group_1_")
+  end
+  
 end
 
 function map:on_obtaining_treasure(item, variant, savegame_variable)
 
   if savegame_variable == "dungeon_3_big_treasure" then
     treasure_manager:get_instrument(map)
+    item:get_game():set_value("main_quest_step", 18)
   end
 
 end

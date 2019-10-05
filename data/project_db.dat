@@ -447,6 +447,7 @@ sprite{ id = "entities/explosion", description = "Explosion" }
 sprite{ id = "entities/explosion_boss", description = "Explosion boss" }
 sprite{ id = "entities/fire", description = "Fire" }
 sprite{ id = "entities/fire_mask", description = "Fire mask" }
+sprite{ id = "entities/fisherman_ledger", description = "Fisheman ledger" }
 sprite{ id = "entities/grounds/color_platform_green", description = "Color platform green" }
 sprite{ id = "entities/grounds/color_platform_orange", description = "Color platform orange" }
 sprite{ id = "entities/grounds/color_platform_red", description = "Color platform red" }
@@ -1026,7 +1027,6 @@ sound{ id = "gb/misc/seashell_mansion_meterfull", description = "Seashell mansio
 sound{ id = "gb/misc/secret1", description = "Secret 1" }
 sound{ id = "gb/misc/secret2", description = "Secret 2" }
 sound{ id = "gb/misc/shore", description = "Shore" }
-sound{ id = "gb/misc/shore_long", description = "Shore long" }
 sound{ id = "gb/misc/sirens_instruments_appear", description = "Siren's instrument appear" }
 sound{ id = "gb/misc/stairs", description = "Stairs" }
 sound{ id = "gb/misc/sword_electricity", description = "Sword electricity" }
@@ -1143,6 +1143,7 @@ sound{ id = "snes/misc/rock_push", description = "Rock push" }
 sound{ id = "snes/misc/rock_shatter", description = "Rock shatter" }
 sound{ id = "snes/misc/secret1", description = "Secret 1" }
 sound{ id = "snes/misc/secret2", description = "Secret 2" }
+sound{ id = "snes/misc/shore", description = "Shore" }
 sound{ id = "snes/misc/stairs", description = "Stairs" }
 sound{ id = "splash", description = "Empty sound" }
 sound{ id = "stairs_down_end", description = "Empty sound" }
@@ -1200,6 +1201,8 @@ item{ id = "instrument_6", description = "Coral triangle" }
 item{ id = "instrument_7", description = "Organ of Evening Calm" }
 item{ id = "instrument_8", description = "Thunder Drum" }
 item{ id = "magic_powder", description = "Magic Powder" }
+item{ id = "magic_powder_bag", description = "Magic powder bag" }
+item{ id = "magic_powder_counter", description = "Magic powder counter" }
 item{ id = "magic_powders_counter", description = "Magic powders counter" }
 item{ id = "magnifying_lens", description = "Magnifying lens" }
 item{ id = "map", description = "Dungeon map" }
@@ -1386,13 +1389,13 @@ entity{ id = "hook_bridge", description = "hook bridge" }
 entity{ id = "hookable", description = "Hookable" }
 entity{ id = "insect", description = "Insect" }
 entity{ id = "light", description = "Light" }
+entity{ id = "midpoint_teletransporter", description = "Teletransporter (mid point)" }
 entity{ id = "mouse", description = "Mouse" }
 entity{ id = "mr_write_and_christine", description = "Mr Write and Christine" }
 entity{ id = "non_diggable", description = "Non diggable" }
 entity{ id = "npc", description = "Non-playing character" }
 entity{ id = "obstacle", description = "Obstacle" }
 entity{ id = "pickable_fly", description = "Flying pickable" }
-entity{ id = "pickable_sink", description = "Sinking pickable" }
 entity{ id = "pickable_underwater", description = "Pickable Underwater" }
 entity{ id = "pillar", description = "Pillar" }
 entity{ id = "platform_balance", description = "Twin linked platforms" }
@@ -1554,7 +1557,8 @@ file{ path = "enemies/zol_red.lua", license = "GPL v3" }
 file{ path = "enemies/zombie.lua", license = "GPL v3" }
 file{ path = "enemies/zora.lua", license = "GPL v3" }
 file{ path = "entities/cliff.lua", author = "Christopho", license = "GPL v3" }
-file{ path = "entities/pickable_sink.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "entities/midpoint_teletransporter.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "entities/pickable_underwater.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "entities/platform_balance.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "entities/platform_collapsing.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "entities/platform_ice_block.lua", author = "PhoenixII54", license = "GPL v3" }
@@ -2082,14 +2086,16 @@ file{ path = "scripts", license = "GPL v3" }
 file{ path = "scripts/automation", author = "Olivier Cléro", license = "BSD, GPL v3" }
 file{ path = "scripts/automation/automation.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/automation/easing.lua", author = "Robert Penner, Olivier Cléro", license = "BSD" }
-file{ path = "scripts/ceiling_drop_manager.lua", author = "MetalZelda, adapted by PhoenixII54", }
 file{ path = "scripts/gfx_effects", author = "PhoenixII54, Stdgregwar", license = "GPL v3" }
 file{ path = "scripts/gfx_effects/distorsion.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/gfx_effects/electric.lua", author = "Stdgregwar", license = "GPL v3" }
 file{ path = "scripts/gfx_effects/fade_to_white.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/gfx_effects/pixellisation.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/gfx_effects/radial_fade_out.lua", author = "PhoenixII54", license = "GPL v3" }
-file{ path = "scripts/jump_manager.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "scripts/maps/ceiling_drop_manager.lua", author = "MetalZelda, adapted by PhoenixII54", }
+file{ path = "scripts/maps/entity_respawn_manager.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "scripts/maps/jump_manager.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "scripts/maps/sideview_manager.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/menus/copyright_menu.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/menus/dialog_box.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "scripts/menus/game_over.lua", author = "Olivier Cléro", license = "GPL v3" }
@@ -2122,7 +2128,6 @@ file{ path = "scripts/meta/enemy.lua", author = "Benjamin Schweitzer", license =
 file{ path = "scripts/meta/hero.lua", license = "GPL v3" }
 file{ path = "scripts/meta/npc.lua", license = "GPL v3" }
 file{ path = "scripts/meta/sensor.lua", author = "Christopho", license = "GPL v3" }
-file{ path = "scripts/sideview_manager.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/states/jumping.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/states/jumping_sword.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/states/running.lua", author = "PhoenixII54", license = "GPL v3" }
@@ -2322,7 +2327,6 @@ file{ path = "sounds/gb/misc/seashell_mansion_meterfull.ogg", author = "Nintendo
 file{ path = "sounds/gb/misc/secret1.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/gb/misc/secret2.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/gb/misc/shore.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
-file{ path = "sounds/gb/misc/shore_long.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/gb/misc/sirens_instruments_appear.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/gb/misc/stairs.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/gb/misc/sword_electricity.ogg", author = "Nintendo", license = "Proprietary, Fair use" }

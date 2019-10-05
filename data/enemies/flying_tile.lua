@@ -30,7 +30,7 @@ function enemy:on_created()
   self:set_origin(8, 13)
   self:set_invincible()
   self:set_attack_consequence("sword", "custom")
-  shadow_sprite = sol.sprite.create("entities/shadow")
+  shadow_sprite = sol.sprite.create("entities/shadows/shadow")
   shadow_sprite:set_animation("big")
   
 end

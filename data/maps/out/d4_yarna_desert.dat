@@ -10001,6 +10001,69 @@ tile{
   tileset = "addition/out",
 }
 
+wall{
+  layer = 1,
+  x = 200,
+  y = 96,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 904,
+  y = 24,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 440,
+  y = 32,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 368,
+  y = 296,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 376,
+  y = 96,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 296,
+  y = 96,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 88,
+  y = 96,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
 destructible{
   layer = 1,
   x = 64,
@@ -12538,19 +12601,6 @@ sensor{
   y = 517,
   width = 16,
   height = 16,
-}
-
-wall{
-  layer = 1,
-  x = 440,
-  y = 24,
-  width = 16,
-  height = 8,
-  stops_hero = true,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
 }
 
 destination{

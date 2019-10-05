@@ -11,8 +11,8 @@ local audio_manager = require("scripts/audio_manager")
 -- Event called when the game is initialized.
 function item:on_created()
 
-  self:set_savegame_variable("possession_magic_powders_counter")
-  self:set_amount_savegame_variable("amount_magic_powders_counter")
+  self:set_savegame_variable("possession_magic_powder_counter")
+  self:set_amount_savegame_variable("amount_magic_powder_counter")
   self:set_assignable(true)
 
 end

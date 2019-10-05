@@ -1469,6 +1469,21 @@ tile{
   pattern = "barrier.1-1",
 }
 
+sensor{
+  name = "sensor_1",
+  layer = 0,
+  x = 472,
+  y = 413,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
 destination{
   name = "forest_cave_1_1_B",
   layer = 0,
@@ -3148,7 +3163,6 @@ tile{
 }
 
 separator{
-  name = "auto_separator_2",
   layer = 2,
   x = 0,
   y = 232,
@@ -3157,7 +3171,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_1",
   layer = 2,
   x = 312,
   y = 0,

@@ -156,7 +156,7 @@ function quest_submenu:on_draw(dst_surface)
 
   -- Draw each inventory static item bottom.
   local x = menu_x + 64
-  local y = menu_y + 187
+  local y = menu_y + 178
   local k = 0
   for i = 0, 2 do
     k = k + 1

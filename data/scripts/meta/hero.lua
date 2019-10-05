@@ -272,7 +272,7 @@ game_meta:register_event("on_map_changed", function(game, map)
       hero:set_size(8,16)
       hero:set_origin(4,13)
       set_sprite_offset(hero, 0,2)
---      hero:get_sprite("shadow"):stop_animation()
+      --hero:get_sprite("shadow"):stop_animation()
       local s=hero:get_sprite("shadow_override")
       if s then
         hero:remove_sprite(s)
@@ -283,25 +283,9 @@ game_meta:register_event("on_map_changed", function(game, map)
       set_sprite_offset(hero, 0,0)
 --      hero:get_sprite("shadow"):set_animation("big")
       if not hero:get_sprite("shadow_override") then
-        local s=hero:create_sprite("entities/shadow", "shadow_override")
+        local s=hero:create_sprite("entities/shadows/shadow", "shadow_override")
         s:set_animation("big")
         hero:bring_sprite_to_back(s)
-      end
-      --print ("layer="..layer..", map min/max layers:"..map:get_min_layer()..", "..map:get_max_layer())
-      local ground=game:get_value("tp_ground")
-      if ground=="hole" then
-        hero:fall_from_ceiling(120, nil, function()
-            local ground=hero:get_ground_below()
-            if ground=="shallow_water" then
-              audio_manager:play_sound("hero/wade1")
-            elseif ground=="grass" then
-              audio_manager:play_sound("walk_on_grass") --TODO use the actual sound effect
-            elseif ground=="deep_water" then
-              audio_manager:play_sound("hero/diving")
-            else
-              audio_manager:play_sound("hero/land")
-            end
-          end)
       end
     end
 
@@ -398,11 +382,13 @@ function hero_meta:initialize_fixing_functions()
 end
 
 -- Create an exclamation symbol near hero
-function hero_meta:create_symbol_exclamation()
+function hero_meta:create_symbol_exclamation(sound)
 
   local map = self:get_map()
   local x, y, layer = self:get_position()
-  audio_manager:play_sound("menus/menu_select")
+  if sound then
+    audio_manager:play_sound("menus/menu_select")
+  end
   local symbol = map:create_custom_entity({
       sprite = "entities/symbols/exclamation",
       x = x - 16,
@@ -418,11 +404,13 @@ function hero_meta:create_symbol_exclamation()
 end
 
 -- Create an interrogation symbol near hero
-function hero_meta:create_symbol_interrogation()
+function hero_meta:create_symbol_interrogation(sound)
 
   local map = self:get_map()
   local x, y, layer = self:get_position()
-  audio_manager:play_sound("menus/menu_select")
+  if sound then
+    audio_manager:play_sound("menus/menu_select")
+  end
   local symbol = map:create_custom_entity({
       sprite = "entities/symbols/interrogation",
       x = x,
@@ -438,11 +426,14 @@ function hero_meta:create_symbol_interrogation()
 end
 
 -- Create a collapse symbol near hero
-function hero_meta:create_symbol_collapse()
+function hero_meta:create_symbol_collapse(sound)
 
   local map = self:get_map()
   local width, height = self:get_sprite():get_size()
   local x, y, layer = self:get_position()
+  if sound then
+    -- Todo create a custom sound
+  end
   local symbol = map:create_custom_entity({
       sprite = "entities/symbols/collapse",
       x = x,

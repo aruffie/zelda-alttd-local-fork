@@ -885,30 +885,26 @@ Il a l'air féroce...
 dialog{
   id = "maps.caves.egg_of_the_dream_fish.moblins_cave.moblins_1",
   text = [[
-C'est qui ce freluquet?   
-Les gars, débarrassez-moi 
-vite de lui !
+Halte !
+Tu es bien téméraire pour t'aventurer dans la caverne des Moblins !!
+Je vais m'ocupper de toi !
 ]],
 }
 
 dialog{
   id = "maps.caves.egg_of_the_dream_fish.moblins_cave.moblins_2",
   text = [[
-Tu es venu chercher 
-Toutou ?
-Tu dois être le 
-mercenaire envoyé par      
-Mme Miaou Miaou.
-Je vais te corriger !!
+C'est qui ce freluquet?   
+Les gars, débarrassez-moi vite de lui !
 ]],
 }
 
 dialog{
   id = "maps.caves.egg_of_the_dream_fish.moblins_cave.moblins_3",
   text = [[
-C'est qui cet intrus 
-tout vêtu de vert ??!!!
-Attrapez-le !!!!
+Tu es venu chercher Toutou ?
+Tu dois être le mercenaire envoyé par Mme Miaou Miaou.
+Je vais te corriger !!
 ]],
 }
 
@@ -1013,28 +1009,21 @@ Elle t'attend.
 dialog{
   id = "maps.dungeons.2.owl_1",
   text = [[
-D'abord un lapin
-et en dernier,  
-un spectre...
+D'abord un lapin et en dernier, un spectre...
 ]],
 }
 
 dialog{
   id = "maps.dungeons.2.owl_2",
   text = [[
-Si les blocs se 
-ressemblent, un 
-nouveau chemin  
-s'ouvrira.
+Si les blocs se ressemblent, un nouveau chemin s'ouvrira.
 ]],
 }
 
 dialog{
   id = "maps.dungeons.2.owl_3",
   text = [[
-Une partie du sol 
-s'élève. Actionne le     
-cristal bleu.
+Une partie du sol s'élève. Actionne le cristal bleu.
 ]],
 }
 
@@ -2058,11 +2047,9 @@ dialog{
   id = "maps.houses.phone_booth.1",
   text = [[
 DRING DRING !!   
-Pépé le Ramollo à 
-l'appareil... 
+Pépé le Ramollo à l'appareil... 
 Je sais tout de cette île !      
-Si tu te perds, passe-moi
-un coup de fil ! Salut ! 
+Si tu te perds, passe-moi un coup de fil ! Salut ! 
 CLIC !
 ]],
 }
@@ -2071,19 +2058,9 @@ dialog{
   id = "maps.houses.phone_booth.10",
   text = [[
 DRING DRING !!   
-Pépé le Ramollo 
-à l'appareil... 
-Apparemment,    
-dans les        
-Dunes de Yarna, 
-au Sud-Est      
-de l'île,       
-se trouve la    
-Clé-Poisson.    
-Ecoute, je ne   
-peux pas être   
-plus explicite  
-que cela...     
+Pépé le Ramollo à l'appareil... 
+Apparemment, dans les Dunes de Yarna, au Sud-Est de l'île, se trouve la Clé-Poisson.    
+Ecoute, je ne peux pas être plus explicite que cela...     
 Salut ! CLIC !
 ]],
 }
@@ -2092,13 +2069,9 @@ dialog{
   id = "maps.houses.phone_booth.11",
   text = [[
 DRING DRING !!   
-Pépé le Ramollo 
-à l'appareil... 
-Tu es hanté     
-par un fantôme ? 
-Je te conseille 
-de l'amener là  
-où il veut.     
+Pépé le Ramollo à l'appareil... 
+Tu es hanté par un fantôme ? 
+Je te conseille de l'amener là où il veut.     
 Salut ! CLIC !
 ]],
 }
@@ -2107,11 +2080,8 @@ dialog{
   id = "maps.houses.phone_booth.12",
   text = [[
 DRING DRING !!   
-Pépé le Ramollo 
-à l'appareil... 
-Dans la Baie,   
-un Poisson-Chat 
-ouvre sa gueule.
+Pépé le Ramollo à l'appareil... 
+Dans la Baie, un Poisson-Chat ouvre sa gueule.
 Va donc y nager.
 Salut ! CLIC !
 ]],
@@ -2121,13 +2091,8 @@ dialog{
   id = "maps.houses.phone_booth.13",
   text = [[
 DRING DRING!!   
-Pépé le Ramollo 
-à l'appareil... 
-Es-tu allé au   
-Temple du Masque
-situé au Nord   
-du Village      
-des Animaux ?    
+Pépé le Ramollo à l'appareil... 
+Es-tu allé au Temple du Masque situé au Nord du Village des Animaux ?    
 Salut ! CLIC !
 ]],
 }
@@ -2136,21 +2101,11 @@ dialog{
   id = "maps.houses.phone_booth.14",
   text = [[
 DRING DRING !!   
-Pépé le Ramollo 
-à l'appareil... 
-Connais-tu      
-le Coq Volant   
-du Village      
-des Mouettes ?   
-Autrefois,      
-je m'agrippais  
-à ses pattes    
-et je volais !   
+Pépé le Ramollo à l'appareil... 
+Connais-tu le Coq Volant du Village des Mouettes ?   
+Autrefois, je m'agrippais à ses pattes et je volais !   
 Hélas...        
-Il est mort et  
-gît désormais   
-sous la         
-Girouette.      
+Il est mort et gît désormais sous la Girouette.      
 Salut ! CLIC !
 ]],
 }
@@ -2159,13 +2114,9 @@ dialog{
   id = "maps.houses.phone_booth.15",
   text = [[
 DRING DRING !!   
-Pépé le Ramollo 
-à l'appareil... 
-La tête de la   
-tortue te gêne ? 
-Donne-lui       
-de la vie pour  
-la déplacer...  
+Pépé le Ramollo à l'appareil... 
+La tête de la tortue te gêne ? 
+Donne-lui de la vie pour la déplacer...  
 Salut ! CLIC !
 ]],
 }
@@ -2174,16 +2125,9 @@ dialog{
   id = "maps.houses.phone_booth.16",
   text = [[
 DRING DRING !!   
-Pépé le Ramollo 
-à l'appareil ... 
-D'après Mamie   
-Youpi, quelque  
-chose est caché 
-derrière        
-la Cascade de   
-la Cordillère.  
-Ce renseignement
-t'est utile ?    
+Pépé le Ramollo à l'appareil ... 
+D'après Mamie Youpi, quelque chose est caché derrière la Cascade de la Cordillère.  
+Ce renseignement t'est utile ?    
 Salut ! CLIC !
 ]],
 }
@@ -2192,15 +2136,9 @@ dialog{
   id = "maps.houses.phone_booth.17",
   text = [[
 DRING DRING !!   
-Pépé le Ramollo 
-à l'appareil... 
-De mon temps,   
-il y avait      
-une Tour dans   
-la partie est de
-la Cordillère.  
-Tu devrais aller
-y faire un tour !
+Pépé le Ramollo à l'appareil... 
+De mon temps, il y avait une Tour dans la partie est de la Cordillère.  
+Tu devrais aller y faire un tour !
 Salut ! CLIC !
 ]],
 }
@@ -2209,14 +2147,9 @@ dialog{
   id = "maps.houses.phone_booth.18",
   text = [[
 DRING DRING !!   
-Pépé le Ramollo 
-à l'appareil... 
-Dirige-toi vers 
-l'Oeuf Sacré,   
-niché en haut   
-du Mt Tamaranch.
-Link ,          
-sois prudent.   
+Pépé le Ramollo à l'appareil... 
+Dirige-toi vers l'Oeuf Sacré, niché en haut du Mt Tamaranch.
+$v, sois prudent.   
 Salut ! CLIC !
 ]],
 }
@@ -2225,16 +2158,10 @@ dialog{
   id = "maps.houses.phone_booth.19",
   text = [[
 DRING DRING !!   
-Pépé le Ramollo 
-à l'appareil... 
-Tu t'es perdu   
-dans l'Oeuf ?    
-Désolé, mais    
-je ne peux pas  
-t'aider !        
-Va donc te      
-renseigner à    
-la Bibliothèque.
+Pépé le Ramollo à l'appareil... 
+Tu t'es perdu dans l'Oeuf ?    
+Désolé, mais je ne peux pas t'aider !        
+Va donc te renseigner à la Bibliothèque.
 Désolé hein !    
 Salut ! CLIC !
 ]],
@@ -2244,99 +2171,10 @@ dialog{
   id = "maps.houses.phone_booth.2",
   text = [[
 DRING DRING !!   
-Pépé le Ramollo 
-à l'appareil... 
-Habitants de la 
-Forêt Enchantée,
-les Moblins     
-vivent également
-dans la cave du 
-Plateau Tartare.
+Pépé le Ramollo à l'appareil... 
+Il y a une bibliothèque dans le village.
+Peut-être apportera-t'elle une réponse à tes questions ?  
 Salut ! CLIC !
-]],
-}
-
-dialog{
-  id = "maps.houses.phone_booth.20",
-  text = [[
-DRING DRING !!   
-Pépé le Ramollo 
-à l'appareil... 
-Tu devrais      
-ramener Toutou à
-Mme Miaou Miaou.
-Elle sera folle 
-de joie.        
-Salut ! CLIC !
-]],
-}
-
-dialog{
-  id = "maps.houses.phone_booth.21",
-  text = [[
-DRING DRING !!   
-Pépé le Ramollo 
-à l'appareil... 
-Tu aimerais     
-chanter ?        
-Va voir Wart    
-la Grenouille.  
-Il habite dans  
-le Dédale       
-des Panneaux.   
-Il est bon mais 
-un peu cher...  
-Salut ! CLIC !
-]],
-}
-
-dialog{
-  id = "maps.houses.phone_booth.22",
-  text = [[
-DRING DRING !!   
-Pépé le Ramollo 
-à l'appareil... 
-Tu te défends   
-très bien !      
-As-tu visité    
-le Poulailler,  
-en haut de      
-la montagne ?    
-A côté, il y a  
-une cave qui    
-renferme un     
-objet important.
-Salut ! CLIC !
-]],
-}
-
-dialog{
-  id = "maps.houses.phone_booth.23",
-  text = [[
-DRING DRING !!   
-Pépé le Ramollo 
-à l'appareil... 
-Tes ennemis     
-sont coriaces ?  
-Collecte        
-donc tous       
-les Coquillages.
-Sois confiant !  
-Bonne chance !   
-Salut ! CLIC !
-]],
-}
-
-dialog{
-  id = "maps.houses.phone_booth.24",
-  text = [[
-DRING DRING !!   
-Oui c'est Pépé ! 
-Courage, encore 
-un effort...    
-Je suis de tout 
-coeur avec toi. 
-Vas-y mon gars !
 ]],
 }
 
@@ -2344,17 +2182,70 @@ dialog{
   id = "maps.houses.phone_booth.3",
   text = [[
 DRING DRING !!   
-Pépé le Ramollo 
-à l'appareil... 
-Les fleurs du   
-Marais des      
-Anémones sont   
-les préférées de
-Toutou. C'est ce
-qu'on dit...    
-Pourquoi        
-n'y vas-tu pas? 
+Pépé le Ramollo à l'appareil... 
+Habitants de la Forêt Enchantée,
+les Moblins vivent également dans la cave du Plateau Tartare.
 Salut ! CLIC !
+]],
+}
+
+dialog{
+  id = "maps.houses.phone_booth.30",
+  text = [[
+DRING DRING !!   
+Pépé le Ramollo à l'appareil... 
+Tu devrais ramener Toutou à Mme Miaou Miaou.
+Elle sera folle de joie.        
+Salut ! CLIC !
+]],
+}
+
+dialog{
+  id = "maps.houses.phone_booth.31",
+  text = [[
+DRING DRING !!   
+Pépé le Ramollo à l'appareil... 
+Tu aimerais chanter ?        
+Va voir Wart la Grenouille.  
+Il habite dans le Dédalevdes Panneaux.   
+Il est bon mais un peu cher...  
+Salut ! CLIC !
+]],
+}
+
+dialog{
+  id = "maps.houses.phone_booth.32",
+  text = [[
+DRING DRING !!   
+Pépé le Ramollo à l'appareil... 
+Tu te défends très bien !      
+As-tu visité le Poulailler en haut de la montagne ?    
+A côté, il y a une cave qui renferme un objet important.
+Salut ! CLIC !
+]],
+}
+
+dialog{
+  id = "maps.houses.phone_booth.33",
+  text = [[
+DRING DRING !!   
+Pépé le Ramollo à l'appareil... 
+Tes ennemis sont coriaces ?  
+Collecte donc tous les Coquillages.
+Sois confiant !  
+Bonne chance !   
+Salut ! CLIC !
+]],
+}
+
+dialog{
+  id = "maps.houses.phone_booth.34",
+  text = [[
+DRING DRING !!   
+Oui c'est Pépé ! 
+Courage, encore un effort...    
+Je suis de tout coeur avec toi. 
+Vas-y mon gars !
 ]],
 }
 
@@ -2362,19 +2253,10 @@ dialog{
   id = "maps.houses.phone_booth.4",
   text = [[
 DRING DRING !!   
-Pépé le Ramollo 
-à l'appareil... 
-As-tu rencontré 
-tous les gens   
-de cette île ?   
-Au Sud-Est du   
-village, à côté 
-du Champ        
-aux Pièges,     
-vit un homme    
-appelé Richard. 
-Je te conseille 
-d'aller le voir.
+Pépé le Ramollo à l'appareil... 
+Les fleurs du Marais des Anémones sont les préférées de Toutou.
+C'est ce qu'on dit...    
+Pourquoi n'y vas-tu pas ? 
 Salut ! CLIC !
 ]],
 }
@@ -2383,12 +2265,8 @@ dialog{
   id = "maps.houses.phone_booth.5",
   text = [[
 DRING DRING !!   
-Pépé le Ramollo 
-à l'appareil... 
-Si tu veux des  
-bananes, parle  
-de nouveau aux  
-gens du village.
+Pépé le Ramollo à l'appareil... 
+Si tu veux des bananes,  parle de nouveau aux gens du village.
 Salut ! CLIC !
 ]],
 }
@@ -2397,15 +2275,10 @@ dialog{
   id = "maps.houses.phone_booth.6",
   text = [[
 DRING DRING !!   
-Pépé le Ramollo 
-à l'appareil... 
-Il y a une      
-bibliothèque    
-dans le village.
-Peut-être       
-apportera-t'elle
-une réponse à   
-tes questions ?  
+Pépé le Ramollo à l'appareil... 
+As-tu rencontré tous les gens de cette île ?   
+Au Sud-Est du village, à côté du Champ aux Pièges, vit un homme appelé Richard. 
+Je te conseille d'aller le voir.
 Salut ! CLIC !
 ]],
 }
@@ -2415,15 +2288,9 @@ dialog{
   text = [[
 DRRING! DRRING ! 
 C'est moi ! Pépé !
-Tu n'as pas     
-trouvé les cinq 
-feuilles d'Or ?  
-Va parler au    
-corbeau du      
-château. Il peut
-sûrement aider  
-un p'tit gars   
-comme toi !      
+Tu n'as pas trouvé les cinq feuilles d'Or ?  
+Va parler au corbeau du château.
+Il peut sûrement aider un p'tit gars comme toi !      
 CLIC !
 ]],
 }
@@ -2432,14 +2299,9 @@ dialog{
   id = "maps.houses.phone_booth.8",
   text = [[
 DRING DRING !!   
-Pépé le Ramollo 
-à l'appareil... 
-As-tu acheté    
-une Pelle ?      
-Creuse le sol,  
-peut-être       
-auras-tu        
-de la chance ?   
+Pépé le Ramollo à l'appareil... 
+As-tu acheté une Pelle ?      
+Creuse le sol, peut-être auras-tu de la chance ?   
 Salut ! CLIC !
 ]],
 }
@@ -2448,12 +2310,8 @@ dialog{
   id = "maps.houses.phone_booth.9",
   text = [[
 DRING DRING !!   
-Pépé le Ramollo 
-à l'appareil... 
-Va vite à la    
-Cave aux Clés,  
-située dans     
-La Prairie.     
+Pépé le Ramollo à l'appareil... 
+Va vite à la Cave aux Clés, située dans la Prairie.     
 Salut ! CLIC !
 ]],
 }
@@ -2656,10 +2514,8 @@ dialog{
   id = "maps.houses.west_mt_tamaranch.mr_write_house.mr_write_1",
   text = [[
 Bonjour, je suis Mr Wright.      
-Mon hobby, c'est écrire des
-lettres... Le problème,
-c'est que quand j'écris, je
-n'ai jamais de réponse...
+Mon hobby, c'est écrire des lettres...
+Le problème, c'est que quand j'écris, je n'ai jamais de réponse...
 ]],
 }
 
@@ -2678,9 +2534,9 @@ dialog{
   question = "1",
   text = [[
 Ohhh... Quelle beauté !  
-J'aimerais te remercier    
-mais je n'ai que ce balai    
-à t'offrir... En veux-tu ?     
+J'aimerais te remercier mais je n'ai que ce balai à t'offrir...
+
+En veux-tu ?     
 Oui
 Non
 ]],
@@ -2702,8 +2558,7 @@ Non
 dialog{
   id = "maps.houses.west_mt_tamaranch.mr_write_house.mr_write_5",
   text = [[
-L'écriture, c'est 
-vraiment mon hobby !
+L'écriture, c'est vraiment mon hobby !
 ]],
 }
 

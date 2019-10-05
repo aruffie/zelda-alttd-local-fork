@@ -6,7 +6,7 @@
   To use, simply require this file into your jump-enabling item script, then call hero:attack()
 --]]
 
-local jm=require("scripts/jump_manager")
+local jm=require("scripts/maps/jump_manager")
 local audio_manager=require("scripts/audio_manager")
 local state = jm.init("sword")
 

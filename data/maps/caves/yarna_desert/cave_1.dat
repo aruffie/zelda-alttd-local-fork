@@ -2845,7 +2845,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2857,7 +2857,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2869,7 +2869,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2881,7 +2881,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2893,7 +2893,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2905,7 +2905,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2917,7 +2917,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2929,7 +2929,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2941,7 +2941,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2953,7 +2953,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2975,6 +2975,51 @@ enemy{
   direction = 0,
   breed = "fireball",
   treasure_name = "random",
+}
+
+sensor{
+  name = "sensor_1",
+  layer = 0,
+  x = 512,
+  y = 173,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_2",
+  layer = 0,
+  x = 520,
+  y = 413,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_3",
+  layer = 0,
+  x = 232,
+  y = 317,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
 }
 
 tile{

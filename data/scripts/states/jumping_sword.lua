@@ -45,6 +45,7 @@ function state:on_started(old_state_name, old_state_object)
   tunic_sprite:set_animation("sword", function()
       jump_manager.trigger_event(entity, "sword swinging complete")
     end)
+  sword_sprite:set_animation("sword")
 
 end
 

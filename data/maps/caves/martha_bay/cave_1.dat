@@ -1809,6 +1809,36 @@ stairs{
   subtype = 2,
 }
 
+sensor{
+  name = "sensor_1",
+  layer = 0,
+  x = 104,
+  y = 77,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_2",
+  layer = 0,
+  x = 552,
+  y = 413,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
 tile{
   layer = 1,
   x = 160,
@@ -2926,7 +2956,6 @@ tile{
 }
 
 separator{
-  name = "auto_separator_1",
   layer = 2,
   x = 0,
   y = 232,
@@ -2935,7 +2964,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_2",
   layer = 2,
   x = 312,
   y = 0,

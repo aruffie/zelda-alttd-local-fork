@@ -7735,6 +7735,24 @@ tile{
   pattern = "978",
 }
 
+wall{
+  layer = 1,
+  x = 720,
+  y = 40,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 120,
+  y = 184,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
 custom_entity{
   layer = 1,
   x = 208,
@@ -7807,23 +7825,6 @@ dynamic_tile{
   width = 32,
   height = 16,
   pattern = "957",
-}
-
-door{
-  name = "weak_door_1",
-  layer = 1,
-  x = 344,
-  y = 48,
-  properties = {
-    {
-      key = "sound_sword",
-      value = "items/sword_tap_bombable",
-    },
-  },
-  direction = 0,
-  sprite = "entities/doors/door_weak_wall_out",
-  savegame_variable = "b3_prairie_weak_1",
-  opening_method = "explosion",
 }
 
 teletransporter{
@@ -8565,6 +8566,32 @@ wall{
   stops_npcs = true,
   stops_enemies = true,
   stops_blocks = true,
+}
+
+wall{
+  layer = 1,
+  x = 344,
+  y = 48,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+door{
+  name = "weak_door_1",
+  layer = 1,
+  x = 344,
+  y = 48,
+  properties = {
+    {
+      key = "sound_sword",
+      value = "items/sword_tap_bombable",
+    },
+  },
+  direction = 0,
+  sprite = "entities/doors/door_weak_wall_out",
+  savegame_variable = "b3_prairie_weak_1",
+  opening_method = "explosion",
 }
 
 tile{
@@ -10454,6 +10481,15 @@ tile{
   width = 8,
   height = 8,
   pattern = "14796",
+}
+
+wall{
+  layer = 2,
+  x = 160,
+  y = 488,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
 }
 
 enemy{

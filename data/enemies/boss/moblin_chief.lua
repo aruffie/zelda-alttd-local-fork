@@ -10,7 +10,7 @@ local sprite
 local distance = 64 --Distance between hero and enemy
 local angle = 0
 local direction = 4
-local direction_arrow = 2
+local key_arrow = 2
 local max_attacks = 3
 local attacks = 0
 local x -- X Enemy
@@ -18,12 +18,15 @@ local y -- Y Enemy
 local x_initial
 local y_initial
 local symbol_collapse
-local arrow
 local launch_boss
+local throwing_duration = 200
+local projectile_breed = "arrow"
+local projectile_offset = {{0, -11}, {0, -11}}
 
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
 require("scripts/multi_events")
+require("enemies/lib/weapons").learn(enemy)
 
 function enemy:on_created()
 
@@ -52,15 +55,15 @@ function enemy:calculate_parameters()
   local x_enemy, y_enemy = enemy:get_position()
   if x_hero < x_enemy then
     angle = math.pi
-    direction = 4
+    direction = 2
+    key_arrow = 1
     sprite:set_direction(2)
-    direction_arrow = 2
     x = x_hero + distance 
   else
     angle = 0
     direction = 0
+    key_arrow = 2
     sprite:set_direction(0)
-    direction_arrow = 0
     x = x_hero - distance 
   end
   y = y_hero
@@ -90,7 +93,6 @@ function enemy:start_battle()
   enemy:calculate_parameters()
   enemy:set_attack_consequence("sword", "protected")
   local movement_battle = sol.movement.create("target")
-  movement_type = "battle"
   movement_battle:set_speed(96)
   movement_battle:set_target(x, y)
   movement_battle:start(enemy)
@@ -105,7 +107,7 @@ end
 function enemy:choose_attack()
 
   if attacks < max_attacks then
-    enemy:throw_arrow()
+    enemy:throw_projectile()
     attacks = attacks + 1
   else 
     enemy:charge()
@@ -114,8 +116,7 @@ function enemy:choose_attack()
   
 end
 
-
-function enemy:throw_arrow()
+function enemy:throw_projectile()
 
   local x_enemy, y_enemy, layer_enemy = enemy:get_position()
   sprite:set_animation("throwing")
@@ -125,29 +126,9 @@ function enemy:throw_arrow()
     end
   end
   sol.timer.start(enemy, 200, function()
-      arrow = map:create_enemy{
-      breed =  'arrow',
-      direction = direction_arrow,
-      x = x_enemy,
-      y = y_enemy - 8,
-      width = 16,
-      height = 8,
-      layer = layer_enemy
-    } 
-    movement_type = "arrow"
-    local movement_arrow = sol.movement.create("straight")
-    movement_arrow:set_speed(128)
-    movement_arrow:set_smooth(false)
-    movement_arrow:set_angle(angle)
-    movement_arrow:start(arrow)
-    function  movement_arrow:on_obstacle_reached()
-      movement_arrow:stop()
-      arrow:get_sprite():set_animation("reached_obstacle")
-      sol.timer.start(enemy, 1000, function()
-        arrow:remove()
-        enemy:go_to_initial_position()
-      end)
-    end
+    enemy:throw_projectile(projectile_breed, throwing_duration, projectile_offset[key_arrow][1], projectile_offset[key_arrow][2], function()
+      enemy:go_to_initial_position()
+    end) 
   end)
 
 end
@@ -157,7 +138,6 @@ function enemy:charge()
   enemy:calculate_parameters()
   sprite:set_animation("prepare_attacking")
   sol.timer.start(enemy, 1000, function()
-    movement_type = "charge"
     sprite:set_animation("attacked")
     local movement_charge = sol.movement.create("straight")
     movement_charge:set_speed(128)

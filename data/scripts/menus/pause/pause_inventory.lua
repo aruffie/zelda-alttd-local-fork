@@ -36,8 +36,8 @@ function inventory_submenu:on_started()
   self.captions = {}
   self.counters = {}
   self.menu_ocarina = false
-  if self.game:has_item("magic_powders_counter") then
-    item_names_assignable[2] = "magic_powders_counter"
+  if self.game:has_item("magic_powder_counter") then
+    item_names_assignable[2] = "magic_powder_counter"
   else
     item_names_assignable[2] = "mushroom"
   end

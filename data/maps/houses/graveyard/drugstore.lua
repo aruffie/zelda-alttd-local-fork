@@ -37,7 +37,6 @@ function crazy_tracy:on_interaction()
   if drug_already_bought and math.random(2) == 1 then --TODO use enemy counter instead
     amount = 42
   end
-  print(drugs_bought)
   if not intro_dialog_done then
     game:start_dialog("maps.houses.graveyard.drugstore.crazy_tracy_1", function()
       intro_dialog_done = true

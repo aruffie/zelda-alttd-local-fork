@@ -22,9 +22,7 @@ torch:register_event("on_created", function()
     torch:create_sprite("entities/misc/torch")
   end
   sprite = torch:get_sprite()
-
   local lit = torch:get_direction() ~= 0
-
   sprite:set_direction(0)
   torch:set_lit(lit)
 
@@ -46,15 +44,18 @@ function torch:set_lit(lit)
     if torch.duration ~= nil then
       sol.timer.start(torch, torch.duration, function()
         torch:set_lit(false)
+        if torch.on_unlit ~= nil then
+          torch:on_unlit()
+        end
       end)
     end
   else
     sprite:set_animation("unlit")
   end
-
   if map.torch_changed ~= nil then
     map:torch_changed(torch, lit)
   end
+  
 end
 
 function torch:get_duration()

@@ -49,11 +49,13 @@ function npc_meta:random_walk(speed)
 end
 
 -- Create an exclamation symbol near npc
-function npc_meta:create_symbol_exclamation(x, y, layer)
+function npc_meta:create_symbol_exclamation(sound)
   
   local map = self:get_map()
   local x, y, layer = self:get_position()
-  audio_manager:play_sound("menus/menu_select")
+  if sound then
+    audio_manager:play_sound("menus/menu_select")
+  end
   local symbol = map:create_custom_entity({
     sprite = "entities/symbols/exclamation",
     x = x - 16,
@@ -69,11 +71,13 @@ function npc_meta:create_symbol_exclamation(x, y, layer)
 end
 
 -- Create an interrogation symbol near npc
-function npc_meta:create_symbol_interrogation()
+function npc_meta:create_symbol_interrogation(sound)
   
   local map = self:get_map()
   local x, y, layer = self:get_position()
-  audio_manager:play_sound("menus/menu_select")
+  if sound then
+    audio_manager:play_sound("menus/menu_select")
+  end
   local symbol = map:create_custom_entity({
     sprite = "entities/symbols/interrogation",
     x = x - 16,
@@ -89,10 +93,13 @@ function npc_meta:create_symbol_interrogation()
 end
 
 -- Create a collapse symbol near npc
-function npc_meta:create_symbol_collapse()
+function npc_meta:create_symbol_collapse(sound)
   
   local map = self:get_map()
   local x, y, layer = self:get_position()
+  if sound then
+    -- Todo create a custom sound
+  end
   local symbol = map:create_custom_entity({
     sprite = "entities/symbols/collapse",
     x = x - 16,

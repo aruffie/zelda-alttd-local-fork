@@ -10792,10 +10792,10 @@ destructible{
 
 wall{
   layer = 1,
-  x = 272,
-  y = 464,
-  width = 192,
-  height = 16,
+  x = 304,
+  y = 472,
+  width = 144,
+  height = 8,
   stops_enemies = true,
   stops_projectiles = true,
 }
@@ -10804,7 +10804,7 @@ wall{
   layer = 1,
   x = 176,
   y = 432,
-  width = 16,
+  width = 8,
   height = 64,
   stops_enemies = true,
   stops_projectiles = true,
@@ -10859,10 +10859,10 @@ wall{
 
 wall{
   layer = 1,
-  x = 688,
-  y = 304,
-  width = 16,
-  height = 48,
+  x = 696,
+  y = 320,
+  width = 8,
+  height = 32,
   stops_enemies = true,
   stops_projectiles = true,
 }
@@ -11874,20 +11874,20 @@ enemy{
 
 wall{
   layer = 1,
-  x = 752,
-  y = 616,
-  width = 16,
-  height = 40,
+  x = 760,
+  y = 624,
+  width = 8,
+  height = 32,
   stops_enemies = true,
   stops_projectiles = true,
 }
 
 wall{
   layer = 1,
-  x = 192,
-  y = 480,
-  width = 16,
-  height = 16,
+  x = 184,
+  y = 488,
+  width = 24,
+  height = 8,
   stops_enemies = true,
   stops_projectiles = true,
 }
@@ -11895,19 +11895,19 @@ wall{
 wall{
   layer = 1,
   x = 616,
-  y = 456,
-  width = 16,
-  height = 72,
+  y = 464,
+  width = 8,
+  height = 64,
   stops_enemies = true,
   stops_projectiles = true,
 }
 
 wall{
   layer = 1,
-  x = 80,
-  y = 632,
-  width = 200,
-  height = 16,
+  x = 96,
+  y = 640,
+  width = 184,
+  height = 8,
   stops_enemies = true,
 }
 
@@ -12008,12 +12008,39 @@ enemy{
 
 wall{
   layer = 1,
-  x = 792,
+  x = 784,
   y = 616,
-  width = 112,
-  height = 16,
+  width = 128,
+  height = 8,
   stops_enemies = true,
   stops_projectiles = true,
+}
+
+wall{
+  layer = 1,
+  x = 152,
+  y = 272,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 576,
+  y = 80,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 632,
+  y = 464,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
 }
 
 tile{

@@ -15,6 +15,7 @@ local treasure_manager = require("scripts/maps/treasure_manager")
 require("scripts/multi_events")
 
 -- Map events
+
 function map:on_started()
 
   -- Chests
@@ -62,11 +63,10 @@ function map:on_started()
       entity:remove()
     end
   end
-
-
+  
 end
 
-function map:on_opening_transition_finished(destination)
+function map:on_opening_transition_finished()
 
   map:set_doors_open("door_group_5_", true)
   if destination == dungeon_1_1_B then
@@ -75,10 +75,12 @@ function map:on_opening_transition_finished(destination)
 
 end
 
-function map:on_obtaining_treasure(item, variant, savegame_variable)
+
+function map:on_obtaining_treasure()
 
   if savegame_variable == "dungeon_1_big_treasure" then
     treasure_manager:get_instrument(map)
+    item:get_game():set_value("main_quest_step", 8)
   end
 
 end
@@ -86,16 +88,16 @@ end
 -- Doors events
 weak_wall_group_1:register_event("on_opened", function()
 
-    door_manager:destroy_wall(map, "weak_wall_group_1_")
+  door_manager:destroy_wall(map, "weak_wall_group_1_")
 
-  end)
+end)
 
 -- Sensors events
 sensor_1:register_event("on_activated", function()
 
-    door_manager:close_if_enemies_not_dead(map, "enemy_group_6_", "door_group_1_")
+  door_manager:close_if_enemies_not_dead(map, "enemy_group_6_", "door_group_1_")
 
-  end)
+end)
 
 sensor_2:register_event("on_activated", function()
 
@@ -110,58 +112,59 @@ sensor_3:register_event("on_activated", function()
       enemy_manager:launch_small_boss_if_not_dead(map)
     end
 
-  end)
+end)
 
 sensor_4:register_event("on_activated", function()
 
-    if is_boss_active == false then
-      is_boss_active = true
-      enemy_manager:launch_boss_if_not_dead(map)
-    end
+  if is_boss_active == false then
+    is_boss_active = true
+    enemy_manager:launch_boss_if_not_dead(map)
+  end
 
-  end)
+end)
 
 sensor_5:register_event("on_activated", function()
 
-    door_manager:close_if_enemies_not_dead(map, "enemy_group_3_", "door_group_5_")
+  door_manager:close_if_enemies_not_dead(map, "enemy_group_3_", "door_group_5_")
 
-  end)
+end)
 
 sensor_6:register_event("on_activated", function()
 
-    map:set_doors_open("door_group_6", true)
+  map:set_doors_open("door_group_6", true)
 
-  end)
+end)
 
 sensor_7:register_event("on_activated", function()
 
+  map:close_doors("door_group_6_")
 
-    map:close_doors("door_group_6_")
-
-  end)
+end)
 
 sensor_8:register_event("on_activated", function()
 
-    door_manager:open_if_block_moved(map,  "auto_block_1" , "door_group_2_")
+  door_manager:open_if_block_moved(map,  "auto_block_1" , "door_group_2_")
 
-  end)
+end)
 
 -- Separators events
-auto_separator_17:register_event("on_activating", function(separator, direction4)
+separator_1:register_event("on_activating", function(separator, direction4)
 
-    map:set_doors_open("door_group_2", false)
+  map:set_doors_open("door_group_2", false)
 
-  end)
+end)
 
 -- Switchs events
 switch_1:register_event("on_activated", function()
 
-    treasure_manager:appear_chest(map, "chest_small_key_2", true)
+  treasure_manager:appear_chest(map, "chest_small_key_2", true)
 
-  end)
+end)
 
 -- Enemies events
 enemy_manager:on_enemies_dead(map, "enemy_group_3_", function()
-    enemy_group_torch_1:set_shooting(false)
-    enemy_group_torch_2:set_shooting(false)
-  end)
+    
+  enemy_group_torch_1:set_shooting(false)
+  enemy_group_torch_2:set_shooting(false)
+  
+end)
