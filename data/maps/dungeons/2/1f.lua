@@ -18,65 +18,66 @@ local block_manager=require("scripts/maps/block_manager")
 require("scripts/multi_events")
 
 -- Map events
-map:register_event("on_started", function(map, destination)
+function map:on_started()
 
-    -- Chests
-    treasure_manager:appear_chest_if_savegame_exist(map, "chest_compass",  "dungeon_2_compass")
-    treasure_manager:appear_chest_if_savegame_exist(map, "chest_small_key_4",  "dungeon_2_small_key_4")
-    treasure_manager:appear_chest_if_savegame_exist(map, "chest_power_bracelet",  "dungeon_2_power_bracelet")
-    treasure_manager:appear_chest_if_savegame_exist(map, "chest_boss_key",  "dungeon_2_boss_key")
-    treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_3_", "chest_compass")
-    treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_17_", "chest_power_bracelet")
-    -- Blocks
-    map:init_block_group_1()
-    -- Doors
-    map:set_doors_open("door_group_4_", true)
-    map:set_doors_open("door_group_small_boss", true)
-    map:set_doors_open("door_group_boss", true)
-    door_manager:open_when_torches_lit(map, "auto_torch_group_1_", "door_group_1_")
-    door_manager:open_when_enemies_dead(map,  "enemy_group_8_",  "door_group_4_")
-    -- Ennemies
-    enemy_manager:create_teletransporter_if_small_boss_dead(map, false)
-    -- Light
-    light_manager:init(map)
-    -- Music
-    game:play_dungeon_music()
-    -- Owls
-    owl_manager:init(map)
-    -- Pickables
-    treasure_manager:disappear_pickable(map, "pickable_small_key_1")
-    treasure_manager:disappear_pickable(map, "pickable_small_key_2")
-    treasure_manager:disappear_pickable(map, "heart_container")
-    treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_2_", "pickable_small_key_1")
-    treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_5_", "pickable_small_key_2")
-    treasure_manager:appear_heart_container_if_boss_dead(map)
-    -- Separators
-    separator_manager:init(map)
-    -- Switchs
-    switch_manager:activate_switch_if_savegame_exist(map, "switch_1",  "dungeon_2_small_key_4")
-    -- Walls
-    if game:get_value("dungeon_2_wall_1") then
-      for entity in map:get_entities("wall_1_") do
-        entity:remove()
-      end
+  -- Chests
+  treasure_manager:appear_chest_if_savegame_exist(map, "chest_compass",  "dungeon_2_compass")
+  treasure_manager:appear_chest_if_savegame_exist(map, "chest_small_key_4",  "dungeon_2_small_key_4")
+  treasure_manager:appear_chest_if_savegame_exist(map, "chest_power_bracelet",  "dungeon_2_power_bracelet")
+  treasure_manager:appear_chest_if_savegame_exist(map, "chest_boss_key",  "dungeon_2_boss_key")
+  treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_3_", "chest_compass")
+  treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_17_", "chest_power_bracelet")
+  -- Blocks
+  map:init_block_group_1()
+  -- Doors
+  map:set_doors_open("door_group_4_", true)
+  map:set_doors_open("door_group_small_boss", true)
+  map:set_doors_open("door_group_boss", true)
+  door_manager:open_when_torches_lit(map, "auto_torch_group_1_", "door_group_1_")
+  door_manager:open_when_enemies_dead(map,  "enemy_group_8_",  "door_group_4_")
+  -- Ennemies
+  enemy_manager:create_teletransporter_if_small_boss_dead(map, false)
+  -- Light
+  light_manager:init(map)
+  -- Music
+  game:play_dungeon_music()
+  -- Owls
+  owl_manager:init(map)
+  -- Pickables
+  treasure_manager:disappear_pickable(map, "pickable_small_key_1")
+  treasure_manager:disappear_pickable(map, "pickable_small_key_2")
+  treasure_manager:disappear_pickable(map, "heart_container")
+  treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_2_", "pickable_small_key_1")
+  treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_5_", "pickable_small_key_2")
+  treasure_manager:appear_heart_container_if_boss_dead(map)
+  -- Separators
+  separator_manager:init(map)
+  -- Switchs
+  switch_manager:activate_switch_if_savegame_exist(map, "switch_1",  "dungeon_2_small_key_4")
+  -- Walls
+  if game:get_value("dungeon_2_wall_1") then
+    for entity in map:get_entities("wall_1_") do
+      entity:remove()
     end
-    if game:get_value("dungeon_2_wall_2") then
-      for entity in map:get_entities("wall_2_") do
-        entity:remove()
-      end
+  end
+  if game:get_value("dungeon_2_wall_2") then
+    for entity in map:get_entities("wall_2_") do
+      entity:remove()
     end
-    -- Init light
-    if destination == stairs_2_B then
-      map:set_light(0)
-    end
+  end
+  -- Init light
+  if destination == stairs_2_B then
+    map:set_light(0)
+  end
 
-  end)
+end
 
 
 function map:on_obtaining_treasure(item, variant, savegame_variable)
 
   if savegame_variable == "dungeon_2_big_treasure" then
     treasure_manager:get_instrument(map)
+    item:get_game():set_value("main_quest_step", 11)
   end
 
 end

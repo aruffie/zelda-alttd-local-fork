@@ -16,7 +16,7 @@ require("scripts/multi_events")
 
 -- Map events
 
-map:register_event("on_started", function(map)
+function map:on_started()
 
   -- Chests
   treasure_manager:appear_chest_if_savegame_exist(map, "chest_small_key_2",  "dungeon_1_small_key_2")
@@ -64,24 +64,26 @@ map:register_event("on_started", function(map)
     end
   end
   
-end)
+end
 
-map:register_event("on_opening_transition_finished", function(map)
+function map:on_opening_transition_finished()
 
   map:set_doors_open("door_group_5_", true)
   if destination == dungeon_1_1_B then
     map:set_doors_open("door_group_2_", false)
   end
 
-end)
+end
 
-map:register_event("on_obtaining_treasure", function(map, item, variant, savegame_variable)
+
+function map:on_obtaining_treasure()
 
   if savegame_variable == "dungeon_1_big_treasure" then
     treasure_manager:get_instrument(map)
+    item:get_game():set_value("main_quest_step", 8)
   end
 
-end)
+end
 
 -- Doors events
 weak_wall_group_1:register_event("on_opened", function()
