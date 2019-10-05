@@ -18,7 +18,7 @@ local block_manager=require("scripts/maps/block_manager")
 require("scripts/multi_events")
 
 -- Map events
-function map:on_started()
+function map:on_started(destination)
 
   -- Chests
   treasure_manager:appear_chest_if_savegame_exist(map, "chest_compass",  "dungeon_2_compass")
@@ -68,6 +68,7 @@ function map:on_started()
   end
   -- Init light
   if destination == stairs_2_B then
+    print("bah merde")
     map:set_light(0)
   end
 
@@ -186,6 +187,7 @@ end)
 -- Separators events
 separator_1:register_event("on_activated", function(separator, direction4)
 
+print("off")
   map:set_light(0)
 
 end)
@@ -229,12 +231,6 @@ separator_4:register_event("on_activated", function(separator, direction4)
 
 end)
 
-separator_4:register_event("on_activated", function(separator, direction4)
-
-  map:set_light(1)
-
-  end)
-
 
 separator_5:register_event("on_activating", function(separator, direction4)
 
@@ -250,6 +246,12 @@ separator_5:register_event("on_activated", function(separator, direction4)
   if direction4 ~= 2 then
     map:set_light(1)
   end
+
+end)
+
+separator_6:register_event("on_activated", function(separator, direction4)
+
+  map:set_light(1)
 
 end)
 
