@@ -299,7 +299,7 @@ function entity_respawn_manager:init(map)
         end
 
         if entity:get_model()=="torch" then
-          saved_entities.torches[#saved_entities.torches]=entity
+          saved_entities.torches[#saved_entities.torches + 1]=entity
         end 
       end
 
