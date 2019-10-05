@@ -15227,6 +15227,33 @@ tile{
 
 wall{
   layer = 1,
+  x = 376,
+  y = 192,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 88,
+  y = 104,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 136,
+  y = 376,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
   x = 912,
   y = 336,
   width = 16,
@@ -16224,15 +16251,6 @@ wall{
   stops_enemies = true,
   stops_blocks = true,
   stops_projectiles = true,
-}
-
-wall{
-  layer = 1,
-  x = 376,
-  y = 192,
-  width = 16,
-  height = 16,
-  stops_enemies = true,
 }
 
 tile{

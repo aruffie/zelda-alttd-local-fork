@@ -382,11 +382,13 @@ function hero_meta:initialize_fixing_functions()
 end
 
 -- Create an exclamation symbol near hero
-function hero_meta:create_symbol_exclamation()
+function hero_meta:create_symbol_exclamation(sound)
 
   local map = self:get_map()
   local x, y, layer = self:get_position()
-  audio_manager:play_sound("menus/menu_select")
+  if sound then
+    audio_manager:play_sound("menus/menu_select")
+  end
   local symbol = map:create_custom_entity({
       sprite = "entities/symbols/exclamation",
       x = x - 16,
@@ -402,11 +404,13 @@ function hero_meta:create_symbol_exclamation()
 end
 
 -- Create an interrogation symbol near hero
-function hero_meta:create_symbol_interrogation()
+function hero_meta:create_symbol_interrogation(sound)
 
   local map = self:get_map()
   local x, y, layer = self:get_position()
-  audio_manager:play_sound("menus/menu_select")
+  if sound then
+    audio_manager:play_sound("menus/menu_select")
+  end
   local symbol = map:create_custom_entity({
       sprite = "entities/symbols/interrogation",
       x = x,
@@ -422,11 +426,14 @@ function hero_meta:create_symbol_interrogation()
 end
 
 -- Create a collapse symbol near hero
-function hero_meta:create_symbol_collapse()
+function hero_meta:create_symbol_collapse(sound)
 
   local map = self:get_map()
   local width, height = self:get_sprite():get_size()
   local x, y, layer = self:get_position()
+  if sound then
+    -- Todo create a custom sound
+  end
   local symbol = map:create_custom_entity({
       sprite = "entities/symbols/collapse",
       x = x,

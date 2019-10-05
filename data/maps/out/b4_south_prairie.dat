@@ -14977,7 +14977,7 @@ wall{
 wall{
   layer = 1,
   x = 616,
-  y = 696,
+  y = 704,
   width = 16,
   height = 16,
   stops_enemies = true,

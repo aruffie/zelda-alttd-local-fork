@@ -132,17 +132,31 @@ function map:launch_cinematic_1()
     local map = game:get_map()
     dialog("_treasure.sword.1")
     audio_manager:play_music("09_beginning_of_the_journey")
-    wait(5400)
-    map:remove_entities("brandish")
-    animation(hero, "spin_attack")
+    wait(4400)
+    local num_enemies = 0
     for enemy in map:get_entities_by_type("enemy") do
-      if enemy:get_distance(hero) < 32 then
+      if enemy:get_distance(hero) < 32 and not string.match(enemy:get_breed(), "projectiles")  then
+        num_enemies = num_enemies + 1
+        enemy.symbol = enemy:create_symbol_exclamation()
+      end
+    end
+    if num_enemies > 0 then
+      audio_manager:play_sound("menus/menu_select")
+    end
+    wait(1000)
+    map:remove_entities("brandish")
+    for enemy in map:get_entities_by_type("enemy") do
+      if enemy:get_distance(hero) < 32 and not string.match(enemy:get_breed(), "projectiles") then
+        enemy.symbol:remove()
         enemy:set_life(0)
       end
     end
+    if num_enemies > 0 then
+      audio_manager:play_sound("enemies/enemy_die")
+    end
+    animation(hero, "spin_attack")
     map:set_cinematic_mode(false, options)
     game:set_value("main_quest_step", 4)
-    wait(300)
     audio_manager:play_music("10_overworld")
   end)
 

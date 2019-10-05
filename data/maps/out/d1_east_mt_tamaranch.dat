@@ -14187,6 +14187,44 @@ tile{
   pattern = "1052",
 }
 
+custom_entity{
+  layer = 1,
+  x = 576,
+  y = 13,
+  width = 128,
+  height = 96,
+  direction = 0,
+  sprite = "entities/dungeons/dungeon_7",
+}
+
+dynamic_tile{
+  layer = 1,
+  x = 624,
+  y = 64,
+  width = 16,
+  height = 16,
+  pattern = "118",
+  tileset = "addition/out",
+}
+
+wall{
+  layer = 1,
+  x = 624,
+  y = 80,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 808,
+  y = 80,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
 wall{
   layer = 1,
   x = 808,
@@ -14287,16 +14325,6 @@ dynamic_tile{
   width = 32,
   height = 16,
   pattern = "940",
-}
-
-custom_entity{
-  layer = 1,
-  x = 576,
-  y = 13,
-  width = 128,
-  height = 96,
-  direction = 0,
-  sprite = "entities/dungeons/dungeon_7",
 }
 
 destructible{
@@ -14899,16 +14927,6 @@ dynamic_tile{
   width = 16,
   height = 16,
   pattern = "113",
-  tileset = "addition/out",
-}
-
-dynamic_tile{
-  layer = 1,
-  x = 624,
-  y = 64,
-  width = 16,
-  height = 16,
-  pattern = "118",
   tileset = "addition/out",
 }
 

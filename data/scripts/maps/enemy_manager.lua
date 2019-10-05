@@ -17,6 +17,38 @@ function enemy_manager:on_enemies_dead(map, enemies_prefix, callback)
   for enemy in map:get_entities(enemies_prefix) do
     enemy:register_event("on_dead", enemy_on_dead)
   end
+  
+end
+
+function enemy_manager:set_weak_boo_buddies_when_at_least_on_torch_lit(map, torch_prefix, enemy_prefix)
+
+  local total = 0
+  local remaining = 0
+  local function torch_on_lit()
+    remaining = remaining - 1
+    if remaining > 0 and remaining < total then
+      for enemy in map:get_entities(enemy_prefix) do
+        enemy:set_weak(true)
+      end
+    end
+  end
+  local function torch_on_unlit()
+    remaining = remaining + 1
+    if remaining > 0 and remaining == total  then
+      for enemy in map:get_entities(enemy_prefix) do
+        enemy:set_weak(false)
+      end
+    end
+  end
+  for torch in map:get_entities(torch_prefix) do
+    if not torch:is_lit() then
+      remaining = remaining + 1
+    end
+    torch.on_lit = torch_on_lit
+    torch.on_unlit = torch_on_unlit
+    total = total + 1
+  end
+  
 end
 
 function enemy_manager:execute_when_vegas_dead(map, enemy_prefix)

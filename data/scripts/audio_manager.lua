@@ -125,6 +125,12 @@ function audio_manager:play_music(id_music)
 
 end
 
+function audio_manager:stop_music()
+  
+    sol.audio.stop_music()
+
+end
+
 -- Play sound according to the mode of play
 function audio_manager:play_sound(id_sound)
   

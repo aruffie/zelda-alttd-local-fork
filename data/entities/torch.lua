@@ -44,6 +44,9 @@ function torch:set_lit(lit)
     if torch.duration ~= nil then
       sol.timer.start(torch, torch.duration, function()
         torch:set_lit(false)
+        if torch.on_unlit ~= nil then
+          torch:on_unlit()
+        end
       end)
     end
   else

@@ -14233,15 +14233,6 @@ tile{
 
 tile{
   layer = 1,
-  x = 360,
-  y = 64,
-  width = 64,
-  height = 16,
-  pattern = "1108",
-}
-
-tile{
-  layer = 1,
   x = 344,
   y = 32,
   width = 8,
@@ -14364,6 +14355,15 @@ tile{
   width = 8,
   height = 24,
   pattern = "990",
+}
+
+tile{
+  layer = 1,
+  x = 368,
+  y = 64,
+  width = 32,
+  height = 16,
+  pattern = "1037",
 }
 
 custom_entity{
@@ -21969,6 +21969,54 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/fisherman_ledger",
+}
+
+wall{
+  layer = 1,
+  x = 328,
+  y = 456,
+  width = 16,
+  height = 16,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 1,
+  x = 616,
+  y = 672,
+  width = 16,
+  height = 16,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+destructible{
+  layer = 1,
+  x = 376,
+  y = 77,
+  treasure_name = "random",
+  sprite = "entities/destructibles/grass",
+  destruction_sound = "bush",
+  weight = -1,
+  can_be_cut = true,
+  ground = "grass",
+}
+
+destructible{
+  layer = 1,
+  x = 392,
+  y = 77,
+  treasure_name = "random",
+  sprite = "entities/destructibles/grass",
+  destruction_sound = "bush",
+  weight = -1,
+  can_be_cut = true,
+  ground = "grass",
 }
 
 tile{

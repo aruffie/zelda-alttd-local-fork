@@ -37,6 +37,7 @@ function map:on_started()
   door_manager:open_when_enemies_dead(map,  "enemy_group_8_",  "door_group_4_")
   -- Ennemies
   enemy_manager:create_teletransporter_if_small_boss_dead(map, false)
+  enemy_manager:set_weak_boo_buddies_when_at_least_on_torch_lit(map, "timed_torch_group_6_", "enemy_group_17_")
   -- Light
   light_manager:init(map)
   -- Music
@@ -257,19 +258,4 @@ switch_1:register_event("on_activated", function()
 
   treasure_manager:appear_chest(map, "chest_small_key_4", true)
 
-end)
-
--- Torches events
-timed_torch_group_6_2:register_event("on_lit", function()
-    
-  enemy_group_17_1:set_weak(true)
-  enemy_group_17_2:set_weak(true)
-    
-end)
-
-timed_torch_group_6_2:register_event("on_unlit", function()
-    
-  enemy_group_17_1:set_weak(false)
-  enemy_group_17_2:set_weak(false)
-        
 end)

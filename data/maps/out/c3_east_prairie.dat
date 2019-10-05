@@ -10452,6 +10452,15 @@ tile{
 
 wall{
   layer = 1,
+  x = 152,
+  y = 120,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
   x = 184,
   y = 712,
   width = 16,
@@ -11735,6 +11744,15 @@ enemy{
   direction = 1,
   breed = "octorok_flying",
   treasure_name = "random",
+}
+
+wall{
+  layer = 1,
+  x = 616,
+  y = 120,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
 }
 
 tile{
@@ -13400,7 +13418,7 @@ tile{
 
 tile{
   layer = 2,
-  x = 112,
+  x = 104,
   y = 120,
   width = 96,
   height = 8,

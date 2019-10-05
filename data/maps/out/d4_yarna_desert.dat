@@ -10003,6 +10003,15 @@ tile{
 
 wall{
   layer = 1,
+  x = 200,
+  y = 96,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
   x = 904,
   y = 24,
   width = 16,
@@ -12592,19 +12601,6 @@ sensor{
   y = 517,
   width = 16,
   height = 16,
-}
-
-wall{
-  layer = 1,
-  x = 440,
-  y = 24,
-  width = 16,
-  height = 8,
-  stops_hero = true,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
 }
 
 destination{

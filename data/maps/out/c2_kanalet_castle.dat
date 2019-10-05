@@ -9106,6 +9106,15 @@ tile{
 
 wall{
   layer = 1,
+  x = 808,
+  y = 48,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
   x = 336,
   y = 400,
   width = 16,
@@ -11868,6 +11877,15 @@ tile{
   height = 24,
   pattern = "32",
   tileset = "addition/out",
+}
+
+wall{
+  layer = 2,
+  x = 240,
+  y = 200,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
 }
 
 wall{
