@@ -14555,6 +14555,15 @@ tile{
 
 wall{
   layer = 1,
+  x = 592,
+  y = 408,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
   x = 448,
   y = 120,
   width = 16,

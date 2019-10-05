@@ -129,7 +129,6 @@ function mad_bat_manager:launch_laser(map, mad_bat_name, savegame)
   function npc_sprite:on_animation_finished(animation)
     if animation == "cursing" then
       npc_sprite:set_animation("walking")
-    --npc_sprite:set_animation("walking")
       local hero = map:get_hero()
       laser_manager:init_map(map, hero, npc, function()
         game:start_dialog("scripts.meta.map.mad_bat_3", function()
@@ -142,9 +141,8 @@ function mad_bat_manager:launch_laser(map, mad_bat_name, savegame)
           game:set_value(savegame, true)
           local item_name = mad_bat_manager.items[mad_bat_manager.item_id]
           if item_name == "magic_powder" then
-            local item = game:get_item("magic_powders_counter")
-            item:set_max_amount(40)
-            item:set_amount(40)
+            local item = game:get_item("magic_powder_bag")
+            item:set_variant(2)
           end
           if item_name == "arrows" then
             local item = game:get_item("arrow")
@@ -154,8 +152,8 @@ function mad_bat_manager:launch_laser(map, mad_bat_name, savegame)
           end
           if item_name == "bombs" then
             local item = game:get_item("bombs_counter")
-            item:set_max_amount(40)
-            item:set_amount(40)
+            local item = game:get_item("magic_powder_bag")
+            item:set_variant(2)
           end
         end)
       end)

@@ -24,36 +24,7 @@ local function initialize_game_over_features(game)
   game:register_event("on_game_over_started", function(game)
       -- Attach the game-over menu to the map so that the map's fade-out
       -- effect applies to it when restarting the game.
-
-      --Resurrect the hero with the drug
-      local item=game:get_item("drug")
-      if item:get_variant()==1 then
-        local map=game:get_map()
-        local hero=map:get_hero()
-        local starting_direction=hero:get_direction()
-        
-        map:start_coroutine(function()
-            local options={
-              entities_ignore_suspend = {hero},
-            }
-            map:set_cinematic_mode(true, options)
-            print "set direction"
-            hero:set_direction(0)
-            print "animation"
-           -- hero:get_sprite():set_animation("dying")
-            animation(hero, "dying")
-            print "rez"
-            wait(1000)
-            game:set_life(game:get_max_life())
-            wait(2000)
-            --TODO Link rising animation
-            item:set_variant(0)
-            map:set_cinematic_mode(false, options)
-          end)
-        game:stop_game_over()
-      else
         sol.menu.start(game:get_map(), game_over_menu)
-      end
     end)
 
 -- Called when this menu is started.
@@ -157,6 +128,7 @@ local function initialize_game_over_features(game)
       "init",
       "fade_in",
       "fairy",
+      "drug",
       "title",
       "ask_save",
       "ask_continue",
@@ -222,6 +194,8 @@ local function initialize_game_over_features(game)
       game_over_menu:step_fade_in()
     elseif step == "fairy" then
       game_over_menu:step_fairy()
+    elseif step == "drug" then
+      game_over_menu:step_drug()
     elseif step == "title" then
       game_over_menu:step_title()
     elseif step == "ask_save" then
@@ -301,6 +275,37 @@ local function initialize_game_over_features(game)
       -- Go to next step.
       game_over_menu:next_step()
     end
+  end
+  
+-- Step: heal the hero if he has a drug.
+  function game_over_menu:step_drug()
+    -- Check if the player has a drug.
+    local item = game:get_item("drug")
+    if item:get_variant() > 0 then
+        item:set_variant(0)
+      -- Wait for the hearts to be refilled.
+      -- Restore 7 hearts.
+      local restored_heart_count = 7
+      game:add_life(restored_heart_count * 4)
+      sol.timer.start(game_over_menu, 250 * restored_heart_count, function()
+        game_over_menu.fairy_sprite:fade_out(10)
+        game_over_menu.background:set_opacity(0)
+        game_over_menu.fade_sprite:set_animation("open", function()
+          sol.audio.play_music(game_over_menu.backup_music)
+          game:stop_game_over()
+          game_over_menu:restore_game_state(true)
+          sol.menu.stop(game_over_menu)
+        end)
+      end)
+    else
+      -- Add the death to the total death count.
+      local death_count = game:get_value("death_count") or 0
+      game:set_value("death_count", death_count + 1)
+
+      -- Go to next step.
+      game_over_menu:next_step()
+    end
+    
   end
 
 -- Step: show the Game Over title.
@@ -422,6 +427,7 @@ local function initialize_game_over_features(game)
     if game_over_menu.step_index == game_over_menu.step_indexes["fairy"] then
       game_over_menu.fairy_sprite:draw(dst_surface)
     end
+  
 
   end
 

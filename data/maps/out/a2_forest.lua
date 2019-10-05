@@ -90,7 +90,7 @@ function map:on_started(destination)
   map:init_tarin()
   owl_2:set_enabled(false)
   owl_3:set_enabled(false)
-  if game:has_item("mushroom") or game:has_item("magic_powders_counter") then 
+  if game:has_item("mushroom") or game:has_item("magic_powder_counter") then 
     mushroom:set_enabled(false)
   end
   if map:get_game():get_value("owl_2") == true then
@@ -319,7 +319,7 @@ function tarin:on_interaction_item(item)
   if game:get_value("main_quest_step") > 4 then
     return
   end
-  if item:get_name() == "magic_powders_counter"  then
+  if item:get_name() == "magic_powder_counter"  then
     map:launch_cinematic_1()
   end
 

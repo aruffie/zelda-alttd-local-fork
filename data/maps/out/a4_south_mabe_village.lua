@@ -15,6 +15,8 @@ function map:on_started(destination)
   map:init_map_entities()
   -- Digging
   map:set_digging_allowed(true)
+  -- Shore
+  map:init_shore()
 
 end
 
@@ -63,6 +65,19 @@ function map:init_map_entities()
   end)
 
 end
+
+-- Initialize shore
+function map:init_shore()
+  
+  sol.timer.start(map, 5000, function()
+    local x,y,layer = hero:get_position()
+    if y > 500 then
+      audio_manager:play_sound("misc/shore")
+    end  
+    return true
+  end)
+  
+end  
 
 -- Dungeon 1 opening
 function map:open_dungeon_1()
