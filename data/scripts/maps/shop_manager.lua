@@ -71,7 +71,17 @@ function shop_manager:add_product(map, name, params)
         layer = layer_placeholder,
         direction = 0
       })
-
+      local product_price = map:create_custom_entity({
+        name = "product_price_" .. name,
+        sprite = 'entities/symbols/prices',
+        x = x_placeholder,
+        y = y_placeholder - 12,
+        width = 16,
+        height = 16,
+        layer = layer_placeholder,
+        direction = 0
+      })
+      product_price:get_sprite():set_animation(params.price)
       local product_lifting = map:create_custom_entity({
         name = "product_lifting_" .. name,
         sprite = params.sprite,
@@ -82,43 +92,22 @@ function shop_manager:add_product(map, name, params)
         layer = layer_placeholder,
         direction = 0
       })
-
       product_lifting:set_weight(0)
       product_lifting:bring_to_back()
       product_lifting:get_sprite():set_animation("invisible")
 
-      function product_lifting:on_lifting()
-        local sprite = product_lifting:get_sprite()
+      function product_lifting:on_lifting(carrier, carried_object)
+        local sprite = carried_object:get_sprite()
+        sprite:set_animation("take")
         shop_manager.product = {
           name = name,
           params = params
         }
         product:remove()
-        game:set_custom_command_effect("action", "none")
+        product_price:remove()
+        --game:set_custom_command_effect("action", "none")
       end
-
-      -- Create price and quantity.
-      local price_text = sol.text_surface.create({
-        horizontal_alignment = "center",
-        text = params.price
-      })
-
-      local quantity_text = nil
-      if params.quantity > 1 then
-        quantity_text = sol.text_surface.create({
-          font = font_number,
-          text = params.quantity,
-          font_size = 8,
-          color = {255,255,255}
-        })
-      end
-
-      function product:on_pre_draw()
-        map:draw_visual(price_text, x_placeholder, y_placeholder - 26)
-        if quantity_text ~= nil then
-          map:draw_visual(quantity_text, x_placeholder + 5, y_placeholder - 4)
-        end
-      end
+  
     end
   end
 end
@@ -153,9 +142,8 @@ function shop_manager:buy_product(map)
           error = true
         end
       end
-
       if error then
-          game:start_dialog("maps.houses.mabe_village.shop_2.merchant_4")
+        game:start_dialog("maps.houses.mabe_village.shop_2.merchant_4")
       else
         local money = game:get_money()
         if money >= shop_manager.product.params.price then

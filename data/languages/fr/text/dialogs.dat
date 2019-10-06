@@ -45,32 +45,6 @@ Je suis gelé!
 }
 
 dialog{
-  id = "_shop.amount_full",
-  text = [[
-Tu es déjà au maximum !
-]],
-}
-
-dialog{
-  id = "_shop.not_enough_money",
-  skip = "all",
-  text = [[
-Désolé, mais tu n'as
-pas assez d'argent !
-]],
-}
-
-dialog{
-  id = "_shop.question",
-  question = "1",
-  text = [[
-Prix : $v rubis.
-Acheter
-Ne pas acheter
-]],
-}
-
-dialog{
   id = "_treasure.angler_key.1",
   icon = "41",
   text = [[
@@ -1917,16 +1891,15 @@ dialog{
   id = "maps.houses.mabe_village.shop_2.merchant_1",
   text = [[
 Bienvenue !      
-Apporte ici ce que tu       
-veux acheter.
+Apporte ici ce que tu veux acheter.
 ]],
 }
 
 dialog{
   id = "maps.houses.mabe_village.shop_2.merchant_2",
   text = [[
-Hé! Une minute! 
-Tu dois payer!
+Hé! Une minute ! 
+Tu dois payer !
 ]],
 }
 
@@ -1934,8 +1907,7 @@ dialog{
   id = "maps.houses.mabe_village.shop_2.merchant_3",
   text = [[
 Désolé petit !   
-Tu n'as pas assez 
-de rubis. 
+Tu n'as pas assez de rubis. 
 Reviens donc plus tard.
 ]],
 }
@@ -1943,19 +1915,16 @@ Reviens donc plus tard.
 dialog{
   id = "maps.houses.mabe_village.shop_2.merchant_4",
   text = [[
-Mama mia ! Tu n'es 
-pas encore rôdé...  
-Pourquoi acheter des
-choses inutiles ?
+Mama mia ! Tu n'es pas encore rôdé...  
+Pourquoi acheter des choses inutiles ?
 ]],
 }
 
 dialog{
   id = "maps.houses.mabe_village.shop_2.merchant_5",
   text = [[
-Je t'avais bien dit de
-me payer. Tu vas le       
-regretter...
+Je t'avais bien dit de me payer.
+Tu vas le regretter...
 ]],
 }
 
@@ -2010,8 +1979,7 @@ dialog{
   id = "maps.houses.mabe_village.shop_2.product_shield",
   question = "1",
   text = [[
-Bouclier        
-personnalisé.   
+Bouclier personnalisé.   
 20 rubis !  
 
 Oui
@@ -2024,7 +1992,7 @@ dialog{
   question = "1",
   text = [[
 Pelle de qualité
-200 rubis!   
+200 rubis !   
 C'est pas donné !
 
 Oui

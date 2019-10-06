@@ -1,12 +1,16 @@
 local laser_manager = {}
+local audio_manager=require("scripts/audio_manager")
+local effect_model = require("scripts/gfx_effects/electric")
 
-function laser_manager:init_map(map, entity, source, callback)
+function laser_manager:start(map, entity, source, callback)
 
   local direction = 1
   local sound_timer
   local x,y,layer = entity:get_position()
+  local camera = map:get_camera()
+  local surface = camera:get_surface()
   laser_core = map:create_custom_entity({
-    sprite ="entities/lightning_strike_core",
+    sprite ="entities/effects/lightning_strike_core",
     direction = direction,
     layer = layer,
     x = x,
@@ -24,13 +28,13 @@ function laser_manager:init_map(map, entity, source, callback)
   })
   laser:set_origin(8, 13)
   --laser:set_drawn_in_y_order(true)
-  laser_sprite = sol.sprite.create("entities/lightning_strike")
+  laser_sprite = sol.sprite.create("entities/effects/lightning_strike")
   -- Play a repeated sound.
   sound_timer = sol.timer.start(map, 150, function()
     audio_manager:play_sound("laser")
     return true  -- Repeat the timer.
   end)
-  local camera = map:get_camera()
+  effect_model.start_effect(surface, game, 'in', false)
   local shake_config = {
       count = 80,
       amplitude = 4,

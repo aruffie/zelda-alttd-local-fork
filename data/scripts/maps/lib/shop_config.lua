@@ -7,7 +7,7 @@ return {
     quantity = 1,
     placeholder = 1,
     variant = 1,
-    sprite = "entities/items/shovel",
+    sprite = "entities/items/item_shop_shovel",
     dialog_id = "shovel",
     buy_callback = function(map)
       local item = map:get_game():get_item("shovel")
@@ -24,7 +24,7 @@ return {
     quantity = 10,
     placeholder = 4,
     variant = 1,
-    sprite = "entities/bomb",
+    sprite = "entities/items/item_shop_bomb",
     dialog_id = "bomb",
     buy_callback = function(map)
       local item = map:get_game():get_item("bombs_counter")
@@ -45,7 +45,7 @@ return {
     quantity = 1,
     placeholder = 1,
     variant = 1,
-    sprite = "entities/bow",
+    sprite = "entities/items/item_shop_bow",
     dialog_id = "bow",
     buy_callback = function(map)
       local item_bow = map:get_game():get_item("bow")
@@ -55,7 +55,9 @@ return {
     activation_condition = function(map)
       local item_bow = map:get_game():get_item("bow")
       local variant_bow = item_bow:get_variant()
-      return variant_bow == 0
+      local item_shovel = map:get_game():get_item("shovel")
+      local variant_shovel = item_shovel:get_variant()
+      return variant_bow == 0 and variant_shovel > 0
     end,  
   },
   heart = {
@@ -63,7 +65,7 @@ return {
     quantity = 3,
     placeholder = 2,
     variant = 1,
-    sprite = "entities/items/heart",
+    sprite = "entities/items/item_shop_heart",
     dialog_id = "heart",
     buy_callback = function(map)
       local game = map:get_game()
@@ -74,11 +76,11 @@ return {
     end
   },
   shield = {
-    price = 50,
+    price = 10,  -- Todo change to 50 rupees
     quantity = 1,
     placeholder = 3,
     variant = 1,
-    sprite = "entities/items/shield",
+    sprite = "entities/items/item_shop_shield",
     dialog_id = "shield",
     buy_callback = function(map)
       local item = map:get_game():get_item("shield")

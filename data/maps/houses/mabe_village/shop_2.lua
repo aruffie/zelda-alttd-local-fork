@@ -6,18 +6,28 @@ local link_move = false
 
 -- Include scripts
 local shop_manager = require("scripts/maps/shop_manager")
+local laser_manager = require("scripts/maps/laser_manager")
 local audio_manager = require("scripts/audio_manager")
 
 -- Map events
 function map:on_started(destination)
-
   -- Music
   map:init_music()
   -- Entities
   map:init_map_entities()
   -- Shop
-  shop_manager:init(map)
+  if not game:get_value("thief_must_die") then
+    shop_manager:init(map)
+  end
 
+end
+
+function map:on_opening_transition_finished()
+  
+  if game:get_value("thief_must_die") then
+    map:launch_cinematic_1()
+  end
+  
 end
 
 -- Initialize the music of the map
@@ -26,8 +36,7 @@ function map:init_music()
   if game:get_value("main_quest_step") == 3  then
     audio_manager:play_music("07_koholint_island")
   else
-    local thief_must_die = game:get_value("thief_must_die")
-    if thief_must_die then
+    if game:get_value("thief_must_die") then
       audio_manager:play_music("boss")
     else
       audio_manager:play_music("14_shop")
@@ -39,8 +48,14 @@ end
 -- Initializes Entities based on player's progress
 function map:init_map_entities()
  
-  map:repeat_merchant_direction_check()
-  merchant_angry:set_enabled(false)
+  if not game:get_value("thief_must_die") then
+    map:repeat_merchant_direction_check()
+    merchant_angry:set_enabled(false)
+  else
+    merchant:set_enabled(false)
+    merchant_invisible:set_enabled(false)
+    merchant_angry:get_sprite():set_animation("angry")
+  end
 
 end
 
@@ -121,5 +136,38 @@ function exit_sensor:on_activated()
       game:set_value("thief_must_die", true)
     end
   end
+
+end
+
+-- Cinematics
+-- This is the cinematic in which the hero retrieves his sword
+function map:launch_cinematic_1()
+  
+  map:start_coroutine(function()
+    local options = {
+      entities_ignore_suspend = {merchant_angry}
+    }
+    map:set_cinematic_mode(true, options)
+    sol.audio.stop_music()
+    wait(1000)
+    hero:set_animation("walking")
+    local m1 = sol.movement.create("path")
+    m1:set_path{2,2,2,2}
+    m1:set_ignore_suspend(true)
+    m1:set_speed(80)
+    movement(m1, hero)
+    hero:set_animation("stopped")
+    wait(1000)
+    local symbol = hero:create_symbol_exclamation(true)
+    wait(1000)
+    dialog("maps.houses.mabe_village.shop_2.merchant_5")
+    symbol:remove()
+    laser_manager:start(map, hero, merchant_angry)
+    wait(5000)
+    game:set_life(0)
+    map:set_cinematic_mode(false, options)
+    map:init_music()
+    
+  end)
 
 end
