@@ -9074,15 +9074,6 @@ tile{
 }
 
 sensor{
-  name = "mushroom_sensor",
-  layer = 1,
-  x = 24,
-  y = 221,
-  width = 32,
-  height = 32,
-}
-
-sensor{
   name = "raccoon_lost_warning_sensor",
   layer = 1,
   x = 288,
@@ -11911,17 +11902,6 @@ wall{
   stops_enemies = true,
 }
 
-custom_entity{
-  name = "mushroom",
-  layer = 1,
-  x = 32,
-  y = 229,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/items/mushroom",
-}
-
 npc{
   name = "tarin_2",
   layer = 1,
@@ -12041,6 +12021,14 @@ wall{
   width = 16,
   height = 16,
   stops_enemies = true,
+}
+
+pickable{
+  name = "mushroom",
+  layer = 1,
+  x = 32,
+  y = 229,
+  treasure_name = "mushroom",
 }
 
 tile{

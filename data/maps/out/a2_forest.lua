@@ -90,7 +90,7 @@ function map:on_started(destination)
   map:init_tarin()
   owl_2:set_enabled(false)
   owl_3:set_enabled(false)
-  if game:has_item("mushroom") or game:has_item("magic_powder_counter") then 
+  if game:has_item("mushroom") or game:has_item("magic_powder_counter") and game:get_item("magic_powder_counter"):get_amount() > 0 then 
     mushroom:set_enabled(false)
   end
   if map:get_game():get_value("owl_2") == true then
@@ -441,7 +441,7 @@ function map:launch_cinematic_1()
     map:set_cinematic_mode(true, options)
     raccoon_movement = true
     raccoon_invisible:set_enabled(true)
-    sol.audio.stop_music()
+    audio_manager:stop_music()
     local camera = map:get_camera()
     camera:start_manual()
     hero:unfreeze()
@@ -457,14 +457,5 @@ function map:launch_cinematic_1()
     sprite:set_frame_delay(150)
     change_movement_raccoon()
   end)
-
-end
-
-function mushroom_sensor:on_activated()
-  
-  if mushroom:is_enabled() then
-    mushroom:set_enabled(false)
-    hero:start_treasure("mushroom", 1, "mushroom")
-  end
 
 end

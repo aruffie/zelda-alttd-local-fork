@@ -1937,6 +1937,19 @@ Et au plaisir !
 }
 
 dialog{
+  id = "maps.houses.mabe_village.shop_2.product_arrow",
+  question = "1",
+  text = [[
+10 Flèches :  
+10 rubis !       
+
+
+Oui
+Non
+]],
+}
+
+dialog{
   id = "maps.houses.mabe_village.shop_2.product_bomb",
   question = "1",
   text = [[

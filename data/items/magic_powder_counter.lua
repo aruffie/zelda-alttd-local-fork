@@ -17,15 +17,6 @@ function item:on_created()
 
 end
 
-function item:on_obtaining(variant, savegame_variable)
-
-  -- Sound
-  audio_manager:play_sound("items/fanfare_item")
-  item:set_max_amount(20)
-  item:set_amount(20)
-
-end
-
 -- Event called when the hero is using this item.
 function item:on_using()
 

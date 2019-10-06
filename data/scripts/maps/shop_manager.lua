@@ -105,7 +105,7 @@ function shop_manager:add_product(map, name, params)
         }
         product:remove()
         product_price:remove()
-        --game:set_custom_command_effect("action", "none")
+        --game:set_custom_command_effect("action", "buy")
       end
   
     end
@@ -132,6 +132,11 @@ function shop_manager:buy_product(map)
         end
       elseif shop_manager.product.name == "bombs" then
         local item = game:get_item("bombs_counter")
+        if item:get_amount() >= item:get_max_amount() then
+          error = true
+        end
+      elseif shop_manager.product.name == "arrow" then
+        local item = game:get_item("bow")
         if item:get_amount() >= item:get_max_amount() then
           error = true
         end
