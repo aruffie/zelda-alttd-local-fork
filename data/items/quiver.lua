@@ -26,7 +26,7 @@ function item:on_variant_changed(variant)
     bow:set_max_amount(0)
     arrow:set_obtainable(false)
   else
-    local max_amounts = {0, 30, 60}
+    local max_amounts = {30, 60}
     local max_amount = max_amounts[variant]
 
     -- Set the max value of the bow counter.

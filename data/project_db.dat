@@ -1172,6 +1172,7 @@ item{ id = "arrow", description = "Arrow" }
 item{ id = "beak_of_stone", description = "Beak of stone" }
 item{ id = "bird_key", description = "Bird key" }
 item{ id = "bomb", description = "Bomb" }
+item{ id = "bombs_bag", description = "Bombs bag" }
 item{ id = "bombs_counter", description = "Bombs counter" }
 item{ id = "boomerang", description = "Boomerang" }
 item{ id = "boss_key", description = "Boss key" }
@@ -1203,7 +1204,6 @@ item{ id = "instrument_8", description = "Thunder Drum" }
 item{ id = "magic_powder", description = "Magic Powder" }
 item{ id = "magic_powder_bag", description = "Magic powder bag" }
 item{ id = "magic_powder_counter", description = "Magic powder counter" }
-item{ id = "magic_powders_counter", description = "Magic powders counter" }
 item{ id = "magnifying_lens", description = "Magnifying lens" }
 item{ id = "map", description = "Dungeon map" }
 item{ id = "melody_1", description = "Melody 1" }

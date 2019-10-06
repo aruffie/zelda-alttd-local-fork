@@ -132,7 +132,7 @@ function shop_manager:buy_product(map)
         end
       elseif shop_manager.product.name == "bombs" then
         local item = game:get_item("bombs_counter")
-        if item:get_amount() >= item:get_max_amount() then
+        if item:get_variant() > 0 and item:get_amount() >= item:get_max_amount() then
           error = true
         end
       elseif shop_manager.product.name == "arrow" then

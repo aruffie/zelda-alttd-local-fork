@@ -27,12 +27,12 @@ return {
     sprite = "entities/items/item_shop_bomb",
     dialog_id = "bomb",
     buy_callback = function(map)
-      local item = map:get_game():get_item("bombs_counter")
-      if item:get_variant() == 0 then
-        item:set_max_amount(20)
+      local item_bombs_bag = map:get_game():get_item("bombs_bag")
+      local item_bombs_counter = map:get_game():get_item("bombs_counter")
+      if item_bombs_bag:get_variant() == 0 then
+        item_bombs_bag:set_variant(1)
       end  
-      item:set_variant(1)
-      item:add_amount(10)
+      item_bombs_counter:add_amount(10)
     end,  
     activation_condition = function(map)
       local item_shovel = map:get_game():get_item("shovel")
