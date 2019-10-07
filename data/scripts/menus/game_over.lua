@@ -268,10 +268,6 @@ local function initialize_game_over_features(game)
             end)
         end)
     else
-      -- Add the death to the total death count.
-      local death_count = game:get_value("death_count") or 0
-      game:set_value("death_count", death_count + 1)
-
       -- Go to next step.
       game_over_menu:next_step()
     end
@@ -279,37 +275,42 @@ local function initialize_game_over_features(game)
   
 -- Step: heal the hero if he has a drug.
   function game_over_menu:step_drug()
-    -- Check if the player has a drug.
-    local item = game:get_item("drug")
-    if item:get_variant() > 0 then
-        item:set_variant(0)
-      -- Wait for the hearts to be refilled.
-      -- Restore 7 hearts.
-      local restored_heart_count = 7
-      game:add_life(restored_heart_count * 4)
-      sol.timer.start(game_over_menu, 250 * restored_heart_count, function()
-        game_over_menu.fairy_sprite:fade_out(10)
-        game_over_menu.background:set_opacity(0)
-        game_over_menu.fade_sprite:set_animation("open", function()
-          sol.audio.play_music(game_over_menu.backup_music)
-          game:stop_game_over()
-          game_over_menu:restore_game_state(true)
-          sol.menu.stop(game_over_menu)
+    if not game:get_value("game_over_skip_drug") then
+      -- Check if the player has a drug.
+      local item = game:get_item("drug")
+      if item:get_variant() > 0 then
+          item:set_variant(0)
+        -- Wait for the hearts to be refilled.
+        -- Restore 7 hearts.
+        local restored_heart_count = 7
+        game:add_life(restored_heart_count * 4)
+        sol.timer.start(game_over_menu, 250 * restored_heart_count, function()
+          game_over_menu.fairy_sprite:fade_out(10)
+          game_over_menu.background:set_opacity(0)
+          game_over_menu.fade_sprite:set_animation("open", function()
+            sol.audio.play_music(game_over_menu.backup_music)
+            game:stop_game_over()
+            game_over_menu:restore_game_state(true)
+            sol.menu.stop(game_over_menu)
+          end)
         end)
-      end)
-    else
-      -- Add the death to the total death count.
-      local death_count = game:get_value("death_count") or 0
-      game:set_value("death_count", death_count + 1)
-
+      else
+        -- Go to next step.
+        game_over_menu:next_step()
+      end
+    else  
       -- Go to next step.
       game_over_menu:next_step()
     end
-    
+    game:set_value("game_over_skip_drug", false)
   end
 
 -- Step: show the Game Over title.
   function game_over_menu:step_title()
+    
+    -- Add the death to the total death count.
+    local death_count = game:get_value("death_count") or 0
+    game:set_value("death_count", death_count + 1)
     -- Play the game over music.
     audio_manager:play_music("82_game_over")
 

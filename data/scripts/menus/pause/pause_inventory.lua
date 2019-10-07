@@ -285,8 +285,16 @@ end
 function inventory_submenu:get_item_name(row, column)
 
     if column > 0 and column < 4 then
-      index = row * 3 + column - 1
-      item_name = item_names_assignable[index + 1]
+      if row == 3 and column == 1 then
+        item_name = item_names_static[5]
+      elseif row == 3 and column > 1 then
+        index = row * 3 + column - 1
+        item_name = item_names_assignable[index]
+      else
+        index = row * 3 + column - 1
+        item_name = item_names_assignable[index + 1]
+      end
+      
    elseif column == 4 then
       item_name = "melody_1"
    elseif column == 5 then
