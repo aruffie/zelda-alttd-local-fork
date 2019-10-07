@@ -22,7 +22,7 @@ local walking_speed = 32
 local walking_minimum_distance = 16
 local walking_maximum_distance = 96
 local walking_pause_duration = 1500
-local is_exhausted_duration = 500
+local exhausted_duration = 500
 
 -- Start the enemy movement.
 function enemy:start_walking()
@@ -43,12 +43,12 @@ function enemy:free_hero()
   hero:get_sprite("shadow"):set_opacity(255)
   hero:get_sprite("shadow_override"):set_opacity(255)
 
-  -- Make enemy exhausted and walk, then restart after some time.
+  -- Make enemy exhausted, then restart after some time.
   enemy:set_invincible()
   enemy:set_damage(0)
   enemy:set_can_attack(false)
 
-  sol.timer.start(enemy, is_exhausted_duration, function()
+  sol.timer.start(enemy, exhausted_duration, function()
     enemy:restart()
   end)
 end
@@ -70,7 +70,7 @@ function enemy:eat_hero()
   enemy:steal_item("shield", 1, true, true)
 end
 
--- Store the number of command pressed while eaten, and free the hero once 8 action commands are pressed.
+-- Store the number of command pressed while eaten, and free the hero once 8 item commands are pressed.
 game:register_event("on_command_pressed", function(game, command)
 
   if not enemy:exists() or not enemy:is_enabled() then
