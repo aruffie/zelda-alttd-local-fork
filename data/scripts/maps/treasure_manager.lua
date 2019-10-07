@@ -178,14 +178,12 @@ function treasure_manager:appear_pickable(map, pickable, sound)
         local options={
           entities_ignore_suspend={pickable,},
         }
-        map:set_cinematic_mode(true, options)
         pickable_entity:set_enabled(true)
         pickable_entity:fall_from_ceiling(192, "hero/cliff_jump", function()
-            if sound ~= nil and sound ~= false then
-              audio_manager:play_sound("misc/secret1")
-            end
-          end)
-        map:set_cinematic_mode(false, options)
+          if sound ~= nil and sound ~= false then
+            audio_manager:play_sound("misc/secret1")
+          end
+        end)
       end)
   end
 end

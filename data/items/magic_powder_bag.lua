@@ -27,7 +27,7 @@ function item:on_variant_changed(variant)
   if variant == 0 then
     magic_powder_counter:set_max_amount(0)
   else
-    local max_amounts = {0, 20, 40}
+    local max_amounts = {20, 40}
     local max_amount = max_amounts[variant]
     -- Set the max value of the bow counter.
     magic_powder_counter:set_variant(1)
