@@ -17,7 +17,7 @@ function light_manager:init(map)
   local y = 240 - hero_y + camera_y
   local dark_surface = sol.surface.create("entities/effects/dark.png")
   dark_surface:draw_region(
-      x, y, screen_width, screen_height, light_surface)
+    x, y, screen_width, screen_height, light_surface)
   if x < 0 then
     light_surface:fill_color(black, 0, 0, -x, screen_height)
   end
@@ -29,28 +29,20 @@ function light_manager:init(map)
   local dark_surface_width, dark_surface_height = dark_surface:get_size()
   if x > dark_surface_width - screen_width then
     light_surface:fill_color(black, dark_surface_width - x, 0,
-        x - dark_surface_width + screen_width, screen_height)
+      x - dark_surface_width + screen_width, screen_height)
   end
 
   if y > dark_surface_height - screen_height then
-    dst_surface:fill_color(black, 0, dark_surface_height - y,
-        screen_width, y - dark_surface_height + screen_height)
+    light_surface:fill_color(black, 0, dark_surface_height - y,
+      screen_width, y - dark_surface_height + screen_height)
   end
   light_surface:set_opacity(150)
   map:register_event("on_draw", function(map, dst_surface)
-    if map:get_light() ~= 0 then
-      return
-    end
-    if map.lit_torches ~= nil then
-      for torch in pairs(map.lit_torches) do
-        if torch:exists() and
-            torch:is_enabled() then
-          return
-        end
+      if map:get_light() == 1 then
+        return
       end
-    end
-    light_surface:draw(dst_surface, 0, 0)
-  end)
+      light_surface:draw(dst_surface, 0, 0)
+    end)
 
 end
 
@@ -65,13 +57,32 @@ function light_manager:check_is_light_active(map, torch_prefix)
 
 end
 
+local function update_torches_light_level(map)
+  local total=0
+  local lit=0
+  for entity in map:get_entities_in_region(map:get_hero():get_position()) do
+
+    if entity:get_type()=="custom_entity" and entity:get_model()=="torch" then
+      total=total+1
+      if entity:is_lit() then
+        lit=lit+1
+      end
+    end
+  end
+  if total~=0 and light_surface~=nil then
+    print ("Torches lit: "..lit.."/"..total, "opacity:"..150*(1-lit/total))
+    map:set_light(lit/total)
+    light_surface:set_opacity(150*(1-lit/total))
+  end
+end
+
 function map_meta:get_light()
 
   return self.light or 1
 end
 
 function map_meta:set_light(light)
-  
+
   self.light = light
 
 end
@@ -80,13 +91,14 @@ end
 function map_meta:torch_changed(torch)
 
   self.lit_torches = self.lit_torches or {}
-
   local lit = torch:is_lit()
   if lit then
     self.lit_torches[torch] = true
   else
     self.lit_torches[torch] = nil
   end
+  update_torches_light_level(self)
+
 end
 
 return light_manager
