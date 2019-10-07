@@ -1604,7 +1604,6 @@ file{ path = "items/instrument_7.lua", author = "Benjamin Schweitzer", license =
 file{ path = "items/instrument_8.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/lib/hookshot_config.lua", license = "GPL v3" }
 file{ path = "items/magic_powder.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "items/magic_powders_counter.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/magnifying_lens.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/map.lua", license = "GPL v3" }
 file{ path = "items/melody_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
