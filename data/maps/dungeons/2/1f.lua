@@ -18,7 +18,7 @@ local block_manager=require("scripts/maps/block_manager")
 require("scripts/multi_events")
 
 -- Map events
-function map:on_started()
+function map:on_started(destination)
 
   -- Chests
   treasure_manager:appear_chest_if_savegame_exist(map, "chest_compass",  "dungeon_2_compass")
@@ -68,6 +68,7 @@ function map:on_started()
   end
   -- Init light
   if destination == stairs_2_B then
+    print("bah merde")
     map:set_light(0)
   end
 
@@ -183,77 +184,6 @@ sensor_boss:register_event("on_activated", function()
 
 end)
 
--- Separators events
-separator_1:register_event("on_activated", function(separator, direction4)
-
-  map:set_light(0)
-
-end)
-
-separator_2:register_event("on_activating", function(separator, direction4)
-
-  local x, y = hero:get_position()
-  if direction4 == 2 then
-    map:set_light(0)
-  end
-
-end)
-
-separator_2:register_event("on_activated", function(separator, direction4)
-
-  if direction4 ~= 2 then
-    map:set_light(1)
-  end
-
-end)
-
-separator_3:register_event("on_activating", function(separator, direction4)
-
-  if direction4 == 1 then
-    map:set_light(0)
-  end
-
-end)
-
-separator_3:register_event("on_activated", function(separator, direction4)
-
-  if direction4 ~= 1 then
-    map:set_light(1)
-  end
-
-end)
-
-separator_4:register_event("on_activated", function(separator, direction4)
-
-  map:set_light(0)
-
-end)
-
-separator_4:register_event("on_activated", function(separator, direction4)
-
-  map:set_light(1)
-
-  end)
-
-
-separator_5:register_event("on_activating", function(separator, direction4)
-
-  local x, y = hero:get_position()
-  if direction4 == 2 then
-    map:set_light(0)
-  end
-
-end)
-
-separator_5:register_event("on_activated", function(separator, direction4)
-
-  if direction4 ~= 2 then
-    map:set_light(1)
-  end
-
-end)
-
--- Switchs events
 switch_1:register_event("on_activated", function()
 
   treasure_manager:appear_chest(map, "chest_small_key_4", true)

@@ -7,20 +7,20 @@ local item_names_assignable = {
   "mushroom",
   "ocarina",
   "feather",
-  "pegasus_shoes",
   "bombs_counter",
-  "drug",
   "shovel",
-  "bow",
+  "pegasus_shoes",
   "hookshot",
-  "hammer",
+  "bow",
   "fire_rod",
+  "hammer"
 }
 local item_names_static = {
   "tunic",
   "sword",
   "flippers",
-  "power_bracelet"
+  "power_bracelet",
+  "drug"
 }
 
 function inventory_submenu:on_started()
@@ -36,15 +36,13 @@ function inventory_submenu:on_started()
   self.captions = {}
   self.counters = {}
   self.menu_ocarina = false
-  if self.game:has_item("magic_powder_counter") then
+  if self.game:has_item("magic_powder_counter") and self.game:get_item("magic_powder_counter"):get_amount() > 0 then
     item_names_assignable[2] = "magic_powder_counter"
   else
     item_names_assignable[2] = "mushroom"
   end
   if self.game:get_value("get_boomerang") then
-    item_names_assignable[8] = "boomerang"
-  else
-    item_names_assignable[8] = "shovel"
+    item_names_assignable[6] = "boomerang"
   end
 
   -- Initialize the cursor
@@ -104,7 +102,7 @@ function inventory_submenu:on_draw(dst_surface)
   local y = menu_y + 84
   local k = 0
   local x = menu_x + 64
-  for j = 0, 3 do
+  for j = 0, 4 do
     k = k + 1
     local item = self.game:get_item(item_names_static[k])
     if item:get_variant() > 0 then
@@ -112,7 +110,12 @@ function inventory_submenu:on_draw(dst_surface)
       self.sprites_static[k]:draw(dst_surface, x, y)
     end
     -- Next item position (they are on the same column).
-    y = y + cell_size + cell_spacing
+    if j < 3 then
+      y = y + cell_size + cell_spacing
+    else
+      x = x + cell_size + cell_spacing
+    end
+    
   end
 
   -- Draw each inventory assignable item.
@@ -122,6 +125,9 @@ function inventory_submenu:on_draw(dst_surface)
   for i = 0, 3 do
     local x = menu_x + 96
     for j = 0, 2 do
+      if i == 3 and j == 0 then
+        x = x + cell_size + cell_spacing
+      end
       k = k + 1
       if item_names_assignable[k] ~= nil then
         local item = self.game:get_item(item_names_assignable[k])
@@ -142,21 +148,21 @@ function inventory_submenu:on_draw(dst_surface)
   -- Draw ocarina menu.
   if self.menu_ocarina == true then
     local menu_ocarina_img = sol.surface.create("menus/pause/inventory/ocarina_background.png")
-    menu_ocarina_img:draw_region(0, 0, 98, 34, dst_surface, menu_x + 174, menu_y + 69) 
+    menu_ocarina_img:draw_region(0, 0, 98, 34, dst_surface, menu_x + 174, menu_y + 62) 
     local melody = self.game:get_item("melody_1")
     if melody:get_variant() > 0 then
       local menu_ocarina_img_1 = sol.surface.create("menus/pause/inventory/ocarina_1.png")
-      menu_ocarina_img_1:draw_region(0, 0, 98, 34, dst_surface, menu_x + 184, menu_y + 78) 
+      menu_ocarina_img_1:draw_region(0, 0, 98, 34, dst_surface, menu_x + 184, menu_y + 72) 
     end
     local melody = self.game:get_item("melody_2")
     if melody:get_variant() > 0 then
       local menu_ocarina_img_2 = sol.surface.create("menus/pause/inventory/ocarina_2.png")
-      menu_ocarina_img_2:draw_region(0, 0, 98, 34, dst_surface, menu_x + 216, menu_y + 78)
+      menu_ocarina_img_2:draw_region(0, 0, 98, 34, dst_surface, menu_x + 216, menu_y + 72)
     end
     local melody = self.game:get_item("melody_2")
     if melody:get_variant() > 0 then
       local menu_ocarina_img_3 = sol.surface.create("menus/pause/inventory/ocarina_3.png")
-      menu_ocarina_img_3:draw_region(0, 0, 98, 34, dst_surface, menu_x + 248, menu_y + 78)
+      menu_ocarina_img_3:draw_region(0, 0, 98, 34, dst_surface, menu_x + 248, menu_y + 72)
   end
   end
 
@@ -279,8 +285,16 @@ end
 function inventory_submenu:get_item_name(row, column)
 
     if column > 0 and column < 4 then
-      index = row * 3 + column - 1
-      item_name = item_names_assignable[index + 1]
+      if row == 3 and column == 1 then
+        item_name = item_names_static[5]
+      elseif row == 3 and column > 1 then
+        index = row * 3 + column - 1
+        item_name = item_names_assignable[index]
+      else
+        index = row * 3 + column - 1
+        item_name = item_names_assignable[index + 1]
+      end
+      
    elseif column == 4 then
       item_name = "melody_1"
    elseif column == 5 then

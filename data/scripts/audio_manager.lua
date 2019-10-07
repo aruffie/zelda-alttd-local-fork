@@ -111,6 +111,7 @@ local function lenient_play_music(id_music)
   else
     print("Warning : the music " .. id_music .. " doesn't exist")
   end
+  
 end
 
 -- Play music according to the mode of play

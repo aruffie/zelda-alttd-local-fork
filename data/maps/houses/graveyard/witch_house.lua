@@ -62,13 +62,13 @@ end
 -- Torches events
 timed_torch_1:register_event("on_lit", function()
 
-    if not game:get_value("witch_indication") then
+    if map.witch_indication then
       game:set_value("witch_indication", true)
       game:start_dialog("maps.houses.graveyard.witch_house.witch_4")
+      map.witch_indication = false
     end
     
 end)
-
 
 -- Wardrobes
 for wardrobe in map:get_entities("wardrobe") do
@@ -96,7 +96,7 @@ function map:launch_cinematic_1(slot)
     game:set_hud_enabled(true)
     game:start_dialog("maps.houses.graveyard.witch_house.witch_3", function() 
       hero:start_treasure("magic_powder_bag", 1, nil, function()
-        game:set_value("witch_indication", false)
+        map.witch_indication = true
         map:set_cinematic_mode(false, options)
       end)
       local item = game:get_item("magic_powder_counter")

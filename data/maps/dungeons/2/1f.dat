@@ -21455,7 +21455,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "floor_74_unstable_associate__2",
+  name = "floor_74_unstable_associate_",
   layer = 0,
   x = 528,
   y = 528,
@@ -24173,23 +24173,6 @@ tile{
 }
 
 separator{
-  name = "separator_1",
-  layer = 2,
-  x = 632,
-  y = 1200,
-  width = 16,
-  height = 240,
-}
-
-separator{
-  layer = 2,
-  x = 952,
-  y = 1440,
-  width = 16,
-  height = 480,
-}
-
-separator{
   layer = 2,
   x = 1272,
   y = 0,
@@ -24215,9 +24198,9 @@ separator{
 
 separator{
   layer = 2,
-  x = 640,
+  x = 0,
   y = 1192,
-  width = 1280,
+  width = 2560,
   height = 16,
 }
 
@@ -24231,9 +24214,9 @@ separator{
 
 separator{
   layer = 2,
-  x = 640,
+  x = 0,
   y = 712,
-  width = 1920,
+  width = 2560,
   height = 16,
 }
 
@@ -24257,15 +24240,7 @@ separator{
   layer = 2,
   x = 0,
   y = 1432,
-  width = 640,
-  height = 16,
-}
-
-separator{
-  layer = 2,
-  x = 960,
-  y = 1432,
-  width = 1600,
+  width = 2560,
   height = 16,
 }
 
@@ -24274,7 +24249,7 @@ separator{
   x = 952,
   y = 0,
   width = 16,
-  height = 1200,
+  height = 1920,
 }
 
 separator{
@@ -24302,97 +24277,10 @@ separator{
 }
 
 separator{
-  name = "separator_3",
-  layer = 2,
-  x = 640,
-  y = 1432,
-  width = 320,
-  height = 16,
-}
-
-separator{
   layer = 2,
   x = 632,
-  y = 1440,
+  y = -8,
   width = 16,
-  height = 480,
-}
-
-separator{
-  layer = 2,
-  x = 632,
-  y = 240,
-  width = 16,
-  height = 960,
-}
-
-separator{
-  name = "separator_4",
-  layer = 2,
-  x = 320,
-  y = 1192,
-  width = 320,
-  height = 16,
-}
-
-separator{
-  layer = 2,
-  x = 0,
-  y = 1192,
-  width = 320,
-  height = 16,
-}
-
-separator{
-  name = "separator_2",
-  layer = 2,
-  x = 952,
-  y = 1200,
-  width = 16,
-  height = 240,
-}
-
-separator{
-  name = "auto_separator_23",
-  layer = 2,
-  x = 320,
-  y = 712,
-  width = 320,
-  height = 16,
-}
-
-separator{
-  layer = 2,
-  x = 0,
-  y = 712,
-  width = 320,
-  height = 16,
-}
-
-separator{
-  name = "separator_5",
-  layer = 2,
-  x = 632,
-  y = 0,
-  width = 16,
-  height = 240,
-}
-
-separator{
-  name = "auto_separator_26",
-  layer = 2,
-  x = 1920,
-  y = 1192,
-  width = 320,
-  height = 16,
-}
-
-separator{
-  name = "auto_separator_27",
-  layer = 2,
-  x = 2240,
-  y = 1192,
-  width = 320,
-  height = 16,
+  height = 1920,
 }
 

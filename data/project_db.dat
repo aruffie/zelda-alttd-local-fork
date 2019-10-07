@@ -528,7 +528,6 @@ sprite{ id = "entities/orb_monster_orb_green", description = "Orb monster orb gr
 sprite{ id = "entities/orb_monster_orb_red", description = "Orb monster orb red" }
 sprite{ id = "entities/outside_door", description = "Outside closed door" }
 sprite{ id = "entities/photographer_canvas", description = "Photographer canvas" }
-sprite{ id = "entities/prices_shop", description = "Prices shop" }
 sprite{ id = "entities/shadow", description = "Shadow" }
 sprite{ id = "entities/shadows/ball", description = "Ball" }
 sprite{ id = "entities/shadows/owl", description = "Owl" }
@@ -550,6 +549,7 @@ sprite{ id = "entities/symbols/exclamation", description = "Exclamation" }
 sprite{ id = "entities/symbols/interrogation", description = "Interrogation" }
 sprite{ id = "entities/symbols/notes", description = "Notes" }
 sprite{ id = "entities/symbols/oh", description = "Oh" }
+sprite{ id = "entities/symbols/prices", description = "Prices shop" }
 sprite{ id = "entities/symbols/snores", description = "Snores" }
 sprite{ id = "entities/turtlerock_arms", description = "Turtlerock arms" }
 sprite{ id = "entities/turtlerock_head", description = "Turtlerock head" }
@@ -1173,6 +1173,7 @@ item{ id = "arrow", description = "Arrow" }
 item{ id = "beak_of_stone", description = "Beak of stone" }
 item{ id = "bird_key", description = "Bird key" }
 item{ id = "bomb", description = "Bomb" }
+item{ id = "bombs_bag", description = "Bombs bag" }
 item{ id = "bombs_counter", description = "Bombs counter" }
 item{ id = "boomerang", description = "Boomerang" }
 item{ id = "boss_key", description = "Boss key" }
@@ -1204,7 +1205,6 @@ item{ id = "instrument_8", description = "Thunder Drum" }
 item{ id = "magic_powder", description = "Magic Powder" }
 item{ id = "magic_powder_bag", description = "Magic powder bag" }
 item{ id = "magic_powder_counter", description = "Magic powder counter" }
-item{ id = "magic_powders_counter", description = "Magic powders counter" }
 item{ id = "magnifying_lens", description = "Magnifying lens" }
 item{ id = "map", description = "Dungeon map" }
 item{ id = "melody_1", description = "Melody 1" }
@@ -1606,7 +1606,6 @@ file{ path = "items/instrument_7.lua", author = "Benjamin Schweitzer", license =
 file{ path = "items/instrument_8.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/lib/hookshot_config.lua", license = "GPL v3" }
 file{ path = "items/magic_powder.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "items/magic_powders_counter.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/magnifying_lens.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/map.lua", license = "GPL v3" }
 file{ path = "items/melody_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }

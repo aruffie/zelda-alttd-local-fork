@@ -65,9 +65,22 @@ function entity_respawn_manager:init(map)
 
 
   function entity_respawn_manager:reset_torches(map)
-    -- Torches
+    local hero=map:get_hero()
+    local found=false
     for _, torch in pairs(saved_entities.torches) do
       torch:set_lit(false)
+      if torch:is_in_same_region(hero) then --TODO take account of dungeon 6 pre-boss torches
+        --print ("found "..(torch:get_name() or "<something>")..". XY: ", torch:get_position())
+        found=true
+      end
+    end
+
+    if found==true then
+    --  print "Lights OFF"
+      map:set_light(0)
+    else
+     -- print "Lights ON"
+      map:set_light(1)
     end
   end
 
@@ -299,7 +312,7 @@ function entity_respawn_manager:init(map)
         end
 
         if entity:get_model()=="torch" then
-          saved_entities.torches[#saved_entities.torches]=entity
+          saved_entities.torches[#saved_entities.torches + 1]=entity
         end 
       end
 

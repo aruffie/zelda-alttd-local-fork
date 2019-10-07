@@ -19,13 +19,6 @@ function item:on_created()
 
 end
 
-function item:on_obtaining(variant, savegame_variable)
-
-  self:set_max_amount(20)
-  self:set_amount(20)
-
-end
-
 function item:start_combo(other)
   if other:get_name()=="bow" and other.start_combo then
 --    print "Combined items bomb"

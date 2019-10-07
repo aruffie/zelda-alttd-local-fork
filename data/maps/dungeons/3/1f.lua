@@ -64,15 +64,6 @@ function map:on_opening_transition_finished(destination)
   
 end
 
-function map:on_obtaining_treasure(item, variant, savegame_variable)
-
-  if savegame_variable == "dungeon_3_big_treasure" then
-    treasure_manager:get_instrument(map)
-    item:get_game():set_value("main_quest_step", 18)
-  end
-
-end
-
 -- Doors events
 weak_wall_group_1:register_event("on_opened", function()
     
@@ -157,7 +148,7 @@ sensor_8:register_event("on_activated", function()
 end)
 
 -- Separators events
-auto_separator_15:register_event("on_activating", function(separator, direction4)
+separator_1:register_event("on_activating", function(separator, direction4)
     
   if direction4 == 3 then
     is_small_boss_active = false
