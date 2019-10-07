@@ -19,11 +19,11 @@ function separator_manager:init(map)
   entity_respawn_manager:save_entities(map)
   -- Function called when a separator was just taken.
   local function separator_on_activated(separator)
+    local hero=map:get_hero()
     entity_respawn_manager:respawn_enemies(map) -- originally triggered by separator:on_activating
     entity_respawn_manager:reset_torches(map)
     entity_respawn_manager:reset_bombs()
 
-    local hero = map:get_hero()
     hero.respawn_point_saved=nil
     -- Enemies.
 
