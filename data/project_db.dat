@@ -322,6 +322,7 @@ sprite{ id = "enemies/projectiles/bomb", description = "Bomb" }
 sprite{ id = "enemies/projectiles/bone", description = "Bone" }
 sprite{ id = "enemies/projectiles/coconut", description = "Coconut" }
 sprite{ id = "enemies/projectiles/fireball", description = "Fireball" }
+sprite{ id = "enemies/projectiles/iceball", description = "Iceball" }
 sprite{ id = "enemies/projectiles/laser", description = "Beamos laser" }
 sprite{ id = "enemies/projectiles/magmaball", description = "Magmaball" }
 sprite{ id = "enemies/projectiles/spear", description = "Moblin Pig Spear (Spear)" }
@@ -1342,6 +1343,7 @@ enemy{ id = "projectiles/bone", description = "Bone" }
 enemy{ id = "projectiles/cactus", description = "Cactus" }
 enemy{ id = "projectiles/coconut", description = "Coconut" }
 enemy{ id = "projectiles/fireball", description = "Fireball" }
+enemy{ id = "projectiles/iceball", description = "Iceball" }
 enemy{ id = "projectiles/laser", description = "Laser" }
 enemy{ id = "projectiles/magmaball", description = "Magmaball" }
 enemy{ id = "projectiles/spear", description = "Spear" }
