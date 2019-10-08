@@ -1073,6 +1073,10 @@ custom_entity{
       key = "needs_carrying",
       value = "true",
     },
+    {
+      key = "auto_respawn",
+      value = "true",
+    },
   },
   width = 32,
   height = 16,
@@ -1120,6 +1124,10 @@ custom_entity{
     {
       key = "needs_carrying",
       value = "false",
+    },
+    {
+      key = "auto_respawn",
+      value = "true",
     },
   },
   width = 32,
