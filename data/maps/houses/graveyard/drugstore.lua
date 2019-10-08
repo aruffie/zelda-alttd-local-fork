@@ -33,7 +33,7 @@ function crazy_tracy:on_interaction()
     drugs_bought = 0
   end
   local amount = 28
-  local killed_enemies=game:get_value("stats_shop_drug_count")
+  local killed_enemies=game:get_value("stats_shop_drug_count") or 0
   --if drug_already_bought and game.sell_drug_at_high_price then
   if drug_already_bought and killed_enemies%2 == 1 then
     amount = 42
