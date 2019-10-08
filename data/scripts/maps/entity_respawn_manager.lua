@@ -8,13 +8,11 @@
 
 local entity_respawn_manager = {}
 local light_manager_fsa = require("scripts/lights/light_manager")
+local light_manager=require("scripts/maps/light_manager")
 require("scripts/multi_events")
 
 function entity_respawn_manager:init(map)
 
-  if not map.blocks_remaining then
-    map.blocks_remaining = {}
-  end
   local saved_entities={
     enemies = {},
     unstable_floors = {},
@@ -67,20 +65,21 @@ function entity_respawn_manager:init(map)
   function entity_respawn_manager:reset_torches(map)
     local hero=map:get_hero()
     local found=false
+    print ("reset torches. Table is "..(unpack(map.torches_remaining) or "<none>"))
+
     for _, torch in pairs(saved_entities.torches) do
       torch:set_lit(false)
       if torch:is_in_same_region(hero) then --TODO take account of dungeon 6 pre-boss torches
-        --print ("found "..(torch:get_name() or "<something>")..". XY: ", torch:get_position())
+--        print ("found "..(torch:get_name() or "<something>")..". XY: ", torch:get_position())
         found=true
       end
     end
+    light_manager:update_light_level(map)
 
-    if found==true then
-    --  print "Lights OFF"
-      map:set_light(0)
-    else
-     -- print "Lights ON"
-      map:set_light(1)
+    if map.torches_remaining~=nil then
+      for torch_group, remaining in pairs(map.torches_remaining) do
+        map.torches_remaining[torch_group]=map:get_entities_count(torch_group) 
+      end
     end
   end
 
@@ -115,10 +114,11 @@ function entity_respawn_manager:init(map)
       end
     end
     --Reset counters for block riddles
-
-    for block_group in pairs(map.blocks_remaining) do 
-      if block_group then
-        map.blocks_remaining[block_group]=map:get_entities_count(block_group)
+    if map.blocks_remaining then
+      for block_group in pairs(map.blocks_remaining) do 
+        if block_group then
+          map.blocks_remaining[block_group]=map:get_entities_count(block_group)
+        end
       end
     end
   end

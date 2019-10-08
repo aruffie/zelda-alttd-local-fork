@@ -57,12 +57,12 @@ function light_manager:check_is_light_active(map, torch_prefix)
 
 end
 
-local function update_torches_light_level(map)
+function light_manager:update_light_level(map)
   local total=0
   local lit=0
-  for entity in map:get_entities_in_region(map:get_hero():get_position()) do
+  for entity in map:get_entities() do
 
-    if entity:get_type()=="custom_entity" and entity:get_model()=="torch" then
+    if entity:get_type()=="custom_entity" and entity:get_model()=="torch" and entity:is_in_same_region(map:get_hero()) then
       total=total+1
       if entity:is_lit() then
         lit=lit+1
@@ -70,9 +70,11 @@ local function update_torches_light_level(map)
     end
   end
   if total~=0 and light_surface~=nil then
-    print ("Torches lit: "..lit.."/"..total, "opacity:"..150*(1-lit/total))
+--    print ("Torches lit: "..lit.."/"..total, "opacity:"..150*(1-lit/total))
     map:set_light(lit/total)
     light_surface:set_opacity(150*(1-lit/total))
+  else 
+    map:set_light(1)
   end
 end
 
@@ -97,7 +99,7 @@ function map_meta:torch_changed(torch)
   else
     self.lit_torches[torch] = nil
   end
-  update_torches_light_level(self)
+  light_manager:update_light_level(self)
 
 end
 
