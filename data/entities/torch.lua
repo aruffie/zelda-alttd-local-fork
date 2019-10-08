@@ -25,12 +25,10 @@ torch:register_event("on_created", function()
     local lit = torch:get_direction() ~= 0
     sprite:set_direction(0)
     torch:set_lit(lit)
-
     local name = torch:get_name()
-
     if torch:get_property("timer")=="true" then
       local duration_text=torch:get_property("timer_delay")
-      local duration=(duration_text~="" and duration_text:to_number() or 10000)
+      local duration= (duration_text and duration_text:to_number() or 10000)
       torch:set_duration(duration)
     end
 

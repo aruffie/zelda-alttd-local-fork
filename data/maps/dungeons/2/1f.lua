@@ -37,7 +37,7 @@ function map:on_started(destination)
   door_manager:open_when_enemies_dead(map,  "enemy_group_8_",  "door_group_4_")
   -- Ennemies
   enemy_manager:create_teletransporter_if_small_boss_dead(map, false)
-  enemy_manager:set_weak_boo_buddies_when_at_least_on_torch_lit(map, "timed_torch_group_6_", "enemy_group_17_")
+  enemy_manager:set_weak_boo_buddies_when_at_least_on_torch_lit(map, "torch_group_6_", "enemy_group_17_")
   -- Light
   light_manager:init(map)
   -- Music

@@ -19982,10 +19982,16 @@ chest{
 }
 
 custom_entity{
-  name = "timed_torch_group_6_1",
+  name = "torch_group_6_1",
   layer = 0,
   x = 376,
   y = 93,
+  properties = {
+    {
+      key = "timer",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
   direction = 0,
@@ -19994,10 +20000,16 @@ custom_entity{
 }
 
 custom_entity{
-  name = "timed_torch_group_6_2",
+  name = "torch_group_6_2",
   layer = 0,
   x = 472,
   y = 189,
+  properties = {
+    {
+      key = "timer",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
   direction = 0,
@@ -20302,10 +20314,16 @@ enemy{
 }
 
 custom_entity{
-  name = "timed_torch_group_4_1",
+  name = "torch_group_4_1",
   layer = 0,
   x = 376,
   y = 909,
+  properties = {
+    {
+      key = "timer",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
   direction = 0,
@@ -20314,10 +20332,16 @@ custom_entity{
 }
 
 custom_entity{
-  name = "timed_torch_group_4_2",
+  name = "torch_group_4_2",
   layer = 0,
   x = 376,
   y = 781,
+  properties = {
+    {
+      key = "timer",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
   direction = 0,
@@ -22244,6 +22268,12 @@ sensor{
   layer = 0,
   x = 480,
   y = 1157,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
 }
