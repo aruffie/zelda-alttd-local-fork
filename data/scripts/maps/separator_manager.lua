@@ -23,6 +23,7 @@ function separator_manager:init(map)
     entity_respawn_manager:respawn_enemies(map) -- originally triggered by separator:on_activating
     entity_respawn_manager:reset_torches(map)
     entity_respawn_manager:reset_bombs()
+    entity_respawn_manager:reset_moving_platforms()
 
     hero.respawn_point_saved=nil
     -- Enemies.
