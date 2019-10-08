@@ -18,6 +18,7 @@ function entity_respawn_manager:init(map)
     unstable_floors = {},
     torches = {}, 
     destructibles = {},
+    moving_platforms = {},
     blocks = {},
     custom_entities = {},
   }
@@ -79,6 +80,12 @@ function entity_respawn_manager:init(map)
       for torch_group, remaining in pairs(map.torches_remaining) do
         map.torches_remaining[torch_group]=map:get_entities_count(torch_group) 
       end
+    end
+  end
+
+  function entity_respawn_manager:reset_moving_platforms()
+    for _, platform in pairs(saved_entities.moving_platforms) do
+      platform:reset()
     end
   end
 
@@ -272,7 +279,8 @@ function entity_respawn_manager:init(map)
       end
 
       if entity_type=="custom_entity" then
-        if entity:get_model()=="unstable_floor" then
+        local model=entity:get_model()
+        if model=="unstable_floor" then
           local tile_name=entity:get_name().."_unstable_associate_"
           local associated_tile=map:get_entity(tile_name)
           -- Store the position and properties of unstable floors.
@@ -309,9 +317,13 @@ function entity_respawn_manager:init(map)
             floor=entity,
           }
         end
+        
+        if model=="platform_moving" then
+          saved_entities.moving_platforms[#saved_entities.moving_platforms + 1] = entity
+        end
 
         if entity:get_model()=="torch" then
-          saved_entities.torches[#saved_entities.torches + 1]=entity
+          saved_entities.torches[#saved_entities.torches + 1] = entity
         end 
       end
 
@@ -353,7 +365,7 @@ function entity_respawn_manager:init(map)
 
       if entity:get_property("auto_respawn")=="true" then
 -- Store the position and properties of custom entities
-        if entity_type=="custom_entity" and entity:get_model()~="unstable_floor" and entity:get_model()~="torch" then
+        if entity_type=="custom_entity" and entity:get_model()~="unstable_floor" and entity:get_model()~="torch" and entity:get_model()~= "moving_platform" then
           saved_entities.custom_entities[#saved_entities.custom_entities + 1] = {
             x = x,
             y = y,
@@ -381,6 +393,7 @@ function entity_respawn_manager:init(map)
     self:reset_bombs()
     self:reset_blocks(map)
     self:reset_custom_entities(map)
+    self:reset_moving_platforms()
     self:reset_unstable_floors(map)
     self:reset_destructibles(map)
     self:reset_enemies(map) -- originally triggered by separator:on_activating
