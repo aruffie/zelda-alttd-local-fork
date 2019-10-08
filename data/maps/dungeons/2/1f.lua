@@ -97,55 +97,54 @@ end
 -- Enemies events
 enemy_group_15_1:register_event("on_dead", function()
 
-    if boss_key_enemies_index == 0 then
-      boss_key_enemies_index = 1
-    end
+  if boss_key_enemies_index == 0 then
+    boss_key_enemies_index = 1
+  end
 
-  end)
+end)
 
 enemy_group_15_2:register_event("on_dead", function()
 
-    if boss_key_enemies_index == 1 then
-      boss_key_enemies_index = 2
-    end
+  if boss_key_enemies_index == 1 then
+    boss_key_enemies_index = 2
+  end
 
-  end)
+end)
 
 enemy_group_15_3:register_event("on_dead", function()
 
-    if boss_key_enemies_index == 2 then
-      treasure_manager:appear_chest(map, "chest_boss_key", true)
-    end
+  if boss_key_enemies_index == 2 then
+    treasure_manager:appear_chest(map, "chest_boss_key", true)
+  end
 
-  end)
+end)
 
 enemy_group_16_1:register_event("on_dead", function()
 
-    local remaining = map:get_entities_count("enemy_group_16_")
-    if remaining == 0 and not game:get_value("dungeon_2_wall_2") then
-      door_manager:open_hidden_staircase(map, "wall_2", "dungeon_2_wall_2") 
+  local remaining = map:get_entities_count("enemy_group_16_")
+  if remaining == 0 and not game:get_value("dungeon_2_wall_2") then
+    door_manager:open_hidden_staircase(map, "wall_2", "dungeon_2_wall_2") 
+  end
 
-    end
-
-  end)
+end)
 
 enemy_group_16_2:register_event("on_dead", function()
 
-    local remaining = map:get_entities_count("enemy_group_16_")
-    if remaining == 0 and not game:get_value("dungeon_2_wall_2") then
-      door_manager:open_hidden_staircase(map, "wall_2", "dungeon_2_wall_2") 
-    end
+  local remaining = map:get_entities_count("enemy_group_16_")
+  if remaining == 0 and not game:get_value("dungeon_2_wall_2") then
+    door_manager:open_hidden_staircase(map, "wall_2", "dungeon_2_wall_2") 
+  end
 
-  end)
+end)
 
 enemy_group_16_3:register_event("on_dead", function()
 
-    local remaining = map:get_entities_count("enemy_group_16_")
-    if remaining == 0 and not game:get_value("dungeon_2_wall_2") then
-      door_manager:open_hidden_staircase(map, "wall_2", "dungeon_2_wall_2") 
-    end
+  local remaining = map:get_entities_count("enemy_group_16_")
+  if remaining == 0 and not game:get_value("dungeon_2_wall_2") then
+    door_manager:open_hidden_staircase(map, "wall_2", "dungeon_2_wall_2") 
+  end
 
-  end)
+end)
 
 -- Sensors events
 sensor_1:register_event("on_activated", function()
