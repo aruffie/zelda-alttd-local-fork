@@ -53,8 +53,6 @@ function map:on_started()
   treasure_manager:disappear_pickable(map, "heart_container")
   treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_7_", "pickable_small_key_1")
   treasure_manager:appear_heart_container_if_boss_dead(map)
-  -- Separators
-  separator_manager:init(map)
   -- Switchs
   switch_manager:activate_switch_if_savegame_exist(map, "switch_1",  "dungeon_1_small_key_2")
   -- Walls
@@ -63,6 +61,8 @@ function map:on_started()
       entity:remove()
     end
   end
+  -- Separators
+  separator_manager:init(map)
   
 end
 

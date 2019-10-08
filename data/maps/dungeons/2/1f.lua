@@ -51,8 +51,6 @@ function map:on_started(destination)
   treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_2_", "pickable_small_key_1")
   treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_5_", "pickable_small_key_2")
   treasure_manager:appear_heart_container_if_boss_dead(map)
-  -- Separators
-  separator_manager:init(map)
   -- Switchs
   switch_manager:activate_switch_if_savegame_exist(map, "switch_1",  "dungeon_2_small_key_4")
   -- Walls
@@ -66,11 +64,8 @@ function map:on_started(destination)
       entity:remove()
     end
   end
-  -- Init light
-  if destination == stairs_2_B then
-    print("bah merde")
-    map:set_light(0)
-  end
+  -- Separators
+  separator_manager:init(map)
 
 end
 
