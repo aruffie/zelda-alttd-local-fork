@@ -1068,6 +1068,7 @@ sound{ id = "snes/enemies/sea_urchin_push1", description = "Sea urchin push 1" }
 sound{ id = "snes/enemies/sea_urchin_push2", description = "Sea urchin push 2" }
 sound{ id = "snes/enemies/wizzrobe", description = "Wizzrobe" }
 sound{ id = "snes/hero/bounce", description = "Bounce" }
+sound{ id = "snes/hero/cliff_jump", description = "Cliff jump" }
 sound{ id = "snes/hero/diving", description = "Diving" }
 sound{ id = "snes/hero/dying", description = "Dying" }
 sound{ id = "snes/hero/fall", description = "Fall" }
@@ -1442,10 +1443,12 @@ shader{ id = "sepia", description = "Sepia" }
 shader{ id = "toon", description = "Toon" }
 shader{ id = "water_effect", description = "water_effect" }
 
-file{ path = "enemies", license = "GPL v3" }
+file{ path = "enemies", author = "Benjamin Schweitzer, PhoenixII54, Vlag", license = "GPL v3" }
+file{ path = "enemies/anti_kirby.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/arm_mimic.lua", license = "GPL v3" }
 file{ path = "enemies/armos.lua", license = "GPL v3" }
-file{ path = "enemies/beamos.lua", license = "GPL v3" }
+file{ path = "enemies/ballchain_soldier.lua", license = "GPL v3" }
+file{ path = "enemies/beamos.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/beetle_blue.lua", license = "GPL v3" }
 file{ path = "enemies/beetle_green.lua", license = "GPL v3" }
 file{ path = "enemies/beetle_red.lua", license = "GPL v3" }
@@ -1453,7 +1456,7 @@ file{ path = "enemies/bloober.lua", license = "GPL v3" }
 file{ path = "enemies/bomber.lua", license = "GPL v3" }
 file{ path = "enemies/bombite_green.lua", license = "GPL v3" }
 file{ path = "enemies/bombite_red.lua", license = "GPL v3" }
-file{ path = "enemies/boo_buddy.lua", license = "GPL v3" }
+file{ path = "enemies/boo_buddy.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss", license = "GPL v3" }
 file{ path = "enemies/boss/angler_fish", license = "GPL v3" }
 file{ path = "enemies/boss/angler_fish/angler_fish.lua", license = "GPL v3" }
@@ -1492,7 +1495,7 @@ file{ path = "enemies/boss/turtle_rock.lua", license = "GPL v3" }
 file{ path = "enemies/boulder.lua", license = "GPL v3" }
 file{ path = "enemies/bubble.lua", license = "GPL v3" }
 file{ path = "enemies/bubble_giant.lua", license = "GPL v3" }
-file{ path = "enemies/buzz_blob.lua", license = "GPL v3" }
+file{ path = "enemies/buzz_blob.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/camo_goblin_blue.lua", license = "GPL v3" }
 file{ path = "enemies/camo_goblin_green.lua", license = "GPL v3" }
 file{ path = "enemies/camo_goblin_red.lua", license = "GPL v3" }
@@ -1501,36 +1504,51 @@ file{ path = "enemies/chicken.lua", license = "GPL v3" }
 file{ path = "enemies/chicken_mortal.lua", license = "GPL v3" }
 file{ path = "enemies/crow.lua", license = "GPL v3" }
 file{ path = "enemies/cukeman.lua", license = "GPL v3" }
+file{ path = "enemies/darknut.lua", license = "GPL v3" }
 file{ path = "enemies/darknut_bow.lua", license = "GPL v3" }
-file{ path = "enemies/death_ball.lua", license = "GPL v3" }
+file{ path = "enemies/death_ball.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/dog.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "enemies/fireball.lua", license = "GPL v3" }
+file{ path = "enemies/eyegore_statue.lua", license = "GPL v3" }
+file{ path = "enemies/face_lamp.lua", license = "GPL v3" }
+file{ path = "enemies/fireball.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "enemies/flying_tile.lua", license = "GPL v3" }
-file{ path = "enemies/gel.lua", license = "GPL v3" }
+file{ path = "enemies/gel.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/generic_towards_hero.lua", license = "GPL v3" }
 file{ path = "enemies/generic_waiting_for_hero.lua", license = "GPL v3" }
-file{ path = "enemies/ghini.lua", license = "GPL v3" }
+file{ path = "enemies/ghini.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/ghini_giant.lua", license = "GPL v3" }
 file{ path = "enemies/gibdo.lua", license = "GPL v3" }
-file{ path = "enemies/goomba.lua", license = "GPL v3" }
+file{ path = "enemies/goomba.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/goponga_flower.lua", license = "GPL v3" }
 file{ path = "enemies/goponga_flower_giant.lua", license = "GPL v3" }
 file{ path = "enemies/hardhat_beetle.lua", license = "GPL v3" }
 file{ path = "enemies/helmasaur.lua", license = "GPL v3" }
-file{ path = "enemies/keese.lua", license = "GPL v3" }
-file{ path = "enemies/leever.lua", license = "GPL v3" }
-file{ path = "enemies/lib", license = "GPL v3" }
+file{ path = "enemies/keese.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/leever.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/lib", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "enemies/lib/common_actions.lua", license = "GPL v3" }
 file{ path = "enemies/lib/fire_breathing_statue.lua", license = "GPL v3" }
+file{ path = "enemies/lib/projectile.lua", license = "GPL v3" }
 file{ path = "enemies/lib/thwomp_crush.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "enemies/lib/towards_hero.lua", license = "GPL v3" }
 file{ path = "enemies/lib/waiting_for_hero.lua", license = "GPL v3" }
-file{ path = "enemies/like_like.lua", license = "GPL v3" }
-file{ path = "enemies/mad_bomber.lua", license = "GPL v3" }
-file{ path = "enemies/maskass.lua", license = "GPL v3" }
+file{ path = "enemies/lib/weapons.lua", license = "GPL v3" }
+file{ path = "enemies/lib/zol.lua", license = "GPL v3" }
+file{ path = "enemies/like_like.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/mad_bomber.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/maskass.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/mini_moldorm.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/moblin_dog_spear.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/moblin_dog_sword.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/moblin_pig_spear.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/moblin_pig_sword.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/monkey.lua", author = "Benjamin Schweitzer, Vlag", license = "GPL v3" }
+file{ path = "enemies/octorok.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/octorok_flying.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/orb_monster_blue.lua", license = "GPL v3" }
 file{ path = "enemies/orb_monster_green.lua", license = "GPL v3" }
 file{ path = "enemies/orb_monster_red.lua", license = "GPL v3" }
-file{ path = "enemies/pairodd.lua", license = "GPL v3" }
+file{ path = "enemies/pairodd.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/peahat.lua", license = "GPL v3" }
 file{ path = "enemies/pike_auto.lua", license = "GPL v3" }
 file{ path = "enemies/pike_detect.lua", license = "GPL v3" }
@@ -1539,33 +1557,78 @@ file{ path = "enemies/pincer.lua", license = "GPL v3" }
 file{ path = "enemies/piranha.lua", license = "GPL v3" }
 file{ path = "enemies/piranha_plant.lua", license = "GPL v3" }
 file{ path = "enemies/podobo.lua", license = "GPL v3" }
+file{ path = "enemies/pokey.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/pols_voice.lua", license = "GPL v3" }
+file{ path = "enemies/projectiles", license = "GPL v3" }
 file{ path = "enemies/projectiles/arrow.lua", license = "GPL v3" }
-file{ path = "enemies/raven.lua", license = "GPL v3" }
+file{ path = "enemies/raven.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/rope.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "enemies/sand_crab.lua", license = "GPL v3" }
 file{ path = "enemies/sea_urchin.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "enemies/shrouded_stalfos.lua", license = "GPL v3" }
+file{ path = "enemies/shrouded_stalfos.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/shrouded_stalfos_sword.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/spiked_beetle.lua", license = "GPL v3" }
 file{ path = "enemies/spiny_beetle.lua", license = "GPL v3" }
-file{ path = "enemies/star.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "enemies/stalfos_blue.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/stalfos_red.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/star.lua", author = "Benjamin Schweitzer, Vlag", license = "GPL v3" }
 file{ path = "enemies/tektite.lua", license = "GPL v3" }
 file{ path = "enemies/tektite_water.lua", license = "GPL v3" }
 file{ path = "enemies/thwimp.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "enemies/thwomp.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "enemies/vegas.lua", license = "GPL v3" }
-file{ path = "enemies/zol_green.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "enemies/zol_red.lua", license = "GPL v3" }
+file{ path = "enemies/vire.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/wizzrobe.lua", license = "GPL v3" }
+file{ path = "enemies/zol_green.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/zol_red.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/zombie.lua", license = "GPL v3" }
-file{ path = "enemies/zora.lua", license = "GPL v3" }
+file{ path = "enemies/zora.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "entities", author = "Benjamin Schweitzer, Christopho, Phoenixll54", license = "GPL v3" }
+file{ path = "entities/arrow.lua", license = "GPL v3" }
+file{ path = "entities/ball.lua", license = "GPL v3" }
+file{ path = "entities/bird.lua", license = "GPL v3" }
+file{ path = "entities/bomb_arrow.lua", license = "GPL v3" }
+file{ path = "entities/bottle.lua", license = "GPL v3" }
+file{ path = "entities/bowwow.lua", license = "GPL v3" }
+file{ path = "entities/bubble.lua", license = "GPL v3" }
+file{ path = "entities/butterfly.lua", license = "GPL v3" }
 file{ path = "entities/cliff.lua", author = "Christopho", license = "GPL v3" }
+file{ path = "entities/color_platform.lua", license = "GPL v3" }
+file{ path = "entities/dice.lua", license = "GPL v3" }
+file{ path = "entities/eye_switch.lua", license = "GPL v3" }
+file{ path = "entities/fire.lua", license = "GPL v3" }
+file{ path = "entities/follower.lua", license = "GPL v3" }
+file{ path = "entities/frog.lua", license = "GPL v3" }
+file{ path = "entities/green_crystal.lua", license = "GPL v3" }
+file{ path = "entities/hook_bridge.lua", license = "GPL v3" }
+file{ path = "entities/hookable.lua", license = "GPL v3" }
+file{ path = "entities/insect.lua", license = "GPL v3" }
+file{ path = "entities/lib", license = "GPL v3" }
+file{ path = "entities/light.lua", license = "GPL v3" }
 file{ path = "entities/midpoint_teletransporter.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "entities/mouse.lua", license = "GPL v3" }
+file{ path = "entities/mr_write_and_christine.lua", license = "GPL v3" }
+file{ path = "entities/non_diggable.lua", license = "GPL v3" }
+file{ path = "entities/npc.lua", license = "GPL v3" }
+file{ path = "entities/obstacle.lua", license = "GPL v3" }
+file{ path = "entities/pickable_fly.lua", license = "GPL v3" }
 file{ path = "entities/pickable_underwater.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "entities/pillar.lua", license = "GPL v3" }
 file{ path = "entities/platform_balance.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "entities/platform_collapsing.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "entities/platform_ice_block.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "entities/platform_moving.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "entities/platform_thwomp.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "entities/powder.lua", license = "GPL v3" }
+file{ path = "entities/pull_handle.lua", license = "GPL v3" }
+file{ path = "entities/seagull.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "entities/statue.lua", license = "GPL v3" }
+file{ path = "entities/statue_elephant.lua", license = "GPL v3" }
+file{ path = "entities/statue_pig.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "entities/torch.lua", license = "GPL v3" }
+file{ path = "entities/unstable_floor.lua", license = "GPL v3" }
+file{ path = "entities/vacuum_cleaner.lua", license = "GPL v3" }
+file{ path = "entities/wallturn.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "fonts/04b03.ttf", author = "Yuji Oshimoto", license = "Free for personal use" }
 file{ path = "fonts/green_digits.png", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "fonts/la.png", author = "Nintendo", license = "Proprietary, Fair use" }
@@ -2079,7 +2142,7 @@ file{ path = "musics/snes/54_boss_warning.ogg", author = "Nintendo, Loeder", lic
 file{ path = "musics/snes/55_the_wind_marimba.ogg", author = "Nintendo, Loeder", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/56_frogs_song_of_soul.ogg", author = "Nintendo, Loeder", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/58_southern_shrine.ogg", author = "Nintendo, Loeder", license = "Proprietary, Fair use" }
-file{ path = "musics/snes/59_level_6_face_shrine.ogg", license = "Proprietary, Fair use" }
+file{ path = "musics/snes/59_level_6_face_shrine.ogg", author = "Nintendo, Loeder", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/60_coral_triangle.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/67_organ_of_evening_calm.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
 file{ path = "musics/snes/70_thunder_drum.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
@@ -2351,6 +2414,7 @@ file{ path = "sounds/hero_pushes.ogg", author = "Franck Jousseaume", license = "
 file{ path = "sounds/hookshot.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/jump.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/lift.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
+file{ path = "sounds/message_end.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/monster_hurt.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/picked_item.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/running.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
@@ -2358,12 +2422,20 @@ file{ path = "sounds/running_obstacle.ogg", author = "Franck Jousseaume", licens
 file{ path = "sounds/shield.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/snes", author = "Nintendo, Diarandor, Zonzifleur", license = "Proprietary, Fair use, CC BY-SA 4.0" }
 file{ path = "sounds/snes/enemies", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/enemies/blade_trap.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/enemies/boss_die.ogg", author = "Nintendo", license = "Proprietary, fair use" }
 file{ path = "sounds/snes/enemies/boss_hit.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/enemies/enemy_die.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/enemies/enemy_hit.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/enemies/enemy_rebound.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/enemies/laser.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/enemies/sea_urchin_push1.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/enemies/sea_urchin_push2.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/enemies/wizzrobe.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/hero", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/hero/bounce.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/hero/cliff_jump.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/hero/diving.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/hero/dying.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/hero/fall.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/hero/hurt.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
@@ -2373,8 +2445,14 @@ file{ path = "sounds/snes/hero/pickup.ogg", author = "Nintendo", license = "Prop
 file{ path = "sounds/snes/hero/rebound.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/hero/run.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/hero/shock.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/hero/splash.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/hero/swim.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/hero/throw.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/hero/wade1.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/hero/wade2.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/items", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/items/arrow_hit.ogg", author = "Nintendo", }
+file{ path = "sounds/snes/items/bomb_drop.ogg", author = "Nintendo", }
 file{ path = "sounds/snes/items/bomb_explode.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/items/boomerang.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/items/bow_arrow.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
@@ -2386,11 +2464,14 @@ file{ path = "sounds/snes/items/get_item.ogg", author = "Nintendo", license = "P
 file{ path = "sounds/snes/items/get_item2.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/items/get_rupee.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/items/get_sword.ogg", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/items/hammer.ogg", author = "Nintendo", }
+file{ path = "sounds/snes/items/hammer_stake.ogg", author = "Nintendo", }
 file{ path = "sounds/snes/items/hookshot.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/items/magic_powder.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/items/shield.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/items/shovel_dig.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/items/sword_charge.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/items/sword_shoot.ogg", author = "Nintendo", }
 file{ path = "sounds/snes/items/sword_slash1.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/items/sword_slash2.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/items/sword_slash3.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
