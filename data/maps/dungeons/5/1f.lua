@@ -43,7 +43,6 @@ function map:on_started()
   treasure_manager:disappear_pickable(map, "pickable_small_key_1")
   treasure_manager:appear_pickable_when_blocks_moved(map, "auto_block_group_1_", "pickable_small_key_1")
   treasure_manager:appear_heart_container_if_boss_dead(map)
-  treasure_manager:appear_heart_container_if_boss_dead(map)
   -- Separators
   separator_manager:init(map)
 
