@@ -61,6 +61,12 @@ function enemy_meta:on_dying()
   else
     audio_manager:play_sound("enemies/enemy_die")
   end
+  local death_count = game:get_value("stats_enemy_death_count") or 0
+  game:set_value("stats_enemy_death_count", death_count + 1)
+  local acorn_count = game:get_value("stats_acorn_count") or 0
+  game:set_value("stats_acorn_count", acorn_count + 1)
+  local power_fragment_count = game:get_value("stats_power_fragment_count") or 0
+  game:set_value("stats_power_fragment_count", power_fragment_count + 1)
   
 end
 

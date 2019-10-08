@@ -309,8 +309,8 @@ local function initialize_game_over_features(game)
   function game_over_menu:step_title()
     
     -- Add the death to the total death count.
-    local death_count = game:get_value("death_count") or 0
-    game:set_value("death_count", death_count + 1)
+    local death_count = game:get_value("stats_hero_death_count") or 0
+    game:set_value("stats_hero_death_count", death_count + 1)
     -- Play the game over music.
     audio_manager:play_music("82_game_over")
 

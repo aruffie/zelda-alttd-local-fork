@@ -129,6 +129,12 @@ hero_meta:register_event("on_state_changing", function(hero, old_state, new_stat
     end
   end)
 
+hero_meta:register_event("on_hurt", function()
+
+    game:set_value("stats_acorn_count", 0)
+    
+end)
+
 hero_meta:register_event("notify_object_thrown", function() end)
 
 hero_meta:register_event("on_position_changed", function(hero)
