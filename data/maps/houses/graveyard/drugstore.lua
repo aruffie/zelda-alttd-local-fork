@@ -33,8 +33,9 @@ function crazy_tracy:on_interaction()
     drugs_bought = 0
   end
   local amount = 28
+  local killed_enemies=game:get_value("stats_shop_drug_count")
   --if drug_already_bought and game.sell_drug_at_high_price then
-  if drug_already_bought and math.random(2) == 1 then --TODO use enemy counter instead
+  if drug_already_bought and killed_enemies%2 == 1 then
     amount = 42
   end
   if not intro_dialog_done then
@@ -55,6 +56,7 @@ function crazy_tracy:on_interaction()
                  map:launch_transaction_with_crazy_tracy(amount)
               end)
             else
+                game:set_value("stats_shop_drug_count", killed_enemies%2)
                 map:launch_transaction_with_crazy_tracy(amount)
             end
           else --Not enough money
