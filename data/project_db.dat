@@ -2196,6 +2196,8 @@ file{ path = "scripts/meta/npc.lua", license = "GPL v3" }
 file{ path = "scripts/meta/sensor.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "scripts/states/jumping.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/states/jumping_sword.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "scripts/states/jumping_sword_loading.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "scripts/states/jumping_sword_spin_attack.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/states/running.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/states/sideview_swim.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "shaders/pixellisation.dat", author = "PhoenixII54", }
