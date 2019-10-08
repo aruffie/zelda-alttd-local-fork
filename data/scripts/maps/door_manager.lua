@@ -61,6 +61,31 @@ function door_manager:open_if_small_boss_dead(map)
 
 end
 
+
+-- Close doors if ennemis in the room are not dead
+function door_manager:close_if_enemies_not_dead(map, enemy_prefix, door_prefix)
+
+  if map:has_entities(enemy_prefix) then
+    map:close_doors(door_prefix)
+  end
+
+end
+
+-- Open doors i all torches in the room are lit
+function door_manager:close_if_torches_unlit(map, torch_prefix, door_prefix)
+
+  has_torches_lit = false
+  for torch in map:get_entities(torch_prefix) do
+    if torch:is_lit() then
+      has_torches_lit = true
+    end
+  end
+  if not has_torches_lit then
+    map:close_doors(door_prefix)
+  end
+
+end
+
 -- Open doors if block moved
 function door_manager:open_if_block_moved(map, block_prefix, door_prefix)
 
