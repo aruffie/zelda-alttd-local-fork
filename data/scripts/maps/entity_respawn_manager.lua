@@ -65,7 +65,6 @@ function entity_respawn_manager:init(map)
   function entity_respawn_manager:reset_torches(map)
     local hero=map:get_hero()
     local found=false
-    print ("reset torches. Table is "..(unpack(map.torches_remaining) or "<none>"))
 
     for _, torch in pairs(saved_entities.torches) do
       torch:set_lit(false)
