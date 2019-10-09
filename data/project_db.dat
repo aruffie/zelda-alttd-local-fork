@@ -460,6 +460,9 @@ sprite{ id = "entities/grounds/conveyor_belt_4", description = "Conveyor belt 4"
 sprite{ id = "entities/grounds/conveyor_belt_minigame", description = "Conveyor belt minigame" }
 sprite{ id = "entities/grounds/fisher_boat", description = "Fisher boat" }
 sprite{ id = "entities/grounds/ground_dug", description = "Ground dug" }
+sprite{ id = "entities/grounds/ladder_iron", description = "Ladder iron" }
+sprite{ id = "entities/grounds/ladder_wooden", description = "Ladder" }
+sprite{ id = "entities/grounds/ladder_wooden_top", description = "Ladder top" }
 sprite{ id = "entities/grounds/weak_floor_dark_1", description = "Weak floor dark 1" }
 sprite{ id = "entities/grounds/weak_floor_dark_2", description = "Weak floor dark 2" }
 sprite{ id = "entities/grounds/weak_floor_dark_3", description = "Weak floor dark 3" }
@@ -741,6 +744,7 @@ music{ id = "gb/14_shop", description = "14 - Shop" }
 music{ id = "gb/14_shop_high", description = "14 - Shop high" }
 music{ id = "gb/15_trendy_game", description = "15 - Trendy Game" }
 music{ id = "gb/16_mysterious_forest", description = "16 - Mysterious forest" }
+music{ id = "gb/17_adrenaline_rush", description = "17 - Adrenaline Rush" }
 music{ id = "gb/18_cave", description = "18 - Cave" }
 music{ id = "gb/19_level_1_tail_cave", description = "19 - Level 1 - Tail cave" }
 music{ id = "gb/20_sidescrolling", description = "20 - Sidescrolling" }
@@ -806,6 +810,7 @@ music{ id = "snes/14_shop", description = "14 - Shop" }
 music{ id = "snes/14_shop_high", description = "14 - Shop High" }
 music{ id = "snes/15_trendy_game", description = "15 - Trendy Game" }
 music{ id = "snes/16_mysterious_forest", description = "16 - Mysterious Forest" }
+music{ id = "snes/17_adrenaline_rush", description = "17 - Adrenaline Rush" }
 music{ id = "snes/18_cave", description = "18 - Cave" }
 music{ id = "snes/19_level_1_tail_cave", description = "19 - Level 1 - Tail Cave" }
 music{ id = "snes/20_sidescrolling", description = "20 - Sidescrolling" }

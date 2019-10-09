@@ -1478,31 +1478,30 @@ tile{
   pattern = "67",
 }
 
-dynamic_tile{
+custom_entity{
   layer = 0,
-  x = 544,
-  y = 128,
-  width = 16,
-  height = 48,
-  pattern = "82",
-}
-
-dynamic_tile{
-  layer = 0,
-  x = 560,
-  y = 176,
+  x = 72,
+  y = 181,
   width = 16,
   height = 64,
-  pattern = "82",
+  origin_y = 5,
+  direction = 0,
+  sprite = "entities/grounds/ladder_iron",
+  tiled = true,
+  model = "ladder",
 }
 
-dynamic_tile{
+custom_entity{
   layer = 0,
-  x = 64,
-  y = 176,
+  x = 568,
+  y = 181,
   width = 16,
   height = 64,
-  pattern = "82",
+  origin_y = 5,
+  direction = 0,
+  sprite = "entities/grounds/ladder_iron",
+  tiled = true,
+  model = "ladder",
 }
 
 separator{
@@ -1589,5 +1588,18 @@ enemy{
   y = 189,
   direction = 0,
   breed = "goomba",
+}
+
+custom_entity{
+  layer = 0,
+  x = 552,
+  y = 133,
+  width = 16,
+  height = 48,
+  origin_y = 5,
+  direction = 0,
+  sprite = "entities/grounds/ladder_iron",
+  tiled = true,
+  model = "ladder",
 }
 

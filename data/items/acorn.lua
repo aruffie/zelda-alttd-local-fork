@@ -16,8 +16,8 @@ end
 
 function item:on_obtaining(variant, savegame_variable)
 
-  -- Reset Acorn and Power fragment stats
-  game:set_value("stats_acorn_count", 0)
+  game.hero_charm = 'acorn'
+  audio_manager:refresh_music()
   
 end
 

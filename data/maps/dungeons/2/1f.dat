@@ -22435,6 +22435,7 @@ pickable{
   layer = 0,
   x = 832,
   y = 1573,
+  treasure_name = "acorn",
 }
 
 tile{
