@@ -804,7 +804,6 @@ destination{
 }
 
 custom_entity{
-  name = "auto_entity_2",
   layer = 0,
   x = 440,
   y = 181,
@@ -834,7 +833,6 @@ custom_entity{
 }
 
 custom_entity{
-  name = "auto_entity_1",
   layer = 0,
   x = 168,
   y = 133,
