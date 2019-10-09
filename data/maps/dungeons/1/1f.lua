@@ -148,8 +148,7 @@ sensor_8:register_event("on_activated", function()
 
 end)
 
--- Separators events
-separator_1:register_event("on_activating", function(separator, direction4)
+sensor_15:register_event("on_activated", function()
 
   map:set_doors_open("door_group_2", false)
 

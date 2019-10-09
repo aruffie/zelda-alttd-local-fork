@@ -16870,6 +16870,15 @@ sensor{
   height = 16,
 }
 
+sensor{
+  name = "sensor_15",
+  layer = 0,
+  x = 800,
+  y = 725,
+  width = 16,
+  height = 16,
+}
+
 tile{
   layer = 1,
   x = 528,
@@ -18916,9 +18925,9 @@ separator{
 
 separator{
   layer = 2,
-  x = 960,
+  x = 0,
   y = 712,
-  width = 1600,
+  width = 2560,
   height = 16,
 }
 
@@ -18976,23 +18985,6 @@ separator{
   y = 0,
   width = 16,
   height = 1920,
-}
-
-separator{
-  layer = 2,
-  x = 0,
-  y = 712,
-  width = 640,
-  height = 16,
-}
-
-separator{
-  name = "separator_1",
-  layer = 2,
-  x = 640,
-  y = 712,
-  width = 320,
-  height = 16,
 }
 
 separator{

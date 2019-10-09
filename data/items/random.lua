@@ -38,7 +38,7 @@ function item:choose_random_item()
 
   local random = math.random(1000)
   local sum = 0
-
+  -- Todo get Acorn or Power Fragment
   for key, probability in pairs(probabilities) do
     sum = sum + probability
     if random < sum then

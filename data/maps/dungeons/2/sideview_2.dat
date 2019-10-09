@@ -1064,7 +1064,6 @@ separator{
 }
 
 custom_entity{
-  name = "auto_entity_moving_platform",
   layer = 0,
   x = 152,
   y = 157,
@@ -1112,7 +1111,6 @@ destructible{
 }
 
 custom_entity{
-  name = "auto_entity_moving_platform_2",
   layer = 0,
   x = 440,
   y = 157,
