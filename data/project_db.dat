@@ -1393,6 +1393,7 @@ entity{ id = "green_crystal", description = "Green crystal" }
 entity{ id = "hook_bridge", description = "hook bridge" }
 entity{ id = "hookable", description = "Hookable" }
 entity{ id = "insect", description = "Insect" }
+entity{ id = "ladder", description = "Ladder" }
 entity{ id = "light", description = "Light" }
 entity{ id = "midpoint_teletransporter", description = "Teletransporter (mid point)" }
 entity{ id = "mouse", description = "Mouse" }
