@@ -878,7 +878,7 @@ sound{ id = "gb/enemies/evil_eagle_flap", description = "Evil eagle flap" }
 sound{ id = "gb/enemies/evil_eagle_fly_away", description = "Evil eagle fly away" }
 sound{ id = "gb/enemies/evil_eagle_flyby", description = "Evil eagle flyby" }
 sound{ id = "gb/enemies/evil_eagle_skid", description = "Evil eagle skid" }
-sound{ id = "gb/enemies/face_lamp", description = "Empty sound" }
+sound{ id = "gb/enemies/fireball", description = "Empty sound" }
 sound{ id = "gb/enemies/floor_tiles", description = "Floor tiles" }
 sound{ id = "gb/enemies/genie_appear", description = "Genie appear" }
 sound{ id = "gb/enemies/genie_bottle_smash", description = "Genie bottle smash" }
