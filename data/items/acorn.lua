@@ -16,14 +16,10 @@ end
 
 function item:on_obtaining(variant, savegame_variable)
 
+  local game = item:get_game()
   game.hero_charm = 'acorn'
-  audio_manager:refresh_music()
-  
-end
-
-function item:on_obtaining(variant, savegame_variable)
-
   -- Sound
   audio_manager:play_sound("items/get_power_up")
-
+  audio_manager:refresh_music()
+  
 end

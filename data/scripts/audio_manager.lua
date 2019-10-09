@@ -121,7 +121,10 @@ function audio_manager:play_music(id_music)
     return false
   end
   local directory = audio_manager:get_directory()
-  
+  local game = sol.main.get_game()
+  if game ~= nil and game.hero_charm then
+    id_music = '17_adrenaline_rush'
+  end
   lenient_play_music(directory .. "/" .. id_music)
 
 end
@@ -138,9 +141,6 @@ function audio_manager:play_sound(id_sound)
   if id_sound == nil then
     return false
   end
-  if game.hero_charm then
-    id_music = '17_adrenaline_rush'
-  end
   id_sound = audio_manager:get_directory() .. "/" .. id_sound
 
   if sol.file.exists("sounds/" .. id_sound .. ".ogg") then
@@ -154,12 +154,11 @@ end
 -- Refresh music according to the mode of play
 function audio_manager:refresh_music()
   
-  local game = sol.main.game
   local id_music = sol.audio.get_music()
-  local mode = (game ~= nil) and game:get_value("mode") or "snes"
   local directory = audio_manager:get_directory()
-  if game.hero_charm then
-    id_music = '17_adrenaline_rush'
+  local game = sol.main.get_game()
+  if game ~= nil and game.hero_charm then
+    id_music = 'snes/17_adrenaline_rush'
   end
   if directory == "gb" then
     id_music = id_music:gsub("snes/", "gb/")
