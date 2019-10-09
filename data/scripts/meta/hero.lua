@@ -256,9 +256,9 @@ function hero_meta.set_running(hero, running)
   
 end
 
-function hero_meta.get_force_powerup()
+function hero_meta.get_force_powerup(hero)
   
-  return game.hero_power=="power_fragment" and 2 or 1
+  return hero:get_game().hero_power=="power_fragment" and 2 or 1
   
 end
 
