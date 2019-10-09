@@ -1068,6 +1068,7 @@ sound{ id = "snes/enemies/laser", description = "Laser" }
 sound{ id = "snes/enemies/sea_urchin_push1", description = "Sea urchin push 1" }
 sound{ id = "snes/enemies/sea_urchin_push2", description = "Sea urchin push 2" }
 sound{ id = "snes/enemies/wizzrobe", description = "Wizzrobe" }
+sound{ id = "snes/enemies/zora_fireball", description = "Zora's Fireball" }
 sound{ id = "snes/hero/bounce", description = "Bounce" }
 sound{ id = "snes/hero/cliff_jump", description = "Cliff jump" }
 sound{ id = "snes/hero/diving", description = "Diving" }
@@ -2436,6 +2437,7 @@ file{ path = "sounds/snes/enemies/laser.ogg", author = "Nintendo", license = "Pr
 file{ path = "sounds/snes/enemies/sea_urchin_push1.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/enemies/sea_urchin_push2.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/enemies/wizzrobe.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/enemies/zora_fireball.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/hero", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/hero/bounce.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/hero/cliff_jump.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
