@@ -30,36 +30,18 @@ local function debug_print(...)
 end
 
 --[[
-  Returns whether there is an entity at given XY coordinates whth the custom property "ladder" set to true.
-  Parameters : 
-   map, the map object
-   x,y, the corrdinates of the point to test
---]]
-local function is_dynamic_ladder(map, x,y, layer)
-  layer=layer or 0
-  for e in map:get_entities_in_rectangle(x,y,1,1) do
-    if e:get_type()=="dynamic_tile" and e:get_property("ladder")=="true" then
-      return true
-    end
-  end
-  return false
-end
-
---[[
   Returns whether the ground at given XY coordinates is a ladder.
   This is actually a shortcut to avoid multiples instances of "map:get_ground(x,y, layer)=="ladder" in tests.
   Parameters : 
    map, the map object
    x,y, the corrdinates of the point to test
 --]]
-local function is_ladder(map, x,y, layer)
-  layer=layer or 0
-  for e in map:get_entities_in_rectangle(x,y,1,1) do
-    if e:get_type()=="dynamic_tile" and e:get_property("ladder")=="true" then
+local function is_ladder(map, x,y)
+  for entity in map:get_entities_in_rectangle(x,y,1,1) do
+    if entity:get_type()=="custom_entity" and entity:get_model()=="ladder" then
       return true
     end
   end
-  return map:get_ground(x,y, layer)=="ladder" 
 end
 
 --[[
@@ -104,22 +86,20 @@ end
 --    --end
 --  end)
 
-
-map_meta:register_event("on_opening_transition_finished", function(map)
-    if map:is_sideview() then
-      map:get_hero():save_solid_ground()
-    end
-  end)
-
-
 --[[
   Checks if the ground under the top-middle or the bottom-middle points of the bounding box of a given entity is a ladder.
   Returns : xhether a ladder was detected
 --]]
-local function test_ladder(entity)
+local function check_for_ladder(entity)
   local map=entity:get_map()
-  local x,y,layer= entity:get_position() 
-  return is_ladder(map, x, y-2, layer) or is_ladder(map, x, y+2, layer)
+  local x,y= entity:get_position() 
+  return is_ladder(map, x, y-2) or is_ladder(map, x, y+2)
+end
+
+local function check_for_ground(entity, dy)
+  dy = dy or 0
+  local x,y, layer = entity:get_position()
+  return entity:test_obstacles(0, 1) or not check_for_ladder(entity) and is_ladder(entity:get_map(), x, y+3)
 end
 
 local function check_for_water(entity)
@@ -172,12 +152,12 @@ local function apply_gravity(entity)
     vspeed = on_bounce_possible(entity)
   end
   if vspeed >= 0 then
-    --Try to apply gravity
-    if entity:test_obstacles(0,1) or entity.on_ladder or
-    test_ladder(entity)==false and is_ladder(entity:get_map(), x, y+3) then
+    --Try to apply downwards movement
+    if entity:test_obstacles(0,1) or entity.has_grabbed_ladder or
+    not check_for_ladder(entity) and is_ladder(entity:get_map(), x, y+3) then
       --we are on an obstacle, so reset the speed and bail.
-      if entity:get_type()=="hero" and not entity.land_sound_played then
-        entity.land_sound_played=true
+      if entity:get_type()=="hero" and not entity.landing_sound_played then
+        entity.landing_sound_played=true
         audio_manager:play_sound("hero/land")
       end
       entity.vspeed = nil
@@ -294,13 +274,13 @@ local function update_entities(map)
             end)
         end
 
-        if entity.vspeed and entity.vspeed<0 or not entity:test_obstacles(0,1) then
+        if entity.vspeed and entity.vspeed<0 or not entity:test_obstacles(0,2) then
           --Start gravity effect timer loop
           if entity.gravity_timer==nil then
             if entity:get_type()=="hero" then
-              local x,y,l=entity:get_position()
-              if not test_ladder(entity) and not is_ladder(map,x,y+3,l) then
-                entity.land_sound_played=nil
+              local x,y=entity:get_position()
+              if not check_for_ladder(entity) and not is_ladder(map,x,y+3) then
+                entity.landing_sound_played=nil
               end
             end
             entity.gravity_timer=sol.timer.start(entity, 10, function()
@@ -315,12 +295,6 @@ local function update_entities(map)
       end
     end
   end
-end
-
-local function is_on_ground(entity, dy)
-  dy = dy or 0
-  local x,y = entity:get_position()
-  return entity:test_obstacles(0, 1) or not test_ladder(entity) and is_ladder(entity:get_map(), x, y+3)
 end
 
 
@@ -365,10 +339,10 @@ local function update_hero(hero)
   local x,y,layer = hero:get_position()
   local map = game:get_map()
   local speed=88
-  local hangle, vangle
+  local wanted_angle
   local can_move_vertically = true
   local _left, _right, _up, _down
-  local ladder=test_ladder(hero)
+  local ladder_found=check_for_ladder(hero)
 
 
   -------------------------
@@ -378,10 +352,10 @@ local function update_hero(hero)
     _up=true
     if map:get_ground(x,y,layer)=="deep_water" then 
       speed = swimming_speed
-    elseif ladder == true  and not is_on_ground(hero) then
-      hero.on_ladder = true
-      if is_dynamic_ladder(map, x,y,layer) then
-        --Lower the speed on dynamic tile-based ladders since they have plain "traversable" ground
+    elseif ladder_found then --and not check_for_ground(hero) then
+      hero.has_grabbed_ladder = true
+      if is_ladder(map, x,y) then
+        --Manually lower the speed on ladders
         --debug_print "UP-erride"
         speed = 52
       end
@@ -393,10 +367,10 @@ local function update_hero(hero)
     _down=true
     if map:get_ground(x,y, layer) == "deep_water" then
       speed = swimming_speed
-    elseif ladder==true or is_ladder(map, x, y+3, layer) then
-      hero.on_ladder = true
-      if is_dynamic_ladder(map, x,y,layer) then
-        --Lower the speed on dynamic tile-based ladders since they have plain "traversable" ground
+    elseif ladder_found==true or is_ladder(map, x, y+3) then
+      hero.has_grabbed_ladder = true
+      if is_ladder(map, x, y) then
+        --Manually lower the speed on ladders
         --  debug_print "DOWN-erride"
         speed=52
       end
@@ -407,13 +381,13 @@ local function update_hero(hero)
   end
 
   --check if we are on the top of a ladder
-  if not (ladder==true or is_ladder(map, x, y+3)) then
-    hero.on_ladder = false
+  if not (ladder_found or is_ladder(map, x, y+3)) then
+    hero.has_grabbed_ladder = false
   end
 
   if command("right") and not command("left") then
     _right=true
-    hangle = 0
+    wanted_angle = 0
     speed=walking_speed
     if map:get_ground(x,y,layer)=="deep_water" then
       speed = swimming_speed
@@ -422,16 +396,16 @@ local function update_hero(hero)
   elseif command("left") and not command("right") then
     _left=true
     speed=walking_speed
-    hangle = math.pi
+    wanted_angle = math.pi
     if map:get_ground(x,y,layer)=="deep_water" then
       speed = swimming_speed
     end
   end
 
   --Force the hero on a ladder if we came from the side
-  if hero:test_obstacles(0,1) and test_ladder(hero) and is_ladder(map,x,y+3) then 
+  if hero:test_obstacles(0,1) and check_for_ladder(hero) and is_ladder(map,x,y+3) then 
     --debug_print "entering ladder from the side"
-    hero.on_ladder=true
+    hero.has_grabbed_ladder=true
   end
 
   --Handle movement for vertical and/or diagonal input
@@ -439,15 +413,15 @@ local function update_hero(hero)
     --debug_print "Trying to override the vertical movement"
 
     if movement then
-      local a=movement:get_angle()
+      local angle=movement:get_angle()
       --debug_print (a)
       if _up==true then
         --debug_print "UP"
         --debug_print(m:get_speed(), hero:get_walking_speed())
         if _left==true or _right==true then
           --debug_print "UP-DIAGONAL"
-          if hangle ~=a then 
-            movement:set_angle(hangle)
+          if wanted_angle ~=angle then 
+            movement:set_angle(wanted_angle)
           end
         else
           speed = 0
@@ -457,9 +431,9 @@ local function update_hero(hero)
         --debug_print (m:get_speed(), hero:get_walking_speed())
         if _left==true or _right==true then
           --debug_print "DOWN-DIAGONAL"
-          movement:set_angle(hangle)
-          if hangle ~=a then 
-            movement:set_angle(hangle)
+          movement:set_angle(wanted_angle)
+          if wanted_angle ~=angle then 
+            movement:set_angle(wanted_angle)
           end
         else
           --debug_print "CANCEL DOWN V-MOVE"
@@ -505,9 +479,9 @@ local function update_hero(hero)
 
   if state=="free" and not (hero.frozen) then
     if speed ~= 0 then
-      if hero.on_ladder and test_ladder(hero) then
+      if hero.has_grabbed_ladder and check_for_ladder(hero) then
         new_animation = "climbing_walking"
-      elseif not is_on_ground(hero) then
+      elseif not check_for_ground(hero) then
         if map:get_ground(x,y+4,layer)=="deep_water" then
           new_animation ="swimming_scroll"
         else
@@ -517,9 +491,9 @@ local function update_hero(hero)
         new_animation = "walking"
       end
     else
-      if hero.on_ladder and test_ladder(hero) then
+      if hero.has_grabbed_ladder and check_for_ladder(hero) then
         new_animation = "climbing_stopped"
-      elseif not is_on_ground(hero) then
+      elseif not check_for_ground(hero) then
         if map:get_ground(x,y+4,layer)=="deep_water" then
           new_animation = "stopped_swimming_scroll"
         else
@@ -548,8 +522,8 @@ game_meta:register_event("on_map_changed", function(game, map)
     hero.vspeed = 0
     if map:is_sideview() then
       hero.land_sound_played=true --do not play landing sound at the start of the map
-      hero.on_ladder = test_ladder(hero, -1) 
-      if hero.on_ladder == true then
+      hero.has_grabbed_ladder = check_for_ladder(hero, -1) 
+      if hero.has_grabbed_ladder then
         hero:set_walking_speed(52)
       end
       sol.timer.start(map, 10, function()

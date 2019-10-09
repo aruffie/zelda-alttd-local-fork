@@ -500,16 +500,10 @@ tile{
   tileset = "out/outside_special",
 }
 
-dynamic_tile{
+tile{
   layer = 0,
   x = 448,
   y = 0,
-  properties = {
-    {
-      key = "ladder",
-      value = "true",
-    },
-  },
   width = 16,
   height = 448,
   pattern = "7",
@@ -879,5 +873,105 @@ separator{
   y = 0,
   width = 16,
   height = 480,
+}
+
+custom_entity{
+  layer = 0,
+  x = 456,
+  y = 13,
+  width = 16,
+  height = 448,
+  direction = 0,
+  model = "ladder",
+}
+
+custom_entity{
+  layer = 0,
+  x = 120,
+  y = 125,
+  width = 16,
+  height = 336,
+  direction = 0,
+  model = "ladder",
+}
+
+custom_entity{
+  layer = 0,
+  x = 200,
+  y = 349,
+  width = 16,
+  height = 112,
+  direction = 0,
+  model = "ladder",
+}
+
+custom_entity{
+  layer = 0,
+  x = 296,
+  y = 349,
+  width = 16,
+  height = 112,
+  direction = 0,
+  model = "ladder",
+}
+
+custom_entity{
+  layer = 0,
+  x = 200,
+  y = 205,
+  width = 16,
+  height = 80,
+  direction = 0,
+  model = "ladder",
+}
+
+custom_entity{
+  layer = 0,
+  x = 264,
+  y = 205,
+  width = 16,
+  height = 80,
+  direction = 0,
+  model = "ladder",
+}
+
+custom_entity{
+  layer = 0,
+  x = 312,
+  y = 205,
+  width = 16,
+  height = 80,
+  direction = 0,
+  model = "ladder",
+}
+
+custom_entity{
+  layer = 0,
+  x = 408,
+  y = 205,
+  width = 16,
+  height = 80,
+  direction = 0,
+  model = "ladder",
+}
+
+custom_entity{
+  layer = 0,
+  x = 632,
+  y = 381,
+  width = 16,
+  height = 40,
+  direction = 0,
+  model = "ladder",
+}
+
+custom_entity{
+  layer = 0,
+  x = 600,
+  y = 237,
+  width = 64,
+  height = 16,
+  direction = 0,
+  model = "ladder",
 }
 
