@@ -24,7 +24,22 @@ local old_x, old_y
 local needs_carrying
 -- Include scripts
 require("scripts/multi_events")
+entity:register_event("on_position_changed", function(entity, x,y,layer)
 
+    for other in entity:get_map():get_entities() do
+      local e_type=other:get_type()
+      if other ~= entity and e_type == "hero" or e_type == "npc" or e_type == "enemy" or e_type == "pickable" or (e_type=="custom_entiy" and other:get_model()=="npc") then
+        local xx, yy = other:get_position()
+        local entity_x,entity_y, entity_w, entity_h=entity:get_bounding_box()
+        local other_x, other_y, other_w, other_h = other:get_bounding_box()
+        local dx, dy = entity_x-old_x, entity_y-old_y
+        if other_x+other_w<=entity_x+entity_w and other_x>=entity_x and other_y+other_h>=entity_y-1 then
+          other:set_position(xx, yy+dy)
+        end
+      end
+    end
+    old_x, old_y=entity:get_bounding_box()
+  end)
 -- Event called when the custom entity is initialized.
 entity:register_event("on_created", function()
 
@@ -65,7 +80,6 @@ sol.timer.start(entity, 10, function()
 
         end
         if other_x+other_w<=entity_x+entity_w and other_x>=entity_x and other_y+other_h>=entity_y-1 then
-          other:set_position(xx, yy+dy)
           found=true 
         end
 
@@ -103,6 +117,5 @@ sol.timer.start(entity, 10, function()
       movement:set_speed(0)
       sprite:set_animation("moving")
     end
-    old_x, old_y=entity:get_bounding_box()
     return true
   end)
