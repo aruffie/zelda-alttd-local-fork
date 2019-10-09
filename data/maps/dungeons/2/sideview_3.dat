@@ -817,10 +817,6 @@ custom_entity{
       value = "48",
     },
     {
-      key = "is_semisolid",
-      value = "false",
-    },
-    {
       key = "cycle_duration",
       value = "6000",
     },
