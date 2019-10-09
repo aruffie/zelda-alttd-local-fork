@@ -245,13 +245,22 @@ function hero_meta.set_jumping(hero, jumping)
 end
 
 function hero_meta.is_running(hero)
+  
   return hero.running
+  
 end
 
 function hero_meta.set_running(hero, running)
+  
   hero.running = running
+  
 end
 
+function hero_meta.get_force_powerup()
+  
+  return game.hero_power=="power_fragment" and 2 or 1
+  
+end
 
 --Utility function : it loops through all the sprites of a given hero and shifts them by the given amount of pixels in the X and Y directions.
 local function set_sprite_offset(hero, ox, oy)

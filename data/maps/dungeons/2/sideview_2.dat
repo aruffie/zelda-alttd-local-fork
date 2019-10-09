@@ -1064,17 +1064,12 @@ separator{
 }
 
 custom_entity{
-  name = "auto_entity_moving_platform",
   layer = 0,
   x = 152,
   y = 157,
   properties = {
     {
       key = "needs_carrying",
-      value = "true",
-    },
-    {
-      key = "auto_respawn",
       value = "true",
     },
   },
@@ -1116,7 +1111,6 @@ destructible{
 }
 
 custom_entity{
-  name = "auto_entity_moving_platform_2",
   layer = 0,
   x = 440,
   y = 157,
@@ -1124,10 +1118,6 @@ custom_entity{
     {
       key = "needs_carrying",
       value = "false",
-    },
-    {
-      key = "auto_respawn",
-      value = "true",
     },
   },
   width = 32,
