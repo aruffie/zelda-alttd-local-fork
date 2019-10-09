@@ -883,7 +883,7 @@ sound{ id = "gb/enemies/evil_eagle_flap", description = "Evil eagle flap" }
 sound{ id = "gb/enemies/evil_eagle_fly_away", description = "Evil eagle fly away" }
 sound{ id = "gb/enemies/evil_eagle_flyby", description = "Evil eagle flyby" }
 sound{ id = "gb/enemies/evil_eagle_skid", description = "Evil eagle skid" }
-sound{ id = "gb/enemies/face_lamp", description = "Empty sound" }
+sound{ id = "gb/enemies/fireball", description = "Empty sound" }
 sound{ id = "gb/enemies/floor_tiles", description = "Floor tiles" }
 sound{ id = "gb/enemies/genie_appear", description = "Genie appear" }
 sound{ id = "gb/enemies/genie_bottle_smash", description = "Genie bottle smash" }
@@ -916,6 +916,7 @@ sound{ id = "gb/enemies/nightmare_shadows_move", description = "Nightmare shadow
 sound{ id = "gb/enemies/nightmare_shadows_throw_staff", description = "Nightmares shadows throw staff" }
 sound{ id = "gb/enemies/nightmare_shadows_transform", description = "Nightmare shadows transform" }
 sound{ id = "gb/enemies/nightmare_shadows_warning", description = "Nightmare shadows warning" }
+sound{ id = "gb/enemies/octorok_firing", description = "Octorok firing" }
 sound{ id = "gb/enemies/pairodd_teleport", description = "Pairodd teleport" }
 sound{ id = "gb/enemies/rolling_bones_roller", description = "Rolling bones roller" }
 sound{ id = "gb/enemies/sea_urchin_push1", description = "Sea urchin push 1" }
@@ -1069,7 +1070,9 @@ sound{ id = "snes/enemies/boss_hit", description = "Boss hit" }
 sound{ id = "snes/enemies/enemy_die", description = "Enemy die" }
 sound{ id = "snes/enemies/enemy_hit", description = "Enemy hit" }
 sound{ id = "snes/enemies/enemy_rebound", description = "Enemy rebound" }
+sound{ id = "snes/enemies/fireball", description = "Zora's Fireball" }
 sound{ id = "snes/enemies/laser", description = "Laser" }
+sound{ id = "snes/enemies/octorok_firing", description = "Octorok firing" }
 sound{ id = "snes/enemies/sea_urchin_push1", description = "Sea urchin push 1" }
 sound{ id = "snes/enemies/sea_urchin_push2", description = "Sea urchin push 2" }
 sound{ id = "snes/enemies/wizzrobe", description = "Wizzrobe" }
@@ -2282,6 +2285,7 @@ file{ path = "sounds/gb/enemies/nightmare_shadows_move.ogg", author = "Nintendo"
 file{ path = "sounds/gb/enemies/nightmare_shadows_throw_staff.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/gb/enemies/nightmare_shadows_transform.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/gb/enemies/nightmare_shadows_warning.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/octorok_firing.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/gb/enemies/pairodd_teleport.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/gb/enemies/rolling_bones_roller.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/gb/enemies/sea_urchin_push1.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
@@ -2437,7 +2441,9 @@ file{ path = "sounds/snes/enemies/boss_hit.ogg", author = "Nintendo", license = 
 file{ path = "sounds/snes/enemies/enemy_die.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/enemies/enemy_hit.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/enemies/enemy_rebound.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/enemies/fireball.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/enemies/laser.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/enemies/octorok_firing.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/enemies/sea_urchin_push1.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/enemies/sea_urchin_push2.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/enemies/wizzrobe.ogg", author = "Nintendo", license = "Proprietary, Fair use" }

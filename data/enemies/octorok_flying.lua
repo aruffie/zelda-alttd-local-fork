@@ -4,7 +4,8 @@
 local enemy = ...
 require("scripts/multi_events")
 require("enemies/lib/weapons").learn(enemy)
-  
+local audio_manager=require("scripts/audio_manager")
+
 local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
@@ -31,61 +32,63 @@ local projectile_offset = {{0, -8}, {0, -8}, {0, -8}, {0, -8}}
 function enemy:start_walking(key)
 
   enemy:start_straight_walking(walking_angles[key], walking_speed, math.random(walking_minimum_distance, walking_maximum_distance), function() 
-    sprite:set_animation("immobilized")
-    sol.timer.start(enemy, waiting_duration, function()
-      if not is_jumping then
+      sprite:set_animation("immobilized")
+      sol.timer.start(enemy, waiting_duration, function()
+          if not is_jumping then
 
-        -- Throw an arrow if the hero is on the direction the enemy is looking at.
-        if enemy:get_direction4_to(hero) == sprite:get_direction() then
-          enemy:throw_projectile(projectile_breed, throwing_duration, projectile_offset[key][1], projectile_offset[key][2], function()
-            enemy:start_walking(math.random(4))
-          end)
-        else
-          enemy:start_walking(math.random(4))
-        end
-      end
+            -- Throw an arrow if the hero is on the direction the enemy is looking at.
+            if enemy:get_direction4_to(hero) == sprite:get_direction() then
+              audio_manager:play_sound("enemies/octorok_firing")
+
+              enemy:throw_projectile(projectile_breed, throwing_duration, projectile_offset[key][1], projectile_offset[key][2], function()
+                  enemy:start_walking(math.random(4))
+                end)
+            else
+              enemy:start_walking(math.random(4))
+            end
+          end
+        end)
     end)
-  end)
 end
 
 -- Jump on sword triggering too close
 game:register_event("on_command_pressed", function(game, command)
 
-  if not enemy:exists() or not enemy:is_enabled() then
-    return
-  end
+    if not enemy:exists() or not enemy:is_enabled() then
+      return
+    end
 
-  if not is_jumping and command == "attack" and enemy:is_near(hero, jumping_triggering_distance) then
-    is_jumping = true
-    enemy:start_jumping(jumping_duration, jumping_height, enemy:get_angle(hero), jumping_speed, function()
-      enemy:restart()
-    end)
-    enemy:set_invincible()
-    enemy:set_can_attack(false)
-    sprite:set_animation("jumping")
-    sprite:set_direction(enemy:get_movement():get_direction4())
-  end
-end)
+    if not is_jumping and command == "attack" and enemy:is_near(hero, jumping_triggering_distance) then
+      is_jumping = true
+      enemy:start_jumping(jumping_duration, jumping_height, enemy:get_angle(hero), jumping_speed, function()
+          enemy:restart()
+        end)
+      enemy:set_invincible()
+      enemy:set_can_attack(false)
+      sprite:set_animation("jumping")
+      sprite:set_direction(enemy:get_movement():get_direction4())
+    end
+  end)
 
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
 
-  enemy:set_life(1)
-  enemy:set_size(16, 16)
-  enemy:set_origin(8, 13)
-  enemy:start_shadow()
-end)
+    enemy:set_life(1)
+    enemy:set_size(16, 16)
+    enemy:set_origin(8, 13)
+    enemy:start_shadow()
+  end)
 
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
-  -- Behavior for each items.
-  enemy:set_hero_weapons_reactions(1, {jump_on = "ignored"})
+    -- Behavior for each items.
+    enemy:set_hero_weapons_reactions(1, {jump_on = "ignored"})
 
-  -- States.
-  is_jumping = false
-  sprite:set_xy(0, 0)
-  enemy:set_can_attack(true)
-  enemy:set_damage(1)
-  enemy:start_walking(math.random(4))
-end)
+    -- States.
+    is_jumping = false
+    sprite:set_xy(0, 0)
+    enemy:set_can_attack(true)
+    enemy:set_damage(1)
+    enemy:start_walking(math.random(4))
+  end)
