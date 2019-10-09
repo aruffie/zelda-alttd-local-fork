@@ -1065,12 +1065,12 @@ sound{ id = "snes/enemies/boss_hit", description = "Boss hit" }
 sound{ id = "snes/enemies/enemy_die", description = "Enemy die" }
 sound{ id = "snes/enemies/enemy_hit", description = "Enemy hit" }
 sound{ id = "snes/enemies/enemy_rebound", description = "Enemy rebound" }
+sound{ id = "snes/enemies/fireball", description = "Zora's Fireball" }
 sound{ id = "snes/enemies/laser", description = "Laser" }
 sound{ id = "snes/enemies/octorok_firing", description = "Octorok firing" }
 sound{ id = "snes/enemies/sea_urchin_push1", description = "Sea urchin push 1" }
 sound{ id = "snes/enemies/sea_urchin_push2", description = "Sea urchin push 2" }
 sound{ id = "snes/enemies/wizzrobe", description = "Wizzrobe" }
-sound{ id = "snes/enemies/zora_fireball", description = "Zora's Fireball" }
 sound{ id = "snes/hero/bounce", description = "Bounce" }
 sound{ id = "snes/hero/cliff_jump", description = "Cliff jump" }
 sound{ id = "snes/hero/diving", description = "Diving" }
@@ -2436,12 +2436,12 @@ file{ path = "sounds/snes/enemies/boss_hit.ogg", author = "Nintendo", license = 
 file{ path = "sounds/snes/enemies/enemy_die.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/enemies/enemy_hit.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/enemies/enemy_rebound.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/enemies/fireball.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/enemies/laser.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/enemies/octorok_firing.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/enemies/sea_urchin_push1.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/enemies/sea_urchin_push2.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/enemies/wizzrobe.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
-file{ path = "sounds/snes/enemies/zora_fireball.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/hero", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/hero/bounce.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/hero/cliff_jump.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
