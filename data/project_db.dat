@@ -868,6 +868,7 @@ sound{ id = "gb/enemies/boss_die", description = "Boss die" }
 sound{ id = "gb/enemies/boss_explode", description = "Boss explode" }
 sound{ id = "gb/enemies/boss_hit", description = "Boss hit" }
 sound{ id = "gb/enemies/boss_jump", description = "Boss jump" }
+sound{ id = "gb/enemies/bounce", description = "Bouncing" }
 sound{ id = "gb/enemies/cueball_swim", description = "Cueball swim" }
 sound{ id = "gb/enemies/dethl_arm_spin", description = "Dethl arm spin" }
 sound{ id = "gb/enemies/dethl_die", description = "Dethl die" }
@@ -1067,6 +1068,7 @@ sound{ id = "shield", description = "Empty sound" }
 sound{ id = "snes/enemies/blade_trap", description = "Blade trap" }
 sound{ id = "snes/enemies/boss_die", description = "Boss dying" }
 sound{ id = "snes/enemies/boss_hit", description = "Boss hit" }
+sound{ id = "snes/enemies/bounce", description = "Bounce" }
 sound{ id = "snes/enemies/enemy_die", description = "Enemy die" }
 sound{ id = "snes/enemies/enemy_hit", description = "Enemy hit" }
 sound{ id = "snes/enemies/enemy_rebound", description = "Enemy rebound" }
@@ -1108,8 +1110,8 @@ sound{ id = "snes/items/get_item2", description = "Get item 2" }
 sound{ id = "snes/items/get_power_up", description = "Get power up" }
 sound{ id = "snes/items/get_rupee", description = "Get rupee" }
 sound{ id = "snes/items/get_sword", description = "Get sword" }
-sound{ id = "snes/items/hammer", description = "Hammer (peg hit)" }
-sound{ id = "snes/items/hammer_stake", description = "Hammer" }
+sound{ id = "snes/items/hammer", description = "Hammer" }
+sound{ id = "snes/items/hammer_stake", description = "Hammer (peg hit)" }
 sound{ id = "snes/items/hookshot", description = "Hookshot" }
 sound{ id = "snes/items/magic_powder", description = "Magic powder" }
 sound{ id = "snes/items/shield", description = "Shield" }
@@ -2241,6 +2243,7 @@ file{ path = "sounds/gb/enemies/boss_die.ogg", author = "Nintendo", license = "P
 file{ path = "sounds/gb/enemies/boss_explode.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/gb/enemies/boss_hit.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/gb/enemies/boss_jump.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/gb/enemies/bounce.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/gb/enemies/cueball_swim.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/gb/enemies/dethl_arm_spin.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/gb/enemies/dethl_die.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
@@ -2440,6 +2443,7 @@ file{ path = "sounds/snes/enemies", author = "Nintendo", license = "Proprietary,
 file{ path = "sounds/snes/enemies/blade_trap.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/enemies/boss_die.ogg", author = "Nintendo", license = "Proprietary, fair use" }
 file{ path = "sounds/snes/enemies/boss_hit.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/enemies/bounce.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/enemies/enemy_die.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/enemies/enemy_hit.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/enemies/enemy_rebound.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
