@@ -62,16 +62,18 @@ function object:create(meta)
       starting_sprite_direction=entity:get_direction()
 
     end
+
     print (starting_sprite_direction)
     -- Get the current object position
     local cx, cy, clayer = entity:get_position()
     local map = entity:get_map()
 
+
     -- Draw a shadow in the entity's real position
     local shadow = map:create_custom_entity({
         x = cx,
         y = cy,
-        layer = clayer,
+        layer = map:get_max_layer(),
         width = 16,
         height = 16,
         sprite = "entities/shadows/shadow",
@@ -80,7 +82,7 @@ function object:create(meta)
     shadow:set_modified_ground("traversable")
     shadow:set_can_traverse_ground("deep_water", true)
     shadow:set_can_traverse_ground("hole", true)
-
+    entity:set_layer(map:get_max_layer())
     local first_active_sprite = nil
 
     -- Depending on things, obejct might have different sprite that is synchronized to him
@@ -115,7 +117,7 @@ function object:create(meta)
         -- Movement finished, disable the falling movement
         first_active_sprite = nil
         currently_falling = false
-
+        entity:set_layer(clayer)
         shadow:remove()
 
         if meta == "hero" then
@@ -133,6 +135,7 @@ function object:create(meta)
         if entity:get_type()=="hero" then
           entity:set_direction(starting_sprite_direction)
         end
+
         entity:get_sprite():set_direction(starting_sprite_direction)
         if callback ~= nil then
           callback()
