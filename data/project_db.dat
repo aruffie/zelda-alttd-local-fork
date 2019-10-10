@@ -1105,6 +1105,7 @@ sound{ id = "snes/items/fanfare_item_extended", description = "Fanfare item exte
 sound{ id = "snes/items/fire_rod", description = "Fire rod" }
 sound{ id = "snes/items/get_item", description = "Get item" }
 sound{ id = "snes/items/get_item2", description = "Get item 2" }
+sound{ id = "snes/items/get_power_up", description = "Get power up" }
 sound{ id = "snes/items/get_rupee", description = "Get rupee" }
 sound{ id = "snes/items/get_sword", description = "Get sword" }
 sound{ id = "snes/items/hammer", description = "Hammer (peg hit)" }
@@ -1231,6 +1232,7 @@ item{ id = "power_bracelet", description = "Power bracelet" }
 item{ id = "power_fragment", description = "Power fragment" }
 item{ id = "quiver", description = "Quiver" }
 item{ id = "random", description = "Random" }
+item{ id = "random_with_charm", description = "Random with charm" }
 item{ id = "rupee", description = "Rupee" }
 item{ id = "rupee_bag", description = "Ruppe bag" }
 item{ id = "seashell", description = "Seashell" }

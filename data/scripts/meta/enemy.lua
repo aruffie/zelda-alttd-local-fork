@@ -64,12 +64,15 @@ function enemy_meta:on_dying()
   end
   local death_count = game:get_value("stats_enemy_death_count") or 0
   game:set_value("stats_enemy_death_count", death_count + 1)
-  local acorn_count = game:get_value("stats_acorn_count") or 0
-  game:set_value("stats_acorn_count", acorn_count + 1)
-  local power_fragment_count = game:get_value("stats_power_fragment_count") or 0
-  game:set_value("stats_power_fragment_count", power_fragment_count + 1)
-  local shop_drug_count = game:get_value("stats_shop_drug_count") or 0
-  game:set_value("stats_shop_drug_count", shop_drug_count + 1)
+  if not game.charm_treasure_is_loading then
+    game.acorn_count = game.acorn_count or 0
+    game.acorn_count = game.acorn_count + 1
+    game.power_fragment_count = game.power_fragment_count or 0
+    game.power_fragment_count = game.power_fragment_count + 1
+  end
+  game.shop_drug_count = game.shop_drug_count or 0
+  game.shop_drug_count = game.shop_drug_count + 1
+  game.charm_treasure_is_loading = true
   
 end
 
@@ -79,7 +82,6 @@ function enemy_meta:on_hurt_by_sword(hero, enemy_sprite)
   local game = self:get_game()
   local hero = game:get_hero()
   -- Calculate force. Check tunic, sword, spin attack and powerups.
-  -- TODO: define powerup function "hero:get_force_powerup()".
   local base_life_points = self:get_attack_consequence("sword")
   local force_sword = hero:get_game():get_value("force_sword") or 1 
   local force_tunic = game:get_value("force_tunic") or 1
@@ -175,8 +177,7 @@ function enemy_meta:set_sprite_damage(sprite, damage)
 end
 
 -- Warning: do not override these functions if you use the "custom shield" script.
-function enemy_meta:on_attacking_hero(hero, enemy_sprite)
-  local enemy = self
+enemy_meta:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
   -- Do nothing if enemy sprite cannot hurt hero.
   local collision_mode = enemy:get_attacking_collision_mode()
   if not enemy:overlaps(hero, collision_mode) then return end
@@ -193,7 +194,7 @@ function enemy_meta:on_attacking_hero(hero, enemy_sprite)
     hero:start_hurt(enemy, damage)
   end
   
-end
+end)
 
 function enemy_meta:on_position_changed(x, y, layer)
     

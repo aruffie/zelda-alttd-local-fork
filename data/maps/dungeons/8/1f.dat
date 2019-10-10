@@ -8,6 +8,7 @@ properties{
   world = "dungeon_8",
   floor = 1,
   tileset = "dungeon/dark_brown",
+  music = "same",
 }
 
 tile{

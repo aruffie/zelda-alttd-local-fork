@@ -1,4 +1,4 @@
--- Lua script of item "random".
+-- Lua script of item "random_with_charm".
 -- This script is executed only once for the whole game.
 
 -- Variables
@@ -38,7 +38,24 @@ end
 -- Returns an item name and variant.
 function item:choose_random_item()
 
- 
+  local game = item:get_game()
+  local map = game:get_map()
+  -- Charms
+  local power_fragment_visble = nil
+  local acorn_visble = nil
+  for item in map:get_entities_by_type("pickable") do
+    local treasure = item:get_treasure()
+    if treasure:get_name() == "power_fragment" then
+      power_fragment_visble = true
+    elseif treasure:get_name() == "acorn" then
+      acorn_visble = true
+    end
+  end
+  if game.power_fragment_count == 46 and not power_fragment_visble and game.hero_charm ~= "power_fragment" then
+    return 'power_fragment', 1
+  elseif game.power_fragment_count == 13 and not acorn_visble and game.hero_charm ~= "acorn" then
+    return 'acorn', 1
+  else
   local random = math.random(1000)
   local sum = 0
   -- Todo get Acorn or Power Fragment
@@ -50,5 +67,5 @@ function item:choose_random_item()
   end
 
   return nil
-  
+  end
 end

@@ -8,6 +8,7 @@ properties{
   world = "dungeon_2",
   floor = 0,
   tileset = "dungeon/blue",
+  music = "same",
 }
 
 tile{
@@ -22436,6 +22437,13 @@ pickable{
   x = 832,
   y = 1573,
   treasure_name = "acorn",
+}
+
+pickable{
+  layer = 0,
+  x = 832,
+  y = 1589,
+  treasure_name = "power_fragment",
 }
 
 tile{

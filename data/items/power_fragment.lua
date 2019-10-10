@@ -16,8 +16,9 @@ end
 
 function item:on_obtaining(variant, savegame_variable)
 
-  -- Sound
-  audio_manager:play_sound("items/get_power_up")
+  local game = item:get_game()
+  local hero = game:get_hero()
+  hero:add_charm("power_fragment")
 
 end
 

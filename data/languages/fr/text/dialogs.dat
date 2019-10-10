@@ -45,6 +45,15 @@ Je suis gelé!
 }
 
 dialog{
+  id = "_treasure.acorn.1",
+  icon = "41",
+  text = [[
+Tu as le Gland ! 
+Tu seras mieux protégé contre les ennemis !
+]],
+}
+
+dialog{
   id = "_treasure.angler_key.1",
   icon = "41",
   text = [[
@@ -623,6 +632,15 @@ dialog{
   text = [[
 Tu as trouvé le Super Bracelet ! 
 Tu pourrais même soulever... un éléphant !
+]],
+}
+
+dialog{
+  id = "_treasure.power_fragment.1",
+  icon = "41",
+  text = [[
+Un Fragment de Puissance !!! 
+Tu peux sentir l'énergie envahir ton corps !
 ]],
 }
 

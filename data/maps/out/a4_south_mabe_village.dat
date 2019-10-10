@@ -10422,6 +10422,7 @@ enemy{
   y = 485,
   direction = 3,
   breed = "sea_urchin",
+  treasure_name = "random",
 }
 
 enemy{
@@ -10431,6 +10432,7 @@ enemy{
   y = 445,
   direction = 3,
   breed = "sea_urchin",
+  treasure_name = "random",
 }
 
 enemy{
@@ -10440,6 +10442,7 @@ enemy{
   y = 485,
   direction = 3,
   breed = "sea_urchin",
+  treasure_name = "random",
 }
 
 enemy{
@@ -10507,6 +10510,7 @@ enemy{
   y = 309,
   direction = 0,
   breed = "octorok",
+  treasure_name = "random",
 }
 
 enemy{
@@ -10523,6 +10527,7 @@ enemy{
   y = 437,
   direction = 0,
   breed = "octorok",
+  treasure_name = "random",
 }
 
 enemy{
@@ -10531,6 +10536,7 @@ enemy{
   y = 485,
   direction = 0,
   breed = "octorok",
+  treasure_name = "random",
 }
 
 enemy{
@@ -10539,6 +10545,7 @@ enemy{
   y = 45,
   direction = 0,
   breed = "octorok",
+  treasure_name = "random",
 }
 
 enemy{
@@ -10547,6 +10554,7 @@ enemy{
   y = 141,
   direction = 0,
   breed = "octorok",
+  treasure_name = "random",
 }
 
 enemy{
@@ -10555,6 +10563,7 @@ enemy{
   y = 69,
   direction = 0,
   breed = "octorok",
+  treasure_name = "random",
 }
 
 enemy{
@@ -10563,6 +10572,7 @@ enemy{
   y = 141,
   direction = 0,
   breed = "octorok",
+  treasure_name = "random",
 }
 
 enemy{
@@ -10571,6 +10581,7 @@ enemy{
   y = 469,
   direction = 0,
   breed = "octorok",
+  treasure_name = "random",
 }
 
 enemy{
@@ -11329,6 +11340,7 @@ enemy{
   y = 45,
   direction = 0,
   breed = "octorok",
+  treasure_name = "random",
 }
 
 enemy{
@@ -11337,6 +11349,7 @@ enemy{
   y = 141,
   direction = 0,
   breed = "octorok",
+  treasure_name = "random",
 }
 
 tile{

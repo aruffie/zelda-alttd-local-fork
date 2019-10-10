@@ -12,9 +12,7 @@ require("scripts/multi_events")
 hero_meta:register_event("on_movement_changed", function(hero, movement)
     if not hero:get_map():is_sideview() then
       if movement:get_speed() ~=0 and not hero.walking_sound_timer then
-        --print "movement ok"
         hero.walking_sound_timer=sol.timer.start(hero, 300, function()
-            --print "footstep"
             if hero:get_ground_below()=="shallow_water" then
               audio_manager:play_sound("hero/wade"..(math.random(1, 2)))
             elseif hero:get_ground_below()=="grass" then
@@ -23,7 +21,6 @@ hero_meta:register_event("on_movement_changed", function(hero, movement)
             return true
           end)
       else
-        --print "movement stop"
         if hero.walking_sound_timer then
           hero.walking_sound_timer:stop()
           hero.walking_sound_timer=nil
@@ -129,12 +126,6 @@ hero_meta:register_event("on_state_changing", function(hero, old_state, new_stat
     end
   end)
 
-hero_meta:register_event("on_hurt", function()
-
-    game:set_value("stats_acorn_count", 0)
-    
-end)
-
 hero_meta:register_event("notify_object_thrown", function() end)
 
 hero_meta:register_event("on_position_changed", function(hero)
@@ -225,7 +216,6 @@ function hero_meta:on_taking_damage(damage)
   local hero = self
   local game = hero:get_game()
   -- Calculate defense. Check tunic and powerups.
-  -- TODO: define powerup function "hero:get_defense_powerup()".
   local defense_tunic = game:get_value("defense_tunic") or 1
   local defense_powerup = hero.get_defense_powerup and hero:get_defense_powerup() or 1
   local defense = defense_tunic * defense_powerup
@@ -233,6 +223,13 @@ function hero_meta:on_taking_damage(damage)
   local final_damage = math.ceil(damage/defense)
   -- Remove life.
   game:remove_life(damage)
+  -- Charm
+  if game.hero_charm then
+    game.hero_charm_hurt_counter = game.hero_charm_hurt_counter + 1
+    if game.hero_charm_hurt_counter == 3 then
+      hero:remove_charm()
+    end
+  end
 
 end
 
@@ -256,9 +253,17 @@ function hero_meta.set_running(hero, running)
   
 end
 
-function hero_meta.get_force_powerup()
+function hero_meta.get_force_powerup(hero)
   
-  return game.hero_power=="power_fragment" and 2 or 1
+  local game = hero:get_game()
+  return game.hero_charm=="power_fragment" and 2 or 1
+  
+end
+
+function hero_meta.get_defense_powerup(hero)
+  
+  local game = hero:get_game()
+  return game.hero_charm=="acorn" and 2 or 1
   
 end
 
@@ -278,10 +283,7 @@ local game_meta = sol.main.get_metatable("game")
 game_meta:register_event("on_map_changed", function(game, map)
 
     local hero = map:get_hero()
-    --print ("new map:", map:get_id())
     local x,y, layer=hero:get_position()
-
-
     hero:set_jumping(false)
     if map:is_sideview() then
       hero:set_size(8,16)
@@ -303,8 +305,10 @@ game_meta:register_event("on_map_changed", function(game, map)
         hero:bring_sprite_to_back(s)
       end
     end
+    -- Todo Add sprite if charm exist
 
-  end)
+end)
+
 
 
 -- Initialize hero behavior specific to this quest.
@@ -461,6 +465,31 @@ function hero_meta:create_symbol_collapse(sound)
 
   return symbol
 
+end
+
+function hero_meta:add_charm(charm)
+    
+  if charm then
+    local game = self:get_game()
+    game.hero_charm = charm
+    game.hero_charm_hurt_counter = 0
+    -- Sound and music
+    audio_manager:play_sound("items/get_power_up")
+    audio_manager:refresh_music()
+  end
+    
+end
+
+function hero_meta:remove_charm()
+   
+  local game = self:get_game() 
+  game.hero_charm = nil
+  game.hero_charm_hurt_counter = 0
+  game.acorn_count = 0
+  game.power_fragment_count = 0
+  -- Music
+  audio_manager:refresh_music()
+    
 end
 
 return true

@@ -71,7 +71,6 @@ function entity:on_position_changed()
 
     if other ~= entity then --This may be obvious, but you don't want to apply the synch in itself unless you want to be a bit trolly :p
       local e_type = other:get_type()
---      print(e_type)
       if e_type == "hero" or e_type == "npc" or e_type == "enemy" or e_type == "pickable" or (e_type=="custom_entiy" and other:get_model()=="npc") then --TODO identity all compatible entity typesx, 
 
         --Update entity position start
