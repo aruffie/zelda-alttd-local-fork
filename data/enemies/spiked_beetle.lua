@@ -5,6 +5,7 @@
 local enemy = ...
 require("enemies/lib/common_actions").learn(enemy)
 require("scripts/multi_events")
+local audio_manager=require("scripts/audio_manager")
 
 local game = enemy:get_game()
 local map = enemy:get_map()
@@ -95,6 +96,7 @@ enemy:register_event("on_shield_collision", function(enemy, shield)
     local angle = sprite:get_direction() * quarter + math.pi
     enemy:start_jumping(jumping_duration, jumping_height, angle, jumping_speed)
     sprite:set_animation("renverse")
+    audio_manager:play_sound("hero/bounce")
   end
 end)
 
