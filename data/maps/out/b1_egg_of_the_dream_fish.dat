@@ -18358,7 +18358,7 @@ enemy{
   y = 485,
   direction = 0,
   breed = "moblin_pig_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -18367,7 +18367,7 @@ enemy{
   y = 493,
   direction = 3,
   breed = "moblin_pig_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -18376,7 +18376,7 @@ enemy{
   y = 445,
   direction = 0,
   breed = "goponga_flower",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 destination{
@@ -18474,7 +18474,7 @@ enemy{
   y = 461,
   direction = 0,
   breed = "goponga_flower",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -18483,7 +18483,7 @@ enemy{
   y = 477,
   direction = 0,
   breed = "goponga_flower",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -18492,7 +18492,7 @@ enemy{
   y = 485,
   direction = 0,
   breed = "goponga_flower",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -18501,7 +18501,7 @@ enemy{
   y = 477,
   direction = 0,
   breed = "goponga_flower",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -18510,7 +18510,7 @@ enemy{
   y = 461,
   direction = 0,
   breed = "goponga_flower",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -18519,7 +18519,7 @@ enemy{
   y = 445,
   direction = 0,
   breed = "goponga_flower",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 custom_entity{

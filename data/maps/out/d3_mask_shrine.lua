@@ -8,7 +8,7 @@ local audio_manager = require("scripts/audio_manager")
 
 
 -- Map events
-map:register_event("on_started", function(map, destination))
+map:register_event("on_started", function(map, destination)
 
   -- Music
   map:init_music()

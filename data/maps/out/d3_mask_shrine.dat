@@ -10499,6 +10499,7 @@ enemy{
   y = 109,
   direction = 0,
   breed = "armos",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -10508,6 +10509,7 @@ enemy{
   y = 109,
   direction = 0,
   breed = "armos",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -10517,6 +10519,7 @@ enemy{
   y = 581,
   direction = 0,
   breed = "armos",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -10526,6 +10529,7 @@ enemy{
   y = 581,
   direction = 0,
   breed = "armos",
+  treasure_name = "random_with_charm",
 }
 
 teletransporter{

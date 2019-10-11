@@ -11977,6 +11977,7 @@ enemy{
   y = 573,
   direction = 0,
   breed = "goponga_flower_giant",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -11985,6 +11986,7 @@ enemy{
   y = 589,
   direction = 0,
   breed = "goponga_flower",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -11993,6 +11995,7 @@ enemy{
   y = 541,
   direction = 0,
   breed = "goponga_flower",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -12001,6 +12004,7 @@ enemy{
   y = 557,
   direction = 0,
   breed = "goponga_flower",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -12009,6 +12013,7 @@ enemy{
   y = 445,
   direction = 0,
   breed = "goponga_flower",
+  treasure_name = "random_with_charm",
 }
 
 npc{
@@ -13102,7 +13107,7 @@ enemy{
   y = 597,
   direction = 0,
   breed = "moblin_dog_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -13111,7 +13116,7 @@ enemy{
   y = 461,
   direction = 2,
   breed = "moblin_dog_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -13120,7 +13125,7 @@ enemy{
   y = 469,
   direction = 2,
   breed = "moblin_dog_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -13129,7 +13134,7 @@ enemy{
   y = 485,
   direction = 0,
   breed = "moblin_dog_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -13138,7 +13143,7 @@ enemy{
   y = 613,
   direction = 3,
   breed = "moblin_dog_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -13147,7 +13152,7 @@ enemy{
   y = 701,
   direction = 0,
   breed = "moblin_dog_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -13156,7 +13161,7 @@ enemy{
   y = 197,
   direction = 0,
   breed = "moblin_dog_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -13165,7 +13170,7 @@ enemy{
   y = 437,
   direction = 2,
   breed = "like_like",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -13174,7 +13179,7 @@ enemy{
   y = 461,
   direction = 2,
   breed = "like_like",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -13183,7 +13188,7 @@ enemy{
   y = 421,
   direction = 2,
   breed = "like_like",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -13192,7 +13197,7 @@ enemy{
   y = 709,
   direction = 2,
   breed = "like_like",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 destructible{
@@ -13359,6 +13364,7 @@ enemy{
   y = 469,
   direction = 0,
   breed = "goponga_flower_giant",
+  treasure_name = "random_with_charm",
 }
 
 wall{

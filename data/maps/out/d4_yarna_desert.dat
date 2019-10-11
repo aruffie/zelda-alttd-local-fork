@@ -12892,6 +12892,7 @@ enemy{
   y = 261,
   direction = 0,
   breed = "pokey",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -12901,6 +12902,7 @@ enemy{
   y = 333,
   direction = 0,
   breed = "pokey",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -12910,6 +12912,7 @@ enemy{
   y = 485,
   direction = 0,
   breed = "pokey",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -12919,6 +12922,7 @@ enemy{
   y = 525,
   direction = 0,
   breed = "pokey",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -12928,6 +12932,7 @@ enemy{
   y = 661,
   direction = 0,
   breed = "pokey",
+  treasure_name = "random_with_charm",
 }
 
 sensor{

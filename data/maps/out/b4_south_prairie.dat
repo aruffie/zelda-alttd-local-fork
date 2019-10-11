@@ -20363,7 +20363,7 @@ enemy{
   y = 669,
   direction = 0,
   breed = "sand_crab",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 dynamic_tile{
@@ -20532,7 +20532,7 @@ enemy{
   y = 669,
   direction = 0,
   breed = "leever",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -20541,7 +20541,7 @@ enemy{
   y = 701,
   direction = 0,
   breed = "leever",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 wall{
@@ -22435,6 +22435,6 @@ enemy{
   y = 413,
   direction = 3,
   breed = "monkey",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 

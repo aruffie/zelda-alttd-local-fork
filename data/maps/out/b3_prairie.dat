@@ -22025,7 +22025,7 @@ enemy{
   y = 605,
   direction = 1,
   breed = "moblin_pig_sword",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -22034,7 +22034,7 @@ enemy{
   y = 213,
   direction = 1,
   breed = "octorok_flying",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 destructible{
@@ -22153,6 +22153,7 @@ enemy{
   y = 149,
   direction = 0,
   breed = "pincer",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -22161,6 +22162,7 @@ enemy{
   y = 117,
   direction = 0,
   breed = "pincer",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -22169,6 +22171,7 @@ enemy{
   y = 61,
   direction = 3,
   breed = "pincer",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -22177,6 +22180,7 @@ enemy{
   y = 269,
   direction = 0,
   breed = "pincer",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -22185,6 +22189,7 @@ enemy{
   y = 189,
   direction = 0,
   breed = "pincer",
+  treasure_name = "random_with_charm",
 }
 
 tile{
@@ -27248,7 +27253,7 @@ enemy{
   y = 469,
   direction = 1,
   breed = "octorok_flying",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -27257,7 +27262,7 @@ enemy{
   y = 549,
   direction = 1,
   breed = "octorok_flying",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -27266,7 +27271,7 @@ enemy{
   y = 525,
   direction = 1,
   breed = "octorok_flying",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -27275,6 +27280,6 @@ enemy{
   y = 581,
   direction = 1,
   breed = "octorok_flying",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
