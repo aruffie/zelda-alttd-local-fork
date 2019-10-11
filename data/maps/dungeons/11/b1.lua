@@ -1,12 +1,3 @@
--- Lua script of map dungeons/11/b1.
--- This script is executed every time the hero enters this map.
-
--- Feel free to modify the code below.
--- You can add more events and remove the ones you don't need.
-
--- See the Solarus Lua API documentation:
--- http://www.solarus-games.org/doc/latest
-
 local map = ...
 local game = map:get_game()
 local hero=map:get_hero()
@@ -15,14 +6,8 @@ local audio_manager=require("scripts/audio_manager")
 local boss_path_index
 local boss_path_step=1
 
--- Event called at initialization time, as soon as this map is loaded.
 function map:on_started()
-  boss_path_index=1 --todo retrieve actual index from savegame
-end
-
--- Event called after the opening transition effect of the map,
--- that is, when the player takes control of the hero.
-function map:on_opening_transition_finished()
+  boss_path_index=game:get_value("windfish_maze_boss_path_index") 
 
 end
 
@@ -53,6 +38,7 @@ for i = 0, 2 do
   for  entity in map:get_entities("maze_path_"..i) do
     entity.direction=i
     function entity:on_activated()
+      game:set_value("tp_ground", "traversable")
       check_boss_path_advancement(entity, entity.direction)
     end
   end
