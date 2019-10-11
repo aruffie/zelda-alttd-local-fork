@@ -10,9 +10,13 @@
 local map = ...
 local game = map:get_game()
 local light_manager = require("scripts/maps/light_manager")
+local audio_manager = require("scripts/audio_manager")
 
 function map:on_started()
   
   light_manager:init(map)
+  map:set_light(0)
+  audio_manager:stop_music()
+  audio_manager:play_music("74_wind_fish_egg")
   
 end
