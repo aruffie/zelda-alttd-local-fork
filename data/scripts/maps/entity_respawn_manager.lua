@@ -82,7 +82,11 @@ function entity_respawn_manager:init(map)
       end
     end
   end
-
+  function entity_respawn_manager:reset_twin_platforms()
+    for _, platform in pairs(saved_entities.twin_platforms) do
+      platform:reset()
+    end
+  end
   function entity_respawn_manager:reset_moving_platforms()
     for _, platform in pairs(saved_entities.moving_platforms) do
       platform:reset()
@@ -321,6 +325,9 @@ function entity_respawn_manager:init(map)
         if model=="platform_moving" then
           saved_entities.moving_platforms[#saved_entities.moving_platforms + 1] = entity
         end
+        if model=="platform_balance" then
+          saved_entities.twin_platforms[#saved_entities.twin_platforms + 1] = entity
+        end
 
         if entity:get_model()=="torch" then
           saved_entities.torches[#saved_entities.torches + 1] = entity
@@ -365,7 +372,7 @@ function entity_respawn_manager:init(map)
 
       if entity:get_property("auto_respawn")=="true" then
 -- Store the position and properties of custom entities
-        if entity_type=="custom_entity" and entity:get_model()~="unstable_floor" and entity:get_model()~="torch" and entity:get_model()~= "moving_platform" then
+        if entity_type=="custom_entity" and entity:get_model()~="unstable_floor" and entity:get_model()~="torch" and entity:get_model()~= "platform_moving" and entity:get_model()~= "platform_balance" then
           saved_entities.custom_entities[#saved_entities.custom_entities + 1] = {
             x = x,
             y = y,
@@ -394,6 +401,7 @@ function entity_respawn_manager:init(map)
     self:reset_blocks(map)
     self:reset_custom_entities(map)
     self:reset_moving_platforms()
+    self:reset_twin_platforms()
     self:reset_unstable_floors(map)
     self:reset_destructibles(map)
     self:reset_enemies(map) -- originally triggered by separator:on_activating
