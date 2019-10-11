@@ -5,12 +5,13 @@ local merchant_move = false
 local link_move = false
 
 -- Include scripts
+require("scripts/multi_events")
 local shop_manager = require("scripts/maps/shop_manager")
 local laser_manager = require("scripts/maps/laser_manager")
 local audio_manager = require("scripts/audio_manager")
 
 -- Map events
-function map:on_started(destination)
+map:register_event("on_started", function(map, destination)
   -- Music
   map:init_music()
   -- Entities
@@ -20,7 +21,7 @@ function map:on_started(destination)
     shop_manager:init(map)
   end
 
-end
+end)
 
 function map:on_opening_transition_finished()
   

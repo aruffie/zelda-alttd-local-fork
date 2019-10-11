@@ -3,17 +3,18 @@ local map = ...
 local game = map:get_game()
 local is_game_available = false
 
--- Includes scripts
+-- Include scripts
+require("scripts/multi_events")
 local claw_manager = require("scripts/maps/claw_manager")
 local audio_manager = require("scripts/audio_manager")
 
 -- Map events
-function map:on_started(destination)
+map:register_event("on_started", function(map, destination)
 
   -- Music
   map:init_music()
 
-end
+end)
 
 -- Initialize the music of the map
 function map:init_music()

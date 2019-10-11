@@ -11169,6 +11169,7 @@ tile{
   layer = 0,
   x = 368,
   y = 1616,
+  enabled_at_start = false,
   width = 16,
   height = 16,
   pattern = "torch",
@@ -16606,7 +16607,6 @@ enemy{
   y = 1501,
   direction = 0,
   breed = "face_lamp",
-  treasure_name = "random",
 }
 
 enemy{
@@ -16616,7 +16616,6 @@ enemy{
   y = 1501,
   direction = 0,
   breed = "face_lamp",
-  treasure_name = "random",
 }
 
 enemy{

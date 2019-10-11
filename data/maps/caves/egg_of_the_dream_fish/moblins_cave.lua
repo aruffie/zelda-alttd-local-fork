@@ -12,7 +12,7 @@ local separator_manager = require("scripts/maps/separator_manager")
 local audio_manager = require("scripts/audio_manager")
 
 -- Map events
-function map:on_started(destination)
+map:register_event("on_started", function(map, destination)
   
   -- Music
   if game:get_value("main_quest_step") == 9  then
@@ -29,7 +29,7 @@ function map:on_started(destination)
     enemy:get_sprite():set_direction(3)
   end
   
-end
+end)
 
 -- Initialize the music of the map
 function map:init_music()

@@ -3,11 +3,12 @@ local map = ...
 local game = map:get_game()
 
 -- Include scripts
+require("scripts/multi_events")
 local owl_manager = require("scripts/maps/owl_manager")
 local audio_manager = require("scripts/audio_manager")
 
 -- Map events
-function map:on_started(destination)
+map:register_event("on_started", function(map, destination)
 
   -- Music
   map:init_music()
@@ -18,7 +19,7 @@ function map:on_started(destination)
   -- Shore
   map:init_shore()
 
-end
+end)
 
 -- Initialize the music of the map
 function map:init_music()

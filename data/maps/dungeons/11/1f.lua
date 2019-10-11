@@ -12,10 +12,7 @@ local game = map:get_game()
 local light_manager = require("scripts/maps/light_manager")
 
 function map:on_started()
+  
   light_manager:init(map)
-  map:set_light(0)
-end
-
-function map:on_opening_transition_finished()
-
+  
 end

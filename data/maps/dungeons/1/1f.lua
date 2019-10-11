@@ -5,6 +5,7 @@ local is_small_boss_active = false
 local is_boss_active = false
 
 -- Include scripts
+require("scripts/multi_events")
 local audio_manager = require("scripts/audio_manager")
 local door_manager = require("scripts/maps/door_manager")
 local enemy_manager = require("scripts/maps/enemy_manager")
@@ -12,12 +13,11 @@ local owl_manager = require("scripts/maps/owl_manager")
 local separator_manager = require("scripts/maps/separator_manager")
 local switch_manager = require("scripts/maps/switch_manager")
 local treasure_manager = require("scripts/maps/treasure_manager")
-require("scripts/multi_events")
 
 -- Map events
 
-function map:on_started()
-
+map:register_event("on_started", function()
+    
   -- Chests
   treasure_manager:appear_chest_if_savegame_exist(map, "chest_small_key_2",  "dungeon_1_small_key_2")
   treasure_manager:appear_chest_if_savegame_exist(map, "chest_map",  "dungeon_1_map")
@@ -64,16 +64,16 @@ function map:on_started()
   -- Separators
   separator_manager:init(map)
   
-end
+end)
 
-function map:on_opening_transition_finished()
+map:register_event("on_opening_transition_finished", function()
 
   map:set_doors_open("door_group_5_", true)
   if destination == dungeon_1_1_B then
     map:set_doors_open("door_group_2_", false)
   end
 
-end
+end)
 
 
 function map:on_obtaining_treasure(item, variant, savegame_variable)

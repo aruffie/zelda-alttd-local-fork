@@ -7,14 +7,14 @@ require("scripts/multi_events")
 local audio_manager = require("scripts/audio_manager")
 
 -- Map events
-function map:on_started(destination)
+map:register_event("on_started", function(map, destination)
 
   -- Music
   map:init_music()
   -- Entities
   map:init_map_entities(destination)
 
-end
+end)
 
 function map:on_opening_transition_finished(destination)
 

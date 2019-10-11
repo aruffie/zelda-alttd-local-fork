@@ -3,12 +3,13 @@ local map = ...
 local game = map:get_game()
 
 -- Include scripts
+require("scripts/multi_events")
 local audio_manager = require("scripts/audio_manager")
 local separator_manager = require("scripts/maps/separator_manager")
 local treasure_manager = require("scripts/maps/treasure_manager")
 
 -- Map events
-function map:on_started(destination)
+map:register_event("on_started", function(map, destination)
 
   -- Music
   map:init_music()
@@ -21,7 +22,7 @@ function map:on_started(destination)
   -- Treasures events
   treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_3_", "pickable_golden_leaf_3")
   
-end
+end)
 
 -- Initialize the music of the map
 function map:init_music()

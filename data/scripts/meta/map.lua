@@ -3,6 +3,28 @@ local map_meta=sol.main.get_metatable("map")
 require ("scripts/multi_events")
 local audio_manager=require("scripts/audio_manager")
 
+
+map_meta:register_event("on_started", function(map, destination)
+    
+  for enemy in map:get_entities_by_type("enemy") do
+    local treasure = enemy:get_treasure()
+    if treasure then
+      treasure = map:get_game():get_item(treasure)
+      if treasure:get_name() then
+        if treasure:get_name() and treasure:get_name() ~= 'random_with_charm' then
+          print(enemy:get_breed() .. ' - ' .. treasure:get_name())
+        end
+      else
+        print(enemy:get_breed()..' - ' .. enemy:get_name() .. ' - Treasure not identified')
+      end
+  
+    else
+      print(enemy:get_breed() .. ' - Not treasure')
+    end
+  end
+    
+end)
+
 map_meta:register_event("on_opening_transition_finished", function(map, destination)
 
     local game=map:get_game()

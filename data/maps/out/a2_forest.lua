@@ -30,7 +30,7 @@ local function get_destructible_sprite_name(destructible)
 end
 
 -- Map events
-function map:on_started(destination)
+map:register_event("on_started", function(map, destination)
 
   -- Music
   map:init_music()
@@ -97,7 +97,7 @@ function map:on_started(destination)
     map:init_music()
   end
 
-end
+end)
 
 -- Initialize the music of the map
 function map:init_music()

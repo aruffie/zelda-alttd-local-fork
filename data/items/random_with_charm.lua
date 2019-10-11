@@ -51,9 +51,13 @@ function item:choose_random_item()
       acorn_visble = true
     end
   end
-  if game.power_fragment_count == 46 and not power_fragment_visble and game.hero_charm ~= "power_fragment" then
+  if game.power_fragment_count == 3
+  and not power_fragment_visble
+    and game.hero_charm ~= "power_fragment" then
     return 'power_fragment', 1
-  elseif game.power_fragment_count == 13 and not acorn_visble and game.hero_charm ~= "acorn" then
+  elseif game.power_fragment_count == 4
+    and not acorn_visble
+    and game.hero_charm ~= "acorn" then
     return 'acorn', 1
   else
   local random = math.random(1000)

@@ -6,10 +6,11 @@ local ball_shadow
 local hero_is_alerted = false
 
 -- Include scripts
+require("scripts/multi_events")
 local audio_manager = require("scripts/audio_manager")
 
 -- Map events
-function map:on_started(destination)
+map:register_event("on_started", function(map, destination)
 
   -- Music
   map:init_music()
@@ -67,7 +68,7 @@ function map:on_started(destination)
       weathercook_statue_2:set_position(616,248)
   end
     
-end
+end)
 
 function map:on_opening_transition_finished(destination)
   
