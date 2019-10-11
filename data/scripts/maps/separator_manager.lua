@@ -24,6 +24,7 @@ function separator_manager:init(map)
     entity_respawn_manager:reset_torches(map)
     entity_respawn_manager:reset_bombs()
     entity_respawn_manager:reset_moving_platforms()
+    entity_respawn_manager:reset_twin_platforms()
 
     hero.respawn_point_saved=nil
     local directions={

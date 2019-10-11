@@ -27,6 +27,7 @@ local accel_duration = 1
 local old_x=0
 local old_y=0
 local true_x, true_y
+local start_x, start_y
 entity.speed=0
 local twin=nil
 local chain=nil
@@ -47,7 +48,7 @@ entity:register_event("on_created", function()
     entity.is_on_twin=false
     local true_layer
     true_x, true_y = entity:get_position()
-
+    start_x, start_y = entity:get_position()
     --Create it's chain
     chain = entity:get_map():create_custom_entity({
         x=true_x,
@@ -95,9 +96,17 @@ entity:add_collision_test(
   end
 )
 
+function entity:reset()
+  entity:set_position(start_x, start_y)
+end
+
 function entity:on_removed()
   if chain then
     chain:remove()
+    chain=nil
+  end
+  if twin then
+    twin=nil
   end
 end
 
