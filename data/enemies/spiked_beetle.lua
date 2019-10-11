@@ -95,10 +95,10 @@ enemy:register_event("on_shield_collision", function(enemy, shield)
       -- Make the enemy jump while flipping.
       local angle = sprite:get_direction() * quarter + math.pi
       enemy:start_jumping(jumping_duration, jumping_height, angle, jumping_speed, function()
-          audio_manager:play_sound("enemies/bounce")
+          audio_manager:play_entity_sound(enemy, "enemies/bounce")
         end)
       sprite:set_animation("renverse")
-      audio_manager:play_sound("enemies/bounce")
+      audio_manager:play_entity_sound(enemy, "enemies/bounce")
     end
   end)
 
