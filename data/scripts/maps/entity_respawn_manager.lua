@@ -19,6 +19,7 @@ function entity_respawn_manager:init(map)
     torches = {}, 
     destructibles = {},
     moving_platforms = {},
+    twin_platforms = {},
     blocks = {},
     custom_entities = {},
   }
