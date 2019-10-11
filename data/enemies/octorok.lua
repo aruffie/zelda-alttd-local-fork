@@ -32,7 +32,7 @@ function enemy:start_walking(key)
 
       -- Throw an arrow if the hero is on the direction the enemy is looking at.
       if enemy:get_direction4_to(hero) == sprite:get_direction() then
-        audio_manager:play_sound("enemies/octorok_firing")
+        audio_manager:play_entity_sound(enemy, "enemies/octorok_firing")
         enemy:throw_projectile(projectile_breed, throwing_duration, projectile_offset[key][1], projectile_offset[key][2], function()
           enemy:start_walking(math.random(4))
         end)
