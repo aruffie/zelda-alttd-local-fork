@@ -7,8 +7,7 @@ local boss_path_index
 local boss_path_step=1
 
 function map:on_started()
-  boss_path_index=game:get_value("windfish_maze_boss_path_index") or math.random(#maze_paths) -- path generation should already been done unless we loaded an existing save created before this has been implemented
-  print ("Chosen path index: "..boss_path_index)
+  boss_path_index=game:get_value("windfish_maze_boss_path_index")
 end
 
 local function check_boss_path_advancement(entity, direction)
