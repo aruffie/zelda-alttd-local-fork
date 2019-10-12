@@ -71,10 +71,7 @@ end
 function map:init_shore()
   
   sol.timer.start(map, 5000, function()
-    local x,y,layer = hero:get_position()
-    if y > 500 then
-      audio_manager:play_sound("misc/shore")
-    end  
+    audio_manager:play_entity_sound("misc/shore") 
     return true
   end)
   
