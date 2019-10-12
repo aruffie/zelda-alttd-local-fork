@@ -599,6 +599,7 @@ sprite{ id = "menus/dungeon_maps/map_10", description = "menus/dungeon_maps/map_
 sprite{ id = "menus/dungeon_maps/map_10_compass", description = "menus/dungeon_maps/map_10_compass" }
 sprite{ id = "menus/dungeon_maps/map_10_no_map", description = "menus/dungeon_maps/map_10_no_map" }
 sprite{ id = "menus/dungeon_maps/map_10_no_map_compass", description = "menus/dungeon_maps/map_10_no_map_compass" }
+sprite{ id = "menus/dungeon_maps/map_11", description = "Map 11" }
 sprite{ id = "menus/dungeon_maps/map_1_compass", description = "Map 1 compass" }
 sprite{ id = "menus/dungeon_maps/map_1_no_map", description = "Map 1 no map" }
 sprite{ id = "menus/dungeon_maps/map_1_no_map_compass", description = "Map 1 no map compass" }
@@ -843,6 +844,7 @@ music{ id = "snes/59_level_6_face_shrine", description = "59 - Level 6 - Face Sh
 music{ id = "snes/60_coral_triangle", description = "60 - Coral Triangle" }
 music{ id = "snes/67_organ_of_evening_calm", description = "67 - Organ of Evening Calm" }
 music{ id = "snes/70_thunder_drum", description = "70 - Thunder Drum" }
+music{ id = "snes/74_wind_fish_egg", description = "74 - Wind fish egg" }
 
 sound{ id = "arrow_hit", description = "Empty sound" }
 sound{ id = "boomerang", description = "Empty sound" }

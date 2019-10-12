@@ -954,6 +954,13 @@ Temple du Hibou
 }
 
 dialog{
+  id = "maps.dungeons.11.welcome",
+  text = [[
+OEUF SACRE
+]],
+}
+
+dialog{
   id = "maps.dungeons.2.boss_message_1",
   text = [[
 NANANA !!!

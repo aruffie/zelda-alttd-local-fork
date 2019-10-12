@@ -949,24 +949,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 96,
-  y = 112,
-  width = 16,
-  height = 16,
-  pattern = "torch_off",
-}
-
-tile{
-  layer = 0,
-  x = 208,
-  y = 112,
-  width = 16,
-  height = 16,
-  pattern = "torch_off",
-}
-
-tile{
-  layer = 0,
   x = 72,
   y = 200,
   width = 176,
@@ -1264,19 +1246,19 @@ tile{
 
 tile{
   layer = 0,
-  x = 136,
-  y = 144,
-  width = 48,
-  height = 48,
+  x = 144,
+  y = 160,
+  width = 40,
+  height = 32,
   pattern = "870",
 }
 
 tile{
   layer = 0,
   x = 144,
-  y = 144,
+  y = 160,
   width = 32,
-  height = 48,
+  height = 32,
   pattern = "floor.14-Alpha",
 }
 
@@ -1284,8 +1266,8 @@ tile{
   layer = 0,
   x = 136,
   y = 48,
-  width = 48,
-  height = 48,
+  width = 40,
+  height = 16,
   pattern = "870",
 }
 
@@ -1294,7 +1276,7 @@ tile{
   x = 144,
   y = 48,
   width = 32,
-  height = 48,
+  height = 16,
   pattern = "floor.14-Alpha",
 }
 
@@ -1319,18 +1301,18 @@ tile{
 tile{
   layer = 0,
   x = 136,
-  y = 144,
+  y = 160,
   width = 8,
-  height = 48,
+  height = 32,
   pattern = "floor_border.1",
 }
 
 tile{
   layer = 0,
   x = 176,
-  y = 144,
+  y = 160,
   width = 8,
-  height = 48,
+  height = 32,
   pattern = "floor_border.1",
 }
 
@@ -1339,7 +1321,7 @@ tile{
   x = 136,
   y = 48,
   width = 8,
-  height = 48,
+  height = 16,
   pattern = "floor_border.1",
 }
 
@@ -1348,32 +1330,32 @@ tile{
   x = 176,
   y = 48,
   width = 8,
-  height = 48,
+  height = 16,
   pattern = "floor_border.1",
 }
 
 tile{
   layer = 0,
   x = 184,
-  y = 144,
+  y = 160,
   width = 8,
-  height = 56,
+  height = 40,
   pattern = "hole.3",
 }
 
 tile{
   layer = 0,
   x = 128,
-  y = 144,
+  y = 160,
   width = 8,
-  height = 56,
+  height = 40,
   pattern = "hole.4",
 }
 
 tile{
   layer = 0,
   x = 184,
-  y = 136,
+  y = 152,
   width = 8,
   height = 8,
   pattern = "hole.corner_reverse.3",
@@ -1382,7 +1364,7 @@ tile{
 tile{
   layer = 0,
   x = 128,
-  y = 136,
+  y = 152,
   width = 8,
   height = 8,
   pattern = "hole.corner_reverse.4",
@@ -1391,7 +1373,7 @@ tile{
 tile{
   layer = 0,
   x = 136,
-  y = 136,
+  y = 152,
   width = 48,
   height = 8,
   pattern = "hole.2",
@@ -1402,7 +1384,7 @@ tile{
   x = 184,
   y = 40,
   width = 8,
-  height = 56,
+  height = 24,
   pattern = "hole.3",
 }
 
@@ -1411,14 +1393,14 @@ tile{
   x = 128,
   y = 40,
   width = 8,
-  height = 56,
+  height = 24,
   pattern = "hole.4",
 }
 
 tile{
   layer = 0,
   x = 184,
-  y = 96,
+  y = 64,
   width = 8,
   height = 8,
   pattern = "hole.corner_reverse.1",
@@ -1427,7 +1409,7 @@ tile{
 tile{
   layer = 0,
   x = 128,
-  y = 96,
+  y = 64,
   width = 8,
   height = 8,
   pattern = "hole.corner_reverse.2",
@@ -1436,7 +1418,7 @@ tile{
 tile{
   layer = 0,
   x = 136,
-  y = 96,
+  y = 64,
   width = 48,
   height = 8,
   pattern = "hole.1",
@@ -1555,9 +1537,9 @@ teletransporter{
 teletransporter{
   layer = 0,
   x = 136,
-  y = 96,
+  y = 64,
   width = 48,
-  height = 48,
+  height = 96,
   destination_map = "dungeons/11/b1",
   destination = "hole",
 }
@@ -1565,7 +1547,7 @@ teletransporter{
 teletransporter{
   layer = 0,
   x = 72,
-  y = 40,
+  y = 48,
   width = 64,
   height = 160,
   destination_map = "dungeons/11/b1",
@@ -1720,24 +1702,6 @@ tile{
 tile{
   layer = 2,
   x = 16,
-  y = 256,
-  width = 16,
-  height = 16,
-  pattern = "torch_off",
-}
-
-tile{
-  layer = 2,
-  x = 288,
-  y = 256,
-  width = 16,
-  height = 16,
-  pattern = "torch_off",
-}
-
-tile{
-  layer = 2,
-  x = 16,
   y = 192,
   width = 32,
   height = 32,
@@ -1786,5 +1750,53 @@ separator{
   y = 232,
   width = 320,
   height = 16,
+}
+
+custom_entity{
+  name = "torch_group_1_1",
+  layer = 2,
+  x = 24,
+  y = 269,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/misc/torch",
+  model = "torch",
+}
+
+custom_entity{
+  name = "torch_group_1_2",
+  layer = 2,
+  x = 296,
+  y = 269,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/misc/torch",
+  model = "torch",
+}
+
+custom_entity{
+  name = "torch_group_2_1",
+  layer = 2,
+  x = 104,
+  y = 125,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/misc/torch",
+  model = "torch",
+}
+
+custom_entity{
+  name = "torch_group_2_2",
+  layer = 2,
+  x = 216,
+  y = 125,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/misc/torch",
+  model = "torch",
 }
 
