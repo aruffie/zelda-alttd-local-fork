@@ -53,9 +53,6 @@ map{ id = "dungeons/10/b1", description = "Dungeon 10 B1" }
 map{ id = "dungeons/10/entrance", description = "Dungeon 10 Entrance" }
 map{ id = "dungeons/10/sideview_1", description = "Sideview 1" }
 map{ id = "dungeons/10/temp_lobby" }
-map{ id = "dungeons/11/1f", description = "Dungeon 11 1F" }
-map{ id = "dungeons/11/b1", description = "Dungeon 11 B1" }
-map{ id = "dungeons/11/b2", description = "Dungeon 11 B2" }
 map{ id = "dungeons/2/1f", description = "Dungeon 2 1F" }
 map{ id = "dungeons/2/sideview_1", description = "Sideview 1" }
 map{ id = "dungeons/2/sideview_2", description = "Sideview 2" }
@@ -80,6 +77,9 @@ map{ id = "dungeons/7/3f", description = "Dungeon 7 3F" }
 map{ id = "dungeons/7/sideview", description = "Sideview" }
 map{ id = "dungeons/8/1f", description = "Dungeon 8 1F" }
 map{ id = "dungeons/9/1f", description = "Dungeon 9 1F" }
+map{ id = "dungeons/egg/1f", description = "Dungeon 11 1F" }
+map{ id = "dungeons/egg/b1", description = "Dungeon 11 B1" }
+map{ id = "dungeons/egg/b2", description = "Dungeon 11 B2" }
 map{ id = "examples/beach_store", description = "Beach Store" }
 map{ id = "examples/cave_store", description = "Cave Store" }
 map{ id = "examples/dungeon_store", description = "Dungeon store" }
@@ -599,7 +599,6 @@ sprite{ id = "menus/dungeon_maps/map_10", description = "menus/dungeon_maps/map_
 sprite{ id = "menus/dungeon_maps/map_10_compass", description = "menus/dungeon_maps/map_10_compass" }
 sprite{ id = "menus/dungeon_maps/map_10_no_map", description = "menus/dungeon_maps/map_10_no_map" }
 sprite{ id = "menus/dungeon_maps/map_10_no_map_compass", description = "menus/dungeon_maps/map_10_no_map_compass" }
-sprite{ id = "menus/dungeon_maps/map_11", description = "Map 11" }
 sprite{ id = "menus/dungeon_maps/map_1_compass", description = "Map 1 compass" }
 sprite{ id = "menus/dungeon_maps/map_1_no_map", description = "Map 1 no map" }
 sprite{ id = "menus/dungeon_maps/map_1_no_map_compass", description = "Map 1 no map compass" }
@@ -1856,13 +1855,6 @@ file{ path = "maps/dungeons/10/b1.dat", author = "Benjamin Schweitzer", license 
 file{ path = "maps/dungeons/10/entrance.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
 file{ path = "maps/dungeons/10/sideview_1.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
 file{ path = "maps/dungeons/10/sideview_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/dungeons/11", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/dungeons/11/1f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/11/1f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/dungeons/11/b1.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/11/b1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/dungeons/11/b2.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/11/b2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/dungeons/2", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
 file{ path = "maps/dungeons/2/1f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
 file{ path = "maps/dungeons/2/1f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
@@ -1917,6 +1909,13 @@ file{ path = "maps/dungeons/8/1f.lua", author = "Benjamin Schweitzer", license =
 file{ path = "maps/dungeons/9", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
 file{ path = "maps/dungeons/9/1f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
 file{ path = "maps/dungeons/9/1f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/egg", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/dungeons/egg/1f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/egg/1f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/egg/b1.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/egg/b1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/egg/b2.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/egg/b2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/houses", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
 file{ path = "maps/houses/east_prairie", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
 file{ path = "maps/houses/east_prairie/telephone_booth_5.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
