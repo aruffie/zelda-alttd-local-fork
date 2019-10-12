@@ -2438,7 +2438,7 @@ enemy{
   y = 357,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -2448,7 +2448,7 @@ enemy{
   y = 365,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 teletransporter{
@@ -2494,7 +2494,7 @@ enemy{
   y = 397,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 sensor{

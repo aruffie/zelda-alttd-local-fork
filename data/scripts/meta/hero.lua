@@ -224,6 +224,7 @@ function hero_meta:on_taking_damage(damage)
   -- Remove life.
   game:remove_life(damage)
   -- Charm
+  game.acorn_count = 0
   if game.hero_charm then
     game.hero_charm_hurt_counter = game.hero_charm_hurt_counter + 1
     if game.hero_charm_hurt_counter == 3 then

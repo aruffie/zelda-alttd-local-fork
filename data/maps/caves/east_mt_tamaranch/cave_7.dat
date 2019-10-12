@@ -1145,8 +1145,7 @@ enemy{
   x = 344,
   y = 101,
   direction = 0,
-  breed = "hardhat_beetle",
-  treasure_name = "random",
+  breed = "hardhat_beetle"
 }
 
 enemy{
@@ -1155,8 +1154,7 @@ enemy{
   x = 112,
   y = 149,
   direction = 0,
-  breed = "hardhat_beetle",
-  treasure_name = "random",
+  breed = "hardhat_beetle"
 }
 
 enemy{
@@ -1166,7 +1164,7 @@ enemy{
   y = 125,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -1176,7 +1174,7 @@ enemy{
   y = 125,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 destructible{

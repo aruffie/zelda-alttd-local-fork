@@ -17150,7 +17150,8 @@ enemy{
   x = 1144,
   y = 1341,
   direction = 3,
-  breed = "stalfos_red",
+  breed = "stalfos_red",,
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -17160,6 +17161,7 @@ enemy{
   y = 1341,
   direction = 3,
   breed = "stalfos_blue",
+  treasure_name = "random_with_charm",
 }
 
 door{
@@ -17195,6 +17197,7 @@ enemy{
   y = 1533,
   direction = 3,
   breed = "maskass",
+  treasure_name = "random_with_charm",
 }
 
 crystal{
@@ -17210,6 +17213,7 @@ enemy{
   y = 1301,
   direction = 3,
   breed = "maskass",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -17219,6 +17223,7 @@ enemy{
   y = 1301,
   direction = 3,
   breed = "maskass",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -17470,6 +17475,7 @@ enemy{
   y = 1373,
   direction = 3,
   breed = "spiked_beetle",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -17479,6 +17485,7 @@ enemy{
   y = 1293,
   direction = 3,
   breed = "spiked_beetle",
+  treasure_name = "random_with_charm",
 }
 
 door{
@@ -19725,7 +19732,7 @@ enemy{
   y = 1325,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -19735,7 +19742,7 @@ enemy{
   y = 1325,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 door{
@@ -19786,7 +19793,7 @@ enemy{
   y = 813,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -19830,7 +19837,7 @@ enemy{
   y = 581,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -19839,8 +19846,7 @@ enemy{
   x = 880,
   y = 645,
   direction = 0,
-  breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 npc{
@@ -19860,7 +19866,7 @@ enemy{
   y = 413,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -19870,7 +19876,7 @@ enemy{
   y = 381,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -19880,7 +19886,7 @@ enemy{
   y = 349,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 chest{
@@ -19900,7 +19906,7 @@ enemy{
   y = 317,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -19910,7 +19916,7 @@ enemy{
   y = 117,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -19920,7 +19926,7 @@ enemy{
   y = 93,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 destructible{
@@ -20114,7 +20120,7 @@ enemy{
   y = 429,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -20124,7 +20130,7 @@ enemy{
   y = 397,
   direction = 0,
   breed = "pols_voice",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -20134,7 +20140,7 @@ enemy{
   y = 333,
   direction = 0,
   breed = "shrouded_stalfos",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 door{
@@ -20172,7 +20178,7 @@ enemy{
   y = 125,
   direction = 0,
   breed = "pols_voice",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -20182,7 +20188,7 @@ enemy{
   y = 157,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -20192,7 +20198,7 @@ enemy{
   y = 189,
   direction = 0,
   breed = "pols_voice",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 door{
@@ -20276,7 +20282,7 @@ enemy{
   y = 109,
   direction = 0,
   breed = "boo_buddy",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -20286,7 +20292,7 @@ enemy{
   y = 157,
   direction = 0,
   breed = "boo_buddy",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 chest{
@@ -20312,6 +20318,7 @@ enemy{
   },
   direction = 0,
   breed = "death_ball",
+  treasure_name = "random_with_charm",
 }
 
 custom_entity{
@@ -20376,6 +20383,7 @@ enemy{
   y = 77,
   direction = 0,
   breed = "zol_green",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -20474,6 +20482,7 @@ enemy{
   y = 1581,
   direction = 0,
   breed = "shrouded_stalfos",
+  treasure_name = "random_with_charm",
 }
 
 stairs{
@@ -22052,6 +22061,7 @@ enemy{
   y = 1053,
   direction = 3,
   breed = "keese",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -22061,6 +22071,7 @@ enemy{
   y = 1117,
   direction = 3,
   breed = "keese",
+  treasure_name = "random_with_charm",
 }
 
 teletransporter{
