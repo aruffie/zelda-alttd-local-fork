@@ -51,23 +51,23 @@ function item:choose_random_item()
       acorn_visble = true
     end
   end
+  print(game.acorn_count)
   if game.power_fragment_count == 3
-  and not power_fragment_visble
+    and not power_fragment_visble
     and game.hero_charm ~= "power_fragment" then
     return 'power_fragment', 1
-  elseif game.power_fragment_count == 4
+  elseif game.acorn_count == 4
     and not acorn_visble
     and game.hero_charm ~= "acorn" then
     return 'acorn', 1
   else
-  local random = math.random(1000)
-  local sum = 0
-  -- Todo get Acorn or Power Fragment
-  for key, probability in pairs(probabilities) do
-    sum = sum + probability
-    if random < sum then
-      return key[1], key[2]
-    end
+    local random = math.random(1000)
+    local sum = 0
+    for key, probability in pairs(probabilities) do
+      sum = sum + probability
+      if random < sum then
+        return key[1], key[2]
+      end
   end
 
   return nil
