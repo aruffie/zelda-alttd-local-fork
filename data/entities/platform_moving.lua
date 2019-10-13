@@ -17,14 +17,8 @@ local hero = game:get_hero()
 local map = entity:get_map()
 --local movement
 local sprite
-local start_x, start_y
-local old_x, old_y
-local direction, distance, duration
 local ax, ay
-local angle
-local is_semisolid
 local is_solidified = true
-local elapsed_time
 
 -- Include scripts
 require("scripts/multi_events")
@@ -32,41 +26,42 @@ require("scripts/multi_events")
 -- Event called when the custom entity is initialized.
 --function entity:on_created()
 entity:register_event("on_created", function()
-    start_x, start_y = entity:get_position()
-    old_x, old_y = entity:get_position()
+    entity.start_x, entity.start_y = entity:get_position()
+    entity.old_x, entity.old_y = entity:get_bounding_box()
     entity:set_traversable_by(false)
-    direction = entity:get_property("direction")
-    if direction == nil then
-      direction = 0
+    entity.direction = entity:get_property("direction")
+    if entity.direction == nil then
+      entity.direction = 0
     end
-    distance = entity:get_property("distance")
-    if distance == nil then
-      distance= 0
+    entity.distance = entity:get_property("distance")
+    if entity.distance == nil then
+      entity.distance= 0
     end
-    duration = entity:get_property("cycle_duration")
-    if duration == nil then
-      duration= 4000
+    entity.cycle_duration = entity:get_property("cycle_duration")
+    if entity.cycle_duration == nil then
+      entity.cycle_duration = 4000
     end
-        
-    is_semisolid = entity:get_property("is_semisolid") == "true"
 
-    elapsed_time=0
-    angle=(direction)/4*math.pi
-    ax = math.cos(angle)*distance/2
-    ay = -math.sin(angle)*distance/2
+    entity.elapsed_time=0
+    entity.movement_angle=(entity.direction)/4*math.pi
+    ax = math.cos(entity.movement_angle)*entity.distance/2
+    ay = -math.sin(entity.movement_angle)*entity.distance/2
   end)
 
 --This function makes the given entity maintain it's relative position to the platform
 local function move_entity_with_me(other)
 
   local x,y=entity:get_bounding_box()
-  local dx, dy = x-old_x, y-old_y
+  local dx, dy = x-entity.old_x, y-entity.old_y
   local xx, yy = other:get_position()
 
   other:set_position(xx+dx, yy+dy)
 
 end
 
+function entity:reset()
+  entity.elapsed_time=0
+end
 
 function entity:on_position_changed()
 
@@ -76,51 +71,45 @@ function entity:on_position_changed()
 
     if other ~= entity then --This may be obvious, but you don't want to apply the synch in itself unless you want to be a bit trolly :p
       local e_type = other:get_type()
---      print(e_type)
-      if e_type == "hero" or e_type == "npc" or e_type == "enemy" or e_type == "pickable" then --TODO identity all compatible entity types
-        
+      if e_type == "hero" or e_type == "npc" or e_type == "enemy" or e_type == "pickable" or (e_type=="custom_entiy" and other:get_model()=="npc") then --TODO identity all compatible entity typesx, 
+
         --Update entity position start
         local other_x, other_y, other_w , other_h = other:get_bounding_box()
-        
+
         -- Maybe use the same coordinates for entity's position range ?
-        if is_semisolid then
-          if other_y+other_h <= y+1 then
-            if e_type == "hero" and is_solidified == true then
-              print "ME SOLID NOW"
-              is_solidified = false
-              entity:set_traversable_by("hero", false)
-            end
-            if other_x <= x+w and other_x+other_w >= x and other_y+other_h >= y-1 then
-              move_entity_with_me(other)
-            end
-          else
-            if e_type == "hero" and is_solidified == false then
-              print "ME NON SOLID NOW"
-              is_solidified = true
-              entity:set_traversable_by("hero", true)
-            end
+        if other_y+other_h <= y+1 then
+          if e_type == "hero" and is_solidified == true then
+--              print "ME SOLID NOW"
+            is_solidified = false
+            entity:set_traversable_by("hero", false)
+          end
+          if other_x+other_w/2 <= x+w-1 and other_x+other_w/2 >= x and other_y+other_h >= y-1 then
+            move_entity_with_me(other)
           end
         else
-          if other_x<=x+w and other_x+other_w>=x and other_y<=y+h and other_y+other_h>=y-1 then
-            move_entity_with_me(other)
+          if e_type == "hero" and is_solidified == false then
+--              print "ME NON SOLID NOW"
+            is_solidified = true
+            entity:set_traversable_by("hero", true)
           end
         end
         --update entity position end
-        
+
       end
     end
   end
   --Finally, update the previous position
-  old_x, old_y = x, y
-  
+  entity.old_x=x
+  entity.old_y=y
+
 -- print ("Job's done for" ..(entity:get_name() or "<some entity>")) 
 end
 
 sol.timer.start(entity, 10, function()
-  elapsed_time=elapsed_time+10
-  local a=-math.cos(elapsed_time/duration*math.pi*2)+1
-  local new_x = start_x + a*ax
-  local new_y = start_y + a*ay
-  entity:set_position(new_x,new_y)
-  return true
-end)
+    entity.elapsed_time=entity.elapsed_time+10
+    local a=-math.cos(entity.elapsed_time/entity.cycle_duration*math.pi*2)+1
+    local new_x = entity.start_x + a*ax
+    local new_y = entity.start_y + a*ay
+    entity:set_position(new_x,new_y)
+    return true
+  end)

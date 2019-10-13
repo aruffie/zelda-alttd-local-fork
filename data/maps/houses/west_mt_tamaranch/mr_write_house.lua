@@ -4,14 +4,15 @@ local game = map:get_game()
 local draw_picture = false
 
 -- Include scripts
+require("scripts/multi_events")
 local audio_manager = require("scripts/audio_manager")
 
-function map:on_started()
+map:register_event("on_started", function(map, destination)
 
   -- Music
   map:init_music()
 
-end
+end)
 
 -- Initialize the music of the map
 function map:init_music()

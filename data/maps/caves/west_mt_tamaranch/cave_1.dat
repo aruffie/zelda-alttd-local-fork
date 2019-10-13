@@ -15,7 +15,7 @@ tile{
   y = 64,
   width = 512,
   height = 128,
-  pattern = "floor.16-2",
+  pattern = "floor.5-2",
 }
 
 tile{
@@ -954,7 +954,7 @@ tile{
   y = 192,
   width = 16,
   height = 16,
-  pattern = "floor.16-2",
+  pattern = "floor.5-2",
 }
 
 tile{
@@ -1017,7 +1017,7 @@ tile{
   y = 192,
   width = 16,
   height = 16,
-  pattern = "floor.16-2",
+  pattern = "floor.5-2",
 }
 
 tile{
@@ -1089,7 +1089,7 @@ tile{
   layer = 0,
   x = 136,
   y = 152,
-  width = 32,
+  width = 16,
   height = 16,
   pattern = "97",
   tileset = "addition/dungeon",
@@ -1155,10 +1155,10 @@ enemy{
   name = "enemy_group_1_1",
   layer = 0,
   x = 472,
-  y = 157,
+  y = 165,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -1168,17 +1168,17 @@ enemy{
   y = 165,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
   name = "enemy_group_1_3",
   layer = 0,
   x = 520,
-  y = 157,
+  y = 165,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -1188,7 +1188,7 @@ enemy{
   y = 149,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -1198,7 +1198,7 @@ enemy{
   y = 117,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 stairs{
@@ -1377,16 +1377,6 @@ dynamic_tile{
   pattern = "926",
 }
 
-dynamic_tile{
-  name = "floor_12_unstable_associate_",
-  layer = 0,
-  x = 152,
-  y = 152,
-  width = 16,
-  height = 16,
-  pattern = "926",
-}
-
 custom_entity{
   name = "floor_1",
   layer = 0,
@@ -1395,7 +1385,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -1407,7 +1397,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -1419,7 +1409,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -1431,7 +1421,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -1443,7 +1433,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -1455,7 +1445,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -1467,7 +1457,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -1479,7 +1469,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -1491,7 +1481,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -1503,7 +1493,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -1515,20 +1505,23 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
-custom_entity{
-  name = "floor_12",
+sensor{
+  name = "sensor_1",
   layer = 0,
   x = 160,
-  y = 165,
+  y = 173,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
-  direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
-  model = "unstable_floor",
 }
 
 tile{

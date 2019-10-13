@@ -5,6 +5,7 @@ local is_small_boss_active = false
 local is_boss_active = false
 
 -- Include scripts
+require("scripts/multi_events")
 local audio_manager = require("scripts/audio_manager")
 local door_manager = require("scripts/maps/door_manager")
 local enemy_manager = require("scripts/maps/enemy_manager")
@@ -12,7 +13,6 @@ local owl_manager = require("scripts/maps/owl_manager")
 local separator_manager = require("scripts/maps/separator_manager")
 local switch_manager = require("scripts/maps/switch_manager")
 local treasure_manager = require("scripts/maps/treasure_manager")
-require("scripts/multi_events")
 
 -- Map events
 function map:on_started()
@@ -43,13 +43,6 @@ function map:on_started()
   
 end
 
-function map:on_opening_transition_finished(destination)
-
-  if destination == dungeon_4_1_B then
-    game:start_dialog("maps.dungeons.4.welcome")
-  end
-
-end
 
 function map:on_obtaining_treasure(item, variant, savegame_variable)
 
@@ -130,38 +123,4 @@ function sensor_11:on_activated()
 
   sensor_10:on_activated()
 
-end
-
--- Separator events
-
-function auto_separator_5:on_activating(direction4)
-  
-  for block in map:get_entities("block_group_1_") do
-    block:reset()
-  end
-  
-end
-
-function auto_separator_6:on_activating(direction4)
-  
-  for block in map:get_entities("block_group_1_") do
-    block:reset()
-  end
-  
-end
-
-function auto_separator_12:on_activating(direction4)
-  
-  for block in map:get_entities("block_group_1_") do
-    block:reset()
-  end
-  
-end
-
-function auto_separator_13:on_activating(direction4)
-  
-  for block in map:get_entities("block_group_1_") do
-    block:reset()
-  end
-  
 end

@@ -8,6 +8,7 @@ properties{
   world = "dungeon_5",
   floor = 0,
   tileset = "dungeon/brown",
+  music = "same",
 }
 
 tile{
@@ -14276,7 +14277,7 @@ block{
 }
 
 block{
-  name = "block_group_1_1",
+  name = "auto_block_group_1_1",
   layer = 0,
   x = 456,
   y = 109,
@@ -14284,7 +14285,7 @@ block{
   sprite = "entities/blocks/block",
   pushable = true,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 block{
@@ -14368,23 +14369,14 @@ block{
 }
 
 block{
+  name = "auto_block_2",
   layer = 0,
   x = 1192,
   y = 669,
   sprite = "entities/blocks/block",
   pushable = false,
   pullable = false,
-  maximum_moves = 0,
-}
-
-block{
-  layer = 0,
-  x = 1208,
-  y = 669,
-  sprite = "entities/blocks/block",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 0,
+  max_moves = 0,
 }
 
 block{
@@ -14998,14 +14990,14 @@ block{
 }
 
 block{
-  name = "block_group_2_1",
+  name = "auto_block",
   layer = 0,
   x = 1736,
   y = 861,
   sprite = "entities/blocks/block",
   pushable = true,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 block{
@@ -15817,8 +15809,8 @@ destructible{
   x = 1352,
   y = 1285,
   treasure_name = "random",
-  sprite = "entities/blue_cristal",
-  destruction_sound = "bush",
+  sprite = "entities/destructibles/crystal_blue",
+  destruction_sound = "arrow_hit",
   weight = -1,
   can_be_cut = true,
 }
@@ -15829,8 +15821,8 @@ destructible{
   x = 1336,
   y = 1269,
   treasure_name = "random",
-  sprite = "entities/blue_cristal",
-  destruction_sound = "bush",
+  sprite = "entities/destructibles/crystal_blue",
+  destruction_sound = "arrow_hit",
   weight = -1,
   can_be_cut = true,
 }
@@ -16342,101 +16334,14 @@ destructible{
 }
 
 custom_entity{
-  layer = 0,
-  x = 1400,
-  y = 813,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1464,
-  y = 837,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
+  name = "auto_entity_2",
   layer = 0,
   x = 1480,
   y = 853,
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1528,
-  y = 893,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1528,
-  y = 797,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1512,
-  y = 813,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1512,
-  y = 877,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1400,
-  y = 893,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1352,
-  y = 813,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
+  sprite = "entities/destructibles/crystal_green",
   model = "green_crystal",
 }
 
@@ -16568,7 +16473,7 @@ enemy{
   x = 1688,
   y = 1821,
   direction = 0,
-  breed = "helmasaur_masked",
+  breed = "helmasaur",
   treasure_name = "random",
 }
 
@@ -16634,7 +16539,7 @@ enemy{
   x = 1176,
   y = 1821,
   direction = 0,
-  breed = "helmasaur_masked",
+  breed = "helmasaur",
   treasure_name = "random",
 }
 
@@ -16644,7 +16549,7 @@ enemy{
   x = 1064,
   y = 1821,
   direction = 0,
-  breed = "helmasaur_masked",
+  breed = "helmasaur",
   treasure_name = "random",
 }
 
@@ -16694,7 +16599,7 @@ enemy{
   x = 1352,
   y = 1805,
   direction = 0,
-  breed = "helmasaur_masked",
+  breed = "helmasaur",
   treasure_name = "random",
 }
 
@@ -17047,7 +16952,7 @@ enemy{
   x = 1352,
   y = 1549,
   direction = 0,
-  breed = "helmasaur_masked",
+  breed = "helmasaur",
   treasure_name = "random",
 }
 
@@ -17097,7 +17002,7 @@ enemy{
   x = 1096,
   y = 1565,
   direction = 0,
-  breed = "helmasaur_masked",
+  breed = "helmasaur",
   treasure_name = "random",
 }
 
@@ -17107,7 +17012,7 @@ enemy{
   x = 1192,
   y = 1613,
   direction = 0,
-  breed = "helmasaur_masked",
+  breed = "helmasaur",
   treasure_name = "random",
 }
 
@@ -17161,7 +17066,7 @@ enemy{
   x = 744,
   y = 1549,
   direction = 0,
-  breed = "helmasaur_masked",
+  breed = "helmasaur",
   treasure_name = "random",
 }
 
@@ -17171,7 +17076,7 @@ enemy{
   x = 792,
   y = 1581,
   direction = 0,
-  breed = "helmasaur_masked",
+  breed = "helmasaur",
   treasure_name = "random",
 }
 
@@ -17490,68 +17395,13 @@ enemy{
   treasure_name = "random",
 }
 
-custom_entity{
-  layer = 0,
-  x = 1384,
-  y = 893,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1368,
-  y = 893,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1352,
-  y = 893,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1368,
-  y = 813,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1384,
-  y = 813,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/green_cristal",
-  model = "green_crystal",
-}
-
 enemy{
   name = "enemy_group_16_2",
   layer = 0,
   x = 1352,
   y = 877,
   direction = 3,
-  breed = "hooded_stalfos",
+  breed = "shrouded_stalfos",
   treasure_name = "random",
 }
 
@@ -17817,7 +17667,7 @@ enemy{
   x = 1704,
   y = 605,
   direction = 3,
-  breed = "hooded_stalfos",
+  breed = "shrouded_stalfos",
   treasure_name = "random",
 }
 
@@ -17847,7 +17697,7 @@ enemy{
   x = 1784,
   y = 637,
   direction = 3,
-  breed = "hooded_stalfos",
+  breed = "shrouded_stalfos",
   treasure_name = "random",
 }
 
@@ -17867,7 +17717,7 @@ enemy{
   x = 1688,
   y = 365,
   direction = 3,
-  breed = "hooded_stalfos",
+  breed = "shrouded_stalfos",
   treasure_name = "random",
 }
 
@@ -18318,7 +18168,7 @@ enemy{
   x = 552,
   y = 1373,
   direction = 3,
-  breed = "helmasaur_masked",
+  breed = "helmasaur",
   treasure_name = "random",
 }
 
@@ -18328,7 +18178,7 @@ enemy{
   x = 504,
   y = 1389,
   direction = 3,
-  breed = "helmasaur_masked",
+  breed = "helmasaur",
   treasure_name = "random",
 }
 
@@ -18338,7 +18188,7 @@ enemy{
   x = 456,
   y = 1373,
   direction = 3,
-  breed = "helmasaur_masked",
+  breed = "helmasaur",
   treasure_name = "random",
 }
 
@@ -18348,7 +18198,7 @@ enemy{
   x = 2008,
   y = 653,
   direction = 3,
-  breed = "hooded_stalfos",
+  breed = "shrouded_stalfos",
   treasure_name = "random",
 }
 
@@ -18790,6 +18640,162 @@ enemy{
   y = 1117,
   direction = 0,
   breed = "boss/gohma_red",
+}
+
+custom_entity{
+  name = "auto_entity",
+  layer = 0,
+  x = 1464,
+  y = 837,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  name = "auto_entity_3",
+  layer = 0,
+  x = 1512,
+  y = 813,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  name = "auto_entity_4",
+  layer = 0,
+  x = 1528,
+  y = 797,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  name = "auto_entity_5",
+  layer = 0,
+  x = 1512,
+  y = 877,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  name = "auto_entity_6",
+  layer = 0,
+  x = 1528,
+  y = 893,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  name = "auto_entity_7",
+  layer = 0,
+  x = 1400,
+  y = 893,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  name = "auto_entity_8",
+  layer = 0,
+  x = 1384,
+  y = 893,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  name = "auto_entity_9",
+  layer = 0,
+  x = 1368,
+  y = 893,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  name = "auto_entity_10",
+  layer = 0,
+  x = 1352,
+  y = 893,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  name = "auto_entity_11",
+  layer = 0,
+  x = 1352,
+  y = 813,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  name = "auto_entity_12",
+  layer = 0,
+  x = 1368,
+  y = 813,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  name = "auto_entity_13",
+  layer = 0,
+  x = 1384,
+  y = 813,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
+}
+
+custom_entity{
+  name = "auto_entity_14",
+  layer = 0,
+  x = 1400,
+  y = 813,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/crystal_green",
+  model = "green_crystal",
 }
 
 tile{

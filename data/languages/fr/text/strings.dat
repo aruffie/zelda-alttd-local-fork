@@ -1,3 +1,4 @@
+text{ key = "buy", value = "Acheter" }
 text{ key = "copyright_menu.made_by_fans.line1", value = "Ce jeu est réalisé par des fans," }
 text{ key = "copyright_menu.made_by_fans.line2", value = "est non commercial" }
 text{ key = "copyright_menu.made_by_fans.line3", value = "et n'a aucun lien avec Nintendo." }

@@ -4,10 +4,11 @@ local game = map:get_game()
 local hero = map:get_hero()
 
 -- Include scripts
+require("scripts/multi_events")
 local audio_manager = require("scripts/audio_manager")
 
 -- Map events
-function map:on_started(destination)
+map:register_event("on_started", function(map, destination)
 
   -- Music
  map:init_music()
@@ -21,7 +22,7 @@ function map:on_started(destination)
     hero:start_jumping(6,48,true)
   end
 
-end
+end)
 
 -- Initialize the music of the map
 function map:init_music()

@@ -14,6 +14,7 @@ function item:on_created()
   self:set_amount_savegame_variable("amount_golden_leafs_counter")
   self:set_assignable(false)
   self:set_sound_when_brandished(nil)
+  self:set_max_amount(5)
 
 end
 

@@ -13,12 +13,12 @@ animation{
 animation{
   name = "singing",
   src_image = "npc/animals/wart.png",
-  frame_delay = 150,
+  frame_delay = 100,
   frame_to_loop_on = 0,
   directions = {
-    { x = 0, y = 0, frame_width = 48, frame_height = 56, origin_x = 24, origin_y = 53, num_frames = 4 },
-    { x = 0, y = 0, frame_width = 48, frame_height = 56, origin_x = 24, origin_y = 53, num_frames = 4 },
-    { x = 0, y = 0, frame_width = 48, frame_height = 56, origin_x = 24, origin_y = 53, num_frames = 4 },
-    { x = 0, y = 0, frame_width = 48, frame_height = 56, origin_x = 24, origin_y = 53, num_frames = 4 },
+    { x = 0, y = 56, frame_width = 48, frame_height = 56, origin_x = 24, origin_y = 53, num_frames = 14 },
+    { x = 0, y = 56, frame_width = 48, frame_height = 56, origin_x = 24, origin_y = 53, num_frames = 14 },
+    { x = 0, y = 56, frame_width = 48, frame_height = 56, origin_x = 24, origin_y = 53, num_frames = 14 },
+    { x = 0, y = 56, frame_width = 48, frame_height = 56, origin_x = 24, origin_y = 53, num_frames = 14 },
   },
 }

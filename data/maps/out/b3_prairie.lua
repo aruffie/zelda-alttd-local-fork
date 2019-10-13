@@ -10,7 +10,7 @@ local travel_manager = require("scripts/maps/travel_manager")
 local audio_manager = require("scripts/audio_manager")
 
 -- Map events
-function map:on_started(destination)
+map:register_event("on_started", function(map, destination)
 
   -- Music
   print ("at start:", seashell_13:get_position())
@@ -20,7 +20,7 @@ function map:on_started(destination)
   -- Digging
   map:set_digging_allowed(true)
 
-end
+end)
 
 -- Initialize the music of the map
 function map:init_music()

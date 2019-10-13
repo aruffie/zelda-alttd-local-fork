@@ -18,7 +18,6 @@ entity:register_event("on_created", function()
       audio_manager:play_sound("misc/secret1")
       sprite:set_animation("destroyed")
       sprite:register_event("on_animation_finished", function(sprite, animation)
-        print(animation)  
         if animation == "destroyed" then
           sprite:set_animation("stopped")
           game:set_value("statue_pig_exploded", true)

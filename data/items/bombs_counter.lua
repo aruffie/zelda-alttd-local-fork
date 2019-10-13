@@ -19,16 +19,9 @@ function item:on_created()
 
 end
 
-function item:on_obtaining(variant, savegame_variable)
-
-  self:set_max_amount(20)
-  self:set_amount(20)
-
-end
-
 function item:start_combo(other)
   if other:get_name()=="bow" and other.start_combo then
-    print "Combined items bomb"
+--    print "Combined items bomb"
     --Delegate to the bow since it already has the combo implemented
     --TODO Maybe delegate to a manager instead?
     other:start_combo(item)
@@ -38,7 +31,7 @@ end
 
 -- Called when the player uses the bombs of his inventory by pressing the corresponding item key.
 function item:start_using()
-  print "Single item bomb"
+--  print "Single item bomb"
   if item:get_amount() == 0 then
     if sound_timer == nil then
       audio_manager:play_sound("misc/error")
@@ -62,6 +55,7 @@ function item:create_bomb()
   local map = item:get_map()
   local hero = map:get_entity("hero")
   local x, y, layer = hero:get_position()
+        local ox, oy=hero:get_sprite("tunic"):get_xy()
   local direction = hero:get_direction()
   if direction == 0 then
     x = x + 16
@@ -73,8 +67,8 @@ function item:create_bomb()
     y = y + 16
   end
   local bomb = map:create_bomb{
-    x = x,
-    y = y,
+    x = x+ox,
+    y = y+oy,
     layer = layer
   }
   local sprite = bomb:get_sprite()

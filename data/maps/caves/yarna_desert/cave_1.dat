@@ -2521,8 +2521,7 @@ enemy{
   x = 424,
   y = 333,
   direction = 0,
-  breed = "hardhat_beetle",
-  treasure_name = "random",
+  breed = "hardhat_beetle"
 }
 
 wall{
@@ -2604,7 +2603,7 @@ enemy{
   y = 93,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -2614,7 +2613,7 @@ enemy{
   y = 93,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -2624,7 +2623,7 @@ enemy{
   y = 93,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -2634,7 +2633,7 @@ enemy{
   y = 93,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -2644,7 +2643,7 @@ enemy{
   y = 109,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -2654,7 +2653,7 @@ enemy{
   y = 125,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 dynamic_tile{
@@ -2845,7 +2844,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2857,7 +2856,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2869,7 +2868,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2881,7 +2880,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2893,7 +2892,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2905,7 +2904,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2917,7 +2916,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2929,7 +2928,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2941,7 +2940,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2953,7 +2952,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -2964,7 +2963,6 @@ enemy{
   y = 325,
   direction = 0,
   breed = "hardhat_beetle",
-  treasure_name = "random",
 }
 
 enemy{
@@ -2974,7 +2972,51 @@ enemy{
   y = 349,
   direction = 0,
   breed = "fireball",
-  treasure_name = "random",
+}
+
+sensor{
+  name = "sensor_1",
+  layer = 0,
+  x = 512,
+  y = 173,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_2",
+  layer = 0,
+  x = 520,
+  y = 413,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_3",
+  layer = 0,
+  x = 232,
+  y = 317,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
 }
 
 tile{
@@ -3811,7 +3853,7 @@ dynamic_tile{
 }
 
 pickable{
-  name = "piece_of_heart_1",
+  name = "piece_of_heart_10",
   layer = 1,
   x = 136,
   y = 53,

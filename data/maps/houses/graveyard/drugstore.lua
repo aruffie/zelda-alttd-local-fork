@@ -1,18 +1,20 @@
 -- Variables
 local map = ...
 local game = map:get_game()
-local hero_has_already_talk = false
+local hero=map:get_hero()
+local intro_dialog_done = false
 
 -- Include scripts
+require("scripts/multi_events")
 local audio_manager = require("scripts/audio_manager")
 
 -- Map events
-function map:on_started(destination)
+map:register_event("on_started", function(map, destination)
 
   -- Music
   map:init_music()
   
-end
+end)
 
 -- Initialize the music of the map
 function map:init_music()
@@ -22,47 +24,49 @@ function map:init_music()
 end
 
 -- Discussion with Monique
-function map:talk_to_crazy_tracy()
+function crazy_tracy:on_interaction()
   
   local item = game:get_item("drug")
   local variant = item:get_variant()
-  local drug_already_buy = game:get_value("drug_already_buy")
-  local drug_buy_occurence = game:get_value("drug_buy_occurence")
-  if drug_buy_occurence == nil then
-    drug_buy_occurence = 0
+  local drug_already_bought = game:get_value("drug_already_buy")
+  local drugs_bought = game:get_value("drug_buy_occurence")
+  if drugs_bought == nil then
+    drugs_bought = 0
   end
   local amount = 28
-  if drug_already_buy and math.random(2) == 1 then
+  local killed_enemies=game.shop_drug_count or 0
+  --if drug_already_bought and game.sell_drug_at_high_price then
+  if drug_already_bought and killed_enemies%2 == 1 then
     amount = 42
   end
-  print(drug_buy_occurence)
-  if not hero_has_already_talk then
+  if not intro_dialog_done then
     game:start_dialog("maps.houses.graveyard.drugstore.crazy_tracy_1", function()
-      hero_has_already_talk = true
+      intro_dialog_done = true
     end)
   else
-    if variant > 0 then
+    if variant > 0 then --we already have one
       game:start_dialog("maps.houses.graveyard.drugstore.crazy_tracy_4")
-    else
+    else --Try to sell one
       game:start_dialog("maps.houses.graveyard.drugstore.crazy_tracy_2",amount, function(answer)
-        if answer == 1 then
+        if answer == 1 then --Buy
           local money = game:get_money()
           if money >= amount then
-            if drug_buy_occurence == 7 then
+            if drugs_bought == 7 then --Price discount
               amount = 7
               game:start_dialog("maps.houses.graveyard.drugstore.crazy_tracy_7", function()
                  map:launch_transaction_with_crazy_tracy(amount)
               end)
             else
+                game:set_value("stats_shop_drug_count", killed_enemies%2)
                 map:launch_transaction_with_crazy_tracy(amount)
             end
-          else
+          else --Not enough money
             game:start_dialog("maps.houses.graveyard.drugstore.crazy_tracy_3")
           end
-        else
+        else --don't buy
           game:start_dialog("maps.houses.graveyard.drugstore.crazy_tracy_5")
         end
-        hero_has_already_talk = false
+        intro_dialog_done = false
       end)
     end
   end
@@ -73,10 +77,10 @@ end
 function map:launch_transaction_with_crazy_tracy(amount)
   local item = game:get_item("drug")
   local variant = item:get_variant()
-  local drug_buy_occurence = game:get_value("drug_buy_occurence")
+  local drugs_bought = game:get_value("drug_buy_occurence")
   local x_hero,y_hero, layer_hero = hero:get_position()
-  if drug_buy_occurence == nil then
-    drug_buy_occurence = 0
+  if drugs_bought == nil then
+    drugs_bought = 0
   end
   hero:set_animation("brandish")  
   local drug_entity = map:create_custom_entity({
@@ -95,8 +99,8 @@ function map:launch_transaction_with_crazy_tracy(amount)
   game:remove_money(amount)
   game:start_dialog("maps.houses.graveyard.drugstore.crazy_tracy_6", function()
     item:set_variant(1)
-    drug_buy_occurence = drug_buy_occurence + 1
-    game:set_value("drug_buy_occurence", drug_buy_occurence)
+    drugs_bought = drugs_bought + 1
+    game:set_value("drug_buy_occurence", drugs_bought)
     game:set_value("drug_already_buy", true)
     hero:set_animation("stopped")
     map:remove_entities("brandish")
@@ -108,14 +112,6 @@ function map:launch_transaction_with_crazy_tracy(amount)
         end)
     end
   end)
-end
-
--- NPCs events
-
-function crazy_tracy:on_interaction()
-
-  map:talk_to_crazy_tracy()
-
 end
 
 -- Wardrobes

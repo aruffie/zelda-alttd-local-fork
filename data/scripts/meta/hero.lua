@@ -9,6 +9,26 @@ local timer_sword_loading = nil
 local timer_sword_tapping = nil
 local timer_stairs = nil
 require("scripts/multi_events")
+hero_meta:register_event("on_movement_changed", function(hero, movement)
+    if not hero:get_map():is_sideview() then
+      if movement:get_speed() ~=0 and not hero.walking_sound_timer then
+        hero.walking_sound_timer=sol.timer.start(hero, 300, function()
+            if hero:get_ground_below()=="shallow_water" then
+              audio_manager:play_sound("hero/wade"..(math.random(1, 2)))
+            elseif hero:get_ground_below()=="grass" then
+              audio_manager:play_sound("hero/walk_on_grass")
+            end
+            return true
+          end)
+      else
+        if hero.walking_sound_timer then
+          hero.walking_sound_timer:stop()
+          hero.walking_sound_timer=nil
+        end
+      end
+    end
+
+  end)
 
 hero_meta:register_event("on_state_changed", function(hero)
 
@@ -51,7 +71,7 @@ hero_meta:register_event("on_state_changed", function(hero)
       -- Falling
       audio_manager:play_sound("hero/fall") 
     elseif current_state == "jumping" then
-      audio_manager:play_sound("hero/throw")
+      audio_manager:play_sound("hero/cliff_jump")
     elseif current_state == "stairs" then
       if timer_stairs == nil then
         timer_stairs = sol.timer.start(hero, 0, function()
@@ -65,11 +85,6 @@ hero_meta:register_event("on_state_changed", function(hero)
       local entity = hero:get_facing_entity()
       if entity ~= nil and entity:get_type() == "chest" and game:is_command_pressed("action") then
         audio_manager:play_sound("misc/chest_open")
-      end
-    elseif current_state == "free" then
-      -- Throw
-      if hero.previous_state == "carrying" then
-        audio_manager:play_sound("hero/throw")
       end
 
     end
@@ -94,6 +109,21 @@ hero_meta:register_event("on_state_changed", function(hero)
     end
     hero.previous_state = current_state
 
+  end)
+
+hero_meta:register_event("on_state_changing", function(hero, old_state, new_state)
+    if old_state=="jumping" and new_state=="free" then
+      local ground=hero:get_ground_below()
+      if ground=="shallow_water" then
+        audio_manager:play_sound("hero/wade1")
+      elseif ground=="grass" then
+        audio_manager:play_sound("walk_on_grass") --TODO use the actual sound effect
+      elseif ground=="deep_water" or ground=="lava" then
+        audio_manager:play_sound("hero/diving")
+      else
+        audio_manager:play_sound("hero/land")
+      end
+    end
   end)
 
 hero_meta:register_event("notify_object_thrown", function() end)
@@ -186,7 +216,6 @@ function hero_meta:on_taking_damage(damage)
   local hero = self
   local game = hero:get_game()
   -- Calculate defense. Check tunic and powerups.
-  -- TODO: define powerup function "hero:get_defense_powerup()".
   local defense_tunic = game:get_value("defense_tunic") or 1
   local defense_powerup = hero.get_defense_powerup and hero:get_defense_powerup() or 1
   local defense = defense_tunic * defense_powerup
@@ -194,6 +223,14 @@ function hero_meta:on_taking_damage(damage)
   local final_damage = math.ceil(damage/defense)
   -- Remove life.
   game:remove_life(damage)
+  -- Charm
+  game.acorn_count = 0
+  if game.hero_charm then
+    game.hero_charm_hurt_counter = game.hero_charm_hurt_counter + 1
+    if game.hero_charm_hurt_counter == 3 then
+      hero:remove_charm()
+    end
+  end
 
 end
 
@@ -206,13 +243,30 @@ function hero_meta.set_jumping(hero, jumping)
 end
 
 function hero_meta.is_running(hero)
+  
   return hero.running
+  
 end
 
 function hero_meta.set_running(hero, running)
+  
   hero.running = running
+  
 end
 
+function hero_meta.get_force_powerup(hero)
+  
+  local game = hero:get_game()
+  return game.hero_charm=="power_fragment" and 2 or 1
+  
+end
+
+function hero_meta.get_defense_powerup(hero)
+  
+  local game = hero:get_game()
+  return game.hero_charm=="acorn" and 2 or 1
+  
+end
 
 --Utility function : it loops through all the sprites of a given hero and shifts them by the given amount of pixels in the X and Y directions.
 local function set_sprite_offset(hero, ox, oy)
@@ -230,34 +284,33 @@ local game_meta = sol.main.get_metatable("game")
 game_meta:register_event("on_map_changed", function(game, map)
 
     local hero = map:get_hero()
+    local x,y, layer=hero:get_position()
     hero:set_jumping(false)
     if map:is_sideview() then
       hero:set_size(8,16)
       hero:set_origin(4,13)
       set_sprite_offset(hero, 0,2)
-      hero:get_sprite("shadow"):stop_animation()
+      --hero:get_sprite("shadow"):stop_animation()
+      local s=hero:get_sprite("shadow_override")
+      if s then
+        hero:remove_sprite(s)
+      end
     else
       hero:set_size(16,16)
       hero:set_origin(8,13)
       set_sprite_offset(hero, 0,0)
-      hero:get_sprite("shadow"):set_animation("big")
+--      hero:get_sprite("shadow"):set_animation("big")
+      if not hero:get_sprite("shadow_override") then
+        local s=hero:create_sprite("entities/shadows/shadow", "shadow_override")
+        s:set_animation("big")
+        hero:bring_sprite_to_back(s)
+      end
     end
+    -- Todo Add sprite if charm exist
 
-  end)
+end)
 
--- Set fixed stopped/walking animations for the hero (or nil to disable them).
-function hero_meta:set_fixed_animations(new_stopped_animation, new_walking_animation)
 
-  fixed_stopped_animation = new_stopped_animation
-  fixed_walking_animation = new_walking_animation
-  -- Initialize fixed animations if necessary.
-  local state = self:get_state()
-  if state == "free" then
-    if self:is_walking() then self:set_animation(fixed_walking_animation or "walking")
-    else self:set_animation(fixed_stopped_animation or "stopped") end
-  end
-
-end
 
 -- Initialize hero behavior specific to this quest.
 
@@ -349,11 +402,13 @@ function hero_meta:initialize_fixing_functions()
 end
 
 -- Create an exclamation symbol near hero
-function hero_meta:create_symbol_exclamation()
+function hero_meta:create_symbol_exclamation(sound)
 
   local map = self:get_map()
   local x, y, layer = self:get_position()
-  audio_manager:play_sound("menus/menu_select")
+  if sound then
+    audio_manager:play_sound("menus/menu_select")
+  end
   local symbol = map:create_custom_entity({
       sprite = "entities/symbols/exclamation",
       x = x - 16,
@@ -369,11 +424,13 @@ function hero_meta:create_symbol_exclamation()
 end
 
 -- Create an interrogation symbol near hero
-function hero_meta:create_symbol_interrogation()
+function hero_meta:create_symbol_interrogation(sound)
 
   local map = self:get_map()
   local x, y, layer = self:get_position()
-  audio_manager:play_sound("menus/menu_select")
+  if sound then
+    audio_manager:play_sound("menus/menu_select")
+  end
   local symbol = map:create_custom_entity({
       sprite = "entities/symbols/interrogation",
       x = x,
@@ -389,11 +446,14 @@ function hero_meta:create_symbol_interrogation()
 end
 
 -- Create a collapse symbol near hero
-function hero_meta:create_symbol_collapse()
+function hero_meta:create_symbol_collapse(sound)
 
   local map = self:get_map()
   local width, height = self:get_sprite():get_size()
   local x, y, layer = self:get_position()
+  if sound then
+    -- Todo create a custom sound
+  end
   local symbol = map:create_custom_entity({
       sprite = "entities/symbols/collapse",
       x = x,
@@ -406,6 +466,31 @@ function hero_meta:create_symbol_collapse()
 
   return symbol
 
+end
+
+function hero_meta:add_charm(charm)
+    
+  if charm then
+    local game = self:get_game()
+    game.hero_charm = charm
+    game.hero_charm_hurt_counter = 0
+    -- Sound and music
+    audio_manager:play_sound("items/get_power_up")
+    audio_manager:refresh_music()
+  end
+    
+end
+
+function hero_meta:remove_charm()
+   
+  local game = self:get_game() 
+  game.hero_charm = nil
+  game.hero_charm_hurt_counter = 0
+  game.acorn_count = 0
+  game.power_fragment_count = 0
+  -- Music
+  audio_manager:refresh_music()
+    
 end
 
 return true

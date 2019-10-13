@@ -30,7 +30,7 @@ function enemy:on_created()
   self:set_origin(8, 13)
   self:set_invincible()
   self:set_attack_consequence("sword", "custom")
-  shadow_sprite = sol.sprite.create("entities/shadow")
+  shadow_sprite = sol.sprite.create("entities/shadows/shadow")
   shadow_sprite:set_animation("big")
   
 end
@@ -85,7 +85,7 @@ function enemy:disappear()
     self:set_can_attack(false)
     self:stop_movement()
     sprite:set_animation("destroy")
-    audio_manager:play_sound("stone")
+    audio_manager:play_entity_sound(enemy, "stone")
     sol.timer.stop_all(self)
     if enemy.on_flying_tile_dead ~= nil then
       enemy:on_flying_tile_dead()

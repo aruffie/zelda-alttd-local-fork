@@ -4,6 +4,7 @@ local game = map:get_game()
 local is_small_boss_active = false
 
 -- Include scripts
+require("scripts/multi_events")
 local audio_manager = require("scripts/audio_manager")
 local door_manager = require("scripts/maps/door_manager")
 local enemy_manager = require("scripts/maps/enemy_manager")
@@ -11,7 +12,6 @@ local owl_manager = require("scripts/maps/owl_manager")
 local separator_manager = require("scripts/maps/separator_manager")
 local switch_manager = require("scripts/maps/switch_manager")
 local treasure_manager = require("scripts/maps/treasure_manager")
-require("scripts/multi_events")
 
 -- Map events
 function map:on_started()
@@ -58,19 +58,10 @@ end
 
 function map:on_opening_transition_finished(destination)       
 
-    if destination == dungeon_3_1_B then
-      game:start_dialog("maps.dungeons.3.welcome")
-        map:close_doors("door_group_1_")
-    end
-    
-end
-
-function map:on_obtaining_treasure(item, variant, savegame_variable)
-
-  if savegame_variable == "dungeon_3_big_treasure" then
-    treasure_manager:get_instrument(map)
+  if destination == dungeon_3_1_B then
+      map:close_doors("door_group_1_")
   end
-
+  
 end
 
 -- Doors events
@@ -157,7 +148,7 @@ sensor_8:register_event("on_activated", function()
 end)
 
 -- Separators events
-auto_separator_15:register_event("on_activating", function(separator, direction4)
+separator_1:register_event("on_activating", function(separator, direction4)
     
   if direction4 == 3 then
     is_small_boss_active = false

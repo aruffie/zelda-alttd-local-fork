@@ -961,7 +961,7 @@ enemy{
   y = 309,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -971,7 +971,7 @@ enemy{
   y = 309,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -981,7 +981,7 @@ enemy{
   y = 365,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -991,7 +991,7 @@ enemy{
   y = 365,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 teletransporter{

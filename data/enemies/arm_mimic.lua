@@ -1,95 +1,86 @@
--- Lua script of enemy arm_mimic.
+-- Lua script of enemy arm mimic.
 -- This script is executed every time an enemy with this model is created.
 
--- Variables
+-- Global variables
 local enemy = ...
+require("enemies/lib/common_actions").learn(enemy)
+
 local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
-local sprite
-local movement
+local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+local hero_movement
 
--- The enemy appears: set its properties.
-function enemy:on_created()
+-- Copy and reverse the given movement.
+local function reverse_move(movement)
 
-  sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
-  enemy:set_life(1)
-  enemy:set_damage(12)
-  enemy:set_attack_consequence("sword", 0)
-  enemy:set_attack_consequence("arrow", 0)
-  enemy:set_attack_consequence("thrown_item", 0)
-  enemy:set_attack_consequence("explosion", 1)
-  enemy:set_attack_consequence("boomerang", 'immobilized')
-  enemy:set_hammer_reaction(0)
-
-end
-
--- The enemy was stopped for some reason and should restart.
-function enemy:on_restarted()
-  
-  local sprite = enemy:get_sprite()
-  sprite:set_animation("walking")
-  sprite:set_paused(true)
-  movement = sol.movement.create("target")
-  local x_hero, y_hero = hero:get_position()
-  sol.timer.start(enemy, 50, function()
-    if hero:get_state() ~= "running" then
-      enemy:set_attack_consequence("sword", 0)
-      local direction = 0
-      local movement_hero = hero:get_movement()
-      if not movement_hero then
-        direction = hero:get_sprite():get_direction()
-      else
-        direction = movement_hero:get_direction4()
-      end
-      local direction_enemy = 0
-      if direction == 0 then
-        direction_enemy = 2
-      elseif direction == 1 then
-        direction_enemy = 3
-      elseif direction == 3 then
-        direction_enemy = 1
-      end
-      local x_new_hero, y_new_hero = hero:get_position()
-      local x_enemy, y_enemy = enemy:get_position()
-      local diff_x = x_new_hero - x_hero
-      local diff_y = y_new_hero - y_hero
-      if diff_x ~= 0 or diff_y  ~= 0 then
-        sprite:set_paused(false)
-      else
-        sprite:set_paused(true)
-      end
-      x_enemy = x_enemy - diff_x
-      y_enemy = y_enemy - diff_y
-      enemy:get_sprite():set_direction(direction_enemy)
-      movement:set_target(x_enemy, y_enemy)
-      movement:set_speed(200)
-      movement:start(enemy)
-      x_hero = x_new_hero
-      y_hero  = y_new_hero
-    else
-      self:set_attack_consequence("sword", 1)
-      local x_new_hero, y_new_hero = hero:get_position()
-      x_hero = x_new_hero
-      y_hero  = y_new_hero
-    end
-    return true
-  end)
-
-end
-
-function enemy:on_custom_attack_received(attack)
-
-  -- Custom reaction: don't get hurt but step back.
-  sol.timer.stop_all(enemy)  -- Stop the towards_hero behavior.
-  local hero = enemy:get_map():get_hero()
-  local angle = hero:get_angle(enemy)
-  local movement_straight = sol.movement.create("straight")
-  movement_straight:set_speed(64)
-  movement_straight:set_angle(angle)
-  movement_straight:start(enemy)
-  sol.timer.start(enemy, 400, function()
+  local speed = movement:get_speed()
+  if speed > 0 and enemy:get_life() > 0 then
+    enemy:start_straight_walking(movement:get_angle() + math.pi, speed)
+  else
     enemy:restart()
+  end
+end
+
+-- Copy and reverse hero moves.
+hero:register_event("on_position_changed", function(hero)
+
+  if not enemy:exists() or not enemy:is_enabled() then
+    return
+  end
+
+  local movement = hero:get_movement()
+  if movement ~= hero_movement then
+
+    hero_movement = movement
+    reverse_move(movement)
+    movement:register_event("on_obstacle_reached", function(movement)
+      enemy:restart()
+    end)
+    movement:register_event("on_changed", function(movement)
+      reverse_move(movement)
+    end)
+  end
+end)
+
+-- Don't copy hero hurt move.
+enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
+
+  hero:start_hurt(enemy, enemy:get_damage())
+  sol.timer.start(enemy, 10, function()
+    enemy:restart() -- Workaround: Only stop the movement at the next frame to stop the actual hurt movement.
   end)
 
-end
+end)
+
+-- Stop the movement if the hero don't have one anymore.
+enemy:register_event("on_update", function(enemy)
+
+  if enemy:get_movement() and not hero:get_movement() then
+    enemy:restart()
+  end
+end)
+
+-- Initialization.
+enemy:register_event("on_created", function(enemy)
+
+  enemy:set_life(1)
+  enemy:set_size(16, 16)
+  enemy:set_origin(8, 13)
+end)
+
+-- Restart settings.
+enemy:register_event("on_restarted", function(enemy)
+
+  -- Behavior for each items.
+  enemy:set_hero_weapons_reactions(1, {
+    hookshot = "immobilized",
+    boomerang = "immobilized",
+    jump_on = "ignored"})
+
+  -- States.
+  sprite:set_animation("immobilized")
+  enemy:stop_movement()
+  enemy:set_can_attack(true)
+  enemy:set_damage(12)
+end)

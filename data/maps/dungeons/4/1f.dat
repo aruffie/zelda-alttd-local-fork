@@ -8,6 +8,7 @@ properties{
   world = "dungeon_4",
   floor = 0,
   tileset = "dungeon/light_green",
+  music = "same",
 }
 
 tile{
@@ -12450,7 +12451,7 @@ block{
 }
 
 block{
-  name = "block_group_1_1",
+  name = "auto_block_3",
   layer = 0,
   x = 1800,
   y = 605,
@@ -12458,7 +12459,7 @@ block{
   sprite = "entities/blocks/block",
   pushable = true,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 block{
@@ -12472,7 +12473,7 @@ block{
 }
 
 block{
-  name = "block_group_1_2",
+  name = "auto_block_2",
   layer = 0,
   x = 1784,
   y = 621,
@@ -12480,7 +12481,7 @@ block{
   sprite = "entities/blocks/block",
   pushable = true,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 block{
@@ -13385,13 +13386,14 @@ block{
 }
 
 block{
+  name = "auto_block",
   layer = 0,
   x = 568,
   y = 821,
   sprite = "entities/blocks/block",
   pushable = true,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 destructible{
@@ -13943,7 +13945,7 @@ enemy{
   x = 1432,
   y = 573,
   direction = 0,
-  breed = "hooded_stalfos",
+  breed = "shrouded_stalfos",
 }
 
 enemy{
@@ -14155,7 +14157,7 @@ enemy{
   x = 1720,
   y = 573,
   direction = 0,
-  breed = "hooded_stalfos",
+  breed = "shrouded_stalfos",
 }
 
 enemy{
@@ -14256,7 +14258,7 @@ enemy{
   x = 824,
   y = 861,
   direction = 0,
-  breed = "hooded_stalfos",
+  breed = "shrouded_stalfos",
 }
 
 sensor{
@@ -14410,13 +14412,14 @@ door{
 }
 
 block{
+  name = "auto_block_5",
   layer = 0,
   x = 2120,
   y = 845,
   sprite = "entities/blocks/block",
   pushable = true,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 door{
@@ -14472,7 +14475,7 @@ enemy{
   x = 888,
   y = 813,
   direction = 0,
-  breed = "hooded_stalfos",
+  breed = "shrouded_stalfos",
 }
 
 chest{
@@ -14500,19 +14503,20 @@ block{
   x = 1088,
   y = 669,
   sprite = "entities/blocks/block",
-  pushable = true,
+  pushable = false,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 block{
+  name = "auto_block_4",
   layer = 0,
   x = 1088,
   y = 653,
   sprite = "entities/blocks/block",
-  pushable = false,
+  pushable = true,
   pullable = false,
-  maximum_moves = 0,
+  max_moves = 0,
 }
 
 enemy{
@@ -14661,7 +14665,7 @@ enemy{
   x = 1080,
   y = 365,
   direction = 0,
-  breed = "helmasaur_masked",
+  breed = "helmasaur",
 }
 
 enemy{
@@ -14670,7 +14674,7 @@ enemy{
   x = 1160,
   y = 365,
   direction = 0,
-  breed = "helmasaur_masked",
+  breed = "helmasaur",
 }
 
 enemy{
@@ -17068,7 +17072,7 @@ enemy{
   x = 1088,
   y = 525,
   direction = 0,
-  breed = "eyegore_statue/eyegore_statue",
+  breed = "eyegore_statue",
 }
 
 enemy{
@@ -17077,7 +17081,7 @@ enemy{
   x = 1120,
   y = 525,
   direction = 0,
-  breed = "eyegore_statue/eyegore_statue",
+  breed = "eyegore_statue",
 }
 
 enemy{
@@ -17086,7 +17090,7 @@ enemy{
   x = 1088,
   y = 45,
   direction = 0,
-  breed = "eyegore_statue/eyegore_statue",
+  breed = "eyegore_statue",
 }
 
 enemy{
@@ -17095,6 +17099,6 @@ enemy{
   x = 1120,
   y = 45,
   direction = 0,
-  breed = "eyegore_statue/eyegore_statue",
+  breed = "eyegore_statue",
 }
 

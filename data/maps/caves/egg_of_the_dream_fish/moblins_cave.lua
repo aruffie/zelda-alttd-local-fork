@@ -1,7 +1,9 @@
 -- Variables
 local map = ...
 local game = map:get_game()
-local launch_boss = false
+local room_access_1 = false
+local room_access_2 = false
+local room_access_3 = false
 
 -- Include scripts
 require("scripts/multi_events")
@@ -10,7 +12,7 @@ local separator_manager = require("scripts/maps/separator_manager")
 local audio_manager = require("scripts/audio_manager")
 
 -- Map events
-function map:on_started(destination)
+map:register_event("on_started", function(map, destination)
   
   -- Music
   if game:get_value("main_quest_step") == 9  then
@@ -22,12 +24,12 @@ function map:on_started(destination)
   map:init_map_entities()
   -- Doors
   map:set_doors_open("door_group_1", true)
-  -- Ennemies
+  -- Enemies
   for enemy in map:get_entities("enemy_group_1") do
     enemy:get_sprite():set_direction(3)
   end
   
-end
+end)
 
 -- Initialize the music of the map
 function map:init_music()
@@ -71,9 +73,10 @@ end
 function map:on_opening_transition_finished(destination)
 
   local step = game:get_value("main_quest_step")
-  if step ~= nil and step ~= 9 then
+  if step ~= nil and step ~= 9 or room_access_1 then
     return
   end
+  room_access_1 = true
   map:launch_cinematic_1()
 
 end
@@ -87,9 +90,10 @@ door_manager:open_when_enemies_dead(map,  "enemy_group_3",  "door_group_1")
 function sensor_2:on_activated()
 
   local step = game:get_value("main_quest_step")
-  if step ~= nil and step ~= 9 then
+  if step ~= nil and step ~= 9 or room_access_2 then
     return
   end
+  room_access_2 = true
   map:launch_cinematic_2()
 
 end
@@ -97,13 +101,10 @@ end
 function sensor_3:on_activated()
 
   local step = game:get_value("main_quest_step")
-  if step ~= nil and step ~= 9 then
+  if step ~= nil and step ~= 9 or room_access_3 then
     return
   end
-  if launch_boss then
-    return
-  end
-  launch_boss = true
+  room_access_3 = true
   map:launch_cinematic_3()
 
 end
@@ -129,7 +130,7 @@ function map:launch_cinematic_1()
   
   map:start_coroutine(function()
     local options = {
-      entities_ignore_suspend = {hero, enemy_group_1_1, moblin_fire}
+      entities_ignore_suspend = {hero, moblin_fire}
     }
     map:set_cinematic_mode(true, options)
     -- Movement
@@ -141,7 +142,7 @@ function map:launch_cinematic_1()
     m:set_speed(40)
     movement(m, hero)
     hero:set_animation("stopped")
-    local symbol = enemy_group_1_1:create_symbol_exclamation()
+    local symbol = enemy_group_1_1:create_symbol_exclamation(true)
     wait(2000)
     symbol:remove()
     map:init_music()
@@ -172,6 +173,10 @@ function map:launch_cinematic_2()
     }
     map:set_cinematic_mode(true, options)
     -- Movement
+    for enemy in map:get_entities("enemy_group_2") do
+      enemy:get_sprite():set_animation('stopped')
+      enemy:get_sprite():set_direction(3)
+    end
     hero:set_animation("walking")
     local m = sol.movement.create("target")
     m:set_target(placeholder_hero_1)
@@ -179,15 +184,15 @@ function map:launch_cinematic_2()
     m:set_speed(40)
     movement(m, hero)
     hero:set_animation("stopped")
-    local symbol_1 = enemy_group_2_1:create_symbol_exclamation()
+    local symbol_1 = enemy_group_2_1:create_symbol_exclamation(true)
     wait(200)
-    local symbol_2 = enemy_group_2_2:create_symbol_exclamation()
+    local symbol_2 = enemy_group_2_2:create_symbol_exclamation(true)
     wait(200)
-    local symbol_3 = enemy_group_2_3:create_symbol_exclamation()
+    local symbol_3 = enemy_group_2_3:create_symbol_exclamation(true)
     wait(200)
-    local symbol_4 = enemy_group_2_4:create_symbol_exclamation()
+    local symbol_4 = enemy_group_2_4:create_symbol_exclamation(true)
     wait(200)
-    local symbol_5 = moblin_chief:create_symbol_exclamation()
+    local symbol_5 = moblin_chief:create_symbol_exclamation(true)
     wait(2000)
     symbol_1:remove()
     symbol_2:remove()
@@ -198,7 +203,7 @@ function map:launch_cinematic_2()
     local dialog_box = game:get_dialog_box()
     local alignement = dialog_box:get_position()
     dialog_box.set_position("bottom")
-    dialog("maps.caves.egg_of_the_dream_fish.moblins_cave.moblins_3")
+    dialog("maps.caves.egg_of_the_dream_fish.moblins_cave.moblins_2")
     game:get_dialog_box():set_position(alignement)
     moblin_chief:get_sprite():set_animation("walking")
     moblin_chief:get_sprite():set_ignore_suspend(true)
@@ -212,10 +217,6 @@ function map:launch_cinematic_2()
     movement(m, moblin_chief)
     moblin_chief:set_enabled(false)
     door_manager:close_if_enemies_not_dead(map, "enemy_group_2", "door_group_1")
-    for enemy in map:get_entities("enemy_group_2") do
-      local direction = enemy:get_movement():get_direction4()
-      enemy:get_sprite():set_direction(direction)
-    end
     wall_enemies:remove()
     map:set_cinematic_mode(false, options)
   end)
@@ -233,7 +234,7 @@ function map:launch_cinematic_3()
     map:set_cinematic_mode(true, options)
     enemy_group_3_1:get_sprite():set_animation("prepare_attacking")
     enemy_group_3_1:get_sprite():set_direction(2)
-    dialog("maps.caves.egg_of_the_dream_fish.moblins_cave.moblins_2")
+    dialog("maps.caves.egg_of_the_dream_fish.moblins_cave.moblins_3")
     map:set_cinematic_mode(false, options)
     enemy_group_3_1:start_battle()
   end)

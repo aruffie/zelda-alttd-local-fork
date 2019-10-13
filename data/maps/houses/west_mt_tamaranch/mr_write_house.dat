@@ -683,6 +683,12 @@ npc{
   layer = 0,
   x = 192,
   y = 37,
+  properties = {
+    {
+      key = "model",
+      value = "mario",
+    },
+  },
   direction = 3,
   subtype = 1,
 }

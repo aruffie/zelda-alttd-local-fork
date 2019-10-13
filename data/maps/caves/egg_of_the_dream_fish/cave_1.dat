@@ -1378,7 +1378,7 @@ enemy{
   y = 117,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -1388,7 +1388,7 @@ enemy{
   y = 101,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 block{
@@ -1496,7 +1496,7 @@ enemy{
   y = 149,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 destructible{
@@ -1526,7 +1526,7 @@ enemy{
   y = 77,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 dynamic_tile{
@@ -1844,7 +1844,7 @@ enemy{
   y = 149,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 dynamic_tile{
@@ -2098,6 +2098,36 @@ block{
   pushable = true,
   pullable = false,
   max_moves = 1,
+}
+
+sensor{
+  name = "sensor_1",
+  layer = 0,
+  x = 176,
+  y = 173,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_2",
+  layer = 0,
+  x = 520,
+  y = 77,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
 }
 
 tile{

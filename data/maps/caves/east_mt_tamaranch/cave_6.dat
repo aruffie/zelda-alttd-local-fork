@@ -908,7 +908,7 @@ enemy{
   y = 349,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -918,7 +918,7 @@ enemy{
   y = 349,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 tile{

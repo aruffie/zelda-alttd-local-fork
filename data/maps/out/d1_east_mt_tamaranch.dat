@@ -6,7 +6,7 @@ properties{
   min_layer = 0,
   max_layer = 2,
   world = "outside_world",
-  tileset = "out/outside",
+  tileset = "out/outside_main",
   music = "same",
 }
 
@@ -3344,6 +3344,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "439",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -9536,6 +9537,7 @@ tile{
   width = 32,
   height = 8,
   pattern = "439",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -9563,6 +9565,7 @@ tile{
   width = 8,
   height = 8,
   pattern = "12344",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -10024,6 +10027,7 @@ tile{
   width = 8,
   height = 16,
   pattern = "6111",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -10033,6 +10037,7 @@ tile{
   width = 8,
   height = 16,
   pattern = "6114",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -10042,6 +10047,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "6113",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -10051,6 +10057,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "6110",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -10060,6 +10067,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "6110",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -10069,6 +10077,7 @@ tile{
   width = 64,
   height = 32,
   pattern = "12842",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -10096,6 +10105,7 @@ tile{
   width = 48,
   height = 16,
   pattern = "12842",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -10141,6 +10151,7 @@ tile{
   width = 48,
   height = 16,
   pattern = "12842",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -10186,6 +10197,7 @@ tile{
   width = 48,
   height = 16,
   pattern = "12842",
+  tileset = "out/outside_special",
 }
 
 tile{
@@ -14177,6 +14189,125 @@ tile{
 
 custom_entity{
   layer = 1,
+  x = 576,
+  y = 13,
+  width = 128,
+  height = 96,
+  direction = 0,
+  sprite = "entities/dungeons/dungeon_7",
+}
+
+dynamic_tile{
+  layer = 1,
+  x = 624,
+  y = 64,
+  width = 16,
+  height = 16,
+  pattern = "118",
+  tileset = "addition/out",
+}
+
+wall{
+  layer = 1,
+  x = 624,
+  y = 80,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 808,
+  y = 80,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 808,
+  y = 592,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 824,
+  y = 232,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 888,
+  y = 152,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 752,
+  y = 152,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 672,
+  y = 152,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 600,
+  y = 152,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 416,
+  y = 248,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 304,
+  y = 136,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 280,
+  y = 216,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+custom_entity{
+  layer = 1,
   x = 72,
   y = 325,
   width = 816,
@@ -14194,16 +14325,6 @@ dynamic_tile{
   width = 32,
   height = 16,
   pattern = "940",
-}
-
-custom_entity{
-  layer = 1,
-  x = 576,
-  y = 13,
-  width = 128,
-  height = 96,
-  direction = 0,
-  sprite = "entities/dungeons/dungeon_7",
 }
 
 destructible{
@@ -14809,16 +14930,6 @@ dynamic_tile{
   tileset = "addition/out",
 }
 
-dynamic_tile{
-  layer = 1,
-  x = 624,
-  y = 64,
-  width = 16,
-  height = 16,
-  pattern = "118",
-  tileset = "addition/out",
-}
-
 destination{
   name = "dungeon_7_2_B",
   layer = 1,
@@ -15179,6 +15290,7 @@ tile{
   width = 64,
   height = 32,
   pattern = "7065",
+  tileset = "out/outside_buildings",
 }
 
 tile{

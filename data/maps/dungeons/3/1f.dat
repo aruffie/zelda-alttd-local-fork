@@ -8,6 +8,7 @@ properties{
   world = "dungeon_3",
   floor = 0,
   tileset = "dungeon/green",
+  music = "same",
 }
 
 tile{
@@ -9777,6 +9778,7 @@ stairs{
 }
 
 custom_entity{
+  name = "auto_entity_2",
   layer = 0,
   x = 1016,
   y = 1341,
@@ -9788,6 +9790,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "auto_entity",
   layer = 0,
   x = 1016,
   y = 1325,
@@ -10243,6 +10246,7 @@ block{
 }
 
 block{
+  name = "auto_block_2",
   layer = 0,
   x = 1528,
   y = 429,
@@ -10324,6 +10328,7 @@ block{
 }
 
 block{
+  name = "auto_block_3",
   layer = 0,
   x = 1480,
   y = 365,
@@ -10345,6 +10350,7 @@ block{
 }
 
 block{
+  name = "auto_block_4",
   layer = 0,
   x = 1480,
   y = 349,
@@ -10954,7 +10960,7 @@ enemy{
   x = 1144,
   y = 1541,
   direction = 3,
-  breed = "hooded_stalfos",
+  breed = "shrouded_stalfos",
   treasure_name = "random",
 }
 
@@ -11516,7 +11522,7 @@ enemy{
   x = 744,
   y = 165,
   direction = 3,
-  breed = "hooded_stalfos",
+  breed = "shrouded_stalfos",
   treasure_name = "random",
 }
 
@@ -11869,7 +11875,7 @@ enemy{
   x = 1512,
   y = 77,
   direction = 3,
-  breed = "hooded_stalfos",
+  breed = "shrouded_stalfos",
   treasure_name = "random",
 }
 
@@ -11922,7 +11928,7 @@ enemy{
   x = 1432,
   y = 613,
   direction = 3,
-  breed = "hooded_stalfos",
+  breed = "shrouded_stalfos",
   treasure_name = "random",
 }
 
@@ -11932,7 +11938,7 @@ enemy{
   x = 1496,
   y = 581,
   direction = 3,
-  breed = "hooded_stalfos",
+  breed = "shrouded_stalfos",
   treasure_name = "random",
 }
 
@@ -11942,7 +11948,7 @@ enemy{
   x = 1704,
   y = 653,
   direction = 3,
-  breed = "hooded_stalfos",
+  breed = "shrouded_stalfos",
   treasure_name = "random",
 }
 
@@ -11952,7 +11958,7 @@ enemy{
   x = 1752,
   y = 589,
   direction = 3,
-  breed = "hooded_stalfos",
+  breed = "shrouded_stalfos",
   treasure_name = "random",
 }
 
@@ -12326,6 +12332,7 @@ destructible{
 }
 
 block{
+  name = "auto_block",
   layer = 0,
   x = 1024,
   y = 621,
@@ -14184,7 +14191,7 @@ enemy{
   x = 1448,
   y = 1333,
   direction = 3,
-  breed = "hooded_stalfos",
+  breed = "shrouded_stalfos",
   treasure_name = "random",
 }
 
@@ -14865,7 +14872,6 @@ tile{
 }
 
 separator{
-  name = "auto_separator_3",
   layer = 2,
   x = 952,
   y = 0,
@@ -14874,7 +14880,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_4",
   layer = 2,
   x = 1272,
   y = 0,
@@ -14883,7 +14888,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_5",
   layer = 2,
   x = 1592,
   y = 0,
@@ -14892,7 +14896,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_9",
   layer = 2,
   x = -8,
   y = 1432,
@@ -14901,7 +14904,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_8",
   layer = 2,
   x = 0,
   y = 1672,
@@ -14910,7 +14912,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_11",
   layer = 2,
   x = 0,
   y = 952,
@@ -14919,7 +14920,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_10",
   layer = 2,
   x = -16,
   y = 1192,
@@ -14928,7 +14928,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_14",
   layer = 2,
   x = 0,
   y = 232,
@@ -14941,12 +14940,11 @@ separator{
   layer = 2,
   x = 0,
   y = 472,
-  width = 960,
+  width = 2560,
   height = 16,
 }
 
 separator{
-  name = "auto_separator_12",
   layer = 2,
   x = 0,
   y = 712,
@@ -14955,7 +14953,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_2",
   layer = 2,
   x = 632,
   y = 0,
@@ -14964,7 +14961,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_1",
   layer = 2,
   x = 312,
   y = 0,
@@ -14973,7 +14969,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_6",
   layer = 2,
   x = 1912,
   y = 0,
@@ -14982,38 +14977,10 @@ separator{
 }
 
 separator{
-  name = "auto_separator_7",
   layer = 2,
   x = 2232,
   y = 0,
   width = 16,
   height = 1920,
-}
-
-separator{
-  name = "auto_separator_15",
-  layer = 2,
-  x = 960,
-  y = 472,
-  width = 160,
-  height = 16,
-}
-
-separator{
-  name = "auto_separator_16",
-  layer = 2,
-  x = 1280,
-  y = 472,
-  width = 1280,
-  height = 16,
-}
-
-separator{
-  name = "auto_separator_17",
-  layer = 2,
-  x = 1120,
-  y = 472,
-  width = 160,
-  height = 16,
 }
 

@@ -1469,6 +1469,21 @@ tile{
   pattern = "barrier.1-1",
 }
 
+sensor{
+  name = "sensor_1",
+  layer = 0,
+  x = 472,
+  y = 413,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
 destination{
   name = "forest_cave_1_1_B",
   layer = 0,
@@ -1478,23 +1493,25 @@ destination{
 }
 
 block{
+  name = "auto_block_8",
   layer = 0,
   x = 480,
   y = 389,
   sprite = "entities/blocks/stone_brown",
   pushable = true,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 block{
+  name = "auto_block",
   layer = 0,
   x = 464,
   y = 373,
   sprite = "entities/blocks/stone_brown",
   pushable = true,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 chest{
@@ -1718,7 +1735,7 @@ enemy{
   y = 149,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -1728,7 +1745,7 @@ enemy{
   y = 117,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 block{
@@ -1899,7 +1916,7 @@ enemy{
   y = 341,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -1909,7 +1926,7 @@ enemy{
   y = 389,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -1919,7 +1936,7 @@ enemy{
   y = 341,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -1929,7 +1946,7 @@ enemy{
   y = 341,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -1939,7 +1956,7 @@ enemy{
   y = 341,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 dynamic_tile{
@@ -3146,7 +3163,6 @@ tile{
 }
 
 separator{
-  name = "auto_separator_2",
   layer = 2,
   x = 0,
   y = 232,
@@ -3155,7 +3171,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_1",
   layer = 2,
   x = 312,
   y = 0,

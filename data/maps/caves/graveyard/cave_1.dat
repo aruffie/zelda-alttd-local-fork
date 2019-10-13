@@ -1644,7 +1644,7 @@ enemy{
   y = 141,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -1654,7 +1654,7 @@ enemy{
   y = 93,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -1664,7 +1664,7 @@ enemy{
   y = 109,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -1674,16 +1674,45 @@ enemy{
   y = 157,
   direction = 0,
   breed = "hardhat_beetle",
-  treasure_name = "random",
 }
 
 pickable{
-  name = "piece_of_heart_1",
+  name = "piece_of_heart_9",
   layer = 0,
   x = 536,
   y = 77,
   treasure_name = "piece_of_heart",
   treasure_savegame_variable = "piece_of_heart_9",
+}
+
+sensor{
+  name = "sensor_1",
+  layer = 0,
+  x = 112,
+  y = 141,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_2",
+  layer = 0,
+  x = 464,
+  y = 125,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
 }
 
 tile{

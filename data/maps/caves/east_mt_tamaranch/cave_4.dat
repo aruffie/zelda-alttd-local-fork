@@ -1625,7 +1625,7 @@ enemy{
   y = 77,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -1635,7 +1635,7 @@ enemy{
   y = 77,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -1645,7 +1645,7 @@ enemy{
   y = 77,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -1655,7 +1655,7 @@ enemy{
   y = 77,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -1665,7 +1665,7 @@ enemy{
   y = 93,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -1675,7 +1675,7 @@ enemy{
   y = 93,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -1685,7 +1685,7 @@ enemy{
   y = 109,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 dynamic_tile{
@@ -1706,7 +1706,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -1728,7 +1728,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -1820,7 +1820,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -1832,7 +1832,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -1844,7 +1844,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -1856,7 +1856,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -1868,7 +1868,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -1880,7 +1880,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -1892,7 +1892,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -1904,7 +1904,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -1916,7 +1916,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -1928,7 +1928,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
+  sprite = "entities/grounds/weak_floor_light_1",
   model = "unstable_floor",
 }
 
@@ -1939,7 +1939,7 @@ enemy{
   y = 77,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -1949,7 +1949,7 @@ enemy{
   y = 117,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -1959,7 +1959,7 @@ enemy{
   y = 93,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -1969,7 +1969,37 @@ enemy{
   y = 141,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
+}
+
+sensor{
+  name = "sensor_1",
+  layer = 0,
+  x = 856,
+  y = 173,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_2",
+  layer = 0,
+  x = 88,
+  y = 173,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
 }
 
 tile{

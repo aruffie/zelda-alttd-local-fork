@@ -11,7 +11,7 @@ require("scripts/multi_events")
 local audio_manager = require("scripts/audio_manager")
 
 -- Map events
-function map:on_started()
+map:register_event("on_started", function(map, destination)
 
   -- Music
   map:init_music()
@@ -19,8 +19,10 @@ function map:on_started()
   map:init_map_entities()
   -- Digging
   map:set_digging_allowed(true)
+  -- Shore
+  map:init_shore()
  
-end
+end)
 
 -- Initialize the music of the map
 function map:init_music()
@@ -47,12 +49,25 @@ function map:init_map_entities()
   end
   -- Wart cave
   if game:get_value("wart_cave") == nil then
-  for wart_cave in map:get_entities("wart_cave") do
-    wart_cave:set_enabled(false)
+    for wart_cave in map:get_entities("wart_cave") do
+      wart_cave:set_enabled(false)
+    end
   end
-end
   
 end
+
+-- Initialize shore
+function map:init_shore()
+  
+  sol.timer.start(map, 5000, function()
+    local x,y,layer = hero:get_position()
+    if y > 500 then
+      audio_manager:play_sound("misc/shore")
+    end  
+    return true
+  end)
+  
+end  
 
 function map:on_opening_transition_finished(destination)
 

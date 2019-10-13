@@ -161,7 +161,6 @@ function behavior:create(enemy, properties)
   end
 
   function enemy:fall()
-    --print("Crushing time!")
     falling=true
     audio_manager:play_sound("hero/throw")
     enemy:get_sprite():set_animation("falling")    

@@ -3,11 +3,12 @@ local map = ...
 local game = map:get_game()
 
 -- Include scripts
+require("scripts/multi_events")
 local owl_manager = require("scripts/maps/owl_manager")
 local audio_manager = require("scripts/audio_manager")
 
 -- Map events
-function map:on_started(destination)
+map:register_event("on_started", function(map, destination)
 
   -- Music
   map:init_music()
@@ -15,8 +16,10 @@ function map:on_started(destination)
   map:init_map_entities()
   -- Digging
   map:set_digging_allowed(true)
+  -- Shore
+  map:init_shore()
 
-end
+end)
 
 -- Initialize the music of the map
 function map:init_music()
@@ -39,6 +42,7 @@ function map:init_map_entities()
     sword:get_sprite():set_ignore_suspend(true)
   end
   dungeon_1_entrance:set_traversable_by(false)
+  dungeon_1_entrance:set_traversable_by('camera', true)
   if game:get_value("main_quest_step") > 6 then
     map:open_dungeon_1()
   end
@@ -62,6 +66,16 @@ function map:init_map_entities()
   end)
 
 end
+
+-- Initialize shore
+function map:init_shore()
+  
+  sol.timer.start(map, 5000, function()
+    audio_manager:play_entity_sound("misc/shore") 
+    return true
+  end)
+  
+end  
 
 -- Dungeon 1 opening
 function map:open_dungeon_1()
@@ -131,12 +145,31 @@ function map:launch_cinematic_1()
     local map = game:get_map()
     dialog("_treasure.sword.1")
     audio_manager:play_music("09_beginning_of_the_journey")
-    wait(5400)
+    wait(4400)
+    local num_enemies = 0
+    for enemy in map:get_entities_by_type("enemy") do
+      if enemy:get_distance(hero) < 32 and not string.match(enemy:get_breed(), "projectiles")  then
+        num_enemies = num_enemies + 1
+        enemy.symbol = enemy:create_symbol_exclamation()
+      end
+    end
+    if num_enemies > 0 then
+      audio_manager:play_sound("menus/menu_select")
+    end
+    wait(1000)
     map:remove_entities("brandish")
+    for enemy in map:get_entities_by_type("enemy") do
+      if enemy:get_distance(hero) < 32 and not string.match(enemy:get_breed(), "projectiles") then
+        enemy.symbol:remove()
+        enemy:set_life(0)
+      end
+    end
+    if num_enemies > 0 then
+      audio_manager:play_sound("enemies/enemy_die")
+    end
     animation(hero, "spin_attack")
     map:set_cinematic_mode(false, options)
     game:set_value("main_quest_step", 4)
-    wait(300)
     audio_manager:play_music("10_overworld")
   end)
 
@@ -159,6 +192,7 @@ function map:launch_cinematic_2()
     movement1:set_max_distance(72)
     movement1:set_speed(75)
     movement1:set_ignore_suspend(true)
+    movement1:set_ignore_obstacles(true)
     movement(movement1, camera)
     wait(1000)
     local timer_sound = sol.timer.start(hero, 0, function()
@@ -183,6 +217,7 @@ function map:launch_cinematic_2()
     movement2:set_max_distance(72)
     movement2:set_speed(75)
     movement2:set_ignore_suspend(true)
+    movement2:set_ignore_obstacles(true)
     movement(movement2, camera)
     map:set_cinematic_mode(false, options)
     camera:start_tracking(hero)

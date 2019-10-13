@@ -311,24 +311,6 @@ tile{
 tile{
   layer = 0,
   x = 80,
-  y = 0,
-  width = 16,
-  height = 8,
-  pattern = "78",
-}
-
-tile{
-  layer = 0,
-  x = 80,
-  y = 8,
-  width = 16,
-  height = 192,
-  pattern = "79",
-}
-
-tile{
-  layer = 0,
-  x = 80,
   y = 200,
   width = 480,
   height = 16,
@@ -540,24 +522,6 @@ tile{
   width = 64,
   height = 8,
   pattern = "52",
-}
-
-tile{
-  layer = 0,
-  x = 256,
-  y = 104,
-  width = 16,
-  height = 96,
-  pattern = "79",
-}
-
-tile{
-  layer = 0,
-  x = 256,
-  y = 96,
-  width = 16,
-  height = 8,
-  pattern = "78",
 }
 
 tile{
@@ -1048,24 +1012,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 544,
-  y = 0,
-  width = 16,
-  height = 8,
-  pattern = "78",
-}
-
-tile{
-  layer = 0,
-  x = 544,
-  y = 8,
-  width = 16,
-  height = 136,
-  pattern = "79",
-}
-
-tile{
-  layer = 0,
   x = 184,
   y = 88,
   width = 32,
@@ -1082,6 +1028,32 @@ tile{
   pattern = "wall_torch.1",
 }
 
+custom_entity{
+  layer = 0,
+  x = 552,
+  y = 13,
+  width = 16,
+  height = 136,
+  origin_y = 5,
+  direction = 0,
+  sprite = "entities/grounds/ladder_wooden",
+  tiled = true,
+  model = "ladder",
+}
+
+custom_entity{
+  layer = 0,
+  x = 88,
+  y = 13,
+  width = 16,
+  height = 192,
+  origin_y = 5,
+  direction = 0,
+  sprite = "entities/grounds/ladder_wooden",
+  tiled = true,
+  model = "ladder",
+}
+
 separator{
   layer = 0,
   x = 312,
@@ -1091,13 +1063,16 @@ separator{
 }
 
 custom_entity{
-  name = "moving_platform",
   layer = 0,
   x = 152,
   y = 157,
   properties = {
     {
       key = "needs_carrying",
+      value = "true",
+    },
+    {
+      key = "auto_respawn",
       value = "true",
     },
   },
@@ -1139,7 +1114,6 @@ destructible{
 }
 
 custom_entity{
-  name = "moving_platform_2",
   layer = 0,
   x = 440,
   y = 157,
@@ -1147,6 +1121,10 @@ custom_entity{
     {
       key = "needs_carrying",
       value = "false",
+    },
+    {
+      key = "auto_respawn",
+      value = "true",
     },
   },
   width = 32,
@@ -1156,23 +1134,46 @@ custom_entity{
   model = "platform_collapsing",
 }
 
-teletransporter{
-  name = "stairs_1_A",
-  layer = 0,
-  x = 544,
-  y = 0,
-  width = 16,
-  height = 16,
-  destination_map = "dungeons/2/1f",
-  destination = "stairs_5_B",
-}
-
 destination{
   name = "stairs_1_B",
   layer = 0,
   x = 552,
   y = 29,
   direction = 1,
+}
+
+destination{
+  name = "stairs_2_B",
+  layer = 0,
+  x = 88,
+  y = 29,
+  direction = 1,
+}
+
+custom_entity{
+  layer = 0,
+  x = 264,
+  y = 109,
+  width = 16,
+  height = 96,
+  origin_y = 5,
+  direction = 0,
+  sprite = "entities/grounds/ladder_wooden",
+  tiled = true,
+  model = "ladder",
+}
+
+custom_entity{
+  layer = 0,
+  x = 88,
+  y = 5,
+  width = 16,
+  height = 8,
+  origin_y = 5,
+  direction = 0,
+  sprite = "entities/grounds/ladder_wooden_top",
+  tiled = true,
+  model = "ladder",
 }
 
 teletransporter{
@@ -1186,11 +1187,40 @@ teletransporter{
   destination = "stairs_6_B",
 }
 
-destination{
-  name = "stairs_2_B",
+custom_entity{
   layer = 0,
-  x = 88,
-  y = 29,
-  direction = 1,
+  x = 264,
+  y = 101,
+  width = 16,
+  height = 8,
+  origin_y = 5,
+  direction = 0,
+  sprite = "entities/grounds/ladder_wooden_top",
+  tiled = true,
+  model = "ladder",
+}
+
+custom_entity{
+  layer = 0,
+  x = 552,
+  y = 5,
+  width = 16,
+  height = 8,
+  origin_y = 5,
+  direction = 0,
+  sprite = "entities/grounds/ladder_wooden_top",
+  tiled = true,
+  model = "ladder",
+}
+
+teletransporter{
+  name = "stairs_1_A",
+  layer = 0,
+  x = 544,
+  y = 0,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/2/1f",
+  destination = "stairs_5_B",
 }
 

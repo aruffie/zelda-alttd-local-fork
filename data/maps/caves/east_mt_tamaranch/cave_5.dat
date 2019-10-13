@@ -2118,7 +2118,7 @@ enemy{
   y = 125,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -2128,7 +2128,7 @@ enemy{
   y = 149,
   direction = 0,
   breed = "hardhat_beetle",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 teletransporter{
@@ -2165,6 +2165,36 @@ wall{
   stops_enemies = true,
   stops_blocks = true,
   stops_projectiles = true,
+}
+
+sensor{
+  name = "sensor_1",
+  layer = 0,
+  x = 144,
+  y = 141,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_2",
+  layer = 0,
+  x = 496,
+  y = 413,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
 }
 
 tile{
@@ -3581,7 +3611,7 @@ enemy{
   y = 117,
   direction = 0,
   breed = "hardhat_beetle",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -3591,7 +3621,7 @@ enemy{
   y = 117,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -3601,7 +3631,7 @@ enemy{
   y = 149,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -3611,7 +3641,7 @@ enemy{
   y = 365,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -3621,7 +3651,7 @@ enemy{
   y = 381,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 block{
