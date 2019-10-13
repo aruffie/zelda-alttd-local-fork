@@ -58,15 +58,20 @@ local function make_fish(size, y, region)
                (close_enough and fx > lx and self:get_direction() == 2) then
               -- ledger is in sight
               mov:set_speed(chase_speed)
+              mov:set_angle(self:get_angle(ledger_hook))
               sprite:set_animation("chase")
               chasing = true
+              
             end
           else
             mov:set_speed(stroll_speed)
+            local ca = mov:get_angle()
+            mov:set_angle(ca-math.fmod(ca, math.pi))
             sprite:set_animation("normal")
             chasing = false
           end
-            
+          
+          self.chasing = chasing
           return true
         end)
       
@@ -81,7 +86,7 @@ local function make_fish(size, y, region)
           return true
         end)
       
-      -- disable auto move
+      -- disable auto move, called when fish is caught
       function self:cancel_timers()
         t1:stop()
         t2:stop()
@@ -94,7 +99,7 @@ local function make_fish(size, y, region)
   end
   
   fish:add_collision_test('sprite', function(this, other)
-      if other == ledger_hook then
+      if other == ledger_hook and fish.chasing then
         fish:cancel_timers()
         mov:set_speed(0)
         if bitten_fish then
@@ -249,7 +254,7 @@ local function launch_ledger()
     local initial_x = -200
     local initial_y = -150
     
-    sol.timer.start(map, 30, function()
+    sol.timer.start(map, 20, function()
         set_mov_vec(mov,
         clamp(initial_x, 0, initial_x + current()*0.00), 
         math.min(1000, initial_y + current() * 0.5))
@@ -302,6 +307,14 @@ end
 
 catch_zone:add_collision_test('overlapping', function(this, other)
   if state == 'pulling' and other == ledger_hook then
+    if bitten_fish then
+      -- fish was caught !
+      -- TODO start dialog with size of the fish
+      bitten_fish:remove()
+      bitten_fish = nil
+    end
+    
+    
     start_rest()
   end
 end)
