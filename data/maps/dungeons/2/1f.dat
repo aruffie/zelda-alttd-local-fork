@@ -16807,6 +16807,70 @@ tile{
   pattern = "door_stairs.straight_up.1",
 }
 
+dynamic_tile{
+  layer = 0,
+  x = 704,
+  y = 624,
+  properties = {
+    {
+      key = "draw_in_y_order",
+      value = "true",
+    },
+  },
+  width = 32,
+  height = 32,
+  pattern = "52",
+  tileset = "addition/dungeon",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 864,
+  y = 624,
+  properties = {
+    {
+      key = "draw_in_y_order",
+      value = "true",
+    },
+  },
+  width = 32,
+  height = 32,
+  pattern = "52",
+  tileset = "addition/dungeon",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 864,
+  y = 560,
+  properties = {
+    {
+      key = "draw_in_y_order",
+      value = "true",
+    },
+  },
+  width = 32,
+  height = 32,
+  pattern = "52",
+  tileset = "addition/dungeon",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 704,
+  y = 560,
+  properties = {
+    {
+      key = "draw_in_y_order",
+      value = "true",
+    },
+  },
+  width = 32,
+  height = 32,
+  pattern = "52",
+  tileset = "addition/dungeon",
+}
+
 wall{
   layer = 0,
   x = 2072,
@@ -17150,7 +17214,7 @@ enemy{
   x = 1144,
   y = 1341,
   direction = 3,
-  breed = "stalfos_red",,
+  breed = "stalfos_red",
   treasure_name = "random_with_charm",
 }
 
@@ -19846,6 +19910,7 @@ enemy{
   x = 880,
   y = 645,
   direction = 0,
+  breed = "keese",
   treasure_name = "random_with_charm",
 }
 
@@ -21944,70 +22009,6 @@ dynamic_tile{
   layer = 0,
   x = 464,
   y = 1008,
-  width = 32,
-  height = 32,
-  pattern = "52",
-  tileset = "addition/dungeon",
-}
-
-dynamic_tile{
-  layer = 0,
-  x = 704,
-  y = 624,
-  properties = {
-    {
-      key = "draw_in_y_order",
-      value = "true",
-    },
-  },
-  width = 32,
-  height = 32,
-  pattern = "52",
-  tileset = "addition/dungeon",
-}
-
-dynamic_tile{
-  layer = 0,
-  x = 704,
-  y = 560,
-  properties = {
-    {
-      key = "draw_in_y_order",
-      value = "true",
-    },
-  },
-  width = 32,
-  height = 32,
-  pattern = "52",
-  tileset = "addition/dungeon",
-}
-
-dynamic_tile{
-  layer = 0,
-  x = 864,
-  y = 624,
-  properties = {
-    {
-      key = "draw_in_y_order",
-      value = "true",
-    },
-  },
-  width = 32,
-  height = 32,
-  pattern = "52",
-  tileset = "addition/dungeon",
-}
-
-dynamic_tile{
-  layer = 0,
-  x = 864,
-  y = 560,
-  properties = {
-    {
-      key = "draw_in_y_order",
-      value = "true",
-    },
-  },
   width = 32,
   height = 32,
   pattern = "52",
