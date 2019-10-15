@@ -21,7 +21,7 @@ function game_meta:is_step_done(step_id)
   return self:get_value("main_quest_step") >= main_steps[step_id]
 end
 
-function game_meta:is_last_step(step_id)
+function game_meta:is_step_last(step_id)
   if not main_steps[step_id] then
     error("No such quest step: "..step_id)
     return
