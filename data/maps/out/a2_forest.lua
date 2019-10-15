@@ -144,7 +144,7 @@ end
 
 function map:init_tarin()
  
-  if game:get_value("main_quest_step") > 4 then
+  if game:is_step_done("tarin_saved") then
     tarin:remove()
     tarin_2:remove()
   else
@@ -156,11 +156,21 @@ function map:init_tarin()
 
 end
 
+-- Obtaining tail key
+function map:on_obtaining_treasure(treasure_item, treasure_variant, treasure_savegame_variable)
+
+  if treasure_item:get_name() == "tail_key" then
+    local game = item:get_game()
+    game:set_step_done("dungeon_1_key_obtained")
+  end
+
+end
+
 -- Chests events
 function forest_chest_1:on_opened()
 
   hero:start_treasure("tail_key", 1, "forest_chest_1", function()
-    if map:get_game():get_value("owl_3") ~= true and game:get_value("main_quest_step") == 6 then
+    if map:get_game():get_value("owl_3") ~= true and game:is_step_last("dungeon_1_key_obtained") then
       owl_manager:appear(map, 3, function()
       map:init_music()
       end)
@@ -182,7 +192,7 @@ end
 
 function lost_sensor:on_activated()
 
-  if raccoon_movement or game:get_value("main_quest_step") > 4 then
+  if raccoon_movement or game:is_step_done("tarin_saved") then
     return
   end
   for key, destructible in pairs(destructible_places) do
@@ -368,7 +378,7 @@ function change_movement_raccoon()
     raccoon_invisible:remove()
     tarin:get_sprite():set_animation("tired_raccoon")
     local timer1 = sol.timer.start(map, 1000, function()
-      game:set_value("main_quest_step", 5)
+      game:set_step_done("tarin_saved")
       racoon_position_8:set_enabled(false)
       tarin_2:remove()
       game:start_dialog("maps.out.forest.raccoon_to_tarin", function()

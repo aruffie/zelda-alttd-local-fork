@@ -12,19 +12,19 @@ return {
   {
     message_key = 3,
     activation_condition = function(map)
-      return map:get_game():get_value("main_quest_step") > 7
+      return map:get_game():is_step_done("dungeon_1_completed")
     end
   },
   {
     message_key = 4,
     activation_condition = function(map)
-      return map:get_game():get_value("main_quest_step") > 9
+      return map:get_game():is_step_done("bowwow_joined")
     end
   },
   {
     message_key = 5,
     activation_condition = function(map)
-      return map:get_game():get_value("main_quest_step") > 10
+      return map:get_game():is_step_done("dungeon_2_completed")
     end
   },
   {
@@ -32,7 +32,7 @@ return {
     activation_condition = function(map)
       local item = map:get_game():get_item("magnifying_lens")
       local variant = item:get_variant()
-      return map:get_game():get_value("main_quest_step") > 10 and variant > 3
+      return map:get_game():is_step_done("dungeon_2_completed") and variant > 3
     end
   }
 }

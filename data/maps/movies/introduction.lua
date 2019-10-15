@@ -19,7 +19,7 @@ local opacity_time = 0
 -- as soon as this map becomes is loaded.
 function map:on_started()
 
-  game:set_value("main_quest_step", 0)
+  game:set_step_done("game_started")
   -- Fade-in from white to simulate a cloudy mountain top
   map:start_fadein_from_white(6000)
 

@@ -36,7 +36,7 @@ function map:init_map_entities()
     castle_door:set_enabled(false)
   end
   -- Baton and bridge
-  if game:get_value("main_quest_step") < 14 then
+  if not game:is_step_done("castle_bridge_built") then
     baton:set_enabled(false)
     bridge:set_enabled(false)
   else
@@ -60,9 +60,9 @@ function map:talk_to_monkey()
 
   local item = game:get_item("magnifying_lens")
   local variant = item:get_variant()
-  if game:get_value("main_quest_step") < 12 then
+  if not game:is_step_done("bowwow_returned") then
     game:start_dialog("maps.out.kanalet_castle.monkey_1")
-  elseif game:get_value("main_quest_step") < 14 then
+  elseif not game:is_step_done("castle_bridge_built") then
       if variant == 4 then
         game:start_dialog("maps.out.kanalet_castle.monkey_3", function(answer) 
           if answer == 1 then
@@ -109,7 +109,7 @@ function map:monkey_leave_bridge()
     hero:unfreeze()
     game:set_hud_enabled(true)
     game:set_pause_allowed(true)
-    game:set_value("main_quest_step", 14) 
+    game:set_step_done("castle_bridge_built")
   end
   
 end

@@ -25,7 +25,7 @@ end)
 -- Initialize the music of the map
 function map:init_music()
   
-  if game:is_last_step("started_looking_for_sword")  then
+  if game:is_step_last("shield_obtained") then
     audio_manager:play_music("07_koholint_island")
   elseif tarin_chased_by_bees then
     audio_manager:play_music("39_bees")
@@ -329,6 +329,16 @@ function dungeon_3_lock:on_interaction()
       end)
       game:set_step_done("dungeon_3_opened")
     end)
+  end
+
+end
+
+-- Obtaining slim key
+function map:on_obtaining_treasure(treasure_item, treasure_variant, treasure_savegame_variable)
+
+  if treasure_item:get_name() == "slim_key" then
+    local game = item:get_game()
+    game:set_step_done("dungeon_3_key_obtained")
   end
 
 end

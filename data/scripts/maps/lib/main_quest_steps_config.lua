@@ -1,8 +1,7 @@
 local steps={
-  "game_start",
+  "game_started",
   "hero_awakened",
   "shield_obtained",
-  "started_looking_for_sword",
   "sword_obtained",
   "tarin_saved",
   "dungeon_1_key_obtained",
@@ -19,8 +18,6 @@ local steps={
   "dungeon_3_opened",
   "dungeon_3_completed",
   "tarin_bee_event_over",
-  "honey_obtained",
-  "pineapple_obtained",
   "started_looking_for_marin",
   "marin_joined",
   "walrus_awakened",

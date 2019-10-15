@@ -21,9 +21,9 @@ end)
 -- Initialize the music of the map
 function map:init_music()
 
-  if game:get_value("main_quest_step") == 3  then
+  if game:is_step_last("shield_obtained") then
     audio_manager:play_music("07_koholint_island")
-  elseif game:get_value("main_quest_step") == 8 or game:get_value("main_quest_step") == 9  then
+  elseif game:is_step_last("dungeon_1_completed") or game:is_step_last("bowwow_dognapped") then
     audio_manager:play_music("26_bowwow_dognapped")
   else
     audio_manager:play_music("12_house")
@@ -34,7 +34,7 @@ end
 -- Initializes entities based on player's progress
 function map:init_map_entities()
  
-  if game:get_value("main_quest_step") == 8 or game:get_value("main_quest_step") == 9 then
+  if game:is_step_last("dungeon_1_completed") or game:is_step_last("bowwow_dognapped") then
     meow_meow:get_sprite():set_animation("panicked")
   end
   local item = game:get_item("magnifying_lens")
@@ -59,15 +59,15 @@ end
 -- Discussion with Mrs Meow Meow
 function map:talk_to_meow_meow() 
 
-  if game:get_value("main_quest_step") < 8 then
+  if not game:is_step_done("dungeon_1_completed") then
     game:start_dialog("maps.houses.mabe_village.meow_meow_house.meow_meow_1")
-  elseif game:get_value("main_quest_step") == 8 or game:get_value("main_quest_step") == 9 then
+  elseif game:is_step_last("dungeon_1_completed") or game:is_step_last("bowwow_dognapped") then
     game:start_dialog("maps.houses.mabe_village.meow_meow_house.meow_meow_2")
-  elseif game:get_value("main_quest_step") < 11 then
+  elseif game:is_step_done("dungeon_2_completed") then
     game:start_dialog("maps.houses.mabe_village.meow_meow_house.meow_meow_3")
-  elseif game:get_value("main_quest_step") == 11 then
+  elseif game:is_step_last("dungeon_2_completed") then
     game:start_dialog("maps.houses.mabe_village.meow_meow_house.meow_meow_4", function()
-      game:set_value("main_quest_step", 12)
+      game:set_step_done("bowwow_returned")
     end)
   else
     game:start_dialog("maps.houses.mabe_village.meow_meow_house.meow_meow_1")

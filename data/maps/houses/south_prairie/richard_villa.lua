@@ -57,7 +57,7 @@ function map:talk_to_richard()
     else 
       if num == 5 then
         game:start_dialog("maps.houses.south_prairie.richard_villa.richard_7", function()
-          game:set_value("main_quest_step", 15) 
+          game:set_step_done("golden_leaved_returned")
           item:set_amount(0)
           local movement = sol.movement.create("target")
           movement:set_speed(30)

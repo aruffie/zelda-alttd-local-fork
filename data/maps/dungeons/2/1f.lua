@@ -74,7 +74,7 @@ function map:on_obtaining_treasure(item, variant, savegame_variable)
 
   if savegame_variable == "dungeon_2_big_treasure" then
     treasure_manager:get_instrument(map)
-    item:get_game():set_value("main_quest_step", 11)
+    game:set_step_done("dungeon_2_completed")
   end
 
 end

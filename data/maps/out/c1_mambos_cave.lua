@@ -123,30 +123,3 @@ function father:on_interaction()
   map:talk_to_father()
 
 end
-
-function dungeon_4_lock:on_interaction()
-
-  if false and game:get_value("main_quest_step") < 6 then
-      game:start_dialog("maps.out.south_mabe_village.dungeon_1_lock")
-  elseif true or game:get_value("main_quest_step") == 6 then
-    sol.audio.stop_music()
-    hero:freeze()
-    sol.timer.start(map, 1000, function() 
-      map:remove_water(1)
-      audio_manager:play_sound("shake")
-      local camera = map:get_camera()
-      local shake_config = {
-          count = 100,
-          amplitude = 2,
-          speed = 90,
-      }
-      camera:shake(shake_config, function()
-        audio_manager:play_sound("misc/secret2")
-        hero:unfreeze()
-        map:init_music()
-      end)
-      game:set_value("main_quest_step", 7)
-    end)
-  end
-
-end

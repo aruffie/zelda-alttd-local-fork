@@ -17,7 +17,6 @@ end
 
 function item:on_obtaining()
   
-  self:get_game():set_value("main_quest_step", 16) -- Todo remove and place it in map
   audio_manager:play_sound("items/fanfare_item_extended")
         
 end

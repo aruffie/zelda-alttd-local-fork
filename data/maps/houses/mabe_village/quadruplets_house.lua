@@ -19,7 +19,7 @@ end)
 -- Initialize the music of the map
 function map:init_music()
 
-  if game:get_value("main_quest_step") == 3  then
+  if game:is_step_last("shield_obtained") then
     audio_manager:play_music("07_koholint_island")
   else
     audio_manager:play_music("12_house")
@@ -33,7 +33,7 @@ function map:init_map_entities()
   local item = game:get_item("magnifying_lens")
   local variant = item:get_variant()
   local father_sprite = father:get_sprite()
-  if game:get_value("main_quest_step") >= 18 and variant < 8  then
+  if game:is_step_done("dungeon_3_completed") and variant < 8  then
     father:set_enabled(false)
   end
   if variant >= 8 then
@@ -65,7 +65,7 @@ function map:talk_to_mother()
 
   local item = game:get_item("magnifying_lens")
   local variant = item:get_variant()
-  if game:get_value("main_quest_step") < 18 then
+  if not game:is_step_done("dungeon_3_completed") then
     if variant == 1 then
       game:start_dialog("maps.houses.mabe_village.quadruplets_house.mother_2", function(answer)
         if answer == 1 then

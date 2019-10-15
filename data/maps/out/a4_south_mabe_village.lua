@@ -24,7 +24,7 @@ end)
 -- Initialize the music of the map
 function map:init_music()
 
-  if game:is_step_last("started_looking_for_sword")  then
+  if game:is_step_last("shield_obtained") then
     audio_manager:play_music("07_koholint_island")
   else
     audio_manager:play_music("10_overworld")
