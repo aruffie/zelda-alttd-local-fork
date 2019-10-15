@@ -5,6 +5,7 @@ properties{
   height = 480,
   min_layer = 0,
   max_layer = 2,
+  world = "test_world",
   tileset = "testing/labo",
 }
 
@@ -30,7 +31,7 @@ tile{
   layer = 0,
   x = 624,
   y = 392,
-  width = 176,
+  width = 160,
   height = 72,
   pattern = "113",
   tileset = "out/outside_main",
@@ -286,7 +287,7 @@ tile{
   layer = 0,
   x = 464,
   y = 272,
-  width = 336,
+  width = 320,
   height = 32,
   pattern = "2",
 }
@@ -516,6 +517,15 @@ tile{
   width = 16,
   height = 80,
   pattern = "7",
+}
+
+tile{
+  layer = 0,
+  x = 784,
+  y = 32,
+  width = 16,
+  height = 432,
+  pattern = "2",
 }
 
 destination{
