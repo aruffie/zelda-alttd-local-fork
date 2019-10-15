@@ -97,7 +97,7 @@ end
 -- NPCs events
 function dungeon_1_lock:on_interaction()
 
-  if not game:is_step_done("dungeon_1_opened") then
+  if not game:is_step_done("dungeon_1_key_obtained") then
       game:start_dialog("maps.out.south_mabe_village.dungeon_1_lock")
   elseif game:is_step_last("dungeon_1_key_obtained") then
     map:launch_cinematic_2()

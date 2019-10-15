@@ -337,7 +337,6 @@ end
 function map:on_obtaining_treasure(treasure_item, treasure_variant, treasure_savegame_variable)
 
   if treasure_item:get_name() == "slim_key" then
-    local game = item:get_game()
     game:set_step_done("dungeon_3_key_obtained")
   end
 

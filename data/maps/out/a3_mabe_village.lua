@@ -276,7 +276,7 @@ function  map:talk_to_grand_ma()
     end)
   elseif variant_lens > 10 then
     game:start_dialog("maps.out.mabe_village.grand_ma_6")
-  elseif not game:is_step_last("dungeon_1_completed") and game:is_step_last("bowwow_dognapped") then  
+  elseif not game:is_step_last("dungeon_1_completed") and not game:is_step_last("bowwow_dognapped") then  
     game:start_dialog("maps.out.mabe_village.grand_ma_1", function()
       grand_ma:get_sprite():set_direction(3)
     end)

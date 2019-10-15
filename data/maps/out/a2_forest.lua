@@ -160,7 +160,6 @@ end
 function map:on_obtaining_treasure(treasure_item, treasure_variant, treasure_savegame_variable)
 
   if treasure_item:get_name() == "tail_key" then
-    local game = item:get_game()
     game:set_step_done("dungeon_1_key_obtained")
   end
 
@@ -236,8 +235,7 @@ end
 
 function raccoon_lost_warning_sensor:on_activated()
 
-  if not game:is_step_done("tarin_saved") then
-      and not map.raccoon_warning_done then
+  if not game:is_step_done("tarin_saved") and not map.raccoon_warning_done then
     map.raccoon_warning_done = true
     game:start_dialog("maps.out.forest.raccoon_lost_warning", function() 
       tarin:get_sprite():set_direction(3)

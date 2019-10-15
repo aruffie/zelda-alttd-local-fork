@@ -133,7 +133,7 @@ function  map:talk_to_tarin()
 
   if game:is_step_done("dungeon_2_completed") then
     game:start_dialog("maps.houses.mabe_village.marin_house.tarin_5")
-  elseif ame:is_step_done("tarin_saved") then
+  elseif game:is_step_done("tarin_saved") then
     game:start_dialog("maps.houses.mabe_village.marin_house.tarin_4")
   else
     if game:has_item("shield") == false then
