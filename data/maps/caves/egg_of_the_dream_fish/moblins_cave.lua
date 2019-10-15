@@ -15,7 +15,7 @@ local audio_manager = require("scripts/audio_manager")
 map:register_event("on_started", function(map, destination)
   
   -- Music
-  if game:get_value("main_quest_step") == 9  then
+  if not game:is_step_last("bowwow_dognapped") then
     sol.audio.stop_music()
   else
     map:init_music()
@@ -34,7 +34,7 @@ end)
 -- Initialize the music of the map
 function map:init_music()
   
-  if game:get_value("main_quest_step") == 9  then
+  if game:is_step_last("bowwow_dognapped") then
     audio_manager:play_music("26_bowwow_dognapped")
   else
     audio_manager:play_music("18_cave")
@@ -45,8 +45,7 @@ end
 -- Initializes Entities based on player's progress
 function map:init_map_entities()
  
-  local step = game:get_value("main_quest_step")
-  if step ~= 9 then
+  if not game:is_step_last("bowwow_dognapped") then
     for enemy in map:get_entities_by_type("enemy") do
       enemy:remove()
     end
@@ -54,16 +53,16 @@ function map:init_map_entities()
     map:set_doors_open("door_group", true)
   end
   -- Moblin chief
-  if step ~= 9 then
+  if not game:is_step_last("bowwow_dognapped") then
     moblin_chief:remove()
   else
     moblin_chief:get_sprite():set_animation("sitting")
   end
   -- Moblin fire
-  if step < 9 then
+  if not game:is_step_done("bowwow_dognapped") then
     moblin_fire:remove()
     moblin_fire_light:remove()
-  elseif step > 9 then
+  elseif game:is_step_done("bowwow_joined") then
     moblin_fire:get_sprite():set_animation("off")
     moblin_fire_light:remove()
   end

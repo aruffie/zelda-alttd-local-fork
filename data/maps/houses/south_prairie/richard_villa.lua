@@ -29,7 +29,7 @@ function map:init_map_entities()
     local x,y,layer = box_place:get_position()
     box:set_position(x,y,layer)
   end
-  if game:get_value("main_quest_step") > 14 then
+  if game:is_step_done("golden_leaved_returned") then
     local x,y,layer = richard_place:get_position()
     richard:set_position(x,y,layer)
   end
@@ -39,9 +39,9 @@ end
 -- Discussion with Richard
 function map:talk_to_richard() 
 
-  if game:get_value("main_quest_step") < 12 then
+  if not game:is_step_done("bowwow_returned") then
     game:start_dialog("maps.houses.south_prairie.richard_villa.richard_1")
-  elseif game:get_value("main_quest_step") > 14 then
+  elseif game:is_step_done("golden_leaved_returned") then
     game:start_dialog("maps.houses.south_prairie.richard_villa.richard_8")
   else
     local item = game:get_item("golden_leaves_counter")

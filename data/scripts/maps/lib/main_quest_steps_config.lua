@@ -12,7 +12,6 @@ local steps={
   "dungeon_2_completed",
   "bowwow_returned",
   "castle_bridge_built",
-  "all_golden_leaves_found",
   "golden_leaved_returned",
   "dungeon_3_key_obtained",
   "dungeon_3_opened",

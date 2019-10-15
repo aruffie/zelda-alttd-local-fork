@@ -236,7 +236,7 @@ end
 
 function raccoon_lost_warning_sensor:on_activated()
 
-  if game:get_value("main_quest_step") < 5
+  if not game:is_step_done("tarin_saved") then
       and not map.raccoon_warning_done then
     map.raccoon_warning_done = true
     game:start_dialog("maps.out.forest.raccoon_lost_warning", function() 
@@ -308,7 +308,7 @@ end
 -- NPCs events
 function tarin:on_interaction()
 
-  if game:get_value("main_quest_step") < 5 then
+  if not game:is_step_done("tarin_saved") then
     game:start_dialog("maps.out.forest.raccoon", function()
       tarin:get_sprite():set_direction(3)
       tarin_2:get_sprite():set_direction(3)
@@ -326,7 +326,7 @@ end
 
 function tarin:on_interaction_item(item)
 
-  if game:get_value("main_quest_step") > 4 then
+  if game:is_step_done("tarin_saved") then
     return
   end
   if item:get_name() == "magic_powder_counter"  then
