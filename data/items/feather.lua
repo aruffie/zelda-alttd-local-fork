@@ -42,7 +42,7 @@ function item:start_using()
 
     else
       -- Simply apply a vertical impulsion to the hero in sideview maps.
-      if hero:get_state()~="carrying" and hero:get_state()~="lifting" then
+      if hero:get_state()~="carrying" and hero:get_state()~="lifting" and hero:get_state()~="falling" then
         local vspeed = hero.vspeed or 0
         if vspeed == 0 or map:get_ground(hero:get_position()) == "deep_water" then
           audio_manager:play_sound("hero/jump")

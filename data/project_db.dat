@@ -2174,6 +2174,7 @@ file{ path = "scripts/gfx_effects/radial_fade_out.lua", author = "PhoenixII54", 
 file{ path = "scripts/maps/ceiling_drop_manager.lua", author = "MetalZelda, adapted by PhoenixII54", }
 file{ path = "scripts/maps/entity_respawn_manager.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/maps/jump_manager.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "scripts/maps/main_quest_manager.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/maps/sideview_manager.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/menus/copyright_menu.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/menus/dialog_box.lua", author = "Christopho", license = "GPL v3" }
