@@ -72,8 +72,7 @@ end
 
 function map:on_opening_transition_finished(destination)
 
-  local step = game:get_value("main_quest_step")
-  if step ~= nil and step ~= 9 or room_access_1 then
+  if not game:is_step_last("bowwow_dognapped") or room_access_1 then
     return
   end
   room_access_1 = true
@@ -89,8 +88,8 @@ door_manager:open_when_enemies_dead(map,  "enemy_group_3",  "door_group_1")
 -- Sensors
 function sensor_2:on_activated()
 
-  local step = game:get_value("main_quest_step")
-  if step ~= nil and step ~= 9 or room_access_2 then
+  
+  if not game:is_step_last("bowwow_dognapped") or room_access_2 then
     return
   end
   room_access_2 = true
@@ -100,8 +99,8 @@ end
 
 function sensor_3:on_activated()
 
-  local step = game:get_value("main_quest_step")
-  if step ~= nil and step ~= 9 or room_access_3 then
+  
+  if not game:is_step_last("bowwow_dognapped") or room_access_3 then
     return
   end
   room_access_3 = true
@@ -112,8 +111,8 @@ end
 -- NPCs events
 function bowwow:on_interaction()
 
-  local step = game:get_value("main_quest_step")
-  if step ~= nil and step ~= 9 then
+  
+  if not game:is_step_last("bowwow_dognapped") then
     return
   end
   for enemy in map:get_entities_by_type("enemy") do
@@ -262,7 +261,7 @@ function map:launch_cinematic_4()
     hero:set_direction(3)
     dialog("maps.caves.egg_of_the_dream_fish.moblins_cave.bowwow_1")
     timer:stop()
-    game:set_value("main_quest_step", 10)
+    game:set_step_done("bowwow_joined")
     hero:set_animation("walking")
     hero:set_direction(0)
     local m = sol.movement.create("target")
@@ -301,7 +300,6 @@ function map:launch_cinematic_4()
 end
 
 -- Separators
-local step = game:get_value("main_quest_step")
-if step == 9 then
+if game:is_step_last("bowwow_dognapped") then
   separator_manager:init(map)
 end
