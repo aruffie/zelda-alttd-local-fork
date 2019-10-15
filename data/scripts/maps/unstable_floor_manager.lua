@@ -105,7 +105,7 @@ hero_meta:register_event("on_state_changing", function(hero, old_state, state)
         local offset_x, offset_y=unpack(directions[position.direction+1])
         hero:set_position(position.x+offset_x, position.y+offset_y, position.layer)
       end
-      print (hero.last_stable_position.direction)
+      --print (hero.last_stable_position.direction)
       hero:set_direction(hero.last_stable_position.direction/2 or 0)
     end
   end)
