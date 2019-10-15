@@ -24,7 +24,7 @@ end)
 -- Initialize the music of the map
 function map:init_music()
 
-  if game:get_value("main_quest_step") == 3  then
+  if game:is_step_last("started_looking_for_sword")  then
     audio_manager:play_music("07_koholint_island")
   else
     audio_manager:play_music("10_overworld")
@@ -43,7 +43,7 @@ function map:init_map_entities()
   end
   dungeon_1_entrance:set_traversable_by(false)
   dungeon_1_entrance:set_traversable_by('camera', true)
-  if game:get_value("main_quest_step") > 6 then
+  if game:is_step_done("dungeon_1_opened") then
     map:open_dungeon_1()
   end
   -- Seashell's tree
@@ -97,9 +97,9 @@ end
 -- NPCs events
 function dungeon_1_lock:on_interaction()
 
-  if game:get_value("main_quest_step") < 6 then
+  if not game:is_step_done("dungeon_1_opened") then
       game:start_dialog("maps.out.south_mabe_village.dungeon_1_lock")
-  elseif game:get_value("main_quest_step") == 6 then
+  elseif game:is_step_last("dungeon_1_key_obtained") then
     map:launch_cinematic_2()
   end
   
@@ -120,7 +120,7 @@ end
 
 function owl_4_sensor:on_activated()
 
-  if game:get_value("main_quest_step") == 8  and game:get_value("owl_4") ~= true then
+  if game:is_step_last("dungeon_1_completed") and game:get_value("owl_4") ~= true then
     owl_manager:appear(map, 4, function()
     map:init_music()
     end)
@@ -169,7 +169,7 @@ function map:launch_cinematic_1()
     end
     animation(hero, "spin_attack")
     map:set_cinematic_mode(false, options)
-    game:set_value("main_quest_step", 4)
+    game:set_step_done("sword_obtained")
     audio_manager:play_music("10_overworld")
   end)
 
@@ -221,7 +221,7 @@ function map:launch_cinematic_2()
     movement(movement2, camera)
     map:set_cinematic_mode(false, options)
     camera:start_tracking(hero)
-    game:set_value("main_quest_step", 7)
+    game:set_step_done("dungeon_1_opened")
     map:init_music()
   end)
 
