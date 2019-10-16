@@ -4221,8 +4221,8 @@ le plus beau des héros !
 dialog{
   id = "scripts.meta.map.fairy",
   text = [[
-Voici un petit bonus.    
-Je restaure tous tes Coeurs !
+Je vais panser tes blessures et remonter ton énergie.    
+Ferme les yeux.
 ]],
 }
 

@@ -131,7 +131,7 @@ function map:create_ball(player_1, player_2)
     width = 16,
     height = 24,
     direction = 0,
-    layer = 1 ,
+    layer = layer_1 + 1 ,
     sprite = "entities/misc/ball"
   }
   ball_shadow = map:create_custom_entity{
@@ -141,7 +141,7 @@ function map:create_ball(player_1, player_2)
     width = 16,
     height = 24,
     direction = 0,
-    layer = 0,
+    layer = layer_1,
     sprite = "entities/shadows/ball"
   }
   

@@ -13,7 +13,6 @@ local audio_manager = require("scripts/audio_manager")
 map:register_event("on_started", function(map, destination)
 
   -- Music
-  print ("at start:", seashell_13:get_position())
   map:init_music()
   -- Entities
   map:init_map_entities()
@@ -38,6 +37,8 @@ end
 -- Initializes Entities based on player's progress
 function map:init_map_entities()
   
+  local item = game:get_item("magnifying_lens")
+  local variant = item:get_variant()
  -- Owl
   owl_7:set_enabled(false)
   -- Travel
@@ -48,7 +49,7 @@ function map:init_map_entities()
     statue_pig:set_traversable_by(true)
   end
   dungeon_3_entrance:set_traversable_by(false)
-  if game:is_step_done("opened_dungeon_3") then
+  if game:is_step_done("dungeon_3_opened") then
     map:open_dungeon_3()
   end
   -- Tarin
@@ -56,7 +57,7 @@ function map:init_map_entities()
     tarin:set_enabled(false)
   end
   -- Honey and bees
-  if game:is_step_done("honey_obtained") then
+  if game:is_step_done("dungeon_3_completed") and variant < 5 then
     honey:set_enabled(false)
     for bee in map:get_entities("bee") do
         bee:set_enabled(false)
@@ -68,7 +69,6 @@ function map:init_map_entities()
     if other:get_type() == 'hero' and hero:get_state() == "custom" and hero:get_state_object():get_description()=="running" and seashell_tree_found == false and game:get_value("seashell_13") == nil then
       sol.timer.start(map, 250, function()
         seashell_13:set_enabled(true)
-        print("enabled ?", seashell_13:is_enabled(), "position:", seashell_13:get_position())
         local movement = sol.movement.create("jump")
         movement:set_speed(100)
         movement:set_distance(64)

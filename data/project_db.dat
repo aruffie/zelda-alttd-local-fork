@@ -829,6 +829,7 @@ music{ id = "snes/32_kanalet_castle", description = "33 - Kanalet Castle" }
 music{ id = "snes/33_level_3_key_cavern", description = "33 - Level 3 - Key Cavern" }
 music{ id = "snes/34_the_sea_lily_bell", description = "34 - The Sea Lily Bell" }
 music{ id = "snes/41_christine_house", description = "41 - Christine's House" }
+music{ id = "snes/44_song_of_marin", description = "44 - Song of Marin" }
 music{ id = "snes/46_tal_tal_mountain_range", description = "46 - Tal Tal Mountain Range" }
 music{ id = "snes/47_level_4_angler_tunnel", description = "47 - Level 4 - Angler Tunnel" }
 music{ id = "snes/48_the_surf_harp", description = "48 - The Surf Harp" }
