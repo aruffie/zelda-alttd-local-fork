@@ -32,6 +32,7 @@ function map:talk_to_alligator()
   local variant = item:get_variant()
   local sprite = alligator:get_sprite()
   if variant == 3 then
+    local symbol = alligator:create_symbol_exclamation(true)
     game:start_dialog("maps.houses.south_mabe_village.sales_house_o_bananas.alligator_2", function(answer)
       if answer == 1 then
         game:start_dialog("maps.houses.south_mabe_village.sales_house_o_bananas.alligator_4", function()
@@ -40,6 +41,7 @@ function map:talk_to_alligator()
       else
         game:start_dialog("maps.houses.south_mabe_village.sales_house_o_bananas.alligator_3")
       end
+      symbol:remove()
     end)
   elseif variant > 3 then
     game:start_dialog("maps.houses.south_mabe_village.sales_house_o_bananas.alligator_6")

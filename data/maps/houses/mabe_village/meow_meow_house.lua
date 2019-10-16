@@ -63,7 +63,7 @@ function map:talk_to_meow_meow()
     game:start_dialog("maps.houses.mabe_village.meow_meow_house.meow_meow_1")
   elseif game:is_step_last("dungeon_1_completed") or game:is_step_last("bowwow_dognapped") then
     game:start_dialog("maps.houses.mabe_village.meow_meow_house.meow_meow_2")
-  elseif game:is_step_done("dungeon_2_completed") then
+  elseif game:is_step_last("bowwow_joined") then
     game:start_dialog("maps.houses.mabe_village.meow_meow_house.meow_meow_3")
   elseif game:is_step_last("dungeon_2_completed") then
     game:start_dialog("maps.houses.mabe_village.meow_meow_house.meow_meow_4", function()
@@ -90,6 +90,7 @@ function map:talk_to_small_bowwow_2()
   local item = game:get_item("magnifying_lens")
   local variant = item:get_variant()
   if variant == 2 then
+    local symbol = small_bowwow_2:create_symbol_exclamation(true)
     game:start_dialog("maps.houses.mabe_village.meow_meow_house.small_bowwow_2_2", function(answer)
       if answer == 1 then
         audio_manager:play_sound("misc/bowwow")
@@ -100,6 +101,7 @@ function map:talk_to_small_bowwow_2()
       else
         game:start_dialog("maps.houses.mabe_village.meow_meow_house.small_bowwow_2_3")
       end
+      symbol:remove()
     end)
   elseif variant > 1 then
     game:start_dialog("maps.houses.mabe_village.meow_meow_house.small_bowwow_2_1")

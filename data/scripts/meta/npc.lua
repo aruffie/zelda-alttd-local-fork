@@ -53,13 +53,20 @@ function npc_meta:create_symbol_exclamation(sound)
   
   local map = self:get_map()
   local x, y, layer = self:get_position()
+  local sprite = self:get_sprite()
+  y = y - 16
+  if sprite:get_direction() == 2 then
+    x = x + 16
+  else
+    x = x - 16
+  end
   if sound then
     audio_manager:play_sound("menus/menu_select")
   end
   local symbol = map:create_custom_entity({
     sprite = "entities/symbols/exclamation",
-    x = x - 16,
-    y = y - 16,
+    x = x,
+    y = y,
     width = 16,
     height = 16,
     layer = layer + 1,
