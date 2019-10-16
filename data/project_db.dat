@@ -1203,7 +1203,6 @@ item{ id = "fire_rod", description = "Fire rod" }
 item{ id = "flippers", description = "Flippers" }
 item{ id = "golden_leaf", description = "Golden leaf" }
 item{ id = "golden_leaves_counter", description = "Golden leafs counter" }
-item{ id = "guardian_acorn", description = "Guardian acorn" }
 item{ id = "hammer", description = "Hammer" }
 item{ id = "heart", description = "Heart" }
 item{ id = "heart_container", description = "Heart container" }
@@ -1669,7 +1668,6 @@ file{ path = "items/fire_rod.lua", license = "GPL v3" }
 file{ path = "items/flippers.lua", license = "GPL v3" }
 file{ path = "items/golden_leaf.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/golden_leaves_counter.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "items/guardian_acorn.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/hammer.lua", license = "GPL v3" }
 file{ path = "items/heart.lua", license = "GPL v3" }
 file{ path = "items/heart_container.lua", license = "GPL v3" }

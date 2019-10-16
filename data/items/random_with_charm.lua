@@ -51,7 +51,6 @@ function item:choose_random_item()
       acorn_visble = true
     end
   end
-  print(game.acorn_count)
   if game.power_fragment_count == 3
     and not power_fragment_visble
     and game.hero_charm ~= "power_fragment" then

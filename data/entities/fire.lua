@@ -190,7 +190,7 @@ fire:add_collision_test("sprite", function(fire, entity, fire_sprite, entity_spr
         enemy:remove_sprite(burning_sprite)
       end
     end
-    audio_manager:play_sound("items/sword_slash4") -- TODO
+    audio_manager:play_sound("items/sword_slash4") -- TODO change the sound
     
     -- Then hurt after a delay.
     sol.timer.start(sol.main, 1000, function()

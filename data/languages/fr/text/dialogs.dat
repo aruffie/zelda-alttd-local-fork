@@ -46,7 +46,7 @@ Je suis gelé!
 
 dialog{
   id = "_treasure.acorn.1",
-  icon = "41",
+  icon = "120",
   text = [[
 Tu as le Gland ! 
 Tu seras mieux protégé contre les ennemis !
@@ -637,7 +637,7 @@ Tu pourrais même soulever... un éléphant !
 
 dialog{
   id = "_treasure.power_fragment.1",
-  icon = "41",
+  icon = "121",
   text = [[
 Un Fragment de Puissance !!! 
 Tu peux sentir l'énergie envahir ton corps !
