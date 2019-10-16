@@ -44,7 +44,6 @@ sensor_meta:register_event("on_activated", function(sensor)
   -- when falling into a hole or other bad ground.
   if name:match("^save_solid_ground_sensor") or sensor:get_property("save_solid_ground") then
     if not hero.respawn_point_saved then
-    print "save ground"
       hero:save_solid_ground()
       hero.respawn_point_saved=true
     end
