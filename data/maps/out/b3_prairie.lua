@@ -57,10 +57,11 @@ function map:init_map_entities()
     tarin:set_enabled(false)
   end
   -- Honey and bees
-  if game:is_step_done("dungeon_3_completed") and variant < 5 then
-    honey:set_enabled(false)
+  honey:set_enabled(false)
+  if game:is_step_done("dungeon_3_completed") and variant > 5 then
+    honey_entity:set_enabled(false)
     for bee in map:get_entities("bee") do
-        bee:set_enabled(false)
+      bee:set_enabled(false)
     end
   end
   -- Seashell's tree
@@ -243,6 +244,8 @@ function map:tarin_leave_map()
       bee:set_enabled(false)
     end
     sol.timer.start(map, 2500, function()
+      honey_entity:set_enabled(false)
+      honey:set_enabled(true)
       sol.audio.stop_music()
       local movement = sol.movement.create("jump")
       movement:set_speed(100)

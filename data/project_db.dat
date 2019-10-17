@@ -496,6 +496,7 @@ sprite{ id = "entities/items/bananas", description = "Bananas" }
 sprite{ id = "entities/items/bomb_fly", description = "Bomb fly" }
 sprite{ id = "entities/items/heart", description = "Heart" }
 sprite{ id = "entities/items/heart_fly", description = "Heart fly" }
+sprite{ id = "entities/items/honey", description = "Honey" }
 sprite{ id = "entities/items/item_shop_arrow", description = "Item shop arrow" }
 sprite{ id = "entities/items/item_shop_bomb", description = "Item shop bomb" }
 sprite{ id = "entities/items/item_shop_bow", description = "Item shop bow" }
