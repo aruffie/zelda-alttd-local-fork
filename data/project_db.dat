@@ -1396,6 +1396,7 @@ entity{ id = "bubble", description = "Bubble" }
 entity{ id = "butterfly", description = "Butterfly" }
 entity{ id = "cliff", description = "Cliff" }
 entity{ id = "color_platform", description = "Color platform" }
+entity{ id = "crystal_block", description = "Crystal Block" }
 entity{ id = "dice", description = "Dice" }
 entity{ id = "eye_switch", description = "Eye switch" }
 entity{ id = "fire", description = "Fire" }
@@ -1609,6 +1610,7 @@ file{ path = "entities/bubble.lua", license = "GPL v3" }
 file{ path = "entities/butterfly.lua", license = "GPL v3" }
 file{ path = "entities/cliff.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "entities/color_platform.lua", license = "GPL v3" }
+file{ path = "entities/crystal_block.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "entities/dice.lua", license = "GPL v3" }
 file{ path = "entities/eye_switch.lua", license = "GPL v3" }
 file{ path = "entities/fire.lua", license = "GPL v3" }
