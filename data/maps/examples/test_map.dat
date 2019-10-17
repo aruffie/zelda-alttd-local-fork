@@ -93,6 +93,16 @@ tile{
 }
 
 tile{
+  layer = -1,
+  x = 352,
+  y = 336,
+  enabled_at_start = false,
+  width = 64,
+  height = 56,
+  pattern = "111",
+}
+
+tile{
   layer = 0,
   x = 336,
   y = 0,
@@ -1415,13 +1425,13 @@ jumper{
   width = 64,
   height = 8,
   direction = 6,
-  jump_length = 40,
+  jump_length = 48,
 }
 
 chest{
   layer = 0,
-  x = 72,
-  y = 197,
+  x = 112,
+  y = 141,
   treasure_name = "power_bracelet",
   sprite = "entities/chests/chest_small",
 }
@@ -1502,9 +1512,9 @@ teletransporter{
 
 chest{
   layer = 0,
-  x = 112,
-  y = 141,
-  treasure_name = "magic_powder",
+  x = 72,
+  y = 197,
+  treasure_name = "flippers",
   sprite = "entities/chests/chest_small",
 }
 

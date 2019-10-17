@@ -30,10 +30,11 @@ hero_meta:register_event("on_movement_changed", function(hero, movement)
 
   end)
 
-hero_meta:register_event("on_state_changed", function(hero)
+hero_meta:register_event("on_state_changed", function(hero, current_state)
 
     local game = hero:get_game()
-    local current_state = hero:get_state()
+
+
     -- Sounds
     if current_state == "lifting" then
       audio_manager:play_sound("hero/pickup") 
@@ -109,20 +110,85 @@ hero_meta:register_event("on_state_changed", function(hero)
     end
     hero.previous_state = current_state
 
+    --Recovering from drowning
+    -- Avoid to lose any life when drowning.
+    if state == "back to solid ground" then
+      local ground = hero:get_ground_below()
+      if ground == "deep_water" then
+        game:add_life(1)
+      end
+    end
+
   end)
 
-hero_meta:register_event("on_state_changing", function(hero, old_state, new_state)
-    if old_state=="jumping" and new_state=="free" then
-      local ground=hero:get_ground_below()
-      if ground=="shallow_water" then
-        audio_manager:play_sound("hero/wade1")
-      elseif ground=="grass" then
-        audio_manager:play_sound("walk_on_grass") --TODO use the actual sound effect
-      elseif ground=="deep_water" or ground=="lava" then
-        audio_manager:play_sound("hero/diving")
-      else
-        audio_manager:play_sound("hero/land")
+function hero_meta.show_ground_effect(hero, id)
+
+  --TODO find why the sprite freezes at frame 0
+
+  if not hero:get_sprite("ground_effect") then
+    --print ("showing ground effect "..id)
+    local sprite=hero:create_sprite("entities/ground_effects/"..id, "ground_effect")
+    function sprite:on_animation_finished()
+      --print "ground effect : JOB's DONE"
+      --sol.timer.start(hero, 10, function()
+      sprite:stop_animation()
+      hero:remove_sprite(sprite)
+      --  end)
+    end
+  end
+
+end
+
+local function find_valid_ground(hero)
+
+  local ground
+  local x,y=hero:get_position()
+  local map=hero:get_map()
+
+  for layer=hero:get_layer(), map:get_min_layer(), -1 do
+    ground=map:get_ground(x,y,layer)
+    if ground~="empty" then
+      return ground
+    end
+  end
+
+  return "empty"
+end
+
+function hero_meta.play_ground_effect(hero)
+  --print "About to play a ground effect"
+  local map=hero:get_map()
+  local ground=find_valid_ground(hero)
+  --print ("ground: "..ground)
+  local x,y=hero:get_position()
+
+  if ground=="shallow_water" then
+    --print "landed in water"
+    hero:show_ground_effect("water_splash")
+    audio_manager:play_sound("hero/wade1")
+  elseif ground=="grass" then
+    --print "landed in grass"
+    hero:show_ground_effect("leaves")
+    audio_manager:play_sound("walk_on_grass")
+  elseif ground=="deep_water" or ground=="lava" then
+    --print "plundged in some fluid"
+    audio_manager:play_sound("hero/diving")
+  else --Not a standard ground
+    --print "landed in some other ground"
+    for entity in map:get_entities_in_rectangle(x,y,1,1) do
+      if entity:get_property("custom_ground")=="sand" then
+        --print "landed in sand"
+        --hero:show_ground_effect("sand") --TODO make proper sprite for sand landing effect
       end
+      audio_manager:play_sound("hero/land")
+    end
+  end
+end
+
+hero_meta:register_event("on_state_changing", function(hero, old_state, new_state)
+    --print ("going from state "..old_state.." to state ".. new_state)
+    if old_state=="jumping" and new_state=="free" then
+      hero:play_ground_effect()
     end
   end)
 
@@ -190,18 +256,6 @@ hero_meta:register_event("on_position_changed", function(hero)
 
   end)
 
-hero_meta:register_event("on_state_changed", function(hero , state)
-
-    local game = hero:get_game()
-    -- Avoid to lose any life when drowning.
-    if state == "back to solid ground" then
-      local ground = hero:get_ground_below()
-      if ground == "deep_water" then
-        game:add_life(1)
-      end
-    end
-
-  end)
 
 -- Return true if the hero is walking.
 function hero_meta:is_walking()
@@ -243,29 +297,29 @@ function hero_meta.set_jumping(hero, jumping)
 end
 
 function hero_meta.is_running(hero)
-  
+
   return hero.running
-  
+
 end
 
 function hero_meta.set_running(hero, running)
-  
+
   hero.running = running
-  
+
 end
 
 function hero_meta.get_force_powerup(hero)
-  
+
   local game = hero:get_game()
   return game.hero_charm=="power_fragment" and 2 or 1
-  
+
 end
 
 function hero_meta.get_defense_powerup(hero)
-  
+
   local game = hero:get_game()
   return game.hero_charm=="acorn" and 2 or 1
-  
+
 end
 
 --Utility function : it loops through all the sprites of a given hero and shifts them by the given amount of pixels in the X and Y directions.
@@ -308,7 +362,7 @@ game_meta:register_event("on_map_changed", function(game, map)
     end
     -- Todo Add sprite if charm exist
 
-end)
+  end)
 
 
 
@@ -469,7 +523,7 @@ function hero_meta:create_symbol_collapse(sound)
 end
 
 function hero_meta:add_charm(charm)
-    
+
   if charm then
     local game = self:get_game()
     game.hero_charm = charm
@@ -478,11 +532,11 @@ function hero_meta:add_charm(charm)
     audio_manager:play_sound("items/get_power_up")
     audio_manager:refresh_music()
   end
-    
+
 end
 
 function hero_meta:remove_charm()
-   
+
   local game = self:get_game() 
   game.hero_charm = nil
   game.hero_charm_hurt_counter = 0
@@ -490,7 +544,7 @@ function hero_meta:remove_charm()
   game.power_fragment_count = 0
   -- Music
   audio_manager:refresh_music()
-    
+
 end
 
 return true
