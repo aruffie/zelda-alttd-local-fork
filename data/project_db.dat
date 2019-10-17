@@ -1958,7 +1958,6 @@ file{ path = "maps/houses/mambos_cave", author = "Benjamin Schweitzer", license 
 file{ path = "maps/houses/mambos_cave/cuccos_house.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
 file{ path = "maps/houses/mambos_cave/cuccos_house.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/houses/martha_bay", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/houses/martha_bay/mask_shrine", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
 file{ path = "maps/houses/martha_bay/telephone_booth_7.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
 file{ path = "maps/houses/martha_bay/telephone_booth_7.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/houses/martha_bay/telephone_booth_8.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }

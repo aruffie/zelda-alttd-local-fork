@@ -14,7 +14,7 @@ tile{
   x = 72,
   y = 48,
   width = 176,
-  height = 160,
+  height = 144,
   pattern = "floor_low.1-1",
 }
 
@@ -368,10 +368,16 @@ teletransporter{
 }
 
 custom_entity{
-  name = "timed_torch_16",
+  name = "timer_1",
   layer = 0,
   x = 240,
   y = 61,
+  properties = {
+    {
+      key = "timer",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
   direction = 0,
