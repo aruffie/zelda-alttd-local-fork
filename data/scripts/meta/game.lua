@@ -9,11 +9,12 @@ local audio_manager = require("scripts/audio_manager")
 require("scripts/multi_events")
 
 game_meta:register_event("on_world_changed", function(game)
-    
-  local hero = game:get_hero()  
-  hero:remove_charm()
-  
+
+    local hero = game:get_hero()  
+    hero:remove_charm()
+
 end)    
+
 
 game_meta:register_event("on_map_changed", function(game, map)
 
@@ -23,6 +24,12 @@ game_meta:register_event("on_map_changed", function(game, map)
         local changed = map:get_crystal_state() ~= crystal_state
         crystal_state = map:get_crystal_state()
         if changed and not map:get_game():is_suspended() then
+          for e in map:get_entities_by_type("custom_entity") do
+            if e:get_model()=="crystal_block" then
+              e:notify_crystal_state_changed()
+            end
+          end
+
           --audio_manager:play_sound("misc/dungeon_crystal")
           audio_manager:play_sound("misc/dungeon_switch") --Temporary, remove me when xwe have an actual sound for crystal switches
         end
