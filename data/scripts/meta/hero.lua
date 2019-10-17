@@ -30,10 +30,11 @@ hero_meta:register_event("on_movement_changed", function(hero, movement)
 
   end)
 
-hero_meta:register_event("on_state_changed", function(hero)
+hero_meta:register_event("on_state_changed", function(hero, current_state)
 
     local game = hero:get_game()
-    local current_state = hero:get_state()
+
+
     -- Sounds
     if current_state == "lifting" then
       audio_manager:play_sound("hero/pickup") 
@@ -109,10 +110,19 @@ hero_meta:register_event("on_state_changed", function(hero)
     end
     hero.previous_state = current_state
 
+    --Recovering from drowning
+    -- Avoid to lose any life when drowning.
+    if state == "back to solid ground" then
+      local ground = hero:get_ground_below()
+      if ground == "deep_water" then
+        game:add_life(1)
+      end
+    end
+
   end)
 
 function hero_meta.show_ground_effect(hero, id)
-  
+
   --TODO find why the sprite freezes at frame 0
 
   if not hero:get_sprite("ground_effect") then
@@ -134,14 +144,14 @@ local function find_valid_ground(hero)
   local ground
   local x,y=hero:get_position()
   local map=hero:get_map()
-  
+
   for layer=hero:get_layer(), map:get_min_layer(), -1 do
     ground=map:get_ground(x,y,layer)
     if ground~="empty" then
       return ground
     end
   end
-  
+
   return "empty"
 end
 
@@ -246,18 +256,6 @@ hero_meta:register_event("on_position_changed", function(hero)
 
   end)
 
-hero_meta:register_event("on_state_changed", function(hero , state)
-
-    local game = hero:get_game()
-    -- Avoid to lose any life when drowning.
-    if state == "back to solid ground" then
-      local ground = hero:get_ground_below()
-      if ground == "deep_water" then
-        game:add_life(1)
-      end
-    end
-
-  end)
 
 -- Return true if the hero is walking.
 function hero_meta:is_walking()
