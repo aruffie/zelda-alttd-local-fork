@@ -37,9 +37,9 @@ function map:init_map_entities()
   
   owl_1:set_enabled(false)
   owl_4:set_enabled(false)
-  if sword ~= nil then
-    sword:get_sprite():set_direction(4)
-    sword:get_sprite():set_ignore_suspend(true)
+  if sword_item ~= nil then
+    sword_item:get_sprite():set_direction(4)
+    sword_item:get_sprite():set_ignore_suspend(true)
   end
   dungeon_1_entrance:set_traversable_by(false)
   dungeon_1_entrance:set_traversable_by('camera', true)
@@ -88,7 +88,7 @@ end
 -- Obtaining sword
 function map:on_obtaining_treasure(treasure_item, treasure_variant, treasure_savegame_variable)
 
-  if treasure_item:get_name() == "sword" then
+  if treasure_item:get_name() == "sword_item" then
     map:launch_cinematic_1()
   end
 
