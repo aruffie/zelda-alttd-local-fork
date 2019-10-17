@@ -36,14 +36,14 @@ function light_manager:init(map)
     light_surface:fill_color(black, 0, dark_surface_height - y,
       screen_width, y - dark_surface_height + screen_height)
   end
-  light_surface:set_opacity(150)
+  light_manager:update_light_level(map)
   map:register_event("on_draw", function(map, dst_surface)
       if map:get_light() == 1 then
         return
       end
       light_surface:draw(dst_surface, 0, 0)
     end)
-
+  
 end
 
 function light_manager:check_is_light_active(map, torch_prefix)
