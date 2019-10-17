@@ -123,18 +123,21 @@ hero_meta:register_event("on_state_changed", function(hero, current_state)
 
 function hero_meta.show_ground_effect(hero, id)
 
-  --TODO find why the sprite freezes at frame 0
-
-  if not hero:get_sprite("ground_effect") then
-    --print ("showing ground effect "..id)
-    local sprite=hero:create_sprite("entities/ground_effects/"..id, "ground_effect")
-    function sprite:on_animation_finished()
-      --print "ground effect : JOB's DONE"
-      --sol.timer.start(hero, 10, function()
-      sprite:stop_animation()
-      hero:remove_sprite(sprite)
-      --  end)
-    end
+  local map = hero:get_map()
+  local x,y, layer = hero:get_position()
+  local ground_effect = map:create_custom_entity({
+    name = "ground_effect",
+    sprite = "entities/ground_effects/"..id,
+    x = x,
+    y = y ,
+    width = 16,
+    height = 16,
+    layer = layer,
+    direction = 0
+  })
+  local sprite = ground_effect:get_sprite()
+  function sprite:on_animation_finished()
+    ground_effect:remove()
   end
 
 end
