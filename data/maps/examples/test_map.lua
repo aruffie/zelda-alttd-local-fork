@@ -11,7 +11,7 @@ function map:on_opening_transition_finished()
 end
 
 --DEBUG: Jumping state debug test utility, for consistent measures
-local jumping_manager=require("scripts/jump_manager")
+local jumping_manager=require("scripts/maps/jump_manager")
 function autojump:on_activated()
   game:set_life(game:get_max_life())
   if hero:is_running()==true then

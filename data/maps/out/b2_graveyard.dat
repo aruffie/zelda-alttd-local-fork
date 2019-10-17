@@ -1510,7 +1510,7 @@ enemy{
   y = 645,
   direction = 1,
   breed = "zombie",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -1519,7 +1519,7 @@ enemy{
   y = 677,
   direction = 2,
   breed = "zombie",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 destructible{
@@ -20436,6 +20436,24 @@ tile{
   pattern = "728",
 }
 
+wall{
+  layer = 1,
+  x = 344,
+  y = 432,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 472,
+  y = 56,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
 destructible{
   layer = 1,
   x = 552,
@@ -23483,7 +23501,7 @@ enemy{
   y = 301,
   direction = 1,
   breed = "buzz_blob",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -23492,7 +23510,7 @@ enemy{
   y = 493,
   direction = 2,
   breed = "ghini",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -23501,7 +23519,7 @@ enemy{
   y = 541,
   direction = 0,
   breed = "ghini",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -23510,7 +23528,7 @@ enemy{
   y = 493,
   direction = 2,
   breed = "ghini",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -23519,7 +23537,7 @@ enemy{
   y = 621,
   direction = 2,
   breed = "ghini",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -23528,7 +23546,7 @@ enemy{
   y = 669,
   direction = 0,
   breed = "ghini",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -23537,7 +23555,7 @@ enemy{
   y = 669,
   direction = 2,
   breed = "ghini",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -23546,7 +23564,7 @@ enemy{
   y = 621,
   direction = 2,
   breed = "ghini",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -23555,7 +23573,7 @@ enemy{
   y = 541,
   direction = 2,
   breed = "ghini",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -23564,7 +23582,7 @@ enemy{
   y = 613,
   direction = 3,
   breed = "zombie",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -23573,7 +23591,7 @@ enemy{
   y = 661,
   direction = 1,
   breed = "zombie",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -23582,7 +23600,7 @@ enemy{
   y = 637,
   direction = 1,
   breed = "zombie",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 destructible{
@@ -26638,7 +26656,7 @@ enemy{
   y = 77,
   direction = 0,
   breed = "crow",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -26647,7 +26665,7 @@ enemy{
   y = 29,
   direction = 2,
   breed = "crow",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -26656,7 +26674,7 @@ enemy{
   y = 133,
   direction = 2,
   breed = "crow",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -26665,7 +26683,7 @@ enemy{
   y = 69,
   direction = 2,
   breed = "crow",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -26674,7 +26692,7 @@ enemy{
   y = 221,
   direction = 2,
   breed = "crow",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -26683,6 +26701,6 @@ enemy{
   y = 229,
   direction = 2,
   breed = "crow",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 

@@ -8,6 +8,13 @@ local combo_timer_duration = 50
 local audio_manager = require("scripts/audio_manager")
 require("scripts/multi_events")
 
+game_meta:register_event("on_world_changed", function(game)
+    
+  local hero = game:get_hero()  
+  hero:remove_charm()
+  
+end)    
+
 game_meta:register_event("on_map_changed", function(game, map)
 
     -- Init infinite timer and check if sound is played

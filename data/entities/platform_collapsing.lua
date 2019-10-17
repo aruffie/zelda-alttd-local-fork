@@ -24,7 +24,22 @@ local old_x, old_y
 local needs_carrying
 -- Include scripts
 require("scripts/multi_events")
+entity:register_event("on_position_changed", function(entity, x,y,layer)
 
+    for other in entity:get_map():get_entities() do
+      local e_type=other:get_type()
+      if other ~= entity and e_type == "hero" or e_type == "npc" or e_type == "enemy" or e_type == "pickable" or (e_type=="custom_entiy" and other:get_model()=="npc") then
+        local xx, yy = other:get_position()
+        local entity_x,entity_y, entity_w, entity_h=entity:get_bounding_box()
+        local other_x, other_y, other_w, other_h = other:get_bounding_box()
+        local dx, dy = entity_x-old_x, entity_y-old_y
+        if other_x+other_w<=entity_x+entity_w and other_x>=entity_x and other_y+other_h>=entity_y-1 then
+          other:set_position(xx, yy+dy)
+        end
+      end
+    end
+    old_x, old_y=entity:get_bounding_box()
+  end)
 -- Event called when the custom entity is initialized.
 entity:register_event("on_created", function()
 
@@ -43,38 +58,35 @@ entity:register_event("on_created", function()
     movement:set_angle(3*math.pi/2)
     movement:set_max_distance(0)
     movement:start(entity)
-    old_x, old_y=entity:get_position()
+    old_x, old_y=entity:get_bounding_box()
   end)
 
 sol.timer.start(entity, 10, function()
-    local x, y, w, h = entity:get_bounding_box()
+    local entity_x, entity_y, entity_w, entity_h = entity:get_bounding_box()
     local ex, ey=entity:get_position()
-    local dx, dy = ex-old_x, ey-old_y
+    local dx, dy = entity_x-old_x, entity_y-old_y
 
     local found=false
     for other in entity:get_map():get_entities("hero") do 
 
       local xx, yy = other:get_position()
-      local hx, hy, hw, hh = other:get_bounding_box()
-      if hx+hw<=x+w and hx>=x and hy<=y+h-1 and hy+hh>=y-1 then
-        found=true 
-      end
+      local other_x, other_y, other_w, other_h = other:get_bounding_box()
 
-      if hy+hh <= y+1 then
-        if solidified == true then
+      if other_y+other_h <= entity_y+1 then
+        if solidified == false then
 --              print "ME SOLID NOW"
-          solidified = false
+          solidified = true
           entity:set_traversable_by("hero", false)
-          if hx+hw<=x+w and hx>=x and hy<=y+h-1 and hy+hh>=y-1 then
-            other:set_position(xx+dx, yy+dy)
-          end
+
+        end
+        if other_x+other_w<=entity_x+entity_w and other_x>=entity_x and other_y+other_h>=entity_y-1 then
+          found=true 
         end
 
-
       else
-        if solidified == false then
+        if solidified == true then
 --              print "ME NON SOLID NOW"
-          solidified = true
+          solidified = false
           entity:set_traversable_by("hero", true)
         end
       end
@@ -105,41 +117,5 @@ sol.timer.start(entity, 10, function()
       movement:set_speed(0)
       sprite:set_animation("moving")
     end
-    old_x, old_y=entity:get_position()
     return true
   end)
-
---entity:add_collision_test(
-
---  function(entity, other) --test
---    local x, y, w, h = entity:get_bounding_box()
---    local hx, hy, hw, hh = other:get_bounding_box()
---    return other:get_type() == "hero" and hx+hw<=x+w and hx>=x and hy<=y+h-1 and hy+hh>=y-1
---  end, 
-
---  function(entity, other) --callback
-
---    local speed=0
---    local anim="moving"
---    local state = hero:get_state()
-
---    if needs_carrying=="false" or (needs_carrying=="true" and hero:get_state() == "carrying") then
---      speed=max_speed
---    end
---    local x, y=entity:get_position()
---    --Display the angry visage (or whathever is used to mark the carriable requirement
---    if needs_carrying=="true" then
---      anim="moving_pot"
---    end
---    local dx, dy = x-old_x, y-old_y
---    local xx, yy = other:get_position()
---    if not other:test_obstacles(0, dy) then
---      other:set_position(xx+dx, yy+dy)
---    end
---    sprite:set_animation(anim)
-
---    --Update the moving speed
---    if speed ~= movement:get_speed() then
---      movement:set_speed(speed)
---    end
---  end)

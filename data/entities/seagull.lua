@@ -68,7 +68,7 @@ function seagull:join_origin()
     sprite:set_animation("stopped")
     is_escape = false
     is_move = false
-    audio_manager:play_sound("misc/seagull")
+    audio_manager:play_entity_sound(seagull, "misc/seagull")
   end
   
 end

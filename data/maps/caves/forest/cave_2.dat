@@ -521,6 +521,21 @@ wall{
   stops_projectiles = true,
 }
 
+sensor{
+  name = "sensor_1",
+  layer = 0,
+  x = 160,
+  y = 173,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
 tile{
   layer = 1,
   x = 288,

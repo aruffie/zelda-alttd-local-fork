@@ -8,6 +8,7 @@ properties{
   world = "dungeon_2",
   floor = 0,
   tileset = "dungeon/blue",
+  music = "same",
 }
 
 tile{
@@ -16806,6 +16807,70 @@ tile{
   pattern = "door_stairs.straight_up.1",
 }
 
+dynamic_tile{
+  layer = 0,
+  x = 704,
+  y = 624,
+  properties = {
+    {
+      key = "draw_in_y_order",
+      value = "true",
+    },
+  },
+  width = 32,
+  height = 32,
+  pattern = "52",
+  tileset = "addition/dungeon",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 864,
+  y = 624,
+  properties = {
+    {
+      key = "draw_in_y_order",
+      value = "true",
+    },
+  },
+  width = 32,
+  height = 32,
+  pattern = "52",
+  tileset = "addition/dungeon",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 864,
+  y = 560,
+  properties = {
+    {
+      key = "draw_in_y_order",
+      value = "true",
+    },
+  },
+  width = 32,
+  height = 32,
+  pattern = "52",
+  tileset = "addition/dungeon",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 704,
+  y = 560,
+  properties = {
+    {
+      key = "draw_in_y_order",
+      value = "true",
+    },
+  },
+  width = 32,
+  height = 32,
+  pattern = "52",
+  tileset = "addition/dungeon",
+}
+
 wall{
   layer = 0,
   x = 2072,
@@ -17150,6 +17215,7 @@ enemy{
   y = 1341,
   direction = 3,
   breed = "stalfos_red",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -17159,6 +17225,7 @@ enemy{
   y = 1341,
   direction = 3,
   breed = "stalfos_blue",
+  treasure_name = "random_with_charm",
 }
 
 door{
@@ -17194,6 +17261,7 @@ enemy{
   y = 1533,
   direction = 3,
   breed = "maskass",
+  treasure_name = "random_with_charm",
 }
 
 crystal{
@@ -17209,6 +17277,7 @@ enemy{
   y = 1301,
   direction = 3,
   breed = "maskass",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -17218,6 +17287,7 @@ enemy{
   y = 1301,
   direction = 3,
   breed = "maskass",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -17469,6 +17539,7 @@ enemy{
   y = 1373,
   direction = 3,
   breed = "spiked_beetle",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -17478,6 +17549,7 @@ enemy{
   y = 1293,
   direction = 3,
   breed = "spiked_beetle",
+  treasure_name = "random_with_charm",
 }
 
 door{
@@ -17886,47 +17958,17 @@ stairs{
   subtype = 4,
 }
 
-custom_entity{
-  name = "teletransporter_A",
-  layer = 0,
-  x = 480,
-  y = 621,
-  width = 16,
-  height = 16,
-  direction = 0,
-}
-
-destination{
-  name = "teletransporter_destination_A",
-  layer = 0,
-  x = 480,
-  y = 605,
-  direction = 1,
-}
-
-custom_entity{
-  name = "teletransporter_B",
-  layer = 0,
-  x = 800,
-  y = 1581,
-  width = 16,
-  height = 16,
-  direction = 0,
-}
-
-destination{
-  name = "teletransporter_destination_B",
-  layer = 0,
-  x = 800,
-  y = 1565,
-  direction = 1,
-}
-
 sensor{
-  name = "save_solid_ground_sensor_1",
+  name = "sensor_1",
   layer = 0,
-  x = 584,
+  x = 592,
   y = 653,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
 }
@@ -19691,7 +19733,7 @@ chest{
 }
 
 custom_entity{
-  name = "auto_torch_group_2_1",
+  name = "torch_group_2_1",
   layer = 0,
   x = 552,
   y = 1373,
@@ -19703,7 +19745,7 @@ custom_entity{
 }
 
 custom_entity{
-  name = "auto_torch_group_2_2",
+  name = "torch_group_2_2",
   layer = 0,
   x = 408,
   y = 1373,
@@ -19715,7 +19757,7 @@ custom_entity{
 }
 
 custom_entity{
-  name = "auto_torch_group_3_1",
+  name = "torch_group_3_1",
   layer = 0,
   x = 408,
   y = 1117,
@@ -19727,7 +19769,7 @@ custom_entity{
 }
 
 custom_entity{
-  name = "auto_torch_group_3_2",
+  name = "torch_group_3_2",
   layer = 0,
   x = 552,
   y = 1117,
@@ -19739,9 +19781,9 @@ custom_entity{
 }
 
 sensor{
-  name = "save_solid_ground_sensor_3",
+  name = "sensor_3",
   layer = 0,
-  x = 584,
+  x = 592,
   y = 1325,
   width = 16,
   height = 16,
@@ -19754,7 +19796,7 @@ enemy{
   y = 1325,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -19764,7 +19806,7 @@ enemy{
   y = 1325,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 door{
@@ -19815,7 +19857,7 @@ enemy{
   y = 813,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -19828,10 +19870,16 @@ enemy{
 }
 
 sensor{
-  name = "save_solid_ground_sensor_2",
+  name = "sensor_2",
   layer = 0,
   x = 480,
   y = 677,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
 }
@@ -19853,7 +19901,7 @@ enemy{
   y = 581,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -19863,7 +19911,7 @@ enemy{
   y = 645,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 npc{
@@ -19883,7 +19931,7 @@ enemy{
   y = 413,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -19893,7 +19941,7 @@ enemy{
   y = 381,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -19903,7 +19951,7 @@ enemy{
   y = 349,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 chest{
@@ -19923,7 +19971,7 @@ enemy{
   y = 317,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -19933,7 +19981,7 @@ enemy{
   y = 117,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -19943,7 +19991,7 @@ enemy{
   y = 93,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 destructible{
@@ -20006,10 +20054,16 @@ chest{
 }
 
 custom_entity{
-  name = "timed_torch_group_6_1",
+  name = "torch_group_6_1",
   layer = 0,
   x = 376,
   y = 93,
+  properties = {
+    {
+      key = "timer",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
   direction = 0,
@@ -20018,10 +20072,16 @@ custom_entity{
 }
 
 custom_entity{
-  name = "timed_torch_group_6_2",
+  name = "torch_group_6_2",
   layer = 0,
   x = 472,
   y = 189,
+  properties = {
+    {
+      key = "timer",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
   direction = 0,
@@ -20125,7 +20185,7 @@ enemy{
   y = 429,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -20135,7 +20195,7 @@ enemy{
   y = 397,
   direction = 0,
   breed = "pols_voice",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -20145,7 +20205,7 @@ enemy{
   y = 333,
   direction = 0,
   breed = "shrouded_stalfos",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 door{
@@ -20183,7 +20243,7 @@ enemy{
   y = 125,
   direction = 0,
   breed = "pols_voice",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -20193,7 +20253,7 @@ enemy{
   y = 157,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -20203,7 +20263,7 @@ enemy{
   y = 189,
   direction = 0,
   breed = "pols_voice",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 door{
@@ -20287,7 +20347,7 @@ enemy{
   y = 109,
   direction = 0,
   breed = "boo_buddy",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -20297,7 +20357,7 @@ enemy{
   y = 157,
   direction = 0,
   breed = "boo_buddy",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 chest{
@@ -20323,13 +20383,20 @@ enemy{
   },
   direction = 0,
   breed = "death_ball",
+  treasure_name = "random_with_charm",
 }
 
 custom_entity{
-  name = "timed_torch_group_4_1",
+  name = "torch_group_4_1",
   layer = 0,
   x = 376,
   y = 909,
+  properties = {
+    {
+      key = "timer",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
   direction = 0,
@@ -20338,10 +20405,16 @@ custom_entity{
 }
 
 custom_entity{
-  name = "timed_torch_group_4_2",
+  name = "torch_group_4_2",
   layer = 0,
   x = 376,
   y = 781,
+  properties = {
+    {
+      key = "timer",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
   direction = 0,
@@ -20375,6 +20448,7 @@ enemy{
   y = 77,
   direction = 0,
   breed = "zol_green",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -20473,6 +20547,7 @@ enemy{
   y = 1581,
   direction = 0,
   breed = "shrouded_stalfos",
+  treasure_name = "random_with_charm",
 }
 
 stairs{
@@ -21479,7 +21554,7 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "floor_74_unstable_associate__2",
+  name = "floor_74_unstable_associate_",
   layer = 0,
   x = 528,
   y = 528,
@@ -21940,70 +22015,6 @@ dynamic_tile{
   tileset = "addition/dungeon",
 }
 
-dynamic_tile{
-  layer = 0,
-  x = 704,
-  y = 624,
-  properties = {
-    {
-      key = "draw_in_y_order",
-      value = "true",
-    },
-  },
-  width = 32,
-  height = 32,
-  pattern = "52",
-  tileset = "addition/dungeon",
-}
-
-dynamic_tile{
-  layer = 0,
-  x = 704,
-  y = 560,
-  properties = {
-    {
-      key = "draw_in_y_order",
-      value = "true",
-    },
-  },
-  width = 32,
-  height = 32,
-  pattern = "52",
-  tileset = "addition/dungeon",
-}
-
-dynamic_tile{
-  layer = 0,
-  x = 864,
-  y = 624,
-  properties = {
-    {
-      key = "draw_in_y_order",
-      value = "true",
-    },
-  },
-  width = 32,
-  height = 32,
-  pattern = "52",
-  tileset = "addition/dungeon",
-}
-
-dynamic_tile{
-  layer = 0,
-  x = 864,
-  y = 560,
-  properties = {
-    {
-      key = "draw_in_y_order",
-      value = "true",
-    },
-  },
-  width = 32,
-  height = 32,
-  pattern = "52",
-  tileset = "addition/dungeon",
-}
-
 destructible{
   layer = 0,
   x = 864,
@@ -22051,6 +22062,7 @@ enemy{
   y = 1053,
   direction = 3,
   breed = "keese",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -22060,6 +22072,7 @@ enemy{
   y = 1117,
   direction = 3,
   breed = "keese",
+  treasure_name = "random_with_charm",
 }
 
 teletransporter{
@@ -22223,16 +22236,6 @@ destination{
   direction = 1,
 }
 
-teletransporter{
-  layer = 0,
-  x = 776,
-  y = 1640,
-  width = 16,
-  height = 16,
-  destination_map = "dungeons/2/1f",
-  destination = "destination",
-}
-
 custom_entity{
   name = "placeholder_bottle",
   layer = 0,
@@ -22244,30 +22247,215 @@ custom_entity{
 }
 
 sensor{
-  name = "save_solid_ground_sensor_5",
+  name = "sensor_5",
   layer = 0,
-  x = 696,
+  x = 688,
   y = 653,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
 }
 
 sensor{
-  name = "save_solid_ground_sensor_6",
+  name = "sensor_6",
   layer = 0,
-  x = 696,
+  x = 688,
   y = 125,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
 }
 
 sensor{
-  name = "save_solid_ground_sensor_7",
+  name = "sensor_7",
   layer = 0,
   x = 480,
-  y = 1149,
+  y = 1157,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
+}
+
+sensor{
+  name = "sensor_8",
+  layer = 0,
+  x = 1872,
+  y = 125,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_9",
+  layer = 0,
+  x = 2080,
+  y = 773,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_10",
+  layer = 0,
+  x = 2176,
+  y = 773,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_11",
+  layer = 0,
+  x = 768,
+  y = 637,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+custom_entity{
+  name = "midpoint_teletransporter_B",
+  layer = 0,
+  x = 800,
+  y = 1581,
+  enabled_at_start = false,
+  properties = {
+    {
+      key = "tp_midpoint_index",
+      value = "B",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/misc/teletransporter",
+  model = "midpoint_teletransporter",
+}
+
+destination{
+  name = "teletransporter_destination_B",
+  layer = 0,
+  x = 800,
+  y = 1581,
+  direction = -1,
+}
+
+custom_entity{
+  name = "midpoint_teletransporter_A",
+  layer = 0,
+  x = 480,
+  y = 605,
+  enabled_at_start = false,
+  properties = {
+    {
+      key = "tp_midpoint_index",
+      value = "A",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/misc/teletransporter",
+  model = "midpoint_teletransporter",
+}
+
+destination{
+  name = "teletransporter_destination_A",
+  layer = 0,
+  x = 480,
+  y = 605,
+  direction = -1,
+}
+
+sensor{
+  name = "sensor_4",
+  layer = 0,
+  x = 912,
+  y = 1325,
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_12",
+  layer = 0,
+  x = 528,
+  y = 917,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_13",
+  layer = 0,
+  x = 2168,
+  y = 1013,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+pickable{
+  layer = 0,
+  x = 832,
+  y = 1573,
+  treasure_name = "acorn",
+}
+
+pickable{
+  layer = 0,
+  x = 832,
+  y = 1589,
+  treasure_name = "power_fragment",
 }
 
 tile{
@@ -23155,7 +23343,7 @@ jumper{
 }
 
 custom_entity{
-  name = "auto_torch_group_1_1",
+  name = "torch_group_1_1",
   layer = 1,
   x = 776,
   y = 1309,
@@ -23167,7 +23355,7 @@ custom_entity{
 }
 
 custom_entity{
-  name = "auto_torch_group_1_2",
+  name = "torch_group_1_2",
   layer = 1,
   x = 824,
   y = 1309,
@@ -24081,25 +24269,6 @@ tile{
 }
 
 separator{
-  name = "auto_separator_2",
-  layer = 2,
-  x = 632,
-  y = 1200,
-  width = 16,
-  height = 240,
-}
-
-separator{
-  name = "auto_separator_3",
-  layer = 2,
-  x = 952,
-  y = 1440,
-  width = 16,
-  height = 480,
-}
-
-separator{
-  name = "auto_separator_6",
   layer = 2,
   x = 1272,
   y = 0,
@@ -24108,7 +24277,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_7",
   layer = 2,
   x = 1592,
   y = 0,
@@ -24117,7 +24285,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_8",
   layer = 2,
   x = 1912,
   y = 0,
@@ -24126,16 +24293,14 @@ separator{
 }
 
 separator{
-  name = "auto_separator_14",
   layer = 2,
-  x = 640,
+  x = 0,
   y = 1192,
-  width = 1280,
+  width = 2560,
   height = 16,
 }
 
 separator{
-  name = "auto_separator_15",
   layer = 2,
   x = 0,
   y = 952,
@@ -24144,16 +24309,14 @@ separator{
 }
 
 separator{
-  name = "auto_separator_16",
   layer = 2,
-  x = 640,
+  x = 0,
   y = 712,
-  width = 1920,
+  width = 2560,
   height = 16,
 }
 
 separator{
-  name = "auto_separator_17",
   layer = 2,
   x = 0,
   y = 472,
@@ -24162,7 +24325,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_18",
   layer = 2,
   x = 0,
   y = 232,
@@ -24171,34 +24333,22 @@ separator{
 }
 
 separator{
-  name = "auto_separator_12",
   layer = 2,
   x = 0,
   y = 1432,
-  width = 640,
+  width = 2560,
   height = 16,
 }
 
 separator{
-  name = "auto_separator_13",
-  layer = 2,
-  x = 960,
-  y = 1432,
-  width = 1600,
-  height = 16,
-}
-
-separator{
-  name = "auto_separator_5",
   layer = 2,
   x = 952,
   y = 0,
   width = 16,
-  height = 1200,
+  height = 1920,
 }
 
 separator{
-  name = "auto_separator_1",
   layer = 2,
   x = 312,
   y = 0,
@@ -24207,7 +24357,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_9",
   layer = 2,
   x = 2232,
   y = 0,
@@ -24216,7 +24365,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_10",
   layer = 2,
   x = 0,
   y = 1672,
@@ -24225,101 +24373,10 @@ separator{
 }
 
 separator{
-  name = "auto_separator_11",
-  layer = 2,
-  x = 640,
-  y = 1432,
-  width = 320,
-  height = 16,
-}
-
-separator{
-  name = "auto_separator_19",
-  layer = 2,
-  x = 632,
-  y = 1440,
-  width = 16,
-  height = 480,
-}
-
-separator{
-  name = "auto_separator_20",
-  layer = 2,
-  x = 632,
-  y = 240,
-  width = 16,
-  height = 960,
-}
-
-separator{
-  name = "auto_separator_21",
-  layer = 2,
-  x = 320,
-  y = 1192,
-  width = 320,
-  height = 16,
-}
-
-separator{
-  name = "auto_separator_22",
-  layer = 2,
-  x = 0,
-  y = 1192,
-  width = 320,
-  height = 16,
-}
-
-separator{
-  name = "auto_separator_4",
-  layer = 2,
-  x = 952,
-  y = 1200,
-  width = 16,
-  height = 240,
-}
-
-separator{
-  name = "auto_separator_23",
-  layer = 2,
-  x = 320,
-  y = 712,
-  width = 320,
-  height = 16,
-}
-
-separator{
-  name = "auto_separator_24",
-  layer = 2,
-  x = 0,
-  y = 712,
-  width = 320,
-  height = 16,
-}
-
-separator{
-  name = "auto_separator_25",
   layer = 2,
   x = 632,
   y = 0,
   width = 16,
-  height = 240,
-}
-
-separator{
-  name = "auto_separator_26",
-  layer = 2,
-  x = 1920,
-  y = 1192,
-  width = 320,
-  height = 16,
-}
-
-separator{
-  name = "auto_separator_27",
-  layer = 2,
-  x = 2240,
-  y = 1192,
-  width = 320,
-  height = 16,
+  height = 1920,
 }
 

@@ -12,9 +12,7 @@ require("scripts/multi_events")
 hero_meta:register_event("on_movement_changed", function(hero, movement)
     if not hero:get_map():is_sideview() then
       if movement:get_speed() ~=0 and not hero.walking_sound_timer then
-        --print "movement ok"
         hero.walking_sound_timer=sol.timer.start(hero, 300, function()
-            --print "footstep"
             if hero:get_ground_below()=="shallow_water" then
               audio_manager:play_sound("hero/wade"..(math.random(1, 2)))
             elseif hero:get_ground_below()=="grass" then
@@ -23,7 +21,6 @@ hero_meta:register_event("on_movement_changed", function(hero, movement)
             return true
           end)
       else
-        --print "movement stop"
         if hero.walking_sound_timer then
           hero.walking_sound_timer:stop()
           hero.walking_sound_timer=nil
@@ -33,10 +30,11 @@ hero_meta:register_event("on_movement_changed", function(hero, movement)
 
   end)
 
-hero_meta:register_event("on_state_changed", function(hero)
+hero_meta:register_event("on_state_changed", function(hero, current_state)
 
     local game = hero:get_game()
-    local current_state = hero:get_state()
+
+
     -- Sounds
     if current_state == "lifting" then
       audio_manager:play_sound("hero/pickup") 
@@ -112,20 +110,88 @@ hero_meta:register_event("on_state_changed", function(hero)
     end
     hero.previous_state = current_state
 
+    --Recovering from drowning
+    -- Avoid to lose any life when drowning.
+    if state == "back to solid ground" then
+      local ground = hero:get_ground_below()
+      if ground == "deep_water" then
+        game:add_life(1)
+      end
+    end
+
   end)
 
-hero_meta:register_event("on_state_changing", function(hero, old_state, new_state)
-    if old_state=="jumping" and new_state=="free" then
-      local ground=hero:get_ground_below()
-      if ground=="shallow_water" then
-        audio_manager:play_sound("hero/wade1")
-      elseif ground=="grass" then
-        audio_manager:play_sound("walk_on_grass") --TODO use the actual sound effect
-      elseif ground=="deep_water" or ground=="lava" then
-        audio_manager:play_sound("hero/diving")
-      else
-        audio_manager:play_sound("hero/land")
+function hero_meta.show_ground_effect(hero, id)
+
+  local map = hero:get_map()
+  local x,y, layer = hero:get_position()
+  local ground_effect = map:create_custom_entity({
+    name = "ground_effect",
+    sprite = "entities/ground_effects/"..id,
+    x = x,
+    y = y ,
+    width = 16,
+    height = 16,
+    layer = layer,
+    direction = 0
+  })
+  local sprite = ground_effect:get_sprite()
+  function sprite:on_animation_finished()
+    ground_effect:remove()
+  end
+
+end
+
+local function find_valid_ground(hero)
+
+  local ground
+  local x,y=hero:get_position()
+  local map=hero:get_map()
+
+  for layer=hero:get_layer(), map:get_min_layer(), -1 do
+    ground=map:get_ground(x,y,layer)
+    if ground~="empty" then
+      return ground
+    end
+  end
+
+  return "empty"
+end
+
+function hero_meta.play_ground_effect(hero)
+  --print "About to play a ground effect"
+  local map=hero:get_map()
+  local ground=find_valid_ground(hero)
+  --print ("ground: "..ground)
+  local x,y=hero:get_position()
+
+  if ground=="shallow_water" then
+    --print "landed in water"
+    hero:show_ground_effect("water")
+    audio_manager:play_sound("hero/wade1")
+  elseif ground=="grass" then
+    --print "landed in grass"
+    hero:show_ground_effect("grass")
+    audio_manager:play_sound("walk_on_grass")
+  elseif ground=="deep_water" or ground=="lava" then
+    --print "plundged in some fluid"
+    audio_manager:play_sound("hero/diving")
+  else --Not a standard ground
+    --print "landed in some other ground"
+    for entity in map:get_entities_in_rectangle(x,y,1,1) do
+      if entity:get_property("custom_ground")=="sand" then
+        --print "landed in sand"
+        --hero:show_ground_effect("sand") --TODO make proper sprite for sand landing effect
       end
+      audio_manager:play_sound("hero/land")
+    end
+  end
+end
+
+hero_meta:register_event("on_state_changing", function(hero, old_state, new_state)
+    --print ("going from state "..old_state.." to state ".. new_state)
+    if old_state=="jumping" and new_state=="free" then
+      hero:play_ground_effect()
     end
   end)
 
@@ -193,18 +259,6 @@ hero_meta:register_event("on_position_changed", function(hero)
 
   end)
 
-hero_meta:register_event("on_state_changed", function(hero , state)
-
-    local game = hero:get_game()
-    -- Avoid to lose any life when drowning.
-    if state == "back to solid ground" then
-      local ground = hero:get_ground_below()
-      if ground == "deep_water" then
-        game:add_life(1)
-      end
-    end
-
-  end)
 
 -- Return true if the hero is walking.
 function hero_meta:is_walking()
@@ -219,7 +273,6 @@ function hero_meta:on_taking_damage(damage)
   local hero = self
   local game = hero:get_game()
   -- Calculate defense. Check tunic and powerups.
-  -- TODO: define powerup function "hero:get_defense_powerup()".
   local defense_tunic = game:get_value("defense_tunic") or 1
   local defense_powerup = hero.get_defense_powerup and hero:get_defense_powerup() or 1
   local defense = defense_tunic * defense_powerup
@@ -227,6 +280,14 @@ function hero_meta:on_taking_damage(damage)
   local final_damage = math.ceil(damage/defense)
   -- Remove life.
   game:remove_life(damage)
+  -- Charm
+  game.acorn_count = 0
+  if game.hero_charm then
+    game.hero_charm_hurt_counter = game.hero_charm_hurt_counter + 1
+    if game.hero_charm_hurt_counter == 3 then
+      hero:remove_charm()
+    end
+  end
 
 end
 
@@ -239,13 +300,30 @@ function hero_meta.set_jumping(hero, jumping)
 end
 
 function hero_meta.is_running(hero)
+
   return hero.running
+
 end
 
 function hero_meta.set_running(hero, running)
+
   hero.running = running
+
 end
 
+function hero_meta.get_force_powerup(hero)
+
+  local game = hero:get_game()
+  return game.hero_charm=="power_fragment" and 2 or 1
+
+end
+
+function hero_meta.get_defense_powerup(hero)
+
+  local game = hero:get_game()
+  return game.hero_charm=="acorn" and 2 or 1
+
+end
 
 --Utility function : it loops through all the sprites of a given hero and shifts them by the given amount of pixels in the X and Y directions.
 local function set_sprite_offset(hero, ox, oy)
@@ -263,16 +341,13 @@ local game_meta = sol.main.get_metatable("game")
 game_meta:register_event("on_map_changed", function(game, map)
 
     local hero = map:get_hero()
-    --print ("new map:", map:get_id())
     local x,y, layer=hero:get_position()
-
-
     hero:set_jumping(false)
     if map:is_sideview() then
       hero:set_size(8,16)
       hero:set_origin(4,13)
       set_sprite_offset(hero, 0,2)
---      hero:get_sprite("shadow"):stop_animation()
+      --hero:get_sprite("shadow"):stop_animation()
       local s=hero:get_sprite("shadow_override")
       if s then
         hero:remove_sprite(s)
@@ -283,29 +358,15 @@ game_meta:register_event("on_map_changed", function(game, map)
       set_sprite_offset(hero, 0,0)
 --      hero:get_sprite("shadow"):set_animation("big")
       if not hero:get_sprite("shadow_override") then
-        local s=hero:create_sprite("entities/shadow", "shadow_override")
+        local s=hero:create_sprite("entities/shadows/shadow", "shadow_override")
         s:set_animation("big")
         hero:bring_sprite_to_back(s)
       end
-      --print ("layer="..layer..", map min/max layers:"..map:get_min_layer()..", "..map:get_max_layer())
---      local ground=game:get_value("tp_ground")
---      if ground=="hole" then
---        hero:fall_from_ceiling(120, nil, function()
---            local ground=hero:get_ground_below()
---            if ground=="shallow_water" then
---              audio_manager:play_sound("hero/wade1")
---            elseif ground=="grass" then
---              audio_manager:play_sound("walk_on_grass") --TODO use the actual sound effect
---            elseif ground=="deep_water" then
---              audio_manager:play_sound("hero/diving")
---            else
---              audio_manager:play_sound("hero/land")
---            end
---          end)
---      end
     end
+    -- Todo Add sprite if charm exist
 
   end)
+
 
 
 -- Initialize hero behavior specific to this quest.
@@ -398,11 +459,13 @@ function hero_meta:initialize_fixing_functions()
 end
 
 -- Create an exclamation symbol near hero
-function hero_meta:create_symbol_exclamation()
+function hero_meta:create_symbol_exclamation(sound)
 
   local map = self:get_map()
   local x, y, layer = self:get_position()
-  audio_manager:play_sound("menus/menu_select")
+  if sound then
+    audio_manager:play_sound("menus/menu_select")
+  end
   local symbol = map:create_custom_entity({
       sprite = "entities/symbols/exclamation",
       x = x - 16,
@@ -418,11 +481,13 @@ function hero_meta:create_symbol_exclamation()
 end
 
 -- Create an interrogation symbol near hero
-function hero_meta:create_symbol_interrogation()
+function hero_meta:create_symbol_interrogation(sound)
 
   local map = self:get_map()
   local x, y, layer = self:get_position()
-  audio_manager:play_sound("menus/menu_select")
+  if sound then
+    audio_manager:play_sound("menus/menu_select")
+  end
   local symbol = map:create_custom_entity({
       sprite = "entities/symbols/interrogation",
       x = x,
@@ -438,11 +503,14 @@ function hero_meta:create_symbol_interrogation()
 end
 
 -- Create a collapse symbol near hero
-function hero_meta:create_symbol_collapse()
+function hero_meta:create_symbol_collapse(sound)
 
   local map = self:get_map()
   local width, height = self:get_sprite():get_size()
   local x, y, layer = self:get_position()
+  if sound then
+    -- Todo create a custom sound
+  end
   local symbol = map:create_custom_entity({
       sprite = "entities/symbols/collapse",
       x = x,
@@ -454,6 +522,31 @@ function hero_meta:create_symbol_collapse()
     })
 
   return symbol
+
+end
+
+function hero_meta:add_charm(charm)
+
+  if charm then
+    local game = self:get_game()
+    game.hero_charm = charm
+    game.hero_charm_hurt_counter = 0
+    -- Sound and music
+    audio_manager:play_sound("items/get_power_up")
+    audio_manager:refresh_music()
+  end
+
+end
+
+function hero_meta:remove_charm()
+
+  local game = self:get_game() 
+  game.hero_charm = nil
+  game.hero_charm_hurt_counter = 0
+  game.acorn_count = 0
+  game.power_fragment_count = 0
+  -- Music
+  audio_manager:refresh_music()
 
 end
 

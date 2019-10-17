@@ -363,6 +363,14 @@ local function initialize_dungeon_features(game)
         y = 720 + 365,
         savegame_variable = "dungeon_10_boss",
       }
+    },
+    [11] = {
+      lowest_floor = 0,
+      highest_floor = 0,
+      rows = 6,
+      cols= 7,
+      music = "74_wind_fish_egg.ogg",
+      no_map = true
     }
   }
 
@@ -514,7 +522,6 @@ local function initialize_dungeon_features(game)
     assert(sprite ~= nil)
     local animation = tostring(floor)
     local merged_rooms = {}
-
     for room = 1, sprite:get_num_directions(animation) - 1 do
       local width, height = sprite:get_size(floor, room)
       local room_rows, room_columns = height / 16, width / 16  -- TODO don't hardcode these numbers

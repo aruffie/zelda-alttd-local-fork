@@ -4,14 +4,15 @@ local game = map:get_game()
 local draw_picture = false
 
 -- Include scripts
+require("scripts/multi_events")
 local audio_manager = require("scripts/audio_manager")
 
-function map:on_started()
+map:register_event("on_started", function(map, destination)
 
   -- Music
   map:init_music()
 
-end
+end)
 
 -- Initialize the music of the map
 function map:init_music()
@@ -134,11 +135,4 @@ for wardrobe in map:get_entities("wardrobe") do
   function wardrobe:on_interaction()
     game:start_dialog("maps.houses.wardrobe_1", game:get_player_name())
   end
-end
-
-function mario:on_interaction()
-  
-  local music_random = math.random(4) 
-  audio_manager:play_sound("mario" .. music_random)
-
 end

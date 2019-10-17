@@ -14553,6 +14553,51 @@ tile{
   pattern = "1008",
 }
 
+wall{
+  layer = 1,
+  x = 592,
+  y = 408,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 448,
+  y = 120,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 400,
+  y = 232,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 192,
+  y = 184,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 144,
+  y = 184,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
 custom_entity{
   layer = 1,
   x = 728,
@@ -15677,7 +15722,7 @@ enemy{
   y = 637,
   direction = 0,
   breed = "moblin_pig_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -15686,7 +15731,7 @@ enemy{
   y = 413,
   direction = 0,
   breed = "moblin_pig_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -15695,7 +15740,7 @@ enemy{
   y = 533,
   direction = 1,
   breed = "moblin_pig_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 destructible{
@@ -15714,7 +15759,7 @@ enemy{
   y = 629,
   direction = 1,
   breed = "moblin_pig_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -15723,7 +15768,7 @@ enemy{
   y = 645,
   direction = 1,
   breed = "moblin_pig_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -15732,7 +15777,7 @@ enemy{
   y = 517,
   direction = 3,
   breed = "moblin_pig_sword",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -15741,7 +15786,7 @@ enemy{
   y = 597,
   direction = 2,
   breed = "moblin_pig_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -15750,7 +15795,7 @@ enemy{
   y = 581,
   direction = 1,
   breed = "moblin_pig_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 wall{
@@ -16696,6 +16741,15 @@ wall{
   stops_npcs = true,
   stops_enemies = true,
   stops_blocks = true,
+}
+
+wall{
+  layer = 1,
+  x = 544,
+  y = 16,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
 }
 
 tile{

@@ -1722,7 +1722,7 @@ enemy{
   y = 301,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -1732,7 +1732,7 @@ enemy{
   y = 149,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -1742,7 +1742,7 @@ enemy{
   y = 149,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 destination{
@@ -1807,6 +1807,36 @@ stairs{
   y = 416,
   direction = 3,
   subtype = 2,
+}
+
+sensor{
+  name = "sensor_1",
+  layer = 0,
+  x = 104,
+  y = 77,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_2",
+  layer = 0,
+  x = 552,
+  y = 413,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
 }
 
 tile{
@@ -2926,7 +2956,6 @@ tile{
 }
 
 separator{
-  name = "auto_separator_1",
   layer = 2,
   x = 0,
   y = 232,
@@ -2935,7 +2964,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_2",
   layer = 2,
   x = 312,
   y = 0,

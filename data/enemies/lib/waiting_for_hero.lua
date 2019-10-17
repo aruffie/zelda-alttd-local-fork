@@ -32,6 +32,7 @@ local behavior = {}
 
 -- The properties parameter is a table.
 -- All its values are optional except the sprite.
+local audio_manager=require("scripts/audio_manager")
 
 function behavior:create(enemy, properties)
 
@@ -154,7 +155,7 @@ function behavior:create(enemy, properties)
     if properties.awakening_sound == nil then
       self:finish_waking_up()
     else
-      audio_manager:play_sound(properties.awakening_sound)
+      audio_manager:play_entity_sound(enemy, properties.awakening_sound)
     end
     if properties.awaking_animation ~= nil then
       local sprite = self:get_sprite()

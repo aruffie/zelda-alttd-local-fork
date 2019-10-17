@@ -6838,7 +6838,6 @@ tile{
 }
 
 separator{
-  name = "auto_separator_1",
   layer = 2,
   x = -8,
   y = 232,
@@ -6847,16 +6846,14 @@ separator{
 }
 
 separator{
-  name = "auto_separator_2",
   layer = 2,
   x = 312,
-  y = 248,
+  y = 240,
   width = 16,
   height = 240,
 }
 
 separator{
-  name = "auto_separator_3",
   layer = 2,
   x = 632,
   y = 0,

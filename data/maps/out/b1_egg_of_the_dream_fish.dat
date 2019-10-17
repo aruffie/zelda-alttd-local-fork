@@ -14177,15 +14177,6 @@ tile{
 
 tile{
   layer = 1,
-  x = 368,
-  y = 168,
-  width = 32,
-  height = 8,
-  pattern = "1711",
-}
-
-tile{
-  layer = 1,
   x = 352,
   y = 120,
   width = 48,
@@ -17478,6 +17469,33 @@ tile{
   pattern = "1943",
 }
 
+wall{
+  layer = 1,
+  x = 800,
+  y = 216,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 736,
+  y = 656,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 64,
+  y = 416,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
 custom_entity{
   layer = 1,
   x = 872,
@@ -18120,19 +18138,6 @@ destructible{
 
 wall{
   layer = 1,
-  x = 376,
-  y = 168,
-  width = 16,
-  height = 8,
-  stops_hero = true,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
-}
-
-wall{
-  layer = 1,
   x = 800,
   y = 208,
   width = 16,
@@ -18353,7 +18358,7 @@ enemy{
   y = 485,
   direction = 0,
   breed = "moblin_pig_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -18362,7 +18367,7 @@ enemy{
   y = 493,
   direction = 3,
   breed = "moblin_pig_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -18371,7 +18376,7 @@ enemy{
   y = 445,
   direction = 0,
   breed = "goponga_flower",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 destination{
@@ -18469,7 +18474,7 @@ enemy{
   y = 461,
   direction = 0,
   breed = "goponga_flower",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -18478,7 +18483,7 @@ enemy{
   y = 477,
   direction = 0,
   breed = "goponga_flower",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -18487,7 +18492,7 @@ enemy{
   y = 485,
   direction = 0,
   breed = "goponga_flower",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -18496,7 +18501,7 @@ enemy{
   y = 477,
   direction = 0,
   breed = "goponga_flower",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -18505,7 +18510,7 @@ enemy{
   y = 461,
   direction = 0,
   breed = "goponga_flower",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -18514,7 +18519,7 @@ enemy{
   y = 445,
   direction = 0,
   breed = "goponga_flower",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 custom_entity{
@@ -19019,6 +19024,24 @@ custom_entity{
   sprite = "entities/utils/cliff",
   tiled = true,
   model = "cliff",
+}
+
+wall{
+  layer = 1,
+  x = 424,
+  y = 616,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 376,
+  y = 176,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
 }
 
 tile{
@@ -20022,6 +20045,15 @@ tile{
   layer = 2,
   x = 792,
   y = 208,
+  width = 32,
+  height = 8,
+  pattern = "1711",
+}
+
+tile{
+  layer = 2,
+  x = 368,
+  y = 168,
   width = 32,
   height = 8,
   pattern = "1711",

@@ -11,6 +11,7 @@ Parameters:
   -sfx : the sound effect to play during the effect
   -callback (optional): the function to play once the effect has completed
 --]]
+local audio_manager=require("scripts/audio_manager")
 
 function lib.start_effect(surface, game, mode, sfx, callback)
   local min_magnitude=0.01

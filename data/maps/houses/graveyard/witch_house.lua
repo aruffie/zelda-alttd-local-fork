@@ -8,15 +8,14 @@ local light_manager = require("scripts/maps/light_manager")
 local audio_manager = require("scripts/audio_manager")
 
 -- Map events.
-function map:on_started()
+map:register_event("on_started", function(map, destination)
 
   -- Music
   map:init_music()
   -- Light
   light_manager:init(map)
-  map:set_light(0)
 
-end
+end)
 
 -- Initialize the music of the map
 function map:init_music()
@@ -60,15 +59,15 @@ function witch:on_interaction()
 end
 
 -- Torches events
-timed_torch_1:register_event("on_lit", function()
+torch_1:register_event("on_lit", function()
 
-    if not game:get_value("witch_indication") then
+    if map.witch_indication then
       game:set_value("witch_indication", true)
       game:start_dialog("maps.houses.graveyard.witch_house.witch_4")
+      map.witch_indication = false
     end
     
 end)
-
 
 -- Wardrobes
 for wardrobe in map:get_entities("wardrobe") do
@@ -95,11 +94,11 @@ function map:launch_cinematic_1(slot)
     audio_manager:play_music("14_shop")
     game:set_hud_enabled(true)
     game:start_dialog("maps.houses.graveyard.witch_house.witch_3", function() 
-      hero:start_treasure("magic_powders_counter", 1, nil, function()
-        game:set_value("witch_indication", false)
+      hero:start_treasure("magic_powder_bag", 1, nil, function()
+        map.witch_indication = true
         map:set_cinematic_mode(false, options)
       end)
-      local item = game:get_item("magic_powders_counter")
+      local item = game:get_item("magic_powder_counter")
       game:set_item_assigned(slot, item)
     end)
   end)

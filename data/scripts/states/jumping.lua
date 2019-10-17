@@ -16,7 +16,7 @@ state:set_can_use_item("shield", true)
 state:set_can_use_item("bow", true)
 state:set_can_use_item("boomerang", true)
 state:set_can_use_item("bombs_counter", true)
-state:set_can_use_item("magic_powders_counter", true)
+state:set_can_use_item("magic_powder_counter", true)
 state:set_can_use_item("fire_rod", true)
 state:set_can_cut(false) --TODO refine me
 state:set_can_control_movement(true)

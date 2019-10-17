@@ -856,7 +856,7 @@ destination{
   layer = 0,
   x = 176,
   y = 133,
-  direction = 3,
+  direction = -1,
 }
 
 pickable{

@@ -593,10 +593,16 @@ npc{
 }
 
 custom_entity{
-  name = "timed_torch_1",
+  name = "torch_1",
   layer = 0,
   x = 200,
   y = 173,
+  properties = {
+    {
+      key = "timer",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
   direction = 0,

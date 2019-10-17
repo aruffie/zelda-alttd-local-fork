@@ -10191,6 +10191,24 @@ tile{
   pattern = "117",
 }
 
+wall{
+  layer = 1,
+  x = 856,
+  y = 224,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 808,
+  y = 432,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
 custom_entity{
   layer = 1,
   x = 120,
@@ -10404,6 +10422,7 @@ enemy{
   y = 485,
   direction = 3,
   breed = "sea_urchin",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -10413,6 +10432,7 @@ enemy{
   y = 445,
   direction = 3,
   breed = "sea_urchin",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -10422,6 +10442,7 @@ enemy{
   y = 485,
   direction = 3,
   breed = "sea_urchin",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -10431,6 +10452,7 @@ enemy{
   y = 557,
   direction = 3,
   breed = "sea_urchin",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -10440,6 +10462,7 @@ enemy{
   y = 581,
   direction = 3,
   breed = "sea_urchin",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -10449,6 +10472,7 @@ enemy{
   y = 693,
   direction = 3,
   breed = "sea_urchin",
+  treasure_name = "random_with_charm",
 }
 
 destination{
@@ -10473,6 +10497,7 @@ enemy{
   y = 125,
   direction = 0,
   breed = "octorok",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -10481,6 +10506,7 @@ enemy{
   y = 189,
   direction = 0,
   breed = "octorok",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -10489,6 +10515,7 @@ enemy{
   y = 309,
   direction = 0,
   breed = "octorok",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -10497,6 +10524,7 @@ enemy{
   y = 253,
   direction = 0,
   breed = "octorok",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -10505,6 +10533,7 @@ enemy{
   y = 437,
   direction = 0,
   breed = "octorok",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -10513,6 +10542,7 @@ enemy{
   y = 485,
   direction = 0,
   breed = "octorok",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -10521,6 +10551,7 @@ enemy{
   y = 45,
   direction = 0,
   breed = "octorok",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -10529,6 +10560,7 @@ enemy{
   y = 141,
   direction = 0,
   breed = "octorok",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -10537,6 +10569,7 @@ enemy{
   y = 69,
   direction = 0,
   breed = "octorok",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -10545,6 +10578,7 @@ enemy{
   y = 141,
   direction = 0,
   breed = "octorok",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -10553,6 +10587,7 @@ enemy{
   y = 469,
   direction = 0,
   breed = "octorok",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -10561,6 +10596,7 @@ enemy{
   y = 573,
   direction = 0,
   breed = "octorok",
+  treasure_name = "random_with_charm",
 }
 
 sensor{
@@ -10941,7 +10977,7 @@ enemy{
   y = 693,
   direction = 0,
   breed = "sand_crab",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -10950,7 +10986,7 @@ enemy{
   y = 693,
   direction = 0,
   breed = "sand_crab",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 custom_entity{
@@ -11001,7 +11037,7 @@ enemy{
   y = 653,
   direction = 0,
   breed = "leever",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -11010,7 +11046,7 @@ enemy{
   y = 685,
   direction = 0,
   breed = "leever",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -11019,7 +11055,7 @@ enemy{
   y = 661,
   direction = 0,
   breed = "leever",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -11028,7 +11064,7 @@ enemy{
   y = 693,
   direction = 0,
   breed = "leever",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 wall{
@@ -11282,6 +11318,7 @@ enemy{
   y = 629,
   direction = 0,
   breed = "octorok",
+  treasure_name = "random_with_charm",
 }
 
 wall{
@@ -11303,6 +11340,7 @@ enemy{
   y = 637,
   direction = 0,
   breed = "octorok",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -11311,6 +11349,7 @@ enemy{
   y = 45,
   direction = 0,
   breed = "octorok",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -11319,6 +11358,7 @@ enemy{
   y = 141,
   direction = 0,
   breed = "octorok",
+  treasure_name = "random_with_charm",
 }
 
 tile{

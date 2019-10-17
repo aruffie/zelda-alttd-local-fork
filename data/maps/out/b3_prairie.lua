@@ -10,22 +10,21 @@ local travel_manager = require("scripts/maps/travel_manager")
 local audio_manager = require("scripts/audio_manager")
 
 -- Map events
-function map:on_started(destination)
+map:register_event("on_started", function(map, destination)
 
   -- Music
-  print ("at start:", seashell_13:get_position())
   map:init_music()
   -- Entities
   map:init_map_entities()
   -- Digging
   map:set_digging_allowed(true)
 
-end
+end)
 
 -- Initialize the music of the map
 function map:init_music()
   
-  if game:get_value("main_quest_step") == 3  then
+  if game:is_step_last("shield_obtained") then
     audio_manager:play_music("07_koholint_island")
   elseif tarin_chased_by_bees then
     audio_manager:play_music("39_bees")
@@ -38,6 +37,8 @@ end
 -- Initializes Entities based on player's progress
 function map:init_map_entities()
   
+  local item = game:get_item("magnifying_lens")
+  local variant = item:get_variant()
  -- Owl
   owl_7:set_enabled(false)
   -- Travel
@@ -48,18 +49,19 @@ function map:init_map_entities()
     statue_pig:set_traversable_by(true)
   end
   dungeon_3_entrance:set_traversable_by(false)
-  if game:get_value("main_quest_step") > 16 then
+  if game:is_step_done("dungeon_3_opened") then
     map:open_dungeon_3()
   end
   -- Tarin
-  if game:get_value("main_quest_step") ~= 18 then
+  if not game:is_step_last("dungeon_3_completed") then
     tarin:set_enabled(false)
   end
   -- Honey and bees
-  if game:get_value("main_quest_step") > 19 then
-    honey:set_enabled(false)
+  honey:set_enabled(false)
+  if game:is_step_done("dungeon_3_completed") and variant > 5 then
+    honey_entity:set_enabled(false)
     for bee in map:get_entities("bee") do
-        bee:set_enabled(false)
+      bee:set_enabled(false)
     end
   end
   -- Seashell's tree
@@ -68,7 +70,6 @@ function map:init_map_entities()
     if other:get_type() == 'hero' and hero:get_state() == "custom" and hero:get_state_object():get_description()=="running" and seashell_tree_found == false and game:get_value("seashell_13") == nil then
       sol.timer.start(map, 250, function()
         seashell_13:set_enabled(true)
-        print("enabled ?", seashell_13:is_enabled(), "position:", seashell_13:get_position())
         local movement = sol.movement.create("jump")
         movement:set_speed(100)
         movement:set_distance(64)
@@ -119,7 +120,7 @@ function map:tarin_search_honey()
   tarin_sprite:set_ignore_suspend(true)
   tarin_sprite:set_animation("brandish")
   audio_manager:play_sound("items/fanfare_item_extended")
-  local baton_entity = map:create_custom_entity({
+  local stick_entity = map:create_custom_entity({
     name = "brandish_baton",
     sprite = "entities/items",
     x = x_tarin,
@@ -144,7 +145,7 @@ function map:tarin_search_honey()
   sol.timer.start(map, 2000, function()
     sol.audio.stop_music()
     tarin_sprite:set_animation("searching_honey")
-    baton_entity:remove()
+    stick_entity:remove()
     audio_manager:play_sound("beehive_poke")
     for i=1,4 do
       sol.timer.start(map, 500 * i, function()
@@ -243,6 +244,8 @@ function map:tarin_leave_map()
       bee:set_enabled(false)
     end
     sol.timer.start(map, 2500, function()
+      honey_entity:set_enabled(false)
+      honey:set_enabled(true)
       sol.audio.stop_music()
       local movement = sol.movement.create("jump")
       movement:set_speed(100)
@@ -250,7 +253,7 @@ function map:tarin_leave_map()
       movement:set_direction8(6)
       movement:set_ignore_obstacles(true)
       movement:start(honey)
-      game:set_value("main_quest_step", 19)
+      game:set_step_done("tarin_bee_event_over")
       audio_manager:play_sound("beehive_fall")
       hero:unfreeze()
       game:set_hud_enabled(true)
@@ -304,9 +307,9 @@ end
 
 function dungeon_3_lock:on_interaction()
 
-  if game:get_value("main_quest_step") < 16 then
+  if not game:is_step_done("dungeon_3_key_obtained") then
       game:start_dialog("maps.out.prairie.dungeon_3_lock")
-  elseif game:get_value("main_quest_step") == 16 then
+  elseif game:is_last_step("dungeon_3_key_obtained") then
     sol.audio.stop_music()
     hero:freeze()
     sol.timer.start(map, 1000, function() 
@@ -327,8 +330,17 @@ function dungeon_3_lock:on_interaction()
           map:init_music()
         end)
       end)
-      game:set_value("main_quest_step", 17)
+      game:set_step_done("dungeon_3_opened")
     end)
+  end
+
+end
+
+-- Obtaining slim key
+function map:on_obtaining_treasure(treasure_item, treasure_variant, treasure_savegame_variable)
+
+  if treasure_item:get_name() == "slim_key" then
+    game:set_step_done("dungeon_3_key_obtained")
   end
 
 end
@@ -342,7 +354,7 @@ end
 
 function owl_7_sensor:on_activated()
 
-  if game:get_value("main_quest_step") == 18  and game:get_value("owl_7") ~= true then
+  if game:is_step_last("dungeon_3_completed")  and game:get_value("owl_7") ~= true then
     owl_manager:appear(map, 7, function()
     map:init_music()
     end)

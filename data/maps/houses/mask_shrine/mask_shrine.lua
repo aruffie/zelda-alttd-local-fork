@@ -1,24 +1,40 @@
--- Lua script of map houses/mask_shrine/mask_shrine.
--- This script is executed every time the hero enters this map.
-
--- Feel free to modify the code below.
--- You can add more events and remove the ones you don't need.
-
--- See the Solarus Lua API documentation:
--- http://www.solarus-games.org/doc/latest
-
 local map = ...
 local game = map:get_game()
 
--- Event called at initialization time, as soon as this map is loaded.
-function map:on_started()
+-- Include scripts
+require("scripts/multi_events")
+local light_manager = require("scripts/maps/light_manager")
 
-  -- You can initialize the movement and sprites of various
-  -- map entities here.
+-- Event called at initialization time, as soon as this map becomes is loaded.
+map:register_event("on_started", function(map, destination)
+
+  light_manager:init(map)
+  map:set_doors_open("door_boss_1")
+  --Boss
+  if game:get_value("southern_shrine_boss") then 
+    boss_sensor:set_enabled(false) 
+    map:set_doors_open("door_boss_2")
+  else boss:set_enabled(false) end
+
+end)
+
+--BOSS ACTIVED
+function boss_sensor:on_activated()
+    hero:freeze()
+    map:close_doors("door_boss")
+    sol.audio.stop_music()
+    sol.timer.start(1000,function()
+      hero:unfreeze()
+      boss:set_enabled(true)
+      audio_manager:play_music("small_boss")
+      boss_sensor:set_enabled(false)
+    end)
 end
-
--- Event called after the opening transition effect of the map,
--- that is, when the player takes control of the hero.
-function map:on_opening_transition_finished()
-
+--BOSS
+if boss ~= nil then
+ function boss:on_dead()
+  audio_manager:play_sound("misc/secret1") 
+  audio_manager:play_music("southern_shrine")
+  map:open_doors("door_boss") 
+ end
 end

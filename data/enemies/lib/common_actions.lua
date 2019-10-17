@@ -25,8 +25,8 @@
 --           enemy:start_pushed_back(entity, [speed, [duration, [on_finished_callback]]])
 --           enemy:start_pushing_back(entity, [speed, [duration, [on_finished_callback]]])
 --
---           enemy:start_shadow([sprite_name, [animation_set_id]])
---           enemy:start_brief_effect(sprite_name, [animation_set_id, [x_offset, [y_offset, [maximum_duration, [on_finished_callback]]]]])
+--           enemy:start_shadow([sprite_name, [animation_name]])
+--           enemy:start_brief_effect(sprite_name, [animation_name, [x_offset, [y_offset, [maximum_duration, [on_finished_callback]]]]])
 --           enemy:steal_item(item_name, [variant, [only_if_assigned, [drop_when_dead]]])
 --
 -- Events:   enemy:on_jump_finished()
@@ -48,6 +48,7 @@ function common_actions.learn(enemy)
   local map = enemy:get_map()
   local hero = map:get_hero()
   local trigonometric_functions = {math.cos, math.sin}
+  local eighth = 0.25 * math.pi
   local circle = 2.0 * math.pi
 
   local attracting_timers = {}
@@ -137,22 +138,22 @@ function common_actions.learn(enemy)
   -- Return the normal angle of close obstacles as a multiple of pi/4, or nil if none.
   function enemy:get_obstacles_normal_angle()
 
-    local directions = {
-      [0] = {is_collision = enemy:test_obstacles( 1,  0), normal = math.pi},
-      [1] = {is_collision = enemy:test_obstacles( 1, -1), normal = 1.25 * math.pi},
-      [2] = {is_collision = enemy:test_obstacles( 0, -1), normal = 1.5 * math.pi},
-      [3] = {is_collision = enemy:test_obstacles(-1, -1), normal = 1.75 * math.pi},
-      [4] = {is_collision = enemy:test_obstacles(-1,  0), normal = 0},
-      [5] = {is_collision = enemy:test_obstacles(-1,  1), normal = 0.25 * math.pi},
-      [6] = {is_collision = enemy:test_obstacles( 0,  1), normal = 0.5 * math.pi},
-      [7] = {is_collision = enemy:test_obstacles( 1,  1), normal = 0.75 * math.pi}
+    local collisions = {
+      [0] = enemy:test_obstacles(-1,  0),
+      [1] = enemy:test_obstacles(-1,  1),
+      [2] = enemy:test_obstacles( 0,  1),
+      [3] = enemy:test_obstacles( 1,  1),
+      [4] = enemy:test_obstacles( 1,  0),
+      [5] = enemy:test_obstacles( 1, -1),
+      [6] = enemy:test_obstacles( 0, -1),
+      [7] = enemy:test_obstacles(-1, -1)
     }
 
     -- Return the normal angle for this direction if collision on the direction or the two surrounding ones, and no obstacle in the two next or obstacle in both.
     local function check_normal_angle(direction8)
-      return ((directions[direction8].is_collision or directions[(direction8 - 1) % 8].is_collision and directions[(direction8 + 1) % 8].is_collision) 
-          and not xor(directions[(direction8 - 2) % 8].is_collision, directions[(direction8 + 2) % 8].is_collision)
-          and directions[direction8].normal)
+      return ((collisions[direction8] or collisions[(direction8 - 1) % 8] and collisions[(direction8 + 1) % 8]) 
+          and not xor(collisions[(direction8 - 2) % 8], collisions[(direction8 + 2) % 8])
+          and direction8 * eighth)
     end
 
     -- Check for obstacles on each direction8 and return the normal angle if it is the correct one.
@@ -493,7 +494,7 @@ function common_actions.learn(enemy)
   end
 
   -- Add a shadow below the enemy.
-  function enemy:start_shadow(sprite_name, animation_set_id)
+  function enemy:start_shadow(sprite_name, animation_name)
 
     if not shadow then
       local enemy_x, enemy_y, enemy_layer = enemy:get_position()
@@ -508,8 +509,8 @@ function common_actions.learn(enemy)
       })
       enemy:start_welding(shadow)
 
-      if animation_set_id then
-        shadow:get_sprite():set_animation(animation_set_id)
+      if animation_name then
+        shadow:get_sprite():set_animation(animation_name)
       end
       shadow:set_traversable_by(true)
       --TODO Always display the shadow on the lowest possible layer
@@ -518,7 +519,7 @@ function common_actions.learn(enemy)
   end
 
   -- Start a standalone sprite animation on the enemy position, that will be removed once finished or maximum_duration reached if given.
-  function enemy:start_brief_effect(sprite_name, animation_set_id, x_offset, y_offset, maximum_duration, on_finished_callback)
+  function enemy:start_brief_effect(sprite_name, animation_name, x_offset, y_offset, maximum_duration, on_finished_callback)
 
     local x, y, layer = enemy:get_position()
     local entity = map:create_custom_entity({
@@ -539,7 +540,7 @@ function common_actions.learn(enemy)
       entity:remove()
     end
     local sprite = entity:get_sprite()
-    sprite:set_animation(animation_set_id, function()
+    sprite:set_animation(animation_name or sprite:get_animation(), function()
       on_finished()
     end)
     if maximum_duration then

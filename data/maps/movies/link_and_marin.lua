@@ -149,7 +149,7 @@ function map:start_dialog()
             if answer == 1 then
               game:start_dialog("movies.link_and_marin.marin_4", function()
                 game:start_dialog("movies.link_and_marin.marin_5", function()
-                  game:set_value("main_quest_step", 23) 
+                  game:set_step_done("marin_joined")
                   game:set_hud_enabled(true)
                   game:set_pause_allowed(true)
                   hero:teleport("out/b4_south_prairie", "marin_destination")

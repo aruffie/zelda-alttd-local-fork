@@ -3,11 +3,12 @@ local map = ...
 local game = map:get_game()
 
 -- Include scripts
+require("scripts/multi_events")
 local owl_manager = require("scripts/maps/owl_manager")
 local audio_manager = require("scripts/audio_manager")
 
 -- Map events
-function map:on_started(destination)
+map:register_event("on_started", function(map, destination)
 
   -- Music
   map:init_music()
@@ -15,13 +16,15 @@ function map:on_started(destination)
   map:init_map_entities()
   -- Digging
   map:set_digging_allowed(true)
+  -- Shore
+  map:init_shore()
 
-end
+end)
 
 -- Initialize the music of the map
 function map:init_music()
 
-  if game:get_value("main_quest_step") == 3  then
+  if game:is_step_last("shield_obtained") then
     audio_manager:play_music("07_koholint_island")
   else
     audio_manager:play_music("10_overworld")
@@ -40,7 +43,7 @@ function map:init_map_entities()
   end
   dungeon_1_entrance:set_traversable_by(false)
   dungeon_1_entrance:set_traversable_by('camera', true)
-  if game:get_value("main_quest_step") > 6 then
+  if game:is_step_done("dungeon_1_opened") then
     map:open_dungeon_1()
   end
   -- Seashell's tree
@@ -64,6 +67,16 @@ function map:init_map_entities()
 
 end
 
+-- Initialize shore
+function map:init_shore()
+  
+  sol.timer.start(map, 5000, function()
+    audio_manager:play_entity_sound("misc/shore") 
+    return true
+  end)
+  
+end  
+
 -- Dungeon 1 opening
 function map:open_dungeon_1()
 
@@ -84,9 +97,9 @@ end
 -- NPCs events
 function dungeon_1_lock:on_interaction()
 
-  if game:get_value("main_quest_step") < 6 then
+  if not game:is_step_done("dungeon_1_key_obtained") then
       game:start_dialog("maps.out.south_mabe_village.dungeon_1_lock")
-  elseif game:get_value("main_quest_step") == 6 then
+  elseif game:is_step_last("dungeon_1_key_obtained") then
     map:launch_cinematic_2()
   end
   
@@ -107,7 +120,7 @@ end
 
 function owl_4_sensor:on_activated()
 
-  if game:get_value("main_quest_step") == 8  and game:get_value("owl_4") ~= true then
+  if game:is_step_last("dungeon_1_completed") and game:get_value("owl_4") ~= true then
     owl_manager:appear(map, 4, function()
     map:init_music()
     end)
@@ -132,17 +145,31 @@ function map:launch_cinematic_1()
     local map = game:get_map()
     dialog("_treasure.sword.1")
     audio_manager:play_music("09_beginning_of_the_journey")
-    wait(5400)
-    map:remove_entities("brandish")
-    animation(hero, "spin_attack")
+    wait(4400)
+    local num_enemies = 0
     for enemy in map:get_entities_by_type("enemy") do
-      if enemy:get_distance(hero) < 32 then
+      if enemy:get_distance(hero) < 32 and not string.match(enemy:get_breed(), "projectiles")  then
+        num_enemies = num_enemies + 1
+        enemy.symbol = enemy:create_symbol_exclamation()
+      end
+    end
+    if num_enemies > 0 then
+      audio_manager:play_sound("menus/menu_select")
+    end
+    wait(1000)
+    map:remove_entities("brandish")
+    for enemy in map:get_entities_by_type("enemy") do
+      if enemy:get_distance(hero) < 32 and not string.match(enemy:get_breed(), "projectiles") then
+        enemy.symbol:remove()
         enemy:set_life(0)
       end
     end
+    if num_enemies > 0 then
+      audio_manager:play_sound("enemies/enemy_die")
+    end
+    animation(hero, "spin_attack")
     map:set_cinematic_mode(false, options)
-    game:set_value("main_quest_step", 4)
-    wait(300)
+    game:set_step_done("sword_obtained")
     audio_manager:play_music("10_overworld")
   end)
 
@@ -194,7 +221,7 @@ function map:launch_cinematic_2()
     movement(movement2, camera)
     map:set_cinematic_mode(false, options)
     camera:start_tracking(hero)
-    game:set_value("main_quest_step", 7)
+    game:set_step_done("dungeon_1_opened")
     map:init_music()
   end)
 

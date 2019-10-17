@@ -52,14 +52,14 @@ hero:register_event("on_position_changed", function(hero)
 end)
 
 -- Don't copy hero hurt move.
--- TODO register_event() seems to not prevent the default behavior, check how to use it.
-function enemy:on_attacking_hero(hero, enemy_sprite)
+enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
 
   hero:start_hurt(enemy, enemy:get_damage())
   sol.timer.start(enemy, 10, function()
     enemy:restart() -- Workaround: Only stop the movement at the next frame to stop the actual hurt movement.
   end)
-end
+
+end)
 
 -- Stop the movement if the hero don't have one anymore.
 enemy:register_event("on_update", function(enemy)

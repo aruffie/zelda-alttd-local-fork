@@ -56,11 +56,12 @@ function enemy:on_restarted()
 end
 
 -- Destroy the fireball when the hero is touched.
-function enemy:on_attacking_hero(hero, enemy_sprite)
+enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
 
   hero:start_hurt(enemy, enemy_sprite, enemy:get_damage())
   enemy:remove()
-end
+  
+end)
 
 -- Change the direction of the movement when hit with the sword.
 function enemy:on_custom_attack_received(attack, sprite)

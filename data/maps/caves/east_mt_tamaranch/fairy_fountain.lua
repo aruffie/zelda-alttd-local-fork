@@ -3,18 +3,19 @@ local map = ...
 local game = map:get_game()
 
 -- Include scripts
+require("scripts/multi_events")
 local fairy_manager = require("scripts/maps/fairy_manager")
 local audio_manager = require("scripts/audio_manager")
 
 -- Map events
-function map:on_started()
+map:register_event("on_started", function(map, destination)
 
   -- Music
   map:init_music()
   -- Fairy
   fairy_manager:init_map(map, "fairy")
 
-end
+end)
 
 -- Initialize the music of the map
 function map:init_music()

@@ -683,6 +683,12 @@ npc{
   layer = 0,
   x = 192,
   y = 37,
+  properties = {
+    {
+      key = "model",
+      value = "mario",
+    },
+  },
   direction = 3,
   subtype = 1,
 }
@@ -696,6 +702,13 @@ wall{
   stops_npcs = true,
   stops_enemies = true,
   stops_blocks = true,
+}
+
+pickable{
+  layer = 0,
+  x = 144,
+  y = 165,
+  treasure_name = "acorn",
 }
 
 tile{

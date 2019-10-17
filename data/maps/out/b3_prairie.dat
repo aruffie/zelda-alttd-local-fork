@@ -17676,6 +17676,42 @@ tile{
 
 wall{
   layer = 1,
+  x = 488,
+  y = 80,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 104,
+  y = 488,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 256,
+  y = 136,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 760,
+  y = 16,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
   x = 904,
   y = 272,
   width = 16,
@@ -21989,7 +22025,7 @@ enemy{
   y = 605,
   direction = 1,
   breed = "moblin_pig_sword",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -21998,7 +22034,7 @@ enemy{
   y = 213,
   direction = 1,
   breed = "octorok_flying",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 destructible{
@@ -22117,6 +22153,7 @@ enemy{
   y = 149,
   direction = 0,
   breed = "pincer",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -22125,6 +22162,7 @@ enemy{
   y = 117,
   direction = 0,
   breed = "pincer",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -22133,6 +22171,7 @@ enemy{
   y = 61,
   direction = 3,
   breed = "pincer",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -22141,6 +22180,7 @@ enemy{
   y = 269,
   direction = 0,
   breed = "pincer",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -22149,6 +22189,18 @@ enemy{
   y = 189,
   direction = 0,
   breed = "pincer",
+  treasure_name = "random_with_charm",
+}
+
+custom_entity{
+  name = "honey_entity",
+  layer = 1,
+  x = 816,
+  y = 125,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/items/honey",
 }
 
 tile{
@@ -27212,7 +27264,7 @@ enemy{
   y = 469,
   direction = 1,
   breed = "octorok_flying",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -27221,7 +27273,7 @@ enemy{
   y = 549,
   direction = 1,
   breed = "octorok_flying",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -27230,7 +27282,7 @@ enemy{
   y = 525,
   direction = 1,
   breed = "octorok_flying",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -27239,6 +27291,6 @@ enemy{
   y = 581,
   direction = 1,
   breed = "octorok_flying",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 

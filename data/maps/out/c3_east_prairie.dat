@@ -10450,6 +10450,24 @@ tile{
   pattern = "988",
 }
 
+wall{
+  layer = 1,
+  x = 152,
+  y = 120,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 1,
+  x = 184,
+  y = 712,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
 custom_entity{
   layer = 1,
   x = 744,
@@ -10926,7 +10944,7 @@ enemy{
   y = 581,
   direction = 1,
   breed = "moblin_pig_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -10935,7 +10953,7 @@ enemy{
   y = 301,
   direction = 3,
   breed = "moblin_pig_sword",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -10944,7 +10962,7 @@ enemy{
   y = 277,
   direction = 3,
   breed = "moblin_pig_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -10953,7 +10971,7 @@ enemy{
   y = 469,
   direction = 3,
   breed = "moblin_pig_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -10962,7 +10980,7 @@ enemy{
   y = 597,
   direction = 2,
   breed = "moblin_pig_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -10971,7 +10989,7 @@ enemy{
   y = 493,
   direction = 0,
   breed = "moblin_pig_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -10980,7 +10998,7 @@ enemy{
   y = 565,
   direction = 0,
   breed = "moblin_pig_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -10989,7 +11007,7 @@ enemy{
   y = 453,
   direction = 2,
   breed = "moblin_pig_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -10998,7 +11016,7 @@ enemy{
   y = 221,
   direction = 3,
   breed = "moblin_pig_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -11007,7 +11025,7 @@ enemy{
   y = 221,
   direction = 3,
   breed = "moblin_pig_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 npc{
@@ -11662,7 +11680,7 @@ enemy{
   y = 301,
   direction = 3,
   breed = "moblin_pig_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -11671,7 +11689,7 @@ enemy{
   y = 181,
   direction = 1,
   breed = "octorok_flying",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -11680,7 +11698,7 @@ enemy{
   y = 117,
   direction = 1,
   breed = "octorok_flying",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -11689,7 +11707,7 @@ enemy{
   y = 69,
   direction = 1,
   breed = "octorok_flying",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -11698,7 +11716,7 @@ enemy{
   y = 117,
   direction = 1,
   breed = "pincer",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -11707,7 +11725,7 @@ enemy{
   y = 109,
   direction = 1,
   breed = "tektite_water",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -11716,7 +11734,7 @@ enemy{
   y = 269,
   direction = 1,
   breed = "octorok_flying",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -11725,7 +11743,16 @@ enemy{
   y = 301,
   direction = 1,
   breed = "octorok_flying",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
+}
+
+wall{
+  layer = 1,
+  x = 616,
+  y = 120,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
 }
 
 tile{
@@ -13391,7 +13418,7 @@ tile{
 
 tile{
   layer = 2,
-  x = 112,
+  x = 104,
   y = 120,
   width = 96,
   height = 8,
@@ -14346,6 +14373,15 @@ tile{
   pattern = "907",
 }
 
+wall{
+  layer = 2,
+  x = 160,
+  y = 648,
+  width = 16,
+  height = 16,
+  stops_enemies = true,
+}
+
 npc{
   layer = 2,
   x = 128,
@@ -14506,7 +14542,7 @@ enemy{
   y = 149,
   direction = 1,
   breed = "bomber",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -14515,7 +14551,7 @@ enemy{
   y = 573,
   direction = 1,
   breed = "octorok_flying",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -14524,7 +14560,7 @@ enemy{
   y = 573,
   direction = 1,
   breed = "octorok_flying",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -14533,7 +14569,7 @@ enemy{
   y = 237,
   direction = 1,
   breed = "octorok_flying",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 tile{

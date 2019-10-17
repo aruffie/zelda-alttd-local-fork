@@ -6,6 +6,7 @@ local enemy = ...
 require("enemies/lib/common_actions").learn(enemy)
 require("enemies/lib/weapons").learn(enemy)
 require("scripts/multi_events")
+local audio_manager=require("scripts/audio_manager")
 
 local game = enemy:get_game()
 local map = enemy:get_map()
@@ -39,6 +40,7 @@ function enemy:appear()
     sol.timer.start(enemy, throwing_duration, function()
       enemy:create_enemy({breed = "projectiles/" .. projectile_breed})
       sprite:set_animation("firing")
+      audio_manager:play_entity_sound(enemy, "enemies/fireball")
       sol.timer.start(enemy, before_desappearing_delay, function()
         sprite:set_animation("disappearing", function()
           enemy:restart()
@@ -53,7 +55,7 @@ function enemy:wait()
 
   sol.timer.start(enemy, math.random(waiting_minimum_duration, waiting_maximum_duration), function()
     if not camera:overlaps(enemy:get_max_bounding_box()) then
-      return waiting_duration
+      return true
     end
     enemy:appear()
   end)

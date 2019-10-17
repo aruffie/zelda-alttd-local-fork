@@ -749,29 +749,12 @@ tile{
   pattern = "wall_torch.1",
 }
 
-dynamic_tile{
-  layer = 0,
-  x = 560,
-  y = 8,
-  width = 16,
-  height = 168,
-  pattern = "79",
-}
-
 separator{
   layer = 0,
   x = 312,
   y = 0,
   width = 16,
   height = 240,
-}
-
-destination{
-  name = "stairs_5_B",
-  layer = 0,
-  x = 568,
-  y = 29,
-  direction = 3,
 }
 
 destination{
@@ -782,13 +765,38 @@ destination{
   direction = 3,
 }
 
-dynamic_tile{
+custom_entity{
   layer = 0,
-  x = 560,
-  y = 0,
+  x = 568,
+  y = 13,
+  width = 16,
+  height = 168,
+  origin_y = 5,
+  direction = 0,
+  sprite = "entities/grounds/ladder_wooden",
+  tiled = true,
+  model = "ladder",
+}
+
+custom_entity{
+  layer = 0,
+  x = 568,
+  y = 5,
   width = 16,
   height = 8,
-  pattern = "78",
+  origin_y = 5,
+  direction = 0,
+  sprite = "entities/grounds/ladder_wooden_top",
+  tiled = true,
+  model = "ladder",
+}
+
+destination{
+  name = "stairs_5_B",
+  layer = 0,
+  x = 568,
+  y = 29,
+  direction = 3,
 }
 
 teletransporter{

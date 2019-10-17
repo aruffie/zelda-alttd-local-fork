@@ -1342,7 +1342,7 @@ enemy{
   y = 109,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -1352,7 +1352,7 @@ enemy{
   y = 149,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -1362,7 +1362,7 @@ enemy{
   y = 133,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 custom_entity{
@@ -1411,6 +1411,36 @@ custom_entity{
   direction = 0,
   sprite = "entities/destructibles/crystal_green",
   model = "green_crystal",
+}
+
+sensor{
+  name = "sensor_1",
+  layer = 0,
+  x = 104,
+  y = 93,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_2",
+  layer = 0,
+  x = 536,
+  y = 157,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
 }
 
 tile{

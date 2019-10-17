@@ -30,7 +30,7 @@ local function get_destructible_sprite_name(destructible)
 end
 
 -- Map events
-function map:on_started(destination)
+map:register_event("on_started", function(map, destination)
 
   -- Music
   map:init_music()
@@ -90,14 +90,14 @@ function map:on_started(destination)
   map:init_tarin()
   owl_2:set_enabled(false)
   owl_3:set_enabled(false)
-  if game:has_item("mushroom") or game:has_item("magic_powders_counter") then 
+  if game:has_item("mushroom") or game:has_item("magic_powder_counter") and game:get_item("magic_powder_counter"):get_amount() > 0 then 
     mushroom:set_enabled(false)
   end
   if map:get_game():get_value("owl_2") == true then
     map:init_music()
   end
 
-end
+end)
 
 -- Initialize the music of the map
 function map:init_music()
@@ -144,7 +144,7 @@ end
 
 function map:init_tarin()
  
-  if game:get_value("main_quest_step") > 4 then
+  if game:is_step_done("tarin_saved") then
     tarin:remove()
     tarin_2:remove()
   else
@@ -156,11 +156,20 @@ function map:init_tarin()
 
 end
 
+-- Obtaining tail key
+function map:on_obtaining_treasure(treasure_item, treasure_variant, treasure_savegame_variable)
+
+  if treasure_item:get_name() == "tail_key" then
+    game:set_step_done("dungeon_1_key_obtained")
+  end
+
+end
+
 -- Chests events
 function forest_chest_1:on_opened()
 
   hero:start_treasure("tail_key", 1, "forest_chest_1", function()
-    if map:get_game():get_value("owl_3") ~= true and game:get_value("main_quest_step") == 6 then
+    if map:get_game():get_value("owl_3") ~= true and game:is_step_last("dungeon_1_key_obtained") then
       owl_manager:appear(map, 3, function()
       map:init_music()
       end)
@@ -182,7 +191,7 @@ end
 
 function lost_sensor:on_activated()
 
-  if raccoon_movement or game:get_value("main_quest_step") > 4 then
+  if raccoon_movement or game:is_step_done("tarin_saved") then
     return
   end
   for key, destructible in pairs(destructible_places) do
@@ -226,8 +235,7 @@ end
 
 function raccoon_lost_warning_sensor:on_activated()
 
-  if game:get_value("main_quest_step") < 5
-      and not map.raccoon_warning_done then
+  if not game:is_step_done("tarin_saved") and not map.raccoon_warning_done then
     map.raccoon_warning_done = true
     game:start_dialog("maps.out.forest.raccoon_lost_warning", function() 
       tarin:get_sprite():set_direction(3)
@@ -298,7 +306,7 @@ end
 -- NPCs events
 function tarin:on_interaction()
 
-  if game:get_value("main_quest_step") < 5 then
+  if not game:is_step_done("tarin_saved") then
     game:start_dialog("maps.out.forest.raccoon", function()
       tarin:get_sprite():set_direction(3)
       tarin_2:get_sprite():set_direction(3)
@@ -316,10 +324,10 @@ end
 
 function tarin:on_interaction_item(item)
 
-  if game:get_value("main_quest_step") > 4 then
+  if game:is_step_done("tarin_saved") then
     return
   end
-  if item:get_name() == "magic_powders_counter"  then
+  if item:get_name() == "magic_powder_counter"  then
     map:launch_cinematic_1()
   end
 
@@ -368,7 +376,7 @@ function change_movement_raccoon()
     raccoon_invisible:remove()
     tarin:get_sprite():set_animation("tired_raccoon")
     local timer1 = sol.timer.start(map, 1000, function()
-      game:set_value("main_quest_step", 5)
+      game:set_step_done("tarin_saved")
       racoon_position_8:set_enabled(false)
       tarin_2:remove()
       game:start_dialog("maps.out.forest.raccoon_to_tarin", function()
@@ -441,10 +449,11 @@ function map:launch_cinematic_1()
     map:set_cinematic_mode(true, options)
     raccoon_movement = true
     raccoon_invisible:set_enabled(true)
-    sol.audio.stop_music()
+    audio_manager:stop_music()
     local camera = map:get_camera()
     camera:start_manual()
     hero:unfreeze()
+    local symbol = tarin:create_symbol_exclamation(true)
     local m = sol.movement.create("straight")
     m:set_angle(math.pi / 2)
     m:set_max_distance(48)
@@ -455,16 +464,8 @@ function map:launch_cinematic_1()
     sprite:set_animation("shocking_raccoon")
     wait(1000)
     sprite:set_frame_delay(150)
+    symbol:remove()
     change_movement_raccoon()
   end)
-
-end
-
-function mushroom_sensor:on_activated()
-  
-  if mushroom:is_enabled() then
-    mushroom:set_enabled(false)
-    hero:start_treasure("mushroom", 1, "mushroom")
-  end
 
 end

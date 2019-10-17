@@ -5,6 +5,7 @@ properties{
   height = 512,
   min_layer = -1,
   max_layer = 2,
+  world = "test_world",
   tileset = "out/outside_main",
 }
 
@@ -89,6 +90,16 @@ tile{
   width = 64,
   height = 8,
   pattern = "984",
+}
+
+tile{
+  layer = -1,
+  x = 352,
+  y = 336,
+  enabled_at_start = false,
+  width = 64,
+  height = 56,
+  pattern = "111",
 }
 
 tile{
@@ -1122,7 +1133,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "2",
-  tileset = "addition/basic_terrain_test",
+  tileset = "testing/basic_terrain_test",
 }
 
 tile{
@@ -1132,7 +1143,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "3",
-  tileset = "addition/basic_terrain_test",
+  tileset = "testing/basic_terrain_test",
 }
 
 tile{
@@ -1142,7 +1153,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "4",
-  tileset = "addition/basic_terrain_test",
+  tileset = "testing/basic_terrain_test",
 }
 
 tile{
@@ -1152,7 +1163,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "5",
-  tileset = "addition/basic_terrain_test",
+  tileset = "testing/basic_terrain_test",
 }
 
 tile{
@@ -1162,7 +1173,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "6",
-  tileset = "addition/basic_terrain_test",
+  tileset = "testing/basic_terrain_test",
 }
 
 tile{
@@ -1172,7 +1183,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "7",
-  tileset = "addition/basic_terrain_test",
+  tileset = "testing/basic_terrain_test",
 }
 
 tile{
@@ -1182,7 +1193,7 @@ tile{
   width = 8,
   height = 8,
   pattern = "16",
-  tileset = "addition/basic_terrain_test",
+  tileset = "testing/basic_terrain_test",
 }
 
 tile{
@@ -1192,7 +1203,7 @@ tile{
   width = 8,
   height = 8,
   pattern = "11",
-  tileset = "addition/basic_terrain_test",
+  tileset = "testing/basic_terrain_test",
 }
 
 tile{
@@ -1202,7 +1213,7 @@ tile{
   width = 8,
   height = 8,
   pattern = "10",
-  tileset = "addition/basic_terrain_test",
+  tileset = "testing/basic_terrain_test",
 }
 
 tile{
@@ -1212,7 +1223,7 @@ tile{
   width = 8,
   height = 8,
   pattern = "15",
-  tileset = "addition/basic_terrain_test",
+  tileset = "testing/basic_terrain_test",
 }
 
 tile{
@@ -1222,7 +1233,7 @@ tile{
   width = 8,
   height = 8,
   pattern = "9",
-  tileset = "addition/basic_terrain_test",
+  tileset = "testing/basic_terrain_test",
 }
 
 tile{
@@ -1232,7 +1243,7 @@ tile{
   width = 8,
   height = 8,
   pattern = "18",
-  tileset = "addition/basic_terrain_test",
+  tileset = "testing/basic_terrain_test",
 }
 
 tile{
@@ -1242,7 +1253,7 @@ tile{
   width = 8,
   height = 8,
   pattern = "17",
-  tileset = "addition/basic_terrain_test",
+  tileset = "testing/basic_terrain_test",
 }
 
 tile{
@@ -1252,7 +1263,7 @@ tile{
   width = 8,
   height = 8,
   pattern = "8",
-  tileset = "addition/basic_terrain_test",
+  tileset = "testing/basic_terrain_test",
 }
 
 tile{
@@ -1262,7 +1273,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "12",
-  tileset = "addition/basic_terrain_test",
+  tileset = "testing/basic_terrain_test",
 }
 
 tile{
@@ -1272,7 +1283,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "13",
-  tileset = "addition/basic_terrain_test",
+  tileset = "testing/basic_terrain_test",
 }
 
 tile{
@@ -1282,7 +1293,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "14",
-  tileset = "addition/basic_terrain_test",
+  tileset = "testing/basic_terrain_test",
 }
 
 tile{
@@ -1292,7 +1303,7 @@ tile{
   width = 16,
   height = 16,
   pattern = "19",
-  tileset = "addition/basic_terrain_test",
+  tileset = "testing/basic_terrain_test",
 }
 
 tile{
@@ -1414,13 +1425,13 @@ jumper{
   width = 64,
   height = 8,
   direction = 6,
-  jump_length = 40,
+  jump_length = 48,
 }
 
 chest{
   layer = 0,
-  x = 72,
-  y = 197,
+  x = 112,
+  y = 141,
   treasure_name = "power_bracelet",
   sprite = "entities/chests/chest_small",
 }
@@ -1501,9 +1512,9 @@ teletransporter{
 
 chest{
   layer = 0,
-  x = 112,
-  y = 141,
-  treasure_name = "magic_powder",
+  x = 72,
+  y = 197,
+  treasure_name = "flippers",
   sprite = "entities/chests/chest_small",
 }
 

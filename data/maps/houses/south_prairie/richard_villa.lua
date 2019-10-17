@@ -3,16 +3,17 @@ local map = ...
 local game = map:get_game()
 
 -- Include scripts
+require("scripts/multi_events")
 local audio_manager = require("scripts/audio_manager")
 
-function map:on_started()
+map:register_event("on_started", function(map, destination)
   
   -- Music
   map:init_music()
   -- Entities
   map:init_map_entities()
 
-end
+end)
 
 -- Initialize the music of the map
 function map:init_music()
@@ -28,7 +29,7 @@ function map:init_map_entities()
     local x,y,layer = box_place:get_position()
     box:set_position(x,y,layer)
   end
-  if game:get_value("main_quest_step") > 14 then
+  if game:is_step_done("golden_leaved_returned") then
     local x,y,layer = richard_place:get_position()
     richard:set_position(x,y,layer)
   end
@@ -38,9 +39,9 @@ end
 -- Discussion with Richard
 function map:talk_to_richard() 
 
-  if game:get_value("main_quest_step") < 12 then
+  if not game:is_step_done("bowwow_returned") then
     game:start_dialog("maps.houses.south_prairie.richard_villa.richard_1")
-  elseif game:get_value("main_quest_step") > 14 then
+  elseif game:is_step_done("golden_leaved_returned") then
     game:start_dialog("maps.houses.south_prairie.richard_villa.richard_8")
   else
     local item = game:get_item("golden_leaves_counter")
@@ -56,7 +57,7 @@ function map:talk_to_richard()
     else 
       if num == 5 then
         game:start_dialog("maps.houses.south_prairie.richard_villa.richard_7", function()
-          game:set_value("main_quest_step", 15) 
+          game:set_step_done("golden_leaved_returned")
           item:set_amount(0)
           local movement = sol.movement.create("target")
           movement:set_speed(30)

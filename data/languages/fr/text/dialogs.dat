@@ -45,28 +45,11 @@ Je suis gelé!
 }
 
 dialog{
-  id = "_shop.amount_full",
+  id = "_treasure.acorn.1",
+  icon = "120",
   text = [[
-Tu es déjà au maximum !
-]],
-}
-
-dialog{
-  id = "_shop.not_enough_money",
-  skip = "all",
-  text = [[
-Désolé, mais tu n'as
-pas assez d'argent !
-]],
-}
-
-dialog{
-  id = "_shop.question",
-  question = "1",
-  text = [[
-Prix : $v rubis.
-Acheter
-Ne pas acheter
+Tu as le Gland ! 
+Tu seras mieux protégé contre les ennemis !
 ]],
 }
 
@@ -653,6 +636,15 @@ Tu pourrais même soulever... un éléphant !
 }
 
 dialog{
+  id = "_treasure.power_fragment.1",
+  icon = "121",
+  text = [[
+Un Fragment de Puissance !!! 
+Tu peux sentir l'énergie envahir ton corps !
+]],
+}
+
+dialog{
   id = "_treasure.quiver.2",
   icon = "58",
   text = [[
@@ -867,9 +859,8 @@ dialog{
   id = "items.mushroom.1",
   skip = "all",
   text = [[
-C'est le champignon que vous avez trouvé dans 
-les bois.
-Quel est-il ?$0
+C'est le champignon que vous avez trouvé dans les bois.
+Quel est-il ?
 Vous le placez au-dessus de votre tête et un arôme subtil exalte ton sens de l'odorat...
 ]],
 }
@@ -958,6 +949,13 @@ dialog{
   id = "maps.dungeons.10.welcome",
   text = [[
 Temple du Hibou
+]],
+}
+
+dialog{
+  id = "maps.dungeons.11.welcome",
+  text = [[
+OEUF SACRE
 ]],
 }
 
@@ -1791,9 +1789,8 @@ Ce ruban, c'est d'un chic !
 Il me le faut absolument...
 Tu l'échanges contre ma pâtée ? 
 
-
 Oui
-Non   
+Non
 ]],
 }
 
@@ -1844,6 +1841,8 @@ dialog{
   question = "1",
   text = [[
 Tu offres ce Yoshi à mon bébé ?  
+
+
 Oui
 Non
 ]],
@@ -1917,16 +1916,15 @@ dialog{
   id = "maps.houses.mabe_village.shop_2.merchant_1",
   text = [[
 Bienvenue !      
-Apporte ici ce que tu       
-veux acheter.
+Apporte ici ce que tu veux acheter.
 ]],
 }
 
 dialog{
   id = "maps.houses.mabe_village.shop_2.merchant_2",
   text = [[
-Hé! Une minute! 
-Tu dois payer!
+Hé! Une minute ! 
+Tu dois payer !
 ]],
 }
 
@@ -1934,8 +1932,7 @@ dialog{
   id = "maps.houses.mabe_village.shop_2.merchant_3",
   text = [[
 Désolé petit !   
-Tu n'as pas assez 
-de rubis. 
+Tu n'as pas assez de rubis. 
 Reviens donc plus tard.
 ]],
 }
@@ -1943,19 +1940,16 @@ Reviens donc plus tard.
 dialog{
   id = "maps.houses.mabe_village.shop_2.merchant_4",
   text = [[
-Mama mia ! Tu n'es 
-pas encore rôdé...  
-Pourquoi acheter des
-choses inutiles ?
+Mama mia ! Tu n'es pas encore rôdé...  
+Pourquoi acheter des choses inutiles ?
 ]],
 }
 
 dialog{
   id = "maps.houses.mabe_village.shop_2.merchant_5",
   text = [[
-Je t'avais bien dit de
-me payer. Tu vas le       
-regretter...
+Je t'avais bien dit de me payer.
+Tu vas le regretter...
 ]],
 }
 
@@ -1964,6 +1958,19 @@ dialog{
   text = [[
 Merci beaucoup ! 
 Et au plaisir !
+]],
+}
+
+dialog{
+  id = "maps.houses.mabe_village.shop_2.product_arrow",
+  question = "1",
+  text = [[
+10 Flèches :  
+10 rubis !       
+
+
+Oui
+Non
 ]],
 }
 
@@ -2010,8 +2017,7 @@ dialog{
   id = "maps.houses.mabe_village.shop_2.product_shield",
   question = "1",
   text = [[
-Bouclier        
-personnalisé.   
+Bouclier personnalisé.   
 20 rubis !  
 
 Oui
@@ -2024,7 +2030,7 @@ dialog{
   question = "1",
   text = [[
 Pelle de qualité
-200 rubis!   
+200 rubis !   
 C'est pas donné !
 
 Oui
@@ -2333,13 +2339,12 @@ dialog{
   id = "maps.houses.south_mabe_village.sales_house_o_bananas.alligator_2",
   question = "1",
   text = [[
-Mais qu'est-ce  
-que tu as là ?   
-Je t'en prie, 
-donne-moi cette
-patée ...     
+Mais qu'est-ce que tu as là ?   
+Je t'en prie, donne-moi cette patée ...     
 Je t'en SUPPLIE !
 Alors, que décides-tu ?     
+
+
 Oui
 Non
 ]],
@@ -2349,9 +2354,7 @@ dialog{
   id = "maps.houses.south_mabe_village.sales_house_o_bananas.alligator_3",
   text = [[
 Tant pis !       
-Mais si tu changes 
-d'avis, reviens vite 
-me voir !
+Mais si tu changes d'avis, reviens vite me voir !
 ]],
 }
 
@@ -2369,9 +2372,8 @@ dialog{
 MIAM MIAM!      
 ... ... ... ... 
 Quel délice !    
-En récompense, je t'offre
-des Bananes. Hmm !   
-Quel régal !
+En récompense, je t'offre des Bananes.
+Hmm ! Quel régal !
 ]],
 }
 
@@ -2743,10 +2745,8 @@ Coquillages
 dialog{
   id = "maps.out.egg_of_the_dream_fish.sign_1",
   text = [[
-Tu es près du Plateau 
-Tartare.
-Le photographe n'est
-pas loin.
+Tu es près du Plateau Tartare.
+Le photographe n'est pas loin.
 ]],
 }
 
@@ -4215,8 +4215,8 @@ le plus beau des héros !
 dialog{
   id = "scripts.meta.map.fairy",
   text = [[
-Voici un petit bonus.    
-Je restaure tous tes Coeurs !
+Je vais panser tes blessures et remonter ton énergie.    
+Ferme les yeux.
 ]],
 }
 
