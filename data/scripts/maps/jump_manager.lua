@@ -96,6 +96,7 @@ function jump_manager.trigger_event(entity, event)
   local desc=state_object and state_object.get_description and state_object:get_description() or ""
   sol.timer.start(entity, 10, function()
       if event=="jump complete" then
+        entity:play_ground_effect()
         if desc=="jumping" then
           entity:unfreeze()
         end

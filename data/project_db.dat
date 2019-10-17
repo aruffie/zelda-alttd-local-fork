@@ -450,6 +450,10 @@ sprite{ id = "entities/explosion_boss", description = "Explosion boss" }
 sprite{ id = "entities/fire", description = "Fire" }
 sprite{ id = "entities/fire_mask", description = "Fire mask" }
 sprite{ id = "entities/fisherman_ledger", description = "Fisheman ledger" }
+sprite{ id = "entities/ground_effects/fall_on_hole", description = "ground_effects/fall_on_hole" }
+sprite{ id = "entities/ground_effects/lava_splash", description = "ground_effects/lava_splash" }
+sprite{ id = "entities/ground_effects/leaves", description = "ground_effects/leaves" }
+sprite{ id = "entities/ground_effects/water_splash", description = "ground_effects/water_splash" }
 sprite{ id = "entities/grounds/color_platform_green", description = "Color platform green" }
 sprite{ id = "entities/grounds/color_platform_orange", description = "Color platform orange" }
 sprite{ id = "entities/grounds/color_platform_red", description = "Color platform red" }
@@ -560,10 +564,6 @@ sprite{ id = "entities/turtlerock_head", description = "Turtlerock head" }
 sprite{ id = "entities/utils/cliff", description = "Cliff marker" }
 sprite{ id = "entities/utils/non_diggable", description = "Non diggable" }
 sprite{ id = "entities/vacuum_cleaner_ground", description = "Vacuum cleaner ground" }
-sprite{ id = "ground_effects/fall_on_hole", description = "ground_effects/fall_on_hole" }
-sprite{ id = "ground_effects/lava_splash", description = "ground_effects/lava_splash" }
-sprite{ id = "ground_effects/leaves", description = "ground_effects/leaves" }
-sprite{ id = "ground_effects/water_splash", description = "ground_effects/water_splash" }
 sprite{ id = "hero/fire_rod", description = "Fire rod" }
 sprite{ id = "hero/ground1", description = "Grass under hero" }
 sprite{ id = "hero/ground2", description = "Shallow water under hero" }
