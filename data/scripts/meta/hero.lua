@@ -167,11 +167,11 @@ function hero_meta.play_ground_effect(hero)
 
   if ground=="shallow_water" then
     --print "landed in water"
-    hero:show_ground_effect("water_splash")
+    hero:show_ground_effect("water")
     audio_manager:play_sound("hero/wade1")
   elseif ground=="grass" then
     --print "landed in grass"
-    hero:show_ground_effect("leaves")
+    hero:show_ground_effect("grass")
     audio_manager:play_sound("walk_on_grass")
   elseif ground=="deep_water" or ground=="lava" then
     --print "plundged in some fluid"
