@@ -450,10 +450,8 @@ sprite{ id = "entities/explosion_boss", description = "Explosion boss" }
 sprite{ id = "entities/fire", description = "Fire" }
 sprite{ id = "entities/fire_mask", description = "Fire mask" }
 sprite{ id = "entities/fisherman_ledger", description = "Fisheman ledger" }
-sprite{ id = "entities/ground_effects/fall_on_hole", description = "ground_effects/fall_on_hole" }
-sprite{ id = "entities/ground_effects/lava_splash", description = "ground_effects/lava_splash" }
-sprite{ id = "entities/ground_effects/leaves", description = "ground_effects/leaves" }
-sprite{ id = "entities/ground_effects/water_splash", description = "ground_effects/water_splash" }
+sprite{ id = "entities/ground_effects/grass", description = "ground_effects/leaves" }
+sprite{ id = "entities/ground_effects/water", description = "ground_effects/water_splash" }
 sprite{ id = "entities/grounds/color_platform_green", description = "Color platform green" }
 sprite{ id = "entities/grounds/color_platform_orange", description = "Color platform orange" }
 sprite{ id = "entities/grounds/color_platform_red", description = "Color platform red" }
@@ -498,6 +496,7 @@ sprite{ id = "entities/items/bananas", description = "Bananas" }
 sprite{ id = "entities/items/bomb_fly", description = "Bomb fly" }
 sprite{ id = "entities/items/heart", description = "Heart" }
 sprite{ id = "entities/items/heart_fly", description = "Heart fly" }
+sprite{ id = "entities/items/honey", description = "Honey" }
 sprite{ id = "entities/items/item_shop_arrow", description = "Item shop arrow" }
 sprite{ id = "entities/items/item_shop_bomb", description = "Item shop bomb" }
 sprite{ id = "entities/items/item_shop_bow", description = "Item shop bow" }
@@ -829,6 +828,7 @@ music{ id = "snes/32_kanalet_castle", description = "33 - Kanalet Castle" }
 music{ id = "snes/33_level_3_key_cavern", description = "33 - Level 3 - Key Cavern" }
 music{ id = "snes/34_the_sea_lily_bell", description = "34 - The Sea Lily Bell" }
 music{ id = "snes/41_christine_house", description = "41 - Christine's House" }
+music{ id = "snes/44_song_of_marin", description = "44 - Song of Marin" }
 music{ id = "snes/46_tal_tal_mountain_range", description = "46 - Tal Tal Mountain Range" }
 music{ id = "snes/47_level_4_angler_tunnel", description = "47 - Level 4 - Angler Tunnel" }
 music{ id = "snes/48_the_surf_harp", description = "48 - The Surf Harp" }
@@ -1959,7 +1959,6 @@ file{ path = "maps/houses/mambos_cave", author = "Benjamin Schweitzer", license 
 file{ path = "maps/houses/mambos_cave/cuccos_house.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
 file{ path = "maps/houses/mambos_cave/cuccos_house.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/houses/martha_bay", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/houses/martha_bay/mask_shrine", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
 file{ path = "maps/houses/martha_bay/telephone_booth_7.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
 file{ path = "maps/houses/martha_bay/telephone_booth_7.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/houses/martha_bay/telephone_booth_8.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }

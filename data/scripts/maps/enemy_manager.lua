@@ -99,7 +99,6 @@ function enemy_manager:create_teletransporter_if_small_boss_dead(map, sound)
   local savegame = "dungeon_" .. dungeon .. "_small_boss"
   if game:get_value(savegame) then
     for teletransporter in map:get_entities("midpoint_teletransporter") do
-      print ("found "..teletransporter:get_name())
       teletransporter:set_enabled(true)
     end
 

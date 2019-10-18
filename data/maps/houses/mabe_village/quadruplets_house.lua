@@ -67,6 +67,7 @@ function map:talk_to_mother()
   local variant = item:get_variant()
   if not game:is_step_done("dungeon_3_completed") then
     if variant == 1 then
+      local symbol = mother:create_symbol_exclamation(true)
       game:start_dialog("maps.houses.mabe_village.quadruplets_house.mother_2", function(answer)
         if answer == 1 then
             game:start_dialog("maps.houses.mabe_village.quadruplets_house.mother_4", function()
@@ -78,6 +79,7 @@ function map:talk_to_mother()
             mother:get_sprite():set_direction(3)
           end)
         end
+        symbol:remove()
       end)
     elseif variant > 1 then
       game:start_dialog("maps.houses.mabe_village.quadruplets_house.mother_5", function()

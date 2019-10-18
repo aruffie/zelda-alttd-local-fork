@@ -36,6 +36,6 @@ require("scripts/maps/companion_manager")
 require("scripts/maps/teletransporter_manager")
 require("scripts/maps/cinematic_manager")
 require("scripts/coroutine_helper")
-require("scripts/libs/iter.lua")() --adds iterlua to _G
+require("scripts/lib/iter.lua")() --adds iterlua to _G
 
 return true

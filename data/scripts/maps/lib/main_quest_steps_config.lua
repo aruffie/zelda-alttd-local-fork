@@ -41,7 +41,7 @@ local steps={
 }
 
 local index={}
-for k,v in pairs(steps) do
+for k,v in ipairs(steps) do
   index[v]=k
 end
 return index

@@ -24,7 +24,6 @@ sensor_meta:register_event("on_activated", function(sensor)
   local game = sensor:get_game()
   local map = sensor:get_map()
   local name = sensor:get_name()
-  print ("sensor "..name.."has been triggered")
   -- Sensors named "to_layer_X_sensor" move the hero on that layer.
   -- TODO use a custom entity or a wall to block enemies and thrown items?
   if name:match("^layer_up_sensor") or sensor:get_property("layer_up") then
@@ -45,7 +44,6 @@ sensor_meta:register_event("on_activated", function(sensor)
   -- when falling into a hole or other bad ground.
   if name:match("^save_solid_ground_sensor") or sensor:get_property("save_solid_ground") then
     if not hero.respawn_point_saved then
-    print "save ground"
       hero:save_solid_ground()
       hero.respawn_point_saved=true
     end

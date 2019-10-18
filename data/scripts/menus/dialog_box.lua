@@ -6,7 +6,7 @@
 require("scripts/multi_events")
 local language_manager = require("scripts/language_manager")
 local audio_manager = require("scripts/audio_manager")
-local text_utils = require("scripts/libs/text_utils")
+local text_utils = require("scripts/lib/text_utils")
 -- Creates and sets up a dialog box for the specified game.
 local function initialize_dialog_box_features(game)
 
@@ -60,7 +60,7 @@ local function initialize_dialog_box_features(game)
     fast = 20  -- Default.
   }
   local letter_sound_delay = 100
-  local box_width = 220
+  local box_width = 220 -- Todo change this box width when an icon dialog is visible.
   local box_height = 60
 
   -- Initialize dialog box data.

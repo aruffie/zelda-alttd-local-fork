@@ -9,7 +9,7 @@ also destroy all other entities with the prefix: entity_name .. "_unstable_assoc
 local entity = ...
 local default_sprite_id = "entities/cave_hole"
 local break_sound = "misc/ground_crumble"
-local time_resistance = 800 -- The time it resists with hero above. In milliseconds.
+local time_resistance = 1500 -- The time it resists with hero above. In milliseconds.
 
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")

@@ -44,7 +44,7 @@ end
 function map:init_map_entities()
   
   -- Marin
-  if not game:is_step_last("started_looking_for_marin") then  then
+  if not game:is_step_last("started_looking_for_marin") then
     marin:set_enabled(false)
   end
   -- Wart cave

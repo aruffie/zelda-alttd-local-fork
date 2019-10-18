@@ -859,9 +859,8 @@ dialog{
   id = "items.mushroom.1",
   skip = "all",
   text = [[
-C'est le champignon que vous avez trouvé dans 
-les bois.
-Quel est-il ?$0
+C'est le champignon que vous avez trouvé dans les bois.
+Quel est-il ?
 Vous le placez au-dessus de votre tête et un arôme subtil exalte ton sens de l'odorat...
 ]],
 }
@@ -1790,9 +1789,8 @@ Ce ruban, c'est d'un chic !
 Il me le faut absolument...
 Tu l'échanges contre ma pâtée ? 
 
-
 Oui
-Non   
+Non
 ]],
 }
 
@@ -1843,6 +1841,8 @@ dialog{
   question = "1",
   text = [[
 Tu offres ce Yoshi à mon bébé ?  
+
+
 Oui
 Non
 ]],
@@ -2339,13 +2339,12 @@ dialog{
   id = "maps.houses.south_mabe_village.sales_house_o_bananas.alligator_2",
   question = "1",
   text = [[
-Mais qu'est-ce  
-que tu as là ?   
-Je t'en prie, 
-donne-moi cette
-patée ...     
+Mais qu'est-ce que tu as là ?   
+Je t'en prie, donne-moi cette patée ...     
 Je t'en SUPPLIE !
 Alors, que décides-tu ?     
+
+
 Oui
 Non
 ]],
@@ -2355,9 +2354,7 @@ dialog{
   id = "maps.houses.south_mabe_village.sales_house_o_bananas.alligator_3",
   text = [[
 Tant pis !       
-Mais si tu changes 
-d'avis, reviens vite 
-me voir !
+Mais si tu changes d'avis, reviens vite me voir !
 ]],
 }
 
@@ -2375,9 +2372,8 @@ dialog{
 MIAM MIAM!      
 ... ... ... ... 
 Quel délice !    
-En récompense, je t'offre
-des Bananes. Hmm !   
-Quel régal !
+En récompense, je t'offre des Bananes.
+Hmm ! Quel régal !
 ]],
 }
 
@@ -2749,10 +2745,8 @@ Coquillages
 dialog{
   id = "maps.out.egg_of_the_dream_fish.sign_1",
   text = [[
-Tu es près du Plateau 
-Tartare.
-Le photographe n'est
-pas loin.
+Tu es près du Plateau Tartare.
+Le photographe n'est pas loin.
 ]],
 }
 
@@ -4221,8 +4215,8 @@ le plus beau des héros !
 dialog{
   id = "scripts.meta.map.fairy",
   text = [[
-Voici un petit bonus.    
-Je restaure tous tes Coeurs !
+Je vais panser tes blessures et remonter ton énergie.    
+Ferme les yeux.
 ]],
 }
 
