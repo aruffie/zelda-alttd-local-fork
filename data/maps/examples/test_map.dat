@@ -1389,6 +1389,116 @@ tile{
   pattern = "1041",
 }
 
+tile{
+  layer = 0,
+  x = 248,
+  y = 280,
+  width = 16,
+  height = 16,
+  pattern = "2",
+  tileset = "testing/labo",
+}
+
+tile{
+  layer = 0,
+  x = 264,
+  y = 264,
+  width = 16,
+  height = 16,
+  pattern = "2",
+  tileset = "testing/labo",
+}
+
+tile{
+  layer = 0,
+  x = 248,
+  y = 272,
+  width = 8,
+  height = 8,
+  pattern = "6",
+  tileset = "testing/labo",
+}
+
+tile{
+  layer = 0,
+  x = 256,
+  y = 264,
+  width = 8,
+  height = 8,
+  pattern = "6",
+  tileset = "testing/labo",
+}
+
+tile{
+  layer = 0,
+  x = 264,
+  y = 256,
+  width = 8,
+  height = 8,
+  pattern = "6",
+  tileset = "testing/labo",
+}
+
+tile{
+  layer = 0,
+  x = 240,
+  y = 280,
+  width = 8,
+  height = 8,
+  pattern = "6",
+  tileset = "testing/labo",
+}
+
+tile{
+  layer = 0,
+  x = 232,
+  y = 288,
+  width = 8,
+  height = 8,
+  pattern = "6",
+  tileset = "testing/labo",
+}
+
+tile{
+  layer = 0,
+  x = 272,
+  y = 248,
+  width = 8,
+  height = 8,
+  pattern = "6",
+  tileset = "testing/labo",
+}
+
+tile{
+  layer = 0,
+  x = 240,
+  y = 288,
+  width = 8,
+  height = 8,
+  pattern = "1",
+  tileset = "testing/labo",
+}
+
+tile{
+  layer = 0,
+  x = 256,
+  y = 272,
+  width = 8,
+  height = 8,
+  pattern = "1",
+  tileset = "testing/labo",
+}
+
+tile{
+  layer = 0,
+  x = 272,
+  y = 256,
+  width = 8,
+  height = 8,
+  pattern = "1",
+  tileset = "testing/labo",
+}
+
 wall{
   layer = 0,
   x = 208,
@@ -1528,24 +1638,24 @@ chest{
 
 chest{
   layer = 0,
-  x = 312,
-  y = 237,
+  x = 296,
+  y = 181,
   treasure_name = "sword",
   sprite = "entities/chests/chest_small",
 }
 
 chest{
   layer = 0,
-  x = 296,
-  y = 237,
+  x = 280,
+  y = 181,
   treasure_name = "feather",
   sprite = "entities/chests/chest_small",
 }
 
 chest{
   layer = 0,
-  x = 280,
-  y = 237,
+  x = 264,
+  y = 181,
   treasure_name = "pegasus_shoes",
   sprite = "entities/chests/chest_small",
 }
