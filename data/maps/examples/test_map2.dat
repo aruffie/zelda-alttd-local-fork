@@ -728,6 +728,13 @@ enemy{
   breed = "hardhat_beetle",
 }
 
+destructible{
+  layer = 0,
+  x = 432,
+  y = 301,
+  sprite = "entities/destructibles/pot",
+}
+
 tile{
   layer = 2,
   x = 0,
