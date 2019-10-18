@@ -8,12 +8,13 @@ function entity_manager:fall(entity)
         entity:remove()
       end)
   else
-    --print "Warning : \"falling\" animation not found"
+    print "Warning : \"falling\" animation not found"
     entity:remove()
   end
 end
 
 function entity_manager:create_falling_entity(base_entity)
+  print "DOWN WE GOOOOOO !"
   local x, y, layer = base_entity:get_position()
   local sprite
   
