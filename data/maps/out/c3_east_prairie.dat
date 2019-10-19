@@ -14386,6 +14386,12 @@ npc{
   layer = 2,
   x = 128,
   y = 557,
+  properties = {
+    {
+      key = "model",
+      value = "statue_owl_outside",
+    },
+  },
   direction = 3,
   subtype = 1,
   sprite = "npc/statues/owl",

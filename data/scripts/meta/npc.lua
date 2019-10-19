@@ -6,15 +6,6 @@ local npc_meta = sol.main.get_metatable("npc")
 local audio_manager = require("scripts/audio_manager")
 
 npc_meta:register_event("on_created", function(npc)
-
-  local name = npc:get_name()
-  if name == nil then
-    return
-  end
-
-  if name:match("^walking_npc") then
-    npc:random_walk()
-  end
   
   local model = npc:get_property("model")
   if model ~= nil then
@@ -32,19 +23,6 @@ function npc_meta:is_hookable()
   end
 
   return sprite:get_animation_set() == "entities/sign"
-  
-end
-
--- Makes the NPC randomly walk with the given optional speed.
-function npc_meta:random_walk(speed)
-
-  local movement = sol.movement.create("random_path")
-
-  if speed ~= nil then
-    movement:set_speed(speed)
-  end
-
-  movement:start(self)
   
 end
 

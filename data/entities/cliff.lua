@@ -107,6 +107,7 @@ local function cliff_collision(cliff, entity)
     end
 
   end
+
 end
 
 cliff:set_visible(false)

@@ -18166,10 +18166,19 @@ npc{
   layer = 1,
   x = 496,
   y = 645,
+  properties = {
+    {
+      key = "model",
+      value = "statue_owl_outside",
+    },
+    {
+      key = "dialog",
+      value = "maps.out.west_mt_tamaranch.owl_statue_1",
+    },
+  },
   direction = 3,
   subtype = 1,
   sprite = "npc/statues/owl",
-  behavior = "dialog#maps.out.west_mt_tamaranch.owl_statue_1",
 }
 
 destination{
