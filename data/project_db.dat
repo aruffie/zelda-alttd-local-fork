@@ -422,6 +422,7 @@ sprite{ id = "entities/doors/door_normal_cave", description = "Cave door" }
 sprite{ id = "entities/doors/door_small_key", description = "Small key door" }
 sprite{ id = "entities/doors/door_very_weak_wall", description = "Very weak wall" }
 sprite{ id = "entities/doors/door_wallturn_dungeon_1", description = "Wallturn door (dungeon 1)" }
+sprite{ id = "entities/doors/door_wallturn_dungeon_10", description = "Wallturn  door dungeon 10" }
 sprite{ id = "entities/doors/door_wallturn_dungeon_2", description = "Wallturn door (dungeon 2)" }
 sprite{ id = "entities/doors/door_wallturn_dungeon_3", description = "Wallturn door (dungeon 3)" }
 sprite{ id = "entities/doors/door_wallturn_dungeon_5", description = "Wallturn door (dungeon 5)" }

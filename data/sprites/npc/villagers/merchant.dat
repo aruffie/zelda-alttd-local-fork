@@ -23,6 +23,17 @@ animation{
   },
 }
 animation{
+  name = "attack",
+  src_image = "npc/villagers/merchant.png",
+  frame_delay = 100,
+  directions = {
+    { x = 0, y = 96, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 3 },
+    { x = 0, y = 96, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 3 },
+    { x = 0, y = 96, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 3 },
+    { x = 0, y = 96, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 3 },
+  },
+}
+animation{
   name = "stopped",
   src_image = "npc/villagers/merchant.png",
   directions = {
