@@ -22019,6 +22019,22 @@ destructible{
   ground = "grass",
 }
 
+teletransporter{
+  name = "temp_owl_temple_2",
+  layer = 1,
+  x = 784,
+  y = 208,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
+  width = 16,
+  height = 16,
+  destination_map = "houses/kanalet_castle/kanalet_castle_1f",
+}
+
 tile{
   layer = 2,
   x = 560,
