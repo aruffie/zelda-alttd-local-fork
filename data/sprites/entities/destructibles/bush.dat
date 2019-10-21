@@ -9,6 +9,17 @@ animation{
   },
 }
 animation{
+  name = "burning",
+  src_image = "entities/destructibles/bush.png",
+  frame_delay = 100,
+  directions = {
+    { x = 0, y = 64, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 6 },
+    { x = 0, y = 64, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 6 },
+    { x = 0, y = 64, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 6 },
+    { x = 0, y = 64, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 6 },
+  },
+}
+animation{
   name = "destroy",
   src_image = "entities/destructibles/bush.png",
   frame_delay = 100,
@@ -17,6 +28,17 @@ animation{
     { x = 0, y = 24, frame_width = 40, frame_height = 48, origin_x = 24, origin_y = 32, num_frames = 8 },
     { x = 0, y = 24, frame_width = 40, frame_height = 48, origin_x = 24, origin_y = 32, num_frames = 8 },
     { x = 0, y = 24, frame_width = 40, frame_height = 48, origin_x = 24, origin_y = 32, num_frames = 8 },
+  },
+}
+animation{
+  name = "falling",
+  src_image = "entities/destructibles/bush.png",
+  frame_delay = 80,
+  directions = {
+    { x = 48, y = 0, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 13, num_frames = 6 },
+    { x = 48, y = 0, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 13, num_frames = 6 },
+    { x = 48, y = 0, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 13, num_frames = 6 },
+    { x = 48, y = 0, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 13, num_frames = 6 },
   },
 }
 animation{
