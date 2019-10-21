@@ -14770,26 +14770,54 @@ npc{
   layer = 0,
   x = 1760,
   y = 757,
+  properties = {
+    {
+      key = "model",
+      value = "statue_owl_dungeon",
+    },
+    {
+      key = "dialog",
+      value = "maps.dungeons.1.owl_1",
+    },
+  },
   direction = 3,
   subtype = 1,
   sprite = "npc/statues/owl_dungeon_1",
 }
 
 npc{
-  name = "owl_2",
   layer = 0,
   x = 752,
   y = 517,
+  properties = {
+    {
+      key = "model",
+      value = "statue_owl_dungeon",
+    },
+    {
+      key = "dialog",
+      value = "maps.dungeons.1.owl_2",
+    },
+  },
   direction = 3,
   subtype = 1,
   sprite = "npc/statues/owl_dungeon_1",
 }
 
 npc{
-  name = "owl_3",
   layer = 0,
   x = 480,
   y = 517,
+  properties = {
+    {
+      key = "model",
+      value = "statue_owl_dungeon",
+    },
+    {
+      key = "dialog",
+      value = "maps.dungeons.1.owl_3",
+    },
+  },
   direction = 3,
   subtype = 1,
   sprite = "npc/statues/owl_dungeon_1",

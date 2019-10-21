@@ -14626,6 +14626,12 @@ enemy{
   layer = 1,
   x = 572,
   y = 509,
+  properties = {
+    {
+      key = "is_bowwow_friend",
+      value = "true",
+    },
+  },
   direction = 3,
   breed = "chicken",
 }
@@ -14635,6 +14641,12 @@ enemy{
   layer = 1,
   x = 684,
   y = 589,
+  properties = {
+    {
+      key = "is_bowwow_friend",
+      value = "true",
+    },
+  },
   direction = 3,
   breed = "chicken",
 }
@@ -14643,6 +14655,12 @@ enemy{
   layer = 1,
   x = 804,
   y = 381,
+  properties = {
+    {
+      key = "is_bowwow_friend",
+      value = "true",
+    },
+  },
   direction = 3,
   breed = "chicken",
 }
@@ -18994,6 +19012,12 @@ enemy{
   layer = 1,
   x = 348,
   y = 605,
+  properties = {
+    {
+      key = "is_bowwow_friend",
+      value = "true",
+    },
+  },
   direction = 3,
   breed = "chicken",
 }
@@ -21597,6 +21621,12 @@ enemy{
   layer = 1,
   x = 408,
   y = 277,
+  properties = {
+    {
+      key = "is_bowwow_friend",
+      value = "true",
+    },
+  },
   direction = 3,
   breed = "chicken",
 }
