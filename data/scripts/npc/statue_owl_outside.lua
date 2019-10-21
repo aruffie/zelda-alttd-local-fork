@@ -5,7 +5,6 @@ return function(statue_owl_outside)
 
 -- Include scripts
   require("scripts/multi_events")
-  local audio_manager = require("scripts/audio_manager")
   
   statue_owl_outside:register_event("on_interaction", function(map, destination)
 
