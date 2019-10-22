@@ -2196,17 +2196,6 @@ Salut ! CLIC !
 }
 
 dialog{
-  id = "maps.houses.phone_booth.30",
-  text = [[
-DRING DRING !!   
-Pépé le Ramollo à l'appareil... 
-Tu devrais ramener Toutou à Mme Miaou Miaou.
-Elle sera folle de joie.        
-Salut ! CLIC !
-]],
-}
-
-dialog{
   id = "maps.houses.phone_booth.31",
   text = [[
 DRING DRING !!   
@@ -2272,13 +2261,24 @@ dialog{
   text = [[
 DRING DRING !!   
 Pépé le Ramollo à l'appareil... 
-Si tu veux des bananes,  parle de nouveau aux gens du village.
+Tu devrais ramener Toutou à Mme Miaou Miaou.
+Elle sera folle de joie.        
 Salut ! CLIC !
 ]],
 }
 
 dialog{
   id = "maps.houses.phone_booth.6",
+  text = [[
+DRING DRING !!   
+Pépé le Ramollo à l'appareil... 
+Si tu veux des bananes,  parle de nouveau aux gens du village.
+Salut ! CLIC !
+]],
+}
+
+dialog{
+  id = "maps.houses.phone_booth.7",
   text = [[
 DRING DRING !!   
 Pépé le Ramollo à l'appareil... 
@@ -2290,7 +2290,7 @@ Salut ! CLIC !
 }
 
 dialog{
-  id = "maps.houses.phone_booth.7",
+  id = "maps.houses.phone_booth.8",
   text = [[
 DRRING! DRRING ! 
 C'est moi ! Pépé !
@@ -2302,7 +2302,7 @@ CLIC !
 }
 
 dialog{
-  id = "maps.houses.phone_booth.8",
+  id = "maps.houses.phone_booth.8_old",
   text = [[
 DRING DRING !!   
 Pépé le Ramollo à l'appareil... 

@@ -371,7 +371,7 @@ sprite{ id = "entities/blocks/block", description = "Block" }
 sprite{ id = "entities/blocks/block_small_key", description = "Block small key" }
 sprite{ id = "entities/blocks/box", description = "Box" }
 sprite{ id = "entities/blocks/stone_brown", description = "Stone brown" }
-sprite{ id = "entities/blocks/stone_brown weak", description = "Stone brown weak" }
+sprite{ id = "entities/blocks/stone_brown_weak", description = "Stone brown weak" }
 sprite{ id = "entities/bomb", description = "Bomb" }
 sprite{ id = "entities/bomb_arrow", description = "Bomb Arrow" }
 sprite{ id = "entities/boomerang1", description = "Boomerang 1" }

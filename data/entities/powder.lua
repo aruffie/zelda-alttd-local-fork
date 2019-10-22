@@ -104,7 +104,7 @@ powder:add_collision_test(bush_collision_test, function(powder, entity)
     bush:remove()
 
     local bush_destroyed_sprite = powder:create_sprite(bush_sprite_id)
-    local x, y = powder :get_position()
+    local x, y = powder:get_position()
     bush_destroyed_sprite:set_xy(bush_x - x, bush_y - y)
     bush_destroyed_sprite:set_animation("destroy")
   end
