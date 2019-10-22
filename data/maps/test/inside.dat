@@ -734,3 +734,20 @@ block{
   pullable = false,
 }
 
+block{
+  layer = 0,
+  x = 384,
+  y = 213,
+  sprite = "entities/blocks/block",
+  pushable = true,
+  pullable = false,
+}
+
+enemy{
+  layer = 0,
+  x = 408,
+  y = 213,
+  direction = 0,
+  breed = "goponga_flower",
+}
+
