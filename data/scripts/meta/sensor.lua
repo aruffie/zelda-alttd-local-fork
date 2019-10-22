@@ -23,7 +23,7 @@ sensor_meta:register_event("on_activated", function(sensor)
   local hero = sensor:get_map():get_hero()
   local game = sensor:get_game()
   local map = sensor:get_map()
-  local name = sensor:get_name()
+  local name = sensor:get_name() or ""
   -- Sensors named "to_layer_X_sensor" move the hero on that layer.
   -- TODO use a custom entity or a wall to block enemies and thrown items?
   if sensor:get_property("layer_up") or name:match("^layer_up_sensor") then
@@ -119,7 +119,7 @@ function sensor_meta:on_activated_repeat()
   local hero = self:get_map():get_hero()
   local game = self:get_game()
   local map = self:get_map()
-  local name = self:get_name()
+  local name = self:get_name() or ""
 
   -- Sensors called open_house_xxx_sensor automatically open an outside house door tile.
   local door_name = name:match("^open_house_([a-zA-X0-9_]+)_sensor")
