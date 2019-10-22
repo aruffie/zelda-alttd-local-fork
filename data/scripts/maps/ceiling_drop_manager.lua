@@ -113,7 +113,6 @@ function object:create(meta)
     movement:set_angle(3 * math.pi / 2)
     movement:set_speed(192)
     movement:set_ignore_obstacles(true)
-    movement:set_ignore_suspend(true)
     movement:start(target_sprite, function()
         -- Movement finished, disable the falling movement
         first_active_sprite = nil
