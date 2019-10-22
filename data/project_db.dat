@@ -90,9 +90,6 @@ map{ id = "examples/others", description = "Others" }
 map{ id = "examples/outside_store", description = "Outside Store" }
 map{ id = "examples/reflection_tests", description = "Test reflections" }
 map{ id = "examples/sideview_cave", description = "Sideview cave example" }
-map{ id = "examples/sideview_test_map", description = "Test map (sideviews)" }
-map{ id = "examples/test_map", description = "Test map" }
-map{ id = "examples/test_map2", description = "Test map 2" }
 map{ id = "houses/east_prairie/telephone_booth_5", description = "Telephone booth 5" }
 map{ id = "houses/egg_of_the_dream_fish/photographer_house", description = "Photographer house" }
 map{ id = "houses/graveyard/drugstore", description = "Drugstore" }
@@ -150,6 +147,9 @@ map{ id = "sideviews/kanalet_castle/sideview_1", description = "Sideview 1" }
 map{ id = "sideviews/mabe_village/sideview_1", description = "Sideview 1" }
 map{ id = "sideviews/martha_bay/sideview_1", description = "Sideview 1" }
 map{ id = "sideviews/martha_bay/sideview_2", description = "Sideview 2" }
+map{ id = "test/inside", description = "Test map 2" }
+map{ id = "test/outside", description = "Test map" }
+map{ id = "test/sideview", description = "Test map (sideviews)" }
 map{ id = "trial/0", description = "Entry" }
 map{ id = "trial/1", description = "Level 1" }
 map{ id = "trial/2", description = "Level 2" }
