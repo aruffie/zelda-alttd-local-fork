@@ -22,6 +22,7 @@ entity:register_event("on_created", function()
   -- Add an unstable floor (do not save ground position!!!).
   entity:set_modified_ground("traversable")
   entity:set_property("unstable_floor", "true")
+  entity:set_drawn_in_y_order(false)
   -- Create sprite if necessary.
   if entity:get_sprite() == nil then entity:create_sprite(default_sprite_id) end
   -- Add collision test. Break if the hero stays above more time than time_resistance.
