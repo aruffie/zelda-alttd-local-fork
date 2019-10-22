@@ -58,6 +58,7 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_size(24, 16)
   enemy:set_origin(12, 13)
   enemy:set_obstacle_behavior("flying")
+  
 end)
 
 -- Restart settings.

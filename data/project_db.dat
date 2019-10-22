@@ -367,7 +367,6 @@ sprite{ id = "entities/animals/seagull", description = "Seagull" }
 sprite{ id = "entities/animals/seagull_small", description = "Seagull small" }
 sprite{ id = "entities/animals/wart_brothers", description = "Wart's brothers" }
 sprite{ id = "entities/arrow", description = "Arrow" }
-sprite{ id = "entities/blocks/block", description = "Block" }
 sprite{ id = "entities/blocks/block_small_key", description = "Block small key" }
 sprite{ id = "entities/blocks/box", description = "Box" }
 sprite{ id = "entities/blocks/stone_brown", description = "Stone brown" }
@@ -436,10 +435,8 @@ sprite{ id = "entities/doors/door_weak_wall", description = "Weak wall" }
 sprite{ id = "entities/doors/door_weak_wall_out", description = "Outside weak wall" }
 sprite{ id = "entities/dungeons/dungeon_6", description = "Dungeon 6" }
 sprite{ id = "entities/dungeons/dungeon_7", description = "Dungeon 7" }
-sprite{ id = "entities/effects/bubble", description = "Bubble" }
 sprite{ id = "entities/effects/dark", description = "Dark" }
 sprite{ id = "entities/effects/explosion_green", description = "Explosion green" }
-sprite{ id = "entities/effects/fishing_water_effect", description = "Fishing water effect" }
 sprite{ id = "entities/effects/flame", description = "Flame" }
 sprite{ id = "entities/effects/fog", description = "Fog" }
 sprite{ id = "entities/effects/impact_projectile", description = "Impact projectile" }
