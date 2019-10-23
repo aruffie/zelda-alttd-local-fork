@@ -771,7 +771,7 @@ teletransporter{
   y = 0,
   width = 16,
   height = 16,
-  destination_map = "examples/test_map",
+  destination_map = "test/outside",
 }
 
 custom_entity{

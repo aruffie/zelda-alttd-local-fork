@@ -97,7 +97,7 @@ tile{
   x = 56,
   y = 48,
   width = 16,
-  height = 32,
+  height = 16,
   pattern = "24",
 }
 
@@ -140,10 +140,10 @@ tile{
 
 tile{
   layer = 0,
-  x = 136,
+  x = 152,
   y = 360,
-  width = 32,
-  height = 48,
+  width = 16,
+  height = 32,
   pattern = "2",
 }
 
@@ -300,6 +300,87 @@ tile{
   pattern = "22",
 }
 
+tile{
+  layer = 0,
+  x = 336,
+  y = 128,
+  width = 8,
+  height = 8,
+  pattern = "1",
+}
+
+tile{
+  layer = 0,
+  x = 336,
+  y = 152,
+  width = 8,
+  height = 8,
+  pattern = "1",
+}
+
+tile{
+  layer = 0,
+  x = 328,
+  y = 136,
+  width = 16,
+  height = 16,
+  pattern = "12",
+}
+
+tile{
+  layer = 0,
+  x = 360,
+  y = 128,
+  width = 8,
+  height = 8,
+  pattern = "1",
+}
+
+tile{
+  layer = 0,
+  x = 360,
+  y = 152,
+  width = 8,
+  height = 8,
+  pattern = "1",
+}
+
+tile{
+  layer = 0,
+  x = 344,
+  y = 120,
+  width = 16,
+  height = 16,
+  pattern = "12",
+}
+
+tile{
+  layer = 0,
+  x = 344,
+  y = 152,
+  width = 16,
+  height = 16,
+  pattern = "12",
+}
+
+tile{
+  layer = 0,
+  x = 360,
+  y = 136,
+  width = 16,
+  height = 16,
+  pattern = "12",
+}
+
+tile{
+  layer = 0,
+  x = 136,
+  y = 392,
+  width = 32,
+  height = 16,
+  pattern = "2",
+}
+
 destination{
   name = "from_hole",
   layer = 0,
@@ -330,7 +411,7 @@ teletransporter{
   y = 56,
   width = 16,
   height = 16,
-  destination_map = "examples/test_map",
+  destination_map = "test/outside",
   destination = "from_cave",
 }
 
@@ -554,5 +635,119 @@ destructible{
   x = 432,
   y = 301,
   sprite = "entities/destructibles/pot",
+}
+
+dynamic_tile{
+  name = "unstable_floor_1_unstable_associate_",
+  layer = 0,
+  x = 328,
+  y = 136,
+  width = 16,
+  height = 16,
+  pattern = "25",
+}
+
+custom_entity{
+  name = "unstable_floor_1",
+  layer = 0,
+  x = 336,
+  y = 149,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/grounds/weak_floor_light_4",
+  model = "unstable_floor",
+}
+
+dynamic_tile{
+  name = "unstable_floor_2_unstable_associate_",
+  layer = 0,
+  x = 344,
+  y = 152,
+  width = 16,
+  height = 16,
+  pattern = "25",
+}
+
+custom_entity{
+  name = "unstable_floor_2",
+  layer = 0,
+  x = 352,
+  y = 165,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/grounds/weak_floor_light_4",
+  model = "unstable_floor",
+}
+
+dynamic_tile{
+  name = "unstable_floor_3_unstable_associate_",
+  layer = 0,
+  x = 344,
+  y = 120,
+  width = 16,
+  height = 16,
+  pattern = "25",
+}
+
+custom_entity{
+  name = "unstable_floor_3",
+  layer = 0,
+  x = 352,
+  y = 133,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/grounds/weak_floor_light_4",
+  model = "unstable_floor",
+}
+
+dynamic_tile{
+  name = "unstable_floor_4_unstable_associate_",
+  layer = 0,
+  x = 360,
+  y = 136,
+  width = 16,
+  height = 16,
+  pattern = "25",
+}
+
+custom_entity{
+  name = "unstable_floor_4",
+  layer = 0,
+  x = 368,
+  y = 149,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/grounds/weak_floor_light_4",
+  model = "unstable_floor",
+}
+
+block{
+  layer = 0,
+  x = 352,
+  y = 149,
+  sprite = "entities/blocks/block",
+  pushable = true,
+  pullable = false,
+}
+
+block{
+  layer = 0,
+  x = 384,
+  y = 213,
+  sprite = "entities/blocks/block",
+  pushable = true,
+  pullable = false,
+}
+
+enemy{
+  layer = 0,
+  x = 408,
+  y = 213,
+  direction = 0,
+  breed = "goponga_flower",
 }
 

@@ -23,16 +23,16 @@ sensor_meta:register_event("on_activated", function(sensor)
   local hero = sensor:get_map():get_hero()
   local game = sensor:get_game()
   local map = sensor:get_map()
-  local name = sensor:get_name()
+  local name = sensor:get_name() or ""
   -- Sensors named "to_layer_X_sensor" move the hero on that layer.
   -- TODO use a custom entity or a wall to block enemies and thrown items?
-  if name:match("^layer_up_sensor") or sensor:get_property("layer_up") then
+  if sensor:get_property("layer_up") or name:match("^layer_up_sensor") then
     local x, y, layer = hero:get_position()
     if layer < map:get_max_layer() then
       hero:set_position(x, y, layer + 1)
     end
     return
-  elseif name:match("^layer_down_sensor")or sensor:get_property("layer_down") then
+  elseif sensor:get_property("layer_down") or name:match("^layer_down_sensor") then
     local x, y, layer = hero:get_position()
     if layer > map:get_min_layer() then
       hero:set_position(x, y, layer - 1)
@@ -42,7 +42,7 @@ sensor_meta:register_event("on_activated", function(sensor)
 
   -- Sensors prefixed by "save_solid_ground_sensor" are where the hero come back
   -- when falling into a hole or other bad ground.
-  if name:match("^save_solid_ground_sensor") or sensor:get_property("save_solid_ground") then
+  if sensor:get_property("save_solid_ground") or name:match("^save_solid_ground_sensor")  then
     if not hero.respawn_point_saved then
       hero:save_solid_ground()
       hero.respawn_point_saved=true
@@ -52,7 +52,7 @@ sensor_meta:register_event("on_activated", function(sensor)
 
   -- Sensors prefixed by "reset_solid_ground_sensor" clear any place for the hero
   -- to come back when falling into a hole or other bad ground.
-  if name:match("^reset_solid_ground_sensor") or sensor:get_property("reset_solid_ground") then
+  if sensor:get_property("reset_solid_ground") or name:match("^reset_solid_ground_sensor")  then
     hero:reset_solid_ground()
     hero.respawn_point_saved=nil
     if hero.initialize_unstable_floor_manager then hero:initialize_unstable_floor_manager() end
@@ -119,7 +119,7 @@ function sensor_meta:on_activated_repeat()
   local hero = self:get_map():get_hero()
   local game = self:get_game()
   local map = self:get_map()
-  local name = self:get_name()
+  local name = self:get_name() or ""
 
   -- Sensors called open_house_xxx_sensor automatically open an outside house door tile.
   local door_name = name:match("^open_house_([a-zA-X0-9_]+)_sensor")
