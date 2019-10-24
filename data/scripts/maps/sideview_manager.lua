@@ -143,8 +143,6 @@ local function apply_gravity(entity)
   local vspeed = entity.vspeed or 0 
   if vspeed > 0 then
     vspeed = on_bounce_possible(entity)
-  end
-  if vspeed >= 0 then
     --Try to apply downwards movement
     if entity:test_obstacles(0,1) or entity.has_grabbed_ladder or
     not check_for_ladder(entity) and is_ladder(entity:get_map(), x, y+3) then
@@ -157,7 +155,7 @@ local function apply_gravity(entity)
       return false
     end
     entity:set_position(x,y+1)
-  else
+  elseif vspeed < 0 then
     -- Try to get up
     if not entity:test_obstacles(0,-1) then
       entity:set_position(x,y-1)
