@@ -65,7 +65,7 @@ local function create_running_sword(entity, direction)
 end
 
 function state:on_started()
---  print "Run, Forrest, ruuun !"
+--  debug_print "Run, Forrest, ruuun !"
   local entity=state:get_entity()
   local game = state:get_game()
   local map = entity:get_map()

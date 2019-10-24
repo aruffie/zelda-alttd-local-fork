@@ -11,7 +11,6 @@ local hero = map:get_hero()
 local hero_sprite = hero:get_sprite()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
-
 local is_eating = false
 local is_exhausted = false
 local command_pressed_count = 0

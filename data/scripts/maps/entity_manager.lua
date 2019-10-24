@@ -36,27 +36,8 @@ function entity_manager:create_falling_entity(base_entity)
     })
   if falling_entity then --will be nil if the map is in finishing state
     falling_entity:set_can_traverse_ground("hole", true)
-    if base_entity:get_type()=="block" then
-      falling_entity:set_traversable_by("hero", false)
-      local m=sol.movement.create("straight")
-      if x~=base_entity.movement_start_x then
-        m:set_max_distance(16-math.abs(x-base_entity.movement_start_x))
-      elseif y~=base_entity.movement_start_y then
-        m:set_max_distance(16-math.abs(y-base_entity.movement_start_y))
-      end
-      print ("distance to go: "..m:get_max_distance())
-      m:set_angle(base_entity:get_angle(base_entity.movement_start_x, base_entity.movement_start_y)+math.pi)
-      m:register_event("on_obstacle_reached", function()
-          print "obstacle_reached"
-          entity_manager:fall(falling_entity)       
-        end)
-      m:start(falling_entity, function()
-          print "movement over"
-          entity_manager:fall(falling_entity)
-        end)
-    else
-      entity_manager:fall(falling_entity)
-    end
+    entity_manager:fall(falling_entity)
+
   end
 end
 
