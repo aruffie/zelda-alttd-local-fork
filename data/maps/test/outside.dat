@@ -2073,7 +2073,7 @@ chest{
   layer = 0,
   x = 280,
   y = 213,
-  treasure_name = "shovel",
+  treasure_name = "fire_rod",
   sprite = "entities/chests/chest_small",
 }
 
