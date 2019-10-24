@@ -8,22 +8,33 @@ local audio_manager = require("scripts/audio_manager")
 local timer_sword_loading = nil
 local timer_sword_tapping = nil
 local timer_stairs = nil
+
 require("scripts/multi_events")
 hero_meta:register_event("on_movement_changed", function(hero, movement)
     if not hero:get_map():is_sideview() then
-      if movement:get_speed() ~=0 and not hero.walking_sound_timer then
-        hero.walking_sound_timer=sol.timer.start(hero, 300, function()
-            if hero:get_ground_below()=="shallow_water" then
-              audio_manager:play_sound("hero/wade"..(math.random(1, 2)))
-            elseif hero:get_ground_below()=="grass" then
-              audio_manager:play_sound("hero/walk_on_grass")
-            end
-            return true
-          end)
+      if movement:get_speed() ~=0  then
+        if hero.sound_timer_reset then
+          hero.sound_timer_reset:set_remaining_time(10)         
+        end
+        if not hero.walking_sound_timer then
+          hero.walking_sound_timer=sol.timer.start(hero, 300, function()
+              if hero:get_ground_below()=="shallow_water" then
+                audio_manager:play_sound("hero/wade"..(math.random(1, 2)))
+              elseif hero:get_ground_below()=="grass" then
+                audio_manager:play_sound("hero/walk_on_grass")
+              end
+              return true
+            end)
+        end
       else
-        if hero.walking_sound_timer then
-          hero.walking_sound_timer:stop()
-          hero.walking_sound_timer=nil
+        if not hero.sound_timer_reset then
+          hero.sound_timer_reset=sol.timer.start(hero, 10, function()
+              if hero.walking_sound_timer then
+                hero.walking_sound_timer:stop()
+                hero.walking_sound_timer=nil
+              end
+              hero.sound_timer_reset=nil
+            end)
         end
       end
     end
@@ -126,15 +137,15 @@ function hero_meta.show_ground_effect(hero, id)
   local map = hero:get_map()
   local x,y, layer = hero:get_position()
   local ground_effect = map:create_custom_entity({
-    name = "ground_effect",
-    sprite = "entities/ground_effects/"..id,
-    x = x,
-    y = y ,
-    width = 16,
-    height = 16,
-    layer = layer,
-    direction = 0
-  })
+      name = "ground_effect",
+      sprite = "entities/ground_effects/"..id,
+      x = x,
+      y = y ,
+      width = 16,
+      height = 16,
+      layer = layer,
+      direction = 0
+    })
   local sprite = ground_effect:get_sprite()
   function sprite:on_animation_finished()
     ground_effect:remove()
