@@ -2081,7 +2081,7 @@ chest{
   layer = 0,
   x = 296,
   y = 213,
-  treasure_name = "shovel",
+  treasure_name = "magic_powder_bag",
   sprite = "entities/chests/chest_small",
 }
 
@@ -2089,7 +2089,7 @@ chest{
   layer = 0,
   x = 312,
   y = 213,
-  treasure_name = "shovel",
+  treasure_name = "hookshot",
   sprite = "entities/chests/chest_small",
 }
 
