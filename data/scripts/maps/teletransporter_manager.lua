@@ -36,11 +36,13 @@ game_meta:register_event("on_map_changed", function(game, map)
                   hero:teleport(destination_map, "_side" .. side, "immediate")
                   game.map_in_transition = effect_model
                 elseif destination_map ~= map:get_id() then
+                  debug_print("Middle of custom transition")
                   hero:teleport(destination_map, destination_name, "immediate")
                   game.map_in_transition = effect_model
                 else
                   hero:teleport(destination_map, destination_name, "immediate")
                   effect_model.start_effect(surface, game, "out", false, function()
+                      debug_print ("End of intra-map custom transition")
                       game.teleport_in_progress=nil
                       game:set_suspended(true)
                       game:set_pause_allowed(false)
@@ -56,6 +58,7 @@ game_meta:register_event("on_map_changed", function(game, map)
       game:set_suspended(true)
       game:set_pause_allowed(false)
       game.map_in_transition.start_effect(surface, game, "out", false, function()
+          debug_print("End of inter-maps custom transition")
           game.teleport_in_progress=nil
           if map.do_after_transition then
             map.do_after_transition()

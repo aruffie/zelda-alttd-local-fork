@@ -71,7 +71,7 @@ function entity_respawn_manager:init(map)
     for _, torch in pairs(saved_entities.torches) do
       torch:set_lit(false)
       if torch:is_in_same_region(hero) then --TODO take account of dungeon 6 pre-boss torches
---        print ("found "..(torch:get_name() or "<something>")..". XY: ", torch:get_position())
+--        debug_print ("found "..(torch:get_name() or "<something>")..". XY: ", torch:get_position())
         found=true
       end
     end
@@ -254,7 +254,7 @@ function entity_respawn_manager:init(map)
       local x, y, layer = entity:get_position()
       local width, height = entity:get_size()
       local entity_type=entity:get_type()
-      -- print ("checking in a(n) ".. entity_type)
+      --debug_print ("checking in a(n) ".. entity_type)
 
 -- Store the position and properties of enemies.
       if entity_type=="enemy" then
@@ -304,7 +304,7 @@ function entity_respawn_manager:init(map)
               floor=associated_tile, 
             }
           else 
-            print("Warning : could not find unstable floor tile "..tile_name)
+            debug_print("Warning : could not find unstable floor tile "..tile_name)
           end
 
           saved_entities.unstable_floors[#saved_entities.unstable_floors + 1] = {

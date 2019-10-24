@@ -15,7 +15,7 @@ function lib.start_effect(surface, game, sfx, mode, callback)
   local shader=sol.shader.create("electric")
 
   if not surface then
-    print("Error : No surface has been passed")
+    error("Error : No valid surface has been passed")
     return
   end
   callback=callback or nil
