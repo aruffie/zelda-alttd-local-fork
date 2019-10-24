@@ -81,7 +81,7 @@ function item:start_using()
   local map = item:get_map()
   local hero = map:get_hero()
   
-  if hero:is_jumping() or (map:is_sideview() and (hero.vspeed~=nil and hero:get_ground_below()~="deep_water")) then 
+  if hero:is_jumping() or (map:is_sideview() and hero.vspeed~=nil and hero:get_ground_below()~="deep_water") then 
     item:set_finished()
     return
   end
