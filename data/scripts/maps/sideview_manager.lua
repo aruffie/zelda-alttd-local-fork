@@ -56,14 +56,14 @@ end
   Sets the vertical speed on the entity, in pixels/frame.
   Parameter: vspeed, the new vertical speed.
 --]]
-function map_meta.set_vertical_speed(entity, vspeed)
+function map_meta.set_vspeed(entity, vspeed)
   entity.vspeed = vspeed
 end
 
 --[[
   Returns whether the current vertical speed of the entity, in pixels/frame.
 --]]
-function map_meta.get_vertical_speed(entity)
+function map_meta.get_vspeed(entity)
   return entity.vspeed or 0
 end
 
@@ -184,7 +184,7 @@ local function update_entities(map)
       local is_affected
       local has_property = entity:get_property("has_gravity")
       local e_type = entity:get_type()
-      if e_type=="carried_object" or e_type =="hero" then
+      if e_type=="carried_object" or e_type =="hero" or e_type=="bomb" then
         is_affected = true
       else
         is_affected = false
