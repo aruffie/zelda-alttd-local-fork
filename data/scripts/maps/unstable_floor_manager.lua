@@ -98,14 +98,14 @@ hero_meta:register_event("on_state_changing", function(hero, old_state, state)
     local map = hero:get_map()
     local game = hero:get_game()
     if old_state=="back to solid ground" and state=="free" then
-      print "respawn"
+      debug_print "respawn"
       if map:get_world()=="outside_world" and not map:is_sideview() then
         local position = hero.last_stable_position
         local directions={{-8,0}, {-8, 8}, {0, 8}, {8, 8}, {8, 0}, {8, -8}, {0, -8}, {-8, -8}}
         local offset_x, offset_y=unpack(directions[position.direction+1])
         hero:set_position(position.x+offset_x, position.y+offset_y, position.layer)
       end
-      --print (hero.last_stable_position.direction)
+      --debug_print (hero.last_stable_position.direction)
       hero:set_direction(hero.last_stable_position.direction/2 or 0)
     end
   end)

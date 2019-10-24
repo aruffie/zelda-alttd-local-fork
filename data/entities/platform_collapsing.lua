@@ -74,7 +74,7 @@ sol.timer.start(entity, 10, function()
 
       if other_y+other_h <= entity_y+1 then
         if solidified == false then
---              print "ME SOLID NOW"
+--          debug_print "ME SOLID NOW"
           solidified = true
           entity:set_traversable_by("hero", false)
 
@@ -85,7 +85,7 @@ sol.timer.start(entity, 10, function()
 
       else
         if solidified == true then
---              print "ME NON SOLID NOW"
+--          debug_print "ME NON SOLID NOW"
           solidified = false
           entity:set_traversable_by("hero", true)
         end

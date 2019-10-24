@@ -70,7 +70,7 @@ function light_manager:update_light_level(map)
     end
   end
   if total~=0 and light_surface~=nil then
---    print ("Torches lit: "..lit.."/"..total, "opacity:"..150*(1-lit/total))
+--    debug_print ("Torches lit: "..lit.."/"..total, "opacity:"..150*(1-lit/total))
     map:set_light(lit/total)
     light_surface:set_opacity(150*(1-lit/total))
   else 
