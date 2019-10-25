@@ -1,7 +1,6 @@
 -- Variables
 local map = ...
 local game = map:get_game()
-local is_game_available = false
 
 -- Include scripts
 require("scripts/multi_events")
@@ -27,17 +26,21 @@ function map:init_music()
 
 end
 
--- Discussion with Merchant
-function map:talk_to_merchant() 
+-- NPCs events
+function merchant:on_interaction()
+
+  -- Don't make the hero pay again if the mini-game is already started.
+  if merchant.playing then
+    return
+  end
 
   game:start_dialog("maps.houses.mabe_village.shop_1.merchant_1", function(answer)
     if answer == 1 then
       local money = game:get_money()
       if money > 10 then
         game:start_dialog("maps.houses.mabe_village.shop_1.merchant_3", function()
-          money = money - 10
-          game:set_money(money)
-          is_game_available = true
+          game:remove_money(10)
+          merchant.playing = true
         end)
       else
         game:start_dialog("maps.houses.mabe_village.shop_1.merchant_2")
@@ -47,18 +50,20 @@ function map:talk_to_merchant()
 
 end
 
--- NPCs events
-function merchant:on_interaction()
-
-  map:talk_to_merchant()
-
-end
-
 function console:on_interaction()
 
-  if is_game_available then
-    is_game_available = false
-    claw_manager:init_map(map)
+  if not merchant.playing then
+    return
+  end
+
+  hero:freeze()
+  local claw_menu = claw_manager:create_minigame(map)
+  sol.menu.start(map, claw_menu)
+  function claw_menu:on_finished()
+    if merchant ~= nil then
+      merchant.playing = false
+      hero:unfreeze()
+    end
   end
 
 end
