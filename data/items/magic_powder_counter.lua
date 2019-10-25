@@ -18,8 +18,10 @@ function item:on_created()
 end
 
 -- Event called when the hero is using this item.
-function item:on_using()
-
+function item:start_using()
+  if item:get_map():is_sideview() and item:get_game():get_hero().vspeed~=nil then
+    return
+  end
   local amount =   self:get_amount()
   amount = amount - 1
   if amount < 0 then

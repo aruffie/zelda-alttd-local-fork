@@ -56,14 +56,14 @@ end
   Sets the vertical speed on the entity, in pixels/frame.
   Parameter: vspeed, the new vertical speed.
 --]]
-function map_meta.set_vertical_speed(entity, vspeed)
+function map_meta.set_vspeed(entity, vspeed)
   entity.vspeed = vspeed
 end
 
 --[[
   Returns whether the current vertical speed of the entity, in pixels/frame.
 --]]
-function map_meta.get_vertical_speed(entity)
+function map_meta.get_vspeed(entity)
   return entity.vspeed or 0
 end
 
@@ -143,8 +143,6 @@ local function apply_gravity(entity)
   local vspeed = entity.vspeed or 0 
   if vspeed > 0 then
     vspeed = on_bounce_possible(entity)
-  end
-  if vspeed >= 0 then
     --Try to apply downwards movement
     if entity:test_obstacles(0,1) or entity.has_grabbed_ladder or
     not check_for_ladder(entity) and is_ladder(entity:get_map(), x, y+3) then
@@ -157,7 +155,7 @@ local function apply_gravity(entity)
       return false
     end
     entity:set_position(x,y+1)
-  else
+  elseif vspeed < 0 then
     -- Try to get up
     if not entity:test_obstacles(0,-1) then
       entity:set_position(x,y-1)
@@ -184,7 +182,7 @@ local function update_entities(map)
       local is_affected
       local has_property = entity:get_property("has_gravity")
       local e_type = entity:get_type()
-      if e_type=="carried_object" or e_type =="hero" then
+      if e_type=="carried_object" or e_type =="hero" or e_type=="bomb" then
         is_affected = true
       else
         is_affected = false
