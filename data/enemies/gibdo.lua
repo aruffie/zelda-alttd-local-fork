@@ -32,6 +32,7 @@ enemy:register_event("on_custom_attack_received", function(enemy, attack)
   if attack == "fire" then
     local x, y, layer = enemy:get_position()
     stalfos = enemy:create_enemy({breed = "stalfos_red"})
+    stalfos:set_archer()
     enemy:remove()
 
     -- Make the Stalfos immobile, then shake for some time, and then restart.

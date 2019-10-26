@@ -24,6 +24,11 @@ local jumping_height = 16
 local jumping_duration = 600
 local throwing_bone_delay = 200
 
+-- Make this enemy an archer.
+function enemy:set_archer(archer)
+  is_archer = archer or true
+end
+
 -- Start the enemy movement.
 function enemy:start_walking()
 
