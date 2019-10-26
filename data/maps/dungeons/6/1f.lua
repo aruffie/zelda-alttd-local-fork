@@ -36,15 +36,15 @@ function map:on_started()
   door_manager:open_when_pot_break(map, "door_group_5_")
   door_manager:open_when_pot_break(map, "door_group_6_")
   door_manager:open_when_pot_break(map, "door_group_8_")
-  door_manager:open_when_enemies_dead(map,  "enemy_group_1_",  "door_group_1_")
-  door_manager:open_when_enemies_dead(map,  "enemy_group_2_",  "door_group_4_")
-  door_manager:open_when_enemies_dead(map,  "enemy_group_12_",  "door_group_8_")
-  door_manager:open_when_enemies_dead(map,  "enemy_group_12_",  "door_group_10_", false)
-  door_manager:open_when_enemies_dead(map,  "enemy_group_12_",  "door_group_17_", false)
-  door_manager:open_when_enemies_dead(map,  "enemy_group_26_",  "door_group_18")
-  door_manager:open_when_enemies_dead(map,  "enemy_group_26_",  "door_group_20_", false)
-  door_manager:open_when_enemies_dead(map,  "enemy_group_27_",  "door_group_19_")
-  door_manager:open_when_enemies_dead(map,  "enemy_group_27_",  "door_group_20_", false)
+  door_manager:open_when_enemies_dead(map, "enemy_group_1_",  "door_group_1_")
+  door_manager:open_when_enemies_dead(map, "enemy_group_2_",  "door_group_4_")
+  door_manager:open_when_enemies_dead(map, "enemy_group_12_",  "door_group_8_")
+  door_manager:open_when_enemies_dead(map, "enemy_group_12_",  "door_group_10_", false)
+  door_manager:open_when_enemies_dead(map, "enemy_group_12_",  "door_group_17_", false)
+  door_manager:open_when_enemies_dead(map, "enemy_group_26_",  "door_group_18_")
+  door_manager:open_when_enemies_dead(map, "enemy_group_26_",  "door_group_20_", false)
+  door_manager:open_when_enemies_dead(map, "enemy_group_27_",  "door_group_19_")
+  door_manager:open_when_enemies_dead(map, "enemy_group_27_",  "door_group_20_", false)
   -- Enemies
   enemy_manager:create_teletransporter_if_small_boss_dead(map, false)
   -- Music
@@ -61,7 +61,6 @@ function map:on_started()
   separator_manager:init(map)
 
 end
-
 
 function map:on_obtaining_treasure(item, variant, savegame_variable)
 
@@ -241,49 +240,33 @@ end
 
 function sensor_23:on_activated()
 
-    door_manager:close_if_enemies_not_dead(map, "enemy_group_26", "door_group_18")
-    door_manager:close_if_enemies_not_dead(map, "enemy_group_26", "door_group_20")
+  door_manager:close_if_enemies_not_dead(map, "enemy_group_26", "door_group_18")
+  door_manager:close_if_enemies_not_dead(map, "enemy_group_26", "door_group_20")
 
 end
 
 function sensor_24:on_activated()
 
-    door_manager:close_if_enemies_not_dead(map, "enemy_group_26", "door_group_18")
-    door_manager:close_if_enemies_not_dead(map, "enemy_group_26", "door_group_20")
+  door_manager:close_if_enemies_not_dead(map, "enemy_group_26", "door_group_18")
+  door_manager:close_if_enemies_not_dead(map, "enemy_group_26", "door_group_20")
 
 end
 
 function sensor_25:on_activated()
 
-    door_manager:close_if_enemies_not_dead(map, "enemy_group_26", "door_group_19")
-    door_manager:close_if_enemies_not_dead(map, "enemy_group_26", "door_group_20")
+  door_manager:close_if_enemies_not_dead(map, "enemy_group_26", "door_group_19")
+  door_manager:close_if_enemies_not_dead(map, "enemy_group_26", "door_group_20")
 
 end
 
 function sensor_26:on_activated()
 
-    door_manager:close_if_enemies_not_dead(map, "enemy_group_27", "door_group_19")
-    door_manager:close_if_enemies_not_dead(map, "enemy_group_27", "door_group_20")
+  door_manager:close_if_enemies_not_dead(map, "enemy_group_27", "door_group_19")
+  door_manager:close_if_enemies_not_dead(map, "enemy_group_27", "door_group_20")
 
 end
 
 -- Separator events
-auto_separator_14:register_event("on_activating", function(separator, direction4)
-    
-  if direction4 == 0 then
-    map:set_light(0)
-  end
-  
-end)
-
-auto_separator_14:register_event("on_activated", function(separator, direction4)
-
-  if direction4 ~= 0 then
-    map:set_light(1)
-  end
-  
-end)
-
 auto_separator_16:register_event("on_activating", function(separator, direction4)
 
   map:set_doors_open("door_group_3", true)

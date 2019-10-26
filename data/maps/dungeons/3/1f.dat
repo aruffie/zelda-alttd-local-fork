@@ -8,6 +8,7 @@ properties{
   world = "dungeon_3",
   floor = 0,
   tileset = "dungeon/green",
+  music = "same",
 }
 
 tile{
@@ -14927,7 +14928,7 @@ separator{
   layer = 2,
   x = 0,
   y = 472,
-  width = 960,
+  width = 2560,
   height = 16,
 }
 
@@ -14969,31 +14970,5 @@ separator{
   y = 0,
   width = 16,
   height = 1920,
-}
-
-separator{
-  name = "separator_1",
-  layer = 2,
-  x = 960,
-  y = 472,
-  width = 160,
-  height = 16,
-}
-
-separator{
-  layer = 2,
-  x = 1280,
-  y = 472,
-  width = 1280,
-  height = 16,
-}
-
-separator{
-  name = "separator_2",
-  layer = 2,
-  x = 1120,
-  y = 472,
-  width = 160,
-  height = 16,
 }
 

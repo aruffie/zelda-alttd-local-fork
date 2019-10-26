@@ -18,6 +18,7 @@ local probabilities = {
 -- is created on the map.
 function item:on_pickable_created(pickable)
 
+  local game = item:get_game()
   local treasure_name, treasure_variant = self:choose_random_item()
   if treasure_name ~= nil then
     local map = pickable:get_map()
@@ -31,14 +32,16 @@ function item:on_pickable_created(pickable)
     }
   end
   pickable:remove()
+  game.charm_treasure_is_loading = nil
 end
 
 -- Returns an item name and variant.
 function item:choose_random_item()
 
+ 
   local random = math.random(1000)
   local sum = 0
-
+  -- Todo get Acorn or Power Fragment
   for key, probability in pairs(probabilities) do
     sum = sum + probability
     if random < sum then
@@ -47,4 +50,5 @@ function item:choose_random_item()
   end
 
   return nil
+  
 end

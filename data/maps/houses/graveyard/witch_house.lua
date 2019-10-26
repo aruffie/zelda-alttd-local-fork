@@ -8,15 +8,14 @@ local light_manager = require("scripts/maps/light_manager")
 local audio_manager = require("scripts/audio_manager")
 
 -- Map events.
-function map:on_started()
+map:register_event("on_started", function(map, destination)
 
   -- Music
   map:init_music()
   -- Light
   light_manager:init(map)
-  map:set_light(0)
 
-end
+end)
 
 -- Initialize the music of the map
 function map:init_music()
@@ -60,7 +59,7 @@ function witch:on_interaction()
 end
 
 -- Torches events
-timed_torch_1:register_event("on_lit", function()
+torch_1:register_event("on_lit", function()
 
     if map.witch_indication then
       game:set_value("witch_indication", true)

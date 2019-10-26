@@ -15722,7 +15722,7 @@ enemy{
   y = 637,
   direction = 0,
   breed = "moblin_pig_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -15731,7 +15731,7 @@ enemy{
   y = 413,
   direction = 0,
   breed = "moblin_pig_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -15740,7 +15740,7 @@ enemy{
   y = 533,
   direction = 1,
   breed = "moblin_pig_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 destructible{
@@ -15759,7 +15759,7 @@ enemy{
   y = 629,
   direction = 1,
   breed = "moblin_pig_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -15768,7 +15768,7 @@ enemy{
   y = 645,
   direction = 1,
   breed = "moblin_pig_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -15777,7 +15777,7 @@ enemy{
   y = 517,
   direction = 3,
   breed = "moblin_pig_sword",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -15786,7 +15786,7 @@ enemy{
   y = 597,
   direction = 2,
   breed = "moblin_pig_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -15795,7 +15795,7 @@ enemy{
   y = 581,
   direction = 1,
   breed = "moblin_pig_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 wall{

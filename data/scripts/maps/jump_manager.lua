@@ -92,10 +92,11 @@ end
 function jump_manager.trigger_event(entity, event)
   local state=entity:get_state()
   local state_object=entity:get_state_object()
-  print ("state "..state.."("..(state_object and state_object.get_description and state_object:get_description() or "<built-in>")..") triggered the following Event: "..event)
+  debug_print ("state "..state.."("..(state_object and state_object.get_description and state_object:get_description() or "<built-in>")..") triggered the following Event: "..event)
   local desc=state_object and state_object.get_description and state_object:get_description() or ""
   sol.timer.start(entity, 10, function()
       if event=="jump complete" then
+        entity:play_ground_effect()
         if desc=="jumping" then
           entity:unfreeze()
         end
@@ -114,7 +115,7 @@ function jump_manager.trigger_event(entity, event)
           end
         elseif desc=="jumping_sword_loading" then
           if entity.sword_loaded then
-            print "SPIN ATTACK"
+            debug_print "SPIN ATTACK"
             entity:jump_sword_spin_attack()
           elseif entity:is_jumping() then
             entity:jump()
@@ -136,7 +137,7 @@ function jump_manager.trigger_event(entity, event)
           entity:unfreeze()
         end
       else --default case
-        print ("unknown event: "..event)
+        debug_print ("unknown event: "..event)
         entity:unfreeze()
       end
     end)
@@ -237,11 +238,11 @@ function jump_manager.start(entity, v_speed, success_callback, failure_callback)
   elseif state=="sword loading" or state_description=="jumping_sword_loading" then
     entity:jump_sword_loading()
   else
-    print ("Warning: incompatible state: "..state)
+    debug_print ("Warning: incompatible state: "..state)
   end
   jump_manager.setup_collision_rules(entity:get_state_object())
 
-  --  print "Starting custom jump"
+  --  debug_print "Starting custom jump"
   debug_start_x, debug_start_y=entity:get_position() --Temporary, remove me once everything has been finalized
 
   audio_manager:play_sound("hero/jump")
@@ -251,7 +252,7 @@ function jump_manager.start(entity, v_speed, success_callback, failure_callback)
   for e in entity:get_map():get_entities_in_rectangle(x,y,1,1) do
     if e:get_type()=="crystal_block" then
       local anim=e:get_sprite():get_animation()
-      print (anim)
+      debug_print(anim)
       entity.is_on_raised_crystal_block = anim=="orange_raised" or anim=="blue_raised"
     end
   end

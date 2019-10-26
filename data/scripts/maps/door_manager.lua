@@ -61,6 +61,31 @@ function door_manager:open_if_small_boss_dead(map)
 
 end
 
+
+-- Close doors if ennemis in the room are not dead
+function door_manager:close_if_enemies_not_dead(map, enemy_prefix, door_prefix)
+
+  if map:has_entities(enemy_prefix) then
+    map:close_doors(door_prefix)
+  end
+
+end
+
+-- Open doors i all torches in the room are lit
+function door_manager:close_if_torches_unlit(map, torch_prefix, door_prefix)
+
+  has_torches_lit = false
+  for torch in map:get_entities(torch_prefix) do
+    if torch:is_lit() then
+      has_torches_lit = true
+    end
+  end
+  if not has_torches_lit then
+    map:close_doors(door_prefix)
+  end
+
+end
+
 -- Open doors if block moved
 function door_manager:open_if_block_moved(map, block_prefix, door_prefix)
 
@@ -193,7 +218,7 @@ function door_manager:open_hidden_staircase(map, entity_group, savegame_variable
       game:set_value(savegame_variable, true)
       map:set_cinematic_mode(false, options)
     end)
-  end
+end
 
 -- Check if wall is exploded and destroy
 function door_manager:open_weak_wall_if_savegame_exist(map, weak_wall_prefix, savegame)
@@ -208,8 +233,11 @@ end
 
 -- Open doors when all torches in the room are lit
 function door_manager:open_when_torches_lit(map, torch_prefix, door_prefix)
-
+  if map.torches_remaining==nil then
+    map.torches_remaining={}
+  end
   local remaining = 0
+
   local function torch_on_lit()
     local doors = map:get_entities(door_prefix)
     local is_closed = false
@@ -219,11 +247,13 @@ function door_manager:open_when_torches_lit(map, torch_prefix, door_prefix)
       end
     end
     if is_closed then
+      local remaining=map.torches_remaining[torch_prefix]
       remaining = remaining - 1
       if remaining == 0 then
         map:open_doors(door_prefix)
         audio_manager:play_sound("misc/secret1")
       end
+      map.torches_remaining[torch_prefix]=remaining
     end
   end
   local has_torches = false
@@ -234,38 +264,13 @@ function door_manager:open_when_torches_lit(map, torch_prefix, door_prefix)
     torch.on_lit = torch_on_lit
     has_torches = true
   end
+  map.torches_remaining[torch_prefix]=remaining
   if has_torches and remaining == 0 then
     -- All torches of this door are already lit.
     audio_manager:play_sound("misc/secret1")
     map:open_doors(door_prefix)
   end
-end
 
-function door_manager:close_when_torches_unlit(map, torch_prefix, door_prefix)
-
-  local remaining = 0
-  local function torch_on_unlit()
-    if door:is_closed() then
-      remaining = remaining - 1
-      if remaining == 0 then
-        audio_manager:play_sound("secret")
-        map:open_doors(door_prefix)
-      end
-    end
-  end
-
-  local has_torches = false
-  for torch in map:get_entities(torch_prefix) do
-    if torch:is_lit() then
-      remaining = remaining + 1
-    end
-    torch.on_unlit = torch_on_unlit
-    has_torches = true
-  end
-  if has_torches and remaining == 0 then
-    -- All torches of this door are already unlit.
-    map:set_doors_open(door_prefix, false)
-  end
 end
 
 -- Close doors if ennemis in the room are not dead

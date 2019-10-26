@@ -15820,7 +15820,7 @@ enemy{
   y = 157,
   direction = 2,
   breed = "moblin_pig_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -15829,7 +15829,7 @@ enemy{
   y = 133,
   direction = 3,
   breed = "moblin_pig_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 dynamic_tile{
@@ -15898,10 +15898,19 @@ npc{
   layer = 1,
   x = 552,
   y = 189,
+  properties = {
+    {
+      key = "model",
+      value = "statue_owl_outside",
+    },
+    {
+      key = "dialog",
+      value = "maps.out.martha_bay_statue_1",
+    },
+  },
   direction = 3,
   subtype = 1,
   sprite = "npc/statues/owl",
-  behavior = "dialog#maps.out.west_mt_tamaranch.owl_statue_1",
 }
 
 destination{

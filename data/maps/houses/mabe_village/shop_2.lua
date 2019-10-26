@@ -5,12 +5,13 @@ local merchant_move = false
 local link_move = false
 
 -- Include scripts
+require("scripts/multi_events")
 local shop_manager = require("scripts/maps/shop_manager")
 local laser_manager = require("scripts/maps/laser_manager")
 local audio_manager = require("scripts/audio_manager")
 
 -- Map events
-function map:on_started(destination)
+map:register_event("on_started", function(map, destination)
   -- Music
   map:init_music()
   -- Entities
@@ -20,7 +21,7 @@ function map:on_started(destination)
     shop_manager:init(map)
   end
 
-end
+end)
 
 function map:on_opening_transition_finished()
   
@@ -33,7 +34,7 @@ end
 -- Initialize the music of the map
 function map:init_music()
 
-  if game:get_value("main_quest_step") == 3  then
+  if game:is_step_last("shield_obtained") then
     audio_manager:play_music("07_koholint_island")
   else
     if game:get_value("thief_must_die") then

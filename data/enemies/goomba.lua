@@ -29,15 +29,15 @@ function enemy:start_walking()
 end
 
 -- Don't hurt the hero if enemy is below on sideview maps.
--- TODO register_event() seems to not prevent the default behavior, check how to use it.
-function enemy:on_attacking_hero(hero, enemy_sprite)
+enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
 
   local _, y, _ = enemy:get_position()
   local _, hero_y, _ = hero:get_position()
   if not is_sideview or hero_y >= y then
     hero:start_hurt(enemy, enemy:get_damage())
   end
-end
+  
+end)
 
 -- Make enemy crushed when hero walking on him.
 enemy:register_event("on_custom_attack_received", function(enemy, attack)

@@ -3,19 +3,19 @@ local map = ...
 local game = map:get_game()
 
 -- Include scripts
+require("scripts/multi_events")
 local audio_manager = require("scripts/audio_manager")
 local light_manager = require("scripts/maps/light_manager")
 
 -- Map events
-function map:on_started(destination)
+map:register_event("on_started", function(map, destination)
 
   -- Music
   map:init_music()
   -- Light
   light_manager:init(map)
-  map:set_light(0)
 
-end
+end)
 
 -- Initialize the music of the map
 function map:init_music()

@@ -2521,8 +2521,7 @@ enemy{
   x = 424,
   y = 333,
   direction = 0,
-  breed = "hardhat_beetle",
-  treasure_name = "random",
+  breed = "hardhat_beetle"
 }
 
 wall{
@@ -2604,7 +2603,7 @@ enemy{
   y = 93,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -2614,7 +2613,7 @@ enemy{
   y = 93,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -2624,7 +2623,7 @@ enemy{
   y = 93,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -2634,7 +2633,7 @@ enemy{
   y = 93,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -2644,7 +2643,7 @@ enemy{
   y = 109,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -2654,7 +2653,7 @@ enemy{
   y = 125,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 dynamic_tile{
@@ -2964,7 +2963,6 @@ enemy{
   y = 325,
   direction = 0,
   breed = "hardhat_beetle",
-  treasure_name = "random",
 }
 
 enemy{
@@ -2974,7 +2972,6 @@ enemy{
   y = 349,
   direction = 0,
   breed = "fireball",
-  treasure_name = "random",
 }
 
 sensor{

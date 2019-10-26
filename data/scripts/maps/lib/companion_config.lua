@@ -9,8 +9,7 @@ return {
       if map:get_game():is_in_dungeon() then
         return false
       end
-      local step = map:get_game():get_value("main_quest_step")
-      return step == 23
+      return map:get_game():is_step_last("marin_joined")
     end
   },
   bowwow = {
@@ -25,8 +24,7 @@ return {
       if map:get_game():is_in_dungeon() then
         return false
       end
-      local step = map:get_game():get_value("main_quest_step")
-      return step >= 10 and step < 12
+      return map:get_game():is_step_last("bowwow_joined") or map:get_game():is_step_last("dungeon_2_completed")
     end,
     repeated_behavior_delay = 2000,
     repeated_behavior = function(companion)

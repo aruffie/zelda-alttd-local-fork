@@ -8,6 +8,7 @@ properties{
   world = "dungeon_1",
   floor = 0,
   tileset = "dungeon/pink",
+  music = "same",
 }
 
 tile{
@@ -11168,6 +11169,7 @@ tile{
   layer = 0,
   x = 368,
   y = 1616,
+  enabled_at_start = false,
   width = 16,
   height = 16,
   pattern = "torch",
@@ -13918,7 +13920,7 @@ enemy{
   y = 1573,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -13958,7 +13960,7 @@ enemy{
   y = 1573,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -13968,7 +13970,7 @@ enemy{
   y = 1525,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -13978,7 +13980,7 @@ enemy{
   y = 1525,
   direction = 0,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 switch{
@@ -13999,6 +14001,7 @@ enemy{
   y = 1277,
   direction = 3,
   breed = "hardhat_beetle",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -14097,6 +14100,7 @@ enemy{
   y = 1357,
   direction = 0,
   breed = "gel",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -14106,6 +14110,7 @@ enemy{
   y = 1357,
   direction = 0,
   breed = "gel",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -14115,7 +14120,7 @@ enemy{
   y = 1309,
   direction = 3,
   breed = "stalfos_red",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -14125,7 +14130,7 @@ enemy{
   y = 1309,
   direction = 3,
   breed = "stalfos_red",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -14135,7 +14140,7 @@ enemy{
   y = 1365,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -14145,7 +14150,7 @@ enemy{
   y = 1365,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -14290,7 +14295,7 @@ enemy{
   y = 1085,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -14300,7 +14305,7 @@ enemy{
   y = 1149,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -14310,7 +14315,7 @@ enemy{
   y = 1101,
   direction = 3,
   breed = "stalfos_red",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -14356,7 +14361,7 @@ enemy{
   y = 1109,
   direction = 0,
   breed = "mini_moldorm",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 chest{
@@ -14376,6 +14381,7 @@ enemy{
   y = 813,
   direction = 3,
   breed = "vegas",
+  treasure_name = "random_with_charm",
 }
 
 teletransporter{
@@ -14434,6 +14440,7 @@ enemy{
   y = 861,
   direction = 3,
   breed = "vegas",
+  treasure_name = "random_with_charm",
 }
 
 sensor{
@@ -14763,26 +14770,54 @@ npc{
   layer = 0,
   x = 1760,
   y = 757,
+  properties = {
+    {
+      key = "model",
+      value = "statue_owl_dungeon",
+    },
+    {
+      key = "dialog",
+      value = "maps.dungeons.1.owl_1",
+    },
+  },
   direction = 3,
   subtype = 1,
   sprite = "npc/statues/owl_dungeon_1",
 }
 
 npc{
-  name = "owl_2",
   layer = 0,
   x = 752,
   y = 517,
+  properties = {
+    {
+      key = "model",
+      value = "statue_owl_dungeon",
+    },
+    {
+      key = "dialog",
+      value = "maps.dungeons.1.owl_2",
+    },
+  },
   direction = 3,
   subtype = 1,
   sprite = "npc/statues/owl_dungeon_1",
 }
 
 npc{
-  name = "owl_3",
   layer = 0,
   x = 480,
   y = 517,
+  properties = {
+    {
+      key = "model",
+      value = "statue_owl_dungeon",
+    },
+    {
+      key = "dialog",
+      value = "maps.dungeons.1.owl_3",
+    },
+  },
   direction = 3,
   subtype = 1,
   sprite = "npc/statues/owl_dungeon_1",
@@ -14878,6 +14913,7 @@ enemy{
   y = 861,
   direction = 3,
   breed = "vegas",
+  treasure_name = "random_with_charm",
 }
 
 destination{
@@ -15049,7 +15085,7 @@ enemy{
   y = 1093,
   direction = 3,
   breed = "stalfos_red",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 block{
@@ -16491,6 +16527,7 @@ enemy{
   y = 605,
   direction = 0,
   breed = "spiked_beetle",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -16500,6 +16537,7 @@ enemy{
   y = 637,
   direction = 0,
   breed = "spiked_beetle",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -16509,7 +16547,7 @@ enemy{
   y = 1085,
   direction = 0,
   breed = "mini_moldorm",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 destination{
@@ -16597,7 +16635,6 @@ enemy{
   y = 1501,
   direction = 0,
   breed = "face_lamp",
-  treasure_name = "random",
 }
 
 enemy{
@@ -16607,7 +16644,6 @@ enemy{
   y = 1501,
   direction = 0,
   breed = "face_lamp",
-  treasure_name = "random",
 }
 
 enemy{
@@ -16617,7 +16653,7 @@ enemy{
   y = 1309,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -16627,7 +16663,7 @@ enemy{
   y = 1341,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -16637,7 +16673,7 @@ enemy{
   y = 1341,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -16647,7 +16683,7 @@ enemy{
   y = 1309,
   direction = 0,
   breed = "keese",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 block{
@@ -16866,6 +16902,15 @@ sensor{
       value = "true",
     },
   },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_15",
+  layer = 0,
+  x = 800,
+  y = 725,
   width = 16,
   height = 16,
 }
@@ -18916,9 +18961,9 @@ separator{
 
 separator{
   layer = 2,
-  x = 960,
+  x = 0,
   y = 712,
-  width = 1600,
+  width = 2560,
   height = 16,
 }
 
@@ -18976,23 +19021,6 @@ separator{
   y = 0,
   width = 16,
   height = 1920,
-}
-
-separator{
-  layer = 2,
-  x = 0,
-  y = 712,
-  width = 640,
-  height = 16,
-}
-
-separator{
-  name = "separator_1",
-  layer = 2,
-  x = 640,
-  y = 712,
-  width = 320,
-  height = 16,
 }
 
 separator{

@@ -82,14 +82,16 @@ function item:start_using()
 
   if self:get_amount() == 0 then
     sol.audio.play_sound("wrong")
-    self:set_finished()
+--    self:set_finished()
   else
-    hero:set_animation("bow")
+    hero:freeze()
+    hero:set_animation("bow") --Hack, fixes invisible hero after firing
 
     sol.timer.start(map, 290, function()
         audio_manager:play_sound("hero/bow")
         self:remove_amount(1)
-        self:set_finished()
+--        self:set_finished()
+        hero:unfreeze()
         local x, y = hero:get_center_position()
         local ox, oy=hero:get_sprite("tunic"):get_xy()
         local _, _, layer = hero:get_position()

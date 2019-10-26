@@ -8,18 +8,18 @@ state:set_can_control_movement(true)
 state:set_can_control_direction(false)
 
 function state:on_started()
-  print "DUMMIER !!!!!!!!"
+  print "Entering dummy state"
 end
 
 function state:on_finished()
-  print "no more dummy !?"
+  print "Exiting dummy state"
 end
 
 return function(e)
-  print "DUMMMMMYYYYY ??????"
+  print "Launching dummy state"
   e:start_state(state)
   sol.timer.start(e:get_map(), 1000, function()
-      print "Du... mmy ?"
+      print "Testing dummy state"
        state:set_can_use_stairs(true)
     end)
 end

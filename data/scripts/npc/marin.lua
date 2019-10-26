@@ -123,7 +123,6 @@ return function(marin)
         local item_melody = game:get_item("melody_1")
         item_melody:set_variant(1)
         item_melody:brandish(function()
-          --game:set_value("main_quest_step", 19) 
           game:start_dialog("maps.out.mabe_village.marin_7")
         end)
       end

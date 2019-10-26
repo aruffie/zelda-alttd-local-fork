@@ -12,7 +12,6 @@ function phone_manager:talk(map)
   for key, params in ipairs(messages) do
     if params.activation_condition ~= nil and params.activation_condition(map) then
       message_key = params.message_key
-        print(params.message_key)
     end
   end
   phone_sprite:set_animation("calling")

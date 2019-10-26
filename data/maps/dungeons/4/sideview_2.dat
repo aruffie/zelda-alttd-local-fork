@@ -866,15 +866,15 @@ separator{
 
 enemy{
   layer = 0,
-  x = 456,
-  y = 69,
+  x = 472,
+  y = 101,
   direction = 0,
   breed = "thwomp",
 }
 
 enemy{
   layer = 0,
-  x = 184,
+  x = 200,
   y = 101,
   direction = 0,
   breed = "thwomp",

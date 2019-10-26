@@ -1,0 +1,753 @@
+properties{
+  x = 0,
+  y = 0,
+  width = 640,
+  height = 480,
+  min_layer = 0,
+  max_layer = 2,
+  world = "test_world",
+  tileset = "testing/labo",
+}
+
+tile{
+  layer = 0,
+  x = 600,
+  y = 440,
+  enabled_at_start = false,
+  width = 24,
+  height = 24,
+  pattern = "20",
+}
+
+tile{
+  layer = 0,
+  x = 600,
+  y = 16,
+  width = 24,
+  height = 24,
+  pattern = "18",
+}
+
+tile{
+  layer = 0,
+  x = 16,
+  y = 440,
+  width = 24,
+  height = 24,
+  pattern = "19",
+}
+
+tile{
+  layer = 0,
+  x = 16,
+  y = 16,
+  width = 24,
+  height = 24,
+  pattern = "17",
+}
+
+tile{
+  layer = 0,
+  x = 24,
+  y = 16,
+  width = 592,
+  height = 8,
+  pattern = "22",
+}
+
+tile{
+  layer = 0,
+  x = 616,
+  y = 24,
+  width = 8,
+  height = 432,
+  pattern = "21",
+}
+
+tile{
+  layer = 0,
+  x = 16,
+  y = 24,
+  width = 8,
+  height = 432,
+  pattern = "21",
+}
+
+tile{
+  layer = 0,
+  x = 40,
+  y = 40,
+  enabled_at_start = false,
+  width = 560,
+  height = 400,
+  pattern = "14",
+}
+
+tile{
+  layer = 0,
+  x = 72,
+  y = 48,
+  width = 8,
+  height = 24,
+  pattern = "1",
+}
+
+tile{
+  layer = 0,
+  x = 56,
+  y = 48,
+  width = 16,
+  height = 16,
+  pattern = "24",
+}
+
+tile{
+  layer = 0,
+  x = 48,
+  y = 48,
+  width = 8,
+  height = 24,
+  pattern = "1",
+}
+
+tile{
+  layer = 0,
+  x = 184,
+  y = 80,
+  enabled_at_start = false,
+  width = 64,
+  height = 64,
+  pattern = "10",
+}
+
+tile{
+  layer = 0,
+  x = 136,
+  y = 376,
+  width = 16,
+  height = 16,
+  pattern = "12",
+}
+
+tile{
+  layer = 0,
+  x = 120,
+  y = 360,
+  width = 32,
+  height = 16,
+  pattern = "2",
+}
+
+tile{
+  layer = 0,
+  x = 152,
+  y = 360,
+  width = 16,
+  height = 32,
+  pattern = "2",
+}
+
+tile{
+  layer = 0,
+  x = 120,
+  y = 376,
+  width = 16,
+  height = 32,
+  pattern = "2",
+}
+
+tile{
+  layer = 0,
+  x = 72,
+  y = 376,
+  width = 16,
+  height = 16,
+  pattern = "12",
+}
+
+tile{
+  layer = 0,
+  x = 56,
+  y = 360,
+  width = 32,
+  height = 16,
+  pattern = "2",
+}
+
+tile{
+  layer = 0,
+  x = 88,
+  y = 360,
+  width = 16,
+  height = 32,
+  pattern = "2",
+}
+
+tile{
+  layer = 0,
+  x = 56,
+  y = 376,
+  width = 16,
+  height = 32,
+  pattern = "2",
+}
+
+tile{
+  layer = 0,
+  x = 72,
+  y = 392,
+  width = 32,
+  height = 16,
+  pattern = "2",
+}
+
+tile{
+  layer = 0,
+  x = 320,
+  y = 280,
+  width = 72,
+  height = 40,
+  pattern = "12",
+}
+
+tile{
+  layer = 0,
+  x = 48,
+  y = 40,
+  width = 32,
+  height = 8,
+  pattern = "1",
+}
+
+tile{
+  layer = 0,
+  x = 24,
+  y = 32,
+  width = 8,
+  height = 416,
+  pattern = "21",
+}
+
+tile{
+  layer = 0,
+  x = 32,
+  y = 40,
+  width = 8,
+  height = 400,
+  pattern = "21",
+}
+
+tile{
+  layer = 0,
+  x = 24,
+  y = 456,
+  width = 592,
+  height = 8,
+  pattern = "22",
+}
+
+tile{
+  layer = 0,
+  x = 32,
+  y = 24,
+  width = 576,
+  height = 8,
+  pattern = "22",
+}
+
+tile{
+  layer = 0,
+  x = 608,
+  y = 32,
+  width = 8,
+  height = 416,
+  pattern = "21",
+}
+
+tile{
+  layer = 0,
+  x = 600,
+  y = 40,
+  width = 8,
+  height = 400,
+  pattern = "21",
+}
+
+tile{
+  layer = 0,
+  x = 40,
+  y = 32,
+  width = 560,
+  height = 8,
+  pattern = "22",
+}
+
+tile{
+  layer = 0,
+  x = 40,
+  y = 440,
+  width = 560,
+  height = 8,
+  pattern = "22",
+}
+
+tile{
+  layer = 0,
+  x = 32,
+  y = 448,
+  width = 576,
+  height = 8,
+  pattern = "22",
+}
+
+tile{
+  layer = 0,
+  x = 336,
+  y = 128,
+  width = 8,
+  height = 8,
+  pattern = "1",
+}
+
+tile{
+  layer = 0,
+  x = 336,
+  y = 152,
+  width = 8,
+  height = 8,
+  pattern = "1",
+}
+
+tile{
+  layer = 0,
+  x = 328,
+  y = 136,
+  width = 16,
+  height = 16,
+  pattern = "12",
+}
+
+tile{
+  layer = 0,
+  x = 360,
+  y = 128,
+  width = 8,
+  height = 8,
+  pattern = "1",
+}
+
+tile{
+  layer = 0,
+  x = 360,
+  y = 152,
+  width = 8,
+  height = 8,
+  pattern = "1",
+}
+
+tile{
+  layer = 0,
+  x = 344,
+  y = 120,
+  width = 16,
+  height = 16,
+  pattern = "12",
+}
+
+tile{
+  layer = 0,
+  x = 344,
+  y = 152,
+  width = 16,
+  height = 16,
+  pattern = "12",
+}
+
+tile{
+  layer = 0,
+  x = 360,
+  y = 136,
+  width = 16,
+  height = 16,
+  pattern = "12",
+}
+
+tile{
+  layer = 0,
+  x = 136,
+  y = 392,
+  width = 32,
+  height = 16,
+  pattern = "2",
+}
+
+destination{
+  name = "from_hole",
+  layer = 0,
+  x = 216,
+  y = 117,
+  direction = 3,
+}
+
+destination{
+  name = "from_stairs",
+  layer = 0,
+  x = 64,
+  y = 69,
+  direction = 3,
+}
+
+stairs{
+  layer = 0,
+  x = 56,
+  y = 56,
+  direction = 1,
+  subtype = 2,
+}
+
+teletransporter{
+  layer = 0,
+  x = 56,
+  y = 56,
+  width = 16,
+  height = 16,
+  destination_map = "test/outside",
+  destination = "from_cave",
+}
+
+switch{
+  name = "key_test_switch",
+  layer = 0,
+  x = 136,
+  y = 328,
+  subtype = "walkable",
+  sprite = "entities/switchs/switch",
+  sound = "arrow_hit",
+  needs_block = false,
+  inactivate_when_leaving = false,
+}
+
+custom_entity{
+  name = "key_spawn_point",
+  layer = 0,
+  x = 144,
+  y = 389,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+switch{
+  name = "key_test_switch_2",
+  layer = 0,
+  x = 72,
+  y = 328,
+  subtype = "walkable",
+  sprite = "entities/switchs/switch",
+  sound = "arrow_hit",
+  needs_block = false,
+  inactivate_when_leaving = false,
+}
+
+pickable{
+  name = "test_key",
+  layer = 0,
+  x = 80,
+  y = 389,
+  enabled_at_start = false,
+  treasure_name = "small_key",
+}
+
+crystal{
+  layer = 0,
+  x = 216,
+  y = 381,
+}
+
+custom_entity{
+  layer = 0,
+  x = 232,
+  y = 360,
+  width = 32,
+  height = 16,
+  origin_x = 0,
+  origin_y = 0,
+  direction = 0,
+  sprite = "entities/crystal_block",
+  tiled = true,
+  model = "crystal_block",
+}
+
+custom_entity{
+  layer = 0,
+  x = 280,
+  y = 360,
+  width = 32,
+  height = 16,
+  origin_x = 0,
+  origin_y = 0,
+  direction = 0,
+  sprite = "entities/crystal_block",
+  tiled = true,
+  model = "crystal_block",
+}
+
+custom_entity{
+  layer = 0,
+  x = 232,
+  y = 376,
+  properties = {
+    {
+      key = "initially_raised",
+      value = "true",
+    },
+  },
+  width = 32,
+  height = 16,
+  origin_x = 0,
+  origin_y = 0,
+  direction = 0,
+  sprite = "entities/crystal_block",
+  tiled = true,
+  model = "crystal_block",
+}
+
+custom_entity{
+  layer = 0,
+  x = 280,
+  y = 376,
+  properties = {
+    {
+      key = "initially_raised",
+      value = "true",
+    },
+  },
+  width = 32,
+  height = 16,
+  origin_x = 0,
+  origin_y = 0,
+  direction = 0,
+  sprite = "entities/crystal_block",
+  tiled = true,
+  model = "crystal_block",
+}
+
+block{
+  layer = 0,
+  x = 328,
+  y = 277,
+  direction = 3,
+  sprite = "entities/blocks/block",
+  pushable = true,
+  pullable = false,
+}
+
+sensor{
+  layer = 0,
+  x = 64,
+  y = 85,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+block{
+  layer = 0,
+  x = 312,
+  y = 317,
+  direction = 0,
+  sprite = "entities/blocks/block",
+  pushable = true,
+  pullable = false,
+}
+
+block{
+  layer = 0,
+  x = 328,
+  y = 333,
+  direction = 1,
+  sprite = "entities/blocks/block",
+  pushable = true,
+  pullable = false,
+}
+
+block{
+  layer = 0,
+  x = 400,
+  y = 317,
+  direction = 2,
+  sprite = "entities/blocks/block",
+  pushable = true,
+  pullable = false,
+}
+
+wall{
+  layer = 0,
+  x = 344,
+  y = 264,
+  width = 8,
+  height = 16,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 0,
+  x = 368,
+  y = 264,
+  width = 8,
+  height = 16,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 0,
+  x = 344,
+  y = 256,
+  width = 32,
+  height = 8,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+enemy{
+  layer = 0,
+  x = 360,
+  y = 277,
+  direction = 0,
+  breed = "hardhat_beetle",
+}
+
+destructible{
+  layer = 0,
+  x = 432,
+  y = 301,
+  sprite = "entities/destructibles/pot",
+}
+
+dynamic_tile{
+  name = "unstable_floor_1_unstable_associate_",
+  layer = 0,
+  x = 328,
+  y = 136,
+  width = 16,
+  height = 16,
+  pattern = "25",
+}
+
+custom_entity{
+  name = "unstable_floor_1",
+  layer = 0,
+  x = 336,
+  y = 149,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/grounds/weak_floor_light_4",
+  model = "unstable_floor",
+}
+
+dynamic_tile{
+  name = "unstable_floor_2_unstable_associate_",
+  layer = 0,
+  x = 344,
+  y = 152,
+  width = 16,
+  height = 16,
+  pattern = "25",
+}
+
+custom_entity{
+  name = "unstable_floor_2",
+  layer = 0,
+  x = 352,
+  y = 165,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/grounds/weak_floor_light_4",
+  model = "unstable_floor",
+}
+
+dynamic_tile{
+  name = "unstable_floor_3_unstable_associate_",
+  layer = 0,
+  x = 344,
+  y = 120,
+  width = 16,
+  height = 16,
+  pattern = "25",
+}
+
+custom_entity{
+  name = "unstable_floor_3",
+  layer = 0,
+  x = 352,
+  y = 133,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/grounds/weak_floor_light_4",
+  model = "unstable_floor",
+}
+
+dynamic_tile{
+  name = "unstable_floor_4_unstable_associate_",
+  layer = 0,
+  x = 360,
+  y = 136,
+  width = 16,
+  height = 16,
+  pattern = "25",
+}
+
+custom_entity{
+  name = "unstable_floor_4",
+  layer = 0,
+  x = 368,
+  y = 149,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/grounds/weak_floor_light_4",
+  model = "unstable_floor",
+}
+
+block{
+  layer = 0,
+  x = 352,
+  y = 149,
+  sprite = "entities/blocks/block",
+  pushable = true,
+  pullable = false,
+}
+
+block{
+  layer = 0,
+  x = 384,
+  y = 213,
+  sprite = "entities/blocks/block",
+  pushable = true,
+  pullable = false,
+}
+
+enemy{
+  layer = 0,
+  x = 408,
+  y = 213,
+  direction = 0,
+  breed = "goponga_flower",
+}
+

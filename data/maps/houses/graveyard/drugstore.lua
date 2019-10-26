@@ -5,15 +5,16 @@ local hero=map:get_hero()
 local intro_dialog_done = false
 
 -- Include scripts
+require("scripts/multi_events")
 local audio_manager = require("scripts/audio_manager")
 
 -- Map events
-function map:on_started(destination)
+map:register_event("on_started", function(map, destination)
 
   -- Music
   map:init_music()
   
-end
+end)
 
 -- Initialize the music of the map
 function map:init_music()
@@ -33,8 +34,9 @@ function crazy_tracy:on_interaction()
     drugs_bought = 0
   end
   local amount = 28
+  local killed_enemies=game.shop_drug_count or 0
   --if drug_already_bought and game.sell_drug_at_high_price then
-  if drug_already_bought and math.random(2) == 1 then --TODO use enemy counter instead
+  if drug_already_bought and killed_enemies%2 == 1 then
     amount = 42
   end
   if not intro_dialog_done then
@@ -55,6 +57,7 @@ function crazy_tracy:on_interaction()
                  map:launch_transaction_with_crazy_tracy(amount)
               end)
             else
+                game:set_value("stats_shop_drug_count", killed_enemies%2)
                 map:launch_transaction_with_crazy_tracy(amount)
             end
           else --Not enough money

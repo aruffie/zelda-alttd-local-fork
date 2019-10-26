@@ -94,7 +94,7 @@ return {
     end
   },
   shield = {
-    price = 10,  -- Todo change to 50 rupees
+    price = 50,
     quantity = 1,
     placeholder = 3,
     variant = 1,

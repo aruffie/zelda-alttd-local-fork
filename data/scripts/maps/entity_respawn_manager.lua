@@ -8,18 +8,18 @@
 
 local entity_respawn_manager = {}
 local light_manager_fsa = require("scripts/lights/light_manager")
+local light_manager=require("scripts/maps/light_manager")
 require("scripts/multi_events")
 
 function entity_respawn_manager:init(map)
 
-  if not map.blocks_remaining then
-    map.blocks_remaining = {}
-  end
   local saved_entities={
     enemies = {},
     unstable_floors = {},
     torches = {}, 
     destructibles = {},
+    moving_platforms = {},
+    twin_platforms = {},
     blocks = {},
     custom_entities = {},
   }
@@ -67,20 +67,30 @@ function entity_respawn_manager:init(map)
   function entity_respawn_manager:reset_torches(map)
     local hero=map:get_hero()
     local found=false
+
     for _, torch in pairs(saved_entities.torches) do
       torch:set_lit(false)
       if torch:is_in_same_region(hero) then --TODO take account of dungeon 6 pre-boss torches
-        --print ("found "..(torch:get_name() or "<something>")..". XY: ", torch:get_position())
+--        debug_print ("found "..(torch:get_name() or "<something>")..". XY: ", torch:get_position())
         found=true
       end
     end
+    light_manager:update_light_level(map)
 
-    if found==true then
-    --  print "Lights OFF"
-      map:set_light(0)
-    else
-     -- print "Lights ON"
-      map:set_light(1)
+    if map.torches_remaining~=nil then
+      for torch_group, remaining in pairs(map.torches_remaining) do
+        map.torches_remaining[torch_group]=map:get_entities_count(torch_group) 
+      end
+    end
+  end
+  function entity_respawn_manager:reset_twin_platforms()
+    for _, platform in pairs(saved_entities.twin_platforms) do
+      platform:reset()
+    end
+  end
+  function entity_respawn_manager:reset_moving_platforms()
+    for _, platform in pairs(saved_entities.moving_platforms) do
+      platform:reset()
     end
   end
 
@@ -115,10 +125,11 @@ function entity_respawn_manager:init(map)
       end
     end
     --Reset counters for block riddles
-
-    for block_group in pairs(map.blocks_remaining) do 
-      if block_group then
-        map.blocks_remaining[block_group]=map:get_entities_count(block_group)
+    if map.blocks_remaining then
+      for block_group in pairs(map.blocks_remaining) do 
+        if block_group then
+          map.blocks_remaining[block_group]=map:get_entities_count(block_group)
+        end
       end
     end
   end
@@ -243,7 +254,7 @@ function entity_respawn_manager:init(map)
       local x, y, layer = entity:get_position()
       local width, height = entity:get_size()
       local entity_type=entity:get_type()
-      -- print ("checking in a(n) ".. entity_type)
+      --debug_print ("checking in a(n) ".. entity_type)
 
 -- Store the position and properties of enemies.
       if entity_type=="enemy" then
@@ -273,7 +284,8 @@ function entity_respawn_manager:init(map)
       end
 
       if entity_type=="custom_entity" then
-        if entity:get_model()=="unstable_floor" then
+        local model=entity:get_model()
+        if model=="unstable_floor" then
           local tile_name=entity:get_name().."_unstable_associate_"
           local associated_tile=map:get_entity(tile_name)
           -- Store the position and properties of unstable floors.
@@ -292,7 +304,7 @@ function entity_respawn_manager:init(map)
               floor=associated_tile, 
             }
           else 
-            print("Warning : could not find unstable floor tile "..tile_name)
+            debug_print("Warning : could not find unstable floor tile "..tile_name)
           end
 
           saved_entities.unstable_floors[#saved_entities.unstable_floors + 1] = {
@@ -310,9 +322,16 @@ function entity_respawn_manager:init(map)
             floor=entity,
           }
         end
+        
+        if model=="platform_moving" then
+          saved_entities.moving_platforms[#saved_entities.moving_platforms + 1] = entity
+        end
+        if model=="platform_balance" then
+          saved_entities.twin_platforms[#saved_entities.twin_platforms + 1] = entity
+        end
 
         if entity:get_model()=="torch" then
-          saved_entities.torches[#saved_entities.torches + 1]=entity
+          saved_entities.torches[#saved_entities.torches + 1] = entity
         end 
       end
 
@@ -354,7 +373,7 @@ function entity_respawn_manager:init(map)
 
       if entity:get_property("auto_respawn")=="true" then
 -- Store the position and properties of custom entities
-        if entity_type=="custom_entity" and entity:get_model()~="unstable_floor" and entity:get_model()~="torch" then
+        if entity_type=="custom_entity" and entity:get_model()~="unstable_floor" and entity:get_model()~="torch" and entity:get_model()~= "platform_moving" and entity:get_model()~= "platform_balance" then
           saved_entities.custom_entities[#saved_entities.custom_entities + 1] = {
             x = x,
             y = y,
@@ -382,6 +401,8 @@ function entity_respawn_manager:init(map)
     self:reset_bombs()
     self:reset_blocks(map)
     self:reset_custom_entities(map)
+    self:reset_moving_platforms()
+    self:reset_twin_platforms()
     self:reset_unstable_floors(map)
     self:reset_destructibles(map)
     self:reset_enemies(map) -- originally triggered by separator:on_activating

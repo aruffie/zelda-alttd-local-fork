@@ -1316,7 +1316,7 @@ enemy{
   y = 341,
   direction = 3,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -1326,7 +1326,7 @@ enemy{
   y = 381,
   direction = 3,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -1336,7 +1336,7 @@ enemy{
   y = 341,
   direction = 3,
   breed = "arm_mimic",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -1346,7 +1346,7 @@ enemy{
   y = 365,
   direction = 3,
   breed = "arm_mimic",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 destination{
@@ -1388,7 +1388,7 @@ enemy{
   y = 389,
   direction = 3,
   breed = "zol_green",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 tile{

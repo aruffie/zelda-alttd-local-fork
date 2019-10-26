@@ -3,11 +3,12 @@ local map = ...
 local game = map:get_game()
 
 -- Include scripts
+require("scripts/multi_events")
 local owl_manager = require("scripts/maps/owl_manager")
 local audio_manager = require("scripts/audio_manager")
 
 -- Map events
-function map:on_started(destination)
+map:register_event("on_started", function(map, destination)
 
   -- Music
   map:init_music()
@@ -18,12 +19,12 @@ function map:on_started(destination)
   -- Shore
   map:init_shore()
 
-end
+end)
 
 -- Initialize the music of the map
 function map:init_music()
 
-  if game:get_value("main_quest_step") == 3  then
+  if game:is_step_last("shield_obtained") then
     audio_manager:play_music("07_koholint_island")
   else
     audio_manager:play_music("10_overworld")
@@ -36,13 +37,13 @@ function map:init_map_entities()
   
   owl_1:set_enabled(false)
   owl_4:set_enabled(false)
-  if sword ~= nil then
-    sword:get_sprite():set_direction(4)
-    sword:get_sprite():set_ignore_suspend(true)
+  if sword_item ~= nil then
+    sword_item:get_sprite():set_direction(4)
+    sword_item:get_sprite():set_ignore_suspend(true)
   end
   dungeon_1_entrance:set_traversable_by(false)
   dungeon_1_entrance:set_traversable_by('camera', true)
-  if game:get_value("main_quest_step") > 6 then
+  if game:is_step_done("dungeon_1_opened") then
     map:open_dungeon_1()
   end
   -- Seashell's tree
@@ -70,10 +71,7 @@ end
 function map:init_shore()
   
   sol.timer.start(map, 5000, function()
-    local x,y,layer = hero:get_position()
-    if y > 500 then
-      audio_manager:play_sound("misc/shore")
-    end  
+    audio_manager:play_entity_sound("misc/shore") 
     return true
   end)
   
@@ -90,7 +88,7 @@ end
 -- Obtaining sword
 function map:on_obtaining_treasure(treasure_item, treasure_variant, treasure_savegame_variable)
 
-  if treasure_item:get_name() == "sword" then
+  if treasure_item:get_name() == "sword_item" then
     map:launch_cinematic_1()
   end
 
@@ -99,9 +97,9 @@ end
 -- NPCs events
 function dungeon_1_lock:on_interaction()
 
-  if game:get_value("main_quest_step") < 6 then
+  if not game:is_step_done("dungeon_1_key_obtained") then
       game:start_dialog("maps.out.south_mabe_village.dungeon_1_lock")
-  elseif game:get_value("main_quest_step") == 6 then
+  elseif game:is_step_last("dungeon_1_key_obtained") then
     map:launch_cinematic_2()
   end
   
@@ -122,7 +120,7 @@ end
 
 function owl_4_sensor:on_activated()
 
-  if game:get_value("main_quest_step") == 8  and game:get_value("owl_4") ~= true then
+  if game:is_step_last("dungeon_1_completed") and game:get_value("owl_4") ~= true then
     owl_manager:appear(map, 4, function()
     map:init_music()
     end)
@@ -171,7 +169,7 @@ function map:launch_cinematic_1()
     end
     animation(hero, "spin_attack")
     map:set_cinematic_mode(false, options)
-    game:set_value("main_quest_step", 4)
+    game:set_step_done("sword_obtained")
     audio_manager:play_music("10_overworld")
   end)
 
@@ -223,7 +221,7 @@ function map:launch_cinematic_2()
     movement(movement2, camera)
     map:set_cinematic_mode(false, options)
     camera:start_tracking(hero)
-    game:set_value("main_quest_step", 7)
+    game:set_step_done("dungeon_1_opened")
     map:init_music()
   end)
 

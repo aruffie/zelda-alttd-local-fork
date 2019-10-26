@@ -169,12 +169,11 @@ animation{
   name = "dying",
   src_image = "hero/dying.png",
   frame_delay = 125,
-  frame_to_loop_on = 9,
   directions = {
-    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 10 },
-    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 10 },
-    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 10 },
-    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 10 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 11 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 11 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 11 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 11 },
   },
 }
 animation{
@@ -201,14 +200,25 @@ animation{
   },
 }
 animation{
+  name = "fishing_break_net",
+  src_image = "hero/fishing.tunic.png",
+  frame_delay = 100,
+  directions = {
+    { x = 288, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21, num_frames = 6 },
+    { x = 288, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21, num_frames = 6 },
+    { x = 288, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21, num_frames = 6 },
+    { x = 288, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21, num_frames = 6 },
+  },
+}
+animation{
   name = "fishing_caught_fish",
   src_image = "hero/fishing.tunic.png",
   frame_delay = 80,
   directions = {
-    { x = 288, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21, num_frames = 3 },
-    { x = 288, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21, num_frames = 3 },
-    { x = 288, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21, num_frames = 3 },
-    { x = 288, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21, num_frames = 3 },
+    { x = 288, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 288, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 288, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 288, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21, num_frames = 4 },
   },
 }
 animation{
@@ -225,12 +235,13 @@ animation{
 animation{
   name = "fishing_pull",
   src_image = "hero/fishing.tunic.png",
-  frame_delay = 80,
+  frame_delay = 150,
+  frame_to_loop_on = 0,
   directions = {
-    { x = 288, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21 },
-    { x = 288, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21 },
-    { x = 288, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21 },
-    { x = 288, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21 },
+    { x = 288, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21, num_frames = 2 },
+    { x = 288, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21, num_frames = 2 },
+    { x = 288, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21, num_frames = 2 },
+    { x = 288, y = 0, frame_width = 48, frame_height = 40, origin_x = 12, origin_y = 21, num_frames = 2 },
   },
 }
 animation{
@@ -524,6 +535,17 @@ animation{
     { x = 0, y = 32, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29, num_frames = 5 },
     { x = 0, y = 64, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29, num_frames = 5 },
     { x = 0, y = 96, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 29, num_frames = 5 },
+  },
+}
+animation{
+  name = "resurrecting",
+  src_image = "hero/resurrecting.png",
+  frame_delay = 100,
+  directions = {
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 12 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 12 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 12 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 12 },
   },
 }
 animation{

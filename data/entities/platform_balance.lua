@@ -27,6 +27,7 @@ local accel_duration = 1
 local old_x=0
 local old_y=0
 local true_x, true_y
+local start_x, start_y
 entity.speed=0
 local twin=nil
 local chain=nil
@@ -47,7 +48,7 @@ entity:register_event("on_created", function()
     entity.is_on_twin=false
     local true_layer
     true_x, true_y = entity:get_position()
-
+    start_x, start_y = entity:get_position()
     --Create it's chain
     chain = entity:get_map():create_custom_entity({
         x=true_x,
@@ -95,9 +96,17 @@ entity:add_collision_test(
   end
 )
 
+function entity:reset()
+  entity:set_position(start_x, start_y)
+end
+
 function entity:on_removed()
   if chain then
     chain:remove()
+    chain=nil
+  end
+  if twin then
+    twin=nil
   end
 end
 
@@ -129,7 +138,7 @@ sol.timer.start(entity, 10, function()
     if hy+hh <= ey+1 then
 
       if solidified == false then
---              print "ME SOLID NOW"
+--        debug_print "ME SOLID NOW"
         solidified = true
         entity:set_traversable_by("hero", false)
         if hx+hw<=ex+ew and hx>=ex and hy<=ey+eh-1 and hy+hh>=ey-1 then
@@ -140,7 +149,7 @@ sol.timer.start(entity, 10, function()
 
     else
       if solidified == true then
---              print "ME NON SOLID NOW"
+--        debug_print "ME NON SOLID NOW"
         solidified = false
         entity:set_traversable_by("hero", true)
       end
@@ -157,7 +166,7 @@ sol.timer.start(entity, 10, function()
 
     if entity:test_obstacles(0, math.floor(entity.speed)+1) or twin:test_obstacles(0, math.floor(twin.speed+1)) then
       --reset speed if there an obstacle under either of the twins
-      print (entity:get_name().." cannot move (position: X "..x..", Y "..y)
+      debug_print (entity:get_name().." cannot move (position: X "..x..", Y "..y)
       entity.speed=0
     else
       --Compute the new position

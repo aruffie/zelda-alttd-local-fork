@@ -247,7 +247,7 @@ tile{
 tile{
   layer = 0,
   x = 48,
-  y = 104,
+  y = 112,
   width = 16,
   height = 32,
   pattern = "wall_torch.3",
@@ -256,7 +256,7 @@ tile{
 tile{
   layer = 0,
   x = 256,
-  y = 104,
+  y = 112,
   width = 16,
   height = 32,
   pattern = "wall_torch.4",
@@ -533,6 +533,35 @@ tile{
   pattern = "carpet.7",
 }
 
+tile{
+  layer = 0,
+  x = 160,
+  y = 88,
+  width = 32,
+  height = 24,
+  pattern = "101",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 112,
+  y = 160,
+  width = 8,
+  height = 8,
+  pattern = "2764",
+  tileset = "dungeon/light_brown",
+}
+
+tile{
+  layer = 0,
+  x = 64,
+  y = 56,
+  width = 192,
+  height = 88,
+  pattern = "2761",
+}
+
 destination{
   name = "shop_1_1_B",
   layer = 0,
@@ -562,83 +591,6 @@ npc{
   sprite = "npc/villagers/game_man",
 }
 
-custom_entity{
-  layer = 0,
-  x = 80,
-  y = 77,
-  width = 16,
-  height = 16,
-  direction = 3,
-  sprite = "entities/grounds/conveyor_belt_3",
-  model = "conveyor_belt",
-}
-
-custom_entity{
-  layer = 0,
-  x = 80,
-  y = 93,
-  width = 16,
-  height = 16,
-  direction = 3,
-  sprite = "entities/grounds/conveyor_belt_3",
-  model = "conveyor_belt",
-}
-
-custom_entity{
-  layer = 0,
-  x = 80,
-  y = 109,
-  width = 16,
-  height = 16,
-  direction = 3,
-  sprite = "entities/grounds/conveyor_belt_3",
-  model = "conveyor_belt",
-}
-
-custom_entity{
-  layer = 0,
-  x = 80,
-  y = 125,
-  width = 16,
-  height = 16,
-  direction = 3,
-  sprite = "entities/grounds/conveyor_belt_3",
-  model = "conveyor_belt",
-}
-
-custom_entity{
-  layer = 0,
-  x = 80,
-  y = 141,
-  width = 16,
-  height = 16,
-  direction = 3,
-  sprite = "entities/grounds/conveyor_belt_3",
-  model = "conveyor_belt",
-}
-
-custom_entity{
-  name = "claw_up",
-  layer = 0,
-  x = 80,
-  y = 45,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/claw_up",
-}
-
-custom_entity{
-  name = "claw_crane",
-  layer = 0,
-  x = 80,
-  y = 61,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/claw_crane",
-}
-
 npc{
   name = "console",
   layer = 0,
@@ -647,17 +599,6 @@ npc{
   direction = -1,
   subtype = 0,
   sprite = "npc/misc/console",
-}
-
-custom_entity{
-  name = "claw_shadow",
-  layer = 0,
-  x = 80,
-  y = 85,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "shadows/shadow_big",
 }
 
 custom_entity{
@@ -682,17 +623,6 @@ custom_entity{
   sprite = "entities/decorations/mini_candle",
 }
 
-custom_entity{
-  name = "conveyor_minigame",
-  layer = 0,
-  x = 128,
-  y = 85,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/grounds/conveyor_belt_minigame",
-}
-
 wall{
   layer = 0,
   x = 152,
@@ -704,6 +634,289 @@ wall{
   stops_blocks = true,
 }
 
+stream{
+  layer = 0,
+  x = 80,
+  y = 77,
+  direction = 6,
+  sprite = "streams/stream_d3",
+  speed = 24,
+  allow_movement = false,
+}
+
+stream{
+  layer = 0,
+  x = 80,
+  y = 93,
+  direction = 6,
+  sprite = "streams/stream_d3",
+  speed = 24,
+  allow_movement = false,
+}
+
+stream{
+  layer = 0,
+  x = 80,
+  y = 109,
+  direction = 6,
+  sprite = "streams/stream_d3",
+  speed = 24,
+  allow_movement = false,
+}
+
+stream{
+  layer = 0,
+  x = 80,
+  y = 125,
+  direction = 6,
+  sprite = "streams/stream_d3",
+  speed = 24,
+  allow_movement = false,
+}
+
+stream{
+  layer = 0,
+  x = 80,
+  y = 141,
+  direction = 6,
+  sprite = "streams/stream_d3",
+  speed = 24,
+  allow_movement = false,
+}
+
+stream{
+  layer = 0,
+  x = 128,
+  y = 85,
+  direction = 6,
+  sprite = "streams/stream_d3",
+  speed = 24,
+  allow_movement = false,
+}
+
+stream{
+  layer = 0,
+  x = 128,
+  y = 101,
+  direction = 6,
+  sprite = "streams/stream_d3",
+  speed = 24,
+  allow_movement = false,
+}
+
+stream{
+  layer = 0,
+  x = 128,
+  y = 117,
+  direction = 6,
+  sprite = "streams/stream_d3",
+  speed = 24,
+  allow_movement = false,
+}
+
+stream{
+  layer = 0,
+  x = 144,
+  y = 133,
+  direction = 0,
+  sprite = "streams/stream_d3",
+  speed = 24,
+  allow_movement = false,
+}
+
+stream{
+  layer = 0,
+  x = 128,
+  y = 133,
+  direction = 0,
+  sprite = "streams/stream_d3",
+  speed = 24,
+  allow_movement = false,
+}
+
+stream{
+  layer = 0,
+  x = 160,
+  y = 133,
+  direction = 0,
+  sprite = "streams/stream_d3",
+  speed = 24,
+  allow_movement = false,
+}
+
+stream{
+  layer = 0,
+  x = 176,
+  y = 133,
+  direction = 0,
+  sprite = "streams/stream_d3",
+  speed = 24,
+  allow_movement = false,
+}
+
+stream{
+  layer = 0,
+  x = 192,
+  y = 133,
+  direction = 0,
+  sprite = "streams/stream_d3",
+  speed = 24,
+  allow_movement = false,
+}
+
+stream{
+  layer = 0,
+  x = 208,
+  y = 133,
+  direction = 0,
+  sprite = "streams/stream_d3",
+  speed = 24,
+  allow_movement = false,
+}
+
+stream{
+  layer = 0,
+  x = 224,
+  y = 133,
+  direction = 2,
+  sprite = "streams/stream_d3",
+  speed = 24,
+  allow_movement = false,
+}
+
+stream{
+  layer = 0,
+  x = 224,
+  y = 117,
+  direction = 2,
+  sprite = "streams/stream_d3",
+  speed = 24,
+  allow_movement = false,
+}
+
+stream{
+  layer = 0,
+  x = 224,
+  y = 101,
+  direction = 2,
+  sprite = "streams/stream_d3",
+  speed = 24,
+  allow_movement = false,
+}
+
+stream{
+  layer = 0,
+  x = 224,
+  y = 85,
+  direction = 4,
+  sprite = "streams/stream_d3",
+  speed = 24,
+  allow_movement = false,
+}
+
+stream{
+  layer = 0,
+  x = 208,
+  y = 85,
+  direction = 4,
+  sprite = "streams/stream_d3",
+  speed = 24,
+  allow_movement = false,
+}
+
+stream{
+  layer = 0,
+  x = 192,
+  y = 85,
+  direction = 4,
+  sprite = "streams/stream_d3",
+  speed = 24,
+  allow_movement = false,
+}
+
+stream{
+  layer = 0,
+  x = 176,
+  y = 85,
+  direction = 4,
+  sprite = "streams/stream_d3",
+  speed = 24,
+  allow_movement = false,
+}
+
+stream{
+  layer = 0,
+  x = 160,
+  y = 85,
+  direction = 4,
+  sprite = "streams/stream_d3",
+  speed = 24,
+  allow_movement = false,
+}
+
+stream{
+  layer = 0,
+  x = 144,
+  y = 85,
+  direction = 4,
+  sprite = "streams/stream_d3",
+  speed = 24,
+  allow_movement = false,
+}
+
+pickable{
+  name = "game_item_2",
+  layer = 0,
+  x = 128,
+  y = 101,
+  treasure_name = "rupee",
+}
+
+pickable{
+  name = "game_item_3",
+  layer = 0,
+  x = 128,
+  y = 125,
+  treasure_name = "shield",
+}
+
+pickable{
+  name = "game_item_4",
+  layer = 0,
+  x = 224,
+  y = 133,
+  treasure_name = "rupee",
+  treasure_variant = 2,
+}
+
+pickable{
+  name = "game_item_5",
+  layer = 0,
+  x = 224,
+  y = 93,
+  treasure_name = "heart",
+}
+
+pickable{
+  name = "game_item_6",
+  layer = 0,
+  x = 176,
+  y = 101,
+  treasure_name = "magnifying_lens",
+  treasure_savegame_variable = "magnifying_lens_1",
+}
+
+custom_entity{
+  name = "claw_shadow",
+  layer = 0,
+  x = 80,
+  y = 85,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/shadow",
+}
+
 tile{
   layer = 1,
   x = 144,
@@ -713,37 +926,26 @@ tile{
   pattern = "door_top.2-1",
 }
 
-pickable{
-  name = "game_item_2",
+custom_entity{
+  name = "claw_up",
   layer = 1,
-  x = 128,
-  y = 101,
-  treasure_name = "rupee",
+  x = 80,
+  y = 45,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/claw_up",
 }
 
-pickable{
-  name = "game_item_3",
+custom_entity{
+  name = "claw_crane",
   layer = 1,
-  x = 128,
-  y = 125,
-  treasure_name = "shield",
-}
-
-pickable{
-  name = "game_item_4",
-  layer = 1,
-  x = 224,
-  y = 133,
-  treasure_name = "rupee",
-  treasure_variant = 2,
-}
-
-pickable{
-  name = "game_item_5",
-  layer = 1,
-  x = 224,
-  y = 93,
-  treasure_name = "heart",
+  x = 80,
+  y = 61,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/claw_crane",
 }
 
 tile{
@@ -780,24 +982,5 @@ tile{
   width = 240,
   height = 16,
   pattern = "ceiling.2",
-}
-
-tile{
-  layer = 2,
-  x = 160,
-  y = 88,
-  width = 32,
-  height = 24,
-  pattern = "101",
-  tileset = "addition/dungeon",
-}
-
-pickable{
-  name = "game_item_6",
-  layer = 2,
-  x = 176,
-  y = 101,
-  treasure_name = "magnifying_lens",
-  treasure_savegame_variable = "magnifying_lens_1",
 }
 

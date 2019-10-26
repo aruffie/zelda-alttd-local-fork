@@ -9175,7 +9175,7 @@ enemy{
   y = 621,
   direction = 2,
   breed = "moblin_dog_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -9184,7 +9184,7 @@ enemy{
   y = 525,
   direction = 3,
   breed = "moblin_dog_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -9193,7 +9193,7 @@ enemy{
   y = 669,
   direction = 3,
   breed = "zol_red",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -9202,7 +9202,7 @@ enemy{
   y = 709,
   direction = 3,
   breed = "zol_red",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -9211,7 +9211,7 @@ enemy{
   y = 509,
   direction = 2,
   breed = "moblin_dog_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -9220,7 +9220,7 @@ enemy{
   y = 229,
   direction = 3,
   breed = "moblin_dog_sword",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -9229,7 +9229,7 @@ enemy{
   y = 109,
   direction = 2,
   breed = "moblin_dog_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -9238,7 +9238,7 @@ enemy{
   y = 133,
   direction = 3,
   breed = "zol_red",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -9247,7 +9247,7 @@ enemy{
   y = 109,
   direction = 3,
   breed = "zol_red",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 destination{
@@ -11797,7 +11797,7 @@ enemy{
   y = 301,
   direction = 2,
   breed = "moblin_dog_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -11806,7 +11806,7 @@ enemy{
   y = 477,
   direction = 3,
   breed = "moblin_dog_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -11815,7 +11815,7 @@ enemy{
   y = 77,
   direction = 2,
   breed = "moblin_dog_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -11824,7 +11824,7 @@ enemy{
   y = 141,
   direction = 2,
   breed = "moblin_dog_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -11833,7 +11833,7 @@ enemy{
   y = 53,
   direction = 0,
   breed = "moblin_dog_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -11842,7 +11842,7 @@ enemy{
   y = 557,
   direction = 0,
   breed = "moblin_dog_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -11851,7 +11851,7 @@ enemy{
   y = 645,
   direction = 2,
   breed = "moblin_dog_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -11860,7 +11860,7 @@ enemy{
   y = 669,
   direction = 3,
   breed = "zol_red",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 wall{
@@ -11929,7 +11929,7 @@ enemy{
   y = 501,
   direction = 3,
   breed = "moblin_dog_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -11938,7 +11938,7 @@ enemy{
   y = 621,
   direction = 0,
   breed = "moblin_dog_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -11947,7 +11947,7 @@ enemy{
   y = 581,
   direction = 3,
   breed = "moblin_dog_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -11956,7 +11956,7 @@ enemy{
   y = 677,
   direction = 0,
   breed = "moblin_dog_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -11965,7 +11965,7 @@ enemy{
   y = 685,
   direction = 2,
   breed = "moblin_dog_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -11974,7 +11974,7 @@ enemy{
   y = 685,
   direction = 0,
   breed = "moblin_dog_spear",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -11983,7 +11983,7 @@ enemy{
   y = 685,
   direction = 3,
   breed = "zol_red",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 wall{

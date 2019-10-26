@@ -11,7 +11,6 @@ local hero = map:get_hero()
 local hero_sprite = hero:get_sprite()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
-
 local is_eating = false
 local is_exhausted = false
 local command_pressed_count = 0
@@ -87,14 +86,14 @@ game:register_event("on_command_pressed", function(game, command)
 end)
 
 -- Eat the hero if hurt.
--- TODO register_event() seems to not prevent the default behavior, check how to use it.
-function enemy:on_attacking_hero(hero, enemy_sprite)
+enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
 
   if not is_eating and not is_exhausted and hero_sprite:get_opacity() ~= 0 then
     enemy:eat_hero()
   end
   return true
-end
+  
+end)
 
 -- Free hero if dying.
 enemy:register_event("on_dying", function(enemy)

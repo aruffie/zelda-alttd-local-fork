@@ -4312,15 +4312,6 @@ tile{
 tile{
   layer = 1,
   x = -24,
-  y = -48,
-  width = 48,
-  height = 48,
-  pattern = "1455",
-}
-
-tile{
-  layer = 1,
-  x = -24,
   y = -56,
   width = 48,
   height = 8,
@@ -4334,15 +4325,6 @@ tile{
   width = 8,
   height = 48,
   pattern = "1452",
-}
-
-tile{
-  layer = 1,
-  x = -24,
-  y = 0,
-  width = 48,
-  height = 8,
-  pattern = "1453",
 }
 
 tile{
@@ -6882,15 +6864,6 @@ tile{
 tile{
   layer = 1,
   x = -24,
-  y = -24,
-  width = 48,
-  height = 40,
-  pattern = "2202",
-}
-
-tile{
-  layer = 1,
-  x = -24,
   y = 16,
   width = 48,
   height = 8,
@@ -9104,6 +9077,33 @@ tile{
   pattern = "1037",
 }
 
+tile{
+  layer = 1,
+  x = -24,
+  y = -24,
+  width = 48,
+  height = 40,
+  pattern = "2202",
+}
+
+tile{
+  layer = 1,
+  x = -24,
+  y = -48,
+  width = 48,
+  height = 48,
+  pattern = "1455",
+}
+
+tile{
+  layer = 1,
+  x = -24,
+  y = 0,
+  width = 48,
+  height = 8,
+  pattern = "1453",
+}
+
 wall{
   layer = 1,
   x = 808,
@@ -10137,7 +10137,7 @@ enemy{
   y = 189,
   direction = 0,
   breed = "crow",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -10146,7 +10146,7 @@ enemy{
   y = 53,
   direction = 2,
   breed = "darknut",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 custom_entity{
@@ -10172,7 +10172,7 @@ enemy{
   },
   direction = 2,
   breed = "mad_bomber",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 custom_entity{
@@ -10231,7 +10231,7 @@ enemy{
   y = 477,
   direction = 2,
   breed = "darknut",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -10240,7 +10240,7 @@ enemy{
   y = 493,
   direction = 0,
   breed = "darknut",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -10249,7 +10249,7 @@ enemy{
   y = 293,
   direction = 0,
   breed = "darknut",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 wall{

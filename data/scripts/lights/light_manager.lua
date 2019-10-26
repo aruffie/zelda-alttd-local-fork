@@ -163,7 +163,7 @@ function light_mgr:init(map,ambient)
   self.chunk_width = math.ceil(mw / chunk_size)
   self.chunk_height = math.ceil(mh / chunk_size)
   self.map = map
-  print("light manager initialized")
+
 end
 
 local inv_count = 0

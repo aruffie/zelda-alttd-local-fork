@@ -11,7 +11,7 @@ require("scripts/multi_events")
 local audio_manager = require("scripts/audio_manager")
 
 -- Map events
-function map:on_started()
+map:register_event("on_started", function(map, destination)
 
   -- Music
   map:init_music()
@@ -22,12 +22,12 @@ function map:on_started()
   -- Shore
   map:init_shore()
  
-end
+end)
 
 -- Initialize the music of the map
 function map:init_music()
   
-  if game:get_value("main_quest_step") == 3  then
+  if game:is_step_last("shield_obtained") then
     audio_manager:play_music("07_koholint_island")
   else
     if marin_song then
@@ -44,7 +44,7 @@ end
 function map:init_map_entities()
   
   -- Marin
-  if game:get_value("main_quest_step") ~= 21  then
+  if not game:is_step_last("started_looking_for_marin") then
     marin:set_enabled(false)
   end
   -- Wart cave

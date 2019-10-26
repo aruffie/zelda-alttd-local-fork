@@ -741,33 +741,6 @@ tile{
   pattern = "7",
 }
 
-dynamic_tile{
-  layer = 0,
-  x = 544,
-  y = 0,
-  width = 16,
-  height = 8,
-  pattern = "78",
-}
-
-dynamic_tile{
-  layer = 0,
-  x = 544,
-  y = 8,
-  width = 16,
-  height = 160,
-  pattern = "79",
-}
-
-dynamic_tile{
-  layer = 0,
-  x = 80,
-  y = 8,
-  width = 16,
-  height = 112,
-  pattern = "79",
-}
-
 separator{
   layer = 0,
   x = 312,
@@ -776,35 +749,7 @@ separator{
   height = 240,
 }
 
-destination{
-  name = "stairs_2_B",
-  layer = 0,
-  x = 88,
-  y = 29,
-  direction = 1,
-}
-
-teletransporter{
-  name = "stairs_1_A",
-  layer = 0,
-  x = 544,
-  y = 0,
-  width = 16,
-  height = 16,
-  destination_map = "dungeons/2/1f",
-  destination = "stairs_1_B",
-}
-
-destination{
-  name = "stairs_1_B",
-  layer = 0,
-  x = 552,
-  y = 29,
-  direction = 1,
-}
-
 custom_entity{
-  name = "auto_entity_2",
   layer = 0,
   x = 440,
   y = 181,
@@ -816,10 +761,6 @@ custom_entity{
     {
       key = "distance",
       value = "48",
-    },
-    {
-      key = "is_semisolid",
-      value = "false",
     },
     {
       key = "cycle_duration",
@@ -834,7 +775,6 @@ custom_entity{
 }
 
 custom_entity{
-  name = "auto_entity_1",
   layer = 0,
   x = 168,
   y = 133,
@@ -859,13 +799,83 @@ custom_entity{
   model = "platform_moving",
 }
 
-dynamic_tile{
+custom_entity{
   layer = 0,
-  x = 80,
-  y = 0,
+  x = 552,
+  y = 13,
+  width = 16,
+  height = 160,
+  origin_y = 5,
+  direction = 0,
+  sprite = "entities/grounds/ladder_wooden",
+  tiled = true,
+  model = "ladder",
+}
+
+custom_entity{
+  layer = 0,
+  x = 552,
+  y = 5,
   width = 16,
   height = 8,
-  pattern = "78",
+  origin_y = 5,
+  direction = 0,
+  sprite = "entities/grounds/ladder_wooden_top",
+  tiled = true,
+  model = "ladder",
+}
+
+teletransporter{
+  name = "stairs_1_A",
+  layer = 0,
+  x = 544,
+  y = 0,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/2/1f",
+  destination = "stairs_1_B",
+}
+
+destination{
+  name = "stairs_1_B",
+  layer = 0,
+  x = 552,
+  y = 29,
+  direction = 1,
+}
+
+custom_entity{
+  layer = 0,
+  x = 88,
+  y = 5,
+  width = 16,
+  height = 120,
+  origin_y = 5,
+  direction = 0,
+  sprite = "entities/grounds/ladder_wooden",
+  tiled = true,
+  model = "ladder",
+}
+
+custom_entity{
+  layer = 0,
+  x = 88,
+  y = 5,
+  width = 16,
+  height = 8,
+  origin_y = 5,
+  direction = 0,
+  sprite = "entities/grounds/ladder_wooden_top",
+  tiled = true,
+  model = "ladder",
+}
+
+destination{
+  name = "stairs_2_B",
+  layer = 0,
+  x = 88,
+  y = 29,
+  direction = 1,
 }
 
 teletransporter{

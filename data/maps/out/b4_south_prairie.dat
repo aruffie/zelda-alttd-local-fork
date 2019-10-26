@@ -15494,10 +15494,19 @@ npc{
   layer = 1,
   x = 696,
   y = 45,
+  properties = {
+    {
+      key = "model",
+      value = "statue_owl_outside",
+    },
+    {
+      key = "dialog",
+      value = "maps.out.south_prairie.owl_statue_1",
+    },
+  },
   direction = 3,
   subtype = 1,
   sprite = "npc/statues/owl",
-  behavior = "dialog#maps.out.south_prairie.owl_statue_1",
 }
 
 destructible{
@@ -20363,7 +20372,7 @@ enemy{
   y = 669,
   direction = 0,
   breed = "sand_crab",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 dynamic_tile{
@@ -20532,7 +20541,7 @@ enemy{
   y = 669,
   direction = 0,
   breed = "leever",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -20541,7 +20550,7 @@ enemy{
   y = 701,
   direction = 0,
   breed = "leever",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 
 wall{
@@ -22435,6 +22444,6 @@ enemy{
   y = 413,
   direction = 3,
   breed = "monkey",
-  treasure_name = "random",
+  treasure_name = "random_with_charm",
 }
 

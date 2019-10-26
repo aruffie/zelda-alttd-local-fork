@@ -1,6 +1,8 @@
 local carried_meta = sol.main.get_metatable("carried_object")
 require ("scripts/multi_events")
 local audio_manager=require "scripts/audio_manager"
+local entity_manager = require("scripts/maps/entity_manager")
+
 local m = sol.movement.create("straight")
 
 carried_meta:register_event("on_thrown", function(entity)
@@ -10,8 +12,8 @@ carried_meta:register_event("on_thrown", function(entity)
     local hero = map:get_hero()
     local shadow = entity:get_sprite("shadow")    
     if shadow then
-      print "(throwing time) SHADOW BE GONE !"
-      shadow:stop_animation()
+      entity:remove_sprite(shadow)
+      error("the shadow should already have been removed at this point")
     end
     if map:is_sideview() then --Make me follow gravity
 
@@ -23,24 +25,30 @@ carried_meta:register_event("on_thrown", function(entity)
 
   end)
 
+carried_meta:register_event("on_lifted", function(entity)
+    local shadow = entity:get_sprite("shadow")    
+    if shadow then
+      error("the shadow should already have been removed at this point")
+    end
+  end)
+carried_meta:register_event("on_removed", function(entity)
+    if entity:get_ground_below() =="hole" then
+      entity_manager:create_falling_entity(entity)
+    end
+  end)
+
 carried_meta:register_event("on_created", function(entity)
 
     local map=entity:get_map()
     local shadow = entity:get_sprite("shadow")
-    for k,v in pairs(entity:get_properties()) do
-      print (k, v)
-    end
     if shadow then
-      print "(creation time) SHADOW BE GONE !"
-      shadow:stop_animation()
+      debug_print "(carried object creation time) SHADOW BE GONE !"
+      entity:remove_sprite(shadow)
     end
     if map:is_sideview() then
       for name, s in entity:get_sprites() do
         s:set_xy(0,2)
       end
-
-
-
     end
 
   end)
