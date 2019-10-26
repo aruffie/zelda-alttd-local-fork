@@ -138,7 +138,7 @@ sol.timer.start(entity, 10, function()
     if hy+hh <= ey+1 then
 
       if solidified == false then
---              print "ME SOLID NOW"
+--        debug_print "ME SOLID NOW"
         solidified = true
         entity:set_traversable_by("hero", false)
         if hx+hw<=ex+ew and hx>=ex and hy<=ey+eh-1 and hy+hh>=ey-1 then
@@ -149,7 +149,7 @@ sol.timer.start(entity, 10, function()
 
     else
       if solidified == true then
---              print "ME NON SOLID NOW"
+--        debug_print "ME NON SOLID NOW"
         solidified = false
         entity:set_traversable_by("hero", true)
       end
@@ -166,7 +166,7 @@ sol.timer.start(entity, 10, function()
 
     if entity:test_obstacles(0, math.floor(entity.speed)+1) or twin:test_obstacles(0, math.floor(twin.speed+1)) then
       --reset speed if there an obstacle under either of the twins
-      print (entity:get_name().." cannot move (position: X "..x..", Y "..y)
+      debug_print (entity:get_name().." cannot move (position: X "..x..", Y "..y)
       entity.speed=0
     else
       --Compute the new position

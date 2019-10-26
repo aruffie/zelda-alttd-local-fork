@@ -74,14 +74,14 @@ end
 
 -- Function called when the hero uses the hookshot item.
 -- Creates a hookshot entity and sets up the movement.
-function item:on_using()
+function item:start_using()
 
   local going_back = false
   local sound_timer
   local map = item:get_map()
   local hero = map:get_hero()
   
-  if hero:is_jumping() or (map:is_sideview() and hero.vspeed~=nil) then 
+  if hero:is_jumping() or (map:is_sideview() and hero.vspeed~=nil and hero:get_ground_below()~="deep_water") then 
     item:set_finished()
     return
   end

@@ -38,4 +38,6 @@ require("scripts/maps/cinematic_manager")
 require("scripts/coroutine_helper")
 require("scripts/lib/iter.lua")() --adds iterlua to _G
 
+require("scripts/tools/debug_utils")
+
 return true

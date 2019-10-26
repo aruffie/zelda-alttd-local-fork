@@ -177,7 +177,6 @@ function enemy_meta:set_sprite_damage(sprite, damage)
   sprite.custom_damage = damage
 end
 
--- Warning: do not override these functions if you use the "custom shield" script.
 enemy_meta:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
     -- Do nothing if enemy sprite cannot hurt hero.
     local collision_mode = enemy:get_attacking_collision_mode()
@@ -187,7 +186,8 @@ enemy_meta:register_event("on_attacking_hero", function(enemy, hero, enemy_sprit
     and hero:is_shield_protecting_from_enemy(enemy, enemy_sprite) then
       return
     end
--- Otherwise, hero is not protected. Use built-in behavior.
+
+    -- Otherwise, hero is not protected. Use built-in behavior.
     local damage = enemy:get_damage()
     if enemy_sprite then
       hero:start_hurt(enemy, enemy_sprite, damage)

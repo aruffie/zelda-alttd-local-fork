@@ -41,7 +41,6 @@ function entity:on_created()
   m:set_smooth(false)
   m.on_obstacle_reached=function()
     --TODO find a way to ignore axisting explosions
---        print "BOOM"
     --Will it explode on it's own ? no :(
     local x,y,layer=entity:get_position()
     audio_manager:play_entity_sound(entity,"items/bomb_explode")
@@ -53,5 +52,5 @@ function entity:on_created()
     entity:remove()
   end
   m:start(entity)
-  
+
 end

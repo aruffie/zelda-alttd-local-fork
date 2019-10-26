@@ -21,13 +21,6 @@ local walking_speed = 88
 local swimming_speed = 66
 local gravity = 0.2
 local max_vspeed = 2
-local __debug=false
-
-local function debug_print(...)
-  if __debug then
-    print(...)
-  end
-end
 
 --[[
   Returns whether the ground at given XY coordinates is a ladder.
@@ -63,14 +56,14 @@ end
   Sets the vertical speed on the entity, in pixels/frame.
   Parameter: vspeed, the new vertical speed.
 --]]
-function map_meta.set_vertical_speed(entity, vspeed)
+function map_meta.set_vspeed(entity, vspeed)
   entity.vspeed = vspeed
 end
 
 --[[
   Returns whether the current vertical speed of the entity, in pixels/frame.
 --]]
-function map_meta.get_vertical_speed(entity)
+function map_meta.get_vspeed(entity)
   return entity.vspeed or 0
 end
 
@@ -150,8 +143,6 @@ local function apply_gravity(entity)
   local vspeed = entity.vspeed or 0 
   if vspeed > 0 then
     vspeed = on_bounce_possible(entity)
-  end
-  if vspeed >= 0 then
     --Try to apply downwards movement
     if entity:test_obstacles(0,1) or entity.has_grabbed_ladder or
     not check_for_ladder(entity) and is_ladder(entity:get_map(), x, y+3) then
@@ -164,7 +155,7 @@ local function apply_gravity(entity)
       return false
     end
     entity:set_position(x,y+1)
-  else
+  elseif vspeed < 0 then
     -- Try to get up
     if not entity:test_obstacles(0,-1) then
       entity:set_position(x,y-1)
@@ -191,7 +182,7 @@ local function update_entities(map)
       local is_affected
       local has_property = entity:get_property("has_gravity")
       local e_type = entity:get_type()
-      if e_type=="carried_object" or e_type =="hero" then
+      if e_type=="carried_object" or e_type =="hero" or e_type=="bomb" then
         is_affected = true
       else
         is_affected = false
@@ -242,28 +233,7 @@ local function update_entities(map)
         sprite:set_xy(0,2) --shift down the visual
         entity:remove()
       elseif has_property or is_affected then  -- Try to make entity be affected by gravity.
-        if __debug and not entity.show_hitbox then --DEBUG : draw hitbox information
-          entity.show_hitbox = true --Flag me s processed
-          local w,h=entity:get_size()
-          local s=sol.surface.create(w,h)
-          local ox, oy=entity:get_origin()
-          local b={255,0,0}
-          local c={0,255,0}
-          --draw the hitbox
-          s:fill_color(b, 0, 0, w,1)
-          s:fill_color(b, 0, h-1, w,1)
-          s:fill_color(b, 0, 0, 1,h)
-          s:fill_color(b, w-1, 0, 1, h)
-          --draw the origin (representing the actual position)
-          s:fill_color(c, 0, oy, w, 1)
-          s:fill_color(c, ox, 0 ,1,h)
-          entity.debug_hitbox=s
-          function entity:on_post_draw(camera)
-            local cx,cy=camera:get_position()
-            local x,y=entity:get_bounding_box()
-            entity.debug_hitbox:draw(camera:get_surface(), x-cx, y-cy)
-          end
-        end
+        show_hitbox(entity)
         if entity:get_type()~="hero" and not entity.water_processed and not entity.vspeed and entity:test_obstacles(0,1) and check_for_water(entity) then
           --Force the entity to get down when in a water pool
           entity.water_processed=true

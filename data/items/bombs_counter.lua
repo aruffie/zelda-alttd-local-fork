@@ -40,11 +40,12 @@ function item:start_using()
         end)
     end
   else
-
-    item:remove_amount(1)
-    local bomb = item:create_bomb()
-    audio_manager:play_sound("items/bomb_drop")
-
+    local hero=item:get_game():get_hero()
+    if not hero:is_jumping() and (hero.vspeed==0 or hero.vspeed==nil) then --not jumping
+      item:remove_amount(1)
+      local bomb = item:create_bomb()
+      audio_manager:play_sound("items/bomb_drop")
+    end
   end
   item:set_finished()
 
@@ -55,7 +56,7 @@ function item:create_bomb()
   local map = item:get_map()
   local hero = map:get_entity("hero")
   local x, y, layer = hero:get_position()
-        local ox, oy=hero:get_sprite("tunic"):get_xy()
+  local ox, oy=hero:get_sprite("tunic"):get_xy()
   local direction = hero:get_direction()
   if direction == 0 then
     x = x + 16
@@ -69,7 +70,7 @@ function item:create_bomb()
   local bomb = map:create_bomb{
     x = x+ox,
     y = y+oy,
-    layer = layer
+    layer = layer,
   }
   local sprite = bomb:get_sprite()
   function sprite:on_animation_changed(animation)

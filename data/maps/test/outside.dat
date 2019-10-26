@@ -2053,6 +2053,46 @@ chest{
   sprite = "entities/chests/chest_small",
 }
 
+chest{
+  layer = 0,
+  x = 248,
+  y = 213,
+  treasure_name = "bombs_bag",
+  sprite = "entities/chests/chest_small",
+}
+
+chest{
+  layer = 0,
+  x = 264,
+  y = 213,
+  treasure_name = "boomerang",
+  sprite = "entities/chests/chest_small",
+}
+
+chest{
+  layer = 0,
+  x = 280,
+  y = 213,
+  treasure_name = "fire_rod",
+  sprite = "entities/chests/chest_small",
+}
+
+chest{
+  layer = 0,
+  x = 296,
+  y = 213,
+  treasure_name = "magic_powder_bag",
+  sprite = "entities/chests/chest_small",
+}
+
+chest{
+  layer = 0,
+  x = 312,
+  y = 213,
+  treasure_name = "hookshot",
+  sprite = "entities/chests/chest_small",
+}
+
 tile{
   layer = 1,
   x = 16,

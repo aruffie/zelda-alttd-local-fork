@@ -28,7 +28,7 @@ return {
     end
   },
   {
-    message_key = 6,
+    message_key = 7,
     activation_condition = function(map)
       local item = map:get_game():get_item("magnifying_lens")
       local variant = item:get_variant()

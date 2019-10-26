@@ -12,6 +12,7 @@ carried_meta:register_event("on_thrown", function(entity)
     local hero = map:get_hero()
     local shadow = entity:get_sprite("shadow")    
     if shadow then
+      entity:remove_sprite(shadow)
       error("the shadow should already have been removed at this point")
     end
     if map:is_sideview() then --Make me follow gravity
@@ -40,11 +41,8 @@ carried_meta:register_event("on_created", function(entity)
 
     local map=entity:get_map()
     local shadow = entity:get_sprite("shadow")
-    for k,v in pairs(entity:get_properties()) do
-      print (k, v)
-    end
     if shadow then
-      print "(creation time) SHADOW BE GONE !"
+      debug_print "(carried object creation time) SHADOW BE GONE !"
       entity:remove_sprite(shadow)
     end
     if map:is_sideview() then

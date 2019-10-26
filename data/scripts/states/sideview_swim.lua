@@ -14,7 +14,7 @@ function hero_meta:start_swimming()
 end
 
 function state:on_position_changed(x,y,layer)
-  -- print "i'm swiiiiiiiming in the poool, just swiiiiiming in the pool"
+  -- debug_print "i'm swiiiiiiiming in the poool, just swiiiiiming in the pool"
   local entity=state:get_entity()
   local map = state:get_map()
   if map:get_ground(x,y,layer)~="deep_water" then

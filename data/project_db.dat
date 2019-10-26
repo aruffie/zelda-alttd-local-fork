@@ -367,11 +367,10 @@ sprite{ id = "entities/animals/seagull", description = "Seagull" }
 sprite{ id = "entities/animals/seagull_small", description = "Seagull small" }
 sprite{ id = "entities/animals/wart_brothers", description = "Wart's brothers" }
 sprite{ id = "entities/arrow", description = "Arrow" }
-sprite{ id = "entities/blocks/block", description = "Block" }
 sprite{ id = "entities/blocks/block_small_key", description = "Block small key" }
 sprite{ id = "entities/blocks/box", description = "Box" }
 sprite{ id = "entities/blocks/stone_brown", description = "Stone brown" }
-sprite{ id = "entities/blocks/stone_brown weak", description = "Stone brown weak" }
+sprite{ id = "entities/blocks/stone_brown_weak", description = "Stone brown weak" }
 sprite{ id = "entities/bomb", description = "Bomb" }
 sprite{ id = "entities/bomb_arrow", description = "Bomb Arrow" }
 sprite{ id = "entities/boomerang1", description = "Boomerang 1" }
@@ -436,10 +435,8 @@ sprite{ id = "entities/doors/door_weak_wall", description = "Weak wall" }
 sprite{ id = "entities/doors/door_weak_wall_out", description = "Outside weak wall" }
 sprite{ id = "entities/dungeons/dungeon_6", description = "Dungeon 6" }
 sprite{ id = "entities/dungeons/dungeon_7", description = "Dungeon 7" }
-sprite{ id = "entities/effects/bubble", description = "Bubble" }
 sprite{ id = "entities/effects/dark", description = "Dark" }
 sprite{ id = "entities/effects/explosion_green", description = "Explosion green" }
-sprite{ id = "entities/effects/fishing_water_effect", description = "Fishing water effect" }
 sprite{ id = "entities/effects/flame", description = "Flame" }
 sprite{ id = "entities/effects/fog", description = "Fog" }
 sprite{ id = "entities/effects/impact_projectile", description = "Impact projectile" }
@@ -458,11 +455,6 @@ sprite{ id = "entities/ground_effects/water", description = "ground_effects/wate
 sprite{ id = "entities/grounds/color_platform_green", description = "Color platform green" }
 sprite{ id = "entities/grounds/color_platform_orange", description = "Color platform orange" }
 sprite{ id = "entities/grounds/color_platform_red", description = "Color platform red" }
-sprite{ id = "entities/grounds/conveyor_belt_1", description = "Conveyor belt 1" }
-sprite{ id = "entities/grounds/conveyor_belt_2", description = "Conveyor belt 2" }
-sprite{ id = "entities/grounds/conveyor_belt_3", description = "Conveyor belt 3" }
-sprite{ id = "entities/grounds/conveyor_belt_4", description = "Conveyor belt 4" }
-sprite{ id = "entities/grounds/conveyor_belt_minigame", description = "Conveyor belt minigame" }
 sprite{ id = "entities/grounds/fisher_boat", description = "Fisher boat" }
 sprite{ id = "entities/grounds/ground_dug", description = "Ground dug" }
 sprite{ id = "entities/grounds/ladder_iron", description = "Ladder iron" }
@@ -730,6 +722,10 @@ sprite{ id = "npc/villagers/tarin", description = "Tarin" }
 sprite{ id = "npc/villagers/witch", description = "Witch" }
 sprite{ id = "pictures/peach", description = "Peach" }
 sprite{ id = "portables/horse_head", description = "Horse head" }
+sprite{ id = "streams/stream_d1", description = "Dungeon stream 1" }
+sprite{ id = "streams/stream_d2", description = "Dungeon stream 2" }
+sprite{ id = "streams/stream_d3", description = "Dungeon stream 3" }
+sprite{ id = "streams/stream_d4", description = "Dungeon stream 4" }
 
 music{ id = "gb/01_introduction", description = "01 - Introduction" }
 music{ id = "gb/02_title", description = "02 - Title" }
@@ -2704,6 +2700,11 @@ file{ path = "sprites/menus/zeldaforce_logo/zeldaforce_logo_z.png", author = "Ol
 file{ path = "sprites/npc", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use, CC BY-SA 4.0" }
 file{ path = "sprites/npc/animals/alligator.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
 file{ path = "sprites/npc/animals/alligator.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
+file{ path = "sprites/streams", author = "FFomega", license = "CC BY-SA 4.0" }
+file{ path = "sprites/streams/stream_d1.dat", author = "FFomega", license = "CC BY-SA 4.0" }
+file{ path = "sprites/streams/stream_d2.dat", author = "FFomega", license = "CC BY-SA 4.0" }
+file{ path = "sprites/streams/stream_d3.dat", author = "FFomega", license = "CC BY-SA 4.0" }
+file{ path = "sprites/streams/stream_d4.dat", author = "FFomega", license = "CC BY-SA 4.0" }
 file{ path = "tilesets/dungeon", author = "Nintendo, FFomega", license = "Mixed" }
 file{ path = "tilesets/dungeon/blue.dat", author = "FFomega", license = "CC BY-SA 4.0" }
 file{ path = "tilesets/dungeon/blue.entities.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }

@@ -19,11 +19,11 @@ function lib.start_effect(surface, game, mode, sfx, callback)
 
   local shader=sol.shader.create("radial_fade_out")
   if not surface then
-    print("Error : No surface has been passed")
+    error("Radial faceout: No surface has been passed")
     return
   end
   if not(mode=="in" or mode=="out") then
-    print("Error:unknown drawing mode")
+    error("Radial fadeout: unknown drawing mode")
     return
   end
   local function lerp(a,b,p)

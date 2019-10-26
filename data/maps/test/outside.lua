@@ -4,11 +4,10 @@ local hero = map:get_hero()
 
 
 --DEBUG: lauch a dummy state for engine bug hunting.
-local dummy = require("scripts/states/dummy")
-function map:on_opening_transition_finished()
---  print "DUMMY"
+--local dummy = require("scripts/states/dummy")
+--function map:on_opening_transition_finished()
 --  dummy(hero)
-end
+--end
 
 --DEBUG: Jumping state debug test utility, for consistent measures
 local jumping_manager=require("scripts/maps/jump_manager")
@@ -42,7 +41,7 @@ local owl_manager = require("scripts/maps/owl_manager")
 
 function owl_test:on_activated()
   owl_manager:appear(map, 7, function()
-      print "Oot hoot"
+     --debug_print "Oot hoot"
       sol.audio.stop_music()
     end)  
 end
