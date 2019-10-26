@@ -165,7 +165,6 @@ function enemy_meta:set_sprite_damage(sprite, damage)
   sprite.custom_damage = damage
 end
 
--- Warning: do not override these functions if you use the "custom shield" script.
 function enemy_meta:on_attacking_hero(hero, enemy_sprite)
   local enemy = self
   -- Do nothing if enemy sprite cannot hurt hero.

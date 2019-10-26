@@ -47,10 +47,9 @@ end
 function enemy:disappear()
 
   enemy:start_brief_effect("entities/symbols/exclamation", nil, -16, -16, 400)
-  if before_disappear_timer then
-    before_disappear_timer:stop()
-  end
+  
   before_disappear_timer = sol.timer.start(enemy, before_disappear_delay, function()
+    before_disappear_timer = nil
 
     sprite:set_animation("disappearing", function()
       enemy:set_invincible()
@@ -66,11 +65,9 @@ end
 -- Start the enemy movement.
 function enemy:wait()
 
-  if waiting_timer then
-    waiting_timer:stop()
-  end
   waiting_timer = sol.timer.start(enemy, 50, function()
     if enemy:is_near(hero, triggering_distance) then
+      before_disappear_timer = nil
       enemy:disappear()
       return false
     end
@@ -98,6 +95,14 @@ enemy:register_event("on_restarted", function(enemy)
   })
 
   -- States.
+  if waiting_timer then
+    waiting_timer:stop()
+    waiting_timer = nil
+  end
+  if before_disappear_timer then
+    before_disappear_timer:stop()
+    before_disappear_timer = nil
+  end
   enemy:set_direction2()
   enemy:set_can_attack(true)
   enemy:set_damage(2)
