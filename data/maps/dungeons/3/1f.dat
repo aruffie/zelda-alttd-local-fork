@@ -967,10 +967,10 @@ tile{
 
 tile{
   layer = 0,
-  x = 728,
-  y = 632,
+  x = 760,
+  y = 616,
   width = 8,
-  height = 48,
+  height = 64,
   pattern = "wall_border.3-2",
 }
 
@@ -2218,7 +2218,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 704,
+  x = 736,
   y = 680,
   width = 24,
   height = 24,
@@ -2230,7 +2230,7 @@ tile{
   x = 656,
   y = 520,
   width = 24,
-  height = 128,
+  height = 96,
   pattern = "wall.3-2",
 }
 
@@ -2281,9 +2281,9 @@ tile{
 
 tile{
   layer = 0,
-  x = 728,
+  x = 760,
   y = 680,
-  width = 192,
+  width = 160,
   height = 24,
   pattern = "wall.2-2",
 }
@@ -2308,7 +2308,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 728,
+  x = 760,
   y = 672,
   width = 8,
   height = 8,
@@ -2326,9 +2326,9 @@ tile{
 
 tile{
   layer = 0,
-  x = 736,
+  x = 768,
   y = 672,
-  width = 176,
+  width = 144,
   height = 8,
   pattern = "wall_border.2-2",
 }
@@ -2338,7 +2338,7 @@ tile{
   x = 680,
   y = 528,
   width = 8,
-  height = 96,
+  height = 80,
   pattern = "wall_border.3-2",
 }
 
@@ -6350,7 +6350,7 @@ tile{
 tile{
   layer = 0,
   x = 656,
-  y = 632,
+  y = 616,
   width = 24,
   height = 24,
   pattern = "wall.corner.3-2",
@@ -6359,25 +6359,25 @@ tile{
 tile{
   layer = 0,
   x = 680,
-  y = 632,
-  width = 32,
+  y = 616,
+  width = 64,
   height = 24,
   pattern = "wall.2-2",
 }
 
 tile{
   layer = 0,
-  x = 704,
-  y = 648,
+  x = 736,
+  y = 632,
   width = 24,
-  height = 32,
+  height = 48,
   pattern = "wall.3-2",
 }
 
 tile{
   layer = 0,
-  x = 704,
-  y = 632,
+  x = 736,
+  y = 616,
   width = 24,
   height = 24,
   pattern = "wall.corner_reverse.3-2",
@@ -6386,7 +6386,7 @@ tile{
 tile{
   layer = 0,
   x = 680,
-  y = 624,
+  y = 608,
   width = 8,
   height = 8,
   pattern = "wall_border.corner.3-2",
@@ -6395,16 +6395,16 @@ tile{
 tile{
   layer = 0,
   x = 688,
-  y = 624,
-  width = 48,
+  y = 608,
+  width = 80,
   height = 8,
   pattern = "wall_border.2-2",
 }
 
 tile{
   layer = 0,
-  x = 728,
-  y = 624,
+  x = 760,
+  y = 608,
   width = 8,
   height = 8,
   pattern = "wall_border.corner_reverse.3-2",
@@ -7045,16 +7045,16 @@ tile{
   x = 688,
   y = 528,
   width = 144,
-  height = 96,
+  height = 80,
   pattern = "884",
 }
 
 tile{
   layer = 0,
-  x = 736,
-  y = 624,
-  width = 176,
-  height = 48,
+  x = 768,
+  y = 608,
+  width = 144,
+  height = 64,
   pattern = "884",
 }
 
@@ -7063,7 +7063,7 @@ tile{
   x = 832,
   y = 592,
   width = 80,
-  height = 48,
+  height = 16,
   pattern = "884",
 }
 
@@ -7108,16 +7108,16 @@ tile{
   x = 688,
   y = 528,
   width = 144,
-  height = 96,
+  height = 80,
   pattern = "floor.13-Alpha",
 }
 
 tile{
   layer = 0,
-  x = 736,
-  y = 624,
-  width = 176,
-  height = 48,
+  x = 768,
+  y = 608,
+  width = 144,
+  height = 64,
   pattern = "floor.13-Alpha",
 }
 
@@ -7126,7 +7126,7 @@ tile{
   x = 832,
   y = 592,
   width = 80,
-  height = 32,
+  height = 16,
   pattern = "floor.13-Alpha",
 }
 
@@ -7592,7 +7592,7 @@ tile{
 tile{
   layer = 0,
   x = 720,
-  y = 592,
+  y = 576,
   width = 16,
   height = 16,
   pattern = "floor.11-1",
@@ -11560,7 +11560,7 @@ pickable{
   name = "pickable_small_key_6",
   layer = 0,
   x = 728,
-  y = 605,
+  y = 589,
   treasure_name = "small_key",
   treasure_savegame_variable = "dungeon_3_small_key_6",
 }
@@ -11569,7 +11569,7 @@ enemy{
   name = "enemy_group_16_1",
   layer = 0,
   x = 744,
-  y = 589,
+  y = 573,
   direction = 3,
   breed = "pairodd",
   treasure_name = "random",
@@ -12329,18 +12329,6 @@ destructible{
   treasure_name = "random",
   sprite = "entities/destructibles/pot",
   weight = 1,
-}
-
-block{
-  name = "auto_block",
-  layer = 0,
-  x = 1024,
-  y = 621,
-  direction = 3,
-  sprite = "entities/blocks/block",
-  pushable = true,
-  pullable = false,
-  max_moves = 1,
 }
 
 door{
@@ -14658,9 +14646,9 @@ tile{
 tile{
   layer = 2,
   x = 656,
-  y = 656,
-  width = 48,
-  height = 48,
+  y = 640,
+  width = 80,
+  height = 64,
   pattern = "ceiling.1",
 }
 

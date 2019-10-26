@@ -13,7 +13,7 @@ local quarter = math.pi * 0.5
 local is_sideview = map.is_sideview and map:is_sideview()
 
 -- Configuration variables
-local walking_angles = is_sideview and {0, quarter, 2.0 * quarter, 3.0 * quarter} or {0, 0, 2 * quarter, 2 * quarter}
+local walking_angles = is_sideview and {0, 0, 2 * quarter, 2 * quarter} or {0, quarter, 2.0 * quarter, 3.0 * quarter}
 local walking_speed = 32
 local walking_minimum_distance = 16
 local walking_maximum_distance = 96
@@ -22,7 +22,8 @@ local crushed_duration = 500
 -- Start the enemy movement.
 function enemy:start_walking()
 
-  enemy:start_straight_walking(walking_angles[math.random(4)], walking_speed, math.random(walking_minimum_distance, walking_maximum_distance), function()
+  local distance = not is_sideview and math.random(walking_minimum_distance, walking_maximum_distance)
+  enemy:start_straight_walking(walking_angles[math.random(4)], walking_speed, distance, function()
     enemy:start_walking()
   end)
 end
