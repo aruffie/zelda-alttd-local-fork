@@ -97,7 +97,7 @@ animation{
   name = "boss_key",
   src_image = "entities/items.png",
   directions = {
-    { x = 624, y = 0, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13 },
+    { x = 608, y = 0, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13 },
   },
 }
 animation{
@@ -577,8 +577,10 @@ animation{
 animation{
   name = "piece_of_heart",
   src_image = "entities/items.png",
+  frame_delay = 150,
+  frame_to_loop_on = 0,
   directions = {
-    { x = 640, y = 0, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13 },
+    { x = 560, y = 16, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13, num_frames = 7 },
   },
 }
 animation{
