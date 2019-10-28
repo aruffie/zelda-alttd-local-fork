@@ -493,7 +493,6 @@ sprite{ id = "entities/items", description = "Items" }
 sprite{ id = "entities/items/arrow_fly", description = "Arrow fly" }
 sprite{ id = "entities/items/bananas", description = "Bananas" }
 sprite{ id = "entities/items/bomb_fly", description = "Bomb fly" }
-sprite{ id = "entities/items/falling_key", description = "Falling key" }
 sprite{ id = "entities/items/heart", description = "Heart" }
 sprite{ id = "entities/items/heart_fly", description = "Heart fly" }
 sprite{ id = "entities/items/honey", description = "Honey" }
@@ -509,6 +508,7 @@ sprite{ id = "entities/items/mushroom", description = "Mushroom" }
 sprite{ id = "entities/items/rupee_fly", description = "Rupee fly" }
 sprite{ id = "entities/items/shield", description = "Shield" }
 sprite{ id = "entities/items/shovel", description = "Shovel" }
+sprite{ id = "entities/items/small_key", description = "Small key" }
 sprite{ id = "entities/la_beach/la_background", description = "entities/la_beach/la_background" }
 sprite{ id = "entities/la_beach/la_swell", description = "entities/la_beach/la_swell" }
 sprite{ id = "entities/la_beach/la_wreck", description = "entities/la_beach/la_wreck" }
