@@ -9,8 +9,9 @@
 --           enemy:is_sprite_contained(sprite, x, y, width, height)
 --           enemy:get_angle_from_sprite(sprite, entity)
 --           enemy:get_central_symmetry_position(x, y)
---           enemy:get_obstacles_bounce_angle([angle])
+--           enemy:get_grid_position()
 --           enemy:get_obstacles_normal_angle()
+--           enemy:get_obstacles_bounce_angle([angle])
 --
 --           enemy:start_straight_walking(angle, speed, [distance, [on_stopped_callback]])
 --           enemy:start_target_walking(entity, speed)
@@ -123,16 +124,11 @@ function common_actions.learn(enemy)
     return 2.0 * x - enemy_x, 2.0 * y - enemy_y
   end
 
-  -- Return the angle after bouncing against close obstacles towards the given angle, or nil if no obstacles.
-  function enemy:get_obstacles_bounce_angle(angle)
+  -- Get the upper-left grid node coordinates of the enemy position.
+  function enemy:get_grid_position()
 
-    local normal_angle = enemy:get_obstacles_normal_angle()
-    if not normal_angle then
-      return
-    end
-    angle = angle or enemy:get_movement():get_angle()
-
-    return (2.0 * normal_angle - angle + math.pi) % circle
+    local position_x, position_y, _ = enemy:get_position()
+    return position_x - position_x % 8, position_y - position_y % 8
   end
 
   -- Return the normal angle of close obstacles as a multiple of pi/4, or nil if none.
@@ -163,6 +159,18 @@ function common_actions.learn(enemy)
     end
 
     return normal_angle
+  end
+
+  -- Return the angle after bouncing against close obstacles towards the given angle, or nil if no obstacles.
+  function enemy:get_obstacles_bounce_angle(angle)
+
+    local normal_angle = enemy:get_obstacles_normal_angle()
+    if not normal_angle then
+      return
+    end
+    angle = angle or enemy:get_movement():get_angle()
+
+    return (2.0 * normal_angle - angle + math.pi) % circle
   end
 
   -- Make the enemy straight move.
