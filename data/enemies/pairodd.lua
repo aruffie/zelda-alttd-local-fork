@@ -17,6 +17,7 @@ local waiting_timer, before_disappear_timer
 local triggering_distance = 48
 local before_disappear_delay = 100
 local disappear_duration = 1000
+local after_throwing_delay = 200
 
 -- Set the sprite direction depending on the hero position.
 function enemy:set_direction2()
@@ -38,8 +39,13 @@ function enemy:appear()
   sprite:set_animation("appearing", function()
 
     -- Throw an iceball and restart.
-    enemy:create_enemy({breed = "projectiles/iceball"})
-    enemy:restart()
+    sprite:set_animation("throwing", function()
+      sprite:set_animation("throwed")
+      enemy:create_enemy({breed = "projectiles/iceball", y = -8})
+      sol.timer.start(enemy, after_throwing_delay, function()
+        enemy:restart()
+      end)
+    end)
   end)
 end
 

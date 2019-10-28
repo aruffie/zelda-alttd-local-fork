@@ -33,17 +33,6 @@ animation{
   },
 }
 animation{
-  name = "firing",
-  src_image = "enemies/pairodd.png",
-  frame_delay = 50,
-  directions = {
-    { x = 0, y = 64, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 5 },
-    { x = 0, y = 64, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 5 },
-    { x = 0, y = 96, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 5 },
-    { x = 0, y = 96, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 5 },
-  },
-}
-animation{
   name = "hurt",
   src_image = "enemies/pairodd.png",
   frame_delay = 50,
@@ -53,5 +42,26 @@ animation{
     { x = 128, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 3 },
     { x = 128, y = 32, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 3 },
     { x = 128, y = 32, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 3 },
+  },
+}
+animation{
+  name = "throwed",
+  src_image = "enemies/pairodd.png",
+  directions = {
+    { x = 128, y = 64, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29 },
+    { x = 128, y = 64, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29 },
+    { x = 128, y = 96, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29 },
+    { x = 128, y = 96, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29 },
+  },
+}
+animation{
+  name = "throwing",
+  src_image = "enemies/pairodd.png",
+  frame_delay = 50,
+  directions = {
+    { x = 0, y = 64, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 5 },
+    { x = 0, y = 64, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 5 },
+    { x = 0, y = 96, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 5 },
+    { x = 0, y = 96, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 5 },
   },
 }

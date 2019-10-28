@@ -61,14 +61,13 @@ function behavior.apply(enemy, sprite)
 
   -- Destroy the enemy when the hero is touched. 
   -- TODO adapt and move in the shield script for all enemy.
-enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
+  enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
 
-  if not hero:is_shield_protecting_from_enemy(enemy, enemy_sprite) or not game:has_item("shield") or game:get_item("shield"):get_variant() < enemy:get_minimum_shield_needed() then
-    hero:start_hurt(enemy, enemy_sprite, enemy:get_damage())
-  end
-  enemy:hit_behavior()
-  
-end)
+    if not hero:is_shield_protecting_from_enemy(enemy, enemy_sprite) or not game:has_item("shield") or game:get_item("shield"):get_variant() < enemy:get_minimum_shield_needed() then
+      hero:start_hurt(enemy, enemy_sprite, enemy:get_damage())
+    end
+    enemy:hit_behavior()
+  end)
 
   -- Destroy the enemy if needed when touching the shield.
   enemy:register_event("on_shield_collision", function(enemy, shield)

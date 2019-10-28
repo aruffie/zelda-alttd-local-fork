@@ -10,7 +10,7 @@ local map = enemy:get_map()
 local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
-local is_sideview = map.is_sideview and map:is_sideview()
+local is_sideview = string.find(map:get_id(), "sideview") and true or false -- Workaround: Sideview flag is set too late here, use the map id instead.
 
 -- Configuration variables
 local walking_angles = is_sideview and {0, 0, 2 * quarter, 2 * quarter} or {0, quarter, 2.0 * quarter, 3.0 * quarter}
@@ -36,7 +36,6 @@ enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
   if not is_sideview or hero_y >= y then
     hero:start_hurt(enemy, enemy:get_damage())
   end
-  
 end)
 
 -- Make enemy crushed when hero walking on him.
