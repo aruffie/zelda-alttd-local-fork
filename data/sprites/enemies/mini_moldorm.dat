@@ -15,6 +15,17 @@ animation{
   },
 }
 animation{
+  name = "falling",
+  src_image = "enemies/mini_moldorm.png",
+  frame_delay = 80,
+  directions = {
+    { x = 0, y = 128, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13, num_frames = 5 },
+    { x = 0, y = 128, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13, num_frames = 5 },
+    { x = 0, y = 128, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13, num_frames = 5 },
+    { x = 0, y = 128, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13, num_frames = 5 },
+  },
+}
+animation{
   name = "hurt",
   src_image = "enemies/mini_moldorm.png",
   frame_delay = 50,
