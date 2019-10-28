@@ -180,6 +180,7 @@ tileset{ id = "out/light_world_legacy", description = "Light world legacy" }
 tileset{ id = "out/outside_buildings", description = "Outside buildings" }
 tileset{ id = "out/outside_main", description = "Outside main" }
 tileset{ id = "out/outside_special", description = "Outside special" }
+tileset{ id = "sideview/eagletower", description = "Eagle tower" }
 tileset{ id = "sideview/sideview", description = "Side view tileset" }
 tileset{ id = "testing/basic_terrain_test", description = "Grounds (for collision testing)" }
 tileset{ id = "testing/labo", description = "Labo style tileset for systems testing (sideview)" }
