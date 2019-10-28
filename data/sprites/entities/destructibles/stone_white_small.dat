@@ -20,6 +20,17 @@ animation{
   },
 }
 animation{
+  name = "falling",
+  src_image = "entities/destructibles/stone_white_small.png",
+  frame_delay = 80,
+  directions = {
+    { x = 48, y = 0, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13, num_frames = 5 },
+    { x = 48, y = 0, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13, num_frames = 5 },
+    { x = 48, y = 0, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13, num_frames = 5 },
+    { x = 48, y = 0, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13, num_frames = 5 },
+  },
+}
+animation{
   name = "stopped",
   src_image = "entities/destructibles/stone_white_small.png",
   directions = {
