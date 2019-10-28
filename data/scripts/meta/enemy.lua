@@ -177,7 +177,7 @@ function enemy_meta:set_sprite_damage(sprite, damage)
   sprite.custom_damage = damage
 end
 
-enemy_meta:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
+--[[enemy_meta:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
     -- Do nothing if enemy sprite cannot hurt hero.
     local collision_mode = enemy:get_attacking_collision_mode()
     if not enemy:overlaps(hero, collision_mode) then return end
@@ -195,7 +195,7 @@ enemy_meta:register_event("on_attacking_hero", function(enemy, hero, enemy_sprit
       hero:start_hurt(enemy, damage)
     end
 
-  end)
+  end)--]]
 
 enemy_meta:register_event("on_removed", function(enemy)
 
