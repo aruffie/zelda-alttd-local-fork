@@ -540,6 +540,7 @@ function common_actions.learn(enemy)
         height = 32,
         direction = 0
     })
+    entity:set_drawn_in_y_order()
 
     -- Remove the entity once animation finished or max_duration reached.
     local function on_finished()
