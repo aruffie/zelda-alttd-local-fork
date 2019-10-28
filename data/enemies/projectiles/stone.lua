@@ -19,7 +19,7 @@ end
 
 -- Create an impact effect on hit.
 enemy:register_event("on_hit", function(enemy)
-  enemy:start_brief_effect("entities/effects/impact_projectile", "default", sprite:get_xy())
+  enemy:start_brief_effect("entities/effects/impact_stone", "default", sprite:get_xy())
 end)
 
 -- Directly remove the enemy on attacking hero

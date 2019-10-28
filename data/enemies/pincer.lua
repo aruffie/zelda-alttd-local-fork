@@ -15,14 +15,13 @@ local head_sprite
 local body_sprites = {}
 local quarter = math.pi * 0.5
 local eighth = math.pi * 0.25
-local before_go_back_timer
+local waiting_timer, before_go_back_timer
 
 -- Configuration variables
+local triggering_distance = 64
 local charging_speed = 128
 local charging_distance = 40
 local go_back_speed = 64
-local waiting_minimum_duration = 2000
-local waiting_maximum_duration = 4000
 local appearing_duration = 1000
 local before_go_back_delay = 600
 
@@ -50,7 +49,7 @@ end
 function enemy:start_charging()
 
   -- Initialize sprites.
-  head_sprite:set_direction(enemy:get_direction4_to(hero))
+  head_sprite:set_direction(enemy:get_direction8_to(hero))
   for i = 1, 3 do
     body_sprites[i]:set_opacity(255)
   end
@@ -93,14 +92,15 @@ function enemy:appear()
   end)
 end
 
--- Wait a few time and appear.
+-- Wait for the hero to be near enough and appear.
 function enemy:wait()
 
-  sol.timer.start(enemy, math.random(waiting_minimum_duration, waiting_maximum_duration), function()
-    if not camera:overlaps(enemy:get_max_bounding_box()) then
-      return true
+  waiting_timer = sol.timer.start(enemy, 50, function()
+    if enemy:is_near(hero, triggering_distance) then
+      enemy:appear()
+      return false
     end
-    enemy:appear()
+    return true
   end)
 end
 
@@ -108,8 +108,9 @@ end
 enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(2)
-  enemy:set_size(16, 16)
-  enemy:set_origin(8, 8)
+  enemy:set_size(24, 24)
+  enemy:set_origin(12, 12)
+  enemy:set_position(enemy:get_grid_position()) -- Set position to the center of the current 16*16 case instead of 8, 13.
 
   head_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
   for i = 1, 3 do
