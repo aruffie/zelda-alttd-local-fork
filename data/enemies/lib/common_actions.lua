@@ -238,26 +238,28 @@ function common_actions.learn(enemy)
   -- Make the enemy start jumping.
   function enemy:start_jumping(duration, height, angle, speed, on_finished_callback)
 
-    -- Update the sprite vertical offset at each frame.
-    local elapsed_time = 0
+    local movement
 
-    local function update_sprite_height()
+    -- Update the sprite vertical offset at each frame.
+    local function update_sprite_height(elapsed_time)
       if elapsed_time < duration then
         for _, sprite in enemy:get_sprites() do
           sprite:set_xy(0, -math.sqrt(math.sin(elapsed_time / duration * math.pi)) * height)
         end
         sol.timer.start(enemy, 10, function()
           if game:is_suspended() then
-            return 10
+            return true
           end
           if enemy:exists() and enemy:is_enabled() then
-            elapsed_time = elapsed_time + 10
-            update_sprite_height()
+            update_sprite_height(elapsed_time + 10)
           end
         end)
       else
         for _, sprite in enemy:get_sprites() do
           sprite:set_xy(0, 0)
+        end
+        if enemy:get_movement() == movement then
+          movement:stop()
         end
 
         -- Call events once jump finished.
@@ -269,14 +271,13 @@ function common_actions.learn(enemy)
         end
       end
     end
-    update_sprite_height()
+    update_sprite_height(0)
 
     -- Move the enemy on-floor if requested.
     if angle then
-      local movement = sol.movement.create("straight")
+      movement = sol.movement.create("straight")
       movement:set_speed(speed)
       movement:set_angle(angle)
-      movement:set_max_distance(speed * duration * 0.001)
       movement:set_smooth(false)
       movement:start(enemy)
     
