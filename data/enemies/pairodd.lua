@@ -68,7 +68,7 @@ function enemy:disappear()
   end)
 end
 
--- Start the enemy movement.
+-- Wait for the hero to be near enough and disappear.
 function enemy:wait()
 
   waiting_timer = sol.timer.start(enemy, 50, function()
