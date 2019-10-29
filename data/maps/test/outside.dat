@@ -11,16 +11,6 @@ properties{
 
 tile{
   layer = -1,
-  x = 352,
-  y = 336,
-  width = 64,
-  height = 168,
-  pattern = "691",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = -1,
   x = 336,
   y = 312,
   enabled_at_start = false,
@@ -2101,6 +2091,21 @@ npc{
   direction = 3,
   subtype = 0,
   sprite = "entities/destructibles/sign",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 352,
+  y = 392,
+  properties = {
+    {
+      key = "custom_ground",
+      value = "sand",
+    },
+  },
+  width = 64,
+  height = 112,
+  pattern = "26",
 }
 
 tile{
