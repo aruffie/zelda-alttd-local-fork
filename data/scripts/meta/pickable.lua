@@ -8,7 +8,7 @@ pickable_meta:register_event("on_removed", function(pickable)
       print "removing a small key"
       local ground=pickable:get_ground_below()
       if ground=="hole" then
-        entity_manager:create_falling_entity(pickable, "entities/items/small_key")
+        entity_manager:create_falling_entity(pickable)
       end
     end
   end)

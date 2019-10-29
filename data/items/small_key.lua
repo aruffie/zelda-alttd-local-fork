@@ -17,8 +17,19 @@ function item:on_created()
 
 end
 
-function item:on_obtaining(variant, savegame_variable)
+function item:on_pickable_created(pickable)
+  print("changing built-in sprite for a custom one")
+  local old_sprite=pickable:get_sprite("treasure")
+  print ("Old sprite:", old_sprite:get_animation_set())
+  pickable:remove_sprite(old_sprite)
+  pickable:create_sprite("entities/items/small_key", "treasure")
+  local new_sprite=pickable:get_sprite()
+  if new_sprite then
+    print("new_sprite: "..new_sprite:get_animation_set())
+  end
+end
 
+function item:on_obtaining(variant, savegame_variable)
   local map = item:get_map()
   local hero = map:get_hero()
   -- Sound
