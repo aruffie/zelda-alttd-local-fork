@@ -14,7 +14,7 @@ function item:on_created()
   item:set_brandish_when_picked(false)
   item:set_sound_when_picked(nil)
   item:set_sound_when_brandished(nil)
-  
+
 end
 
 function item:on_obtaining(variant, savegame_variable)
@@ -29,5 +29,5 @@ function item:on_obtaining(variant, savegame_variable)
   end
   -- Add key
   item:get_game():add_small_key()
-  
+
 end

@@ -13,20 +13,20 @@ function entity_manager:fall(entity)
   end
 end
 
-function entity_manager:create_falling_entity(base_entity)
+function entity_manager:create_falling_entity(base_entity, sprite_name)
   --print "DOWN WE GOOOOOOooooooo........ !"
   local x, y, layer = base_entity:get_position()
-  local sprite
 
-  if base_entity:get_type()=="enemy" then
-    sprite="enemies/"..base_entity:get_breed()
-  else
-    sprite=base_entity:get_sprite():get_animation_set()
+  if not sprite_name then
+    if base_entity:get_type()=="enemy" then
+      sprite_name="enemies/"..base_entity:get_breed()
+    else
+      sprite_name=base_entity:get_sprite():get_animation_set()
+    end
   end
-
   local falling_entity = base_entity:get_map():create_custom_entity({
       name="falling_entity_actor",
-      sprite = sprite,
+      sprite = sprite_name,
       x = x,
       y = y,
       width = 16,
