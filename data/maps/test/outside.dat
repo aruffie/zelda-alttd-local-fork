@@ -11,16 +11,6 @@ properties{
 
 tile{
   layer = -1,
-  x = 352,
-  y = 336,
-  width = 64,
-  height = 168,
-  pattern = "691",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = -1,
   x = 336,
   y = 312,
   enabled_at_start = false,
@@ -1559,7 +1549,7 @@ destructible{
   layer = 0,
   x = 96,
   y = 189,
-  sprite = "entities/destructibles/pot",
+  sprite = "entities/destructibles/bush",
   weight = 1,
   can_be_cut = true,
   damage_on_enemies = 2,
@@ -2091,6 +2081,31 @@ chest{
   y = 213,
   treasure_name = "hookshot",
   sprite = "entities/chests/chest_small",
+}
+
+npc{
+  name = "sign",
+  layer = 0,
+  x = 96,
+  y = 229,
+  direction = 3,
+  subtype = 0,
+  sprite = "entities/destructibles/sign",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 352,
+  y = 392,
+  properties = {
+    {
+      key = "custom_ground",
+      value = "sand",
+    },
+  },
+  width = 64,
+  height = 112,
+  pattern = "26",
 }
 
 tile{
