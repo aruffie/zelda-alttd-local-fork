@@ -13,7 +13,7 @@ local sword_manager
 local state = sol.state.create("sword_swinging")
 state:set_can_use_item(false)
 state:set_can_cut(true)
-state:set_can_control_movement(false)
+state:set_can_control_movement(true)
 state:set_can_control_direction(false)
 
 local hero_meta= sol.main.get_metatable("hero")
