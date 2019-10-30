@@ -20,19 +20,26 @@ local jumping_duration = 600
 local jumping_height = 16
 
 -- Start the enemy movement.
-function enemy:start_walking(direction)
+function enemy:start_walking(direction2)
 
-  local movement = enemy:start_straight_walking(walking_angles[direction], walking_speed, nil, function()
-    enemy:start_walking(direction % 2 + 1)
+  local current_animation = sprite:get_animation()
+
+  -- Start walking and change direction on stopped.
+  local movement = enemy:start_straight_walking(walking_angles[direction2], walking_speed, nil, function()
+    enemy:start_walking(direction2 % 2 + 1)
   end)
 
+  -- Also change the direction if the front ground is not water anymore.
   function movement:on_position_changed()
     local x, y, layer = enemy:get_position()
-    if not string.find(map:get_ground(x - 8, y, layer), "water") or not string.find(map:get_ground(x + 8, y, layer), "water") then
+    if not string.find(map:get_ground(x + (direction2 == 1 and 8 or -8), y, layer), "water") then
       movement:stop()
-      enemy:start_walking(direction % 2 + 1)
+      enemy:start_walking(direction2 % 2 + 1)
     end
   end
+
+  -- Restore the previous animation.
+  sprite:set_animation(current_animation)
 end
 
 -- Wait for some time then jump out of the water.
@@ -48,15 +55,11 @@ end
 -- Jump out of the water.
 function enemy:jump(direction)
 
-  -- Behavior for each items.
-  enemy:set_hero_weapons_reactions(2, {
-    sword = 1
-  })
-
-  -- Jump dive when finished.
+  -- Jump and dive when finished.
+  enemy:set_hero_weapons_reactions(1)
   sprite:set_animation("jumping")
   enemy:start_jumping(jumping_duration, jumping_height, nil, nil, function()
-    enemy:start_brief_effect("enemies/zora", "disappearing")
+    enemy:start_brief_effect("entities/effects/fishing_water_effect", "normal")
     enemy:dive()
   end)
 
@@ -69,7 +72,7 @@ end
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
 
-  enemy:set_life(2)
+  enemy:set_life(1)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)
 end)
@@ -78,8 +81,9 @@ end)
 enemy:register_event("on_restarted", function(enemy)
 
   -- States.
+  sprite:set_xy(0, 0)
   enemy:set_can_attack(true)
-  enemy:set_damage(1)
+  enemy:set_damage(4)
   enemy:set_obstacle_behavior("swimming")
   enemy:dive()
   enemy:start_walking(math.random(2))
