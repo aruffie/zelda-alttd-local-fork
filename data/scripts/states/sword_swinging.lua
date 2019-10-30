@@ -21,7 +21,7 @@ local sword_sprite
 local tunic_sprite
 
 --this is the function that starts it all
-function hero_meta.sword(hero)
+function hero_meta.swing_sword(hero)
   --print "attack on air !"
   if hero:get_state()~="custom" or hero:get_state_object():get_description()~="sword_swinging" then
     hero:start_state(state)

@@ -11,7 +11,8 @@ To use :
 --]]
 
 local jump_manager={}
-
+require("scripts/states/jumping")(jump_manager)
+require("scripts/states/running")(jump_manager)
 local gravity = 0.12
 local max_yvel = 2
 local y_factor = 1.0
@@ -186,15 +187,15 @@ function jump_manager.start(entity, v_speed, success_callback, failure_callback)
 
   local state, state_object=entity:get_state() --launch approprate custom state
   local state_description = state=="custom" and state_object:get_description() or ""
-  if state=="free" then
+--  if state=="free" then
     entity:jump()
-  elseif state=="sword swinging" or state_description=="sword" then
-    entity:sword()
-  elseif state=="sword loading" or state_description=="jumping_sword_loading" then
-    entity:sword_loading()
-  else
-    debug_print ("Warning: incompatible state: "..state)
-  end
+--  elseif state=="sword swinging" or state_description=="sword" then
+--    entity:swing_sword()
+--  elseif state=="sword loading" or state_description=="jumping_sword_loading" then
+--    entity:sword_loading()
+--  else
+--    debug_print ("Warning: incompatible state: "..state)
+--  end
   jump_manager.setup_collision_rules(entity:get_state_object())
 
   --  debug_print "Starting custom jump"

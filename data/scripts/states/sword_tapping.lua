@@ -47,7 +47,7 @@ function state:on_started(old_state_name, old_state_object)
   stars_sprite = entity:get_sprite("sword_stars")
   tunic_sprite:set_animation("sword_tapping")
   sword_sprite:set_animation("sword_tapping")
-  sol.timer.start(state, 280, function()
+  sol.timer.start(state, tunic_sprite:get_num_frames()*tunic_sprite:get_frame_delay(), function()
       sword_manager.trigger_event(entity, "sword tapping over")
     end)
 end

@@ -6,6 +6,7 @@ local combo_timer_duration = 50
 
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
+require("scripts/sword_states_manager")
 require("scripts/multi_events")
 
 game_meta:register_event("on_world_changed", function(game)
@@ -68,14 +69,12 @@ game_meta:register_event("on_draw", function(game, dst_surface)
 
 game_meta:register_event("on_command_pressed", function(game, command)
     local hero=game:get_hero()
-        local state, cstate=hero:get_state()
+    local state, cstate=hero:get_state()
     if command == "attack" then
-
-    if state=="free" or state=="custom" and cstate:get_can_use_item("sword") then
-      hero:sword()
-    end
+      if state=="free" or state=="custom" and cstate:get_can_use_sword() then
+        hero:swing_sword()
+      end
       return true
-
 
     elseif command == "item_1" or command =="item_2" then
 --      debug_print "item_command ?"

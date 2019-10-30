@@ -25,7 +25,6 @@ state:set_can_control_movement(true)
 state:set_can_control_direction(false)
 state:set_can_traverse("stairs", false)
 
-
 local hero_meta= sol.main.get_metatable("hero")
 
 --this is the function that starts it all
@@ -38,6 +37,8 @@ end
 
 
 function state:on_started(old_state_name, old_state_object)
+  state:set_affected_by_ground("deep_water", (not state:get_map():is_sideview() or state:get_game():get_item("flippers"):get_variant()==0))
+
   debug_print ("going from "..old_state_name..(old_state_object and "("..old_state_object:get_description()..")" or "").." to custom sword loading")
   local entity=state:get_entity()
   local game = state:get_game()
