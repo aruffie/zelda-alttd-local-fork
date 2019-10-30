@@ -433,7 +433,7 @@ local function update_hero(hero)
       new_animation = "swimming_scroll"
     else
       new_animation = "stopped_swimming_scroll"
-    endé
+    end
   end
 
   if state == "lifting" then
