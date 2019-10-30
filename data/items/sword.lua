@@ -3,14 +3,14 @@
 
 -- Variables
 local item = ...
-
+local sword_states_manager=require("scripts/sword_states_manager")
 -- Event called when the game is initialized.
 function item:on_created()
 
   item:set_savegame_variable("possession_sword")
   item:set_brandish_when_picked(false)
   item:set_shadow(nil)
-  
+
 end
 
 function item:on_variant_changed(variant)

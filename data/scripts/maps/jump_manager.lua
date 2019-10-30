@@ -20,16 +20,11 @@ local debug_start_x, debug_start_y
 local debug_max_height = 0
 
 local audio_manager=require("scripts/audio_manager")
-require("scripts/states/jumping")(jump_manager)
-require("scripts/states/running")(jump_manager)
-require("scripts/states/jumping_sword")(jump_manager)
-require("scripts/states/jumping_sword_loading")(jump_manager)
-require("scripts/states/jumping_sword_spin_attack")(jump_manager)
 
---TODO remove this and only use fixed collision rules states?
+--TODO remove this and only use per-state collision rules ?
 
 function jump_manager.reset_collision_rules(state)
-  if state and (state:get_description() == "jumping_sword" or state:get_description() == "running") then
+  if state and sol.main.get_type(state)=="state" then 
     state:set_affected_by_ground("hole", true)
     state:set_affected_by_ground("lava", true)
     state:set_affected_by_ground("deep_water", true)
@@ -42,23 +37,20 @@ function jump_manager.reset_collision_rules(state)
     state:set_can_use_stream(true)
     state:set_can_be_hurt(true)
     state:set_gravity_enabled(true)
-    state:set_can_cut(true)
     state:set_can_traverse("crystal_block", nil)
-    --state:get_entity():get_sprite("ground"):set_animation(state.ground_animation())
   end
 end
 
 function jump_manager.setup_collision_rules(state)
--- TODO find a way to get rid of hardcoded state filter for more flexibility
 
-  if state and (state:get_description() == "jumping" or state:get_description() =="jumping_sword" or state:get_description() == "running") then 
+  if state and sol.main.get_type(state)=="state" then 
     state:set_affected_by_ground("hole", false)
     state:set_affected_by_ground("lava", false)
     state:set_affected_by_ground("deep_water", false)
     state:set_affected_by_ground("grass", false)
     state:set_affected_by_ground("shallow_water", false)
     state:set_affected_by_ground("prickles", false)
-    state:set_can_traverse("crystal_block", function(entity, crystal)
+    state:set_can_traverse("crystal_block", function(entity, crystal) --Will be obsolete as soon as custom crystal blocks are operational
         local anim=crystal:get_sprite():get_animation()
         return entity.is_on_crystal_block or anim=="blue_lowered" or anim=="orange_lowered"
       end)
@@ -68,7 +60,6 @@ function jump_manager.setup_collision_rules(state)
     state:set_can_use_stream(false)
     state:set_can_be_hurt(false)
     state:set_can_grab(false)
-    state:set_can_cut(false) --TODO refine me
     state:set_gravity_enabled(false)
   end
 end
@@ -98,42 +89,6 @@ function jump_manager.trigger_event(entity, event)
       if event=="jump complete" then
         entity:play_ground_effect()
         if desc=="jumping" then
-          entity:unfreeze()
-        end
-      elseif event=="sword swinging" then
-        if state=="custom" and  desc=="jumping" then
-          entity:jump_sword()
-        else
-          entity:unfreeze()
-        end
-      elseif event=="attack command released" then
-        if desc=="jumping_sword" then
-          if entity:is_jumping() then
-            entity:jump()
-          else
-            entity:unfreeze()
-          end
-        elseif desc=="jumping_sword_loading" then
-          if entity.sword_loaded then
-            debug_print "SPIN ATTACK"
-            entity:jump_sword_spin_attack()
-          elseif entity:is_jumping() then
-            entity:jump()
-          else
-            entity:enfreeze()
-          end
-          entity.sword_loaded=nil
-        end
-      elseif event=="sword swinging complete" then
-        if entity:get_game():is_command_pressed("attack") then
-          entity:jump_sword_loading()
-        else
-          entity:unfreeze()
-        end
-      elseif event=="sword spin attack complete" then
-        if entity:is_jumping() then
-          entity:jump()
-        else
           entity:unfreeze()
         end
       else --default case
@@ -229,14 +184,14 @@ function jump_manager.start(entity, v_speed, success_callback, failure_callback)
     return
   end
 
-  local state=entity:get_state() --launch approprate custom state
-  local state_description = state=="custom" and entity:get_state_object():get_description() or ""
+  local state, state_object=entity:get_state() --launch approprate custom state
+  local state_description = state=="custom" and state_object:get_description() or ""
   if state=="free" then
     entity:jump()
-  elseif state=="sword swinging" or state_description=="jumping_sword" then
-    entity:jump_sword()
+  elseif state=="sword swinging" or state_description=="sword" then
+    entity:sword()
   elseif state=="sword loading" or state_description=="jumping_sword_loading" then
-    entity:jump_sword_loading()
+    entity:sword_loading()
   else
     debug_print ("Warning: incompatible state: "..state)
   end

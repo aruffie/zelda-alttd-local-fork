@@ -13,7 +13,7 @@ game_meta:register_event("on_world_changed", function(game)
     local hero = game:get_hero()  
     hero:remove_charm()
 
-end)    
+  end)    
 
 
 game_meta:register_event("on_map_changed", function(game, map)
@@ -67,11 +67,19 @@ game_meta:register_event("on_draw", function(game, dst_surface)
 
 
 game_meta:register_event("on_command_pressed", function(game, command)
-    if command == "item_1" or command =="item_2" then
+    local hero=game:get_hero()
+        local state, cstate=hero:get_state()
+    if command == "attack" then
+
+    if state=="free" or state=="custom" and cstate:get_can_use_item("sword") then
+      hero:sword()
+    end
+      return true
+
+
+    elseif command == "item_1" or command =="item_2" then
 --      debug_print "item_command ?"
       if not game:is_suspended() then
-        local hero=game:get_hero()
-        local state=hero:get_state()
 
         --Prevent item to be used if the following rules are met:
         --  Swimming in top-view maps
@@ -119,7 +127,6 @@ game_meta:register_event("on_command_pressed", function(game, command)
 
         if command =="item_1" and item_1~=nil then
           if state=="custom" then --Prevent item to trigger if custom state rules forbids it 
-            local cstate=hero:get_state_object()
             if not cstate:get_can_use_item(name_1) then
               return true
             end
@@ -142,7 +149,6 @@ game_meta:register_event("on_command_pressed", function(game, command)
 
         elseif command == "item_2" and item_2~=nil then
           if state=="custom" then --Prevent item to trigger if custom state rules forbids it 
-            local cstate=hero:get_state_object()
             if not cstate:get_can_use_item(name_2) then
               return true
             end
