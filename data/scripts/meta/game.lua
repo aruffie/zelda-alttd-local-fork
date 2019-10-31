@@ -72,7 +72,11 @@ game_meta:register_event("on_command_pressed", function(game, command)
     local state, cstate=hero:get_state()
     if command == "attack" then
       if state=="free" or state=="custom" and cstate:get_can_use_sword() then
+        hero.just_used_sword=true
         hero:swing_sword()
+        sol.timer.start(game, 10, function()
+            hero.just_used_sword=nil
+          end)
       end
       return true
 
