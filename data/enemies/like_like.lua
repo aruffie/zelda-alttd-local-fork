@@ -27,8 +27,8 @@ local exhausted_duration = 500
 function enemy:start_walking()
 
   enemy:start_straight_walking(walking_angles[math.random(4)], walking_speed, math.random(walking_minimum_distance, walking_maximum_distance), function()
-    enemy:start_walking()
-  end)
+      enemy:start_walking()
+    end)
 end
 
 -- Free the hero.
@@ -48,8 +48,8 @@ function enemy:free_hero()
   enemy:set_can_attack(false)
 
   sol.timer.start(enemy, exhausted_duration, function()
-    enemy:restart()
-  end)
+      enemy:restart()
+    end)
 end
 
 -- Make the enemy eat the hero.
@@ -69,69 +69,70 @@ function enemy:eat_hero()
   enemy:steal_item("shield", 1, true, true)
 end
 
--- Store the number of command pressed while eaten, and free the hero once 8 item commands are pressed.
-game:register_event("on_command_pressed", function(game, command)
-
-  if not enemy:exists() or not enemy:is_enabled() then
-    return
-  end
-
-  if is_eating and (command == "attack" or command == "item_1" or command == "item_2") then
-    command_pressed_count = command_pressed_count + 1
-    if command_pressed_count == 8 then
-      enemy:free_hero()
-      enemy:start_walking()
-    end
-  end
-end)
-
 -- Eat the hero if hurt.
 enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
 
-  if not is_eating and not is_exhausted and hero_sprite:get_opacity() ~= 0 then
-    enemy:eat_hero()
-  end
-  return true
-  
-end)
+    if not is_eating and not is_exhausted and hero_sprite:get_opacity() ~= 0 then
+      enemy:eat_hero()
+    end
+    return true
+
+  end)
 
 -- Free hero if dying.
 enemy:register_event("on_dying", function(enemy)
 
-  if is_eating then
-    enemy:free_hero()
-  end
-end)
+    if is_eating then
+      enemy:free_hero()
+    end
+  end)
 
 -- Passive behaviors needing constant checking.
 enemy:register_event("on_update", function(enemy)
 
-  -- Make sure the hero is stuck while eaten even if something move him.
-  if is_eating then
-    hero:set_position(enemy:get_position())
-  end
-end)
+    if not enemy:is_enabled() then
+      return
+    end
+    -- Make sure the hero is stuck while eaten even if something move him.
+    if is_eating then
+      hero:set_position(enemy:get_position())
+    end
+
+    -- Store the number of command pressed while eaten, and free the hero once 8 item commands are pressed.
+    if is_eating and not hero.just_tried_escaping and ( hero.just_used_sword==true or game.last_item_1~=nil or game.last_item_2~=nil) then
+      print "item"
+      hero.just_tried_escaping=true
+      sol.timer.start(enemy, 60, function()
+          hero.just_tried_escaping=nil
+        end)
+      command_pressed_count = command_pressed_count + 1
+      if command_pressed_count == 8 then
+        enemy:free_hero()
+        enemy:start_walking()
+      end
+    end
+  end)
 
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
 
-  enemy:set_life(2)
-  enemy:set_size(16, 16)
-  enemy:set_origin(8, 13)
-end)
+    enemy:set_life(2)
+    enemy:set_size(16, 16)
+    enemy:set_origin(8, 13)
+  end)
 
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
-  -- Behavior for each items.
-  enemy:set_hero_weapons_reactions(2, {
-    sword = 1,
-    jump_on = "ignored"})
+    -- Behavior for each items.
+    enemy:set_hero_weapons_reactions(2, {
+        sword = 1,
+        jump_on = "ignored"})
 
-  -- States.
-  is_exhausted = false
-  command_pressed_count = 0
-  enemy:set_damage(1)
-  enemy:set_can_attack(true)
-  enemy:start_walking()
-end)
+    -- States.
+    is_exhausted = false
+    command_pressed_count = 0
+    enemy:set_damage(1)
+    enemy:set_can_attack(true)
+    enemy:start_walking()
+  end)
