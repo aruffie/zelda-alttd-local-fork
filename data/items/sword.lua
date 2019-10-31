@@ -4,13 +4,12 @@
 -- Variables
 local item = ...
 
--- Event called when the game is initialized.
 function item:on_created()
 
   item:set_savegame_variable("possession_sword")
   item:set_brandish_when_picked(false)
   item:set_shadow(nil)
-  
+
 end
 
 function item:on_variant_changed(variant)

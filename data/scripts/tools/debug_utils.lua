@@ -1,4 +1,4 @@
-local __debug=false
+local __debug=true
 local __show_hitbox=false
 
 function debug_print(...)

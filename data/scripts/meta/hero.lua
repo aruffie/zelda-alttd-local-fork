@@ -11,10 +11,10 @@ local timer_stairs = nil
 
 require("scripts/multi_events")
 hero_meta:register_event("on_movement_changed", function(hero, movement)
-    debug_print("New movement:")
+    --debug_print("New movement:")
     if not hero:get_map():is_sideview() then
       if movement:get_speed() ~=0  then
-        debug_print ("moving (speed="..movement:get_speed()..",  angle="..movement:get_angle()..")")
+        --debug_print ("moving (speed="..movement:get_speed()..",  angle="..movement:get_angle()..")")
         if hero.sound_timer_reset then
           hero.sound_timer_reset:set_remaining_time(10)         
         end
@@ -29,7 +29,7 @@ hero_meta:register_event("on_movement_changed", function(hero, movement)
             end)
         end
       else
-        debug_print "stop moving"
+        --debug_print "stop moving"
         if not hero.sound_timer_reset then
           hero.sound_timer_reset=sol.timer.start(hero, 10, function()
               if hero.walking_sound_timer then
@@ -47,23 +47,23 @@ hero_meta:register_event("on_movement_changed", function(hero, movement)
 hero_meta:register_event("on_state_changed", function(hero, current_state)
 
     local game = hero:get_game()
-
-
+    local state_object=hero:get_state_object()
+    local state_desc=state_object and state_object:get_description() or ""
     -- Sounds
     if current_state == "lifting" then
       audio_manager:play_sound("hero/pickup") 
-    elseif current_state == "sword loading" then
+    elseif current_state == "sword loading" or state_desc=="sword_loading" then
       timer_sword_loading = sol.timer.start(hero, 1000, function()
           audio_manager:play_sound("items/sword_charge") 
         end)
-    elseif current_state == "sword spin attack" then
+    elseif current_state == "sword spin attack" or state_desc=="sword_spin_attack" then
       -- Sword spin attack
       audio_manager:play_sound("items/sword_spin") 
-    elseif current_state == "sword swinging" then
+    elseif current_state == "sword swinging" or state_desc=="sword" then
       -- Sword swinging
       local index = math.random(1, 4)
       audio_manager:play_sound("items/sword_slash" .. index) 
-    elseif current_state == "sword tapping" then
+    elseif current_state == "sword tapping" or state_desc=="sword_tapping" then
       if timer_sword_tapping == nil then
         timer_sword_tapping = sol.timer.start(hero, 250, function()
             local sound_sword = false
@@ -132,6 +132,7 @@ hero_meta:register_event("on_state_changed", function(hero, current_state)
         game:add_life(1)
       end
     end
+
 
   end)
 

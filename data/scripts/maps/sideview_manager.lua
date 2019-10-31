@@ -306,6 +306,7 @@ local function update_hero(hero)
     return game:is_command_pressed(id)
   end
   local state, cstate = hero:get_state()
+  local desc=cstate and cstate:get_description() or ""
   local x,y,layer = hero:get_position()
   local map = game:get_map()
   local speed=88
@@ -427,7 +428,7 @@ local function update_hero(hero)
   local new_animation
 
   -- debug_print("state to display :"..state)
-  if state == "swimming" or (state=="custom" and cstate:get_description()=="sideview_swim") then
+  if state == "swimming" or desc=="sideview_swim" then
     if speed ~= 0 then
       new_animation = "swimming_scroll"
     else
@@ -439,7 +440,7 @@ local function update_hero(hero)
     new_animation = "lifting_heavy"
   end
 
-  if state == "sword loading" then
+  if desc == "sword_loading" then
 
     if hero:get_ground_below() == "deep_water" then
       new_animation = "swimming_scroll_loading"
