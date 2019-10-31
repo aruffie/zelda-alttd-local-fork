@@ -6070,6 +6070,19 @@ door{
   sprite = "entities/doors/door_boss",
 }
 
+wall{
+  layer = 0,
+  x = 1208,
+  y = 1336,
+  width = 8,
+  height = 64,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
 tile{
   layer = 1,
   x = 1088,

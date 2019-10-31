@@ -22,11 +22,12 @@ function map_tools.start_earthquake(shake_config)
   end)
 end
 
--- Start an explosion placed randomly around the entity coordinates and restart it while the entity is enabled
-function map_tools.start_chained_explosion_on_entity(entity, max_distance, callback)
+-- Start a chained explosion placed randomly around the entity coordinates.
+function map_tools.start_chained_explosion_on_entity(entity, duration, max_distance, callback)
 
   local map = entity:get_map()
   local x, y, layer = entity:get_position()
+  local main_time = sol.main.get_elapsed_time()
   
   audio_manager:play_sound("items/bomb_explode")
 
@@ -35,8 +36,9 @@ function map_tools.start_chained_explosion_on_entity(entity, max_distance, callb
   if explosion ~= nil then -- Avoid Errors when closing the game while a chained explosion is running
     explosion:get_sprite():set_ignore_suspend(true)
     explosion:register_event("on_removed", function(explosion)
-      if entity:is_enabled() then
-        map_tools.start_chained_explosion_on_entity(entity, max_distance, callback)
+      local elapsed_time = sol.main.get_elapsed_time() - main_time
+      if elapsed_time < duration then
+        map_tools.start_chained_explosion_on_entity(entity, duration - elapsed_time, max_distance, callback)
       else
         callback()
       end
