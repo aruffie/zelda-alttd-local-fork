@@ -13,7 +13,9 @@ carried_meta:register_event("on_thrown", function(entity)
     local shadow = entity:get_sprite("shadow")    
     if shadow then
       entity:remove_sprite(shadow)
-      error("the shadow should already have been removed at this point")
+      error("[Thrown] the shadow should already have been removed at this point")
+    else
+      print("[Thrown] OK, there is still no shadow at this point")
     end
     if map:is_sideview() then --Make me follow gravity
 
@@ -21,6 +23,17 @@ carried_meta:register_event("on_thrown", function(entity)
       m:set_angle(hero:get_sprite():get_direction()*math.pi/2)
       m:set_speed(92)
       m:start(entity)
+    end
+
+end)
+carried_meta:register_event("on_breaking", function(entity)
+
+    local shadow = entity:get_sprite("shadow")    
+    if shadow then
+      entity:remove_sprite(shadow)
+      error("[Breaking] The shadow should already have been removed at this point")
+    else
+      print("[Breaking] OK, there is still no shadow at this point")
     end
 
   end)

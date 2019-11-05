@@ -76,7 +76,7 @@ game_meta:register_event("on_command_pressed", function(game, command)
     local hero=game:get_hero()
     local state, cstate=hero:get_state()
     if command == "attack"  and not game:is_suspended() then
-      if state=="free" or state=="custom" and cstate:get_can_use_sword() then
+      if state=="free" or state=="custom" and game:get_sword_ability()>0 and cstate:get_can_use_sword() then
         hero:swing_sword()
       end
     elseif command == "item_1" or command =="item_2" then

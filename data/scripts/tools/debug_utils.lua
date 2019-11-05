@@ -1,9 +1,10 @@
 local __debug=true
 local __show_hitbox=false
 
-function debug_print(...)
+function debug_print(s, ...)
   if __debug then
-    print("["..sol.main.get_elapsed_time().."] ".. (...))
+    local prefix="["..sol.main.get_elapsed_time().."] "  
+    print(prefix, s, ...)
   end
 end
 
