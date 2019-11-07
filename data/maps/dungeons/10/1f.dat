@@ -832,7 +832,7 @@ tile{
 tile{
   layer = -1,
   x = 488,
-  y = 1344,
+  y = 1336,
   width = 8,
   height = 24,
   pattern = "stairs_inner_up.2.border.2-1",
@@ -841,19 +841,10 @@ tile{
 tile{
   layer = -1,
   x = 464,
-  y = 1344,
+  y = 1336,
   width = 8,
   height = 24,
   pattern = "stairs_inner_up.2.border.1-1",
-}
-
-tile{
-  layer = -1,
-  x = 472,
-  y = 1344,
-  width = 16,
-  height = 24,
-  pattern = "stairs_inner_up.2-1",
 }
 
 tile{
@@ -1794,33 +1785,6 @@ tile{
 
 tile{
   layer = -1,
-  x = 2040,
-  y = 856,
-  width = 8,
-  height = 24,
-  pattern = "stairs_inner_up.2.border.2-1",
-}
-
-tile{
-  layer = -1,
-  x = 2016,
-  y = 856,
-  width = 8,
-  height = 24,
-  pattern = "stairs_inner_up.2.border.1-1",
-}
-
-tile{
-  layer = -1,
-  x = 2024,
-  y = 856,
-  width = 16,
-  height = 24,
-  pattern = "stairs_inner_up.2-1",
-}
-
-tile{
-  layer = -1,
   x = 1984,
   y = 816,
   width = 8,
@@ -1862,15 +1826,6 @@ tile{
   width = 16,
   height = 16,
   pattern = "door_stairs.straight_down.1",
-}
-
-tile{
-  layer = -1,
-  x = 2064,
-  y = 1064,
-  width = 32,
-  height = 8,
-  pattern = "door_top.stairs.1-1",
 }
 
 tile{
@@ -1963,12 +1918,104 @@ tile{
   pattern = "wall_low_border.1-4",
 }
 
+tile{
+  layer = -1,
+  x = 784,
+  y = 1008,
+  width = 8,
+  height = 16,
+  pattern = "door.1.support.1-1",
+}
+
+tile{
+  layer = -1,
+  x = 808,
+  y = 1008,
+  width = 8,
+  height = 16,
+  pattern = "door.1.support.2-1",
+}
+
+tile{
+  layer = -1,
+  x = 792,
+  y = 1008,
+  width = 16,
+  height = 16,
+  pattern = "door_stairs.straight_down.1",
+}
+
+tile{
+  layer = -1,
+  x = 784,
+  y = 1000,
+  width = 32,
+  height = 8,
+  pattern = "door_top.stairs.1-1",
+}
+
+tile{
+  layer = -1,
+  x = 792,
+  y = 1000,
+  width = 16,
+  height = 8,
+  pattern = "door_top.stairs_down.1-1",
+}
+
+tile{
+  layer = -1,
+  x = 472,
+  y = 1336,
+  width = 16,
+  height = 24,
+  pattern = "stairs_inner_up.2-1",
+}
+
+tile{
+  layer = -1,
+  x = 504,
+  y = 112,
+  width = 24,
+  height = 8,
+  pattern = "stairs_inner_up.4.border.2-1",
+}
+
+tile{
+  layer = -1,
+  x = 504,
+  y = 88,
+  width = 24,
+  height = 8,
+  pattern = "stairs_inner_up.4.border.1-1",
+}
+
+tile{
+  layer = -1,
+  x = 504,
+  y = 96,
+  width = 24,
+  height = 16,
+  pattern = "stairs_inner_up.4-1",
+}
+
+teletransporter{
+  name = "to_sideview_b",
+  layer = -1,
+  x = 2072,
+  y = 1072,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/10/sideview_b",
+  destination = "from_1f_b",
+}
+
 jumper{
   layer = -1,
   x = 424,
-  y = 48,
+  y = 64,
   width = 8,
-  height = 112,
+  height = 80,
   direction = 0,
   jump_length = 40,
 }
@@ -1976,9 +2023,9 @@ jumper{
 jumper{
   layer = -1,
   x = 528,
-  y = 48,
+  y = 120,
   width = 8,
-  height = 112,
+  height = 24,
   direction = 4,
   jump_length = 40,
 }
@@ -2035,25 +2082,6 @@ stairs{
 
 stairs{
   layer = -1,
-  x = 2024,
-  y = 864,
-  direction = 3,
-  subtype = 4,
-}
-
-teletransporter{
-  name = "to_sideview_b",
-  layer = -1,
-  x = 2072,
-  y = 1072,
-  width = 16,
-  height = 16,
-  destination_map = "dungeons/10/sideview_1",
-  destination = "from_stairs_D_1",
-}
-
-stairs{
-  layer = -1,
   x = 2072,
   y = 1072,
   direction = 1,
@@ -2061,7 +2089,7 @@ stairs{
 }
 
 destination{
-  name = "from_stairs_B",
+  name = "from_sideview_b",
   layer = -1,
   x = 2080,
   y = 1085,
@@ -2074,6 +2102,76 @@ stairs{
   y = 1072,
   direction = 2,
   subtype = 4,
+}
+
+teletransporter{
+  name = "to_sideview_a_2",
+  layer = -1,
+  x = 792,
+  y = 1008,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/10/sideview_a",
+  destination = "from_1f_a_2",
+}
+
+stairs{
+  layer = -1,
+  x = 792,
+  y = 1008,
+  direction = 1,
+  subtype = 3,
+}
+
+destination{
+  name = "from_sideview_a_2",
+  layer = -1,
+  x = 800,
+  y = 1021,
+  direction = 3,
+}
+
+stairs{
+  layer = -1,
+  x = 400,
+  y = 1312,
+  direction = 2,
+  subtype = 4,
+}
+
+stairs{
+  layer = -1,
+  x = 472,
+  y = 1344,
+  direction = 3,
+  subtype = 4,
+}
+
+stairs{
+  layer = -1,
+  x = 512,
+  y = 96,
+  direction = 0,
+  subtype = 4,
+}
+
+jumper{
+  layer = -1,
+  x = 528,
+  y = 64,
+  width = 8,
+  height = 24,
+  direction = 4,
+  jump_length = 40,
+}
+
+tile{
+  layer = 0,
+  x = 2064,
+  y = 1064,
+  width = 32,
+  height = 8,
+  pattern = "door_top.stairs.1-1",
 }
 
 tile{
@@ -4833,7 +4931,7 @@ tile{
 tile{
   layer = 0,
   x = 1064,
-  y = 856,
+  y = 864,
   width = 24,
   height = 24,
   pattern = "wall.corner_reverse.2-4",
@@ -7841,24 +7939,6 @@ tile{
   width = 48,
   height = 8,
   pattern = "wall_border.1-4",
-}
-
-tile{
-  layer = 0,
-  x = 424,
-  y = 104,
-  width = 16,
-  height = 32,
-  pattern = "water_pool_ladder.3",
-}
-
-tile{
-  layer = 0,
-  x = 520,
-  y = 104,
-  width = 16,
-  height = 32,
-  pattern = "water_pool_ladder.4",
 }
 
 tile{
@@ -15554,7 +15634,7 @@ tile{
 tile{
   layer = 0,
   x = 472,
-  y = 1352,
+  y = 1360,
   width = 16,
   height = 8,
   pattern = "stairs_inner_up.2.top-1",
@@ -16364,33 +16444,6 @@ tile{
 tile{
   layer = 0,
   x = 2024,
-  y = 880,
-  width = 16,
-  height = 8,
-  pattern = "stairs_inner_up.2.top-1",
-}
-
-tile{
-  layer = 0,
-  x = 2016,
-  y = 880,
-  width = 8,
-  height = 8,
-  pattern = "stairs_inner_up.2.top.border.1-1",
-}
-
-tile{
-  layer = 0,
-  x = 2040,
-  y = 880,
-  width = 8,
-  height = 8,
-  pattern = "stairs_inner_up.2.top.border.2-1",
-}
-
-tile{
-  layer = 0,
-  x = 2024,
   y = 744,
   width = 32,
   height = 16,
@@ -16550,6 +16603,168 @@ tile{
   pattern = "barrier.2-1",
 }
 
+tile{
+  layer = 0,
+  x = 56,
+  y = 504,
+  width = 8,
+  height = 16,
+  pattern = "door.1.support.1-1",
+}
+
+tile{
+  layer = 0,
+  x = 80,
+  y = 504,
+  width = 8,
+  height = 16,
+  pattern = "door.1.support.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 64,
+  y = 504,
+  width = 16,
+  height = 16,
+  pattern = "door_stairs.straight_down.1",
+}
+
+tile{
+  layer = 0,
+  x = 152,
+  y = 856,
+  width = 16,
+  height = 16,
+  pattern = "door.1",
+}
+
+tile{
+  layer = 0,
+  x = 144,
+  y = 856,
+  width = 8,
+  height = 16,
+  pattern = "door.1.support.1-1",
+}
+
+tile{
+  layer = 0,
+  x = 168,
+  y = 856,
+  width = 8,
+  height = 16,
+  pattern = "door.1.support.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 152,
+  y = 808,
+  width = 16,
+  height = 16,
+  pattern = "door.2",
+}
+
+tile{
+  layer = 0,
+  x = 144,
+  y = 808,
+  width = 8,
+  height = 16,
+  pattern = "door.2.support.1-1",
+}
+
+tile{
+  layer = 0,
+  x = 168,
+  y = 808,
+  width = 8,
+  height = 16,
+  pattern = "door.2.support.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 152,
+  y = 824,
+  width = 16,
+  height = 32,
+  pattern = "floor.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 144,
+  y = 824,
+  width = 8,
+  height = 32,
+  pattern = "barrier.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 168,
+  y = 824,
+  width = 8,
+  height = 32,
+  pattern = "barrier.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 40,
+  y = 824,
+  width = 64,
+  height = 32,
+  pattern = "hammer_peg.1",
+}
+
+tile{
+  layer = 0,
+  x = 2072,
+  y = 1064,
+  width = 16,
+  height = 8,
+  pattern = "door_top.stairs_down.1-1",
+}
+
+tile{
+  layer = 0,
+  x = 528,
+  y = 96,
+  width = 8,
+  height = 16,
+  pattern = "stairs_inner_up.4.top-1",
+}
+
+tile{
+  layer = 0,
+  x = 528,
+  y = 112,
+  width = 8,
+  height = 8,
+  pattern = "stairs_inner_up.4.top.border.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 528,
+  y = 88,
+  width = 8,
+  height = 8,
+  pattern = "stairs_inner_up.4.top.border.1-1",
+}
+
+tile{
+  layer = 0,
+  x = 2016,
+  y = 872,
+  width = 32,
+  height = 16,
+  pattern = "water_pool_ladder.2",
+}
+
 dynamic_tile{
   name = "lava_pond_2c_2",
   layer = 0,
@@ -16703,7 +16918,7 @@ wall{
   x = 424,
   y = 40,
   width = 8,
-  height = 8,
+  height = 24,
   stops_hero = true,
   stops_npcs = true,
   stops_enemies = true,
@@ -16716,7 +16931,7 @@ wall{
   x = 528,
   y = 40,
   width = 8,
-  height = 8,
+  height = 24,
   stops_hero = true,
   stops_npcs = true,
   stops_enemies = true,
@@ -16727,9 +16942,9 @@ wall{
 wall{
   layer = 0,
   x = 528,
-  y = 160,
+  y = 144,
   width = 8,
-  height = 8,
+  height = 24,
   stops_hero = true,
   stops_npcs = true,
   stops_enemies = true,
@@ -16740,9 +16955,9 @@ wall{
 wall{
   layer = 0,
   x = 424,
-  y = 160,
+  y = 144,
   width = 8,
-  height = 8,
+  height = 24,
   stops_hero = true,
   stops_npcs = true,
   stops_enemies = true,
@@ -17101,8 +17316,8 @@ teletransporter{
   y = 568,
   width = 16,
   height = 16,
-  destination_map = "dungeons/10/sideview_1",
-  destination = "from_stairs_D_2",
+  destination_map = "dungeons/10/sideview_d",
+  destination = "from_1f_d_2",
 }
 
 stairs{
@@ -17114,7 +17329,7 @@ stairs{
 }
 
 destination{
-  name = "from_stairs_D_2",
+  name = "from_sideview_d_2",
   layer = 0,
   x = 2336,
   y = 581,
@@ -17122,29 +17337,29 @@ destination{
 }
 
 teletransporter{
-  name = "to_sideview_d_1",
+  name = "to_sideview_d",
   layer = 0,
   x = 792,
-  y = 1512,
+  y = 1464,
   width = 16,
   height = 16,
-  destination_map = "dungeons/10/sideview_1",
-  destination = "from_stairs_D_1",
+  destination_map = "dungeons/10/sideview_d",
+  destination = "from_1f_d",
 }
 
 stairs{
   layer = 0,
   x = 792,
-  y = 1496,
+  y = 1464,
   direction = 1,
   subtype = 3,
 }
 
 destination{
-  name = "from_stairs_D_1",
+  name = "from_sideview_d",
   layer = 0,
   x = 800,
-  y = 1493,
+  y = 1477,
   direction = 3,
 }
 
@@ -17319,6 +17534,7 @@ jumper{
 }
 
 custom_entity{
+  name = "lava_pond_bubble_7",
   layer = 0,
   x = 424,
   y = 1285,
@@ -17329,6 +17545,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "lava_pond_bubble_8",
   layer = 0,
   x = 400,
   y = 1277,
@@ -17339,6 +17556,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "lava_pond_bubble_6",
   layer = 0,
   x = 384,
   y = 1373,
@@ -17349,6 +17567,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "lava_pond_bubble_5",
   layer = 0,
   x = 432,
   y = 1341,
@@ -17359,6 +17578,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "lava_pond_bubble",
   layer = 0,
   x = 464,
   y = 1309,
@@ -17369,6 +17589,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "lava_pond_bubble_3",
   layer = 0,
   x = 496,
   y = 1341,
@@ -17379,6 +17600,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "lava_pond_bubble_2",
   layer = 0,
   x = 496,
   y = 1309,
@@ -17389,6 +17611,7 @@ custom_entity{
 }
 
 custom_entity{
+  name = "lava_pond_bubble_4",
   layer = 0,
   x = 520,
   y = 1325,
@@ -17497,14 +17720,6 @@ jumper{
   jump_length = 40,
 }
 
-destination{
-  name = "destination_2",
-  layer = 0,
-  x = 1088,
-  y = 909,
-  direction = 1,
-}
-
 teletransporter{
   layer = 0,
   x = 792,
@@ -17611,6 +17826,60 @@ dynamic_tile{
   width = 96,
   height = 128,
   pattern = "water.transparent",
+}
+
+teletransporter{
+  name = "to_sideview_a",
+  layer = 0,
+  x = 2072,
+  y = 440,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/10/sideview_a",
+  destination = "from_1f_a",
+}
+
+stairs{
+  layer = 0,
+  x = 2072,
+  y = 440,
+  direction = 1,
+  subtype = 3,
+}
+
+destination{
+  name = "from_sideview_a",
+  layer = 0,
+  x = 2080,
+  y = 453,
+  direction = 3,
+}
+
+teletransporter{
+  name = "to_sideview_c_2",
+  layer = 0,
+  x = 64,
+  y = 504,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/10/sideview_c",
+  destination = "from_1f_c_2",
+}
+
+stairs{
+  layer = 0,
+  x = 64,
+  y = 504,
+  direction = 1,
+  subtype = 3,
+}
+
+destination{
+  name = "from_sideview_c_2",
+  layer = 0,
+  x = 72,
+  y = 517,
+  direction = 3,
 }
 
 tile{
@@ -20131,17 +20400,37 @@ tile{
   pattern = "door_top.closed.2-5",
 }
 
+tile{
+  layer = 1,
+  x = 56,
+  y = 496,
+  width = 32,
+  height = 8,
+  pattern = "door_top.stairs.1-1",
+}
+
+tile{
+  layer = 1,
+  x = 64,
+  y = 496,
+  width = 16,
+  height = 8,
+  pattern = "door_top.stairs_down.1-1",
+}
+
 teletransporter{
+  name = "to_sideview_c",
   layer = 1,
   x = 2504,
   y = 768,
   width = 16,
   height = 16,
-  destination_map = "dungeons/10/1f",
+  destination_map = "dungeons/10/sideview_c",
+  destination = "from_1f_c",
 }
 
 destination{
-  name = "destination",
+  name = "from_sideview_c",
   layer = 1,
   x = 2512,
   y = 765,
@@ -20279,6 +20568,25 @@ jumper{
   height = 56,
   direction = 0,
   jump_length = 40,
+}
+
+teletransporter{
+  name = "to_sideview_b_2",
+  layer = 1,
+  x = 472,
+  y = 328,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/10/sideview_b",
+  destination = "from_1f_b_2",
+}
+
+destination{
+  name = "from_sideview_b_2",
+  layer = 1,
+  x = 480,
+  y = 325,
+  direction = 1,
 }
 
 tile{
