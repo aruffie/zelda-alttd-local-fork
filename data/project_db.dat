@@ -485,6 +485,7 @@ sprite{ id = "entities/grounds/weak_floor_light_1", description = "Weak floor li
 sprite{ id = "entities/grounds/weak_floor_light_2", description = "Weak floor light 2" }
 sprite{ id = "entities/grounds/weak_floor_light_3", description = "Weak floor light 3" }
 sprite{ id = "entities/grounds/weak_floor_light_4", description = "Weak floor light 4" }
+sprite{ id = "entities/hammer_stake_animated", description = "Hammer stake (animated)" }
 sprite{ id = "entities/hammer_stake_brown", description = "Hammer stake brown" }
 sprite{ id = "entities/hammer_stake_green", description = "Hammer stake green" }
 sprite{ id = "entities/hammer_stake_yellow", description = "Hammer stake yellow" }
@@ -1423,6 +1424,7 @@ entity{ id = "fire", description = "Fire" }
 entity{ id = "follower", description = "Follower" }
 entity{ id = "frog", description = "Frog" }
 entity{ id = "green_crystal", description = "Green crystal" }
+entity{ id = "hammer_stake", description = "Hammer stake" }
 entity{ id = "hook_bridge", description = "hook bridge" }
 entity{ id = "hookable", description = "Hookable" }
 entity{ id = "insect", description = "Insect" }
