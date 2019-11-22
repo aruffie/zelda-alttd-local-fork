@@ -33,6 +33,21 @@ pillar:register_event("on_created", function(pillar)
   end
 end)
 
+-- Start a brief effect.
+local function start_brief_effect(sprite_name, animation_name, x_offset, y_offset, on_finished_callback)
+
+  -- Create a new sprite with the animation and remove it once animation finished.
+  local effect_sprite = pillar:create_sprite(sprite_name)
+  effect_sprite:set_xy(x_offset, y_offset)
+  effect_sprite:set_ignore_suspend()
+  effect_sprite:set_animation(animation_name, function()
+    if on_finished_callback then
+      on_finished_callback()
+    end
+    pillar:remove_sprite(effect_sprite)
+  end)
+end
+
 -- Make hero and all region enemies invincible or vulnerable.
 local function make_all_invincible(invincible)
   hero:set_invincible(invincible)
@@ -62,6 +77,7 @@ function pillar:start_breaking()
   map_tools.start_earthquake({count = 64, amplitude = 4, speed = 90}) -- Start the earthquake when the hit occurs.
   map:set_cinematic_mode(true, {entities_ignore_suspend = {pillar}}) -- TODO make iron_ball_ignore_suspend
   make_all_invincible(true)
+  start_brief_effect("entities/effects/sparkle_small", "default", 0, -16)
 
   -- Start 3 chained explosions.
   for i = 1, 3 do
