@@ -126,7 +126,7 @@ function jump_manager.update_jump(entity, callback)
       --local final_x, final_y=entity:get_position()
       --print("Distance reached during jump: X="..final_x-debug_start_x..", Y="..final_y-debug_start_y..", height="..debug_max_height)
       jump_manager.reset_collision_rules(entity:get_state_object())
-
+      entity.ignore_crystal_block=nil
       entity:set_jumping(false)
       if callback then 
         --print "CALLBACK"
@@ -188,7 +188,7 @@ function jump_manager.start(entity, v_speed, success_callback, failure_callback)
   local state, state_object=entity:get_state() --launch approprate custom state
   local state_description = state=="custom" and state_object:get_description() or ""
 --  if state=="free" then
-    entity:jump()
+  entity:jump()
 --  elseif state=="sword swinging" or state_description=="sword" then
 --    entity:swing_sword()
 --  elseif state=="sword loading" or state_description=="jumping_sword_loading" then
@@ -196,20 +196,19 @@ function jump_manager.start(entity, v_speed, success_callback, failure_callback)
 --  else
 --    debug_print ("Warning: incompatible state: "..state)
 --  end
-  jump_manager.setup_collision_rules(entity:get_state_object())
+  jump_manager.setup_collision_rules(state_object)
 
   --  debug_print "Starting custom jump"
   debug_start_x, debug_start_y=entity:get_position() --Temporary, remove me once everything has been finalized
 
   audio_manager:play_sound("hero/jump")
   entity:set_jumping(true)
-  entity.is_on_raised_crystal_block=false
-  local x,y=entity:get_position()
-  for e in entity:get_map():get_entities_in_rectangle(x,y,1,1) do
-    if e:get_type()=="crystal_block" then
+  local x,y, w,h=entity:get_bounding_box()
+  for e in entity:get_map():get_entities_in_rectangle(x,y,w,h) do
+    if e:get_type()=="custom_entity" and e:get_model()=="crystal_block" then
       local anim=e:get_sprite():get_animation()
       debug_print(anim)
-      entity.is_on_raised_crystal_block = anim=="orange_raised" or anim=="blue_raised"
+      entity.ignore_crystal_block = anim=="orange_raised" or anim=="blue_raised"
     end
   end
 

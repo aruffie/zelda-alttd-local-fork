@@ -49,6 +49,9 @@ function block_meta:on_removed()
   end
 end
 function block_meta:on_movement_started(movement)
+  
+  --The following line returns "movement", should be something like "straignt_movement" or "piel_movement", hence the bugs when trying to call the type-specific movement methods. This is obviously an engine bug.
+  --print ("block movement type: "..sol.main.get_type(movement)) 
   --movement:set_ignore_obstacles()
 end
 
@@ -69,12 +72,12 @@ end
 function block_meta:on_position_changed(x, y, layer)
 
   --local moving_direction=self:get_movement():get_direction4() --BROKEN, the block mvement returns wrong object
-  local moving_direction=(self:get_direction4_to(self.movement_start_x, self.movement_start_y)+2)%4
+  local moving_direction=(self:get_direction4_to(self.movement_start_x, self.movement_start_y)+2)%4 --Hack, see line above why
 
   if true or self:get_movement():get_ignore_obstacles() then --BROKEN see above why
     local bx,by,bh,bw=self:get_bounding_box()
     local dx, dy=unpack(math_utils.get_offset_from_direction4(moving_direction))
-    for e in self:get_map():get_entities_in_rectangle(bx, by, bw, bh) do --push any enemy which gets overlapped by the block
+    for e in self:get_map():get_entities_in_rectangle(bx*2, by*2, bw*2, bh*2) do --push any enemy which gets overlapped by the block
       if e:get_type()=="enemy" then
         local ex,ey=e:get_position()
         e:set_position(ex+dx, ey+dy)

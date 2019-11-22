@@ -9,6 +9,11 @@ local audio_manager = require("scripts/audio_manager")
 require("scripts/sword_states_manager")
 require("scripts/multi_events")
 
+function game_meta:get_sword_ability()
+  local ab=self:get_ability("sword")
+  return ab>0  and ab or self:get_item("sword"):get_variant()
+end
+
 game_meta:register_event("on_world_changed", function(game)
 
     local hero = game:get_hero()  
@@ -70,16 +75,10 @@ game_meta:register_event("on_draw", function(game, dst_surface)
 game_meta:register_event("on_command_pressed", function(game, command)
     local hero=game:get_hero()
     local state, cstate=hero:get_state()
-    if command == "attack" then
-      if state=="free" or state=="custom" and cstate:get_can_use_sword() then
-        hero.just_used_sword=true
+    if command == "attack"  and not game:is_suspended() then
+      if state=="free" or state=="custom" and game:get_sword_ability()>0 and cstate:get_can_use_sword() then
         hero:swing_sword()
-        sol.timer.start(game, 10, function()
-            hero.just_used_sword=nil
-          end)
       end
-      return true
-
     elseif command == "item_1" or command =="item_2" then
 --      debug_print "item_command ?"
       if not game:is_suspended() then
