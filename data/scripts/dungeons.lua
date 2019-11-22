@@ -606,7 +606,7 @@ local function initialize_dungeon_features(game)
         local map = game:get_map()
         function map.do_after_transition()
           local timer = sol.timer.start(map, 10, function()
-              game:start_dialog("maps.dungeons." .. dungeon_index .. ".welcome")
+              game:start_dialog("maps.dungeons." .. dungeon_index .. ".welcome_name")
             end)
           timer:set_suspended_with_map(true)
         end
