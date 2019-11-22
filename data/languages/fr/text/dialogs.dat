@@ -834,6 +834,20 @@ Je vais te corriger !!
 }
 
 dialog{
+  id = "maps.dungeons.1.boss_description",
+  text = [[
+Lombric Zélé
+]],
+}
+
+dialog{
+  id = "maps.dungeons.1.boss_name",
+  text = [[
+MOLDORM
+]],
+}
+
+dialog{
   id = "maps.dungeons.1.boss_welcome",
   text = [[
 GRRR ! GRR !      
@@ -871,25 +885,66 @@ Si tu vois les pointes, pense à utiliser ton bouclier.
 }
 
 dialog{
-  id = "maps.dungeons.1.welcome",
-  skip = "current",
+  id = "maps.dungeons.1.welcome_description",
   text = [[
-          Niveau 1       
-       Cave Flagello
+Niveau 1
 ]],
 }
 
 dialog{
-  id = "maps.dungeons.10.welcome",
+  id = "maps.dungeons.1.welcome_name",
+  skip = "current",
+  text = [[
+Caverne Flagello
+]],
+}
+
+dialog{
+  id = "maps.dungeons.10.welcome_description",
+  text = [[
+Niveau secret
+]],
+}
+
+dialog{
+  id = "maps.dungeons.10.welcome_name",
   text = [[
 Temple du Hibou
 ]],
 }
 
 dialog{
-  id = "maps.dungeons.11.welcome",
+  id = "maps.dungeons.11.boss_description",
+  text = [[
+Prince des cauchemars
+]],
+}
+
+dialog{
+  id = "maps.dungeons.11.boss_name",
+  text = [[
+MALEFICIO
+]],
+}
+
+dialog{
+  id = "maps.dungeons.11.welcome_description",
+  text = [[
+Sanctuaire sacré
+]],
+}
+
+dialog{
+  id = "maps.dungeons.11.welcome_name",
   text = [[
 OEUF SACRE
+]],
+}
+
+dialog{
+  id = "maps.dungeons.2.boss_description",
+  text = [[
+Génie sarcastique
 ]],
 }
 
@@ -918,6 +973,13 @@ dialog{
 Je ne peux pas bouger !
 Mais je vais bien.
 Ta petite épée ne pourra pas briser cette bouteille !
+]],
+}
+
+dialog{
+  id = "maps.dungeons.2.boss_name",
+  text = [[
+JARVICE
 ]],
 }
 
@@ -960,12 +1022,32 @@ Une partie du sol s'élève. Actionne le cristal bleu.
 }
 
 dialog{
-  id = "maps.dungeons.2.welcome",
+  id = "maps.dungeons.2.welcome_description",
+  text = [[
+Niveau 2
+]],
+}
+
+dialog{
+  id = "maps.dungeons.2.welcome_name",
   skip = "current",
   text = [[
-          Niveau 2       
-      Grotte du génie    
+Grotte du génie    
 
+]],
+}
+
+dialog{
+  id = "maps.dungeons.3.boss_description",
+  text = [[
+Oeil Malicieux
+]],
+}
+
+dialog{
+  id = "maps.dungeons.3.boss_name",
+  text = [[
+VITREUX
 ]],
 }
 
@@ -986,11 +1068,31 @@ C'est caché sous la cascade.
 }
 
 dialog{
-  id = "maps.dungeons.3.welcome",
+  id = "maps.dungeons.3.welcome_description",
+  text = [[
+Niveau 3
+]],
+}
+
+dialog{
+  id = "maps.dungeons.3.welcome_name",
   skip = "current",
   text = [[
-          Niveau 3       
-       Cave aux clés
+Souterrain aux clés
+]],
+}
+
+dialog{
+  id = "maps.dungeons.4.boss_description",
+  text = [[
+Monstre des Profondeurs
+]],
+}
+
+dialog{
+  id = "maps.dungeons.4.boss_name",
+  text = [[
+LAMPOISSE
 ]],
 }
 
@@ -1003,12 +1105,31 @@ Ta route passe par la baie.
 }
 
 dialog{
-  id = "maps.dungeons.4.welcome",
+  id = "maps.dungeons.4.welcome_description",
   text = [[
-          Niveau 4    
-  Abîme du poisson
+Niveau 4
 
+]],
+}
 
+dialog{
+  id = "maps.dungeons.4.welcome_description_name",
+  text = [[
+Abîme du poisson
+]],
+}
+
+dialog{
+  id = "maps.dungeons.5.boss_description",
+  text = [[
+Monstre des profondeurs
+]],
+}
+
+dialog{
+  id = "maps.dungeons.5.boss_name",
+  text = [[
+TANTALOSAR
 ]],
 }
 
@@ -1031,11 +1152,31 @@ Il renferme le secret de l'île.
 }
 
 dialog{
-  id = "maps.dungeons.5.welcome",
+  id = "maps.dungeons.5.welcome_description",
   text = [[
-          Niveau 5    
-        Poisson-chat
+Niveau 5
+]],
+}
 
+dialog{
+  id = "maps.dungeons.5.welcome_name",
+  text = [[
+Poisson-chat
+
+]],
+}
+
+dialog{
+  id = "maps.dungeons.6.boss_description",
+  text = [[
+Masque Espiègle
+]],
+}
+
+dialog{
+  id = "maps.dungeons.6.boss_name",
+  text = [[
+FACADE
 ]],
 }
 
@@ -1048,10 +1189,30 @@ Elle t'appelle.
 }
 
 dialog{
-  id = "maps.dungeons.6.welcome",
+  id = "maps.dungeons.6.welcome_description",
   text = [[
-          Niveau 6    
-     Temple du masque
+Niveau 6
+]],
+}
+
+dialog{
+  id = "maps.dungeons.6.welcome_name",
+  text = [[
+Temple du masque
+]],
+}
+
+dialog{
+  id = "maps.dungeons.7.boss_description",
+  text = [[
+Vautour Malfaisant
+]],
+}
+
+dialog{
+  id = "maps.dungeons.7.boss_name",
+  text = [[
+URUBOS
 ]],
 }
 
@@ -1064,10 +1225,30 @@ Sa musique te guidera.
 }
 
 dialog{
-  id = "maps.dungeons.7.welcome",
+  id = "maps.dungeons.7.welcome_description",
   text = [[
-          Niveau 7   
-   Tour du vautour
+Niveau 7
+]],
+}
+
+dialog{
+  id = "maps.dungeons.7.welcome_name",
+  text = [[
+Tour du vautour
+]],
+}
+
+dialog{
+  id = "maps.dungeons.8.boss_description",
+  text = [[
+Tête brûlée
+]],
+}
+
+dialog{
+  id = "maps.dungeons.8.boss_name",
+  text = [[
+INFERNO
 ]],
 }
 
@@ -1080,10 +1261,30 @@ L'Oeuf Sacré te réclame.
 }
 
 dialog{
-  id = "maps.dungeons.8.welcome",
+  id = "maps.dungeons.8.welcome_description",
   text = [[
-          Niveau 8   
-    Roc de la tortue
+Niveau 8
+]],
+}
+
+dialog{
+  id = "maps.dungeons.8.welcome_name",
+  text = [[
+Roc de la tortue
+]],
+}
+
+dialog{
+  id = "maps.dungeons.9.boss_description",
+  text = [[
+Pieuvre Excentrique
+]],
+}
+
+dialog{
+  id = "maps.dungeons.9.boss_name",
+  text = [[
+OCTOPODAR
 ]],
 }
 
@@ -1172,10 +1373,16 @@ Bleu.
 }
 
 dialog{
-  id = "maps.dungeons.9.welcome",
+  id = "maps.dungeons.9.welcome_description",
   text = [[
-          Niveau 9 
-    Donjon des couleurs
+ Niveau secret
+]],
+}
+
+dialog{
+  id = "maps.dungeons.9.welcome_name",
+  text = [[
+Donjon des couleurs
 ]],
 }
 

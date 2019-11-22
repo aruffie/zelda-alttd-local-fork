@@ -8751,16 +8751,6 @@ tile{
 
 tile{
   layer = 1,
-  x = 176,
-  y = 496,
-  width = 32,
-  height = 32,
-  pattern = "17",
-  tileset = "addition/out",
-}
-
-tile{
-  layer = 1,
   x = 352,
   y = 488,
   width = 8,
@@ -9999,6 +9989,17 @@ tile{
   height = 48,
   pattern = "137",
   tileset = "addition/out",
+}
+
+custom_entity{
+  name = "owl_slab",
+  layer = 1,
+  x = 192,
+  y = 525,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/grounds/owl_slab",
 }
 
 wall{

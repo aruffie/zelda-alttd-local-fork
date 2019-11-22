@@ -368,6 +368,7 @@ sprite{ id = "entities/animals/seagull", description = "Seagull" }
 sprite{ id = "entities/animals/seagull_small", description = "Seagull small" }
 sprite{ id = "entities/animals/wart_brothers", description = "Wart's brothers" }
 sprite{ id = "entities/arrow", description = "Arrow" }
+sprite{ id = "entities/blocks/block", description = "Block" }
 sprite{ id = "entities/blocks/block_small_key", description = "Block small key" }
 sprite{ id = "entities/blocks/box", description = "Box" }
 sprite{ id = "entities/blocks/stone_brown", description = "Stone brown" }
@@ -465,6 +466,7 @@ sprite{ id = "entities/grounds/ground_dug", description = "Ground dug" }
 sprite{ id = "entities/grounds/ladder_iron", description = "Ladder iron" }
 sprite{ id = "entities/grounds/ladder_wooden", description = "Ladder" }
 sprite{ id = "entities/grounds/ladder_wooden_top", description = "Ladder top" }
+sprite{ id = "entities/grounds/owl_slab", description = "Owl slab" }
 sprite{ id = "entities/grounds/weak_floor_dark_1", description = "Weak floor dark 1" }
 sprite{ id = "entities/grounds/weak_floor_dark_2", description = "Weak floor dark 2" }
 sprite{ id = "entities/grounds/weak_floor_dark_3", description = "Weak floor dark 3" }
@@ -535,7 +537,6 @@ sprite{ id = "entities/orb_monster_orb_blue", description = "Orb monster orb blu
 sprite{ id = "entities/orb_monster_orb_green", description = "Orb monster orb green" }
 sprite{ id = "entities/orb_monster_orb_red", description = "Orb monster orb red" }
 sprite{ id = "entities/outside_door", description = "Outside closed door" }
-sprite{ id = "entities/owl_slab", description = "Owl slab" }
 sprite{ id = "entities/photographer_canvas", description = "Photographer canvas" }
 sprite{ id = "entities/shadow", description = "Shadow" }
 sprite{ id = "entities/shadows/ball", description = "Ball" }

@@ -17,6 +17,10 @@ map:register_event("on_started", function(map, destination)
   map:init_map_entities()
   -- Digging
   map:set_digging_allowed(true)
+  -- Owl slab
+  if game:get_value("travel_4") then
+    owl_slab:get_sprite():set_animation("activated")
+  end
 
 end)
 
@@ -99,7 +103,8 @@ end
 function travel_sensor:on_activated()
 
   travel_manager:init(map, 4)
-
+  owl_slab:get_sprite():set_animation("activated")
+  
 end
 
 -- Separators events
@@ -114,9 +119,11 @@ separator_1:register_event("on_activating", function(separator, direction4)
 end)
 
 separator_2:register_event("on_activating", function(separator, direction4)
+    
   if direction4 == 0 then
     map.fsa_heat_wave = true
   elseif direction4 == 2 then
     map.fsa_heat_wave = false
   end
+  
 end)
