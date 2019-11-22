@@ -17,12 +17,10 @@ local walking_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
 local walking_speed = 32
 local walking_minimum_distance = 16
 local walking_maximum_distance = 32
-local weak_walking_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
 local weak_walking_speed = 48
 local weak_walking_minimum_distance = 16
 local weak_walking_maximum_distance = 96
 
-local angles = walking_angles
 local speed = walking_speed
 local minimum_distance = walking_minimum_distance
 local maximum_distance = walking_maximum_distance
@@ -30,7 +28,7 @@ local maximum_distance = walking_maximum_distance
 -- Start the enemy movement.
 function enemy:start_walking()
 
-  enemy:start_straight_walking(angles[math.random(4)], speed, math.random(minimum_distance, maximum_distance), function()
+  enemy:start_straight_walking(walking_angles[math.random(4)], speed, math.random(minimum_distance, maximum_distance), function()
     enemy:start_walking()
   end)
 end
@@ -38,7 +36,6 @@ end
 -- Set the enemy weak.
 function enemy:set_weak()
 
-  angles = weak_walking_angles
   speed = weak_walking_speed
   minimum_distance = weak_walking_minimum_distance
   maximum_distance = weak_walking_maximum_distance
