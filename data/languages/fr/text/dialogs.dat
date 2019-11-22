@@ -834,6 +834,20 @@ Je vais te corriger !!
 }
 
 dialog{
+  id = "maps.dungeons.1.boss_description",
+  text = [[
+Lombric Zélé
+]],
+}
+
+dialog{
+  id = "maps.dungeons.1.boss_name",
+  text = [[
+MOLDORM
+]],
+}
+
+dialog{
   id = "maps.dungeons.1.boss_welcome",
   text = [[
 GRRR ! GRR !      
@@ -887,9 +901,30 @@ Temple du Hibou
 }
 
 dialog{
+  id = "maps.dungeons.11.boss_description",
+  text = [[
+Prince des cauchemars
+]],
+}
+
+dialog{
+  id = "maps.dungeons.11.boss_name",
+  text = [[
+MALEFICIO
+]],
+}
+
+dialog{
   id = "maps.dungeons.11.welcome",
   text = [[
 OEUF SACRE
+]],
+}
+
+dialog{
+  id = "maps.dungeons.2.boss_description",
+  text = [[
+Génie sarcastique
 ]],
 }
 
@@ -918,6 +953,13 @@ dialog{
 Je ne peux pas bouger !
 Mais je vais bien.
 Ta petite épée ne pourra pas briser cette bouteille !
+]],
+}
+
+dialog{
+  id = "maps.dungeons.2.boss_name",
+  text = [[
+JARVICE
 ]],
 }
 
@@ -970,6 +1012,20 @@ dialog{
 }
 
 dialog{
+  id = "maps.dungeons.3.boss_description",
+  text = [[
+Oeil Malicieux
+]],
+}
+
+dialog{
+  id = "maps.dungeons.3.boss_name",
+  text = [[
+VITREUX
+]],
+}
+
+dialog{
   id = "maps.dungeons.3.boss_welcome",
   text = [[
 BONK ! BONK !     
@@ -995,6 +1051,20 @@ dialog{
 }
 
 dialog{
+  id = "maps.dungeons.4.boss_description",
+  text = [[
+Monstre des Profondeurs
+]],
+}
+
+dialog{
+  id = "maps.dungeons.4.boss_name",
+  text = [[
+LAMPOISSE
+]],
+}
+
+dialog{
   id = "maps.dungeons.4.indication",
   text = [[
 ...BAIE...      
@@ -1009,6 +1079,20 @@ dialog{
   Abîme du poisson
 
 
+]],
+}
+
+dialog{
+  id = "maps.dungeons.5.boss_description",
+  text = [[
+Monstre des profondeurs
+]],
+}
+
+dialog{
+  id = "maps.dungeons.5.boss_name",
+  text = [[
+TANTALOSAR
 ]],
 }
 
@@ -1040,6 +1124,20 @@ dialog{
 }
 
 dialog{
+  id = "maps.dungeons.6.boss_description",
+  text = [[
+Masque Espiègle
+]],
+}
+
+dialog{
+  id = "maps.dungeons.6.boss_name",
+  text = [[
+FACADE
+]],
+}
+
+dialog{
   id = "maps.dungeons.6.indication",
   text = [[
 ...MONTAGNE...  
@@ -1052,6 +1150,20 @@ dialog{
   text = [[
           Niveau 6    
      Temple du masque
+]],
+}
+
+dialog{
+  id = "maps.dungeons.7.boss_description",
+  text = [[
+Vautour Malfaisant
+]],
+}
+
+dialog{
+  id = "maps.dungeons.7.boss_name",
+  text = [[
+URUBOS
 ]],
 }
 
@@ -1072,6 +1184,20 @@ dialog{
 }
 
 dialog{
+  id = "maps.dungeons.8.boss_description",
+  text = [[
+Tête brûlée
+]],
+}
+
+dialog{
+  id = "maps.dungeons.8.boss_name",
+  text = [[
+INFERNO
+]],
+}
+
+dialog{
   id = "maps.dungeons.8.indication",
   text = [[
 L'heure a sonné.
@@ -1084,6 +1210,20 @@ dialog{
   text = [[
           Niveau 8   
     Roc de la tortue
+]],
+}
+
+dialog{
+  id = "maps.dungeons.9.boss_description",
+  text = [[
+Pieuvre Excentrique
+]],
+}
+
+dialog{
+  id = "maps.dungeons.9.boss_name",
+  text = [[
+OCTOPODAR
 ]],
 }
 
