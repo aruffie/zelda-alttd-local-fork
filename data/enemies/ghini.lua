@@ -19,8 +19,8 @@ local after_awake_delay = 1000
 local take_off_duration = 1000
 local flying_speed = 80
 local flying_height = 16
-local flying_angle_ratio = 0.02
-local target_validating_distance = 50
+local flying_acceleration = 0.5
+local flying_deceleration = 0.5
 
 -- Make the enemy flying movement.
 function enemy:start_flying_movement()
@@ -30,30 +30,13 @@ function enemy:start_flying_movement()
   local target_x = math.random(camera_x, camera_x + camera_width)
   local target_y = math.random(camera_y + flying_height, camera_y + camera_height)
 
-  local movement = enemy:get_movement()
-  local angle = movement and movement:get_angle() or math.random() * circle
+  local target_distance = enemy:get_distance(target_x, target_y)
+  local target_angle = enemy:get_angle(target_x, target_y)
 
-  -- Target a random point.
-  movement = enemy:start_straight_walking(angle, flying_speed)
-  movement:set_ignore_obstacles(true)
-
-  function movement:on_position_changed()
-
-    -- Target a new point point when close enough to this one.
-    if enemy:get_distance(target_x, target_y) < target_validating_distance then
-      enemy:start_flying_movement()
-      return
-    end
-
-    -- Else slowly turn to the target.
-    local enemy_x, _, _ = enemy:get_position()
-    local target_angle = enemy:get_angle(target_x, target_y)
-    local relative_angle = (target_angle - angle) % circle
-    local shortest_relative_angle = relative_angle < math.pi and relative_angle or relative_angle - circle
-    angle = (angle + shortest_relative_angle * flying_angle_ratio) % circle
-    movement:set_angle(angle)
-    sprite:set_direction(target_x < enemy_x and 2 or 0)
-  end
+  -- Target the random point and start a new flying movement when reached.
+  enemy:start_acceleration_walking(target_angle, flying_speed, flying_acceleration, flying_deceleration, target_distance, function()
+    enemy:start_flying_movement()
+  end)
 end
 
 -- Make the enemy wake up.
@@ -96,7 +79,7 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_damage(2)
   enemy:set_layer_independent_collisions(true)
 
-  -- Wait for something external to wake up the enemy if default_state is sleeping, else start a fly that already took off.
+  -- Wait for something external to wake up the enemy if it is sleeping, else start a fly that already took off.
   if is_sleeping then
     enemy:set_enabled(false)
   else
