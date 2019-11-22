@@ -64,6 +64,10 @@ function map:init_map_entities()
       bee:set_enabled(false)
     end
   end
+  -- Owl slab
+  if game:get_value("travel_1") then
+    owl_slab:get_sprite():set_animation("activated")
+  end
   -- Seashell's tree
   local seashell_tree_found = false
   collision_seashell:add_collision_test("facing", function(entity, other, entity_sprite, other_sprite)
@@ -348,13 +352,14 @@ end
 -- Sensors events
 function travel_sensor:on_activated()
 
-    travel_manager:init(map, 1)
+  travel_manager:init(map, 1)
+  owl_slab:get_sprite():set_animation("activated")
 
 end
 
 function owl_7_sensor:on_activated()
 
-  if game:is_step_last("dungeon_3_completed")  and game:get_value("owl_7") ~= true then
+  if game:is_step_last("dungeon_3_completed") and game:get_value("owl_7") ~= true then
     owl_manager:appear(map, 7, function()
     map:init_music()
     end)
