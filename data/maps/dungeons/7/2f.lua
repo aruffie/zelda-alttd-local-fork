@@ -76,12 +76,9 @@ end
 -- Break the given entities when hit by the iron ball.
 local function start_breaking_on_hit_by_iron_ball(entities_prefix)
   for entity in map:get_entities(entities_prefix) do
-    entity:register_event("on_hit_by_carriable", function(entity, carriable)   
-      if carriable:get_name() == "iron_ball" and entity:is_enabled() then
-        map_tools.start_earthquake({count = 64, amplitude = 4, speed = 90}) -- Start the earthquake when the hit occurs.
-        carriable:register_event("on_finish_throw", function(carriable)
-          entity:start_breaking() -- Start breaking the pillar when the iron ball is immobilized.
-        end)
+    entity:register_event("on_hit_by_carriable", function(entity, carriable)
+      if carriable:get_name() == "iron_ball" then
+        entity:start_breaking() -- Start breaking the pillar when the iron ball is immobilized.
       end
     end)
   end

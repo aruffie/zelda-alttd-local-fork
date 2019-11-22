@@ -13,6 +13,7 @@
 --           enemy:get_obstacles_normal_angle()
 --           enemy:get_obstacles_bounce_angle([angle])
 --
+--           enemy:start_acceleration_walking(angle, speed, acceleration, deceleration, distance, [on_decelerating_callback])
 --           enemy:start_straight_walking(angle, speed, [distance, [on_stopped_callback]])
 --           enemy:start_target_walking(entity, speed)
 --           enemy:start_jumping(duration, height, [angle, speed, [on_finished_callback]])
@@ -25,6 +26,7 @@
 --           enemy:stop_leashed_by(entity)
 --           enemy:start_pushed_back(entity, [speed, [duration, [on_finished_callback]]])
 --           enemy:start_pushing_back(entity, [speed, [duration, [on_finished_callback]]])
+--           enemy:start_acceleration(movement, duration)
 --
 --           enemy:start_shadow([sprite_name, [animation_name]])
 --           enemy:start_brief_effect(sprite_name, [animation_name, [x_offset, [y_offset, [maximum_duration, [on_finished_callback]]]]])
@@ -49,8 +51,9 @@ function common_actions.learn(enemy)
   local map = enemy:get_map()
   local hero = map:get_hero()
   local trigonometric_functions = {math.cos, math.sin}
-  local eighth = 0.25 * math.pi
   local circle = 2.0 * math.pi
+  local quarter = 0.5 * math.pi
+  local eighth = 0.25 * math.pi
 
   local attracting_timers = {}
   local leashing_timers = {}
@@ -171,6 +174,59 @@ function common_actions.learn(enemy)
     angle = angle or enemy:get_movement():get_angle()
 
     return (2.0 * normal_angle - angle + math.pi) % circle
+  end
+
+  -- Start a straight walking and apply a constant acceleration (px/s²), decelerating when distance reached.
+  function enemy:start_acceleration_walking(angle, speed, acceleration, deceleration, distance, on_decelerating_callback)
+
+    -- Workaround : Don't use solarus movements to be able to start several movements at the same time.
+    local pixel_moves = {angle > quarter and angle < 3.0 * quarter and -1 or 1, angle < math.pi and -1 or 1}
+    local current_speed = {math.cos(angle) * 2.0 * acceleration, math.sin(angle) * 2.0 * acceleration}
+    local current_distance = 0
+
+    -- Start deceleration as a negative acceleration.
+    function start_deceleration()
+
+      -- TODO
+      if on_decelerating_callback then
+        on_decelerating_callback()
+      end
+    end
+
+    -- Schedule 1 pixel moves on each axis depending on the given acceleration.
+    function move_on_axis(axis)
+
+      local position = {enemy:get_position()}
+      local move = {0, 0}
+      move[axis] = pixel_moves[axis]
+      curent_distance = current_distance + 1
+
+      return sol.timer.start(enemy, 1000.0 / current_speed[axis], function()
+
+        -- Stop movement if obstacle reached. 
+        if enemy:test_obstacles(move[1], move[2]) then
+          return false
+        end
+
+        -- Move the enemy.
+        enemy:set_position(position[1] + move[1], position[2] + move[2], position[3])
+
+        -- Update speed at this step.
+        if current_speed[axis] < trigonometric_functions[axis](angle) * speed then
+          current_speed[axis] = math.max(math.sqrt(math.pow(current_speed[axis], 2.0) + 2.0 * acceleration), trigonometric_functions[axis](angle) * speed)
+        end
+
+        -- Start deceleration if distance reached.
+        if curent_distance >= distance then
+          start_deceleration()
+        end
+
+        -- Schedule the next pixel move.
+        return 1000.0 / current_speed[axis]
+      end)
+    end
+
+    return move_on_axis(1), move_on_axis(2)
   end
 
   -- Make the enemy straight move.
@@ -347,6 +403,7 @@ function common_actions.learn(enemy)
   -- Start attracting the given entity, negative speed possible.
   function enemy:start_attracting(entity, speed, moving_condition_callback)
 
+    -- Workaround : Don't use solarus movements to be able to start several movements at the same time.
     local move_ratio = speed > 0 and 1 or -1
     attracting_timers[entity] = {}
 
