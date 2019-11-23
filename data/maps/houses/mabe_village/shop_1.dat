@@ -917,6 +917,17 @@ custom_entity{
   sprite = "entities/shadow",
 }
 
+stream{
+  name = "final_stream",
+  layer = 0,
+  x = 80,
+  y = 149,
+  direction = 6,
+  sprite = "streams/stream_d3",
+  speed = 24,
+  allow_movement = false,
+}
+
 tile{
   layer = 1,
   x = 144,

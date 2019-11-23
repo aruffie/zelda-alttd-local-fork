@@ -19,6 +19,7 @@ function claw_manager:create_minigame(map)
 
   local claw_up_start_x, claw_up_start_y = claw_up:get_position()
   local pickable_grabbed = nil
+  local platform  -- Invisible platform that avoids the pickable to fall after it is grabbed.
   local sound_timer
   local claw_menu = {}
 
@@ -173,6 +174,18 @@ function claw_manager:create_minigame(map)
                 audio_manager:play_sound("misc/trendy_game_win")
                 pickable_grabbed = pickable
                 local claw_crane_x, claw_crane_y, claw_crane_layer = claw_crane:get_position()
+                platform = map:create_custom_entity({
+                  direction = 0,
+                  x = claw_crane_x,
+                  y = claw_crane_y + 8,
+                  layer = claw_crane_layer,
+                  width = 16,
+                  height = 16,
+                })
+                platform:set_modified_ground("traversable")  -- Avoid the pickable to fall on the lower layer again.
+                function pickable_grabbed:on_position_changed(x, y)
+                  platform:set_position(x, y)
+                end
                 pickable_grabbed:set_position(claw_crane_x, claw_crane_y + 8, claw_crane_layer)
               end
             end
@@ -242,6 +255,7 @@ function claw_manager:create_minigame(map)
     claw_crane_sprite:set_animation("opening", function()
       claw_crane_sprite:set_animation("opened")
       sol.timer.start(claw_up, 1000, function()
+        platform:remove()
         if pickable_grabbed ~= nil then
           local claw_up_x, claw_up_y = claw_up:get_position()
           pickable_grabbed:set_position(claw_up_x, claw_up_y + 32)
