@@ -105,10 +105,22 @@ function jump_manager.update_jump(entity, callback)
 
     for name, sprite in entity:get_sprites() do
       if name~="shadow" and name~="shadow_override" then
+
         sprite:set_xy(0, math.min(entity.y_offset, 0)*y_factor)
+
+      else
+        local off= entity.y_offset
+        if off<-12 then
+          sprite:set_animation("small")
+        elseif off>=-12 and off<-8 then
+          sprite:set_animation("medium_high")
+        elseif off>=-8  and off<-4 then
+          sprite:set_animation("medium_low")
+        else
+          sprite:set_animation("big")
+        end
       end
     end
-
     entity.y_offset= entity.y_offset+entity.y_vel
     debug_max_height=math.min(debug_max_height, entity.y_offset)
 
@@ -123,7 +135,7 @@ function jump_manager.update_jump(entity, callback)
       for name, sprite in entity:get_sprites() do
         sprite:set_xy(0, 0)
       end
-      --local final_x, final_y=entity:get_position()
+      local final_x, final_y=entity:get_position()
       --print("Distance reached during jump: X="..final_x-debug_start_x..", Y="..final_y-debug_start_y..", height="..debug_max_height)
       jump_manager.reset_collision_rules(entity:get_state_object())
       entity.ignore_crystal_block=nil
@@ -154,7 +166,7 @@ end
   Parameters
     entity: the entity to start the jump on
     v_speed: the vertical speed. Defaults to 2 px/tick.
-    Note : the inputted vspeed to automatically converted to an updraft movement, so yu can either input -3.14 or 3.14 as a desired speed.
+    Note : the inputted vspeed is automatically converted to an updraft movement, so yu can either input -3.14 or 3.14 as a desired speed.
 --]]
 function jump_manager.start_parabola(entity, v_speed, callback)
   if not entity or entity:get_type() ~= "hero" then
@@ -187,15 +199,12 @@ function jump_manager.start(entity, v_speed, success_callback, failure_callback)
 
   local state, state_object=entity:get_state() --launch approprate custom state
   local state_description = state=="custom" and state_object:get_description() or ""
---  if state=="free" then
+
+  local s=entity:get_sprite("shadow_override")
+
+
+
   entity:jump()
---  elseif state=="sword swinging" or state_description=="sword" then
---    entity:swing_sword()
---  elseif state=="sword loading" or state_description=="jumping_sword_loading" then
---    entity:sword_loading()
---  else
---    debug_print ("Warning: incompatible state: "..state)
---  end
   jump_manager.setup_collision_rules(state_object)
 
   --  debug_print "Starting custom jump"
@@ -216,6 +225,15 @@ function jump_manager.start(entity, v_speed, success_callback, failure_callback)
 
   end
 
+--  if s then
+
+--    -- make the shadow do a shrink -> grow animation during the jump. Or at least, try to...
+--    s:set_animation("walking", function()
+--        --something is wrong, this event is not even called because the animation stays stuck at frame 0 for some reason.
+--        print "done"
+--        s:set_animation("big")
+--      end)
+--  end
 
   entity.y_vel = v_speed and -math.abs(v_speed) or -max_yvel
 
