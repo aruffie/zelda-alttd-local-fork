@@ -104,7 +104,7 @@ tile{
   x = 328,
   y = 0,
   enabled_at_start = false,
-  width = 304,
+  width = 312,
   height = 312,
   pattern = "15",
   tileset = "testing/labo",
@@ -2106,6 +2106,14 @@ dynamic_tile{
   width = 64,
   height = 112,
   pattern = "26",
+}
+
+enemy{
+  layer = 0,
+  x = 360,
+  y = 269,
+  direction = 0,
+  breed = "maskass",
 }
 
 tile{

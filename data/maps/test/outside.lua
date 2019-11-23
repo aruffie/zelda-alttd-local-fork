@@ -13,11 +13,11 @@ local hero = map:get_hero()
 local jumping_manager=require("scripts/maps/jump_manager")
 function autojump:on_activated()
   game:set_life(game:get_max_life())
-  if hero:is_running()==true then
+--  if hero:is_running()==true then
     jumping_manager.start(hero)
-  else
-    hero:jump()
-  end
+--  else
+--    hero:jump()
+--  end
 end
 -- put the hero at the newt jump test line. Part of the jump state debug tests.
 function jump_test_tp:on_activated()
