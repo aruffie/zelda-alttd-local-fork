@@ -84,7 +84,7 @@ end
 function jump_manager.trigger_event(entity, event)
   local state=entity:get_state()
   local state_object=entity:get_state_object()
-  debug_print ("state "..state.."("..(state_object and state_object.get_description and state_object:get_description() or "<built-in>")..") triggered the following Event: "..event)
+  debug_print ("state "..state.." ("..(state_object and state_object.get_description and state_object:get_description() or "<built-in>")..") triggered the following Event: "..event)
   local desc=state_object and state_object.get_description and state_object:get_description() or ""
   sol.timer.start(entity, 10, function()
       if event=="jump complete" then
