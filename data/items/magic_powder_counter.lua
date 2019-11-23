@@ -18,7 +18,7 @@ function item:on_created()
 end
 
 -- Event called when the hero is using this item.
-function item:start_using()
+function item:on_using()
   if item:get_map():is_sideview() and item:get_game():get_hero().vspeed~=nil then
     return
   end
