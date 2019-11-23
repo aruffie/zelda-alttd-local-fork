@@ -118,27 +118,28 @@ function title_background:launch_animation(callback)
     title_background.timer = nil
   end
 
-  -- We use a timer called each anim_delta milliseconds.
-  -- The timer is called in a loop while the total duration
-  -- is below the defined final duration.
-  title_background.timer = sol.timer.start(title_background, anim_delta, function()
-    -- Elapsed time since launch of animation.
-    title_background.elapsed_time = title_background.elapsed_time + anim_delta
-    if title_background.elapsed_time < title_background.total_duration then
-      -- Keep on updating while time is remaining.
-      -- Relaunch the timer once again.
-      return true
-    else
-      -- Call the callback at the end of the animation.
-      if callback ~= nil then
-        callback()
+  if sol.menu.is_started(title_background) then
+    -- We use a timer called each anim_delta milliseconds.
+    -- The timer is called in a loop while the total duration
+    -- is below the defined final duration.
+    title_background.timer = sol.timer.start(title_background, anim_delta, function()
+      -- Elapsed time since launch of animation.
+      title_background.elapsed_time = title_background.elapsed_time + anim_delta
+      if title_background.elapsed_time < title_background.total_duration then
+        -- Keep on updating while time is remaining.
+        -- Relaunch the timer once again.
+        return true
+      else
+        -- Call the callback at the end of the animation.
+        if callback ~= nil then
+          callback()
+        end
+
+        -- Stop the timer.
+        return false
       end
-
-      -- Stop the timer.
-      return false
-    end
-  end)
-
+    end)
+  end
 end
 
 -- Called when this menu has to draw on the screen.
