@@ -1,3 +1,5 @@
+local parchment = require("scripts/menus/parchment")
+
 local enemy_manager = {}
 
 enemy_manager.is_transported = false
@@ -174,9 +176,21 @@ function enemy_manager:launch_boss_if_not_dead(map)
   audio_manager:play_music("22_boss_battle")
   sol.timer.start(enemy, 1000, function()
       game:start_dialog("maps.dungeons." .. dungeon .. ".boss_welcome", function()
-          if enemy.launch_after_first_dialog then
-            enemy:launch_after_first_dialog()
-          end
+          
+          game:set_suspended(true)
+
+          -- Show parchment with dungeon name.
+          local dungeon_index = game:get_dungeon_index()
+          local line_1 = sol.language.get_dialog("maps.dungeons." .. dungeon_index .. ".boss_name").text
+          local line_2 = sol.language.get_dialog("maps.dungeons." .. dungeon_index .. ".boss_description").text
+          parchment:show(map, "default", "top", 1500, line_1, line_2, nil, function()
+
+            game:set_suspended(false)
+            
+            if enemy.launch_after_first_dialog then
+              enemy:launch_after_first_dialog()
+            end
+          end)
         end)
     end)
 
