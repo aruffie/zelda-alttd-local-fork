@@ -37,14 +37,14 @@ end
 -- Start attracting and the sprite animation for a delay, then stop attracting for delay.
 function enemy:start_attracting_timer()
 
-  is_exhausted = false
-  sprite:set_frame_delay(100)
-  attracting_timer = sol.timer.start(enemy, attracting_duration, function()
+  is_exhausted = true
+  sprite:set_frame_delay(0)
+  attracting_timer = sol.timer.start(enemy, exhausted_duration, function()
 
-    -- Stop attracting.
-    is_exhausted = true
-    sprite:set_frame_delay(0)
-    attracting_timer = sol.timer.start(enemy, exhausted_duration, function()
+    -- Start attracting.
+    is_exhausted = false
+    sprite:set_frame_delay(100)
+    attracting_timer = sol.timer.start(enemy, attracting_duration, function()
       enemy:start_attracting_timer()
     end)
   end)

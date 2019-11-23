@@ -75,7 +75,7 @@ enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(4)
 
-  -- Create a welded custom entity to be able to speak to cukeman with action command.
+  -- Create a welded npc to be able to speak to cukeman with action command.
   local x, y, layer = enemy:get_position()
   local width, height = enemy:get_size()
   npc = map:create_npc({
