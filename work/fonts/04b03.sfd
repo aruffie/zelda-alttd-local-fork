@@ -1,4 +1,4 @@
-SplineFontDB: 3.0
+SplineFontDB: 3.2
 FontName: 04b03
 FullName: 04b03
 FamilyName: 04b03
@@ -22,7 +22,7 @@ OS2Version: 0
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 0
 CreationTime: 1048627325
-ModificationTime: 1541843710
+ModificationTime: 1574521026
 PfmFamily: 81
 TTFWeight: 400
 TTFWidth: 5
@@ -190,13 +190,13 @@ NameList: AGL For New Fonts
 DisplaySize: -48
 AntiAlias: 1
 FitToEm: 0
-WinInfo: 64 16 10
+WinInfo: 65392 16 10
 BeginChars: 65539 100
 
 StartChar: .notdef
 Encoding: 65536 -1 0
 Width: 500
-Flags: W
+Flags: WO
 TtInstrs:
 NPUSHB
  32
@@ -282,19 +282,6 @@ SHPIX
 EIF
 EndTTInstrs
 LayerCount: 2
-Fore
-SplineSet
-63 0 m 1,0,-1
- 63 750 l 1,1,-1
- 438 750 l 1,2,-1
- 438 0 l 1,3,-1
- 63 0 l 1,0,-1
-125 63 m 1,4,-1
- 375 63 l 1,5,-1
- 375 688 l 1,6,-1
- 125 688 l 1,7,-1
- 125 63 l 1,4,-1
-EndSplineSet
 EndChar
 
 StartChar: .null
@@ -12717,7 +12704,7 @@ EndChar
 StartChar: copyright
 Encoding: 169 169 99
 Width: 750
-Flags: WO
+Flags: W
 LayerCount: 2
 Fore
 SplineSet

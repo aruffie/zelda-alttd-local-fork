@@ -63,15 +63,14 @@ function map_meta:set_cinematic_mode(is_cinematic, options)
   m_black_stripe_top:start(black_stripe_top)
   m_black_stripe_bottom:start(black_stripe_bottom, function()
     if not is_cinematic then
-        game.is_cinematic = is_cinematic
+      game.is_cinematic = is_cinematic
+      sol.menu.stop(cinematic_menu)
     end
   end)
 
   -- start and stop the menu displaying the cinematic effect
   if is_cinematic and not sol.menu.is_started(cinematic_menu) then
-    sol.menu.start(game, cinematic_menu, false)
-  elseif not is_cinematic then
-    sol.menu.stop(cinematic_menu)
+    sol.menu.start(game, cinematic_menu, false)    
   end
 end
 

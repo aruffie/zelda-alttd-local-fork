@@ -391,6 +391,7 @@ sprite{ id = "entities/decorations/bubble_lava", description = "Bubble lava" }
 sprite{ id = "entities/decorations/bubble_swamp", description = "Bubble swamp" }
 sprite{ id = "entities/decorations/fire", description = "Fire" }
 sprite{ id = "entities/decorations/mini_candle", description = "Mini candle" }
+sprite{ id = "entities/decorations/photographer_canvas", description = "Photographer canvas" }
 sprite{ id = "entities/decorations/rainbow", description = "Rainbow" }
 sprite{ id = "entities/decorations/sun", description = "Sun" }
 sprite{ id = "entities/decorations/swell_1", description = "Swell 1" }
@@ -537,7 +538,6 @@ sprite{ id = "entities/orb_monster_orb_blue", description = "Orb monster orb blu
 sprite{ id = "entities/orb_monster_orb_green", description = "Orb monster orb green" }
 sprite{ id = "entities/orb_monster_orb_red", description = "Orb monster orb red" }
 sprite{ id = "entities/outside_door", description = "Outside closed door" }
-sprite{ id = "entities/photographer_canvas", description = "Photographer canvas" }
 sprite{ id = "entities/shadow", description = "Shadow" }
 sprite{ id = "entities/shadows/ball", description = "Ball" }
 sprite{ id = "entities/shadows/owl", description = "Owl" }
@@ -637,6 +637,8 @@ sprite{ id = "menus/keyboardbox/keyboardbox_cursor", description = "Keyboard Box
 sprite{ id = "menus/keyboardbox/keyboardbox_textfield", description = "Keyboard Box textfield" }
 sprite{ id = "menus/keyboardbox/keyboardbox_textfield_cursor", description = "Keyboard Box textfield's cursor" }
 sprite{ id = "menus/messagebox/messagebox_cursor", description = "Message Box cursor" }
+sprite{ id = "menus/parchment/parchment_default", description = "Parchment sprite (basic)" }
+sprite{ id = "menus/parchment/parchment_shadow", description = "Parchment shadow" }
 sprite{ id = "menus/pause/arrow", description = "Arrow" }
 sprite{ id = "menus/pause/cursor", description = "Cursor" }
 sprite{ id = "menus/pause/map/dungeon/hero_head", description = "Hero head" }
@@ -2056,7 +2058,6 @@ file{ path = "maps/sideviews/martha_bay/sideview_1.dat", author = "Benjamin Schw
 file{ path = "maps/sideviews/martha_bay/sideview_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/sideviews/martha_bay/sideview_2.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
 file{ path = "maps/sideviews/martha_bay/sideview_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/test", author = "PhoenixII54", license = "GPL v3, CC BY-SA 4.0" }
 file{ path = "musics", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
 file{ path = "musics/gb", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "musics/gb/01_introduction.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
@@ -2180,12 +2181,9 @@ file{ path = "scripts/gfx_effects/electric.lua", author = "Stdgregwar", license 
 file{ path = "scripts/gfx_effects/fade_to_white.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/gfx_effects/pixellisation.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/gfx_effects/radial_fade_out.lua", author = "PhoenixII54", license = "GPL v3" }
-file{ path = "scripts/maps/ceiling_drop_manager.lua", author = "MetalZelda, adapted by PhoenixII54", license = "GPL v3" }
-file{ path = "scripts/maps/entity_manager.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "scripts/maps/ceiling_drop_manager.lua", author = "MetalZelda, adapted by PhoenixII54", }
 file{ path = "scripts/maps/entity_respawn_manager.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/maps/jump_manager.lua", author = "PhoenixII54", license = "GPL v3" }
-file{ path = "scripts/maps/lib/main_quest_steps_config.lua", author = "PhoenixII54", license = "GPL v3" }
-file{ path = "scripts/maps/lib/windfish_maze_config.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/maps/main_quest_manager.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/maps/sideview_manager.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/menus/copyright_menu.lua", author = "Olivier Cléro", license = "GPL v3" }
@@ -2218,21 +2216,11 @@ file{ path = "scripts/meta/destructible.lua", author = "Benjamin Schweitzer", li
 file{ path = "scripts/meta/dynamic_tile.lua", license = "GPL v3" }
 file{ path = "scripts/meta/enemy.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "scripts/meta/hero.lua", license = "GPL v3" }
-file{ path = "scripts/meta/item.lua", author = "PhoenixII54", license = "GPL v3" }
-file{ path = "scripts/meta/map.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/meta/npc.lua", license = "GPL v3" }
-file{ path = "scripts/meta/pickable.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/meta/sensor.lua", author = "Christopho", license = "GPL v3" }
-file{ path = "scripts/states/dummy.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/states/jumping.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/states/running.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/states/sideview_swim.lua", author = "PhoenixII54", license = "GPL v3" }
-file{ path = "scripts/states/sword_loading.lua", author = "PhoenixII54", license = "GPL v3" }
-file{ path = "scripts/states/sword_spin_attack.lua", author = "PhoenixII54", license = "GPL v3" }
-file{ path = "scripts/states/sword_swinging.lua", author = "PhoenixII54", license = "GPL v3" }
-file{ path = "scripts/states/sword_tapping.lua", author = "PhoenixII54", license = "GPL v3" }
-file{ path = "scripts/sword_states_manager.lua", author = "PhoenixII54", license = "GPL v3" }
-file{ path = "scripts/tools", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "shaders/pixellisation.dat", author = "PhoenixII54", }
 file{ path = "shaders/pixellisation.frag.glsl", author = "PhoenixII54", }
 file{ path = "shaders/radial_fade_out.dat", author = "PhoenixII54", }
@@ -2689,6 +2677,9 @@ file{ path = "sprites/menus/keyboardbox/keyboardbox_textfield_cursor.png", autho
 file{ path = "sprites/menus/messagebox/messagebox_button.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/messagebox/messagebox_cursor.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/messagebox/messagebox_frame.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/parchment/parchment_boss.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/parchment/parchment_default.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/parchment/parchment_shadow.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/settings/settings_arrow_left.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/settings/settings_arrow_right.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/settings/settings_button_back.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
@@ -2793,4 +2784,3 @@ file{ path = "tilesets/out/outside_main.dat", author = "FFomega", license = "CC 
 file{ path = "tilesets/out/outside_main.tiles.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
 file{ path = "tilesets/out/outside_special.dat", author = "FFomega", license = "CC BY-SA 4.0" }
 file{ path = "tilesets/out/outside_special.tiles.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
-file{ path = "tilesets/testing", author = "PhoenixII54", license = "CC BY-SA 4.0" }

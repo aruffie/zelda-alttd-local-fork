@@ -22473,20 +22473,6 @@ sensor{
   height = 16,
 }
 
-pickable{
-  layer = 0,
-  x = 832,
-  y = 1573,
-  treasure_name = "acorn",
-}
-
-pickable{
-  layer = 0,
-  x = 832,
-  y = 1589,
-  treasure_name = "power_fragment",
-}
-
 tile{
   layer = 1,
   x = 1664,
