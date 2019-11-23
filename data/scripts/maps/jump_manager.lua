@@ -151,7 +151,7 @@ function jump_manager.update_jump(entity, callback)
   return true
 end
 
-local function check_control(entity)
+local function is_direction_key_pressed(entity)
   local game=entity:get_game()
   local _left=game:is_command_pressed("left")
   local _right=game:is_command_pressed("right") 
@@ -203,8 +203,9 @@ function jump_manager.start(entity, v_speed, success_callback, failure_callback)
   local s=entity:get_sprite("shadow_override")
 
 
-
-  entity:jump()
+  if not entity:is_running() then
+    entity:jump()
+  end
   jump_manager.setup_collision_rules(state_object)
 
   --  debug_print "Starting custom jump"
@@ -224,16 +225,6 @@ function jump_manager.start(entity, v_speed, success_callback, failure_callback)
   local function callback()
 
   end
-
---  if s then
-
---    -- make the shadow do a shrink -> grow animation during the jump. Or at least, try to...
---    s:set_animation("walking", function()
---        --something is wrong, this event is not even called because the animation stays stuck at frame 0 for some reason.
---        print "done"
---        s:set_animation("big")
---      end)
---  end
 
   entity.y_vel = v_speed and -math.abs(v_speed) or -max_yvel
 
