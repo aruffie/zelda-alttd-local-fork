@@ -66,7 +66,7 @@ function travel_manager:launch_step_1(map, from_id, to_id)
   -- Owl slab
   local owl_slab = map:get_entity('owl_slab')
   transporter:set_enabled(true)
-    map:start_coroutine(function()
+  sol.main.start_coroutine(function() -- start a game coroutine since we will change map in between
     local options = {
       entities_ignore_suspend = {hero, transporter, owl_slab}
     }
@@ -105,10 +105,16 @@ function travel_manager:launch_step_1(map, from_id, to_id)
     end
     movement(movement2, transporter)
     -- Mode 7
-    travel_manager:launch_step_3(map, from_id, to_id)
-    map:set_cinematic_mode(false, options)
-
-  end)
+    travel_manager:launch_step_2(map, from_id, to_id)
+    new_map = wait_for(map.wait_on_next_map_opening_transition_finished, map)
+    
+    -- we are on new map, 
+    new_map:set_cinematic_mode(true, options)
+    
+    -- pursue cinematic here
+    wait(1000)
+    new_map:set_cinematic_mode(false, options)
+  end, game) -- end start coroutine, game arg is important
 
 end
 
@@ -120,7 +126,6 @@ function travel_manager:launch_step_2(map, from_id, to_id)
   local destination_name = positions_info[to_id]['destination_name']
   local entity = map:get_entity("travel_sensor")
   mode_7_manager:teleport(game, entity, map_id, destination_name)
-
 end
 
 function travel_manager:launch_step_3(map, from_id, to_id)
