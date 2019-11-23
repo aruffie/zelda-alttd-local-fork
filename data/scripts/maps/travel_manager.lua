@@ -50,79 +50,69 @@ end
 
 function travel_manager:launch_step_1(map, from_id, to_id)
 
+
   local game = map:get_game()
   local hero = map:get_hero()
+  -- Hero
   local x_hero,y_hero = hero:get_position()
-  local transporter = map:get_entity('travel_transporter')
-  y_hero = y_hero - 16
-  local x_transporter,y_transporter = transporter:get_position()
-  transporter.xy = { x = x_transporter, y = y_transporter }
-  local direction4 = transporter:get_direction4_to(hero)
-  local transporter_sprite = transporter:get_sprite()
-  transporter:set_enabled(true)
-  game:set_pause_allowed(false)
-  game:set_suspended(true)
-  map:get_entity('owl_slab'):get_sprite():set_ignore_suspend(true)
   hero:get_sprite():set_direction(3)
-  hero:freeze()
-  transporter_sprite:set_animation("walking")
-  transporter_sprite:set_direction(direction4)
-  transporter_sprite:set_ignore_suspend(true)
-  local movement = sol.movement.create("target")
-  function movement:on_position_changed(coord_x, coord_y)
-    transporter:set_position(coord_x, coord_y)
-  end
-  movement:set_speed(150)
-  movement:set_ignore_obstacles(true)
-  movement:set_target(x_hero, y_hero)
-  movement:start(transporter.xy, function() 
-    movement:stop()
-    game:set_suspended(false)
-    travel_manager:launch_step_2(map, from_id, to_id)
+  y_hero = y_hero - 16
+  -- Transporter
+  local transporter = map:get_entity('travel_transporter')
+  local direction4 = transporter:get_direction4_to(hero)
+  transporter:get_sprite():set_animation("walking")
+  transporter:get_sprite():set_direction(direction4)
+  local x_transporter,y_transporter, layer_transporter = transporter:get_position()
+  -- Owl slab
+  local owl_slab = map:get_entity('owl_slab')
+  transporter:set_enabled(true)
+    map:start_coroutine(function()
+    local options = {
+      entities_ignore_suspend = {hero, transporter, owl_slab}
+    }
+    map:set_cinematic_mode(true, options)
+    -- First step
+    local movement1 = sol.movement.create("target")
+    movement1:set_speed(150)
+    movement1:set_ignore_obstacles(true)
+    movement1:set_ignore_suspend(true)
+    movement1:set_target(x_hero, y_hero)
+    movement(movement1, transporter)
+    hero:set_enabled(false)
+    local hero_entity = map:create_custom_entity({
+      name = "hero",
+      sprite = "hero/tunic1",
+      x = x_transporter,
+      y = y_transporter + 16,
+      width = 24,
+      height = 24,
+      layer = layer_transporter,
+      direction = 0
+    })
+    -- Second step
+    hero_entity:get_sprite():set_animation("flying")
+    hero_entity:get_sprite():set_direction(3)
+    local movement2 = sol.movement.create("straight")
+    movement2:set_speed(100)
+    movement2:set_angle(math.pi / 2)
+    movement2:set_max_distance(128)
+    movement2:set_ignore_obstacles(true)
+    movement2:set_ignore_suspend(true)
+    function movement2:on_position_changed()
+      local x_transporter,y_transporter, layer_transporter = transporter:get_position()
+      y_transporter = y_transporter + 16
+      hero_entity:set_position(x_transporter, y_transporter, layer_transporter)
+    end
+    movement(movement2, transporter)
+    -- Mode 7
+    travel_manager:launch_step_3(map, from_id, to_id)
+    map:set_cinematic_mode(false, options)
+
   end)
 
 end
 
 function travel_manager:launch_step_2(map, from_id, to_id)
-
-  local game = map:get_game()
-  local hero = map:get_hero()
-  local x_hero,y_hero, layer_hero = hero:get_position()
-  local transporter = map:get_entity('travel_transporter')
-  y_hero = y_hero - 16
-  local x_transporter,y_transporter, layer_transporter = transporter:get_position()
-  local transporter_sprite = transporter:get_sprite()
-  transporter_sprite:set_direction(3)
-  hero:set_enabled(false)
-  local hero_entity = map:create_custom_entity({
-    name = "hero",
-    sprite = "hero/tunic1",
-    x = x_transporter,
-    y = y_transporter + 16,
-    width = 24,
-    height = 24,
-    layer = layer_transporter,
-    direction = 0
-  })
- hero_entity:get_sprite():set_animation("flying")
- hero_entity:get_sprite():set_direction(3)
- local movement = sol.movement.create("straight")
- movement:set_speed(100)
- movement:set_angle(math.pi / 2)
- movement:set_max_distance(128)
- movement:set_ignore_obstacles(true)
- movement:start(transporter, function()
-    travel_manager:launch_step_3(map, from_id, to_id)
- end)
- function movement:on_position_changed()
-    local x_transporter,y_transporter, layer_transporter = transporter:get_position()
-    y_transporter = y_transporter + 16
-    hero_entity:set_position(x_transporter, y_transporter, layer_transporter)
- end
-  
-end
-
-function travel_manager:launch_step_3(map, from_id, to_id)
 
   local hero = map:get_hero()
   local game = map:get_game()
@@ -130,11 +120,10 @@ function travel_manager:launch_step_3(map, from_id, to_id)
   local destination_name = positions_info[to_id]['destination_name']
   local entity = map:get_entity("travel_sensor")
   mode_7_manager:teleport(game, entity, map_id, destination_name)
-  --travel_manager:launch_step_4(map, from_id, to_id)
 
 end
 
-function travel_manager:launch_step_4(map, from_id, to_id)
+function travel_manager:launch_step_3(map, from_id, to_id)
 
   local game = map:get_game()
   local hero = map:get_hero()

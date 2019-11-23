@@ -467,7 +467,7 @@ function common_actions.learn(enemy)
    x_offset = x_offset or 0
    y_offset = y_offset or 0
     enemy:register_event("on_update", function(enemy, x, y, layer) -- Workaround : Replace the entity in on_update() instead of on_position_changed() to take care of hurt movements.
-      entity:set_position(x + x_offset, y + y_offset)
+      --entity:set_position(x + x_offset, y + y_offset)
     end)
     enemy:register_event("on_removed", function(enemy)
       entity:remove()
