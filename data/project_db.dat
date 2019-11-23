@@ -391,6 +391,7 @@ sprite{ id = "entities/decorations/bubble_lava", description = "Bubble lava" }
 sprite{ id = "entities/decorations/bubble_swamp", description = "Bubble swamp" }
 sprite{ id = "entities/decorations/fire", description = "Fire" }
 sprite{ id = "entities/decorations/mini_candle", description = "Mini candle" }
+sprite{ id = "entities/decorations/photographer_canvas", description = "Photographer canvas" }
 sprite{ id = "entities/decorations/rainbow", description = "Rainbow" }
 sprite{ id = "entities/decorations/sun", description = "Sun" }
 sprite{ id = "entities/decorations/swell_1", description = "Swell 1" }
@@ -537,7 +538,6 @@ sprite{ id = "entities/orb_monster_orb_blue", description = "Orb monster orb blu
 sprite{ id = "entities/orb_monster_orb_green", description = "Orb monster orb green" }
 sprite{ id = "entities/orb_monster_orb_red", description = "Orb monster orb red" }
 sprite{ id = "entities/outside_door", description = "Outside closed door" }
-sprite{ id = "entities/photographer_canvas", description = "Photographer canvas" }
 sprite{ id = "entities/shadow", description = "Shadow" }
 sprite{ id = "entities/shadows/ball", description = "Ball" }
 sprite{ id = "entities/shadows/owl", description = "Owl" }
