@@ -64,7 +64,9 @@ return {
           end
         end
         function movement_1:on_finished()
-          enemy:set_life(0)
+          enemy:set_pushed_back_when_hurt(false)
+          enemy:set_visible(false)
+          enemy:hurt(enemy:get_life())
           audio_manager:play_sound("enemies/enemy_die")
           companion:set_state("stopped")
           companion:get_sprite():set_animation("stopped")

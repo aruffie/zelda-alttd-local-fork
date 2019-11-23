@@ -53,15 +53,15 @@ function enemy:free_hero()
 end
 
 game:register_event("on_command_pressed", function(game, command)
-  -- Store the number of command pressed while eaten, and free the hero once 8 item commands are pressed.
-  if is_eating and ( command=="sword" or command=="item_1" or command =="item_2") then
-    command_pressed_count = command_pressed_count + 1
-    if command_pressed_count == 8 then
-      enemy:free_hero()
-      enemy:start_walking()
+    -- Store the number of command pressed while eaten, and free the hero once 8 item commands are pressed.
+    if is_eating and ( command=="sword" or command=="item_1" or command =="item_2") then
+      command_pressed_count = command_pressed_count + 1
+      if command_pressed_count == 8 then
+        enemy:free_hero()
+        enemy:start_walking()
+      end
     end
-  end
-end)
+  end)
 
 -- Make the enemy eat the hero.
 function enemy:eat_hero()
@@ -73,7 +73,7 @@ function enemy:eat_hero()
 
   -- Make the hero invisible, but still able to interact.
   hero_sprite:set_opacity(0)
-  hero:get_sprite("shadow"):set_opacity(0)
+  --hero:get_sprite("shadow"):set_opacity(0)
   hero:get_sprite("shadow_override"):set_opacity(0)
 
   -- Eat the shield if it is the first variant and assigned to a slot.
@@ -96,6 +96,7 @@ enemy:register_event("on_dying", function(enemy)
     if is_eating then
       enemy:free_hero()
     end
+
   end)
 
 -- Passive behaviors needing constant checking.
