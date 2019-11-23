@@ -6,6 +6,7 @@
 -- Include scripts
 require("scripts/multi_events")
 local audio_manager = require("scripts/audio_manager")
+local parchment = require("scripts/menus/parchment")
 
 local function initialize_dungeon_features(game)
 
@@ -604,19 +605,36 @@ local function initialize_dungeon_features(game)
       local dungeon_index = game:get_dungeon_index()
       if dungeon_index ~= nil then
         local map = game:get_map()
+
+        game:set_suspended(true)
+
         function map.do_after_transition()
+          game:set_suspended(true)
+
           local timer = sol.timer.start(map, 10, function()
-              game:start_dialog("maps.dungeons." .. dungeon_index .. ".welcome_name")
+            game:set_suspended(true)
+
+            -- Show parchment with dungeon name.
+            local line_1 = sol.language.get_dialog("maps.dungeons." .. dungeon_index .. ".welcome_name").text
+            local line_2 = sol.language.get_dialog("maps.dungeons." .. dungeon_index .. ".welcome_description").text
+            parchment:show(map, "default", "center", 1500, line_1, line_2, nil, function()
+              game:set_suspended(false)
             end)
-          timer:set_suspended_with_map(true)
+
+          end)
+          timer:set_suspended_with_map(false)
         end
-        if not game.teleport_in_progress then --
+
+        if game.teleport_in_progress then
+          sol.timer.start(map, 1000, function ()
+            map.do_after_transition()
+          end)
+        else
           local opening_transition = require("scripts/gfx_effects/radial_fade_out")
           opening_transition.start_effect(map:get_camera():get_surface(), game, "out", nil, function()
               map.do_after_transition()
             end)
         end
-
       end
     end)
 
