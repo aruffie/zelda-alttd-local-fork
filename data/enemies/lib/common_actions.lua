@@ -464,8 +464,10 @@ function common_actions.learn(enemy)
   -- Make the entity welded to the enemy at the given offset position, and propagate main events and methods.
   function enemy:start_welding(entity, x_offset, y_offset)
 
-    enemy:register_event("on_position_changed", function(enemy, x, y, layer)
-      entity:set_position(x + (x_offset or 0), y + (y_offset or 0))
+   x_offset = x_offset or 0
+   y_offset = y_offset or 0
+    enemy:register_event("on_update", function(enemy, x, y, layer) -- Workaround : Replace the entity in on_update() instead of on_position_changed() to take care of hurt movements.
+      entity:set_position(x + x_offset, y + y_offset)
     end)
     enemy:register_event("on_removed", function(enemy)
       entity:remove()
