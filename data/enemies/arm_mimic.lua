@@ -17,8 +17,7 @@ local function reverse_move(movement)
   local speed = movement:get_speed()
   if speed > 0 and enemy:get_life() > 0 then
     enemy:start_straight_walking(movement:get_angle() + math.pi, speed)
-  else
-    enemy:restart()
+    sprite:set_direction((hero:get_sprite():get_direction() + 2) % 4) -- Always keep the hero opposite direction.
   end
 end
 
