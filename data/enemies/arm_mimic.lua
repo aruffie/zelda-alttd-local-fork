@@ -15,9 +15,11 @@ local hero_movement
 local function reverse_move(movement)
 
   local speed = movement:get_speed()
-  if speed > 0 and enemy:get_life() > 0 then
+  if hero:get_state() ~= "hurt" and speed > 0 and enemy:get_life() > 0 then
     enemy:start_straight_walking(movement:get_angle() + math.pi, speed)
     sprite:set_direction((hero:get_sprite():get_direction() + 2) % 4) -- Always keep the hero opposite direction.
+  else
+    enemy:restart() -- Stop enemy.
   end
 end
 
@@ -30,18 +32,15 @@ hero:register_event("on_position_changed", function(hero)
 
   local movement = hero:get_movement()
   if movement ~= hero_movement then
-
     hero_movement = movement
     enemy:stop_movement()
-    if not hero:is_blinking() then -- Don't copy the hurt move.
+    reverse_move(movement)
+    movement:register_event("on_obstacle_reached", function(movement)
+      enemy:restart()
+    end)
+    movement:register_event("on_changed", function(movement)
       reverse_move(movement)
-      movement:register_event("on_obstacle_reached", function(movement)
-        enemy:restart()
-      end)
-      movement:register_event("on_changed", function(movement)
-        reverse_move(movement)
-      end)
-    end
+    end)
   end
 end)
 
