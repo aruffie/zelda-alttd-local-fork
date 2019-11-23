@@ -34,8 +34,12 @@ end
 -- Initializes Entities based on player's progress
 function map:init_map_entities()
   
-    -- Travel
+  -- Travel
   travel_transporter:set_enabled(false)
+  -- Ground sand
+  for ground in map:get_entities('ground_sand') do
+    ground:set_visible(false)
+  end
   
 end
 
