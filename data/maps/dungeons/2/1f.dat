@@ -19636,7 +19636,7 @@ enemy{
       value = "true",
     },
   },
-  direction = 2,
+  direction = 0,
   breed = "fireball",
 }
 
