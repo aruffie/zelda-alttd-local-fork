@@ -20,8 +20,7 @@ local walking_speed = 16
 local walking_minimum_distance = 16
 local walking_maximum_distance = 96
 local walking_pause_duration = 1500
-
-local message_triggering_distance = 28
+local message_triggering_distance = 30
 
 -- Start the enemy movement.
 function enemy:start_walking()
@@ -50,17 +49,17 @@ enemy:register_event("on_custom_attack_received", function(enemy, attack)
       hero:set_animation("electrocute")
       effect_model.start_effect(surface, game, 'in', false)
       local shake_config = {
-          count = 32,
-          amplitude = 4,
-          speed = 180,
+        count = 32,
+        amplitude = 4,
+        speed = 180,
       }
       camera:shake(shake_config, function()
-          hero_electric = false
-          game:set_suspended(false)
-          sprite:set_animation("walking")
-          hero:unfreeze()
-          hero:start_hurt(enemy:get_damage())
-          enemy:remove_life(1)
+        hero_electric = false
+        game:set_suspended(false)
+        sprite:set_animation("walking")
+        hero:unfreeze()
+        hero:start_hurt(enemy:get_damage())
+        enemy:remove_life(1)
       end)
     end
   end
@@ -70,6 +69,22 @@ end)
 enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(4)
+
+  -- Create a welded custom entity to be able to speak to cukeman with action command.
+  local x, y, layer = enemy:get_position()
+  local width, height = enemy:get_size()
+  npc = map:create_npc({
+    direction = 0,
+    x = x,
+    y = y,
+    layer = layer,
+    subtype = 1,
+    width = width,
+    height = height,
+    behavior = "dialog#enemies.cukeman." .. math.random(4)
+  })
+  npc:set_traversable(true)
+  enemy:start_welding(npc)
 end)
 
 -- The enemy appears: set its properties.
