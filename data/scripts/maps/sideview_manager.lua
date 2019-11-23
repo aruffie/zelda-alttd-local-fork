@@ -89,7 +89,7 @@ local function check_for_ladder(entity)
   return is_ladder(map, x, y-2) or is_ladder(map, x, y+2)
 end
 
-local function check_for_ground(entity, dy)
+local function is_on_ground(entity, dy)
   dy = dy or 0
   local x,y, layer = entity:get_position()
   return entity:test_obstacles(0, 1) or not check_for_ladder(entity) and is_ladder(entity:get_map(), x, y+3)
@@ -182,11 +182,8 @@ local function update_entities(map)
       local is_affected
       local has_property = entity:get_property("has_gravity")
       local e_type = entity:get_type()
-      if e_type=="carried_object" or e_type =="hero" or e_type=="bomb" then
-        is_affected = true
-      else
-        is_affected = false
-      end
+      is_affected = e_type=="carried_object" or e_type =="hero" or e_type=="bomb"
+
       if e_type == "pickable" and entity:get_property("was_created_from_custom_pickable")~="true" then
         --convert to custom entity with same properties
         --debug_print ("Converting a pickable to a custom entity")
@@ -376,6 +373,7 @@ local function update_hero(hero)
   --Force the hero on a ladder if we came from the side
   if hero:test_obstacles(0,1) and check_for_ladder(hero) and is_ladder(map,x,y+3) then 
     --debug_print "entering ladder from the side"
+    hero.is_jumping=nil
     hero.has_grabbed_ladder=true
   end
 
@@ -386,10 +384,10 @@ local function update_hero(hero)
     if movement then
       local angle=movement:get_angle()
       --debug_print (a)
-      if _up==true then
+      if _up then
         --debug_print "UP"
         --debug_print(m:get_speed(), hero:get_walking_speed())
-        if _left==true or _right==true then
+        if _left or _right then
           --debug_print "UP-DIAGONAL"
           if wanted_angle ~=angle then 
             movement:set_angle(wanted_angle)
@@ -397,10 +395,10 @@ local function update_hero(hero)
         else
           speed = 0
         end
-      elseif _down==true then
+      elseif _down then
         --debug_print "DOWN"
         --debug_print (m:get_speed(), hero:get_walking_speed())
-        if _left==true or _right==true then
+        if _left or _right then
           --debug_print "DOWN-DIAGONAL"
           movement:set_angle(wanted_angle)
           if wanted_angle ~=angle then 
@@ -452,7 +450,7 @@ local function update_hero(hero)
     if speed ~= 0 then
       if hero.has_grabbed_ladder and check_for_ladder(hero) then
         new_animation = "climbing_walking"
-      elseif not check_for_ground(hero) then
+      elseif not is_on_ground(hero) then
         if map:get_ground(x,y+4,layer)=="deep_water" then
           new_animation ="swimming_scroll"
         else
@@ -464,7 +462,7 @@ local function update_hero(hero)
     else
       if hero.has_grabbed_ladder and check_for_ladder(hero) then
         new_animation = "climbing_stopped"
-      elseif not check_for_ground(hero) then
+      elseif not is_on_ground(hero) then
         if map:get_ground(x,y+4,layer)=="deep_water" then
           new_animation = "stopped_swimming_scroll"
         else
