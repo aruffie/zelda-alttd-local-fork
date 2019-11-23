@@ -43,6 +43,10 @@ end
 -- Initializes Entities based on player's progress
 function map:init_map_entities()
   
+  -- Ground sand
+  for ground in map:get_entities('ground_sand') do
+    ground:set_visible(false)
+  end
   -- Marin
   if not game:is_step_last("started_looking_for_marin") then
     marin:set_enabled(false)

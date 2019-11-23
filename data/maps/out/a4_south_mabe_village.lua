@@ -46,6 +46,10 @@ function map:init_map_entities()
   if game:is_step_done("dungeon_1_opened") then
     map:open_dungeon_1()
   end
+  -- Ground sand
+  for ground in map:get_entities('ground_sand') do
+    ground:set_visible(false)
+  end
   -- Seashell's tree
   local seashell_tree_found = false
   collision_seashell:add_collision_test("facing", function(entity, other, entity_sprite, other_sprite)
