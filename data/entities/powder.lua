@@ -127,20 +127,6 @@ powder:add_collision_test("sprite", function(powder, entity)
       powder:remove()
     end)
   end
-  if entity:get_type() == "enemy" then
-    local enemy = entity
-    if enemies_touched[enemy] then
-      -- If protected we don't want to play the sound repeatedly.
-      return
-    end
-    enemies_touched[enemy] = true
-    local reaction = enemy:get_magic_powder_reaction(enemy_sprite)
-    enemy:receive_attack_consequence("magic_powder", reaction)
-
-    sol.timer.start(powder, 200, function()
-      powder:remove()
-    end)
-  end
 end)
 
 function powder:on_obstacle_reached()
