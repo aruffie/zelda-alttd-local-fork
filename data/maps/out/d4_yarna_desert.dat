@@ -12959,12 +12959,6 @@ dynamic_tile{
   layer = 1,
   x = 184,
   y = 544,
-  properties = {
-    {
-      key = "visible",
-      value = "false",
-    },
-  },
   width = 16,
   height = 8,
   pattern = "4037",
@@ -13058,12 +13052,6 @@ dynamic_tile{
   layer = 1,
   x = 296,
   y = 520,
-  properties = {
-    {
-      key = "visible",
-      value = "false",
-    },
-  },
   width = 16,
   height = 8,
   pattern = "4037",

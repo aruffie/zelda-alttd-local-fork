@@ -244,7 +244,7 @@ function claw_manager:create_minigame(map)
       sol.timer.start(claw_up, 1000, function()
         if pickable_grabbed ~= nil then
           local claw_up_x, claw_up_y = claw_up:get_position()
-          pickable_grabbed:set_position(claw_up_x, claw_up_y + 64)
+          pickable_grabbed:set_position(claw_up_x, claw_up_y + 32)
         end
         claw_crane_sprite:set_animation("closing", function()
           claw_up_sprite:set_animation("claw_off")
