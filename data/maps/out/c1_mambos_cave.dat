@@ -16623,6 +16623,105 @@ tile{
   pattern = "1008",
 }
 
+tile{
+  layer = 1,
+  x = 272,
+  y = 288,
+  width = 16,
+  height = 16,
+  pattern = "917",
+}
+
+tile{
+  layer = 1,
+  x = 392,
+  y = 264,
+  width = 16,
+  height = 16,
+  pattern = "917",
+}
+
+tile{
+  layer = 1,
+  x = 456,
+  y = 272,
+  width = 16,
+  height = 16,
+  pattern = "917",
+}
+
+tile{
+  layer = 1,
+  x = 544,
+  y = 288,
+  width = 16,
+  height = 16,
+  pattern = "917",
+}
+
+tile{
+  layer = 1,
+  x = 288,
+  y = 304,
+  width = 8,
+  height = 8,
+  pattern = "916",
+}
+
+tile{
+  layer = 1,
+  x = 376,
+  y = 272,
+  width = 8,
+  height = 8,
+  pattern = "916",
+}
+
+tile{
+  layer = 1,
+  x = 424,
+  y = 280,
+  width = 8,
+  height = 8,
+  pattern = "916",
+}
+
+tile{
+  layer = 1,
+  x = 432,
+  y = 272,
+  width = 8,
+  height = 8,
+  pattern = "916",
+}
+
+tile{
+  layer = 1,
+  x = 488,
+  y = 280,
+  width = 8,
+  height = 8,
+  pattern = "916",
+}
+
+tile{
+  layer = 1,
+  x = 608,
+  y = 288,
+  width = 8,
+  height = 8,
+  pattern = "916",
+}
+
+tile{
+  layer = 1,
+  x = 632,
+  y = 288,
+  width = 16,
+  height = 16,
+  pattern = "917",
+}
+
 wall{
   layer = 1,
   x = 592,
