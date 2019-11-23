@@ -1,0 +1,1 @@
+[Solarus] [117280] Warning: The function sol.video.get_mode() is deprecated since Solarus 1.6. Use sol.video.get_shader() instead.

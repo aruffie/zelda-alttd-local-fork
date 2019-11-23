@@ -255,7 +255,9 @@ function claw_manager:create_minigame(map)
     claw_crane_sprite:set_animation("opening", function()
       claw_crane_sprite:set_animation("opened")
       sol.timer.start(claw_up, 1000, function()
-        platform:remove()
+        if platform ~= nil then  
+          platform:remove()
+        end 
         if pickable_grabbed ~= nil then
           local claw_up_x, claw_up_y = claw_up:get_position()
           pickable_grabbed:set_position(claw_up_x, claw_up_y + 32)
