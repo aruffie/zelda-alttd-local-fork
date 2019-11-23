@@ -267,7 +267,7 @@ function mode_7_manager:teleport(game, src_entity, destination_map_id, destinati
     hero:teleport(destination_map_id, destination_name, "immediate")
   end
 
-  sol.menu.start(game, mode_7)
+  sol.menu.start(game, mode_7, false)
 end
 
 return mode_7_manager
