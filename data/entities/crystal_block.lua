@@ -43,14 +43,7 @@ local function check_generic_collision(entity, other)
   local other_x, other_y, other_w, other_h=other:get_bounding_box()
   local entity_x, entity_y, entity_w, entity_h=entity:get_bounding_box()
 
-  if other_x+other_w<=entity_x or other_x>=entity_x+entity_w or other_y+other_h<=entity_y or other_y>=entity_y+entity_h then
-    --outside the block collision range, do not allow to pass through by default.
-    return false 
-
-  else 
-
-    return true
-  end
+  return not (other_x+other_w<=entity_x or other_x>=entity_x+entity_w or other_y+other_h<=entity_y or other_y>=entity_y+entity_h) 
 end
 
 entity:set_traversable_by("custom_entity", function(entity, other)
@@ -61,6 +54,8 @@ entity:set_traversable_by("custom_entity", function(entity, other)
     local model=other:get_model()
     if model=="arrow" or model=="bomb_arrow" then
       return true
+    elseif true then
+      return false end
     end
     return true --HACK
   end)
@@ -71,6 +66,14 @@ entity:set_traversable_by("hero", function(entity, other)
       return check_generic_collision(entity, other)
     else
       return true
+    end
+  end)
+
+entity:set_traversable_by("enemy", function(entity, other)
+    if other:get_obstacle_behavior()=="flying" then
+      return true
+    else
+      return check_generic_collision(entity, other)
     end
   end)
 

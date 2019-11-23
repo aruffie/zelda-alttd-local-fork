@@ -34,8 +34,7 @@ function state:on_started(old_state_name, old_state_object)
 --print "flying attaaaaack"
   local entity=state:get_entity()
   local game = state:get_game()
-  local ability = game:get_ability("sword") --Should be at least 1 if your jump-enabling item script has checked this before starting this state 
-
+  
   --Set up sprites
   tunic_sprite = entity:get_sprite("tunic")
   sword_sprite = entity:get_sprite("sword")

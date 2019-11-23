@@ -207,7 +207,7 @@ tile{
   x = 112,
   y = 112,
   width = 16,
-  height = 344,
+  height = 336,
   pattern = "7",
 }
 
@@ -249,9 +249,9 @@ tile{
 
 tile{
   layer = 0,
-  x = 32,
+  x = 192,
   y = 448,
-  width = 464,
+  width = 304,
   height = 32,
   pattern = "2",
 }
@@ -526,6 +526,43 @@ tile{
   width = 16,
   height = 432,
   pattern = "2",
+}
+
+tile{
+  layer = 0,
+  x = 128,
+  y = 336,
+  width = 64,
+  height = 16,
+  pattern = "2",
+}
+
+tile{
+  layer = 0,
+  x = 128,
+  y = 464,
+  width = 64,
+  height = 16,
+  pattern = "2",
+}
+
+tile{
+  layer = 0,
+  x = 32,
+  y = 448,
+  width = 96,
+  height = 32,
+  pattern = "2",
+}
+
+tile{
+  layer = 0,
+  x = 128,
+  y = 456,
+  width = 64,
+  height = 8,
+  pattern = "80",
+  tileset = "sideview/sideview",
 }
 
 destination{
@@ -1015,5 +1052,15 @@ custom_entity{
   height = 80,
   direction = 0,
   model = "ladder",
+}
+
+custom_entity{
+  layer = 0,
+  x = 136,
+  y = 469,
+  width = 64,
+  height = 8,
+  direction = 0,
+  model = "spike_sideview",
 }
 

@@ -323,7 +323,7 @@ local function initialize_hud_features(game)
           attack_icon_enabled = true
         else
           -- Still display the attack icon when the hero does not have a sword, at the beginning of the game.
-          local hero_sword = game:get_ability("sword")
+          local hero_sword = game:get_sword_ability()
           attack_icon_enabled = hero_sword == nil or hero_sword == 0
         end
         attack_icon:set_enabled(attack_icon_enabled)
