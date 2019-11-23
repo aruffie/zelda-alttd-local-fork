@@ -24,7 +24,6 @@ map_meta:register_event("on_opening_transition_finished", function(map, destinat
 
     local ground=game:get_value("tp_ground")
     if ground=="hole" and not map:is_sideview() then
-      hero:set_visible()
       hero:fall_from_ceiling(120, nil, function()
           hero:play_ground_effect()
 

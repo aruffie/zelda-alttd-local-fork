@@ -138,6 +138,7 @@ function ceiling_drop_manager:create(meta)
 
     -- Notify the game to synchronize all sprites during the freefall movement if any
     function movement:on_position_changed()
+      entity:set_visible()
       local x, y = target_sprite:get_xy()
       debug_print("Dropping sprite XY: ", x, y)
 
