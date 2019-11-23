@@ -144,15 +144,32 @@ function state:on_started()
           if sword_sprite then
             entity:remove_sprite(sword_sprite)
           end
+          if map:is_sideview() then
+            entity.vspeed=-4
+            sol.timer.start(entity, 10, function()
+                if entity:test_obstacles(0,1) then
+                  entity.bonking=nil
+                  audio_manager:play_sound("hero/land")
+                  entity:unfreeze()
+                  sol.timer.start(entity, 10, function()
+                      entity:get_sprite():set_animation("collapse")
+                    end)
+                  return
+                else
+                  return true
+                end
+              end)
 
-          jump_manager.start_parabola(entity, 2, function()
-              entity.bonking=nil
-              audio_manager:play_sound("hero/land")
-              entity:unfreeze()
-              sol.timer.start(entity, 10, function()
-                  entity:get_sprite():set_animation("collapse")
-                end)
-            end)
+          else
+            jump_manager.start_parabola(entity, 2, function()
+                entity.bonking=nil
+                audio_manager:play_sound("hero/land")
+                entity:unfreeze()
+                sol.timer.start(entity, 10, function()
+                    entity:get_sprite():set_animation("collapse")
+                  end)
+              end)
+          end
           entity:get_sprite():set_animation("collapse_pegasus")
         else
           --audio_manager:play_sound("hero/land")
