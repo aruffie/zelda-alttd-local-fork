@@ -1612,14 +1612,6 @@ destructible{
   damage_on_enemies = 2,
 }
 
-chest{
-  layer = 1,
-  x = 408,
-  y = 157,
-  treasure_name = "magnifying_lens",
-  sprite = "entities/chests/chest_small",
-}
-
 wall{
   layer = 1,
   x = 224,
