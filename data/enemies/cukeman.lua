@@ -30,6 +30,11 @@ function enemy:start_walking()
   end)
 end
 
+-- Start speaking to the enemy.
+function enemy:speak()
+  game:start_dialog("enemies.cukeman." .. math.random(4))
+end
+
 -- Handle custom sword and magic powder attacks.
 enemy:register_event("on_custom_attack_received", function(enemy, attack)
 
@@ -38,7 +43,7 @@ enemy:register_event("on_custom_attack_received", function(enemy, attack)
 
     -- Display a message if the hero is near enough, else electrify.
     if enemy:is_near(hero, message_triggering_distance) then
-      game:start_dialog("enemies.cukeman." .. math.random(4))
+      enemy:speak()
     else
       local camera = map:get_camera()
       local surface = camera:get_surface()
@@ -80,10 +85,12 @@ enemy:register_event("on_created", function(enemy)
     layer = layer,
     subtype = 1,
     width = width,
-    height = height,
-    behavior = "dialog#enemies.cukeman." .. math.random(4)
+    height = height
   })
   npc:set_traversable(true)
+  function npc:on_interaction()
+    enemy:speak()
+  end
   enemy:start_welding(npc)
 end)
 
