@@ -2392,24 +2392,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 1000,
-  y = 1392,
-  width = 8,
-  height = 8,
-  pattern = "wall_border.corner.3-1",
-}
-
-tile{
-  layer = 0,
-  x = 1232,
-  y = 1392,
-  width = 8,
-  height = 8,
-  pattern = "wall_border.corner.4-1",
-}
-
-tile{
-  layer = 0,
   x = 1136,
   y = 1392,
   width = 96,
@@ -13476,6 +13458,24 @@ tile{
   height = 32,
   pattern = "13",
   tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1000,
+  y = 1392,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner.3-2",
+}
+
+tile{
+  layer = 0,
+  x = 1232,
+  y = 1392,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner.4-2",
 }
 
 sensor{
