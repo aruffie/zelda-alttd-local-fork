@@ -843,7 +843,7 @@ Lombric Zélé
 dialog{
   id = "maps.dungeons.1.boss_name",
   text = [[
-MOLDORM
+Moldorm
 ]],
 }
 
@@ -902,7 +902,7 @@ Caverne Flagello
 dialog{
   id = "maps.dungeons.10.welcome_description",
   text = [[
-Niveau secret
+Niveau Secret
 ]],
 }
 
@@ -916,35 +916,35 @@ Temple du Hibou
 dialog{
   id = "maps.dungeons.11.boss_description",
   text = [[
-Prince des cauchemars
+Prince des Cauchemars
 ]],
 }
 
 dialog{
   id = "maps.dungeons.11.boss_name",
   text = [[
-MALEFICIO
+Maleficio
 ]],
 }
 
 dialog{
   id = "maps.dungeons.11.welcome_description",
   text = [[
-Sanctuaire sacré
+Sanctuaire céleste
 ]],
 }
 
 dialog{
   id = "maps.dungeons.11.welcome_name",
   text = [[
-OEUF SACRE
+Œuf Sacré
 ]],
 }
 
 dialog{
   id = "maps.dungeons.2.boss_description",
   text = [[
-Génie sarcastique
+Génie Sarcastique
 ]],
 }
 
@@ -979,7 +979,7 @@ Ta petite épée ne pourra pas briser cette bouteille !
 dialog{
   id = "maps.dungeons.2.boss_name",
   text = [[
-JARVICE
+Jarvice
 ]],
 }
 
@@ -1032,15 +1032,14 @@ dialog{
   id = "maps.dungeons.2.welcome_name",
   skip = "current",
   text = [[
-Grotte du génie    
-
+Grotte du Génie
 ]],
 }
 
 dialog{
   id = "maps.dungeons.3.boss_description",
   text = [[
-Oeil Malicieux
+Œil Malicieux
 ]],
 }
 
@@ -1078,7 +1077,7 @@ dialog{
   id = "maps.dungeons.3.welcome_name",
   skip = "current",
   text = [[
-Souterrain aux clés
+Souterrain aux Clés
 ]],
 }
 
@@ -1092,7 +1091,7 @@ Monstre des Profondeurs
 dialog{
   id = "maps.dungeons.4.boss_name",
   text = [[
-LAMPOISSE
+Lampoisse
 ]],
 }
 
@@ -1108,28 +1107,27 @@ dialog{
   id = "maps.dungeons.4.welcome_description",
   text = [[
 Niveau 4
-
 ]],
 }
 
 dialog{
   id = "maps.dungeons.4.welcome_description_name",
   text = [[
-Abîme du poisson
+Abîme du Poisson
 ]],
 }
 
 dialog{
   id = "maps.dungeons.5.boss_description",
   text = [[
-Monstre des profondeurs
+Anguille Insatiable
 ]],
 }
 
 dialog{
   id = "maps.dungeons.5.boss_name",
   text = [[
-TANTALOSAR
+Tantalosar
 ]],
 }
 
@@ -1161,8 +1159,7 @@ Niveau 5
 dialog{
   id = "maps.dungeons.5.welcome_name",
   text = [[
-Poisson-chat
-
+Poisson-Chat
 ]],
 }
 
@@ -1176,7 +1173,7 @@ Masque Espiègle
 dialog{
   id = "maps.dungeons.6.boss_name",
   text = [[
-FACADE
+Façade
 ]],
 }
 
@@ -1198,7 +1195,7 @@ Niveau 6
 dialog{
   id = "maps.dungeons.6.welcome_name",
   text = [[
-Temple du masque
+Temple du Masque
 ]],
 }
 
@@ -1212,7 +1209,7 @@ Vautour Malfaisant
 dialog{
   id = "maps.dungeons.7.boss_name",
   text = [[
-URUBOS
+Urubos
 ]],
 }
 
@@ -1234,21 +1231,21 @@ Niveau 7
 dialog{
   id = "maps.dungeons.7.welcome_name",
   text = [[
-Tour du vautour
+Tour du Vautour
 ]],
 }
 
 dialog{
   id = "maps.dungeons.8.boss_description",
   text = [[
-Tête brûlée
+Tête Brûlée
 ]],
 }
 
 dialog{
   id = "maps.dungeons.8.boss_name",
   text = [[
-INFERNO
+Inferno
 ]],
 }
 
@@ -1270,7 +1267,7 @@ Niveau 8
 dialog{
   id = "maps.dungeons.8.welcome_name",
   text = [[
-Roc de la tortue
+Roc de la Tortue
 ]],
 }
 
@@ -1284,7 +1281,7 @@ Pieuvre Excentrique
 dialog{
   id = "maps.dungeons.9.boss_name",
   text = [[
-OCTOPODAR
+Octopodar
 ]],
 }
 
@@ -1375,14 +1372,14 @@ Bleu.
 dialog{
   id = "maps.dungeons.9.welcome_description",
   text = [[
- Niveau secret
+Niveau Secret
 ]],
 }
 
 dialog{
   id = "maps.dungeons.9.welcome_name",
   text = [[
-Donjon des couleurs
+Donjon des Couleurs
 ]],
 }
 
