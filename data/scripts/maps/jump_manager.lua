@@ -151,7 +151,7 @@ function jump_manager.update_jump(entity, callback)
   return true
 end
 
-local function check_control(entity)
+local function is_direction_key_pressed(entity)
   local game=entity:get_game()
   local _left=game:is_command_pressed("left")
   local _right=game:is_command_pressed("right") 
@@ -161,13 +161,13 @@ local function check_control(entity)
   return result
 end
 
-
 --[[Starts the actual parabole
   Parameters
     entity: the entity to start the jump on
     v_speed: the vertical speed. Defaults to 2 px/tick.
     Note : the inputted vspeed is automatically converted to an updraft movement, so yu can either input -3.14 or 3.14 as a desired speed.
 --]]
+
 function jump_manager.start_parabola(entity, v_speed, callback)
   if not entity or entity:get_type() ~= "hero" then
     return
@@ -184,7 +184,7 @@ function jump_manager.start_parabola(entity, v_speed, callback)
   t:set_suspended_with_map(false)
 end
 
-function jump_manager.start(entity, v_speed, success_callback, failure_callback)
+function jump_manager.start(entity, initial_vspeed, success_callback, failure_callback)
 
   if not entity or entity:get_type() ~= "hero" then
     return
@@ -203,8 +203,9 @@ function jump_manager.start(entity, v_speed, success_callback, failure_callback)
   local s=entity:get_sprite("shadow_override")
 
 
-
-  entity:jump()
+  if not entity:is_running() then
+    entity:jump()
+  end
   jump_manager.setup_collision_rules(state_object)
 
   --  debug_print "Starting custom jump"
@@ -225,17 +226,7 @@ function jump_manager.start(entity, v_speed, success_callback, failure_callback)
 
   end
 
---  if s then
-
---    -- make the shadow do a shrink -> grow animation during the jump. Or at least, try to...
---    s:set_animation("walking", function()
---        --something is wrong, this event is not even called because the animation stays stuck at frame 0 for some reason.
---        print "done"
---        s:set_animation("big")
---      end)
---  end
-
-  entity.y_vel = v_speed and -math.abs(v_speed) or -max_yvel
+  entity.y_vel = initial_vspeed and -math.abs(initial_vspeed) or -max_yvel
 
   local t=sol.timer.start(entity, 10, function()
       return jump_manager.update_jump(entity, callback)

@@ -104,7 +104,7 @@ tile{
   x = 328,
   y = 0,
   enabled_at_start = false,
-  width = 304,
+  width = 312,
   height = 312,
   pattern = "15",
   tileset = "testing/labo",
@@ -1355,6 +1355,15 @@ tile{
   pattern = "22",
 }
 
+tile{
+  layer = 0,
+  x = 16,
+  y = 376,
+  width = 48,
+  height = 16,
+  pattern = "8",
+}
+
 wall{
   layer = 0,
   x = 208,
@@ -1567,8 +1576,8 @@ teletransporter{
 
 stairs{
   layer = 0,
-  x = 32,
-  y = 360,
+  x = 8,
+  y = 320,
   direction = 1,
   subtype = 4,
 }
@@ -2106,6 +2115,14 @@ dynamic_tile{
   width = 64,
   height = 112,
   pattern = "26",
+}
+
+enemy{
+  layer = 0,
+  x = 360,
+  y = 269,
+  direction = 0,
+  breed = "maskass",
 }
 
 tile{
