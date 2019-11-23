@@ -637,8 +637,6 @@ sprite{ id = "menus/keyboardbox/keyboardbox_cursor", description = "Keyboard Box
 sprite{ id = "menus/keyboardbox/keyboardbox_textfield", description = "Keyboard Box textfield" }
 sprite{ id = "menus/keyboardbox/keyboardbox_textfield_cursor", description = "Keyboard Box textfield's cursor" }
 sprite{ id = "menus/messagebox/messagebox_cursor", description = "Message Box cursor" }
-sprite{ id = "menus/parchment/parchment_default", description = "Parchment sprite (basic)" }
-sprite{ id = "menus/parchment/parchment_shadow", description = "Parchment shadow" }
 sprite{ id = "menus/pause/arrow", description = "Arrow" }
 sprite{ id = "menus/pause/cursor", description = "Cursor" }
 sprite{ id = "menus/pause/map/dungeon/hero_head", description = "Hero head" }
@@ -2677,9 +2675,6 @@ file{ path = "sprites/menus/keyboardbox/keyboardbox_textfield_cursor.png", autho
 file{ path = "sprites/menus/messagebox/messagebox_button.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/messagebox/messagebox_cursor.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/messagebox/messagebox_frame.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
-file{ path = "sprites/menus/parchment/parchment_boss.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
-file{ path = "sprites/menus/parchment/parchment_default.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
-file{ path = "sprites/menus/parchment/parchment_shadow.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/settings/settings_arrow_left.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/settings/settings_arrow_right.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/settings/settings_button_back.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }

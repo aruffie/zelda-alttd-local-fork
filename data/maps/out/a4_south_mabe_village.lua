@@ -92,7 +92,7 @@ end
 -- Obtaining sword
 function map:on_obtaining_treasure(treasure_item, treasure_variant, treasure_savegame_variable)
 
-  if treasure_item:get_name() == "sword_item" then
+  if treasure_item:get_name() == "sword" then
     map:launch_cinematic_1()
   end
 
@@ -102,7 +102,7 @@ end
 function dungeon_1_lock:on_interaction()
 
   if not game:is_step_done("dungeon_1_key_obtained") then
-      game:start_dialog("maps.out.south_mabe_village.dungeon_1_lock")
+    game:start_dialog("maps.out.south_mabe_village.dungeon_1_lock")
   elseif game:is_step_last("dungeon_1_key_obtained") then
     map:launch_cinematic_2()
   end
