@@ -1103,7 +1103,7 @@ sound{ id = "snes/hero/swim", description = "Swimming" }
 sound{ id = "snes/hero/throw", description = "Throw" }
 sound{ id = "snes/hero/wade1", description = "Walk in water 1" }
 sound{ id = "snes/hero/wade2", description = "Walk in water 2" }
-sound{ id = "snes/hero/walk_on_gress", description = "Walk on grass" }
+sound{ id = "snes/hero/walk_on_grass", description = "Walk on grass" }
 sound{ id = "snes/items/arrow_hit", description = "Arrow (wall hit)" }
 sound{ id = "snes/items/bomb_drop", description = "Bomb drop" }
 sound{ id = "snes/items/bomb_explode", description = "Bomb explode" }
@@ -2478,6 +2478,7 @@ file{ path = "sounds/snes/hero/swim.ogg", author = "Nintendo", license = "Propri
 file{ path = "sounds/snes/hero/throw.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/hero/wade1.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/hero/wade2.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
+file{ path = "sounds/snes/hero/walk_on_grass.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/items", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
 file{ path = "sounds/snes/items/arrow_hit.ogg", author = "Nintendo", }
 file{ path = "sounds/snes/items/bomb_drop.ogg", author = "Nintendo", }
