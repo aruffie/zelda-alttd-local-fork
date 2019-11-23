@@ -22,6 +22,17 @@ animation{
   },
 }
 animation{
+  name = "hurt",
+  src_image = "enemies/projectiles/coconut.png",
+  frame_delay = 50,
+  directions = {
+    { x = 0, y = 16, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 8 },
+    { x = 0, y = 16, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 8 },
+    { x = 0, y = 16, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 8 },
+    { x = 0, y = 16, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 8 },
+  },
+}
+animation{
   name = "stopped",
   src_image = "enemies/projectiles/coconut.png",
   frame_delay = 100,

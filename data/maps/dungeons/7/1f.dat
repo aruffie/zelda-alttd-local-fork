@@ -13,6 +13,15 @@ properties{
 
 tile{
   layer = 0,
+  x = 376,
+  y = 520,
+  width = 16,
+  height = 16,
+  pattern = "wall_hole.corner.1-1",
+}
+
+tile{
+  layer = 0,
   x = 560,
   y = 320,
   width = 40,
@@ -5361,15 +5370,6 @@ tile{
   layer = 0,
   x = 376,
   y = 520,
-  width = 16,
-  height = 16,
-  pattern = "wall_hole.corner.1-1",
-}
-
-tile{
-  layer = 0,
-  x = 376,
-  y = 520,
   width = 8,
   height = 8,
   pattern = "hole.corner.1",
@@ -7225,46 +7225,6 @@ destination{
   x = 480,
   y = 917,
   direction = 1,
-}
-
-destructible{
-  layer = 0,
-  x = 520,
-  y = 877,
-  sprite = "entities/destructibles/pot",
-  weight = 1,
-}
-
-destructible{
-  layer = 0,
-  x = 520,
-  y = 893,
-  sprite = "entities/destructibles/pot",
-  weight = 1,
-}
-
-destructible{
-  layer = 0,
-  x = 440,
-  y = 877,
-  sprite = "entities/destructibles/pot",
-  weight = 1,
-}
-
-destructible{
-  layer = 0,
-  x = 440,
-  y = 893,
-  sprite = "entities/destructibles/pot",
-  weight = 1,
-}
-
-enemy{
-  layer = 0,
-  x = 480,
-  y = 797,
-  direction = 0,
-  breed = "darknut",
 }
 
 tile{
