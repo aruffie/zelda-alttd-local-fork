@@ -24,9 +24,10 @@ function state:on_started(previous_state_name, previous_state_object)
   local entity = state:get_entity()
   local x,y,layer = entity:get_position() 
   local bx, by, bh, bw=entity:get_bounding_box()
-  if entity:get_movement():get_speed()~=0 then
+--  if entity:get_movement():get_speed()~=0 then
+--Same bug as the ground-sound playing routine: for some reason, the movement's speed registers as 0 even if we are moving, so we never trigger the jumping animation.
     entity:get_sprite("tunic"):set_animation("jumping")
-  end
+--  end
 
 end
 

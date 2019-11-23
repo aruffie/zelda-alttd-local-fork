@@ -7,6 +7,15 @@ local map_meta = sol.main.get_metatable("map")
 require ("scripts/multi_events")
 local audio_manager = require("scripts/audio_manager")
 
+
+
+
+local transition_finished_callback
+function map_meta:wait_on_next_map_opening_transition_finished(callback)
+  assert(type(callback) == 'function')
+  transition_finished_callback = callback
+end
+
 map_meta:register_event("on_opening_transition_finished", function(map, destination)
     debug_print ("End of built-in transition")
 
@@ -20,6 +29,12 @@ map_meta:register_event("on_opening_transition_finished", function(map, destinat
           hero:play_ground_effect()
 
         end)
+    end
+    
+    --call pending callback if any
+    if transition_finished_callback then
+      transition_finished_callback(map, destination)
+      transition_finished_callback = nil
     end
   end)
 

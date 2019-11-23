@@ -21,6 +21,6 @@ entity:add_collision_test("touching", function(entity, other)
       if not other:is_invincible() then
         entity:get_game():remove_life(2)
         other:set_invincible(true, 500)
-      endé
+      end
     end
   end)
