@@ -14,6 +14,8 @@ m_black_stripe_bottom:set_ignore_suspend(true)
 black_stripe_top:fill_color({0, 0, 0})
 black_stripe_bottom:fill_color({0, 0, 0})
 
+local cinematic_menu = {}
+
 -- Enable or disable the cinematic mode
 function map_meta:set_cinematic_mode(is_cinematic, options)
 
@@ -64,24 +66,25 @@ function map_meta:set_cinematic_mode(is_cinematic, options)
         game.is_cinematic = is_cinematic
     end
   end)
+
+  -- start and stop the menu displaying the cinematic effect
+  if is_cinematic and not sol.menu.is_started(cinematic_menu) then
+    sol.menu.start(game, cinematic_menu, false)
+  elseif not is_cinematic then
+    sol.menu.stop(cinematic_menu)
+  end
 end
 
 -- Retrieve the cinematic status
 function map_meta:is_cinematic()
-
     local game = self:get_game()
     return game.is_cinematic
-
 end
 
-map_meta:register_event("on_draw", function(map, dst_surface)
-
-  if map:is_cinematic() then
-    -- Draw cinematic black stripes.
-      black_stripe_top:draw(dst_surface, 0, -black_stripe_h)
-      black_stripe_bottom:draw(dst_surface, 0, quest_h)
-  end
-
-end)
+function cinematic_menu:on_draw(dst_surface)
+  -- Draw cinematic black stripes.
+  black_stripe_top:draw(dst_surface, 0, -black_stripe_h)
+  black_stripe_bottom:draw(dst_surface, 0, quest_h)
+end
 
 return cinematic_manager

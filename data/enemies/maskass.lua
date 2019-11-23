@@ -11,10 +11,11 @@ local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local hero_movement
 
--- Only hurt if direction is not facing the enemy.
+-- Only hurt if enemy and hero directions are opposite and not looking to each other.
 local function on_sword_attack_received()
 
-  if hero:get_direction4_to(enemy) ~= hero:get_sprite():get_direction() then
+  local enemy_direction = sprite:get_direction()
+  if enemy_direction == (hero:get_sprite():get_direction() + 2) % 4 and enemy_direction == hero:get_direction4_to(enemy) then
     enemy:hurt(2)
   end
 end
@@ -25,8 +26,7 @@ local function reverse_move(movement)
   local speed = movement:get_speed()
   if speed > 0 and enemy:get_life() > 0 then
     enemy:start_straight_walking(movement:get_angle() + math.pi, speed)
-  else
-    enemy:restart()
+    sprite:set_direction((hero:get_sprite():get_direction() + 2) % 4) -- Always keep the hero opposite direction.
   end
 end
 

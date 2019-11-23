@@ -466,7 +466,8 @@ function common_actions.learn(enemy)
 
    x_offset = x_offset or 0
    y_offset = y_offset or 0
-    enemy:register_event("on_update", function(enemy, x, y, layer) -- Workaround : Replace the entity in on_update() instead of on_position_changed() to take care of hurt movements.
+    enemy:register_event("on_update", function(enemy) -- Workaround : Replace the entity in on_update() instead of on_position_changed() to take care of hurt movements.
+      local x, y, layer = enemy:get_position()
       entity:set_position(x + x_offset, y + y_offset)
     end)
     enemy:register_event("on_removed", function(enemy)
@@ -581,7 +582,15 @@ function common_actions.learn(enemy)
         shadow:get_sprite():set_animation(animation_name)
       end
       shadow:set_traversable_by(true)
-      --TODO Always display the shadow on the lowest possible layer
+      
+      -- Always display the shadow on the lowest possible layer.
+      function shadow:on_position_changed(shadow, x, y, layer)
+        for ground_layer = layer, map:get_min_layer(), -1 do
+          if map:get_ground(x, y, ground_layer) != "empty" then
+            shadow:set_layer(ground_layer)
+          end
+        end
+      end
     end
     return shadow
   end
