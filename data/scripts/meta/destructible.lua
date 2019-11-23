@@ -18,6 +18,7 @@ function destructible_meta:on_created(game)
 end
 
 function destructible_meta:on_lifting(carrier, carried_object)
+  debug_print("Lifting some destructible")
   carried_object:set_properties(self:get_properties())
 end
 

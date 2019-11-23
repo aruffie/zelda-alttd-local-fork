@@ -279,7 +279,7 @@ hero_meta:register_event("on_position_changed", function(hero, x,y,layer)
         hero:set_position(hero:get_solid_ground_position())
         hero:start_hurt(1)
       end
-
+      
       --save last stable ground
       if y+2<h and hero:test_obstacles(0,1) and map:get_ground(x,y+3,layer)=="wall" and hero:get_ground_below()~="prickles" then
         hero:save_solid_ground(x,y,layer)

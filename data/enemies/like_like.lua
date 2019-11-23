@@ -52,6 +52,17 @@ function enemy:free_hero()
     end)
 end
 
+game:register_event("on_command_pressed", function(game, command)
+  -- Store the number of command pressed while eaten, and free the hero once 8 item commands are pressed.
+  if is_eating and ( command=="sword" or command=="item_1" or command =="item_2") then
+    command_pressed_count = command_pressed_count + 1
+    if command_pressed_count == 8 then
+      enemy:free_hero()
+      enemy:start_walking()
+    end
+  end
+end)
+
 -- Make the enemy eat the hero.
 function enemy:eat_hero()
 
@@ -98,19 +109,6 @@ enemy:register_event("on_update", function(enemy)
       hero:set_position(enemy:get_position())
     end
 
-    -- Store the number of command pressed while eaten, and free the hero once 8 item commands are pressed.
-    if is_eating and not hero.just_tried_escaping and ( hero.just_used_sword==true or game.last_item_1~=nil or game.last_item_2~=nil) then
-      print "item"
-      hero.just_tried_escaping=true
-      sol.timer.start(enemy, 60, function()
-          hero.just_tried_escaping=nil
-        end)
-      command_pressed_count = command_pressed_count + 1
-      if command_pressed_count == 8 then
-        enemy:free_hero()
-        enemy:start_walking()
-      end
-    end
   end)
 
 -- Initialization.

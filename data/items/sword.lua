@@ -15,7 +15,10 @@ end
 function item:on_variant_changed(variant)
 
   -- The possession state of the sword determines the built-in ability "sword".
-  item:get_game():set_ability("sword", variant)
+  local hero=item:get_game():get_hero()
+--  hero:create_sprite("hero/sword"..variant, "sword")
+--  hero:create_sprite("hero/sword_stars"..variant, "sword_stars")
+  item:get_game():set_ability("sword", 1)
   item:get_game():set_value("force_sword", variant)
 
 end

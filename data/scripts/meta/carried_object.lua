@@ -60,6 +60,7 @@ carried_meta:register_event("on_created", function(entity)
     end
     if map:is_sideview() then
       for name, s in entity:get_sprites() do
+        print ("shifting sprite layer "..name)
         s:set_xy(0,2)
       end
     end

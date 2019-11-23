@@ -21,22 +21,15 @@ state:set_can_traverse("stairs", false)
 function state:on_started(previous_state_name, previous_state_object)
 
   local map = state:get_map()
-  local hero = state:get_entity()
-  local x,y,layer = hero:get_position() 
-  local bx, by, bh, bw=hero:get_bounding_box()
-  hero:get_sprite():set_animation("jumping")
-
-end
-
---Use the swoed mid-air
---SUGGESTION : use a single state for all jumping combinations since they use the same core movement ?
-function state:on_command_pressed(command)
-  local e=state:get_entity()
-  if command =="attack" and state:get_game():get_ability("sword")>0 then
-    jump_manager.trigger_event(e, "sword swinging")
-    return true
+  local entity = state:get_entity()
+  local x,y,layer = entity:get_position() 
+  local bx, by, bh, bw=entity:get_bounding_box()
+  if entity:get_movement():get_speed()~=0 then
+    entity:get_sprite("tunic"):set_animation("jumping")
   end
+
 end
+
 
 local hero_meta=sol.main.get_metatable("hero")
 

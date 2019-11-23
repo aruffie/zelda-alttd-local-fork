@@ -100,7 +100,7 @@ function attack_icon_builder:new(game, config)
   function attack_icon:update_effect_displayed(flip_icon)
     if not attack_icon.hud_icon.animating then
       local effect = game.get_custom_command_effect ~= nil and game:get_custom_command_effect("attack") or game:get_command_effect("attack")
-      local sword = game:get_ability("sword")
+      local sword = game:get_sword_ability()
       attack_icon:set_effect_displayed(effect, sword, flip_icon)
     end
   end
