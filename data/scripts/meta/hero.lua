@@ -374,7 +374,11 @@ game_meta:register_event("on_map_changed", function(game, map)
 --      hero:get_sprite("shadow"):set_animation("big")
       if not hero:get_sprite("shadow_override") then
         local s=hero:create_sprite("entities/shadows/shadow", "shadow_override")
-        s:set_animation("big")
+--        function s:on_animation_changed(anim)
+--          print ("new animation: "..anim)
+--          print (s:get_frame_delay())
+--        end
+
         hero:bring_sprite_to_back(s)
       end
     end
@@ -387,7 +391,7 @@ game_meta:register_event("on_map_changed", function(game, map)
 -- Initialize hero behavior specific to this quest.
 
 hero_meta:register_event("on_created", function(hero)
-
+    hero:remove_sprite(hero:get_sprite("shadow"))
     hero:initialize_fixing_functions() -- Used to fix direction and animations.
 
   end)

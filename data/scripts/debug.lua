@@ -16,7 +16,7 @@ local game_manager = require("scripts/game_manager")
 local debug = {}
 local show_debug_info_screen=false
 local debug_info_page=0
-local debug_info_num_pages = 3
+local debug_info_num_pages = 4
 
 function debug:on_key_pressed(key, modifiers)
 
@@ -314,15 +314,15 @@ function debug:on_draw(dst_surface)
         if hero_movement then 
           local mtype=sol.main.get_type(hero_movement)
           show_text(0, 100, "Movement info (type: "..mtype..")")
-          
+
           --Common movement infos
           local x,y=hero_movement:get_xy()
           show_text(0, 110, "Position: ("..x..", "..y..")")
           show_text(0, 120, "Direction 4: " ..hero_movement:get_direction4())
           show_text(0,130, "Ignore obstacles? "..(hero_movement:get_ignore_obstacles() and "Yes" or "No"))
           show_text(0,140, "Ignore suspended with game? "..(hero_movement:get_ignore_suspend() and "Yes" or "No"))
-          
-          
+
+
           if hero_movement.get_speed then
             show_text(0, 150, "Speed: "..hero_movement:get_speed().." px/s")
           end
@@ -394,28 +394,36 @@ function debug:on_draw(dst_surface)
         else
           show_text(0,0, "<No custom state data>")
         end
-      else
+      elseif  debug_info_page == 2 then
         show_text(0,0,"Sideview information")
         if map:is_sideview() then
           show_text(0,10,"Vertical speed: "..(hero.vspeed or 0))
           show_text(0,20,"Has grabbed a ladder? " ..(hero.has_grabbed_ladder and "Yes" or "No"))
         else
           show_text(0,10,"<Not in a sideview map>")
-          end
         end
-        debug_informations_background:draw(dst_surface)
-
-        --Show cuttently active command keys
+      else -- page 3
+        show_text(0,0,"sprites information")
+        local i=10
+        for name, sprite in hero:get_sprites() do
+          show_text(0,i,string.format("%s %s %s %d/%d" ..tostring(sprite:is_paused()), name, sprite:get_animation_set(), sprite:get_animation(), sprite:get_frame(), sprite:get_num_frames()-1))
+            i=i+10
+        end
       end
-      for _, command in pairs(commands) do
-        if game:is_command_pressed(command.name) then
-          debug_command_sprite:set_animation(command.name)
-          debug_command_sprite:draw(dst_surface, command.x, command.y)
-        end
+
+      debug_informations_background:draw(dst_surface)
+
+      --Show cuttently active command keys
+    end
+    for _, command in pairs(commands) do
+      if game:is_command_pressed(command.name) then
+        debug_command_sprite:set_animation(command.name)
+        debug_command_sprite:draw(dst_surface, command.x, command.y)
       end
     end
   end
+end
 
-  sol.menu.start(sol.main, debug)
+sol.menu.start(sol.main, debug)
 
-  return true
+return true
