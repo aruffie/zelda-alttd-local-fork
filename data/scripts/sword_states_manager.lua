@@ -1,8 +1,6 @@
 local sword_manager={}
 local jump_manager=require("scripts/maps/jump_manager")
 
-require("scripts/states/jumping")(sword_manager)
-require("scripts/states/running")(sword_manager)
 require("scripts/states/sword_swinging")(sword_manager)
 require("scripts/states/sword_loading")(sword_manager)
 require("scripts/states/sword_spin_attack")(sword_manager)
