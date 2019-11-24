@@ -153,12 +153,14 @@ function audio_manager:refresh_music()
       game.id_music = nil
     end
   end
-  if directory == "gb" then
-    id_music = id_music:gsub("snes/", "gb/")
-  else
-    id_music = id_music:gsub("gb/", "snes/")
+  if id_music then
+    if directory == "gb" then
+      id_music = id_music:gsub("snes/", "gb/")
+    else
+      id_music = id_music:gsub("gb/", "snes/")
+    end
+    lenient_play_music(id_music)
   end
-  lenient_play_music(id_music)
 
 end
 
