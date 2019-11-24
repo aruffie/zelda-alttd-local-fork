@@ -353,7 +353,6 @@ end
 function travel_sensor:on_activated()
 
   travel_manager:init(map, 1)
-  owl_slab:get_sprite():set_animation("activated")
 
 end
 
