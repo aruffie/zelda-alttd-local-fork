@@ -617,7 +617,7 @@ local function initialize_dungeon_features(game)
             -- Show parchment with dungeon name.
             local line_1 = sol.language.get_dialog("maps.dungeons." .. dungeon_index .. ".welcome_name").text
             local line_2 = sol.language.get_dialog("maps.dungeons." .. dungeon_index .. ".welcome_description").text
-            parchment:show(map, "default", "center", 1500, line_1, line_2, nil, function()
+            parchment:show(map, "boss", "center", 1500, line_1, line_2, nil, function()
               game:set_suspended(false)
             end)
 

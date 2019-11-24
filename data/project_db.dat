@@ -637,6 +637,9 @@ sprite{ id = "menus/keyboardbox/keyboardbox_cursor", description = "Keyboard Box
 sprite{ id = "menus/keyboardbox/keyboardbox_textfield", description = "Keyboard Box textfield" }
 sprite{ id = "menus/keyboardbox/keyboardbox_textfield_cursor", description = "Keyboard Box textfield's cursor" }
 sprite{ id = "menus/messagebox/messagebox_cursor", description = "Message Box cursor" }
+sprite{ id = "menus/parchment/parchment_boss", description = "Parchment to display boss name" }
+sprite{ id = "menus/parchment/parchment_default", description = "Parchment to display info" }
+sprite{ id = "menus/parchment/parchment_shadow", description = "Parchment shadow" }
 sprite{ id = "menus/pause/arrow", description = "Arrow" }
 sprite{ id = "menus/pause/cursor", description = "Cursor" }
 sprite{ id = "menus/pause/map/dungeon/hero_head", description = "Hero head" }
