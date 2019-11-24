@@ -13,6 +13,15 @@ properties{
 
 tile{
   layer = 0,
+  x = 1024,
+  y = 1584,
+  width = 96,
+  height = 16,
+  pattern = "884",
+}
+
+tile{
+  layer = 0,
   x = 1752,
   y = 456,
   width = 8,
@@ -247,9 +256,9 @@ tile{
 
 tile{
   layer = 0,
-  x = 1024,
+  x = 1120,
   y = 1488,
-  width = 208,
+  width = 112,
   height = 112,
   pattern = "884",
 }
@@ -1096,7 +1105,7 @@ tile{
   x = 976,
   y = 824,
   width = 24,
-  height = 848,
+  height = 784,
   pattern = "wall.3-2",
 }
 
@@ -9515,6 +9524,24 @@ tile{
   pattern = "stairs_down.2.border.1-2",
 }
 
+tile{
+  layer = 0,
+  x = 1184,
+  y = 440,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner_reverse.3-2",
+}
+
+tile{
+  layer = 0,
+  x = 1184,
+  y = 496,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner_reverse.1-2",
+}
+
 wall{
   layer = 0,
   x = 1560,
@@ -12156,7 +12183,7 @@ sensor{
   name = "sensor_6",
   layer = 0,
   x = 800,
-  y = 429,
+  y = 437,
   width = 16,
   height = 16,
 }
@@ -12192,7 +12219,7 @@ sensor{
   name = "sensor_7",
   layer = 0,
   x = 800,
-  y = 189,
+  y = 197,
   width = 16,
   height = 16,
 }
@@ -12687,9 +12714,9 @@ tile{
 
 tile{
   layer = 1,
-  x = 1152,
+  x = 1144,
   y = 1176,
-  width = 48,
+  width = 64,
   height = 8,
   pattern = "door_cache.2-2",
 }
@@ -12705,9 +12732,9 @@ tile{
 
 tile{
   layer = 1,
-  x = 1152,
+  x = 1144,
   y = 1416,
-  width = 48,
+  width = 64,
   height = 8,
   pattern = "door_cache.2-2",
 }
@@ -13291,9 +13318,9 @@ tile{
 tile{
   layer = 1,
   x = 1256,
-  y = 1376,
+  y = 1296,
   width = 8,
-  height = 32,
+  height = 64,
   pattern = "door_cache.4-2",
 }
 
@@ -13772,24 +13799,6 @@ tile{
   width = 32,
   height = 8,
   pattern = "door_top.stairs.2-1",
-}
-
-tile{
-  layer = 1,
-  x = 1184,
-  y = 496,
-  width = 24,
-  height = 24,
-  pattern = "wall.corner_reverse.1-2",
-}
-
-tile{
-  layer = 1,
-  x = 1184,
-  y = 440,
-  width = 24,
-  height = 24,
-  pattern = "wall.corner_reverse.3-2",
 }
 
 tile{
