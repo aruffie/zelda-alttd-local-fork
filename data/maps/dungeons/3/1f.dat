@@ -419,9 +419,9 @@ tile{
 tile{
   layer = 0,
   x = 832,
-  y = 104,
+  y = 112,
   width = 80,
-  height = 48,
+  height = 32,
   pattern = "floor.13-Alpha",
 }
 
@@ -437,9 +437,9 @@ tile{
 tile{
   layer = 0,
   x = 688,
-  y = 104,
+  y = 112,
   width = 144,
-  height = 96,
+  height = 80,
   pattern = "floor.13-Alpha",
 }
 
@@ -9666,7 +9666,7 @@ block{
   sprite = "entities/blocks/block",
   pushable = false,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 block{
@@ -10880,8 +10880,19 @@ enemy{
   layer = 0,
   x = 1512,
   y = 1773,
+  properties = {
+    {
+      key = "initial_state",
+      value = "expulsing",
+    },
+    {
+      key = "speed",
+      value = "100",
+    },
+  },
   direction = 0,
   breed = "death_ball",
+  treasure_name = "random_with_charm",
 }
 
 destructible{
