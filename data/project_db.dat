@@ -2195,6 +2195,7 @@ file{ path = "scripts/menus/introduction.lua", author = "Olivier Cléro", licens
 file{ path = "scripts/menus/keyboardbox.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/menus/language.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "scripts/menus/messagebox.lua", author = "Olivier Cléro", license = "GPL v3" }
+file{ path = "scripts/menus/parchment.lua", author = "Olivier Cléro", license = "GPL v3" }
 file{ path = "scripts/menus/pause/pause.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "scripts/menus/pause/pause_inventory.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "scripts/menus/pause/pause_map.lua", author = "Christopho, Olivier Cléro", license = "GPL v3" }
@@ -2678,6 +2679,9 @@ file{ path = "sprites/menus/keyboardbox/keyboardbox_textfield_cursor.png", autho
 file{ path = "sprites/menus/messagebox/messagebox_button.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/messagebox/messagebox_cursor.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/messagebox/messagebox_frame.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
+file{ path = "sprites/menus/parchment/parchment_boss.png", author = "Olivier Cléro", license = "CC-BY-SA 4.0" }
+file{ path = "sprites/menus/parchment/parchment_default.png", author = "Olivier Cléro", license = "CC-BY-SA 4.0" }
+file{ path = "sprites/menus/parchment/parchment_shadow.png", author = "Olivier Cléro", license = "CC-BY-SA 4.0" }
 file{ path = "sprites/menus/settings/settings_arrow_left.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/settings/settings_arrow_right.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
 file{ path = "sprites/menus/settings/settings_button_back.png", author = "Olivier Cléro", license = "CC BY-SA 4.0" }
