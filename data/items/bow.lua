@@ -19,7 +19,7 @@ end
 function item:start_combo(other)
 
   local map=game:get_map()
---  print ("trying to fire a combined arrow launch (arrows: "..item:get_amount()..", other: "..other:get_amount()..")")
+--  debug_print ("trying to fire a combined arrow launch (arrows: "..item:get_amount()..", other: "..other:get_amount()..")")
   if item:get_amount() == 0 then
 
     if other.start_using then
@@ -38,7 +38,7 @@ function item:start_combo(other)
 
     if other:get_name()=="bombs_counter" and other:get_amount()>0 then
       other:remove_amount(1)
---      print "Bomb and arrows!"
+--      debug_print "Bomb and arrows!"
       local hero=game:get_hero()
       local x,y,layer=hero:get_position()
       local ox, oy=hero:get_sprite("tunic"):get_xy()
