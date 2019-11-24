@@ -59,43 +59,64 @@ function sol.main:on_finished()
 
 end
 
-local eff_m = require('scripts/maps/effect_manager')
+local effect_manager = require('scripts/maps/effect_manager')
 local fsa = require('scripts/maps/fsa_effect')
 local gb = require('scripts/maps/gb_effect')
 local audio_manager = require('scripts/audio_manager')
+
 -- Event called when the player pressed a keyboard key.
 function sol.main:on_key_pressed(key, modifiers)
 
   local handled = false
-  local game = sol.main.game
-  if key == "f5" then
-    -- F5: change the video mode.
-    shader_manager:switch_shader()
-  elseif key == 'f9' then
-    eff_m:set_effect(sol.main.get_game(),gb)
-    game:set_value("mode", "gb")
-    audio_manager:refresh_music()
-  elseif key == 'f7' then
-    eff_m:set_effect(sol.main.get_game(),fsa)
-    game:set_value("mode", "snes")
-    audio_manager:refresh_music()
-  elseif key == 'f8' then
-    game:set_value("mode", "snes")
-    eff_m:set_effect(sol.main.get_game())
-    audio_manager:refresh_music()
-  elseif key == "f11" or
-  (key == "return" and (modifiers.alt or modifiers.control)) then
-    -- F11 or Ctrl + return or Alt + Return: switch fullscreen.
-    sol.video.set_fullscreen(not sol.video.is_fullscreen())
-    handled = true
-  elseif key == "f4" and modifiers.alt then
-    -- Alt + F4: stop the program.
-    sol.main.exit()
-    handled = true
-  elseif key == "escape" and sol.main.game == nil then
-    -- Escape in title screens: stop the program.
-    sol.main.exit()
-    handled = true
+  local game = sol.main.get_game()
+  
+  -- Check if a game is started or not.
+  if game == nil then
+    if key == "escape" then
+      -- Escape in title screens: stop the program.
+      sol.main.exit()
+      handled = true
+      
+    end
+
+  else
+    if key == "f5" then
+      -- F5: Change the video mode.
+      shader_manager:switch_shader()
+      handled = true
+
+    elseif key == 'f9' then
+      -- F9: Set GameBoy mode. 
+      effect_manager:set_effect(game, gb)
+      game:set_value("mode", "gb")
+      audio_manager:refresh_music()
+      handled = true
+  
+    elseif key == 'f7' then
+      -- F7: Set Four Swords Adventure mode.
+      effect_manager:set_effect(game, fsa)
+      game:set_value("mode", "snes")
+      audio_manager:refresh_music()
+      handled = true
+  
+    elseif key == 'f8' then
+      -- F8: Set SNES mode (i.e. normal mode)
+      game:set_value("mode", "snes")
+      effect_manager:set_effect(game, nil)
+      audio_manager:refresh_music()
+      handled = true
+  
+    elseif key == "f11" or (key == "return" and (modifiers.alt or modifiers.control)) then
+      -- F11 or Ctrl + return or Alt + Return: Switch fullscreen.
+      sol.video.set_fullscreen(not sol.video.is_fullscreen())
+      handled = true
+  
+    elseif key == "f4" and modifiers.alt then
+      -- Alt + F4: stop the program.
+      sol.main.exit()
+      handled = true
+
+    end
   end
 
   return handled
