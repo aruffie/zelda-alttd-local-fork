@@ -71,7 +71,7 @@ function state:on_started(old_state_name, old_state_object)
         local direction=game:get_commands_direction()
         --print "step 1 OK"
         if direction==tunic_sprite:get_direction()*2 and (dx ~= 0 or dy ~= 0) and entity:test_obstacles(_left+_right, _up+_down) then
-          print "sword tapping conditions OK"
+          debug_print "sword tapping conditions OK"
           sword_manager.trigger_event(entity, "sword tapping")
         end
       end

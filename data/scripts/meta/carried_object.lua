@@ -15,7 +15,7 @@ carried_meta:register_event("on_thrown", function(entity)
       entity:remove_sprite(shadow)
       error("[Thrown] the shadow should already have been removed at this point")
     else
-      print("[Thrown] OK, there is still no shadow at this point")
+      debug_print("[Thrown] OK, there is still no shadow at this point")
     end
     if map:is_sideview() then --Make me follow gravity
 
@@ -33,7 +33,7 @@ carried_meta:register_event("on_breaking", function(entity)
       entity:remove_sprite(shadow)
       error("[Breaking] The shadow should already have been removed at this point")
     else
-      print("[Breaking] OK, there is still no shadow at this point")
+      debug_print("[Breaking] OK, there is still no shadow at this point")
     end
 
   end)
@@ -60,7 +60,7 @@ carried_meta:register_event("on_created", function(entity)
     end
     if map:is_sideview() then
       for name, s in entity:get_sprites() do
-        print ("shifting sprite layer "..name)
+        debug_print ("shifting sprite layer "..name)
         s:set_xy(0,2)
       end
     end
