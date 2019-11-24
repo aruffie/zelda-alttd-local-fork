@@ -13,9 +13,9 @@
 --           enemy:get_obstacles_normal_angle()
 --           enemy:get_obstacles_bounce_angle([angle])
 --
---           enemy:start_acceleration_walking(angle, speed, acceleration, deceleration, distance, [on_decelerating_callback])
---           enemy:start_straight_walking(angle, speed, [distance, [on_stopped_callback]])
---           enemy:start_target_walking(entity, speed)
+--           enemy:start_acceleration_walking(x, y, speed, [acceleration, [deceleration, [ignore_obstacles, [on_decelerating_callback]]]])
+--           enemy:start_straight_walking(angle, speed, [distance, [ignore_obstacles, [on_stopped_callback]]]) TODO ignore_obstacles
+--           enemy:start_target_walking(entity, speed, [ignore_obstacles]) TODO ignore_obstacles
 --           enemy:start_jumping(duration, height, [angle, speed, [on_finished_callback]])
 --           enemy:start_flying(take_off_duration, height, [on_finished_callback])
 --           enemy:stop_flying(landing_duration, [on_finished_callback])
@@ -26,7 +26,6 @@
 --           enemy:stop_leashed_by(entity)
 --           enemy:start_pushed_back(entity, [speed, [duration, [on_finished_callback]]])
 --           enemy:start_pushing_back(entity, [speed, [duration, [on_finished_callback]]])
---           enemy:start_acceleration(movement, duration)
 --
 --           enemy:start_shadow([sprite_name, [animation_name]])
 --           enemy:start_brief_effect(sprite_name, [animation_name, [x_offset, [y_offset, [maximum_duration, [on_finished_callback]]]]])
@@ -176,51 +175,46 @@ function common_actions.learn(enemy)
     return (2.0 * normal_angle - angle + math.pi) % circle
   end
 
-  -- Start a straight walking and apply a constant acceleration (px/s²), decelerating when distance reached.
-  function enemy:start_acceleration_walking(angle, speed, acceleration, deceleration, distance, on_decelerating_callback)
+  -- Start a straight walking and apply a constant acceleration (px/s²), decelerating when x,y reached.
+  function enemy:start_acceleration_walking(x, y, speed, acceleration, deceleration, ignore_obstacles, on_decelerating_callback)
 
     -- Workaround : Don't use solarus movements to be able to start several movements at the same time.
-    local pixel_moves = {angle > quarter and angle < 3.0 * quarter and -1 or 1, angle < math.pi and -1 or 1}
-    local current_speed = {math.cos(angle) * 2.0 * acceleration, math.sin(angle) * 2.0 * acceleration}
-    local current_distance = 0
-
-    -- Start deceleration as a negative acceleration.
-    function start_deceleration()
-
-      -- TODO
-      if on_decelerating_callback then
-        on_decelerating_callback()
-      end
-    end
+    local angle = enemy:get_angle(x, y)
+    local start_x, start_y, _ = enemy:get_position()
+    local move_step = {math.max(-1, math.min(1, x - start_x)), math.max(-1, math.min(1, y - start_y))}
+    local current_speed = {math.abs(math.cos(angle) * 2.0 * acceleration), math.abs(math.sin(angle) * 2.0 * acceleration)}
+    local is_decelerating = false
 
     -- Schedule 1 pixel moves on each axis depending on the given acceleration.
     function move_on_axis(axis)
-
-      local position = {enemy:get_position()}
-      local move = {0, 0}
-      move[axis] = pixel_moves[axis]
-      curent_distance = current_distance + 1
-
       return sol.timer.start(enemy, 1000.0 / current_speed[axis], function()
 
         -- Stop movement if obstacle reached. 
-        if enemy:test_obstacles(move[1], move[2]) then
+        local move = {0, 0}
+        move[axis] = move_step[axis]
+        if not ignore_obstacles and enemy:test_obstacles(move[1], move[2]) then
           return false
         end
 
         -- Move the enemy.
+        local position = {enemy:get_position()}
         enemy:set_position(position[1] + move[1], position[2] + move[2], position[3])
 
-        -- Update speed at this step.
-        if current_speed[axis] < trigonometric_functions[axis](angle) * speed then
-          current_speed[axis] = math.max(math.sqrt(math.pow(current_speed[axis], 2.0) + 2.0 * acceleration), trigonometric_functions[axis](angle) * speed)
+        -- Update speed depending on acceleration and maximum speed for the next step if position not beyond the goal.
+        if not is_decelerating and position[1] + move[1] ~= x and position[2] + move[2] ~= y then -- TODO better check goal beyond.
+          current_speed[axis] = math.min(math.sqrt(math.pow(current_speed[axis], 2.0) + 2.0 * acceleration), math.abs(trigonometric_functions[axis](angle) * speed))
+        else
+          -- Update speed depending on deceleration else.
+          if not is_decelerating and on_decelerating_callback then
+            on_decelerating_callback()
+            is_decelerating = true
+          end
+          if math.pow(current_speed[axis], 2.0) - 2.0 * deceleration >= 0 then
+            current_speed[axis] = math.sqrt(math.pow(current_speed[axis], 2.0) - 2.0 * deceleration)
+          else
+            return false
+          end
         end
-
-        -- Start deceleration if distance reached.
-        if curent_distance >= distance then
-          start_deceleration()
-        end
-
         -- Schedule the next pixel move.
         return 1000.0 / current_speed[axis]
       end)
