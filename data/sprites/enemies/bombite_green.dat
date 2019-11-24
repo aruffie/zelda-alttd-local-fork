@@ -11,31 +11,19 @@ animation{
   },
 }
 animation{
-  name = "stopped",
+  name = "1",
   src_image = "enemies/bombite_green.png",
-  frame_delay = 150,
+  frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {
-    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
-    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
-    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
-    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
+    { x = 0, y = 96, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 0, y = 96, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 0, y = 96, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 0, y = 96, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
   },
 }
 animation{
-  name = "walking_counter",
-  src_image = "enemies/bombite_green.png",
-  frame_delay = 150,
-  frame_to_loop_on = 0,
-  directions = {
-    { x = 0, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 13, num_frames = 4 },
-    { x = 0, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 13, num_frames = 4 },
-    { x = 0, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 13, num_frames = 4 },
-    { x = 0, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 13, num_frames = 4 },
-  },
-}
-animation{
-  name = "walking_explode",
+  name = "2",
   src_image = "enemies/bombite_green.png",
   frame_delay = 50,
   frame_to_loop_on = 0,
@@ -47,7 +35,19 @@ animation{
   },
 }
 animation{
-  name = "walking_smile",
+  name = "3",
+  src_image = "enemies/bombite_green.png",
+  frame_delay = 150,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 0, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 0, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 0, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+  },
+}
+animation{
+  name = "hurt",
   src_image = "enemies/bombite_green.png",
   frame_delay = 150,
   frame_to_loop_on = 0,
@@ -56,5 +56,29 @@ animation{
     { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
     { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
     { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+  },
+}
+animation{
+  name = "smiling",
+  src_image = "enemies/bombite_green.png",
+  frame_delay = 150,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+  },
+}
+animation{
+  name = "stopped",
+  src_image = "enemies/bombite_green.png",
+  frame_delay = 150,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
   },
 }

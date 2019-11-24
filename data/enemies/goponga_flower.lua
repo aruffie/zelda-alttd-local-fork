@@ -22,7 +22,7 @@ function on_sword_attack_received()
     sprite:set_animation("bounce", function()
       sprite:set_animation("walking")
     end)
-    sol.timer.start(enemy, 300, function() -- Only push once even if the sword still collide at following frames.
+    sol.timer.start(map, 300, function() -- Only push once even if the sword still collide at following frames.
       is_hero_pushable = true
     end)
   end
