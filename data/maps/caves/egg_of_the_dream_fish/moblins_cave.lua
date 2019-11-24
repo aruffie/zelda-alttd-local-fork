@@ -70,8 +70,8 @@ function map:init_map_entities()
 
 end
 
-function map:on_opening_transition_finished(destination)
-
+function map.do_after_transition()
+  print "  A MOBLIN"
   if not game:is_step_last("bowwow_dognapped") or room_access_1 then
     return
   end
