@@ -1,4 +1,4 @@
--- Magma projectile, mainly used by the red Stalfos enemy.
+-- Flowerball projectile, mainly used by the red Stalfos enemy.
 
 local enemy = ...
 local projectile_behavior = require("enemies/lib/projectile")
@@ -8,7 +8,7 @@ local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 
 -- Start going to the hero.
 function enemy:go()
-  enemy:straight_go()
+  enemy:straight_go(nil, 80)
   enemy:get_movement():set_ignore_obstacles(true)
 end
 

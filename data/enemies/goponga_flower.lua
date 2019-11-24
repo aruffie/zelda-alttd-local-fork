@@ -49,6 +49,8 @@ enemy:register_event("on_restarted", function(enemy)
 
   -- States.
   enemy:set_pushed_back_when_hurt(false)
+  enemy:set_attacking_collision_mode("touching")
+  enemy:set_traversable(false)
   enemy:set_can_attack(true)
   enemy:set_damage(4)
   sprite:set_animation("walking")
