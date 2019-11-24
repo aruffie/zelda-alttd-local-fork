@@ -10,6 +10,7 @@ local math_utils = require("scripts/tools/math_utils")
 
 function block_meta:on_created()
   self:set_drawn_in_y_order()
+  self.movement_start_x, self.movement_start_y=self:get_position()
 end
 
 function block_meta:on_removed()
@@ -21,7 +22,7 @@ function block_meta:on_removed()
     local sprite=self:get_sprite()
       local falling_entity = self:get_map():create_custom_entity({
       name="falling_block_actor",
-      sprite = sprite,
+      sprite = sprite:get_animation_set(),
       x = x,
       y = y,
       width = 16,
@@ -30,6 +31,7 @@ function block_meta:on_removed()
       direction = 0,
     })
     falling_entity:set_traversable_by("hero", false)
+    falling_entity:set_can_traverse_ground("hole", true)
     local m=sol.movement.create("straight")
     if x~=self.movement_start_x then
       m:set_max_distance(16-math.abs(x-self.movement_start_x))
@@ -51,8 +53,8 @@ end
 function block_meta:on_movement_started(movement)
   
   --The following line returns "movement", should be something like "straignt_movement" or "piel_movement", hence the bugs when trying to call the type-specific movement methods. This is obviously an engine bug.
-  --print ("block movement type: "..sol.main.get_type(movement)) 
-  --movement:set_ignore_obstacles()
+--  print ("block movement type: "..sol.main.get_type(movement)) 
+--  movement:set_ignore_obstacles()
 end
 
 function block_meta:on_moving()
@@ -77,11 +79,10 @@ function block_meta:on_position_changed(x, y, layer)
   if true or self:get_movement():get_ignore_obstacles() then --BROKEN see above why
     local bx,by,bh,bw=self:get_bounding_box()
     local dx, dy=unpack(math_utils.get_offset_from_direction4(moving_direction))
-    for e in self:get_map():get_entities_in_rectangle(bx*2, by*2, bw*2, bh*2) do --push any enemy which gets overlapped by the block
-      if e:get_type()=="enemy" then
+    for e in self:get_map():get_entities_in_rectangle(bx+dx, by+dy, bw, bh) do --push any enemy which gets overlapped by the block
+      if e:get_type()=="enemy" and e:get_obstacle_behavior()~="flying" then
         local ex,ey=e:get_position()
         e:set_position(ex+dx, ey+dy)
-
       end
     end
   end

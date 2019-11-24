@@ -21,7 +21,7 @@ end
 
 function item:start_combo(other)
   if other:get_name()=="bow" and other.start_combo then
---    print "Combined items bomb"
+--  debug_print "Combined items bomb"
     --Delegate to the bow since it already has the combo implemented
     --TODO Maybe delegate to a manager instead?
     other:start_combo(item)
@@ -31,7 +31,7 @@ end
 
 -- Called when the player uses the bombs of his inventory by pressing the corresponding item key.
 function item:start_using()
---  print "Single item bomb"
+--  debug_print "Single item bomb"
   if item:get_amount() == 0 then
     if sound_timer == nil then
       audio_manager:play_sound("misc/error")

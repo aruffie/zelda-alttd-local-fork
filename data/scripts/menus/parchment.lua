@@ -7,7 +7,7 @@ local parchment = {}
 
 -- Shows a parchment unrolling itself to show text.
 --  context:      The context for the menu.
---  type:         The type of parchment ("boss", "default", "" will fallback on default).
+--  type:         The style for the menu ("boss" or "default").
 --  position:     The position on the screen ("top", "bottom")
 --  delay:        Delay after which the menu will close (use 0 to keep it open).
 --  text_line_1:  First line of text (will be displayed with border and shadow).
@@ -23,7 +23,11 @@ function parchment:show(context, type, position, delay, text_line_1, text_line_2
 
   parchment.type = type or "default"
   parchment.position = position or "center"
-  parchment.delay = delay or 3000
+  parchment.delay = 3000
+  if delay ~= nil and sol.main.get_type(delay) == "number" then
+    parchment.delay = delay
+  end
+
   parchment.text_line_1 = text_line_1
   parchment.text_line_2 = text_line_2
   parchment.on_opened_callback = on_opened_callback
@@ -60,6 +64,8 @@ function parchment:hide(animate)
     parchment.on_closing_callback()
   end
 
+  parchment.parchment_shadow_sprite:fade_out(10)
+
   local current_animation = parchment.parchment_sprite:get_animation()
   if current_animation == "opening" or  current_animation == "open" then
     
@@ -85,7 +91,7 @@ function parchment:hide(animate)
     -- sprite:set_animation(animation_name, frame, [next_action])
     parchment.parchment_sprite:register_event("on_animation_finished", function(sprite, animation)      
       if animation == "closing" then
-        parchment.state = "fading"
+        parchment.state = "fading_out"
         parchment.parchment_sprite:set_animation("closed")
         parchment.parchment_shadow_sprite:set_animation("closed")
         -- Fade-out the menu, then close it.
@@ -97,12 +103,10 @@ function parchment:hide(animate)
 
     -- Go!
     parchment.parchment_shadow_sprite:set_paused(false)
-    parchment.parchment_shadow_sprite:fade_out(20)
     parchment.parchment_sprite:set_paused(false)
 
   elseif current_animation == "closed" then
     -- Fade-out the menu, then close it.
-    parchment.parchment_shadow_sprite:fade_out(5)
     parchment.parchment_sprite:fade_out(10, function()
       sol.menu.stop(self)
     end)
@@ -122,20 +126,24 @@ function parchment:initialize()
 
   -- Create parchment sprite.
   local text_line_1_color = { 255, 255, 255 }
-  local text_line_1_stroke_color = {158, 117, 70}
-  local text_line_1_shadow_color = {85, 20, 0}
-  local text_line_2_color = {158, 117, 70}
-  if type == "boss" then
-    parchment.parchment_sprite = sol.sprite.create("menus/parchment/parchment_default") -- TODO boss
+  local text_line_1_stroke_color = nil
+  local text_line_1_shadow_color = nil
+  local text_line_2_color = nil
+  if parchment.type == "boss" then
+    text_line_1_stroke_color = {124, 57, 30}
+    text_line_1_shadow_color = {46, 8, 0}
+    text_line_2_color = {124, 57, 30}
+    parchment.parchment_sprite = sol.sprite.create("menus/parchment/parchment_boss")
   else
+    text_line_1_stroke_color = {133, 96, 30}
+    text_line_1_shadow_color = {85, 20, 0}
+    text_line_2_color = {158, 117, 70}
     parchment.parchment_sprite = sol.sprite.create("menus/parchment/parchment_default")
   end
   parchment.parchment_sprite:set_ignore_suspend(true)
 
   -- Shadow
   parchment.parchment_shadow_sprite = sol.sprite.create("menus/parchment/parchment_shadow")
-  --parchment.parchment_shadow_sprite:set_blend_mode("multiply") -- Bug
-  --parchment.parchment_shadow_sprite:set_opacity(64)
   parchment.parchment_shadow_sprite:set_ignore_suspend(true)
 
   -- Create texts surface
@@ -166,7 +174,7 @@ function parchment:initialize()
   }
   text_line_surface_2:draw(parchment.text_lines_surface, parchment.surface_w / 2, parchment.surface_h - 6)
 
-  parchment.state = "fading"
+  parchment.state = "fading_out"
 
   parchment.visible_text_surface = sol.surface.create(parchment.surface_w, parchment.surface_h)
   
@@ -191,21 +199,20 @@ function parchment:initialize()
   end)
 end
 
-------------------------------- Menus functions -------------------------------
-
-function parchment:on_started()
+function parchment:start()
   -- Pause the animation while fading in.
   parchment.parchment_sprite:set_animation("closed")
   parchment.parchment_shadow_sprite:set_animation("closed")
+  parchment.parchment_sprite:set_opacity(0)
+  parchment.parchment_shadow_sprite:set_opacity(0)
 
   if parchment.finished then
     return
-  end  
+  end
   
-  parchment.parchment_shadow_sprite:fade_in(10)
   parchment.parchment_sprite:fade_in(5)
   
-  -- Launch animation after fade-in.
+  -- Launch animation.
   parchment.state = "opening"
   parchment.parchment_shadow_sprite:set_animation("opening")
   parchment.parchment_sprite:set_animation("opening", function()
@@ -218,7 +225,9 @@ function parchment:on_started()
     parchment.parchment_shadow_sprite:set_animation("open")
     parchment.parchment_sprite:set_animation("open")
 
-    if parchment.delay == 0 then
+    parchment.parchment_shadow_sprite:fade_in(10)
+
+    if parchment.delay <= 0 then
       if parchment.on_opened_callback ~= nil then
         parchment.on_opened_callback()
 
@@ -237,7 +246,13 @@ function parchment:on_started()
       end)
     end
   end)
+end
 
+------------------------------- Menus functions -------------------------------
+
+function parchment:on_started()
+
+  parchment:start()
 end
 
 function parchment:on_draw(dst_surface)
@@ -254,9 +269,16 @@ function parchment:on_draw(dst_surface)
     y = (dst_h - parchment.surface_h) / 2
   end
   
-  parchment.parchment_shadow_sprite:draw(dst_surface, x, y + 2)
+  -- Shadow
+  if parchment.state ~= "closed" and parchment.state ~= "fading_out" then
+    parchment.parchment_shadow_sprite:draw(dst_surface, x, y + 2)
+  end
+  
+  -- Parchment
   parchment.parchment_sprite:draw(dst_surface, x, y)
-  if parchment.state ~= "fading" then
+
+  -- Text
+  if parchment.state ~= "fading_out" then
     parchment.visible_text_surface:draw(dst_surface, x, y)
   end
 end
@@ -271,4 +293,3 @@ function parchment:on_finished()
 end
 
 return parchment
-

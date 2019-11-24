@@ -39,9 +39,13 @@ function enemy:free_hero()
 
   -- Reset hero opacity.
   hero_sprite:set_opacity(255)
-  hero:get_sprite("shadow"):set_opacity(255)
-  hero:get_sprite("shadow_override"):set_opacity(255)
-
+  if hero:get_sprite("shadow") then
+    hero:get_sprite("shadow"):set_opacity(255)
+  end
+  if hero:get_sprite("shadow_override") then
+    hero:get_sprite("shadow_override"):set_opacity(255)
+  end
+  
   -- Make enemy exhausted, then restart after some time.
   enemy:set_invincible()
   enemy:set_damage(0)
@@ -54,7 +58,7 @@ end
 
 game:register_event("on_command_pressed", function(game, command)
     -- Store the number of command pressed while eaten, and free the hero once 8 item commands are pressed.
-    if is_eating and ( command=="sword" or command=="item_1" or command =="item_2") then
+    if is_eating and ( command=="attack" or command=="item_1" or command =="item_2") then
       command_pressed_count = command_pressed_count + 1
       if command_pressed_count == 8 then
         enemy:free_hero()

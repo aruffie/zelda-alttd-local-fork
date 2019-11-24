@@ -7384,7 +7384,7 @@ tile{
 
 tile{
   layer = 1,
-  x = 1088,
+  x = 1032,
   y = 736,
   width = 64,
   height = 8,
@@ -7393,7 +7393,7 @@ tile{
 
 tile{
   layer = 1,
-  x = 1088,
+  x = 1032,
   y = 696,
   width = 64,
   height = 8,
@@ -7421,16 +7421,16 @@ tile{
 tile{
   layer = 1,
   x = 1256,
-  y = 864,
+  y = 808,
   width = 8,
-  height = 32,
+  height = 64,
   pattern = "door_cache.4-2",
 }
 
 tile{
   layer = 1,
   x = 1296,
-  y = 816,
+  y = 808,
   width = 8,
   height = 64,
   pattern = "door_cache.3-2",
@@ -7439,7 +7439,7 @@ tile{
 tile{
   layer = 1,
   x = 936,
-  y = 816,
+  y = 808,
   width = 8,
   height = 64,
   pattern = "door_cache.4-2",
@@ -7448,7 +7448,7 @@ tile{
 tile{
   layer = 1,
   x = 976,
-  y = 816,
+  y = 808,
   width = 8,
   height = 64,
   pattern = "door_cache.3-2",

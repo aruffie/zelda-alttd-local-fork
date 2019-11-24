@@ -61,7 +61,7 @@ entity:set_traversable_by("custom_entity", function(entity, other)
   end)
 
 entity:set_traversable_by("hero", function(entity, other)
-    print (other.ignore_crystal_block)
+    debug_print (other.ignore_crystal_block)
     if entity:is_raised() and not other.ignore_crystal_block then
       return check_generic_collision(entity, other)
     else

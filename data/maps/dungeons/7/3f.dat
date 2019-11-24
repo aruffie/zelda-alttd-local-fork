@@ -6085,6 +6085,51 @@ wall{
 
 tile{
   layer = 1,
+  x = 384,
+  y = 456,
+  width = 64,
+  height = 8,
+  pattern = "door_cache.2-2",
+}
+
+tile{
+  layer = 1,
+  x = 1176,
+  y = 496,
+  width = 64,
+  height = 8,
+  pattern = "door_cache.1-2",
+}
+
+tile{
+  layer = 1,
+  x = 1176,
+  y = 456,
+  width = 64,
+  height = 8,
+  pattern = "door_cache.2-2",
+}
+
+tile{
+  layer = 1,
+  x = 936,
+  y = 560,
+  width = 8,
+  height = 64,
+  pattern = "door_cache.4-2",
+}
+
+tile{
+  layer = 1,
+  x = 976,
+  y = 560,
+  width = 8,
+  height = 64,
+  pattern = "door_cache.3-2",
+}
+
+tile{
+  layer = 1,
   x = 1088,
   y = 496,
   width = 64,

@@ -12532,6 +12532,33 @@ block{
 
 tile{
   layer = 1,
+  x = 296,
+  y = 352,
+  width = 8,
+  height = 64,
+  pattern = "door_cache.4-2",
+}
+
+tile{
+  layer = 1,
+  x = 336,
+  y = 352,
+  width = 8,
+  height = 64,
+  pattern = "door_cache.3-2",
+}
+
+tile{
+  layer = 1,
+  x = 128,
+  y = 456,
+  width = 64,
+  height = 8,
+  pattern = "door_cache.2-2",
+}
+
+tile{
+  layer = 1,
   x = 432,
   y = 16,
   width = 96,
