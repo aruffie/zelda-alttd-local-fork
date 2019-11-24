@@ -39,6 +39,7 @@ function jump_manager.reset_collision_rules(state)
     state:set_can_be_hurt(true)
     state:set_gravity_enabled(true)
     state:set_can_traverse("crystal_block", nil)
+    state:set_can_control_movement(state:get_description()~="sword_swinging" and state:get_description()=="sword_spin_attack")
   end
 end
 

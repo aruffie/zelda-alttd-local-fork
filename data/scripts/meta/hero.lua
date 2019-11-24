@@ -389,6 +389,13 @@ hero_meta:register_event("on_created", function(hero)
     hero:remove_sprite(hero:get_sprite("shadow"))
     hero:initialize_fixing_functions() -- Used to fix direction and animations.
 
+    local variant=hero:get_game():get_item("sword"):get_variant()
+    if  variant then
+      hero:create_sprite("hero/sword"..variant, "sword_override"):stop_animation()
+      hero:create_sprite("hero/sword_stars"..variant, "sword_stars_override"):stop_animation()
+    end
+
+
   end)
 
 
