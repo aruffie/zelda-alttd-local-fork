@@ -575,8 +575,15 @@ teletransporter{
   layer = 0,
   x = 152,
   y = 216,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
   width = 16,
   height = 16,
+  transition = "immediate",
   destination_map = "out/a3_mabe_village",
   destination = "shop_1_2_A",
 }
