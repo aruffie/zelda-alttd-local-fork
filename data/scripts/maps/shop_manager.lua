@@ -95,7 +95,6 @@ function shop_manager:add_product(map, name, params)
       product_lifting:set_weight(0)
       product_lifting:bring_to_back()
       product_lifting:get_sprite():set_animation("invisible")
-
       function product_lifting:on_lifting(carrier, carried_object)
         local sprite = carried_object:get_sprite()
         sprite:set_animation("take")
@@ -124,7 +123,6 @@ function shop_manager:buy_product(map)
   game:start_dialog("maps.houses.mabe_village.shop_2.product" .. "_" .. shop_manager.product.params.dialog_id, function(answer)
     if answer == 1 then
       local error = false
-
       -- Hearts
       if shop_manager.product.name == "heart" then
         if game:get_life() == game:get_max_life() then
