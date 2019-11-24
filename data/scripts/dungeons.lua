@@ -612,7 +612,6 @@ local function initialize_dungeon_features(game)
           game:set_suspended(true)
 
           local timer = sol.timer.start(map, 10, function()
-            game:set_suspended(true)
 
             -- Show parchment with dungeon name.
             local line_1 = sol.language.get_dialog("maps.dungeons." .. dungeon_index .. ".welcome_name").text
