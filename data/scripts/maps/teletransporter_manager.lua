@@ -60,11 +60,11 @@ game_meta:register_event("on_map_changed", function(game, map)
       game.map_in_transition.start_effect(surface, game, "out", false, function()
           debug_print("End of inter-maps custom transition")
           game.teleport_in_progress=nil
+          game:set_suspended(false)
+          game:set_pause_allowed(true)
           if map.do_after_transition then
             map.do_after_transition()
           end
-          game:set_suspended(false)
-          game:set_pause_allowed(true)
         end)
       game.map_in_transition = nil
     end
