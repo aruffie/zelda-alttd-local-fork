@@ -39,7 +39,7 @@ hero:register_event("on_position_changed", function(hero)
   end
 
   local movement = hero:get_movement()
-  if movement ~= hero_movement then
+  if movement and movement ~= hero_movement then
 
     hero_movement = movement
     enemy:stop_movement()
