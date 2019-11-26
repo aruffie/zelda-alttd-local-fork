@@ -10,12 +10,40 @@ local map = enemy:get_map()
 local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
+local is_running = false
 
 -- Configuration variables
 local walking_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
 local walking_speed = 32
 local walking_minimum_distance = 16
 local walking_maximum_distance = 96
+local running_speed = 200
+local running_duration = 2000
+
+-- Behavior on effective shot received.
+local function on_attack_received()
+
+  -- Start running and a timer before explosion.
+  if not is_running then
+    is_running = true
+    enemy:start_running()
+    sol.timer.start(enemy, running_duration, function()
+      enemy:explode()
+    end)
+  end
+end
+
+-- Make the enemy explode
+function enemy:explode()
+
+  local x, y, layer = enemy:get_position()
+  map:create_explosion({
+    x = x,
+    y = y,
+    layer = layer
+  })
+  enemy:remove()
+end
 
 -- Start the enemy movement.
 function enemy:start_walking()
@@ -25,10 +53,28 @@ function enemy:start_walking()
   end)
 end
 
+-- Start going away to the hero and bounce.
+function enemy:start_running(angle)
+
+  angle = angle or hero:get_angle(enemy)
+  local movement = enemy:start_straight_walking(angle, running_speed, nil, function()
+    enemy:start_running(enemy:get_obstacles_bounce_angle(angle))
+  end)
+  movement:set_smooth(false)
+end
+
+-- Explode on collision with another enemy while running.
+enemy:register_event("on_collision_enemy", function(enemy, other_enemy, other_sprite, my_sprite)
+
+  if is_running then
+    enemy:explode()
+  end
+end)
+
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
 
-  enemy:set_life(2)
+  enemy:set_life(1)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)
 end)
@@ -37,12 +83,10 @@ end)
 enemy:register_event("on_restarted", function(enemy)
 
   -- Behavior for each items.
-  enemy:set_hero_weapons_reactions(2, {
-    sword = 1
-  })
+  enemy:set_hero_weapons_reactions(on_attack_received, {jump_on = "ignored"})
 
   -- States.
   enemy:set_can_attack(true)
-  enemy:set_damage(1)
+  enemy:set_damage(4)
   enemy:start_walking()
 end)
