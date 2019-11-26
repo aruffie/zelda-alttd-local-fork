@@ -11,21 +11,24 @@ local map = enemy:get_map()
 local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
-local is_hero_pushable = true
+local is_hero_pushed_back = false
 
--- Make hero retreat on sword attack received
-function on_sword_attack_received()
+-- Make hero pushed back on sword attack received.
+local function on_sword_attack_received()
 
-  if is_hero_pushable then
-    is_hero_pushable = false
-    enemy:start_pushing_back(hero, 200, 100)
-    sprite:set_animation("bounce", function()
-      sprite:set_animation("walking")
-    end)
-    sol.timer.start(map, 300, function() -- Only push once even if the sword still collide at following frames.
-      is_hero_pushable = true
-    end)
+  -- Make sure to only trigger this event once by attack.
+  if is_hero_pushed_back then
+    return
   end
+  is_hero_pushed_back = true
+  sol.timer.start(map, 300, function()
+    is_hero_pushed_back = false
+  end)
+
+  enemy:start_pushing_back(hero, 200, 100)
+  sprite:set_animation("bounce", function()
+    sprite:set_animation("walking")
+  end)
 end
 
 -- Initialization.

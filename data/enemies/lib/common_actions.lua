@@ -579,9 +579,12 @@ function common_actions.learn(enemy)
       
       -- Always display the shadow on the lowest possible layer.
       function shadow:on_position_changed(x, y, layer)
-        for ground_layer = layer, map:get_min_layer(), -1 do
-          if shadow:get_layer() ~= ground_layer and map:get_ground(x, y, ground_layer) ~= "empty" then
-            shadow:set_layer(ground_layer)
+        for ground_layer = enemy:get_layer(), map:get_min_layer(), -1 do
+          if map:get_ground(x, y, ground_layer) ~= "empty" then
+            if shadow:get_layer() ~= ground_layer then
+              shadow:set_layer(ground_layer)
+            end
+            break
           end
         end
       end
