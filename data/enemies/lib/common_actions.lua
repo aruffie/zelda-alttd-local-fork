@@ -175,49 +175,55 @@ function common_actions.learn(enemy)
     return (2.0 * normal_angle - angle + math.pi) % circle
   end
 
-  -- Start a straight walking and apply a constant acceleration (px/s²), decelerating when x,y reached.
+  -- Start a straight walking and apply a constant acceleration (px/s²), decelerating by axis independently when axis target reached.
   function enemy:start_acceleration_walking(x, y, speed, acceleration, deceleration, ignore_obstacles, on_decelerating_callback)
 
     -- Workaround : Don't use solarus movements to be able to start several movements at the same time.
     local angle = enemy:get_angle(x, y)
-    local start_x, start_y, _ = enemy:get_position()
-    local move_step = {math.max(-1, math.min(1, x - start_x)), math.max(-1, math.min(1, y - start_y))}
-    local current_speed = {math.abs(math.cos(angle) * 2.0 * acceleration), math.abs(math.sin(angle) * 2.0 * acceleration)}
-    local is_decelerating = false
+    local start = {enemy:get_position()}
+    local target = {x, y}
 
     -- Schedule 1 pixel moves on each axis depending on the given acceleration.
     function move_on_axis(axis)
-      return sol.timer.start(enemy, 1000.0 / current_speed[axis], function()
 
-        -- Stop movement if obstacle reached. 
-        local move = {0, 0}
-        move[axis] = move_step[axis]
-        if not ignore_obstacles and enemy:test_obstacles(move[1], move[2]) then
-          return false
-        end
+      local axis_move_step = math.max(-1, math.min(1, target[axis] - start[axis]))
+      local axis_current_speed = math.abs(trigonometric_functions[axis](angle) * 2.0 * acceleration)
+      local axis_maximum_speed = math.abs(trigonometric_functions[axis](angle) * speed)
+      local axis_acceleration = acceleration
 
-        -- Move the enemy.
-        local position = {enemy:get_position()}
-        enemy:set_position(position[1] + move[1], position[2] + move[2], position[3])
+      if axis_current_speed ~= 0 then
+        return sol.timer.start(enemy, 1000.0 / axis_current_speed, function()
 
-        -- Update speed depending on acceleration and maximum speed for the next step if position not beyond the goal.
-        if not is_decelerating and position[1] + move[1] ~= x and position[2] + move[2] ~= y then -- TODO better check goal beyond.
-          current_speed[axis] = math.min(math.sqrt(math.pow(current_speed[axis], 2.0) + 2.0 * acceleration), math.abs(trigonometric_functions[axis](angle) * speed))
-        else
-          -- Update speed depending on deceleration else.
-          if not is_decelerating and on_decelerating_callback then
-            on_decelerating_callback()
-            is_decelerating = true
-          end
-          if math.pow(current_speed[axis], 2.0) - 2.0 * deceleration >= 0 then
-            current_speed[axis] = math.sqrt(math.pow(current_speed[axis], 2.0) - 2.0 * deceleration)
-          else
+          -- Stop axis movement if it would reach an obstacle. 
+          local move = {0, 0}
+          move[axis] = axis_move_step
+          if not ignore_obstacles and enemy:test_obstacles(move[1], move[2]) then
             return false
           end
-        end
-        -- Schedule the next pixel move.
-        return 1000.0 / current_speed[axis]
-      end)
+
+          -- Move the enemy.
+          local position = {enemy:get_position()}
+          enemy:set_position(position[1] + move[1], position[2] + move[2], position[3])
+
+          -- Replace axis acceleration by negative deceleration if axis goach reached.
+          if position[axis] == target[axis] then
+            axis_acceleration = -deceleration
+
+            -- TODO Call decelerating callback when both axis decelerates.
+            if on_decelerating_callback then
+              on_decelerating_callback() 
+            end
+          end
+
+          -- Update speed between 0 and maximum speed depending on acceleration.
+        axis_current_speed = math.min(math.sqrt(math.max(0, math.pow(axis_current_speed, 2.0) + 2.0 * axis_acceleration)), axis_maximum_speed)     
+
+          -- Schedule the next pixel move.
+          if axis_current_speed > 0 then
+            return 1000.0 / axis_current_speed
+          end
+        end)
+      end
     end
 
     return move_on_axis(1), move_on_axis(2)
@@ -579,9 +585,12 @@ function common_actions.learn(enemy)
       
       -- Always display the shadow on the lowest possible layer.
       function shadow:on_position_changed(x, y, layer)
-        for ground_layer = layer, map:get_min_layer(), -1 do
-          if shadow:get_layer() ~= ground_layer and map:get_ground(x, y, ground_layer) ~= "empty" then
-            shadow:set_layer(ground_layer)
+        for ground_layer = enemy:get_layer(), map:get_min_layer(), -1 do
+          if map:get_ground(x, y, ground_layer) ~= "empty" then
+            if shadow:get_layer() ~= ground_layer then
+              shadow:set_layer(ground_layer)
+            end
+            break
           end
         end
       end
