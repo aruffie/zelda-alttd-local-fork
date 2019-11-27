@@ -19,8 +19,8 @@ local after_awake_delay = 1000
 local take_off_duration = 1000
 local flying_speed = 80
 local flying_height = 16
-local flying_acceleration = 8
-local flying_deceleration = 16
+local flying_acceleration = 16
+local flying_deceleration = 32
 
 -- Make the enemy flying movement.
 function enemy:start_flying_movement()
@@ -30,6 +30,7 @@ function enemy:start_flying_movement()
   local camera_width, camera_height = camera:get_size()
   local target_x = math.random(camera_x, camera_x + camera_width)
   local target_y = math.random(camera_y + flying_height, camera_y + camera_height)
+print(target_x, target_y)
 
   -- Target the random point and start a new flying movement when reached.
   enemy:start_acceleration_walking(target_x, target_y, flying_speed, flying_acceleration, flying_deceleration, true, function()
