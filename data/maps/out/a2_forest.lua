@@ -14,6 +14,7 @@ map.overlay_angles = {
 }
 map.overlay_step = 1
 map.raccoon_warning_done = false
+map.fsa_no_clouds = true -- prevent fsa mode to draw clouds
 
 -- Include scripts
 require("scripts/multi_events")
