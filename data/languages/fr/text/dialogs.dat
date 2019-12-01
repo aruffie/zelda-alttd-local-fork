@@ -1947,8 +1947,8 @@ dialog{
   id = "maps.houses.mabe_village.quadruplets_house.mother_2",
   question = "1",
   text = [[
-Tu offres ce Yoshi à mon bébé ?  
-
+Tu offres ce Yoshi à mon bébé ?
+$pb
 
 Oui
 Non
