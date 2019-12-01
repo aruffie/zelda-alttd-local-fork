@@ -352,7 +352,9 @@ function fsa:on_map_draw(map, dst)
   tmp:set_shader(shader)
   tmp:draw(dst)
   if self.outside then
-    fsa:draw_clouds_shadow(dst,dx,dy)
+    if not map.fsa_no_clouds then
+      fsa:draw_clouds_shadow(dst,dx,dy)
+    end
   else
     light_mgr:draw(dst,map)
   end
