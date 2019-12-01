@@ -236,6 +236,15 @@ local function initialize_dialog_box_features(game)
     -- Initialize this dialog.
     local dialog = self.dialog
 
+    if dialog.icon ~= nil then
+      -- The icon changes for this dialog ("-1" means none).
+      if dialog.icon == "-1" then
+        self.icon_index = nil
+      else
+        self.icon_index = dialog.icon
+      end
+    end
+
     local text = dialog.text
     if dialog_box.info ~= nil then
       -- There is a "$v" sequence to substitute.
@@ -245,17 +254,23 @@ local function initialize_dialog_box_features(game)
     text = text:gsub("\r\n", "\n"):gsub("\r", "\n")
     local manual_line_it = text:gmatch("([^\n]*)\n")  -- Each line including empty ones.
     
+    local wrap_predicate = text_utils.sol_text_wrap_predicate(
+      box_width - (self.icon_index == nil and 50 or 82),
+      self.font,
+      self.font_size
+    )
     
-    self.line_it = iter(manual_line_it):flatmap(function(line)
-      return text_utils.word_wrap(
-        line,
-        text_utils.sol_text_wrap_predicate(
-          box_width-50,
-          self.font,
-          self.font_size
+    self.line_it = text_utils.page_breaker(
+      iter(manual_line_it):flatmap(function(line)
+        return text_utils.word_wrap(
+          line,
+          wrap_predicate
         )
-      )
-    end)
+      end),
+      3, -- page break are 3 lines long
+      nil, -- use default $pb pattern
+      1 -- target line at which to show the next line
+    )
 
     self.next_line = self.line_it()
     self.line_index = 1
@@ -267,15 +282,6 @@ local function initialize_dialog_box_features(game)
     if dialog.skip ~= nil then
       -- The skip mode changes for this dialog.
       self.skip_mode = dialog.skip
-    end
-
-    if dialog.icon ~= nil then
-      -- The icon changes for this dialog ("-1" means none).
-      if dialog.icon == "-1" then
-        self.icon_index = nil
-      else
-        self.icon_index = dialog.icon
-      end
     end
 
     if dialog.question == "1" then

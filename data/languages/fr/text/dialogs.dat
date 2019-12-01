@@ -2113,7 +2113,7 @@ dialog{
   text = [[
 Trois Coeurs   
 10 rubis !
-
+$pb
 
 Oui
 Non
