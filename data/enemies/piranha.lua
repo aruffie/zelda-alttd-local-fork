@@ -32,7 +32,7 @@ function enemy:start_walking(direction2)
   -- Also change the direction if the front ground is not water anymore.
   function movement:on_position_changed()
     local x, y, layer = enemy:get_position()
-    if not string.find(map:get_ground(x + (direction2 == 1 and 8 or -8), y, layer), "water") then
+    if not enemy:is_fully_over_ground("water") then
       movement:stop()
       enemy:start_walking(direction2 % 2 + 1)
     end
@@ -75,6 +75,7 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(1)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)
+  enemy:set_obstacle_behavior("swimming")
 end)
 
 -- Restart settings.
