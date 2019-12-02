@@ -6,6 +6,7 @@
 -- Methods : enemy:is_near(entity, triggering_distance, [sprite])
 --           enemy:is_aligned(entity, thickness, [sprite])
 --           enemy:is_leashed_by(entity)
+--           enemy:is_fully_over_ground(ground)
 --           enemy:is_sprite_contained(sprite, x, y, width, height)
 --           enemy:get_angle_from_sprite(sprite, entity)
 --           enemy:get_central_symmetry_position(x, y)
@@ -13,12 +14,12 @@
 --           enemy:get_obstacles_normal_angle()
 --           enemy:get_obstacles_bounce_angle([angle])
 --
---           enemy:start_acceleration_walking(x, y, speed, [acceleration, [deceleration, [ignore_obstacles, [on_decelerating_callback]]]])
---           enemy:start_straight_walking(angle, speed, [distance, [ignore_obstacles, [on_stopped_callback]]]) TODO ignore_obstacles
---           enemy:start_target_walking(entity, speed, [ignore_obstacles]) TODO ignore_obstacles
+--           enemy:start_straight_walking(angle, speed, [distance, [ignore_obstacles, [on_stopped_callback]]])
+--           enemy:start_target_walking(entity, speed, [ignore_obstacles])
 --           enemy:start_jumping(duration, height, [angle, speed, [on_finished_callback]])
 --           enemy:start_flying(take_off_duration, height, [on_finished_callback])
 --           enemy:stop_flying(landing_duration, [on_finished_callback])
+--           enemy:start_impulsion(x, y, speed, acceleration, deceleration)
 --           enemy:start_attracting(entity, speed, [moving_condition_callback])
 --           enemy:stop_attracting()
 --           enemy:start_welding(entity, [x_offset, [y_offset]])
@@ -93,6 +94,17 @@ function common_actions.learn(enemy)
   -- Return true if the enemy is currently leashed by the entity.
   function enemy:is_leashed_by(entity)
     return leashing_timers[entity] ~= nil
+  end
+
+  -- Return true if the four corners of the enemy are over the given ground.
+  function enemy:is_fully_over_ground(ground)
+    local x, y, layer = enemy:get_position()
+    local width, height = enemy:get_size()
+    local origin_x, origin_y = enemy:get_origin()
+    return string.find(map:get_ground(x - origin_x, y - origin_y, layer), ground)
+        and string.find(map:get_ground(x - origin_x + width, y - origin_y, layer), ground)
+        and string.find(map:get_ground(x - origin_x, y - origin_y + height, layer), ground)
+        and string.find(map:get_ground(x - origin_x + width, y - origin_y + height, layer), ground)
   end
 
   -- Return true if the sprite is fully inside the given rectangle.
@@ -173,60 +185,6 @@ function common_actions.learn(enemy)
     angle = angle or enemy:get_movement():get_angle()
 
     return (2.0 * normal_angle - angle + math.pi) % circle
-  end
-
-  -- Start a straight walking and apply a constant acceleration (px/s²), decelerating by axis independently when axis target reached.
-  function enemy:start_acceleration_walking(x, y, speed, acceleration, deceleration, ignore_obstacles, on_decelerating_callback)
-
-    -- Workaround : Don't use solarus movements to be able to start several movements at the same time.
-    local angle = enemy:get_angle(x, y)
-    local start = {enemy:get_position()}
-    local target = {x, y}
-
-    -- Schedule 1 pixel moves on each axis depending on the given acceleration.
-    function move_on_axis(axis)
-
-      local axis_move_step = math.max(-1, math.min(1, target[axis] - start[axis]))
-      local axis_current_speed = math.abs(trigonometric_functions[axis](angle) * 2.0 * acceleration)
-      local axis_maximum_speed = math.abs(trigonometric_functions[axis](angle) * speed)
-      local axis_acceleration = acceleration
-
-      if axis_current_speed ~= 0 then
-        return sol.timer.start(enemy, 1000.0 / axis_current_speed, function()
-
-          -- Stop axis movement if it would reach an obstacle. 
-          local move = {0, 0}
-          move[axis] = axis_move_step
-          if not ignore_obstacles and enemy:test_obstacles(move[1], move[2]) then
-            return false
-          end
-
-          -- Move the enemy.
-          local position = {enemy:get_position()}
-          enemy:set_position(position[1] + move[1], position[2] + move[2], position[3])
-
-          -- Replace axis acceleration by negative deceleration if axis goach reached.
-          if position[axis] == target[axis] then
-            axis_acceleration = -deceleration
-
-            -- TODO Call decelerating callback when both axis decelerates.
-            if on_decelerating_callback then
-              on_decelerating_callback() 
-            end
-          end
-
-          -- Update speed between 0 and maximum speed depending on acceleration.
-        axis_current_speed = math.min(math.sqrt(math.max(0, math.pow(axis_current_speed, 2.0) + 2.0 * axis_acceleration)), axis_maximum_speed)     
-
-          -- Schedule the next pixel move.
-          if axis_current_speed > 0 then
-            return 1000.0 / axis_current_speed
-          end
-        end)
-      end
-    end
-
-    return move_on_axis(1), move_on_axis(2)
   end
 
   -- Make the enemy straight move.
@@ -398,6 +356,96 @@ function common_actions.learn(enemy)
         end
       end
     end
+  end
+
+  -- Start a straight move to the given target and apply a constant acceleration and deceleration (px/s²).
+  function enemy:start_impulsion(x, y, speed, acceleration, deceleration)
+
+    -- Workaround : Don't use solarus movements to be able to start several movements at the same time.
+    local movement = {}
+    local timers = {}
+    local angle = enemy:get_angle(x, y)
+    local start = {enemy:get_position()}
+    local target = {x, y}
+    local accelerations = {acceleration, acceleration}
+    local ignore_obstacles = false
+
+    -- Call given event on the movement table.
+    local function call_event(event)
+      if event then
+        event(movement)
+      end
+    end
+
+    -- Schedule 1 pixel moves on each axis depending on the given acceleration.
+    local function move_on_axis(axis)
+
+      local axis_current_speed = math.abs(trigonometric_functions[axis](angle) * 2.0 * acceleration)
+      local axis_maximum_speed = math.abs(trigonometric_functions[axis](angle) * speed)
+      local axis_move = {[axis % 2 + 1] = 0, [axis] = math.max(-1, math.min(1, target[axis] - start[axis]))}
+
+      -- Avoid too low timers.
+      if axis_current_speed <= 0.5 then
+        accelerations[axis] = 0
+        return
+      end
+
+      return sol.timer.start(enemy, 1000.0 / axis_current_speed, function()
+
+        -- Move enemy if it wouldn't reach an obstacle.
+        local position = {enemy:get_position()}
+        if ignore_obstacles or not enemy:test_obstacles(axis_move[1], axis_move[2]) then
+          enemy:set_position(position[1] + axis_move[1], position[2] + axis_move[2], position[3])
+          call_event(movement.on_position_changed)
+        else
+          call_event(movement.on_obstacle_reached)
+        end
+
+        -- Replace axis acceleration by negative deceleration if beyond axis target.
+        local axis_position = position[axis] + axis_move[axis]
+        if accelerations[axis] > 0 and math.min(start[axis], axis_position) <= target[axis] and target[axis] <= math.max(start[axis], axis_position) then
+          accelerations[axis] = -deceleration
+          call_event(movement.on_changed)
+
+          -- Call decelerating callback if both axis timers are decelerating.
+          if accelerations[axis % 2 + 1] <= 0 then
+            call_event(movement.on_decelerating)
+          end
+        end
+
+        -- Update speed between 0 and maximum speed (px/s) depending on acceleration.
+        axis_current_speed = math.min(math.sqrt(math.max(0, math.pow(axis_current_speed, 2.0) + 2.0 * accelerations[axis])), axis_maximum_speed)     
+
+        -- Schedule the next pixel move and avoid too low timers.
+        if axis_current_speed > 0.5 then
+          return 1000.0 / axis_current_speed
+        end
+
+        -- Call on_finished() event if both axis timers are finished.
+        timers[axis] = nil
+        if not timers[axis % 2 + 1] then
+          call_event(movement.on_finished)
+        end
+      end)
+    end
+    timers = {move_on_axis(1), move_on_axis(2)}
+
+    -- TODO Reproduce generic build-in movement methods on the returned movement table.
+    function movement:stop()
+      for i = 1, 2 do
+        if timers[i] then
+          timers[i]:stop()
+        end
+      end
+    end
+    function movement:set_ignore_obstacles(ignore)
+      ignore_obstacles = ignore or true
+    end
+    function movement:get_direction4()
+      return math.floor((angle / circle * 8 + 1) % 8 / 2)
+    end
+
+    return movement
   end
 
   -- Start attracting the given entity, negative speed possible.
