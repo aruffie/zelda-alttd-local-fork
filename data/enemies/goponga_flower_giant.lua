@@ -11,7 +11,6 @@ local map = enemy:get_map()
 local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
-local is_hero_pushed_back = false
 
 -- Configuration variables.
 local waiting_minimum_time = 4000
@@ -21,17 +20,11 @@ local waiting_maximum_time = 5000
 local function on_sword_attack_received()
 
   -- Make sure to only trigger this event once by attack.
-  if is_hero_pushed_back then
-    return
-  end
-  is_hero_pushed_back = true
-  sol.timer.start(map, 300, function()
-    is_hero_pushed_back = false
-  end)
+  enemy:set_invincible()
 
   enemy:start_pushing_back(hero, 200, 100)
   sprite:set_animation("bounce", function()
-    sprite:set_animation("walking")
+    enemy:restart()
   end)
 end
 
