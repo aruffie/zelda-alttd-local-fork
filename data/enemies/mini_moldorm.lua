@@ -22,7 +22,7 @@ local walking_speed = 88
 local walking_angle = 0.05
 local body_frame_lag = 11
 local tail_frame_lag = 20
-local keeping_angle_maximum_duration = 1000
+local keeping_angle_duration = 1000
 
 local highest_frame_lag = tail_frame_lag + 1 -- Avoid too much values in the last_positions table
 
@@ -49,7 +49,7 @@ function enemy:start_walking()
   end
 
   -- Regularly and randomly change the angle.
-  sol.timer.start(enemy, keeping_angle_maximum_duration, function()
+  sol.timer.start(enemy, keeping_angle_duration, function()
     if math.random(2) == 1 then
       walking_angle = 0 - walking_angle
     end
@@ -93,12 +93,10 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 8)
   
-  -- Create sprites.
-  head_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
-  body_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/body")
+  -- Create sprites in right z-order.
   tail_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/tail")
-  enemy:bring_sprite_to_back(body_sprite)
-  enemy:bring_sprite_to_back(tail_sprite)
+  body_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/body")
+  head_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 end)
 
 -- Restart settings.

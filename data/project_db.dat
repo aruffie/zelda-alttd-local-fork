@@ -243,6 +243,11 @@ sprite{ id = "enemies/boss/master_stalfos/master_stalfos_shadow", description = 
 sprite{ id = "enemies/boss/master_stalfos/master_stalfos_shield", description = "Master stalfos shield" }
 sprite{ id = "enemies/boss/master_stalfos/master_stalfos_sword", description = "Master stalfos sword" }
 sprite{ id = "enemies/boss/moblin_chief", description = "Moblin chief" }
+sprite{ id = "enemies/boss/moldorm", description = "Moldorm" }
+sprite{ id = "enemies/boss/moldorm/body_1", description = "Body 1" }
+sprite{ id = "enemies/boss/moldorm/body_2", description = "Body 2" }
+sprite{ id = "enemies/boss/moldorm/body_3", description = "Body 3" }
+sprite{ id = "enemies/boss/moldorm/tail", description = "Moldorm Tail" }
 sprite{ id = "enemies/boss/rolling_bones/rolling_bones", description = "Rolling bones" }
 sprite{ id = "enemies/boss/rolling_bones/rolling_bones_spike", description = "Rolling bones Spike" }
 sprite{ id = "enemies/boss/slime_eel", description = "Slime eel" }

@@ -1,6 +1,6 @@
 animation{
   name = "immobilized",
-  src_image = "enemies/boss/moldorm/moldorm_head.png",
+  src_image = "enemies/boss/moldorm.png",
   frame_delay = 100,
   frame_to_loop_on = 0,
   directions = {
@@ -16,7 +16,7 @@ animation{
 }
 animation{
   name = "hurt",
-  src_image = "enemies/boss/moldorm/moldorm_head.png",
+  src_image = "enemies/boss/moldorm.png",
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {
@@ -32,7 +32,7 @@ animation{
 }
 animation{
   name = "walking",
-  src_image = "enemies/boss/moldorm/moldorm_head.png",
+  src_image = "enemies/boss/moldorm.png",
   frame_delay = 100,
   frame_to_loop_on = 0,
   directions = {
