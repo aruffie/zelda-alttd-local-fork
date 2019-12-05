@@ -25,7 +25,7 @@ local running_speed = 160
 local body_frame_lags = {20, 35, 50}
 local tail_frame_lag = 62
 local keeping_angle_duration = 1000
-local angry_duration = 2000
+local angry_duration = 3000
 local before_explosion_delay = 2000
 local between_explosion_delay = 500
 
@@ -96,15 +96,17 @@ function enemy:start_explode()
 
   local function start_sprite_explosion(sprite)
     local x, y = sprite:get_xy()
-    enemy:start_brief_effect("entities/explosion_boss", "default", x, y, nil, function()
+    local effect = enemy:start_brief_effect("entities/explosion_boss", "default", x, y, nil, function()
       enemy:remove_sprite(sprite)
     end)
+    effect:bring_to_front()
   end
 
   -- Setup the enemy and start hurt animation.
   enemy:stop_movement()
-  enemy:set_can_attack(true)
-  enemy:set_damage(4)
+  enemy:set_can_attack(false)
+  enemy:set_damage(0)
+  enemy:set_pushed_back_when_hurt(false)
   for _, sprite in enemy:get_sprites() do
     sprite:set_animation("hurt")
   end
@@ -120,7 +122,6 @@ function enemy:start_explode()
         return true
       end
       enemy:start_brief_effect("entities/explosion_boss")
-      enemy:set_pushed_back_when_hurt(false)
       enemy:hurt(1)
     end)
   end)
@@ -162,7 +163,7 @@ enemy:register_event("on_created", function(enemy)
   common_actions.learn(enemy, sprite)
   enemy:set_life(4)
   enemy:set_size(32, 32)
-  enemy:set_origin(16, 29)
+  enemy:set_origin(16, 16)
   
   -- Create sprites in right z-order.
   tail_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/tail")

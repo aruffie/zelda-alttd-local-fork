@@ -2,10 +2,10 @@ animation{
   name = "immobilized",
   src_image = "enemies/boss/moldorm.png",
   directions = {
-    { x = 120, y = 80, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 37 },
-    { x = 120, y = 80, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 37 },
-    { x = 120, y = 80, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 37 },
-    { x = 120, y = 80, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 37 },
+    { x = 120, y = 80, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 20 },
+    { x = 120, y = 80, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 20 },
+    { x = 120, y = 80, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 20 },
+    { x = 120, y = 80, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 20 },
   },
 }
 animation{
@@ -14,10 +14,10 @@ animation{
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {
-    { x = 200, y = 80, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 37, num_frames = 3 },
-    { x = 200, y = 80, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 37, num_frames = 3 },
-    { x = 200, y = 80, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 37, num_frames = 3 },
-    { x = 200, y = 80, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 37, num_frames = 3 },
+    { x = 200, y = 80, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 20, num_frames = 3 },
+    { x = 200, y = 80, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 20, num_frames = 3 },
+    { x = 200, y = 80, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 20, num_frames = 3 },
+    { x = 200, y = 80, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 20, num_frames = 3 },
   },
 }
 animation{
@@ -26,9 +26,9 @@ animation{
   frame_delay = 150,
   frame_to_loop_on = 0,
   directions = {
-    { x = 120, y = 80, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 37, num_frames = 2 },
-    { x = 120, y = 80, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 37, num_frames = 2 },
-    { x = 120, y = 80, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 37, num_frames = 2 },
-    { x = 120, y = 80, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 37, num_frames = 2 },
+    { x = 120, y = 80, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 20, num_frames = 2 },
+    { x = 120, y = 80, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 20, num_frames = 2 },
+    { x = 120, y = 80, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 20, num_frames = 2 },
+    { x = 120, y = 80, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 20, num_frames = 2 },
   },
 }

@@ -677,6 +677,8 @@ function common_actions.learn(enemy)
         on_finished()
       end)
     end
+
+    return entity
   end
 
   -- Steal an item and drop it when died, possibly conditionned on the variant and the assignation to a slot.
