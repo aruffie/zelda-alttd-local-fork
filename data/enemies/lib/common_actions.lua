@@ -27,6 +27,7 @@
 --           enemy:stop_leashed_by(entity)
 --           enemy:start_pushed_back(entity, [speed, [duration, [on_finished_callback]]])
 --           enemy:start_pushing_back(entity, [speed, [duration, [on_finished_callback]]])
+--           enemy:start_shock(entity, [speed, [duration, [on_finished_callback]]])
 --
 --           enemy:start_shadow([sprite_name, [animation_name]])
 --           enemy:start_brief_effect(sprite_name, [animation_name, [x_offset, [y_offset, [maximum_duration, [on_finished_callback]]]]])
@@ -608,6 +609,20 @@ function common_actions.learn(enemy)
         on_finished_callback()
       end
     end)
+  end
+
+  -- Start pushing both enemy and entity back with an impact effect.
+  function enemy:start_shock(entity, speed, duration, on_finished_callback)
+
+    local x, y, _ = enemy:get_position()
+    local hero_x, hero_y, _ = hero:get_position()
+    enemy:start_pushing_back(hero, speed or 100, duration or 150)
+    enemy:start_pushed_back(hero, speed or 100, duration or 150, function()
+      if on_finished_callback then
+        on_finished_callback()
+      end
+    end)
+    enemy:start_brief_effect("entities/effects/impact_projectile", "default", (hero_x - x) / 2, (hero_y - y) / 2)
   end
 
   -- Add a shadow below the enemy.

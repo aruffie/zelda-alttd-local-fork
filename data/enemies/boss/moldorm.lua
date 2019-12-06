@@ -82,7 +82,7 @@ function enemy:start_walking()
   end)
 end
 
--- Increase the enemy movement for some time.
+-- Increase the enemy speed for some time.
 function enemy:set_angry()
 
   walking_movement:set_speed(running_speed)

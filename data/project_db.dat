@@ -288,7 +288,7 @@ sprite{ id = "enemies/goponga_flower", description = "Goponga flower" }
 sprite{ id = "enemies/goponga_flower_giant", description = "Goponga Flower Giant" }
 sprite{ id = "enemies/hardhat_beetle", description = "Hardhat Beetle" }
 sprite{ id = "enemies/helmasaur", description = "Helmasaur" }
-sprite{ id = "enemies/helmasaur/mask", description = "enemies/helmasaur/mask" }
+sprite{ id = "enemies/helmasaur/maskless", description = "Helmasaur maskless" }
 sprite{ id = "enemies/keese", description = "Keese" }
 sprite{ id = "enemies/leever", description = "Leever" }
 sprite{ id = "enemies/like_like", description = "Like Like" }
@@ -1514,7 +1514,7 @@ file{ path = "enemies/boss/hot_head.lua", license = "GPL v3" }
 file{ path = "enemies/boss/lanmola.lua", license = "GPL v3" }
 file{ path = "enemies/boss/master_stalfos.lua", license = "GPL v3" }
 file{ path = "enemies/boss/moblin_chief.lua", license = "GPL v3" }
-file{ path = "enemies/boss/moldorm.lua", license = "GPL v3" }
+file{ path = "enemies/boss/moldorm.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/rolling_bones", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "enemies/boss/rolling_bones/rolling_bones.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "enemies/boss/rolling_bones/rolling_bones_spike.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
@@ -1669,7 +1669,7 @@ file{ path = "entities/platform_ice_block.lua", author = "PhoenixII54", license 
 file{ path = "entities/platform_moving.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "entities/platform_thwomp.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "entities/powder.lua", license = "GPL v3" }
-file{ path = "entities/pull_handle.lua", license = "GPL v3" }
+file{ path = "entities/pull_handle.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "entities/seagull.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "entities/spike_sideview.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "entities/statue.lua", license = "GPL v3" }

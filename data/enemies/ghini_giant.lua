@@ -25,11 +25,11 @@ local flying_deceleration = 32
 -- Make the enemy flying movement.
 function enemy:start_flying_movement()
 
-  local enemy_x, _, _ = enemy:get_position()
+  local enemy_x, enemy_y, _ = enemy:get_position()
   local camera_x, camera_y = camera:get_position()
   local camera_width, camera_height = camera:get_size()
 
-  -- Target the random point in the opposite quarter the enemy is moving to.
+  -- Target a random point.
   local limit_box = {x = camera_x + 64, y = camera_y + 64, width = camera_width - 128, height = camera_height - 128}
   local target_x = math.random(limit_box.x, limit_box.x + limit_box.width)
   local target_y = math.random(limit_box.y, limit_box.y + limit_box.height)
@@ -39,7 +39,7 @@ function enemy:start_flying_movement()
   movement:set_ignore_obstacles(true)
   sprite:set_direction(target_x < enemy_x and 2 or 0)
 
-  -- Target a new random point a new point when target reached.
+  -- Target a new random point when target reached.
   function movement:on_decelerating()
     enemy:start_flying_movement()
   end

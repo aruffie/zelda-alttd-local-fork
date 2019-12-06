@@ -121,6 +121,8 @@ function enemy_meta:receive_attack_consequence(attack, reaction)
     if self.on_custom_attack_received ~= nil then
       self:on_custom_attack_received(attack)
     end
+  elseif type(reaction) == "function" then
+    reaction()
   end
 
 end
