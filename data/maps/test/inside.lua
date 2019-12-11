@@ -29,3 +29,8 @@ function key_test_switch_2:on_activated()
       map:set_cinematic_mode(false, options)
     end)
 end
+
+function starman_test:on_activated()
+  local shader=sol.shader.create("power_effect")
+  map:get_hero():get_sprite():set_shader(shader)
+end

@@ -53,7 +53,7 @@ end
 function block_meta:on_movement_started(movement)
   
   --The following line returns "movement", should be something like "straignt_movement" or "piel_movement", hence the bugs when trying to call the type-specific movement methods. This is obviously an engine bug.
---  print ("block movement type: "..sol.main.get_type(movement)) 
+--  debug_print ("block movement type: "..sol.main.get_type(movement)) 
 --  movement:set_ignore_obstacles()
 end
 

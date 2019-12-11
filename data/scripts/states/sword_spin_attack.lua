@@ -37,7 +37,7 @@ function state:on_started(old_state_name, old_state_object)
 
   --Set up sprites
   tunic_sprite = entity:get_sprite("tunic")
-  sword_sprite = entity:get_sprite("sword")
+  sword_sprite = entity:get_sprite("sword_override")
 
   sword_sprite:set_direction(tunic_sprite:get_direction())
   tunic_sprite:set_animation("spin_attack", function()
