@@ -814,3 +814,17 @@ sensor{
   height = 32,
 }
 
+pickable{
+  layer = 0,
+  x = 120,
+  y = 77,
+  treasure_name = "acorn",
+}
+
+pickable{
+  layer = 0,
+  x = 144,
+  y = 77,
+  treasure_name = "power_fragment",
+}
+

@@ -27,9 +27,8 @@ uniform int sol_time;
 
 COMPAT_VARYING vec2 sol_vtex_coord;
 COMPAT_VARYING vec4 sol_vcolor;
-float offset=240;
-vec4 target_color=vec4(1.,0.,0.,1.);
-//uniform vec4 target_color;
+
+uniform vec4 target_color;
 
 float abs2rel(float color_component){
   return color_component/255.;
@@ -48,11 +47,11 @@ vec4 compute_color(vec4 color)
   //filter out the skin colors
   if (!(
         is_close_to(color,   0.,   0.,   0., 0.000000001) //Editor background
-     || is_close_to(color, 248., 192., 136., 0.000001) //skin light (walking)
+     //|| is_close_to(color, 248., 192., 136., 0.000001) //skin light (walking)
      || is_close_to(color, 240., 160., 104., 0.000001) //skin light
-     || is_close_to(color, 240., 176., 112., 0.000001) //Hand (walking)
+    //é || is_close_to(color, 240., 176., 112., 0.000001) //Hand (walking)
      || is_close_to(color, 224., 144.,  80., 0.000001) //Hand
-     || is_close_to(color, 216., 136.,  64., 0.000001)  //skin shadow (walking)
+     //|| is_close_to(color, 216., 136.,  64., 0.000001)  //skin shadow (walking)
      || is_close_to(color, 184., 104.,  32., 0.000001)  //skin shadow
      || is_close_to(color, 248., 248., 248., 0.000001) //Eyes
      || is_close_to(color,  40.,  40.,  40., 0.000001) //Outline
