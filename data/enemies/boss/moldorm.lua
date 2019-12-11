@@ -1,400 +1,191 @@
 -- Lua script of enemy moldorm.
 -- This script is executed every time an enemy with this model is created.
 
--- Variables
+-- Global variables
 local enemy = ...
+local common_actions = require("enemies/lib/common_actions")
+require("scripts/multi_events")
+
 local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
-local sprites_folder = "enemies/boss/moldorm/" -- Rename this if necessary.
-local body_parts = {} -- In this order: head, body_1, body_2, body_3, tail.
-local normal_angle_speed, max_angle_speed = math.pi/2, math.pi -- Radians per second.
-local life = 5
-local min_radius, max_radius = 24, 80
-local hurt_duration = 4000
-local delay_between_parts = 120
-local is_hurt, is_reattaching, found_obtacle
+local head_sprite, tail_sprite
+local body_sprites = {}
+local last_positions, frame_count
+local walking_movement = nil
+local sixteenth = math.pi * 0.125
+local eighth = math.pi * 0.25
+local quarter = math.pi * 0.5
+local circle = math.pi * 2.0
 
--- Include scripts
-require("scripts/multi_events")
+-- Configuration variables
+local walking_speed = 88
+local walking_angle = 0.035
+local running_speed = 160
+local body_frame_lags = {20, 35, 50}
+local tail_frame_lag = 62
+local keeping_angle_duration = 1000
+local angry_duration = 3000
+local before_explosion_delay = 2000
+local between_explosion_delay = 500
 
--- Event called when the enemy is initialized.
-function enemy:on_created()
+local highest_frame_lag = tail_frame_lag + 1 -- Avoid too much values in the last_positions table
 
-  -- Check the number of parts already created (by recurrence).
-  local exists = map.moldorm_tail_exists
-  if exists then return end -- Exit function.
-  map.moldorm_tail_exists = true
+-- Hurt or repulse the hero depending on touched sprite.
+local function on_attack_received()
 
-  -- Define tail properties.
-  local x, y, layer = enemy:get_position()
-  local sprite = enemy:create_sprite(sprites_folder .. "moldorm")
-  sprite:set_direction(3)
-  body_parts[6] = enemy
-  
-  -- Create remaining body parts.
-  for i = 1, 5 do  
-    local e = map:create_enemy({
-      breed = enemy:get_breed(),
-      direction = 3,  x = x, y = y, layer = layer, width = 32, height = 32,
-    })
-    body_parts[i] = e
-    e:set_invincible()
-    e:clear_movement_info() -- Prepare lists.
-  end
+  -- Make sure to only trigger this event once by attack.
+  enemy:set_invincible()
 
-  -- Clear variable after body parts creation (necessary for several Moldorms).
-  map.moldorm_tail_exists = nil
-  -- Create sprites. Part 5 is spriteless, used to move the tail,
-  -- so that the tail keeps its current movement even when restarted.
-  local body_names = {"head", "body_1", "body_2", "body_3"}
-  for i = 1, 4 do 
-    body_parts[i]:create_sprite(sprites_folder .. "moldorm_" .. body_names[i])
-  end
-  local head = body_parts[1]
-  local tail = body_parts[6]
-  -- Prepare head.
-  head:bring_to_front() -- Bring head to front.
-  head:get_sprite():set_direction(6)
-  -- Draw parts in correct order.
-  for i = 1, 6 do local e = body_parts[i]; e:set_drawn_in_y_order(false) end
-  for i = 2, 6 do local e = body_parts[i]; e:bring_to_back() end
-
-  for i = 1, 6 do
-    local e = body_parts[i]
-    -- Define general properties.
-    e:set_damage(1)
-    e:set_life(life)
-    e:set_hurt_style("boss")
-    e:set_pushed_back_when_hurt(false)
-    e:set_push_hero_on_sword(true)
-    e:set_obstacle_behavior("normal")
-    if i < 5 then e:set_attack_consequence("sword", "protected") end
-  end
-
-  -- Add index and parts getters.
-  for i = 1, 6 do
-    local e = body_parts[i]
-    function e:get_index() return i end
-    function e:get_body_part(i) return body_parts[i] end
-    function e:get_head() return body_parts[1] end
-    function e:get_tail() return body_parts[6] end
-    function e:get_invisible_part() return body_parts[5] end
-  end
-
-  -- If some enemy part restarts, it breaks and needs to reattach.
-  for i = 1, 5 do
-    local e = body_parts[i]
-    function e:on_restarted()
-      if not e:is_reattaching() then e:reattach() end
-    end
-  end
-
-  -- Kill invincible parts when tail is killed.
-  function tail:on_dying()
-    for i = 1, 6 do -- Stop all body parts.
-      e = tail:get_body_part(i)
-      e:stop_movement(); sol.timer.stop_all(e)
-      e:set_life(0)
-    end
-    tail:get_invisible_part():remove()
-  end
-
-  -- Synchronize sprites with tail sprite.
-  function sprite:on_animation_changed(anim)
-    for i = 1, 4 do
-      local e = body_parts[i]
-      for _, s in e:get_sprites() do s:set_animation(anim) end
-    end
-  end
-
-  -- Start movement.
-  tail:go_random()
-  
-end
-
--- Getter/setter for hurt state.
-function enemy:is_hurt()
-  
-  return is_hurt
-  
-end
-
-function enemy:set_hurt_state(hurt)
-  
-  is_hurt = hurt
-  -- Tail part: invincibility properties.
-  if enemy == enemy:get_tail() then
-    if enemy:is_hurt() then
-      enemy:set_invincible() -- Protection!
+  -- Hurt if hero sword sprite collide with the tail sprite.
+  if enemy:overlaps(hero, "sprite", tail_sprite, hero:get_sprite("sword")) then
+    if enemy:get_life() > 1 then
+      enemy:hurt(1)
     else
-      enemy:set_default_attack_consequences()
+      enemy:start_explode()
     end
-  end
-  -- Modify speed of current movement for all body parts.
-  local m = enemy:get_movement()
-  if m and sol.main.get_type(m) == "circle_movement" then
-    if enemy:is_hurt() then
-      m:set_angular_speed(max_angle_speed)
-    else -- Not hurt.
-      m:set_angular_speed(normal_angle_speed)
-    end
-  end
-  
-end
-
--- Attaching state.
-function enemy:is_reattaching()
-  
-  return is_reattaching
-  
-end
-
-function enemy:set_reattaching_state(state) is_reattaching = state end
-
--- Stop movements and timers only on head when the tail is hurt.
-enemy:register_event("on_hurt", function()
-  -- Start hurt states.
-  for i = 1, 6 do
-    local e = enemy:get_body_part(i)
-    e:set_hurt_state(true)
-    -- Finish hurt states.
-    sol.timer.start(map, hurt_duration, function()
-      e:set_hurt_state(false)
-    end)
-  end
-  
-end)
-
--- Create list with new movement info: radius, center, is_clockwise, init_angle, max_angle.
--- Remark: Only the head can call this function.
-function enemy:create_new_movement_info()
-  
-  if enemy ~= enemy:get_head() then return end
-  -- Create random properties.
-  local radius = math.floor(math.random(min_radius, max_radius))
-  local max_angle
-  if math.random(0, 100) <= 75 then -- Small angle: probability 75%
-    max_angle = (math.pi/4) + (math.pi/4) * math.random()
-  else -- Big angle: : probability 25%
-    max_angle = math.max(1, 2 * math.pi * math.random())
-  end
-  -- Revert direction if there is an obstacle.
-  local reverse_direction = found_obstacle
-  found_obstacle = nil -- Clean variable.
-  local old_info = enemy:get_current_movement_info()
-  local is_clockwise
-  if old_info then
-    if reverse_direction then -- Obstacle found.
-      is_clockwise = old_info.is_clockwise
-    else -- No obstacle found.
-      is_clockwise = (not old_info.is_clockwise)
-    end
-  else is_clockwise = math.random(0,1) == 1 end
-  -- Calculate current angle from current center.
-  local x, y, layer = enemy:get_position()
-  local current_angle_center
-  if old_info then
-    local current_center = old_info.center
-    current_angle_center = sol.main.get_angle(current_center.x, current_center.y, x, y)
-  else -- Random angle.
-    current_angle_center = 2 * math.pi * math.random()
-  end
-  -- Calculate new init angle and new center.
-  local init_angle = current_angle_center + math.pi
-  -- Calculate new center.
-  local center = {x = x + radius * math.cos(current_angle_center),
-                  y = y - radius * math.sin(current_angle_center)}
-  -- Return info.
-  local info = {
-    radius = radius, center = center, is_clockwise = is_clockwise,
-    init_angle = init_angle, max_angle = max_angle
-  }
-  return info
-  
-end
-
--- Create a movement with the info.
-function enemy:start_movement(info)
-  
-  local m = sol.movement.create("circle")
-  m:set_radius(info.radius)
-  m:set_center(info.center.x, info.center.y)
-  m:set_clockwise(info.is_clockwise)
-  m:set_angle_from_center(info.init_angle)
-  m:set_max_rotations(0)
-  if enemy:is_hurt() then m:set_angular_speed(max_angle_speed)
-  else m:set_angular_speed(normal_angle_speed) end
-  m:start(enemy)
-  
-end
-
--- Add next movement to the movement list.
-function enemy:add_next_movement_info(info)
-  
-  local list = enemy.movement_list
-  list[#list + 1] = info
-  
-end
-
--- Check if there is next movement in the movement list.
-function enemy:has_next_movement_info()
-  
-  local list = enemy.movement_list
-  return #list > 0
-  
-end
-
--- Get the info for the current movement.
-function enemy:get_current_movement_info()
-  
-  return enemy.movement_list[1]
-  
-end
-
--- Destroy all movements info.
-function enemy:clear_movement_info()
-  
-  enemy.movement_list = {num_positions = {}}
-  
-end
-
--- Remove last movement to the movement list.
-function enemy:remove_last_movement_info()
-  
-  if enemy:has_next_movement_info() then
-    local list = enemy.movement_list
-    for i = 1, #list -1 do
-      list[i] = list[i + 1]
-    end
-    list[#list] = nil
-  end
-  
-end
-
--- Notify obstacle to reverse direction.
-function enemy:notify_obstacle()
-  
-  local info = enemy:get_current_movement_info()
-  found_obstacle = true
-  
-end
-
--- Start next movement, if any. If "is_random" is true, use random direction.
-function enemy:start_next_movement(is_random)
-  enemy:stop_movement() -- Stop previous movement.
-  -- If the head needs next movement, create new movement info for all body parts.
-  if enemy == enemy:get_head() then
-    -- Replace previous info in "head" to get random direction, if necessary.
-    if is_random then
-      enemy:clear_movement_info()
-      local info = enemy:create_new_movement_info()
-      enemy:add_next_movement_info(info)
-    end
-    -- Create new movement info for all body parts.
-    local info = enemy:create_new_movement_info()
-    for i = 1, 5 do enemy:get_body_part(i):add_next_movement_info(info) end
-  end
-  -- Destroy old movement info.
-  enemy:remove_last_movement_info()
-  -- Start next movement if any.
-  if enemy:has_next_movement_info() then
-    local info = enemy:get_current_movement_info()
-    enemy:start_movement(info)
-  end
-end
-
--- Create new movement in random direction when reaching obstacles.
-function enemy:on_obstacle_reached(movement)
-  if enemy ~= enemy:get_tail() then
-    enemy:notify_obstacle()
-    enemy:start_next_movement(true) -- Start next movement.
-  end
-end
-
--- Initialize a new random sequence of movements.
-function enemy:go_random()
-  local head = enemy:get_head()
-  head:clear_movement_info() -- Clear info of previous iterations.
-  local info = head:create_new_movement_info()
-  for i = 1, 6 do
-    local e = enemy:get_body_part(i)
-    e:stop_movement(); sol.timer.stop_all(e)
-  end
-  for i = 1, 5 do
-    local e = enemy:get_body_part(i)
-    e:clear_movement_info()
-    e:add_next_movement_info(info) -- This is removed in first iteration.
-    sol.timer.start(map, 500 + i * delay_between_parts, function()
-      e:start_next_movement()
+  else
+    enemy:start_pushing_back(hero, 200, 100, function()
+      enemy:set_hero_weapons_reactions(on_attack_received, {jump_on = "ignored"})
     end)
   end
 end
 
--- Check if the current movement has to be finished.
-function enemy:on_position_changed(x, y, layer)
-  enemy:get_head():bring_to_front() -- Bring head to front.
-  -- Do nothing for the tail.
-  if enemy == enemy:get_tail() then return end
-  -- Move tail when the invisible part moves. This avoids tail stopping when hurt.
-  if enemy == enemy:get_invisible_part() then
-    enemy:get_tail():set_position(x, y, layer)
-  end
-  -- Do nothing if enemy is reattaching.
-  if enemy:is_reattaching() then return end
-  -- Count the position changes. This is used to check when to stop.
-  local info = enemy:get_current_movement_info()
-  info.num_positions = info.num_positions or {}
-  local pos = info.num_positions
-  local index = enemy:get_index()
-  pos[index] = pos[index] and (pos[index] + 1) or 0
-  local num_pos = pos[index]
-  -- Calculate the differences of angles.
-  local cx, cy = info.center.x, info.center.y
-  local x, y, _ = enemy:get_position()
-  local current_angle = sol.main.get_angle(cx, cy, x, y)
-  local final_diff = info.max_angle % (2 * math.pi)
-  local current_diff = (current_angle - info.init_angle) % (2 * math.pi)
-  -- Stop if necessary, when the final angle is surpassed. Then start new movement.
-  if current_diff >= final_diff and pos[index] > 0 then
-    enemy:start_next_movement()
-  end
-  -- If the fore/back body part is too far (enemy broken), reattach it.
-  if (not enemy:is_reattaching()) and enemy:get_index() > 1 then
-    local fore_part = enemy:get_body_part(index - 1)
-    local back_part = enemy:get_body_part(index + 1)
-    if enemy:get_distance(fore_part) > 24 or enemy:get_distance(back_part) > 24 then
-      enemy:reattach()
-    end
-  end
-  -- Update direction for head sprite.
-  if enemy == enemy:get_head() then
-    local sign = info.is_clockwise and -1 or 1
-    local dir = (enemy:get_direction8_to(cx, cy) - sign * 2) % 8
-    enemy:get_sprite():set_direction(dir)
-  end
-end
+-- Start the enemy movement.
+function enemy:start_walking()
 
--- Reattach all parts if the enemy breaks (when some part restarts or loses its movements).
-function enemy:reattach()
-  if enemy:is_reattaching() then return end -- Do nothing if already reattaching.
-  -- Attach all parts.
-  for i = 1, 6 do
-    e = enemy:get_body_part(i)
-    e:set_reattaching_state(true)
-    e:stop_movement(); sol.timer.stop_all(e)
-    if i ~= 6 then e:clear_movement_info() end
-    if i > 1 then
-      local m = sol.movement.create("target")
-      m:set_ignore_obstacles(true)
-      m:set_speed(120)
-      m:set_target(enemy:get_head())
-      m:start(e)
+  walking_movement = sol.movement.create("straight")
+  walking_movement:set_speed(walking_speed)
+  walking_movement:set_angle(math.random(4) * quarter)
+  walking_movement:set_smooth(false)
+  walking_movement:start(self)
+
+  -- Take the obstacle normal as angle on obstacle reached.
+  function walking_movement:on_obstacle_reached()
+    walking_movement:set_angle(enemy:get_obstacles_normal_angle())
+  end
+
+  -- Slightly change the angle when walking.
+  function walking_movement:on_position_changed()
+    local angle = walking_movement:get_angle() % (2.0 * math.pi)
+    if walking_movement == enemy:get_movement() then
+      walking_movement:set_angle(angle + walking_angle)
     end
   end
-  -- Restart normal behavior.
-  sol.timer.start(map, 2000, function()
-    for i = 1, 6 do enemy:get_body_part(i):set_reattaching_state(false) end
-    enemy:get_head():go_random()
+
+  -- Regularly and randomly change the angle.
+  sol.timer.start(enemy, keeping_angle_duration, function()
+    if math.random(2) == 1 then
+      walking_angle = 0 - walking_angle
+    end
+    return true
   end)
 end
+
+-- Increase the enemy speed for some time.
+function enemy:set_angry()
+
+  walking_movement:set_speed(running_speed)
+  sol.timer.start(enemy, angry_duration, function()
+    walking_movement:set_speed(walking_speed)
+  end)
+end
+
+-- Make the enemy explode.
+function enemy:start_explode()
+
+  local function start_sprite_explosion(sprite)
+    local x, y = sprite:get_xy()
+    local effect = enemy:start_brief_effect("entities/explosion_boss", "default", x, y, nil, function()
+      enemy:remove_sprite(sprite)
+    end)
+    effect:bring_to_front()
+  end
+
+  -- Setup the enemy and start hurt animation.
+  enemy:stop_movement()
+  enemy:set_can_attack(false)
+  enemy:set_damage(0)
+  enemy:set_pushed_back_when_hurt(false)
+  for _, sprite in enemy:get_sprites() do
+    sprite:set_animation("hurt")
+  end
+
+  -- Then start the explosion after some time.
+  sol.timer.start(enemy, before_explosion_delay, function()
+    start_sprite_explosion(tail_sprite)
+    local i = 3
+    sol.timer.start(enemy, between_explosion_delay, function()
+      if i ~= 0 then
+        start_sprite_explosion(body_sprites[i])
+        i = i - 1
+        return true
+      end
+      enemy:start_brief_effect("entities/explosion_boss")
+      enemy:hurt(1)
+    end)
+  end)
+end
+
+-- Update head, body and tails sprite on position changed whatever the movement is.
+enemy:register_event("on_position_changed", function(enemy)
+
+  if not last_positions then
+    return
+  end
+
+  -- Save current position
+  local x, y, _ = enemy:get_position()
+  last_positions[frame_count] = {x = x, y = y}
+
+  -- Set the head sprite direction.
+  local direction8 = math.floor((enemy:get_movement():get_angle() + sixteenth) % circle / eighth)
+  if head_sprite:get_direction() ~= direction8 then
+    head_sprite:set_direction(direction8)
+  end
+
+  -- Replace part sprites on a previous position.
+  local function replace_part_sprite(sprite, frame_lag)
+    local previous_position = last_positions[(frame_count - frame_lag) % highest_frame_lag] or last_positions[0]
+    sprite:set_xy(previous_position.x - x, previous_position.y - y)
+  end
+  for i = 1, 3 do
+    replace_part_sprite(body_sprites[i], body_frame_lags[i])
+  end
+  replace_part_sprite(tail_sprite, tail_frame_lag)
+
+  frame_count = (frame_count + 1) % highest_frame_lag
+end)
+
+-- Initialization.
+enemy:register_event("on_created", function(enemy)
+
+  common_actions.learn(enemy, sprite)
+  enemy:set_life(4)
+  enemy:set_size(32, 32)
+  enemy:set_origin(16, 16)
+  
+  -- Create sprites in right z-order.
+  tail_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/tail")
+  for i = 3, 1, -1 do
+    body_sprites[i] = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/body_" .. i)
+  end
+  head_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+end)
+
+-- Restart settings.
+enemy:register_event("on_restarted", function(enemy)
+
+  -- Behavior for each items.
+  enemy:set_hero_weapons_reactions(on_attack_received, {jump_on = "ignored"})
+
+  -- States.
+  last_positions = {}
+  frame_count = 0
+  enemy:set_can_attack(true)
+  enemy:set_damage(4)
+  enemy:start_walking()
+  if enemy:get_life() < 4 then
+    enemy:set_angry()
+  end
+end)

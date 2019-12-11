@@ -15176,7 +15176,7 @@ npc{
   y = 517,
   direction = 3,
   subtype = 1,
-  sprite = "entities/statue_dungeon_5_owl",
+  sprite = "npc/statues/owl_dungeon_5",
 }
 
 npc{
@@ -15186,7 +15186,7 @@ npc{
   y = 1237,
   direction = 3,
   subtype = 1,
-  sprite = "entities/statue_dungeon_5_owl",
+  sprite = "npc/statues/owl_dungeon_5",
 }
 
 pickable{

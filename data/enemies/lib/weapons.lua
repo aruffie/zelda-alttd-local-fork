@@ -65,14 +65,10 @@ function weapons.learn(enemy)
         else
           if not is_pushed_back then
             is_pushed_back = true
-            local x, y, _ = enemy:get_position()
-            local hero_x, hero_y, _ = hero:get_position()
             enemy:set_invincible()
-            enemy:start_pushing_back(hero, 100, 150)
-            enemy:start_pushed_back(hero, 100, 150, function()
+            enemy:start_shock(hero, 100, 150, function()
               enemy:restart()
             end)
-            enemy:start_brief_effect("entities/effects/impact_projectile", "default", (hero_x - x) / 2, (hero_y - y) / 2)
           end
         end
       end

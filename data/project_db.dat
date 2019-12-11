@@ -243,6 +243,11 @@ sprite{ id = "enemies/boss/master_stalfos/master_stalfos_shadow", description = 
 sprite{ id = "enemies/boss/master_stalfos/master_stalfos_shield", description = "Master stalfos shield" }
 sprite{ id = "enemies/boss/master_stalfos/master_stalfos_sword", description = "Master stalfos sword" }
 sprite{ id = "enemies/boss/moblin_chief", description = "Moblin chief" }
+sprite{ id = "enemies/boss/moldorm", description = "Moldorm" }
+sprite{ id = "enemies/boss/moldorm/body_1", description = "Body 1" }
+sprite{ id = "enemies/boss/moldorm/body_2", description = "Body 2" }
+sprite{ id = "enemies/boss/moldorm/body_3", description = "Body 3" }
+sprite{ id = "enemies/boss/moldorm/tail", description = "Moldorm Tail" }
 sprite{ id = "enemies/boss/rolling_bones/rolling_bones", description = "Rolling bones" }
 sprite{ id = "enemies/boss/rolling_bones/rolling_bones_spike", description = "Rolling bones Spike" }
 sprite{ id = "enemies/boss/slime_eel", description = "Slime eel" }
@@ -283,7 +288,7 @@ sprite{ id = "enemies/goponga_flower", description = "Goponga flower" }
 sprite{ id = "enemies/goponga_flower_giant", description = "Goponga Flower Giant" }
 sprite{ id = "enemies/hardhat_beetle", description = "Hardhat Beetle" }
 sprite{ id = "enemies/helmasaur", description = "Helmasaur" }
-sprite{ id = "enemies/helmasaur/mask", description = "enemies/helmasaur/mask" }
+sprite{ id = "enemies/helmasaur/maskless", description = "Helmasaur maskless" }
 sprite{ id = "enemies/keese", description = "Keese" }
 sprite{ id = "enemies/leever", description = "Leever" }
 sprite{ id = "enemies/like_like", description = "Like Like" }
@@ -1474,17 +1479,17 @@ shader{ id = "water_effect", description = "water_effect" }
 
 file{ path = "enemies", author = "Benjamin Schweitzer, Christopho, PhoenixII54, Vlag", license = "GPL v3" }
 file{ path = "enemies/anti_kirby.lua", author = "Vlag", license = "GPL v3" }
-file{ path = "enemies/arm_mimic.lua", license = "GPL v3" }
-file{ path = "enemies/armos.lua", license = "GPL v3" }
+file{ path = "enemies/arm_mimic.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/armos.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/ballchain_soldier.lua", license = "GPL v3" }
 file{ path = "enemies/beamos.lua", author = "Vlag", license = "GPL v3" }
-file{ path = "enemies/beetle_blue.lua", license = "GPL v3" }
-file{ path = "enemies/beetle_green.lua", license = "GPL v3" }
-file{ path = "enemies/beetle_red.lua", license = "GPL v3" }
+file{ path = "enemies/beetle_blue.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/beetle_green.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/beetle_red.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/bloober.lua", license = "GPL v3" }
-file{ path = "enemies/bomber.lua", license = "GPL v3" }
-file{ path = "enemies/bombite_green.lua", license = "GPL v3" }
-file{ path = "enemies/bombite_red.lua", license = "GPL v3" }
+file{ path = "enemies/bomber.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/bombite_green.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/bombite_red.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boo_buddy.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss", license = "GPL v3" }
 file{ path = "enemies/boss/angler_fish", license = "GPL v3" }
@@ -1509,7 +1514,7 @@ file{ path = "enemies/boss/hot_head.lua", license = "GPL v3" }
 file{ path = "enemies/boss/lanmola.lua", license = "GPL v3" }
 file{ path = "enemies/boss/master_stalfos.lua", license = "GPL v3" }
 file{ path = "enemies/boss/moblin_chief.lua", license = "GPL v3" }
-file{ path = "enemies/boss/moldorm.lua", license = "GPL v3" }
+file{ path = "enemies/boss/moldorm.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/rolling_bones", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "enemies/boss/rolling_bones/rolling_bones.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "enemies/boss/rolling_bones/rolling_bones_spike.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
@@ -1521,9 +1526,9 @@ file{ path = "enemies/boss/stone_hinox.lua", license = "GPL v3" }
 file{ path = "enemies/boss/stone_hinox/stone_hinox.lua", license = "GPL v3" }
 file{ path = "enemies/boss/stone_hinox/stone_hinox_boulder.lua", license = "GPL v3" }
 file{ path = "enemies/boss/turtle_rock.lua", license = "GPL v3" }
-file{ path = "enemies/boulder.lua", license = "GPL v3" }
-file{ path = "enemies/bubble.lua", author = "Christopho", license = "GPL v3" }
-file{ path = "enemies/bubble_giant.lua", license = "GPL v3" }
+file{ path = "enemies/boulder.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/bubble.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/bubble_giant.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/buzz_blob.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/camo_goblin_blue.lua", license = "GPL v3" }
 file{ path = "enemies/camo_goblin_green.lua", license = "GPL v3" }
@@ -1531,38 +1536,38 @@ file{ path = "enemies/camo_goblin_red.lua", license = "GPL v3" }
 file{ path = "enemies/cheep_cheep.lua", license = "GPL v3" }
 file{ path = "enemies/chicken.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "enemies/chicken_mortal.lua", author = "Christopho", license = "GPL v3" }
-file{ path = "enemies/crow.lua", license = "GPL v3" }
-file{ path = "enemies/cukeman.lua", license = "GPL v3" }
-file{ path = "enemies/darknut.lua", license = "GPL v3" }
-file{ path = "enemies/darknut_bow.lua", license = "GPL v3" }
+file{ path = "enemies/crow.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/cukeman.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/darknut.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/darknut_bow.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/death_ball.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/dog.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "enemies/eyegore_statue.lua", license = "GPL v3" }
-file{ path = "enemies/face_lamp.lua", license = "GPL v3" }
+file{ path = "enemies/eyegore_statue.lua", author = "Christopho", license = "GPL v3" }
+file{ path = "enemies/face_lamp.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "enemies/fireball.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "enemies/flying_tile.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "enemies/gel.lua", author = "Vlag", license = "GPL v3" }
-file{ path = "enemies/generic_towards_hero.lua", license = "GPL v3" }
-file{ path = "enemies/generic_waiting_for_hero.lua", license = "GPL v3" }
+file{ path = "enemies/generic_towards_hero.lua", author = "Christopho", license = "GPL v3" }
+file{ path = "enemies/generic_waiting_for_hero.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "enemies/ghini.lua", author = "Vlag", license = "GPL v3" }
-file{ path = "enemies/ghini_giant.lua", license = "GPL v3" }
-file{ path = "enemies/gibdo.lua", license = "GPL v3" }
+file{ path = "enemies/ghini_giant.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/gibdo.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/goomba.lua", author = "Vlag", license = "GPL v3" }
-file{ path = "enemies/goponga_flower.lua", license = "GPL v3" }
-file{ path = "enemies/goponga_flower_giant.lua", license = "GPL v3" }
+file{ path = "enemies/goponga_flower.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/goponga_flower_giant.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/hardhat_beetle.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "enemies/helmasaur.lua", license = "GPL v3" }
+file{ path = "enemies/helmasaur.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/keese.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/leever.lua", author = "Vlag", license = "GPL v3" }
-file{ path = "enemies/lib", author = "PhoenixII54", license = "GPL v3" }
-file{ path = "enemies/lib/common_actions.lua", license = "GPL v3" }
-file{ path = "enemies/lib/fire_breathing_statue.lua", license = "GPL v3" }
-file{ path = "enemies/lib/projectile.lua", license = "GPL v3" }
+file{ path = "enemies/lib", license = "GPL v3" }
+file{ path = "enemies/lib/common_actions.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/lib/fire_breathing_statue.lua", author = "Christopho", license = "GPL v3" }
+file{ path = "enemies/lib/projectile.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/lib/thwomp_crush.lua", author = "PhoenixII54", license = "GPL v3" }
-file{ path = "enemies/lib/towards_hero.lua", license = "GPL v3" }
-file{ path = "enemies/lib/waiting_for_hero.lua", license = "GPL v3" }
-file{ path = "enemies/lib/weapons.lua", license = "GPL v3" }
-file{ path = "enemies/lib/zol.lua", license = "GPL v3" }
+file{ path = "enemies/lib/towards_hero.lua", author = "Christopho", license = "GPL v3" }
+file{ path = "enemies/lib/waiting_for_hero.lua", author = "Christopho", license = "GPL v3" }
+file{ path = "enemies/lib/weapons.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/lib/zol.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/like_like.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/mad_bomber.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/maskass.lua", author = "Vlag", license = "GPL v3" }
@@ -1582,39 +1587,52 @@ file{ path = "enemies/peahat.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/pike_auto.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "enemies/pike_detect.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "enemies/pike_fixed.lua", author = "Christopho", license = "GPL v3" }
-file{ path = "enemies/pincer.lua", license = "GPL v3" }
-file{ path = "enemies/piranha.lua", license = "GPL v3" }
+file{ path = "enemies/pincer.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/piranha.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/piranha_plant.lua", license = "GPL v3" }
 file{ path = "enemies/podobo.lua", license = "GPL v3" }
 file{ path = "enemies/pokey.lua", author = "Vlag", license = "GPL v3" }
-file{ path = "enemies/pols_voice.lua", license = "GPL v3" }
+file{ path = "enemies/pols_voice.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/projectiles", license = "GPL v3" }
-file{ path = "enemies/projectiles/arrow.lua", license = "GPL v3" }
+file{ path = "enemies/projectiles/arrow.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/projectiles/bat.lua", author = "Vlag", }
+file{ path = "enemies/projectiles/beam.lua", author = "Christopho", }
+file{ path = "enemies/projectiles/bomb.lua", author = "Vlag", }
+file{ path = "enemies/projectiles/bone.lua", author = "Vlag", }
+file{ path = "enemies/projectiles/cactus.lua", author = "Vlag", }
+file{ path = "enemies/projectiles/coconut.lua", author = "Vlag", }
+file{ path = "enemies/projectiles/fireball.lua", author = "Christopho", }
+file{ path = "enemies/projectiles/flowerball.lua", author = "Vlag", }
+file{ path = "enemies/projectiles/iceball.lua", author = "Vlag", }
+file{ path = "enemies/projectiles/laser.lua", author = "Vlag", }
+file{ path = "enemies/projectiles/magmaball.lua", author = "Vlag", }
+file{ path = "enemies/projectiles/spear.lua", author = "Vlag", }
+file{ path = "enemies/projectiles/stone.lua", author = "Vlag", }
 file{ path = "enemies/raven.lua", author = "Vlag", license = "GPL v3" }
-file{ path = "enemies/rope.lua", author = "Christopho", license = "GPL v3" }
+file{ path = "enemies/rope.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/sand_crab.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/sea_urchin.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "enemies/shrouded_stalfos.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/shrouded_stalfos_sword.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/spiked_beetle.lua", author = "Vlag", license = "GPL v3" }
-file{ path = "enemies/spiny_beetle.lua", license = "GPL v3" }
+file{ path = "enemies/spiny_beetle.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/stalfos_blue.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/stalfos_red.lua", author = "Vlag", license = "GPL v3" }
-file{ path = "enemies/star.lua", author = "Benjamin Schweitzer, Vlag", license = "GPL v3" }
-file{ path = "enemies/tektite.lua", license = "GPL v3" }
+file{ path = "enemies/star.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/tektite.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/tektite_water.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/thwimp.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "enemies/thwomp.lua", author = "PhoenixII54", license = "GPL v3" }
-file{ path = "enemies/vegas.lua", license = "GPL v3" }
+file{ path = "enemies/vegas.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "enemies/vire.lua", author = "Vlag", license = "GPL v3" }
-file{ path = "enemies/wizzrobe.lua", license = "GPL v3" }
+file{ path = "enemies/wizzrobe.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "enemies/zol_green.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/zol_red.lua", author = "Vlag", license = "GPL v3" }
-file{ path = "enemies/zombie.lua", license = "GPL v3" }
+file{ path = "enemies/zombie.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/zora.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "entities", author = "Benjamin Schweitzer, Christopho, Phoenixll54", license = "GPL v3" }
 file{ path = "entities/arrow.lua", license = "GPL v3" }
-file{ path = "entities/ball.lua", license = "GPL v3" }
+file{ path = "entities/ball.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "entities/bird.lua", license = "GPL v3" }
 file{ path = "entities/bomb_arrow.lua", license = "GPL v3" }
 file{ path = "entities/bottle.lua", license = "GPL v3" }
@@ -1624,7 +1642,7 @@ file{ path = "entities/butterfly.lua", license = "GPL v3" }
 file{ path = "entities/cliff.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "entities/color_platform.lua", license = "GPL v3" }
 file{ path = "entities/crystal_block.lua", author = "PhoenixII54", license = "GPL v3" }
-file{ path = "entities/dice.lua", license = "GPL v3" }
+file{ path = "entities/dice.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "entities/eye_switch.lua", license = "GPL v3" }
 file{ path = "entities/fire.lua", license = "GPL v3" }
 file{ path = "entities/follower.lua", license = "GPL v3" }
@@ -1634,6 +1652,7 @@ file{ path = "entities/hook_bridge.lua", license = "GPL v3" }
 file{ path = "entities/hookable.lua", license = "GPL v3" }
 file{ path = "entities/insect.lua", license = "GPL v3" }
 file{ path = "entities/lib", license = "GPL v3" }
+file{ path = "entities/lib/carriable.lua", author = "Vlag", }
 file{ path = "entities/light.lua", license = "GPL v3" }
 file{ path = "entities/midpoint_teletransporter.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "entities/mouse.lua", license = "GPL v3" }
@@ -1643,14 +1662,14 @@ file{ path = "entities/npc.lua", license = "GPL v3" }
 file{ path = "entities/obstacle.lua", license = "GPL v3" }
 file{ path = "entities/pickable_fly.lua", license = "GPL v3" }
 file{ path = "entities/pickable_underwater.lua", author = "PhoenixII54", license = "GPL v3" }
-file{ path = "entities/pillar.lua", license = "GPL v3" }
+file{ path = "entities/pillar.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "entities/platform_balance.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "entities/platform_collapsing.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "entities/platform_ice_block.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "entities/platform_moving.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "entities/platform_thwomp.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "entities/powder.lua", license = "GPL v3" }
-file{ path = "entities/pull_handle.lua", license = "GPL v3" }
+file{ path = "entities/pull_handle.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "entities/seagull.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "entities/spike_sideview.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "entities/statue.lua", license = "GPL v3" }
@@ -1911,15 +1930,15 @@ file{ path = "maps/dungeons/6", author = "Benjamin Schweitzer", license = "GPL v
 file{ path = "maps/dungeons/6/1f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
 file{ path = "maps/dungeons/6/1f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/dungeons/7", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/dungeons/7/1f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/7/1f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/dungeons/7/2f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/7/2f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/dungeons/7/3f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/7/3f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/7/1f.dat", author = "Benjamin Schweitzer, Vlag", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/7/1f.lua", author = "Benjamin Schweitzer, Vlag", license = "GPL v3" }
+file{ path = "maps/dungeons/7/2f.dat", author = "Benjamin Schweitzer, Vlag", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/7/2f.lua", author = "Benjamin Schweitzer, Vlag", license = "GPL v3" }
+file{ path = "maps/dungeons/7/3f.dat", author = "Benjamin Schweitzer, Vlag", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/7/3f.lua", author = "Benjamin Schweitzer, Vlag", license = "GPL v3" }
 file{ path = "maps/dungeons/8", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/dungeons/8/1f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/8/1f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/8/1f.dat", author = "Benjamin Schweitzer, Vlag", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/8/1f.lua", author = "Benjamin Schweitzer, Vlag", license = "GPL v3" }
 file{ path = "maps/dungeons/9", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
 file{ path = "maps/dungeons/9/1f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
 file{ path = "maps/dungeons/9/1f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }

@@ -11,25 +11,21 @@ local map = enemy:get_map()
 local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
-local is_hero_pushable = true
 
 -- Configuration variables.
 local waiting_minimum_time = 4000
 local waiting_maximum_time = 5000
 
--- Make hero retreat on sword attack received.
-function on_sword_attack_received()
+-- Make hero pushed back on sword attack received.
+local function on_sword_attack_received()
 
-  if is_hero_pushable then
-    is_hero_pushable = false
-    enemy:start_pushing_back(hero, 200, 100)
-    sprite:set_animation("bounce", function()
-      sprite:set_animation("walking")
-    end)
-    sol.timer.start(enemy, 300, function() -- Only push once even if the sword still collide at following frames.
-      is_hero_pushable = true
-    end)
-  end
+  -- Make sure to only trigger this event once by attack.
+  enemy:set_invincible()
+
+  enemy:start_pushing_back(hero, 200, 100)
+  sprite:set_animation("bounce", function()
+    enemy:restart()
+  end)
 end
 
 -- Make enemy wait for attacking.

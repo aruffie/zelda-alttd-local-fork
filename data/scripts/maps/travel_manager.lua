@@ -1,5 +1,5 @@
+-- Variables
 local travel_manager = {}
-local mode_7_manager = require("scripts/mode_7")
 local positions_info = {
   [1] = {
         map_id = "out/b3_prairie",
@@ -23,7 +23,44 @@ local positions_info = {
   }
 }
 
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
+local mode_7_manager = require("scripts/mode_7")
+
 function travel_manager:init(map, from_id)
+  
+  local game = map:get_game()
+  local savegame = positions_info[from_id]['savegame']
+  if not game:get_value(savegame) then
+    travel_manager:launch_cinematic(map, from_id)
+  else
+    travel_manager:launch_owl(map, from_id)
+  end
+  
+end
+
+function travel_manager:launch_cinematic(map, from_id)
+    
+  local game = map:get_game()
+  local hero = map:get_hero()
+  -- Transporter
+  local transporter = map:get_entity('travel_transporter')
+  -- Owl slab
+  local owl_slab = map:get_entity('owl_slab')
+  sol.main.start_coroutine(function()
+    local options = {
+      entities_ignore_suspend = {hero, transporter, owl_slab}
+    }
+    map:set_cinematic_mode(true, options)
+    wait(2000)
+    audio_manager:play_sound("misc/secret1")
+    owl_slab:get_sprite():set_animation("activated")  
+    travel_manager:launch_owl(map, from_id) 
+  end)    
+    
+end 
+
+function travel_manager:launch_owl(map, from_id)
 
   local game = map:get_game()
   local savegame = positions_info[from_id]['savegame']
@@ -42,13 +79,13 @@ function travel_manager:init(map, from_id)
   end
   to_id = i
   if from_id ~= to_id then
-    travel_manager:launch_step_1(map, from_id, to_id)
+    travel_manager:launch_owl_step_1(map, from_id, to_id)
   end
 
 end
 
 
-function travel_manager:launch_step_1(map, from_id, to_id)
+function travel_manager:launch_owl_step_1(map, from_id, to_id)
 
   local game = map:get_game()
   local hero = map:get_hero()
@@ -104,7 +141,7 @@ function travel_manager:launch_step_1(map, from_id, to_id)
     end
     movement(movement2, transporter)
     -- Mode 7
-    travel_manager:launch_step_2(map, from_id, to_id)
+    travel_manager:launch_owl_step_2(map, from_id, to_id)
     local new_map = wait_for(map.wait_on_next_map_opening_transition_finished, map)
     -- We are on new map, 
     travel_manager:launch_step_3(new_map, from_id, to_id)
@@ -112,7 +149,7 @@ function travel_manager:launch_step_1(map, from_id, to_id)
 
 end
 
-function travel_manager:launch_step_2(map, from_id, to_id)
+function travel_manager:launch_owl_step_2(map, from_id, to_id)
 
   local game = map:get_game()
   local hero = map:get_hero()

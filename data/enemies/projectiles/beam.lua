@@ -46,7 +46,7 @@ function enemy:on_custom_attack_received(attack, sprite)
     local movement = enemy:get_movement()
     local angle = direction * math.pi / 2
     movement:set_angle(angle)
-    audio_manager:play_sound("enemy_hurt")
+    --audio_manager:play_sound("enemy_hurt") Todo change sound
     bounced = true
   end
   
