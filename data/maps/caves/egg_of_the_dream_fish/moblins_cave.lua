@@ -15,8 +15,8 @@ local audio_manager = require("scripts/audio_manager")
 map:register_event("on_started", function(map, destination)
   
   -- Music
-  if not game:is_step_last("bowwow_dognapped") then
-    sol.audio.stop_music()
+  if game:is_step_last("bowwow_dognapped") then
+    audio_manager:stop_music()
   else
     map:init_music()
   end
@@ -37,6 +37,7 @@ function map:init_music()
   if game:is_step_last("bowwow_dognapped") then
     audio_manager:play_music("26_bowwow_dognapped")
   else
+    print("ok")
     audio_manager:play_music("18_cave")
   end
   
@@ -69,8 +70,8 @@ function map:init_map_entities()
 
 end
 
-function map:on_opening_transition_finished(destination)
-
+function map.do_after_transition()
+  print "  A MOBLIN"
   if not game:is_step_last("bowwow_dognapped") or room_access_1 then
     return
   end
@@ -230,8 +231,8 @@ function map:launch_cinematic_3()
       entities_ignore_suspend = {hero, enemy_group_3_1}
     }
     map:set_cinematic_mode(true, options)
-    enemy_group_3_1:get_sprite():set_animation("prepare_attacking")
-    enemy_group_3_1:get_sprite():set_direction(2)
+    --enemy_group_3_1:get_sprite():set_animation("prepare_attacking")
+    --enemy_group_3_1:get_sprite():set_direction(2)
     dialog("maps.caves.egg_of_the_dream_fish.moblins_cave.moblins_3")
     map:set_cinematic_mode(false, options)
     enemy_group_3_1:start_battle()

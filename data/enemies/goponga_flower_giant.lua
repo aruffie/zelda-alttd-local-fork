@@ -1,39 +1,78 @@
--- Lua script of enemy giant_goponga_flower.
+-- Lua script of enemy goponga flower giant.
 -- This script is executed every time an enemy with this model is created.
 
--- Variables
+-- Global variables
 local enemy = ...
+require("enemies/lib/common_actions").learn(enemy)
+local audio_manager = require("scripts/audio_manager")
+
 local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
-local sprite
-local hero_is_bounce = false
+local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+local quarter = math.pi * 0.5
 
--- Include scripts
-local audio_manager = require("scripts/audio_manager")
+-- Configuration variables.
+local waiting_minimum_time = 4000
+local waiting_maximum_time = 5000
 
--- The enemy appears: set its properties.
-function enemy:on_created()
+-- Make hero pushed back on sword attack received.
+local function on_sword_attack_received()
 
-  sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
-  enemy:set_traversable(false)
-  enemy:set_life(1)
-  enemy:set_damage(4)
-  enemy:set_push_hero_on_sword(true)
+  -- Make sure to only trigger this event once by attack.
+  enemy:set_invincible()
 
-  enemy:set_attack_consequence("sword", function()
-      if not hero_is_bounce then
-        hero_is_bounce = true
-        audio_manager:play_sound("hero/bounce")
-        sprite:set_animation("bounce", function()
-          hero_is_bounce = false
-          sprite:set_animation("walking")
-        end)
-      end
+  enemy:start_pushing_back(hero, 200, 100)
+  sprite:set_animation("bounce", function()
+    enemy:restart()
   end)
-  enemy:set_hookshot_reaction(1)
-  enemy:set_attack_consequence("boomerang", 1)
-  enemy:set_attacking_collision_mode("touching")
-  enemy:set_push_hero_on_sword(true)
-
 end
+
+-- Make enemy wait for attacking.
+function enemy:wait()
+
+  sol.timer.start(enemy, math.random(waiting_minimum_time, waiting_maximum_time), function()
+    local x, y, layer = enemy:get_position()
+    map:create_enemy({
+      breed = "projectiles/flowerball",
+      x = x,
+      y = y - 13,
+      layer = layer,
+      direction = enemy:get_direction4_to(hero)
+    })
+    sprite:set_animation("attacking", function()
+      sprite:set_animation("closing", function()
+        sprite:set_animation("walking")
+      end)
+    end)
+    enemy:wait()
+  end)
+end
+
+-- Initialization.
+enemy:register_event("on_created", function(enemy)
+
+  enemy:set_life(2)
+  enemy:set_size(32, 32)
+  enemy:set_origin(16, 29)
+end)
+
+-- Restart settings.
+enemy:register_event("on_restarted", function(enemy)
+
+  -- Behavior for each items.
+  enemy:set_hero_weapons_reactions("ignored", {
+    hookshot = 1,
+    boomerang = 1,
+    fire = 1,
+    sword = on_sword_attack_received
+  })
+
+  -- States.
+  enemy:set_pushed_back_when_hurt(false)
+  enemy:set_attacking_collision_mode("touching")
+  enemy:set_traversable(false)
+  enemy:set_can_attack(true)
+  enemy:set_damage(4)
+  enemy:wait()
+end)

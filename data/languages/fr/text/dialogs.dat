@@ -1111,7 +1111,7 @@ Niveau 4
 }
 
 dialog{
-  id = "maps.dungeons.4.welcome_description_name",
+  id = "maps.dungeons.4.welcome_name",
   text = [[
 Abîme du Poisson
 ]],
@@ -1536,13 +1536,9 @@ Pépé le Ramollo n'a pas l'air d'être un grand causeur...
 dialog{
   id = "maps.houses.mabe_village.library.book_1.content",
   text = [[
-Choisis l'objet désiré dans     
-le Sous-Ecran en appuyant     
-sur PAUSE.     
-Certains objets remplacent      
-une épée lors d'un combat.    
-Essaie-les tous pour avoir 
-le plus adéquat !
+Choisis l'objet désiré dans le Sous-Ecran en appuyant sur PAUSE.     
+Certains objets remplacent une épée lors d'un combat.    
+Essaie-les tous pour avoir le plus adéquat !
 ]],
 }
 
@@ -1562,17 +1558,11 @@ Non
 dialog{
   id = "maps.houses.mabe_village.library.book_2.content",
   text = [[
-Appuie sur PAUSE          
-pour afficher la carte
-de l'île. Les parties     
-sombres sont les endroits    
-que tu n'as pas encore
-visités. Bouge le curseur
-et appuie sur A pour obtenir
-le nom du lieu et le
-message du hibou.
-Ainsi, tu n'auras pas  
-à tout noter !
+Appuie sur PAUSE pour afficher la carte de l'île.
+Les parties sombres sont les endroits que tu n'as pas encore
+visités.
+Bouge le curseur et appuie sur A pour obtenir le nom du lieu et le message du hibou.
+Ainsi, tu n'auras pas à tout noter !
 ]],
 }
 
@@ -1620,13 +1610,8 @@ Non
 dialog{
   id = "maps.houses.mabe_village.library.book_4.content",
   text = [[
-En maintenant A ou B
-enfoncé, tu peux parer   
-les attaques et repousser
-les ennemis. En plus du
-bouclier standard, il y en a
-un qui te protège
-des lasers !
+En maintenant A ou B enfoncé, tu peux parer les attaques et repousser les ennemis.
+En plus du bouclier standard, il y en a un qui te protège des lasers !
 ]],
 }
 
@@ -1646,13 +1631,9 @@ Non
 dialog{
   id = "maps.houses.mabe_village.library.book_5.content",
   text = [[
-Pour reprendre une bombe       
-au sol, appuie tout de suite   
-sur le bouton la contrôlant.  
-Puis jette-la en appuyant     
-encore sur le même bouton. 
-Connaissais-tu cette
-astuce ?
+Pour reprendre une bombe au sol, appuie tout de suite sur le bouton la contrôlant.  
+Puis jette-la en appuyant encore sur le même bouton. 
+Connaissais-tu cette astuce ?
 ]],
 }
 
@@ -1672,15 +1653,10 @@ Non
 dialog{
   id = "maps.houses.mabe_village.library.book_6.content",
   text = [[
-Sur Cocolint, il y a des      
-trous Warp. Téléporte-toi   
-en sautant dedans.         
-Replonge dans le trou d'où
-tu sors pour être téléporté
-en succession. Tu ne peux
-pas te téléporter vers un
-trou qui n'est pas encore
-apparu à l'écran !
+Sur Cocolint, il y a des dalles Warp.
+Téléporte-toi en sautant dedans.         
+Replonge dans le trou d'où tu sors pour être téléporté en succession.
+Tu ne peux pas te téléporter vers un trou qui n'est pas encore apparu à l'écran !
 ]],
 }
 
@@ -1702,10 +1678,7 @@ dialog{
   question = "1",
   text = [[
 ATLAS DE COCOLINT 
-Choisis un lieu grâce 
-au curseur et appuie sur
-A pour afficher son nom.
-
+Choisis un lieu grâce au curseur et appuie sur A pour afficher son nom.
 
 Tu veux le consulter ?
 Oui
@@ -1716,9 +1689,8 @@ Non
 dialog{
   id = "maps.houses.mabe_village.library.book_8.content",
   text = [[
-Impossible ! Il te faut 
-la Loupe pour lire les 
-petits caractères...
+Impossible !
+Il te faut la loupe pour lire les petits caractères...
 ]],
 }
 
@@ -1738,12 +1710,9 @@ Non
 dialog{
   id = "maps.houses.mabe_village.library.book_8.true_content",
   text = [[
-Dans l'Oeuf,
-on tourne tourne
-tourne...
+Dans l'Oeuf, on tourne tourne tourne...
 G G H D D H G H
-Hum! C'est très
-énigmatique.
+Hum! C'est très énigmatique.
 ]],
 }
 
@@ -1978,8 +1947,8 @@ dialog{
   id = "maps.houses.mabe_village.quadruplets_house.mother_2",
   question = "1",
   text = [[
-Tu offres ce Yoshi à mon bébé ?  
-
+Tu offres ce Yoshi à mon bébé ?
+$pb
 
 Oui
 Non
@@ -2144,7 +2113,7 @@ dialog{
   text = [[
 Trois Coeurs   
 10 rubis !
-
+$pb
 
 Oui
 Non

@@ -481,14 +481,14 @@ function hero_meta:create_symbol_exclamation(sound)
     audio_manager:play_sound("menus/menu_select")
   end
   local symbol = map:create_custom_entity({
-      sprite = "entities/symbols/exclamation",
-      x = x - 16,
-      y = y - 16,
-      width = 16,
-      height = 16,
-      layer = layer + 1,
-      direction = 0
-    })
+    sprite = "entities/symbols/exclamation",
+    x = x - 16,
+    y = y - 16,
+    width = 16,
+    height = 16,
+    layer = layer,
+    direction = 0
+  })
 
   return symbol
 

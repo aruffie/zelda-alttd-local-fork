@@ -45,4 +45,34 @@ function tu.word_wrap(text, predicate)
   end)
 end
 
+----------------------------------------------------------------
+-- Transform an iterator of line so that blank lines are added
+-- to create page break
+----------------------------------------------------------------
+function tu.page_breaker(iterator, line_base, pattern)
+  local pattern = pattern  or "%$pb"
+  
+  local line_index = 0 --state of the iterator
+  local breaking = false
+  local last_line
+  return function()
+    if breaking and line_index % line_base ~= 0 then
+      line_index = line_index + 1
+      return "" -- yield empty lines as long as we are not on a new page
+    end
+    
+    breaking = false --reset breaking state
+    
+    local line = iterator()
+    
+    if line and line:match(pattern) then
+      line = line:gsub(pattern, "")
+      breaking = true;
+    end
+    
+    line_index = line_index + 1
+    return line
+  end
+end
+
 return tu

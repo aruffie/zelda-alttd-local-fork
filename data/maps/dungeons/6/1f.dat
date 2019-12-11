@@ -25260,6 +25260,24 @@ custom_entity{
 
 tile{
   layer = 1,
+  x = 96,
+  y = 256,
+  width = 64,
+  height = 8,
+  pattern = "door_cache.1-2",
+}
+
+tile{
+  layer = 1,
+  x = 96,
+  y = 216,
+  width = 64,
+  height = 8,
+  pattern = "door_cache.2-2",
+}
+
+tile{
+  layer = 1,
   x = 2448,
   y = 504,
   width = 96,
@@ -25488,7 +25506,7 @@ tile{
   x = 656,
   y = 568,
   width = 8,
-  height = 64,
+  height = 80,
   pattern = "door_cache.3-2",
 }
 

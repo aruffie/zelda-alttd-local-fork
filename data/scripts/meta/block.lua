@@ -10,6 +10,7 @@ local math_utils = require("scripts/tools/math_utils")
 
 function block_meta:on_created()
   self:set_drawn_in_y_order()
+  self.movement_start_x, self.movement_start_y=self:get_position()
 end
 
 function block_meta:on_removed()
@@ -21,7 +22,7 @@ function block_meta:on_removed()
     local sprite=self:get_sprite()
       local falling_entity = self:get_map():create_custom_entity({
       name="falling_block_actor",
-      sprite = sprite,
+      sprite = sprite:get_animation_set(),
       x = x,
       y = y,
       width = 16,
@@ -30,6 +31,7 @@ function block_meta:on_removed()
       direction = 0,
     })
     falling_entity:set_traversable_by("hero", false)
+    falling_entity:set_can_traverse_ground("hole", true)
     local m=sol.movement.create("straight")
     if x~=self.movement_start_x then
       m:set_max_distance(16-math.abs(x-self.movement_start_x))

@@ -14,7 +14,7 @@ local is_exhausted = false
 
 -- Configuration variables
 local initial_state = enemy:get_property("initial_state")
-local attracting_pixel_by_second = 88
+local attracting_pixel_by_second = enemy:get_property("speed") or 88
 local attracting_duration = 5000
 local exhausted_duration = 2000
 
