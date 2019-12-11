@@ -95,7 +95,7 @@ end
 -- Get current sounds and musics directory
 function audio_manager:get_directory()
 
-  local game = sol.main.game
+  local game = sol.main.get_game()
   local mode = (game ~= nil) and game:get_value("mode") or "snes"
   local directory = (mode == "gb") and "gb" or "snes"
 
@@ -141,8 +141,14 @@ function audio_manager:refresh_music()
 
   local id_music = sol.audio.get_music()
   local directory = audio_manager:get_directory()
+  
   local game = sol.main.get_game()
-  if game ~= nil and game.hero_charm then
+
+  if game == nil then
+    return
+  end
+
+  if game.hero_charm then
     if id_music ~= 'snes/17_adrenaline_rush' then
       game.id_music = id_music
       id_music = 'snes/17_adrenaline_rush'
@@ -174,7 +180,7 @@ function audio_manager:play_sound(id_sound)
   if sol.file.exists("sounds/" .. id_sound .. ".ogg") then
     sol.audio.play_sound(id_sound)
   else
-    print("Warning : the sound " .. id_sound .. " doesn't exist")
+    print("Warning: the sound " .. id_sound .. " doesn't exist.")
   end
 
 end
@@ -192,7 +198,7 @@ function audio_manager:play_entity_sound(entity, id_sound, max_distance)
     if sol.file.exists("sounds/" .. id_sound .. ".ogg") then
       sol.audio.play_sound(id_sound)
     else
-      print("Warning : the sound " .. id_sound .. " doesn't exist")
+      print("Warning: the sound " .. id_sound .. " doesn't exist.")
     end
   end
 
