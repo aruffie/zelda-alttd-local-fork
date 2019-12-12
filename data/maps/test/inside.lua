@@ -1,5 +1,13 @@
 local map=...
 
+local separator_manager=require "scripts/maps/separator_manager"
+local light_manager=require "scripts/maps/light_manager"
+
+function map:on_started()
+separator_manager:init(map)
+light_manager:init(map)
+end
+
 function key_test_switch:on_activated()
   local x,y,layer=key_spawn_point:get_position()
   local key=map:create_pickable({
