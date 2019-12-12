@@ -49,7 +49,7 @@ end
 function light_manager:check_is_light_active(map, torch_prefix)
 
   for torch in map:get_entities(torch_prefix) do
-    if torch:is_lit() then
+    if torch.is_lit and torch:is_lit() then
       return true
     end
   end
