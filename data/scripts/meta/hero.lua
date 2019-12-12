@@ -575,7 +575,7 @@ function hero_meta:remove_charm()
   game.hero_charm_hurt_counter = 0
   game.acorn_count = 0
   game.power_fragment_count = 0
-self:get_sprite():set_shader(nil)
+  self:get_sprite():set_shader(nil)
   -- Music
   audio_manager:refresh_music()
 
