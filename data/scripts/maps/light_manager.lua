@@ -64,7 +64,7 @@ function light_manager:update_light_level(map)
 
     if entity:get_type()=="custom_entity" and entity:get_model()=="torch" and entity:is_in_same_region(map:get_hero()) then
       total=total+1
-      if entity:is_lit() then
+      if entity.is_lit and entity:is_lit() then
         lit=lit+1
       end
     end
