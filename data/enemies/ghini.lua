@@ -20,7 +20,7 @@ local take_off_duration = 1000
 local flying_speed = 80
 local flying_height = 16
 local flying_acceleration = 16
-local flying_deceleration = 32
+local flying_deceleration = 48
 
 -- Make the enemy flying movement.
 function enemy:start_flying_movement()
@@ -93,8 +93,8 @@ enemy:register_event("on_restarted", function(enemy)
   -- Start a fly that already took off if not sleeping.
   if not is_sleeping then
     sprite:set_xy(0, -flying_height)
-    sol.timer.start(enemy, 10, function()
-      enemy:start_flying_movement() -- Workaround: The camera position is 0, 0 here when entering a map, wait a frame before starting the move.
+    sol.timer.start(enemy, 10, function() -- Workaround: The camera position is 0, 0 here when entering a map, wait a frame before starting the move.
+      enemy:start_flying_movement()
     end)
   end
 end)

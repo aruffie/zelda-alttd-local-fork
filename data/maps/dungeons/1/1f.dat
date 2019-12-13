@@ -14118,6 +14118,12 @@ enemy{
   layer = 0,
   x = 1480,
   y = 1309,
+  properties = {
+    {
+      key = "is_unarmed",
+      value = "true",
+    },
+  },
   direction = 3,
   breed = "stalfos_red",
   treasure_name = "random_with_charm",
@@ -14128,6 +14134,12 @@ enemy{
   layer = 0,
   x = 1400,
   y = 1309,
+  properties = {
+    {
+      key = "is_unarmed",
+      value = "true",
+    },
+  },
   direction = 3,
   breed = "stalfos_red",
   treasure_name = "random_with_charm",
@@ -14313,6 +14325,12 @@ enemy{
   layer = 0,
   x = 1672,
   y = 1101,
+  properties = {
+    {
+      key = "is_unarmed",
+      value = "true",
+    },
+  },
   direction = 3,
   breed = "stalfos_red",
   treasure_name = "random_with_charm",
@@ -15083,6 +15101,12 @@ enemy{
   layer = 0,
   x = 1496,
   y = 1093,
+  properties = {
+    {
+      key = "is_unarmed",
+      value = "true",
+    },
+  },
   direction = 3,
   breed = "stalfos_red",
   treasure_name = "random_with_charm",
