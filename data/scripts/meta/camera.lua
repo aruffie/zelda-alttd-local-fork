@@ -63,8 +63,8 @@ end
 function camera_meta:dynamic_shake(config, callback)
 
   local shaking_count_max = config ~= nil and config.count or 9
-  local amplitude = config ~= nil and config.amplitude or 4
-  local entity = config ~= nil and config.entity or self:get_map():get_hero()
+  local amplitude = config ~= nil and config.amplitude or 8
+  local entity_to_track = config ~= nil and config.entity or self:get_map():get_hero()
 
   local camera = self
   local map = camera:get_map()
@@ -74,7 +74,7 @@ function camera_meta:dynamic_shake(config, callback)
   local offset_x=0
   local offset_y=0
 
-  local w,h=camera:get_size()
+  local camera_width, camera_height=camera:get_size()
 
   local function clamp(val, min, max)
     return math.max(min, math.min(val, max))
@@ -82,31 +82,31 @@ function camera_meta:dynamic_shake(config, callback)
 
   local function get_region_bounding_box(map,x,y)
     --By default, make the region bounding box match the map's
-    local bx1=0
-    local by1=0
-    local bx2, by2=map:get_size()
+    local boundary_xmin=0
+    local boundary_ymin=0
+    local boundary_xmax, boundary_ymax=map:get_size()
     -- Then, shrink bounding box to actual region size by comparing with the separators; if any.
     for e in map:get_entities_in_region(x,y) do
       if e:get_type()=="separator" then
-        local ex,ey, ew, eh=e:get_bounding_box()
-        if ew>eh then --Horizontal separator
-          if y>ey then
-            by1=math.max(by1, ey+8)
+        local separator_x,separator_y, separator_w, separator_h=e:get_bounding_box()
+        if separator_w>separator_h then --Horizontal separator
+          if y>separator_y then
+            boundary_ymin=math.max(boundary_ymin, separator_y+8)
           else
-            by2=math.min(by2, ey+8)  
+            boundary_ymax=math.min(boundary_ymax, separator_y+8)  
           end
         else
-          if x>ex then
-            bx1=math.max(bx1, ex+8)
+          if x>separator_x then
+            boundary_xmin=math.max(boundary_xmin, separator_x+8)
           else
-            bx2=math.min(bx2, ex+8)
+            boundary_xmax=math.min(boundary_xmax, separator_x+8)
           end
         end
       end
     end
-    return bx1, by1, bx2, by2
+    return boundary_xmin, boundary_ymin, boundary_xmax, boundary_ymax
   end
-  local x_min, y_min, x_max, y_max=get_region_bounding_box(map, entity:get_position())
+  local region_xmin, region_ymin, region_xmax, region_ymax=get_region_bounding_box(map, entity_to_track:get_position())
 
   local function shake_step()
 
@@ -119,9 +119,10 @@ function camera_meta:dynamic_shake(config, callback)
       offset_y = -amplitude/2
     end
 
-    local ex, ey, ew, eh=entity:get_bounding_box()
+    local entity_x, entity_y, entity_w, entity_h=entity_to_track:get_bounding_box()
 
-    camera:set_position(clamp(ex+ew/2-w/2+offset_x, x_min-amplitude/2, x_max-w+amplitude/2), clamp(ey+ew/2-h/2+offset_y, y_min-amplitude/2, y_max-h+amplitude/2))
+    camera:set_position(clamp(entity_x+entity_w/2-camera_width/2+offset_x, region_xmin+offset_x, region_xmax-camera_width+offset_y),
+                        clamp(entity_y+entity_w/2-camera_height/2+offset_x, region_ymin+offset_y, region_ymax-camera_height+offset_y))
 
     -- Inverse direction for next time.
     shaking_to_right = not shaking_to_right
@@ -133,7 +134,7 @@ function camera_meta:dynamic_shake(config, callback)
       return true
     else
       -- Finished.
-      camera:start_tracking(entity)
+      camera:start_tracking(entity_to_track)
       if callback ~= nil then
         callback()
       end
