@@ -12,7 +12,7 @@ local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
 
 -- Configuration variables
-local is_archer = enemy:get_property("is_archer")
+local is_unarmed = enemy:get_property("is_unarmed") == "true"
 local walking_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
 local walking_speed = 32
 local walking_minimum_distance = 16
@@ -24,9 +24,9 @@ local jumping_height = 16
 local jumping_duration = 600
 local throwing_bone_delay = 200
 
--- Make this enemy an archer.
-function enemy:set_archer(archer)
-  is_archer = archer or true
+-- Make this enemy throw bones or not.
+function enemy:set_unarmed(unarmed)
+  is_unarmed = unarmed or true
 end
 
 -- Start the enemy movement.
