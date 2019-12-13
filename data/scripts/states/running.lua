@@ -10,8 +10,6 @@ local hero_meta=sol.main.get_metatable("hero")
 local jump_manager
 local audio_manager=require("scripts/audio_manager")
 local map_tools=require("scripts/maps/map_tools")
-state:set_can_control_direction(false)
-state:set_can_control_movement(false)
 state:set_can_use_item(false)
 state:set_can_use_item("feather", true)
 state:set_can_traverse("crystal_block", true)
@@ -74,6 +72,11 @@ function state:on_started()
   entity:get_sprite("trail"):set_animation("running") 
   sprite:set_animation("walking")
 
+  -- Initialize state abilities that may have changed.
+  state:set_can_be_hurt(true)
+  state:set_can_control_direction(true)
+  state:set_can_control_movement(true)
+
   --Start playing the running sound
   entity.run_sound_timer = sol.timer.start(state, 200, function()
       if not entity.is_jumping or not entity:is_jumping() then
@@ -93,7 +96,9 @@ function state:on_started()
       entity.running_timer=nil --TODO check if this isn't useless 
       entity.running=true
       local sword_sprite
-      state:set_can_be_hurt(true)
+      state:set_can_be_hurt(false)
+      state:set_can_control_direction(false)
+      state:set_can_control_movement(false)
       if game:get_sword_ability() then
         sprite:set_animation("sword_loading_walking")
         sword_sprite = create_running_sword(hero, sprite:get_direction())
@@ -103,13 +108,16 @@ function state:on_started()
       m:set_speed(196)
       m:set_angle(sprite:get_direction()*math.pi/2)
 
-      -- Check if there is a collision with an enemy, then hurt it.
+      -- Check if there is a collision with any sprite of the hero and an enemy, then hurt it.
       function m:on_position_changed()
         for enemy in map:get_entities_by_type("enemy") do
-          if hero:overlaps(enemy, "sprite", sword_sprite, enemy:get_sprite()) and enemy:get_life() > 0 and not enemy:is_immobilized() then
+          if hero:overlaps(enemy, "sprite") and enemy:get_life() > 0 and not enemy:is_immobilized() then
             local reaction = enemy:get_thrust_reaction()
             if reaction ~= "ignored" then
               enemy:receive_attack_consequence("thrust", reaction)
+            else
+              -- Hurt the hero if enemy ignore thrust attacks.
+              hero:start_hurt(enemy, enemy:get_damage())
             end
           end
         end
@@ -137,7 +145,6 @@ function state:on_started()
           --Note, the current implementation of the shake function was intended to be used on static screens, so until it's reworked, there will be some visual mishaps at the end of the effect (the camera will abruptly go back to the the hero)
           local camera=map:get_camera()
           camera:dynamic_shake({count = 50, amplitude = 2, speed = 90, entity=entity})
---        map_tools.start_earthquake({count = 8, amplitude = 4, speed = 90}) 
 
           --Play funny animation
           local collapse_sprite=entity:get_sprite("tunic"):set_animation("collapse")
@@ -151,9 +158,7 @@ function state:on_started()
                   entity.bonking=nil
                   audio_manager:play_sound("hero/land")
                   entity:unfreeze()
-                  sol.timer.start(entity, 10, function()
-                      entity:get_sprite():set_animation("collapse")
-                    end)
+                  entity:get_sprite():set_animation("collapse")
                   return
                 else
                   return true
@@ -165,9 +170,7 @@ function state:on_started()
                 entity.bonking=nil
                 audio_manager:play_sound("hero/land")
                 entity:unfreeze()
-                sol.timer.start(entity, 10, function()
-                    entity:get_sprite():set_animation("collapse")
-                  end)
+                entity:get_sprite():set_animation("collapse")
               end)
           end
           entity:get_sprite():set_animation("collapse_pegasus")
@@ -185,14 +188,17 @@ end
 
 --Stops the run when the player changes the diection
 function state:on_command_pressed(command)
+
   local entity=state:get_entity()
-  local game=entity:get_game()
-  local s=entity:get_sprite()
-  if not entity.bonking then
-    for _,c in pairs(directions) do
-      if c.key == command and c.direction~=s:get_direction() then
-        entity:unfreeze()
-        return true
+  if entity.running then
+    local game=entity:get_game()
+    local s=entity:get_sprite()
+    if not entity.bonking then
+      for _,c in pairs(directions) do
+        if c.key == command and c.direction~=s:get_direction() then
+          entity:unfreeze()
+          return true
+        end
       end
     end
   end
