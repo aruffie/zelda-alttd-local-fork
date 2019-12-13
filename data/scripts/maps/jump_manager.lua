@@ -190,16 +190,16 @@ function jump_manager.start(entity, initial_vspeed, success_callback, failure_ca
   if not entity or entity:get_type() ~= "hero" then
     return
   end
-
-  if entity:is_jumping() then
+  local state, state_object=entity:get_state() --launch approprate custom state
+  local state_description = state=="custom" and state_object:get_description() or ""
+  if entity:is_jumping() or state=="falling" or state=="grabbing" or state=="carrying" or state=="pushing" then --filter out invalid states
     if failure_callback then
       failure_callback()
     end
     return
   end
 
-  local state, state_object=entity:get_state() --launch approprate custom state
-  local state_description = state=="custom" and state_object:get_description() or ""
+
 
   local s=entity:get_sprite("shadow_override")
 
