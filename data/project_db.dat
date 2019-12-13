@@ -202,9 +202,9 @@ sprite{ id = "enemies/ballchain_soldier", description = "Ballchain Soldier" }
 sprite{ id = "enemies/ballchain_soldier/ball", description = "Ballchain Soldier Ball" }
 sprite{ id = "enemies/ballchain_soldier/chain", description = "Ballchain Soldier Chain" }
 sprite{ id = "enemies/beamos", description = "Beamos" }
-sprite{ id = "enemies/beetle_blue", description = "Beetle Blue" }
-sprite{ id = "enemies/beetle_green", description = "Beetle Green" }
-sprite{ id = "enemies/beetle_red", description = "Beetle Red" }
+sprite{ id = "enemies/beetle", description = "Beetle blue" }
+sprite{ id = "enemies/beetle/green", description = "Beetle Green" }
+sprite{ id = "enemies/beetle/red", description = "Beetle Red" }
 sprite{ id = "enemies/bloober", description = "Bloober" }
 sprite{ id = "enemies/bomber", description = "Bomber" }
 sprite{ id = "enemies/bombite_green", description = "Bombite Green" }
@@ -1273,9 +1273,7 @@ enemy{ id = "arm_mimic", description = "Arm Mimic" }
 enemy{ id = "armos", description = "Armos" }
 enemy{ id = "ballchain_soldier", description = "Ballchain Soldier" }
 enemy{ id = "beamos", description = "Beamos" }
-enemy{ id = "beetle_blue", description = "Beetle Blue" }
-enemy{ id = "beetle_green", description = "Beetle Green" }
-enemy{ id = "beetle_red", description = "Beetle Red" }
+enemy{ id = "beetle", description = "Beetle" }
 enemy{ id = "bloober", description = "Bloober" }
 enemy{ id = "bomber", description = "Bomber" }
 enemy{ id = "bombite_green", description = "Bombite Green" }
@@ -1492,9 +1490,7 @@ file{ path = "enemies/arm_mimic.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/armos.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/ballchain_soldier.lua", license = "GPL v3" }
 file{ path = "enemies/beamos.lua", author = "Vlag", license = "GPL v3" }
-file{ path = "enemies/beetle_blue.lua", author = "Vlag", license = "GPL v3" }
-file{ path = "enemies/beetle_green.lua", author = "Vlag", license = "GPL v3" }
-file{ path = "enemies/beetle_red.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/beetle.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/bloober.lua", license = "GPL v3" }
 file{ path = "enemies/bomber.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/bombite_green.lua", author = "Vlag", license = "GPL v3" }

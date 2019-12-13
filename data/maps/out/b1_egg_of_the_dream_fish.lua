@@ -19,10 +19,6 @@ map:register_event("on_started", function(map, destination)
   map:init_map_entities()
   -- Digging
   map:set_digging_allowed(true)
-  
-  -- Deactivate boulder spawners.
-  spawner_boulder_1:stop()
-  spawner_boulder_2:stop()
 end)
 
 -- Initialize the music of the map
