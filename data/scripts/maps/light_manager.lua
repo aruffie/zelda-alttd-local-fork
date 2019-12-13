@@ -49,7 +49,7 @@ end
 function light_manager:check_is_light_active(map, torch_prefix)
 
   for torch in map:get_entities(torch_prefix) do
-    if torch:is_lit() then
+    if torch.is_lit and torch:is_lit() then
       return true
     end
   end
@@ -64,7 +64,7 @@ function light_manager:update_light_level(map)
 
     if entity:get_type()=="custom_entity" and entity:get_model()=="torch" and entity:is_in_same_region(map:get_hero()) then
       total=total+1
-      if entity:is_lit() then
+      if entity.is_lit and entity:is_lit() then
         lit=lit+1
       end
     end

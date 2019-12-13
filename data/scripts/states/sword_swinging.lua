@@ -30,14 +30,15 @@ end
 
 
 function state:on_started(old_state_name, old_state_object)
-    debug_print ("going from "..old_state_name..(old_state_object and "("..old_state_object:get_description()..")" or "").." to custom sword swinging")
+
+  debug_print ("going from "..old_state_name..(old_state_object and "("..old_state_object:get_description()..")" or "").." to custom sword swinging")
 --print "flying attaaaaack"
   local entity=state:get_entity()
   local game = state:get_game()
-  
+  state:set_can_control_movement(entity:is_jumping())
   --Set up sprites
   tunic_sprite = entity:get_sprite("tunic")
-  sword_sprite = entity:get_sprite("sword")
+  sword_sprite = entity:get_sprite("sword_override")
   sword_sprite:set_direction(tunic_sprite:get_direction())
   tunic_sprite:set_animation("sword", function()
       sword_manager.trigger_event(entity, "sword swinging complete")

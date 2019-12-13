@@ -31,7 +31,98 @@ torch:register_event("on_created", function()
       local duration= (duration_text and duration_text:to_number() or 10000)
       torch:set_duration(duration)
     end
+    
+    function torch:is_lit()
+      return sprite:get_animation() == "lit"
+    end
 
+    function torch:set_lit(lit)
+
+      if lit then
+        sprite:set_animation("lit")
+        if torch.duration ~= nil then
+          sol.timer.start(torch, torch.duration, function()
+              torch:set_lit(false)
+              if torch.on_unlit ~= nil then
+                torch:on_unlit()
+              end
+            end)
+        end
+      else
+        sprite:set_animation("unlit")
+      end
+      if map.torch_changed ~= nil then
+        map:torch_changed(torch, lit)
+      end
+
+    end
+
+    function torch:get_duration()
+      return torch.duration
+    end
+
+-- Sets the light duration. nil means unlimited.
+    function torch:set_duration(duration)
+      torch.duration = duration
+    end
+
+    local function on_collision(torch, other, torch_sprite, other_sprite)
+
+      if other:get_type() == "custom_entity" then
+
+        local other_model = other:get_model()
+        if other_model == "fire" or other_model == 'powder' then
+          if not torch:is_lit() then
+            torch:set_lit(true)
+            if torch.on_lit ~= nil then
+              torch:on_lit()
+            end
+
+            sol.timer.start(other, 50, function()
+                other:stop_movement()
+                other:get_sprite():set_animation("stopped")
+              end)
+
+          end
+
+        elseif other_model == "ice_beam" then
+          if torch:is_lit() then
+            torch:set_lit(false)
+            if torch.on_unlit ~= nil then
+              torch:on_unlit()
+            end
+          end
+
+          sol.timer.start(other, 50, function()
+              other:stop_movement()
+              sol.timer.start(other, 150, function()
+                  other:remove()
+                end)
+            end)
+
+        end
+
+      elseif other:get_type() == "enemy" then
+
+        local other_model = other:get_breed()
+        if other_model == "fireball_red_small" then
+          if not torch:is_lit() then
+            torch:set_lit(true)
+            if torch.on_lit ~= nil then
+              torch:on_lit()
+            end
+          end
+          other:remove()
+        end
+      end
+    end
+
+    torch:set_traversable_by("custom_entity", function(torch, other)
+        return other:get_model() == "fire" or other:get_model() == "ice"
+      end)
+
+    torch:add_collision_test("sprite", on_collision)
+    torch:add_collision_test("overlapping", on_collision)
   end)
 
 function torch:is_lit()

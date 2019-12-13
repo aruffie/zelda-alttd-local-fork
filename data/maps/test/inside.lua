@@ -1,5 +1,13 @@
 local map=...
 
+local separator_manager=require "scripts/maps/separator_manager"
+local light_manager=require "scripts/maps/light_manager"
+
+function map:on_started()
+separator_manager:init(map)
+light_manager:init(map)
+end
+
 function key_test_switch:on_activated()
   local x,y,layer=key_spawn_point:get_position()
   local key=map:create_pickable({
@@ -28,4 +36,9 @@ function key_test_switch_2:on_activated()
       wait(2000)
       map:set_cinematic_mode(false, options)
     end)
+end
+
+function starman_test:on_activated()
+  local shader=sol.shader.create("power_effect")
+  map:get_hero():get_sprite():set_shader(shader)
 end

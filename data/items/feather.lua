@@ -30,19 +30,18 @@ local game_meta = sol.main.get_metatable("game")
 
 -- This function is called when the item command is triggered. It is similar to item:on_using, without state changing.
 function item:start_using()
-
   local map = game:get_map()
   local hero = map:get_hero()
 
-  -- 
   if not hero:is_jumping() then
     if not map:is_sideview() then
-
+      
       jump_manager.start(hero) -- Running jump
 
     else
+      local state=hero:get_state()
       -- Simply apply a vertical impulsion to the hero in sideview maps.
-      if hero:get_state()~="carrying" and hero:get_state()~="lifting" and hero:get_state()~="falling" then
+      if state~="carrying" and state~="lifting" and state~="falling" then
         local vspeed = hero.vspeed or 0
         if vspeed == 0 or hero.has_grabbed_ladder or map:get_ground(hero:get_position()) == "deep_water" then
           audio_manager:play_sound("hero/jump")

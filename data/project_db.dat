@@ -1472,8 +1472,10 @@ shader{ id = "heat_wave", description = "Heat distorsion" }
 shader{ id = "lcd", description = "LCD filter" }
 shader{ id = "mode_7", description = "Mode 7" }
 shader{ id = "pixellisation", description = "Pixellisation effect" }
+shader{ id = "power_effect", description = "Power effect" }
 shader{ id = "radial_fade_out", description = "Radial fade out" }
 shader{ id = "sepia", description = "Sepia" }
+shader{ id = "starman", description = "Starman-like effect" }
 shader{ id = "toon", description = "Toon" }
 shader{ id = "water_effect", description = "water_effect" }
 
@@ -2246,8 +2248,10 @@ file{ path = "scripts/states/running.lua", author = "PhoenixII54", license = "GP
 file{ path = "scripts/states/sideview_swim.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "shaders/pixellisation.dat", author = "PhoenixII54", }
 file{ path = "shaders/pixellisation.frag.glsl", author = "PhoenixII54", }
+file{ path = "shaders/power_effect.dat", author = "PhoenixII54", }
 file{ path = "shaders/radial_fade_out.dat", author = "PhoenixII54", }
 file{ path = "shaders/radial_fade_out.frag.glsl", author = "PhoenixII54", }
+file{ path = "shaders/starman.dat", author = "PhoenixII54", }
 file{ path = "sounds", author = "Nintendo, Diarandor, Franck Jousseaume, Zonzifleur", license = "Proprietary, Fair use, CC BY-SA 4.0" }
 file{ path = "sounds/arrow_hit.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/boomerang.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }

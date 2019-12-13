@@ -389,6 +389,13 @@ hero_meta:register_event("on_created", function(hero)
     hero:remove_sprite(hero:get_sprite("shadow"))
     hero:initialize_fixing_functions() -- Used to fix direction and animations.
 
+    local variant=hero:get_game():get_item("sword"):get_variant()
+    if  variant then
+      hero:create_sprite("hero/sword"..variant, "sword_override"):stop_animation()
+      hero:create_sprite("hero/sword_stars"..variant, "sword_stars_override"):stop_animation()
+    end
+
+
   end)
 
 
@@ -545,6 +552,15 @@ function hero_meta:add_charm(charm)
     local game = self:get_game()
     game.hero_charm = charm
     game.hero_charm_hurt_counter = 0
+    -- Shader
+    local shader=sol.shader.create("power_effect")
+    self:get_sprite():set_shader(shader)
+    if charm == "acorn" then
+      shader:set_uniform("target_color", {0., 0., 1.0, 1.0})
+    else --Power fragment
+      shader:set_uniform("target_color", {1.0, 0.0, 0.0, 1.0})
+    end
+
     -- Sound and music
     audio_manager:play_sound("items/get_power_up")
     audio_manager:refresh_music()
@@ -559,6 +575,7 @@ function hero_meta:remove_charm()
   game.hero_charm_hurt_counter = 0
   game.acorn_count = 0
   game.power_fragment_count = 0
+  self:get_sprite():set_shader(nil)
   -- Music
   audio_manager:refresh_music()
 

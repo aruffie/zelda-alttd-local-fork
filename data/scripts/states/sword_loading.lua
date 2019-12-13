@@ -44,8 +44,8 @@ function state:on_started(old_state_name, old_state_object)
   local game = state:get_game()
   --Set up sprites
   local tunic_sprite = entity:get_sprite("tunic")
-  local sword_sprite = entity:get_sprite("sword")
-  local stars_sprite = entity:get_sprite("sword_stars")
+  local sword_sprite = entity:get_sprite("sword_override")
+  local stars_sprite = entity:get_sprite("sword_stars_override")
   stars_sprite:set_direction(tunic_sprite:get_direction())
   if entity:get_movement() and entity:get_movement():get_speed()>0 then
     tunic_sprite:set_animation("sword_loading_walking")
@@ -87,7 +87,7 @@ end
 function state:on_movement_changed(movement)
   local entity=state:get_entity()
   local tunic_sprite = entity:get_sprite("tunic")
-  local sword_sprite = entity:get_sprite("sword")
+  local sword_sprite = entity:get_sprite("sword_override")
   if movement.get_speed and movement:get_speed()>0 then
     tunic_sprite:set_animation("sword_loading_walking")
     sword_sprite:set_animation("sword_loading_walking")   
@@ -107,8 +107,8 @@ end
 function state:on_finished()
   debug_print "fishing sword loading state"
   local entity=state:get_entity()
-  entity:get_sprite("sword_stars"):stop_animation()
-  entity:get_sprite("sword"):stop_animation()
+  entity:get_sprite("sword_stars_override"):stop_animation()
+  entity:get_sprite("sword_override"):stop_animation()
 end
 
 return function(_sword_manager)

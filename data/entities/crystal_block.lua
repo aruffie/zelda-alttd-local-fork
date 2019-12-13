@@ -52,12 +52,8 @@ entity:set_traversable_by("custom_entity", function(entity, other)
     local ex, ey, ew, eh=entity:get_bounding_box()
 
     local model=other:get_model()
-    if model=="arrow" or model=="bomb_arrow" then
-      return true
-    elseif true then
-      return false end
-    end
-    return true --HACK
+    return model=="arrow" or model=="bomb_arrow" 
+
   end)
 
 entity:set_traversable_by("hero", function(entity, other)
