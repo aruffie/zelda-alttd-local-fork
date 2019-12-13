@@ -1448,6 +1448,7 @@ entity{ id = "platform_thwomp", description = "Platform (Spiked Thwomp top)" }
 entity{ id = "powder", description = "Powder" }
 entity{ id = "pull_handle", description = "Pull handle" }
 entity{ id = "seagull", description = "Seagull" }
+entity{ id = "spawner", description = "Spawner" }
 entity{ id = "spike_sideview", description = "Sideview spike" }
 entity{ id = "statue", description = "Statue" }
 entity{ id = "statue_elephant", description = "Statue elephant" }
@@ -1679,6 +1680,7 @@ file{ path = "entities/platform_thwomp.lua", author = "PhoenixII54", license = "
 file{ path = "entities/powder.lua", license = "GPL v3" }
 file{ path = "entities/pull_handle.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "entities/seagull.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "entities/spawner.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "entities/spike_sideview.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "entities/statue.lua", license = "GPL v3" }
 file{ path = "entities/statue_elephant.lua", license = "GPL v3" }

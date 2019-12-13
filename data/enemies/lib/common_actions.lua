@@ -131,8 +131,6 @@ function common_actions.learn(enemy)
       width, height = -width, -height
     end
 
-    print(x, width, camera_x, camera_y, camera_width, camera_height)
-
     return x + width >= camera_x and x <= camera_x + camera_width 
         and y + height >= camera_y and y <= camera_y + camera_height
   end
