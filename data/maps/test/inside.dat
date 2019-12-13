@@ -904,3 +904,11 @@ custom_entity{
   model = "torch",
 }
 
+enemy{
+  layer = 0,
+  x = 224,
+  y = 197,
+  direction = 0,
+  breed = "fireball",
+}
+

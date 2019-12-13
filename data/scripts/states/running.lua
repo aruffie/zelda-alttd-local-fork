@@ -56,7 +56,7 @@ end
 -- Create a new sword sprite to not trigger the "sword" attack on collision with enemies.
 local function create_running_sword(entity, direction)
 
-  local animation_set = entity:get_sprite("sword"):get_animation_set()
+  local animation_set = entity:get_sprite("sword_override"):get_animation_set()
   local sprite = entity:create_sprite(animation_set, "running_sword")
   sprite:set_animation("sword_loading_walking")
   sprite:set_direction(direction)
@@ -76,7 +76,7 @@ function state:on_started()
 
   --Start playing the running sound
   entity.run_sound_timer = sol.timer.start(state, 200, function()
-      if not entity.is_jumping or entity:is_jumping()==false then
+      if not entity.is_jumping or not entity:is_jumping() then
         if entity:get_ground_below() == "shallow_water" then
           audio_manager:play_sound("hero/wade1")
         elseif entity:get_ground_below()=="grass" then
@@ -93,7 +93,7 @@ function state:on_started()
       entity.running_timer=nil --TODO check if this isn't useless 
       entity.running=true
       local sword_sprite
-      state:set_can_be_hurt(false)
+      state:set_can_be_hurt(true)
       if game:get_sword_ability() then
         sprite:set_animation("sword_loading_walking")
         sword_sprite = create_running_sword(hero, sprite:get_direction())
@@ -106,7 +106,7 @@ function state:on_started()
       -- Check if there is a collision with an enemy, then hurt it.
       function m:on_position_changed()
         for enemy in map:get_entities_by_type("enemy") do
-          if hero:overlaps(enemy, "sprite") and enemy:get_life() > 0 and not enemy:is_immobilized() then
+          if hero:overlaps(enemy, "sprite", sword_sprite, enemy:get_sprite()) and enemy:get_life() > 0 and not enemy:is_immobilized() then
             local reaction = enemy:get_thrust_reaction()
             if reaction ~= "ignored" then
               enemy:receive_attack_consequence("thrust", reaction)
