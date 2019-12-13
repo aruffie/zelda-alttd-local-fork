@@ -113,9 +113,10 @@ function state:on_started()
         for enemy in map:get_entities_by_type("enemy") do
           if hero:overlaps(enemy, "sprite") and enemy:get_life() > 0 and not enemy:is_immobilized() then
             local reaction = enemy:get_thrust_reaction()
+print(reaction)
             if reaction ~= "ignored" then
               enemy:receive_attack_consequence("thrust", reaction)
-            else
+            elseif enemy:get_can_attack() then
               -- Hurt the hero if enemy ignore thrust attacks.
               hero:start_hurt(enemy, enemy:get_damage())
             end
