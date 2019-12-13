@@ -336,26 +336,38 @@ local function initialize_dungeon_features(game)
             savegame = "dungeon_10_compass",
             signal = false
           },
-          [26] = {
+          [25] = {
+            savegame = "dungeon_10_small_key_chest_1",
+            signal = true
+          },
+          [32] = {
             savegame = "dungeon_10_hammer",
             signal = false
           },
-          [36] = {
-            savegame = "dungeon_10_small_key_1",
+          [38] = {
+            savegame = "dungeon_10_small_key_chest_6",
             signal = true
           },
-          [44] = {
-            savegame = "dungeon_10_small_key_2",
+          [49] = {
+            savegame = "dungeon_10_small_key_chest_2",
             signal = true
           },
-          [51] = {
-            savegame = "dungeon_10_small_key_3",
+          [54] = {
+            savegame = "dungeon_10_small_key_chest_4",
+            signal = true
+          },
+          [61] = {
+            savegame = "dungeon_10_small_key_chest_3",
             signal = true
           },
           [62] = {
             savegame = "dungeon_10_map",
             signal = false
-          }
+          },
+          [63] = {
+            savegame = "dungeon_10_small_key_chest_5",
+            signal = true
+          },
         }
       },
       boss = {
