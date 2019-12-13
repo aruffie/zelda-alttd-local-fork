@@ -3,11 +3,11 @@
 -- Add some basic and common methods/events to an enemy.
 -- There is no passive behavior without an explicit start when learning this to an enemy.
 --
--- Methods : enemy:is_near(entity, triggering_distance, [sprite])
---           enemy:is_aligned(entity, thickness, [sprite])
+-- Methods : enemy:is_aligned(entity, thickness, [sprite])
+--           enemy:is_near(entity, triggering_distance, [sprite])
 --           enemy:is_leashed_by(entity)
---           enemy:is_fully_over_ground(ground)
---           enemy:is_sprite_contained(sprite, x, y, width, height)
+--           enemy:is_over_ground(ground)
+--           enemy:is_watched([sprite, [fully_visible]])
 --           enemy:get_angle_from_sprite(sprite, entity)
 --           enemy:get_central_symmetry_position(x, y)
 --           enemy:get_grid_position()
@@ -19,9 +19,9 @@
 --           enemy:start_jumping(duration, height, [angle, speed, [on_finished_callback]])
 --           enemy:start_flying(take_off_duration, height, [on_finished_callback])
 --           enemy:stop_flying(landing_duration, [on_finished_callback])
---           enemy:start_impulsion(x, y, speed, acceleration, deceleration)
 --           enemy:start_attracting(entity, speed, [moving_condition_callback])
 --           enemy:stop_attracting()
+--           enemy:start_impulsion(x, y, speed, acceleration, deceleration)
 --           enemy:start_welding(entity, [x_offset, [y_offset]])
 --           enemy:start_leashed_by(entity, maximum_distance)
 --           enemy:stop_leashed_by(entity)
@@ -51,6 +51,7 @@ function common_actions.learn(enemy)
   local game = enemy:get_game()
   local map = enemy:get_map()
   local hero = map:get_hero()
+  local camera = map:get_camera()
   local trigonometric_functions = {math.cos, math.sin}
   local circle = 2.0 * math.pi
   local quarter = 0.5 * math.pi
@@ -64,32 +65,32 @@ function common_actions.learn(enemy)
     return (a or b) and not (a and b)
   end
 
-  -- Return true if the entity is closer to the enemy than triggering_distance
-  function enemy:is_near(entity, triggering_distance, sprite)
-
-    local entity_layer = entity:get_layer()
-    local x, y, layer = enemy:get_position()
-    local x_offset, y_offset = 0, 0
-    if sprite then
-      x_offset, y_offset = sprite:get_xy()
-    end
-
-    return entity:get_distance(x + x_offset, y + y_offset) < triggering_distance 
-      and (layer == entity_layer or enemy:has_layer_independent_collisions())
-  end
-
   -- Return true if the entity is on the same row or column than the entity.
   function enemy:is_aligned(entity, thickness, sprite)
 
     local half_thickness = thickness * 0.5
     local entity_x, entity_y, entity_layer = entity:get_position()
     local x, y, layer = enemy:get_position()
-    local x_offset, y_offset = 0, 0
     if sprite then
-      x_offset, y_offset = sprite:get_xy()
+      local x_offset, y_offset = sprite:get_xy()
+      x, y = x + x_offset, y + y_offset
     end
 
-    return (math.abs(entity_x - x - x_offset) < half_thickness or math.abs(entity_y - y - y_offset) < half_thickness) and layer == entity_layer
+    return (math.abs(entity_x - x) < half_thickness or math.abs(entity_y - y) < half_thickness) and layer == entity_layer
+  end
+
+  -- Return true if the entity is closer to the enemy than triggering_distance
+  function enemy:is_near(entity, triggering_distance, sprite)
+
+    local entity_layer = entity:get_layer()
+    local x, y, layer = enemy:get_position()
+    if sprite then
+      local x_offset, y_offset = sprite:get_xy()
+      x, y = x + x_offset, y + y_offset
+    end
+
+    return entity:get_distance(x, y) < triggering_distance 
+      and (layer == entity_layer or enemy:has_layer_independent_collisions())
   end
 
   -- Return true if the enemy is currently leashed by the entity.
@@ -98,28 +99,42 @@ function common_actions.learn(enemy)
   end
 
   -- Return true if the four corners of the enemy are over the given ground.
-  function enemy:is_fully_over_ground(ground)
+  function enemy:is_over_ground(ground)
     local x, y, layer = enemy:get_position()
     local width, height = enemy:get_size()
     local origin_x, origin_y = enemy:get_origin()
-    return string.find(map:get_ground(x - origin_x, y - origin_y, layer), ground)
-        and string.find(map:get_ground(x - origin_x + width, y - origin_y, layer), ground)
-        and string.find(map:get_ground(x - origin_x, y - origin_y + height, layer), ground)
-        and string.find(map:get_ground(x - origin_x + width, y - origin_y + height, layer), ground)
+    x, y = x - origin_x, y - origin_y
+    return string.find(map:get_ground(x, y, layer), ground)
+        and string.find(map:get_ground(x + width, y, layer), ground)
+        and string.find(map:get_ground(x, y + height, layer), ground)
+        and string.find(map:get_ground(x + width, y + height, layer), ground)
   end
 
-  -- Return true if the sprite is fully inside the given rectangle.
-  function enemy:is_sprite_contained(sprite, x, y, width, height)
+  -- Return true if the enemy or its given sprite is partially visible at the camera, or fully visible if requested.
+  function enemy:is_watched(sprite, fully_visible)
 
-    local enemy_x, enemy_y, _ = enemy:get_position()
-    local sprite_x, sprite_y = sprite:get_xy()
-    local sprite_width, sprite_height = sprite:get_size()
-    local origin_x, origin_y = sprite:get_origin()
-    local sprite_absolute_x = sprite_x - origin_x + enemy_x
-    local sprite_absolute_y = sprite_y - origin_y + enemy_y
+    local camera_x, camera_y = camera:get_position()
+    local camera_width, camera_height = camera:get_size()
+    local target = sprite or enemy
+    local x, y, _ = enemy:get_position()
+    local width, height = target:get_size()
+    local origin_x, origin_y = target:get_origin()
+    x, y = x - origin_x, y - origin_y
 
-    return sprite_absolute_x >= x and sprite_absolute_x + sprite_width <= x + width 
-        and sprite_absolute_y >= y and sprite_absolute_y + sprite_height <= y + height 
+    if sprite then
+      local offset_x, offset_y = sprite:get_xy()
+      x, y = x + offset_x, y + offset_y
+    end
+
+    if fully_visible then
+      x, y = x + width, y + height
+      width, height = -width, -height
+    end
+
+    print(x, width, camera_x, camera_y, camera_width, camera_height)
+
+    return x + width >= camera_x and x <= camera_x + camera_width 
+        and y + height >= camera_y and y <= camera_y + camera_height
   end
 
   -- Return the angle from the enemy sprite to given entity.
@@ -213,7 +228,7 @@ function common_actions.learn(enemy)
 
     -- Update the enemy sprites.
     for _, sprite in enemy:get_sprites() do
-      if sprite:has_animation("walking") then
+      if sprite:has_animation("walking") and sprite:get_animation() ~= "walking" then
         sprite:set_animation("walking")
       end
       sprite:set_direction(movement:get_direction4())
@@ -233,7 +248,7 @@ function common_actions.learn(enemy)
     -- Update enemy sprites.
     local direction = movement:get_direction4()
     for _, sprite in enemy:get_sprites() do
-      if sprite:has_animation("walking") then
+      if sprite:has_animation("walking") and sprite:get_animation() ~= "walking" then
         sprite:set_animation("walking")
       end
       sprite:set_direction(direction)
@@ -359,6 +374,67 @@ function common_actions.learn(enemy)
     end
   end
 
+  -- Start attracting the given entity, negative speed possible.
+  function enemy:start_attracting(entity, speed, moving_condition_callback)
+
+    -- Workaround : Don't use solarus movements to be able to start several movements at the same time.
+    local move_ratio = speed > 0 and 1 or -1
+    attracting_timers[entity] = {}
+
+    local function attract_on_axis(axis)
+
+      local entity_position = {entity:get_position()}
+      local enemy_position = {enemy:get_position()}
+      local angle = math.atan2(entity_position[2] - enemy_position[2], enemy_position[1] - entity_position[1])
+      
+      local axis_move = {0, 0}
+      local axis_move_delay = 10 -- Default timer delay if no move
+
+      if not moving_condition_callback or moving_condition_callback() then
+
+        -- Always move pixel by pixel.
+        axis_move[axis] = math.max(-1, math.min(1, enemy_position[axis] - entity_position[axis])) * move_ratio
+        if axis_move[axis] ~= 0 then
+
+          -- Schedule the next move on this axis depending on the remaining distance and the speed value, avoiding too high and low timers.
+          axis_move_delay = 1000.0 / math.max(1, math.min(100, math.abs(speed * trigonometric_functions[axis](angle))))
+
+          -- Move the entity.
+          if not entity:test_obstacles(axis_move[1], axis_move[2]) then
+            entity:set_position(entity_position[1] + axis_move[1], entity_position[2] + axis_move[2], entity_position[3])
+          end
+        end
+      end
+
+      -- Start the next move timer.
+      attracting_timers[entity][axis] = sol.timer.start(enemy, axis_move_delay, function()
+        if game:is_suspended() then
+          return 10
+        end
+        if enemy:exists() and enemy:is_enabled() then
+          attract_on_axis(axis)
+        end
+      end)
+    end
+
+    attract_on_axis(1)
+    attract_on_axis(2)
+  end
+
+  -- Stop looped timers related to the attractions.
+  function enemy:stop_attracting()
+
+    for _, timers in pairs(attracting_timers) do
+      if timers then
+        for i = 1, 2 do
+          if timers[i] then
+            timers[i]:stop()
+          end
+        end
+      end
+    end
+  end
+
   -- Start a straight move to the given target and apply a constant acceleration and deceleration (px/s²).
   function enemy:start_impulsion(x, y, speed, acceleration, deceleration)
 
@@ -447,67 +523,6 @@ function common_actions.learn(enemy)
     end
 
     return movement
-  end
-
-  -- Start attracting the given entity, negative speed possible.
-  function enemy:start_attracting(entity, speed, moving_condition_callback)
-
-    -- Workaround : Don't use solarus movements to be able to start several movements at the same time.
-    local move_ratio = speed > 0 and 1 or -1
-    attracting_timers[entity] = {}
-
-    local function attract_on_axis(axis)
-
-      local entity_position = {entity:get_position()}
-      local enemy_position = {enemy:get_position()}
-      local angle = math.atan2(entity_position[2] - enemy_position[2], enemy_position[1] - entity_position[1])
-      
-      local axis_move = {0, 0}
-      local axis_move_delay = 10 -- Default timer delay if no move
-
-      if not moving_condition_callback or moving_condition_callback() then
-
-        -- Always move pixel by pixel.
-        axis_move[axis] = math.max(-1, math.min(1, enemy_position[axis] - entity_position[axis])) * move_ratio
-        if axis_move[axis] ~= 0 then
-
-          -- Schedule the next move on this axis depending on the remaining distance and the speed value, avoiding too high and low timers.
-          axis_move_delay = 1000.0 / math.max(1, math.min(100, math.abs(speed * trigonometric_functions[axis](angle))))
-
-          -- Move the entity.
-          if not entity:test_obstacles(axis_move[1], axis_move[2]) then
-            entity:set_position(entity_position[1] + axis_move[1], entity_position[2] + axis_move[2], entity_position[3])
-          end
-        end
-      end
-
-      -- Start the next move timer.
-      attracting_timers[entity][axis] = sol.timer.start(enemy, axis_move_delay, function()
-        if game:is_suspended() then
-          return 10
-        end
-        if enemy:exists() and enemy:is_enabled() then
-          attract_on_axis(axis)
-        end
-      end)
-    end
-
-    attract_on_axis(1)
-    attract_on_axis(2)
-  end
-
-  -- Stop looped timers related to the attractions.
-  function enemy:stop_attracting()
-
-    for _, timers in pairs(attracting_timers) do
-      if timers then
-        for i = 1, 2 do
-          if timers[i] then
-            timers[i]:stop()
-          end
-        end
-      end
-    end
   end
 
   -- Make the entity welded to the enemy at the given offset position, and propagate main events and methods.

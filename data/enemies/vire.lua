@@ -157,7 +157,7 @@ function enemy:start_flying_movement(angle)
 
     -- Clip and change the angle if the enemy has a part out screen.
     movement:register_event("on_position_changed", function(movement)
-      if not is_charging and not enemy:is_sprite_contained(sprite, camera:get_bounding_box()) then
+      if not is_charging and not enemy:is_watched(sprite, true) then
         enemy:clip_sprite_into(sprite, camera:get_bounding_box())
         enemy:start_flying_movement(movement:get_direction4() * quarter - quarter)
         return false
