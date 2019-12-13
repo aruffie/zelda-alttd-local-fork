@@ -9,13 +9,32 @@
 
 local map = ...
 local game = map:get_game()
-local door_manager = require("scripts/maps/door_manager")
-local enemy_manager = require("scripts/maps/enemy_manager")
-
 local flow_states = {lava = true, gel = false}
 
-door_manager:open_when_enemies_dead(map,  "keese_1",  "door_keese_1")
-door_manager:open_when_enemies_dead(map,  "maskass_1",  "door_maskass_1")
+-- Include scripts
+require("scripts/multi_events")
+local door_manager = require("scripts/maps/door_manager")
+local enemy_manager = require("scripts/maps/enemy_manager")
+local separator_manager = require("scripts/maps/separator_manager")
+local light_manager = require("scripts/maps/light_manager")
+
+-- Map events
+function map:on_started(destination)
+
+  -- Light
+  light_manager:init(map)
+
+  -- Enemies
+  enemy_manager:set_weak_boo_buddies_when_at_least_on_torch_lit(map, "torch_1", "boo_buddies_1")
+
+  -- Doors
+  door_manager:open_when_torches_lit(map, "torch_1", "door_ghost_1")
+  door_manager:open_when_enemies_dead(map,  "keese_1",  "door_keese_1")
+  door_manager:open_when_enemies_dead(map,  "maskass_1",  "door_maskass_1")
+
+  -- Separators
+  separator_manager:init(map)
+end
 
 -- Enable pipe flow of the given type
 local function pipe_enable_flow(type)
