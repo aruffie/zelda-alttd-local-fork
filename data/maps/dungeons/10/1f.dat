@@ -18658,8 +18658,8 @@ door{
 destination{
   name = "entrance",
   layer = 0,
-  x = 272,
-  y = 125,
+  x = 800,
+  y = 1781,
   direction = 1,
 }
 
@@ -21862,6 +21862,60 @@ custom_entity{
   direction = 0,
   sprite = "entities/destructibles/crystal_green",
   model = "green_crystal",
+}
+
+custom_entity{
+  name = "torch_1_5",
+  layer = 0,
+  x = 232,
+  y = 1357,
+  properties = {
+    {
+      key = "timer",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/misc/torch",
+  model = "torch",
+}
+
+custom_entity{
+  name = "torch_1_6",
+  layer = 0,
+  x = 88,
+  y = 1357,
+  properties = {
+    {
+      key = "timer",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/misc/torch",
+  model = "torch",
+}
+
+custom_entity{
+  name = "torch_1_7",
+  layer = 0,
+  x = 88,
+  y = 1293,
+  properties = {
+    {
+      key = "timer",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/misc/torch",
+  model = "torch",
 }
 
 tile{

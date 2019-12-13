@@ -14,6 +14,7 @@ require("scripts/multi_events")
 local entity_respawn_manager=require("scripts/maps/entity_respawn_manager")
 
 function separator_manager:init(map)
+  
   if map:get_world()=="outside_world" then
     return
   end
