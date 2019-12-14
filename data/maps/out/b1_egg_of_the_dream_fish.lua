@@ -19,7 +19,6 @@ map:register_event("on_started", function(map, destination)
   map:init_map_entities()
   -- Digging
   map:set_digging_allowed(true)
-  
 end)
 
 -- Initialize the music of the map
@@ -70,3 +69,19 @@ function owl_6_sensor:on_activated()
   end
 
 end
+
+-- Handle boulders respawn depending on activated sensor.
+function sensor_deactivate_boulder_1:on_activated()
+  spawner_boulder_1:stop()
+  spawner_boulder_2:stop()
+end
+local function start_spawning_boulders_on_activated(sensor)
+  function sensor:on_activated()
+    spawner_boulder_1:start()
+    spawner_boulder_2:start()
+  end
+end
+start_spawning_boulders_on_activated(sensor_activate_boulder_1)
+start_spawning_boulders_on_activated(sensor_activate_boulder_2)
+start_spawning_boulders_on_activated(sensor_activate_boulder_3)
+start_spawning_boulders_on_activated(sensor_activate_boulder_4)

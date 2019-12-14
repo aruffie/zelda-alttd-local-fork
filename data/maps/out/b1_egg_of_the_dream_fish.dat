@@ -21421,6 +21421,85 @@ custom_entity{
   sprite = "entities/doors/door_egg",
 }
 
+custom_entity{
+  name = "spawner_boulder_1",
+  layer = 1,
+  x = 144,
+  y = 53,
+  properties = {
+    {
+      key = "breed",
+      value = "boulder",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  model = "spawner",
+}
+
+custom_entity{
+  name = "spawner_boulder_2",
+  layer = 1,
+  x = 272,
+  y = 53,
+  properties = {
+    {
+      key = "breed",
+      value = "boulder",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  model = "spawner",
+}
+
+sensor{
+  name = "sensor_activate_boulder_1",
+  layer = 1,
+  x = 384,
+  y = 205,
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_activate_boulder_2",
+  layer = 1,
+  x = 0,
+  y = 229,
+  width = 16,
+  height = 32,
+}
+
+sensor{
+  name = "sensor_activate_boulder_3",
+  layer = 1,
+  x = 272,
+  y = 189,
+  width = 32,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_deactivate_boulder_1",
+  layer = 1,
+  x = 280,
+  y = 173,
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_activate_boulder_4",
+  layer = 1,
+  x = 176,
+  y = 189,
+  width = 32,
+  height = 16,
+}
+
 tile{
   layer = 2,
   x = 704,
