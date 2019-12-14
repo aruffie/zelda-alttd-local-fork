@@ -115,7 +115,7 @@ function state:on_started()
             local reaction = enemy:get_thrust_reaction()
             if reaction ~= "ignored" then
               enemy:receive_attack_consequence("thrust", reaction)
-            else
+            elseif enemy:get_can_attack() then
               -- Hurt the hero if enemy ignore thrust attacks.
               hero:start_hurt(enemy, enemy:get_damage())
             end

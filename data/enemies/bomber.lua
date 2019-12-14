@@ -26,6 +26,7 @@ local runaway_distance = 32
 
 local bomb_throw_duration = 600
 local bomb_throw_speed = 48
+local firing_duration = 500
 
 -- Start the enemy movement.
 function enemy:start_walking()
@@ -51,6 +52,11 @@ function enemy:start_attacking()
       bomb:set_position(enemy:get_position())
       bomb:show(true)
       bomb:get_movement():set_speed(bomb_throw_speed)
+
+      sprite:set_animation("firing")
+      sol.timer.start(enemy, firing_duration, function()
+        sprite:set_animation("walking")
+      end)
     end)
 
     -- Throw the bomb.

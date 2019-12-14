@@ -11721,15 +11721,6 @@ enemy{
 
 enemy{
   layer = 1,
-  x = 360,
-  y = 109,
-  direction = 1,
-  breed = "tektite_water",
-  treasure_name = "random_with_charm",
-}
-
-enemy{
-  layer = 1,
   x = 312,
   y = 269,
   direction = 1,
@@ -11753,6 +11744,23 @@ wall{
   width = 16,
   height = 16,
   stops_enemies = true,
+}
+
+custom_entity{
+  name = "spawner_beetle_1",
+  layer = 1,
+  x = 360,
+  y = 109,
+  properties = {
+    {
+      key = "breed",
+      value = "beetle",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  model = "spawner",
 }
 
 tile{
