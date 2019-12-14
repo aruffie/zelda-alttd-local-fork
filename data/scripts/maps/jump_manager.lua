@@ -13,6 +13,7 @@ To use :
 local jump_manager={}
 require("scripts/states/jumping")(jump_manager)
 require("scripts/states/running")(jump_manager)
+local jump_timer
 local gravity = 0.12
 local max_yvel = 2
 local y_factor = 1.0
@@ -32,18 +33,18 @@ function jump_manager.reset_collision_rules(state)
     state:set_affected_by_ground("prickles", true)
     state:set_affected_by_ground("grass", false)
     state:set_affected_by_ground("shallow_water", false)
+    state:set_can_traverse("crystal_block", nil)
     state:set_can_use_stairs(true)
     state:set_can_use_teletransporter(true)
     state:set_can_use_switch(true)
     state:set_can_use_stream(true)
     state:set_can_be_hurt(true)
     state:set_gravity_enabled(true)
-    state:set_can_traverse("crystal_block", nil)
     state:set_can_control_movement(state:get_description()~="sword_swinging" and state:get_description()=="sword_spin_attack")
   end
 end
 
-function jump_manager.setup_collision_rules(state)
+function jump_manager.setup_collision_rules(state, is_running)
 
   if state and sol.main.get_type(state)=="state" then 
     state:set_affected_by_ground("hole", false)
@@ -63,6 +64,7 @@ function jump_manager.setup_collision_rules(state)
     state:set_can_be_hurt(false)
     state:set_can_grab(false)
     state:set_gravity_enabled(false)
+    state:set_can_control_movement(not is_running)
   end
 end
 
@@ -136,6 +138,7 @@ function jump_manager.update_jump(entity, callback)
       for name, sprite in entity:get_sprites() do
         sprite:set_xy(0, 0)
       end
+      entity.y_offset = 0
       local final_x, final_y=entity:get_position()
       --print("Distance reached during jump: X="..final_x-debug_start_x..", Y="..final_y-debug_start_y..", height="..debug_max_height)
       jump_manager.reset_collision_rules(entity:get_state_object())
@@ -146,6 +149,7 @@ function jump_manager.update_jump(entity, callback)
         callback()
       end
       jump_manager.trigger_event(entity, "jump complete")
+      jump_timer = nil
       return false
     end
   end
@@ -173,16 +177,22 @@ function jump_manager.start_parabola(entity, v_speed, callback)
   if not entity or entity:get_type() ~= "hero" then
     return
   end
-  entity:set_jumping(true)
 
-  jump_manager.setup_collision_rules(entity:get_state_object())
+  -- Stop currently running jump update if any.
+  if jump_timer then
+    jump_timer:stop()
+    jump_timer = nil
+  end
+
+  entity:set_jumping(true)
+  jump_manager.setup_collision_rules(entity:get_state_object(), entity:is_running())
   entity.y_vel = v_speed and -math.abs(v_speed) or -max_yvel
 
 
-  local t=sol.timer.start(entity, 10, function()
+  jump_timer=sol.timer.start(entity, 10, function()
       return jump_manager.update_jump(entity, callback)
     end)
-  t:set_suspended_with_map(false)
+  jump_timer:set_suspended_with_map(false)
 end
 
 function jump_manager.start(entity, initial_vspeed, success_callback, failure_callback)
@@ -190,7 +200,7 @@ function jump_manager.start(entity, initial_vspeed, success_callback, failure_ca
   if not entity or entity:get_type() ~= "hero" then
     return
   end
-  local state, state_object=entity:get_state() --launch approprate custom state
+  local state, state_object=entity:get_state() -- Get the current state before jumping.
   local state_description = state=="custom" and state_object:get_description() or ""
   if entity:is_jumping() or state=="falling" or state=="grabbing" or state=="carrying" or state=="pushing" then --filter out invalid states
     if failure_callback then
@@ -200,14 +210,16 @@ function jump_manager.start(entity, initial_vspeed, success_callback, failure_ca
   end
 
 
-
   local s=entity:get_sprite("shadow_override")
 
 
+  -- Apply appropriate state properties on a dedicated jumping state if not running and on the current state else.
+  local target_state_object = state_object
   if not entity:is_running() then
     entity:jump()
+    target_state_object = entity:get_state_object()
   end
-  jump_manager.setup_collision_rules(state_object)
+  jump_manager.setup_collision_rules(target_state_object, entity:is_running())
 
   --  debug_print "Starting custom jump"
   debug_start_x, debug_start_y=entity:get_position() --Temporary, remove me once everything has been finalized
@@ -228,11 +240,10 @@ function jump_manager.start(entity, initial_vspeed, success_callback, failure_ca
   end
 
   entity.y_vel = initial_vspeed and -math.abs(initial_vspeed) or -max_yvel
-
-  local t=sol.timer.start(entity, 10, function()
+  jump_timer=sol.timer.start(entity, 10, function()
       return jump_manager.update_jump(entity, callback)
     end)
-  t:set_suspended_with_map(false)
+  jump_timer:set_suspended_with_map(false)
 
 end
 
