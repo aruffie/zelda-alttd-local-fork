@@ -32,18 +32,18 @@ function jump_manager.reset_collision_rules(state)
     state:set_affected_by_ground("prickles", true)
     state:set_affected_by_ground("grass", false)
     state:set_affected_by_ground("shallow_water", false)
+    state:set_can_traverse("crystal_block", nil)
     state:set_can_use_stairs(true)
     state:set_can_use_teletransporter(true)
     state:set_can_use_switch(true)
     state:set_can_use_stream(true)
     state:set_can_be_hurt(true)
     state:set_gravity_enabled(true)
-    state:set_can_traverse("crystal_block", nil)
     state:set_can_control_movement(state:get_description()~="sword_swinging" and state:get_description()=="sword_spin_attack")
   end
 end
 
-function jump_manager.setup_collision_rules(state)
+function jump_manager.setup_collision_rules(state, is_running)
 
   if state and sol.main.get_type(state)=="state" then 
     state:set_affected_by_ground("hole", false)
@@ -63,6 +63,7 @@ function jump_manager.setup_collision_rules(state)
     state:set_can_be_hurt(false)
     state:set_can_grab(false)
     state:set_gravity_enabled(false)
+    state:set_can_control_movement(not is_running)
   end
 end
 
@@ -190,7 +191,7 @@ function jump_manager.start(entity, initial_vspeed, success_callback, failure_ca
   if not entity or entity:get_type() ~= "hero" then
     return
   end
-  local state, state_object=entity:get_state() --launch approprate custom state
+  local state, state_object=entity:get_state() -- Get the current state before jumping.
   local state_description = state=="custom" and state_object:get_description() or ""
   if entity:is_jumping() or state=="falling" or state=="grabbing" or state=="carrying" or state=="pushing" then --filter out invalid states
     if failure_callback then
@@ -200,14 +201,16 @@ function jump_manager.start(entity, initial_vspeed, success_callback, failure_ca
   end
 
 
-
   local s=entity:get_sprite("shadow_override")
 
 
+  -- Apply appropriate state properties on a dedicated jumping state if not running and on the current state else.
+  local target_state_object = state_object
   if not entity:is_running() then
     entity:jump()
+    target_state_object = entity:get_state_object()
   end
-  jump_manager.setup_collision_rules(state_object)
+  jump_manager.setup_collision_rules(target_state_object, entity:is_running())
 
   --  debug_print "Starting custom jump"
   debug_start_x, debug_start_y=entity:get_position() --Temporary, remove me once everything has been finalized
