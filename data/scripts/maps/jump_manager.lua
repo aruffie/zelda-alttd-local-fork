@@ -13,6 +13,7 @@ To use :
 local jump_manager={}
 require("scripts/states/jumping")(jump_manager)
 require("scripts/states/running")(jump_manager)
+local jump_timer
 local gravity = 0.12
 local max_yvel = 2
 local y_factor = 1.0
@@ -137,6 +138,7 @@ function jump_manager.update_jump(entity, callback)
       for name, sprite in entity:get_sprites() do
         sprite:set_xy(0, 0)
       end
+      entity.y_offset = 0
       local final_x, final_y=entity:get_position()
       --print("Distance reached during jump: X="..final_x-debug_start_x..", Y="..final_y-debug_start_y..", height="..debug_max_height)
       jump_manager.reset_collision_rules(entity:get_state_object())
@@ -147,6 +149,7 @@ function jump_manager.update_jump(entity, callback)
         callback()
       end
       jump_manager.trigger_event(entity, "jump complete")
+      jump_timer = nil
       return false
     end
   end
@@ -174,16 +177,22 @@ function jump_manager.start_parabola(entity, v_speed, callback)
   if not entity or entity:get_type() ~= "hero" then
     return
   end
-  entity:set_jumping(true)
 
-  jump_manager.setup_collision_rules(entity:get_state_object())
+  -- Stop currently running jump update if any.
+  if jump_timer then
+    jump_timer:stop()
+    jump_timer = nil
+  end
+
+  entity:set_jumping(true)
+  jump_manager.setup_collision_rules(entity:get_state_object(), entity:is_running())
   entity.y_vel = v_speed and -math.abs(v_speed) or -max_yvel
 
 
-  local t=sol.timer.start(entity, 10, function()
+  jump_timer=sol.timer.start(entity, 10, function()
       return jump_manager.update_jump(entity, callback)
     end)
-  t:set_suspended_with_map(false)
+  jump_timer:set_suspended_with_map(false)
 end
 
 function jump_manager.start(entity, initial_vspeed, success_callback, failure_callback)
@@ -231,11 +240,10 @@ function jump_manager.start(entity, initial_vspeed, success_callback, failure_ca
   end
 
   entity.y_vel = initial_vspeed and -math.abs(initial_vspeed) or -max_yvel
-
-  local t=sol.timer.start(entity, 10, function()
+  jump_timer=sol.timer.start(entity, 10, function()
       return jump_manager.update_jump(entity, callback)
     end)
-  t:set_suspended_with_map(false)
+  jump_timer:set_suspended_with_map(false)
 
 end
 
