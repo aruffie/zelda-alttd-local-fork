@@ -204,7 +204,7 @@ function hero_meta.play_ground_effect(hero)
 end
 
 hero_meta:register_event("on_state_changing", function(hero, old_state, new_state)
-    --print ("going from state "..old_state.." to state ".. new_state)
+    print ("going from state "..old_state.." to state ".. new_state)
     if old_state=="jumping" and new_state=="free" then
       hero:play_ground_effect()
     end
@@ -390,7 +390,7 @@ hero_meta:register_event("on_created", function(hero)
     hero:initialize_fixing_functions() -- Used to fix direction and animations.
 
     local variant=hero:get_game():get_item("sword"):get_variant()
-    if  variant then
+    if  variant>0 then
       hero:create_sprite("hero/sword"..variant, "sword_override"):stop_animation()
       hero:create_sprite("hero/sword_stars"..variant, "sword_stars_override"):stop_animation()
     end
