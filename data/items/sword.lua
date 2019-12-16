@@ -22,13 +22,16 @@ function item:on_variant_changed(variant)
   if hero:get_sprite("sword_override") then
     hero:remove_sprite(hero:get_sprite("sword_override"))
   end
+
   if hero:get_sprite("sword_stars_override") then
     hero:remove_sprite(hero:get_sprite("sword_stars_override"))
   end
   --Set new sprite
-  hero:create_sprite("hero/sword"..variant, "sword_override")
-  hero:create_sprite("hero/sword_stars"..variant, "sword_stars_override")
-  item:get_game():set_ability("sword", 0)
-  item:get_game():set_value("force_sword", variant)
+  if variant > 0 then
+    hero:create_sprite("hero/sword"..variant, "sword_override"):stop_animation()
+    hero:create_sprite("hero/sword_stars"..variant, "sword_stars_override"):stop_animation()
+    item:get_game():set_ability("sword", 1)
+    item:get_game():set_value("force_sword", variant)
+  end
 
 end
