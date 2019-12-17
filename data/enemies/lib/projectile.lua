@@ -73,6 +73,11 @@ function behavior.apply(enemy, sprite)
   enemy:register_event("on_shield_collision", function(enemy, shield)
     enemy:hit_behavior()
   end)
+
+  -- Hide the projectile when dying
+  enemy:register_event("on_dying", function(enemy, shield)
+    enemy:set_visible(false)
+  end)
 end
 
 return behavior
