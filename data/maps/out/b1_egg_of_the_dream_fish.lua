@@ -70,18 +70,29 @@ function owl_6_sensor:on_activated()
 
 end
 
--- Handle boulders respawn depending on activated sensor.
-function sensor_deactivate_boulder_1:on_activated()
-  spawner_boulder_1:stop()
-  spawner_boulder_2:stop()
-end
-local function start_spawning_boulders_on_activated(sensor)
-  function sensor:on_activated()
+-- Handle boulders spawning depending on activated sensor.
+for sensor in map:get_entities("sensor_activate_boulder_") do
+  sensor:register_event("on_activated", function(sensor)
     spawner_boulder_1:start()
     spawner_boulder_2:start()
-  end
+  end)
 end
-start_spawning_boulders_on_activated(sensor_activate_boulder_1)
-start_spawning_boulders_on_activated(sensor_activate_boulder_2)
-start_spawning_boulders_on_activated(sensor_activate_boulder_3)
-start_spawning_boulders_on_activated(sensor_activate_boulder_4)
+for sensor in map:get_entities("sensor_deactivate_boulder_") do
+  sensor:register_event("on_activated", function(sensor)
+    spawner_boulder_1:stop()
+    spawner_boulder_2:stop()
+  end)
+end
+
+
+-- Remove spawned boulders when too far of the mountain.
+for spawner in map:get_entities("spawner_boulder_") do
+  spawner:register_event("on_enemy_spawned", function(spawner, enemy)
+    enemy:register_event("on_position_changed", function(enemy)
+      local _, y, _ = enemy:get_position()
+      if y > 500 then
+        enemy:remove()
+      end
+    end)
+  end)
+end

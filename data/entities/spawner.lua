@@ -1,64 +1,83 @@
+----------------------------------
+--
+-- Entity spawning new enemies periodically.
+-- 
+-- Methods : spawner:start()
+--           spawner:stop()
+-- Events :  spawner:on_enemy_spawned(enemy)
+--
+-- Usage : Place the entity on the map and set the "breed" custom property to the enemy breed to spawn.
+-- Other custom properties have a default value that may be overridden.
+--
+----------------------------------
 
 -- Global variables
-local entity = ...
-local game = entity:get_game()
-local map = entity:get_map()
+local spawner = ...
+local game = spawner:get_game()
+local map = spawner:get_map()
 local camera = map:get_camera()
 local is_active = false
-local is_exhausted = false
+local is_spawning = false
 
 -- Configuration variables
-local minimum_time = entity:get_property("minimum_time") or 2000
-local maximum_time = entity:get_property("maximum_time") or 4000
-local breed = entity:get_property("breed")
-local treasure_name = entity:get_property("treasure_name") or "random_with_charm"
-local treasure_variant = entity:get_property("treasure_variant") or 1
+local breed = spawner:get_property("breed")
+local minimum_time = spawner:get_property("minimum_time") or 2000
+local maximum_time = spawner:get_property("maximum_time") or 4000
+local treasure_name = spawner:get_property("treasure_name") or "random_with_charm"
+local treasure_variant = spawner:get_property("treasure_variant") or 1
+local autostart = spawner:get_property("autostart") == "true"
 
 -- Return true if the spawner is active.
-function entity:is_active()
+function spawner:is_active()
   return is_active
 end
 
--- Make spawner create a new enemy and schedule next one.
-function entity:start()
+-- Make the spawner create a new enemy right now and start chain spawning.
+function spawner:start()
 
   is_active = true
+  spawner:spawn()
+end
 
-  if not is_exhausted then
-    entity:spawn()
+-- Make spawner stop creating new enemies.
+function spawner:stop()
+  is_active = false
+end
 
-    sol.timer.start(entity, math.random(minimum_time, maximum_time), function()
-      is_exhausted = false
+-- Create the given enemy and schedule the next one.
+function spawner:spawn()
+
+  if not is_spawning then
+    is_spawning = true
+    local x, y, layer = spawner:get_position()
+    local enemy = map:create_enemy({
+      breed = breed,
+      x = x,
+      y = y,
+      layer = layer,
+      direction = direction or math.random(4) - 1,
+      treasure_name = treasure_name,
+      treasure_variant = treasure_variant
+    })
+
+    -- Call a spawner:on_enemy_spawned(enemy) event.
+    if spawner.on_enemy_spawned then
+      spawner:on_enemy_spawned(enemy)
+    end
+
+    sol.timer.start(spawner, math.random(minimum_time, maximum_time), function()
+      is_spawning = false
       if is_active then
-        entity:spawn()
-        return math.random(minimum_time, maximum_time)
+        spawner:spawn()
       end
     end)
   end
 end
 
--- Make spawner stop creating new enemies.
-function entity:stop()
-  is_active = false
-end
+-- Initialization.
+spawner:register_event("on_created", function(spawner)
 
--- Create the given enemy.
-function entity:spawn()
-
-  is_exhausted = true
-  local x, y, layer = entity:get_position()
-  local enemy = map:create_enemy({
-    breed = breed,
-    x = x,
-    y = y,
-    layer = layer,
-    direction = direction or math.random(4) - 1,
-    treasure_name = treasure_name,
-    treasure_variant = treasure_variant
-  })
-
-  -- Call an entity:on_enemy_spawned(enemy) event.
-  if entity.on_enemy_spawned then
-    entity:on_enemy_spawned(enemy)
+  if autostart then
+    spawner:start()
   end
-end
+end)

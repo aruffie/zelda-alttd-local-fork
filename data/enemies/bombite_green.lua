@@ -58,7 +58,8 @@ function enemy:countdown(number)
         y = y,
         layer = layer
       })
-      enemy:remove()
+      enemy:hurt(enemy:get_life())
+      enemy:set_visible(false)
       return
     end
     countdown_step = number
