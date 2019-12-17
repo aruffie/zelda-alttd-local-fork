@@ -10940,7 +10940,7 @@ enemy{
   x = 1144,
   y = 1541,
   direction = 3,
-  breed = "shrouded_stalfos",
+  breed = "shrouded_stalfos_sword",
   treasure_name = "random",
 }
 
@@ -11299,7 +11299,7 @@ enemy{
   x = 1832,
   y = 85,
   direction = 3,
-  breed = "bombite_red",
+  breed = "bombite_green",
   treasure_name = "random",
 }
 
@@ -11309,7 +11309,7 @@ enemy{
   x = 1768,
   y = 149,
   direction = 3,
-  breed = "bombite_red",
+  breed = "bombite_green",
   treasure_name = "random",
 }
 
@@ -11319,7 +11319,7 @@ enemy{
   x = 1688,
   y = 69,
   direction = 3,
-  breed = "bombite_red",
+  breed = "bombite_green",
   treasure_name = "random",
 }
 
@@ -11586,16 +11586,6 @@ enemy{
 }
 
 custom_entity{
-  name = "teletransporter_A",
-  layer = 0,
-  x = 1112,
-  y = 365,
-  width = 16,
-  height = 16,
-  direction = 0,
-}
-
-custom_entity{
   name = "placeholder_small_boss",
   layer = 0,
   x = 1112,
@@ -11603,14 +11593,6 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-}
-
-destination{
-  name = "teletransporter_destination_A",
-  layer = 0,
-  x = 1112,
-  y = 381,
-  direction = 3,
 }
 
 chest{
@@ -12331,24 +12313,6 @@ sensor{
   height = 16,
 }
 
-custom_entity{
-  name = "teletransporter_B",
-  layer = 0,
-  x = 1120,
-  y = 1821,
-  width = 16,
-  height = 16,
-  direction = 0,
-}
-
-destination{
-  name = "teletransporter_destination_B",
-  layer = 0,
-  x = 1120,
-  y = 1805,
-  direction = 1,
-}
-
 door{
   name = "door_group_small_boss_2",
   layer = 0,
@@ -12561,6 +12525,60 @@ wall{
   stops_enemies = true,
   stops_blocks = true,
   stops_projectiles = true,
+}
+
+custom_entity{
+  name = "midpoint_teletransporter_B",
+  layer = 0,
+  x = 1120,
+  y = 1805,
+  enabled_at_start = false,
+  properties = {
+    {
+      key = "tp_midpoint_index",
+      value = "B",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/misc/teletransporter",
+  model = "midpoint_teletransporter",
+}
+
+destination{
+  name = "teletransporter_destination_B",
+  layer = 0,
+  x = 1120,
+  y = 1805,
+  direction = -1,
+}
+
+custom_entity{
+  name = "midpoint_teletransporter_A",
+  layer = 0,
+  x = 1112,
+  y = 365,
+  enabled_at_start = false,
+  properties = {
+    {
+      key = "tp_midpoint_index",
+      value = "A",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/misc/teletransporter",
+  model = "midpoint_teletransporter",
+}
+
+destination{
+  name = "teletransporter_destination_A",
+  layer = 0,
+  x = 1112,
+  y = 365,
+  direction = -1,
 }
 
 tile{
@@ -14170,7 +14188,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/items/heart_fly",
-  model = "heart_fly",
+  model = "pickable_fly",
 }
 
 chest{
