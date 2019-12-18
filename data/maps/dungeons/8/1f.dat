@@ -6,7 +6,7 @@ properties{
   min_layer = 0,
   max_layer = 2,
   world = "dungeon_8",
-  floor = 1,
+  floor = 0,
   tileset = "dungeon/dark_brown",
   music = "same",
 }
@@ -29507,9 +29507,9 @@ wall{
 
 jumper{
   layer = 0,
-  x = 368,
+  x = 360,
   y = 1024,
-  width = 128,
+  width = 136,
   height = 8,
   direction = 6,
   jump_length = 40,
@@ -29529,7 +29529,7 @@ wall{
   layer = 0,
   x = 352,
   y = 1024,
-  width = 16,
+  width = 8,
   height = 8,
   stops_hero = true,
   stops_npcs = true,
@@ -30648,15 +30648,6 @@ enemy{
   breed = "peahat",
 }
 
-separator{
-  name = "auto_separator_7",
-  layer = 0,
-  x = 2232,
-  y = 0,
-  width = 16,
-  height = 1920,
-}
-
 door{
   name = "door_group_20_1",
   layer = 0,
@@ -31073,7 +31064,7 @@ pickable{
   name = "heart_container",
   layer = 0,
   x = 1120,
-  y = 429,
+  y = 309,
   treasure_name = "heart_container",
   treasure_savegame_variable = "dungeon_8_heart_container",
 }
@@ -31386,14 +31377,14 @@ destination{
 }
 
 teletransporter{
-  name = "dungeon_7_2_A",
+  name = "dungeon_8_2_A",
   layer = 0,
   x = 1112,
-  y = 1904,
+  y = 1896,
   width = 16,
   height = 16,
-  destination_map = "out/d1_east_mt_tamaranch",
-  destination = "dungeon_7_2_B",
+  destination_map = "out/a1_west_mt_tamaranch",
+  destination = "dungeon_8_2_B",
 }
 
 sensor{
@@ -31485,7 +31476,7 @@ teletransporter{
   width = 16,
   height = 16,
   destination_map = "out/a1_west_mt_tamaranch",
-  destination = "dungeon_8_4_B",
+  destination = "dungeon_8_6_B",
 }
 
 destination{
@@ -31897,6 +31888,15 @@ block{
   pushable = false,
   pullable = false,
   max_moves = 0,
+}
+
+sensor{
+  name = "sensor_7",
+  layer = 0,
+  x = 1120,
+  y = 437,
+  width = 16,
+  height = 16,
 }
 
 tile{
@@ -34942,7 +34942,7 @@ separator{
   name = "auto_separator_6",
   layer = 2,
   x = 1912,
-  y = -8,
+  y = 0,
   width = 16,
   height = 1920,
 }
@@ -34951,6 +34951,15 @@ separator{
   name = "auto_separator_5",
   layer = 2,
   x = 1592,
+  y = 0,
+  width = 16,
+  height = 1920,
+}
+
+separator{
+  name = "auto_separator_7",
+  layer = 2,
+  x = 2232,
   y = 0,
   width = 16,
   height = 1920,

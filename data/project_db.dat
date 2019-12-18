@@ -218,10 +218,10 @@ sprite{ id = "enemies/boss/big_armos_knight", description = "Big armos knight" }
 sprite{ id = "enemies/boss/blaino", description = "Blaino" }
 sprite{ id = "enemies/boss/buzz_blob_giant/buzz_blob_giant", description = "Buzz Blob Giant" }
 sprite{ id = "enemies/boss/buzz_blob_giant/buzz_blob_giant_zol", description = "Buzz Blob Giant Zol" }
-sprite{ id = "enemies/boss/cue_ball/cue_ball", description = "Cue ball" }
-sprite{ id = "enemies/boss/cue_ball/cue_ball_splash_effect", description = "Cue ball splash effect" }
-sprite{ id = "enemies/boss/dodongo_snake/dodongo_snake", description = "Dodongo_snake" }
-sprite{ id = "enemies/boss/dodongo_snake/dodongo_snake_body", description = "Dodongo snake body" }
+sprite{ id = "enemies/boss/cue_ball", description = "Cue ball" }
+sprite{ id = "enemies/boss/cue_ball/splash_effect", description = "Cue ball splash effect" }
+sprite{ id = "enemies/boss/dodongo_snake", description = "Dodongo_snake" }
+sprite{ id = "enemies/boss/dodongo_snake/body", description = "Dodongo snake body" }
 sprite{ id = "enemies/boss/evil_eagle", description = "Evil eagle" }
 sprite{ id = "enemies/boss/evil_orb/evil_orb", description = "Evil orb" }
 sprite{ id = "enemies/boss/evil_orb/evil_orb_head", description = "Orb evil orb" }
@@ -638,6 +638,10 @@ sprite{ id = "menus/dungeon_maps/map_7", description = "Map 7" }
 sprite{ id = "menus/dungeon_maps/map_7_compass", description = "Map 7 compass" }
 sprite{ id = "menus/dungeon_maps/map_7_no_map", description = "Map 7 no map" }
 sprite{ id = "menus/dungeon_maps/map_7_no_map_compass", description = "Map 7 no map compass" }
+sprite{ id = "menus/dungeon_maps/map_8", description = "Map 8" }
+sprite{ id = "menus/dungeon_maps/map_8_compass", description = "Map 8 Compass" }
+sprite{ id = "menus/dungeon_maps/map_8_no_map", description = "Map 8 no map" }
+sprite{ id = "menus/dungeon_maps/map_8_no_map_compass", description = "Map 8 no map compass" }
 sprite{ id = "menus/file_selection/file_selection_cursor", description = "File selection menu cursor" }
 sprite{ id = "menus/file_selection/file_selection_hero", description = "Link's sprite for file selection menu" }
 sprite{ id = "menus/game_over/game_over_fade", description = "Game-over fade" }

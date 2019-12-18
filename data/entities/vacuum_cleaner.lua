@@ -23,7 +23,7 @@ entity:register_event("on_created", function()
       "wall_bottom_right", "wall_top_right_water", "wall_top_left_water", 
       "wall_bottom_left_water", "wall_bottom_right_water", "deep_water",
       "shallow_water", "grass", "ice", "ladder", "prickles"}) do
-    self:set_can_traverse_ground(ground, false)
+    entity:set_can_traverse_ground(ground, false)
   end
   
 end)
@@ -61,7 +61,7 @@ function entity:check_commands_pressed()
   end)
   -- Update new direction if necessary.
   sol.timer.start(entity, 20, function()
-    local dir = self:get_direction_pressed()
+    local dir = entity:get_direction_pressed()
     if dir ~= nil then
       next_direction = dir
       return false -- Stop timer.
@@ -73,7 +73,7 @@ end
 function entity:move()
   
   -- Check commands.
-  sol.timer.stop_all(self)
+  sol.timer.stop_all(entity)
   entity:check_commands_pressed()
   -- TODO: start the moving sound with a timer.
 
@@ -84,7 +84,7 @@ function entity:move()
   m:set_path({2*next_direction, 2*next_direction}) -- Move 16 pixels.
   m:set_speed(speed)
   m:set_snap_to_grid(true)
-  m:start(self)
+  m:start(entity)
   -- Destroy if an "obstacle ground" is reached.
   function m:on_obstacle_reached() 
     tile:set_modified_ground("traversable")
@@ -139,9 +139,9 @@ end
 
 function entity:create_tile()
   
-  local x, y, layer = self:get_position()
+  local x, y, layer = entity:get_position()
   local prop = {x = x, y = y, layer = layer, direction = 0, width = 16, height = 16, sprite = sprite}
-  local tile = self:get_map():create_custom_entity(prop)
+  local tile = entity:get_map():create_custom_entity(prop)
   tile:bring_to_back()
   tile:snap_to_grid()
   
