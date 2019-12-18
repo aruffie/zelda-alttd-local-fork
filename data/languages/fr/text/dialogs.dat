@@ -548,7 +548,7 @@ dialog{
   id = "_treasure.pegasus_shoes.1",
   icon = "5",
   text = [[
-Tu as les Bottes de Pégase! $0     
+Tu as les Bottes de Pégase ! $0     
 Garde le bouton enfoncé et tu fileras comme le vent !
 ]],
 }
