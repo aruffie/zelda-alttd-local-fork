@@ -319,6 +319,38 @@ local function initialize_dungeon_features(game)
         y = 720 + 365
       }
     },
+    [8] = {
+      lowest_floor = 0,
+      highest_floor = 0,
+      rows = 8,
+      cols = 8,
+      music = "69_level_8_turtle_rock",
+      music_instrument = "70_thunder_drum",
+      destination_ocarina = {
+        map_id = "dungeons/8/1f",
+        destination_name = "destination_ocarina"
+      },
+      teletransporter_end_dungeon = {
+        map_id = "out/a1_west_mt_tamaranch",
+        destination_name = "dungeon_8_2_B"
+      },
+      secrets = {
+      },
+      small_boss = {
+        -- TODO
+        floor = 3,
+        breed = "zol_red",
+        x = 640 + 1440,
+        y = 720 + 365
+      },
+      boss = {
+        -- TODO
+        floor = 3,
+        breed = "zol_red",
+        x = 640 + 1440,
+        y = 720 + 365
+      }
+    },
     [10] = {
       lowest_floor = 0,
       highest_floor = 0,

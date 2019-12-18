@@ -42,7 +42,8 @@ function enemy:explode()
     y = y,
     layer = layer
   })
-  enemy:remove()
+  enemy:hurt(enemy:get_life()) -- Kill the enemy instead of remove() it.
+  enemy:set_visible(false)
 end
 
 -- Start the enemy movement.
