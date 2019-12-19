@@ -63,7 +63,10 @@ enemy:register_event("on_custom_attack_received", function(enemy, attack)
   elseif attack == "magic_powder" then
 
     local x, y, layer = enemy:get_position()
-    cukeman = enemy:create_enemy({breed = "cukeman"})
+    cukeman = enemy:create_enemy({
+      name = enemy:get_name() .. "_cukeman",
+      breed = "cukeman"
+    })
 
     -- Make the Cukeman shake for some time and then restart.
     cukeman:set_invincible()
