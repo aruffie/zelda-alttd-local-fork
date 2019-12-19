@@ -64,6 +64,11 @@ function enemy:start_attacking()
     bomb:go(bomb_throw_duration, flying_height, angle, 0)
     bomb:explode_at_bounce()
 
+    -- Call an enemy:on_enemy_created(bomb) event.
+    if enemy.on_enemy_created then
+      enemy:on_enemy_created(bomb)
+    end
+
     return math.random(throwing_bomb_minimum_delay, throwing_bomb_maximum_delay)
   end)
 end

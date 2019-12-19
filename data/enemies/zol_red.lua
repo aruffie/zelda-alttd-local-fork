@@ -26,6 +26,11 @@ enemy:register_event("on_dying", function(enemy)
       layer = layer,
       direction = enemy:get_direction4_to(hero)
     })
+
+    -- Call an enemy:on_enemy_created(gel) event.
+    if enemy.on_enemy_created then
+      enemy:on_enemy_created(gel)
+    end
   end
 
   sol.timer.start(map, dying_duration, function()

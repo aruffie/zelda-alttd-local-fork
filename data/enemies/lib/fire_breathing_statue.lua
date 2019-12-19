@@ -79,6 +79,11 @@ function behavior:create(enemy, properties)
           layer = map:get_max_layer()
         })
         children[#children]:set_layer_independent_collisions(true)
+
+        -- Call an enemy:on_enemy_created(projectile) event.
+        if enemy.on_enemy_created then
+          enemy:on_enemy_created(children[#children])
+        end
       end
       return true  -- Repeat the timer.
     end)

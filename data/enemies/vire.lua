@@ -78,6 +78,11 @@ function enemy:create_projectile(projectile, direction)
   })
   projectile:go(direction)
 
+  -- Call an enemy:on_enemy_created(projectile) event.
+  if enemy.on_enemy_created then
+    enemy:on_enemy_created(projectile)
+  end
+
   return projectile
 end
 

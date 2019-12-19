@@ -33,19 +33,25 @@ function enemy:wait()
 
   sol.timer.start(enemy, math.random(waiting_minimum_time, waiting_maximum_time), function()
     local x, y, layer = enemy:get_position()
-    map:create_enemy({
+    local flowerball = map:create_enemy({
       breed = "projectiles/flowerball",
       x = x,
       y = y - 13,
       layer = layer,
       direction = enemy:get_direction4_to(hero)
     })
+
     sprite:set_animation("attacking", function()
       sprite:set_animation("closing", function()
         sprite:set_animation("walking")
       end)
     end)
     enemy:wait()
+
+    -- Call an enemy:on_enemy_created(flowerball) event.
+    if enemy.on_enemy_created then
+      enemy:on_enemy_created(flowerball)
+    end
   end)
 end
 

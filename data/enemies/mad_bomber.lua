@@ -44,6 +44,11 @@ function enemy:appear()
       sprite:set_animation("disappearing", function()
         enemy:restart()
       end)
+
+      -- Call an enemy:on_enemy_created(bomb) event.
+      if enemy.on_enemy_created then
+        enemy:on_enemy_created(bomb)
+      end
     end)
   end)
 end
