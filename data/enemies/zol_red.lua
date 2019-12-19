@@ -3,15 +3,52 @@
 
 -- Global variables
 local enemy = ...
-local zol_behavior = require("enemies/lib/zol")
-require("scripts/multi_events")
+require("enemies/lib/common_actions").learn(enemy)
 
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local map = enemy:get_map()
 local hero = map:get_hero()
+local is_attacking, is_exhausted
 
 -- Configuration variables
+local walking_speed = 4
+local jumping_speed = 64
+local jumping_height = 12
+local jumping_duration = 600
+local attack_triggering_distance = 64
+local shaking_duration = 1000
+local exhausted_minimum_duration = 2000
+local exhausted_maximum_duration = 4000
 local dying_duration = 300
+
+-- Start moving to the hero, and jump when he is close enough.
+function enemy:start_walking()
+  
+  local movement = enemy:start_target_walking(hero, walking_speed)
+  function movement:on_position_changed()
+    if not is_attacking and not is_exhausted and enemy:is_near(hero, attack_triggering_distance) then
+      is_attacking = true
+      movement:stop()
+      
+      -- Shake for a short duration then start attacking.
+      sprite:set_animation("shaking")
+      sol.timer.start(enemy, shaking_duration, function()
+         enemy:start_jump_attack()
+      end)
+    end
+  end
+end
+
+-- Start jumping.
+function enemy:start_jump_attack()
+
+  -- Start jumping to the hero.
+  local hero_x, hero_y, _ = hero:get_position()
+  local enemy_x, enemy_y, _ = enemy:get_position()
+  local angle = math.atan2(hero_y - enemy_y, enemy_x - hero_x) + math.pi
+  enemy:start_jumping(jumping_duration, jumping_height, angle, jumping_speed)
+  sprite:set_animation("jump")
+end
 
 -- Create two gels when dead.
 enemy:register_event("on_dying", function(enemy)
@@ -20,6 +57,7 @@ enemy:register_event("on_dying", function(enemy)
   local x, y, layer = enemy:get_position()
   local function create_gel(x_offset)
     local gel = map:create_enemy({
+      name = enemy:get_name() .. "_gel",
       breed = "gel",
       x = x + x_offset,
       y = y,
@@ -34,11 +72,9 @@ enemy:register_event("on_dying", function(enemy)
   end
 
   sol.timer.start(map, dying_duration, function()
-    if enemy:exists() then
-      enemy:remove()
-    end
     create_gel(-5)
     create_gel(5)
+    enemy:remove()
   end)
 end)
 
@@ -50,7 +86,6 @@ end)
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
 
-  zol_behavior.apply(enemy, {sprite = sprite})
   enemy:set_life(1)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)
@@ -64,6 +99,11 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_hero_weapons_reactions(1, {jump_on = "ignored"})
 
   -- States.
+  is_attacking = false
+  is_exhausted = true
+  sol.timer.start(enemy, math.random(exhausted_minimum_duration, exhausted_maximum_duration), function()
+    is_exhausted = false
+  end)
   enemy:set_pushed_back_when_hurt(false)
   enemy:set_damage(2)
   enemy:start_walking()
