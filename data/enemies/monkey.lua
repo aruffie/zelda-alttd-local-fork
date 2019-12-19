@@ -31,11 +31,16 @@ function enemy:start_throwing_coconut(direction, angle, on_throwed_callback)
   sprite:set_animation("throwing", function()
     local projectile_breed = math.random(10) ~= 1 and "coconut" or "bomb" -- Throw a bomb once in a while.
     local projectile = enemy:create_enemy({breed = "projectiles/" .. projectile_breed})
-
     projectile:go(nil, nil, angle, projectile_initial_speed)
+
     sprite:set_animation("walking")
     if on_throwed_callback then
       on_throwed_callback()
+    end
+
+    -- Call an enemy:on_enemy_created(projectile) event.
+    if enemy.on_enemy_created then
+      enemy:on_enemy_created(projectile)
     end
   end)
 end

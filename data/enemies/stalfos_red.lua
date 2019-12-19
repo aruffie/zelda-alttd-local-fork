@@ -74,13 +74,18 @@ enemy:register_event("on_jump_finished", function(enemy)
       
       if enemy:get_life() > 0 then
         local x, y, layer = enemy:get_position()
-        map:create_enemy({
+        local bone = map:create_enemy({
           breed = "projectiles/bone",
           x = x,
           y = y,
           layer = layer,
           direction = enemy:get_direction4_to(hero)
         })
+
+        -- Call an enemy:on_enemy_created(bone) event.
+        if enemy.on_enemy_created then
+          enemy:on_enemy_created(bone)
+        end
       end
     end)
   end

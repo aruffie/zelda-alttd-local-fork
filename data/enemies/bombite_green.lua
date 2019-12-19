@@ -86,7 +86,16 @@ function enemy:start_running()
   local movement = enemy:start_target_walking(hero, running_speed)
   function movement:on_position_changed(x, y, layer)
     if enemy:overlaps(hero) then
-      -- TODO freeze the movement while overlapping.
+
+      -- Freeze the movement while overlapping.
+      movement:set_speed(0)
+      sol.timer.start(enemy, 50, function()
+        if not enemy:overlaps(hero) then
+          movement:set_speed(running_speed)
+          return false
+        end
+        return true
+      end)
     end
   end
   sprite:set_animation(countdown_step or "smiling")

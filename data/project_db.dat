@@ -1576,7 +1576,6 @@ file{ path = "enemies/lib/thwomp_crush.lua", author = "PhoenixII54", license = "
 file{ path = "enemies/lib/towards_hero.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "enemies/lib/waiting_for_hero.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "enemies/lib/weapons.lua", author = "Vlag", license = "GPL v3" }
-file{ path = "enemies/lib/zol.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/like_like.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/mad_bomber.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/maskass.lua", author = "Vlag", license = "GPL v3" }

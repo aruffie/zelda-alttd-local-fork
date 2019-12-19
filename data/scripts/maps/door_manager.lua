@@ -20,8 +20,13 @@ function door_manager:open_when_enemies_dead(map, enemy_prefix, door_prefix, sou
       end
     end
   end
+
+  -- Setup for each enemy that matches the prefix and their potential children.
   for enemy in map:get_entities(enemy_prefix) do
     enemy:register_event("on_dead", enemy_on_dead)
+    enemy:register_event("on_enemy_created", function(enemy, child)
+      child:register_event("on_dead", enemy_on_dead)
+    end)
   end
 
 end

@@ -63,8 +63,10 @@ enemy:register_event("on_custom_attack_received", function(enemy, attack)
   elseif attack == "magic_powder" then
 
     local x, y, layer = enemy:get_position()
-    cukeman = enemy:create_enemy({breed = "cukeman"})
-    enemy:remove()
+    cukeman = enemy:create_enemy({
+      name = enemy:get_name() .. "_cukeman",
+      breed = "cukeman"
+    })
 
     -- Make the Cukeman shake for some time and then restart.
     cukeman:set_invincible()
@@ -74,6 +76,13 @@ enemy:register_event("on_custom_attack_received", function(enemy, attack)
     sol.timer.start(cukeman, cukeman_shaking_duration, function()
       cukeman:restart()
     end)
+
+    -- Call an enemy:on_enemy_created(cukeman) event.
+    if enemy.on_enemy_created then
+      enemy:on_enemy_created(cukeman)
+    end
+
+    enemy:remove()
   end
 end)
 

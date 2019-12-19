@@ -92,7 +92,12 @@ function enemy:shoot()
   beam:go(direction)
   sol.timer.start(enemy, 2000, function()
     enemy:disappear()
-  end)  
+  end) 
+
+  -- Call an enemy:on_enemy_created(beam) event.
+  if enemy.on_enemy_created then
+    enemy:on_enemy_created(beam)
+  end 
 end
 
 function enemy:update_attack()

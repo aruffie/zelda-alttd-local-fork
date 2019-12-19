@@ -31,8 +31,10 @@ enemy:register_event("on_custom_attack_received", function(enemy, attack)
 
   if attack == "fire" then
     local x, y, layer = enemy:get_position()
-    stalfos = enemy:create_enemy({breed = "stalfos_red"})
-    enemy:remove()
+    stalfos = enemy:create_enemy({
+      name = enemy:get_name() .. "_stalfos",
+      breed = "stalfos_red"
+    })
 
     -- Make the Stalfos immobile, then shake for some time, and then restart.
     stalfos:set_invincible()
@@ -43,6 +45,13 @@ enemy:register_event("on_custom_attack_received", function(enemy, attack)
     sol.timer.start(stalfos, stalfos_shaking_duration, function()
       stalfos:restart()
     end)
+
+    -- Call an enemy:on_enemy_created(stalfos) event.
+    if enemy.on_enemy_created then
+      enemy:on_enemy_created(stalfos)
+    end
+
+    enemy:remove()
   end
 end)
 

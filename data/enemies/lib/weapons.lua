@@ -98,10 +98,16 @@ function weapons.learn(enemy)
           layer = layer,
           direction = direction
         })
+
         local projectile_sprite = projectile:get_sprite()
         projectile_sprite:set_direction(direction)
         if on_throwed_callback then
           on_throwed_callback()
+        end
+
+        -- Call an enemy:on_enemy_created(projectile) event.
+        if enemy.on_enemy_created then
+          enemy:on_enemy_created(projectile)
         end
       end
     end

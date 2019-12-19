@@ -72,16 +72,22 @@ function enemy:create_projectile(projectile, direction)
 
   local x, y = sprite:get_xy()
   local projectile = enemy:create_enemy({
+    name = enemy:get_name() .. "_" .. projectile,
     breed = "projectiles/" .. projectile,
     x = x,
     y = y
   })
   projectile:go(direction)
 
+  -- Call an enemy:on_enemy_created(projectile) event.
+  if enemy.on_enemy_created then
+    enemy:on_enemy_created(projectile)
+  end
+
   return projectile
 end
 
--- Throw two plasmballs.
+-- Throw two magmaballs.
 function enemy:throw_magma_balls()
 
   sprite:set_animation("firing", function()
