@@ -1,0 +1,7 @@
+animation{
+  name = "default",
+  src_image = "entities/grounds/slime_ground.png",
+  directions = {
+    { x = 0, y = 0, frame_width = 240, frame_height = 160, origin_x = 120, origin_y = 157 },
+  },
+}
