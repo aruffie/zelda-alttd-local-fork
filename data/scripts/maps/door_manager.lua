@@ -266,7 +266,9 @@ function door_manager:open_when_torches_lit(map, torch_prefix, door_prefix)
     if not torch:is_lit() then
       remaining = remaining + 1
     end
-    torch.on_lit = torch_on_lit
+    torch:register_event("on_lit", function(torch)
+      torch_on_lit()
+    end)
     has_torches = true
   end
   map.torches_remaining[torch_prefix]=remaining

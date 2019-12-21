@@ -46,8 +46,12 @@ function enemy_manager:set_weak_boo_buddies_when_at_least_on_torch_lit(map, torc
     if not torch:is_lit() then
       remaining = remaining + 1
     end
-    torch.on_lit = torch_on_lit
-    torch.on_unlit = torch_on_unlit
+    torch:register_event("on_lit", function(torch)
+      torch_on_lit()
+    end)
+    torch:register_event("on_unlit", function(torch)
+      torch_on_unlit()
+    end)
     total = total + 1
   end
   
