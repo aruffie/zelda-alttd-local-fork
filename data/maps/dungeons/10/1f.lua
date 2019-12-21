@@ -20,20 +20,42 @@ function map:on_started(destination)
 
   -- Doors
   door_manager:open_when_torches_lit(map, "torch_1", "door_ghost_1")
-  door_manager:open_when_enemies_dead(map,  "keese_1",  "door_keese_1")
-  door_manager:open_when_enemies_dead(map,  "maskass_1",  "door_maskass_1")
+  door_manager:open_when_enemies_dead(map, "keese_1",  "door_keese_1")
+  door_manager:open_when_enemies_dead(map, "maskass_1",  "door_maskass_1")
+  door_manager:open_when_enemies_dead(map, "blob_1", "door_blob_1")
 
   -- Enemies
   enemy_manager:set_weak_boo_buddies_when_at_least_on_torch_lit(map, "torch_1", "boo_buddies_1")
+
   -- Light
   light_manager:init(map)
+
   -- Music
   game:play_dungeon_music()
+
   -- Puzzles
   map:init_all_puzzles()
+  
   -- Separators
   separator_manager:init(map)
-  
+
+  -- Treasures
+  treasure_manager:appear_chest_when_enemies_dead(map, "hardhat_1", "compass_chest")  
+end
+
+local function handle_solid_lava()
+
+  if flow_states["gel"] == true and flow_states["lava"] == true then
+    for wall in map:get_entities("solid_lava_wall") do
+      wall:set_enabled(false)
+    end 
+    tile_solid_lava:set_enabled(true)
+  else
+    for wall in map:get_entities("solid_lava_wall") do
+      wall:set_enabled(true)
+    end 
+    tile_solid_lava:set_enabled(false)
+  end
 end
 
 -- Enable pipe flow of the given type
@@ -51,6 +73,7 @@ local function pipe_enable_flow(type)
 
   map:get_game():set_value("dungeon_10_" .. type .. "_is_flowing", true)
 
+  handle_solid_lava()
 end
 
 -- Disable pipe flow of the given type
@@ -68,6 +91,7 @@ local function pipe_disable_flow(type)
 
   map:get_game():set_value("dungeon_10_" .. type .. "_is_flowing", false)
 
+  handle_solid_lava()
 end
 
 -- Init door puzzles in the dungeon
@@ -99,19 +123,20 @@ local function init_pipes()
   
 end
 
+function init_chests()
+
+  if game:get_value("dungeon_10_compass") == false then
+    compass_chest:set_enabled(false)
+  end
+end
+
 -- Init all puzzles in the dungeon
 function map:init_all_puzzles()
 
   init_doors()
   init_pipes()
-  
-end
-
--- Enemy room 1
-function sensor_enemy_room_1:on_activated()
-
-  map:close_doors("door_keese_1")
-  sensor_enemy_room_1:set_enabled(false)
+  init_chests()
+  handle_solid_lava()
   
 end
 
@@ -134,14 +159,45 @@ gel_lever:register_event("on_activated", function()
   
 end)
 
+sensor_keese_1:register_event("on_activated", function()
+
+  door_manager:close_if_enemies_not_dead(map, "keese_1", "door_keese_1")
+end)
+
+sensor_blob_1:register_event("on_activated", function()
+
+  door_manager:close_if_enemies_not_dead(map, "blob_1", "door_blob_1")
+end)
+
+sensor_open_blob_1:register_event("on_activated", function()
+
+  map:set_doors_open("door_blob_1")
+end)
+
+switch_1:register_event("on_activated", function()
+
+  map:open_doors("door_switch_1")
+  audio_manager:play_sound("misc/secret1")
+end)
+
+sensor_switch_1:register_event("on_activated", function()
+
+  if not switch_1:is_activated() then
+    map:close_doors("door_switch_1")
+  end
+end)
+
+sensor_open_switch_1:register_event("on_activated", function()
+
+  map:set_doors_open("door_switch_1")
+end)
+
 sensor_6:register_event("on_activated", function()
 
   map:set_doors_open("door_group_6_")
-  
 end)
 
 sensor_7:register_event("on_activated", function()
 
   map:close_doors("door_group_6_")
-  
 end)
