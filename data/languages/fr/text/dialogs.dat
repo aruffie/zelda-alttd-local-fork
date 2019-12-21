@@ -1067,6 +1067,27 @@ C'est caché sous la cascade.
 }
 
 dialog{
+  id = "maps.dungeons.3.owl_1",
+  text = [[
+Pour vaincre le monstre noir à  la carapace, fais-lui manger un plat pimenté.
+]],
+}
+
+dialog{
+  id = "maps.dungeons.3.owl_2",
+  text = [[
+Si ton épée ne peut vaincre un squelette, essaie une bombe.
+]],
+}
+
+dialog{
+  id = "maps.dungeons.3.owl_3",
+  text = [[
+Frappe de ton épée certains murs et écoute bien.
+]],
+}
+
+dialog{
   id = "maps.dungeons.3.welcome_description",
   text = [[
 Niveau 3

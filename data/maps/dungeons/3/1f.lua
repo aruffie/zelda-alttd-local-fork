@@ -160,6 +160,12 @@ function sensor_12:on_activated()
 
 end
 
+function sensor_13:on_activated()
+
+  door_manager:close_if_enemies_not_dead(map, "enemy_group_9_", "door_group_4_")
+
+end
+
 sensor_8:register_event("on_activated", function()
 
   if is_small_boss_active == false then
