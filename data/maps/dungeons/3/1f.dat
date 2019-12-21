@@ -10949,6 +10949,12 @@ enemy{
   layer = 0,
   x = 1208,
   y = 1581,
+  properties = {
+    {
+      key = "can_resurrect",
+      value = "true",
+    },
+  },
   direction = 3,
   breed = "bombite_red",
   treasure_name = "random",
@@ -10959,6 +10965,12 @@ enemy{
   layer = 0,
   x = 1080,
   y = 1613,
+  properties = {
+    {
+      key = "can_resurrect",
+      value = "true",
+    },
+  },
   direction = 3,
   breed = "bombite_red",
   treasure_name = "random",
@@ -11179,20 +11191,38 @@ sensor{
 }
 
 npc{
-  name = "owl_2",
   layer = 0,
   x = 1712,
   y = 277,
+  properties = {
+    {
+      key = "model",
+      value = "statue_owl_dungeon",
+    },
+    {
+      key = "dialog",
+      value = "maps.dungeons.3.owl_3",
+    },
+  },
   direction = 3,
   subtype = 1,
   sprite = "npc/statues/owl_dungeon_3",
 }
 
 npc{
-  name = "owl_3",
   layer = 0,
   x = 800,
   y = 37,
+  properties = {
+    {
+      key = "model",
+      value = "statue_owl_dungeon",
+    },
+    {
+      key = "dialog",
+      value = "maps.dungeons.3.owl_1",
+    },
+  },
   direction = 3,
   subtype = 1,
   sprite = "npc/statues/owl_dungeon_3",
@@ -11415,6 +11445,12 @@ enemy{
   layer = 0,
   x = 1160,
   y = 61,
+  properties = {
+    {
+      key = "can_resurrect",
+      value = "true",
+    },
+  },
   direction = 3,
   breed = "bombite_red",
   treasure_name = "random",
@@ -11425,6 +11461,12 @@ enemy{
   layer = 0,
   x = 1192,
   y = 141,
+  properties = {
+    {
+      key = "can_resurrect",
+      value = "true",
+    },
+  },
   direction = 3,
   breed = "bombite_red",
   treasure_name = "random",
@@ -11435,6 +11477,12 @@ enemy{
   layer = 0,
   x = 856,
   y = 117,
+  properties = {
+    {
+      key = "can_resurrect",
+      value = "true",
+    },
+  },
   direction = 3,
   breed = "bombite_red",
   treasure_name = "random",
@@ -11499,6 +11547,12 @@ enemy{
   layer = 0,
   x = 808,
   y = 61,
+  properties = {
+    {
+      key = "can_resurrect",
+      value = "true",
+    },
+  },
   direction = 3,
   breed = "bombite_red",
   treasure_name = "random",
@@ -11509,6 +11563,12 @@ enemy{
   layer = 0,
   x = 712,
   y = 149,
+  properties = {
+    {
+      key = "can_resurrect",
+      value = "true",
+    },
+  },
   direction = 3,
   breed = "bombite_red",
   treasure_name = "random",
@@ -11958,6 +12018,12 @@ enemy{
   layer = 0,
   x = 1032,
   y = 93,
+  properties = {
+    {
+      key = "can_resurrect",
+      value = "true",
+    },
+  },
   direction = 3,
   breed = "bombite_red",
   treasure_name = "random",
@@ -14249,7 +14315,7 @@ chest{
   name = "chest_boss_key",
   layer = 1,
   x = 1888,
-  y = 301,
+  y = 293,
   treasure_name = "boss_key",
   treasure_savegame_variable = "dungeon_5_boss_key",
   sprite = "entities/chests/chest_big",
@@ -14322,6 +14388,15 @@ dynamic_tile{
   width = 64,
   height = 8,
   pattern = "door_cache.1-2",
+}
+
+sensor{
+  name = "sensor_13",
+  layer = 1,
+  x = 1088,
+  y = 493,
+  width = 16,
+  height = 16,
 }
 
 tile{

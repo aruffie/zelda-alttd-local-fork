@@ -6659,10 +6659,19 @@ door{
 }
 
 npc{
-  name = "owl_2",
   layer = 0,
   x = 1088,
   y = 597,
+  properties = {
+    {
+      key = "model",
+      value = "statue_owl_dungeon",
+    },
+    {
+      key = "dialog",
+      value = "maps.dungeons.3.owl_2",
+    },
+  },
   direction = 3,
   subtype = 1,
   sprite = "npc/statues/owl_dungeon",
