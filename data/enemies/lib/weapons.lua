@@ -59,7 +59,7 @@ function weapons.learn(enemy)
     sword:add_collision_test("sprite", function(sword, entity, sword_sprite, entity_sprite)
       if entity == hero  and not enemy:is_immobilized() then
         if entity_sprite ~= hero:get_sprite("sword") then
-          if not hero:is_blinking() then
+          if not hero:is_blinking() and not hero:is_invincible() then
             hero:start_hurt(enemy, enemy:get_damage())
           end
         else

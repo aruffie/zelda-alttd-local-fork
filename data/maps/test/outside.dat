@@ -1868,15 +1868,16 @@ shop_treasure{
 
 stream{
   layer = 0,
-  x = 608,
-  y = 101,
+  x = 552,
+  y = 117,
   direction = 6,
   sprite = "entities/streams/water_stream",
+  speed = 120,
 }
 
 stream{
   layer = 0,
-  x = 608,
+  x = 568,
   y = 117,
   direction = 6,
   allow_movement = false,
@@ -2123,6 +2124,57 @@ enemy{
   y = 269,
   direction = 0,
   breed = "maskass",
+}
+
+stream{
+  layer = 0,
+  x = 552,
+  y = 133,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  speed = 120,
+}
+
+stream{
+  layer = 0,
+  x = 552,
+  y = 149,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  speed = 120,
+}
+
+stream{
+  layer = 0,
+  x = 552,
+  y = 165,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+  speed = 120,
+}
+
+stream{
+  layer = 0,
+  x = 552,
+  y = 181,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+}
+
+stream{
+  layer = 0,
+  x = 552,
+  y = 197,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
+}
+
+stream{
+  layer = 0,
+  x = 552,
+  y = 213,
+  direction = 6,
+  sprite = "entities/streams/water_stream",
 }
 
 tile{

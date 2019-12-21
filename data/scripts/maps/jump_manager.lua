@@ -214,12 +214,10 @@ function jump_manager.start(entity, initial_vspeed, success_callback, failure_ca
 
 
   -- Apply appropriate state properties on a dedicated jumping state if not running and on the current state else.
-  local target_state_object = state_object
   if not entity:is_running() then
     entity:jump()
-    target_state_object = entity:get_state_object()
   end
-  jump_manager.setup_collision_rules(target_state_object, entity:is_running())
+  jump_manager.setup_collision_rules(entity:get_state_object(), entity:is_running())
 
   --  debug_print "Starting custom jump"
   debug_start_x, debug_start_y=entity:get_position() --Temporary, remove me once everything has been finalized
