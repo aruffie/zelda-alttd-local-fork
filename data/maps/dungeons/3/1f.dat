@@ -12701,6 +12701,36 @@ sensor{
   height = 16,
 }
 
+sensor{
+  name = "sensor_14",
+  layer = 0,
+  x = 1648,
+  y = 589,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_15",
+  layer = 0,
+  x = 1744,
+  y = 533,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+}
+
 tile{
   layer = 1,
   x = 1056,

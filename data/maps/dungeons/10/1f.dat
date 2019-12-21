@@ -18658,8 +18658,8 @@ door{
 destination{
   name = "entrance",
   layer = 0,
-  x = 800,
-  y = 1781,
+  x = 168,
+  y = 1541,
   direction = 1,
 }
 
@@ -20449,12 +20449,6 @@ custom_entity{
   layer = 0,
   x = 232,
   y = 1293,
-  properties = {
-    {
-      key = "timer",
-      value = "true",
-    },
-  },
   width = 16,
   height = 16,
   direction = 0,
@@ -21869,12 +21863,6 @@ custom_entity{
   layer = 0,
   x = 232,
   y = 1357,
-  properties = {
-    {
-      key = "timer",
-      value = "true",
-    },
-  },
   width = 16,
   height = 16,
   direction = 0,
@@ -21887,12 +21875,6 @@ custom_entity{
   layer = 0,
   x = 88,
   y = 1357,
-  properties = {
-    {
-      key = "timer",
-      value = "true",
-    },
-  },
   width = 16,
   height = 16,
   direction = 0,
@@ -21905,12 +21887,6 @@ custom_entity{
   layer = 0,
   x = 88,
   y = 1293,
-  properties = {
-    {
-      key = "timer",
-      value = "true",
-    },
-  },
   width = 16,
   height = 16,
   direction = 0,
