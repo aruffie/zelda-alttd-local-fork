@@ -26,6 +26,7 @@ function map:on_started()
   map:set_doors_open("door_group_1", true)
   map:set_doors_open("door_group_2", true)
   map:set_doors_open("door_group_3_", true)
+  map:set_doors_open("door_group_4_", true)
   map:set_doors_open("door_group_5_", true)
   map:set_doors_open("door_group_6_", true)
   map:set_doors_open("door_group_small_boss", true)
@@ -132,6 +133,30 @@ end
 function sensor_7:on_activated()
 
   map:close_doors("door_group_6_")
+
+end
+
+function sensor_9:on_activated()
+
+  door_manager:close_if_enemies_not_dead(map, "enemy_group_9_", "door_group_4_")
+
+end
+
+function sensor_10:on_activated()
+
+  map:set_doors_open("door_group_4_", true)
+
+end
+
+function sensor_11:on_activated()
+
+  door_manager:close_if_enemies_not_dead(map, "enemy_group_9_", "door_group_4_")
+
+end
+
+function sensor_12:on_activated()
+
+  door_manager:close_if_enemies_not_dead(map, "enemy_group_9_", "door_group_4_")
 
 end
 
