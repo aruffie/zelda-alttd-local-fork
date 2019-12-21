@@ -104,12 +104,12 @@ function state:on_started()
         sword_sprite = create_running_sword(hero, sprite:get_direction())
       end
 
-      local m=sol.movement.create("straight")
-      m:set_speed(196)
-      m:set_angle(sprite:get_direction()*math.pi/2)
+      local running_movement=sol.movement.create("straight")
+      running_movement:set_speed(196)
+      running_movement:set_angle(sprite:get_direction()*math.pi/2)
 
       -- Check if there is a collision with any sprite of the hero and an enemy, then hurt it.
-      function m:on_position_changed()
+      function running_movement:on_position_changed()
         for enemy in map:get_entities_by_type("enemy") do
           if hero:overlaps(enemy, "sprite") and enemy:get_life() > 0 and not enemy:is_immobilized() then
             local reaction = enemy:get_thrust_reaction()
@@ -123,20 +123,21 @@ function state:on_started()
         end
       end
 
-      function m:on_obstacle_reached()
+      function running_movement:on_obstacle_reached()
         if not entity.bonking then
           --Bonk !
           entity:get_sprite("trail"):stop_animation()
           stop_sound_loop(entity)
           entity.bonking=true
+          --state:set_can_control_movement(false)
           audio_manager:play_sound("hero/rebound")
           local map=entity:get_map()
 
           --Crash into entities (imported from the original custom script, don't know if it even works) 
-          for e in map:get_entities_in_rectangle(entity:get_bounding_box()) do
-            if entity:overlaps(e, "facing") then
-              if e.on_boots_crash ~= nil then
-                e:on_boots_crash()
+          for other in map:get_entities_in_rectangle(entity:get_bounding_box()) do
+            if entity:overlaps(other, "facing") then
+              if other.on_boots_crash ~= nil then
+                other:on_boots_crash()
               end
             end
           end
@@ -170,19 +171,22 @@ function state:on_started()
                 entity.bonking=nil
                 audio_manager:play_sound("hero/land")
                 entity:unfreeze()
-                entity:get_sprite():set_animation("collapse")
+                local ground=entity:get_ground_below()
+                if not (ground=="hole" or ground=="lava" or ground=="deep_water") then
+                  entity:get_sprite():set_animation("collapse")
+                end
               end)
           end
           entity:get_sprite():set_animation("collapse_pegasus")
         else
           --audio_manager:play_sound("hero/land")
-          m:set_speed(88)
-          m:set_angle(m:get_angle()+math.pi)
+          running_movement:set_speed(88)
+          running_movement:set_angle(running_movement:get_angle()+math.pi)
         end
       end
 
       --Run !
-      m:start(entity)
+      running_movement:start(entity)
     end)
 end
 
@@ -192,10 +196,12 @@ function state:on_command_pressed(command)
   local entity=state:get_entity()
   if entity.running then
     local game=entity:get_game()
-    local s=entity:get_sprite()
+    local sprite=entity:get_sprite()
+
+    --Stop running on direction change, unless we just bonked into an obstacle
     if not entity.bonking then
-      for _,c in pairs(directions) do
-        if c.key == command and c.direction~=s:get_direction() then
+      for _,candidate in pairs(directions) do
+        if candidate.key == command and candidate.direction~=sprite:get_direction() then
           entity:unfreeze()
           return true
         end
