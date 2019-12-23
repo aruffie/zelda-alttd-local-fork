@@ -32,6 +32,11 @@ end
 function enemy:wait()
 
   sol.timer.start(enemy, math.random(waiting_minimum_time, waiting_maximum_time), function()
+
+    if not enemy:is_watched(sprite) then
+      return true
+    end
+
     local x, y, layer = enemy:get_position()
     local flowerball = map:create_enemy({
       breed = "projectiles/flowerball",
