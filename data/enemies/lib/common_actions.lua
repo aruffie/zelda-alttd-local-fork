@@ -33,10 +33,6 @@
 --           enemy:start_brief_effect(sprite_name, [animation_name, [x_offset, [y_offset, [maximum_duration, [on_finished_callback]]]]])
 --           enemy:steal_item(item_name, [variant, [only_if_assigned, [drop_when_dead]]])
 --
--- Events:   enemy:on_jump_finished()
---           enemy:on_flying_took_off()
---           enemy:on_flying_landed()
---
 -- Usage : 
 -- local my_enemy = ...
 -- local common_actions = require("enemies/lib/common_actions")
@@ -294,9 +290,6 @@ function common_actions.learn(enemy)
         if on_finished_callback then
           on_finished_callback()
         end
-        if enemy.on_jump_finished then
-          enemy:on_jump_finished()
-        end
       end
     end
     update_sprite_height(0)
@@ -326,15 +319,12 @@ function common_actions.learn(enemy)
       movement:set_ignore_obstacles(true)
       movement:start(sprite)
 
-      -- Call events once take off finished.
+      -- Call on_finished_callback() at the first movement finished.
       if not event_called then
         event_called = true
         function movement:on_finished()
           if on_finished_callback then
             on_finished_callback()
-          end
-          if enemy.on_flying_took_off then
-            enemy:on_flying_took_off()
           end
         end
       end
@@ -357,15 +347,12 @@ function common_actions.learn(enemy)
       movement:set_ignore_obstacles(true)
       movement:start(sprite)
 
-      -- Call events once landed finished.
+      -- Call on_finished_callback() at the first movement finished.
       if not event_called then
         event_called = true
         function movement:on_finished()
           if on_finished_callback then
             on_finished_callback()
-          end
-          if enemy.on_flying_landed then
-            enemy:on_flying_landed()
           end
         end
       end

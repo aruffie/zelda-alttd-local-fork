@@ -38,14 +38,15 @@ function enemy:start_walking()
   end
 end
 
--- Start jumping.
+-- Start jumping to the hero.
 function enemy:start_jump_attack()
 
-  -- Start jumping to the hero.
   local hero_x, hero_y, _ = hero:get_position()
   local enemy_x, enemy_y, _ = enemy:get_position()
   local angle = math.atan2(hero_y - enemy_y, enemy_x - hero_x) + math.pi
-  enemy:start_jumping(jumping_duration, jumping_height, angle, jumping_speed)
+  enemy:start_jumping(jumping_duration, jumping_height, angle, jumping_speed, function()
+    enemy:restart()
+  end)
   sprite:set_animation("jump")
 end
 
@@ -82,11 +83,6 @@ local function on_weak_attack_received()
   enemy:hurt(enemy:get_life()) -- Kill the enemy instead of removing it to trigger dying events.
   enemy:set_visible(false)
 end
-
--- Start walking again when the attack finished.
-enemy:register_event("on_jump_finished", function(enemy)
-  enemy:restart()
-end)
 
 -- Initialization.
 enemy:register_event("on_created", function(enemy)

@@ -40,12 +40,14 @@ end
 function enemy:go(duration, height, angle, speed)
 
   throwing_angle = angle or math.random() * circle
-  enemy:bounce_go(duration, height, angle, speed)
+  enemy:bounce_go(duration, height, angle, speed, function()
+    enemy:bounce()
+  end)
   enemy:get_movement():set_ignore_obstacles(true)
 end
 
 -- Start a new bounce or destroy the enemy if requested.
-enemy:register_event("on_jump_finished", function(enemy)
+function enemy:bounce()
 
   if explode_at_bounce then
     enemy:explode()
@@ -58,7 +60,7 @@ enemy:register_event("on_jump_finished", function(enemy)
   else
     enemy:stop_movement()
   end
-end)
+end
 
 -- Make the enemy explode.
 function enemy:explode()

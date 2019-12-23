@@ -19,12 +19,14 @@ local maximum_speed = 80
 -- Make the enemy bounce and go to a random target.
 function enemy:go(duration, height, angle, speed)
 
-  enemy:bounce_go(duration, height, angle or math.random() * circle, speed or math.random(minimum_speed, maximum_speed))
+  enemy:bounce_go(duration, height, angle or math.random() * circle, speed or math.random(minimum_speed, maximum_speed), function()
+    enemy:bounce()
+  end)
   enemy:get_movement():set_ignore_obstacles(true)
 end
 
 -- Start a new bounce or destroy the enemy when bounce finished.
-enemy:register_event("on_jump_finished", function(enemy)
+function enemy:bounce()
 
   bounce_count = bounce_count + 1
   if bounce_count < maximum_bounce then
@@ -34,7 +36,7 @@ enemy:register_event("on_jump_finished", function(enemy)
       enemy:remove()
     end)
   end
-end)
+end
 
 -- Create an impact effect on hit.
 enemy:register_event("on_hit", function(enemy)

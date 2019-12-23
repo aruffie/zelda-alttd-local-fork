@@ -5,7 +5,7 @@
 local enemy = ...
 require("enemies/lib/common_actions").learn(enemy)
 require("scripts/multi_events")
-local audio_manager=require("scripts/audio_manager")
+local audio_manager = require("scripts/audio_manager")
 
 local game = enemy:get_game()
 local map = enemy:get_map()
@@ -95,26 +95,23 @@ enemy:register_event("on_shield_collision", function(enemy, shield)
     -- Make the enemy jump while flipping.
     local angle = sprite:get_direction() * quarter + math.pi
     enemy:start_jumping(jumping_duration, jumping_height, angle, jumping_speed, function()
+
+      -- Wait for a delay and restart the enemy when flipped.
       audio_manager:play_entity_sound(enemy, "enemies/bounce")
+      sol.timer.start(enemy, upside_down_duration, function()
+        if is_upside_down then
+          sprite:set_animation("shaking")
+          sol.timer.start(enemy, shaking_duration, function()
+            if is_upside_down then
+              enemy:restart()
+            end
+          end)
+        end
+      end)
     end)
     sprite:set_animation("renverse")
     audio_manager:play_entity_sound(enemy, "enemies/bounce")
   end
-end)
-
--- Wait for a delay and restart the enemy when flipped.
-enemy:register_event("on_jump_finished", function(enemy)
-
-  sol.timer.start(enemy, upside_down_duration, function()
-    if is_upside_down then
-      sprite:set_animation("shaking")
-      sol.timer.start(enemy, shaking_duration, function()
-        if is_upside_down then
-          enemy:restart()
-        end
-      end)
-    end
-  end)
 end)
 
 -- Passive behaviors needing constant checking.

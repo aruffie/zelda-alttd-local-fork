@@ -54,14 +54,15 @@ function enemy:start_walking()
   end
 end
 
--- Start jumping.
+-- Start jumping to or away to the hero.
 function enemy:start_jump_attack(offensive)
 
-  -- Start jumping to the hero.
   local hero_x, hero_y, _ = hero:get_position()
   local enemy_x, enemy_y, _ = enemy:get_position()
   local angle = math.atan2(hero_y - enemy_y, enemy_x - hero_x) + (offensive and math.pi or 0)
-  enemy:start_jumping(jumping_duration, jumping_height, angle, jumping_speed)
+  enemy:start_jumping(jumping_duration, jumping_height, angle, jumping_speed, function()
+    enemy:restart()
+  end)
   sprite:set_animation("jump")
 end
 
@@ -118,11 +119,6 @@ end)
 -- Free the hero on dying
 enemy:register_event("on_dying", function(enemy)
   enemy:free_hero()
-end)
-
--- Start walking again when the attack finished.
-enemy:register_event("on_jump_finished", function(enemy)
-  enemy:restart()
 end)
 
 -- Initialization.

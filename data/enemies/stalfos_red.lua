@@ -22,7 +22,7 @@ local attack_triggering_distance = 64
 local jumping_speed = 128
 local jumping_height = 16
 local jumping_duration = 600
-local throwing_bone_delay = 200
+local throwing_bone_delay = 600
 
 -- Make this enemy throw bones or not.
 function enemy:set_unarmed(unarmed)
@@ -44,7 +44,10 @@ function enemy:start_attacking()
   local hero_x, hero_y, _ = hero:get_position()
   local enemy_x, enemy_y, _ = enemy:get_position()
   local angle = math.atan2(hero_y - enemy_y, enemy_x - hero_x)
-  enemy:start_jumping(jumping_duration, jumping_height, angle, jumping_speed)
+  enemy:start_jumping(jumping_duration, jumping_height, angle, jumping_speed, function()
+    enemy:restart()
+    enemy:start_throwing_bone()
+  end)
   sprite:set_animation("jumping")
   enemy.is_exhausted = true
 end
@@ -65,31 +68,28 @@ game:register_event("on_command_pressed", function(game, command)
 end)
 
 -- Start walking again when the attack finished.
-enemy:register_event("on_jump_finished", function(enemy)
+function enemy:start_throwing_bone()
 
-  -- Throw a bone club at the hero after a delay if the enemy is still alive.
-  enemy:restart()
-  if is_archer then
+  -- Throw a bone club at the hero after a delay.
+  if not is_unarmed then
     sol.timer.start(enemy, throwing_bone_delay, function()
       
-      if enemy:get_life() > 0 then
-        local x, y, layer = enemy:get_position()
-        local bone = map:create_enemy({
-          breed = "projectiles/bone",
-          x = x,
-          y = y,
-          layer = layer,
-          direction = enemy:get_direction4_to(hero)
-        })
+      local x, y, layer = enemy:get_position()
+      local bone = map:create_enemy({
+        breed = "projectiles/bone",
+        x = x,
+        y = y,
+        layer = layer,
+        direction = enemy:get_direction4_to(hero)
+      })
 
-        -- Call an enemy:on_enemy_created(bone) event.
-        if enemy.on_enemy_created then
-          enemy:on_enemy_created(bone)
-        end
+      -- Call an enemy:on_enemy_created(bone) event.
+      if enemy.on_enemy_created then
+        enemy:on_enemy_created(bone)
       end
     end)
   end
-end)
+end
 
 -- Set exhausted on hurt.
 enemy:register_event("on_hurt", function(enemy)

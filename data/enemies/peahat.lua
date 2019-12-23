@@ -41,23 +41,25 @@ function enemy:start_dynamic_frame_delay(steps_table, current_step, finished_cal
 end
 
 -- Start landing after some time.
-function enemy:start_moving()
+function enemy:start_landing()
 
   sol.timer.start(enemy, before_taking_off_delay, function()
 
     -- Make the flying animation start and gradually decrease the frame delay.
     sprite:set_animation("walking")
     enemy:start_dynamic_frame_delay(taking_off_frame_delay_steps, 0, function()
-      enemy:start_flying(take_off_duration, flying_height)
+      enemy:start_flying(take_off_duration, flying_height, function()
+        enemy:start_moving()
+      end)
       enemy:set_invincible()
     end)
   end)
 end
 
--- Event called when the enemy took off.
-enemy:register_event("on_flying_took_off", function(enemy)
+-- Start moving after some time.
+function enemy:start_moving()
 
-  -- Start in the air movements after some time.
+  -- Start movements after some time.
   sol.timer.start(enemy, before_moving_in_the_air_delay, function()
 
     -- Start a straight movement and always slighty change the angle.
@@ -74,19 +76,16 @@ enemy:register_event("on_flying_took_off", function(enemy)
     sol.timer.start(enemy, math.random(flying_minimum_duration, flying_maximum_duration), function()
       movement:stop()
       sol.timer.start(enemy, before_landing_delay, function()
-        enemy:stop_flying(landing_duration)
+        enemy:stop_flying(landing_duration, function()
+          sol.timer.start(enemy, before_restarting_delay, function()
+            enemy:restart()
+          end)
+        end)
         enemy:start_dynamic_frame_delay(landing_frame_delay_steps, 0)
       end)
     end)
   end)
-end)
-
--- Restart the enemy on landed.
-enemy:register_event("on_flying_landed", function(enemy)
-  sol.timer.start(enemy, before_restarting_delay, function()
-    enemy:restart()
-  end)
-end)
+end
 
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
@@ -108,5 +107,5 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_damage(1)
   sprite:set_animation("stopped")
   sprite:set_xy(0, 0)
-  enemy:start_moving()
+  enemy:start_landing()
 end)
