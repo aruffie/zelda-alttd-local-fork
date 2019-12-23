@@ -184,6 +184,7 @@ enemy:register_event("on_restarted", function(enemy)
   frame_count = 0
   enemy:set_can_attack(true)
   enemy:set_damage(4)
+  enemy:set_hurt_style("boss")
   enemy:start_walking()
   if enemy:get_life() < 4 then
     enemy:set_angry()

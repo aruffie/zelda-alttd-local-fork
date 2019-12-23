@@ -72,7 +72,7 @@ function enemy:create_projectile(projectile, direction)
 
   local x, y = sprite:get_xy()
   local projectile = enemy:create_enemy({
-    name = enemy:get_name() .. "_" .. projectile,
+    name = (enemy:get_name() or enemy:get_breed()) .. "_" .. projectile,
     breed = "projectiles/" .. projectile,
     x = x,
     y = y
