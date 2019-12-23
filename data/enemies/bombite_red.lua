@@ -42,7 +42,7 @@ function enemy:explode()
     y = y,
     layer = layer
   })
-  enemy:hurt(enemy:get_life()) -- Kill the enemy instead of remove() it.
+  enemy:hurt(enemy:get_life()) -- Kill the enemy instead of removing it to trigger dying events.
   enemy:set_visible(false)
 end
 
