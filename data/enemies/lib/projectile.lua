@@ -35,7 +35,8 @@ function behavior.apply(enemy, sprite)
   function enemy:hit_behavior()
 
     if not enemy.on_hit or enemy:on_hit() ~= false then
-      enemy:remove()
+      enemy.is_silent = true -- Workaround : Don't play sounds added by enemy meta script.
+      enemy:hurt(enemy:get_life()) -- Kill the enemy instead of removing it to trigger dying events.
     end
   end
 
