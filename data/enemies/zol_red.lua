@@ -80,6 +80,7 @@ local function on_weak_attack_received()
 
   create_gel(-5)
   create_gel(5)
+  enemy.is_silent = true -- Workaround : Don't play sounds added by enemy meta script.
   enemy:hurt(enemy:get_life()) -- Kill the enemy instead of removing it to trigger dying events.
   enemy:set_visible(false)
 end
@@ -90,10 +91,6 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(1)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)
-  enemy:start_shadow()
-
-  -- Workaround : Don't play the dying sound added by enemy meta script.
-  enemy.is_stoic = true
 end)
 
 -- Restart settings.

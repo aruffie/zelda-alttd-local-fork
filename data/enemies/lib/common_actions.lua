@@ -282,7 +282,7 @@ function common_actions.learn(enemy)
         for _, sprite in enemy:get_sprites() do
           sprite:set_xy(0, 0)
         end
-        if enemy:get_movement() == movement then
+        if movement and enemy:get_movement() == movement then
           movement:stop()
         end
 

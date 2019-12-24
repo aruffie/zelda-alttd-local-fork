@@ -12,16 +12,24 @@ local impulse_speed = 22
 local impulse_distance = 30
 local before_charging_delay = 500
 
--- Start an impulse move then go to the hero.
+-- Start a backward move then charge the hero.
 function enemy:go(direction)
 
-  enemy:start_straight_walking((direction or sprite:get_direction()) * quarter, impulse_speed, impulse_distance, function()
+  local movement = enemy:start_straight_walking((direction or sprite:get_direction()) * quarter, impulse_speed, impulse_distance, function()
     sol.timer.start(enemy, before_charging_delay, function()
-      enemy:straight_go()
-      enemy:get_movement():set_ignore_obstacles(true)
+      local movement = enemy:straight_go()
+
+      -- Ignore obstacle and remove enemy when not visible anymore.
+      movement:set_ignore_obstacles(true)
+      function movement:on_position_changed()
+        if not enemy:is_watched(sprite) then
+          enemy.is_silent = true -- Workaround : Don't play sounds added by enemy meta script.
+          enemy:hurt(enemy:get_life()) -- Kill the enemy instead of removing it to trigger dying events.
+        end
+      end
     end)
   end)
-  enemy:get_movement():set_ignore_obstacles(true)
+  movement:set_ignore_obstacles(true)
 end
 
 -- Create an impact effect on hit.

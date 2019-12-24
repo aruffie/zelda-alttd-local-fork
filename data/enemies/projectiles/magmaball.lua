@@ -8,8 +8,17 @@ local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 
 -- Start going to the hero.
 function enemy:go()
-  enemy:straight_go()
-  enemy:get_movement():set_ignore_obstacles(true)
+
+  local movement = enemy:straight_go()
+
+  -- Ignore obstacle and remove enemy when not visible anymore.
+  movement:set_ignore_obstacles(true)
+  function movement:on_position_changed()
+    if not enemy:is_watched(sprite) then
+      enemy.is_silent = true -- Workaround : Don't play sounds added by enemy meta script.
+      enemy:hurt(enemy:get_life()) -- Kill the enemy instead of removing it to trigger dying events.
+    end
+  end
 end
 
 -- Create an impact effect on hit.

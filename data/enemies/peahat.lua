@@ -105,6 +105,7 @@ enemy:register_event("on_restarted", function(enemy)
   -- States.
   enemy:set_can_attack(true)
   enemy:set_damage(1)
+  enemy:set_obstacle_behavior("flying")
   sprite:set_animation("stopped")
   sprite:set_xy(0, 0)
   enemy:start_landing()
