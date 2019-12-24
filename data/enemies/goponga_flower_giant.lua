@@ -74,8 +74,8 @@ enemy:register_event("on_restarted", function(enemy)
   -- Behavior for each items.
   enemy:set_hero_weapons_reactions("ignored", {
     hookshot = 1,
-    boomerang = 1,
-    fire = 1,
+    boomerang = 2,
+    fire = 2,
     sword = on_sword_attack_received
   })
 
