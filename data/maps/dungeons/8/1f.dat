@@ -13,6 +13,33 @@ properties{
 
 tile{
   layer = 0,
+  x = 1368,
+  y = 1248,
+  width = 144,
+  height = 128,
+  pattern = "lava",
+}
+
+tile{
+  layer = 0,
+  x = 1440,
+  y = 1248,
+  width = 16,
+  height = 16,
+  pattern = "1020",
+}
+
+tile{
+  layer = 0,
+  x = 1472,
+  y = 1248,
+  width = 16,
+  height = 16,
+  pattern = "1020",
+}
+
+tile{
+  layer = 0,
   x = 1320,
   y = 1280,
   width = 48,
@@ -1035,15 +1062,6 @@ tile{
   width = 312,
   height = 120,
   pattern = "1020",
-}
-
-tile{
-  layer = 0,
-  x = 1368,
-  y = 1248,
-  width = 144,
-  height = 128,
-  pattern = "lava",
 }
 
 tile{
@@ -25754,8 +25772,8 @@ tile{
 
 tile{
   layer = 0,
-  x = 1320,
-  y = 1360,
+  x = 1328,
+  y = 1344,
   width = 16,
   height = 16,
   pattern = "floor.3-Alpha",
@@ -25768,6 +25786,24 @@ tile{
   width = 24,
   height = 16,
   pattern = "1020",
+}
+
+tile{
+  layer = 0,
+  x = 1440,
+  y = 1248,
+  width = 16,
+  height = 16,
+  pattern = "floor.3-Alpha",
+}
+
+tile{
+  layer = 0,
+  x = 1320,
+  y = 1360,
+  width = 16,
+  height = 16,
+  pattern = "floor.3-Alpha",
 }
 
 block{
