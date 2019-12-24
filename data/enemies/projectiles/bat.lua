@@ -18,15 +18,8 @@ function enemy:go(direction)
   local movement = enemy:start_straight_walking((direction or sprite:get_direction()) * quarter, impulse_speed, impulse_distance, function()
     sol.timer.start(enemy, before_charging_delay, function()
       local movement = enemy:straight_go()
-
-      -- Ignore obstacle and remove enemy when not visible anymore.
       movement:set_ignore_obstacles(true)
-      function movement:on_position_changed()
-        if not enemy:is_watched(sprite) then
-          enemy.is_silent = true -- Workaround : Don't play sounds added by enemy meta script.
-          enemy:hurt(enemy:get_life()) -- Kill the enemy instead of removing it to trigger dying events.
-        end
-      end
+      enemy:remove_when_out_screen(movement)
     end)
   end)
   movement:set_ignore_obstacles(true)
