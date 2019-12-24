@@ -12,16 +12,17 @@ local impulse_speed = 22
 local impulse_distance = 30
 local before_charging_delay = 500
 
--- Start an impulse move then go to the hero.
+-- Start a backward move then charge the hero.
 function enemy:go(direction)
 
-  enemy:start_straight_walking((direction or sprite:get_direction()) * quarter, impulse_speed, impulse_distance, function()
+  local movement = enemy:start_straight_walking((direction or sprite:get_direction()) * quarter, impulse_speed, impulse_distance, function()
     sol.timer.start(enemy, before_charging_delay, function()
-      enemy:straight_go()
-      enemy:get_movement():set_ignore_obstacles(true)
+      local movement = enemy:straight_go()
+      movement:set_ignore_obstacles(true)
+      enemy:remove_when_out_screen(movement)
     end)
   end)
-  enemy:get_movement():set_ignore_obstacles(true)
+  movement:set_ignore_obstacles(true)
 end
 
 -- Create an impact effect on hit.
@@ -44,6 +45,7 @@ enemy:register_event("on_restarted", function(enemy)
   sprite:set_animation("walking")
   enemy:set_damage(2)
   enemy:set_obstacle_behavior("flying")
+  enemy:set_layer_independent_collisions(true)
   enemy:set_pushed_back_when_hurt(false)
   enemy:set_can_hurt_hero_running(true)
   enemy:set_minimum_shield_needed(1)

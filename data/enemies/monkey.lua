@@ -74,12 +74,14 @@ end
 function enemy:start_knocking_off()
 
   is_knocked_off = true
-  enemy:start_jumping(falling_duration, falling_height, falling_angle, falling_speed)
+  enemy:start_jumping(falling_duration, falling_height, falling_angle, falling_speed, function()
+    enemy:start_running_away()
+  end)
   sprite:set_animation("falling")
 end
 
 -- Start runing away after falling down.
-enemy:register_event("on_jump_finished", function(enemy)
+function enemy:start_running_away()
 
   sol.timer.start(enemy, waiting_duration, function()
     local direction = math.random(4)
@@ -94,7 +96,7 @@ enemy:register_event("on_jump_finished", function(enemy)
       end
     end
   end)
-end)
+end
 
 -- Initialization.
 enemy:register_event("on_created", function(enemy)

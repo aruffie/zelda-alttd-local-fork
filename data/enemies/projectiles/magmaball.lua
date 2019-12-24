@@ -8,8 +8,12 @@ local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 
 -- Start going to the hero.
 function enemy:go()
-  enemy:straight_go()
-  enemy:get_movement():set_ignore_obstacles(true)
+
+  local movement = enemy:straight_go()
+
+  -- Ignore obstacle and remove enemy when not visible anymore.
+  movement:set_ignore_obstacles(true)
+  enemy:remove_when_out_screen(movement)
 end
 
 -- Create an impact effect on hit.

@@ -29,13 +29,10 @@
 --           enemy:start_pushing_back(entity, [speed, [duration, [on_finished_callback]]])
 --           enemy:start_shock(entity, [speed, [duration, [on_finished_callback]]])
 --
+--           enemy:silent_kill()
 --           enemy:start_shadow([sprite_name, [animation_name]])
 --           enemy:start_brief_effect(sprite_name, [animation_name, [x_offset, [y_offset, [maximum_duration, [on_finished_callback]]]]])
 --           enemy:steal_item(item_name, [variant, [only_if_assigned, [drop_when_dead]]])
---
--- Events:   enemy:on_jump_finished()
---           enemy:on_flying_took_off()
---           enemy:on_flying_landed()
 --
 -- Usage : 
 -- local my_enemy = ...
@@ -286,16 +283,13 @@ function common_actions.learn(enemy)
         for _, sprite in enemy:get_sprites() do
           sprite:set_xy(0, 0)
         end
-        if enemy:get_movement() == movement then
+        if movement and enemy:get_movement() == movement then
           movement:stop()
         end
 
         -- Call events once jump finished.
         if on_finished_callback then
           on_finished_callback()
-        end
-        if enemy.on_jump_finished then
-          enemy:on_jump_finished()
         end
       end
     end
@@ -326,15 +320,12 @@ function common_actions.learn(enemy)
       movement:set_ignore_obstacles(true)
       movement:start(sprite)
 
-      -- Call events once take off finished.
+      -- Call on_finished_callback() at the first movement finished.
       if not event_called then
         event_called = true
         function movement:on_finished()
           if on_finished_callback then
             on_finished_callback()
-          end
-          if enemy.on_flying_took_off then
-            enemy:on_flying_took_off()
           end
         end
       end
@@ -357,15 +348,12 @@ function common_actions.learn(enemy)
       movement:set_ignore_obstacles(true)
       movement:start(sprite)
 
-      -- Call events once landed finished.
+      -- Call on_finished_callback() at the first movement finished.
       if not event_called then
         event_called = true
         function movement:on_finished()
           if on_finished_callback then
             on_finished_callback()
-          end
-          if enemy.on_flying_landed then
-            enemy:on_flying_landed()
           end
         end
       end
@@ -636,6 +624,20 @@ function common_actions.learn(enemy)
       end
     end)
     enemy:start_brief_effect("entities/effects/impact_projectile", "default", (hero_x - x) / 2, (hero_y - y) / 2)
+  end
+
+  -- Call dying events before silently remove the enemy.
+  function enemy:silent_kill()
+
+    enemy.is_silent = true -- Workaround : Don't play sounds added by enemy meta script.
+
+    if enemy.on_dying then
+      enemy:on_dying()
+    end
+    if enemy.on_dead then
+      enemy:on_dead()
+    end
+    enemy:remove()
   end
 
   -- Add a shadow below the enemy.

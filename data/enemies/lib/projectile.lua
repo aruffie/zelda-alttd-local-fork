@@ -35,7 +35,17 @@ function behavior.apply(enemy, sprite)
   function enemy:hit_behavior()
 
     if not enemy.on_hit or enemy:on_hit() ~= false then
-      enemy:remove()
+      enemy:silent_kill()
+    end
+  end
+
+  -- Remove the enemy when the given movement makes the enemy sprite completely out of the screen.
+  function enemy:remove_when_out_screen(movement)
+
+    function movement:on_position_changed()
+      if not enemy:is_watched(sprite) then
+        enemy:silent_kill()
+      end
     end
   end
 
@@ -52,11 +62,13 @@ function behavior.apply(enemy, sprite)
     function movement:on_obstacle_reached()
       enemy:hit_behavior()
     end
+
+    return movement
   end
 
   -- Start bouncing to the given angle, or to the hero if nil.
-  function enemy:bounce_go(duration, height, angle, speed)
-    enemy:start_jumping(duration or default_bounce_duration, height or default_bounce_height, angle or enemy:get_angle(hero), speed or default_speed)
+  function enemy:bounce_go(duration, height, angle, speed, callback)
+    return enemy:start_jumping(duration or default_bounce_duration, height or default_bounce_height, angle or enemy:get_angle(hero), speed or default_speed, callback)
   end
 
   -- Destroy the enemy when the hero is touched. 

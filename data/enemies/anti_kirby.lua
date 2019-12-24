@@ -134,8 +134,23 @@ function enemy:start_aspirate()
     aspiration_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/aspiration", "aspiration")
     aspiration_sprite:set_direction(sprite:get_direction())
 
-    -- Make the enemy sprites elevate while aspiring.
-    enemy:start_flying(take_off_duration, flying_height)
+    -- Make the enemy sprites fly while aspiring.
+    enemy:start_flying(take_off_duration, flying_height, function()
+      sol.timer.start(enemy, flying_duration, function()
+        if enemy.is_aspiring then
+          enemy:stop_flying(landing_duration, function()
+
+            -- Reset default states a little after touching the ground.
+            sol.timer.start(enemy, finish_aspiration_delay, function()
+              if enemy.is_aspiring then
+                enemy:stop_aspirate()
+                enemy:restart()
+              end
+            end)
+          end)
+        end
+      end)
+    end)
   end)
 end
 
@@ -150,29 +165,6 @@ function enemy:stop_aspirate()
   sprite:set_xy(0, 0)
   sprite:stop_movement()
 end
-
--- Event called when the enemy took off while aspiring.
-enemy:register_event("on_flying_took_off", function(enemy)
-
-  -- Wait for a delay and start the landing movement.
-  sol.timer.start(enemy, flying_duration, function()
-    if enemy.is_aspiring then
-      enemy:stop_flying(landing_duration, false)
-    end
-  end)
-end)
-
--- Event called when the enemy landed while aspiring.
-enemy:register_event("on_flying_landed", function(enemy)
-
-  -- Reset default states a little after touching the ground.
-  sol.timer.start(enemy, finish_aspiration_delay, function()
-    if enemy.is_aspiring then
-      enemy:stop_aspirate()
-      enemy:restart()
-    end
-  end)
-end)
 
 -- Passive behaviors needing constant checking.
 enemy:register_event("on_update", function(enemy)

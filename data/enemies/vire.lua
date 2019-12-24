@@ -197,6 +197,17 @@ function enemy:start_taking_off(angle)
   enemy:start_attacking()
 end
 
+-- Wait for being visible before taking off.
+function enemy:wait()
+
+  sol.timer.start(enemy, 50, function()
+    if not enemy:is_watched() then
+      return true
+    end
+    enemy:start_taking_off(0)
+  end)
+end
+
 -- On hit by boomerang, fire or magic powder, make the enemy fall down and die without splitting into bats.
 enemy:register_event("on_custom_attack_received", function(enemy, attack)
 
@@ -245,8 +256,9 @@ enemy:register_event("on_restarted", function(enemy)
 
   -- States.
   sprite:set_animation("walking")
+  enemy:set_obstacle_behavior("flying")
   enemy:set_layer_independent_collisions(true)
   enemy:set_can_attack(true)
   enemy:set_damage(4)
-  enemy:start_taking_off(0)
+  enemy:wait()
 end)

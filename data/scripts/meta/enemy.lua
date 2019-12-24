@@ -44,10 +44,12 @@ end
 
 function enemy_meta:on_hurt(attack)
 
-  if self:get_hurt_style() == "boss" then
-    audio_manager:play_sound("enemies/boss_hit")
-  else
-    audio_manager:play_sound("enemies/enemy_hit")
+  if not self.is_silent then
+    if self:get_hurt_style() == "boss" then
+      audio_manager:play_sound("enemies/boss_hit")
+    else
+      audio_manager:play_sound("enemies/enemy_hit")
+    end
   end
 
 end
@@ -55,7 +57,7 @@ end
 function enemy_meta:on_dying()
 
   local game = self:get_game()
-  if not self.is_stoic then
+  if not self.is_silent then
     if self:get_hurt_style() == "boss" then
       audio_manager:play_sound("enemies/boss_die")
       sol.timer.start(self, 200, function()

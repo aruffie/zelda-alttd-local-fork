@@ -32,6 +32,11 @@ end
 function enemy:wait()
 
   sol.timer.start(enemy, math.random(waiting_minimum_time, waiting_maximum_time), function()
+
+    if not enemy:is_watched(sprite) then
+      return true
+    end
+
     local x, y, layer = enemy:get_position()
     local flowerball = map:create_enemy({
       breed = "projectiles/flowerball",
@@ -69,8 +74,8 @@ enemy:register_event("on_restarted", function(enemy)
   -- Behavior for each items.
   enemy:set_hero_weapons_reactions("ignored", {
     hookshot = 1,
-    boomerang = 1,
-    fire = 1,
+    boomerang = 2,
+    fire = 2,
     sword = on_sword_attack_received
   })
 
