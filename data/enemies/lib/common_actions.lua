@@ -626,7 +626,7 @@ function common_actions.learn(enemy)
     enemy:start_brief_effect("entities/effects/impact_projectile", "default", (hero_x - x) / 2, (hero_y - y) / 2)
   end
 
-  -- Call dying events before silently remove the enemy.
+  -- Silently remove the enemy and call dying events at the right time.
   function enemy:silent_kill()
 
     enemy.is_silent = true -- Workaround : Don't play sounds added by enemy meta script.
@@ -634,10 +634,10 @@ function common_actions.learn(enemy)
     if enemy.on_dying then
       enemy:on_dying()
     end
+    enemy:remove()
     if enemy.on_dead then
       enemy:on_dead()
     end
-    enemy:remove()
   end
 
   -- Add a shadow below the enemy.

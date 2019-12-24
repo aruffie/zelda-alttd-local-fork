@@ -8,6 +8,7 @@ local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 
 -- Start going to the hero.
 function enemy:go()
+
   local movement = enemy:straight_go(nil, 80)
   movement:set_ignore_obstacles(true)
   enemy:remove_when_out_screen(movement)

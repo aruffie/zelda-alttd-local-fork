@@ -1,10 +1,10 @@
 ----------------------------------
 --
--- Add projectile behavior to an ennemy.
+-- Add basic projectile methods and events to an enemy.
 --
--- Methods : enemy:set_default_speed(speed)
+-- Methods : enemy:remove_when_out_screen(movement)
 --           enemy:straight_go([angle, [speed]])
---           enemy:bounce_go(bounce_duration, height, [angle, [speed]])
+--           enemy:bounce_go(bounce_duration, height, [angle, [speed, [callback]]])
 -- Events :  enemy:on_hit()
 --
 -- Usage : 
@@ -32,7 +32,7 @@ function behavior.apply(enemy, sprite)
   
 
   -- Call the on_hit() callback and remove the entity if it doesn't return false.
-  function enemy:hit_behavior()
+  local function hit_behavior()
 
     if not enemy.on_hit or enemy:on_hit() ~= false then
       enemy:silent_kill()
@@ -60,7 +60,7 @@ function behavior.apply(enemy, sprite)
     sprite:set_direction(movement:get_direction4())
 
     function movement:on_obstacle_reached()
-      enemy:hit_behavior()
+      hit_behavior()
     end
 
     return movement
@@ -78,12 +78,12 @@ function behavior.apply(enemy, sprite)
     if not hero:is_shield_protecting_from_enemy(enemy, enemy_sprite) or not game:has_item("shield") or game:get_item("shield"):get_variant() < enemy:get_minimum_shield_needed() then
       hero:start_hurt(enemy, enemy_sprite, enemy:get_damage())
     end
-    enemy:hit_behavior()
+    hit_behavior()
   end)
 
   -- Destroy the enemy if needed when touching the shield.
   enemy:register_event("on_shield_collision", function(enemy, shield)
-    enemy:hit_behavior()
+    hit_behavior()
   end)
 
   -- Hide the projectile when dying
