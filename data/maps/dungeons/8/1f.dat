@@ -25832,7 +25832,7 @@ block{
   sprite = "entities/blocks/block",
   pushable = false,
   pullable = false,
-  maximum_moves = 0,
+  max_moves = 0,
 }
 
 block{
@@ -28879,7 +28879,7 @@ enemy{
   x = 2144,
   y = 1101,
   direction = 3,
-  breed = "stalfos",
+  breed = "stalfos_red",
 }
 
 enemy{

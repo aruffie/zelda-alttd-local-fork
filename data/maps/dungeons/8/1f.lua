@@ -60,9 +60,6 @@ function map:on_started()
   -- Music
   game:play_dungeon_music()
 
-  -- Owls
-  owl_manager:init(map)
-
   -- Separators
   separator_manager:init(map)
 
