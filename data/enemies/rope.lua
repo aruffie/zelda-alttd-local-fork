@@ -82,8 +82,8 @@ end)
 enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(1)
-  enemy:set_size(24, 24)
-  enemy:set_origin(12, 21)
+  enemy:set_size(16, 16)
+  enemy:set_origin(8, 13)
 end)
 
 -- Restart settings.
