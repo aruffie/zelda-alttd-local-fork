@@ -25907,7 +25907,7 @@ block{
 }
 
 enemy{
-  name = "enemy_group_2_4",
+  name = "enemy_group_23_1",
   layer = 0,
   x = 776,
   y = 1613,
