@@ -8,6 +8,7 @@ local needs_destruction -- Destroy if "action" or "attack" commads are pressed.
 local next_direction
 local interaction_finished = false -- True if first interaction has finished (command released).
 local sprite = "entities/vacuum_cleaner_ground" -- [TODO: change default value]. Used to create ground sprites.
+local is_first_move = true
 
 -- Include scripts
 require("scripts/multi_events")
@@ -18,7 +19,8 @@ entity:register_event("on_created", function()
   entity:set_traversable_by(false)
   entity:set_can_traverse_ground("lava", true)
   entity:set_can_traverse_ground("hole", true)
-  for _, ground in pairs({"empty", "traversable", "wall",
+  entity:set_can_traverse_ground("traversable", true) -- Allow the first move to go through traversable to handle starting on floor.
+  for _, ground in pairs({"empty", "wall",
       "low_wall", "wall_top_right", "wall_top_left", "wall_bottom_left",
       "wall_bottom_right", "wall_top_right_water", "wall_top_left_water", 
       "wall_bottom_left_water", "wall_bottom_right_water", "deep_water",
@@ -92,6 +94,7 @@ function entity:move()
   end
   -- Continue movement or destroy if necessary.
   function m:on_finished()
+    entity:set_can_traverse_ground("traversable", false)
     tile:set_modified_ground("traversable")
     if needs_destruction then entity:remove() end
     entity:move()
