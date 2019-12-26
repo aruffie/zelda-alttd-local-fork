@@ -44,6 +44,7 @@ function behavior.apply(enemy, sprite)
 
     function movement:on_position_changed()
       if not enemy:is_watched(sprite) then
+        movement:stop()
         enemy:silent_kill()
       end
     end

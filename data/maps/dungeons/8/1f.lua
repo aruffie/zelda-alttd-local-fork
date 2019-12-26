@@ -60,9 +60,6 @@ function map:on_started()
   -- Music
   game:play_dungeon_music()
 
-  -- Owls
-  owl_manager:init(map)
-
   -- Separators
   separator_manager:init(map)
 
@@ -133,7 +130,9 @@ sensor_4:register_event("on_activated", function()
 end)
 
 sensor_5:register_event("on_activated", function()
-  map:close_doors("door_group_17_")
+  if map:has_enemy("enemy_group_2_") then
+    map:close_doors("door_group_17_")
+  end
 end)
 
 sensor_6:register_event("on_activated", function()

@@ -53,6 +53,7 @@ function entity_respawn_manager:init(map)
 
           new_enemy:set_treasure(unpack(enemy_place.treasure))
           new_enemy.on_dead = enemy.on_dead  -- For door_manager.
+          new_enemy.on_enemy_created = enemy.on_enemy_created  -- For door_manager.
           new_enemy.on_symbol_fixed = enemy.on_symbol_fixed -- For Vegas enemies
           if enemy.on_flying_tile_dead ~= nil then
             new_enemy.on_flying_tile_dead = enemy.on_flying_tile_dead -- For Flying tiles enemies
