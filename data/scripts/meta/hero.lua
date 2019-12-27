@@ -204,7 +204,7 @@ function hero_meta.play_ground_effect(hero)
 end
 
 hero_meta:register_event("on_state_changing", function(hero, old_state, new_state)
-    print ("going from state "..old_state.." to state ".. new_state)
+    --print ("going from state "..old_state.." to state ".. new_state)
     if old_state=="jumping" and new_state=="free" then
       hero:play_ground_effect()
     end
