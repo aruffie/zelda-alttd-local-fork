@@ -48,14 +48,17 @@ function map:on_started()
   treasure_manager:disappear_pickable(map, "pickable_small_key_3")
   treasure_manager:disappear_pickable(map, "pickable_small_key_4")
   treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_3", "pickable_small_key_1")
-  -- TODO appear pickable pickable_small_key_2 when holes are filled by vacuum_cleaner_2
+  treasure_manager:appear_pickable_when_holes_filled(map, "vacuum_cleaner_2", "pickable_small_key_2")
   treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_13", "pickable_small_key_3")
-  -- TODO appear pickable pickable_small_key_4 when statue_eye_1 is hit by an arrow
+  treasure_manager:appear_pickable_when_hit_by_arrow(map, "statue_eye_1", "pickable_small_key_4")
 
   -- Chests
-  -- TODO appear chest chest_rupee_2 when holes are filled by vacuum_cleaner_1
-  -- TODO appear chest chest_boss_key when holes are filled by vacuum_cleaner_3
-  -- TODO appear chest chest_small_key_7 when torches_1 are lightened
+  treasure_manager:appear_chest_if_savegame_exist(map, "chest_rupee_1", "dungeon_8_rupee_1")
+  treasure_manager:appear_chest_if_savegame_exist(map, "chest_boss_key", "dungeon_8_boss_key")
+  treasure_manager:appear_chest_if_savegame_exist(map, "chest_small_key_7", "dungeon_8_small_key_7")
+  treasure_manager:appear_chest_when_holes_filled(map, "vacuum_cleaner_1", "chest_rupee_1")
+  treasure_manager:appear_chest_when_holes_filled(map, "vacuum_cleaner_3", "chest_boss_key")
+  treasure_manager:appear_chest_when_torches_lit(map, "torch_1_", "chest_small_key_7")
 
   -- Music
   game:play_dungeon_music()

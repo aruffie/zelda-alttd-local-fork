@@ -13,6 +13,33 @@ properties{
 
 tile{
   layer = 0,
+  x = 1800,
+  y = 560,
+  width = 24,
+  height = 80,
+  pattern = "wall.4-2",
+}
+
+tile{
+  layer = 0,
+  x = 1816,
+  y = 624,
+  width = 160,
+  height = 24,
+  pattern = "wall.1-2",
+}
+
+tile{
+  layer = 0,
+  x = 1800,
+  y = 624,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner_reverse.2-2",
+}
+
+tile{
+  layer = 0,
   x = 48,
   y = 288,
   width = 224,
@@ -13459,33 +13486,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 1800,
-  y = 560,
-  width = 24,
-  height = 80,
-  pattern = "wall.4-2",
-}
-
-tile{
-  layer = 0,
-  x = 1816,
-  y = 624,
-  width = 160,
-  height = 24,
-  pattern = "wall.1-2",
-}
-
-tile{
-  layer = 0,
-  x = 1800,
-  y = 624,
-  width = 24,
-  height = 24,
-  pattern = "wall.corner_reverse.2-2",
-}
-
-tile{
-  layer = 0,
   x = 1936,
   y = 488,
   width = 32,
@@ -19071,9 +19071,9 @@ tile{
 tile{
   layer = 0,
   x = 1472,
-  y = 520,
+  y = 528,
   width = 8,
-  height = 72,
+  height = 64,
   pattern = "hole.3",
 }
 
@@ -19089,9 +19089,9 @@ tile{
 tile{
   layer = 0,
   x = 1480,
-  y = 520,
+  y = 528,
   width = 8,
-  height = 72,
+  height = 64,
   pattern = "hole.4",
 }
 
@@ -25896,6 +25896,24 @@ tile{
   pattern = "hole.corner_reverse.3",
 }
 
+tile{
+  layer = 0,
+  x = 1472,
+  y = 520,
+  width = 8,
+  height = 8,
+  pattern = "hole.corner.1",
+}
+
+tile{
+  layer = 0,
+  x = 1480,
+  y = 520,
+  width = 8,
+  height = 8,
+  pattern = "hole.corner.2",
+}
+
 block{
   layer = 0,
   x = 72,
@@ -28131,33 +28149,6 @@ enemy{
   breed = "zol_green",
 }
 
-enemy{
-  name = "enemy_group_7_1",
-  layer = 0,
-  x = 1080,
-  y = 1045,
-  direction = 0,
-  breed = "peahat",
-}
-
-enemy{
-  name = "enemy_group_7_2",
-  layer = 0,
-  x = 1176,
-  y = 1045,
-  direction = 0,
-  breed = "peahat",
-}
-
-enemy{
-  name = "enemy_group_7_3",
-  layer = 0,
-  x = 1128,
-  y = 1101,
-  direction = 0,
-  breed = "peahat",
-}
-
 destructible{
   layer = 0,
   x = 2360,
@@ -29175,9 +29166,9 @@ jumper{
 
 wall{
   layer = 0,
-  x = 2336,
+  x = 2344,
   y = 416,
-  width = 32,
+  width = 24,
   height = 8,
   stops_hero = true,
   stops_npcs = true,
@@ -29188,9 +29179,9 @@ wall{
 
 jumper{
   layer = 0,
-  x = 2288,
+  x = 2280,
   y = 416,
-  width = 48,
+  width = 64,
   height = 8,
   direction = 6,
   jump_length = 40,
@@ -30483,7 +30474,7 @@ enemy{
   layer = 0,
   x = 1800,
   y = 773,
-  direction = 3,
+  direction = 2,
   breed = "fireball",
 }
 
@@ -30492,7 +30483,7 @@ enemy{
   layer = 0,
   x = 1816,
   y = 773,
-  direction = 3,
+  direction = 0,
   breed = "fireball",
 }
 
@@ -32025,6 +32016,26 @@ block{
   pushable = false,
   pullable = false,
   maximum_moves = 0,
+}
+
+chest{
+  name = "chest_small_key_7",
+  layer = 0,
+  x = 584,
+  y = 1053,
+  treasure_name = "small_key",
+  treasure_savegame_variable = "dungeon_8_small_key_7",
+  sprite = "entities/chests/chest_small",
+}
+
+chest{
+  name = "chest_small_key_6",
+  layer = 0,
+  x = 1848,
+  y = 605,
+  treasure_name = "small_key",
+  treasure_savegame_variable = "dungeon_8_small_key_6",
+  sprite = "entities/chests/chest_small",
 }
 
 tile{
@@ -33685,16 +33696,6 @@ chest{
   sprite = "entities/chests/chest_small",
 }
 
-chest{
-  name = "chest_small_key_6",
-  layer = 1,
-  x = 1848,
-  y = 605,
-  treasure_name = "small_key",
-  treasure_savegame_variable = "dungeon_8_small_key_6",
-  sprite = "entities/chests/chest_small",
-}
-
 block{
   layer = 1,
   x = 1088,
@@ -33734,16 +33735,6 @@ custom_entity{
   direction = 0,
   sprite = "entities/items/heart_fly",
   model = "pickable_fly",
-}
-
-chest{
-  name = "chest_small_key_7",
-  layer = 1,
-  x = 584,
-  y = 1053,
-  treasure_name = "small_key",
-  treasure_savegame_variable = "dungeon_8_small_key_7",
-  sprite = "entities/chests/chest_small",
 }
 
 chest{
@@ -35145,5 +35136,32 @@ enemy{
   y = 573,
   direction = 0,
   breed = "vire",
+}
+
+enemy{
+  name = "enemy_group_7_1",
+  layer = 2,
+  x = 1080,
+  y = 1045,
+  direction = 0,
+  breed = "peahat",
+}
+
+enemy{
+  name = "enemy_group_7_2",
+  layer = 2,
+  x = 1176,
+  y = 1045,
+  direction = 0,
+  breed = "peahat",
+}
+
+enemy{
+  name = "enemy_group_7_3",
+  layer = 2,
+  x = 1128,
+  y = 1101,
+  direction = 0,
+  breed = "peahat",
 }
 
