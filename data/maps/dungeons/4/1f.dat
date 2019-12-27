@@ -718,7 +718,7 @@ tile{
   x = 1008,
   y = 48,
   width = 224,
-  height = 160,
+  height = 144,
   pattern = "floor.3-1",
 }
 
@@ -1201,15 +1201,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 920,
-  y = 696,
-  width = 24,
-  height = 24,
-  pattern = "wall.corner.4-2",
-}
-
-tile{
-  layer = 0,
   x = 656,
   y = 760,
   width = 24,
@@ -1402,7 +1393,7 @@ tile{
   x = 1240,
   y = 56,
   width = 24,
-  height = 160,
+  height = 128,
   pattern = "wall.4-2",
 }
 
@@ -1935,15 +1926,6 @@ tile{
   width = 560,
   height = 24,
   pattern = "wall.1-2",
-}
-
-tile{
-  layer = 0,
-  x = 1320,
-  y = 488,
-  width = 8,
-  height = 8,
-  pattern = "wall_border.corner.1-2",
 }
 
 tile{
@@ -12871,17 +12853,7 @@ dynamic_tile{
   layer = 0,
   x = 1408,
   y = 1632,
-  width = 128,
-  height = 8,
-  pattern = "2485",
-}
-
-dynamic_tile{
-  name = "invisible_tile_9",
-  layer = 0,
-  x = 1344,
-  y = 1632,
-  width = 16,
+  width = 152,
   height = 8,
   pattern = "2485",
 }
@@ -12892,7 +12864,7 @@ dynamic_tile{
   x = 1552,
   y = 1536,
   width = 8,
-  height = 64,
+  height = 96,
   pattern = "2485",
 }
 
@@ -12920,9 +12892,9 @@ dynamic_tile{
   name = "invisible_tile_13",
   layer = 0,
   x = 824,
-  y = 1344,
+  y = 1336,
   width = 8,
-  height = 16,
+  height = 24,
   pattern = "2485",
 }
 
@@ -13911,10 +13883,10 @@ enemy{
 enemy{
   name = "enemy_group_16_1",
   layer = 0,
-  x = 1112,
-  y = 1165,
+  x = 1128,
+  y = 1149,
   direction = 0,
-  breed = "tektite_water",
+  breed = "peahat",
 }
 
 enemy{
@@ -13949,10 +13921,10 @@ enemy{
 enemy{
   name = "enemy_group_17_2",
   layer = 0,
-  x = 840,
-  y = 1101,
+  x = 904,
+  y = 1125,
   direction = 0,
-  breed = "peahat",
+  breed = "tektite_water",
 }
 
 enemy{
@@ -14288,8 +14260,8 @@ enemy{
 enemy{
   name = "enemy_group_14_2",
   layer = 0,
-  x = 1416,
-  y = 845,
+  x = 1424,
+  y = 917,
   direction = 0,
   breed = "zol_green",
 }
@@ -15009,6 +14981,15 @@ destructible{
   destruction_sound = "arrow_hit",
   weight = -1,
   can_be_cut = true,
+}
+
+enemy{
+  name = "enemy_group_19_3",
+  layer = 0,
+  x = 840,
+  y = 541,
+  direction = 0,
+  breed = "tektite_water",
 }
 
 tile{
@@ -16862,7 +16843,6 @@ tile{
 }
 
 separator{
-  name = "auto_separator_9",
   layer = 2,
   x = 0,
   y = 1432,
@@ -16871,7 +16851,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_10",
   layer = 2,
   x = 0,
   y = 1192,
@@ -16880,7 +16859,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_11",
   layer = 2,
   x = 0,
   y = 952,
@@ -16889,16 +16867,14 @@ separator{
 }
 
 separator{
-  name = "auto_separator_12",
   layer = 2,
-  x = 8,
-  y = 712,
+  x = 0,
+  y = 720,
   width = 2560,
   height = 16,
 }
 
 separator{
-  name = "auto_separator_13",
   layer = 2,
   x = 0,
   y = 472,
@@ -16907,7 +16883,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_2",
   layer = 2,
   x = 632,
   y = 0,
@@ -16916,7 +16891,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_3",
   layer = 2,
   x = 952,
   y = 0,
@@ -16925,7 +16899,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_14",
   layer = 2,
   x = 0,
   y = 232,
@@ -16934,7 +16907,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_4",
   layer = 2,
   x = 1272,
   y = 0,
@@ -16943,7 +16915,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_5",
   layer = 2,
   x = 1592,
   y = 0,
@@ -16952,7 +16923,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_6",
   layer = 2,
   x = 1912,
   y = 0,
@@ -16961,7 +16931,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_1",
   layer = 2,
   x = 312,
   y = 0,
@@ -16970,7 +16939,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_8",
   layer = 2,
   x = 0,
   y = 1672,
@@ -16979,7 +16947,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_7",
   layer = 2,
   x = 2232,
   y = 0,

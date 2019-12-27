@@ -58,8 +58,7 @@ function enemy:countdown(number)
         y = y,
         layer = layer
       })
-      enemy:hurt(enemy:get_life()) -- Kill the enemy instead of remove() it.
-      enemy:set_visible(false)
+      enemy:silent_kill()
       return
     end
     countdown_step = number

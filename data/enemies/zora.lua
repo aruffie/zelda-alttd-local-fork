@@ -19,7 +19,6 @@ local eighth = math.pi * 0.25
 -- Configuration variables
 local waiting_minimum_duration = 2000
 local waiting_maximum_duration = 4000
-local projectile_breed = "fireball"
 local appearing_duration = 1000
 local throwing_duration = 600
 local before_desappearing_delay = 1000

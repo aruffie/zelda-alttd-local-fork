@@ -41,30 +41,24 @@ function enemy:start_attacking()
   movement:set_target(target_x, target_y)
   movement:set_smooth(false)
   movement:start(enemy)
-  enemy:start_flying(elevating_duration, jumping_height)
+  enemy:start_flying(elevating_duration, jumping_height, function()
+    sprite:set_animation("attack_landing")
+  end)
   enemy:set_invincible()
   enemy:set_can_attack(false)
   sprite:set_animation("jumping")
 
   -- Wait for a delay and start the stomp down.
   sol.timer.start(enemy, jumping_duration, function()
-    enemy:stop_flying(stompdown_duration)
+    enemy:stop_flying(stompdown_duration, function()
+
+      -- Start a visual effect at the landing impact location.
+      enemy:start_brief_effect("entities/effects/impact_projectile", "default", -12, 0)
+      enemy:start_brief_effect("entities/effects/impact_projectile", "default", 12, 0)
+      enemy:restart()
+    end)
   end)
 end
-
--- Start the attack animation when the jump reached the top.
-enemy:register_event("on_flying_took_off", function(enemy)
-  sprite:set_animation("attack_landing")
-end)
-
--- Start walking again when the attack finished.
-enemy:register_event("on_flying_landed", function(enemy)
-
-  -- Start a visual effect at the landing impact location.
-  enemy:start_brief_effect("entities/effects/impact_projectile", "default", -12, 0)
-  enemy:start_brief_effect("entities/effects/impact_projectile", "default", 12, 0)
-  enemy:restart()
-end)
 
 -- Initialization.
 enemy:register_event("on_created", function(enemy)

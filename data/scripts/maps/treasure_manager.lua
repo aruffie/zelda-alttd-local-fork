@@ -2,6 +2,7 @@ local treasure_manager = {}
 
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
+local block_manager = require("scripts/maps/block_manager")
 require("scripts/multi_events")
 
 function treasure_manager:appear_chest_when_enemies_dead(map, enemy_prefix, chest)
@@ -72,6 +73,31 @@ function treasure_manager:appear_chest_when_horse_heads_upright(map, entity_pref
   end
 end
 
+function treasure_manager:appear_chest_when_holes_filled(map, vacuum_name, chest)
+
+  local function vacuum_on_holes_filled(vacuum)
+    self:appear_chest(map, chest, true)
+  end
+
+  local vacuum = map:get_entity(vacuum_name)
+  vacuum:register_event("on_all_holes_filled", vacuum_on_holes_filled)
+end
+
+function treasure_manager:appear_chest_when_torches_lit(map, torches_prefix, chest)
+  local function torch_on_lit(torch)
+    for entity in map:get_entities(entity_prefix) do
+      if not entity:is_lit() then
+        return -- Remaining unlit torches.
+      end
+    end
+    self:appear_chest(map, chest, true)
+  end
+
+  for torch in map:get_entities(torches_prefix) do
+    torch:register_event("on_lit", torch_on_lit)
+  end
+end
+
 function treasure_manager:appear_pickable_when_enemies_dead(map, enemy_prefix, pickable)
 
   local function enemy_on_dead()
@@ -96,7 +122,6 @@ function treasure_manager:appear_pickable_when_enemies_dead(map, enemy_prefix, p
   end
 
 end
-local block_manager=require("scripts/maps/block_manager")
 
 function treasure_manager:appear_pickable_when_blocks_moved(map, block_prefix, pickable)
   block_manager:init_block_riddle(map, block_prefix, function()
@@ -137,6 +162,25 @@ function treasure_manager:appear_pickable_when_flying_tiles_dead(map, enemy_pref
 
 end
 
+function treasure_manager:appear_pickable_when_holes_filled(map, vacuum_name, pickable)
+
+  local function vacuum_on_holes_filled(vacuum)
+    self:appear_pickable(map, pickable, true)
+  end
+
+  local vacuum = map:get_entity(vacuum_name)
+  vacuum:register_event("on_all_holes_filled", vacuum_on_holes_filled)
+end
+
+function treasure_manager:appear_pickable_when_hit_by_arrow(map, entity_name, pickable)
+
+  local function entity_on_hit_by_arrow(entity)
+    self:appear_pickable(map, pickable, true)
+  end
+
+  local entity = map:get_entity(entity_name)
+  entity:register_event("on_hit_by_arrow", entity_on_hit_by_arrow)
+end
 
 function treasure_manager:disappear_chest(map, chest)
 

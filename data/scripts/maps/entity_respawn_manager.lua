@@ -38,7 +38,6 @@ function entity_respawn_manager:init(map)
 
         -- Re-create enemies in the new active region.
         if enemy:is_in_same_region(map:get_hero()) then
-
           local new_enemy = map:create_enemy({ --TODO modifiy create_enemy to add enemy to light manager
               x = enemy_place.x,
               y = enemy_place.y,
@@ -54,10 +53,14 @@ function entity_respawn_manager:init(map)
 
           new_enemy:set_treasure(unpack(enemy_place.treasure))
           new_enemy.on_dead = enemy.on_dead  -- For door_manager.
+          new_enemy.on_enemy_created = enemy.on_enemy_created  -- For door_manager.
           new_enemy.on_symbol_fixed = enemy.on_symbol_fixed -- For Vegas enemies
           if enemy.on_flying_tile_dead ~= nil then
             new_enemy.on_flying_tile_dead = enemy.on_flying_tile_dead -- For Flying tiles enemies
           end
+
+          saved_entities.enemies[new_enemy] = saved_entities.enemies[enemy]
+          saved_entities.enemies[enemy] = nil
         end
       end
     end
@@ -248,39 +251,45 @@ function entity_respawn_manager:init(map)
     return sprite ~= nil and sprite:get_animation_set() or ""
   end
 
-  function entity_respawn_manager:save_entities(map)
+  -- Store the position and properties of given enemy.
+  local function save_enemy(enemy)
 
+    local x, y, layer = enemy:get_position()
+    saved_entities.enemies[enemy] = {
+      x = x,
+      y = y,
+      layer = layer,
+      breed = enemy:get_breed(),
+      direction = enemy:get_sprite():get_direction(),
+      name = enemy:get_name(),
+      treasure = { enemy:get_treasure() },
+      properties = enemy:get_properties(),
+    }
+
+    local hero = map:get_hero()
+    if not enemy:is_in_same_region(hero) and enemy:get_breed() ~= "boss/skeleton" then
+      enemy:remove()
+    end
+
+    enemy:register_event("on_dead", function(enemy)
+        if not enemy:get_property("can_resurrect") then
+          saved_entities.enemies[enemy]= nil
+        end
+      end)
+    enemy:register_event("on_enemy_created", function(enemy, child)
+        save_enemy(child)
+      end)
+  end
+
+  function entity_respawn_manager:save_entities(map)
     for entity in map:get_entities() do
       local x, y, layer = entity:get_position()
       local width, height = entity:get_size()
       local entity_type=entity:get_type()
       --debug_print ("checking in a(n) ".. entity_type)
-
--- Store the position and properties of enemies.
+      
       if entity_type=="enemy" then
-
-        saved_entities.enemies[entity] = {
-          x = x,
-          y = y,
-          layer = layer,
-          breed = entity:get_breed(),
-          direction = entity:get_sprite():get_direction(),
-          name = entity:get_name(),
-          treasure = { entity:get_treasure() },
-          properties = entity:get_properties(),
-        }
-
-        local hero = map:get_hero()
-        if not entity:is_in_same_region(hero) and entity:get_breed() ~= "boss/skeleton" then
-          entity:remove()
-        end
-
-        entity:register_event("on_dead", function()
-            if not entity:get_property("can_resurrect") then
-              saved_entities.enemies[entity]= nil
-            end
-          end)
-
+        save_enemy(entity)
       end
 
       if entity_type=="custom_entity" then

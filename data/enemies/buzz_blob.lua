@@ -64,7 +64,7 @@ enemy:register_event("on_custom_attack_received", function(enemy, attack)
 
     local x, y, layer = enemy:get_position()
     cukeman = enemy:create_enemy({
-      name = enemy:get_name() .. "_cukeman",
+      name = (enemy:get_name() or enemy:get_breed()) .. "_cukeman",
       breed = "cukeman"
     })
 

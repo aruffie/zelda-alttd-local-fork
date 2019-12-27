@@ -24,9 +24,13 @@ function map:on_started()
   -- Pickables
   treasure_manager:disappear_pickable(map, "pickable_small_key_3")
   treasure_manager:disappear_pickable(map, "pickable_small_key_7")
+  treasure_manager:disappear_pickable(map, "pickable_small_key_8")
+  treasure_manager:disappear_pickable(map, "pickable_small_key_9")
   treasure_manager:disappear_pickable(map, "heart_container")
   treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_2_", "pickable_small_key_3")
   treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_5_", "pickable_small_key_7")
+  treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_7_", "pickable_small_key_9")
+  treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_6_", "pickable_small_key_8")
   -- Separators&&&&
   separator_manager:init(map)
 
@@ -49,10 +53,4 @@ sensor_1:register_event("on_activated", function()
     enemy_manager:launch_boss_if_not_dead(map)
   end
 
-end)
-
--- Sensors events
-sensor_2:register_event("on_activated", function()
-
-print("ok")
 end)

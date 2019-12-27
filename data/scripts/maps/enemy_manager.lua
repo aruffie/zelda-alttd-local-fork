@@ -18,6 +18,9 @@ function enemy_manager:on_enemies_dead(map, enemies_prefix, callback)
 
   for enemy in map:get_entities(enemies_prefix) do
     enemy:register_event("on_dead", enemy_on_dead)
+    enemy:register_event("on_enemy_created", function(enemy, child)
+      child:register_event("on_dead", enemy_on_dead)
+    end)
   end
   
 end

@@ -21,7 +21,7 @@ local circle = math.pi * 2.0
 -- Configuration variables
 local walking_speed = 88
 local walking_angle = 0.035
-local running_speed = 160
+local running_speed = 186
 local body_frame_lags = {20, 35, 50}
 local tail_frame_lag = 62
 local keeping_angle_duration = 1000

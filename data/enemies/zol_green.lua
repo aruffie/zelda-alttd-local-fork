@@ -22,14 +22,25 @@ local between_jump_duration = 500
 local max_jump_combo = 8
 local triggering_distance = 60
 
--- Start jumping.
+-- Start jumping to the hero.
 function enemy:start_jump_attack()
 
-  -- Start jumping to the hero.
   local hero_x, hero_y, _ = hero:get_position()
   local enemy_x, enemy_y, _ = enemy:get_position()
   local angle = math.atan2(hero_y - enemy_y, enemy_x - hero_x) + math.pi
-  enemy:start_jumping(jumping_duration, jumping_height, angle, jumping_speed)
+  enemy:start_jumping(jumping_duration, jumping_height, angle, jumping_speed, function()
+
+    -- Contine jumping or disappear on jump finished.
+    sprite:set_animation("shaking")
+    if enemy:get_distance(hero) > triggering_distance or jump_count >= current_max_jump then
+      enemy:disappear()
+    else
+      sol.timer.start(enemy, between_jump_duration, function()
+        jump_count = jump_count + 1
+        enemy:start_jump_attack()
+      end)
+    end
+  end)
   sprite:set_animation("jump")
 end
 
@@ -70,20 +81,6 @@ function enemy:wait()
     return true
   end)
 end
-
--- Contine jumping or disappear on jump finished.
-enemy:register_event("on_jump_finished", function(enemy)
-  
-  sprite:set_animation("shaking")
-  if enemy:get_distance(hero) > triggering_distance or jump_count >= current_max_jump then
-    enemy:disappear()
-  else
-    sol.timer.start(enemy, between_jump_duration, function()
-      jump_count = jump_count + 1
-      enemy:start_jump_attack()
-    end)
-  end
-end)
 
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
