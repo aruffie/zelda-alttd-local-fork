@@ -3,6 +3,7 @@ local entity = ...
 local map = entity:get_map()
 local game = map:get_game()
 local hero = map:get_hero()
+local camera = map:get_camera()
 local speed = 30 -- Change this for a different speed.
 local needs_destruction -- Destroy if "action" or "attack" commads are pressed.
 local next_direction
@@ -90,6 +91,9 @@ function entity:move()
   -- Destroy if an "obstacle ground" is reached.
   function m:on_obstacle_reached() 
     tile:set_modified_ground("traversable")
+    if entity.on_all_holes_filled and entity:has_filled_all_holes() then
+      entity:on_all_holes_filled()
+    end
     entity:remove()
   end
   -- Continue movement or destroy if necessary.
@@ -100,6 +104,23 @@ function entity:move()
     entity:move()
   end
   
+end
+
+-- Return true if all visible holes are filled.
+function entity:has_filled_all_holes()
+
+  local _, _, layer = entity:get_position()
+  local camera_x, camera_y = camera:get_position()
+  local camera_width, camera_height = camera:get_size()
+
+  for x = camera_x + 8, camera_x + camera_width, 16 do
+    for y = camera_y + 8, camera_y + camera_height, 16 do
+      if map:get_ground(x, y, layer) == "hole" then
+        return false
+      end
+    end
+  end
+  return true
 end
 
 -- Start using the vacuum cleaner.
