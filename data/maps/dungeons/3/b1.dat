@@ -4169,6 +4169,60 @@ tile{
   pattern = "floor.3-1",
 }
 
+tile{
+  layer = 0,
+  x = 1168,
+  y = 736,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.1-5",
+}
+
+tile{
+  layer = 0,
+  x = 1056,
+  y = 736,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.1-5",
+}
+
+tile{
+  layer = 0,
+  x = 848,
+  y = 736,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.1-5",
+}
+
+tile{
+  layer = 0,
+  x = 736,
+  y = 736,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.1-5",
+}
+
+tile{
+  layer = 0,
+  x = 736,
+  y = 912,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.2-5",
+}
+
+tile{
+  layer = 0,
+  x = 848,
+  y = 912,
+  width = 16,
+  height = 32,
+  pattern = "wall_pillar.2-5",
+}
+
 wall{
   layer = 0,
   x = 1112,
@@ -7437,6 +7491,24 @@ sensor{
   },
   width = 16,
   height = 16,
+}
+
+pickable{
+  name = "pickable_small_key_8",
+  layer = 0,
+  x = 1048,
+  y = 1069,
+  treasure_name = "small_key",
+  treasure_savegame_variable = "dungeon_3_small_key_8",
+}
+
+pickable{
+  name = "pickable_small_key_9",
+  layer = 0,
+  x = 728,
+  y = 829,
+  treasure_name = "small_key",
+  treasure_savegame_variable = "dungeon_3_small_key_9",
 }
 
 tile{
