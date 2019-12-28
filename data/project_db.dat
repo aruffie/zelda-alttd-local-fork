@@ -477,6 +477,7 @@ sprite{ id = "entities/grounds/ladder_iron", description = "Ladder iron" }
 sprite{ id = "entities/grounds/ladder_wooden", description = "Ladder" }
 sprite{ id = "entities/grounds/ladder_wooden_top", description = "Ladder top" }
 sprite{ id = "entities/grounds/owl_slab", description = "Owl slab" }
+sprite{ id = "entities/grounds/spike", description = "Spike" }
 sprite{ id = "entities/grounds/weak_floor_dark_1", description = "Weak floor dark 1" }
 sprite{ id = "entities/grounds/weak_floor_dark_2", description = "Weak floor dark 2" }
 sprite{ id = "entities/grounds/weak_floor_dark_3", description = "Weak floor dark 3" }
@@ -1302,7 +1303,7 @@ enemy{ id = "boss/grim_creeper", description = "Grim Creeper" }
 enemy{ id = "boss/hinox_master", description = "Hinox master" }
 enemy{ id = "boss/hot_head", description = "Hot Head" }
 enemy{ id = "boss/lanmola", description = "Lanmola" }
-enemy{ id = "boss/master_stalfos", description = "Master stalfos" }
+enemy{ id = "boss/master_stalfos/master_stalfos", description = "Master stalfos" }
 enemy{ id = "boss/moblin_chief", description = "Moblin chief" }
 enemy{ id = "boss/moldorm", description = "Moldorm" }
 enemy{ id = "boss/rolling_bones/rolling_bones", description = "Rolling bones" }
@@ -1521,7 +1522,7 @@ file{ path = "enemies/boss/grim_creeper.lua", license = "GPL v3" }
 file{ path = "enemies/boss/hinox_master.lua", license = "GPL v3" }
 file{ path = "enemies/boss/hot_head.lua", license = "GPL v3" }
 file{ path = "enemies/boss/lanmola.lua", license = "GPL v3" }
-file{ path = "enemies/boss/master_stalfos.lua", license = "GPL v3" }
+file{ path = "enemies/boss/master_stalfos/master_stalfos.lua", license = "GPL v3" }
 file{ path = "enemies/boss/moblin_chief.lua", license = "GPL v3" }
 file{ path = "enemies/boss/moldorm.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/rolling_bones", author = "Benjamin Schweitzer", license = "GPL v3" }

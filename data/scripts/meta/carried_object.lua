@@ -10,22 +10,33 @@ carried_meta:register_event("on_thrown", function(entity)
     audio_manager:play_sound("hero/throw")
     local map = entity:get_map()
     local hero = map:get_hero()
-    local shadow = entity:get_sprite("shadow")    
-    if shadow then
-      entity:remove_sprite(shadow)
-      error("[Thrown] the shadow should already have been removed at this point")
-    else
-      debug_print("[Thrown] OK, there is still no shadow at this point")
-    end
+    local shadow = entity:get_sprite("shadow") or entity:create_sprite("entities/shadows/shadow", "shadow_override")
+
+    entity:bring_sprite_to_back(shadow)
     if map:is_sideview() then --Make me follow gravity
 
 
       m:set_angle(hero:get_sprite():get_direction()*math.pi/2)
       m:set_speed(92)
       m:start(entity)
+
+      function m:on_position_changed(x,y)
+        local off_y=0
+
+        while not entity:test_obstacles(0, off_y) do
+          off_y=off_y+1
+        end
+        if off_y > 8 then
+          shadow:set_animation("small")
+        else 
+          shadow:set_animation("big") 
+        end
+        shadow:set_xy(0, off_y)
+      end
+
     end
 
-end)
+  end)
 carried_meta:register_event("on_breaking", function(entity)
 
     local shadow = entity:get_sprite("shadow")    

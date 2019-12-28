@@ -401,15 +401,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 160,
-  y = 176,
-  width = 32,
-  height = 8,
-  pattern = "80",
-}
-
-tile{
-  layer = 0,
   x = 192,
   y = 168,
   width = 64,
@@ -424,15 +415,6 @@ tile{
   width = 64,
   height = 64,
   pattern = "61",
-}
-
-tile{
-  layer = 0,
-  x = 256,
-  y = 176,
-  width = 32,
-  height = 8,
-  pattern = "80",
 }
 
 tile{
@@ -469,15 +451,6 @@ tile{
   width = 128,
   height = 64,
   pattern = "61",
-}
-
-tile{
-  layer = 0,
-  x = 416,
-  y = 176,
-  width = 112,
-  height = 8,
-  pattern = "80",
 }
 
 tile{
@@ -887,5 +860,135 @@ teletransporter{
   height = 16,
   destination_map = "dungeons/2/1f",
   destination = "stairs_2_B",
+}
+
+custom_entity{
+  layer = 0,
+  x = 216,
+  y = -19,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+custom_entity{
+  layer = 0,
+  x = 168,
+  y = 181,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/grounds/spike",
+  model = "spike_sideview",
+}
+
+custom_entity{
+  layer = 0,
+  x = 184,
+  y = 181,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/grounds/spike",
+  model = "spike_sideview",
+}
+
+custom_entity{
+  layer = 0,
+  x = 264,
+  y = 181,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/grounds/spike",
+  model = "spike_sideview",
+}
+
+custom_entity{
+  layer = 0,
+  x = 280,
+  y = 181,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/grounds/spike",
+  model = "spike_sideview",
+}
+
+custom_entity{
+  layer = 0,
+  x = 424,
+  y = 181,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/grounds/spike",
+  model = "spike_sideview",
+}
+
+custom_entity{
+  layer = 0,
+  x = 440,
+  y = 181,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/grounds/spike",
+  model = "spike_sideview",
+}
+
+custom_entity{
+  layer = 0,
+  x = 456,
+  y = 181,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/grounds/spike",
+  model = "spike_sideview",
+}
+
+custom_entity{
+  layer = 0,
+  x = 472,
+  y = 181,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/grounds/spike",
+  model = "spike_sideview",
+}
+
+custom_entity{
+  layer = 0,
+  x = 488,
+  y = 181,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/grounds/spike",
+  model = "spike_sideview",
+}
+
+custom_entity{
+  layer = 0,
+  x = 504,
+  y = 181,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/grounds/spike",
+  model = "spike_sideview",
+}
+
+custom_entity{
+  layer = 0,
+  x = 520,
+  y = 181,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/grounds/spike",
+  model = "spike_sideview",
 }
 
