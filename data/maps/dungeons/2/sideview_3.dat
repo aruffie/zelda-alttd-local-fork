@@ -724,31 +724,6 @@ separator{
 
 custom_entity{
   layer = 0,
-  x = 440,
-  y = 181,
-  properties = {
-    {
-      key = "direction",
-      value = "0",
-    },
-    {
-      key = "distance",
-      value = "48",
-    },
-    {
-      key = "cycle_duration",
-      value = "6000",
-    },
-  },
-  width = 32,
-  height = 16,
-  direction = 0,
-  sprite = "entities/moving_platform_dg_2",
-  model = "platform_moving",
-}
-
-custom_entity{
-  layer = 0,
   x = 168,
   y = 133,
   properties = {
@@ -874,55 +849,132 @@ custom_entity{
 custom_entity{
   layer = 0,
   x = 168,
-  y = 181,
+  y = 189,
   width = 16,
-  height = 16,
+  height = 8,
   direction = 0,
   sprite = "entities/grounds/spike",
+  tiled = true,
   model = "spike_sideview",
 }
 
 custom_entity{
   layer = 0,
   x = 184,
-  y = 181,
+  y = 189,
   width = 16,
-  height = 16,
+  height = 8,
   direction = 0,
   sprite = "entities/grounds/spike",
+  tiled = true,
   model = "spike_sideview",
 }
 
 custom_entity{
   layer = 0,
   x = 264,
-  y = 181,
+  y = 189,
   width = 16,
-  height = 16,
+  height = 8,
   direction = 0,
   sprite = "entities/grounds/spike",
-  model = "spike_sideview",
-}
-
-custom_entity{
-  layer = 0,
-  x = 280,
-  y = 181,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/grounds/spike",
+  tiled = true,
   model = "spike_sideview",
 }
 
 custom_entity{
   layer = 0,
   x = 424,
-  y = 181,
+  y = 189,
   width = 16,
-  height = 16,
+  height = 8,
   direction = 0,
   sprite = "entities/grounds/spike",
+  tiled = true,
+  model = "spike_sideview",
+}
+
+custom_entity{
+  layer = 0,
+  x = 440,
+  y = 189,
+  width = 16,
+  height = 8,
+  direction = 0,
+  sprite = "entities/grounds/spike",
+  tiled = true,
+  model = "spike_sideview",
+}
+
+custom_entity{
+  layer = 0,
+  x = 456,
+  y = 189,
+  width = 16,
+  height = 8,
+  direction = 0,
+  sprite = "entities/grounds/spike",
+  tiled = true,
+  model = "spike_sideview",
+}
+
+custom_entity{
+  layer = 0,
+  x = 472,
+  y = 189,
+  width = 16,
+  height = 8,
+  direction = 0,
+  sprite = "entities/grounds/spike",
+  tiled = true,
+  model = "spike_sideview",
+}
+
+custom_entity{
+  layer = 0,
+  x = 488,
+  y = 189,
+  width = 16,
+  height = 8,
+  direction = 0,
+  sprite = "entities/grounds/spike",
+  tiled = true,
+  model = "spike_sideview",
+}
+
+custom_entity{
+  layer = 0,
+  x = 504,
+  y = 189,
+  width = 16,
+  height = 8,
+  direction = 0,
+  sprite = "entities/grounds/spike",
+  tiled = true,
+  model = "spike_sideview",
+}
+
+custom_entity{
+  layer = 0,
+  x = 520,
+  y = 189,
+  width = 16,
+  height = 8,
+  direction = 0,
+  sprite = "entities/grounds/spike",
+  tiled = true,
+  model = "spike_sideview",
+}
+
+custom_entity{
+  layer = 0,
+  x = 280,
+  y = 189,
+  width = 16,
+  height = 8,
+  direction = 0,
+  sprite = "entities/grounds/spike",
+  tiled = true,
   model = "spike_sideview",
 }
 
@@ -930,65 +982,24 @@ custom_entity{
   layer = 0,
   x = 440,
   y = 181,
-  width = 16,
+  properties = {
+    {
+      key = "direction",
+      value = "0",
+    },
+    {
+      key = "distance",
+      value = "48",
+    },
+    {
+      key = "cycle_duration",
+      value = "6000",
+    },
+  },
+  width = 32,
   height = 16,
   direction = 0,
-  sprite = "entities/grounds/spike",
-  model = "spike_sideview",
-}
-
-custom_entity{
-  layer = 0,
-  x = 456,
-  y = 181,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/grounds/spike",
-  model = "spike_sideview",
-}
-
-custom_entity{
-  layer = 0,
-  x = 472,
-  y = 181,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/grounds/spike",
-  model = "spike_sideview",
-}
-
-custom_entity{
-  layer = 0,
-  x = 488,
-  y = 181,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/grounds/spike",
-  model = "spike_sideview",
-}
-
-custom_entity{
-  layer = 0,
-  x = 504,
-  y = 181,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/grounds/spike",
-  model = "spike_sideview",
-}
-
-custom_entity{
-  layer = 0,
-  x = 520,
-  y = 181,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/grounds/spike",
-  model = "spike_sideview",
+  sprite = "entities/moving_platform_dg_2",
+  model = "platform_moving",
 }
 
