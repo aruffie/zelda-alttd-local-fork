@@ -10741,42 +10741,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 472,
-  y = 520,
-  width = 24,
-  height = 8,
-  pattern = "stairs_down.2.border.3-3",
-}
-
-tile{
-  layer = 0,
-  x = 472,
-  y = 496,
-  width = 24,
-  height = 8,
-  pattern = "stairs_down.2.border.2-3",
-}
-
-tile{
-  layer = 0,
-  x = 496,
-  y = 496,
-  width = 8,
-  height = 32,
-  pattern = "162",
-}
-
-tile{
-  layer = 0,
-  x = 472,
-  y = 504,
-  width = 24,
-  height = 16,
-  pattern = "stairs_down.2-3",
-}
-
-tile{
-  layer = 0,
   x = 520,
   y = 504,
   width = 24,
@@ -26033,6 +25997,42 @@ tile{
   pattern = "wall.corner_reverse.1-2",
 }
 
+tile{
+  layer = 0,
+  x = 496,
+  y = 488,
+  width = 8,
+  height = 24,
+  pattern = "stairs_down.2.border.3-2",
+}
+
+tile{
+  layer = 0,
+  x = 472,
+  y = 480,
+  width = 32,
+  height = 8,
+  pattern = "stairs_down.2.border.1-2",
+}
+
+tile{
+  layer = 0,
+  x = 480,
+  y = 488,
+  width = 16,
+  height = 24,
+  pattern = "stairs_down.2-2",
+}
+
+tile{
+  layer = 0,
+  x = 472,
+  y = 488,
+  width = 8,
+  height = 24,
+  pattern = "stairs_down.2.border.2-2",
+}
+
 block{
   layer = 0,
   x = 72,
@@ -26421,6 +26421,12 @@ custom_entity{
   layer = 0,
   x = 88,
   y = 405,
+  properties = {
+    {
+      key = "auto_respawn",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
   direction = 0,
@@ -28051,7 +28057,7 @@ enemy{
   layer = 0,
   x = 536,
   y = 1565,
-  direction = 3,
+  direction = 2,
   breed = "fireball",
 }
 
@@ -28069,7 +28075,7 @@ enemy{
   layer = 0,
   x = 208,
   y = 1253,
-  direction = 3,
+  direction = 2,
   breed = "fireball",
 }
 
@@ -28114,6 +28120,12 @@ custom_entity{
   layer = 0,
   x = 1384,
   y = 1373,
+  properties = {
+    {
+      key = "auto_respawn",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
   direction = 0,
@@ -28126,6 +28138,12 @@ custom_entity{
   layer = 0,
   x = 488,
   y = 1309,
+  properties = {
+    {
+      key = "auto_respawn",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
   direction = 0,
@@ -28445,6 +28463,12 @@ custom_entity{
   layer = 0,
   x = 2136,
   y = 1565,
+  properties = {
+    {
+      key = "auto_respawn",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
   direction = 0,
@@ -32823,6 +32847,33 @@ block{
   maximum_moves = 0,
 }
 
+enemy{
+  name = "enemy_group_7_1",
+  layer = 0,
+  x = 1080,
+  y = 1045,
+  direction = 0,
+  breed = "peahat",
+}
+
+enemy{
+  name = "enemy_group_7_3",
+  layer = 0,
+  x = 1128,
+  y = 1101,
+  direction = 0,
+  breed = "peahat",
+}
+
+enemy{
+  name = "enemy_group_7_2",
+  layer = 0,
+  x = 1176,
+  y = 1045,
+  direction = 0,
+  breed = "peahat",
+}
+
 tile{
   layer = 1,
   x = 1896,
@@ -34261,7 +34312,7 @@ tile{
   layer = 2,
   x = 344,
   y = 472,
-  width = 160,
+  width = 112,
   height = 24,
   pattern = "barrier_big.1-1",
 }
@@ -35013,6 +35064,24 @@ tile{
   pattern = "ceiling.1",
 }
 
+tile{
+  layer = 2,
+  x = 456,
+  y = 472,
+  width = 16,
+  height = 24,
+  pattern = "barrier_big.border.2-1",
+}
+
+tile{
+  layer = 2,
+  x = 472,
+  y = 472,
+  width = 32,
+  height = 8,
+  pattern = "ceiling.1",
+}
+
 separator{
   name = "auto_separator_14",
   layer = 2,
@@ -35173,32 +35242,5 @@ enemy{
   y = 573,
   direction = 0,
   breed = "vire",
-}
-
-enemy{
-  name = "enemy_group_7_1",
-  layer = 2,
-  x = 1080,
-  y = 1045,
-  direction = 0,
-  breed = "peahat",
-}
-
-enemy{
-  name = "enemy_group_7_2",
-  layer = 2,
-  x = 1176,
-  y = 1045,
-  direction = 0,
-  breed = "peahat",
-}
-
-enemy{
-  name = "enemy_group_7_3",
-  layer = 2,
-  x = 1128,
-  y = 1101,
-  direction = 0,
-  breed = "peahat",
 }
 
