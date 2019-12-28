@@ -42,6 +42,28 @@ map:register_event("on_started", function()
   treasure_manager:appear_heart_container_if_boss_dead(map)
   -- Separators
   separator_manager:init(map)
+  
+  -- Create all skeletons
+  for placeholder in map:get_entities("placeholder_skeleton_") do
+    local enemy_name = placeholder:get_property("enemy_name")
+    local enemy_treasure = placeholder:get_property("enemy_treasure")
+    local enemy_step_death = tonumber(placeholder:get_property("enemy_step_death"))
+    local x, y, layer = placeholder:get_position()
+    local enemy = map:create_enemy{
+      name = enemy_name,
+      breed = "boss/master_stalfos/master_stalfos",
+      direction = 2,
+      x = x,
+      y = y,
+      layer = layer,
+      treasure_name = enemy_treasure
+    }
+    enemy:register_event("on_dead", function()
+      game:set_value("dungeon_5_skeleton_step", enemy_step_death)
+      game:play_dungeon_music()  
+    end)
+    enemy:set_enabled(false)
+  end
 
 end)
 
@@ -76,39 +98,12 @@ function map:init_skeletons()
   for enemy in map:get_entities("skeleton_") do
     enemy:set_enabled(false)
   end
+  print(skeleton_step)
   local enemy = map:get_entity("skeleton_" .. skeleton_step)
   if enemy ~= nil then
     enemy:set_enabled(true)
   end
 
-end
-
-function skeleton_1:on_dead()
-  
-  game:set_value("dungeon_5_skeleton_step", 2)
-  game:play_dungeon_music()
-  
-end
-
-function skeleton_2:on_dead()
-  
-  game:set_value("dungeon_5_skeleton_step", 3)
-  game:play_dungeon_music()
-  
-end
-
-function skeleton_3:on_dead()
-  
-  game:set_value("dungeon_5_skeleton_step", 4)
-  game:play_dungeon_music()
-  
-end
-
-function skeleton_4:on_dead()
-  
-  game:set_value("dungeon_5_skeleton_step", 5)
-  game:play_dungeon_music()
-  
 end
 
 -- Sensors events

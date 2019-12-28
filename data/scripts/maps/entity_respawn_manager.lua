@@ -239,7 +239,7 @@ function entity_respawn_manager:init(map)
   function entity_respawn_manager:reset_enemies(map)
     -- Disable all enemies when leaving a zone.
     for enemy in map:get_entities_by_type("enemy") do
-      if enemy:is_in_same_region(map:get_hero()) and enemy:get_breed() ~= "boss/skeleton" then
+      if saved_entities.enemies[enemy] and enemy:is_in_same_region(map:get_hero()) then
         enemy:remove()
       end
     end

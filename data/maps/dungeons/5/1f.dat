@@ -17352,15 +17352,6 @@ door{
 }
 
 enemy{
-  name = "skeleton_1",
-  layer = 0,
-  x = 1440,
-  y = 1077,
-  direction = 0,
-  breed = "boss/master_stalfos/master_stalfos",
-}
-
-enemy{
   name = "enemy_group_13_2",
   layer = 0,
   x = 1736,
@@ -17520,24 +17511,6 @@ enemy{
   direction = 3,
   breed = "shrouded_stalfos",
   treasure_name = "random",
-}
-
-enemy{
-  name = "skeleton_3",
-  layer = 0,
-  x = 1440,
-  y = 125,
-  direction = 0,
-  breed = "boss/master_stalfos/master_stalfos",
-}
-
-enemy{
-  name = "skeleton_2",
-  layer = 0,
-  x = 2080,
-  y = 853,
-  direction = 0,
-  breed = "boss/master_stalfos/master_stalfos",
 }
 
 stairs{
@@ -17932,16 +17905,6 @@ sensor{
   y = 173,
   width = 16,
   height = 16,
-}
-
-enemy{
-  name = "skeleton_4",
-  layer = 0,
-  x = 160,
-  y = 125,
-  direction = 0,
-  breed = "boss/master_stalfos/master_stalfos",
-  treasure_name = "hookshot",
 }
 
 sensor{
@@ -19728,6 +19691,90 @@ sensor{
   y = 837,
   width = 16,
   height = 48,
+}
+
+custom_entity{
+  name = "placeholder_skeleton_4",
+  layer = 0,
+  x = 160,
+  y = 109,
+  properties = {
+    {
+      key = "enemy_name",
+      value = "skeleton_4",
+    },
+    {
+      key = "enemy_step_death",
+      value = "5",
+    },
+    {
+      key = "enemy_treasure",
+      value = "hookshot",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+custom_entity{
+  name = "placeholder_skeleton_3",
+  layer = 0,
+  x = 1440,
+  y = 109,
+  properties = {
+    {
+      key = "enemy_name",
+      value = "skeleton_3",
+    },
+    {
+      key = "enemy_step_death",
+      value = "4",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+custom_entity{
+  name = "placeholder_skeleton_2",
+  layer = 0,
+  x = 2080,
+  y = 829,
+  properties = {
+    {
+      key = "enemy_name",
+      value = "skeleton_2",
+    },
+    {
+      key = "enemy_step_death",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+custom_entity{
+  name = "placeholder_skeleton_5",
+  layer = 0,
+  x = 1440,
+  y = 1077,
+  properties = {
+    {
+      key = "enemy_name",
+      value = "skeleton_1",
+    },
+    {
+      key = "enemy_step_death",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
 }
 
 tile{
