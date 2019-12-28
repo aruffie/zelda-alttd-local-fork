@@ -477,6 +477,7 @@ sprite{ id = "entities/grounds/ladder_iron", description = "Ladder iron" }
 sprite{ id = "entities/grounds/ladder_wooden", description = "Ladder" }
 sprite{ id = "entities/grounds/ladder_wooden_top", description = "Ladder top" }
 sprite{ id = "entities/grounds/owl_slab", description = "Owl slab" }
+sprite{ id = "entities/grounds/spike", description = "Spike" }
 sprite{ id = "entities/grounds/weak_floor_dark_1", description = "Weak floor dark 1" }
 sprite{ id = "entities/grounds/weak_floor_dark_2", description = "Weak floor dark 2" }
 sprite{ id = "entities/grounds/weak_floor_dark_3", description = "Weak floor dark 3" }
@@ -553,7 +554,6 @@ sprite{ id = "entities/shadows/ball", description = "Ball" }
 sprite{ id = "entities/shadows/owl", description = "Owl" }
 sprite{ id = "entities/shadows/pickable_flying", description = "Pickable flying" }
 sprite{ id = "entities/shadows/shadow", description = "Shadow" }
-sprite{ id = "entities/spike", description = "Spike" }
 sprite{ id = "entities/star", description = "Star" }
 sprite{ id = "entities/statues/pillar", description = "Pillar base" }
 sprite{ id = "entities/statues/statue_darknut", description = "Statue darknut" }
@@ -2658,7 +2658,6 @@ file{ path = "sprites/enemies/zols_gels.png", license = "Proprietary, Fair use" 
 file{ path = "sprites/enemies/zombie.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/zora.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/entities/iron_ball.dat", author = "Christopho", license = "CC BY-SA 4.0" }
-file{ path = "sprites/entities/spike.dat", author = "PhoenixII54", }
 file{ path = "sprites/entities/utils/cliff.dat", author = "Christopho", license = "CC BY-SA 4.0" }
 file{ path = "sprites/entities/utils/cliff.png", author = "Christopho", license = "CC BY-SA 4.0" }
 file{ path = "sprites/hero/boomerang.shield.png", author = "Nintendo", license = "Proprietary (Fair use)" }
