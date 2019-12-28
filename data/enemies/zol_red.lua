@@ -19,6 +19,9 @@ local attack_triggering_distance = 64
 local shaking_duration = 1000
 local exhausted_minimum_duration = 2000
 local exhausted_maximum_duration = 4000
+local before_split_duration = 300
+local gel_spawn_jumping_height = 8
+local gel_spawn_jumping_duration = 400
 
 -- Start moving to the hero, and jump when he is close enough.
 function enemy:start_walking()
@@ -66,11 +69,12 @@ local function on_weak_attack_received()
       direction = enemy:get_direction4_to(hero)
     })
 
-    -- Make gel invincible for a few time to let a potential sword attack finish.
-    gel:set_invincible()
-    sol.timer.start(map, 300, function()
+    -- Make gel jump.
+    gel:stop_movement()
+    gel:start_jumping(gel_spawn_jumping_duration, gel_spawn_jumping_height, nil, nil, function()
       gel:restart()
     end)
+    gel:get_sprite():set_animation("jump")
 
     -- Call an enemy:on_enemy_created(gel) event.
     if enemy.on_enemy_created then
@@ -78,9 +82,14 @@ local function on_weak_attack_received()
     end
   end
 
-  create_gel(-5)
-  create_gel(5)
-  enemy:silent_kill()
+  -- Start hurt behavior for some time then split into gels.
+  enemy:hurt(0)
+  sol.timer.start(map, before_split_duration, function()
+    create_gel(-5)
+    create_gel(5)
+    enemy:silent_kill()
+  end)
+  
 end
 
 -- Initialization.
@@ -94,9 +103,13 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
-  -- TODO Get the exact list of weapons that kills the zol immediately, and ones that split it into gels.
   -- Behavior for each items.
-  enemy:set_hero_weapons_reactions(on_weak_attack_received, {jump_on = "ignored"})
+  enemy:set_hero_weapons_reactions(1, {
+    sword = on_weak_attack_received,
+    explosion = on_weak_attack_received,
+    arrow = on_weak_attack_received,
+    jump_on = "ignored"
+  })
 
   -- States.
   is_attacking = false
