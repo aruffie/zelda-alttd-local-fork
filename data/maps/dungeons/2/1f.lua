@@ -17,7 +17,7 @@ local treasure_manager = require("scripts/maps/treasure_manager")
 local block_manager = require("scripts/maps/block_manager")
 
 -- Map events
-function map:on_started(destination)
+map:register_event("on_started", function()
 
   -- Chests
   treasure_manager:appear_chest_if_savegame_exist(map, "chest_compass",  "dungeon_2_compass")
@@ -64,7 +64,7 @@ function map:on_started(destination)
   -- Separators
   separator_manager:init(map)
 
-end
+end)
 
 
 function map:on_obtaining_treasure(item, variant, savegame_variable)

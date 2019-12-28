@@ -15,7 +15,7 @@ local treasure_manager = require("scripts/maps/treasure_manager")
 local separator_manager = require("scripts/maps/separator_manager")
 
 -- Map events
-function map:on_started()
+map:register_event("on_started", function()
 
   -- Chests
   treasure_manager:appear_chest_if_savegame_exist(map, "chest_beak_of_stone",  "dungeon_5_beak_of_stone")
@@ -43,9 +43,9 @@ function map:on_started()
   -- Separators
   separator_manager:init(map)
 
-end
+end)
 
-function map:on_opening_transition_finished(destination)
+map:register_event("on_opening_transition_finished", function()
 
   local skeleton_step = game:get_value("dungeon_5_skeleton_step")
   if skeleton_step == nil then
@@ -56,7 +56,7 @@ function map:on_opening_transition_finished(destination)
     switch_1:set_activated(true)
   end
 
-end
+end)
 
 function map:on_obtaining_treasure(item, variant, savegame_variable)
 
@@ -222,3 +222,79 @@ function chest_hookshot_fail:on_opened()
   end)
 
 end
+
+-- Separators events
+separator_skeleton_1_1:register_event("on_activating", function()
+  
+  map:init_skeletons()
+  
+end)
+
+separator_skeleton_1_2:register_event("on_activating", function()
+  
+  map:init_skeletons()
+  
+end)
+
+separator_skeleton_2_1:register_event("on_activating", function()
+  
+  map:init_skeletons()
+  
+end)
+
+separator_skeleton_3_1:register_event("on_activating", function()
+  
+  map:init_skeletons()
+  
+end)
+
+separator_skeleton_3_2:register_event("on_activating", function()
+  
+  map:init_skeletons()
+  
+end)
+
+separator_skeleton_4_1:register_event("on_activating", function()
+  
+  map:init_skeletons()
+  
+end)
+
+separator_switch_1:register_event("on_activating", function(separator, direction)
+  
+  local skeleton_step = game:get_value("dungeon_5_skeleton_step")
+  if skeleton_step == nil then
+    skeleton_step = 1
+  end
+  switch_1:set_activated(false)
+  if direction == 0 and skeleton_step <= 2 then
+    map:close_doors("door_group_4_")
+  end
+  
+end)
+
+separator_switch_2:register_event("on_activating", function(separator, direction)
+  
+  local skeleton_step = game:get_value("dungeon_5_skeleton_step")
+  if skeleton_step == nil then
+    skeleton_step = 1
+  end
+  switch_1:set_activated(false)
+  if direction == 3 and skeleton_step <= 2 then
+    map:close_doors("door_group_4_")
+  end
+  
+end)
+
+separator_switch_3:register_event("on_activating", function(separator, direction)
+  
+  local skeleton_step = game:get_value("dungeon_5_skeleton_step")
+  if skeleton_step == nil then
+    skeleton_step = 1
+  end
+  switch_1:set_activated(false)
+  if direction == 1 and skeleton_step <= 2 then
+    map:close_doors("door_group_4_")
+  end
+  
+end)
