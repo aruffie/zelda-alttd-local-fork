@@ -133,7 +133,7 @@ sensor_4:register_event("on_activated", function()
 end)
 
 sensor_5:register_event("on_activated", function()
-  if map:has_enemy("enemy_group_2_") then
+  if map:has_entities("enemy_group_2_") then
     map:close_doors("door_group_17_")
   end
 end)

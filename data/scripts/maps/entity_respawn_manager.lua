@@ -255,12 +255,13 @@ function entity_respawn_manager:init(map)
   local function save_enemy(enemy)
 
     local x, y, layer = enemy:get_position()
+    local sprite = enemy:get_sprite()
     saved_entities.enemies[enemy] = {
       x = x,
       y = y,
       layer = layer,
       breed = enemy:get_breed(),
-      direction = enemy:get_sprite():get_direction(),
+      direction = sprite and sprite:get_direction() or 0,
       name = enemy:get_name(),
       treasure = { enemy:get_treasure() },
       properties = enemy:get_properties(),
