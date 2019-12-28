@@ -25,11 +25,11 @@ local slow_speed = 22
 local stuck_minimum_duration = 2000
 local stuck_maximum_duration = 2500
 
--- Return true if no gel enemy is currenly leashed by hero on the map.
+-- Return true if no enemy is currenly leashed by hero on the map.
 local function is_hero_free()
 
   for enemy in map:get_entities_by_type("enemy") do
-    if enemy:is_leashed_by(hero) then
+    if enemy.is_leashed_by and enemy:is_leashed_by(hero) then
       return false
     end
   end
