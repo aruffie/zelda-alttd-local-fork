@@ -26421,6 +26421,12 @@ custom_entity{
   layer = 0,
   x = 88,
   y = 405,
+  properties = {
+    {
+      key = "auto_respawn",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
   direction = 0,
@@ -28114,6 +28120,12 @@ custom_entity{
   layer = 0,
   x = 1384,
   y = 1373,
+  properties = {
+    {
+      key = "auto_respawn",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
   direction = 0,
@@ -28126,6 +28138,12 @@ custom_entity{
   layer = 0,
   x = 488,
   y = 1309,
+  properties = {
+    {
+      key = "auto_respawn",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
   direction = 0,
@@ -28445,6 +28463,12 @@ custom_entity{
   layer = 0,
   x = 2136,
   y = 1565,
+  properties = {
+    {
+      key = "auto_respawn",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
   direction = 0,
