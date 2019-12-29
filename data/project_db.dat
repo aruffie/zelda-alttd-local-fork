@@ -1422,6 +1422,7 @@ entity{ id = "cliff", description = "Cliff" }
 entity{ id = "color_platform", description = "Color platform" }
 entity{ id = "crystal_block", description = "Crystal Block" }
 entity{ id = "dice", description = "Dice" }
+entity{ id = "explosion", description = "Explosion" }
 entity{ id = "eye_switch", description = "Eye switch" }
 entity{ id = "fire", description = "Fire" }
 entity{ id = "follower", description = "Follower" }
@@ -1652,6 +1653,7 @@ file{ path = "entities/cliff.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "entities/color_platform.lua", license = "GPL v3" }
 file{ path = "entities/crystal_block.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "entities/dice.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "entities/explosion.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "entities/eye_switch.lua", license = "GPL v3" }
 file{ path = "entities/fire.lua", license = "GPL v3" }
 file{ path = "entities/follower.lua", license = "GPL v3" }
