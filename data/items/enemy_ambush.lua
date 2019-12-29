@@ -3,17 +3,19 @@
 -- Item that can be contained in a chest and makes an enemy spawn on obtaining.
 -- Herit custom properties from the chest.
 --
+-- Heritable properties : breed, jumping_angle
+--
 ----------------------------------
 
 -- Variables
 local item = ...
 local game = item:get_game()
-local breed
 
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
 
--- Configuration variables.
+-- Default configuration variables.
+local breed = "zol_green"
 local waiting_duration = 1000
 local jumping_duration = 1000
 local jumping_height = 16
@@ -36,6 +38,7 @@ function item:on_obtaining()
     if chest:overlaps(x, y) then
       x, y, layer = chest:get_position()
       breed = chest:get_property("breed")
+      jumping_angle = chest:get_property("jumping_angle") or jumping_angle
     end
   end
 
@@ -43,7 +46,7 @@ function item:on_obtaining()
   local enemy = map:create_enemy({
     x = x,
     y = y,
-    layer = layer + 1,
+    layer = layer,
     breed = breed,
     direction = 3,
   })
@@ -60,10 +63,10 @@ function item:on_obtaining()
     if sprite:has_animation("jumping") then
       sprite:set_animation("jumping")
     end
-    enemy:start_jumping(jumping_duration, jumping_height, jumping_angle, jumping_speed, function()
-      enemy:set_layer(layer)
+    local movement = enemy:start_jumping(jumping_duration, jumping_height, jumping_angle, jumping_speed, function()
       enemy:restart()
     end)
+    movement:set_ignore_obstacles(true)
   end)
 
   -- Skip the brandish animation when obtaining an enemy in a chest.
