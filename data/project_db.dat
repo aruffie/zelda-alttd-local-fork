@@ -559,10 +559,6 @@ sprite{ id = "entities/statues/pillar", description = "Pillar base" }
 sprite{ id = "entities/statues/statue_darknut", description = "Statue darknut" }
 sprite{ id = "entities/statues/statue_koopa", description = "Statue koopa" }
 sprite{ id = "entities/statues/statue_pig", description = "Statue pig" }
-sprite{ id = "entities/streams/stream_d1", description = "Dungeon stream 1" }
-sprite{ id = "entities/streams/stream_d2", description = "Dungeon stream 2" }
-sprite{ id = "entities/streams/stream_d3", description = "Dungeon stream 3" }
-sprite{ id = "entities/streams/stream_d4", description = "Dungeon stream 4" }
 sprite{ id = "entities/streams/water_stream", description = "Water stream" }
 sprite{ id = "entities/switchs/lever", description = "Lever" }
 sprite{ id = "entities/switchs/switch", description = "Switch" }
@@ -752,6 +748,10 @@ sprite{ id = "npc/villagers/tarin", description = "Tarin" }
 sprite{ id = "npc/villagers/witch", description = "Witch" }
 sprite{ id = "pictures/peach", description = "Peach" }
 sprite{ id = "portables/horse_head", description = "Horse head" }
+sprite{ id = "streams/stream_d1", description = "Dungeon stream 1" }
+sprite{ id = "streams/stream_d2", description = "Dungeon stream 2" }
+sprite{ id = "streams/stream_d3", description = "Dungeon stream 3" }
+sprite{ id = "streams/stream_d4", description = "Dungeon stream 4" }
 
 music{ id = "gb/01_introduction", description = "01 - Introduction" }
 music{ id = "gb/02_title", description = "02 - Title" }
@@ -1221,6 +1221,7 @@ item{ id = "bow", description = "Bow" }
 item{ id = "compass", description = "Compass" }
 item{ id = "console", description = "Console" }
 item{ id = "drug", description = "Drug" }
+item{ id = "enemy_ambush", description = "Enemy ambush" }
 item{ id = "face_key", description = "Face key" }
 item{ id = "fairy", description = "Fairy" }
 item{ id = "feather", description = "Feather v2" }
@@ -1271,7 +1272,6 @@ item{ id = "small_key", description = "Small key" }
 item{ id = "sword", description = "Sword" }
 item{ id = "tail_key", description = "Tail key" }
 item{ id = "tunic", description = "Tunic (green/blue/red)" }
-item{ id = "zol_green", description = "Zol green" }
 
 enemy{ id = "anti_kirby", description = "Anti-kirby" }
 enemy{ id = "arm_mimic", description = "Arm Mimic" }
@@ -1708,6 +1708,7 @@ file{ path = "items/bow.lua", license = "GPL v3" }
 file{ path = "items/compass.lua", license = "GPL v3" }
 file{ path = "items/console.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/drug.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "items/enemy_ambush.lua", license = "GPL v3" }
 file{ path = "items/face_key.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/fairy.lua", license = "GPL v3" }
 file{ path = "items/feather.lua", author = "PhoenixII54", license = "GPL v3" }
@@ -1754,7 +1755,6 @@ file{ path = "items/small_key.lua", license = "GPL v3" }
 file{ path = "items/sword.lua", license = "GPL v3" }
 file{ path = "items/tail_key.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/tunic.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "items/zol_green.lua", license = "GPL v3" }
 file{ path = "languages", author = "Nintendo, Benjamin Schweitzer, Christopho, Julien Van Steerteghem", license = "Proprietary, Fair use" }
 file{ path = "languages/fr", author = "Nintendo, Benjamin Schweitzer, Christopho, Julien Van Steerteghem", license = "Proprietary, Fair use" }
 file{ path = "languages/fr/images", author = "Nintendo, Benjamin Schweitzer, Christopho, Julien Van Steerteghem", license = "Proprietary, Fair use" }
@@ -2660,10 +2660,6 @@ file{ path = "sprites/enemies/zols_gels.png", license = "Proprietary, Fair use" 
 file{ path = "sprites/enemies/zombie.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/zora.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/entities/iron_ball.dat", author = "Christopho", license = "CC BY-SA 4.0" }
-file{ path = "sprites/entities/streams/stream_d1.dat", author = "FFomega", license = "CC BY-SA 4.0" }
-file{ path = "sprites/entities/streams/stream_d2.dat", author = "FFomega", license = "CC BY-SA 4.0" }
-file{ path = "sprites/entities/streams/stream_d3.dat", author = "FFomega", license = "CC BY-SA 4.0" }
-file{ path = "sprites/entities/streams/stream_d4.dat", author = "FFomega", license = "CC BY-SA 4.0" }
 file{ path = "sprites/entities/utils/cliff.dat", author = "Christopho", license = "CC BY-SA 4.0" }
 file{ path = "sprites/entities/utils/cliff.png", author = "Christopho", license = "CC BY-SA 4.0" }
 file{ path = "sprites/hero/boomerang.shield.png", author = "Nintendo", license = "Proprietary (Fair use)" }
@@ -2752,6 +2748,11 @@ file{ path = "sprites/menus/zeldaforce_logo/zeldaforce_logo_z.png", author = "Ol
 file{ path = "sprites/npc", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use, CC BY-SA 4.0" }
 file{ path = "sprites/npc/animals/alligator.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
 file{ path = "sprites/npc/animals/alligator.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
+file{ path = "sprites/streams", author = "FFomega", license = "CC BY-SA 4.0" }
+file{ path = "sprites/streams/stream_d1.dat", author = "FFomega", license = "CC BY-SA 4.0" }
+file{ path = "sprites/streams/stream_d2.dat", author = "FFomega", license = "CC BY-SA 4.0" }
+file{ path = "sprites/streams/stream_d3.dat", author = "FFomega", license = "CC BY-SA 4.0" }
+file{ path = "sprites/streams/stream_d4.dat", author = "FFomega", license = "CC BY-SA 4.0" }
 file{ path = "tilesets/dungeon", author = "Nintendo, FFomega", license = "Mixed" }
 file{ path = "tilesets/dungeon/blue.dat", author = "FFomega", license = "CC BY-SA 4.0" }
 file{ path = "tilesets/dungeon/blue.entities.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
