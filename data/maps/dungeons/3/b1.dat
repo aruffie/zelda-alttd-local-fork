@@ -4870,7 +4870,7 @@ stream{
   x = 1544,
   y = 861,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 custom_entity{
@@ -4890,7 +4890,7 @@ stream{
   x = 1224,
   y = 1821,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -4898,7 +4898,7 @@ stream{
   x = 1208,
   y = 1821,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -4906,7 +4906,7 @@ stream{
   x = 1208,
   y = 1837,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -4914,7 +4914,7 @@ stream{
   x = 1192,
   y = 1837,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -4922,7 +4922,7 @@ stream{
   x = 1096,
   y = 1853,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -4930,7 +4930,7 @@ stream{
   x = 1048,
   y = 1757,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -4938,7 +4938,7 @@ stream{
   x = 1048,
   y = 1773,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -4946,7 +4946,7 @@ stream{
   x = 1048,
   y = 1789,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -4954,7 +4954,7 @@ stream{
   x = 1176,
   y = 1773,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -4962,7 +4962,7 @@ stream{
   x = 1160,
   y = 1789,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -4970,7 +4970,7 @@ stream{
   x = 1176,
   y = 1789,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -4978,7 +4978,7 @@ stream{
   x = 1176,
   y = 1805,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -4986,7 +4986,7 @@ stream{
   x = 1144,
   y = 1805,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -4994,7 +4994,7 @@ stream{
   x = 1128,
   y = 1805,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5002,7 +5002,7 @@ stream{
   x = 1144,
   y = 1789,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5010,7 +5010,7 @@ stream{
   x = 1096,
   y = 1741,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5018,7 +5018,7 @@ stream{
   x = 1112,
   y = 1741,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5026,7 +5026,7 @@ stream{
   x = 1112,
   y = 1757,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5034,7 +5034,7 @@ stream{
   x = 1016,
   y = 1789,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5042,7 +5042,7 @@ stream{
   x = 1064,
   y = 1821,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5050,7 +5050,7 @@ stream{
   x = 1080,
   y = 1821,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5058,7 +5058,7 @@ stream{
   x = 1096,
   y = 1821,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5066,7 +5066,7 @@ stream{
   x = 1112,
   y = 1821,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5074,7 +5074,7 @@ stream{
   x = 1112,
   y = 1773,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5082,7 +5082,7 @@ stream{
   x = 1096,
   y = 1757,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5090,7 +5090,7 @@ stream{
   x = 1064,
   y = 1805,
   direction = 6,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5098,7 +5098,7 @@ stream{
   x = 1080,
   y = 1805,
   direction = 6,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5106,7 +5106,7 @@ stream{
   x = 1048,
   y = 1837,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5114,7 +5114,7 @@ stream{
   x = 1048,
   y = 1853,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5122,7 +5122,7 @@ stream{
   x = 1064,
   y = 1773,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5130,7 +5130,7 @@ stream{
   x = 1080,
   y = 1773,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5138,7 +5138,7 @@ stream{
   x = 1080,
   y = 1789,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5146,7 +5146,7 @@ stream{
   x = 1064,
   y = 1789,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5154,7 +5154,7 @@ stream{
   x = 1016,
   y = 1741,
   direction = 6,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5162,7 +5162,7 @@ stream{
   x = 1032,
   y = 1741,
   direction = 6,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5170,7 +5170,7 @@ stream{
   x = 1048,
   y = 1741,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5178,7 +5178,7 @@ stream{
   x = 1208,
   y = 1805,
   direction = 6,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5186,7 +5186,7 @@ stream{
   x = 1128,
   y = 1821,
   direction = 6,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5194,7 +5194,7 @@ stream{
   x = 1144,
   y = 1821,
   direction = 6,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5202,7 +5202,7 @@ stream{
   x = 1192,
   y = 1821,
   direction = 6,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5210,7 +5210,7 @@ stream{
   x = 1064,
   y = 1869,
   direction = 6,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5218,7 +5218,7 @@ stream{
   x = 1080,
   y = 1869,
   direction = 6,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5226,7 +5226,7 @@ stream{
   x = 1080,
   y = 1853,
   direction = 6,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5234,7 +5234,7 @@ stream{
   x = 1080,
   y = 1837,
   direction = 6,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5242,7 +5242,7 @@ stream{
   x = 1064,
   y = 1837,
   direction = 6,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5250,7 +5250,7 @@ stream{
   x = 1064,
   y = 1853,
   direction = 6,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5258,7 +5258,7 @@ stream{
   x = 1016,
   y = 1805,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5266,7 +5266,7 @@ stream{
   x = 1032,
   y = 1805,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5274,7 +5274,7 @@ stream{
   x = 1032,
   y = 1821,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5282,7 +5282,7 @@ stream{
   x = 1016,
   y = 1821,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5290,7 +5290,7 @@ stream{
   x = 1016,
   y = 1837,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5298,7 +5298,7 @@ stream{
   x = 1032,
   y = 1837,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5306,7 +5306,7 @@ stream{
   x = 1016,
   y = 1853,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5314,7 +5314,7 @@ stream{
   x = 1032,
   y = 1853,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5322,7 +5322,7 @@ stream{
   x = 1032,
   y = 1789,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5330,7 +5330,7 @@ stream{
   x = 1032,
   y = 1773,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5338,7 +5338,7 @@ stream{
   x = 1016,
   y = 1773,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5346,7 +5346,7 @@ stream{
   x = 1016,
   y = 1757,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5354,7 +5354,7 @@ stream{
   x = 1032,
   y = 1757,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5362,7 +5362,7 @@ stream{
   x = 1096,
   y = 1773,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5370,7 +5370,7 @@ stream{
   x = 1096,
   y = 1789,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5378,7 +5378,7 @@ stream{
   x = 1096,
   y = 1869,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5386,7 +5386,7 @@ stream{
   x = 1112,
   y = 1853,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5394,7 +5394,7 @@ stream{
   x = 1112,
   y = 1869,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5402,7 +5402,7 @@ stream{
   x = 1128,
   y = 1741,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5410,7 +5410,7 @@ stream{
   x = 1144,
   y = 1741,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5418,7 +5418,7 @@ stream{
   x = 1160,
   y = 1741,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5426,7 +5426,7 @@ stream{
   x = 1176,
   y = 1741,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5434,7 +5434,7 @@ stream{
   x = 1192,
   y = 1741,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5442,7 +5442,7 @@ stream{
   x = 1128,
   y = 1757,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5450,7 +5450,7 @@ stream{
   x = 1144,
   y = 1757,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5458,7 +5458,7 @@ stream{
   x = 1160,
   y = 1757,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5466,7 +5466,7 @@ stream{
   x = 1176,
   y = 1757,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5474,7 +5474,7 @@ stream{
   x = 1192,
   y = 1757,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5482,7 +5482,7 @@ stream{
   x = 1128,
   y = 1853,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5490,7 +5490,7 @@ stream{
   x = 1128,
   y = 1869,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5498,7 +5498,7 @@ stream{
   x = 1144,
   y = 1869,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5506,7 +5506,7 @@ stream{
   x = 1144,
   y = 1853,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5514,7 +5514,7 @@ stream{
   x = 1160,
   y = 1853,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5522,7 +5522,7 @@ stream{
   x = 1160,
   y = 1869,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5530,7 +5530,7 @@ stream{
   x = 1176,
   y = 1869,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5538,7 +5538,7 @@ stream{
   x = 1176,
   y = 1853,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5546,7 +5546,7 @@ stream{
   x = 1192,
   y = 1853,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5554,7 +5554,7 @@ stream{
   x = 1208,
   y = 1853,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5562,7 +5562,7 @@ stream{
   x = 1160,
   y = 1773,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5570,7 +5570,7 @@ stream{
   x = 1160,
   y = 1805,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5578,7 +5578,7 @@ stream{
   x = 1160,
   y = 1821,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5586,7 +5586,7 @@ stream{
   x = 1208,
   y = 1789,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5594,7 +5594,7 @@ stream{
   x = 1208,
   y = 1773,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5602,7 +5602,7 @@ stream{
   x = 1208,
   y = 1757,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5610,7 +5610,7 @@ stream{
   x = 1208,
   y = 1741,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5618,7 +5618,7 @@ stream{
   x = 1224,
   y = 1741,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5626,7 +5626,7 @@ stream{
   x = 1224,
   y = 1757,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5634,7 +5634,7 @@ stream{
   x = 1224,
   y = 1773,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5642,7 +5642,7 @@ stream{
   x = 1224,
   y = 1789,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5650,7 +5650,7 @@ stream{
   x = 1224,
   y = 1805,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5658,7 +5658,7 @@ stream{
   x = 1080,
   y = 1149,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5666,7 +5666,7 @@ stream{
   x = 1096,
   y = 1149,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5674,7 +5674,7 @@ stream{
   x = 1112,
   y = 1149,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5682,7 +5682,7 @@ stream{
   x = 1128,
   y = 1149,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5690,7 +5690,7 @@ stream{
   x = 1160,
   y = 1149,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5698,7 +5698,7 @@ stream{
   x = 1144,
   y = 1149,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5706,7 +5706,7 @@ stream{
   x = 1176,
   y = 1149,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5714,7 +5714,7 @@ stream{
   x = 1176,
   y = 1117,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5722,7 +5722,7 @@ stream{
   x = 1192,
   y = 1117,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5730,7 +5730,7 @@ stream{
   x = 1208,
   y = 1117,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5738,7 +5738,7 @@ stream{
   x = 1224,
   y = 1117,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5746,7 +5746,7 @@ stream{
   x = 1224,
   y = 1101,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5754,7 +5754,7 @@ stream{
   x = 1224,
   y = 1085,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5762,7 +5762,7 @@ stream{
   x = 1224,
   y = 1069,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5770,7 +5770,7 @@ stream{
   x = 1208,
   y = 1085,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5778,7 +5778,7 @@ stream{
   x = 1208,
   y = 1069,
   direction = 6,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5786,7 +5786,7 @@ stream{
   x = 1208,
   y = 1101,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5794,7 +5794,7 @@ stream{
   x = 1192,
   y = 1101,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5802,7 +5802,7 @@ stream{
   x = 1192,
   y = 1085,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5810,7 +5810,7 @@ stream{
   x = 1176,
   y = 1085,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5818,7 +5818,7 @@ stream{
   x = 1176,
   y = 1101,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5826,7 +5826,7 @@ stream{
   x = 1192,
   y = 1069,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5834,7 +5834,7 @@ stream{
   x = 1176,
   y = 1069,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5842,7 +5842,7 @@ stream{
   x = 1160,
   y = 1069,
   direction = 6,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5850,7 +5850,7 @@ stream{
   x = 1128,
   y = 1069,
   direction = 6,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5858,7 +5858,7 @@ stream{
   x = 1096,
   y = 1069,
   direction = 6,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5866,7 +5866,7 @@ stream{
   x = 1144,
   y = 1069,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5874,7 +5874,7 @@ stream{
   x = 1112,
   y = 1069,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5882,7 +5882,7 @@ stream{
   x = 1080,
   y = 1069,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5890,7 +5890,7 @@ stream{
   x = 1064,
   y = 1069,
   direction = 6,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5898,7 +5898,7 @@ stream{
   x = 1048,
   y = 1133,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5906,7 +5906,7 @@ stream{
   x = 1064,
   y = 1149,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5914,7 +5914,7 @@ stream{
   x = 1016,
   y = 1101,
   direction = 6,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5922,7 +5922,7 @@ stream{
   x = 1016,
   y = 1085,
   direction = 6,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5930,7 +5930,7 @@ stream{
   x = 1016,
   y = 1069,
   direction = 6,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5938,7 +5938,7 @@ stream{
   x = 1064,
   y = 1085,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5946,7 +5946,7 @@ stream{
   x = 1064,
   y = 1101,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5954,7 +5954,7 @@ stream{
   x = 1032,
   y = 1069,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5962,7 +5962,7 @@ stream{
   x = 1048,
   y = 1085,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5970,7 +5970,7 @@ stream{
   x = 1048,
   y = 1101,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5978,7 +5978,7 @@ stream{
   x = 1048,
   y = 1069,
   direction = 6,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5986,7 +5986,7 @@ stream{
   x = 1032,
   y = 1085,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -5994,7 +5994,7 @@ stream{
   x = 1032,
   y = 1101,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 destructible{
@@ -6056,7 +6056,7 @@ stream{
   x = 776,
   y = 781,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6064,7 +6064,7 @@ stream{
   x = 776,
   y = 797,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6072,7 +6072,7 @@ stream{
   x = 776,
   y = 813,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6080,7 +6080,7 @@ stream{
   x = 776,
   y = 829,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6088,7 +6088,7 @@ stream{
   x = 776,
   y = 845,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6096,7 +6096,7 @@ stream{
   x = 776,
   y = 861,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6104,7 +6104,7 @@ stream{
   x = 776,
   y = 877,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6112,7 +6112,7 @@ stream{
   x = 776,
   y = 893,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6120,7 +6120,7 @@ stream{
   x = 776,
   y = 893,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6128,7 +6128,7 @@ stream{
   x = 776,
   y = 909,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6136,7 +6136,7 @@ stream{
   x = 808,
   y = 781,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6144,7 +6144,7 @@ stream{
   x = 808,
   y = 797,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6152,7 +6152,7 @@ stream{
   x = 808,
   y = 813,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6160,7 +6160,7 @@ stream{
   x = 808,
   y = 829,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6168,7 +6168,7 @@ stream{
   x = 808,
   y = 845,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6176,7 +6176,7 @@ stream{
   x = 808,
   y = 861,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6184,7 +6184,7 @@ stream{
   x = 808,
   y = 877,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6192,7 +6192,7 @@ stream{
   x = 808,
   y = 893,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6200,7 +6200,7 @@ stream{
   x = 808,
   y = 893,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6208,7 +6208,7 @@ stream{
   x = 808,
   y = 909,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6216,7 +6216,7 @@ stream{
   x = 760,
   y = 845,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6224,7 +6224,7 @@ stream{
   x = 760,
   y = 829,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6232,7 +6232,7 @@ stream{
   x = 760,
   y = 861,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6240,7 +6240,7 @@ stream{
   x = 760,
   y = 877,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6248,7 +6248,7 @@ stream{
   x = 744,
   y = 877,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6256,7 +6256,7 @@ stream{
   x = 728,
   y = 877,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6264,7 +6264,7 @@ stream{
   x = 728,
   y = 861,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6272,7 +6272,7 @@ stream{
   x = 744,
   y = 861,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6280,7 +6280,7 @@ stream{
   x = 744,
   y = 845,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6288,7 +6288,7 @@ stream{
   x = 728,
   y = 845,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6296,7 +6296,7 @@ stream{
   x = 728,
   y = 829,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6304,7 +6304,7 @@ stream{
   x = 744,
   y = 829,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 crystal{
@@ -6426,7 +6426,7 @@ stream{
   x = 1464,
   y = 861,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6434,7 +6434,7 @@ stream{
   x = 1480,
   y = 861,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6442,7 +6442,7 @@ stream{
   x = 1512,
   y = 861,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6450,7 +6450,7 @@ stream{
   x = 1528,
   y = 861,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6458,7 +6458,7 @@ stream{
   x = 1544,
   y = 829,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6466,7 +6466,7 @@ stream{
   x = 1544,
   y = 845,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6474,7 +6474,7 @@ stream{
   x = 1544,
   y = 813,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6482,7 +6482,7 @@ stream{
   x = 1528,
   y = 813,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6490,7 +6490,7 @@ stream{
   x = 1512,
   y = 813,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6498,7 +6498,7 @@ stream{
   x = 1496,
   y = 813,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6506,7 +6506,7 @@ stream{
   x = 1480,
   y = 813,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6514,7 +6514,7 @@ stream{
   x = 1464,
   y = 813,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6522,7 +6522,7 @@ stream{
   x = 1448,
   y = 813,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6530,7 +6530,7 @@ stream{
   x = 1432,
   y = 813,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6538,7 +6538,7 @@ stream{
   x = 1416,
   y = 813,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6546,7 +6546,7 @@ stream{
   x = 1400,
   y = 813,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6554,7 +6554,7 @@ stream{
   x = 1384,
   y = 813,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6562,7 +6562,7 @@ stream{
   x = 1368,
   y = 813,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6570,7 +6570,7 @@ stream{
   x = 1448,
   y = 861,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 teletransporter{
@@ -6782,7 +6782,7 @@ stream{
   x = 1176,
   y = 1837,
   direction = 6,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6790,7 +6790,7 @@ stream{
   x = 1064,
   y = 1117,
   direction = 6,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6798,7 +6798,7 @@ stream{
   x = 1016,
   y = 1117,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6806,7 +6806,7 @@ stream{
   x = 1032,
   y = 1117,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6814,7 +6814,7 @@ stream{
   x = 1048,
   y = 1117,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6822,7 +6822,7 @@ stream{
   x = 1176,
   y = 1133,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6830,7 +6830,7 @@ stream{
   x = 1192,
   y = 1133,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6838,7 +6838,7 @@ stream{
   x = 1064,
   y = 1133,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6846,7 +6846,7 @@ stream{
   x = 1080,
   y = 1133,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6854,7 +6854,7 @@ stream{
   x = 1144,
   y = 1133,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6862,7 +6862,7 @@ stream{
   x = 1160,
   y = 1133,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6870,7 +6870,7 @@ stream{
   x = 1096,
   y = 1133,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6878,7 +6878,7 @@ stream{
   x = 1112,
   y = 1133,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6886,7 +6886,7 @@ stream{
   x = 1128,
   y = 1133,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 enemy{
@@ -6973,7 +6973,7 @@ stream{
   x = 1496,
   y = 861,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 stream{
@@ -6981,7 +6981,7 @@ stream{
   x = 1352,
   y = 813,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
 }
 
 block{

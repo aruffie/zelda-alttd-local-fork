@@ -17528,7 +17528,6 @@ teletransporter{
   y = 1760,
   width = 16,
   height = 16,
-  transition = "immediate",
   destination_map = "dungeons/5/sideview_1",
   destination = "stairs_2_B",
 }
@@ -17544,7 +17543,7 @@ destination{
 stairs{
   layer = 0,
   x = 568,
-  y = 168,
+  y = 160,
   direction = 3,
   subtype = 3,
 }
@@ -17553,10 +17552,9 @@ teletransporter{
   name = "stairs_3_A",
   layer = 0,
   x = 568,
-  y = 168,
+  y = 160,
   width = 16,
   height = 16,
-  transition = "immediate",
   destination_map = "dungeons/5/sideview_1",
   destination = "stairs_4_B",
 }
@@ -17565,7 +17563,7 @@ destination{
   name = "stairs_3_B",
   layer = 0,
   x = 576,
-  y = 181,
+  y = 173,
   direction = 1,
 }
 
@@ -18325,7 +18323,7 @@ pickable{
 sensor{
   name = "sensor_9",
   layer = 0,
-  x = 936,
+  x = 952,
   y = 1149,
   width = 16,
   height = 16,
@@ -18360,7 +18358,6 @@ teletransporter{
   y = 560,
   width = 96,
   height = 96,
-  transition = "immediate",
   destination_map = "dungeons/5/sideview_2",
   destination = "stairs_6_B",
 }
@@ -18380,7 +18377,6 @@ teletransporter{
   y = 296,
   width = 16,
   height = 16,
-  transition = "immediate",
   destination_map = "dungeons/5/sideview_2",
   destination = "stairs_8_B",
 }
@@ -18409,7 +18405,6 @@ teletransporter{
   y = 1024,
   width = 16,
   height = 16,
-  transition = "immediate",
   destination_map = "dungeons/5/sideview_3",
   destination = "stairs_10_B",
 }
@@ -18483,7 +18478,6 @@ teletransporter{
   y = 1120,
   width = 16,
   height = 16,
-  transition = "immediate",
   destination_map = "dungeons/5/sideview_4",
   destination = "stairs_14_B",
 }
@@ -18682,24 +18676,6 @@ block{
   pushable = false,
   pullable = false,
   maximum_moves = 0,
-}
-
-enemy{
-  name = "gohma_blue",
-  layer = 0,
-  x = 800,
-  y = 1029,
-  direction = 0,
-  breed = "boss/gohma_blue",
-}
-
-enemy{
-  name = "gohma_red",
-  layer = 0,
-  x = 800,
-  y = 1117,
-  direction = 0,
-  breed = "boss/gohma_red",
 }
 
 custom_entity{
@@ -19772,6 +19748,16 @@ custom_entity{
       value = "2",
     },
   },
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+custom_entity{
+  name = "placeholder_small_boss",
+  layer = 0,
+  x = 800,
+  y = 1029,
   width = 16,
   height = 16,
   direction = 0,
