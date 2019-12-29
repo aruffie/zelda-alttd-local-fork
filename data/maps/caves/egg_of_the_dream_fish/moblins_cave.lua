@@ -29,6 +29,11 @@ map:register_event("on_started", function(map, destination)
     enemy:get_sprite():set_direction(3)
   end
   
+  -- Separators
+  if game:is_step_last("bowwow_dognapped") then
+    separator_manager:init(map)
+  end
+  
 end)
 
 -- Initialize the music of the map
@@ -37,7 +42,6 @@ function map:init_music()
   if game:is_step_last("bowwow_dognapped") then
     audio_manager:play_music("26_bowwow_dognapped")
   else
-    print("ok")
     audio_manager:play_music("18_cave")
   end
   
@@ -71,7 +75,6 @@ function map:init_map_entities()
 end
 
 function map.do_after_transition()
-  print "  A MOBLIN"
   if not game:is_step_last("bowwow_dognapped") or room_access_1 then
     return
   end
@@ -297,9 +300,4 @@ function map:launch_cinematic_4()
     map:set_cinematic_mode(false, options)
   end)
 
-end
-
--- Separators
-if game:is_step_last("bowwow_dognapped") then
-  separator_manager:init(map)
 end

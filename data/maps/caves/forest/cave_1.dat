@@ -1909,56 +1909,6 @@ block{
   maximum_moves = 0,
 }
 
-enemy{
-  name = "enemy_group_1_1",
-  layer = 0,
-  x = 416,
-  y = 341,
-  direction = 0,
-  breed = "keese",
-  treasure_name = "random_with_charm",
-}
-
-enemy{
-  name = "enemy_group_1_2",
-  layer = 0,
-  x = 416,
-  y = 389,
-  direction = 0,
-  breed = "keese",
-  treasure_name = "random_with_charm",
-}
-
-enemy{
-  name = "enemy_group_1_3",
-  layer = 0,
-  x = 480,
-  y = 341,
-  direction = 0,
-  breed = "keese",
-  treasure_name = "random_with_charm",
-}
-
-enemy{
-  name = "enemy_group_1_4",
-  layer = 0,
-  x = 512,
-  y = 341,
-  direction = 0,
-  breed = "keese",
-  treasure_name = "random_with_charm",
-}
-
-enemy{
-  name = "enemy_group_1_5",
-  layer = 0,
-  x = 464,
-  y = 341,
-  direction = 0,
-  breed = "keese",
-  treasure_name = "random_with_charm",
-}
-
 dynamic_tile{
   name = "floor_2_unstable_associate_",
   layer = 0,
@@ -3176,5 +3126,55 @@ separator{
   y = 0,
   width = 16,
   height = 480,
+}
+
+enemy{
+  name = "enemy_group_1_1",
+  layer = 2,
+  x = 416,
+  y = 341,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "enemy_group_1_2",
+  layer = 2,
+  x = 416,
+  y = 389,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "enemy_group_1_5",
+  layer = 2,
+  x = 464,
+  y = 341,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "enemy_group_1_3",
+  layer = 2,
+  x = 480,
+  y = 341,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "enemy_group_1_4",
+  layer = 2,
+  x = 512,
+  y = 341,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random_with_charm",
 }
 
