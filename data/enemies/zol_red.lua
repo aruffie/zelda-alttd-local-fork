@@ -50,7 +50,7 @@ function enemy:start_jump_attack()
   enemy:start_jumping(jumping_duration, jumping_height, angle, jumping_speed, function()
     enemy:restart()
   end)
-  sprite:set_animation("jump")
+  sprite:set_animation("jumping")
 end
 
 -- Remove the zol and split it into two gels.

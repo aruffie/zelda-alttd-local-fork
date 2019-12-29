@@ -672,6 +672,11 @@ function common_actions.learn(enemy)
           end
         end
       end
+
+      -- Make enemy:set_visible() affect shadow.
+      enemy:register_event("set_visible", function(enemy, visible)
+        shadow:set_visible(visible)
+      end)
     end
     return shadow
   end
