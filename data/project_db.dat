@@ -2747,7 +2747,6 @@ file{ path = "sprites/menus/zeldaforce_logo/zeldaforce_logo_z.png", author = "Ol
 file{ path = "sprites/npc", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use, CC BY-SA 4.0" }
 file{ path = "sprites/npc/animals/alligator.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
 file{ path = "sprites/npc/animals/alligator.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
-file{ path = "sprites/streams", author = "FFomega", license = "CC BY-SA 4.0" }
 file{ path = "sprites/streams/stream_d1.dat", author = "FFomega", license = "CC BY-SA 4.0" }
 file{ path = "sprites/streams/stream_d2.dat", author = "FFomega", license = "CC BY-SA 4.0" }
 file{ path = "sprites/streams/stream_d3.dat", author = "FFomega", license = "CC BY-SA 4.0" }
