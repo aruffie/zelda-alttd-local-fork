@@ -53,8 +53,8 @@ function enemy:start_jump_attack()
   sprite:set_animation("jump")
 end
 
--- Create two gels on weak attack received.
-local function on_weak_attack_received()
+-- Remove the zol and split it into two gels.
+function enemy:split()
 
   enemy:set_invincible()
 
@@ -92,10 +92,18 @@ local function on_weak_attack_received()
   
 end
 
+-- Split the zol if hurt and not directly dead.
+enemy:register_event("on_hurt", function(enemy)
+
+  if enemy:get_life() > 0 then
+    enemy:split()
+  end
+end)
+
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
 
-  enemy:set_life(1)
+  enemy:set_life(2)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)
 end)
@@ -104,10 +112,10 @@ end)
 enemy:register_event("on_restarted", function(enemy)
 
   -- Behavior for each items.
-  enemy:set_hero_weapons_reactions(1, {
-    sword = on_weak_attack_received,
-    explosion = on_weak_attack_received,
-    arrow = on_weak_attack_received,
+  enemy:set_hero_weapons_reactions(2, {
+    sword = 1,
+    explosion = 1,
+    arrow = 1,
     jump_on = "ignored"
   })
 
