@@ -13,7 +13,7 @@ local switch_manager = require("scripts/maps/switch_manager")
 local treasure_manager = require("scripts/maps/treasure_manager")
 
 -- Map events
-function map:on_started()
+map:register_event("on_started", function()
 
   -- Chests
   treasure_manager:appear_chest_if_savegame_exist(map, "chest_small_key_1",  "dungeon_3_small_key_1")
@@ -52,7 +52,7 @@ function map:on_started()
   -- Separators
   separator_manager:init(map)
 
-end
+end)
 
 function map:on_opening_transition_finished(destination)       
 
@@ -156,7 +156,7 @@ end
 
 function sensor_12:on_activated()
 
-  door_manager:close_if_enemies_not_dead(map, "enemy_group_9_", "door_group_4_")
+  door_manager:close_if_enemies_n_dead(map, "enemy_group_9_", "door_group_4_")
 
 end
 

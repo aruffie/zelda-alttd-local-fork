@@ -2513,8 +2513,8 @@ tile{
   layer = 0,
   x = 1440,
   y = 1568,
-  width = 72,
-  height = 32,
+  width = 64,
+  height = 40,
   pattern = "911",
 }
 
@@ -14636,7 +14636,7 @@ tile{
   layer = 0,
   x = 1440,
   y = 1576,
-  width = 32,
+  width = 64,
   height = 32,
   pattern = "floor.13-Alpha",
 }
@@ -20256,7 +20256,7 @@ stream{
   x = 1384,
   y = 1557,
   direction = 0,
-  sprite = "entities/grounds/conveyor_belt_2",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -20264,7 +20264,7 @@ stream{
   x = 1416,
   y = 1557,
   direction = 6,
-  sprite = "entities/grounds/conveyor_belt_2",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -20272,7 +20272,7 @@ stream{
   x = 1400,
   y = 1557,
   direction = 0,
-  sprite = "entities/grounds/conveyor_belt_2",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -20280,7 +20280,7 @@ stream{
   x = 1416,
   y = 1573,
   direction = 6,
-  sprite = "entities/grounds/conveyor_belt_2",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -20288,7 +20288,7 @@ stream{
   x = 1416,
   y = 1589,
   direction = 6,
-  sprite = "entities/grounds/conveyor_belt_2",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -20296,7 +20296,7 @@ stream{
   x = 1416,
   y = 1605,
   direction = 6,
-  sprite = "entities/grounds/conveyor_belt_2",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -20304,7 +20304,7 @@ stream{
   x = 1384,
   y = 1573,
   direction = 0,
-  sprite = "entities/grounds/conveyor_belt_2",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -20312,7 +20312,7 @@ stream{
   x = 1400,
   y = 1573,
   direction = 0,
-  sprite = "entities/grounds/conveyor_belt_2",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -20320,7 +20320,7 @@ stream{
   x = 1384,
   y = 1605,
   direction = 2,
-  sprite = "entities/grounds/conveyor_belt_2",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -20328,7 +20328,7 @@ stream{
   x = 1384,
   y = 1589,
   direction = 2,
-  sprite = "entities/grounds/conveyor_belt_2",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -20336,7 +20336,7 @@ stream{
   x = 1384,
   y = 1621,
   direction = 2,
-  sprite = "entities/grounds/conveyor_belt_2",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -20344,7 +20344,7 @@ stream{
   x = 1400,
   y = 1621,
   direction = 2,
-  sprite = "entities/grounds/conveyor_belt_2",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -20352,7 +20352,7 @@ stream{
   x = 1400,
   y = 1605,
   direction = 2,
-  sprite = "entities/grounds/conveyor_belt_2",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -20360,7 +20360,7 @@ stream{
   x = 1400,
   y = 1589,
   direction = 2,
-  sprite = "entities/grounds/conveyor_belt_2",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -20368,7 +20368,7 @@ stream{
   x = 1496,
   y = 1557,
   direction = 6,
-  sprite = "entities/grounds/conveyor_belt_2",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -20376,7 +20376,7 @@ stream{
   x = 1496,
   y = 1573,
   direction = 6,
-  sprite = "entities/grounds/conveyor_belt_2",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -20384,7 +20384,7 @@ stream{
   x = 1496,
   y = 1589,
   direction = 6,
-  sprite = "entities/grounds/conveyor_belt_2",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -20392,7 +20392,7 @@ stream{
   x = 1496,
   y = 1605,
   direction = 4,
-  sprite = "entities/grounds/conveyor_belt_2",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -20400,7 +20400,7 @@ stream{
   x = 1480,
   y = 1557,
   direction = 6,
-  sprite = "entities/grounds/conveyor_belt_2",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -20408,7 +20408,7 @@ stream{
   x = 1480,
   y = 1573,
   direction = 6,
-  sprite = "entities/grounds/conveyor_belt_2",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -20416,7 +20416,7 @@ stream{
   x = 1480,
   y = 1589,
   direction = 6,
-  sprite = "entities/grounds/conveyor_belt_2",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -20424,7 +20424,7 @@ stream{
   x = 1480,
   y = 1605,
   direction = 4,
-  sprite = "entities/grounds/conveyor_belt_2",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -20432,7 +20432,7 @@ stream{
   x = 1432,
   y = 1557,
   direction = 6,
-  sprite = "entities/grounds/conveyor_belt_2",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -20440,7 +20440,7 @@ stream{
   x = 1432,
   y = 1573,
   direction = 6,
-  sprite = "entities/grounds/conveyor_belt_2",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -20448,7 +20448,7 @@ stream{
   x = 1432,
   y = 1589,
   direction = 6,
-  sprite = "entities/grounds/conveyor_belt_2",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -20456,7 +20456,7 @@ stream{
   x = 1432,
   y = 1605,
   direction = 6,
-  sprite = "entities/grounds/conveyor_belt_2",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -20464,7 +20464,7 @@ stream{
   x = 1448,
   y = 1605,
   direction = 2,
-  sprite = "entities/grounds/conveyor_belt_2",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -20472,7 +20472,7 @@ stream{
   x = 1448,
   y = 1589,
   direction = 2,
-  sprite = "entities/grounds/conveyor_belt_2",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -20480,23 +20480,23 @@ stream{
   x = 1448,
   y = 1573,
   direction = 2,
-  sprite = "entities/grounds/conveyor_belt_2",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
   layer = 0,
   x = 1448,
-  y = 1557,
-  direction = 0,
-  sprite = "entities/grounds/conveyor_belt_2",
-}
-
-stream{
-  layer = 0,
-  x = 1464,
   y = 1557,
   direction = 0,
-  sprite = "entities/grounds/conveyor_belt_2",
+  sprite = "entities/streams/stream_d1",
+}
+
+stream{
+  layer = 0,
+  x = 1464,
+  y = 1557,
+  direction = 0,
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -20504,7 +20504,7 @@ stream{
   x = 1464,
   y = 1573,
   direction = 2,
-  sprite = "entities/grounds/conveyor_belt_2",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -20512,7 +20512,7 @@ stream{
   x = 1464,
   y = 1589,
   direction = 2,
-  sprite = "entities/grounds/conveyor_belt_2",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -20520,7 +20520,7 @@ stream{
   x = 1464,
   y = 1605,
   direction = 2,
-  sprite = "entities/grounds/conveyor_belt_2",
+  sprite = "entities/streams/stream_d1",
 }
 
 custom_entity{
@@ -22369,7 +22369,7 @@ stream{
   x = 1416,
   y = 1621,
   direction = 4,
-  sprite = "entities/grounds/conveyor_belt_2",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -22377,14 +22377,14 @@ stream{
   x = 1432,
   y = 1621,
   direction = 4,
-  sprite = "entities/grounds/conveyor_belt_2",
+  sprite = "entities/streams/stream_d1",
 }
 
 destination{
   name = "dungeon_6_1_B",
   layer = 0,
   x = 1120,
-  y = 1637,
+  y = 1653,
   direction = 1,
 }
 
@@ -23640,24 +23640,6 @@ door{
   opening_condition_consumed = true,
 }
 
-custom_entity{
-  name = "teletransporter_B",
-  layer = 0,
-  x = 1120,
-  y = 1565,
-  width = 16,
-  height = 16,
-  direction = 0,
-}
-
-destination{
-  name = "teletransporter_destination_B",
-  layer = 0,
-  x = 1120,
-  y = 1549,
-  direction = 1,
-}
-
 destructible{
   layer = 0,
   x = 376,
@@ -24777,14 +24759,6 @@ sensor{
   height = 16,
 }
 
-destination{
-  name = "destination",
-  layer = 0,
-  x = 1120,
-  y = 1533,
-  direction = 1,
-}
-
 door{
   name = "door_group_20_2",
   layer = 0,
@@ -24812,6 +24786,12 @@ sensor{
   layer = 0,
   x = 1184,
   y = 1013,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
 }
@@ -24830,6 +24810,12 @@ sensor{
   layer = 0,
   x = 1440,
   y = 1013,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
 }
@@ -24839,6 +24825,12 @@ sensor{
   layer = 0,
   x = 1328,
   y = 1133,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
   width = 16,
   height = 16,
 }
@@ -25256,6 +25248,67 @@ custom_entity{
   direction = 0,
   sprite = "entities/doors/door_wallturn_dungeon_6",
   model = "wallturn",
+}
+
+destination{
+  name = "destination_ocarina",
+  layer = 0,
+  x = 1120,
+  y = 1589,
+  direction = 1,
+}
+
+custom_entity{
+  name = "midpoint_teletransporter_B",
+  layer = 0,
+  x = 1120,
+  y = 1557,
+  enabled_at_start = false,
+  properties = {
+    {
+      key = "tp_midpoint_index",
+      value = "B",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/misc/teletransporter",
+  model = "midpoint_teletransporter",
+}
+
+destination{
+  name = "teletransporter_destination_B",
+  layer = 0,
+  x = 1120,
+  y = 1557,
+  direction = -1,
+}
+
+wall{
+  layer = 0,
+  x = 1112,
+  y = 1640,
+  width = 16,
+  height = 16,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+}
+
+sensor{
+  name = "sensor_27",
+  layer = 0,
+  x = 2352,
+  y = 773,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
 }
 
 tile{
@@ -29707,16 +29760,14 @@ tile{
 }
 
 separator{
-  name = "auto_separator_11",
   layer = 2,
-  x = 320,
+  x = 0,
   y = 712,
-  width = 2240,
+  width = 2560,
   height = 16,
 }
 
 separator{
-  name = "auto_separator_10",
   layer = 2,
   x = 0,
   y = 952,
@@ -29725,7 +29776,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_9",
   layer = 2,
   x = 0,
   y = 1192,
@@ -29734,7 +29784,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_8",
   layer = 2,
   x = 0,
   y = 1432,
@@ -29743,7 +29792,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_5",
   layer = 2,
   x = 1592,
   y = 0,
@@ -29752,7 +29800,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_4",
   layer = 2,
   x = 1272,
   y = 0,
@@ -29761,16 +29808,14 @@ separator{
 }
 
 separator{
-  name = "auto_separator_3",
   layer = 2,
   x = 952,
   y = 0,
   width = 16,
-  height = 1440,
+  height = 1680,
 }
 
 separator{
-  name = "auto_separator_1",
   layer = 2,
   x = 312,
   y = 0,
@@ -29779,7 +29824,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_6",
   layer = 2,
   x = 1912,
   y = 0,
@@ -29788,7 +29832,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_13",
   layer = 2,
   x = 0,
   y = 232,
@@ -29797,7 +29840,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_12",
   layer = 2,
   x = 0,
   y = 472,
@@ -29806,7 +29848,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_7",
   layer = 2,
   x = 2232,
   y = 0,
@@ -29815,47 +29856,10 @@ separator{
 }
 
 separator{
-  name = "auto_separator_15",
   layer = 2,
   x = 632,
   y = 0,
   width = 16,
-  height = 720,
-}
-
-separator{
-  name = "auto_separator_17",
-  layer = 2,
-  x = 952,
-  y = 1440,
-  width = 16,
-  height = 240,
-}
-
-separator{
-  name = "auto_separator_16",
-  layer = 2,
-  x = 0,
-  y = 712,
-  width = 320,
-  height = 16,
-}
-
-separator{
-  name = "auto_separator_14",
-  layer = 2,
-  x = 632,
-  y = 720,
-  width = 16,
-  height = 240,
-}
-
-separator{
-  name = "auto_separator_19",
-  layer = 2,
-  x = 632,
-  y = 960,
-  width = 16,
-  height = 720,
+  height = 1680,
 }
 
