@@ -74,7 +74,7 @@ function enemy:split()
     gel:start_jumping(gel_spawn_jumping_duration, gel_spawn_jumping_height, nil, nil, function()
       gel:restart()
     end)
-    gel:get_sprite():set_animation("jump")
+    gel:get_sprite():set_animation("jumping")
 
     -- Call an enemy:on_enemy_created(gel) event.
     if enemy.on_enemy_created then
