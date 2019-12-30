@@ -26,19 +26,25 @@ carried_meta:register_event("on_thrown", function(entity)
         while not entity:test_obstacles(0, off_y) do
           off_y=off_y+1
         end
-        if off_y > 8 then
+        if off_y > 24 then
           shadow:set_animation("small")
-        else 
+        elseif off_y > 16 then
+          shadow:set_animation("medium_high")
+        elseif off_y > 8 then
+          shadow:set_animation("medium_low")
+        else
           shadow:set_animation("big") 
         end
-        shadow:set_xy(0, off_y)
+        shadow:set_xy(0, off_y+2)
       end
 
     end
 
   end)
-carried_meta:register_event("on_breaking", function(entity)
 
+carried_meta:register_event("on_breaking", function(entity) 
+    
+    
     local shadow = entity:get_sprite("shadow")    
     if shadow then
       entity:remove_sprite(shadow)
@@ -46,7 +52,11 @@ carried_meta:register_event("on_breaking", function(entity)
     else
       debug_print("[Breaking] OK, there is still no shadow at this point")
     end
-
+    
+    shadow = entity:get_sprite("shadow_override")    
+    if shadow then
+      entity:remove_sprite(shadow)
+    end
   end)
 
 carried_meta:register_event("on_lifted", function(entity)
@@ -76,4 +86,8 @@ carried_meta:register_event("on_created", function(entity)
       end
     end
 
+  end)
+
+carried_meta:register_event("on_post_draw", function(entity, surface)
+    show_hitbox(entity)
   end)

@@ -3169,30 +3169,6 @@ dynamic_tile{
   pattern = "930",
 }
 
-custom_entity{
-  name = "floor_1",
-  layer = 0,
-  x = 56,
-  y = 141,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/grounds/weak_floor_light_1",
-  model = "unstable_floor",
-}
-
-custom_entity{
-  name = "floor_2",
-  layer = 0,
-  x = 56,
-  y = 125,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/grounds/weak_floor_light_1",
-  model = "unstable_floor",
-}
-
 sensor{
   name = "sensor_4",
   layer = 0,
@@ -3221,6 +3197,30 @@ sensor{
   },
   width = 16,
   height = 16,
+}
+
+custom_entity{
+  name = "floor_1",
+  layer = 0,
+  x = 56,
+  y = 125,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/grounds/weak_floor_light_4",
+  model = "unstable_floor",
+}
+
+custom_entity{
+  name = "floor_2",
+  layer = 0,
+  x = 56,
+  y = 141,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/grounds/weak_floor_light_4",
+  model = "unstable_floor",
 }
 
 tile{

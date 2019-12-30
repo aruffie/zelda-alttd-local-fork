@@ -4,6 +4,9 @@
 local item = ...
 local game = item:get_game()
 
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
+
 function item:on_created()
 
   item:set_savegame_variable("possession_ocarina")

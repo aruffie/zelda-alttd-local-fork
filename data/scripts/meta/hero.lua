@@ -10,35 +10,15 @@ local timer_sword_tapping = nil
 local timer_stairs = nil
 
 require("scripts/multi_events")
-hero_meta:register_event("on_movement_changed", function(hero, movement)
-    --debug_print("New movement:")
-    if not hero:get_map():is_sideview() then
-      if movement:get_speed() ~=0  then
-        --debug_print ("moving (speed="..movement:get_speed()..",  angle="..movement:get_angle()..")")
-        if hero.sound_timer_reset then
-          hero.sound_timer_reset:set_remaining_time(10)         
-        end
-        if not hero.walking_sound_timer then
-          hero.walking_sound_timer=sol.timer.start(hero, 300, function()
-              if hero:get_ground_below()=="shallow_water" then
-                audio_manager:play_sound("hero/wade"..(math.random(1, 2)))
-              elseif hero:get_ground_below()=="grass" then
-                audio_manager:play_sound("hero/walk_on_grass")
-              end
-              return true
-            end)
-        end
-      else
-        --debug_print "stop moving"
-        if not hero.sound_timer_reset then
-          hero.sound_timer_reset=sol.timer.start(hero, 10, function()
-              if hero.walking_sound_timer then
-                hero.walking_sound_timer:stop()
-                hero.walking_sound_timer=nil
-              end
-              hero.sound_timer_reset=nil
-            end)
-        end
+hero_meta:register_event("on_position_changed", function(hero)
+    if not hero:get_map():is_sideview() and not hero.walking_sound_timer then
+      hero.walking_sound_timer=sol.timer.start(hero, 300, function()
+        hero.walking_sound_timer = nil
+      end)
+      if hero:get_ground_below()=="shallow_water" then
+        audio_manager:play_sound("hero/wade"..(math.random(1, 2)))
+      elseif hero:get_ground_below()=="grass" then
+        audio_manager:play_sound("hero/walk_on_grass")
       end
     end
 
