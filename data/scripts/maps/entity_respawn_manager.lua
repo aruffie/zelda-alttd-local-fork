@@ -36,7 +36,6 @@ function entity_respawn_manager:init(map)
       end
       -- Re-create enemies in the new active region.
       if enemy:is_in_same_region(map:get_hero()) then
-        print("respawn" .. enemy:get_name())
         local new_enemy = map:create_enemy({ --TODO modifiy create_enemy to add enemy to light manager
             x = enemy_place.x,
             y = enemy_place.y,
@@ -261,7 +260,6 @@ function entity_respawn_manager:init(map)
       treasure = { enemy:get_treasure() },
       properties = enemy:get_properties(),
     }
-        print("init" .. enemy:get_name())
     local hero = map:get_hero()
     if not enemy:is_in_same_region(hero) then
       enemy:remove()

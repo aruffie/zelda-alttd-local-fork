@@ -52,6 +52,12 @@ function map:init_map_entities()
   if pickable_golden_leaf_2 ~= nil then
     pickable_golden_leaf_2:set_enabled(false)
   end
+  -- Crow
+  crow_1_detect:add_collision_test("touching", function(entity_source, entity_dest)
+    if hero:get_state() == 'free' and entity_dest:get_type() == "carried_object" then
+      crow_1:wake_up()
+    end
+  end)
   
 end
 

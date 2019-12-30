@@ -100,7 +100,7 @@ function quest_submenu:on_draw(dst_surface)
   self:draw_caption(dst_surface)
 
   -- Draw each inventory static item left.
-  local y = menu_y + 79
+  local y = menu_y + 84
   local k = 0
   for i = 0, 2 do
     local x = menu_x + 64
@@ -135,19 +135,19 @@ function quest_submenu:on_draw(dst_surface)
           -- The player has this item: draw it.
           if i == 1 then
             x = menu_x + 192
-            y = menu_y + 111
+            y = menu_y + 116
           elseif i == 2 then
             x = menu_x + 224
-            y = menu_y + 90
+            y = menu_y + 84
           elseif i == 3 then
             x = menu_x + 256
-            y = menu_y + 111
+            y = menu_y + 116
           elseif i == 4 then
             x = menu_x + 224
-            y = menu_y + 143
+            y = menu_y + 148
           elseif i == 5 then
             x = menu_x + 224
-            y = menu_y + 111
+            y = menu_y + 116
           end
           self.sprites_static_right[i]:set_direction(item:get_variant() - 1)
           self.sprites_static_right[i]:draw(dst_surface, x, y)
@@ -305,7 +305,7 @@ function quest_submenu:show_info_message()
   end
   if dialog_id then
     self:show_info_dialog(dialog_id, function()
-      set_cursor_position(self.cursor_row, self.cursor_column)
+      self:set_cursor_position(self.cursor_row, self.cursor_column)
     end)
   end
 end
