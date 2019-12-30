@@ -66,12 +66,19 @@ end
 function enemy:explode()
 
   local x, y, layer = enemy:get_position()
-  map:create_explosion({
+  local explosion = map:create_custom_entity({
+    model = "explosion",
+    direction = 0,
     x = x,
-    y = y - 5,
-    layer = layer
+    y = y,
+    layer = layer,
+    width = 16,
+    height = 16,
+    properties = {
+      {key = "strength", value = "4"},
+      {key = "hurtable_type_1", value = "hero"}
+    }
   })
-  -- TODO Set explosion damage to 4
   enemy:remove()
 end
 

@@ -30,38 +30,33 @@ function entity_respawn_manager:init(map)
 
     -- Enemies.
     for enemy, enemy_place in pairs(saved_entities.enemies) do
-      if enemy:get_breed() ~= "boss/skeleton" then
-        -- First remove any enemy.
-        if enemy:exists() then
-          enemy:remove()
+      -- First remove any enemy.
+      if enemy:exists() then
+        enemy:remove()
+      end
+      -- Re-create enemies in the new active region.
+      if enemy:is_in_same_region(map:get_hero()) then
+        print("respawn" .. enemy:get_name())
+        local new_enemy = map:create_enemy({ --TODO modifiy create_enemy to add enemy to light manager
+            x = enemy_place.x,
+            y = enemy_place.y,
+            layer = enemy_place.layer,
+            breed = enemy_place.breed,
+            direction = enemy_place.direction,
+            name = enemy_place.name,
+            properties = enemy_place.properties
+          })
+        -- add enemy to the light manager of fsa mode, since it has been recreated
+        light_manager_fsa:add_occluder(new_enemy)
+        new_enemy:set_treasure(unpack(enemy_place.treasure))
+        new_enemy.on_dead = enemy.on_dead  -- For door_manager.
+        new_enemy.on_enemy_created = enemy.on_enemy_created  -- For door_manager.
+        new_enemy.on_symbol_fixed = enemy.on_symbol_fixed -- For Vegas enemies
+        if enemy.on_flying_tile_dead ~= nil then
+          new_enemy.on_flying_tile_dead = enemy.on_flying_tile_dead -- For Flying tiles enemies
         end
-
-        -- Re-create enemies in the new active region.
-        if enemy:is_in_same_region(map:get_hero()) then
-          local new_enemy = map:create_enemy({ --TODO modifiy create_enemy to add enemy to light manager
-              x = enemy_place.x,
-              y = enemy_place.y,
-              layer = enemy_place.layer,
-              breed = enemy_place.breed,
-              direction = enemy_place.direction,
-              name = enemy_place.name,
-              properties = enemy_place.properties
-            })
-
-          -- add enemy to the light manager of fsa mode, since it has been recreated
-          light_manager_fsa:add_occluder(new_enemy)
-
-          new_enemy:set_treasure(unpack(enemy_place.treasure))
-          new_enemy.on_dead = enemy.on_dead  -- For door_manager.
-          new_enemy.on_enemy_created = enemy.on_enemy_created  -- For door_manager.
-          new_enemy.on_symbol_fixed = enemy.on_symbol_fixed -- For Vegas enemies
-          if enemy.on_flying_tile_dead ~= nil then
-            new_enemy.on_flying_tile_dead = enemy.on_flying_tile_dead -- For Flying tiles enemies
-          end
-
-          saved_entities.enemies[new_enemy] = saved_entities.enemies[enemy]
-          saved_entities.enemies[enemy] = nil
-        end
+        saved_entities.enemies[new_enemy] = saved_entities.enemies[enemy]
+        saved_entities.enemies[enemy] = nil
       end
     end
   end
@@ -239,7 +234,7 @@ function entity_respawn_manager:init(map)
   function entity_respawn_manager:reset_enemies(map)
     -- Disable all enemies when leaving a zone.
     for enemy in map:get_entities_by_type("enemy") do
-      if enemy:is_in_same_region(map:get_hero()) and enemy:get_breed() ~= "boss/skeleton" then
+      if saved_entities.enemies[enemy] and enemy:is_in_same_region(map:get_hero()) then
         enemy:remove()
       end
     end
@@ -266,9 +261,9 @@ function entity_respawn_manager:init(map)
       treasure = { enemy:get_treasure() },
       properties = enemy:get_properties(),
     }
-
+        print("init" .. enemy:get_name())
     local hero = map:get_hero()
-    if not enemy:is_in_same_region(hero) and enemy:get_breed() ~= "boss/skeleton" then
+    if not enemy:is_in_same_region(hero) then
       enemy:remove()
     end
 

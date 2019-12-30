@@ -14289,26 +14289,6 @@ door{
 }
 
 enemy{
-  name = "enemy_group_9_2",
-  layer = 0,
-  x = 1544,
-  y = 1085,
-  direction = 0,
-  breed = "keese",
-  treasure_name = "random_with_charm",
-}
-
-enemy{
-  name = "enemy_group_9_1",
-  layer = 0,
-  x = 1544,
-  y = 1149,
-  direction = 0,
-  breed = "keese",
-  treasure_name = "random_with_charm",
-}
-
-enemy{
   name = "enemy_group_10_1",
   layer = 0,
   x = 1672,
@@ -16644,46 +16624,6 @@ enemy{
   y = 1501,
   direction = 0,
   breed = "face_lamp",
-}
-
-enemy{
-  name = "enemy_group_6_1",
-  layer = 0,
-  x = 784,
-  y = 1309,
-  direction = 0,
-  breed = "keese",
-  treasure_name = "random_with_charm",
-}
-
-enemy{
-  name = "enemy_group_6_2",
-  layer = 0,
-  x = 784,
-  y = 1341,
-  direction = 0,
-  breed = "keese",
-  treasure_name = "random_with_charm",
-}
-
-enemy{
-  name = "enemy_group_6_3",
-  layer = 0,
-  x = 816,
-  y = 1341,
-  direction = 0,
-  breed = "keese",
-  treasure_name = "random_with_charm",
-}
-
-enemy{
-  name = "enemy_group_6_4",
-  layer = 0,
-  x = 816,
-  y = 1309,
-  direction = 0,
-  breed = "keese",
-  treasure_name = "random_with_charm",
 }
 
 block{
@@ -19029,5 +18969,65 @@ separator{
   y = 952,
   width = 2560,
   height = 16,
+}
+
+enemy{
+  name = "enemy_group_6_1",
+  layer = 2,
+  x = 784,
+  y = 1309,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "enemy_group_6_2",
+  layer = 2,
+  x = 784,
+  y = 1341,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "enemy_group_6_4",
+  layer = 2,
+  x = 816,
+  y = 1309,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "enemy_group_6_3",
+  layer = 2,
+  x = 816,
+  y = 1341,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "enemy_group_9_2",
+  layer = 2,
+  x = 1544,
+  y = 1085,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "enemy_group_9_1",
+  layer = 2,
+  x = 1544,
+  y = 1149,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random_with_charm",
 }
 

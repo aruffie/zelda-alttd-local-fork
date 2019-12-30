@@ -44,15 +44,6 @@ function enemy:start_walking()
   end)
 end
 
--- Start the enemy movement.
-function enemy:set_color(color)
-
-  if skins[color] then
-    enemy:remove_sprite(sprite)
-    sprite = enemy:create_sprite(skins[color])
-  end
-end
-
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
 

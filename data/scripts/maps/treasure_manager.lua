@@ -125,6 +125,7 @@ end
 
 function treasure_manager:appear_pickable_when_blocks_moved(map, block_prefix, pickable)
   block_manager:init_block_riddle(map, block_prefix, function()
+      local game = map:get_game()
       local pickable_entity = map:get_entity(pickable)
       if pickable_entity ~= nil then
         local treasure, variant, savegame = pickable_entity:get_treasure()

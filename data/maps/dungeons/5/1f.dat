@@ -294,7 +294,7 @@ tile{
   layer = 0,
   x = 1648,
   y = 480,
-  width = 144,
+  width = 160,
   height = 192,
   pattern = "floor_low.3-1",
 }
@@ -707,7 +707,7 @@ tile{
 tile{
   layer = 0,
   x = 336,
-  y = 1232,
+  y = 1240,
   width = 24,
   height = 160,
   pattern = "wall.3-2",
@@ -16640,6 +16640,12 @@ enemy{
   layer = 0,
   x = 1120,
   y = 1797,
+  properties = {
+    {
+      key = "clockwise",
+      value = "true",
+    },
+  },
   direction = 0,
   breed = "fireball",
 }
@@ -16661,46 +16667,6 @@ enemy{
   y = 1821,
   direction = 0,
   breed = "helmasaur",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_5_1",
-  layer = 0,
-  x = 1392,
-  y = 1837,
-  direction = 0,
-  breed = "keese",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_5_2",
-  layer = 0,
-  x = 1392,
-  y = 1789,
-  direction = 0,
-  breed = "keese",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_5_3",
-  layer = 0,
-  x = 1488,
-  y = 1789,
-  direction = 0,
-  breed = "keese",
-  treasure_name = "random",
-}
-
-enemy{
-  name = "enemy_group_5_4",
-  layer = 0,
-  x = 1488,
-  y = 1837,
-  direction = 0,
-  breed = "keese",
   treasure_name = "random",
 }
 
@@ -17346,15 +17312,6 @@ door{
 }
 
 enemy{
-  name = "skeleton_1",
-  layer = 0,
-  x = 1440,
-  y = 1077,
-  direction = 0,
-  breed = "boss/master_stalfos/master_stalfos",
-}
-
-enemy{
   name = "enemy_group_13_2",
   layer = 0,
   x = 1736,
@@ -17516,24 +17473,6 @@ enemy{
   treasure_name = "random",
 }
 
-enemy{
-  name = "skeleton_3",
-  layer = 0,
-  x = 1440,
-  y = 125,
-  direction = 0,
-  breed = "boss/master_stalfos/master_stalfos",
-}
-
-enemy{
-  name = "skeleton_2",
-  layer = 0,
-  x = 2080,
-  y = 853,
-  direction = 0,
-  breed = "boss/master_stalfos/master_stalfos",
-}
-
 stairs{
   layer = 0,
   x = 1032,
@@ -17549,7 +17488,6 @@ teletransporter{
   y = 1760,
   width = 16,
   height = 16,
-  transition = "immediate",
   destination_map = "dungeons/5/sideview_1",
   destination = "stairs_2_B",
 }
@@ -17565,7 +17503,7 @@ destination{
 stairs{
   layer = 0,
   x = 568,
-  y = 168,
+  y = 160,
   direction = 3,
   subtype = 3,
 }
@@ -17574,10 +17512,9 @@ teletransporter{
   name = "stairs_3_A",
   layer = 0,
   x = 568,
-  y = 168,
+  y = 160,
   width = 16,
   height = 16,
-  transition = "immediate",
   destination_map = "dungeons/5/sideview_1",
   destination = "stairs_4_B",
 }
@@ -17586,7 +17523,7 @@ destination{
   name = "stairs_3_B",
   layer = 0,
   x = 576,
-  y = 181,
+  y = 173,
   direction = 1,
 }
 
@@ -17926,16 +17863,6 @@ sensor{
   y = 173,
   width = 16,
   height = 16,
-}
-
-enemy{
-  name = "skeleton_4",
-  layer = 0,
-  x = 160,
-  y = 125,
-  direction = 0,
-  breed = "boss/master_stalfos/master_stalfos",
-  treasure_name = "hookshot",
 }
 
 sensor{
@@ -18356,7 +18283,7 @@ pickable{
 sensor{
   name = "sensor_9",
   layer = 0,
-  x = 936,
+  x = 952,
   y = 1149,
   width = 16,
   height = 16,
@@ -18391,7 +18318,6 @@ teletransporter{
   y = 560,
   width = 96,
   height = 96,
-  transition = "immediate",
   destination_map = "dungeons/5/sideview_2",
   destination = "stairs_6_B",
 }
@@ -18411,7 +18337,6 @@ teletransporter{
   y = 296,
   width = 16,
   height = 16,
-  transition = "immediate",
   destination_map = "dungeons/5/sideview_2",
   destination = "stairs_8_B",
 }
@@ -18440,7 +18365,6 @@ teletransporter{
   y = 1024,
   width = 16,
   height = 16,
-  transition = "immediate",
   destination_map = "dungeons/5/sideview_3",
   destination = "stairs_10_B",
 }
@@ -18514,7 +18438,6 @@ teletransporter{
   y = 1120,
   width = 16,
   height = 16,
-  transition = "immediate",
   destination_map = "dungeons/5/sideview_4",
   destination = "stairs_14_B",
 }
@@ -18713,24 +18636,6 @@ block{
   pushable = false,
   pullable = false,
   maximum_moves = 0,
-}
-
-enemy{
-  name = "gohma_blue",
-  layer = 0,
-  x = 800,
-  y = 1029,
-  direction = 0,
-  breed = "boss/gohma_blue",
-}
-
-enemy{
-  name = "gohma_red",
-  layer = 0,
-  x = 800,
-  y = 1117,
-  direction = 0,
-  breed = "boss/gohma_red",
 }
 
 custom_entity{
@@ -19695,6 +19600,127 @@ teletransporter{
   height = 16,
   destination_map = "out/a4_south_mabe_village",
   destination = "dungeon_1_2_A",
+}
+
+sensor{
+  name = "sensor_12",
+  layer = 0,
+  x = 1728,
+  y = 733,
+  width = 48,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_13",
+  layer = 0,
+  x = 1712,
+  y = 957,
+  width = 48,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_14",
+  layer = 0,
+  x = 1608,
+  y = 837,
+  width = 16,
+  height = 48,
+}
+
+custom_entity{
+  name = "placeholder_skeleton_4",
+  layer = 0,
+  x = 160,
+  y = 109,
+  properties = {
+    {
+      key = "enemy_name",
+      value = "skeleton_4",
+    },
+    {
+      key = "enemy_step_death",
+      value = "5",
+    },
+    {
+      key = "enemy_treasure",
+      value = "hookshot",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+custom_entity{
+  name = "placeholder_skeleton_3",
+  layer = 0,
+  x = 1440,
+  y = 109,
+  properties = {
+    {
+      key = "enemy_name",
+      value = "skeleton_3",
+    },
+    {
+      key = "enemy_step_death",
+      value = "4",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+custom_entity{
+  name = "placeholder_skeleton_2",
+  layer = 0,
+  x = 2080,
+  y = 829,
+  properties = {
+    {
+      key = "enemy_name",
+      value = "skeleton_2",
+    },
+    {
+      key = "enemy_step_death",
+      value = "3",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+custom_entity{
+  name = "placeholder_skeleton_5",
+  layer = 0,
+  x = 1440,
+  y = 1077,
+  properties = {
+    {
+      key = "enemy_name",
+      value = "skeleton_1",
+    },
+    {
+      key = "enemy_step_death",
+      value = "2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+custom_entity{
+  name = "placeholder_small_boss",
+  layer = 0,
+  x = 800,
+  y = 1029,
+  width = 16,
+  height = 16,
+  direction = 0,
 }
 
 tile{
@@ -21588,16 +21614,16 @@ separator{
 separator{
   layer = 2,
   x = 312,
-  y = 0,
+  y = 240,
   width = 16,
-  height = 1920,
+  height = 1680,
 }
 
 separator{
   layer = 2,
   x = 0,
   y = 1192,
-  width = 2240,
+  width = 1280,
   height = 16,
 }
 
@@ -21605,7 +21631,7 @@ separator{
   layer = 2,
   x = 0,
   y = 952,
-  width = 2240,
+  width = 1600,
   height = 16,
 }
 
@@ -21622,7 +21648,7 @@ separator{
   layer = 2,
   x = 0,
   y = 712,
-  width = 2240,
+  width = 1600,
   height = 16,
 }
 
@@ -21638,7 +21664,7 @@ separator{
   layer = 2,
   x = 0,
   y = 232,
-  width = 2240,
+  width = 1280,
   height = 16,
 }
 
@@ -21664,14 +21690,150 @@ separator{
   x = 1592,
   y = 0,
   width = 16,
-  height = 1920,
+  height = 720,
 }
 
 separator{
+  name = "separator_skeleton_3_2",
   layer = 2,
   x = 1272,
   y = 0,
   width = 16,
   height = 240,
+}
+
+separator{
+  layer = 2,
+  x = 1600,
+  y = 1192,
+  width = 640,
+  height = 16,
+}
+
+separator{
+  name = "separator_skeleton_1_1",
+  layer = 2,
+  x = 1280,
+  y = 1192,
+  width = 320,
+  height = 16,
+}
+
+separator{
+  name = "separator_skeleton_1_2",
+  layer = 2,
+  x = 1592,
+  y = 960,
+  width = 16,
+  height = 240,
+}
+
+separator{
+  layer = 2,
+  x = 1592,
+  y = 1200,
+  width = 16,
+  height = 720,
+}
+
+separator{
+  name = "separator_skeleton_3_1",
+  layer = 2,
+  x = 1280,
+  y = 232,
+  width = 320,
+  height = 16,
+}
+
+separator{
+  layer = 2,
+  x = 1600,
+  y = 232,
+  width = 640,
+  height = 16,
+}
+
+separator{
+  name = "separator_skeleton_4_1",
+  layer = 2,
+  x = 312,
+  y = 0,
+  width = 16,
+  height = 240,
+}
+
+separator{
+  name = "separator_switch_1",
+  layer = 2,
+  x = 1592,
+  y = 720,
+  width = 16,
+  height = 240,
+}
+
+separator{
+  name = "separator_switch_2",
+  layer = 2,
+  x = 1600,
+  y = 712,
+  width = 320,
+  height = 16,
+}
+
+separator{
+  name = "separator_switch_3",
+  layer = 2,
+  x = 1600,
+  y = 952,
+  width = 320,
+  height = 16,
+}
+
+separator{
+  layer = 2,
+  x = 1920,
+  y = 952,
+  width = 320,
+  height = 16,
+}
+
+enemy{
+  name = "enemy_group_5_1",
+  layer = 2,
+  x = 1392,
+  y = 1837,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "enemy_group_5_2",
+  layer = 2,
+  x = 1392,
+  y = 1789,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "enemy_group_5_3",
+  layer = 2,
+  x = 1488,
+  y = 1789,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "enemy_group_5_4",
+  layer = 2,
+  x = 1488,
+  y = 1837,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random",
 }
 

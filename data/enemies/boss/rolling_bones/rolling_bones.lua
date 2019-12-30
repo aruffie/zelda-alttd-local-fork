@@ -182,6 +182,7 @@ enemy:register_event("on_hurt", function()
 
   if enemy:get_life() <= 0 then
     movement_spike:stop()
+    spike:set_can_attack(false)
     sprite_spike:set_animation("destroyed")
     function sprite_spike:on_animation_finished(animation)
       spike:remove()

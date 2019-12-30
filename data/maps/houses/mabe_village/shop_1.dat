@@ -646,7 +646,7 @@ stream{
   x = 80,
   y = 77,
   direction = 6,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
   speed = 24,
   allow_movement = false,
 }
@@ -656,7 +656,7 @@ stream{
   x = 80,
   y = 93,
   direction = 6,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
   speed = 24,
   allow_movement = false,
 }
@@ -666,7 +666,7 @@ stream{
   x = 80,
   y = 109,
   direction = 6,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
   speed = 24,
   allow_movement = false,
 }
@@ -676,7 +676,7 @@ stream{
   x = 80,
   y = 125,
   direction = 6,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
   speed = 24,
   allow_movement = false,
 }
@@ -686,7 +686,7 @@ stream{
   x = 80,
   y = 141,
   direction = 6,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
   speed = 24,
   allow_movement = false,
 }
@@ -696,7 +696,7 @@ stream{
   x = 128,
   y = 85,
   direction = 6,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
   speed = 24,
   allow_movement = false,
 }
@@ -706,7 +706,7 @@ stream{
   x = 128,
   y = 101,
   direction = 6,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
   speed = 24,
   allow_movement = false,
 }
@@ -716,7 +716,7 @@ stream{
   x = 128,
   y = 117,
   direction = 6,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
   speed = 24,
   allow_movement = false,
 }
@@ -726,7 +726,7 @@ stream{
   x = 144,
   y = 133,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
   speed = 24,
   allow_movement = false,
 }
@@ -736,7 +736,7 @@ stream{
   x = 128,
   y = 133,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
   speed = 24,
   allow_movement = false,
 }
@@ -746,7 +746,7 @@ stream{
   x = 160,
   y = 133,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
   speed = 24,
   allow_movement = false,
 }
@@ -756,7 +756,7 @@ stream{
   x = 176,
   y = 133,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
   speed = 24,
   allow_movement = false,
 }
@@ -766,7 +766,7 @@ stream{
   x = 192,
   y = 133,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
   speed = 24,
   allow_movement = false,
 }
@@ -776,7 +776,7 @@ stream{
   x = 208,
   y = 133,
   direction = 0,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
   speed = 24,
   allow_movement = false,
 }
@@ -786,7 +786,7 @@ stream{
   x = 224,
   y = 133,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
   speed = 24,
   allow_movement = false,
 }
@@ -796,7 +796,7 @@ stream{
   x = 224,
   y = 117,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
   speed = 24,
   allow_movement = false,
 }
@@ -806,7 +806,7 @@ stream{
   x = 224,
   y = 101,
   direction = 2,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
   speed = 24,
   allow_movement = false,
 }
@@ -816,7 +816,7 @@ stream{
   x = 224,
   y = 85,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
   speed = 24,
   allow_movement = false,
 }
@@ -826,7 +826,7 @@ stream{
   x = 208,
   y = 85,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
   speed = 24,
   allow_movement = false,
 }
@@ -836,7 +836,7 @@ stream{
   x = 192,
   y = 85,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
   speed = 24,
   allow_movement = false,
 }
@@ -846,7 +846,7 @@ stream{
   x = 176,
   y = 85,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
   speed = 24,
   allow_movement = false,
 }
@@ -856,7 +856,7 @@ stream{
   x = 160,
   y = 85,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
   speed = 24,
   allow_movement = false,
 }
@@ -866,7 +866,7 @@ stream{
   x = 144,
   y = 85,
   direction = 4,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
   speed = 24,
   allow_movement = false,
 }
@@ -930,7 +930,7 @@ stream{
   x = 80,
   y = 149,
   direction = 6,
-  sprite = "streams/stream_d3",
+  sprite = "entities/streams/stream_d3",
   speed = 24,
   allow_movement = false,
 }

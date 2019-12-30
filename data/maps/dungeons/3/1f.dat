@@ -10577,7 +10577,13 @@ chest{
   layer = 0,
   x = 1192,
   y = 1293,
-  treasure_name = "zol_green",
+  properties = {
+    {
+      key = "breed",
+      value = "zol_green",
+    },
+  },
+  treasure_name = "enemy_ambush",
   sprite = "entities/chests/chest_small",
 }
 

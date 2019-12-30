@@ -12,7 +12,7 @@ local hero = map:get_hero()
 local jump_count, current_max_jump
 local shadow
 
--- Configuration variables
+-- Configuration variables.
 local walking_speed = 4
 local jumping_speed = 64
 local jumping_height = 12
@@ -41,13 +41,13 @@ function enemy:start_jump_attack()
       end)
     end
   end)
-  sprite:set_animation("jump")
+  sprite:set_animation("jumping")
 end
 
 -- Make the enemy appear.
 function enemy:appear()
 
-  shadow:set_visible()
+  enemy:set_visible()
   sprite:set_animation("appearing", function()
     sprite:set_animation("shaking")
     enemy:set_can_attack(true)
@@ -62,9 +62,8 @@ end
 -- Make the enemy disappear.
 function enemy:disappear()
 
-  shadow:set_visible(false)
   sprite:set_animation("disappearing", function()
-    sprite:set_animation("invisible")
+    enemy:set_visible(false)
     enemy:set_can_attack(false)
     enemy:wait()
   end)
@@ -100,7 +99,6 @@ enemy:register_event("on_restarted", function(enemy)
   -- States.
   enemy:set_damage(2)
   enemy:set_can_attack(false)
-  sprite:set_animation("invisible")
-  shadow:set_visible(false)
+  enemy:set_visible(false)
   enemy:wait()
 end)

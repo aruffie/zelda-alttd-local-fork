@@ -63,7 +63,7 @@ function enemy:start_jump_attack(offensive)
   enemy:start_jumping(jumping_duration, jumping_height, angle, jumping_speed, function()
     enemy:restart()
   end)
-  sprite:set_animation("jump")
+  sprite:set_animation("jumping")
 end
 
 -- Let go the hero.

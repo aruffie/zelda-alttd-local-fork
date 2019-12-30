@@ -19,7 +19,7 @@ local walking_speed = 32
 local walking_minimum_distance = 16
 local walking_maximum_distance = 96
 local charging_speed = 88
-local charging_max_distance = 100
+local charging_maximum_distance = 100
 local alignement_thickness = 16
 
 local walking_pause_duration = 500
@@ -45,7 +45,7 @@ function enemy:start_charging()
   enemy:stop_movement()
   local movement = sol.movement.create("straight")
   movement:set_speed(charging_speed)
-  movement:set_max_distance(charging_max_distance)
+  movement:set_max_distance(charging_maximum_distance)
   movement:set_angle(enemy:get_direction4_to(hero) * quarter)
   movement:set_smooth(false)
   movement:start(enemy)
