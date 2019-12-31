@@ -6,7 +6,7 @@
 -- Methods : enemy:is_aligned(entity, thickness, [sprite])
 --           enemy:is_near(entity, triggering_distance, [sprite])
 --           enemy:is_leashed_by(entity)
---           enemy:is_over_ground(ground)
+--           enemy:is_over_grounds(grounds)
 --           enemy:is_watched([sprite, [fully_visible]])
 --           enemy:get_angle_from_sprite(sprite, entity)
 --           enemy:get_central_symmetry_position(x, y)
@@ -95,16 +95,27 @@ function common_actions.learn(enemy)
     return leashing_timers[entity] ~= nil
   end
 
-  -- Return true if the four corners of the enemy are over the given ground.
-  function enemy:is_over_ground(ground)
+  -- Return true if the four corners of the enemy are over one of the given ground, not necessarily the same.
+  function enemy:is_over_grounds(grounds)
+
     local x, y, layer = enemy:get_position()
     local width, height = enemy:get_size()
     local origin_x, origin_y = enemy:get_origin()
     x, y = x - origin_x, y - origin_y
-    return string.find(map:get_ground(x, y, layer), ground)
-        and string.find(map:get_ground(x + width, y, layer), ground)
-        and string.find(map:get_ground(x, y + height, layer), ground)
-        and string.find(map:get_ground(x + width, y + height, layer), ground)
+
+    local function is_position_over_grounds(x, y)
+      for _, ground in pairs(grounds) do
+        if string.find(map:get_ground(x, y, layer), ground) then
+          return true
+        end
+      end
+      return false
+    end
+
+    return is_position_over_grounds(x, y)
+        and is_position_over_grounds(x + width, y)
+        and is_position_over_grounds(x, y + height)
+        and is_position_over_grounds(x + width, y + height)
   end
 
   -- Return true if the enemy or its given sprite is partially visible at the camera, or fully visible if requested.
@@ -462,6 +473,8 @@ function common_actions.learn(enemy)
           call_event(movement.on_position_changed)
         else
           call_event(movement.on_obstacle_reached)
+          timers[axis] = nil
+          return false
         end
 
         -- Replace axis acceleration by negative deceleration if beyond axis target.
@@ -484,7 +497,7 @@ function common_actions.learn(enemy)
           return 1000.0 / axis_current_speed
         end
 
-        -- Call on_finished() event if both axis timers are finished.
+        -- Call on_finished() event when the last axis timers finished normally.
         timers[axis] = nil
         if not timers[axis % 2 + 1] then
           call_event(movement.on_finished)
