@@ -154,12 +154,12 @@ function door_manager:open_when_pot_break(map, door_prefix)
   local hero = map:get_hero()
   if detect_entity ~= nil then
     detect_entity:add_collision_test("touching", function(entity_source, entity_dest)
-        if hero:get_state() == 'free' and entity_dest:get_type() == "carried_object" then
-          detect_entity:remove()
-          map:open_doors(door_prefix)
-          audio_manager:play_sound("misc/secret1")
-        end
-      end)
+      if hero:get_state() == 'free' and entity_dest:get_type() == "carried_object" then
+        detect_entity:remove()
+        map:open_doors(door_prefix)
+        audio_manager:play_sound("misc/secret1")
+      end
+    end)
   end
 
 end

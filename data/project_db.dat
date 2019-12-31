@@ -559,6 +559,10 @@ sprite{ id = "entities/statues/pillar", description = "Pillar base" }
 sprite{ id = "entities/statues/statue_darknut", description = "Statue darknut" }
 sprite{ id = "entities/statues/statue_koopa", description = "Statue koopa" }
 sprite{ id = "entities/statues/statue_pig", description = "Statue pig" }
+sprite{ id = "entities/streams/stream_d1", description = "Stream 1" }
+sprite{ id = "entities/streams/stream_d2", description = "Stream 2" }
+sprite{ id = "entities/streams/stream_d3", description = "Stream 3" }
+sprite{ id = "entities/streams/stream_d4", description = "Stream 4" }
 sprite{ id = "entities/streams/water_stream", description = "Water stream" }
 sprite{ id = "entities/switchs/lever", description = "Lever" }
 sprite{ id = "entities/switchs/switch", description = "Switch" }
