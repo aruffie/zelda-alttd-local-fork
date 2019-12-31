@@ -14,7 +14,7 @@ local game = item:get_game()
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
 
--- Default configuration variables.
+-- Configuration variables default value.
 local breed = "zol_green"
 local waiting_duration = 1000
 local jumping_duration = 1000
@@ -37,7 +37,7 @@ function item:on_obtaining()
   for chest in map:get_entities_by_type("chest") do
     if chest:overlaps(x, y) then
       x, y, layer = chest:get_position()
-      breed = chest:get_property("breed")
+      breed = chest:get_property("breed") or breed
       jumping_angle = chest:get_property("jumping_angle") or jumping_angle
     end
   end
@@ -70,7 +70,7 @@ function item:on_obtaining()
   end)
 
   -- Skip the brandish animation when obtaining an enemy in a chest.
-  map:get_hero():unfreeze()
+  hero:unfreeze()
 
   -- Sound
   audio_manager:play_sound("misc/error")

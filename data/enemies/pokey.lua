@@ -81,13 +81,11 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_origin(8, 13)
   enemy:start_shadow()
 
-  -- Create sprites.
-  head_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+  -- Create sprites in right z-order.
   for i = 1, life_point - 1 do
     body_sprites[i] = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/body")
-    enemy:bring_sprite_to_front(body_sprites[i])
   end
-  enemy:bring_sprite_to_front(head_sprite)
+  head_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 end)
 
 -- Restart settings.

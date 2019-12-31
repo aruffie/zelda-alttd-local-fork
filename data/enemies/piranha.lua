@@ -32,7 +32,7 @@ function enemy:start_walking(direction2)
   -- Also change the direction if the front ground is not water anymore.
   function movement:on_position_changed()
     local x, y, layer = enemy:get_position()
-    if not enemy:is_over_ground("water") then
+    if not enemy:is_over_grounds({"shallow_water", "deep_water"}) then
       movement:stop()
       enemy:start_walking(direction2 % 2 + 1)
     end
