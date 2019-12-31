@@ -20,7 +20,7 @@ local walking_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
 local walking_speed = 32
 local walking_minimum_distance = 16
 local walking_maximum_distance = 32
-local charging_speed = 160
+local charging_speed = 128
 local charging_maximum_distance = 100
 local charging_probability = 0.5
 local before_charging_delay  = 1000
@@ -158,6 +158,8 @@ enemy:register_event("on_restarted", function(enemy)
   if is_throw_upcoming then
     enemy:throw_bomb()
   else
-    enemy:start_walking()
+    sol.timer.start(enemy, waiting_duration, function()
+      enemy:start_walking()
+    end)
   end
 end)

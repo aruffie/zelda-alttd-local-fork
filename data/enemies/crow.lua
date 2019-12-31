@@ -15,7 +15,7 @@ local is_awake = false
 local turning_time = 0
 
 -- Configuration variables
-local is_deeply_sleeping = enemy:get_property("is_deeply_sleeping")
+local is_deeply_sleeping = enemy:get_property("is_deeply_sleeping") == "true"
 local after_awake_delay = 1000
 local take_off_duration = 1000
 local targeting_hero_duration = 1000
