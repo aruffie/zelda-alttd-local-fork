@@ -36,7 +36,7 @@ local hero_throwing_height = 60
 local hero_throwing_speed = 240
 
 -- Hold the given entity in the given hand and wait for the actual throw.
--- TODO Remove
+-- TODO Merge
 local function start_preparing_throw(right_hand, before_restart_delay, on_throwing)
 
   is_throw_upcoming = false

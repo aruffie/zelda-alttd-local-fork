@@ -11,27 +11,66 @@ local hero = map:get_hero()
 local camera = map:get_camera()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
+local circle = math.pi * 2.0
 local is_knocked_off = false
 
 -- Configuration variables
 local waiting_duration = 2000
 local second_thow_delay = 200
+local bomb_probability = 0.1
 local falling_duration = 600
 local falling_height = 16
 local falling_angle = 3 * quarter - 0.4
 local falling_speed = 100
 local running_speed = 100
 
-local projectile_initial_speed = 150
+local throwing_speed = 150
+local throwing_duration = 600
+local throwing_height = 12
+local bounce_duration = 600
+local coconut_bounce_number = 4
+local coconut_bounce_height = 12
+local coconut_bounce_minimum_speed = 40
+local coconut_bounce_maximum_speed = 80
+local bomb_bounce_number = 2
+local bomb_bounce_height = 4
+local bomb_bounce_speed = 40
 
--- Start throwing animation and create a coconut enemy when finished.
-function enemy:start_throwing_coconut(direction, angle, on_throwed_callback)
+-- Start a new bounce or call on_bounce_finished() if maximum bounce reached.
+local function bounce(entity, maximum_bounce, height, angle, minimum_speed, maximum_speed, on_bounce_finished)
+
+  entity.bounce_count = (entity.bounce_count or 0) + 1
+  if entity.bounce_count < maximum_bounce then
+    local movement = entity:start_jumping(bounce_duration, height, angle or math.random() * circle, math.random(minimum_speed, maximum_speed), function()
+      bounce(entity, maximum_bounce, height, angle, minimum_speed, maximum_speed, on_bounce_finished)
+    end)
+    movement:set_ignore_obstacles(true)
+  else
+    if on_bounce_finished then
+      on_bounce_finished()
+    end
+  end
+end
+
+-- Start throwing animation and create a coconut or bomb enemy when finished.
+function enemy:start_throwing_projectile(direction, angle, on_throwed_callback)
 
   sprite:set_direction(direction)
   sprite:set_animation("throwing", function()
-    local projectile_breed = math.random(10) ~= 1 and "coconut" or "bomb" -- Throw a bomb once in a while.
+    local projectile_breed = math.random() > bomb_probability and "coconut" or "bomb" -- Throw a bomb once in a while.
     local projectile = enemy:create_enemy({breed = "projectiles/" .. projectile_breed})
-    projectile:go(nil, nil, angle, projectile_initial_speed)
+    local movement = enemy:start_throwing(projectile, throwing_duration, 0, throwing_height, angle, throwing_speed, function()
+
+      -- Bounce on throw finished.
+      if projectile_breed == "coconut" then
+        bounce(projectile, coconut_bounce_number, coconut_bounce_height, nil, coconut_bounce_minimum_speed, coconut_bounce_maximum_speed, function()
+          projectile:destroy()
+        end)
+      else
+        bounce(projectile, bomb_bounce_number, bomb_bounce_height, angle, bomb_bounce_speed, bomb_bounce_speed)
+      end
+    end)
+    movement:set_ignore_obstacles(true)
 
     sprite:set_animation("walking")
     if on_throwed_callback then
@@ -48,10 +87,10 @@ end
 -- Throw two coconuts.
 function enemy:attack()
  
-  enemy:start_throwing_coconut(0, 3.0 * quarter + 0.5, function()
+  enemy:start_throwing_projectile(0, 3.0 * quarter + 0.5, function()
     attacking_timer = sol.timer.start(enemy, second_thow_delay, function()
       if not is_knocked_off then
-        enemy:start_throwing_coconut(2, 3.0 * quarter - 0.5, function()
+        enemy:start_throwing_projectile(2, 3.0 * quarter - 0.5, function()
           enemy:wait()
         end)
       end

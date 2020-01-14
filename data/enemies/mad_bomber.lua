@@ -38,8 +38,9 @@ function enemy:appear()
     -- Throw a bomb after some time and disappear.
     attacking_timer = sol.timer.start(enemy, before_throwing_bomb_delay, function()
       local bomb = enemy:create_enemy({breed = "projectiles/bomb"})
-      bomb:go(bomb_throw_duration, bomb_throw_height, enemy:get_angle(hero), bomb_throw_speed)
-      bomb:explode_at_bounce()
+      enemy:start_throwing(bomb, bomb_throw_duration, 0, bomb_throw_height, enemy:get_angle(hero), bomb_throw_speed, function()
+        bomb:explode()
+      end)
 
       sprite:set_animation("disappearing", function()
         enemy:restart()
