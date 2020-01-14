@@ -22,6 +22,7 @@
 --           enemy:start_attracting(entity, speed, [moving_condition_callback])
 --           enemy:stop_attracting()
 --           enemy:start_impulsion(x, y, speed, acceleration, deceleration)
+--           enemy:start_throwing(entity, duration, start_height, max_height, [angle, speed, [on_finished_callback]])
 --           enemy:start_welding(entity, [x_offset, [y_offset]])
 --           enemy:start_leashed_by(entity, maximum_distance)
 --           enemy:stop_leashed_by(entity)
@@ -276,20 +277,16 @@ function common_actions.learn(enemy)
 
     local movement
 
-    -- Update the sprite vertical offset at each frame.
-    local function update_sprite_height(elapsed_time)
+    -- Schedule an update of the sprite vertical offset by frame.
+    local elapsed_time = 0
+    sol.timer.start(enemy, 10, function()
+
+      elapsed_time = elapsed_time + 10
       if elapsed_time < duration then
         for _, sprite in enemy:get_sprites() do
           sprite:set_xy(0, -math.sqrt(math.sin(elapsed_time / duration * math.pi)) * height)
         end
-        sol.timer.start(enemy, 10, function()
-          if game:is_suspended() then
-            return true
-          end
-          if enemy:exists() and enemy:is_enabled() then
-            update_sprite_height(elapsed_time + 10)
-          end
-        end)
+        return true
       else
         for _, sprite in enemy:get_sprites() do
           sprite:set_xy(0, 0)
@@ -303,8 +300,8 @@ function common_actions.learn(enemy)
           on_finished_callback()
         end
       end
-    end
-    update_sprite_height(0)
+      return false
+    end)
 
     -- Move the enemy on-floor if requested.
     if angle then
@@ -403,14 +400,9 @@ function common_actions.learn(enemy)
         end
       end
 
-      -- Start the next move timer.
+      -- Start the next pixel move timer.
       attracting_timers[entity][axis] = sol.timer.start(enemy, axis_move_delay, function()
-        if game:is_suspended() then
-          return 10
-        end
-        if enemy:exists() and enemy:is_enabled() then
-          attract_on_axis(axis)
-        end
+        attract_on_axis(axis)
       end)
     end
 
@@ -458,8 +450,8 @@ function common_actions.learn(enemy)
       local axis_maximum_speed = math.abs(trigonometric_functions[axis](angle) * speed)
       local axis_move = {[axis % 2 + 1] = 0, [axis] = math.max(-1, math.min(1, target[axis] - start[axis]))}
 
-      -- Avoid too low timers.
-      if axis_current_speed <= 0.5 then
+      -- Avoid too low speed (less than 1px/s).
+      if axis_current_speed < 1 then
         accelerations[axis] = 0
         return
       end
@@ -492,8 +484,8 @@ function common_actions.learn(enemy)
         -- Update speed between 0 and maximum speed (px/s) depending on acceleration.
         axis_current_speed = math.min(math.sqrt(math.max(0, math.pow(axis_current_speed, 2.0) + 2.0 * accelerations[axis])), axis_maximum_speed)     
 
-        -- Schedule the next pixel move and avoid too low timers.
-        if axis_current_speed > 0.5 then
+        -- Schedule the next pixel move and avoid too low timers (less than 1px/s).
+        if axis_current_speed >= 1 then
           return 1000.0 / axis_current_speed
         end
 
@@ -522,6 +514,54 @@ function common_actions.learn(enemy)
     end
 
     return movement
+  end
+
+  -- Throw the given entity.
+  function enemy:start_throwing(entity, duration, start_height, max_height, angle, speed, on_finished_callback)
+
+    local movement
+
+    -- Consider the throw as an already-started sinus function, depending on start_height.
+    local elapsed_time = duration / (1 - math.asin(math.pow(start_height / max_height, 2)) / math.pi) - duration
+    duration = duration + elapsed_time
+
+    -- Schedule an update of the sprite vertical offset by frame.
+    sol.timer.start(entity, 10, function()
+
+      elapsed_time = elapsed_time + 10
+      if elapsed_time < duration then
+        for sprite_name, sprite in entity:get_sprites() do
+          if sprite_name ~= "shadow_override" then -- Workaround : Don't change shadow height when the sprite is part of the entity.
+            sprite:set_xy(0, -math.sqrt(math.sin(elapsed_time / duration * math.pi)) * max_height)
+          end
+        end
+        return true
+      else
+        for _, sprite in entity:get_sprites() do
+          sprite:set_xy(0, 0)
+        end
+        if movement and entity:get_movement() == movement then
+          movement:stop()
+        end
+
+        -- Call events once jump finished.
+        if on_finished_callback then
+          on_finished_callback()
+        end
+      end
+      return false
+    end)
+
+    -- Move the entity on-floor if requested.
+    if angle then
+      movement = sol.movement.create("straight")
+      movement:set_speed(speed)
+      movement:set_angle(angle)
+      movement:set_smooth(false)
+      movement:start(entity)
+    
+      return movement
+    end
   end
 
   -- Make the entity welded to the enemy at the given offset position, and propagate main events and methods.
@@ -555,10 +595,8 @@ function common_actions.learn(enemy)
   -- Set a maximum distance between the enemy and an entity, else replace the enemy near it.
   function enemy:start_leashed_by(entity, maximum_distance)
 
-    leashing_timers[entity] = nil
-
-    local function leashing(entity, maximum_distance)
-
+    leashing_timers[entity] = sol.timer.start(enemy, 10, function()
+      
       if enemy:get_distance(entity) > maximum_distance then
         local enemy_x, enemy_y, layer = enemy:get_position()
         local hero_x, hero_y, _ = hero:get_position()
@@ -574,16 +612,8 @@ function common_actions.learn(enemy)
         end
       end
 
-      leashing_timers[entity] = sol.timer.start(enemy, 10, function()
-        if game:is_suspended() then
-          return 10
-        end
-        if enemy:exists() and enemy:is_enabled() then
-          leashing(entity, maximum_distance)
-        end
-      end)
-    end
-    leashing(entity, maximum_distance)
+      return true
+    end)
   end
 
   -- Stop the leashing attraction on the given entity

@@ -24,8 +24,9 @@ local runaway_triggering_distance = 32
 local runaway_speed = 200
 local runaway_distance = 32
 
-local bomb_throw_duration = 600
-local bomb_throw_speed = 48
+local bomb_throw_duration = 500
+local bomb_throw_height = 20
+local bomb_throw_speed = 80
 local firing_duration = 500
 
 -- Start the enemy movement.
@@ -43,26 +44,19 @@ function enemy:start_attacking()
     attacking_timer:stop()
   end
 
+  -- Throw a bomb periodically.
   attacking_timer = sol.timer.start(enemy, math.random(throwing_bomb_minimum_delay, throwing_bomb_maximum_delay), function()
+
     local bomb = enemy:create_enemy({breed = "projectiles/bomb"})
-
-    -- Hide the begginning of the jump and make it visible only at the top.
-    bomb:show(false)
-    sol.timer.start(bomb, bomb_throw_duration / 3.0, function()
-      bomb:set_position(enemy:get_position())
-      bomb:show(true)
-      bomb:get_movement():set_speed(bomb_throw_speed)
-
-      sprite:set_animation("firing")
-      sol.timer.start(enemy, firing_duration, function()
-        sprite:set_animation("walking")
-      end)
+    local angle = enemy:get_angle_from_sprite(sprite, hero)
+    enemy:start_throwing(bomb, bomb_throw_duration, flying_height, bomb_throw_height, angle, bomb_throw_speed, function()
+      bomb:explode()
     end)
 
-    -- Throw the bomb.
-    local angle = enemy:get_angle_from_sprite(sprite, hero)
-    bomb:go(bomb_throw_duration, flying_height, angle, 0)
-    bomb:explode_at_bounce()
+    sprite:set_animation("firing")
+    sol.timer.start(enemy, firing_duration, function()
+      sprite:set_animation("walking")
+    end)
 
     -- Call an enemy:on_enemy_created(bomb) event.
     if enemy.on_enemy_created then

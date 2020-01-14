@@ -106,6 +106,7 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(2)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)
+  shadow = enemy:start_shadow()
 end)
 
 -- Restart settings.
