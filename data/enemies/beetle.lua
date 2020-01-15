@@ -53,7 +53,7 @@ enemy:register_event("on_created", function(enemy)
 
   -- Set the requested color skin to the enemy or a random one.
   local skin = skins[color or get_random_color()]
-  spite = enemy:create_sprite(skin)
+  sprite = enemy:create_sprite(skin)
 end)
 
 -- Restart settings.

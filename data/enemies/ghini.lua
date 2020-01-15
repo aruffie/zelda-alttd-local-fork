@@ -14,7 +14,7 @@ local quarter = math.pi * 0.5
 local circle = math.pi * 2.0
 
 -- Configuration variables
-local is_sleeping = enemy:get_property("is_sleeping")
+local is_sleeping = enemy:get_property("is_sleeping") == "true"
 local after_awake_delay = 1000
 local take_off_duration = 1000
 local flying_speed = 80
