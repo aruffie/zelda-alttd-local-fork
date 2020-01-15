@@ -10,7 +10,7 @@ function small_keys_builder:new(game, config)
 
   small_keys.visible = false
   small_keys.surface = sol.surface.create(44, 12)
-  small_keys.icon_img = sol.surface.create("hud/small_key_icon.png")
+  small_keys.icon_img = sol.surface.create("hud/icons/small_key_icon.png")
   small_keys.digits_text = sol.text_surface.create{
     font = "white_digits",
     horizontal_alignment = "left",

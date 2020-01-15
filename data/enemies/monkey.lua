@@ -37,12 +37,12 @@ local bomb_bounce_height = 4
 local bomb_bounce_speed = 40
 
 -- Start a new bounce or call on_bounce_finished() if maximum bounce reached.
-local function bounce(entity, maximum_bounce, height, angle, minimum_speed, maximum_speed, on_bounce_finished)
+local function bounce(enemy, maximum_bounce, height, angle, minimum_speed, maximum_speed, on_bounce_finished)
 
-  entity.bounce_count = (entity.bounce_count or 0) + 1
-  if entity.bounce_count < maximum_bounce then
-    local movement = entity:start_jumping(bounce_duration, height, angle or math.random() * circle, math.random(minimum_speed, maximum_speed), function()
-      bounce(entity, maximum_bounce, height, angle, minimum_speed, maximum_speed, on_bounce_finished)
+  enemy.bounce_count = (enemy.bounce_count or 0) + 1
+  if enemy.bounce_count < maximum_bounce then
+    local movement = enemy:start_jumping(bounce_duration, height, angle or math.random() * circle, math.random(minimum_speed, maximum_speed), function()
+      bounce(enemy, maximum_bounce, height, angle, minimum_speed, maximum_speed, on_bounce_finished)
     end)
     movement:set_ignore_obstacles(true)
   else
