@@ -14,15 +14,15 @@
 --           enemy:get_obstacles_normal_angle()
 --           enemy:get_obstacles_bounce_angle([angle])
 --
---           enemy:start_straight_walking(angle, speed, [distance, [ignore_obstacles, [on_stopped_callback]]])
---           enemy:start_target_walking(entity, speed, [ignore_obstacles])
+--           enemy:start_straight_walking(angle, speed, [distance, [on_stopped_callback]])
+--           enemy:start_target_walking(entity, speed)
 --           enemy:start_jumping(duration, height, [angle, speed, [on_finished_callback]])
 --           enemy:start_flying(take_off_duration, height, [on_finished_callback])
 --           enemy:stop_flying(landing_duration, [on_finished_callback])
 --           enemy:start_attracting(entity, speed, [moving_condition_callback])
 --           enemy:stop_attracting()
 --           enemy:start_impulsion(x, y, speed, acceleration, deceleration)
---           enemy:start_throwing(entity, duration, start_height, max_height, [angle, speed, [on_finished_callback]])
+--           enemy:start_throwing(entity, duration, start_height, maximum_height, [angle, speed, [on_finished_callback]])
 --           enemy:start_welding(entity, [x_offset, [y_offset]])
 --           enemy:start_leashed_by(entity, maximum_distance)
 --           enemy:stop_leashed_by(entity)
@@ -517,12 +517,12 @@ function common_actions.learn(enemy)
   end
 
   -- Throw the given entity.
-  function enemy:start_throwing(entity, duration, start_height, max_height, angle, speed, on_finished_callback)
+  function enemy:start_throwing(entity, duration, start_height, maximum_height, angle, speed, on_finished_callback)
 
     local movement
 
     -- Consider the throw as an already-started sinus function, depending on start_height.
-    local elapsed_time = duration / (1 - math.asin(math.pow(start_height / max_height, 2)) / math.pi) - duration
+    local elapsed_time = duration / (1 - math.asin(math.pow(start_height / maximum_height, 2)) / math.pi) - duration
     duration = duration + elapsed_time
 
     -- Schedule an update of the sprite vertical offset by frame.
@@ -532,7 +532,7 @@ function common_actions.learn(enemy)
       if elapsed_time < duration then
         for sprite_name, sprite in entity:get_sprites() do
           if sprite_name ~= "shadow_override" then -- Workaround : Don't change shadow height when the sprite is part of the entity.
-            sprite:set_xy(0, -math.sqrt(math.sin(elapsed_time / duration * math.pi)) * max_height)
+            sprite:set_xy(0, -math.sqrt(math.sin(elapsed_time / duration * math.pi)) * maximum_height)
           end
         end
         return true
