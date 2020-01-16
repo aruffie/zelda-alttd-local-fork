@@ -44,7 +44,6 @@ enemy:register_event("on_custom_attack_received", function(enemy, attack)
     audio_manager:play_sound("hero/shock")
     hero:set_animation("electrocute")
     effect_model.start_effect(surface, game, 'in', false)
-    local camera = map:get_camera()
     local shake_config = {
         count = 32,
         amplitude = 4,
