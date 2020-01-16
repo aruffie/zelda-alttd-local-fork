@@ -9,19 +9,20 @@ local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
 local camera = map:get_camera()
-local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+local sprite
 local quarter = math.pi * 0.5
 local is_bomb_upcoming = false
 local is_hero_catchable = false
 local holded_bomb = nil
 
 -- Configuration variables
-local waiting_duration = 500
+local skin = enemy:get_property("skin")
+local waiting_duration = 400
 local walking_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
-local walking_speed = 32
-local walking_minimum_distance = 16
-local walking_maximum_distance = 32
-local charging_speed = 128
+local walking_speed = 40
+local walking_minimum_distance = 32
+local walking_maximum_distance = 46
+local charging_speed = 160
 local charging_maximum_distance = 100
 local charging_probability = 0.25
 local frenzy_duration  = 1000
@@ -36,6 +37,7 @@ local hero_holding_duration = 800
 local hero_throwing_duration = 800
 local hero_throwing_height = 60
 local hero_throwing_speed = 240
+local hero_stunned_duration = 1000
 
 -- Start the enemy walking movement.
 function enemy:start_walking()
@@ -145,9 +147,13 @@ function enemy:throw_hero()
     local camera_width, camera_height = camera:get_size()
     local angle = sol.main.get_angle(x + hand_offset_x, y + right_hand_offset_y, camera_x + camera_width / 2.0, camera_y + camera_height / 2.0)
     local movement = enemy:start_throwing(hero, hero_throwing_duration, -right_hand_offset_y, hero_throwing_height, angle, hero_throwing_speed, function()
-      hero:start_hurt(4)
-      hero:unfreeze()
+
+      -- Stun the hero for some time when throw finished.
+      sol.timer.start(enemy, hero_stunned_duration, function()
+        hero:unfreeze()
+      end)
     end)
+    game:remove_life(4)
 
     -- Impact animation on hitting an obstacle.
     function movement:on_obstacle_reached()
@@ -188,6 +194,9 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_size(64, 40) -- Workaround : Adapt the size to never have a part of enemy sprite under ceiling nor holded hero over a wall.
   enemy:set_origin(32, 37)
   enemy:set_hurt_style("boss")
+
+  -- Set the requested skin to the enemy or the default one.
+  sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. (skin and "/" .. skin or ""))
 end)
 
 -- Restart settings.

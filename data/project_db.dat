@@ -236,8 +236,8 @@ sprite{ id = "enemies/boss/gohma_red", description = "Gohma red" }
 sprite{ id = "enemies/boss/gohma_red_eye", description = "Gohma red eye" }
 sprite{ id = "enemies/boss/grim_creeper", description = "Grim creeper" }
 sprite{ id = "enemies/boss/hinox_master", description = "Hinox master" }
-sprite{ id = "enemies/boss/hinox_master_blue", description = "Hinox master blue" }
-sprite{ id = "enemies/boss/hinox_master_red", description = "Hinox master red" }
+sprite{ id = "enemies/boss/hinox_master/blue", description = "Hinox master blue" }
+sprite{ id = "enemies/boss/hinox_master/red", description = "Hinox master red" }
 sprite{ id = "enemies/boss/hot_head", description = "Hot head" }
 sprite{ id = "enemies/boss/hot_head_form_b", description = "Hot head form b" }
 sprite{ id = "enemies/boss/hot_head_form_c", description = "Hot head form c" }
@@ -251,8 +251,8 @@ sprite{ id = "enemies/boss/moldorm/body_1", description = "Body 1" }
 sprite{ id = "enemies/boss/moldorm/body_2", description = "Body 2" }
 sprite{ id = "enemies/boss/moldorm/body_3", description = "Body 3" }
 sprite{ id = "enemies/boss/moldorm/tail", description = "Moldorm Tail" }
-sprite{ id = "enemies/boss/rolling_bones/rolling_bones", description = "Rolling bones" }
-sprite{ id = "enemies/boss/rolling_bones/rolling_bones_spike", description = "Rolling bones Spike" }
+sprite{ id = "enemies/boss/rolling_bones", description = "Rolling bones" }
+sprite{ id = "enemies/boss/rolling_bones/spike", description = "Rolling bones Spike" }
 sprite{ id = "enemies/boss/slime_eel", description = "Slime eel" }
 sprite{ id = "enemies/boss/slime_eye", description = "Slime eye" }
 sprite{ id = "enemies/boss/smasher", description = "Smasher" }
@@ -551,6 +551,7 @@ sprite{ id = "entities/orb_monster_orb_red", description = "Orb monster orb red"
 sprite{ id = "entities/outside_door", description = "Outside closed door" }
 sprite{ id = "entities/shadow", description = "Shadow" }
 sprite{ id = "entities/shadows/ball", description = "Ball" }
+sprite{ id = "entities/shadows/giant_shadow", description = "Giant shadow" }
 sprite{ id = "entities/shadows/owl", description = "Owl" }
 sprite{ id = "entities/shadows/pickable_flying", description = "Pickable flying" }
 sprite{ id = "entities/shadows/shadow", description = "Shadow" }
@@ -1310,8 +1311,8 @@ enemy{ id = "boss/lanmola", description = "Lanmola" }
 enemy{ id = "boss/master_stalfos/master_stalfos", description = "Master stalfos" }
 enemy{ id = "boss/moblin_chief", description = "Moblin chief" }
 enemy{ id = "boss/moldorm", description = "Moldorm" }
-enemy{ id = "boss/rolling_bones/rolling_bones", description = "Rolling bones" }
-enemy{ id = "boss/rolling_bones/rolling_bones_spike", description = "Rolling bones spike" }
+enemy{ id = "boss/projectile/spike", description = "Rolling bones spike" }
+enemy{ id = "boss/rolling_bones", description = "Rolling bones" }
 enemy{ id = "boss/slim_eel", description = "Slim Eel" }
 enemy{ id = "boss/slime_eye", description = "Slime eye" }
 enemy{ id = "boss/smasher", description = "Smasher" }
@@ -1524,15 +1525,14 @@ file{ path = "enemies/boss/giant_buzz_blob.lua", license = "GPL v3" }
 file{ path = "enemies/boss/gohma_blue.lua", license = "GPL v3" }
 file{ path = "enemies/boss/gohma_red.lua", license = "GPL v3" }
 file{ path = "enemies/boss/grim_creeper.lua", license = "GPL v3" }
-file{ path = "enemies/boss/hinox_master.lua", license = "GPL v3" }
+file{ path = "enemies/boss/hinox_master.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/hot_head.lua", license = "GPL v3" }
 file{ path = "enemies/boss/lanmola.lua", license = "GPL v3" }
 file{ path = "enemies/boss/master_stalfos/master_stalfos.lua", license = "GPL v3" }
 file{ path = "enemies/boss/moblin_chief.lua", license = "GPL v3" }
 file{ path = "enemies/boss/moldorm.lua", author = "Vlag", license = "GPL v3" }
-file{ path = "enemies/boss/rolling_bones", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "enemies/boss/rolling_bones/rolling_bones.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "enemies/boss/rolling_bones/rolling_bones_spike.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "enemies/boss/projectile/spike.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/boss/rolling_bones.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/slim_eel.lua", license = "GPL v3" }
 file{ path = "enemies/boss/slime_eye.lua", license = "GPL v3" }
 file{ path = "enemies/boss/smasher.lua", license = "GPL v3" }
