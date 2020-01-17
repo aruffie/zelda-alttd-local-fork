@@ -27793,6 +27793,12 @@ enemy{
   layer = 0,
   x = 800,
   y = 1325,
+  properties = {
+    {
+      key = "skin",
+      value = "red",
+    },
+  },
   direction = 0,
   breed = "boss/hinox_master",
   savegame_variable = "dungeon_8_hinox_master",
@@ -27993,19 +27999,11 @@ chest{
 enemy{
   name = "rolling_bones",
   layer = 0,
-  x = 88,
-  y = 1573,
+  x = 64,
+  y = 1565,
   direction = 0,
-  breed = "boss/rolling_bones/rolling_bones",
+  breed = "boss/rolling_bones",
   treasure_name = "fairy",
-}
-
-enemy{
-  layer = 0,
-  x = 120,
-  y = 1485,
-  direction = 0,
-  breed = "boss/rolling_bones/rolling_bones_spike",
 }
 
 door{

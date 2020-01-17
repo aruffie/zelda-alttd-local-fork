@@ -18,7 +18,7 @@ local spike
 
 -- Configuration variables
 local waiting_duration = 500
-local spike_speed = 160
+local spike_speed = 150
 local spike_slow_speed = 60
 local jumping_speed = 120
 local jumping_speed_increase_by_hp = 5
@@ -37,10 +37,9 @@ local function get_further_direction(direction4)
 end
 
 -- Start the enemy jumping movement to the opposite side of the room.
-function enemy:start_moving(angle)
+function enemy:start_moving()
 
-  moving_angle = angle
-  local jumping_angle = sol.main.get_angle(0, 0, math.cos(angle), -math.sin(get_further_direction(1) * quarter))
+  local jumping_angle = sol.main.get_angle(0, 0, math.cos(moving_angle), -math.sin(get_further_direction(1) * quarter))
   local jumping_final_speed = jumping_speed + jumping_speed_increase_by_hp * (8 - enemy:get_life())
   local movement = enemy:start_jumping(jumping_duration, jumping_height, jumping_angle, jumping_final_speed, function()
     if moving_angle then
@@ -54,6 +53,7 @@ function enemy:start_moving(angle)
 
   -- Stop moving on obstacle reached.
   function movement:on_obstacle_reached()
+    movement:stop()
     moving_angle = nil
   end
 end
@@ -64,6 +64,9 @@ function enemy:start_pushing(angle)
   local spike_sprite = spike:get_sprite()
   sol.timer.start(enemy, waiting_duration, function()
     sprite:set_animation("punching", function()
+
+      -- Start spike movement on punching animation finished.
+      moving_angle = angle -- Set the global direction angle here to not start pushing again if hurt.
       sprite:set_animation("immobilized")
       spike:start_straight_walking(angle, spike_speed, nil, function()
 
@@ -71,11 +74,15 @@ function enemy:start_pushing(angle)
         map_tools.start_earthquake({count = 12, amplitude = 4, speed = 90})
         spike:start_straight_walking(angle - math.pi, spike_slow_speed, 46, function()
           spike_sprite:set_animation("stopped")
-          enemy:start_moving(angle)
         end)
         spike_sprite:set_frame_delay(100)
       end)
       spike_sprite:set_animation("walking")
+
+      -- Start moving a little after.
+      sol.timer.start(enemy, waiting_duration, function()
+        enemy:start_moving()
+      end)
     end)
   end)
 end
@@ -101,7 +108,7 @@ enemy:register_event("on_created", function(enemy)
   spike = enemy:create_enemy{
     breed = "boss/projectile/spike",
     direction = 2,
-    x = -30
+    x = get_further_direction(0) == 2 and -30 or 30
   }
 end)
 
@@ -121,7 +128,7 @@ enemy:register_event("on_restarted", function(enemy)
     sprite:set_direction(direction)
     enemy:start_pushing(direction * quarter)
   else
-    -- Restart walking if hurt during the movement.
-    enemy:start_moving(moving_angle)
+    -- Finish moving if hurt during the movement.
+    enemy:start_moving()
   end
 end)
