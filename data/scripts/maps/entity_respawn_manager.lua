@@ -28,8 +28,11 @@ function entity_respawn_manager:init(map)
   -- Function called when a separator was just taken.
   function entity_respawn_manager:respawn_enemies(map)
 
+    local respawned_enemies = {}
+
     -- Enemies.
     for enemy, enemy_place in pairs(saved_entities.enemies) do
+
       -- First remove any enemy.
       if enemy:exists() then
         enemy:remove()
@@ -54,9 +57,14 @@ function entity_respawn_manager:init(map)
         if enemy.on_flying_tile_dead ~= nil then
           new_enemy.on_flying_tile_dead = enemy.on_flying_tile_dead -- For Flying tiles enemies
         end
-        saved_entities.enemies[new_enemy] = saved_entities.enemies[enemy]
-        saved_entities.enemies[enemy] = nil
+        respawned_enemies[new_enemy] = enemy
       end
+    end
+
+    -- Clean the saved_entities.enemies table after the foreach loop ended
+    for new_enemy, enemy in pairs(respawned_enemies) do
+      saved_entities.enemies[new_enemy] = saved_entities.enemies[enemy]
+      saved_entities.enemies[enemy] = nil
     end
   end
 
