@@ -150,6 +150,9 @@ function enemy:throw_hero()
     local movement = enemy:start_throwing(hero, hero_throwing_duration, -right_hand_offset_y, hero_throwing_height, angle, hero_throwing_speed, function()
 
       -- Stun the hero for some time when throw finished.
+      if hero_sprite:get_animation() ~= "collapse" then
+        hero_sprite:set_animation("collapse")
+      end
       sol.timer.start(enemy, hero_stunned_duration, function()
         hero:unfreeze()
       end)

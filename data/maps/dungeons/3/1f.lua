@@ -156,7 +156,7 @@ end
 
 function sensor_12:on_activated()
 
-  door_manager:close_if_enemies_n_dead(map, "enemy_group_9_", "door_group_4_")
+  door_manager:close_if_enemies_not_dead(map, "enemy_group_9_", "door_group_4_")
 
 end
 
