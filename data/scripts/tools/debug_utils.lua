@@ -1,7 +1,7 @@
 
 --Options
 local __enabled=true
-local __show_hitbox=true
+local __show_hitbox=false
 local __print=false
 
 function debug_print(s, ...)
