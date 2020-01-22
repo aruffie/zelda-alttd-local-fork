@@ -73,7 +73,7 @@ function behavior:create(enemy, properties)
         end
 
         children[#children + 1] = self:create_enemy({
-          name = (enemy:get_name() or enemy:get_breed()) .. "_" properties.projectile_breed,
+          name = (enemy:get_name() or enemy:get_breed()) .. "_" .. properties.projectile_breed,
           breed = properties.projectile_breed,
           x = properties.fire_x,
           y = properties.fire_y,

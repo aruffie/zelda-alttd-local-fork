@@ -22,7 +22,7 @@ function enemy_manager:on_enemies_dead(map, enemies_prefix, callback)
     enemy:register_event("on_removed", enemy_on_dead)
   end
   map:register_event("on_enemy_created", function(map, enemy)
-    if string.match(enemy:get_name() or "", enemy_prefix) then
+    if string.match(enemy:get_name() or "", enemies_prefix) then
       enemy:register_event("on_dead", enemy_on_dead)
       enemy:register_event("on_removed", enemy_on_dead)
     end
