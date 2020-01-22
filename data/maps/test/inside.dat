@@ -950,3 +950,33 @@ destination{
   direction = 1,
 }
 
+dynamic_tile{
+  name = "enemy_group_29_before_1_2",
+  layer = 0,
+  x = 544,
+  y = 288,
+  width = 16,
+  height = 16,
+  pattern = "14",
+}
+
+dynamic_tile{
+  name = "enemy_group_29_before_1_1",
+  layer = 0,
+  x = 536,
+  y = 296,
+  width = 16,
+  height = 16,
+  pattern = "25",
+}
+
+enemy{
+  name = "enemy_group_29_enemy_1",
+  layer = 0,
+  x = 544,
+  y = 301,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
