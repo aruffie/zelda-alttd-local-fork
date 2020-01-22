@@ -26,21 +26,10 @@ function enemy:start_walking()
 
   -- Target a random point depending on configuration.
   local x, y, layer = enemy:get_position()
-  local angle, distance, target_x, target_y
-
-  -- Raise warning if the enemy is misplaced on the map and can't move.
-  if not enemy:is_over_ground("water") then  
-    print("Warning: Misplaced enemy " .. enemy:get_breed() .. " on " .. x .. "," .. y)
-    return
-  end
-
-  -- Target a random target in the water.
-  repeat 
-    angle = walking_angles[math.random(4)]
-    distance = math.random(walking_minimum_distance, walking_maximum_distance)
-    target_x = x + math.cos(angle) * distance
-    target_y = y + math.sin(angle) * distance
-  until string.find(map:get_ground(target_x, target_y, layer), "water")
+  local angle = walking_angles[math.random(4)]
+  local distance = math.random(walking_minimum_distance, walking_maximum_distance)
+  local target_x = x + math.cos(angle) * distance
+  local target_y = y + math.sin(angle) * distance
 
   -- Wait a few time then start accelerating.
   sol.timer.start(enemy, math.random(waiting_minimum_duration, waiting_maximum_duration), function()
@@ -48,21 +37,19 @@ function enemy:start_walking()
 
     -- Stop movement if ground is not water anymore or obstacle reached.
     function movement:on_position_changed()
-      if not enemy:is_over_ground("water") then
-        movement:stop()
+      if not enemy:is_over_grounds({"shallow_water", "deep_water"}) then
         enemy:set_position(x, y, layer) -- Set back to the previous position.
-        enemy:start_walking()
+        enemy:restart()
       end
       x, y, layer = enemy:get_position()
     end
     function movement:on_obstacle_reached()
-      movement:stop()
-      enemy:start_walking()
+      enemy:restart()
     end
 
     -- Start another movement on finished
     function movement:on_finished()
-      enemy:start_walking()
+      enemy:restart()
     end
   end)
 end

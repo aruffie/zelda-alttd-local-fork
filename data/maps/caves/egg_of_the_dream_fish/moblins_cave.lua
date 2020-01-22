@@ -150,10 +150,6 @@ function map:launch_cinematic_1()
     map:init_music()
     dialog("maps.caves.egg_of_the_dream_fish.moblins_cave.moblins_1")
     door_manager:close_if_enemies_not_dead(map, "enemy_group_1", "door_group_1")
-    for enemy in map:get_entities("enemy_group_1") do
-      local direction = enemy:get_movement():get_direction4()
-      enemy:get_sprite():set_direction(direction)
-    end
     map:set_cinematic_mode(false, options)
   end)
 

@@ -21,13 +21,17 @@ function door_manager:open_when_enemies_dead(map, enemy_prefix, door_prefix, sou
     end
   end
 
-  -- Setup for each enemy that matches the prefix and their potential children.
+  -- Setup for each enemy that matches the prefix and ones created in the future.
   for enemy in map:get_entities(enemy_prefix) do
     enemy:register_event("on_dead", enemy_on_dead)
-    enemy:register_event("on_enemy_created", function(enemy, child)
-      child:register_event("on_dead", enemy_on_dead)
-    end)
+    enemy:register_event("on_removed", enemy_on_dead)
   end
+  map:register_event("on_enemy_created", function(map, enemy)
+    if string.match(enemy:get_name() or "", enemy_prefix) then
+      enemy:register_event("on_dead", enemy_on_dead)
+      enemy:register_event("on_removed", enemy_on_dead)
+    end
+  end)
 
 end
 
@@ -154,12 +158,12 @@ function door_manager:open_when_pot_break(map, door_prefix)
   local hero = map:get_hero()
   if detect_entity ~= nil then
     detect_entity:add_collision_test("touching", function(entity_source, entity_dest)
-        if hero:get_state() == 'free' and entity_dest:get_type() == "carried_object" then
-          detect_entity:remove()
-          map:open_doors(door_prefix)
-          audio_manager:play_sound("misc/secret1")
-        end
-      end)
+      if hero:get_state() == 'free' and entity_dest:get_type() == "carried_object" then
+        detect_entity:remove()
+        map:open_doors(door_prefix)
+        audio_manager:play_sound("misc/secret1")
+      end
+    end)
   end
 
 end

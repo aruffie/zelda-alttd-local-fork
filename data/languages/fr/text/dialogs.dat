@@ -177,6 +177,14 @@ C'est ça le progrès...
 }
 
 dialog{
+  id = "_treasure.console.1",
+  icon = "100",
+  text = [[
+Vous récupère la console.
+]],
+}
+
+dialog{
   id = "_treasure.drug.1",
   icon = "17",
   text = [[
@@ -304,6 +312,7 @@ Tu vas voir comment la chaîne s'étire !
 
 dialog{
   id = "_treasure.instrument_1.1",
+  icon = "101",
   text = [[
 Tu as le Violon des Vagues !
 ]],
@@ -311,6 +320,7 @@ Tu as le Violon des Vagues !
 
 dialog{
   id = "_treasure.instrument_2.1",
+  icon = "102",
   text = [[
 Tu as la Conque de l'écume !
 ]],
@@ -318,6 +328,7 @@ Tu as la Conque de l'écume !
 
 dialog{
   id = "_treasure.instrument_3.1",
+  icon = "103",
   text = [[
 Tu as la Cloche des Algues !
 ]],
@@ -325,6 +336,7 @@ Tu as la Cloche des Algues !
 
 dialog{
   id = "_treasure.instrument_4.1",
+  icon = "104",
   text = [[
 Tu as la Harpe du Reflux !
 ]],
@@ -332,6 +344,7 @@ Tu as la Harpe du Reflux !
 
 dialog{
   id = "_treasure.instrument_5.1",
+  icon = "105",
   text = [[
 Tu as le Xylophone Marin !
 ]],
@@ -339,6 +352,7 @@ Tu as le Xylophone Marin !
 
 dialog{
   id = "_treasure.instrument_6.1",
+  icon = "106",
   text = [[
 Tu as le Triangle de Corail !
 ]],
@@ -346,6 +360,7 @@ Tu as le Triangle de Corail !
 
 dialog{
   id = "_treasure.instrument_7.1",
+  icon = "107",
   text = [[
 Tu as l'Orgue de l'Embellie !
 ]],
@@ -353,6 +368,7 @@ Tu as l'Orgue de l'Embellie !
 
 dialog{
   id = "_treasure.instrument_8.1",
+  icon = "108",
   text = [[
 Tu as le Tambour des Marées !
 ]],
@@ -3863,6 +3879,7 @@ Hisse-toi à des endroits inaccessibles grâce au Grappin.
 
 dialog{
   id = "scripts.menus.pause_inventory.instrument_1.1",
+  icon = "101",
   skip = "all",
   text = [[
 C'est le premier instrument des sirènes.
@@ -3871,6 +3888,7 @@ C'est le premier instrument des sirènes.
 
 dialog{
   id = "scripts.menus.pause_inventory.instrument_2.1",
+  icon = "102",
   skip = "all",
   text = [[
 C'est le second instrument des sirènes.
@@ -3879,6 +3897,7 @@ C'est le second instrument des sirènes.
 
 dialog{
   id = "scripts.menus.pause_inventory.instrument_3.1",
+  icon = "103",
   skip = "all",
   text = [[
 C'est le troisième instrument des sirènes.
@@ -3887,6 +3906,7 @@ C'est le troisième instrument des sirènes.
 
 dialog{
   id = "scripts.menus.pause_inventory.instrument_4.1",
+  icon = "104",
   skip = "all",
   text = [[
 C'est le quatrième instrument des sirènes.
@@ -3895,6 +3915,7 @@ C'est le quatrième instrument des sirènes.
 
 dialog{
   id = "scripts.menus.pause_inventory.instrument_5.1",
+  icon = "105",
   skip = "all",
   text = [[
 C'est le cinquième instrument des sirènes.
@@ -3903,6 +3924,7 @@ C'est le cinquième instrument des sirènes.
 
 dialog{
   id = "scripts.menus.pause_inventory.instrument_6.1",
+  icon = "106",
   skip = "all",
   text = [[
 C'est le sixième instrument des sirènes.
@@ -3911,6 +3933,7 @@ C'est le sixième instrument des sirènes.
 
 dialog{
   id = "scripts.menus.pause_inventory.instrument_7.1",
+  icon = "107",
   skip = "all",
   text = [[
 C'est le septième instrument des sirènes.
@@ -3919,6 +3942,7 @@ C'est le septième instrument des sirènes.
 
 dialog{
   id = "scripts.menus.pause_inventory.instrument_8.1",
+  icon = "108",
   skip = "all",
   text = [[
 C'est le huitième instrument des sirènes.
@@ -3995,7 +4019,7 @@ dialog{
   icon = "81",
   skip = "all",
   text = [[
-Un beau beau ruban rose...
+Un beau ruban rose...
 ]],
 }
 
@@ -4195,7 +4219,7 @@ dialog{
   icon = "43",
   skip = "all",
   text = [[
-Permet d'ouvrirvla porte du souterrain aux clés
+Permet d'ouvrir la porte du souterrain aux clés
 ]],
 }
 

@@ -9,44 +9,35 @@ local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
 local camera = map:get_camera()
-local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+local sprite
 local quarter = math.pi * 0.5
-local is_throw_upcoming = false
-local is_holding_hero = false
+local is_bomb_upcoming = false
+local is_hero_catchable = false
+local holded_bomb = nil
 
 -- Configuration variables
-local waiting_duration = 500
+local skin = enemy:get_property("skin")
+local waiting_duration = 400
 local walking_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
-local walking_speed = 32
-local walking_minimum_distance = 16
-local walking_maximum_distance = 32
+local walking_speed = 40
+local walking_minimum_distance = 32
+local walking_maximum_distance = 46
 local charging_speed = 160
 local charging_maximum_distance = 100
-local charging_probability = 0.5
-local before_charging_delay  = 1000
+local charging_probability = 0.25
+local frenzy_duration  = 1000
 
-local throwing_duration = 500
-local bomb_duration = 600
-local bomb_height = 16
-local bomb_speed = 120
-local projectile_offset_x = -24
-local projectile_offset_y = -50
-
--- Start throwing behavior.
-local function throw(right_hand, on_throwing)
-
-  is_throw_upcoming = false
-  sprite:set_animation("throwing")
-  sprite:set_direction(right_hand and 2 or 0)
-
-  sol.timer.start(enemy, throwing_duration, function()
-    on_throwing()
-    sprite:set_direction(right_hand and 0 or 2)
-    sol.timer.start(enemy, bomb_duration, function()
-      enemy:restart()
-    end)
-  end)
-end
+local right_hand_offset_x = -24
+local right_hand_offset_y = -50
+local bomb_holding_duration = 300
+local bomb_throwing_duration = 800
+local bomb_throwing_height = 60
+local bomb_throwing_speed = 120
+local hero_holding_duration = 800
+local hero_throwing_duration = 800
+local hero_throwing_height = 60
+local hero_throwing_speed = 240
+local hero_stunned_duration = 1000
 
 -- Start the enemy walking movement.
 function enemy:start_walking()
@@ -55,7 +46,7 @@ function enemy:start_walking()
 
     -- At the end of the move, wait a few time then randomly charge or restart another move.
     sol.timer.start(enemy, waiting_duration, function()
-      if math.random() > charging_probability then
+      if math.random() <= charging_probability then
         enemy:start_charging()
       else
         enemy:start_walking()
@@ -67,8 +58,11 @@ end
 -- Start the enemy charging movement.
 function enemy:start_charging()
 
+  is_hero_catchable = true
+  enemy:set_damage(0)
+  enemy:set_can_attack(false)
   sprite:set_animation("charge")
-  sol.timer.start(enemy, before_charging_delay, function()
+  sol.timer.start(enemy, frenzy_duration, function()
     enemy:start_straight_walking(enemy:get_angle(hero), charging_speed, charging_maximum_distance, function()
       enemy:restart()
     end)
@@ -77,66 +71,133 @@ function enemy:start_charging()
   end)
 end
 
--- Throw a bomb to the hero.
-function enemy:throw_bomb()
+-- Hold the given entity in the given hand and wait for the actual throw.
+-- TODO Merge
+local function start_preparing_throw(right_hand, hold_duration, on_throwing)
 
-  local x, y, layer = enemy:get_position()
-  local hero_x, _ , _ = hero:get_position()
-  local right_hand = hero_x > x
-  throw(right_hand, function()
-  
-    local bomb = enemy:create_enemy({
-      breed = "projectiles/bomb",
-      x = right_hand and projectile_offset_x or 0 - projectile_offset_x,
-      y = projectile_offset_y
-    })
-    bomb:go(bomb_duration, bomb_height, hero:get_angle(x + projectile_offset_x, y + projectile_offset_y) + math.pi, bomb_speed)
-    bomb:explode_at_bounce()
+  is_bomb_upcoming = false
+  sprite:set_animation("throwing")
+  sprite:set_direction(right_hand and 2 or 0)
+
+  sol.timer.start(enemy, hold_duration, function()
+    on_throwing()
+    sprite:set_direction(right_hand and 0 or 2)
+    sol.timer.start(enemy, waiting_duration, function()
+      enemy:restart()
+    end)
   end)
 end
 
--- Catch the hero.
-function enemy:catch_hero()
+-- Throw a bomb to the hero.
+-- TODO Factorize.
+function enemy:throw_bomb()
 
-  is_holding_hero = true
+  enemy:stop_movement()
+  sol.timer.stop_all(enemy)
+
+  local x, y, layer = enemy:get_position()
+  local hero_x, _ , hero_layer = hero:get_position()
+  local is_right_hand_throw = hero_x > x
+  local hand_offset_x = is_right_hand_throw and right_hand_offset_x or 0 - right_hand_offset_x
+
+  -- Hold a bomb for some time and throw it.
+  local bomb = enemy:create_enemy({
+    name = (enemy:get_name() or enemy:get_breed()) .. "_bomb",
+    breed = "projectiles/bomb",
+    x = hand_offset_x
+  })
+  bomb:set_position(x + hand_offset_x, y, layer + 1) -- Layer + 1 to not interact with a possible ground after moved.
+  bomb:get_sprite():set_xy(0, right_hand_offset_y)
+  holded_bomb = bomb
+
+  start_preparing_throw(is_right_hand_throw, bomb_holding_duration, function()
+
+    -- Start the thrown movement to the hero.
+    local angle = bomb:get_angle(hero)
+    enemy:start_throwing(bomb, bomb_throwing_duration, -right_hand_offset_y, bomb_throwing_height, angle, bomb_throwing_speed, function()
+      bomb:set_layer(hero_layer)
+      bomb:explode()
+    end)
+    holded_bomb = nil
+  end)
+end
+
+-- Throw the hero to the center of the room.
+-- TODO Factorize.
+function enemy:throw_hero()
+
   enemy:stop_movement()
   sol.timer.stop_all(enemy)
 
   local x, y, layer = enemy:get_position()
   local center_x = camera:get_position() + camera:get_size() / 2.0
-  local right_hand = center_x > x
+  local is_right_hand_throw = center_x > x
+  local hand_offset_x = is_right_hand_throw and right_hand_offset_x or 0 - right_hand_offset_x
 
+  -- Freeze the hero and make it hold in the enemy hand.
+  local hero_sprite = hero:get_sprite()
   hero:freeze()
-  hero:get_sprite():set_animation("scared")
-  hero:set_position(x + projectile_offset_x, projectile_offset_y + y, layer + 1)
+  hero:set_position(x + hand_offset_x, y, layer + 1) -- Layer + 1 to not interact with a possible ground after moved.
+  hero_sprite:set_xy(0, right_hand_offset_y)
+  hero_sprite:set_animation("scared")
 
-  throw(right_hand, function()
-    -- TODO
-    is_holding_hero = false
-    hero:unfreeze()
+  start_preparing_throw(is_right_hand_throw, hero_holding_duration, function()
+
+    -- Throw the hero to the center of the room.
+    local camera_x, camera_y = camera:get_position()
+    local camera_width, camera_height = camera:get_size()
+    local angle = sol.main.get_angle(x + hand_offset_x, y + right_hand_offset_y, camera_x + camera_width / 2.0, camera_y + camera_height / 2.0)
+    local movement = enemy:start_throwing(hero, hero_throwing_duration, -right_hand_offset_y, hero_throwing_height, angle, hero_throwing_speed, function()
+
+      -- Stun the hero for some time when throw finished.
+      sol.timer.start(enemy, hero_stunned_duration, function()
+        hero:unfreeze()
+      end)
+    end)
+    game:remove_life(4)
+
+    -- Impact animation on hitting an obstacle.
+    function movement:on_obstacle_reached()
+      local x, y, _ = enemy:get_position()
+      local hero_x, hero_y, _ = hero:get_position()
+      local hero_offset_x, hero_offset_y = hero_sprite:get_xy()
+      movement:stop()
+      enemy:start_brief_effect("entities/effects/impact_projectile", "default", hero_x + hero_offset_x - x, hero_y + hero_offset_y - y)
+      hero_sprite:set_animation("collapse")
+    end
   end)
 end
 
--- Catch the hero on attacking him.
-enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
+-- Catch the hero on touching him.
+enemy:register_event("on_update", function(enemy)
 
-  if not is_holding_hero then
-    enemy:catch_hero()
+  if is_hero_catchable and hero:overlaps(enemy) then
+    is_hero_catchable = false
+    enemy:throw_hero()
   end
 end)
 
--- Prepare to throw a bomb on hurt.
+-- Prepare to throw a bomb after restart when hurt.
 enemy:register_event("on_hurt", function(enemy)
-  is_throw_upcoming = true
+
+  is_bomb_upcoming = true
+
+  -- Remove a possible holded bomb to throw the next one.
+  if holded_bomb then
+    holded_bomb:remove()
+  end
 end)
 
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(8)
-  enemy:set_size(48, 32)
-  enemy:set_origin(24, 29)
+  enemy:set_size(64, 40) -- Workaround : Adapt the size to never have a part of enemy sprite under ceiling nor holded hero over a wall.
+  enemy:set_origin(32, 37)
   enemy:set_hurt_style("boss")
+
+  -- Set the requested skin to the enemy or the default one.
+  sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. (skin and "/" .. skin or ""))
 end)
 
 -- Restart settings.
@@ -152,12 +213,16 @@ enemy:register_event("on_restarted", function(enemy)
   })
 
   -- States.
-  sprite:set_animation("waiting")
-  enemy:set_damage(0)
+  is_hero_catchable = false
+  enemy:set_damage(4)
   enemy:set_can_attack(true)
-  if is_throw_upcoming then
+  enemy:set_obstacle_behavior("flying") -- Don't fall in holes.
+  sprite:set_animation("waiting")
+  if is_bomb_upcoming then
     enemy:throw_bomb()
   else
-    enemy:start_walking()
+    sol.timer.start(enemy, waiting_duration, function()
+      enemy:start_walking()
+    end)
   end
 end)

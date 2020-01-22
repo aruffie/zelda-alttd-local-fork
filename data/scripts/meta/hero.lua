@@ -11,18 +11,18 @@ local timer_stairs = nil
 
 require("scripts/multi_events")
 hero_meta:register_event("on_position_changed", function(hero)
-    if not hero:get_map():is_sideview() and not hero.walking_sound_timer then
-      hero.walking_sound_timer=sol.timer.start(hero, 300, function()
-        hero.walking_sound_timer = nil
-      end)
-      if hero:get_ground_below()=="shallow_water" then
-        audio_manager:play_sound("hero/wade"..(math.random(1, 2)))
-      elseif hero:get_ground_below()=="grass" then
-        audio_manager:play_sound("hero/walk_on_grass")
-      end
+  if not hero:get_map():is_sideview() and not hero.walking_sound_timer then
+    hero.walking_sound_timer=sol.timer.start(hero, 300, function()
+      hero.walking_sound_timer = nil
+    end)
+    if hero:get_ground_below()=="shallow_water" then
+      audio_manager:play_sound("hero/wade"..(math.random(1, 2)))
+    elseif hero:get_ground_below()=="grass" then
+      audio_manager:play_sound("hero/walk_on_grass")
     end
+  end
 
-  end)
+end)
 
 hero_meta:register_event("on_state_changed", function(hero, current_state)
 

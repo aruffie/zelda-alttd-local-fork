@@ -70,7 +70,7 @@ local function initialize_dungeon_features(game)
       },
       small_boss = {
         floor = 0,
-        breed = "boss/rolling_bones/rolling_bones",
+        breed = "boss/rolling_bones",
         x = 640 + 1440,
         y = 720 + 365
       },

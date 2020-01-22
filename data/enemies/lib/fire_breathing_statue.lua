@@ -73,17 +73,13 @@ function behavior:create(enemy, properties)
         end
 
         children[#children + 1] = self:create_enemy({
+          name = (enemy:get_name() or enemy:get_breed()) .. "_" properties.projectile_breed,
           breed = properties.projectile_breed,
           x = properties.fire_x,
           y = properties.fire_y,
           layer = map:get_max_layer()
         })
         children[#children]:set_layer_independent_collisions(true)
-
-        -- Call an enemy:on_enemy_created(projectile) event.
-        if enemy.on_enemy_created then
-          enemy:on_enemy_created(children[#children])
-        end
       end
       return true  -- Repeat the timer.
     end)

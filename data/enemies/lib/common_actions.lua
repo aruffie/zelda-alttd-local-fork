@@ -1,12 +1,12 @@
 ----------------------------------
 --
--- Add some basic and common methods/events to an enemy.
+-- Add some basic getters and methods to an enemy.
 -- There is no passive behavior without an explicit start when learning this to an enemy.
 --
 -- Methods : enemy:is_aligned(entity, thickness, [sprite])
 --           enemy:is_near(entity, triggering_distance, [sprite])
 --           enemy:is_leashed_by(entity)
---           enemy:is_over_ground(ground)
+--           enemy:is_over_grounds(grounds)
 --           enemy:is_watched([sprite, [fully_visible]])
 --           enemy:get_angle_from_sprite(sprite, entity)
 --           enemy:get_central_symmetry_position(x, y)
@@ -14,14 +14,15 @@
 --           enemy:get_obstacles_normal_angle()
 --           enemy:get_obstacles_bounce_angle([angle])
 --
---           enemy:start_straight_walking(angle, speed, [distance, [ignore_obstacles, [on_stopped_callback]]])
---           enemy:start_target_walking(entity, speed, [ignore_obstacles])
+--           enemy:start_straight_walking(angle, speed, [distance, [on_stopped_callback]])
+--           enemy:start_target_walking(entity, speed)
 --           enemy:start_jumping(duration, height, [angle, speed, [on_finished_callback]])
 --           enemy:start_flying(take_off_duration, height, [on_finished_callback])
 --           enemy:stop_flying(landing_duration, [on_finished_callback])
 --           enemy:start_attracting(entity, speed, [moving_condition_callback])
 --           enemy:stop_attracting()
 --           enemy:start_impulsion(x, y, speed, acceleration, deceleration)
+--           enemy:start_throwing(entity, duration, start_height, maximum_height, [angle, speed, [on_finished_callback]])
 --           enemy:start_welding(entity, [x_offset, [y_offset]])
 --           enemy:start_leashed_by(entity, maximum_distance)
 --           enemy:stop_leashed_by(entity)
@@ -29,7 +30,6 @@
 --           enemy:start_pushing_back(entity, [speed, [duration, [on_finished_callback]]])
 --           enemy:start_shock(entity, [speed, [duration, [on_finished_callback]]])
 --
---           enemy:silent_kill()
 --           enemy:start_shadow([sprite_name, [animation_name]])
 --           enemy:start_brief_effect(sprite_name, [animation_name, [x_offset, [y_offset, [maximum_duration, [on_finished_callback]]]]])
 --           enemy:steal_item(item_name, [variant, [only_if_assigned, [drop_when_dead]]])
@@ -95,16 +95,27 @@ function common_actions.learn(enemy)
     return leashing_timers[entity] ~= nil
   end
 
-  -- Return true if the four corners of the enemy are over the given ground.
-  function enemy:is_over_ground(ground)
+  -- Return true if the four corners of the enemy are over one of the given ground, not necessarily the same.
+  function enemy:is_over_grounds(grounds)
+
     local x, y, layer = enemy:get_position()
     local width, height = enemy:get_size()
     local origin_x, origin_y = enemy:get_origin()
     x, y = x - origin_x, y - origin_y
-    return string.find(map:get_ground(x, y, layer), ground)
-        and string.find(map:get_ground(x + width, y, layer), ground)
-        and string.find(map:get_ground(x, y + height, layer), ground)
-        and string.find(map:get_ground(x + width, y + height, layer), ground)
+
+    local function is_position_over_grounds(x, y)
+      for _, ground in pairs(grounds) do
+        if string.find(map:get_ground(x, y, layer), ground) then
+          return true
+        end
+      end
+      return false
+    end
+
+    return is_position_over_grounds(x, y)
+        and is_position_over_grounds(x + width, y)
+        and is_position_over_grounds(x, y + height)
+        and is_position_over_grounds(x + width, y + height)
   end
 
   -- Return true if the enemy or its given sprite is partially visible at the camera, or fully visible if requested.
@@ -265,20 +276,16 @@ function common_actions.learn(enemy)
 
     local movement
 
-    -- Update the sprite vertical offset at each frame.
-    local function update_sprite_height(elapsed_time)
+    -- Schedule an update of the sprite vertical offset by frame.
+    local elapsed_time = 0
+    sol.timer.start(enemy, 10, function()
+
+      elapsed_time = elapsed_time + 10
       if elapsed_time < duration then
         for _, sprite in enemy:get_sprites() do
           sprite:set_xy(0, -math.sqrt(math.sin(elapsed_time / duration * math.pi)) * height)
         end
-        sol.timer.start(enemy, 10, function()
-          if game:is_suspended() then
-            return true
-          end
-          if enemy:exists() and enemy:is_enabled() then
-            update_sprite_height(elapsed_time + 10)
-          end
-        end)
+        return true
       else
         for _, sprite in enemy:get_sprites() do
           sprite:set_xy(0, 0)
@@ -292,8 +299,8 @@ function common_actions.learn(enemy)
           on_finished_callback()
         end
       end
-    end
-    update_sprite_height(0)
+      return false
+    end)
 
     -- Move the enemy on-floor if requested.
     if angle then
@@ -392,14 +399,9 @@ function common_actions.learn(enemy)
         end
       end
 
-      -- Start the next move timer.
+      -- Start the next pixel move timer.
       attracting_timers[entity][axis] = sol.timer.start(enemy, axis_move_delay, function()
-        if game:is_suspended() then
-          return 10
-        end
-        if enemy:exists() and enemy:is_enabled() then
-          attract_on_axis(axis)
-        end
+        attract_on_axis(axis)
       end)
     end
 
@@ -447,8 +449,8 @@ function common_actions.learn(enemy)
       local axis_maximum_speed = math.abs(trigonometric_functions[axis](angle) * speed)
       local axis_move = {[axis % 2 + 1] = 0, [axis] = math.max(-1, math.min(1, target[axis] - start[axis]))}
 
-      -- Avoid too low timers.
-      if axis_current_speed <= 0.5 then
+      -- Avoid too low speed (less than 1px/s).
+      if axis_current_speed < 1 then
         accelerations[axis] = 0
         return
       end
@@ -462,6 +464,8 @@ function common_actions.learn(enemy)
           call_event(movement.on_position_changed)
         else
           call_event(movement.on_obstacle_reached)
+          timers[axis] = nil
+          return false
         end
 
         -- Replace axis acceleration by negative deceleration if beyond axis target.
@@ -479,12 +483,12 @@ function common_actions.learn(enemy)
         -- Update speed between 0 and maximum speed (px/s) depending on acceleration.
         axis_current_speed = math.min(math.sqrt(math.max(0, math.pow(axis_current_speed, 2.0) + 2.0 * accelerations[axis])), axis_maximum_speed)     
 
-        -- Schedule the next pixel move and avoid too low timers.
-        if axis_current_speed > 0.5 then
+        -- Schedule the next pixel move and avoid too low timers (less than 1px/s).
+        if axis_current_speed >= 1 then
           return 1000.0 / axis_current_speed
         end
 
-        -- Call on_finished() event if both axis timers are finished.
+        -- Call on_finished() event when the last axis timers finished normally.
         timers[axis] = nil
         if not timers[axis % 2 + 1] then
           call_event(movement.on_finished)
@@ -509,6 +513,54 @@ function common_actions.learn(enemy)
     end
 
     return movement
+  end
+
+  -- Throw the given entity.
+  function enemy:start_throwing(entity, duration, start_height, maximum_height, angle, speed, on_finished_callback)
+
+    local movement
+
+    -- Consider the throw as an already-started sinus function, depending on start_height.
+    local elapsed_time = duration / (1 - math.asin(math.pow(start_height / maximum_height, 2)) / math.pi) - duration
+    duration = duration + elapsed_time
+
+    -- Schedule an update of the sprite vertical offset by frame.
+    sol.timer.start(entity, 10, function()
+
+      elapsed_time = elapsed_time + 10
+      if elapsed_time < duration then
+        for sprite_name, sprite in entity:get_sprites() do
+          if sprite_name ~= "shadow_override" then -- Workaround : Don't change shadow height when the sprite is part of the entity.
+            sprite:set_xy(0, -math.sqrt(math.sin(elapsed_time / duration * math.pi)) * maximum_height)
+          end
+        end
+        return true
+      else
+        for _, sprite in entity:get_sprites() do
+          sprite:set_xy(0, 0)
+        end
+        if movement and entity:get_movement() == movement then
+          movement:stop()
+        end
+
+        -- Call events once jump finished.
+        if on_finished_callback then
+          on_finished_callback()
+        end
+      end
+      return false
+    end)
+
+    -- Move the entity on-floor if requested.
+    if angle then
+      movement = sol.movement.create("straight")
+      movement:set_speed(speed)
+      movement:set_angle(angle)
+      movement:set_smooth(false)
+      movement:start(entity)
+    
+      return movement
+    end
   end
 
   -- Make the entity welded to the enemy at the given offset position, and propagate main events and methods.
@@ -542,10 +594,8 @@ function common_actions.learn(enemy)
   -- Set a maximum distance between the enemy and an entity, else replace the enemy near it.
   function enemy:start_leashed_by(entity, maximum_distance)
 
-    leashing_timers[entity] = nil
-
-    local function leashing(entity, maximum_distance)
-
+    leashing_timers[entity] = sol.timer.start(enemy, 10, function()
+      
       if enemy:get_distance(entity) > maximum_distance then
         local enemy_x, enemy_y, layer = enemy:get_position()
         local hero_x, hero_y, _ = hero:get_position()
@@ -561,16 +611,8 @@ function common_actions.learn(enemy)
         end
       end
 
-      leashing_timers[entity] = sol.timer.start(enemy, 10, function()
-        if game:is_suspended() then
-          return 10
-        end
-        if enemy:exists() and enemy:is_enabled() then
-          leashing(entity, maximum_distance)
-        end
-      end)
-    end
-    leashing(entity, maximum_distance)
+      return true
+    end)
   end
 
   -- Stop the leashing attraction on the given entity
@@ -624,20 +666,6 @@ function common_actions.learn(enemy)
       end
     end)
     enemy:start_brief_effect("entities/effects/impact_projectile", "default", (hero_x - x) / 2, (hero_y - y) / 2)
-  end
-
-  -- Silently remove the enemy and call dying events at the right time.
-  function enemy:silent_kill()
-
-    enemy.is_silent = true -- Workaround : Don't play sounds added by enemy meta script.
-
-    if enemy.on_dying then
-      enemy:on_dying()
-    end
-    enemy:remove()
-    if enemy.on_dead then
-      enemy:on_dead()
-    end
   end
 
   -- Add a shadow below the enemy.

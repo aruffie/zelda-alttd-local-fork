@@ -9,60 +9,13 @@ local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
 local circle = 2.0 * math.pi
-local bounce_count = 0
-local throwing_angle
-local shadow = nil
-local explode_at_bounce = false
 
 -- Configuration variables
 local before_blinking_minimum_delay = 1500
 local before_blinking_maximum_delay = 2000
 local before_explosing_delay = 1000
-local bounce_number = 2
-local bounce_height = 4
-local bounce_speed = 40
 
--- Make the enemy explode at the next bounce.
-function enemy:explode_at_bounce()
-  explode_at_bounce = true
-end
-
--- Show or hide the enemy and its shadow.
-function enemy:show(show)
-
-  enemy:set_visible(show)
-  if shadow then
-    shadow:set_visible(show)
-  end
-end
-
--- Make the enemy go to a random target and bounce.
-function enemy:go(duration, height, angle, speed)
-
-  throwing_angle = angle or math.random() * circle
-  enemy:bounce_go(duration, height, angle, speed, function()
-    enemy:bounce()
-  end)
-  enemy:get_movement():set_ignore_obstacles(true)
-end
-
--- Start a new bounce or destroy the enemy if requested.
-function enemy:bounce()
-
-  if explode_at_bounce then
-    enemy:explode()
-    return
-  end
-
-  bounce_count = bounce_count + 1
-  if bounce_count < bounce_number then
-    enemy:go(nil, bounce_height, throwing_angle, bounce_speed)
-  else
-    enemy:stop_movement()
-  end
-end
-
--- Make the enemy explode.
+-- Make the bomb explode and hurt only the hero.
 function enemy:explode()
 
   local x, y, layer = enemy:get_position()
@@ -94,7 +47,7 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(1)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)
-  shadow = enemy:start_shadow()
+  enemy:start_shadow()
 end)
 
 -- Restart settings.

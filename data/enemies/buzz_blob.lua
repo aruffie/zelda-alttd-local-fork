@@ -44,7 +44,6 @@ enemy:register_event("on_custom_attack_received", function(enemy, attack)
     audio_manager:play_sound("hero/shock")
     hero:set_animation("electrocute")
     effect_model.start_effect(surface, game, 'in', false)
-    local camera = map:get_camera()
     local shake_config = {
         count = 32,
         amplitude = 4,
@@ -76,11 +75,6 @@ enemy:register_event("on_custom_attack_received", function(enemy, attack)
     sol.timer.start(cukeman, cukeman_shaking_duration, function()
       cukeman:restart()
     end)
-
-    -- Call an enemy:on_enemy_created(cukeman) event.
-    if enemy.on_enemy_created then
-      enemy:on_enemy_created(cukeman)
-    end
 
     enemy:remove()
   end
