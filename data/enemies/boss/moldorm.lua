@@ -58,7 +58,7 @@ function enemy:start_walking()
   walking_movement:set_speed(walking_speed)
   walking_movement:set_angle(math.random(4) * quarter)
   walking_movement:set_smooth(false)
-  walking_movement:start(self)
+  walking_movement:start(enemy)
 
   -- Take the obstacle normal as angle on obstacle reached.
   function walking_movement:on_obstacle_reached()

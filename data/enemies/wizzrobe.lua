@@ -12,13 +12,13 @@ local previous_on_removed = enemy.on_removed
 local audio_manager = require("scripts/audio_manager")
 
 -- The enemy appears: set its properties.
-function enemy:on_created()
+enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(3)
   enemy:set_damage(0)
   enemy:create_sprite("enemies/" .. enemy:get_breed())
   
-end
+end)
 
 -- Wizzrobe appear
 function enemy:appear()
@@ -107,7 +107,7 @@ function enemy:update_attack()
 end
 
 -- The enemy was stopped for some reason and should restart.
-function enemy:on_restarted()
+enemy:register_event("on_restarted", function(enemy)
 
   if is_appear == false then
     local sprite = enemy:get_sprite()
@@ -117,9 +117,9 @@ function enemy:on_restarted()
     end)  
   end
 
-end
+end)
 
-function enemy:on_removed()
+enemy:register_event("on_removed", function(enemy)
 
   if previous_on_removed then
     previous_on_removed(enemy)
@@ -128,10 +128,9 @@ function enemy:on_removed()
   for _, child in ipairs(children) do
     child:remove()
   end
-end
+end)
 
-
-function enemy:on_custom_attack_received(attack)
+enemy:register_event("on_custom_attack_received", function(enemy, attack)
 
   -- Custom reaction: don't get hurt but step back.
   sol.timer.stop_all(enemy)  -- Stop the towards_hero behavior.
@@ -146,4 +145,4 @@ function enemy:on_custom_attack_received(attack)
     enemy:restart()
   end)
 
-end
+end)

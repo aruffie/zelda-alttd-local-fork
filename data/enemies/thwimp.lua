@@ -15,8 +15,8 @@ local properties = {
 }
 
 -- The enemy appears: set its properties.
-function enemy:on_created()
+enemy:register_event("on_created", function(enemy)
   
   behavior:create(enemy, properties)
   
-end
+end)

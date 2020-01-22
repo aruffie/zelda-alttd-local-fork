@@ -13,7 +13,7 @@ local walking_timer
 local audio_manager = require("scripts/audio_manager")
 
 -- The enemy appears: set its properties.
-function enemy:on_created()
+enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(10000)
   enemy:set_damage(2)
@@ -23,16 +23,16 @@ function enemy:on_created()
   enemy:set_hurt_style("monster")
   sprite = enemy:get_sprite()
   
-end
+end)
 
-function enemy:on_movement_changed(movement)
+enemy:register_event("on_movement_changed", function(enemy, movement)
 
   local direction4 = movement:get_direction4()
   sprite:set_direction(direction4)
   
-end
+end)
 
-function enemy:on_obstacle_reached(movement)
+enemy:register_event("on_obstacle_reached", function(enemy)
 
   if walking_timer then
     walking_timer:stop()
@@ -43,10 +43,10 @@ function enemy:on_obstacle_reached(movement)
     enemy:go_angry()
   end
   
-end
+end)
 
 -- The enemy was stopped for some reason and should restart.
-function enemy:on_restarted()
+enemy:register_event("on_restarted", function(enemy)
 
   if angry then
     enemy:go_angry()
@@ -61,7 +61,7 @@ function enemy:on_restarted()
     end)
   end
   
-end
+end)
 
 function enemy:launch_feeding()
   
@@ -107,7 +107,7 @@ function enemy:go_angry()
   
 end
 
-function enemy:on_hurt()
+enemy:register_event("on_hurt", function(enemy)
 
   -- Sound
   audio_manager:play_entity_sound(enemy, "misc/cucco")
@@ -117,4 +117,4 @@ function enemy:on_hurt()
     map.angry_chickens = true
   end
   
-end
+end)

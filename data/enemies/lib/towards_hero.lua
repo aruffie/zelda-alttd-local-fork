@@ -83,44 +83,44 @@ function behavior:create(enemy, properties)
     enemy:set_size(16, 16)
     enemy:set_origin(8, 13)
 
-  function enemy:on_movement_changed(movement)
+  enemy:register_event("on_movement_changed", function(enemy, movement)
 
     local direction4 = movement:get_direction4()
-    local sprite = self:get_sprite()
+    local sprite = enemy:get_sprite()
     sprite:set_direction(direction4)
-  end
+  end)
 
-  function enemy:on_obstacle_reached(movement)
+  enemy:register_event("on_obstacle_reached", function(enemy)
 
     if not going_hero then
-      self:go_random()
-      self:check_hero()
+      enemy:go_random()
+      enemy:check_hero()
     end
-  end
+  end)
 
-  function enemy:on_restarted()
-    self:go_random()
-    self:check_hero()
-  end
+  enemy:register_event("on_restarted", function(enemy)
+    enemy:go_random()
+    enemy:check_hero()
+  end)
 
   function enemy:check_hero()
 
-    local hero = self:get_map():get_entity("hero")
-    local _, _, layer = self:get_position()
+    local hero = enemy:get_map():get_entity("hero")
+    local _, _, layer = enemy:get_position()
     local _, _, hero_layer = hero:get_position()
     local near_hero =
         (layer == hero_layer or enemy:has_layer_independent_collisions()) and
-        self:get_distance(hero) < properties.detection_distance
-        self:is_in_same_region(hero)
+        enemy:get_distance(hero) < properties.detection_distance
+        enemy:is_in_same_region(hero)
 
     if near_hero and not going_hero then
-      self:go_hero()
+      enemy:go_hero()
     elseif not near_hero and going_hero then
-      self:go_random()
+      enemy:go_random()
     end
 
-    sol.timer.stop_all(self)
-    sol.timer.start(self, 100, function() self:check_hero() end)
+    sol.timer.stop_all(enemy)
+    sol.timer.start(enemy, 100, function() enemy:check_hero() end)
   end
 
   function enemy:go_random()
@@ -128,8 +128,8 @@ function behavior:create(enemy, properties)
     local m = properties.movement_create()
     if m == nil then
       -- No movement.
-      self:get_sprite():set_animation("stopped")
-      m = self:get_movement()
+      enemy:get_sprite():set_animation("stopped")
+      m = enemy:get_movement()
       if m ~= nil then
         -- Stop the previous movement.
         m:stop()
@@ -137,7 +137,7 @@ function behavior:create(enemy, properties)
     else
       m:set_speed(properties.normal_speed)
       m:set_ignore_obstacles(properties.ignore_obstacles)
-      m:start(self)
+      m:start(enemy)
     end
   end
 
@@ -146,8 +146,8 @@ function behavior:create(enemy, properties)
     local m = sol.movement.create("target")
     m:set_speed(properties.faster_speed)
     m:set_ignore_obstacles(properties.ignore_obstacles)
-    m:start(self)
-    self:get_sprite():set_animation("walking")
+    m:start(enemy)
+    enemy:get_sprite():set_animation("walking")
   end
 end
 

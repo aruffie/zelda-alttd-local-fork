@@ -217,7 +217,7 @@ function common_actions.learn(enemy)
     movement:set_max_distance(distance or 0)
     movement:set_angle(angle)
     movement:set_smooth(true)
-    movement:start(self)
+    movement:start(enemy)
 
     -- Consider the current move as stopped if finished or stuck.
     function movement:on_finished()
