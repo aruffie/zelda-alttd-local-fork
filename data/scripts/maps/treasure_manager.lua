@@ -89,7 +89,7 @@ end
 
 function treasure_manager:appear_chest_when_torches_lit(map, torches_prefix, chest)
   local function torch_on_lit(torch)
-    for entity in map:get_entities(entity_prefix) do
+    for entity in map:get_entities(torches_prefix) do
       if not entity:is_lit() then
         return -- Remaining unlit torches.
       end
