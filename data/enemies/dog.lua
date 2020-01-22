@@ -9,7 +9,7 @@ local sprite
 local walking_timer
 
 -- The enemy appears: set its properties.
-function enemy:on_created()
+enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(10000)
   enemy:set_damage(2)
@@ -30,10 +30,10 @@ function enemy:on_created()
     end
   end
   
-end
+end)
 
 -- The enemy was stopped for some reason and should restart.
-function enemy:on_restarted()
+enemy:register_event("on_restarted", function(enemy)
 
   if angry then
     enemy:go_angry()
@@ -41,23 +41,23 @@ function enemy:on_restarted()
     enemy:go_random()
   end
    
-end
+end)
 
-function enemy:on_movement_changed(movement)
+enemy:register_event("on_movement_changed", function(enemy, movement)
 
   local direction4 = movement:get_direction4()
   sprite:set_direction(direction4)
   
-end
+end)
 
-function enemy:on_obstacle_reached(movement)
+enemy:register_event("on_obstacle_reached", function(enemy)
 
   if walking_timer then
     walking_timer:stop()
   end
   enemy:go_random()
 
-end
+end)
 
 function enemy:launch_waiting()
   
@@ -100,8 +100,8 @@ function enemy:go_angry()
     
 end
 
-function enemy:on_hurt()
+enemy:register_event("on_hurt", function(enemy)
 
   angry = true
 
-end
+end)

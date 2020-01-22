@@ -5,7 +5,7 @@
 local enemy = ...
 
 -- The enemy appears: set its properties.
-function enemy:on_created()
+enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(1)
   enemy:set_damage(4)
@@ -15,5 +15,5 @@ function enemy:on_created()
   enemy:set_can_hurt_hero_running(true)
   enemy:set_invincible()
   
-end
+end)
 

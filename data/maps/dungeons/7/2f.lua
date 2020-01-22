@@ -109,9 +109,6 @@ end
 
 function map:on_started()
 
-  -- Owl
-  owl_manager:init(map)
-
   -- Chests
   treasure_manager:appear_chest_if_savegame_exist(map, "chest_map", "dungeon_7_map")
   treasure_manager:appear_chest_if_savegame_exist(map, "chest_compass", "dungeon_7_compass")
