@@ -12,7 +12,7 @@ local recent_obstacle = 0
 local audio_manager = require("scripts/audio_manager")
 
 -- The enemy appears: set its properties.
-function enemy:on_created()
+enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(1)
   enemy:set_damage(4)
@@ -27,28 +27,29 @@ function enemy:on_created()
   enemy:set_attack_consequence("hookshot", "protected")
   enemy:set_attack_consequence("boomerang", "protected")
   
-end
+end)
 
 -- The enemy was stopped for some reason and should restart.
-function enemy:on_restarted()
+enemy:register_event("on_restarted", function(enemy)
 
-  local sprite = self:get_sprite()
+  local sprite = enemy:get_sprite()
   local direction4 = sprite:get_direction()
   local m = sol.movement.create("path")
   m:set_path{direction4 * 2}
   m:set_speed(192)
   m:set_loop(true)
-  m:start(self)
-end
+  m:start(enemy)
+end)
 
-function enemy:on_obstacle_reached()
 
-  local sprite = self:get_sprite()
+enemy:register_event("on_obstacle_reached", function(enemy)
+
+  local sprite = enemy:get_sprite()
   local direction4 = sprite:get_direction()
   sprite:set_direction((direction4 + 2) % 4)
 
-  local x, y = self:get_position()
-  local hero_x, hero_y = self:get_map():get_entity("hero"):get_position()
+  local x, y = enemy:get_position()
+  local hero_x, hero_y = enemy:get_map():get_entity("hero"):get_position()
   if recent_obstacle == 0
     and math.abs(x - hero_x) < 184
     and math.abs(y - hero_y) < 144 then
@@ -56,13 +57,14 @@ function enemy:on_obstacle_reached()
   end
 
   recent_obstacle = 8
-  self:restart()
-end
+  enemy:restart()
+end)
 
-function enemy:on_position_changed()
+
+enemy:register_event("on_position_changed", function(enemy)
 
   if recent_obstacle > 0 then
     recent_obstacle = recent_obstacle - 1
   end
-end
+end)
 

@@ -1343,8 +1343,6 @@ enemy{ id = "face_lamp", description = "Face Lamp" }
 enemy{ id = "fireball", description = "Fireball" }
 enemy{ id = "flying_tile", description = "Flying Tile" }
 enemy{ id = "gel", description = "Gel" }
-enemy{ id = "generic_towards_hero", description = "generic_towards_hero" }
-enemy{ id = "generic_waiting_for_hero", description = "generic_waiting_for_hero" }
 enemy{ id = "ghini", description = "Ghini" }
 enemy{ id = "ghini_giant", description = "Ghini Giant" }
 enemy{ id = "gibdo", description = "Gibdo" }
@@ -1564,8 +1562,6 @@ file{ path = "enemies/face_lamp.lua", author = "Christopho", license = "GPL v3" 
 file{ path = "enemies/fireball.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "enemies/flying_tile.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "enemies/gel.lua", author = "Vlag", license = "GPL v3" }
-file{ path = "enemies/generic_towards_hero.lua", author = "Christopho", license = "GPL v3" }
-file{ path = "enemies/generic_waiting_for_hero.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "enemies/ghini.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/ghini_giant.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/gibdo.lua", author = "Vlag", license = "GPL v3" }
@@ -1582,7 +1578,6 @@ file{ path = "enemies/lib/fire_breathing_statue.lua", author = "Christopho", lic
 file{ path = "enemies/lib/projectile.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/lib/thwomp_crush.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "enemies/lib/towards_hero.lua", author = "Christopho", license = "GPL v3" }
-file{ path = "enemies/lib/waiting_for_hero.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "enemies/lib/weapons.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/like_like.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/mad_bomber.lua", author = "Vlag", license = "GPL v3" }

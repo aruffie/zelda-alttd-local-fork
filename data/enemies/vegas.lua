@@ -7,7 +7,7 @@ local symbol_fixed = false
 require("scripts/multi_events")
 
 -- The enemy appears: set its properties.
-function enemy:on_created()
+enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(1)
   enemy:set_damage(2)
@@ -23,10 +23,10 @@ function enemy:on_created()
 
   sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
   
-end
+end)
 
 -- The enemy was stopped for some reason and should restart.
-function enemy:on_restarted()
+enemy:register_event("on_restarted", function(enemy)
 
   if symbol_fixed then
     sprite:set_animation("immobilized")
@@ -49,7 +49,7 @@ function enemy:on_restarted()
     return true
   end)
 
-end
+end)
 
 enemy:register_event("on_hurt", function()
 
@@ -80,8 +80,8 @@ function enemy:set_symbol_fixed(fixed)
   
 end
 
-function enemy:on_shield_collision(shield)
+enemy:register_event("on_shield_collision", function(enemy, shield)
 
   enemy:hurt(1)
 
-end
+end)

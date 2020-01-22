@@ -37,31 +37,31 @@ function behavior:create(enemy, properties)
     properties.fire_y = 0
   end
 
-  function enemy:on_created()
+  enemy:register_event("on_created", function(enemy)
 
-    self:set_life(1)
-    self:set_damage(0)
-    self:create_sprite(properties.sprite)
-    self:set_pushed_back_when_hurt(false)
-    self:set_size(16, 16)
-    self:set_origin(8, 13)
-    self:set_can_attack(false)
-    self:set_optimization_distance(1000)
-    self:set_invincible()
+    enemy:set_life(1)
+    enemy:set_damage(0)
+    enemy:create_sprite(properties.sprite)
+    enemy:set_pushed_back_when_hurt(false)
+    enemy:set_size(16, 16)
+    enemy:set_origin(8, 13)
+    enemy:set_can_attack(false)
+    enemy:set_optimization_distance(1000)
+    enemy:set_invincible()
 
-    self:set_shooting(true)
-  end
+    enemy:set_shooting(true)
+  end)
 
-  function enemy:on_restarted()
+  enemy:register_event("on_restarted", function(enemy)
 
     local map = enemy:get_map()
     local hero = map:get_hero()
-    sol.timer.start(self, properties.shooting_delay, function()
-      if not self.shooting then
+    sol.timer.start(enemy, properties.shooting_delay, function()
+      if not enemy.shooting then
         return true
       end
 
-      if self:get_distance(hero) < properties.detection_distance and self:is_in_same_region(hero) then
+      if enemy:get_distance(hero) < properties.detection_distance and enemy:is_in_same_region(hero) then
 
         if not map.fire_breath_recent_sound then
           audio_manager:play_sound(properties.projectile_sound)
@@ -72,8 +72,8 @@ function behavior:create(enemy, properties)
           end)
         end
 
-        children[#children + 1] = self:create_enemy({
-          name = (enemy:get_name() or enemy:get_breed()) .. "_" properties.projectile_breed,
+        children[#children + 1] = enemy:create_enemy({
+          name = (enemy:get_name() or enemy:get_breed()) .. "_" .. properties.projectile_breed,
           breed = properties.projectile_breed,
           x = properties.fire_x,
           y = properties.fire_y,
@@ -83,24 +83,19 @@ function behavior:create(enemy, properties)
       end
       return true  -- Repeat the timer.
     end)
-  end
+  end)
 
   -- Suspends or restores shooting fireballs.
   function enemy:set_shooting(shooting)
-    self.shooting = shooting
+    enemy.shooting = shooting
   end
 
-  local previous_on_removed = self.on_removed
-  function enemy:on_removed()
-
-    if previous_on_removed then
-      previous_on_removed(enemy)
-    end
+  enemy:register_event("on_removed", function(enemy)
 
     for _, child in ipairs(children) do
       child:remove()
     end
-  end
+  end)
 
 end
 

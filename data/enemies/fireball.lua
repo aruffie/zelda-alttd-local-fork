@@ -7,38 +7,38 @@ local last_direction4 = 0
 local clockwise = false
 
 -- The enemy appears: set its properties.
-function enemy:on_created()
+enemy:register_event("on_created", function(enemy)
 
-  self:set_life(1)
-  self:set_damage(1)
-  self:create_sprite("enemies/" .. enemy:get_breed())
-  self:set_can_hurt_hero_running(true)
-  self:set_invincible()
-  self:set_obstacle_behavior("swimming")
-  clockwise = (self:get_property("clockwise") == "true")
+  enemy:set_life(1)
+  enemy:set_damage(1)
+  enemy:create_sprite("enemies/" .. enemy:get_breed())
+  enemy:set_can_hurt_hero_running(true)
+  enemy:set_invincible()
+  enemy:set_obstacle_behavior("swimming")
+  clockwise = (enemy:get_property("clockwise") == "true")
 
-end
+end)
 
 -- The enemy was stopped for some reason and should restart.
-function enemy:on_restarted()
+enemy:register_event("on_restarted", function(enemy)
 
   local sprite = enemy:get_sprite()
   local direction4 = sprite:get_direction()
-  self:go(direction4)
+  enemy:go(direction4)
 
-end
+end)
 
-function enemy:on_obstacle_reached()
+enemy:register_event("on_obstacle_reached", function(enemy)
 
   if clockwise then
-    self:go((last_direction4 - 1) % 4)
+    enemy:go((last_direction4 - 1) % 4)
   else
-    self:go((last_direction4 + 1) % 4)
+    enemy:go((last_direction4 + 1) % 4)
   end
             
-end
+end)
 
-function enemy:on_position_changed()
+enemy:register_event("on_position_changed", function(enemy)
   
   if clockwise then
     enemy:go_if_traversable((last_direction4 + 1) % 4)
@@ -46,7 +46,7 @@ function enemy:on_position_changed()
     enemy:go_if_traversable((last_direction4 - 1) % 4)
   end
 
- end
+end)
 
 function enemy:go_if_traversable(direction4)
 
@@ -56,8 +56,8 @@ function enemy:go_if_traversable(direction4)
     { x = -1, y =  0},
     { x =  0, y =  1}
   }
-  if not self:test_obstacles(dxy[direction4 + 1].x, dxy[direction4 + 1].y) then
-    self:go(direction4)
+  if not enemy:test_obstacles(dxy[direction4 + 1].x, dxy[direction4 + 1].y) then
+    enemy:go(direction4)
   end
 
 end
@@ -69,7 +69,7 @@ function enemy:go(direction4)
   m:set_speed(80)
   m:set_smooth(false)
   m:set_angle(direction4 * math.pi / 2)
-  m:start(self)
+  m:start(enemy)
   last_direction4 = direction4
 
 end
