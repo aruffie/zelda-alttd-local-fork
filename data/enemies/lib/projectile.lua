@@ -31,7 +31,7 @@ function behavior.apply(enemy, sprite)
   local function hit_behavior()
 
     if not enemy.on_hit or enemy:on_hit() ~= false then
-      enemy:silent_kill()
+      enemy:remove()
     end
   end
 
@@ -41,7 +41,7 @@ function behavior.apply(enemy, sprite)
     function movement:on_position_changed()
       if not enemy:is_watched(sprite) then
         movement:stop()
-        enemy:silent_kill()
+        enemy:remove()
       end
     end
   end

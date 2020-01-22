@@ -37,7 +37,10 @@ function enemy:appear()
     sprite:set_animation("immobilized")
 
     sol.timer.start(enemy, throwing_duration, function()
-      local fireball = enemy:create_enemy({breed = "projectiles/fireball"})
+      local fireball = enemy:create_enemy({
+        name = (enemy:get_name() or enemy:get_breed()) .. "_fireball",
+        breed = "projectiles/fireball"
+      })
       sprite:set_animation("firing")
       audio_manager:play_entity_sound(enemy, "enemies/fireball")
       sol.timer.start(enemy, before_desappearing_delay, function()
@@ -45,11 +48,6 @@ function enemy:appear()
           enemy:restart()
         end)
       end)
-
-      -- Call an enemy:on_enemy_created(fireball) event.
-      if enemy.on_enemy_created then
-        enemy:on_enemy_created(fireball)
-      end
     end)
   end)
 end

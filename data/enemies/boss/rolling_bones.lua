@@ -95,6 +95,14 @@ enemy:register_event("on_dead", function(enemy)
   end)
 end)
 
+-- Remove the spike if rolling bones removed from outside this script.
+enemy:register_event("on_removed", function(enemy)
+
+  if spike:exists() then
+    spike:remove()
+  end
+end)
+
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
 
@@ -105,11 +113,12 @@ enemy:register_event("on_created", function(enemy)
   enemy:start_shadow("entities/shadows/giant_shadow")
 
   -- Create the spike.
-  spike = enemy:create_enemy{
+  spike = enemy:create_enemy({
+    name = (enemy:get_name() or enemy:get_breed()) .. "_spike",
     breed = "boss/projectile/spike",
     direction = 2,
     x = get_further_direction(0) == 2 and -30 or 30
-  }
+  })
 end)
 
 -- Restart settings.
@@ -121,6 +130,7 @@ enemy:register_event("on_restarted", function(enemy)
   })
 
   -- States.
+  sprite:set_xy(0, 0)
   enemy:set_can_attack(true)
   enemy:set_damage(4)
   if not moving_angle then

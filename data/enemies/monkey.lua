@@ -58,7 +58,10 @@ function enemy:start_throwing_projectile(direction, angle, on_throwed_callback)
   sprite:set_direction(direction)
   sprite:set_animation("throwing", function()
     local projectile_breed = math.random() > bomb_probability and "coconut" or "bomb" -- Throw a bomb once in a while.
-    local projectile = enemy:create_enemy({breed = "projectiles/" .. projectile_breed})
+    local projectile = enemy:create_enemy({
+      name = (enemy:get_name() or enemy:get_breed()) .. "_" .. projectile_breed,
+      breed = "projectiles/" .. projectile_breed
+    })
     local movement = enemy:start_throwing(projectile, throwing_duration, 0, throwing_height, angle, throwing_speed, function()
 
       -- Bounce on throw finished.
@@ -75,11 +78,6 @@ function enemy:start_throwing_projectile(direction, angle, on_throwed_callback)
     sprite:set_animation("walking")
     if on_throwed_callback then
       on_throwed_callback()
-    end
-
-    -- Call an enemy:on_enemy_created(projectile) event.
-    if enemy.on_enemy_created then
-      enemy:on_enemy_created(projectile)
     end
   end)
 end

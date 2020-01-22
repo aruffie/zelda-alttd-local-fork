@@ -32,6 +32,7 @@ function weapons.learn(enemy)
 
     -- Create the welded custom entity.
     sword = map:create_custom_entity({
+      name = (enemy:get_name() or enemy:get_breed()) .. "_weapon",
       direction = enemy:get_sprite():get_direction(),
       x = enemy_x,
       y = enemy_y,
@@ -103,11 +104,6 @@ function weapons.learn(enemy)
         projectile_sprite:set_direction(direction)
         if on_throwed_callback then
           on_throwed_callback()
-        end
-
-        -- Call an enemy:on_enemy_created(projectile) event.
-        if enemy.on_enemy_created then
-          enemy:on_enemy_created(projectile)
         end
       end
     end
