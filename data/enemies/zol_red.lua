@@ -75,11 +75,6 @@ function enemy:split()
       gel:restart()
     end)
     gel:get_sprite():set_animation("jumping")
-
-    -- Call an enemy:on_enemy_created(gel) event.
-    if enemy.on_enemy_created then
-      enemy:on_enemy_created(gel)
-    end
   end
 
   -- Start hurt behavior for some time then split into gels.
@@ -87,7 +82,7 @@ function enemy:split()
   sol.timer.start(map, before_split_duration, function()
     create_gel(-5)
     create_gel(5)
-    enemy:silent_kill()
+    enemy:remove()
   end)
   
 end

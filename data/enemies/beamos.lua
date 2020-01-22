@@ -40,6 +40,7 @@ function enemy:start_firing()
     -- Create laser projectile.
     local x, y, layer = enemy:get_position()
     local laser = map:create_enemy({
+      name = (enemy:get_name() or enemy:get_breed()) .. "_laser",
       breed =  "projectiles/laser",
       x = x,
       y = y - 5,
@@ -56,11 +57,6 @@ function enemy:start_firing()
         self.is_exhausted = false 
       end)
     end)
-
-    -- Call an enemy:on_enemy_created(laser) event.
-    if enemy.on_enemy_created then
-      enemy:on_enemy_created(laser)
-    end
   end)
 end
 

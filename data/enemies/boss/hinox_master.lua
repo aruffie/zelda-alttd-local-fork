@@ -102,6 +102,7 @@ function enemy:throw_bomb()
 
   -- Hold a bomb for some time and throw it.
   local bomb = enemy:create_enemy({
+    name = (enemy:get_name() or enemy:get_breed()) .. "_bomb",
     breed = "projectiles/bomb",
     x = hand_offset_x
   })

@@ -42,14 +42,20 @@ function enemy_meta:set_hero_weapons_reactions(default_reaction, reactions)
   self:set_thrust_reaction(reactions.thrust or default_reaction)
 end
 
+-- Notify the map through a map:on_enemy_created() event on enemy created.
+function enemy_meta:on_created()
+  local map = self:get_map()
+  if map.on_enemy_created then
+    map:on_enemy_created(self)
+  end
+end
+
 function enemy_meta:on_hurt(attack)
 
-  if not self.is_silent then
-    if self:get_hurt_style() == "boss" then
-      audio_manager:play_sound("enemies/boss_hit")
-    else
-      audio_manager:play_sound("enemies/enemy_hit")
-    end
+  if self:get_hurt_style() == "boss" then
+    audio_manager:play_sound("enemies/boss_hit")
+  else
+    audio_manager:play_sound("enemies/enemy_hit")
   end
 
 end
@@ -57,15 +63,13 @@ end
 function enemy_meta:on_dying()
 
   local game = self:get_game()
-  if not self.is_silent then
-    if self:get_hurt_style() == "boss" then
-      audio_manager:play_sound("enemies/boss_die")
-      sol.timer.start(self, 200, function()
-          audio_manager:play_sound("items/bomb_explode")
-        end)
-    else
-      audio_manager:play_sound("enemies/enemy_die")
-    end
+  if self:get_hurt_style() == "boss" then
+    audio_manager:play_sound("enemies/boss_die")
+    sol.timer.start(self, 200, function()
+        audio_manager:play_sound("items/bomb_explode")
+      end)
+  else
+    audio_manager:play_sound("enemies/enemy_die")
   end
   local death_count = game:get_value("stats_enemy_death_count") or 0
   game:set_value("stats_enemy_death_count", death_count + 1)

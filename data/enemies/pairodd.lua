@@ -40,16 +40,14 @@ function enemy:appear()
 
     -- Throw an iceball and restart.
     sprite:set_animation("throwing", function()
-      local iceball = enemy:create_enemy({breed = "projectiles/iceball", y = -8})
+      local iceball = enemy:create_enemy({
+        name = (enemy:get_name() or enemy:get_breed()) .. "_iceball",
+        breed = "projectiles/iceball", y = -8
+      })
       sol.timer.start(enemy, after_throwing_delay, function()
         enemy:restart()
       end)
       sprite:set_animation("throwed")
-
-      -- Call an enemy:on_enemy_created(iceball) event.
-      if enemy.on_enemy_created then
-        enemy:on_enemy_created(iceball)
-      end
     end)
   end)
 end

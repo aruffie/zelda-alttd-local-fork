@@ -76,17 +76,13 @@ function enemy:start_throwing_bone()
       
       local x, y, layer = enemy:get_position()
       local bone = map:create_enemy({
+        name = (enemy:get_name() or enemy:get_breed()) .. "_bone",
         breed = "projectiles/bone",
         x = x,
         y = y,
         layer = layer,
         direction = enemy:get_direction4_to(hero)
       })
-
-      -- Call an enemy:on_enemy_created(bone) event.
-      if enemy.on_enemy_created then
-        enemy:on_enemy_created(bone)
-      end
     end)
   end
 end

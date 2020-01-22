@@ -47,7 +47,10 @@ function enemy:start_attacking()
   -- Throw a bomb periodically.
   attacking_timer = sol.timer.start(enemy, math.random(throwing_bomb_minimum_delay, throwing_bomb_maximum_delay), function()
 
-    local bomb = enemy:create_enemy({breed = "projectiles/bomb"})
+    local bomb = enemy:create_enemy({
+      name = (enemy:get_name() or enemy:get_breed()) .. "_bomb",
+      breed = "projectiles/bomb"
+    })
     local angle = enemy:get_angle_from_sprite(sprite, hero)
     enemy:start_throwing(bomb, bomb_throw_duration, flying_height, bomb_throw_height, angle, bomb_throw_speed, function()
       bomb:explode()
@@ -57,11 +60,6 @@ function enemy:start_attacking()
     sol.timer.start(enemy, firing_duration, function()
       sprite:set_animation("walking")
     end)
-
-    -- Call an enemy:on_enemy_created(bomb) event.
-    if enemy.on_enemy_created then
-      enemy:on_enemy_created(bomb)
-    end
 
     return math.random(throwing_bomb_minimum_delay, throwing_bomb_maximum_delay)
   end)

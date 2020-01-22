@@ -75,6 +75,7 @@ function enemy:shoot()
   }
 
   local beam = enemy:create_enemy({
+    name = (enemy:get_name() or enemy:get_breed()) .. "_beam",
     breed = "projectiles/beam",
     x = dxy[direction + 1][1],
     y = dxy[direction + 1][2],
@@ -92,12 +93,7 @@ function enemy:shoot()
   beam:go(direction)
   sol.timer.start(enemy, 2000, function()
     enemy:disappear()
-  end) 
-
-  -- Call an enemy:on_enemy_created(beam) event.
-  if enemy.on_enemy_created then
-    enemy:on_enemy_created(beam)
-  end 
+  end)
 end
 
 function enemy:update_attack()

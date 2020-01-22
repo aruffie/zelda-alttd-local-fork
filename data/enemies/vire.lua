@@ -79,11 +79,6 @@ function enemy:create_projectile(projectile, direction)
   })
   projectile:go(direction)
 
-  -- Call an enemy:on_enemy_created(projectile) event.
-  if enemy.on_enemy_created then
-    enemy:on_enemy_created(projectile)
-  end
-
   return projectile
 end
 
@@ -217,8 +212,8 @@ enemy:register_event("on_dying", function(enemy)
 
   enemy:replace_on_sprite()
   if not is_executed then
-    enemy:create_projectile("bat", 0)
-    enemy:create_projectile("bat", 2)
+    local bat1 = enemy:create_projectile("bat", 0)
+    local bat2 = enemy:create_projectile("bat", 2)
   end
 end)
 

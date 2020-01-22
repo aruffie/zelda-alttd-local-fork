@@ -46,11 +46,6 @@ enemy:register_event("on_custom_attack_received", function(enemy, attack)
       stalfos:restart()
     end)
 
-    -- Call an enemy:on_enemy_created(stalfos) event.
-    if enemy.on_enemy_created then
-      enemy:on_enemy_created(stalfos)
-    end
-
     enemy:remove()
   end
 end)

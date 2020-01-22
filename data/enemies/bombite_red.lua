@@ -42,7 +42,7 @@ function enemy:explode()
     y = y,
     layer = layer
   })
-  enemy:silent_kill()
+  enemy:remove()
 end
 
 -- Start the enemy movement.
