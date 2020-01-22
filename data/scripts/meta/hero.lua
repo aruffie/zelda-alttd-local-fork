@@ -9,20 +9,27 @@ local timer_sword_loading = nil
 local timer_sword_tapping = nil
 local timer_stairs = nil
 
+function hero_meta:is_custom_state_started(state_name)
+  local state, object=self:get_state()
+  
+  --Vige priority to custom state in cace the cstate has the same name as a biolt-in one
+  return state=="custom" and object:get_description()==state_name
+end
+
 require("scripts/multi_events")
 hero_meta:register_event("on_position_changed", function(hero)
-  if not hero:get_map():is_sideview() and not hero.walking_sound_timer then
-    hero.walking_sound_timer=sol.timer.start(hero, 300, function()
-      hero.walking_sound_timer = nil
-    end)
-    if hero:get_ground_below()=="shallow_water" then
-      audio_manager:play_sound("hero/wade"..(math.random(1, 2)))
-    elseif hero:get_ground_below()=="grass" then
-      audio_manager:play_sound("hero/walk_on_grass")
+    if not hero:get_map():is_sideview() and not hero.walking_sound_timer then
+      hero.walking_sound_timer=sol.timer.start(hero, 300, function()
+          hero.walking_sound_timer = nil
+        end)
+      if hero:get_ground_below()=="shallow_water" then
+        audio_manager:play_sound("hero/wade"..(math.random(1, 2)))
+      elseif hero:get_ground_below()=="grass" then
+        audio_manager:play_sound("hero/walk_on_grass")
+      end
     end
-  end
 
-end)
+  end)
 
 hero_meta:register_event("on_state_changed", function(hero, current_state)
 
@@ -468,14 +475,14 @@ function hero_meta:create_symbol_exclamation(sound)
     audio_manager:play_sound("menus/menu_select")
   end
   local symbol = map:create_custom_entity({
-    sprite = "entities/symbols/exclamation",
-    x = x - 16,
-    y = y - 16,
-    width = 16,
-    height = 16,
-    layer = layer,
-    direction = 0
-  })
+      sprite = "entities/symbols/exclamation",
+      x = x - 16,
+      y = y - 16,
+      width = 16,
+      height = 16,
+      layer = layer,
+      direction = 0
+    })
 
   return symbol
 

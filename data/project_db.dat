@@ -148,6 +148,8 @@ map{ id = "sideviews/kanalet_castle/sideview_1", description = "Sideview 1" }
 map{ id = "sideviews/mabe_village/sideview_1", description = "Sideview 1" }
 map{ id = "sideviews/martha_bay/sideview_1", description = "Sideview 1" }
 map{ id = "sideviews/martha_bay/sideview_2", description = "Sideview 2" }
+map{ id = "test/A", description = "A" }
+map{ id = "test/B", description = "B" }
 map{ id = "test/inside", description = "Test map 2" }
 map{ id = "test/outside", description = "Test map" }
 map{ id = "test/sideview", description = "Test map (sideviews)" }
@@ -2254,9 +2256,14 @@ file{ path = "scripts/meta/enemy.lua", author = "Benjamin Schweitzer", license =
 file{ path = "scripts/meta/hero.lua", license = "GPL v3" }
 file{ path = "scripts/meta/npc.lua", license = "GPL v3" }
 file{ path = "scripts/meta/sensor.lua", author = "Christopho", license = "GPL v3" }
+file{ path = "scripts/states/bonking.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/states/jumping.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/states/running.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/states/sideview_swim.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "scripts/states/sword_loading.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "scripts/states/sword_spin_attack.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "scripts/states/sword_swinging.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "scripts/states/sword_tapping.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "shaders/pixellisation.dat", author = "PhoenixII54", }
 file{ path = "shaders/pixellisation.frag.glsl", author = "PhoenixII54", }
 file{ path = "shaders/power_effect.dat", author = "PhoenixII54", }

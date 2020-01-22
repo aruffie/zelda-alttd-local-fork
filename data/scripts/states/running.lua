@@ -10,6 +10,7 @@ local hero_meta=sol.main.get_metatable("hero")
 local jump_manager
 local audio_manager=require("scripts/audio_manager")
 local map_tools=require("scripts/maps/map_tools")
+
 state:set_can_use_item(false)
 state:set_can_use_item("feather", true)
 state:set_can_traverse("crystal_block", true)
@@ -124,69 +125,36 @@ function state:on_started()
       end
 
       function running_movement:on_obstacle_reached()
-        if not entity.bonking then
-          --Bonk !
-          entity:get_sprite("trail"):stop_animation()
-          stop_sound_loop(entity)
-          entity.bonking=true
-          --state:set_can_control_movement(false)
-          audio_manager:play_sound("hero/rebound")
-          local map=entity:get_map()
-
-          --Crash into entities (imported from the original custom script, don't know if it even works) 
-          for other in map:get_entities_in_rectangle(entity:get_bounding_box()) do
-            if entity:overlaps(other, "facing") then
-              if other.on_boots_crash ~= nil then
-                other:on_boots_crash()
-              end
-            end
-          end
-
-          --Shake the camera 
-          --Note, the current implementation of the shake function was intended to be used on static screens, so until it's reworked, there will be some visual mishaps at the end of the effect (the camera will abruptly go back to the the hero)
-          local camera=map:get_camera()
-          camera:dynamic_shake({count = 50, amplitude = 2, speed = 90, entity=entity})
-
-          --Play funny animation
-          local collapse_sprite=entity:get_sprite("tunic"):set_animation("collapse")
-          if sword_sprite then
-            entity:remove_sprite(sword_sprite)
-          end
-          if map:is_sideview() then
-            entity.vspeed=-4
-            sol.timer.start(entity, 10, function()
-                if entity:test_obstacles(0,1) then
-                  entity.bonking=nil
-                  audio_manager:play_sound("hero/land")
-                  entity:unfreeze()
-                  entity:get_sprite():set_animation("collapse")
-                  return
-                else
-                  return true
-                end
-              end)
-
-          else
-            jump_manager.start_parabola(entity, 2, function()
-                entity.bonking=nil
-                audio_manager:play_sound("hero/land")
-                entity:unfreeze()
-                local ground=entity:get_ground_below()
-                if not (ground=="hole" or ground=="lava" or ground=="deep_water") then
-                  entity:get_sprite():set_animation("collapse")
-                end
-              end)
-          end
-          entity:get_sprite():set_animation("collapse_pegasus")
+        require ("scripts/states/bonking")(jump_manager)
+        stop_sound_loop(entity)
+        self:stop()
+        local x,y,w,h=entity:get_bounding_box()
+        local ox, oy=hero:get_position()
+        local map_w, map_h=map:get_size()
+        local direction=entity:get_direction()
+        if x==0 and direction==2 then
+          print "GO LEFT"
+          hero:set_position(ox-1,oy)
+          --game:simulate_command_pressed("left")
+        elseif x+w==map_w and direction==0 then
+          print "GO RIGHT"
+         hero:set_position(ox+1,oy)
+--          game:simulate_command_pressed("right")
+        elseif y==0 and direction==1 then
+          print "GO UP"
+          hero:set_position(ox,oy-1)
+          --game:simulate_command_pressed("up")
+        elseif y+h==map_h and direction==3 then
+          hero:set_position(ox,oy+1)
+          print "GO DOWN"
+          --game:simulate_command_pressed("down")
         else
-          --audio_manager:play_sound("hero/land")
-          running_movement:set_speed(88)
-          running_movement:set_angle(running_movement:get_angle()+math.pi)
+          entity:bonk()
         end
       end
-
       --Run !
       running_movement:start(entity)
+
     end)
 end
 

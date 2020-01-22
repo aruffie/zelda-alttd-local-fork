@@ -1,0 +1,266 @@
+properties{
+  x = 0,
+  y = 0,
+  width = 320,
+  height = 240,
+  min_layer = 0,
+  max_layer = 2,
+  world = "test_world2",
+  tileset = "testing/labo",
+}
+
+tile{
+  layer = 0,
+  x = 168,
+  y = 112,
+  width = 104,
+  height = 16,
+  pattern = "25",
+}
+
+tile{
+  layer = 0,
+  x = 248,
+  y = 104,
+  width = 16,
+  height = 16,
+  pattern = "25",
+}
+
+tile{
+  layer = 0,
+  x = 248,
+  y = 96,
+  width = 8,
+  height = 8,
+  pattern = "25",
+}
+
+tile{
+  layer = 0,
+  x = 248,
+  y = 128,
+  width = 16,
+  height = 8,
+  pattern = "25",
+}
+
+tile{
+  layer = 0,
+  x = 248,
+  y = 136,
+  width = 8,
+  height = 8,
+  pattern = "25",
+}
+
+tile{
+  layer = 0,
+  x = 48,
+  y = 24,
+  width = 24,
+  height = 8,
+  pattern = "25",
+}
+
+tile{
+  layer = 0,
+  x = 72,
+  y = 32,
+  width = 8,
+  height = 48,
+  pattern = "25",
+}
+
+tile{
+  layer = 0,
+  x = 48,
+  y = 48,
+  width = 24,
+  height = 8,
+  pattern = "25",
+}
+
+tile{
+  layer = 0,
+  x = 40,
+  y = 32,
+  width = 16,
+  height = 48,
+  pattern = "25",
+}
+
+tile{
+  layer = 0,
+  x = 176,
+  y = 24,
+  width = 8,
+  height = 32,
+  pattern = "25",
+}
+
+tile{
+  layer = 0,
+  x = 184,
+  y = 24,
+  width = 8,
+  height = 8,
+  pattern = "25",
+}
+
+tile{
+  layer = 0,
+  x = 192,
+  y = 24,
+  width = 8,
+  height = 8,
+  pattern = "25",
+}
+
+tile{
+  layer = 0,
+  x = 192,
+  y = 32,
+  width = 8,
+  height = 8,
+  pattern = "25",
+}
+
+tile{
+  layer = 0,
+  x = 184,
+  y = 40,
+  width = 8,
+  height = 8,
+  pattern = "25",
+}
+
+tile{
+  layer = 0,
+  x = 192,
+  y = 48,
+  width = 8,
+  height = 8,
+  pattern = "25",
+}
+
+tile{
+  layer = 0,
+  x = 176,
+  y = 56,
+  width = 8,
+  height = 8,
+  pattern = "25",
+}
+
+tile{
+  layer = 0,
+  x = 192,
+  y = 56,
+  width = 8,
+  height = 8,
+  pattern = "25",
+}
+
+tile{
+  layer = 0,
+  x = 208,
+  y = 24,
+  width = 8,
+  height = 40,
+  pattern = "25",
+}
+
+tile{
+  layer = 0,
+  x = 216,
+  y = 56,
+  width = 8,
+  height = 8,
+  pattern = "25",
+}
+
+tile{
+  layer = 0,
+  x = 224,
+  y = 24,
+  width = 8,
+  height = 40,
+  pattern = "25",
+}
+
+tile{
+  layer = 0,
+  x = 240,
+  y = 24,
+  width = 8,
+  height = 40,
+  pattern = "25",
+}
+
+tile{
+  layer = 0,
+  x = 248,
+  y = 32,
+  width = 8,
+  height = 8,
+  pattern = "25",
+}
+
+tile{
+  layer = 0,
+  x = 256,
+  y = 40,
+  width = 8,
+  height = 8,
+  pattern = "25",
+}
+
+tile{
+  layer = 0,
+  x = 264,
+  y = 24,
+  width = 8,
+  height = 40,
+  pattern = "25",
+}
+
+tile{
+  layer = 0,
+  x = 280,
+  y = 24,
+  width = 8,
+  height = 24,
+  pattern = "25",
+}
+
+tile{
+  layer = 0,
+  x = 280,
+  y = 56,
+  width = 8,
+  height = 8,
+  pattern = "25",
+}
+
+teletransporter{
+  layer = 0,
+  x = 320,
+  y = 0,
+  width = 16,
+  height = 240,
+  transition = "scrolling",
+  destination_map = "test/B",
+  destination = "_side",
+}
+
+teletransporter{
+  layer = 0,
+  x = 56,
+  y = 32,
+  width = 16,
+  height = 16,
+  destination_map = "test/outside",
+  destination = "destination",
+}
+

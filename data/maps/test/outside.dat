@@ -1364,6 +1364,15 @@ tile{
   pattern = "8",
 }
 
+tile{
+  layer = 0,
+  x = 152,
+  y = 256,
+  width = 16,
+  height = 16,
+  pattern = "24",
+}
+
 wall{
   layer = 0,
   x = 208,
@@ -2175,6 +2184,15 @@ stream{
   y = 213,
   direction = 6,
   sprite = "entities/streams/water_stream",
+}
+
+teletransporter{
+  layer = 0,
+  x = 152,
+  y = 256,
+  width = 16,
+  height = 16,
+  destination_map = "test/A",
 }
 
 tile{
