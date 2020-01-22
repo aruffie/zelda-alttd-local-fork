@@ -27,7 +27,7 @@ local accel_duration = 1
 local old_x=0
 local old_y=0
 local true_x, true_y
-local start_x, start_y
+local initial_x, initial_y
 entity.speed=0
 local twin=nil
 local chain=nil
@@ -48,7 +48,7 @@ entity:register_event("on_created", function()
     entity.is_on_twin=false
     local true_layer
     true_x, true_y = entity:get_position()
-    start_x, start_y = entity:get_position()
+    initial_x, initial_y = entity:get_position()
     --Create it's chain
     chain = entity:get_map():create_custom_entity({
         x=true_x,
@@ -66,8 +66,8 @@ entity:register_event("on_created", function()
 local function is_on_platform(entity, other)
   if entity~=other and other:get_type()~="camera" and other~=chain then
     local x, y, w, h = entity:get_bounding_box()
-    local hx, hy, hw, hh = other:get_bounding_box()
-    return hx < x+w and hx+hw > x and hy <= y-1 and hy+hh >= y-1
+    local other_x, other_y, other_w, other_h = other:get_bounding_box()
+    return other_x < x+w and other_x+other_w > x and other_y <= y-1 and other_y+other_h >= y-1
   end
   return false
 end
@@ -89,15 +89,16 @@ entity:add_collision_test(
 
     --Move the other entity with me
     local dx, dy = x-old_x, y-old_y
-    local xx, yy = other:get_position()
+    local other_x, other_y = other:get_position()
     if not other:test_obstacles(0, dy) then
-      other:set_position(xx+dx, yy+dy)
+      other:set_position(other_x+dx, other_y+dy)
     end
   end
 )
 
-function entity:reset()
-  entity:set_position(start_x, start_y)
+function entity.reset(self)
+ -- print ("reseting "..self:get_name())
+  self:set_position(initial_x, initial_y)
 end
 
 function entity:on_removed()

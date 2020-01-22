@@ -202,7 +202,7 @@ function jump_manager.start(entity, initial_vspeed, success_callback, failure_ca
   end
   local state, state_object=entity:get_state() -- Get the current state before jumping.
   local state_description = state=="custom" and state_object:get_description() or ""
-  if entity:is_jumping() or state=="falling" or state=="grabbing" or state=="carrying" or state=="pushing" then --filter out invalid states
+  if entity:is_jumping() or state=="falling" or state=="grabbing" or state=="carrying" or state=="pushing" or state=="stairs" then --filter out invalid states
     if failure_callback then
       failure_callback()
     end
