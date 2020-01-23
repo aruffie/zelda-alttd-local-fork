@@ -140,6 +140,7 @@ enemy:register_event("on_restarted", function(enemy)
   is_attacking = false
   is_exhausted = true
   is_adhesive = true
+  sprite:set_xy(0, 0)
   sol.timer.start(enemy, math.random(exhausted_minimum_duration, exhausted_maximum_duration), function()
     is_exhausted = false
   end)
