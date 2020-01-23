@@ -303,7 +303,6 @@ function common_actions.learn(enemy)
           on_finished_callback()
         end
       end
-      return false
     end)
 
     -- Move the enemy on-floor if requested.
@@ -552,7 +551,6 @@ function common_actions.learn(enemy)
           on_finished_callback()
         end
       end
-      return false
     end)
 
     -- Move the entity on-floor if requested.

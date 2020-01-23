@@ -11,7 +11,6 @@ function enemy:go()
 
   local movement = enemy:straight_go(nil, 80)
   movement:set_ignore_obstacles(true)
-  enemy:remove_when_out_screen(movement)
 end
 
 -- Create an impact effect on hit.
