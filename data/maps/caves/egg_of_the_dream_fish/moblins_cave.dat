@@ -3043,8 +3043,8 @@ wall{
 enemy{
   name = "enemy_group_1_1",
   layer = 0,
-  x = 160,
-  y = 373,
+  x = 200,
+  y = 365,
   direction = 3,
   breed = "moblin_dog_sword",
 }

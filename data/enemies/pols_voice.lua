@@ -62,7 +62,7 @@ enemy:register_event("on_restarted", function(enemy)
   })
 
   -- States.
-  sprite:set_animation("immobilized")
+  sprite:set_animation("walking")
   enemy:set_can_attack(true)
   enemy:set_damage(4)
   enemy:wait()

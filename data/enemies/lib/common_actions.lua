@@ -1,9 +1,10 @@
 ----------------------------------
 --
--- Add some basic getters and methods to an enemy.
+-- Add some basic methods to an enemy.
 -- There is no passive behavior without an explicit start when learning this to an enemy.
 --
--- Methods : enemy:is_aligned(entity, thickness, [sprite])
+-- Methods : General informations :
+--           enemy:is_aligned(entity, thickness, [sprite])
 --           enemy:is_near(entity, triggering_distance, [sprite])
 --           enemy:is_leashed_by(entity)
 --           enemy:is_over_grounds(grounds)
@@ -14,6 +15,7 @@
 --           enemy:get_obstacles_normal_angle()
 --           enemy:get_obstacles_bounce_angle([angle])
 --
+--           Movements and positioning :
 --           enemy:start_straight_walking(angle, speed, [distance, [on_stopped_callback]])
 --           enemy:start_target_walking(entity, speed)
 --           enemy:start_jumping(duration, height, [angle, speed, [on_finished_callback]])
@@ -30,6 +32,7 @@
 --           enemy:start_pushing_back(entity, [speed, [duration, [on_finished_callback]]])
 --           enemy:start_shock(entity, [speed, [duration, [on_finished_callback]]])
 --
+--           Effects and other actions :
 --           enemy:start_shadow([sprite_name, [animation_name]])
 --           enemy:start_brief_effect(sprite_name, [animation_name, [x_offset, [y_offset, [maximum_duration, [on_finished_callback]]]]])
 --           enemy:steal_item(item_name, [variant, [only_if_assigned, [drop_when_dead]]])
@@ -73,7 +76,8 @@ function common_actions.learn(enemy)
       x, y = x + x_offset, y + y_offset
     end
 
-    return (math.abs(entity_x - x) < half_thickness or math.abs(entity_y - y) < half_thickness) and layer == entity_layer
+    return (math.abs(entity_x - x) < half_thickness or math.abs(entity_y - y) < half_thickness)
+      and (layer == entity_layer or enemy:has_layer_independent_collisions())
   end
 
   -- Return true if the entity is closer to the enemy than triggering_distance
