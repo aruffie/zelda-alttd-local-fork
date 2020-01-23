@@ -36,7 +36,7 @@ require "scripts/multi_events"
 	  callback = what to do when it finished (text, cutscene, death, etc)
 	 
 	- Remember that you can implement it anywhere else, the target only need to be an entity / sprite
-]]
+--]]
 
 local falling_state=sol.state.create("Dropping from ceiling")
 falling_state:set_can_control_movement(false)
@@ -45,6 +45,28 @@ falling_state:set_affected_by_ground("deep_water", false)
 falling_state:set_affected_by_ground("hole", false)
 falling_state:set_affected_by_ground("lava", false)
 falling_state:set_can_use_item(false)
+
+-- Make the given sprite start a bounce.
+local function bounce(entity, sprite, duration, height, on_finished_callback)
+
+  local elapsed_time = 0
+  sol.timer.start(entity, 10, function()
+
+    elapsed_time = elapsed_time + 10
+    if elapsed_time < duration then
+      sprite:set_xy(0, -math.sqrt(math.sin(elapsed_time / duration * math.pi)) * height)
+      return true
+    else
+      sprite:set_xy(0, 0)
+
+      -- Call events once bounce finished.
+      if on_finished_callback then
+        on_finished_callback()
+      end
+    end
+    return false
+  end)
+end
 
 function ceiling_drop_manager:create(meta)
   local object_meta = sol.main.get_metatable(meta)
@@ -111,28 +133,31 @@ function ceiling_drop_manager:create(meta)
     local movement = sol.movement.create("straight")
     movement:set_max_distance(height)
     movement:set_angle(3 * math.pi / 2)
-    movement:set_speed(192)
+    movement:set_speed(240)
     movement:set_ignore_obstacles(true)
     movement:start(target_sprite, function()
-        -- Movement finished, disable the falling movement
-        first_active_sprite = nil
-        currently_falling = false
-        entity:set_layer(clayer)
-        shadow:remove()
 
-        if meta == "hero" then
-          entity.ceiling_drop_spin_timer:stop()
-          entity.ceiling_drop_spin_timer=nil
-          entity:set_direction(starting_sprite_direction)
-          entity:unfreeze()
-        end
+        -- Start a bounce.
+        bounce(entity, target_sprite, 600, 18, function()
 
-        entity:get_sprite():set_direction(starting_sprite_direction)
-        if callback ~= nil then
-          callback()
-        end
+            -- Movement finished, disable the falling movement
+            first_active_sprite = nil
+            currently_falling = false
+            entity:set_layer(clayer)
+            shadow:remove()
 
+            if meta == "hero" then
+              entity.ceiling_drop_spin_timer:stop()
+              entity.ceiling_drop_spin_timer=nil
+              entity:set_direction(starting_sprite_direction)
+              entity:unfreeze()
+            end
 
+            entity:get_sprite():set_direction(starting_sprite_direction)
+            if callback ~= nil then
+              callback()
+            end
+          end)
       end)
 
 
