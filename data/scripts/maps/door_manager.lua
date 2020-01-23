@@ -29,7 +29,9 @@ function door_manager:open_when_enemies_dead(map, enemy_prefix, door_prefix, sou
   map:register_event("on_enemy_created", function(map, enemy)
     if string.match(enemy:get_name() or "", enemy_prefix) then
       enemy:register_event("on_dead", enemy_on_dead)
-      enemy:register_event("on_removed", enemy_on_dead)
+      enemy:register_event("on_removed", function()
+        sol.timer.start(sol.main, 10, enemy_on_dead) -- Workaround: Enemy still exists at this point, wait a frame
+      end)
     end
   end)
 
