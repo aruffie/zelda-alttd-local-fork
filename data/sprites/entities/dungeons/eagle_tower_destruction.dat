@@ -1,0 +1,8 @@
+animation{
+  name = "default",
+  src_image = "entities/dungeons/eagle_tower_destruction.png",
+  frame_delay = 400,
+  directions = {
+    { x = 0, y = 0, frame_width = 160, frame_height = 256, origin_x = 80, origin_y = 253, num_frames = 11 },
+  },
+}
