@@ -4045,7 +4045,7 @@ stream{
   x = 840,
   y = 77,
   direction = 0,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 dynamic_tile{
@@ -4914,7 +4914,7 @@ stream{
   x = 712,
   y = 93,
   direction = 2,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -4922,7 +4922,7 @@ stream{
   x = 712,
   y = 77,
   direction = 0,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -4930,7 +4930,7 @@ stream{
   x = 872,
   y = 61,
   direction = 6,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -4938,7 +4938,7 @@ stream{
   x = 744,
   y = 141,
   direction = 4,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 enemy{
@@ -5302,7 +5302,7 @@ enemy{
 }
 
 custom_entity{
-  name = "horse_head_2",
+  name = "horse_head_1",
   layer = 0,
   x = 744,
   y = 93,
@@ -5314,7 +5314,7 @@ custom_entity{
 }
 
 custom_entity{
-  name = "horse_head_3",
+  name = "horse_head_2",
   layer = 0,
   x = 840,
   y = 77,
@@ -5576,7 +5576,7 @@ stream{
   x = 712,
   y = 61,
   direction = 0,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5584,7 +5584,7 @@ stream{
   x = 728,
   y = 61,
   direction = 0,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5592,7 +5592,7 @@ stream{
   x = 728,
   y = 77,
   direction = 0,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5600,7 +5600,7 @@ stream{
   x = 744,
   y = 61,
   direction = 0,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5608,7 +5608,7 @@ stream{
   x = 744,
   y = 77,
   direction = 0,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5616,7 +5616,7 @@ stream{
   x = 760,
   y = 77,
   direction = 0,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5624,7 +5624,7 @@ stream{
   x = 760,
   y = 61,
   direction = 0,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5632,7 +5632,7 @@ stream{
   x = 776,
   y = 61,
   direction = 0,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5640,7 +5640,7 @@ stream{
   x = 776,
   y = 77,
   direction = 0,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5648,7 +5648,7 @@ stream{
   x = 792,
   y = 61,
   direction = 0,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5656,7 +5656,7 @@ stream{
   x = 808,
   y = 61,
   direction = 0,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5664,7 +5664,7 @@ stream{
   x = 792,
   y = 77,
   direction = 0,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5672,7 +5672,7 @@ stream{
   x = 808,
   y = 77,
   direction = 0,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5680,7 +5680,7 @@ stream{
   x = 824,
   y = 61,
   direction = 0,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5688,7 +5688,7 @@ stream{
   x = 824,
   y = 77,
   direction = 0,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5696,7 +5696,7 @@ stream{
   x = 840,
   y = 61,
   direction = 0,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5704,7 +5704,7 @@ stream{
   x = 856,
   y = 61,
   direction = 0,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5712,7 +5712,7 @@ stream{
   x = 856,
   y = 77,
   direction = 0,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5720,7 +5720,7 @@ stream{
   x = 728,
   y = 93,
   direction = 2,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5728,7 +5728,7 @@ stream{
   x = 728,
   y = 109,
   direction = 2,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5736,7 +5736,7 @@ stream{
   x = 712,
   y = 109,
   direction = 2,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5744,7 +5744,7 @@ stream{
   x = 712,
   y = 125,
   direction = 2,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5752,7 +5752,7 @@ stream{
   x = 728,
   y = 125,
   direction = 2,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5760,7 +5760,7 @@ stream{
   x = 728,
   y = 141,
   direction = 2,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5768,7 +5768,7 @@ stream{
   x = 712,
   y = 141,
   direction = 2,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5776,7 +5776,7 @@ stream{
   x = 712,
   y = 157,
   direction = 2,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5784,7 +5784,7 @@ stream{
   x = 728,
   y = 157,
   direction = 2,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5792,7 +5792,7 @@ stream{
   x = 744,
   y = 157,
   direction = 4,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5800,7 +5800,7 @@ stream{
   x = 760,
   y = 157,
   direction = 4,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5808,7 +5808,7 @@ stream{
   x = 760,
   y = 141,
   direction = 4,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5816,7 +5816,7 @@ stream{
   x = 776,
   y = 141,
   direction = 4,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5824,7 +5824,7 @@ stream{
   x = 776,
   y = 157,
   direction = 4,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5832,7 +5832,7 @@ stream{
   x = 792,
   y = 157,
   direction = 4,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5840,7 +5840,7 @@ stream{
   x = 792,
   y = 141,
   direction = 4,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5848,7 +5848,7 @@ stream{
   x = 808,
   y = 141,
   direction = 4,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5856,7 +5856,7 @@ stream{
   x = 808,
   y = 157,
   direction = 4,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5864,7 +5864,7 @@ stream{
   x = 824,
   y = 157,
   direction = 4,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5872,7 +5872,7 @@ stream{
   x = 824,
   y = 141,
   direction = 4,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5880,7 +5880,7 @@ stream{
   x = 840,
   y = 141,
   direction = 4,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5888,7 +5888,7 @@ stream{
   x = 840,
   y = 157,
   direction = 4,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5896,7 +5896,7 @@ stream{
   x = 856,
   y = 157,
   direction = 4,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5904,7 +5904,7 @@ stream{
   x = 856,
   y = 141,
   direction = 4,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5912,7 +5912,7 @@ stream{
   x = 872,
   y = 141,
   direction = 4,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5920,7 +5920,7 @@ stream{
   x = 888,
   y = 141,
   direction = 4,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5928,7 +5928,7 @@ stream{
   x = 888,
   y = 157,
   direction = 4,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5936,7 +5936,7 @@ stream{
   x = 872,
   y = 157,
   direction = 4,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 enemy{
@@ -5953,7 +5953,7 @@ stream{
   x = 888,
   y = 61,
   direction = 6,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5961,7 +5961,7 @@ stream{
   x = 888,
   y = 77,
   direction = 6,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5969,7 +5969,7 @@ stream{
   x = 888,
   y = 93,
   direction = 6,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5977,7 +5977,7 @@ stream{
   x = 888,
   y = 109,
   direction = 6,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5985,7 +5985,7 @@ stream{
   x = 888,
   y = 125,
   direction = 6,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -5993,7 +5993,7 @@ stream{
   x = 872,
   y = 125,
   direction = 6,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -6001,7 +6001,7 @@ stream{
   x = 872,
   y = 109,
   direction = 6,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -6009,7 +6009,7 @@ stream{
   x = 872,
   y = 93,
   direction = 6,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 stream{
@@ -6017,7 +6017,7 @@ stream{
   x = 872,
   y = 77,
   direction = 6,
-  sprite = "entities/grounds/conveyor_belt_1",
+  sprite = "entities/streams/stream_d1",
 }
 
 dynamic_tile{
