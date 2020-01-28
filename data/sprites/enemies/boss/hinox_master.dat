@@ -13,7 +13,7 @@ animation{
 animation{
   name = "charge",
   src_image = "enemies/boss/hinox_master.png",
-  frame_delay = 80,
+  frame_delay = 60,
   frame_to_loop_on = 0,
   directions = {
     { x = 0, y = 64, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61, num_frames = 4 },
@@ -57,7 +57,8 @@ animation{
 animation{
   name = "throwing_left",
   src_image = "enemies/boss/hinox_master.png",
-  frame_delay = 80,
+  frame_delay = 40,
+  frame_to_loop_on = 3,
   directions = {
     { x = 256, y = 128, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61, num_frames = 4 },
     { x = 256, y = 128, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61, num_frames = 4 },
@@ -68,7 +69,8 @@ animation{
 animation{
   name = "throwing_right",
   src_image = "enemies/boss/hinox_master.png",
-  frame_delay = 80,
+  frame_delay = 40,
+  frame_to_loop_on = 3,
   directions = {
     { x = 0, y = 128, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61, num_frames = 4 },
     { x = 0, y = 128, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61, num_frames = 4 },

@@ -67,7 +67,7 @@ function enemy:start_charging()
       enemy:restart()
     end)
     sprite:set_animation("charge")
-    sprite:set_frame_delay(100)
+    sprite:set_frame_delay(80)
   end)
 end
 
@@ -76,12 +76,12 @@ end
 local function start_preparing_throw(right_hand, hold_duration, on_throwing)
 
   is_bomb_upcoming = false
-  sprite:set_animation("throwing")
+  sprite:set_animation("holding_" .. (right_hand and "right" or "left"))
   sprite:set_direction(right_hand and 2 or 0)
 
   sol.timer.start(enemy, hold_duration, function()
     on_throwing()
-    sprite:set_direction(right_hand and 0 or 2)
+    sprite:set_animation("throwing_" .. (right_hand and "right" or "left"))
     sol.timer.start(enemy, waiting_duration, function()
       enemy:restart()
     end)
@@ -150,6 +150,7 @@ function enemy:throw_hero()
     local movement = enemy:start_throwing(hero, hero_throwing_duration, -right_hand_offset_y, hero_throwing_height, angle, hero_throwing_speed, function()
 
       -- Stun the hero for some time when throw finished.
+      game:remove_life(4)
       if hero_sprite:get_animation() ~= "collapse" then
         hero_sprite:set_animation("collapse")
       end
@@ -157,7 +158,6 @@ function enemy:throw_hero()
         hero:unfreeze()
       end)
     end)
-    game:remove_life(4)
 
     -- Impact animation on hitting an obstacle.
     function movement:on_obstacle_reached()

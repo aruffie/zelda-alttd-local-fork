@@ -33,7 +33,7 @@
 --           enemy:start_shock(entity, [speed, [duration, [on_finished_callback]]])
 --
 --           Effects and other actions :
---           
+--           enemy:silent_kill()
 --           enemy:start_shadow([sprite_name, [animation_name]])
 --           enemy:start_brief_effect(sprite_name, [animation_name, [x_offset, [y_offset, [maximum_duration, [on_finished_callback]]]]])
 --           enemy:steal_item(item_name, [variant, [only_if_assigned, [drop_when_dead]]])

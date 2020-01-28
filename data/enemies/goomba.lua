@@ -58,6 +58,7 @@ enemy:register_event("on_custom_attack_received", function(enemy, attack)
     sol.timer.start(enemy, crushed_duration, function()
       enemy:set_pushed_back_when_hurt(false)
       enemy:hurt(1)
+      sprite:set_animation("hurt_crushed")
     end)
   end
 end)
