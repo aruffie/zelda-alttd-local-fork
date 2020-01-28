@@ -22,7 +22,7 @@ enemy:register_event("on_created", function(enemy)
   local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
   function sprite:on_animation_finished(animation)
     if enemy.state == "destroying" then
-      enemy:remove()
+      enemy:silent_kill()
     end
   end
 

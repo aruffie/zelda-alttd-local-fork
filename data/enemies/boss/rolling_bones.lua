@@ -91,16 +91,8 @@ end
 enemy:register_event("on_dead", function(enemy)
 
   spike:get_sprite():set_animation("destroyed", function()
-    spike:remove()
+    spike:silent_kill()
   end)
-end)
-
--- Remove the spike if rolling bones removed from outside this script.
-enemy:register_event("on_removed", function(enemy)
-
-  if spike:exists() then
-    spike:remove()
-  end
 end)
 
 -- Initialization.

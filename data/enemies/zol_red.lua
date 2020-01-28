@@ -82,7 +82,7 @@ function enemy:split()
   sol.timer.start(map, before_split_duration, function()
     create_gel(-5)
     create_gel(5)
-    enemy:remove()
+    enemy:silent_kill()
   end)
   
 end
@@ -118,6 +118,7 @@ enemy:register_event("on_restarted", function(enemy)
   -- States.
   is_attacking = false
   is_exhausted = true
+  sprite:set_xy(0, 0)
   sol.timer.start(enemy, math.random(exhausted_minimum_duration, exhausted_maximum_duration), function()
     is_exhausted = false
   end)

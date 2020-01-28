@@ -21,7 +21,7 @@ end)
 
 enemy:register_event("on_obstacle_reached", function(enemy)
 
-  enemy:remove()
+  enemy:silent_kill()
 end)
 
 function enemy:go(direction4)

@@ -58,13 +58,8 @@ local function bounce(entity, sprite, duration, height, on_finished_callback)
       return true
     else
       sprite:set_xy(0, 0)
-
-      -- Call events once bounce finished.
-      if on_finished_callback then
-        on_finished_callback()
-      end
+      on_finished_callback()
     end
-    return false
   end)
 end
 

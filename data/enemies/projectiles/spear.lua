@@ -43,7 +43,7 @@ enemy:register_event("on_hit", function(enemy)
 
   -- Remove the entity when planted animation finished + some time.
   sprite:set_animation("hit", function()
-    enemy:remove()
+    enemy:silent_kill()
   end)
 
   return false
@@ -51,7 +51,7 @@ end)
 
 -- Directly remove the enemy on attacking hero
 enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
-  enemy:remove()
+  enemy:silent_kill()
 end)
 
 -- Initialization.

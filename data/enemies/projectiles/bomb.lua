@@ -32,7 +32,7 @@ function enemy:explode()
       {key = "hurtable_type_1", value = "hero"}
     }
   })
-  enemy:remove()
+  enemy:silent_kill()
 end
 
 -- Don't remove on hit.

@@ -46,7 +46,7 @@ enemy:register_event("on_custom_attack_received", function(enemy, attack)
       stalfos:restart()
     end)
 
-    enemy:remove()
+    enemy:silent_kill()
   end
 end)
 
