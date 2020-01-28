@@ -58,7 +58,7 @@ function enemy:countdown(number)
         y = y,
         layer = layer
       })
-      enemy:remove()
+      enemy:silent_kill()
       return
     end
     countdown_step = number

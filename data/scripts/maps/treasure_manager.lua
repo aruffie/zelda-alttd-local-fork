@@ -17,16 +17,18 @@ function treasure_manager:appear_chest_when_enemies_dead(map, enemy_prefix, ches
       end
     end
   end
+  local function enemy_on_removed()
+    -- Workaround: The enemy still exists at this point, wait a frame before checking for existing entities.
+    --sol.timer.start(map, 10, enemy_on_dead)
+  end
 
-  -- Setup for each enemy that matches the prefix and ones created in the future.
+  -- Setup for each existing enemy that matches the prefix and ones created in the future.
   for enemy in map:get_entities(enemy_prefix) do
     enemy:register_event("on_dead", enemy_on_dead)
-    enemy:register_event("on_removed", enemy_on_dead)
   end
   map:register_event("on_enemy_created", function(map, enemy)
     if string.match(enemy:get_name() or "", enemy_prefix) then
       enemy:register_event("on_dead", enemy_on_dead)
-      enemy:register_event("on_removed", enemy_on_dead)
     end
   end)
 
@@ -116,16 +118,18 @@ function treasure_manager:appear_pickable_when_enemies_dead(map, enemy_prefix, p
       end
     end
   end
+  local function enemy_on_removed()
+    -- Workaround: The enemy still exists at this point, wait a frame before checking for existing entities.
+    --sol.timer.start(map, 10, enemy_on_dead)
+  end
 
-  -- Setup for each enemy that matches the prefix and ones created in the future.
+  -- Setup for each existing enemy that matches the prefix and ones created in the future.
   for enemy in map:get_entities(enemy_prefix) do
     enemy:register_event("on_dead", enemy_on_dead)
-    enemy:register_event("on_removed", enemy_on_dead)
   end
   map:register_event("on_enemy_created", function(map, enemy)
     if string.match(enemy:get_name() or "", enemy_prefix) then
       enemy:register_event("on_dead", enemy_on_dead)
-      enemy:register_event("on_removed", enemy_on_dead)
     end
   end)
 

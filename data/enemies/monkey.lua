@@ -129,7 +129,7 @@ function enemy:start_running_away()
     movement:set_ignore_obstacles(true)
     function movement:on_position_changed()
       if not camera:overlaps(enemy:get_max_bounding_box()) then
-        enemy:remove()
+        enemy:silent_kill()
       end
     end
   end)

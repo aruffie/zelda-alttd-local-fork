@@ -6,7 +6,7 @@ require("scripts/multi_events")
 local audio_manager = require("scripts/audio_manager")
 
 
--- Open doors when all ennemis in the room are dead
+-- Open doors when all ennemis in the room are dead or removed.
 function door_manager:open_when_enemies_dead(map, enemy_prefix, door_prefix, sound)
 
   local function enemy_on_dead()
@@ -20,18 +20,18 @@ function door_manager:open_when_enemies_dead(map, enemy_prefix, door_prefix, sou
       end
     end
   end
+  local function enemy_on_removed()
+    -- Workaround: The enemy still exists at this point, wait a frame before checking for existing entities.
+    --sol.timer.start(map, 10, enemy_on_dead)
+  end
 
-  -- Setup for each enemy that matches the prefix and ones created in the future.
+  -- Setup for each existing enemy that matches the prefix and ones created in the future.
   for enemy in map:get_entities(enemy_prefix) do
     enemy:register_event("on_dead", enemy_on_dead)
-    enemy:register_event("on_removed", enemy_on_dead)
   end
   map:register_event("on_enemy_created", function(map, enemy)
     if string.match(enemy:get_name() or "", enemy_prefix) then
       enemy:register_event("on_dead", enemy_on_dead)
-      enemy:register_event("on_removed", function()
-        sol.timer.start(sol.main, 10, enemy_on_dead) -- Workaround: Enemy still exists at this point, wait a frame
-      end)
     end
   end)
 

@@ -33,6 +33,7 @@
 --           enemy:start_shock(entity, [speed, [duration, [on_finished_callback]]])
 --
 --           Effects and other actions :
+--           
 --           enemy:start_shadow([sprite_name, [animation_name]])
 --           enemy:start_brief_effect(sprite_name, [animation_name, [x_offset, [y_offset, [maximum_duration, [on_finished_callback]]]]])
 --           enemy:steal_item(item_name, [variant, [only_if_assigned, [drop_when_dead]]])
@@ -668,6 +669,22 @@ function common_actions.learn(enemy)
       end
     end)
     enemy:start_brief_effect("entities/effects/impact_projectile", "default", (hero_x - x) / 2, (hero_y - y) / 2)
+  end
+
+  -- Kill the enemy right now, silently and without animation.
+  function enemy:silent_kill()
+
+    enemy.is_hurt_silently = true -- Workaround : Don't play sounds added by enemy meta script.
+
+    if enemy.on_dying then
+      enemy:on_dying()
+    end
+    enemy:remove()
+    if enemy.on_dead then
+      enemy:on_dead()
+    end
+
+    -- TODO Handle savegame if any.
   end
 
   -- Add a shadow below the enemy.

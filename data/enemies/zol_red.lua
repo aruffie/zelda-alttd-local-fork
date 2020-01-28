@@ -82,7 +82,7 @@ function enemy:split()
   sol.timer.start(map, before_split_duration, function()
     create_gel(-5)
     create_gel(5)
-    enemy:remove()
+    enemy:silent_kill()
   end)
   
 end
