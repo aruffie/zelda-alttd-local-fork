@@ -211,11 +211,18 @@ end
 
   end)--]]
 
+-- Check if the enemy should fall in hole on switching to normal obstacle behavior mode.
+enemy_meta:register_event("set_obstacle_behavior", function(enemy)
+
+    if enemy:get_ground_below() == "hole" and enemy:get_obstacle_behavior() == "normal" then
+      entity_manager:create_falling_entity(enemy)
+    end
+  end, false)
+
+-- Check if the enemy should fall in hole on removed.
 enemy_meta:register_event("on_removed", function(enemy)
 
-    local game = enemy:get_game();
-    local map = game:get_map()
-    if enemy:get_ground_below()== "hole" and enemy:get_obstacle_behavior()=="normal" then
+    if enemy:get_ground_below() == "hole" and enemy:get_obstacle_behavior() == "normal" then
       entity_manager:create_falling_entity(enemy)
     end
   end)

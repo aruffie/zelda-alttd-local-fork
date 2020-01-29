@@ -305,6 +305,7 @@ function common_actions.learn(enemy)
         end
       end
     end)
+    enemy:set_obstacle_behavior("flying")
 
     -- Move the enemy on-floor if requested.
     if angle then
@@ -341,6 +342,7 @@ function common_actions.learn(enemy)
         end
       end
     end
+    enemy:set_obstacle_behavior("flying")
   end
 
   -- Make the enemy stop flying.

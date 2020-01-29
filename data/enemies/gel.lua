@@ -144,6 +144,7 @@ enemy:register_event("on_restarted", function(enemy)
   sol.timer.start(enemy, math.random(exhausted_minimum_duration, exhausted_maximum_duration), function()
     is_exhausted = false
   end)
+  enemy:set_obstacle_behavior("normal")
   enemy:set_can_attack(false)
   enemy:set_damage(0)
   enemy:start_walking()

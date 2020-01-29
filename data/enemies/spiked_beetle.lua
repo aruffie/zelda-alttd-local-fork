@@ -143,6 +143,8 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_hero_weapons_reactions("protected", {jump_on = "ignored"})
 
   -- States.
+  sprite:set_xy(0, 0)
+  enemy:set_obstacle_behavior("normal")
   enemy:set_can_attack(true)
   enemy:set_damage(2)
   is_charging = false

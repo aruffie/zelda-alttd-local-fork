@@ -62,7 +62,6 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(8)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)
-  enemy:set_obstacle_behavior("flying")
   enemy:start_shadow()
 
   -- Don't show the enemy if sleeping.
@@ -86,6 +85,8 @@ enemy:register_event("on_restarted", function(enemy)
   })
 
   -- States.
+  sprite:set_xy(0, 0)
+  enemy:set_obstacle_behavior("flying")
   enemy:set_can_attack(true)
   enemy:set_damage(2)
   enemy:set_layer_independent_collisions(true)

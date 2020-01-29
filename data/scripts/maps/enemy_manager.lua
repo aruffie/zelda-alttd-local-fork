@@ -15,10 +15,6 @@ function enemy_manager:on_enemies_dead(map, enemies_prefix, callback)
       callback()
     end
   end
-  local function enemy_on_removed()
-    -- Workaround: The enemy still exists at this point, wait a frame before checking for existing entities.
-    --sol.timer.start(map, 10, enemy_on_dead)
-  end
 
   -- Setup for each existing enemy that matches the prefix and ones created in the future.
   for enemy in map:get_entities(enemies_prefix) do

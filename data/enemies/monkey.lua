@@ -147,6 +147,8 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_invincible(true)
 
   -- States.
+  sprite:set_xy(0, 0)
+  enemy:set_obstacle_behavior("normal")
   enemy:set_damage(0)
   enemy:set_can_attack(false)
   enemy:wait()

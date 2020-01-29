@@ -48,6 +48,7 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
+  sprite:set_xy(0, 0)
   sprite:set_animation("walking")
   enemy:set_damage(2)
   enemy:set_obstacle_behavior("flying")

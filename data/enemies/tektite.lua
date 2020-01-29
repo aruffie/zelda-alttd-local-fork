@@ -53,6 +53,7 @@ enemy:register_event("on_restarted", function(enemy)
 
   -- States.
   sprite:set_xy(0, 0)
+  enemy:set_obstacle_behavior("normal")
   enemy:set_can_attack(true)
   enemy:set_damage(2)
   enemy:wait()

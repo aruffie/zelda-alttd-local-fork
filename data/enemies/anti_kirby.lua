@@ -209,6 +209,8 @@ enemy:register_event("on_restarted", function(enemy)
     fire = 2})
 
   -- States.
+  sprite:set_xy(0, 0)
+  enemy:set_obstacle_behavior("normal")
   enemy:set_can_attack(true)
   enemy:set_damage(contact_damage)
   enemy:stop_aspirate()
