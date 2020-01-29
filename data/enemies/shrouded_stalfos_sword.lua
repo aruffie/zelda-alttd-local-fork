@@ -53,6 +53,7 @@ function enemy:start_charge_walking()
   is_charging = true
   enemy:stop_movement()
   enemy:start_target_walking(hero, charging_speed)
+  sprite:set_animation("chase")
 end
 
 -- Passive behaviors needing constant checking.

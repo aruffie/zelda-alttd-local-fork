@@ -182,15 +182,6 @@ function enemy_meta:launch_boss_dead()
 
 end
 
--- Attach a custom damage to the sprites of the enemy.
-function enemy_meta:get_sprite_damage(sprite)
-  return (sprite and sprite.custom_damage) or self:get_damage()
-end
-
-function enemy_meta:set_sprite_damage(sprite, damage)
-  sprite.custom_damage = damage
-end
-
 --[[enemy_meta:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
     -- Do nothing if enemy sprite cannot hurt hero.
     local collision_mode = enemy:get_attacking_collision_mode()
@@ -211,11 +202,18 @@ end
 
   end)--]]
 
+-- Check if the enemy should fall in hole on switching to normal obstacle behavior mode.
+enemy_meta:register_event("set_obstacle_behavior", function(enemy)
+
+    if enemy:get_ground_below() == "hole" and enemy:get_obstacle_behavior() == "normal" then
+      entity_manager:create_falling_entity(enemy)
+    end
+  end, false)
+
+-- Check if the enemy should fall in hole on removed.
 enemy_meta:register_event("on_removed", function(enemy)
 
-    local game = enemy:get_game();
-    local map = game:get_map()
-    if enemy:get_ground_below()== "hole" and enemy:get_obstacle_behavior()=="normal" then
+    if enemy:get_ground_below() == "hole" and enemy:get_obstacle_behavior() == "normal" then
       entity_manager:create_falling_entity(enemy)
     end
   end)

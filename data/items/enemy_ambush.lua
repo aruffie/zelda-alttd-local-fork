@@ -52,6 +52,11 @@ function item:on_obtaining()
   })
   local sprite = enemy:get_sprite()
 
+  -- Workaround: learn enemy:start_jumping() if the enemy doesn't know it.
+  if not enemy.start_jumping() then
+    require("enemies/lib/common_actions").learn(enemy)
+  end
+
   -- Make enemy freeze for a few time.
   sol.timer.stop_all(enemy)
   enemy:stop_movement()

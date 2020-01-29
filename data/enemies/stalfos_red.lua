@@ -46,7 +46,9 @@ function enemy:start_attacking()
   local angle = math.atan2(hero_y - enemy_y, enemy_x - hero_x)
   enemy:start_jumping(jumping_duration, jumping_height, angle, jumping_speed, function()
     enemy:restart()
-    enemy:start_throwing_bone()
+    if enemy:exists() then -- Throw a bone if the enemy still exists after the restart.
+      enemy:start_throwing_bone()
+    end
   end)
   sprite:set_animation("jumping")
   enemy.is_exhausted = true
@@ -112,6 +114,7 @@ enemy:register_event("on_restarted", function(enemy)
 
   -- States.
   sprite:set_xy(0, 0)
+  enemy:set_obstacle_behavior("normal")
   enemy.is_exhausted = false
   enemy:set_can_attack(true)
   enemy:set_damage(1)

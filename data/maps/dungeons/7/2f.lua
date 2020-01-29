@@ -32,6 +32,7 @@ require("scripts/multi_events")
 -----------------------
 -- Start a straight movement on an entity.
 local function start_straight_movement(entity, angle, distance, speed)
+
   local movement = sol.movement.create("straight")
   movement:set_angle(angle)
   movement:set_max_distance(distance)
@@ -42,6 +43,7 @@ end
 
 -- Move iron blocks on y axis each time the handle is pulling.
 local function move_block_on_handle_pulled(block, angle, max_distance)
+
   pull_handle:register_event("on_pulling", function(pull_handle, movement_count)
     -- Move max_distance unless the limit is reached.
     local _, block_y = block:get_position()
@@ -55,12 +57,14 @@ end
 
 -- Start movement to make iron blocks close the way out.
 local function start_blocks_closing()
+
   start_straight_movement(block_1_1, 3 * math.pi / 2, 16, 2)
   start_straight_movement(block_1_2, math.pi / 2, 16, 2)
 end
 
 -- Call start_blocks_closing when the pull handle is dropped.
 local function start_blocks_closing_on_handle_dropped()
+
   pull_handle:register_event("on_released", function(pull_handle)
     start_blocks_closing()
   end)
@@ -68,6 +72,7 @@ end
 
 -- Save iron ball position when the throw ends.
 local function save_iron_ball_position_on_finish_throw()
+
   iron_ball:register_event("on_finish_throw", function()
     map_tools.save_entity_position(iron_ball)
   end)
@@ -75,10 +80,11 @@ end
 
 -- Break the given entities when hit by the iron ball.
 local function start_breaking_on_hit_by_iron_ball(entities_prefix)
+
   for entity in map:get_entities(entities_prefix) do
     entity:register_event("on_hit_by_carriable", function(entity, carriable)
       if carriable:get_name() == "iron_ball" then
-        entity:start_breaking() -- Start breaking the pillar when the iron ball is immobilized.
+        entity:start_breaking()
       end
     end)
   end
@@ -86,12 +92,40 @@ end
 
 -- Tower collapsing cinematic.
 local function start_tower_cinematic()
-  -- TODO
-  print("TODO Insert tower cinematic here")
+
+  local menu = {}
+  local camera_width, camera_height = map:get_camera():get_size()
+  local sky_surface = sol.surface.create(camera_width, camera_height)
+  local tower_sprite = sol.sprite.create("entities/dungeons/eagle_tower_destruction")
+  sky_surface:fill_color({147, 213, 255})
+  tower_sprite:set_paused()
+
+  function menu:on_draw(dst_surface)
+    sky_surface:draw(dst_surface, 0, 0)
+    tower_sprite:draw(dst_surface, camera_width / 2.0, 0)
+  end
+
+  -- End the cinematic a few time after the animation finished
+  function tower_sprite:on_animation_finished(animation)
+    tower_sprite:set_paused()
+    tower_sprite:set_frame(tower_sprite:get_num_frames() - 1)
+    sol.timer.start(map, 1000, function()
+      sol.menu.stop(menu)
+      map:set_cinematic_mode(false)
+    end)
+  end
+
+  -- Start the menu, then the sprite animation after a few time.
+  map:set_cinematic_mode(true)
+  sol.menu.start(map, menu, true)
+  sol.timer.start(map, 700, function()
+    tower_sprite:set_paused(false)
+  end)
 end
 
 -- Start tower collapsing cinematic when all given pillars are broken.
 local function start_tower_cinematic_on_all_collapse_finished(pillar_prefix)
+
   for pillar in map:get_entities(pillar_prefix) do
     pillar:register_event("on_collapse_finished", function()
       are_all_pillar_broken = true

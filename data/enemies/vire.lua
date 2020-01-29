@@ -239,6 +239,7 @@ enemy:register_event("on_restarted", function(enemy)
     jump_on = "ignored"})
 
   -- States.
+  sprite:set_xy(0, 0)
   sprite:set_animation("walking")
   enemy:set_obstacle_behavior("flying")
   enemy:set_layer_independent_collisions(true)

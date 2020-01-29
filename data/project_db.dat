@@ -1709,7 +1709,7 @@ file{ path = "items/bow.lua", license = "GPL v3" }
 file{ path = "items/compass.lua", license = "GPL v3" }
 file{ path = "items/console.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/drug.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "items/enemy_ambush.lua", license = "GPL v3" }
+file{ path = "items/enemy_ambush.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "items/face_key.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/fairy.lua", license = "GPL v3" }
 file{ path = "items/feather.lua", author = "PhoenixII54", license = "GPL v3" }
