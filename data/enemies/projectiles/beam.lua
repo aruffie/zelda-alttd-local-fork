@@ -3,6 +3,7 @@
 local enemy = ...
 local bounced = false
 
+local projectile_behavior = require("enemies/lib/projectile")
 local audio_manager = require("scripts/audio_manager")
 
 -- The enemy appears: set its properties.

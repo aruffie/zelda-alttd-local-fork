@@ -4,6 +4,7 @@
 local enemy = ...
 local sprites = {}
 
+local projectile_behavior = require("enemies/lib/projectile")
 local audio_manager = require("scripts/audio_manager")
 
 enemy:register_event("on_created", function(enemy)

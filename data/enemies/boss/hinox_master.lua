@@ -27,8 +27,8 @@ local charging_maximum_distance = 100
 local charging_probability = 0.25
 local frenzy_duration  = 1000
 
-local right_hand_offset_x = -24
-local right_hand_offset_y = -50
+local right_hand_offset_x = -20
+local right_hand_offset_y = -52
 local bomb_holding_duration = 300
 local bomb_throwing_duration = 800
 local bomb_throwing_height = 60
@@ -108,6 +108,7 @@ function enemy:throw_bomb()
   })
   bomb:set_position(x + hand_offset_x, y, layer + 1) -- Layer + 1 to not interact with a possible ground after moved.
   bomb:get_sprite():set_xy(0, right_hand_offset_y)
+  bomb:bring_to_front()
   holded_bomb = bomb
 
   start_preparing_throw(is_right_hand_throw, bomb_holding_duration, function()
@@ -138,6 +139,7 @@ function enemy:throw_hero()
   local hero_sprite = hero:get_sprite()
   hero:freeze()
   hero:set_position(x + hand_offset_x, y, layer + 1) -- Layer + 1 to not interact with a possible ground after moved.
+  hero:bring_to_front()
   hero_sprite:set_xy(0, right_hand_offset_y)
   hero_sprite:set_animation("scared")
 
