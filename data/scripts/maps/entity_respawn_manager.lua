@@ -257,6 +257,8 @@ function entity_respawn_manager:init(map)
     -- Disable all enemies when leaving a zone. Don't remove right now to not trigger map puzzles based on enemy removal..
     for enemy in map:get_entities_by_type("enemy") do
       if saved_entities.enemies[enemy] and enemy:is_in_same_region(map:get_hero()) then
+        sol.timer.stop_all(enemy)
+        enemy:stop_movement()
         enemy:set_enabled(false)
       end
     end
@@ -285,6 +287,8 @@ function entity_respawn_manager:init(map)
       life = enemy:get_life()
     }
     if not enemy:is_in_same_region(map:get_hero()) then
+      sol.timer.stop_all(enemy)
+      enemy:stop_movement()
       enemy:set_enabled(false)
     end
     

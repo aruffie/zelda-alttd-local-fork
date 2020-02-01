@@ -117,8 +117,12 @@ end)
 enemy:register_event("on_restarted", function(enemy)
 
   -- Behavior for each items.
-  enemy:set_hero_weapons_reactions(2, {
-    sword = 1
+  enemy:set_hero_weapons_reactions(4, {
+    sword = 1,
+    hookshot = 2,
+    thrust = 2,
+    boomerang = 8,
+    jump_on = "ignored"
   })
 
   -- States.
@@ -131,7 +135,7 @@ enemy:register_event("on_restarted", function(enemy)
     sprite:set_direction(direction)
     enemy:start_pushing(direction * quarter)
   else
-    -- Finish moving if hurt during the movement.
+    -- Finish to cross the room if hurt during the movement.
     enemy:start_moving()
   end
 end)
