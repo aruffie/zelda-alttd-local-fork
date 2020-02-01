@@ -152,7 +152,10 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_damage(4)
   if first_start then
     first_start = false
-    enemy:start_throwing()
+    sprite:set_animation("waiting")
+    sol.timer.start(enemy, 100, function() -- Wait a very few time before throwing the first spear.
+      enemy:start_throwing()
+    end)
   else
     enemy:start_searching()
   end
