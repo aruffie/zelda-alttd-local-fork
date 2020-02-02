@@ -1,4 +1,4 @@
--- Lua script of enemy orb monster blue.
+-- Lua script of enemy moblin chief.
 -- This script is executed every time an enemy with this model is created.
 
 -- Global variables
@@ -21,9 +21,9 @@ local throwed_spear_offset_x = 0
 local throwed_spear_offset_y = -32
 local minimum_distance_to_hero = 100
 local jumping_speed = 80
-local jumping_speed_increase_by_hp = 5 -- TODO Check if needed
 local jumping_height = 6
 local jumping_duration = 200
+local jumping_duration_decrease_by_hp = 5
 local waiting_duration = 700
 local charging_speed = 160
 local charging_maximum_distance = 180
@@ -48,9 +48,10 @@ function enemy:start_moving()
 
   local hero_x, hero_y, _ = hero:get_position()
   local target_x, target_y = hero_x + current_hero_offset_x, hero_y
-  local jumping_angle = enemy:get_angle(target_x, target_y)
-  local jumping_final_speed = jumping_speed * math.min(1.0, enemy:get_distance(target_x, target_y) / (jumping_speed * 0.2))
-  local movement = enemy:start_jumping(jumping_duration, jumping_height, jumping_angle, jumping_final_speed, function()
+  local angle = enemy:get_angle(target_x, target_y)
+  local speed = jumping_speed * math.min(1.0, enemy:get_distance(target_x, target_y) / (jumping_speed * 0.2))
+  local duration = jumping_duration - jumping_duration_decrease_by_hp * (8 - enemy:get_life())
+  local movement = enemy:start_jumping(duration, jumping_height, angle, speed, function()
 
     -- Check if an action should occurs at the end of the jump, throw or charge depending on spear count.
     if math.random() <= action_probability then
@@ -107,6 +108,9 @@ function enemy:start_charging()
           enemy:restart()
         end)
       end)
+
+      -- TODO Stop and laugh on hero touched.
+
       enemy:set_hero_weapons_reactions(1, {jump_on = "ignored"})
     end
     sprite:set_animation("attacking")
@@ -142,12 +146,9 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
-  -- Behavior for each items.
-  enemy:set_invincible()
-
-  -- States.
   spear_count = math.random(minimum_spear, maximum_spear)
   sprite:set_xy(0, 0)
+  enemy:set_invincible()
   enemy:set_can_attack(true)
   enemy:set_damage(4)
   if first_start then
