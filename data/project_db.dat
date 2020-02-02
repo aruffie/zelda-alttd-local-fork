@@ -1417,7 +1417,7 @@ enemy{ id = "zombie", description = "Zombie" }
 enemy{ id = "zora", description = "Zora" }
 
 entity{ id = "arrow", description = "Arrow" }
-entity{ id = "ball", description = "ball" }
+entity{ id = "ball", description = "Ball" }
 entity{ id = "bird", description = "Bird" }
 entity{ id = "bomb_arrow", description = "Bomb Arrow" }
 entity{ id = "bottle", description = "Bottle" }
@@ -1435,7 +1435,7 @@ entity{ id = "follower", description = "Follower" }
 entity{ id = "frog", description = "Frog" }
 entity{ id = "green_crystal", description = "Green crystal" }
 entity{ id = "hammer_stake", description = "Hammer stake" }
-entity{ id = "hook_bridge", description = "hook bridge" }
+entity{ id = "hook_bridge", description = "Hook bridge" }
 entity{ id = "hookable", description = "Hookable" }
 entity{ id = "insect", description = "Insect" }
 entity{ id = "ladder", description = "Ladder" }
