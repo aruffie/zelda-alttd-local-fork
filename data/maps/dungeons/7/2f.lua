@@ -128,9 +128,9 @@ local function start_tower_cinematic_on_all_collapse_finished(pillar_prefix)
 
   for pillar in map:get_entities(pillar_prefix) do
     pillar:register_event("on_collapse_finished", function()
-      are_all_pillar_broken = true
+      local are_all_pillar_broken = true
       for pillar in map:get_entities(pillar_prefix) do
-        if pillar:is_enabled() then
+        if pillar:get_sprite():get_animation() ~= "destroyed" then
           are_all_pillar_broken = false
         end
       end

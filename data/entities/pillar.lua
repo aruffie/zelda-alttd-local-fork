@@ -86,7 +86,7 @@ function pillar:start_breaking()
         -- If this is the last explosion, stop the cinematic and call the collapse finished event.
         if map:get_entities_count("chained_explosion") == 1 then
           make_all_invincible(false)
-          map:set_cinematic_mode(false, {entities_ignore_suspend = {pillar}}) 
+          map:set_cinematic_mode(false, {entities_ignore_suspend = {pillar}})
           if pillar.on_collapse_finished then
             pillar:on_collapse_finished() -- Call event
           end
