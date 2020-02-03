@@ -2956,24 +2956,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 1064,
-  y = 1760,
-  width = 32,
-  height = 32,
-  pattern = "statue_tongue-2",
-}
-
-tile{
-  layer = 0,
-  x = 1144,
-  y = 1760,
-  width = 32,
-  height = 32,
-  pattern = "statue_tongue-2",
-}
-
-tile{
-  layer = 0,
   x = 1240,
   y = 1312,
   width = 16,
@@ -9495,6 +9477,26 @@ tile{
   width = 24,
   height = 24,
   pattern = "wall.corner_reverse.1-2",
+}
+
+tile{
+  layer = 0,
+  x = 1048,
+  y = 1760,
+  width = 32,
+  height = 32,
+  pattern = "158",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1160,
+  y = 1760,
+  width = 32,
+  height = 32,
+  pattern = "158",
+  tileset = "addition/dungeon",
 }
 
 wall{
