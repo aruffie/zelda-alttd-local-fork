@@ -248,6 +248,7 @@ sprite{ id = "enemies/boss/master_stalfos/master_stalfos_shadow", description = 
 sprite{ id = "enemies/boss/master_stalfos/master_stalfos_shield", description = "Master stalfos shield" }
 sprite{ id = "enemies/boss/master_stalfos/master_stalfos_sword", description = "Master stalfos sword" }
 sprite{ id = "enemies/boss/moblin_chief", description = "Moblin chief" }
+sprite{ id = "enemies/boss/moblin_chief_spear", description = "Moblin chief spear" }
 sprite{ id = "enemies/boss/moldorm", description = "Moldorm" }
 sprite{ id = "enemies/boss/moldorm/body_1", description = "Body 1" }
 sprite{ id = "enemies/boss/moldorm/body_2", description = "Body 2" }
@@ -2607,6 +2608,7 @@ file{ path = "sprites/enemies/bomber.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/bombite_green.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/bombite_red.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/boo_buddy.png", license = "Proprietary, Fair use" }
+file{ path = "sprites/enemies/boss/moblin_chief_spear.dat", author = "JulioTanaka", }
 file{ path = "sprites/enemies/boulder.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/bubble.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/bubble_giant.png", license = "Proprietary, Fair use" }
