@@ -16,7 +16,7 @@ local is_charging = false
 
 -- Configuration variables
 local charge_triggering_distance = 80
-local charging_speed = 56
+local charging_speed = 64
 local walking_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
 local walking_speed = 32
 local walking_minimum_distance = 16

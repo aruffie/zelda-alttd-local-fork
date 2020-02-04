@@ -12,13 +12,15 @@ local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
 local current_hero_offset_x
 local first_start = true
-local spear_count
+local sai_count
 
 -- Configuration variables
-local minimum_spear = 3
-local maximum_spear = 5
-local throwed_spear_offset_x = 0
-local throwed_spear_offset_y = -32
+local right_hand_offset_x = -30
+local right_hand_offset_y = -48
+local minimum_sai = 3
+local maximum_sai = 5
+local throwed_sai_offset_x = 0
+local throwed_sai_offset_y = -32
 local minimum_distance_to_hero = 100
 local jumping_speed = 80
 local jumping_height = 6
@@ -32,7 +34,7 @@ local bounce_height = 32
 local bounce_duration = 600
 local shocked_duration = 2000
 local searching_duration = 1600
-local action_probability = 0.2
+local action_probability = 0.25
 
 -- Update the target direction depending on hero position.
 local function update_direction()
@@ -53,9 +55,9 @@ function enemy:start_moving()
   local duration = jumping_duration - jumping_duration_decrease_by_hp * (8 - enemy:get_life())
   local movement = enemy:start_jumping(duration, jumping_height, angle, speed, function()
 
-    -- Check if an action should occurs at the end of the jump, throw or charge depending on spear count.
+    -- Check if an action should occurs at the end of the jump, throw or charge depending on sai count.
     if math.random() <= action_probability then
-      if spear_count > 0 then
+      if sai_count > 0 then
         enemy:start_throwing()
       else
         enemy:start_charging()
@@ -68,22 +70,31 @@ function enemy:start_moving()
   sprite:set_animation("walking")
 end
 
--- Start throwing a spear to the hero.
+-- Start throwing a sai to the hero.
 function enemy:start_throwing()
 
   local direction = current_hero_offset_x > 0 and 2 or 0
+
+  -- Display a sai sprite in the enemy hand while aiming.
+  local sai_sprite = enemy:create_sprite("enemies/projectiles/sai")
+  sai_sprite:set_direction(direction)
+  sai_sprite:set_xy(direction == 0 and right_hand_offset_x or -right_hand_offset_x, right_hand_offset_y)
+  enemy:bring_sprite_to_back(sai_sprite)
+
+  -- Aim and throw.
   sprite:set_direction(direction)
   sprite:set_animation("aiming", function()
+    enemy:remove_sprite(sai_sprite)
     sprite:set_animation("throwing", function()
       enemy:start_moving()
     end)
-    local projectile = enemy:create_enemy({
-      breed = "projectiles/spear",
-      x = throwed_spear_offset_x,
-      y = throwed_spear_offset_y,
+    local sai = enemy:create_enemy({
+      breed = "projectiles/sai",
+      x = throwed_sai_offset_x,
+      y = throwed_sai_offset_y,
       direction = direction
     })
-    spear_count = spear_count - 1
+    sai_count = sai_count - 1
   end)
 end
 
@@ -133,6 +144,7 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(8)
   enemy:set_size(48, 48)
   enemy:set_origin(24, 45)
+  enemy:set_hurt_style("boss")
   enemy:start_shadow()
 
   update_direction()
@@ -146,7 +158,7 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
-  spear_count = math.random(minimum_spear, maximum_spear)
+  sai_count = math.random(minimum_sai, maximum_sai)
   sprite:set_xy(0, 0)
   enemy:set_invincible()
   enemy:set_can_attack(true)
@@ -154,7 +166,7 @@ enemy:register_event("on_restarted", function(enemy)
   if first_start then
     first_start = false
     sprite:set_animation("waiting")
-    sol.timer.start(enemy, 100, function() -- Wait a very few time before throwing the first spear.
+    sol.timer.start(enemy, 100, function() -- Wait a very few time before throwing the first sai.
       enemy:start_throwing()
     end)
   else
