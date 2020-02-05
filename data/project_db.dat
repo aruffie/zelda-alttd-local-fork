@@ -185,6 +185,7 @@ tileset{ id = "out/outside_main", description = "Outside main" }
 tileset{ id = "out/outside_special", description = "Outside special" }
 tileset{ id = "sideview/eagletower", description = "Eagle tower" }
 tileset{ id = "sideview/sideview", description = "Side view tileset" }
+tileset{ id = "sideview/sideview_dg_1", description = "Sideview dg 1" }
 tileset{ id = "testing/basic_terrain_test", description = "Grounds (for collision testing)" }
 tileset{ id = "testing/labo", description = "Labo style tileset for systems testing (sideview)" }
 
@@ -2826,3 +2827,6 @@ file{ path = "tilesets/out/outside_main.dat", author = "FFomega", license = "CC 
 file{ path = "tilesets/out/outside_main.tiles.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
 file{ path = "tilesets/out/outside_special.dat", author = "FFomega", license = "CC BY-SA 4.0" }
 file{ path = "tilesets/out/outside_special.tiles.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
+file{ path = "tilesets/sideview/eagletower.dat", author = "JulioTanaka", }
+file{ path = "tilesets/sideview/sideview_dg_1.dat", author = "JulioTanaka", }
+file{ path = "tilesets/sideview/sideview_dg_1.tiles.png", author = "JulioTanaka", }
