@@ -39,7 +39,7 @@ end
 function enemy:create_bottle()
   
   genie_bottle = enemy:create_enemy({
-    breed = "boss/genie/genie_bottle",
+    breed = "boss/projectiles/bottle",
     layer = 0,
     x = 0,
     y = 0,
