@@ -55,20 +55,15 @@ function map:init_map_entities()
       enemy:remove()
     end
     bowwow:remove()
-  end
-  -- Moblin chief
-  if not game:is_step_last("bowwow_dognapped") then
     moblin_chief:remove()
-  else
-    moblin_chief:get_sprite():set_animation("sitting")
-  end
-  -- Moblin fire
-  if not game:is_step_done("bowwow_dognapped") then
     moblin_fire:remove()
     moblin_fire_light:remove()
-  elseif game:is_step_done("bowwow_joined") then
-    moblin_fire:get_sprite():set_animation("off")
-    moblin_fire_light:remove()
+  else
+    moblin_chief:get_sprite():set_animation("sitting")
+    if game:is_step_done("bowwow_joined") then
+      moblin_fire:get_sprite():set_animation("off")
+      moblin_fire_light:remove()
+    end
   end
 
 end
@@ -171,6 +166,7 @@ function map:launch_cinematic_2()
     sprite:set_animation("stopped")
     sprite:set_direction(1)
   end
+  hero:freeze() -- Stop any running custom state.
   map:start_coroutine(function()
     local options = {
       entities_ignore_suspend = {hero, moblin_chief, enemy_group_2_1, enemy_group_2_2, enemy_group_2_3, enemy_group_2_4}
@@ -233,6 +229,7 @@ end
 -- This is the cinematic that the hero enters in the same room that the moblin chief bis
 function map:launch_cinematic_3()
 
+  hero:freeze() -- Stop any running custom state.
   map:start_coroutine(function()
     local options = {
       entities_ignore_suspend = {hero, enemy_group_3_1}

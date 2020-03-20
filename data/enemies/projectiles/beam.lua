@@ -3,7 +3,7 @@
 local enemy = ...
 local bounced = false
 
-local projectile_behavior = require("enemies/lib/projectile")
+require("enemies/lib/common_actions").learn(enemy)
 local audio_manager = require("scripts/audio_manager")
 
 -- The enemy appears: set its properties.
@@ -16,9 +16,7 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_obstacle_behavior("flying")
   enemy:set_invincible()
   enemy:set_attack_consequence("sword", "custom")
-  
-  local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
-  projectile_behavior.apply(enemy, sprite)
+  enemy:create_sprite("enemies/" .. enemy:get_breed())
 end)
 
 enemy:register_event("on_obstacle_reached", function(enemy)
