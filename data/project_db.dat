@@ -1293,32 +1293,41 @@ enemy{ id = "bomber", description = "Bomber" }
 enemy{ id = "bombite_green", description = "Bombite Green" }
 enemy{ id = "bombite_red", description = "Bombite Red" }
 enemy{ id = "boo_buddy", description = "Boo Buddy" }
+enemy{ id = "boss/angler_fish", description = "Angler Fish" }
 enemy{ id = "boss/angler_fish/angler_fish", description = "Angler Fish" }
 enemy{ id = "boss/angler_fish/angler_fish_brick", description = "Angler Fish Brick" }
 enemy{ id = "boss/angler_fish/angler_fish_fry", description = "Angler Fish Fry" }
+enemy{ id = "boss/armos_knight", description = "Armos Knight" }
 enemy{ id = "boss/ballchain_soldier", description = "Ballchain Soldier" }
-enemy{ id = "boss/big_armos_lnight", description = "Big Armos Knight" }
 enemy{ id = "boss/blaino", description = "Blaino" }
 enemy{ id = "boss/buzz_blob_giant", description = "Buzz Blob Giant" }
 enemy{ id = "boss/cue_ball", description = "Cue Ball" }
+enemy{ id = "boss/desert_lanmola", description = "Desert Lanmola" }
 enemy{ id = "boss/dodongo_snake", description = "Dodongo_Snake" }
+enemy{ id = "boss/evil_eagle", description = "Evil Eagle" }
 enemy{ id = "boss/evil_orb", description = "Evil orb" }
 enemy{ id = "boss/facade", description = "Facade" }
+enemy{ id = "boss/genie", description = "Genie" }
 enemy{ id = "boss/genie/genie", description = "Genie" }
 enemy{ id = "boss/genie/genie_bottle", description = "Genie bottle" }
 enemy{ id = "boss/giant_buzz_blob", description = "Giant buzz blob" }
-enemy{ id = "boss/gohma_blue", description = "Gohma blue" }
-enemy{ id = "boss/gohma_red", description = "Gohma red" }
+enemy{ id = "boss/gohma", description = "Gohma" }
 enemy{ id = "boss/grim_creeper", description = "Grim Creeper" }
 enemy{ id = "boss/hinox_master", description = "Hinox master" }
 enemy{ id = "boss/hot_head", description = "Hot Head" }
-enemy{ id = "boss/lanmola", description = "Lanmola" }
+enemy{ id = "boss/master_stalfos", description = "Master Stalfos" }
 enemy{ id = "boss/master_stalfos/master_stalfos", description = "Master stalfos" }
 enemy{ id = "boss/moblin_chief", description = "Moblin chief" }
 enemy{ id = "boss/moldorm", description = "Moldorm" }
 enemy{ id = "boss/projectile/spike", description = "Rolling bones spike" }
+enemy{ id = "boss/projectiles/ballchain", description = "Ballchain" }
+enemy{ id = "boss/projectiles/bottle", description = "Genie's Bottle" }
+enemy{ id = "boss/projectiles/boulder", description = "Stone Hinox's Boulder" }
+enemy{ id = "boss/projectiles/brick", description = "Angler Fish's Brick" }
+enemy{ id = "boss/projectiles/fry", description = "Angler Fish's Fry" }
+enemy{ id = "boss/projectiles/spike", description = "Rolling Bones's Spike" }
 enemy{ id = "boss/rolling_bones", description = "Rolling bones" }
-enemy{ id = "boss/slim_eel", description = "Slim Eel" }
+enemy{ id = "boss/slime_eel", description = "Slime Eel" }
 enemy{ id = "boss/slime_eye", description = "Slime eye" }
 enemy{ id = "boss/smasher", description = "Smasher" }
 enemy{ id = "boss/stone_hinox", description = "Stone hinox" }
@@ -1511,36 +1520,43 @@ file{ path = "enemies/bombite_green.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/bombite_red.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boo_buddy.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss", license = "GPL v3" }
-file{ path = "enemies/boss/angler_fish", license = "GPL v3" }
+file{ path = "enemies/boss/angler_fish.lua", license = "GPL v3" }
 file{ path = "enemies/boss/angler_fish/angler_fish.lua", license = "GPL v3" }
 file{ path = "enemies/boss/angler_fish/angler_fish_brick.lua", license = "GPL v3" }
 file{ path = "enemies/boss/angler_fish/angler_fish_fry.lua", license = "GPL v3" }
+file{ path = "enemies/boss/armos_knight.lua", license = "GPL v3" }
 file{ path = "enemies/boss/ballchain_soldier.lua", license = "GPL v3" }
-file{ path = "enemies/boss/big_armos_lnight.lua", license = "GPL v3" }
 file{ path = "enemies/boss/blaino.lua", license = "GPL v3" }
 file{ path = "enemies/boss/buzz_blob_giant.lua", license = "GPL v3" }
 file{ path = "enemies/boss/cue_ball.lua", license = "GPL v3" }
+file{ path = "enemies/boss/desert_lanmola.lua", license = "GPL v3" }
 file{ path = "enemies/boss/dodongo_snake.lua", license = "GPL v3" }
+file{ path = "enemies/boss/evil_eagle.lua", license = "GPL v3" }
 file{ path = "enemies/boss/evil_orb.lua", license = "GPL v3" }
 file{ path = "enemies/boss/facade.lua", license = "GPL v3" }
+file{ path = "enemies/boss/genie.lua", license = "GPL v3" }
 file{ path = "enemies/boss/genie/genie.lua", license = "GPL v3" }
 file{ path = "enemies/boss/genie/genie_bottle.lua", license = "GPL v3" }
 file{ path = "enemies/boss/giant_buzz_blob.lua", license = "GPL v3" }
-file{ path = "enemies/boss/gohma_blue.lua", license = "GPL v3" }
-file{ path = "enemies/boss/gohma_red.lua", license = "GPL v3" }
+file{ path = "enemies/boss/gohma.lua", license = "GPL v3" }
 file{ path = "enemies/boss/grim_creeper.lua", license = "GPL v3" }
 file{ path = "enemies/boss/hinox_master.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/hot_head.lua", license = "GPL v3" }
-file{ path = "enemies/boss/lanmola.lua", license = "GPL v3" }
+file{ path = "enemies/boss/master_stalfos.lua", license = "GPL v3" }
 file{ path = "enemies/boss/master_stalfos/master_stalfos.lua", license = "GPL v3" }
 file{ path = "enemies/boss/moblin_chief.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/moldorm.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/projectile/spike.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/boss/projectiles/ballchain.lua", license = "GPL v3" }
+file{ path = "enemies/boss/projectiles/bottle.lua", license = "GPL v3" }
+file{ path = "enemies/boss/projectiles/boulder.lua", license = "GPL v3" }
+file{ path = "enemies/boss/projectiles/brick.lua", license = "GPL v3" }
+file{ path = "enemies/boss/projectiles/fry.lua", license = "GPL v3" }
+file{ path = "enemies/boss/projectiles/spike.lua", license = "GPL v3" }
 file{ path = "enemies/boss/rolling_bones.lua", author = "Vlag", license = "GPL v3" }
-file{ path = "enemies/boss/slim_eel.lua", license = "GPL v3" }
+file{ path = "enemies/boss/slime_eel.lua", license = "GPL v3" }
 file{ path = "enemies/boss/slime_eye.lua", license = "GPL v3" }
 file{ path = "enemies/boss/smasher.lua", license = "GPL v3" }
-file{ path = "enemies/boss/stone_hinox", license = "GPL v3" }
 file{ path = "enemies/boss/stone_hinox.lua", license = "GPL v3" }
 file{ path = "enemies/boss/stone_hinox/stone_hinox.lua", license = "GPL v3" }
 file{ path = "enemies/boss/stone_hinox/stone_hinox_boulder.lua", license = "GPL v3" }

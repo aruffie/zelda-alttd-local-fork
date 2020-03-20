@@ -107,7 +107,7 @@ enemy:register_event("on_created", function(enemy)
   -- Create the spike.
   spike = enemy:create_enemy({
     name = (enemy:get_name() or enemy:get_breed()) .. "_spike",
-    breed = "boss/projectile/spike",
+    breed = "boss/projectiles/spike",
     direction = 2,
     x = get_further_direction(0) == 2 and -30 or 30
   })
