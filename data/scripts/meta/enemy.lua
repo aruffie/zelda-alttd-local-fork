@@ -44,6 +44,7 @@ end
 
 -- Notify the map through a map:on_enemy_created() event on enemy created.
 function enemy_meta:on_created()
+
   local map = self:get_map()
   if map.on_enemy_created then
     map:on_enemy_created(self)

@@ -13,6 +13,7 @@ local game = item:get_game()
 
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
+local common_actions = require("enemies/lib/common_actions")
 
 -- Configuration variables default value.
 local breed = "zol_green"
@@ -53,8 +54,8 @@ function item:on_obtaining()
   local sprite = enemy:get_sprite()
 
   -- Workaround: learn enemy:start_jumping() if the enemy doesn't know it.
-  if not enemy.start_jumping() then
-    require("enemies/lib/common_actions").learn(enemy)
+  if not enemy.start_jumping then
+    common_actions.learn(enemy)
   end
 
   -- Make enemy freeze for a few time.

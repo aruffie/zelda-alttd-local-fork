@@ -4,7 +4,7 @@
 local enemy = ...
 local sprites = {}
 
-local projectile_behavior = require("enemies/lib/projectile")
+require("enemies/lib/common_actions").learn(enemy)
 local audio_manager = require("scripts/audio_manager")
 
 enemy:register_event("on_created", function(enemy)
@@ -23,8 +23,6 @@ enemy:register_event("on_created", function(enemy)
   -- Sprites 2 and 3 do not belong to the enemy to avoid testing collisions with them.
   sprites[2] = sol.sprite.create("enemies/" .. enemy:get_breed())
   sprites[3] = sol.sprite.create("enemies/" .. enemy:get_breed())
-
-  projectile_behavior.apply(enemy, sprite[1])
 end)
 
 local function go(angle)
