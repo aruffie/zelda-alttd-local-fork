@@ -15,7 +15,6 @@ function hero_meta:bonk()
 end
 
 function state:on_started()
-  print "switching to bonking state"
   local movement=sol.movement.create("straight")
 
   local entity=state:get_entity()
