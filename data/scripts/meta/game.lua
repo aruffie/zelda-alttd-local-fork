@@ -15,10 +15,11 @@ function game_meta:get_sword_ability()
 end
 
 game_meta:register_event("on_world_changed", function(game)
-
     local hero = game:get_hero()  
     hero:remove_charm()
-
+    if hero:is_running() then
+      game.prevent_running_restoration=true
+    end
   end)    
 
 
@@ -54,7 +55,7 @@ game_meta:register_event("on_draw", function(game, dst_surface)
       dst_surface:fill_color({0,0,0})
     end
 
-end)
+  end)
 
 ---------------------------------
 --                             --
