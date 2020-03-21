@@ -35,11 +35,12 @@ local directions = {
 
 --This is the function to call to start the whole running process
 function hero_meta.run(hero, came_from_map_scrolling_transition)
-  local current_state=hero:get_state()
-  if came_from_map_scrolling_transition==true then
+  local current_state, state_object=hero:get_state()
+  if came_from_map_scrolling_transition==true and state =="free" then --At this point we are supposed to be in "free" state
+    print "the run will now be restored"
     hero:start_state(state)
   end
-  if current_state~="custom" or hero:get_state_object():get_description()~="running" then
+  if current_state~="custom" or state_object:get_description()~="running" then
     if not hero:get_map():is_sideview() or hero:get_direction()==0 or hero:get_direction()==2 then
       --In sideviews, only allow to run sideways
       hero:start_state(state)
@@ -140,7 +141,8 @@ function state:on_started()
         return true
       end
     end)
-  if entity:is_running() then--will be the case if we came from a scrolling-based transition
+  if game.needs_running_restoration==true then--will be the case if we came from an intra-world map transition
+    game.needs_running_restoration=nil
     begin_run()
   end
   --Prepare for running...
