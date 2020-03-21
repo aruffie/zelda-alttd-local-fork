@@ -17,8 +17,8 @@ function map_meta:wait_on_next_map_opening_transition_finished(callback)
 end
 
 map_meta:register_event("on_opening_transition_finished", function(map, destination)
-    debug_print ("End of built-in transition")
-
+    print ("End of built-in transition")
+    
     local game = map:get_game()
     local hero = map:get_hero()
 
@@ -29,16 +29,23 @@ map_meta:register_event("on_opening_transition_finished", function(map, destinat
 
         end)
     end
-    
+
     --call pending callback if any
     if transition_finished_callback then
       transition_finished_callback(map, destination)
       transition_finished_callback = nil
     end
+    
+    print (hero:get_state())
+    if hero:is_running() and game.prevent_running_restoration==nil then --Restore running state
+      print "restore running state"
+      game.needs_running_restoration=nil
+      hero:run(true)
+    end
   end)
 
 map_meta:register_event("on_started", function(map)
-    debug_print("Start of the map")
+    print("Start of the map")
     local game = map:get_game()
     local hero = map:get_hero()
     local ground=game:get_value("tp_ground")
@@ -47,4 +54,8 @@ map_meta:register_event("on_started", function(map)
     else
       hero:set_visible()
     end
+  end)
+map_meta:register_event("on_finished", function(map)
+    print("End of the map")
+
   end)

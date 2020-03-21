@@ -15,11 +15,18 @@ function hero_meta:bonk()
 end
 
 function state:on_started()
+  print "switching to bonking state"
   local movement=sol.movement.create("straight")
 
   local entity=state:get_entity()
   movement:set_speed(88)
   movement:set_angle((entity:get_direction()+2)*math.pi/2)
+  function movement:on_position_changed()
+    if entity:is_running() then
+      print "reset running status"
+    entity:set_running(false)
+    end
+  end
   --Bonk !
   if entity:get_sprite("trail") then
     entity:get_sprite("trail"):stop_animation()
