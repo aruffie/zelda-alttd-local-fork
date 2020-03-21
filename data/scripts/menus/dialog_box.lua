@@ -67,7 +67,7 @@ local function initialize_dialog_box_features(game)
   dialog_box.font, dialog_box.font_size = language_manager:get_dialog_font()
   for i = 1, nb_visible_lines do
     dialog_box.lines[i] = ""
-    dialog_box.line_surfaces[i] = sol.text_surface.create{
+    dialog_box.line_surfaces[i] = text_utils.create_icon_text_surface{
       horizontal_alignment = "left",
       vertical_alignment = "top",
       font = dialog_box.font,
@@ -254,10 +254,11 @@ local function initialize_dialog_box_features(game)
     text = text:gsub("\r\n", "\n"):gsub("\r", "\n")
     local manual_line_it = text:gmatch("([^\n]*)\n")  -- Each line including empty ones.
     
-    local wrap_predicate = text_utils.sol_text_wrap_predicate(
+    local wrap_predicate = text_utils.sol_text_wrap_with_icons_predicate(
       box_width - (self.icon_index == nil and 50 or 82),
       self.font,
-      self.font_size
+      self.font_size,
+      3 --spaces
     )
     
     self.line_it = text_utils.page_breaker(
@@ -440,6 +441,18 @@ local function initialize_dialog_box_features(game)
         special = false
       end
     end
+    
+    -- skip icon tags all at once
+    if current_char == '[' then
+      --go directly to the end of the tag
+      local first = self.char_index-1
+      repeat
+        last = line:sub(self.char_index, self.char_index)
+        self.char_index = self.char_index + 1
+      until not last or last == "]"
+      current_char = line:sub(first, self.char_index -1)
+    end
+    
 
     if not special then
       -- Normal character to be displayed.
