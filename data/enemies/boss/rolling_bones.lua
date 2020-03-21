@@ -91,16 +91,8 @@ end
 enemy:register_event("on_dead", function(enemy)
 
   spike:get_sprite():set_animation("destroyed", function()
-    spike:remove()
+    spike:silent_kill()
   end)
-end)
-
--- Remove the spike if rolling bones removed from outside this script.
-enemy:register_event("on_removed", function(enemy)
-
-  if spike:exists() then
-    spike:remove()
-  end
 end)
 
 -- Initialization.
@@ -115,7 +107,7 @@ enemy:register_event("on_created", function(enemy)
   -- Create the spike.
   spike = enemy:create_enemy({
     name = (enemy:get_name() or enemy:get_breed()) .. "_spike",
-    breed = "boss/projectile/spike",
+    breed = "boss/projectiles/spike",
     direction = 2,
     x = get_further_direction(0) == 2 and -30 or 30
   })
@@ -125,12 +117,17 @@ end)
 enemy:register_event("on_restarted", function(enemy)
 
   -- Behavior for each items.
-  enemy:set_hero_weapons_reactions(2, {
-    sword = 1
+  enemy:set_hero_weapons_reactions(4, {
+    sword = 1,
+    hookshot = 2,
+    thrust = 2,
+    boomerang = 8,
+    jump_on = "ignored"
   })
 
   -- States.
   sprite:set_xy(0, 0)
+  enemy:set_obstacle_behavior("normal")
   enemy:set_can_attack(true)
   enemy:set_damage(4)
   if not moving_angle then
@@ -138,7 +135,7 @@ enemy:register_event("on_restarted", function(enemy)
     sprite:set_direction(direction)
     enemy:start_pushing(direction * quarter)
   else
-    -- Finish moving if hurt during the movement.
+    -- Finish to cross the room if hurt during the movement.
     enemy:start_moving()
   end
 end)

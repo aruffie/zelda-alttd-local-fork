@@ -4,6 +4,7 @@
 local enemy = ...
 local sprites = {}
 
+require("enemies/lib/common_actions").learn(enemy)
 local audio_manager = require("scripts/audio_manager")
 
 enemy:register_event("on_created", function(enemy)
@@ -32,7 +33,7 @@ local function go(angle)
   movement:set_smooth(false)
 
   function movement:on_obstacle_reached()
-    enemy:remove()
+    enemy:silent_kill()
   end
 
   -- Compute the coordinate offset of follower sprites.
@@ -59,7 +60,7 @@ end)
 enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
 
   hero:start_hurt(enemy, enemy_sprite, enemy:get_damage())
-  enemy:remove()
+  enemy:silent_kill()
   
 end)
 

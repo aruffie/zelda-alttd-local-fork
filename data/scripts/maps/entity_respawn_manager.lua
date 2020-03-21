@@ -25,69 +25,63 @@ function entity_respawn_manager:init(map)
   }
   local game=map:get_game()
 
-  -- Clean the saved_entities.enemies table on given enemy dead.
-  local function clean_on_retired(enemy)
+  -- Clean the saved_entities.enemies table on given enemy dead, if needed.
+  local function clean_on_dead(enemy)
 
-    local function on_enemy_dead(enemy)
-      if not enemy.is_respawn_remove and not enemy:get_property("can_resurrect") then
-        saved_entities.enemies[enemy]= nil
+    local function on_dead(enemy)
+      if not enemy:get_property("can_resurrect") then
+        saved_entities.enemies[enemy] = nil
       end
     end
 
     enemy:register_event("on_dead", function(enemy)
-      on_enemy_dead(enemy)
+      on_dead(enemy)
     end)
-    enemy:register_event("on_removed", function(enemy)
-      on_enemy_dead(enemy)
-    end)
+  end
+
+  -- Recreate a previously existing enemy.
+  local function recreate_enemy(enemy)
+
+    local enemy_place = saved_entities.enemies[enemy]
+    local new_enemy = map:create_enemy({ --TODO modifiy create_enemy to add enemy to light manager
+        x = enemy_place.x,
+        y = enemy_place.y,
+        layer = enemy_place.layer,
+        breed = enemy_place.breed,
+        direction = enemy_place.direction,
+        name = enemy_place.name,
+        properties = enemy_place.properties
+      })
+    -- add enemy to the light manager of fsa mode, since it has been recreated
+    light_manager_fsa:add_occluder(new_enemy)
+    new_enemy:set_treasure(unpack(enemy_place.treasure))
+    clean_on_dead(new_enemy)
+
+    -- TODO Replace event recopy by dynamic setup.
+    new_enemy.on_symbol_fixed = enemy.on_symbol_fixed -- For Vegas enemies
+    if enemy.on_flying_tile_dead ~= nil then
+      new_enemy.on_flying_tile_dead = enemy.on_flying_tile_dead -- For Flying tiles enemies
+    end
+
+    return new_enemy
   end
 
   -- Function called when a separator was just taken.
   function entity_respawn_manager:respawn_enemies(map)
 
-    local respawned_enemies = {}
-
-    -- Enemies.
+    -- Enable and restart all enemies in the new active region, or recreate them if needed, .
     for enemy, enemy_place in pairs(saved_entities.enemies) do
-
-      -- Re-create enemies in the new active region.
       if enemy:is_in_same_region(map:get_hero()) then
-        local new_enemy = map:create_enemy({ --TODO modifiy create_enemy to add enemy to light manager
-            x = enemy_place.x,
-            y = enemy_place.y,
-            layer = enemy_place.layer,
-            breed = enemy_place.breed,
-            direction = enemy_place.direction,
-            name = enemy_place.name,
-            properties = enemy_place.properties
-          })
-        -- add enemy to the light manager of fsa mode, since it has been recreated
-        light_manager_fsa:add_occluder(new_enemy)
-        new_enemy:set_treasure(unpack(enemy_place.treasure))
-
-        -- TODO Replace event recopy by dynamic setup.
-        new_enemy.on_symbol_fixed = enemy.on_symbol_fixed -- For Vegas enemies
-        if enemy.on_flying_tile_dead ~= nil then
-          new_enemy.on_flying_tile_dead = enemy.on_flying_tile_dead -- For Flying tiles enemies
+        if enemy:exists() then
+          enemy:set_enabled(true)
+          enemy:set_position(enemy_place.x, enemy_place.y, enemy_place.layer)
+          enemy:set_life(enemy_place.life)
+        else
+          recreate_enemy(enemy)
         end
-
-        clean_on_retired(new_enemy)
-        respawned_enemies[new_enemy] = enemy
-      end
-    end
-
-    -- Clean the saved_entities.enemies table after the foreach loop ended
-    for new_enemy, enemy in pairs(respawned_enemies) do
-      saved_entities.enemies[new_enemy] = saved_entities.enemies[enemy]
-      saved_entities.enemies[enemy] = nil
-
-      if enemy:exists() then
-        enemy.is_respawn_remove = true -- Don't clean from saved_entities.enemies table on removed.
-        enemy:remove()
       end
     end
   end
-
 
   function entity_respawn_manager:reset_torches(map)
     local hero=map:get_hero()
@@ -259,11 +253,13 @@ function entity_respawn_manager:init(map)
   end
 
   function entity_respawn_manager:reset_enemies(map)
-    -- Disable all enemies when leaving a zone.
+
+    -- Disable all enemies when leaving a zone. Don't remove right now to not trigger map puzzles based on enemy removal..
     for enemy in map:get_entities_by_type("enemy") do
       if saved_entities.enemies[enemy] and enemy:is_in_same_region(map:get_hero()) then
-        enemy.is_respawn_remove = true -- Don't clean from saved_entities.enemies table on removed.
-        enemy:remove()
+        sol.timer.stop_all(enemy)
+        enemy:stop_movement()
+        enemy:set_enabled(false)
       end
     end
   end
@@ -288,14 +284,15 @@ function entity_respawn_manager:init(map)
       name = enemy:get_name(),
       treasure = { enemy:get_treasure() },
       properties = enemy:get_properties(),
+      life = enemy:get_life()
     }
-    local hero = map:get_hero()
-    if not enemy:is_in_same_region(hero) then
-      enemy.is_respawn_remove = true -- Don't clean from saved_entities.enemies table on removed.
-      enemy:remove()
+    if not enemy:is_in_same_region(map:get_hero()) then
+      sol.timer.stop_all(enemy)
+      enemy:stop_movement()
+      enemy:set_enabled(false)
     end
     
-    clean_on_retired(enemy)
+    clean_on_dead(enemy)
   end
 
   function entity_respawn_manager:save_entities(map)

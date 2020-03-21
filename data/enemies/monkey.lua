@@ -129,7 +129,7 @@ function enemy:start_running_away()
     movement:set_ignore_obstacles(true)
     function movement:on_position_changed()
       if not camera:overlaps(enemy:get_max_bounding_box()) then
-        enemy:remove()
+        enemy:silent_kill()
       end
     end
   end)
@@ -147,6 +147,8 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_invincible(true)
 
   -- States.
+  sprite:set_xy(0, 0)
+  enemy:set_obstacle_behavior("normal")
   enemy:set_damage(0)
   enemy:set_can_attack(false)
   enemy:wait()

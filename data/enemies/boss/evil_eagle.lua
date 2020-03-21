@@ -1,4 +1,4 @@
--- Lua script of enemy boss/gohma_red.
+-- Lua script of enemy boss/lanmola.
 -- This script is executed every time an enemy with this model is created.
 
 -- Feel free to modify the code below.

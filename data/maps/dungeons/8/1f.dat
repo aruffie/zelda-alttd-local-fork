@@ -30526,7 +30526,7 @@ pickable{
 }
 
 enemy{
-  name = "enemy_group_2_5",
+  name = "enemy_group_25_1",
   layer = 0,
   x = 424,
   y = 909,

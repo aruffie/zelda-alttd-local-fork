@@ -1,4 +1,4 @@
--- Spear projectile, throwed horizontally or vertically, mostly used by spear Moblins enemies.
+-- Sai projectile, throwed horizontally or vertically, mostly used by Moblin chief enemy.
 
 local enemy = ...
 local projectile_behavior = require("enemies/lib/projectile")
@@ -35,7 +35,7 @@ enemy:register_event("on_hit", function(enemy)
 
   -- Slightly move back.
   local movement = sol.movement.create("straight")
-  movement:set_speed(64)
+  movement:set_speed(80)
   movement:set_max_distance(10)
   movement:set_angle((direction + 2) % 4 * quarter)
   movement:set_ignore_obstacles()

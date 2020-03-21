@@ -79,7 +79,7 @@ end
 -- Doors events
 -----------------------
 door_manager:open_if_small_boss_dead(map)
-door_manager:open_if_boss_dead(map)
+--door_manager:open_if_boss_dead(map)
 
 -----------------------
 -- Sensors events

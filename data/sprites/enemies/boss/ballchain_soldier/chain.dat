@@ -1,6 +1,6 @@
 animation{
   name = "default",
-  src_image = "enemies/ballchain_soldier.png",
+  src_image = "enemies/boss/ballchain_soldier.png",
   directions = {
     { x = 96, y = 48, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13 },
     { x = 96, y = 48, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13 },
@@ -10,7 +10,7 @@ animation{
 }
 animation{
   name = "hurt",
-  src_image = "enemies/ballchain_soldier.png",
+  src_image = "enemies/boss/ballchain_soldier.png",
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {

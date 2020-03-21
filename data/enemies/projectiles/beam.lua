@@ -3,6 +3,7 @@
 local enemy = ...
 local bounced = false
 
+require("enemies/lib/common_actions").learn(enemy)
 local audio_manager = require("scripts/audio_manager")
 
 -- The enemy appears: set its properties.
@@ -10,18 +11,16 @@ enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(1)
   enemy:set_damage(4)
-  enemy:create_sprite("enemies/" .. enemy:get_breed())
   enemy:set_size(16, 16)
   enemy:set_origin(8, 8)
   enemy:set_obstacle_behavior("flying")
   enemy:set_invincible()
   enemy:set_attack_consequence("sword", "custom")
-  
+  enemy:create_sprite("enemies/" .. enemy:get_breed())
 end)
 
 enemy:register_event("on_obstacle_reached", function(enemy)
-
-  enemy:remove()
+  enemy:silent_kill()
 end)
 
 function enemy:go(direction4)

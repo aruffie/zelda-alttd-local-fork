@@ -27,22 +27,11 @@ function behavior.apply(enemy, sprite)
 
   local default_speed = 192
 
-  -- Call the on_hit() callback and remove the entity if it doesn't return false.
+  -- Call the enemy:on_hit() callback and remove the entity if it doesn't return false.
   local function hit_behavior()
 
     if not enemy.on_hit or enemy:on_hit() ~= false then
-      enemy:remove()
-    end
-  end
-
-  -- Remove the enemy when the given movement makes the enemy sprite completely out of the screen.
-  function enemy:remove_when_out_screen(movement)
-
-    function movement:on_position_changed()
-      if not enemy:is_watched(sprite) then
-        movement:stop()
-        enemy:remove()
-      end
+      enemy:silent_kill()
     end
   end
 
@@ -63,24 +52,35 @@ function behavior.apply(enemy, sprite)
     return movement
   end
 
-  -- Destroy the enemy when the hero is touched. 
-  -- TODO adapt and move in the shield script for all enemy.
+  -- Remove any projectile if its main sprite is completely out of the screen.
+  enemy:register_event("on_position_changed", function(enemy)
+
+    if not enemy:is_watched(sprite) then
+      enemy:stop_movement()
+      enemy:silent_kill()
+    end
+  end)
+
+  -- Hide any projectile on dying
+  enemy:register_event("on_dying", function(enemy, shield)
+    enemy:set_visible(false)
+  end)
+
+  -- Check if the projectile should be destroyed when the hero is touched. 
   enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
 
+    -- TODO adapt and move in the shield script for all enemy.
     if not hero:is_shield_protecting_from_enemy(enemy, enemy_sprite) or not game:has_item("shield") or game:get_item("shield"):get_variant() < enemy:get_minimum_shield_needed() then
       hero:start_hurt(enemy, enemy_sprite, enemy:get_damage())
     end
+
     hit_behavior()
   end)
 
-  -- Destroy the enemy if needed when touching the shield.
+  -- TODO Depends on the projectile, move to specific scripts
+  -- Destroy the enemy when touching the shield.
   enemy:register_event("on_shield_collision", function(enemy, shield)
     hit_behavior()
-  end)
-
-  -- Hide the projectile when dying
-  enemy:register_event("on_dying", function(enemy, shield)
-    enemy:set_visible(false)
   end)
 end
 

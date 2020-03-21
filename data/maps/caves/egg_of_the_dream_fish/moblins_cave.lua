@@ -23,7 +23,7 @@ map:register_event("on_started", function(map, destination)
   -- Entities
   map:init_map_entities()
   -- Doors
-  map:set_doors_open("door_group_1", true)
+  map:set_doors_open("door_group_", true)
   -- Enemies
   for enemy in map:get_entities("enemy_group_1") do
     enemy:get_sprite():set_direction(3)
@@ -55,21 +55,15 @@ function map:init_map_entities()
       enemy:remove()
     end
     bowwow:remove()
-    map:set_doors_open("door_group", true)
-  end
-  -- Moblin chief
-  if not game:is_step_last("bowwow_dognapped") then
     moblin_chief:remove()
-  else
-    moblin_chief:get_sprite():set_animation("sitting")
-  end
-  -- Moblin fire
-  if not game:is_step_done("bowwow_dognapped") then
     moblin_fire:remove()
     moblin_fire_light:remove()
-  elseif game:is_step_done("bowwow_joined") then
-    moblin_fire:get_sprite():set_animation("off")
-    moblin_fire_light:remove()
+  else
+    moblin_chief:get_sprite():set_animation("sitting")
+    if game:is_step_done("bowwow_joined") then
+      moblin_fire:get_sprite():set_animation("off")
+      moblin_fire_light:remove()
+    end
   end
 
 end
@@ -84,24 +78,28 @@ function map.do_after_transition()
 end
 
  -- Doors
-door_manager:open_when_enemies_dead(map,  "enemy_group_1",  "door_group_1")
-door_manager:open_when_enemies_dead(map,  "enemy_group_2",  "door_group_1")
-door_manager:open_when_enemies_dead(map,  "enemy_group_3",  "door_group_1")
+door_manager:open_when_enemies_dead(map, "enemy_group_1", "door_group_1")
+door_manager:open_when_enemies_dead(map, "enemy_group_2", "door_group_1")
+door_manager:open_when_enemies_dead(map, "enemy_group_2", "door_group_2")
+door_manager:open_when_enemies_dead(map, "enemy_group_3", "door_group_2")
+door_manager:open_when_enemies_dead(map, "enemy_group_3", "door_group_3")
 
--- Sensors
-function sensor_2:on_activated()
-
+-- Separators
+function separator_throne:on_activated()
   
   if not game:is_step_last("bowwow_dognapped") or room_access_2 then
     return
   end
-  room_access_2 = true
-  map:launch_cinematic_2()
+
+  -- Workaround: Wait a frame before launching the cinematic to avoid enemies being restarted automatically after separator:on_activated()
+  sol.timer.start(map, 10, function()
+    room_access_2 = true
+    map:launch_cinematic_2()
+  end)
 
 end
 
-function sensor_3:on_activated()
-
+function separator_boss:on_activated()
   
   if not game:is_step_last("bowwow_dognapped") or room_access_3 then
     return
@@ -113,7 +111,6 @@ end
 
 -- NPCs events
 function bowwow:on_interaction()
-
   
   if not game:is_step_last("bowwow_dognapped") then
     return
@@ -163,18 +160,18 @@ function map:launch_cinematic_2()
   moblin_chief:get_sprite():set_animation("sitting_text")
   moblin_chief:get_sprite():set_direction(0)
   for enemy in map:get_entities("enemy_group_2") do
-    enemy:get_sprite():set_direction(3)
+    sol.timer.stop_all(enemy)
+    enemy:stop_movement()
+    local sprite = enemy:get_sprite()
+    sprite:set_animation("stopped")
+    sprite:set_direction(1)
   end
+  hero:freeze() -- Stop any running custom state.
   map:start_coroutine(function()
     local options = {
       entities_ignore_suspend = {hero, moblin_chief, enemy_group_2_1, enemy_group_2_2, enemy_group_2_3, enemy_group_2_4}
     }
     map:set_cinematic_mode(true, options)
-    -- Movement
-    for enemy in map:get_entities("enemy_group_2") do
-      enemy:get_sprite():set_animation('stopped')
-      enemy:get_sprite():set_direction(3)
-    end
     hero:set_animation("walking")
     local m = sol.movement.create("target")
     m:set_target(placeholder_hero_1)
@@ -182,12 +179,16 @@ function map:launch_cinematic_2()
     m:set_speed(40)
     movement(m, hero)
     hero:set_animation("stopped")
+    enemy_group_2_1:get_sprite():set_direction(3)
     local symbol_1 = enemy_group_2_1:create_symbol_exclamation(true)
     wait(200)
+    enemy_group_2_2:get_sprite():set_direction(3)
     local symbol_2 = enemy_group_2_2:create_symbol_exclamation(true)
     wait(200)
+    enemy_group_2_3:get_sprite():set_direction(3)
     local symbol_3 = enemy_group_2_3:create_symbol_exclamation(true)
     wait(200)
+    enemy_group_2_4:get_sprite():set_direction(3)
     local symbol_4 = enemy_group_2_4:create_symbol_exclamation(true)
     wait(200)
     local symbol_5 = moblin_chief:create_symbol_exclamation(true)
@@ -215,8 +216,12 @@ function map:launch_cinematic_2()
     movement(m, moblin_chief)
     moblin_chief:set_enabled(false)
     door_manager:close_if_enemies_not_dead(map, "enemy_group_2", "door_group_1")
+    door_manager:close_if_enemies_not_dead(map, "enemy_group_2", "door_group_2")
     wall_enemies:remove()
     map:set_cinematic_mode(false, options)
+    for enemy in map:get_entities("enemy_group_2") do
+      enemy:restart()
+    end
   end)
 
 end
@@ -224,17 +229,26 @@ end
 -- This is the cinematic that the hero enters in the same room that the moblin chief bis
 function map:launch_cinematic_3()
 
-  door_manager:close_if_enemies_not_dead(map, "enemy_group_3", "door_group_1")
+  hero:freeze() -- Stop any running custom state.
   map:start_coroutine(function()
     local options = {
       entities_ignore_suspend = {hero, enemy_group_3_1}
     }
     map:set_cinematic_mode(true, options)
+    hero:set_animation("walking")
+    local m = sol.movement.create("straight")
+    m:set_angle(0)
+    m:set_max_distance(48)
+    m:set_ignore_suspend(true)
+    m:set_speed(40)
+    movement(m, hero)
+    hero:set_animation("stopped")
     --enemy_group_3_1:get_sprite():set_animation("prepare_attacking")
     --enemy_group_3_1:get_sprite():set_direction(2)
     dialog("maps.caves.egg_of_the_dream_fish.moblins_cave.moblins_3")
     map:set_cinematic_mode(false, options)
-    enemy_group_3_1:start_battle()
+    door_manager:close_if_enemies_not_dead(map, "enemy_group_3", "door_group_2")
+    door_manager:close_if_enemies_not_dead(map, "enemy_group_3", "door_group_3")
   end)
 
 end

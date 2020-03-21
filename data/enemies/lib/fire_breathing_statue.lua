@@ -93,7 +93,7 @@ function behavior:create(enemy, properties)
   enemy:register_event("on_removed", function(enemy)
 
     for _, child in ipairs(children) do
-      child:remove()
+      child:silent_kill()
     end
   end)
 

@@ -31,7 +31,7 @@ function weapons.learn(enemy)
     reference_sprite = reference_sprite or enemy:get_sprite()
 
     -- Create the welded custom entity.
-    sword = map:create_custom_entity({
+    local weapon = map:create_custom_entity({
       name = (enemy:get_name() or enemy:get_breed()) .. "_weapon",
       direction = enemy:get_sprite():get_direction(),
       x = enemy_x,
@@ -41,23 +41,23 @@ function weapons.learn(enemy)
       height = 16,
       sprite = sprite_name or "enemies/" .. enemy:get_breed() .. "/sword"
     })
-    enemy:start_welding(sword, x_offset, y_offset)
+    enemy:start_welding(weapon, x_offset, y_offset)
     
     -- Synchronize sprites animation and direction.
-    local sword_sprite = sword:get_sprite()
-    sword_sprite:synchronize(reference_sprite)
+    local weapon_sprite = weapon:get_sprite()
+    weapon_sprite:synchronize(reference_sprite)
     reference_sprite:register_event("on_direction_changed", function(reference_sprite)
-      sword_sprite:set_direction(reference_sprite:get_direction())
+      weapon_sprite:set_direction(reference_sprite:get_direction())
     end)
     reference_sprite:register_event("on_animation_changed", function(reference_sprite, name)
-      if sword_sprite:has_animation(name) then
-        sword_sprite:set_animation(name)
+      if weapon_sprite:has_animation(name) then
+        weapon_sprite:set_animation(name)
       end
     end)
 
     -- Hurt hero on collision with any sprite but the hero sword, else slightly move the hero back.
     local is_pushed_back = false
-    sword:add_collision_test("sprite", function(sword, entity, sword_sprite, entity_sprite)
+    weapon:add_collision_test("sprite", function(weapon, entity, weapon_sprite, entity_sprite)
       if entity == hero  and not enemy:is_immobilized() then
         if entity_sprite ~= hero:get_sprite("sword") then
           if not hero:is_blinking() and not hero:is_invincible() then
@@ -78,7 +78,7 @@ function weapons.learn(enemy)
       is_pushed_back = false
     end)
 
-    return sword
+    return weapon
   end
 
   -- Throw a projectile when throwing animation finished or duration reached.

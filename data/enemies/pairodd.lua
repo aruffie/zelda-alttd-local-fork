@@ -60,9 +60,9 @@ function enemy:disappear()
   before_disappear_timer = sol.timer.start(enemy, before_disappear_delay, function()
     before_disappear_timer = nil
 
+    enemy:set_invincible()
+    enemy:set_can_attack(false)
     sprite:set_animation("disappearing", function()
-      enemy:set_invincible()
-      enemy:set_can_attack(false)
 
       sol.timer.start(enemy, disappear_duration, function()
         enemy:appear()

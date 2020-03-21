@@ -185,6 +185,7 @@ tileset{ id = "out/outside_main", description = "Outside main" }
 tileset{ id = "out/outside_special", description = "Outside special" }
 tileset{ id = "sideview/eagletower", description = "Eagle tower" }
 tileset{ id = "sideview/sideview", description = "Side view tileset" }
+tileset{ id = "sideview/sideview_dg_1", description = "Sideview dg 1" }
 tileset{ id = "testing/basic_terrain_test", description = "Grounds (for collision testing)" }
 tileset{ id = "testing/labo", description = "Labo style tileset for systems testing (sideview)" }
 
@@ -200,7 +201,6 @@ sprite{ id = "enemies/anti_kirby/anti_kirby_link", description = "Anti Kirby Lin
 sprite{ id = "enemies/anti_kirby/aspiration", description = "Anti Kirby Aspiration" }
 sprite{ id = "enemies/arm_mimic", description = "Arm mimic" }
 sprite{ id = "enemies/armos", description = "Armos" }
-sprite{ id = "enemies/ballchain_soldier", description = "Ballchain Soldier" }
 sprite{ id = "enemies/ballchain_soldier/ball", description = "Ballchain Soldier Ball" }
 sprite{ id = "enemies/ballchain_soldier/chain", description = "Ballchain Soldier Chain" }
 sprite{ id = "enemies/beamos", description = "Beamos" }
@@ -216,6 +216,7 @@ sprite{ id = "enemies/boo_buddy", description = "Boo Buddy" }
 sprite{ id = "enemies/boss/angler_fish/angler_fish", description = "Angler's fish" }
 sprite{ id = "enemies/boss/angler_fish/angler_fish_brick", description = "Angler brick" }
 sprite{ id = "enemies/boss/angler_fish/angler_fish_fry", description = "Angler fry" }
+sprite{ id = "enemies/boss/ballchain_soldier", description = "Ballchain Soldier" }
 sprite{ id = "enemies/boss/big_armos_knight", description = "Big armos knight" }
 sprite{ id = "enemies/boss/blaino", description = "Blaino" }
 sprite{ id = "enemies/boss/buzz_blob_giant/buzz_blob_giant", description = "Buzz Blob Giant" }
@@ -338,6 +339,7 @@ sprite{ id = "enemies/projectiles/flowerball", description = "Flowerball" }
 sprite{ id = "enemies/projectiles/iceball", description = "Iceball" }
 sprite{ id = "enemies/projectiles/laser", description = "Beamos laser" }
 sprite{ id = "enemies/projectiles/magmaball", description = "Magmaball" }
+sprite{ id = "enemies/projectiles/sai", description = "Moblin chief spear" }
 sprite{ id = "enemies/projectiles/spear", description = "Moblin Pig Spear (Spear)" }
 sprite{ id = "enemies/projectiles/stone", description = "Stone" }
 sprite{ id = "enemies/raven", description = "Raven" }
@@ -449,6 +451,7 @@ sprite{ id = "entities/doors/door_weak_wall", description = "Weak wall" }
 sprite{ id = "entities/doors/door_weak_wall_out", description = "Outside weak wall" }
 sprite{ id = "entities/dungeons/dungeon_6", description = "Dungeon 6" }
 sprite{ id = "entities/dungeons/dungeon_7", description = "Dungeon 7" }
+sprite{ id = "entities/dungeons/eagle_tower_destruction", description = "Eagle tower destruction" }
 sprite{ id = "entities/effects/bubble", description = "Bubble" }
 sprite{ id = "entities/effects/dark", description = "Dark" }
 sprite{ id = "entities/effects/explosion_green", description = "Explosion green" }
@@ -1283,7 +1286,6 @@ item{ id = "tunic", description = "Tunic (green/blue/red)" }
 enemy{ id = "anti_kirby", description = "Anti-kirby" }
 enemy{ id = "arm_mimic", description = "Arm Mimic" }
 enemy{ id = "armos", description = "Armos" }
-enemy{ id = "ballchain_soldier", description = "Ballchain Soldier" }
 enemy{ id = "beamos", description = "Beamos" }
 enemy{ id = "beetle", description = "Beetle" }
 enemy{ id = "bloober", description = "Bloober" }
@@ -1291,31 +1293,41 @@ enemy{ id = "bomber", description = "Bomber" }
 enemy{ id = "bombite_green", description = "Bombite Green" }
 enemy{ id = "bombite_red", description = "Bombite Red" }
 enemy{ id = "boo_buddy", description = "Boo Buddy" }
+enemy{ id = "boss/angler_fish", description = "Angler Fish" }
 enemy{ id = "boss/angler_fish/angler_fish", description = "Angler Fish" }
 enemy{ id = "boss/angler_fish/angler_fish_brick", description = "Angler Fish Brick" }
 enemy{ id = "boss/angler_fish/angler_fish_fry", description = "Angler Fish Fry" }
-enemy{ id = "boss/big_armos_lnight", description = "Big Armos Knight" }
+enemy{ id = "boss/armos_knight", description = "Armos Knight" }
+enemy{ id = "boss/ballchain_soldier", description = "Ballchain Soldier" }
 enemy{ id = "boss/blaino", description = "Blaino" }
 enemy{ id = "boss/buzz_blob_giant", description = "Buzz Blob Giant" }
 enemy{ id = "boss/cue_ball", description = "Cue Ball" }
+enemy{ id = "boss/desert_lanmola", description = "Desert Lanmola" }
 enemy{ id = "boss/dodongo_snake", description = "Dodongo_Snake" }
+enemy{ id = "boss/evil_eagle", description = "Evil Eagle" }
 enemy{ id = "boss/evil_orb", description = "Evil orb" }
 enemy{ id = "boss/facade", description = "Facade" }
+enemy{ id = "boss/genie", description = "Genie" }
 enemy{ id = "boss/genie/genie", description = "Genie" }
 enemy{ id = "boss/genie/genie_bottle", description = "Genie bottle" }
 enemy{ id = "boss/giant_buzz_blob", description = "Giant buzz blob" }
-enemy{ id = "boss/gohma_blue", description = "Gohma blue" }
-enemy{ id = "boss/gohma_red", description = "Gohma red" }
+enemy{ id = "boss/gohma", description = "Gohma" }
 enemy{ id = "boss/grim_creeper", description = "Grim Creeper" }
 enemy{ id = "boss/hinox_master", description = "Hinox master" }
 enemy{ id = "boss/hot_head", description = "Hot Head" }
-enemy{ id = "boss/lanmola", description = "Lanmola" }
+enemy{ id = "boss/master_stalfos", description = "Master Stalfos" }
 enemy{ id = "boss/master_stalfos/master_stalfos", description = "Master stalfos" }
 enemy{ id = "boss/moblin_chief", description = "Moblin chief" }
 enemy{ id = "boss/moldorm", description = "Moldorm" }
 enemy{ id = "boss/projectile/spike", description = "Rolling bones spike" }
+enemy{ id = "boss/projectiles/ballchain", description = "Ballchain" }
+enemy{ id = "boss/projectiles/bottle", description = "Genie's Bottle" }
+enemy{ id = "boss/projectiles/boulder", description = "Stone Hinox's Boulder" }
+enemy{ id = "boss/projectiles/brick", description = "Angler Fish's Brick" }
+enemy{ id = "boss/projectiles/fry", description = "Angler Fish's Fry" }
+enemy{ id = "boss/projectiles/spike", description = "Rolling Bones's Spike" }
 enemy{ id = "boss/rolling_bones", description = "Rolling bones" }
-enemy{ id = "boss/slim_eel", description = "Slim Eel" }
+enemy{ id = "boss/slime_eel", description = "Slime Eel" }
 enemy{ id = "boss/slime_eye", description = "Slime eye" }
 enemy{ id = "boss/smasher", description = "Smasher" }
 enemy{ id = "boss/stone_hinox", description = "Stone hinox" }
@@ -1390,6 +1402,7 @@ enemy{ id = "projectiles/flowerball", description = "Flowerball" }
 enemy{ id = "projectiles/iceball", description = "Iceball" }
 enemy{ id = "projectiles/laser", description = "Laser" }
 enemy{ id = "projectiles/magmaball", description = "Magmaball" }
+enemy{ id = "projectiles/sai", description = "Sai" }
 enemy{ id = "projectiles/spear", description = "Spear" }
 enemy{ id = "projectiles/stone", description = "Stone" }
 enemy{ id = "raven", description = "Raven" }
@@ -1416,7 +1429,7 @@ enemy{ id = "zombie", description = "Zombie" }
 enemy{ id = "zora", description = "Zora" }
 
 entity{ id = "arrow", description = "Arrow" }
-entity{ id = "ball", description = "ball" }
+entity{ id = "ball", description = "Ball" }
 entity{ id = "bird", description = "Bird" }
 entity{ id = "bomb_arrow", description = "Bomb Arrow" }
 entity{ id = "bottle", description = "Bottle" }
@@ -1434,7 +1447,7 @@ entity{ id = "follower", description = "Follower" }
 entity{ id = "frog", description = "Frog" }
 entity{ id = "green_crystal", description = "Green crystal" }
 entity{ id = "hammer_stake", description = "Hammer stake" }
-entity{ id = "hook_bridge", description = "hook bridge" }
+entity{ id = "hook_bridge", description = "Hook bridge" }
 entity{ id = "hookable", description = "Hookable" }
 entity{ id = "insect", description = "Insect" }
 entity{ id = "ladder", description = "Ladder" }
@@ -1499,7 +1512,6 @@ file{ path = "enemies", author = "Benjamin Schweitzer, Christopho, PhoenixII54, 
 file{ path = "enemies/anti_kirby.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/arm_mimic.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/armos.lua", author = "Vlag", license = "GPL v3" }
-file{ path = "enemies/ballchain_soldier.lua", license = "GPL v3" }
 file{ path = "enemies/beamos.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/beetle.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/bloober.lua", license = "GPL v3" }
@@ -1508,35 +1520,43 @@ file{ path = "enemies/bombite_green.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/bombite_red.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boo_buddy.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss", license = "GPL v3" }
-file{ path = "enemies/boss/angler_fish", license = "GPL v3" }
+file{ path = "enemies/boss/angler_fish.lua", license = "GPL v3" }
 file{ path = "enemies/boss/angler_fish/angler_fish.lua", license = "GPL v3" }
 file{ path = "enemies/boss/angler_fish/angler_fish_brick.lua", license = "GPL v3" }
 file{ path = "enemies/boss/angler_fish/angler_fish_fry.lua", license = "GPL v3" }
-file{ path = "enemies/boss/big_armos_lnight.lua", license = "GPL v3" }
+file{ path = "enemies/boss/armos_knight.lua", license = "GPL v3" }
+file{ path = "enemies/boss/ballchain_soldier.lua", license = "GPL v3" }
 file{ path = "enemies/boss/blaino.lua", license = "GPL v3" }
 file{ path = "enemies/boss/buzz_blob_giant.lua", license = "GPL v3" }
 file{ path = "enemies/boss/cue_ball.lua", license = "GPL v3" }
+file{ path = "enemies/boss/desert_lanmola.lua", license = "GPL v3" }
 file{ path = "enemies/boss/dodongo_snake.lua", license = "GPL v3" }
+file{ path = "enemies/boss/evil_eagle.lua", license = "GPL v3" }
 file{ path = "enemies/boss/evil_orb.lua", license = "GPL v3" }
 file{ path = "enemies/boss/facade.lua", license = "GPL v3" }
+file{ path = "enemies/boss/genie.lua", license = "GPL v3" }
 file{ path = "enemies/boss/genie/genie.lua", license = "GPL v3" }
 file{ path = "enemies/boss/genie/genie_bottle.lua", license = "GPL v3" }
 file{ path = "enemies/boss/giant_buzz_blob.lua", license = "GPL v3" }
-file{ path = "enemies/boss/gohma_blue.lua", license = "GPL v3" }
-file{ path = "enemies/boss/gohma_red.lua", license = "GPL v3" }
+file{ path = "enemies/boss/gohma.lua", license = "GPL v3" }
 file{ path = "enemies/boss/grim_creeper.lua", license = "GPL v3" }
 file{ path = "enemies/boss/hinox_master.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/hot_head.lua", license = "GPL v3" }
-file{ path = "enemies/boss/lanmola.lua", license = "GPL v3" }
+file{ path = "enemies/boss/master_stalfos.lua", license = "GPL v3" }
 file{ path = "enemies/boss/master_stalfos/master_stalfos.lua", license = "GPL v3" }
-file{ path = "enemies/boss/moblin_chief.lua", license = "GPL v3" }
+file{ path = "enemies/boss/moblin_chief.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/moldorm.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/projectile/spike.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/boss/projectiles/ballchain.lua", license = "GPL v3" }
+file{ path = "enemies/boss/projectiles/bottle.lua", license = "GPL v3" }
+file{ path = "enemies/boss/projectiles/boulder.lua", license = "GPL v3" }
+file{ path = "enemies/boss/projectiles/brick.lua", license = "GPL v3" }
+file{ path = "enemies/boss/projectiles/fry.lua", license = "GPL v3" }
+file{ path = "enemies/boss/projectiles/spike.lua", license = "GPL v3" }
 file{ path = "enemies/boss/rolling_bones.lua", author = "Vlag", license = "GPL v3" }
-file{ path = "enemies/boss/slim_eel.lua", license = "GPL v3" }
+file{ path = "enemies/boss/slime_eel.lua", license = "GPL v3" }
 file{ path = "enemies/boss/slime_eye.lua", license = "GPL v3" }
 file{ path = "enemies/boss/smasher.lua", license = "GPL v3" }
-file{ path = "enemies/boss/stone_hinox", license = "GPL v3" }
 file{ path = "enemies/boss/stone_hinox.lua", license = "GPL v3" }
 file{ path = "enemies/boss/stone_hinox/stone_hinox.lua", license = "GPL v3" }
 file{ path = "enemies/boss/stone_hinox/stone_hinox_boulder.lua", license = "GPL v3" }
@@ -1606,19 +1626,20 @@ file{ path = "enemies/pokey.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/pols_voice.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/projectiles", license = "GPL v3" }
 file{ path = "enemies/projectiles/arrow.lua", author = "Vlag", license = "GPL v3" }
-file{ path = "enemies/projectiles/bat.lua", author = "Vlag", }
+file{ path = "enemies/projectiles/bat.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/projectiles/beam.lua", author = "Christopho", }
-file{ path = "enemies/projectiles/bomb.lua", author = "Vlag", }
-file{ path = "enemies/projectiles/bone.lua", author = "Vlag", }
-file{ path = "enemies/projectiles/cactus.lua", author = "Vlag", }
-file{ path = "enemies/projectiles/coconut.lua", author = "Vlag", }
+file{ path = "enemies/projectiles/bomb.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/projectiles/bone.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/projectiles/cactus.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/projectiles/coconut.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/projectiles/fireball.lua", author = "Christopho", }
-file{ path = "enemies/projectiles/flowerball.lua", author = "Vlag", }
-file{ path = "enemies/projectiles/iceball.lua", author = "Vlag", }
-file{ path = "enemies/projectiles/laser.lua", author = "Vlag", }
-file{ path = "enemies/projectiles/magmaball.lua", author = "Vlag", }
-file{ path = "enemies/projectiles/spear.lua", author = "Vlag", }
-file{ path = "enemies/projectiles/stone.lua", author = "Vlag", }
+file{ path = "enemies/projectiles/flowerball.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/projectiles/iceball.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/projectiles/laser.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/projectiles/magmaball.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/projectiles/sai.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/projectiles/spear.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/projectiles/stone.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/raven.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/rope.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/sand_crab.lua", author = "Vlag", license = "GPL v3" }
@@ -1708,7 +1729,7 @@ file{ path = "items/bow.lua", license = "GPL v3" }
 file{ path = "items/compass.lua", license = "GPL v3" }
 file{ path = "items/console.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/drug.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "items/enemy_ambush.lua", license = "GPL v3" }
+file{ path = "items/enemy_ambush.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "items/face_key.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/fairy.lua", license = "GPL v3" }
 file{ path = "items/feather.lua", author = "PhoenixII54", license = "GPL v3" }
@@ -2598,7 +2619,6 @@ file{ path = "sprites/debug", author = "PhoenixII54", license = "CC-BY-SA 4.0" }
 file{ path = "sprites/enemies/anti_kirby.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/arm_mimic.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/armos.png", license = "Proprietary, Fair use" }
-file{ path = "sprites/enemies/ballchain_soldier.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/beamos.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/beetle.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/bloober.png", license = "Proprietary, Fair use" }
@@ -2606,6 +2626,7 @@ file{ path = "sprites/enemies/bomber.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/bombite_green.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/bombite_red.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/boo_buddy.png", license = "Proprietary, Fair use" }
+file{ path = "sprites/enemies/boss/ballchain_soldier.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/boulder.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/bubble.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/bubble_giant.png", license = "Proprietary, Fair use" }
@@ -2647,6 +2668,7 @@ file{ path = "sprites/enemies/podobo.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/pols_voice.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/projectiles/coconut.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/projectiles/fireball.png", license = "Proprietary, Fair use" }
+file{ path = "sprites/enemies/projectiles/sai.dat", author = "JulioTanaka", }
 file{ path = "sprites/enemies/projectiles/stone.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/raven.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/rope.png", license = "Proprietary, Fair use" }
@@ -2823,3 +2845,6 @@ file{ path = "tilesets/out/outside_main.dat", author = "FFomega", license = "CC 
 file{ path = "tilesets/out/outside_main.tiles.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
 file{ path = "tilesets/out/outside_special.dat", author = "FFomega", license = "CC BY-SA 4.0" }
 file{ path = "tilesets/out/outside_special.tiles.png", author = "Nintendo, FFomega", license = "Proprietary (Fair use)" }
+file{ path = "tilesets/sideview/eagletower.dat", author = "JulioTanaka", }
+file{ path = "tilesets/sideview/sideview_dg_1.dat", author = "JulioTanaka", }
+file{ path = "tilesets/sideview/sideview_dg_1.tiles.png", author = "JulioTanaka", }

@@ -22343,6 +22343,16 @@ sensor{
   height = 16,
 }
 
+enemy{
+  name = "enemy_group_23_1",
+  layer = 0,
+  x = 1864,
+  y = 61,
+  direction = 0,
+  breed = "stalfos_blue",
+  treasure_name = "random_with_charm",
+}
+
 tile{
   layer = 1,
   x = 1664,
@@ -24390,6 +24400,46 @@ enemy{
   layer = 2,
   x = 488,
   y = 1325,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "enemy_group_23_2",
+  layer = 2,
+  x = 1736,
+  y = 93,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "enemy_group_23_3",
+  layer = 2,
+  x = 1784,
+  y = 93,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "enemy_group_23_5",
+  layer = 2,
+  x = 1736,
+  y = 141,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "enemy_group_23_4",
+  layer = 2,
+  x = 1784,
+  y = 141,
   direction = 0,
   breed = "keese",
   treasure_name = "random_with_charm",
