@@ -37,7 +37,6 @@ local directions = {
 function hero_meta.run(hero, came_from_map_scrolling_transition)
   local current_state, state_object=hero:get_state()
   if came_from_map_scrolling_transition==true and state =="free" then --At this point we are supposed to be in "free" state
-    print "the run will now be restored"
     hero:start_state(state)
   end
   if current_state~="custom" or state_object:get_description()~="running" then
@@ -200,7 +199,6 @@ function state:on_finished()
   if sword_sprite then
     entity:remove_sprite(sword_sprite)
   end
-  print "state is now over"
   entity.running=nil
   entity:stop_movement()
 end

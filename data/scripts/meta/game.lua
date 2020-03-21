@@ -15,11 +15,9 @@ function game_meta:get_sword_ability()
 end
 
 game_meta:register_event("on_world_changed", function(game)
-    print "changing world"
     local hero = game:get_hero()  
     hero:remove_charm()
     if hero:is_running() then
-      print "stop the run 'cause of world change"
       game.prevent_running_restoration=true
     end
   end)    
