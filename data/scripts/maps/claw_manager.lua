@@ -73,9 +73,11 @@ function claw_manager:create_minigame(map)
   -- Step 2 - Claw vertical movement.
   function claw_menu:launch_step_2()
 
+    local step_3_timer
+
     -- Start the movement when pressing the command.
     function claw_menu:on_command_pressed(command)
-      if command == "action" then
+      if command == "action" and step_3_timer == nil then
         local claw_movement = sol.movement.create("straight")  -- Then go to the South.
         claw_movement:set_angle(3 * math.pi / 2)
         claw_movement:set_speed(30)
@@ -97,7 +99,7 @@ function claw_manager:create_minigame(map)
     function claw_menu:on_command_released(command)
       if command == "action" then
         claw_up:stop_movement()
-        sol.timer.start(claw_up, 1000, function()
+        step_3_timer = sol.timer.start(claw_up, 1000, function()
           claw_menu:launch_step_3()
         end)
       end
@@ -255,9 +257,9 @@ function claw_manager:create_minigame(map)
     claw_crane_sprite:set_animation("opening", function()
       claw_crane_sprite:set_animation("opened")
       sol.timer.start(claw_up, 1000, function()
-        if platform ~= nil then  
+        if platform ~= nil then
           platform:remove()
-        end 
+        end
         if pickable_grabbed ~= nil then
           local claw_up_x, claw_up_y = claw_up:get_position()
           pickable_grabbed:set_position(claw_up_x, claw_up_y + 32)
