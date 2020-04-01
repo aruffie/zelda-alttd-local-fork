@@ -1,5 +1,7 @@
-local entity_manager={}
-local audio_manager=require("scripts/audio_manager")
+local entity_manager = {}
+local audio_manager = require("scripts/audio_manager")
+local common_actions = require("enemies/lib/common_actions")
+
 function entity_manager:fall(entity, callback)
   local sprite = entity:get_sprite()
   if sprite:has_animation("falling") then
@@ -47,8 +49,8 @@ function entity_manager:create_falling_entity(base_entity, sprite_name)
       if base_entity:get_type() == "enemy" and base_entity:exists() then
 
         -- Workaround: learn enemy:silent_kill() if the enemy doesn't know it.
-        if not base_entity.silent_kill() then
-          require("enemies/lib/common_actions").learn(base_entity)
+        if not base_entity.silent_kill then
+          common_actions.learn(base_entity)
         end
         base_entity:silent_kill()
       end

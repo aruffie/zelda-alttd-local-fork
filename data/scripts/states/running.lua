@@ -14,6 +14,8 @@ local map_tools=require("scripts/maps/map_tools")
 state:set_can_use_item(false)
 state:set_can_use_item("feather", true)
 state:set_can_traverse("crystal_block", false)
+state:set_can_use_jumper(true)
+state:set_jumper_delay(0)
 local directions = {
   {
     key="right",
@@ -34,9 +36,12 @@ local directions = {
 }
 
 --This is the function to call to start the whole running process
-function hero_meta.run(hero)
-  local current_state=hero:get_state()
-  if current_state~="custom" or hero:get_state_object():get_description()~="running" then
+function hero_meta.run(hero, came_from_map_scrolling_transition)
+  local current_state, state_object=hero:get_state()
+  if came_from_map_scrolling_transition==true and state =="free" then --At this point we are supposed to be in "free" state
+    hero:start_state(state)
+  end
+  if current_state~="custom" or state_object:get_description()~="running" then
     if not hero:get_map():is_sideview() or hero:get_direction()==0 or hero:get_direction()==2 then
       --In sideviews, only allow to run sideways
       hero:start_state(state)
@@ -56,19 +61,65 @@ end
 local function create_running_sword(entity, direction)
 
   local animation_set = entity:get_sprite("sword_override"):get_animation_set()
-  local sprite = entity:create_sprite(animation_set, "running_sword")
+  local sprite=entity:get_sprite("running_sword") or entity:create_sprite(animation_set, "running_sword")
   sprite:set_animation("sword_loading_walking")
   sprite:set_direction(direction)
 
   return sprite
 end
 
+local function begin_run()
+  local entity=state:get_entity()
+  local game=entity:get_game()
+  local map=entity:get_map()
+  local sprite=entity:get_sprite()
+  --start movement and pull out sword if any
+  entity.running_timer=nil --TODO check if this isn't useless 
+  entity.running=true
+  local sword_sprite
+  state:set_can_be_hurt(false)
+  state:set_can_control_direction(false)
+  state:set_can_control_movement(false)
+  if game:get_sword_ability() then
+    sprite:set_animation("sword_loading_walking")
+    sword_sprite = create_running_sword(entity, sprite:get_direction())
+  end
+
+  local running_movement=sol.movement.create("straight")
+  running_movement:set_speed(196)
+  running_movement:set_angle(sprite:get_direction()*math.pi/2)
+
+  -- Check if there is a collision with any sprite of the hero and an enemy, then hurt it.
+  function running_movement:on_position_changed()
+    for enemy in map:get_entities_by_type("enemy") do
+      if entity:overlaps(enemy, "sprite") and enemy:get_life() > 0 and not enemy:is_immobilized() then
+        local reaction = enemy:get_thrust_reaction()
+        if reaction ~= "ignored" then
+          enemy:receive_attack_consequence("thrust", reaction)
+        elseif enemy:get_can_attack() then
+          -- Hurt the hero if enemy ignore thrust attacks.
+          hero:start_hurt(enemy, enemy:get_damage())
+        end
+      end
+    end
+  end
+
+  function running_movement:on_obstacle_reached()
+    require ("scripts/states/bonking")(jump_manager)
+    stop_sound_loop(entity)
+    entity:bonk()
+  end
+  --Run !
+  running_movement:start(entity)
+
+end
+
+
 function state:on_started()
 --  debug_print "Run, Forrest, ruuun !"
   local entity=state:get_entity()
   local game = state:get_game()
   local map = entity:get_map()
-  local hero = map:get_hero()
   local sprite=entity:get_sprite("tunic")
   entity:get_sprite("trail"):set_animation("running") 
   sprite:set_animation("walking")
@@ -91,71 +142,12 @@ function state:on_started()
         return true
       end
     end)
-
+  if game.needs_running_restoration==true then--will be the case if we came from an intra-world map transition
+    game.needs_running_restoration=nil
+    begin_run()
+  end
   --Prepare for running...
-  entity.running_timer=sol.timer.start(state, 500, function() --start movement and pull out sword if any
-      entity.running_timer=nil --TODO check if this isn't useless 
-      entity.running=true
-      local sword_sprite
-      state:set_can_be_hurt(false)
-      state:set_can_control_direction(false)
-      state:set_can_control_movement(false)
-      if game:get_sword_ability() then
-        sprite:set_animation("sword_loading_walking")
-        sword_sprite = create_running_sword(hero, sprite:get_direction())
-      end
-
-      local running_movement=sol.movement.create("straight")
-      running_movement:set_speed(196)
-      running_movement:set_angle(sprite:get_direction()*math.pi/2)
-
-      -- Check if there is a collision with any sprite of the hero and an enemy, then hurt it.
-      function running_movement:on_position_changed()
-        for enemy in map:get_entities_by_type("enemy") do
-          if hero:overlaps(enemy, "sprite") and enemy:get_life() > 0 and not enemy:is_immobilized() then
-            local reaction = enemy:get_thrust_reaction()
-            if reaction ~= "ignored" then
-              enemy:receive_attack_consequence("thrust", reaction)
-            elseif enemy:get_can_attack() then
-              -- Hurt the hero if enemy ignore thrust attacks.
-              hero:start_hurt(enemy, enemy:get_damage())
-            end
-          end
-        end
-      end
-
-      function running_movement:on_obstacle_reached()
-        require ("scripts/states/bonking")(jump_manager)
-        stop_sound_loop(entity)
-        self:stop()
-        local x,y,w,h=entity:get_bounding_box()
-        local ox, oy=hero:get_position()
-        local map_w, map_h=map:get_size()
-        local direction=entity:get_direction()
-        if x==0 and direction==2 then
-          print "GO LEFT"
-          hero:set_position(ox-1,oy)
-          --game:simulate_command_pressed("left")
-        elseif x+w==map_w and direction==0 then
-          print "GO RIGHT"
-         hero:set_position(ox+1,oy)
---          game:simulate_command_pressed("right")
-        elseif y==0 and direction==1 then
-          print "GO UP"
-          hero:set_position(ox,oy-1)
-          --game:simulate_command_pressed("up")
-        elseif y+h==map_h and direction==3 then
-          hero:set_position(ox,oy+1)
-          print "GO DOWN"
-          --game:simulate_command_pressed("down")
-        else
-          entity:bonk()
-        end
-      end
-      --Run !
-      running_movement:start(entity)
-
-    end)
+  entity.running_timer=sol.timer.start(state, 500, begin_run)
 end
 
 --Stops the run when the player changes the diection
@@ -171,6 +163,7 @@ function state:on_command_pressed(command)
       for _,candidate in pairs(directions) do
         if candidate.key == command and candidate.direction~=sprite:get_direction() then
           entity:unfreeze()
+          entity:set_running(false)
           return true
         end
       end
@@ -208,7 +201,6 @@ function state:on_finished()
   if sword_sprite then
     entity:remove_sprite(sword_sprite)
   end
-
   entity.running=nil
   entity:stop_movement()
 end
