@@ -2,10 +2,10 @@ animation{
   name = "walking",
   src_image = "enemies/projectiles/sai.png",
   directions = {
-    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
-    { x = 24, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
-    { x = 48, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
-    { x = 72, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 12 },
+    { x = 24, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 12 },
+    { x = 48, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 12 },
+    { x = 72, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 12 },
   },
 }
 animation{
@@ -13,10 +13,20 @@ animation{
   src_image = "enemies/projectiles/sai.png",
   frame_delay = 80,
   directions = {
-    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
-    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
-    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
-    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 12, num_frames = 4 },
+    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 12, num_frames = 4 },
+    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 12, num_frames = 4 },
+    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 12, num_frames = 4 },
+  },
+}
+animation{
+  name = "holded",
+  src_image = "enemies/projectiles/sai.png",
+  directions = {
+    { x = 0, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 12 },
+    { x = 0, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 12 },
+    { x = 24, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 12 },
+    { x = 24, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 12 },
   },
 }
 animation{
@@ -24,19 +34,9 @@ animation{
   src_image = "enemies/projectiles/sai.png",
   frame_delay = 80,
   directions = {
-    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
-    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
-    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
-    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
-  },
-}
-animation{
-  name = "in_hand",
-  src_image = "enemies/projectiles/sai.png",
-  directions = {
-    { x = 0, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
-    { x = 0, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
-    { x = 24, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
-    { x = 24, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
+    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 12, num_frames = 4 },
+    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 12, num_frames = 4 },
+    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 12, num_frames = 4 },
+    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 12, num_frames = 4 },
   },
 }

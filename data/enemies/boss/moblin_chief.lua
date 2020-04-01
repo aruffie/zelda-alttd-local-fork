@@ -12,16 +12,18 @@ local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
 local current_hero_offset_x
 local first_start = true
+local stars_effect
 local sai_count
 
 -- Configuration variables
-local right_hand_offset_x = -30
-local right_hand_offset_y = -48
+local right_hand_offset_x = -20
+local right_hand_offset_y = -52
 local minimum_sai = 3
 local maximum_sai = 5
 local throwed_sai_offset_x = 0
 local throwed_sai_offset_y = -32
-local minimum_distance_to_hero = 100
+local minimum_distance_x_to_hero = 100
+local offset_distance_y_to_hero = 24
 local jumping_speed = 80
 local jumping_height = 6
 local jumping_duration = 200
@@ -41,7 +43,7 @@ local function update_direction()
 
   local x, _, _ = enemy:get_position()
   local hero_x, _, _ = hero:get_position()
-  current_hero_offset_x = hero_x < x and minimum_distance_to_hero or -minimum_distance_to_hero
+  current_hero_offset_x = hero_x < x and minimum_distance_x_to_hero or -minimum_distance_x_to_hero
   sprite:set_direction(hero_x < x and 2 or 0)
 end
 
@@ -49,7 +51,7 @@ end
 function enemy:start_moving()
 
   local hero_x, hero_y, _ = hero:get_position()
-  local target_x, target_y = hero_x + current_hero_offset_x, hero_y
+  local target_x, target_y = hero_x + current_hero_offset_x, hero_y + offset_distance_y_to_hero
   local angle = enemy:get_angle(target_x, target_y)
   local speed = jumping_speed * math.min(1.0, enemy:get_distance(target_x, target_y) / (jumping_speed * 0.2))
   local duration = jumping_duration - jumping_duration_decrease_by_hp * (8 - enemy:get_life())
@@ -77,6 +79,7 @@ function enemy:start_throwing()
 
   -- Display a sai sprite in the enemy hand while aiming.
   local sai_sprite = enemy:create_sprite("enemies/projectiles/sai")
+  sai_sprite:set_animation("holded")
   sai_sprite:set_direction(direction)
   sai_sprite:set_xy(direction == 0 and right_hand_offset_x or -right_hand_offset_x, right_hand_offset_y)
   enemy:bring_sprite_to_back(sai_sprite)
@@ -115,6 +118,8 @@ function enemy:start_charging()
       sprite:set_animation("shocked")
       enemy:start_brief_effect("entities/effects/impact_projectile", "default", math.cos(angle) * 24, -20)
       enemy:start_jumping(bounce_duration, bounce_height, angle + math.pi, bounce_speed, function()
+        stars_effect = enemy:start_brief_effect("entities/effects/collapse_star", "default", 0, -32, shocked_duration)
+        stars_effect:set_layer(enemy:get_layer() + 1)
         sol.timer.start(enemy, shocked_duration, function()
           enemy:restart()
         end)
@@ -137,6 +142,11 @@ function enemy:start_searching()
     enemy:start_moving()
   end)
 end
+
+-- Remove effects on hurt.
+enemy:register_event("on_hurt", function(enemy)
+  stars_effect:remove()
+end)
 
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
