@@ -455,6 +455,7 @@ sprite{ id = "entities/dungeons/dungeon_6", description = "Dungeon 6" }
 sprite{ id = "entities/dungeons/dungeon_7", description = "Dungeon 7" }
 sprite{ id = "entities/dungeons/eagle_tower_destruction", description = "Eagle tower destruction" }
 sprite{ id = "entities/effects/bubble", description = "Bubble" }
+sprite{ id = "entities/effects/collapse_star", description = "Collapse star" }
 sprite{ id = "entities/effects/dark", description = "Dark" }
 sprite{ id = "entities/effects/explosion_green", description = "Explosion green" }
 sprite{ id = "entities/effects/fishing_water_effect", description = "Fishing water effect" }
@@ -2670,6 +2671,7 @@ file{ path = "sprites/enemies/vegas.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/zols_gels.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/zombie.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/zora.png", license = "Proprietary, Fair use" }
+file{ path = "sprites/entities/effects/collapse_star.dat", author = "JulioTanaka", }
 file{ path = "sprites/entities/iron_ball.dat", author = "Christopho", license = "CC BY-SA 4.0" }
 file{ path = "sprites/entities/utils/cliff.dat", author = "Christopho", license = "CC BY-SA 4.0" }
 file{ path = "sprites/entities/utils/cliff.png", author = "Christopho", license = "CC BY-SA 4.0" }
