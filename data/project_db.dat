@@ -347,6 +347,7 @@ sprite{ id = "enemies/rope", description = "Rope" }
 sprite{ id = "enemies/sand_crab", description = "Sand Crab" }
 sprite{ id = "enemies/sea_urchin", description = "Sea urchin" }
 sprite{ id = "enemies/shrouded_stalfos", description = "Shrouded Stalfos" }
+sprite{ id = "enemies/shrouded_stalfos/sword_shrouded_stalfos", description = "Sword Shrouded Stalfos" }
 sprite{ id = "enemies/shrouded_stalfos_sword", description = "Shrouded Stalfos Sword" }
 sprite{ id = "enemies/spiked_beetle", description = "Spiked Beetle" }
 sprite{ id = "enemies/spiny_beetle", description = "Spiny Beetle" }
