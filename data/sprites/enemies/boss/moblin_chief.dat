@@ -63,10 +63,10 @@ animation{
   frame_delay = 400,
   frame_to_loop_on = 0,
   directions = {
-    { x = 0, y = 0, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61, num_frames = 2, num_columns = 1 },
-    { x = 0, y = 0, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61, num_frames = 2, num_columns = 1 },
-    { x = 0, y = 0, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61, num_frames = 2, num_columns = 1 },
-    { x = 0, y = 0, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61, num_frames = 2, num_columns = 1 },
+    { x = 0, y = 128, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61, num_frames = 2, num_columns = 1 },
+    { x = 0, y = 128, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61, num_frames = 2, num_columns = 1 },
+    { x = 0, y = 128, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61, num_frames = 2, num_columns = 1 },
+    { x = 0, y = 128, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61, num_frames = 2, num_columns = 1 },
   },
 }
 animation{

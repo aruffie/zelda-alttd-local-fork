@@ -67,7 +67,7 @@ function enemy:start_walking()
 
   -- Slightly change the angle when walking.
   function walking_movement:on_position_changed()
-    local angle = walking_movement:get_angle() % (2.0 * math.pi)
+    local angle = walking_movement:get_angle() % circle
     if walking_movement == enemy:get_movement() then
       walking_movement:set_angle(angle + walking_angle)
     end
