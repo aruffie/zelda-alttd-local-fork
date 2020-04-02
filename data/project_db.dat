@@ -353,6 +353,7 @@ sprite{ id = "enemies/spiny_beetle", description = "Spiny Beetle" }
 sprite{ id = "enemies/stalfos_blue", description = "Stalfos blue" }
 sprite{ id = "enemies/stalfos_red", description = "Stalfos red" }
 sprite{ id = "enemies/star", description = "Star" }
+sprite{ id = "enemies/sword_shrouded_stalfos", description = "Sword Shrouded Stalfos" }
 sprite{ id = "enemies/tektite", description = "Tektite" }
 sprite{ id = "enemies/tektite_water", description = "Tektite Water" }
 sprite{ id = "enemies/thwimp", description = "Thwimp" }
@@ -2679,6 +2680,7 @@ file{ path = "sprites/enemies/shrouded_stalfos.png", license = "Proprietary, Fai
 file{ path = "sprites/enemies/spiked_beetle.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/spiny_beetle.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/star.png", license = "Proprietary, Fair use" }
+file{ path = "sprites/enemies/sword_shrouded_stalfos.dat", author = "JulioTanaka", }
 file{ path = "sprites/enemies/tektite.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/tektite_water.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/thwimp.png", license = "Proprietary, Fair use" }
