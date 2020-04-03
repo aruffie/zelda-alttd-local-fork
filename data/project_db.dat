@@ -338,6 +338,7 @@ sprite{ id = "enemies/projectiles/bone", description = "Bone" }
 sprite{ id = "enemies/projectiles/coconut", description = "Coconut" }
 sprite{ id = "enemies/projectiles/fireball", description = "Fireball" }
 sprite{ id = "enemies/projectiles/flowerball", description = "Flowerball" }
+sprite{ id = "enemies/projectiles/fork", description = "Fork" }
 sprite{ id = "enemies/projectiles/iceball", description = "Iceball" }
 sprite{ id = "enemies/projectiles/laser", description = "Beamos laser" }
 sprite{ id = "enemies/projectiles/magmaball", description = "Magmaball" }
@@ -2655,6 +2656,7 @@ file{ path = "sprites/enemies/podobo.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/pols_voice.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/projectiles/coconut.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/projectiles/fireball.png", license = "Proprietary, Fair use" }
+file{ path = "sprites/enemies/projectiles/fork.dat", author = "JulioTanaka", }
 file{ path = "sprites/enemies/projectiles/sai.dat", author = "JulioTanaka", }
 file{ path = "sprites/enemies/projectiles/stone.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/raven.png", license = "Proprietary, Fair use" }
