@@ -28,6 +28,10 @@ function map:on_started(destination)
   -- Enemies
   enemy_manager:set_weak_boo_buddies_when_at_least_on_torch_lit(map, "torch_1", "boo_buddies_1")
 
+  -- Small boss
+  door_manager:open_if_small_boss_dead(map)
+  enemy_manager:create_teletransporter_if_small_boss_dead(map, false)
+
   -- Light
   light_manager:init(map)
 
@@ -42,7 +46,7 @@ function map:on_started(destination)
 
   -- Treasures
   treasure_manager:appear_chest_when_enemies_dead(map, "hardhat_1", "compass_chest")
-  treasure_manager:appear_chest_when_enemies_dead(map, "helmasaur_a", "dungeon_10_map_chest")
+  treasure_manager:appear_chest_when_enemies_dead(map, "helmasaur_1", "dungeon_10_map_chest")
   treasure_manager:appear_chest_when_enemies_dead(map, "evil_tile_group_1", "dungeon_10_small_key_chest_3")
 end
 
@@ -102,6 +106,7 @@ local function init_doors()
 
   map:set_doors_open("door_keese_1")
   map:set_doors_open("door_horse_puzzle")
+  map:set_doors_open("door_group_small_boss")
   
 end
 
@@ -211,6 +216,14 @@ end)
 sensor_7:register_event("on_activated", function()
 
   map:close_doors("door_group_6_")
+end)
+
+small_boss_sensor:register_event("on_activated", function()
+
+  if is_small_boss_active == false then
+    is_small_boss_active = true
+    enemy_manager:launch_small_boss_if_not_dead(map)
+  end
 end)
 
 flying_tile_sensor:register_event("on_activated", function()

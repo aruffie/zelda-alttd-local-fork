@@ -356,7 +356,7 @@ local function initialize_dungeon_features(game)
       highest_floor = 0,
       rows = 8,
       cols = 8,
-      music = "",
+      music = "19_level_1_tail_cave",
       music_instrument = "",
       secrets = {
         [0] = {
@@ -401,6 +401,13 @@ local function initialize_dungeon_features(game)
             signal = true
           },
         }
+      },
+      small_boss = {
+        -- TODO
+        floor = 0,
+        breed = "stalfos_blue",
+        x = 640 + 1440,
+        y = 720 + 365
       },
       boss = {
         floor = 0,
