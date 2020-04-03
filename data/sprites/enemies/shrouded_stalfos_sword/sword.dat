@@ -1,6 +1,6 @@
 animation{
   name = "walking",
-  src_image = "enemies/shrouded_stalfos/sword_shrouded_stalfos.png",
+  src_image = "enemies/shrouded_stalfos_sword/sword.png",
   frame_delay = 200,
   frame_to_loop_on = 0,
   directions = {
@@ -12,31 +12,31 @@ animation{
 }
 animation{
   name = "chase",
-  src_image = "enemies/shrouded_stalfos/sword_shrouded_stalfos.png",
+  src_image = "enemies/shrouded_stalfos_sword/sword.png",
   frame_delay = 100,
   frame_to_loop_on = 0,
   directions = {
-    { x = 0, y = 144, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 34, num_frames = 4 },
     { x = 0, y = 0, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 34, num_frames = 4 },
     { x = 0, y = 48, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 34, num_frames = 4 },
     { x = 0, y = 96, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 34, num_frames = 4 },
+    { x = 0, y = 144, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 34, num_frames = 4 },
   },
 }
 animation{
   name = "hurt",
-  src_image = "enemies/shrouded_stalfos/sword_shrouded_stalfos.png",
+  src_image = "enemies/shrouded_stalfos_sword/sword.png",
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {
-    { x = 192, y = 144, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 34, num_frames = 3 },
-    { x = 192, y = 0, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 34, num_frames = 3 },
+    { x = 208, y = 0, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 34, num_frames = 3 },
     { x = 192, y = 48, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 34, num_frames = 3 },
     { x = 192, y = 96, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 34, num_frames = 3 },
+    { x = 192, y = 144, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 34, num_frames = 3 },
   },
 }
 animation{
   name = "immobilized",
-  src_image = "enemies/shrouded_stalfos/sword_shrouded_stalfos.png",
+  src_image = "enemies/shrouded_stalfos_sword/sword.png",
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {
@@ -48,7 +48,7 @@ animation{
 }
 animation{
   name = "shaking",
-  src_image = "enemies/shrouded_stalfos/sword_shrouded_stalfos.png",
+  src_image = "enemies/shrouded_stalfos_sword/sword.png",
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {

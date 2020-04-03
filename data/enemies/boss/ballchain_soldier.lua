@@ -28,6 +28,8 @@ function enemy:start_walking()
       enemy:start_attacking()
     end
   end
+
+  sprite:set_animation("walking")
 end
 
 -- Start the enemy attack.
@@ -41,7 +43,7 @@ function enemy:start_attacking()
     sprite:set_paused(false)
   end
   local function on_takeback_callback()
-    sprite:set_animation("walking")
+    enemy:restart()
   end
 
   ballchain:start_attacking(on_throwed_callback, on_takeback_callback)

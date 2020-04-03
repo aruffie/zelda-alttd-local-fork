@@ -22,18 +22,18 @@ local orbit_attacking_rotation_speed = 3 * circle
 local orbit_radius = 16
 local before_attacking_minimum_duration = 1500
 local throwing_speed = 88
-local throwing_acceleration = 64
-local throwing_deceleration = 32
+local throwing_acceleration = 88
+local throwing_deceleration = 88
 local chain_maximum_length = 100
 
 -- Start a straight move to the given offset target and apply a constant acceleration and deceleration (px/s²).
-local function start_sprite_impulsion(sprite, x, y, speed, acceleration, deceleration)
+--[[local function start_sprite_impulsion(sprite, x, y, speed, acceleration, deceleration)
 
   -- Workaround : Don't use solarus movements to be able to start several movements at the same time.
   local movement = {}
   local timers = {}
   local angle = enemy:get_angle(x, y)
-  local start = {enemy:get_position()}
+  local start = {sprite:get_xy()}
   local target = {x, y}
   local accelerations = {acceleration, acceleration}
   local trigonometric_functions = {math.cos, math.sin}
@@ -61,11 +61,13 @@ local function start_sprite_impulsion(sprite, x, y, speed, acceleration, deceler
     return sol.timer.start(enemy, 1000.0 / axis_current_speed, function()
 
       -- Move sprite.
-      sprite:set_xy(axis_move[1], axis_move[2])
+      local position = {ball_sprite:get_xy()}
+      ball_sprite:set_xy(position[1] + axis_move[1], position[2] + axis_move[2], position[3])
       call_event(movement.on_position_changed)
 
       -- Replace axis acceleration by negative deceleration if beyond axis target.
-      if accelerations[axis] > 0 and math.min(start[axis], axis_move[axis]) <= target[axis] and target[axis] <= math.max(start[axis], axis_move[axis]) then
+      local axis_position = position[axis] + axis_move[axis]
+      if accelerations[axis] > 0 and math.min(start[axis], axis_position) <= target[axis] and target[axis] <= math.max(start[axis], axis_position) then
         accelerations[axis] = -deceleration
         call_event(movement.on_changed)
 
@@ -108,6 +110,15 @@ local function start_sprite_impulsion(sprite, x, y, speed, acceleration, deceler
   end
 
   return movement
+end--]]
+
+-- Update chain display depending on ball offset position.
+local function update_chain()
+
+  local x, y = ball_sprite:get_xy()
+  for i = 1, 3 do
+    chain_sprites[i]:set_xy(x / 4.0 * i, y / 4.0 * i)
+  end
 end
 
 -- Set the ball and chain sprites position during its orbit depending on angle.
@@ -117,9 +128,7 @@ local function set_orbit_position(angle)
   local y = -math.sin(angle) * orbit_radius
 
   ball_sprite:set_xy(x, y)
-  for i = 1, 3 do
-    chain_sprites[i]:set_xy(x / 4.0 * i, y / 4.0 * i)
-  end
+  update_chain()
 end
 
 -- Make the ball start orbitting around its origin, anti clockwise.
@@ -158,7 +167,10 @@ end
 -- Make the ball be throwed to the hero.
 function enemy:start_throwing(throwed_callback, takeback_callback)
 
-  local angle = sol.main.get_angle(0, 0, ball_sprite:get_xy())
+  local x, y, _ = enemy:get_position()
+  local offset_x, offset_y = ball_sprite:get_xy()
+  local hero_x, hero_y, _ = hero:get_position()
+  local angle = sol.main.get_angle(x + offset_x, y + offset_y, hero_x, hero_y)
   local target_x = math.cos(angle) * chain_maximum_length
   local target_y = -math.sin(angle) * chain_maximum_length
   local impulsion = start_sprite_impulsion(ball_sprite, target_x, target_y, throwing_speed, throwing_acceleration, throwing_deceleration)
@@ -178,6 +190,13 @@ function enemy:start_throwing(throwed_callback, takeback_callback)
         takeback_callback()
       end
     end
+    function back_impulsion:on_position_changed()
+      update_chain()
+    end
+  end
+
+  function impulsion:on_position_changed()
+    update_chain()
   end
 end
 

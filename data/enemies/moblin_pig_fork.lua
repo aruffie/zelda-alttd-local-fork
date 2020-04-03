@@ -1,4 +1,4 @@
--- Lua script of enemy moblin pig spear.
+-- Lua script of enemy moblin pig fork.
 -- This script is executed every time an enemy with this model is created.
 
 local enemy = ...
@@ -19,7 +19,7 @@ local walking_maximum_distance = 32
 local waiting_duration = 800
 local throwing_duration = 200
 
-local projectile_breed = "spear"
+local projectile_breed = "fork"
 local projectile_offset = {{0, -11}, {8, 0}, {0, -11}, {-8, 0}}
 
 -- Start the enemy movement.
@@ -32,7 +32,7 @@ function enemy:start_walking(key)
 
     sol.timer.start(enemy, waiting_duration, function()
 
-      -- Throw a spear if the hero is on the direction the enemy is looking at.
+      -- Throw a fork if the hero is on the direction the enemy is looking at.
       if enemy:get_direction4_to(hero) == sprite:get_direction() then
         enemy:throw_projectile(projectile_breed, throwing_duration, projectile_offset[key][1], projectile_offset[key][2], function()
           enemy:start_walking(next_key)
