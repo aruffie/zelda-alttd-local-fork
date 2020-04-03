@@ -338,6 +338,7 @@ sprite{ id = "enemies/projectiles/bone", description = "Bone" }
 sprite{ id = "enemies/projectiles/coconut", description = "Coconut" }
 sprite{ id = "enemies/projectiles/fireball", description = "Fireball" }
 sprite{ id = "enemies/projectiles/flowerball", description = "Flowerball" }
+sprite{ id = "enemies/projectiles/fork", description = "Fork" }
 sprite{ id = "enemies/projectiles/iceball", description = "Iceball" }
 sprite{ id = "enemies/projectiles/laser", description = "Beamos laser" }
 sprite{ id = "enemies/projectiles/magmaball", description = "Magmaball" }
@@ -349,12 +350,14 @@ sprite{ id = "enemies/rope", description = "Rope" }
 sprite{ id = "enemies/sand_crab", description = "Sand Crab" }
 sprite{ id = "enemies/sea_urchin", description = "Sea urchin" }
 sprite{ id = "enemies/shrouded_stalfos", description = "Shrouded Stalfos" }
+sprite{ id = "enemies/shrouded_stalfos/sword_shrouded_stalfos", description = "Sword Shrouded Stalfos" }
 sprite{ id = "enemies/shrouded_stalfos_sword", description = "Shrouded Stalfos Sword" }
 sprite{ id = "enemies/spiked_beetle", description = "Spiked Beetle" }
 sprite{ id = "enemies/spiny_beetle", description = "Spiny Beetle" }
 sprite{ id = "enemies/stalfos_blue", description = "Stalfos blue" }
 sprite{ id = "enemies/stalfos_red", description = "Stalfos red" }
 sprite{ id = "enemies/star", description = "Star" }
+sprite{ id = "enemies/sword_shrouded_stalfos", description = "Sword Shrouded Stalfos" }
 sprite{ id = "enemies/tektite", description = "Tektite" }
 sprite{ id = "enemies/tektite_water", description = "Tektite Water" }
 sprite{ id = "enemies/thwimp", description = "Thwimp" }
@@ -2653,6 +2656,7 @@ file{ path = "sprites/enemies/podobo.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/pols_voice.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/projectiles/coconut.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/projectiles/fireball.png", license = "Proprietary, Fair use" }
+file{ path = "sprites/enemies/projectiles/fork.dat", author = "JulioTanaka", }
 file{ path = "sprites/enemies/projectiles/sai.dat", author = "JulioTanaka", }
 file{ path = "sprites/enemies/projectiles/stone.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/raven.png", license = "Proprietary, Fair use" }
@@ -2663,6 +2667,7 @@ file{ path = "sprites/enemies/shrouded_stalfos.png", license = "Proprietary, Fai
 file{ path = "sprites/enemies/spiked_beetle.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/spiny_beetle.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/star.png", license = "Proprietary, Fair use" }
+file{ path = "sprites/enemies/sword_shrouded_stalfos.dat", author = "JulioTanaka", }
 file{ path = "sprites/enemies/tektite.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/tektite_water.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/thwimp.png", license = "Proprietary, Fair use" }
