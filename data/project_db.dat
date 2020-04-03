@@ -308,7 +308,7 @@ sprite{ id = "enemies/mini_moldorm/tail", description = "Mini moldorm tail" }
 sprite{ id = "enemies/moblin_dog_spear", description = "Moblin Dog Spear" }
 sprite{ id = "enemies/moblin_dog_sword", description = "Moblin Dog Sword" }
 sprite{ id = "enemies/moblin_dog_sword/sword", description = "Moblin Dog Sword (Sword)" }
-sprite{ id = "enemies/moblin_pig_spear", description = "Moblin Pig Spear" }
+sprite{ id = "enemies/moblin_pig_fork", description = "Moblin Pig Spear" }
 sprite{ id = "enemies/moblin_pig_sword", description = "Moblin Pig Sword" }
 sprite{ id = "enemies/moblin_pig_sword/sword", description = " Moblin Pig Sword (Sword)" }
 sprite{ id = "enemies/monkey", description = "Monkey" }
@@ -350,14 +350,13 @@ sprite{ id = "enemies/rope", description = "Rope" }
 sprite{ id = "enemies/sand_crab", description = "Sand Crab" }
 sprite{ id = "enemies/sea_urchin", description = "Sea urchin" }
 sprite{ id = "enemies/shrouded_stalfos", description = "Shrouded Stalfos" }
-sprite{ id = "enemies/shrouded_stalfos/sword_shrouded_stalfos", description = "Sword Shrouded Stalfos" }
 sprite{ id = "enemies/shrouded_stalfos_sword", description = "Shrouded Stalfos Sword" }
+sprite{ id = "enemies/shrouded_stalfos_sword/sword", description = "Shrouded Stalfos Sword (Sword)" }
 sprite{ id = "enemies/spiked_beetle", description = "Spiked Beetle" }
 sprite{ id = "enemies/spiny_beetle", description = "Spiny Beetle" }
 sprite{ id = "enemies/stalfos_blue", description = "Stalfos blue" }
 sprite{ id = "enemies/stalfos_red", description = "Stalfos red" }
 sprite{ id = "enemies/star", description = "Star" }
-sprite{ id = "enemies/sword_shrouded_stalfos", description = "Sword Shrouded Stalfos" }
 sprite{ id = "enemies/tektite", description = "Tektite" }
 sprite{ id = "enemies/tektite_water", description = "Tektite Water" }
 sprite{ id = "enemies/thwimp", description = "Thwimp" }
@@ -1319,7 +1318,7 @@ enemy{ id = "boss/hot_head", description = "Hot Head" }
 enemy{ id = "boss/master_stalfos", description = "Master Stalfos" }
 enemy{ id = "boss/moblin_chief", description = "Moblin chief" }
 enemy{ id = "boss/moldorm", description = "Moldorm" }
-enemy{ id = "boss/projectiles/ballchain", description = "Ballchain" }
+enemy{ id = "boss/projectiles/ballchain", description = "Soldier's Ballchain" }
 enemy{ id = "boss/projectiles/bottle", description = "Genie's Bottle" }
 enemy{ id = "boss/projectiles/boulder", description = "Stone Hinox's Boulder" }
 enemy{ id = "boss/projectiles/brick", description = "Angler Fish's Brick" }
@@ -1368,7 +1367,7 @@ enemy{ id = "maskass", description = "Maskass" }
 enemy{ id = "mini_moldorm", description = "Mini Moldorm" }
 enemy{ id = "moblin_dog_spear", description = "Moblin Dog (Spear)" }
 enemy{ id = "moblin_dog_sword", description = "Moblin Dog (Sword)" }
-enemy{ id = "moblin_pig_spear", description = "Moblin Pig (Spear)" }
+enemy{ id = "moblin_pig_fork", description = "Moblin Pig (Fork)" }
 enemy{ id = "moblin_pig_sword", description = "Moblin Pig (Sword)" }
 enemy{ id = "monkey", description = "Monkey" }
 enemy{ id = "octorok", description = "Octorok" }
@@ -1396,6 +1395,7 @@ enemy{ id = "projectiles/cactus", description = "Cactus" }
 enemy{ id = "projectiles/coconut", description = "Coconut" }
 enemy{ id = "projectiles/fireball", description = "Fireball" }
 enemy{ id = "projectiles/flowerball", description = "Flowerball" }
+enemy{ id = "projectiles/fork", description = "Fork" }
 enemy{ id = "projectiles/iceball", description = "Iceball" }
 enemy{ id = "projectiles/laser", description = "Laser" }
 enemy{ id = "projectiles/magmaball", description = "Magmaball" }
@@ -1593,7 +1593,7 @@ file{ path = "enemies/maskass.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/mini_moldorm.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/moblin_dog_spear.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/moblin_dog_sword.lua", author = "Vlag", license = "GPL v3" }
-file{ path = "enemies/moblin_pig_spear.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/moblin_pig_fork.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/moblin_pig_sword.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/monkey.lua", author = "Benjamin Schweitzer, Vlag", license = "GPL v3" }
 file{ path = "enemies/octorok.lua", author = "Vlag", license = "GPL v3" }
@@ -1622,6 +1622,7 @@ file{ path = "enemies/projectiles/cactus.lua", author = "Vlag", license = "GPL v
 file{ path = "enemies/projectiles/coconut.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/projectiles/fireball.lua", author = "Christopho", }
 file{ path = "enemies/projectiles/flowerball.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/projectiles/fork.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/projectiles/iceball.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/projectiles/laser.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/projectiles/magmaball.lua", author = "Vlag", license = "GPL v3" }
@@ -2643,7 +2644,7 @@ file{ path = "sprites/enemies/mad_bomber.png", license = "Proprietary, Fair use"
 file{ path = "sprites/enemies/maskass.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/moblin_dog_spear.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/moblin_dog_sword.png", license = "Proprietary, Fair use" }
-file{ path = "sprites/enemies/moblin_pig_spear.png", license = "Proprietary, Fair use" }
+file{ path = "sprites/enemies/moblin_pig_fork.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/moblin_pig_sword.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/monkey.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/octorok_flying.png", license = "Proprietary, Fair use" }
@@ -2667,7 +2668,6 @@ file{ path = "sprites/enemies/shrouded_stalfos.png", license = "Proprietary, Fai
 file{ path = "sprites/enemies/spiked_beetle.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/spiny_beetle.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/star.png", license = "Proprietary, Fair use" }
-file{ path = "sprites/enemies/sword_shrouded_stalfos.dat", author = "JulioTanaka", }
 file{ path = "sprites/enemies/tektite.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/tektite_water.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/thwimp.png", license = "Proprietary, Fair use" }

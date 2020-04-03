@@ -145,7 +145,10 @@ end
 
 -- Remove effects on hurt.
 enemy:register_event("on_hurt", function(enemy)
-  stars_effect:remove()
+
+  if stars_effect and stars_effect:exists() then
+    stars_effect:remove()
+  end
 end)
 
 -- Initialization.

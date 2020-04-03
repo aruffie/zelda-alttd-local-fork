@@ -750,7 +750,9 @@ function common_actions.learn(enemy)
       if on_finished_callback then
         on_finished_callback()
       end
-      entity:remove()
+      if entity:exists() then
+        entity:remove()
+      end
     end
     local sprite = entity:get_sprite()
     sprite:set_animation(animation_name or sprite:get_animation(), function()
