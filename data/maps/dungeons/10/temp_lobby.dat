@@ -284,7 +284,7 @@ chest{
   layer = 0,
   x = 88,
   y = 109,
-  treasure_name = "feather_old",
+  treasure_name = "feather",
   treasure_savegame_variable = "dungeon_10_feather",
   sprite = "entities/chests/chest_small",
 }

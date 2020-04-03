@@ -14,6 +14,7 @@ local light_manager = require("scripts/maps/light_manager")
 local separator_manager = require("scripts/maps/separator_manager")
 local switch_manager = require("scripts/maps/switch_manager")
 local treasure_manager = require("scripts/maps/treasure_manager")
+local flying_tile_manager = require("scripts/maps/flying_tile_manager")
 
 -- Map events
 function map:on_started(destination)
@@ -40,7 +41,9 @@ function map:on_started(destination)
   separator_manager:init(map)
 
   -- Treasures
-  treasure_manager:appear_chest_when_enemies_dead(map, "hardhat_1", "compass_chest")  
+  treasure_manager:appear_chest_when_enemies_dead(map, "hardhat_1", "compass_chest")
+  treasure_manager:appear_chest_when_enemies_dead(map, "helmasaur_a", "dungeon_10_map_chest")
+  treasure_manager:appear_chest_when_enemies_dead(map, "evil_tile_group_1", "dungeon_10_small_key_chest_3")
 end
 
 local function handle_solid_lava()
@@ -105,7 +108,7 @@ end
 -- Init pipe puzzle in the dungeon
 local function init_pipes()
 
-  if map:get_game():get_value("dungeon_10_lava_is_flowing") == false then
+  if map:get_game():get_value("dungeon_10_lava_is_flowing") ~= true then
     pipe_disable_flow("lava")
     lava_lever:get_sprite():set_direction(1)
   else
@@ -113,7 +116,7 @@ local function init_pipes()
     lava_lever:get_sprite():set_direction(0)
   end
 
-  if map:get_game():get_value("dungeon_10_gel_is_flowing") == false then
+  if map:get_game():get_value("dungeon_10_gel_is_flowing") ~= true then
     pipe_disable_flow("gel")
     gel_lever:get_sprite():set_direction(1)
   else
@@ -125,8 +128,16 @@ end
 
 function init_chests()
 
-  if game:get_value("dungeon_10_compass") == false then
+  if game:get_value("dungeon_10_compass") ~= true then
     compass_chest:set_enabled(false)
+  end
+
+  if game:get_value("dungeon_10_map_chest") ~= true then
+    dungeon_10_map_chest:set_enabled(false)
+  end
+
+  if game:get_value("dungeon_10_small_key_chest_3") ~= true then
+    dungeon_10_small_key_chest_3:set_enabled(false)
   end
 end
 
@@ -200,4 +211,12 @@ end)
 sensor_7:register_event("on_activated", function()
 
   map:close_doors("door_group_6_")
+end)
+
+flying_tile_sensor:register_event("on_activated", function()
+
+  if flying_tile_manager.is_launch == false then
+    flying_tile_manager:init(map, "evil_tile_group")
+    flying_tile_manager:launch(map, "evil_tile_group")
+  end
 end)
