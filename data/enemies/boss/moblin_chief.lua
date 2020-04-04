@@ -30,7 +30,7 @@ local jumping_duration = 200
 local jumping_duration_decrease_by_hp = 5
 local waiting_duration = 700
 local charging_speed = 160
-local charging_maximum_distance = 180
+local charging_maximum_distance = 160
 local bounce_speed = 40
 local bounce_height = 32
 local bounce_duration = 600
@@ -108,7 +108,8 @@ function enemy:start_charging()
   sprite:set_animation("prepare_attacking")
   sol.timer.start(enemy, waiting_duration, function()
     local movement = enemy:start_straight_walking(angle, charging_speed, charging_maximum_distance, function()
-      -- Restart jumping on movement finished if no obstacle reached.
+      -- Brake and restart jumping on movement finished if no obstacle reached.
+      enemy:start_brief_effect("entities/effects/brake_smoke", "default", math.cos(angle) * 24, 0)
       enemy:restart()
     end)
 

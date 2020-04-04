@@ -1847,14 +1847,6 @@ pickable{
   treasure_savegame_variable = "golden_leaf_4",
 }
 
-pickable{
-  layer = 0,
-  x = 504,
-  y = 109,
-  treasure_name = "golden_leaf",
-  treasure_savegame_variable = "golden_leaf_5",
-}
-
 custom_entity{
   name = "kanalet_darknut_statue",
   layer = 0,
@@ -2861,9 +2853,11 @@ enemy{
   name = "enemy_group_2_1",
   layer = 0,
   x = 504,
-  y = 93,
+  y = 85,
   direction = 3,
-  breed = "boss/hinox_master",
+  breed = "boss/ballchain_soldier",
+  treasure_name = "golden_leaf",
+  treasure_savegame_variable = "golden_leaf_5",
 }
 
 tile{
