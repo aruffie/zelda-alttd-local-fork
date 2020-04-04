@@ -2842,8 +2842,5 @@ file{ path = "tilesets/out/outside_special.tiles.png", author = "Nintendo, FFome
 file{ path = "tilesets/sideview/eagletower.dat", author = "JulioTanaka", }
 file{ path = "tilesets/sideview/sideview_dg_1.dat", author = "JulioTanaka", }
 file{ path = "tilesets/sideview/sideview_dg_1.tiles.png", author = "JulioTanaka", }
-file{ path = "tilesets/sideview/sideview_dg_tiles.entities.png", author = "JulioTanaka", }
-file{ path = "tilesets/sideview/sideview_dg_tiles.tiles.png", author = "JulioTanaka", }
 file{ path = "tilesets/sideview/sideview_dungeon.dat", author = "JulioTanaka", }
-file{ path = "tilesets/sideview/sideview_dungeon.entities.png", author = "JulioTanaka", }
 file{ path = "tilesets/sideview/sideview_dungeon.tiles.png", author = "JulioTanaka", }
