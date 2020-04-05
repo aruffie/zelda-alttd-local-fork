@@ -98,8 +98,8 @@ function enemy:start_throwing(throwed_callback, takeback_callback)
   going_movement:set_speed(throwing_speed)
   going_movement:set_max_distance(chain_maximum_length)
   going_movement:set_angle(angle)
-  going_movement:set_smooth(false)
   going_movement:set_ignore_obstacles()
+  going_movement:set_smooth(false)
   going_movement:start(ball_sprite)
 
   -- Start back movement when the ball reached the goal.
@@ -111,6 +111,7 @@ function enemy:start_throwing(throwed_callback, takeback_callback)
     coming_movement:set_speed(throwing_speed)
     coming_movement:set_target(target_x, target_y)
     coming_movement:set_ignore_obstacles()
+    coming_movement:set_smooth(false)
     coming_movement:start(ball_sprite)
 
     -- Start orbitting again once take back.
