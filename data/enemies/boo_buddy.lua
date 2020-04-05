@@ -39,6 +39,11 @@ function enemy:start_go_away()
   sprite:set_animation("weak_walking")
 end
 
+-- Return the enemy weak state.
+function enemy:is_weak()
+  return is_weak
+end
+
 -- Set the enemy weak.
 function enemy:set_weak(weak)
 
