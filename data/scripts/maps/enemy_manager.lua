@@ -38,7 +38,6 @@ function enemy_manager:set_weak_boo_buddies_when_at_least_on_torch_lit(map, torc
     end
   end
   local function torch_on_unlit()
-print("unlit")
     for torch in map:get_entities(torch_prefix) do
       if torch:is_lit() then
         return
