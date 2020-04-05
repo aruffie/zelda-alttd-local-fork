@@ -25,6 +25,9 @@ function torch:set_lit(lit)
       lit_timer = sol.timer.start(torch, torch.duration, function()
         torch:set_lit(false)
       end)
+      if torch.on_lit then
+        torch:on_lit()
+      end
     end
   else
     sprite:set_animation("unlit")
@@ -59,32 +62,23 @@ local function on_collision(torch, other, torch_sprite, other_sprite)
     if other_model == "fire" or other_model == 'powder' then
       if not torch:is_lit() then
         torch:set_lit(true)
-        if torch.on_lit ~= nil then
-          torch:on_lit()
+
+        if other_model == "fire" then
+          other:extinguish()
         end
-
-        sol.timer.start(other, 50, function()
-            other:stop_movement()
-            other:get_sprite():set_animation("stopped")
-          end)
-
       end
 
     elseif other_model == "ice_beam" then
       if torch:is_lit() then
         torch:set_lit(false)
-        if torch.on_unlit ~= nil then
-          torch:on_unlit()
-        end
       end
 
       sol.timer.start(other, 50, function()
-          other:stop_movement()
-          sol.timer.start(other, 150, function()
-              other:remove()
-            end)
+        other:stop_movement()
+        sol.timer.start(other, 150, function()
+          other:remove()
         end)
-
+      end)
     end
 
   elseif other:get_type() == "enemy" then
@@ -93,9 +87,6 @@ local function on_collision(torch, other, torch_sprite, other_sprite)
     if other_model == "fireball_red_small" then
       if not torch:is_lit() then
         torch:set_lit(true)
-        if torch.on_lit ~= nil then
-          torch:on_lit()
-        end
       end
       other:remove()
     end
