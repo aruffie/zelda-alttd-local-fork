@@ -30,35 +30,31 @@ end
 
 function enemy_manager:set_weak_boo_buddies_when_at_least_on_torch_lit(map, torch_prefix, enemy_prefix)
 
-  local total = 0
-  local remaining = 0
   local function torch_on_lit()
-    remaining = remaining - 1
-    if remaining > 0 and remaining < total then
-      for enemy in map:get_entities(enemy_prefix) do
+    for enemy in map:get_entities(enemy_prefix) do
+      if enemy.is_weak and not enemy:is_weak() then
         enemy:set_weak(true)
       end
     end
   end
   local function torch_on_unlit()
-    remaining = remaining + 1
-    if remaining > 0 and remaining == total  then
-      for enemy in map:get_entities(enemy_prefix) do
-        enemy:set_weak(false)
+print("unlit")
+    for torch in map:get_entities(torch_prefix) do
+      if torch:is_lit() then
+        return
       end
+    end
+    for enemy in map:get_entities(enemy_prefix) do
+      enemy:set_weak(false)
     end
   end
   for torch in map:get_entities(torch_prefix) do
-    if not torch:is_lit() then
-      remaining = remaining + 1
-    end
     torch:register_event("on_lit", function(torch)
       torch_on_lit()
     end)
     torch:register_event("on_unlit", function(torch)
       torch_on_unlit()
     end)
-    total = total + 1
   end
   
 end
