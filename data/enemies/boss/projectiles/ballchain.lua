@@ -14,6 +14,7 @@ local eighth = math.pi * 0.25
 local quarter = math.pi * 0.5
 local circle = math.pi * 2.0
 local orbit_rotation_step, orbit_timer, orbit_angle
+local chain_origin_offset_x, chain_origin_offset_y
 
 -- Configuration variables
 local orbit_initial_angle = 5 * eighth
@@ -31,7 +32,7 @@ local function update_chain()
 
   local x, y = ball_sprite:get_xy()
   for i = 1, 3 do
-    chain_sprites[i]:set_xy(x / 4.0 * i, y / 4.0 * i)
+    chain_sprites[i]:set_xy((x - chain_origin_offset_x) / 4.0 * i + chain_origin_offset_x, (y - chain_origin_offset_y) / 4.0 * i + chain_origin_offset_y)
   end
 end
 
@@ -43,6 +44,13 @@ local function set_orbit_position(angle)
 
   ball_sprite:set_xy(x, y)
   update_chain()
+end
+
+-- Set an offset to the chain origin.
+function enemy:set_chain_origin_offset(x, y)
+
+  chain_origin_offset_x = x
+  chain_origin_offset_y = y
 end
 
 -- Make the ball start orbitting around its origin, anti clockwise.
@@ -96,8 +104,8 @@ function enemy:start_throwing(throwed_callback, takeback_callback)
 
   -- Start back movement when the ball reached the goal.
   function going_movement:on_finished()
-    target_x = math.cos(angle - quarter) * orbit_radius
-    target_y = -math.sin(angle - quarter) * orbit_radius
+    target_x = math.cos(angle - quarter + orbit_rotation_speed / 100.0) * orbit_radius
+    target_y = -math.sin(angle - quarter + orbit_rotation_speed / 100.0) * orbit_radius
 
     coming_movement = sol.movement.create("target")
     coming_movement:set_speed(throwing_speed)
@@ -122,6 +130,10 @@ function enemy:start_throwing(throwed_callback, takeback_callback)
   function going_movement:on_position_changed()
     update_chain()
   end
+
+  if throwed_callback then
+    throwed_callback()
+  end
 end
 
 -- Initialization.
@@ -144,5 +156,7 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_layer_independent_collisions(true)
 
   orbit_angle = orbit_initial_angle
+  chain_origin_offset_x = 0
+  chain_origin_offset_y = 0
   enemy:start_orbitting()
 end)
