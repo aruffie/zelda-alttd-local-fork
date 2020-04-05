@@ -50,6 +50,25 @@ local function on_hookshot_attack_received()
   if not is_protected or sprite:get_direction() == hero:get_direction() then
     enemy:hurt(2)
   else
+    
+    -- Remove the mask from the enemy and attach it to the hookshot.
+    local x, y, layer = enemy:get_position()
+    local mask = map:create_custom_entity({
+      sprite = "enemies/" .. enemy:get_breed() .. "/mask",
+      x = x,
+      y = y,
+      layer = layer,
+      width = 16,
+      height = 16,
+      direction = sprite:get_direction()
+    })
+    game:get_item("hookshot"):catch_entity(mask)
+    mask:add_collision_test("overlapping", function(hookshot, entity)
+      if entity:get_type() == "hero" then
+        mask:remove()
+      end
+    end)
+    
     enemy:set_weak()
   end
 end

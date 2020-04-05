@@ -299,6 +299,17 @@ function item:start_using()
     end
   end
 
+  -- Catch the given entity.
+  function item:catch_entity(entity)
+
+    if not hooked and not going_back then
+      entities_caught[#entities_caught + 1] = entity
+      entity:set_position(hookshot:get_position())
+      hookshot:set_modified_ground("traversable")  -- Don't let the caught entity fall in holes.
+      go_back()
+    end
+  end
+
   -- Destroys the hookshot and restores control to the player.
   function stop()
     hero.is_using_hookshot=nil
@@ -404,12 +415,7 @@ function item:start_using()
 
       elseif entity.is_catchable_with_hookshot ~= nil and entity:is_catchable_with_hookshot() then
         -- Catch the entity with the hookshot.
-        if not hooked and not going_back then
-          entities_caught[#entities_caught + 1] = entity
-          entity:set_position(hookshot:get_position())
-          hookshot:set_modified_ground("traversable")  -- Don't let the caught entity fall in holes.
-          go_back()
-        end
+        item:catch_entity(entity)
 
       end
     end)

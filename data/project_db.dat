@@ -297,6 +297,7 @@ sprite{ id = "enemies/goponga_flower", description = "Goponga flower" }
 sprite{ id = "enemies/goponga_flower_giant", description = "Goponga Flower Giant" }
 sprite{ id = "enemies/hardhat_beetle", description = "Hardhat Beetle" }
 sprite{ id = "enemies/helmasaur", description = "Helmasaur" }
+sprite{ id = "enemies/helmasaur/mask", description = "Mask" }
 sprite{ id = "enemies/helmasaur/maskless", description = "Helmasaur maskless" }
 sprite{ id = "enemies/keese", description = "Keese" }
 sprite{ id = "enemies/leever", description = "Leever" }
@@ -540,7 +541,6 @@ sprite{ id = "entities/la_beach/la_background", description = "entities/la_beach
 sprite{ id = "entities/la_beach/la_swell", description = "entities/la_beach/la_swell" }
 sprite{ id = "entities/la_beach/la_wreck", description = "entities/la_beach/la_wreck" }
 sprite{ id = "entities/ledger_hook", description = "Ledger hook" }
-sprite{ id = "entities/mask_helmasaur", description = "Mask helmasaur" }
 sprite{ id = "entities/mega_thwomp", description = "Mega thwomp" }
 sprite{ id = "entities/misc/ball", description = "Ball" }
 sprite{ id = "entities/misc/bed", description = "Bed" }
@@ -2842,8 +2842,5 @@ file{ path = "tilesets/out/outside_special.tiles.png", author = "Nintendo, FFome
 file{ path = "tilesets/sideview/eagletower.dat", author = "JulioTanaka", }
 file{ path = "tilesets/sideview/sideview_dg_1.dat", author = "JulioTanaka", }
 file{ path = "tilesets/sideview/sideview_dg_1.tiles.png", author = "JulioTanaka", }
-file{ path = "tilesets/sideview/sideview_dg_tiles.entities.png", author = "JulioTanaka", }
-file{ path = "tilesets/sideview/sideview_dg_tiles.tiles.png", author = "JulioTanaka", }
 file{ path = "tilesets/sideview/sideview_dungeon.dat", author = "JulioTanaka", }
-file{ path = "tilesets/sideview/sideview_dungeon.entities.png", author = "JulioTanaka", }
 file{ path = "tilesets/sideview/sideview_dungeon.tiles.png", author = "JulioTanaka", }
