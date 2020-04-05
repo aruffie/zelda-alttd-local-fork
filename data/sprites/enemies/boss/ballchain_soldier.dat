@@ -35,7 +35,7 @@ animation{
   },
 }
 animation{
-  name = "take_ball",
+  name = "takeback",
   src_image = "enemies/boss/ballchain_soldier.png",
   frame_delay = 150,
   directions = {

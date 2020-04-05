@@ -49,9 +49,14 @@ function enemy:start_attacking()
   ballchain:start_attacking(on_throwed_callback, on_takeback_callback)
 end
 
+-- Reset the ballchain on hurt.
+enemy:register_event("on_hurt", function(enemy)
+  sprite:set_paused(false)
+  ballchain:restart()
+end)
+
 -- Remove the ballchain on dead.
 enemy:register_event("on_dead", function(enemy)
-
   ballchain:silent_kill()
 end)
 
@@ -68,7 +73,8 @@ enemy:register_event("on_created", function(enemy)
     breed = "boss/projectiles/ballchain",
     direction = 2,
     x = right_hand_offset_x,
-    y = right_hand_offset_y
+    y = right_hand_offset_y,
+    layer = enemy:get_layer() + 1
   })
   enemy:start_welding(ballchain, right_hand_offset_x, right_hand_offset_y)
 end)
