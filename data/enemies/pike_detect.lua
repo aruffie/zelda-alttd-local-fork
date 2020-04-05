@@ -31,6 +31,11 @@ enemy:register_event("on_created", function(enemy)
   
 end)
 
+-- The enemy restart: reset its state.
+enemy:register_event("on_restarted", function(enemy)
+  state = "stopped"
+end)
+
 enemy:register_event("on_update", function(enemy)
 
   local hero = enemy:get_map():get_entity("hero")
