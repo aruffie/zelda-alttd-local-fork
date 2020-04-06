@@ -24,12 +24,12 @@ local bomb_eating_duration = 1000
 local highest_frame_lag = body_frame_lag + 1 -- Avoid too much values in the last_positions table
 
 -- Return the given table minus sprite direction and its opposite.
-function enemy:get_possible_moving_angles(angles)
+function get_possible_moving_angles(angles)
 
   local possible_angles = {}
   local sprite_direction = head_sprite:get_direction()
-  for _, angle in ipairs(angles) do
-    if sprite_direction * quarter ~= angle and (sprite_direction + 2) % 4 * quarter ~= angle then
+  for index, angle in ipairs(angles) do
+    if (index - 1) % 2 ~= sprite_direction % 2 then
       possible_angles[#possible_angles + 1] = angle
     end
   end
@@ -39,8 +39,8 @@ end
 -- Start the enemy movement.
 function enemy:start_walking()
 
-  local possible_angles = enemy:get_possible_moving_angles(walking_angles)
-  enemy:start_straight_walking(possible_angles[math.random(#possible_angles)], walking_speed, math.random(walking_minimum_distance, walking_maximum_distance), function()
+  local angles = get_possible_moving_angles(walking_angles)
+  enemy:start_straight_walking(angles[math.random(#angles)], walking_speed, math.random(walking_minimum_distance, walking_maximum_distance), function()
     enemy:start_walking()
   end)
 end
@@ -57,7 +57,9 @@ enemy:register_event("on_update", function(enemy)
         head_sprite:set_animation("immobilized")
         body_sprite:set_animation("bomb_eating")
         sol.timer.start(enemy, bomb_eating_duration, function()
+          enemy:bring_sprite_to_front(body_sprite) -- Make the body displayed over the head just for this animation.
           body_sprite:set_animation("exploding", function()
+            enemy:bring_sprite_to_back(body_sprite)
             local angle = head_sprite:get_direction() * quarter
             local effect_x = math.cos(angle) * 16
             local effect_y = -math.sin(angle) * 16
