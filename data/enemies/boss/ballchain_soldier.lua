@@ -15,8 +15,8 @@ local ballchain
 -- Configuration variables
 local right_hand_offset_x = -8
 local right_hand_offset_y = -19
-local throwed_origin_chain_offset_x = 1
-local throwed_origin_chain_offset_y = 17
+local throwed_chain_origin_offset_x = 1
+local throwed_chain_origin_offset_y = 17
 local walking_speed = 16
 local attack_triggering_distance = 80
 
@@ -41,14 +41,18 @@ function enemy:start_attacking()
   sprite:set_animation("aiming")
 
   local function on_throwed_callback()
-    sprite:set_animation("throwed")
-    ballchain:set_chain_origin_offset(throwed_origin_chain_offset_x, throwed_origin_chain_offset_y)
+    sprite:set_animation("throwing")
+    ballchain:set_chain_origin_offset(throwed_chain_origin_offset_x, throwed_chain_origin_offset_y)
   end
-  local function on_takeback_callback()
+  local function on_pulled_callback()
+    sprite:set_animation("aiming")
+    ballchain:set_chain_origin_offset(0, 0)
+  end
+  local function on_caught_callback()
     enemy:restart()
   end
 
-  ballchain:start_attacking(on_throwed_callback, on_takeback_callback)
+  ballchain:start_attacking(on_throwed_callback, on_pulled_callback, on_caught_callback)
 end
 
 -- Reset the ballchain on hurt.

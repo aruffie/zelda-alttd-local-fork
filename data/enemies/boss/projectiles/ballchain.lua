@@ -67,7 +67,7 @@ function enemy:start_orbitting()
 end
 
 -- Make the ball start orbitting faster then go to the hero after some time.
-function enemy:start_attacking(throwed_callback, takeback_callback)
+function enemy:start_attacking(throwed_callback, pulled_callback, caught_callback)
 
   orbit_rotation_step = orbit_attacking_rotation_speed / 100.0
   sol.timer.start(enemy, before_attacking_minimum_duration, function()
@@ -81,13 +81,13 @@ function enemy:start_attacking(throwed_callback, takeback_callback)
 
     sol.timer.start(enemy, remaining_angle / orbit_attacking_rotation_speed * 1000, function()
       orbit_timer:stop()
-      enemy:start_throwing(throwed_callback, takeback_callback)
+      enemy:start_throwing(throwed_callback, pulled_callback, caught_callback)
     end)
   end)
 end
 
 -- Make the ball be throwed to the hero.
-function enemy:start_throwing(throwed_callback, takeback_callback)
+function enemy:start_throwing(throwed_callback, pulled_callback, caught_callback)
 
   local x, y, _ = enemy:get_position()
   local offset_x, offset_y = ball_sprite:get_xy()
@@ -118,13 +118,17 @@ function enemy:start_throwing(throwed_callback, takeback_callback)
     function coming_movement:on_finished()
       orbit_angle = angle - quarter
       enemy:start_orbitting()
-      if takeback_callback then
-        takeback_callback()
+      if caught_callback then
+        caught_callback()
       end
     end
 
     function coming_movement:on_position_changed()
       update_chain()
+    end
+
+    if pulled_callback then
+      pulled_callback()
     end
   end
 
