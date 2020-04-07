@@ -449,7 +449,7 @@ Peut-être le troqueras-tu par la suite...
 
 dialog{
   id = "_treasure.magnifying_lens.3",
-  icon = "83",
+  icon = "82",
   text = [[
 Tu as échangé le \[yoshi\] contre la \[dog_food\] !
 ]],
@@ -457,7 +457,7 @@ Tu as échangé le \[yoshi\] contre la \[dog_food\] !
 
 dialog{
   id = "_treasure.magnifying_lens.4",
-  icon = "82",
+  icon = "83",
   text = [[
 Tu lui as donné une \[dog_food\] en échange de bananes \[banana\].
 ]],
