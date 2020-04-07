@@ -442,24 +442,24 @@ dialog{
   id = "_treasure.magnifying_lens.2",
   icon = "81",
   text = [[
-Tu échanges ton ¢ contre ce £.      
+Tu échanges ton \[yoshi\] contre ce \[ribbon\].      
 Peut-être le troqueras-tu par la suite...
 ]],
 }
 
 dialog{
   id = "_treasure.magnifying_lens.3",
-  icon = "82",
+  icon = "83",
   text = [[
-Tu as échangé le £ contre la ¤ !
+Tu as échangé le \[yoshi\] contre la \[dog_food\] !
 ]],
 }
 
 dialog{
   id = "_treasure.magnifying_lens.4",
-  icon = "83",
+  icon = "82",
   text = [[
-Tu lui as donné une ¤ en échange de bananes ¥.
+Tu lui as donné une \[dog_food\] en échange de bananes \[banana\].
 ]],
 }
 
@@ -2954,16 +2954,16 @@ Faut m'reposer avant d'rentrer.
 dialog{
   id = "maps.out.graveyard.sign_1",
   text = [[
-> Chez Monique  
-_ Mare Bobo
+\[arrow_right\] Chez Monique  
+\[arrow_down\] Mare Bobo
 ]],
 }
 
 dialog{
   id = "maps.out.graveyard.sign_2",
   text = [[
-> Cimetière     
-_ La Prairie
+\[arrow_right\] Cimetière     
+\[arrow_bottom\] La Prairie
 ]],
 }
 
@@ -3420,7 +3420,7 @@ dialog{
   id = "maps.out.prairie.sign_1",
   skip = "all",
   text = [[
-Est > Prairie   
+Est \[arrow_right\] Prairie   
 Plus à l'Est    
 Village des Animaux
 ]],
@@ -3431,7 +3431,7 @@ dialog{
   skip = "all",
   text = [[
 Château Canulet 
-10 min. > ^
+10 min. \[arrow_right\] \[arrow_up\]
 ]],
 }
 
@@ -3466,8 +3466,8 @@ dialog{
   id = "maps.out.south_mabe_village.sign_1",
   skip = "all",
   text = [[
-> Cave Flagello 
-_ Plage Coco
+\[arrow_right\] Cave Flagello 
+\[arrow_down\] Plage Coco
 ]],
 }
 
