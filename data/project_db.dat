@@ -2843,5 +2843,4 @@ file{ path = "tilesets/sideview/eagletower.dat", author = "JulioTanaka", }
 file{ path = "tilesets/sideview/sideview_dg_1.dat", author = "JulioTanaka", }
 file{ path = "tilesets/sideview/sideview_dg_1.tiles.png", author = "JulioTanaka", }
 file{ path = "tilesets/sideview/sideview_dungeon.dat", author = "JulioTanaka", }
-file{ path = "tilesets/sideview/sideview_dungeon.entities.png", author = "JulioTanaka", }
 file{ path = "tilesets/sideview/sideview_dungeon.tiles.png", author = "JulioTanaka", }
