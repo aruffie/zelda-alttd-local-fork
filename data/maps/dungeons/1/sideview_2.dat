@@ -7,7 +7,7 @@ properties{
   max_layer = 2,
   world = "dungeon_1",
   floor = 0,
-  tileset = "sideview/sideview",
+  tileset = "sideview/sideview_dungeon",
   music = "same",
 }
 
@@ -19,33 +19,6 @@ tile{
   height = 240,
   pattern = "65",
   tileset = "sideview/sideview_dungeon",
-}
-
-tile{
-  layer = 0,
-  x = 80,
-  y = 0,
-  width = 16,
-  height = 48,
-  pattern = "131",
-}
-
-tile{
-  layer = 0,
-  x = 184,
-  y = 0,
-  width = 16,
-  height = 64,
-  pattern = "131",
-}
-
-tile{
-  layer = 0,
-  x = 296,
-  y = 0,
-  width = 16,
-  height = 48,
-  pattern = "131",
 }
 
 tile{
@@ -279,36 +252,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 80,
-  y = 40,
-  width = 16,
-  height = 40,
-  pattern = "126",
-  tileset = "sideview/sideview_dungeon",
-}
-
-tile{
-  layer = 0,
-  x = 184,
-  y = 56,
-  width = 16,
-  height = 40,
-  pattern = "126",
-  tileset = "sideview/sideview_dungeon",
-}
-
-tile{
-  layer = 0,
-  x = 296,
-  y = 48,
-  width = 16,
-  height = 40,
-  pattern = "126",
-  tileset = "sideview/sideview_dungeon",
-}
-
-tile{
-  layer = 0,
   x = 112,
   y = 120,
   width = 32,
@@ -375,6 +318,60 @@ tile{
   height = 16,
   pattern = "63",
   tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 88,
+  y = 0,
+  width = 16,
+  height = 56,
+  pattern = "96",
+}
+
+tile{
+  layer = 0,
+  x = 184,
+  y = 0,
+  width = 16,
+  height = 56,
+  pattern = "96",
+}
+
+tile{
+  layer = 0,
+  x = 296,
+  y = 0,
+  width = 16,
+  height = 48,
+  pattern = "96",
+}
+
+tile{
+  layer = 0,
+  x = 88,
+  y = 56,
+  width = 16,
+  height = 32,
+  pattern = "85",
+}
+
+tile{
+  layer = 0,
+  x = 184,
+  y = 56,
+  width = 16,
+  height = 32,
+  pattern = "85",
+}
+
+tile{
+  layer = 0,
+  x = 296,
+  y = 48,
+  width = 16,
+  height = 32,
+  pattern = "85",
 }
 
 destination{
