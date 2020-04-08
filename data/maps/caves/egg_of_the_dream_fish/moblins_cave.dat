@@ -1144,7 +1144,6 @@ tile{
   layer = 0,
   x = 848,
   y = 48,
-  enabled_at_start = false,
   width = 32,
   height = 32,
   pattern = "57",
@@ -1265,7 +1264,6 @@ tile{
   layer = 0,
   x = 136,
   y = 24,
-  enabled_at_start = false,
   width = 48,
   height = 32,
   pattern = "93",
@@ -2956,6 +2954,7 @@ enemy{
   y = 133,
   direction = 2,
   breed = "boss/moblin_chief",
+  treasure_name = "fairy",
 }
 
 custom_entity{
