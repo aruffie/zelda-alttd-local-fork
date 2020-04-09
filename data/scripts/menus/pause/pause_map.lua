@@ -338,7 +338,7 @@ function map_submenu:draw_dungeon_map_floors(dst_surface, floors_x, floors_y)
   dst_y = old_dst_y + (self.highest_floor_displayed - self.hero_floor) * 12 + 8
 
   -- Draw the hero head beside the current floor.
-  self.sprite_hero_head:draw(dst_surface, dst_x, dst_y)
+  self.sprite_hero_head:draw(dst_surface, dst_x, dst_y - 8)
 
 end
 
