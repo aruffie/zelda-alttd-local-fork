@@ -21468,7 +21468,7 @@ sensor{
 
 enemy{
   layer = 1,
-  x = 104,
+  x = 120,
   y = 589,
   direction = 0,
   breed = "piranha",
