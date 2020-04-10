@@ -2874,7 +2874,7 @@ dialog{
   id = "maps.out.east_prairie.sign_3",
   text = [[
 \[arrow_right\] Village des Animaux       
-\[arrow_bottom\] Baie de Martha
+\[arrow_down\] Baie de Martha
 ]],
 }
 
@@ -3438,8 +3438,15 @@ dialog{
   id = "maps.out.prairie.sign_2",
   skip = "all",
   text = [[
-Château Canulet 
-10 min. \[arrow_right\] \[arrow_up\]
+Cabine téléphonique
+]],
+}
+
+dialog{
+  id = "maps.out.prairie.sign_3",
+  text = [[
+EN TOURNEE      
+Signé : WART
 ]],
 }
 

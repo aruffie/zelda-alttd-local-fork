@@ -17834,6 +17834,10 @@ npc{
       key = "model",
       value = "sign",
     },
+    {
+      key = "dialog_id",
+      value = "maps.out.prairie.sign_3",
+    },
   },
   direction = 3,
   subtype = 0,
@@ -17857,7 +17861,6 @@ npc{
   direction = 3,
   subtype = 0,
   sprite = "entities/destructibles/sign",
-  behavior = "dialog#",
 }
 
 destination{
@@ -22213,6 +22216,24 @@ destructible{
   weight = -1,
   can_be_cut = true,
   ground = "grass",
+}
+
+enemy{
+  layer = 1,
+  x = 64,
+  y = 525,
+  direction = 1,
+  breed = "octorok_flying",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  layer = 1,
+  x = 160,
+  y = 581,
+  direction = 1,
+  breed = "octorok_flying",
+  treasure_name = "random_with_charm",
 }
 
 tile{
@@ -27284,24 +27305,6 @@ enemy{
   layer = 2,
   x = 392,
   y = 549,
-  direction = 1,
-  breed = "octorok_flying",
-  treasure_name = "random_with_charm",
-}
-
-enemy{
-  layer = 2,
-  x = 64,
-  y = 525,
-  direction = 1,
-  breed = "octorok_flying",
-  treasure_name = "random_with_charm",
-}
-
-enemy{
-  layer = 2,
-  x = 160,
-  y = 581,
   direction = 1,
   breed = "octorok_flying",
   treasure_name = "random_with_charm",
