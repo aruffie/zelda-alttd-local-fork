@@ -15717,7 +15717,7 @@ tile{
 tile{
   layer = 1,
   x = 112,
-  y = 568,
+  y = 552,
   width = 8,
   height = 8,
   pattern = "8162",
@@ -15727,7 +15727,7 @@ tile{
 tile{
   layer = 1,
   x = 120,
-  y = 560,
+  y = 544,
   width = 16,
   height = 16,
   pattern = "8165",
@@ -15737,7 +15737,7 @@ tile{
 tile{
   layer = 1,
   x = 152,
-  y = 552,
+  y = 536,
   width = 8,
   height = 8,
   pattern = "8163",
@@ -15747,7 +15747,7 @@ tile{
 tile{
   layer = 1,
   x = 136,
-  y = 552,
+  y = 536,
   width = 16,
   height = 16,
   pattern = "8165",
@@ -15757,7 +15757,7 @@ tile{
 tile{
   layer = 1,
   x = 128,
-  y = 528,
+  y = 512,
   width = 16,
   height = 16,
   pattern = "8119",
@@ -15767,7 +15767,7 @@ tile{
 tile{
   layer = 1,
   x = 112,
-  y = 528,
+  y = 512,
   width = 16,
   height = 16,
   pattern = "8119",
@@ -15797,7 +15797,7 @@ tile{
 tile{
   layer = 1,
   x = 80,
-  y = 592,
+  y = 608,
   width = 16,
   height = 16,
   pattern = "8119",
@@ -20734,7 +20734,7 @@ enemy{
   x = 400,
   y = 485,
   direction = 0,
-  breed = "moblin_pig_spear",
+  breed = "moblin_pig_sword",
   treasure_name = "random_with_charm",
 }
 
@@ -20743,7 +20743,7 @@ enemy{
   x = 424,
   y = 493,
   direction = 3,
-  breed = "moblin_pig_spear",
+  breed = "moblin_pig_sword",
   treasure_name = "random_with_charm",
 }
 
@@ -21464,6 +21464,15 @@ sensor{
   y = 189,
   width = 32,
   height = 16,
+}
+
+enemy{
+  layer = 1,
+  x = 104,
+  y = 589,
+  direction = 0,
+  breed = "piranha",
+  treasure_name = "random_with_charm",
 }
 
 tile{

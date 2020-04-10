@@ -123,3 +123,14 @@ function father:on_interaction()
   map:talk_to_father()
 
 end
+
+-- NPCs events
+function dungeon_4_lock:on_interaction()
+
+  if not game:is_step_done("dungeon_4_key_obtained") then
+    game:start_dialog("maps.out.mambos_cave.dungeon_4_lock")
+  elseif game:is_step_last("dungeon_4_key_obtained") then
+    -- Todo launch cinematic
+  end
+  
+end

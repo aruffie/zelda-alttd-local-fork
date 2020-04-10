@@ -12722,7 +12722,6 @@ tile{
   layer = 1,
   x = 528,
   y = 72,
-  enabled_at_start = false,
   width = 16,
   height = 16,
   pattern = "1",
@@ -17247,6 +17246,96 @@ tile{
   pattern = "1052",
 }
 
+tile{
+  layer = 1,
+  x = 752,
+  y = 496,
+  width = 8,
+  height = 8,
+  pattern = "101",
+}
+
+tile{
+  layer = 1,
+  x = 744,
+  y = 496,
+  width = 8,
+  height = 8,
+  pattern = "100",
+}
+
+tile{
+  layer = 1,
+  x = 848,
+  y = 496,
+  width = 8,
+  height = 8,
+  pattern = "101",
+}
+
+tile{
+  layer = 1,
+  x = 840,
+  y = 496,
+  width = 8,
+  height = 8,
+  pattern = "100",
+}
+
+tile{
+  layer = 1,
+  x = 872,
+  y = 552,
+  width = 8,
+  height = 8,
+  pattern = "101",
+}
+
+tile{
+  layer = 1,
+  x = 864,
+  y = 552,
+  width = 8,
+  height = 8,
+  pattern = "100",
+}
+
+tile{
+  layer = 1,
+  x = 848,
+  y = 632,
+  width = 8,
+  height = 8,
+  pattern = "101",
+}
+
+tile{
+  layer = 1,
+  x = 840,
+  y = 632,
+  width = 8,
+  height = 8,
+  pattern = "100",
+}
+
+tile{
+  layer = 1,
+  x = 784,
+  y = 528,
+  width = 8,
+  height = 8,
+  pattern = "101",
+}
+
+tile{
+  layer = 1,
+  x = 776,
+  y = 528,
+  width = 8,
+  height = 8,
+  pattern = "100",
+}
+
 custom_entity{
   layer = 1,
   x = 576,
@@ -18331,6 +18420,78 @@ custom_entity{
   sprite = "entities/utils/cliff",
   tiled = true,
   model = "cliff",
+}
+
+enemy{
+  layer = 1,
+  x = 128,
+  y = 517,
+  direction = 2,
+  breed = "tektite",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  layer = 1,
+  x = 376,
+  y = 525,
+  direction = 2,
+  breed = "like_like",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  layer = 1,
+  x = 760,
+  y = 517,
+  direction = 2,
+  breed = "like_like",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  layer = 1,
+  x = 696,
+  y = 629,
+  direction = 2,
+  breed = "like_like",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  layer = 1,
+  x = 720,
+  y = 661,
+  direction = 2,
+  breed = "like_like",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  layer = 1,
+  x = 400,
+  y = 653,
+  direction = 2,
+  breed = "tektite",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  layer = 1,
+  x = 136,
+  y = 653,
+  direction = 2,
+  breed = "tektite",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  layer = 1,
+  x = 184,
+  y = 653,
+  direction = 2,
+  breed = "tektite",
+  treasure_name = "random_with_charm",
 }
 
 tile{

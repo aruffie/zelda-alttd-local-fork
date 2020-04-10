@@ -555,7 +555,6 @@ tile{
   layer = 0,
   x = 304,
   y = 88,
-  enabled_at_start = false,
   width = 16,
   height = 16,
   pattern = "95",

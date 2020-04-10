@@ -33,11 +33,7 @@ end
 -- is created on the map.
 function item:on_pickable_created(pickable)
 
-    print(pickable:get_falling_height())
-    print('ok2')
   if pickable:get_falling_height() ~= 0 then
-        print(pickable:get_falling_height())
-    print('ok')
     -- Replace the default falling movement by a special one.
     local trajectory = {
       { 0,  0},
