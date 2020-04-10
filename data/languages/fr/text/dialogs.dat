@@ -3333,6 +3333,15 @@ Ci-gît le Coq Volant.
 }
 
 dialog{
+  id = "maps.out.mambos_cave.dungeon_4_lock",
+  text = [[
+Une serrure ici?
+Hum, voyons :   
+Serrure Poisson
+]],
+}
+
+dialog{
   id = "maps.out.mambos_cave.father_1",
   question = "1",
   text = [[
