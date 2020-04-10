@@ -2858,7 +2858,7 @@ dialog{
   id = "maps.out.east_prairie.sign_1",
   text = [[
 Château Canulet 
-50 pas ^
+50 pas \[arrow_up\]
 ]],
 }
 
@@ -2866,23 +2866,22 @@ dialog{
   id = "maps.out.east_prairie.sign_2",
   text = [[
 Château Canulet 
-5 min. >
+5 min. \[arrow_right\]
 ]],
 }
 
 dialog{
   id = "maps.out.east_prairie.sign_3",
   text = [[
-> Village des Animaux       
-_ Baie de Martha
+\[arrow_right\] Village des Animaux       
+\[arrow_bottom\] Baie de Martha
 ]],
 }
 
 dialog{
   id = "maps.out.east_prairie.sign_4",
   text = [[
-Maison aux      
-Coquillages
+Maison aux Coquillages
 ]],
 }
 
@@ -2897,8 +2896,8 @@ Le photographe n'est pas loin.
 dialog{
   id = "maps.out.egg_of_the_dream_fish.sign_2",
   text = [[
-> Mt Tamaranch  
-< Mrs Anémones
+\[arrow_right\] Mt Tamaranch  
+\[arrow_left\] Mrs Anémones
 ]],
 }
 
@@ -3516,35 +3515,35 @@ dialog{
   id = "maps.out.south_prairie.sign_2",
   text = [[
 Château Canulet 
-10 min. > ^
+10 min. \[arrow_right\]\[arrow_up\]
 ]],
 }
 
 dialog{
   id = "maps.out.south_prairie.surprise_0",
   text = [[
-> Par ici !
+\[arrow_right\] Par ici !
 ]],
 }
 
 dialog{
   id = "maps.out.south_prairie.surprise_1",
   text = [[
-^ Par ici !
+\[arrow_up\] Par ici !
 ]],
 }
 
 dialog{
   id = "maps.out.south_prairie.surprise_2",
   text = [[
-< Par ici !
+\[arrow_left\] Par ici !
 ]],
 }
 
 dialog{
   id = "maps.out.south_prairie.surprise_3",
   text = [[
-_ Par ici !
+\[arrow_down\] Par ici !
 ]],
 }
 
@@ -3591,8 +3590,8 @@ Accès interdit !
 dialog{
   id = "maps.out.west_mt_tamaranch.sign_2",
   text = [[
-> Mrs Anémones  
-_ Forêt Enchantée
+\[arrow_right\] Mrs Anémones  
+\[arrow_bottom\] Forêt Enchantée
 ]],
 }
 
@@ -3626,14 +3625,14 @@ Marine est-elle en vie ?
 dialog{
   id = "maps.out.yarna_desert.sign_1",
   text = [[
-> Enfin ! Vill. des Animaux
+\[arrow_right\] Enfin ! Vill. des Animaux
 ]],
 }
 
 dialog{
   id = "maps.out.yarna_desert.sign_2",
   text = [[
-> Entrée des Dunes de Yarna
+\[arrow_right\] Entrée des Dunes de Yarna
 ]],
 }
 

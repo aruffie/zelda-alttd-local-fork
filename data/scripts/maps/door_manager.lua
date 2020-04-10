@@ -274,6 +274,7 @@ function door_manager:open_when_torches_lit(map, torch_prefix, door_prefix)
     has_torches = true
   end
   map.torches_remaining[torch_prefix]=remaining
+
   if has_torches and remaining == 0 then
     -- All torches of this door are already lit.
     audio_manager:play_sound("misc/secret1")
