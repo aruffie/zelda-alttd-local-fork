@@ -26,7 +26,7 @@ function map:on_started(destination)
   door_manager:open_when_enemies_dead(map, "blob_1", "door_blob_1")
 
   -- Enemies
-  enemy_manager:set_weak_boo_buddies_when_at_least_on_torch_lit(map, "torch_1", "boo_buddies_1")
+  enemy_manager:set_weak_boo_buddies_on_torch_lit(map, "torch_1", "boo_buddies_1")
 
   -- Light
   light_manager:init(map)

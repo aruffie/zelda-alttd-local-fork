@@ -28,6 +28,7 @@ function enemy:start_walking(direction2)
   local movement = enemy:start_straight_walking(walking_angles[direction2], walking_speed, nil, function()
     enemy:start_walking(direction2 % 2 + 1)
   end)
+  movement:set_smooth(false)
 
   -- Also change the direction if the front ground is not water anymore.
   function movement:on_position_changed()

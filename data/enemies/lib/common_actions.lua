@@ -118,9 +118,9 @@ function common_actions.learn(enemy)
     end
 
     return is_position_over_grounds(x, y)
-        and is_position_over_grounds(x + width, y)
-        and is_position_over_grounds(x, y + height)
-        and is_position_over_grounds(x + width, y + height)
+        and is_position_over_grounds(x + width - 1, y)
+        and is_position_over_grounds(x, y + height - 1)
+        and is_position_over_grounds(x + width - 1, y + height - 1)
   end
 
   -- Return true if the enemy or its given sprite is partially visible at the camera, or fully visible if requested.

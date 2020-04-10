@@ -13,6 +13,20 @@ local lit_timer
 -- Include scripts
 require("scripts/multi_events")
 
+local function on_torch_state_changed(torch, lit)
+
+  if lit then
+    if torch.on_lit then
+      torch:on_lit()
+    end
+  elseif torch.on_unlit then
+    torch:on_unlit()
+  end
+  if map.torch_changed then
+    map:torch_changed(torch, lit)
+  end
+end
+
 function torch:is_lit()
   return sprite:get_animation() == "lit"
 end
@@ -20,29 +34,29 @@ end
 function torch:set_lit(lit)
 
   if lit then
-    sprite:set_animation("lit")
-    if torch.duration ~= nil then
-      lit_timer = sol.timer.start(torch, torch.duration, function()
-        torch:set_lit(false)
-      end)
-    end
-    if torch.on_lit then
-      torch:on_lit()
-    end
-  else
-    sprite:set_animation("unlit")
-    if lit_timer then
-      lit_timer:stop()
-      lit_timer = nil
-    end
-    if torch.on_unlit then
-      torch:on_unlit()
-    end
-  end
-  if map.torch_changed ~= nil then
-    map:torch_changed(torch, lit)
-  end
+    if not torch:is_lit() then
+      sprite:set_animation("lit")
 
+      if torch.duration ~= nil then
+        lit_timer = sol.timer.start(torch, torch.duration, function()
+          torch:set_lit(false)
+        end)
+      end
+      on_torch_state_changed(torch, lit)
+
+    -- Reset the possible timer if already lit.
+    elseif torch.duration and lit_timer then
+      lit_timer:set_remaining_time(torch.duration)
+    end
+
+  elseif torch:is_lit() then
+    sprite:set_animation("unlit")
+
+    if lit_timer and lit_timer:get_remaining_time() ~= 0 then
+      lit_timer:stop()
+    end
+    on_torch_state_changed(torch, lit)
+  end
 end
 
 function torch:get_duration()
@@ -60,18 +74,14 @@ local function on_collision(torch, other, torch_sprite, other_sprite)
 
     local other_model = other:get_model()
     if other_model == "fire" or other_model == 'powder' then
-      if not torch:is_lit() then
-        torch:set_lit(true)
+      torch:set_lit(true)
 
-        if other_model == "fire" then
-          other:extinguish()
-        end
+      if other_model == "fire" then
+        other:extinguish()
       end
 
     elseif other_model == "ice_beam" then
-      if torch:is_lit() then
-        torch:set_lit(false)
-      end
+      torch:set_lit(false)
 
       sol.timer.start(other, 50, function()
         other:stop_movement()
