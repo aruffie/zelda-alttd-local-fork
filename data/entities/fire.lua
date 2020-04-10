@@ -128,10 +128,13 @@ end)
 -- Going off animation and remove
 function fire:extinguish()
 
-  fire:stop_movement()
-  sprite:set_animation("going_off")
-  function sprite:on_animation_finished()
-    fire:remove()
+  if sprite:get_animation() ~= "going_off" then
+    fire:stop_movement()
+
+    sprite:set_animation("going_off")
+    function sprite:on_animation_finished()
+      fire:remove()
+    end
   end
 end
 

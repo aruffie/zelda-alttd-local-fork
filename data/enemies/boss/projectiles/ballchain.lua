@@ -104,10 +104,10 @@ function enemy:start_throwing(throwed_callback, pulled_callback, caught_callback
 
   -- Start back movement when the ball reached the goal.
   function going_movement:on_finished()
-    target_x = math.cos(angle - quarter + orbit_rotation_speed / 100.0) * orbit_radius
-    target_y = -math.sin(angle - quarter + orbit_rotation_speed / 100.0) * orbit_radius
+    local target_x = math.cos(angle - quarter) * orbit_radius
+    local target_y = -math.sin(angle - quarter) * orbit_radius
 
-    coming_movement = sol.movement.create("target")
+    local coming_movement = sol.movement.create("target")
     coming_movement:set_speed(throwing_speed)
     coming_movement:set_target(target_x, target_y)
     coming_movement:set_ignore_obstacles()
@@ -116,7 +116,7 @@ function enemy:start_throwing(throwed_callback, pulled_callback, caught_callback
 
     -- Start orbitting again once take back.
     function coming_movement:on_finished()
-      orbit_angle = angle - quarter
+      orbit_angle = angle - quarter - orbit_rotation_step
       enemy:start_orbitting()
       if caught_callback then
         caught_callback()

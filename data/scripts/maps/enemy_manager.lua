@@ -28,7 +28,8 @@ function enemy_manager:on_enemies_dead(map, enemies_prefix, callback)
   
 end
 
-function enemy_manager:set_weak_boo_buddies_when_at_least_on_torch_lit(map, torch_prefix, enemy_prefix)
+-- Set boo buddies in the room weak when a torch is lit and back to normal when all torches are unlit.
+function enemy_manager:set_weak_boo_buddies_on_torch_lit(map, torch_prefix, enemy_prefix)
 
   local function torch_on_lit()
     for enemy in map:get_entities(enemy_prefix) do
