@@ -25,9 +25,9 @@ function torch:set_lit(lit)
       lit_timer = sol.timer.start(torch, torch.duration, function()
         torch:set_lit(false)
       end)
-      if torch.on_lit then
-        torch:on_lit()
-      end
+    end
+    if torch.on_lit then
+      torch:on_lit()
     end
   else
     sprite:set_animation("unlit")
