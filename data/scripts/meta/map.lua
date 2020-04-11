@@ -45,6 +45,7 @@ map_meta:register_event("on_opening_transition_finished", function(map, destinat
 map_meta:register_event("on_started", function(map)
     local game = map:get_game()
     local hero = map:get_hero()
+    hero.respawn_point_saved=nil
     local ground=game:get_value("tp_ground")
     if ground=="hole" and not map:is_sideview() then
       hero:set_visible(false)
