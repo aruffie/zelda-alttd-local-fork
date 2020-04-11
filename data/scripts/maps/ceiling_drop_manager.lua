@@ -52,15 +52,15 @@ local function bounce(entity, sprite, duration, height, on_finished_callback)
   local elapsed_time = 0
   sol.timer.start(entity, 10, function()
 
-    elapsed_time = elapsed_time + 10
-    if elapsed_time < duration then
-      sprite:set_xy(0, -math.sqrt(math.sin(elapsed_time / duration * math.pi)) * height)
-      return true
-    else
-      sprite:set_xy(0, 0)
-      on_finished_callback()
-    end
-  end)
+      elapsed_time = elapsed_time + 10
+      if elapsed_time < duration then
+        sprite:set_xy(0, -math.sqrt(math.sin(elapsed_time / duration * math.pi)) * height)
+        return true
+      else
+        sprite:set_xy(0, 0)
+        on_finished_callback()
+      end
+    end)
 end
 
 function ceiling_drop_manager:create(meta)
@@ -130,29 +130,35 @@ function ceiling_drop_manager:create(meta)
     movement:set_angle(3 * math.pi / 2)
     movement:set_speed(240)
     movement:set_ignore_obstacles(true)
+    local function finish_drop()
+      -- Movement finished, disable the falling movement
+      first_active_sprite = nil
+      currently_falling = false
+      entity:set_layer(clayer)
+      shadow:remove()
+
+      if meta == "hero" then
+        entity.ceiling_drop_spin_timer:stop()
+        entity.ceiling_drop_spin_timer=nil
+        entity:set_direction(starting_sprite_direction)
+        entity:unfreeze()
+      end
+
+      entity:get_sprite():set_direction(starting_sprite_direction)
+      if callback ~= nil then
+        callback()
+      end
+    end
+
     movement:start(target_sprite, function()
-
-        -- Start a bounce.
-        bounce(entity, target_sprite, 600, 18, function()
-
-            -- Movement finished, disable the falling movement
-            first_active_sprite = nil
-            currently_falling = false
-            entity:set_layer(clayer)
-            shadow:remove()
-
-            if meta == "hero" then
-              entity.ceiling_drop_spin_timer:stop()
-              entity.ceiling_drop_spin_timer=nil
-              entity:set_direction(starting_sprite_direction)
-              entity:unfreeze()
-            end
-
-            entity:get_sprite():set_direction(starting_sprite_direction)
-            if callback ~= nil then
-              callback()
-            end
-          end)
+        if entity:get_type()=="hero" then
+          finish_drop()
+        else
+          -- Start a bounce.
+          bounce(entity, target_sprite, 600, 18, function()
+              finish_drop()
+            end)
+        end
       end)
 
 
