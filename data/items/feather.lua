@@ -35,19 +35,22 @@ function item:start_using()
 
   if not hero:is_jumping() then
     if not map:is_sideview() then
-      
+
       jump_manager.start(hero) -- Running jump
 
     else
       local state=hero:get_state()
       -- Simply apply a vertical impulsion to the hero in sideview maps.
-      if state~="carrying" and state~="lifting" and state~="falling" then
+      if state~="carrying" and state~="lifting" and state~="falling" and state~="plunging" then
         local vspeed = hero.vspeed or 0
         if vspeed == 0 or hero.has_grabbed_ladder or map:get_ground(hero:get_position()) == "deep_water" then
           audio_manager:play_sound("hero/jump")
           sol.timer.start(10, function()
 --              hero.has_grabbed_ladder = false
               hero.vspeed = -4 --TODO don"t make underwater jumps so powerful
+              if hero.has_grabbed_ladder then
+                hero.vspeed=-0.5
+              end
               if map:get_ground(hero:get_position()) == "deep_water" then
                 hero.vspeed= -2
               end
