@@ -1,0 +1,22 @@
+animation{
+  name = "default",
+  src_image = "entities/misc/shell_mansion_bar.png",
+  directions = {
+    { x = 0, y = 159, frame_width = 16, frame_height = 1, origin_x = 8, origin_y = 156 },
+    { x = 0, y = 159, frame_width = 16, frame_height = 1, origin_x = 8, origin_y = 156 },
+    { x = 0, y = 159, frame_width = 16, frame_height = 1, origin_x = 8, origin_y = 156 },
+    { x = 0, y = 159, frame_width = 16, frame_height = 1, origin_x = 8, origin_y = 156 },
+  },
+}
+animation{
+  name = "full",
+  src_image = "entities/misc/shell_mansion_bar.png",
+  frame_delay = 120,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 16, y = 0, frame_width = 16, frame_height = 160, origin_x = 8, origin_y = 156, num_frames = 4 },
+    { x = 16, y = 0, frame_width = 16, frame_height = 160, origin_x = 8, origin_y = 156, num_frames = 4 },
+    { x = 16, y = 0, frame_width = 16, frame_height = 160, origin_x = 8, origin_y = 156, num_frames = 4 },
+    { x = 16, y = 0, frame_width = 16, frame_height = 160, origin_x = 8, origin_y = 156, num_frames = 4 },
+  },
+}
