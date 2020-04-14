@@ -312,39 +312,9 @@ end
 function dungeon_3_lock:on_interaction()
 
   if not game:is_step_done("dungeon_3_key_obtained") then
-      game:start_dialog("maps.out.prairie.dungeon_3_lock")
-  elseif game:is_last_step("dungeon_3_key_obtained") then
-    sol.audio.stop_music()
-    hero:freeze()
-    sol.timer.start(map, 1000, function() 
-      audio_manager:play_sound("shake")
-      local camera = map:get_camera()
-      local shake_config = {
-          count = 32,
-          amplitude = 2,
-          speed = 90,
-      }
-      camera:shake(shake_config, function()
-        audio_manager:play_sound("misc/secret2")
-        local sprite = dungeon_3_entrance:get_sprite()
-        sprite:set_animation("opening")
-        sol.timer.start(map, 800, function() 
-          map:open_dungeon_3()
-          hero:unfreeze()
-          map:init_music()
-        end)
-      end)
-      game:set_step_done("dungeon_3_opened")
-    end)
-  end
-
-end
-
--- Obtaining slim key
-function map:on_obtaining_treasure(treasure_item, treasure_variant, treasure_savegame_variable)
-
-  if treasure_item:get_name() == "slim_key" then
-    game:set_step_done("dungeon_3_key_obtained")
+    game:start_dialog("maps.out.prairie.dungeon_3_lock")
+  elseif game:is_step_last("dungeon_3_key_obtained") then
+    map:launch_cinematic_1()
   end
 
 end
@@ -365,4 +335,60 @@ function owl_7_sensor:on_activated()
   end
 
 end
+
+
+-- Cinematics
+
+-- This is the cinematic in which the hero open dungeon 3 with tail key
+function map:launch_cinematic_1()
+
+  map:start_coroutine(function()
+    local options = {
+      entities_ignore_suspend = {dungeon_3_entrance}
+    }
+    map:set_cinematic_mode(true, options)
+    sol.audio.stop_music()
+    audio_manager:play_sound("misc/chest_open")
+    local camera = map:get_camera()
+    local camera_x, camera_y = camera:get_position()
+    local movement1 = sol.movement.create("straight")
+    movement1:set_angle(math.pi / 2)
+    movement1:set_max_distance(72)
+    movement1:set_speed(75)
+    movement1:set_ignore_suspend(true)
+    movement1:set_ignore_obstacles(true)
+    movement(movement1, camera)
+    wait(1000)
+    local timer_sound = sol.timer.start(hero, 0, function()
+      audio_manager:play_sound("misc/dungeon_shake")
+      return 450
+    end)
+    timer_sound:set_suspended_with_map(false)
+    local shake_config = {
+        count = 32,
+        amplitude = 2,
+        speed = 90
+    }
+    wait_for(camera.shake,camera,shake_config)
+    timer_sound:stop()
+    camera:start_manual()
+    camera:set_position(camera_x, camera_y - 72)
+    audio_manager:play_sound("misc/secret2")
+    animation(dungeon_3_entrance:get_sprite(), "opening")
+    map:open_dungeon_3()
+    local movement2 = sol.movement.create("straight")
+    movement2:set_angle(3 * math.pi / 2)
+    movement2:set_max_distance(72)
+    movement2:set_speed(75)
+    movement2:set_ignore_suspend(true)
+    movement2:set_ignore_obstacles(true)
+    movement(movement2, camera)
+    map:set_cinematic_mode(false, options)
+    camera:start_tracking(hero)
+    game:set_step_done("dungeon_3_opened")
+    map:init_music()
+  end)
+
+end
+
 

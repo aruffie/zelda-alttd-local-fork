@@ -36,14 +36,16 @@ map:register_event("on_started", function(map, destination)
   -- Music
   map:init_music()
   -- Remove the big stone if you come from the secret cave
-  if destination == stair_bombs_upgrade then secret_stone:set_enabled(false) end
+  if destination == stair_bombs_upgrade then
+    secret_stone:set_enabled(false)
+  end
   -- Tail key chest
   if game:get_value("forest_chest_1")  then
     forest_chest_1:set_open(true)
   end
-   tarin:get_sprite():set_direction(3)
-   tarin:bring_to_front()
-   raccoon_invisible:set_enabled(false)
+  tarin:get_sprite():set_direction(3)
+  tarin:bring_to_front()
+  raccoon_invisible:set_enabled(false)
   -- Store destructibles
   for destructible in map:get_entities("destructible") do
     local x, y, layer = destructible:get_position()

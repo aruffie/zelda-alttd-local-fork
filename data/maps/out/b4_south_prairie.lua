@@ -139,6 +139,15 @@ for sign in map:get_entities("sign_frog_") do
  end)
 end
 
+-- Obtaining slim key
+function map:on_obtaining_treasure(treasure_item, treasure_variant, treasure_savegame_variable)
+
+  if treasure_savegame_variable == "south_prairie_slim_key" then
+    game:set_step_done("dungeon_3_key_obtained")
+  end
+
+end
+
 -- Sensors events
 function marin_sensor:on_activated()
 

@@ -17674,6 +17674,17 @@ tile{
   pattern = "978",
 }
 
+custom_entity{
+  name = "dungeon_3_entrance",
+  layer = 1,
+  x = 424,
+  y = 613,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/doors/door_entrance_dungeons",
+}
+
 wall{
   layer = 1,
   x = 488,
@@ -21979,17 +21990,6 @@ npc{
   sprite = "npc/villagers/tarin",
 }
 
-custom_entity{
-  name = "dungeon_3_entrance",
-  layer = 1,
-  x = 424,
-  y = 613,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/doors/door_entrance_dungeons",
-}
-
 destructible{
   layer = 1,
   x = 856,
@@ -22234,6 +22234,32 @@ enemy{
   direction = 1,
   breed = "octorok_flying",
   treasure_name = "random_with_charm",
+}
+
+wall{
+  layer = 1,
+  x = 408,
+  y = 600,
+  width = 8,
+  height = 16,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 1,
+  x = 432,
+  y = 600,
+  width = 8,
+  height = 16,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
 }
 
 tile{
