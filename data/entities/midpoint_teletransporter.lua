@@ -54,7 +54,7 @@ entity:add_collision_test("center", function(entity, other)
         end
       end
       if other.just_recovered_from_bad_ground==nil and (other.is_being_transported==nil or other.is_being_transported==false) then
-        call_with_delay_if_on_entity(entity, other, 1000, function() --TODO find how to reset the timer when not on the tp anymore
+        call_with_delay_if_on_entity(entity, other, 500, function() --TODO find how to reset the timer when not on the tp anymore
           local midpoint_index=entity:get_property("tp_midpoint_index")
           other.is_being_transported = true
           game:set_suspended(true)
