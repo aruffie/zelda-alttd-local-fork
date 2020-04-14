@@ -36,7 +36,6 @@ game_meta:register_event("on_map_changed", function(game, map)
               e:notify_crystal_state_changed()
             end
           end
-
           --audio_manager:play_sound("misc/dungeon_crystal")
           audio_manager:play_sound("misc/dungeon_switch") --Temporary, remove me when xwe have an actual sound for crystal switches
         end
@@ -86,7 +85,6 @@ game_meta:register_event("on_draw", function(game, dst_surface)
   The sword, being an built-in equipment item with it's own command, is not concerned by this system by default.
    However, you can still do combinations by testing for the ability in your item script itself, or even make it an assignable item.
 --]]
-
 
 game_meta:register_event("on_command_pressed", function(game, command)
     local hero=game:get_hero()
@@ -151,6 +149,14 @@ game_meta:register_event("on_command_pressed", function(game, command)
               return true
             end
           end
+          if not item_1.start_combo then --Do try to start a combo if item has no such functionality
+            if item_1.start_using then
+              item_1:start_using()
+              return true
+            else
+              return
+            end
+          end
 --          debug_print "Item 1 triggered"
           game.last_item_1=name_1
           handled = item_1.start_using ~= nil or item_1.start_combo ~= nil
@@ -171,6 +177,14 @@ game_meta:register_event("on_command_pressed", function(game, command)
           if state=="custom" then --Prevent item to trigger if custom state rules forbids it 
             if not cstate:get_can_use_item(name_2) then
               return true
+            end
+          end
+          if not item_2.start_combo then --Do try to start a combo if item has no such functionality
+            if item_2.start_using then
+              item_2:start_using()
+              return true
+            else
+              return
             end
           end
 --          debug_print "Item 2 triggered"

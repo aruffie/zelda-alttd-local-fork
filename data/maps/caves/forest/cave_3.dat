@@ -649,7 +649,7 @@ destination{
   name = "stair",
   layer = 0,
   x = 152,
-  y = 189,
+  y = 165,
   direction = 1,
 }
 

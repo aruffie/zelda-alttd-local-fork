@@ -3,6 +3,7 @@
 local __enabled=true
 local __show_hitbox=false
 local __print=false
+local __show_respawn_point=true
 
 function debug_print(s, ...)
   if __enabled and __print then
@@ -33,5 +34,15 @@ function show_hitbox(entity)
       local x,y=entity:get_bounding_box()
       entity.debug_hitbox:draw(camera:get_surface(), x-cx, y-cy)
     end
+  end
+end
+local rpoint_surface=sol.surface.create(16,16)
+rpoint_surface:fill_color({0,255,0,64})
+function show_respawn_ppint(entity)
+  if __show_respawn_point then
+    local map=entity:get_map()
+    local x,y=entity:get_position()
+    local origin_x, origin_y=entity:get_origin()
+    map:draw_visual(rpoint_surface,x-origin_x, y-origin_y)
   end
 end

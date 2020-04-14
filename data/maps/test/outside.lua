@@ -4,7 +4,7 @@ local hero = map:get_hero()
 
 
 --DEBUG: lauch a dummy state for engine bug hunting.
---local dummy = require("scripts/states/dummy")
+local dummy = require("scripts/states/dummy")
 --function map:on_opening_transition_finished()
 --  dummy(hero)
 --end
@@ -18,6 +18,23 @@ function autojump:on_activated()
 --  else
 --    hero:jump()
 --  end
+end
+local stream_speed=40
+local function set_stream_speed()
+  print ("New stream speed: "..stream_speed)
+  for e in map:get_entities_by_type("stream") do
+    e:set_speed(stream_speed)
+  end
+end
+
+function stream_down:on_activated()
+  stream_speed=math.max(stream_speed-5, 0)
+  set_stream_speed()
+end
+
+function stream_up:on_activated()
+  stream_speed=stream_speed+5
+  set_stream_speed()
 end
 -- put the hero at the newt jump test line. Part of the jump state debug tests.
 function jump_test_tp:on_activated()
@@ -44,4 +61,18 @@ function owl_test:on_activated()
      --debug_print "Oot hoot"
       sol.audio.stop_music()
     end)  
+end
+local dummy_timer=false
+function dummy_stream_test:on_activated()
+
+  if not dummy_timer then
+    dummy(hero)
+    dummy_timer=sol.timer.start(map, 500, function()
+      hero:unfreeze()
+      sol.timer.start(map, 50, function()
+        dummy(hero)
+        end)
+      return true
+    end)
+  end
 end

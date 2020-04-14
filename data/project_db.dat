@@ -144,6 +144,7 @@ map{ id = "out/d1_east_mt_tamaranch", description = "D1 - East Mt Tamaranch" }
 map{ id = "out/d2_rafting", description = "D2 - Rafting" }
 map{ id = "out/d3_mask_shrine", description = "D3 - Mask shrine" }
 map{ id = "out/d4_yarna_desert", description = "D4 - Yarna desert" }
+map{ id = "sideviews/east_prairie/seashell_mansion", description = "Seashell's Mansion" }
 map{ id = "sideviews/kanalet_castle/sideview_1", description = "Sideview 1" }
 map{ id = "sideviews/mabe_village/sideview_1", description = "Sideview 1" }
 map{ id = "sideviews/martha_bay/sideview_1", description = "Sideview 1" }
@@ -548,12 +549,15 @@ sprite{ id = "entities/mega_thwomp", description = "Mega thwomp" }
 sprite{ id = "entities/misc/ball", description = "Ball" }
 sprite{ id = "entities/misc/bed", description = "Bed" }
 sprite{ id = "entities/misc/flame_fountain_machine", description = "Flame fountain machine" }
+sprite{ id = "entities/misc/gift", description = "Gift" }
 sprite{ id = "entities/misc/hibiscus_pot", description = "Hibiscus pot" }
 sprite{ id = "entities/misc/horse_head", description = "Horse head" }
 sprite{ id = "entities/misc/orb_hole_blue", description = "Orb hole blue" }
 sprite{ id = "entities/misc/orb_hole_green", description = "Orb hole green" }
 sprite{ id = "entities/misc/orb_hole_red", description = "Orb hole red" }
 sprite{ id = "entities/misc/raft", description = "Raft" }
+sprite{ id = "entities/misc/shell_bar_marker", description = "Shell Bar Marker" }
+sprite{ id = "entities/misc/shell_mansion_bar", description = "Shell Mansion Bar" }
 sprite{ id = "entities/misc/teletransporter", description = "Teletransporter" }
 sprite{ id = "entities/misc/torch", description = "Torch" }
 sprite{ id = "entities/misc/vacuum_cleaner", description = "Vacuum cleaner" }
@@ -571,6 +575,7 @@ sprite{ id = "entities/shadows/owl", description = "Owl" }
 sprite{ id = "entities/shadows/pickable_flying", description = "Pickable flying" }
 sprite{ id = "entities/shadows/shadow", description = "Shadow" }
 sprite{ id = "entities/star", description = "Star" }
+sprite{ id = "entities/statues/block" }
 sprite{ id = "entities/statues/pillar", description = "Pillar base" }
 sprite{ id = "entities/statues/statue_darknut", description = "Statue darknut" }
 sprite{ id = "entities/statues/statue_koopa", description = "Statue koopa" }
@@ -2092,6 +2097,8 @@ file{ path = "maps/out/d3_mask_shrine.lua", author = "Benjamin Schweitzer", lice
 file{ path = "maps/out/d4_yarna_desert.dat", author = "Benjamin Schweitzer, Christopho", license = "CC BY-SA 4.0" }
 file{ path = "maps/out/d4_yarna_desert.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/sideviews", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/sideviews/east_prairie/seashell_mansion.dat", author = "JulioTanka", }
+file{ path = "maps/sideviews/east_prairie/seashell_mansion.lua", author = "JulioTanka", }
 file{ path = "maps/sideviews/kanalet_castle", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
 file{ path = "maps/sideviews/kanalet_castle/sideview_1.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
 file{ path = "maps/sideviews/kanalet_castle/sideview_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
@@ -2683,6 +2690,9 @@ file{ path = "sprites/enemies/zora.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/entities/effects/brake_smoke.dat", author = "JulioTanaka", }
 file{ path = "sprites/entities/effects/collapse_star.dat", author = "JulioTanaka", }
 file{ path = "sprites/entities/iron_ball.dat", author = "Christopho", license = "CC BY-SA 4.0" }
+file{ path = "sprites/entities/misc/gift.dat", author = "JulioTanka", }
+file{ path = "sprites/entities/misc/shell_bar_marker.dat", author = "JulioTanaka", }
+file{ path = "sprites/entities/misc/shell_mansion_bar.dat", author = "JulioTanaka", }
 file{ path = "sprites/entities/utils/cliff.dat", author = "Christopho", license = "CC BY-SA 4.0" }
 file{ path = "sprites/entities/utils/cliff.png", author = "Christopho", license = "CC BY-SA 4.0" }
 file{ path = "sprites/hero/boomerang.shield.png", author = "Nintendo", license = "Proprietary (Fair use)" }

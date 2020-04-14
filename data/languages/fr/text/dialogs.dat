@@ -2594,7 +2594,7 @@ dialog{
   text = [[
 Qu'ouïs-je ??    
 Un refus ? Je ne puis supporter les pleutres !   
-Hors de ma vue, paysan!...
+Hors de ma vue, paysan !...
 ]],
 }
 
@@ -2609,7 +2609,7 @@ Souviens-toi d'acheter une pelle.
 dialog{
   id = "maps.houses.south_prairie.richard_villa.richard_5",
   text = [[
-Grâce à toi, j'ai mes feuilles!   
+Grâce à toi, j'ai mes feuilles !   
 Je te suis reconnaissant.
 ]],
 }
@@ -2874,7 +2874,7 @@ dialog{
   id = "maps.out.east_prairie.sign_3",
   text = [[
 \[arrow_right\] Village des Animaux       
-\[arrow_bottom\] Baie de Martha
+\[arrow_down\] Baie de Martha
 ]],
 }
 
@@ -2987,7 +2987,7 @@ dialog{
   id = "maps.out.kanalet_castle.monkey_3",
   question = "1",
   text = [[
-¥, ¥ ...    
+\[banana\], \[banana\] ...    
 Miam Miam !      
 
 Pour Kiki ?      
@@ -3438,8 +3438,15 @@ dialog{
   id = "maps.out.prairie.sign_2",
   skip = "all",
   text = [[
-Château Canulet 
-10 min. \[arrow_right\] \[arrow_up\]
+Cabine téléphonique
+]],
+}
+
+dialog{
+  id = "maps.out.prairie.sign_3",
+  text = [[
+EN TOURNEE      
+Signé : WART
 ]],
 }
 
@@ -3524,7 +3531,7 @@ dialog{
   id = "maps.out.south_prairie.sign_2",
   text = [[
 Château Canulet 
-10 min. \[arrow_right\]\[arrow_up\]
+10 min. \[arrow_right\] \[arrow_up\]
 ]],
 }
 

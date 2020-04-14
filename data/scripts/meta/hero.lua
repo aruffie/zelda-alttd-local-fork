@@ -11,7 +11,7 @@ local timer_stairs = nil
 
 function hero_meta:is_custom_state_started(state_name)
   local state, object=self:get_state()
-  
+
   --Vige priority to custom state in cace the cstate has the same name as a biolt-in one
   return state=="custom" and object:get_description()==state_name
 end
@@ -71,6 +71,7 @@ hero_meta:register_event("on_state_changed", function(hero, current_state)
       audio_manager:play_sound("hero/hurt") 
     elseif current_state == "falling" then
       -- Falling
+      hero:stop_movement()
       audio_manager:play_sound("hero/fall") 
     elseif current_state == "jumping" then
       audio_manager:play_sound("hero/cliff_jump")
@@ -113,7 +114,10 @@ hero_meta:register_event("on_state_changed", function(hero, current_state)
 
     --Recovering from drowning
     -- Avoid to lose any life when drowning.
-    if state == "back to solid ground" then
+    if current_state == "plunging" and game:get_item("flippers"):get_variant()==0 then
+      hero:stop_movement()
+    end
+    if current_state == "back to solid ground" then
       local ground = hero:get_ground_below()
       if ground == "deep_water" then
         game:add_life(1)
@@ -191,7 +195,7 @@ function hero_meta.play_ground_effect(hero)
 end
 
 hero_meta:register_event("on_state_changing", function(hero, old_state, new_state)
-    --print ("going from state "..old_state.." to state ".. new_state)
+    print ("going from state "..old_state.." to state ".. new_state)
     if old_state=="jumping" and new_state=="free" then
       hero:play_ground_effect()
     end

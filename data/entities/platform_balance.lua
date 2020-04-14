@@ -34,34 +34,7 @@ local chain=nil
 local solidified=true
 
 -- Include scripts
---require("scripts/multi_events")
-
--- Event called when the custom entity is initialized.
-entity:register_event("on_created", function()
-    --Get the twin entity
-    local name=entity:get_name()
-    twin = entity:get_map():get_entity(name:sub(1, -3).."_"..(3-tonumber(name:sub(-1)))) 
-
-    --Set me up
-    old_x, old_y=entity:get_bounding_box()
-    entity:set_traversable_by(false)
-    entity.is_on_twin=false
-    local true_layer
-    true_x, true_y = entity:get_position()
-    initial_x, initial_y = entity:get_position()
-    --Create it's chain
-    chain = entity:get_map():create_custom_entity({
-        x=true_x,
-        y=true_y%16,
-        layer=entity:get_layer(),
-        direction = 0,
-        width=16,
-        height =true_y-(true_y%16),
-        sprite = "entities/moving_platform_dg_5_chain", 
-      })
-    chain:set_tiled(true)
-    chain:set_origin(8, 13)
-  end)
+require("scripts/multi_events")
 
 local function is_on_platform(entity, other)
   if entity~=other and other:get_type()~="camera" and other~=chain then
@@ -72,78 +45,22 @@ local function is_on_platform(entity, other)
   return false
 end
 
---Detects ehteher there is another entity on the platform, and moves it along
-entity:add_collision_test(
 
-  function(entity, other)
-    return is_on_platform(entity, other)
-  end,
-
-  function(entity, other)
-    local x,y=entity:get_bounding_box()
-    if other:get_type()=="hero" then
-      --Downward acceleration
-      entity.speed = math.min(entity.speed+0.01*max_dy/2, max_dy)
-      twin.speed=-entity.speed
-    end
-
-    --Move the other entity with me
-    local dx, dy = x-old_x, y-old_y
-    local other_x, other_y = other:get_position()
-    if not other:test_obstacles(0, dy) then
-      other:set_position(other_x+dx, other_y+dy)
-    end
-  end
-)
-
-function entity.reset(self)
- -- print ("reseting "..self:get_name())
-  self:set_position(initial_x, initial_y)
-end
-
-function entity:on_removed()
-  if chain then
-    chain:remove()
-    chain=nil
-  end
-  if twin then
-    twin=nil
-  end
-end
-
-function entity:on_disbled()
-  if chain then
-    chain:set_enabled(false)
-  end    
-end
-
-function entity:on_enabled()
-  if chain then
-    chain:set_enabled(true)
-  end    
-end
-
---Synchronizes the associated chain
-function entity:on_position_changed(x,y,layer)
-  local dy = old_y+13
-  chain:set_position(old_x+8, dy%16) 
-  chain:set_size(16, math.max(8, dy-(dy%16)))
-end
 
 sol.timer.start(entity, 10, function() 
-    local ex, ey, ew, eh=entity:get_bounding_box()
-    local hx, hy, hw, hh=hero:get_bounding_box()
+    local entity_x, entity_y, entity_w, entity_h=entity:get_bounding_box()
+    local hero_x, hero_y, hero_w, hero_h=hero:get_bounding_box()
     local x, y=entity:get_position()
     local dx, dy = x-old_x, y-old_y
 
-    if hy+hh <= ey+1 then
+    if hero_y+hero_h <= entity_y+1 then
 
       if solidified == false then
 --        debug_print "ME SOLID NOW"
         solidified = true
         entity:set_traversable_by("hero", false)
-        if hx+hw<=ex+ew and hx>=ex and hy<=ey+eh-1 and hy+hh>=ey-1 then
-          hero:set_position(hx+dx, hy+dy)
+        if hero_x+hero_w<=entity_x+entity_w and hero_x>=entity_x and hero_y<=entity_y+entity_h-1 and hero_y+hero_h>=entity_y-1 then
+          hero:set_position(hero_x+dx, hero_y+dy)
         end
       end
 
@@ -178,3 +95,91 @@ sol.timer.start(entity, 10, function()
     end
     return true
   end)
+
+-- Event called when the custom entity is initialized.
+entity:register_event("on_created", function(entity)
+    --Get the twin entity
+    local name=entity:get_name()
+    twin = entity:get_map():get_entity(name:sub(1, -3).."_"..(3-tonumber(name:sub(-1)))) 
+
+    --Set me up
+    old_x, old_y=entity:get_bounding_box()
+    entity:set_traversable_by(false)
+    entity.is_on_twin=false
+    local true_layer
+    true_x, true_y = entity:get_position()
+    initial_x, initial_y = entity:get_position()
+    --Create it's chain
+    chain = entity:get_map():create_custom_entity({
+        x=true_x,
+        y=true_y%16,
+        layer=entity:get_layer(),
+        direction = 0,
+        width=16,
+        height =true_y-(true_y%16),
+        sprite = "entities/moving_platform_dg_5_chain", 
+      })
+    chain:set_tiled(true)
+    chain:set_origin(8, 13)
+  end)
+
+
+--Detects ehteher there is another entity on the platform, and moves it along
+entity:add_collision_test(
+
+  function(entity, other)
+    return is_on_platform(entity, other)
+  end,
+
+  function(entity, other)
+    local x,y=entity:get_bounding_box()
+    if other:get_type()=="hero" then
+      --Downward acceleration
+      entity.speed = math.min(entity.speed+0.01*max_dy/2, max_dy)
+      twin.speed=-entity.speed
+    end
+
+    --Move the other entity with me
+    local dx, dy = x-old_x, y-old_y
+    local other_x, other_y = other:get_position()
+    if not other:test_obstacles(0, dy) then
+      other:set_position(other_x+dx, other_y+dy)
+    end
+  end
+)
+
+function entity.reset(platform)
+  --print ("reseting "..platform:get_name()..". Initial position was ("..initial_x..", "..initial_y..")")
+  platform.speed=0
+  true_x=initial_x
+  true_y=initial_y
+end
+
+function entity:on_removed()
+  if chain then
+    chain:remove()
+    chain=nil
+  end
+  if twin then
+    twin=nil
+  end
+end
+
+function entity:on_disbled()
+  if chain then
+    chain:set_enabled(false)
+  end    
+end
+
+function entity:on_enabled()
+  if chain then
+    chain:set_enabled(true)
+  end    
+end
+
+--Synchronizes the associated chain
+function entity:on_position_changed(x,y,layer)
+  local dy = old_y+13
+  chain:set_position(old_x+8, dy%16) 
+  chain:set_size(16, math.max(8, dy-(dy%16)))
+end

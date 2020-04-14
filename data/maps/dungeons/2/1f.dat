@@ -24,7 +24,6 @@ tile{
   layer = 0,
   x = 1648,
   y = 640,
-  enabled_at_start = false,
   width = 224,
   height = 32,
   pattern = "floor_low.10-1",
@@ -16387,7 +16386,6 @@ tile{
   layer = 0,
   x = 2064,
   y = 1304,
-  enabled_at_start = false,
   properties = {
     {
       key = "draw_in_y_order",
