@@ -1325,6 +1325,26 @@ tile{
   pattern = "11",
 }
 
+tile{
+  layer = 0,
+  x = 136,
+  y = 200,
+  width = 8,
+  height = 16,
+  pattern = "17",
+  tileset = "out/outside_special",
+}
+
+tile{
+  layer = 0,
+  x = 168,
+  y = 200,
+  width = 8,
+  height = 16,
+  pattern = "34",
+  tileset = "out/outside_special",
+}
+
 wall{
   layer = 0,
   x = 208,
@@ -2154,6 +2174,28 @@ sensor{
   y = 237,
   width = 16,
   height = 16,
+}
+
+switch{
+  name = "stream_up",
+  layer = 0,
+  x = 176,
+  y = 200,
+  subtype = "walkable",
+  sprite = "entities/switchs/switch",
+  needs_block = false,
+  inactivate_when_leaving = true,
+}
+
+switch{
+  name = "stream_down",
+  layer = 0,
+  x = 120,
+  y = 200,
+  subtype = "walkable",
+  sprite = "entities/switchs/switch",
+  needs_block = false,
+  inactivate_when_leaving = true,
 }
 
 tile{

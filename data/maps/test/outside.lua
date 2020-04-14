@@ -19,6 +19,23 @@ function autojump:on_activated()
 --    hero:jump()
 --  end
 end
+local stream_speed=40
+local function set_stream_speed()
+  print ("New stream speed: "..stream_speed)
+  for e in map:get_entities_by_type("stream") do
+    e:set_speed(stream_speed)
+  end
+end
+
+function stream_down:on_activated()
+  stream_speed=math.max(stream_speed-5, 0)
+  set_stream_speed()
+end
+
+function stream_up:on_activated()
+  stream_speed=stream_speed+5
+  set_stream_speed()
+end
 -- put the hero at the newt jump test line. Part of the jump state debug tests.
 function jump_test_tp:on_activated()
   local x,y=hero:get_position()
