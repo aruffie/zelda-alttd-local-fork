@@ -8893,7 +8893,6 @@ tile{
   layer = 1,
   x = 304,
   y = 656,
-  enabled_at_start = false,
   width = 16,
   height = 16,
   pattern = "73",
@@ -8994,7 +8993,6 @@ tile{
   layer = 1,
   x = 384,
   y = 480,
-  enabled_at_start = false,
   width = 16,
   height = 16,
   pattern = "73",
@@ -9075,7 +9073,6 @@ tile{
   layer = 1,
   x = 192,
   y = 752,
-  enabled_at_start = false,
   width = 16,
   height = 16,
   pattern = "73",
@@ -10568,7 +10565,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/statue_small",
+  sprite = "entities/statues/block",
   model = "hookable",
 }
 
@@ -10940,15 +10937,6 @@ teletransporter{
 
 enemy{
   layer = 1,
-  x = 416,
-  y = 581,
-  direction = 1,
-  breed = "moblin_pig_spear",
-  treasure_name = "random_with_charm",
-}
-
-enemy{
-  layer = 1,
   x = 592,
   y = 301,
   direction = 3,
@@ -10958,64 +10946,10 @@ enemy{
 
 enemy{
   layer = 1,
-  x = 632,
-  y = 277,
-  direction = 3,
-  breed = "moblin_pig_spear",
-  treasure_name = "random_with_charm",
-}
-
-enemy{
-  layer = 1,
-  x = 384,
-  y = 469,
-  direction = 3,
-  breed = "moblin_pig_spear",
-  treasure_name = "random_with_charm",
-}
-
-enemy{
-  layer = 1,
-  x = 352,
-  y = 597,
-  direction = 2,
-  breed = "moblin_pig_spear",
-  treasure_name = "random_with_charm",
-}
-
-enemy{
-  layer = 1,
-  x = 416,
-  y = 493,
-  direction = 0,
-  breed = "moblin_pig_spear",
-  treasure_name = "random_with_charm",
-}
-
-enemy{
-  layer = 1,
-  x = 376,
-  y = 565,
-  direction = 0,
-  breed = "moblin_pig_spear",
-  treasure_name = "random_with_charm",
-}
-
-enemy{
-  layer = 1,
-  x = 424,
-  y = 453,
-  direction = 2,
-  breed = "moblin_pig_spear",
-  treasure_name = "random_with_charm",
-}
-
-enemy{
-  layer = 1,
   x = 648,
   y = 221,
   direction = 3,
-  breed = "moblin_pig_spear",
+  breed = "moblin_pig_fork",
   treasure_name = "random_with_charm",
 }
 
@@ -11024,7 +10958,7 @@ enemy{
   x = 600,
   y = 221,
   direction = 3,
-  breed = "moblin_pig_spear",
+  breed = "moblin_pig_fork",
   treasure_name = "random_with_charm",
 }
 
@@ -11620,17 +11554,6 @@ custom_entity{
   model = "cliff",
 }
 
-custom_entity{
-  layer = 1,
-  x = 936,
-  y = 509,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
 destination{
   name = "cave_c3_1_east",
   layer = 1,
@@ -11661,26 +11584,6 @@ stairs{
   y = 464,
   direction = 1,
   subtype = 3,
-}
-
-custom_entity{
-  layer = 1,
-  x = 944,
-  y = 405,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/statue_small",
-  model = "hookable",
-}
-
-enemy{
-  layer = 1,
-  x = 664,
-  y = 301,
-  direction = 3,
-  breed = "moblin_pig_spear",
-  treasure_name = "random_with_charm",
 }
 
 enemy{
@@ -11761,6 +11664,100 @@ custom_entity{
   height = 16,
   direction = 0,
   model = "spawner",
+}
+
+enemy{
+  layer = 1,
+  x = 632,
+  y = 277,
+  direction = 3,
+  breed = "moblin_pig_fork",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  layer = 1,
+  x = 664,
+  y = 301,
+  direction = 3,
+  breed = "moblin_pig_fork",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  layer = 1,
+  x = 352,
+  y = 597,
+  direction = 3,
+  breed = "moblin_pig_fork",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  layer = 1,
+  x = 376,
+  y = 565,
+  direction = 3,
+  breed = "moblin_pig_fork",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  layer = 1,
+  x = 416,
+  y = 581,
+  direction = 3,
+  breed = "moblin_pig_fork",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  layer = 1,
+  x = 416,
+  y = 493,
+  direction = 3,
+  breed = "moblin_pig_fork",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  layer = 1,
+  x = 384,
+  y = 469,
+  direction = 3,
+  breed = "moblin_pig_fork",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  layer = 1,
+  x = 432,
+  y = 445,
+  direction = 3,
+  breed = "moblin_pig_fork",
+  treasure_name = "random_with_charm",
+}
+
+custom_entity{
+  layer = 1,
+  x = 944,
+  y = 405,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 936,
+  y = 509,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
 }
 
 tile{

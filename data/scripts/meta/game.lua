@@ -179,9 +179,9 @@ game_meta:register_event("on_command_pressed", function(game, command)
               return true
             end
           end
-          if not item_1.start_combo then --Do try to start a combo if item has no such functionality
-            if item_1.start_using then
-              item_1:start_using()
+          if not item_2.start_combo then --Do try to start a combo if item has no such functionality
+            if item_2.start_using then
+              item_2:start_using()
               return true
             else
               return

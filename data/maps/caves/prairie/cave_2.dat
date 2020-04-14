@@ -707,16 +707,6 @@ block{
 
 block{
   layer = 0,
-  x = 216,
-  y = 165,
-  sprite = "entities/blocks/stone_brown",
-  pushable = true,
-  pullable = false,
-  maximum_moves = 1,
-}
-
-block{
-  layer = 0,
   x = 136,
   y = 149,
   sprite = "entities/blocks/stone_brown",
