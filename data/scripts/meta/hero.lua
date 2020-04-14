@@ -71,6 +71,7 @@ hero_meta:register_event("on_state_changed", function(hero, current_state)
       audio_manager:play_sound("hero/hurt") 
     elseif current_state == "falling" then
       -- Falling
+      hero:stop_movement()
       audio_manager:play_sound("hero/fall") 
     elseif current_state == "jumping" then
       audio_manager:play_sound("hero/cliff_jump")

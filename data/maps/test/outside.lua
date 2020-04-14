@@ -4,7 +4,7 @@ local hero = map:get_hero()
 
 
 --DEBUG: lauch a dummy state for engine bug hunting.
---local dummy = require("scripts/states/dummy")
+local dummy = require("scripts/states/dummy")
 --function map:on_opening_transition_finished()
 --  dummy(hero)
 --end
@@ -44,4 +44,18 @@ function owl_test:on_activated()
      --debug_print "Oot hoot"
       sol.audio.stop_music()
     end)  
+end
+local dummy_timer=false
+function dummy_stream_test:on_activated()
+
+  if not dummy_timer then
+    dummy(hero)
+    dummy_timer=sol.timer.start(map, 500, function()
+      hero:unfreeze()
+      sol.timer.start(map, 50, function()
+        dummy(hero)
+        end)
+      return true
+    end)
+  end
 end
