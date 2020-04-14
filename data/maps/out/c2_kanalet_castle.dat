@@ -9438,7 +9438,7 @@ destination{
   name = "kanalet_castle_underground_2_A",
   layer = 1,
   x = 608,
-  y = 77,
+  y = 61,
   direction = 3,
 }
 
@@ -10143,7 +10143,7 @@ custom_entity{
 enemy{
   name = "mad_bomber_1",
   layer = 1,
-  x = 552,
+  x = 568,
   y = 253,
   properties = {
     {

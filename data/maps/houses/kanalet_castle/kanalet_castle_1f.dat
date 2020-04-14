@@ -1342,9 +1342,9 @@ enemy{
   name = "enemy_group_2_1",
   layer = 0,
   x = 104,
-  y = 189,
+  y = 165,
   direction = 0,
-  breed = "darknut",
+  breed = "darknut_bow",
   treasure_name = "random",
 }
 
@@ -1352,7 +1352,7 @@ enemy{
   name = "enemy_group_2_2",
   layer = 0,
   x = 152,
-  y = 189,
+  y = 165,
   direction = 2,
   breed = "darknut",
   treasure_name = "random",
