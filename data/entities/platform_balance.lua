@@ -32,7 +32,6 @@ entity.speed=0
 local twin=nil
 local chain=nil
 local solidified=true
-local update_timer=false
 
 -- Include scripts
 require("scripts/multi_events")
