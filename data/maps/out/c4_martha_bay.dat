@@ -15802,7 +15802,7 @@ enemy{
   x = 200,
   y = 157,
   direction = 2,
-  breed = "moblin_pig_spear",
+  breed = "moblin_pig_fork",
   treasure_name = "random_with_charm",
 }
 
@@ -15811,7 +15811,7 @@ enemy{
   x = 176,
   y = 133,
   direction = 3,
-  breed = "moblin_pig_spear",
+  breed = "moblin_pig_fork",
   treasure_name = "random_with_charm",
 }
 
