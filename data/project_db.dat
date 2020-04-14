@@ -225,6 +225,10 @@ sprite{ id = "enemies/boss/buzz_blob_giant/buzz_blob_giant", description = "Buzz
 sprite{ id = "enemies/boss/buzz_blob_giant/buzz_blob_giant_zol", description = "Buzz Blob Giant Zol" }
 sprite{ id = "enemies/boss/cue_ball", description = "Cue ball" }
 sprite{ id = "enemies/boss/cue_ball/splash_effect", description = "Cue ball splash effect" }
+sprite{ id = "enemies/boss/desert_lanmola", description = "Desert Lanmola" }
+sprite{ id = "enemies/boss/desert_lanmola/body", description = "Desert Lanmola body" }
+sprite{ id = "enemies/boss/desert_lanmola/dust", description = "Desert lanmola Dust" }
+sprite{ id = "enemies/boss/desert_lanmola/tail", description = "Desert Lanmola tail" }
 sprite{ id = "enemies/boss/dodongo_snake", description = "Dodongo_snake" }
 sprite{ id = "enemies/boss/dodongo_snake/body", description = "Dodongo snake body" }
 sprite{ id = "enemies/boss/evil_eagle", description = "Evil eagle" }

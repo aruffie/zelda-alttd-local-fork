@@ -24,19 +24,10 @@ local waiting_maximum_duration = 4000
 -- Return a random visible position.
 local function get_random_visible_position()
 
-  local x, y, _ =  enemy:get_position()
-  local region_x, region_y, _ =  camera:get_position()
-  local region_width, region_height = camera:get_size()
+  local x, y, _ =  camera:get_position()
+  local width, height = camera:get_size()
 
-  while true do
-    random_x = math.random(region_x, region_x + region_width)
-    random_y = math.random(region_y, region_y + region_height)
-    if not enemy:test_obstacles(random_x - x, random_y - y) then
-      return random_x, random_y
-    end
-  end
-
-  return nil
+  return math.random(x, x + width), math.random(y, y + height)
 end
 
 -- Start the enemy movement.
@@ -64,7 +55,17 @@ end
 -- Make the enemy appear at a random position.
 function enemy:appear()
 
-  enemy:set_position(get_random_visible_position())
+  -- Postpone to the next frame if the random position would be over an abostacle.
+  local x, y, _ = enemy:get_position()
+  local random_x, random_y = get_random_visible_position()
+  if enemy:test_obstacles(random_x - x, random_y - y) then
+    sol.timer.start(enemy, 10, function()
+      enemy:appear()
+    end)
+    return
+  end
+
+  enemy:set_position(random_x, random_y)
   enemy:set_visible()
   sprite:set_animation("appearing", function()
 
