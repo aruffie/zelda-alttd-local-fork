@@ -5,6 +5,9 @@
 local item = ...
 local game = item:get_game()
 
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
+
 -- Event called when the game is initialized.
 function item:on_created()
 

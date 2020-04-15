@@ -99,7 +99,7 @@ function ceiling_drop_manager:create(meta)
     shadow:set_modified_ground("traversable")
     shadow:set_can_traverse_ground("deep_water", true)
     shadow:set_can_traverse_ground("hole", true)
-    entity:set_layer(map:get_max_layer())
+    --entity:set_layer(map:get_max_layer())
     local first_active_sprite = nil
 
     -- Depending on things, obejct might have different sprite that is synchronized to him
@@ -134,7 +134,7 @@ function ceiling_drop_manager:create(meta)
       -- Movement finished, disable the falling movement
       first_active_sprite = nil
       currently_falling = false
-      entity:set_layer(clayer)
+      --entity:set_layer(clayer)
       shadow:remove()
 
       if meta == "hero" then

@@ -221,7 +221,7 @@ function map:talk_to_marin()
     end)
   elseif variant_ocarina == 1 and variant_melody_1 == 0 then
     game:start_dialog("maps.out.mabe_village.marin_4", function()
-      marin:launch_cinematic_marin_singing_with_hero()
+      marin:launch_cinematic_marin_singing_with_hero(map)
     end)
   elseif game:is_step_done("dungeon_3_completed") then
     game:start_dialog("maps.out.mabe_village.marin_8")

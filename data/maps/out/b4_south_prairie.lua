@@ -21,6 +21,8 @@ map:register_event("on_started", function(map, destination)
   map:set_digging_allowed(true)
   -- Shore
   map:init_shore()
+  
+
  
 end)
 
