@@ -475,7 +475,7 @@ dialog{
   id = "_treasure.magnifying_lens.6",
   icon = "85",
   text = [[
-Tu as échangé le ¦ contre le Miel §.     
+Tu as échangé le \[stick\] contre le Miel \[honey\].     
 Pour quoi faire, tu verras bien !
 ]],
 }
@@ -484,7 +484,7 @@ dialog{
   id = "_treasure.magnifying_lens.7",
   icon = "86",
   text = [[
-Tu as échangé le § contre l'Ananas ¨.    
+Tu as échangé le \[honey\] contre l'Ananas \[pineapple\].    
 Il est juteux !
 ]],
 }
@@ -493,7 +493,7 @@ dialog{
   id = "_treasure.magnifying_lens.8",
   icon = "87",
   text = [[
-Tu as échangé l'¨ contre l'© !!
+Tu as échangé l'\[pineapple\] contre l'\[hibiscus\] !!
 ]],
 }
 
@@ -501,7 +501,7 @@ dialog{
   id = "_treasure.magnifying_lens.9",
   icon = "88",
   text = [[
-Tu as échangé l' © contre une lettre de chèvreª ... Super ! 
+Tu as échangé l'\[hibiscus\] contre une lettre de chèvre \[letter\] ... Super ! 
 ]],
 }
 

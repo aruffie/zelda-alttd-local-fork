@@ -49,7 +49,7 @@ function item:start_using()
 --              hero.has_grabbed_ladder = false
               hero.vspeed = -4 --TODO don"t make underwater jumps so powerful
               if hero.has_grabbed_ladder then
-                hero.vspeed=-0.5
+                hero.vspeed=-2
               end
               if map:get_ground(hero:get_position()) == "deep_water" then
                 hero.vspeed= -2

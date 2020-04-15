@@ -22195,17 +22195,6 @@ enemy{
   treasure_name = "random_with_charm",
 }
 
-custom_entity{
-  name = "honey_entity",
-  layer = 1,
-  x = 816,
-  y = 125,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/items/honey",
-}
-
 destructible{
   layer = 1,
   x = 296,
@@ -27123,15 +27112,6 @@ dynamic_tile{
   pattern = "4035",
 }
 
-pickable{
-  name = "honey",
-  layer = 2,
-  x = 816,
-  y = 125,
-  treasure_name = "magnifying_lens",
-  treasure_variant = 6,
-}
-
 custom_entity{
   name = "bee_2",
   layer = 2,
@@ -27334,5 +27314,25 @@ enemy{
   direction = 1,
   breed = "octorok_flying",
   treasure_name = "random_with_charm",
+}
+
+custom_entity{
+  name = "honey_entity",
+  layer = 2,
+  x = 816,
+  y = 117,
+  width = 16,
+  height = 16,
+  direction = 3,
+  sprite = "entities/items/honey",
+}
+
+pickable{
+  name = "honey",
+  layer = 2,
+  x = 768,
+  y = 109,
+  treasure_name = "magnifying_lens",
+  treasure_variant = 6,
 }
 
