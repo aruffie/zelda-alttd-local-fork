@@ -14570,7 +14570,6 @@ tile{
   layer = 1,
   x = 272,
   y = 688,
-  enabled_at_start = false,
   width = 48,
   height = 8,
   pattern = "138_3",
@@ -15037,6 +15036,7 @@ pickable{
   x = 696,
   y = 61,
   treasure_name = "slim_key",
+  treasure_savegame_variable = "south_prairie_slim_key",
 }
 
 destructible{
@@ -15417,8 +15417,8 @@ teletransporter{
 
 destructible{
   layer = 1,
-  x = 696,
-  y = 61,
+  x = 688,
+  y = 21,
   sprite = "entities/destructibles/bush",
   destruction_sound = "bush",
   weight = 1,

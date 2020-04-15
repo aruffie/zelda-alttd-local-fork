@@ -43,18 +43,19 @@ map_meta:register_event("on_opening_transition_finished", function(map, destinat
   end)
 
 map_meta:register_event("on_started", function(map)
-    local game = map:get_game()
-    local hero = map:get_hero()
-    hero.respawn_point_saved=nil
-    local ground=game:get_value("tp_ground")
-    if ground=="hole" and not map:is_sideview() then
-      hero:set_visible(false)
-    else
-      hero:set_visible()
-    end
-  end)
+  local game = map:get_game()
+  local hero = map:get_hero()
+  hero.respawn_point_saved=nil
+  local ground = game:get_value("tp_ground")
+  if ground=="hole" and not map:is_sideview() then
+    hero:set_visible(false)
+  else
+    hero:set_visible()
+  end
+end)
+
 map_meta:register_event("on_finished", function(map)
-    if map:get_hero():is_running() then
-      map:get_game().needs_running_restoration=true
-    end
-  end)
+  if map:get_hero():is_running() then
+    map:get_game().needs_running_restoration = true
+  end
+end)

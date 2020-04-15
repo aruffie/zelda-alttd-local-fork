@@ -11760,6 +11760,31 @@ custom_entity{
   model = "hookable",
 }
 
+destination{
+  name = "east_prairie_seashell_mansion_2_A",
+  layer = 1,
+  x = 624,
+  y = 149,
+  direction = 3,
+}
+
+teletransporter{
+  name = "east_prairie_seashell_mansion_1_A",
+  layer = 1,
+  x = 616,
+  y = 120,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
+  width = 16,
+  height = 16,
+  destination_map = "sideviews/east_prairie/seashell_mansion",
+  destination = "east_prairie_seashell_mansion_2_A",
+}
+
 tile{
   layer = 2,
   x = 56,

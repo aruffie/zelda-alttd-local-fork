@@ -102,183 +102,11 @@ function map:talk_to_tarin()
 
   game:start_dialog("maps.out.prairie.tarin_1", game:get_player_name(), function(answer)
     if answer == 1 then
-      map:tarin_search_honey()
+      map:launch_cinematic_2()
     else
       game:start_dialog("maps.out.prairie.tarin_2", game:get_player_name())
     end
   end)
-
-end
-
--- Tarin search honey
-function map:tarin_search_honey()
-  
-  local camera = map:get_camera()
-  camera:start_manual()
-  local x_tarin, y_tarin, layer_tarin = tarin:get_position()
-  local x_honey, y_honey, layer_honey = honey:get_position()
-  hero:freeze()
-  game:set_hud_enabled(false)
-  game:set_pause_allowed(false)
-  local tarin_sprite = tarin:get_sprite()
-  tarin_sprite:set_ignore_suspend(true)
-  tarin_sprite:set_animation("brandish")
-  audio_manager:play_sound("items/fanfare_item_extended")
-  local stick_entity = map:create_custom_entity({
-    name = "brandish_baton",
-    sprite = "entities/items",
-    x = x_tarin,
-    y = y_tarin- 32,
-    width = 16,
-    height = 16,
-    layer = layer_tarin + 1,
-    direction = 0
-  })
-  sol.timer.start(map, 1000, function()
-    hero:set_animation("walking")
-    hero:set_direction(3)
-    local movement = sol.movement.create("target")
-    movement:set_speed(30)
-    movement:set_target(link_wait_tarin_place)
-    movement:start(hero)
-    function movement:on_finished()
-      hero:set_animation("stopped")
-      hero:set_direction(1)
-    end
-  end)
-  sol.timer.start(map, 2000, function()
-    sol.audio.stop_music()
-    tarin_sprite:set_animation("searching_honey")
-    stick_entity:remove()
-    audio_manager:play_sound("beehive_poke")
-    for i=1,4 do
-      sol.timer.start(map, 500 * i, function()
-          if i == 2 then
-              audio_manager:play_sound("beehive_poke")
-          end
-          audio_manager:play_sound("beehive_bees")
-          local bee = map:create_custom_entity({
-            name = "bee_chase_" .. i,
-            sprite = "entities/insects/bee",
-            x = x_honey,
-            y = y_honey,
-            width = 16,
-            height = 16,
-            layer = layer_honey + 1,
-            direction = 0
-          })
-      end)
-    end
-    sol.timer.start(map, 2500, function()
-        tarin_chased_by_bees = true
-        map:init_music()
-        tarin_sprite:set_animation("run_bee")
-        map:tarin_run()
-    end)
-    sol.timer.start(map, 7000, function()
-        tarin_chased_by_bees = true
-        map:init_music()
-        tarin_sprite:set_animation("run_bee")
-        map:tarin_leave_map()
-    end)
-  end)
-
-end
-
--- Tarin run
-function map:tarin_run()
-
-  local tarin_sprite = tarin:get_sprite()
-  local movement = sol.movement.create("circle")
-  movement:set_angle_speed(200)
-  movement:set_center(circle_center)
-  movement:set_radius(48)
-  movement:set_initial_angle(315)
-  movement:set_ignore_obstacles(true)
-  movement:start(tarin_invisible)
-  function movement:on_position_changed()
-    local x_tarin,y_tarin= tarin_invisible:get_position()
-    local circle_angle = circle_center:get_angle(tarin_invisible)
-    local movement_angle = circle_angle + math.pi/2
-    movement_angle = math.deg(movement_angle)
-    local direction = math.floor((movement_angle + 45) / 90)
-    direction = direction % 4
-    tarin:set_position(x_tarin, y_tarin)
-    tarin_sprite:set_direction(direction)
-  end
-  for bee in map:get_entities("bee_chase") do
-    local movement_bee = sol.movement.create("target")
-    local bee_sprite = bee:get_sprite()
-    movement_bee:set_target(tarin, math.random(-16, 16), math.random(-16, 16))
-    movement_bee:set_speed(150)
-    movement_bee:set_ignore_obstacles(true)
-    movement_bee:start(bee)
-    function movement_bee:on_position_changed()
-      local circle_angle = circle_center:get_angle(tarin_invisible)
-      local movement_angle = circle_angle + math.pi/2
-      movement_angle = math.deg(movement_angle)
-      local direction = math.floor((movement_angle + 45) / 90)
-      direction = direction % 4
-      bee_sprite:set_direction(direction)
-    end
-  end
-
-end
-
--- Tarin leave map
-function map:tarin_leave_map()
-  
-  tarin_invisible:get_movement():stop()
-  local camera = map:get_camera()
-  local tarin_sprite = tarin:get_sprite()
-  local movement_target = sol.movement.create("target")
-  movement_target:set_speed(120)
-  movement_target:set_target(tarin_leave_map)
-  movement_target:start(tarin_invisible)
-  function movement_target:on_position_changed()
-    local x_tarin,y_tarin= tarin_invisible:get_position()
-    local direction = movement_target:get_direction4()
-    tarin:set_position(x_tarin, y_tarin)
-    tarin_sprite:set_direction(direction)
-  end
-  function movement_target:on_finished()
-    tarin_invisible:set_enabled(false)
-    tarin:set_enabled(false)
-    for bee in map:get_entities("bee_chase") do
-      bee:set_enabled(false)
-    end
-    sol.timer.start(map, 2500, function()
-      honey_entity:set_enabled(false)
-      honey:set_enabled(true)
-      sol.audio.stop_music()
-      local movement = sol.movement.create("jump")
-      movement:set_speed(100)
-      movement:set_distance(32)
-      movement:set_direction8(6)
-      movement:set_ignore_obstacles(true)
-      movement:start(honey)
-      game:set_step_done("tarin_bee_event_over")
-      audio_manager:play_sound("beehive_fall")
-      hero:unfreeze()
-      game:set_hud_enabled(true)
-      game:set_pause_allowed(false)
-      tarin_chased_by_bees = false
-      map:init_music()
-      hero:unfreeze()
-      game:set_hud_enabled(true)
-      game:set_pause_allowed(true)
-      tarin_chased_by_bees = false
-      map:init_music()
-      local movement_camera = sol.movement.create("target")
-      local x,y = camera:get_position_to_track(hero)
-      movement_camera:set_speed(120)
-      movement_camera:set_target(x,y)
-      movement_camera:start(camera)
-      function movement_camera:on_finished()
-        camera:start_tracking(hero)
-      end
-    end)
-  end
 
 end
 
@@ -312,39 +140,9 @@ end
 function dungeon_3_lock:on_interaction()
 
   if not game:is_step_done("dungeon_3_key_obtained") then
-      game:start_dialog("maps.out.prairie.dungeon_3_lock")
-  elseif game:is_last_step("dungeon_3_key_obtained") then
-    sol.audio.stop_music()
-    hero:freeze()
-    sol.timer.start(map, 1000, function() 
-      audio_manager:play_sound("shake")
-      local camera = map:get_camera()
-      local shake_config = {
-          count = 32,
-          amplitude = 2,
-          speed = 90,
-      }
-      camera:shake(shake_config, function()
-        audio_manager:play_sound("misc/secret2")
-        local sprite = dungeon_3_entrance:get_sprite()
-        sprite:set_animation("opening")
-        sol.timer.start(map, 800, function() 
-          map:open_dungeon_3()
-          hero:unfreeze()
-          map:init_music()
-        end)
-      end)
-      game:set_step_done("dungeon_3_opened")
-    end)
-  end
-
-end
-
--- Obtaining slim key
-function map:on_obtaining_treasure(treasure_item, treasure_variant, treasure_savegame_variable)
-
-  if treasure_item:get_name() == "slim_key" then
-    game:set_step_done("dungeon_3_key_obtained")
+    game:start_dialog("maps.out.prairie.dungeon_3_lock")
+  elseif game:is_step_last("dungeon_3_key_obtained") then
+    map:launch_cinematic_1()
   end
 
 end
@@ -366,3 +164,214 @@ function owl_7_sensor:on_activated()
 
 end
 
+
+-- Cinematics
+
+-- This is the cinematic in which the hero open dungeon 3 with tail key
+function map:launch_cinematic_1()
+
+  map:start_coroutine(function()
+    local options = {
+      entities_ignore_suspend = {dungeon_3_entrance}
+    }
+    map:set_cinematic_mode(true, options)
+    sol.audio.stop_music()
+    audio_manager:play_sound("misc/chest_open")
+    local camera = map:get_camera()
+    local camera_x, camera_y = camera:get_position()
+    local movement1 = sol.movement.create("straight")
+    movement1:set_angle(math.pi / 2)
+    movement1:set_max_distance(72)
+    movement1:set_speed(75)
+    movement1:set_ignore_suspend(true)
+    movement1:set_ignore_obstacles(true)
+    movement(movement1, camera)
+    wait(1000)
+    local timer_sound = sol.timer.start(hero, 0, function()
+      audio_manager:play_sound("misc/dungeon_shake")
+      return 450
+    end)
+    timer_sound:set_suspended_with_map(false)
+    local shake_config = {
+        count = 32,
+        amplitude = 2,
+        speed = 90
+    }
+    wait_for(camera.shake,camera,shake_config)
+    timer_sound:stop()
+    camera:start_manual()
+    camera:set_position(camera_x, camera_y - 72)
+    audio_manager:play_sound("misc/secret2")
+    animation(dungeon_3_entrance:get_sprite(), "opening")
+    map:open_dungeon_3()
+    local movement2 = sol.movement.create("straight")
+    movement2:set_angle(3 * math.pi / 2)
+    movement2:set_max_distance(72)
+    movement2:set_speed(75)
+    movement2:set_ignore_suspend(true)
+    movement2:set_ignore_obstacles(true)
+    movement(movement2, camera)
+    map:set_cinematic_mode(false, options)
+    camera:start_tracking(hero)
+    game:set_step_done("dungeon_3_opened")
+    map:init_music()
+  end)
+
+end
+
+-- This is the cinematic in which the hero collects honey.
+function map:launch_cinematic_2()
+
+  map:start_coroutine(function()
+    local options = {
+      entities_ignore_suspend = {hero, tarin, honey, tarin_invisible, bee_1, bee_2, bee_3, bee_4}
+    }
+    map:set_cinematic_mode(true, options)
+    local camera = map:get_camera()
+    camera:start_manual()
+    local x_tarin, y_tarin, layer_tarin = tarin:get_position()
+    local x_honey, y_honey, layer_honey = honey:get_position()
+    tarin:get_sprite():set_animation("brandish")
+    audio_manager:play_sound("items/fanfare_item_extended")
+    local stick_entity = map:create_custom_entity({
+    name = "brandish_baton",
+    sprite = "entities/items",
+    x = x_tarin,
+    y = y_tarin- 32,
+    width = 16,
+    height = 16,
+    layer = layer_tarin + 1,
+    direction = 0
+    })
+    stick_entity:get_sprite():set_animation("magnifying_lens")
+    stick_entity:get_sprite():set_direction(4)
+    wait(1000)
+    hero:set_animation("walking")
+    hero:set_direction(3)
+    local movement1 = sol.movement.create("target")
+    movement1:set_speed(30)
+    movement1:set_target(link_wait_tarin_place)
+    movement1:set_ignore_suspend(true)
+    movement(movement1, hero)
+    hero:set_animation("stopped")
+    hero:set_direction(1)
+    wait(2000)
+    sol.audio.stop_music()
+    -- Tarin search honey
+    tarin:get_sprite():set_animation("searching_honey")
+    stick_entity:remove()
+    audio_manager:play_sound("beehive_poke")
+    for i=1,4 do
+      wait(500 * i)
+      if i == 2 then
+          audio_manager:play_sound("beehive_poke")
+      end
+      audio_manager:play_sound("beehive_bees")
+      local bee = map:create_custom_entity({
+        name = "bee_chase_" .. i,
+        sprite = "entities/insects/bee",
+        x = x_honey,
+        y = y_honey,
+        width = 16,
+        height = 16,
+        layer = layer_honey + 1,
+        direction = 0
+      })
+    end
+    wait(2500)
+    tarin_chased_by_bees = true
+    map:init_music()
+    tarin:get_sprite():set_animation("run_bee")
+    -- Tarin run
+    local movement2 = sol.movement.create("circle")
+    movement2:set_angle_speed(200)
+    movement2:set_center(circle_center)
+    movement2:set_radius(48)
+    movement2:set_initial_angle(315)
+    movement2:set_ignore_obstacles(true)
+    movement2:set_ignore_suspend(true)
+    movement2:start(tarin_invisible)
+    function movement2:on_position_changed()
+      local x_tarin,y_tarin = tarin_invisible:get_position()
+      local circle_angle = circle_center:get_angle(tarin_invisible)
+      local movement_angle = circle_angle + math.pi/2
+      movement_angle = math.deg(movement_angle)
+      local direction = math.floor((movement_angle + 45) / 90)
+      direction = direction % 4
+      tarin:set_position(x_tarin, y_tarin)
+      tarin:get_sprite():set_direction(direction)
+    end
+    for bee in map:get_entities("bee_chase") do
+      local movement_bee = sol.movement.create("target")
+      local bee_sprite = bee:get_sprite()
+      movement_bee:set_target(tarin, math.random(-16, 16), math.random(-16, 16))
+      movement_bee:set_speed(150)
+      movement_bee:set_ignore_obstacles(true)
+      movement_bee:set_ignore_suspend(true)
+      movement_bee:start(bee)
+      function movement_bee:on_position_changed()
+        local circle_angle = circle_center:get_angle(tarin_invisible)
+        local movement_angle = circle_angle + math.pi/2
+        movement_angle = math.deg(movement_angle)
+        local direction = math.floor((movement_angle + 45) / 90)
+        direction = direction % 4
+        bee_sprite:set_direction(direction)
+      end
+    end
+    wait(6000)
+    -- Tarin leave map
+    tarin_invisible:get_movement():stop()
+    local movement_target = sol.movement.create("target")
+    movement_target:set_speed(120)
+    movement_target:set_ignore_suspend(true)
+    movement_target:set_target(tarin_leave_map)
+    function movement_target:on_position_changed()
+      local x_tarin, y_tarin= tarin_invisible:get_position()
+      local direction = movement_target:get_direction4()
+      tarin:set_position(x_tarin, y_tarin)
+      tarin:get_sprite():set_direction(direction)
+    end
+    movement(movement_target, tarin_invisible)
+    tarin_invisible:set_enabled(false)
+    tarin:set_enabled(false)
+    for bee in map:get_entities("bee_chase") do
+      bee:set_enabled(false)
+    end
+    wait(500)
+    sol.audio.stop_music()
+    wait(1000)
+    audio_manager:play_sound("beehive_fall")
+    local movement3 = sol.movement.create("jump")
+    movement3:set_speed(100)
+    movement3:set_distance(32)
+    movement3:set_direction8(6)
+    movement3:set_ignore_obstacles(true)
+    movement3:set_ignore_suspend(true)
+    movement(movement3, honey)
+    tarin_chased_by_bees = false
+    map:init_music()
+    local movement_camera = sol.movement.create("target")
+    local x,y = camera:get_position_to_track(hero)
+    movement_camera:set_speed(120)
+    movement_camera:set_target(x,y)
+    movement_camera:set_ignore_obstacles(true)
+    movement_camera:set_ignore_suspend(true)
+    movement(movement_camera, camera)
+    camera:start_tracking(hero)
+    game:set_step_done("tarin_bee_event_over")
+    map:set_cinematic_mode(false, options)
+  end)
+  
+end
+
+function honey:on_enabled()
+  
+  print("enabled")
+  
+end
+
+function honey:on_disabled()
+  
+  print("disabled")
+  
+end
