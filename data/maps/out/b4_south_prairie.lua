@@ -1,6 +1,7 @@
 -- Variables
 local map = ...
 local game = map:get_game()
+local marin_song = false
 local next_sign = 1
 local directions = {
   0, 3, 2, 1, 0, 3, 0, 1, 2, 3, 0, 3, 2
@@ -21,8 +22,6 @@ map:register_event("on_started", function(map, destination)
   map:set_digging_allowed(true)
   -- Shore
   map:init_shore()
-  
-
  
 end)
 
@@ -34,7 +33,7 @@ function map:init_music()
   else
     if marin_song then
       sol.audio.stop_music()
-      audio_manager:play_music("marin_on_beach")
+      audio_manager:play_music("42_marin_beach")
     else
       audio_manager:play_music("10_overworld")
     end
@@ -52,6 +51,11 @@ function map:init_map_entities()
   -- Marin
   if not game:is_step_last("started_looking_for_marin") then
     marin:set_enabled(false)
+  end
+  -- Sensor music
+  if not game:is_step_last("started_looking_for_marin") then
+    music_sensor:set_enabled(false)
+    music_sensor_2:set_enabled(false)
   end
   -- Wart cave
   if game:get_value("wart_cave") == nil then
@@ -75,14 +79,6 @@ function map:init_shore()
   
 end  
 
-function map:on_opening_transition_finished(destination)
-
-  if destination ==  marin_destination then
-    marin:set_enabled(false)
-  end
-
-end
-
 -- Discussion with Marin
 function map:talk_to_marin() 
 
@@ -91,6 +87,7 @@ function map:talk_to_marin()
       hero:teleport("movies/link_and_marin")
     else
       game:start_dialog("maps.out.south_prairie.marin_2")
+      marin:get_sprite():set_direction(3)
     end
   end)
 
@@ -149,21 +146,4 @@ function map:on_obtaining_treasure(treasure_item, treasure_variant, treasure_sav
   end
 
 end
-
--- Sensors events
-function marin_sensor:on_activated()
-
-  local hero = game:get_hero()
-  if game:get_value("main_quest_step") == 21 then
-    if hero:get_direction() == 1 then
-      marin_song = false
-      map:init_music()
-    else
-      marin_song = true
-      map:init_music()
-    end
-  end
-
-end
-
 

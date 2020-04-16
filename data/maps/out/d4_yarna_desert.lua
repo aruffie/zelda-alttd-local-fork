@@ -34,8 +34,21 @@ end
 -- Initializes Entities based on player's progress
 function map:init_map_entities()
   
+  -- Marin
+  marin:set_enabled(false)
+  -- Musicians
+  fox_musician:set_enabled(false)
+  elephant_musician:set_enabled(false)
+  bird_musician:set_enabled(false)
+  monty_mole:set_enabled(false)
+  -- Rabbit 4
+  rabbit_4:set_enabled(false)
   -- Travel
   travel_transporter:set_enabled(false)
+  -- Walrus
+  if game:is_step_done("walrus_awakened") then
+    walrus:set_enabled(false)
+  end
   -- Ground sand
   for ground in map:get_entities('ground_sand') do
     ground:set_visible(false)
@@ -67,7 +80,18 @@ end
 -- Discussion with Walrus
 function map:talk_to_walrus()
 
-  game:start_dialog("maps.out.yarna_desert.walrus_1")
+  if game:is_step_last("marin_joined") then
+    game:start_dialog("maps.out.yarna_desert.marin_1", function(answer)
+      if answer == 1 then
+        map:launch_cinematic_1()
+      else
+        game:start_dialog("maps.out.yarna_desert.marin_4")
+      end
+    end)
+  else
+    game:start_dialog("maps.out.yarna_desert.walrus_1")
+  end
+
 
 end
 
@@ -130,3 +154,18 @@ separator_2:register_event("on_activating", function(separator, direction4)
   end
   
 end)
+
+-- This is the cinematic in which Walris
+function map:launch_cinematic_1()
+
+  map:start_coroutine(function()
+    local options = {
+      entities_ignore_suspend = {hero, marin, walrus, rabbit_4}
+    }
+    map:set_cinematic_mode(true, options)
+    marin:sing_start()
+    wait(5000)
+    map:set_cinematic_mode(false, options)
+  end)
+
+end

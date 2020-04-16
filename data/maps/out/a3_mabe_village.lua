@@ -21,7 +21,7 @@ map:register_event("on_started", function(map, destination)
   local item = game:get_item("magnifying_lens")
   local variant_lens = item:get_variant()
   -- Marin
-  if not game:is_step_done("sword_obtained")  then
+  if not game:is_step_done("sword_obtained") or game:is_step_done("started_looking_for_marin") then
     marin:set_enabled(false)
   else
     marin:get_sprite():set_animation("waiting")

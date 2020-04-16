@@ -26,7 +26,7 @@ end
 function map:init_map_entities()
  
   -- Ananas
-  if game:get_value("main_quest_step") > 20 then
+  if game:is_step_done("started_looking_for_marin") then
     ananas:set_enabled(false)
   end
 
@@ -39,12 +39,12 @@ function map:talk_to_bear()
   local bear_sprite = bear:get_sprite()
   bear_sprite:set_direction(direction4)
   bear_sprite:set_animation("stopped")
-  if game:get_value("main_quest_step") < 20 then
-    game:start_dialog("maps.houses.yarna_desert.bear_house.bear_1", function()
+  if game:is_step_done("started_looking_for_marin") then
+    game:start_dialog("maps.houses.yarna_desert.bear_house.bear_4", function()
       bear_sprite:set_direction(3)
       bear_sprite:set_animation("waiting")
     end)
-  elseif game:get_value("main_quest_step") == 20  then
+  elseif game:is_step_last("tarin_bee_event_over") then
     game:start_dialog("maps.houses.yarna_desert.bear_house.bear_2", function(answer)
       if answer == 1 then
         ananas:set_enabled(false)
@@ -52,6 +52,7 @@ function map:talk_to_bear()
           game:start_dialog("maps.houses.yarna_desert.bear_house.bear_4", function()
             bear_sprite:set_direction(3)
             bear_sprite:set_animation("waiting")
+            game:set_step_done("started_looking_for_marin")
           end)
         end)
       else
@@ -62,10 +63,7 @@ function map:talk_to_bear()
       end
     end)
   else
-    game:start_dialog("maps.houses.yarna_desert.bear_house.bear_4", function()
-      bear_sprite:set_direction(3)
-      bear_sprite:set_animation("waiting")
-    end)
+
   end
 
 end

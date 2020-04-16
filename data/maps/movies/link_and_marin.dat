@@ -38,17 +38,6 @@ custom_entity{
 }
 
 custom_entity{
-  name = "swell_1",
-  layer = -1,
-  x = 8,
-  y = 421,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/decorations/swell",
-}
-
-custom_entity{
   name = "seagull_1_destination",
   layer = -1,
   x = 344,
@@ -79,39 +68,6 @@ custom_entity{
 }
 
 custom_entity{
-  name = "swell_2",
-  layer = -1,
-  x = 40,
-  y = 421,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/decorations/swell",
-}
-
-custom_entity{
-  name = "swell_3",
-  layer = -1,
-  x = 72,
-  y = 421,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/decorations/swell",
-}
-
-custom_entity{
-  name = "swell_4",
-  layer = -1,
-  x = 104,
-  y = 421,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/decorations/swell",
-}
-
-custom_entity{
   name = "swell_5",
   layer = -1,
   x = 136,
@@ -119,7 +75,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/decorations/swell",
+  sprite = "entities/decorations/swell_1",
 }
 
 custom_entity{
@@ -130,7 +86,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/decorations/swell",
+  sprite = "entities/decorations/swell_1",
 }
 
 custom_entity{
@@ -141,7 +97,51 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/decorations/swell",
+  sprite = "entities/decorations/swell_1",
+}
+
+custom_entity{
+  name = "swell_11",
+  layer = -1,
+  x = 104,
+  y = 421,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/decorations/swell_1",
+}
+
+custom_entity{
+  name = "swell_12",
+  layer = -1,
+  x = 72,
+  y = 421,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/decorations/swell_1",
+}
+
+custom_entity{
+  name = "swell_13",
+  layer = -1,
+  x = 40,
+  y = 421,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/decorations/swell_1",
+}
+
+custom_entity{
+  name = "swell_14",
+  layer = -1,
+  x = 8,
+  y = 421,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/decorations/swell_1",
 }
 
 custom_entity{
@@ -152,7 +152,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/decorations/swell",
+  sprite = "entities/decorations/swell_1",
 }
 
 custom_entity{
@@ -163,7 +163,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/decorations/swell",
+  sprite = "entities/decorations/swell_1",
 }
 
 custom_entity{
@@ -174,7 +174,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "entities/decorations/swell",
+  sprite = "entities/decorations/swell_1",
 }
 
 tile{
@@ -421,7 +421,7 @@ npc{
   y = 445,
   direction = 1,
   subtype = 1,
-  sprite = "npc/marin",
+  sprite = "npc/villagers/marin",
 }
 
 tile{
@@ -450,7 +450,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "npc/seagull",
+  sprite = "entities/animals/seagull",
   model = "seagull",
 }
 
