@@ -1,5 +1,15 @@
--- Lua script of pincer.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Pincer.
+--
+-- Immobile enemy composed of a head and three body sprites.
+-- Starts hidden and appear to try to bite the hero when close enough.
+--
+-- Methods : enemy:start_charging()
+--           enemy:appear()
+--           enemy:wait()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
@@ -26,7 +36,7 @@ local appearing_duration = 1000
 local before_go_back_delay = 600
 
 -- Start charging to the given angle.
-function enemy:start_charging_movement(angle, speed)
+local function start_charging_movement(angle, speed)
 
   local movement = sol.movement.create("straight")
   movement:set_speed(speed)
@@ -56,13 +66,13 @@ function enemy:start_charging()
 
   -- Start movement.
   local angle = enemy:get_angle(hero)
-  local movement = enemy:start_charging_movement(angle, charging_speed)
+  local movement = start_charging_movement(angle, charging_speed)
 
   -- Go back after a delay on movement finished.
   function movement:on_finished()
     before_go_back_timer = sol.timer.start(enemy, before_go_back_delay, function()
       before_go_back_timer = nil
-      movement = enemy:start_charging_movement(angle + math.pi, go_back_speed)
+      movement = start_charging_movement(angle + math.pi, go_back_speed)
 
       function movement:on_finished()
         enemy:restart()

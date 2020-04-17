@@ -1,5 +1,12 @@
--- Lua script of enemy goponga flower giant.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Goponga Flower Giant.
+--
+-- Immobile enemy that repulse on sword attack received, and regularly throw projectile to the hero.
+--
+-- Methods : enemy:wait()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...

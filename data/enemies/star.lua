@@ -1,6 +1,12 @@
--- Lua script of enemy "star".
--- This script is executed every time an enemy with this model is created.
-
+----------------------------------
+--
+-- Star.
+--
+-- Go towards a diagonal direction and bounce on obstacle reached.
+--
+-- Methods : enemy:start_walking([angle])
+--
+----------------------------------
 -- Variables
 local enemy = ...
 require("enemies/lib/common_actions").learn(enemy)

@@ -1,5 +1,14 @@
--- Lua script of enemy darknut_bow.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Darknut.
+--
+-- Moves randomly over horizontal and vertical axis.
+-- Throw a stone at the end of each walk step if the hero is on the direction the enemy is looking at.
+-- Turn his head to the next direction before starting a new random move.
+--
+-- Methods : enemy:start_walking([direction])
+--
+----------------------------------
 
 local enemy = ...
 require("scripts/multi_events")
@@ -23,22 +32,23 @@ local projectile_breed = "arrow"
 local projectile_offset = {{0, -10}, {6, 0}, {0, -10}, {-1, 0}}
 
 -- Start the enemy movement.
-function enemy:start_walking(key)
+function enemy:start_walking(direction)
 
-  enemy:start_straight_walking(walking_angles[key], walking_speed, math.random(walking_minimum_distance, walking_maximum_distance), function()
-    local next_key = math.random(4)
-    local waiting_animation = (key + 1) % 4 == next_key % 4 and "seek_left" or (key - 1) % 4 == next_key % 4 and "seek_right" or "immobilized"
+  direction = direction or math.random(4)
+  enemy:start_straight_walking(walking_angles[direction], walking_speed, math.random(walking_minimum_distance, walking_maximum_distance), function()
+    local next_direction = math.random(4)
+    local waiting_animation = (direction + 1) % 4 == next_direction and "seek_left" or (direction - 1) % 4 == next_direction and "seek_right" or "immobilized"
     sprite:set_animation(waiting_animation)
 
     sol.timer.start(enemy, waiting_duration, function()
 
       -- Throw an arrow if the hero is on the direction the enemy is looking at.
       if enemy:get_direction4_to(hero) == sprite:get_direction() then
-        enemy:throw_projectile(projectile_breed, throwing_duration, projectile_offset[key][1], projectile_offset[key][2], function()
-          enemy:start_walking(next_key)
+        enemy:throw_projectile(projectile_breed, throwing_duration, projectile_offset[direction][1], projectile_offset[direction][2], function()
+          enemy:start_walking(next_direction)
         end)
       else
-        enemy:start_walking(next_key)
+        enemy:start_walking(next_direction)
       end
     end)
   end)
@@ -63,5 +73,5 @@ enemy:register_event("on_restarted", function(enemy)
   -- States.
   enemy:set_can_attack(true)
   enemy:set_damage(1)
-  enemy:start_walking(math.random(4))
+  enemy:start_walking()
 end)

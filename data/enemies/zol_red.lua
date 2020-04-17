@@ -1,5 +1,15 @@
--- Lua script of enemy zol_red.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Zol Red.
+--
+-- Slowly move to hero, and pounce on him when close enough.
+-- Split into two Gels when hit by weak weapons.
+--
+-- Methods : enemy:start_walking()
+--           enemy:start_pouncing()
+--           enemy:split()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
@@ -35,14 +45,14 @@ function enemy:start_walking()
       -- Shake for a short duration then start attacking.
       sprite:set_animation("shaking")
       sol.timer.start(enemy, shaking_duration, function()
-         enemy:start_jump_attack()
+         enemy:start_pouncing()
       end)
     end
   end
 end
 
--- Start jumping to the hero.
-function enemy:start_jump_attack()
+-- Start pouncing to the hero.
+function enemy:start_pouncing()
 
   local hero_x, hero_y, _ = hero:get_position()
   local enemy_x, enemy_y, _ = enemy:get_position()

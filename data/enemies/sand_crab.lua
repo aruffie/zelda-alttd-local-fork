@@ -1,5 +1,12 @@
--- Lua script of enemy sand crab.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Sand Crab.
+--
+-- Moves randomly over horizontal and vertical axis, with a different speed depending on the axis.
+--
+-- Methods : enemy:start_walking()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...

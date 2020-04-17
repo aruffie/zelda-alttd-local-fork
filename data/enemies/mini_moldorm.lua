@@ -1,5 +1,13 @@
--- Lua script of enemy mini_moldorm.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Mini Moldorm.
+--
+-- Moves in curved motion, and randomly change the direction of the curve.
+-- Has a body and tail sprites following the head.
+--
+-- Methods : enemy:start_walking()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...

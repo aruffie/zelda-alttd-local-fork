@@ -1,5 +1,13 @@
--- Lua script of enemy blue stalfos.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Stalfos Blue.
+--
+-- Moves to the hero and pounce above him when close enough, then wait a few time in the air and finally stomp down the hero.
+--
+-- Methods : enemy:start_walking()
+--           enemy:start_attacking()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...

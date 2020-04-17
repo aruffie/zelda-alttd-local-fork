@@ -1,5 +1,13 @@
--- Lua script of enemy tektite water.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Tektite Water.
+--
+-- Wait a few time then go to a diagonal direction with acceleration and deceleration, and restarts.
+-- Can only move over water grounds.
+--
+-- Methods : enemy:start_walking()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...

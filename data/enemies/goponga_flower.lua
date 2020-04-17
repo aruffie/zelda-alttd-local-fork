@@ -1,5 +1,11 @@
--- Lua script of enemy goponga flower.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Goponga Flower.
+--
+-- Immobile enemy that repulse on sword attack received.
+-- No method or events.
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...

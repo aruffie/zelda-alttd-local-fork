@@ -1,5 +1,19 @@
--- Lua script of enemy mad bomber.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Mad Bomber.
+--
+-- Start hidden and regularly appear to throw a bomb to the hero.
+-- The enemy stay at the same position, override an event from outside this script to move the position when necessary.
+--
+-- Methods : enemy:appear()
+--           enemy:wait()
+--
+-- Events :  enemy:on_appearing()
+--           enemy:on_appeared()
+--           enemy:on_disappearing()
+--           enemy:on_disappeared()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
@@ -24,6 +38,9 @@ local bomb_throw_speed = 88
 -- Make the enemy appear.
 function enemy:appear()
 
+  if enemy.on_appearing then
+    enemy:on_appearing()
+  end
   enemy:set_visible()
   sprite:set_animation("appearing", function()
 
@@ -45,10 +62,19 @@ function enemy:appear()
         bomb:explode()
       end)
 
+      if enemy.on_disappearing then
+        enemy:on_disappearing()
+      end
       sprite:set_animation("disappearing", function()
         enemy:restart()
+        if enemy.on_disappeared then
+          enemy:on_disappeared()
+        end
       end)
     end)
+    if enemy.on_appeared then
+      enemy:on_appeared()
+    end
   end)
 end
 

@@ -1,5 +1,13 @@
--- Lua script of enemy beetle blue.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Beetle.
+--
+-- Moves randomly over horizontal and vertical axis.
+-- May exists in several color skins.
+--
+-- Methods : enemy:start_walking()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
