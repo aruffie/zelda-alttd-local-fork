@@ -35,7 +35,8 @@ end
 function map:init_map_entities()
   
   -- Marin
-  marin:set_enabled(false)
+  marin_1:set_enabled(false)
+  marin_2:set_enabled(false)
   -- Musicians
   fox_musician:set_enabled(false)
   elephant_musician:set_enabled(false)
@@ -160,11 +161,44 @@ function map:launch_cinematic_1()
 
   map:start_coroutine(function()
     local options = {
-      entities_ignore_suspend = {hero, marin, walrus, rabbit_4}
+      entities_ignore_suspend = {hero, marin_2, companion_marin, walrus, rabbit_4, snores}
     }
     map:set_cinematic_mode(true, options)
-    marin:sing_start()
-    wait(5000)
+    -- Hero
+    hero:set_animation("walking")
+    hero:set_direction(1)
+    local movement1 = sol.movement.create("target")
+    movement1:set_speed(30)
+    movement1:set_target(position_link)
+    movement1:set_ignore_suspend(true)
+    movement(movement1, hero)
+    hero:set_animation("stopped")
+    hero:set_direction(3)
+    wait(1000)
+    -- Marin
+    local x, y, layer = companion_marin:get_position()
+    marin_2:set_position(x, y, layer)
+    marin_2:set_enabled(true)
+    companion_marin:set_enabled(false)
+    marin_2:get_sprite():set_animation("walking")
+    local movement2 = sol.movement.create("target")
+    movement2:set_speed(30)
+    movement2:set_target(position_marin)
+    movement2:set_ignore_suspend(true)
+    movement2:set_ignore_obstacles(true)
+    movement(movement2, marin_2)
+    marin_2:get_sprite():set_direction(0)
+    wait(1000)
+    marin_2:sing_start()
+    wait(1000)
+    snores:remove()
+    animation(walrus:get_sprite(), 'awakening')
+    for i=1,4 do
+      audio_manager:play_sound("hero/jump")
+      animation(walrus:get_sprite(), 'jumping')
+      walrus:get_sprite():set_animation("waiting")
+      wait(2000)
+    end
     map:set_cinematic_mode(false, options)
   end)
 

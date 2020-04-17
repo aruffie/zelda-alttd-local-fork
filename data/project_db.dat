@@ -980,6 +980,7 @@ sound{ id = "gb/enemies/turtlerock_blink2", description = "Turtlerock blink 2" }
 sound{ id = "gb/enemies/turtlerock_shed", description = "Turtlerock shed" }
 sound{ id = "gb/enemies/vacuum_mouth", description = "Vacuum mouth" }
 sound{ id = "gb/hero/bounce", description = "Bounce" }
+sound{ id = "gb/hero/cliff_jump", description = "Cliff jump" }
 sound{ id = "gb/hero/dizzy", description = "Dizzy" }
 sound{ id = "gb/hero/dying", description = "Dying" }
 sound{ id = "gb/hero/fall", description = "Fall" }

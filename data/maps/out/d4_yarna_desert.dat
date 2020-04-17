@@ -13305,7 +13305,7 @@ dynamic_tile{
 }
 
 npc{
-  name = "marin",
+  name = "marin_1",
   layer = 1,
   x = 160,
   y = 285,
@@ -13328,6 +13328,42 @@ npc{
   direction = 0,
   subtype = 1,
   sprite = "npc/animals/rabbit_1",
+}
+
+npc{
+  name = "marin_2",
+  layer = 1,
+  x = 384,
+  y = 669,
+  properties = {
+    {
+      key = "model",
+      value = "marin",
+    },
+  },
+  direction = 0,
+  subtype = 1,
+  sprite = "npc/villagers/marin",
+}
+
+custom_entity{
+  name = "position_link",
+  layer = 1,
+  x = 400,
+  y = 645,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+custom_entity{
+  name = "position_marin",
+  layer = 1,
+  x = 384,
+  y = 669,
+  width = 16,
+  height = 16,
+  direction = 0,
 }
 
 tile{
