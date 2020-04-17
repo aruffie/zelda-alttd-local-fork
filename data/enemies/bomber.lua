@@ -1,5 +1,15 @@
--- Lua script of enemy bomber.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Bomber.
+--
+-- Flying enemy moving randomly over horizontal and vertical axis, and stand off when the hero attacks too close.
+-- Regularly throw a bomb to the hero.
+--
+-- Methods : enemy:start_walking()
+--           enemy:start_attacking()
+--           enemy:start_stand_off()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
@@ -20,9 +30,9 @@ local walking_maximum_distance = 96
 local flying_height = 16
 local throwing_bomb_minimum_delay = 1500
 local throwing_bomb_maximum_delay = 3000
-local runaway_triggering_distance = 32
-local runaway_speed = 200
-local runaway_distance = 32
+local stand_off_triggering_distance = 32
+local stand_off_speed = 200
+local stand_off_distance = 32
 
 local bomb_throw_duration = 500
 local bomb_throw_height = 20
@@ -65,10 +75,10 @@ function enemy:start_attacking()
   end)
 end
 
--- Start the enemy runaway movement.
-function enemy:runaway()
+-- Start the enemy stand off movement.
+function enemy:start_stand_off()
 
-  enemy:start_straight_walking(enemy:get_angle_from_sprite(sprite, hero) + math.pi, runaway_speed, runaway_distance, function()
+  enemy:start_straight_walking(enemy:get_angle_from_sprite(sprite, hero) + math.pi, stand_off_speed, stand_off_distance, function()
     enemy:start_walking()
   end)
 end
@@ -77,8 +87,8 @@ end
 game:register_event("on_command_pressed", function(game, command)
 
   if enemy:exists() and enemy:is_enabled() and not enemy.is_exhausted then
-    if enemy:is_near(hero, runaway_triggering_distance) and (command == "attack" or command == "item_1" or command == "item_2") then
-      enemy:runaway()
+    if enemy:is_near(hero, stand_off_triggering_distance) and (command == "attack" or command == "item_1" or command == "item_2") then
+      enemy:start_stand_off()
     end
   end
 end)

@@ -1,5 +1,14 @@
--- Lua script of enemy ghini giant.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Ghini Giant.
+--
+-- Target a random visible point on the map and go to it with acceleration and deceleration, then target another visible point.
+-- Possibly can start asleep, in case it has to be wake_up() from outside this script.
+--
+-- Methods : enemy:start_moving()
+--           enemy:wake_up()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
@@ -20,10 +29,10 @@ local take_off_duration = 1000
 local flying_speed = 80
 local flying_height = 16
 local flying_acceleration = 16
-local flying_deceleration = 32
+local flying_deceleration = 48
 
--- Make the enemy flying movement.
-function enemy:start_flying_movement()
+-- Start the enemy flying movement.
+function enemy:start_moving()
 
   local enemy_x, enemy_y, _ = enemy:get_position()
   local camera_x, camera_y = camera:get_position()
@@ -41,7 +50,7 @@ function enemy:start_flying_movement()
 
   -- Target a new random point when target reached.
   function movement:on_decelerating()
-    enemy:start_flying_movement()
+    enemy:start_moving()
   end
 end
 
@@ -51,7 +60,7 @@ function enemy:wake_up()
   enemy:start_flying(take_off_duration, flying_height, function()
     sol.timer.start(enemy, after_awake_delay, function()
       is_sleeping = false
-      enemy:start_flying_movement()
+      enemy:start_moving()
     end)
   end)
 end
@@ -95,7 +104,7 @@ enemy:register_event("on_restarted", function(enemy)
   if not is_sleeping then
     sprite:set_xy(0, -flying_height)
     sol.timer.start(enemy, 10, function()
-      enemy:start_flying_movement() -- Workaround: The camera position is 0, 0 here when entering a map, wait a frame before starting the move.
+      enemy:start_moving() -- Workaround: The camera position is 0, 0 here when entering a map, wait a frame before starting the move.
     end)
   end
 end)

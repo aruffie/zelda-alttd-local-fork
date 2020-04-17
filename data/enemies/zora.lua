@@ -1,5 +1,14 @@
--- Lua script of zora.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Zora.
+--
+-- Start hidden and regularly appear from a whirlwind to throw a projectile to the hero.
+-- The enemy stay at the same position.
+--
+-- Methods : enemy:appear()
+--           enemy:wait()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...

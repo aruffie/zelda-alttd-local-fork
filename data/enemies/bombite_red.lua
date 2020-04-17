@@ -1,5 +1,15 @@
--- Lua script of enemy bombite red.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Bombite Red.
+--
+-- Moves randomly over horizontal and vertical axis.
+-- Propelled across the room when attacked and bounce on obstacle, exploding after some time or hitting another enemy.
+--
+-- Methods : enemy:explode()
+--           enemy:start_walking()
+--           enemy:start_propelled([angle])
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
@@ -10,24 +20,24 @@ local map = enemy:get_map()
 local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
-local is_running = false
+local is_propelled = false
 
 -- Configuration variables
 local walking_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
 local walking_speed = 32
 local walking_minimum_distance = 16
 local walking_maximum_distance = 96
-local running_speed = 200
-local running_duration = 2000
+local propelled_speed = 200
+local propelled_duration = 2000
 
 -- Behavior on effective shot received.
 local function on_attack_received()
 
-  -- Start running and a timer before explosion.
-  if not is_running then
-    is_running = true
-    enemy:start_running()
-    sol.timer.start(enemy, running_duration, function()
+  -- Start propelled and a timer before explosion.
+  if not is_propelled then
+    is_propelled = true
+    enemy:start_propelled()
+    sol.timer.start(enemy, propelled_duration, function()
       enemy:explode()
     end)
   end
@@ -53,20 +63,20 @@ function enemy:start_walking()
   end)
 end
 
--- Start going away to the hero and bounce.
-function enemy:start_running(angle)
+-- Start propelled away to the hero and bounce.
+function enemy:start_propelled(angle)
 
   angle = angle or hero:get_angle(enemy)
-  local movement = enemy:start_straight_walking(angle, running_speed, nil, function()
-    enemy:start_running(enemy:get_obstacles_bounce_angle(angle))
+  local movement = enemy:start_straight_walking(angle, propelled_speed, nil, function()
+    enemy:start_propelled(enemy:get_obstacles_bounce_angle(angle))
   end)
   movement:set_smooth(false)
 end
 
--- Explode on collision with another enemy while running.
+-- Explode on collision with another enemy while propelled.
 enemy:register_event("on_collision_enemy", function(enemy, other_enemy, other_sprite, my_sprite)
 
-  if is_running then
+  if is_propelled then
     enemy:explode()
   end
 end)

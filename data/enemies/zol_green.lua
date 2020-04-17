@@ -1,5 +1,15 @@
--- Lua script of enemy zol_green.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Zol Green.
+--
+-- Start invisible and appear when the hero is close enough, then pounce several times to him.
+--
+-- Methods : enemy:start_pouncing()
+--           enemy:appear()
+--           enemy:disappear()
+--           enemy:wait()
+--
+----------------------------------
 
 -- Variables
 local enemy = ...
@@ -22,8 +32,8 @@ local between_jump_duration = 500
 local max_jump_combo = 8
 local triggering_distance = 60
 
--- Start jumping to the hero.
-function enemy:start_jump_attack()
+-- Start pouncing to the hero.
+function enemy:start_pouncing()
 
   local hero_x, hero_y, _ = hero:get_position()
   local enemy_x, enemy_y, _ = enemy:get_position()
@@ -37,7 +47,7 @@ function enemy:start_jump_attack()
     else
       sol.timer.start(enemy, between_jump_duration, function()
         jump_count = jump_count + 1
-        enemy:start_jump_attack()
+        enemy:start_pouncing()
       end)
     end
   end)
@@ -54,7 +64,7 @@ function enemy:appear()
     sol.timer.start(enemy, 1000, function()
       jump_count = 1
       current_max_jump = math.random(max_jump_combo)
-      enemy:start_jump_attack()
+      enemy:start_pouncing()
     end)
   end)
 end

@@ -1603,7 +1603,7 @@ file{ path = "enemies/moblin_dog_spear.lua", author = "Vlag", license = "GPL v3"
 file{ path = "enemies/moblin_dog_sword.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/moblin_pig_fork.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/moblin_pig_sword.lua", author = "Vlag", license = "GPL v3" }
-file{ path = "enemies/monkey.lua", author = "Benjamin Schweitzer, Vlag", license = "GPL v3" }
+file{ path = "enemies/monkey.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/octorok.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/octorok_flying.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/orb_monster_blue.lua", license = "GPL v3" }

@@ -1,5 +1,14 @@
--- Lua script of enemy moblin pig sword.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Moblin Pig Sword.
+--
+-- Moves randomly over horizontal and vertical axis, and charge the hero if close enough.
+-- Turn his head to the next direction before starting a new random move.
+--
+-- Methods : enemy:start_walking([direction])
+--           enemy:start_charging()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
@@ -11,7 +20,6 @@ local map = enemy:get_map()
 local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
-
 local is_charging = false
 
 -- Configuration variables
@@ -23,34 +31,25 @@ local walking_minimum_distance = 16
 local walking_maximum_distance = 96
 local waiting_duration = 800
 
--- Start the enemy initial movement.
-function enemy:start_walking()
-
-  if not is_charging and enemy:is_near(hero, charge_triggering_distance) then
-    enemy:start_charge_walking()
-  else
-    enemy:start_random_walking(math.random(4))
-  end
-end
-
 -- Start the enemy random movement.
-function enemy:start_random_walking(key)
+function enemy:start_walking(direction)
 
-  enemy:start_straight_walking(walking_angles[key], walking_speed, math.random(walking_minimum_distance, walking_maximum_distance), function()    
-    local next_key = math.random(4)
-    local waiting_animation = (key + 1) % 4 == next_key % 4 and "seek_left" or (key - 1) % 4 == next_key % 4 and "seek_right" or "immobilized"
+  direction = direction or math.random(4)
+  enemy:start_straight_walking(walking_angles[direction], walking_speed, math.random(walking_minimum_distance, walking_maximum_distance), function()    
+    local next_direction = math.random(4)
+    local waiting_animation = (direction + 1) % 4 == next_direction and "seek_left" or (direction - 1) % 4 == next_direction and "seek_right" or "immobilized"
     sprite:set_animation(waiting_animation)
 
     sol.timer.start(enemy, waiting_duration, function()
       if not is_charging then
-        enemy:start_random_walking(next_key)
+        enemy:start_walking(next_direction)
       end
     end)
   end)
 end
 
 -- Start the enemy charge movement.
-function enemy:start_charge_walking()
+function enemy:start_charging()
 
   is_charging = true
   enemy:stop_movement()
@@ -66,8 +65,8 @@ enemy:register_event("on_update", function(enemy)
   end
 
   -- Start charging if the hero is near enough
-  if not is_charging and enemy:is_near(hero, charge_triggering_distance) then -- TODO is seeing hero ?
-    enemy:start_charge_walking()
+  if not is_charging and enemy:is_near(hero, charge_triggering_distance) then
+    enemy:start_charging()
   end
 end)
 

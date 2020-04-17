@@ -1,5 +1,14 @@
--- Lua script of enemy helmasaur.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Helmasaur.
+--
+-- Moves randomly over horizontal and vertical axis, and is invulnerable to front attacks.
+-- Can be defeated by attacking him in the back, or take off his mask with the hookshot to set him weak from everywhere.
+--
+-- Methods : enemy:start_walking()
+--           enemy:set_weak()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...

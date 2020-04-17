@@ -1,5 +1,12 @@
--- Lua script of enemy goomba.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Goomba.
+--
+-- Moves randomly over horizontal and vertical axis, or horizontal axis only on sideview maps.
+--
+-- Methods : enemy:start_walking()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...

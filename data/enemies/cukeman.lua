@@ -1,5 +1,14 @@
--- Lua script of enemy cukeman.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Cukeman.
+--
+-- Randomly goes over 8 directions and electrocute the hero when attacked from afar.
+-- Talk to the hero on interaction or closely attacked.
+--
+-- Methods : enemy:start_walking()
+--           enemy:start_talking([dialog_number])
+--
+----------------------------------
 
 -- Global variables.
 local enemy = ...
@@ -30,9 +39,9 @@ function enemy:start_walking()
   end)
 end
 
--- Start speaking to the enemy.
-function enemy:speak()
-  game:start_dialog("enemies.cukeman." .. math.random(4))
+-- Start talking to the enemy.
+function enemy:talk(dialog_number)
+  game:start_dialog("enemies.cukeman." .. (dialog_number or math.random(4)))
 end
 
 -- Handle custom sword and magic powder attacks.
@@ -43,7 +52,7 @@ enemy:register_event("on_custom_attack_received", function(enemy, attack)
 
     -- Display a message if the hero is near enough, else electrify.
     if enemy:is_near(hero, message_triggering_distance) then
-      enemy:speak()
+      enemy:start_talking()
     else
       local camera = map:get_camera()
       local surface = camera:get_surface()
@@ -75,7 +84,7 @@ enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(4)
 
-  -- Create a welded npc to be able to speak to cukeman with action command.
+  -- Create a welded npc to be able to talk to cukeman with action command.
   local x, y, layer = enemy:get_position()
   local width, height = enemy:get_size()
   npc = map:create_npc({
@@ -89,7 +98,7 @@ enemy:register_event("on_created", function(enemy)
   })
   npc:set_traversable(true)
   function npc:on_interaction()
-    enemy:speak()
+    enemy:start_talking()
   end
   enemy:start_welding(npc)
 end)

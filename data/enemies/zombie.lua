@@ -1,5 +1,16 @@
--- Lua script of enemy leever.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Zombie.
+--
+-- Start invisible and appear after a random time at a random position, then go to the hero direction.
+-- Disappear after some time or obstacle reached.
+--
+-- Methods : enemy:start_walking()
+--           enemy:appear()
+--           enemy:disappear()
+--           enemy:wait()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
@@ -55,7 +66,7 @@ end
 -- Make the enemy appear at a random position.
 function enemy:appear()
 
-  -- Postpone to the next frame if the random position would be over an abostacle.
+  -- Postpone to the next frame if the random position would be over an obstacle.
   local x, y, _ = enemy:get_position()
   local random_x, random_y = get_random_visible_position()
   if enemy:test_obstacles(random_x - x, random_y - y) then

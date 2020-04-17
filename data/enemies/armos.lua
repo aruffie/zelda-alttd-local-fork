@@ -1,5 +1,12 @@
--- Lua script of enemy armos.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Armos.
+--
+-- Be immobile at start and wait to be touched by the hero to wake up, then target him.
+--
+-- Methods : enemy:start_walking()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...

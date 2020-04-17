@@ -1,5 +1,13 @@
--- Lua script of enemy gibdo.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Rope.
+--
+-- Moves randomly over horizontal and vertical axis, and charges the hero when aligned with him.
+--
+-- Methods : enemy:start_walking()
+--           enemy:start_charging()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...

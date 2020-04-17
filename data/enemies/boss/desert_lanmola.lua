@@ -41,7 +41,7 @@ end
 -- Make the enemy appear at a random position.
 function enemy:appear()
 
-  -- Postpone to the next frame if the random position would be over an abostacle.
+  -- Postpone to the next frame if the random position would be over an obstacle.
   local x, y, _ = enemy:get_position()
   local random_x, random_y = get_random_visible_position()
   if enemy:test_obstacles(random_x - x, random_y - y) then

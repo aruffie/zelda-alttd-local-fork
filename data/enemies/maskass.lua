@@ -1,5 +1,12 @@
--- Lua script of enemy maskass.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Maskass.
+--
+-- Copy and reverse hero moves.
+-- The sword can only hurt him by attacks in the back.
+-- No method or events.
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...

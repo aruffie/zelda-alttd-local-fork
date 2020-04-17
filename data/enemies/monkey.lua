@@ -1,5 +1,17 @@
--- Lua script of enemy "monkey".
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Monkey.
+--
+-- Immobile enemy throwing coconuts the hero, and occasionnaly a bomb.
+-- One can start_knocking_off() the enemy from outside this script, then he will fall and run away.
+--
+-- Methods : enemy:start_throwing_projectile(direction, angle, [on_throwed_callback])
+--           enemy:attack()
+--           enemy:wait()
+--           enemy:start_knocking_off()
+--           enemy:start_running_away()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...

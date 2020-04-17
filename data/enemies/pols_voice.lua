@@ -1,5 +1,13 @@
--- Lua script of enemy pols voice.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Pols Voice.
+--
+-- Pounce forever to a random direction.
+--
+-- Methods : enemy:start_pouncing()
+--           enemy:wait()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
@@ -20,7 +28,7 @@ local waiting_minimum_duration = 500
 local waiting_maximum_duration = 700
 
 -- Start the enemy movement.
-function enemy:start_moving()
+function enemy:start_pouncing()
 
   sprite:set_animation("jumping")
   enemy:start_jumping(jumping_duration, jumping_height, math.random() * circle, jumping_speed, function()
@@ -33,7 +41,7 @@ end
 function enemy:wait()
 
   sol.timer.start(enemy, math.random(waiting_minimum_duration, waiting_maximum_duration), function()
-    enemy:start_moving()
+    enemy:start_pouncing()
   end)
 end
 

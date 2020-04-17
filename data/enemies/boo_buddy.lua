@@ -1,5 +1,15 @@
--- Lua script of enemy boo buddy.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Boo buddy.
+--
+-- Slowly moves to the hero and respawn symmetrically about the center of the room when attacked.
+-- Has to be set_weak() from outside this script to be vulnerable.
+--
+-- Methods : enemy:is_weak()
+--           enemy:set_weak(weak)
+--           enemy:start_walking()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
@@ -19,36 +29,13 @@ local flying_weak_speed = 8
 local flying_height = 8
 local blinking_duration = 1000
 
--- Start the enemy normal movement.
-function enemy:start_walking()
-
-  local movement = enemy:start_target_walking(hero, flying_speed)
-  movement:set_ignore_obstacles(true)
-  function movement:on_position_changed()
-    local angle = enemy:get_angle(hero)
-    sprite:set_direction(angle > quarter and angle < 3.0 * quarter and 2 or 0)
-  end
-end
-
 -- Start the enemy go away movement.
-function enemy:start_go_away()
+local function go_away(enemy)
 
   local angle = hero:get_angle(enemy)
   local movement = enemy:start_straight_walking(angle, flying_weak_speed)
   movement:set_ignore_obstacles(true)
   sprite:set_animation("weak_walking")
-end
-
--- Return the enemy weak state.
-function enemy:is_weak()
-  return is_weak
-end
-
--- Set the enemy weak.
-function enemy:set_weak(weak)
-
-  is_weak = weak
-  enemy:restart()
 end
 
 -- Make the enemy respawn at the other side of the room.
@@ -69,6 +56,29 @@ local function on_inoffensive_attack()
   end)
 end
 
+-- Return the enemy weak state.
+function enemy:is_weak()
+  return is_weak
+end
+
+-- Set the enemy weak.
+function enemy:set_weak(weak)
+
+  is_weak = weak
+  enemy:restart()
+end
+
+-- Start the enemy normal movement.
+function enemy:start_walking()
+
+  local movement = enemy:start_target_walking(hero, flying_speed)
+  movement:set_ignore_obstacles(true)
+  function movement:on_position_changed()
+    local angle = enemy:get_angle(hero)
+    sprite:set_direction(angle > quarter and angle < 3.0 * quarter and 2 or 0)
+  end
+end
+
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
 
@@ -82,7 +92,7 @@ end)
 enemy:register_event("on_restarted", function(enemy)
 
   -- States.
-  sprite:set_xy(0, -flying_height) -- Directly flying without landing.
+  sprite:set_xy(0, -flying_height)
   enemy:set_can_attack(true)
   enemy:set_damage(4)
   enemy:set_layer_independent_collisions(true)
@@ -101,6 +111,6 @@ enemy:register_event("on_restarted", function(enemy)
       fire = 4,
       thrust = 4
     })
-    enemy:start_go_away()
+    go_away(enemy)
   end
 end)
