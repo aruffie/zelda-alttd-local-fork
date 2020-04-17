@@ -5,6 +5,9 @@
 local item = ...
 local game = item:get_game()
 
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
+
 -- Event called when the game is initialized.
 function item:on_created()
   
@@ -20,13 +23,7 @@ function item:on_using()
   local map = game:get_map()
   local hero = map:get_hero()
   local ocarina = game:get_item("ocarina")
-  hero:freeze()
-  game:set_pause_allowed(false)
-  ocarina:playing_song("items/ocarina_ballad", function()
-    hero:unfreeze()
-    game:set_pause_allowed(true)
-  end)
-
+  ocarina:playing_song("items/ocarina_ballad")
   item:set_finished()
   
 end

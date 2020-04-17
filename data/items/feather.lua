@@ -16,14 +16,16 @@ local game = item:get_game()
 
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
-local jump_manager=require("scripts/maps/jump_manager")
+local jump_manager = require("scripts/maps/jump_manager")
 require("scripts/multi_events")
 
 -- Event called when the game is initialized.
 function item:on_started()
+  
   item:set_savegame_variable("possession_feather")
   item:set_sound_when_brandished(nil)
   item:set_assignable(true)
+  
 end
 
 local game_meta = sol.main.get_metatable("game")

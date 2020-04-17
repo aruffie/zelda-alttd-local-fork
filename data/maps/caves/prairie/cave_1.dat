@@ -3212,9 +3212,9 @@ separator{
 
 separator{
   layer = 2,
-  x = 320,
-  y = 264,
-  width = 320,
+  x = 0,
+  y = 248,
+  width = 640,
   height = 16,
 }
 

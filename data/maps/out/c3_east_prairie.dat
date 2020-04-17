@@ -11781,8 +11781,7 @@ teletransporter{
   },
   width = 16,
   height = 16,
-  destination_map = "sideviews/east_prairie/seashell_mansion",
-  destination = "east_prairie_seashell_mansion_2_A",
+  destination_map = "houses/east_prairie/telephone_booth_5",
 }
 
 tile{

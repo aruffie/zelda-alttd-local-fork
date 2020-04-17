@@ -2711,10 +2711,8 @@ L'écriture, c'est vraiment mon hobby !
 dialog{
   id = "maps.houses.yarna_desert.bear_house.bear_1",
   text = [[
-Il me manque des 
-ingrédients. C'est embêtant.
-Si j'avais du Miel, 
-ce serait parfait !
+Il me manque des ingrédients. C'est embêtant.
+Si j'avais du Miel,ce serait parfait !
 ]],
 }
 
@@ -2722,10 +2720,9 @@ dialog{
   id = "maps.houses.yarna_desert.bear_house.bear_2",
   question = "1",
   text = [[
-C'est du § que tu as là!   
+C'est du \[honey\] que tu as là !   
 J'en ai besoin ! 
-Tu ne veux pas d'Ananas        
-à la place ?     
+Tu ne veux pas d'Ananas à la place ?     
 Oui
 Non
 ]],
@@ -2735,8 +2732,7 @@ dialog{
   id = "maps.houses.yarna_desert.bear_house.bear_3",
   text = [[
 Flûte alors !    
-Tu regretteras de ne pas       
-avoir goûté à ce délice !
+Tu regretteras de ne pas avoir goûté à ce délice !
 ]],
 }
 
@@ -2744,30 +2740,19 @@ dialog{
   id = "maps.houses.yarna_desert.bear_house.bear_4",
   text = [[
 Ho oui !
-Je connais bien les
-Dunes de Yarna. 
-Mais leur entrée située au       
-Sud du Village est bloquée 
-par une drôle de créature.    
-Et quand celle-ci dort,  
-pas moyen de la réveiller.
-J'ai une idée : amène Marine    
-avec toi et fais-la chanter 
-pour réveiller cet animal !
+Je connais bien les Dunes de Yarna. 
+Mais leur entrée située au  Sud du Village est bloquée par une drôle de créature.    
+Et quand celle-ci dort, pas moyen de la réveiller.
+J'ai une idée : amène Marine avec toi et fais-la chanter pour réveiller cet animal !
 ]],
 }
 
 dialog{
   id = "maps.houses.yarna_desert.christine_house.christine_1",
   text = [[
-Tu ne connais pas 
-l'étiquette quand tu rends 
-visite à une dame ??      
-Si tu m'avais apporté         
-des fleurs, j'aurais été    
-plus loquace.   
-Personnellement,
-j'adore les hibiscus...
+Tu ne connais pas l'étiquette quand tu rends visite à une dame ??      
+Si tu m'avais apporté des fleurs, j'aurais été plus loquace.   
+Personnellement, j'adore les hibiscus...
 ]],
 }
 
@@ -2775,10 +2760,10 @@ dialog{
   id = "maps.houses.yarna_desert.christine_house.christine_2",
   question = "1",
   text = [[
-Oh, tu m'as apporté un © ! 
+Oh, tu m'as apporté un \[hibiscus\] ! 
 Comme c'est gentil !   
-J'ai une faveur à te 
-demander. Je peux ?        
+J'ai une faveur à te demander.
+Je peux ?        
 Oui
 Non
 ]],
@@ -2788,18 +2773,14 @@ dialog{
   id = "maps.houses.yarna_desert.christine_house.christine_3",
   text = [[
 Ah bon...       
-Et dire que je te prenais
-pour un gentilhomme ! 
+Et dire que je te prenais pour un gentilhomme ! 
 ]],
 }
 
 dialog{
   id = "maps.houses.yarna_desert.christine_house.christine_4",
   text = [[
-J'aimerais te confier      
-une lettre pour 
-Mr Wright, qui habite      
-dans la Forêt.  
+J'aimerais te confier  une lettre pour Mr Wright, qui habite dans la Forêt.  
 Merci d'avance ! 
 ]],
 }
@@ -2807,11 +2788,9 @@ Merci d'avance !
 dialog{
   id = "maps.houses.yarna_desert.christine_house.christine_5",
   text = [[
-Je ne peux pas 
-m'empêcher de grignoter 
-du papier. Quel délice !    
-... Même les lettres de
-mon cher Mr Wright ! 
+Je ne peux pas m'empêcher de grignoter du papier. Quel délice !    
+...
+Même les lettres de mon cher Mr Wright ! 
 ... J'ai honte !!
 ]],
 }
@@ -3275,7 +3254,7 @@ dialog{
   id = "maps.out.mabe_village.marin_5",
   question = "1",
   text = [[
-Alors,comment tu la trouves ?  
+Alors, comment tu la trouves ?  
 N'est-elle pas émouvante ?      
 
 Sauras-tu t'en souvenir ?       
@@ -3347,6 +3326,8 @@ dialog{
   text = [[
 Je te l'avais prédit : je me suis perdu !
 J'ai trop faim pour faire un pas de plus.
+
+
 Me nourriras-tu ?
 Oui
 Non
@@ -3363,8 +3344,8 @@ C'est pas sympa !
 dialog{
   id = "maps.out.mambos_cave.father_3",
   text = [[
-Cet ¨ a l'air délicieux !      
-En remerciement, je mange l'¨.
+Cet \[pineapple\] a l'air délicieux !      
+En remerciement, je mange l'\[pineapple\].
 ]],
 }
 
@@ -3373,7 +3354,7 @@ dialog{
   text = [[
 Au fait !!
 Voici un petit cadeau.
-Je te donne cet ©...
+Je te donne cet \[hibiscus\]...
 C'est un Hibiscus.
 ]],
 }
@@ -3392,6 +3373,8 @@ dialog{
   text = [[
 Je te l'avais prédit : je me suis perdu !
 J'ai trop faim pour faire un pas de plus.
+
+
 Me nourriras-tu ?
 Non !
 Non
@@ -3501,6 +3484,7 @@ dialog{
   text = [[
 Oh $v, tu savais où me trouver !     
 Veux-tu qu'on parle un peu ?   
+
 Oui
 Non
 ]],
@@ -3612,6 +3596,53 @@ dialog{
 }
 
 dialog{
+  id = "maps.out.yarna_desert.marin_1",
+  question = "1",
+  text = [[
+C'est ce gros lard de morse !       
+On lui fait peur ?           
+
+
+Oui
+Non
+]],
+}
+
+dialog{
+  id = "maps.out.yarna_desert.marin_2",
+  text = [[
+Ha ha ha !      
+Ton réveil était plutôt brutal   
+hein?...
+]],
+}
+
+dialog{
+  id = "maps.out.yarna_desert.marin_3",
+  text = [[
+Tiens donc ?     
+Il m'appelle ?   
+Oh là là, c'est toujours pareil.
+]],
+}
+
+dialog{
+  id = "maps.out.yarna_desert.marin_4",
+  text = [[
+Tu as raison.   
+On va le laisser dormir.
+]],
+}
+
+dialog{
+  id = "maps.out.yarna_desert.marin_5",
+  text = [[
+Je vais au Village des Animaux.    
+Rejoins-moi après, Link .
+]],
+}
+
+dialog{
   id = "maps.out.yarna_desert.rabbit_1_1",
   text = [[
 Une chanson de Marine par un si beau jour, ce serait le pied !
@@ -3656,7 +3687,7 @@ dialog{
   id = "maps.out.yarna_desert.walrus_1",
   text = [[
 ZZZ ZZZ ZZZ ZZZ 
- ... ® ... ® ...
+ ... \[marin\] ... \[marin\] ...
 ]],
 }
 
@@ -3707,16 +3738,11 @@ Un naufrage ?
 dialog{
   id = "movies.link_and_marin.marin_1",
   text = [[
-D'où vient cette noix de 
-coco ? Tarkin me dit qu'il 
-n'y a rien par-delà la mer.
-Moi, je suis persuadée       
-du contraire !   
-Tu sais Link, quand je t'ai 
-vu mon coeur s'est mis
-à battre la chamade...   
-Je suis sûre que tu es le        
-messager que j'attendais !
+D'où vient cette noix de coco ?
+Tarkin me dit qu'il n'y a rien par-delà la mer.
+Moi, je suis persuadée du contraire !   
+Tu sais Link, quand je t'ai vu mon coeur s'est mis à battre la chamade...   
+Je suis sûre que tu es le  messager que j'attendais !
 ]],
 }
 
@@ -3725,13 +3751,9 @@ dialog{
   text = [[
 ... ... ... ... 
 ... ... ... ... 
-Si j'étais une mouette,    
-je m'envolerais loin,
-très loin ! Je visiterais 
-des pays et chanterais 
-pour tous ! Si j'exprime un 
-voeu au Poisson-Rêve,
-l'exaucera-t'il ?
+Si j'étais une mouette, je m'envolerais loin, très loin !
+Je visiterais des pays et chanterais pour tous !
+Si j'exprime un voeu au Poisson-Rêve, l'exaucera-t'il ?
 ]],
 }
 
@@ -3740,8 +3762,7 @@ dialog{
   question = "1",
   text = [[
 Hé, tu écoutes ? 
-Link, es-tu sûr que tu      
-m'écoutes ?
+Link, es-tu sûr que tu  m'écoutes ?
 
 Oui
 Non
@@ -3751,8 +3772,7 @@ Non
 dialog{
   id = "movies.link_and_marin.marin_4",
   text = [[
-J'aimerais tant connaître  
-ton pays, Link ! 
+J'aimerais tant connaître ton pays, Link ! 
 Un jour mmm...
 ]],
 }
@@ -3769,9 +3789,8 @@ D'accord, je t'accompagne.
 dialog{
   id = "movies.link_and_marin.marin_6",
   text = [[
-Ho, tu descends de ton
-nuage ? Tu pourrais
-au moins m'écouter !
+Ho, tu descends de ton nuage ?
+Tu pourrais au moins m'écouter !
 ]],
 }
 

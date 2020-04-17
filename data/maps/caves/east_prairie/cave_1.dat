@@ -1341,7 +1341,7 @@ enemy{
   x = 448,
   y = 109,
   direction = 0,
-  breed = "zol_green",
+  breed = "piranha",
   treasure_name = "random_with_charm",
 }
 
@@ -1349,9 +1349,9 @@ enemy{
   name = "enemy_group_1_2",
   layer = 0,
   x = 464,
-  y = 149,
+  y = 157,
   direction = 0,
-  breed = "zol_green",
+  breed = "piranha",
   treasure_name = "random_with_charm",
 }
 
@@ -1361,7 +1361,7 @@ enemy{
   x = 176,
   y = 133,
   direction = 0,
-  breed = "zol_green",
+  breed = "piranha",
   treasure_name = "random_with_charm",
 }
 
@@ -1954,5 +1954,13 @@ tile{
   width = 16,
   height = 16,
   pattern = "ceiling.2",
+}
+
+separator{
+  layer = 2,
+  x = 312,
+  y = -8,
+  width = 16,
+  height = 240,
 }
 

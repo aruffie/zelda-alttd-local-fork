@@ -21,7 +21,7 @@ map:register_event("on_started", function(map, destination)
   local item = game:get_item("magnifying_lens")
   local variant_lens = item:get_variant()
   -- Marin
-  if not game:is_step_done("sword_obtained")  then
+  if not game:is_step_done("sword_obtained") or game:is_step_done("started_looking_for_marin") then
     marin:set_enabled(false)
   else
     marin:get_sprite():set_animation("waiting")
@@ -221,7 +221,7 @@ function map:talk_to_marin()
     end)
   elseif variant_ocarina == 1 and variant_melody_1 == 0 then
     game:start_dialog("maps.out.mabe_village.marin_4", function()
-      marin:launch_cinematic_marin_singing_with_hero()
+      marin:launch_cinematic_marin_singing_with_hero(map)
     end)
   elseif game:is_step_done("dungeon_3_completed") then
     game:start_dialog("maps.out.mabe_village.marin_8")

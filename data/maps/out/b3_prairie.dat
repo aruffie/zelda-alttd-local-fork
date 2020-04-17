@@ -4,7 +4,7 @@ properties{
   width = 960,
   height = 768,
   min_layer = 0,
-  max_layer = 2,
+  max_layer = 3,
   world = "outside_world",
   tileset = "out/outside_main",
   music = "same",
@@ -26749,6 +26749,16 @@ tile{
   pattern = "1350",
 }
 
+tile{
+  layer = 2,
+  x = 808,
+  y = 104,
+  width = 16,
+  height = 16,
+  pattern = "12344",
+  tileset = "out/outside_special",
+}
+
 custom_entity{
   name = "owl_slab",
   layer = 2,
@@ -27316,6 +27326,15 @@ enemy{
   treasure_name = "random_with_charm",
 }
 
+pickable{
+  name = "honey",
+  layer = 2,
+  x = 816,
+  y = 117,
+  treasure_name = "magnifying_lens",
+  treasure_variant = 6,
+}
+
 custom_entity{
   name = "honey_entity",
   layer = 2,
@@ -27325,14 +27344,5 @@ custom_entity{
   height = 16,
   direction = 3,
   sprite = "entities/items/honey",
-}
-
-pickable{
-  name = "honey",
-  layer = 2,
-  x = 768,
-  y = 109,
-  treasure_name = "magnifying_lens",
-  treasure_variant = 6,
 }
 

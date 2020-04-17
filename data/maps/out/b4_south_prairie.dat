@@ -20434,15 +20434,6 @@ npc{
   sprite = "npc/villagers/marin",
 }
 
-sensor{
-  name = "marin_sensor",
-  layer = 1,
-  x = 328,
-  y = 621,
-  width = 128,
-  height = 16,
-}
-
 destination{
   name = "marin_destination",
   layer = 1,
@@ -20908,6 +20899,36 @@ dynamic_tile{
   height = 8,
   pattern = "10215",
   tileset = "out/outside_special",
+}
+
+sensor{
+  name = "music_sensor",
+  layer = 1,
+  x = 328,
+  y = 629,
+  properties = {
+    {
+      key = "music",
+      value = "42_marin_beach",
+    },
+  },
+  width = 128,
+  height = 16,
+}
+
+sensor{
+  name = "music_sensor_2",
+  layer = 1,
+  x = 328,
+  y = 613,
+  properties = {
+    {
+      key = "music",
+      value = "10_overworld",
+    },
+  },
+  width = 128,
+  height = 16,
 }
 
 tile{

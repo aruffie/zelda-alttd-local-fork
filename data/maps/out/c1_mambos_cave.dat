@@ -17631,7 +17631,7 @@ jumper{
   width = 32,
   height = 8,
   direction = 6,
-  jump_length = 40,
+  jump_length = 56,
 }
 
 destination{

@@ -26,12 +26,11 @@ animation{
   name = "diving",
   src_image = "npc/animals/walrus.png",
   frame_delay = 120,
-  frame_to_loop_on = 0,
   directions = {
-    { x = 0, y = 144, frame_width = 88, frame_height = 48, origin_x = 44, origin_y = 45, num_frames = 2 },
-    { x = 0, y = 144, frame_width = 88, frame_height = 48, origin_x = 44, origin_y = 45, num_frames = 2 },
-    { x = 0, y = 144, frame_width = 88, frame_height = 48, origin_x = 44, origin_y = 45, num_frames = 2 },
-    { x = 0, y = 144, frame_width = 88, frame_height = 48, origin_x = 44, origin_y = 45, num_frames = 2 },
+    { x = 0, y = 144, frame_width = 88, frame_height = 48, origin_x = 44, origin_y = 45, num_frames = 3 },
+    { x = 0, y = 144, frame_width = 88, frame_height = 48, origin_x = 44, origin_y = 45, num_frames = 3 },
+    { x = 0, y = 144, frame_width = 88, frame_height = 48, origin_x = 44, origin_y = 45, num_frames = 3 },
+    { x = 0, y = 144, frame_width = 88, frame_height = 48, origin_x = 44, origin_y = 45, num_frames = 3 },
   },
 }
 animation{
@@ -44,5 +43,16 @@ animation{
     { x = 0, y = 96, frame_width = 88, frame_height = 48, origin_x = 44, origin_y = 5, num_frames = 6 },
     { x = 0, y = 96, frame_width = 88, frame_height = 48, origin_x = 44, origin_y = 5, num_frames = 6 },
     { x = 0, y = 96, frame_width = 88, frame_height = 48, origin_x = 44, origin_y = 5, num_frames = 6 },
+  },
+}
+animation{
+  name = "sinking",
+  src_image = "npc/animals/walrus.png",
+  frame_delay = 120,
+  directions = {
+    { x = 176, y = 144, frame_width = 88, frame_height = 48, origin_x = 44, origin_y = 45 },
+    { x = 176, y = 144, frame_width = 88, frame_height = 48, origin_x = 44, origin_y = 45 },
+    { x = 176, y = 144, frame_width = 88, frame_height = 48, origin_x = 44, origin_y = 45 },
+    { x = 176, y = 144, frame_width = 88, frame_height = 48, origin_x = 44, origin_y = 45 },
   },
 }

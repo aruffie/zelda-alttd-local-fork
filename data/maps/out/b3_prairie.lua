@@ -340,7 +340,8 @@ function map:launch_cinematic_2()
     wait(500)
     sol.audio.stop_music()
     wait(1000)
-    audio_manager:play_sound("beehive_fall")
+    honey:set_enabled(true)
+    honey_entity:set_enabled(false)
     local movement3 = sol.movement.create("jump")
     movement3:set_speed(100)
     movement3:set_distance(32)
@@ -348,6 +349,7 @@ function map:launch_cinematic_2()
     movement3:set_ignore_obstacles(true)
     movement3:set_ignore_suspend(true)
     movement(movement3, honey)
+    audio_manager:play_sound("beehive_fall")
     tarin_chased_by_bees = false
     map:init_music()
     local movement_camera = sol.movement.create("target")
@@ -366,6 +368,8 @@ end
 
 function honey:on_enabled()
   
+  x,y,layer = honey:get_position()
+  print(layer)
   print("enabled")
   
 end

@@ -14,6 +14,7 @@ entity:register_event("on_created", function()
   local direction4 = math.random(4) - 1
   local m = sol.movement.create("straight")
   m:set_speed(0)
+  m:set_ignore_suspend(true)
   m:start(entity)
   entity:go(direction4)
 
@@ -44,6 +45,7 @@ function entity:go(direction4)
   m:set_max_distance(max_distance)
   m:set_smooth(true)
   m:set_speed(20)
+  m:set_ignore_suspend(true)
   m:set_angle(direction4 * math.pi / 2)
   
 end

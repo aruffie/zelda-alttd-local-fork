@@ -46,56 +46,38 @@ function map:init_map_entities()
     father:set_enabled(false)
     hibiscus:set_enabled(false)
   end
-  local father_sprite = father:get_sprite()
-  father_sprite:set_animation("calling")
-  local hibiscus_sprite = hibiscus:get_sprite()
-  hibiscus_sprite:set_animation("magnifying_lens")
-  hibiscus_sprite:set_direction(7)
+  father:get_sprite():set_animation("calling")
+  hibiscus:get_sprite():set_animation("magnifying_lens")
+  hibiscus:get_sprite():set_direction(7)
   
 end
 
 -- Discussion with Father 1
 function map:talk_to_father() 
 
- local father_sprite = father:get_sprite()
  local item = game:get_item("magnifying_lens")
  local variant = item:get_variant()
- father_sprite:set_animation("sitting")
+ father:get_sprite():set_animation("sitting")
  if variant == 7 then
    game:start_dialog("maps.out.mambos_cave.father_1", function(answer)
     if answer == 1 then
       game:start_dialog("maps.out.mambos_cave.father_3", function()
-        game:set_hud_enabled(false)
-        game:set_pause_allowed(false)
-        hero:freeze()
-        father_sprite:set_animation("eating")
-        sol.timer.start(father, 5000, function()
-          father_sprite:set_animation("sitting")
-          game:start_dialog("maps.out.mambos_cave.father_4", function()
-            hibiscus:set_enabled(false)
-            hero:start_treasure("magnifying_lens", 8, nil, function()
-              father_sprite:set_animation("eating")
-              game:set_hud_enabled(true)
-              game:set_pause_allowed(true)
-              hero:unfreeze()
-            end)
-          end)
-        end)
+        map:launch_cinematic_1()
       end)
     else
       game:start_dialog("maps.out.mambos_cave.father_2", function()
-        father_sprite:set_animation("calling")
+        father:get_sprite():set_animation("calling")
       end)
     end
    end)
  elseif variant == 8 then
     game:start_dialog("maps.out.mambos_cave.father_5", function()
-      father_sprite:set_animation("eating")
+      father:get_sprite():set_animation("eating")
     end)
  else
    game:start_dialog("maps.out.mambos_cave.father_6", function(answer)
     game:start_dialog("maps.out.mambos_cave.father_2", function()
-      father:set_animation("calling")
+      father:get_sprite():set_animation("calling")
     end)
    end)
   end
@@ -133,4 +115,25 @@ function dungeon_4_lock:on_interaction()
     -- Todo launch cinematic
   end
   
+end
+
+-- Cinematics
+-- This is the cinematic in which Father quadruplet eat pineapple
+function map:launch_cinematic_1()
+  
+  map:start_coroutine(function()
+    local options = {
+      entities_ignore_suspend = {hero, father}
+    }
+    map:set_cinematic_mode(true, options)
+    father:get_sprite():set_animation("eating")
+    wait(5000)
+    father:get_sprite():set_animation("sitting")
+    dialog("maps.out.mambos_cave.father_4")
+    hibiscus:set_enabled(false)
+    wait_for(hero.start_treasure, hero, "magnifying_lens", 8, "magnifying_lens_8")
+    father:get_sprite():set_animation("eating")
+    map:set_cinematic_mode(false, options)
+  end)
+
 end
