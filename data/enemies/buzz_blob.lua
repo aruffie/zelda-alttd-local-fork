@@ -1,5 +1,13 @@
--- Lua script of enemy buzz_blob.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Buzz Blob.
+--
+-- Randomly goes over 8 directions and electrocute the hero when attacked.
+-- Transform into Cukeman on magic powder attack received.
+--
+-- Methods : enemy:start_walking()
+--
+----------------------------------
 
 -- Global variables.
 local enemy = ...

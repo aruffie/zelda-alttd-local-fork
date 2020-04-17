@@ -1,5 +1,15 @@
--- Lua script of enemy gibdo.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Peahat.
+--
+-- Flying enemy that regularly land off, move clockwise around the hero and land where he becomes vulnerable.
+--
+-- Methods : enemy:start_taking_off()
+--           enemy:start_landing()
+--           enemy:start_moving()
+--           enemy:wait()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
@@ -27,33 +37,40 @@ local flying_height = 32
 local flying_speed = 24
 
 -- Start a frame delay that will change later depending on the given table.
-function enemy:start_dynamic_frame_delay(steps_table, current_step, finished_callback)
+local function start_dynamic_frame_delay(steps_table, current_step, on_finished_callback)
 
   local step = current_step + 1
   sprite:set_frame_delay(steps_table[step])
   sol.timer.start(enemy, frame_delay_step_duration, function()
     if steps_table[step + 1] then
-      enemy:start_dynamic_frame_delay(steps_table, step, finished_callback)
-    elseif finished_callback then
-      finished_callback()
+      start_dynamic_frame_delay(steps_table, step, finished_callback)
+    elseif on_finished_callback then
+      on_finished_callback()
     end
   end)
 end
 
--- Start landing after some time.
-function enemy:start_landing()
+-- Make the flying animation start and gradually decrease the frame delay.
+function enemy:start_taking_off()
 
-  sol.timer.start(enemy, before_taking_off_delay, function()
-
-    -- Make the flying animation start and gradually decrease the frame delay.
     sprite:set_animation("walking")
-    enemy:start_dynamic_frame_delay(taking_off_frame_delay_steps, 0, function()
+    start_dynamic_frame_delay(taking_off_frame_delay_steps, 0, function()
       enemy:start_flying(take_off_duration, flying_height, function()
         enemy:start_moving()
       end)
       enemy:set_invincible()
     end)
+end
+
+-- Start the enemy landing.
+function enemy:start_landing()
+
+  enemy:stop_flying(landing_duration, function()
+    sol.timer.start(enemy, before_restarting_delay, function()
+      enemy:restart()
+    end)
   end)
+  start_dynamic_frame_delay(landing_frame_delay_steps, 0)
 end
 
 -- Start moving after some time.
@@ -76,14 +93,17 @@ function enemy:start_moving()
     sol.timer.start(enemy, math.random(flying_minimum_duration, flying_maximum_duration), function()
       movement:stop()
       sol.timer.start(enemy, before_landing_delay, function()
-        enemy:stop_flying(landing_duration, function()
-          sol.timer.start(enemy, before_restarting_delay, function()
-            enemy:restart()
-          end)
-        end)
-        enemy:start_dynamic_frame_delay(landing_frame_delay_steps, 0)
+        enemy:start_landing()
       end)
     end)
+  end)
+end
+
+-- Wait before taking off.
+function enemy:wait()
+
+  sol.timer.start(enemy, before_taking_off_delay, function()
+    enemy:start_taking_off()
   end)
 end
 
@@ -109,5 +129,5 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_layer_independent_collisions(true)
   sprite:set_animation("stopped")
   sprite:set_xy(0, 0)
-  enemy:start_landing()
+  enemy:wait()
 end)

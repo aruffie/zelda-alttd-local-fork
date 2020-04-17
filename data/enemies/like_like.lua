@@ -1,5 +1,15 @@
--- Lua script of enemy like_like.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Like Like.
+--
+-- Moves randomly over horizontal and vertical axis.
+-- Eat the hero and steal the equiped shield if any, then wait for eight actions before free the hero.
+--
+-- Methods : enemy:start_walking()
+--           enemy:free_hero()
+--           enemy:eat_hero()
+--
+----------------------------------
 
 -- Global variables.
 local enemy = ...
@@ -52,17 +62,6 @@ function enemy:free_hero()
   enemy:restart()
 end
 
--- Store the number of command pressed while eaten, and free the hero once 8 item commands are pressed.
-game:register_event("on_command_pressed", function(game, command)
-
-  if is_eating and (command == "attack" or command == "item_1" or command == "item_2") then
-    command_pressed_count = command_pressed_count + 1
-    if command_pressed_count == 8 then
-      enemy:free_hero()
-    end
-  end
-end)
-
 -- Make the enemy eat the hero.
 function enemy:eat_hero()
 
@@ -79,6 +78,17 @@ function enemy:eat_hero()
   -- Eat the shield if it is the first variant and assigned to a slot.
   enemy:steal_item("shield", 1, true, true)
 end
+
+-- Store the number of command pressed while eaten, and free the hero once 8 item commands are pressed.
+game:register_event("on_command_pressed", function(game, command)
+
+  if is_eating and (command == "attack" or command == "item_1" or command == "item_2") then
+    command_pressed_count = command_pressed_count + 1
+    if command_pressed_count == 8 then
+      enemy:free_hero()
+    end
+  end
+end)
 
 -- Eat the hero on attacking him.
 enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)

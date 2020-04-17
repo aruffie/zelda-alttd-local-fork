@@ -1,5 +1,13 @@
--- Lua script of enemy gibdo.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Gibdo.
+--
+-- Moves randomly over horizontal and vertical axis.
+-- Transform into Red Stalfos on hit by fire.
+--
+-- Methods : enemy:start_walking()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...

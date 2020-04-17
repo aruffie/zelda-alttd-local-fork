@@ -1,5 +1,14 @@
--- Lua script of enemy spiked beetle.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Spiked Beetle.
+--
+-- Moves randomly over horizontal and vertical axis, and charges the hero when aligned with him.
+-- Bounce and flip the enemy on collision with the shield while charging, and make it vulnerable
+--
+-- Methods : enemy:start_walking()
+--           enemy:start_charging()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...

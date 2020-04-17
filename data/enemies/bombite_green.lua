@@ -1,5 +1,15 @@
--- Lua script of enemy bombite green.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Bombite Green.
+--
+-- Moves randomly over horizontal and vertical axis.
+-- Run to the hero and start a countdown before exploding when attacked.
+--
+-- Methods : enemy:start_countdown(number)
+--           enemy:start_walking()
+--           enemy:start_running()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
@@ -48,7 +58,7 @@ local function on_regular_attack_received()
 end
 
 -- Make the enemy start counting down.
-function enemy:countdown(number)
+function enemy:start_countdown(number)
 
   sol.timer.start(map, number_duration, function()
     if number == 0 then
@@ -63,7 +73,7 @@ function enemy:countdown(number)
     end
     countdown_step = number
     sprite:set_animation(number)
-    enemy:countdown(number - 1)
+    enemy:start_countdown(number - 1)
   end)
 end
 

@@ -1,5 +1,15 @@
--- Lua script of enemy pairodd.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Pairodd.
+--
+-- Immobile enemy that will disappear when the hero comes too close, then respawn symmetrically about the center of the room.
+-- Throw a projectile on respawn.
+--
+-- Methods : enemy:appear()
+--           enemy:disappear()
+--           enemy:wait()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
@@ -20,7 +30,7 @@ local disappear_duration = 1000
 local after_throwing_delay = 200
 
 -- Set the sprite direction depending on the hero position.
-function enemy:set_direction2()
+local function set_direction2()
 
   local x, _, _ = enemy:get_position()
   local hero_x, _, _ = hero:get_position()
@@ -35,7 +45,7 @@ function enemy:appear()
 
   enemy:set_position(enemy:get_central_symmetry_position(camera_x + camera_width / 2.0, camera_y + camera_height / 2.0))
   enemy:set_visible()
-  enemy:set_direction2()
+  set_direction2()
   sprite:set_animation("appearing", function()
 
     -- Throw an iceball and restart.
@@ -112,7 +122,7 @@ enemy:register_event("on_restarted", function(enemy)
     before_disappear_timer:stop()
     before_disappear_timer = nil
   end
-  enemy:set_direction2()
+  set_direction2()
   enemy:set_can_attack(true)
   enemy:set_damage(2)
   enemy:wait()

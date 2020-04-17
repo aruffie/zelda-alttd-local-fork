@@ -1,5 +1,15 @@
--- Lua script of enemy piranha.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Piranha.
+--
+-- Moves horizontally and change direction once the ground is not water anymore.
+-- Regularly jump out the water where he becomes vulnerable.
+--
+-- Methods : enemy:start_walking(direction2)
+--           enemy:dive()
+--           enemy:jump()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
@@ -44,7 +54,7 @@ function enemy:start_walking(direction2)
 end
 
 -- Wait for some time then jump out of the water.
-function enemy:dive(direction)
+function enemy:dive()
 
   enemy:set_hero_weapons_reactions("ignored")
   sprite:set_animation("walking")
@@ -54,7 +64,7 @@ function enemy:dive(direction)
 end
 
 -- Jump out of the water.
-function enemy:jump(direction)
+function enemy:jump()
 
   -- Jump and dive when finished.
   enemy:set_hero_weapons_reactions(1)

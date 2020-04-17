@@ -1,5 +1,13 @@
--- Lua script of enemy tektite.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Tektite.
+--
+-- Wait a random time then pounce to the hero, and restarts.
+--
+-- Methods : enemy:start_pouncing()
+--           enemy:wait()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
@@ -19,17 +27,22 @@ local jumping_duration = 700
 local jumping_height = 16
 local jumping_speed = 128
 
--- Wait a few time and jump.
+-- Pounce to the hero.
+function enemy:start_pouncing()
+
+  sprite:set_animation("jumping")
+  enemy:start_jumping(jumping_duration, jumping_height, enemy:get_angle(hero), jumping_speed, function()
+    enemy:restart()
+  end)
+end
+
+-- Wait a few time then shake and pounce.
 function enemy:wait()
 
   sol.timer.start(enemy, math.random(waiting_minimum_duration, waiting_maximum_duration), function()
     sprite:set_animation("shaking")
     sol.timer.start(enemy, shaking_duration, function()
-
-      sprite:set_animation("jumping")
-      enemy:start_jumping(jumping_duration, jumping_height, enemy:get_angle(hero), jumping_speed, function()
-        enemy:restart()
-      end)
+      enemy:start_pouncing()
     end)
   end)
 end

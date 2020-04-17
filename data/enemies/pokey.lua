@@ -1,5 +1,15 @@
--- Lua script of enemy pokey.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Pokey.
+--
+-- Moves randomly over horizontal and vertical axis
+-- Composed of as much sprites as its health point, a part of his body is propelled across the room each time a weak attack is received.
+--
+-- Methods : enemy:start_walking()
+--           enemy:detach_body()
+--           enemy:wait()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...

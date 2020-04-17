@@ -1,5 +1,14 @@
--- Lua script of enemy raven.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Raven.
+--
+-- Flying enemy that wait for the hero to be close enough, then take off and attack him.
+--
+-- Methods : enemy:start_attacking()
+--           enemy:wake_up()
+--           enemy:wait()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...

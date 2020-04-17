@@ -1,5 +1,16 @@
--- Lua script of enemy gel.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Gel.
+--
+-- Slowly move to hero, and pounce on him when close enough.
+-- Slow down the hero on touched and forbid him to use his items.
+--
+-- Methods : enemy:start_walking()
+--           enemy:start_pouncing([offensive])
+--           enemy:free_hero()
+--           enemy:attach_hero()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
@@ -48,14 +59,14 @@ function enemy:start_walking()
       -- Shake for a short duration then start attacking.
       sprite:set_animation("shaking")
       sol.timer.start(enemy, shaking_duration, function()
-         enemy:start_jump_attack(true)
+         enemy:start_pouncing(true)
       end)
     end
   end
 end
 
--- Start jumping to or away to the hero.
-function enemy:start_jump_attack(offensive)
+-- Start pouncing to or away to the hero.
+function enemy:start_pouncing(offensive)
 
   local hero_x, hero_y, _ = hero:get_position()
   local enemy_x, enemy_y, _ = enemy:get_position()
@@ -78,7 +89,7 @@ function enemy:free_hero()
 end
 
 -- Make the hero slow down and unable to use weapons. 
-function enemy:slow_hero_down()
+function enemy:attach_hero()
 
   -- Stop potential current jump and slow the hero down.
   enemy:stop_movement()
@@ -98,7 +109,7 @@ function enemy:slow_hero_down()
   -- Jump away after some time.
   sol.timer.start(enemy, math.random(stuck_minimum_duration, stuck_maximum_duration), function()
     enemy:free_hero()
-    enemy:start_jump_attack(false)
+    enemy:start_pouncing(false)
   end)
 end
 
@@ -112,7 +123,7 @@ enemy:register_event("on_update", function(enemy)
   -- If the hero touches the center of the enemy, slow him down.
   if is_adhesive and enemy:get_life() > 0 and enemy:overlaps(hero, "origin") then
     is_adhesive = false
-    enemy:slow_hero_down()
+    enemy:attach_hero()
   end
 end)
 

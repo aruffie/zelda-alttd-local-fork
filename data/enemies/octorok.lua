@@ -1,5 +1,13 @@
--- Lua script of enemy octorok.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Octorok.
+--
+-- Moves randomly over horizontal and vertical axis.
+-- Throw a stone at the end of each walk step if the hero is on the direction the enemy is looking at.
+--
+-- Methods : enemy:start_walking()
+--
+----------------------------------
 
 local enemy = ...
 require("scripts/multi_events")
@@ -24,20 +32,21 @@ local projectile_breed = "stone"
 local projectile_offset = {{0, -8}, {0, -8}, {0, -8}, {0, -8}}
 
 -- Start the enemy movement.
-function enemy:start_walking(key)
+function enemy:start_walking()
 
-  enemy:start_straight_walking(walking_angles[key], walking_speed, math.random(walking_minimum_distance, walking_maximum_distance), function() 
+  local direction = math.random(4)
+  enemy:start_straight_walking(walking_angles[direction], walking_speed, math.random(walking_minimum_distance, walking_maximum_distance), function() 
     sprite:set_animation("immobilized")
     sol.timer.start(enemy, waiting_duration, function()
 
       -- Throw a stone if the hero is on the direction the enemy is looking at.
       if enemy:get_direction4_to(hero) == sprite:get_direction() then
-        enemy:throw_projectile(projectile_breed, throwing_duration, projectile_offset[key][1], projectile_offset[key][2], function()
+        enemy:throw_projectile(projectile_breed, throwing_duration, projectile_offset[direction][1], projectile_offset[direction][2], function()
           audio_manager:play_entity_sound(enemy, "enemies/octorok_firing")
-          enemy:start_walking(math.random(4))
+          enemy:start_walking()
         end)
       else
-        enemy:start_walking(math.random(4))
+        enemy:start_walking()
       end
     end)
   end)
@@ -60,5 +69,5 @@ enemy:register_event("on_restarted", function(enemy)
   -- States.
   enemy:set_can_attack(true)
   enemy:set_damage(1)
-  enemy:start_walking(math.random(4))
+  enemy:start_walking()
 end)

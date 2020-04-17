@@ -1,5 +1,11 @@
--- Lua script of enemy arm mimic.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Arm Mimic.
+--
+-- Copy and reverse hero moves.
+-- No method or events.
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
