@@ -47,7 +47,7 @@ local spit_speed = 220
 local spit_distance = 64
 
 -- Return the visual direction (left or right) depending on the sprite direction.
-local function get_direction2(enemy)
+local function get_direction2()
 
   if sprite:get_direction() < 2 then
     return 0
@@ -100,7 +100,7 @@ function enemy:spit_hero()
     local movement = sol.movement.create("straight")
     movement:set_speed(spit_speed)
     movement:set_max_distance(spit_distance)
-    movement:set_angle(get_direction2(enemy) * math.pi)
+    movement:set_angle(get_direction2() * math.pi)
     movement:start(hero)
 
     function movement:on_finished()
@@ -135,7 +135,7 @@ function enemy:start_aspiration()
     enemy:start_attracting(hero, aspirating_pixel_by_second, function()
       local enemy_x, _, _ = enemy:get_position()
       local hero_x, _, _ = hero:get_position()
-      local direction = get_direction2(enemy)
+      local direction = get_direction2()
       return enemy:is_near(hero, attack_triggering_distance) and ((direction == 0 and hero_x >= enemy_x) or (direction == 1 and hero_x <= enemy_x))
     end)
 

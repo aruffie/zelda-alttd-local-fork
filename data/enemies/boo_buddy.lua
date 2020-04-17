@@ -3,7 +3,7 @@
 -- Boo buddy.
 --
 -- Slowly moves to the hero and respawn symmetrically about the center of the room when attacked.
--- Has to be set_weak() from outside this script to be vulnerable.
+-- Has to be set_weak() manually from outside this script to be vulnerable.
 --
 -- Methods : enemy:is_weak()
 --           enemy:set_weak(weak)
@@ -30,7 +30,7 @@ local flying_height = 8
 local blinking_duration = 1000
 
 -- Start the enemy go away movement.
-local function go_away(enemy)
+local function go_away()
 
   local angle = hero:get_angle(enemy)
   local movement = enemy:start_straight_walking(angle, flying_weak_speed)
@@ -111,6 +111,6 @@ enemy:register_event("on_restarted", function(enemy)
       fire = 4,
       thrust = 4
     })
-    go_away(enemy)
+    go_away()
   end
 end)

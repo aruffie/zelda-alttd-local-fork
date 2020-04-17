@@ -3,7 +3,7 @@
 -- Monkey.
 --
 -- Immobile enemy throwing coconuts the hero, and occasionnaly a bomb.
--- One can start_knocking_off() the enemy from outside this script, then he will fall and run away.
+-- One can start_knocking_off() the enemy manually from outside this script, to make him fall and run away.
 --
 -- Methods : enemy:start_throwing_projectile(direction, angle, [on_throwed_callback])
 --           enemy:attack()

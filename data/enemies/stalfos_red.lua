@@ -4,7 +4,7 @@
 --
 -- Moves randomly over horizontal and vertical axis.
 -- Pounce away when the hero attacks too closely, then throw a projectile.
--- May be set_unarmed() or set_exhausted() from outside this script.
+-- May be set_unarmed() or set_exhausted() manually from outside this script.
 --
 -- Methods : enemy:set_unarmed([unarmed])
 --           enemy:set_exhausted([exhausted])

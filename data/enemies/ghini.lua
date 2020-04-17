@@ -3,7 +3,7 @@
 -- Ghini.
 --
 -- Target a random visible point on the map and go to it with acceleration and deceleration, then target another visible point.
--- Possibly can start asleep, in case it has to be wake_up() from outside this script.
+-- Possibly can start asleep, in case it has to be manually wake_up() from outside this script.
 --
 -- Methods : enemy:start_moving()
 --           enemy:wake_up()

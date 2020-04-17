@@ -3,7 +3,7 @@
 -- Mad Bomber.
 --
 -- Start hidden and regularly appear to throw a bomb to the hero.
--- The enemy stay at the same position, use an event from outside this script to move the position when necessary.
+-- The enemy stay at the same position, override an event from outside this script to move the position when necessary.
 --
 -- Methods : enemy:appear()
 --           enemy:wait()

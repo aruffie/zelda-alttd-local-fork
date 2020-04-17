@@ -35,7 +35,7 @@ local function is_hero_attractable()
 end
 
 -- Start attracting and the sprite animation for a delay, then stop attracting for delay.
-local function start_state_timer(enemy)
+local function start_state_timer()
 
   is_exhausted = true
   sprite:set_frame_delay(0)
@@ -45,7 +45,7 @@ local function start_state_timer(enemy)
     is_exhausted = false
     sprite:set_frame_delay(100)
     state_timer = sol.timer.start(enemy, attracting_duration, function()
-      start_state_timer(enemy)
+      start_state_timer()
     end)
   end)
 end
@@ -58,10 +58,10 @@ function enemy:start_state(state)
   end
 
   if state == "attracting" then
-    start_state_timer(enemy)
+    start_state_timer()
     enemy:start_attracting(hero, attracting_pixel_by_second, is_hero_attractable)
   elseif state == "expulsing" then
-    start_state_timer(enemy)
+    start_state_timer()
     enemy:start_attracting(hero, -attracting_pixel_by_second, is_hero_attractable)
   else
     enemy:stop_attracting()

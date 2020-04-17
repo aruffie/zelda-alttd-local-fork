@@ -2,7 +2,7 @@
 --
 -- Armos.
 --
--- Be immobile at start and wait to be touched by the hero to wake up, then target him.
+-- Immobile at start and wait to be touched by the hero to wake up, then target him.
 --
 -- Methods : enemy:start_walking()
 --

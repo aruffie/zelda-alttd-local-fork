@@ -40,7 +40,7 @@ function enemy:start_walking()
 end
 
 -- Start talking to the enemy.
-function enemy:talk(dialog_number)
+function enemy:start_talking(dialog_number)
   game:start_dialog("enemies.cukeman." .. (dialog_number or math.random(4)))
 end
 
