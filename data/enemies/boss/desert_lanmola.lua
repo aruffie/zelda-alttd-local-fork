@@ -12,7 +12,7 @@ local camera = map:get_camera()
 local head_sprite, tail_sprite
 local body_sprites = {}
 local last_positions, frame_count
-local quarter = math.pi * 0.5
+local eighth = math.pi * 0.25
 local sixteenth = math.pi * 0.125
 local circle = math.pi * 2.0
 local appearing_projections, disappearing_projections
@@ -27,7 +27,7 @@ local jumping_height = 32
 local jumping_minimum_duration = 2500
 local jumping_maximum_duration = 3500
 local body_frame_lags = {20, 35, 50, 65, 80}
-local tail_frame_lag = 92
+local tail_frame_lag = 95
 local angle_amplitude_from_center = sixteenth
 
 local highest_frame_lag = tail_frame_lag + 1 -- Avoid too much values in the last_positions table
@@ -40,7 +40,7 @@ local function get_random_visible_position()
   return math.random(x, x + width), math.random(y, y + height)
 end
 
--- Update body sprites offset depending on previous positions.
+-- Update body sprites depending on current and previous positions.
 local function update_body()
 
   -- Save current position if the enemy still moves.
@@ -78,7 +78,7 @@ local function update_body()
 end
 
 -- Update sprite z-order depending on the enemy moving angle.
-local function update_sprite_orders(angle)
+local function update_sprites_order(angle)
 
   local head_on_front = angle > math.pi and angle < circle
   local order_method = head_on_front and enemy.bring_sprite_to_front or enemy.bring_sprite_to_back
@@ -88,6 +88,18 @@ local function update_sprite_orders(angle)
     order_method(enemy, body_sprites[i])
   end
   order_method(enemy, head_sprite)
+end
+
+-- Set the correct direction to all enemy sprites depeding on the given angle.
+local function update_sprites_direction(angle)
+
+  local direction8 = math.floor((enemy:get_movement():get_angle() + sixteenth) % circle / eighth)
+
+  tail_sprite:set_direction(direction8)
+  for i = 5, 1, -1 do
+    body_sprites[i]:set_direction(direction8)
+  end
+  head_sprite:set_direction(direction8)
 end
 
 -- Make the enemy appear at a random position.
@@ -144,14 +156,14 @@ function enemy:start_rushing()
         movement:stop()
       end
 
-      -- Start disappearing, the real disparition is made when the tail sprite will be under ground.
+      -- Start disappearing effects, the real disparition is made when the tail sprite will be under ground.
       disappearing_projections = enemy:start_brief_effect("enemies/" .. enemy:get_breed() .. "/dust", "projections")
       head_sprite:set_opacity(0)
     end
   end)
   enemy:set_obstacle_behavior("flying")
-  head_sprite:set_direction(movement:get_direction4())
-  update_sprite_orders(angle)
+  update_sprites_direction(angle)
+  update_sprites_order(angle)
 end
 
 -- Wait a few time and appear.
@@ -175,11 +187,13 @@ enemy:register_event("on_update", function(enemy)
   if not is_under_ground then
     update_body()
 
+-- TODO Do it on a custom tail_sprite:on_out_of_ground() event
     -- Removes projections if the head and tails sprites are both visible.
     if appearing_projections and appearing_projections:exists() and head_sprite:get_opacity() ~= 0 and tail_sprite:get_opacity() ~= 0 then
       appearing_projections:remove()
     end
 
+--TODO Make a enemy:disappear() function that will just finish an extra loop of last_position update
     -- Reset the enemy and consider it as under groud if both head and tail sprites are invisible.
     if head_sprite:get_opacity() == 0 and tail_sprite:get_opacity() == 0 then
       is_under_ground = true
