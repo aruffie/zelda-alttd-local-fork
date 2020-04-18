@@ -47,6 +47,7 @@ animation{
   name = "sinking",
   src_image = "npc/animals/walrus.png",
   frame_delay = 120,
+  frame_to_loop_on = 0,
   directions = {
     { x = 176, y = 144, frame_width = 88, frame_height = 48, origin_x = 44, origin_y = 45 },
     { x = 176, y = 144, frame_width = 88, frame_height = 48, origin_x = 44, origin_y = 45 },
