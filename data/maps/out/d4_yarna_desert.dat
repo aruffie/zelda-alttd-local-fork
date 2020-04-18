@@ -13617,7 +13617,7 @@ custom_entity{
 }
 
 custom_entity{
-  name = "boss",
+  name = "position_boss",
   layer = 1,
   x = 640,
   y = 69,

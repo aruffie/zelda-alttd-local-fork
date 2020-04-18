@@ -73,8 +73,8 @@ function map:launch_boss()
     local camera = map:get_camera()
     local camera_x, camera_y = camera:get_position()
     local movement_camera = sol.movement.create("target")
-    local x,y = camera:get_position_to_track(boss)
-    movement_camera:set_speed(120)
+    local x,y = camera:get_position_to_track(position_boss)
+    movement_camera:set_speed(64)
     movement_camera:set_target(x,y)
     movement_camera:set_ignore_obstacles(true)
     movement_camera:set_ignore_suspend(true)
@@ -90,13 +90,24 @@ function map:launch_boss()
     })
     local create_separator_2 = map:create_separator({
       x = 480,
-      y = 216,
+      y = 232,
       width = 320,
       height = 16,
       layer = 2,
       direction = 0
     })
+    x_boss, y_boss, layer_boss = position_boss:get_position()
+    local boss = map:create_enemy({
+      name = "boss",
+      breed = "boss/desert_lanmola",
+      x = x_boss,
+      y = y_boss,
+      layer = layer_boss,
+      direction = 0
+    })
+    
     map:set_cinematic_mode(false, options)
+    
     camera:start_tracking(hero)
     
   end)
