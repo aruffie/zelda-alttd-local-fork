@@ -131,7 +131,7 @@ end
 enemy:register_event("on_position_changed", function(enemy)
 
   if not last_positions then
-    return
+    return -- Workaround : Avoid this event to be called before enemy is actually started by the engine.
   end
 
   -- Save current position
