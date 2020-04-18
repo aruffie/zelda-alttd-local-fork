@@ -37,13 +37,13 @@ function map:init_map_entities()
   -- Marin
   if not game:is_step_done("walrus_awakened") then
     marin_1:set_enabled(false)
+    -- Musicians
+    fox_musician:set_enabled(false)
+    elephant_musician:set_enabled(false)
+    bird_musician:set_enabled(false)
+    monty_mole:set_enabled(false)
   end
   marin_2:set_enabled(false)
-  -- Musicians
-  fox_musician:set_enabled(false)
-  elephant_musician:set_enabled(false)
-  bird_musician:set_enabled(false)
-  monty_mole:set_enabled(false)
   -- Rabbit 4
   rabbit_4:set_enabled(false)
   -- Travel
@@ -51,7 +51,9 @@ function map:init_map_entities()
   -- Walrus
   if game:is_step_done("walrus_awakened") then
     walrus:set_enabled(false)
+    walrus_invisible:set_enabled(false)
     walrus_wall:set_enabled(false)
+    snores:set_enabled(false)
   end
   -- Ground sand
   for ground in map:get_entities('ground_sand') do
@@ -59,6 +61,47 @@ function map:init_map_entities()
   end
   
 end
+
+-- Launch Boss
+function map:launch_boss()
+  
+  map:start_coroutine(function()
+    local options = {
+      entities_ignore_suspend = {hero}
+    }
+    map:set_cinematic_mode(true, options)
+    local camera = map:get_camera()
+    local camera_x, camera_y = camera:get_position()
+    local movement_camera = sol.movement.create("target")
+    local x,y = camera:get_position_to_track(boss)
+    movement_camera:set_speed(120)
+    movement_camera:set_target(x,y)
+    movement_camera:set_ignore_obstacles(true)
+    movement_camera:set_ignore_suspend(true)
+    movement(movement_camera, camera)
+    -- Create separators
+    local create_separator_1 = map:create_separator({
+      x = 792,
+      y = 0,
+      width = 16,
+      height = 240,
+      layer = 1,
+      direction = 0
+    })
+    local create_separator_2 = map:create_separator({
+      x = 480,
+      y = 216,
+      width = 320,
+      height = 16,
+      layer = 2,
+      direction = 0
+    })
+    map:set_cinematic_mode(false, options)
+    camera:start_tracking(hero)
+    
+  end)
+
+end  
 
 -- Discussion with Rabbit 1
 function map:talk_to_rabbit_1()
@@ -95,7 +138,6 @@ function map:talk_to_walrus()
   else
     game:start_dialog("maps.out.yarna_desert.walrus_1")
   end
-
 
 end
 
@@ -138,6 +180,19 @@ function travel_sensor:on_activated()
   
 end
 
+function sensor_boss_1:on_activated()
+  
+  map:launch_boss()
+  
+end
+
+function sensor_boss_2:on_activated()
+  
+  map:launch_boss()
+
+  
+end
+
 -- Separators events
 separator_1:register_event("on_activating", function(separator, direction4)
 
@@ -177,7 +232,7 @@ function map:launch_cinematic_1()
     movement1:set_ignore_suspend(true)
     movement(movement1, hero)
     hero:set_animation("stopped")
-    hero:set_direction(3)
+    hero:set_direction(1)
     wait(500)
     -- Marin
     local x, y, layer = companion_marin:get_position()
@@ -213,29 +268,48 @@ function map:launch_cinematic_1()
     animation(walrus:get_sprite(), 'diving')
     audio_manager:play_sound("hero/cliff_jump")
     walrus:get_sprite():set_animation("sinking")
-    wait(1000)
+    wait(500)
+    x_walrus, y_walrus, layer_walrus = walrus:get_position()
+    local splash_walrus = map:create_custom_entity({
+      sprite = "entities/ground_effects/walrus_diving_effect",
+      x = x_walrus,
+      y = y_walrus - 16,
+      width = 48,
+      height = 32,
+      layer = layer_walrus,
+      direction = 0
+    })
     walrus:set_enabled(false)
     walrus_wall:set_enabled(false)
+    walrus_invisible:set_enabled(false)
     marin_2:sing_stop()
     marin_2:get_sprite():set_direction(3)
     audio_manager:play_music("10_overworld")
+    wait(1000)
+    splash_walrus:remove()
     dialog("maps.out.yarna_desert.marin_2")
     -- Rabbit 4
     rabbit_4:set_enabled(true)
     local x_rabbit_4, y_rabbit_4, layer_rabbit_4 = rabbit_4:get_position()
     marin_2:get_sprite():set_direction(2)
-    local symbol = marin_2:create_symbol_exclamation(true)
+    hero:set_direction(2)
+    local symbol_marin = marin_2:create_symbol_exclamation(true)
+    local symbol_hero = hero:create_symbol_exclamation()
     local movement4 = sol.movement.create("target")
     movement4:set_speed(64)
     movement4:set_target(position_rabbit_4)
     movement4:set_ignore_suspend(true)
     movement4:set_ignore_obstacles(true)
     movement(movement4, rabbit_4)
-    rabbit_4:get_sprite():set_animation("waiting")
-    symbol:remove()
+    rabbit_4:get_sprite():set_animation("jumping")
+    symbol_marin:remove()
+    symbol_hero:remove()
     dialog("maps.out.yarna_desert.marin_3")
-    marin_2:get_sprite():set_direction(1)
+    marin_2:get_sprite():set_direction(3)
+    hero:set_direction(1)
     dialog("maps.out.yarna_desert.marin_5")
+    rabbit_4:get_sprite():set_animation("walking")
+    rabbit_4:get_sprite():set_direction(2)
     local movement5 = sol.movement.create("target")
     movement5:set_speed(64)
     movement5:set_target(x_rabbit_4, y_rabbit_4)
@@ -250,6 +324,9 @@ function map:launch_cinematic_1()
     movement(movement6, marin_2)
     marin_2:set_enabled(false)
     rabbit_4:set_enabled(false)
+    for i=1,2 do
+      animation(hero, "happy")
+    end
     game:set_step_done("walrus_awakened") 
     map:set_cinematic_mode(false, options)
   end)

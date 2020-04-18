@@ -13420,7 +13420,7 @@ npc{
   x = 120,
   y = 669,
   direction = 0,
-  subtype = 1,
+  subtype = 0,
   sprite = "npc/animals/rabbit_1",
 }
 
@@ -13444,7 +13444,7 @@ custom_entity{
   name = "position_link",
   layer = 1,
   x = 376,
-  y = 637,
+  y = 701,
   width = 16,
   height = 16,
   direction = 0,
@@ -13546,6 +13546,23 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "ground_sand_10",
+  layer = 1,
+  x = 264,
+  y = 32,
+  properties = {
+    {
+      key = "custom_ground",
+      value = "sand",
+    },
+  },
+  width = 24,
+  height = 208,
+  pattern = "10215",
+  tileset = "out/outside_special",
+}
+
+dynamic_tile{
   name = "ground_sand_11",
   layer = 1,
   x = 488,
@@ -13597,6 +13614,34 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
+}
+
+custom_entity{
+  name = "boss",
+  layer = 1,
+  x = 640,
+  y = 69,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+sensor{
+  name = "sensor_boss_1",
+  layer = 1,
+  x = 640,
+  y = 229,
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_boss_2",
+  layer = 1,
+  x = 792,
+  y = 125,
+  width = 16,
+  height = 16,
 }
 
 tile{
