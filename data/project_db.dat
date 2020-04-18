@@ -484,6 +484,7 @@ sprite{ id = "entities/fire_mask", description = "Fire mask" }
 sprite{ id = "entities/fisherman_ledger", description = "Fisheman ledger" }
 sprite{ id = "entities/ground_effects/grass", description = "ground_effects/leaves" }
 sprite{ id = "entities/ground_effects/sand", description = "Sand" }
+sprite{ id = "entities/ground_effects/walrus_diving_effect", description = "Walrus diving effect" }
 sprite{ id = "entities/ground_effects/water", description = "ground_effects/water_splash" }
 sprite{ id = "entities/grounds/color_platform_green", description = "Color platform green" }
 sprite{ id = "entities/grounds/color_platform_orange", description = "Color platform orange" }
@@ -2690,6 +2691,7 @@ file{ path = "sprites/enemies/zombie.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/zora.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/entities/effects/brake_smoke.dat", author = "JulioTanaka", }
 file{ path = "sprites/entities/effects/collapse_star.dat", author = "JulioTanaka", }
+file{ path = "sprites/entities/ground_effects/walrus_diving_effect.dat", author = "JulioTanaka", }
 file{ path = "sprites/entities/iron_ball.dat", author = "Christopho", license = "CC BY-SA 4.0" }
 file{ path = "sprites/entities/misc/gift.dat", author = "JulioTanka", }
 file{ path = "sprites/entities/misc/shell_bar_marker.dat", author = "JulioTanaka", }
