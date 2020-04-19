@@ -591,12 +591,15 @@ sprite{ id = "entities/switchs/switch", description = "Switch" }
 sprite{ id = "entities/switchs/switch_eye_blue", description = "Switch eye blue" }
 sprite{ id = "entities/switchs/switch_eye_red", description = "Switch eye red" }
 sprite{ id = "entities/switchs/switch_eye_yellow", description = "Switch eye yellow" }
+sprite{ id = "entities/symbols/blue_notes", description = "Blue notes" }
 sprite{ id = "entities/symbols/collapse", description = "Collapse" }
 sprite{ id = "entities/symbols/exclamation", description = "Exclamation" }
+sprite{ id = "entities/symbols/green_notes", description = "Green notes" }
 sprite{ id = "entities/symbols/interrogation", description = "Interrogation" }
 sprite{ id = "entities/symbols/notes", description = "Notes" }
 sprite{ id = "entities/symbols/oh", description = "Oh" }
 sprite{ id = "entities/symbols/prices", description = "Prices shop" }
+sprite{ id = "entities/symbols/red_notes", description = "Red notes" }
 sprite{ id = "entities/symbols/snores", description = "Snores" }
 sprite{ id = "entities/turtlerock_arms", description = "Turtlerock arms" }
 sprite{ id = "entities/turtlerock_head", description = "Turtlerock head" }
