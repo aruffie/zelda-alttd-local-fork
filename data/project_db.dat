@@ -1461,6 +1461,7 @@ entity{ id = "insect", description = "Insect" }
 entity{ id = "ladder", description = "Ladder" }
 entity{ id = "lever", description = "Lever" }
 entity{ id = "light", description = "Light" }
+entity{ id = "magnet", description = "Magnet" }
 entity{ id = "midpoint_teletransporter", description = "Teletransporter (mid point)" }
 entity{ id = "mouse", description = "Mouse" }
 entity{ id = "mr_write_and_christine", description = "Mr Write and Christine" }
@@ -1686,6 +1687,7 @@ file{ path = "entities/insect.lua", license = "GPL v3" }
 file{ path = "entities/lib", license = "GPL v3" }
 file{ path = "entities/lib/carriable.lua", author = "Vlag", }
 file{ path = "entities/light.lua", license = "GPL v3" }
+file{ path = "entities/magnet.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "entities/midpoint_teletransporter.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "entities/mouse.lua", license = "GPL v3" }
 file{ path = "entities/mr_write_and_christine.lua", license = "GPL v3" }

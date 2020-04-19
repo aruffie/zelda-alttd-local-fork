@@ -77,7 +77,7 @@ end)
 enemy:register_event("on_position_changed", function(enemy)
 
   if not body_sprite then
-    return
+    return -- Workaround : Avoid this event to be called before enemy is actually created by the engine.
   end
 
   -- Save current position

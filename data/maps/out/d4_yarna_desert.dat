@@ -13630,7 +13630,7 @@ sensor{
   name = "sensor_boss_1",
   layer = 1,
   x = 640,
-  y = 229,
+  y = 237,
   width = 16,
   height = 16,
 }
@@ -13642,6 +13642,18 @@ sensor{
   y = 125,
   width = 16,
   height = 16,
+}
+
+custom_entity{
+  name = "magnet",
+  layer = 1,
+  x = 640,
+  y = 112,
+  width = 16,
+  height = 16,
+  origin_y = 8,
+  direction = 0,
+  model = "magnet",
 }
 
 tile{

@@ -62,9 +62,57 @@ function map:init_map_entities()
   
 end
 
+local function remove_quicksand_separators()
+
+  if boss and boss:exists() then
+    boss:set_enabled(false)
+  end
+  magnet:stop_attracting()
+  separator_east:remove()
+  separator_south:remove()
+end
+
 -- Launch Boss
 function map:launch_boss()
-  
+
+  if separator_east or separator_south then
+    return -- Do nothing if a separator is already here : we are leaving the room.
+  end
+
+  -- Make magnet attract the hero when his position is over the quicksand.
+  magnet:start_attracting(hero, 40, function()
+    local x, y, _ = hero:get_position()
+    return x > 480 and x < 784 and y < 224 -- Hardcode quicksand position since there is no custom ground.
+  end)
+
+  -- TODO Do nothing from here if the boss is already beaten ?
+
+  -- Create separators
+  local separator_east = map:create_separator({
+    name = "separator_east",
+    x = 792,
+    y = 0,
+    width = 16,
+    height = 240,
+    layer = 1,
+    direction = 0
+  })
+  local separator_south = map:create_separator({
+    name = "separator_south",
+    x = 480,
+    y = 232,
+    width = 320,
+    height = 16,
+    layer = 2,
+    direction = 0
+  })
+  function separator_east:on_activated()
+    remove_quicksand_separators()
+  end
+  function separator_south:on_activated()
+    remove_quicksand_separators()
+  end
+
   map:start_coroutine(function()
     local options = {
       entities_ignore_suspend = {hero}
@@ -79,32 +127,19 @@ function map:launch_boss()
     movement_camera:set_ignore_obstacles(true)
     movement_camera:set_ignore_suspend(true)
     movement(movement_camera, camera)
-    -- Create separators
-    local create_separator_1 = map:create_separator({
-      x = 792,
-      y = 0,
-      width = 16,
-      height = 240,
-      layer = 1,
-      direction = 0
-    })
-    local create_separator_2 = map:create_separator({
-      x = 480,
-      y = 232,
-      width = 320,
-      height = 16,
-      layer = 2,
-      direction = 0
-    })
-    x_boss, y_boss, layer_boss = position_boss:get_position()
-    local boss = map:create_enemy({
-      name = "boss",
-      breed = "boss/desert_lanmola",
-      x = x_boss,
-      y = y_boss,
-      layer = layer_boss,
-      direction = 0
-    })
+    if not boss then
+      x_boss, y_boss, layer_boss = position_boss:get_position()
+      map:create_enemy({
+        name = "boss",
+        breed = "boss/desert_lanmola",
+        x = x_boss,
+        y = y_boss,
+        layer = layer_boss,
+        direction = 0
+      })
+    elseif boss:exists() then
+      boss:set_enabled(true)
+    end
     
     map:set_cinematic_mode(false, options)
     
