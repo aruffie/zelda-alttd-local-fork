@@ -137,8 +137,6 @@ end
 -- Start leaps out the ground and fly.
 function enemy:appear()
 
-  is_under_ground = false
-
   -- Target a random point at the opposite side of the room.
   local region_x, region_y, _ =  camera:get_position()
   local region_width, region_height = camera:get_size()
