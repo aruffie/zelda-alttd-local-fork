@@ -115,8 +115,6 @@ function map:launch_boss()
     return x > 480 and x < 784 and y < 224 -- Hardcode quicksand position since there is no custom ground.
   end)
 
-  -- TODO Do nothing from here if the boss is already beaten ?
-
   -- Stop music
   sol.audio.stop_music()
   map:start_coroutine(function()
@@ -143,8 +141,22 @@ function map:launch_boss()
         layer = layer_boss,
         direction = 0,
         treasure_name = "angler_key",
-        treasure_savegame_variable = "yarna_desert_angler_key",
+        treasure_savegame_variable = "yarna_desert_angler_key"
       })
+      boss:register_event("on_dead", function()
+        for item in map:get_entities_by_type("pickable") do
+          local treasure = item:get_treasure()
+          if treasure:get_name() == "angler_key" then
+            print(item)
+            magnet:start_attracting(item, 40, function()
+              local x, y, _ = item:get_position()
+              return x > 480 and x < 784 and y < 224 -- Hardcode quicksand position since there is no custom ground.
+            end)
+          end
+        end
+        map:leave_boss()
+        game:set_step_done("sandworm_killed") 
+      end)
       local line_1 = sol.language.get_dialog("maps.out.yarna_desert.boss_name").text
       local line_2 = sol.language.get_dialog("maps.out.yarna_desert.boss_description").text
       parchment:show(map, "boss", "top", 1500, line_1, line_2, nil, function()
@@ -160,6 +172,15 @@ function map:launch_boss()
   end)
 
 end  
+
+-- Obtaining angler key
+function map:on_obtaining_treasure(treasure_item, treasure_variant, treasure_savegame_variable)
+
+  if treasure_item:get_name() == "angler_key" then
+    game:set_step_done("dungeon_4_key_obtained")
+  end
+
+end
 
 -- Discussion with Rabbit 1
 function map:talk_to_rabbit_1()

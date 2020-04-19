@@ -13321,8 +13321,8 @@ dynamic_tile{
 dynamic_tile{
   name = "ground_sand_11",
   layer = 1,
-  x = 488,
-  y = 16,
+  x = 560,
+  y = 24,
   properties = {
     {
       key = "custom_ground",
