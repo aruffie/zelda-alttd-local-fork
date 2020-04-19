@@ -13397,7 +13397,7 @@ custom_entity{
   name = "magnet",
   layer = 1,
   x = 640,
-  y = 112,
+  y = 120,
   width = 16,
   height = 16,
   origin_y = 8,
@@ -13533,6 +13533,24 @@ wall{
   stops_enemies = true,
   stops_blocks = true,
   stops_projectiles = true,
+}
+
+sensor{
+  name = "sensor_boss_3",
+  layer = 1,
+  x = 640,
+  y = 253,
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_boss_4",
+  layer = 1,
+  x = 808,
+  y = 125,
+  width = 16,
+  height = 16,
 }
 
 tile{

@@ -62,19 +62,42 @@ function map:init_map_entities()
   
 end
 
-local function remove_quicksand_separators()
+function map:leave_boss()
 
-  if boss and boss:exists() then
-    boss:set_enabled(false)
+  if not boss:is_enabled() then
+    return
   end
-  magnet:stop_attracting()
-  separator_east:remove()
-  separator_south:remove()
+  map:start_coroutine(function()
+    local options = {
+      entities_ignore_suspend = {hero}
+    }
+    map:set_cinematic_mode(true, options)
+    local camera = map:get_camera()
+    local camera_x, camera_y = camera:get_position()
+    local movement_camera = sol.movement.create("target")
+    local x,y = camera:get_position_to_track(hero)
+    movement_camera:set_speed(64)
+    movement_camera:set_target(x,y)
+    movement_camera:set_ignore_obstacles(true)
+    movement_camera:set_ignore_suspend(true)
+    movement(movement_camera, camera)
+    if boss and boss:exists() then
+      boss:set_enabled(false)
+    end
+    magnet:stop_attracting()
+    camera:start_tracking(hero)
+    audio_manager:play_music("10_overworld")
+    map:set_cinematic_mode(false, options)
+  end)
+
 end
 
 -- Launch Boss
 function map:launch_boss()
 
+  if boss and boss:is_enabled() then
+    return
+  end
   if separator_east or separator_south then
     return -- Do nothing if a separator is already here : we are leaving the room.
   end
@@ -87,32 +110,8 @@ function map:launch_boss()
 
   -- TODO Do nothing from here if the boss is already beaten ?
 
-  -- Create separators
-  local separator_east = map:create_separator({
-    name = "separator_east",
-    x = 792,
-    y = 0,
-    width = 16,
-    height = 240,
-    layer = 1,
-    direction = 0
-  })
-  local separator_south = map:create_separator({
-    name = "separator_south",
-    x = 480,
-    y = 232,
-    width = 320,
-    height = 16,
-    layer = 2,
-    direction = 0
-  })
-  function separator_east:on_activated()
-    remove_quicksand_separators()
-  end
-  function separator_south:on_activated()
-    remove_quicksand_separators()
-  end
-
+  -- Stop music
+  sol.audio.stop_music()
   map:start_coroutine(function()
     local options = {
       entities_ignore_suspend = {hero}
@@ -140,10 +139,9 @@ function map:launch_boss()
     elseif boss:exists() then
       boss:set_enabled(true)
     end
+    audio_manager:play_music("22_boss_battle")
     
-    map:set_cinematic_mode(false, options)
-    
-    camera:start_tracking(hero)
+    map:set_cinematic_mode(false)
     
   end)
 
@@ -235,6 +233,19 @@ end
 function sensor_boss_2:on_activated()
   
   map:launch_boss()
+
+  
+end
+
+function sensor_boss_3:on_activated()
+  
+  map:leave_boss()
+  
+end
+
+function sensor_boss_4:on_activated()
+  
+  map:leave_boss()
 
   
 end
