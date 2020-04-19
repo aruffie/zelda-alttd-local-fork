@@ -7,6 +7,7 @@ local game = map:get_game()
 require("scripts/multi_events")
 local travel_manager = require("scripts/maps/travel_manager")
 local audio_manager = require("scripts/audio_manager")
+local parchment = require("scripts/menus/parchment")
 
 -- Map events
 map:register_event("on_started", function(map, destination)
@@ -64,7 +65,10 @@ end
 
 function map:leave_boss()
 
-  if not boss:is_enabled() then
+  if game:is_step_done("sandworm_killed") then
+    return
+  end
+  if boss and not boss:is_enabled() then
     return
   end
   map:start_coroutine(function()
@@ -87,7 +91,7 @@ function map:leave_boss()
     magnet:stop_attracting()
     camera:start_tracking(hero)
     audio_manager:play_music("10_overworld")
-    map:set_cinematic_mode(false, options)
+    map:set_cinematic_mode(false)
   end)
 
 end
@@ -95,6 +99,9 @@ end
 -- Launch Boss
 function map:launch_boss()
 
+  if game:is_step_done("sandworm_killed") then
+    return
+  end
   if boss and boss:is_enabled() then
     return
   end
@@ -134,8 +141,15 @@ function map:launch_boss()
         x = x_boss,
         y = y_boss,
         layer = layer_boss,
-        direction = 0
+        direction = 0,
+        treasure_name = "angler_key",
+        treasure_savegame_variable = "yarna_desert_angler_key",
       })
+      local line_1 = sol.language.get_dialog("maps.out.yarna_desert.boss_name").text
+      local line_2 = sol.language.get_dialog("maps.out.yarna_desert.boss_description").text
+      parchment:show(map, "boss", "top", 1500, line_1, line_2, nil, function()
+
+      end)
     elseif boss:exists() then
       boss:set_enabled(true)
     end

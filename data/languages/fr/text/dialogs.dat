@@ -3596,6 +3596,20 @@ dialog{
 }
 
 dialog{
+  id = "maps.out.yarna_desert.boss_description",
+  text = [[
+Terreur des Sables
+]],
+}
+
+dialog{
+  id = "maps.out.yarna_desert.boss_name",
+  text = [[
+Lemnola
+]],
+}
+
+dialog{
   id = "maps.out.yarna_desert.marin_1",
   question = "1",
   text = [[
