@@ -320,7 +320,7 @@ separator_2:register_event("on_activating", function(separator, direction4)
   
 end)
 
--- This is the cinematic in which Walris
+-- This is the cinematic in which Walrus wakes up
 function map:launch_cinematic_1()
 
   map:start_coroutine(function()

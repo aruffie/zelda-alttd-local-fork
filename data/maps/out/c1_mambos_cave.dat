@@ -4740,7 +4740,7 @@ sensor{
 }
 
 dynamic_tile{
-  name = "water_5_1",
+  name = "waterfall_8_1",
   layer = 0,
   x = 704,
   y = 448,
@@ -4750,7 +4750,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
-  name = "water_4_3",
+  name = "waterfall_7_1",
   layer = 0,
   x = 720,
   y = 432,
@@ -4760,7 +4760,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
-  name = "water_4_10",
+  name = "waterfall_7_10",
   layer = 0,
   x = 848,
   y = 432,
@@ -4770,7 +4770,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
-  name = "water_3_6",
+  name = "waterfall_6_6",
   layer = 0,
   x = 720,
   y = 416,
@@ -4780,7 +4780,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
-  name = "water_4_11",
+  name = "waterfall_7_9",
   layer = 0,
   x = 688,
   y = 432,
@@ -4790,7 +4790,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
-  name = "water_6_3",
+  name = "waterfall_9_3",
   layer = 0,
   x = 696,
   y = 464,
@@ -4800,7 +4800,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
-  name = "water_2_2",
+  name = "waterfall_5_2",
   layer = 0,
   x = 720,
   y = 400,
@@ -4810,7 +4810,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
-  name = "water_3_2",
+  name = "waterfall_6_2",
   layer = 0,
   x = 720,
   y = 416,
@@ -4820,16 +4820,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
-  name = "water_6_4",
-  layer = 0,
-  x = 704,
-  y = 472,
-  width = 24,
-  height = 8,
-  pattern = "112",
-}
-
-dynamic_tile{
+  name = "waterfall_6_7",
   layer = 0,
   x = 704,
   y = 416,
@@ -4839,6 +4830,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_6_8",
   layer = 0,
   x = 832,
   y = 416,
@@ -4848,7 +4840,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
-  name = "water_3_1",
+  name = "waterfall_6_1",
   layer = 0,
   x = 744,
   y = 416,
@@ -4858,7 +4850,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
-  name = "water_4_1",
+  name = "waterfall_7_6",
   layer = 0,
   x = 688,
   y = 432,
@@ -4868,7 +4860,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
-  name = "water_4_5",
+  name = "waterfall_7_5",
   layer = 0,
   x = 848,
   y = 432,
@@ -4878,7 +4870,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
-  name = "water_6_1",
+  name = "waterfall_9_1",
   layer = 0,
   x = 696,
   y = 456,
@@ -4888,7 +4880,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
-  name = "water_6_2",
+  name = "waterfall_9_2",
   layer = 0,
   x = 696,
   y = 472,
@@ -4898,7 +4890,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
-  name = "water_4_2",
+  name = "waterfall_7_11",
   layer = 0,
   x = 704,
   y = 432,
@@ -4908,7 +4900,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
-  name = "water_3_3",
+  name = "waterfall_6_3",
   layer = 0,
   x = 704,
   y = 416,
@@ -4918,7 +4910,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
-  name = "water_3_4",
+  name = "waterfall_6_5",
   layer = 0,
   x = 832,
   y = 416,
@@ -4928,7 +4920,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
-  name = "water_4_4",
+  name = "waterfall_7_4",
   layer = 0,
   x = 832,
   y = 432,
@@ -4938,7 +4930,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
-  name = "water_4_9",
+  name = "waterfall_7_2",
   layer = 0,
   x = 728,
   y = 432,
@@ -4948,7 +4940,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
-  name = "water_4_6",
+  name = "waterfall_7_8",
   layer = 0,
   x = 816,
   y = 440,
@@ -4958,7 +4950,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
-  name = "water_5_2",
+  name = "waterfall_8_2",
   layer = 0,
   x = 752,
   y = 448,
@@ -4968,7 +4960,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
-  name = "water_4_8",
+  name = "waterfall_7_3",
   layer = 0,
   x = 784,
   y = 432,
@@ -4978,7 +4970,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
-  name = "water_4_7",
+  name = "waterfall_7_7",
   layer = 0,
   x = 800,
   y = 440,
@@ -4988,7 +4980,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
-  name = "water_3_5",
+  name = "waterfall_6_4",
   layer = 0,
   x = 848,
   y = 416,
@@ -16838,6 +16830,7 @@ custom_entity{
 }
 
 dynamic_tile{
+  name = "waterfall_10_1",
   layer = 1,
   x = 848,
   y = 288,
@@ -16847,6 +16840,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_11",
   layer = 1,
   x = 720,
   y = 288,
@@ -16856,6 +16850,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_50",
   layer = 1,
   x = 768,
   y = 288,
@@ -16865,6 +16860,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_22",
   layer = 1,
   x = 768,
   y = 288,
@@ -16874,6 +16870,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_4",
   layer = 1,
   x = 680,
   y = 280,
@@ -16883,6 +16880,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_8",
   layer = 1,
   x = 704,
   y = 288,
@@ -16892,6 +16890,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_62",
   layer = 1,
   x = 704,
   y = 272,
@@ -17057,6 +17056,7 @@ custom_entity{
 }
 
 dynamic_tile{
+  name = "waterfall_10_63",
   layer = 1,
   x = 704,
   y = 264,
@@ -17066,6 +17066,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_51",
   layer = 1,
   x = 768,
   y = 280,
@@ -17075,6 +17076,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_48",
   layer = 1,
   x = 736,
   y = 304,
@@ -17084,6 +17086,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_72",
   layer = 1,
   x = 864,
   y = 272,
@@ -17093,6 +17096,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_70",
   layer = 1,
   x = 880,
   y = 256,
@@ -17102,6 +17106,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_38",
   layer = 1,
   x = 944,
   y = 248,
@@ -17111,6 +17116,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_60",
   layer = 1,
   x = 944,
   y = 304,
@@ -17120,6 +17126,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_49",
   layer = 1,
   x = 832,
   y = 304,
@@ -17129,6 +17136,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_30",
   layer = 1,
   x = 896,
   y = 304,
@@ -17147,6 +17155,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_71",
   layer = 1,
   x = 656,
   y = 280,
@@ -17156,6 +17165,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_36",
   layer = 1,
   x = 888,
   y = 192,
@@ -17165,6 +17175,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_61",
   layer = 1,
   x = 704,
   y = 304,
@@ -17183,6 +17194,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_10",
   layer = 1,
   x = 720,
   y = 296,
@@ -17192,6 +17204,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_9",
   layer = 1,
   x = 720,
   y = 304,
@@ -17201,6 +17214,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_6",
   layer = 1,
   x = 704,
   y = 304,
@@ -17210,6 +17224,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_29",
   layer = 1,
   x = 832,
   y = 304,
@@ -17219,6 +17234,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_69",
   layer = 1,
   x = 864,
   y = 272,
@@ -17228,6 +17244,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_68",
   layer = 1,
   x = 880,
   y = 256,
@@ -17255,6 +17272,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_2",
   layer = 1,
   x = 656,
   y = 272,
@@ -17264,6 +17282,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_13",
   layer = 1,
   x = 704,
   y = 256,
@@ -17282,6 +17301,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_43",
   layer = 1,
   x = 816,
   y = 304,
@@ -17291,6 +17311,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_47",
   layer = 1,
   x = 736,
   y = 304,
@@ -17300,6 +17321,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_46",
   layer = 1,
   x = 736,
   y = 296,
@@ -17318,6 +17340,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_45",
   layer = 1,
   x = 808,
   y = 304,
@@ -17327,6 +17350,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_7",
   layer = 1,
   x = 712,
   y = 296,
@@ -17336,6 +17360,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_53",
   layer = 1,
   x = 712,
   y = 232,
@@ -17345,6 +17370,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_18",
   layer = 1,
   x = 736,
   y = 216,
@@ -17354,6 +17380,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_17",
   layer = 1,
   x = 712,
   y = 216,
@@ -17363,6 +17390,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_16",
   layer = 1,
   x = 720,
   y = 216,
@@ -17372,6 +17400,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_52",
   layer = 1,
   x = 824,
   y = 248,
@@ -17381,6 +17410,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_26",
   layer = 1,
   x = 848,
   y = 232,
@@ -17390,6 +17420,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_24",
   layer = 1,
   x = 824,
   y = 232,
@@ -17399,6 +17430,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_25",
   layer = 1,
   x = 832,
   y = 232,
@@ -17408,6 +17440,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_15",
   layer = 1,
   x = 712,
   y = 240,
@@ -17417,6 +17450,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_23",
   layer = 1,
   x = 824,
   y = 256,
@@ -17426,6 +17460,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_12",
   layer = 1,
   x = 712,
   y = 272,
@@ -17435,6 +17470,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_58",
   layer = 1,
   x = 896,
   y = 288,
@@ -17444,6 +17480,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_1_1",
   layer = 1,
   x = 744,
   y = 336,
@@ -17453,6 +17490,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_2_1",
   layer = 1,
   x = 744,
   y = 352,
@@ -17462,6 +17500,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_3_1",
   layer = 1,
   x = 744,
   y = 368,
@@ -17471,7 +17510,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
-  name = "water_1_1",
+  name = "waterfall_4_1",
   layer = 1,
   x = 744,
   y = 384,
@@ -17481,6 +17520,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_37",
   layer = 1,
   x = 896,
   y = 256,
@@ -17490,6 +17530,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_55",
   layer = 1,
   x = 912,
   y = 288,
@@ -17499,6 +17540,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_42",
   layer = 1,
   x = 848,
   y = 312,
@@ -17508,6 +17550,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_59",
   layer = 1,
   x = 912,
   y = 288,
@@ -17517,6 +17560,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_57",
   layer = 1,
   x = 880,
   y = 272,
@@ -17526,6 +17570,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_54",
   layer = 1,
   x = 928,
   y = 304,
@@ -17535,6 +17580,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_56",
   layer = 1,
   x = 896,
   y = 288,
@@ -17544,6 +17590,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_35",
   layer = 1,
   x = 744,
   y = 320,
@@ -17553,6 +17600,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_34",
   layer = 1,
   x = 744,
   y = 304,
@@ -17562,6 +17610,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_64",
   layer = 1,
   x = 912,
   y = 232,
@@ -17571,6 +17620,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_40",
   layer = 1,
   x = 936,
   y = 264,
@@ -17580,6 +17630,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_41",
   layer = 1,
   x = 904,
   y = 256,
@@ -17589,6 +17640,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_39",
   layer = 1,
   x = 936,
   y = 280,
@@ -17598,6 +17650,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_31",
   layer = 1,
   x = 896,
   y = 304,
@@ -18058,15 +18111,7 @@ jumper{
 }
 
 dynamic_tile{
-  layer = 1,
-  x = 824,
-  y = 272,
-  width = 32,
-  height = 16,
-  pattern = "941",
-}
-
-dynamic_tile{
+  name = "waterfall_10_14",
   layer = 1,
   x = 712,
   y = 256,
@@ -18102,6 +18147,7 @@ wall{
 }
 
 dynamic_tile{
+  name = "waterfall_10_19",
   layer = 1,
   x = 768,
   y = 272,
@@ -18111,6 +18157,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_20",
   layer = 1,
   x = 752,
   y = 272,
@@ -18120,6 +18167,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_21",
   layer = 1,
   x = 752,
   y = 288,
@@ -18129,6 +18177,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_66",
   layer = 1,
   x = 864,
   y = 272,
@@ -18138,6 +18187,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_65",
   layer = 1,
   x = 864,
   y = 288,
@@ -18147,6 +18197,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_67",
   layer = 1,
   x = 688,
   y = 272,
@@ -18156,6 +18207,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_3",
   layer = 1,
   x = 688,
   y = 272,
@@ -18165,6 +18217,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_5",
   layer = 1,
   x = 696,
   y = 288,
@@ -18174,6 +18227,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_28",
   layer = 1,
   x = 824,
   y = 288,
@@ -18183,6 +18237,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_27",
   layer = 1,
   x = 824,
   y = 272,
@@ -18205,6 +18260,7 @@ wall{
 }
 
 dynamic_tile{
+  name = "waterfall_10_44",
   layer = 1,
   x = 816,
   y = 296,
@@ -18223,6 +18279,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_33",
   layer = 1,
   x = 744,
   y = 288,
@@ -18232,6 +18289,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
+  name = "waterfall_10_32",
   layer = 1,
   x = 880,
   y = 288,
@@ -18813,7 +18871,7 @@ dynamic_tile{
 }
 
 dynamic_tile{
-  name = "water_2_1",
+  name = "waterfall_5_1",
   layer = 1,
   x = 744,
   y = 400,

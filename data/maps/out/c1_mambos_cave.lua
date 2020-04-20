@@ -49,6 +49,10 @@ function map:init_map_entities()
   father:get_sprite():set_animation("calling")
   hibiscus:get_sprite():set_animation("magnifying_lens")
   hibiscus:get_sprite():set_direction(7)
+  -- Waterfall
+  if game:is_step_done("dungeon_4_opened") then
+    map:open_dungeon_4()
+  end
   
 end
 
@@ -86,18 +90,28 @@ end
 
 function map:remove_water(step)
 
-  if step > 7 then
+  if step > 9 then
     return
   end
   sol.timer.start(map, 1000, function()
-    for tile in map:get_entities("water_" .. step .. "_") do
+    for tile in map:get_entities("waterfall_" .. step) do
       tile:remove()
     end
-    step = step +1
+    step = step + 1
     map:remove_water(step)
   end)
 
 end
+
+-- Dungeon 4 opening
+function map:open_dungeon_4()
+
+  for tile in map:get_entities("waterfall") do
+    tile:remove()
+  end
+
+end
+
 
 -- NPCs events
 function father:on_interaction()
@@ -112,7 +126,7 @@ function dungeon_4_lock:on_interaction()
   if not game:is_step_done("dungeon_4_key_obtained") then
     game:start_dialog("maps.out.mambos_cave.dungeon_4_lock")
   elseif game:is_step_last("dungeon_4_key_obtained") then
-    -- Todo launch cinematic
+    map:launch_cinematic_2()
   end
   
 end
@@ -137,3 +151,58 @@ function map:launch_cinematic_1()
   end)
 
 end
+
+-- This is the cinematic in which the hero open dungeon 4 with angler key
+function map:launch_cinematic_2()
+  
+  map:start_coroutine(function()
+    local options = {
+      entities_ignore_suspend = {}
+    }
+    map:set_cinematic_mode(true, options)
+    sol.audio.stop_music()
+    audio_manager:play_sound("misc/chest_open")
+    local camera = map:get_camera()
+    local camera_x, camera_y = camera:get_position()
+    local movement1 = sol.movement.create("straight")
+    movement1:set_angle(math.pi / 2)
+    movement1:set_max_distance(72)
+    movement1:set_speed(75)
+    movement1:set_ignore_suspend(true)
+    movement1:set_ignore_obstacles(true)
+    movement(movement1, camera)
+    wait(1000)
+    map:remove_water(1)
+    local timer_sound = sol.timer.start(hero, 0, function()
+      audio_manager:play_sound("misc/dungeon_shake")
+      return 450
+    end)
+    timer_sound:set_suspended_with_map(false)
+    local shake_config = {
+        count = 320,
+        amplitude = 2,
+        speed = 90
+    }
+    wait_for(camera.shake, camera, shake_config)
+    camera:start_manual()
+    camera:set_position(camera_x, camera_y - 72)
+    timer_sound:stop()
+    wait(1000)
+    audio_manager:play_sound("misc/secret2")
+    wait(1000)
+    map:init_music()
+    map:open_dungeon_4()
+    local movement2 = sol.movement.create("straight")
+    movement2:set_angle(3 * math.pi / 2)
+    movement2:set_max_distance(72)
+    movement2:set_speed(75)
+    movement2:set_ignore_suspend(true)
+    movement2:set_ignore_obstacles(true)
+    movement(movement2, camera)
+    map:set_cinematic_mode(false, options)
+    camera:start_tracking(hero)
+    game:set_step_done("dungeon_4_opened")
+  end)
+
+end
+
