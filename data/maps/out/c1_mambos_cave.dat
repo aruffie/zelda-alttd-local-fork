@@ -5022,6 +5022,31 @@ wall{
   stops_blocks = true,
 }
 
+teletransporter{
+  name = "dungeon_1_1_A",
+  layer = 0,
+  x = 768,
+  y = 416,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/4/1f",
+  destination = "dungeon_4_1_B",
+}
+
+destination{
+  name = "dungeon_4_2_A",
+  layer = 0,
+  x = 776,
+  y = 445,
+  direction = 3,
+}
+
 tile{
   layer = 1,
   x = 608,
@@ -18038,7 +18063,7 @@ jumper{
   width = 64,
   height = 8,
   direction = 6,
-  jump_length = 120,
+  jump_length = 136,
 }
 
 wall{
@@ -18979,8 +19004,8 @@ wall{
 
 enemy{
   layer = 1,
-  x = 560,
-  y = 517,
+  x = 576,
+  y = 541,
   direction = 2,
   breed = "tektite",
   treasure_name = "random_with_charm",

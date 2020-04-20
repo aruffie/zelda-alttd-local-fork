@@ -36,12 +36,6 @@ end
 -- Initializes Entities based on player's progress
 function map:init_map_entities()
   
-  -- Hero
-  -- Make magnet attract the hero when his position is over the quicksand.
-  magnet:start_attracting(hero, 40, function()
-    local x, y, _ = hero:get_position()
-    return x > 480 and x < 784 and y < 224 -- Hardcode quicksand position since there is no custom ground.
-  end)
   -- Marin
   if not game:is_step_done("walrus_awakened") then
     marin_1:set_enabled(false)
@@ -74,6 +68,7 @@ end
 
 function map:leave_boss()
 
+  magnet:stop_tracking()
   if game:is_step_done("sandworm_killed") then
     return
   end
@@ -107,14 +102,16 @@ end
 -- Launch Boss
 function map:launch_boss()
 
+  -- Make magnet attract the hero when his position is over the quicksand.
+  magnet:start_attracting(hero, 40, function()
+    local x, y, _ = hero:get_position()
+    return x > 480 and x < 784 and y < 224 -- Hardcode quicksand position since there is no custom ground.
+  end)
   if game:is_step_done("sandworm_killed") then
     return
   end
   if boss and boss:is_enabled() then
     return
-  end
-  if separator_east or separator_south then
-    return -- Do nothing if a separator is already here : we are leaving the room.
   end
 
   -- Stop music

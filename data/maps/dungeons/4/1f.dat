@@ -12525,7 +12525,7 @@ pickable{
   x = 480,
   y = 341,
   treasure_name = "instrument_4",
-  treasure_savegame_variable = "dungeon_4_instrument",
+  treasure_savegame_variable = "dungeon_4_big_treasure",
 }
 
 destructible{
@@ -14990,6 +14990,23 @@ enemy{
   y = 541,
   direction = 0,
   breed = "tektite_water",
+}
+
+teletransporter{
+  name = "dungeon_4_2_B",
+  layer = 0,
+  x = 1112,
+  y = 1656,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
+  width = 16,
+  height = 16,
+  destination_map = "out/c1_mambos_cave",
+  destination = "dungeon_4_2_A",
 }
 
 tile{

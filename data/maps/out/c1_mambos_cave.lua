@@ -42,7 +42,7 @@ function map:init_map_entities()
   -- Father and hibiscus
   local item = game:get_item("magnifying_lens")
   local variant = item:get_variant()
-  if game:get_value("main_quest_step") < 18 or variant >= 8  then
+  if not game:is_step_done("dungeon_3_completed") or variant >= 8  then
     father:set_enabled(false)
     hibiscus:set_enabled(false)
   end
@@ -112,7 +112,6 @@ function map:open_dungeon_4()
 
 end
 
-
 -- NPCs events
 function father:on_interaction()
 
@@ -171,7 +170,7 @@ function map:launch_cinematic_2()
     movement1:set_ignore_suspend(true)
     movement1:set_ignore_obstacles(true)
     movement(movement1, camera)
-    wait(1000)
+    wait(2000)
     map:remove_water(1)
     local timer_sound = sol.timer.start(hero, 0, function()
       audio_manager:play_sound("misc/dungeon_shake")
