@@ -1031,7 +1031,6 @@ tile{
   layer = 0,
   x = 376,
   y = 360,
-  enabled_at_start = false,
   width = 16,
   height = 16,
   pattern = "94",
@@ -1789,7 +1788,6 @@ tile{
   layer = 0,
   x = 72,
   y = 152,
-  enabled_at_start = false,
   width = 16,
   height = 16,
   pattern = "94",
@@ -2414,7 +2412,6 @@ tile{
   layer = 0,
   x = 352,
   y = 384,
-  enabled_at_start = false,
   width = 16,
   height = 16,
   pattern = "94",
@@ -2425,7 +2422,6 @@ tile{
   layer = 0,
   x = 416,
   y = 384,
-  enabled_at_start = false,
   width = 16,
   height = 16,
   pattern = "94",
@@ -2436,7 +2432,6 @@ tile{
   layer = 0,
   x = 552,
   y = 376,
-  enabled_at_start = false,
   width = 16,
   height = 16,
   pattern = "94",
@@ -2521,7 +2516,7 @@ enemy{
   x = 424,
   y = 333,
   direction = 0,
-  breed = "hardhat_beetle"
+  breed = "hardhat_beetle",
 }
 
 wall{

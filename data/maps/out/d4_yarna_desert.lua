@@ -5,6 +5,7 @@ local game = map:get_game()
 
 -- Include scripts
 require("scripts/multi_events")
+local owl_manager = require("scripts/maps/owl_manager")
 local travel_manager = require("scripts/maps/travel_manager")
 local audio_manager = require("scripts/audio_manager")
 local parchment = require("scripts/menus/parchment")
@@ -45,6 +46,8 @@ function map:init_map_entities()
     monty_mole:set_enabled(false)
   end
   marin_2:set_enabled(false)
+  -- Owl 8
+  owl_8:set_enabled(false)
   -- Rabbit 4
   rabbit_4:set_enabled(false)
   -- Travel
@@ -65,6 +68,7 @@ end
 
 function map:leave_boss()
 
+  magnet:stop_tracking()
   if game:is_step_done("sandworm_killed") then
     return
   end
@@ -88,7 +92,6 @@ function map:leave_boss()
     if boss and boss:exists() then
       boss:set_enabled(false)
     end
-    magnet:stop_attracting()
     camera:start_tracking(hero)
     audio_manager:play_music("10_overworld")
     map:set_cinematic_mode(false)
@@ -99,23 +102,17 @@ end
 -- Launch Boss
 function map:launch_boss()
 
+  -- Make magnet attract the hero when his position is over the quicksand.
+  magnet:start_attracting(hero, 40, function()
+    local x, y, _ = hero:get_position()
+    return x > 480 and x < 784 and y < 224 -- Hardcode quicksand position since there is no custom ground.
+  end)
   if game:is_step_done("sandworm_killed") then
     return
   end
   if boss and boss:is_enabled() then
     return
   end
-  if separator_east or separator_south then
-    return -- Do nothing if a separator is already here : we are leaving the room.
-  end
-
-  -- Make magnet attract the hero when his position is over the quicksand.
-  magnet:start_attracting(hero, 40, function()
-    local x, y, _ = hero:get_position()
-    return x > 480 and x < 784 and y < 224 -- Hardcode quicksand position since there is no custom ground.
-  end)
-
-  -- TODO Do nothing from here if the boss is already beaten ?
 
   -- Stop music
   sol.audio.stop_music()
@@ -143,8 +140,22 @@ function map:launch_boss()
         layer = layer_boss,
         direction = 0,
         treasure_name = "angler_key",
-        treasure_savegame_variable = "yarna_desert_angler_key",
+        treasure_savegame_variable = "yarna_desert_angler_key"
       })
+      boss:register_event("on_dead", function()
+        for item in map:get_entities_by_type("pickable") do
+          local treasure = item:get_treasure()
+          if treasure:get_name() == "angler_key" then
+            -- Todo debug magnet attracting
+            magnet:start_attracting(item, 40, function()
+              local x, y, _ = item:get_position()
+              return x > 480 and x < 784 and y < 224 -- Hardcode quicksand position since there is no custom ground.
+            end)
+          end
+        end
+        map:leave_boss()
+        game:set_step_done("sandworm_killed") 
+      end)
       local line_1 = sol.language.get_dialog("maps.out.yarna_desert.boss_name").text
       local line_2 = sol.language.get_dialog("maps.out.yarna_desert.boss_description").text
       parchment:show(map, "boss", "top", 1500, line_1, line_2, nil, function()
@@ -160,6 +171,15 @@ function map:launch_boss()
   end)
 
 end  
+
+-- Obtaining angler key
+function map:on_obtaining_treasure(treasure_item, treasure_variant, treasure_savegame_variable)
+
+  if treasure_item:get_name() == "angler_key" then
+    game:set_step_done("dungeon_4_key_obtained")
+  end
+
+end
 
 -- Discussion with Rabbit 1
 function map:talk_to_rabbit_1()
@@ -264,6 +284,18 @@ function sensor_boss_4:on_activated()
   
 end
 
+-- Sensors events
+function owl_8_sensor:on_activated()
+
+  if not map:get_game():get_value("owl_8") and game:is_step_last("dungeon_4_key_obtained") then
+    owl_manager:appear(map, 8, function()
+      map:init_music()
+    end)
+  end
+
+end
+
+
 -- Separators events
 separator_1:register_event("on_activating", function(separator, direction4)
 
@@ -285,7 +317,7 @@ separator_2:register_event("on_activating", function(separator, direction4)
   
 end)
 
--- This is the cinematic in which Walris
+-- This is the cinematic in which Walrus wakes up
 function map:launch_cinematic_1()
 
   map:start_coroutine(function()
