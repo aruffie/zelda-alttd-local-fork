@@ -23,6 +23,7 @@ function map_meta:set_cinematic_mode(is_cinematic, options)
   local game = map:get_game()
   local hero = map:get_hero()
   local camera = map:get_camera()
+  options = options or {}
 
   local hud_mode = is_cinematic and "dialog" or "normal"
   game:set_hud_mode(hud_mode)
@@ -33,7 +34,7 @@ function map_meta:set_cinematic_mode(is_cinematic, options)
   game:set_pause_allowed(not is_cinematic)
 
   -- Entities
-  if options and options.entities_ignore_suspend then
+  if options.entities_ignore_suspend then
     for _, entity in ipairs(options.entities_ignore_suspend ) do
       for _, sprite in entity:get_sprites() do
         sprite:set_ignore_suspend(is_cinematic)
@@ -50,23 +51,25 @@ function map_meta:set_cinematic_mode(is_cinematic, options)
   end
 
   -- Black stripes
-  local m_black_stripe_top = sol.movement.create("target")
-  local m_black_stripe_bottom = sol.movement.create("target")
-  if is_cinematic then
-    game.is_cinematic = is_cinematic
-    m_black_stripe_top:set_target(0, black_stripe_h)
-    m_black_stripe_bottom:set_target(0, -black_stripe_h)
-  else
-    m_black_stripe_top:set_target(0, 0)
-    m_black_stripe_bottom:set_target(0, 0)
-  end
-  m_black_stripe_top:start(black_stripe_top)
-  m_black_stripe_bottom:start(black_stripe_bottom, function()
-    if not is_cinematic then
+  if not options.no_black_stripes then
+    local m_black_stripe_top = sol.movement.create("target")
+    local m_black_stripe_bottom = sol.movement.create("target")
+    if is_cinematic then
       game.is_cinematic = is_cinematic
-      sol.menu.stop(cinematic_menu)
+      m_black_stripe_top:set_target(0, black_stripe_h)
+      m_black_stripe_bottom:set_target(0, -black_stripe_h)
+    else
+      m_black_stripe_top:set_target(0, 0)
+      m_black_stripe_bottom:set_target(0, 0)
     end
-  end)
+    m_black_stripe_top:start(black_stripe_top)
+    m_black_stripe_bottom:start(black_stripe_bottom, function()
+      if not is_cinematic then
+        game.is_cinematic = is_cinematic
+        sol.menu.stop(cinematic_menu)
+      end
+    end)
+  end
 
   -- start and stop the menu displaying the cinematic effect
   if is_cinematic and not sol.menu.is_started(cinematic_menu) then
