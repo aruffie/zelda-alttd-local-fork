@@ -5,6 +5,7 @@ local game = map:get_game()
 
 -- Include scripts
 require("scripts/multi_events")
+local owl_manager = require("scripts/maps/owl_manager")
 local travel_manager = require("scripts/maps/travel_manager")
 local audio_manager = require("scripts/audio_manager")
 local parchment = require("scripts/menus/parchment")
@@ -35,6 +36,12 @@ end
 -- Initializes Entities based on player's progress
 function map:init_map_entities()
   
+  -- Hero
+  -- Make magnet attract the hero when his position is over the quicksand.
+  magnet:start_attracting(hero, 40, function()
+    local x, y, _ = hero:get_position()
+    return x > 480 and x < 784 and y < 224 -- Hardcode quicksand position since there is no custom ground.
+  end)
   -- Marin
   if not game:is_step_done("walrus_awakened") then
     marin_1:set_enabled(false)
@@ -45,6 +52,8 @@ function map:init_map_entities()
     monty_mole:set_enabled(false)
   end
   marin_2:set_enabled(false)
+  -- Owl 8
+  owl_8:set_enabled(false)
   -- Rabbit 4
   rabbit_4:set_enabled(false)
   -- Travel
@@ -88,7 +97,6 @@ function map:leave_boss()
     if boss and boss:exists() then
       boss:set_enabled(false)
     end
-    magnet:stop_attracting()
     camera:start_tracking(hero)
     audio_manager:play_music("10_overworld")
     map:set_cinematic_mode(false)
@@ -108,12 +116,6 @@ function map:launch_boss()
   if separator_east or separator_south then
     return -- Do nothing if a separator is already here : we are leaving the room.
   end
-
-  -- Make magnet attract the hero when his position is over the quicksand.
-  magnet:start_attracting(hero, 40, function()
-    local x, y, _ = hero:get_position()
-    return x > 480 and x < 784 and y < 224 -- Hardcode quicksand position since there is no custom ground.
-  end)
 
   -- Stop music
   sol.audio.stop_music()
@@ -147,7 +149,7 @@ function map:launch_boss()
         for item in map:get_entities_by_type("pickable") do
           local treasure = item:get_treasure()
           if treasure:get_name() == "angler_key" then
-            print(item)
+            -- Todo debug magnet attracting
             magnet:start_attracting(item, 40, function()
               local x, y, _ = item:get_position()
               return x > 480 and x < 784 and y < 224 -- Hardcode quicksand position since there is no custom ground.
@@ -284,6 +286,18 @@ function sensor_boss_4:on_activated()
 
   
 end
+
+-- Sensors events
+function owl_8_sensor:on_activated()
+
+  if not map:get_game():get_value("owl_8") and game:is_step_last("dungeon_4_key_obtained") then
+    owl_manager:appear(map, 8, function()
+      map:init_music()
+    end)
+  end
+
+end
+
 
 -- Separators events
 separator_1:register_event("on_activating", function(separator, direction4)

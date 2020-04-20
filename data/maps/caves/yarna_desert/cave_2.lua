@@ -20,11 +20,12 @@ end)
 -- Initializes Entities based on player's progress
 function map:init_map_entities()
   
+  if angler_key then
   angler_key:set_enabled(false)
-  if game:is_step_last("sandworm_killed") then
-    angler_key:set_enabled(true)
+    if game:is_step_last("sandworm_killed") then
+      angler_key:set_enabled(true)
+    end
   end
-  
   
 end
 

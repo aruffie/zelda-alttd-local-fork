@@ -12854,16 +12854,6 @@ enemy{
   treasure_name = "random_with_charm",
 }
 
-enemy{
-  name = "pokey_full_5",
-  layer = 1,
-  x = 816,
-  y = 661,
-  direction = 0,
-  breed = "pokey",
-  treasure_name = "random_with_charm",
-}
-
 sensor{
   name = "sensor_marin",
   layer = 1,
@@ -13138,23 +13128,6 @@ dynamic_tile{
 }
 
 dynamic_tile{
-  name = "ground_sand_3",
-  layer = 1,
-  x = 920,
-  y = 48,
-  properties = {
-    {
-      key = "custom_ground",
-      value = "sand",
-    },
-  },
-  width = 40,
-  height = 288,
-  pattern = "10215",
-  tileset = "out/outside_special",
-}
-
-dynamic_tile{
   name = "ground_sand_4",
   layer = 1,
   x = 496,
@@ -13234,23 +13207,6 @@ custom_entity{
 }
 
 dynamic_tile{
-  name = "ground_sand_5",
-  layer = 1,
-  x = 528,
-  y = 272,
-  properties = {
-    {
-      key = "custom_ground",
-      value = "sand",
-    },
-  },
-  width = 368,
-  height = 184,
-  pattern = "10215",
-  tileset = "out/outside_special",
-}
-
-dynamic_tile{
   name = "ground_sand_6",
   layer = 1,
   x = 496,
@@ -13285,23 +13241,6 @@ dynamic_tile{
 }
 
 dynamic_tile{
-  name = "ground_sand_8",
-  layer = 1,
-  x = 896,
-  y = 48,
-  properties = {
-    {
-      key = "custom_ground",
-      value = "sand",
-    },
-  },
-  width = 24,
-  height = 264,
-  pattern = "10215",
-  tileset = "out/outside_special",
-}
-
-dynamic_tile{
   name = "ground_sand_9",
   layer = 1,
   x = 680,
@@ -13321,8 +13260,8 @@ dynamic_tile{
 dynamic_tile{
   name = "ground_sand_11",
   layer = 1,
-  x = 560,
-  y = 24,
+  x = 488,
+  y = 16,
   properties = {
     {
       key = "custom_ground",
@@ -13331,23 +13270,6 @@ dynamic_tile{
   },
   width = 192,
   height = 208,
-  pattern = "10215",
-  tileset = "out/outside_special",
-}
-
-dynamic_tile{
-  name = "ground_sand_12",
-  layer = 1,
-  x = 800,
-  y = 48,
-  properties = {
-    {
-      key = "custom_ground",
-      value = "sand",
-    },
-  },
-  width = 96,
-  height = 224,
   pattern = "10215",
   tileset = "out/outside_special",
 }
@@ -13557,6 +13479,173 @@ sensor{
   x = 808,
   y = 125,
   width = 16,
+  height = 16,
+}
+
+enemy{
+  layer = 1,
+  x = 920,
+  y = 85,
+  direction = 0,
+  breed = "leever",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  layer = 1,
+  x = 888,
+  y = 117,
+  direction = 0,
+  breed = "leever",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  layer = 1,
+  x = 840,
+  y = 317,
+  direction = 0,
+  breed = "leever",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  layer = 1,
+  x = 816,
+  y = 277,
+  direction = 0,
+  breed = "leever",
+  treasure_name = "random_with_charm",
+}
+
+dynamic_tile{
+  name = "ground_sand_12",
+  layer = 1,
+  x = 800,
+  y = 48,
+  properties = {
+    {
+      key = "custom_ground",
+      value = "sand",
+    },
+  },
+  width = 96,
+  height = 224,
+  pattern = "10215",
+  tileset = "out/outside_special",
+}
+
+dynamic_tile{
+  name = "ground_sand_8",
+  layer = 1,
+  x = 896,
+  y = 48,
+  properties = {
+    {
+      key = "custom_ground",
+      value = "sand",
+    },
+  },
+  width = 24,
+  height = 264,
+  pattern = "10215",
+  tileset = "out/outside_special",
+}
+
+dynamic_tile{
+  name = "ground_sand_3",
+  layer = 1,
+  x = 920,
+  y = 48,
+  properties = {
+    {
+      key = "custom_ground",
+      value = "sand",
+    },
+  },
+  width = 40,
+  height = 288,
+  pattern = "10215",
+  tileset = "out/outside_special",
+}
+
+enemy{
+  layer = 1,
+  x = 648,
+  y = 437,
+  direction = 0,
+  breed = "leever",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  layer = 1,
+  x = 784,
+  y = 677,
+  direction = 0,
+  breed = "leever",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  layer = 1,
+  x = 848,
+  y = 621,
+  direction = 0,
+  breed = "leever",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  layer = 1,
+  x = 744,
+  y = 301,
+  direction = 0,
+  breed = "leever",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  layer = 1,
+  x = 688,
+  y = 333,
+  direction = 0,
+  breed = "leever",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  layer = 1,
+  x = 624,
+  y = 301,
+  direction = 0,
+  breed = "leever",
+  treasure_name = "random_with_charm",
+}
+
+dynamic_tile{
+  name = "ground_sand_5",
+  layer = 1,
+  x = 528,
+  y = 272,
+  properties = {
+    {
+      key = "custom_ground",
+      value = "sand",
+    },
+  },
+  width = 368,
+  height = 184,
+  pattern = "10215",
+  tileset = "out/outside_special",
+}
+
+sensor{
+  name = "owl_8_sensor",
+  layer = 1,
+  x = 504,
+  y = 421,
+  width = 112,
   height = 16,
 }
 
@@ -15970,5 +16059,24 @@ separator{
   y = 464,
   width = 480,
   height = 16,
+}
+
+sensor{
+  name = "owl_8_position",
+  layer = 2,
+  x = 504,
+  y = 229,
+  width = 16,
+  height = 16,
+}
+
+npc{
+  name = "owl_8",
+  layer = 2,
+  x = 504,
+  y = 229,
+  direction = 3,
+  subtype = 0,
+  sprite = "npc/animals/owl",
 }
 
