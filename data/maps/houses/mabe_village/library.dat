@@ -548,7 +548,7 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
-  sprite = "npc/books/book_red",
+  sprite = "npc/books/book_grey",
 }
 
 custom_entity{
@@ -709,7 +709,7 @@ npc{
   y = 61,
   direction = 3,
   subtype = 0,
-  sprite = "npc/books/book_red",
+  sprite = "npc/books/book_grey",
 }
 
 wall{
