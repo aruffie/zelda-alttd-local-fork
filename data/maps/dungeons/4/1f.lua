@@ -14,7 +14,7 @@ local switch_manager = require("scripts/maps/switch_manager")
 local treasure_manager = require("scripts/maps/treasure_manager")
 
 -- Map events
-function map:on_started()
+map:register_event("on_started", function()
 
   -- Doors
   map:set_doors_open("door_group_1_", true)
@@ -38,7 +38,7 @@ function map:on_started()
   -- Separators
   separator_manager:init(map)
   
-end
+end)
 
 function map:on_obtaining_treasure(item, variant, savegame_variable)
 

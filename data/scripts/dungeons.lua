@@ -192,6 +192,10 @@ local function initialize_dungeon_features(game)
       cols= 6,
       music = "47_level_4_angler_tunnel",
       music_instrument = "48_the_surf_harp",
+      teletransporter_end_dungeon = {
+        map_id = "out/c1_mambos_cave",
+        destination_name = "dungeon_4_2_A"
+      },
       secrets = {
       },
       boss = {

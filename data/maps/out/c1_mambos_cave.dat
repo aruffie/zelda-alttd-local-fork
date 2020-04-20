@@ -4682,6 +4682,51 @@ tile{
   tileset = "addition/out",
 }
 
+tile{
+  layer = 0,
+  x = 816,
+  y = 440,
+  width = 16,
+  height = 8,
+  pattern = "1126",
+}
+
+tile{
+  layer = 0,
+  x = 816,
+  y = 416,
+  width = 16,
+  height = 8,
+  pattern = "1123",
+}
+
+tile{
+  layer = 0,
+  x = 808,
+  y = 416,
+  width = 8,
+  height = 32,
+  pattern = "1122",
+}
+
+tile{
+  layer = 0,
+  x = 816,
+  y = 424,
+  width = 16,
+  height = 16,
+  pattern = "1125",
+}
+
+tile{
+  layer = 0,
+  x = 832,
+  y = 416,
+  width = 8,
+  height = 32,
+  pattern = "1124",
+}
+
 teletransporter{
   name = "to_b1",
   layer = 0,
@@ -5045,6 +5090,38 @@ destination{
   x = 776,
   y = 445,
   direction = 3,
+}
+
+destination{
+  name = "cave_c1_4_west",
+  layer = 0,
+  x = 824,
+  y = 437,
+  direction = 3,
+}
+
+teletransporter{
+  layer = 0,
+  x = 816,
+  y = 424,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
+  width = 16,
+  height = 16,
+  destination_map = "caves/mambos_cave/cave_4",
+  destination = "stair_west",
+}
+
+stairs{
+  layer = 0,
+  x = 816,
+  y = 424,
+  direction = 1,
+  subtype = 3,
 }
 
 tile{
@@ -16586,51 +16663,6 @@ tile{
 
 tile{
   layer = 1,
-  x = 904,
-  y = 632,
-  width = 16,
-  height = 8,
-  pattern = "1126",
-}
-
-tile{
-  layer = 1,
-  x = 904,
-  y = 608,
-  width = 16,
-  height = 8,
-  pattern = "1123",
-}
-
-tile{
-  layer = 1,
-  x = 896,
-  y = 608,
-  width = 8,
-  height = 32,
-  pattern = "1122",
-}
-
-tile{
-  layer = 1,
-  x = 904,
-  y = 616,
-  width = 16,
-  height = 16,
-  pattern = "1125",
-}
-
-tile{
-  layer = 1,
-  x = 920,
-  y = 608,
-  width = 8,
-  height = 32,
-  pattern = "1124",
-}
-
-tile{
-  layer = 1,
   x = 720,
   y = 704,
   width = 32,
@@ -16735,6 +16767,24 @@ tile{
   width = 16,
   height = 16,
   pattern = "917",
+}
+
+tile{
+  layer = 1,
+  x = 896,
+  y = 616,
+  width = 8,
+  height = 8,
+  pattern = "101",
+}
+
+tile{
+  layer = 1,
+  x = 936,
+  y = 616,
+  width = 8,
+  height = 8,
+  pattern = "100",
 }
 
 wall{
@@ -17927,38 +17977,6 @@ custom_entity{
   direction = 0,
   sprite = "entities/items",
   model = "obstacle",
-}
-
-destination{
-  name = "cave_c1_4_west",
-  layer = 1,
-  x = 912,
-  y = 629,
-  direction = 3,
-}
-
-teletransporter{
-  layer = 1,
-  x = 904,
-  y = 616,
-  properties = {
-    {
-      key = "effect",
-      value = "radial_fade_out",
-    },
-  },
-  width = 16,
-  height = 16,
-  destination_map = "caves/mambos_cave/cave_4",
-  destination = "stair_west",
-}
-
-stairs{
-  layer = 1,
-  x = 904,
-  y = 616,
-  direction = 1,
-  subtype = 3,
 }
 
 enemy{

@@ -24,6 +24,14 @@ map:register_event("on_started", function(map, destination)
 
 end)
 
+map:register_event("on_finished", function(map, destination)
+    
+  if game:is_step_last("dungeon_4_completed") then
+    game:set_step_done("ghost_joined")
+  end
+
+end)
+
 -- Initialize the music of the map
 function map:init_music()
   

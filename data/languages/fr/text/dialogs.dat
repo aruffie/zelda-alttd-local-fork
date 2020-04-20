@@ -2566,6 +2566,23 @@ Non
 }
 
 dialog{
+  id = "maps.houses.south_prairie.ghost_house.ghost_1",
+  text = [[
+Que de souvenirs ...
+Rien n'a changé.
+Bouhhh !
+]],
+}
+
+dialog{
+  id = "maps.houses.south_prairie.ghost_house.ghost_2",
+  text = [[
+Assez...        
+Je veux aller à ma tombe !
+]],
+}
+
+dialog{
   id = "maps.houses.south_prairie.richard_villa.richard_1",
   text = [[
 Hum, comment te dire ? Mais !  
@@ -2926,6 +2943,15 @@ dialog{
 Oh là là !!
 J'me sens tout drôle !
 Faut m'reposer avant d'rentrer.
+]],
+}
+
+dialog{
+  id = "maps.out.graveyard.ghost_1",
+  text = [[
+Merci !          
+Dans ma maison, regarde sous les jarres.     
+Sayonara !
 ]],
 }
 
@@ -4411,6 +4437,15 @@ Je t'y attends. Hou hou !
 dialog{
   id = "scripts.meta.map.owl_10",
   text = [[
+Hou ! Au Sud et au Nord, se trouvent deux temples.   
+Va d'abord au Sud, là où des Ruines antiques parlent du Poisson-Rêve.
+Tu en sauras sûrement plus...
+]],
+}
+
+dialog{
+  id = "scripts.meta.map.owl_11",
+  text = [[
 Hou ! Je vois que tu as lu ce Marbre ancien.  
 Il dit que l'île est issue des songes du Poisson-Rêve, mais personnen'en est sûr... 
 Qui peut savoir ce que contient un coffre tant qu'il n'a pas été ouvert ?     
@@ -4423,7 +4458,7 @@ Ainsi, tu sauras... Hou hou !
 }
 
 dialog{
-  id = "scripts.meta.map.owl_11",
+  id = "scripts.meta.map.owl_12",
   text = [[
 Hou ! Les monstres de cette île ont peur que le Poisson-Rêve ne s'éveille.   
 Leur pouvoir est bien réel !  
@@ -4433,22 +4468,11 @@ Va à la tour de la montagne en volant comme un oiseau! Hou !
 }
 
 dialog{
-  id = "scripts.meta.map.owl_12",
+  id = "scripts.meta.map.owl_13",
   text = [[
 Hou hou !        
 Ton périple est ardu mais tu y  es presque...   
 Va vers l'Est. Le Poisson du Vent a besoin de sommeil.
-]],
-}
-
-dialog{
-  id = "scripts.meta.map.owl_13",
-  text = [[
-Hou ! Cela fait longtemps qu'on ne s'est rencontrés !     
-Plonge dans la Baie de Martha et entre dans la gueule du Poisson-Chat.
-Plus tu es près du Poisson-Rêve, plus son sommeil
-est agité...    
-Tu es dans la bonne voie. Hou !
 ]],
 }
 
@@ -4548,9 +4572,11 @@ Va à cette cascade, fais disparaître l'eau et saute du sommet.
 dialog{
   id = "scripts.meta.map.owl_9",
   text = [[
-Hou ! Au Sud et au Nord, se trouvent deux temples.   
-Va d'abord au Sud, là où des Ruines antiques parlent du Poisson-Rêve.
-Tu en sauras sûrement plus...
+Hou ! Cela fait longtemps qu'on ne s'est rencontrés !     
+Plonge dans la Baie de Martha et entre dans la gueule du Poisson-Chat.
+Plus tu es près du Poisson-Rêve, plus son sommeil
+est agité...    
+Tu es dans la bonne voie. Hou !
 ]],
 }
 
