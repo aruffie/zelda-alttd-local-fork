@@ -437,6 +437,15 @@ sprite{ id = "entities/destructibles/statue_elephant", description = "Statue ele
 sprite{ id = "entities/destructibles/stone_white_large", description = "Stone white large" }
 sprite{ id = "entities/destructibles/stone_white_small", description = "Stone white small" }
 sprite{ id = "entities/destructibles/stone_white_small_grass", description = "Stone white small grass" }
+sprite{ id = "entities/doors/door_b_wallturn_dungeon_1", description = "Door b wallturn dungeon 1" }
+sprite{ id = "entities/doors/door_b_wallturn_dungeon_10", description = "Door b wallturn dungeon 10" }
+sprite{ id = "entities/doors/door_b_wallturn_dungeon_2", description = "Door b wallturn dungeon 2" }
+sprite{ id = "entities/doors/door_b_wallturn_dungeon_3", description = "Door b wallturn dungeon 3" }
+sprite{ id = "entities/doors/door_b_wallturn_dungeon_5", description = "Door b wallturn dungeon 5" }
+sprite{ id = "entities/doors/door_b_wallturn_dungeon_6", description = "Door b wallturn dungeon 6" }
+sprite{ id = "entities/doors/door_b_wallturn_dungeon_7", description = "Door b wallturn dungeon 7" }
+sprite{ id = "entities/doors/door_b_wallturn_dungeon_8", description = "Door b wallturn dungeon 8" }
+sprite{ id = "entities/doors/door_b_wallturn_dungeon_9", description = "Door b wallturn dungeon 9" }
 sprite{ id = "entities/doors/door_boss", description = "Boss door" }
 sprite{ id = "entities/doors/door_boss_key", description = "Boss key door" }
 sprite{ id = "entities/doors/door_egg", description = "Egg door" }
@@ -2696,6 +2705,15 @@ file{ path = "sprites/enemies/vegas.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/zols_gels.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/zombie.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/zora.png", license = "Proprietary, Fair use" }
+file{ path = "sprites/entities/doors/door_b_wallturn_dungeon_1.dat", author = "JulioTanaka", }
+file{ path = "sprites/entities/doors/door_b_wallturn_dungeon_10.dat", author = "JulioTanaka", }
+file{ path = "sprites/entities/doors/door_b_wallturn_dungeon_2.dat", author = "JulioTanaka", }
+file{ path = "sprites/entities/doors/door_b_wallturn_dungeon_3.dat", author = "JulioTanaka", }
+file{ path = "sprites/entities/doors/door_b_wallturn_dungeon_5.dat", author = "JulioTanaka", }
+file{ path = "sprites/entities/doors/door_b_wallturn_dungeon_6.dat", author = "JulioTanaka", }
+file{ path = "sprites/entities/doors/door_b_wallturn_dungeon_7.dat", author = "JulioTanaka", }
+file{ path = "sprites/entities/doors/door_b_wallturn_dungeon_8.dat", author = "JulioTanaka", }
+file{ path = "sprites/entities/doors/door_b_wallturn_dungeon_9.dat", author = "JulioTanaka", }
 file{ path = "sprites/entities/effects/brake_smoke.dat", author = "JulioTanaka", }
 file{ path = "sprites/entities/effects/collapse_star.dat", author = "JulioTanaka", }
 file{ path = "sprites/entities/ground_effects/walrus_diving_effect.dat", author = "JulioTanaka", }
