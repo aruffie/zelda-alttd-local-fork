@@ -2535,7 +2535,6 @@ tile{
   layer = 0,
   x = 520,
   y = 136,
-  enabled_at_start = false,
   width = 8,
   height = 16,
   pattern = "143",
@@ -2560,6 +2559,15 @@ tile{
   height = 16,
   pattern = "154",
   tileset = "addition/out",
+}
+
+tile{
+  layer = 0,
+  x = 384,
+  y = 264,
+  width = 16,
+  height = 48,
+  pattern = "728",
 }
 
 teletransporter{
@@ -2744,21 +2752,31 @@ sensor{
 
 tile{
   layer = 1,
+  x = 40,
+  y = 408,
+  width = 864,
+  height = 352,
+  pattern = "908",
+  tileset = "out/outside_main",
+}
+
+tile{
+  layer = 1,
+  x = 768,
+  y = 656,
+  width = 96,
+  height = 48,
+  pattern = "7944",
+  tileset = "out/outside_buildings",
+}
+
+tile{
+  layer = 1,
   x = 544,
   y = 144,
   width = 64,
   height = 16,
   pattern = "907",
-}
-
-tile{
-  layer = 1,
-  x = 40,
-  y = 416,
-  width = 864,
-  height = 344,
-  pattern = "371",
-  tileset = "out/outside_special",
 }
 
 tile{
@@ -6421,16 +6439,6 @@ tile{
 
 tile{
   layer = 1,
-  x = 192,
-  y = 656,
-  width = 16,
-  height = 16,
-  pattern = "62",
-  tileset = "addition/out",
-}
-
-tile{
-  layer = 1,
   x = 208,
   y = 720,
   width = 160,
@@ -6823,7 +6831,7 @@ tile{
   layer = 1,
   x = 416,
   y = 688,
-  width = 16,
+  width = 112,
   height = 16,
   pattern = "62",
   tileset = "addition/out",
@@ -6953,7 +6961,7 @@ tile{
   layer = 1,
   x = 784,
   y = 656,
-  width = 32,
+  width = 16,
   height = 16,
   pattern = "62",
   tileset = "addition/out",
@@ -6961,7 +6969,7 @@ tile{
 
 tile{
   layer = 1,
-  x = 832,
+  x = 816,
   y = 656,
   width = 32,
   height = 16,
@@ -6971,9 +6979,9 @@ tile{
 
 tile{
   layer = 1,
-  x = 848,
+  x = 816,
   y = 592,
-  width = 16,
+  width = 32,
   height = 16,
   pattern = "62",
   tileset = "addition/out",
@@ -6981,9 +6989,9 @@ tile{
 
 tile{
   layer = 1,
-  x = 848,
+  x = 816,
   y = 608,
-  width = 16,
+  width = 32,
   height = 16,
   pattern = "62",
   tileset = "addition/out",
@@ -7011,9 +7019,9 @@ tile{
 
 tile{
   layer = 1,
-  x = 848,
+  x = 816,
   y = 496,
-  width = 16,
+  width = 32,
   height = 16,
   pattern = "62",
   tileset = "addition/out",
@@ -7021,9 +7029,9 @@ tile{
 
 tile{
   layer = 1,
-  x = 848,
+  x = 816,
   y = 512,
-  width = 16,
+  width = 32,
   height = 16,
   pattern = "62",
   tileset = "addition/out",
@@ -7031,9 +7039,9 @@ tile{
 
 tile{
   layer = 1,
-  x = 848,
+  x = 816,
   y = 528,
-  width = 16,
+  width = 32,
   height = 16,
   pattern = "62",
   tileset = "addition/out",
@@ -7735,6 +7743,1116 @@ tile{
   pattern = "978",
 }
 
+tile{
+  layer = 1,
+  x = 752,
+  y = 200,
+  width = 16,
+  height = 16,
+  pattern = "728",
+}
+
+tile{
+  layer = 1,
+  x = 672,
+  y = 200,
+  width = 16,
+  height = 16,
+  pattern = "728",
+}
+
+tile{
+  layer = 1,
+  x = 560,
+  y = 200,
+  width = 64,
+  height = 16,
+  pattern = "728",
+}
+
+tile{
+  layer = 1,
+  x = 560,
+  y = 248,
+  width = 80,
+  height = 16,
+  pattern = "728",
+}
+
+tile{
+  layer = 1,
+  x = 624,
+  y = 200,
+  width = 32,
+  height = 16,
+  pattern = "1111",
+}
+
+tile{
+  layer = 1,
+  x = 640,
+  y = 248,
+  width = 16,
+  height = 16,
+  pattern = "1111",
+}
+
+tile{
+  layer = 1,
+  x = 656,
+  y = 248,
+  width = 16,
+  height = 16,
+  pattern = "728",
+}
+
+tile{
+  layer = 1,
+  x = 688,
+  y = 248,
+  width = 32,
+  height = 16,
+  pattern = "728",
+}
+
+tile{
+  layer = 1,
+  x = 704,
+  y = 264,
+  width = 16,
+  height = 32,
+  pattern = "728",
+}
+
+tile{
+  layer = 1,
+  x = 752,
+  y = 248,
+  width = 16,
+  height = 48,
+  pattern = "1111",
+}
+
+tile{
+  layer = 1,
+  x = 688,
+  y = 296,
+  width = 32,
+  height = 32,
+  pattern = "728",
+}
+
+tile{
+  layer = 1,
+  x = 672,
+  y = 280,
+  width = 32,
+  height = 16,
+  pattern = "1111",
+}
+
+tile{
+  layer = 1,
+  x = 624,
+  y = 280,
+  width = 48,
+  height = 16,
+  pattern = "728",
+}
+
+tile{
+  layer = 1,
+  x = 640,
+  y = 296,
+  width = 16,
+  height = 32,
+  pattern = "728",
+}
+
+tile{
+  layer = 1,
+  x = 624,
+  y = 360,
+  width = 16,
+  height = 32,
+  pattern = "728",
+}
+
+tile{
+  layer = 1,
+  x = 640,
+  y = 360,
+  width = 16,
+  height = 32,
+  pattern = "728",
+}
+
+tile{
+  layer = 1,
+  x = 672,
+  y = 360,
+  width = 16,
+  height = 32,
+  pattern = "728",
+}
+
+tile{
+  layer = 1,
+  x = 704,
+  y = 360,
+  width = 16,
+  height = 32,
+  pattern = "728",
+}
+
+tile{
+  layer = 1,
+  x = 656,
+  y = 360,
+  width = 16,
+  height = 32,
+  pattern = "1111",
+}
+
+tile{
+  layer = 1,
+  x = 824,
+  y = 328,
+  width = 32,
+  height = 32,
+  pattern = "728",
+}
+
+tile{
+  layer = 1,
+  x = 864,
+  y = 96,
+  width = 32,
+  height = 32,
+  pattern = "1037",
+}
+
+tile{
+  layer = 1,
+  x = 896,
+  y = 112,
+  width = 16,
+  height = 48,
+  pattern = "1037",
+}
+
+tile{
+  layer = 1,
+  x = 368,
+  y = 88,
+  width = 8,
+  height = 8,
+  pattern = "127",
+}
+
+tile{
+  layer = 1,
+  x = 448,
+  y = 144,
+  width = 8,
+  height = 8,
+  pattern = "127",
+}
+
+tile{
+  layer = 1,
+  x = 432,
+  y = 80,
+  width = 8,
+  height = 8,
+  pattern = "127",
+}
+
+tile{
+  layer = 1,
+  x = 432,
+  y = 80,
+  width = 8,
+  height = 8,
+  pattern = "127",
+}
+
+tile{
+  layer = 1,
+  x = 496,
+  y = 232,
+  width = 8,
+  height = 8,
+  pattern = "127",
+}
+
+tile{
+  layer = 1,
+  x = 496,
+  y = 304,
+  width = 8,
+  height = 8,
+  pattern = "127",
+}
+
+tile{
+  layer = 1,
+  x = 600,
+  y = 296,
+  width = 8,
+  height = 8,
+  pattern = "127",
+}
+
+tile{
+  layer = 1,
+  x = 728,
+  y = 336,
+  width = 8,
+  height = 8,
+  pattern = "127",
+}
+
+tile{
+  layer = 1,
+  x = 832,
+  y = 304,
+  width = 8,
+  height = 8,
+  pattern = "127",
+}
+
+tile{
+  layer = 1,
+  x = 800,
+  y = 360,
+  width = 8,
+  height = 8,
+  pattern = "127",
+}
+
+tile{
+  layer = 1,
+  x = 752,
+  y = 368,
+  width = 8,
+  height = 8,
+  pattern = "127",
+}
+
+tile{
+  layer = 1,
+  x = 872,
+  y = 216,
+  width = 8,
+  height = 8,
+  pattern = "127",
+}
+
+tile{
+  layer = 1,
+  x = 896,
+  y = 256,
+  width = 8,
+  height = 8,
+  pattern = "127",
+}
+
+tile{
+  layer = 1,
+  x = 896,
+  y = 192,
+  width = 8,
+  height = 8,
+  pattern = "127",
+}
+
+tile{
+  layer = 1,
+  x = 216,
+  y = 376,
+  width = 8,
+  height = 8,
+  pattern = "127",
+}
+
+tile{
+  layer = 1,
+  x = 432,
+  y = 368,
+  width = 8,
+  height = 8,
+  pattern = "127",
+}
+
+tile{
+  layer = 1,
+  x = 464,
+  y = 304,
+  width = 8,
+  height = 8,
+  pattern = "126",
+}
+
+tile{
+  layer = 1,
+  x = 512,
+  y = 176,
+  width = 8,
+  height = 8,
+  pattern = "127",
+}
+
+tile{
+  layer = 1,
+  x = 576,
+  y = 184,
+  width = 8,
+  height = 8,
+  pattern = "127",
+}
+
+tile{
+  layer = 1,
+  x = 432,
+  y = 104,
+  width = 8,
+  height = 8,
+  pattern = "127",
+}
+
+tile{
+  layer = 1,
+  x = 560,
+  y = 320,
+  width = 8,
+  height = 8,
+  pattern = "126",
+}
+
+tile{
+  layer = 1,
+  x = 568,
+  y = 296,
+  width = 8,
+  height = 8,
+  pattern = "126",
+}
+
+tile{
+  layer = 1,
+  x = 528,
+  y = 240,
+  width = 8,
+  height = 8,
+  pattern = "126",
+}
+
+tile{
+  layer = 1,
+  x = 400,
+  y = 88,
+  width = 8,
+  height = 8,
+  pattern = "126",
+}
+
+tile{
+  layer = 1,
+  x = 328,
+  y = 88,
+  width = 8,
+  height = 8,
+  pattern = "126",
+}
+
+tile{
+  layer = 1,
+  x = 424,
+  y = 120,
+  width = 8,
+  height = 8,
+  pattern = "126",
+}
+
+tile{
+  layer = 1,
+  x = 776,
+  y = 336,
+  width = 8,
+  height = 8,
+  pattern = "126",
+}
+
+tile{
+  layer = 1,
+  x = 728,
+  y = 360,
+  width = 8,
+  height = 8,
+  pattern = "126",
+}
+
+tile{
+  layer = 1,
+  x = 672,
+  y = 344,
+  width = 8,
+  height = 8,
+  pattern = "126",
+}
+
+tile{
+  layer = 1,
+  x = 576,
+  y = 368,
+  width = 8,
+  height = 8,
+  pattern = "126",
+}
+
+tile{
+  layer = 1,
+  x = 528,
+  y = 376,
+  width = 8,
+  height = 8,
+  pattern = "126",
+}
+
+tile{
+  layer = 1,
+  x = 480,
+  y = 360,
+  width = 8,
+  height = 8,
+  pattern = "126",
+}
+
+tile{
+  layer = 1,
+  x = 384,
+  y = 376,
+  width = 8,
+  height = 8,
+  pattern = "126",
+}
+
+tile{
+  layer = 1,
+  x = 880,
+  y = 272,
+  width = 8,
+  height = 8,
+  pattern = "126",
+}
+
+tile{
+  layer = 1,
+  x = 896,
+  y = 240,
+  width = 8,
+  height = 8,
+  pattern = "126",
+}
+
+tile{
+  layer = 1,
+  x = 872,
+  y = 192,
+  width = 8,
+  height = 8,
+  pattern = "126",
+}
+
+tile{
+  layer = 1,
+  x = 864,
+  y = 288,
+  width = 8,
+  height = 8,
+  pattern = "126",
+}
+
+tile{
+  layer = 1,
+  x = 800,
+  y = 312,
+  width = 8,
+  height = 8,
+  pattern = "126",
+}
+
+tile{
+  layer = 1,
+  x = 800,
+  y = 336,
+  width = 8,
+  height = 8,
+  pattern = "126",
+}
+
+tile{
+  layer = 1,
+  x = 800,
+  y = 384,
+  width = 8,
+  height = 8,
+  pattern = "126",
+}
+
+tile{
+  layer = 1,
+  x = 888,
+  y = 128,
+  width = 8,
+  height = 8,
+  pattern = "105 (copy)",
+}
+
+tile{
+  layer = 1,
+  x = 896,
+  y = 104,
+  width = 8,
+  height = 8,
+  pattern = "103 (copy)",
+}
+
+tile{
+  layer = 1,
+  x = 872,
+  y = 128,
+  width = 8,
+  height = 8,
+  pattern = "84",
+}
+
+tile{
+  layer = 1,
+  x = 888,
+  y = 152,
+  width = 8,
+  height = 8,
+  pattern = "101",
+}
+
+tile{
+  layer = 1,
+  x = 880,
+  y = 152,
+  width = 8,
+  height = 8,
+  pattern = "100",
+}
+
+tile{
+  layer = 1,
+  x = 184,
+  y = 104,
+  width = 8,
+  height = 8,
+  pattern = "127",
+}
+
+tile{
+  layer = 1,
+  x = 152,
+  y = 216,
+  width = 8,
+  height = 8,
+  pattern = "127",
+}
+
+tile{
+  layer = 1,
+  x = 80,
+  y = 216,
+  width = 8,
+  height = 8,
+  pattern = "127",
+}
+
+tile{
+  layer = 1,
+  x = 800,
+  y = 432,
+  width = 16,
+  height = 192,
+  pattern = "7944",
+  tileset = "out/outside_buildings",
+}
+
+tile{
+  layer = 1,
+  x = 784,
+  y = 544,
+  width = 16,
+  height = 48,
+  pattern = "7944",
+  tileset = "out/outside_buildings",
+}
+
+tile{
+  layer = 1,
+  x = 816,
+  y = 544,
+  width = 16,
+  height = 48,
+  pattern = "7944",
+  tileset = "out/outside_buildings",
+}
+
+tile{
+  layer = 1,
+  x = 352,
+  y = 496,
+  width = 16,
+  height = 16,
+  pattern = "62",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 496,
+  y = 544,
+  width = 48,
+  height = 16,
+  pattern = "62",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 496,
+  y = 528,
+  width = 48,
+  height = 16,
+  pattern = "62",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 496,
+  y = 512,
+  width = 48,
+  height = 16,
+  pattern = "62",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 448,
+  y = 496,
+  width = 16,
+  height = 16,
+  pattern = "62",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 576,
+  y = 512,
+  width = 48,
+  height = 48,
+  pattern = "7944",
+  tileset = "out/outside_buildings",
+}
+
+tile{
+  layer = 1,
+  x = 96,
+  y = 656,
+  width = 112,
+  height = 16,
+  pattern = "62",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 560,
+  y = 624,
+  width = 16,
+  height = 16,
+  pattern = "62",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 624,
+  y = 608,
+  width = 48,
+  height = 48,
+  pattern = "7944",
+  tileset = "out/outside_buildings",
+}
+
+tile{
+  layer = 1,
+  x = 640,
+  y = 512,
+  width = 48,
+  height = 48,
+  pattern = "7944",
+  tileset = "out/outside_buildings",
+}
+
+tile{
+  layer = 1,
+  x = 784,
+  y = 544,
+  width = 16,
+  height = 16,
+  pattern = "62",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 816,
+  y = 544,
+  width = 32,
+  height = 16,
+  pattern = "62",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 864,
+  y = 544,
+  width = 16,
+  height = 16,
+  pattern = "62",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 864,
+  y = 528,
+  width = 16,
+  height = 16,
+  pattern = "62",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 864,
+  y = 512,
+  width = 16,
+  height = 16,
+  pattern = "62",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 864,
+  y = 496,
+  width = 16,
+  height = 16,
+  pattern = "62",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 784,
+  y = 672,
+  width = 16,
+  height = 16,
+  pattern = "62",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 544,
+  y = 480,
+  width = 8,
+  height = 8,
+  pattern = "127",
+}
+
+tile{
+  layer = 1,
+  x = 512,
+  y = 480,
+  width = 8,
+  height = 8,
+  pattern = "126",
+}
+
+tile{
+  layer = 1,
+  x = 288,
+  y = 680,
+  width = 8,
+  height = 8,
+  pattern = "127",
+}
+
+tile{
+  layer = 1,
+  x = 256,
+  y = 680,
+  width = 8,
+  height = 8,
+  pattern = "126",
+}
+
+tile{
+  layer = 1,
+  x = 320,
+  y = 616,
+  width = 8,
+  height = 8,
+  pattern = "127",
+}
+
+tile{
+  layer = 1,
+  x = 392,
+  y = 608,
+  width = 8,
+  height = 8,
+  pattern = "127",
+}
+
+tile{
+  layer = 1,
+  x = 392,
+  y = 736,
+  width = 8,
+  height = 8,
+  pattern = "127",
+}
+
+tile{
+  layer = 1,
+  x = 520,
+  y = 632,
+  width = 8,
+  height = 8,
+  pattern = "127",
+}
+
+tile{
+  layer = 1,
+  x = 664,
+  y = 680,
+  width = 8,
+  height = 8,
+  pattern = "127",
+}
+
+tile{
+  layer = 1,
+  x = 712,
+  y = 640,
+  width = 8,
+  height = 8,
+  pattern = "127",
+}
+
+tile{
+  layer = 1,
+  x = 712,
+  y = 520,
+  width = 8,
+  height = 8,
+  pattern = "127",
+}
+
+tile{
+  layer = 1,
+  x = 872,
+  y = 608,
+  width = 8,
+  height = 8,
+  pattern = "127",
+}
+
+tile{
+  layer = 1,
+  x = 824,
+  y = 632,
+  width = 8,
+  height = 8,
+  pattern = "127",
+}
+
+tile{
+  layer = 1,
+  x = 712,
+  y = 488,
+  width = 8,
+  height = 8,
+  pattern = "127",
+}
+
+tile{
+  layer = 1,
+  x = 472,
+  y = 480,
+  width = 8,
+  height = 8,
+  pattern = "127",
+}
+
+tile{
+  layer = 1,
+  x = 432,
+  y = 536,
+  width = 8,
+  height = 8,
+  pattern = "126",
+}
+
+tile{
+  layer = 1,
+  x = 480,
+  y = 648,
+  width = 8,
+  height = 8,
+  pattern = "126",
+}
+
+tile{
+  layer = 1,
+  x = 536,
+  y = 688,
+  width = 8,
+  height = 8,
+  pattern = "126",
+}
+
+tile{
+  layer = 1,
+  x = 608,
+  y = 696,
+  width = 8,
+  height = 8,
+  pattern = "126",
+}
+
+tile{
+  layer = 1,
+  x = 736,
+  y = 696,
+  width = 8,
+  height = 8,
+  pattern = "126",
+}
+
+tile{
+  layer = 1,
+  x = 832,
+  y = 728,
+  width = 8,
+  height = 8,
+  pattern = "126",
+}
+
+tile{
+  layer = 1,
+  x = 880,
+  y = 720,
+  width = 8,
+  height = 8,
+  pattern = "126",
+}
+
+tile{
+  layer = 1,
+  x = 880,
+  y = 672,
+  width = 8,
+  height = 8,
+  pattern = "126",
+}
+
+tile{
+  layer = 1,
+  x = 752,
+  y = 568,
+  width = 8,
+  height = 8,
+  pattern = "126",
+}
+
+tile{
+  layer = 1,
+  x = 760,
+  y = 472,
+  width = 8,
+  height = 8,
+  pattern = "126",
+}
+
+tile{
+  layer = 1,
+  x = 824,
+  y = 480,
+  width = 8,
+  height = 8,
+  pattern = "126",
+}
+
+tile{
+  layer = 1,
+  x = 504,
+  y = 568,
+  width = 8,
+  height = 8,
+  pattern = "126",
+}
+
+tile{
+  layer = 1,
+  x = 56,
+  y = 664,
+  width = 8,
+  height = 8,
+  pattern = "126",
+}
+
+tile{
+  layer = 1,
+  x = 64,
+  y = 712,
+  width = 8,
+  height = 8,
+  pattern = "126",
+}
+
+tile{
+  layer = 1,
+  x = 264,
+  y = 656,
+  width = 8,
+  height = 8,
+  pattern = "126",
+}
+
+enemy{
+  name = "armos_20",
+  layer = 1,
+  x = 568,
+  y = 621,
+  direction = 0,
+  breed = "armos",
+  treasure_name = "random_with_charm",
+}
+
 wall{
   layer = 1,
   x = 720,
@@ -7776,14 +8894,14 @@ destination{
 destination{
   name = "cave_d3_shell_cave",
   layer = 1,
-  x = 600,
+  x = 616,
   y = 557,
   direction = 3,
 }
 
 teletransporter{
   layer = 1,
-  x = 592,
+  x = 608,
   y = 528,
   width = 16,
   height = 16,
@@ -8594,6 +9712,1802 @@ door{
   opening_method = "explosion",
 }
 
+custom_entity{
+  layer = 1,
+  x = 632,
+  y = 341,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 616,
+  y = 341,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 600,
+  y = 341,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 584,
+  y = 341,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 568,
+  y = 341,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 552,
+  y = 341,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 536,
+  y = 341,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 520,
+  y = 341,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 504,
+  y = 341,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 456,
+  y = 341,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 472,
+  y = 341,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 488,
+  y = 341,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 664,
+  y = 309,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 680,
+  y = 309,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 744,
+  y = 309,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 760,
+  y = 309,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 776,
+  y = 309,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 776,
+  y = 293,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 456,
+  y = 277,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 472,
+  y = 277,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 488,
+  y = 277,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 504,
+  y = 277,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 520,
+  y = 277,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 536,
+  y = 277,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 552,
+  y = 277,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 568,
+  y = 277,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 584,
+  y = 277,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 600,
+  y = 277,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 616,
+  y = 277,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 632,
+  y = 277,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 648,
+  y = 277,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 664,
+  y = 277,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 680,
+  y = 277,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 712,
+  y = 213,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 712,
+  y = 229,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 712,
+  y = 245,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 680,
+  y = 261,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 680,
+  y = 245,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 680,
+  y = 229,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 728,
+  y = 309,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 744,
+  y = 277,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 728,
+  y = 277,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 552,
+  y = 293,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+destructible{
+  layer = 1,
+  x = 760,
+  y = 213,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+destructible{
+  layer = 1,
+  x = 680,
+  y = 213,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+destructible{
+  layer = 1,
+  x = 584,
+  y = 213,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+destructible{
+  layer = 1,
+  x = 600,
+  y = 213,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+destructible{
+  layer = 1,
+  x = 616,
+  y = 213,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+custom_entity{
+  layer = 1,
+  x = 552,
+  y = 213,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 536,
+  y = 213,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 520,
+  y = 213,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 504,
+  y = 213,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 488,
+  y = 213,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 472,
+  y = 213,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 456,
+  y = 213,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 584,
+  y = 229,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 584,
+  y = 245,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 632,
+  y = 229,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 632,
+  y = 245,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+destructible{
+  layer = 1,
+  x = 584,
+  y = 261,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+destructible{
+  layer = 1,
+  x = 600,
+  y = 261,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+destructible{
+  layer = 1,
+  x = 616,
+  y = 261,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+destructible{
+  layer = 1,
+  x = 632,
+  y = 261,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+destructible{
+  layer = 1,
+  x = 664,
+  y = 261,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+destructible{
+  layer = 1,
+  x = 696,
+  y = 261,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+destructible{
+  layer = 1,
+  x = 712,
+  y = 261,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+destructible{
+  layer = 1,
+  x = 712,
+  y = 277,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+destructible{
+  layer = 1,
+  x = 712,
+  y = 293,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+destructible{
+  layer = 1,
+  x = 712,
+  y = 309,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+destructible{
+  layer = 1,
+  x = 696,
+  y = 309,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+custom_entity{
+  layer = 1,
+  x = 568,
+  y = 245,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 568,
+  y = 229,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+destructible{
+  layer = 1,
+  x = 568,
+  y = 261,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+destructible{
+  layer = 1,
+  x = 568,
+  y = 213,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+destructible{
+  layer = 1,
+  x = 632,
+  y = 213,
+  treasure_name = "random",
+  sprite = "entities/destructibles/bush",
+  destruction_sound = "arrow_hit",
+  weight = 1,
+  can_be_cut = true,
+}
+
+destructible{
+  layer = 1,
+  x = 648,
+  y = 213,
+  treasure_name = "random",
+  sprite = "entities/destructibles/bush",
+  destruction_sound = "arrow_hit",
+  weight = 1,
+  can_be_cut = true,
+}
+
+destructible{
+  layer = 1,
+  x = 648,
+  y = 261,
+  treasure_name = "random",
+  sprite = "entities/destructibles/bush",
+  destruction_sound = "arrow_hit",
+  weight = 1,
+  can_be_cut = true,
+}
+
+destructible{
+  layer = 1,
+  x = 760,
+  y = 261,
+  treasure_name = "random",
+  sprite = "entities/destructibles/bush",
+  destruction_sound = "arrow_hit",
+  weight = 1,
+  can_be_cut = true,
+}
+
+destructible{
+  layer = 1,
+  x = 760,
+  y = 277,
+  treasure_name = "random",
+  sprite = "entities/destructibles/bush",
+  destruction_sound = "arrow_hit",
+  weight = 1,
+  can_be_cut = true,
+}
+
+destructible{
+  layer = 1,
+  x = 760,
+  y = 293,
+  treasure_name = "random",
+  sprite = "entities/destructibles/bush",
+  destruction_sound = "arrow_hit",
+  weight = 1,
+  can_be_cut = true,
+}
+
+destructible{
+  layer = 1,
+  x = 664,
+  y = 293,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+destructible{
+  layer = 1,
+  x = 648,
+  y = 293,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+destructible{
+  layer = 1,
+  x = 632,
+  y = 293,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+destructible{
+  layer = 1,
+  x = 680,
+  y = 293,
+  treasure_name = "random",
+  sprite = "entities/destructibles/bush",
+  destruction_sound = "arrow_hit",
+  weight = 1,
+  can_be_cut = true,
+}
+
+destructible{
+  layer = 1,
+  x = 696,
+  y = 293,
+  treasure_name = "random",
+  sprite = "entities/destructibles/bush",
+  destruction_sound = "arrow_hit",
+  weight = 1,
+  can_be_cut = true,
+}
+
+destructible{
+  layer = 1,
+  x = 648,
+  y = 309,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+custom_entity{
+  layer = 1,
+  x = 632,
+  y = 357,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 616,
+  y = 357,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 600,
+  y = 357,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 584,
+  y = 357,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 568,
+  y = 357,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 552,
+  y = 357,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 536,
+  y = 357,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 520,
+  y = 357,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 504,
+  y = 357,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 456,
+  y = 357,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 472,
+  y = 357,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 488,
+  y = 357,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 456,
+  y = 229,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 456,
+  y = 245,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 456,
+  y = 261,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 472,
+  y = 229,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 472,
+  y = 245,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 472,
+  y = 261,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 664,
+  y = 325,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 680,
+  y = 325,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 744,
+  y = 325,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 760,
+  y = 325,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 776,
+  y = 325,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 728,
+  y = 325,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/statues/block",
+  model = "hookable",
+}
+
+destructible{
+  layer = 1,
+  x = 648,
+  y = 325,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+destructible{
+  layer = 1,
+  x = 696,
+  y = 325,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+destructible{
+  layer = 1,
+  x = 712,
+  y = 325,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+destructible{
+  layer = 1,
+  x = 632,
+  y = 373,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+destructible{
+  layer = 1,
+  x = 632,
+  y = 389,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+destructible{
+  layer = 1,
+  x = 648,
+  y = 389,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+destructible{
+  layer = 1,
+  x = 664,
+  y = 389,
+  treasure_name = "random",
+  sprite = "entities/destructibles/bush",
+  destruction_sound = "arrow_hit",
+  weight = 1,
+  can_be_cut = true,
+}
+
+destructible{
+  layer = 1,
+  x = 664,
+  y = 373,
+  treasure_name = "random",
+  sprite = "entities/destructibles/bush",
+  destruction_sound = "arrow_hit",
+  weight = 1,
+  can_be_cut = true,
+}
+
+destructible{
+  layer = 1,
+  x = 616,
+  y = 389,
+  treasure_name = "random",
+  sprite = "entities/destructibles/bush",
+  destruction_sound = "arrow_hit",
+  weight = 1,
+  can_be_cut = true,
+}
+
+destructible{
+  layer = 1,
+  x = 616,
+  y = 373,
+  treasure_name = "random",
+  sprite = "entities/destructibles/bush",
+  destruction_sound = "arrow_hit",
+  weight = 1,
+  can_be_cut = true,
+}
+
+destructible{
+  layer = 1,
+  x = 648,
+  y = 373,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+destructible{
+  layer = 1,
+  x = 680,
+  y = 373,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+destructible{
+  layer = 1,
+  x = 680,
+  y = 389,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+destructible{
+  layer = 1,
+  x = 712,
+  y = 389,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+destructible{
+  layer = 1,
+  x = 712,
+  y = 373,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+destructible{
+  layer = 1,
+  x = 832,
+  y = 341,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+destructible{
+  layer = 1,
+  x = 848,
+  y = 341,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+destructible{
+  layer = 1,
+  x = 832,
+  y = 357,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+destructible{
+  layer = 1,
+  x = 848,
+  y = 357,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
+}
+
+destructible{
+  layer = 1,
+  x = 872,
+  y = 109,
+  treasure_name = "random",
+  sprite = "entities/destructibles/grass",
+  destruction_sound = "bush",
+  weight = -1,
+  can_be_cut = true,
+  ground = "grass",
+}
+
+destructible{
+  layer = 1,
+  x = 888,
+  y = 109,
+  treasure_name = "random",
+  sprite = "entities/destructibles/grass",
+  destruction_sound = "bush",
+  weight = -1,
+  can_be_cut = true,
+  ground = "grass",
+}
+
+destructible{
+  layer = 1,
+  x = 872,
+  y = 125,
+  treasure_name = "random",
+  sprite = "entities/destructibles/grass",
+  destruction_sound = "bush",
+  weight = -1,
+  can_be_cut = true,
+  ground = "grass",
+}
+
+destructible{
+  layer = 1,
+  x = 888,
+  y = 125,
+  treasure_name = "random",
+  sprite = "entities/destructibles/grass",
+  destruction_sound = "bush",
+  weight = -1,
+  can_be_cut = true,
+  ground = "grass",
+}
+
+destructible{
+  layer = 1,
+  x = 904,
+  y = 125,
+  treasure_name = "random",
+  sprite = "entities/destructibles/grass",
+  destruction_sound = "bush",
+  weight = -1,
+  can_be_cut = true,
+  ground = "grass",
+}
+
+destructible{
+  layer = 1,
+  x = 904,
+  y = 141,
+  treasure_name = "random",
+  sprite = "entities/destructibles/grass",
+  destruction_sound = "bush",
+  weight = -1,
+  can_be_cut = true,
+  ground = "grass",
+}
+
+destructible{
+  layer = 1,
+  x = 904,
+  y = 157,
+  treasure_name = "random",
+  sprite = "entities/destructibles/grass",
+  destruction_sound = "bush",
+  weight = -1,
+  can_be_cut = true,
+  ground = "grass",
+}
+
+enemy{
+  name = "armos_4",
+  layer = 1,
+  x = 104,
+  y = 653,
+  direction = 0,
+  breed = "armos",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "armos_5",
+  layer = 1,
+  x = 120,
+  y = 701,
+  direction = 0,
+  breed = "armos",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "armos_6",
+  layer = 1,
+  x = 120,
+  y = 749,
+  direction = 0,
+  breed = "armos",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "armos_7",
+  layer = 1,
+  x = 344,
+  y = 669,
+  direction = 0,
+  breed = "armos",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "armos_9",
+  layer = 1,
+  x = 360,
+  y = 477,
+  direction = 0,
+  breed = "armos",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "armos_8",
+  layer = 1,
+  x = 360,
+  y = 493,
+  direction = 0,
+  breed = "armos",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "armos_10",
+  layer = 1,
+  x = 456,
+  y = 477,
+  direction = 0,
+  breed = "armos",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "armos_11",
+  layer = 1,
+  x = 456,
+  y = 493,
+  direction = 0,
+  breed = "armos",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "armos_12",
+  layer = 1,
+  x = 584,
+  y = 525,
+  direction = 0,
+  breed = "armos",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "armos_13",
+  layer = 1,
+  x = 616,
+  y = 525,
+  direction = 0,
+  breed = "armos",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "armos_14",
+  layer = 1,
+  x = 584,
+  y = 557,
+  direction = 0,
+  breed = "armos",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "armos_15",
+  layer = 1,
+  x = 616,
+  y = 557,
+  direction = 0,
+  breed = "armos",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "armos_16",
+  layer = 1,
+  x = 376,
+  y = 669,
+  direction = 0,
+  breed = "armos",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "armos_17",
+  layer = 1,
+  x = 424,
+  y = 669,
+  direction = 0,
+  breed = "armos",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "armos_18",
+  layer = 1,
+  x = 440,
+  y = 717,
+  direction = 0,
+  breed = "armos",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "armos_19",
+  layer = 1,
+  x = 376,
+  y = 701,
+  direction = 0,
+  breed = "armos",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "armos_21",
+  layer = 1,
+  x = 632,
+  y = 621,
+  direction = 0,
+  breed = "armos",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "armos_22",
+  layer = 1,
+  x = 664,
+  y = 621,
+  direction = 0,
+  breed = "armos",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "armos_23",
+  layer = 1,
+  x = 632,
+  y = 653,
+  direction = 0,
+  breed = "armos",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "armos_24",
+  layer = 1,
+  x = 664,
+  y = 653,
+  direction = 0,
+  breed = "armos",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "armos_25",
+  layer = 1,
+  x = 648,
+  y = 525,
+  direction = 0,
+  breed = "armos",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "armos_26",
+  layer = 1,
+  x = 680,
+  y = 525,
+  direction = 0,
+  breed = "armos",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "armos_27",
+  layer = 1,
+  x = 648,
+  y = 557,
+  direction = 0,
+  breed = "armos",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "armos_28",
+  layer = 1,
+  x = 680,
+  y = 557,
+  direction = 0,
+  breed = "armos",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "armos_29",
+  layer = 1,
+  x = 776,
+  y = 557,
+  direction = 0,
+  breed = "armos",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "armos_30",
+  layer = 1,
+  x = 776,
+  y = 525,
+  direction = 0,
+  breed = "armos",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "armos_31",
+  layer = 1,
+  x = 856,
+  y = 509,
+  direction = 0,
+  breed = "armos",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "armos_32",
+  layer = 1,
+  x = 856,
+  y = 557,
+  direction = 0,
+  breed = "armos",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "armos_33",
+  layer = 1,
+  x = 776,
+  y = 669,
+  direction = 0,
+  breed = "armos",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "armos_34",
+  layer = 1,
+  x = 808,
+  y = 669,
+  direction = 0,
+  breed = "armos",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "armos_35",
+  layer = 1,
+  x = 856,
+  y = 669,
+  direction = 0,
+  breed = "armos",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "armos_36",
+  layer = 1,
+  x = 856,
+  y = 701,
+  direction = 0,
+  breed = "armos",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "armos_37",
+  layer = 1,
+  x = 808,
+  y = 701,
+  direction = 0,
+  breed = "armos",
+  treasure_name = "random_with_charm",
+}
+
 tile{
   layer = 2,
   x = 80,
@@ -8791,16 +11705,6 @@ tile{
   layer = 2,
   x = 192,
   y = 632,
-  width = 16,
-  height = 8,
-  pattern = "63",
-  tileset = "addition/out",
-}
-
-tile{
-  layer = 2,
-  x = 192,
-  y = 648,
   width = 16,
   height = 8,
   pattern = "63",
@@ -9201,7 +12105,7 @@ tile{
   layer = 2,
   x = 416,
   y = 680,
-  width = 16,
+  width = 112,
   height = 8,
   pattern = "63",
   tileset = "addition/out",
@@ -9241,16 +12145,6 @@ tile{
   layer = 2,
   x = 560,
   y = 632,
-  width = 16,
-  height = 8,
-  pattern = "63",
-  tileset = "addition/out",
-}
-
-tile{
-  layer = 2,
-  x = 560,
-  y = 648,
   width = 16,
   height = 8,
   pattern = "63",
@@ -9331,7 +12225,7 @@ tile{
   layer = 2,
   x = 784,
   y = 648,
-  width = 32,
+  width = 16,
   height = 8,
   pattern = "63",
   tileset = "addition/out",
@@ -9339,7 +12233,7 @@ tile{
 
 tile{
   layer = 2,
-  x = 832,
+  x = 816,
   y = 648,
   width = 32,
   height = 8,
@@ -9349,9 +12243,9 @@ tile{
 
 tile{
   layer = 2,
-  x = 848,
+  x = 816,
   y = 584,
-  width = 16,
+  width = 32,
   height = 8,
   pattern = "63",
   tileset = "addition/out",
@@ -9359,9 +12253,9 @@ tile{
 
 tile{
   layer = 2,
-  x = 848,
+  x = 816,
   y = 600,
-  width = 16,
+  width = 32,
   height = 8,
   pattern = "63",
   tileset = "addition/out",
@@ -9389,9 +12283,9 @@ tile{
 
 tile{
   layer = 2,
-  x = 848,
+  x = 816,
   y = 488,
-  width = 16,
+  width = 32,
   height = 8,
   pattern = "63",
   tileset = "addition/out",
@@ -9399,9 +12293,9 @@ tile{
 
 tile{
   layer = 2,
-  x = 848,
+  x = 816,
   y = 504,
-  width = 16,
+  width = 32,
   height = 8,
   pattern = "63",
   tileset = "addition/out",
@@ -9409,9 +12303,9 @@ tile{
 
 tile{
   layer = 2,
-  x = 848,
+  x = 816,
   y = 520,
-  width = 16,
+  width = 32,
   height = 8,
   pattern = "63",
   tileset = "addition/out",
@@ -10174,46 +13068,6 @@ tile{
 tile{
   layer = 2,
   x = 80,
-  y = 400,
-  width = 80,
-  height = 120,
-  pattern = "43",
-  tileset = "addition/out",
-}
-
-tile{
-  layer = 2,
-  x = 176,
-  y = 400,
-  width = 80,
-  height = 120,
-  pattern = "37",
-  tileset = "addition/out",
-}
-
-tile{
-  layer = 2,
-  x = 160,
-  y = 400,
-  width = 16,
-  height = 72,
-  pattern = "46",
-  tileset = "addition/out",
-}
-
-tile{
-  layer = 2,
-  x = 160,
-  y = 472,
-  width = 16,
-  height = 48,
-  pattern = "60",
-  tileset = "addition/out",
-}
-
-tile{
-  layer = 2,
-  x = 80,
   y = 568,
   width = 16,
   height = 16,
@@ -10483,6 +13337,216 @@ tile{
   pattern = "14796",
 }
 
+tile{
+  layer = 2,
+  x = 352,
+  y = 488,
+  width = 16,
+  height = 8,
+  pattern = "63",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 2,
+  x = 496,
+  y = 536,
+  width = 48,
+  height = 8,
+  pattern = "63",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 2,
+  x = 496,
+  y = 520,
+  width = 48,
+  height = 8,
+  pattern = "63",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 2,
+  x = 496,
+  y = 504,
+  width = 48,
+  height = 8,
+  pattern = "63",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 2,
+  x = 448,
+  y = 488,
+  width = 16,
+  height = 8,
+  pattern = "63",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 2,
+  x = 96,
+  y = 648,
+  width = 112,
+  height = 8,
+  pattern = "63",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 2,
+  x = 560,
+  y = 616,
+  width = 16,
+  height = 8,
+  pattern = "63",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 2,
+  x = 816,
+  y = 536,
+  width = 32,
+  height = 8,
+  pattern = "63",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 2,
+  x = 784,
+  y = 536,
+  width = 16,
+  height = 8,
+  pattern = "63",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 2,
+  x = 864,
+  y = 488,
+  width = 16,
+  height = 8,
+  pattern = "63",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 2,
+  x = 864,
+  y = 504,
+  width = 16,
+  height = 8,
+  pattern = "63",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 2,
+  x = 864,
+  y = 536,
+  width = 16,
+  height = 8,
+  pattern = "63",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 2,
+  x = 864,
+  y = 520,
+  width = 16,
+  height = 8,
+  pattern = "63",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 2,
+  x = 784,
+  y = 664,
+  width = 16,
+  height = 8,
+  pattern = "63",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 2,
+  x = 80,
+  y = 640,
+  width = 16,
+  height = 16,
+  pattern = "61",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 2,
+  x = 176,
+  y = 456,
+  width = 16,
+  height = 64,
+  pattern = "175",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 2,
+  x = 144,
+  y = 392,
+  width = 48,
+  height = 64,
+  pattern = "46",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 2,
+  x = 88,
+  y = 392,
+  width = 56,
+  height = 96,
+  pattern = "37",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 2,
+  x = 192,
+  y = 392,
+  width = 56,
+  height = 96,
+  pattern = "43",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 2,
+  x = 160,
+  y = 456,
+  width = 16,
+  height = 64,
+  pattern = "162",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 2,
+  x = 144,
+  y = 456,
+  width = 16,
+  height = 64,
+  pattern = "140",
+  tileset = "addition/out",
+}
+
 wall{
   layer = 2,
   x = 160,
@@ -10513,7 +13577,7 @@ enemy{
 }
 
 enemy{
-  name = "armos_3",
+  name = "armos_1",
   layer = 2,
   x = 136,
   y = 581,
@@ -10523,7 +13587,7 @@ enemy{
 }
 
 enemy{
-  name = "armos_4",
+  name = "armos_3",
   layer = 2,
   x = 200,
   y = 581,
@@ -10553,141 +13617,6 @@ destination{
   x = 168,
   y = 517,
   direction = 3,
-}
-
-dynamic_tile{
-  layer = 2,
-  x = 160,
-  y = 592,
-  properties = {
-    {
-      key = "visible",
-      value = "false",
-    },
-  },
-  width = 16,
-  height = 48,
-  pattern = "7827",
-}
-
-dynamic_tile{
-  layer = 2,
-  x = 144,
-  y = 600,
-  properties = {
-    {
-      key = "visible",
-      value = "false",
-    },
-  },
-  width = 16,
-  height = 8,
-  pattern = "7829",
-}
-
-dynamic_tile{
-  layer = 2,
-  x = 144,
-  y = 592,
-  properties = {
-    {
-      key = "visible",
-      value = "false",
-    },
-  },
-  width = 16,
-  height = 8,
-  pattern = "7828",
-}
-
-dynamic_tile{
-  layer = 2,
-  x = 144,
-  y = 608,
-  properties = {
-    {
-      key = "visible",
-      value = "false",
-    },
-  },
-  width = 16,
-  height = 24,
-  pattern = "12939",
-}
-
-dynamic_tile{
-  layer = 2,
-  x = 144,
-  y = 632,
-  properties = {
-    {
-      key = "visible",
-      value = "false",
-    },
-  },
-  width = 16,
-  height = 8,
-  pattern = "12940",
-}
-
-dynamic_tile{
-  layer = 2,
-  x = 176,
-  y = 600,
-  properties = {
-    {
-      key = "visible",
-      value = "false",
-    },
-  },
-  width = 16,
-  height = 8,
-  pattern = "7829",
-}
-
-dynamic_tile{
-  layer = 2,
-  x = 176,
-  y = 592,
-  properties = {
-    {
-      key = "visible",
-      value = "false",
-    },
-  },
-  width = 16,
-  height = 8,
-  pattern = "7828",
-}
-
-dynamic_tile{
-  layer = 2,
-  x = 176,
-  y = 608,
-  properties = {
-    {
-      key = "visible",
-      value = "false",
-    },
-  },
-  width = 16,
-  height = 24,
-  pattern = "12939",
-}
-
-dynamic_tile{
-  layer = 2,
-  x = 176,
-  y = 632,
-  properties = {
-    {
-      key = "visible",
-      value = "false",
-    },
-  },
-  width = 16,
-  height = 8,
-  pattern = "12940",
 }
 
 wall{

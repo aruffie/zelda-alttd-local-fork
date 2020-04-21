@@ -37,7 +37,7 @@ end
 
 function sensor_1:on_activated()
   
-  if game:is_step_last("ghost_house_visited") then
+  if game:get_value("ghost_quest_step") == "ghost_house_visited" then
     map:launch_cinematic_1()
   end
   
@@ -56,20 +56,28 @@ function map:launch_cinematic_1()
     ghost:set_position(x,y)
     ghost:set_enabled(true)
     companion_ghost:set_enabled(false)
+    ghost:get_sprite():set_direction(1)
+    ghost:get_sprite():set_animation("walking")
     local movement1 = sol.movement.create("target")
     movement1:set_speed(32)
     movement1:set_target(position_ghost)
     movement1:set_ignore_suspend(true)
     movement1:set_ignore_obstacles(true)
     movement(movement1, ghost)
+    ghost:get_sprite():set_direction(3)
+    ghost:get_sprite():set_animation("goodbye")
     wait(2000)
     dialog("maps.out.graveyard.ghost_1")
     wait(2000)
-    owl_manager:appear(map, 9, function()
-      map:init_music()
-    end)
-    map:set_cinematic_mode(false)
-    game:set_step_done("ghost_returned_to_tomb")
+    ghost:set_enabled(false)
+    if not game:get_value("possession_intrument_5") then
+      owl_manager:appear(map, 9, function()
+        map:init_music()
+      end)
+    else
+      map:set_cinematic_mode(false, options)
+    end
+    game:set_value("ghost_quest_step", "ghost_returned_to_tomb")
   end)
 
 end

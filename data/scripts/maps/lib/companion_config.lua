@@ -80,7 +80,7 @@ return {
       if map:get_game():is_in_dungeon() then
         return false
       end
-      return map:get_game():is_step_last("ghost_joined") or map:get_game():is_step_last("ghost_house_visited")
+      return map:get_game():get_value("ghost_quest_step") == "ghost_joined" or map:get_game():get_value("ghost_quest_step") == "ghost_house_visited"
     end,
     repeated_behavior_delay = 5000,
     repeated_behavior = function(companion)
