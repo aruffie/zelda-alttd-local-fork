@@ -159,15 +159,15 @@ function map:launch_boss()
         start_tracking_hero()
         game:set_step_done("sandworm_killed") 
       end)
-      local line_1 = sol.language.get_dialog("maps.out.yarna_desert.boss_name").text
-      local line_2 = sol.language.get_dialog("maps.out.yarna_desert.boss_description").text
-      parchment:show(map, "boss", "top", 1500, line_1, line_2, nil, function()
-
-      end)
     elseif boss:exists() then
       boss:set_enabled(true)
       boss:set_life(8)
     end
+    local line_1 = sol.language.get_dialog("maps.out.yarna_desert.boss_name").text
+    local line_2 = sol.language.get_dialog("maps.out.yarna_desert.boss_description").text
+    parchment:show(map, "boss", "top", 1500, line_1, line_2, nil, function()
+
+    end)
     audio_manager:play_music("22_boss_battle")
     
     map:set_cinematic_mode(false)
