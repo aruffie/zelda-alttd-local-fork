@@ -66,36 +66,42 @@ function map:init_map_entities()
   
 end
 
-function map:leave_boss()
+local function start_tracking_hero()
 
-  magnet:stop_tracking()
-  if game:is_step_done("sandworm_killed") then
-    return
-  end
-  if boss and not boss:is_enabled() then
-    return
-  end
   map:start_coroutine(function()
     local options = {
-      entities_ignore_suspend = {hero}
+      entities_ignore_suspend = {hero},
+      no_black_stripes = true
     }
     map:set_cinematic_mode(true, options)
     local camera = map:get_camera()
     local camera_x, camera_y = camera:get_position()
     local movement_camera = sol.movement.create("target")
     local x,y = camera:get_position_to_track(hero)
-    movement_camera:set_speed(64)
+    movement_camera:set_speed(256)
     movement_camera:set_target(x,y)
     movement_camera:set_ignore_obstacles(true)
     movement_camera:set_ignore_suspend(true)
     movement(movement_camera, camera)
-    if boss and boss:exists() then
-      boss:set_enabled(false)
-    end
     camera:start_tracking(hero)
     audio_manager:play_music("10_overworld")
     map:set_cinematic_mode(false)
   end)
+
+end
+
+function map:leave_boss()
+
+  magnet:stop_attracting()
+
+  if game:is_step_done("sandworm_killed") then
+    return
+  end
+
+  if boss and boss:exists() then
+    boss:set_enabled(false)
+  end
+  start_tracking_hero()
 
 end
 
@@ -107,10 +113,8 @@ function map:launch_boss()
     local x, y, _ = hero:get_position()
     return x > 480 and x < 784 and y < 224 -- Hardcode quicksand position since there is no custom ground.
   end)
+
   if game:is_step_done("sandworm_killed") then
-    return
-  end
-  if boss and boss:is_enabled() then
     return
   end
 
@@ -146,24 +150,24 @@ function map:launch_boss()
         for item in map:get_entities_by_type("pickable") do
           local treasure = item:get_treasure()
           if treasure:get_name() == "angler_key" then
-            -- Todo debug magnet attracting
             magnet:start_attracting(item, 40, function()
               local x, y, _ = item:get_position()
               return x > 480 and x < 784 and y < 224 -- Hardcode quicksand position since there is no custom ground.
             end)
           end
         end
-        map:leave_boss()
+        start_tracking_hero()
         game:set_step_done("sandworm_killed") 
-      end)
-      local line_1 = sol.language.get_dialog("maps.out.yarna_desert.boss_name").text
-      local line_2 = sol.language.get_dialog("maps.out.yarna_desert.boss_description").text
-      parchment:show(map, "boss", "top", 1500, line_1, line_2, nil, function()
-
       end)
     elseif boss:exists() then
       boss:set_enabled(true)
+      boss:set_life(8)
     end
+    local line_1 = sol.language.get_dialog("maps.out.yarna_desert.boss_name").text
+    local line_2 = sol.language.get_dialog("maps.out.yarna_desert.boss_description").text
+    parchment:show(map, "boss", "top", 1500, line_1, line_2, nil, function()
+
+    end)
     audio_manager:play_music("22_boss_battle")
     
     map:set_cinematic_mode(false)

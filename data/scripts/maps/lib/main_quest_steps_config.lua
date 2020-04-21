@@ -23,21 +23,6 @@ local steps={
   "sandworm_killed",
   "dungeon_4_key_obtained",
   "dungeon_4_opened",
-  "dungeon_4_completed", 
-  "ghost_joined",
-  "ghost_house_visited", 
-  "ghost_returned_to_tomb",
-  "dungeon_5_completed",
-  "dungeon_6_key_obtained",
-  "dungeon_6_completed",
-  "flying_rooster_joined",
-  "dungeon_7_key_obtained", 
-  "dungeon_7_opened",
-  "dungeon_7_completed", 
-  "marin_bridge_event_over",
-  "dungeon_8_opened", 
-  "dungeon_8_completed",
-  "sacred_egg_opened",
 }
 
 local index={}

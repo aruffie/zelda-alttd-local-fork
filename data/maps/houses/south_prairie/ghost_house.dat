@@ -434,16 +434,6 @@ destructible{
 
 destructible{
   layer = 0,
-  x = 240,
-  y = 189,
-  treasure_name = "random",
-  sprite = "entities/destructibles/pot",
-  destruction_sound = "stone",
-  weight = 1,
-}
-
-destructible{
-  layer = 0,
   x = 224,
   y = 189,
   treasure_name = "random",
@@ -471,6 +461,84 @@ wall{
   stops_npcs = true,
   stops_enemies = true,
   stops_blocks = true,
+}
+
+pickable{
+  name = "seashell_21",
+  layer = 0,
+  x = 240,
+  y = 189,
+  treasure_name = "seashell",
+  treasure_savegame_variable = "seashell_21",
+}
+
+destructible{
+  layer = 0,
+  x = 240,
+  y = 189,
+  treasure_name = "random",
+  sprite = "entities/destructibles/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+custom_entity{
+  name = "position_ghost_1",
+  layer = 0,
+  x = 160,
+  y = 141,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+custom_entity{
+  name = "position_ghost_2",
+  layer = 0,
+  x = 128,
+  y = 85,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+custom_entity{
+  name = "position_ghost_3",
+  layer = 0,
+  x = 208,
+  y = 101,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+custom_entity{
+  name = "position_ghost_4",
+  layer = 0,
+  x = 160,
+  y = 181,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+npc{
+  name = "ghost",
+  layer = 0,
+  x = 160,
+  y = 181,
+  direction = 1,
+  subtype = 1,
+  sprite = "npc/villagers/ghost",
+}
+
+sensor{
+  name = "sensor_1",
+  layer = 0,
+  x = 160,
+  y = 197,
+  width = 16,
+  height = 16,
 }
 
 tile{

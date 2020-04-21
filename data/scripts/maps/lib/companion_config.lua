@@ -59,7 +59,7 @@ return {
         movement_1:start(companion)
         function movement_1:on_position_changed()
           if companion:get_distance(hero) > distance + 16 then
-            companion:set_state("stopped")
+             companion:set_state("stopped")
             companion:get_sprite():set_animation("stopped")
           end
         end
@@ -75,23 +75,18 @@ return {
     end
   },
   ghost = {
-    sprite = "npc/ghost",
+    sprite = "npc/villagers/ghost",
     activation_condition = function(map)
-      local excluded_maps = {
-        ["houses/meow_house"] = true
-      }
-      if excluded_maps[map:get_id()] then
-        return false
-      end
       if map:get_game():is_in_dungeon() then
         return false
       end
-      return false
+      return map:get_game():is_step_last("ghost_joined") or map:get_game():is_step_last("ghost_house_visited")
     end,
     repeated_behavior_delay = 5000,
     repeated_behavior = function(companion)
-      -- Todo play ghost sound
+      audio_manager:play_sound("misc/ghost")
     end
+    
   },
   flying_rooster = {
     sprite = "npc/flying_rooster"

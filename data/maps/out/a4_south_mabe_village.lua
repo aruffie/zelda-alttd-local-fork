@@ -116,7 +116,7 @@ function owl_1_sensor:on_activated()
     map:init_music()
   else
     owl_manager:appear(map, 1, function()
-    map:init_music()
+      map:init_music()
     end)
   end
 
