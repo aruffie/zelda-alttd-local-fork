@@ -509,6 +509,7 @@ sprite{ id = "entities/grounds/weak_floor_dark_1", description = "Weak floor dar
 sprite{ id = "entities/grounds/weak_floor_dark_2", description = "Weak floor dark 2" }
 sprite{ id = "entities/grounds/weak_floor_dark_3", description = "Weak floor dark 3" }
 sprite{ id = "entities/grounds/weak_floor_dark_4", description = "Weak floor dark 4" }
+sprite{ id = "entities/grounds/weak_floor_ghost_house", description = "Weak floor ghost house" }
 sprite{ id = "entities/grounds/weak_floor_light_1", description = "Weak floor light 1" }
 sprite{ id = "entities/grounds/weak_floor_light_2", description = "Weak floor light 2" }
 sprite{ id = "entities/grounds/weak_floor_light_3", description = "Weak floor light 3" }
@@ -2717,6 +2718,7 @@ file{ path = "sprites/entities/doors/door_b_wallturn_dungeon_9.dat", author = "J
 file{ path = "sprites/entities/effects/brake_smoke.dat", author = "JulioTanaka", }
 file{ path = "sprites/entities/effects/collapse_star.dat", author = "JulioTanaka", }
 file{ path = "sprites/entities/ground_effects/walrus_diving_effect.dat", author = "JulioTanaka", }
+file{ path = "sprites/entities/grounds/weak_floor_ghost_house.dat", author = "JulioTanaka", }
 file{ path = "sprites/entities/iron_ball.dat", author = "Christopho", license = "CC BY-SA 4.0" }
 file{ path = "sprites/entities/misc/gift.dat", author = "JulioTanka", }
 file{ path = "sprites/entities/misc/shell_bar_marker.dat", author = "JulioTanaka", }
