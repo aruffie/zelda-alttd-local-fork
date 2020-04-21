@@ -129,7 +129,7 @@ function enemy:start_tunneling()
   end
 
   enemy:set_position(random_x, random_y)
-  local tunnel = enemy:start_brief_effect("enemies/" .. enemy:get_breed() .. "/dust", "tunnel", 0, 0, tunnel_duration)
+  enemy:start_brief_effect("enemies/" .. enemy:get_breed() .. "/dust", "tunnel", 0, 0, tunnel_duration)
   sol.timer.start(enemy, tunnel_duration, function()
     enemy:appear()  -- Start a timer on the enemy instead of using tunnel:on_finished() to avoid continue if the enemy was disabled from outside this script.
   end)
