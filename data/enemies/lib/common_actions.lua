@@ -383,7 +383,7 @@ function common_actions.learn(enemy)
 
     local function attract_on_axis(axis)
 
-      -- Clean if the entity was removed from outside.
+      -- Clean the enemy if the entity was removed from outside.
       if not entity:exists() then
         enemy:stop_attracting(entity)
         return
@@ -469,12 +469,6 @@ function common_actions.learn(enemy)
       end
 
       return sol.timer.start(enemy, 1000.0 / axis_current_speed, function()
-
-        -- Clean if the entity was removed from outside.
-        if not enemy:exists() then
-          enemy:stop_attracting(entity)
-          return
-        end
 
         -- Move enemy if it wouldn't reach an obstacle.
         local position = {enemy:get_position()}
