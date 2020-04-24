@@ -19,14 +19,11 @@ end)
 
 -- Initializes Entities based on player's progress
 function map:init_map_entities()
-  
-  if angler_key then
-  angler_key:set_enabled(false)
-    if game:is_step_last("sandworm_killed") then
-      angler_key:set_enabled(true)
-    end
+
+  if angler_key and (not game:is_step_last("sandworm_killed") or  game:has_item("angler_key")) then
+    angler_key:set_enabled(false)
   end
-  
+
 end
 
 -- Initialize the music of the map
