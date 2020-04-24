@@ -79,7 +79,7 @@ end
 local function reset_sprites()
 
   local function reset(sprite)
-    sprite:set_xy(0, 0)
+    sprite:set_xy(0, 400) -- Workaround: No way to set sprites insensible to pixel-perfect collision when invisible, move them far away the origin on reset.
     sprite:set_opacity(0)
   end
   
@@ -155,7 +155,7 @@ function enemy:appear()
     elapsed_time = elapsed_time + 10
     if elapsed_time < duration then
       local progress = elapsed_time / duration
-      head_sprite:set_xy(0, -(1.1 * math.sin(progress * math.pi) + 0.3 * math.sin(3 * progress * math.pi)) * jumping_height) -- Curve with two bumps.
+      head_sprite:set_xy(0, -(1.1 * math.sqrt(math.sin(progress * math.pi)) + 0.3 * math.sin(math.sin(3 * progress * math.pi))) * jumping_height) -- Curve with two bumps.
       return true
     end
     if movement and enemy:get_movement() == movement then
