@@ -22,7 +22,7 @@ function magnet:start_attracting(entity, speed, ignore_obstacles, moving_conditi
 
   local function attract_on_axis(axis)
 
-    -- Stop attracting if the entity was removed from outside to avoid raising errors on leaving the map.
+    -- Clean if the entity was removed from outside.
     if not entity:exists() then
       magnet:stop_attracting(entity)
       return
