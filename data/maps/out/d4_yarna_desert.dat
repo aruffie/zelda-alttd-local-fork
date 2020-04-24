@@ -1409,6 +1409,55 @@ sensor{
 
 tile{
   layer = 1,
+  x = 496,
+  y = 120,
+  width = 144,
+  height = 96,
+  pattern = "180",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 496,
+  y = 208,
+  width = 328,
+  height = 112,
+  pattern = "347",
+  tileset = "out/outside_special",
+}
+
+tile{
+  layer = 1,
+  x = 608,
+  y = 208,
+  width = 80,
+  height = 64,
+  pattern = "4018",
+}
+
+tile{
+  layer = 1,
+  x = 608,
+  y = 208,
+  width = 32,
+  height = 16,
+  pattern = "192",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 640,
+  y = 208,
+  width = 32,
+  height = 16,
+  pattern = "193",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
   x = 768,
   y = 48,
   width = 192,
@@ -1424,26 +1473,6 @@ tile{
   width = 176,
   height = 192,
   pattern = "4018",
-}
-
-tile{
-  layer = 1,
-  x = 768,
-  y = 104,
-  width = 16,
-  height = 16,
-  pattern = "183",
-  tileset = "addition/out",
-}
-
-tile{
-  layer = 1,
-  x = 768,
-  y = 120,
-  width = 16,
-  height = 16,
-  pattern = "185",
-  tileset = "addition/out",
 }
 
 tile{
@@ -1474,65 +1503,6 @@ tile{
   height = 96,
   pattern = "181",
   tileset = "addition/out",
-}
-
-tile{
-  layer = 1,
-  x = 496,
-  y = 120,
-  width = 144,
-  height = 96,
-  pattern = "180",
-  tileset = "addition/out",
-}
-
-tile{
-  layer = 1,
-  x = 600,
-  y = 240,
-  width = 32,
-  height = 32,
-  pattern = "347",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 1,
-  x = 648,
-  y = 240,
-  width = 32,
-  height = 32,
-  pattern = "347",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 1,
-  x = 488,
-  y = 264,
-  width = 336,
-  height = 56,
-  pattern = "347",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 1,
-  x = 600,
-  y = 208,
-  width = 80,
-  height = 56,
-  pattern = "347",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 1,
-  x = 608,
-  y = 208,
-  width = 80,
-  height = 64,
-  pattern = "4018",
 }
 
 tile{
@@ -9861,24 +9831,14 @@ tile{
   pattern = "958",
 }
 
-tile{
+teletransporter{
   layer = 1,
-  x = 640,
-  y = 208,
+  x = 632,
+  y = 112,
   width = 16,
   height = 16,
-  pattern = "185",
-  tileset = "addition/out",
-}
-
-tile{
-  layer = 1,
-  x = 624,
-  y = 208,
-  width = 16,
-  height = 16,
-  pattern = "184",
-  tileset = "addition/out",
+  destination_map = "caves/yarna_desert/cave_2",
+  destination = "hole",
 }
 
 wall{

@@ -237,6 +237,8 @@ enemy:register_event("on_restarted", function(enemy)
   frame_count = 0
   reset_sprites()
   enemy:set_visible(false)
+  enemy:set_obstacle_behavior("flying")
+  enemy:set_layer_independent_collisions(true)
   enemy:set_can_attack(false)
   enemy:set_damage(4)
   enemy:set_invincible()

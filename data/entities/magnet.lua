@@ -1,10 +1,10 @@
 ----------------------------------
 --
 -- An entity that can progressively attract another.
--- TODO Duplicate of a enemies/lib/common_actions.lua functions, factorize to entity meta one day.
+-- TODO This is basically a duplicate of a enemies/lib/common_actions.lua functions, factorize to entity meta one day.
 --
 -- Method : magnet:start_attracting(entity, speed, [moving_condition_callback])
---          magnet:stop_attracting()
+--          magnet:stop_attracting([entity])
 --
 ----------------------------------
 
@@ -13,13 +13,20 @@ local attracting_timers = {}
 local trigonometric_functions = {math.cos, math.sin}
 
 -- Start attracting the given entity, negative speed possible.
-function magnet:start_attracting(entity, speed, moving_condition_callback)
+function magnet:start_attracting(entity, speed, ignore_obstacles, moving_condition_callback)
 
   -- Workaround : Don't use solarus movements to be able to start several movements at the same time.
   local move_ratio = speed > 0 and 1 or -1
+  magnet:stop_attracting(entity)
   attracting_timers[entity] = {}
 
   local function attract_on_axis(axis)
+
+    -- Stop attracting if the entity was removed from outside to avoid raising errors on leaving the map.
+    if not entity:exists() then
+      magnet:stop_attracting(entity)
+      return
+    end
 
     local entity_position = {entity:get_position()}
     local magnet_position = {magnet:get_position()}
@@ -38,7 +45,7 @@ function magnet:start_attracting(entity, speed, moving_condition_callback)
         axis_move_delay = 1000.0 / math.max(1, math.min(100, math.abs(speed * trigonometric_functions[axis](angle))))
 
         -- Move the entity.
-        if not entity:test_obstacles(axis_move[1], axis_move[2]) then
+        if ignore_obstacles or not entity:test_obstacles(axis_move[1], axis_move[2]) then
           entity:set_position(entity_position[1] + axis_move[1], entity_position[2] + axis_move[2], entity_position[3])
         end
       end
@@ -55,10 +62,10 @@ function magnet:start_attracting(entity, speed, moving_condition_callback)
 end
 
  -- Stop looped timers related to the attractions.
-function magnet:stop_attracting()
+function magnet:stop_attracting(entity)
 
-  for _, timers in pairs(attracting_timers) do
-    if timers then
+  for attracted_entity, timers in pairs(attracting_timers) do
+    if timers and (not entity or entity == attracted_entity) then
       for i = 1, 2 do
         if timers[i] then
           timers[i]:stop()
