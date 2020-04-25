@@ -34,6 +34,7 @@
 --
 --           Effects and other actions :
 --           enemy:silent_kill()
+--           enemy:start_dying_explosion([ordered_sprites, [delay, [explosion_animation]]])
 --           enemy:start_shadow([sprite_name, [animation_name]])
 --           enemy:start_brief_effect(sprite_name, [animation_name, [x_offset, [y_offset, [maximum_duration, [on_finished_callback]]]]])
 --           enemy:steal_item(item_name, [variant, [only_if_assigned, [drop_when_dead]]])
@@ -688,12 +689,68 @@ function common_actions.learn(enemy)
     if enemy.on_dying then
       enemy:on_dying()
     end
+
+    -- Make a possible treasure appear.
+    local treasure_name, treasure_variant, treasure_savegame = enemy:get_treasure()
+    if treasure_name then
+      local x, y, layer = enemy:get_position()
+      map:create_pickable({
+        name = (enemy:get_name() or enemy:get_breed()) .. treasure_name,
+        x = x,
+        y = y,
+        layer = layer,
+        treasure_name = treasure_name,
+        treasure_variant = treasure_variant,
+        treasure_savegame_variable = treasure_savegame,
+      })
+    end
+
+    -- TODO Handle savegame if any.
+
+    -- Actual remove.
     enemy:remove()
     if enemy.on_dead then
       enemy:on_dead()
     end
+  end
 
-    -- TODO Handle savegame if any.
+  -- Make the given enemy sprites explode one after the other in the given order, with a delay between each explosion.
+  function enemy:start_dying_explosion(ordered_sprites, delay, explosion_animation)
+
+    ordered_sprites = ordered_sprites or enemy:get_sprites()
+    delay = delay or 500
+    explosion_animation = explosion_animation or "entities/explosion_boss"
+
+    local function start_sprite_explosion(sprite)
+      local x, y = sprite:get_xy()
+      local effect = enemy:start_brief_effect(explosion_animation, "default", x, y, nil, function()
+        enemy:remove_sprite(sprite)
+      end)
+      effect:set_layer(enemy:get_layer() + 1)
+    end
+
+    -- Setup the enemy and start hurt animation.
+    sol.timer.stop_all(enemy)
+    enemy:stop_movement()
+    enemy:set_can_attack(false)
+    enemy:set_damage(0)
+    enemy:set_pushed_back_when_hurt(false)
+    for _, sprite in pairs(ordered_sprites) do
+      if sprite:has_animation("hurt") then
+        sprite:set_animation("hurt")
+      end
+    end
+
+    -- Then start the explosion after some time.
+    local i = 1
+    sol.timer.start(enemy, delay, function()
+      if i <= #ordered_sprites then
+        start_sprite_explosion(ordered_sprites[i])
+        i = i + 1
+        return true
+      end
+      enemy:silent_kill()
+    end)
   end
 
   -- Add a shadow below the enemy.
