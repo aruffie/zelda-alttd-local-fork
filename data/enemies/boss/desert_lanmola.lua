@@ -9,14 +9,11 @@ local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
 local camera = map:get_camera()
-local head_sprite, tail_sprite
-local body_sprites = {}
+local sprites = {}
 local last_positions, frame_count
-local eighth = math.pi * 0.25
-local sixteenth = math.pi * 0.125
-local circle = math.pi * 2.0
 
 -- Configuration variables
+local tied_sprites_frame_lags = {15, 30, 45, 60, 75, 90}
 local tunnel_duration = 1000
 local waiting_minimum_duration = 2000
 local waiting_maximum_duration = 4000
@@ -24,11 +21,25 @@ local jumping_speed = 48
 local jumping_height = 32
 local jumping_minimum_duration = 2500
 local jumping_maximum_duration = 3500
-local body_frame_lags = {15, 30, 45, 60, 75}
-local tail_frame_lag = 90
-local angle_amplitude_from_center = sixteenth
+local angle_amplitude_from_center = math.pi * 0.125
 
-local highest_frame_lag = tail_frame_lag + 1 -- Avoid too much values in the last_positions table
+-- Constants
+local tied_sprites_count = #tied_sprites_frame_lags
+local tail_frame_lag = tied_sprites_frame_lags[tied_sprites_count]
+local highest_frame_lag = tail_frame_lag + 1
+local eighth = math.pi * 0.25
+local sixteenth = math.pi * 0.125
+local circle = math.pi * 2.0
+
+-- Reverse a copy of the given array reversed.
+function reverse_array(array)
+
+	local reversed_array = {}
+	for i = 1, #array + 1 do
+		reversed_array[i] = array[#array - i + 1]
+	end
+  return reversed_array
+end
 
 -- Return a random visible position.
 local function get_random_visible_position()
@@ -42,6 +53,7 @@ end
 local function update_body_sprites()
 
   -- Save current head sprite position if it is still visible.
+  local head_sprite = sprites[1]
   local x, y, _ = enemy:get_position()
   local x_offset, y_offset = head_sprite:get_xy()
   if head_sprite:get_opacity() ~= 0 then
@@ -67,52 +79,69 @@ local function update_body_sprites()
 
     sprite:set_xy(last_positions[key].x - x, last_positions[key].y - y)
   end
-  for i = 1, 5 do
-    replace_part_sprite(body_sprites[i], body_frame_lags[i])
+  for i = 2, tied_sprites_count + 1 do
+    replace_part_sprite(sprites[i], tied_sprites_frame_lags[i - 1])
   end
-  replace_part_sprite(tail_sprite, tail_frame_lag)
 
   frame_count = (frame_count + 1) % highest_frame_lag
-end
-
--- Make all sprites invisible and at the 0, 0 offset position.
-local function reset_sprites()
-
-  local function reset(sprite)
-    sprite:set_xy(0, 400) -- Workaround: No way to set sprites insensible to pixel-perfect collision when invisible, move them far away the origin on reset.
-    sprite:set_opacity(0)
-  end
-  
-  reset(head_sprite)
-  for i = 1, 5 do
-    reset(body_sprites[i])
-  end
-  reset(tail_sprite)
-end
-
--- Update all sprites z-order depending on the enemy moving angle.
-local function update_sprites_order(angle)
-
-  local head_on_front = angle > math.pi and angle < circle
-  local order_method = head_on_front and enemy.bring_sprite_to_back or enemy.bring_sprite_to_front
-
-  order_method(enemy, head_sprite)
-  for i = 1, 5 do
-    order_method(enemy, body_sprites[i])
-  end
-  order_method(enemy, tail_sprite)
 end
 
 -- Set the correct direction8 to all sprites depending on the given angle.
 local function update_sprites_direction(angle)
 
   local direction8 = math.floor((angle + sixteenth) % circle / eighth)
-
-  head_sprite:set_direction(direction8)
-  for i = 1, 5 do
-    body_sprites[i]:set_direction(direction8)
+  for _, sprite in pairs(sprites) do
+    sprite:set_direction(direction8)
   end
-  tail_sprite:set_direction(direction8)
+end
+
+-- Set the given animation on all enemy sprites.
+local function set_sprites_animation(animation)
+
+  for _, sprite in pairs(sprites) do
+    sprite:set_animation(animation)
+  end
+end
+
+-- Make all sprites invisible and at the 0, 0 offset position.
+local function reset_sprites()
+
+  for _, sprite in pairs(sprites) do
+    sprite:set_xy(0, 400) -- Workaround: No way to set sprites insensible to pixel-perfect collision when invisible, move them far away the origin on reset.
+    sprite:set_opacity(0)
+  end
+end
+
+-- Update all sprites z-order depending on the given moving angle.
+local function update_sprites_order(angle)
+
+  local head_on_front = angle > math.pi and angle < circle
+  local order_method = head_on_front and enemy.bring_sprite_to_back or enemy.bring_sprite_to_front
+  for _, sprite in ipairs(sprites) do
+    order_method(enemy, sprite)
+  end
+end
+
+-- Manually hurt the enemy to not restart it automatically and let it finish its move.
+local function hurt(damage)
+
+  -- Don't hurt if a previous hurt animation is still running.
+  local head_sprite = sprites[1]
+  if head_sprite:get_animation() == "hurt" then
+    return
+  end
+
+  -- Manually hurt to trigger the built-in behavior.
+  local remaining_life = enemy:get_life() - damage
+  if enemy:get_life() - damage < 1 then
+    enemy:start_dying_explosion(reverse_array(sprites), 500, "entities/explosion_boss")
+    return
+  end
+  enemy:set_life(enemy:get_life() - damage)
+  set_sprites_animation("hurt")
+  sol.timer.start(enemy, 1000, function()
+    set_sprites_animation("walking")
+  end)
 end
 
 -- Create a tunnel and appear at a random position.
@@ -147,6 +176,7 @@ function enemy:appear()
   movement:set_smooth(false)
 
   -- Schedule an update of the head sprite vertical offset by frame.
+  local head_sprite = sprites[1]
   local duration = math.random(jumping_minimum_duration, jumping_maximum_duration)
   local elapsed_time = 0
   sol.timer.start(enemy, 10, function()
@@ -174,9 +204,9 @@ function enemy:appear()
 
   -- Behavior for each items.
   enemy:set_hero_weapons_reactions("ignored", {
-    sword = 1,
-    thrust = 2,
-    arrow = 4
+    sword = function() hurt(1) end,
+    thrust = function() hurt(2) end,
+    arrow = function() hurt(4) end
   })
   enemy:set_can_attack(true)
 end
@@ -185,8 +215,9 @@ end
 function enemy:disappear()
 
   -- Start disappearing effects.
-  enemy:start_brief_effect("enemies/" .. enemy:get_breed() .. "/dust", "projections", 0, 0, tail_frame_lag * 10 + 150)
+  local head_sprite = sprites[1]
   head_sprite:set_opacity(0)
+  enemy:start_brief_effect("enemies/" .. enemy:get_breed() .. "/dust", "projections", 0, 0, tail_frame_lag * 10 + 150)
 
   -- Continue an extra loop of last_positions update to make the whole body.
   local elapsed_frames = 0
@@ -220,13 +251,13 @@ enemy:register_event("on_created", function(enemy)
   enemy:start_shadow()
 
   -- Create sprites.
-  tail_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/tail")
-  enemy:set_invincible_sprite(tail_sprite) -- TODO Never use this function and simulate the protected behavior instead of the ignored one.
-  for i = 1, 5 do
-    body_sprites[i] = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/body")
-    enemy:set_invincible_sprite(body_sprites[i]) -- TODO Never use this function and simulate the protected behavior instead of the ignored one.
+  sprites[1] = enemy:create_sprite("enemies/" .. enemy:get_breed())
+  for i = 2, tied_sprites_count do
+    sprites[i] = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/body")
+    enemy:set_invincible_sprite(sprites[i]) -- TODO Never use this function and simulate the protected behavior instead of the ignored one.
   end
-  head_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+  sprites[tied_sprites_count + 1] = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/tail")
+  enemy:set_invincible_sprite(sprites[tied_sprites_count + 1]) -- TODO Never use this function and simulate the protected behavior instead of the ignored one.
 end)
 
 -- Restart settings.
