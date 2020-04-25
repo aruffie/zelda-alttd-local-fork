@@ -63,7 +63,17 @@ function map:init_map_entities()
   for ground in map:get_entities('ground_sand') do
     ground:set_visible(false)
   end
-  
+  -- Initialise the quicksand hole on the magnet position.
+  local x, y, layer = magnet:get_position()
+  map:create_dynamic_tile({
+    name = "quicksand_hole",
+    x = x - 8,
+    y = y - 8,
+    layer = layer,
+    width = 16,
+    height = 16,
+    pattern = "2852"
+  })
 end
 
 local function start_tracking_hero()
@@ -90,6 +100,12 @@ local function start_tracking_hero()
 
 end
 
+local function is_over_quicksand(entity)
+
+  local x, y, _ = entity:get_position()
+  return x > 480 and x < 784 and y < 224 -- Hardcode quicksand position since there is no custom ground.
+end
+
 function map:leave_boss()
 
   magnet:stop_attracting()
@@ -109,9 +125,8 @@ end
 function map:launch_boss()
 
   -- Make magnet attract the hero when his position is over the quicksand.
-  magnet:start_attracting(hero, 40, function()
-    local x, y, _ = hero:get_position()
-    return x > 480 and x < 784 and y < 224 -- Hardcode quicksand position since there is no custom ground.
+  magnet:start_attracting(hero, 40, false, function()
+    return is_over_quicksand(hero)
   end)
 
   if game:is_step_done("sandworm_killed") then
@@ -150,9 +165,12 @@ function map:launch_boss()
         for item in map:get_entities_by_type("pickable") do
           local treasure = item:get_treasure()
           if treasure:get_name() == "angler_key" then
-            magnet:start_attracting(item, 40, function()
-              local x, y, _ = item:get_position()
-              return x > 480 and x < 784 and y < 224 -- Hardcode quicksand position since there is no custom ground.
+            
+            -- Hardcode a timer before attracting the key to let the it fall on the ground before attracting.
+            sol.timer.start(item, 800, function()
+              magnet:start_attracting(item, 40, true, function() -- Workaround : Make the key attraction ignore obstacles to let it able to fall in holes.
+                return is_over_quicksand(item)
+              end)
             end)
           end
         end

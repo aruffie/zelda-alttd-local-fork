@@ -22,7 +22,7 @@
 --           enemy:start_flying(take_off_duration, height, [on_finished_callback])
 --           enemy:stop_flying(landing_duration, [on_finished_callback])
 --           enemy:start_attracting(entity, speed, [moving_condition_callback])
---           enemy:stop_attracting()
+--           enemy:stop_attracting([entity])
 --           enemy:start_impulsion(x, y, speed, acceleration, deceleration)
 --           enemy:start_throwing(entity, duration, start_height, maximum_height, [angle, speed, [on_finished_callback]])
 --           enemy:start_welding(entity, [x_offset, [y_offset]])
@@ -378,9 +378,16 @@ function common_actions.learn(enemy)
 
     -- Workaround : Don't use solarus movements to be able to start several movements at the same time.
     local move_ratio = speed > 0 and 1 or -1
+    enemy:stop_attracting(entity)
     attracting_timers[entity] = {}
 
     local function attract_on_axis(axis)
+
+      -- Clean the enemy if the entity was removed from outside.
+      if not entity:exists() then
+        enemy:stop_attracting(entity)
+        return
+      end
 
       local entity_position = {entity:get_position()}
       local enemy_position = {enemy:get_position()}
@@ -416,10 +423,10 @@ function common_actions.learn(enemy)
   end
 
   -- Stop looped timers related to the attractions.
-  function enemy:stop_attracting()
+  function enemy:stop_attracting(entity)
 
-    for _, timers in pairs(attracting_timers) do
-      if timers then
+    for attracted_entity, timers in pairs(attracting_timers) do
+      if timers and (not entity or entity == attracted_entity) then
         for i = 1, 2 do
           if timers[i] then
             timers[i]:stop()
