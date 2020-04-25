@@ -3505,6 +3505,14 @@ Se protéger avec un bouclier !
 }
 
 dialog{
+  id = "maps.out.south_prairie.ghost_1",
+  text = [[
+Oui, entre !     
+C'est bien ma maison !
+]],
+}
+
+dialog{
   id = "maps.out.south_prairie.marin_1",
   question = "1",
   text = [[

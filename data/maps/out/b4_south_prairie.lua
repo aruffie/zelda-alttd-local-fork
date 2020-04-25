@@ -107,6 +107,18 @@ function marin:on_interaction()
 
 end
 
+-- Sensors events
+
+function sensor_1:on_activated()
+  
+  if game:get_value("ghost_quest_step") == "ghost_joined" then
+    game:set_value("ghost_quest_step", "ghost_saw_his_house")
+  end
+  
+end
+
+
+
 -- Signs and wart
 for sign in map:get_entities("sign_frog_") do
   
