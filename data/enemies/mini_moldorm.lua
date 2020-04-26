@@ -2,8 +2,8 @@
 --
 -- Mini Moldorm.
 --
+-- Caterpillar enemy with one body part and one tail that will follow the head move.
 -- Moves in curved motion, and randomly change the direction of the curve.
--- Has a body and tail sprites following the head.
 --
 -- Methods : enemy:start_walking()
 --

@@ -1,5 +1,17 @@
--- Lua script of enemy hinox master.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Hinox Master.
+--
+-- Moves randomly over horizontal and vertical axis, then charge to the hero after some time.
+-- Hold and throw the hero across the room if touched, and throw a bomb to the hero if hurt.
+-- 
+--
+-- Methods : enemy:start_walking()
+--           enemy:start_charging()
+--           enemy:throw_bomb() --> To merge with the following one
+--           enemy:throw_hero()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
@@ -39,6 +51,22 @@ local hero_throwing_height = 60
 local hero_throwing_speed = 240
 local hero_stunned_duration = 1000
 
+-- Hold the given entity in the given hand and wait for the actual throw.
+local function start_holding(right_hand, hold_duration, on_throwing)
+
+  is_bomb_upcoming = false
+  sprite:set_animation("holding_" .. (right_hand and "right" or "left"))
+  sprite:set_direction(right_hand and 2 or 0)
+
+  sol.timer.start(enemy, hold_duration, function()
+    on_throwing()
+    sprite:set_animation("throwing_" .. (right_hand and "right" or "left"))
+    sol.timer.start(enemy, waiting_duration, function()
+      enemy:restart()
+    end)
+  end)
+end
+
 -- Start the enemy walking movement.
 function enemy:start_walking()
 
@@ -71,23 +99,6 @@ function enemy:start_charging()
   end)
 end
 
--- Hold the given entity in the given hand and wait for the actual throw.
--- TODO Merge
-local function start_preparing_throw(right_hand, hold_duration, on_throwing)
-
-  is_bomb_upcoming = false
-  sprite:set_animation("holding_" .. (right_hand and "right" or "left"))
-  sprite:set_direction(right_hand and 2 or 0)
-
-  sol.timer.start(enemy, hold_duration, function()
-    on_throwing()
-    sprite:set_animation("throwing_" .. (right_hand and "right" or "left"))
-    sol.timer.start(enemy, waiting_duration, function()
-      enemy:restart()
-    end)
-  end)
-end
-
 -- Throw a bomb to the hero.
 -- TODO Factorize.
 function enemy:throw_bomb()
@@ -111,7 +122,7 @@ function enemy:throw_bomb()
   bomb:bring_to_front()
   holded_bomb = bomb
 
-  start_preparing_throw(is_right_hand_throw, bomb_holding_duration, function()
+  start_holding(is_right_hand_throw, bomb_holding_duration, function()
 
     -- Start the thrown movement to the hero.
     local angle = bomb:get_angle(hero)
@@ -143,7 +154,7 @@ function enemy:throw_hero()
   hero_sprite:set_xy(0, right_hand_offset_y)
   hero_sprite:set_animation("scared")
 
-  start_preparing_throw(is_right_hand_throw, hero_holding_duration, function()
+  start_holding(is_right_hand_throw, hero_holding_duration, function()
 
     -- Throw the hero to the center of the room.
     local camera_x, camera_y = camera:get_position()
