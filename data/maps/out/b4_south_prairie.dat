@@ -20931,6 +20931,15 @@ sensor{
   height = 16,
 }
 
+sensor{
+  name = "sensor_1",
+  layer = 1,
+  x = 672,
+  y = 733,
+  width = 16,
+  height = 48,
+}
+
 tile{
   layer = 2,
   x = 632,

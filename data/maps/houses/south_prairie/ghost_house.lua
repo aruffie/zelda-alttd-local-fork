@@ -32,9 +32,7 @@ end
 -- Initializes Entities based on player's progress
 function map:init_map_entities()
   
-  print("nok")
   if seashell_21 and game:get_value("ghost_quest_step") ~= "ghost_returned_to_tomb" then
-    print("ok")
     seashell_21:set_enabled(false)
   end
   
@@ -51,7 +49,7 @@ end
 
 function sensor_1:on_activated()
   
-  if game:get_value("ghost_quest_step") == "ghost_joined" then
+  if game:get_value("ghost_quest_step") == "ghost_saw_his_house" then
     map:launch_cinematic_1()
   end
   
