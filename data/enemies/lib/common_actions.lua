@@ -743,11 +743,12 @@ function common_actions.learn(enemy)
 
     -- Then start the explosion after some time.
     local i = 1
-    sol.timer.start(enemy, delay, function()
+    local initial_delay = delay * 2
+    sol.timer.start(enemy, initial_delay, function()
       if i <= #ordered_sprites then
         start_sprite_explosion(ordered_sprites[i])
         i = i + 1
-        return true
+        return delay
       end
       enemy:silent_kill()
     end)

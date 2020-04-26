@@ -1,5 +1,15 @@
--- Lua script of enemy ballchain_solider.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Ballchain Soldier.
+--
+-- Soldier enemy holding a spiked cannonball at the end of a chain.
+-- Slowly moves to the hero, and throw the cannonball to the hero once close enough
+-- 
+--
+-- Methods : enemy:start_walking()
+--           enemy:start_attacking()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...

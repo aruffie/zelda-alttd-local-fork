@@ -1,5 +1,14 @@
--- Lua script of enemy rolling bones.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Rolling Bones.
+--
+-- Start by pushing a rolling bones across the room, then zigzag jump to go back behind and push it again through the other side of the room.
+-- Slightly increase the speed each time the enemy is hurt.
+--
+-- Methods : enemy:start_moving()
+--           enemy:start_pushing(angle)
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...

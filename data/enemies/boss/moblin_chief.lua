@@ -1,5 +1,18 @@
--- Lua script of enemy moblin chief.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Moblin Chief.
+--
+-- Hop to be horizontally aligned with the hero and randomly throw three to five sai, then start charging.
+-- Hit the wall and be vulnerable if the charge started too close of a wall, else start a search animation and restart.
+-- Slightly increase the speed each time the enemy is hurt.
+-- 
+--
+-- Methods : enemy:start_moving()
+--           enemy:start_throwing()
+--           enemy:start_charging()
+--           enemy:start_searching()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...

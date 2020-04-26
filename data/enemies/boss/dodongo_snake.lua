@@ -1,5 +1,15 @@
--- Lua script of enemy dodongo_snake.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Dodongo Snake.
+--
+-- Caterpillar enemy with one body part that will follow the head move.
+-- Randomly moves over horizontal and vertical axis, and can only turn left or right once a movement finished.
+-- Can only be hurt by eating a bomb if it collide the center of the head.
+-- 
+--
+-- Methods : enemy:start_walking()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...

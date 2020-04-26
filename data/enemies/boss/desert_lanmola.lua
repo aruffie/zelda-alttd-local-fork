@@ -1,5 +1,17 @@
--- Lua script of enemy desert_lanmola.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Desert Lanmola.
+--
+-- Caterpillar enemy that can have any number of body parts that will follow the head move.
+-- Wait a few time then leaps out the ground, do a curved fly with two bump and dive into the ground again.
+-- Don't restart on hurt to let the move end, and explode part by part on die.
+--
+-- Methods : enemy:start_tunneling()
+--           enemy:appear()
+--           enemy:disappear()
+--           enemy:wait()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
@@ -11,14 +23,15 @@ local hero = map:get_hero()
 local camera = map:get_camera()
 local sprites = {}
 local last_positions, frame_count
+local appearing_dust, disappearing_dust
 
 -- Configuration variables
-local tied_sprites_frame_lags = {15, 30, 45, 60, 75, 90}
+local tied_sprites_frame_lags = {15, 30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180, 195, 210, 225, 240, 255, 270, 285, 300}
 local tunnel_duration = 1000
 local waiting_minimum_duration = 2000
 local waiting_maximum_duration = 4000
 local jumping_speed = 48
-local jumping_height = 32
+local jumping_height = 36
 local jumping_minimum_duration = 2500
 local jumping_maximum_duration = 3500
 local angle_amplitude_from_center = math.pi * 0.125
@@ -31,14 +44,19 @@ local eighth = math.pi * 0.25
 local sixteenth = math.pi * 0.125
 local circle = math.pi * 2.0
 
--- Reverse a copy of the given array reversed.
-function reverse_array(array)
+-- Return a table with only visible sprites, ordered from tail to head.
+function get_exploding_sprites()
 
-	local reversed_array = {}
-	for i = 1, #array + 1 do
-		reversed_array[i] = array[#array - i + 1]
+	local exploding_sprites = {}
+  local i = 1
+	for j = #sprites, 1, -1 do
+    local sprite = sprites[j]
+    if sprite:get_opacity() ~= 0 then
+  		exploding_sprites[i] = sprite
+      i = i + 1
+    end
 	end
-  return reversed_array
+  return exploding_sprites
 end
 
 -- Return a random visible position.
@@ -131,10 +149,16 @@ local function hurt(damage)
     return
   end
 
-  -- Manually hurt to trigger the built-in behavior.
+  -- Manually hurt to not trigger the built-in behavior.
   local remaining_life = enemy:get_life() - damage
   if enemy:get_life() - damage < 1 then
-    enemy:start_dying_explosion(reverse_array(sprites), 500, "entities/explosion_boss")
+    if appearing_dust and appearing_dust:exists() then
+      appearing_dust:remove()
+    end
+    if disappearing_dust and disappearing_dust:exists() then
+      disappearing_dust:remove()
+    end
+    enemy:start_dying_explosion(get_exploding_sprites(), 500, "entities/explosion_boss")
     return
   end
   enemy:set_life(enemy:get_life() - damage)
@@ -185,7 +209,7 @@ function enemy:appear()
     elapsed_time = elapsed_time + 10
     if elapsed_time < duration then
       local progress = elapsed_time / duration
-      head_sprite:set_xy(0, -(1.1 * math.sqrt(math.sin(progress * math.pi)) + 0.3 * math.sin(math.sin(3 * progress * math.pi))) * jumping_height) -- Curve with two bumps.
+      head_sprite:set_xy(0, -(0.978 * math.sqrt(math.sin(progress * math.pi)) + 0.267 * math.sin(math.sin(3 * progress * math.pi))) * jumping_height) -- Curve with two bumps.
       return true
     end
     if movement and enemy:get_movement() == movement then
@@ -200,11 +224,11 @@ function enemy:appear()
   update_sprites_direction(angle)
   update_sprites_order(angle)
   head_sprite:set_opacity(255)
-  enemy:start_brief_effect("enemies/" .. enemy:get_breed() .. "/dust", "projections", 0, 0, tail_frame_lag * 10 + 150)
+  appearing_dust = enemy:start_brief_effect("enemies/" .. enemy:get_breed() .. "/dust", "projections", 0, 0, tail_frame_lag * 10 + 150)
 
   -- Behavior for each items.
   enemy:set_hero_weapons_reactions("ignored", {
-    sword = function() hurt(1) end,
+    sword = function() hurt(8) end,
     thrust = function() hurt(2) end,
     arrow = function() hurt(4) end
   })
@@ -217,7 +241,8 @@ function enemy:disappear()
   -- Start disappearing effects.
   local head_sprite = sprites[1]
   head_sprite:set_opacity(0)
-  enemy:start_brief_effect("enemies/" .. enemy:get_breed() .. "/dust", "projections", 0, 0, tail_frame_lag * 10 + 150)
+  disappearing_dust = enemy:start_brief_effect("enemies/" .. enemy:get_breed() .. "/dust", "projections", 0, 0, tail_frame_lag * 10 + 150)
+  enemy:set_invincible()
 
   -- Continue an extra loop of last_positions update to make the whole body.
   local elapsed_frames = 0

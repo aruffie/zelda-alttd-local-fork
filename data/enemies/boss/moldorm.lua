@@ -1,5 +1,15 @@
--- Lua script of enemy moldorm.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Moldorm.
+--
+-- Caterpillar enemy with three body parts and one tail that will follow the head move.
+-- Moves in curved motion, and randomly change the direction of the curve.
+-- Speed up the move if set_angry() or hurt.
+--
+-- Methods : enemy:start_walking()
+--           enemy:set_angry()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
@@ -42,7 +52,8 @@ local function on_attack_received()
     if enemy:get_life() > 1 then
       enemy:hurt(1)
     else
-      enemy:start_explode()
+      local ordered_sprites = {tail_sprite, body_sprites[3], body_sprites[2], body_sprites[1], head_sprite}
+      enemy:start_dying_explosion(ordered_sprites, 500, "entities/explosion_boss")
     end
   else
     enemy:start_pushing_back(hero, 200, 100, function()
@@ -88,42 +99,6 @@ function enemy:set_angry()
   walking_movement:set_speed(running_speed)
   sol.timer.start(enemy, angry_duration, function()
     walking_movement:set_speed(walking_speed)
-  end)
-end
-
--- Make the enemy explode.
-function enemy:start_explode()
-
-  local function start_sprite_explosion(sprite)
-    local x, y = sprite:get_xy()
-    local effect = enemy:start_brief_effect("entities/explosion_boss", "default", x, y, nil, function()
-      enemy:remove_sprite(sprite)
-    end)
-    effect:bring_to_front()
-  end
-
-  -- Setup the enemy and start hurt animation.
-  enemy:stop_movement()
-  enemy:set_can_attack(false)
-  enemy:set_damage(0)
-  enemy:set_pushed_back_when_hurt(false)
-  for _, sprite in enemy:get_sprites() do
-    sprite:set_animation("hurt")
-  end
-
-  -- Then start the explosion after some time.
-  sol.timer.start(enemy, before_explosion_delay, function()
-    start_sprite_explosion(tail_sprite)
-    local i = 3
-    sol.timer.start(enemy, between_explosion_delay, function()
-      if i ~= 0 then
-        start_sprite_explosion(body_sprites[i])
-        i = i - 1
-        return true
-      end
-      enemy:start_brief_effect("entities/explosion_boss")
-      enemy:hurt(1)
-    end)
   end)
 end
 
