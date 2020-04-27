@@ -79,10 +79,10 @@ function pillar:start_breaking()
   make_all_invincible(true)
   start_brief_effect("entities/effects/sparkle_small", "default", 0, -16)
 
-  -- Start 3 chained explosions.
+  -- Start 3 sets of random explosions around the pillar.
   for i = 1, 3 do
     explosion_timer = sol.timer.start((i - 1) * 500, function()
-      map_tools.start_chained_explosion_on_entity(pillar, 2000, 32, function()
+      map_tools.start_random_explosions(pillar, 2000, 32, function()
         -- If this is the last explosion, stop the cinematic and call the collapse finished event.
         if map:get_entities_count("chained_explosion") == 1 then
           make_all_invincible(false)

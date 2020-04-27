@@ -146,6 +146,7 @@ local function initialize_dungeon_features(game)
         }
       },
       small_boss = {
+        floor = 0,
         breed = "boss/hinox_master",
       },
       boss = {
@@ -174,9 +175,7 @@ local function initialize_dungeon_features(game)
       },
       small_boss = {
         floor = 0,
-        breed = "keese",
-        x = 640 + 1440,
-        y = 720 + 365
+        breed = "boss/dodongo_snake",
       },
       boss = {
         floor = 0,
@@ -197,6 +196,10 @@ local function initialize_dungeon_features(game)
         destination_name = "dungeon_4_2_A"
       },
       secrets = {
+      },
+      small_boss = {
+        floor = 0,
+        breed = "boss/cue_ball",
       },
       boss = {
         floor = 0,

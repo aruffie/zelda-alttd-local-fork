@@ -1,4 +1,4 @@
--- Lua script of enemy rolling bones spike.
+-- Lua script of soldier enemy's ballchain.
 -- This script is executed every time an enemy with this model is created.
 
 -- Variables

@@ -165,12 +165,8 @@ function map:launch_boss()
         for item in map:get_entities_by_type("pickable") do
           local treasure = item:get_treasure()
           if treasure:get_name() == "angler_key" then
-            
-            -- Hardcode a timer before attracting the key to let the it fall on the ground before attracting.
-            sol.timer.start(item, 500, function()
-              magnet:start_attracting(item, 40, true, function() -- Workaround : Make the key attraction ignore obstacles to let it able to fall in holes.
-                return is_over_quicksand(item)
-              end)
+            magnet:start_attracting(item, 40, true, function() -- Workaround : Make the key attraction ignore obstacles to let it able to fall in holes.
+              return is_over_quicksand(item)
             end)
           end
         end
