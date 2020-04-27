@@ -23,7 +23,7 @@ function map_tools.start_earthquake(shake_config)
 end
 
 -- Start a set of chained explosion placed randomly around the entity coordinates.
-function map_tools.start_random_explosions(entity, duration, max_distance, callback)
+function map_tools.start_close_explosions(entity, duration, max_distance, callback)
 
   local map = entity:get_map()
   local x, y, layer = entity:get_position()
