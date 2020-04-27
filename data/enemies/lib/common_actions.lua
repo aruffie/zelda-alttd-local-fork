@@ -33,11 +33,11 @@
 --           enemy:start_shock(entity, [speed, [duration, [on_finished_callback]]])
 --
 --           Effects and other actions :
---           enemy:silent_kill()
+--           enemy:silent_kill([treasure_falling_height])
 --           enemy:start_shadow([sprite_name, [animation_name]])
 --           enemy:start_brief_effect(sprite_name, [animation_name, [x_offset, [y_offset, [maximum_duration, [on_finished_callback]]]]])
 --           enemy:start_close_explosions(maximum_distance, duration, [explosion_sprite_name, [on_finished_callback]])
---           enemy:start_sprite_explosions([ordered_sprites, [explosion_sprite_name, [on_finished_callback]]]])
+--           enemy:start_sprite_explosions([ordered_sprites, [explosion_sprite_name, [on_finished_callback]]])
 --           enemy:steal_item(item_name, [variant, [only_if_assigned, [drop_when_dead]]])
 --           enemy:stop_all()
 --
@@ -684,7 +684,7 @@ function common_actions.learn(enemy)
   end
 
   -- Kill the enemy right now, silently and without animation.
-  function enemy:silent_kill()
+  function enemy:silent_kill(treasure_falling_height)
 
     enemy.is_hurt_silently = true -- Workaround : Don't play sounds added by enemy meta script.
 
@@ -696,20 +696,25 @@ function common_actions.learn(enemy)
     local treasure_name, treasure_variant, treasure_savegame = enemy:get_treasure()
     if treasure_name then
       local x, y, layer = enemy:get_position()
-      map:create_pickable({
+      local pickable = map:create_pickable({
         name = (enemy:get_name() or enemy:get_breed()) .. treasure_name,
         x = x,
         y = y,
         layer = layer,
         treasure_name = treasure_name,
         treasure_variant = treasure_variant,
-        treasure_savegame_variable = treasure_savegame,
+        treasure_savegame_variable = treasure_savegame
       })
+
+      -- Replace the built-in falling by a throw from the given height.
+      pickable:stop_movement() 
+      local start_height = treasure_falling_height or 8
+      enemy:start_throwing(pickable, 450 + start_height * 5, start_height, start_height + 16)
     end
 
     -- TODO Handle savegame if any.
 
-    -- Actual remove.
+    -- Actual removal.
     enemy:remove()
     if enemy.on_dead then
       enemy:on_dead()
@@ -809,8 +814,13 @@ function common_actions.learn(enemy)
       local explosion = enemy:start_brief_effect(explosion_sprite_name, nil, x, y, nil, function()
         if elapsed_time < duration then
           start_close_explosion()
+        else
+          if on_finished_callback then
+            on_finished_callback()
+          end
         end
       end)
+      explosion:set_layer(enemy:get_layer() + 1)
       local sprite = explosion:get_sprite()
       elapsed_time = elapsed_time + sprite:get_frame_delay() * sprite:get_num_frames()
     end
@@ -825,7 +835,7 @@ function common_actions.learn(enemy)
     local function start_sprite_explosion(index)
       local sprite = ordered_sprites[index]
       local x, y = sprite:get_xy()
-      local effect = enemy:start_brief_effect(explosion_sprite_name, nil, x, y, nil, function()
+      local explosion = enemy:start_brief_effect(explosion_sprite_name, nil, x, y, nil, function()
         if index < #ordered_sprites then
           start_sprite_explosion(index + 1)
         else
@@ -834,7 +844,7 @@ function common_actions.learn(enemy)
           end
         end
       end)
-      effect:set_layer(enemy:get_layer() + 1)
+      explosion:set_layer(enemy:get_layer() + 1)
       enemy:remove_sprite(sprite)
     end
     start_sprite_explosion(1)

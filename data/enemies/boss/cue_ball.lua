@@ -52,6 +52,7 @@ function enemy:start_charging(direction4)
 
   direction4 = direction4 or sprite:get_direction()
   enemy:start_straight_walking(charging_angles[direction4 + 1], charging_speed, nil, function()
+    sprite:set_animation("stopped")
     sol.timer.start(enemy, waiting_duration, function()
       enemy:start_charging((direction4 - 1) % 4)
     end)

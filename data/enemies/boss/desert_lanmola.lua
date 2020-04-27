@@ -44,12 +44,20 @@ local eighth = math.pi * 0.25
 local sixteenth = math.pi * 0.125
 local circle = math.pi * 2.0
 
--- Return a table with only visible sprites, ordered from tail to head.
-function get_exploding_sprites()
+-- Return a random visible position.
+local function get_random_visible_position()
+
+  local x, y, _ =  camera:get_position()
+  local width, height = camera:get_size()
+  return math.random(x, x + width), math.random(y, y + height)
+end
+
+-- Return a table with only visible sprites and without the head, ordered from tail to head.
+function get_exploding_tied_sprites()
 
 	local exploding_sprites = {}
   local i = 1
-	for j = #sprites, 1, -1 do
+	for j = #sprites, 2, -1 do
     local sprite = sprites[j]
     if sprite:get_opacity() ~= 0 then
   		exploding_sprites[i] = sprite
@@ -59,12 +67,15 @@ function get_exploding_sprites()
   return exploding_sprites
 end
 
--- Return a random visible position.
-local function get_random_visible_position()
+-- Remove dust effects.
+function remove_dust_effects()
 
-  local x, y, _ =  camera:get_position()
-  local width, height = camera:get_size()
-  return math.random(x, x + width), math.random(y, y + height)
+  if appearing_dust and appearing_dust:exists() then
+    appearing_dust:remove()
+  end
+  if disappearing_dust and disappearing_dust:exists() then
+    disappearing_dust:remove()
+  end
 end
 
 -- Update body and tail sprites depending on current and previous positions.
@@ -149,26 +160,27 @@ local function hurt(damage)
     return
   end
 
-  -- Die if no more life.
+  -- Die if no more life, making all sprites explode from the tail to head.
   local remaining_life = enemy:get_life() - damage
   if enemy:get_life() - damage < 1 then
-    if appearing_dust and appearing_dust:exists() then
-      appearing_dust:remove()
-    end
-    if disappearing_dust and disappearing_dust:exists() then
-      disappearing_dust:remove()
-    end
     set_sprites_animation("hurt")
+    remove_dust_effects()
     enemy:stop_all()
+    
+    -- Wait a few time, make visible sprites explode from tail to the body one before the head, wait a few time again and make the head explode and enemy die.
     sol.timer.start(enemy, 2000, function()
-      enemy:start_sprite_explosions(get_exploding_sprites(), "entities/explosion_boss", function()
-        enemy:silent_kill()
+      enemy:start_sprite_explosions(get_exploding_tied_sprites(), "entities/explosion_boss",function()
+        sol.timer.start(enemy, 500, function()
+          local x, y = head_sprite:get_xy()
+          enemy:start_brief_effect("entities/explosion_boss", nil, x, y)
+          enemy:silent_kill(-y)
+        end)
       end)
     end)
     return
   end
 
-  -- Manually hurt to not trigger the built-in behavior.
+  -- Manually hurt else to not trigger the built-in behavior.
   enemy:set_life(enemy:get_life() - damage)
   set_sprites_animation("hurt")
   sol.timer.start(enemy, 1000, function()
