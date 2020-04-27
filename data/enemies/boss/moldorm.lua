@@ -52,18 +52,16 @@ local function on_attack_received()
     if enemy:get_life() > 1 then
       enemy:hurt(1)
     else
-      enemy:start_dying(function()
-        local ordered_sprites = {tail_sprite, body_sprites[3], body_sprites[2], body_sprites[1], head_sprite}
-        for _, sprite in pairs(ordered_sprites) do
-          if sprite:has_animation("hurt") then
-            sprite:set_animation("hurt")
-          end
+      local ordered_sprites = {tail_sprite, body_sprites[3], body_sprites[2], body_sprites[1], head_sprite}
+      for _, sprite in pairs(ordered_sprites) do
+        if sprite:has_animation("hurt") then
+          sprite:set_animation("hurt")
         end
-        enemy:stop_all()
-        sol.timer.start(enemy, 2000, function()
-          enemy:start_sprite_explosions(get_exploding_sprites(), "entities/explosion_boss", function()
-            enemy:silent_kill()
-          end)
+      end
+      enemy:stop_all()
+      sol.timer.start(enemy, 2000, function()
+        enemy:start_sprite_explosions(get_exploding_sprites(), "entities/explosion_boss", function()
+          enemy:silent_kill()
         end)
       end)
     end

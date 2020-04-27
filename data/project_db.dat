@@ -742,6 +742,7 @@ sprite{ id = "npc/animals/teddy", description = "Teddy" }
 sprite{ id = "npc/animals/walrus", description = "Walrus" }
 sprite{ id = "npc/animals/wart", description = "Wart" }
 sprite{ id = "npc/animals/wind_fish", description = "Wind fish" }
+sprite{ id = "npc/books/book_black", description = "Book black" }
 sprite{ id = "npc/books/book_blue", description = "Book blue" }
 sprite{ id = "npc/books/book_green", description = "Book green" }
 sprite{ id = "npc/books/book_grey", description = "Book grey" }
@@ -2811,7 +2812,12 @@ file{ path = "sprites/menus/zeldaforce_logo/zeldaforce_logo_z.png", author = "Ol
 file{ path = "sprites/npc", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use, CC BY-SA 4.0" }
 file{ path = "sprites/npc/animals/alligator.dat", author = "Julien Van Steerteghem", license = "CC BY-SA 4.0" }
 file{ path = "sprites/npc/animals/alligator.png", author = "Nintendo, Julien Van Steerteghem", license = "Proprietary, Fair use" }
+file{ path = "sprites/npc/books/book_black.dat", author = "JulioTanaka", }
+file{ path = "sprites/npc/books/book_blue.dat", author = "JulioTanaka", }
+file{ path = "sprites/npc/books/book_green.dat", author = "JulioTanaka", }
 file{ path = "sprites/npc/books/book_grey.dat", author = "JulioTanaka", }
+file{ path = "sprites/npc/books/book_red.dat", author = "JulioTanaka", }
+file{ path = "sprites/npc/books/book_yellow.dat", author = "JulioTanaka", }
 file{ path = "sprites/streams/stream_d1.dat", author = "FFomega", license = "CC BY-SA 4.0" }
 file{ path = "sprites/streams/stream_d2.dat", author = "FFomega", license = "CC BY-SA 4.0" }
 file{ path = "sprites/streams/stream_d3.dat", author = "FFomega", license = "CC BY-SA 4.0" }
