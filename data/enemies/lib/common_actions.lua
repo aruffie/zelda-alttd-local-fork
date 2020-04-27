@@ -34,10 +34,12 @@
 --
 --           Effects and other actions :
 --           enemy:silent_kill()
---           enemy:start_dying_explosion([ordered_sprites, [delay, [explosion_animation]]])
 --           enemy:start_shadow([sprite_name, [animation_name]])
 --           enemy:start_brief_effect(sprite_name, [animation_name, [x_offset, [y_offset, [maximum_duration, [on_finished_callback]]]]])
+--           enemy:start_close_explosions(maximum_distance, duration, [explosion_sprite_name, [on_finished_callback]])
+--           enemy:start_sprite_explosions([ordered_sprites, [explosion_sprite_name, [on_finished_callback]]]])
 --           enemy:steal_item(item_name, [variant, [only_if_assigned, [drop_when_dead]]])
+--           enemy:stop_all()
 --
 -- Usage : 
 -- local my_enemy = ...
@@ -714,46 +716,6 @@ function common_actions.learn(enemy)
     end
   end
 
-  -- Make the given enemy sprites explode one after the other in the given order, with a delay between each explosion.
-  function enemy:start_dying_explosion(ordered_sprites, delay, explosion_animation)
-
-    ordered_sprites = ordered_sprites or enemy:get_sprites()
-    delay = delay or 500
-    explosion_animation = explosion_animation or "entities/explosion_boss"
-
-    local function start_sprite_explosion(sprite)
-      local x, y = sprite:get_xy()
-      local effect = enemy:start_brief_effect(explosion_animation, "default", x, y, nil, function()
-        enemy:remove_sprite(sprite)
-      end)
-      effect:set_layer(enemy:get_layer() + 1)
-    end
-
-    -- Setup the enemy and start hurt animation.
-    sol.timer.stop_all(enemy)
-    enemy:stop_movement()
-    enemy:set_can_attack(false)
-    enemy:set_damage(0)
-    enemy:set_pushed_back_when_hurt(false)
-    for _, sprite in pairs(ordered_sprites) do
-      if sprite:has_animation("hurt") then
-        sprite:set_animation("hurt")
-      end
-    end
-
-    -- Then start the explosion after some time.
-    local i = 1
-    local initial_delay = delay * 2
-    sol.timer.start(enemy, initial_delay, function()
-      if i <= #ordered_sprites then
-        start_sprite_explosion(ordered_sprites[i])
-        i = i + 1
-        return delay
-      end
-      enemy:silent_kill()
-    end)
-  end
-
   -- Add a shadow below the enemy.
   function enemy:start_shadow(sprite_name, animation_name)
 
@@ -832,6 +794,52 @@ function common_actions.learn(enemy)
     return entity
   end
 
+  -- Start a new explosion placed randomly around the entity coordinates each time the previous one finished, until duration reached.
+  function enemy:start_close_explosions(maximum_distance, duration, explosion_sprite_name, on_finished_callback)
+
+    explosion_sprite_name = explosion_sprite_name or "entities/explosion_boss"
+
+    local elapsed_time = 0
+    local function start_close_explosion()
+      local distance = math.random() * maximum_distance
+      local angle = math.random(circle)
+      local x = math.cos(angle) * distance
+      local y = math.sin(angle) * distance
+      
+      local explosion = enemy:start_brief_effect(explosion_sprite_name, nil, x, y, nil, function()
+        if elapsed_time < duration then
+          start_close_explosion()
+        end
+      end)
+      local sprite = explosion:get_sprite()
+      elapsed_time = elapsed_time + sprite:get_frame_delay() * sprite:get_num_frames()
+    end
+  end
+
+  -- Make the given enemy sprites explode one after the other in the given order, and remove exploded sprite.
+  function enemy:start_sprite_explosions(ordered_sprites, explosion_sprite_name, on_finished_callback)
+
+    ordered_sprites = ordered_sprites or enemy:get_sprites()
+    explosion_sprite_name = explosion_sprite_name or "entities/explosion_boss"
+
+    local function start_sprite_explosion(index)
+      local sprite = ordered_sprites[index]
+      local x, y = sprite:get_xy()
+      local effect = enemy:start_brief_effect(explosion_sprite_name, nil, x, y, nil, function()
+        if index < #ordered_sprites then
+          start_sprite_explosion(index + 1)
+        else
+          if on_finished_callback then
+            on_finished_callback()
+          end
+        end
+      end)
+      effect:set_layer(enemy:get_layer() + 1)
+      enemy:remove_sprite(sprite)
+    end
+    start_sprite_explosion(1)
+  end
+
   -- Steal an item and drop it when died, possibly conditionned on the variant and the assignation to a slot.
   function enemy:steal_item(item_name, variant, only_if_assigned, drop_when_dead)
 
@@ -849,6 +857,16 @@ function common_actions.learn(enemy)
         end
       end
     end
+  end
+
+  -- Stop all running actions and interactions with other entities.
+  function enemy:stop_all()
+
+    sol.timer.stop_all(enemy)
+    enemy:stop_movement()
+    enemy:set_can_attack(false)
+    enemy:set_damage(0)
+    enemy:set_invincible()
   end
 end
 

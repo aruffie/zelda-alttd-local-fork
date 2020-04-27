@@ -149,7 +149,7 @@ local function hurt(damage)
     return
   end
 
-  -- Manually hurt to not trigger the built-in behavior.
+  -- Die if no more life.
   local remaining_life = enemy:get_life() - damage
   if enemy:get_life() - damage < 1 then
     if appearing_dust and appearing_dust:exists() then
@@ -158,9 +158,17 @@ local function hurt(damage)
     if disappearing_dust and disappearing_dust:exists() then
       disappearing_dust:remove()
     end
-    enemy:start_dying_explosion(get_exploding_sprites(), 500, "entities/explosion_boss")
+    set_sprites_animation("hurt")
+    enemy:stop_all()
+    sol.timer.start(enemy, 2000, function()
+      enemy:start_sprite_explosions(get_exploding_sprites(), "entities/explosion_boss", function()
+        enemy:silent_kill()
+      end)
+    end)
     return
   end
+
+  -- Manually hurt to not trigger the built-in behavior.
   enemy:set_life(enemy:get_life() - damage)
   set_sprites_animation("hurt")
   sol.timer.start(enemy, 1000, function()
@@ -197,7 +205,6 @@ function enemy:appear()
   local angle_variance = math.random() * angle_amplitude_from_center * 2 - angle_amplitude_from_center
   local angle = enemy:get_angle(region_x + region_width / 2.0, region_y + region_height / 2.0) + angle_variance
   local movement = enemy:start_straight_walking(angle, jumping_speed)
-  movement:set_smooth(false)
 
   -- Schedule an update of the head sprite vertical offset by frame.
   local head_sprite = sprites[1]
@@ -228,7 +235,7 @@ function enemy:appear()
 
   -- Behavior for each items.
   enemy:set_hero_weapons_reactions("ignored", {
-    sword = function() hurt(8) end,
+    sword = function() hurt(1) end,
     thrust = function() hurt(2) end,
     arrow = function() hurt(4) end
   })
@@ -295,6 +302,7 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_visible(false)
   enemy:set_obstacle_behavior("flying")
   enemy:set_layer_independent_collisions(true)
+  enemy:set_pushed_back_when_hurt(false)
   enemy:set_can_attack(false)
   enemy:set_damage(4)
   enemy:set_invincible()
