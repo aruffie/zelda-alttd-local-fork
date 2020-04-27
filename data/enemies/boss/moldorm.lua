@@ -47,29 +47,39 @@ local function on_attack_received()
   -- Make sure to only trigger this event once by attack.
   enemy:set_invincible()
 
-  -- Hurt if hero sword sprite collide with the tail sprite.
+  -- Don't hurt and only repulse if the hero sword sprite doesn't collide with the tail sprite.
   if enemy:overlaps(hero, "sprite", tail_sprite, hero:get_sprite("sword")) then
-    if enemy:get_life() > 1 then
-      enemy:hurt(1)
-    else
-      local ordered_sprites = {tail_sprite, body_sprites[3], body_sprites[2], body_sprites[1], head_sprite}
-      for _, sprite in pairs(ordered_sprites) do
-        if sprite:has_animation("hurt") then
-          sprite:set_animation("hurt")
-        end
-      end
-      enemy:stop_all()
-      sol.timer.start(enemy, 2000, function()
-        enemy:start_sprite_explosions(get_exploding_sprites(), "entities/explosion_boss", function()
-          enemy:silent_kill()
-        end)
-      end)
-    end
-  else
     enemy:start_pushing_back(hero, 200, 100, function()
       enemy:set_hero_weapons_reactions(on_attack_received, {jump_on = "ignored"})
     end)
+    return
   end
+
+  -- Die if no more life.
+  if enemy:get_life() < 2 then
+    for _, sprite in enemy:get_sprites() do
+      if sprite:has_animation("hurt") then
+        sprite:set_animation("hurt")
+      end
+    end
+    enemy:stop_all()
+
+    -- Wait a few time, make visible sprites explode from tail to the body one before the head, wait a few time again and make the head explode and enemy die.
+    local ordered_tied_sprites = {tail_sprite, body_sprites[3], body_sprites[2], body_sprites[1]}
+    sol.timer.start(enemy, 2000, function()
+      enemy:start_sprite_explosions(ordered_tied_sprites, "entities/explosion_boss",function()
+        sol.timer.start(enemy, 500, function()
+          local x, y = head_sprite:get_xy()
+          enemy:start_brief_effect("entities/explosion_boss", nil, x, y)
+          enemy:silent_kill()
+        end)
+      end)
+    end)
+    return
+  end
+
+  -- Else hurt normally.
+  enemy:hurt(1)
 end
 
 -- Start the enemy movement.

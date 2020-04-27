@@ -165,13 +165,17 @@ function map:launch_boss()
         for item in map:get_entities_by_type("pickable") do
           local treasure = item:get_treasure()
           if treasure:get_name() == "angler_key" then
-            magnet:start_attracting(item, 40, true, function() -- Workaround : Make the key attraction ignore obstacles to let it able to fall in holes.
-              return is_over_quicksand(item)
+            sol.timer.start(map, 600, function() -- Wait a few time before attracting to let the key fall on the ground.
+              magnet:start_attracting(item, 40, true, function() -- Workaround : Make the key attraction ignore obstacles to let it able to fall in holes.
+                return is_over_quicksand(item)
+              end)
             end)
           end
         end
-        start_tracking_hero()
         game:set_step_done("sandworm_killed") 
+        sol.timer.start(map, 1000, function() -- Wait a few time and track the hero again.
+          start_tracking_hero()
+        end)
       end)
     elseif boss:exists() then
       boss:set_enabled(true)
