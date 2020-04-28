@@ -52,7 +52,7 @@ local function get_random_visible_position()
   return math.random(x, x + width), math.random(y, y + height)
 end
 
--- Return a table with only visible sprites and without the head, ordered from tail to head.
+-- Return a table with only visible sprites and without the head, sorted from tail to head.
 function get_exploding_tied_sprites()
 
 	local exploding_sprites = {}
@@ -124,6 +124,16 @@ local function update_sprites_direction(angle)
   end
 end
 
+-- Update all sprites z-order depending on the given moving angle.
+local function update_sprites_order(angle)
+
+  local head_on_front = angle > math.pi and angle < circle
+  local order_method = head_on_front and enemy.bring_sprite_to_back or enemy.bring_sprite_to_front
+  for _, sprite in ipairs(sprites) do
+    order_method(enemy, sprite)
+  end
+end
+
 -- Set the given animation on all enemy sprites.
 local function set_sprites_animation(animation)
 
@@ -141,16 +151,6 @@ local function reset_sprites()
   end
 end
 
--- Update all sprites z-order depending on the given moving angle.
-local function update_sprites_order(angle)
-
-  local head_on_front = angle > math.pi and angle < circle
-  local order_method = head_on_front and enemy.bring_sprite_to_back or enemy.bring_sprite_to_front
-  for _, sprite in ipairs(sprites) do
-    order_method(enemy, sprite)
-  end
-end
-
 -- Manually hurt the enemy to not restart it automatically and let it finish its move.
 local function hurt(damage)
 
@@ -160,14 +160,14 @@ local function hurt(damage)
     return
   end
 
-  -- Die if no more life, making all sprites explode from the tail to head.
+  -- Die if no more life.
   local remaining_life = enemy:get_life() - damage
   if enemy:get_life() - damage < 1 then
     set_sprites_animation("hurt")
     remove_dust_effects()
     enemy:stop_all()
     
-    -- Wait a few time, make visible sprites explode from tail to the body one before the head, wait a few time again and make the head explode and enemy die.
+    -- Wait a few time, make visible tied sprites explode from tail to head, wait a few time again and finally make the head explode and enemy die.
     sol.timer.start(enemy, 2000, function()
       enemy:start_sprite_explosions(get_exploding_tied_sprites(), "entities/explosion_boss",function()
         sol.timer.start(enemy, 500, function()

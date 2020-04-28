@@ -2,8 +2,8 @@
 --
 -- Add basic projectile methods and events to an enemy.
 --
--- Methods : enemy:remove_when_out_screen(movement)
---           enemy:straight_go([angle, [speed]])
+-- Methods : enemy:straight_go([angle, [speed]])
+--
 -- Events :  enemy:on_hit()
 --
 -- Usage : 

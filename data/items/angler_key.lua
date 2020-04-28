@@ -15,6 +15,13 @@ function item:on_created()
 
 end
 
+function item:on_pickable_created(pickable)
+
+  local sprite = pickable:get_sprite("treasure")
+  pickable:remove_sprite(sprite)
+  pickable:create_sprite("entities/items/angler_key", "treasure")
+end
+
 function item:on_obtaining()
   
   -- Sound

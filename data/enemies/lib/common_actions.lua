@@ -37,7 +37,7 @@
 --           enemy:start_shadow([sprite_name, [animation_name]])
 --           enemy:start_brief_effect(sprite_name, [animation_name, [x_offset, [y_offset, [maximum_duration, [on_finished_callback]]]]])
 --           enemy:start_close_explosions(maximum_distance, duration, [explosion_sprite_name, [on_finished_callback]])
---           enemy:start_sprite_explosions([ordered_sprites, [explosion_sprite_name, [on_finished_callback]]])
+--           enemy:start_sprite_explosions([sprites, [explosion_sprite_name, [on_finished_callback]]])
 --           enemy:steal_item(item_name, [variant, [only_if_assigned, [drop_when_dead]]])
 --           enemy:stop_all()
 --
@@ -98,7 +98,7 @@ function common_actions.learn(enemy)
       and (layer == entity_layer or enemy:has_layer_independent_collisions())
   end
 
-  -- Return true if the enemy is currently leashed by the entity.
+  -- Return true if the enemy is currently leashed by the entity with enemy:start_leashed_by().
   function enemy:is_leashed_by(entity)
     return leashing_timers[entity] ~= nil
   end
@@ -546,7 +546,7 @@ function common_actions.learn(enemy)
       elapsed_time = elapsed_time + 10
       if elapsed_time < duration then
         for sprite_name, sprite in entity:get_sprites() do
-          if sprite_name ~= "shadow_override" then -- Workaround : Don't change shadow height when the sprite is part of the entity.
+          if sprite_name ~= "shadow" and sprite_name ~= "shadow_override" then -- Workaround : Don't change shadow height when the sprite is part of the entity.
             sprite:set_xy(0, -math.sqrt(math.sin(elapsed_time / duration * math.pi)) * maximum_height)
           end
         end
@@ -709,7 +709,7 @@ function common_actions.learn(enemy)
       -- Replace the built-in falling by a throw from the given height.
       pickable:stop_movement() 
       local start_height = treasure_falling_height or 8
-      enemy:start_throwing(pickable, 450 + start_height * 5, start_height, start_height + 16)
+      enemy:start_throwing(pickable, 450 + start_height * 6, start_height, start_height + 16)
     end
 
     -- TODO Handle savegame if any.
@@ -827,16 +827,16 @@ function common_actions.learn(enemy)
   end
 
   -- Make the given enemy sprites explode one after the other in the given order, and remove exploded sprite.
-  function enemy:start_sprite_explosions(ordered_sprites, explosion_sprite_name, on_finished_callback)
+  function enemy:start_sprite_explosions(sprites, explosion_sprite_name, on_finished_callback)
 
-    ordered_sprites = ordered_sprites or enemy:get_sprites()
+    sprites = sprites or enemy:get_sprites()
     explosion_sprite_name = explosion_sprite_name or "entities/explosion_boss"
 
     local function start_sprite_explosion(index)
-      local sprite = ordered_sprites[index]
+      local sprite = sprites[index]
       local x, y = sprite:get_xy()
       local explosion = enemy:start_brief_effect(explosion_sprite_name, nil, x, y, nil, function()
-        if index < #ordered_sprites then
+        if index < #sprites then
           start_sprite_explosion(index + 1)
         else
           if on_finished_callback then
