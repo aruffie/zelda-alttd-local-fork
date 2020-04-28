@@ -64,10 +64,10 @@ local function on_attack_received()
     end
     enemy:stop_all()
 
-    -- Wait a few time, make visible sprites explode from tail to the body one before the head, wait a few time again and make the head explode and enemy die.
-    local ordered_tied_sprites = {tail_sprite, body_sprites[3], body_sprites[2], body_sprites[1]}
+    -- Wait a few time, make tail then body sprites explode, wait a few time again and finally make the head explode and enemy die.
+    local sorted_tied_sprites = {tail_sprite, body_sprites[3], body_sprites[2], body_sprites[1]}
     sol.timer.start(enemy, 2000, function()
-      enemy:start_sprite_explosions(ordered_tied_sprites, "entities/explosion_boss",function()
+      enemy:start_sprite_explosions(sorted_tied_sprites, "entities/explosion_boss",function()
         sol.timer.start(enemy, 500, function()
           local x, y = head_sprite:get_xy()
           enemy:start_brief_effect("entities/explosion_boss", nil, x, y)
