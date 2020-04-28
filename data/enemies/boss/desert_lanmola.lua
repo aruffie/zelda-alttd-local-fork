@@ -23,7 +23,7 @@ local hero = map:get_hero()
 local camera = map:get_camera()
 local sprites = {}
 local last_positions, frame_count
-local appearing_dust, disappearing_dust
+local tunnel, appearing_dust, disappearing_dust
 
 -- Configuration variables
 local tied_sprites_frame_lags = {15, 30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180, 195, 210, 225, 240, 255, 270, 285, 300}
@@ -31,14 +31,14 @@ local tunnel_duration = 1000
 local waiting_minimum_duration = 2000
 local waiting_maximum_duration = 4000
 local jumping_speed = 48
-local jumping_height = 36
-local jumping_minimum_duration = 2500
-local jumping_maximum_duration = 3500
+local jumping_height = 32
+local jumping_minimum_duration = 2700
+local jumping_maximum_duration = 3000
 local angle_amplitude_from_center = math.pi * 0.125
 
 -- Constants
-local tied_sprites_count = #tied_sprites_frame_lags
-local tail_frame_lag = tied_sprites_frame_lags[tied_sprites_count]
+local sprites_count = #tied_sprites_frame_lags + 1
+local tail_frame_lag = tied_sprites_frame_lags[#tied_sprites_frame_lags]
 local highest_frame_lag = tail_frame_lag + 1
 local eighth = math.pi * 0.25
 local sixteenth = math.pi * 0.125
@@ -57,7 +57,7 @@ function get_exploding_tied_sprites()
 
 	local exploding_sprites = {}
   local i = 1
-	for j = #sprites, 2, -1 do
+	for j = sprites_count, 2, -1 do
     local sprite = sprites[j]
     if sprite:get_opacity() ~= 0 then
   		exploding_sprites[i] = sprite
@@ -67,14 +67,28 @@ function get_exploding_tied_sprites()
   return exploding_sprites
 end
 
--- Remove dust effects.
-function remove_dust_effects()
+-- Remove dust and tunnel effects.
+function remove_effects()
 
-  if appearing_dust and appearing_dust:exists() then
-    appearing_dust:remove()
+  local function remove_effect(effect)
+    if effect and effect:exists() then
+      effect:remove()
+    end
   end
-  if disappearing_dust and disappearing_dust:exists() then
-    disappearing_dust:remove()
+  remove_effect(tunnel)
+  remove_effect(appearing_dust)
+  remove_effect(disappearing_dust)
+end
+
+-- Set the given sprite visible or not, and exclude it from collision test with the hero if invisible.
+local function set_sprite_visible(sprite, visible)
+
+  local opacity = visible and 255 or 0
+  if sprite:get_opacity() ~= opacity then
+    sprite:set_opacity(opacity)
+    if opacity == 0 then
+      sprite:set_xy(0, 400) -- Workaround: No way to set sprites insensible to pixel-perfect collision when invisible, move them far away the origin on reset.
+    end
   end
 end
 
@@ -91,24 +105,15 @@ local function update_body_sprites()
     last_positions[frame_count] = nil
   end
 
-  -- Replace part sprites on a previous position.
+  -- Replace tied sprites on a previous position, making sprites with no position invisible.
   local function replace_part_sprite(sprite, frame_lag)
     local key = (frame_count - frame_lag) % highest_frame_lag
-
-    -- Make sprite invisible if no stored position, and visible if position available but sprite still invisible.
-    if not last_positions[key] then
-      if sprite:get_opacity() ~= 0 then
-        sprite:set_opacity(0)
-      end
-      return
+    set_sprite_visible(sprite, last_positions[key] ~= nil)
+    if last_positions[key] then
+      sprite:set_xy(last_positions[key].x - x, last_positions[key].y - y)
     end
-    if sprite:get_opacity() == 0 then
-      sprite:set_opacity(255)
-    end
-
-    sprite:set_xy(last_positions[key].x - x, last_positions[key].y - y)
   end
-  for i = 2, tied_sprites_count + 1 do
+  for i = 2, sprites_count do
     replace_part_sprite(sprites[i], tied_sprites_frame_lags[i - 1])
   end
 
@@ -142,15 +147,6 @@ local function set_sprites_animation(animation)
   end
 end
 
--- Make all sprites invisible and at the 0, 0 offset position.
-local function reset_sprites()
-
-  for _, sprite in pairs(sprites) do
-    sprite:set_xy(0, 400) -- Workaround: No way to set sprites insensible to pixel-perfect collision when invisible, move them far away the origin on reset.
-    sprite:set_opacity(0)
-  end
-end
-
 -- Manually hurt the enemy to not restart it automatically and let it finish its move.
 local function hurt(damage)
 
@@ -164,7 +160,7 @@ local function hurt(damage)
   local remaining_life = enemy:get_life() - damage
   if enemy:get_life() - damage < 1 then
     set_sprites_animation("hurt")
-    remove_dust_effects()
+    remove_effects()
     enemy:stop_all()
     
     -- Wait a few time, make visible tied sprites explode from tail to head, wait a few time again and finally make the head explode and enemy die.
@@ -186,6 +182,9 @@ local function hurt(damage)
   sol.timer.start(enemy, 1000, function()
     set_sprites_animation("walking")
   end)
+  if enemy.on_hurt then
+    enemy:on_hurt()
+  end
 end
 
 -- Create a tunnel and appear at a random position.
@@ -202,7 +201,7 @@ function enemy:start_tunneling()
   end
 
   enemy:set_position(random_x, random_y)
-  enemy:start_brief_effect("enemies/" .. enemy:get_breed() .. "/dust", "tunnel", 0, 0, tunnel_duration)
+  tunnel = enemy:start_brief_effect("enemies/" .. enemy:get_breed() .. "/dust", "tunnel", 0, 0, tunnel_duration)
   sol.timer.start(enemy, tunnel_duration, function()
     enemy:appear()  -- Start a timer on the enemy instead of using tunnel:on_finished() to avoid continue if the enemy was disabled from outside this script.
   end)
@@ -228,7 +227,7 @@ function enemy:appear()
     elapsed_time = elapsed_time + 10
     if elapsed_time < duration then
       local progress = elapsed_time / duration
-      head_sprite:set_xy(0, -(0.978 * math.sqrt(math.sin(progress * math.pi)) + 0.267 * math.sin(math.sin(3 * progress * math.pi))) * jumping_height) -- Curve with two bumps.
+      head_sprite:set_xy(0, -(0.913 * math.sqrt(math.sin(progress * math.pi)) + 0.35 * math.sin(math.sin(3 * progress * math.pi))) * jumping_height) -- Curve with two bumps.
       return true
     end
     if movement and enemy:get_movement() == movement then
@@ -244,6 +243,7 @@ function enemy:appear()
   update_sprites_order(angle)
   head_sprite:set_opacity(255)
   appearing_dust = enemy:start_brief_effect("enemies/" .. enemy:get_breed() .. "/dust", "projections", 0, 0, tail_frame_lag * 10 + 150)
+  appearing_dust:bring_to_back()
 
   -- Behavior for each items.
   enemy:set_hero_weapons_reactions("ignored", {
@@ -261,6 +261,7 @@ function enemy:disappear()
   local head_sprite = sprites[1]
   head_sprite:set_opacity(0)
   disappearing_dust = enemy:start_brief_effect("enemies/" .. enemy:get_breed() .. "/dust", "projections", 0, 0, tail_frame_lag * 10 + 150)
+  disappearing_dust:bring_to_back()
   enemy:set_invincible()
 
   -- Continue an extra loop of last_positions update to make the whole body.
@@ -286,22 +287,27 @@ function enemy:wait()
   end)
 end
 
+-- Remove effects on disabled.
+enemy:register_event("on_disabled", function(enemy)
+  remove_effects()
+end)
+
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(8)
   enemy:set_size(16, 16)
-  enemy:set_origin(8, 8)
+  enemy:set_origin(8, 13)
   enemy:start_shadow()
 
   -- Create sprites.
   sprites[1] = enemy:create_sprite("enemies/" .. enemy:get_breed())
-  for i = 2, tied_sprites_count do
+  for i = 2, sprites_count - 1 do
     sprites[i] = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/body")
     enemy:set_invincible_sprite(sprites[i]) -- TODO Never use this function and simulate the protected behavior instead of the ignored one.
   end
-  sprites[tied_sprites_count + 1] = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/tail")
-  enemy:set_invincible_sprite(sprites[tied_sprites_count + 1]) -- TODO Never use this function and simulate the protected behavior instead of the ignored one.
+  sprites[sprites_count] = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/tail")
+  enemy:set_invincible_sprite(sprites[sprites_count]) -- TODO Never use this function and simulate the protected behavior instead of the ignored one.
 end)
 
 -- Restart settings.
@@ -310,7 +316,10 @@ enemy:register_event("on_restarted", function(enemy)
   -- States.
   last_positions = {}
   frame_count = 0
-  reset_sprites()
+  for _, sprite in pairs(sprites) do
+    set_sprite_visible(sprite, false)
+  end
+  enemy:stop_movement()
   enemy:set_visible(false)
   enemy:set_obstacle_behavior("flying")
   enemy:set_layer_independent_collisions(true)
