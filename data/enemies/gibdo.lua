@@ -39,7 +39,7 @@ enemy:register_event("on_custom_attack_received", function(enemy, attack)
 
   if attack == "fire" then
     local x, y, layer = enemy:get_position()
-    stalfos = enemy:create_enemy({
+    local stalfos = enemy:create_enemy({
       name = (enemy:get_name() or enemy:get_breed()) .. "_stalfos",
       breed = "stalfos_red"
     })

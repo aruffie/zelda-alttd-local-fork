@@ -80,7 +80,7 @@ function enemy:start_throwing_bone()
     sol.timer.start(enemy, throwing_bone_delay, function()
       
       local x, y, layer = enemy:get_position()
-      local bone = map:create_enemy({
+      map:create_enemy({
         name = (enemy:get_name() or enemy:get_breed()) .. "_bone",
         breed = "projectiles/bone",
         x = x,

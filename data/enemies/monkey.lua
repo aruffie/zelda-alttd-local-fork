@@ -74,18 +74,20 @@ function enemy:start_throwing_projectile(direction, angle, on_throwed_callback)
       name = (enemy:get_name() or enemy:get_breed()) .. "_" .. projectile_breed,
       breed = "projectiles/" .. projectile_breed
     })
-    local movement = enemy:start_throwing(projectile, throwing_duration, 0, throwing_height, angle, throwing_speed, function()
+    if projectile and projectile:exists() then -- If the projectile was not immediatly removed from the on_created() event.
+      local movement = enemy:start_throwing(projectile, throwing_duration, 0, throwing_height, angle, throwing_speed, function()
 
-      -- Bounce on throw finished.
-      if projectile_breed == "coconut" then
-        bounce(projectile, coconut_bounce_number, coconut_bounce_height, nil, coconut_bounce_minimum_speed, coconut_bounce_maximum_speed, function()
-          projectile:destroy()
-        end)
-      else
-        bounce(projectile, bomb_bounce_number, bomb_bounce_height, angle, bomb_bounce_speed, bomb_bounce_speed)
-      end
-    end)
-    movement:set_ignore_obstacles(true)
+        -- Bounce on throw finished.
+        if projectile_breed == "coconut" then
+          bounce(projectile, coconut_bounce_number, coconut_bounce_height, nil, coconut_bounce_minimum_speed, coconut_bounce_maximum_speed, function()
+            projectile:destroy()
+          end)
+        else
+          bounce(projectile, bomb_bounce_number, bomb_bounce_height, angle, bomb_bounce_speed, bomb_bounce_speed)
+        end
+      end)
+      movement:set_ignore_obstacles(true)
+    end
 
     sprite:set_animation("walking")
     if on_throwed_callback then

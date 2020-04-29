@@ -45,7 +45,7 @@ function enemy:wait()
     end
 
     local x, y, layer = enemy:get_position()
-    local flowerball = map:create_enemy({
+    map:create_enemy({
       name = (enemy:get_name() or enemy:get_breed()) .. "_flowerball",
       breed = "projectiles/flowerball",
       x = x,

@@ -25,6 +25,7 @@ function behavior.apply(enemy, sprite)
   local map = enemy:get_map()
   local hero = map:get_hero()
 
+  local is_initialized = false
   local default_speed = 192
 
   -- Call the enemy:on_hit() callback and remove the entity if it doesn't return false.
@@ -55,10 +56,17 @@ function behavior.apply(enemy, sprite)
   -- Remove any projectile if its main sprite is completely out of the screen.
   enemy:register_event("on_position_changed", function(enemy)
 
-    if not enemy:is_watched(sprite) then
-      enemy:stop_movement()
-      enemy:silent_kill()
+    if is_initialized then -- Workaround: on_position_changed() is called before on_restarted(), make sure it won't.
+      if not enemy:is_watched(sprite) then
+        enemy:stop_movement()
+        enemy:silent_kill()
+      end
     end
+  end)
+
+
+  enemy:register_event("on_restarted", function(enemy, shield)
+    is_initialized = true
   end)
 
   -- Hide any projectile on dying

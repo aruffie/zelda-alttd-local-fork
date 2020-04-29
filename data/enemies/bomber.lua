@@ -61,10 +61,12 @@ function enemy:start_attacking()
       name = (enemy:get_name() or enemy:get_breed()) .. "_bomb",
       breed = "projectiles/bomb"
     })
-    local angle = enemy:get_angle_from_sprite(sprite, hero)
-    enemy:start_throwing(bomb, bomb_throw_duration, flying_height, bomb_throw_height, angle, bomb_throw_speed, function()
-      bomb:explode()
-    end)
+    if bomb and bomb:exists() then -- If the bomb was not immediatly removed from the on_created() event.
+      local angle = enemy:get_angle_from_sprite(sprite, hero)
+      enemy:start_throwing(bomb, bomb_throw_duration, flying_height, bomb_throw_height, angle, bomb_throw_speed, function()
+        bomb:explode()
+      end)
+    end
 
     sprite:set_animation("firing")
     sol.timer.start(enemy, firing_duration, function()

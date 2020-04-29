@@ -36,7 +36,7 @@ function enemy:start_firing()
 
     -- Create laser projectile.
     local x, y, layer = enemy:get_position()
-    local laser = map:create_enemy({
+    map:create_enemy({
       name = (enemy:get_name() or enemy:get_breed()) .. "_laser",
       breed =  "projectiles/laser",
       x = x,

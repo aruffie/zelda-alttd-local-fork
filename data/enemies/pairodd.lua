@@ -50,7 +50,7 @@ function enemy:appear()
 
     -- Throw an iceball and restart.
     sprite:set_animation("throwing", function()
-      local iceball = enemy:create_enemy({
+      enemy:create_enemy({
         name = (enemy:get_name() or enemy:get_breed()) .. "_iceball",
         breed = "projectiles/iceball", y = -8
       })
