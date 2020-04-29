@@ -34,7 +34,7 @@
 --
 --           Effects and other actions :
 --           enemy:silent_kill([treasure_falling_height])
---           enemy:start_shadow([sprite_name, [animation_name]])
+--           enemy:start_shadow([sprite_name, [animation_name, [x_offset, [y_offset]]]])
 --           enemy:start_brief_effect(sprite_name, [animation_name, [x_offset, [y_offset, [maximum_duration, [on_finished_callback]]]]])
 --           enemy:start_close_explosions(maximum_distance, duration, [explosion_sprite_name, [on_finished_callback]])
 --           enemy:start_sprite_explosions([sprites, [explosion_sprite_name, [on_finished_callback]]])
@@ -709,7 +709,7 @@ function common_actions.learn(enemy)
       -- Replace the built-in falling by a throw from the given height.
       pickable:stop_movement() 
       local start_height = treasure_falling_height or 8
-      enemy:start_throwing(pickable, 450 + start_height * 6, start_height, start_height + 16)
+      enemy:start_throwing(pickable, 450 + start_height * 6, start_height, start_height + 16) -- TODO Find a better way to set a duration.
     end
 
     -- TODO Handle savegame if any.
@@ -722,20 +722,20 @@ function common_actions.learn(enemy)
   end
 
   -- Add a shadow below the enemy.
-  function enemy:start_shadow(sprite_name, animation_name)
+  function enemy:start_shadow(sprite_name, animation_name, x_offset, y_offset)
 
     if not shadow then
       local enemy_x, enemy_y, enemy_layer = enemy:get_position()
       shadow = map:create_custom_entity({
         direction = 0,
-        x = enemy_x,
-        y = enemy_y,
+        x = enemy_x + (x_offset or 0),
+        y = enemy_y + (y_offset or 0),
         layer = enemy_layer,
         width = 16,
         height = 16,
         sprite = sprite_name or "entities/shadows/shadow"
       })
-      enemy:start_welding(shadow)
+      enemy:start_welding(shadow, x_offset, y_offset)
 
       if animation_name then
         shadow:get_sprite():set_animation(animation_name)

@@ -19,27 +19,54 @@ require("scripts/multi_events")
 local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
+local sprites = {}
 local head_sprite, tail_sprite
-local body_sprites = {}
+local tied_sprites_frame_lags = {}
 local last_positions, frame_count
-local walking_movement = nil
-local sixteenth = math.pi * 0.125
-local eighth = math.pi * 0.25
-local quarter = math.pi * 0.5
-local circle = math.pi * 2.0
+local walking_movement
+local is_angry
 
 -- Configuration variables
 local walking_speed = 88
 local walking_angle = 0.035
 local running_speed = 186
-local body_frame_lags = {20, 35, 50}
-local tail_frame_lag = 62
+local tied_sprites_frame_lags = {20, 35, 50, 62}
 local keeping_angle_duration = 1000
 local angry_duration = 3000
 local before_explosion_delay = 2000
 local between_explosion_delay = 500
 
-local highest_frame_lag = tail_frame_lag + 1 -- Avoid too much values in the last_positions table
+-- Constants
+local highest_frame_lag = tied_sprites_frame_lags[#tied_sprites_frame_lags] + 1
+local sixteenth = math.pi * 0.125
+local eighth = math.pi * 0.25
+local quarter = math.pi * 0.5
+local circle = math.pi * 2.0
+
+-- Update head sprite direction, and tied sprites offset.
+local function update_sprites()
+
+  -- Save current position
+  local x, y, _ = enemy:get_position()
+  last_positions[frame_count] = {x = x, y = y}
+
+  -- Set the head sprite direction.
+  local direction8 = math.floor((enemy:get_movement():get_angle() + sixteenth) % circle / eighth)
+  if head_sprite:get_direction() ~= direction8 then
+    head_sprite:set_direction(direction8)
+  end
+
+  -- Replace part sprites on a previous position.
+  local function replace_part_sprite(sprite, frame_lag)
+    local previous_position = last_positions[(frame_count - frame_lag) % highest_frame_lag] or last_positions[0]
+    sprite:set_xy(previous_position.x - x, previous_position.y - y)
+  end
+  for i = 1, 4 do
+    replace_part_sprite(sprites[i + 1], tied_sprites_frame_lags[i])
+  end
+
+  frame_count = (frame_count + 1) % highest_frame_lag
+end
 
 -- Hurt or repulse the hero depending on touched sprite.
 local function on_attack_received()
@@ -48,7 +75,7 @@ local function on_attack_received()
   enemy:set_invincible()
 
   -- Don't hurt and only repulse if the hero sword sprite doesn't collide with the tail sprite.
-  if enemy:overlaps(hero, "sprite", tail_sprite, hero:get_sprite("sword")) then
+  if not enemy:overlaps(hero, "sprite", tail_sprite, hero:get_sprite("sword")) then
     enemy:start_pushing_back(hero, 200, 100, function()
       enemy:set_hero_weapons_reactions(on_attack_received, {jump_on = "ignored"})
     end)
@@ -65,7 +92,7 @@ local function on_attack_received()
     enemy:stop_all()
 
     -- Wait a few time, make tail then body sprites explode, wait a few time again and finally make the head explode and enemy die.
-    local sorted_tied_sprites = {tail_sprite, body_sprites[3], body_sprites[2], body_sprites[1]}
+    local sorted_tied_sprites = {sprites[5], sprites[4], sprites[3], sprites[2]}
     sol.timer.start(enemy, 2000, function()
       enemy:start_sprite_explosions(sorted_tied_sprites, "entities/explosion_boss",function()
         sol.timer.start(enemy, 500, function()
@@ -111,46 +138,24 @@ function enemy:start_walking()
     end
     return true
   end)
+
+  -- Schedule a sprite update by frame during the walk, and a little more during the run to keep the same distance between sprites.
+  sol.timer.start(enemy, 10, function()
+    update_sprites()
+    return not is_angry and 10 or 7 -- TODO Check why 7 produce something correct, while the run speed is actually more than twice the walk one
+  end)
 end
 
 -- Increase the enemy speed for some time.
 function enemy:set_angry()
 
+  is_angry = true
   walking_movement:set_speed(running_speed)
   sol.timer.start(enemy, angry_duration, function()
+    is_angry = false
     walking_movement:set_speed(walking_speed)
   end)
 end
-
--- Update head, body and tails sprite on position changed whatever the movement is.
-enemy:register_event("on_position_changed", function(enemy)
-
-  if not last_positions then
-    return -- Workaround : Avoid this event to be called before enemy is actually started by the engine.
-  end
-
-  -- Save current position
-  local x, y, _ = enemy:get_position()
-  last_positions[frame_count] = {x = x, y = y}
-
-  -- Set the head sprite direction.
-  local direction8 = math.floor((enemy:get_movement():get_angle() + sixteenth) % circle / eighth)
-  if head_sprite:get_direction() ~= direction8 then
-    head_sprite:set_direction(direction8)
-  end
-
-  -- Replace part sprites on a previous position.
-  local function replace_part_sprite(sprite, frame_lag)
-    local previous_position = last_positions[(frame_count - frame_lag) % highest_frame_lag] or last_positions[0]
-    sprite:set_xy(previous_position.x - x, previous_position.y - y)
-  end
-  for i = 1, 3 do
-    replace_part_sprite(body_sprites[i], body_frame_lags[i])
-  end
-  replace_part_sprite(tail_sprite, tail_frame_lag)
-
-  frame_count = (frame_count + 1) % highest_frame_lag
-end)
 
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
@@ -161,11 +166,14 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_origin(16, 16)
   
   -- Create sprites in right z-order.
-  tail_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/tail")
+  sprites[5] = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/tail")
   for i = 3, 1, -1 do
-    body_sprites[i] = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/body_" .. i)
+    sprites[i + 1] = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/body_" .. i)
   end
-  head_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+  sprites[1] = enemy:create_sprite("enemies/" .. enemy:get_breed())
+
+  head_sprite = sprites[1]
+  tail_sprite = sprites[5]
 end)
 
 -- Restart settings.
@@ -177,6 +185,7 @@ enemy:register_event("on_restarted", function(enemy)
   -- States.
   last_positions = {}
   frame_count = 0
+  is_angry = false
   enemy:set_can_attack(true)
   enemy:set_damage(4)
   enemy:start_walking()

@@ -22,6 +22,7 @@ local map = enemy:get_map()
 local hero = map:get_hero()
 local camera = map:get_camera()
 local sprites = {}
+local head_sprite
 local last_positions, frame_count
 local tunnel, appearing_dust, disappearing_dust
 
@@ -96,7 +97,6 @@ end
 local function update_body_sprites()
 
   -- Save current head sprite position if it is still visible.
-  local head_sprite = sprites[1]
   local x, y, _ = enemy:get_position()
   local x_offset, y_offset = head_sprite:get_xy()
   if head_sprite:get_opacity() ~= 0 then
@@ -151,7 +151,6 @@ end
 local function hurt(damage)
 
   -- Don't hurt if a previous hurt animation is still running.
-  local head_sprite = sprites[1]
   if head_sprite:get_animation() == "hurt" then
     return
   end
@@ -218,7 +217,6 @@ function enemy:appear()
   local movement = enemy:start_straight_walking(angle, jumping_speed)
 
   -- Schedule an update of the head sprite vertical offset by frame.
-  local head_sprite = sprites[1]
   local duration = math.random(jumping_minimum_duration, jumping_maximum_duration)
   local elapsed_time = 0
   sol.timer.start(enemy, 10, function()
@@ -258,7 +256,6 @@ end
 function enemy:disappear()
 
   -- Start disappearing effects.
-  local head_sprite = sprites[1]
   head_sprite:set_opacity(0)
   disappearing_dust = enemy:start_brief_effect("enemies/" .. enemy:get_breed() .. "/dust", "projections", 0, 0, tail_frame_lag * 10 + 150)
   disappearing_dust:bring_to_back()
@@ -297,10 +294,11 @@ enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(8)
   enemy:set_size(16, 16)
-  enemy:set_origin(8, 13)
-  enemy:start_shadow()
+  enemy:set_origin(8, 8) -- Let the origin on the center and apply an offset on the shadow entity after all.
+  enemy:start_shadow(nil, nil, 0, 5)
 
   -- Create sprites.
+  -- TODO Use separated entities for each part instead of separated sprites because of shadows, y-drawn-order and set hurtless when invisible without workaround.
   sprites[1] = enemy:create_sprite("enemies/" .. enemy:get_breed())
   for i = 2, sprites_count - 1 do
     sprites[i] = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/body")
@@ -308,6 +306,8 @@ enemy:register_event("on_created", function(enemy)
   end
   sprites[sprites_count] = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/tail")
   enemy:set_invincible_sprite(sprites[sprites_count]) -- TODO Never use this function and simulate the protected behavior instead of the ignored one.
+
+  head_sprite = sprites[1]
 end)
 
 -- Restart settings.
