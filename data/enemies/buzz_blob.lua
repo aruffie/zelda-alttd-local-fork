@@ -70,7 +70,7 @@ enemy:register_event("on_custom_attack_received", function(enemy, attack)
   elseif attack == "magic_powder" then
 
     local x, y, layer = enemy:get_position()
-    cukeman = enemy:create_enemy({
+    local cukeman = enemy:create_enemy({
       name = (enemy:get_name() or enemy:get_breed()) .. "_cukeman",
       breed = "cukeman"
     })

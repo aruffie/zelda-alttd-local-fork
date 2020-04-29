@@ -92,7 +92,9 @@ local function create_projectile(projectile, direction)
     x = x,
     y = y
   })
-  projectile:go(direction)
+  if projectile and projectile:exists() then -- If the projectile was not immediatly removed from the on_created() event.
+    projectile:go(direction)
+  end
 
   return projectile
 end
@@ -104,8 +106,10 @@ function enemy:throw_magma_balls()
     sprite:set_animation("fired")
     create_projectile("magmaball")
     local magmaball = create_projectile("magmaball")
-    local magmaball_movement = magmaball:get_movement()
-    magmaball_movement:set_angle(magmaball_movement:get_angle() - 0.4)
+    if magmaball and magmaball:exists() then -- If the magmaball was not immediatly removed from the on_created() event.
+      local magmaball_movement = magmaball:get_movement()
+      magmaball_movement:set_angle(magmaball_movement:get_angle() - 0.4)
+    end
     sol.timer.start(enemy, fired_duration, function()
       if not is_charging then
         sprite:set_animation("walking")
@@ -227,8 +231,8 @@ enemy:register_event("on_dying", function(enemy)
 
   replace_on_sprite()
   if not is_executed then
-    local bat1 = create_projectile("bat", 0)
-    local bat2 = create_projectile("bat", 2)
+    create_projectile("bat", 0)
+    create_projectile("bat", 2)
   end
 end)
 

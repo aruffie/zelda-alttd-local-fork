@@ -56,7 +56,7 @@ function enemy:detach_body()
 
   -- Create bouncing body enemy.
   if life > 1 then
-    local cactus = enemy:create_enemy({
+    enemy:create_enemy({
       name = (enemy:get_name() or enemy:get_breed()) .. "_cactus",
       breed = "projectiles/cactus"
     })

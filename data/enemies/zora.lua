@@ -46,7 +46,7 @@ function enemy:appear()
     sprite:set_animation("immobilized")
 
     sol.timer.start(enemy, throwing_duration, function()
-      local fireball = enemy:create_enemy({
+      enemy:create_enemy({
         name = (enemy:get_name() or enemy:get_breed()) .. "_fireball",
         breed = "projectiles/fireball"
       })
