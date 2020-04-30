@@ -23,6 +23,17 @@ animation{
   },
 }
 animation{
+  name = "dying",
+  src_image = "enemies/boss/dodongo_snake/body.png",
+  frame_delay = 200,
+  directions = {
+    { x = 128, y = 32, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 6 },
+    { x = 128, y = 32, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 6 },
+    { x = 128, y = 32, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 6 },
+    { x = 128, y = 32, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 6 },
+  },
+}
+animation{
   name = "exploding",
   src_image = "enemies/boss/dodongo_snake/body.png",
   frame_delay = 200,
