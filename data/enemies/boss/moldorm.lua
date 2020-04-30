@@ -162,8 +162,8 @@ enemy:register_event("on_created", function(enemy)
 
   common_actions.learn(enemy, sprite)
   enemy:set_life(4)
-  enemy:set_size(32, 32)
-  enemy:set_origin(16, 16)
+  enemy:set_size(24, 24)
+  enemy:set_origin(12, 12)
   
   -- Create sprites in right z-order.
   sprites[5] = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/tail")
