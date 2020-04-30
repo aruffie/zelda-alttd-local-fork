@@ -29,7 +29,7 @@ local is_angry
 -- Configuration variables
 local walking_speed = 88
 local walking_angle = 0.035
-local running_speed = 186
+local running_speed = 140
 local tied_sprites_frame_lags = {20, 35, 50, 62}
 local keeping_angle_duration = 1000
 local angry_duration = 3000
@@ -123,14 +123,6 @@ function enemy:start_walking()
     walking_movement:set_angle(enemy:get_obstacles_normal_angle())
   end
 
-  -- Slightly change the angle when walking.
-  function walking_movement:on_position_changed()
-    local angle = walking_movement:get_angle() % circle
-    if walking_movement == enemy:get_movement() then
-      walking_movement:set_angle(angle + walking_angle)
-    end
-  end
-
   -- Regularly and randomly change the angle.
   sol.timer.start(enemy, keeping_angle_duration, function()
     if math.random(2) == 1 then
@@ -139,10 +131,11 @@ function enemy:start_walking()
     return true
   end)
 
-  -- Schedule a sprite update by frame during the walk, and a little more during the run to keep the same distance between sprites.
+  -- Update walking angle, head sprite direction and tied sprites positions
   sol.timer.start(enemy, 10, function()
+    walking_movement:set_angle((walking_movement:get_angle() + walking_angle) % circle)
     update_sprites()
-    return not is_angry and 10 or 7 -- TODO Check why 7 produce something correct, while the run speed is actually more than twice the walk one
+    return walking_speed / walking_movement:get_speed() * 10 -- Schedule for each frame while walking and more while running, to keep the same curve and sprites distance.
   end)
 end
 
