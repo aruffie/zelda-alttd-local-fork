@@ -21,6 +21,7 @@ local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
 local ballchain
+local is_attacking = false
 
 -- Configuration variables
 local right_hand_offset_x = -8
@@ -29,6 +30,8 @@ local throwed_chain_origin_offset_x = 1
 local throwed_chain_origin_offset_y = 17
 local walking_speed = 16
 local attack_triggering_distance = 80
+local aiming_minimum_duration = 1500
+local throwed_ball_speed = 200
 
 -- Start the enemy movement.
 function enemy:start_walking()
@@ -44,31 +47,32 @@ function enemy:start_walking()
   sprite:set_animation("walking")
 end
 
--- Start the enemy attack.
+-- Make the enemy aim then throw its ball.
 function enemy:start_attacking()
+
+  -- The ballchain doesn't restart on hurt and finish its possble running move, make sure only one attack is triggered at the same time.
+  if is_attacking then
+    return
+  end
+  is_attacking = true
 
   enemy:stop_movement()
   sprite:set_animation("aiming")
+  ballchain:start_aiming(hero, aiming_minimum_duration, function()
 
-  local function on_throwed_callback()
     sprite:set_animation("throwing")
     ballchain:set_chain_origin_offset(throwed_chain_origin_offset_x, throwed_chain_origin_offset_y)
-  end
-  local function on_pulled_callback()
-    sprite:set_animation("aiming")
-    ballchain:set_chain_origin_offset(0, 0)
-  end
-  local function on_caught_callback()
-    enemy:restart()
-  end
+    ballchain:start_throwing_out(hero, throwed_ball_speed, function()
 
-  ballchain:start_attacking(on_throwed_callback, on_pulled_callback, on_caught_callback)
+      sprite:set_animation("aiming")
+      ballchain:set_chain_origin_offset(0, 0)
+      ballchain:start_pulling_in(throwed_ball_speed, function()
+        is_attacking = false
+        enemy:restart()
+      end)
+    end)
+  end)
 end
-
--- Reset the ballchain on hurt.
-enemy:register_event("on_hurt", function(enemy)
-  ballchain:restart()
-end)
 
 -- Remove the ballchain on dead.
 enemy:register_event("on_dead", function(enemy)
