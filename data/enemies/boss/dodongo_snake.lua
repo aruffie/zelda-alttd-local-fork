@@ -26,15 +26,15 @@ local quarter = math.pi * 0.5
 -- Configuration variables
 local walking_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
 local walking_speed = 24
-local walking_minimum_distance = 16
-local walking_maximum_distance = 32
-local body_frame_lag = 14
+local walking_minimum_duration = 1000
+local walking_maximum_duration = 2000
+local body_frame_lag = 50
 local bomb_eating_duration = 1000
 
 local highest_frame_lag = body_frame_lag + 1 -- Avoid too much values in the last_positions table
 
 -- Return the given table minus sprite direction and its opposite.
-function get_possible_moving_angles(angles)
+local function get_possible_moving_angles(angles)
 
   local possible_angles = {}
   local sprite_direction = head_sprite:get_direction()
@@ -46,49 +46,8 @@ function get_possible_moving_angles(angles)
   return possible_angles
 end
 
--- Start the enemy movement.
-function enemy:start_walking()
-
-  local angles = get_possible_moving_angles(walking_angles)
-  enemy:start_straight_walking(angles[math.random(#angles)], walking_speed, math.random(walking_minimum_distance, walking_maximum_distance), function()
-    enemy:start_walking()
-  end)
-end
-
--- Passive behaviors needing constant checking.
-enemy:register_event("on_update", function(enemy)
-
-  -- Eat the bomb when the bomb sprite hit the center of the head.
-  for entity in map:get_entities_in_region(enemy) do
-    if entity:get_type() == "bomb" and entity:overlaps(enemy, "center") then
-      enemy:stop_movement()
-      entity:remove()
-      head_sprite:set_animation("bomb_eating", function()
-        head_sprite:set_animation("immobilized")
-        body_sprite:set_animation("bomb_eating")
-        sol.timer.start(enemy, bomb_eating_duration, function()
-          enemy:bring_sprite_to_front(body_sprite) -- Make the body displayed over the head just for this animation.
-          body_sprite:set_animation("exploding", function()
-            enemy:bring_sprite_to_back(body_sprite)
-            local angle = head_sprite:get_direction() * quarter
-            local effect_x = math.cos(angle) * 16
-            local effect_y = -math.sin(angle) * 16
-            enemy:start_brief_effect("entities/effects/brake_smoke", "default", effect_x, effect_y)
-            enemy:hurt(1)
-          end)
-        end)
-      end)
-    end
-  end
-end)
-
-
--- Update body sprite on position changed whatever the movement is.
-enemy:register_event("on_position_changed", function(enemy)
-
-  if not body_sprite then
-    return -- Workaround : Avoid this event to be called before enemy is actually created by the engine.
-  end
+-- Update body sprite depending on previous head positions.
+local function update_body_sprite()
 
   -- Save current position
   local x, y, _ = enemy:get_position()
@@ -99,6 +58,70 @@ enemy:register_event("on_position_changed", function(enemy)
   body_sprite:set_xy(previous_position.x - x, previous_position.y - y)
 
   frame_count = (frame_count + 1) % highest_frame_lag
+end
+
+-- Eat the given bomb.
+local function eat_bomb(bomb)
+
+  enemy:stop_movement()
+  sol.timer.stop_all(enemy)
+  bomb:remove()
+  head_sprite:set_animation("bomb_eating", function()
+    head_sprite:set_animation("immobilized")
+
+    -- Eat and die if no more life
+    if enemy:get_life() == 1 then
+      enemy:bring_sprite_to_front(body_sprite)
+      body_sprite:set_animation("dying",function()
+        local x, y = body_sprite:get_xy()
+        enemy:start_brief_effect("entities/explosion_boss", nil, x, y)
+        enemy:silent_kill()
+      end)
+      return
+    end
+
+    -- Else eat and start hurt animation.
+    body_sprite:set_animation("bomb_eating")
+    sol.timer.start(enemy, bomb_eating_duration, function()
+      enemy:bring_sprite_to_front(body_sprite) -- Make the body displayed over the head just for this animation.
+      body_sprite:set_animation("exploding", function()
+        enemy:bring_sprite_to_back(body_sprite)
+        local angle = head_sprite:get_direction() * quarter
+        local effect_x = math.cos(angle) * 16
+        local effect_y = -math.sin(angle) * 16
+        enemy:start_brief_effect("entities/effects/brake_smoke", "default", effect_x, effect_y)
+        enemy:hurt(1)
+      end)
+    end)
+  end)
+end
+
+-- Start the enemy movement.
+function enemy:start_walking()
+
+  local angles = get_possible_moving_angles(walking_angles)
+  enemy:start_straight_walking(angles[math.random(#angles)], walking_speed)
+
+  sol.timer.start(enemy, 10, function()
+    update_body_sprite()
+    return true
+  end)
+
+  -- Use time instead of distance for walking step to let the enemy go against a wall for some time.
+  sol.timer.start(enemy, math.random(walking_minimum_duration, walking_maximum_duration), function()
+    enemy:restart()
+  end)
+end
+
+-- Passive behaviors needing constant checking.
+enemy:register_event("on_update", function(enemy)
+
+  -- Eat the bomb when the bomb sprite hit the center of the head.
+  for entity in map:get_entities_in_region(enemy) do
+    if entity:get_type() == "bomb" and entity:overlaps(enemy, "center") then
+      eat_bomb(entity)
+    end
+  end
 end)
 
 -- Initialization.
