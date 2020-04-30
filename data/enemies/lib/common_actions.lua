@@ -707,9 +707,11 @@ function common_actions.learn(enemy)
       })
 
       -- Replace the built-in falling by a throw from the given height.
-      pickable:stop_movement() 
-      local start_height = treasure_falling_height or 8
-      enemy:start_throwing(pickable, 450 + start_height * 6, start_height, start_height + 16) -- TODO Find a better way to set a duration.
+      if pickable and pickable:exists() then -- If the pickable was not immediately removed from the on_created() event.
+        pickable:stop_movement()
+        local start_height = treasure_falling_height or 8
+        enemy:start_throwing(pickable, 450 + start_height * 6, start_height, start_height + 16) -- TODO Find a better way to set a duration.
+      end
     end
 
     -- TODO Handle savegame if any.

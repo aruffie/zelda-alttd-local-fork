@@ -125,29 +125,35 @@ function enemy_manager:launch_small_boss_if_not_dead(map)
   local dungeon = game:get_dungeon_index()
   local dungeon_infos = game:get_dungeon()
   local savegame = "dungeon_" .. dungeon .. "_small_boss"
+  local enemies_prefix = "enemy_small_boss"
 
   if game:get_value(savegame) then
     return false
   end
 
+  -- Check for the end of the fight at each enemy dead, including ones created after the battle has started.
+  map:register_event("on_enemy_created", function(map, enemy)
+    if string.match(enemy:get_name() or "", enemies_prefix) then
+      enemy:register_event("on_dead", function()
+        if not map:has_entities(enemies_prefix) then
+          enemy:launch_small_boss_dead()
+        end
+      end)
+    end
+  end)
+
   -- May be several small bosses in the same room, loop on placeholders.
-  local enemy_prefix = "enemy_small_boss"
   for placeholder in map:get_entities("placeholder_small_boss") do
     local x, y, layer = placeholder:get_position()
     placeholder:set_enabled(false)
     local enemy = map:create_enemy{
-      name = enemy_prefix,
+      name = enemies_prefix,
       breed = dungeon_infos["small_boss"]["breed"],
       direction = 2,
       x = x,
       y = y,
       layer = layer
     }
-    enemy:register_event("on_dead", function()
-      if not map:has_entities(enemy_prefix) then
-        enemy:launch_small_boss_dead()
-      end
-    end)
   end
 
   for tile in map:get_entities("tiles_small_boss_") do
