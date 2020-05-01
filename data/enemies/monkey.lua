@@ -74,6 +74,7 @@ function enemy:start_throwing_projectile(direction, angle, on_throwed_callback)
       name = (enemy:get_name() or enemy:get_breed()) .. "_" .. projectile_breed,
       breed = "projectiles/" .. projectile_breed
     })
+
     if projectile and projectile:exists() then -- If the projectile was not immediatly removed from the on_created() event.
       local movement = enemy:start_throwing(projectile, throwing_duration, 0, throwing_height, angle, throwing_speed, function()
 

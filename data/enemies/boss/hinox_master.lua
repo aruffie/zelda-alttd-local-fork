@@ -117,21 +117,24 @@ function enemy:throw_bomb()
     breed = "projectiles/bomb",
     x = hand_offset_x
   })
-  bomb:set_position(x + hand_offset_x, y, layer + 1) -- Layer + 1 to not interact with a possible ground after moved.
-  bomb:get_sprite():set_xy(0, right_hand_offset_y)
-  bomb:bring_to_front()
-  holded_bomb = bomb
 
-  start_holding(is_right_hand_throw, bomb_holding_duration, function()
+  if bomb and bomb:exists() then -- If the bomb was not immediatly removed from the on_created() event.
+    bomb:set_position(x + hand_offset_x, y, layer + 1) -- Layer + 1 to not interact with a possible ground after moved.
+    bomb:get_sprite():set_xy(0, right_hand_offset_y)
+    bomb:bring_to_front()
+    holded_bomb = bomb
 
-    -- Start the thrown movement to the hero.
-    local angle = bomb:get_angle(hero)
-    enemy:start_throwing(bomb, bomb_throwing_duration, -right_hand_offset_y, bomb_throwing_height, angle, bomb_throwing_speed, function()
-      bomb:set_layer(hero_layer)
-      bomb:explode()
+    start_holding(is_right_hand_throw, bomb_holding_duration, function()
+
+      -- Start the thrown movement to the hero.
+      local angle = bomb:get_angle(hero)
+      enemy:start_throwing(bomb, bomb_throwing_duration, -right_hand_offset_y, bomb_throwing_height, angle, bomb_throwing_speed, function()
+        bomb:set_layer(hero_layer)
+        bomb:explode()
+      end)
+      holded_bomb = nil
     end)
-    holded_bomb = nil
-  end)
+  end
 end
 
 -- Throw the hero to the center of the room.

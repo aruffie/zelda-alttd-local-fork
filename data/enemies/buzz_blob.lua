@@ -76,14 +76,18 @@ enemy:register_event("on_custom_attack_received", function(enemy, attack)
     })
 
     -- Make the Cukeman shake for some time and then restart.
-    cukeman:set_invincible()
-    cukeman:stop_movement()
-    sol.timer.stop_all(cukeman)
-    cukeman:get_sprite():set_animation("shaking")
-    sol.timer.start(cukeman, cukeman_shaking_duration, function()
-      cukeman:restart()
-    end)
+    if cukeman and cukeman:exists() then -- If the Cukeman was not immediatly removed from the on_created() event.
+      cukeman:set_invincible()
+      cukeman:stop_movement()
+      sol.timer.stop_all(cukeman)
+      cukeman:set_treasure(enemy:get_treasure())
+      cukeman:get_sprite():set_animation("shaking")
+      sol.timer.start(cukeman, cukeman_shaking_duration, function()
+        cukeman:restart()
+      end)
+    end
 
+    enemy:set_treasure() -- The treasure will be dropped by the Cukeman.
     enemy:silent_kill()
   end
 end)
