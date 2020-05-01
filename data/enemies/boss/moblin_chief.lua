@@ -104,7 +104,7 @@ function enemy:start_throwing()
     sprite:set_animation("throwing", function()
       enemy:start_moving()
     end)
-    local sai = enemy:create_enemy({
+    enemy:create_enemy({
       breed = "projectiles/sai",
       x = throwed_sai_offset_x,
       y = throwed_sai_offset_y,

@@ -79,12 +79,15 @@ function enemy:split()
       direction = enemy:get_direction4_to(hero)
     })
 
-    -- Make gel jump.
-    gel:stop_movement()
-    gel:start_jumping(gel_spawn_jumping_duration, gel_spawn_jumping_height, nil, nil, function()
-      gel:restart()
-    end)
-    gel:get_sprite():set_animation("jumping")
+    -- Make Gel jump.
+    if gel and gel:exists() then -- If the Gel was not immediatly removed from the on_created() event.
+      gel:stop_movement()
+      gel:set_treasure(enemy:get_treasure())
+      gel:start_jumping(gel_spawn_jumping_duration, gel_spawn_jumping_height, nil, nil, function()
+        gel:restart()
+      end)
+      gel:get_sprite():set_animation("jumping")
+    end
   end
 
   -- Start hurt behavior for some time then split into gels.
@@ -92,6 +95,7 @@ function enemy:split()
   sol.timer.start(map, before_split_duration, function()
     create_gel(-5)
     create_gel(5)
+    enemy:set_treasure() -- The treasure will be dropped by one time by each Gels.
     enemy:silent_kill()
   end)
   

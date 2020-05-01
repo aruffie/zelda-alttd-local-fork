@@ -45,15 +45,19 @@ enemy:register_event("on_custom_attack_received", function(enemy, attack)
     })
 
     -- Make the Stalfos immobile, then shake for some time, and then restart.
-    stalfos:set_invincible()
-    stalfos:stop_movement()
-    stalfos:set_exhausted(true)
-    sol.timer.stop_all(stalfos)
-    stalfos:get_sprite():set_animation("shaking")
-    sol.timer.start(stalfos, stalfos_shaking_duration, function()
-      stalfos:restart()
-    end)
+    if stalfos and stalfos:exists() then -- If the Stalfos was not immediatly removed from the on_created() event.
+      stalfos:set_invincible()
+      stalfos:stop_movement()
+      stalfos:set_exhausted(true)
+      sol.timer.stop_all(stalfos)
+      stalfos:set_treasure(enemy:get_treasure())
+      stalfos:get_sprite():set_animation("shaking")
+      sol.timer.start(stalfos, stalfos_shaking_duration, function()
+        stalfos:restart()
+      end)
+    end
 
+    enemy:set_treasure() -- Treasure will be dropped by the Stalfos.
     enemy:silent_kill()
   end
 end)

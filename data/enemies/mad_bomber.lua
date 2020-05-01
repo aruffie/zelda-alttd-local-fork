@@ -58,6 +58,7 @@ function enemy:appear()
         name = (enemy:get_name() or enemy:get_breed()) .. "_bomb",
         breed = "projectiles/bomb"
       })
+
       if bomb and bomb:exists() then -- If the bomb was not immediatly removed from the on_created() event.
         enemy:start_throwing(bomb, bomb_throw_duration, 0, bomb_throw_height, enemy:get_angle(hero), bomb_throw_speed, function()
           bomb:explode()
