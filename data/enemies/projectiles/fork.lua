@@ -22,7 +22,7 @@ end
 -- Create an impact effect on hit.
 enemy:register_event("on_hit", function(enemy)
 
-  local direction = enemy:get_movement():get_direction4()
+  local direction = sprite:get_direction()
 
   -- Make unable to interact.
   enemy:stop_movement()
@@ -43,7 +43,7 @@ enemy:register_event("on_hit", function(enemy)
 
   -- Remove the entity when planted animation finished + some time.
   sprite:set_animation("hit", function()
-    enemy:silent_kill()
+    enemy:start_death()
   end)
 
   return false
@@ -51,7 +51,7 @@ end)
 
 -- Directly remove the enemy on attacking hero
 enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
-  enemy:silent_kill()
+  enemy:start_death()
 end)
 
 -- Initialization.

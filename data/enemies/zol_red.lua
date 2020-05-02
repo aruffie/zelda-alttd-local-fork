@@ -95,8 +95,8 @@ function enemy:split()
   sol.timer.start(map, before_split_duration, function()
     create_gel(-5)
     create_gel(5)
-    enemy:set_treasure() -- The treasure will be dropped by one time by each Gels.
-    enemy:silent_kill()
+    enemy:set_treasure() -- The treasure will be dropped one time by each Gels.
+    enemy:start_death()
   end)
   
 end

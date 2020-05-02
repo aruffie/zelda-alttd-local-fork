@@ -3,7 +3,7 @@
 -- Hinox Master.
 --
 -- Moves randomly over horizontal and vertical axis, then charge to the hero after some time.
--- Hold and throw the hero across the room if touched, and throw a bomb to the hero if hurt.
+-- Hold and throw the hero across the room if touched while charging, and throw a bomb to the hero if hurt.
 -- 
 --
 -- Methods : enemy:start_walking()
@@ -65,6 +65,34 @@ local function start_holding(right_hand, hold_duration, on_throwing)
       enemy:restart()
     end)
   end)
+end
+
+-- Check if the custom death as to be started before triggering the built-in hurt behavior.
+local function hurt(damage)
+
+  -- Custom die if no more life.
+  if enemy:get_life() - damage < 1 then
+
+    -- Wait a few time, start 2 sets of explosions close from the enemy, wait a few time again and finally make the final explosion and enemy die.
+    enemy:start_death(function()
+      sprite:set_animation("hurt")
+      sol.timer.start(enemy, 1500, function()
+        enemy:start_close_explosions(32, 2500, "entities/explosion_boss", 0, -40, function()
+          sol.timer.start(enemy, 1000, function()
+            enemy:start_brief_effect("entities/explosion_boss", nil, 0, -40)
+            finish_death()
+          end)
+        end)
+        sol.timer.start(enemy, 200, function()
+          enemy:start_close_explosions(32, 2300, "entities/explosion_boss", 0, -40)
+        end)
+      end)
+    end)
+    return
+  end
+
+  -- Else hurt normally.
+  enemy:hurt(damage)
 end
 
 -- Start the enemy walking movement.
@@ -203,7 +231,7 @@ enemy:register_event("on_hurt", function(enemy)
 
   -- Remove a possible holded bomb to throw the next one.
   if holded_bomb then
-    holded_bomb:silent_kill()
+    holded_bomb:start_death()
   end
 end)
 
@@ -223,11 +251,11 @@ end)
 enemy:register_event("on_restarted", function(enemy)
 
   -- Behavior for each items.
-  enemy:set_hero_weapons_reactions(4, {
-    sword = 1,
-    boomerang = 2,
-    hookshot = 2,
-    thrust = 2,
+  enemy:set_hero_weapons_reactions(function() hurt(4) end, {
+    sword = function() hurt(1) end,
+    boomerang = function() hurt(2) end,
+    hookshot = function() hurt(2) end,
+    thrust = function() hurt(2) end,
     jump_on = "ignored"
   })
 

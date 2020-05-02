@@ -58,7 +58,7 @@ enemy:register_event("on_custom_attack_received", function(enemy, attack)
     end
 
     enemy:set_treasure() -- Treasure will be dropped by the Stalfos.
-    enemy:silent_kill()
+    enemy:start_death()
   end
 end)
 

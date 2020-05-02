@@ -45,6 +45,34 @@ local function get_further_direction(direction4)
   return ((position[index] - camera_position[index] > camera_position[index] + camera_size[index] - position[index] and 2 or 0) - index + 1) % 4
 end
 
+-- Check if the custom death as to be started before triggering the built-in hurt behavior.
+local function hurt(damage)
+
+  -- Custom die if no more life.
+  if enemy:get_life() - damage < 1 then
+
+    -- Wait a few time, start 2 sets of explosions close from the enemy, wait a few time again and finally make the final explosion and enemy die.
+    enemy:start_death(function()
+      sprite:set_animation("hurt")
+      sol.timer.start(enemy, 1500, function()
+        enemy:start_close_explosions(32, 2500, "entities/explosion_boss", 0, -20, function()
+          sol.timer.start(enemy, 1000, function()
+            enemy:start_brief_effect("entities/explosion_boss", nil, 0, -20)
+            finish_death()
+          end)
+        end)
+        sol.timer.start(enemy, 200, function()
+          enemy:start_close_explosions(32, 2300, "entities/explosion_boss", 0, -20)
+        end)
+      end)
+    end)
+    return
+  end
+
+  -- Else hurt normally.
+  enemy:hurt(damage)
+end
+
 -- Start the enemy jumping movement to the opposite side of the room.
 function enemy:start_moving()
 
@@ -99,8 +127,9 @@ end
 -- Remove the spike on dead.
 enemy:register_event("on_dead", function(enemy)
 
+  spike:stop_all()
   spike:get_sprite():set_animation("destroyed", function()
-    spike:silent_kill()
+    spike:start_death()
   end)
 end)
 
@@ -110,7 +139,6 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(8)
   enemy:set_size(48, 24)
   enemy:set_origin(24, 21)
-  enemy:set_hurt_style("boss")
   enemy:start_shadow("entities/shadows/giant_shadow")
 
   -- Create the spike.
@@ -126,11 +154,11 @@ end)
 enemy:register_event("on_restarted", function(enemy)
 
   -- Behavior for each items.
-  enemy:set_hero_weapons_reactions(4, {
-    sword = 1,
-    hookshot = 2,
-    thrust = 2,
-    boomerang = 8,
+  enemy:set_hero_weapons_reactions(function() hurt(4) end, {
+    sword = function() hurt(1) end,
+    hookshot = function() hurt(2) end,
+    thrust = function() hurt(2) end,
+    boomerang = function() hurt(8) end,
     jump_on = "ignored"
   })
 

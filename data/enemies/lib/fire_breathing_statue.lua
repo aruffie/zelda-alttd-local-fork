@@ -18,6 +18,7 @@ local behavior = {}
 -- behavior:create(enemy, properties)
 
 local audio_manager = require("scripts/audio_manager")
+local common_actions = require("enemies/lib/common_actions")
 
 function behavior:create(enemy, properties)
 
@@ -93,7 +94,7 @@ function behavior:create(enemy, properties)
   enemy:register_event("on_removed", function(enemy)
 
     for _, child in ipairs(children) do
-      child:silent_kill()
+      child:start_death()
     end
   end)
 

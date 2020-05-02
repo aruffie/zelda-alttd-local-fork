@@ -155,20 +155,21 @@ local function hurt(damage)
     return
   end
 
-  -- Die if no more life.
-  local remaining_life = enemy:get_life() - damage
+  -- Custom die if no more life.
   if enemy:get_life() - damage < 1 then
-    set_sprites_animation("hurt")
-    remove_effects()
-    enemy:stop_all()
     
     -- Wait a few time, make visible tied sprites explode from tail to head, wait a few time again and finally make the head explode and enemy die.
-    sol.timer.start(enemy, 2000, function()
-      enemy:start_sprite_explosions(get_exploding_tied_sprites(), "entities/explosion_boss",function()
-        sol.timer.start(enemy, 500, function()
-          local x, y = head_sprite:get_xy()
-          enemy:start_brief_effect("entities/explosion_boss", nil, x, y)
-          enemy:silent_kill(-y)
+    enemy:start_death(function()
+      remove_effects()
+      set_sprites_animation("hurt")
+      sol.timer.start(enemy, 2000, function()
+        enemy:start_sprite_explosions(get_exploding_tied_sprites(), "entities/explosion_boss", 0, 0, function()
+          sol.timer.start(enemy, 1000, function()
+            local x, y = head_sprite:get_xy()
+            enemy:start_brief_effect("entities/explosion_boss", nil, x, y)
+            set_treasure_falling_height(-y)
+            finish_death()
+          end)
         end)
       end)
     end)

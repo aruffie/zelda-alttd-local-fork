@@ -33,11 +33,11 @@
 --           enemy:start_shock(entity, [speed, [duration, [on_finished_callback]]])
 --
 --           Effects and other actions :
---           enemy:silent_kill([treasure_falling_height])
+--           enemy:start_death([dying_callback])
 --           enemy:start_shadow([sprite_name, [animation_name, [x_offset, [y_offset]]]])
 --           enemy:start_brief_effect(sprite_name, [animation_name, [x_offset, [y_offset, [maximum_duration, [on_finished_callback]]]]])
---           enemy:start_close_explosions(maximum_distance, duration, [explosion_sprite_name, [on_finished_callback]])
---           enemy:start_sprite_explosions([sprites, [explosion_sprite_name, [on_finished_callback]]])
+--           enemy:start_close_explosions(maximum_distance, duration, [explosion_sprite_name, [x_offset, [y_offset, [on_finished_callback]]]])
+--           enemy:start_sprite_explosions([sprites, [explosion_sprite_name, [x_offset, [y_offset, [on_finished_callback]]]]])
 --           enemy:steal_item(item_name, [variant, [only_if_assigned, [drop_when_dead]]])
 --           enemy:stop_all()
 --
@@ -588,7 +588,9 @@ function common_actions.learn(enemy)
       entity:set_position(x + x_offset, y + y_offset)
     end)
     enemy:register_event("on_removed", function(enemy)
-      entity:remove()
+      if entity:exists() then
+        entity:remove()
+      end
     end)
     enemy:register_event("on_enabled", function(enemy)
       entity:set_enabled()
@@ -596,10 +598,10 @@ function common_actions.learn(enemy)
     enemy:register_event("on_disabled", function(enemy)
       entity:set_enabled(false)
     end)
-    enemy:register_event("on_dying", function(enemy)
-      sol.timer.start(entity, 300, function() -- No event when the enemy became invisible, hardcode a timer.
-        entity:set_enabled(false)
-      end)
+    enemy:register_event("on_dead", function(enemy)
+      if entity:exists() then
+        entity:remove()
+      end
     end)
     enemy:register_event("set_visible", function(enemy, visible)
       entity:set_visible(visible)
@@ -683,43 +685,68 @@ function common_actions.learn(enemy)
     enemy:start_brief_effect("entities/effects/impact_projectile", "default", (hero_x - x) / 2, (hero_y - y) / 2)
   end
 
-  -- Kill the enemy right now, silently and without animation.
-  function enemy:silent_kill(treasure_falling_height)
+  -- Make the enemy die as described in the given dying_callback, or silently and without animation if nil.
+  -- Prevent all actions and interactions with the enemy when the function starts, then call finish_death() from the callback to start the actual death.
+  -- Additionnal helper functions accessible from the callback to describe the death :
+  --   set_treasure_falling_height(height) -> Set the treasure falling height in pixel, which is 8 by default.
+  --   finish_death() -> Start all behaviors related to the enemy actual death, basically treasure drop, savegame and removal.
+  function enemy:start_death(dying_callback)
 
-    enemy.is_hurt_silently = true -- Workaround : Don't play sounds added by enemy meta script.
+    local dying_helpers = {}
+    local treasure_falling_height = 8
+    enemy.is_hurt_silently = true -- Workaround : Don't play generic sounds added by enemy meta script.
 
+    -- Stop all running actions and call on_dying() event.
+    enemy:stop_all()
     if enemy.on_dying then
       enemy:on_dying()
     end
 
-    -- Make a possible treasure appear.
-    local treasure_name, treasure_variant, treasure_savegame = enemy:get_treasure()
-    if treasure_name then
-      local x, y, layer = enemy:get_position()
-      local pickable = map:create_pickable({
-        name = (enemy:get_name() or enemy:get_breed()) .. treasure_name,
-        x = x,
-        y = y,
-        layer = layer,
-        treasure_name = treasure_name,
-        treasure_variant = treasure_variant,
-        treasure_savegame_variable = treasure_savegame
-      })
+    -- Helper function to set the treasure falling height in pixel.
+    function dying_helpers.set_treasure_falling_height(height)
+      treasure_falling_height = height
+    end
 
-      -- Replace the built-in falling by a throw from the given height.
-      if pickable and pickable:exists() then -- If the pickable was not immediately removed from the on_created() event.
-        pickable:stop_movement()
-        local start_height = treasure_falling_height or 8
-        enemy:start_throwing(pickable, 450 + start_height * 6, start_height, start_height + 16) -- TODO Find a better way to set a duration.
+    -- Helper function to start all behaviors related to the enemy actual death, basically treasure drop, savegame and removal.
+    function dying_helpers.finish_death()
+
+      -- Make a possible treasure appear.
+      local treasure_name, treasure_variant, treasure_savegame = enemy:get_treasure()
+      if treasure_name then
+        local x, y, layer = enemy:get_position()
+        local pickable = map:create_pickable({
+          name = (enemy:get_name() or enemy:get_breed()) .. treasure_name,
+          x = x,
+          y = y,
+          layer = layer,
+          treasure_name = treasure_name,
+          treasure_variant = treasure_variant,
+          treasure_savegame_variable = treasure_savegame
+        })
+
+        -- Replace the built-in falling by a throw from the given height.
+        if pickable and pickable:exists() then -- If the pickable was not immediately removed from the on_created() event.
+          pickable:stop_movement()
+          enemy:start_throwing(pickable, 450 + treasure_falling_height * 6, treasure_falling_height, treasure_falling_height + 16) -- TODO Find a better way to set a duration.
+        end
+      end
+
+      -- TODO Handle savegame if any.
+
+      -- Actual removal and on_dead() event call.
+      enemy:remove()
+      if enemy.on_dead then
+        enemy:on_dead()
       end
     end
 
-    -- TODO Handle savegame if any.
-
-    -- Actual removal.
-    enemy:remove()
-    if enemy.on_dead then
-      enemy:on_dead()
+    -- Die as described in the dying_callback if given, else kill the enemy without any animation. 
+    if dying_callback then
+      setmetatable(dying_helpers,{__index=getfenv(2)})
+      setfenv(dying_callback, dying_helpers)
+      dying_callback()
+    else
+      dying_helpers.finish_death()
     end
   end
 
@@ -802,9 +829,11 @@ function common_actions.learn(enemy)
   end
 
   -- Start a new explosion placed randomly around the entity coordinates each time the previous one finished, until duration reached.
-  function enemy:start_close_explosions(maximum_distance, duration, explosion_sprite_name, on_finished_callback)
+  function enemy:start_close_explosions(maximum_distance, duration, explosion_sprite_name, x_offset, y_offset, on_finished_callback)
 
     explosion_sprite_name = explosion_sprite_name or "entities/explosion_boss"
+    x_offset = x_offset or 0
+    y_offset = y_offset or 0
 
     local elapsed_time = 0
     local function start_close_explosion()
@@ -813,7 +842,7 @@ function common_actions.learn(enemy)
       local x = math.cos(angle) * distance
       local y = math.sin(angle) * distance
       
-      local explosion = enemy:start_brief_effect(explosion_sprite_name, nil, x, y, nil, function()
+      local explosion = enemy:start_brief_effect(explosion_sprite_name, nil, x + x_offset, y + y_offset, nil, function()
         if elapsed_time < duration then
           start_close_explosion()
         else
@@ -826,18 +855,21 @@ function common_actions.learn(enemy)
       local sprite = explosion:get_sprite()
       elapsed_time = elapsed_time + sprite:get_frame_delay() * sprite:get_num_frames()
     end
+    start_close_explosion()
   end
 
   -- Make the given enemy sprites explode one after the other in the given order, and remove exploded sprite.
-  function enemy:start_sprite_explosions(sprites, explosion_sprite_name, on_finished_callback)
+  function enemy:start_sprite_explosions(sprites, explosion_sprite_name, x_offset, y_offset, on_finished_callback)
 
     sprites = sprites or enemy:get_sprites()
     explosion_sprite_name = explosion_sprite_name or "entities/explosion_boss"
+    x_offset = x_offset or 0
+    y_offset = y_offset or 0
 
     local function start_sprite_explosion(index)
       local sprite = sprites[index]
       local x, y = sprite:get_xy()
-      local explosion = enemy:start_brief_effect(explosion_sprite_name, nil, x, y, nil, function()
+      local explosion = enemy:start_brief_effect(explosion_sprite_name, nil, x + x_offset, y + y_offset, nil, function()
         if index < #sprites then
           start_sprite_explosion(index + 1)
         else

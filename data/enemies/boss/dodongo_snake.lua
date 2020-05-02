@@ -75,7 +75,7 @@ local function eat_bomb(bomb)
       body_sprite:set_animation("dying",function()
         local x, y = body_sprite:get_xy()
         enemy:start_brief_effect("entities/explosion_boss", nil, x, y)
-        enemy:silent_kill()
+        enemy:start_death()
       end)
       return
     end

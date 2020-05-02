@@ -6,10 +6,10 @@ local function on_fall_finished(entity)
 
   -- Workaround: Kill enemies silently instead of remove() them, as death events are needed for some puzzles.
   if entity:get_type() == "enemy" and entity:exists() then
-    if not entity.silent_kill then
+    if not entity.start_death then
       common_actions.learn(entity)
     end
-    entity:silent_kill()
+    entity:start_death()
     return
   end
   entity:remove()

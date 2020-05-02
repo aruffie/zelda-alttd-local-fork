@@ -32,7 +32,7 @@ function behavior.apply(enemy, sprite)
   local function hit_behavior()
 
     if not enemy.on_hit or enemy:on_hit() ~= false then
-      enemy:silent_kill()
+      enemy:start_death()
     end
   end
 
@@ -59,7 +59,7 @@ function behavior.apply(enemy, sprite)
     if is_initialized then -- Workaround: on_position_changed() is called before on_restarted(), make sure it won't.
       if not enemy:is_watched(sprite) then
         enemy:stop_movement()
-        enemy:silent_kill()
+        enemy:start_death()
       end
     end
   end)

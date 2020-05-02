@@ -88,7 +88,7 @@ enemy:register_event("on_custom_attack_received", function(enemy, attack)
     end
 
     enemy:set_treasure() -- The treasure will be dropped by the Cukeman.
-    enemy:silent_kill()
+    enemy:start_death()
   end
 end)
 

@@ -70,7 +70,7 @@ function enemy:remove_particle(sprite)
     break
   end
   if not has_sprite then
-    enemy:silent_kill()
+    enemy:start_death()
   end
 end
 

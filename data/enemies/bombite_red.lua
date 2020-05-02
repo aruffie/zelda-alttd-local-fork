@@ -52,7 +52,7 @@ function enemy:explode()
     y = y,
     layer = layer
   })
-  enemy:silent_kill()
+  enemy:start_death()
 end
 
 -- Start the enemy movement.
