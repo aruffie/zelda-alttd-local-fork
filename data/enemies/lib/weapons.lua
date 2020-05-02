@@ -42,6 +42,13 @@ function weapons.learn(enemy)
       sprite = sprite_name or "enemies/" .. enemy:get_breed() .. "/sword"
     })
     enemy:start_welding(weapon, x_offset, y_offset)
+
+    -- Make weapon disappear when the enemy became invisible on dying.
+    enemy:register_event("on_dying", function(enemy)
+      sol.timer.start(weapon, 300, function() -- No event when the enemy became invisible, hardcode a timer.
+        weapon:remove()
+      end)
+    end)
     
     -- Synchronize sprites animation and direction.
     local weapon_sprite = weapon:get_sprite()

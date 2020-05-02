@@ -686,6 +686,7 @@ function common_actions.learn(enemy)
   end
 
   -- Make the enemy die as described in the given dying_callback, or silently and without animation if nil.
+  -- Prevent all actions and interactions with the enemy when the function starts, then call finish_death() from the callback to start the actual death.
   -- Additionnal helper functions accessible from the callback to describe the death :
   --   set_treasure_falling_height(height) -> Set the treasure falling height in pixel, which is 8 by default.
   --   finish_death() -> Start all behaviors related to the enemy actual death, basically treasure drop, savegame and removal.

@@ -96,6 +96,15 @@ enemy:register_event("on_created", function(enemy)
     layer = enemy:get_layer() + 1
   })
   enemy:start_welding(ballchain, right_hand_offset_x, right_hand_offset_y)
+
+  -- Make ballchain disappear when the enemy became invisible on dying.
+  enemy:register_event("on_dying", function(enemy)
+    ballchain:start_death(function()
+      sol.timer.start(ballchain, 300, function() -- No event when the enemy became invisible, hardcode a timer.
+        finish_death()
+      end)
+    end)
+  end)
 end)
 
 -- Restart settings.

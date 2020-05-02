@@ -22,7 +22,7 @@ end
 -- Create an impact effect on hit.
 enemy:register_event("on_hit", function(enemy)
 
-  local direction = enemy:get_movement():get_direction4()
+  local direction = sprite:get_direction()
 
   -- Make unable to interact.
   enemy:stop_movement()

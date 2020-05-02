@@ -60,6 +60,34 @@ local function update_direction()
   sprite:set_direction(hero_x < x and 2 or 0)
 end
 
+-- Check if the custom death as to be started before triggering the built-in hurt behavior.
+local function hurt(damage)
+
+  -- Custom die if no more life.
+  if enemy:get_life() - damage < 1 then
+
+    -- Wait a few time, start 2 sets of explosions close from the enemy, wait a few time again and finally make the final explosion and enemy die.
+    enemy:start_death(function()
+      sprite:set_animation("hurt")
+      sol.timer.start(enemy, 1500, function()
+        enemy:start_close_explosions(32, 2500, "entities/explosion_boss", 0, -30, function()
+          sol.timer.start(enemy, 1000, function()
+            enemy:start_brief_effect("entities/explosion_boss", nil, 0, -30)
+            finish_death()
+          end)
+        end)
+        sol.timer.start(enemy, 200, function()
+          enemy:start_close_explosions(32, 2300, "entities/explosion_boss", 0, -30)
+        end)
+      end)
+    end)
+    return
+  end
+
+  -- Else hurt normally.
+  enemy:hurt(damage)
+end
+
 -- Start the enemy jumping movement to the hero.
 function enemy:start_moving()
 
@@ -141,7 +169,7 @@ function enemy:start_charging()
 
       -- TODO Stop and laugh on hero touched.
 
-      enemy:set_hero_weapons_reactions(1, {jump_on = "ignored"})
+      enemy:set_hero_weapons_reactions(function() hurt(1) end, {jump_on = "ignored"})
     end
     sprite:set_animation("attacking")
   end)
