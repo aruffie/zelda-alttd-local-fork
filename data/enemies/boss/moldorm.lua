@@ -13,8 +13,7 @@
 
 -- Global variables
 local enemy = ...
-local common_actions = require("enemies/lib/common_actions")
-require("scripts/multi_events")
+require("enemies/lib/common_actions").learn(enemy)
 
 local game = enemy:get_game()
 local map = enemy:get_map()
@@ -82,23 +81,25 @@ local function on_attack_received()
     return
   end
 
-  -- Die if no more life.
+  -- Custom die if only one more life point.
   if enemy:get_life() < 2 then
-    for _, sprite in enemy:get_sprites() do
-      if sprite:has_animation("hurt") then
-        sprite:set_animation("hurt")
-      end
-    end
-    enemy:stop_all()
 
     -- Wait a few time, make tail then body sprites explode, wait a few time again and finally make the head explode and enemy die.
-    local sorted_tied_sprites = {sprites[5], sprites[4], sprites[3], sprites[2]}
-    sol.timer.start(enemy, 2000, function()
-      enemy:start_sprite_explosions(sorted_tied_sprites, "entities/explosion_boss",function()
-        sol.timer.start(enemy, 500, function()
-          local x, y = head_sprite:get_xy()
-          enemy:start_brief_effect("entities/explosion_boss", nil, x, y)
-          enemy:silent_kill()
+    enemy:start_death(function()
+      for _, sprite in enemy:get_sprites() do
+        if sprite:has_animation("hurt") then
+          sprite:set_animation("hurt")
+        end
+      end
+
+      local sorted_tied_sprites = {sprites[5], sprites[4], sprites[3], sprites[2]}
+      sol.timer.start(enemy, 2000, function()
+        enemy:start_sprite_explosions(sorted_tied_sprites, "entities/explosion_boss", 0, 0, function()
+          sol.timer.start(enemy, 1000, function()
+            local x, y = head_sprite:get_xy()
+            enemy:start_brief_effect("entities/explosion_boss", nil, x, y)
+            finish_death()
+          end)
         end)
       end)
     end)
@@ -153,7 +154,6 @@ end
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
 
-  common_actions.learn(enemy, sprite)
   enemy:set_life(4)
   enemy:set_size(24, 24)
   enemy:set_origin(12, 12)
