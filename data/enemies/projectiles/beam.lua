@@ -20,7 +20,7 @@ enemy:register_event("on_created", function(enemy)
 end)
 
 enemy:register_event("on_obstacle_reached", function(enemy)
-  enemy:silent_kill()
+  enemy:start_death()
 end)
 
 function enemy:go(direction4)

@@ -14,7 +14,7 @@ local circle = 2.0 * math.pi
 function enemy:destroy()
 
   sprite:set_animation("destroyed", function()
-    enemy:silent_kill()
+    enemy:start_death()
   end)
 end
 

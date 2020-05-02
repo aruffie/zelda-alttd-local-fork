@@ -32,7 +32,7 @@ end)
 
 -- Directly remove the enemy on attacking hero
 enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
-  enemy:silent_kill()
+  enemy:start_death()
 end)
 
 -- Initialization.

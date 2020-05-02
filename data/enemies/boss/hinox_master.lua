@@ -203,7 +203,7 @@ enemy:register_event("on_hurt", function(enemy)
 
   -- Remove a possible holded bomb to throw the next one.
   if holded_bomb then
-    holded_bomb:silent_kill()
+    holded_bomb:start_death()
   end
 end)
 

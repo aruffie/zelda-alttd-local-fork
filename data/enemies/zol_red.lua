@@ -96,7 +96,7 @@ function enemy:split()
     create_gel(-5)
     create_gel(5)
     enemy:set_treasure() -- The treasure will be dropped one time by each Gels.
-    enemy:silent_kill()
+    enemy:start_death()
   end)
   
 end

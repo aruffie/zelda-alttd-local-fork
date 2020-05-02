@@ -34,7 +34,6 @@
 --
 --           Effects and other actions :
 --           enemy:start_death([dying_callback])
---           enemy:silent_kill([treasure_falling_height])
 --           enemy:start_shadow([sprite_name, [animation_name, [x_offset, [y_offset]]]])
 --           enemy:start_brief_effect(sprite_name, [animation_name, [x_offset, [y_offset, [maximum_duration, [on_finished_callback]]]]])
 --           enemy:start_close_explosions(maximum_distance, duration, [explosion_sprite_name, [x_offset, [y_offset, [on_finished_callback]]]])
@@ -686,8 +685,8 @@ function common_actions.learn(enemy)
     enemy:start_brief_effect("entities/effects/impact_projectile", "default", (hero_x - x) / 2, (hero_y - y) / 2)
   end
 
-  -- Make the enemy die as described in the given dying_callback, or silently and right now if nil.
-  -- Some helper functions are accessible from the callback to describe the death :
+  -- Make the enemy die as described in the given dying_callback, or silently and without animation if nil.
+  -- Additionnal helper functions accessible from the callback to describe the death :
   --   set_treasure_falling_height(height) -> Set the treasure falling height in pixel, which is 8 by default.
   --   finish_death() -> Start all behaviors related to the enemy actual death, basically treasure drop, savegame and removal.
   function enemy:start_death(dying_callback)
@@ -747,46 +746,6 @@ function common_actions.learn(enemy)
       dying_callback()
     else
       dying_helpers.finish_death()
-    end
-  end
-
-  -- Kill the enemy right now, silently and without animation.
-  function enemy:silent_kill(treasure_falling_height)
-
-    enemy.is_hurt_silently = true -- Workaround : Don't play generic sounds added by enemy meta script.
-
-    if enemy.on_dying then
-      enemy:on_dying()
-    end
-
-    -- Make a possible treasure appear.
-    local treasure_name, treasure_variant, treasure_savegame = enemy:get_treasure()
-    if treasure_name then
-      local x, y, layer = enemy:get_position()
-      local pickable = map:create_pickable({
-        name = (enemy:get_name() or enemy:get_breed()) .. treasure_name,
-        x = x,
-        y = y,
-        layer = layer,
-        treasure_name = treasure_name,
-        treasure_variant = treasure_variant,
-        treasure_savegame_variable = treasure_savegame
-      })
-
-      -- Replace the built-in falling by a throw from the given height.
-      if pickable and pickable:exists() then -- If the pickable was not immediately removed from the on_created() event.
-        pickable:stop_movement()
-        local start_height = treasure_falling_height or 8
-        enemy:start_throwing(pickable, 450 + start_height * 6, start_height, start_height + 16) -- TODO Find a better way to set a duration.
-      end
-    end
-
-    -- TODO Handle savegame if any.
-
-    -- Actual removal.
-    enemy:remove()
-    if enemy.on_dead then
-      enemy:on_dead()
     end
   end
 

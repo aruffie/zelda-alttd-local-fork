@@ -76,7 +76,7 @@ end
 
 -- Remove the ballchain on dead.
 enemy:register_event("on_dead", function(enemy)
-  ballchain:silent_kill()
+  ballchain:start_death()
 end)
 
 -- Initialization.

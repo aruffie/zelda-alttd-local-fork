@@ -33,7 +33,7 @@ local function go(angle)
   movement:set_smooth(false)
 
   function movement:on_obstacle_reached()
-    enemy:silent_kill()
+    enemy:start_death()
   end
 
   -- Compute the coordinate offset of follower sprites.
@@ -60,7 +60,7 @@ end)
 enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
 
   hero:start_hurt(enemy, enemy_sprite, enemy:get_damage())
-  enemy:silent_kill()
+  enemy:start_death()
   
 end)
 

@@ -126,7 +126,7 @@ enemy:register_event("on_removed", function(enemy)
   end
 
   for _, child in ipairs(children) do
-    child:silent_kill()
+    child:start_death()
   end
 end)
 
