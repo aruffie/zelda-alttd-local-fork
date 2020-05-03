@@ -25,7 +25,7 @@
 --           enemy:stop_attracting([entity])
 --           enemy:start_impulsion(x, y, speed, acceleration, deceleration)
 --           enemy:start_throwing(entity, duration, start_height, maximum_height, [angle, speed, [on_finished_callback]])
---           enemy:start_welding(entity, [x_offset, [y_offset]])
+--           enemy:start_welding(entity, [x, [y]])
 --           enemy:start_leashed_by(entity, maximum_distance)
 --           enemy:stop_leashed_by(entity)
 --           enemy:start_pushed_back(entity, [speed, [duration, [on_finished_callback]]])
@@ -34,10 +34,10 @@
 --
 --           Effects and other actions :
 --           enemy:start_death([dying_callback])
---           enemy:start_shadow([sprite_name, [animation_name, [x_offset, [y_offset]]]])
---           enemy:start_brief_effect(sprite_name, [animation_name, [x_offset, [y_offset, [maximum_duration, [on_finished_callback]]]]])
---           enemy:start_close_explosions(maximum_distance, duration, [explosion_sprite_name, [x_offset, [y_offset, [on_finished_callback]]]])
---           enemy:start_sprite_explosions([sprites, [explosion_sprite_name, [x_offset, [y_offset, [on_finished_callback]]]]])
+--           enemy:start_shadow([sprite_name, [animation_name, [x, [y]]]])
+--           enemy:start_brief_effect(sprite_name, [animation_name, [x, [y, [maximum_duration, [on_finished_callback]]]]])
+--           enemy:start_close_explosions(maximum_distance, duration, [explosion_sprite_name, [x, [y, [on_finished_callback]]]])
+--           enemy:start_sprite_explosions([sprites, [explosion_sprite_name, [x, [y, [on_finished_callback]]]]])
 --           enemy:steal_item(item_name, [variant, [only_if_assigned, [drop_when_dead]]])
 --           enemy:stop_all()
 --
@@ -161,7 +161,7 @@ function common_actions.learn(enemy)
     return math.atan2(y - entity_y + sprite_y, entity_x - x - sprite_x)
   end
 
-  -- Return the central symmetry position over the given point.
+  -- Return the central symmetry position over the given central point.
   function enemy:get_central_symmetry_position(x, y)
 
     local enemy_x, enemy_y, _ = enemy:get_position()
@@ -579,13 +579,13 @@ function common_actions.learn(enemy)
   end
 
   -- Make the entity welded to the enemy at the given offset position, and propagate main events and methods.
-  function enemy:start_welding(entity, x_offset, y_offset)
+  function enemy:start_welding(entity, x, y)
 
-   x_offset = x_offset or 0
-   y_offset = y_offset or 0
+   x = x or 0
+   y = y or 0
     enemy:register_event("on_update", function(enemy) -- Workaround : Replace the entity in on_update() instead of on_position_changed() to take care of hurt movements.
-      local x, y, layer = enemy:get_position()
-      entity:set_position(x + x_offset, y + y_offset)
+      local enemy_x, enemy_y, enemy_layer = enemy:get_position()
+      entity:set_position(enemy_x + x, enemy_y + y, enemy_layer)
     end)
     enemy:register_event("on_removed", function(enemy)
       if entity:exists() then
@@ -686,8 +686,8 @@ function common_actions.learn(enemy)
   end
 
   -- Make the enemy die as described in the given dying_callback, or silently and without animation if nil.
-  -- Prevent all actions and interactions with the enemy when the function starts, then call finish_death() from the callback to start the actual death.
-  -- Additionnal helper functions accessible from the callback to describe the death :
+  -- Stop all actions and prevent interactions when the function starts, then call finish_death() from the callback to start the actual death.
+  -- Additionnal helper functions are accessible from the callback to describe the death :
   --   set_treasure_falling_height(height) -> Set the treasure falling height in pixel, which is 8 by default.
   --   finish_death() -> Start all behaviors related to the enemy actual death, basically treasure drop, savegame and removal.
   function enemy:start_death(dying_callback)
@@ -751,20 +751,20 @@ function common_actions.learn(enemy)
   end
 
   -- Add a shadow below the enemy.
-  function enemy:start_shadow(sprite_name, animation_name, x_offset, y_offset)
+  function enemy:start_shadow(sprite_name, animation_name, x, y)
 
     if not shadow then
       local enemy_x, enemy_y, enemy_layer = enemy:get_position()
       shadow = map:create_custom_entity({
         direction = 0,
-        x = enemy_x + (x_offset or 0),
-        y = enemy_y + (y_offset or 0),
+        x = enemy_x + (x or 0),
+        y = enemy_y + (y or 0),
         layer = enemy_layer,
         width = 16,
         height = 16,
         sprite = sprite_name or "entities/shadows/shadow"
       })
-      enemy:start_welding(shadow, x_offset, y_offset)
+      enemy:start_welding(shadow, x, y)
 
       if animation_name then
         shadow:get_sprite():set_animation(animation_name)
@@ -782,24 +782,20 @@ function common_actions.learn(enemy)
           end
         end
       end
-
-      -- Make enemy:set_visible() affect shadow.
-      enemy:register_event("set_visible", function(enemy, visible)
-        shadow:set_visible(visible)
-      end)
     end
+
     return shadow
   end
 
   -- Start a standalone sprite animation on the enemy position, that will be removed once finished or maximum_duration reached if given.
-  function enemy:start_brief_effect(sprite_name, animation_name, x_offset, y_offset, maximum_duration, on_finished_callback)
+  function enemy:start_brief_effect(sprite_name, animation_name, x, y, maximum_duration, on_finished_callback)
 
-    local x, y, layer = enemy:get_position()
+    local enemy_x, enemy_y, enemy_layer = enemy:get_position()
     local entity = map:create_custom_entity({
         sprite = sprite_name,
-        x = x + (x_offset or 0),
-        y = y + (y_offset or 0),
-        layer = layer,
+        x = enemy_x + (x or 0),
+        y = enemy_y + (y or 0),
+        layer = enemy_layer,
         width = 80,
         height = 32,
         direction = 0
@@ -829,20 +825,20 @@ function common_actions.learn(enemy)
   end
 
   -- Start a new explosion placed randomly around the entity coordinates each time the previous one finished, until duration reached.
-  function enemy:start_close_explosions(maximum_distance, duration, explosion_sprite_name, x_offset, y_offset, on_finished_callback)
+  function enemy:start_close_explosions(maximum_distance, duration, explosion_sprite_name, x, y, on_finished_callback)
 
     explosion_sprite_name = explosion_sprite_name or "entities/explosion_boss"
-    x_offset = x_offset or 0
-    y_offset = y_offset or 0
+    x = x or 0
+    y = y or 0
 
     local elapsed_time = 0
     local function start_close_explosion()
-      local distance = math.random() * maximum_distance
-      local angle = math.random(circle)
-      local x = math.cos(angle) * distance
-      local y = math.sin(angle) * distance
+      local random_distance = math.random() * maximum_distance
+      local random_angle = math.random(circle)
+      local random_x = math.cos(random_angle) * random_distance
+      local random_y = math.sin(random_angle) * random_distance
       
-      local explosion = enemy:start_brief_effect(explosion_sprite_name, nil, x + x_offset, y + y_offset, nil, function()
+      local explosion = enemy:start_brief_effect(explosion_sprite_name, nil, random_x + x, random_y + y, nil, function()
         if elapsed_time < duration then
           start_close_explosion()
         else
@@ -859,17 +855,17 @@ function common_actions.learn(enemy)
   end
 
   -- Make the given enemy sprites explode one after the other in the given order, and remove exploded sprite.
-  function enemy:start_sprite_explosions(sprites, explosion_sprite_name, x_offset, y_offset, on_finished_callback)
+  function enemy:start_sprite_explosions(sprites, explosion_sprite_name, x, y, on_finished_callback)
 
     sprites = sprites or enemy:get_sprites()
     explosion_sprite_name = explosion_sprite_name or "entities/explosion_boss"
-    x_offset = x_offset or 0
-    y_offset = y_offset or 0
+    x = x or 0
+    y = y or 0
 
     local function start_sprite_explosion(index)
       local sprite = sprites[index]
-      local x, y = sprite:get_xy()
-      local explosion = enemy:start_brief_effect(explosion_sprite_name, nil, x + x_offset, y + y_offset, nil, function()
+      local sprite_x, sprite_y = sprite:get_xy()
+      local explosion = enemy:start_brief_effect(explosion_sprite_name, nil, sprite_x + x, sprite_y + y, nil, function()
         if index < #sprites then
           start_sprite_explosion(index + 1)
         else
@@ -903,13 +899,12 @@ function common_actions.learn(enemy)
     end
   end
 
-  -- Stop all running actions and interactions with other entities.
+  -- Stop all running actions and prevent interactions with other entities.
   function enemy:stop_all()
 
     sol.timer.stop_all(enemy)
     enemy:stop_movement()
     enemy:set_can_attack(false)
-    enemy:set_damage(0)
     enemy:set_invincible()
   end
 end

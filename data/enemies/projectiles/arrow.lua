@@ -25,18 +25,14 @@ end
 -- Create an impact effect on hit.
 enemy:register_event("on_hit", function(enemy)
 
-  -- Make unable to interact.
-  enemy:stop_movement()
-  enemy:set_invincible()
-  enemy:set_can_attack(false)
-  enemy:set_damage(0)
-
   -- Remove the entity when planted animation finished + some time.
-  sprite:set_animation("reached_obstacle", function()
-    sprite:set_paused()
-    sprite:set_frame(1)
-    sol.timer.start(enemy, planted_duration, function()
-      enemy:start_death()
+  enemy:start_death(function()
+    sprite:set_animation("reached_obstacle", function()
+      sprite:set_paused()
+      sprite:set_frame(1)
+      sol.timer.start(enemy, planted_duration, function()
+        finish_death()
+      end)
     end)
   end)
 

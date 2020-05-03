@@ -28,10 +28,10 @@ function behavior.apply(enemy, sprite)
   local is_initialized = false
   local default_speed = 192
 
-  -- Call the enemy:on_hit() callback and remove the entity if it doesn't return false.
+  -- Call the enemy:on_hit() callback if the enemy still can attack, and remove the entity if it doesn't return false.
   local function hit_behavior()
 
-    if not enemy.on_hit or enemy:on_hit() ~= false then
+    if enemy:get_can_attack() and not enemy.on_hit or enemy:on_hit() ~= false then
       enemy:start_death()
     end
   end
@@ -58,20 +58,13 @@ function behavior.apply(enemy, sprite)
 
     if is_initialized then -- Workaround: on_position_changed() is called before on_restarted(), make sure it won't.
       if not enemy:is_watched(sprite) then
-        enemy:stop_movement()
         enemy:start_death()
       end
     end
   end)
 
-
   enemy:register_event("on_restarted", function(enemy, shield)
     is_initialized = true
-  end)
-
-  -- Hide any projectile on dying
-  enemy:register_event("on_dying", function(enemy, shield)
-    enemy:set_visible(false)
   end)
 
   -- Check if the projectile should be destroyed when the hero is touched. 
@@ -82,12 +75,6 @@ function behavior.apply(enemy, sprite)
       hero:start_hurt(enemy, enemy_sprite, enemy:get_damage())
     end
 
-    hit_behavior()
-  end)
-
-  -- TODO Depends on the projectile, move to specific scripts
-  -- Destroy the enemy when touching the shield.
-  enemy:register_event("on_shield_collision", function(enemy, shield)
     hit_behavior()
   end)
 end
