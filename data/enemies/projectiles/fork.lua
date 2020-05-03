@@ -23,12 +23,6 @@ end
 enemy:register_event("on_hit", function(enemy)
 
   local direction = sprite:get_direction()
-
-  -- Make unable to interact.
-  enemy:stop_movement()
-  enemy:set_invincible()
-  enemy:set_can_attack(false)
-  enemy:set_damage(0)
   
   -- Start an effect at the impact location.
   enemy:start_brief_effect("entities/effects/impact_projectile", "default", sprite:get_xy())
@@ -42,8 +36,10 @@ enemy:register_event("on_hit", function(enemy)
   movement:start(enemy)
 
   -- Remove the entity when planted animation finished + some time.
-  sprite:set_animation("hit", function()
-    enemy:start_death()
+  enemy:start_death(function()
+    sprite:set_animation("hit", function()
+      finish_death()
+    end)
   end)
 
   return false
