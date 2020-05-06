@@ -5,7 +5,7 @@
 -- Moves horizontally and change direction once the ground is not water anymore.
 -- Regularly jump out the water where he becomes vulnerable.
 --
--- Methods : enemy:start_walking(direction2)
+-- Methods : enemy:start_swimming([direction2])
 --           enemy:dive()
 --           enemy:jump()
 --
@@ -22,21 +22,21 @@ local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
 
 -- Configuration variables
-local walking_angles = {0, 2.0 * quarter}
-local walking_speed = 32
+local swimming_speed = 32
 local waiting_minimum_duration = 2000
 local waiting_maximum_duration = 4000
 local jumping_duration = 600
 local jumping_height = 16
 
 -- Start the enemy movement.
-function enemy:start_walking(direction2)
+function enemy:start_swimming(direction2)
 
+  direction2 = direction2 or math.random(2) - 1
   local current_animation = sprite:get_animation()
 
-  -- Start walking and change direction on stopped.
-  local movement = enemy:start_straight_walking(walking_angles[direction2], walking_speed, nil, function()
-    enemy:start_walking(direction2 % 2 + 1)
+  -- Start a walking movement and change direction on stopped.
+  local movement = enemy:start_straight_walking(direction2 * math.pi, swimming_speed, nil, function()
+    enemy:start_swimming((direction2 + 1) % 2)
   end)
   movement:set_smooth(false)
 
@@ -45,7 +45,7 @@ function enemy:start_walking(direction2)
     local x, y, layer = enemy:get_position()
     if not enemy:is_over_grounds({"shallow_water", "deep_water"}) then
       movement:stop()
-      enemy:start_walking(direction2 % 2 + 1)
+      enemy:start_swimming((direction2 + 1) % 2)
     end
   end
 
@@ -99,5 +99,5 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_damage(4)
   enemy:set_obstacle_behavior("swimming")
   enemy:dive()
-  enemy:start_walking(math.random(2))
+  enemy:start_swimming()
 end)
