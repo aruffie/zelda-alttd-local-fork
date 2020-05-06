@@ -240,10 +240,10 @@ sprite{ id = "enemies/boss/genie/genie", description = "Genie" }
 sprite{ id = "enemies/boss/genie/genie_bottle", description = "Genie bottle" }
 sprite{ id = "enemies/boss/genie/genie_fire_ball", description = "Genie fire ball" }
 sprite{ id = "enemies/boss/genie_enemies/genie_bottle", description = "Genie bottle" }
-sprite{ id = "enemies/boss/gohma_blue", description = "Gohma blue" }
-sprite{ id = "enemies/boss/gohma_blue_eye", description = "Gohma blue eye" }
-sprite{ id = "enemies/boss/gohma_red", description = "Gohma red" }
-sprite{ id = "enemies/boss/gohma_red_eye", description = "Gohma red eye" }
+sprite{ id = "enemies/boss/gohma", description = "Gohma red" }
+sprite{ id = "enemies/boss/gohma/blue", description = "Gohma blue" }
+sprite{ id = "enemies/boss/gohma/blue_eye", description = "Gohma blue eye" }
+sprite{ id = "enemies/boss/gohma/eye", description = "Gohma red eye" }
 sprite{ id = "enemies/boss/grim_creeper", description = "Grim creeper" }
 sprite{ id = "enemies/boss/hinox_master", description = "Hinox master" }
 sprite{ id = "enemies/boss/hinox_master/blue", description = "Hinox master blue" }

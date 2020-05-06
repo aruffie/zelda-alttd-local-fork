@@ -217,6 +217,10 @@ local function initialize_dungeon_features(game)
       music_instrument = "55_the_wind_marimba",
       secrets = {
       },
+      small_boss = {
+        floor = 0,
+        breed = "boss/gohma",
+      },
       boss = {
         floor = 0,
         x = 640 + 1440,
