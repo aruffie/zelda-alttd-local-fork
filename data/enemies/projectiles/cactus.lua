@@ -12,7 +12,7 @@ local bounce_count = 0
 local angle
 
 -- Configuration variables
-local speed = 128
+local speed = 200
 local bounce_before_delete = 3
 
 -- Start going away to the hero and bounce.

@@ -1,19 +1,7 @@
--- Lua script of enemy orb_monster_green.
--- This script is executed every time an enemy with this model is created.
-
--- Variables
 local enemy = ...
-local game = enemy:get_game()
-local map = enemy:get_map()
-local hero = map:get_hero()
-local sprite
-local movement
+local sprite = enemy:create_sprite("enemies/pincer")
 
--- The enemy appears: set its properties.
-function enemy:on_created()
-
-  sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
-  enemy:set_life(1)
-  enemy:set_damage(1)
-  
+-- Restart settings.
+function enemy:on_restarted()
+  sprite:set_xy(-60,20)
 end
