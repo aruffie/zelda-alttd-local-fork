@@ -57,7 +57,6 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_damage(4)
   enemy:set_obstacle_behavior("flying")
   enemy:set_layer_independent_collisions(true)
-  enemy:set_can_hurt_hero_running(true)
   enemy:set_invincible()
 
   -- Make the bomb explode after some time

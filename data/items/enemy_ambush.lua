@@ -3,7 +3,11 @@
 -- Item that can be contained in a chest and makes an enemy appear and jump out the chest on obtaining.
 -- Herit custom properties from the chest.
 --
--- Heritable properties : breed, jumping_angle
+-- Events :            chest:on_enemy_released(enemy)
+--                     chest:on_enemy_jump_out_finished(enemy)
+--
+-- Custom properties : breed
+--                     jumping_angle
 --
 ----------------------------------
 
@@ -70,17 +74,19 @@ end
 function item:on_obtaining()
 
   -- Get opened chest assuming opened from south, and get its heritable properties.
+  local chest
   local map = game:get_map()
   local hero = map:get_hero()
   local x, y, layer = hero:get_position()
   y = y - 16
-  for chest in map:get_entities_by_type("chest") do
-    if chest:overlaps(x, y) then
-      x, y, layer = chest:get_position()
-      breed = chest:get_property("breed") or breed
-      jumping_angle = chest:get_property("jumping_angle") or jumping_angle
+  for map_chest in map:get_entities_by_type("chest") do
+    if map_chest:overlaps(x, y) then
+      chest = map_chest
     end
   end
+  x, y, layer = chest:get_position()
+  breed = chest:get_property("breed") or breed
+  jumping_angle = chest:get_property("jumping_angle") or jumping_angle
 
   -- Create enemy
   local enemy = map:create_enemy({
@@ -103,8 +109,11 @@ function item:on_obtaining()
     if sprite:has_animation("jumping") then
       sprite:set_animation("jumping")
     end
-    local movement = start_jumping_out(enemy, jumping_duration, jumping_height, jumping_angle, jumping_speed, function()
+    start_jumping_out(enemy, jumping_duration, jumping_height, jumping_angle, jumping_speed, function()
       enemy:restart()
+      if chest.on_enemy_jump_out_finished then
+        chest:on_enemy_jump_out_finished(enemy)
+      end
     end)
   end)
 
@@ -113,4 +122,9 @@ function item:on_obtaining()
 
   -- Sound
   audio_manager:play_sound("misc/error")
+
+  -- Release event.
+  if chest.on_enemy_released then
+    chest:on_enemy_released(enemy)
+  end
 end
