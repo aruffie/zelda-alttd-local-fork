@@ -14,10 +14,10 @@ animation{
   name = "attack_landing",
   src_image = "enemies/stalfos_blue.png",
   directions = {
-    { x = 56, y = 24, frame_width = 28, frame_height = 24, origin_x = 14, origin_y = 21 },
-    { x = 56, y = 24, frame_width = 28, frame_height = 24, origin_x = 14, origin_y = 21 },
-    { x = 56, y = 24, frame_width = 28, frame_height = 24, origin_x = 14, origin_y = 21 },
-    { x = 56, y = 24, frame_width = 28, frame_height = 24, origin_x = 14, origin_y = 21 },
+    { x = 56, y = 24, frame_width = 28, frame_height = 24, origin_x = 14, origin_y = 14 },
+    { x = 56, y = 24, frame_width = 28, frame_height = 24, origin_x = 14, origin_y = 14 },
+    { x = 56, y = 24, frame_width = 28, frame_height = 24, origin_x = 14, origin_y = 14 },
+    { x = 56, y = 24, frame_width = 28, frame_height = 24, origin_x = 14, origin_y = 14 },
   },
 }
 animation{

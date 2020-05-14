@@ -217,10 +217,10 @@ sprite{ id = "enemies/boo_buddy", description = "Boo Buddy" }
 sprite{ id = "enemies/boss/angler_fish/angler_fish", description = "Angler's fish" }
 sprite{ id = "enemies/boss/angler_fish/angler_fish_brick", description = "Angler brick" }
 sprite{ id = "enemies/boss/angler_fish/angler_fish_fry", description = "Angler fry" }
+sprite{ id = "enemies/boss/armos_knight", description = "Armos Knight" }
 sprite{ id = "enemies/boss/ballchain_soldier", description = "Ballchain Soldier" }
 sprite{ id = "enemies/boss/ballchain_soldier/ball", description = "Ballchain Soldier's Ball" }
 sprite{ id = "enemies/boss/ballchain_soldier/chain", description = "Ballchain Soldier's Chain" }
-sprite{ id = "enemies/boss/big_armos_knight", description = "Big armos knight" }
 sprite{ id = "enemies/boss/blaino", description = "Blaino" }
 sprite{ id = "enemies/boss/buzz_blob_giant/buzz_blob_giant", description = "Buzz Blob Giant" }
 sprite{ id = "enemies/boss/buzz_blob_giant/buzz_blob_giant_zol", description = "Buzz Blob Giant Zol" }
@@ -230,7 +230,7 @@ sprite{ id = "enemies/boss/desert_lanmola", description = "Desert Lanmola" }
 sprite{ id = "enemies/boss/desert_lanmola/body", description = "Desert Lanmola body" }
 sprite{ id = "enemies/boss/desert_lanmola/dust", description = "Desert lanmola Dust" }
 sprite{ id = "enemies/boss/desert_lanmola/tail", description = "Desert Lanmola tail" }
-sprite{ id = "enemies/boss/dodongo_snake", description = "Dodongo_snake" }
+sprite{ id = "enemies/boss/dodongo_snake", description = "Dodongo Snake" }
 sprite{ id = "enemies/boss/dodongo_snake/body", description = "Dodongo snake body" }
 sprite{ id = "enemies/boss/evil_eagle", description = "Evil eagle" }
 sprite{ id = "enemies/boss/evil_orb/evil_orb", description = "Evil orb" }
@@ -249,8 +249,8 @@ sprite{ id = "enemies/boss/hinox_master", description = "Hinox master" }
 sprite{ id = "enemies/boss/hinox_master/blue", description = "Hinox master blue" }
 sprite{ id = "enemies/boss/hinox_master/red", description = "Hinox master red" }
 sprite{ id = "enemies/boss/hot_head", description = "Hot head" }
-sprite{ id = "enemies/boss/hot_head_form_b", description = "Hot head form b" }
-sprite{ id = "enemies/boss/hot_head_form_c", description = "Hot head form c" }
+sprite{ id = "enemies/boss/hot_head/form_b", description = "Hot head form b" }
+sprite{ id = "enemies/boss/hot_head/form_c", description = "Hot head form c" }
 sprite{ id = "enemies/boss/master_stalfos/master_stalfos", description = "Master stalfos" }
 sprite{ id = "enemies/boss/master_stalfos/master_stalfos_shadow", description = "Master stalfos shadow" }
 sprite{ id = "enemies/boss/master_stalfos/master_stalfos_shield", description = "Master stalfos shield" }
@@ -1547,12 +1547,12 @@ file{ path = "enemies/boo_buddy.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss", license = "GPL v3" }
 file{ path = "enemies/boss/angler_fish.lua", license = "GPL v3" }
 file{ path = "enemies/boss/armos_knight.lua", license = "GPL v3" }
-file{ path = "enemies/boss/ballchain_soldier.lua", license = "GPL v3" }
+file{ path = "enemies/boss/ballchain_soldier.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/blaino.lua", license = "GPL v3" }
 file{ path = "enemies/boss/buzz_blob_giant.lua", license = "GPL v3" }
-file{ path = "enemies/boss/cue_ball.lua", license = "GPL v3" }
-file{ path = "enemies/boss/desert_lanmola.lua", license = "GPL v3" }
-file{ path = "enemies/boss/dodongo_snake.lua", license = "GPL v3" }
+file{ path = "enemies/boss/cue_ball.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/boss/desert_lanmola.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/boss/dodongo_snake.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/evil_eagle.lua", license = "GPL v3" }
 file{ path = "enemies/boss/evil_orb.lua", license = "GPL v3" }
 file{ path = "enemies/boss/facade.lua", license = "GPL v3" }

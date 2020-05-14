@@ -26,6 +26,7 @@ local jumping_height = 32
 local jumping_duration = 800
 local elevating_duration = 120
 local stompdown_duration = 50
+local get_up_duration = 400
 
 -- Start moving to the hero, and attack when he is close enough.
 function enemy:start_walking()
@@ -60,10 +61,12 @@ function enemy:start_attacking()
   sol.timer.start(enemy, jumping_duration, function()
     enemy:stop_flying(stompdown_duration, function()
 
-      -- Start a visual effect at the landing impact location.
+      -- Start a visual effect at the landing impact location, wait a few time and restart.
       enemy:start_brief_effect("entities/effects/impact_projectile", "default", -12, 0)
       enemy:start_brief_effect("entities/effects/impact_projectile", "default", 12, 0)
-      enemy:restart()
+      sol.timer.start(enemy, get_up_duration, function()
+        enemy:restart()
+      end)
     end)
   end)
 end

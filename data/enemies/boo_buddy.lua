@@ -24,8 +24,8 @@ local quarter = math.pi * 0.5
 local is_weak = false
 
 -- Configuration variables
-local flying_speed = 32
-local flying_weak_speed = 8
+local flying_speed = 60
+local flying_weak_speed = 20
 local flying_height = 8
 local blinking_duration = 1000
 
@@ -36,6 +36,13 @@ local function go_away()
   local movement = enemy:start_straight_walking(angle, flying_weak_speed)
   movement:set_ignore_obstacles(true)
   sprite:set_animation("weak_walking")
+
+  -- Die if fully out of the screen while moving away.
+  function movement:on_position_changed()
+    if not enemy:is_watched(sprite, false) then
+      enemy:start_death()
+    end
+  end
 end
 
 -- Make the enemy respawn at the other side of the room.
@@ -97,7 +104,7 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_damage(4)
   enemy:set_layer_independent_collisions(true)
 
-  if not is_weak then
+  if is_weak then
     enemy:set_hero_weapons_reactions(on_inoffensive_attack, {
       arrow = 1,
       fire = 4,

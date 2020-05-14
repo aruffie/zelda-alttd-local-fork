@@ -96,6 +96,7 @@ enemy:register_event("on_restarted", function(enemy)
   })
 
   -- States.
+  enemy:set_obstacle_behavior("flying") -- Able to walk over water and lava.
   enemy:set_can_attack(true)
   enemy:set_damage(4)
   enemy:start_charging(0)

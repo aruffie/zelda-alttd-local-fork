@@ -1,13 +1,13 @@
 animation{
-  name = "wall_head",
+  name = "moldorm_form",
   src_image = "enemies/boss/slime_eel.png",
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {
-    { x = 0, y = 32, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 12 },
-    { x = 0, y = 32, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 12 },
-    { x = 0, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 12 },
-    { x = 0, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 12 },
+    { x = 0, y = 240, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29 },
+    { x = 0, y = 272, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29 },
+    { x = 0, y = 304, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29 },
+    { x = 0, y = 336, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29 },
   },
 }
 animation{
@@ -35,14 +35,14 @@ animation{
   },
 }
 animation{
-  name = "moldorm_form",
+  name = "wall_head",
   src_image = "enemies/boss/slime_eel.png",
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {
-    { x = 0, y = 240, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29 },
-    { x = 0, y = 272, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29 },
-    { x = 0, y = 304, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29 },
-    { x = 0, y = 336, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29 },
+    { x = 0, y = 32, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 12 },
+    { x = 0, y = 32, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 12 },
+    { x = 0, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 12 },
+    { x = 0, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 12 },
   },
 }

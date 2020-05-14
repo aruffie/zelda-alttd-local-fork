@@ -12,7 +12,7 @@ local bounce_count = 0
 local angle
 
 -- Configuration variables
-local speed = 128
+local speed = 200
 local bounce_before_delete = 3
 
 -- Start going away to the hero and bounce.
@@ -48,11 +48,7 @@ end)
 enemy:register_event("on_restarted", function(enemy)
 
   sprite:set_animation("walking")
-  enemy:set_invincible()
   enemy:set_damage(2)
   enemy:set_obstacle_behavior("flying")
-  enemy:set_pushed_back_when_hurt(false)
-  enemy:set_can_hurt_hero_running(true)
-  enemy:set_minimum_shield_needed(1)
   enemy:go()
 end)

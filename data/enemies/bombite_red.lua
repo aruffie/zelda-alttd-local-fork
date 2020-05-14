@@ -27,7 +27,7 @@ local walking_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
 local walking_speed = 32
 local walking_minimum_distance = 16
 local walking_maximum_distance = 96
-local propelled_speed = 200
+local propelled_speed = 300
 local propelled_duration = 2000
 
 -- Behavior on effective shot received.
