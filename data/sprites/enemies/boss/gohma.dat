@@ -35,6 +35,18 @@ animation{
   },
 }
 animation{
+  name = "immobilized",
+  src_image = "enemies/boss/gohma.png",
+  frame_delay = 150,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 80, frame_width = 76, frame_height = 40, origin_x = 38, origin_y = 37 },
+    { x = 0, y = 80, frame_width = 76, frame_height = 40, origin_x = 38, origin_y = 37 },
+    { x = 0, y = 80, frame_width = 76, frame_height = 40, origin_x = 38, origin_y = 37 },
+    { x = 0, y = 80, frame_width = 76, frame_height = 40, origin_x = 38, origin_y = 37 },
+  },
+}
+animation{
   name = "shaking",
   src_image = "enemies/boss/gohma.png",
   frame_delay = 80,
