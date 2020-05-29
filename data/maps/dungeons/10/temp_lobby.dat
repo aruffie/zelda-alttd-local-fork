@@ -336,7 +336,7 @@ teletransporter{
   y = 200,
   width = 16,
   height = 16,
-  destination_map = "out/a3_mabe_village",
+  destination_map = "out/a1_west_mt_tamaranch",
   destination = "temp_from_owl_temple",
 }
 
