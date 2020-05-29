@@ -111,7 +111,6 @@ end
 
 function travel_manager:launch_owl_step_1(map, from_id, to_id)
 
-  print("Travel launch_owl_step_1")
   local game = map:get_game()
   local hero = map:get_hero()
   local info = positions_info[from_id]
@@ -124,7 +123,6 @@ function travel_manager:launch_owl_step_1(map, from_id, to_id)
   local direction4 = transporter:get_direction4_to(hero)
   transporter:get_sprite():set_animation("walking")
   transporter:get_sprite():set_direction(direction4)
-  local x_transporter,y_transporter, layer_transporter = transporter:get_position()
   transporter:set_enabled(true)
   -- Owl slab
   local owl_slab = map:get_entity(info.slab_name)
@@ -138,11 +136,11 @@ function travel_manager:launch_owl_step_1(map, from_id, to_id)
     movement1:set_speed(150)
     movement1:set_ignore_obstacles(true)
     movement1:set_ignore_suspend(true)
-    movement1:set_target(x_hero, y_hero)
+    movement1:set_target(x_hero, y_hero - 16)
     movement(movement1, transporter)
     hero:set_enabled(false)
-    local hero_entity = map:create_custom_entity({
-      name = "hero",
+    local x_transporter, y_transporter, layer_transporter = transporter:get_position()
+    local flying_hero = map:create_custom_entity({
       sprite = "hero/tunic1",
       x = x_transporter,
       y = y_transporter + 16,
@@ -152,8 +150,12 @@ function travel_manager:launch_owl_step_1(map, from_id, to_id)
       direction = 0
     })
     -- Second step
-    hero_entity:get_sprite():set_animation("flying")
-    hero_entity:get_sprite():set_direction(3)
+    flying_hero:get_sprite():set_animation("flying")
+    flying_hero:get_sprite():set_direction(3)
+    if not game:get_value("travel_first_time") then
+      wait(1000)
+      dialog("scripts.meta.map.owl_travel_first_time_starts")
+    end
     local movement2 = sol.movement.create("straight")
     movement2:set_speed(100)
     movement2:set_angle(math.pi / 2)
@@ -161,9 +163,9 @@ function travel_manager:launch_owl_step_1(map, from_id, to_id)
     movement2:set_ignore_obstacles(true)
     movement2:set_ignore_suspend(true)
     function movement2:on_position_changed()
-      local x_transporter,y_transporter, layer_transporter = transporter:get_position()
+      local x_transporter, y_transporter, layer_transporter = transporter:get_position()
       y_transporter = y_transporter + 16
-      hero_entity:set_position(x_transporter, y_transporter, layer_transporter)
+      flying_hero:set_position(x_transporter, y_transporter, layer_transporter)
     end
     movement(movement2, transporter)
     -- Mode 7
@@ -177,7 +179,6 @@ end
 
 function travel_manager:launch_owl_step_2(map, from_id, to_id)
 
-  print("Travel launch_owl_step_2")
   local game = map:get_game()
   local hero = map:get_hero()
   local from_info = positions_info[from_id]
@@ -191,7 +192,6 @@ end
 
 function travel_manager:launch_step_3(map, from_id, to_id)
 
-  print("Travel launch_step_3")
   local game = map:get_game()
   local hero = map:get_hero()
   local to_info = positions_info[to_id]
@@ -209,8 +209,7 @@ function travel_manager:launch_step_3(map, from_id, to_id)
   transporter:set_position(x_hero, y_hero - 128)
   -- Owl slab
   local owl_slab = map:get_entity(to_info.slab_name)
-  local hero_entity = map:create_custom_entity({
-    name = "hero",
+  local flying_hero = map:create_custom_entity({
     sprite = "hero/tunic1",
     x = x_hero,
     y = y_transporter + 16,
@@ -219,8 +218,8 @@ function travel_manager:launch_step_3(map, from_id, to_id)
     layer = layer_transporter,
     direction = 0
   })
-  hero_entity:get_sprite():set_animation("flying")
-  hero_entity:get_sprite():set_direction(3)
+  flying_hero:get_sprite():set_animation("flying")
+  flying_hero:get_sprite():set_direction(3)
   local options = {
     entities_ignore_suspend = {hero, transporter, owl_slab}
   }
@@ -233,13 +232,18 @@ function travel_manager:launch_step_3(map, from_id, to_id)
     movement1:set_ignore_obstacles(true)
     movement1:set_ignore_suspend(true)
     function movement1:on_position_changed()
-      local x_transporter,y_transporter, layer_transporter = transporter:get_position()
+      local x_transporter, y_transporter, layer_transporter = transporter:get_position()
       y_transporter = y_transporter + 16
-      hero_entity:set_position(x_transporter, y_transporter, layer_transporter)
+      flying_hero:set_position(x_transporter, y_transporter, layer_transporter)
     end
     movement(movement1, transporter)
+    if not game:get_value("travel_first_time") then
+      wait(1000)
+      dialog("scripts.meta.map.owl_travel_first_time_done")
+      game:set_value("travel_first_time", true)
+    end
     hero:set_enabled(true)
-    hero_entity:remove()
+    flying_hero:remove()
     -- Second step
     local direction4 = transporter:get_direction4_to(x_transporter, y_transporter)
     transporter:get_sprite():set_animation("walking")
@@ -252,7 +256,7 @@ function travel_manager:launch_step_3(map, from_id, to_id)
     movement(movement2, transporter)
     transporter:set_enabled(false)
     map:set_cinematic_mode(false)
-  end)  
+  end, game)
 
 end
 

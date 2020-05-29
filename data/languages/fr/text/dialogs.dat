@@ -4425,13 +4425,6 @@ Allez, salut !
 }
 
 dialog{
-  id = "scripts.meta.map.owl_0",
-  text = [[
-Hou hou
-]],
-}
-
-dialog{
   id = "scripts.meta.map.owl_1",
   text = [[
 Hou hou ! Cette épée est donc à toi !
@@ -4584,6 +4577,26 @@ Hou ! Cela fait longtemps qu'on ne s'est rencontrés !
 Plonge dans la Baie de Martha et entre dans la gueule du Poisson-Chat.
 Plus tu es près du Poisson-Rêve, plus son sommeil est agité...    
 Tu es dans la bonne voie. Hou !
+]],
+}
+
+dialog{
+  id = "scripts.meta.map.owl_travel_first_time_done",
+  text = [[
+Hou ! Hou !
+Nous sommes arrivés à destination !
+J'espère que tu n'as pas eu le vertige.
+Au fait, sache qu'il existe d'autres dalles de voyage sur cette île !
+N'hésite pas à les utiliser. Mais c'est à toi de les trouver ! Hou !
+]],
+}
+
+dialog{
+  id = "scripts.meta.map.owl_travel_first_time_starts",
+  text = [[
+Hou ! Hou !
+Tu as découvert une dalle de voyage !
+Accroche-toi à mes pattes, jeune héros, et tiens-toi prêt pour le décollage !
 ]],
 }
 
