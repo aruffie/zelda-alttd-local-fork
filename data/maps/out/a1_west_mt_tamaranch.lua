@@ -57,3 +57,9 @@ function travel_sensor:on_activated()
   travel_manager:init(map, 2)
 
 end
+
+function travel_sensor_2:on_activated()
+
+  travel_manager:init(map, 5)
+
+end

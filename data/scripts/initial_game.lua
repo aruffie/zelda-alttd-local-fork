@@ -21,6 +21,7 @@ function initial_game:initialize_new_savegame(game)
   game:set_step_done("game_started")
   game:set_starting_location("houses/mabe_village/marin_house", "start_position")
   game:set_value("windfish_maze_boss_path_index", math.random(#maze_paths))
+  game:set_value("travel_5", true)  -- Travel location already unlocked.
  --game:set_starting_location("examples/test_map", "destination")
 end
 

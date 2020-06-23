@@ -17674,6 +17674,33 @@ tile{
   pattern = "261",
 }
 
+tile{
+  layer = 1,
+  x = 248,
+  y = 240,
+  width = 8,
+  height = 8,
+  pattern = "117",
+}
+
+tile{
+  layer = 1,
+  x = 256,
+  y = 248,
+  width = 8,
+  height = 8,
+  pattern = "117",
+}
+
+tile{
+  layer = 1,
+  x = 240,
+  y = 232,
+  width = 8,
+  height = 8,
+  pattern = "117",
+}
+
 custom_entity{
   name = "dungeon_3_entrance",
   layer = 1,
