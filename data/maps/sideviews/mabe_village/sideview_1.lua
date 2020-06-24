@@ -19,8 +19,10 @@ local ledger_sprite
 -- can be [rest, launching, falling, pulling]
 local state = "rest"
 
+-- fish currently bitting the fishing ledger
 local bitten_fish
 
+-- spawn a fish of some size at line y and in the area of the custom entity region
 local function make_fish(size, y, region)
   local left,top, width, height = region:get_bounding_box()
   local l = region:get_layer()
@@ -43,6 +45,7 @@ local function make_fish(size, y, region)
   mov:start(fish)
   local sprite = fish:get_sprite()
   
+  -- activate the random walk of the fish
   function fish:start_stroll()
     local sprite = self:get_sprite()
     local mov = self:get_movement()
@@ -94,17 +97,23 @@ local function make_fish(size, y, region)
     end)
   end
   
+  -- turn around when reaching obstacle
   function mov:on_obstacle_reached()
     mov:set_angle(mov:get_angle() + math.pi)
   end
   
+  
   fish:add_collision_test('sprite', function(this, other)
       if other == ledger_hook and fish.chasing then
+        --was chasing and reached ledger, bite !
         fish:cancel_timers()
         mov:set_speed(0)
         if bitten_fish then
+          -- previously bitting fish is released
           bitten_fish:start_stroll()
         end
+        
+        -- fix fish position to ledger position
         function ledger_hook:on_position_changed()
           local x,y = ledger_hook:get_position()
           fish:set_position(x-4,y+4)
@@ -123,7 +132,7 @@ local function make_fish(size, y, region)
   return fish
 end
 
-
+-- add the random fishes in the pool
 local function add_fishes()
   local line_count = 4
   
@@ -161,6 +170,7 @@ function map:on_started()
   add_fishes()
 end
 
+-- utility function to set a movement from a vector
 local function set_mov_vec(mov, x, y)
   local angle = math.atan2(-y, x)
   local speed = math.sqrt(x*x+y*y)
