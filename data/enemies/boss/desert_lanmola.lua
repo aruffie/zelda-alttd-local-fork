@@ -176,7 +176,7 @@ local function hurt(damage)
     return
   end
 
-  -- Manually hurt else to not trigger the built-in behavior.
+  -- Manually hurt else to not trigger the built-in behavior and its automatic restart.
   enemy:set_life(enemy:get_life() - damage)
   set_sprites_animation("hurt")
   sol.timer.start(enemy, 1000, function()
