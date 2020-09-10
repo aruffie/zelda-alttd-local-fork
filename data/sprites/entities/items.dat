@@ -224,6 +224,20 @@ animation{
   },
 }
 animation{
+  name = "fish_big",
+  src_image = "entities/animals/fishing_big_fish.png",
+  directions = {
+    { x = 24, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
+  },
+}
+animation{
+  name = "fish_small",
+  src_image = "entities/animals/fishing_small_fish.png",
+  directions = {
+    { x = 24, y = 32, frame_width = 24, frame_height = 16, origin_x = 12, origin_y = 13 },
+  },
+}
+animation{
   name = "flippers",
   src_image = "entities/items.png",
   directions = {

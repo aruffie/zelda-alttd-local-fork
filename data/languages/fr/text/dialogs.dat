@@ -3740,6 +3740,68 @@ ZZZ ZZZ ZZZ ZZZ
 }
 
 dialog{
+  id = "maps.sideviews.mabe_village.sideview_1.got_big_fish",
+  text = [[
+Il est énorme !
+En récompense, je t'offre 20 rubis.
+]],
+}
+
+dialog{
+  id = "maps.sideviews.mabe_village.sideview_1.got_big_fish_2",
+  question = "1",
+  text = [[
+Un autre essai ?
+    Oui
+    Non
+]],
+}
+
+dialog{
+  id = "maps.sideviews.mabe_village.sideview_1.got_big_fish_heart_piece",
+  text = [[
+C'est un gros ! Et en plus, il a un Fragment de Coeur !
+]],
+}
+
+dialog{
+  id = "maps.sideviews.mabe_village.sideview_1.got_big_fish_heart_piece_2",
+  question = "1",
+  text = [[
+Je t'offre aussi 20 rubis.
+Un autre essai ?
+    Oui
+    Non
+]],
+}
+
+dialog{
+  id = "maps.sideviews.mabe_village.sideview_1.got_small_fish",
+  text = [[
+Ce n'est que du fretin.
+Tu n'auras que 5 rubis.
+]],
+}
+
+dialog{
+  id = "maps.sideviews.mabe_village.sideview_1.got_small_fish_2",
+  question = "1",
+  text = [[
+Tu devrais encore essayer !
+    Oui
+    Non
+]],
+}
+
+dialog{
+  id = "maps.sideviews.mabe_village.sideview_1.leaving",
+  text = [[
+Vis ta vie !
+Sois un peu plus motivé !
+]],
+}
+
+dialog{
   id = "movies.introduction.marin_exclaming",
   text = [[
 ...
