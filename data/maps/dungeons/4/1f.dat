@@ -12658,26 +12658,6 @@ destructible{
   weight = 1,
 }
 
-block{
-  layer = 0,
-  x = 1336,
-  y = 109,
-  sprite = "entities/blocks/block",
-  pushable = true,
-  pullable = false,
-  maximum_moves = 1,
-}
-
-block{
-  layer = 0,
-  x = 1336,
-  y = 157,
-  sprite = "entities/blocks/block",
-  pushable = true,
-  pullable = false,
-  maximum_moves = 1,
-}
-
 wall{
   layer = 0,
   x = 1432,
@@ -12686,26 +12666,6 @@ wall{
   height = 80,
   stops_enemies = true,
   stops_blocks = true,
-}
-
-block{
-  layer = 0,
-  x = 1416,
-  y = 189,
-  sprite = "entities/blocks/block",
-  pushable = true,
-  pullable = false,
-  maximum_moves = 1,
-}
-
-block{
-  layer = 0,
-  x = 1464,
-  y = 189,
-  sprite = "entities/blocks/block",
-  pushable = true,
-  pullable = false,
-  maximum_moves = 1,
 }
 
 block{
@@ -13690,8 +13650,8 @@ custom_entity{
 destination{
   name = "teletransporter_destination_B",
   layer = 0,
-  x = 1120,
-  y = 1533,
+  x = 1528,
+  y = 157,
   direction = 1,
 }
 
@@ -14675,7 +14635,7 @@ custom_entity{
 }
 
 custom_entity{
-  name = "handle",
+  name = "pull_handle",
   layer = 0,
   x = 1528,
   y = 53,
@@ -14683,6 +14643,7 @@ custom_entity{
   height = 16,
   direction = 3,
   sprite = "entities/handle",
+  model = "pull_handle",
 }
 
 npc{
@@ -15007,6 +14968,82 @@ teletransporter{
   height = 16,
   destination_map = "out/c1_mambos_cave",
   destination = "dungeon_4_2_A",
+}
+
+custom_entity{
+  name = "placeholder_small_boss",
+  layer = 0,
+  x = 1440,
+  y = 317,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+custom_entity{
+  name = "block_1_1",
+  layer = 0,
+  x = 1336,
+  y = 109,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/blocks/block",
+  model = "obstacle",
+}
+
+sensor{
+  name = "sensor_14",
+  layer = 0,
+  x = 1440,
+  y = 245,
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_15",
+  layer = 0,
+  x = 1280,
+  y = 133,
+  width = 16,
+  height = 16,
+}
+
+custom_entity{
+  name = "block_1_2",
+  layer = 0,
+  x = 1336,
+  y = 157,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/blocks/block",
+  model = "obstacle",
+}
+
+custom_entity{
+  name = "block_1_3",
+  layer = 0,
+  x = 1416,
+  y = 189,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/blocks/block",
+  model = "obstacle",
+}
+
+custom_entity{
+  name = "block_1_4",
+  layer = 0,
+  x = 1464,
+  y = 189,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/blocks/block",
+  model = "obstacle",
 }
 
 tile{
