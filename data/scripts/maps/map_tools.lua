@@ -38,7 +38,7 @@ function map_tools.start_close_explosions(entity, duration, max_distance, callba
     explosion:register_event("on_removed", function(explosion)
       local elapsed_time = sol.main.get_elapsed_time() - main_time
       if elapsed_time < duration then
-        map_tools.start_chained_explosion_on_entity(entity, duration - elapsed_time, max_distance, callback)
+        map_tools.start_close_explosions(entity, duration - elapsed_time, max_distance, callback)
       else
         callback()
       end
