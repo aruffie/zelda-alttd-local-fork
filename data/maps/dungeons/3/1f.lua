@@ -8,13 +8,12 @@ require("scripts/multi_events")
 local audio_manager = require("scripts/audio_manager")
 local door_manager = require("scripts/maps/door_manager")
 local enemy_manager = require("scripts/maps/enemy_manager")
-local owl_manager = require("scripts/maps/owl_manager")
 local separator_manager = require("scripts/maps/separator_manager")
 local switch_manager = require("scripts/maps/switch_manager")
 local treasure_manager = require("scripts/maps/treasure_manager")
 
 -- Map events
-function map:on_started()
+map:register_event("on_started", function()
 
   -- Chests
   treasure_manager:appear_chest_if_savegame_exist(map, "chest_small_key_1",  "dungeon_3_small_key_1")
@@ -27,6 +26,7 @@ function map:on_started()
   map:set_doors_open("door_group_1", true)
   map:set_doors_open("door_group_2", true)
   map:set_doors_open("door_group_3_", true)
+  map:set_doors_open("door_group_4_", true)
   map:set_doors_open("door_group_5_", true)
   map:set_doors_open("door_group_6_", true)
   map:set_doors_open("door_group_small_boss", true)
@@ -41,8 +41,6 @@ function map:on_started()
   enemy_manager:create_teletransporter_if_small_boss_dead(map, false)
   -- Music
   game:play_dungeon_music()
-  -- Owls
-  owl_manager:init(map)
   -- Pickables
   treasure_manager:disappear_pickable(map, "pickable_small_key_4")
   treasure_manager:disappear_pickable(map, "pickable_small_key_5")
@@ -54,7 +52,7 @@ function map:on_started()
   -- Separators
   separator_manager:init(map)
 
-end
+end)
 
 function map:on_opening_transition_finished(destination)       
 
@@ -138,6 +136,36 @@ function sensor_7:on_activated()
 
 end
 
+function sensor_9:on_activated()
+
+  door_manager:close_if_enemies_not_dead(map, "enemy_group_9_", "door_group_4_")
+
+end
+
+function sensor_10:on_activated()
+
+  map:set_doors_open("door_group_4_", true)
+
+end
+
+function sensor_11:on_activated()
+
+  door_manager:close_if_enemies_not_dead(map, "enemy_group_9_", "door_group_4_")
+
+end
+
+function sensor_12:on_activated()
+
+  door_manager:close_if_enemies_not_dead(map, "enemy_group_9_", "door_group_4_")
+
+end
+
+function sensor_13:on_activated()
+
+  door_manager:close_if_enemies_not_dead(map, "enemy_group_9_", "door_group_4_")
+
+end
+
 sensor_8:register_event("on_activated", function()
 
   if is_small_boss_active == false then
@@ -147,6 +175,7 @@ sensor_8:register_event("on_activated", function()
 
 end)
 
+--[[
 -- Separators events
 separator_1:register_event("on_activating", function(separator, direction4)
     
@@ -166,3 +195,4 @@ separator_1:register_event("on_activating", function(separator, direction4)
   end
   
 end)
+--]]

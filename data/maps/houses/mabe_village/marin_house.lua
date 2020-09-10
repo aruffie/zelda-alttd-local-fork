@@ -29,21 +29,12 @@ function map:on_opening_transition_finished(destination)
 
 end
 
-map:register_event("on_finished", function()
-
-  if game:has_item("shield") == true and game:get_value("main_quest_step") == 2 then
-   -- Sword quest
-    game:set_value("main_quest_step", 3)
-  end
-
-end)
-
 -- Initialize the music of the map
 function map:init_music()
 
-  if game:get_value("main_quest_step") < 3  then
+  if not game:is_step_done("shield_obtained")  then
     audio_manager:play_music("06_marin_house")
-  elseif game:get_value("main_quest_step") == 3  then
+  elseif game:is_step_last("shield_obtained")  then
     audio_manager:play_music("07_koholint_island")
   else
     audio_manager:play_music("12_house")
@@ -68,39 +59,43 @@ function map:init_map_entities(destination)
     letter:set_enabled(false)
   end
   -- Marin
-  if game:get_value("main_quest_step") > 3  then
+  if game:is_step_done("sword_obtained") then
     marin:remove()
   else
     marin:get_sprite():set_animation("waiting")
     map:repeat_marin_direction_check()
   end
   -- Others entities
-  if game:get_value("main_quest_step") > 10 and variant < 4 then
+  if game:is_step_done("dungeon_2_completed") and variant < 4 then
     snores_tarin:remove()
+    tarin_npc:remove()
     bed_tarin:remove()
     tarin:get_sprite():set_animation("waiting")
     tarin:get_sprite():set_direction(3)
-  elseif game:get_value("main_quest_step") > 10  then
+  elseif game:is_step_done("dungeon_2_completed") then
     snores_tarin:remove()
+    tarin_npc:remove()
     bed_tarin:remove()
     bed:remove()
     tarin:remove()
     bananas:remove()
-  elseif game:get_value("main_quest_step") > 4 then
+  elseif game:is_step_done("tarin_saved") then
     local x,y,layer = placeholder_tarin_sleep:get_position()
     tarin:set_position(x,y,layer)
     tarin:get_sprite():set_animation("sleeping")
     bed:remove()
     bananas:remove()
-  elseif game:get_value("main_quest_step") > 3  then
+  elseif game:is_step_done("sword_obtained") then
     snores_tarin:remove()
     bed_tarin:remove()
     bed:remove()
     tarin:remove()
+    tarin_npc:remove()
     bananas:remove()
   else
     snores_tarin:remove()
     bed_tarin:remove()
+    tarin_npc:remove()
     tarin:get_sprite():set_animation("waiting")
     map:repeat_tarin_direction_check()
     bananas:remove()
@@ -140,9 +135,9 @@ end
 -- Discussion with Tarin
 function  map:talk_to_tarin() 
 
-  if game:get_value("main_quest_step") > 10 then
+  if game:is_step_done("dungeon_2_completed") then
     game:start_dialog("maps.houses.mabe_village.marin_house.tarin_5")
-  elseif game:get_value("main_quest_step") > 4 then
+  elseif game:is_step_done("tarin_saved") then
     game:start_dialog("maps.houses.mabe_village.marin_house.tarin_4")
   else
     if game:has_item("shield") == false then
@@ -150,7 +145,7 @@ function  map:talk_to_tarin()
       game:start_dialog("maps.houses.mabe_village.marin_house.tarin_1", game:get_player_name(), function()
         hero:start_treasure("shield", 1, "schield")
         game:set_item_assigned(1, item)
-        game:set_value("main_quest_step", 2)
+        game:set_step_done("shield_obtained")
       end)
     else
         game:start_dialog("maps.houses.mabe_village.marin_house.tarin_2", game:get_player_name())
@@ -227,7 +222,8 @@ function map:launch_cinematic_1()
     movement(movement_jump, hero)
     map:set_cinematic_mode(false, options)
     game:set_starting_location("houses/mabe_village/marin_house", "marin_house_1_B")
-    game:set_value("main_quest_step", 1)
+    game:set_step_done("hero_awakened")
+    
   end)
 
 end

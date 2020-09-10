@@ -1,6 +1,7 @@
 -- Variables
 local map = ...
 local game = map:get_game()
+local marin_song = false
 local next_sign = 1
 local directions = {
   0, 3, 2, 1, 0, 3, 0, 1, 2, 3, 0, 3, 2
@@ -27,12 +28,12 @@ end)
 -- Initialize the music of the map
 function map:init_music()
   
-  if game:get_value("main_quest_step") == 3  then
+  if game:is_step_last("shield_obtained") then
     audio_manager:play_music("07_koholint_island")
   else
     if marin_song then
       sol.audio.stop_music()
-      audio_manager:play_music("marin_on_beach")
+      audio_manager:play_music("42_marin_beach")
     else
       audio_manager:play_music("10_overworld")
     end
@@ -43,9 +44,18 @@ end
 -- Initializes Entities based on player's progress
 function map:init_map_entities()
   
+  -- Ground sand
+  for ground in map:get_entities('ground_sand') do
+    ground:set_visible(false)
+  end
   -- Marin
-  if game:get_value("main_quest_step") ~= 21  then
+  if not game:is_step_last("started_looking_for_marin") then
     marin:set_enabled(false)
+  end
+  -- Sensor music
+  if not game:is_step_last("started_looking_for_marin") then
+    music_sensor:set_enabled(false)
+    music_sensor_2:set_enabled(false)
   end
   -- Wart cave
   if game:get_value("wart_cave") == nil then
@@ -69,14 +79,6 @@ function map:init_shore()
   
 end  
 
-function map:on_opening_transition_finished(destination)
-
-  if destination ==  marin_destination then
-    marin:set_enabled(false)
-  end
-
-end
-
 -- Discussion with Marin
 function map:talk_to_marin() 
 
@@ -85,6 +87,7 @@ function map:talk_to_marin()
       hero:teleport("movies/link_and_marin")
     else
       game:start_dialog("maps.out.south_prairie.marin_2")
+      marin:get_sprite():set_direction(3)
     end
   end)
 
@@ -103,6 +106,18 @@ function marin:on_interaction()
   map:talk_to_marin()
 
 end
+
+-- Sensors events
+
+function sensor_1:on_activated()
+  
+  if game:get_value("ghost_quest_step") == "ghost_joined" then
+    game:set_value("ghost_quest_step", "ghost_saw_his_house")
+  end
+  
+end
+
+
 
 -- Signs and wart
 for sign in map:get_entities("sign_frog_") do
@@ -135,20 +150,12 @@ for sign in map:get_entities("sign_frog_") do
  end)
 end
 
--- Sensors events
-function marin_sensor:on_activated()
+-- Obtaining slim key
+function map:on_obtaining_treasure(treasure_item, treasure_variant, treasure_savegame_variable)
 
-  local hero = game:get_hero()
-  if game:get_value("main_quest_step") == 21 then
-    if hero:get_direction() == 1 then
-      marin_song = false
-      map:init_music()
-    else
-      marin_song = true
-      map:init_music()
-    end
+  if treasure_savegame_variable == "south_prairie_slim_key" then
+    game:set_step_done("dungeon_3_key_obtained")
   end
 
 end
-
 

@@ -12192,15 +12192,6 @@ tile{
 
 tile{
   layer = 1,
-  x = 912,
-  y = 640,
-  width = 16,
-  height = 96,
-  pattern = "974",
-}
-
-tile{
-  layer = 1,
   x = 896,
   y = 608,
   width = 16,
@@ -14323,47 +14314,29 @@ tile{
 
 tile{
   layer = 1,
-  x = 616,
-  y = 176,
-  width = 32,
-  height = 8,
-  pattern = "991",
-}
-
-tile{
-  layer = 1,
-  x = 624,
-  y = 184,
-  width = 16,
-  height = 24,
-  pattern = "992",
-}
-
-tile{
-  layer = 1,
-  x = 616,
-  y = 184,
-  width = 8,
-  height = 24,
-  pattern = "989",
-}
-
-tile{
-  layer = 1,
-  x = 640,
-  y = 184,
-  width = 8,
-  height = 24,
-  pattern = "990",
-}
-
-tile{
-  layer = 1,
   x = 368,
   y = 64,
   width = 32,
   height = 16,
   pattern = "1037",
+}
+
+tile{
+  layer = 1,
+  x = 920,
+  y = 640,
+  width = 8,
+  height = 96,
+  pattern = "1340",
+}
+
+tile{
+  layer = 1,
+  x = 912,
+  y = 640,
+  width = 16,
+  height = 96,
+  pattern = "974",
 }
 
 custom_entity{
@@ -14626,6 +14599,12 @@ enemy{
   layer = 1,
   x = 572,
   y = 509,
+  properties = {
+    {
+      key = "is_bowwow_friend",
+      value = "true",
+    },
+  },
   direction = 3,
   breed = "chicken",
 }
@@ -14635,6 +14614,12 @@ enemy{
   layer = 1,
   x = 684,
   y = 589,
+  properties = {
+    {
+      key = "is_bowwow_friend",
+      value = "true",
+    },
+  },
   direction = 3,
   breed = "chicken",
 }
@@ -14643,6 +14628,12 @@ enemy{
   layer = 1,
   x = 804,
   y = 381,
+  properties = {
+    {
+      key = "is_bowwow_friend",
+      value = "true",
+    },
+  },
   direction = 3,
   breed = "chicken",
 }
@@ -18994,6 +18985,12 @@ enemy{
   layer = 1,
   x = 348,
   y = 605,
+  properties = {
+    {
+      key = "is_bowwow_friend",
+      value = "true",
+    },
+  },
   direction = 3,
   breed = "chicken",
 }
@@ -21597,6 +21594,12 @@ enemy{
   layer = 1,
   x = 408,
   y = 277,
+  properties = {
+    {
+      key = "is_bowwow_friend",
+      value = "true",
+    },
+  },
   direction = 3,
   breed = "chicken",
 }
@@ -21933,31 +21936,6 @@ teletransporter{
   height = 16,
   destination_map = "houses/mabe_village/dream_shine_upper_level",
   destination = "dream_shine_1_B",
-}
-
-teletransporter{
-  name = "temp_owl_temple",
-  layer = 1,
-  x = 624,
-  y = 192,
-  properties = {
-    {
-      key = "effect",
-      value = "radial_fade_out",
-    },
-  },
-  width = 16,
-  height = 16,
-  destination_map = "dungeons/10/temp_lobby",
-  destination = "from_outside",
-}
-
-destination{
-  name = "temp_from_owl_temple",
-  layer = 1,
-  x = 632,
-  y = 221,
-  direction = 3,
 }
 
 custom_entity{

@@ -104,7 +104,7 @@ powder:add_collision_test(bush_collision_test, function(powder, entity)
     bush:remove()
 
     local bush_destroyed_sprite = powder:create_sprite(bush_sprite_id)
-    local x, y = powder :get_position()
+    local x, y = powder:get_position()
     bush_destroyed_sprite:set_xy(bush_x - x, bush_y - y)
     bush_destroyed_sprite:set_animation("destroy")
   end
@@ -113,20 +113,6 @@ end)
 -- Hurt enemies.
 powder:add_collision_test("sprite", function(powder, entity)
 
-  if entity:get_type() == "enemy" then
-    local enemy = entity
-    if enemies_touched[enemy] then
-      -- If protected we don't want to play the sound repeatedly.
-      return
-    end
-    enemies_touched[enemy] = true
-    local reaction = enemy:get_magic_powder_reaction(enemy_sprite)
-    enemy:receive_attack_consequence("magic_powder", reaction)
-
-    sol.timer.start(powder, 200, function()
-      powder:remove()
-    end)
-  end
   if entity:get_type() == "enemy" then
     local enemy = entity
     if enemies_touched[enemy] then

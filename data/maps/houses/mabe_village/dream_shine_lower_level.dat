@@ -210,15 +210,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 48,
-  y = 432,
-  width = 544,
-  height = 8,
-  pattern = "wall_border.2-6",
-}
-
-tile{
-  layer = 0,
   x = 64,
   y = 72,
   width = 8,
@@ -258,7 +249,7 @@ tile{
   x = 568,
   y = 72,
   width = 8,
-  height = 320,
+  height = 336,
   pattern = "wall_border.3-6",
 }
 
@@ -539,6 +530,15 @@ tile{
   width = 8,
   height = 32,
   pattern = "barrier.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 48,
+  y = 432,
+  width = 544,
+  height = 8,
+  pattern = "wall_border.2-6",
 }
 
 custom_entity{
@@ -1799,6 +1799,7 @@ chest{
   x = 256,
   y = 189,
   treasure_name = "ocarina",
+  treasure_savegame_variable = "dream_shrine_ocarina",
   sprite = "entities/chests/chest_big",
 }
 
@@ -1806,6 +1807,9 @@ chest{
   layer = 2,
   x = 384,
   y = 189,
+  treasure_name = "rupee",
+  treasure_variant = 5,
+  treasure_savegame_variable = "dream_shrine_rupee_1",
   sprite = "entities/chests/chest_small",
 }
 

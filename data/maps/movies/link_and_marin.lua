@@ -26,10 +26,13 @@ local fade_x = 0
 local fade_y = 0
 local black_surface = nil
 local end_text = nil
+local scroll_finished = false
 
 -- Event called at initialization time, as soon as this map becomes is loaded.
-function map:on_started()
+map:register_event("on_started", function(map, destination)
 
+  -- Music
+  map:init_music()
   -- Camera
    local camera = map:get_camera()
    camera:start_manual()
@@ -59,6 +62,14 @@ function map:on_started()
         swell_entity:get_sprite():set_ignore_suspend(true)
     end
   end
+  
+end)
+
+-- Initialize the music of the map
+function map:init_music()
+  
+  audio_manager:play_music("43_on_the_beach_with_marin")
+
 end
 
 -- Event called after the opening transition effect of the map,
@@ -70,8 +81,37 @@ function map:on_opening_transition_finished()
   hero:set_visible(true)
   hero:freeze()
 
+  -- Launch seagulls
+  sol.timer.start(seagull_1, 200, function()
+    audio_manager:play_sound("misc/seagull")
+    seagull_1:get_sprite():set_animation("walking")
+    local movement_seagull_1 = sol.movement.create("target")
+    movement_seagull_1:set_speed(100)
+    movement_seagull_1:set_ignore_obstacles(true)
+    movement_seagull_1:set_target(seagull_1_destination)
+    movement_seagull_1:start(seagull_1)
+  end)
+  sol.timer.start(seagull_2, 1000, function()
+    audio_manager:play_sound("misc/seagull")
+    seagull_2:get_sprite():set_animation("walking")
+    local movement_seagull_2 = sol.movement.create("target")
+    movement_seagull_2:set_speed(100)
+    movement_seagull_2:set_ignore_obstacles(true)
+    movement_seagull_2:set_target(seagull_2_destination)
+    movement_seagull_2:start(seagull_2)
+  end)
+  sol.timer.start(seagull_3, 8000, function()
+    audio_manager:play_sound("misc/seagull")
+    seagull_3:get_sprite():set_animation("walking")
+    local movement_seagull_3 = sol.movement.create("target")
+    movement_seagull_3:set_speed(100)
+    movement_seagull_3:set_ignore_obstacles(true)
+    movement_seagull_3:set_target(seagull_3_destination)
+    movement_seagull_3:start(seagull_3)
+  end)
   -- Launch cinematic.
   map:start_cinematic()
+  
 end
 
 -- Draw sunset then black stripes.
@@ -94,76 +134,38 @@ function map:on_draw(dst_surface)
   end
 end
 
--- Final cinematic.
+-- Cinematic.
 function map:start_cinematic()
 
-   local camera = map:get_camera()
-   local movement = sol.movement.create("straight")
-   movement:set_speed(20)
-   movement:set_angle(3 * math.pi / 2)
-   movement:set_max_distance(256)
-   movement:set_ignore_obstacles(true)
-   movement:start(camera, function()
-    map:start_dialog()
-   end)
-  sol.timer.start(seagull_1, 200, function()
-     audio_manager:play_sound("misc/seagull")
-     seagull_1:get_sprite():set_animation("walking")
-     local movement_seagull_1 = sol.movement.create("target")
-     movement_seagull_1:set_speed(100)
-     movement_seagull_1:set_ignore_obstacles(true)
-     movement_seagull_1:set_target(seagull_1_destination)
-     movement_seagull_1:start(seagull_1)
-  end)
-  sol.timer.start(seagull_2, 1000, function()
-     audio_manager:play_sound("misc/seagull")
-     seagull_2:get_sprite():set_animation("walking")
-     local movement_seagull_2 = sol.movement.create("target")
-     movement_seagull_2:set_speed(100)
-     movement_seagull_2:set_ignore_obstacles(true)
-     movement_seagull_2:set_target(seagull_2_destination)
-     movement_seagull_2:start(seagull_2)
-  end)
-
-  sol.timer.start(seagull_3, 8000, function()
-     audio_manager:play_sound("misc/seagull")
-     seagull_3:get_sprite():set_animation("walking")
-     local movement_seagull_3 = sol.movement.create("target")
-     movement_seagull_3:set_speed(100)
-     movement_seagull_3:set_ignore_obstacles(true)
-     movement_seagull_3:set_target(seagull_3_destination)
-     movement_seagull_3:start(seagull_3)
-  end)
-
-
-end
-
-
-function map:start_dialog()
-
-  game:start_dialog("movies.link_and_marin.marin_1", function()
-    sol.timer.start(marin, 1000, function()
-      game:start_dialog("movies.link_and_marin.marin_2", function()
-        sol.timer.start(marin, 1000, function()
-          game:start_dialog("movies.link_and_marin.marin_3", function(answer)
-            if answer == 1 then
-              game:start_dialog("movies.link_and_marin.marin_4", function()
-                game:start_dialog("movies.link_and_marin.marin_5", function()
-                  game:set_value("main_quest_step", 23) 
-                  game:set_hud_enabled(true)
-                  game:set_pause_allowed(true)
-                  hero:teleport("out/b4_south_prairie", "marin_destination")
-                end)
-              end)
-            else
-              game:start_dialog("movies.link_and_marin.marin_6", function()
-                map:start_dialog()
-              end)
-            end
-          end)
-        end)
-      end)
-    end)
+  map:start_coroutine(function()
+    local options = {
+      entities_ignore_suspend = {hero, marin, seagull_1, seagull_2, seagull_3}
+    }
+    map:set_cinematic_mode(true, options)
+    if not scroll_finished then
+      local camera = map:get_camera()
+      local movement1 = sol.movement.create("straight")
+      movement1:set_speed(20)
+      movement1:set_angle(3 * math.pi / 2)
+      movement1:set_max_distance(256)
+      movement1:set_ignore_obstacles(true)
+      movement(movement1, camera)
+      scroll_finished = true
+    end
+    dialog("movies.link_and_marin.marin_1")
+    wait(1000)
+    dialog("movies.link_and_marin.marin_2")
+    wait(1000)
+    if dialog("movies.link_and_marin.marin_3") == 1 then
+      dialog("movies.link_and_marin.marin_4")
+      dialog("movies.link_and_marin.marin_5")
+      game:set_step_done("marin_joined")
+      map:set_cinematic_mode(false)
+      hero:teleport("out/b4_south_prairie", "marin_destination")
+    else
+      dialog("movies.link_and_marin.marin_6")
+      map:start_cinematic()
+    end
   end)
 
 end

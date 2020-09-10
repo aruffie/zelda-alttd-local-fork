@@ -9,8 +9,7 @@ return {
       if map:get_game():is_in_dungeon() then
         return false
       end
-      local step = map:get_game():get_value("main_quest_step")
-      return step == 23
+      return map:get_game():is_step_last("marin_joined")
     end
   },
   bowwow = {
@@ -25,8 +24,7 @@ return {
       if map:get_game():is_in_dungeon() then
         return false
       end
-      local step = map:get_game():get_value("main_quest_step")
-      return step >= 10 and step < 12
+      return map:get_game():is_step_last("bowwow_joined") or map:get_game():is_step_last("dungeon_2_completed")
     end,
     repeated_behavior_delay = 2000,
     repeated_behavior = function(companion)
@@ -61,12 +59,14 @@ return {
         movement_1:start(companion)
         function movement_1:on_position_changed()
           if companion:get_distance(hero) > distance + 16 then
-            companion:set_state("stopped")
+             companion:set_state("stopped")
             companion:get_sprite():set_animation("stopped")
           end
         end
         function movement_1:on_finished()
-          enemy:set_life(0)
+          enemy:set_pushed_back_when_hurt(false)
+          enemy:set_visible(false)
+          enemy:hurt(enemy:get_life())
           audio_manager:play_sound("enemies/enemy_die")
           companion:set_state("stopped")
           companion:get_sprite():set_animation("stopped")
@@ -75,23 +75,21 @@ return {
     end
   },
   ghost = {
-    sprite = "npc/ghost",
+    sprite = "npc/villagers/ghost",
     activation_condition = function(map)
-      local excluded_maps = {
-        ["houses/meow_house"] = true
-      }
-      if excluded_maps[map:get_id()] then
-        return false
-      end
       if map:get_game():is_in_dungeon() then
         return false
       end
-      return false
+      return map:get_game():get_value("ghost_quest_step") == "ghost_joined"
+        or map:get_game():get_value("ghost_quest_step") == "ghost_saw_his_house"
+        or map:get_game():get_value("ghost_quest_step") == "ghost_house_visited"
+        
     end,
     repeated_behavior_delay = 5000,
     repeated_behavior = function(companion)
-      -- Todo play ghost sound
+      audio_manager:play_sound("misc/ghost")
     end
+    
   },
   flying_rooster = {
     sprite = "npc/flying_rooster"

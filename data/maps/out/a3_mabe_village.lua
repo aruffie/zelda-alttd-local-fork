@@ -21,13 +21,13 @@ map:register_event("on_started", function(map, destination)
   local item = game:get_item("magnifying_lens")
   local variant_lens = item:get_variant()
   -- Marin
-  if game:get_value("main_quest_step") < 4 or game:get_value("main_quest_step") > 20  then
+  if not game:is_step_done("sword_obtained") or game:is_step_done("started_looking_for_marin") then
     marin:set_enabled(false)
   else
     marin:get_sprite():set_animation("waiting")
   end
   -- Kid 5
-  if game:get_value("main_quest_step") ~= 21  then
+  if not game:is_step_last("started_looking_for_marin")  then
     kid_5:set_enabled(false)
   end  
   -- Grand ma
@@ -37,7 +37,7 @@ map:register_event("on_started", function(map, destination)
     grand_ma:get_sprite():set_animation("walking")
   end
    -- Kids
-  if map:get_game():get_value("main_quest_step") ~= 8 and map:get_game():get_value("main_quest_step") ~= 9 then
+  if not game:is_step_last("dungeon_1_completed") and not game:is_step_last("bowwow_dognapped") then
     map:create_ball(kid_1, kid_2)
     map:play_ball(kid_1, kid_2)
   else
@@ -55,7 +55,7 @@ map:register_event("on_started", function(map, destination)
     end)
   end
   -- Kids scared
-  if map:get_game():get_value("main_quest_step") == 8 or map:get_game():get_value("main_quest_step") == 9 then
+  if game:is_step_last("dungeon_1_completed") or game:is_step_last("bowwow_dognapped") then
     sol.timer.start(map, 500, function()
       map:init_music()
       return true
@@ -74,7 +74,7 @@ function map:on_opening_transition_finished(destination)
   
   -- Kids scared
   local x_hero, y_hero = hero:get_position()
-  if map:get_game():get_value("main_quest_step") == 8 or map:get_game():get_value("main_quest_step") == 9 then
+  if game:is_step_last("dungeon_1_completed") or game:is_step_last("bowwow_dognapped") then
     map:init_music()
     if destination == library_2_A then
       if not hero_is_alerted then
@@ -97,9 +97,9 @@ function map:init_music()
   if marin ~= nil and marin:is_sing() then
     return
   end
-  if game:get_value("main_quest_step") == 3  then
+  if game:is_step_last("shield_obtained") then
     audio_manager:play_music("07_koholint_island")
-  elseif map:get_game():get_value("main_quest_step") == 8 and hero:get_distance(kids_alert_position_center) < 160 or map:get_game():get_value("main_quest_step") == 9 and hero:get_distance(kids_alert_position_center) < 160 then
+  elseif game:is_step_last("dungeon_1_completed") and hero:get_distance(kids_alert_position_center) < 160 or game:is_step_last("bowwow_dognapped") and hero:get_distance(kids_alert_position_center) < 160 then
     audio_manager:play_music("26_bowwow_dognapped")
   else
     audio_manager:play_music("11_mabe_village")
@@ -111,7 +111,7 @@ end
 function map:init_map_entities()
  
   -- Bowwow
-  if game:get_value("main_quest_step") > 7 and game:get_value("main_quest_step") < 12  then
+  if game:is_step_done("dungeon_1_completed") and not game:is_step_done("bowwow_returned")  then
     bowwow:set_enabled(false)
   end
 
@@ -131,7 +131,7 @@ function map:create_ball(player_1, player_2)
     width = 16,
     height = 24,
     direction = 0,
-    layer = 1 ,
+    layer = layer_1 + 1 ,
     sprite = "entities/misc/ball"
   }
   ball_shadow = map:create_custom_entity{
@@ -141,7 +141,7 @@ function map:create_ball(player_1, player_2)
     width = 16,
     height = 24,
     direction = 0,
-    layer = 0,
+    layer = layer_1,
     sprite = "entities/shadows/ball"
   }
   
@@ -213,19 +213,19 @@ function map:talk_to_marin()
   local item_melody_1 = game:get_item("melody_1")
   local variant_ocarina = item_ocarina:get_variant()
   local variant_melody_1 = item_melody_1:get_variant()
-  if game:get_value("main_quest_step") <= 4 then
+  if not game:is_step_done("tarin_saved") then
     game:start_dialog("maps.out.mabe_village.marin_1", game:get_player_name(), function()
       marin:sing_start()
     end)
-  elseif game:get_value("main_quest_step") < 11 then
+  elseif not game:is_step_done("dungeon_2_completed") then
     game:start_dialog("maps.out.mabe_village.marin_2", game:get_player_name(), function()
       marin:sing_start()
     end)
   elseif variant_ocarina == 1 and variant_melody_1 == 0 then
     game:start_dialog("maps.out.mabe_village.marin_4", function()
-      marin:launch_cinematic_marin_singing_with_hero()
+      marin:launch_cinematic_marin_singing_with_hero(map)
     end)
-  elseif game:get_value("main_quest_step") > 18 then
+  elseif game:is_step_done("dungeon_3_completed") then
     game:start_dialog("maps.out.mabe_village.marin_8")
   else
     game:start_dialog("maps.out.mabe_village.marin_3", game:get_player_name(), function()
@@ -278,7 +278,7 @@ function  map:talk_to_grand_ma()
     end)
   elseif variant_lens > 10 then
     game:start_dialog("maps.out.mabe_village.grand_ma_6")
-  elseif map:get_game():get_value("main_quest_step") ~= 8 and map:get_game():get_value("main_quest_step") ~= 9 then
+  elseif not game:is_step_last("dungeon_1_completed") and not game:is_step_last("bowwow_dognapped") then  
     game:start_dialog("maps.out.mabe_village.grand_ma_1", function()
       grand_ma:get_sprite():set_direction(3)
     end)
@@ -380,7 +380,7 @@ end
 
 function kid_1:on_interaction()
 
-  if map:get_game():get_value("main_quest_step") == 9 then
+  if game:is_step_last("bowwow_dognapped") then
     game:start_dialog("maps.out.mabe_village.kids_alert_moblins")
   else
     map:talk_to_kids()
@@ -390,7 +390,7 @@ end
 
 function kid_2:on_interaction()
 
-  if map:get_game():get_value("main_quest_step") == 9 then
+  if game:is_step_last("bowwow_dognapped") then
     game:start_dialog("maps.out.mabe_village.kids_alert_moblins")
   else
     map:talk_to_kids()
@@ -452,7 +452,7 @@ function map:launch_cinematic_1(destination)
     dialog("maps.out.mabe_village.kids_alert_moblins")
     hero:set_animation("scared")
     wait(1000)
-    self:get_game():set_value("main_quest_step", 9)
+    game:set_step_done("bowwow_dognapped")
     map:set_cinematic_mode(false)
   end)
 

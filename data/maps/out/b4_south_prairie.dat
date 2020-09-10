@@ -14570,7 +14570,6 @@ tile{
   layer = 1,
   x = 272,
   y = 688,
-  enabled_at_start = false,
   width = 48,
   height = 8,
   pattern = "138_3",
@@ -15037,6 +15036,7 @@ pickable{
   x = 696,
   y = 61,
   treasure_name = "slim_key",
+  treasure_savegame_variable = "south_prairie_slim_key",
 }
 
 destructible{
@@ -15417,8 +15417,8 @@ teletransporter{
 
 destructible{
   layer = 1,
-  x = 696,
-  y = 61,
+  x = 688,
+  y = 21,
   sprite = "entities/destructibles/bush",
   destruction_sound = "bush",
   weight = 1,
@@ -15494,10 +15494,19 @@ npc{
   layer = 1,
   x = 696,
   y = 45,
+  properties = {
+    {
+      key = "model",
+      value = "statue_owl_outside",
+    },
+    {
+      key = "dialog",
+      value = "maps.out.south_prairie.owl_statue_1",
+    },
+  },
   direction = 3,
   subtype = 1,
   sprite = "npc/statues/owl",
-  behavior = "dialog#maps.out.south_prairie.owl_statue_1",
 }
 
 destructible{
@@ -20425,15 +20434,6 @@ npc{
   sprite = "npc/villagers/marin",
 }
 
-sensor{
-  name = "marin_sensor",
-  layer = 1,
-  x = 328,
-  y = 621,
-  width = 128,
-  height = 16,
-}
-
 destination{
   name = "marin_destination",
   layer = 1,
@@ -20627,6 +20627,317 @@ wall{
   stops_enemies = true,
   stops_blocks = true,
   stops_projectiles = true,
+}
+
+dynamic_tile{
+  name = "ground_sand",
+  layer = 1,
+  x = 264,
+  y = 568,
+  properties = {
+    {
+      key = "custom_ground",
+      value = "sand",
+    },
+  },
+  width = 192,
+  height = 136,
+  pattern = "10215",
+  tileset = "out/outside_special",
+}
+
+dynamic_tile{
+  name = "ground_sand_2",
+  layer = 1,
+  x = 288,
+  y = 704,
+  properties = {
+    {
+      key = "custom_ground",
+      value = "sand",
+    },
+  },
+  width = 128,
+  height = 16,
+  pattern = "10215",
+  tileset = "out/outside_special",
+}
+
+dynamic_tile{
+  name = "ground_sand_3",
+  layer = 1,
+  x = 280,
+  y = 704,
+  properties = {
+    {
+      key = "custom_ground",
+      value = "sand",
+    },
+  },
+  width = 8,
+  height = 8,
+  pattern = "10215",
+  tileset = "out/outside_special",
+}
+
+dynamic_tile{
+  name = "ground_sand_4",
+  layer = 1,
+  x = 416,
+  y = 704,
+  properties = {
+    {
+      key = "custom_ground",
+      value = "sand",
+    },
+  },
+  width = 8,
+  height = 8,
+  pattern = "10215",
+  tileset = "out/outside_special",
+}
+
+dynamic_tile{
+  name = "ground_sand_5",
+  layer = 1,
+  x = 0,
+  y = 608,
+  properties = {
+    {
+      key = "custom_ground",
+      value = "sand",
+    },
+  },
+  width = 200,
+  height = 96,
+  pattern = "10215",
+  tileset = "out/outside_special",
+}
+
+dynamic_tile{
+  name = "ground_sand_6",
+  layer = 1,
+  x = 0,
+  y = 704,
+  properties = {
+    {
+      key = "custom_ground",
+      value = "sand",
+    },
+  },
+  width = 176,
+  height = 16,
+  pattern = "10215",
+  tileset = "out/outside_special",
+}
+
+dynamic_tile{
+  name = "ground_sand_7",
+  layer = 1,
+  x = 176,
+  y = 704,
+  properties = {
+    {
+      key = "custom_ground",
+      value = "sand",
+    },
+  },
+  width = 8,
+  height = 8,
+  pattern = "10215",
+  tileset = "out/outside_special",
+}
+
+dynamic_tile{
+  name = "ground_sand_8",
+  layer = 1,
+  x = 72,
+  y = 560,
+  properties = {
+    {
+      key = "custom_ground",
+      value = "sand",
+    },
+  },
+  width = 128,
+  height = 48,
+  pattern = "10215",
+  tileset = "out/outside_special",
+}
+
+dynamic_tile{
+  name = "ground_sand_9",
+  layer = 1,
+  x = 88,
+  y = 408,
+  properties = {
+    {
+      key = "custom_ground",
+      value = "sand",
+    },
+  },
+  width = 112,
+  height = 152,
+  pattern = "10215",
+  tileset = "out/outside_special",
+}
+
+dynamic_tile{
+  name = "ground_sand_10",
+  layer = 1,
+  x = 80,
+  y = 464,
+  properties = {
+    {
+      key = "custom_ground",
+      value = "sand",
+    },
+  },
+  width = 8,
+  height = 56,
+  pattern = "10215",
+  tileset = "out/outside_special",
+}
+
+dynamic_tile{
+  name = "ground_sand_11",
+  layer = 1,
+  x = 200,
+  y = 408,
+  properties = {
+    {
+      key = "custom_ground",
+      value = "sand",
+    },
+  },
+  width = 192,
+  height = 136,
+  pattern = "10215",
+  tileset = "out/outside_special",
+}
+
+dynamic_tile{
+  name = "ground_sand_12",
+  layer = 1,
+  x = 328,
+  y = 544,
+  properties = {
+    {
+      key = "custom_ground",
+      value = "sand",
+    },
+  },
+  width = 64,
+  height = 24,
+  pattern = "10215",
+  tileset = "out/outside_special",
+}
+
+dynamic_tile{
+  name = "ground_sand_13",
+  layer = 1,
+  x = 392,
+  y = 448,
+  properties = {
+    {
+      key = "custom_ground",
+      value = "sand",
+    },
+  },
+  width = 8,
+  height = 72,
+  pattern = "10215",
+  tileset = "out/outside_special",
+}
+
+dynamic_tile{
+  name = "ground_sand_14",
+  layer = 1,
+  x = 400,
+  y = 456,
+  properties = {
+    {
+      key = "custom_ground",
+      value = "sand",
+    },
+  },
+  width = 16,
+  height = 56,
+  pattern = "10215",
+  tileset = "out/outside_special",
+}
+
+dynamic_tile{
+  name = "ground_sand_15",
+  layer = 1,
+  x = 416,
+  y = 472,
+  properties = {
+    {
+      key = "custom_ground",
+      value = "sand",
+    },
+  },
+  width = 8,
+  height = 16,
+  pattern = "10215",
+  tileset = "out/outside_special",
+}
+
+dynamic_tile{
+  name = "ground_sand_16",
+  layer = 1,
+  x = 400,
+  y = 512,
+  properties = {
+    {
+      key = "custom_ground",
+      value = "sand",
+    },
+  },
+  width = 8,
+  height = 8,
+  pattern = "10215",
+  tileset = "out/outside_special",
+}
+
+sensor{
+  name = "music_sensor",
+  layer = 1,
+  x = 328,
+  y = 629,
+  properties = {
+    {
+      key = "music",
+      value = "42_marin_beach",
+    },
+  },
+  width = 128,
+  height = 16,
+}
+
+sensor{
+  name = "music_sensor_2",
+  layer = 1,
+  x = 328,
+  y = 613,
+  properties = {
+    {
+      key = "music",
+      value = "10_overworld",
+    },
+  },
+  width = 128,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_1",
+  layer = 1,
+  x = 672,
+  y = 733,
+  width = 16,
+  height = 48,
 }
 
 tile{

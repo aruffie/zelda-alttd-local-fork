@@ -31,7 +31,8 @@ function weapons.learn(enemy)
     reference_sprite = reference_sprite or enemy:get_sprite()
 
     -- Create the welded custom entity.
-    sword = map:create_custom_entity({
+    local weapon = map:create_custom_entity({
+      name = (enemy:get_name() or enemy:get_breed()) .. "_weapon",
       direction = enemy:get_sprite():get_direction(),
       x = enemy_x,
       y = enemy_y,
@@ -40,39 +41,42 @@ function weapons.learn(enemy)
       height = 16,
       sprite = sprite_name or "enemies/" .. enemy:get_breed() .. "/sword"
     })
-    enemy:start_welding(sword, x_offset, y_offset)
+    enemy:start_welding(weapon, x_offset, y_offset)
+
+    -- Make weapon disappear when the enemy became invisible on dying.
+    enemy:register_event("on_dying", function(enemy)
+      sol.timer.start(weapon, 300, function() -- No event when the enemy became invisible, hardcode a timer.
+        weapon:remove()
+      end)
+    end)
     
     -- Synchronize sprites animation and direction.
-    local sword_sprite = sword:get_sprite()
-    sword_sprite:synchronize(reference_sprite)
+    local weapon_sprite = weapon:get_sprite()
+    weapon_sprite:synchronize(reference_sprite)
     reference_sprite:register_event("on_direction_changed", function(reference_sprite)
-      sword_sprite:set_direction(reference_sprite:get_direction())
+      weapon_sprite:set_direction(reference_sprite:get_direction())
     end)
     reference_sprite:register_event("on_animation_changed", function(reference_sprite, name)
-      if sword_sprite:has_animation(name) then
-        sword_sprite:set_animation(name)
+      if weapon_sprite:has_animation(name) then
+        weapon_sprite:set_animation(name)
       end
     end)
 
     -- Hurt hero on collision with any sprite but the hero sword, else slightly move the hero back.
     local is_pushed_back = false
-    sword:add_collision_test("sprite", function(sword, entity, sword_sprite, entity_sprite)
+    weapon:add_collision_test("sprite", function(weapon, entity, weapon_sprite, entity_sprite)
       if entity == hero  and not enemy:is_immobilized() then
         if entity_sprite ~= hero:get_sprite("sword") then
-          if not hero:is_blinking() then
+          if not hero:is_blinking() and not hero:is_invincible() then
             hero:start_hurt(enemy, enemy:get_damage())
           end
         else
           if not is_pushed_back then
             is_pushed_back = true
-            local x, y, _ = enemy:get_position()
-            local hero_x, hero_y, _ = hero:get_position()
             enemy:set_invincible()
-            enemy:start_pushing_back(hero, 100, 150)
-            enemy:start_pushed_back(hero, 100, 150, function()
+            enemy:start_shock(hero, 100, 150, function()
               enemy:restart()
             end)
-            enemy:start_brief_effect("entities/effects/impact_projectile", "default", (hero_x - x) / 2, (hero_y - y) / 2)
           end
         end
       end
@@ -81,7 +85,7 @@ function weapons.learn(enemy)
       is_pushed_back = false
     end)
 
-    return sword
+    return weapon
   end
 
   -- Throw a projectile when throwing animation finished or duration reached.
@@ -102,6 +106,7 @@ function weapons.learn(enemy)
           layer = layer,
           direction = direction
         })
+
         local projectile_sprite = projectile:get_sprite()
         projectile_sprite:set_direction(direction)
         if on_throwed_callback then

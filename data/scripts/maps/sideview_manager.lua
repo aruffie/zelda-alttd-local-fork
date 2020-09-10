@@ -21,13 +21,6 @@ local walking_speed = 88
 local swimming_speed = 66
 local gravity = 0.2
 local max_vspeed = 2
-local __debug=false
-
-local function debug_print(...)
-  if __debug then
-    print(...)
-  end
-end
 
 --[[
   Returns whether the ground at given XY coordinates is a ladder.
@@ -63,14 +56,14 @@ end
   Sets the vertical speed on the entity, in pixels/frame.
   Parameter: vspeed, the new vertical speed.
 --]]
-function map_meta.set_vertical_speed(entity, vspeed)
+function map_meta.set_vspeed(entity, vspeed)
   entity.vspeed = vspeed
 end
 
 --[[
   Returns whether the current vertical speed of the entity, in pixels/frame.
 --]]
-function map_meta.get_vertical_speed(entity)
+function map_meta.get_vspeed(entity)
   return entity.vspeed or 0
 end
 
@@ -96,7 +89,7 @@ local function check_for_ladder(entity)
   return is_ladder(map, x, y-2) or is_ladder(map, x, y+2)
 end
 
-local function check_for_ground(entity, dy)
+local function is_on_ground(entity, dy)
   dy = dy or 0
   local x,y, layer = entity:get_position()
   return entity:test_obstacles(0, 1) or not check_for_ladder(entity) and is_ladder(entity:get_map(), x, y+3)
@@ -150,8 +143,6 @@ local function apply_gravity(entity)
   local vspeed = entity.vspeed or 0 
   if vspeed > 0 then
     vspeed = on_bounce_possible(entity)
-  end
-  if vspeed >= 0 then
     --Try to apply downwards movement
     if entity:test_obstacles(0,1) or entity.has_grabbed_ladder or
     not check_for_ladder(entity) and is_ladder(entity:get_map(), x, y+3) then
@@ -164,7 +155,7 @@ local function apply_gravity(entity)
       return false
     end
     entity:set_position(x,y+1)
-  else
+  elseif vspeed < 0 then
     -- Try to get up
     if not entity:test_obstacles(0,-1) then
       entity:set_position(x,y-1)
@@ -191,11 +182,8 @@ local function update_entities(map)
       local is_affected
       local has_property = entity:get_property("has_gravity")
       local e_type = entity:get_type()
-      if e_type=="carried_object" or e_type =="hero" then
-        is_affected = true
-      else
-        is_affected = false
-      end
+      is_affected = e_type=="carried_object" or e_type =="hero" or e_type=="bomb"
+
       if e_type == "pickable" and entity:get_property("was_created_from_custom_pickable")~="true" then
         --convert to custom entity with same properties
         --debug_print ("Converting a pickable to a custom entity")
@@ -242,28 +230,7 @@ local function update_entities(map)
         sprite:set_xy(0,2) --shift down the visual
         entity:remove()
       elseif has_property or is_affected then  -- Try to make entity be affected by gravity.
-        if __debug and not entity.show_hitbox then --DEBUG : draw hitbox information
-          entity.show_hitbox = true --Flag me s processed
-          local w,h=entity:get_size()
-          local s=sol.surface.create(w,h)
-          local ox, oy=entity:get_origin()
-          local b={255,0,0}
-          local c={0,255,0}
-          --draw the hitbox
-          s:fill_color(b, 0, 0, w,1)
-          s:fill_color(b, 0, h-1, w,1)
-          s:fill_color(b, 0, 0, 1,h)
-          s:fill_color(b, w-1, 0, 1, h)
-          --draw the origin (representing the actual position)
-          s:fill_color(c, 0, oy, w, 1)
-          s:fill_color(c, ox, 0 ,1,h)
-          entity.debug_hitbox=s
-          function entity:on_post_draw(camera)
-            local cx,cy=camera:get_position()
-            local x,y=entity:get_bounding_box()
-            entity.debug_hitbox:draw(camera:get_surface(), x-cx, y-cy)
-          end
-        end
+        show_hitbox(entity)
         if entity:get_type()~="hero" and not entity.water_processed and not entity.vspeed and entity:test_obstacles(0,1) and check_for_water(entity) then
           --Force the entity to get down when in a water pool
           entity.water_processed=true
@@ -309,7 +276,7 @@ hero_meta:register_event("on_position_changed", function(hero, x,y,layer)
         hero:set_position(hero:get_solid_ground_position())
         hero:start_hurt(1)
       end
-
+      
       --save last stable ground
       if y+2<h and hero:test_obstacles(0,1) and map:get_ground(x,y+3,layer)=="wall" and hero:get_ground_below()~="prickles" then
         hero:save_solid_ground(x,y,layer)
@@ -336,6 +303,7 @@ local function update_hero(hero)
     return game:is_command_pressed(id)
   end
   local state, cstate = hero:get_state()
+  local desc=cstate and cstate:get_description() or ""
   local x,y,layer = hero:get_position()
   local map = game:get_map()
   local speed=88
@@ -405,6 +373,7 @@ local function update_hero(hero)
   --Force the hero on a ladder if we came from the side
   if hero:test_obstacles(0,1) and check_for_ladder(hero) and is_ladder(map,x,y+3) then 
     --debug_print "entering ladder from the side"
+    hero.is_jumping=nil
     hero.has_grabbed_ladder=true
   end
 
@@ -415,10 +384,10 @@ local function update_hero(hero)
     if movement then
       local angle=movement:get_angle()
       --debug_print (a)
-      if _up==true then
+      if _up then
         --debug_print "UP"
         --debug_print(m:get_speed(), hero:get_walking_speed())
-        if _left==true or _right==true then
+        if _left or _right then
           --debug_print "UP-DIAGONAL"
           if wanted_angle ~=angle then 
             movement:set_angle(wanted_angle)
@@ -426,10 +395,10 @@ local function update_hero(hero)
         else
           speed = 0
         end
-      elseif _down==true then
+      elseif _down then
         --debug_print "DOWN"
         --debug_print (m:get_speed(), hero:get_walking_speed())
-        if _left==true or _right==true then
+        if _left or _right then
           --debug_print "DOWN-DIAGONAL"
           movement:set_angle(wanted_angle)
           if wanted_angle ~=angle then 
@@ -457,7 +426,7 @@ local function update_hero(hero)
   local new_animation
 
   -- debug_print("state to display :"..state)
-  if state == "swimming" or (state=="custom" and cstate:get_description()=="sideview_swim") then
+  if state == "swimming" or desc=="sideview_swim" then
     if speed ~= 0 then
       new_animation = "swimming_scroll"
     else
@@ -469,7 +438,7 @@ local function update_hero(hero)
     new_animation = "lifting_heavy"
   end
 
-  if state == "sword loading" then
+  if desc == "sword_loading" then
 
     if hero:get_ground_below() == "deep_water" then
       new_animation = "swimming_scroll_loading"
@@ -481,7 +450,7 @@ local function update_hero(hero)
     if speed ~= 0 then
       if hero.has_grabbed_ladder and check_for_ladder(hero) then
         new_animation = "climbing_walking"
-      elseif not check_for_ground(hero) then
+      elseif not is_on_ground(hero) then
         if map:get_ground(x,y+4,layer)=="deep_water" then
           new_animation ="swimming_scroll"
         else
@@ -493,7 +462,7 @@ local function update_hero(hero)
     else
       if hero.has_grabbed_ladder and check_for_ladder(hero) then
         new_animation = "climbing_stopped"
-      elseif not check_for_ground(hero) then
+      elseif not is_on_ground(hero) then
         if map:get_ground(x,y+4,layer)=="deep_water" then
           new_animation = "stopped_swimming_scroll"
         else

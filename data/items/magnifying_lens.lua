@@ -19,12 +19,5 @@ function item:on_obtaining(variant, savegame_variable)
 
   -- Sound
   audio_manager:play_sound("items/fanfare_item_extended")
-  -- Savegame
-  local variant = self:get_variant()
-  if variant == 6 then
-    item:get_game():set_value("main_quest_step", 20)
-  elseif variant == 7 then
-    item:get_game():set_value("main_quest_step", 21)
-  end
 
 end

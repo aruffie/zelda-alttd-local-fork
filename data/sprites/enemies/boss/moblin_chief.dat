@@ -11,7 +11,18 @@ animation{
   },
 }
 animation{
-  name = "attacked",
+  name = "aiming",
+  src_image = "enemies/boss/moblin_chief.png",
+  frame_delay = 300,
+  directions = {
+    { x = 0, y = 320, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61 },
+    { x = 0, y = 320, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61 },
+    { x = 0, y = 256, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61 },
+    { x = 0, y = 256, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61 },
+  },
+}
+animation{
+  name = "attacking",
   src_image = "enemies/boss/moblin_chief.png",
   frame_delay = 60,
   frame_to_loop_on = 0,
@@ -44,6 +55,18 @@ animation{
     { x = 0, y = 0, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61, num_frames = 8 },
     { x = 0, y = 64, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61, num_frames = 8 },
     { x = 0, y = 64, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61, num_frames = 8 },
+  },
+}
+animation{
+  name = "searching",
+  src_image = "enemies/boss/moblin_chief.png",
+  frame_delay = 400,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 128, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61, num_frames = 2, num_columns = 1 },
+    { x = 0, y = 128, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61, num_frames = 2, num_columns = 1 },
+    { x = 0, y = 128, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61, num_frames = 2, num_columns = 1 },
+    { x = 0, y = 128, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61, num_frames = 2, num_columns = 1 },
   },
 }
 animation{
@@ -83,12 +106,12 @@ animation{
 animation{
   name = "throwing",
   src_image = "enemies/boss/moblin_chief.png",
-  frame_delay = 100,
+  frame_delay = 200,
   directions = {
-    { x = 0, y = 320, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61, num_frames = 6 },
-    { x = 0, y = 320, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61, num_frames = 6 },
-    { x = 0, y = 256, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61, num_frames = 6 },
-    { x = 0, y = 256, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61, num_frames = 6 },
+    { x = 192, y = 320, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61 },
+    { x = 192, y = 320, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61 },
+    { x = 192, y = 256, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61 },
+    { x = 192, y = 256, frame_width = 64, frame_height = 64, origin_x = 32, origin_y = 61 },
   },
 }
 animation{

@@ -1,5 +1,13 @@
--- Lua script of enemy gibdo.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Gibdo.
+--
+-- Moves randomly over horizontal and vertical axis.
+-- Transform into Red Stalfos on hit by fire.
+--
+-- Methods : enemy:start_walking()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
@@ -31,18 +39,26 @@ enemy:register_event("on_custom_attack_received", function(enemy, attack)
 
   if attack == "fire" then
     local x, y, layer = enemy:get_position()
-    stalfos = enemy:create_enemy({breed = "stalfos_red"})
-    enemy:remove()
+    local stalfos = enemy:create_enemy({
+      name = (enemy:get_name() or enemy:get_breed()) .. "_stalfos",
+      breed = "stalfos_red"
+    })
 
     -- Make the Stalfos immobile, then shake for some time, and then restart.
-    stalfos:set_invincible()
-    stalfos:stop_movement()
-    stalfos:set_exhausted(true)
-    sol.timer.stop_all(stalfos)
-    stalfos:get_sprite():set_animation("shaking")
-    sol.timer.start(stalfos, stalfos_shaking_duration, function()
-      stalfos:restart()
-    end)
+    if stalfos and stalfos:exists() then -- If the Stalfos was not immediatly removed from the on_created() event.
+      stalfos:set_invincible()
+      stalfos:stop_movement()
+      stalfos:set_exhausted(true)
+      sol.timer.stop_all(stalfos)
+      stalfos:set_treasure(enemy:get_treasure())
+      stalfos:get_sprite():set_animation("shaking")
+      sol.timer.start(stalfos, stalfos_shaking_duration, function()
+        stalfos:restart()
+      end)
+    end
+
+    enemy:set_treasure() -- Treasure will be dropped by the Stalfos.
+    enemy:start_death()
   end
 end)
 

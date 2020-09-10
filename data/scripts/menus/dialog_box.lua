@@ -6,7 +6,7 @@
 require("scripts/multi_events")
 local language_manager = require("scripts/language_manager")
 local audio_manager = require("scripts/audio_manager")
-local text_utils = require("scripts/libs/text_utils")
+local text_utils = require("scripts/lib/text_utils")
 -- Creates and sets up a dialog box for the specified game.
 local function initialize_dialog_box_features(game)
 
@@ -60,14 +60,14 @@ local function initialize_dialog_box_features(game)
     fast = 20  -- Default.
   }
   local letter_sound_delay = 100
-  local box_width = 220
+  local box_width = 220 -- Todo change this box width when an icon dialog is visible.
   local box_height = 60
 
   -- Initialize dialog box data.
   dialog_box.font, dialog_box.font_size = language_manager:get_dialog_font()
   for i = 1, nb_visible_lines do
     dialog_box.lines[i] = ""
-    dialog_box.line_surfaces[i] = sol.text_surface.create{
+    dialog_box.line_surfaces[i] = text_utils.create_icon_text_surface{
       horizontal_alignment = "left",
       vertical_alignment = "top",
       font = dialog_box.font,
@@ -236,6 +236,15 @@ local function initialize_dialog_box_features(game)
     -- Initialize this dialog.
     local dialog = self.dialog
 
+    if dialog.icon ~= nil then
+      -- The icon changes for this dialog ("-1" means none).
+      if dialog.icon == "-1" then
+        self.icon_index = nil
+      else
+        self.icon_index = dialog.icon
+      end
+    end
+
     local text = dialog.text
     if dialog_box.info ~= nil then
       -- There is a "$v" sequence to substitute.
@@ -245,17 +254,24 @@ local function initialize_dialog_box_features(game)
     text = text:gsub("\r\n", "\n"):gsub("\r", "\n")
     local manual_line_it = text:gmatch("([^\n]*)\n")  -- Each line including empty ones.
     
+    local wrap_predicate = text_utils.sol_text_wrap_with_icons_predicate(
+      box_width - (self.icon_index == nil and 50 or 82),
+      self.font,
+      self.font_size,
+      3 --spaces
+    )
     
-    self.line_it = iter(manual_line_it):flatmap(function(line)
-      return text_utils.word_wrap(
-        line,
-        text_utils.sol_text_wrap_predicate(
-          box_width-50,
-          self.font,
-          self.font_size
+    self.line_it = text_utils.page_breaker(
+      iter(manual_line_it):flatmap(function(line)
+        return text_utils.word_wrap(
+          line,
+          wrap_predicate
         )
-      )
-    end)
+      end),
+      3, -- page break are 3 lines long
+      nil, -- use default $pb pattern
+      1 -- target line at which to show the next line
+    )
 
     self.next_line = self.line_it()
     self.line_index = 1
@@ -267,15 +283,6 @@ local function initialize_dialog_box_features(game)
     if dialog.skip ~= nil then
       -- The skip mode changes for this dialog.
       self.skip_mode = dialog.skip
-    end
-
-    if dialog.icon ~= nil then
-      -- The icon changes for this dialog ("-1" means none).
-      if dialog.icon == "-1" then
-        self.icon_index = nil
-      else
-        self.icon_index = dialog.icon
-      end
     end
 
     if dialog.question == "1" then
@@ -434,6 +441,18 @@ local function initialize_dialog_box_features(game)
         special = false
       end
     end
+    
+    -- skip icon tags all at once
+    if current_char == '[' then
+      --go directly to the end of the tag
+      local first = self.char_index-1
+      repeat
+        last = line:sub(self.char_index, self.char_index)
+        self.char_index = self.char_index + 1
+      until not last or last == "]"
+      current_char = line:sub(first, self.char_index -1)
+    end
+    
 
     if not special then
       -- Normal character to be displayed.

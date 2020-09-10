@@ -30,9 +30,6 @@ require("scripts/multi_events")
 -----------------------
 function map:on_started()
 
-  -- Owl
-  owl_manager:init(map)
-
   -- Music
   game:play_dungeon_music()
 

@@ -311,7 +311,6 @@ tile{
   layer = 0,
   x = 72,
   y = 104,
-  enabled_at_start = false,
   width = 16,
   height = 16,
   pattern = "94",
@@ -322,7 +321,6 @@ tile{
   layer = 0,
   x = 120,
   y = 72,
-  enabled_at_start = false,
   width = 16,
   height = 16,
   pattern = "94",
@@ -333,7 +331,6 @@ tile{
   layer = 0,
   x = 232,
   y = 120,
-  enabled_at_start = false,
   width = 16,
   height = 16,
   pattern = "94",
@@ -1361,52 +1358,16 @@ tile{
 tile{
   layer = 0,
   x = 104,
-  y = 344,
-  width = 24,
-  height = 24,
+  y = 360,
+  width = 16,
+  height = 16,
   pattern = "hole",
 }
 
 tile{
   layer = 0,
-  x = 112,
-  y = 344,
-  width = 8,
-  height = 8,
-  pattern = "hole.1",
-}
-
-tile{
-  layer = 0,
   x = 104,
-  y = 352,
-  width = 8,
-  height = 8,
-  pattern = "hole.3",
-}
-
-tile{
-  layer = 0,
-  x = 120,
-  y = 352,
-  width = 8,
-  height = 8,
-  pattern = "hole.4",
-}
-
-tile{
-  layer = 0,
-  x = 112,
   y = 360,
-  width = 8,
-  height = 8,
-  pattern = "hole.2",
-}
-
-tile{
-  layer = 0,
-  x = 104,
-  y = 344,
   width = 8,
   height = 8,
   pattern = "hole.corner.1",
@@ -1414,8 +1375,8 @@ tile{
 
 tile{
   layer = 0,
-  x = 120,
-  y = 344,
+  x = 112,
+  y = 360,
   width = 8,
   height = 8,
   pattern = "hole.corner.2",
@@ -1424,7 +1385,7 @@ tile{
 tile{
   layer = 0,
   x = 104,
-  y = 360,
+  y = 368,
   width = 8,
   height = 8,
   pattern = "hole.corner.3",
@@ -1432,8 +1393,8 @@ tile{
 
 tile{
   layer = 0,
-  x = 120,
-  y = 360,
+  x = 112,
+  y = 368,
   width = 8,
   height = 8,
   pattern = "hole.corner.4",
@@ -1441,53 +1402,17 @@ tile{
 
 tile{
   layer = 0,
-  x = 208,
-  y = 344,
-  width = 24,
-  height = 24,
+  x = 200,
+  y = 328,
+  width = 16,
+  height = 16,
   pattern = "hole",
 }
 
 tile{
   layer = 0,
-  x = 216,
-  y = 344,
-  width = 8,
-  height = 8,
-  pattern = "hole.1",
-}
-
-tile{
-  layer = 0,
-  x = 208,
-  y = 352,
-  width = 8,
-  height = 8,
-  pattern = "hole.3",
-}
-
-tile{
-  layer = 0,
-  x = 224,
-  y = 352,
-  width = 8,
-  height = 8,
-  pattern = "hole.4",
-}
-
-tile{
-  layer = 0,
-  x = 216,
-  y = 360,
-  width = 8,
-  height = 8,
-  pattern = "hole.2",
-}
-
-tile{
-  layer = 0,
-  x = 208,
-  y = 344,
+  x = 200,
+  y = 328,
   width = 8,
   height = 8,
   pattern = "hole.corner.1",
@@ -1495,8 +1420,8 @@ tile{
 
 tile{
   layer = 0,
-  x = 224,
-  y = 344,
+  x = 208,
+  y = 328,
   width = 8,
   height = 8,
   pattern = "hole.corner.2",
@@ -1504,8 +1429,8 @@ tile{
 
 tile{
   layer = 0,
-  x = 208,
-  y = 360,
+  x = 200,
+  y = 336,
   width = 8,
   height = 8,
   pattern = "hole.corner.3",
@@ -1513,8 +1438,8 @@ tile{
 
 tile{
   layer = 0,
-  x = 224,
-  y = 360,
+  x = 208,
+  y = 336,
   width = 8,
   height = 8,
   pattern = "hole.corner.4",
@@ -1524,7 +1449,6 @@ tile{
   layer = 0,
   x = 88,
   y = 120,
-  enabled_at_start = false,
   width = 16,
   height = 16,
   pattern = "94",
@@ -1535,7 +1459,6 @@ tile{
   layer = 0,
   x = 120,
   y = 152,
-  enabled_at_start = false,
   width = 16,
   height = 16,
   pattern = "94",
@@ -1546,7 +1469,6 @@ tile{
   layer = 0,
   x = 136,
   y = 152,
-  enabled_at_start = false,
   width = 16,
   height = 16,
   pattern = "94",
@@ -1557,7 +1479,6 @@ tile{
   layer = 0,
   x = 480,
   y = 352,
-  enabled_at_start = false,
   width = 16,
   height = 16,
   pattern = "94",
@@ -1568,7 +1489,6 @@ tile{
   layer = 0,
   x = 408,
   y = 344,
-  enabled_at_start = false,
   width = 16,
   height = 16,
   pattern = "94",
@@ -1579,7 +1499,6 @@ tile{
   layer = 0,
   x = 464,
   y = 312,
-  enabled_at_start = false,
   width = 16,
   height = 16,
   pattern = "94",
@@ -1590,7 +1509,6 @@ tile{
   layer = 0,
   x = 552,
   y = 344,
-  enabled_at_start = false,
   width = 16,
   height = 16,
   pattern = "94",
@@ -2237,52 +2155,16 @@ tile{
 tile{
   layer = 0,
   x = 104,
-  y = 384,
-  width = 24,
-  height = 24,
+  y = 392,
+  width = 16,
+  height = 16,
   pattern = "hole",
 }
 
 tile{
   layer = 0,
-  x = 112,
-  y = 384,
-  width = 8,
-  height = 8,
-  pattern = "hole.1",
-}
-
-tile{
-  layer = 0,
   x = 104,
   y = 392,
-  width = 8,
-  height = 8,
-  pattern = "hole.3",
-}
-
-tile{
-  layer = 0,
-  x = 120,
-  y = 392,
-  width = 8,
-  height = 8,
-  pattern = "hole.4",
-}
-
-tile{
-  layer = 0,
-  x = 112,
-  y = 400,
-  width = 8,
-  height = 8,
-  pattern = "hole.2",
-}
-
-tile{
-  layer = 0,
-  x = 104,
-  y = 384,
   width = 8,
   height = 8,
   pattern = "hole.corner.1",
@@ -2290,8 +2172,8 @@ tile{
 
 tile{
   layer = 0,
-  x = 120,
-  y = 384,
+  x = 112,
+  y = 392,
   width = 8,
   height = 8,
   pattern = "hole.corner.2",
@@ -2308,7 +2190,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 120,
+  x = 112,
   y = 400,
   width = 8,
   height = 8,
@@ -2319,7 +2201,6 @@ tile{
   layer = 0,
   x = 72,
   y = 360,
-  enabled_at_start = false,
   width = 16,
   height = 16,
   pattern = "94",
@@ -2330,7 +2211,6 @@ tile{
   layer = 0,
   x = 184,
   y = 392,
-  enabled_at_start = false,
   width = 16,
   height = 16,
   pattern = "94",
@@ -2341,7 +2221,6 @@ tile{
   layer = 0,
   x = 424,
   y = 392,
-  enabled_at_start = false,
   width = 16,
   height = 16,
   pattern = "94",
@@ -2352,7 +2231,6 @@ tile{
   layer = 0,
   x = 464,
   y = 392,
-  enabled_at_start = false,
   width = 16,
   height = 16,
   pattern = "94",
@@ -2434,20 +2312,20 @@ dynamic_tile{
 enemy{
   name = "enemy_group_1_2",
   layer = 0,
-  x = 120,
-  y = 357,
+  x = 112,
+  y = 373,
   direction = 0,
-  breed = "zol_green",
+  breed = "pincer",
   treasure_name = "random_with_charm",
 }
 
 enemy{
   name = "enemy_group_1_3",
   layer = 0,
-  x = 216,
-  y = 365,
+  x = 208,
+  y = 341,
   direction = 0,
-  breed = "zol_green",
+  breed = "pincer",
   treasure_name = "random_with_charm",
 }
 
@@ -2490,10 +2368,10 @@ wall{
 enemy{
   name = "enemy_group_1_1",
   layer = 0,
-  x = 120,
-  y = 397,
+  x = 112,
+  y = 405,
   direction = 0,
-  breed = "zol_green",
+  breed = "pincer",
   treasure_name = "random_with_charm",
 }
 
@@ -2525,6 +2403,15 @@ sensor{
   },
   width = 16,
   height = 16,
+}
+
+pickable{
+  name = "angler_key",
+  layer = 0,
+  x = 160,
+  y = 365,
+  treasure_name = "angler_key",
+  treasure_savegame_variable = "yarna_desert_angler_key",
 }
 
 tile{

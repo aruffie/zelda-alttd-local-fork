@@ -1,4 +1,13 @@
--- Lua script of boulder projectile.
+----------------------------------
+--
+-- Boulder.
+--
+-- Randomly bounce to an angle to the south, from pi to 2pi.
+-- Has to be manually removed when needed, ot continue its road forever.
+--
+-- Methods : enemy:start_bouncing()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
@@ -17,16 +26,13 @@ local minimum_speed = 40
 local maximum_speed = 80
 
 -- Make the enemy bounce and go to a random target at the south the enemy.
-function enemy:bounce()
+function enemy:start_bouncing()
 
-  local movement = enemy:start_jumping(bounce_duration, bounce_height, math.pi + math.random() * math.pi, math.random(minimum_speed, maximum_speed))
+  local movement = enemy:start_jumping(bounce_duration, bounce_height, math.pi + math.random() * math.pi, math.random(minimum_speed, maximum_speed), function()
+    enemy:start_bouncing()
+  end)
   movement:set_ignore_obstacles(true)
 end
-
--- Start a new bounce when jump finished.
-enemy:register_event("on_jump_finished", function(enemy)
-  enemy:bounce()
-end)
 
 -- Create an impact effect on hurt hero.
 enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
@@ -51,11 +57,12 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
+  sprite:set_xy(0, 0)
   sprite:set_animation("walking")
   enemy:set_damage(2)
   enemy:set_obstacle_behavior("flying")
   enemy:set_layer_independent_collisions(true)
   enemy:set_invincible()
   enemy:set_can_hurt_hero_running(true)
-  enemy:bounce()
+  enemy:start_bouncing()
 end)

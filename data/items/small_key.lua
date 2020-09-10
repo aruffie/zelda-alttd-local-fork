@@ -14,11 +14,17 @@ function item:on_created()
   item:set_brandish_when_picked(false)
   item:set_sound_when_picked(nil)
   item:set_sound_when_brandished(nil)
-  
+
+end
+
+function item:on_pickable_created(pickable)
+
+  local old_sprite=pickable:get_sprite("treasure")
+  pickable:remove_sprite(old_sprite)
+  pickable:create_sprite("entities/items/small_key", "treasure")
 end
 
 function item:on_obtaining(variant, savegame_variable)
-
   local map = item:get_map()
   local hero = map:get_hero()
   -- Sound
@@ -29,5 +35,5 @@ function item:on_obtaining(variant, savegame_variable)
   end
   -- Add key
   item:get_game():add_small_key()
-  
+
 end

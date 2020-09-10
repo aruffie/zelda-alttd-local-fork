@@ -1,5 +1,7 @@
+--TODO rework the documentation part
+
 -- This script restores entities when there are separators in a map.
--- When taking separators prefixed by "auto_separator", the following entities are restored:
+-- When taking separators, the following entities are restored:
 -- - Enemies prefixed by "auto_enemy".
 -- - Destructibles prefixed by "auto_destructible".
 -- - Blocks prefixed by "auto_block".
@@ -12,6 +14,7 @@ require("scripts/multi_events")
 local entity_respawn_manager=require("scripts/maps/entity_respawn_manager")
 
 function separator_manager:init(map)
+  
   if map:get_world()=="outside_world" then
     return
   end

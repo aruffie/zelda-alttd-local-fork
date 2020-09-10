@@ -1,5 +1,13 @@
--- Lua script of enemy buzz_blob.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Buzz Blob.
+--
+-- Randomly goes over 8 directions and electrocute the hero when attacked.
+-- Transform into Cukeman on magic powder attack received.
+--
+-- Methods : enemy:start_walking()
+--
+----------------------------------
 
 -- Global variables.
 local enemy = ...
@@ -44,7 +52,6 @@ enemy:register_event("on_custom_attack_received", function(enemy, attack)
     audio_manager:play_sound("hero/shock")
     hero:set_animation("electrocute")
     effect_model.start_effect(surface, game, 'in', false)
-    local camera = map:get_camera()
     local shake_config = {
         count = 32,
         amplitude = 4,
@@ -63,17 +70,25 @@ enemy:register_event("on_custom_attack_received", function(enemy, attack)
   elseif attack == "magic_powder" then
 
     local x, y, layer = enemy:get_position()
-    cukeman = enemy:create_enemy({breed = "cukeman"})
-    enemy:remove()
+    local cukeman = enemy:create_enemy({
+      name = (enemy:get_name() or enemy:get_breed()) .. "_cukeman",
+      breed = "cukeman"
+    })
 
     -- Make the Cukeman shake for some time and then restart.
-    cukeman:set_invincible()
-    cukeman:stop_movement()
-    sol.timer.stop_all(cukeman)
-    cukeman:get_sprite():set_animation("shaking")
-    sol.timer.start(cukeman, cukeman_shaking_duration, function()
-      cukeman:restart()
-    end)
+    if cukeman and cukeman:exists() then -- If the Cukeman was not immediatly removed from the on_created() event.
+      cukeman:set_invincible()
+      cukeman:stop_movement()
+      sol.timer.stop_all(cukeman)
+      cukeman:set_treasure(enemy:get_treasure())
+      cukeman:get_sprite():set_animation("shaking")
+      sol.timer.start(cukeman, cukeman_shaking_duration, function()
+        cukeman:restart()
+      end)
+    end
+
+    enemy:set_treasure() -- The treasure will be dropped by the Cukeman.
+    enemy:start_death()
   end
 end)
 

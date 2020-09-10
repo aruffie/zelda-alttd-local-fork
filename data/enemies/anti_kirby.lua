@@ -1,7 +1,17 @@
--- Lua script of enemy anti_kirby.
--- This script is executed every time an enemy with this model is created.
-
--- TODO sounds
+----------------------------------
+--
+-- Anti Kirby.
+--
+-- Moves diagonally on a small distance, stops and restart.
+-- Start a long aspiration covering left or right side if the hero is near enough after a walking step.
+--
+-- Methods : enemy:start_walking()
+--           enemy:eat_hero()
+--           enemy:spit_hero()
+--           enemy:start_aspiration()
+--           enemy:stop_aspiration()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
@@ -37,7 +47,7 @@ local spit_speed = 220
 local spit_distance = 64
 
 -- Return the visual direction (left or right) depending on the sprite direction.
-function enemy:get_direction2()
+local function get_direction2()
 
   if sprite:get_direction() < 2 then
     return 0
@@ -50,9 +60,9 @@ function enemy:start_walking()
 
   enemy:start_straight_walking(walking_angles[math.random(4)], walking_speed, walking_distance, function()
 
-    -- Start aspirate if the hero is near enough, continue walking else.
+    -- Start aspiration if the hero is near enough, continue walking else.
     if enemy:is_near(hero, attack_triggering_distance) then
-      enemy:start_aspirate()
+      enemy:start_aspiration()
     else
       sol.timer.start(enemy, walking_pause_duration, function()
         enemy:start_walking()
@@ -65,7 +75,7 @@ end
 function enemy:eat_hero()
 
   enemy.is_eating = true
-  enemy:stop_aspirate()
+  enemy:stop_aspiration()
   sprite:set_animation("eating_link")
   hero:set_visible(false)
   hero:freeze()
@@ -90,7 +100,7 @@ function enemy:spit_hero()
     local movement = sol.movement.create("straight")
     movement:set_speed(spit_speed)
     movement:set_max_distance(spit_distance)
-    movement:set_angle(enemy:get_direction2() * math.pi)
+    movement:set_angle(get_direction2() * math.pi)
     movement:start(hero)
 
     function movement:on_finished()
@@ -111,7 +121,7 @@ function enemy:spit_hero()
 end
 
 -- Start the enemy attack.
-function enemy:start_aspirate()
+function enemy:start_aspiration()
 
   sprite:set_xy(0, 0)
   enemy.is_jumping = false
@@ -125,7 +135,7 @@ function enemy:start_aspirate()
     enemy:start_attracting(hero, aspirating_pixel_by_second, function()
       local enemy_x, _, _ = enemy:get_position()
       local hero_x, _, _ = hero:get_position()
-      local direction = enemy:get_direction2()
+      local direction = get_direction2()
       return enemy:is_near(hero, attack_triggering_distance) and ((direction == 0 and hero_x >= enemy_x) or (direction == 1 and hero_x <= enemy_x))
     end)
 
@@ -134,13 +144,28 @@ function enemy:start_aspirate()
     aspiration_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/aspiration", "aspiration")
     aspiration_sprite:set_direction(sprite:get_direction())
 
-    -- Make the enemy sprites elevate while aspiring.
-    enemy:start_flying(take_off_duration, flying_height)
+    -- Make the enemy sprites fly while aspiring.
+    enemy:start_flying(take_off_duration, flying_height, function()
+      sol.timer.start(enemy, flying_duration, function()
+        if enemy.is_aspiring then
+          enemy:stop_flying(landing_duration, function()
+
+            -- Reset default states a little after touching the ground.
+            sol.timer.start(enemy, finish_aspiration_delay, function()
+              if enemy.is_aspiring then
+                enemy:stop_aspiration()
+                enemy:restart()
+              end
+            end)
+          end)
+        end
+      end)
+    end)
   end)
 end
 
 -- Stop a possible running aspiration.
-function enemy:stop_aspirate()
+function enemy:stop_aspiration()
 
   enemy.is_aspiring = false
   if aspiration_sprite then
@@ -150,29 +175,6 @@ function enemy:stop_aspirate()
   sprite:set_xy(0, 0)
   sprite:stop_movement()
 end
-
--- Event called when the enemy took off while aspiring.
-enemy:register_event("on_flying_took_off", function(enemy)
-
-  -- Wait for a delay and start the landing movement.
-  sol.timer.start(enemy, flying_duration, function()
-    if enemy.is_aspiring then
-      enemy:stop_flying(landing_duration, false)
-    end
-  end)
-end)
-
--- Event called when the enemy landed while aspiring.
-enemy:register_event("on_flying_landed", function(enemy)
-
-  -- Reset default states a little after touching the ground.
-  sol.timer.start(enemy, finish_aspiration_delay, function()
-    if enemy.is_aspiring then
-      enemy:stop_aspirate()
-      enemy:restart()
-    end
-  end)
-end)
 
 -- Passive behaviors needing constant checking.
 enemy:register_event("on_update", function(enemy)
@@ -195,7 +197,7 @@ end)
 
 -- Stop a possible state on immobilized.
 enemy:register_event("on_immobilized", function(enemy)
-  enemy:stop_aspirate()
+  enemy:stop_aspiration()
 end)
 
 -- Initialization.
@@ -217,9 +219,11 @@ enemy:register_event("on_restarted", function(enemy)
     fire = 2})
 
   -- States.
+  sprite:set_xy(0, 0)
+  enemy:set_obstacle_behavior("normal")
   enemy:set_can_attack(true)
   enemy:set_damage(contact_damage)
-  enemy:stop_aspirate()
+  enemy:stop_aspiration()
   enemy:spit_hero()
   enemy.is_jumping = true
   enemy:start_walking()

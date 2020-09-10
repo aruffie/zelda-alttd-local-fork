@@ -1,5 +1,14 @@
--- Lua script of enemy cukeman.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Cukeman.
+--
+-- Randomly goes over 8 directions and electrocute the hero when attacked from afar.
+-- Talk to the hero on interaction or closely attacked.
+--
+-- Methods : enemy:start_walking()
+--           enemy:start_talking([dialog_number])
+--
+----------------------------------
 
 -- Global variables.
 local enemy = ...
@@ -20,8 +29,7 @@ local walking_speed = 16
 local walking_minimum_distance = 16
 local walking_maximum_distance = 96
 local walking_pause_duration = 1500
-
-local message_triggering_distance = 28
+local message_triggering_distance = 30
 
 -- Start the enemy movement.
 function enemy:start_walking()
@@ -29,6 +37,11 @@ function enemy:start_walking()
   enemy:start_straight_walking(walking_angles[math.random(8)], walking_speed, math.random(walking_minimum_distance, walking_maximum_distance), function()
     enemy:start_walking()
   end)
+end
+
+-- Start talking to the enemy.
+function enemy:start_talking(dialog_number)
+  game:start_dialog("enemies.cukeman." .. (dialog_number or math.random(4)))
 end
 
 -- Handle custom sword and magic powder attacks.
@@ -39,7 +52,7 @@ enemy:register_event("on_custom_attack_received", function(enemy, attack)
 
     -- Display a message if the hero is near enough, else electrify.
     if enemy:is_near(hero, message_triggering_distance) then
-      game:start_dialog("enemies.cukeman." .. math.random(4))
+      enemy:start_talking()
     else
       local camera = map:get_camera()
       local surface = camera:get_surface()
@@ -50,17 +63,17 @@ enemy:register_event("on_custom_attack_received", function(enemy, attack)
       hero:set_animation("electrocute")
       effect_model.start_effect(surface, game, 'in', false)
       local shake_config = {
-          count = 32,
-          amplitude = 4,
-          speed = 180,
+        count = 32,
+        amplitude = 4,
+        speed = 180,
       }
       camera:shake(shake_config, function()
-          hero_electric = false
-          game:set_suspended(false)
-          sprite:set_animation("walking")
-          hero:unfreeze()
-          hero:start_hurt(enemy:get_damage())
-          enemy:remove_life(1)
+        hero_electric = false
+        game:set_suspended(false)
+        sprite:set_animation("walking")
+        hero:unfreeze()
+        hero:start_hurt(enemy:get_damage())
+        enemy:remove_life(1)
       end)
     end
   end
@@ -70,6 +83,24 @@ end)
 enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(4)
+
+  -- Create a welded npc to be able to talk to cukeman with action command.
+  local x, y, layer = enemy:get_position()
+  local width, height = enemy:get_size()
+  npc = map:create_npc({
+    direction = 0,
+    x = x,
+    y = y,
+    layer = layer,
+    subtype = 1,
+    width = width,
+    height = height
+  })
+  npc:set_traversable(true)
+  function npc:on_interaction()
+    enemy:start_talking()
+  end
+  enemy:start_welding(npc)
 end)
 
 -- The enemy appears: set its properties.

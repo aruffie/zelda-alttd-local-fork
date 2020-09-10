@@ -144,12 +144,22 @@ animation{
   },
 }
 animation{
+  name = "drowned",
+  src_image = "hero/link_drowned.png",
+  frame_delay = 100,
+  directions = {
+    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 15 },
+    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 15 },
+    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 15 },
+    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 15 },
+  },
+}
+animation{
   name = "dying",
   src_image = "hero/dying.png",
   frame_delay = 125,
-  frame_to_loop_on = 9,
   directions = {
-    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 10 },
+    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 11 },
   },
 }
 animation{

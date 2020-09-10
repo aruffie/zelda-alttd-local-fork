@@ -128,10 +128,13 @@ end)
 -- Going off animation and remove
 function fire:extinguish()
 
-  fire:stop_movement()
-  sprite:set_animation("going_off")
-  function sprite:on_animation_finished()
-    fire:remove()
+  if sprite:get_animation() ~= "going_off" then
+    fire:stop_movement()
+
+    sprite:set_animation("going_off")
+    function sprite:on_animation_finished()
+      fire:remove()
+    end
   end
 end
 
@@ -157,25 +160,28 @@ fire:add_collision_test("sprite", function(fire, entity, fire_sprite, entity_spr
     sol.timer.stop_all(enemy)
     enemy:stop_movement()
     enemy:set_invincible()
-    enemy:set_pushed_back_when_hurt(false) -- Avoid pushing back again.
 
-    -- Push it back.
-    local enemy_x, enemy_y, _ = enemy:get_position()
-    local enemy_sprite_x, enemy_sprite_y = entity_sprite:get_xy()
-    local fire_x, fire_y, _ = fire:get_position()
-    local movement = sol.movement.create("straight")
-    movement:set_speed(256)
-    movement:set_angle(math.atan2(fire_y - enemy_y - enemy_sprite_y, enemy_x - fire_x - enemy_sprite_x))
-    movement:set_max_distance(32)
-    movement:set_smooth(false)
-    movement:start(enemy)
+    if enemy:is_pushed_back_when_hurt() then
+      enemy:set_pushed_back_when_hurt(false) -- Avoid pushing back again.
 
-    -- Avoid enemy to restart before hurt.
-    function movement:on_finished()
-      enemy:stop_movement()
-    end
-    function movement:on_obstacle_reached()
-      enemy:stop_movement()
+      -- Push it back.
+      local enemy_x, enemy_y, _ = enemy:get_position()
+      local enemy_sprite_x, enemy_sprite_y = entity_sprite:get_xy()
+      local fire_x, fire_y, _ = fire:get_position()
+      local movement = sol.movement.create("straight")
+      movement:set_speed(256)
+      movement:set_angle(math.atan2(fire_y - enemy_y - enemy_sprite_y, enemy_x - fire_x - enemy_sprite_x))
+      movement:set_max_distance(32)
+      movement:set_smooth(false)
+      movement:start(enemy)
+
+      -- Avoid enemy to restart before hurt.
+      function movement:on_finished()
+        enemy:stop_movement()
+      end
+      function movement:on_obstacle_reached()
+        enemy:stop_movement()
+      end
     end
 
     -- Remove the projectile and make the enemy burn.
@@ -190,7 +196,7 @@ fire:add_collision_test("sprite", function(fire, entity, fire_sprite, entity_spr
         enemy:remove_sprite(burning_sprite)
       end
     end
-    audio_manager:play_sound("items/sword_slash4") -- TODO
+    audio_manager:play_sound("items/sword_slash4") -- TODO change the sound
     
     -- Then hurt after a delay.
     sol.timer.start(sol.main, 1000, function()

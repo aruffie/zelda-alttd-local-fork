@@ -219,9 +219,9 @@ tile{
 
 tile{
   layer = 0,
-  x = 120,
+  x = 128,
   y = 144,
-  width = 80,
+  width = 64,
   height = 48,
   pattern = "floor.1-2",
 }
@@ -238,7 +238,7 @@ tile{
 tile{
   layer = 0,
   x = 120,
-  y = 144,
+  y = 136,
   width = 80,
   height = 8,
   pattern = "floor_border.2",
@@ -636,123 +636,135 @@ wall{
 }
 
 custom_entity{
-  layer = 0,
-  x = 56,
-  y = 61,
-  width = 16,
-  height = 24,
-  direction = 0,
-  sprite = "entities/photographer_canvas",
-}
-
-custom_entity{
-  layer = 0,
-  x = 56,
-  y = 101,
-  width = 16,
-  height = 24,
-  direction = 0,
-  sprite = "entities/photographer_canvas",
-}
-
-custom_entity{
-  layer = 0,
-  x = 56,
-  y = 141,
-  width = 16,
-  height = 24,
-  direction = 0,
-  sprite = "entities/photographer_canvas",
-}
-
-custom_entity{
-  layer = 0,
-  x = 56,
-  y = 181,
-  width = 16,
-  height = 24,
-  direction = 0,
-  sprite = "entities/photographer_canvas",
-}
-
-custom_entity{
+  name = "canvas_1",
   layer = 0,
   x = 96,
-  y = 213,
+  y = 37,
   width = 24,
   height = 16,
-  direction = 1,
-  sprite = "entities/photographer_canvas",
+  direction = 3,
+  sprite = "entities/decorations/photographer_canvas",
 }
 
 custom_entity{
+  name = "canvas_2",
   layer = 0,
   x = 216,
+  y = 37,
+  width = 24,
+  height = 16,
+  direction = 3,
+  sprite = "entities/decorations/photographer_canvas",
+}
+
+custom_entity{
+  name = "canvas_3",
+  layer = 0,
+  x = 96,
   y = 213,
   width = 24,
   height = 16,
   direction = 1,
-  sprite = "entities/photographer_canvas",
+  sprite = "entities/decorations/photographer_canvas",
 }
 
 custom_entity{
-  layer = 0,
-  x = 96,
-  y = 37,
-  width = 24,
-  height = 16,
-  direction = 3,
-  sprite = "entities/photographer_canvas",
-}
-
-custom_entity{
+  name = "canvas_4",
   layer = 0,
   x = 224,
-  y = 37,
+  y = 213,
   width = 24,
   height = 16,
-  direction = 3,
-  sprite = "entities/photographer_canvas",
+  direction = 1,
+  sprite = "entities/decorations/photographer_canvas",
 }
 
 custom_entity{
+  name = "canvas_5",
+  layer = 0,
+  x = 56,
+  y = 61,
+  width = 16,
+  height = 24,
+  direction = 0,
+  sprite = "entities/decorations/photographer_canvas",
+}
+
+custom_entity{
+  name = "canvas_6",
+  layer = 0,
+  x = 56,
+  y = 101,
+  width = 16,
+  height = 24,
+  direction = 0,
+  sprite = "entities/decorations/photographer_canvas",
+}
+
+custom_entity{
+  name = "canvas_7",
+  layer = 0,
+  x = 56,
+  y = 141,
+  width = 16,
+  height = 24,
+  direction = 0,
+  sprite = "entities/decorations/photographer_canvas",
+}
+
+custom_entity{
+  name = "canvas_8",
+  layer = 0,
+  x = 56,
+  y = 181,
+  width = 16,
+  height = 24,
+  direction = 0,
+  sprite = "entities/decorations/photographer_canvas",
+}
+
+custom_entity{
+  name = "canvas_9",
   layer = 0,
   x = 264,
   y = 61,
   width = 16,
   height = 24,
   direction = 2,
-  sprite = "entities/photographer_canvas",
+  sprite = "entities/decorations/photographer_canvas",
 }
 
 custom_entity{
+  name = "canvas_10",
   layer = 0,
   x = 264,
   y = 101,
   width = 16,
   height = 24,
   direction = 2,
-  sprite = "entities/photographer_canvas",
+  sprite = "entities/decorations/photographer_canvas",
 }
 
 custom_entity{
+  name = "canvas_11",
   layer = 0,
   x = 264,
   y = 141,
   width = 16,
   height = 24,
   direction = 2,
-  sprite = "entities/photographer_canvas",
+  sprite = "entities/decorations/photographer_canvas",
 }
 
 custom_entity{
+  name = "canvas_12",
   layer = 0,
   x = 264,
   y = 181,
   width = 16,
   height = 24,
   direction = 2,
-  sprite = "entities/photographer_canvas",
+  sprite = "entities/decorations/photographer_canvas",
 }
 
 tile{

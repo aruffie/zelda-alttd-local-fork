@@ -25,24 +25,23 @@ entity:register_event("on_created", function()
       local map_id = map:get_id()
       hero:freeze() -- Freeze before changing the position to stop carried state properly if needed.
       hero:set_position(x_t, y_t)
-      sprite:set_animation("revolving_tunic_1")
       audio_manager:play_sound("misc/dungeon_one_way_door")
-      function sprite:on_animation_finished(animation)
-        if animation == "revolving_tunic_1" or animation == "revolving_tunic_2" or animation == "revolving_tunic_2" then
-          sprite:set_animation("stopped")
-          entity:set_traversable_by(true)
-          hero:set_animation("walking")
-          hero:set_direction(1)
-          local movement = sol.movement.create("path")
-          movement:set_path{2,2,2,2,2,2,2,2}
-          movement:set_ignore_obstacles(true)
-          movement:start(hero, function()
-            hero:unfreeze()
-            entity:set_traversable_by(false)
-            animation_launch = false
-          end)
-        end
-      end
+      sprite:set_animation("revolving_tunic_1", function()
+        sprite:set_animation("stopped")
+        entity:set_traversable_by(true)
+        hero:set_animation("walking")
+        hero:set_invincible(true)
+        hero:set_direction(1)
+        local movement = sol.movement.create("path")
+        movement:set_path{2,2,2,2,2,2,2,2}
+        movement:set_ignore_obstacles(true)
+        movement:start(hero, function()
+          hero:unfreeze()
+          hero:set_invincible(false)
+          entity:set_traversable_by(false)
+          animation_launch = false
+        end)
+      end)
     end
   end)
 

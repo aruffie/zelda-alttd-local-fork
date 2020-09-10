@@ -61,10 +61,17 @@ local function attach_to_obstacle()
   audio_manager.play_sound("items/arrow_hit")
   arrow:stop_movement()
 
-  -- Remove the hero after a delay.
+  -- Remove the arrow after a delay.
   sol.timer.start(map, 1500, function()
     arrow:remove()
   end)
+
+  -- Call on_hit_by_arrow_event if exists on overlapping entities.
+  for entity in map:get_entities_in_region(arrow) do
+    if entity.on_hit_by_arrow and entity:overlaps(arrow, "touching") then
+      entity:on_hit_by_arrow()
+    end
+  end
 end
 
 -- Attaches the arrow to an entity and make it follow it.
@@ -108,6 +115,7 @@ local function attach_to_entity(entity)
 
     return true
   end)
+
 end
 
 -- Hurt enemies.
@@ -137,21 +145,21 @@ arrow:add_collision_test("overlapping", function(arrow, entity)
       sol.audio.play_sound("switch")
       map:change_crystal_state()
       attach_to_entity(entity)
+    end
 
-    elseif entity_type == "switch" then
-      -- Activate solid switches.
-      local switch = entity
-      local sprite = switch:get_sprite()
-      if flying and
-         sprite ~= nil and
-         sprite:get_animation_set() == "entities/solid_switch" then
+  elseif entity_type == "switch" then
+    -- Activate solid switches.
+    local switch = entity
+    local sprite = switch:get_sprite()
+    if flying and
+       sprite ~= nil and
+       sprite:get_animation_set() == "entities/solid_switch" then
 
-        if not switch:is_activated() then
-          sol.audio.play_sound("switch")
-          switch:set_activated(true)
-        end
-        attach_to_entity(entity)
+      if not switch:is_activated() then
+        sol.audio.play_sound("switch")
+        switch:set_activated(true)
       end
+      attach_to_entity(entity)
     end
   end
 end)
@@ -192,4 +200,5 @@ end
 function arrow:on_obstacle_reached()
 
   attach_to_obstacle()
+
 end

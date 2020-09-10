@@ -1,5 +1,12 @@
--- Lua script of enemy goomba.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Goomba.
+--
+-- Moves randomly over horizontal and vertical axis, or horizontal axis only on sideview maps.
+--
+-- Methods : enemy:start_walking()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
@@ -10,10 +17,10 @@ local map = enemy:get_map()
 local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
-local is_sideview = map.is_sideview and map:is_sideview()
+local is_sideview = string.find(map:get_id(), "sideview") and true or false -- Workaround: Sideview flag is set too late here, use the map id instead.
 
 -- Configuration variables
-local walking_angles = is_sideview and {0, quarter, 2.0 * quarter, 3.0 * quarter} or {0, 0, 2 * quarter, 2 * quarter}
+local walking_angles = is_sideview and {0, 0, 2 * quarter, 2 * quarter} or {0, quarter, 2.0 * quarter, 3.0 * quarter}
 local walking_speed = 32
 local walking_minimum_distance = 16
 local walking_maximum_distance = 96
@@ -22,7 +29,8 @@ local crushed_duration = 500
 -- Start the enemy movement.
 function enemy:start_walking()
 
-  enemy:start_straight_walking(walking_angles[math.random(4)], walking_speed, math.random(walking_minimum_distance, walking_maximum_distance), function()
+  local distance = not is_sideview and math.random(walking_minimum_distance, walking_maximum_distance)
+  enemy:start_straight_walking(walking_angles[math.random(4)], walking_speed, distance, function()
     enemy:start_walking()
   end)
 end
@@ -35,7 +43,6 @@ enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
   if not is_sideview or hero_y >= y then
     hero:start_hurt(enemy, enemy:get_damage())
   end
-  
 end)
 
 -- Make enemy crushed when hero walking on him.
@@ -58,6 +65,7 @@ enemy:register_event("on_custom_attack_received", function(enemy, attack)
     sol.timer.start(enemy, crushed_duration, function()
       enemy:set_pushed_back_when_hurt(false)
       enemy:hurt(1)
+      sprite:set_animation("hurt_crushed")
     end)
   end
 end)

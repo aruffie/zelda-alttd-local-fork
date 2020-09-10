@@ -136,10 +136,3 @@ for wardrobe in map:get_entities("wardrobe") do
     game:start_dialog("maps.houses.wardrobe_1", game:get_player_name())
   end
 end
-
-function mario:on_interaction()
-  
-  local music_random = math.random(4) 
-  audio_manager:play_sound("mario" .. music_random)
-
-end

@@ -9,13 +9,12 @@ require("scripts/multi_events")
 local audio_manager = require("scripts/audio_manager")
 local door_manager = require("scripts/maps/door_manager")
 local enemy_manager = require("scripts/maps/enemy_manager")
-local owl_manager = require("scripts/maps/owl_manager")
 local separator_manager = require("scripts/maps/separator_manager")
 local switch_manager = require("scripts/maps/switch_manager")
 local treasure_manager = require("scripts/maps/treasure_manager")
 
 -- Map events
-function map:on_started()
+map:register_event("on_started", function()
 
   -- Doors
   map:set_doors_open("door_group_1_", true)
@@ -32,8 +31,6 @@ function map:on_started()
   enemy_manager:create_teletransporter_if_small_boss_dead(map, false)
   -- Music
   game:play_dungeon_music()
-  -- Owls
-  owl_manager:init(map)
   -- Pickables
   treasure_manager:disappear_pickable(map, "pickable_small_key_1")
   treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_8_", "pickable_small_key_1")
@@ -41,8 +38,7 @@ function map:on_started()
   -- Separators
   separator_manager:init(map)
   
-end
-
+end)
 
 function map:on_obtaining_treasure(item, variant, savegame_variable)
 

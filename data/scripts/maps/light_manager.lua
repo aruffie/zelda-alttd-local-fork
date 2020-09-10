@@ -36,20 +36,20 @@ function light_manager:init(map)
     light_surface:fill_color(black, 0, dark_surface_height - y,
       screen_width, y - dark_surface_height + screen_height)
   end
-  light_surface:set_opacity(150)
+  light_manager:update_light_level(map)
   map:register_event("on_draw", function(map, dst_surface)
       if map:get_light() == 1 then
         return
       end
       light_surface:draw(dst_surface, 0, 0)
     end)
-
+  
 end
 
 function light_manager:check_is_light_active(map, torch_prefix)
 
   for torch in map:get_entities(torch_prefix) do
-    if torch:is_lit() then
+    if torch.is_lit and torch:is_lit() then
       return true
     end
   end
@@ -64,13 +64,13 @@ function light_manager:update_light_level(map)
 
     if entity:get_type()=="custom_entity" and entity:get_model()=="torch" and entity:is_in_same_region(map:get_hero()) then
       total=total+1
-      if entity:is_lit() then
+      if entity.is_lit and entity:is_lit() then
         lit=lit+1
       end
     end
   end
   if total~=0 and light_surface~=nil then
---    print ("Torches lit: "..lit.."/"..total, "opacity:"..150*(1-lit/total))
+--    debug_print ("Torches lit: "..lit.."/"..total, "opacity:"..150*(1-lit/total))
     map:set_light(lit/total)
     light_surface:set_opacity(150*(1-lit/total))
   else 

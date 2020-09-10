@@ -16,39 +16,43 @@ local game = item:get_game()
 
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
-local jump_manager=require("scripts/maps/jump_manager")
+local jump_manager = require("scripts/maps/jump_manager")
 require("scripts/multi_events")
 
 -- Event called when the game is initialized.
 function item:on_started()
+  
   item:set_savegame_variable("possession_feather")
   item:set_sound_when_brandished(nil)
   item:set_assignable(true)
+  
 end
 
 local game_meta = sol.main.get_metatable("game")
 
 -- This function is called when the item command is triggered. It is similar to item:on_using, without state changing.
 function item:start_using()
-
   local map = game:get_map()
   local hero = map:get_hero()
 
-  -- 
   if not hero:is_jumping() then
     if not map:is_sideview() then
 
       jump_manager.start(hero) -- Running jump
 
     else
+      local state=hero:get_state()
       -- Simply apply a vertical impulsion to the hero in sideview maps.
-      if hero:get_state()~="carrying" and hero:get_state()~="lifting" then
+      if state~="carrying" and state~="lifting" and state~="falling" and state~="plunging" then
         local vspeed = hero.vspeed or 0
-        if vspeed == 0 or map:get_ground(hero:get_position()) == "deep_water" then
+        if vspeed == 0 or hero.has_grabbed_ladder or map:get_ground(hero:get_position()) == "deep_water" then
           audio_manager:play_sound("hero/jump")
           sol.timer.start(10, function()
-              hero.on_ladder = false
+--              hero.has_grabbed_ladder = false
               hero.vspeed = -4 --TODO don"t make underwater jumps so powerful
+              if hero.has_grabbed_ladder then
+                hero.vspeed=-2
+              end
               if map:get_ground(hero:get_position()) == "deep_water" then
                 hero.vspeed= -2
               end

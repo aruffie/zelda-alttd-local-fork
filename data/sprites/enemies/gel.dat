@@ -35,7 +35,7 @@ animation{
   },
 }
 animation{
-  name = "jump",
+  name = "jumping",
   src_image = "enemies/zols_gels.png",
   frame_delay = 50,
   frame_to_loop_on = 0,

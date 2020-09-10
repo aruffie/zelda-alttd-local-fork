@@ -51,12 +51,11 @@ function item:choose_random_item()
       acorn_visble = true
     end
   end
-  print(game.acorn_count)
-  if game.power_fragment_count == 3
+  if game.power_fragment_count == 46
     and not power_fragment_visble
     and game.hero_charm ~= "power_fragment" then
     return 'power_fragment', 1
-  elseif game.acorn_count == 4
+  elseif game.acorn_count == 13
     and not acorn_visble
     and game.hero_charm ~= "acorn" then
     return 'acorn', 1

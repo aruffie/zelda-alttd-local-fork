@@ -718,7 +718,7 @@ tile{
   x = 1008,
   y = 48,
   width = 224,
-  height = 160,
+  height = 144,
   pattern = "floor.3-1",
 }
 
@@ -1201,15 +1201,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 920,
-  y = 696,
-  width = 24,
-  height = 24,
-  pattern = "wall.corner.4-2",
-}
-
-tile{
-  layer = 0,
   x = 656,
   y = 760,
   width = 24,
@@ -1402,7 +1393,7 @@ tile{
   x = 1240,
   y = 56,
   width = 24,
-  height = 160,
+  height = 128,
   pattern = "wall.4-2",
 }
 
@@ -1935,15 +1926,6 @@ tile{
   width = 560,
   height = 24,
   pattern = "wall.1-2",
-}
-
-tile{
-  layer = 0,
-  x = 1320,
-  y = 488,
-  width = 8,
-  height = 8,
-  pattern = "wall_border.corner.1-2",
 }
 
 tile{
@@ -9447,7 +9429,7 @@ tile{
   layer = 0,
   x = 2088,
   y = 592,
-  width = 112,
+  width = 80,
   height = 16,
   pattern = "water_shallow",
 }
@@ -11977,7 +11959,7 @@ tile{
 tile{
   layer = 0,
   x = 336,
-  y = 336,
+  y = 320,
   width = 24,
   height = 64,
   pattern = "35",
@@ -11987,7 +11969,7 @@ tile{
 tile{
   layer = 0,
   x = 600,
-  y = 336,
+  y = 320,
   width = 24,
   height = 64,
   pattern = "34",
@@ -12050,6 +12032,15 @@ tile{
   height = 16,
   pattern = "146",
   tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 800,
+  y = 1280,
+  width = 24,
+  height = 24,
+  pattern = "wall.corner.1-2",
 }
 
 wall{
@@ -12534,7 +12525,7 @@ pickable{
   x = 480,
   y = 341,
   treasure_name = "instrument_4",
-  treasure_savegame_variable = "dungeon_4_instrument",
+  treasure_savegame_variable = "dungeon_4_big_treasure",
 }
 
 destructible{
@@ -12862,17 +12853,7 @@ dynamic_tile{
   layer = 0,
   x = 1408,
   y = 1632,
-  width = 128,
-  height = 8,
-  pattern = "2485",
-}
-
-dynamic_tile{
-  name = "invisible_tile_9",
-  layer = 0,
-  x = 1344,
-  y = 1632,
-  width = 16,
+  width = 152,
   height = 8,
   pattern = "2485",
 }
@@ -12883,16 +12864,16 @@ dynamic_tile{
   x = 1552,
   y = 1536,
   width = 8,
-  height = 64,
+  height = 96,
   pattern = "2485",
 }
 
 dynamic_tile{
   name = "invisible_tile_11",
   layer = 0,
-  x = 720,
+  x = 712,
   y = 1392,
-  width = 112,
+  width = 120,
   height = 8,
   pattern = "2485",
 }
@@ -12911,9 +12892,9 @@ dynamic_tile{
   name = "invisible_tile_13",
   layer = 0,
   x = 824,
-  y = 1344,
+  y = 1336,
   width = 8,
-  height = 16,
+  height = 24,
   pattern = "2485",
 }
 
@@ -13065,294 +13046,6 @@ destructible{
   sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
-}
-
-destructible{
-  name = "auto_destructible_1",
-  layer = 0,
-  x = 1512,
-  y = 1597,
-  treasure_name = "random",
-  sprite = "entities/blue_cristal",
-  destruction_sound = "bush",
-  weight = -1,
-  can_be_cut = true,
-}
-
-destructible{
-  name = "auto_destructible_2",
-  layer = 0,
-  x = 1496,
-  y = 1597,
-  treasure_name = "random",
-  sprite = "entities/blue_cristal",
-  destruction_sound = "bush",
-  weight = -1,
-  can_be_cut = true,
-}
-
-destructible{
-  name = "auto_destructible_3",
-  layer = 0,
-  x = 1480,
-  y = 1597,
-  treasure_name = "random",
-  sprite = "entities/blue_cristal",
-  destruction_sound = "bush",
-  weight = -1,
-  can_be_cut = true,
-}
-
-destructible{
-  name = "auto_destructible_4",
-  layer = 0,
-  x = 1368,
-  y = 1597,
-  treasure_name = "random",
-  sprite = "entities/blue_cristal",
-  destruction_sound = "bush",
-  weight = -1,
-  can_be_cut = true,
-}
-
-destructible{
-  name = "auto_destructible_5",
-  layer = 0,
-  x = 1384,
-  y = 1597,
-  treasure_name = "random",
-  sprite = "entities/blue_cristal",
-  destruction_sound = "bush",
-  weight = -1,
-  can_be_cut = true,
-}
-
-destructible{
-  name = "auto_destructible_6",
-  layer = 0,
-  x = 1400,
-  y = 1597,
-  treasure_name = "random",
-  sprite = "entities/blue_cristal",
-  destruction_sound = "bush",
-  weight = -1,
-  can_be_cut = true,
-}
-
-destructible{
-  name = "auto_destructible_7",
-  layer = 0,
-  x = 1416,
-  y = 1597,
-  treasure_name = "random",
-  sprite = "entities/blue_cristal",
-  destruction_sound = "bush",
-  weight = -1,
-  can_be_cut = true,
-}
-
-destructible{
-  name = "auto_destructible_8",
-  layer = 0,
-  x = 1432,
-  y = 1597,
-  treasure_name = "random",
-  sprite = "entities/blue_cristal",
-  destruction_sound = "bush",
-  weight = -1,
-  can_be_cut = true,
-}
-
-destructible{
-  name = "auto_destructible_9",
-  layer = 0,
-  x = 1448,
-  y = 1597,
-  treasure_name = "random",
-  sprite = "entities/blue_cristal",
-  destruction_sound = "bush",
-  weight = -1,
-  can_be_cut = true,
-}
-
-destructible{
-  name = "auto_destructible_10",
-  layer = 0,
-  x = 1464,
-  y = 1597,
-  treasure_name = "random",
-  sprite = "entities/blue_cristal",
-  destruction_sound = "bush",
-  weight = -1,
-  can_be_cut = true,
-}
-
-destructible{
-  name = "auto_destructible_11",
-  layer = 0,
-  x = 1512,
-  y = 1581,
-  treasure_name = "random",
-  sprite = "entities/blue_cristal",
-  destruction_sound = "bush",
-  weight = -1,
-  can_be_cut = true,
-}
-
-destructible{
-  name = "auto_destructible_12",
-  layer = 0,
-  x = 1512,
-  y = 1565,
-  treasure_name = "random",
-  sprite = "entities/blue_cristal",
-  destruction_sound = "bush",
-  weight = -1,
-  can_be_cut = true,
-}
-
-destructible{
-  name = "auto_destructible_13",
-  layer = 0,
-  x = 1512,
-  y = 1549,
-  treasure_name = "random",
-  sprite = "entities/blue_cristal",
-  destruction_sound = "bush",
-  weight = -1,
-  can_be_cut = true,
-}
-
-destructible{
-  name = "auto_destructible_14",
-  layer = 0,
-  x = 1512,
-  y = 1533,
-  treasure_name = "random",
-  sprite = "entities/blue_cristal",
-  destruction_sound = "bush",
-  weight = -1,
-  can_be_cut = true,
-}
-
-destructible{
-  name = "auto_destructible_15",
-  layer = 0,
-  x = 1464,
-  y = 1549,
-  treasure_name = "random",
-  sprite = "entities/blue_cristal",
-  destruction_sound = "bush",
-  weight = -1,
-  can_be_cut = true,
-}
-
-destructible{
-  name = "auto_destructible_16",
-  layer = 0,
-  x = 1464,
-  y = 1533,
-  treasure_name = "random",
-  sprite = "entities/blue_cristal",
-  destruction_sound = "bush",
-  weight = -1,
-  can_be_cut = true,
-}
-
-destructible{
-  name = "auto_destructible_17",
-  layer = 0,
-  x = 1448,
-  y = 1533,
-  treasure_name = "random",
-  sprite = "entities/blue_cristal",
-  destruction_sound = "bush",
-  weight = -1,
-  can_be_cut = true,
-}
-
-destructible{
-  name = "auto_destructible_18",
-  layer = 0,
-  x = 1448,
-  y = 1549,
-  treasure_name = "random",
-  sprite = "entities/blue_cristal",
-  destruction_sound = "bush",
-  weight = -1,
-  can_be_cut = true,
-}
-
-destructible{
-  name = "auto_destructible_19",
-  layer = 0,
-  x = 1432,
-  y = 1533,
-  treasure_name = "random",
-  sprite = "entities/blue_cristal",
-  destruction_sound = "bush",
-  weight = -1,
-  can_be_cut = true,
-}
-
-destructible{
-  name = "auto_destructible_20",
-  layer = 0,
-  x = 1432,
-  y = 1549,
-  treasure_name = "random",
-  sprite = "entities/blue_cristal",
-  destruction_sound = "bush",
-  weight = -1,
-  can_be_cut = true,
-}
-
-destructible{
-  name = "auto_destructible_21",
-  layer = 0,
-  x = 1416,
-  y = 1549,
-  treasure_name = "random",
-  sprite = "entities/blue_cristal",
-  destruction_sound = "bush",
-  weight = -1,
-  can_be_cut = true,
-}
-
-destructible{
-  name = "auto_destructible_22",
-  layer = 0,
-  x = 1416,
-  y = 1533,
-  treasure_name = "random",
-  sprite = "entities/blue_cristal",
-  destruction_sound = "bush",
-  weight = -1,
-  can_be_cut = true,
-}
-
-destructible{
-  name = "auto_destructible_23",
-  layer = 0,
-  x = 1400,
-  y = 1533,
-  treasure_name = "random",
-  sprite = "entities/blue_cristal",
-  destruction_sound = "bush",
-  weight = -1,
-  can_be_cut = true,
-}
-
-destructible{
-  name = "auto_destructible_24",
-  layer = 0,
-  x = 1400,
-  y = 1549,
-  treasure_name = "random",
-  sprite = "entities/blue_cristal",
-  destruction_sound = "bush",
-  weight = -1,
-  can_be_cut = true,
 }
 
 destructible{
@@ -14190,10 +13883,10 @@ enemy{
 enemy{
   name = "enemy_group_16_1",
   layer = 0,
-  x = 1112,
-  y = 1165,
+  x = 1128,
+  y = 1149,
   direction = 0,
-  breed = "tektite_water",
+  breed = "peahat",
 }
 
 enemy{
@@ -14228,10 +13921,10 @@ enemy{
 enemy{
   name = "enemy_group_17_2",
   layer = 0,
-  x = 840,
-  y = 1101,
+  x = 904,
+  y = 1125,
   direction = 0,
-  breed = "peahat",
+  breed = "tektite_water",
 }
 
 enemy{
@@ -14567,8 +14260,8 @@ enemy{
 enemy{
   name = "enemy_group_14_2",
   layer = 0,
-  x = 1416,
-  y = 845,
+  x = 1424,
+  y = 917,
   direction = 0,
   breed = "zol_green",
 }
@@ -14938,7 +14631,7 @@ sensor{
 enemy{
   name = "enemy_group_23_1",
   layer = 0,
-  x = 1144,
+  x = 1128,
   y = 157,
   direction = 0,
   breed = "zol_red",
@@ -14992,38 +14685,382 @@ custom_entity{
   sprite = "entities/handle",
 }
 
-custom_entity{
-  name = "statue_owl_free",
+npc{
+  name = "owl_1",
+  layer = 0,
+  x = 1424,
+  y = 893,
+  direction = 3,
+  subtype = 1,
+  sprite = "npc/statues/owl_dungeon",
+}
+
+destructible{
+  name = "auto_destructible_25",
+  layer = 0,
+  x = 1400,
+  y = 1533,
+  treasure_name = "random",
+  sprite = "entities/destructibles/crystal_blue",
+  destruction_sound = "arrow_hit",
+  weight = -1,
+  can_be_cut = true,
+}
+
+destructible{
+  name = "auto_destructible_26",
   layer = 0,
   x = 1416,
-  y = 877,
-  width = 24,
-  height = 32,
-  direction = 1,
-  sprite = "entities/statue_owl_dungeon_free",
-  model = "statue",
+  y = 1533,
+  treasure_name = "random",
+  sprite = "entities/destructibles/crystal_blue",
+  destruction_sound = "arrow_hit",
+  weight = -1,
+  can_be_cut = true,
 }
 
-custom_entity{
-  name = "statue_owl_free_2",
+destructible{
+  name = "auto_destructible_27",
   layer = 0,
-  x = 1440,
-  y = 877,
-  width = 8,
-  height = 32,
-  direction = 2,
-  sprite = "entities/statue_owl_dungeon_free",
+  x = 1432,
+  y = 1533,
+  treasure_name = "random",
+  sprite = "entities/destructibles/crystal_blue",
+  destruction_sound = "arrow_hit",
+  weight = -1,
+  can_be_cut = true,
 }
 
-custom_entity{
-  name = "statue_owl_free_3",
+destructible{
+  name = "auto_destructible_28",
   layer = 0,
-  x = 1408,
-  y = 877,
-  width = 8,
-  height = 32,
+  x = 1448,
+  y = 1533,
+  treasure_name = "random",
+  sprite = "entities/destructibles/crystal_blue",
+  destruction_sound = "arrow_hit",
+  weight = -1,
+  can_be_cut = true,
+}
+
+destructible{
+  name = "auto_destructible_29",
+  layer = 0,
+  x = 1464,
+  y = 1533,
+  treasure_name = "random",
+  sprite = "entities/destructibles/crystal_blue",
+  destruction_sound = "arrow_hit",
+  weight = -1,
+  can_be_cut = true,
+}
+
+destructible{
+  name = "auto_destructible_30",
+  layer = 0,
+  x = 1400,
+  y = 1549,
+  treasure_name = "random",
+  sprite = "entities/destructibles/crystal_blue",
+  destruction_sound = "arrow_hit",
+  weight = -1,
+  can_be_cut = true,
+}
+
+destructible{
+  name = "auto_destructible_31",
+  layer = 0,
+  x = 1416,
+  y = 1549,
+  treasure_name = "random",
+  sprite = "entities/destructibles/crystal_blue",
+  destruction_sound = "arrow_hit",
+  weight = -1,
+  can_be_cut = true,
+}
+
+destructible{
+  name = "auto_destructible_32",
+  layer = 0,
+  x = 1432,
+  y = 1549,
+  treasure_name = "random",
+  sprite = "entities/destructibles/crystal_blue",
+  destruction_sound = "arrow_hit",
+  weight = -1,
+  can_be_cut = true,
+}
+
+destructible{
+  name = "auto_destructible_33",
+  layer = 0,
+  x = 1448,
+  y = 1549,
+  treasure_name = "random",
+  sprite = "entities/destructibles/crystal_blue",
+  destruction_sound = "arrow_hit",
+  weight = -1,
+  can_be_cut = true,
+}
+
+destructible{
+  name = "auto_destructible_34",
+  layer = 0,
+  x = 1464,
+  y = 1549,
+  treasure_name = "random",
+  sprite = "entities/destructibles/crystal_blue",
+  destruction_sound = "arrow_hit",
+  weight = -1,
+  can_be_cut = true,
+}
+
+destructible{
+  name = "auto_destructible_35",
+  layer = 0,
+  x = 1512,
+  y = 1533,
+  treasure_name = "random",
+  sprite = "entities/destructibles/crystal_blue",
+  destruction_sound = "arrow_hit",
+  weight = -1,
+  can_be_cut = true,
+}
+
+destructible{
+  name = "auto_destructible_36",
+  layer = 0,
+  x = 1512,
+  y = 1549,
+  treasure_name = "random",
+  sprite = "entities/destructibles/crystal_blue",
+  destruction_sound = "arrow_hit",
+  weight = -1,
+  can_be_cut = true,
+}
+
+destructible{
+  name = "auto_destructible_37",
+  layer = 0,
+  x = 1512,
+  y = 1565,
+  treasure_name = "random",
+  sprite = "entities/destructibles/crystal_blue",
+  destruction_sound = "arrow_hit",
+  weight = -1,
+  can_be_cut = true,
+}
+
+destructible{
+  name = "auto_destructible_38",
+  layer = 0,
+  x = 1512,
+  y = 1581,
+  treasure_name = "random",
+  sprite = "entities/destructibles/crystal_blue",
+  destruction_sound = "arrow_hit",
+  weight = -1,
+  can_be_cut = true,
+}
+
+destructible{
+  name = "auto_destructible_39",
+  layer = 0,
+  x = 1368,
+  y = 1597,
+  treasure_name = "random",
+  sprite = "entities/destructibles/crystal_blue",
+  destruction_sound = "arrow_hit",
+  weight = -1,
+  can_be_cut = true,
+}
+
+destructible{
+  name = "auto_destructible_40",
+  layer = 0,
+  x = 1384,
+  y = 1597,
+  treasure_name = "random",
+  sprite = "entities/destructibles/crystal_blue",
+  destruction_sound = "arrow_hit",
+  weight = -1,
+  can_be_cut = true,
+}
+
+destructible{
+  name = "auto_destructible_41",
+  layer = 0,
+  x = 1400,
+  y = 1597,
+  treasure_name = "random",
+  sprite = "entities/destructibles/crystal_blue",
+  destruction_sound = "arrow_hit",
+  weight = -1,
+  can_be_cut = true,
+}
+
+destructible{
+  name = "auto_destructible_42",
+  layer = 0,
+  x = 1416,
+  y = 1597,
+  treasure_name = "random",
+  sprite = "entities/destructibles/crystal_blue",
+  destruction_sound = "arrow_hit",
+  weight = -1,
+  can_be_cut = true,
+}
+
+destructible{
+  name = "auto_destructible_43",
+  layer = 0,
+  x = 1432,
+  y = 1597,
+  treasure_name = "random",
+  sprite = "entities/destructibles/crystal_blue",
+  destruction_sound = "arrow_hit",
+  weight = -1,
+  can_be_cut = true,
+}
+
+destructible{
+  name = "auto_destructible_44",
+  layer = 0,
+  x = 1448,
+  y = 1597,
+  treasure_name = "random",
+  sprite = "entities/destructibles/crystal_blue",
+  destruction_sound = "arrow_hit",
+  weight = -1,
+  can_be_cut = true,
+}
+
+destructible{
+  name = "auto_destructible_45",
+  layer = 0,
+  x = 1464,
+  y = 1597,
+  treasure_name = "random",
+  sprite = "entities/destructibles/crystal_blue",
+  destruction_sound = "arrow_hit",
+  weight = -1,
+  can_be_cut = true,
+}
+
+destructible{
+  name = "auto_destructible_46",
+  layer = 0,
+  x = 1480,
+  y = 1597,
+  treasure_name = "random",
+  sprite = "entities/destructibles/crystal_blue",
+  destruction_sound = "arrow_hit",
+  weight = -1,
+  can_be_cut = true,
+}
+
+destructible{
+  name = "auto_destructible_47",
+  layer = 0,
+  x = 1496,
+  y = 1597,
+  treasure_name = "random",
+  sprite = "entities/destructibles/crystal_blue",
+  destruction_sound = "arrow_hit",
+  weight = -1,
+  can_be_cut = true,
+}
+
+destructible{
+  name = "auto_destructible_48",
+  layer = 0,
+  x = 1512,
+  y = 1597,
+  treasure_name = "random",
+  sprite = "entities/destructibles/crystal_blue",
+  destruction_sound = "arrow_hit",
+  weight = -1,
+  can_be_cut = true,
+}
+
+enemy{
+  name = "enemy_group_19_3",
+  layer = 0,
+  x = 840,
+  y = 541,
   direction = 0,
-  sprite = "entities/statue_owl_dungeon_free",
+  breed = "tektite_water",
+}
+
+teletransporter{
+  name = "dungeon_4_2_B",
+  layer = 0,
+  x = 1112,
+  y = 1656,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
+  width = 16,
+  height = 16,
+  destination_map = "out/c1_mambos_cave",
+  destination = "dungeon_4_2_A",
+}
+
+tile{
+  layer = 1,
+  x = 1000,
+  y = 976,
+  width = 64,
+  height = 8,
+  pattern = "door_cache.1-2",
+}
+
+tile{
+  layer = 1,
+  x = 1000,
+  y = 936,
+  width = 64,
+  height = 8,
+  pattern = "door_cache.2-2",
+}
+
+tile{
+  layer = 1,
+  x = 1408,
+  y = 496,
+  width = 64,
+  height = 8,
+  pattern = "door_cache.1-2",
+}
+
+tile{
+  layer = 1,
+  x = 1408,
+  y = 456,
+  width = 64,
+  height = 8,
+  pattern = "door_cache.2-2",
+}
+
+tile{
+  layer = 1,
+  x = 1408,
+  y = 256,
+  width = 64,
+  height = 8,
+  pattern = "door_cache.1-2",
+}
+
+tile{
+  layer = 1,
+  x = 1408,
+  y = 216,
+  width = 64,
+  height = 8,
+  pattern = "door_cache.2-2",
 }
 
 tile{
@@ -15164,7 +15201,7 @@ tile{
 tile{
   layer = 1,
   x = 1576,
-  y = 1352,
+  y = 1344,
   width = 8,
   height = 64,
   pattern = "door_cache.4-2",
@@ -15173,7 +15210,7 @@ tile{
 tile{
   layer = 1,
   x = 1616,
-  y = 1352,
+  y = 1344,
   width = 8,
   height = 64,
   pattern = "door_cache.3-2",
@@ -15370,15 +15407,6 @@ tile{
 
 tile{
   layer = 1,
-  x = 1000,
-  y = 936,
-  width = 64,
-  height = 8,
-  pattern = "door_cache.2-2",
-}
-
-tile{
-  layer = 1,
   x = 1016,
   y = 936,
   width = 32,
@@ -15497,7 +15525,7 @@ tile{
 tile{
   layer = 1,
   x = 1256,
-  y = 1336,
+  y = 1328,
   width = 8,
   height = 64,
   pattern = "door_cache.4-2",
@@ -15506,7 +15534,7 @@ tile{
 tile{
   layer = 1,
   x = 1296,
-  y = 1336,
+  y = 1328,
   width = 8,
   height = 64,
   pattern = "door_cache.3-2",
@@ -15956,9 +15984,9 @@ tile{
 tile{
   layer = 1,
   x = 1080,
-  y = 16,
-  width = 56,
-  height = 104,
+  y = 8,
+  width = 48,
+  height = 112,
   pattern = "944",
 }
 
@@ -16225,15 +16253,6 @@ tile{
 
 tile{
   layer = 1,
-  x = 800,
-  y = 1280,
-  width = 24,
-  height = 24,
-  pattern = "wall.corner.1-2",
-}
-
-tile{
-  layer = 1,
   x = 464,
   y = 736,
   width = 32,
@@ -16259,7 +16278,7 @@ chest{
   y = 1277,
   treasure_name = "boss_key",
   treasure_savegame_variable = "dungeon_4_boss_key",
-  sprite = "entities/big_chest",
+  sprite = "entities/chests/chest_big",
 }
 
 chest{
@@ -16311,7 +16330,7 @@ chest{
   y = 85,
   treasure_name = "flippers",
   treasure_savegame_variable = "dungeon_4_flippers",
-  sprite = "entities/big_chest",
+  sprite = "entities/chests/chest_big",
 }
 
 custom_entity{
@@ -16841,7 +16860,6 @@ tile{
 }
 
 separator{
-  name = "auto_separator_9",
   layer = 2,
   x = 0,
   y = 1432,
@@ -16850,7 +16868,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_10",
   layer = 2,
   x = 0,
   y = 1192,
@@ -16859,7 +16876,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_11",
   layer = 2,
   x = 0,
   y = 952,
@@ -16868,16 +16884,14 @@ separator{
 }
 
 separator{
-  name = "auto_separator_12",
   layer = 2,
-  x = 8,
-  y = 712,
+  x = 0,
+  y = 720,
   width = 2560,
   height = 16,
 }
 
 separator{
-  name = "auto_separator_13",
   layer = 2,
   x = 0,
   y = 472,
@@ -16886,7 +16900,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_2",
   layer = 2,
   x = 632,
   y = 0,
@@ -16895,7 +16908,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_3",
   layer = 2,
   x = 952,
   y = 0,
@@ -16904,7 +16916,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_14",
   layer = 2,
   x = 0,
   y = 232,
@@ -16913,7 +16924,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_4",
   layer = 2,
   x = 1272,
   y = 0,
@@ -16922,7 +16932,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_5",
   layer = 2,
   x = 1592,
   y = 0,
@@ -16931,7 +16940,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_6",
   layer = 2,
   x = 1912,
   y = 0,
@@ -16940,7 +16948,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_1",
   layer = 2,
   x = 312,
   y = 0,
@@ -16949,7 +16956,6 @@ separator{
 }
 
 separator{
-  name = "auto_separator_8",
   layer = 2,
   x = 0,
   y = 1672,
@@ -16958,112 +16964,11 @@ separator{
 }
 
 separator{
-  name = "auto_separator_7",
   layer = 2,
   x = 2232,
   y = 0,
   width = 16,
   height = 1920,
-}
-
-dynamic_tile{
-  layer = 2,
-  x = 720,
-  y = 616,
-  enabled_at_start = false,
-  width = 8,
-  height = 16,
-  pattern = "2",
-}
-
-dynamic_tile{
-  layer = 2,
-  x = 864,
-  y = 616,
-  enabled_at_start = false,
-  width = 8,
-  height = 16,
-  pattern = "3",
-}
-
-dynamic_tile{
-  layer = 2,
-  x = 720,
-  y = 552,
-  enabled_at_start = false,
-  width = 8,
-  height = 16,
-  pattern = "4",
-}
-
-dynamic_tile{
-  layer = 2,
-  x = 864,
-  y = 552,
-  enabled_at_start = false,
-  width = 8,
-  height = 16,
-  pattern = "5",
-}
-
-dynamic_tile{
-  layer = 2,
-  x = 800,
-  y = 584,
-  enabled_at_start = false,
-  width = 8,
-  height = 16,
-  pattern = "6",
-}
-
-dynamic_tile{
-  layer = 2,
-  x = 1040,
-  y = 376,
-  enabled_at_start = false,
-  width = 8,
-  height = 16,
-  pattern = "2",
-}
-
-dynamic_tile{
-  layer = 2,
-  x = 1184,
-  y = 376,
-  enabled_at_start = false,
-  width = 8,
-  height = 16,
-  pattern = "3",
-}
-
-dynamic_tile{
-  layer = 2,
-  x = 1040,
-  y = 312,
-  enabled_at_start = false,
-  width = 8,
-  height = 16,
-  pattern = "4",
-}
-
-dynamic_tile{
-  layer = 2,
-  x = 1184,
-  y = 312,
-  enabled_at_start = false,
-  width = 8,
-  height = 16,
-  pattern = "5",
-}
-
-dynamic_tile{
-  layer = 2,
-  x = 1120,
-  y = 344,
-  enabled_at_start = false,
-  width = 8,
-  height = 16,
-  pattern = "6",
 }
 
 enemy{

@@ -28,10 +28,10 @@ game_meta:register_event("on_started", function(game)
   game:register_event("on_command_pressed", function(game, command)
     -- Note : there is no "item_X" command check here, since this item has been integrated into the new global command override system.
     if not game:is_suspended() then
-      if command == "action" then 
+      if command == "action" then
         if game:get_command_effect("action") == nil and game:has_item("pegasus_shoes") then
           local hero=game:get_hero()
-          local entity=hero:get_facing_entity() 
+          local entity=hero:get_facing_entity()
 
           if entity and entity:get_type()=="custom_entity" and entity:get_model() == "npc" then -- Special case for the custom NPC entity, because it could not interact with
             return

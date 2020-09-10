@@ -33,6 +33,18 @@ animation{
   },
 }
 animation{
+  name = "hurt_crushed",
+  src_image = "enemies/goomba.png",
+  frame_delay = 50,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 48, y = 48, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21, num_frames = 3 },
+    { x = 48, y = 48, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21, num_frames = 3 },
+    { x = 48, y = 48, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21, num_frames = 3 },
+    { x = 48, y = 48, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21, num_frames = 3 },
+  },
+}
+animation{
   name = "immobilized",
   src_image = "enemies/goomba.png",
   directions = {

@@ -1,0 +1,1066 @@
+properties{
+  x = 0,
+  y = 0,
+  width = 800,
+  height = 480,
+  min_layer = 0,
+  max_layer = 2,
+  world = "test_world",
+  tileset = "testing/labo",
+}
+
+tile{
+  layer = 0,
+  x = 592,
+  y = 368,
+  width = 32,
+  height = 96,
+  pattern = "2",
+}
+
+tile{
+  layer = 0,
+  x = 624,
+  y = 368,
+  width = 16,
+  height = 40,
+  pattern = "7",
+}
+
+tile{
+  layer = 0,
+  x = 624,
+  y = 392,
+  width = 160,
+  height = 72,
+  pattern = "113",
+  tileset = "out/outside_main",
+}
+
+tile{
+  layer = 0,
+  x = 592,
+  y = 464,
+  width = 208,
+  height = 16,
+  pattern = "2",
+}
+
+tile{
+  layer = 0,
+  x = 640,
+  y = 176,
+  enabled_at_start = false,
+  width = 16,
+  height = 16,
+  pattern = "16",
+  tileset = "sideview/sideview",
+}
+
+tile{
+  layer = 0,
+  x = 608,
+  y = 176,
+  width = 32,
+  height = 16,
+  pattern = "2",
+}
+
+tile{
+  layer = 0,
+  x = 592,
+  y = 176,
+  width = 16,
+  height = 16,
+  pattern = "15",
+  tileset = "sideview/sideview",
+}
+
+tile{
+  layer = 0,
+  x = 0,
+  y = 0,
+  width = 448,
+  height = 32,
+  pattern = "2",
+}
+
+tile{
+  layer = 0,
+  x = 464,
+  y = 0,
+  width = 336,
+  height = 32,
+  pattern = "2",
+}
+
+tile{
+  layer = 0,
+  x = 272,
+  y = 112,
+  width = 176,
+  height = 32,
+  pattern = "2",
+}
+
+tile{
+  layer = 0,
+  x = 416,
+  y = 192,
+  width = 32,
+  height = 80,
+  pattern = "2",
+}
+
+tile{
+  layer = 0,
+  x = 128,
+  y = 272,
+  width = 320,
+  height = 32,
+  pattern = "2",
+}
+
+tile{
+  layer = 0,
+  x = 400,
+  y = 192,
+  width = 16,
+  height = 80,
+  pattern = "7",
+}
+
+tile{
+  layer = 0,
+  x = 320,
+  y = 192,
+  width = 32,
+  height = 80,
+  pattern = "2",
+}
+
+tile{
+  layer = 0,
+  x = 304,
+  y = 192,
+  width = 16,
+  height = 80,
+  pattern = "7",
+}
+
+tile{
+  layer = 0,
+  x = 208,
+  y = 192,
+  width = 48,
+  height = 16,
+  pattern = "2",
+}
+
+tile{
+  layer = 0,
+  x = 192,
+  y = 192,
+  width = 16,
+  height = 80,
+  pattern = "7",
+}
+
+tile{
+  layer = 0,
+  x = 240,
+  y = 208,
+  width = 16,
+  height = 64,
+  pattern = "2",
+}
+
+tile{
+  layer = 0,
+  x = 176,
+  y = 192,
+  width = 16,
+  height = 80,
+  pattern = "2",
+}
+
+tile{
+  layer = 0,
+  x = 128,
+  y = 144,
+  width = 16,
+  height = 80,
+  pattern = "2",
+}
+
+tile{
+  layer = 0,
+  x = 128,
+  y = 112,
+  width = 144,
+  height = 32,
+  pattern = "2",
+}
+
+tile{
+  layer = 0,
+  x = 112,
+  y = 112,
+  width = 16,
+  height = 336,
+  pattern = "7",
+}
+
+tile{
+  layer = 0,
+  x = 0,
+  y = 32,
+  width = 32,
+  height = 448,
+  pattern = "2",
+}
+
+tile{
+  layer = 0,
+  x = 528,
+  y = 448,
+  width = 32,
+  height = 32,
+  pattern = "2",
+}
+
+tile{
+  layer = 0,
+  x = 192,
+  y = 336,
+  width = 16,
+  height = 112,
+  pattern = "7",
+}
+
+tile{
+  layer = 0,
+  x = 288,
+  y = 336,
+  width = 16,
+  height = 112,
+  pattern = "7",
+}
+
+tile{
+  layer = 0,
+  x = 192,
+  y = 448,
+  width = 304,
+  height = 32,
+  pattern = "2",
+}
+
+tile{
+  layer = 0,
+  x = 464,
+  y = 368,
+  width = 128,
+  height = 16,
+  pattern = "2",
+}
+
+tile{
+  layer = 0,
+  x = 560,
+  y = 464,
+  width = 32,
+  height = 16,
+  pattern = "9",
+}
+
+tile{
+  layer = 0,
+  x = 256,
+  y = 192,
+  width = 16,
+  height = 80,
+  pattern = "7",
+}
+
+tile{
+  layer = 0,
+  x = 464,
+  y = 272,
+  width = 320,
+  height = 32,
+  pattern = "2",
+}
+
+tile{
+  layer = 0,
+  x = 592,
+  y = 224,
+  width = 64,
+  height = 16,
+  pattern = "7",
+}
+
+tile{
+  layer = 0,
+  x = 352,
+  y = 384,
+  width = 8,
+  height = 16,
+  pattern = "17",
+  tileset = "out/outside_special",
+}
+
+tile{
+  layer = 0,
+  x = 360,
+  y = 384,
+  width = 8,
+  height = 16,
+  pattern = "14",
+  tileset = "out/outside_special",
+}
+
+tile{
+  layer = 0,
+  x = 368,
+  y = 384,
+  width = 8,
+  height = 16,
+  pattern = "27",
+  tileset = "out/outside_special",
+}
+
+tile{
+  layer = 0,
+  x = 376,
+  y = 384,
+  width = 8,
+  height = 16,
+  pattern = "20",
+  tileset = "out/outside_special",
+}
+
+tile{
+  layer = 0,
+  x = 384,
+  y = 384,
+  width = 8,
+  height = 16,
+  pattern = "18",
+  tileset = "out/outside_special",
+}
+
+tile{
+  layer = 0,
+  x = 392,
+  y = 384,
+  width = 8,
+  height = 16,
+  pattern = "31",
+  tileset = "out/outside_special",
+}
+
+tile{
+  layer = 0,
+  x = 360,
+  y = 400,
+  width = 8,
+  height = 16,
+  pattern = "39",
+  tileset = "out/outside_special",
+}
+
+tile{
+  layer = 0,
+  x = 368,
+  y = 400,
+  width = 8,
+  height = 16,
+  pattern = "54",
+  tileset = "out/outside_special",
+}
+
+tile{
+  layer = 0,
+  x = 376,
+  y = 400,
+  width = 8,
+  height = 16,
+  pattern = "53",
+  tileset = "out/outside_special",
+}
+
+tile{
+  layer = 0,
+  x = 384,
+  y = 400,
+  width = 8,
+  height = 16,
+  pattern = "44",
+  tileset = "out/outside_special",
+}
+
+tile{
+  layer = 0,
+  x = 480,
+  y = 384,
+  width = 8,
+  height = 16,
+  pattern = "17",
+  tileset = "out/outside_special",
+}
+
+tile{
+  layer = 0,
+  x = 488,
+  y = 384,
+  width = 8,
+  height = 16,
+  pattern = "14",
+  tileset = "out/outside_special",
+}
+
+tile{
+  layer = 0,
+  x = 496,
+  y = 384,
+  width = 8,
+  height = 16,
+  pattern = "27",
+  tileset = "out/outside_special",
+}
+
+tile{
+  layer = 0,
+  x = 504,
+  y = 384,
+  width = 8,
+  height = 16,
+  pattern = "20",
+  tileset = "out/outside_special",
+}
+
+tile{
+  layer = 0,
+  x = 512,
+  y = 384,
+  width = 8,
+  height = 16,
+  pattern = "18",
+  tileset = "out/outside_special",
+}
+
+tile{
+  layer = 0,
+  x = 520,
+  y = 384,
+  width = 8,
+  height = 16,
+  pattern = "31",
+  tileset = "out/outside_special",
+}
+
+tile{
+  layer = 0,
+  x = 488,
+  y = 400,
+  width = 8,
+  height = 16,
+  pattern = "39",
+  tileset = "out/outside_special",
+}
+
+tile{
+  layer = 0,
+  x = 496,
+  y = 400,
+  width = 8,
+  height = 16,
+  pattern = "54",
+  tileset = "out/outside_special",
+}
+
+tile{
+  layer = 0,
+  x = 504,
+  y = 400,
+  width = 8,
+  height = 16,
+  pattern = "53",
+  tileset = "out/outside_special",
+}
+
+tile{
+  layer = 0,
+  x = 512,
+  y = 400,
+  width = 8,
+  height = 16,
+  pattern = "44",
+  tileset = "out/outside_special",
+}
+
+tile{
+  layer = 0,
+  x = 448,
+  y = 0,
+  width = 16,
+  height = 448,
+  pattern = "7",
+}
+
+tile{
+  layer = 0,
+  x = 352,
+  y = 192,
+  width = 16,
+  height = 80,
+  pattern = "7",
+}
+
+tile{
+  layer = 0,
+  x = 784,
+  y = 32,
+  width = 16,
+  height = 432,
+  pattern = "2",
+}
+
+tile{
+  layer = 0,
+  x = 128,
+  y = 336,
+  width = 64,
+  height = 16,
+  pattern = "2",
+}
+
+tile{
+  layer = 0,
+  x = 128,
+  y = 464,
+  width = 64,
+  height = 16,
+  pattern = "2",
+}
+
+tile{
+  layer = 0,
+  x = 32,
+  y = 448,
+  width = 96,
+  height = 32,
+  pattern = "2",
+}
+
+tile{
+  layer = 0,
+  x = 128,
+  y = 456,
+  width = 64,
+  height = 8,
+  pattern = "80",
+  tileset = "sideview/sideview",
+}
+
+destination{
+  name = "destination",
+  layer = 0,
+  x = 456,
+  y = 29,
+  direction = 3,
+}
+
+pickable{
+  layer = 0,
+  x = 264,
+  y = 733,
+  treasure_name = "rupee",
+  treasure_variant = 2,
+}
+
+destructible{
+  layer = 0,
+  x = 216,
+  y = 269,
+  properties = {
+    {
+      key = "has_gravity",
+      value = "",
+    },
+    {
+      key = "auto_respawn",
+      value = "true",
+    },
+  },
+  sprite = "entities/destructibles/pot_sideview",
+}
+
+custom_entity{
+  name = "twin_platforms_A_chain_1",
+  layer = 0,
+  x = 520,
+  y = 45,
+  enabled_at_start = false,
+  width = 16,
+  height = 128,
+  direction = 0,
+  sprite = "entities/moving_platform_dg_5_chain",
+  tiled = true,
+  model = "platform_chain",
+}
+
+custom_entity{
+  name = "twin_platforms_A_chain_2",
+  layer = 0,
+  x = 488,
+  y = 45,
+  enabled_at_start = false,
+  width = 16,
+  height = 128,
+  direction = 0,
+  sprite = "entities/moving_platform_dg_5_chain",
+  tiled = true,
+  model = "platform_chain",
+}
+
+custom_entity{
+  name = "twin_platforms_A_1",
+  layer = 0,
+  x = 520,
+  y = 173,
+  properties = {
+    {
+      key = "auto_respawn",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/moving_platform_dg_5",
+  model = "platform_balance",
+}
+
+custom_entity{
+  name = "twin_platforms_A_2",
+  layer = 0,
+  x = 488,
+  y = 173,
+  properties = {
+    {
+      key = "auto_respawn",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/moving_platform_dg_5",
+  model = "platform_balance",
+}
+
+custom_entity{
+  name = "HEAVY_CRUMBLING_PLATFORM",
+  layer = 0,
+  x = 152,
+  y = 205,
+  properties = {
+    {
+      key = "needs_carrying",
+      value = "true",
+    },
+    {
+      key = "auto_respawn",
+      value = "true",
+    },
+  },
+  width = 32,
+  height = 16,
+  direction = 0,
+  sprite = "entities/moving_platform_dg_2",
+  model = "platform_collapsing",
+}
+
+enemy{
+  name = "THWIMP",
+  layer = 0,
+  x = 328,
+  y = 349,
+  direction = 0,
+  breed = "thwimp",
+}
+
+enemy{
+  name = "auto_enemy",
+  layer = 0,
+  x = 248,
+  y = 381,
+  direction = 0,
+  breed = "thwomp",
+}
+
+custom_entity{
+  layer = 0,
+  x = 40,
+  y = 445,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/block_ice",
+  model = "platform_ice_block",
+}
+
+custom_entity{
+  layer = 0,
+  x = 56,
+  y = 445,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/block_ice",
+  model = "platform_ice_block",
+}
+
+custom_entity{
+  layer = 0,
+  x = 40,
+  y = 429,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/block_ice",
+  model = "platform_ice_block",
+}
+
+custom_entity{
+  layer = 0,
+  x = 40,
+  y = 413,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/block_ice",
+  model = "platform_ice_block",
+}
+
+custom_entity{
+  name = "H_PLATFORM",
+  layer = 0,
+  x = 312,
+  y = 109,
+  properties = {
+    {
+      key = "direction",
+      value = "0",
+    },
+    {
+      key = "distance",
+      value = "48",
+    },
+    {
+      key = "is_semisolid",
+      value = "true",
+    },
+    {
+      key = "cycle_duration",
+      value = "6000",
+    },
+  },
+  width = 32,
+  height = 16,
+  direction = 0,
+  sprite = "entities/moving_platform_dg_2",
+  model = "platform_moving",
+}
+
+custom_entity{
+  name = "V_PLATFORM",
+  layer = 0,
+  x = 376,
+  y = 205,
+  properties = {
+    {
+      key = "direction",
+      value = "6",
+    },
+    {
+      key = "distance",
+      value = "48",
+    },
+    {
+      key = "cycle_duration",
+      value = "6000",
+    },
+  },
+  width = 32,
+  height = 16,
+  direction = 0,
+  sprite = "entities/moving_platform_dg_2",
+  model = "platform_moving",
+}
+
+teletransporter{
+  layer = 0,
+  x = 448,
+  y = 0,
+  width = 16,
+  height = 16,
+  destination_map = "test/outside",
+}
+
+custom_entity{
+  name = "S_PLAFFORM",
+  layer = 0,
+  x = 672,
+  y = 397,
+  properties = {
+    {
+      key = "distance",
+      value = "4",
+    },
+    {
+      key = "cycle_duration",
+      value = "4000",
+    },
+    {
+      key = "direction",
+      value = "6",
+    },
+    {
+      key = "is_semisolid",
+      value = "true",
+    },
+  },
+  width = 40,
+  height = 16,
+  direction = 0,
+  sprite = "entities/grounds/fisher_boat",
+  model = "platform_moving",
+}
+
+custom_entity{
+  layer = 0,
+  x = 600,
+  y = 189,
+  width = 16,
+  height = 16,
+  direction = 0,
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 0,
+  x = 648,
+  y = 189,
+  width = 16,
+  height = 16,
+  direction = 0,
+  model = "hookable",
+}
+
+npc{
+  layer = 0,
+  x = 584,
+  y = 269,
+  properties = {
+    {
+      key = "has_gravity",
+      value = "true",
+    },
+  },
+  direction = 3,
+  subtype = 1,
+  sprite = "npc/villagers/marin",
+}
+
+npc{
+  layer = 0,
+  x = 568,
+  y = 269,
+  properties = {
+    {
+      key = "has_gravity",
+      value = "true",
+    },
+  },
+  direction = 3,
+  subtype = 1,
+  sprite = "npc/villagers/tarin",
+}
+
+custom_entity{
+  layer = 0,
+  x = 680,
+  y = 381,
+  properties = {
+    {
+      key = "has_gravity",
+      value = "true",
+    },
+    {
+      key = "dialog",
+      value = "maps.out.mabe_village.grand_ma_2",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 2,
+  sprite = "npc/villagers/fishman_1",
+  model = "npc",
+}
+
+custom_entity{
+  name = "LIGHT_CRUMBLING_PLATFORM",
+  layer = 0,
+  x = 280,
+  y = 205,
+  properties = {
+    {
+      key = "needs_carrying",
+      value = "false",
+    },
+    {
+      key = "auto_respawn",
+      value = "true",
+    },
+  },
+  width = 32,
+  height = 16,
+  direction = 0,
+  sprite = "entities/moving_platform_dg_2",
+  model = "platform_collapsing",
+}
+
+separator{
+  name = "auto_separator",
+  layer = 0,
+  x = 424,
+  y = 0,
+  width = 16,
+  height = 480,
+}
+
+custom_entity{
+  layer = 0,
+  x = 456,
+  y = 5,
+  width = 16,
+  height = 448,
+  origin_y = 5,
+  direction = 0,
+  model = "ladder",
+}
+
+custom_entity{
+  layer = 0,
+  x = 120,
+  y = 125,
+  width = 16,
+  height = 336,
+  direction = 0,
+  model = "ladder",
+}
+
+custom_entity{
+  layer = 0,
+  x = 200,
+  y = 349,
+  width = 16,
+  height = 112,
+  direction = 0,
+  model = "ladder",
+}
+
+custom_entity{
+  layer = 0,
+  x = 296,
+  y = 349,
+  width = 16,
+  height = 112,
+  direction = 0,
+  model = "ladder",
+}
+
+custom_entity{
+  layer = 0,
+  x = 200,
+  y = 205,
+  width = 16,
+  height = 80,
+  direction = 0,
+  model = "ladder",
+}
+
+custom_entity{
+  layer = 0,
+  x = 264,
+  y = 205,
+  width = 16,
+  height = 80,
+  direction = 0,
+  model = "ladder",
+}
+
+custom_entity{
+  layer = 0,
+  x = 312,
+  y = 205,
+  width = 16,
+  height = 80,
+  direction = 0,
+  model = "ladder",
+}
+
+custom_entity{
+  layer = 0,
+  x = 408,
+  y = 205,
+  width = 16,
+  height = 80,
+  direction = 0,
+  model = "ladder",
+}
+
+custom_entity{
+  layer = 0,
+  x = 632,
+  y = 381,
+  width = 16,
+  height = 40,
+  direction = 0,
+  model = "ladder",
+}
+
+custom_entity{
+  layer = 0,
+  x = 600,
+  y = 237,
+  width = 64,
+  height = 16,
+  direction = 0,
+  model = "ladder",
+}
+
+custom_entity{
+  layer = 0,
+  x = 360,
+  y = 205,
+  width = 16,
+  height = 80,
+  direction = 0,
+  model = "ladder",
+}
+
+custom_entity{
+  layer = 0,
+  x = 136,
+  y = 469,
+  width = 64,
+  height = 8,
+  direction = 0,
+  model = "spike_sideview",
+}
+

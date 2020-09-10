@@ -22,13 +22,7 @@ end
 -- Create an impact effect on hit.
 enemy:register_event("on_hit", function(enemy)
 
-  local direction = enemy:get_movement():get_direction4()
-
-  -- Make unable to interact.
-  enemy:stop_movement()
-  enemy:set_invincible()
-  enemy:set_can_attack(false)
-  enemy:set_damage(0)
+  local direction = sprite:get_direction()
   
   -- Start an effect at the impact location.
   enemy:start_brief_effect("entities/effects/impact_projectile", "default", sprite:get_xy())
@@ -42,8 +36,10 @@ enemy:register_event("on_hit", function(enemy)
   movement:start(enemy)
 
   -- Remove the entity when planted animation finished + some time.
-  sprite:set_animation("hit", function()
-    enemy:remove()
+  enemy:start_death(function()
+    sprite:set_animation("hit", function()
+      finish_death()
+    end)
   end)
 
   return false
@@ -51,7 +47,7 @@ end)
 
 -- Directly remove the enemy on attacking hero
 enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
-  enemy:remove()
+  enemy:start_death()
 end)
 
 -- Initialization.
@@ -69,8 +65,6 @@ enemy:register_event("on_restarted", function(enemy)
   sprite:set_animation("walking")
   enemy:set_damage(2)
   enemy:set_obstacle_behavior("flying")
-  enemy:set_pushed_back_when_hurt(false)
-  enemy:set_can_hurt_hero_running(true)
-  enemy:set_minimum_shield_needed(1)
+  enemy:set_invincible()
   enemy:go()
 end)

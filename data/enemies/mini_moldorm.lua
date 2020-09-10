@@ -1,5 +1,13 @@
--- Lua script of enemy mini_moldorm.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Mini Moldorm.
+--
+-- Caterpillar enemy with one body part and one tail that will follow the head move.
+-- Moves in curved motion, and randomly change the direction of the curve.
+--
+-- Methods : enemy:start_walking()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
@@ -22,7 +30,7 @@ local walking_speed = 88
 local walking_angle = 0.05
 local body_frame_lag = 11
 local tail_frame_lag = 20
-local keeping_angle_maximum_duration = 1000
+local keeping_angle_duration = 1000
 
 local highest_frame_lag = tail_frame_lag + 1 -- Avoid too much values in the last_positions table
 
@@ -33,7 +41,7 @@ function enemy:start_walking()
   walking_movement:set_speed(walking_speed)
   walking_movement:set_angle(math.random(4) * quarter)
   walking_movement:set_smooth(false)
-  walking_movement:start(self)
+  walking_movement:start(enemy)
 
   -- Take the obstacle normal as angle on obstacle reached.
   function walking_movement:on_obstacle_reached()
@@ -42,14 +50,14 @@ function enemy:start_walking()
 
   -- Slightly change the angle when walking.
   function walking_movement:on_position_changed()
-    local angle = walking_movement:get_angle() % (2.0 * math.pi)
+    local angle = walking_movement:get_angle() % circle
     if walking_movement == enemy:get_movement() then
       walking_movement:set_angle(angle + walking_angle)
     end
   end
 
   -- Regularly and randomly change the angle.
-  sol.timer.start(enemy, keeping_angle_maximum_duration, function()
+  sol.timer.start(enemy, keeping_angle_duration, function()
     if math.random(2) == 1 then
       walking_angle = 0 - walking_angle
     end
@@ -61,7 +69,7 @@ end
 enemy:register_event("on_position_changed", function(enemy)
 
   if not last_positions then
-    return
+    return -- Workaround : Avoid this event to be called before enemy is actually started by the engine.
   end
 
   -- Save current position
@@ -93,12 +101,10 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 8)
   
-  -- Create sprites.
-  head_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
-  body_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/body")
+  -- Create sprites in right z-order.
   tail_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/tail")
-  enemy:bring_sprite_to_back(body_sprite)
-  enemy:bring_sprite_to_back(tail_sprite)
+  body_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/body")
+  head_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 end)
 
 -- Restart settings.

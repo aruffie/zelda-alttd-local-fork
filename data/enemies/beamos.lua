@@ -1,5 +1,12 @@
--- Lua script of enemy beamos.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Beamos.
+--
+-- Revolves around itself and fire a laser if facing the hero.
+--
+-- Methods : enemy:start_firing()
+--
+----------------------------------
 
 -- Global variables.
 local enemy = ...
@@ -16,16 +23,6 @@ local start_shooting_delay = 200
 local pause_duration = 1000
 local is_exhausted_duration = 100
 
--- Properties
-function enemy:on_created()
-
-  enemy:set_size(16, 16)
-  enemy:set_origin(8, 13)
-  self:set_invincible()
-  self:set_damage(2)
-  self.is_exhausted = false -- True after a shoot and before a delay.
-end
-
 -- Function to start firing.
 function enemy:start_firing()
 
@@ -35,11 +32,12 @@ function enemy:start_firing()
   -- Start the laser after some time.
   sol.timer.start(enemy, start_shooting_delay, function()
 
-    self.is_exhausted = true 
+    enemy.is_exhausted = true 
 
     -- Create laser projectile.
     local x, y, layer = enemy:get_position()
     map:create_enemy({
+      name = (enemy:get_name() or enemy:get_breed()) .. "_laser",
       breed =  "projectiles/laser",
       x = x,
       y = y - 5,
@@ -53,14 +51,14 @@ function enemy:start_firing()
 
       -- Allow to shoot again after a delay.
       sol.timer.start(enemy, is_exhausted_duration, function()
-        self.is_exhausted = false 
+        enemy.is_exhausted = false 
       end)
     end)
   end)
 end
 
 -- Check if the beamos is facing the hero at each frame change, then stop and shoot.
-function sprite:on_frame_changed(animation, frame)
+sprite:register_event("on_frame_changed", function(sprite, animation, frame)
 
   if not enemy.is_exhausted then
     local x, y, _ = enemy:get_position()
@@ -72,4 +70,14 @@ function sprite:on_frame_changed(animation, frame)
       enemy:start_firing()
     end
   end
-end
+end)
+
+-- Initialization.
+enemy:register_event("on_created", function(enemy)
+
+  enemy:set_size(16, 16)
+  enemy:set_origin(8, 13)
+  enemy:set_invincible()
+  enemy:set_damage(2)
+  enemy.is_exhausted = false -- True after a shoot and before a delay.
+end)

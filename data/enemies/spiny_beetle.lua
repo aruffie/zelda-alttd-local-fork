@@ -1,5 +1,15 @@
--- Lua script of enemy spiny beetle.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Spiny Beetle.
+--
+-- Hides below any overlapping entity when created, then move to the hero and keep carry these entities when the he gets too close
+--
+-- Methods : enemy:start_walking()
+--           enemy:start_carrying(entity)
+--           enemy:start_carrying_overlapping_entities()
+--           enemy:wait()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
@@ -21,6 +31,20 @@ local walking_minimum_distance = 16
 local walking_maximum_distance = 96
 
 local thickness = 16
+
+-- Update protection state depending on current carried objects.
+local function update_protection()
+
+  local is_protected = false
+  for entity, _ in pairs(carried_sprites) do
+
+    -- Protect if a heavy object is carried.
+    if entity:get_weight() > 0 then
+      is_protected = true
+      break
+    end
+  end
+end
 
 -- Start the enemy movement.
 function enemy:start_walking(direction)
@@ -47,38 +71,30 @@ function enemy:start_walking(direction)
   end)
 end
 
--- Update protection state depending on current carried objects.
-function enemy:update_protection()
+-- Start carrying the given entity.
+function enemy:start_carrying(entity)
 
-  local is_protected = false
-  for entity, _ in pairs(carried_sprites) do
+  carried_sprites[entity] = entity:get_sprite()
+  local entity_x, entity_y, _ = entity:get_position()
+  enemy:start_welding(entity, entity_x - x, entity_y - y)
 
-    -- Protect if a heavy object is carried.
-    if entity:get_weight() > 0 then
-      is_protected = true
-      break
-    end
-  end
+  -- Update protection state once carried object removed.
+  entity:register_event("on_removed", function(entity)
+    carried_sprites[entity] = nil
+    update_protection()
+  end)
+  enemy:update_protection()
 end
 
 -- Start carrying any entity that overlaps the enemy at this moment.
-function enemy:start_carrying()
+function enemy:start_carrying_overlapping_entities()
 
   local x, y, _ = enemy:get_position()
   for entity in map:get_entities_in_region(enemy) do
     if enemy:overlaps(entity:get_bounding_box()) and entity ~= enemy then
-      carried_sprites[entity] = entity:get_sprite()
-      local entity_x, entity_y, _ = entity:get_position()
-      enemy:start_welding(entity, entity_x - x, entity_y - y)
-
-      -- Update protection state once carried object removed.
-      entity:register_event("on_removed", function(entity)
-        carried_sprites[entity] = nil
-        enemy:update_protection()
-      end)
+      enemy:start_carrying(entity)
     end
   end
-  enemy:update_protection()
 end
 
 -- Make enemy immobilized and wait for the hero to be close enough.
@@ -110,7 +126,7 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(1)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)
-  enemy:start_carrying()
+  enemy:start_carrying_overlapping_entities()
 end)
 
 -- Restart settings.

@@ -1,5 +1,14 @@
--- Lua script of zora.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Zora.
+--
+-- Start hidden and regularly appear from a whirlwind to throw a projectile to the hero.
+-- The enemy stay at the same position.
+--
+-- Methods : enemy:appear()
+--           enemy:wait()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
@@ -19,7 +28,6 @@ local eighth = math.pi * 0.25
 -- Configuration variables
 local waiting_minimum_duration = 2000
 local waiting_maximum_duration = 4000
-local projectile_breed = "fireball"
 local appearing_duration = 1000
 local throwing_duration = 600
 local before_desappearing_delay = 1000
@@ -38,7 +46,10 @@ function enemy:appear()
     sprite:set_animation("immobilized")
 
     sol.timer.start(enemy, throwing_duration, function()
-      enemy:create_enemy({breed = "projectiles/" .. projectile_breed})
+      enemy:create_enemy({
+        name = (enemy:get_name() or enemy:get_breed()) .. "_fireball",
+        breed = "projectiles/fireball"
+      })
       sprite:set_animation("firing")
       audio_manager:play_entity_sound(enemy, "enemies/fireball")
       sol.timer.start(enemy, before_desappearing_delay, function()

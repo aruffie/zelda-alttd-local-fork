@@ -37,6 +37,10 @@ function map:init_map_entities()
   
     -- Travel
   travel_transporter:set_enabled(false)
+  -- Owl slab
+  if game:get_value("travel_3") then
+    owl_slab:get_sprite():set_animation("activated")
+  end
   
 end
 

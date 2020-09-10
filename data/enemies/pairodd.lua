@@ -1,5 +1,15 @@
--- Lua script of enemy pairodd.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Pairodd.
+--
+-- Immobile enemy that will disappear when the hero comes too close, then respawn symmetrically about the center of the room.
+-- Throw a projectile on respawn.
+--
+-- Methods : enemy:appear()
+--           enemy:disappear()
+--           enemy:wait()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
@@ -17,9 +27,10 @@ local waiting_timer, before_disappear_timer
 local triggering_distance = 48
 local before_disappear_delay = 100
 local disappear_duration = 1000
+local after_throwing_delay = 200
 
 -- Set the sprite direction depending on the hero position.
-function enemy:set_direction2()
+local function set_direction2()
 
   local x, _, _ = enemy:get_position()
   local hero_x, _, _ = hero:get_position()
@@ -34,12 +45,20 @@ function enemy:appear()
 
   enemy:set_position(enemy:get_central_symmetry_position(camera_x + camera_width / 2.0, camera_y + camera_height / 2.0))
   enemy:set_visible()
-  enemy:set_direction2()
+  set_direction2()
   sprite:set_animation("appearing", function()
 
     -- Throw an iceball and restart.
-    enemy:create_enemy({breed = "projectiles/iceball"})
-    enemy:restart()
+    sprite:set_animation("throwing", function()
+      enemy:create_enemy({
+        name = (enemy:get_name() or enemy:get_breed()) .. "_iceball",
+        breed = "projectiles/iceball", y = -8
+      })
+      sol.timer.start(enemy, after_throwing_delay, function()
+        enemy:restart()
+      end)
+      sprite:set_animation("throwed")
+    end)
   end)
 end
 
@@ -47,14 +66,13 @@ end
 function enemy:disappear()
 
   enemy:start_brief_effect("entities/symbols/exclamation", nil, -16, -16, 400)
-  if before_disappear_timer then
-    before_disappear_timer:stop()
-  end
+  
   before_disappear_timer = sol.timer.start(enemy, before_disappear_delay, function()
+    before_disappear_timer = nil
 
+    enemy:set_invincible()
+    enemy:set_can_attack(false)
     sprite:set_animation("disappearing", function()
-      enemy:set_invincible()
-      enemy:set_can_attack(false)
 
       sol.timer.start(enemy, disappear_duration, function()
         enemy:appear()
@@ -63,14 +81,12 @@ function enemy:disappear()
   end)
 end
 
--- Start the enemy movement.
+-- Wait for the hero to be near enough and disappear.
 function enemy:wait()
 
-  if waiting_timer then
-    waiting_timer:stop()
-  end
   waiting_timer = sol.timer.start(enemy, 50, function()
     if enemy:is_near(hero, triggering_distance) then
+      before_disappear_timer = nil
       enemy:disappear()
       return false
     end
@@ -98,7 +114,15 @@ enemy:register_event("on_restarted", function(enemy)
   })
 
   -- States.
-  enemy:set_direction2()
+  if waiting_timer then
+    waiting_timer:stop()
+    waiting_timer = nil
+  end
+  if before_disappear_timer then
+    before_disappear_timer:stop()
+    before_disappear_timer = nil
+  end
+  set_direction2()
   enemy:set_can_attack(true)
   enemy:set_damage(2)
   enemy:wait()

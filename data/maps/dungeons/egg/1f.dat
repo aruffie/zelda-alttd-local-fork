@@ -1464,7 +1464,6 @@ tile{
   layer = 0,
   x = 16,
   y = 88,
-  enabled_at_start = false,
   width = 24,
   height = 64,
   pattern = "27",
@@ -1475,7 +1474,6 @@ tile{
   layer = 0,
   x = 280,
   y = 88,
-  enabled_at_start = false,
   width = 24,
   height = 64,
   pattern = "26",
@@ -1486,7 +1484,6 @@ tile{
   layer = 0,
   x = 16,
   y = 328,
-  enabled_at_start = false,
   width = 24,
   height = 64,
   pattern = "27",
@@ -1497,7 +1494,6 @@ tile{
   layer = 0,
   x = 280,
   y = 328,
-  enabled_at_start = false,
   width = 24,
   height = 64,
   pattern = "26",
@@ -1547,7 +1543,7 @@ teletransporter{
 teletransporter{
   layer = 0,
   x = 72,
-  y = 48,
+  y = 40,
   width = 64,
   height = 160,
   destination_map = "dungeons/egg/b1",
@@ -1562,6 +1558,21 @@ teletransporter{
   height = 160,
   destination_map = "dungeons/egg/b1",
   destination = "hole",
+}
+
+sensor{
+  name = "sensor_1",
+  layer = 0,
+  x = 160,
+  y = 197,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
 }
 
 tile{

@@ -1,5 +1,13 @@
--- Lua script of enemy blue stalfos.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Stalfos Blue.
+--
+-- Moves to the hero and pounce above him when close enough, then wait a few time in the air and finally stomp down the hero.
+--
+-- Methods : enemy:start_walking()
+--           enemy:start_attacking()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
@@ -18,6 +26,7 @@ local jumping_height = 32
 local jumping_duration = 800
 local elevating_duration = 120
 local stompdown_duration = 50
+local get_up_duration = 400
 
 -- Start moving to the hero, and attack when he is close enough.
 function enemy:start_walking()
@@ -41,30 +50,26 @@ function enemy:start_attacking()
   movement:set_target(target_x, target_y)
   movement:set_smooth(false)
   movement:start(enemy)
-  enemy:start_flying(elevating_duration, jumping_height)
+  enemy:start_flying(elevating_duration, jumping_height, function()
+    sprite:set_animation("attack_landing")
+  end)
   enemy:set_invincible()
   enemy:set_can_attack(false)
   sprite:set_animation("jumping")
 
   -- Wait for a delay and start the stomp down.
   sol.timer.start(enemy, jumping_duration, function()
-    enemy:stop_flying(stompdown_duration)
+    enemy:stop_flying(stompdown_duration, function()
+
+      -- Start a visual effect at the landing impact location, wait a few time and restart.
+      enemy:start_brief_effect("entities/effects/impact_projectile", "default", -12, 0)
+      enemy:start_brief_effect("entities/effects/impact_projectile", "default", 12, 0)
+      sol.timer.start(enemy, get_up_duration, function()
+        enemy:restart()
+      end)
+    end)
   end)
 end
-
--- Start the attack animation when the jump reached the top.
-enemy:register_event("on_flying_took_off", function(enemy)
-  sprite:set_animation("attack_landing")
-end)
-
--- Start walking again when the attack finished.
-enemy:register_event("on_flying_landed", function(enemy)
-
-  -- Start a visual effect at the landing impact location.
-  enemy:start_brief_effect("entities/effects/impact_projectile", "default", -12, 0)
-  enemy:start_brief_effect("entities/effects/impact_projectile", "default", 12, 0)
-  enemy:restart()
-end)
 
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
@@ -86,6 +91,7 @@ enemy:register_event("on_restarted", function(enemy)
 
   -- States.
   sprite:set_xy(0, 0)
+  enemy:set_obstacle_behavior("normal")
   enemy:set_can_attack(true)
   enemy:set_damage(1)
   enemy:start_walking()

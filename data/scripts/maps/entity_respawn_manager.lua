@@ -25,44 +25,63 @@ function entity_respawn_manager:init(map)
   }
   local game=map:get_game()
 
+  -- Clean the saved_entities.enemies table on given enemy dead, if needed.
+  local function clean_on_dead(enemy)
+
+    local function on_dead(enemy)
+      if not enemy:get_property("can_resurrect") then
+        saved_entities.enemies[enemy] = nil
+      end
+    end
+
+    enemy:register_event("on_dead", function(enemy)
+      on_dead(enemy)
+    end)
+  end
+
+  -- Recreate a previously existing enemy.
+  local function recreate_enemy(enemy)
+
+    local enemy_place = saved_entities.enemies[enemy]
+    local new_enemy = map:create_enemy({ --TODO modifiy create_enemy to add enemy to light manager
+        x = enemy_place.x,
+        y = enemy_place.y,
+        layer = enemy_place.layer,
+        breed = enemy_place.breed,
+        direction = enemy_place.direction,
+        name = enemy_place.name,
+        properties = enemy_place.properties
+      })
+    -- add enemy to the light manager of fsa mode, since it has been recreated
+    light_manager_fsa:add_occluder(new_enemy)
+    new_enemy:set_treasure(unpack(enemy_place.treasure))
+    clean_on_dead(new_enemy)
+
+    -- TODO Replace event recopy by dynamic setup.
+    new_enemy.on_symbol_fixed = enemy.on_symbol_fixed -- For Vegas enemies
+    if enemy.on_flying_tile_dead ~= nil then
+      new_enemy.on_flying_tile_dead = enemy.on_flying_tile_dead -- For Flying tiles enemies
+    end
+
+    return new_enemy
+  end
+
   -- Function called when a separator was just taken.
   function entity_respawn_manager:respawn_enemies(map)
 
-    -- Enemies.
+    -- Enable and restart all enemies in the new active region, or recreate them if needed, .
     for enemy, enemy_place in pairs(saved_entities.enemies) do
-      if enemy:get_breed() ~= "boss/skeleton" then
-        -- First remove any enemy.
+      if enemy:is_in_same_region(map:get_hero()) then
         if enemy:exists() then
-          enemy:remove()
-        end
-
-        -- Re-create enemies in the new active region.
-        if enemy:is_in_same_region(map:get_hero()) then
-
-          local new_enemy = map:create_enemy({ --TODO modifiy create_enemy to add enemy to light manager
-              x = enemy_place.x,
-              y = enemy_place.y,
-              layer = enemy_place.layer,
-              breed = enemy_place.breed,
-              direction = enemy_place.direction,
-              name = enemy_place.name,
-              properties = enemy_place.properties
-            })
-
-          -- add enemy to the light manager of fsa mode, since it has been recreated
-          light_manager_fsa:add_occluder(new_enemy)
-
-          new_enemy:set_treasure(unpack(enemy_place.treasure))
-          new_enemy.on_dead = enemy.on_dead  -- For door_manager.
-          new_enemy.on_symbol_fixed = enemy.on_symbol_fixed -- For Vegas enemies
-          if enemy.on_flying_tile_dead ~= nil then
-            new_enemy.on_flying_tile_dead = enemy.on_flying_tile_dead -- For Flying tiles enemies
-          end
+          enemy:set_enabled(true)
+          enemy:set_position(enemy_place.x, enemy_place.y, enemy_place.layer)
+          enemy:set_life(enemy_place.life)
+        else
+          recreate_enemy(enemy)
         end
       end
     end
   end
-
 
   function entity_respawn_manager:reset_torches(map)
     local hero=map:get_hero()
@@ -71,7 +90,7 @@ function entity_respawn_manager:init(map)
     for _, torch in pairs(saved_entities.torches) do
       torch:set_lit(false)
       if torch:is_in_same_region(hero) then --TODO take account of dungeon 6 pre-boss torches
---        print ("found "..(torch:get_name() or "<something>")..". XY: ", torch:get_position())
+--        debug_print ("found "..(torch:get_name() or "<something>")..". XY: ", torch:get_position())
         found=true
       end
     end
@@ -234,10 +253,13 @@ function entity_respawn_manager:init(map)
   end
 
   function entity_respawn_manager:reset_enemies(map)
-    -- Disable all enemies when leaving a zone.
+
+    -- Disable all enemies when leaving a zone. Don't remove right now to not trigger map puzzles based on enemy removal..
     for enemy in map:get_entities_by_type("enemy") do
-      if enemy:is_in_same_region(map:get_hero()) and enemy:get_breed() ~= "boss/skeleton" then
-        enemy:remove()
+      if saved_entities.enemies[enemy] and enemy:is_in_same_region(map:get_hero()) then
+        sol.timer.stop_all(enemy)
+        enemy:stop_movement()
+        enemy:set_enabled(false)
       end
     end
   end
@@ -248,150 +270,153 @@ function entity_respawn_manager:init(map)
     return sprite ~= nil and sprite:get_animation_set() or ""
   end
 
+  -- Store the position and properties of given enemy.
+  local function save_enemy(enemy)
+
+    local x, y, layer = enemy:get_position()
+    local sprite = enemy:get_sprite()
+    saved_entities.enemies[enemy] = {
+      x = x,
+      y = y,
+      layer = layer,
+      breed = enemy:get_breed(),
+      direction = sprite and sprite:get_direction() or 0,
+      name = enemy:get_name(),
+      treasure = { enemy:get_treasure() },
+      properties = enemy:get_properties(),
+      life = enemy:get_life()
+    }
+    if not enemy:is_in_same_region(map:get_hero()) then
+      sol.timer.stop_all(enemy)
+      enemy:stop_movement()
+      enemy:set_enabled(false)
+    end
+    
+    clean_on_dead(enemy)
+  end
+
   function entity_respawn_manager:save_entities(map)
-
     for entity in map:get_entities() do
-      local x, y, layer = entity:get_position()
-      local width, height = entity:get_size()
-      local entity_type=entity:get_type()
-      -- print ("checking in a(n) ".. entity_type)
-
--- Store the position and properties of enemies.
-      if entity_type=="enemy" then
-
-        saved_entities.enemies[entity] = {
-          x = x,
-          y = y,
-          layer = layer,
-          breed = entity:get_breed(),
-          direction = entity:get_sprite():get_direction(),
-          name = entity:get_name(),
-          treasure = { entity:get_treasure() },
-          properties = entity:get_properties(),
-        }
-
-        local hero = map:get_hero()
-        if not entity:is_in_same_region(hero) and entity:get_breed() ~= "boss/skeleton" then
-          entity:remove()
+      if entity:exists() then
+        local x, y, layer = entity:get_position()
+        local width, height = entity:get_size()
+        local entity_type=entity:get_type()
+        --debug_print ("checking in a(n) ".. entity_type)
+        
+        if entity_type=="enemy" then
+          save_enemy(entity)
         end
 
-        entity:register_event("on_dead", function()
-            if not entity:get_property("can_resurrect") then
-              saved_entities.enemies[entity]= nil
+        if entity_type=="custom_entity" then
+          local model=entity:get_model()
+          if model=="unstable_floor" then
+            local tile_name=entity:get_name().."_unstable_associate_"
+            local associated_tile=map:get_entity(tile_name)
+            -- Store the position and properties of unstable floors.
+            if associated_tile then
+              local x,y,layer=associated_tile:get_position()
+              saved_entities.unstable_floors[#saved_entities.unstable_floors + 1] = {
+                x = x,
+                y = y,
+                layer = layer,
+                name = associated_tile:get_name(),
+                pattern = associated_tile:get_pattern_id(),
+                width=width,
+                height=height,
+                tileset=associated_tile:get_tileset(),
+                properties=associated_tile:get_properties(),
+                floor=associated_tile, 
+              }
+            else 
+              debug_print("Warning : could not find unstable floor tile "..tile_name)
             end
-          end)
 
-      end
-
-      if entity_type=="custom_entity" then
-        local model=entity:get_model()
-        if model=="unstable_floor" then
-          local tile_name=entity:get_name().."_unstable_associate_"
-          local associated_tile=map:get_entity(tile_name)
-          -- Store the position and properties of unstable floors.
-          if associated_tile then
-            local x,y,layer=associated_tile:get_position()
             saved_entities.unstable_floors[#saved_entities.unstable_floors + 1] = {
               x = x,
               y = y,
               layer = layer,
-              name = associated_tile:get_name(),
-              pattern = associated_tile:get_pattern_id(),
+              name = entity:get_name(),
+              sprite=get_entity_sprite_name(entity), 
               width=width,
               height=height,
-              tileset=associated_tile:get_tileset(),
-              properties=associated_tile:get_properties(),
-              floor=associated_tile, 
+              model=entity:get_model(),
+              direction=entity:get_direction(), 
+              tiled=entity:is_tiled(),
+              properties=entity:get_properties(),
+              floor=entity,
             }
-          else 
-            print("Warning : could not find unstable floor tile "..tile_name)
+          end
+          
+          if model=="platform_moving" then
+            saved_entities.moving_platforms[#saved_entities.moving_platforms + 1] = entity
+          end
+          if model=="platform_balance" then
+            saved_entities.twin_platforms[#saved_entities.twin_platforms + 1] = entity
           end
 
-          saved_entities.unstable_floors[#saved_entities.unstable_floors + 1] = {
+          if entity:get_model()=="torch" then
+            saved_entities.torches[#saved_entities.torches + 1] = entity
+          end 
+        end
+
+        if entity_type=="block" and entity:is_pushable() then
+          local x, y, layer = entity:get_position()
+          saved_entities.blocks[#saved_entities.blocks + 1] = {
             x = x,
             y = y,
             layer = layer,
             name = entity:get_name(),
-            sprite=get_entity_sprite_name(entity), 
-            width=width,
-            height=height,
-            model=entity:get_model(),
-            direction=entity:get_direction(), 
-            tiled=entity:is_tiled(),
+            sprite = get_entity_sprite_name(entity),
+            pushable=entity:is_pushable(),
+            pullable=entity:is_pullable(),
+            max_moves=entity:get_max_moves(),
             properties=entity:get_properties(),
-            floor=entity,
+            block = entity,
           }
         end
-        
-        if model=="platform_moving" then
-          saved_entities.moving_platforms[#saved_entities.moving_platforms + 1] = entity
-        end
-        if model=="platform_balance" then
-          saved_entities.twin_platforms[#saved_entities.twin_platforms + 1] = entity
-        end
-
-        if entity:get_model()=="torch" then
-          saved_entities.torches[#saved_entities.torches + 1] = entity
-        end 
-      end
-
-      if entity_type=="block" and entity:is_pushable() then
-        local x, y, layer = entity:get_position()
-        saved_entities.blocks[#saved_entities.blocks + 1] = {
-          x = x,
-          y = y,
-          layer = layer,
-          name = entity:get_name(),
-          sprite = get_entity_sprite_name(entity),
-          pushable=entity:is_pushable(),
-          pullable=entity:is_pullable(),
-          max_moves=entity:get_max_moves(),
-          properties=entity:get_properties(),
-          block = entity,
-        }
-      end
-      -- Store the position and properties of destructibles.
-      if entity_type=="destructible" then
-        saved_entities.destructibles[#saved_entities.destructibles + 1] = {
-          x = x,
-          y = y,
-          layer = layer,
-          name = entity:get_name(),
-          treasure = { entity:get_treasure() },
-          sprite = get_entity_sprite_name(entity),
-          destruction_sound = entity:get_destruction_sound(),
-          weight = entity:get_weight(),
-          can_be_cut = entity:get_can_be_cut(),
-          can_explode = entity:get_can_explode(),
-          can_regenerate = entity:get_can_regenerate(),
-          damage_on_enemies = entity:get_damage_on_enemies(),
-          ground = entity:get_modified_ground(),
-          properties=entity:get_properties(),
-          destructible = entity,
-        }
-      end
-
-      if entity:get_property("auto_respawn")=="true" then
--- Store the position and properties of custom entities
-        if entity_type=="custom_entity" and entity:get_model()~="unstable_floor" and entity:get_model()~="torch" and entity:get_model()~= "platform_moving" and entity:get_model()~= "platform_balance" then
-          saved_entities.custom_entities[#saved_entities.custom_entities + 1] = {
+        -- Store the position and properties of destructibles.
+        if entity_type=="destructible" then
+          saved_entities.destructibles[#saved_entities.destructibles + 1] = {
             x = x,
             y = y,
             layer = layer,
             name = entity:get_name(),
-            sprite=get_entity_sprite_name(entity), 
-            width=width,
-            height=height,
-            model=entity:get_model(),
-            direction=entity:get_direction(), 
-            tiled=entity:is_tiled(),
+            treasure = { entity:get_treasure() },
+            sprite = get_entity_sprite_name(entity),
+            destruction_sound = entity:get_destruction_sound(),
+            weight = entity:get_weight(),
+            can_be_cut = entity:get_can_be_cut(),
+            can_explode = entity:get_can_explode(),
+            can_regenerate = entity:get_can_regenerate(),
+            damage_on_enemies = entity:get_damage_on_enemies(),
+            ground = entity:get_modified_ground(),
             properties=entity:get_properties(),
-            entity=entity,
+            destructible = entity,
           }
-          if not entity:is_in_same_region(map:get_hero()) then
-            entity:remove()
-          end
+        end
 
+        if entity:get_property("auto_respawn")=="true" then
+        -- Store the position and properties of custom entities
+          if entity_type=="custom_entity" and entity:get_model()~="unstable_floor" and entity:get_model()~="torch" and entity:get_model()~= "platform_moving" and entity:get_model()~= "platform_balance" then
+            saved_entities.custom_entities[#saved_entities.custom_entities + 1] = {
+              x = x,
+              y = y,
+              layer = layer,
+              name = entity:get_name(),
+              sprite=get_entity_sprite_name(entity), 
+              width=width,
+              height=height,
+              model=entity:get_model(),
+              direction=entity:get_direction(), 
+              tiled=entity:is_tiled(),
+              properties=entity:get_properties(),
+              entity=entity,
+            }
+            if not entity:is_in_same_region(map:get_hero()) then
+              entity:remove()
+            end
+
+          end
         end
       end
     end

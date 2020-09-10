@@ -4,9 +4,10 @@
 local enemy = ...
 local sprites = {}
 
+require("enemies/lib/common_actions").learn(enemy)
 local audio_manager = require("scripts/audio_manager")
 
-function enemy:on_created()
+enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(1)
   enemy:set_damage(2)
@@ -22,7 +23,7 @@ function enemy:on_created()
   -- Sprites 2 and 3 do not belong to the enemy to avoid testing collisions with them.
   sprites[2] = sol.sprite.create("enemies/" .. enemy:get_breed())
   sprites[3] = sol.sprite.create("enemies/" .. enemy:get_breed())
-end
+end)
 
 local function go(angle)
 
@@ -32,7 +33,7 @@ local function go(angle)
   movement:set_smooth(false)
 
   function movement:on_obstacle_reached()
-    enemy:remove()
+    enemy:start_death()
   end
 
   -- Compute the coordinate offset of follower sprites.
@@ -48,23 +49,23 @@ local function go(angle)
   movement:start(enemy)
 end
 
-function enemy:on_restarted()
+enemy:register_event("on_restarted", function(enemy)
 
   local hero = enemy:get_map():get_hero()
   local angle = enemy:get_angle(hero:get_center_position())
   go(angle)
-end
+end)
 
 -- Destroy the fireball when the hero is touched.
 enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
 
   hero:start_hurt(enemy, enemy_sprite, enemy:get_damage())
-  enemy:remove()
+  enemy:start_death()
   
 end)
 
 -- Change the direction of the movement when hit with the sword.
-function enemy:on_custom_attack_received(attack, sprite)
+enemy:register_event("on_custom_attack_received", function(enemy, attack, sprite)
 
   if attack == "sword" and sprite == sprites[1] then
     local hero = enemy:get_map():get_hero()
@@ -91,13 +92,13 @@ function enemy:on_custom_attack_received(attack, sprite)
       enemy:set_can_attack(true)
     end)
   end
-end
+end)
 
-function enemy:on_pre_draw()
+enemy:register_event("on_pre_draw", function(enemy)
 
   local map = enemy:get_map()
   local x, y = enemy:get_position()
   map:draw_visual(sprites[2], x, y)
   map:draw_visual(sprites[3], x, y)
-end
+end)
 

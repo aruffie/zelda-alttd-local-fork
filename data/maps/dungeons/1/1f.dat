@@ -2069,7 +2069,6 @@ tile{
   layer = 0,
   x = 1936,
   y = 280,
-  enabled_at_start = false,
   width = 24,
   height = 160,
   pattern = "wall.3-2",
@@ -2388,24 +2387,6 @@ tile{
   width = 8,
   height = 144,
   pattern = "wall_border.3-2",
-}
-
-tile{
-  layer = 0,
-  x = 1000,
-  y = 1392,
-  width = 8,
-  height = 8,
-  pattern = "wall_border.corner.3-1",
-}
-
-tile{
-  layer = 0,
-  x = 1232,
-  y = 1392,
-  width = 8,
-  height = 8,
-  pattern = "wall_border.corner.4-1",
 }
 
 tile{
@@ -11169,7 +11150,6 @@ tile{
   layer = 0,
   x = 368,
   y = 1616,
-  enabled_at_start = false,
   width = 16,
   height = 16,
   pattern = "torch",
@@ -13431,7 +13411,6 @@ tile{
   layer = 0,
   x = 2064,
   y = 744,
-  enabled_at_start = false,
   width = 8,
   height = 16,
   pattern = "143",
@@ -13476,6 +13455,24 @@ tile{
   height = 32,
   pattern = "13",
   tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1000,
+  y = 1392,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner.3-2",
+}
+
+tile{
+  layer = 0,
+  x = 1232,
+  y = 1392,
+  width = 8,
+  height = 8,
+  pattern = "wall_border.corner.4-2",
 }
 
 sensor{
@@ -14289,26 +14286,6 @@ door{
 }
 
 enemy{
-  name = "enemy_group_9_2",
-  layer = 0,
-  x = 1544,
-  y = 1085,
-  direction = 0,
-  breed = "keese",
-  treasure_name = "random_with_charm",
-}
-
-enemy{
-  name = "enemy_group_9_1",
-  layer = 0,
-  x = 1544,
-  y = 1149,
-  direction = 0,
-  breed = "keese",
-  treasure_name = "random_with_charm",
-}
-
-enemy{
   name = "enemy_group_10_1",
   layer = 0,
   x = 1672,
@@ -14770,26 +14747,54 @@ npc{
   layer = 0,
   x = 1760,
   y = 757,
+  properties = {
+    {
+      key = "model",
+      value = "statue_owl_dungeon",
+    },
+    {
+      key = "dialog",
+      value = "maps.dungeons.1.owl_1",
+    },
+  },
   direction = 3,
   subtype = 1,
   sprite = "npc/statues/owl_dungeon_1",
 }
 
 npc{
-  name = "owl_2",
   layer = 0,
   x = 752,
   y = 517,
+  properties = {
+    {
+      key = "model",
+      value = "statue_owl_dungeon",
+    },
+    {
+      key = "dialog",
+      value = "maps.dungeons.1.owl_2",
+    },
+  },
   direction = 3,
   subtype = 1,
   sprite = "npc/statues/owl_dungeon_1",
 }
 
 npc{
-  name = "owl_3",
   layer = 0,
   x = 480,
   y = 517,
+  properties = {
+    {
+      key = "model",
+      value = "statue_owl_dungeon",
+    },
+    {
+      key = "dialog",
+      value = "maps.dungeons.1.owl_3",
+    },
+  },
   direction = 3,
   subtype = 1,
   sprite = "npc/statues/owl_dungeon_1",
@@ -16618,46 +16623,6 @@ enemy{
   breed = "face_lamp",
 }
 
-enemy{
-  name = "enemy_group_6_1",
-  layer = 0,
-  x = 784,
-  y = 1309,
-  direction = 0,
-  breed = "keese",
-  treasure_name = "random_with_charm",
-}
-
-enemy{
-  name = "enemy_group_6_2",
-  layer = 0,
-  x = 784,
-  y = 1341,
-  direction = 0,
-  breed = "keese",
-  treasure_name = "random_with_charm",
-}
-
-enemy{
-  name = "enemy_group_6_3",
-  layer = 0,
-  x = 816,
-  y = 1341,
-  direction = 0,
-  breed = "keese",
-  treasure_name = "random_with_charm",
-}
-
-enemy{
-  name = "enemy_group_6_4",
-  layer = 0,
-  x = 816,
-  y = 1309,
-  direction = 0,
-  breed = "keese",
-  treasure_name = "random_with_charm",
-}
-
 block{
   layer = 0,
   x = 56,
@@ -17933,7 +17898,6 @@ tile{
   layer = 2,
   x = 304,
   y = 496,
-  enabled_at_start = false,
   width = 32,
   height = 208,
   pattern = "ceiling.1",
@@ -17997,7 +17961,6 @@ tile{
   layer = 2,
   x = 1264,
   y = 496,
-  enabled_at_start = false,
   width = 32,
   height = 208,
   pattern = "ceiling.1",
@@ -18043,7 +18006,6 @@ tile{
   layer = 2,
   x = 1904,
   y = 496,
-  enabled_at_start = false,
   width = 32,
   height = 208,
   pattern = "ceiling.1",
@@ -18089,7 +18051,6 @@ tile{
   layer = 2,
   x = 2224,
   y = 496,
-  enabled_at_start = false,
   width = 16,
   height = 208,
   pattern = "ceiling.1",
@@ -18099,7 +18060,6 @@ tile{
   layer = 2,
   x = 624,
   y = 496,
-  enabled_at_start = false,
   width = 32,
   height = 208,
   pattern = "ceiling.1",
@@ -18109,7 +18069,6 @@ tile{
   layer = 2,
   x = 0,
   y = 736,
-  enabled_at_start = false,
   width = 16,
   height = 208,
   pattern = "ceiling.1",
@@ -18164,7 +18123,6 @@ tile{
   layer = 2,
   x = 16,
   y = 496,
-  enabled_at_start = false,
   width = 288,
   height = 208,
   pattern = "ceiling.1",
@@ -18174,7 +18132,6 @@ tile{
   layer = 2,
   x = 0,
   y = 496,
-  enabled_at_start = false,
   width = 16,
   height = 208,
   pattern = "ceiling.1",
@@ -18292,7 +18249,6 @@ tile{
   layer = 2,
   x = 1296,
   y = 496,
-  enabled_at_start = false,
   width = 288,
   height = 208,
   pattern = "ceiling.1",
@@ -18302,7 +18258,6 @@ tile{
   layer = 2,
   x = 1616,
   y = 496,
-  enabled_at_start = false,
   width = 288,
   height = 208,
   pattern = "ceiling.1",
@@ -18312,7 +18267,6 @@ tile{
   layer = 2,
   x = 1584,
   y = 496,
-  enabled_at_start = false,
   width = 32,
   height = 208,
   pattern = "ceiling.1",
@@ -18322,7 +18276,6 @@ tile{
   layer = 2,
   x = 1904,
   y = 256,
-  enabled_at_start = false,
   width = 32,
   height = 208,
   pattern = "ceiling.1",
@@ -18332,7 +18285,6 @@ tile{
   layer = 2,
   x = 2224,
   y = 256,
-  enabled_at_start = false,
   width = 16,
   height = 208,
   pattern = "ceiling.1",
@@ -18342,7 +18294,6 @@ tile{
   layer = 2,
   x = 1616,
   y = 256,
-  enabled_at_start = false,
   width = 288,
   height = 208,
   pattern = "ceiling.1",
@@ -18352,7 +18303,6 @@ tile{
   layer = 2,
   x = 1296,
   y = 256,
-  enabled_at_start = false,
   width = 288,
   height = 208,
   pattern = "ceiling.1",
@@ -18362,7 +18312,6 @@ tile{
   layer = 2,
   x = 976,
   y = 256,
-  enabled_at_start = false,
   width = 288,
   height = 208,
   pattern = "ceiling.1",
@@ -18372,7 +18321,6 @@ tile{
   layer = 2,
   x = 656,
   y = 256,
-  enabled_at_start = false,
   width = 288,
   height = 208,
   pattern = "ceiling.1",
@@ -18382,7 +18330,6 @@ tile{
   layer = 2,
   x = 336,
   y = 256,
-  enabled_at_start = false,
   width = 288,
   height = 208,
   pattern = "ceiling.1",
@@ -18392,7 +18339,6 @@ tile{
   layer = 2,
   x = 16,
   y = 256,
-  enabled_at_start = false,
   width = 288,
   height = 208,
   pattern = "ceiling.1",
@@ -18402,7 +18348,6 @@ tile{
   layer = 2,
   x = 0,
   y = 256,
-  enabled_at_start = false,
   width = 16,
   height = 208,
   pattern = "ceiling.1",
@@ -18412,7 +18357,6 @@ tile{
   layer = 2,
   x = 304,
   y = 256,
-  enabled_at_start = false,
   width = 32,
   height = 208,
   pattern = "ceiling.1",
@@ -18422,7 +18366,6 @@ tile{
   layer = 2,
   x = 624,
   y = 256,
-  enabled_at_start = false,
   width = 32,
   height = 208,
   pattern = "ceiling.1",
@@ -18432,7 +18375,6 @@ tile{
   layer = 2,
   x = 944,
   y = 256,
-  enabled_at_start = false,
   width = 32,
   height = 208,
   pattern = "ceiling.1",
@@ -18442,7 +18384,6 @@ tile{
   layer = 2,
   x = 1264,
   y = 256,
-  enabled_at_start = false,
   width = 32,
   height = 208,
   pattern = "ceiling.1",
@@ -18452,7 +18393,6 @@ tile{
   layer = 2,
   x = 1584,
   y = 256,
-  enabled_at_start = false,
   width = 32,
   height = 208,
   pattern = "ceiling.1",
@@ -19001,5 +18941,65 @@ separator{
   y = 952,
   width = 2560,
   height = 16,
+}
+
+enemy{
+  name = "enemy_group_6_1",
+  layer = 2,
+  x = 784,
+  y = 1309,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "enemy_group_6_2",
+  layer = 2,
+  x = 784,
+  y = 1341,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "enemy_group_6_4",
+  layer = 2,
+  x = 816,
+  y = 1309,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "enemy_group_6_3",
+  layer = 2,
+  x = 816,
+  y = 1341,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "enemy_group_9_2",
+  layer = 2,
+  x = 1544,
+  y = 1085,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "enemy_group_9_1",
+  layer = 2,
+  x = 1544,
+  y = 1149,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random_with_charm",
 }
 

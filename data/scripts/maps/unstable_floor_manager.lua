@@ -97,15 +97,22 @@ hero_meta:register_event("on_state_changing", function(hero, old_state, state)
 
     local map = hero:get_map()
     local game = hero:get_game()
-    if old_state=="back to solid ground" and state=="free" then
-      print "respawn"
+
+    if old_state=="stairs" and state == "free" then
+      if hero.wait_for_stairs_ended then
+        hero:save_stable_floor_position()
+        hero:initialize_unstable_floor_manager()
+      end
+
+    elseif old_state=="back to solid ground" and state=="free" then
+      debug_print "respawn"
       if map:get_world()=="outside_world" and not map:is_sideview() then
         local position = hero.last_stable_position
         local directions={{-8,0}, {-8, 8}, {0, 8}, {8, 8}, {8, 0}, {8, -8}, {0, -8}, {-8, -8}}
         local offset_x, offset_y=unpack(directions[position.direction+1])
         hero:set_position(position.x+offset_x, position.y+offset_y, position.layer)
       end
-      print (hero.last_stable_position.direction)
+      --debug_print (hero.last_stable_position.direction)
       hero:set_direction(hero.last_stable_position.direction/2 or 0)
     end
   end)
@@ -137,12 +144,17 @@ function hero_meta:save_stable_floor_position()
 end
 
 -- Initialize the manager on the corresponding events.
-game_meta:register_event("on_map_changed", function(game, map)
+map_meta:register_event("on_opening_transition_finished", function(map)
 
-    local hero = game:get_hero()
-    hero:save_stable_floor_position()
-    hero:initialize_unstable_floor_manager()
+    local hero = map:get_hero()
+    if hero:get_state()=="stairs" then
+      hero.wait_for_stairs_ended=true
+    else
+      hero:save_stable_floor_position()
+      hero:initialize_unstable_floor_manager()
+    end
   end)
+
 separator_meta:register_event("on_activated", function(separator, dir4)
 
     local hero = separator:get_map():get_hero()

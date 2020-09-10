@@ -25,18 +25,14 @@ end
 -- Create an impact effect on hit.
 enemy:register_event("on_hit", function(enemy)
 
-  -- Make unable to interact.
-  enemy:stop_movement()
-  enemy:set_invincible()
-  enemy:set_can_attack(false)
-  enemy:set_damage(0)
-
   -- Remove the entity when planted animation finished + some time.
-  sprite:set_animation("reached_obstacle", function()
-    sprite:set_paused()
-    sprite:set_frame(1)
-    sol.timer.start(enemy, planted_duration, function()
-      enemy:remove()
+  enemy:start_death(function()
+    sprite:set_animation("reached_obstacle", function()
+      sprite:set_paused()
+      sprite:set_frame(1)
+      sol.timer.start(enemy, planted_duration, function()
+        finish_death()
+      end)
     end)
   end)
 
@@ -45,7 +41,7 @@ end)
 
 -- Directly remove the enemy on attacking hero
 enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
-  enemy:remove()
+  enemy:start_death()
 end)
 
 -- Initialization.
@@ -63,8 +59,6 @@ enemy:register_event("on_restarted", function(enemy)
   sprite:set_animation("walking")
   enemy:set_damage(2)
   enemy:set_obstacle_behavior("flying")
-  enemy:set_pushed_back_when_hurt(false)
-  enemy:set_can_hurt_hero_running(true)
-  enemy:set_minimum_shield_needed(1)
+  enemy:set_invincible()
   enemy:go()
 end)

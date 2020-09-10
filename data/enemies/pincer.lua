@@ -1,10 +1,19 @@
--- Lua script of pincer.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Pincer.
+--
+-- Immobile enemy composed of a head and three body sprites.
+-- Starts hidden and appear to try to bite the hero when close enough.
+--
+-- Methods : enemy:start_charging()
+--           enemy:appear()
+--           enemy:wait()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
 require("enemies/lib/common_actions").learn(enemy)
-require("enemies/lib/weapons").learn(enemy)
 require("scripts/multi_events")
 
 local game = enemy:get_game()
@@ -15,19 +24,18 @@ local head_sprite
 local body_sprites = {}
 local quarter = math.pi * 0.5
 local eighth = math.pi * 0.25
-local before_go_back_timer
+local waiting_timer, before_go_back_timer
 
 -- Configuration variables
+local triggering_distance = 64
 local charging_speed = 128
 local charging_distance = 40
 local go_back_speed = 64
-local waiting_minimum_duration = 2000
-local waiting_maximum_duration = 4000
 local appearing_duration = 1000
 local before_go_back_delay = 600
 
 -- Start charging to the given angle.
-function enemy:start_charging_movement(angle, speed)
+local function start_charging_movement(angle, speed)
 
   local movement = sol.movement.create("straight")
   movement:set_speed(speed)
@@ -50,20 +58,20 @@ end
 function enemy:start_charging()
 
   -- Initialize sprites.
-  head_sprite:set_direction(enemy:get_direction4_to(hero))
+  head_sprite:set_direction(enemy:get_direction8_to(hero))
   for i = 1, 3 do
     body_sprites[i]:set_opacity(255)
   end
 
   -- Start movement.
   local angle = enemy:get_angle(hero)
-  local movement = enemy:start_charging_movement(angle, charging_speed)
+  local movement = start_charging_movement(angle, charging_speed)
 
   -- Go back after a delay on movement finished.
   function movement:on_finished()
     before_go_back_timer = sol.timer.start(enemy, before_go_back_delay, function()
       before_go_back_timer = nil
-      movement = enemy:start_charging_movement(angle + math.pi, go_back_speed)
+      movement = start_charging_movement(angle + math.pi, go_back_speed)
 
       function movement:on_finished()
         enemy:restart()
@@ -93,14 +101,15 @@ function enemy:appear()
   end)
 end
 
--- Wait a few time and appear.
+-- Wait for the hero to be near enough and appear.
 function enemy:wait()
 
-  sol.timer.start(enemy, math.random(waiting_minimum_duration, waiting_maximum_duration), function()
-    if not camera:overlaps(enemy:get_max_bounding_box()) then
-      return true
+  waiting_timer = sol.timer.start(enemy, 50, function()
+    if enemy:is_near(hero, triggering_distance) then
+      enemy:appear()
+      return false
     end
-    enemy:appear()
+    return true
   end)
 end
 
@@ -108,8 +117,9 @@ end
 enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(2)
-  enemy:set_size(16, 16)
-  enemy:set_origin(8, 8)
+  enemy:set_size(24, 24)
+  enemy:set_origin(12, 12)
+  enemy:set_position(enemy:get_grid_position()) -- Set position to the center of the current 16*16 case instead of 8, 13.
 
   head_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
   for i = 1, 3 do

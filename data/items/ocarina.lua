@@ -4,6 +4,9 @@
 local item = ...
 local game = item:get_game()
 
+-- Include scripts
+local audio_manager = require("scripts/audio_manager")
+
 function item:on_created()
 
   item:set_savegame_variable("possession_ocarina")
@@ -20,20 +23,26 @@ function item:on_using()
 
 end
 
+-- Play fanfare sound on obtaining.
+function item:on_obtaining()
+  
+  audio_manager:play_sound("items/fanfare_item_extended")
+  
+end
+
+
 function item:playing_song(music, callback)
 
-   local map = game:get_map()
-   local hero = map:get_hero()
-   local x,y,layer = hero:get_position()
-   hero:set_animation("playing_ocarina", function()
-     game:set_pause_allowed(true)
-     notes:remove()
-     notes2:remove()
-   end)
+  local map = game:get_map()
+  local hero = map:get_hero()
+  local x,y,layer = hero:get_position()
+  hero:freeze()
+  game:set_pause_allowed(false)
+  hero:set_animation("playing_ocarina")
   local notes = map:create_custom_entity{
     x = x,
     y = y,
-    layer = layer + 1,
+    layer = layer,
     width = 24,
     height = 32,
     direction = 0,
@@ -42,7 +51,7 @@ function item:playing_song(music, callback)
   local notes2 = map:create_custom_entity{
     x = x,
     y = y,
-    layer = layer + 1,
+    layer = layer,
     width = 24,
     height = 32,
     direction = 2,
@@ -52,6 +61,8 @@ function item:playing_song(music, callback)
   local timer = sol.timer.start(map, 4000, function()
     notes:remove()
     notes2:remove()
+    hero:unfreeze()
+    game:set_pause_allowed(true)
     if callback ~= nil then
       callback()
     end

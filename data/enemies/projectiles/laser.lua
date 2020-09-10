@@ -70,7 +70,7 @@ function enemy:remove_particle(sprite)
     break
   end
   if not has_sprite then
-    enemy:remove()
+    enemy:start_death()
   end
 end
 
@@ -93,9 +93,7 @@ enemy:register_event("on_restarted", function(enemy)
 
   angle = enemy:get_angle(hero)
   enemy:set_obstacle_behavior("flying")
-  enemy:set_can_hurt_hero_running(true)
-  enemy:set_minimum_shield_needed(2)
-  enemy:set_invincible(true)
+  enemy:set_invincible()
 
   -- Schedule the first particle and start the firing timer.
   enemy:schedule_next_particle()

@@ -1,5 +1,12 @@
--- Lua script of enemy death_ball.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Death Ball.
+--
+-- Attract or expulse le hero depending on the current state, and pause the state action periodically.
+--
+-- Methods : enemy:start_state([state])
+--
+----------------------------------
 
 -- Global variables.
 local enemy = ...
@@ -9,21 +16,14 @@ local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
-local attracting_timer = nil
+local state_timer = nil
 local is_exhausted = false
 
 -- Configuration variables
 local initial_state = enemy:get_property("initial_state")
-local attracting_pixel_by_second = 88
+local attracting_pixel_by_second = enemy:get_property("speed") or 88
 local attracting_duration = 5000
 local exhausted_duration = 2000
-
--- Set enemy attracting and exhausted durations.
-function enemy:set_attracting_durations(attracting, exhausted)
-
-  attracting_duration = attracting
-  exhausted_duration = exhausted
-end
 
 -- Function determining if the attraction should happen or not.
 local function is_hero_attractable()
@@ -35,17 +35,17 @@ local function is_hero_attractable()
 end
 
 -- Start attracting and the sprite animation for a delay, then stop attracting for delay.
-function enemy:start_attracting_timer()
+local function start_state_timer()
 
-  is_exhausted = false
-  sprite:set_frame_delay(100)
-  attracting_timer = sol.timer.start(enemy, attracting_duration, function()
+  is_exhausted = true
+  sprite:set_frame_delay(0)
+  state_timer = sol.timer.start(enemy, exhausted_duration, function()
 
-    -- Stop attracting.
-    is_exhausted = true
-    sprite:set_frame_delay(0)
-    attracting_timer = sol.timer.start(enemy, exhausted_duration, function()
-      enemy:start_attracting_timer()
+    -- Start attracting.
+    is_exhausted = false
+    sprite:set_frame_delay(100)
+    state_timer = sol.timer.start(enemy, attracting_duration, function()
+      start_state_timer()
     end)
   end)
 end
@@ -53,15 +53,15 @@ end
 -- Start an enemy state.
 function enemy:start_state(state)
 
-  if attracting_timer then
-    attracting_timer:stop()
+  if state_timer then
+    state_timer:stop()
   end
 
   if state == "attracting" then
-    enemy:start_attracting_timer()
+    start_state_timer()
     enemy:start_attracting(hero, attracting_pixel_by_second, is_hero_attractable)
   elseif state == "expulsing" then
-    enemy:start_attracting_timer()
+    start_state_timer()
     enemy:start_attracting(hero, -attracting_pixel_by_second, is_hero_attractable)
   else
     enemy:stop_attracting()
@@ -72,8 +72,8 @@ end
 -- Stop attracting when dead.
 enemy:register_event("on_dying", function(enemy)
   
-  if attracting_timer then
-    attracting_timer:stop()
+  if state_timer then
+    state_timer:stop()
   end
   enemy:stop_attracting()
 end)

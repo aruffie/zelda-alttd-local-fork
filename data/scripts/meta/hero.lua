@@ -8,47 +8,49 @@ local audio_manager = require("scripts/audio_manager")
 local timer_sword_loading = nil
 local timer_sword_tapping = nil
 local timer_stairs = nil
+
+function hero_meta:is_custom_state_started(state_name)
+  local state, object=self:get_state()
+
+  --Vige priority to custom state in cace the cstate has the same name as a biolt-in one
+  return state=="custom" and object:get_description()==state_name
+end
+
 require("scripts/multi_events")
-hero_meta:register_event("on_movement_changed", function(hero, movement)
-    if not hero:get_map():is_sideview() then
-      if movement:get_speed() ~=0 and not hero.walking_sound_timer then
-        hero.walking_sound_timer=sol.timer.start(hero, 300, function()
-            if hero:get_ground_below()=="shallow_water" then
-              audio_manager:play_sound("hero/wade"..(math.random(1, 2)))
-            elseif hero:get_ground_below()=="grass" then
-              audio_manager:play_sound("hero/walk_on_grass")
-            end
-            return true
-          end)
-      else
-        if hero.walking_sound_timer then
-          hero.walking_sound_timer:stop()
-          hero.walking_sound_timer=nil
-        end
+hero_meta:register_event("on_position_changed", function(hero)
+    if not hero:get_map():is_sideview() and not hero.walking_sound_timer then
+      hero.walking_sound_timer=sol.timer.start(hero, 300, function()
+          hero.walking_sound_timer = nil
+        end)
+      if hero:get_ground_below()=="shallow_water" then
+        audio_manager:play_sound("hero/wade"..(math.random(1, 2)))
+      elseif hero:get_ground_below()=="grass" then
+        audio_manager:play_sound("hero/walk_on_grass")
       end
     end
 
   end)
 
-hero_meta:register_event("on_state_changed", function(hero)
+hero_meta:register_event("on_state_changed", function(hero, current_state)
 
     local game = hero:get_game()
-    local current_state = hero:get_state()
+    local state_object=hero:get_state_object()
+    local state_desc=state_object and state_object:get_description() or ""
     -- Sounds
     if current_state == "lifting" then
       audio_manager:play_sound("hero/pickup") 
-    elseif current_state == "sword loading" then
+    elseif current_state == "sword loading" or state_desc=="sword_loading" then
       timer_sword_loading = sol.timer.start(hero, 1000, function()
           audio_manager:play_sound("items/sword_charge") 
         end)
-    elseif current_state == "sword spin attack" then
+    elseif current_state == "sword spin attack" or state_desc=="sword_spin_attack" then
       -- Sword spin attack
       audio_manager:play_sound("items/sword_spin") 
-    elseif current_state == "sword swinging" then
+    elseif current_state == "sword swinging" or state_desc=="sword" then
       -- Sword swinging
       local index = math.random(1, 4)
       audio_manager:play_sound("items/sword_slash" .. index) 
-    elseif current_state == "sword tapping" then
+    elseif current_state == "sword tapping" or state_desc=="sword_tapping" then
       if timer_sword_tapping == nil then
         timer_sword_tapping = sol.timer.start(hero, 250, function()
             local sound_sword = false
@@ -69,6 +71,7 @@ hero_meta:register_event("on_state_changed", function(hero)
       audio_manager:play_sound("hero/hurt") 
     elseif current_state == "falling" then
       -- Falling
+      hero:stop_movement()
       audio_manager:play_sound("hero/fall") 
     elseif current_state == "jumping" then
       audio_manager:play_sound("hero/cliff_jump")
@@ -109,20 +112,92 @@ hero_meta:register_event("on_state_changed", function(hero)
     end
     hero.previous_state = current_state
 
+    --Recovering from drowning
+    -- Avoid to lose any life when drowning.
+    if current_state == "plunging" and game:get_item("flippers"):get_variant()==0 then
+      hero:stop_movement()
+    end
+    if current_state == "back to solid ground" then
+      local ground = hero:get_ground_below()
+      if ground == "deep_water" then
+        game:add_life(1)
+      end
+    end
+
+
   end)
 
-hero_meta:register_event("on_state_changing", function(hero, old_state, new_state)
-    if old_state=="jumping" and new_state=="free" then
-      local ground=hero:get_ground_below()
-      if ground=="shallow_water" then
-        audio_manager:play_sound("hero/wade1")
-      elseif ground=="grass" then
-        audio_manager:play_sound("walk_on_grass") --TODO use the actual sound effect
-      elseif ground=="deep_water" or ground=="lava" then
-        audio_manager:play_sound("hero/diving")
-      else
-        audio_manager:play_sound("hero/land")
+function hero_meta.show_ground_effect(hero, id)
+
+  local map = hero:get_map()
+  local x,y, layer = hero:get_position()
+  local ground_effect = map:create_custom_entity({
+      name = "ground_effect",
+      sprite = "entities/ground_effects/"..id,
+      x = x,
+      y = y ,
+      width = 16,
+      height = 16,
+      layer = layer,
+      direction = 0
+    })
+  local sprite = ground_effect:get_sprite()
+  function sprite:on_animation_finished()
+    ground_effect:remove()
+  end
+
+end
+
+local function find_valid_ground(hero)
+
+  local ground
+  local x,y=hero:get_position()
+  local map=hero:get_map()
+
+  for layer=hero:get_layer(), map:get_min_layer(), -1 do
+    ground=map:get_ground(x,y,layer)
+    if ground~="empty" then
+      return ground
+    end
+  end
+
+  return "empty"
+end
+
+function hero_meta.play_ground_effect(hero)
+  --print "About to play a ground effect"
+  local map=hero:get_map()
+  local ground=find_valid_ground(hero)
+  --print ("ground: "..ground)
+  local x,y=hero:get_position()
+
+  if ground=="shallow_water" then
+    --print "landed in water"
+    hero:show_ground_effect("water")
+    audio_manager:play_sound("hero/wade1")
+  elseif ground=="grass" then
+    --print "landed in grass"
+    hero:show_ground_effect("grass")
+    audio_manager:play_sound("walk_on_grass")
+  elseif ground=="deep_water" or ground=="lava" then
+    --print "plundged in some fluid"
+    audio_manager:play_sound("hero/diving")
+  else --Not a standard ground
+    --print "landed in some other ground"
+    for entity in map:get_entities_in_rectangle(x,y,1,1) do
+      if entity:get_property("custom_ground")=="sand" then
+        --print "landed in sand"
+        hero:show_ground_effect("sand") --TODO make proper sprite for sand landing effect
       end
+      audio_manager:play_sound("hero/land")
+    end
+  end
+end
+
+hero_meta:register_event("on_state_changing", function(hero, old_state, new_state)
+    print ("going from state "..old_state.." to state ".. new_state)
+    if old_state=="jumping" and new_state=="free" then
+      hero:play_ground_effect()
     end
   end)
 
@@ -190,18 +265,6 @@ hero_meta:register_event("on_position_changed", function(hero)
 
   end)
 
-hero_meta:register_event("on_state_changed", function(hero , state)
-
-    local game = hero:get_game()
-    -- Avoid to lose any life when drowning.
-    if state == "back to solid ground" then
-      local ground = hero:get_ground_below()
-      if ground == "deep_water" then
-        game:add_life(1)
-      end
-    end
-
-  end)
 
 -- Return true if the hero is walking.
 function hero_meta:is_walking()
@@ -243,29 +306,29 @@ function hero_meta.set_jumping(hero, jumping)
 end
 
 function hero_meta.is_running(hero)
-  
+
   return hero.running
-  
+
 end
 
 function hero_meta.set_running(hero, running)
-  
+
   hero.running = running
-  
+
 end
 
 function hero_meta.get_force_powerup(hero)
-  
+
   local game = hero:get_game()
   return game.hero_charm=="power_fragment" and 2 or 1
-  
+
 end
 
 function hero_meta.get_defense_powerup(hero)
-  
+
   local game = hero:get_game()
   return game.hero_charm=="acorn" and 2 or 1
-  
+
 end
 
 --Utility function : it loops through all the sprites of a given hero and shifts them by the given amount of pixels in the X and Y directions.
@@ -302,21 +365,27 @@ game_meta:register_event("on_map_changed", function(game, map)
 --      hero:get_sprite("shadow"):set_animation("big")
       if not hero:get_sprite("shadow_override") then
         local s=hero:create_sprite("entities/shadows/shadow", "shadow_override")
-        s:set_animation("big")
         hero:bring_sprite_to_back(s)
       end
     end
     -- Todo Add sprite if charm exist
 
-end)
+  end)
 
 
 
 -- Initialize hero behavior specific to this quest.
 
 hero_meta:register_event("on_created", function(hero)
-
+    hero:remove_sprite(hero:get_sprite("shadow"))
     hero:initialize_fixing_functions() -- Used to fix direction and animations.
+
+    local variant=hero:get_game():get_item("sword"):get_variant()
+    if  variant>0 then
+      hero:create_sprite("hero/sword"..variant, "sword_override"):stop_animation()
+      hero:create_sprite("hero/sword_stars"..variant, "sword_stars_override"):stop_animation()
+    end
+
 
   end)
 
@@ -415,7 +484,7 @@ function hero_meta:create_symbol_exclamation(sound)
       y = y - 16,
       width = 16,
       height = 16,
-      layer = layer + 1,
+      layer = layer,
       direction = 0
     })
 
@@ -469,28 +538,38 @@ function hero_meta:create_symbol_collapse(sound)
 end
 
 function hero_meta:add_charm(charm)
-    
+
   if charm then
     local game = self:get_game()
     game.hero_charm = charm
     game.hero_charm_hurt_counter = 0
+    -- Shader
+    local shader=sol.shader.create("power_effect")
+    self:get_sprite():set_shader(shader)
+    if charm == "acorn" then
+      shader:set_uniform("target_color", {0., 0., 1.0, 1.0})
+    else --Power fragment
+      shader:set_uniform("target_color", {1.0, 0.0, 0.0, 1.0})
+    end
+
     -- Sound and music
     audio_manager:play_sound("items/get_power_up")
     audio_manager:refresh_music()
   end
-    
+
 end
 
 function hero_meta:remove_charm()
-   
+
   local game = self:get_game() 
   game.hero_charm = nil
   game.hero_charm_hurt_counter = 0
   game.acorn_count = 0
   game.power_fragment_count = 0
+  self:get_sprite():set_shader(nil)
   -- Music
   audio_manager:refresh_music()
-    
+
 end
 
 return true

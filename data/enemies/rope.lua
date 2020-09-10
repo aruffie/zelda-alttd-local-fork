@@ -1,5 +1,13 @@
--- Lua script of enemy gibdo.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Rope.
+--
+-- Moves randomly over horizontal and vertical axis, and charges the hero when aligned with him.
+--
+-- Methods : enemy:start_walking()
+--           enemy:start_charging()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
@@ -19,7 +27,7 @@ local walking_speed = 32
 local walking_minimum_distance = 16
 local walking_maximum_distance = 96
 local charging_speed = 88
-local charging_max_distance = 100
+local charging_maximum_distance = 100
 local alignement_thickness = 16
 
 local walking_pause_duration = 500
@@ -45,7 +53,7 @@ function enemy:start_charging()
   enemy:stop_movement()
   local movement = sol.movement.create("straight")
   movement:set_speed(charging_speed)
-  movement:set_max_distance(charging_max_distance)
+  movement:set_max_distance(charging_maximum_distance)
   movement:set_angle(enemy:get_direction4_to(hero) * quarter)
   movement:set_smooth(false)
   movement:start(enemy)
@@ -82,8 +90,8 @@ end)
 enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(1)
-  enemy:set_size(24, 24)
-  enemy:set_origin(12, 21)
+  enemy:set_size(16, 16)
+  enemy:set_origin(8, 13)
 end)
 
 -- Restart settings.

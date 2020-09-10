@@ -1,4 +1,4 @@
-SplineFontDB: 3.0
+SplineFontDB: 3.2
 FontName: 04b03
 FullName: 04b03
 FamilyName: 04b03
@@ -22,7 +22,7 @@ OS2Version: 0
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 0
 CreationTime: 1048627325
-ModificationTime: 1541843710
+ModificationTime: 1574537790
 PfmFamily: 81
 TTFWeight: 400
 TTFWidth: 5
@@ -189,9 +189,9 @@ UnicodeInterp: none
 NameList: AGL For New Fonts
 DisplaySize: -48
 AntiAlias: 1
-FitToEm: 0
-WinInfo: 64 16 10
-BeginChars: 65539 100
+FitToEm: 1
+WinInfo: 20 20 8
+BeginChars: 65539 170
 
 StartChar: .notdef
 Encoding: 65536 -1 0
@@ -283,18 +283,7 @@ EIF
 EndTTInstrs
 LayerCount: 2
 Fore
-SplineSet
-63 0 m 1,0,-1
- 63 750 l 1,1,-1
- 438 750 l 1,2,-1
- 438 0 l 1,3,-1
- 63 0 l 1,0,-1
-125 63 m 1,4,-1
- 375 63 l 1,5,-1
- 375 688 l 1,6,-1
- 125 688 l 1,7,-1
- 125 63 l 1,4,-1
-EndSplineSet
+Validated: 1
 EndChar
 
 StartChar: .null
@@ -302,6 +291,8 @@ Encoding: 65537 -1 1
 Width: 0
 Flags: W
 LayerCount: 2
+Fore
+Validated: 1
 EndChar
 
 StartChar: nonmarkingreturn
@@ -309,6 +300,8 @@ Encoding: 65538 -1 2
 Width: 500
 Flags: W
 LayerCount: 2
+Fore
+Validated: 1
 EndChar
 
 StartChar: space
@@ -316,6 +309,8 @@ Encoding: 32 32 3
 Width: 500
 Flags: W
 LayerCount: 2
+Fore
+Validated: 1
 EndChar
 
 StartChar: exclam
@@ -412,6 +407,7 @@ SplineSet
  125 0 l 1,7,-1
  125 125 l 1,4,-1
 EndSplineSet
+Validated: 9
 EndChar
 
 StartChar: quotedbl
@@ -508,6 +504,7 @@ SplineSet
  250 625 l 1,7,-1
  250 375 l 1,4,-1
 EndSplineSet
+Validated: 9
 EndChar
 
 StartChar: numbersign
@@ -717,6 +714,7 @@ SplineSet
  375 375 l 1,31,-1
  375 250 l 1,28,-1
 EndSplineSet
+Validated: 9
 EndChar
 
 StartChar: dollar
@@ -886,6 +884,7 @@ SplineSet
  250 125 l 1,21,-1
  0 125 l 1,12,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: percent
@@ -1047,6 +1046,7 @@ SplineSet
  625 125 l 1,19,-1
  500 125 l 1,16,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: ampersand
@@ -1252,6 +1252,7 @@ SplineSet
  625 125 l 1,31,-1
  625 0 l 1,4,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: quotesingle
@@ -1326,6 +1327,7 @@ SplineSet
  125 375 l 1,3,-1
  125 625 l 1,0,-1
 EndSplineSet
+Validated: 9
 EndChar
 
 StartChar: parenleft
@@ -1443,6 +1445,7 @@ SplineSet
  125 0 l 1,11,-1
  250 0 l 1,8,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: parenright
@@ -1560,6 +1563,7 @@ SplineSet
  125 0 l 1,11,-1
  125 125 l 1,8,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: asterisk
@@ -1717,6 +1721,7 @@ SplineSet
  250 250 l 1,19,-1
  375 250 l 1,16,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: plus
@@ -1831,6 +1836,7 @@ SplineSet
  125 250 l 1,11,-1
  125 125 l 1,0,-1
 EndSplineSet
+Validated: 9
 EndChar
 
 StartChar: comma
@@ -1916,17 +1922,18 @@ EndTTInstrs
 LayerCount: 2
 Fore
 SplineSet
-125 0 m 1,0,-1
- 250 0 l 1,1,-1
- 250 125 l 1,2,-1
- 125 125 l 1,3,-1
- 125 0 l 1,0,-1
-0 -125 m 1,4,-1
- 125 -125 l 1,5,-1
- 125 0 l 1,6,-1
- 0 0 l 1,7,-1
- 0 -125 l 1,4,-1
+125 0 m 5,0,-1
+ 250 0 l 5,1,-1
+ 250 125 l 5,2,-1
+ 125 125 l 5,3,-1
+ 125 0 l 5,0,-1
+0 -125 m 5,4,-1
+ 125 -125 l 5,5,-1
+ 125 0 l 5,6,-1
+ 0 0 l 5,7,-1
+ 0 -125 l 5,4,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: hyphen
@@ -1996,12 +2003,13 @@ EndTTInstrs
 LayerCount: 2
 Fore
 SplineSet
-0 375 m 1,0,-1
- 0 250 l 1,1,-1
- 375 250 l 1,2,-1
- 375 375 l 1,3,-1
- 0 375 l 1,0,-1
+0 375 m 5,0,-1
+ 0 250 l 5,1,-1
+ 375 250 l 5,2,-1
+ 375 375 l 5,3,-1
+ 0 375 l 5,0,-1
 EndSplineSet
+Validated: 9
 EndChar
 
 StartChar: period
@@ -2070,12 +2078,13 @@ EndTTInstrs
 LayerCount: 2
 Fore
 SplineSet
-0 0 m 1,0,-1
- 125 0 l 1,1,-1
- 125 125 l 1,2,-1
- 0 125 l 1,3,-1
- 0 0 l 1,0,-1
+0 0 m 5,0,-1
+ 125 0 l 5,1,-1
+ 125 125 l 5,2,-1
+ 0 125 l 5,3,-1
+ 0 0 l 5,0,-1
 EndSplineSet
+Validated: 9
 EndChar
 
 StartChar: slash
@@ -2235,6 +2244,7 @@ SplineSet
  0 125 l 1,19,-1
  0 0 l 1,16,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: zero
@@ -2375,6 +2385,7 @@ SplineSet
  125 0 l 1,15,-1
  125 125 l 1,4,-1
 EndSplineSet
+Validated: 1
 EndChar
 
 StartChar: one
@@ -2460,6 +2471,7 @@ SplineSet
  125 500 l 1,5,-1
  125 0 l 1,0,-1
 EndSplineSet
+Validated: 9
 EndChar
 
 StartChar: two
@@ -2612,6 +2624,7 @@ SplineSet
  0 250 l 1,17,-1
  0 0 l 1,12,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: three
@@ -2775,6 +2788,7 @@ SplineSet
  375 125 l 1,19,-1
  0 125 l 1,16,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: four
@@ -2927,6 +2941,7 @@ SplineSet
  250 625 l 1,17,-1
  375 625 l 1,4,-1
 EndSplineSet
+Validated: 1
 EndChar
 
 StartChar: five
@@ -3068,6 +3083,7 @@ SplineSet
  0 0 l 1,15,-1
  375 0 l 1,12,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: six
@@ -3227,6 +3243,7 @@ SplineSet
  125 0 l 1,19,-1
  125 125 l 1,4,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: seven
@@ -3360,6 +3377,7 @@ SplineSet
  250 375 l 1,13,-1
  250 250 l 1,10,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: eight
@@ -3555,6 +3573,7 @@ SplineSet
  125 0 l 1,27,-1
  125 125 l 1,8,-1
 EndSplineSet
+Validated: 1
 EndChar
 
 StartChar: nine
@@ -3719,6 +3738,7 @@ SplineSet
  125 0 l 1,19,-1
  125 125 l 1,4,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: colon
@@ -3815,6 +3835,7 @@ SplineSet
  0 250 l 1,7,-1
  0 125 l 1,4,-1
 EndSplineSet
+Validated: 9
 EndChar
 
 StartChar: semicolon
@@ -3911,6 +3932,7 @@ SplineSet
  125 0 l 1,7,-1
  125 250 l 1,4,-1
 EndSplineSet
+Validated: 9
 EndChar
 
 StartChar: less
@@ -4051,32 +4073,33 @@ EndTTInstrs
 LayerCount: 2
 Fore
 SplineSet
-125 375 m 1,0,-1
- 250 375 l 1,1,-1
- 250 500 l 1,2,-1
- 125 500 l 1,3,-1
- 125 375 l 1,0,-1
-250 500 m 1,4,-1
- 375 500 l 1,5,-1
- 375 625 l 1,6,-1
- 250 625 l 1,7,-1
- 250 500 l 1,4,-1
-0 250 m 1,8,-1
- 125 250 l 1,9,-1
- 125 375 l 1,10,-1
- 0 375 l 1,11,-1
- 0 250 l 1,8,-1
-250 125 m 1,12,-1
- 250 250 l 1,13,-1
- 125 250 l 1,14,-1
- 125 125 l 1,15,-1
- 250 125 l 1,12,-1
-375 0 m 1,16,-1
- 375 125 l 1,17,-1
- 250 125 l 1,18,-1
- 250 0 l 1,19,-1
- 375 0 l 1,16,-1
+125 375 m 5,0,-1
+ 250 375 l 5,1,-1
+ 250 500 l 5,2,-1
+ 125 500 l 5,3,-1
+ 125 375 l 5,0,-1
+250 500 m 5,4,-1
+ 375 500 l 5,5,-1
+ 375 625 l 5,6,-1
+ 250 625 l 5,7,-1
+ 250 500 l 5,4,-1
+0 250 m 5,8,-1
+ 125 250 l 5,9,-1
+ 125 375 l 5,10,-1
+ 0 375 l 5,11,-1
+ 0 250 l 5,8,-1
+250 125 m 5,12,-1
+ 250 250 l 5,13,-1
+ 125 250 l 5,14,-1
+ 125 125 l 5,15,-1
+ 250 125 l 5,12,-1
+375 0 m 5,16,-1
+ 375 125 l 5,17,-1
+ 250 125 l 5,18,-1
+ 250 0 l 5,19,-1
+ 375 0 l 5,16,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: equal
@@ -4162,17 +4185,18 @@ EndTTInstrs
 LayerCount: 2
 Fore
 SplineSet
-0 500 m 1,0,-1
- 0 375 l 1,1,-1
- 375 375 l 1,2,-1
- 375 500 l 1,3,-1
- 0 500 l 1,0,-1
+0 500 m 5,0,-1
+ 0 375 l 5,1,-1
+ 375 375 l 5,2,-1
+ 375 500 l 5,3,-1
+ 0 500 l 5,0,-1
 0 250 m 1,4,-1
  0 125 l 1,5,-1
  375 125 l 1,6,-1
  375 250 l 1,7,-1
  0 250 l 1,4,-1
 EndSplineSet
+Validated: 9
 EndChar
 
 StartChar: greater
@@ -4336,6 +4360,7 @@ SplineSet
  0 125 l 1,19,-1
  0 0 l 1,16,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: question
@@ -4478,6 +4503,7 @@ SplineSet
  125 125 l 1,15,-1
  125 0 l 1,12,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: at
@@ -4649,6 +4675,7 @@ SplineSet
  500 500 l 1,21,-1
  625 500 l 1,10,-1
 EndSplineSet
+Validated: 1
 EndChar
 
 StartChar: A
@@ -4789,6 +4816,7 @@ SplineSet
  125 250 l 1,15,-1
  375 250 l 1,12,-1
 EndSplineSet
+Validated: 1
 EndChar
 
 StartChar: B
@@ -4932,30 +4960,31 @@ EndTTInstrs
 LayerCount: 2
 Fore
 SplineSet
-125 376 m 1,0,-1
- 375 376 l 1,1,-1
- 375 499 l 1,2,-1
- 125 499 l 1,3,-1
- 125 376 l 1,0,-1
-375 249 m 1,4,-1
- 125 249 l 1,5,-1
- 125 126 l 1,6,-1
- 375 126 l 1,7,-1
- 375 249 l 1,4,-1
-500 125 m 1,8,-1
- 375 125 l 1,9,-1
- 375 0 l 1,10,-1
- 0 0 l 1,11,-1
- 0 625 l 1,12,-1
- 375 625 l 1,13,-1
- 375 500 l 1,14,-1
- 500 500 l 1,15,-1
- 500 375 l 1,16,-1
- 375 375 l 1,17,-1
- 375 250 l 1,18,-1
- 500 250 l 1,19,-1
- 500 125 l 1,8,-1
+125 376 m 5,0,-1
+ 375 376 l 5,1,-1
+ 375 499 l 5,2,-1
+ 125 499 l 5,3,-1
+ 125 376 l 5,0,-1
+375 249 m 5,4,-1
+ 125 249 l 5,5,-1
+ 125 126 l 5,6,-1
+ 375 126 l 5,7,-1
+ 375 249 l 5,4,-1
+500 125 m 5,8,-1
+ 375 125 l 5,9,-1
+ 375 0 l 5,10,-1
+ 0 0 l 5,11,-1
+ 0 625 l 5,12,-1
+ 375 625 l 5,13,-1
+ 375 500 l 5,14,-1
+ 500 500 l 5,15,-1
+ 500 375 l 5,16,-1
+ 375 375 l 5,17,-1
+ 375 250 l 5,18,-1
+ 500 250 l 5,19,-1
+ 500 125 l 5,8,-1
 EndSplineSet
+Validated: 1
 EndChar
 
 StartChar: C
@@ -5057,22 +5086,23 @@ EndTTInstrs
 LayerCount: 2
 Fore
 SplineSet
-375 500 m 1,0,-1
- 375 625 l 1,1,-1
- 125 625 l 1,2,-1
- 125 500 l 1,3,-1
- 375 500 l 1,0,-1
-125 500 m 1,4,-1
- 0 500 l 1,5,-1
- 0 125 l 1,6,-1
- 125 125 l 1,7,-1
- 125 500 l 1,4,-1
-375 0 m 1,8,-1
- 375 125 l 1,9,-1
- 125 125 l 1,10,-1
- 125 0 l 1,11,-1
- 375 0 l 1,8,-1
+375 500 m 5,0,-1
+ 375 625 l 5,1,-1
+ 125 625 l 5,2,-1
+ 125 500 l 5,3,-1
+ 375 500 l 5,0,-1
+125 500 m 5,4,-1
+ 0 500 l 5,5,-1
+ 0 125 l 5,6,-1
+ 125 125 l 5,7,-1
+ 125 500 l 5,4,-1
+375 0 m 5,8,-1
+ 375 125 l 5,9,-1
+ 125 125 l 5,10,-1
+ 125 0 l 5,11,-1
+ 375 0 l 5,8,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: D
@@ -5197,6 +5227,7 @@ SplineSet
  375 125 l 1,11,-1
  375 0 l 1,4,-1
 EndSplineSet
+Validated: 1
 EndChar
 
 StartChar: E
@@ -5302,20 +5333,21 @@ EndTTInstrs
 LayerCount: 2
 Fore
 SplineSet
-375 0 m 1,0,-1
- 375 125 l 1,1,-1
- 125 125 l 1,2,-1
- 125 250 l 1,3,-1
- 375 250 l 1,4,-1
- 375 375 l 1,5,-1
- 125 375 l 1,6,-1
- 125 500 l 1,7,-1
- 375 500 l 1,8,-1
- 375 625 l 1,9,-1
- 0 625 l 1,10,-1
- 0 0 l 1,11,-1
- 375 0 l 1,0,-1
+375 0 m 5,0,-1
+ 375 125 l 5,1,-1
+ 125 125 l 5,2,-1
+ 125 250 l 5,3,-1
+ 375 250 l 5,4,-1
+ 375 375 l 5,5,-1
+ 125 375 l 5,6,-1
+ 125 500 l 5,7,-1
+ 375 500 l 5,8,-1
+ 375 625 l 5,9,-1
+ 0 625 l 5,10,-1
+ 0 0 l 5,11,-1
+ 375 0 l 5,0,-1
 EndSplineSet
+Validated: 9
 EndChar
 
 StartChar: F
@@ -5424,6 +5456,7 @@ SplineSet
  125 0 l 1,9,-1
  125 250 l 1,0,-1
 EndSplineSet
+Validated: 9
 EndChar
 
 StartChar: G
@@ -5570,6 +5603,7 @@ SplineSet
  500 375 l 1,15,-1
  500 0 l 1,8,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: H
@@ -5685,6 +5719,7 @@ SplineSet
  375 625 l 1,11,-1
  375 375 l 1,0,-1
 EndSplineSet
+Validated: 9
 EndChar
 
 StartChar: I
@@ -5800,6 +5835,7 @@ SplineSet
  250 125 l 1,11,-1
  250 500 l 1,0,-1
 EndSplineSet
+Validated: 9
 EndChar
 
 StartChar: J
@@ -5928,6 +5964,7 @@ SplineSet
  375 125 l 1,13,-1
  125 125 l 1,10,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: K
@@ -6109,6 +6146,7 @@ SplineSet
  375 0 l 1,23,-1
  500 0 l 1,20,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: L
@@ -6193,6 +6231,7 @@ SplineSet
  0 0 l 1,5,-1
  375 0 l 1,0,-1
 EndSplineSet
+Validated: 9
 EndChar
 
 StartChar: M
@@ -6356,6 +6395,7 @@ SplineSet
  500 625 l 1,19,-1
  500 500 l 1,12,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: N
@@ -6495,6 +6535,7 @@ SplineSet
  125 0 l 1,15,-1
  125 375 l 1,8,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: O
@@ -6635,6 +6676,7 @@ SplineSet
  125 0 l 1,15,-1
  125 125 l 1,4,-1
 EndSplineSet
+Validated: 1
 EndChar
 
 StartChar: P
@@ -6767,6 +6809,7 @@ SplineSet
  125 499 l 1,13,-1
  125 251 l 1,10,-1
 EndSplineSet
+Validated: 1
 EndChar
 
 StartChar: Q
@@ -6923,6 +6966,7 @@ SplineSet
  125 0 l 1,19,-1
  125 125 l 1,4,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: R
@@ -7072,6 +7116,7 @@ SplineSet
  500 125 l 1,17,-1
  500 0 l 1,0,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: S
@@ -7233,6 +7278,7 @@ SplineSet
  375 125 l 1,19,-1
  0 125 l 1,16,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: T
@@ -7328,6 +7374,7 @@ SplineSet
  125 500 l 1,7,-1
  125 0 l 1,0,-1
 EndSplineSet
+Validated: 9
 EndChar
 
 StartChar: U
@@ -7445,6 +7492,7 @@ SplineSet
  375 125 l 1,11,-1
  125 125 l 1,8,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: V
@@ -7586,6 +7634,7 @@ SplineSet
  125 125 l 1,15,-1
  125 0 l 1,12,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: W
@@ -7751,6 +7800,7 @@ SplineSet
  625 625 l 1,19,-1
  500 625 l 1,16,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: X
@@ -7903,6 +7953,7 @@ SplineSet
  375 250 l 1,19,-1
  375 0 l 1,16,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: Y
@@ -8037,6 +8088,7 @@ SplineSet
  375 125 l 1,15,-1
  125 125 l 1,12,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: Z
@@ -8178,6 +8230,7 @@ SplineSet
  0 0 l 1,15,-1
  375 0 l 1,10,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: bracketleft
@@ -8273,6 +8326,7 @@ SplineSet
  250 625 l 1,7,-1
  0 625 l 1,0,-1
 EndSplineSet
+Validated: 9
 EndChar
 
 StartChar: backslash
@@ -8417,32 +8471,33 @@ EndTTInstrs
 LayerCount: 2
 Fore
 SplineSet
-250 375 m 1,0,-1
- 125 375 l 1,1,-1
- 125 500 l 1,2,-1
- 250 500 l 1,3,-1
- 250 375 l 1,0,-1
-125 625 m 1,4,-1
- 125 500 l 1,5,-1
- 0 500 l 1,6,-1
- 0 625 l 1,7,-1
- 125 625 l 1,4,-1
-500 125 m 1,8,-1
- 375 125 l 1,9,-1
- 375 250 l 1,10,-1
- 500 250 l 1,11,-1
- 500 125 l 1,8,-1
-375 250 m 1,12,-1
- 250 250 l 1,13,-1
- 250 375 l 1,14,-1
- 375 375 l 1,15,-1
- 375 250 l 1,12,-1
-625 0 m 1,16,-1
- 500 0 l 1,17,-1
- 500 125 l 1,18,-1
- 625 125 l 1,19,-1
- 625 0 l 1,16,-1
+250 375 m 5,0,-1
+ 125 375 l 5,1,-1
+ 125 500 l 5,2,-1
+ 250 500 l 5,3,-1
+ 250 375 l 5,0,-1
+125 625 m 5,4,-1
+ 125 500 l 5,5,-1
+ 0 500 l 5,6,-1
+ 0 625 l 5,7,-1
+ 125 625 l 5,4,-1
+500 125 m 5,8,-1
+ 375 125 l 5,9,-1
+ 375 250 l 5,10,-1
+ 500 250 l 5,11,-1
+ 500 125 l 5,8,-1
+375 250 m 5,12,-1
+ 250 250 l 5,13,-1
+ 250 375 l 5,14,-1
+ 375 375 l 5,15,-1
+ 375 250 l 5,12,-1
+625 0 m 5,16,-1
+ 500 0 l 5,17,-1
+ 500 125 l 5,18,-1
+ 625 125 l 5,19,-1
+ 625 0 l 5,16,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: bracketright
@@ -8538,6 +8593,7 @@ SplineSet
  0 0 l 1,7,-1
  250 0 l 1,0,-1
 EndSplineSet
+Validated: 9
 EndChar
 
 StartChar: asciicircum
@@ -8640,22 +8696,23 @@ EndTTInstrs
 LayerCount: 2
 Fore
 SplineSet
-125 625 m 1,0,-1
- 125 500 l 1,1,-1
- 250 500 l 1,2,-1
- 250 625 l 1,3,-1
- 125 625 l 1,0,-1
-0 375 m 1,4,-1
- 125 375 l 1,5,-1
- 125 500 l 1,6,-1
- 0 500 l 1,7,-1
- 0 375 l 1,4,-1
-250 375 m 1,8,-1
- 375 375 l 1,9,-1
- 375 500 l 1,10,-1
- 250 500 l 1,11,-1
- 250 375 l 1,8,-1
+125 625 m 5,0,-1
+ 125 500 l 5,1,-1
+ 250 500 l 5,2,-1
+ 250 625 l 5,3,-1
+ 125 625 l 5,0,-1
+0 375 m 5,4,-1
+ 125 375 l 5,5,-1
+ 125 500 l 5,6,-1
+ 0 500 l 5,7,-1
+ 0 375 l 5,4,-1
+250 375 m 5,8,-1
+ 375 375 l 5,9,-1
+ 375 500 l 5,10,-1
+ 250 500 l 5,11,-1
+ 250 375 l 5,8,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: underscore
@@ -8730,6 +8787,7 @@ SplineSet
  500 125 l 1,3,-1
  0 125 l 1,0,-1
 EndSplineSet
+Validated: 9
 EndChar
 
 StartChar: grave
@@ -8815,17 +8873,18 @@ EndTTInstrs
 LayerCount: 2
 Fore
 SplineSet
-0 625 m 1,0,-1
- 0 500 l 1,1,-1
- 125 500 l 1,2,-1
- 125 625 l 1,3,-1
- 0 625 l 1,0,-1
-125 375 m 1,4,-1
- 250 375 l 1,5,-1
- 250 500 l 1,6,-1
- 125 500 l 1,7,-1
- 125 375 l 1,4,-1
+0 625 m 5,0,-1
+ 0 500 l 5,1,-1
+ 125 500 l 5,2,-1
+ 125 625 l 5,3,-1
+ 0 625 l 5,0,-1
+125 375 m 5,4,-1
+ 250 375 l 5,5,-1
+ 250 500 l 5,6,-1
+ 125 500 l 5,7,-1
+ 125 375 l 5,4,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: a
@@ -8949,6 +9008,7 @@ SplineSet
  0 375 l 1,11,-1
  125 375 l 1,4,-1
 EndSplineSet
+Validated: 1
 EndChar
 
 StartChar: b
@@ -9083,6 +9143,7 @@ SplineSet
  125 374 l 1,13,-1
  125 126 l 1,10,-1
 EndSplineSet
+Validated: 1
 EndChar
 
 StartChar: c
@@ -9184,22 +9245,23 @@ EndTTInstrs
 LayerCount: 2
 Fore
 SplineSet
-375 375 m 1,0,-1
- 375 500 l 1,1,-1
- 125 500 l 1,2,-1
- 125 375 l 1,3,-1
- 375 375 l 1,0,-1
-125 375 m 1,4,-1
- 0 375 l 1,5,-1
- 0 125 l 1,6,-1
- 125 125 l 1,7,-1
- 125 375 l 1,4,-1
-375 0 m 1,8,-1
- 375 125 l 1,9,-1
- 125 125 l 1,10,-1
- 125 0 l 1,11,-1
- 375 0 l 1,8,-1
+375 375 m 5,0,-1
+ 375 500 l 5,1,-1
+ 125 500 l 5,2,-1
+ 125 375 l 5,3,-1
+ 375 375 l 5,0,-1
+125 375 m 5,4,-1
+ 0 375 l 5,5,-1
+ 0 125 l 5,6,-1
+ 125 125 l 5,7,-1
+ 125 375 l 5,4,-1
+375 0 m 5,8,-1
+ 375 125 l 5,9,-1
+ 125 125 l 5,10,-1
+ 125 0 l 5,11,-1
+ 375 0 l 5,8,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: d
@@ -9334,6 +9396,7 @@ SplineSet
  0 375 l 1,13,-1
  125 375 l 1,4,-1
 EndSplineSet
+Validated: 1
 EndChar
 
 StartChar: e
@@ -9630,6 +9693,7 @@ SplineSet
  250 500 l 1,15,-1
  125 500 l 1,4,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: g
@@ -9783,6 +9847,7 @@ SplineSet
  125 -250 l 1,17,-1
  125 -125 l 1,4,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: h
@@ -9899,6 +9964,7 @@ SplineSet
  375 375 l 1,11,-1
  375 0 l 1,8,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: i
@@ -9998,6 +10064,7 @@ SplineSet
  125 0 l 1,7,-1
  125 375 l 1,4,-1
 EndSplineSet
+Validated: 9
 EndChar
 
 StartChar: j
@@ -10118,6 +10185,7 @@ SplineSet
  125 -250 l 1,11,-1
  125 -125 l 1,8,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: k
@@ -10267,6 +10335,7 @@ SplineSet
  375 0 l 1,17,-1
  500 0 l 1,14,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: l
@@ -10341,6 +10410,7 @@ SplineSet
  125 0 l 1,3,-1
  125 625 l 1,0,-1
 EndSplineSet
+Validated: 9
 EndChar
 
 StartChar: m
@@ -10466,6 +10536,7 @@ SplineSet
  500 375 l 1,13,-1
  500 0 l 1,10,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: n
@@ -10572,6 +10643,7 @@ SplineSet
  125 0 l 1,9,-1
  125 375 l 1,4,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: o
@@ -10709,6 +10781,7 @@ SplineSet
  125 0 l 1,15,-1
  125 125 l 1,4,-1
 EndSplineSet
+Validated: 1
 EndChar
 
 StartChar: p
@@ -10843,6 +10916,7 @@ SplineSet
  125 374 l 1,13,-1
  125 126 l 1,10,-1
 EndSplineSet
+Validated: 1
 EndChar
 
 StartChar: q
@@ -10977,6 +11051,7 @@ SplineSet
  0 375 l 1,13,-1
  125 375 l 1,4,-1
 EndSplineSet
+Validated: 1
 EndChar
 
 StartChar: r
@@ -11093,6 +11168,7 @@ SplineSet
  125 0 l 1,11,-1
  125 250 l 1,4,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: s
@@ -11232,6 +11308,7 @@ SplineSet
  250 125 l 1,15,-1
  0 125 l 1,8,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: t
@@ -11368,6 +11445,7 @@ SplineSet
  250 0 l 1,15,-1
  375 0 l 1,12,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: u
@@ -11474,6 +11552,7 @@ SplineSet
  125 125 l 1,9,-1
  125 500 l 1,6,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: v
@@ -11619,6 +11698,7 @@ SplineSet
  125 125 l 1,17,-1
  125 0 l 1,14,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: w
@@ -11782,6 +11862,7 @@ SplineSet
  375 250 l 1,19,-1
  375 0 l 1,16,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: x
@@ -11934,6 +12015,7 @@ SplineSet
  250 0 l 1,19,-1
  375 0 l 1,16,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: y
@@ -12068,6 +12150,7 @@ SplineSet
  375 -125 l 1,15,-1
  125 -125 l 1,12,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: z
@@ -12207,6 +12290,7 @@ SplineSet
  125 250 l 1,15,-1
  125 125 l 1,8,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: braceleft
@@ -12348,6 +12432,7 @@ SplineSet
  125 250 l 1,15,-1
  125 0 l 1,10,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: bar
@@ -12416,12 +12501,13 @@ EndTTInstrs
 LayerCount: 2
 Fore
 SplineSet
-0 0 m 1,0,-1
- 125 0 l 1,1,-1
- 125 625 l 1,2,-1
- 0 625 l 1,3,-1
- 0 0 l 1,0,-1
+0 0 m 5,0,-1
+ 125 0 l 5,1,-1
+ 125 625 l 5,2,-1
+ 0 625 l 5,3,-1
+ 0 0 l 5,0,-1
 EndSplineSet
+Validated: 9
 EndChar
 
 StartChar: braceright
@@ -12563,6 +12649,7 @@ SplineSet
  250 375 l 1,15,-1
  250 250 l 1,12,-1
 EndSplineSet
+Validated: 5
 EndChar
 
 StartChar: asciitilde
@@ -12684,26 +12771,26 @@ EndTTInstrs
 LayerCount: 2
 Fore
 SplineSet
-125 625 m 1,0,-1
- 125 500 l 1,1,-1
- 250 500 l 1,2,-1
- 250 625 l 1,3,-1
- 125 625 l 1,0,-1
-0 375 m 1,4,-1
- 125 375 l 1,5,-1
- 125 500 l 1,6,-1
- 0 500 l 1,7,-1
- 0 375 l 1,4,-1
-375 500 m 1,8,-1
- 500 500 l 1,9,-1
- 500 625 l 1,10,-1
- 375 625 l 1,11,-1
- 375 500 l 1,8,-1
-250 375 m 1,12,-1
- 375 375 l 1,13,-1
- 375 500 l 1,14,-1
- 250 500 l 1,15,-1
- 250 375 l 1,12,-1
+125 625 m 5,0,-1
+ 125 500 l 5,1,-1
+ 250 500 l 5,2,-1
+ 250 625 l 5,3,-1
+ 125 625 l 5,0,-1
+0 375 m 5,4,-1
+ 125 375 l 5,5,-1
+ 125 500 l 5,6,-1
+ 0 500 l 5,7,-1
+ 0 375 l 5,4,-1
+375 500 m 5,8,-1
+ 500 500 l 5,9,-1
+ 500 625 l 5,10,-1
+ 375 625 l 5,11,-1
+ 375 500 l 5,8,-1
+250 375 m 5,12,-1
+ 375 375 l 5,13,-1
+ 375 500 l 5,14,-1
+ 250 500 l 5,15,-1
+ 250 375 l 5,12,-1
 EndSplineSet
 EndChar
 
@@ -12712,12 +12799,14 @@ Encoding: 160 160 98
 Width: 500
 Flags: W
 LayerCount: 2
+Fore
+Validated: 1
 EndChar
 
 StartChar: copyright
 Encoding: 169 169 99
 Width: 750
-Flags: WO
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -12755,6 +12844,2395 @@ SplineSet
  375 125 l 1,26,-1
  250 125 l 1,27,-1
  250 250 l 1,24,-1
+EndSplineSet
+Validated: 2053
+EndChar
+
+StartChar: eacute
+Encoding: 233 233 100
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+125 625 m 1,0,-1
+ 375 625 l 1,1,-1
+ 375 750 l 5,2,-1
+ 125 750 l 1,3,-1
+ 125 625 l 1,0,-1
+0 500 m 1,4,-1
+ 125 500 l 1,5,-1
+ 125 625 l 1,6,-1
+ 0 625 l 1,7,-1
+ 0 500 l 1,4,-1
+250 251 m 1,8,-1
+ 250 374 l 1,9,-1
+ 125 374 l 1,10,-1
+ 125 251 l 1,11,-1
+ 250 251 l 1,8,-1
+125 0 m 1,12,-1
+ 125 125 l 1,13,-1
+ 0 125 l 1,14,-1
+ 0 375 l 1,15,-1
+ 125 375 l 1,16,-1
+ 125 500 l 1,17,-1
+ 375 500 l 1,18,-1
+ 375 375 l 1,19,-1
+ 500 375 l 1,20,-1
+ 500 250 l 1,21,-1
+ 250 250 l 1,22,-1
+ 250 125 l 1,23,-1
+ 375 125 l 1,24,-1
+ 375 0 l 1,25,-1
+ 125 0 l 1,12,-1
+EndSplineSet
+Validated: 5
+EndChar
+
+StartChar: egrave
+Encoding: 232 232 101
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+125 750 m 1,0,-1
+ 125 625 l 1,1,-1
+ 375 625 l 1,2,-1
+ 375 750 l 1,3,-1
+ 125 750 l 1,0,-1
+375 500 m 1,4,-1
+ 500 500 l 1,5,-1
+ 500 625 l 1,6,-1
+ 375 625 l 1,7,-1
+ 375 500 l 1,4,-1
+250 251 m 1,8,-1
+ 250 374 l 1,9,-1
+ 125 374 l 1,10,-1
+ 125 251 l 1,11,-1
+ 250 251 l 1,8,-1
+125 0 m 1,12,-1
+ 125 125 l 1,13,-1
+ 0 125 l 1,14,-1
+ 0 375 l 1,15,-1
+ 125 375 l 1,16,-1
+ 125 500 l 1,17,-1
+ 375 500 l 1,18,-1
+ 375 375 l 1,19,-1
+ 500 375 l 1,20,-1
+ 500 250 l 1,21,-1
+ 250 250 l 1,22,-1
+ 250 125 l 1,23,-1
+ 375 125 l 1,24,-1
+ 375 0 l 1,25,-1
+ 125 0 l 1,12,-1
+EndSplineSet
+Validated: 5
+EndChar
+
+StartChar: ecircumflex
+Encoding: 234 234 102
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+125 750 m 1,0,-1
+ 125 625 l 1,1,-1
+ 375 625 l 1,2,-1
+ 375 750 l 1,3,-1
+ 125 750 l 1,0,-1
+0 500 m 1,4,-1
+ 125 500 l 1,5,-1
+ 125 625 l 1,6,-1
+ 0 625 l 1,7,-1
+ 0 500 l 1,4,-1
+375 500 m 1,8,-1
+ 500 500 l 1,9,-1
+ 500 625 l 1,10,-1
+ 375 625 l 1,11,-1
+ 375 500 l 1,8,-1
+250 251 m 1,12,-1
+ 250 374 l 1,13,-1
+ 125 374 l 1,14,-1
+ 125 251 l 1,15,-1
+ 250 251 l 1,12,-1
+125 0 m 1,16,-1
+ 125 125 l 1,17,-1
+ 0 125 l 1,18,-1
+ 0 375 l 1,19,-1
+ 125 375 l 1,20,-1
+ 125 500 l 1,21,-1
+ 375 500 l 1,22,-1
+ 375 375 l 1,23,-1
+ 500 375 l 1,24,-1
+ 500 250 l 1,25,-1
+ 250 250 l 1,26,-1
+ 250 125 l 1,27,-1
+ 375 125 l 1,28,-1
+ 375 0 l 1,29,-1
+ 125 0 l 1,16,-1
+EndSplineSet
+Validated: 5
+EndChar
+
+StartChar: edieresis
+Encoding: 235 235 103
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+250 625 m 5,0,-1
+ 375 625 l 5,1,-1
+ 375 750 l 5,2,-1
+ 250 750 l 5,3,-1
+ 250 625 l 5,0,-1
+0 625 m 5,4,-1
+ 125 625 l 5,5,-1
+ 125 750 l 5,6,-1
+ 0 750 l 5,7,-1
+ 0 625 l 5,4,-1
+250 251 m 1,8,-1
+ 250 374 l 1,9,-1
+ 125 374 l 1,10,-1
+ 125 251 l 1,11,-1
+ 250 251 l 1,8,-1
+125 0 m 1,12,-1
+ 125 125 l 1,13,-1
+ 0 125 l 1,14,-1
+ 0 375 l 1,15,-1
+ 125 375 l 1,16,-1
+ 125 500 l 1,17,-1
+ 375 500 l 1,18,-1
+ 375 375 l 1,19,-1
+ 500 375 l 1,20,-1
+ 500 250 l 1,21,-1
+ 250 250 l 1,22,-1
+ 250 125 l 1,23,-1
+ 375 125 l 1,24,-1
+ 375 0 l 1,25,-1
+ 125 0 l 1,12,-1
+EndSplineSet
+Validated: 9
+EndChar
+
+StartChar: odieresis
+Encoding: 246 246 104
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+375 625 m 5,0,-1
+ 500 625 l 5,1,-1
+ 500 750 l 5,2,-1
+ 375 750 l 5,3,-1
+ 375 625 l 5,0,-1
+0 625 m 5,4,-1
+ 125 625 l 5,5,-1
+ 125 750 l 5,6,-1
+ 0 750 l 5,7,-1
+ 0 625 l 5,4,-1
+375 126 m 1,8,-1
+ 375 374 l 1,9,-1
+ 125 374 l 1,10,-1
+ 125 126 l 1,11,-1
+ 375 126 l 1,8,-1
+125 125 m 1,12,-1
+ 0 125 l 1,13,-1
+ 0 375 l 1,14,-1
+ 125 375 l 1,15,-1
+ 125 500 l 1,16,-1
+ 375 500 l 1,17,-1
+ 375 375 l 1,18,-1
+ 500 375 l 1,19,-1
+ 500 125 l 1,20,-1
+ 375 125 l 1,21,-1
+ 375 0 l 1,22,-1
+ 125 0 l 1,23,-1
+ 125 125 l 1,12,-1
+EndSplineSet
+Validated: 9
+EndChar
+
+StartChar: Ocircumflex
+Encoding: 212 212 105
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+375 126 m 1,0,-1
+ 375 499 l 1,1,-1
+ 125 499 l 1,2,-1
+ 125 126 l 1,3,-1
+ 375 126 l 1,0,-1
+125 125 m 1,4,-1
+ 0 125 l 1,5,-1
+ 0 500 l 1,6,-1
+ 125 500 l 1,7,-1
+ 125 625 l 1,8,-1
+ 375 625 l 1,9,-1
+ 375 500 l 1,10,-1
+ 500 500 l 1,11,-1
+ 500 125 l 1,12,-1
+ 375 125 l 1,13,-1
+ 375 0 l 1,14,-1
+ 125 0 l 1,15,-1
+ 125 125 l 1,4,-1
+EndSplineSet
+Validated: 1
+EndChar
+
+StartChar: Otilde
+Encoding: 213 213 106
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+125 875 m 5,0,-1
+ 125 750 l 5,1,-1
+ 250 750 l 5,2,-1
+ 250 875 l 5,3,-1
+ 125 875 l 5,0,-1
+0 625 m 5,4,-1
+ 125 625 l 5,5,-1
+ 125 750 l 5,6,-1
+ 0 750 l 5,7,-1
+ 0 625 l 5,4,-1
+375 750 m 5,8,-1
+ 500 750 l 5,9,-1
+ 500 875 l 5,10,-1
+ 375 875 l 5,11,-1
+ 375 750 l 5,8,-1
+250 625 m 5,12,-1
+ 375 625 l 5,13,-1
+ 375 750 l 5,14,-1
+ 250 750 l 5,15,-1
+ 250 625 l 5,12,-1
+375 126 m 1,16,-1
+ 375 499 l 1,17,-1
+ 125 499 l 1,18,-1
+ 125 126 l 1,19,-1
+ 375 126 l 1,16,-1
+125 125 m 1,20,-1
+ 0 125 l 1,21,-1
+ 0 500 l 1,22,-1
+ 125 500 l 1,23,-1
+ 125 625 l 1,24,-1
+ 375 625 l 1,25,-1
+ 375 500 l 1,26,-1
+ 500 500 l 1,27,-1
+ 500 125 l 1,28,-1
+ 375 125 l 1,29,-1
+ 375 0 l 1,30,-1
+ 125 0 l 1,31,-1
+ 125 125 l 1,20,-1
+EndSplineSet
+EndChar
+
+StartChar: Odieresis
+Encoding: 214 214 107
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+375 750 m 5,0,-1
+ 500 750 l 5,1,-1
+ 500 875 l 5,2,-1
+ 375 875 l 5,3,-1
+ 375 750 l 5,0,-1
+0 750 m 5,4,-1
+ 125 750 l 5,5,-1
+ 125 875 l 5,6,-1
+ 0 875 l 5,7,-1
+ 0 750 l 5,4,-1
+375 126 m 1,8,-1
+ 375 499 l 1,9,-1
+ 125 499 l 1,10,-1
+ 125 126 l 1,11,-1
+ 375 126 l 1,8,-1
+125 125 m 1,12,-1
+ 0 125 l 1,13,-1
+ 0 500 l 1,14,-1
+ 125 500 l 1,15,-1
+ 125 625 l 1,16,-1
+ 375 625 l 1,17,-1
+ 375 500 l 1,18,-1
+ 500 500 l 1,19,-1
+ 500 125 l 1,20,-1
+ 375 125 l 1,21,-1
+ 375 0 l 1,22,-1
+ 125 0 l 1,23,-1
+ 125 125 l 1,12,-1
+EndSplineSet
+Validated: 9
+EndChar
+
+StartChar: Oacute
+Encoding: 211 211 108
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+375 875 m 5,0,-1
+ 250 875 l 5,1,-1
+ 250 750 l 5,2,-1
+ 375 750 l 5,3,-1
+ 375 875 l 5,0,-1
+250 750 m 5,4,-1
+ 125 750 l 5,5,-1
+ 125 625 l 5,6,-1
+ 250 625 l 5,7,-1
+ 250 750 l 5,4,-1
+375 126 m 1,8,-1
+ 375 499 l 1,9,-1
+ 125 499 l 1,10,-1
+ 125 126 l 1,11,-1
+ 375 126 l 1,8,-1
+125 125 m 1,12,-1
+ 0 125 l 1,13,-1
+ 0 500 l 1,14,-1
+ 125 500 l 1,15,-1
+ 125 625 l 1,16,-1
+ 375 625 l 1,17,-1
+ 375 500 l 1,18,-1
+ 500 500 l 1,19,-1
+ 500 125 l 1,20,-1
+ 375 125 l 1,21,-1
+ 375 0 l 1,22,-1
+ 125 0 l 1,23,-1
+ 125 125 l 1,12,-1
+EndSplineSet
+EndChar
+
+StartChar: Ograve
+Encoding: 210 210 109
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+125 875 m 5,0,-1
+ 125 750 l 5,1,-1
+ 250 750 l 5,2,-1
+ 250 875 l 5,3,-1
+ 125 875 l 5,0,-1
+250 625 m 5,4,-1
+ 375 625 l 5,5,-1
+ 375 750 l 5,6,-1
+ 250 750 l 5,7,-1
+ 250 625 l 5,4,-1
+375 126 m 1,8,-1
+ 375 499 l 1,9,-1
+ 125 499 l 1,10,-1
+ 125 126 l 1,11,-1
+ 375 126 l 1,8,-1
+125 125 m 1,12,-1
+ 0 125 l 1,13,-1
+ 0 500 l 1,14,-1
+ 125 500 l 1,15,-1
+ 125 625 l 1,16,-1
+ 375 625 l 1,17,-1
+ 375 500 l 1,18,-1
+ 500 500 l 1,19,-1
+ 500 125 l 1,20,-1
+ 375 125 l 1,21,-1
+ 375 0 l 1,22,-1
+ 125 0 l 1,23,-1
+ 125 125 l 1,12,-1
+EndSplineSet
+EndChar
+
+StartChar: Oslash
+Encoding: 216 216 110
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+125 126 m 1,0,-1
+ 125 1 l 1,1,-1
+ 0 1 l 1,2,-1
+ 0 126 l 1,3,-1
+ 125 126 l 1,0,-1
+0 -124 m 1,4,-1
+ -125 -124 l 1,5,-1
+ -125 1 l 1,6,-1
+ 0 1 l 1,7,-1
+ 0 -124 l 1,4,-1
+625 749 m 1,8,-1
+ 625 624 l 1,9,-1
+ 500 624 l 1,10,-1
+ 500 749 l 1,11,-1
+ 625 749 l 1,8,-1
+500 499 m 1,12,-1
+ 375 499 l 1,13,-1
+ 375 624 l 1,14,-1
+ 500 624 l 1,15,-1
+ 500 499 l 1,12,-1
+375 126 m 1,16,-1
+ 375 499 l 1,17,-1
+ 125 499 l 1,18,-1
+ 125 126 l 1,19,-1
+ 375 126 l 1,16,-1
+125 125 m 1,20,-1
+ 0 125 l 1,21,-1
+ 0 500 l 1,22,-1
+ 125 500 l 1,23,-1
+ 125 625 l 1,24,-1
+ 375 625 l 1,25,-1
+ 375 500 l 1,26,-1
+ 500 500 l 1,27,-1
+ 500 125 l 1,28,-1
+ 375 125 l 1,29,-1
+ 375 0 l 1,30,-1
+ 125 0 l 1,31,-1
+ 125 125 l 1,20,-1
+EndSplineSet
+EndChar
+
+StartChar: ccedilla
+Encoding: 231 231 111
+Width: 500
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+250 -125 m 1,0,-1
+ 375 -125 l 1,1,-1
+ 375 0 l 1,2,-1
+ 250 0 l 1,3,-1
+ 250 -125 l 1,0,-1
+375 375 m 1,4,-1
+ 375 500 l 1,5,-1
+ 125 500 l 1,6,-1
+ 125 375 l 1,7,-1
+ 375 375 l 1,4,-1
+125 375 m 1,8,-1
+ 0 375 l 1,9,-1
+ 0 125 l 1,10,-1
+ 125 125 l 1,11,-1
+ 125 375 l 1,8,-1
+375 0 m 1,12,-1
+ 375 125 l 1,13,-1
+ 125 125 l 1,14,-1
+ 125 0 l 1,15,-1
+ 375 0 l 1,12,-1
+EndSplineSet
+Validated: 5
+EndChar
+
+StartChar: otilde
+Encoding: 245 245 112
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+125 875 m 1,0,-1
+ 125 750 l 1,1,-1
+ 250 750 l 1,2,-1
+ 250 875 l 1,3,-1
+ 125 875 l 1,0,-1
+0 625 m 1,4,-1
+ 125 625 l 1,5,-1
+ 125 750 l 1,6,-1
+ 0 750 l 1,7,-1
+ 0 625 l 1,4,-1
+375 750 m 1,8,-1
+ 500 750 l 1,9,-1
+ 500 875 l 1,10,-1
+ 375 875 l 1,11,-1
+ 375 750 l 1,8,-1
+250 625 m 1,12,-1
+ 375 625 l 1,13,-1
+ 375 750 l 1,14,-1
+ 250 750 l 1,15,-1
+ 250 625 l 1,12,-1
+375 126 m 1,16,-1
+ 375 374 l 1,17,-1
+ 125 374 l 1,18,-1
+ 125 126 l 1,19,-1
+ 375 126 l 1,16,-1
+125 125 m 1,20,-1
+ 0 125 l 1,21,-1
+ 0 375 l 1,22,-1
+ 125 375 l 1,23,-1
+ 125 500 l 1,24,-1
+ 375 500 l 1,25,-1
+ 375 375 l 1,26,-1
+ 500 375 l 1,27,-1
+ 500 125 l 1,28,-1
+ 375 125 l 1,29,-1
+ 375 0 l 1,30,-1
+ 125 0 l 1,31,-1
+ 125 125 l 1,20,-1
+EndSplineSet
+EndChar
+
+StartChar: ocircumflex
+Encoding: 244 244 113
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+375 126 m 1,0,-1
+ 375 374 l 1,1,-1
+ 125 374 l 1,2,-1
+ 125 126 l 1,3,-1
+ 375 126 l 1,0,-1
+125 125 m 1,4,-1
+ 0 125 l 1,5,-1
+ 0 375 l 1,6,-1
+ 125 375 l 1,7,-1
+ 125 500 l 1,8,-1
+ 375 500 l 1,9,-1
+ 375 375 l 1,10,-1
+ 500 375 l 1,11,-1
+ 500 125 l 1,12,-1
+ 375 125 l 1,13,-1
+ 375 0 l 1,14,-1
+ 125 0 l 1,15,-1
+ 125 125 l 1,4,-1
+EndSplineSet
+Validated: 1
+EndChar
+
+StartChar: oacute
+Encoding: 243 243 114
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+375 126 m 1,0,-1
+ 375 374 l 1,1,-1
+ 125 374 l 1,2,-1
+ 125 126 l 1,3,-1
+ 375 126 l 1,0,-1
+125 125 m 1,4,-1
+ 0 125 l 1,5,-1
+ 0 375 l 1,6,-1
+ 125 375 l 1,7,-1
+ 125 500 l 1,8,-1
+ 375 500 l 1,9,-1
+ 375 375 l 1,10,-1
+ 500 375 l 1,11,-1
+ 500 125 l 1,12,-1
+ 375 125 l 1,13,-1
+ 375 0 l 1,14,-1
+ 125 0 l 1,15,-1
+ 125 125 l 1,4,-1
+EndSplineSet
+Validated: 1
+EndChar
+
+StartChar: ograve
+Encoding: 242 242 115
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+375 126 m 1,0,-1
+ 375 374 l 1,1,-1
+ 125 374 l 1,2,-1
+ 125 126 l 1,3,-1
+ 375 126 l 1,0,-1
+125 125 m 1,4,-1
+ 0 125 l 1,5,-1
+ 0 375 l 1,6,-1
+ 125 375 l 1,7,-1
+ 125 500 l 1,8,-1
+ 375 500 l 1,9,-1
+ 375 375 l 1,10,-1
+ 500 375 l 1,11,-1
+ 500 125 l 1,12,-1
+ 375 125 l 1,13,-1
+ 375 0 l 1,14,-1
+ 125 0 l 1,15,-1
+ 125 125 l 1,4,-1
+EndSplineSet
+Validated: 1
+EndChar
+
+StartChar: Egrave
+Encoding: 200 200 116
+Width: 500
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+0 875 m 1,0,-1
+ 0 750 l 1,1,-1
+ 125 750 l 1,2,-1
+ 125 875 l 1,3,-1
+ 0 875 l 1,0,-1
+125 625 m 1,4,-1
+ 250 625 l 1,5,-1
+ 250 750 l 1,6,-1
+ 125 750 l 1,7,-1
+ 125 625 l 1,4,-1
+375 0 m 1,8,-1
+ 375 125 l 1,9,-1
+ 125 125 l 1,10,-1
+ 125 250 l 1,11,-1
+ 375 250 l 1,12,-1
+ 375 375 l 1,13,-1
+ 125 375 l 1,14,-1
+ 125 500 l 1,15,-1
+ 375 500 l 1,16,-1
+ 375 625 l 1,17,-1
+ 0 625 l 1,18,-1
+ 0 0 l 1,19,-1
+ 375 0 l 1,8,-1
+EndSplineSet
+EndChar
+
+StartChar: Eacute
+Encoding: 201 201 117
+Width: 500
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+250 750 m 1,0,-1
+ 375 750 l 1,1,-1
+ 375 875 l 1,2,-1
+ 250 875 l 1,3,-1
+ 250 750 l 1,0,-1
+125 625 m 1,4,-1
+ 250 625 l 1,5,-1
+ 250 750 l 1,6,-1
+ 125 750 l 1,7,-1
+ 125 625 l 1,4,-1
+375 0 m 1,8,-1
+ 375 125 l 1,9,-1
+ 125 125 l 1,10,-1
+ 125 250 l 1,11,-1
+ 375 250 l 1,12,-1
+ 375 375 l 1,13,-1
+ 125 375 l 1,14,-1
+ 125 500 l 1,15,-1
+ 375 500 l 1,16,-1
+ 375 625 l 1,17,-1
+ 0 625 l 1,18,-1
+ 0 0 l 1,19,-1
+ 375 0 l 1,8,-1
+EndSplineSet
+Validated: 5
+EndChar
+
+StartChar: Ecircumflex
+Encoding: 202 202 118
+Width: 500
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+125 1000 m 5,0,-1
+ 125 875 l 5,1,-1
+ 250 875 l 5,2,-1
+ 250 1000 l 5,3,-1
+ 125 1000 l 5,0,-1
+0 750 m 5,4,-1
+ 125 750 l 5,5,-1
+ 125 875 l 5,6,-1
+ 0 875 l 5,7,-1
+ 0 750 l 5,4,-1
+250 750 m 5,8,-1
+ 375 750 l 5,9,-1
+ 375 875 l 5,10,-1
+ 250 875 l 5,11,-1
+ 250 750 l 5,8,-1
+375 0 m 1,12,-1
+ 375 125 l 1,13,-1
+ 125 125 l 1,14,-1
+ 125 250 l 1,15,-1
+ 375 250 l 1,16,-1
+ 375 375 l 1,17,-1
+ 125 375 l 1,18,-1
+ 125 500 l 1,19,-1
+ 375 500 l 1,20,-1
+ 375 625 l 1,21,-1
+ 0 625 l 1,22,-1
+ 0 0 l 1,23,-1
+ 375 0 l 1,12,-1
+EndSplineSet
+EndChar
+
+StartChar: Edieresis
+Encoding: 203 203 119
+Width: 500
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+250 750 m 1,0,-1
+ 375 750 l 1,1,-1
+ 375 875 l 1,2,-1
+ 250 875 l 1,3,-1
+ 250 750 l 1,0,-1
+0 750 m 1,4,-1
+ 125 750 l 1,5,-1
+ 125 875 l 1,6,-1
+ 0 875 l 1,7,-1
+ 0 750 l 1,4,-1
+375 0 m 1,8,-1
+ 375 125 l 1,9,-1
+ 125 125 l 1,10,-1
+ 125 250 l 1,11,-1
+ 375 250 l 1,12,-1
+ 375 375 l 1,13,-1
+ 125 375 l 1,14,-1
+ 125 500 l 1,15,-1
+ 375 500 l 1,16,-1
+ 375 625 l 1,17,-1
+ 0 625 l 1,18,-1
+ 0 0 l 1,19,-1
+ 375 0 l 1,8,-1
+EndSplineSet
+EndChar
+
+StartChar: ntilde
+Encoding: 241 241 120
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+125 875 m 1,0,-1
+ 125 750 l 1,1,-1
+ 250 750 l 1,2,-1
+ 250 875 l 1,3,-1
+ 125 875 l 1,0,-1
+0 625 m 1,4,-1
+ 125 625 l 1,5,-1
+ 125 750 l 1,6,-1
+ 0 750 l 1,7,-1
+ 0 625 l 1,4,-1
+375 750 m 1,8,-1
+ 500 750 l 1,9,-1
+ 500 875 l 1,10,-1
+ 375 875 l 1,11,-1
+ 375 750 l 1,8,-1
+250 625 m 1,12,-1
+ 375 625 l 1,13,-1
+ 375 750 l 1,14,-1
+ 250 750 l 1,15,-1
+ 250 625 l 1,12,-1
+375 0 m 1,16,-1
+ 500 0 l 1,17,-1
+ 500 375 l 1,18,-1
+ 375 375 l 1,19,-1
+ 375 0 l 1,16,-1
+125 375 m 1,20,-1
+ 375 375 l 1,21,-1
+ 375 500 l 1,22,-1
+ 0 500 l 1,23,-1
+ 0 0 l 1,24,-1
+ 125 0 l 1,25,-1
+ 125 375 l 1,20,-1
+EndSplineSet
+EndChar
+
+StartChar: Ntilde
+Encoding: 209 209 121
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+125 875 m 1,0,-1
+ 125 750 l 1,1,-1
+ 250 750 l 1,2,-1
+ 250 875 l 1,3,-1
+ 125 875 l 1,0,-1
+0 625 m 1,4,-1
+ 125 625 l 1,5,-1
+ 125 750 l 1,6,-1
+ 0 750 l 1,7,-1
+ 0 625 l 1,4,-1
+375 750 m 1,8,-1
+ 500 750 l 1,9,-1
+ 500 875 l 1,10,-1
+ 375 875 l 1,11,-1
+ 375 750 l 1,8,-1
+250 625 m 1,12,-1
+ 375 625 l 1,13,-1
+ 375 750 l 1,14,-1
+ 250 750 l 1,15,-1
+ 250 625 l 1,12,-1
+375 125 m 1,16,-1
+ 375 0 l 1,17,-1
+ 500 0 l 1,18,-1
+ 500 500 l 1,19,-1
+ 375 500 l 1,20,-1
+ 375 250 l 1,21,-1
+ 250 250 l 1,22,-1
+ 250 125 l 1,23,-1
+ 375 125 l 1,16,-1
+125 250 m 1,24,-1
+ 250 250 l 1,25,-1
+ 250 375 l 1,26,-1
+ 125 375 l 1,27,-1
+ 125 500 l 1,28,-1
+ 0 500 l 1,29,-1
+ 0 0 l 1,30,-1
+ 125 0 l 1,31,-1
+ 125 250 l 1,24,-1
+EndSplineSet
+EndChar
+
+StartChar: igrave
+Encoding: 236 236 122
+Width: 250
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+-125 750 m 5,0,-1
+ -125 625 l 5,1,-1
+ 0 625 l 5,2,-1
+ 0 750 l 5,3,-1
+ -125 750 l 5,0,-1
+0 500 m 5,4,-1
+ 125 500 l 5,5,-1
+ 125 625 l 5,6,-1
+ 0 625 l 5,7,-1
+ 0 500 l 5,4,-1
+125 375 m 1,8,-1
+ 0 375 l 1,9,-1
+ 0 0 l 1,10,-1
+ 125 0 l 1,11,-1
+ 125 375 l 1,8,-1
+EndSplineSet
+EndChar
+
+StartChar: iacute
+Encoding: 237 237 123
+Width: 250
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+250 750 m 5,0,-1
+ 125 750 l 5,1,-1
+ 125 625 l 5,2,-1
+ 250 625 l 5,3,-1
+ 250 750 l 5,0,-1
+125 625 m 5,4,-1
+ 0 625 l 5,5,-1
+ 0 500 l 5,6,-1
+ 125 500 l 5,7,-1
+ 125 625 l 5,4,-1
+125 375 m 1,8,-1
+ 0 375 l 1,9,-1
+ 0 0 l 1,10,-1
+ 125 0 l 1,11,-1
+ 125 375 l 1,8,-1
+EndSplineSet
+EndChar
+
+StartChar: icircumflex
+Encoding: 238 238 124
+Width: 250
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+0 750 m 5,0,-1
+ 0 625 l 5,1,-1
+ 125 625 l 5,2,-1
+ 125 750 l 5,3,-1
+ 0 750 l 5,0,-1
+-125 500 m 5,4,-1
+ 0 500 l 5,5,-1
+ 0 625 l 5,6,-1
+ -125 625 l 5,7,-1
+ -125 500 l 5,4,-1
+125 500 m 5,8,-1
+ 250 500 l 5,9,-1
+ 250 625 l 5,10,-1
+ 125 625 l 5,11,-1
+ 125 500 l 5,8,-1
+125 375 m 1,12,-1
+ 0 375 l 1,13,-1
+ 0 0 l 1,14,-1
+ 125 0 l 1,15,-1
+ 125 375 l 1,12,-1
+EndSplineSet
+EndChar
+
+StartChar: idieresis
+Encoding: 239 239 125
+Width: 250
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+125 500 m 5,0,-1
+ 250 500 l 5,1,-1
+ 250 625 l 5,2,-1
+ 125 625 l 5,3,-1
+ 125 500 l 5,0,-1
+-125 500 m 5,4,-1
+ 0 500 l 5,5,-1
+ 0 625 l 5,6,-1
+ -125 625 l 5,7,-1
+ -125 500 l 5,4,-1
+125 375 m 1,8,-1
+ 0 375 l 1,9,-1
+ 0 0 l 1,10,-1
+ 125 0 l 1,11,-1
+ 125 375 l 1,8,-1
+EndSplineSet
+EndChar
+
+StartChar: eth
+Encoding: 240 240 126
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+0 750 m 5,0,-1
+ 0 625 l 5,1,-1
+ 375 625 l 1,2,-1
+ 375 750 l 1,3,-1
+ 0 750 l 5,0,-1
+125 126 m 1,4,-1
+ 375 126 l 1,5,-1
+ 375 374 l 1,6,-1
+ 125 374 l 1,7,-1
+ 125 126 l 1,4,-1
+125 375 m 1,8,-1
+ 125 500 l 1,9,-1
+ 375 500 l 1,10,-1
+ 375 625 l 1,11,-1
+ 500 625 l 1,12,-1
+ 500 0 l 1,13,-1
+ 125 0 l 1,14,-1
+ 125 125 l 1,15,-1
+ 0 125 l 1,16,-1
+ 0 375 l 1,17,-1
+ 125 375 l 1,8,-1
+EndSplineSet
+EndChar
+
+StartChar: Eth
+Encoding: 208 208 127
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+-125 375 m 1,0,-1
+ -125 250 l 1,1,-1
+ -2.16840434497e-16 250 l 1,2,-1
+ 0 0 l 1,3,-1
+ 375 0 l 1,4,-1
+ 375 125 l 1,5,-1
+ 500 125 l 1,6,-1
+ 500 500 l 1,7,-1
+ 375 500 l 1,8,-1
+ 375 625 l 1,9,-1
+ 0 625 l 1,10,-1
+ 1.73472347598e-15 375 l 1,11,-1
+ -125 375 l 1,0,-1
+125 250 m 1,12,-1
+ 250 250 l 1,13,-1
+ 250 375 l 1,14,-1
+ 125 375 l 1,15,-1
+ 125 499 l 1,16,-1
+ 375 499 l 1,17,-1
+ 375 126 l 1,18,-1
+ 125 126 l 1,19,-1
+ 125 250 l 1,12,-1
+EndSplineSet
+EndChar
+
+StartChar: mu
+Encoding: 181 181 128
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+0 -125 m 1,0,-1
+ 125 -125 l 1,1,-1
+ 125 3.46944695195e-15 l 1,2,-1
+ 500 0 l 1,3,-1
+ 500 500 l 1,4,-1
+ 375 500 l 1,5,-1
+ 375 125 l 1,6,-1
+ 125 125 l 1,7,-1
+ 125 500 l 1,8,-1
+ 0 500 l 1,9,-1
+ 0 125 l 1,10,-1
+ 0 -125 l 1,0,-1
+EndSplineSet
+EndChar
+
+StartChar: Igrave
+Encoding: 204 204 129
+Width: 500
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+0 875 m 1,0,-1
+ 0 750 l 1,1,-1
+ 125 750 l 1,2,-1
+ 125 875 l 1,3,-1
+ 0 875 l 1,0,-1
+125 625 m 1,4,-1
+ 250 625 l 1,5,-1
+ 250 750 l 1,6,-1
+ 125 750 l 1,7,-1
+ 125 625 l 1,4,-1
+250 500 m 1,8,-1
+ 375 500 l 1,9,-1
+ 375 625 l 1,10,-1
+ 0 625 l 1,11,-1
+ 0 500 l 1,12,-1
+ 125 500 l 1,13,-1
+ 125 125 l 1,14,-1
+ 0 125 l 1,15,-1
+ 0 0 l 1,16,-1
+ 375 0 l 1,17,-1
+ 375 125 l 1,18,-1
+ 250 125 l 1,19,-1
+ 250 500 l 1,8,-1
+EndSplineSet
+EndChar
+
+StartChar: Iacute
+Encoding: 205 205 130
+Width: 500
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+375 875 m 1,0,-1
+ 250 875 l 1,1,-1
+ 250 750 l 1,2,-1
+ 375 750 l 1,3,-1
+ 375 875 l 1,0,-1
+250 750 m 1,4,-1
+ 125 750 l 1,5,-1
+ 125 625 l 1,6,-1
+ 250 625 l 1,7,-1
+ 250 750 l 1,4,-1
+250 500 m 1,8,-1
+ 375 500 l 1,9,-1
+ 375 625 l 1,10,-1
+ 0 625 l 1,11,-1
+ 0 500 l 1,12,-1
+ 125 500 l 1,13,-1
+ 125 125 l 1,14,-1
+ 0 125 l 1,15,-1
+ 0 0 l 1,16,-1
+ 375 0 l 1,17,-1
+ 375 125 l 1,18,-1
+ 250 125 l 1,19,-1
+ 250 500 l 1,8,-1
+EndSplineSet
+EndChar
+
+StartChar: Icircumflex
+Encoding: 206 206 131
+Width: 500
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+125 875 m 5,0,-1
+ 125 750 l 5,1,-1
+ 250 750 l 5,2,-1
+ 250 875 l 5,3,-1
+ 125 875 l 5,0,-1
+0 625 m 5,4,-1
+ 125 625 l 5,5,-1
+ 125 750 l 5,6,-1
+ 0 750 l 5,7,-1
+ 0 625 l 5,4,-1
+250 625 m 5,8,-1
+ 375 625 l 5,9,-1
+ 375 750 l 5,10,-1
+ 250 750 l 5,11,-1
+ 250 625 l 5,8,-1
+250 375 m 1,12,-1
+ 375 375 l 1,13,-1
+ 375 500 l 1,14,-1
+ 0 500 l 1,15,-1
+ 0 375 l 1,16,-1
+ 125 375 l 1,17,-1
+ 125 125 l 1,18,-1
+ 0 125 l 1,19,-1
+ 0 0 l 1,20,-1
+ 375 0 l 1,21,-1
+ 375 125 l 1,22,-1
+ 250 125 l 1,23,-1
+ 250 375 l 1,12,-1
+EndSplineSet
+EndChar
+
+StartChar: Idieresis
+Encoding: 207 207 132
+Width: 500
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+250 500 m 1,0,-1
+ 375 500 l 1,1,-1
+ 375 625 l 1,2,-1
+ 0 625 l 1,3,-1
+ 0 500 l 1,4,-1
+ 125 500 l 1,5,-1
+ 125 125 l 1,6,-1
+ 0 125 l 1,7,-1
+ 0 0 l 1,8,-1
+ 375 0 l 1,9,-1
+ 375 125 l 1,10,-1
+ 250 125 l 1,11,-1
+ 250 500 l 1,0,-1
+EndSplineSet
+EndChar
+
+StartChar: Ccedilla
+Encoding: 199 199 133
+Width: 500
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+250 -125 m 1,0,-1
+ 375 -125 l 1,1,-1
+ 375 0 l 1,2,-1
+ 250 0 l 1,3,-1
+ 250 -125 l 1,0,-1
+375 500 m 1,4,-1
+ 375 625 l 1,5,-1
+ 125 625 l 1,6,-1
+ 125 500 l 1,7,-1
+ 375 500 l 1,4,-1
+125 500 m 1,8,-1
+ 0 500 l 1,9,-1
+ 0 125 l 1,10,-1
+ 125 125 l 1,11,-1
+ 125 500 l 1,8,-1
+375 0 m 1,12,-1
+ 375 125 l 1,13,-1
+ 125 125 l 1,14,-1
+ 125 0 l 1,15,-1
+ 375 0 l 1,12,-1
+EndSplineSet
+EndChar
+
+StartChar: Agrave
+Encoding: 192 192 134
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+125 875 m 1,0,-1
+ 125 750 l 1,1,-1
+ 250 750 l 1,2,-1
+ 250 875 l 1,3,-1
+ 125 875 l 1,0,-1
+250 625 m 1,4,-1
+ 375 625 l 1,5,-1
+ 375 750 l 1,6,-1
+ 250 750 l 1,7,-1
+ 250 625 l 1,4,-1
+125 500 m 1,8,-1
+ 125 625 l 1,9,-1
+ 375 625 l 1,10,-1
+ 375 500 l 1,11,-1
+ 500 500 l 1,12,-1
+ 500 0 l 1,13,-1
+ 375 0 l 1,14,-1
+ 375 125 l 1,15,-1
+ 125 125 l 1,16,-1
+ 125 0 l 1,17,-1
+ 0 0 l 1,18,-1
+ 0 500 l 1,19,-1
+ 125 500 l 1,8,-1
+375 250 m 1,20,-1
+ 375 499 l 1,21,-1
+ 125 499 l 1,22,-1
+ 125 250 l 1,23,-1
+ 375 250 l 1,20,-1
+EndSplineSet
+EndChar
+
+StartChar: Aacute
+Encoding: 193 193 135
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+375 875 m 1,0,-1
+ 375 750 l 1,1,-1
+ 250 750 l 1,2,-1
+ 250 875 l 1,3,-1
+ 375 875 l 1,0,-1
+250 625 m 1,4,-1
+ 125 625 l 1,5,-1
+ 125 750 l 1,6,-1
+ 250 750 l 1,7,-1
+ 250 625 l 1,4,-1
+125 500 m 1,8,-1
+ 125 625 l 1,9,-1
+ 375 625 l 1,10,-1
+ 375 500 l 1,11,-1
+ 500 500 l 1,12,-1
+ 500 0 l 1,13,-1
+ 375 0 l 1,14,-1
+ 375 125 l 1,15,-1
+ 125 125 l 1,16,-1
+ 125 0 l 1,17,-1
+ 0 0 l 1,18,-1
+ 0 500 l 1,19,-1
+ 125 500 l 1,8,-1
+375 250 m 1,20,-1
+ 375 499 l 1,21,-1
+ 125 499 l 1,22,-1
+ 125 250 l 1,23,-1
+ 375 250 l 1,20,-1
+EndSplineSet
+EndChar
+
+StartChar: Acircumflex
+Encoding: 194 194 136
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+125 1000 m 1,0,-1
+ 125 875 l 1,1,-1
+ 375 875 l 1,2,-1
+ 375 1000 l 1,3,-1
+ 125 1000 l 1,0,-1
+0 750 m 1,4,-1
+ 125 750 l 1,5,-1
+ 125 875 l 1,6,-1
+ 0 875 l 1,7,-1
+ 0 750 l 1,4,-1
+375 750 m 1,8,-1
+ 500 750 l 1,9,-1
+ 500 875 l 1,10,-1
+ 375 875 l 1,11,-1
+ 375 750 l 1,8,-1
+125 500 m 1,12,-1
+ 125 625 l 1,13,-1
+ 375 625 l 1,14,-1
+ 375 500 l 1,15,-1
+ 500 500 l 1,16,-1
+ 500 0 l 1,17,-1
+ 375 0 l 1,18,-1
+ 375 125 l 1,19,-1
+ 125 125 l 1,20,-1
+ 125 0 l 1,21,-1
+ 0 0 l 1,22,-1
+ 0 500 l 1,23,-1
+ 125 500 l 1,12,-1
+375 250 m 1,24,-1
+ 375 499 l 1,25,-1
+ 125 499 l 1,26,-1
+ 125 250 l 1,27,-1
+ 375 250 l 1,24,-1
+EndSplineSet
+EndChar
+
+StartChar: Atilde
+Encoding: 195 195 137
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+125 875 m 5,0,-1
+ 125 750 l 5,1,-1
+ 250 750 l 5,2,-1
+ 250 875 l 5,3,-1
+ 125 875 l 5,0,-1
+0 625 m 5,4,-1
+ 125 625 l 5,5,-1
+ 125 750 l 5,6,-1
+ 0 750 l 5,7,-1
+ 0 625 l 5,4,-1
+375 750 m 5,8,-1
+ 500 750 l 5,9,-1
+ 500 875 l 5,10,-1
+ 375 875 l 5,11,-1
+ 375 750 l 5,8,-1
+250 625 m 5,12,-1
+ 375 625 l 5,13,-1
+ 375 750 l 5,14,-1
+ 250 750 l 5,15,-1
+ 250 625 l 5,12,-1
+125 500 m 1,16,-1
+ 125 625 l 1,17,-1
+ 375 625 l 1,18,-1
+ 375 500 l 1,19,-1
+ 500 500 l 1,20,-1
+ 500 0 l 1,21,-1
+ 375 0 l 1,22,-1
+ 375 125 l 1,23,-1
+ 125 125 l 1,24,-1
+ 125 0 l 1,25,-1
+ 0 0 l 1,26,-1
+ 0 500 l 1,27,-1
+ 125 500 l 1,16,-1
+375 250 m 1,28,-1
+ 375 499 l 1,29,-1
+ 125 499 l 1,30,-1
+ 125 250 l 1,31,-1
+ 375 250 l 1,28,-1
+EndSplineSet
+EndChar
+
+StartChar: Adieresis
+Encoding: 196 196 138
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+375 750 m 5,0,-1
+ 500 750 l 5,1,-1
+ 500 875 l 5,2,-1
+ 375 875 l 5,3,-1
+ 375 750 l 5,0,-1
+0 750 m 5,4,-1
+ 125 750 l 5,5,-1
+ 125 875 l 5,6,-1
+ 0 875 l 5,7,-1
+ 0 750 l 5,4,-1
+125 500 m 1,8,-1
+ 125 625 l 1,9,-1
+ 375 625 l 1,10,-1
+ 375 500 l 1,11,-1
+ 500 500 l 1,12,-1
+ 500 0 l 1,13,-1
+ 375 0 l 1,14,-1
+ 375 125 l 1,15,-1
+ 125 125 l 1,16,-1
+ 125 0 l 1,17,-1
+ 0 0 l 1,18,-1
+ 0 500 l 1,19,-1
+ 125 500 l 1,8,-1
+375 250 m 1,20,-1
+ 375 499 l 1,21,-1
+ 125 499 l 1,22,-1
+ 125 250 l 1,23,-1
+ 375 250 l 1,20,-1
+EndSplineSet
+EndChar
+
+StartChar: Aring
+Encoding: 197 197 139
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+125 500 m 1,0,-1
+ 125 625 l 1,1,-1
+ 375 625 l 1,2,-1
+ 375 500 l 1,3,-1
+ 500 500 l 1,4,-1
+ 500 0 l 1,5,-1
+ 375 0 l 1,6,-1
+ 375 125 l 1,7,-1
+ 125 125 l 1,8,-1
+ 125 0 l 1,9,-1
+ 0 0 l 1,10,-1
+ 0 500 l 1,11,-1
+ 125 500 l 1,0,-1
+375 250 m 1,12,-1
+ 375 499 l 1,13,-1
+ 125 499 l 1,14,-1
+ 125 250 l 1,15,-1
+ 375 250 l 1,12,-1
+EndSplineSet
+EndChar
+
+StartChar: multiply
+Encoding: 215 215 140
+Width: 750
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+0 0 m 1,0,-1
+ 125 0 l 1,1,-1
+ 125 125 l 1,2,-1
+ 0 125 l 1,3,-1
+ 0 0 l 1,0,-1
+0 625 m 1,4,-1
+ 0 500 l 1,5,-1
+ 125 500 l 1,6,-1
+ 125 375 l 1,7,-1
+ 250 375 l 1,8,-1
+ 250 500 l 1,9,-1
+ 125 500 l 1,10,-1
+ 125 625 l 1,11,-1
+ 0 625 l 1,4,-1
+625 0 m 1,12,-1
+ 625 125 l 1,13,-1
+ 500 125 l 1,14,-1
+ 500 0 l 1,15,-1
+ 625 0 l 1,12,-1
+125 125 m 1,16,-1
+ 250 125 l 1,17,-1
+ 250 250 l 1,18,-1
+ 125 250 l 1,19,-1
+ 125 125 l 1,16,-1
+500 125 m 1,20,-1
+ 500 250 l 1,21,-1
+ 375 250 l 1,22,-1
+ 375 125 l 1,23,-1
+ 500 125 l 1,20,-1
+250 375 m 1,24,-1
+ 250 250 l 1,25,-1
+ 375 250 l 1,26,-1
+ 375 375 l 1,27,-1
+ 250 375 l 1,24,-1
+500 500 m 1,28,-1
+ 625 500 l 1,29,-1
+ 625 625 l 1,30,-1
+ 500 625 l 1,31,-1
+ 500 500 l 1,28,-1
+500 500 m 1,32,-1
+ 375 500 l 1,33,-1
+ 375 375 l 1,34,-1
+ 500 375 l 1,35,-1
+ 500 500 l 1,32,-1
+EndSplineSet
+EndChar
+
+StartChar: Ugrave
+Encoding: 217 217 141
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+375 125 m 1,0,-1
+ 500 125 l 1,1,-1
+ 500 625 l 1,2,-1
+ 375 625 l 1,3,-1
+ 375 125 l 1,0,-1
+125 625 m 1,4,-1
+ 0 625 l 1,5,-1
+ 0 125 l 1,6,-1
+ 125 125 l 1,7,-1
+ 125 625 l 1,4,-1
+125 125 m 1,8,-1
+ 125 0 l 1,9,-1
+ 375 0 l 1,10,-1
+ 375 125 l 1,11,-1
+ 125 125 l 1,8,-1
+EndSplineSet
+EndChar
+
+StartChar: Uacute
+Encoding: 218 218 142
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+375 125 m 1,0,-1
+ 500 125 l 1,1,-1
+ 500 625 l 1,2,-1
+ 375 625 l 1,3,-1
+ 375 125 l 1,0,-1
+125 625 m 1,4,-1
+ 0 625 l 1,5,-1
+ 0 125 l 1,6,-1
+ 125 125 l 1,7,-1
+ 125 625 l 1,4,-1
+125 125 m 1,8,-1
+ 125 0 l 1,9,-1
+ 375 0 l 1,10,-1
+ 375 125 l 1,11,-1
+ 125 125 l 1,8,-1
+EndSplineSet
+EndChar
+
+StartChar: Ucircumflex
+Encoding: 219 219 143
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+375 125 m 1,0,-1
+ 500 125 l 1,1,-1
+ 500 625 l 1,2,-1
+ 375 625 l 1,3,-1
+ 375 125 l 1,0,-1
+125 625 m 1,4,-1
+ 0 625 l 1,5,-1
+ 0 125 l 1,6,-1
+ 125 125 l 1,7,-1
+ 125 625 l 1,4,-1
+125 125 m 1,8,-1
+ 125 0 l 1,9,-1
+ 375 0 l 1,10,-1
+ 375 125 l 1,11,-1
+ 125 125 l 1,8,-1
+EndSplineSet
+EndChar
+
+StartChar: Udieresis
+Encoding: 220 220 144
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+375 125 m 1,0,-1
+ 500 125 l 1,1,-1
+ 500 625 l 1,2,-1
+ 375 625 l 1,3,-1
+ 375 125 l 1,0,-1
+125 625 m 1,4,-1
+ 0 625 l 1,5,-1
+ 0 125 l 1,6,-1
+ 125 125 l 1,7,-1
+ 125 625 l 1,4,-1
+125 125 m 1,8,-1
+ 125 0 l 1,9,-1
+ 375 0 l 1,10,-1
+ 375 125 l 1,11,-1
+ 125 125 l 1,8,-1
+EndSplineSet
+EndChar
+
+StartChar: exclamdown
+Encoding: 161 161 145
+Width: 250
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+0 -125 m 1,0,-1
+ 125 -125 l 1,1,-1
+ 125 250 l 1,2,-1
+ 0 250 l 1,3,-1
+ 0 -125 l 1,0,-1
+0 375 m 1,4,-1
+ 125 375 l 1,5,-1
+ 125 500 l 1,6,-1
+ 0 500 l 1,7,-1
+ 0 375 l 1,4,-1
+EndSplineSet
+EndChar
+
+StartChar: cent
+Encoding: 162 162 146
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+250 -125 m 1,0,-1
+ 375 -125 l 1,1,-1
+ 375 0 l 1,2,-1
+ 250 0 l 1,3,-1
+ 250 -125 l 1,0,-1
+250 500 m 1,4,-1
+ 375 500 l 1,5,-1
+ 375 625 l 1,6,-1
+ 250 625 l 1,7,-1
+ 250 500 l 1,4,-1
+500 375 m 1,8,-1
+ 500 500 l 1,9,-1
+ 125 500 l 1,10,-1
+ 125 375 l 1,11,-1
+ 500 375 l 1,8,-1
+125 375 m 1,12,-1
+ 0 375 l 1,13,-1
+ 0 125 l 1,14,-1
+ 125 125 l 1,15,-1
+ 125 375 l 1,12,-1
+500 0 m 1,16,-1
+ 500 125 l 1,17,-1
+ 125 125 l 1,18,-1
+ 125 0 l 1,19,-1
+ 500 0 l 1,16,-1
+EndSplineSet
+EndChar
+
+StartChar: acute
+Encoding: 180 180 147
+Width: 375
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+250 625 m 5,0,-1
+ 250 500 l 5,1,-1
+ 125 500 l 5,2,-1
+ 125 625 l 5,3,-1
+ 250 625 l 5,0,-1
+125 375 m 5,4,-1
+ 0 375 l 5,5,-1
+ 0 500 l 5,6,-1
+ 125 500 l 5,7,-1
+ 125 375 l 5,4,-1
+EndSplineSet
+EndChar
+
+StartChar: sterling
+Encoding: 163 163 148
+Width: 1000
+VWidth: 0
+Flags: W
+LayerCount: 2
+EndChar
+
+StartChar: AE
+Encoding: 198 198 149
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+125 625 m 1,24,-1
+ 125 500 l 1,1,-1
+ 250 500 l 1,2,-1
+ 250 375 l 1,3,-1
+ 125 375 l 1,4,-1
+ 125 250 l 1,5,-1
+ 125 375 l 1,6,-1
+ 125 500 l 1,7,-1
+ 0 500 l 1,8,-1
+ 0 0 l 1,9,-1
+ 125 0 l 1,10,-1
+ 125 250 l 1,11,-1
+ 250 250 l 1,12,-1
+ 250 0 l 1,13,-1
+ 500 0 l 1,14,-1
+ 500 125 l 1,15,-1
+ 375 125 l 1,16,-1
+ 375 250 l 1,17,-1
+ 500 250 l 1,18,-1
+ 500 375 l 1,19,-1
+ 375 375 l 1,20,-1
+ 375 500 l 1,21,-1
+ 500 500 l 1,22,-1
+ 500 625 l 1,23,-1
+ 125 625 l 1,24,-1
+EndSplineSet
+EndChar
+
+StartChar: questiondown
+Encoding: 191 191 150
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+500 -125 m 1,0,-1
+ 500 0 l 1,1,-1
+ 125 0 l 1,2,-1
+ 125 -125 l 1,3,-1
+ 500 -125 l 1,0,-1
+125 125 m 1,4,-1
+ 0 125 l 1,5,-1
+ 0 0 l 1,6,-1
+ 125 0 l 1,7,-1
+ 125 125 l 1,4,-1
+375 125 m 1,8,-1
+ 375 250 l 1,9,-1
+ 125 250 l 1,10,-1
+ 125 125 l 1,11,-1
+ 375 125 l 1,8,-1
+375 500 m 1,12,-1
+ 250 500 l 1,13,-1
+ 250 375 l 1,14,-1
+ 375 375 l 1,15,-1
+ 375 500 l 1,12,-1
+EndSplineSet
+EndChar
+
+StartChar: agrave
+Encoding: 224 224 151
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+250 875 m 5,0,-1
+ 250 750 l 5,1,-1
+ 375 750 l 5,2,-1
+ 375 875 l 5,3,-1
+ 250 875 l 5,0,-1
+375 625 m 5,4,-1
+ 500 625 l 5,5,-1
+ 500 750 l 5,6,-1
+ 375 750 l 5,7,-1
+ 375 625 l 5,4,-1
+125 126 m 1,8,-1
+ 375 126 l 1,9,-1
+ 375 374 l 1,10,-1
+ 125 374 l 1,11,-1
+ 125 126 l 1,8,-1
+125 375 m 1,12,-1
+ 125 500 l 1,13,-1
+ 500 500 l 1,14,-1
+ 500 0 l 1,15,-1
+ 125 0 l 1,16,-1
+ 125 125 l 1,17,-1
+ 0 125 l 1,18,-1
+ 0 375 l 1,19,-1
+ 125 375 l 1,12,-1
+EndSplineSet
+EndChar
+
+StartChar: aacute
+Encoding: 225 225 152
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+500 875 m 5,0,-1
+ 500 750 l 5,1,-1
+ 375 750 l 5,2,-1
+ 375 875 l 5,3,-1
+ 500 875 l 5,0,-1
+375 625 m 5,4,-1
+ 250 625 l 5,5,-1
+ 250 750 l 5,6,-1
+ 375 750 l 5,7,-1
+ 375 625 l 5,4,-1
+125 126 m 1,8,-1
+ 375 126 l 1,9,-1
+ 375 374 l 1,10,-1
+ 125 374 l 1,11,-1
+ 125 126 l 1,8,-1
+125 375 m 1,12,-1
+ 125 500 l 1,13,-1
+ 500 500 l 1,14,-1
+ 500 0 l 1,15,-1
+ 125 0 l 1,16,-1
+ 125 125 l 1,17,-1
+ 0 125 l 1,18,-1
+ 0 375 l 1,19,-1
+ 125 375 l 1,12,-1
+EndSplineSet
+EndChar
+
+StartChar: acircumflex
+Encoding: 226 226 153
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+250 875 m 5,0,-1
+ 250 750 l 5,1,-1
+ 375 750 l 5,2,-1
+ 375 875 l 5,3,-1
+ 250 875 l 5,0,-1
+125 625 m 5,4,-1
+ 250 625 l 5,5,-1
+ 250 750 l 5,6,-1
+ 125 750 l 5,7,-1
+ 125 625 l 5,4,-1
+375 625 m 5,8,-1
+ 500 625 l 5,9,-1
+ 500 750 l 5,10,-1
+ 375 750 l 5,11,-1
+ 375 625 l 5,8,-1
+125 126 m 1,12,-1
+ 375 126 l 1,13,-1
+ 375 374 l 1,14,-1
+ 125 374 l 1,15,-1
+ 125 126 l 1,12,-1
+125 375 m 1,16,-1
+ 125 500 l 1,17,-1
+ 500 500 l 1,18,-1
+ 500 0 l 1,19,-1
+ 125 0 l 1,20,-1
+ 125 125 l 1,21,-1
+ 0 125 l 1,22,-1
+ 0 375 l 1,23,-1
+ 125 375 l 1,16,-1
+EndSplineSet
+EndChar
+
+StartChar: atilde
+Encoding: 227 227 154
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+125 875 m 5,0,-1
+ 125 750 l 5,1,-1
+ 250 750 l 5,2,-1
+ 250 875 l 5,3,-1
+ 125 875 l 5,0,-1
+0 625 m 5,4,-1
+ 125 625 l 5,5,-1
+ 125 750 l 5,6,-1
+ 0 750 l 5,7,-1
+ 0 625 l 5,4,-1
+375 750 m 5,8,-1
+ 500 750 l 5,9,-1
+ 500 875 l 5,10,-1
+ 375 875 l 5,11,-1
+ 375 750 l 5,8,-1
+250 625 m 5,12,-1
+ 375 625 l 5,13,-1
+ 375 750 l 5,14,-1
+ 250 750 l 5,15,-1
+ 250 625 l 5,12,-1
+125 126 m 1,16,-1
+ 375 126 l 1,17,-1
+ 375 374 l 1,18,-1
+ 125 374 l 1,19,-1
+ 125 126 l 1,16,-1
+125 375 m 1,20,-1
+ 125 500 l 1,21,-1
+ 500 500 l 1,22,-1
+ 500 0 l 1,23,-1
+ 125 0 l 1,24,-1
+ 125 125 l 1,25,-1
+ 0 125 l 1,26,-1
+ 0 375 l 1,27,-1
+ 125 375 l 1,20,-1
+EndSplineSet
+EndChar
+
+StartChar: adieresis
+Encoding: 228 228 155
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+375 625 m 5,0,-1
+ 500 625 l 5,1,-1
+ 500 750 l 5,2,-1
+ 375 750 l 5,3,-1
+ 375 625 l 5,0,-1
+0 625 m 5,4,-1
+ 125 625 l 5,5,-1
+ 125 750 l 5,6,-1
+ 0 750 l 5,7,-1
+ 0 625 l 5,4,-1
+125 126 m 1,8,-1
+ 375 126 l 1,9,-1
+ 375 374 l 1,10,-1
+ 125 374 l 1,11,-1
+ 125 126 l 1,8,-1
+125 375 m 1,12,-1
+ 125 500 l 1,13,-1
+ 500 500 l 1,14,-1
+ 500 0 l 1,15,-1
+ 125 0 l 1,16,-1
+ 125 125 l 1,17,-1
+ 0 125 l 1,18,-1
+ 0 375 l 1,19,-1
+ 125 375 l 1,12,-1
+EndSplineSet
+EndChar
+
+StartChar: ae
+Encoding: 230 230 156
+Width: 750
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+125 375 m 1,0,-1
+ 125 500 l 1,1,-1
+ 625 500 l 1,2,-1
+ 625 250 l 1,3,-1
+ 500 249 l 1,4,-1
+ 500 125 l 1,5,-1
+ 625 125 l 1,6,-1
+ 625 0 l 1,7,-1
+ 375 0 l 1,8,-1
+ 375 125 l 1,9,-1
+ 250 125 l 1,10,-1
+ 250 0 l 1,11,-1
+ 0 0 l 1,12,-1
+ 0 375 l 1,13,-1
+ 125 375 l 1,0,-1
+500 250 m 1,14,-1
+ 500 375 l 1,15,-1
+ 375 375 l 1,16,-1
+ 375 250 l 1,17,-1
+ 500 250 l 1,14,-1
+250 126 m 1,18,-1
+ 250 375 l 1,19,-1
+ 125 374 l 1,20,-1
+ 125 126 l 1,21,-1
+ 250 126 l 1,18,-1
+EndSplineSet
+EndChar
+
+StartChar: Yacute
+Encoding: 221 221 157
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+500 875 m 5,0,-1
+ 500 750 l 5,1,-1
+ 375 750 l 5,2,-1
+ 375 875 l 5,3,-1
+ 500 875 l 5,0,-1
+375 625 m 5,4,-1
+ 250 625 l 5,5,-1
+ 250 750 l 5,6,-1
+ 375 750 l 5,7,-1
+ 375 625 l 5,4,-1
+125 625 m 1,8,-1
+ 0 625 l 1,9,-1
+ 0 375 l 1,10,-1
+ 125 375 l 1,11,-1
+ 125 625 l 1,8,-1
+375 375 m 1,12,-1
+ 125 375 l 1,13,-1
+ 125 250 l 1,14,-1
+ 375 250 l 1,15,-1
+ 375 125 l 1,16,-1
+ 500 125 l 1,17,-1
+ 500 625 l 1,18,-1
+ 375 625 l 1,19,-1
+ 375 375 l 1,12,-1
+125 125 m 1,20,-1
+ 125 0 l 1,21,-1
+ 375 0 l 1,22,-1
+ 375 125 l 1,23,-1
+ 125 125 l 1,20,-1
+EndSplineSet
+EndChar
+
+StartChar: OE
+Encoding: 338 338 158
+Width: 750
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+625 0 m 1,0,-1
+ 625 125 l 1,1,-1
+ 375 125 l 1,2,-1
+ 375 250 l 1,3,-1
+ 625 250 l 1,4,-1
+ 625 375 l 1,5,-1
+ 375 375 l 1,6,-1
+ 375 500 l 1,7,-1
+ 625 500 l 1,8,-1
+ 625 625 l 1,9,-1
+ 250 625 l 1,10,-1
+ 125 625 l 1,11,-1
+ 125 500 l 1,12,-1
+ 0 500 l 1,13,-1
+ 0 125 l 1,14,-1
+ 125 125 l 1,15,-1
+ 125 0 l 1,16,-1
+ 250 0 l 1,17,-1
+ 625 0 l 1,0,-1
+250 125 m 1,18,-1
+ 125 125 l 1,19,-1
+ 125 500 l 1,20,-1
+ 250 500 l 1,21,-1
+ 250 125 l 1,18,-1
+EndSplineSet
+EndChar
+
+StartChar: oe
+Encoding: 339 339 159
+Width: 750
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+125 375 m 1,0,-1
+ 125 500 l 1,1,-1
+ 625 500 l 1,2,-1
+ 625 250 l 1,3,-1
+ 500 249 l 1,4,-1
+ 500 125 l 1,5,-1
+ 625 125 l 1,6,-1
+ 625 0 l 1,7,-1
+ 375 0 l 1,8,-1
+ 375 125 l 1,9,-1
+ 250 125 l 1,10,-1
+ 250 0 l 1,11,-1
+ 125 0 l 1,12,-1
+ 125 126 l 1,13,-1
+ 0 125 l 1,14,-1
+ 0 375 l 1,15,-1
+ 125 375 l 1,0,-1
+500 250 m 1,16,-1
+ 500 375 l 1,17,-1
+ 375 375 l 1,18,-1
+ 375 250 l 1,19,-1
+ 500 250 l 1,16,-1
+250 126 m 1,20,-1
+ 250 375 l 1,21,-1
+ 125 374 l 1,22,-1
+ 125 126 l 1,23,-1
+ 250 126 l 1,20,-1
+EndSplineSet
+EndChar
+
+StartChar: aring
+Encoding: 229 229 160
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+125 375 m 1,0,-1
+ 125 500 l 1,1,-1
+ 250 500 l 1,2,-1
+ 375 500 l 1,3,-1
+ 375 625 l 1,4,-1
+ 500 625 l 1,5,-1
+ 500 750 l 1,6,-1
+ 375 750 l 1,7,-1
+ 375 625 l 1,8,-1
+ 250 625 l 1,9,-1
+ 250 750 l 1,10,-1
+ 125 750 l 1,11,-1
+ 125 625 l 1,12,-1
+ 250 625 l 1,13,-1
+ 250 500 l 1,14,-1
+ 375 500 l 1,15,-1
+ 500 500 l 1,16,-1
+ 500 0 l 1,17,-1
+ 125 0 l 1,18,-1
+ 125 125 l 1,19,-1
+ 0 125 l 1,20,-1
+ 0 375 l 1,21,-1
+ 125 375 l 1,0,-1
+125 126 m 1,22,-1
+ 375 126 l 1,23,-1
+ 375 374 l 1,24,-1
+ 125 374 l 1,25,-1
+ 125 126 l 1,22,-1
+375 750 m 1,26,-1
+ 375 875 l 1,27,-1
+ 250 875 l 1,28,-1
+ 250 750 l 1,29,-1
+ 375 750 l 1,26,-1
+EndSplineSet
+EndChar
+
+StartChar: germandbls
+Encoding: 223 223 161
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+0 -125 m 1,0,-1
+ 125 -125 l 1,1,-1
+ 125 500 l 1,2,-1
+ 375 500 l 1,3,-1
+ 375 625 l 1,4,-1
+ 0 625 l 1,5,-1
+ 0 -125 l 1,0,-1
+500 500 m 1,6,-1
+ 500 375 l 1,7,-1
+ 375 375 l 1,8,-1
+ 375 250 l 1,9,-1
+ 250 250 l 1,10,-1
+ 250 375 l 1,11,-1
+ 375 375 l 1,12,-1
+ 375 500 l 1,13,-1
+ 500 500 l 1,6,-1
+250 0 m 1,14,-1
+ 375 0 l 1,15,-1
+ 375 125 l 1,16,-1
+ 500 125 l 1,17,-1
+ 500 250 l 1,18,-1
+ 375 250 l 1,19,-1
+ 375 125 l 1,20,-1
+ 250 125 l 1,21,-1
+ 250 0 l 1,14,-1
+EndSplineSet
+EndChar
+
+StartChar: Thorn
+Encoding: 222 222 162
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+0 -125 m 1,0,-1
+ 125 -125 l 1,1,-1
+ 125 125 l 1,2,-1
+ 375 125 l 1,3,-1
+ 375 0 l 1,4,-1
+ 125 0 l 1,5,-1
+ 125 500 l 1,6,-1
+ 375 500 l 1,7,-1
+ 375 375 l 1,8,-1
+ 500 375 l 1,9,-1
+ 500 125 l 1,10,-1
+ 375 125 l 1,11,-1
+ 375 375 l 1,12,-1
+ 125 375 l 1,13,-1
+ 125 625 l 1,14,-1
+ 0 625 l 1,15,-1
+ 0 -125 l 1,0,-1
+EndSplineSet
+EndChar
+
+StartChar: oslash
+Encoding: 248 248 163
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+125 126 m 5,0,-1
+ 125 1 l 5,1,-1
+ 0 1 l 5,2,-1
+ 0 126 l 5,3,-1
+ 125 126 l 5,0,-1
+0 -124 m 5,4,-1
+ -125 -124 l 5,5,-1
+ -125 1 l 5,6,-1
+ 0 1 l 5,7,-1
+ 0 -124 l 5,4,-1
+625 625 m 1,8,-1
+ 625 500 l 1,9,-1
+ 500 500 l 1,10,-1
+ 500 625 l 1,11,-1
+ 625 625 l 1,8,-1
+500 375 m 1,12,-1
+ 375 375 l 1,13,-1
+ 375 500 l 1,14,-1
+ 500 500 l 1,15,-1
+ 500 375 l 1,12,-1
+375 126 m 1,16,-1
+ 375 374 l 1,17,-1
+ 125 374 l 1,18,-1
+ 125 126 l 1,19,-1
+ 375 126 l 1,16,-1
+125 125 m 1,20,-1
+ 0 125 l 1,21,-1
+ 0 375 l 1,22,-1
+ 125 375 l 1,23,-1
+ 125 500 l 1,24,-1
+ 375 500 l 1,25,-1
+ 375 375 l 1,26,-1
+ 500 375 l 1,27,-1
+ 500 125 l 1,28,-1
+ 375 125 l 1,29,-1
+ 375 0 l 1,30,-1
+ 125 0 l 1,31,-1
+ 125 125 l 1,20,-1
+EndSplineSet
+EndChar
+
+StartChar: ugrave
+Encoding: 249 249 164
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+125 875 m 1,0,-1
+ 125 750 l 1,1,-1
+ 250 750 l 1,2,-1
+ 250 875 l 1,3,-1
+ 125 875 l 1,0,-1
+250 625 m 1,4,-1
+ 375 625 l 1,5,-1
+ 375 750 l 1,6,-1
+ 250 750 l 1,7,-1
+ 250 625 l 1,4,-1
+375 125 m 1,8,-1
+ 125 125 l 1,9,-1
+ 125 0 l 1,10,-1
+ 500 0 l 1,11,-1
+ 500 500 l 1,12,-1
+ 375 500 l 1,13,-1
+ 375 125 l 1,8,-1
+125 500 m 1,14,-1
+ 0 500 l 1,15,-1
+ 0 125 l 1,16,-1
+ 125 125 l 1,17,-1
+ 125 500 l 1,14,-1
+EndSplineSet
+EndChar
+
+StartChar: uacute
+Encoding: 250 250 165
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+375 875 m 5,0,-1
+ 375 750 l 5,1,-1
+ 250 750 l 5,2,-1
+ 250 875 l 5,3,-1
+ 375 875 l 5,0,-1
+250 625 m 5,4,-1
+ 125 625 l 5,5,-1
+ 125 750 l 5,6,-1
+ 250 750 l 5,7,-1
+ 250 625 l 5,4,-1
+375 125 m 1,8,-1
+ 125 125 l 1,9,-1
+ 125 0 l 1,10,-1
+ 500 0 l 1,11,-1
+ 500 500 l 1,12,-1
+ 375 500 l 1,13,-1
+ 375 125 l 1,8,-1
+125 500 m 1,14,-1
+ 0 500 l 1,15,-1
+ 0 125 l 1,16,-1
+ 125 125 l 1,17,-1
+ 125 500 l 1,14,-1
+EndSplineSet
+EndChar
+
+StartChar: ucircumflex
+Encoding: 251 251 166
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+125 875 m 1,0,-1
+ 125 750 l 1,1,-1
+ 375 750 l 1,2,-1
+ 375 875 l 1,3,-1
+ 125 875 l 1,0,-1
+0 625 m 1,4,-1
+ 125 625 l 1,5,-1
+ 125 750 l 1,6,-1
+ 0 750 l 1,7,-1
+ 0 625 l 1,4,-1
+375 625 m 1,8,-1
+ 500 625 l 1,9,-1
+ 500 750 l 1,10,-1
+ 375 750 l 1,11,-1
+ 375 625 l 1,8,-1
+375 125 m 1,12,-1
+ 125 125 l 1,13,-1
+ 125 0 l 1,14,-1
+ 500 0 l 1,15,-1
+ 500 500 l 1,16,-1
+ 375 500 l 1,17,-1
+ 375 125 l 1,12,-1
+125 500 m 1,18,-1
+ 0 500 l 1,19,-1
+ 0 125 l 1,20,-1
+ 125 125 l 1,21,-1
+ 125 500 l 1,18,-1
+EndSplineSet
+EndChar
+
+StartChar: udieresis
+Encoding: 252 252 167
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+375 625 m 5,0,-1
+ 500 625 l 5,1,-1
+ 500 750 l 5,2,-1
+ 375 750 l 5,3,-1
+ 375 625 l 5,0,-1
+0 625 m 5,4,-1
+ 125 625 l 5,5,-1
+ 125 750 l 5,6,-1
+ 0 750 l 5,7,-1
+ 0 625 l 5,4,-1
+375 125 m 1,8,-1
+ 125 125 l 1,9,-1
+ 125 0 l 1,10,-1
+ 500 0 l 1,11,-1
+ 500 500 l 1,12,-1
+ 375 500 l 1,13,-1
+ 375 125 l 1,8,-1
+125 500 m 1,14,-1
+ 0 500 l 1,15,-1
+ 0 125 l 1,16,-1
+ 125 125 l 1,17,-1
+ 125 500 l 1,14,-1
+EndSplineSet
+EndChar
+
+StartChar: dieresis
+Encoding: 168 168 168
+Width: 625
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+375 625 m 1,0,-1
+ 500 625 l 1,1,-1
+ 500 750 l 1,2,-1
+ 375 750 l 1,3,-1
+ 375 625 l 1,0,-1
+0 625 m 1,4,-1
+ 125 625 l 1,5,-1
+ 125 750 l 1,6,-1
+ 0 750 l 1,7,-1
+ 0 625 l 1,4,-1
+EndSplineSet
+EndChar
+
+StartChar: degree
+Encoding: 176 176 169
+Width: 500
+Flags: WO
+LayerCount: 2
+Fore
+SplineSet
+125 250 m 1,0,-1
+ 250 250 l 1,1,-1
+ 250 375 l 1,2,-1
+ 375 375 l 1,3,-1
+ 375 500 l 1,4,-1
+ 250 500 l 1,5,-1
+ 250 375 l 1,6,-1
+ 125 375 l 1,7,-1
+ 125 500 l 1,8,-1
+ 0 500 l 1,9,-1
+ 0 375 l 1,10,-1
+ 125 375 l 1,11,-1
+ 125 250 l 1,0,-1
+250 500 m 1,12,-1
+ 250 625 l 1,13,-1
+ 125 625 l 1,14,-1
+ 125 500 l 1,15,-1
+ 250 500 l 1,12,-1
 EndSplineSet
 EndChar
 EndChars

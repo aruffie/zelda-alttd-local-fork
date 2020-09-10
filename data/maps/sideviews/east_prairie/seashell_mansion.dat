@@ -1,0 +1,335 @@
+properties{
+  x = 0,
+  y = 0,
+  width = 320,
+  height = 240,
+  min_layer = 0,
+  max_layer = 2,
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 0,
+  y = 0,
+  width = 320,
+  height = 240,
+  pattern = "145",
+  tileset = "out/outside_special",
+}
+
+tile{
+  layer = 0,
+  x = 0,
+  y = 32,
+  width = 16,
+  height = 16,
+  pattern = "53",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 32,
+  y = 32,
+  width = 240,
+  height = 16,
+  pattern = "57",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 272,
+  y = 16,
+  width = 32,
+  height = 32,
+  pattern = "53",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 0,
+  y = 48,
+  width = 16,
+  height = 64,
+  pattern = "55",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 272,
+  y = 48,
+  width = 32,
+  height = 160,
+  pattern = "56",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 0,
+  y = 208,
+  width = 32,
+  height = 32,
+  pattern = "54",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 32,
+  y = 208,
+  width = 240,
+  height = 16,
+  pattern = "58",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 32,
+  y = 184,
+  width = 192,
+  height = 8,
+  pattern = "61",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 32,
+  y = 192,
+  width = 192,
+  height = 16,
+  pattern = "62",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 32,
+  y = 56,
+  width = 192,
+  height = 72,
+  pattern = "59",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 32,
+  y = 128,
+  width = 192,
+  height = 56,
+  pattern = "60",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 224,
+  y = 48,
+  width = 16,
+  height = 160,
+  pattern = "63",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 256,
+  y = 48,
+  width = 16,
+  height = 160,
+  pattern = "63",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 224,
+  y = 168,
+  width = 16,
+  height = 16,
+  pattern = "51",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 256,
+  y = 168,
+  width = 16,
+  height = 16,
+  pattern = "51",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 224,
+  y = 112,
+  width = 16,
+  height = 16,
+  pattern = "51",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 256,
+  y = 112,
+  width = 16,
+  height = 16,
+  pattern = "51",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 224,
+  y = 48,
+  width = 16,
+  height = 16,
+  pattern = "51",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 256,
+  y = 48,
+  width = 16,
+  height = 16,
+  pattern = "51",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 240,
+  y = 48,
+  width = 16,
+  height = 160,
+  pattern = "166",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 0,
+  y = 16,
+  width = 32,
+  height = 32,
+  pattern = "53",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 32,
+  y = 16,
+  width = 240,
+  height = 16,
+  pattern = "57",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 32,
+  y = 224,
+  width = 240,
+  height = 16,
+  pattern = "57",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 272,
+  y = 208,
+  width = 32,
+  height = 32,
+  pattern = "54",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 0,
+  y = 112,
+  width = 16,
+  height = 32,
+  pattern = "54",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 72,
+  y = 160,
+  width = 8,
+  height = 48,
+  pattern = "50",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 32,
+  y = 48,
+  width = 192,
+  height = 32,
+  pattern = "52",
+  tileset = "sideview/sideview_dungeon",
+}
+
+teletransporter{
+  name = "east_prairie_seashell_mansion_1_A",
+  layer = 0,
+  x = 0,
+  y = 192,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
+  width = 16,
+  height = 16,
+  destination_map = "out/c3_east_prairie",
+  destination = "east_prairie_seashell_mansion_2_A",
+}
+
+destination{
+  name = "east_prairie_seashell_mansion_2_A",
+  layer = 0,
+  x = 24,
+  y = 205,
+  direction = 0,
+}
+
+tile{
+  layer = 1,
+  x = 96,
+  y = 160,
+  width = 8,
+  height = 48,
+  pattern = "50",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 2,
+  x = 0,
+  y = 0,
+  width = 320,
+  height = 32,
+  pattern = "64",
+  tileset = "sideview/sideview_dungeon",
+}
+

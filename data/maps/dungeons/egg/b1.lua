@@ -33,23 +33,23 @@ end
 
 local function check_boss_path_advancement(entity, direction)
   
-  print ("Testing path entry. Path ID="..boss_path_index..", path step="..boss_path_step)
+  debug_print ("Testing path entry. Path ID="..boss_path_index..", path step="..boss_path_step)
   local expected=maze_paths[boss_path_index][boss_path_step]
-  print ("Expected direction : "..expected..", got "..direction)
+  debug_print ("Expected direction : "..expected..", got "..direction)
   if expected==direction then
-    print "step OK"
+    debug_print "step OK"
     boss_path_step=boss_path_step+1
   else
-    print "Wrong path !"
+    debug_print "Wrong path !"
     boss_path_step=1
   end
 
   if boss_path_step==8 then
-    print "To boss room"
+    debug_print "To boss room"
     hero:teleport(map:get_id(), "boss_room_antichamber_"..direction, "immediate")
     --TODO teleport to pre-boss room
   else
-    print "To nowhere"
+    debug_print "To nowhere"
     hero:teleport(map:get_id(), "path_"..direction, "immediate")
   end
 end

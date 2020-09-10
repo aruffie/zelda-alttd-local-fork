@@ -1,39 +1,59 @@
--- Lua script of enemy "goponga_flower".
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Goponga Flower.
+--
+-- Immobile enemy that repulse on sword attack received.
+-- No method or events.
+--
+----------------------------------
 
--- Variables
+-- Global variables
 local enemy = ...
+require("enemies/lib/common_actions").learn(enemy)
+local audio_manager = require("scripts/audio_manager")
+
 local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
-local sprite
-local hero_is_bounce = false
+local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+local quarter = math.pi * 0.5
 
--- Include scripts
-local audio_manager = require("scripts/audio_manager")
+-- Make hero pushed back on sword attack received.
+local function on_sword_attack_received()
 
--- The enemy appears: set its properties.
-function enemy:on_created()
+  -- Make sure to only trigger this event once by attack.
+  enemy:set_invincible()
 
-  sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
-  enemy:set_traversable(false)
-  enemy:set_life(1)
-  enemy:set_damage(4)
-  enemy:set_push_hero_on_sword(true)
-
-  enemy:set_attack_consequence("sword", function()
-      if not hero_is_bounce then
-        hero_is_bounce = true
-        audio_manager:play_sound("hero/bounce")
-        sprite:set_animation("bounce", function()
-          hero_is_bounce = false
-          sprite:set_animation("walking")
-        end)
-      end
+  enemy:start_pushing_back(hero, 200, 100)
+  sprite:set_animation("bounce", function()
+    enemy:restart()
   end)
-  enemy:set_hookshot_reaction(1)
-  enemy:set_attack_consequence("boomerang", 1)
-  enemy:set_attacking_collision_mode("touching")
-  enemy:set_push_hero_on_sword(true)
-
 end
+
+-- Initialization.
+enemy:register_event("on_created", function(enemy)
+
+  enemy:set_life(1)
+  enemy:set_size(16, 16)
+  enemy:set_origin(8, 13)
+end)
+
+-- Restart settings.
+enemy:register_event("on_restarted", function(enemy)
+
+  -- Behavior for each items.
+  enemy:set_hero_weapons_reactions("ignored", {
+    hookshot = 1,
+    boomerang = 1,
+    fire = 1,
+    sword = on_sword_attack_received
+  })
+
+  -- States.
+  enemy:set_pushed_back_when_hurt(false)
+  enemy:set_attacking_collision_mode("touching")
+  enemy:set_traversable(false)
+  enemy:set_can_attack(true)
+  enemy:set_damage(4)
+  sprite:set_animation("walking")
+end)

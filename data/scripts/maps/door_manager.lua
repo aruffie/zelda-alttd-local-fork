@@ -6,7 +6,7 @@ require("scripts/multi_events")
 local audio_manager = require("scripts/audio_manager")
 
 
--- Open doors when all ennemis in the room are dead
+-- Open doors when all ennemis in the room are dead or removed.
 function door_manager:open_when_enemies_dead(map, enemy_prefix, door_prefix, sound)
 
   local function enemy_on_dead()
@@ -20,9 +20,16 @@ function door_manager:open_when_enemies_dead(map, enemy_prefix, door_prefix, sou
       end
     end
   end
+
+  -- Setup for each existing enemy that matches the prefix and ones created in the future.
   for enemy in map:get_entities(enemy_prefix) do
     enemy:register_event("on_dead", enemy_on_dead)
   end
+  map:register_event("on_enemy_created", function(map, enemy)
+    if string.match(enemy:get_name() or "", enemy_prefix) then
+      enemy:register_event("on_dead", enemy_on_dead)
+    end
+  end)
 
 end
 
@@ -149,12 +156,12 @@ function door_manager:open_when_pot_break(map, door_prefix)
   local hero = map:get_hero()
   if detect_entity ~= nil then
     detect_entity:add_collision_test("touching", function(entity_source, entity_dest)
-        if hero:get_state() == 'free' and entity_dest:get_type() == "carried_object" then
-          detect_entity:remove()
-          map:open_doors(door_prefix)
-          audio_manager:play_sound("misc/secret1")
-        end
-      end)
+      if hero:get_state() == 'free' and entity_dest:get_type() == "carried_object" then
+        detect_entity:remove()
+        map:open_doors(door_prefix)
+        audio_manager:play_sound("misc/secret1")
+      end
+    end)
   end
 
 end
@@ -261,10 +268,13 @@ function door_manager:open_when_torches_lit(map, torch_prefix, door_prefix)
     if not torch:is_lit() then
       remaining = remaining + 1
     end
-    torch.on_lit = torch_on_lit
+    torch:register_event("on_lit", function(torch)
+      torch_on_lit()
+    end)
     has_torches = true
   end
   map.torches_remaining[torch_prefix]=remaining
+
   if has_torches and remaining == 0 then
     -- All torches of this door are already lit.
     audio_manager:play_sound("misc/secret1")

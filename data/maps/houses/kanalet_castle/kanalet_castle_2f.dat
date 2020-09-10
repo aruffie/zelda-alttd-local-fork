@@ -1847,14 +1847,6 @@ pickable{
   treasure_savegame_variable = "golden_leaf_4",
 }
 
-pickable{
-  layer = 0,
-  x = 504,
-  y = 109,
-  treasure_name = "golden_leaf",
-  treasure_savegame_variable = "golden_leaf_5",
-}
-
 custom_entity{
   name = "kanalet_darknut_statue",
   layer = 0,
@@ -2056,7 +2048,7 @@ destructible{
 }
 
 enemy{
-  name = "enemy_group_2_2",
+  name = "enemy_group_2_1",
   layer = 0,
   x = 232,
   y = 125,
@@ -2858,12 +2850,63 @@ custom_entity{
 }
 
 enemy{
-  name = "enemy_group_2_1",
+  name = "enemy_group_3_1",
   layer = 0,
   x = 504,
-  y = 93,
+  y = 85,
   direction = 3,
-  breed = "boss/hinox_master",
+  breed = "boss/ballchain_soldier",
+  treasure_name = "golden_leaf",
+  treasure_savegame_variable = "golden_leaf_5",
+}
+
+door{
+  name = "door_group_1_1",
+  layer = 0,
+  x = 472,
+  y = 264,
+  direction = 1,
+  sprite = "entities/doors/door_normal",
+  opening_condition = "dungeon_1_small_keys",
+  opening_condition_consumed = true,
+  cannot_open_dialog = "Oups",
+}
+
+door{
+  name = "door_group_1_2",
+  layer = 0,
+  x = 472,
+  y = 200,
+  direction = 3,
+  sprite = "entities/doors/door_normal",
+  opening_condition = "dungeon_1_small_keys",
+  opening_condition_consumed = true,
+  cannot_open_dialog = "Oups",
+}
+
+custom_entity{
+  name = "door_group_1_detect",
+  layer = 0,
+  x = 480,
+  y = 277,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+sensor{
+  name = "sensor_1",
+  layer = 0,
+  x = 480,
+  y = 197,
+  properties = {
+    {
+      key = "save_solid_ground",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
 }
 
 tile{

@@ -1,5 +1,11 @@
--- Lua script of enemy arm mimic.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Arm Mimic.
+--
+-- Copy and reverse hero moves.
+-- No method or events.
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
@@ -15,10 +21,11 @@ local hero_movement
 local function reverse_move(movement)
 
   local speed = movement:get_speed()
-  if speed > 0 and enemy:get_life() > 0 then
+  if hero:get_state() ~= "hurt" and speed > 0 and enemy:get_life() > 0 then
     enemy:start_straight_walking(movement:get_angle() + math.pi, speed)
+    sprite:set_direction((hero:get_sprite():get_direction() + 2) % 4) -- Always keep the hero opposite direction.
   else
-    enemy:restart()
+    enemy:restart() -- Stop enemy.
   end
 end
 
@@ -31,8 +38,8 @@ hero:register_event("on_position_changed", function(hero)
 
   local movement = hero:get_movement()
   if movement ~= hero_movement then
-
     hero_movement = movement
+    enemy:stop_movement()
     reverse_move(movement)
     movement:register_event("on_obstacle_reached", function(movement)
       enemy:restart()
@@ -41,16 +48,6 @@ hero:register_event("on_position_changed", function(hero)
       reverse_move(movement)
     end)
   end
-end)
-
--- Don't copy hero hurt move.
-enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
-
-  hero:start_hurt(enemy, enemy:get_damage())
-  sol.timer.start(enemy, 10, function()
-    enemy:restart() -- Workaround: Only stop the movement at the next frame to stop the actual hurt movement.
-  end)
-
 end)
 
 -- Stop the movement if the hero don't have one anymore.

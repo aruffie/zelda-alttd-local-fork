@@ -1,5 +1,14 @@
--- Lua script of enemy raven.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Raven.
+--
+-- Flying enemy that wait for the hero to be close enough, then take off and attack him.
+--
+-- Methods : enemy:start_attacking()
+--           enemy:wake_up()
+--           enemy:wait()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
@@ -15,7 +24,7 @@ local is_awake = false
 local turning_time = 0
 
 -- Configuration variables
-local is_deeply_sleeping = enemy:get_property("is_deeply_sleeping")
+local is_deeply_sleeping = enemy:get_property("is_deeply_sleeping") == "true"
 local after_awake_delay = 1000
 local take_off_duration = 1000
 local targeting_hero_duration = 1000
@@ -117,7 +126,9 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_invincible()
 
   -- States.
+  sprite:set_xy(0, 0)
   sprite:set_animation("waiting")
+  enemy:set_obstacle_behavior("flying")
   enemy:set_can_attack(true)
   enemy:set_damage(4)
   enemy:set_layer_independent_collisions(true)

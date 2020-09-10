@@ -3,26 +3,25 @@
 local enemy = ...
 local bounced = false
 
+require("enemies/lib/common_actions").learn(enemy)
 local audio_manager = require("scripts/audio_manager")
 
 -- The enemy appears: set its properties.
-function enemy:on_created()
+enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(1)
   enemy:set_damage(4)
-  enemy:create_sprite("enemies/" .. enemy:get_breed())
   enemy:set_size(16, 16)
   enemy:set_origin(8, 8)
   enemy:set_obstacle_behavior("flying")
   enemy:set_invincible()
   enemy:set_attack_consequence("sword", "custom")
-  
-end
+  enemy:create_sprite("enemies/" .. enemy:get_breed())
+end)
 
-function enemy:on_obstacle_reached()
-
-  enemy:remove()
-end
+enemy:register_event("on_obstacle_reached", function(enemy)
+  enemy:start_death()
+end)
 
 function enemy:go(direction4)
 
@@ -36,7 +35,7 @@ function enemy:go(direction4)
   
 end
 
-function enemy:on_custom_attack_received(attack, sprite)
+enemy:register_event("on_custom_attack_received", function(enemy, attack, sprite)
 
   if attack == "sword" and not bounced then
     local sprite = enemy:get_sprite()
@@ -46,8 +45,8 @@ function enemy:on_custom_attack_received(attack, sprite)
     local movement = enemy:get_movement()
     local angle = direction * math.pi / 2
     movement:set_angle(angle)
-    audio_manager:play_sound("enemy_hurt")
+    --audio_manager:play_sound("enemy_hurt") Todo change sound
     bounced = true
   end
   
-end
+end)

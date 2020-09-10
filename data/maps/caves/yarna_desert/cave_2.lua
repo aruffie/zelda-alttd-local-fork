@@ -10,15 +10,35 @@ local audio_manager = require("scripts/audio_manager")
 -- Map events
 map:register_event("on_started", function(map, destination)
 
+  -- Entities
+  map:init_map_entities()
   -- Music
   map:init_music()
   
 end)
 
+-- Initializes Entities based on player's progress
+function map:init_map_entities()
+
+  if angler_key and (not game:is_step_last("sandworm_killed") or  game:has_item("angler_key")) then
+    angler_key:set_enabled(false)
+  end
+
+end
+
 -- Initialize the music of the map
 function map:init_music()
 
   audio_manager:play_music("18_cave")
+
+end
+
+-- Obtaining angler key
+function map:on_obtaining_treasure(treasure_item, treasure_variant, treasure_savegame_variable)
+
+  if treasure_item:get_name() == "angler_key" then
+    game:set_step_done("dungeon_4_key_obtained")
+  end
 
 end
 

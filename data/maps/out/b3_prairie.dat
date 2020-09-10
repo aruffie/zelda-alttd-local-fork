@@ -4,7 +4,7 @@ properties{
   width = 960,
   height = 768,
   min_layer = 0,
-  max_layer = 2,
+  max_layer = 3,
   world = "outside_world",
   tileset = "out/outside_main",
   music = "same",
@@ -69,6 +69,24 @@ tile{
 
 tile{
   layer = 1,
+  x = 888,
+  y = 280,
+  width = 80,
+  height = 16,
+  pattern = "958",
+}
+
+tile{
+  layer = 1,
+  x = 336,
+  y = 576,
+  width = 240,
+  height = 16,
+  pattern = "958",
+}
+
+tile{
+  layer = 1,
   x = 560,
   y = 592,
   width = 16,
@@ -115,37 +133,10 @@ tile{
 tile{
   layer = 1,
   x = 904,
-  y = 280,
-  width = 16,
-  height = 32,
-  pattern = "262",
-}
-
-tile{
-  layer = 1,
-  x = 904,
   y = 272,
   width = 16,
   height = 8,
   pattern = "4037",
-}
-
-tile{
-  layer = 1,
-  x = 920,
-  y = 280,
-  width = 8,
-  height = 32,
-  pattern = "261",
-}
-
-tile{
-  layer = 1,
-  x = 896,
-  y = 280,
-  width = 8,
-  height = 32,
-  pattern = "260",
 }
 
 tile{
@@ -6353,15 +6344,6 @@ tile{
 tile{
   layer = 1,
   x = 336,
-  y = 576,
-  width = 240,
-  height = 16,
-  pattern = "958",
-}
-
-tile{
-  layer = 1,
-  x = 336,
   y = 568,
   width = 192,
   height = 8,
@@ -6636,15 +6618,6 @@ tile{
   width = 80,
   height = 16,
   pattern = "957",
-}
-
-tile{
-  layer = 1,
-  x = 888,
-  y = 280,
-  width = 80,
-  height = 16,
-  pattern = "958",
 }
 
 tile{
@@ -17674,6 +17647,71 @@ tile{
   pattern = "978",
 }
 
+tile{
+  layer = 1,
+  x = 904,
+  y = 280,
+  width = 16,
+  height = 32,
+  pattern = "262",
+}
+
+tile{
+  layer = 1,
+  x = 896,
+  y = 280,
+  width = 8,
+  height = 32,
+  pattern = "260",
+}
+
+tile{
+  layer = 1,
+  x = 920,
+  y = 280,
+  width = 8,
+  height = 32,
+  pattern = "261",
+}
+
+tile{
+  layer = 1,
+  x = 248,
+  y = 240,
+  width = 8,
+  height = 8,
+  pattern = "117",
+}
+
+tile{
+  layer = 1,
+  x = 256,
+  y = 248,
+  width = 8,
+  height = 8,
+  pattern = "117",
+}
+
+tile{
+  layer = 1,
+  x = 240,
+  y = 232,
+  width = 8,
+  height = 8,
+  pattern = "117",
+}
+
+custom_entity{
+  name = "dungeon_3_entrance",
+  layer = 1,
+  x = 424,
+  y = 613,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/doors/door_entrance_dungeons",
+}
+
 wall{
   layer = 1,
   x = 488,
@@ -17834,6 +17872,10 @@ npc{
       key = "model",
       value = "sign",
     },
+    {
+      key = "dialog_id",
+      value = "maps.out.prairie.sign_3",
+    },
   },
   direction = 3,
   subtype = 0,
@@ -17857,7 +17899,6 @@ npc{
   direction = 3,
   subtype = 0,
   sprite = "entities/destructibles/sign",
-  behavior = "dialog#",
 }
 
 destination{
@@ -21976,17 +22017,6 @@ npc{
   sprite = "npc/villagers/tarin",
 }
 
-custom_entity{
-  name = "dungeon_3_entrance",
-  layer = 1,
-  x = 424,
-  y = 613,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/doors/door_entrance_dungeons",
-}
-
 destructible{
   layer = 1,
   x = 856,
@@ -22190,6 +22220,62 @@ enemy{
   direction = 0,
   breed = "pincer",
   treasure_name = "random_with_charm",
+}
+
+destructible{
+  layer = 1,
+  x = 296,
+  y = 517,
+  treasure_name = "random",
+  sprite = "entities/destructibles/grass",
+  destruction_sound = "bush",
+  weight = -1,
+  can_be_cut = true,
+  ground = "grass",
+}
+
+enemy{
+  layer = 1,
+  x = 64,
+  y = 525,
+  direction = 1,
+  breed = "octorok_flying",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  layer = 1,
+  x = 160,
+  y = 581,
+  direction = 1,
+  breed = "octorok_flying",
+  treasure_name = "random_with_charm",
+}
+
+wall{
+  layer = 1,
+  x = 408,
+  y = 600,
+  width = 8,
+  height = 16,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 1,
+  x = 432,
+  y = 600,
+  width = 8,
+  height = 16,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
 }
 
 tile{
@@ -26665,16 +26751,6 @@ tile{
 
 tile{
   layer = 2,
-  x = 352,
-  y = 264,
-  width = 32,
-  height = 32,
-  pattern = "17",
-  tileset = "addition/out",
-}
-
-tile{
-  layer = 2,
   x = 376,
   y = 312,
   width = 16,
@@ -26698,6 +26774,27 @@ tile{
   width = 16,
   height = 8,
   pattern = "1350",
+}
+
+tile{
+  layer = 2,
+  x = 808,
+  y = 104,
+  width = 16,
+  height = 16,
+  pattern = "12344",
+  tileset = "out/outside_special",
+}
+
+custom_entity{
+  name = "owl_slab",
+  layer = 2,
+  x = 368,
+  y = 293,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/grounds/owl_slab",
 }
 
 npc{
@@ -27052,15 +27149,6 @@ dynamic_tile{
   pattern = "4035",
 }
 
-pickable{
-  name = "honey",
-  layer = 2,
-  x = 816,
-  y = 125,
-  treasure_name = "magnifying_lens",
-  treasure_variant = 6,
-}
-
 custom_entity{
   name = "bee_2",
   layer = 2,
@@ -27265,21 +27353,23 @@ enemy{
   treasure_name = "random_with_charm",
 }
 
-enemy{
+pickable{
+  name = "honey",
   layer = 2,
-  x = 64,
-  y = 525,
-  direction = 1,
-  breed = "octorok_flying",
-  treasure_name = "random_with_charm",
+  x = 816,
+  y = 117,
+  treasure_name = "magnifying_lens",
+  treasure_variant = 6,
 }
 
-enemy{
+custom_entity{
+  name = "honey_entity",
   layer = 2,
-  x = 160,
-  y = 581,
-  direction = 1,
-  breed = "octorok_flying",
-  treasure_name = "random_with_charm",
+  x = 816,
+  y = 117,
+  width = 16,
+  height = 16,
+  direction = 3,
+  sprite = "entities/items/honey",
 }
 

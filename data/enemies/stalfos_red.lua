@@ -1,5 +1,18 @@
--- Lua script of enemy blue stalfos.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Stalfos Red.
+--
+-- Moves randomly over horizontal and vertical axis.
+-- Pounce away when the hero attacks too closely, then throw a projectile.
+-- May be set_unarmed() or set_exhausted() manually from outside this script.
+--
+-- Methods : enemy:set_unarmed([unarmed])
+--           enemy:set_exhausted([exhausted])
+--           enemy:start_walking()
+--           enemy:start_attacking()
+--           enemy:start_throwing_bone()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
@@ -12,7 +25,7 @@ local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
 
 -- Configuration variables
-local is_archer = enemy:get_property("is_archer")
+local is_unarmed = enemy:get_property("is_unarmed") == "true"
 local walking_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
 local walking_speed = 32
 local walking_minimum_distance = 16
@@ -22,7 +35,17 @@ local attack_triggering_distance = 64
 local jumping_speed = 128
 local jumping_height = 16
 local jumping_duration = 600
-local throwing_bone_delay = 200
+local throwing_bone_delay = 600
+
+-- Make this enemy throw bones or not.
+function enemy:set_unarmed(unarmed)
+  is_unarmed = unarmed or true
+end
+
+-- Make the enemy able to attack or not.
+function enemy:set_exhausted(exhausted)
+  enemy.is_exhausted = exhausted or true
+end
 
 -- Start the enemy movement.
 function enemy:start_walking()
@@ -39,14 +62,34 @@ function enemy:start_attacking()
   local hero_x, hero_y, _ = hero:get_position()
   local enemy_x, enemy_y, _ = enemy:get_position()
   local angle = math.atan2(hero_y - enemy_y, enemy_x - hero_x)
-  enemy:start_jumping(jumping_duration, jumping_height, angle, jumping_speed)
+  enemy:start_jumping(jumping_duration, jumping_height, angle, jumping_speed, function()
+    enemy:restart()
+    if enemy:exists() then -- Throw a bone if the enemy still exists after the restart.
+      enemy:start_throwing_bone()
+    end
+  end)
   sprite:set_animation("jumping")
   enemy.is_exhausted = true
 end
 
--- Make the enemy able to attack or not.
-function enemy:set_exhausted(exhausted)
-  enemy.is_exhausted = exhausted
+-- Start walking again when the attack finished.
+function enemy:start_throwing_bone()
+
+  -- Throw a bone club at the hero after a delay.
+  if not is_unarmed then
+    sol.timer.start(enemy, throwing_bone_delay, function()
+      
+      local x, y, layer = enemy:get_position()
+      map:create_enemy({
+        name = (enemy:get_name() or enemy:get_breed()) .. "_bone",
+        breed = "projectiles/bone",
+        x = x,
+        y = y,
+        layer = layer,
+        direction = enemy:get_direction4_to(hero)
+      })
+    end)
+  end
 end
 
 -- Start attacking when the hero is near enough and an attack or item command is pressed, even if not assigned to an item.
@@ -56,28 +99,6 @@ game:register_event("on_command_pressed", function(game, command)
     if enemy:is_near(hero, attack_triggering_distance) and (command == "attack" or command == "item_1" or command == "item_2") then
       enemy:start_attacking()
     end
-  end
-end)
-
--- Start walking again when the attack finished.
-enemy:register_event("on_jump_finished", function(enemy)
-
-  -- Throw a bone club at the hero after a delay if the enemy is still alive.
-  enemy:restart()
-  if is_archer then
-    sol.timer.start(enemy, throwing_bone_delay, function()
-      
-      if enemy:get_life() > 0 then
-        local x, y, layer = enemy:get_position()
-        map:create_enemy({
-          breed = "projectiles/bone",
-          x = x,
-          y = y,
-          layer = layer,
-          direction = enemy:get_direction4_to(hero)
-        })
-      end
-    end)
   end
 end)
 
@@ -106,6 +127,7 @@ enemy:register_event("on_restarted", function(enemy)
 
   -- States.
   sprite:set_xy(0, 0)
+  enemy:set_obstacle_behavior("normal")
   enemy.is_exhausted = false
   enemy:set_can_attack(true)
   enemy:set_damage(1)

@@ -12532,6 +12532,33 @@ block{
 
 tile{
   layer = 1,
+  x = 296,
+  y = 352,
+  width = 8,
+  height = 64,
+  pattern = "door_cache.4-2",
+}
+
+tile{
+  layer = 1,
+  x = 336,
+  y = 352,
+  width = 8,
+  height = 64,
+  pattern = "door_cache.3-2",
+}
+
+tile{
+  layer = 1,
+  x = 128,
+  y = 456,
+  width = 64,
+  height = 8,
+  pattern = "door_cache.2-2",
+}
+
+tile{
+  layer = 1,
   x = 432,
   y = 16,
   width = 96,
@@ -12627,15 +12654,6 @@ tile{
   width = 96,
   height = 208,
   pattern = "floor_low.2-Alpha",
-}
-
-tile{
-  layer = 1,
-  x = 976,
-  y = 720,
-  width = 32,
-  height = 32,
-  pattern = "statue_eye-1",
 }
 
 tile{
@@ -12888,15 +12906,6 @@ tile{
   width = 32,
   height = 8,
   pattern = "door_top.2-2",
-}
-
-tile{
-  layer = 1,
-  x = 976,
-  y = 688,
-  width = 32,
-  height = 32,
-  pattern = "statue_eye-1",
 }
 
 tile{
@@ -13565,6 +13574,26 @@ tile{
   width = 136,
   height = 16,
   pattern = "ceiling.1",
+}
+
+tile{
+  layer = 2,
+  x = 976,
+  y = 688,
+  width = 32,
+  height = 32,
+  pattern = "156",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 2,
+  x = 976,
+  y = 720,
+  width = 32,
+  height = 32,
+  pattern = "156",
+  tileset = "addition/dungeon",
 }
 
 separator{

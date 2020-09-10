@@ -16,7 +16,7 @@ local game_manager = require("scripts/game_manager")
 local debug = {}
 local show_debug_info_screen=false
 local debug_info_page=0
-local debug_info_num_pages = 3
+local debug_info_num_pages = 4
 
 function debug:on_key_pressed(key, modifiers)
 
@@ -310,14 +310,20 @@ function debug:on_draw(dst_surface)
         show_text(0, 60, "state: "..s..(s=="custom" and "("..hero:get_state_object():get_description()..")" or ""))
         show_text(0, 70, "ground:"..hero:get_ground_below())
         show_text(0, 80, "jumping? "..(hero:is_jumping() and "Yes" or "No"))
-        show_text(100, 80, "Running? "..(hero:is_running() and "Yes" or "No"))
+        show_text(100, 80, "Running? "..(hero:is_running() and "Yes" or "No")) 
+        show_text(200, 80, "Invincible? "..(hero:is_invincible() and "Yes" or "No"))
         if hero_movement then 
-          show_text(0, 100, "Movement info")
+          local mtype=sol.main.get_type(hero_movement)
+          show_text(0, 100, "Movement info (type: "..mtype..")")
+
+          --Common movement infos
           local x,y=hero_movement:get_xy()
           show_text(0, 110, "Position: ("..x..", "..y..")")
           show_text(0, 120, "Direction 4: " ..hero_movement:get_direction4())
           show_text(0,130, "Ignore obstacles? "..(hero_movement:get_ignore_obstacles() and "Yes" or "No"))
           show_text(0,140, "Ignore suspended with game? "..(hero_movement:get_ignore_suspend() and "Yes" or "No"))
+
+
           if hero_movement.get_speed then
             show_text(0, 150, "Speed: "..hero_movement:get_speed().." px/s")
           end
@@ -331,7 +337,7 @@ function debug:on_draw(dst_surface)
             show_text(0, 180, "Smooth? "..(hero_movement:is_smooth() and "Yes" or "No"))
           end
 
-          if hero_movement.get_path then --Path movement
+          if mtype=="path_movement" then --Path movement
             local text="Path: "
             for k,v in pairs(hero_movement:get_path()) do
               text=text..v
@@ -339,7 +345,7 @@ function debug:on_draw(dst_surface)
             show_text(0, 170, text)
             show_text(0, 180, "Snap to grid? "..(hero_movement:get_snap_to_grid() and "Yes" or "No"))
           end             
-          if hero_movement.get_angular_speed then --Circular movement
+          if mtype=="circle_movement" then
             show_text(0, 150, "A.Speed: "..hero_movement:get_anguler_speed().." rad/s")
             show_text(0, 160, "Circular Angle: "..hero_movement:get_angle_from_center().." rad")
             show_text(0, 170, "Radius: "..hero_movement:get_radius().." px")
@@ -349,11 +355,11 @@ function debug:on_draw(dst_surface)
             show_text(0, 210, "Duration: "..hero_movement:get_duration().." ms")
             show_text(0, 220, "Loop delay: "..hero_movement:get_loop_delay().." ms")
           end
-          if hero_movement.get_direction8 then --Built-in jump movement
+          if mtype=="jump_movement" then
             show_text(0, 160, "Direction 8: "..hero_movement:get_direction8())
             show_text(0, 170, "Jump distance: "..hero_movement:get_distance()..' px')
           end
-          if hero_movement.get_trajectory then --Pixel-perfect movement
+          if mtype=="pixel_movement" then
             show_text(0, 160, "Trajectory: "..hero_movement:get_trajectory())
             show_text(0, 170, "Delay: "..hero_movement:get_delay()..' ms')
           end
@@ -378,7 +384,7 @@ function debug:on_draw(dst_surface)
             show_text((index-1)%num_cols*(w/num_cols), 40+10*math.floor((index-1)/num_cols), ground_type)
           end
 --          for index, entity_type in pairs({"hero", "dynamic_tile", "teletransporter", "destination", "pickable", "destructible", "carried_object", "chest", "shop_treasure", "enemy", "npc", "block", "jumper", "switch", "sensor", "separator", "wall", "crystal", "crystal_block", "stream", "door", "stairs", "bomb", "explosion", "fire", "arrow", "hookshot", "boomerang", "custom_entity")
---            if can_traverse then
+--            if is_affected then
 --              debug_informations_text:set_color({0,192,0})
 --            else
 --              debug_informations_text:set_color({192,0,0})                     
@@ -389,28 +395,36 @@ function debug:on_draw(dst_surface)
         else
           show_text(0,0, "<No custom state data>")
         end
-      else
+      elseif  debug_info_page == 2 then
         show_text(0,0,"Sideview information")
         if map:is_sideview() then
           show_text(0,10,"Vertical speed: "..(hero.vspeed or 0))
           show_text(0,20,"Has grabbed a ladder? " ..(hero.has_grabbed_ladder and "Yes" or "No"))
         else
-          show_text(0,10,"<not a sideview map>")
-          end
+          show_text(0,10,"<Not in a sideview map>")
         end
-        debug_informations_background:draw(dst_surface)
-
-        --Show cuttently active command keys
+      else -- page 3
+        show_text(0,0,"sprites information")
+        local i=10
+        for name, sprite in hero:get_sprites() do
+          show_text(0,i,string.format("%s %s %s %d/%d" ..tostring(sprite:is_paused()), name, sprite:get_animation_set(), sprite:get_animation(), sprite:get_frame(), sprite:get_num_frames()-1))
+            i=i+10
+        end
       end
-      for _, command in pairs(commands) do
-        if game:is_command_pressed(command.name) then
-          debug_command_sprite:set_animation(command.name)
-          debug_command_sprite:draw(dst_surface, command.x, command.y)
-        end
+
+      debug_informations_background:draw(dst_surface)
+
+      --Show cuttently active command keys
+    end
+    for _, command in pairs(commands) do
+      if game:is_command_pressed(command.name) then
+        debug_command_sprite:set_animation(command.name)
+        debug_command_sprite:draw(dst_surface, command.x, command.y)
       end
     end
   end
+end
 
-  sol.menu.start(sol.main, debug)
+sol.menu.start(sol.main, debug)
 
-  return true
+return true

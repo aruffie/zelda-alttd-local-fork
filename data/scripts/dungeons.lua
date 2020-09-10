@@ -6,6 +6,7 @@
 -- Include scripts
 require("scripts/multi_events")
 local audio_manager = require("scripts/audio_manager")
+local parchment = require("scripts/menus/parchment")
 
 local function initialize_dungeon_features(game)
 
@@ -69,7 +70,7 @@ local function initialize_dungeon_features(game)
       },
       small_boss = {
         floor = 0,
-        breed = "boss/rolling_bones/rolling_bones",
+        breed = "boss/rolling_bones",
         x = 640 + 1440,
         y = 720 + 365
       },
@@ -145,6 +146,7 @@ local function initialize_dungeon_features(game)
         }
       },
       small_boss = {
+        floor = 0,
         breed = "boss/hinox_master",
       },
       boss = {
@@ -173,9 +175,7 @@ local function initialize_dungeon_features(game)
       },
       small_boss = {
         floor = 0,
-        breed = "keese",
-        x = 640 + 1440,
-        y = 720 + 365
+        breed = "boss/dodongo_snake",
       },
       boss = {
         floor = 0,
@@ -191,7 +191,15 @@ local function initialize_dungeon_features(game)
       cols= 6,
       music = "47_level_4_angler_tunnel",
       music_instrument = "48_the_surf_harp",
+      teletransporter_end_dungeon = {
+        map_id = "out/c1_mambos_cave",
+        destination_name = "dungeon_4_2_A"
+      },
       secrets = {
+      },
+      small_boss = {
+        floor = 0,
+        breed = "boss/cue_ball",
       },
       boss = {
         floor = 0,
@@ -208,6 +216,10 @@ local function initialize_dungeon_features(game)
       music = "53_level_5_catfish_maw",
       music_instrument = "55_the_wind_marimba",
       secrets = {
+      },
+      small_boss = {
+        floor = 0,
+        breed = "boss/gohma",
       },
       boss = {
         floor = 0,
@@ -318,6 +330,38 @@ local function initialize_dungeon_features(game)
         y = 720 + 365
       }
     },
+    [8] = {
+      lowest_floor = 0,
+      highest_floor = 0,
+      rows = 8,
+      cols = 8,
+      music = "69_level_8_turtle_rock",
+      music_instrument = "70_thunder_drum",
+      destination_ocarina = {
+        map_id = "dungeons/8/1f",
+        destination_name = "destination_ocarina"
+      },
+      teletransporter_end_dungeon = {
+        map_id = "out/a1_west_mt_tamaranch",
+        destination_name = "dungeon_8_2_B"
+      },
+      secrets = {
+      },
+      small_boss = {
+        -- TODO
+        floor = 3,
+        breed = "zol_red",
+        x = 640 + 1440,
+        y = 720 + 365
+      },
+      boss = {
+        -- TODO
+        floor = 3,
+        breed = "zol_red",
+        x = 640 + 1440,
+        y = 720 + 365
+      }
+    },
     [10] = {
       lowest_floor = 0,
       highest_floor = 0,
@@ -335,26 +379,38 @@ local function initialize_dungeon_features(game)
             savegame = "dungeon_10_compass",
             signal = false
           },
-          [26] = {
+          [25] = {
+            savegame = "dungeon_10_small_key_chest_1",
+            signal = true
+          },
+          [32] = {
             savegame = "dungeon_10_hammer",
             signal = false
           },
-          [36] = {
-            savegame = "dungeon_10_small_key_1",
+          [38] = {
+            savegame = "dungeon_10_small_key_chest_6",
             signal = true
           },
-          [44] = {
-            savegame = "dungeon_10_small_key_2",
+          [49] = {
+            savegame = "dungeon_10_small_key_chest_2",
             signal = true
           },
-          [51] = {
-            savegame = "dungeon_10_small_key_3",
+          [54] = {
+            savegame = "dungeon_10_small_key_chest_4",
+            signal = true
+          },
+          [61] = {
+            savegame = "dungeon_10_small_key_chest_3",
             signal = true
           },
           [62] = {
             savegame = "dungeon_10_map",
             signal = false
-          }
+          },
+          [63] = {
+            savegame = "dungeon_10_small_key_chest_5",
+            signal = true
+          },
         }
       },
       boss = {
@@ -601,20 +657,33 @@ local function initialize_dungeon_features(game)
   -- Show the dungeon name when entering a dungeon.
   game:register_event("on_world_changed", function()
 
+      local map = game:get_map()
       local dungeon_index = game:get_dungeon_index()
-      if dungeon_index ~= nil then
-        local map = game:get_map()
-        function map.do_after_transition()
-          local timer = sol.timer.start(map, 10, function()
-              game:start_dialog("maps.dungeons." .. dungeon_index .. ".welcome")
-            end)
-          timer:set_suspended_with_map(true)
-        end
-        if not game.teleport_in_progress then --
-          local opening_transition = require("scripts/gfx_effects/radial_fade_out")
-          opening_transition.start_effect(map:get_camera():get_surface(), game, "out", nil, function()
+
+      if not game.teleport_in_progress then -- play custom transition at game startup
+        game:set_suspended(true)
+        local opening_transition = require("scripts/gfx_effects/radial_fade_out")
+        opening_transition.start_effect(map:get_camera():get_surface(), game, "out", nil, function()
+            game:set_suspended(false)
+            if map.do_after_transition then
               map.do_after_transition()
+            end
+          end)
+      end
+
+      if dungeon_index ~= nil then
+
+        function map.do_after_transition()
+          game:set_suspended(true)
+          local timer = sol.timer.start(map, 10, function()
+            -- Show parchment with dungeon name.
+            local line_1 = sol.language.get_dialog("maps.dungeons." .. dungeon_index .. ".welcome_name").text
+            local line_2 = sol.language.get_dialog("maps.dungeons." .. dungeon_index .. ".welcome_description").text
+            parchment:show(map, "default", "center", 1500, line_1, line_2, nil, function()
+              game:set_suspended(false)
             end)
+          end)
+          timer:set_suspended_with_map(false)
         end
 
       end

@@ -331,10 +331,10 @@ function messagebox_builder:show(context, text_lines, button_1_text, button_2_te
     -- Action: click on the button.
     if command == "action" then
       if messagebox_menu.cursor_position == 1 then
-        audio_manager:play_sound("menus/menu_cursor")
+        -- audio_manager:play_sound("menus/menu_cursor")
         messagebox_menu:accept()
       else
-        audio_manager:play_sound("menus/menu_cursor")
+        -- audio_manager:play_sound("menus/menu_cursor")
         messagebox_menu:reject()
       end
     -- Left/Right: move the cursor.

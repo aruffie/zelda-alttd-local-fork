@@ -48,9 +48,7 @@ entity:register_event("on_created", function()
 
     --Set whether the hero needs to be carrying a to make the entity move when stepping on it
     needs_carrying = entity:get_property("needs_carrying") 
-    if needs_carrying == nil then
-      needs_carrying = false
-    end
+    needs_carrying = not(needs_carrying == nil or needs_carrying=="false")
 
     --Create the vertical movement, but do not alloy to move yet
     movement = sol.movement.create("straight")
@@ -74,7 +72,7 @@ sol.timer.start(entity, 10, function()
 
       if other_y+other_h <= entity_y+1 then
         if solidified == false then
---              print "ME SOLID NOW"
+--          debug_print "ME SOLID NOW"
           solidified = true
           entity:set_traversable_by("hero", false)
 
@@ -85,7 +83,7 @@ sol.timer.start(entity, 10, function()
 
       else
         if solidified == true then
---              print "ME NON SOLID NOW"
+--          debug_print "ME NON SOLID NOW"
           solidified = false
           entity:set_traversable_by("hero", true)
         end
@@ -98,12 +96,12 @@ sol.timer.start(entity, 10, function()
       local anim="moving"
       local state = hero:get_state()
 
-      if needs_carrying=="false" or (needs_carrying=="true" and hero:get_state() == "carrying") then
+      if not needs_carrying or hero:get_state() == "carrying" then
         speed=max_speed
       end
 
       --Display the angry visage (or whathever is used to mark the carriable requirement
-      if needs_carrying=="true" then
+      if needs_carrying then
         anim="moving_pot"
       end
 

@@ -16,10 +16,9 @@ local properties = {
 }
 
 -- The enemy appears: set its properties.
-function enemy:on_created()
+enemy:register_event("on_created", function(enemy)
 
   behavior:create(enemy, properties)
-  --enemy:set_invincible()
   enemy:set_attack_consequence("sword", 0)
   enemy:set_arrow_reaction(0)
   enemy:set_attack_consequence("thrown_item", 0)
@@ -27,4 +26,4 @@ function enemy:on_created()
   enemy:set_attack_consequence("boomerang", 'immobilized')
   enemy:set_hammer_reaction(0)
   
-end
+end)

@@ -1,4 +1,4 @@
-local object = {}
+local ceiling_drop_manager = {}
 
 local audio_manager=require "scripts/audio_manager"
 require "scripts/multi_events"
@@ -36,7 +36,7 @@ require "scripts/multi_events"
 	  callback = what to do when it finished (text, cutscene, death, etc)
 	 
 	- Remember that you can implement it anywhere else, the target only need to be an entity / sprite
-]]
+--]]
 
 local falling_state=sol.state.create("Dropping from ceiling")
 falling_state:set_can_control_movement(false)
@@ -46,14 +46,32 @@ falling_state:set_affected_by_ground("hole", false)
 falling_state:set_affected_by_ground("lava", false)
 falling_state:set_can_use_item(false)
 
-function object:create(meta)
+-- Make the given sprite start a bounce.
+local function bounce(entity, sprite, duration, height, on_finished_callback)
+
+  local elapsed_time = 0
+  sol.timer.start(entity, 10, function()
+
+      elapsed_time = elapsed_time + 10
+      if elapsed_time < duration then
+        sprite:set_xy(0, -math.sqrt(math.sin(elapsed_time / duration * math.pi)) * height)
+        return true
+      else
+        sprite:set_xy(0, 0)
+        on_finished_callback()
+      end
+    end)
+end
+
+function ceiling_drop_manager:create(meta)
   local object_meta = sol.main.get_metatable(meta)
   local currently_falling = false
 
 
   function object_meta.fall_from_ceiling(entity, height, sound, callback)
+    debug_print("Start of ceiling drop")
     currently_falling = true
-
+    height=height or 120
     local starting_sprite_direction=entity:get_sprite():get_direction()
 
     if entity:get_type() == "hero" then
@@ -63,7 +81,6 @@ function object:create(meta)
 
     end
 
-    print (starting_sprite_direction)
     -- Get the current object position
     local cx, cy, clayer = entity:get_position()
     local map = entity:get_map()
@@ -111,43 +128,45 @@ function object:create(meta)
     local movement = sol.movement.create("straight")
     movement:set_max_distance(height)
     movement:set_angle(3 * math.pi / 2)
-    movement:set_speed(192)
+    movement:set_speed(240)
     movement:set_ignore_obstacles(true)
+    local function finish_drop()
+      -- Movement finished, disable the falling movement
+      first_active_sprite = nil
+      currently_falling = false
+      entity:set_layer(clayer)
+      shadow:remove()
+
+      if meta == "hero" then
+        entity.ceiling_drop_spin_timer:stop()
+        entity.ceiling_drop_spin_timer=nil
+        entity:set_direction(starting_sprite_direction)
+        entity:unfreeze()
+      end
+
+      entity:get_sprite():set_direction(starting_sprite_direction)
+      if callback ~= nil then
+        callback()
+      end
+    end
+
     movement:start(target_sprite, function()
-        -- Movement finished, disable the falling movement
-        first_active_sprite = nil
-        currently_falling = false
-        entity:set_layer(clayer)
-        shadow:remove()
-
-        if meta == "hero" then
---          local destination_name=map:get_game():get_value("tp_destination")
---          if not (destination_name=="_side" or destination_name=="_same") then
---            local destination=map:get_entity(destination_name)
---            if destination:get_direction()~=-1 then
---              entity:set_direction(destination:get_direction())
---            end
---          end
-          entity.ceiling_drop_spin_timer:stop()
-          entity.ceiling_drop_spin_timer=nil
-          entity:unfreeze()
-        end
         if entity:get_type()=="hero" then
-          entity:set_direction(starting_sprite_direction)
+          finish_drop()
+        else
+          -- Start a bounce.
+          bounce(entity, target_sprite, 600, 18, function()
+              finish_drop()
+            end)
         end
-
-        entity:get_sprite():set_direction(starting_sprite_direction)
-        if callback ~= nil then
-          callback()
-        end
-
-
       end)
 
 
     -- Notify the game to synchronize all sprites during the freefall movement if any
     function movement:on_position_changed()
+      entity:set_visible()
       local x, y = target_sprite:get_xy()
+      debug_print("Dropping sprite XY: ", x, y)
 
       local animation = shadow:get_sprite():get_animation()
       local current_height = -y
@@ -174,4 +193,4 @@ function object:create(meta)
 end
 
 
-return object
+return ceiling_drop_manager

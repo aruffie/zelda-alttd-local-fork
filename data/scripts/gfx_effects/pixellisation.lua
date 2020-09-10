@@ -20,12 +20,12 @@ function lib.start_effect(surface, game, mode, sfx, callback)
   local shader=sol.shader.create("pixellisation")
 
   if not surface then
-    print("Error : No surface has been passed")
+    error("Pixellisation effect: No surface has been passed")
     return
   end
   if not(mode=="in" or mode=="out" or mode=="both") then
 
-    print("Error:unknown drawing mode")
+    error("Pixellisation effect: unknown drawing mode")
     return
   end
   if sfx then

@@ -4312,15 +4312,6 @@ tile{
 tile{
   layer = 1,
   x = -24,
-  y = -48,
-  width = 48,
-  height = 48,
-  pattern = "1455",
-}
-
-tile{
-  layer = 1,
-  x = -24,
   y = -56,
   width = 48,
   height = 8,
@@ -4334,15 +4325,6 @@ tile{
   width = 8,
   height = 48,
   pattern = "1452",
-}
-
-tile{
-  layer = 1,
-  x = -24,
-  y = 0,
-  width = 48,
-  height = 8,
-  pattern = "1453",
 }
 
 tile{
@@ -6882,15 +6864,6 @@ tile{
 tile{
   layer = 1,
   x = -24,
-  y = -24,
-  width = 48,
-  height = 40,
-  pattern = "2202",
-}
-
-tile{
-  layer = 1,
-  x = -24,
   y = 16,
   width = 48,
   height = 8,
@@ -9104,6 +9077,33 @@ tile{
   pattern = "1037",
 }
 
+tile{
+  layer = 1,
+  x = -24,
+  y = -24,
+  width = 48,
+  height = 40,
+  pattern = "2202",
+}
+
+tile{
+  layer = 1,
+  x = -24,
+  y = -48,
+  width = 48,
+  height = 48,
+  pattern = "1455",
+}
+
+tile{
+  layer = 1,
+  x = -24,
+  y = 0,
+  width = 48,
+  height = 8,
+  pattern = "1453",
+}
+
 wall{
   layer = 1,
   x = 808,
@@ -9438,7 +9438,7 @@ destination{
   name = "kanalet_castle_underground_2_A",
   layer = 1,
   x = 608,
-  y = 77,
+  y = 61,
   direction = 3,
 }
 
@@ -10121,25 +10121,6 @@ pickable{
   treasure_savegame_variable = "golden_leaf_1",
 }
 
-pickable{
-  name = "pickable_golden_leaf_2",
-  layer = 1,
-  x = 136,
-  y = 189,
-  treasure_name = "golden_leaf",
-  treasure_savegame_variable = "golden_leaf_2",
-}
-
-enemy{
-  name = "crow_1",
-  layer = 1,
-  x = 112,
-  y = 189,
-  direction = 0,
-  breed = "crow",
-  treasure_name = "random_with_charm",
-}
-
 enemy{
   layer = 1,
   x = 544,
@@ -10162,7 +10143,7 @@ custom_entity{
 enemy{
   name = "mad_bomber_1",
   layer = 1,
-  x = 552,
+  x = 568,
   y = 253,
   properties = {
     {
@@ -10595,6 +10576,16 @@ wall{
   stops_enemies = true,
   stops_blocks = true,
   stops_projectiles = true,
+}
+
+custom_entity{
+  name = "crow_1_detect",
+  layer = 1,
+  x = 104,
+  y = 189,
+  width = 32,
+  height = 32,
+  direction = 0,
 }
 
 tile{
@@ -12036,6 +12027,23 @@ wall{
   stops_enemies = true,
   stops_blocks = true,
   stops_projectiles = true,
+}
+
+enemy{
+  name = "crow_1",
+  layer = 2,
+  x = 112,
+  y = 189,
+  properties = {
+    {
+      key = "is_deeply_sleeping",
+      value = "true",
+    },
+  },
+  direction = 0,
+  breed = "crow",
+  treasure_name = "golden_leaf",
+  treasure_savegame_variable = "golden_leaf_2",
 }
 
 tile{

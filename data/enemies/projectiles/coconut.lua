@@ -9,32 +9,14 @@ local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
 local circle = 2.0 * math.pi
-local bounce_count = 0
 
--- Configuration variables
-local maximum_bounce = 4
-local minimum_speed = 40
-local maximum_speed = 80
+-- Start the destroy animation and remove the enemy at the end.
+function enemy:destroy()
 
--- Make the enemy bounce and go to a random target.
-function enemy:go(duration, height, angle, speed)
-
-  enemy:bounce_go(duration, height, angle or math.random() * circle, speed or math.random(minimum_speed, maximum_speed))
-  enemy:get_movement():set_ignore_obstacles(true)
+  sprite:set_animation("destroyed", function()
+    enemy:start_death()
+  end)
 end
-
--- Start a new bounce or destroy the enemy when bounce finished.
-enemy:register_event("on_jump_finished", function(enemy)
-
-  bounce_count = bounce_count + 1
-  if bounce_count < maximum_bounce then
-    enemy:go()
-  else
-    sprite:set_animation("destroyed", function()
-      enemy:remove()
-    end)
-  end
-end)
 
 -- Create an impact effect on hit.
 enemy:register_event("on_hit", function(enemy)
@@ -62,6 +44,4 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_damage(2)
   enemy:set_obstacle_behavior("flying")
   enemy:set_layer_independent_collisions(true)
-  enemy:set_invincible()
-  enemy:set_can_hurt_hero_running(true)
 end)

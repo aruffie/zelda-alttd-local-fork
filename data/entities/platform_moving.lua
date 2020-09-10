@@ -71,7 +71,7 @@ function entity:on_position_changed()
 
     if other ~= entity then --This may be obvious, but you don't want to apply the synch in itself unless you want to be a bit trolly :p
       local e_type = other:get_type()
-      if e_type == "hero" or e_type == "npc" or e_type == "enemy" or e_type == "pickable" or (e_type=="custom_entiy" and other:get_model()=="npc") then --TODO identity all compatible entity typesx, 
+      if e_type == "hero" or e_type == "npc" or e_type == "enemy" or e_type == "pickable" or (e_type=="custom_entity" and other:get_model()=="npc") then --TODO identity all compatible entity typesx, 
 
         --Update entity position start
         local other_x, other_y, other_w , other_h = other:get_bounding_box()
@@ -79,7 +79,7 @@ function entity:on_position_changed()
         -- Maybe use the same coordinates for entity's position range ?
         if other_y+other_h <= y+1 then
           if e_type == "hero" and is_solidified == true then
---              print "ME SOLID NOW"
+--              debug_print "ME SOLID NOW"
             is_solidified = false
             entity:set_traversable_by("hero", false)
           end
@@ -88,7 +88,7 @@ function entity:on_position_changed()
           end
         else
           if e_type == "hero" and is_solidified == false then
---              print "ME NON SOLID NOW"
+--              debug_print "ME NON SOLID NOW"
             is_solidified = true
             entity:set_traversable_by("hero", true)
           end
@@ -102,7 +102,7 @@ function entity:on_position_changed()
   entity.old_x=x
   entity.old_y=y
 
--- print ("Job's done for" ..(entity:get_name() or "<some entity>")) 
+-- debug_print ("Job's done for" ..(entity:get_name() or "<some entity>")) 
 end
 
 sol.timer.start(entity, 10, function()

@@ -1,0 +1,58 @@
+properties{
+  x = 320,
+  y = 0,
+  width = 320,
+  height = 240,
+  min_layer = 0,
+  max_layer = 2,
+  world = "test_world2",
+  tileset = "testing/labo",
+}
+
+tile{
+  layer = 0,
+  x = 112,
+  y = 72,
+  width = 16,
+  height = 80,
+  pattern = "25",
+}
+
+tile{
+  layer = 0,
+  x = 128,
+  y = 136,
+  width = 24,
+  height = 16,
+  pattern = "25",
+}
+
+tile{
+  layer = 0,
+  x = 144,
+  y = 104,
+  width = 16,
+  height = 40,
+  pattern = "25",
+}
+
+tile{
+  layer = 0,
+  x = 128,
+  y = 96,
+  width = 16,
+  height = 16,
+  pattern = "25",
+}
+
+teletransporter{
+  layer = 0,
+  x = -16,
+  y = 0,
+  width = 16,
+  height = 240,
+  transition = "scrolling",
+  destination_map = "test/A",
+  destination = "_side",
+}
+

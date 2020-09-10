@@ -1,10 +1,9 @@
 ----------------------------------
 --
--- Add projectile behavior to an ennemy.
+-- Add basic projectile methods and events to an enemy.
 --
--- Methods : enemy:set_default_speed(speed)
---           enemy:straight_go([angle, [speed]])
---           enemy:bounce_go(bounce_duration, height, [angle, [speed]])
+-- Methods : enemy:straight_go([angle, [speed]])
+--
 -- Events :  enemy:on_hit()
 --
 -- Usage : 
@@ -26,16 +25,14 @@ function behavior.apply(enemy, sprite)
   local map = enemy:get_map()
   local hero = map:get_hero()
 
+  local is_initialized = false
   local default_speed = 192
-  local default_bounce_duration = 600
-  local default_bounce_height = 12
-  
 
-  -- Call the on_hit() callback and remove the entity if it doesn't return false.
-  function enemy:hit_behavior()
+  -- Call the enemy:on_hit() callback if the enemy still can attack, and remove the entity if it doesn't return false.
+  local function hit_behavior()
 
-    if not enemy.on_hit or enemy:on_hit() ~= false then
-      enemy:remove()
+    if enemy:get_can_attack() and not enemy.on_hit or enemy:on_hit() ~= false then
+      enemy:start_death()
     end
   end
 
@@ -50,29 +47,35 @@ function behavior.apply(enemy, sprite)
     sprite:set_direction(movement:get_direction4())
 
     function movement:on_obstacle_reached()
-      enemy:hit_behavior()
+      hit_behavior()
     end
+
+    return movement
   end
 
-  -- Start bouncing to the given angle, or to the hero if nil.
-  function enemy:bounce_go(duration, height, angle, speed)
-    enemy:start_jumping(duration or default_bounce_duration, height or default_bounce_height, angle or enemy:get_angle(hero), speed or default_speed)
-  end
+  -- Remove any projectile if its main sprite is completely out of the screen.
+  enemy:register_event("on_position_changed", function(enemy)
 
-  -- Destroy the enemy when the hero is touched. 
-  -- TODO adapt and move in the shield script for all enemy.
-enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
+    if is_initialized then -- Workaround: on_position_changed() is called before on_restarted(), make sure it won't.
+      if not enemy:is_watched(sprite) then
+        enemy:start_death()
+      end
+    end
+  end)
 
-  if not hero:is_shield_protecting_from_enemy(enemy, enemy_sprite) or not game:has_item("shield") or game:get_item("shield"):get_variant() < enemy:get_minimum_shield_needed() then
-    hero:start_hurt(enemy, enemy_sprite, enemy:get_damage())
-  end
-  enemy:hit_behavior()
-  
-end)
+  enemy:register_event("on_restarted", function(enemy, shield)
+    is_initialized = true
+  end)
 
-  -- Destroy the enemy if needed when touching the shield.
-  enemy:register_event("on_shield_collision", function(enemy, shield)
-    enemy:hit_behavior()
+  -- Check if the projectile should be destroyed when the hero is touched. 
+  enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
+
+    -- TODO adapt and move in the shield script for all enemy.
+    if not hero:is_shield_protecting_from_enemy(enemy, enemy_sprite) or not game:has_item("shield") or game:get_item("shield"):get_variant() < enemy:get_minimum_shield_needed() then
+      hero:start_hurt(enemy, enemy_sprite, enemy:get_damage())
+    end
+
+    hit_behavior()
   end)
 end
 

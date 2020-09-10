@@ -10,6 +10,7 @@ require("scripts/equipment")
 require("scripts/dungeons")
 require("scripts/sleep")
 require("scripts/maps/sideview_manager")
+require("scripts/maps/main_quest_manager")
 require("scripts/menus/dialog_box")
 require("scripts/menus/pause/pause")
 require("scripts/menus/game_over")
@@ -22,6 +23,7 @@ require("scripts/meta/enemy")
 require("scripts/meta/hero")
 require("scripts/meta/game")
 require("scripts/meta/item")
+require("scripts/meta/pickable")
 require("scripts/meta/map")
 require("scripts/meta/npc")
 require("scripts/meta/destructible")
@@ -35,6 +37,8 @@ require("scripts/maps/companion_manager")
 require("scripts/maps/teletransporter_manager")
 require("scripts/maps/cinematic_manager")
 require("scripts/coroutine_helper")
-require("scripts/libs/iter.lua")() --adds iterlua to _G
+require("scripts/lib/iter.lua")() --adds iterlua to _G
+
+require("scripts/tools/debug_utils")
 
 return true

@@ -1,5 +1,20 @@
--- Lua script of enemy vire.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Vire.
+--
+-- Flying enemy that starts by taking off and go to the east, then follow the camera border clockwise.
+-- Throw two magmaballs two times while moving, then charge to the hero direction and continue charging until not being visible if not stopped.
+-- Finally respawn randomly just beyond the camera border, then slowly fly to the hero.
+--
+-- Split into two bats if dying because of a weak attack, that wait then charge the hero for the last time.
+--
+-- Methods : enemy:throw_magma_balls()
+--           enemy:start_charging([offensive])
+--           enemy:start_attacking()
+--           enemy:start_moving([angle])
+--           enemy:start_taking_off([angle])
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
@@ -39,11 +54,11 @@ local function get_random_position_on_screen_border()
   local random_point = math.random(mid_point * 2)
 
   return x + (random_point > mid_point + width and 0 or math.min(width, random_point % mid_point)), 
-         y + math.min(height, math.max(0, random_point - width) % mid_point)
+          y + math.min(height, math.max(0, random_point - width) % mid_point)
 end
 
 -- Replace the enemy position on the sprite and remove the sprite offset.
-function enemy:replace_on_sprite()
+local function replace_on_sprite()
 
   local x, y = enemy:get_position()
   local x_offset, y_offset = sprite:get_xy()
@@ -52,7 +67,7 @@ function enemy:replace_on_sprite()
 end
 
 -- Clip the enemy sprite in the given rectangle by moving the whole enemy.
-function enemy:clip_sprite_into(sprite, x, y, width, height)
+local function clip_sprite_into(sprite, x, y, width, height)
 
   local enemy_x, enemy_y, _ = enemy:get_position()
   local sprite_x, sprite_y = sprite:get_xy()
@@ -68,28 +83,33 @@ function enemy:clip_sprite_into(sprite, x, y, width, height)
 end
 
 -- Create a projectile.
-function enemy:create_projectile(projectile, direction)
+local function create_projectile(projectile, direction)
 
   local x, y = sprite:get_xy()
   local projectile = enemy:create_enemy({
+    name = (enemy:get_name() or enemy:get_breed()) .. "_" .. projectile,
     breed = "projectiles/" .. projectile,
     x = x,
     y = y
   })
-  projectile:go(direction)
+  if projectile and projectile:exists() then -- If the projectile was not immediatly removed from the on_created() event.
+    projectile:go(direction)
+  end
 
   return projectile
 end
 
--- Throw two plasmballs.
+-- Throw two magmaballs.
 function enemy:throw_magma_balls()
 
   sprite:set_animation("firing", function()
     sprite:set_animation("fired")
-    enemy:create_projectile("magmaball")
-    local magmaball = enemy:create_projectile("magmaball")
-    local magmaball_movement = magmaball:get_movement()
-    magmaball_movement:set_angle(magmaball_movement:get_angle() - 0.4)
+    create_projectile("magmaball")
+    local magmaball = create_projectile("magmaball")
+    if magmaball and magmaball:exists() then -- If the magmaball was not immediatly removed from the on_created() event.
+      local magmaball_movement = magmaball:get_movement()
+      magmaball_movement:set_angle(magmaball_movement:get_angle() - 0.4)
+    end
     sol.timer.start(enemy, fired_duration, function()
       if not is_charging then
         sprite:set_animation("walking")
@@ -110,7 +130,7 @@ function enemy:start_charging(offensive)
   movement:set_ignore_obstacles(true)
   sprite:set_animation("charging")
 
-  -- Start another flying elsewhere if completely out of the screen while charging.
+  -- Respawn just beyond camera borders and start another slow fly if completely out of the screen while charging.
   function movement:on_position_changed()
     if not camera:overlaps(enemy:get_max_bounding_box()) then
       movement:stop()
@@ -146,7 +166,7 @@ function enemy:start_attacking()
 end
 
 -- Start enemy flying behavior.
-function enemy:start_flying_movement(angle)
+function enemy:start_moving(angle)
 
   is_charging = false
   local movement
@@ -157,9 +177,9 @@ function enemy:start_flying_movement(angle)
 
     -- Clip and change the angle if the enemy has a part out screen.
     movement:register_event("on_position_changed", function(movement)
-      if not is_charging and not enemy:is_sprite_contained(sprite, camera:get_bounding_box()) then
-        enemy:clip_sprite_into(sprite, camera:get_bounding_box())
-        enemy:start_flying_movement(movement:get_direction4() * quarter - quarter)
+      if not is_charging and not enemy:is_watched(sprite, true) then
+        clip_sprite_into(sprite, camera:get_bounding_box())
+        enemy:start_moving(movement:get_direction4() * quarter - quarter)
         return false
       end
     end)
@@ -184,9 +204,9 @@ function enemy:start_taking_off(angle)
   if attacking_timer then
     attacking_timer:stop()
   end
-  enemy:replace_on_sprite()
+  replace_on_sprite()
   enemy:set_visible()
-  enemy:start_flying_movement(angle)
+  enemy:start_moving(angle)
   enemy:start_flying(take_off_duration, flying_height)
   enemy:start_attacking()
 end
@@ -209,10 +229,10 @@ end)
 -- Replace on sprite position and create two bats projectiles on dying.
 enemy:register_event("on_dying", function(enemy)
 
-  enemy:replace_on_sprite()
+  replace_on_sprite()
   if not is_executed then
-    enemy:create_projectile("bat", 0)
-    enemy:create_projectile("bat", 2)
+    create_projectile("bat", 0)
+    create_projectile("bat", 2)
   end
 end)
 
@@ -238,7 +258,9 @@ enemy:register_event("on_restarted", function(enemy)
     jump_on = "ignored"})
 
   -- States.
+  sprite:set_xy(0, 0)
   sprite:set_animation("walking")
+  enemy:set_obstacle_behavior("flying")
   enemy:set_layer_independent_collisions(true)
   enemy:set_can_attack(true)
   enemy:set_damage(4)

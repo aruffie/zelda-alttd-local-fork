@@ -59,7 +59,7 @@ function witch:on_interaction()
 end
 
 -- Torches events
-timed_torch_1:register_event("on_lit", function()
+torch_1:register_event("on_lit", function()
 
     if map.witch_indication then
       game:set_value("witch_indication", true)

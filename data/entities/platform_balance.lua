@@ -27,17 +27,77 @@ local accel_duration = 1
 local old_x=0
 local old_y=0
 local true_x, true_y
-local start_x, start_y
+local initial_x, initial_y
 entity.speed=0
 local twin=nil
 local chain=nil
 local solidified=true
 
 -- Include scripts
---require("scripts/multi_events")
+require("scripts/multi_events")
+
+local function is_on_platform(entity, other)
+  if entity~=other and other:get_type()~="camera" and other~=chain then
+    local x, y, w, h = entity:get_bounding_box()
+    local other_x, other_y, other_w, other_h = other:get_bounding_box()
+    return other_x < x+w and other_x+other_w > x and other_y <= y-1 and other_y+other_h >= y-1
+  end
+  return false
+end
+
+
+
+sol.timer.start(entity, 10, function() 
+    local entity_x, entity_y, entity_w, entity_h=entity:get_bounding_box()
+    local hero_x, hero_y, hero_w, hero_h=hero:get_bounding_box()
+    local x, y=entity:get_position()
+    local dx, dy = x-old_x, y-old_y
+
+    if hero_y+hero_h <= entity_y+1 then
+
+      if solidified == false then
+--        debug_print "ME SOLID NOW"
+        solidified = true
+        entity:set_traversable_by("hero", false)
+        if hero_x+hero_w<=entity_x+entity_w and hero_x>=entity_x and hero_y<=entity_y+entity_h-1 and hero_y+hero_h>=entity_y-1 then
+          hero:set_position(hero_x+dx, hero_y+dy)
+        end
+      end
+
+
+    else
+      if solidified == true then
+--        debug_print "ME NON SOLID NOW"
+        solidified = false
+        entity:set_traversable_by("hero", true)
+      end
+    end
+
+    if is_on_platform(entity, hero)==false or is_on_platform(twin, hero) then
+      --slowly decelerate
+      if entity.speed>0 then
+        entity.speed = math.max(entity.speed-0.01*max_dy, 0)
+      else
+        entity.speed = math.min(entity.speed+0.01*max_dy, 0)
+      end
+    end
+
+    if entity:test_obstacles(0, math.floor(entity.speed)+1) or twin:test_obstacles(0, math.floor(twin.speed+1)) then
+      --reset speed if there an obstacle under either of the twins
+      debug_print (entity:get_name().." cannot move (position: X "..x..", Y "..y)
+      entity.speed=0
+    else
+      --Compute the new position
+      true_y=true_y+entity.speed
+      entity:set_position(true_x, true_y)
+      --update old position
+      old_x, old_y = entity:get_bounding_box()
+    end
+    return true
+  end)
 
 -- Event called when the custom entity is initialized.
-entity:register_event("on_created", function()
+entity:register_event("on_created", function(entity)
     --Get the twin entity
     local name=entity:get_name()
     twin = entity:get_map():get_entity(name:sub(1, -3).."_"..(3-tonumber(name:sub(-1)))) 
@@ -48,7 +108,7 @@ entity:register_event("on_created", function()
     entity.is_on_twin=false
     local true_layer
     true_x, true_y = entity:get_position()
-    start_x, start_y = entity:get_position()
+    initial_x, initial_y = entity:get_position()
     --Create it's chain
     chain = entity:get_map():create_custom_entity({
         x=true_x,
@@ -63,14 +123,6 @@ entity:register_event("on_created", function()
     chain:set_origin(8, 13)
   end)
 
-local function is_on_platform(entity, other)
-  if entity~=other and other:get_type()~="camera" and other~=chain then
-    local x, y, w, h = entity:get_bounding_box()
-    local hx, hy, hw, hh = other:get_bounding_box()
-    return hx < x+w and hx+hw > x and hy <= y-1 and hy+hh >= y-1
-  end
-  return false
-end
 
 --Detects ehteher there is another entity on the platform, and moves it along
 entity:add_collision_test(
@@ -89,15 +141,18 @@ entity:add_collision_test(
 
     --Move the other entity with me
     local dx, dy = x-old_x, y-old_y
-    local xx, yy = other:get_position()
+    local other_x, other_y = other:get_position()
     if not other:test_obstacles(0, dy) then
-      other:set_position(xx+dx, yy+dy)
+      other:set_position(other_x+dx, other_y+dy)
     end
   end
 )
 
-function entity:reset()
-  entity:set_position(start_x, start_y)
+function entity.reset(platform)
+  --print ("reseting "..platform:get_name()..". Initial position was ("..initial_x..", "..initial_y..")")
+  platform.speed=0
+  true_x=initial_x
+  true_y=initial_y
 end
 
 function entity:on_removed()
@@ -128,52 +183,3 @@ function entity:on_position_changed(x,y,layer)
   chain:set_position(old_x+8, dy%16) 
   chain:set_size(16, math.max(8, dy-(dy%16)))
 end
-
-sol.timer.start(entity, 10, function() 
-    local ex, ey, ew, eh=entity:get_bounding_box()
-    local hx, hy, hw, hh=hero:get_bounding_box()
-    local x, y=entity:get_position()
-    local dx, dy = x-old_x, y-old_y
-
-    if hy+hh <= ey+1 then
-
-      if solidified == false then
---              print "ME SOLID NOW"
-        solidified = true
-        entity:set_traversable_by("hero", false)
-        if hx+hw<=ex+ew and hx>=ex and hy<=ey+eh-1 and hy+hh>=ey-1 then
-          hero:set_position(hx+dx, hy+dy)
-        end
-      end
-
-
-    else
-      if solidified == true then
---              print "ME NON SOLID NOW"
-        solidified = false
-        entity:set_traversable_by("hero", true)
-      end
-    end
-
-    if is_on_platform(entity, hero)==false or is_on_platform(twin, hero) then
-      --slowly decelerate
-      if entity.speed>0 then
-        entity.speed = math.max(entity.speed-0.01*max_dy, 0)
-      else
-        entity.speed = math.min(entity.speed+0.01*max_dy, 0)
-      end
-    end
-
-    if entity:test_obstacles(0, math.floor(entity.speed)+1) or twin:test_obstacles(0, math.floor(twin.speed+1)) then
-      --reset speed if there an obstacle under either of the twins
-      print (entity:get_name().." cannot move (position: X "..x..", Y "..y)
-      entity.speed=0
-    else
-      --Compute the new position
-      true_y=true_y+entity.speed
-      entity:set_position(true_x, true_y)
-      --update old position
-      old_x, old_y = entity:get_bounding_box()
-    end
-    return true
-  end)

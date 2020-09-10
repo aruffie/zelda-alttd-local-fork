@@ -24,7 +24,7 @@ end)
 -- Initialize the music of the map
 function map:init_music()
 
-  if game:get_value("main_quest_step") == 3  then
+  if game:is_step_last("shield_obtained") then
     audio_manager:play_music("07_koholint_island")
   else
     audio_manager:play_music("10_overworld")
@@ -37,14 +37,18 @@ function map:init_map_entities()
   
   owl_1:set_enabled(false)
   owl_4:set_enabled(false)
-  if sword ~= nil then
-    sword:get_sprite():set_direction(4)
-    sword:get_sprite():set_ignore_suspend(true)
+  if sword_item ~= nil then
+    sword_item:get_sprite():set_direction(4)
+    sword_item:get_sprite():set_ignore_suspend(true)
   end
   dungeon_1_entrance:set_traversable_by(false)
   dungeon_1_entrance:set_traversable_by('camera', true)
-  if game:get_value("main_quest_step") > 6 then
+  if game:is_step_done("dungeon_1_opened") then
     map:open_dungeon_1()
+  end
+  -- Ground sand
+  for ground in map:get_entities('ground_sand') do
+    ground:set_visible(false)
   end
   -- Seashell's tree
   local seashell_tree_found = false
@@ -97,9 +101,9 @@ end
 -- NPCs events
 function dungeon_1_lock:on_interaction()
 
-  if game:get_value("main_quest_step") < 6 then
-      game:start_dialog("maps.out.south_mabe_village.dungeon_1_lock")
-  elseif game:get_value("main_quest_step") == 6 then
+  if not game:is_step_done("dungeon_1_key_obtained") then
+    game:start_dialog("maps.out.south_mabe_village.dungeon_1_lock")
+  elseif game:is_step_last("dungeon_1_key_obtained") then
     map:launch_cinematic_2()
   end
   
@@ -112,7 +116,7 @@ function owl_1_sensor:on_activated()
     map:init_music()
   else
     owl_manager:appear(map, 1, function()
-    map:init_music()
+      map:init_music()
     end)
   end
 
@@ -120,7 +124,7 @@ end
 
 function owl_4_sensor:on_activated()
 
-  if game:get_value("main_quest_step") == 8  and game:get_value("owl_4") ~= true then
+  if game:is_step_last("dungeon_1_completed") and game:get_value("owl_4") ~= true then
     owl_manager:appear(map, 4, function()
     map:init_music()
     end)
@@ -169,7 +173,7 @@ function map:launch_cinematic_1()
     end
     animation(hero, "spin_attack")
     map:set_cinematic_mode(false, options)
-    game:set_value("main_quest_step", 4)
+    game:set_step_done("sword_obtained")
     audio_manager:play_music("10_overworld")
   end)
 
@@ -221,7 +225,7 @@ function map:launch_cinematic_2()
     movement(movement2, camera)
     map:set_cinematic_mode(false, options)
     camera:start_tracking(hero)
-    game:set_value("main_quest_step", 7)
+    game:set_step_done("dungeon_1_opened")
     map:init_music()
   end)
 

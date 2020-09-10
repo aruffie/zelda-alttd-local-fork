@@ -1,3 +1,5 @@
+local parchment = require("scripts/menus/parchment")
+
 local enemy_manager = {}
 
 enemy_manager.is_transported = false
@@ -14,39 +16,45 @@ function enemy_manager:on_enemies_dead(map, enemies_prefix, callback)
     end
   end
 
+  -- Setup for each existing enemy that matches the prefix and ones created in the future.
   for enemy in map:get_entities(enemies_prefix) do
     enemy:register_event("on_dead", enemy_on_dead)
   end
+  map:register_event("on_enemy_created", function(map, enemy)
+    if string.match(enemy:get_name() or "", enemies_prefix) then
+      enemy:register_event("on_dead", enemy_on_dead)
+    end
+  end)
   
 end
 
-function enemy_manager:set_weak_boo_buddies_when_at_least_on_torch_lit(map, torch_prefix, enemy_prefix)
+-- Set boo buddies in the room weak when a torch is lit and back to normal when all torches are unlit.
+function enemy_manager:set_weak_boo_buddies_on_torch_lit(map, torch_prefix, enemy_prefix)
 
-  local total = 0
-  local remaining = 0
   local function torch_on_lit()
-    remaining = remaining - 1
-    if remaining > 0 and remaining < total then
-      for enemy in map:get_entities(enemy_prefix) do
+    for enemy in map:get_entities(enemy_prefix) do
+      if enemy.is_weak and not enemy:is_weak() then
         enemy:set_weak(true)
       end
     end
   end
   local function torch_on_unlit()
-    remaining = remaining + 1
-    if remaining > 0 and remaining == total  then
-      for enemy in map:get_entities(enemy_prefix) do
-        enemy:set_weak(false)
+    for torch in map:get_entities(torch_prefix) do
+      if torch:is_lit() then
+        return
       end
+    end
+    for enemy in map:get_entities(enemy_prefix) do
+      enemy:set_weak(false)
     end
   end
   for torch in map:get_entities(torch_prefix) do
-    if not torch:is_lit() then
-      remaining = remaining + 1
-    end
-    torch.on_lit = torch_on_lit
-    torch.on_unlit = torch_on_unlit
-    total = total + 1
+    torch:register_event("on_lit", function(torch)
+      torch_on_lit()
+    end)
+    torch:register_event("on_unlit", function(torch)
+      torch_on_unlit()
+    end)
   end
   
 end
@@ -99,7 +107,6 @@ function enemy_manager:create_teletransporter_if_small_boss_dead(map, sound)
   local savegame = "dungeon_" .. dungeon .. "_small_boss"
   if game:get_value(savegame) then
     for teletransporter in map:get_entities("midpoint_teletransporter") do
-      print ("found "..teletransporter:get_name())
       teletransporter:set_enabled(true)
     end
 
@@ -118,25 +125,37 @@ function enemy_manager:launch_small_boss_if_not_dead(map)
   local dungeon = game:get_dungeon_index()
   local dungeon_infos = game:get_dungeon()
   local savegame = "dungeon_" .. dungeon .. "_small_boss"
-  local placeholder = "placeholder_small_boss"
+  local enemies_prefix = "enemy_small_boss"
+
   if game:get_value(savegame) then
     return false
   end
-  local placeholder = map:get_entity(placeholder)
-  local x,y,layer = placeholder:get_position()
-  local game = map:get_game()
-  placeholder:set_enabled(false)
-  local enemy = map:create_enemy{
-    name = "enemy_small_boss",
-    breed = dungeon_infos["small_boss"]["breed"],
-    direction = 2,
-    x = x,
-    y = y,
-    layer = layer
-  }
-  enemy:register_event("on_dead", function()
-      enemy:launch_small_boss_dead()
-    end)
+
+  -- Check for the end of the fight at each enemy dead, including ones created after the battle has started.
+  map:register_event("on_enemy_created", function(map, enemy)
+    if string.match(enemy:get_name() or "", enemies_prefix) then
+      enemy:register_event("on_dead", function()
+        if not map:has_entities(enemies_prefix) then
+          enemy:launch_small_boss_dead()
+        end
+      end)
+    end
+  end)
+
+  -- May be several small bosses in the same room, loop on placeholders.
+  for placeholder in map:get_entities("placeholder_small_boss") do
+    local x, y, layer = placeholder:get_position()
+    placeholder:set_enabled(false)
+    local enemy = map:create_enemy{
+      name = enemies_prefix,
+      breed = dungeon_infos["small_boss"]["breed"],
+      direction = 2,
+      x = x,
+      y = y,
+      layer = layer
+    }
+  end
+
   for tile in map:get_entities("tiles_small_boss_") do
     local layer = tile:get_property('start_layer')
     tile:set_layer(layer)
@@ -175,9 +194,21 @@ function enemy_manager:launch_boss_if_not_dead(map)
   audio_manager:play_music("22_boss_battle")
   sol.timer.start(enemy, 1000, function()
       game:start_dialog("maps.dungeons." .. dungeon .. ".boss_welcome", function()
-          if enemy.launch_after_first_dialog then
-            enemy:launch_after_first_dialog()
-          end
+          
+          game:set_suspended(true)
+
+          -- Show parchment with dungeon name.
+          local dungeon_index = game:get_dungeon_index()
+          local line_1 = sol.language.get_dialog("maps.dungeons." .. dungeon_index .. ".boss_name").text
+          local line_2 = sol.language.get_dialog("maps.dungeons." .. dungeon_index .. ".boss_description").text
+          parchment:show(map, "boss", "top", 1500, line_1, line_2, nil, function()
+
+            game:set_suspended(false)
+            
+            if enemy.launch_after_first_dialog then
+              enemy:launch_after_first_dialog()
+            end
+          end)
         end)
     end)
 

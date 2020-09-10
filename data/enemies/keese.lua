@@ -1,5 +1,13 @@
--- Lua script of enemy keese.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Keese.
+--
+-- Wait for the hero and moves around him clockwise when close enough.
+--
+-- Methods : enemy:start_walking()
+--           enemy:wait()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
@@ -57,6 +65,7 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(1)
   enemy:set_size(24, 16)
   enemy:set_origin(12, 13)
+  enemy:set_obstacle_behavior("flying")
 end)
 
 -- Restart settings.

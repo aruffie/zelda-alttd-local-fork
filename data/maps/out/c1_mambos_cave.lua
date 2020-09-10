@@ -24,6 +24,14 @@ map:register_event("on_started", function(map, destination)
 
 end)
 
+map:register_event("on_finished", function(map, destination)
+    
+  if game:get_value("possession_instrument_4") and not game:get_value("ghost_quest_step") then
+    game:set_value("ghost_quest_step", "ghost_joined")
+  end
+
+end)
+
 -- Initialize the music of the map
 function map:init_music()
   
@@ -42,60 +50,46 @@ function map:init_map_entities()
   -- Father and hibiscus
   local item = game:get_item("magnifying_lens")
   local variant = item:get_variant()
-  if game:get_value("main_quest_step") < 18 or variant >= 8  then
+  if not game:is_step_done("dungeon_3_completed") or variant >= 8  then
     father:set_enabled(false)
     hibiscus:set_enabled(false)
   end
-  local father_sprite = father:get_sprite()
-  father_sprite:set_animation("calling")
-  local hibiscus_sprite = hibiscus:get_sprite()
-  hibiscus_sprite:set_animation("magnifying_lens")
-  hibiscus_sprite:set_direction(7)
+  father:get_sprite():set_animation("calling")
+  hibiscus:get_sprite():set_animation("magnifying_lens")
+  hibiscus:get_sprite():set_direction(7)
+  -- Waterfall
+  if game:is_step_done("dungeon_4_opened") then
+    map:open_dungeon_4()
+  end
   
 end
 
 -- Discussion with Father 1
 function map:talk_to_father() 
 
- local father_sprite = father:get_sprite()
  local item = game:get_item("magnifying_lens")
  local variant = item:get_variant()
- father_sprite:set_animation("sitting")
+ father:get_sprite():set_animation("sitting")
  if variant == 7 then
    game:start_dialog("maps.out.mambos_cave.father_1", function(answer)
     if answer == 1 then
       game:start_dialog("maps.out.mambos_cave.father_3", function()
-        game:set_hud_enabled(false)
-        game:set_pause_allowed(false)
-        hero:freeze()
-        father_sprite:set_animation("eating")
-        sol.timer.start(father, 5000, function()
-          father_sprite:set_animation("sitting")
-          game:start_dialog("maps.out.mambos_cave.father_4", function()
-            hibiscus:set_enabled(false)
-            hero:start_treasure("magnifying_lens", 8, nil, function()
-              father_sprite:set_animation("eating")
-              game:set_hud_enabled(true)
-              game:set_pause_allowed(true)
-              hero:unfreeze()
-            end)
-          end)
-        end)
+        map:launch_cinematic_1()
       end)
     else
       game:start_dialog("maps.out.mambos_cave.father_2", function()
-        father_sprite:set_animation("calling")
+        father:get_sprite():set_animation("calling")
       end)
     end
    end)
  elseif variant == 8 then
     game:start_dialog("maps.out.mambos_cave.father_5", function()
-      father_sprite:set_animation("eating")
+      father:get_sprite():set_animation("eating")
     end)
  else
    game:start_dialog("maps.out.mambos_cave.father_6", function(answer)
     game:start_dialog("maps.out.mambos_cave.father_2", function()
-      father:set_animation("calling")
+      father:get_sprite():set_animation("calling")
     end)
    end)
   end
@@ -104,16 +98,25 @@ end
 
 function map:remove_water(step)
 
-  if step > 7 then
+  if step > 9 then
     return
   end
   sol.timer.start(map, 1000, function()
-    for tile in map:get_entities("water_" .. step .. "_") do
+    for tile in map:get_entities("waterfall_" .. step) do
       tile:remove()
     end
-    step = step +1
+    step = step + 1
     map:remove_water(step)
   end)
+
+end
+
+-- Dungeon 4 opening
+function map:open_dungeon_4()
+
+  for tile in map:get_entities("waterfall") do
+    tile:remove()
+  end
 
 end
 
@@ -124,29 +127,89 @@ function father:on_interaction()
 
 end
 
+-- NPCs events
 function dungeon_4_lock:on_interaction()
 
-  if false and game:get_value("main_quest_step") < 6 then
-      game:start_dialog("maps.out.south_mabe_village.dungeon_1_lock")
-  elseif true or game:get_value("main_quest_step") == 6 then
-    sol.audio.stop_music()
-    hero:freeze()
-    sol.timer.start(map, 1000, function() 
-      map:remove_water(1)
-      audio_manager:play_sound("shake")
-      local camera = map:get_camera()
-      local shake_config = {
-          count = 100,
-          amplitude = 2,
-          speed = 90,
-      }
-      camera:shake(shake_config, function()
-        audio_manager:play_sound("misc/secret2")
-        hero:unfreeze()
-        map:init_music()
-      end)
-      game:set_value("main_quest_step", 7)
-    end)
+  if not game:is_step_done("dungeon_4_key_obtained") then
+    game:start_dialog("maps.out.mambos_cave.dungeon_4_lock")
+  elseif game:is_step_last("dungeon_4_key_obtained") then
+    map:launch_cinematic_2()
   end
+  
+end
+
+-- Cinematics
+-- This is the cinematic in which Father quadruplet eat pineapple
+function map:launch_cinematic_1()
+  
+  map:start_coroutine(function()
+    local options = {
+      entities_ignore_suspend = {hero, father}
+    }
+    map:set_cinematic_mode(true, options)
+    father:get_sprite():set_animation("eating")
+    wait(5000)
+    father:get_sprite():set_animation("sitting")
+    dialog("maps.out.mambos_cave.father_4")
+    hibiscus:set_enabled(false)
+    wait_for(hero.start_treasure, hero, "magnifying_lens", 8, "magnifying_lens_8")
+    father:get_sprite():set_animation("eating")
+    map:set_cinematic_mode(false, options)
+  end)
 
 end
+
+-- This is the cinematic in which the hero open dungeon 4 with angler key
+function map:launch_cinematic_2()
+  
+  map:start_coroutine(function()
+    local options = {
+      entities_ignore_suspend = {}
+    }
+    map:set_cinematic_mode(true, options)
+    sol.audio.stop_music()
+    audio_manager:play_sound("misc/chest_open")
+    local camera = map:get_camera()
+    local camera_x, camera_y = camera:get_position()
+    local movement1 = sol.movement.create("straight")
+    movement1:set_angle(math.pi / 2)
+    movement1:set_max_distance(72)
+    movement1:set_speed(75)
+    movement1:set_ignore_suspend(true)
+    movement1:set_ignore_obstacles(true)
+    movement(movement1, camera)
+    wait(2000)
+    map:remove_water(1)
+    local timer_sound = sol.timer.start(hero, 0, function()
+      audio_manager:play_sound("misc/dungeon_shake")
+      return 450
+    end)
+    timer_sound:set_suspended_with_map(false)
+    local shake_config = {
+        count = 320,
+        amplitude = 2,
+        speed = 90
+    }
+    wait_for(camera.shake, camera, shake_config)
+    camera:start_manual()
+    camera:set_position(camera_x, camera_y - 72)
+    timer_sound:stop()
+    wait(1000)
+    audio_manager:play_sound("misc/secret2")
+    wait(1000)
+    map:init_music()
+    map:open_dungeon_4()
+    local movement2 = sol.movement.create("straight")
+    movement2:set_angle(3 * math.pi / 2)
+    movement2:set_max_distance(72)
+    movement2:set_speed(75)
+    movement2:set_ignore_suspend(true)
+    movement2:set_ignore_obstacles(true)
+    movement(movement2, camera)
+    map:set_cinematic_mode(false, options)
+    camera:start_tracking(hero)
+    game:set_step_done("dungeon_4_opened")
+  end)
+
+end
+

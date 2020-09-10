@@ -1,5 +1,15 @@
--- Lua script of enemy bomber.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Bomber.
+--
+-- Flying enemy moving randomly over horizontal and vertical axis, and stand off when the hero attacks too close.
+-- Regularly throw a bomb to the hero.
+--
+-- Methods : enemy:start_walking()
+--           enemy:start_attacking()
+--           enemy:start_stand_off()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
@@ -20,12 +30,14 @@ local walking_maximum_distance = 96
 local flying_height = 16
 local throwing_bomb_minimum_delay = 1500
 local throwing_bomb_maximum_delay = 3000
-local runaway_triggering_distance = 32
-local runaway_speed = 200
-local runaway_distance = 32
+local stand_off_triggering_distance = 32
+local stand_off_speed = 200
+local stand_off_distance = 32
 
-local bomb_throw_duration = 600
-local bomb_throw_speed = 48
+local bomb_throw_duration = 500
+local bomb_throw_height = 20
+local bomb_throw_speed = 80
+local firing_duration = 500
 
 -- Start the enemy movement.
 function enemy:start_walking()
@@ -42,30 +54,34 @@ function enemy:start_attacking()
     attacking_timer:stop()
   end
 
+  -- Throw a bomb periodically.
   attacking_timer = sol.timer.start(enemy, math.random(throwing_bomb_minimum_delay, throwing_bomb_maximum_delay), function()
-    local bomb = enemy:create_enemy({breed = "projectiles/bomb"})
 
-    -- Hide the begginning of the jump and make it visible only at the top.
-    bomb:show(false)
-    sol.timer.start(bomb, bomb_throw_duration / 3.0, function()
-      bomb:set_position(enemy:get_position())
-      bomb:show(true)
-      bomb:get_movement():set_speed(bomb_throw_speed)
+    local bomb = enemy:create_enemy({
+      name = (enemy:get_name() or enemy:get_breed()) .. "_bomb",
+      breed = "projectiles/bomb"
+    })
+
+    if bomb and bomb:exists() then -- If the bomb was not immediatly removed from the on_created() event.
+      local angle = enemy:get_angle_from_sprite(sprite, hero)
+      enemy:start_throwing(bomb, bomb_throw_duration, flying_height, bomb_throw_height, angle, bomb_throw_speed, function()
+        bomb:explode()
+      end)
+    end
+
+    sprite:set_animation("firing")
+    sol.timer.start(enemy, firing_duration, function()
+      sprite:set_animation("walking")
     end)
-
-    -- Throw the bomb.
-    local angle = enemy:get_angle_from_sprite(sprite, hero)
-    bomb:go(bomb_throw_duration, flying_height, angle, 0)
-    bomb:explode_at_bounce()
 
     return math.random(throwing_bomb_minimum_delay, throwing_bomb_maximum_delay)
   end)
 end
 
--- Start the enemy runaway movement.
-function enemy:runaway()
+-- Start the enemy stand off movement.
+function enemy:start_stand_off()
 
-  enemy:start_straight_walking(enemy:get_angle_from_sprite(sprite, hero) + math.pi, runaway_speed, runaway_distance, function()
+  enemy:start_straight_walking(enemy:get_angle_from_sprite(sprite, hero) + math.pi, stand_off_speed, stand_off_distance, function()
     enemy:start_walking()
   end)
 end
@@ -74,8 +90,8 @@ end
 game:register_event("on_command_pressed", function(game, command)
 
   if enemy:exists() and enemy:is_enabled() and not enemy.is_exhausted then
-    if enemy:is_near(hero, runaway_triggering_distance) and (command == "attack" or command == "item_1" or command == "item_2") then
-      enemy:runaway()
+    if enemy:is_near(hero, stand_off_triggering_distance) and (command == "attack" or command == "item_1" or command == "item_2") then
+      enemy:start_stand_off()
     end
   end
 end)

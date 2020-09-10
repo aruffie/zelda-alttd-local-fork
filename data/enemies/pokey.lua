@@ -1,5 +1,15 @@
--- Lua script of enemy pokey.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Pokey.
+--
+-- Moves randomly over horizontal and vertical axis
+-- Composed of as much sprites as its health point, a part of his body is propelled across the room each time a weak attack is received.
+--
+-- Methods : enemy:start_walking()
+--           enemy:detach_body()
+--           enemy:wait()
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
@@ -46,7 +56,10 @@ function enemy:detach_body()
 
   -- Create bouncing body enemy.
   if life > 1 then
-    enemy:create_enemy({breed = "projectiles/cactus"})
+    enemy:create_enemy({
+      name = (enemy:get_name() or enemy:get_breed()) .. "_cactus",
+      breed = "projectiles/cactus"
+    })
   end
 
   enemy:hurt(1)
@@ -76,13 +89,11 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_origin(8, 13)
   enemy:start_shadow()
 
-  -- Create sprites.
-  head_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+  -- Create sprites in right z-order.
   for i = 1, life_point - 1 do
     body_sprites[i] = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/body")
-    enemy:bring_sprite_to_front(body_sprites[i])
   end
-  enemy:bring_sprite_to_front(head_sprite)
+  head_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 end)
 
 -- Restart settings.
