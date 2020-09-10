@@ -140,4 +140,9 @@ local function initialize_meta()
 
 end
 
+function item:on_using()
+  item:start_using()
+  item:set_finished()
+end
+
 initialize_meta()

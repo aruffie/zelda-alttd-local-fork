@@ -12,6 +12,11 @@ function item:on_created()
 
 end
 
+function item:on_using()
+  item:start_using()
+  item:set_finished()
+end
+
 --TODO Remake me using a custom entity !!!!!
 function item:start_using()
 

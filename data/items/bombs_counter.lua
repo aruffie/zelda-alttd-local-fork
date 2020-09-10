@@ -28,6 +28,11 @@ function item:start_combo(other)
   end
 end
 
+function item:on_using()
+  item:start_using()
+  item:set_finished()
+end
+
 
 -- Called when the player uses the bombs of his inventory by pressing the corresponding item key.
 function item:start_using()
