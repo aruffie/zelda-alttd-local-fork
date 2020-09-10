@@ -154,7 +154,7 @@ function enemy:start_charging()
   end)
 end
 
--- Make the enemy open his eye and throw a fireball to the south.
+-- Make the enemy open his eye and throw a fireball to the hero.
 function enemy:start_firing()
   
   is_attacking = true
