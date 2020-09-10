@@ -28,11 +28,26 @@ function item:on_using()
   
 end
 
+function item:on_obtaining()
+  
+  local item_1 = game:get_item_assigned(1)
+  local item_2 = game:get_item_assigned(2)
+  local slot = nil
+  if item_1:get_name() == 'ocarina' then
+    slot = 1
+  elseif item_2:get_name() == 'ocarina' then
+    slot = 2
+  end
+  if slot then
+    game:set_item_assigned(slot, item)
+  end
+  
+end
+
 function item:brandish(callback)
 
   local map = self:get_map()
   local hero = map:get_entity("hero")
-  local nb = self:get_game():get_item("golden_leaves_counter"):get_amount()
   local x_hero,y_hero, layer_hero = hero:get_position()
   hero:set_animation("brandish")
   audio_manager:play_sound("items/fanfare_item_extended")

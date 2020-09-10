@@ -1481,6 +1481,7 @@ entity{ id = "magnet", description = "Magnet" }
 entity{ id = "midpoint_teletransporter", description = "Teletransporter (mid point)" }
 entity{ id = "mouse", description = "Mouse" }
 entity{ id = "mr_write_and_christine", description = "Mr Write and Christine" }
+entity{ id = "mushroom", description = "Mushroom" }
 entity{ id = "non_diggable", description = "Non diggable" }
 entity{ id = "npc", description = "Non-playing character" }
 entity{ id = "obstacle", description = "Obstacle" }
@@ -1707,6 +1708,7 @@ file{ path = "entities/magnet.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "entities/midpoint_teletransporter.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "entities/mouse.lua", license = "GPL v3" }
 file{ path = "entities/mr_write_and_christine.lua", license = "GPL v3" }
+file{ path = "entities/mushroom.lua", author = "Benjamin Schweitzer", }
 file{ path = "entities/non_diggable.lua", license = "GPL v3" }
 file{ path = "entities/npc.lua", license = "GPL v3" }
 file{ path = "entities/obstacle.lua", license = "GPL v3" }
