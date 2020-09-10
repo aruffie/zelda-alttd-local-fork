@@ -46,56 +46,56 @@ end
 
 
 sol.timer.start(entity, 10, function()
-    local entity_x, entity_y, entity_w, entity_h=entity:get_bounding_box()
-    local hero_x, hero_y, hero_w, hero_h=hero:get_bounding_box()
-    local x, y=entity:get_position()
-    local dy = y-old_y
+  local entity_x, entity_y, entity_w, entity_h=entity:get_bounding_box()
+  local hero_x, hero_y, hero_w, hero_h=hero:get_bounding_box()
+  local x, y=entity:get_position()
+  local dy = y-old_y
 
-    if hero_y+hero_h <= entity_y+1 then
+  if hero_y+hero_h <= entity_y+1 then
 
-      if solidified == false then
+    if solidified == false then
 --        debug_print "ME SOLID NOW"
-        solidified = true
-        entity:set_traversable_by("hero", false)
-        if hero_x+hero_w<=entity_x+entity_w and hero_x>=entity_x and hero_y+hero_h<=entity_y and hero_y+hero_h>=entity_y-1 then
-          hero:set_position(hero_x, hero_y+dy)
-        end
+      solidified = true
+      entity:set_traversable_by("hero", false)
+      if hero_x+hero_w<=entity_x+entity_w and hero_x>=entity_x and hero_y+hero_h<=entity_y and hero_y+hero_h>=entity_y-1 then
+        hero:set_position(hero_x, hero_y+dy)
       end
+    end
 
 
-    else
-      if solidified == true then
+  else
+    if solidified == true then
 --        debug_print "ME NON SOLID NOW"
-        solidified = false
-        entity:set_traversable_by("hero", true)
-      end
+      solidified = false
+      entity:set_traversable_by("hero", true)
     end
+  end
 
-    if not is_on_platform(entity, hero) or is_on_platform(twin, hero) then
-      --slowly decelerate
-      if entity.speed>0 then
-        entity.speed = math.max(entity.speed-0.01*max_dy, 0)
-      else
-        entity.speed = math.min(entity.speed+0.01*max_dy, 0)
-      end
+  if not is_on_platform(entity, hero) or is_on_platform(twin, hero) then
+    --slowly decelerate
+    if entity.speed>0 then
+      entity.speed = math.max(entity.speed-0.01*max_dy, 0)
+    else
+      entity.speed = math.min(entity.speed+0.01*max_dy, 0)
     end
+  end
 
-    if entity.speed~=0 or twin.speed~=0 then
-      if entity:test_obstacles(0, math.floor(entity.speed)+1) or twin:test_obstacles(0, math.floor(twin.speed+1)) then
-        --reset speed if there an obstacle to either of the twins' movement
-        debug_print (entity:get_name().." cannot move (position: X "..x..", Y "..y)
-        entity.speed=0
-      else
-        --Compute the new position
-        true_y=true_y+entity.speed
-        entity:set_position(x, true_y)
-        --update old position
-
-      end 
-    end
-    _, old_y = entity:get_bounding_box()
-    return true
-  end)
+  if entity.speed~=0 or twin.speed~=0 then
+    if entity:test_obstacles(0, math.floor(entity.speed)+1) or twin:test_obstacles(0, math.floor(twin.speed+1)) then
+      --reset speed if there an obstacle to either of the twins' movement
+      debug_print (entity:get_name().." cannot move (position: X "..x..", Y "..y)
+      entity.speed=0
+    else
+      --Compute the new position
+      true_y=true_y+entity.speed
+      entity:set_position(x, true_y)
+      --update old position
+     
+    end 
+  end
+  _, old_y = entity:get_bounding_box()
+  return true
+end)
 
 -- Event called when the custom entity is initialized.
 entity:register_event("on_created", function(entity)
