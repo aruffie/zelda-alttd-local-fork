@@ -487,6 +487,12 @@ function item:start_using()
   item:set_finished()
 end
 
+
+function item:on_using()
+  item:start_using()
+  item:set_finished()
+end
+
 -- Initialize the metatable of appropriate entities to work with the hookshot.
 local function initialize_meta()
 

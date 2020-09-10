@@ -112,6 +112,11 @@ function item:start_using()
   end
 end
 
+function item:on_using()
+  item:start_using()
+  item:set_finished()
+end
+
 -- Function called when the amount changes.
 function item:on_amount_changed(amount)
 
