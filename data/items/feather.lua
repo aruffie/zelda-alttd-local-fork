@@ -64,6 +64,11 @@ function item:start_using()
 
 end
 
+function item:on_using()
+  item:start_using()
+  item:set_finished()
+end
+
 -- Play fanfare sound on obtaining.
 function item:on_obtaining()
   audio_manager:play_sound("items/fanfare_item_extended")

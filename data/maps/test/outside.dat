@@ -1385,6 +1385,7 @@ jumper{
 }
 
 chest{
+  name = "bracelet",
   layer = 0,
   x = 112,
   y = 141,
@@ -1429,6 +1430,7 @@ teletransporter{
 }
 
 chest{
+  name = "flippers",
   layer = 0,
   x = 96,
   y = 141,
@@ -1453,6 +1455,7 @@ chest{
 }
 
 chest{
+  name = "feather",
   layer = 0,
   x = 160,
   y = 141,
@@ -1461,6 +1464,7 @@ chest{
 }
 
 chest{
+  name = "shoes",
   layer = 0,
   x = 144,
   y = 141,
@@ -1953,6 +1957,7 @@ teletransporter{
 }
 
 chest{
+  name = "bow",
   layer = 0,
   x = 128,
   y = 141,

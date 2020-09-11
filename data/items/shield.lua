@@ -67,7 +67,6 @@ local block_sound_id = "shield2"
 local strong_sound_id = "shield"
 local weak_sound_id = "shield_push"
 
-local audio_manager = require("scripts/audio_manager")
 require("scripts/maps/pushing_manager")
 
 -- Event called when the game is initialized.
