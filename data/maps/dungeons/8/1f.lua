@@ -2,6 +2,8 @@
 local map = ...
 local game = map:get_game()
 
+
+
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
 local door_manager = require("scripts/maps/door_manager")
@@ -11,6 +13,9 @@ local separator_manager = require("scripts/maps/separator_manager")
 local switch_manager = require("scripts/maps/switch_manager")
 local treasure_manager = require("scripts/maps/treasure_manager")
 require("scripts/multi_events")
+
+-- FSA settings
+map.fsa_lava = true
 
 -----------------------
 -- Map events

@@ -66,7 +66,7 @@ local audio_manager = require('scripts/audio_manager')
 
 -- Event called when the player pressed a keyboard key.
 function sol.main:on_key_pressed(key, modifiers)
-
+  print(key)
   local handled = false
   local game = sol.main.get_game()
   

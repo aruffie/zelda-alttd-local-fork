@@ -1517,6 +1517,7 @@ font{ id = "la", description = "Link's Awakening" }
 font{ id = "white_digits", description = "White digits" }
 
 shader{ id = "6xbrz", description = "6xbrz" }
+shader{ id = "blur", description = "Blur" }
 shader{ id = "cast_shadow1d", description = "cast_shadow1d" }
 shader{ id = "distorsion", description = "Distorsion effect" }
 shader{ id = "distort", description = "Distort with a aux tex" }
@@ -1524,6 +1525,8 @@ shader{ id = "electric", description = "Electric effect" }
 shader{ id = "fire_dist", description = "Fire distortion" }
 shader{ id = "gb", description = "GB filter" }
 shader{ id = "heat_wave", description = "Heat distorsion" }
+shader{ id = "lava_bloom", description = "Lava Bloom" }
+shader{ id = "lava_filter", description = "Lava filter" }
 shader{ id = "lcd", description = "LCD filter" }
 shader{ id = "mode_7", description = "Mode 7" }
 shader{ id = "pixellisation", description = "Pixellisation effect" }
