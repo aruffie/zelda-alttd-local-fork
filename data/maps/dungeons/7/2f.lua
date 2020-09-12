@@ -61,8 +61,8 @@ end
 -- Start movement to make iron blocks close the way out.
 local function start_blocks_closing()
 
-  start_straight_movement(block_1_1, 3 * math.pi / 2, 16, 2)
-  start_straight_movement(block_1_2, math.pi / 2, 16, 2)
+  start_straight_movement(block_1_1, 3 * math.pi / 2, 16 - select(2, block_1_1:get_position()) + block_1_1.start_y, 2)
+  start_straight_movement(block_1_2, math.pi / 2, 16 - block_1_2.start_y + select(2, block_1_2:get_position()), 2)
 end
 
 -- Call start_blocks_closing when the pull handle is dropped.
@@ -244,7 +244,7 @@ start_tower_cinematic_on_all_collapse_finished("pillar_")
 -- Sensor events
 -----------------------
 
--- Replace blocks in the iron ball room.
+-- Replace blocks when entering the pull handle room.
 function sensor_2:on_activated()
   reset_blocks()
 end

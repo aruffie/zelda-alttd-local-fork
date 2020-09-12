@@ -34,6 +34,13 @@ local go_back_speed = 64
 local appearing_duration = 1000
 local before_go_back_delay = 600
 
+-- Get the upper-left grid node coordinates of the enemy position.
+local function get_grid_position()
+
+  local position_x, position_y, _ = enemy:get_position()
+  return position_x - position_x % 8, position_y - position_y % 8
+end
+
 -- Start charging to the given angle.
 local function start_charging_movement(angle, speed)
 
@@ -119,7 +126,7 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(2)
   enemy:set_size(24, 24)
   enemy:set_origin(12, 12)
-  enemy:set_position(enemy:get_grid_position()) -- Set position to the center of the current 16*16 case instead of 8, 13.
+  enemy:set_position(get_grid_position()) -- Set the position to the center of the current 16*16 case instead of 8, 13.
 
   head_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
   for i = 1, 3 do

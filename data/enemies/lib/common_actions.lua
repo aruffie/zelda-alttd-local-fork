@@ -11,7 +11,6 @@
 --           enemy:is_watched([sprite, [fully_visible]])
 --           enemy:get_angle_from_sprite(sprite, entity)
 --           enemy:get_central_symmetry_position(x, y)
---           enemy:get_grid_position()
 --           enemy:get_obstacles_normal_angle()
 --           enemy:get_obstacles_bounce_angle([angle])
 --
@@ -166,13 +165,6 @@ function common_actions.learn(enemy)
 
     local enemy_x, enemy_y, _ = enemy:get_position()
     return 2.0 * x - enemy_x, 2.0 * y - enemy_y
-  end
-
-  -- Get the upper-left grid node coordinates of the enemy position.
-  function enemy:get_grid_position()
-
-    local position_x, position_y, _ = enemy:get_position()
-    return position_x - position_x % 8, position_y - position_y % 8
   end
 
   -- Return the normal angle of close obstacles as a multiple of pi/4, or nil if none.
