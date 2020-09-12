@@ -48,10 +48,10 @@ end
 -- Start movement to make iron blocks close the way out.
 local function start_blocks_closing()
 
-  start_straight_movement(block_1_1, 3 * math.pi / 2, 16, 2)
-  start_straight_movement(block_1_2, math.pi / 2, 16, 2)
-  start_straight_movement(block_1_3, 0, 16, 2)
-  start_straight_movement(block_1_4, 2 * math.pi / 2, 16, 2)
+  start_straight_movement(block_1_1, 3 * math.pi / 2, 16 - select(2, block_1_1:get_position()) + block_1_1.start_y, 2)
+  start_straight_movement(block_1_2, math.pi / 2, 16 - block_1_2.start_y + select(2, block_1_2:get_position()), 2)
+  start_straight_movement(block_1_3, 0, 16 - select(1, block_1_3:get_position()) + block_1_3.start_x, 2)
+  start_straight_movement(block_1_4, 2 * math.pi / 2, 16 - block_1_4.start_x + select(1, block_1_4:get_position()), 2)
 end
 
 -- Call start_blocks_closing when the pull handle is dropped.
@@ -190,7 +190,7 @@ function sensor_11:on_activated()
   sensor_10:on_activated()
 end
 
--- Replace blocks in the pull handle room.
+-- Replace blocks when entering the pull handle room.
 function sensor_14:on_activated()
   reset_blocks()
 end

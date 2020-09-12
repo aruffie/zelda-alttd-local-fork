@@ -3639,7 +3639,7 @@ Terreur des Sables
 dialog{
   id = "maps.out.yarna_desert.boss_name",
   text = [[
-Lemnola
+Desert Lanmola
 ]],
 }
 
