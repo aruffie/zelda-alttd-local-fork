@@ -8,10 +8,12 @@ local tmp = sol.surface.create(sol.video.get_quest_size())
 local reflection = sol.surface.create(sol.video.get_quest_size())
 local fsa_texture = sol.surface.create(sol.video.get_quest_size())
 
-local half_screen_scale = 1 / 2
+local half_screen_scale = 1 / 1
 local half_screen = sol.surface.create(quest_w * half_screen_scale, quest_h * half_screen_scale)
 half_screen:set_scale(1 / half_screen_scale, 1 / half_screen_scale)
 half_screen:set_blend_mode("add")
+local glow_acc = sol.surface.create(quest_w, quest_h)
+glow_acc:set_blend_mode("add")
 
 local blur_shader = sol.shader.create"blur"
 local lava_filter = sol.shader.create"lava_filter"
@@ -380,7 +382,9 @@ function fsa:on_map_draw(map, dst)
   end
   
   if map.fsa_lava then
-    half_screen:draw(dst)
+    glow_acc:fill_color({0,0,0,10})
+    half_screen:draw(glow_acc)
+    glow_acc:draw(dst)
   end
   
   if true then
