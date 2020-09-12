@@ -1,6 +1,7 @@
 -----------------------
 -- Variables
 -----------------------
+
 local map = ...
 local game = map:get_game()
 local is_small_boss_active = false
@@ -9,6 +10,7 @@ local is_boss_active = false
 -----------------------
 -- Include scripts
 -----------------------
+
 require("scripts/multi_events")
 local audio_manager = require("scripts/audio_manager")
 local door_manager = require("scripts/maps/door_manager")
