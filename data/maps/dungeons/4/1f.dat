@@ -12043,6 +12043,114 @@ tile{
   pattern = "wall.corner.1-2",
 }
 
+tile{
+  layer = 0,
+  x = 1776,
+  y = 784,
+  width = 8,
+  height = 8,
+  pattern = "hole.corner_reverse.1",
+}
+
+tile{
+  layer = 0,
+  x = 1776,
+  y = 776,
+  width = 8,
+  height = 8,
+  pattern = "hole.3",
+}
+
+tile{
+  layer = 0,
+  x = 1768,
+  y = 784,
+  width = 8,
+  height = 8,
+  pattern = "hole.1",
+}
+
+tile{
+  layer = 0,
+  x = 1808,
+  y = 784,
+  width = 8,
+  height = 8,
+  pattern = "hole.1",
+}
+
+tile{
+  layer = 0,
+  x = 1808,
+  y = 808,
+  width = 8,
+  height = 8,
+  pattern = "hole.2",
+}
+
+tile{
+  layer = 0,
+  x = 1768,
+  y = 808,
+  width = 8,
+  height = 8,
+  pattern = "hole.2",
+}
+
+tile{
+  layer = 0,
+  x = 1776,
+  y = 816,
+  width = 8,
+  height = 8,
+  pattern = "hole.3",
+}
+
+tile{
+  layer = 0,
+  x = 1800,
+  y = 816,
+  width = 8,
+  height = 8,
+  pattern = "hole.4",
+}
+
+tile{
+  layer = 0,
+  x = 1776,
+  y = 808,
+  width = 8,
+  height = 8,
+  pattern = "hole.corner_reverse.3",
+}
+
+tile{
+  layer = 0,
+  x = 1800,
+  y = 808,
+  width = 8,
+  height = 8,
+  pattern = "hole.corner_reverse.4",
+}
+
+tile{
+  layer = 0,
+  x = 1800,
+  y = 776,
+  width = 8,
+  height = 8,
+  pattern = "hole.4",
+}
+
+tile{
+  layer = 0,
+  x = 1800,
+  y = 784,
+  width = 8,
+  height = 8,
+  pattern = "hole.corner_reverse.2",
+}
+
 wall{
   layer = 0,
   x = 472,
@@ -12831,9 +12939,9 @@ dynamic_tile{
 dynamic_tile{
   name = "invisible_tile_11",
   layer = 0,
-  x = 712,
+  x = 720,
   y = 1392,
-  width = 120,
+  width = 112,
   height = 8,
   pattern = "2485",
 }
@@ -14034,9 +14142,9 @@ dynamic_tile{
 dynamic_tile{
   name = "invisible_tile_40",
   layer = 0,
-  x = 2096,
+  x = 2088,
   y = 848,
-  width = 32,
+  width = 40,
   height = 8,
   pattern = "2485",
 }
