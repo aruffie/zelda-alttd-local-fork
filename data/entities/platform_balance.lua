@@ -1,6 +1,6 @@
 --[[
 
-  Twin platforms
+  Twin platforms v1.0
   
   When one goes up, the other one goes down.
   And what's even cooler is that it manages it's own chain. No extra entity required!
@@ -14,16 +14,22 @@
     -It must finish the caracter "_", following by either 1 or 2
   If configures correctly, then their movements shound be mirrored when stepped on
   
+  TODO:
+  At the moment, their reset on region change is handled by an external script script.
+  In a future revision, it may be better to have this done in this very script
+  to avoid depencancy issues (and allow to enable external resettingvia a configuration  variable in this script).
+  
 --]]
+
+-- config
+local max_speed=1
 
 -- Variables
 local entity = ...
 
 local game = entity:get_game()
 local hero = game:get_hero()
-local max_dy=1
-local accel = 0.1
-local accel_duration = 1
+
 local old_y=0
 local true_y
 local initial_y
@@ -43,7 +49,6 @@ local function is_on_platform(entity, other)
   end
   return false
 end
-
 
 sol.timer.start(entity, 10, function()
     local entity_x, entity_y, entity_w, entity_h=entity:get_bounding_box()
@@ -74,9 +79,9 @@ sol.timer.start(entity, 10, function()
     if not is_on_platform(entity, hero) or is_on_platform(twin, hero) then
       --slowly decelerate
       if entity.speed>0 then
-        entity.speed = math.max(entity.speed-0.01*max_dy, 0)
+        entity.speed = math.max(entity.speed-0.01*max_speed, 0)
       else
-        entity.speed = math.min(entity.speed+0.01*max_dy, 0)
+        entity.speed = math.min(entity.speed+0.01*max_speed, 0)
       end
     end
 
@@ -137,7 +142,7 @@ entity:add_collision_test(
     local x,y=entity:get_bounding_box()
     if other:get_type()=="hero" then
       --Downward acceleration
-      entity.speed = math.min(entity.speed+0.01*max_dy/2, max_dy)
+      entity.speed = math.min(entity.speed+0.01*max_speed/2, max_speed)
       twin.speed=-entity.speed
     end
 

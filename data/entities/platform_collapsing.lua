@@ -11,16 +11,18 @@
 
 --]]
 
+-- config
+local collapsing_speed = 22
+
 -- Variables
 local entity = ...
 local game = entity:get_game()
 local hero = game:get_hero()
 local sprite
 local movement
-local max_speed = 22
 local solidified=true
-local old_x, old_y
-
+local old_y, initial_y
+local reset_timer=0
 local needs_carrying
 -- Include scripts
 require("scripts/multi_events")
@@ -32,37 +34,37 @@ entity:register_event("on_position_changed", function(entity, x,y,layer)
         local xx, yy = other:get_position()
         local entity_x,entity_y, entity_w, entity_h=entity:get_bounding_box()
         local other_x, other_y, other_w, other_h = other:get_bounding_box()
-        local dx, dy = entity_x-old_x, entity_y-old_y
+        local dy = entity_y-old_y
         if other_x+other_w<=entity_x+entity_w and other_x>=entity_x and other_y+other_h>=entity_y-1 then
           other:set_position(xx, yy+dy)
         end
       end
     end
-    old_x, old_y=entity:get_bounding_box()
+    _, old_y=entity:get_bounding_box()
   end)
 -- Event called when the custom entity is initialized.
 entity:register_event("on_created", function()
 
     sprite = entity:get_sprite()
     entity:set_traversable_by(false)
-
     --Set whether the hero needs to be carrying a to make the entity move when stepping on it
     needs_carrying = entity:get_property("needs_carrying") 
     needs_carrying = not(needs_carrying == nil or needs_carrying=="false")
-
+    movement_validated=not needs_carrying
+    _, initial_y=entity:get_position()
     --Create the vertical movement, but do not alloy to move yet
     movement = sol.movement.create("straight")
     movement:set_speed(0)
     movement:set_angle(3*math.pi/2)
     movement:set_max_distance(0)
     movement:start(entity)
-    old_x, old_y=entity:get_bounding_box()
+    _, old_y=entity:get_bounding_box()
   end)
 
 sol.timer.start(entity, 10, function()
     local entity_x, entity_y, entity_w, entity_h = entity:get_bounding_box()
     local ex, ey=entity:get_position()
-    local dx, dy = entity_x-old_x, entity_y-old_y
+    local dy = entity_y-old_y
 
     local found=false
     for other in entity:get_map():get_entities("hero") do 
@@ -97,7 +99,18 @@ sol.timer.start(entity, 10, function()
       local state = hero:get_state()
 
       if not needs_carrying or hero:get_state() == "carrying" then
-        speed=max_speed
+        speed=collapsing_speed
+        
+      elseif needs_carrying then --Slowly reset platform height
+        reset_timer=math.min(100, reset_timer+1)
+        if reset_timer==100 then
+          local x,y=entity:get_position()
+          if y>initial_y then
+            speed=-collapsing_speed/2
+          else
+            entity:set_position(x,initial_y)
+          end
+        end
       end
 
       --Display the angry visage (or whathever is used to mark the carriable requirement
