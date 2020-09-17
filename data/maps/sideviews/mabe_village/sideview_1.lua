@@ -49,7 +49,7 @@ local function make_fish(size, y, region, catch_callback)
           -- check periodically if there is the hook in sight
           local fx, fy = self:get_position()
           local lx, ly = ledger_hook:get_position()
-          if math.abs(ly-fy) < 16 then
+          if math.abs(ly-fy) < 16 and bitten_fish == nil then
             -- on the same line
             local close_enough = math.abs(fx-lx) < 50
             if (close_enough and fx < lx and self:get_direction() == 0) or
@@ -59,7 +59,6 @@ local function make_fish(size, y, region, catch_callback)
               mov:set_angle(self:get_angle(ledger_hook))
               sprite:set_animation("chase")
               chasing = true
-              
             end
           else
             mov:set_speed(stroll_speed)
@@ -68,11 +67,11 @@ local function make_fish(size, y, region, catch_callback)
             sprite:set_animation("normal")
             chasing = false
           end
-          
+
           self.chasing = chasing
           return true
         end)
-      
+
       -- turn itself from time to time
       local t2 = sol.timer.start(self, 4000, function()
         if chasing then return true end
@@ -83,7 +82,7 @@ local function make_fish(size, y, region, catch_callback)
         end
         return true
       end)
-      
+
       -- disable auto move, called when fish is caught
       function self:cancel_timers()
         t1:stop()
@@ -91,36 +90,38 @@ local function make_fish(size, y, region, catch_callback)
       end
     end)
   end
-  
+
   -- turn around when reaching obstacle
   function mov:on_obstacle_reached()
     mov:set_angle(mov:get_angle() + math.pi)
   end
 
   fish:add_collision_test('sprite', function(this, other)
-    if other == ledger_hook and fish.chasing then
-      --was chasing and reached ledger, bite !
+    if other == ledger_hook and fish.chasing and bitten_fish == nil then
+      -- was chasing and reached ledger, bite !
       fish:cancel_timers()
       mov:set_speed(0)
-      if bitten_fish then
-        -- previously bitting fish is released
-        bitten_fish:start_stroll()
-      end
+      sprite:set_frame(0)
+      sprite:set_paused(true)
 
       -- fix fish position to ledger position
       function ledger_hook:on_position_changed()
         local x,y = ledger_hook:get_position()
-        fish:set_position(x-4,y+4)
+        fish:set_position(x-4, y+4)
         sprite:set_direction(0)
       end
       bitten_fish = fish
     end
   end)
-  
+
   function fish:on_movement_changed(mov)
     sprite:set_direction(mov:get_direction4())
   end
-  
+
+  function mov:on_position_changed()
+    sprite:set_direction(mov:get_direction4())
+  end
+
   fish:start_stroll()
   
   return fish
@@ -329,7 +330,7 @@ end
 
 catch_zone:add_collision_test('overlapping', function(this, other)
   if state == 'pulling' and other == ledger_hook then
-    if bitten_fish then
+    if bitten_fish ~= nil then
       -- fish was caught !
       local callback = bitten_fish.catch_callback
       bitten_fish:remove()
