@@ -20300,6 +20300,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/decorations/bubble_lava",
+  model = "bubble",
 }
 
 custom_entity{
@@ -20311,6 +20312,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/decorations/bubble_lava",
+  model = "bubble",
 }
 
 custom_entity{
@@ -20322,6 +20324,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/decorations/bubble_lava",
+  model = "bubble",
 }
 
 custom_entity{
@@ -20333,6 +20336,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/decorations/bubble_lava",
+  model = "bubble",
 }
 
 custom_entity{
@@ -20344,6 +20348,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/decorations/bubble_lava",
+  model = "bubble",
 }
 
 custom_entity{
@@ -20355,6 +20360,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/decorations/bubble_lava",
+  model = "bubble",
 }
 
 custom_entity{
@@ -20366,6 +20372,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/decorations/bubble_lava",
+  model = "bubble",
 }
 
 custom_entity{
@@ -20377,6 +20384,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/decorations/bubble_lava",
+  model = "bubble",
 }
 
 jumper{
@@ -20881,6 +20889,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/decorations/bubble_lava",
+  model = "bubble",
 }
 
 custom_entity{
@@ -20892,6 +20901,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/decorations/bubble_lava",
+  model = "bubble",
 }
 
 custom_entity{
@@ -20903,6 +20913,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/decorations/bubble_lava",
+  model = "bubble",
 }
 
 custom_entity{
@@ -20914,6 +20925,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/decorations/bubble_lava",
+  model = "bubble",
 }
 
 custom_entity{
@@ -20925,6 +20937,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/decorations/bubble_lava",
+  model = "bubble",
 }
 
 custom_entity{
@@ -20936,6 +20949,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/decorations/bubble_lava",
+  model = "bubble",
 }
 
 custom_entity{
@@ -20947,6 +20961,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/decorations/bubble_lava",
+  model = "bubble",
 }
 
 custom_entity{
@@ -20958,6 +20973,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/decorations/bubble_lava",
+  model = "bubble",
 }
 
 custom_entity{
@@ -20969,6 +20985,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/decorations/bubble_lava",
+  model = "bubble",
 }
 
 custom_entity{
@@ -20980,6 +20997,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/decorations/bubble_lava",
+  model = "bubble",
 }
 
 custom_entity{
@@ -20991,6 +21009,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/decorations/bubble_lava",
+  model = "bubble",
 }
 
 custom_entity{
@@ -21002,6 +21021,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/decorations/bubble_lava",
+  model = "bubble",
 }
 
 custom_entity{
@@ -21013,6 +21033,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/decorations/bubble_lava",
+  model = "bubble",
 }
 
 custom_entity{
@@ -21024,6 +21045,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/decorations/bubble_lava",
+  model = "bubble",
 }
 
 dynamic_tile{

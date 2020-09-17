@@ -1092,7 +1092,7 @@ Pour vaincre le monstre noir à  la carapace, fais-lui manger un plat pimenté.
 dialog{
   id = "maps.dungeons.3.owl_2",
   text = [[
-Si ton épée ne peut vaincre un squelette, essaie une bombe.
+Si loin...Ne crains rien. Fonce et vole!
 ]],
 }
 
