@@ -1,5 +1,5 @@
 animation{
-  name = "default",
+  name = "walking",
   src_image = "entities/decorations/bubble_lava.png",
   frame_delay = 100,
   frame_to_loop_on = 0,
@@ -8,5 +8,15 @@ animation{
     { x = 0, y = 0, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13, num_frames = 11 },
     { x = 0, y = 0, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13, num_frames = 11 },
     { x = 0, y = 0, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13, num_frames = 11 },
+  },
+}
+animation{
+  name = "default",
+  src_image = "entities/decorations/bubble_lava.png",
+  directions = {
+    { x = 160, y = 0, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13 },
+    { x = 160, y = 0, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13 },
+    { x = 160, y = 0, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13 },
+    { x = 160, y = 0, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13 },
   },
 }
