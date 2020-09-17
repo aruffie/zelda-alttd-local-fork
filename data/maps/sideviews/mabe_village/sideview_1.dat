@@ -263,6 +263,26 @@ custom_entity{
   direction = 0,
 }
 
+custom_entity{
+  name = "big_fish_placeholder_1",
+  layer = 0,
+  x = 248,
+  y = 165,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+custom_entity{
+  name = "big_fish_placeholder_2",
+  layer = 0,
+  x = 24,
+  y = 205,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
 tile{
   layer = 1,
   x = 0,

@@ -29,6 +29,14 @@ local function make_fish(size, x, y, layer, catch_callback)
 
   local stroll_speed = 12
   local chase_speed = 24
+  local turn_delay, turn_probability
+  if size == "big" then
+    turn_delay = 1500
+    turn_probability = 1.0
+  else
+    turn_delay = 4000
+    turn_probability = 0.5
+  end
 
   local chasing = false
 
@@ -70,12 +78,12 @@ local function make_fish(size, x, y, layer, catch_callback)
         end)
 
       -- turn itself from time to time
-      local t2 = sol.timer.start(self, 4000, function()
-        if chasing then return true end
-        if math.random(2) > 1 then
-          mov:set_angle(0)
-        else
-          mov:set_angle(math.pi)
+      local t2 = sol.timer.start(self, turn_delay, function()
+        if chasing then
+          return true
+        end
+        if math.random() < turn_probability then
+          mov:set_angle(math.pi - mov:get_angle())
         end
         return true
       end)
@@ -139,23 +147,32 @@ local function small_fish_treasure()
   end)
 end
 
+local function big_fish_treasure_rupees()
+  -- TODO
+end
+
+local function big_fish_treasure_piece_of_heart()
+  -- TODO
+end
+
 -- Add the random fishes in the pool.
 local function add_fishes()
   local line_count = 4
 
   local left, top, width, height = water_ent:get_bounding_box()
-  local layer = water_ent:get_layer()
 
   for i = 0, line_count - 1 do
     local x = math.random(left + 20, left + width - 20)
     local y = top + height * (i / line_count) + math.random(8, 12)
+    local layer = water_ent:get_layer()
     make_fish("small", x, y, layer, small_fish_treasure)
   end
 
-  -- TODO add
-  -- - 1 big with a piece of heart
-  -- - 1 big with 20 rupees
-  -- - all small ones give 5 rupees
+  local x, y, layer = big_fish_placeholder_1:get_position()
+  make_fish("big", x, y, layer, big_fish_treasure_piece_of_heart)
+
+  x, y, layer = big_fish_placeholder_2:get_position()
+  make_fish("big", x, y, layer, big_fish_treasure_rupees)
 end
 
 function map:init_music()
