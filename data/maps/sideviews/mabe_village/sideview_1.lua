@@ -242,6 +242,7 @@ end
 
 local function launch_ledger()
   map:start_coroutine(function()
+    state = "launching"
     local options = {
       --entities_ignore_suspend = {ledger_hook}
     }
