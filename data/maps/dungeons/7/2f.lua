@@ -10,12 +10,14 @@
 -----------------------
 -- Variables
 -----------------------
+
 local map = ...
 local game = map:get_game()
 
 -----------------------
 -- Include scripts
 -----------------------
+
 local audio_manager = require("scripts/audio_manager")
 local door_manager = require("scripts/maps/door_manager")
 local treasure_manager = require("scripts/maps/treasure_manager")
@@ -30,6 +32,7 @@ require("scripts/multi_events")
 -----------------------
 -- Map events
 -----------------------
+
 -- Start a straight movement on an entity.
 local function start_straight_movement(entity, angle, distance, speed)
 
@@ -41,7 +44,7 @@ local function start_straight_movement(entity, angle, distance, speed)
   movement:start(entity)
 end
 
--- Move iron blocks on y axis each time the handle is pulling.
+-- Move iron blocks on given angle each time the handle is pulling.
 local function move_block_on_handle_pulled(block, angle, max_distance)
 
   pull_handle:register_event("on_pulling", function(pull_handle, movement_count)
@@ -58,8 +61,8 @@ end
 -- Start movement to make iron blocks close the way out.
 local function start_blocks_closing()
 
-  start_straight_movement(block_1_1, 3 * math.pi / 2, 16, 2)
-  start_straight_movement(block_1_2, math.pi / 2, 16, 2)
+  start_straight_movement(block_1_1, 3 * math.pi / 2, 16 - select(2, block_1_1:get_position()) + block_1_1.start_y, 2)
+  start_straight_movement(block_1_2, math.pi / 2, 16 - block_1_2.start_y + select(2, block_1_2:get_position()), 2)
 end
 
 -- Call start_blocks_closing when the pull handle is dropped.
@@ -68,6 +71,16 @@ local function start_blocks_closing_on_handle_dropped()
   pull_handle:register_event("on_released", function(pull_handle)
     start_blocks_closing()
   end)
+end
+
+-- Reset blocks position and start closing.
+local function reset_blocks()
+
+  for i = 1, 2 do
+    local block = map:get_entity("block_1_" .. i)
+    block:set_position(block.start_x, block.start_y, block.start_layer)
+  end
+  start_blocks_closing()
 end
 
 -- Save iron ball position when the throw ends.
@@ -163,13 +176,16 @@ function map:on_started()
   iron_ball:set_position(map_tools.get_entity_saved_position(iron_ball)) -- Keep iron ball position even if the game was closed.
 
   -- Blocks
-  block_1_1.start_x, block_1_1.start_y, block_1_1.start_layer = block_1_1:get_position()
-  block_1_2.start_x, block_1_2.start_y, block_1_2.start_layer = block_1_2:get_position()
+  for i = 1, 2 do
+    local block = map:get_entity("block_1_" .. i)
+    block.start_x, block.start_y, block.start_layer = block:get_position()
+  end
 end
 
 -----------------------
 -- Doors events
 -----------------------
+
 wallturn:add_collision_test("touching", function(wallturn, hero)
   door_group_1_1:set_open()
   flying_tile_manager:reset(map, "enemy_group_10")
@@ -194,6 +210,7 @@ end)
 -----------------------
 -- Enemies events
 -----------------------
+
 enemy_manager:execute_when_vegas_dead(map, "enemy_group_3_")
 enemy_manager:execute_when_vegas_dead(map, "enemy_group_7_")
 hinox_master:register_event("on_dead", function(hinox_master)
@@ -206,6 +223,7 @@ enemy_group_8_2:set_shooting(game:get_value("dungeon_7_hinox_master") or false)
 -----------------------
 -- Treasures events
 -----------------------
+
 treasure_manager:appear_chest_when_horse_heads_upright(map, "horse_head_", "chest_map")
 treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_3_", "chest_compass")
 treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_7_", "chest_bomb_1")
@@ -214,6 +232,7 @@ treasure_manager:appear_pickable_when_enemies_dead(map, "hinox_master", "pickabl
 -----------------------
 -- Entities events
 -----------------------
+
 move_block_on_handle_pulled(block_1_1, math.pi / 2, 4)
 move_block_on_handle_pulled(block_1_2, 3 * math.pi / 2, 4)
 start_blocks_closing_on_handle_dropped()
@@ -222,22 +241,16 @@ start_breaking_on_hit_by_iron_ball("pillar_")
 start_tower_cinematic_on_all_collapse_finished("pillar_")
 
 -----------------------
--- Separators
+-- Sensor events
 -----------------------
--- Replace blocks in the iron ball room.
-auto_separator_3:register_event("on_activating", function(separator, direction4)
-  if direction4 == 0 then
-    block_1_1:set_position(block_1_1.start_x, block_1_1.start_y, block_1_1.start_layer)
-    block_1_2:set_position(block_1_2.start_x, block_1_2.start_y, block_1_2.start_layer)
-    start_blocks_closing()
-  end
-end)
-auto_separator_5:register_event("on_activating", function(separator, direction4)
-  if direction4 == 1 then
-    block_1_1:set_position(block_1_1.start_x, block_1_1.start_y, block_1_1.start_layer)
-    block_1_2:set_position(block_1_2.start_x, block_1_2.start_y, block_1_2.start_layer)
-    start_blocks_closing()
-  end
-end)
+
+-- Replace blocks when entering the pull handle room.
+function sensor_2:on_activated()
+  reset_blocks()
+end
+
+function sensor_3:on_activated()
+  reset_blocks()
+end
 
 separator_manager:init(map)

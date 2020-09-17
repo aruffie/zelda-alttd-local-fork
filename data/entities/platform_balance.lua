@@ -1,6 +1,6 @@
 --[[
 
-  Twin platforms
+  Twin platforms v1.0
   
   When one goes up, the other one goes down.
   And what's even cooler is that it manages it's own chain. No extra entity required!
@@ -14,20 +14,25 @@
     -It must finish the caracter "_", following by either 1 or 2
   If configures correctly, then their movements shound be mirrored when stepped on
   
+  TODO:
+  At the moment, their reset on region change is handled by an external script script.
+  In a future revision, it may be better to have this done in this very script
+  to avoid depencancy issues (and allow to enable external resettingvia a configuration  variable in this script).
+  
 --]]
+
+-- config
+local max_speed=1
 
 -- Variables
 local entity = ...
 
 local game = entity:get_game()
 local hero = game:get_hero()
-local max_dy=1
-local accel = 0.1
-local accel_duration = 1
-local old_x=0
+
 local old_y=0
-local true_x, true_y
-local initial_x, initial_y
+local true_y
+local initial_y
 entity.speed=0
 local twin=nil
 local chain=nil
@@ -40,18 +45,16 @@ local function is_on_platform(entity, other)
   if entity~=other and other:get_type()~="camera" and other~=chain then
     local x, y, w, h = entity:get_bounding_box()
     local other_x, other_y, other_w, other_h = other:get_bounding_box()
-    return other_x < x+w and other_x+other_w > x and other_y <= y-1 and other_y+other_h >= y-1
+    return other_x < x+w and other_x+other_w > x and other_y+other_h <= y+1 and other_y+other_h >= y-1
   end
   return false
 end
 
-
-
-sol.timer.start(entity, 10, function() 
+sol.timer.start(entity, 10, function()
     local entity_x, entity_y, entity_w, entity_h=entity:get_bounding_box()
     local hero_x, hero_y, hero_w, hero_h=hero:get_bounding_box()
     local x, y=entity:get_position()
-    local dx, dy = x-old_x, y-old_y
+    local dy = y-old_y
 
     if hero_y+hero_h <= entity_y+1 then
 
@@ -59,8 +62,8 @@ sol.timer.start(entity, 10, function()
 --        debug_print "ME SOLID NOW"
         solidified = true
         entity:set_traversable_by("hero", false)
-        if hero_x+hero_w<=entity_x+entity_w and hero_x>=entity_x and hero_y<=entity_y+entity_h-1 and hero_y+hero_h>=entity_y-1 then
-          hero:set_position(hero_x+dx, hero_y+dy)
+        if hero_x+hero_w<=entity_x+entity_w and hero_x>=entity_x and hero_y+hero_h<=entity_y and hero_y+hero_h>=entity_y-1 then
+          hero:set_position(hero_x, hero_y+dy)
         end
       end
 
@@ -73,26 +76,29 @@ sol.timer.start(entity, 10, function()
       end
     end
 
-    if is_on_platform(entity, hero)==false or is_on_platform(twin, hero) then
+    if not is_on_platform(entity, hero) or is_on_platform(twin, hero) then
       --slowly decelerate
       if entity.speed>0 then
-        entity.speed = math.max(entity.speed-0.01*max_dy, 0)
+        entity.speed = math.max(entity.speed-0.01*max_speed, 0)
       else
-        entity.speed = math.min(entity.speed+0.01*max_dy, 0)
+        entity.speed = math.min(entity.speed+0.01*max_speed, 0)
       end
     end
 
-    if entity:test_obstacles(0, math.floor(entity.speed)+1) or twin:test_obstacles(0, math.floor(twin.speed+1)) then
-      --reset speed if there an obstacle under either of the twins
-      debug_print (entity:get_name().." cannot move (position: X "..x..", Y "..y)
-      entity.speed=0
-    else
-      --Compute the new position
-      true_y=true_y+entity.speed
-      entity:set_position(true_x, true_y)
-      --update old position
-      old_x, old_y = entity:get_bounding_box()
+    if entity.speed~=0 or twin.speed~=0 then
+      if entity:test_obstacles(0, math.floor(entity.speed)+1) or twin:test_obstacles(0, math.floor(twin.speed+1)) then
+        --reset speed if there an obstacle to either of the twins' movement
+        debug_print (entity:get_name().." cannot move (position: X "..x..", Y "..y)
+        entity.speed=0
+      else
+        --Compute the new position
+        true_y=true_y+entity.speed
+        entity:set_position(x, true_y)
+        --update old position
+
+      end 
     end
+    _, old_y = entity:get_bounding_box()
     return true
   end)
 
@@ -103,15 +109,16 @@ entity:register_event("on_created", function(entity)
     twin = entity:get_map():get_entity(name:sub(1, -3).."_"..(3-tonumber(name:sub(-1)))) 
 
     --Set me up
-    old_x, old_y=entity:get_bounding_box()
+    _, old_y=entity:get_bounding_box()
     entity:set_traversable_by(false)
     entity.is_on_twin=false
     local true_layer
-    true_x, true_y = entity:get_position()
-    initial_x, initial_y = entity:get_position()
+    local x
+    x, true_y = entity:get_position()
+    _, initial_y = entity:get_position()
     --Create it's chain
     chain = entity:get_map():create_custom_entity({
-        x=true_x,
+        x=x,
         y=true_y%16,
         layer=entity:get_layer(),
         direction = 0,
@@ -135,24 +142,25 @@ entity:add_collision_test(
     local x,y=entity:get_bounding_box()
     if other:get_type()=="hero" then
       --Downward acceleration
-      entity.speed = math.min(entity.speed+0.01*max_dy/2, max_dy)
+      entity.speed = math.min(entity.speed+0.01*max_speed/2, max_speed)
       twin.speed=-entity.speed
     end
 
     --Move the other entity with me
-    local dx, dy = x-old_x, y-old_y
+    local dy = y-old_y
     local other_x, other_y = other:get_position()
     if not other:test_obstacles(0, dy) then
-      other:set_position(other_x+dx, other_y+dy)
+      other:set_position(other_x, other_y+dy)
     end
   end
 )
 
-function entity.reset(platform)
-  --print ("reseting "..platform:get_name()..". Initial position was ("..initial_x..", "..initial_y..")")
-  platform.speed=0
-  true_x=initial_x
+function entity:reset()
+  debug_print ("reseting "..self:get_name().." - Initial Y-coord was "..initial_y)
+  self.speed=0
   true_y=initial_y
+  local x=self:get_position()
+  entity:set_position(x,initial_y)
 end
 
 function entity:on_removed()
@@ -179,7 +187,6 @@ end
 
 --Synchronizes the associated chain
 function entity:on_position_changed(x,y,layer)
-  local dy = old_y+13
-  chain:set_position(old_x+8, dy%16) 
-  chain:set_size(16, math.max(8, dy-(dy%16)))
+  chain:set_position(x, y%16) 
+  chain:set_size(16, math.max(8, y-(y%16)))
 end

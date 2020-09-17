@@ -12023,12 +12023,16 @@ wall{
   stops_enemies = true,
 }
 
-pickable{
+custom_entity{
   name = "mushroom",
   layer = 1,
   x = 32,
   y = 229,
-  treasure_name = "mushroom",
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/items/mushroom",
+  model = "mushroom",
 }
 
 tile{

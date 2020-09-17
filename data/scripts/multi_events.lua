@@ -159,7 +159,8 @@ local types = {
   "hookshot",
   "boomerang",
   "camera",
-  "custom_entity"
+  "custom_entity",
+  "state"
 }
 
 -- Add the register_event function to all userdata types.

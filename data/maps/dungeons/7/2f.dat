@@ -12530,6 +12530,24 @@ block{
   max_moves = 1,
 }
 
+sensor{
+  name = "sensor_2",
+  layer = 0,
+  x = 1216,
+  y = 485,
+  width = 32,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_3",
+  layer = 0,
+  x = 960,
+  y = 357,
+  width = 16,
+  height = 32,
+}
+
 tile{
   layer = 1,
   x = 296,

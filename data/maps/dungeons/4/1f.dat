@@ -13,6 +13,51 @@ properties{
 
 tile{
   layer = 0,
+  x = 1328,
+  y = 288,
+  width = 224,
+  height = 176,
+  pattern = "water_shallow",
+}
+
+tile{
+  layer = 0,
+  x = 1488,
+  y = 344,
+  width = 24,
+  height = 48,
+  pattern = "wall.3-2",
+}
+
+tile{
+  layer = 0,
+  x = 1368,
+  y = 344,
+  width = 24,
+  height = 48,
+  pattern = "wall.4-2",
+}
+
+tile{
+  layer = 0,
+  x = 1384,
+  y = 368,
+  width = 112,
+  height = 24,
+  pattern = "wall.1-2",
+}
+
+tile{
+  layer = 0,
+  x = 1384,
+  y = 328,
+  width = 112,
+  height = 24,
+  pattern = "wall.2-2",
+}
+
+tile{
+  layer = 0,
   x = 784,
   y = 736,
   width = 24,
@@ -234,24 +279,6 @@ tile{
   width = 24,
   height = 24,
   pattern = "wall.corner_reverse.2-2",
-}
-
-tile{
-  layer = 0,
-  x = 1328,
-  y = 288,
-  width = 224,
-  height = 176,
-  pattern = "water_shallow",
-}
-
-tile{
-  layer = 0,
-  x = 1360,
-  y = 344,
-  width = 24,
-  height = 48,
-  pattern = "wall.4-2",
 }
 
 tile{
@@ -3631,34 +3658,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 1376,
-  y = 328,
-  width = 128,
-  height = 24,
-  pattern = "wall.2-2",
-}
-
-tile{
-  layer = 0,
-  x = 1496,
-  y = 344,
-  width = 24,
-  height = 48,
-  pattern = "wall.3-2",
-}
-
-tile{
-  layer = 0,
-  x = 1376,
-  y = 376,
-  width = 128,
-  height = 24,
-  pattern = "wall.1-2",
-}
-
-tile{
-  layer = 0,
-  x = 1496,
+  x = 1488,
   y = 328,
   width = 24,
   height = 24,
@@ -3667,7 +3667,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 1360,
+  x = 1368,
   y = 328,
   width = 24,
   height = 24,
@@ -3676,8 +3676,8 @@ tile{
 
 tile{
   layer = 0,
-  x = 1360,
-  y = 376,
+  x = 1368,
+  y = 368,
   width = 24,
   height = 24,
   pattern = "wall.corner_reverse.2-2",
@@ -3802,8 +3802,8 @@ tile{
 
 tile{
   layer = 0,
-  x = 1496,
-  y = 376,
+  x = 1488,
+  y = 368,
   width = 24,
   height = 24,
   pattern = "wall.corner_reverse.1-2",
@@ -7600,8 +7600,8 @@ tile{
 
 tile{
   layer = 0,
-  x = 1352,
-  y = 400,
+  x = 1360,
+  y = 392,
   width = 8,
   height = 8,
   pattern = "water_shallow.corner_reverse.2",
@@ -7609,7 +7609,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 1520,
+  x = 1512,
   y = 320,
   width = 8,
   height = 8,
@@ -7618,7 +7618,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 1352,
+  x = 1360,
   y = 320,
   width = 8,
   height = 8,
@@ -7627,35 +7627,35 @@ tile{
 
 tile{
   layer = 0,
-  x = 1360,
+  x = 1368,
   y = 320,
-  width = 160,
+  width = 144,
   height = 8,
   pattern = "water_shallow.2",
 }
 
 tile{
   layer = 0,
-  x = 1520,
+  x = 1512,
   y = 328,
   width = 8,
-  height = 72,
+  height = 64,
   pattern = "water_shallow.3",
 }
 
 tile{
   layer = 0,
-  x = 1360,
-  y = 400,
-  width = 160,
+  x = 1368,
+  y = 392,
+  width = 144,
   height = 8,
   pattern = "water_shallow.1",
 }
 
 tile{
   layer = 0,
-  x = 1520,
-  y = 400,
+  x = 1512,
+  y = 392,
   width = 8,
   height = 8,
   pattern = "water_shallow.corner_reverse.1",
@@ -7663,10 +7663,10 @@ tile{
 
 tile{
   layer = 0,
-  x = 1352,
+  x = 1360,
   y = 328,
   width = 8,
-  height = 72,
+  height = 64,
   pattern = "water_shallow.4",
 }
 
@@ -12043,6 +12043,114 @@ tile{
   pattern = "wall.corner.1-2",
 }
 
+tile{
+  layer = 0,
+  x = 1776,
+  y = 784,
+  width = 8,
+  height = 8,
+  pattern = "hole.corner_reverse.1",
+}
+
+tile{
+  layer = 0,
+  x = 1776,
+  y = 776,
+  width = 8,
+  height = 8,
+  pattern = "hole.3",
+}
+
+tile{
+  layer = 0,
+  x = 1768,
+  y = 784,
+  width = 8,
+  height = 8,
+  pattern = "hole.1",
+}
+
+tile{
+  layer = 0,
+  x = 1808,
+  y = 784,
+  width = 8,
+  height = 8,
+  pattern = "hole.1",
+}
+
+tile{
+  layer = 0,
+  x = 1808,
+  y = 808,
+  width = 8,
+  height = 8,
+  pattern = "hole.2",
+}
+
+tile{
+  layer = 0,
+  x = 1768,
+  y = 808,
+  width = 8,
+  height = 8,
+  pattern = "hole.2",
+}
+
+tile{
+  layer = 0,
+  x = 1776,
+  y = 816,
+  width = 8,
+  height = 8,
+  pattern = "hole.3",
+}
+
+tile{
+  layer = 0,
+  x = 1800,
+  y = 816,
+  width = 8,
+  height = 8,
+  pattern = "hole.4",
+}
+
+tile{
+  layer = 0,
+  x = 1776,
+  y = 808,
+  width = 8,
+  height = 8,
+  pattern = "hole.corner_reverse.3",
+}
+
+tile{
+  layer = 0,
+  x = 1800,
+  y = 808,
+  width = 8,
+  height = 8,
+  pattern = "hole.corner_reverse.4",
+}
+
+tile{
+  layer = 0,
+  x = 1800,
+  y = 776,
+  width = 8,
+  height = 8,
+  pattern = "hole.4",
+}
+
+tile{
+  layer = 0,
+  x = 1800,
+  y = 784,
+  width = 8,
+  height = 8,
+  pattern = "hole.corner_reverse.2",
+}
+
 wall{
   layer = 0,
   x = 472,
@@ -12658,26 +12766,6 @@ destructible{
   weight = 1,
 }
 
-block{
-  layer = 0,
-  x = 1336,
-  y = 109,
-  sprite = "entities/blocks/block",
-  pushable = true,
-  pullable = false,
-  maximum_moves = 1,
-}
-
-block{
-  layer = 0,
-  x = 1336,
-  y = 157,
-  sprite = "entities/blocks/block",
-  pushable = true,
-  pullable = false,
-  maximum_moves = 1,
-}
-
 wall{
   layer = 0,
   x = 1432,
@@ -12690,32 +12778,12 @@ wall{
 
 block{
   layer = 0,
-  x = 1416,
-  y = 189,
-  sprite = "entities/blocks/block",
-  pushable = true,
-  pullable = false,
-  maximum_moves = 1,
-}
-
-block{
-  layer = 0,
-  x = 1464,
-  y = 189,
-  sprite = "entities/blocks/block",
-  pushable = true,
-  pullable = false,
-  maximum_moves = 1,
-}
-
-block{
-  layer = 0,
   x = 1408,
   y = 157,
   sprite = "entities/blocks/block",
-  pushable = true,
+  pushable = false,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 block{
@@ -12723,9 +12791,9 @@ block{
   x = 1448,
   y = 157,
   sprite = "entities/blocks/block",
-  pushable = true,
+  pushable = false,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 block{
@@ -12733,9 +12801,9 @@ block{
   x = 1432,
   y = 93,
   sprite = "entities/blocks/block",
-  pushable = true,
+  pushable = false,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 block{
@@ -12743,9 +12811,9 @@ block{
   x = 1432,
   y = 109,
   sprite = "entities/blocks/block",
-  pushable = true,
+  pushable = false,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 block{
@@ -12763,9 +12831,9 @@ block{
   x = 1368,
   y = 93,
   sprite = "entities/blocks/block",
-  pushable = true,
+  pushable = false,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 block{
@@ -12773,9 +12841,9 @@ block{
   x = 1384,
   y = 93,
   sprite = "entities/blocks/block",
-  pushable = true,
+  pushable = false,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 block{
@@ -12783,9 +12851,9 @@ block{
   x = 1464,
   y = 141,
   sprite = "entities/blocks/block",
-  pushable = true,
+  pushable = false,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 block{
@@ -12793,9 +12861,9 @@ block{
   x = 1480,
   y = 141,
   sprite = "entities/blocks/block",
-  pushable = true,
+  pushable = false,
   pullable = false,
-  maximum_moves = 1,
+  max_moves = 1,
 }
 
 dynamic_tile{
@@ -12871,9 +12939,9 @@ dynamic_tile{
 dynamic_tile{
   name = "invisible_tile_11",
   layer = 0,
-  x = 712,
+  x = 720,
   y = 1392,
-  width = 120,
+  width = 112,
   height = 8,
   pattern = "2485",
 }
@@ -12953,7 +13021,7 @@ dynamic_tile{
   layer = 0,
   x = 2016,
   y = 520,
-  width = 56,
+  width = 48,
   height = 8,
   pattern = "2485",
 }
@@ -13293,7 +13361,7 @@ dynamic_tile{
   name = "invisible_tile_31",
   layer = 0,
   x = 1192,
-  y = 880,
+  y = 896,
   width = 8,
   height = 128,
   pattern = "2485",
@@ -13323,9 +13391,9 @@ dynamic_tile{
   name = "invisible_tile_34",
   layer = 0,
   x = 1000,
-  y = 1040,
+  y = 1032,
   width = 8,
-  height = 16,
+  height = 24,
   pattern = "2485",
 }
 
@@ -13333,9 +13401,9 @@ dynamic_tile{
   name = "invisible_tile_35",
   layer = 0,
   x = 1072,
-  y = 1040,
+  y = 1032,
   width = 8,
-  height = 16,
+  height = 24,
   pattern = "2485",
 }
 
@@ -13690,8 +13758,8 @@ custom_entity{
 destination{
   name = "teletransporter_destination_B",
   layer = 0,
-  x = 1120,
-  y = 1533,
+  x = 1416,
+  y = 437,
   direction = 1,
 }
 
@@ -14074,9 +14142,9 @@ dynamic_tile{
 dynamic_tile{
   name = "invisible_tile_40",
   layer = 0,
-  x = 2096,
+  x = 2088,
   y = 848,
-  width = 32,
+  width = 40,
   height = 8,
   pattern = "2485",
 }
@@ -14280,7 +14348,7 @@ door{
 }
 
 door{
-  name = "door_group_small_boss",
+  name = "door_group_small_boss_1",
   layer = 0,
   x = 1432,
   y = 440,
@@ -14473,28 +14541,6 @@ door{
   opening_condition_consumed = true,
 }
 
-door{
-  name = "door_group_small_boss_3",
-  layer = 0,
-  x = 1432,
-  y = 200,
-  direction = 3,
-  sprite = "entities/doors/door_normal",
-  opening_condition = "dungeon_4_small_keys",
-  opening_condition_consumed = true,
-}
-
-door{
-  name = "door_group_6",
-  layer = 0,
-  x = 1304,
-  y = 120,
-  direction = 2,
-  sprite = "entities/doors/door_normal",
-  opening_condition = "dungeon_4_small_keys",
-  opening_condition_consumed = true,
-}
-
 enemy{
   name = "enemy_group_8_1",
   layer = 0,
@@ -14675,7 +14721,7 @@ custom_entity{
 }
 
 custom_entity{
-  name = "handle",
+  name = "pull_handle",
   layer = 0,
   x = 1528,
   y = 53,
@@ -14683,6 +14729,7 @@ custom_entity{
   height = 16,
   direction = 3,
   sprite = "entities/handle",
+  model = "pull_handle",
 }
 
 npc{
@@ -15007,6 +15054,82 @@ teletransporter{
   height = 16,
   destination_map = "out/c1_mambos_cave",
   destination = "dungeon_4_2_A",
+}
+
+custom_entity{
+  name = "placeholder_small_boss",
+  layer = 0,
+  x = 1440,
+  y = 325,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+custom_entity{
+  name = "block_1_1",
+  layer = 0,
+  x = 1336,
+  y = 109,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/blocks/block",
+  model = "obstacle",
+}
+
+sensor{
+  name = "sensor_14",
+  layer = 0,
+  x = 1440,
+  y = 245,
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "sensor_15",
+  layer = 0,
+  x = 1280,
+  y = 133,
+  width = 16,
+  height = 16,
+}
+
+custom_entity{
+  name = "block_1_2",
+  layer = 0,
+  x = 1336,
+  y = 157,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/blocks/block",
+  model = "obstacle",
+}
+
+custom_entity{
+  name = "block_1_3",
+  layer = 0,
+  x = 1416,
+  y = 189,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/blocks/block",
+  model = "obstacle",
+}
+
+custom_entity{
+  name = "block_1_4",
+  layer = 0,
+  x = 1464,
+  y = 189,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/blocks/block",
+  model = "obstacle",
 }
 
 tile{
@@ -16375,10 +16498,10 @@ custom_entity{
 
 tile{
   layer = 2,
-  x = 1384,
+  x = 1392,
   y = 352,
-  width = 112,
-  height = 24,
+  width = 96,
+  height = 16,
   pattern = "ceiling.1",
 }
 

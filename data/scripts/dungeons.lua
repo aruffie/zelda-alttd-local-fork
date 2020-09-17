@@ -157,7 +157,7 @@ local function initialize_dungeon_features(game)
       }
     },
     [3] = {
-      lowest_floor = 0,
+      lowest_floor = -1,
       highest_floor = 0,
       rows = 8,
       cols= 4,

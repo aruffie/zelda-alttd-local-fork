@@ -181,6 +181,13 @@ function forest_chest_1:on_opened()
 
 end
 
+-- Destructibles events
+function secret_stone:on_removed()
+  
+  audio_manager:play_sound("misc/secret1")
+  
+end
+
 -- Sensors events
 function owl_2_sensor:on_activated()
 

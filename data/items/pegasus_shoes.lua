@@ -5,6 +5,12 @@
    Because of that, it must **NEVER** be triggered using the built-in method or else it will never finish and sftlock your game.
   The reason is that it would end any custon jumping state, which do trigger when jumping when running, with pontential bad consequences, such as falling into a pit while mid-air
   
+  Dependencies :
+    - Multi-event script;
+    - Custon running state script (see below for exact script names)
+  
+  Addendum: item:on_using() is included regardless to not get softlocked when put in a quest without said combo system. 
+  
 --]]
 -- Variables
 local item = ...
@@ -53,6 +59,11 @@ end)
 
 function item:start_using()
   item:get_game():get_hero():run()
+end
+
+function item:on_using()
+  item:start_using()
+  item:set_finished()
 end
 
 function item:on_obtaining()

@@ -1483,6 +1483,7 @@ entity{ id = "magnet", description = "Magnet" }
 entity{ id = "midpoint_teletransporter", description = "Teletransporter (mid point)" }
 entity{ id = "mouse", description = "Mouse" }
 entity{ id = "mr_write_and_christine", description = "Mr Write and Christine" }
+entity{ id = "mushroom", description = "Mushroom" }
 entity{ id = "non_diggable", description = "Non diggable" }
 entity{ id = "npc", description = "Non-playing character" }
 entity{ id = "obstacle", description = "Obstacle" }
@@ -1518,6 +1519,7 @@ font{ id = "la", description = "Link's Awakening" }
 font{ id = "white_digits", description = "White digits" }
 
 shader{ id = "6xbrz", description = "6xbrz" }
+shader{ id = "blur", description = "Blur" }
 shader{ id = "cast_shadow1d", description = "cast_shadow1d" }
 shader{ id = "distorsion", description = "Distorsion effect" }
 shader{ id = "distort", description = "Distort with a aux tex" }
@@ -1525,6 +1527,8 @@ shader{ id = "electric", description = "Electric effect" }
 shader{ id = "fire_dist", description = "Fire distortion" }
 shader{ id = "gb", description = "GB filter" }
 shader{ id = "heat_wave", description = "Heat distorsion" }
+shader{ id = "lava_bloom", description = "Lava Bloom" }
+shader{ id = "lava_filter", description = "Lava filter" }
 shader{ id = "lcd", description = "LCD filter" }
 shader{ id = "mode_7", description = "Mode 7" }
 shader{ id = "pixellisation", description = "Pixellisation effect" }
@@ -1560,7 +1564,7 @@ file{ path = "enemies/boss/evil_orb.lua", license = "GPL v3" }
 file{ path = "enemies/boss/facade.lua", license = "GPL v3" }
 file{ path = "enemies/boss/genie.lua", license = "GPL v3" }
 file{ path = "enemies/boss/giant_buzz_blob.lua", license = "GPL v3" }
-file{ path = "enemies/boss/gohma.lua", license = "GPL v3" }
+file{ path = "enemies/boss/gohma.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/grim_creeper.lua", license = "GPL v3" }
 file{ path = "enemies/boss/hinox_master.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/hot_head.lua", license = "GPL v3" }
@@ -1709,6 +1713,7 @@ file{ path = "entities/magnet.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "entities/midpoint_teletransporter.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "entities/mouse.lua", license = "GPL v3" }
 file{ path = "entities/mr_write_and_christine.lua", license = "GPL v3" }
+file{ path = "entities/mushroom.lua", author = "Benjamin Schweitzer", }
 file{ path = "entities/non_diggable.lua", license = "GPL v3" }
 file{ path = "entities/npc.lua", license = "GPL v3" }
 file{ path = "entities/obstacle.lua", license = "GPL v3" }

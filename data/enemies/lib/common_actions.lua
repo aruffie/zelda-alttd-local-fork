@@ -11,7 +11,6 @@
 --           enemy:is_watched([sprite, [fully_visible]])
 --           enemy:get_angle_from_sprite(sprite, entity)
 --           enemy:get_central_symmetry_position(x, y)
---           enemy:get_grid_position()
 --           enemy:get_obstacles_normal_angle()
 --           enemy:get_obstacles_bounce_angle([angle])
 --
@@ -166,13 +165,6 @@ function common_actions.learn(enemy)
 
     local enemy_x, enemy_y, _ = enemy:get_position()
     return 2.0 * x - enemy_x, 2.0 * y - enemy_y
-  end
-
-  -- Get the upper-left grid node coordinates of the enemy position.
-  function enemy:get_grid_position()
-
-    local position_x, position_y, _ = enemy:get_position()
-    return position_x - position_x % 8, position_y - position_y % 8
   end
 
   -- Return the normal angle of close obstacles as a multiple of pi/4, or nil if none.
@@ -581,8 +573,8 @@ function common_actions.learn(enemy)
   -- Make the entity welded to the enemy at the given offset position, and propagate main events and methods.
   function enemy:start_welding(entity, x, y)
 
-   x = x or 0
-   y = y or 0
+    x = x or 0
+    y = y or 0
     enemy:register_event("on_update", function(enemy) -- Workaround : Replace the entity in on_update() instead of on_position_changed() to take care of hurt movements.
       local enemy_x, enemy_y, enemy_layer = enemy:get_position()
       entity:set_position(enemy_x + x, enemy_y + y, enemy_layer)
@@ -686,7 +678,7 @@ function common_actions.learn(enemy)
   end
 
   -- Make the enemy die as described in the given dying_callback, or silently and without animation if nil.
-  -- Stop all actions and prevent interactions when the function starts, then call finish_death() from the callback to start the actual death.
+  -- Stop all actions and prevent interactions when the function starts, then run the dying_callback which will finish_death() manually when needed.
   -- Additionnal helper functions are accessible from the callback to describe the death :
   --   set_treasure_falling_height(height) -> Set the treasure falling height in pixel, which is 8 by default.
   --   finish_death() -> Start all behaviors related to the enemy actual death, basically treasure drop, savegame and removal.
@@ -742,7 +734,7 @@ function common_actions.learn(enemy)
 
     -- Die as described in the dying_callback if given, else kill the enemy without any animation. 
     if dying_callback then
-      setmetatable(dying_helpers,{__index=getfenv(2)})
+      setmetatable(dying_helpers, {__index=getfenv(2)})
       setfenv(dying_callback, dying_helpers)
       dying_callback()
     else
