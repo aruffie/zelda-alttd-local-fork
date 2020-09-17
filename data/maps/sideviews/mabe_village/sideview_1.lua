@@ -14,16 +14,13 @@ local state = "rest"
 -- fish currently bitting the fishing ledger
 local bitten_fish
 
--- spawn a fish of some size at line y and in the area of the custom entity region
+-- spawn a fish of some size at position x, y, layer
 -- size can be "small" or "big"
 -- catch_callback will be called when the player gets this fish
-local function make_fish(size, y, region, catch_callback)
-  local left, top, width, height = region:get_bounding_box()
-  local l = region:get_layer()
-  local x = math.random(left, left + width - 20)
+local function make_fish(size, x, y, layer, catch_callback)
 
   local fish = map:create_custom_entity{
-    x=x, y=y, layer=l,
+    x=x, y=y, layer=layer,
     direction=0,
     width=16, height=16,
     sprite=string.format("entities/animals/fishing_%s_fish", size)
@@ -146,11 +143,13 @@ end
 local function add_fishes()
   local line_count = 4
 
-  local rx, ry, rw, rh = water_ent:get_bounding_box()
+  local left, top, width, height = water_ent:get_bounding_box()
+  local layer = water_ent:get_layer()
 
   for i = 0, line_count - 1 do
-    local fish_y = ry + rh * (i / line_count) + math.random(8, 12)
-    make_fish("small", fish_y, water_ent, small_fish_treasure)
+    local x = math.random(left + 20, left + width - 20)
+    local y = top + height * (i / line_count) + math.random(8, 12)
+    make_fish("small", x, y, layer, small_fish_treasure)
   end
 
   -- TODO add
