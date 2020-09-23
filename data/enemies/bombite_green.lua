@@ -49,7 +49,7 @@ local function on_regular_attack_received()
     if not is_counting_down then
       is_counting_down = true
       enemy:stop_movement()
-      enemy:countdown(3)
+      enemy:start_countdown(3)
       enemy:restart()
     else
       enemy:start_running()
