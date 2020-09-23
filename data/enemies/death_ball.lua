@@ -25,12 +25,19 @@ local attracting_pixel_by_second = enemy:get_property("speed") or 88
 local active_duration = enemy:get_property("active_duration") or 4000
 local inactive_duration = enemy:get_property("inactive_duration") or 1000
 
--- Function determining if the attraction should happen or not.
+-- Callback function allowing the attraction or not.
 local function is_hero_attractable()
 
-  if hero:get_state() == "falling" or not is_active then
+  -- Don't attract if the enemy is not active, if the hero is falling or overlaps a separator.
+  if not is_active or hero:get_state() == "falling" then
     return false
   end
+  for separator in map:get_entities_by_type("separator") do
+    if separator:overlaps(hero) then
+      return false
+    end
+  end
+
   return true
 end
 
