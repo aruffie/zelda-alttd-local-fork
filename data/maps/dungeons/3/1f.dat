@@ -10864,7 +10864,7 @@ enemy{
     },
     {
       key = "speed",
-      value = "100",
+      value = "132",
     },
   },
   direction = 0,
@@ -12739,6 +12739,16 @@ sensor{
   height = 16,
 }
 
+custom_entity{
+  name = "placeholder_small_boss_2",
+  layer = 0,
+  x = 1152,
+  y = 333,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
 tile{
   layer = 1,
   x = 1056,
@@ -14259,19 +14269,6 @@ wall{
 
 wall{
   layer = 1,
-  x = 856,
-  y = 440,
-  width = 8,
-  height = 24,
-  stops_hero = true,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
-}
-
-wall{
-  layer = 1,
   x = 1104,
   y = 432,
   width = 8,
@@ -14429,9 +14426,9 @@ dynamic_tile{
 sensor{
   name = "sensor_13",
   layer = 1,
-  x = 1088,
+  x = 1080,
   y = 493,
-  width = 16,
+  width = 32,
   height = 16,
 }
 
