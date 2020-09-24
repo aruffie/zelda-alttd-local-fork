@@ -28,10 +28,13 @@ state:register_event("on_started", function(state)
         local m=sol.movement.create("target")
         m:set_speed(88)
         m:set_ignore_obstacles(true)
-        local dest_x, dest_y=hero:get_last_stable_position()
-        --  print ("DESTX", dest_x, "DESTY", dest_y)
+        local dest_x, dest_y, dest_layer, direction=hero:get_last_stable_position()
+        --print ("DESTX", dest_x, "DESTY", dest_y, "DESTL", dest_layer, "DESTDIR", direction)
         m:set_target(dest_x, dest_y) --TODO extract respawn point
         m:start(hero, function()
+            hero:set_position(dest_x, dest_y, dest_layer)
+            local m=hero:get_movement()
+            hero:set_direction(direction/2)
             hero:respawn()
             hero:set_visible(true)
             hero:unfreeze()
@@ -43,7 +46,7 @@ local hero_meta=sol.main.get_metatable("hero")
 
 function hero_meta.drown(hero)
   local s,c=hero:get_state()
-  if  s~="custom" or c:get_description()~="drowning" then
+  if s~="custom" or c:get_description()~="drowning" then
     hero:start_state(state)
   end  
 end

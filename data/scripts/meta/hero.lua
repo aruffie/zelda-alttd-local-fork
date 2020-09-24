@@ -119,8 +119,10 @@ hero_meta:register_event("on_state_changed", function(hero, current_state)
       --TODO play the drowning animation
       hero:stop_movement()
       if hero:get_ground_below()=="deep_water" then
-        print "drown"
+        --print "drown"
         sol.timer.start(hero, 10, function()
+            local s,c=hero:get_state()
+            --print ("prepare to drown when in state"..s..(c and "("..c:get_description()..")" or ""))
             hero:drown()
           end)
       end

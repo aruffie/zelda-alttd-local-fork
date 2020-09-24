@@ -73,11 +73,12 @@ hero_meta:register_event("on_position_changed", function(hero)
 
     local map = hero:get_map()
     local game = hero:get_game()
-    if map:get_world()=="outside_world" and hero:get_state()~="back to solid ground" then
+    local state, cstate=hero:get_state()
+    if map:get_world()=="outside_world" and state~="back to solid ground" and (not cstate or cstate:get_description()~="drowning") then
       local x, y, layer = hero:get_ground_position() -- Check GROUND position.
-      local state = hero:get_state_object() 
-      local state_ignore_ground = state and not state:get_can_come_from_bad_ground()
-      if (not state_ignore_ground) and hero:get_state() ~= "jumping" then
+
+      local state_ignore_ground = cstate and not cstate:get_can_come_from_bad_ground()
+      if (not state_ignore_ground) and state ~= "jumping" then
         if not map:is_bad_ground(x, y, layer) then
           hero.last_stable_position.x, hero.last_stable_position.y, hero.last_stable_position.layer = hero:get_position()
           local m=hero:get_movement()
