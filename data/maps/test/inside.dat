@@ -22,7 +22,6 @@ tile{
   layer = 0,
   x = 600,
   y = 440,
-  enabled_at_start = false,
   width = 24,
   height = 24,
   pattern = "20",
@@ -113,7 +112,6 @@ tile{
   layer = 0,
   x = 184,
   y = 80,
-  enabled_at_start = false,
   width = 64,
   height = 64,
   pattern = "8",
@@ -978,5 +976,33 @@ enemy{
   direction = 0,
   breed = "flying_tile",
   treasure_name = "random",
+}
+
+stream{
+  layer = 0,
+  x = 104,
+  y = 125,
+  direction = 0,
+}
+
+stream{
+  layer = 0,
+  x = 120,
+  y = 125,
+  direction = 0,
+}
+
+stream{
+  layer = 0,
+  x = 136,
+  y = 125,
+  direction = 0,
+}
+
+stream{
+  layer = 0,
+  x = 152,
+  y = 125,
+  direction = 0,
 }
 
