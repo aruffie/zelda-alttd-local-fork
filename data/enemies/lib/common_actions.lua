@@ -398,7 +398,7 @@ function common_actions.learn(enemy)
         if axis_move[axis] ~= 0 then
 
           -- Schedule the next move on this axis depending on the remaining distance and the speed value, avoiding too high and low timers.
-          axis_move_delay = 1000.0 / math.max(1, math.min(100, math.abs(speed * trigonometric_functions[axis](angle))))
+          axis_move_delay = 1000.0 / math.max(1, math.min(1000, math.abs(speed * trigonometric_functions[axis](angle))))
 
           -- Move the entity.
           if not entity:test_obstacles(axis_move[1], axis_move[2]) then
@@ -407,14 +407,16 @@ function common_actions.learn(enemy)
         end
       end
 
-      -- Start the next pixel move timer.
-      attracting_timers[entity][axis] = sol.timer.start(enemy, axis_move_delay, function()
-        attract_on_axis(axis)
-      end)
+      return axis_move_delay
     end
 
-    attract_on_axis(1)
-    attract_on_axis(2)
+    -- Start the pixel move schedule.
+    for i = 1, 2 do
+      local initial_delay = attract_on_axis(i)
+      attracting_timers[entity][i] = sol.timer.start(enemy, initial_delay, function()
+        return attract_on_axis(i)
+      end)
+    end
   end
 
   -- Stop looped timers related to the attractions.
