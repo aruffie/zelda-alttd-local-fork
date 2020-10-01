@@ -73,11 +73,12 @@ hero_meta:register_event("on_position_changed", function(hero)
 
     local map = hero:get_map()
     local game = hero:get_game()
-    if map:get_world()=="outside_world" and hero:get_state()~="back to solid ground" then
+    local state, cstate=hero:get_state()
+    if map:get_world()=="outside_world" and state~="back to solid ground" and (not cstate or cstate:get_description()~="drowning") then
       local x, y, layer = hero:get_ground_position() -- Check GROUND position.
-      local state = hero:get_state_object() 
-      local state_ignore_ground = state and not state:get_can_come_from_bad_ground()
-      if (not state_ignore_ground) and hero:get_state() ~= "jumping" then
+
+      local state_ignore_ground = cstate and not cstate:get_can_come_from_bad_ground()
+      if (not state_ignore_ground) and state ~= "jumping" then
         if not map:is_bad_ground(x, y, layer) then
           hero.last_stable_position.x, hero.last_stable_position.y, hero.last_stable_position.layer = hero:get_position()
           local m=hero:get_movement()
@@ -92,6 +93,19 @@ hero_meta:register_event("on_position_changed", function(hero)
       end
     end
   end)
+
+function hero_meta.respawn(hero)
+  debug_print "respawn"
+  local map=hero:get_map()
+  if map:get_world()=="outside_world" and not map:is_sideview() then
+    local position = hero.last_stable_position
+    local directions={{-8,0}, {-8, 8}, {0, 8}, {8, 8}, {8, 0}, {8, -8}, {0, -8}, {-8, -8}}
+    local offset_x, offset_y=unpack(directions[position.direction+1])
+    hero:set_position(position.x+offset_x, position.y+offset_y, position.layer)
+  end
+  --debug_print (hero.last_stable_position.direction)
+  hero:set_direction(hero.last_stable_position.direction/2 or 0)
+end
 -- Update the last stable position of the hero.
 hero_meta:register_event("on_state_changing", function(hero, old_state, state)
 
@@ -103,17 +117,8 @@ hero_meta:register_event("on_state_changing", function(hero, old_state, state)
         hero:save_stable_floor_position()
         hero:initialize_unstable_floor_manager()
       end
-
     elseif old_state=="back to solid ground" and state=="free" then
-      debug_print "respawn"
-      if map:get_world()=="outside_world" and not map:is_sideview() then
-        local position = hero.last_stable_position
-        local directions={{-8,0}, {-8, 8}, {0, 8}, {8, 8}, {8, 0}, {8, -8}, {0, -8}, {-8, -8}}
-        local offset_x, offset_y=unpack(directions[position.direction+1])
-        hero:set_position(position.x+offset_x, position.y+offset_y, position.layer)
-      end
-      --debug_print (hero.last_stable_position.direction)
-      hero:set_direction(hero.last_stable_position.direction/2 or 0)
+      hero:respawn()
     end
   end)
 

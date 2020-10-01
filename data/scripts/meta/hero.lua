@@ -8,6 +8,7 @@ local audio_manager = require("scripts/audio_manager")
 local timer_sword_loading = nil
 local timer_sword_tapping = nil
 local timer_stairs = nil
+require("scripts/states/drowning")
 
 function hero_meta:is_custom_state_started(state_name)
   local state, object=self:get_state()
@@ -115,17 +116,33 @@ hero_meta:register_event("on_state_changed", function(hero, current_state)
     --Recovering from drowning
     -- Avoid to lose any life when drowning.
     if current_state == "plunging" and game:get_item("flippers"):get_variant()==0 then
+      --TODO play the drowning animation
       hero:stop_movement()
+      if hero:get_ground_below()=="deep_water" then
+        --print "drown"
+        sol.timer.start(hero, 10, function()
+            local s,c=hero:get_state()
+            --print ("prepare to drown when in state"..s..(c and "("..c:get_description()..")" or ""))
+            hero:drown()
+          end)
+      end
     end
     if current_state == "back to solid ground" then
       local ground = hero:get_ground_below()
-      if ground == "deep_water" then
+      if ground == "deep_water" then -- Est-ce toujours utile du coup maintenant qu'on a une custom state de noyade ?
         game:add_life(1)
       end
     end
-
-
   end)
+
+function hero_meta.set_previous_state(hero, state, custom_state_name)
+  hero.prev_state=state
+  hero.prev_cstate_name=custom_state_name
+end
+
+function hero_meta.get_previous_state(hero)
+  return hero.prev_state, hero.prev_cstate_name
+end
 
 function hero_meta.show_ground_effect(hero, id)
 
@@ -196,6 +213,9 @@ end
 
 hero_meta:register_event("on_state_changing", function(hero, old_state, new_state)
     print ("going from state "..old_state.." to state ".. new_state)
+    if old_state~="custom" then
+      hero:set_previous_state(old_state, "")
+    end
     if old_state=="jumping" and new_state=="free" then
       hero:play_ground_effect()
     end
@@ -377,6 +397,7 @@ game_meta:register_event("on_map_changed", function(game, map)
 -- Initialize hero behavior specific to this quest.
 
 hero_meta:register_event("on_created", function(hero)
+    hero:set_previous_state("NONE", "")
     hero:remove_sprite(hero:get_sprite("shadow"))
     hero:initialize_fixing_functions() -- Used to fix direction and animations.
 

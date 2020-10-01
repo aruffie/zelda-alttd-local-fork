@@ -817,7 +817,7 @@ tile{
   x = 1504,
   y = 1728,
   width = 48,
-  height = 48,
+  height = 80,
   pattern = "floor.20-1",
 }
 
@@ -878,9 +878,9 @@ tile{
 tile{
   layer = 0,
   x = 1504,
-  y = 1776,
+  y = 1808,
   width = 48,
-  height = 96,
+  height = 64,
   pattern = "floor.13-Alpha",
 }
 
@@ -10864,7 +10864,7 @@ enemy{
     },
     {
       key = "speed",
-      value = "112",
+      value = "132",
     },
   },
   direction = 0,

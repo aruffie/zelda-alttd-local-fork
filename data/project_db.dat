@@ -154,10 +154,6 @@ map{ id = "test/B", description = "B" }
 map{ id = "test/inside", description = "Test map 2" }
 map{ id = "test/outside", description = "Test map" }
 map{ id = "test/sideview", description = "Test map (sideviews)" }
-map{ id = "trial/0", description = "Entry" }
-map{ id = "trial/1", description = "Level 1" }
-map{ id = "trial/2", description = "Level 2" }
-map{ id = "trial/3", description = "Level 3" }
 
 tileset{ id = "addition/dungeon", description = "Dungeon additions" }
 tileset{ id = "addition/out", description = "Out additions" }
@@ -1640,8 +1636,8 @@ file{ path = "enemies/pike_detect.lua", author = "Christopho", license = "GPL v3
 file{ path = "enemies/pike_fixed.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "enemies/pincer.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/piranha.lua", author = "Vlag", license = "GPL v3" }
-file{ path = "enemies/piranha_plant.lua", license = "GPL v3" }
-file{ path = "enemies/podobo.lua", license = "GPL v3" }
+file{ path = "enemies/piranha_plant.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/podobo.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/pokey.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/pols_voice.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/projectiles", license = "GPL v3" }
@@ -1683,7 +1679,7 @@ file{ path = "enemies/zol_green.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/zol_red.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/zombie.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/zora.lua", author = "Vlag", license = "GPL v3" }
-file{ path = "entities", author = "Benjamin Schweitzer, Christopho, Phoenixll54", license = "GPL v3" }
+file{ path = "entities", author = "Benjamin Schweitzer, Christopho, Phoenixll54, Vlag", license = "GPL v3" }
 file{ path = "entities/arrow.lua", license = "GPL v3" }
 file{ path = "entities/ball.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "entities/bird.lua", license = "GPL v3" }
@@ -1735,11 +1731,12 @@ file{ path = "entities/torch.lua", license = "GPL v3" }
 file{ path = "entities/unstable_floor.lua", license = "GPL v3" }
 file{ path = "entities/vacuum_cleaner.lua", license = "GPL v3" }
 file{ path = "entities/wallturn.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "fonts", author = "Nintendo, Yuji Oshimoto", }
 file{ path = "fonts/04b03.ttf", author = "Yuji Oshimoto", license = "Free for personal use" }
 file{ path = "fonts/green_digits.png", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "fonts/la.png", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "fonts/white_digits.png", author = "Nintendo", license = "Proprietary, Fair use" }
-file{ path = "items", license = "GPL v3" }
+file{ path = "items", author = "Benjamin Schweitzer, Vlag", license = "GPL v3" }
 file{ path = "items/angler_key.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/arrow.lua", license = "GPL v3" }
 file{ path = "items/beak_of_stone.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
@@ -2298,6 +2295,7 @@ file{ path = "scripts/meta/hero.lua", license = "GPL v3" }
 file{ path = "scripts/meta/npc.lua", license = "GPL v3" }
 file{ path = "scripts/meta/sensor.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "scripts/states/bonking.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "scripts/states/drowning.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/states/jumping.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/states/running.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/states/sideview_swim.lua", author = "PhoenixII54", license = "GPL v3" }
