@@ -144,16 +144,18 @@ function enemy_manager:launch_small_boss_if_not_dead(map)
 
   -- May be several small bosses in the same room, loop on placeholders.
   for placeholder in map:get_entities("placeholder_small_boss") do
-    local x, y, layer = placeholder:get_position()
-    placeholder:set_enabled(false)
-    local enemy = map:create_enemy{
-      name = enemies_prefix,
-      breed = dungeon_infos["small_boss"]["breed"],
-      direction = 2,
-      x = x,
-      y = y,
-      layer = layer
-    }
+    if placeholder:is_in_same_region(map:get_hero()) then
+      local x, y, layer = placeholder:get_position()
+      placeholder:set_enabled(false)
+      local enemy = map:create_enemy{
+        name = enemies_prefix,
+        breed = dungeon_infos["small_boss"]["breed"],
+        direction = 2,
+        x = x,
+        y = y,
+        layer = layer
+      }
+    end
   end
 
   for tile in map:get_entities("tiles_small_boss_") do

@@ -247,10 +247,10 @@ sprite{ id = "enemies/boss/hinox_master/red", description = "Hinox master red" }
 sprite{ id = "enemies/boss/hot_head", description = "Hot head" }
 sprite{ id = "enemies/boss/hot_head/form_b", description = "Hot head form b" }
 sprite{ id = "enemies/boss/hot_head/form_c", description = "Hot head form c" }
-sprite{ id = "enemies/boss/master_stalfos/master_stalfos", description = "Master stalfos" }
-sprite{ id = "enemies/boss/master_stalfos/master_stalfos_shadow", description = "Master stalfos shadow" }
-sprite{ id = "enemies/boss/master_stalfos/master_stalfos_shield", description = "Master stalfos shield" }
-sprite{ id = "enemies/boss/master_stalfos/master_stalfos_sword", description = "Master stalfos sword" }
+sprite{ id = "enemies/boss/master_stalfos", description = "Master stalfos" }
+sprite{ id = "enemies/boss/master_stalfos/shadow", description = "Master stalfos shadow" }
+sprite{ id = "enemies/boss/master_stalfos/shield", description = "Master stalfos shield" }
+sprite{ id = "enemies/boss/master_stalfos/sword", description = "Master stalfos sword" }
 sprite{ id = "enemies/boss/moblin_chief", description = "Moblin chief" }
 sprite{ id = "enemies/boss/moldorm", description = "Moldorm" }
 sprite{ id = "enemies/boss/moldorm/body_1", description = "Body 1" }

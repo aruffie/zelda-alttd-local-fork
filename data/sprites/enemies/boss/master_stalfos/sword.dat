@@ -1,6 +1,6 @@
 animation{
   name = "waiting",
-  src_image = "enemies/boss/master_stalfos/master_stalfos_shield.png",
+  src_image = "enemies/boss/master_stalfos/sword.png",
   directions = {
     { x = 0, y = 0, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 77 },
     { x = 0, y = 0, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 77 },
@@ -10,7 +10,7 @@ animation{
 }
 animation{
   name = "jumping",
-  src_image = "enemies/boss/master_stalfos/master_stalfos_shield.png",
+  src_image = "enemies/boss/master_stalfos/sword.png",
   directions = {
     { x = 320, y = 0, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 77 },
     { x = 320, y = 0, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 77 },
@@ -20,7 +20,7 @@ animation{
 }
 animation{
   name = "sword_attack",
-  src_image = "enemies/boss/master_stalfos/master_stalfos_shield.png",
+  src_image = "enemies/boss/master_stalfos/sword.png",
   frame_delay = 200,
   directions = {
     { x = 320, y = 160, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 77, num_frames = 3 },
@@ -31,7 +31,7 @@ animation{
 }
 animation{
   name = "sword_charge",
-  src_image = "enemies/boss/master_stalfos/master_stalfos_shield.png",
+  src_image = "enemies/boss/master_stalfos/sword.png",
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {
@@ -43,7 +43,7 @@ animation{
 }
 animation{
   name = "walking",
-  src_image = "enemies/boss/master_stalfos/master_stalfos_shield.png",
+  src_image = "enemies/boss/master_stalfos/sword.png",
   frame_delay = 150,
   frame_to_loop_on = 0,
   directions = {
