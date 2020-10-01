@@ -3802,6 +3802,13 @@ Sois un peu plus motivé !
 }
 
 dialog{
+  id = "maps.sideviews.mabe_village.sideview_1.not_enough_money",
+  text = [[
+Tu n'as pas assez de rubis. Reviens quand tu seras plus fortuné, petit gars!
+]],
+}
+
+dialog{
   id = "movies.introduction.marin_exclaming",
   text = [[
 ...

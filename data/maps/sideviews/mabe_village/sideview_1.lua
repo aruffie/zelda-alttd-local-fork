@@ -7,8 +7,13 @@ local hero = map:get_hero()
 local ledger_hook
 local ledger_sprite
 
+local small_fish_treasure
+local big_fish_treasure_rupees
+local big_fish_treasure_piece_of_heart
+local piece_of_heart_savegame_variable = "piece_of_heart_2"
+
 -- game state,
--- can be [rest, launching, falling, pulling]
+-- can be [rest, launching, falling, pulling, caught]
 local state = "rest"
 
 -- fish currently bitting the fishing ledger
@@ -51,31 +56,32 @@ local function make_fish(size, x, y, layer, catch_callback)
     local mov = self:get_movement()
     sol.timer.start(self, math.random(1, 1000), function() -- phase timer
       local t1 = sol.timer.start(self, 200, function()
-          -- check periodically if there is the hook in sight
-          local fx, fy = self:get_position()
-          local lx, ly = ledger_hook:get_position()
-          if math.abs(ly-fy) < 16 and bitten_fish == nil then
-            -- on the same line
-            local close_enough = math.abs(fx-lx) < 50
-            if (close_enough and fx < lx and self:get_direction() == 0) or
-               (close_enough and fx > lx and self:get_direction() == 2) then
-              -- ledger is in sight
-              mov:set_speed(chase_speed)
-              mov:set_angle(self:get_angle(ledger_hook))
-              sprite:set_animation("chase")
-              chasing = true
-            end
-          else
-            mov:set_speed(stroll_speed)
-            local ca = mov:get_angle()
-            mov:set_angle(ca-math.fmod(ca, math.pi))
-            sprite:set_animation("normal")
-            chasing = false
+        -- check periodically if there is the hook in sight
+        local fx, fy = self:get_position()
+        local lx, ly = ledger_hook:get_position()
+        if math.abs(ly - fy) < 16 and bitten_fish == nil and
+            (state == "falling" or state == "pulling") then
+          -- on the same line
+          local close_enough = math.abs(fx-lx) < 50
+          if (close_enough and fx < lx and sprite:get_direction() == 0) or
+             (close_enough and fx > lx and sprite:get_direction() == 2) then
+            -- ledger is in sight
+            mov:set_speed(chase_speed)
+            mov:set_angle(self:get_angle(ledger_hook))
+            sprite:set_animation("chase")
+            chasing = true
           end
+        else
+          mov:set_speed(stroll_speed)
+          local ca = mov:get_angle()
+          mov:set_angle(ca-math.fmod(ca, math.pi))
+          sprite:set_animation("normal")
+          chasing = false
+        end
 
-          self.chasing = chasing
-          return true
-        end)
+        self.chasing = chasing
+        return true
+      end)
 
       -- turn itself from time to time
       local t2 = sol.timer.start(self, turn_delay, function()
@@ -132,29 +138,6 @@ local function make_fish(size, x, y, layer, catch_callback)
   return fish
 end
 
-local function small_fish_treasure()
-  map:start_coroutine(function()
-    wait_for(hero.start_treasure, hero, "fish_small", 1, "")
-    dialog("maps.sideviews.mabe_village.sideview_1.got_small_fish")
-    wait_for(hero.start_treasure, hero, "rupee", 2, "")
-    local response = dialog("maps.sideviews.mabe_village.sideview_1.got_small_fish_2")
-    if response then
-      -- TODO play again
-    else
-      dialog("maps.sideviews.mabe_village.sideview_1.leaving")
-      -- TODO leave
-    end
-  end)
-end
-
-local function big_fish_treasure_rupees()
-  -- TODO
-end
-
-local function big_fish_treasure_piece_of_heart()
-  -- TODO
-end
-
 -- Add the random fishes in the pool.
 local function add_fishes()
   local line_count = 4
@@ -169,7 +152,9 @@ local function add_fishes()
   end
 
   local x, y, layer = big_fish_placeholder_1:get_position()
-  make_fish("big", x, y, layer, big_fish_treasure_piece_of_heart)
+  local has_piece_of_heart = game:get_value(piece_of_heart_savegame_variable)
+  make_fish("big", x, y, layer,
+      has_piece_of_heart and big_fish_treasure_rupees or big_fish_treasure_piece_of_heart)
 
   x, y, layer = big_fish_placeholder_2:get_position()
   make_fish("big", x, y, layer, big_fish_treasure_rupees)
@@ -179,27 +164,6 @@ function map:init_music()
 
   audio_manager:play_music("15_trendy_game")
 
-end
-
-function map:on_started()
-
-  map:init_music()
-  hero:freeze()
-  hero:set_animation("fishing_stopped")
-  game:set_pause_allowed(false)
-  
-  local x, y, l = hero:get_position()
-  ledger_hook = map:create_custom_entity{
-    x = x - 18, y = y + 8, layer = l,
-    width = 8, height = 8,
-    direction = 0,
-    sprite = "entities/ledger_hook",
-  }
-  ledger_hook:set_origin(8,8)
-  ledger_sprite = ledger_hook:get_sprite()
-  ledger_sprite:set_animation("move")
-  
-  add_fishes()
 end
 
 -- utility function to set a movement from a vector
@@ -220,12 +184,24 @@ local pull_speed = 24
 -- start states functions
 local function start_rest()
   state = "rest"
-  local x,y,l = hero:get_position()
-  ledger_hook:set_position(x - 18, y + 8, l)
-  ledger_hook:stop_movement()
-  hero:set_animation("fishing_caught_fish", function()
-    hero:set_animation("fishing_stopped")
-  end)
+
+  hero:freeze()
+  game:set_pause_allowed(false)
+
+  local x, y, l = hero:get_position()
+  if ledger_hook ~= nil then
+    ledger_hook:remove()
+  end
+  ledger_hook = map:create_custom_entity{
+    x = x - 18, y = y + 8, layer = l,
+    width = 8, height = 8,
+    direction = 0,
+    sprite = "entities/ledger_hook",
+  }
+  ledger_hook:set_origin(8, 8)
+  ledger_sprite = ledger_hook:get_sprite()
+  ledger_sprite:set_animation("move")
+  hero:set_animation("fishing_stopped")
 end
 
 local function start_fall()
@@ -240,9 +216,10 @@ end
 
 local function start_pulling()
   state = "pulling"
-  local mov = sol.movement.create"target"
+  local mov = sol.movement.create("target")
   mov:set_target(hero)
   mov:set_speed(pull_speed)
+  mov:set_ignore_obstacles(true)
   mov:start(ledger_hook)
   ledger_sprite:set_animation("move")
   hero:set_animation("fishing_pull")
@@ -253,11 +230,23 @@ local function start_in_water()
   sp:set_animation("default", function()
     ledger_hook:remove_sprite(sp)
   end)
-
   start_fall()
 end
 
-local function launch_ledger()
+local function start_caught()
+  state = "caught"
+  hero:set_animation("fishing_caught_fish", function()
+    local callback = bitten_fish.catch_callback
+    bitten_fish:remove()
+    bitten_fish = nil
+    ledger_hook:remove()
+    if callback ~= nil then
+      callback()
+    end
+  end)
+end
+
+local function start_launching()
   map:start_coroutine(function()
     state = "launching"
     local options = {
@@ -309,6 +298,7 @@ local function launch_ledger()
       if ledger_hook:overlaps(water_ent) then
         mov:stop()
         map:set_cinematic_mode(false)
+        game:set_pause_allowed(false)
         hero:freeze()
         hero:set_animation("fishing_stopped")
         start_in_water()
@@ -319,8 +309,15 @@ local function launch_ledger()
   end)
 end
 
--- Event called after the opening transition effect of the map,
--- that is, when the player takes control of the hero.
+function map:on_started()
+
+  map:init_music()
+
+  add_fishes()
+  hero:set_animation("fishing_stopped")
+  start_rest()
+end
+
 function map:on_opening_transition_finished()
   local state = hero:get_state()
   hero:freeze()
@@ -328,33 +325,98 @@ function map:on_opening_transition_finished()
 end
 
 function map:on_command_pressed(cmd)
-  if cmd == 'action' then
-    if state == 'rest' then
-      launch_ledger()
-    elseif state == 'falling' then
+  if cmd == "action" then
+    if state == "rest" then
+      start_launching()
+    elseif state == "falling" then
       start_pulling()
     end
   end
 end
 
 function map:on_command_released(cmd)
-  if cmd == 'action' then
-    if state == 'pulling' then
+  if cmd == "action" then
+    if state == "pulling" then
       start_fall()
     end
   end
 end
 
-catch_zone:add_collision_test('overlapping', function(this, other)
-  if state == 'pulling' and other == ledger_hook then
+catch_zone:add_collision_test("overlapping", function(this, other)
+  if state == "pulling" and other == ledger_hook then
     if bitten_fish ~= nil then
       -- fish was caught !
-      local callback = bitten_fish.catch_callback
-      bitten_fish:remove()
-      bitten_fish = nil
-      callback()
+      start_caught()
     else
       start_rest()
     end
   end
 end)
+
+-- Asks to play again.
+local function play_again_or_leave(dialog_id)
+
+  game:start_dialog(dialog_id, function(response)
+    if response == 1 then
+      if game:get_money() >= 10 then
+        game:remove_money(10)
+        return
+      else
+        game:start_dialog("maps.sideviews.mabe_village.sideview_1.not_enough_money")
+      end
+    end
+
+    -- Leave the map
+    game:set_pause_allowed(true)
+    game:start_dialog("maps.sideviews.mabe_village.sideview_1.leaving", function()
+      hero:teleport("out/a3_mabe_village", "from_fishing_game")
+    end)
+  end)
+end
+
+function small_fish_treasure()
+  map:start_coroutine(function()
+    wait_for(hero.start_treasure, hero, "fish_small", 1, "")
+    start_rest()  -- To restore the fishing animation
+    dialog("maps.sideviews.mabe_village.sideview_1.got_small_fish")
+    game:add_money(5)
+    wait(200)
+    play_again_or_leave("maps.sideviews.mabe_village.sideview_1.got_small_fish_2")
+  end)
+end
+
+function big_fish_treasure_rupees()
+  map:start_coroutine(function()
+    wait_for(hero.start_treasure, hero, "fish_big", 1, "")
+    start_rest()  -- To restore the fishing animation
+    dialog("maps.sideviews.mabe_village.sideview_1.got_big_fish")
+    game:add_money(20)
+    wait(200)
+    play_again_or_leave("maps.sideviews.mabe_village.sideview_1.got_big_fish_2")
+  end)
+end
+
+function big_fish_treasure_piece_of_heart()
+
+  hero:start_treasure("fish_big", 1, "", function()
+    start_rest()  -- To restore the fishing animation
+    game:start_dialog("maps.sideviews.mabe_village.sideview_1.got_big_fish_heart_piece", function()
+      hero:start_treasure("piece_of_heart", 1, piece_of_heart_savegame_variable)
+    end)
+  end)
+end
+
+function map:on_obtained_treasure(item, variant, savegame_variable)
+
+  if item:get_name() == "piece_of_heart" then
+    start_rest()
+    sol.timer.start(map, 10, function()
+      -- Wait for the piece of heart dialogs to finish.
+      if game:is_dialog_enabled() then
+        return true
+      end
+      game:add_money(20)
+      play_again_or_leave("maps.sideviews.mabe_village.sideview_1.got_big_fish_heart_piece_2")
+    end)
+  end
+end
