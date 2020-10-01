@@ -16606,12 +16606,12 @@ jumper{
 custom_entity{
   layer = 1,
   x = 840,
-  y = 1341,
+  y = 1325,
   width = 16,
   height = 16,
   direction = 0,
   sprite = "entities/items/bomb_fly",
-  model = "bomb_fly",
+  model = "pickable_fly",
 }
 
 custom_entity{
