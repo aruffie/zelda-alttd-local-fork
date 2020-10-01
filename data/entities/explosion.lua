@@ -3,6 +3,7 @@
 -- Explosion allowing some additional properties.
 --
 -- Custom properties : strength, hurtable_type_[1 to 10]
+-- Events :            on_finished()
 --
 ----------------------------------
 
@@ -43,6 +44,9 @@ end)
 explosion:register_event("on_created", function(explosion)
 
   sprite:set_animation("explosion", function()
+    if explosion.on_finished then
+      explosion:on_finished()
+    end
     explosion:remove()
   end)
 end)

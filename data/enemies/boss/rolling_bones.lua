@@ -124,13 +124,23 @@ function enemy:start_pushing(angle)
   end)
 end
 
--- Remove the spike on dead.
+-- Kill the spike on dead.
 enemy:register_event("on_dead", function(enemy)
 
   spike:stop_all()
   spike:get_sprite():set_animation("destroyed", function()
     spike:start_death()
   end)
+end)
+
+-- Enable the spike on enabled.
+enemy:register_event("on_enabled", function(enemy)
+  spike:set_enabled()
+end)
+
+-- Disable the spike on disabled.
+enemy:register_event("on_disabled", function(enemy)
+  spike:set_enabled(false)
 end)
 
 -- Initialization.

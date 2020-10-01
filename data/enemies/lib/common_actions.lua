@@ -31,13 +31,12 @@
 --           enemy:start_pushing_back(entity, [speed, [duration, [on_finished_callback]]])
 --           enemy:start_shock(entity, [speed, [duration, [on_finished_callback]]])
 --
---           Effects and other actions :
+--           Effects and events :
 --           enemy:start_death([dying_callback])
 --           enemy:start_shadow([sprite_name, [animation_name, [x, [y]]]])
 --           enemy:start_brief_effect(sprite_name, [animation_name, [x, [y, [maximum_duration, [on_finished_callback]]]]])
 --           enemy:start_close_explosions(maximum_distance, duration, [explosion_sprite_name, [x, [y, [on_finished_callback]]]])
 --           enemy:start_sprite_explosions([sprites, [explosion_sprite_name, [x, [y, [on_finished_callback]]]]])
---           enemy:steal_item(item_name, [variant, [only_if_assigned, [drop_when_dead]]])
 --           enemy:stop_all()
 --
 -- Usage : 
@@ -413,9 +412,11 @@ function common_actions.learn(enemy)
     -- Start the pixel move schedule.
     for i = 1, 2 do
       local initial_delay = attract_on_axis(i)
-      attracting_timers[entity][i] = sol.timer.start(enemy, initial_delay, function()
-        return attract_on_axis(i)
-      end)
+      if initial_delay then
+        attracting_timers[entity][i] = sol.timer.start(enemy, initial_delay, function()
+          return attract_on_axis(i)
+        end)
+      end
     end
   end
 
@@ -879,25 +880,6 @@ function common_actions.learn(enemy)
       enemy:remove_sprite(sprite)
     end
     start_sprite_explosion(1)
-  end
-
-  -- Steal an item and drop it when died, possibly conditionned on the variant and the assignation to a slot.
-  function enemy:steal_item(item_name, variant, only_if_assigned, drop_when_dead)
-
-    if game:has_item(item_name) then
-      local item = game:get_item(item_name)
-      local is_stealable = not only_if_assigned or (game:get_item_assigned(1) == item and 1) or (game:get_item_assigned(2) == item and 2)
-
-      if (not variant or item:get_variant() == variant) and is_stealable then 
-        if drop_when_dead then
-          enemy:set_treasure(item_name, item:get_variant()) -- TODO savegame variable
-        end
-        item:set_variant(0)
-        if item_slot then
-          game:set_item_assigned(item_slot, nil)
-        end
-      end
-    end
   end
 
   -- Stop all running actions and prevent interactions with other entities.

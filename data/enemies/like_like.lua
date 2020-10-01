@@ -6,6 +6,7 @@
 -- Eat the hero and steal the equiped shield if any, then wait for eight actions before free the hero.
 --
 -- Methods : enemy:start_walking()
+--           enemy:steal_item(item_name, [variant, [only_if_assigned, [drop_when_dead]]])
 --           enemy:free_hero()
 --           enemy:eat_hero()
 --
@@ -46,6 +47,26 @@ function enemy:start_walking()
   enemy:start_straight_walking(walking_angles[math.random(4)], walking_speed, math.random(walking_minimum_distance, walking_maximum_distance), function()
     enemy:start_walking()
   end)
+end
+
+
+-- Steal an item and drop it when died, possibly conditionned on the variant and the assignation to a slot.
+function enemy:steal_item(item_name, variant, only_if_assigned, drop_when_dead)
+
+  if game:has_item(item_name) then
+    local item = game:get_item(item_name)
+    local is_stealable = not only_if_assigned or (game:get_item_assigned(1) == item and 1) or (game:get_item_assigned(2) == item and 2)
+
+    if (not variant or item:get_variant() == variant) and is_stealable then 
+      if drop_when_dead then
+        enemy:set_treasure(item_name, item:get_variant()) -- TODO savegame variable
+      end
+      item:set_variant(0)
+      if item_slot then
+        game:set_item_assigned(item_slot, nil)
+      end
+    end
+  end
 end
 
 -- Free the hero.
