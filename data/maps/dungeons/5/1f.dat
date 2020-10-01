@@ -18284,9 +18284,9 @@ sensor{
   name = "sensor_9",
   layer = 0,
   x = 952,
-  y = 1149,
+  y = 1141,
   width = 16,
-  height = 16,
+  height = 32,
 }
 
 door{
@@ -19694,7 +19694,7 @@ custom_entity{
 }
 
 custom_entity{
-  name = "placeholder_skeleton_5",
+  name = "placeholder_skeleton",
   layer = 0,
   x = 1440,
   y = 1077,
@@ -19716,8 +19716,18 @@ custom_entity{
 custom_entity{
   name = "placeholder_small_boss",
   layer = 0,
-  x = 800,
+  x = 712,
   y = 1029,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+custom_entity{
+  name = "placeholder_small_boss_2",
+  layer = 0,
+  x = 712,
+  y = 1109,
   width = 16,
   height = 16,
   direction = 0,

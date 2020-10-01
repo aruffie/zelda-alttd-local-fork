@@ -125,9 +125,21 @@ function sensor_3:on_activated()
   if skeleton_step == nil then
     skeleton_step = 1
   end
-  if skeleton_step == 1 then
+  if skeleton_step == 1 and not master_stalfos then
     door_manager:close_if_enemies_not_dead(map, "skeleton_1", "door_group_3_")
     audio_manager:play_music("small_boss")
+
+    -- Create Master Stalfos.
+    local x, y, layer = placeholder_skeleton:get_position()
+    placeholder_skeleton:set_enabled(false)
+    local enemy = map:create_enemy{
+      name = "master_stalfos",
+      breed = "boss/master_stalfos",
+      direction = 2,
+      x = x,
+      y = y,
+      layer = layer
+    }
   end
 
 end

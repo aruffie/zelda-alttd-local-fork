@@ -23,7 +23,7 @@
 --           enemy:start_attracting(entity, speed, [moving_condition_callback])
 --           enemy:stop_attracting([entity])
 --           enemy:start_impulsion(x, y, speed, acceleration, deceleration)
---           enemy:start_throwing(entity, duration, start_height, maximum_height, [angle, speed, [on_finished_callback]])
+--           enemy:start_throwing(entity, duration, start_height, [maximum_height, [angle, speed, [on_finished_callback]]])
 --           enemy:start_welding(entity, [x, [y]])
 --           enemy:start_leashed_by(entity, maximum_distance)
 --           enemy:stop_leashed_by(entity)
@@ -530,6 +530,7 @@ function common_actions.learn(enemy)
   function enemy:start_throwing(entity, duration, start_height, maximum_height, angle, speed, on_finished_callback)
 
     local movement
+    maximum_height = maximum_height or start_height
 
     -- Consider the throw as an already-started sinus function, depending on start_height.
     local elapsed_time = duration / (1 - math.asin(math.pow(start_height / maximum_height, 2)) / math.pi) - duration
