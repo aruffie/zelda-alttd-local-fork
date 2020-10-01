@@ -21,6 +21,7 @@ local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
 local is_propelled = false
+local is_explosing = false
 
 -- Configuration variables
 local walking_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
@@ -46,13 +47,32 @@ end
 -- Make the enemy explode
 function enemy:explode()
 
+  if is_explosing then
+    return
+  end
+  is_explosing = true
+
   local x, y, layer = enemy:get_position()
-  map:create_explosion({
+  local explosion = map:create_custom_entity({
+    model = "explosion",
+    direction = 0,
     x = x,
     y = y,
-    layer = layer
+    layer = layer,
+    width = 16,
+    height = 16,
+    properties = {
+      {key = "strength", value = "4"},
+      {key = "hurtable_type_1", value = "hero"},
+      {key = "hurtable_type_2", value = "enemy"}
+    }
   })
-  enemy:start_death()
+  enemy:stop_all()
+  enemy:set_visible(false)
+
+  function explosion:on_finished()
+    enemy:start_death()
+  end
 end
 
 -- Start the enemy movement.

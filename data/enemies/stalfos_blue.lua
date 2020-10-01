@@ -28,6 +28,16 @@ local elevating_duration = 120
 local stompdown_duration = 50
 local get_up_duration = 400
 
+-- Set the behavior for each items.
+local function set_vulnerable()
+
+  enemy:set_hero_weapons_reactions(2, {
+    sword = 1,
+    jump_on = "ignored",
+    fire = "protected"
+  })
+end
+
 -- Start moving to the hero, and attack when he is close enough.
 function enemy:start_walking()
 
@@ -61,6 +71,8 @@ function enemy:start_attacking()
   sol.timer.start(enemy, jumping_duration, function()
     enemy:stop_flying(stompdown_duration, function()
 
+      set_vulnerable()
+
       -- Start a visual effect at the landing impact location, wait a few time and restart.
       enemy:start_brief_effect("entities/effects/impact_projectile", "default", -12, 0)
       enemy:start_brief_effect("entities/effects/impact_projectile", "default", 12, 0)
@@ -83,11 +95,7 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
-  -- Behavior for each items.
-  enemy:set_hero_weapons_reactions(2, {
-    sword = 1,
-    jump_on = "ignored",
-    fire = "protected"})
+  set_vulnerable()
 
   -- States.
   sprite:set_xy(0, 0)
