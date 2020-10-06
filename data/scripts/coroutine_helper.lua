@@ -41,7 +41,7 @@
 -- movement(a_movement,a_movable)     -- start the given movement on the given movable, resume execution when movement finishes
 -- animation(a_sprite,animation_id)   -- play the animation on the given sprite and wait for it to finish
 -- run_on_main(a_function)            -- run a given closure on the main thread
--- wait_for(method,object,args...)    -- wait for a method or function that accept a callback as last argument (that you must ommit, the helper adds it for you)
+-- wait_for(method,object,args...)    -- wait for a method or function that accept a callback as last argument (that you must omit, the helper adds it for you)
 -- return                             -- at any time, returning from the function will end the cutscene
 --
 -- note that code inside the function is not restrained to those helpers,
