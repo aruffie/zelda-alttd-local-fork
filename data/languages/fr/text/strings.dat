@@ -95,16 +95,8 @@ text{ key = "inventory.caption.item.tunic.1", value = "Cotte de Mailles$verte" }
 text{ key = "inventory.caption.item.tunic.2", value = "Cotte de Mailles$bleue" }
 text{ key = "inventory.caption.item.tunic.3", value = "Cotte de Mailles$rouge" }
 text{ key = "inventory.title", value = "Inventaire" }
-text{ key = "map.caption.dungeon_name_1", value = "Cave Flagello" }
-text{ key = "map.caption.dungeon_name_10", value = "Précipice aquatique" }
-text{ key = "map.caption.dungeon_name_2", value = "Grotte du génie" }
-text{ key = "map.caption.dungeon_name_3", value = "Cave aux clés" }
-text{ key = "map.caption.dungeon_name_4", value = "Abîme du poisson" }
-text{ key = "map.caption.dungeon_name_5", value = "Posson-chat" }
-text{ key = "map.caption.dungeon_name_6", value = "Temple du masque" }
-text{ key = "map.caption.dungeon_name_7", value = "Tour du vautour" }
-text{ key = "map.caption.dungeon_name_8", value = "Roc de la tortue" }
-text{ key = "map.caption.dungeon_name_9", value = "Donjon des couleurs" }
+text{ key = "map.caption", value = "map_0_0" }
+text{ key = "map.caption.map_0_0", value = "Texte" }
 text{ key = "map.caption.world_map", value = "Carte de Cocolint" }
 text{ key = "map.title", value = "Carte" }
 text{ key = "messagebox.no", value = "Non" }

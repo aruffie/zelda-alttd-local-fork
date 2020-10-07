@@ -207,9 +207,10 @@ function map_submenu:set_world_map_cursor_position(cursor_x, cursor_y)
   self.game:set_custom_command_effect("action", nil)
   
   -- Caption.
-  local letter = 'A'
-  letter = string.char(letter:byte() + self.world_map_cursor_x)
-  local caption_text = letter..(self.world_map_cursor_y + 1)
+  --local letter = 'A'
+  --letter = string.char(letter:byte() + self.world_map_cursor_x)
+  --local caption_text = letter..(self.world_map_cursor_y + 1)
+  local caption_text = sol.language.get_string("map.caption.map_" .. self.world_map_cursor_x .. "_" .. self.world_map_cursor_y)
   self:set_caption(caption_text)
 end
 
