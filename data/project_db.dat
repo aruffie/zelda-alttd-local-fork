@@ -1266,6 +1266,8 @@ item{ id = "face_key", description = "Face key" }
 item{ id = "fairy", description = "Fairy" }
 item{ id = "feather", description = "Feather v2" }
 item{ id = "fire_rod", description = "Fire rod" }
+item{ id = "fish_big", description = "Fish (big)" }
+item{ id = "fish_small", description = "Fish (small)" }
 item{ id = "flippers", description = "Flippers" }
 item{ id = "golden_leaf", description = "Golden leaf" }
 item{ id = "golden_leaves_counter", description = "Golden leafs counter" }
@@ -1756,6 +1758,8 @@ file{ path = "items/face_key.lua", author = "Benjamin Schweitzer", license = "GP
 file{ path = "items/fairy.lua", license = "GPL v3" }
 file{ path = "items/feather.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "items/fire_rod.lua", license = "GPL v3" }
+file{ path = "items/fish_big.lua", author = "Christopho", license = "GPL v3" }
+file{ path = "items/fish_small.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "items/flippers.lua", license = "GPL v3" }
 file{ path = "items/golden_leaf.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/golden_leaves_counter.lua", author = "Benjamin Schweitzer", license = "GPL v3" }

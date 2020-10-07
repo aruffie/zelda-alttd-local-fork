@@ -21997,6 +21997,14 @@ destructible{
   ground = "grass",
 }
 
+destination{
+  name = "from_fishing_game",
+  layer = 1,
+  x = 368,
+  y = 69,
+  direction = 3,
+}
+
 tile{
   layer = 2,
   x = 560,
