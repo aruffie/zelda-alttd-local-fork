@@ -711,7 +711,6 @@ function common_actions.learn(enemy)
       if treasure_name then
         local x, y, layer = enemy:get_position()
         local pickable = map:create_pickable({
-          name = (enemy:get_name() or enemy:get_breed()) .. treasure_name,
           x = x,
           y = y,
           layer = layer,
@@ -722,8 +721,10 @@ function common_actions.learn(enemy)
 
         -- Replace the built-in falling by a throw from the given height.
         if pickable and pickable:exists() then -- If the pickable was not immediately removed from the on_created() event.
-          pickable:stop_movement()
-          enemy:start_throwing(pickable, 450 + treasure_falling_height * 6, treasure_falling_height, treasure_falling_height + 16) -- TODO Find a better way to set a duration.
+          if pickable:get_treasure():get_name() ~= "fairy" then -- Workaround: No way to set no built-in falling movement nor detect it from a movement initiated in on_created. Don't stop the movement for some items.
+            pickable:stop_movement()
+            enemy:start_throwing(pickable, 450 + treasure_falling_height * 6, treasure_falling_height, treasure_falling_height + 16) -- TODO Find a better way to set a duration.
+          end
         end
       end
 
