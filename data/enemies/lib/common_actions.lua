@@ -766,6 +766,8 @@ function common_actions.learn(enemy)
         shadow:get_sprite():set_animation(animation_name)
       end
       shadow:set_traversable_by(true)
+      shadow:set_drawn_in_y_order(false) -- Display the shadow as a flat entity.
+      shadow:bring_to_back()
       
       -- Always display the shadow on the lowest possible layer.
       function shadow:on_position_changed(x, y, layer)

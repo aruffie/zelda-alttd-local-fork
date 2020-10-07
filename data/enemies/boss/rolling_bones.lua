@@ -2,7 +2,7 @@
 --
 -- Rolling Bones.
 --
--- Start by pushing a rolling bones across the room, then zigzag jump to go back behind and push it again through the other side of the room.
+-- Start by pushing a spike across the room, then zigzag jump to go back behind and push it again through the other side of the room.
 -- Slightly increase the speed each time the enemy is hurt.
 --
 -- Methods : enemy:start_moving()
