@@ -1,6 +1,6 @@
 animation{
   name = "walking",
-  src_image = "enemies/boss/master_stalfos/legs.png",
+  src_image = "enemies/boss/master_stalfos/body.png",
   frame_delay = 150,
   frame_to_loop_on = 0,
   directions = {
@@ -12,7 +12,7 @@ animation{
 }
 animation{
   name = "aiming",
-  src_image = "enemies/boss/master_stalfos/legs.png",
+  src_image = "enemies/boss/master_stalfos/body.png",
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {
@@ -23,18 +23,8 @@ animation{
   },
 }
 animation{
-  name = "collapse",
-  src_image = "enemies/boss/master_stalfos/legs.png",
-  directions = {
-    { x = 480, y = 0, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 57 },
-    { x = 0, y = 0, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 57 },
-    { x = 0, y = 80, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 57 },
-    { x = 0, y = 80, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 57 },
-  },
-}
-animation{
   name = "hurt",
-  src_image = "enemies/boss/master_stalfos/legs.png",
+  src_image = "enemies/boss/master_stalfos/body.png",
   frame_delay = 150,
   frame_to_loop_on = 0,
   directions = {
@@ -46,7 +36,7 @@ animation{
 }
 animation{
   name = "immobilized",
-  src_image = "enemies/boss/master_stalfos/legs.png",
+  src_image = "enemies/boss/master_stalfos/body.png",
   directions = {
     { x = 0, y = 0, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 57 },
     { x = 0, y = 0, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 57 },
@@ -56,7 +46,7 @@ animation{
 }
 animation{
   name = "jumping",
-  src_image = "enemies/boss/master_stalfos/legs.png",
+  src_image = "enemies/boss/master_stalfos/body.png",
   directions = {
     { x = 320, y = 0, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 57 },
     { x = 320, y = 0, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 57 },
@@ -65,18 +55,8 @@ animation{
   },
 }
 animation{
-  name = "restoring",
-  src_image = "enemies/boss/master_stalfos/legs.png",
-  directions = {
-    { x = 480, y = 0, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 57 },
-    { x = 0, y = 0, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 57 },
-    { x = 0, y = 80, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 57 },
-    { x = 0, y = 80, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 57 },
-  },
-}
-animation{
   name = "striking",
-  src_image = "enemies/boss/master_stalfos/legs.png",
+  src_image = "enemies/boss/master_stalfos/body.png",
   frame_delay = 200,
   frame_to_loop_on = 2,
   directions = {
@@ -88,7 +68,7 @@ animation{
 }
 animation{
   name = "waiting",
-  src_image = "enemies/boss/master_stalfos/legs.png",
+  src_image = "enemies/boss/master_stalfos/body.png",
   directions = {
     { x = 0, y = 0, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 57 },
     { x = 0, y = 0, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 57 },

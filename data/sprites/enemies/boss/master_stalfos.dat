@@ -23,16 +23,6 @@ animation{
   },
 }
 animation{
-  name = "collapse",
-  src_image = "enemies/boss/master_stalfos.png",
-  directions = {
-    { x = 480, y = 0, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 57 },
-    { x = 0, y = 0, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 57 },
-    { x = 0, y = 80, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 57 },
-    { x = 0, y = 80, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 57 },
-  },
-}
-animation{
   name = "hurt",
   src_image = "enemies/boss/master_stalfos.png",
   frame_delay = 150,
@@ -62,16 +52,6 @@ animation{
     { x = 320, y = 0, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 57 },
     { x = 320, y = 80, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 57 },
     { x = 320, y = 88, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 57 },
-  },
-}
-animation{
-  name = "restoring",
-  src_image = "enemies/boss/master_stalfos.png",
-  directions = {
-    { x = 480, y = 0, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 57 },
-    { x = 0, y = 0, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 57 },
-    { x = 0, y = 80, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 57 },
-    { x = 0, y = 80, frame_width = 80, frame_height = 80, origin_x = 40, origin_y = 57 },
   },
 }
 animation{
