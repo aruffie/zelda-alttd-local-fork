@@ -55,6 +55,8 @@ local hero_stunned_duration = 1000
 local function start_holding(right_hand, hold_duration, on_throwing)
 
   is_bomb_upcoming = false
+  
+  enemy:set_drawn_in_y_order(false) -- Display this enemy as a flat entity for the throw to draw the hero above.
   sprite:set_animation("holding_" .. (right_hand and "right" or "left"))
   sprite:set_direction(right_hand and 2 or 0)
 
@@ -149,7 +151,6 @@ function enemy:throw_bomb()
   if bomb and bomb:exists() then -- If the bomb was not immediatly removed from the on_created() event.
     bomb:set_position(x + hand_offset_x, y, layer + 1) -- Layer + 1 to not interact with a possible ground after moved.
     bomb:get_sprite():set_xy(0, right_hand_offset_y)
-    bomb:bring_to_front()
     holded_bomb = bomb
 
     start_holding(is_right_hand_throw, bomb_holding_duration, function()
@@ -181,7 +182,6 @@ function enemy:throw_hero()
   local hero_sprite = hero:get_sprite()
   hero:freeze()
   hero:set_position(x + hand_offset_x, y, layer + 1) -- Layer + 1 to not interact with a possible ground after moved.
-  hero:bring_to_front()
   hero_sprite:set_xy(0, right_hand_offset_y)
   hero_sprite:set_animation("scared")
 
@@ -264,6 +264,7 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_damage(4)
   enemy:set_can_attack(true)
   enemy:set_obstacle_behavior("flying") -- Don't fall in holes.
+  enemy:set_drawn_in_y_order() -- Reset y drawn order possibly changed by the throw.
   sprite:set_animation("waiting")
   if is_bomb_upcoming then
     enemy:throw_bomb()

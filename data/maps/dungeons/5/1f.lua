@@ -98,7 +98,6 @@ function map:init_skeletons()
   for enemy in map:get_entities("skeleton_") do
     enemy:set_enabled(false)
   end
-  print(skeleton_step)
   local enemy = map:get_entity("skeleton_" .. skeleton_step)
   if enemy ~= nil then
     enemy:set_enabled(true)
