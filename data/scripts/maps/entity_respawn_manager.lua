@@ -78,7 +78,13 @@ function entity_respawn_manager:init(map)
     local recreated_enemies = {}
     for enemy, enemy_place in pairs(saved_entities.enemies) do
       if enemy:is_in_same_region(map:get_hero()) then
-        recreated_enemies[enemy] = recreate_enemy(enemy)
+        if enemy:exists() and enemy:get_sprite():get_animation() ~= "killed" then -- TODO Find another way to reset a dying enemy without recreate it to preserve events and name.
+          enemy:set_enabled(true)
+          enemy:set_position(enemy_place.x, enemy_place.y, enemy_place.layer)
+          enemy:set_life(enemy_place.life)
+        else
+          recreated_enemies[enemy] = recreate_enemy(enemy)
+        end
       end
     end
 
@@ -260,7 +266,7 @@ function entity_respawn_manager:init(map)
 
   function entity_respawn_manager:reset_enemies(map)
 
-    -- Disable all enemies when leaving a zone. Only disable here instead of remove to not trigger map puzzles based on enemy removal.
+    -- Disable all enemies when leaving a zone. Disable instead of remove to not trigger map puzzles based on enemy removal.
     for enemy in map:get_entities_by_type("enemy") do
       if saved_entities.enemies[enemy] and enemy:is_in_same_region(map:get_hero()) then
         sol.timer.stop_all(enemy)
