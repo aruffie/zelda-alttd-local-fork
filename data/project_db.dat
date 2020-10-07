@@ -248,6 +248,8 @@ sprite{ id = "enemies/boss/hot_head", description = "Hot head" }
 sprite{ id = "enemies/boss/hot_head/form_b", description = "Hot head form b" }
 sprite{ id = "enemies/boss/hot_head/form_c", description = "Hot head form c" }
 sprite{ id = "enemies/boss/master_stalfos", description = "Master stalfos" }
+sprite{ id = "enemies/boss/master_stalfos/head", description = "Master stalfos head" }
+sprite{ id = "enemies/boss/master_stalfos/legs", description = "Master stalfos legs" }
 sprite{ id = "enemies/boss/master_stalfos/shadow", description = "Master stalfos shadow" }
 sprite{ id = "enemies/boss/master_stalfos/shield", description = "Master stalfos shield" }
 sprite{ id = "enemies/boss/master_stalfos/sword", description = "Master stalfos sword" }
