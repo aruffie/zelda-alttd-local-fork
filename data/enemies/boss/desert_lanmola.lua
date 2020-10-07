@@ -36,6 +36,7 @@ local jumping_height = 32
 local jumping_minimum_duration = 2700
 local jumping_maximum_duration = 3000
 local angle_amplitude_from_center = math.pi * 0.125
+local hurt_duration = 1000
 
 -- Constants
 local sprites_count = #tied_sprites_frame_lags + 1
@@ -179,7 +180,7 @@ local function hurt(damage)
   -- Manually hurt else to not trigger the built-in behavior and its automatic restart.
   enemy:set_life(enemy:get_life() - damage)
   set_sprites_animation("hurt")
-  sol.timer.start(enemy, 1000, function()
+  sol.timer.start(enemy, hurt_duration, function()
     set_sprites_animation("walking")
   end)
   if enemy.on_hurt then
