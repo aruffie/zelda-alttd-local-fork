@@ -72,6 +72,7 @@ function enemy:start_attacking()
     enemy:stop_flying(stompdown_duration, function()
 
       set_vulnerable()
+      enemy:set_can_attack(true)
 
       -- Start a visual effect at the landing impact location, wait a few time and restart.
       enemy:start_brief_effect("entities/effects/impact_projectile", "default", -12, 0)

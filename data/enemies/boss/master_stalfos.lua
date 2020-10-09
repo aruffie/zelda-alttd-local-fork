@@ -2,10 +2,13 @@
 --
 -- Master Stalfos.
 --
--- Start by falling from the ceiling, then strike, walk or jump to hero depending on the distance between them.
+-- Strike, walk or jump to hero depending on the distance between them.
 -- The body part is invicible and doesn't hurt, the shield and the sword parts are also invicible and hurt, and the head one is vulnerable and hurt.
 -- Can only be defeated by a sword hit on the head to make it collapse, then an explosion that touches the body or head part.
--- May start the "dialog" property dialog after falling if any.
+-- May fall from the ceiling or escape by jumping on ceiling by calling the corresponding method from outside this script.
+--
+-- Methods : enemy:start_falling(dialog)
+--           enemy:start_escaping(dialog, on_finished_callback)
 --
 ----------------------------------
 
@@ -21,10 +24,10 @@ local head, shield, sword
 local legs_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed()) -- Use legs sprite as the reference one as it is the only one that doesn't collapse.
 local body_sprite, head_sprite, shield_sprite, sword_sprite, sword_effect_sprite
 local quarter = math.pi * 0.5
-local is_upstairs = true
 local is_jumping = false
 local is_collapsing = false
 local is_hurt = false
+local is_escaping = false
 
 -- Configuration variables
 local falling_duration = 1000
@@ -42,11 +45,12 @@ local walking_maximum_duration = 1000
 local jumping_maximum_speed = 150
 local jumping_height = 32
 local jumping_duration = 650
-local strike_triggering_distance = 32
-local walking_triggering_distance = 60
+local strike_triggering_distance = 36
+local walking_triggering_distance = 64
 local collapse_height = 19
 local collapse_speed = 88
 local restore_speed = 44
+local escaping_speed = 280
 
 -- Make the given sprite move.
 local function move_sprite(sprite, max_distance, direction, speed, callback)
@@ -104,7 +108,6 @@ local function create_sub_enemy(sprite_name)
     direction = legs_sprite:get_direction()
   })
   enemy:start_welding(sub_enemy)
-  enemy:set_visible(false) -- Create sub enemies as not visible since enemy is supposed to fall from the ceiling.
   sub_enemy:set_drawn_in_y_order(false) -- Display the sub enemy as a flat entity.
   sub_enemy:bring_to_front()
 
@@ -220,7 +223,7 @@ local function hurt(damage)
     -- Wait a few time, start 2 sets of explosions close from the enemy, wait a few time again and finally make the final explosion and enemy die.
     enemy:stop_all()
     enemy:start_death(function()
-      legs_sprite:set_animation("hurt")
+      legs_sprite:set_shader(hurt_shader)
       sol.timer.start(enemy, 1500, function()
         enemy:start_close_explosions(32, 2500, "entities/explosion_boss", 0, -20, function()
           sol.timer.start(enemy, 1000, function()
@@ -252,6 +255,9 @@ end
 -- Collapse for some time when the head is hit by sword and make the body vulnerable to explosions, then shake for time and finally restore and restart.
 local function on_head_hurt()
 
+  if is_collapsing then
+    return
+  end
   is_collapsing = true
 
   -- Make all enemy parts harmless, and stop movements and timers if no running jump.
@@ -268,50 +274,23 @@ local function on_head_hurt()
   enemy:set_hero_weapons_reactions("ignored", {
     explosion = function() hurt(1) end,
   })
-  head:set_hero_weapons_reactions("ignored")
+  head:set_hero_weapons_reactions("ignored", {
+    explosion = function() hurt(1) end,
+  })
   shield:set_hero_weapons_reactions("ignored")
   sword:set_hero_weapons_reactions("ignored")
 
   -- Repulse the enemy and make it collapse.
   start_pushed_back(hero, function()
-
-    -- Let a possible jump finish before collapse.
-    if not is_jumping then
+    if not is_jumping then -- Let a possible jump finish before collapse.
       start_collapse()
     end
   end)
-end
 
--- Make the boss fall from the ceiling.
-local function start_falling()
-
-  local _, enemy_y = enemy:get_position()
-  local _, camera_y = map:get_camera():get_position()
-  enemy:set_visible()
-  legs_sprite:set_animation("jumping")
-  legs_sprite:set_direction(0)
-
-  -- Fall from ceiling.
-  enemy:start_throwing(enemy, falling_duration, enemy_y - camera_y, nil, nil, nil, function()
-    is_upstairs = false
-    legs_sprite:set_animation("waiting")
-
-    -- Start the dialog if any, else look left and right.
-    local dialog = enemy:get_property("dialog")
-    if dialog then
-      game:start_dialog(dialog)
-      enemy:restart()
-    else
-      sol.timer.start(enemy, seeking_duration, function()
-        legs_sprite:set_direction(2)
-        sol.timer.start(enemy, seeking_duration, function()
-          legs_sprite:set_direction(0)
-          sol.timer.start(enemy, seeking_duration, function()
-            enemy:restart()
-          end)
-        end)
-      end)
-    end
+  -- Start the hurt shader for a very few time.
+  legs_sprite:set_shader(hurt_shader)
+  sol.timer.start(enemy, 100, function()
+    legs_sprite:set_shader(nil)
   end)
 end
 
@@ -396,10 +375,75 @@ local function start_waiting()
   end
 end
 
+-- Make the boss fall from the ceiling, and start the given dialog after if any.
+function enemy:start_falling(dialog)
+
+  sol.timer.stop_all(enemy) -- TODO Find a better way to not start_waiting() at restart when a fall is upcoming.
+
+  local _, y, layer = enemy:get_position()
+  local _, camera_y = map:get_camera():get_position()
+  legs_sprite:set_animation("jumping")
+  legs_sprite:set_direction(0)
+
+  -- Fall from ceiling, displaying the enemy on the higher layer during the fall.
+  legs_sprite:set_xy(0, y - camera_y)
+  enemy:set_layer(map:get_max_layer())
+  enemy:start_throwing(enemy, falling_duration, y - camera_y, nil, nil, nil, function()
+    enemy:set_layer(layer)
+    legs_sprite:set_animation("waiting")
+
+    -- Start the dialog if any, else look left and right.
+    if dialog then
+      game:start_dialog(dialog)
+      enemy:restart()
+    else
+      sol.timer.start(enemy, seeking_duration, function()
+        legs_sprite:set_direction(2)
+        sol.timer.start(enemy, seeking_duration, function()
+          legs_sprite:set_direction(0)
+          sol.timer.start(enemy, seeking_duration, function()
+            enemy:restart()
+          end)
+        end)
+      end)
+    end
+  end)
+end
+
+-- Make the boss start the given dialog if any, then jump to the ceiling.
+function enemy:start_escaping(dialog, on_finished_callback)
+
+  is_escaping = true
+
+  local _, camera_y = map:get_camera():get_position()
+
+  -- Delay until the collapse finished.
+  sol.timer.start(map, 10, function() -- Start the timer on map to make it survive on the restart.
+    if is_collapsing then
+      return 10
+    end
+
+    if dialog then
+      game:start_dialog(dialog)
+    end
+
+    -- Start the jump to the ceiling, then remove the enemy and do the callback on finished.
+    local _, y = enemy:get_position()
+    local height = y - camera_y
+    enemy:set_layer(map:get_max_layer())
+    move_sprite(legs_sprite, height, 1, escaping_speed)
+    move_sprite(head_sprite, height, 1, escaping_speed)
+    move_sprite(shield_sprite, height, 1, escaping_speed)
+    move_sprite(sword_sprite, height, 1, escaping_speed)
+    move_sprite(body_sprite, height, 1, escaping_speed, function()
+      enemy:remove()
+      on_finished_callback()
+    end)
+  end)
+end
+
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
-
-  enemy:set_visible(false)
 
   enemy:set_life(12)
   enemy:set_size(32, 16)
@@ -451,9 +495,9 @@ enemy:register_event("on_restarted", function(enemy)
   is_collapsing = false
   is_hurt = false
   legs_sprite:set_xy(0, 0)
-  if not is_upstairs then
+  if not is_escaping then
     start_waiting()
   else
-    start_falling()
+
   end
 end)
