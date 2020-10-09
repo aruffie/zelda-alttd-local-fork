@@ -12949,6 +12949,33 @@ tile{
   pattern = "floor_low.3-1",
 }
 
+tile{
+  layer = 0,
+  x = 1448,
+  y = 1224,
+  width = 8,
+  height = 16,
+  pattern = "door.1.support.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 1424,
+  y = 1224,
+  width = 8,
+  height = 16,
+  pattern = "door.1.support.1-1",
+}
+
+tile{
+  layer = 0,
+  x = 1432,
+  y = 1224,
+  width = 16,
+  height = 16,
+  pattern = "door.1",
+}
+
 wall{
   layer = 0,
   x = 792,
@@ -13500,103 +13527,113 @@ block{
 }
 
 block{
+  name = "master_stalfos_block_7",
   layer = 0,
   x = 56,
   y = 61,
   sprite = "entities/blocks/block",
   pushable = false,
   pullable = false,
-  maximum_moves = 0,
+  max_moves = 0,
 }
 
 block{
+  name = "master_stalfos_block_8",
   layer = 0,
   x = 264,
   y = 61,
   sprite = "entities/blocks/block",
   pushable = false,
   pullable = false,
-  maximum_moves = 0,
+  max_moves = 0,
 }
 
 block{
+  name = "master_stalfos_block_9",
   layer = 0,
   x = 264,
   y = 189,
   sprite = "entities/blocks/block",
   pushable = false,
   pullable = false,
-  maximum_moves = 0,
+  max_moves = 0,
 }
 
 block{
+  name = "master_stalfos_block_10",
   layer = 0,
   x = 56,
   y = 189,
   sprite = "entities/blocks/block",
   pushable = false,
   pullable = false,
-  maximum_moves = 0,
+  max_moves = 0,
 }
 
 block{
+  name = "master_stalfos_block_5",
   layer = 0,
   x = 1544,
   y = 61,
   sprite = "entities/blocks/block",
   pushable = false,
   pullable = false,
-  maximum_moves = 0,
+  max_moves = 0,
 }
 
 block{
+  name = "master_stalfos_block_6",
   layer = 0,
   x = 1544,
   y = 189,
   sprite = "entities/blocks/block",
   pushable = false,
   pullable = false,
-  maximum_moves = 0,
+  max_moves = 0,
 }
 
 block{
+  name = "master_stalfos_block_4",
   layer = 0,
   x = 1336,
   y = 61,
   sprite = "entities/blocks/block",
   pushable = false,
   pullable = false,
-  maximum_moves = 0,
+  max_moves = 0,
 }
 
 block{
+  name = "master_stalfos_block_3",
   layer = 0,
   x = 2184,
   y = 781,
   sprite = "entities/blocks/block",
   pushable = false,
   pullable = false,
-  maximum_moves = 0,
+  max_moves = 0,
 }
 
 block{
+  name = "master_stalfos_block_2",
   layer = 0,
   x = 1976,
   y = 781,
   sprite = "entities/blocks/block",
   pushable = false,
   pullable = false,
-  maximum_moves = 0,
+  max_moves = 0,
 }
 
 block{
+  name = "master_stalfos_block",
   layer = 0,
   x = 1336,
   y = 1021,
   sprite = "entities/blocks/block",
   pushable = false,
   pullable = false,
-  maximum_moves = 0,
+  max_moves = 0,
 }
 
 block{
@@ -19636,16 +19673,12 @@ custom_entity{
   y = 109,
   properties = {
     {
-      key = "enemy_name",
-      value = "skeleton_4",
-    },
-    {
-      key = "enemy_step_death",
-      value = "5",
-    },
-    {
-      key = "enemy_treasure",
+      key = "treasure",
       value = "hookshot",
+    },
+    {
+      key = "falling_dialog",
+      value = "maps.dungeons.5.master_stalfos_falling_2",
     },
   },
   width = 16,
@@ -19660,12 +19693,12 @@ custom_entity{
   y = 109,
   properties = {
     {
-      key = "enemy_name",
-      value = "skeleton_3",
+      key = "escaping_life",
+      value = "3",
     },
     {
-      key = "enemy_step_death",
-      value = "4",
+      key = "falling_dialog",
+      value = "maps.dungeons.5.master_stalfos_falling",
     },
   },
   width = 16,
@@ -19680,12 +19713,12 @@ custom_entity{
   y = 829,
   properties = {
     {
-      key = "enemy_name",
-      value = "skeleton_2",
+      key = "escaping_life",
+      value = "6",
     },
     {
-      key = "enemy_step_death",
-      value = "3",
+      key = "falling_dialog",
+      value = "maps.dungeons.5.master_stalfos_falling",
     },
   },
   width = 16,
@@ -19700,12 +19733,8 @@ custom_entity{
   y = 1077,
   properties = {
     {
-      key = "enemy_name",
-      value = "skeleton_1",
-    },
-    {
-      key = "enemy_step_death",
-      value = "2",
+      key = "escaping_life",
+      value = "9",
     },
   },
   width = 16,
@@ -21600,9 +21629,9 @@ separator{
 separator{
   layer = 2,
   x = 1272,
-  y = 240,
+  y = 0,
   width = 16,
-  height = 1680,
+  height = 1920,
 }
 
 separator{
@@ -21624,16 +21653,16 @@ separator{
 separator{
   layer = 2,
   x = 312,
-  y = 240,
+  y = 0,
   width = 16,
-  height = 1680,
+  height = 1920,
 }
 
 separator{
   layer = 2,
   x = 0,
   y = 1192,
-  width = 1280,
+  width = 2240,
   height = 16,
 }
 
@@ -21641,7 +21670,7 @@ separator{
   layer = 2,
   x = 0,
   y = 952,
-  width = 1600,
+  width = 2240,
   height = 16,
 }
 
@@ -21651,14 +21680,14 @@ separator{
   x = 1912,
   y = 0,
   width = 16,
-  height = 720,
+  height = 1920,
 }
 
 separator{
   layer = 2,
   x = 0,
   y = 712,
-  width = 1600,
+  width = 2240,
   height = 16,
 }
 
@@ -21674,25 +21703,8 @@ separator{
   layer = 2,
   x = 0,
   y = 232,
-  width = 1280,
+  width = 2240,
   height = 16,
-}
-
-separator{
-  name = "separator_skeleton_2_1",
-  layer = 2,
-  x = 1912,
-  y = 720,
-  width = 16,
-  height = 240,
-}
-
-separator{
-  layer = 2,
-  x = 1912,
-  y = 960,
-  width = 16,
-  height = 960,
 }
 
 separator{
@@ -21700,111 +21712,7 @@ separator{
   x = 1592,
   y = 0,
   width = 16,
-  height = 720,
-}
-
-separator{
-  name = "separator_skeleton_3_2",
-  layer = 2,
-  x = 1272,
-  y = 0,
-  width = 16,
-  height = 240,
-}
-
-separator{
-  layer = 2,
-  x = 1600,
-  y = 1192,
-  width = 640,
-  height = 16,
-}
-
-separator{
-  name = "separator_skeleton_1_1",
-  layer = 2,
-  x = 1280,
-  y = 1192,
-  width = 320,
-  height = 16,
-}
-
-separator{
-  name = "separator_skeleton_1_2",
-  layer = 2,
-  x = 1592,
-  y = 960,
-  width = 16,
-  height = 240,
-}
-
-separator{
-  layer = 2,
-  x = 1592,
-  y = 1200,
-  width = 16,
-  height = 720,
-}
-
-separator{
-  name = "separator_skeleton_3_1",
-  layer = 2,
-  x = 1280,
-  y = 232,
-  width = 320,
-  height = 16,
-}
-
-separator{
-  layer = 2,
-  x = 1600,
-  y = 232,
-  width = 640,
-  height = 16,
-}
-
-separator{
-  name = "separator_skeleton_4_1",
-  layer = 2,
-  x = 312,
-  y = 0,
-  width = 16,
-  height = 240,
-}
-
-separator{
-  name = "separator_switch_1",
-  layer = 2,
-  x = 1592,
-  y = 720,
-  width = 16,
-  height = 240,
-}
-
-separator{
-  name = "separator_switch_2",
-  layer = 2,
-  x = 1600,
-  y = 712,
-  width = 320,
-  height = 16,
-}
-
-separator{
-  name = "separator_switch_3",
-  layer = 2,
-  x = 1600,
-  y = 952,
-  width = 320,
-  height = 16,
-}
-
-separator{
-  layer = 2,
-  x = 1920,
-  y = 952,
-  width = 320,
-  height = 16,
+  height = 1920,
 }
 
 enemy{

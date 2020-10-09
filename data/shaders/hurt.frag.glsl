@@ -31,6 +31,9 @@ precision mediump float;
 #define COMPAT_PRECISION
 #endif
 
+// Shader that loops on 150ms.
+// Invert colors on the first 50ms, then display the image as black and white for 50ms, and finally display it normally for the last 50ms.
+
 uniform sampler2D sol_texture;
 uniform int sol_time;
 COMPAT_VARYING vec2 sol_vtex_coord;
@@ -41,7 +44,7 @@ void main() {
 
 	if (mod(float(sol_time), 150.0) < 50.0)
 		FragColor = vec4(1.0 - texel.r, 1.0 - texel.g, 1.0 - texel.r, texel.a);
-	else if (mod(float(sol_time), 150.0) > 100.0)
+	else if (mod(float(sol_time), 150.0) < 100.0)
 	{
 		vec3 lum = vec3(0.299, 0.587, 0.114);
 		FragColor = vec4(vec3(dot(texel.rgb, lum)), texel.a);
