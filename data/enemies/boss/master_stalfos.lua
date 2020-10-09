@@ -16,13 +16,15 @@ require("enemies/lib/common_actions").learn(enemy)
 local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
+local hurt_shader = sol.shader.create("hurt")
 local head, shield, sword
 local legs_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed()) -- Use legs sprite as the reference one as it is the only one that doesn't collapse.
-local body_sprite, head_sprite, shield_sprite, sword_sprite
+local body_sprite, head_sprite, shield_sprite, sword_sprite, sword_effect_sprite
 local quarter = math.pi * 0.5
 local is_upstairs = true
 local is_jumping = false
-local is_collapse_upcoming = false
+local is_collapsing = false
+local is_hurt = false
 
 -- Configuration variables
 local falling_duration = 1000
@@ -42,18 +44,15 @@ local jumping_height = 32
 local jumping_duration = 650
 local strike_triggering_distance = 32
 local walking_triggering_distance = 60
-local collapse_speed = 66
-local restore_speed = 24
-local body_height = 20
-local head_height = 20
-local shield_height = 20
-local sword_height = 20
+local collapse_height = 19
+local collapse_speed = 88
+local restore_speed = 44
 
 -- Make the given sprite move.
-local function sprite_collapse(sprite, height, direction, speed, callback)
+local function move_sprite(sprite, max_distance, direction, speed, callback)
 
   local movement = sol.movement.create("straight")
-  movement:set_max_distance(height)
+  movement:set_max_distance(max_distance)
   movement:set_angle(direction * math.pi / 2)
   movement:set_speed(speed)
   movement:set_ignore_obstacles(true)
@@ -79,6 +78,17 @@ local function synchronize_sprite(sprite, reference_sprite)
   reference_sprite:register_event("set_paused", function(reference_sprite, paused)
     sprite:set_paused(paused)
   end)
+  reference_sprite:register_event("set_shader", function(reference_sprite, shader)
+    sprite:set_shader(shader)
+  end)
+end
+
+-- Update the sprites direction depending on hero position.
+local function update_sprites_direction()
+
+  local x, _, _ = enemy:get_position()
+  local hero_x, _, _ = hero:get_position()
+  legs_sprite:set_direction(hero_x < x and 2 or 0)
 end
 
 -- Create a sub enemy, then echo some of the enemy and sprite events and methods to it.
@@ -106,45 +116,87 @@ local function create_sub_enemy(sprite_name)
   return sub_enemy, sub_sprite
 end
 
--- Update the direction depending on hero position.
-local function update_direction()
+-- Repulse the whole enemy using the angle from the given entity to the enemy head.
+function start_pushed_back(entity, on_finished_callback)
 
-  local x, _, _ = enemy:get_position()
-  local hero_x, _, _ = hero:get_position()
-  legs_sprite:set_direction(hero_x < x and 2 or 0)
+  local movement = sol.movement.create("straight")
+  local head_x, head_y = head:get_position()
+  local _, head_offset_y = head_sprite:get_xy()
+  movement:set_speed(400)
+  movement:set_angle(entity:get_angle(head_x, head_y - 34 + head_offset_y)) -- The head uses the initial enemy origin, substract pixels to the head manually.
+  movement:set_smooth(false)
+  movement:start(enemy)
+
+  sol.timer.start(enemy, 100, function()
+    movement:stop()
+    if on_finished_callback then
+      on_finished_callback()
+    end
+  end)
+end
+
+-- Make the enemy shake vertically.
+local function start_shaking(on_finished_callback)
+
+  local direction = 1
+  local movement
+
+  local function shake()
+    movement = move_sprite(legs_sprite, 2, direction, 44, function()
+      direction = (direction + 2) % 4
+      shake()
+    end)
+    move_sprite(body_sprite, 2, direction, 44)
+    move_sprite(head_sprite, 2, direction, 44)
+    move_sprite(shield_sprite, 2, direction, 44)
+    move_sprite(sword_sprite, 2, direction, 44)
+  end
+
+  shake()
+  sol.timer.start(enemy, shaking_duration, function()
+    movement:stop()
+    on_finished_callback()
+  end)
 end
 
 -- Make upper parts of the enemy collapse to the ground.
 local function start_collapse()
 
-  enemy:stop_all()
-  is_collapse_upcoming = false
-
-  -- Start the collapse of each parts, starting by the shield and sword, then head and body a little after.
+  -- Pause all sprite animations and wait a little time for the collapse.
   legs_sprite:set_paused()
+  sword_effect_sprite:set_animation("waiting") -- Set the sword effect animation to waiting to hide it until the sword animation change.
   sol.timer.start(enemy, stunned_duration, function()
-    sprite_collapse(shield_sprite, shield_height, 3, collapse_speed)
-    sprite_collapse(sword_sprite, sword_height, 3, collapse_speed)
 
-    sol.timer.start(enemy, 100, function()
-      sprite_collapse(head_sprite, head_height, 3, collapse_speed)
-      sprite_collapse(body_sprite, body_height, 3, collapse_speed, function()
+    -- Start the collapse of each parts, starting by the shield and sword, then head and body after a little delay.
+    move_sprite(shield_sprite, collapse_height, 3, collapse_speed)
+    move_sprite(sword_sprite, collapse_height, 3, collapse_speed)
+    sol.timer.start(enemy, 120, function()
+      move_sprite(head_sprite, collapse_height, 3, collapse_speed)
+      move_sprite(body_sprite, collapse_height, 3, collapse_speed, function()
 
-        -- Wait for some time then shake.
+        -- Wait for some time then shake vertically.
         sol.timer.start(enemy, collapsed_duration, function()
+          start_shaking(function()
 
-          -- TODO
-          sol.timer.start(enemy, shaking_duration, function()
+            -- Reset the upper part sprites to the initial collapse height before the shaking, then restore the enemy from its collapse.
+            body_sprite:set_xy(0, collapse_height)
+            head_sprite:set_xy(0, collapse_height)
+            shield_sprite:set_xy(0, collapse_height)
+            sword_sprite:set_xy(0, collapse_height)
+            move_sprite(head_sprite, collapse_height, 1, restore_speed)
+            move_sprite(shield_sprite, collapse_height, 1, restore_speed)
+            move_sprite(sword_sprite, collapse_height, 1, restore_speed)
+            move_sprite(body_sprite, collapse_height, 1, restore_speed, function()
 
-            -- Restore the enemy from its collapse.
-            sprite_collapse(head_sprite, head_height, 1, restore_speed)
-            sprite_collapse(shield_sprite, shield_height, 1, restore_speed)
-            sprite_collapse(sword_sprite, sword_height, 1, restore_speed)
-            sprite_collapse(body_sprite, body_height, 1, restore_speed, function()
-
-              -- Add a small extra dizzy time after the restore to be hurt by the explosion.
+              -- Add a small extra dizzy time after the restore to be hurt by the explosion, then restart the enemy. Delay the restart if hurt animation currently running.
               sol.timer.start(enemy, dizzy_duration, function()
-                enemy:restart()
+                sol.timer.start(enemy, 10, function()
+                  if not is_hurt then
+                    enemy:restart()
+                  else
+                    return true
+                  end
+                end)
               end)
             end)
           end)
@@ -157,10 +209,16 @@ end
 -- Start the custom hurt and check if the custom death as to be started.
 local function hurt(damage)
 
+  if is_hurt then
+    return
+  end
+  is_hurt = true
+
   -- Custom die if no more life.
   if enemy:get_life() - damage < 1 then
 
     -- Wait a few time, start 2 sets of explosions close from the enemy, wait a few time again and finally make the final explosion and enemy die.
+    enemy:stop_all()
     enemy:start_death(function()
       legs_sprite:set_animation("hurt")
       sol.timer.start(enemy, 1500, function()
@@ -178,14 +236,14 @@ local function hurt(damage)
     return
   end
 
-  -- TODO Repulse and keep the exact same behavior as if not hurt, just replace one of the 4 possible animation by its hurt equivalent at the same frame.
+  -- Hurt, repulse and keep the exact same behavior as if not hurt, just apply the hurt shader for some time.
   enemy:set_life(enemy:get_life() - damage)
-  --[[
-  set_sprites_animation("hurt")
+  start_pushed_back(hero) -- TODO Repulse from the explosion center instead of the hero
+  legs_sprite:set_shader(hurt_shader)
   sol.timer.start(enemy, hurt_duration, function()
-    set_sprites_animation("walking")
+    is_hurt = false
+    legs_sprite:set_shader(nil)
   end)
-  --]]
   if enemy.on_hurt then
     enemy:on_hurt()
   end
@@ -194,20 +252,19 @@ end
 -- Collapse for some time when the head is hit by sword and make the body vulnerable to explosions, then shake for time and finally restore and restart.
 local function on_head_hurt()
 
-  is_collapse_upcoming = true
+  is_collapsing = true
 
-  -- Make all enemy parts harmless and body vulnerable to explosions.
+  -- Make all enemy parts harmless, and stop movements and timers if no running jump.
   if not is_jumping then
     enemy:stop_all()
   else
-    -- Let timers and movements run if jumping in progress.
     enemy:set_can_attack(false)
-    enemy:set_invincible()
   end
   head:set_can_attack(false)
   shield:set_can_attack(false)
   sword:set_can_attack(false)
 
+  -- Make body and head parts vulnerable to explosion.
   enemy:set_hero_weapons_reactions("ignored", {
     explosion = function() hurt(1) end,
   })
@@ -216,7 +273,7 @@ local function on_head_hurt()
   sword:set_hero_weapons_reactions("ignored")
 
   -- Repulse the enemy and make it collapse.
-  enemy:start_pushed_back(hero, 200, 100, function()
+  start_pushed_back(hero, function()
 
     -- Let a possible jump finish before collapse.
     if not is_jumping then
@@ -263,7 +320,7 @@ local function start_striking()
 
   -- Aim for some time, then strike. 
   legs_sprite:set_animation("aiming")
-  update_direction()
+  update_sprites_direction()
 
   sol.timer.start(enemy, aiming_duration, function()
     legs_sprite:set_animation("striking")
@@ -287,7 +344,7 @@ local function start_walking()
 
   -- If the distance is lower than the strike distance, restart.
   function movement:on_position_changed()
-    update_direction()
+    update_sprites_direction()
 
     local distance = enemy:get_distance(hero)
     if distance < strike_triggering_distance then
@@ -306,10 +363,10 @@ local function start_jumping()
   local distance = enemy:get_distance(hero)
   local angle = enemy:get_angle(hero)
   legs_sprite:set_animation("jumping")
-  update_direction()
+  update_sprites_direction()
 
   enemy:start_jumping(jumping_duration, jumping_height, angle, math.min(distance / jumping_duration * 1000, jumping_maximum_speed), function()
-    if not is_collapse_upcoming then
+    if not is_collapsing then
       enemy:restart()
     else
       start_collapse() -- Start a collapse possibly delayed by a running jump.
@@ -321,7 +378,7 @@ end
 local function start_waiting()
 
   legs_sprite:set_animation("waiting")
-  update_direction()
+  update_sprites_direction()
 
   -- Strike right now if the hero is near enough, else wait and decide later to walk or jump.
   local distance = enemy:get_distance(hero)
@@ -359,6 +416,10 @@ enemy:register_event("on_created", function(enemy)
   head, head_sprite = create_sub_enemy("head")
   shield, shield_sprite = create_sub_enemy("shield")
   sword, sword_sprite = create_sub_enemy("sword")
+
+  -- Add the sword effect as an additional sprite of the sword enemy to be able to hide it independantely.
+  sword_effect_sprite = sword:create_sprite("enemies/" .. enemy:get_breed() .. "/sword_effect") 
+  synchronize_sprite(sword_effect_sprite, sword_sprite)
 end)
 
 -- Restart settings.
@@ -387,7 +448,9 @@ enemy:register_event("on_restarted", function(enemy)
 
   -- States.
   is_jumping = false
-  is_collapse_upcoming = false
+  is_collapsing = false
+  is_hurt = false
+  legs_sprite:set_xy(0, 0)
   if not is_upstairs then
     start_waiting()
   else

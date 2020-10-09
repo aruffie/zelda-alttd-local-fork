@@ -253,6 +253,7 @@ sprite{ id = "enemies/boss/master_stalfos/head", description = "Master stalfos h
 sprite{ id = "enemies/boss/master_stalfos/shadow", description = "Master stalfos shadow" }
 sprite{ id = "enemies/boss/master_stalfos/shield", description = "Master stalfos shield" }
 sprite{ id = "enemies/boss/master_stalfos/sword", description = "Master stalfos sword" }
+sprite{ id = "enemies/boss/master_stalfos/sword_effect", description = "Master stalfos sword effect" }
 sprite{ id = "enemies/boss/moblin_chief", description = "Moblin chief" }
 sprite{ id = "enemies/boss/moldorm", description = "Moldorm" }
 sprite{ id = "enemies/boss/moldorm/body_1", description = "Body 1" }
@@ -1525,6 +1526,7 @@ shader{ id = "electric", description = "Electric effect" }
 shader{ id = "fire_dist", description = "Fire distortion" }
 shader{ id = "gb", description = "GB filter" }
 shader{ id = "heat_wave", description = "Heat distorsion" }
+shader{ id = "hurt", description = "Hurt" }
 shader{ id = "lava_bloom", description = "Lava Bloom" }
 shader{ id = "lava_filter", description = "Lava filter" }
 shader{ id = "lcd", description = "LCD filter" }
