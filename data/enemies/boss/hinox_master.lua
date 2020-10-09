@@ -151,6 +151,8 @@ function enemy:throw_bomb()
   if bomb and bomb:exists() then -- If the bomb was not immediatly removed from the on_created() event.
     bomb:set_position(x + hand_offset_x, y, layer + 1) -- Layer + 1 to not interact with a possible ground after moved.
     bomb:get_sprite():set_xy(0, right_hand_offset_y)
+    bomb:set_drawn_in_y_order(false) -- Display the bomb as flat entity until the throw.
+    bomb:bring_to_front()
     holded_bomb = bomb
 
     start_holding(is_right_hand_throw, bomb_holding_duration, function()
@@ -161,6 +163,7 @@ function enemy:throw_bomb()
         bomb:set_layer(hero_layer)
         bomb:explode()
       end)
+      bomb:set_drawn_in_y_order()
       holded_bomb = nil
     end)
   end
