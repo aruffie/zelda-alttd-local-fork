@@ -180,7 +180,7 @@ local function start_collapse()
 
   -- Pause all sprite animations and wait a little time for the collapse.
   legs_sprite:set_paused()
-  sword_effect_sprite:set_animation("waiting") -- Set the sword effect animation to waiting to hide it until the sword animation change.
+  sword_effect_sprite:stop_animation()
   sol.timer.start(enemy, stunned_duration, function()
 
     -- Start the collapse of each parts, starting by the shield and sword, then head and body after a little delay.
