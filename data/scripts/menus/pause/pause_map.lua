@@ -145,8 +145,8 @@ function map_submenu:draw_world_map(dst_surface)
   -- Hero position.
   local map_hero_position_x, map_hero_position_y = self.game:get_value("map_hero_position_x"), self.game:get_value("map_hero_position_y")
   if map_hero_position_x ~= nil and map_hero_position_y ~= nil then
-    local x = world_map_x + map_hero_position_x * 8
-    local y = world_map_y + map_hero_position_y * 8
+    local x = world_map_x + map_hero_position_x * 8 + 1
+    local y = world_map_y + map_hero_position_y * 8 + 1
     self.world_map_hero:draw(dst_surface, x, y)
   end
 
@@ -209,8 +209,11 @@ function map_submenu:set_world_map_cursor_position(cursor_x, cursor_y)
   -- Caption.
   --local letter = 'A'
   --letter = string.char(letter:byte() + self.world_map_cursor_x)
-  --local caption_text = letter..(self.world_map_cursor_y + 1)
-  local caption_text = sol.language.get_string("map.caption.map_" .. self.world_map_cursor_x .. "_" .. self.world_map_cursor_y)
+  --local caption_text = letter..(self.world_map_cursor_y + 1)&
+  local caption_text = ''
+  if self.game:get_value('map_discovering_'..(self.world_map_cursor_x)..'_'..(self.world_map_cursor_y)) then
+    caption_text = sol.language.get_string("map.caption.map_" .. self.world_map_cursor_x .. "_" .. self.world_map_cursor_y)
+  end
   self:set_caption(caption_text)
 end
 
