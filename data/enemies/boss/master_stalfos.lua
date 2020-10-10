@@ -2,13 +2,15 @@
 --
 -- Master Stalfos.
 --
--- Strike, walk or jump to hero depending on the distance between them.
+-- Start by falling from the ceiling, then strike, walk or jump to hero depending on the distance between them.
 -- The body part is invicible and doesn't hurt, the shield and the sword parts are also invicible and hurt, and the head one is vulnerable and hurt.
 -- Can only be defeated by a sword hit on the head to make it collapse, then an explosion that touches the body or head part.
--- May fall from the ceiling or escape by jumping on ceiling by calling the corresponding method from outside this script.
+-- May escape during the fight by calling the corresponding method from outside this script.
 --
--- Methods : enemy:start_falling(dialog)
---           enemy:start_escaping(dialog, on_finished_callback)
+-- Methods : enemy:start_escaping([on_finished_callback])
+--
+-- Properties : falling_dialog
+--              escaping_dialog
 --
 ----------------------------------
 
@@ -24,6 +26,7 @@ local head, shield, sword
 local legs_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed()) -- Use legs sprite as the reference one as it is the only one that doesn't collapse.
 local body_sprite, head_sprite, shield_sprite, sword_sprite, sword_effect_sprite
 local quarter = math.pi * 0.5
+local is_upstairs = true
 local is_jumping = false
 local is_collapsing = false
 local is_hurt = false
@@ -52,17 +55,29 @@ local collapse_speed = 88
 local restore_speed = 44
 local escaping_speed = 280
 
--- Make the given sprite move.
-local function move_sprite(sprite, max_distance, direction, speed, callback)
+-- Apply the same given movement to given sprites and return all movements.
+local function move_sprites(sprites, max_distance, direction, speed, on_finished_callback)
 
-  local movement = sol.movement.create("straight")
-  movement:set_max_distance(max_distance)
-  movement:set_angle(direction * math.pi / 2)
-  movement:set_speed(speed)
-  movement:set_ignore_obstacles(true)
-  movement:start(sprite, callback)
+  local movements = {}
+  for _, sprite in ipairs(sprites) do
+    local movement = sol.movement.create("straight")
+    movement:set_max_distance(max_distance)
+    movement:set_angle(direction * math.pi / 2)
+    movement:set_speed(speed)
+    movement:set_ignore_obstacles(true)
+    movement:start(sprite)
+    table.insert(movements, movement)
+  end
 
-  return movement
+  -- Only do the callback once for the first given sprite instead of once by sprite.
+  if on_finished_callback then
+    local first_movement = movements[1]
+    function first_movement:on_finished()
+      on_finished_callback()
+    end
+  end
+
+  return movements
 end
 
 -- Echo some of the reference_sprite events and methods to the given sprite.
@@ -142,22 +157,20 @@ end
 local function start_shaking(on_finished_callback)
 
   local direction = 1
-  local movement
+  local movements
 
   local function shake()
-    movement = move_sprite(legs_sprite, 2, direction, 44, function()
+    movements = move_sprites({legs_sprite, body_sprite, head_sprite, shield_sprite, sword_sprite}, 2, direction, 44, function()
       direction = (direction + 2) % 4
       shake()
     end)
-    move_sprite(body_sprite, 2, direction, 44)
-    move_sprite(head_sprite, 2, direction, 44)
-    move_sprite(shield_sprite, 2, direction, 44)
-    move_sprite(sword_sprite, 2, direction, 44)
   end
 
   shake()
   sol.timer.start(enemy, shaking_duration, function()
-    movement:stop()
+    for _, movement in ipairs(movements) do
+      movement:stop()
+    end
     on_finished_callback()
   end)
 end
@@ -171,11 +184,9 @@ local function start_collapse()
   sol.timer.start(enemy, stunned_duration, function()
 
     -- Start the collapse of each parts, starting by the shield and sword, then head and body after a little delay.
-    move_sprite(shield_sprite, collapse_height, 3, collapse_speed)
-    move_sprite(sword_sprite, collapse_height, 3, collapse_speed)
+    move_sprites({shield_sprite, sword_sprite}, collapse_height, 3, collapse_speed)
     sol.timer.start(enemy, 120, function()
-      move_sprite(head_sprite, collapse_height, 3, collapse_speed)
-      move_sprite(body_sprite, collapse_height, 3, collapse_speed, function()
+      move_sprites({head_sprite, body_sprite}, collapse_height, 3, collapse_speed, function()
 
         -- Wait for some time then shake vertically.
         sol.timer.start(enemy, collapsed_duration, function()
@@ -186,10 +197,7 @@ local function start_collapse()
             head_sprite:set_xy(0, collapse_height)
             shield_sprite:set_xy(0, collapse_height)
             sword_sprite:set_xy(0, collapse_height)
-            move_sprite(head_sprite, collapse_height, 1, restore_speed)
-            move_sprite(shield_sprite, collapse_height, 1, restore_speed)
-            move_sprite(sword_sprite, collapse_height, 1, restore_speed)
-            move_sprite(body_sprite, collapse_height, 1, restore_speed, function()
+            move_sprites({body_sprite, head_sprite, shield_sprite, sword_sprite}, collapse_height, 1, restore_speed, function()
 
               -- Add a small extra dizzy time after the restore to be hurt by the explosion, then restart the enemy. Delay the restart if hurt animation currently running.
               sol.timer.start(enemy, dizzy_duration, function()
@@ -375,10 +383,10 @@ local function start_waiting()
   end
 end
 
--- Make the boss fall from the ceiling, and start the given dialog after if any.
-function enemy:start_falling(dialog)
+-- Make the boss fall from the ceiling, and start the falling_dialog after if any.
+local function start_falling()
 
-  sol.timer.stop_all(enemy) -- TODO Find a better way to not start_waiting() at restart when a fall is upcoming.
+  is_upstairs = false
 
   local _, y, layer = enemy:get_position()
   local _, camera_y = map:get_camera():get_position()
@@ -386,14 +394,15 @@ function enemy:start_falling(dialog)
   legs_sprite:set_direction(0)
 
   -- Fall from ceiling, displaying the enemy on the higher layer during the fall.
-  legs_sprite:set_xy(0, y - camera_y)
+  legs_sprite:set_xy(0, camera_y - y) -- Move the enemy to the start position right now to ensure it won't be visible before the beginning of the fall.
   enemy:set_layer(map:get_max_layer())
   enemy:start_throwing(enemy, falling_duration, y - camera_y, nil, nil, nil, function()
     enemy:set_layer(layer)
     legs_sprite:set_animation("waiting")
 
     -- Start the dialog if any, else look left and right.
-    if dialog then
+    local dialog = enemy:get_property("falling_dialog")
+    if dialog and dialog ~= "" then
       game:start_dialog(dialog)
       enemy:restart()
     else
@@ -410,8 +419,8 @@ function enemy:start_falling(dialog)
   end)
 end
 
--- Make the boss start the given dialog if any, then jump to the ceiling.
-function enemy:start_escaping(dialog, on_finished_callback)
+-- Make the boss start the escaping_dialog if any, then jump to the ceiling.
+function enemy:start_escaping(on_finished_callback)
 
   is_escaping = true
 
@@ -423,7 +432,8 @@ function enemy:start_escaping(dialog, on_finished_callback)
       return 10
     end
 
-    if dialog then
+    local dialog = enemy:get_property("escaping_dialog")
+    if dialog and dialog ~= "" then
       game:start_dialog(dialog)
     end
 
@@ -431,13 +441,11 @@ function enemy:start_escaping(dialog, on_finished_callback)
     local _, y = enemy:get_position()
     local height = y - camera_y
     enemy:set_layer(map:get_max_layer())
-    move_sprite(legs_sprite, height, 1, escaping_speed)
-    move_sprite(head_sprite, height, 1, escaping_speed)
-    move_sprite(shield_sprite, height, 1, escaping_speed)
-    move_sprite(sword_sprite, height, 1, escaping_speed)
-    move_sprite(body_sprite, height, 1, escaping_speed, function()
+    move_sprites({legs_sprite, body_sprite, head_sprite, shield_sprite, sword_sprite}, height, 1, escaping_speed, function()
       enemy:remove()
-      on_finished_callback()
+      if on_finished_callback then
+        on_finished_callback()
+      end
     end)
   end)
 end
@@ -495,9 +503,11 @@ enemy:register_event("on_restarted", function(enemy)
   is_collapsing = false
   is_hurt = false
   legs_sprite:set_xy(0, 0)
-  if not is_escaping then
-    start_waiting()
+  if not is_upstairs then
+    if not is_escaping then
+      start_waiting()
+    end
   else
-
+    start_falling()
   end
 end)

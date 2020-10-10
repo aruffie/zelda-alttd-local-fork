@@ -17,7 +17,7 @@ local treasure_manager = require("scripts/maps/treasure_manager")
 local separator_manager = require("scripts/maps/separator_manager")
 
 -- Master Stalfos appearing.
-local function appear_master_stalfos(placeholder, on_escaping_callback)
+local function appear_master_stalfos(placeholder, on_step_finished_callback)
 
   local x, y, layer = placeholder:get_position()
   placeholder:set_enabled(false)
@@ -30,27 +30,29 @@ local function appear_master_stalfos(placeholder, on_escaping_callback)
     x = x,
     y = y,
     layer = layer,
-    treasure_name = placeholder:get_property("treasure")
+    treasure_name = placeholder:get_property("treasure"),
+    properties = {{key = "falling_dialog", value = placeholder:get_property("falling_dialog") or ""},
+                  {key = "escaping_dialog", value = "maps.dungeons.5.master_stalfos_escaping"}}
   }
   enemy:set_life(master_stalfos_life)
-  enemy:start_falling(placeholder:get_property("falling_dialog"))
 
-  -- Make the enemy escape when the life is under the minimum for this step.
+  -- Make the enemy escape when the life is under the minimum for this step, and increase the step.
   enemy:register_event("on_hurt", function(enemy)
     master_stalfos_life = enemy:get_life()
     if master_stalfos_life <= (tonumber(placeholder:get_property("escaping_life")) or -1) then
-      enemy:start_escaping("maps.dungeons.5.master_stalfos_escaping", function()
+      enemy:start_escaping(function()
         master_stalfos_step = master_stalfos_step + 1
         game:set_value("dungeon_5_master_stalfos_step", master_stalfos_step)
-        on_escaping_callback()
+        on_step_finished_callback()
       end)
     end
   end)
 
-  -- Increase the step on enemy dead.
+  -- Also increase the step on enemy dead.
   enemy:register_event("on_dead", function(enemy)
     master_stalfos_step = master_stalfos_step + 1
     game:set_value("dungeon_5_master_stalfos_step", master_stalfos_step)
+    on_step_finished_callback()
   end)
   
   audio_manager:play_music("small_boss")
