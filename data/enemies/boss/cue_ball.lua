@@ -18,16 +18,24 @@ local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+local splash_sprite
 local hurt_frame_delay = sprite:get_frame_delay("hurt")
 local quarter = math.pi * 0.5
 local circle = math.pi * 2.0
 
 -- Configuration variables
 local charging_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
-local charging_speed = 120
+local charging_speed = 160
 local waiting_duration = 500
 local spinning_minimum_duration = 500
 local spinning_maximum_duration = 1000
+
+-- Get the upper-left grid node coordinates of the enemy position.
+local function get_grid_position()
+
+  local position_x, position_y, _ = enemy:get_position()
+  return position_x - position_x % 8, position_y - position_y % 8
+end
 
 -- Hurt if the enemy angle to hero is not on the circle the enemy is looking at. 
 local function on_attack_received()
@@ -51,8 +59,10 @@ end
 function enemy:start_charging(direction4)
 
   direction4 = direction4 or sprite:get_direction()
+  splash_sprite:set_animation("walking")
   enemy:start_straight_walking(charging_angles[direction4 + 1], charging_speed, nil, function()
     sprite:set_animation("stopped")
+    splash_sprite:stop_animation()
     sol.timer.start(enemy, waiting_duration, function()
       enemy:start_charging((direction4 - 1) % 4)
     end)
@@ -83,7 +93,12 @@ enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(8)
   enemy:set_size(48, 48)
-  enemy:set_origin(24, 45)
+  enemy:set_origin(24, 24)
+  enemy:set_position(get_grid_position()) -- Set the position to the center of the current 16*16 case instead of 8, 13.
+
+  enemy:start_shadow("enemies/boss/cue_ball/shadow")
+  splash_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/splash_effect")
+  enemy:bring_sprite_to_back(splash_sprite)
 end)
 
 -- Restart settings.
