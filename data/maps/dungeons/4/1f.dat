@@ -15227,7 +15227,7 @@ custom_entity{
   name = "placeholder_small_boss",
   layer = 0,
   x = 1440,
-  y = 325,
+  y = 309,
   width = 16,
   height = 16,
   direction = 0,
@@ -15318,7 +15318,7 @@ custom_entity{
   name = "midpoint_teletransporter_A",
   layer = 0,
   x = 1440,
-  y = 413,
+  y = 421,
   enabled_at_start = false,
   properties = {
     {

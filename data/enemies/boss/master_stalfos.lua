@@ -490,11 +490,11 @@ enemy:register_event("on_restarted", function(enemy)
   head:set_damage(4)
 
   -- The sword and shield are both protected to hero weapons and can hurt the hero.
-  shield:set_hero_weapons_reactions("protected")
+  shield:set_hero_weapons_reactions("protected", {jump_on = "ignored"})
   shield:set_can_attack(true)
   shield:set_damage(4)
 
-  sword:set_hero_weapons_reactions("protected")
+  sword:set_hero_weapons_reactions("protected", {jump_on = "ignored"})
   sword:set_can_attack(true)
   sword:set_damage(4)
 
