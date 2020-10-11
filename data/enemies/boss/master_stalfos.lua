@@ -180,7 +180,7 @@ local function start_collapse()
 
   -- Pause all sprite animations and wait a little time for the collapse.
   legs_sprite:set_paused()
-  sword_effect_sprite:set_animation("waiting") -- Set the sword effect animation to waiting to hide it until the sword animation change.
+  sword_effect_sprite:stop_animation()
   sol.timer.start(enemy, stunned_duration, function()
 
     -- Start the collapse of each parts, starting by the shield and sword, then head and body after a little delay.
@@ -490,11 +490,11 @@ enemy:register_event("on_restarted", function(enemy)
   head:set_damage(4)
 
   -- The sword and shield are both protected to hero weapons and can hurt the hero.
-  shield:set_hero_weapons_reactions("protected")
+  shield:set_hero_weapons_reactions("protected", {jump_on = "ignored"})
   shield:set_can_attack(true)
   shield:set_damage(4)
 
-  sword:set_hero_weapons_reactions("protected")
+  sword:set_hero_weapons_reactions("protected", {jump_on = "ignored"})
   sword:set_can_attack(true)
   sword:set_damage(4)
 

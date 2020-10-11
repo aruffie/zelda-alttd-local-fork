@@ -5,7 +5,7 @@ local game = map:get_game()
 local is_small_boss_active = false
 local is_boss_active = false
 local master_stalfos_step
-local master_stalfos_life -- Keep the enemy life in a global cause it can be hurt while escaping from a step, then the next one will need one hurt less.
+local master_stalfos_life
 
 -- Include scripts
 require("scripts/multi_events")
@@ -22,7 +22,7 @@ local function appear_master_stalfos(placeholder, on_step_finished_callback)
   local x, y, layer = placeholder:get_position()
   placeholder:set_enabled(false)
 
-  -- Create the Master Stalfos, update its life and make it fall from the ceiling.
+  -- Create the Master Stalfos and update its life.
   local enemy = map:create_enemy{
     name = "master_stalfos",
     breed = "boss/master_stalfos",
@@ -36,26 +36,32 @@ local function appear_master_stalfos(placeholder, on_step_finished_callback)
   }
   enemy:set_life(master_stalfos_life)
 
-  -- Make the enemy escape when the life is under the minimum for this step, and increase the step.
+  -- Common actions to both escaped or defeated end of the fight.
+  local function end_fight()
+
+    master_stalfos_step = master_stalfos_step + 1
+    game:set_value("dungeon_5_master_stalfos_step", master_stalfos_step)
+    audio_manager:play_music(game:get_dungeon().music)
+    on_step_finished_callback()
+  end
+
+  -- Make the enemy run away when escaping life reached, and increase the step.
   enemy:register_event("on_hurt", function(enemy)
-    master_stalfos_life = enemy:get_life()
-    if master_stalfos_life <= (tonumber(placeholder:get_property("escaping_life")) or -1) then
+    
+    master_stalfos_life = enemy:get_life() -- The enemy can be hurt while escaping from a step then the next one will need one hurt less, so always update life on hurt.
+    if master_stalfos_life == tonumber(placeholder:get_property("escaping_life")) then
       enemy:start_escaping(function()
-        master_stalfos_step = master_stalfos_step + 1
-        game:set_value("dungeon_5_master_stalfos_step", master_stalfos_step)
-        on_step_finished_callback()
+        end_fight()
       end)
     end
   end)
 
   -- Also increase the step on enemy dead.
   enemy:register_event("on_dead", function(enemy)
-    master_stalfos_step = master_stalfos_step + 1
-    game:set_value("dungeon_5_master_stalfos_step", master_stalfos_step)
-    on_step_finished_callback()
+    end_fight()
   end)
   
-  audio_manager:play_music("small_boss")
+  audio_manager:play_music("21_mini_boss_battle")
 end
 
 -- Map events
@@ -89,7 +95,7 @@ map:register_event("on_started", function()
     block:bring_to_back()
   end
 
-  -- Fill Master Stalfos globals in case reentering the dungeon.
+  -- Fill Master Stalfos globals.
   master_stalfos_step = game:get_value("dungeon_5_master_stalfos_step") or 1
   master_stalfos_life = 12 - (master_stalfos_step - 1) * 3
 end)
