@@ -83,6 +83,7 @@ end
 -- Echo some of the reference_sprite events and methods to the given sprite.
 local function synchronize_sprite(sprite, reference_sprite)
 
+  sprite:synchronize(reference_sprite)
   reference_sprite:register_event("on_direction_changed", function(reference_sprite)
     sprite:set_direction(reference_sprite:get_direction())
   end)
@@ -127,8 +128,7 @@ local function create_sub_enemy(sprite_name)
   sub_enemy:bring_to_front()
 
   -- Create the sub enemy sprite, and synchronize it on the body one.
-  local sub_sprite = sub_enemy:create_sprite("enemies/boss/master_stalfos/" .. sprite_name)
-  sub_sprite:synchronize(legs_sprite)
+  local sub_sprite = sub_enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/" .. sprite_name)
   synchronize_sprite(sub_sprite, legs_sprite)
 
   return sub_enemy, sub_sprite
@@ -456,7 +456,7 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(12)
   enemy:set_size(32, 16)
   enemy:set_origin(16, 13)
-  enemy:start_shadow("enemies/boss/master_stalfos/shadow")
+  enemy:start_shadow("enemies/" .. enemy:get_breed() .. "/shadow")
   enemy:set_drawn_in_y_order(false) -- Display the legs and body part as a flat entity.
 
   -- Add body sprite to the main enemy as they behaves the same way.

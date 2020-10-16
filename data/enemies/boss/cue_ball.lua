@@ -18,11 +18,12 @@ local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
-local head_sprite, splash_sprite
+local splash_sprite
 local hurt_frame_delay = sprite:get_frame_delay("hurt")
 local quarter = math.pi * 0.5
 local circle = math.pi * 2.0
 local step = 1
+local is_hurt = false
 
 -- Configuration variables
 local charging_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
@@ -30,6 +31,7 @@ local charging_speed = 160
 local waiting_duration = 500
 local spinning_minimum_duration = 500
 local spinning_maximum_duration = 1000
+local front_angle = 2.0 * math.pi / 3.0
 
 -- Get the upper-left grid node coordinates of the enemy position.
 local function get_grid_position()
@@ -41,6 +43,7 @@ end
 -- Echo some of the reference_sprite events and methods to the given sprite.
 local function synchronize_sprite(sprite, reference_sprite)
 
+  sprite:synchronize(reference_sprite)
   reference_sprite:register_event("on_direction_changed", function(reference_sprite)
     sprite:set_direction(reference_sprite:get_direction())
   end)
@@ -54,33 +57,54 @@ end
 -- Hurt if the enemy angle to hero is not on the circle the enemy is looking at. 
 local function on_attack_received()
 
-  -- Don't hurt if a previous hurt animation is still running.
-  if sprite:get_animation() == "hurt" then
+  -- Hurt the hero instead of the enemy if the hero is in front of him.
+  if enemy:is_entity_in_front(hero, front_angle) then
+    hero:start_hurt(enemy:get_damage())
     return
   end
 
-  -- Hurt if the hero touches the enemy main sprite and not the head sprite.
+  -- Don't hurt if a previous hurt animation is still running.
+  if is_hurt then
+    return
+  end
+  is_hurt = true
+
+  -- Custom die if no more life.
+  if enemy:get_life() - 1 < 1 then
+
+    -- Wait a few time, start 2 sets of explosions close from the enemy, wait a few time again and finally make the final explosion and enemy die.
+    enemy:stop_all()
+    enemy:start_death(function()
+      sprite:set_animation("hurt")
+      sol.timer.start(enemy, 1500, function()
+        enemy:start_close_explosions(32, 2500, "entities/explosion_boss", 0, -20, function()
+          sol.timer.start(enemy, 1000, function()
+            enemy:start_brief_effect("entities/explosion_boss", nil, 0, -20)
+            finish_death()
+          end)
+        end)
+        sol.timer.start(enemy, 200, function()
+          enemy:start_close_explosions(32, 2300, "entities/explosion_boss", 0, -20)
+        end)
+      end)
+    end)
+    return
+  end
+
+  -- Freeze the hero for some time if running.
   local hero_state, hero_state_object = hero:get_state()
   local is_hero_running = (hero_state == "running" or (hero_state == "custom" and hero_state_object:get_description() == "running"))
-  if enemy:overlaps(hero, "sprite", sprite) and not enemy:overlaps(hero, "sprite", head_sprite) then
-
-    -- Stop the current hero run and freeze it for some time if running.
-    if is_hero_running then
-      hero:freeze()
-      sol.timer.start(hero, 300, function()
-        hero:unfreeze()
-      end)
-    end
-
-    -- Manually hurt the enemy to not restart it automatically and start spinning through a randomized direction.
-    enemy:set_life(enemy:get_life() - 1)
-    enemy:start_spinning()
-    step = (math.random(2) == 1) and -1 or 1
-  else
-    if is_hero_running then
-      hero:start_hurt(enemy, enemy:get_damage())
-    end
+  if is_hero_running then
+    hero:freeze()
+    sol.timer.start(hero, 300, function()
+      hero:unfreeze()
+    end)
   end
+
+  -- Manually hurt to not trigger the built-in behavior and start spinning instead.
+  enemy:set_life(enemy:get_life() - 1)
+  enemy:start_spinning()
+  step = (math.random(2) == 1) and -1 or 1
 end
 
 -- Start the enemy movement.
@@ -111,6 +135,7 @@ function enemy:start_spinning()
     return true
   end)
   sol.timer.start(enemy, math.random(spinning_minimum_duration, spinning_maximum_duration), function()
+    is_hurt = false
     spinning_timer:stop()
     enemy:start_charging()
   end)
@@ -123,17 +148,29 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_size(48, 48)
   enemy:set_origin(24, 24)
   enemy:set_position(get_grid_position()) -- Set the position to the center of the current 16*16 case instead of 8, 13.
-  enemy:set_drawn_in_y_order(false) -- Display the legs and body part as a flat entity.
-
-  -- Add the head sprite as the protected one.
-  head_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/head")
-  synchronize_sprite(head_sprite, sprite)
-
-  -- Add shadow and effect.
+  enemy:set_drawn_in_y_order(false) -- Display the enemy as a flat entity.
   enemy:start_shadow("enemies/boss/cue_ball/shadow")
-  splash_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/splash_effect")
-  enemy:set_invincible_sprite(splash_sprite)
-  enemy:bring_sprite_to_back(splash_sprite)
+
+  -- Add the splash effect as sub entity to not hurt the hero.
+  local x, y, layer = enemy:get_position()
+  local splash = map:create_custom_entity({
+    name = (enemy:get_name() or enemy:get_breed()) .. "_splash_effect",
+    direction = sprite:get_direction(),
+    x = x,
+    y = y,
+    layer = layer,
+    width = 48,
+    height = 48,
+    sprite = "enemies/" .. enemy:get_breed() .. "/splash_effect"
+  })
+  enemy:start_welding(splash)
+  splash:set_traversable_by(true)
+  splash:set_drawn_in_y_order(false) -- Display the sub enemy as a flat entity.
+  splash:bring_to_back()
+  splash_sprite = splash:get_sprite()
+  sprite:register_event("on_direction_changed", function(sprite)
+    splash_sprite:set_direction(sprite:get_direction())
+  end)
 end)
 
 -- Restart settings.
@@ -145,10 +182,9 @@ enemy:register_event("on_restarted", function(enemy)
     thrust = on_attack_received,
     jump_on = "ignored"
   })
-  enemy:set_thrust_reaction_sprite(head_sprite, "protected")
-  enemy:set_attack_consequence_sprite(head_sprite, "sword", "protected")
 
   -- States.
+  is_hurt = false
   enemy:set_obstacle_behavior("flying") -- Able to walk over water and lava.
   enemy:set_can_attack(true)
   enemy:set_damage(4)

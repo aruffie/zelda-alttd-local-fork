@@ -30,23 +30,35 @@ local walking_maximum_distance = 32
 local weak_walking_speed = 48
 local weak_walking_minimum_distance = 16
 local weak_walking_maximum_distance = 96
+local front_angle = 7.0 * math.pi / 6.0
 
 local speed = walking_speed
 local minimum_distance = walking_minimum_distance
 local maximum_distance = walking_maximum_distance
 
--- Hurt if enemy and hero have same direction, else repulse.
+-- Hurt if the hero is in the back of the enemy.
 local function on_sword_attack_received()
 
-  -- Make sure to only trigger this event once by attack.
-  enemy:set_invincible()
+  enemy:set_invincible() -- Make sure to only trigger this event once by attack.
 
-  if not is_protected or sprite:get_direction() == hero:get_direction() then
+  if not is_protected or not enemy:is_entity_in_front(hero, front_angle) then
     enemy:hurt(1)
   else
     enemy:start_shock(hero, 100, 150, function()
       enemy:restart()
     end)
+  end
+end
+
+-- Hurt if the hero is in the back of the enemy, else hurt the hero.
+local function on_thrust_attack_received()
+
+  if not is_protected or not enemy:is_entity_in_front(hero, front_angle) then
+    enemy:set_invincible() -- Make sure to only trigger this event once by attack.
+    enemy:hurt(1)
+  else
+    enemy:start_pushing_back(hero, 100, 150)
+    hero:start_hurt(enemy:get_damage())
   end
 end
 
@@ -56,7 +68,7 @@ local function on_hookshot_attack_received()
   -- Make sure to only trigger this event once by attack.
   enemy:set_invincible()
 
-  if not is_protected or sprite:get_direction() == hero:get_direction() then
+  if not is_protected or not enemy:is_entity_in_front(hero, front_angle) then
     enemy:hurt(2)
   else
     
@@ -116,10 +128,12 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
+  -- TODO Check if mask collision test is needed for distance weapons.
   -- Behavior for each items.
   enemy:set_hero_weapons_reactions(2, {
     hookshot = on_hookshot_attack_received,
     sword = on_sword_attack_received,
+    thrust = on_thrust_attack_received,
     jump_on = "ignored"
   })
 

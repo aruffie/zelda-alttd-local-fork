@@ -4748,9 +4748,9 @@ tile{
 tile{
   layer = 0,
   x = 1192,
-  y = 448,
+  y = 432,
   width = 8,
-  height = 192,
+  height = 208,
   pattern = "wall_border.3-2",
 }
 
@@ -17253,7 +17253,7 @@ separator{
 separator{
   layer = 2,
   x = 0,
-  y = 720,
+  y = 712,
   width = 2560,
   height = 16,
 }
