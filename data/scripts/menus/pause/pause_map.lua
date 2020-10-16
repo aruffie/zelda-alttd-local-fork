@@ -210,7 +210,7 @@ function map_submenu:set_world_map_cursor_position(cursor_x, cursor_y)
   --local letter = 'A'
   --letter = string.char(letter:byte() + self.world_map_cursor_x)
   --local caption_text = letter..(self.world_map_cursor_y + 1)&
-  local caption_text = ''
+  local caption_text = '---'
   if self.game:get_value('map_discovering_'..(self.world_map_cursor_x)..'_'..(self.world_map_cursor_y)) then
     caption_text = sol.language.get_string("map.caption.map_" .. self.world_map_cursor_x .. "_" .. self.world_map_cursor_y)
   end
@@ -235,7 +235,8 @@ function map_submenu:build_dungeon_map()
     self.sprite_beak_of_stone  = sol.sprite.create("entities/items")
     self.sprite_beak_of_stone:set_animation("beak_of_stone")
     self.sprite_hero_head  = sol.sprite.create("menus/pause/map/dungeon/hero_head")
-    self.boss_icon_img = sol.surface.create("menus/pause/map/dungeon/boss_icon.png")
+    self.sprite_hero_point  = sol.sprite.create("menus/pause/map/dungeon/hero_point")
+    self.boss_icon_img = sol.surface.create("menus/pause/map/dungeon/boss.png")
     self.chest_icon_img = sol.surface.create("menus/pause/map/dungeon/chest_icon.png")
     self.up_arrow_sprite = sol.sprite.create("menus/pause/arrow")
     self.up_arrow_sprite:set_direction(1)
@@ -295,6 +296,12 @@ function map_submenu:draw_dungeon_map(dst_surface)
   -- Draw rooms.
   local rooms_x, rooms_y = menu_x + 142, menu_y + 64
   self:draw_dungeon_map_rooms(dst_surface, rooms_x, rooms_y)
+  
+  -- Draw text
+  local caption_text = sol.language.get_string("map.caption.map_dungeon_" .. self.dungeon_index)
+
+  self:set_caption(caption_text)
+
 end
 
 function map_submenu:draw_dungeon_map_items(dst_surface, items_x, items_y)
@@ -343,6 +350,12 @@ function map_submenu:draw_dungeon_map_floors(dst_surface, floors_x, floors_y)
 
   -- Draw the hero head beside the current floor.
   self.sprite_hero_head:draw(dst_surface, dst_x, dst_y - 8)
+  -- Show the boss icon near his floor.
+  if self.game:has_dungeon_compass() and self.dungeon.boss ~= nil then
+    dst_x = 116
+    dst_y = (2 - self.dungeon.boss.floor) * 16 + 72
+    self.boss_icon_img:draw(dst_surface, dst_x, dst_y)
+  end
 
 end
 
@@ -355,38 +368,55 @@ function map_submenu:draw_dungeon_map_rooms(dst_surface, rooms_x, rooms_y)
     self.rooms_sprite:draw(self.rooms_surface)
   end
   for i = 1, self.rooms_sprite:get_num_directions() - 1 do
+    -- Set default src_x, src_y
+    self.rooms_no_map_sprite:set_animation(self.selected_floor)
+    self.rooms_no_map_sprite:set_direction(i)
+    local src_x, src_y = self.rooms_no_map_sprite:get_frame_src_xy()
     if  self.game:has_explored_dungeon_room(self.dungeon_index, self.selected_floor, i) then
       if self.game:has_dungeon_map() then
         -- If the room is visited, show it in another color.
-        self.rooms_sprite:set_animation(self.selected_floor)
-        self.rooms_sprite:set_direction(i)
-        local src_x, src_y = self.rooms_sprite:get_frame_src_xy()
-        --src_x = src_x - 128 * (self.selected_floor- self.dungeon.lowest_floor)
         self.rooms_sprite:draw(self.rooms_surface, src_x, src_y)
       else
         -- If the room is visited, show it in another color.
-        self.rooms_no_map_sprite:set_animation(self.selected_floor)
-        self.rooms_no_map_sprite:set_direction(i)
-        local src_x, src_y = self.rooms_no_map_sprite:get_frame_src_xy()
-        --src_x = src_x - 128 * (self.selected_floor- self.dungeon.lowest_floor)
         self.rooms_no_map_sprite:draw(self.rooms_surface, src_x, src_y)
       end
     end
-   if self.game:has_dungeon_compass() and self.game:is_secret_room(self.dungeon_index, self.selected_floor, i) then
+    if self.game:has_dungeon_compass() and self.game:is_secret_room(self.dungeon_index, self.selected_floor, i) then
       if self.game:has_dungeon_map() then
         self.rooms_compass_sprite:set_animation(self.selected_floor)
         self.rooms_compass_sprite:set_direction(i)
         local src_x, src_y = self.rooms_compass_sprite:get_frame_src_xy()
-        --src_x = src_x - 128 * (self.selected_floor- self.dungeon.lowest_floor)
         self.rooms_compass_sprite:draw(self.rooms_surface, src_x, src_y)
       else
         self.rooms_no_map_compass_sprite:set_animation(self.selected_floor)
         self.rooms_no_map_compass_sprite:set_direction(i)
         local src_x, src_y = self.rooms_no_map_compass_sprite:get_frame_src_xy()
-        --src_x = src_x - 128 * (self.selected_floor- self.dungeon.lowest_floor)
         self.rooms_no_map_compass_sprite:draw(self.rooms_surface, src_x, src_y)
       end
-   end
+    end
+    -- Draw hero if is he this room
+    if self.game:has_dungeon_compass() then
+      local src_x, src_y = self.rooms_no_map_sprite:get_frame_src_xy()
+      local map = self.game:get_map()
+      local hero = map:get_hero()
+      local x,y = hero:get_position()
+      local room_width, room_height = 320, 240  -- TODO don't hardcode these numbers
+      local map_width, map_height = map:get_size()
+      local num_columns = math.floor(map_width / room_width)
+      local column = math.floor(x / room_width)
+      local row = math.floor(y / room_height)
+      local room = row * num_columns + column + 1
+      if self.dungeon.boss.room == i and self.hero_floor == self.selected_floor then
+        src_y = src_y + 3
+        self.boss_icon_img:draw(self.rooms_surface, src_x + 4, src_y)
+        src_y = src_y + 2
+      end
+      if room == i and self.hero_floor == self.selected_floor then
+        src_x = src_x + 7
+        src_y = src_y + 7
+        self.sprite_hero_point:draw(self.rooms_surface, src_x, src_y)
+      end
+    end
   end
   local offsetX = 0
   local offsetY = 0
@@ -396,8 +426,8 @@ function map_submenu:draw_dungeon_map_rooms(dst_surface, rooms_x, rooms_y)
   if self.dungeon.rows % 2 ~= 0 then
     offsetY = (8 - self.dungeon.rows) * 8
   end
+  self.rooms_surface:draw(dst_surface,  offsetX + rooms_x, offsetY + rooms_y)
 
-   self.rooms_surface:draw(dst_surface,  offsetX + rooms_x,  offsetY + rooms_y)
 
 end
 

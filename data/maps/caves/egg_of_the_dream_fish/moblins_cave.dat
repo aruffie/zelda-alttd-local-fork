@@ -2774,6 +2774,15 @@ tile{
   tileset = "addition/dungeon",
 }
 
+sensor{
+  name = "sensor_bowwow",
+  layer = 0,
+  x = 872,
+  y = 109,
+  width = 32,
+  height = 48,
+}
+
 dynamic_tile{
   name = "floor_2_unstable_associate__",
   layer = 0,

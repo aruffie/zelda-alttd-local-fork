@@ -312,7 +312,7 @@ text{ key = "map.caption.map_7_13", value = "Champ des Pièges" }
 text{ key = "map.caption.map_7_14", value = "Baie de Martha" }
 text{ key = "map.caption.map_7_15", value = "Baie de Martha" }
 text{ key = "map.caption.map_7_2", value = "Plateau Tartare" }
-text{ key = "map.caption.map_7_3", value = "Plateau Tartare" }
+text{ key = "map.caption.map_7_3", value = "Maison du Photographe" }
 text{ key = "map.caption.map_7_4", value = "Morne Plaine" }
 text{ key = "map.caption.map_7_5", value = "Morne Plaine" }
 text{ key = "map.caption.map_7_6", value = "Cimetière" }
@@ -351,6 +351,16 @@ text{ key = "map.caption.map_9_6", value = "Château Canulet" }
 text{ key = "map.caption.map_9_7", value = "Château Canulet" }
 text{ key = "map.caption.map_9_8", value = "La Prairie" }
 text{ key = "map.caption.map_9_9", value = "La Prairie" }
+text{ key = "map.caption.map_dungeon_1", value = "Caverne Flagello" }
+text{ key = "map.caption.map_dungeon_10", value = "Temple Hibou" }
+text{ key = "map.caption.map_dungeon_2", value = "Grotte du Génie" }
+text{ key = "map.caption.map_dungeon_3", value = "Souterrain aux Clés" }
+text{ key = "map.caption.map_dungeon_4", value = "Abîme du Poisson" }
+text{ key = "map.caption.map_dungeon_5", value = "Poisson-Chat" }
+text{ key = "map.caption.map_dungeon_6", value = "Temple du Masque" }
+text{ key = "map.caption.map_dungeon_7", value = "Tour du Vautour" }
+text{ key = "map.caption.map_dungeon_8", value = "Roc de la Tortue" }
+text{ key = "map.caption.map_dungeon_9", value = "Donjon des Couleurs" }
 text{ key = "map.caption.world_map", value = "Carte de Cocolint" }
 text{ key = "map.title", value = "Carte" }
 text{ key = "messagebox.no", value = "Non" }
