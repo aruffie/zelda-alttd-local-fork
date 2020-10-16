@@ -1,13 +1,13 @@
 animation{
   name = "waiting",
   src_image = "npc/villagers/mrs_meow_meow.png",
-  frame_delay = 530,
+  frame_delay = 450,
   frame_to_loop_on = 0,
   directions = {
-    { x = 0, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29 },
-    { x = 0, y = 32, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29 },
-    { x = 0, y = 64, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29 },
-    { x = 0, y = 96, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29 },
+    { x = 0, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 4 },
+    { x = 0, y = 32, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 4 },
+    { x = 0, y = 64, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 4 },
+    { x = 0, y = 96, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 4 },
   },
 }
 animation{
@@ -23,14 +23,14 @@ animation{
   },
 }
 animation{
-  name = "waiting (copie)",
+  name = "stopped",
   src_image = "npc/villagers/mrs_meow_meow.png",
   frame_delay = 530,
   frame_to_loop_on = 0,
   directions = {
-    { x = 0, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 4 },
-    { x = 0, y = 32, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 4 },
-    { x = 0, y = 64, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 4 },
-    { x = 0, y = 96, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29, num_frames = 4 },
+    { x = 0, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29 },
+    { x = 0, y = 32, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29 },
+    { x = 0, y = 64, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29 },
+    { x = 0, y = 96, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29 },
   },
 }
