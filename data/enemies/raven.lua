@@ -40,10 +40,20 @@ local function set_sprite_direction2(angle)
   sprite:set_direction(angle > quarter and angle < 3.0 * quarter and 2 or 0)
 end
 
+-- Return the angle from the enemy sprite to given entity.
+local function get_angle_from_sprite(sprite, entity)
+
+  local x, y, _ = enemy:get_position()
+  local sprite_x, sprite_y = sprite:get_xy()
+  local entity_x, entity_y, _ = entity:get_position()
+
+  return math.atan2(y - entity_y + sprite_y, entity_x - x - sprite_x)
+end
+
 -- Set given angle to movement and correct direction to the enemy sprite.
 local function set_hero_target_angle(movement)
 
-  local angle = enemy:get_angle_from_sprite(sprite, hero)
+  local angle = get_angle_from_sprite(sprite, hero)
   movement:set_angle(angle)
   set_sprite_direction2(angle)
 end

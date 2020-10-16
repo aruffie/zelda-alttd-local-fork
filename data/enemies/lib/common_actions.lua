@@ -6,10 +6,10 @@
 -- Methods : General informations :
 --           enemy:is_aligned(entity, thickness, [sprite])
 --           enemy:is_near(entity, triggering_distance, [sprite])
+--           enemy:is_entity_in_front(entity, [front_angle, [sprite]])
 --           enemy:is_leashed_by(entity)
 --           enemy:is_over_grounds(grounds)
 --           enemy:is_watched([sprite, [fully_visible]])
---           enemy:get_angle_from_sprite(sprite, entity)
 --           enemy:get_central_symmetry_position(x, y)
 --           enemy:get_obstacles_normal_angle()
 --           enemy:get_obstacles_bounce_angle([angle])
@@ -96,6 +96,16 @@ function common_actions.learn(enemy)
       and (layer == entity_layer or enemy:has_layer_independent_collisions())
   end
 
+  -- Return true if the angle between the enemy sprite direction and the enemy to entity direction is less than or equals to the front_angle.
+  function enemy:is_entity_in_front(entity, front_angle, sprite)
+
+    front_angle = front_angle or math.pi / 2.0
+    sprite = sprite or enemy:get_sprite()
+
+    -- Check the difference on the cosinus axis to easily consider angles from enemy to hero like pi and 3pi as the same.
+    return math.cos(math.abs(sprite:get_direction() * math.pi / 2.0 - enemy:get_angle(entity))) >= math.cos(front_angle / 2.0)
+  end
+
   -- Return true if the enemy is currently leashed by the entity with enemy:start_leashed_by().
   function enemy:is_leashed_by(entity)
     return leashing_timers[entity] ~= nil
@@ -147,16 +157,6 @@ function common_actions.learn(enemy)
 
     return x + width >= camera_x and x <= camera_x + camera_width 
         and y + height >= camera_y and y <= camera_y + camera_height
-  end
-
-  -- Return the angle from the enemy sprite to given entity.
-  function enemy:get_angle_from_sprite(sprite, entity)
-
-    local x, y, _ = enemy:get_position()
-    local sprite_x, sprite_y = sprite:get_xy()
-    local entity_x, entity_y, _ = entity:get_position()
-
-    return math.atan2(y - entity_y + sprite_y, entity_x - x - sprite_x)
   end
 
   -- Return the central symmetry position over the given central point.

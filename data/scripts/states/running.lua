@@ -90,16 +90,19 @@ local function begin_run()
   running_movement:set_speed(196)
   running_movement:set_angle(sprite:get_direction()*math.pi/2)
 
-  -- Check if there is a collision with any sprite of the hero and an enemy, then hurt it.
+  -- Trigger the thrust attack when collision between any sprite of the hero and an enemy.
   function running_movement:on_position_changed()
     for enemy in map:get_entities_by_type("enemy") do
       if entity:overlaps(enemy, "sprite") and enemy:get_life() > 0 and not enemy:is_immobilized() then
+
+        -- TODO Check original behavior on protected enemies like helmasaur.
         local reaction = enemy:get_thrust_reaction()
-        if reaction ~= "ignored" and reaction ~= "protected" then
-          enemy:receive_attack_consequence("thrust", reaction)
-        elseif enemy:get_can_attack() then
-          -- Hurt the hero if enemy ignore or is protected against thrust attacks.
-          hero:start_hurt(enemy, enemy:get_damage())
+        if reaction ~= "ignored" then -- Do nothing if the enemy ignore thrust attack.
+          if reaction ~= "protected" then
+            enemy:receive_attack_consequence("thrust", reaction)
+          elseif enemy:get_can_attack() then -- Hurt the hero if the enemy can attack and is protected against thrust attack.
+            hero:start_hurt(enemy, enemy:get_damage())
+          end
         end
       end
     end
