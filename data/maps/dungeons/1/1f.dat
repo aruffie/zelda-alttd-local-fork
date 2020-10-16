@@ -15219,7 +15219,7 @@ custom_entity{
   name = "placeholder_boss",
   layer = 0,
   x = 2080,
-  y = 613,
+  y = 557,
   width = 16,
   height = 16,
   direction = 0,

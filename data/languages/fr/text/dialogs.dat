@@ -1189,8 +1189,7 @@ Il renferme le secret de l'île.
 dialog{
   id = "maps.dungeons.5.master_stalfos_escaping",
   text = [[
-Ah! Je ne peux  
-pas te battre!  
+Ah! Je ne peux pas te battre!  
 J'abandonne!
 ]],
 }
@@ -1200,8 +1199,7 @@ dialog{
   text = [[
 Quoi??          
 Tu m'as trouvé? 
-Tu es pire qu'un
-pot de colle!
+Tu es pire qu'un pot de colle!
 ]],
 }
 
@@ -1209,9 +1207,8 @@ dialog{
   id = "maps.dungeons.5.master_stalfos_falling_2",
   text = [[
 Encore toi?     
-Tu n'arrêteras  
-jamais? Je      
-vais te rosser! 
+Tu n'arrêteras jamais?
+Je vais te rosser! 
 D'accord...     
 Allons-y!
 ]],
