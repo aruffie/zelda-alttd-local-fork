@@ -697,6 +697,7 @@ sprite{ id = "menus/parchment/parchment_default", description = "Parchment to di
 sprite{ id = "menus/parchment/parchment_shadow", description = "Parchment shadow" }
 sprite{ id = "menus/pause/arrow", description = "Arrow" }
 sprite{ id = "menus/pause/cursor", description = "Cursor" }
+sprite{ id = "menus/pause/map/dungeon/boss", description = "Boss icon" }
 sprite{ id = "menus/pause/map/dungeon/hero_head", description = "Hero head" }
 sprite{ id = "menus/pause/map/dungeon/hero_point", description = "Hero point" }
 sprite{ id = "menus/pause/map/world/world_map_cursor", description = "World map cursor" }

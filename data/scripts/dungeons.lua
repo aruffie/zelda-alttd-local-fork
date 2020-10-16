@@ -71,14 +71,11 @@ local function initialize_dungeon_features(game)
       small_boss = {
         floor = 0,
         breed = "boss/rolling_bones",
-        x = 640 + 1440,
-        y = 720 + 365
       },
       boss = {
         floor = 0,
         breed = "boss/moldorm",
-        x = 640 + 1440,
-        y = 720 + 365
+        room = 23,
       }
     },
     [2] = {
@@ -152,8 +149,7 @@ local function initialize_dungeon_features(game)
       boss = {
         floor = 0,
         breed = "boss/genie/genie",
-        x = 640 + 1440,
-        y = 720 + 365
+        room = 23,
       }
     },
     [3] = {
@@ -180,8 +176,7 @@ local function initialize_dungeon_features(game)
       boss = {
         floor = 0,
         breed = "boss/slime_eye",
-        x = 640 + 1440,
-        y = 720 + 365
+        room = 2,
       }
     },
     [4] = {
@@ -266,7 +261,7 @@ local function initialize_dungeon_features(game)
       secrets = {
         [0] = {        
           [19] = {
-            savegame = "dongeon_7_rupee_1",
+            savegame = "dungeon_7_rupee_1",
             signal = false
           },
           [22] = {
@@ -515,7 +510,6 @@ local function initialize_dungeon_features(game)
     end
 
   end
-
 
   function game:has_dungeon_map(dungeon_index)
 
