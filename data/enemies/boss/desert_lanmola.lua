@@ -227,7 +227,9 @@ function enemy:start_tunneling()
     return
   end
 
-  enemy:set_position(random_x, random_y)
+  for _, part in pairs(parts) do
+    part:set_position(random_x, random_y)
+  end
   tunnel = enemy:start_brief_effect("enemies/" .. enemy:get_breed() .. "/dust", "tunnel", 0, 0, tunnel_duration)
   sol.timer.start(enemy, tunnel_duration, function()
     enemy:appear()  -- Start a timer on the enemy instead of using tunnel:on_finished() to avoid continue if the enemy was disabled from outside this script.
@@ -265,7 +267,6 @@ function enemy:appear()
 
   -- Properties and effects.
   enemy:set_visible()
-  enemy:set_obstacle_behavior("flying")
   head_sprite:set_direction(direction8)
   appearing_dust = enemy:start_brief_effect("enemies/" .. enemy:get_breed() .. "/dust", "projections", 0, 0, tail_frame_lag * 10 + 150)
   appearing_dust:bring_to_back()
