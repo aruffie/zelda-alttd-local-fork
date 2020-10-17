@@ -214,6 +214,9 @@ sprite{ id = "enemies/boss/angler_fish/angler_fish", description = "Angler's fis
 sprite{ id = "enemies/boss/angler_fish/angler_fish_brick", description = "Angler brick" }
 sprite{ id = "enemies/boss/angler_fish/angler_fish_fry", description = "Angler fry" }
 sprite{ id = "enemies/boss/armos_knight", description = "Armos Knight" }
+sprite{ id = "enemies/boss/armos_knight/shadow", description = "Armos knight shadow" }
+sprite{ id = "enemies/boss/armos_knight/step_2", description = "Armos knight step 2" }
+sprite{ id = "enemies/boss/armos_knight/step_3", description = "Armos knight step 3" }
 sprite{ id = "enemies/boss/ballchain_soldier", description = "Ballchain Soldier" }
 sprite{ id = "enemies/boss/ballchain_soldier/ball", description = "Ballchain Soldier's Ball" }
 sprite{ id = "enemies/boss/ballchain_soldier/chain", description = "Ballchain Soldier's Chain" }
