@@ -112,11 +112,11 @@ local function update_sprites_direction()
 end
 
 -- Create a sub enemy, then echo some of the enemy and sprite events and methods to it.
-local function create_sub_enemy(sprite_name)
+local function create_sub_enemy(sprite_suffix_name)
 
   local x, y, layer = enemy:get_position()
   local sub_enemy = map:create_enemy({
-    name = (enemy:get_name() or enemy:get_breed()) .. "_" .. sprite_name,
+    name = (enemy:get_name() or enemy:get_breed()) .. "_" .. sprite_suffix_name,
     breed = "empty", -- Workaround: Breed is mandatory but a non-existing one seems to be ok to create an empty enemy though.
     x = x,
     y = y,
@@ -128,7 +128,7 @@ local function create_sub_enemy(sprite_name)
   sub_enemy:bring_to_front()
 
   -- Create the sub enemy sprite, and synchronize it on the body one.
-  local sub_sprite = sub_enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/" .. sprite_name)
+  local sub_sprite = sub_enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/" .. sprite_suffix_name)
   synchronize_sprite(sub_sprite, legs_sprite)
 
   return sub_enemy, sub_sprite
@@ -231,6 +231,12 @@ local function hurt(damage)
     -- Wait a few time, start 2 sets of explosions close from the enemy, wait a few time again and finally make the final explosion and enemy die.
     enemy:stop_all()
     enemy:start_death(function()
+      head:set_can_attack(false)
+      shield:set_can_attack(false)
+      sword:set_can_attack(false)
+      head:set_invincible()
+      shield:set_invincible()
+      sword:set_invincible()
       legs_sprite:set_shader(hurt_shader)
       sol.timer.start(enemy, 1500, function()
         enemy:start_close_explosions(32, 2500, "entities/explosion_boss", 0, -20, function()

@@ -600,6 +600,8 @@ function common_actions.learn(enemy)
       end
     end)
     enemy:register_event("set_visible", function(enemy, visible)
+      local enemy_x, enemy_y, enemy_layer = enemy:get_position()
+      entity:set_position(enemy_x + x, enemy_y + y, enemy_layer) -- Workaround: Also update the position to make sure it is correct for this frame even if the on_update() is already done.
       entity:set_visible(visible)
     end)
   end
