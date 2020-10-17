@@ -1,37 +1,218 @@
--- Lua script of enemy boss/big_armos_lnight.
+-- Lua script of enemy orb monster blue.
 -- This script is executed every time an enemy with this model is created.
 
--- Feel free to modify the code below.
--- You can add more events and remove the ones you don't need.
-
--- See the Solarus Lua API documentation for the full specification
--- of types, events and methods:
--- http://www.solarus-games.org/doc/latest
-
+-- Global variables
 local enemy = ...
+require("enemies/lib/common_actions").learn(enemy)
+local map_tools = require("scripts/maps/map_tools")
+
 local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
-local sprite
-local movement
+local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+local quarter = math.pi * 0.5
+local walking_movement
+local is_awake = false
+local is_pushed_back = false
+local step = 1
 
--- Event called when the enemy is initialized.
-function enemy:on_created()
+-- Configuration variables
+local waking_up_distance = 40
+local walking_speed = 44
+local bouncing_height = 4
+local jumping_speed = 88
+local jumping_height = 32
+local awakening_duration = 1000
+local bouncing_duration = 200
+local shaking_duration = 1500
+local walking_minimum_duration = 1000
+local jumping_duration = 200
+local on_air_duration = 600
+local stompdown_duration = 50
+local stunned_duration = 1000
+local step_2_triggering_life = 7
+local step_2_walking_speed = 55
+local step_3_triggering_life = 3
+local step_3_walking_speed = 66
 
-  -- Initialize the properties of your enemy here,
-  -- like the sprite, the life and the damage.
-  sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
-  enemy:set_life(1)
-  enemy:set_damage(1)
+-- Set the enemy step.
+local function set_step(number, speed, sprite_suffix_name)
+
+  step = number
+  walking_speed = speed
+  enemy:remove_sprite(sprite)
+  sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/" .. sprite_suffix_name)
 end
 
--- Event called when the enemy should start or restart its movements.
--- This is called for example after the enemy is created or after
--- it was hurt or immobilized.
-function enemy:on_restarted()
+-- Check if the custom death as to be started before triggering the built-in hurt behavior.
+local function hurt(damage)
 
-  movement = sol.movement.create("target")
-  movement:set_target(hero)
-  movement:set_speed(48)
+  -- Custom die if no more life.
+  if enemy:get_life() - damage < 1 then
+
+    -- Wait a few time, start 2 sets of explosions close from the enemy, wait a few time again and finally make the final explosion and enemy die.
+    enemy:start_death(function()
+      sprite:set_animation("hurt")
+      sol.timer.start(enemy, 1500, function()
+        enemy:start_close_explosions(32, 2500, "entities/explosion_boss", 0, -20, function()
+          sol.timer.start(enemy, 1000, function()
+            enemy:start_brief_effect("entities/explosion_boss", nil, 0, -20)
+            finish_death()
+          end)
+        end)
+        sol.timer.start(enemy, 200, function()
+          enemy:start_close_explosions(32, 2300, "entities/explosion_boss", 0, -20)
+        end)
+      end)
+    end)
+    return
+  end
+
+  -- Else hurt normally.
+  enemy:hurt(damage)
+end
+
+-- Only hurt the enemy if the sword attack is a spin attack, else push the hero back.
+local function on_sword_attack_received()
+
+  if hero:get_sprite():get_animation() == "spin_attack" then
+    hurt(2)
+  elseif not is_pushed_back then
+    is_pushed_back = true
+    enemy:start_pushed_back(hero, 200, 150, function()
+      is_pushed_back = false
+      walking_movement = enemy:start_target_walking(hero, walking_speed)
+    end)
+  end
+end
+
+-- Make the enemy jump and stomp down.
+local function start_jumping()
+
+  -- Start jumping to the current hero position.
+  local target_x, target_y, _ = hero:get_position()
+  local movement = sol.movement.create("target")
+  movement:set_speed(jumping_speed)
+  movement:set_target(target_x, target_y)
+  movement:set_smooth(false)
   movement:start(enemy)
+  enemy:start_flying(jumping_duration, jumping_height, function()
+
+    -- Wait for a delay and start the stomp down.
+    movement:stop()
+    sol.timer.start(enemy, on_air_duration, function()
+      enemy:stop_flying(stompdown_duration, function()
+
+        -- Start a visual effect at the landing impact location, wait a few time and restart.
+        map_tools.start_earthquake({count = 12, amplitude = 4, speed = 90})
+        enemy:start_brief_effect("entities/effects/impact_projectile", "default", -12, 0)
+        enemy:start_brief_effect("entities/effects/impact_projectile", "default", 12, 0)
+
+        -- Stun the hero if not in the air.
+        local is_hero_freezed = false
+        local hero_sprite = hero:get_sprite()
+        if hero_sprite:get_animation() ~= "jumping" then
+          is_hero_freezed = true
+          hero:freeze()
+          hero_sprite:set_animation("scared")
+        end
+
+        -- Wait for some time then unfreeze the hero if needed and restart the enemy.
+        sol.timer.start(enemy, stunned_duration, function()
+          if is_hero_freezed then
+            hero:unfreeze()
+          end
+          enemy:restart()
+        end)
+      end)
+    end)
+  end)
 end
+
+-- Start the enemy movement.
+local function start_walking()
+
+  sprite:set_animation("walking")
+  walking_movement = enemy:start_target_walking(hero, walking_speed)
+  local is_walking_duration_elapsed = false
+
+  -- Bounce on the ground while moving.
+  local function bounce()
+    enemy:start_jumping(bouncing_duration, bouncing_height, nil, nil, function()
+      if is_walking_duration_elapsed then
+        walking_movement:stop()
+        walking_movement = nil -- Explicitely set the movement to nil to not restart it if pushed.
+        start_jumping()
+      else
+        bounce()
+      end
+    end)
+  end
+  bounce()
+
+  -- Walk for some time then start a jump at the end of the current jump.
+  sol.timer.start(enemy, walking_minimum_duration, function()
+    is_walking_duration_elapsed = true
+  end)
+end
+
+-- Make the enemy wake up then start walking.
+local function start_waking_up()
+
+  is_awake = true
+  sprite:set_animation("awakening")
+  sol.timer.start(enemy, awakening_duration, function()
+    sprite:set_animation("shaking")
+    sol.timer.start(enemy, shaking_duration, function()
+      enemy:restart()
+    end)
+  end)
+end
+
+-- Wait for the hero to be near enough before wake the enemy up.
+local function start_sleeping()
+
+  sprite:set_animation("stopped")
+  sol.timer.start(enemy, 10, function()
+    if not enemy:is_near(hero, waking_up_distance) then
+      return true
+    end
+    start_waking_up()
+    return
+  end)
+end
+
+-- Initialization.
+enemy:register_event("on_created", function(enemy)
+
+  enemy:set_life(12)
+  enemy:set_size(16, 16)
+  enemy:set_origin(8, 13)
+  enemy:start_shadow("enemies/" .. enemy:get_breed() .. "/shadow")
+end)
+
+-- Restart settings.
+enemy:register_event("on_restarted", function(enemy)
+
+  -- Check if the step has to be changed after a hurt.
+  if step == 1 and enemy:get_life() <= step_2_triggering_life then
+    set_step(2, step_2_walking_speed, "step_2")
+  end
+  if step == 2 and enemy:get_life() <= step_3_triggering_life then
+    set_step(3, step_3_walking_speed, "step_3")
+  end
+
+  -- States.
+  enemy:set_can_attack(true)
+  enemy:set_damage(4)
+  if is_awake then
+    enemy:set_hero_weapons_reactions("ignored", {
+      sword = on_sword_attack_received,
+      arrow = function() hurt(1) end
+    })
+    start_walking()
+  else
+    enemy:set_invincible()
+    start_sleeping()
+  end
+end)

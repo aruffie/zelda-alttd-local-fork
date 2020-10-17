@@ -40,20 +40,6 @@ local function get_grid_position()
   return position_x - position_x % 8, position_y - position_y % 8
 end
 
--- Echo some of the reference_sprite events and methods to the given sprite.
-local function synchronize_sprite(sprite, reference_sprite)
-
-  sprite:synchronize(reference_sprite)
-  reference_sprite:register_event("on_direction_changed", function(reference_sprite)
-    sprite:set_direction(reference_sprite:get_direction())
-  end)
-  reference_sprite:register_event("on_animation_changed", function(reference_sprite, name)
-    if sprite:has_animation(name) then
-      sprite:set_animation(name)
-    end
-  end)
-end
-
 -- Hurt if the enemy angle to hero is not on the circle the enemy is looking at. 
 local function on_attack_received()
 
