@@ -1,5 +1,12 @@
--- Lua script of enemy orb monster blue.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Armos Knight.
+--
+-- Armos like enemy immobile at start.
+-- Wake up when the hero is close enough, then walk to the hero and regulary jump to him, making him frozen for some time on stomp down if the hero is not jumping.
+-- The sword repulse without hurt unless the attack is a spin one.
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
