@@ -11,7 +11,6 @@ local map = enemy:get_map()
 local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
-local walking_movement
 local is_awake = false
 local is_pushed_back = false
 local step = 1
@@ -25,6 +24,7 @@ local jumping_height = 32
 local awakening_duration = 1000
 local bouncing_duration = 200
 local shaking_duration = 1500
+local hurt_duration = 1000
 local walking_minimum_duration = 1000
 local jumping_duration = 200
 local on_air_duration = 600
@@ -44,8 +44,13 @@ local function set_step(number, speed, sprite_suffix_name)
   sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/" .. sprite_suffix_name)
 end
 
--- Check if the custom death as to be started before triggering the built-in hurt behavior.
+-- Manually hurt the enemy to not trigger to hurt or death built-in behavior.
 local function hurt(damage)
+
+  -- Don't hurt if a previous hurt animation is still running.
+  if sprite:get_animation() == "hurt" then
+    return
+  end
 
   -- Custom die if no more life.
   if enemy:get_life() - damage < 1 then
@@ -68,8 +73,15 @@ local function hurt(damage)
     return
   end
 
-  -- Else hurt normally.
-  enemy:hurt(damage)
+  -- Manually hurt the enemy to not restart it automatically and let it finish its move or jump.
+  enemy:set_life(enemy:get_life() - damage)
+  head_sprite:set_animation("hurt")
+  sol.timer.start(enemy, hurt_duration, function()
+    head_sprite:set_animation("walking")
+  end)
+  if enemy.on_hurt then
+    enemy:on_hurt()
+  end
 end
 
 -- Only hurt the enemy if the sword attack is a spin attack, else push the hero back.
@@ -79,9 +91,8 @@ local function on_sword_attack_received()
     hurt(2)
   elseif not is_pushed_back then
     is_pushed_back = true
-    enemy:start_pushed_back(hero, 200, 150, function()
+    enemy:start_pushed_back(hero, 250, 150, sprite, nil, function()
       is_pushed_back = false
-      walking_movement = enemy:start_target_walking(hero, walking_speed)
     end)
   end
 end
@@ -111,7 +122,7 @@ local function start_jumping()
         -- Stun the hero if not in the air.
         local is_hero_freezed = false
         local hero_sprite = hero:get_sprite()
-        if hero_sprite:get_animation() ~= "jumping" then
+        if hero_sprite:get_animation() ~= "jumping" then -- TODO Or sword + jump
           is_hero_freezed = true
           hero:freeze()
           hero_sprite:set_animation("scared")
@@ -133,15 +144,14 @@ end
 local function start_walking()
 
   sprite:set_animation("walking")
-  walking_movement = enemy:start_target_walking(hero, walking_speed)
+  local movement = enemy:start_target_walking(hero, walking_speed)
   local is_walking_duration_elapsed = false
 
   -- Bounce on the ground while moving.
   local function bounce()
     enemy:start_jumping(bouncing_duration, bouncing_height, nil, nil, function()
       if is_walking_duration_elapsed then
-        walking_movement:stop()
-        walking_movement = nil -- Explicitely set the movement to nil to not restart it if pushed.
+        movement:stop()
         start_jumping()
       else
         bounce()

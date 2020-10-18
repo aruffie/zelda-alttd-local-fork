@@ -44,7 +44,7 @@ local function on_sword_attack_received()
   if not is_protected or not enemy:is_entity_in_front(hero, front_angle) then
     enemy:hurt(1)
   else
-    enemy:start_shock(hero, 100, 150, function()
+    enemy:start_shock(hero, 100, 150, sprite, nil, function()
       enemy:restart()
     end)
   end
@@ -57,7 +57,7 @@ local function on_thrust_attack_received()
     enemy:set_invincible() -- Make sure to only trigger this event once by attack.
     enemy:hurt(1)
   else
-    enemy:start_pushing_back(hero, 100, 150)
+    enemy:start_pushing_back(hero, 100, 150, sprite, nil)
     hero:start_hurt(enemy:get_damage())
   end
 end

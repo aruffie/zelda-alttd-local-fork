@@ -27,9 +27,9 @@
 --           enemy:start_welding(entity, [x, [y]])
 --           enemy:start_leashed_by(entity, maximum_distance)
 --           enemy:stop_leashed_by(entity)
---           enemy:start_pushed_back(entity, [speed, [duration, [on_finished_callback]]])
---           enemy:start_pushing_back(entity, [speed, [duration, [on_finished_callback]]])
---           enemy:start_shock(entity, [speed, [duration, [on_finished_callback]]])
+--           enemy:start_pushed_back(entity, [speed, [duration, [sprite, [entity_sprite, [on_finished_callback]]]]])
+--           enemy:start_pushing_back(entity, [speed, [duration, [sprite, [entity_sprite, [on_finished_callback]]]]])
+--           enemy:start_shock(entity, [speed, [duration, [sprite, [entity_sprite, [on_finished_callback]]]]])
 --
 --           Effects and events :
 --           enemy:start_death([dying_callback])
@@ -370,7 +370,7 @@ function common_actions.learn(enemy)
   -- Start attracting the given entity, negative speed possible.
   function enemy:start_attracting(entity, speed, moving_condition_callback)
 
-    -- Workaround : Don't use solarus movements to be able to start several movements at the same time.
+    -- Don't use solarus movements to be able to start several movements at the same time.
     local move_ratio = speed > 0 and 1 or -1
     enemy:stop_attracting(entity)
     attracting_timers[entity] = {}
@@ -437,7 +437,7 @@ function common_actions.learn(enemy)
   -- Start a straight move to the given target and apply a constant acceleration and deceleration (px/s²).
   function enemy:start_impulsion(x, y, speed, acceleration, deceleration)
 
-    -- Workaround : Don't use solarus movements to be able to start several movements at the same time.
+    -- Don't use solarus movements to be able to start several movements at the same time.
     local movement = {}
     local timers = {}
     local angle = enemy:get_angle(x, y)
@@ -636,31 +636,144 @@ function common_actions.learn(enemy)
     end
   end
 
-  -- Start pushing back the enemy.
-  function enemy:start_pushed_back(entity, speed, duration, on_finished_callback)
+  -- Start pushing back the enemy, not using the built-in movement to not stop a possible running movement.
+  function enemy:start_pushed_back(entity, speed, duration, sprite, entity_sprite, on_finished_callback)
 
-    local movement = sol.movement.create("straight")
-    movement:set_speed(speed or 100)
-    movement:set_angle(entity:get_angle(enemy))
-    movement:set_smooth(false)
-    movement:start(enemy)
+    speed = speed or 150
+    duration = duration or 100
+    sprite = sprite or enemy:get_sprite()
+    entity_sprite = entity_sprite or entity:get_sprite()
 
-    sol.timer.start(enemy, duration or 150, function()
-      movement:stop()
+    -- Take the enemy and entity sprite positions as reference for the angle instead of the global enemy and entity positions.
+    local enemy_x, enemy_y = enemy:get_position()
+    local offset_x, offset_y = sprite:get_xy()
+    local entity_x, entity_y = entity:get_position()
+    local entity_offset_x, entity_offset_y = entity_sprite:get_xy()
+    enemy_x = enemy_x + offset_x
+    enemy_y = enemy_y + offset_y
+    entity_x = entity_x + entity_offset_x
+    entity_y = entity_y + entity_offset_y
+
+    local angle = math.atan2(entity_y - enemy_y, enemy_x - entity_x)
+    local step_axis = {math.max(-1, math.min(1, enemy_x - entity_x)), math.max(-1, math.min(1, enemy_y - entity_y))}
+
+    local function attract_on_axis(axis)
+
+      -- Clean the timer if the entity was removed from outside.
+      if not entity:exists() then
+        return
+      end
+      
+      local axis_move = {0, 0}
+      local axis_move_delay = 10 -- Default timer delay if no move
+      enemy_x, enemy_y = enemy:get_position()
+
+      -- Always move pixel by pixel.
+      axis_move[axis] = step_axis[axis]
+      if axis_move[axis] ~= 0 then
+
+        -- Schedule the next move on this axis depending on the remaining distance and the speed value, avoiding too high and low timers.
+        axis_move_delay = 1000.0 / math.max(1, math.min(1000, math.abs(speed * trigonometric_functions[axis](angle))))
+
+        -- Move the entity.
+        if not enemy:test_obstacles(axis_move[1], axis_move[2]) then
+          enemy:set_position(enemy_x + axis_move[1], enemy_y + axis_move[2])
+        end
+      end
+
+      return axis_move_delay
+    end
+
+    -- Start the pixel move schedule.
+    local timers = {}
+    for i = 1, 2 do
+      local initial_delay = attract_on_axis(i)
+      if initial_delay then
+        timers[i] = sol.timer.start(enemy, initial_delay, function()
+          return attract_on_axis(i)
+        end)
+      end
+    end
+
+    -- Schedule the end of the push.
+    sol.timer.start(enemy, duration, function()
+      for i = 1, 2 do
+        if timers[i] then
+          timers[i]:stop()
+        end
+      end
       if on_finished_callback then
         on_finished_callback()
       end
     end)
   end
 
-  -- Start pushing the entity back.
-  function enemy:start_pushing_back(entity, speed, duration, on_finished_callback)
-    
-    -- Workaround: Movement crashes sometimes when used at the wrong time on the hero, use a negative attraction instead.
-    enemy:start_attracting(entity, -speed or 100)
+  -- Start pushing the entity back, not using the built-in movement to not stop a possible running movement.
+  function enemy:start_pushing_back(entity, speed, duration, sprite, entity_sprite, on_finished_callback)
 
-    sol.timer.start(enemy, duration or 150, function()
-      enemy:stop_attracting()
+    speed = speed or 150
+    duration = duration or 100
+    sprite = sprite or enemy:get_sprite()
+    entity_sprite = entity_sprite or entity:get_sprite()
+
+    -- Take the enemy and entity sprite positions as reference for the angle instead of the global enemy and entity positions.
+    local enemy_x, enemy_y = enemy:get_position()
+    local offset_x, offset_y = sprite:get_xy()
+    local entity_x, entity_y = entity:get_position()
+    local entity_offset_x, entity_offset_y = entity_sprite:get_xy()
+    enemy_x = enemy_x + offset_x
+    enemy_y = enemy_y + offset_y
+    entity_x = entity_x + entity_offset_x
+    entity_y = entity_y + entity_offset_y
+
+    local angle = math.atan2(enemy_y - entity_y, entity_x - enemy_x)
+    local step_axis = {math.max(-1, math.min(1, entity_x - enemy_x)), math.max(-1, math.min(1, entity_y - enemy_y))}
+
+    local function attract_on_axis(axis)
+
+      -- Clean the timer if the entity was removed from outside.
+      if not entity:exists() then
+        return
+      end
+      
+      local axis_move = {0, 0}
+      local axis_move_delay = 10 -- Default timer delay if no move
+      entity_x, entity_y = entity:get_position()
+
+      -- Always move pixel by pixel.
+      axis_move[axis] = step_axis[axis]
+      if axis_move[axis] ~= 0 then
+
+        -- Schedule the next move on this axis depending on the remaining distance and the speed value, avoiding too high and low timers.
+        axis_move_delay = 1000.0 / math.max(1, math.min(1000, math.abs(speed * trigonometric_functions[axis](angle))))
+
+        -- Move the entity.
+        if not entity:test_obstacles(axis_move[1], axis_move[2]) then
+          entity:set_position(entity_x + axis_move[1], entity_y + axis_move[2])
+        end
+      end
+
+      return axis_move_delay
+    end
+
+    -- Start the pixel move schedule.
+    local timers = {}
+    for i = 1, 2 do
+      local initial_delay = attract_on_axis(i)
+      if initial_delay then
+        timers[i] = sol.timer.start(enemy, initial_delay, function()
+          return attract_on_axis(i)
+        end)
+      end
+    end
+
+    -- Schedule the end of the push.
+    sol.timer.start(enemy, duration, function()
+      for i = 1, 2 do
+        if timers[i] then
+          timers[i]:stop()
+        end
+      end
       if on_finished_callback then
         on_finished_callback()
       end
@@ -668,12 +781,12 @@ function common_actions.learn(enemy)
   end
 
   -- Start pushing both enemy and entity back with an impact effect.
-  function enemy:start_shock(entity, speed, duration, on_finished_callback)
+  function enemy:start_shock(entity, speed, duration, sprite, entity_sprite, on_finished_callback)
 
     local x, y, _ = enemy:get_position()
     local hero_x, hero_y, _ = hero:get_position()
-    enemy:start_pushing_back(hero, speed or 100, duration or 150)
-    enemy:start_pushed_back(hero, speed or 100, duration or 150, function()
+    enemy:start_pushing_back(hero, speed, duration, sprite, entity_sprite)
+    enemy:start_pushed_back(hero, speed, duration, sprite, entity_sprite, function()
       if on_finished_callback then
         on_finished_callback()
       end
