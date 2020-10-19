@@ -1352,6 +1352,7 @@ enemy{ id = "boss/master_stalfos", description = "Master Stalfos" }
 enemy{ id = "boss/moblin_chief", description = "Moblin chief" }
 enemy{ id = "boss/moldorm", description = "Moldorm" }
 enemy{ id = "boss/projectiles/ballchain", description = "Soldier's Ballchain" }
+enemy{ id = "boss/projectiles/bat", description = "Grim Creeper's Bat" }
 enemy{ id = "boss/projectiles/bottle", description = "Genie's Bottle" }
 enemy{ id = "boss/projectiles/boulder", description = "Stone Hinox's Boulder" }
 enemy{ id = "boss/projectiles/brick", description = "Angler Fish's Brick" }
@@ -1570,18 +1571,19 @@ file{ path = "enemies/boss/facade.lua", license = "GPL v3" }
 file{ path = "enemies/boss/genie.lua", license = "GPL v3" }
 file{ path = "enemies/boss/giant_buzz_blob.lua", license = "GPL v3" }
 file{ path = "enemies/boss/gohma.lua", author = "Vlag", license = "GPL v3" }
-file{ path = "enemies/boss/grim_creeper.lua", license = "GPL v3" }
+file{ path = "enemies/boss/grim_creeper.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/hinox_master.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/hot_head.lua", license = "GPL v3" }
 file{ path = "enemies/boss/master_stalfos.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/moblin_chief.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/moldorm.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/projectiles/ballchain.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/boss/projectiles/bat.lua", author = "Vlag", }
 file{ path = "enemies/boss/projectiles/bottle.lua", license = "GPL v3" }
 file{ path = "enemies/boss/projectiles/boulder.lua", license = "GPL v3" }
 file{ path = "enemies/boss/projectiles/brick.lua", license = "GPL v3" }
 file{ path = "enemies/boss/projectiles/fry.lua", license = "GPL v3" }
-file{ path = "enemies/boss/projectiles/spike.lua", license = "GPL v3" }
+file{ path = "enemies/boss/projectiles/spike.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/rolling_bones.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/slime_eel.lua", license = "GPL v3" }
 file{ path = "enemies/boss/slime_eye.lua", license = "GPL v3" }
