@@ -1,5 +1,12 @@
--- Lua script of enemy orb monster blue.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Armos Knight.
+--
+-- Armos like enemy immobile at start.
+-- Wake up when the hero is close enough, then walk to the hero and regulary jump to him, making him frozen for some time on stomp down if the hero is not jumping.
+-- The sword repulse without hurt unless the attack is a spin one.
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
@@ -11,9 +18,9 @@ local map = enemy:get_map()
 local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
-local walking_movement
 local is_awake = false
 local is_pushed_back = false
+local is_hurt = false
 local step = 1
 
 -- Configuration variables
@@ -25,6 +32,7 @@ local jumping_height = 32
 local awakening_duration = 1000
 local bouncing_duration = 200
 local shaking_duration = 1500
+local hurt_duration = 1000
 local walking_minimum_duration = 1000
 local jumping_duration = 200
 local on_air_duration = 600
@@ -44,8 +52,13 @@ local function set_step(number, speed, sprite_suffix_name)
   sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/" .. sprite_suffix_name)
 end
 
--- Check if the custom death as to be started before triggering the built-in hurt behavior.
+-- Manually hurt the enemy to not trigger to hurt or death built-in behavior.
 local function hurt(damage)
+
+  if is_hurt then
+    return
+  end
+  is_hurt = true
 
   -- Custom die if no more life.
   if enemy:get_life() - damage < 1 then
@@ -68,8 +81,26 @@ local function hurt(damage)
     return
   end
 
-  -- Else hurt normally.
-  enemy:hurt(damage)
+  -- Manually hurt the enemy to not restart it automatically and let it finish its move or jump.
+  enemy:set_life(enemy:get_life() - damage)
+  sprite:set_animation("hurt")
+  sol.timer.start(enemy, hurt_duration, function()
+    sprite:set_animation("walking")
+  end)
+  sol.timer.start(map, hurt_duration, function() -- Start this timer on the map cause it must not be canceled by a parallel restart.
+
+    -- Check if the step has to be changed after a hurt.
+    is_hurt = false
+    if step == 1 and enemy:get_life() <= step_2_triggering_life then
+      set_step(2, step_2_walking_speed, "step_2")
+    end
+    if step == 2 and enemy:get_life() <= step_3_triggering_life then
+      set_step(3, step_3_walking_speed, "step_3")
+    end
+  end)
+  if enemy.on_hurt then
+    enemy:on_hurt()
+  end
 end
 
 -- Only hurt the enemy if the sword attack is a spin attack, else push the hero back.
@@ -77,11 +108,11 @@ local function on_sword_attack_received()
 
   if hero:get_sprite():get_animation() == "spin_attack" then
     hurt(2)
-  elseif not is_pushed_back then
+  end
+  if not is_pushed_back then
     is_pushed_back = true
-    enemy:start_pushed_back(hero, 200, 150, function()
+    enemy:start_pushed_back(hero, 250, 150, sprite, nil, function()
       is_pushed_back = false
-      walking_movement = enemy:start_target_walking(hero, walking_speed)
     end)
   end
 end
@@ -111,7 +142,7 @@ local function start_jumping()
         -- Stun the hero if not in the air.
         local is_hero_freezed = false
         local hero_sprite = hero:get_sprite()
-        if hero_sprite:get_animation() ~= "jumping" then
+        if hero_sprite:get_animation() ~= "jumping" then -- TODO Or sword + jump
           is_hero_freezed = true
           hero:freeze()
           hero_sprite:set_animation("scared")
@@ -133,15 +164,14 @@ end
 local function start_walking()
 
   sprite:set_animation("walking")
-  walking_movement = enemy:start_target_walking(hero, walking_speed)
+  local movement = enemy:start_target_walking(hero, walking_speed)
   local is_walking_duration_elapsed = false
 
   -- Bounce on the ground while moving.
   local function bounce()
     enemy:start_jumping(bouncing_duration, bouncing_height, nil, nil, function()
       if is_walking_duration_elapsed then
-        walking_movement:stop()
-        walking_movement = nil -- Explicitely set the movement to nil to not restart it if pushed.
+        movement:stop()
         start_jumping()
       else
         bounce()
@@ -193,14 +223,6 @@ end)
 
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
-
-  -- Check if the step has to be changed after a hurt.
-  if step == 1 and enemy:get_life() <= step_2_triggering_life then
-    set_step(2, step_2_walking_speed, "step_2")
-  end
-  if step == 2 and enemy:get_life() <= step_3_triggering_life then
-    set_step(3, step_3_walking_speed, "step_3")
-  end
 
   -- States.
   enemy:set_can_attack(true)

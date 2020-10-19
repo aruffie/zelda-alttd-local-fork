@@ -311,14 +311,12 @@ local function initialize_dungeon_features(game)
         },
       },
       small_boss = {
-        -- TODO
         floor = 3,
-        breed = "zol_red",
+        breed = "boss/grim_creeper",
         x = 640 + 1440,
         y = 720 + 365
       },
       boss = {
-        -- TODO
         floor = 3,
         breed = "zol_red",
         x = 640 + 1440,

@@ -1279,6 +1279,33 @@ Urubos
 }
 
 dialog{
+  id = "maps.dungeons.7.grim_creeper_defeated",
+  text = [[
+Sale type! Tu as battu mes gars! 
+Tu vas le payer!
+Je saurai te retrouver!!
+]],
+}
+
+dialog{
+  id = "maps.dungeons.7.grim_creeper_round_1",
+  text = [[
+Alors petit?    
+Tu cherches la bagarre?     
+Allez les gars, débarrassez-moi de cet avorton!
+]],
+}
+
+dialog{
+  id = "maps.dungeons.7.grim_creeper_round_2",
+  text = [[
+Ha! C'est tout ce que tu as?!
+Prépare-toi à ...
+... Ça! ...
+]],
+}
+
+dialog{
   id = "maps.dungeons.7.indication",
   text = [[
 ...OCARINA...   

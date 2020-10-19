@@ -45,7 +45,7 @@ local function on_regular_attack_received()
   end)
 
   -- Repulse the enemy, then follow the hero and start counting down if not already doing it.
-  enemy:start_pushed_back(hero, 200, 150, function() -- Don't use enemy:hurt(0) to not force the hurt animation but still repulse the enemy.
+  enemy:start_pushed_back(hero, 200, 150, sprite, nil, function() -- Don't use enemy:hurt(0) to not force the hurt animation but still repulse the enemy.
     if not is_counting_down then
       is_counting_down = true
       enemy:stop_movement()

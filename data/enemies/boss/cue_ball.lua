@@ -43,14 +43,14 @@ end
 -- Hurt if the enemy angle to hero is not on the circle the enemy is looking at. 
 local function on_attack_received()
 
-  -- Hurt the hero instead of the enemy if the hero is in front of him.
-  if enemy:is_entity_in_front(hero, front_angle) then
-    hero:start_hurt(enemy:get_damage())
+  -- Don't hurt if a previous hurt animation is still running.
+  if is_hurt then
     return
   end
 
-  -- Don't hurt if a previous hurt animation is still running.
-  if is_hurt then
+  -- Hurt the hero instead of the enemy if the hero is in front of him.
+  if enemy:is_entity_in_front(hero, front_angle) then
+    hero:start_hurt(enemy:get_damage())
     return
   end
   is_hurt = true
