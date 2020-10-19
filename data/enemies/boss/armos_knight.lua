@@ -20,6 +20,7 @@ local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
 local is_awake = false
 local is_pushed_back = false
+local is_hurt = false
 local step = 1
 
 -- Configuration variables
@@ -54,10 +55,10 @@ end
 -- Manually hurt the enemy to not trigger to hurt or death built-in behavior.
 local function hurt(damage)
 
-  -- Don't hurt if a previous hurt animation is still running.
-  if sprite:get_animation() == "hurt" then
+  if is_hurt then
     return
   end
+  is_hurt = true
 
   -- Custom die if no more life.
   if enemy:get_life() - damage < 1 then
@@ -82,9 +83,20 @@ local function hurt(damage)
 
   -- Manually hurt the enemy to not restart it automatically and let it finish its move or jump.
   enemy:set_life(enemy:get_life() - damage)
-  head_sprite:set_animation("hurt")
+  sprite:set_animation("hurt")
   sol.timer.start(enemy, hurt_duration, function()
-    head_sprite:set_animation("walking")
+    sprite:set_animation("walking")
+  end)
+  sol.timer.start(map, hurt_duration, function() -- Start this timer on the map cause it must not be canceled by a parallel restart.
+
+    -- Check if the step has to be changed after a hurt.
+    is_hurt = false
+    if step == 1 and enemy:get_life() <= step_2_triggering_life then
+      set_step(2, step_2_walking_speed, "step_2")
+    end
+    if step == 2 and enemy:get_life() <= step_3_triggering_life then
+      set_step(3, step_3_walking_speed, "step_3")
+    end
   end)
   if enemy.on_hurt then
     enemy:on_hurt()
@@ -96,7 +108,8 @@ local function on_sword_attack_received()
 
   if hero:get_sprite():get_animation() == "spin_attack" then
     hurt(2)
-  elseif not is_pushed_back then
+  end
+  if not is_pushed_back then
     is_pushed_back = true
     enemy:start_pushed_back(hero, 250, 150, sprite, nil, function()
       is_pushed_back = false
@@ -210,14 +223,6 @@ end)
 
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
-
-  -- Check if the step has to be changed after a hurt.
-  if step == 1 and enemy:get_life() <= step_2_triggering_life then
-    set_step(2, step_2_walking_speed, "step_2")
-  end
-  if step == 2 and enemy:get_life() <= step_3_triggering_life then
-    set_step(3, step_3_walking_speed, "step_3")
-  end
 
   -- States.
   enemy:set_can_attack(true)
