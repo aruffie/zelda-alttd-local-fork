@@ -63,3 +63,10 @@ function travel_sensor_2:on_activated()
   travel_manager:init(map, 5)
 
 end
+
+-- TODO Replace the sensor by the ocarina activation.
+function temp_sensor:on_activated()
+
+  temp_sensor:set_enabled(false)
+  turtlerock_head:start_awakening()
+end

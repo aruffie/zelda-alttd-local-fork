@@ -271,8 +271,8 @@ sprite{ id = "enemies/boss/slime_eye", description = "Slime eye" }
 sprite{ id = "enemies/boss/smasher", description = "Smasher" }
 sprite{ id = "enemies/boss/stone_hinox/stone_hinox", description = "Stone hinox" }
 sprite{ id = "enemies/boss/stone_hinox/stone_hinox_boulder", description = "Stone hinox boulder" }
-sprite{ id = "enemies/boss/turtle_rock/turtle_rock", description = "Turtle rock head" }
-sprite{ id = "enemies/boss/turtle_rock/turtle_rock_chain", description = "Turtle rock chain" }
+sprite{ id = "enemies/boss/turtle_rock", description = "Turtle rock" }
+sprite{ id = "enemies/boss/turtle_rock/neck", description = "Turtle rock neck" }
 sprite{ id = "enemies/boulder", description = "Boulder" }
 sprite{ id = "enemies/bubble", description = "Bubble" }
 sprite{ id = "enemies/bubble_giant", description = "Bubble Giant" }
