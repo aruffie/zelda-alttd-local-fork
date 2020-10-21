@@ -117,9 +117,17 @@ local function start_swinging(step_number)
 
   is_swinging = true
 
+  -- Skip to next step if the enemy is already on the requested step position.
   local step = swinging_offsets[step_number]
-  local angle = enemy:get_angle(initial_position.x + step.x, initial_position.y + step.y)
-  local distance = enemy:get_distance(initial_position.x + step.x, initial_position.y + step.y)
+  local x, y = enemy:get_position()
+  local target_x, target_y = initial_position.x + step.x, initial_position.y + step.y
+  if x == target_x and y == target_y then
+    start_swinging((step_number % #swinging_offsets) + 1)
+    return
+  end
+
+  local angle = enemy:get_angle(target_x, target_y)
+  local distance = enemy:get_distance(target_x, target_y)
   
   sprite:set_animation("awake")
   current_step = step_number
