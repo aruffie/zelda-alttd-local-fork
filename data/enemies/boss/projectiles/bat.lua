@@ -24,6 +24,7 @@ local quarter = math.pi * 0.5
 local fly_height = 32
 local positioning_speed = 120
 local charging_speed = 200
+local hurt_duration = 500
 
 -- Return the angle from the enemy sprite to given entity.
 local function get_angle_from_sprite(sprite, entity)
@@ -33,6 +34,25 @@ local function get_angle_from_sprite(sprite, entity)
   local entity_x, entity_y, _ = entity:get_position()
 
   return math.atan2(y - entity_y + sprite_y, entity_x - x - sprite_x)
+end
+
+-- Custom die to display the dying animation on the sprite position instead of the enemy position.
+local function die()
+
+  enemy:stop_all()
+  sprite:set_animation("hurt")
+  sol.timer.start(enemy, hurt_duration, function()
+    enemy:start_death(function()
+      local x_offset, y_offset = sprite:get_xy()
+      enemy:remove_sprite(sprite)
+      sprite = enemy:create_sprite(enemy:get_dying_sprite_id())
+      sprite:set_xy(x_offset, y_offset)
+
+      function sprite:on_animation_finished()
+        finish_death()
+      end
+    end)
+  end)
 end
 
 -- Make the enemy start positioning at the given position.
@@ -62,7 +82,7 @@ function enemy:start_throwed(entity)
 
   -- Make the enemy vulnerable and harmful.
   enemy:set_can_attack(true)
-  enemy:set_hero_weapons_reactions(1, {jump_on = "ignored"})
+  enemy:set_hero_weapons_reactions(function() die() end, {jump_on = "ignored"})
 
   -- Remove the bat without killing him and call the on_off_screen() event when off screen.
   function movement:on_position_changed()
