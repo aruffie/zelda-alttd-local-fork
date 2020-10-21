@@ -37,7 +37,7 @@ local jumping_height = 32
 local jumping_minimum_duration = 2700
 local jumping_maximum_duration = 3000
 local angle_amplitude_from_center = math.pi * 0.125
-local hurt_duration = 1000
+local hurt_duration = 600
 
 -- Constants
 local parts_count = #tied_parts_frame_lags + 1
@@ -142,6 +142,7 @@ local function create_tied_part(sprite_suffix_name)
   })
   sub_enemy:set_visible(false)
   sub_enemy:set_invincible()
+  sub_enemy:set_damage(enemy:get_damage())
   sub_enemy:set_can_attack(false)
   common_actions.learn(sub_enemy) -- Workaround: Learn common_actions to the sub enemy to get shadow and welding functions.
   sub_enemy:start_shadow()
@@ -206,12 +207,14 @@ local function hurt(damage)
   -- Manually hurt else to not trigger the built-in behavior and its automatic restart.
   enemy:set_life(enemy:get_life() - damage)
   head_sprite:set_animation("hurt")
-  sol.timer.start(enemy, hurt_duration, function()
-    head_sprite:set_animation("walking")
-  end)
   if enemy.on_hurt then
     enemy:on_hurt()
   end
+
+  -- Just stop the hurt animation at the end of timer.
+  sol.timer.start(enemy, hurt_duration, function()
+    head_sprite:set_animation("walking")
+  end)
 end
 
 -- Create a tunnel and appear at a random position.

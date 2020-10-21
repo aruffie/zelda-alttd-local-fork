@@ -32,7 +32,7 @@ local jumping_height = 32
 local awakening_duration = 1000
 local bouncing_duration = 200
 local shaking_duration = 1500
-local hurt_duration = 1000
+local hurt_duration = 600
 local walking_minimum_duration = 1000
 local jumping_duration = 200
 local on_air_duration = 600
@@ -84,13 +84,14 @@ local function hurt(damage)
   -- Manually hurt the enemy to not restart it automatically and let it finish its move or jump.
   enemy:set_life(enemy:get_life() - damage)
   sprite:set_animation("hurt")
-  sol.timer.start(enemy, hurt_duration, function()
-    sprite:set_animation("walking")
-  end)
-  sol.timer.start(map, hurt_duration, function() -- Start this timer on the map cause it must not be canceled by a parallel restart.
+  if enemy.on_hurt then
+    enemy:on_hurt()
+  end
 
-    -- Check if the step has to be changed after a hurt.
+  -- Check if the step has to be changed after a hurt.
+  sol.timer.start(map, hurt_duration, function()
     is_hurt = false
+    sprite:set_animation("walking")
     if step == 1 and enemy:get_life() <= step_2_triggering_life then
       set_step(2, step_2_walking_speed, "step_2")
     end
@@ -98,9 +99,6 @@ local function hurt(damage)
       set_step(3, step_3_walking_speed, "step_3")
     end
   end)
-  if enemy.on_hurt then
-    enemy:on_hurt()
-  end
 end
 
 -- Only hurt the enemy if the sword attack is a spin attack, else push the hero back.
@@ -232,6 +230,7 @@ enemy:register_event("on_restarted", function(enemy)
       sword = on_sword_attack_received,
       arrow = function() hurt(1) end
     })
+    enemy:set_traversable(true)
     start_walking()
   else
     enemy:set_invincible()

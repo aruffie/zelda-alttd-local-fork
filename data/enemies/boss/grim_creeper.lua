@@ -66,7 +66,7 @@ local function start_escaping()
   local height = y - camera_y
   local movement = sol.movement.create("straight")
   movement:set_max_distance(height)
-  movement:set_angle(math.pi / 2)
+  movement:set_angle(quarter)
   movement:set_speed(escaping_speed)
   movement:set_ignore_obstacles(true)
   movement:start(enemy)

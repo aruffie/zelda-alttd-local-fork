@@ -91,6 +91,9 @@ local function on_attack_received()
   enemy:set_life(enemy:get_life() - 1)
   enemy:start_spinning()
   step = (math.random(2) == 1) and -1 or 1
+  if enemy.on_hurt then
+    enemy:on_hurt()
+  end
 end
 
 -- Start the enemy movement.
