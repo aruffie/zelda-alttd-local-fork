@@ -99,11 +99,11 @@ function common_actions.learn(enemy)
   -- Return true if the angle between the enemy sprite direction and the enemy to entity direction is less than or equals to the front_angle.
   function enemy:is_entity_in_front(entity, front_angle, sprite)
 
-    front_angle = front_angle or math.pi / 2.0
+    front_angle = front_angle or quarter
     sprite = sprite or enemy:get_sprite()
 
     -- Check the difference on the cosinus axis to easily consider angles from enemy to hero like pi and 3pi as the same.
-    return math.cos(math.abs(sprite:get_direction() * math.pi / 2.0 - enemy:get_angle(entity))) >= math.cos(front_angle / 2.0)
+    return math.cos(math.abs(sprite:get_direction() * quarter - enemy:get_angle(entity))) >= math.cos(front_angle / 2.0)
   end
 
   -- Return true if the enemy is currently leashed by the entity with enemy:start_leashed_by().

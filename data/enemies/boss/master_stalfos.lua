@@ -41,7 +41,7 @@ local stunned_duration = 500
 local collapsed_duration = 2000
 local shaking_duration = 1000
 local dizzy_duration = 500
-local hurt_duration = 1000
+local hurt_duration = 600
 local striking_duration = 750
 local walking_speed = 32
 local walking_maximum_duration = 1000
@@ -62,7 +62,7 @@ local function move_sprites(sprites, max_distance, direction, speed, on_finished
   for _, sprite in ipairs(sprites) do
     local movement = sol.movement.create("straight")
     movement:set_max_distance(max_distance)
-    movement:set_angle(direction * math.pi / 2)
+    movement:set_angle(direction * quarter)
     movement:set_speed(speed)
     movement:set_ignore_obstacles(true)
     movement:start(sprite)
@@ -257,13 +257,15 @@ local function hurt(damage)
   enemy:set_life(enemy:get_life() - damage)
   start_pushed_back(hero) -- TODO Repulse from the explosion center instead of the hero
   legs_sprite:set_shader(hurt_shader)
-  sol.timer.start(enemy, hurt_duration, function()
-    is_hurt = false
-    legs_sprite:set_shader(nil)
-  end)
   if enemy.on_hurt then
     enemy:on_hurt()
   end
+
+  -- Just stop the hurt animation at the end of timer.
+  sol.timer.start(map, hurt_duration, function()
+    is_hurt = false
+    legs_sprite:set_shader(nil)
+  end)
 end
 
 -- Collapse for some time when the head is hit by sword and make the body vulnerable to explosions, then shake for time and finally restore and restart.
@@ -303,7 +305,7 @@ local function on_head_hurt()
 
   -- Start the hurt shader for a very few time.
   legs_sprite:set_shader(hurt_shader)
-  sol.timer.start(enemy, 100, function()
+  sol.timer.start(map, 100, function() -- Start this timer on the map cause it must not be canceled by a parallel restart.
     legs_sprite:set_shader(nil)
   end)
 end
@@ -507,7 +509,6 @@ enemy:register_event("on_restarted", function(enemy)
   -- States.
   is_jumping = false
   is_collapsing = false
-  is_hurt = false
   legs_sprite:set_xy(0, 0)
   if not is_upstairs then
     if not is_escaping then

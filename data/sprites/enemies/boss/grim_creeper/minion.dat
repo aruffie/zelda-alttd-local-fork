@@ -1,6 +1,6 @@
 animation{
   name = "waiting",
-  src_image = "enemies/boss/grim_minion.png",
+  src_image = "enemies/boss/grim_creeper/minion.png",
   frame_delay = 120,
   frame_to_loop_on = 0,
   directions = {
@@ -11,8 +11,8 @@ animation{
   },
 }
 animation{
-  name = "attack",
-  src_image = "enemies/boss/grim_minion.png",
+  name = "attacking",
+  src_image = "enemies/boss/grim_creeper/minion.png",
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {
@@ -24,7 +24,7 @@ animation{
 }
 animation{
   name = "hurt",
-  src_image = "enemies/boss/grim_minion.png",
+  src_image = "enemies/boss/grim_creeper/minion.png",
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {

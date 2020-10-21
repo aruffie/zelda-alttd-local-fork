@@ -17,7 +17,7 @@ local enemy = ...
 require("enemies/lib/common_actions").learn(enemy)
 
 -- Global variables
-local sprite = enemy:create_sprite("enemies/projectiles/bat")
+local sprite = enemy:create_sprite("enemies/boss/grim_creeper/minion")
 local quarter = math.pi * 0.5
 
 -- Configuration variables.
@@ -38,7 +38,7 @@ end
 -- Make the enemy start positioning at the given position.
 function enemy:start_positioning(target_x, target_y)
 
-  sprite:set_animation("walking")
+  sprite:set_animation("waiting")
   local movement = sol.movement.create("target")
   movement:set_ignore_obstacles(true)
   movement:set_speed(positioning_speed)
@@ -58,7 +58,7 @@ function enemy:start_throwed(entity)
   local angle = get_angle_from_sprite(sprite, entity)
   local movement = enemy:start_straight_walking(angle, charging_speed)
   movement:set_ignore_obstacles(true)
-  sprite:set_animation("chase")
+  sprite:set_animation("attacking")
 
   -- Make the enemy vulnerable and harmful.
   enemy:set_can_attack(true)

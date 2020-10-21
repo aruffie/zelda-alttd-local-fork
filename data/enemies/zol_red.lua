@@ -18,7 +18,7 @@ require("enemies/lib/common_actions").learn(enemy)
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local map = enemy:get_map()
 local hero = map:get_hero()
-local is_attacking, is_exhausted
+local is_splitting, is_attacking, is_exhausted
 
 -- Configuration variables
 local walking_speed = 4
@@ -32,6 +32,11 @@ local exhausted_maximum_duration = 4000
 local before_split_duration = 300
 local gel_spawn_jumping_height = 8
 local gel_spawn_jumping_duration = 400
+
+-- Split the zol on weak attack received.
+local function on_weak_attack_received()
+  enemy:split()
+end
 
 -- Start moving to the hero, and jump when he is close enough.
 function enemy:start_walking()
@@ -66,7 +71,11 @@ end
 -- Remove the zol and split it into two gels.
 function enemy:split()
 
-  enemy:set_invincible()
+  if is_splitting then
+    return
+  end
+  is_splitting = true
+  enemy:stop_all()
 
   local x, y, layer = enemy:get_position()
   local function create_gel(x_offset)
@@ -91,28 +100,20 @@ function enemy:split()
   end
 
   -- Start hurt behavior for some time then split into gels.
-  enemy:hurt(0)
-  sol.timer.start(map, before_split_duration, function()
+  sprite:set_animation("hurt")
+  sol.timer.start(enemy, before_split_duration, function()
     create_gel(-5)
     create_gel(5)
-    enemy:set_treasure() -- The treasure will be dropped one time by each Gels.
+    enemy:set_treasure(enemy:get_treasure()) -- The treasure will be dropped one time by each Gels.
     enemy:start_death()
   end)
   
 end
 
--- Split the zol if hurt and not directly dead.
-enemy:register_event("on_hurt", function(enemy)
-
-  if enemy:get_life() > 0 then
-    enemy:split()
-  end
-end)
-
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
 
-  enemy:set_life(2)
+  enemy:set_life(1)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)
   shadow = enemy:start_shadow()
@@ -122,20 +123,23 @@ end)
 enemy:register_event("on_restarted", function(enemy)
 
   -- Behavior for each items.
-  enemy:set_hero_weapons_reactions(2, {
-    sword = 1,
-    explosion = 1,
-    arrow = 1,
+  enemy:set_hero_weapons_reactions(1, {
+    sword = function() on_weak_attack_received() end,
+    explosion = function() on_weak_attack_received() end,
+    arrow = function() on_weak_attack_received() end,
     jump_on = "ignored"
   })
 
   -- States.
+  is_splitting = false
   is_attacking = false
   is_exhausted = true
   sprite:set_xy(0, 0)
   sol.timer.start(enemy, math.random(exhausted_minimum_duration, exhausted_maximum_duration), function()
     is_exhausted = false
   end)
+  enemy:set_damage(1)
+  enemy:set_can_attack(true)
   enemy:set_obstacle_behavior("normal")
   enemy:set_pushed_back_when_hurt(false)
   enemy:set_damage(2)
