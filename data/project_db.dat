@@ -233,6 +233,7 @@ sprite{ id = "enemies/boss/desert_lanmola/tail", description = "Desert Lanmola t
 sprite{ id = "enemies/boss/dethl/aghanim_form/aghanim", description = "Aghanim" }
 sprite{ id = "enemies/boss/dethl/ganon_form/bat", description = "Bat" }
 sprite{ id = "enemies/boss/dethl/ganon_form/fork", description = "Fork" }
+sprite{ id = "enemies/boss/dethl/ganon_form/ganon", description = "Ganon" }
 sprite{ id = "enemies/boss/dodongo_snake", description = "Dodongo Snake" }
 sprite{ id = "enemies/boss/dodongo_snake/body", description = "Dodongo snake body" }
 sprite{ id = "enemies/boss/evil_eagle", description = "Evil eagle" }
@@ -2673,6 +2674,7 @@ file{ path = "sprites/enemies/boss/ballchain_soldier.png", license = "Proprietar
 file{ path = "sprites/enemies/boss/dethl/aghanim_form/aghanim.dat", author = "JulioTanaka", }
 file{ path = "sprites/enemies/boss/dethl/ganon_form/bat.dat", author = "JulioTanaka", }
 file{ path = "sprites/enemies/boss/dethl/ganon_form/fork.dat", author = "JulioTanaka", }
+file{ path = "sprites/enemies/boss/dethl/ganon_form/ganon.dat", author = "JulioTanaka", }
 file{ path = "sprites/enemies/boss/grim_creeper/minion.dat", author = "JulioTanaka", }
 file{ path = "sprites/enemies/boulder.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/bubble.png", license = "Proprietary, Fair use" }
