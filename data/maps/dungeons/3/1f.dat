@@ -10586,6 +10586,7 @@ chest{
     },
   },
   treasure_name = "enemy_ambush",
+  treasure_savegame_variable = "dungeon_3_zol_1",
   sprite = "entities/chests/chest_small",
 }
 

@@ -40,7 +40,7 @@ local function get_grid_position()
   return position_x - position_x % 8, position_y - position_y % 8
 end
 
--- Hurt if the enemy angle to hero is not on the circle the enemy is looking at. 
+-- Hurt the enemy if hero is not on his front.
 local function on_attack_received()
 
   -- Don't hurt if a previous hurt animation is still running.

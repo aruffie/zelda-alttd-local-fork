@@ -761,14 +761,14 @@ function common_actions.learn(enemy)
     for i = 1, 2 do
       local initial_delay = attract_on_axis(i)
       if initial_delay then
-        timers[i] = sol.timer.start(enemy, initial_delay, function()
+        timers[i] = sol.timer.start(entity, initial_delay, function()
           return attract_on_axis(i)
         end)
       end
     end
 
     -- Schedule the end of the push.
-    sol.timer.start(enemy, duration, function()
+    sol.timer.start(entity, duration, function()
       for i = 1, 2 do
         if timers[i] then
           timers[i]:stop()
@@ -785,8 +785,8 @@ function common_actions.learn(enemy)
 
     local x, y, _ = enemy:get_position()
     local hero_x, hero_y, _ = hero:get_position()
-    enemy:start_pushing_back(hero, speed, duration, sprite, entity_sprite)
-    enemy:start_pushed_back(hero, speed, duration, sprite, entity_sprite, function()
+    enemy:start_pushed_back(hero, speed, duration, sprite, entity_sprite)
+    enemy:start_pushing_back(hero, speed, duration, sprite, entity_sprite, function()
       if on_finished_callback then
         on_finished_callback()
       end
