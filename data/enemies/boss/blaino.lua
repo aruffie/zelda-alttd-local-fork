@@ -30,7 +30,7 @@ local quarter = math.pi * 0.5
 local eighth = math.pi * 0.25
 
 -- Configuration variables
-local minimum_distance_x_to_hero = 40
+local minimum_distance_x_to_hero = 24
 local maximum_distance_x_to_hero = 52
 local minimum_jumping_distance_x = 4
 local jumping_speed = 120
@@ -40,8 +40,10 @@ local straight_arming_duration = 1000
 local straight_speed = 248
 local straight_maximum_distance = 96
 local straight_duration = 1000
-local uppercut_arming_duration = 1800
-local uppercut_speed = 160
+local uppercut_arming_duration = 2000
+local uppercut_arming_speed = 88
+local uppercut_arming_distance = 24
+local uppercut_speed = 248
 local uppercut_maximum_distance = 48
 local uppercut_duration = 1000
 local minimum_jump_in_a_row = 4
@@ -88,7 +90,7 @@ local function on_attack_received(damage)
   is_hurt = true
 
   -- Custom die if no more life.
-  if enemy:get_life() - 1 < 1 then
+  if enemy:get_life() - damage < 1 then
 
     -- Wait a few time, start 2 sets of explosions close from the enemy, wait a few time again and finally make the final explosion and enemy die.
     enemy:stop_all()
@@ -109,14 +111,15 @@ local function on_attack_received(damage)
     return
   end
 
-  -- Hurt
+  -- Hurt normally else.
   enemy:hurt(damage)
 end
 
--- Start a uppercut punch and eject the hero if touched.
+-- Move back then start an uppercut punch and eject the hero if touched.
 local function start_uppercut()
 
   sprite:set_animation("arming_uppercut")
+  start_straight_movement(enemy, uppercut_arming_speed, uppercut_arming_distance, is_hero_on_left and 0 or math.pi)
   sol.timer.start(enemy, uppercut_arming_duration, function()
 
     is_uppercut_punching = true
@@ -268,7 +271,7 @@ end)
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
 
-  enemy:set_life(8)
+  enemy:set_life(1)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)
   enemy:start_shadow()
