@@ -13,6 +13,33 @@ properties{
 
 tile{
   layer = 0,
+  x = 1344,
+  y = 936,
+  width = 8,
+  height = 48,
+  pattern = "barrier.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 1320,
+  y = 936,
+  width = 8,
+  height = 48,
+  pattern = "barrier.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 1328,
+  y = 936,
+  width = 16,
+  height = 48,
+  pattern = "floor.7-1",
+}
+
+tile{
+  layer = 0,
   x = 1800,
   y = 560,
   width = 24,
@@ -4360,9 +4387,9 @@ tile{
 
 tile{
   layer = 0,
-  x = 1320,
+  x = 1352,
   y = 976,
-  width = 240,
+  width = 208,
   height = 24,
   pattern = "wall.1-2",
 }
@@ -13695,7 +13722,6 @@ tile{
   layer = 0,
   x = 1912,
   y = 416,
-  enabled_at_start = false,
   width = 24,
   height = 80,
   pattern = "wall.3-2",
@@ -16867,15 +16893,6 @@ tile{
   width = 24,
   height = 24,
   pattern = "wall.corner.4-2",
-}
-
-tile{
-  layer = 0,
-  x = 1320,
-  y = 920,
-  width = 32,
-  height = 24,
-  pattern = "wall.2-2",
 }
 
 tile{
@@ -20864,7 +20881,6 @@ tile{
   layer = 0,
   x = 344,
   y = 1544,
-  enabled_at_start = false,
   width = 16,
   height = 8,
   pattern = "door.3.support.1-1",
@@ -22719,7 +22735,6 @@ tile{
   layer = 0,
   x = 1104,
   y = 504,
-  enabled_at_start = false,
   width = 8,
   height = 16,
   pattern = "143",
@@ -25991,7 +26006,6 @@ tile{
   layer = 0,
   x = 1912,
   y = 488,
-  enabled_at_start = false,
   width = 24,
   height = 24,
   pattern = "wall.corner_reverse.1-2",
@@ -26031,6 +26045,60 @@ tile{
   width = 8,
   height = 24,
   pattern = "stairs_down.2.border.2-2",
+}
+
+tile{
+  layer = 0,
+  x = 1344,
+  y = 920,
+  width = 8,
+  height = 16,
+  pattern = "door_blast.2.support.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 1320,
+  y = 920,
+  width = 8,
+  height = 16,
+  pattern = "door_blast.2.support.1-1",
+}
+
+tile{
+  layer = 0,
+  x = 1328,
+  y = 920,
+  width = 16,
+  height = 16,
+  pattern = "door_blast.1",
+}
+
+tile{
+  layer = 0,
+  x = 1320,
+  y = 984,
+  width = 8,
+  height = 16,
+  pattern = "door_blast.1.support.1-1",
+}
+
+tile{
+  layer = 0,
+  x = 1344,
+  y = 984,
+  width = 8,
+  height = 16,
+  pattern = "door_blast.1.support.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 1328,
+  y = 984,
+  width = 16,
+  height = 16,
+  pattern = "door_blast.2",
 }
 
 block{
@@ -26585,9 +26653,18 @@ block{
 }
 
 chest{
+  name = "chest_zol_1",
   layer = 0,
   x = 1776,
   y = 1573,
+  properties = {
+    {
+      key = "breed",
+      value = "zol_green",
+    },
+  },
+  treasure_name = "enemy_ambush",
+  treasure_savegame_variable = "dungeon_8_zol_1",
   sprite = "entities/chests/chest_small",
 }
 
@@ -26833,122 +26910,12 @@ block{
 
 block{
   layer = 0,
-  x = 1496,
-  y = 1133,
-  sprite = "entities/blocks/block",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 1,
-}
-
-block{
-  layer = 0,
   x = 1752,
   y = 1101,
   sprite = "entities/blocks/block",
   pushable = false,
   pullable = false,
   maximum_moves = 0,
-}
-
-block{
-  layer = 0,
-  x = 1496,
-  y = 1149,
-  sprite = "entities/blocks/block",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 1,
-}
-
-block{
-  layer = 0,
-  x = 1496,
-  y = 1165,
-  sprite = "entities/blocks/block",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 1,
-}
-
-block{
-  layer = 0,
-  x = 1496,
-  y = 1181,
-  sprite = "entities/blocks/block",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 1,
-}
-
-block{
-  layer = 0,
-  x = 1496,
-  y = 1197,
-  sprite = "entities/blocks/block",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 1,
-}
-
-block{
-  layer = 0,
-  x = 1496,
-  y = 1213,
-  sprite = "entities/blocks/block",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 1,
-}
-
-block{
-  layer = 0,
-  x = 1464,
-  y = 1165,
-  sprite = "entities/blocks/block",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 1,
-}
-
-block{
-  layer = 0,
-  x = 1464,
-  y = 1181,
-  sprite = "entities/blocks/block",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 1,
-}
-
-block{
-  layer = 0,
-  x = 1464,
-  y = 1197,
-  sprite = "entities/blocks/block",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 1,
-}
-
-block{
-  layer = 0,
-  x = 1464,
-  y = 1213,
-  sprite = "entities/blocks/block",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 1,
-}
-
-block{
-  layer = 0,
-  x = 1464,
-  y = 1229,
-  sprite = "entities/blocks/block",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 1,
 }
 
 block{
@@ -27028,17 +26995,6 @@ block{
   sprite = "entities/blocks/block",
   pushable = false,
   pullable = false,
-  maximum_moves = 1,
-}
-
-block{
-  layer = 0,
-  x = 1496,
-  y = 1229,
-  sprite = "entities/blocks/block",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 1,
 }
 
 block{
@@ -27108,7 +27064,6 @@ block{
   sprite = "entities/blocks/block",
   pushable = false,
   pullable = false,
-  maximum_moves = 1,
 }
 
 block{
@@ -27379,7 +27334,6 @@ block{
   sprite = "entities/blocks/block",
   pushable = false,
   pullable = false,
-  maximum_moves = 0,
 }
 
 block{
@@ -27663,16 +27617,6 @@ pickable{
   y = 101,
   treasure_name = "instrument_8",
   treasure_savegame_variable = "dungeon_8_big_treasure",
-}
-
-block{
-  layer = 0,
-  x = 1464,
-  y = 1149,
-  sprite = "entities/blocks/block",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 1,
 }
 
 block{
@@ -28958,8 +28902,8 @@ door{
 destination{
   name = "wallturn_teletransporter",
   layer = 0,
-  x = 2080,
-  y = 973,
+  x = 2312,
+  y = 453,
   direction = 1,
 }
 
@@ -30889,7 +30833,7 @@ enemy{
 }
 
 door{
-  name = "door_group_20_1",
+  name = "door_group_small_boss_1",
   layer = 0,
   x = 2464,
   y = 504,
@@ -30900,7 +30844,7 @@ door{
 }
 
 door{
-  name = "door_group_20_2",
+  name = "door_group_small_boss_2",
   layer = 0,
   x = 2464,
   y = 440,
@@ -33002,6 +32946,173 @@ custom_entity{
   sprite = "entities/utils/cliff",
   tiled = true,
   model = "cliff",
+}
+
+sensor{
+  name = "sensor_small_boss",
+  layer = 0,
+  x = 2280,
+  y = 485,
+  width = 64,
+  height = 32,
+}
+
+dynamic_tile{
+  name = "weak_wall_G_4",
+  layer = 0,
+  x = 1320,
+  y = 920,
+  width = 32,
+  height = 24,
+  pattern = "wall.2-2",
+}
+
+door{
+  name = "weak_wall_G_1",
+  layer = 0,
+  x = 1328,
+  y = 920,
+  properties = {
+    {
+      key = "is_weak",
+      value = "true",
+    },
+    {
+      key = "sound_sword",
+      value = "items/sword_tap_bombable",
+    },
+  },
+  direction = 3,
+  sprite = "entities/doors/door_weak_wall",
+  savegame_variable = "dungeon_8_weak_wall_A",
+  opening_method = "explosion",
+}
+
+dynamic_tile{
+  name = "weak_wall_G_3",
+  layer = 0,
+  x = 1320,
+  y = 976,
+  width = 32,
+  height = 24,
+  pattern = "wall.1-2",
+}
+
+block{
+  layer = 0,
+  x = 1496,
+  y = 1229,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+}
+
+block{
+  layer = 0,
+  x = 1496,
+  y = 1213,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+}
+
+block{
+  layer = 0,
+  x = 1496,
+  y = 1197,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+}
+
+block{
+  layer = 0,
+  x = 1496,
+  y = 1181,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+}
+
+block{
+  layer = 0,
+  x = 1496,
+  y = 1165,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+}
+
+block{
+  layer = 0,
+  x = 1496,
+  y = 1149,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+}
+
+block{
+  layer = 0,
+  x = 1496,
+  y = 1133,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+}
+
+block{
+  layer = 0,
+  x = 1464,
+  y = 1149,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+}
+
+block{
+  layer = 0,
+  x = 1464,
+  y = 1165,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+}
+
+block{
+  layer = 0,
+  x = 1464,
+  y = 1181,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+}
+
+block{
+  layer = 0,
+  x = 1464,
+  y = 1197,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+}
+
+block{
+  layer = 0,
+  x = 1464,
+  y = 1213,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+}
+
+block{
+  layer = 0,
+  x = 1464,
+  y = 1229,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
 }
 
 tile{
@@ -35210,6 +35321,24 @@ tile{
   width = 32,
   height = 8,
   pattern = "ceiling.1",
+}
+
+tile{
+  layer = 2,
+  x = 1320,
+  y = 976,
+  width = 32,
+  height = 8,
+  pattern = "door_cache.1-2",
+}
+
+tile{
+  layer = 2,
+  x = 1320,
+  y = 936,
+  width = 32,
+  height = 8,
+  pattern = "door_cache.2-2",
 }
 
 separator{

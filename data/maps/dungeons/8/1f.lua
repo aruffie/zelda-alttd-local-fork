@@ -46,6 +46,7 @@ function map:on_started()
   door_manager:open_when_enemies_dead(map,  "smasher",  "door_group_8")
   door_manager:open_when_enemies_dead(map,  "smasher",  "door_group_12")
   door_manager:open_when_enemies_dead(map,  "enemy_group_19",  "door_group_18")
+  door_manager:open_if_small_boss_dead(map)
 
   -- Pickables
   treasure_manager:disappear_pickable(map, "pickable_small_key_1")
@@ -71,6 +72,8 @@ function map:on_started()
   -- Separators
   separator_manager:init(map)
 
+  -- Ennemies
+  enemy_manager:create_teletransporter_if_small_boss_dead(map, false)
 end
 
 
@@ -115,6 +118,10 @@ weak_wall_F_1:register_event("on_opened", function()
   door_manager:destroy_wall(map, "weak_wall_F")
 end)
 
+weak_wall_G_1:register_event("on_opened", function()
+  door_manager:destroy_wall(map, "weak_wall_G")
+end)
+
 sensor_1:register_event("on_activated", function()
   map:close_doors("door_group_4_")
   map:close_doors("door_group_5_")
@@ -151,4 +158,16 @@ end)
 sensor_7:register_event("on_activated", function()
   map:close_doors("door_group_boss_3")
   map:close_doors("door_group_boss_6")
+end)
+
+sensor_small_boss:register_event("on_activated", function()
+  sensor_small_boss:set_enabled(false)
+  enemy_manager:launch_small_boss_if_not_dead(map)
+
+  -- Teleport the hero to the dungeon entrance if ejected.
+  if enemy_small_boss then
+    function enemy_small_boss:on_hero_ejected()
+      hero:teleport("dungeons/8/1f", "dungeon_8_1_B", "fade")
+    end
+  end
 end)
