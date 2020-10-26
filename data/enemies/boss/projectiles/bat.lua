@@ -45,10 +45,10 @@ local function die()
     enemy:start_death(function()
       local x_offset, y_offset = sprite:get_xy()
       enemy:remove_sprite(sprite)
-      sprite = enemy:create_sprite(enemy:get_dying_sprite_id())
-      sprite:set_xy(x_offset, y_offset)
+      local dying_sprite = enemy:create_sprite(enemy:get_dying_sprite_id())
+      dying_sprite:set_xy(x_offset, y_offset)
 
-      function sprite:on_animation_finished()
+      function dying_sprite:on_animation_finished()
         finish_death()
       end
     end)

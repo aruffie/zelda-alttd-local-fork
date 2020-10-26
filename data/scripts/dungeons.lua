@@ -232,11 +232,17 @@ local function initialize_dungeon_features(game)
       music_instrument = "60_coral_triangle",
       secrets = {
       },
+      small_boss = {
+        floor = 0,
+        breed = "boss/smasher",
+        x = 640 + 1440,
+        y = 720 + 365
+      },
       boss = {
         floor = 0,
         x = 640 + 1440,
         y = 720 + 365,
-        savegame_variable = "dungeon_5_boss",
+        savegame_variable = "dungeon_6_boss",
       }
     },
     [7] = {
@@ -311,7 +317,7 @@ local function initialize_dungeon_features(game)
         },
       },
       small_boss = {
-        floor = 3,
+        floor = 0,
         breed = "boss/grim_creeper",
         x = 640 + 1440,
         y = 720 + 365
@@ -341,9 +347,8 @@ local function initialize_dungeon_features(game)
       secrets = {
       },
       small_boss = {
-        -- TODO
-        floor = 3,
-        breed = "zol_red",
+        floor = 0,
+        breed = "boss/blaino",
         x = 640 + 1440,
         y = 720 + 365
       },

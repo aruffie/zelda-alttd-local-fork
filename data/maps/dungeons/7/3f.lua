@@ -62,7 +62,8 @@ function map:on_started()
 
   -- Doors
   map:set_doors_open("door_group_1_", true)
-  map:set_doors_open("door_group_small_boss_", true)
+  door_manager:open_if_small_boss_dead(map)
+--door_manager:open_if_boss_dead(map)
 
   -- Ennemies
   enemy_manager:create_teletransporter_if_small_boss_dead(map, false)
@@ -76,30 +77,27 @@ function map:on_obtaining_treasure(item, variant, savegame_variable)
 end
 
 -----------------------
--- Doors events
------------------------
-door_manager:open_if_small_boss_dead(map)
---door_manager:open_if_boss_dead(map)
-
------------------------
 -- Sensors events
 -----------------------
 sensor_1:register_event("on_activated", function()
+
   sensor_1:set_enabled(false)
   enemy_manager:launch_small_boss_if_not_dead(map)
 
   -- Start dialogs related to the boss
-  function enemy_small_boss:on_round_begin(round_number)
+  if enemy_small_boss then
+    function enemy_small_boss:on_round_begin(round_number)
 
-    if round_number == 1 then
-      game:start_dialog("maps.dungeons.7.grim_creeper_round_1")
+      if round_number == 1 then
+        game:start_dialog("maps.dungeons.7.grim_creeper_round_1")
+      end
+      if round_number == 2 then
+        game:start_dialog("maps.dungeons.7.grim_creeper_round_2")
+      end
     end
-    if round_number == 2 then
-      game:start_dialog("maps.dungeons.7.grim_creeper_round_2")
+    function enemy_small_boss:on_escaping()
+      game:start_dialog("maps.dungeons.7.grim_creeper_defeated")
     end
-  end
-  function enemy_small_boss:on_escaping()
-    game:start_dialog("maps.dungeons.7.grim_creeper_defeated")
   end
 end)
 
