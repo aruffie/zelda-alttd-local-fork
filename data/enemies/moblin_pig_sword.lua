@@ -35,14 +35,12 @@ local waiting_duration = 800
 function enemy:start_walking(direction)
 
   direction = direction or math.random(4)
-  enemy:start_straight_walking(walking_angles[direction], walking_speed, math.random(walking_minimum_distance, walking_maximum_distance), function()    
-    local next_direction = math.random(4)
-    local waiting_animation = (direction + 1) % 4 == next_direction and "seek_left" or (direction - 1) % 4 == next_direction and "seek_right" or "immobilized"
-    sprite:set_animation(waiting_animation)
+  enemy:start_straight_walking(walking_angles[direction], walking_speed, math.random(walking_minimum_distance, walking_maximum_distance), function()
 
+    sprite:set_animation("immobilized")
     sol.timer.start(enemy, waiting_duration, function()
       if not is_charging then
-        enemy:start_walking(next_direction)
+        enemy:start_walking(math.random(4))
       end
     end)
   end)
