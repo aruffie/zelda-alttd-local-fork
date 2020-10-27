@@ -44,6 +44,7 @@ map:register_event("on_started", function()
   door_manager:open_when_enemies_dead(map, "enemy_group_26_",  "door_group_20_", false)
   door_manager:open_when_enemies_dead(map, "enemy_group_27_",  "door_group_19_")
   door_manager:open_when_enemies_dead(map, "enemy_group_27_",  "door_group_20_", false)
+  door_manager:open_if_small_boss_dead(map)
   -- Enemies
   enemy_manager:create_teletransporter_if_small_boss_dead(map, false)
   -- Music
@@ -68,10 +69,12 @@ function map:on_obtaining_treasure(item, variant, savegame_variable)
 end
 
 -- Doors events
-weak_wall_group_1:register_event("on_opened", function()
-    
-  door_manager:destroy_wall(map, "weak_wall_group_1_")
-  
+weak_wall_A_1:register_event("on_opened", function()
+  door_manager:destroy_wall(map, "weak_wall_A")
+end)
+
+weak_wall_B_1:register_event("on_opened", function()
+  door_manager:destroy_wall(map, "weak_wall_B")
 end)
 
 -- Sensors events
@@ -263,8 +266,14 @@ function sensor_26:on_activated()
 
 end
 
+function sensor_small_boss:on_activated()
+
+  sensor_small_boss:set_enabled(false)
+  enemy_manager:launch_small_boss_if_not_dead(map)
+end
+
 -- Separator events
-auto_separator_16:register_event("on_activating", function(separator, direction4)
+--[[auto_separator_16:register_event("on_activating", function(separator, direction4)
 
   map:set_doors_open("door_group_3", true)
   if direction4 == 1 then
@@ -283,4 +292,4 @@ auto_separator_17:register_event("on_activating", function(separator, direction4
     end)
   end
   
-end)
+end)--]]
