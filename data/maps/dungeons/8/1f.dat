@@ -26673,8 +26673,8 @@ door{
 destination{
   name = "wallturn_teletransporter",
   layer = 0,
-  x = 2312,
-  y = 453,
+  x = 2080,
+  y = 973,
   direction = 1,
 }
 
