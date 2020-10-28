@@ -26,7 +26,7 @@ end)
 
 entity:add_collision_test("facing", function(crystal, other, crystal_sprite, other_sprite)
 
-  if is_destroy == false and other:get_type() =="hero" and hero:get_state() == "custom" and hero:get_state_object():get_description()=="running"  then
+  if is_destroy == false and other:get_type() =="hero" and hero:get_state() == "custom" and hero:is_running() then
     audio_manager:play_sound("misc/rock_shatter")
     sprite:set_animation('destroy')
     is_destroy = true

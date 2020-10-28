@@ -76,7 +76,7 @@ local function begin_run()
   local sprite=entity:get_sprite()
   --start movement and pull out sword if any
   entity.running_timer=nil --TODO check if this isn't useless 
-  entity.running=true
+  entity.running=true -- Set to true when the entity is actually running, so after the run preparation.
   local sword_sprite
   state:set_can_be_hurt(false)
   state:set_can_control_direction(false)
@@ -167,7 +167,7 @@ function state:on_command_pressed(command)
       for _,candidate in pairs(directions) do
         if candidate.key == command and candidate.direction~=sprite:get_direction() then
           entity:unfreeze()
-          entity:set_running(false)
+          entity.running = false
           return true
         end
       end
@@ -205,7 +205,7 @@ function state:on_finished()
   if sword_sprite then
     entity:remove_sprite(sword_sprite)
   end
-  entity.running=nil
+  entity.running=false
   entity:stop_movement()
 end
 

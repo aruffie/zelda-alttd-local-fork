@@ -22,7 +22,7 @@ function state:on_started()
   movement:set_angle((entity:get_direction()+2)*math.pi/2)
   function movement:on_position_changed()
     if entity:is_running() then
-      entity:set_running(false)
+      entity.running = false
     end
   end
   --Bonk !
