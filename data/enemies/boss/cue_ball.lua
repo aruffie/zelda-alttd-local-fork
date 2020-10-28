@@ -78,9 +78,7 @@ local function on_attack_received()
   end
 
   -- Freeze the hero for some time if running.
-  local hero_state, hero_state_object = hero:get_state()
-  local is_hero_running = (hero_state == "running" or (hero_state == "custom" and hero_state_object:get_description() == "running"))
-  if is_hero_running then
+  if hero:is_running() then
     hero:freeze()
     sol.timer.start(hero, 300, function()
       hero:unfreeze()

@@ -244,7 +244,6 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(8)
   enemy:set_size(64, 40) -- Workaround : Adapt the size to never have a part of enemy sprite under ceiling nor holded hero over a wall.
   enemy:set_origin(32, 37)
-  enemy:set_hurt_style("boss")
 
   -- Set the requested skin to the enemy or the default one.
   sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. (skin and "/" .. skin or ""))

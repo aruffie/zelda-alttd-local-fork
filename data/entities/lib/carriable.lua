@@ -4,6 +4,7 @@
 -- A hit happen when the entity reaches an obstacle or when the carriable sprite overlaps another entity sprite while the throw is still running.
 -- 
 -- Methods : carriable:throw(direction)
+--
 -- Events :  carriable:on_thrown(direction)
 --           carriable:on_bounce(num_bounce)
 --           carriable:on_finish_throw()
@@ -17,6 +18,10 @@
 --
 ----------------------------------
 
+--TODO don't hurt an enemy twice
+--TODO ensure get_overlapping_entities_on_obstacle_reached works correctly
+--TODO remove is_obstacle()
+
 local carriable_behavior = {}
 local carrying_state = require("scripts/states/carrying.lua")
 
@@ -26,7 +31,6 @@ local default_properties = {
   bounce_durations = {400, 160, 70}, -- Duration for each bounce.
   bounce_heights = {nil, 4, 2}, -- Heights for each bounce. Nil means sprite position.
   bounce_sound = nil, -- Default id of the bouncing sound. Nil means no sound.
-  hurt_strength = 2, -- Default life points subtracted on an enemy hit.
   respawn_delay = nil, -- Time before respawn when removed by bad grounds. Nil means no respawn.
   shadow_sprite = nil, -- Sprite of the shadow. A default one is used if nil.
   slowdown_ratio = 0.5, -- Speed and distance decrease ratio at each obstacle hit.
@@ -90,7 +94,7 @@ function carriable_behavior.apply(carriable, properties)
     local movement_x = speed / 100 * math.cos(angle)
     local movement_y = speed / 100 * math.sin(angle)
     local x, y, width, height = carriable:get_max_bounding_box()
-    local entities = map:get_entities_in_rectangle(x + movement_x, y + movement_y, width, height)  
+    local entities = map:get_entities_in_rectangle(x + movement_x, y + movement_y, width, height)
     for entity in entities do
       if entity ~= carriable then
         table.insert(overlapping_entities, entity)
@@ -107,7 +111,6 @@ function carriable_behavior.apply(carriable, properties)
     local bounce_durations = properties.bounce_durations or default_properties.bounce_durations
     local bounce_heights = properties.bounce_heights or default_properties.bounce_heights
     local bounce_sound = properties.bounce_sound or default_properties.bounce_sound
-    local hurt_strength = properties.hurt_strength or default_properties.hurt_strength
     local respawn_delay = properties.respawn_delay or default_properties.respawn_delay
     local shadow_sprite = properties.shadow_sprite or default_properties.shadow_sprite
     local slowdown_ratio = properties.slowdown_ratio or default_properties.slowdown_ratio
@@ -129,8 +132,11 @@ function carriable_behavior.apply(carriable, properties)
 
     -- Function to hurt an enemy vulnerable to thrown items.
     local function hurt_if_vulnerable(entity)
-      if entity and entity:get_type() == "enemy" and entity:get_attack_consequence("thrown_item") ~= "ignored" then
-        entity:hurt(hurt_strength)
+      if entity and entity:get_type() == "enemy" then
+      local reaction = entity:get_attack_consequence("thrown_item")
+        if reaction ~= "ignored" and reaction ~= "protected" then
+          entity:receive_attack_consequence("thrown_item", reaction)
+        end
       end
     end
 
@@ -248,7 +254,7 @@ function carriable_behavior.apply(carriable, properties)
         is_bounce_movement_starting = false
         movement:start(carriable)
       end
-      
+
       -- Start shifting height of the carriable at each instant for current bounce.
       local refreshing_time = 5 -- Time between computations of each position.
       sol.timer.start(carriable, refreshing_time, function()
@@ -260,7 +266,7 @@ function carriable_behavior.apply(carriable, properties)
         -- Stop the timer. Start next bounce or finish bounces. 
         else -- The carriable hits the ground.
           map:ground_collision(carriable, bounce_sound, on_bad_ground_bounce)
-          -- Check if the carriable still exists (it can be removed on holes, water and lava).
+          -- Check if the carriable still exists.
           if carriable:exists() then
             if carriable.on_bounce then
               carriable:on_bounce(current_bounce) -- Call event
@@ -279,8 +285,10 @@ function carriable_behavior.apply(carriable, properties)
       carriable:on_thrown() -- Call event
     end
 
-    -- Start the first bounce.
-    bounce()
+    -- Start the first bounce if the carriable is not immediately removed from outside.
+    if carriable:exists() then
+      bounce()
+    end
   end)
 
   carriable:register_event("on_created", function(carriable)
