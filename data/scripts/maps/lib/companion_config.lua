@@ -2,11 +2,18 @@
 -- Feel free to change these values.
 local audio_manager = require("scripts/audio_manager")
 
+local excluded_maps_all_companions = {
+  ["sideviews/mabe_village/sideview_1"] = true,
+}
+
 return {
   marin = {
     sprite = "npc/villagers/marin",
     activation_condition = function(map)
       if map:get_game():is_in_dungeon() then
+        return false
+      end
+      if excluded_maps_all_companions[map:get_id()] then
         return false
       end
       return map:get_game():is_step_last("marin_joined")
@@ -15,6 +22,9 @@ return {
   bowwow = {
     sprite = "npc/animals/bowwow",
     activation_condition = function(map)
+      if excluded_maps_all_companions[map:get_id()] then
+        return false
+      end
       local excluded_maps = {
         ["houses/mabe_village/meow_meow_house"] = true
       }
@@ -77,6 +87,9 @@ return {
   ghost = {
     sprite = "npc/villagers/ghost",
     activation_condition = function(map)
+      if excluded_maps_all_companions[map:get_id()] then
+        return false
+      end
       if map:get_game():is_in_dungeon() then
         return false
       end
@@ -92,6 +105,11 @@ return {
     
   },
   flying_rooster = {
-    sprite = "npc/flying_rooster"
+    sprite = "npc/flying_rooster",
+    activation_condition = function(map)
+      if excluded_maps_all_companions[map:get_id()] then
+        return false
+      end
+    end
   }
 }
