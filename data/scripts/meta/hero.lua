@@ -317,24 +317,14 @@ function hero_meta:on_taking_damage(damage)
 
 end
 
+-- Returns true when the hero is jumping, even if running, jumping or loading the sword at the same time.
 function hero_meta.is_jumping(hero)
   return hero.jumping
 end
 
-function hero_meta.set_jumping(hero, jumping)
-  hero.jumping = jumping
-end
-
+-- Returns true when the hero is actually running, not during the run preparation.
 function hero_meta.is_running(hero)
-
   return hero.running
-
-end
-
-function hero_meta.set_running(hero, running)
-
-  hero.running = running
-
 end
 
 function hero_meta.get_force_powerup(hero)
@@ -368,7 +358,7 @@ game_meta:register_event("on_map_changed", function(game, map)
 
     local hero = map:get_hero()
     local x,y, layer=hero:get_position()
-    hero:set_jumping(false)
+    hero.jumping = false
     if map:is_sideview() then
       hero:set_size(8,16)
       hero:set_origin(4,13)

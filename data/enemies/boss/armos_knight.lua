@@ -16,6 +16,7 @@ local map_tools = require("scripts/maps/map_tools")
 local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
+local hurt_shader = sol.shader.create("hurt")
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
 local is_awake = false
@@ -83,7 +84,7 @@ local function hurt(damage)
 
   -- Manually hurt the enemy to not restart it automatically and let it finish its move or jump.
   enemy:set_life(enemy:get_life() - damage)
-  sprite:set_animation("hurt")
+  sprite:set_shader(hurt_shader)
   if enemy.on_hurt then
     enemy:on_hurt()
   end
@@ -91,7 +92,7 @@ local function hurt(damage)
   -- Check if the step has to be changed after a hurt.
   sol.timer.start(map, hurt_duration, function()
     is_hurt = false
-    sprite:set_animation("walking")
+    sprite:set_shader(nil)
     if step == 1 and enemy:get_life() <= step_2_triggering_life then
       set_step(2, step_2_walking_speed, "step_2")
     end
@@ -140,7 +141,7 @@ local function start_jumping()
         -- Stun the hero if not in the air.
         local is_hero_freezed = false
         local hero_sprite = hero:get_sprite()
-        if hero_sprite:get_animation() ~= "jumping" then -- TODO Or sword + jump
+        if not hero:is_jumping() then
           is_hero_freezed = true
           hero:freeze()
           hero_sprite:set_animation("scared")

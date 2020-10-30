@@ -143,7 +143,7 @@ function jump_manager.update_jump(entity, callback)
       --print("Distance reached during jump: X="..final_x-debug_start_x..", Y="..final_y-debug_start_y..", height="..debug_max_height)
       jump_manager.reset_collision_rules(entity:get_state_object())
       entity.ignore_crystal_block=nil
-      entity:set_jumping(false)
+      entity.jumping = false
       if callback then 
         --print "CALLBACK"
         callback()
@@ -184,7 +184,7 @@ function jump_manager.start_parabola(entity, v_speed, callback)
     jump_timer = nil
   end
 
-  entity:set_jumping(true)
+  entity.jumping = true
   jump_manager.setup_collision_rules(entity:get_state_object(), entity:is_running())
   entity.y_vel = v_speed and -math.abs(v_speed) or -max_yvel
 
@@ -213,8 +213,8 @@ function jump_manager.start(entity, initial_vspeed, success_callback, failure_ca
   local s=entity:get_sprite("shadow_override")
 
 
-  -- Apply appropriate state properties on a dedicated jumping state if not running and on the current state else.
-  if not entity:is_running() then
+  -- Apply appropriate state properties on a dedicated jumping state if not running or loading sword, and on the current state else.
+  if not entity:is_running() and not string.find(entity:get_sprite():get_animation(), "sword_loading") then
     entity:jump()
   end
   jump_manager.setup_collision_rules(entity:get_state_object(), entity:is_running())
@@ -223,7 +223,7 @@ function jump_manager.start(entity, initial_vspeed, success_callback, failure_ca
   debug_start_x, debug_start_y=entity:get_position() --Temporary, remove me once everything has been finalized
 
   audio_manager:play_sound("hero/jump")
-  entity:set_jumping(true)
+  entity.jumping = true
   local x,y, w,h=entity:get_bounding_box()
   for e in entity:get_map():get_entities_in_rectangle(x,y,w,h) do
     if e:get_type()=="custom_entity" and e:get_model()=="crystal_block" then

@@ -199,7 +199,6 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(8)
   enemy:set_size(48, 48)
   enemy:set_origin(24, 45)
-  enemy:set_hurt_style("boss")
   enemy:start_shadow()
 
   update_direction()
