@@ -362,7 +362,9 @@ local function play_again_or_leave(dialog_id)
         game:remove_money(10)
         return
       else
-        game:start_dialog("maps.sideviews.mabe_village.sideview_1.not_enough_money")
+        game:start_dialog("maps.out.mabe_village.fishman_not_enough_money")
+        hero:teleport("out/a3_mabe_village", "from_fishing_game")
+        return
       end
     end
 
