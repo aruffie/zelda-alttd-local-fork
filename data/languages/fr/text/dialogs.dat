@@ -3079,10 +3079,7 @@ dialog{
   question = "1",
   text = [[
 Une partie de pêche, mon gars ?
-
 Ça ne te coûtera que 10 rubis... 
-
-
 Oui
 Non
 ]],
