@@ -12211,7 +12211,7 @@ door{
   x = 792,
   y = 440,
   direction = 3,
-  sprite = "entities/doors/door_normal",
+  sprite = "entities/doors/door_b_wallturn_dungeon_3",
   opening_condition = "dungeon_1_small_keys",
   opening_condition_consumed = true,
 }
@@ -12242,12 +12242,12 @@ sensor{
 }
 
 door{
-  name = "door_group_6_1",
+  name = "door_group_6_1à",
   layer = 0,
   x = 792,
   y = 200,
   direction = 3,
-  sprite = "entities/doors/door_normal",
+  sprite = "entities/doors/door_b_wallturn_dungeon_3",
   opening_condition = "dungeon_1_small_keys",
   opening_condition_consumed = true,
 }

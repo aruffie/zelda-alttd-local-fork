@@ -14737,7 +14737,7 @@ door{
   x = 1432,
   y = 1160,
   direction = 3,
-  sprite = "entities/doors/door_normal",
+  sprite = "entities/doors/door_b_wallturn_dungeon_1",
   opening_condition = "dungeon_1_small_keys",
   opening_condition_consumed = true,
 }

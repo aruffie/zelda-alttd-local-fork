@@ -449,7 +449,6 @@ sprite{ id = "entities/doors/door_b_wallturn_dungeon_1", description = "Door b w
 sprite{ id = "entities/doors/door_b_wallturn_dungeon_10", description = "Door b wallturn dungeon 10" }
 sprite{ id = "entities/doors/door_b_wallturn_dungeon_2", description = "Door b wallturn dungeon 2" }
 sprite{ id = "entities/doors/door_b_wallturn_dungeon_3", description = "Door b wallturn dungeon 3" }
-sprite{ id = "entities/doors/door_b_wallturn_dungeon_5", description = "Door b wallturn dungeon 5" }
 sprite{ id = "entities/doors/door_b_wallturn_dungeon_6", description = "Door b wallturn dungeon 6" }
 sprite{ id = "entities/doors/door_b_wallturn_dungeon_7", description = "Door b wallturn dungeon 7" }
 sprite{ id = "entities/doors/door_b_wallturn_dungeon_8", description = "Door b wallturn dungeon 8" }
@@ -1232,6 +1231,7 @@ sound{ id = "snes/misc/owl_hoot1", description = "owl hoot 1" }
 sound{ id = "snes/misc/owl_hoot2", description = "Owl hoot 2" }
 sound{ id = "snes/misc/rock_push", description = "Rock push" }
 sound{ id = "snes/misc/rock_shatter", description = "Rock shatter" }
+sound{ id = "snes/misc/seagull", description = "Seagull" }
 sound{ id = "snes/misc/secret1", description = "Secret 1" }
 sound{ id = "snes/misc/secret2", description = "Secret 2" }
 sound{ id = "snes/misc/shore", description = "Shore" }
@@ -2740,7 +2740,6 @@ file{ path = "sprites/entities/doors/door_b_wallturn_dungeon_1.dat", author = "J
 file{ path = "sprites/entities/doors/door_b_wallturn_dungeon_10.dat", author = "JulioTanaka", }
 file{ path = "sprites/entities/doors/door_b_wallturn_dungeon_2.dat", author = "JulioTanaka", }
 file{ path = "sprites/entities/doors/door_b_wallturn_dungeon_3.dat", author = "JulioTanaka", }
-file{ path = "sprites/entities/doors/door_b_wallturn_dungeon_5.dat", author = "JulioTanaka", }
 file{ path = "sprites/entities/doors/door_b_wallturn_dungeon_6.dat", author = "JulioTanaka", }
 file{ path = "sprites/entities/doors/door_b_wallturn_dungeon_7.dat", author = "JulioTanaka", }
 file{ path = "sprites/entities/doors/door_b_wallturn_dungeon_8.dat", author = "JulioTanaka", }

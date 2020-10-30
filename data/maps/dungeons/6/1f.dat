@@ -25395,6 +25395,17 @@ sensor{
   height = 16,
 }
 
+door{
+  name = "door_group_wallturn",
+  layer = 0,
+  x = 472,
+  y = 1160,
+  direction = 3,
+  sprite = "entities/doors/door_b_wallturn_dungeon_6",
+  opening_condition = "dungeon_1_small_keys",
+  opening_condition_consumed = true,
+}
+
 tile{
   layer = 1,
   x = 96,
