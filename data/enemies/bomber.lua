@@ -39,6 +39,16 @@ local bomb_throw_height = 20
 local bomb_throw_speed = 80
 local firing_duration = 500
 
+-- Return the angle from the enemy sprite to given entity.
+local function get_angle_from_sprite(sprite, entity)
+
+  local x, y, _ = enemy:get_position()
+  local sprite_x, sprite_y = sprite:get_xy()
+  local entity_x, entity_y, _ = entity:get_position()
+
+  return math.atan2(y - entity_y + sprite_y, entity_x - x - sprite_x)
+end
+
 -- Start the enemy movement.
 function enemy:start_walking()
 
@@ -63,7 +73,7 @@ function enemy:start_attacking()
     })
 
     if bomb and bomb:exists() then -- If the bomb was not immediatly removed from the on_created() event.
-      local angle = enemy:get_angle_from_sprite(sprite, hero)
+      local angle = get_angle_from_sprite(sprite, hero)
       enemy:start_throwing(bomb, bomb_throw_duration, flying_height, bomb_throw_height, angle, bomb_throw_speed, function()
         bomb:explode()
       end)
@@ -81,7 +91,7 @@ end
 -- Start the enemy stand off movement.
 function enemy:start_stand_off()
 
-  enemy:start_straight_walking(enemy:get_angle_from_sprite(sprite, hero) + math.pi, stand_off_speed, stand_off_distance, function()
+  enemy:start_straight_walking(get_angle_from_sprite(sprite, hero) + math.pi, stand_off_speed, stand_off_distance, function()
     enemy:start_walking()
   end)
 end

@@ -817,7 +817,7 @@ tile{
   x = 1504,
   y = 1728,
   width = 48,
-  height = 48,
+  height = 80,
   pattern = "floor.20-1",
 }
 
@@ -878,9 +878,9 @@ tile{
 tile{
   layer = 0,
   x = 1504,
-  y = 1776,
+  y = 1808,
   width = 48,
-  height = 96,
+  height = 64,
   pattern = "floor.13-Alpha",
 }
 
@@ -10586,6 +10586,7 @@ chest{
     },
   },
   treasure_name = "enemy_ambush",
+  treasure_savegame_variable = "dungeon_3_zol_1",
   sprite = "entities/chests/chest_small",
 }
 
@@ -10856,7 +10857,7 @@ enemy{
   name = "enemy_group_1_1",
   layer = 0,
   x = 1512,
-  y = 1773,
+  y = 1805,
   properties = {
     {
       key = "initial_state",
@@ -10864,7 +10865,7 @@ enemy{
     },
     {
       key = "speed",
-      value = "100",
+      value = "132",
     },
   },
   direction = 0,
@@ -12210,7 +12211,7 @@ door{
   x = 792,
   y = 440,
   direction = 3,
-  sprite = "entities/doors/door_normal",
+  sprite = "entities/doors/door_b_wallturn_dungeon_3",
   opening_condition = "dungeon_1_small_keys",
   opening_condition_consumed = true,
 }
@@ -12241,12 +12242,12 @@ sensor{
 }
 
 door{
-  name = "door_group_6_1",
+  name = "door_group_6_1à",
   layer = 0,
   x = 792,
   y = 200,
   direction = 3,
-  sprite = "entities/doors/door_normal",
+  sprite = "entities/doors/door_b_wallturn_dungeon_3",
   opening_condition = "dungeon_1_small_keys",
   opening_condition_consumed = true,
 }
@@ -12737,6 +12738,16 @@ sensor{
   },
   width = 16,
   height = 16,
+}
+
+custom_entity{
+  name = "placeholder_small_boss_2",
+  layer = 0,
+  x = 1152,
+  y = 333,
+  width = 16,
+  height = 16,
+  direction = 0,
 }
 
 tile{
@@ -14259,19 +14270,6 @@ wall{
 
 wall{
   layer = 1,
-  x = 856,
-  y = 440,
-  width = 8,
-  height = 24,
-  stops_hero = true,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
-}
-
-wall{
-  layer = 1,
   x = 1104,
   y = 432,
   width = 8,
@@ -14429,9 +14427,9 @@ dynamic_tile{
 sensor{
   name = "sensor_13",
   layer = 1,
-  x = 1088,
+  x = 1080,
   y = 493,
-  width = 16,
+  width = 32,
   height = 16,
 }
 

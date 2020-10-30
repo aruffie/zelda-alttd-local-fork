@@ -1187,6 +1187,34 @@ Il renferme le secret de l'île.
 }
 
 dialog{
+  id = "maps.dungeons.5.master_stalfos_escaping",
+  text = [[
+Ah! Je ne peux pas te battre!  
+J'abandonne!
+]],
+}
+
+dialog{
+  id = "maps.dungeons.5.master_stalfos_falling",
+  text = [[
+Quoi??          
+Tu m'as trouvé? 
+Tu es pire qu'un pot de colle!
+]],
+}
+
+dialog{
+  id = "maps.dungeons.5.master_stalfos_falling_2",
+  text = [[
+Encore toi?     
+Tu n'arrêteras jamais?
+Je vais te rosser! 
+D'accord...     
+Allons-y!
+]],
+}
+
+dialog{
   id = "maps.dungeons.5.welcome_description",
   text = [[
 Niveau 5
@@ -1247,6 +1275,33 @@ dialog{
   id = "maps.dungeons.7.boss_name",
   text = [[
 Urubos
+]],
+}
+
+dialog{
+  id = "maps.dungeons.7.grim_creeper_defeated",
+  text = [[
+Sale type! Tu as battu mes gars! 
+Tu vas le payer!
+Je saurai te retrouver!!
+]],
+}
+
+dialog{
+  id = "maps.dungeons.7.grim_creeper_round_1",
+  text = [[
+Alors petit?    
+Tu cherches la bagarre?     
+Allez les gars, débarrassez-moi de cet avorton!
+]],
+}
+
+dialog{
+  id = "maps.dungeons.7.grim_creeper_round_2",
+  text = [[
+Ha! C'est tout ce que tu as?!
+Prépare-toi à ...
+... Ça! ...
 ]],
 }
 
@@ -2164,6 +2219,7 @@ dialog{
 Bouclier personnalisé.   
 20 rubis !  
 
+
 Oui
 Non
 ]],
@@ -3022,11 +3078,9 @@ dialog{
   id = "maps.out.mabe_village.fishman_1",
   question = "1",
   text = [[
-Une partie de pêche, 
-mon gars ?
+Une partie de pêche, mon gars ?
 
-Ça ne te coûtera que 
-10 rubis... 
+Ça ne te coûtera que 10 rubis... 
 
 
 Oui
@@ -3037,7 +3091,7 @@ Non
 dialog{
   id = "maps.out.mabe_village.fishman_2",
   text = [[
-Avec < et >, évalue la distance de ton lancer.  
+Avec  \[arrow_left\]  et  \[arrow_right\], évalue la distance de ton lancer.  
 Dès que le poisson est ferré, presse vite la touche Action pour le remonter !
 ]],
 }

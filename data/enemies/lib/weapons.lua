@@ -74,7 +74,7 @@ function weapons.learn(enemy)
           if not is_pushed_back then
             is_pushed_back = true
             enemy:set_invincible()
-            enemy:start_shock(hero, 100, 150, function()
+            enemy:start_shock(hero, 100, 150, weapon_sprite, entity_sprite, function()
               enemy:restart()
             end)
           end

@@ -1,7 +1,7 @@
 -- Variables
 local fire = ...
 local sprite
-local enemies_touched = { }
+local is_active = true
 
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
@@ -23,7 +23,7 @@ end
 local function is_bush(destructible)
 
   local sprite = destructible:get_sprite()
-  if sprite == nil then
+  if not is_active or sprite == nil then
     return false
   end
 
@@ -35,7 +35,7 @@ end
 local function is_ice_block(entity)
 
   local sprite = entity:get_sprite()
-  if sprite == nil then
+  if not is_active or sprite == nil then
     return false
   end
   local sprite_id = sprite:get_animation_set()
@@ -59,6 +59,7 @@ end
 -- Traversable rules.
 fire:set_can_traverse("crystal", true)
 fire:set_can_traverse("crystal_block", true)
+fire:set_can_traverse("enemy", true)
 fire:set_can_traverse("hero", true)
 fire:set_can_traverse("jumper", true)
 fire:set_can_traverse("stairs", false)
@@ -128,6 +129,7 @@ end)
 -- Going off animation and remove
 function fire:extinguish()
 
+  is_active = false
   if sprite:get_animation() ~= "going_off" then
     fire:stop_movement()
 
@@ -141,14 +143,13 @@ end
 -- Hurt enemies.
 fire:add_collision_test("sprite", function(fire, entity, fire_sprite, entity_sprite)
 
-  if entity:get_type() == "enemy" and not enemies_touched[entity] and entity:get_fire_reaction(entity) ~= "ignored" then
+  if is_active and entity:get_type() == "enemy" and entity:get_fire_reaction(entity) ~= "ignored" then
     local enemy = entity
-    enemies_touched[enemy] = true
     local reaction = enemy:get_fire_reaction()
 
     -- Remove the entity if fire has no effect on the enemy.
     if reaction == "protected" then
-      fire:remove()
+      fire:extinguish()
       return
     end
     if reaction == "ignored" then

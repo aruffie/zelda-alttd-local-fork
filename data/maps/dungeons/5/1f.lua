@@ -4,6 +4,8 @@ local separator = ...
 local game = map:get_game()
 local is_small_boss_active = false
 local is_boss_active = false
+local master_stalfos_step
+local master_stalfos_life
 
 -- Include scripts
 require("scripts/multi_events")
@@ -13,6 +15,54 @@ local enemy_manager = require("scripts/maps/enemy_manager")
 local switch_manager = require("scripts/maps/switch_manager")
 local treasure_manager = require("scripts/maps/treasure_manager")
 local separator_manager = require("scripts/maps/separator_manager")
+
+-- Master Stalfos appearing.
+local function appear_master_stalfos(placeholder, on_step_finished_callback)
+
+  local x, y, layer = placeholder:get_position()
+  placeholder:set_enabled(false)
+
+  -- Create the Master Stalfos and update its life.
+  local enemy = map:create_enemy{
+    name = "master_stalfos",
+    breed = "boss/master_stalfos",
+    direction = 2,
+    x = x,
+    y = y,
+    layer = layer,
+    treasure_name = placeholder:get_property("treasure"),
+    properties = {{key = "falling_dialog", value = placeholder:get_property("falling_dialog") or ""},
+                  {key = "escaping_dialog", value = "maps.dungeons.5.master_stalfos_escaping"}}
+  }
+  enemy:set_life(master_stalfos_life)
+
+  -- Common actions to both escaped or defeated end of the fight.
+  local function end_fight()
+
+    master_stalfos_step = master_stalfos_step + 1
+    game:set_value("dungeon_5_master_stalfos_step", master_stalfos_step)
+    audio_manager:play_music(game:get_dungeon().music)
+    on_step_finished_callback()
+  end
+
+  -- Make the enemy run away when escaping life reached, and increase the step.
+  enemy:register_event("on_hurt", function(enemy)
+    
+    master_stalfos_life = enemy:get_life() -- The enemy can be hurt while escaping from a step then the next one will need one hurt less, so always update life on hurt.
+    if master_stalfos_life == tonumber(placeholder:get_property("escaping_life")) then
+      enemy:start_escaping(function()
+        end_fight()
+      end)
+    end
+  end)
+
+  -- Also increase the step on enemy dead.
+  enemy:register_event("on_dead", function(enemy)
+    end_fight()
+  end)
+  
+  audio_manager:play_music("21_mini_boss_battle")
+end
 
 -- Map events
 map:register_event("on_started", function()
@@ -28,10 +78,6 @@ map:register_event("on_started", function()
   door_manager:open_when_enemies_dead(map,  "enemy_group_11_",  "door_group_3_")
   door_manager:open_when_enemies_dead(map,  "enemy_group_20_",  "door_group_5_")
   door_manager:open_when_enemies_dead(map,  "enemy_group_22_",  "door_group_5_")
-  door_manager:open_when_enemies_dead(map,  "skeleton_1",  "door_group_3_")
-  door_manager:open_when_enemies_dead(map,  "skeleton_2",  "door_group_4_")
-  door_manager:open_when_enemies_dead(map,  "skeleton_3",  "door_group_5_")
-  door_manager:open_when_enemies_dead(map,  "skeleton_4",  "door_group_6_")
   -- Enemies
   enemy_manager:create_teletransporter_if_small_boss_dead(map, false)
   -- Music
@@ -43,65 +89,21 @@ map:register_event("on_started", function()
   -- Separators
   separator_manager:init(map)
   
-  -- Create all skeletons
-  for placeholder in map:get_entities("placeholder_skeleton_") do
-    local enemy_name = placeholder:get_property("enemy_name")
-    local enemy_treasure = placeholder:get_property("enemy_treasure")
-    local enemy_step_death = tonumber(placeholder:get_property("enemy_step_death"))
-    local x, y, layer = placeholder:get_position()
-    local enemy = map:create_enemy{
-      name = enemy_name,
-      breed = "boss/master_stalfos/master_stalfos",
-      direction = 2,
-      x = x,
-      y = y,
-      layer = layer,
-      treasure_name = enemy_treasure
-    }
-    enemy:register_event("on_dead", function()
-      game:set_value("dungeon_5_skeleton_step", enemy_step_death)
-      game:play_dungeon_music()  
-    end)
-    enemy:set_enabled(false)
+  -- Display blocks in master stalfos room as flat entities because the boss is displayed as flat and should be displayed over them.
+  for block in map:get_entities("master_stalfos_block") do
+    block:set_drawn_in_y_order(false)
+    block:bring_to_back()
   end
 
-end)
-
-map:register_event("on_opening_transition_finished", function()
-
-  local skeleton_step = game:get_value("dungeon_5_skeleton_step")
-  if skeleton_step == nil then
-    skeleton_step = 1
-  end
-  if skeleton_step > 2 then
-    map:set_doors_open("door_group_4_", true)
-    switch_1:set_activated(true)
-  end
-
+  -- Fill Master Stalfos globals.
+  master_stalfos_step = game:get_value("dungeon_5_master_stalfos_step") or 1
+  master_stalfos_life = 12 - (master_stalfos_step - 1) * 3
 end)
 
 function map:on_obtaining_treasure(item, variant, savegame_variable)
 
   if savegame_variable == "dungeon_5_big_treasure" then
     treasure_manager:get_instrument(map)
-  end
-
-end
-
--- Enemies
-function map:init_skeletons()
-
-  local skeleton_step = game:get_value("dungeon_5_skeleton_step")
-  if skeleton_step == nil then
-    skeleton_step = 1
-  end
-  for enemy in map:get_entities("skeleton_") do
-    enemy:set_enabled(false)
-  end
-  print(skeleton_step)
-  local enemy = map:get_entity("skeleton_" .. skeleton_step)
-  if enemy ~= nil then
-    enemy:set_enabled(true)
   end
 
 end
@@ -121,41 +123,35 @@ end
 
 function sensor_3:on_activated()
 
-  local skeleton_step = game:get_value("dungeon_5_skeleton_step")
-  if skeleton_step == nil then
-    skeleton_step = 1
+  if master_stalfos_step == 1 then
+    sensor_3:set_enabled(false)
+    map:close_doors("door_group_3_")
+    appear_master_stalfos(placeholder_skeleton, function()
+      map:open_doors("door_group_3_")
+    end)
   end
-  if skeleton_step == 1 then
-    door_manager:close_if_enemies_not_dead(map, "skeleton_1", "door_group_3_")
-    audio_manager:play_music("small_boss")
-  end
-
 end
 
 function sensor_4:on_activated()
 
-  local skeleton_step = game:get_value("dungeon_5_skeleton_step")
-  if skeleton_step == nil then
-    skeleton_step = 1
+  if master_stalfos_step == 2 then
+    sensor_4:set_enabled(false)
+    map:close_doors("door_group_4_")
+    appear_master_stalfos(placeholder_skeleton_2, function()
+      map:open_doors("door_group_4_")
+    end)
   end
-  if skeleton_step == 2 then
-    door_manager:close_if_enemies_not_dead(map, "skeleton_2", "door_group_4_")
-    audio_manager:play_music("small_boss")
-  end
-
 end
 
 function sensor_5:on_activated()
 
-  local skeleton_step = game:get_value("dungeon_5_skeleton_step")
-  if skeleton_step == nil then
-    skeleton_step = 1
+  if master_stalfos_step == 3 then
+    sensor_5:set_enabled(false)
+    map:close_doors("door_group_5_")
+    appear_master_stalfos(placeholder_skeleton_3, function()
+      map:open_doors("door_group_5_")
+    end)
   end
-  if skeleton_step == 3 then
-    door_manager:close_if_enemies_not_dead(map, "skeleton_3", "door_group_5_")
-    audio_manager:play_music("small_boss")
-  end
-
 end
 
 function sensor_6:on_activated()
@@ -166,15 +162,13 @@ end
 
 function sensor_7:on_activated()
 
-  local skeleton_step = game:get_value("dungeon_5_skeleton_step")
-  if skeleton_step == nil then
-    skeleton_step = 1
+  if master_stalfos_step == 4 then
+    sensor_7:set_enabled(false)
+    map:close_doors("door_group_6_")
+    appear_master_stalfos(placeholder_skeleton_4, function()
+      map:open_doors("door_group_6_")
+    end)
   end
-  if skeleton_step == 4 then
-    door_manager:close_if_enemies_not_dead(map, "skeleton_4", "door_group_6_")
-    audio_manager:play_music("small_boss")
-  end
-
 end
 
 function sensor_8:on_activated()
@@ -217,79 +211,3 @@ function chest_hookshot_fail:on_opened()
   end)
 
 end
-
--- Separators events
-separator_skeleton_1_1:register_event("on_activating", function()
-  
-  map:init_skeletons()
-  
-end)
-
-separator_skeleton_1_2:register_event("on_activating", function()
-  
-  map:init_skeletons()
-  
-end)
-
-separator_skeleton_2_1:register_event("on_activating", function()
-  
-  map:init_skeletons()
-  
-end)
-
-separator_skeleton_3_1:register_event("on_activating", function()
-  
-  map:init_skeletons()
-  
-end)
-
-separator_skeleton_3_2:register_event("on_activating", function()
-  
-  map:init_skeletons()
-  
-end)
-
-separator_skeleton_4_1:register_event("on_activating", function()
-  
-  map:init_skeletons()
-  
-end)
-
-separator_switch_1:register_event("on_activating", function(separator, direction)
-  
-  local skeleton_step = game:get_value("dungeon_5_skeleton_step")
-  if skeleton_step == nil then
-    skeleton_step = 1
-  end
-  switch_1:set_activated(false)
-  if direction == 0 and skeleton_step <= 2 then
-    map:close_doors("door_group_4_")
-  end
-  
-end)
-
-separator_switch_2:register_event("on_activating", function(separator, direction)
-  
-  local skeleton_step = game:get_value("dungeon_5_skeleton_step")
-  if skeleton_step == nil then
-    skeleton_step = 1
-  end
-  switch_1:set_activated(false)
-  if direction == 3 and skeleton_step <= 2 then
-    map:close_doors("door_group_4_")
-  end
-  
-end)
-
-separator_switch_3:register_event("on_activating", function(separator, direction)
-  
-  local skeleton_step = game:get_value("dungeon_5_skeleton_step")
-  if skeleton_step == nil then
-    skeleton_step = 1
-  end
-  switch_1:set_activated(false)
-  if direction == 1 and skeleton_step <= 2 then
-    map:close_doors("door_group_4_")
-  end
-  
-end)

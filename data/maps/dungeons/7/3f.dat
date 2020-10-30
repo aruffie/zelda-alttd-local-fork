@@ -7222,16 +7222,6 @@ wall{
   stops_projectiles = true,
 }
 
-custom_entity{
-  name = "placeholder_small_boss",
-  layer = 1,
-  x = 1120,
-  y = 541,
-  width = 16,
-  height = 16,
-  direction = 0,
-}
-
 tile{
   layer = 2,
   x = 544,
@@ -7753,5 +7743,15 @@ dynamic_tile{
   height = 8,
   pattern = "147",
   tileset = "addition/dungeon",
+}
+
+custom_entity{
+  name = "placeholder_small_boss",
+  layer = 2,
+  x = 1120,
+  y = 541,
+  width = 16,
+  height = 16,
+  direction = 0,
 }
 

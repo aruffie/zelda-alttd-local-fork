@@ -6,10 +6,10 @@
 -- Methods : General informations :
 --           enemy:is_aligned(entity, thickness, [sprite])
 --           enemy:is_near(entity, triggering_distance, [sprite])
+--           enemy:is_entity_in_front(entity, [front_angle, [sprite]])
 --           enemy:is_leashed_by(entity)
 --           enemy:is_over_grounds(grounds)
 --           enemy:is_watched([sprite, [fully_visible]])
---           enemy:get_angle_from_sprite(sprite, entity)
 --           enemy:get_central_symmetry_position(x, y)
 --           enemy:get_obstacles_normal_angle()
 --           enemy:get_obstacles_bounce_angle([angle])
@@ -23,21 +23,20 @@
 --           enemy:start_attracting(entity, speed, [moving_condition_callback])
 --           enemy:stop_attracting([entity])
 --           enemy:start_impulsion(x, y, speed, acceleration, deceleration)
---           enemy:start_throwing(entity, duration, start_height, maximum_height, [angle, speed, [on_finished_callback]])
+--           enemy:start_throwing(entity, duration, start_height, [maximum_height, [angle, speed, [on_finished_callback]]])
 --           enemy:start_welding(entity, [x, [y]])
 --           enemy:start_leashed_by(entity, maximum_distance)
 --           enemy:stop_leashed_by(entity)
---           enemy:start_pushed_back(entity, [speed, [duration, [on_finished_callback]]])
---           enemy:start_pushing_back(entity, [speed, [duration, [on_finished_callback]]])
---           enemy:start_shock(entity, [speed, [duration, [on_finished_callback]]])
+--           enemy:start_pushed_back(entity, [speed, [duration, [sprite, [entity_sprite, [on_finished_callback]]]]])
+--           enemy:start_pushing_back(entity, [speed, [duration, [sprite, [entity_sprite, [on_finished_callback]]]]])
+--           enemy:start_shock(entity, [speed, [duration, [sprite, [entity_sprite, [on_finished_callback]]]]])
 --
---           Effects and other actions :
+--           Effects and events :
 --           enemy:start_death([dying_callback])
 --           enemy:start_shadow([sprite_name, [animation_name, [x, [y]]]])
 --           enemy:start_brief_effect(sprite_name, [animation_name, [x, [y, [maximum_duration, [on_finished_callback]]]]])
 --           enemy:start_close_explosions(maximum_distance, duration, [explosion_sprite_name, [x, [y, [on_finished_callback]]]])
 --           enemy:start_sprite_explosions([sprites, [explosion_sprite_name, [x, [y, [on_finished_callback]]]]])
---           enemy:steal_item(item_name, [variant, [only_if_assigned, [drop_when_dead]]])
 --           enemy:stop_all()
 --
 -- Usage : 
@@ -97,6 +96,16 @@ function common_actions.learn(enemy)
       and (layer == entity_layer or enemy:has_layer_independent_collisions())
   end
 
+  -- Return true if the angle between the enemy sprite direction and the enemy to entity direction is less than or equals to the front_angle.
+  function enemy:is_entity_in_front(entity, front_angle, sprite)
+
+    front_angle = front_angle or quarter
+    sprite = sprite or enemy:get_sprite()
+
+    -- Check the difference on the cosinus axis to easily consider angles from enemy to hero like pi and 3pi as the same.
+    return math.cos(math.abs(sprite:get_direction() * quarter - enemy:get_angle(entity))) >= math.cos(front_angle / 2.0)
+  end
+
   -- Return true if the enemy is currently leashed by the entity with enemy:start_leashed_by().
   function enemy:is_leashed_by(entity)
     return leashing_timers[entity] ~= nil
@@ -148,16 +157,6 @@ function common_actions.learn(enemy)
 
     return x + width >= camera_x and x <= camera_x + camera_width 
         and y + height >= camera_y and y <= camera_y + camera_height
-  end
-
-  -- Return the angle from the enemy sprite to given entity.
-  function enemy:get_angle_from_sprite(sprite, entity)
-
-    local x, y, _ = enemy:get_position()
-    local sprite_x, sprite_y = sprite:get_xy()
-    local entity_x, entity_y, _ = entity:get_position()
-
-    return math.atan2(y - entity_y + sprite_y, entity_x - x - sprite_x)
   end
 
   -- Return the central symmetry position over the given central point.
@@ -371,7 +370,7 @@ function common_actions.learn(enemy)
   -- Start attracting the given entity, negative speed possible.
   function enemy:start_attracting(entity, speed, moving_condition_callback)
 
-    -- Workaround : Don't use solarus movements to be able to start several movements at the same time.
+    -- Don't use solarus movements to be able to start several movements at the same time.
     local move_ratio = speed > 0 and 1 or -1
     enemy:stop_attracting(entity)
     attracting_timers[entity] = {}
@@ -398,7 +397,7 @@ function common_actions.learn(enemy)
         if axis_move[axis] ~= 0 then
 
           -- Schedule the next move on this axis depending on the remaining distance and the speed value, avoiding too high and low timers.
-          axis_move_delay = 1000.0 / math.max(1, math.min(100, math.abs(speed * trigonometric_functions[axis](angle))))
+          axis_move_delay = 1000.0 / math.max(1, math.min(1000, math.abs(speed * trigonometric_functions[axis](angle))))
 
           -- Move the entity.
           if not entity:test_obstacles(axis_move[1], axis_move[2]) then
@@ -407,14 +406,18 @@ function common_actions.learn(enemy)
         end
       end
 
-      -- Start the next pixel move timer.
-      attracting_timers[entity][axis] = sol.timer.start(enemy, axis_move_delay, function()
-        attract_on_axis(axis)
-      end)
+      return axis_move_delay
     end
 
-    attract_on_axis(1)
-    attract_on_axis(2)
+    -- Start the pixel move schedule.
+    for i = 1, 2 do
+      local initial_delay = attract_on_axis(i)
+      if initial_delay then
+        attracting_timers[entity][i] = sol.timer.start(enemy, initial_delay, function()
+          return attract_on_axis(i)
+        end)
+      end
+    end
   end
 
   -- Stop looped timers related to the attractions.
@@ -434,7 +437,7 @@ function common_actions.learn(enemy)
   -- Start a straight move to the given target and apply a constant acceleration and deceleration (px/s²).
   function enemy:start_impulsion(x, y, speed, acceleration, deceleration)
 
-    -- Workaround : Don't use solarus movements to be able to start several movements at the same time.
+    -- Don't use solarus movements to be able to start several movements at the same time.
     local movement = {}
     local timers = {}
     local angle = enemy:get_angle(x, y)
@@ -527,6 +530,7 @@ function common_actions.learn(enemy)
   function enemy:start_throwing(entity, duration, start_height, maximum_height, angle, speed, on_finished_callback)
 
     local movement
+    maximum_height = maximum_height or start_height
 
     -- Consider the throw as an already-started sinus function, depending on start_height.
     local elapsed_time = duration / (1 - math.asin(math.pow(start_height / maximum_height, 2)) / math.pi) - duration
@@ -632,31 +636,144 @@ function common_actions.learn(enemy)
     end
   end
 
-  -- Start pushing back the enemy.
-  function enemy:start_pushed_back(entity, speed, duration, on_finished_callback)
+  -- Start pushing back the enemy, not using the built-in movement to not stop a possible running movement.
+  function enemy:start_pushed_back(entity, speed, duration, sprite, entity_sprite, on_finished_callback)
 
-    local movement = sol.movement.create("straight")
-    movement:set_speed(speed or 100)
-    movement:set_angle(entity:get_angle(enemy))
-    movement:set_smooth(false)
-    movement:start(enemy)
+    speed = speed or 150
+    duration = duration or 100
+    sprite = sprite or enemy:get_sprite()
+    entity_sprite = entity_sprite or entity:get_sprite()
 
-    sol.timer.start(enemy, duration or 150, function()
-      movement:stop()
+    -- Take the enemy and entity sprite positions as reference for the angle instead of the global enemy and entity positions.
+    local enemy_x, enemy_y = enemy:get_position()
+    local offset_x, offset_y = sprite:get_xy()
+    local entity_x, entity_y = entity:get_position()
+    local entity_offset_x, entity_offset_y = entity_sprite:get_xy()
+    enemy_x = enemy_x + offset_x
+    enemy_y = enemy_y + offset_y
+    entity_x = entity_x + entity_offset_x
+    entity_y = entity_y + entity_offset_y
+
+    local angle = math.atan2(entity_y - enemy_y, enemy_x - entity_x)
+    local step_axis = {math.max(-1, math.min(1, enemy_x - entity_x)), math.max(-1, math.min(1, enemy_y - entity_y))}
+
+    local function attract_on_axis(axis)
+
+      -- Clean the timer if the entity was removed from outside.
+      if not entity:exists() then
+        return
+      end
+      
+      local axis_move = {0, 0}
+      local axis_move_delay = 10 -- Default timer delay if no move
+      enemy_x, enemy_y = enemy:get_position()
+
+      -- Always move pixel by pixel.
+      axis_move[axis] = step_axis[axis]
+      if axis_move[axis] ~= 0 then
+
+        -- Schedule the next move on this axis depending on the remaining distance and the speed value, avoiding too high and low timers.
+        axis_move_delay = 1000.0 / math.max(1, math.min(1000, math.abs(speed * trigonometric_functions[axis](angle))))
+
+        -- Move the entity.
+        if not enemy:test_obstacles(axis_move[1], axis_move[2]) then
+          enemy:set_position(enemy_x + axis_move[1], enemy_y + axis_move[2])
+        end
+      end
+
+      return axis_move_delay
+    end
+
+    -- Start the pixel move schedule.
+    local timers = {}
+    for i = 1, 2 do
+      local initial_delay = attract_on_axis(i)
+      if initial_delay then
+        timers[i] = sol.timer.start(enemy, initial_delay, function()
+          return attract_on_axis(i)
+        end)
+      end
+    end
+
+    -- Schedule the end of the push.
+    sol.timer.start(enemy, duration, function()
+      for i = 1, 2 do
+        if timers[i] then
+          timers[i]:stop()
+        end
+      end
       if on_finished_callback then
         on_finished_callback()
       end
     end)
   end
 
-  -- Start pushing the entity back.
-  function enemy:start_pushing_back(entity, speed, duration, on_finished_callback)
-    
-    -- Workaround: Movement crashes sometimes when used at the wrong time on the hero, use a negative attraction instead.
-    enemy:start_attracting(entity, -speed or 100)
+  -- Start pushing the entity back, not using the built-in movement to not stop a possible running movement.
+  function enemy:start_pushing_back(entity, speed, duration, sprite, entity_sprite, on_finished_callback)
 
-    sol.timer.start(enemy, duration or 150, function()
-      enemy:stop_attracting()
+    speed = speed or 150
+    duration = duration or 100
+    sprite = sprite or enemy:get_sprite()
+    entity_sprite = entity_sprite or entity:get_sprite()
+
+    -- Take the enemy and entity sprite positions as reference for the angle instead of the global enemy and entity positions.
+    local enemy_x, enemy_y = enemy:get_position()
+    local offset_x, offset_y = sprite:get_xy()
+    local entity_x, entity_y = entity:get_position()
+    local entity_offset_x, entity_offset_y = entity_sprite:get_xy()
+    enemy_x = enemy_x + offset_x
+    enemy_y = enemy_y + offset_y
+    entity_x = entity_x + entity_offset_x
+    entity_y = entity_y + entity_offset_y
+
+    local angle = math.atan2(enemy_y - entity_y, entity_x - enemy_x)
+    local step_axis = {math.max(-1, math.min(1, entity_x - enemy_x)), math.max(-1, math.min(1, entity_y - enemy_y))}
+
+    local function attract_on_axis(axis)
+
+      -- Clean the timer if the entity was removed from outside.
+      if not entity:exists() then
+        return
+      end
+      
+      local axis_move = {0, 0}
+      local axis_move_delay = 10 -- Default timer delay if no move
+      entity_x, entity_y = entity:get_position()
+
+      -- Always move pixel by pixel.
+      axis_move[axis] = step_axis[axis]
+      if axis_move[axis] ~= 0 then
+
+        -- Schedule the next move on this axis depending on the remaining distance and the speed value, avoiding too high and low timers.
+        axis_move_delay = 1000.0 / math.max(1, math.min(1000, math.abs(speed * trigonometric_functions[axis](angle))))
+
+        -- Move the entity.
+        if not entity:test_obstacles(axis_move[1], axis_move[2]) then
+          entity:set_position(entity_x + axis_move[1], entity_y + axis_move[2])
+        end
+      end
+
+      return axis_move_delay
+    end
+
+    -- Start the pixel move schedule.
+    local timers = {}
+    for i = 1, 2 do
+      local initial_delay = attract_on_axis(i)
+      if initial_delay then
+        timers[i] = sol.timer.start(entity, initial_delay, function()
+          return attract_on_axis(i)
+        end)
+      end
+    end
+
+    -- Schedule the end of the push.
+    sol.timer.start(entity, duration, function()
+      for i = 1, 2 do
+        if timers[i] then
+          timers[i]:stop()
+        end
+      end
       if on_finished_callback then
         on_finished_callback()
       end
@@ -664,12 +781,12 @@ function common_actions.learn(enemy)
   end
 
   -- Start pushing both enemy and entity back with an impact effect.
-  function enemy:start_shock(entity, speed, duration, on_finished_callback)
+  function enemy:start_shock(entity, speed, duration, sprite, entity_sprite, on_finished_callback)
 
     local x, y, _ = enemy:get_position()
     local hero_x, hero_y, _ = hero:get_position()
-    enemy:start_pushing_back(hero, speed or 100, duration or 150)
-    enemy:start_pushed_back(hero, speed or 100, duration or 150, function()
+    enemy:start_pushed_back(hero, speed, duration, sprite, entity_sprite)
+    enemy:start_pushing_back(hero, speed, duration, sprite, entity_sprite, function()
       if on_finished_callback then
         on_finished_callback()
       end
@@ -707,7 +824,6 @@ function common_actions.learn(enemy)
       if treasure_name then
         local x, y, layer = enemy:get_position()
         local pickable = map:create_pickable({
-          name = (enemy:get_name() or enemy:get_breed()) .. treasure_name,
           x = x,
           y = y,
           layer = layer,
@@ -718,8 +834,10 @@ function common_actions.learn(enemy)
 
         -- Replace the built-in falling by a throw from the given height.
         if pickable and pickable:exists() then -- If the pickable was not immediately removed from the on_created() event.
-          pickable:stop_movement()
-          enemy:start_throwing(pickable, 450 + treasure_falling_height * 6, treasure_falling_height, treasure_falling_height + 16) -- TODO Find a better way to set a duration.
+          if pickable:get_treasure():get_name() ~= "fairy" then -- Workaround: No way to set no built-in falling movement nor detect it from a movement initiated in on_created. Don't stop the movement for some items.
+            pickable:stop_movement()
+            enemy:start_throwing(pickable, 450 + treasure_falling_height * 6, treasure_falling_height, treasure_falling_height + 16) -- TODO Find a better way to set a duration.
+          end
         end
       end
 
@@ -762,6 +880,8 @@ function common_actions.learn(enemy)
         shadow:get_sprite():set_animation(animation_name)
       end
       shadow:set_traversable_by(true)
+      shadow:set_drawn_in_y_order(false) -- Display the shadow as a flat entity.
+      shadow:bring_to_back()
       
       -- Always display the shadow on the lowest possible layer.
       function shadow:on_position_changed(x, y, layer)
@@ -877,25 +997,6 @@ function common_actions.learn(enemy)
       enemy:remove_sprite(sprite)
     end
     start_sprite_explosion(1)
-  end
-
-  -- Steal an item and drop it when died, possibly conditionned on the variant and the assignation to a slot.
-  function enemy:steal_item(item_name, variant, only_if_assigned, drop_when_dead)
-
-    if game:has_item(item_name) then
-      local item = game:get_item(item_name)
-      local is_stealable = not only_if_assigned or (game:get_item_assigned(1) == item and 1) or (game:get_item_assigned(2) == item and 2)
-
-      if (not variant or item:get_variant() == variant) and is_stealable then 
-        if drop_when_dead then
-          enemy:set_treasure(item_name, item:get_variant()) -- TODO savegame variable
-        end
-        item:set_variant(0)
-        if item_slot then
-          game:set_item_assigned(item_slot, nil)
-        end
-      end
-    end
   end
 
   -- Stop all running actions and prevent interactions with other entities.

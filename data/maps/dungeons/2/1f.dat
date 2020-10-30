@@ -17977,7 +17977,7 @@ door{
   x = 472,
   y = 680,
   direction = 3,
-  sprite = "entities/doors/door_normal",
+  sprite = "entities/doors/door_b_wallturn_dungeon_2",
   opening_condition = "dungeon_1_small_keys",
   opening_condition_consumed = true,
   cannot_open_dialog = "Oups",

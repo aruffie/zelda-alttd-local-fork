@@ -40,27 +40,26 @@ local function on_regular_attack_received()
     return
   end
   is_pushed_back = true
-  sol.timer.start(map, 300, function()
-    is_pushed_back = false
-  end)
 
   -- Repulse the enemy, then follow the hero and start counting down if not already doing it.
-  enemy:start_pushed_back(hero, 200, 150, function() -- Don't use enemy:hurt(0) to not force the hurt animation but still repulse the enemy.
+  enemy:start_pushed_back(hero, 200, 150, sprite, nil, function() -- Don't use enemy:hurt(0) to not force the hurt animation but still repulse the enemy.
+    is_pushed_back = false
     if not is_counting_down then
-      is_counting_down = true
       enemy:stop_movement()
-      enemy:countdown(3)
-      enemy:restart()
-    else
-      enemy:start_running()
+      enemy:start_countdown(3)
+      enemy:set_damage(0)
+      enemy:set_can_attack(false)
     end
+    enemy:start_running()
   end)
 end
 
 -- Make the enemy start counting down.
 function enemy:start_countdown(number)
 
-  sol.timer.start(map, number_duration, function()
+  is_counting_down = true
+
+  sol.timer.start(enemy, number_duration, function()
     if number == 0 then
       local x, y, layer = enemy:get_position()
       map:create_explosion({
@@ -131,13 +130,9 @@ enemy:register_event("on_restarted", function(enemy)
   })
 
   -- States.
+  countdown_step = nil
+  is_counting_down = false
   enemy:set_can_attack(true)
-  if not is_counting_down then
-    enemy:set_damage(4)
-    enemy:start_walking()
-  else
-    enemy:set_damage(0)
-    enemy:set_can_attack(false)
-    enemy:start_running()
-  end
+  enemy:set_damage(4)
+  enemy:start_walking()
 end)

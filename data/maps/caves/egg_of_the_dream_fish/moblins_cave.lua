@@ -84,6 +84,20 @@ door_manager:open_when_enemies_dead(map, "enemy_group_2", "door_group_2")
 door_manager:open_when_enemies_dead(map, "enemy_group_3", "door_group_2")
 door_manager:open_when_enemies_dead(map, "enemy_group_3", "door_group_3")
 
+-- Sensors
+sensor_bowwow:register_event("on_activated", function()
+  
+  if not game:is_step_last("bowwow_dognapped") then
+    return
+  end
+  for enemy in map:get_entities_by_type("enemy") do
+    enemy:remove()
+  end
+  audio_manager:play_sound("items/fanfare_item_extended")
+  map:launch_cinematic_4()
+
+end)
+
 -- Separators
 function separator_throne:on_activated()
   
@@ -106,20 +120,6 @@ function separator_boss:on_activated()
   end
   room_access_3 = true
   map:launch_cinematic_3()
-
-end
-
--- NPCs events
-function bowwow:on_interaction()
-  
-  if not game:is_step_last("bowwow_dognapped") then
-    return
-  end
-  for enemy in map:get_entities_by_type("enemy") do
-    enemy:remove()
-  end
-  audio_manager:play_sound("items/fanfare_item_extended")
-  map:launch_cinematic_4()
 
 end
 

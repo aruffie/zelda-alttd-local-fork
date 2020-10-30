@@ -29,7 +29,7 @@ local function on_sword_attack_received()
   -- Make sure to only trigger this event once by attack.
   enemy:set_invincible()
 
-  enemy:start_pushing_back(hero, 200, 100)
+  enemy:start_pushing_back(hero, 200, 100, sprite, nil)
   sprite:set_animation("bounce", function()
     enemy:restart()
   end)

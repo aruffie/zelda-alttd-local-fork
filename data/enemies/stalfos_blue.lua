@@ -23,10 +23,20 @@ local attack_triggering_distance = 32
 local walking_speed = 32
 local jumping_speed = 128
 local jumping_height = 32
-local jumping_duration = 800
-local elevating_duration = 120
+local on_air_duration = 700
+local jumping_duration = 120
 local stompdown_duration = 50
-local get_up_duration = 400
+local stunned_duration = 400
+
+-- Set the behavior for each items.
+local function set_vulnerable()
+
+  enemy:set_hero_weapons_reactions(2, {
+    sword = 1,
+    jump_on = "ignored",
+    fire = "protected"
+  })
+end
 
 -- Start moving to the hero, and attack when he is close enough.
 function enemy:start_walking()
@@ -50,22 +60,25 @@ function enemy:start_attacking()
   movement:set_target(target_x, target_y)
   movement:set_smooth(false)
   movement:start(enemy)
-  enemy:start_flying(elevating_duration, jumping_height, function()
-    sprite:set_animation("attack_landing")
-  end)
+
+  sprite:set_animation("jumping")
   enemy:set_invincible()
   enemy:set_can_attack(false)
-  sprite:set_animation("jumping")
+  enemy:start_flying(jumping_duration, jumping_height, function()
+    sprite:set_animation("attack_landing")
 
-  -- Wait for a delay and start the stomp down.
-  sol.timer.start(enemy, jumping_duration, function()
-    enemy:stop_flying(stompdown_duration, function()
+    -- Wait for a delay and start the stomp down.
+    sol.timer.start(enemy, on_air_duration, function()
+      enemy:stop_flying(stompdown_duration, function()
+        set_vulnerable()
+        enemy:set_can_attack(true)
 
-      -- Start a visual effect at the landing impact location, wait a few time and restart.
-      enemy:start_brief_effect("entities/effects/impact_projectile", "default", -12, 0)
-      enemy:start_brief_effect("entities/effects/impact_projectile", "default", 12, 0)
-      sol.timer.start(enemy, get_up_duration, function()
-        enemy:restart()
+        -- Start a visual effect at the landing impact location, wait a few time and restart.
+        enemy:start_brief_effect("entities/effects/impact_projectile", "default", -12, 0)
+        enemy:start_brief_effect("entities/effects/impact_projectile", "default", 12, 0)
+        sol.timer.start(enemy, stunned_duration, function()
+          enemy:restart()
+        end)
       end)
     end)
   end)
@@ -83,11 +96,7 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
-  -- Behavior for each items.
-  enemy:set_hero_weapons_reactions(2, {
-    sword = 1,
-    jump_on = "ignored",
-    fire = "protected"})
+  set_vulnerable()
 
   -- States.
   sprite:set_xy(0, 0)

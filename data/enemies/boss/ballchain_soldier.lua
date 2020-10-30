@@ -74,7 +74,7 @@ function enemy:start_attacking()
   end)
 end
 
--- Remove the ballchain on dead.
+-- Kill the ballchain on dead.
 enemy:register_event("on_dead", function(enemy)
   ballchain:start_death()
 end)

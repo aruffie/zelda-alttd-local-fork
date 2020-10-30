@@ -17,34 +17,41 @@ local map = enemy:get_map()
 local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local state_timer = nil
-local is_exhausted = false
+local is_active = true
 
 -- Configuration variables
 local initial_state = enemy:get_property("initial_state")
 local attracting_pixel_by_second = enemy:get_property("speed") or 88
-local attracting_duration = 5000
-local exhausted_duration = 2000
+local active_duration = enemy:get_property("active_duration") or 4000
+local inactive_duration = enemy:get_property("inactive_duration") or 1000
 
--- Function determining if the attraction should happen or not.
+-- Callback function allowing the attraction or not.
 local function is_hero_attractable()
 
-  if hero:get_state() == "falling" or is_exhausted then
+  -- Don't attract if the enemy is not active, if the hero is falling or overlaps a separator.
+  if not is_active or hero:get_state() == "falling" then
     return false
   end
+  for separator in map:get_entities_by_type("separator") do
+    if separator:overlaps(hero) then
+      return false
+    end
+  end
+
   return true
 end
 
 -- Start attracting and the sprite animation for a delay, then stop attracting for delay.
 local function start_state_timer()
 
-  is_exhausted = true
+  is_active = false
   sprite:set_frame_delay(0)
-  state_timer = sol.timer.start(enemy, exhausted_duration, function()
+  state_timer = sol.timer.start(enemy, inactive_duration, function()
 
     -- Start attracting.
-    is_exhausted = false
+    is_active = true
     sprite:set_frame_delay(100)
-    state_timer = sol.timer.start(enemy, attracting_duration, function()
+    state_timer = sol.timer.start(enemy, active_duration, function()
       start_state_timer()
     end)
   end)

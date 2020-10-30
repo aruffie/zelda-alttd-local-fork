@@ -43,19 +43,21 @@ function entity_respawn_manager:init(map)
   local function recreate_enemy(enemy)
 
     local enemy_place = saved_entities.enemies[enemy]
-    local new_enemy = map:create_enemy({ --TODO modifiy create_enemy to add enemy to light manager
-        x = enemy_place.x,
-        y = enemy_place.y,
-        layer = enemy_place.layer,
-        breed = enemy_place.breed,
-        direction = enemy_place.direction,
-        name = enemy_place.name,
-        properties = enemy_place.properties
-      })
-    -- add enemy to the light manager of fsa mode, since it has been recreated
+    local new_enemy = map:create_enemy({ -- TODO modifiy create_enemy to add enemy to light manager
+      x = enemy_place.x,
+      y = enemy_place.y,
+      layer = enemy_place.layer,
+      breed = enemy_place.breed,
+      animation_set = enemy_place.animation_set,
+      direction = enemy_place.direction,
+      name = enemy_place.name,
+      properties = enemy_place.properties
+    })
+    clean_on_dead(new_enemy)
+
+    -- Add enemy to the light manager of fsa mode, since it has been recreated
     light_manager_fsa:add_occluder(new_enemy)
     new_enemy:set_treasure(unpack(enemy_place.treasure))
-    clean_on_dead(new_enemy)
 
     -- TODO Replace event recopy by dynamic setup.
     new_enemy.on_symbol_fixed = enemy.on_symbol_fixed -- For Vegas enemies
@@ -63,23 +65,33 @@ function entity_respawn_manager:init(map)
       new_enemy.on_flying_tile_dead = enemy.on_flying_tile_dead -- For Flying tiles enemies
     end
 
+    -- Remove the initial enemy once the new one is created.
+    enemy:remove()
+
     return new_enemy
   end
 
   -- Function called when a separator was just taken.
   function entity_respawn_manager:respawn_enemies(map)
 
-    -- Enable and restart all enemies in the new active region, or recreate them if needed, .
+    -- Enable and restart all enemies in the new active region, or recreate them if not exists anymore and should respawn.
+    local recreated_enemies = {}
     for enemy, enemy_place in pairs(saved_entities.enemies) do
       if enemy:is_in_same_region(map:get_hero()) then
-        if enemy:exists() then
+        if enemy:exists() and enemy:get_sprite():get_animation() ~= "killed" then -- TODO Find another way to reset a dying enemy without recreate it to preserve events and name.
           enemy:set_enabled(true)
           enemy:set_position(enemy_place.x, enemy_place.y, enemy_place.layer)
           enemy:set_life(enemy_place.life)
         else
-          recreate_enemy(enemy)
+          recreated_enemies[enemy] = recreate_enemy(enemy)
         end
       end
+    end
+
+    -- Update the saved entities table after the loop on the actual table.
+    for enemy, new_enemy in pairs(recreated_enemies) do
+      saved_entities.enemies[new_enemy] = saved_entities.enemies[enemy]
+      saved_entities.enemies[enemy] = nil
     end
   end
 
@@ -254,7 +266,7 @@ function entity_respawn_manager:init(map)
 
   function entity_respawn_manager:reset_enemies(map)
 
-    -- Disable all enemies when leaving a zone. Don't remove right now to not trigger map puzzles based on enemy removal..
+    -- Disable all enemies when leaving a zone. Disable instead of remove to not trigger map puzzles based on enemy removal.
     for enemy in map:get_entities_by_type("enemy") do
       if saved_entities.enemies[enemy] and enemy:is_in_same_region(map:get_hero()) then
         sol.timer.stop_all(enemy)
@@ -273,26 +285,29 @@ function entity_respawn_manager:init(map)
   -- Store the position and properties of given enemy.
   local function save_enemy(enemy)
 
-    local x, y, layer = enemy:get_position()
-    local sprite = enemy:get_sprite()
-    saved_entities.enemies[enemy] = {
-      x = x,
-      y = y,
-      layer = layer,
-      breed = enemy:get_breed(),
-      direction = sprite and sprite:get_direction() or 0,
-      name = enemy:get_name(),
-      treasure = { enemy:get_treasure() },
-      properties = enemy:get_properties(),
-      life = enemy:get_life()
-    }
+    if not string.match(enemy:get_breed() or "", "projectiles") then -- Workaround : Don't save projectile enemies that may be created inside main enemy scripts.
+      local x, y, layer = enemy:get_position()
+      local sprite = enemy:get_sprite()
+      saved_entities.enemies[enemy] = {
+        x = x,
+        y = y,
+        layer = layer,
+        breed = enemy:get_breed(),
+        animation_set = enemy:get_sprite():get_animation_set(),
+        direction = sprite and sprite:get_direction() or 0,
+        name = enemy:get_name(),
+        treasure = { enemy:get_treasure() },
+        properties = enemy:get_properties(),
+        life = enemy:get_life()
+      }
+      clean_on_dead(enemy)
+    end
+
     if not enemy:is_in_same_region(map:get_hero()) then
       sol.timer.stop_all(enemy)
       enemy:stop_movement()
       enemy:set_enabled(false)
     end
-    
-    clean_on_dead(enemy)
   end
 
   function entity_respawn_manager:save_entities(map)

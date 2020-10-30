@@ -95,16 +95,272 @@ text{ key = "inventory.caption.item.tunic.1", value = "Cotte de Mailles$verte" }
 text{ key = "inventory.caption.item.tunic.2", value = "Cotte de Mailles$bleue" }
 text{ key = "inventory.caption.item.tunic.3", value = "Cotte de Mailles$rouge" }
 text{ key = "inventory.title", value = "Inventaire" }
-text{ key = "map.caption.dungeon_name_1", value = "Cave Flagello" }
-text{ key = "map.caption.dungeon_name_10", value = "Précipice aquatique" }
-text{ key = "map.caption.dungeon_name_2", value = "Grotte du génie" }
-text{ key = "map.caption.dungeon_name_3", value = "Cave aux clés" }
-text{ key = "map.caption.dungeon_name_4", value = "Abîme du poisson" }
-text{ key = "map.caption.dungeon_name_5", value = "Posson-chat" }
-text{ key = "map.caption.dungeon_name_6", value = "Temple du masque" }
-text{ key = "map.caption.dungeon_name_7", value = "Tour du vautour" }
-text{ key = "map.caption.dungeon_name_8", value = "Roc de la tortue" }
-text{ key = "map.caption.dungeon_name_9", value = "Donjon des couleurs" }
+text{ key = "map.caption.map_0_0", value = "Cordillère Tartare" }
+text{ key = "map.caption.map_0_1", value = "Niveau 8" }
+text{ key = "map.caption.map_0_10", value = "Village des Mouettes" }
+text{ key = "map.caption.map_0_11", value = "Bibliothèque" }
+text{ key = "map.caption.map_0_12", value = "Sud du Village" }
+text{ key = "map.caption.map_0_13", value = "Sud du Village" }
+text{ key = "map.caption.map_0_14", value = "Plage Coco" }
+text{ key = "map.caption.map_0_15", value = "Plage Coco" }
+text{ key = "map.caption.map_0_2", value = "Marais des Anémones" }
+text{ key = "map.caption.map_0_3", value = "Chez Mr Wright" }
+text{ key = "map.caption.map_0_4", value = "Forêt Enchantée" }
+text{ key = "map.caption.map_0_5", value = "Forêt Enchantée" }
+text{ key = "map.caption.map_0_6", value = "Forêt Enchantée" }
+text{ key = "map.caption.map_0_7", value = "Forêt Enchantée" }
+text{ key = "map.caption.map_0_8", value = "Forêt Enchantée" }
+text{ key = "map.caption.map_0_9", value = "Forêt Enchantée" }
+text{ key = "map.caption.map_10_0", value = "Poulailler" }
+text{ key = "map.caption.map_10_1", value = "Cordillère Tartare" }
+text{ key = "map.caption.map_10_10", value = "La Prairie" }
+text{ key = "map.caption.map_10_11", value = "La Prairie" }
+text{ key = "map.caption.map_10_12", value = "Baie de Martha" }
+text{ key = "map.caption.map_10_13", value = "Baie de Martha" }
+text{ key = "map.caption.map_10_14", value = "Baie de Martha" }
+text{ key = "map.caption.map_10_15", value = "Baie de Martha" }
+text{ key = "map.caption.map_10_2", value = "Plateau Tartare" }
+text{ key = "map.caption.map_10_3", value = "Plateau Tartare" }
+text{ key = "map.caption.map_10_4", value = "Château Canulet" }
+text{ key = "map.caption.map_10_5", value = "Château Canulet" }
+text{ key = "map.caption.map_10_6", value = "Château Canulet" }
+text{ key = "map.caption.map_10_7", value = "Château Canulet" }
+text{ key = "map.caption.map_10_8", value = "Maison aux Coquillages" }
+text{ key = "map.caption.map_10_9", value = "La Prairie" }
+text{ key = "map.caption.map_11_0", value = "Cordillère Tartare" }
+text{ key = "map.caption.map_11_1", value = "Cordillère Tartare" }
+text{ key = "map.caption.map_11_10", value = "La Prairie" }
+text{ key = "map.caption.map_11_11", value = "La Prairie" }
+text{ key = "map.caption.map_11_12", value = "Baie de Martha" }
+text{ key = "map.caption.map_11_13", value = "Cabine Téléphonique" }
+text{ key = "map.caption.map_11_14", value = "Baie de Martha" }
+text{ key = "map.caption.map_11_15", value = "Baie de Martha" }
+text{ key = "map.caption.map_11_2", value = "Niveau 4" }
+text{ key = "map.caption.map_11_3", value = "Plateau Tartare" }
+text{ key = "map.caption.map_11_4", value = "Cabine Téléphonique" }
+text{ key = "map.caption.map_11_5", value = "Château Canulet" }
+text{ key = "map.caption.map_11_6", value = "Château Canulet" }
+text{ key = "map.caption.map_11_7", value = "Château Canulet" }
+text{ key = "map.caption.map_11_8", value = "La Prairie" }
+text{ key = "map.caption.map_11_9", value = "La Prairie" }
+text{ key = "map.caption.map_12_0", value = "Cordillère Tartare" }
+text{ key = "map.caption.map_12_1", value = "Cordillère Tartare" }
+text{ key = "map.caption.map_12_10", value = "Temple du Masque" }
+text{ key = "map.caption.map_12_11", value = "Temple du masque" }
+text{ key = "map.caption.map_12_12", value = "Village des Animaux" }
+text{ key = "map.caption.map_12_13", value = "Village des Animaux" }
+text{ key = "map.caption.map_12_14", value = "Est de la Baie" }
+text{ key = "map.caption.map_12_15", value = "Est de la Baie" }
+text{ key = "map.caption.map_12_2", value = "Plateau Tartare" }
+text{ key = "map.caption.map_12_3", value = "Plateau Tartare" }
+text{ key = "map.caption.map_12_4", value = "Descente des Rapides" }
+text{ key = "map.caption.map_12_5", value = "Descente des Rapides" }
+text{ key = "map.caption.map_12_6", value = "Descente des Rapides" }
+text{ key = "map.caption.map_12_7", value = "Descente des Rapides" }
+text{ key = "map.caption.map_12_8", value = "Niveau 6" }
+text{ key = "map.caption.map_12_9", value = "Temple du Masque" }
+text{ key = "map.caption.map_13_0", value = "Cordillère Tartare" }
+text{ key = "map.caption.map_13_1", value = "Cordillère Tartare" }
+text{ key = "map.caption.map_13_10", value = "Temple du Masque" }
+text{ key = "map.caption.map_13_11", value = "Temple du masque" }
+text{ key = "map.caption.map_13_12", value = "Village des Animaux" }
+text{ key = "map.caption.map_13_13", value = "Village des Animaux" }
+text{ key = "map.caption.map_13_14", value = "Est de la Baie" }
+text{ key = "map.caption.map_13_15", value = "Est de la Baie" }
+text{ key = "map.caption.map_13_2", value = "Plateau Tartare" }
+text{ key = "map.caption.map_13_3", value = "Plateau Tartare" }
+text{ key = "map.caption.map_13_4", value = "Descente des Rapides" }
+text{ key = "map.caption.map_13_5", value = "Descente des Rapides" }
+text{ key = "map.caption.map_13_6", value = "Descente des Rapides" }
+text{ key = "map.caption.map_13_7", value = "Descente des Rapides" }
+text{ key = "map.caption.map_13_8", value = "Temple du Masque" }
+text{ key = "map.caption.map_13_9", value = "Temple du Masque" }
+text{ key = "map.caption.map_14_0", value = "Niveau 7" }
+text{ key = "map.caption.map_14_1", value = "Cordillère Tartare" }
+text{ key = "map.caption.map_14_10", value = "Temple du Masque" }
+text{ key = "map.caption.map_14_11", value = "Temple du masque" }
+text{ key = "map.caption.map_14_12", value = "Dunes de Yarna" }
+text{ key = "map.caption.map_14_13", value = "Dune de Yarna" }
+text{ key = "map.caption.map_14_14", value = "Dunes de Yarna" }
+text{ key = "map.caption.map_14_15", value = "Dunes de Yarna" }
+text{ key = "map.caption.map_14_2", value = "Plateau Tartare" }
+text{ key = "map.caption.map_14_3", value = "Plateau Tartare" }
+text{ key = "map.caption.map_14_4", value = "Descente des Rapides" }
+text{ key = "map.caption.map_14_5", value = "Descente des Rapides" }
+text{ key = "map.caption.map_14_6", value = "Descente des Rapides" }
+text{ key = "map.caption.map_14_7", value = "Descente des Rapides" }
+text{ key = "map.caption.map_14_8", value = "Descente des Rapides" }
+text{ key = "map.caption.map_14_9", value = "Descente des Rapides" }
+text{ key = "map.caption.map_15_0", value = "Cordillère Tartare" }
+text{ key = "map.caption.map_15_1", value = "Cordillère Tartare" }
+text{ key = "map.caption.map_15_10", value = "Temple du Masque" }
+text{ key = "map.caption.map_15_11", value = "Temple du masque" }
+text{ key = "map.caption.map_15_12", value = "Dunes de Yarna" }
+text{ key = "map.caption.map_15_13", value = "Dune de Yarna" }
+text{ key = "map.caption.map_15_14", value = "Dunes de Yarna" }
+text{ key = "map.caption.map_15_15", value = "Dunes de Yarna" }
+text{ key = "map.caption.map_15_2", value = "Plateau Tartare" }
+text{ key = "map.caption.map_15_3", value = "Location de radeaux" }
+text{ key = "map.caption.map_15_4", value = "Descente des Rapides" }
+text{ key = "map.caption.map_15_5", value = "Descente des Rapides" }
+text{ key = "map.caption.map_15_6", value = "Descente des Rapides" }
+text{ key = "map.caption.map_15_7", value = "Descente des Rapides" }
+text{ key = "map.caption.map_15_8", value = "Descente des Rapides" }
+text{ key = "map.caption.map_15_9", value = "Descente des Rapides" }
+text{ key = "map.caption.map_1_0", value = "Cordillère Tartare" }
+text{ key = "map.caption.map_1_1", value = "Cabine téléphonique" }
+text{ key = "map.caption.map_1_10", value = "Chez Mme Miaou Miaou" }
+text{ key = "map.caption.map_1_11", value = "Chez Pépé le Ramollo" }
+text{ key = "map.caption.map_1_12", value = "Sud du Village" }
+text{ key = "map.caption.map_1_13", value = "Sud du Village" }
+text{ key = "map.caption.map_1_14", value = "Plage Coco" }
+text{ key = "map.caption.map_1_15", value = "Plage Coco" }
+text{ key = "map.caption.map_1_2", value = "Marais des Anémones" }
+text{ key = "map.caption.map_1_3", value = "Cabine Téléphonique" }
+text{ key = "map.caption.map_1_4", value = "Forêt Enchantée" }
+text{ key = "map.caption.map_1_5", value = "Forêt Enchantée" }
+text{ key = "map.caption.map_1_6", value = "Forêt Enchantée" }
+text{ key = "map.caption.map_1_7", value = "Forêt Enchantée" }
+text{ key = "map.caption.map_1_8", value = "Etang" }
+text{ key = "map.caption.map_1_9", value = "Forêt Enchantée" }
+text{ key = "map.caption.map_2_0", value = "Cordillère Tartare" }
+text{ key = "map.caption.map_2_1", value = "Cordillère Tartare" }
+text{ key = "map.caption.map_2_10", value = "Chez Marine et Tarkin" }
+text{ key = "map.caption.map_2_11", value = "Cabine téléphonique" }
+text{ key = "map.caption.map_2_12", value = "Sud du Village" }
+text{ key = "map.caption.map_2_13", value = "Sud du Village" }
+text{ key = "map.caption.map_2_14", value = "Plage Coco" }
+text{ key = "map.caption.map_2_15", value = "Plage Coco" }
+text{ key = "map.caption.map_2_2", value = "Marais des Anémones" }
+text{ key = "map.caption.map_2_3", value = "Marais des Anémones" }
+text{ key = "map.caption.map_2_4", value = "Forêt Enchantée" }
+text{ key = "map.caption.map_2_5", value = "Forêt Enchantée" }
+text{ key = "map.caption.map_2_6", value = "Forêt Enchantée" }
+text{ key = "map.caption.map_2_7", value = "Forêt Enchantée" }
+text{ key = "map.caption.map_2_8", value = "Chez les Quadruplés" }
+text{ key = "map.caption.map_2_9", value = "Village des Mouettes" }
+text{ key = "map.caption.map_3_0", value = "Cordillère Tartare" }
+text{ key = "map.caption.map_3_1", value = "Cordillère Tartare" }
+text{ key = "map.caption.map_3_10", value = "Village des Mouettes" }
+text{ key = "map.caption.map_3_11", value = "Jeu de hasard" }
+text{ key = "map.caption.map_3_12", value = "Sud du Village" }
+text{ key = "map.caption.map_3_13", value = "Donjon 1" }
+text{ key = "map.caption.map_3_14", value = "Chez AlligoBanane" }
+text{ key = "map.caption.map_3_15", value = "Plage Coco" }
+text{ key = "map.caption.map_3_2", value = "Marais des Anémones" }
+text{ key = "map.caption.map_3_3", value = "Marais des Anémones" }
+text{ key = "map.caption.map_3_4", value = "Forêt Enchantée" }
+text{ key = "map.caption.map_3_5", value = "Forêt Enchantée" }
+text{ key = "map.caption.map_3_6", value = "Forêt Enchantée" }
+text{ key = "map.caption.map_3_7", value = "Forêt Enchantée" }
+text{ key = "map.caption.map_3_8", value = "Gîte des Rêves" }
+text{ key = "map.caption.map_3_9", value = "Bazar du Centre" }
+text{ key = "map.caption.map_4_0", value = "Cordillère Tartare" }
+text{ key = "map.caption.map_4_1", value = "Cordillère Tartare" }
+text{ key = "map.caption.map_4_10", value = "Cabine Téléphonique" }
+text{ key = "map.caption.map_4_11", value = "La Prairie" }
+text{ key = "map.caption.map_4_12", value = "Dédale des Panneaux" }
+text{ key = "map.caption.map_4_13", value = "Dédale des Panneaux" }
+text{ key = "map.caption.map_4_14", value = "Plage Coco" }
+text{ key = "map.caption.map_4_15", value = "Plage Coco" }
+text{ key = "map.caption.map_4_2", value = "Niveau 2" }
+text{ key = "map.caption.map_4_3", value = "Marais des Anémones" }
+text{ key = "map.caption.map_4_4", value = "Plaine Cocolint" }
+text{ key = "map.caption.map_4_5", value = "Plaine Cocolint" }
+text{ key = "map.caption.map_4_6", value = "Plaine Cocolint" }
+text{ key = "map.caption.map_4_7", value = "Plaine Cocolint" }
+text{ key = "map.caption.map_4_8", value = "La Prairie" }
+text{ key = "map.caption.map_4_9", value = "La Prairie" }
+text{ key = "map.caption.map_5_0", value = "Cordillère Tartare" }
+text{ key = "map.caption.map_5_1", value = "Cordillère Tartare" }
+text{ key = "map.caption.map_5_10", value = "La Prairie" }
+text{ key = "map.caption.map_5_11", value = "Niveau 3" }
+text{ key = "map.caption.map_5_12", value = "Dédale des Panneaux" }
+text{ key = "map.caption.map_5_13", value = "Dédale des Panneaux" }
+text{ key = "map.caption.map_5_14", value = "Plage Coco" }
+text{ key = "map.caption.map_5_15", value = "Plage Coco" }
+text{ key = "map.caption.map_5_2", value = "Plateau Tartare" }
+text{ key = "map.caption.map_5_3", value = "Plateau Tartare" }
+text{ key = "map.caption.map_5_4", value = "Pharmacie de Monique" }
+text{ key = "map.caption.map_5_5", value = "Plaine Cocolint" }
+text{ key = "map.caption.map_5_6", value = "Hutte de la Sorcière" }
+text{ key = "map.caption.map_5_7", value = "Plaine Cocolint" }
+text{ key = "map.caption.map_5_8", value = "La Prairie" }
+text{ key = "map.caption.map_5_9", value = "La Prairie" }
+text{ key = "map.caption.map_6_0", value = "OEUF SACRE" }
+text{ key = "map.caption.map_6_1", value = "Mt Tamaranch" }
+text{ key = "map.caption.map_6_10", value = "La Prairie" }
+text{ key = "map.caption.map_6_11", value = "La Prairie" }
+text{ key = "map.caption.map_6_12", value = "Champ des Pièges" }
+text{ key = "map.caption.map_6_13", value = "Villa de Richard" }
+text{ key = "map.caption.map_6_14", value = "Baie de Martha" }
+text{ key = "map.caption.map_6_15", value = "Maison de la Baie" }
+text{ key = "map.caption.map_6_2", value = "Plateau Tartare" }
+text{ key = "map.caption.map_6_3", value = "Plateau Tartare" }
+text{ key = "map.caption.map_6_4", value = "Morne Plaine" }
+text{ key = "map.caption.map_6_5", value = "Morne Plaine" }
+text{ key = "map.caption.map_6_6", value = "Cimetière" }
+text{ key = "map.caption.map_6_7", value = "Cimetière" }
+text{ key = "map.caption.map_6_8", value = "La Prairie" }
+text{ key = "map.caption.map_6_9", value = "La Prairie" }
+text{ key = "map.caption.map_7_0", value = "Mt Tamaranch" }
+text{ key = "map.caption.map_7_1", value = "Mt Tamaranch" }
+text{ key = "map.caption.map_7_10", value = "La Prairie" }
+text{ key = "map.caption.map_7_11", value = "La Prairie" }
+text{ key = "map.caption.map_7_12", value = "Champ des Pièges" }
+text{ key = "map.caption.map_7_13", value = "Champ des Pièges" }
+text{ key = "map.caption.map_7_14", value = "Baie de Martha" }
+text{ key = "map.caption.map_7_15", value = "Baie de Martha" }
+text{ key = "map.caption.map_7_2", value = "Plateau Tartare" }
+text{ key = "map.caption.map_7_3", value = "Maison du Photographe" }
+text{ key = "map.caption.map_7_4", value = "Morne Plaine" }
+text{ key = "map.caption.map_7_5", value = "Morne Plaine" }
+text{ key = "map.caption.map_7_6", value = "Cimetière" }
+text{ key = "map.caption.map_7_7", value = "Cimetière" }
+text{ key = "map.caption.map_7_8", value = "La Prairie" }
+text{ key = "map.caption.map_7_9", value = "La Prairie" }
+text{ key = "map.caption.map_8_0", value = "Cordillère Tartare" }
+text{ key = "map.caption.map_8_1", value = "Cordillère Tartare" }
+text{ key = "map.caption.map_8_10", value = "La Prairie" }
+text{ key = "map.caption.map_8_11", value = "La Prairie" }
+text{ key = "map.caption.map_8_12", value = "Baie de Martha" }
+text{ key = "map.caption.map_8_13", value = "Baie de Martha" }
+text{ key = "map.caption.map_8_14", value = "Cabine Téléphonique" }
+text{ key = "map.caption.map_8_15", value = "Baie de Martha" }
+text{ key = "map.caption.map_8_2", value = "Plateau Tartare" }
+text{ key = "map.caption.map_8_3", value = "Plateau Tartare" }
+text{ key = "map.caption.map_8_4", value = "Château Canulet" }
+text{ key = "map.caption.map_8_5", value = "Château Canulet" }
+text{ key = "map.caption.map_8_6", value = "Château Canulet" }
+text{ key = "map.caption.map_8_7", value = "Château Canulet" }
+text{ key = "map.caption.map_8_8", value = "Cabine Téléphonique" }
+text{ key = "map.caption.map_8_9", value = "La Prairie" }
+text{ key = "map.caption.map_9_0", value = "Cordillère Tartare" }
+text{ key = "map.caption.map_9_1", value = "Cordillère Tartare" }
+text{ key = "map.caption.map_9_10", value = "La Prairie" }
+text{ key = "map.caption.map_9_11", value = "La Prairie" }
+text{ key = "map.caption.map_9_12", value = "Baie de Martha" }
+text{ key = "map.caption.map_9_13", value = "Niveau 5" }
+text{ key = "map.caption.map_9_14", value = "Baie de Martha" }
+text{ key = "map.caption.map_9_15", value = "Baie de Martha" }
+text{ key = "map.caption.map_9_2", value = "Plateau Tartare" }
+text{ key = "map.caption.map_9_3", value = "Plateau Tartare" }
+text{ key = "map.caption.map_9_4", value = "Château Canulet" }
+text{ key = "map.caption.map_9_5", value = "Château Canulet" }
+text{ key = "map.caption.map_9_6", value = "Château Canulet" }
+text{ key = "map.caption.map_9_7", value = "Château Canulet" }
+text{ key = "map.caption.map_9_8", value = "La Prairie" }
+text{ key = "map.caption.map_9_9", value = "La Prairie" }
+text{ key = "map.caption.map_dungeon_1", value = "Caverne Flagello" }
+text{ key = "map.caption.map_dungeon_10", value = "Temple Hibou" }
+text{ key = "map.caption.map_dungeon_2", value = "Grotte du Génie" }
+text{ key = "map.caption.map_dungeon_3", value = "Souterrain aux Clés" }
+text{ key = "map.caption.map_dungeon_4", value = "Abîme du Poisson" }
+text{ key = "map.caption.map_dungeon_5", value = "Poisson-Chat" }
+text{ key = "map.caption.map_dungeon_6", value = "Temple du Masque" }
+text{ key = "map.caption.map_dungeon_7", value = "Tour du Vautour" }
+text{ key = "map.caption.map_dungeon_8", value = "Roc de la Tortue" }
+text{ key = "map.caption.map_dungeon_9", value = "Donjon des Couleurs" }
 text{ key = "map.caption.world_map", value = "Carte de Cocolint" }
 text{ key = "map.title", value = "Carte" }
 text{ key = "messagebox.no", value = "Non" }

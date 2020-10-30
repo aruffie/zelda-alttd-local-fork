@@ -46,6 +46,7 @@ function treasure_manager:appear_chest_when_horse_heads_upright(map, entity_pref
         break
       elseif entity:get_direction() ~= 1 then
         are_all_heads_upright = false
+        break
       end
     end
 

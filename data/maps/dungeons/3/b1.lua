@@ -31,7 +31,7 @@ function map:on_started()
   treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_5_", "pickable_small_key_7")
   treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_7_", "pickable_small_key_9")
   treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_6_", "pickable_small_key_8")
-  -- Separators&&&&
+  -- Separators
   separator_manager:init(map)
 
 end

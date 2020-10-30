@@ -2353,14 +2353,6 @@ wall{
   stops_projectiles = true,
 }
 
-chest{
-  layer = 0,
-  x = 504,
-  y = 365,
-  treasure_name = "melody_1",
-  sprite = "entities/chests/chest_small",
-}
-
 tile{
   layer = 1,
   x = 288,

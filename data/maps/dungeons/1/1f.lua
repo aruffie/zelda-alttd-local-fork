@@ -160,7 +160,7 @@ end)
 -- Enemies events
 enemy_manager:on_enemies_dead(map, "enemy_group_3_", function()
     
-  enemy_group_torch_1:set_shooting(false)
-  enemy_group_torch_2:set_shooting(false)
+  --enemy_group_torch_1:set_shooting(false)
+  --enemy_group_torch_2:set_shooting(false)
   
 end)
