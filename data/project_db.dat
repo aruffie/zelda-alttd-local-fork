@@ -1232,6 +1232,7 @@ sound{ id = "snes/misc/owl_hoot1", description = "owl hoot 1" }
 sound{ id = "snes/misc/owl_hoot2", description = "Owl hoot 2" }
 sound{ id = "snes/misc/rock_push", description = "Rock push" }
 sound{ id = "snes/misc/rock_shatter", description = "Rock shatter" }
+sound{ id = "snes/misc/seagull", description = "Seagull" }
 sound{ id = "snes/misc/secret1", description = "Secret 1" }
 sound{ id = "snes/misc/secret2", description = "Secret 2" }
 sound{ id = "snes/misc/shore", description = "Shore" }
