@@ -29,6 +29,7 @@ local is_ball_controlled_by_hero = false
 local is_ball_controlled_by_enemy = false
 local is_ball_carried_by_enemy = false
 local ball, ball_sprite
+local throwing_timer
 
 -- Configuration variables
 local ball_initial_offset_x = 80
@@ -42,6 +43,11 @@ local jump_count_before_throwing = 3
 local throwing_speeds = {240, 40, 20}
 local throwing_durations = {600, 160, 70}
 local throwing_heights = {carrying_height, 4, 2}
+
+-- Return the result of the xor operation.
+local function xor(a, b)
+  return (a or b) and not (a and b)
+end
 
 -- Create the ball and related events.
 local function create_ball()
@@ -90,6 +96,7 @@ end
 -- Function to make the carriable not traversable by the hero and vice versa. 
 -- Delay this moment if the hero would get stuck.
 local function set_hero_not_traversable_safely()
+
   if not ball:overlaps(map:get_hero()) then
     ball:set_traversable_by("hero", false)
     ball:set_can_traverse("hero", false)
@@ -98,11 +105,6 @@ local function set_hero_not_traversable_safely()
   sol.timer.start(ball, 10, function() -- Retry later.
     set_hero_not_traversable_safely()
   end)
-end
-
--- Return the result of the xor operation.
-local function xor(a, b)
-  return (a or b) and not (a and b)
 end
 
 -- Return the normal angle of close obstacles as a multiple of pi/4, or nil if none.
@@ -184,6 +186,18 @@ local function start_jumping(angle, speed, on_finished_callback)
   sprite:set_direction(angle > quarter and angle < 3.0 * quarter and 2 or 0)
 end
 
+-- Reset settings set during the throw.
+local function finish_throw()
+
+  if is_ball_controlled_by_enemy then
+    throwing_timer:stop()
+  end
+  is_ball_controlled_by_enemy = false
+  set_hero_not_traversable_safely()
+  ball:stop_movement()
+  ball:set_weight(1)
+end
+
 -- Start throwing the ball to the hero.
 local function start_throwing()
 
@@ -210,21 +224,17 @@ local function start_throwing()
     movement:start(ball)
 
     -- Update the ball height each frames.
-    local throwing_timer = sol.timer.start(ball, 10, function()
+    throwing_timer = sol.timer.start(ball, 10, function()
       local height = get_throwing_height(bounce_count)
       if time <= throwing_durations[bounce_count] then
         ball_sprite:set_xy(0, height)
       else
 
-        -- Restart the enemy on the first bounce, and start three additionnal ones.
+        -- Restart the enemy on the first bounce, and start two additionnal ones.
         if bounce_count == 1 then
           enemy:restart()
-          movement:set_speed(10)
         elseif bounce_count == 3 then
-          is_ball_controlled_by_enemy = false
-          movement:stop()
-          set_hero_not_traversable_safely()
-          ball:set_weight(1)
+          finish_throw()
           return
         end
         bounce_count = bounce_count + 1
@@ -254,6 +264,10 @@ local function start_carrying()
   movement:set_ignore_obstacles(true)
   movement:set_delay(100)
 
+  -- Clear the previous throw if the ball is catched before it finished normally.
+  finish_throw()
+
+  -- Initialize the carrying.
   ball:set_position(x , y)
   ball_sprite:set_xy(0, 0)
   movement:start(ball_sprite)
