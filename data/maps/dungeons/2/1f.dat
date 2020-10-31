@@ -13873,96 +13873,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 416,
-  y = 1216,
-  width = 32,
-  height = 24,
-  pattern = "wall_decor.1-2",
-}
-
-tile{
-  layer = 0,
-  x = 512,
-  y = 1216,
-  width = 32,
-  height = 24,
-  pattern = "wall_decor.1-2",
-}
-
-tile{
-  layer = 0,
-  x = 416,
-  y = 1160,
-  width = 32,
-  height = 24,
-  pattern = "wall_decor.2-2",
-}
-
-tile{
-  layer = 0,
-  x = 512,
-  y = 1160,
-  width = 32,
-  height = 24,
-  pattern = "wall_decor.2-2",
-}
-
-tile{
-  layer = 0,
-  x = 464,
-  y = 496,
-  width = 32,
-  height = 24,
-  pattern = "wall_decor.1-2",
-}
-
-tile{
-  layer = 0,
-  x = 376,
-  y = 680,
-  width = 32,
-  height = 24,
-  pattern = "wall_decor.2-2",
-}
-
-tile{
-  layer = 0,
-  x = 544,
-  y = 680,
-  width = 32,
-  height = 24,
-  pattern = "wall_decor.2-2",
-}
-
-tile{
-  layer = 0,
-  x = 2064,
-  y = 200,
-  width = 32,
-  height = 24,
-  pattern = "wall_decor.2-2",
-}
-
-tile{
-  layer = 0,
-  x = 2064,
-  y = 16,
-  width = 32,
-  height = 24,
-  pattern = "wall_decor.1-2",
-}
-
-tile{
-  layer = 0,
-  x = 2064,
-  y = 496,
-  width = 32,
-  height = 24,
-  pattern = "wall_decor.1-2",
-}
-
-tile{
-  layer = 0,
   x = 792,
   y = 1672,
   width = 16,
@@ -13986,15 +13896,6 @@ tile{
   width = 24,
   height = 32,
   pattern = "door_main.2.pillar.2-2",
-}
-
-tile{
-  layer = 0,
-  x = 784,
-  y = 1216,
-  width = 32,
-  height = 24,
-  pattern = "wall_decor.1-2",
 }
 
 tile{
@@ -14153,24 +14054,6 @@ tile{
 tile{
   layer = 0,
   x = 336,
-  y = 1304,
-  width = 24,
-  height = 32,
-  pattern = "wall_decor.3-2",
-}
-
-tile{
-  layer = 0,
-  x = 464,
-  y = 1400,
-  width = 32,
-  height = 24,
-  pattern = "wall_decor.2-2",
-}
-
-tile{
-  layer = 0,
-  x = 336,
   y = 1360,
   width = 32,
   height = 16,
@@ -14220,15 +14103,6 @@ tile{
   width = 32,
   height = 16,
   pattern = "wall_pillar.3-5",
-}
-
-tile{
-  layer = 0,
-  x = 1104,
-  y = 1216,
-  width = 32,
-  height = 24,
-  pattern = "wall_decor.1-2",
 }
 
 tile{
@@ -14301,15 +14175,6 @@ tile{
   width = 32,
   height = 16,
   pattern = "wall_pillar.3-5",
-}
-
-tile{
-  layer = 0,
-  x = 1104,
-  y = 1640,
-  width = 32,
-  height = 24,
-  pattern = "wall_decor.2-2",
 }
 
 tile{
@@ -14413,15 +14278,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 1424,
-  y = 1640,
-  width = 32,
-  height = 24,
-  pattern = "wall_decor.2-2",
-}
-
-tile{
-  layer = 0,
   x = 1536,
   y = 1568,
   width = 112,
@@ -14467,15 +14323,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 1792,
-  y = 1216,
-  width = 32,
-  height = 24,
-  pattern = "wall_decor.1-2",
-}
-
-tile{
-  layer = 0,
   x = 1760,
   y = 1216,
   width = 16,
@@ -14499,15 +14346,6 @@ tile{
   width = 48,
   height = 32,
   pattern = "floor_low.10-2",
-}
-
-tile{
-  layer = 0,
-  x = 2200,
-  y = 1304,
-  width = 24,
-  height = 32,
-  pattern = "wall_decor.4-2",
 }
 
 tile{
@@ -14733,24 +14571,6 @@ tile{
   width = 64,
   height = 32,
   pattern = "floor_low.10-2",
-}
-
-tile{
-  layer = 0,
-  x = 1968,
-  y = 856,
-  width = 24,
-  height = 32,
-  pattern = "wall_decor.3-2",
-}
-
-tile{
-  layer = 0,
-  x = 2168,
-  y = 856,
-  width = 24,
-  height = 32,
-  pattern = "wall_decor.4-2",
 }
 
 tile{
@@ -15286,15 +15106,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 1744,
-  y = 440,
-  width = 32,
-  height = 24,
-  pattern = "wall_decor.2-2",
-}
-
-tile{
-  layer = 0,
   x = 1712,
   y = 432,
   width = 16,
@@ -15376,15 +15187,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 2200,
-  y = 632,
-  width = 24,
-  height = 32,
-  pattern = "wall_decor.4-2",
-}
-
-tile{
-  layer = 0,
   x = 1944,
   y = 56,
   width = 16,
@@ -15417,15 +15219,6 @@ tile{
   width = 16,
   height = 32,
   pattern = "wall_torch.4",
-}
-
-tile{
-  layer = 0,
-  x = 2200,
-  y = 104,
-  width = 24,
-  height = 32,
-  pattern = "wall_decor.4-2",
 }
 
 tile{
@@ -15547,24 +15340,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 336,
-  y = 832,
-  width = 24,
-  height = 32,
-  pattern = "wall_decor.3-2",
-}
-
-tile{
-  layer = 0,
-  x = 600,
-  y = 824,
-  width = 24,
-  height = 32,
-  pattern = "wall_decor.4-2",
-}
-
-tile{
-  layer = 0,
   x = 424,
   y = 672,
   width = 16,
@@ -15579,15 +15354,6 @@ tile{
   width = 16,
   height = 32,
   pattern = "wall_pillar.2-5",
-}
-
-tile{
-  layer = 0,
-  x = 336,
-  y = 632,
-  width = 24,
-  height = 32,
-  pattern = "wall_decor.3-2",
 }
 
 tile{
@@ -15831,42 +15597,6 @@ tile{
   width = 8,
   height = 8,
   pattern = "wall_border.corner_reverse.3-2",
-}
-
-tile{
-  layer = 0,
-  x = 600,
-  y = 64,
-  width = 24,
-  height = 32,
-  pattern = "wall_decor.4-2",
-}
-
-tile{
-  layer = 0,
-  x = 336,
-  y = 56,
-  width = 24,
-  height = 32,
-  pattern = "wall_decor.3-2",
-}
-
-tile{
-  layer = 0,
-  x = 400,
-  y = 16,
-  width = 32,
-  height = 24,
-  pattern = "wall_decor.1-2",
-}
-
-tile{
-  layer = 0,
-  x = 528,
-  y = 16,
-  width = 32,
-  height = 24,
-  pattern = "wall_decor.1-2",
 }
 
 tile{
@@ -16177,15 +15907,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 1112,
-  y = 200,
-  width = 32,
-  height = 24,
-  pattern = "wall_decor.2-2",
-}
-
-tile{
-  layer = 0,
   x = 872,
   y = 16,
   width = 16,
@@ -16299,24 +16020,6 @@ tile{
   width = 8,
   height = 32,
   pattern = "hole.3",
-}
-
-tile{
-  layer = 0,
-  x = 1424,
-  y = 16,
-  width = 32,
-  height = 24,
-  pattern = "wall_decor.1-2",
-}
-
-tile{
-  layer = 0,
-  x = 1424,
-  y = 200,
-  width = 32,
-  height = 24,
-  pattern = "wall_decor.2-2",
 }
 
 tile{
@@ -16803,6 +16506,346 @@ tile{
   width = 16,
   height = 16,
   pattern = "door_stairs.straight_up.1",
+}
+
+tile{
+  layer = 0,
+  x = 784,
+  y = 1216,
+  width = 32,
+  height = 24,
+  pattern = "165",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1104,
+  y = 1216,
+  width = 32,
+  height = 24,
+  pattern = "165",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1104,
+  y = 1640,
+  width = 32,
+  height = 24,
+  pattern = "168",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1424,
+  y = 1640,
+  width = 32,
+  height = 24,
+  pattern = "168",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1880,
+  y = 1544,
+  width = 24,
+  height = 32,
+  pattern = "169",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1792,
+  y = 1216,
+  width = 32,
+  height = 24,
+  pattern = "165",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 2200,
+  y = 1304,
+  width = 24,
+  height = 32,
+  pattern = "169",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 2168,
+  y = 856,
+  width = 24,
+  height = 32,
+  pattern = "169",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1968,
+  y = 856,
+  width = 24,
+  height = 32,
+  pattern = "170",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 2064,
+  y = 920,
+  width = 32,
+  height = 24,
+  pattern = "168",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 2064,
+  y = 496,
+  width = 32,
+  height = 24,
+  pattern = "165",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1744,
+  y = 440,
+  width = 32,
+  height = 24,
+  pattern = "168",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 2064,
+  y = 200,
+  width = 32,
+  height = 24,
+  pattern = "168",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 2200,
+  y = 104,
+  width = 24,
+  height = 32,
+  pattern = "169",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 2064,
+  y = 16,
+  width = 32,
+  height = 24,
+  pattern = "165",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1424,
+  y = 16,
+  width = 32,
+  height = 24,
+  pattern = "165",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1424,
+  y = 200,
+  width = 32,
+  height = 24,
+  pattern = "168",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1112,
+  y = 200,
+  width = 32,
+  height = 24,
+  pattern = "168",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 400,
+  y = 16,
+  width = 32,
+  height = 24,
+  pattern = "165",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 528,
+  y = 16,
+  width = 32,
+  height = 24,
+  pattern = "165",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 600,
+  y = 64,
+  width = 24,
+  height = 32,
+  pattern = "169",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 336,
+  y = 56,
+  width = 24,
+  height = 32,
+  pattern = "170",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 464,
+  y = 496,
+  width = 32,
+  height = 24,
+  pattern = "165",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 336,
+  y = 632,
+  width = 24,
+  height = 32,
+  pattern = "170",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 368,
+  y = 680,
+  width = 32,
+  height = 24,
+  pattern = "168",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 552,
+  y = 680,
+  width = 32,
+  height = 24,
+  pattern = "168",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 600,
+  y = 824,
+  width = 24,
+  height = 32,
+  pattern = "169",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 336,
+  y = 832,
+  width = 24,
+  height = 32,
+  pattern = "170",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 400,
+  y = 1160,
+  width = 32,
+  height = 24,
+  pattern = "168",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 528,
+  y = 1160,
+  width = 32,
+  height = 24,
+  pattern = "168",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 400,
+  y = 1216,
+  width = 32,
+  height = 24,
+  pattern = "165",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 528,
+  y = 1216,
+  width = 32,
+  height = 24,
+  pattern = "165",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 336,
+  y = 1304,
+  width = 24,
+  height = 32,
+  pattern = "170",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 464,
+  y = 1400,
+  width = 32,
+  height = 24,
+  pattern = "168",
+  tileset = "addition/dungeon",
 }
 
 dynamic_tile{
@@ -22922,7 +22965,7 @@ tile{
 tile{
   layer = 1,
   x = 1376,
-  y = 1264,
+  y = 1248,
   width = 32,
   height = 16,
   pattern = "53",
@@ -22932,7 +22975,7 @@ tile{
 tile{
   layer = 1,
   x = 1472,
-  y = 1264,
+  y = 1248,
   width = 32,
   height = 16,
   pattern = "53",
