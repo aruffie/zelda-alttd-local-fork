@@ -1565,7 +1565,7 @@ file{ path = "enemies/boss", license = "GPL v3" }
 file{ path = "enemies/boss/angler_fish.lua", license = "GPL v3" }
 file{ path = "enemies/boss/armos_knight.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/ballchain_soldier.lua", author = "Vlag", license = "GPL v3" }
-file{ path = "enemies/boss/blaino.lua", license = "GPL v3" }
+file{ path = "enemies/boss/blaino.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/buzz_blob_giant.lua", license = "GPL v3" }
 file{ path = "enemies/boss/cue_ball.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/desert_lanmola.lua", author = "Vlag", license = "GPL v3" }
@@ -1592,9 +1592,9 @@ file{ path = "enemies/boss/projectiles/spike.lua", author = "Vlag", license = "G
 file{ path = "enemies/boss/rolling_bones.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/slime_eel.lua", license = "GPL v3" }
 file{ path = "enemies/boss/slime_eye.lua", license = "GPL v3" }
-file{ path = "enemies/boss/smasher.lua", license = "GPL v3" }
+file{ path = "enemies/boss/smasher.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/stone_hinox.lua", license = "GPL v3" }
-file{ path = "enemies/boss/turtle_rock.lua", license = "GPL v3" }
+file{ path = "enemies/boss/turtle_rock.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boulder.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/bubble.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/bubble_giant.lua", author = "Vlag", license = "GPL v3" }
@@ -1603,7 +1603,7 @@ file{ path = "enemies/camo_goblin_blue.lua", license = "GPL v3" }
 file{ path = "enemies/camo_goblin_green.lua", license = "GPL v3" }
 file{ path = "enemies/camo_goblin_red.lua", license = "GPL v3" }
 file{ path = "enemies/cheep_cheep.lua", license = "GPL v3" }
-file{ path = "enemies/chicken.lua", author = "Christopho", license = "GPL v3" }
+file{ path = "enemies/chicken.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/chicken_mortal.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "enemies/crow.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/cukeman.lua", author = "Vlag", license = "GPL v3" }
