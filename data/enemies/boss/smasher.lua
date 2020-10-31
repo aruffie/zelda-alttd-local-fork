@@ -26,6 +26,7 @@ local eighth = math.pi * 0.25
 local quarter = math.pi * 0.5
 local circle = math.pi * 2.0
 local is_ball_controlled_by_hero = false
+local is_ball_controlled_by_enemy = false
 local is_ball_carried_by_enemy = false
 local ball, ball_sprite
 
@@ -76,6 +77,26 @@ local function create_ball()
     if is_ball_carried_by_enemy then
       ball_sprite:set_xy(x, y - carrying_height)
     end
+  end)
+
+  -- Add the collision test to hurt the hero if the ball is controlled by the enemy.
+  ball:add_collision_test("sprite", function(ball, entity)
+    if is_ball_controlled_by_enemy and entity:get_type() == "hero" and not entity:is_blinking() then
+      entity:start_hurt(ball, enemy:get_damage())
+    end
+  end)
+end
+
+-- Function to make the carriable not traversable by the hero and vice versa. 
+-- Delay this moment if the hero would get stuck.
+local function set_hero_not_traversable_safely()
+  if not ball:overlaps(map:get_hero()) then
+    ball:set_traversable_by("hero", false)
+    ball:set_can_traverse("hero", false)
+    return
+  end
+  sol.timer.start(ball, 10, function() -- Retry later.
+    set_hero_not_traversable_safely()
   end)
 end
 
@@ -136,14 +157,14 @@ local function hurt(damage)
       sprite:set_animation("hurt")
       ball:remove() -- Avoid the ball to be carried again.
       sol.timer.start(enemy, 1500, function()
-        enemy:start_close_explosions(32, 2500, "entities/explosion_boss", 0, -30, function()
+        enemy:start_close_explosions(32, 2500, "entities/explosion_boss", 0, -13, function()
           sol.timer.start(enemy, 1000, function()
-            enemy:start_brief_effect("entities/explosion_boss", nil, 0, -30)
+            enemy:start_brief_effect("entities/explosion_boss", nil, 0, -13)
             finish_death()
           end)
         end)
         sol.timer.start(enemy, 200, function()
-          enemy:start_close_explosions(32, 2300, "entities/explosion_boss", 0, -30)
+          enemy:start_close_explosions(32, 2300, "entities/explosion_boss", 0, -13)
         end)
       end)
     end)
@@ -200,9 +221,10 @@ local function start_throwing()
           enemy:restart()
           movement:set_speed(10)
         elseif bounce_count == 3 then
+          is_ball_controlled_by_enemy = false
           movement:stop()
+          set_hero_not_traversable_safely()
           ball:set_weight(1)
-          ball:clear_collision_tests()
           return
         end
         bounce_count = bounce_count + 1
@@ -236,6 +258,7 @@ local function start_carrying()
   ball_sprite:set_xy(0, 0)
   movement:start(ball_sprite)
   sprite:set_animation("carrying")
+  enemy:bring_to_front() -- Ensure the enemy is displayed over the carraible shadow.
 
   -- Make three little jumps when carrying finished then start throwing the ball.
   local function jump_before_throwing(jump_count)
@@ -248,17 +271,13 @@ local function start_carrying()
     end)
   end
   function movement:on_finished()
+    is_ball_controlled_by_enemy = true
     is_ball_carried_by_enemy = true
     jump_before_throwing(0)
   end
 
   -- Make the ball not carriable by the hero and hurt him on touched.
   ball:set_weight(-1) -- Avoid the ball to be lifted by the hero.
-  ball:add_collision_test("sprite", function(ball, entity)
-    if entity:get_type() == "hero" and not entity:is_blinking() then
-      entity:start_hurt(ball, enemy:get_damage())
-    end
-  end)
   ball:set_traversable_by("hero", true)
   ball:set_can_traverse("hero", true)
 end
@@ -298,7 +317,7 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_size(48, 48)
   enemy:set_origin(24, 45)
   enemy:start_shadow("enemies/boss/armos_knight/shadow") -- TODO Create a specific shadow.
-  enemy:set_drawn_in_y_order(false) -- Display the legs and body part as a flat entity.
+  enemy:set_drawn_in_y_order(false) -- Display the enemy as a flat entity to ensure the ball is always displayed over it.
 
   create_ball()
 end)
