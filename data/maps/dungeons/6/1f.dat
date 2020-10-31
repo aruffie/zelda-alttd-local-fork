@@ -20259,9 +20259,9 @@ crystal_block{
 
 custom_entity{
   layer = 0,
-  x = 1736,
+  x = 1696,
   y = 1325,
-  width = 16,
+  width = 32,
   height = 32,
   direction = 0,
   sprite = "entities/destructibles/statue_elephant",
@@ -20270,11 +20270,11 @@ custom_entity{
 
 custom_entity{
   layer = 0,
-  x = 1784,
+  x = 1808,
   y = 1325,
-  width = 16,
+  width = 32,
   height = 32,
-  direction = 0,
+  direction = 2,
   sprite = "entities/destructibles/statue_elephant",
   model = "heavy_object",
 }
@@ -20555,7 +20555,7 @@ custom_entity{
   layer = 0,
   x = 1480,
   y = 1573,
-  width = 16,
+  width = 32,
   height = 32,
   direction = 0,
   sprite = "entities/destructibles/statue_elephant",
@@ -20564,9 +20564,9 @@ custom_entity{
 
 custom_entity{
   layer = 0,
-  x = 1400,
-  y = 1605,
-  width = 16,
+  x = 1384,
+  y = 1589,
+  width = 32,
   height = 32,
   direction = 0,
   sprite = "entities/destructibles/statue_elephant",
@@ -20575,31 +20575,20 @@ custom_entity{
 
 custom_entity{
   layer = 0,
-  x = 904,
-  y = 1309,
-  width = 16,
+  x = 896,
+  y = 1293,
+  width = 32,
   height = 32,
-  direction = 0,
+  direction = 2,
   sprite = "entities/destructibles/statue_elephant",
   model = "heavy_object",
 }
 
 custom_entity{
   layer = 0,
-  x = 888,
-  y = 1309,
-  width = 16,
-  height = 32,
-  direction = 0,
-  sprite = "entities/destructibles/statue_elephant",
-  model = "heavy_object",
-}
-
-custom_entity{
-  layer = 0,
-  x = 856,
-  y = 1309,
-  width = 16,
+  x = 848,
+  y = 1293,
+  width = 32,
   height = 32,
   direction = 0,
   sprite = "entities/destructibles/statue_elephant",
@@ -20609,7 +20598,7 @@ custom_entity{
 chest{
   name = "chest_rupee_1",
   layer = 0,
-  x = 872,
+  x = 880,
   y = 1309,
   treasure_name = "rupee",
   treasure_variant = 4,
@@ -20620,8 +20609,8 @@ chest{
 custom_entity{
   layer = 0,
   x = 792,
-  y = 1005,
-  width = 16,
+  y = 1013,
+  width = 32,
   height = 32,
   direction = 0,
   sprite = "entities/destructibles/statue_elephant",
@@ -20721,18 +20710,18 @@ custom_entity{
   layer = 0,
   x = 136,
   y = 333,
-  width = 16,
+  width = 32,
   height = 32,
-  direction = 0,
+  direction = 2,
   sprite = "entities/destructibles/statue_elephant",
   model = "heavy_object",
 }
 
 custom_entity{
   layer = 0,
-  x = 104,
+  x = 88,
   y = 333,
-  width = 16,
+  width = 32,
   height = 32,
   direction = 0,
   sprite = "entities/destructibles/statue_elephant",
@@ -20742,21 +20731,10 @@ custom_entity{
 custom_entity{
   layer = 0,
   x = 1832,
-  y = 605,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/destructibles/statue_elephant",
-  model = "heavy_object",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1688,
-  y = 605,
-  width = 16,
-  height = 16,
-  direction = 0,
+  y = 589,
+  width = 32,
+  height = 32,
+  direction = 2,
   sprite = "entities/destructibles/statue_elephant",
   model = "heavy_object",
 }
@@ -20764,20 +20742,9 @@ custom_entity{
 custom_entity{
   layer = 0,
   x = 1672,
-  y = 605,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/destructibles/statue_elephant",
-  model = "heavy_object",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1848,
-  y = 605,
-  width = 16,
-  height = 16,
+  y = 589,
+  width = 32,
+  height = 32,
   direction = 0,
   sprite = "entities/destructibles/statue_elephant",
   model = "heavy_object",
@@ -20821,35 +20788,24 @@ enemy{
 
 custom_entity{
   layer = 0,
-  x = 456,
+  x = 440,
   y = 1117,
-  width = 16,
-  height = 16,
+  width = 32,
+  height = 32,
   direction = 0,
   sprite = "entities/destructibles/statue_elephant",
-  model = "heavy_object",
-}
-
-custom_entity{
-  layer = 0,
-  x = 488,
-  y = 1277,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/destructibles/statue_elephant",
-  model = "heavy_object",
+  model = "statue_elephant",
 }
 
 custom_entity{
   layer = 0,
   x = 472,
   y = 1277,
-  width = 16,
-  height = 16,
+  width = 32,
+  height = 32,
   direction = 0,
   sprite = "entities/destructibles/statue_elephant",
-  model = "heavy_object",
+  model = "statue_elephant",
 }
 
 destructible{
@@ -22705,9 +22661,9 @@ block{
 
 custom_entity{
   layer = 0,
-  x = 792,
-  y = 813,
-  width = 16,
+  x = 784,
+  y = 797,
+  width = 32,
   height = 32,
   direction = 0,
   sprite = "entities/destructibles/statue_elephant",
@@ -24222,8 +24178,8 @@ sensor{
 
 pickable{
   layer = 0,
-  x = 1752,
-  y = 1309,
+  x = 1760,
+  y = 1317,
   treasure_name = "small_key",
 }
 
@@ -25136,13 +25092,13 @@ enemy{
 
 custom_entity{
   layer = 0,
-  x = 472,
+  x = 488,
   y = 1117,
-  width = 16,
-  height = 16,
-  direction = 0,
+  width = 32,
+  height = 32,
+  direction = 2,
   sprite = "entities/destructibles/statue_elephant",
-  model = "heavy_object",
+  model = "statue_elephant",
 }
 
 enemy{
@@ -27914,6 +27870,15 @@ tile{
   tileset = "addition/dungeon",
 }
 
+tile{
+  layer = 1,
+  x = 1112,
+  y = 640,
+  width = 32,
+  height = 8,
+  pattern = "barrier.1-1",
+}
+
 chest{
   name = "chest_power_bracelet",
   layer = 1,
@@ -28805,7 +28770,7 @@ npc{
   y = 653,
   direction = 3,
   subtype = 1,
-  sprite = "npc/statues/owl_dungeon_6",
+  sprite = "npc/statues/owl_dungeon",
 }
 
 custom_entity{

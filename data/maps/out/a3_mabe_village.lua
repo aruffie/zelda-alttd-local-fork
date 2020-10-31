@@ -189,12 +189,19 @@ function map:talk_to_fishman()
   fishman_sprite:set_direction(direction4)
   game:start_dialog("maps.out.mabe_village.fishman_1", function(answer)
     if answer == 1 then
--- TODO pay1
-      game:start_dialog("maps.out.mabe_village.fishman_2", function()
-        fishman_sprite:set_animation("walking")
-        fishman_sprite:set_direction(2)
-        map:get_hero():teleport("sideviews/mabe_village/sideview_1", "pond_side")
-      end)
+      if game:get_money() >= 10 then
+        game:remove_money(10)
+        game:start_dialog("maps.out.mabe_village.fishman_2", function()
+          fishman_sprite:set_animation("walking")
+          fishman_sprite:set_direction(2)
+          map:get_hero():teleport("sideviews/mabe_village/sideview_1", "pond_side")
+        end)
+      else
+        game:start_dialog("maps.out.mabe_village.fishman_not_enough_money", function()
+          fishman_sprite:set_animation("walking")
+          fishman_sprite:set_direction(2)
+        end)
+      end
     else
       game:start_dialog("maps.out.mabe_village.fishman_3", function()
         fishman_sprite:set_animation("walking")
