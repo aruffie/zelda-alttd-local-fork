@@ -418,6 +418,7 @@ sprite{ id = "entities/claw_up", description = "Claw up" }
 sprite{ id = "entities/crystal", description = "Crystal" }
 sprite{ id = "entities/crystal_block", description = "Crystal block" }
 sprite{ id = "entities/decorations/background_introduction", description = "Background introduction" }
+sprite{ id = "entities/decorations/big_torch", description = "Big Torch" }
 sprite{ id = "entities/decorations/bubble_lava", description = "Bubble lava" }
 sprite{ id = "entities/decorations/bubble_swamp", description = "Bubble swamp" }
 sprite{ id = "entities/decorations/fire", description = "Fire" }
@@ -2736,6 +2737,7 @@ file{ path = "sprites/enemies/vegas.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/zols_gels.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/zombie.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/zora.png", license = "Proprietary, Fair use" }
+file{ path = "sprites/entities/decorations/big_torch.dat", author = "JulioTanaka", }
 file{ path = "sprites/entities/doors/door_b_wallturn_dungeon_1.dat", author = "JulioTanaka", }
 file{ path = "sprites/entities/doors/door_b_wallturn_dungeon_10.dat", author = "JulioTanaka", }
 file{ path = "sprites/entities/doors/door_b_wallturn_dungeon_2.dat", author = "JulioTanaka", }
