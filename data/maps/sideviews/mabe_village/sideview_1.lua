@@ -25,11 +25,15 @@ local bitten_fish
 local function make_fish(size, x, y, layer, catch_callback)
 
   local fish = map:create_custom_entity{
-    x=x, y=y, layer=layer,
-    direction=0,
-    width=16, height=16,
-    sprite=string.format("entities/animals/fishing_%s_fish", size)
+    x = x,
+    y = y,
+    layer = layer,
+    direction = 0,
+    width = 16,
+    height = 16,
+    sprite = string.format("entities/animals/fishing_%s_fish", size)
   }
+  fish:set_origin(8, 13)
   fish.catch_callback = catch_callback
 
   local stroll_speed = 12
@@ -107,7 +111,7 @@ local function make_fish(size, x, y, layer, catch_callback)
     mov:set_angle(mov:get_angle() + math.pi)
   end
 
-  fish:add_collision_test('sprite', function(this, other)
+  fish:add_collision_test("sprite", function(this, other)
     if other == ledger_hook and fish.chasing and bitten_fish == nil then
       -- was chasing and reached ledger, bite !
       fish:cancel_timers()
@@ -117,8 +121,8 @@ local function make_fish(size, x, y, layer, catch_callback)
 
       -- fix fish position to ledger position
       function ledger_hook:on_position_changed()
-        local x,y = ledger_hook:get_position()
-        fish:set_position(x-4, y+4)
+        local x, y = ledger_hook:get_position()
+        fish:set_position(x - 4, y + 4)
         sprite:set_direction(0)
       end
       bitten_fish = fish
@@ -193,12 +197,15 @@ local function start_rest()
     ledger_hook:remove()
   end
   ledger_hook = map:create_custom_entity{
-    x = x - 18, y = y + 8, layer = l,
-    width = 8, height = 8,
+    x = x - 18,
+    y = y + 8,
+    layer = l,
+    width = 8,
+    height = 8,
     direction = 0,
     sprite = "entities/ledger_hook",
   }
-  ledger_hook:set_origin(8, 8)
+  ledger_hook:set_origin(4, 5)
   ledger_sprite = ledger_hook:get_sprite()
   ledger_sprite:set_animation("move")
   hero:set_animation("fishing_stopped")
@@ -362,7 +369,9 @@ local function play_again_or_leave(dialog_id)
         game:remove_money(10)
         return
       else
-        game:start_dialog("maps.sideviews.mabe_village.sideview_1.not_enough_money")
+        game:start_dialog("maps.out.mabe_village.fishman_not_enough_money")
+        hero:teleport("out/a3_mabe_village", "from_fishing_game")
+        return
       end
     end
 
