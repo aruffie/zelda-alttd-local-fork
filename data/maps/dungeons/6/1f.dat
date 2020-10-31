@@ -22411,8 +22411,8 @@ stream{
 destination{
   name = "dungeon_6_1_B",
   layer = 0,
-  x = 1736,
-  y = 917,
+  x = 1120,
+  y = 1653,
   direction = 1,
 }
 
@@ -24861,6 +24861,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/misc/horse_head",
+  model = "dice",
 }
 
 custom_entity{
@@ -24872,6 +24873,7 @@ custom_entity{
   height = 16,
   direction = 2,
   sprite = "entities/misc/horse_head",
+  model = "dice",
 }
 
 custom_entity{
@@ -24883,6 +24885,7 @@ custom_entity{
   height = 16,
   direction = 2,
   sprite = "entities/misc/horse_head",
+  model = "dice",
 }
 
 custom_entity{
@@ -24894,6 +24897,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/misc/horse_head",
+  model = "dice",
 }
 
 enemy{
@@ -25264,7 +25268,7 @@ destination{
 wall{
   layer = 0,
   x = 1112,
-  y = 1624,
+  y = 1640,
   width = 16,
   height = 16,
   stops_npcs = true,

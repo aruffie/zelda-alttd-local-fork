@@ -112,7 +112,7 @@ function carriable_behavior.apply(carriable, properties)
       entity:set_can_traverse("hero", false)
       return
     end
-    sol.timer.start(10, function() -- Retry later.
+    sol.timer.start(entity, 10, function() -- Retry later.
       set_hero_not_traversable_safely(entity)
     end)
   end
@@ -252,7 +252,6 @@ function carriable_behavior.apply(carriable, properties)
 
     -- Function called when the carriable has fallen.
     local function finish_bounce()
-      carriable:clear_collision_tests()
       carriable:stop_movement()
       set_animation_if_exists("stopped")
       if carriable.on_finish_throw then

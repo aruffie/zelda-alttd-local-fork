@@ -3079,10 +3079,7 @@ dialog{
   question = "1",
   text = [[
 Une partie de pêche, mon gars ?
-
 Ça ne te coûtera que 10 rubis... 
-
-
 Oui
 Non
 ]],
@@ -3092,7 +3089,7 @@ dialog{
   id = "maps.out.mabe_village.fishman_2",
   text = [[
 Avec  \[arrow_left\]  et  \[arrow_right\], évalue la distance de ton lancer.  
-Dès que le poisson est ferré, presse vite la touche ÉPÉE pour le remonter !
+Dès que le poisson est ferré, presse vite la touche Action pour le remonter !
 ]],
 }
 
@@ -3101,6 +3098,13 @@ dialog{
   text = [[
 Vis ta vie !     
 Sois un peu plus motivé !
+]],
+}
+
+dialog{
+  id = "maps.out.mabe_village.fishman_not_enough_money",
+  text = [[
+Tu n'as pas assez de rubis. Reviens quand tu seras plus fortuné, petit gars !
 ]],
 }
 
@@ -3848,13 +3852,6 @@ dialog{
   text = [[
 Vis ta vie !
 Sois un peu plus motivé !
-]],
-}
-
-dialog{
-  id = "maps.sideviews.mabe_village.sideview_1.not_enough_money",
-  text = [[
-Tu n'as pas assez de rubis. Reviens quand tu seras plus fortuné, petit gars!
 ]],
 }
 
