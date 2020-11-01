@@ -3,7 +3,7 @@
 -- Chicken.
 --
 -- Chicken enemy that can moves into 8 directions and run away on hit one time.
--- Make all chickens of the map fly to the hero on hurt many times.
+-- Make all chickens of the map fly to the hero when hurt too many times.
 --
 -- Methods: enemy:set_angry()
 --
@@ -64,7 +64,7 @@ end
 local function start_jumping(angle, speed, count, on_finished_callback)
 
   local movement = enemy:start_jumping(jumping_duration, jumping_height, angle, speed, function()
-    if count > 0 then
+    if count > 1 then
       start_jumping(angle, speed, count - 1, on_finished_callback)
     else
       on_finished_callback()
@@ -158,7 +158,7 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_hero_weapons_reactions(on_attack_received, {jump_on = "ignored"})
 
   -- States.
-  enemy:set_damage(is_angry and 2 or 0)
+  enemy:set_damage(2)
   enemy:set_can_attack(is_angry)
   enemy:set_layer_independent_collisions(true)
   if not is_angry then
