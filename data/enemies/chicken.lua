@@ -25,15 +25,17 @@ local is_angry = false
 local hurt_count = 0
 
 -- Configuration variables
-local walking_angles = {0, eighth, 2.0 * eighth, 3.0 * eighth, 4.0 * eighth, 5.0 * eighth, 6.0 * eighth, 7.0 * eighth}
-local walking_speed = 40
-local walking_minimum_distance = 16
-local walking_maximum_distance = 96
-local running_speed = 64
+local jumping_angles = {0, eighth, 2.0 * eighth, 3.0 * eighth, 4.0 * eighth, 5.0 * eighth, 6.0 * eighth, 7.0 * eighth}
+local jumping_speed = 40
+local jumping_away_speed = 64
+local jumping_minimum_count = 4
+local jumping_maximum_count = 8
+local jumping_duration = 200
+local jumping_height = 4
 local pause_duration = 500
-local pecking_probability = 0.5
+local pecking_probability = 0.66
 local pecking_duration = 2000
-local hurt_count_before_angry = 2
+local hurt_count_before_angry = 20
 local take_off_duration = 1000
 local flying_height = 24
 local flying_speed = 160
@@ -50,48 +52,40 @@ local function get_random_position_on_screen_border()
           y + math.min(height, math.max(0, random_point - width) % mid_point)
 end
 
--- Make the enemy run away on hurt and make all chicken attacks on too much hit received.
+-- Make the enemy run away on hurt and increase the hurt count.
 local function on_attack_received()
 
   is_afraid = true
   hurt_count = hurt_count + 1
-  if not is_angry and hurt_count >= hurt_count_before_angry then
-    for chicken in map:get_entities_by_type("enemy") do
-      if chicken:get_breed() == enemy:get_breed() then
-        chicken:start_angry()
-      end
+  enemy:hurt(0)
+end
+
+-- Start the enemy jumping movement.
+local function start_jumping(angle, speed, count, on_finished_callback)
+
+  local movement = enemy:start_jumping(jumping_duration, jumping_height, angle, speed, function()
+    if count > 0 then
+      start_jumping(angle, speed, count - 1, on_finished_callback)
+    else
+      on_finished_callback()
     end
-  else
-    enemy:hurt(0)
-  end
+  end)
+  sprite:set_animation("jumping")
+  sprite:set_direction(angle > quarter and angle < 3.0 * quarter and 2 or 0)
 end
 
--- Start the enemy run away movement.
-local function start_running_away()
+-- Start the enemy jumping away movement.
+local function start_jumping_away()
 
-  local movement = enemy:start_straight_walking(0, running_speed)
-  sprite:set_animation("running")
-
-  local function update_angle()
-    local angle = hero:get_angle(enemy)
-    movement:set_angle(angle)
-    sprite:set_direction(angle > quarter and angle < 3.0 * quarter and 2 or 0)
-  end
-  update_angle()
-
-  function movement:on_position_changed()
-    update_angle()
-  end
-  function movement:on_obstacle_reached()
-    update_angle()
-  end
+  start_jumping(hero:get_angle(enemy), jumping_away_speed, 1, function()
+    start_jumping_away()
+  end)
 end
 
--- Start the enemy walk movement.
-local function start_walking()
+-- Start the enemy random jumping movement.
+local function start_random_jumping()
 
-  local angle = walking_angles[math.random(8)]
-  enemy:start_straight_walking(angle, walking_speed, math.random(walking_minimum_distance, walking_maximum_distance), function()
+  start_jumping(jumping_angles[math.random(8)], jumping_speed, math.random(jumping_minimum_count, jumping_maximum_count), function()
     sol.timer.start(enemy, pause_duration, function()
       if math.random() < pecking_probability then
         sprite:set_animation("pecking")
@@ -106,8 +100,6 @@ local function start_walking()
       end
     end)
   end)
-  sprite:set_animation("walking")
-  sprite:set_direction(angle > quarter and angle < 3.0 * quarter and 2 or 0)
 end
 
 -- Make the enemy fly to the hero.
@@ -131,7 +123,7 @@ function enemy:start_angry()
 
   enemy:stop_movement()
   sol.timer.stop_all(enemy)
-  enemy:set_invincible()
+  enemy:set_hero_weapons_reactions("protected")
   enemy:set_layer(map:get_max_layer())
   enemy:set_obstacle_behavior("flying")
   sprite:set_animation("flying")
@@ -170,10 +162,21 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_can_attack(is_angry)
   enemy:set_layer_independent_collisions(true)
   if not is_angry then
+
+    -- Start making all chickens of the map angry if the hurt count is too high.
+    if hurt_count >= hurt_count_before_angry then
+      for chicken in map:get_entities_by_type("enemy") do
+        if chicken:get_breed() == enemy:get_breed() then
+          chicken:start_angry()
+        end
+      end
+      return
+    end
+
     if not is_afraid then
-      start_walking()
+      start_random_jumping()
     else
-      start_running_away()
+      start_jumping_away()
     end
   else
     enemy:start_angry()

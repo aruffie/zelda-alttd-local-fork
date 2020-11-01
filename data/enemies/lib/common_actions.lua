@@ -7,7 +7,6 @@
 --           enemy:is_aligned(entity, thickness, [sprite])
 --           enemy:is_near(entity, triggering_distance, [sprite])
 --           enemy:is_entity_in_front(entity, [front_angle, [sprite]])
---           enemy:is_leashed_by(entity)
 --           enemy:is_over_grounds(grounds)
 --           enemy:is_watched([sprite, [fully_visible]])
 --           enemy:get_central_symmetry_position(x, y)
@@ -104,11 +103,6 @@ function common_actions.learn(enemy)
 
     -- Check the difference on the cosinus axis to easily consider angles from enemy to hero like pi and 3pi as the same.
     return math.cos(math.abs(sprite:get_direction() * quarter - enemy:get_angle(entity))) >= math.cos(front_angle / 2.0)
-  end
-
-  -- Return true if the enemy is currently leashed by the entity with enemy:start_leashed_by().
-  function enemy:is_leashed_by(entity)
-    return leashing_timers[entity] ~= nil
   end
 
   -- Return true if the four corners of the enemy are over one of the given ground, not necessarily the same.
