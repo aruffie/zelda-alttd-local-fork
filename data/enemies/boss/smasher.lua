@@ -2,15 +2,8 @@
 --
 -- Smasher.
 --
--- Hop to be horizontally aligned with the hero and randomly throw three to five sai, then start charging.
--- Hit the wall and be vulnerable if the charge started too close of a wall, else start a search animation and restart.
--- Slightly increase the speed each time the enemy is hurt.
---
---
--- Methods : enemy:start_moving()
---           enemy:start_throwing()
---           enemy:start_charging()
---           enemy:start_searching()
+-- Enemy that throw a ball to the hero to hurt him, then run to the ball to do it again.
+-- Can be hurt by carrying the ball before he does and throw it to him.
 --
 ----------------------------------
 
@@ -34,7 +27,7 @@ local throwing_timer
 -- Configuration variables
 local ball_initial_offset_x = 80
 local ball_initial_offset_y = 48
-local jumping_speed = 80
+local jumping_speed = 88
 local jumping_height = 6
 local jumping_duration = 200
 local jumping_speed_while_carrying = 20
@@ -43,11 +36,6 @@ local jump_count_before_throwing = 3
 local throwing_speeds = {240, 40, 20}
 local throwing_durations = {600, 160, 70}
 local throwing_heights = {carrying_height, 4, 2}
-
--- Return the result of the xor operation.
-local function xor(a, b)
-  return (a or b) and not (a and b)
-end
 
 -- Create the ball and related events.
 local function create_ball()
@@ -73,7 +61,7 @@ local function create_ball()
   end)
   ball_sprite = ball:get_sprite()
 
-  -- Make the ball welded to the enemy on carried.
+  -- Make the ball welded to the enemy when carried.
   enemy:register_event("on_position_changed", function(enemy, x , y, layer)
     if is_ball_carried_by_enemy then
       ball:set_position(x, y, layer)
@@ -107,8 +95,13 @@ local function set_hero_not_traversable_safely()
   end)
 end
 
--- Return the normal angle of close obstacles as a multiple of pi/4, or nil if none.
-local function get_obstacles_normal_angle(entity)
+-- Return the angle after bouncing against close obstacles towards the given angle, or nil if no obstacles.
+local function get_obstacles_bounce_angle(entity, angle)
+
+  -- Return the result of the xor operation.
+  local function xor(a, b)
+    return (a or b) and not (a and b)
+  end
 
   local collisions = {
     [0] = entity:test_obstacles(-1,  0),
@@ -132,17 +125,6 @@ local function get_obstacles_normal_angle(entity)
   local normal_angle
   for direction8 = 0, 7 do
     normal_angle = normal_angle or check_normal_angle(direction8)
-  end
-
-  return normal_angle
-end
-
--- Return the angle after bouncing against close obstacles towards the given angle, or nil if no obstacles.
-local function get_obstacles_bounce_angle(entity, angle)
-
-  local normal_angle = get_obstacles_normal_angle(entity)
-  if not normal_angle then
-    return
   end
 
   return (2.0 * normal_angle - angle + math.pi) % circle
@@ -264,7 +246,7 @@ local function start_carrying()
   movement:set_ignore_obstacles(true)
   movement:set_delay(100)
 
-  -- Clear the previous throw if the ball is catched before it finished normally.
+  -- Clean the previous throw if the ball is catched before it finished normally.
   finish_throw()
 
   -- Initialize the carrying.
@@ -272,7 +254,8 @@ local function start_carrying()
   ball_sprite:set_xy(0, 0)
   movement:start(ball_sprite)
   sprite:set_animation("carrying")
-  enemy:bring_to_front() -- Ensure the enemy is displayed over the carraible shadow.
+  enemy:set_drawn_in_y_order(false) -- Display the enemy as a flat entity to make sure the ball is displayed over it.
+  enemy:bring_to_front() -- Ensure the enemy is displayed over the ball shadow.
 
   -- Make three little jumps when carrying finished then start throwing the ball.
   local function jump_before_throwing(jump_count)
@@ -300,7 +283,7 @@ end
 local function start_panicking()
 
   sprite:set_animation("panicking")
-  start_jumping(math.random() * math.pi, jumping_speed, function()
+  start_jumping(math.random() * circle, jumping_speed, function()
     enemy:restart()
   end)
 end
@@ -328,10 +311,9 @@ end)
 enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(4)
-  enemy:set_size(48, 48)
-  enemy:set_origin(24, 45)
+  enemy:set_size(40, 24)
+  enemy:set_origin(20, 21)
   enemy:start_shadow("enemies/boss/armos_knight/shadow") -- TODO Create a specific shadow.
-  enemy:set_drawn_in_y_order(false) -- Display the enemy as a flat entity to ensure the ball is always displayed over it.
 
   create_ball()
 end)
@@ -343,7 +325,7 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_hero_weapons_reactions("protected", {thrown_item = function() hurt(1) end})
   enemy:set_can_attack(true)
   enemy:set_damage(4)
-  enemy:set_pushed_back_when_hurt(false)
+  enemy:set_drawn_in_y_order()
   if not is_ball_controlled_by_hero then
     if not enemy:overlaps(ball, "touching") then
       start_moving_to_ball()

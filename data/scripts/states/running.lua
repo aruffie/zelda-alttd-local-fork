@@ -93,7 +93,7 @@ local function begin_run()
   -- Trigger the thrust attack when collision between any sprite of the hero and an enemy.
   function running_movement:on_position_changed()
     for enemy in map:get_entities_by_type("enemy") do
-      if entity:overlaps(enemy, "sprite") and enemy:get_life() > 0 and not enemy:is_immobilized() then
+      if enemy:overlaps(entity, "sprite") and enemy:get_life() > 0 and not enemy:is_immobilized() then
 
         -- TODO Check original behavior on protected enemies like helmasaur.
         local reaction = enemy:get_thrust_reaction()

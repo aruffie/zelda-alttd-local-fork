@@ -11508,6 +11508,25 @@ enemy{
   treasure_name = "random_with_charm",
 }
 
+destination{
+  name = "dungeon_6_2_A",
+  layer = 1,
+  x = 80,
+  y = 109,
+  direction = 1,
+}
+
+teletransporter{
+  name = "dungeon_6_1_A",
+  layer = 1,
+  x = 72,
+  y = 80,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/6/1f",
+  destination = "dungeon_6_1_B",
+}
+
 tile{
   layer = 2,
   x = 80,
