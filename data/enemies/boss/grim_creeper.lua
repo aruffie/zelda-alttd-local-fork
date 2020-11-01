@@ -23,11 +23,13 @@ local quarter = math.pi * 0.5
 local bats = {}
 local current_step = 0
 local round_count = 0
+local is_ready = false
 
 -- Configuration variables.
+local incoming_duration = 700
 local waiting_time = 1000
 local invoking_time = 600
-local before_throwing_time = 1500
+local additional_playing_time = 1000
 local throwing_time = 600
 local escaping_speed = 280
 local bat_positions = { -- [step][bat][start_x, start_y, x, y], all positions relative to the camera position.
@@ -57,6 +59,25 @@ local function create_bat(x, y)
   return bat
 end
 
+-- Start an incoming animation.
+local function start_incoming()
+
+  is_ready = true
+
+  local _, y, layer = enemy:get_position()
+  local _, camera_y = map:get_camera():get_position()
+  sprite:set_animation("jumping")
+  sprite:set_direction(0)
+
+  -- Fall from ceiling, displaying the enemy on the higher layer during the fall.
+  sprite:set_xy(0, camera_y - y) -- Move the enemy to the start position right now to ensure it won't be visible before the beginning of the fall.
+  enemy:set_layer(map:get_max_layer())
+  enemy:start_throwing(enemy, incoming_duration, y - camera_y, nil, nil, nil, function()
+    enemy:set_layer(layer)
+    enemy:restart()
+  end)
+end
+
 -- Start an escape animation then make the boss die silently.
 local function start_escaping()
 
@@ -69,8 +90,9 @@ local function start_escaping()
   movement:set_angle(quarter)
   movement:set_speed(escaping_speed)
   movement:set_ignore_obstacles(true)
-  movement:start(enemy)
+  movement:start(sprite)
   enemy:set_layer(map:get_max_layer())
+  sprite:set_animation("jumping")
 
   function movement:on_finished()
     enemy:start_death()
@@ -108,7 +130,9 @@ local function start_invoking(positions)
   local ready_bats_count = 0
   local killed_bats_count = 0
   local camera_x, camera_y = camera:get_position()
-  sprite:set_animation("playing")
+  sol.timer.start(enemy, invoking_time, function()
+    sprite:set_animation("playing")
+  end)
   for index, position in ipairs(positions) do
     sol.timer.start(enemy, invoking_time * index, function()
 
@@ -120,7 +144,7 @@ local function start_invoking(positions)
       bat:register_event("on_positioned", function(bat)
         ready_bats_count = ready_bats_count + 1
         if ready_bats_count == #positions then
-          sol.timer.start(enemy, before_throwing_time, function()
+          sol.timer.start(enemy, additional_playing_time, function()
             start_throwing()
           end)
         end
@@ -154,6 +178,7 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(1)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)
+  enemy:start_shadow()
 end)
 
 -- Restart settings.
@@ -163,13 +188,18 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_invincible()
   enemy:set_can_attack(false)
   enemy:set_damage(0)
-  sprite:set_animation("stopped")
-  sol.timer.start(enemy, waiting_time, function()
-    round_count = round_count + 1
-    if enemy.on_round_begin then
-      enemy:on_round_begin(round_count)
-    end
-    current_step = (current_step % #bat_positions) + 1
-    start_invoking(bat_positions[current_step])
-  end)
+
+  if is_ready then
+    sprite:set_animation("stopped")
+    sol.timer.start(enemy, waiting_time, function()
+      round_count = round_count + 1
+      if enemy.on_round_begin then
+        enemy:on_round_begin(round_count)
+      end
+      current_step = (current_step % #bat_positions) + 1
+      start_invoking(bat_positions[current_step])
+    end)
+  else
+    start_incoming()
+  end
 end)
