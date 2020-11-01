@@ -5,7 +5,8 @@
 -- Slowly move to hero, and pounce on him when close enough.
 -- Slow down the hero on touched and forbid him to use his items.
 --
--- Methods : enemy:start_walking()
+-- Methods : enemy:is_leashed_by(entity)
+--           enemy:start_walking()
 --           enemy:start_pouncing([offensive])
 --           enemy:free_hero()
 --           enemy:attach_hero()
@@ -20,7 +21,8 @@ local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
-local is_attacking, is_exhausted, is_adhesive
+local is_leashed = false
+local is_attacking, is_exhausted
 local hero_speed = hero:get_walking_speed()
 
 -- Configuration variables
@@ -39,12 +41,18 @@ local stuck_maximum_duration = 2500
 -- Return true if no enemy is currenly leashed by hero on the map.
 local function is_hero_free()
 
-  for enemy in map:get_entities_by_type("enemy") do
-    if enemy.is_leashed_by and enemy:is_leashed_by(hero) then
+  for gel in map:get_entities_by_type("enemy") do
+    if gel:get_breed() == enemy:get_breed() and gel:is_leashed_by_hero() then
       return false
     end
   end
   return true
+end
+
+-- Return true if the enemy is currently leashed by the hero.
+function enemy:is_leashed_by_hero()
+
+  return is_leashed
 end
 
 -- Start moving to the hero, and jump when he is close enough.
@@ -80,6 +88,7 @@ end
 -- Let go the hero.
 function enemy:free_hero()
 
+  is_leashed = false
   enemy:stop_leashed_by(hero)
 
   -- Restore the hero speed and weapons only if there are no more leashed gel.
@@ -90,6 +99,8 @@ end
 
 -- Make the hero slow down and unable to use weapons. 
 function enemy:attach_hero()
+
+  is_leashed = true
 
   -- Stop potential current jump and slow the hero down.
   enemy:stop_movement()
@@ -121,8 +132,7 @@ enemy:register_event("on_update", function(enemy)
   end
 
   -- If the hero touches the center of the enemy, slow him down.
-  if is_adhesive and enemy:get_life() > 0 and enemy:overlaps(hero, "origin") then
-    is_adhesive = false
+  if not is_leashed and enemy:get_life() > 0 and enemy:overlaps(hero, "origin") then
     enemy:attach_hero()
   end
 end)
@@ -150,7 +160,6 @@ enemy:register_event("on_restarted", function(enemy)
   -- States.
   is_attacking = false
   is_exhausted = true
-  is_adhesive = true
   sprite:set_xy(0, 0)
   sol.timer.start(enemy, math.random(exhausted_minimum_duration, exhausted_maximum_duration), function()
     is_exhausted = false
