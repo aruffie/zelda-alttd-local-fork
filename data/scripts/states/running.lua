@@ -99,7 +99,7 @@ local function begin_run()
         local reaction = enemy:get_thrust_reaction()
         if reaction ~= "ignored" then -- Do nothing if the enemy ignore thrust attack.
           if reaction ~= "protected" then
-            enemy:receive_attack_consequence("thrust", reaction)
+            enemy:receive_attack_consequence("thrust", reaction) -- TODO if hurt animation or shader is not running.
           elseif enemy:get_can_attack() then -- Hurt the hero if the enemy can attack and is protected against thrust attack.
             hero:start_hurt(enemy, enemy:get_damage())
           end
