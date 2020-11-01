@@ -10447,6 +10447,16 @@ tile{
   pattern = "988",
 }
 
+tile{
+  layer = 1,
+  x = 568,
+  y = 120,
+  width = 112,
+  height = 8,
+  pattern = "196",
+  tileset = "addition/out",
+}
+
 wall{
   layer = 1,
   x = 152,
@@ -10937,8 +10947,8 @@ teletransporter{
 
 enemy{
   layer = 1,
-  x = 592,
-  y = 301,
+  x = 624,
+  y = 253,
   direction = 3,
   breed = "moblin_pig_sword",
   treasure_name = "random_with_charm",
@@ -10947,7 +10957,7 @@ enemy{
 enemy{
   layer = 1,
   x = 648,
-  y = 221,
+  y = 229,
   direction = 3,
   breed = "moblin_pig_fork",
   treasure_name = "random_with_charm",
@@ -10956,7 +10966,7 @@ enemy{
 enemy{
   layer = 1,
   x = 600,
-  y = 221,
+  y = 229,
   direction = 3,
   breed = "moblin_pig_fork",
   treasure_name = "random_with_charm",
@@ -11668,24 +11678,6 @@ custom_entity{
 
 enemy{
   layer = 1,
-  x = 632,
-  y = 277,
-  direction = 3,
-  breed = "moblin_pig_fork",
-  treasure_name = "random_with_charm",
-}
-
-enemy{
-  layer = 1,
-  x = 664,
-  y = 301,
-  direction = 3,
-  breed = "moblin_pig_fork",
-  treasure_name = "random_with_charm",
-}
-
-enemy{
-  layer = 1,
   x = 352,
   y = 597,
   direction = 3,
@@ -11713,26 +11705,8 @@ enemy{
 
 enemy{
   layer = 1,
-  x = 416,
-  y = 493,
-  direction = 3,
-  breed = "moblin_pig_fork",
-  treasure_name = "random_with_charm",
-}
-
-enemy{
-  layer = 1,
-  x = 384,
-  y = 469,
-  direction = 3,
-  breed = "moblin_pig_fork",
-  treasure_name = "random_with_charm",
-}
-
-enemy{
-  layer = 1,
-  x = 432,
-  y = 445,
+  x = 440,
+  y = 381,
   direction = 3,
   breed = "moblin_pig_fork",
   treasure_name = "random_with_charm",
@@ -11809,15 +11783,6 @@ tile{
   width = 24,
   height = 8,
   pattern = "129",
-}
-
-tile{
-  layer = 2,
-  x = 576,
-  y = 72,
-  width = 96,
-  height = 48,
-  pattern = "4593",
 }
 
 tile{
@@ -13726,42 +13691,6 @@ tile{
 
 tile{
   layer = 2,
-  x = 576,
-  y = 64,
-  width = 96,
-  height = 8,
-  pattern = "4563",
-}
-
-tile{
-  layer = 2,
-  x = 568,
-  y = 72,
-  width = 8,
-  height = 48,
-  pattern = "4560",
-}
-
-tile{
-  layer = 2,
-  x = 672,
-  y = 72,
-  width = 8,
-  height = 48,
-  pattern = "4562",
-}
-
-tile{
-  layer = 2,
-  x = 576,
-  y = 120,
-  width = 96,
-  height = 8,
-  pattern = "4561",
-}
-
-tile{
-  layer = 2,
   x = 544,
   y = 168,
   width = 48,
@@ -14050,29 +13979,11 @@ tile{
 
 tile{
   layer = 2,
-  x = 544,
-  y = 112,
-  width = 48,
-  height = 8,
-  pattern = "4563",
-}
-
-tile{
-  layer = 2,
   x = 592,
   y = 120,
   width = 8,
   height = 48,
   pattern = "4562",
-}
-
-tile{
-  layer = 2,
-  x = 656,
-  y = 112,
-  width = 48,
-  height = 8,
-  pattern = "4563",
 }
 
 tile{
@@ -14400,6 +14311,34 @@ tile{
   width = 32,
   height = 16,
   pattern = "907",
+}
+
+tile{
+  layer = 2,
+  x = 568,
+  y = 64,
+  width = 112,
+  height = 56,
+  pattern = "6",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 2,
+  x = 544,
+  y = 112,
+  width = 48,
+  height = 8,
+  pattern = "4563",
+}
+
+tile{
+  layer = 2,
+  x = 656,
+  y = 112,
+  width = 48,
+  height = 8,
+  pattern = "4563",
 }
 
 wall{
@@ -14929,5 +14868,15 @@ tile{
   width = 8,
   height = 8,
   pattern = "1043",
+}
+
+tile{
+  layer = 3,
+  x = 568,
+  y = 56,
+  width = 112,
+  height = 8,
+  pattern = "128",
+  tileset = "addition/out",
 }
 
