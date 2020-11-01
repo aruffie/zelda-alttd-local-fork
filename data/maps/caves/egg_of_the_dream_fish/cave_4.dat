@@ -607,6 +607,16 @@ tile{
   tileset = "addition/dungeon",
 }
 
+tile{
+  layer = 0,
+  x = 184,
+  y = 56,
+  width = 8,
+  height = 16,
+  pattern = "187",
+  tileset = "addition/dungeon",
+}
+
 destructible{
   name = "auto_destructible_1",
   layer = 0,
@@ -1288,5 +1298,15 @@ tile{
   width = 16,
   height = 16,
   pattern = "ceiling.2",
+}
+
+tile{
+  layer = 2,
+  x = 112,
+  y = 48,
+  width = 8,
+  height = 24,
+  pattern = "100",
+  tileset = "addition/dungeon",
 }
 
