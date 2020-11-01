@@ -1134,6 +1134,16 @@ tile{
   pattern = "wall.corner_reverse.1-3",
 }
 
+tile{
+  layer = 1,
+  x = 184,
+  y = 56,
+  width = 8,
+  height = 16,
+  pattern = "187",
+  tileset = "addition/dungeon",
+}
+
 jumper{
   layer = 1,
   x = 112,
