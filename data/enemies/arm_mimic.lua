@@ -25,33 +25,41 @@ local function on_sword_attack_received(damage)
 
   elseif not is_pushed_back then
     is_pushed_back = true
-    enemy:start_pushed_back(hero, 200, 100, sprite, nil, function()
+    enemy:start_pushed_back(hero, 250, 120, sprite, nil, function()
       is_pushed_back = false
     end)
   end
 end
 
--- Copy and reverse hero moves if he is moving, not hurt and if the enemy not dying.
-hero:register_event("on_movement_changed", function(hero)
-
-  if not enemy:exists() or not enemy:is_enabled() then
-    return
-  end
+-- Reverse the hero movement if he is moving, not hurt and if the enemy not dying.
+local function reverse_move()
 
   local movement = hero:get_movement()
   if movement and movement:get_speed() > 0 and hero:get_state() ~= "hurt" and enemy:get_life() > 0 then
     enemy:start_straight_walking(movement:get_angle() + math.pi, movement:get_speed())
     sprite:set_direction((movement:get_direction4() + 2) % 4) -- Always keep the hero opposite movement direction, not sprite direction.
   else
-    enemy:restart()
+    enemy:stop_movement()
+    sprite:set_animation("immobilized")
   end
+end
+
+-- Copy and reverse hero moves on movement changed.
+hero:register_event("on_movement_changed", function(hero)
+
+  if not enemy:exists() or not enemy:is_enabled() then
+    return
+  end
+
+  reverse_move()
 end)
 
 -- Workaround: Stop the enemy on hero states that doesn't trigger hero:on_movement_changed() event.
 hero:register_event("on_state_changing", function(hero, state_name, next_state_name)
 
   if next_state_name == "sword swinging" then
-    enemy:restart()
+    enemy:stop_movement()
+    sprite:set_animation("immobilized")
   end
 end)
 
@@ -74,8 +82,7 @@ enemy:register_event("on_restarted", function(enemy)
     jump_on = "ignored"})
 
   -- States.
-  sprite:set_animation("immobilized")
-  enemy:stop_movement()
+  reverse_move() -- Reverse move on restarted in case the hero is already running when the map is loaded or separator crossed.
   enemy:set_can_attack(true)
   enemy:set_damage(12)
 end)
