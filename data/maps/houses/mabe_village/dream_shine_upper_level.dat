@@ -562,17 +562,8 @@ destination{
   name = "dream_shine_lower_1_A",
   layer = 0,
   x = 136,
-  y = 109,
-  direction = 2,
-}
-
-npc{
-  name = "bed_npc",
-  layer = 0,
-  x = 152,
   y = 117,
-  direction = 3,
-  subtype = 1,
+  direction = 2,
 }
 
 custom_entity{
@@ -590,7 +581,7 @@ custom_entity{
   name = "placeholder_link_sleep",
   layer = 0,
   x = 160,
-  y = 117,
+  y = 109,
   width = 16,
   height = 16,
   direction = 0,
@@ -690,6 +681,16 @@ custom_entity{
   direction = 0,
   sprite = "entities/decorations/big_torch",
   model = "torch",
+}
+
+custom_entity{
+  name = "bed_entrance",
+  layer = 0,
+  x = 152,
+  y = 109,
+  width = 32,
+  height = 24,
+  direction = 0,
 }
 
 tile{
