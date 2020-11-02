@@ -14,6 +14,25 @@ map:register_event("on_started", function(map, destination)
   -- Entities
   map:init_map_entities()
 
+  -- Make the hero jump to bed and launch the cinematic when facing the bed.
+  bed_entrance:add_collision_test("facing", function(bed_entrance, entity)
+    if entity:get_type() == "hero" then
+
+      bed_entrance:clear_collision_tests()
+      hero:freeze()
+      game:get_item("feather"):start_using()
+
+      local movement = sol.movement.create("target")
+      movement:set_speed(88)
+      movement:set_target(placeholder_link_sleep)
+      movement:set_ignore_obstacles(true)
+      movement:start(entity)
+
+      function movement:on_finished()
+        map:launch_cinematic_1()
+      end
+    end
+  end)
 end)
 
 -- Initialize the music of the map
@@ -31,13 +50,6 @@ function map:init_map_entities()
     torch:set_lit(true)
   end
   
-end
-
--- NPCs events
-function bed_npc:on_interaction()
-
-  map:launch_cinematic_1()
-
 end
 
 -- Cinematics
@@ -59,25 +71,25 @@ function map:launch_cinematic_1()
     local timer = sol.timer.start(map, 6000, function()
       sol.audio.stop_music()
     end)
-    wait(500)
     hero:set_enabled(false)
     bed:get_sprite():set_animation("hero_goes_to_bed")
     timer:set_suspended_with_map(false)
+    wait(1000)
     bed:get_sprite():set_animation("hero_sleeping")
     snores:set_enabled(true)
-    wait(500)
+    wait(1000)
     for torch in map:get_entities("light_torch_1") do
       torch:set_lit(false)
     end
-    wait(500)
+    wait(250)
     for torch in map:get_entities("light_torch_2") do
       torch:set_lit(false)
     end
-    wait(500)
+    wait(250)
     for torch in map:get_entities("light_torch_3") do
       torch:set_lit(false)
     end
-    wait(500)
+    wait(250)
     for torch in map:get_entities("light_torch_4") do
       torch:set_lit(false)
     end
