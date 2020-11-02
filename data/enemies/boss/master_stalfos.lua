@@ -3,7 +3,7 @@
 -- Master Stalfos.
 --
 -- Start by falling from the ceiling, then strike, walk or jump to hero depending on the distance between them.
--- The body part is invicible and doesn't hurt, the shield and the sword parts are also invicible and hurt, and the head one is vulnerable and hurt.
+-- The body part is invicible and hurtless, the shield and the sword parts are also invicible and hurtful, and the head one is vulnerable and hurtful.
 -- Can only be defeated by a sword hit on the head to make it collapse, then an explosion that touches the body or head part.
 -- May escape during the fight by calling the corresponding method from outside this script.
 --

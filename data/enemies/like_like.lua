@@ -21,6 +21,7 @@ local map = enemy:get_map()
 local hero = map:get_hero()
 local hero_sprite = hero:get_sprite()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+local eaten_hero, eaten_hero_sprite
 local quarter = math.pi * 0.5
 local is_eating = false
 local is_exhausted = true
@@ -41,6 +42,28 @@ local function set_sprite_opacity(sprite, opacity)
   end
 end
 
+-- Workaround : No proper way to set an unique hero animation and keep the ability to interact, use another entity instead.
+local function create_eaten_hero_entity()
+
+  local x, y, layer = enemy:get_position()
+  local entity = map:create_custom_entity({
+    sprite = hero_sprite:get_animation_set(),
+    x = x,
+    y = y,
+    layer = layer,
+    width = 16,
+    height = 16,
+    direction = hero:get_direction()
+  })
+  entity:set_visible(false)
+  entity:set_weight(-1)
+
+  local sprite = entity:get_sprite()
+  sprite:set_animation("eaten")
+
+  return entity, sprite
+end
+
 -- Start the enemy movement.
 function enemy:start_walking()
 
@@ -48,7 +71,6 @@ function enemy:start_walking()
     enemy:start_walking()
   end)
 end
-
 
 -- Steal an item and drop it when died, possibly conditionned on the variant and the assignation to a slot.
 function enemy:steal_item(item_name, variant, only_if_assigned, drop_when_dead)
@@ -76,9 +98,11 @@ function enemy:free_hero()
   is_exhausted = true
 
   -- Reset hero opacity.
+  eaten_hero:set_visible(false)
   set_sprite_opacity(hero_sprite, 255)
   set_sprite_opacity(hero:get_sprite("shadow"), 255)
   set_sprite_opacity(hero:get_sprite("shadow_override"), 255)
+  enemy:set_drawn_in_y_order(true)
 
   enemy:restart()
 end
@@ -91,10 +115,12 @@ function enemy:eat_hero()
   enemy:stop_movement()
   enemy:set_invincible()
 
-  -- Make the hero invisible, but still able to interact.
+  -- Make the hero eaten, but still able to interact.
+  eaten_hero:set_visible()
   set_sprite_opacity(hero_sprite, 0)
   set_sprite_opacity(hero:get_sprite("shadow"), 0)
   set_sprite_opacity(hero:get_sprite("shadow_override"), 0)
+  enemy:set_drawn_in_y_order(false) -- Ensure the eaten hero is drawn over the enemy.
 
   -- Eat the shield if it is the first variant and assigned to a slot.
   enemy:steal_item("shield", 1, true, true)
@@ -118,7 +144,7 @@ end)
 -- Eat the hero on attacking him.
 enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
 
-  if not is_eating and not is_exhausted and hero_sprite:get_opacity() ~= 0 then
+  if not is_eating and not is_exhausted then
     enemy:eat_hero()
   end
   return true
@@ -142,6 +168,8 @@ enemy:register_event("on_update", function(enemy)
   -- Make sure the hero is stuck while eaten even if something move him or the enemy.
   if is_eating then
     hero:set_position(enemy:get_position())
+    eaten_hero:set_position(enemy:get_position())
+    eaten_hero_sprite:set_direction(hero:get_direction())
   end
 end)
 
@@ -151,6 +179,8 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(2)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)
+
+  eaten_hero, eaten_hero_sprite = create_eaten_hero_entity()
 end)
 
 -- Restart settings.
