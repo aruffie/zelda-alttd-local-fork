@@ -7,6 +7,25 @@ require("scripts/multi_events")
 local owl_manager = require("scripts/maps/owl_manager")
 local audio_manager = require("scripts/audio_manager")
 
+-- Disable a ghini or giant ghini positioned on a grave, then wake him up when the hero touches the grave or its stairs.
+local function initialize_graves()
+
+  for grave in map:get_entities("grave_") do
+    for enemy in map:get_entities_by_type("enemy") do
+      if (enemy:get_breed() == "ghini" or enemy:get_breed() == "ghini_giant") and enemy:overlaps(grave) then
+
+        enemy:set_enabled(false)
+        grave:add_collision_test("facing", function(grave, entity)
+          if entity:get_type() == "hero" then
+            enemy:wake_up()
+            grave:clear_collision_tests()
+          end
+        end)
+      end
+    end
+  end
+end
+
 -- Map events
 map:register_event("on_started", function(map, destination)
 
@@ -17,6 +36,8 @@ map:register_event("on_started", function(map, destination)
   -- Digging
   map:set_digging_allowed(true)
 
+  -- Initialize grave connected to ghinis.
+  initialize_graves()
 end)
 
 -- Initializes Entities based on player's progress

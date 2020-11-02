@@ -55,8 +55,8 @@ local function create_eaten_hero_entity()
     height = 16,
     direction = hero:get_direction()
   })
-  entity:set_visible(false)
   entity:set_weight(-1)
+  entity:set_enabled(false)
 
   local sprite = entity:get_sprite()
   sprite:set_animation("eaten")
@@ -98,7 +98,7 @@ function enemy:free_hero()
   is_exhausted = true
 
   -- Reset hero opacity.
-  eaten_hero:set_visible(false)
+  eaten_hero:set_enabled(false)
   set_sprite_opacity(hero_sprite, 255)
   set_sprite_opacity(hero:get_sprite("shadow"), 255)
   set_sprite_opacity(hero:get_sprite("shadow_override"), 255)
@@ -116,7 +116,7 @@ function enemy:eat_hero()
   enemy:set_invincible()
 
   -- Make the hero eaten, but still able to interact.
-  eaten_hero:set_visible()
+  eaten_hero:set_enabled()
   set_sprite_opacity(hero_sprite, 0)
   set_sprite_opacity(hero:get_sprite("shadow"), 0)
   set_sprite_opacity(hero:get_sprite("shadow_override"), 0)
