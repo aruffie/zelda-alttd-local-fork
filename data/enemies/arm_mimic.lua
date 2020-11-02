@@ -3,7 +3,7 @@
 -- Arm Mimic.
 --
 -- Copy and reverse hero moves.
--- Sword only hurt him if the hero direction is not the enemy opposite direction.
+-- Sword only hurt him if the sword attack is a spin attack.
 --
 ----------------------------------
 
@@ -54,7 +54,7 @@ hero:register_event("on_movement_changed", function(hero)
   reverse_move()
 end)
 
--- Workaround: Stop the enemy on hero states that doesn't trigger hero:on_movement_changed() event.
+-- Workaround: Stop the enemy on hero states that doesn't trigger the hero:on_movement_changed() event.
 hero:register_event("on_state_changing", function(hero, state_name, next_state_name)
 
   if next_state_name == "sword swinging" then
