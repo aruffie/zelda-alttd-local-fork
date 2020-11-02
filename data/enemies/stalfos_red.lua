@@ -93,9 +93,13 @@ function enemy:start_throwing_bone()
 end
 
 -- Start attacking when the hero is near enough and an attack or item command is pressed, even if not assigned to an item.
-game:register_event("on_command_pressed", function(game, command)
+map:register_event("on_command_pressed", function(map, command)
 
-  if enemy:exists() and enemy:is_enabled() and not enemy.is_exhausted then
+  if not enemy:exists() or not enemy:is_enabled() then
+    return
+  end
+
+  if not enemy.is_exhausted then
     if enemy:is_near(hero, attack_triggering_distance) and (command == "attack" or command == "item_1" or command == "item_2") then
       enemy:start_attacking()
     end

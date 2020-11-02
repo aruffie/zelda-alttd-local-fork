@@ -78,7 +78,7 @@ function enemy:start_pouncing()
 end
 
 -- Jump on sword triggering too close
-game:register_event("on_command_pressed", function(game, command)
+map:register_event("on_command_pressed", function(map, command)
 
   if not enemy:exists() or not enemy:is_enabled() then
     return
