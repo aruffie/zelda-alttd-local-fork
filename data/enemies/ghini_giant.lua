@@ -8,6 +8,9 @@
 -- Methods : enemy:start_moving()
 --           enemy:wake_up()
 --
+-- Properties : is_sleeping
+--              zone
+--
 ----------------------------------
 
 -- Global variables
@@ -21,9 +24,11 @@ local camera = map:get_camera()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
 local circle = math.pi * 2.0
+local zone_entities = {}
 
 -- Configuration variables
 local is_sleeping = enemy:get_property("is_sleeping") == "true"
+local zone = enemy:get_property("zone")
 local after_awake_delay = 1000
 local take_off_duration = 1000
 local flying_speed = 80
@@ -31,17 +36,41 @@ local flying_height = 16
 local flying_acceleration = 16
 local flying_deceleration = 48
 
+-- Returns a table filled with accepted zone entites to move on, or camera if no zone requested.
+local function get_zone_entities(zone)
+
+  local entities = {}
+
+  if zone then
+    for entity in map:get_entities_in_region(enemy) do
+      if entity:get_property("zone") == zone then
+        table.insert(entities, entity)
+      end
+    end
+  end
+
+  -- Insert camera if no zone found.
+  if #entities == 0 then
+    table.insert(entities, camera)
+  end
+
+  return entities
+end
+
+-- Get a random point over the given zone entity.
+local function get_random_point_in_zone(zone_entity)
+
+  local x, y = zone_entity:get_position()
+  local width, height = zone_entity:get_size()
+
+  return math.random(x, x + width), math.random(y, y + height)
+end
+
 -- Start the enemy flying movement.
 function enemy:start_moving()
 
   local enemy_x, enemy_y, _ = enemy:get_position()
-  local camera_x, camera_y = camera:get_position()
-  local camera_width, camera_height = camera:get_size()
-
-  -- Target a random point.
-  local limit_box = {x = camera_x + 64, y = camera_y + 64, width = camera_width - 128, height = camera_height - 128}
-  local target_x = math.random(limit_box.x, limit_box.x + limit_box.width)
-  local target_y = math.random(limit_box.y, limit_box.y + limit_box.height)
+  local target_x, target_y = get_random_point_in_zone(zone_entities[math.random(#zone_entities)])
 
   -- Start moving to the target with acceleration.
   local movement = enemy:start_impulsion(target_x, target_y, flying_speed, flying_acceleration, flying_deceleration)
@@ -77,6 +106,9 @@ enemy:register_event("on_created", function(enemy)
   if is_sleeping then
     enemy:set_enabled(false)
   end
+
+  -- Get accepted zone to move on.
+  zone_entities = get_zone_entities(zone)
 end)
 
 -- Restart settings.
