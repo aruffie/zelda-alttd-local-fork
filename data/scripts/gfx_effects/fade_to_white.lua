@@ -24,6 +24,7 @@ function lib.start_effect(surface, game, mode, sfx, callback)
   end
   local mask=sol.surface.create(surface:get_size())
   mask:fill_color({255,255,255})
+  mask:set_opacity(0)
   local alpha
   map:register_event("on_draw", function(map, dst_surface)
       mask:draw(dst_surface)

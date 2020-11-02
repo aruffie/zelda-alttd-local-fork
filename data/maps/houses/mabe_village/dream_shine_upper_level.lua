@@ -65,6 +65,7 @@ function map:launch_cinematic_1()
     timer:set_suspended_with_map(false)
     bed:get_sprite():set_animation("hero_sleeping")
     snores:set_enabled(true)
+    wait(500)
     for torch in map:get_entities("light_torch_1") do
       torch:set_lit(false)
     end
@@ -80,6 +81,7 @@ function map:launch_cinematic_1()
     for torch in map:get_entities("light_torch_4") do
       torch:set_lit(false)
     end
+    wait(1000)
     wait_for(effect_model.start_effect, surface, game, "in", false)
     game.map_in_transition = effect_model
     wait(2000)
