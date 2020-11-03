@@ -86,16 +86,23 @@ end
 -- Enable the enemy and make him wake up then fly.
 function enemy:wake_up()
 
-  is_waking_up = true -- Avoid the restart behavior on set_enabled().
+  is_waking_up = true
+  sol.timer.stop_all(enemy)
+  enemy:stop_movement()
   enemy:set_enabled(true)
   sprite:set_xy(0, 0)
-  is_waking_up = false
   enemy:start_flying(take_off_duration, flying_height, function()
     sol.timer.start(enemy, after_awake_delay, function()
-      start_moving()
+      is_waking_up = false
+      enemy:restart()
     end)
   end)
 end
+
+-- Mark as wake up if hurt.
+enemy:register_event("on_hurt", function(enemy)
+  is_waking_up = false
+end)
 
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
