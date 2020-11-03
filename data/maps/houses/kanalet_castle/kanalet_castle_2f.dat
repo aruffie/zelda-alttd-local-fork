@@ -1848,7 +1848,7 @@ pickable{
 }
 
 custom_entity{
-  name = "kanalet_darknut_statue",
+  name = "darknut_statue_1",
   layer = 0,
   x = 104,
   y = 125,
@@ -1856,23 +1856,19 @@ custom_entity{
   height = 16,
   direction = 1,
   sprite = "entities/statues/statue_darknut",
+  model = "obstacle",
 }
 
 custom_entity{
-  name = "kanalet_darknut_statue_2",
+  name = "darknut_statue_2",
   layer = 0,
   x = 232,
   y = 125,
-  properties = {
-    {
-      key = "enemy",
-      value = "darknut",
-    },
-  },
   width = 16,
   height = 16,
   direction = 1,
   sprite = "entities/statues/statue_darknut",
+  model = "obstacle",
 }
 
 wall{
