@@ -2,6 +2,7 @@
 local map = ...
 local game = map:get_game()
 local hero = map:get_hero()
+local mad_bomber_placeholders = {}
 
 -- Include scripts
 require("scripts/multi_events")
@@ -58,7 +59,10 @@ function map:init_map_entities()
       crow_1:wake_up()
     end
   end)
-  
+  -- Store mad bomber placeholders
+  for placeholder in map:get_entities("mad_bomber_placeholder_") do
+    table.insert(mad_bomber_placeholders, placeholder)
+  end
 end
 
 -- Discussion with monkey
@@ -119,12 +123,16 @@ function map:monkey_leave_bridge()
 end
 
 -- Enemies events
-mad_bomber_1:register_event("on_dead", function()
+mad_bomber:register_event("on_dead", function()
     
   if not game:get_value("golden_leaf_1") and pickable_golden_leaf_1 ~= nil  then
     pickable_golden_leaf_1:set_enabled(true)
   end
-  
+end)
+
+mad_bomber:register_event("on_disappeared", function()
+
+  mad_bomber:set_position(mad_bomber_placeholders[math.random(#mad_bomber_placeholders)]:get_position())
 end)
 
 crow_1:register_event("on_dead", function()
