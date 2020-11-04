@@ -31,10 +31,10 @@ local walking_minimum_distance = 16
 local walking_maximum_distance = 32
 local waiting_duration = 800
 local throwing_duration = 200
-local jumping_triggering_distance = 50
+local jumping_triggering_distance = 44
 local jumping_duration = 600
-local jumping_height = 12
-local jumping_speed = 100
+local jumping_height = 20
+local jumping_speed = 120
 
 local projectile_breed = "stone"
 local projectile_offset = {{0, -8}, {0, -8}, {0, -8}, {0, -8}}

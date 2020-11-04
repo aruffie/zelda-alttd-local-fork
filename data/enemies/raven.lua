@@ -29,16 +29,22 @@ local is_heavy_sleeper = enemy:get_property("is_heavy_sleeper") == "true"
 local after_awake_delay = 1000
 local take_off_duration = 1000
 local targeting_hero_duration = 1000
-local turning_away_duration = 500
+local turning_away_duration = 750
 local flying_speed = 120
 local flying_height = 24
+local turning_speed = 100
 local triggering_distance = 60
 
--- Set the sprite direction 0 or 2 depending on the given angle.
+-- Set the sprite direction to 0 if the given angle in the left half circle, to 2 in the right half circle.
+-- Keep the same direction if the angle is in the slight dead zone between both half circles.
 local function set_sprite_direction2(angle)
 
   angle = angle % circle
-  sprite:set_direction(angle > quarter and angle < 3.0 * quarter and 2 or 0)
+  if angle > quarter + 0.1 and angle < 3.0 * quarter - 0.1 then
+    sprite:set_direction(2)
+  elseif angle < quarter - 0.1 or angle > 3.0 * quarter + 0.1 then
+    sprite:set_direction(0)
+  end
 end
 
 -- Return the angle from the enemy sprite to given entity.
@@ -66,6 +72,7 @@ local function start_flying()
   local angle = get_angle_from_sprite(sprite, hero)
   local movement = enemy:start_straight_walking(angle, flying_speed)
   movement:set_ignore_obstacles(true)
+  sprite:set_animation("flying")
   set_sprite_direction2(angle)
 
   -- Slightly turn to the hero for some time, then turn away from him for some time and finish straight.
@@ -81,12 +88,15 @@ local function start_flying()
     return is_targeting_hero or is_turning_away
   end)
   sol.timer.start(enemy, targeting_hero_duration, function()
-    is_targeting_hero = false
     if not is_turning_away then
-      angle_step = -angle_step
+      is_targeting_hero = false
       is_turning_away = true
+      angle_step = -angle_step
+      movement:set_speed(turning_speed) -- Slow down a little while turning.
       return turning_away_duration
     end
+    movement:set_speed(flying_speed)
+    is_turning_away = false
     return
   end)
 
