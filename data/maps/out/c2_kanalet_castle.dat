@@ -12036,7 +12036,7 @@ enemy{
   y = 189,
   properties = {
     {
-      key = "is_deeply_sleeping",
+      key = "is_heavy_sleeper",
       value = "true",
     },
   },
