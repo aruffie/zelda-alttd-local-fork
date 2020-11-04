@@ -1672,7 +1672,7 @@ dynamic_tile{
   },
   width = 216,
   height = 160,
-  pattern = "10215",
+  pattern = "10255",
   tileset = "out/outside_special",
 }
 
@@ -1689,7 +1689,7 @@ dynamic_tile{
   },
   width = 216,
   height = 152,
-  pattern = "10215",
+  pattern = "10248",
   tileset = "out/outside_special",
 }
 
@@ -1706,7 +1706,7 @@ dynamic_tile{
   },
   width = 216,
   height = 160,
-  pattern = "10215",
+  pattern = "10260",
   tileset = "out/outside_special",
 }
 
@@ -1723,7 +1723,7 @@ dynamic_tile{
   },
   width = 216,
   height = 152,
-  pattern = "10215",
+  pattern = "10247",
   tileset = "out/outside_special",
 }
 

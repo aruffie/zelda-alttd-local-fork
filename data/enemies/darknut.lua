@@ -4,7 +4,7 @@
 --
 -- Moves randomly over horizontal and vertical axis, and charge the hero if close enough.
 -- Turn his head to the next direction before starting a new random move.
--- May be woke up from the outside by calling the wake_up() method if initially stuck on a statue.
+-- May start disabled and manually wake_up() from outside this script if initially stuck on a wall, in which case it will get away from overlapping obstacles before walking normally.
 --
 -- Methods : enemy:wake_up()
 --
@@ -61,7 +61,7 @@ local function start_walking(direction)
   end)
 end
 
--- Wake the enemy up as invincible, start a little walk to get away from the initial place then restart.
+-- Wake the enemy up as invincible, start a little walk to get away from overlapping obstacles then restart.
 function enemy:wake_up()
 
   is_waking_up = true

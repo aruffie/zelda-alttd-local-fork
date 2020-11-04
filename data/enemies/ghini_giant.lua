@@ -5,7 +5,7 @@
 -- Target a random point on the map and go to it with acceleration and deceleration, then target another point.
 -- The targeted point may be restricted to an area if the corresponding custom property is filled with a valid area, else the targeted point will always be a visible one.
 -- The area is the surface made by all other other entities with the same area property, except enemies.
--- Possibly can start disabled() and wake_up() from outside this script, in which case it will elevate slowly before starting its fly..
+-- May start disabled and manually wake_up() from outside this script, in which case it will elevate slowly before starting its fly.
 --
 -- Methods : enemy:wake_up()
 --
@@ -57,11 +57,11 @@ local function get_area_entities(area)
   return entities
 end
 
--- Get a random point over the given area entity.
-local function get_random_point_in_area(area_entity)
+-- Get a random point over possible area.
+local function get_random_point_in_area()
 
-  local x, y = area_entity:get_position()
-  local width, height = area_entity:get_size()
+  local area_entity = area_entities[math.random(#area_entities)]
+  local x, y, width, height = area_entity:get_bounding_box()
 
   return math.random(x, x + width), math.random(y, y + height)
 end
@@ -69,13 +69,13 @@ end
 -- Start the enemy flying movement.
 local function start_moving()
 
-  local enemy_x, enemy_y, _ = enemy:get_position()
-  local target_x, target_y = get_random_point_in_area(area_entities[math.random(#area_entities)])
+  local x = enemy:get_position()
+  local target_x, target_y = get_random_point_in_area()
 
   -- Start moving to the target with acceleration.
   local movement = enemy:start_impulsion(target_x, target_y, flying_speed, flying_acceleration, flying_deceleration)
   movement:set_ignore_obstacles(true)
-  sprite:set_direction(target_x < enemy_x and 2 or 0)
+  sprite:set_direction(target_x < x and 2 or 0)
 
   -- Target a new random point when target reached.
   function movement:on_decelerating()
