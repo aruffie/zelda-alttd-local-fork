@@ -4,7 +4,7 @@
 --
 -- Moves randomly over horizontal and vertical axis, and charge the hero if close enough.
 -- Turn his head to the next direction before starting a new random move.
--- May be woke up from the outside if initially stuck on a statue by calling the wake_up() method.
+-- May be woke up from the outside by calling the wake_up() method if initially stuck on a statue.
 --
 -- Methods : enemy:wake_up()
 --
@@ -61,7 +61,7 @@ local function start_walking(direction)
   end)
 end
 
--- Wake the enemy up as invincible, start a slow walk to the south then restart.
+-- Wake the enemy up as invincible, start a little walk to get away from the initial place then restart.
 function enemy:wake_up()
 
   is_waking_up = true
@@ -69,11 +69,13 @@ function enemy:wake_up()
   enemy:stop_movement()
   enemy:set_enabled(true)
   enemy:set_hero_weapons_reactions("protected")
+  enemy:set_drawn_in_y_order(false) -- Draw the enemy below the explosion that woke him up.
   sprite:set_animation("immobilized")
   sprite:set_direction(waking_up_direction)
   sol.timer.start(enemy, waking_up_duration, function()
     local movement = enemy:start_straight_walking(waking_up_direction * quarter, walking_speed, waking_up_distance, function()
       is_waking_up = false
+      enemy:set_drawn_in_y_order()
       enemy:restart()
     end)
     movement:set_ignore_obstacles()
