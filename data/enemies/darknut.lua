@@ -4,9 +4,9 @@
 --
 -- Moves randomly over horizontal and vertical axis, and charge the hero if close enough.
 -- Turn his head to the next direction before starting a new random move.
+-- May be woke up from the outside by calling the wake_up() method if initially stuck on a statue.
 --
--- Methods : enemy:start_walking([direction])
---           enemy:start_charging()
+-- Methods : enemy:wake_up()
 --
 ----------------------------------
 
@@ -21,6 +21,7 @@ local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
 local is_charging = false
+local is_waking_up = false
 
 -- Configuration variables
 local charge_triggering_distance = 80
@@ -30,30 +31,55 @@ local walking_speed = 32
 local walking_minimum_distance = 16
 local walking_maximum_distance = 96
 local waiting_duration = 800
+local waking_up_direction = 3
+local waking_up_distance = 16
+local waking_up_duration = 1000
+
+-- Start the enemy charge movement.
+local function start_charging()
+
+  is_charging = true
+  enemy:stop_movement()
+  enemy:start_target_walking(hero, charging_speed)
+  sprite:set_animation("chase")
+end
 
 -- Start the enemy random movement.
-function enemy:start_walking(direction)
+local function start_walking(direction)
 
   direction = direction or math.random(4)
-  enemy:start_straight_walking(walking_angles[direction], walking_speed, math.random(walking_minimum_distance, walking_maximum_distance), function()    
+  enemy:start_straight_walking(walking_angles[direction], walking_speed, math.random(walking_minimum_distance, walking_maximum_distance), function()
     local next_direction = math.random(4)
     local waiting_animation = (direction + 1) % 4 == next_direction and "seek_left" or (direction - 1) % 4 == next_direction and "seek_right" or "immobilized"
     sprite:set_animation(waiting_animation)
 
     sol.timer.start(enemy, waiting_duration, function()
       if not is_charging then
-        enemy:start_walking(next_direction)
+        start_walking(next_direction)
       end
     end)
   end)
 end
 
--- Start the enemy charge movement.
-function enemy:start_charging()
+-- Wake the enemy up as invincible, start a little walk to get away from the initial place then restart.
+function enemy:wake_up()
 
-  is_charging = true
+  is_waking_up = true
+  sol.timer.stop_all(enemy)
   enemy:stop_movement()
-  enemy:start_target_walking(hero, charging_speed)
+  enemy:set_enabled(true)
+  enemy:set_hero_weapons_reactions("protected")
+  enemy:set_drawn_in_y_order(false) -- Draw the enemy below the explosion that woke him up.
+  sprite:set_animation("immobilized")
+  sprite:set_direction(waking_up_direction)
+  sol.timer.start(enemy, waking_up_duration, function()
+    local movement = enemy:start_straight_walking(waking_up_direction * quarter, walking_speed, waking_up_distance, function()
+      is_waking_up = false
+      enemy:set_drawn_in_y_order()
+      enemy:restart()
+    end)
+    movement:set_ignore_obstacles()
+  end)
 end
 
 -- Passive behaviors needing constant checking.
@@ -64,8 +90,8 @@ enemy:register_event("on_update", function(enemy)
   end
 
   -- Start charging if the hero is near enough
-  if not is_charging and enemy:is_near(hero, charge_triggering_distance) then
-    enemy:start_charging()
+  if not is_waking_up and not is_charging and enemy:is_near(hero, charge_triggering_distance) then
+    start_charging()
   end
 end)
 
@@ -90,5 +116,7 @@ enemy:register_event("on_restarted", function(enemy)
   is_charging = false
   enemy:set_can_attack(true)
   enemy:set_damage(1)
-  enemy:start_walking()
+  if not is_waking_up then
+    start_walking()
+  end
 end)

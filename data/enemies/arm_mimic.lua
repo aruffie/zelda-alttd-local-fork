@@ -3,7 +3,7 @@
 -- Arm Mimic.
 --
 -- Copy and reverse hero moves.
--- Sword only hurt him if the sword attack is a spin attack.
+-- Sword only hurt him if the sword attack is a spin attack or sword better than level 1.
 --
 ----------------------------------
 
@@ -17,10 +17,18 @@ local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local is_pushed_back = false
 
--- Only hurt the enemy if the sword attack is a spin attack, else push the enemy back.
+-- Only hurt the enemy if the sword attack is a spin attack or sword better than level 1, else push the enemy back.
 local function on_sword_attack_received(damage)
 
-  if hero:get_sprite():get_animation() == "spin_attack" then
+  local hero_animation = hero:get_sprite():get_animation()
+
+  -- Stop the sword loading if any.
+  if hero_animation == "sword_loading_stopped" or hero_animation == "sword_loading_walking" then
+    -- TODO
+  end
+
+  local sword_variant = game:get_item("sword"):get_variant()
+  if hero_animation == "spin_attack" or sword_variant > 1 then
     enemy:hurt(damage)
 
   elseif not is_pushed_back then
@@ -54,8 +62,23 @@ hero:register_event("on_movement_changed", function(hero)
   reverse_move()
 end)
 
+-- Stop the enemy when the hero reaches an obstacle.
+hero:register_event("on_obstacle_reached", function(hero)
+
+  if not enemy:exists() or not enemy:is_enabled() then
+    return
+  end
+
+  enemy:stop_movement()
+  sprite:set_animation("immobilized")
+end)
+
 -- Workaround: Stop the enemy on hero states that doesn't trigger the hero:on_movement_changed() event.
 hero:register_event("on_state_changing", function(hero, state_name, next_state_name)
+
+  if not enemy:exists() or not enemy:is_enabled() then
+    return
+  end
 
   if next_state_name == "sword swinging" then
     enemy:stop_movement()

@@ -5,13 +5,7 @@
 -- Start hidden and regularly appear to throw a bomb to the hero.
 -- The enemy stay at the same position, override an event from outside this script to move the position when necessary.
 --
--- Methods : enemy:appear()
---           enemy:wait()
---
--- Events :  enemy:on_appearing()
---           enemy:on_appeared()
---           enemy:on_disappearing()
---           enemy:on_disappeared()
+-- Events : enemy:on_disappeared()
 --
 ----------------------------------
 
@@ -36,11 +30,8 @@ local bomb_throw_height = 16
 local bomb_throw_speed = 88
 
 -- Make the enemy appear.
-function enemy:appear()
+local function appear()
 
-  if enemy.on_appearing then
-    enemy:on_appearing()
-  end
   enemy:set_visible()
   sprite:set_animation("appearing", function()
 
@@ -65,9 +56,6 @@ function enemy:appear()
         end)
       end
 
-      if enemy.on_disappearing then
-        enemy:on_disappearing()
-      end
       sprite:set_animation("disappearing", function()
         enemy:restart()
         if enemy.on_disappeared then
@@ -75,20 +63,17 @@ function enemy:appear()
         end
       end)
     end)
-    if enemy.on_appeared then
-      enemy:on_appeared()
-    end
   end)
 end
 
 -- Wait a few time and appear.
-function enemy:wait()
+local function wait()
 
   sol.timer.start(enemy, math.random(waiting_minimum_duration, waiting_maximum_duration), function()
     if not camera:overlaps(enemy:get_max_bounding_box()) then
       return true
     end
-    enemy:appear()
+    appear()
   end)
 end
 
@@ -96,8 +81,8 @@ end
 enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(4)
-  enemy:set_size(24, 24)
-  enemy:set_origin(12, 21)
+  enemy:set_size(16, 16)
+  enemy:set_origin(8, 13)
 end)
 
 -- Restart settings.
@@ -109,5 +94,5 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_damage(2)
   enemy:set_invincible()
   enemy:set_pushed_back_when_hurt(false)
-  enemy:wait()
+  wait()
 end)

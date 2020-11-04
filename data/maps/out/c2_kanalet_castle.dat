@@ -10131,7 +10131,7 @@ enemy{
 }
 
 custom_entity{
-  name = "mad_bomber_1_placeholder_1",
+  name = "mad_bomber_placeholder_1",
   layer = 1,
   x = 568,
   y = 205,
@@ -10141,7 +10141,7 @@ custom_entity{
 }
 
 enemy{
-  name = "mad_bomber_1",
+  name = "mad_bomber",
   layer = 1,
   x = 568,
   y = 253,
@@ -10157,7 +10157,7 @@ enemy{
 }
 
 custom_entity{
-  name = "mad_bomber_1_placeholder_2",
+  name = "mad_bomber_placeholder_2",
   layer = 1,
   x = 520,
   y = 237,
@@ -10167,7 +10167,7 @@ custom_entity{
 }
 
 custom_entity{
-  name = "mad_bomber_1_placeholder_3",
+  name = "mad_bomber_placeholder_3",
   layer = 1,
   x = 536,
   y = 285,
@@ -10177,7 +10177,7 @@ custom_entity{
 }
 
 custom_entity{
-  name = "mad_bomber_1_placeholder_4",
+  name = "mad_bomber_placeholder_4",
   layer = 1,
   x = 600,
   y = 285,
@@ -10187,7 +10187,7 @@ custom_entity{
 }
 
 custom_entity{
-  name = "mad_bomber_1_placeholder_5",
+  name = "mad_bomber_placeholder_5",
   layer = 1,
   x = 616,
   y = 237,
@@ -10197,7 +10197,7 @@ custom_entity{
 }
 
 custom_entity{
-  name = "mad_bomber_1_placeholder_6",
+  name = "mad_bomber_placeholder_6",
   layer = 1,
   x = 568,
   y = 253,
@@ -12036,7 +12036,7 @@ enemy{
   y = 189,
   properties = {
     {
-      key = "is_deeply_sleeping",
+      key = "is_heavy_sleeper",
       value = "true",
     },
   },

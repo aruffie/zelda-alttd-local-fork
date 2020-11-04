@@ -57,8 +57,23 @@ hero:register_event("on_movement_changed", function(hero)
   reverse_move()
 end)
 
+-- Stop the enemy when the hero reaches an obstacle.
+hero:register_event("on_obstacle_reached", function(hero)
+
+  if not enemy:exists() or not enemy:is_enabled() then
+    return
+  end
+
+  enemy:stop_movement()
+  sprite:set_animation("immobilized")
+end)
+
 -- Workaround: Stop the enemy on hero states that doesn't trigger the hero:on_movement_changed() event.
 hero:register_event("on_state_changing", function(hero, state_name, next_state_name)
+
+  if not enemy:exists() or not enemy:is_enabled() then
+    return
+  end
 
   if next_state_name == "sword swinging" then
     enemy:stop_movement()

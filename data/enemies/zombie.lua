@@ -5,11 +5,6 @@
 -- Start invisible and appear after a random time at a random position, then go to the hero direction.
 -- Disappear after some time or obstacle reached.
 --
--- Methods : enemy:start_walking()
---           enemy:appear()
---           enemy:disappear()
---           enemy:wait()
---
 ----------------------------------
 
 -- Global variables
@@ -41,37 +36,57 @@ local function get_random_visible_position()
   return math.random(x, x + width), math.random(y, y + height)
 end
 
+-- Return the layer of the given position.
+local function get_ground_layer(x, y)
+
+  for ground_layer = map:get_max_layer(), map:get_min_layer(), -1 do
+    if map:get_ground(x, y, ground_layer) ~= "empty" then
+      return ground_layer
+    end
+  end
+end
+
+-- Make the enemy disappear.
+local function disappear()
+
+  sprite:set_animation("disappearing", function()
+    enemy:restart()
+  end)
+end
+
 -- Start the enemy movement.
-function enemy:start_walking()
+local function start_walking()
 
   local movement = enemy:start_target_walking(hero, walking_speed)
   movement:set_smooth(false)
 
-  local function disappear()
+  local function stop_walking()
     if movement then
       movement:stop()
       movement = nil
-      enemy:disappear()
+      disappear()
     end
   end
 
   function movement:on_obstacle_reached()
-    disappear()
+    stop_walking()
   end
   sol.timer.start(enemy, math.random(walking_minimum_duration, walking_maximum_duration), function()
-    disappear()
+    stop_walking()
   end)
 end
 
--- Make the enemy appear at a random position.
-function enemy:appear()
+-- Make the enemy appear at a random position on the ground layer.
+local function appear()
 
   -- Postpone to the next frame if the random position would be over an obstacle.
-  local x, y, _ = enemy:get_position()
+  local x, y = enemy:get_position()
   local random_x, random_y = get_random_visible_position()
-  if enemy:test_obstacles(random_x - x, random_y - y) then
+  local layer = get_ground_layer(random_x, random_y)
+  enemy:set_layer(layer or enemy:get_layer())
+  if not layer or enemy:test_obstacles(random_x - x, random_y - y) then
     sol.timer.start(enemy, 10, function()
-      enemy:appear()
+      appear()
     end)
     return
   end
@@ -84,26 +99,18 @@ function enemy:appear()
     enemy:set_hero_weapons_reactions(1, {jump_on = "ignored"})
     enemy:set_can_attack(true)
     
-    enemy:start_walking()
-  end)
-end
-
--- Make the enemy disappear.
-function enemy:disappear()
-
-  sprite:set_animation("disappearing", function()
-    enemy:restart()
+    start_walking()
   end)
 end
 
 -- Wait a few time and appear.
-function enemy:wait()
+local function wait()
 
   sol.timer.start(enemy, math.random(waiting_minimum_duration, waiting_maximum_duration), function()
     if not camera:overlaps(enemy:get_max_bounding_box()) then
       return true
     end
-    enemy:appear()
+    appear()
   end)
 end
 
@@ -111,8 +118,8 @@ end
 enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(1)
-  enemy:set_size(16, 24)
-  enemy:set_origin(8, 21)
+  enemy:set_size(16, 8)
+  enemy:set_origin(8, 5)
 end)
 
 -- Restart settings.
@@ -123,6 +130,6 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_can_attack(false)
   enemy:set_damage(2)
   enemy:set_invincible()
-  enemy:wait()
+  wait()
 end)
 
