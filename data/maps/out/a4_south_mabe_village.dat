@@ -35,121 +35,19 @@ teletransporter{
 }
 
 dynamic_tile{
-  name = "zone_sand_7",
+  name = "area_sand",
   layer = 0,
-  x = 304,
-  y = 520,
-  properties = {
-    {
-      key = "zone",
-      value = "sand",
-    },
-  },
-  width = 336,
-  height = 104,
-  pattern = "10215",
-  tileset = "out/outside_special",
-}
-
-dynamic_tile{
-  name = "zone_sand",
-  layer = 0,
-  x = 88,
+  x = 96,
   y = 624,
   properties = {
     {
-      key = "zone",
+      key = "area",
       value = "sand",
     },
   },
-  width = 872,
-  height = 80,
-  pattern = "10215",
-  tileset = "out/outside_special",
-}
-
-dynamic_tile{
-  name = "zone_sand_5",
-  layer = 0,
-  x = 544,
-  y = 704,
-  properties = {
-    {
-      key = "zone",
-      value = "sand",
-    },
-  },
-  width = 416,
-  height = 24,
-  pattern = "10215",
-  tileset = "out/outside_special",
-}
-
-dynamic_tile{
-  name = "zone_sand_6",
-  layer = 0,
-  x = 536,
-  y = 704,
-  properties = {
-    {
-      key = "zone",
-      value = "sand",
-    },
-  },
-  width = 8,
-  height = 8,
-  pattern = "10215",
-  tileset = "out/outside_special",
-}
-
-dynamic_tile{
-  name = "zone_sand_2",
-  layer = 0,
-  x = 112,
-  y = 704,
-  properties = {
-    {
-      key = "zone",
-      value = "sand",
-    },
-  },
-  width = 336,
-  height = 24,
-  pattern = "10215",
-  tileset = "out/outside_special",
-}
-
-dynamic_tile{
-  name = "zone_sand_4",
-  layer = 0,
-  x = 448,
-  y = 704,
-  properties = {
-    {
-      key = "zone",
-      value = "sand",
-    },
-  },
-  width = 8,
-  height = 8,
-  pattern = "10215",
-  tileset = "out/outside_special",
-}
-
-dynamic_tile{
-  name = "zone_sand_3",
-  layer = 0,
-  x = 104,
-  y = 704,
-  properties = {
-    {
-      key = "zone",
-      value = "sand",
-    },
-  },
-  width = 8,
-  height = 8,
-  pattern = "10215",
+  width = 352,
+  height = 104,
+  pattern = "10376",
   tileset = "out/outside_special",
 }
 
@@ -10310,6 +10208,125 @@ tile{
   pattern = "117",
 }
 
+dynamic_tile{
+  name = "ground_sand_7",
+  layer = 1,
+  x = 112,
+  y = 656,
+  properties = {
+    {
+      key = "custom_ground",
+      value = "sand",
+    },
+  },
+  width = 848,
+  height = 64,
+  pattern = "10215",
+  tileset = "out/outside_special",
+}
+
+dynamic_tile{
+  name = "ground_sand_9",
+  layer = 1,
+  x = 104,
+  y = 704,
+  properties = {
+    {
+      key = "custom_ground",
+      value = "sand",
+    },
+  },
+  width = 8,
+  height = 8,
+  pattern = "10215",
+  tileset = "out/outside_special",
+}
+
+dynamic_tile{
+  name = "ground_sand_8",
+  layer = 1,
+  x = 96,
+  y = 656,
+  properties = {
+    {
+      key = "custom_ground",
+      value = "sand",
+    },
+  },
+  width = 16,
+  height = 48,
+  pattern = "10215",
+  tileset = "out/outside_special",
+}
+
+dynamic_tile{
+  name = "ground_sand_6",
+  layer = 1,
+  x = 96,
+  y = 624,
+  properties = {
+    {
+      key = "custom_ground",
+      value = "sand",
+    },
+  },
+  width = 328,
+  height = 32,
+  pattern = "10215",
+  tileset = "out/outside_special",
+}
+
+dynamic_tile{
+  name = "ground_sand_11",
+  layer = 1,
+  x = 520,
+  y = 624,
+  properties = {
+    {
+      key = "custom_ground",
+      value = "sand",
+    },
+  },
+  width = 152,
+  height = 32,
+  pattern = "10215",
+  tileset = "out/outside_special",
+}
+
+dynamic_tile{
+  name = "ground_sand_10",
+  layer = 1,
+  x = 304,
+  y = 544,
+  properties = {
+    {
+      key = "custom_ground",
+      value = "sand",
+    },
+  },
+  width = 336,
+  height = 80,
+  pattern = "10215",
+  tileset = "out/outside_special",
+}
+
+dynamic_tile{
+  name = "ground_sand_12",
+  layer = 1,
+  x = 336,
+  y = 520,
+  properties = {
+    {
+      key = "custom_ground",
+      value = "sand",
+    },
+  },
+  width = 96,
+  height = 24,
+  pattern = "10215",
+  tileset = "out/outside_special",
+}
+
 wall{
   layer = 1,
   x = 856,
@@ -11154,6 +11171,12 @@ enemy{
   layer = 1,
   x = 184,
   y = 653,
+  properties = {
+    {
+      key = "area",
+      value = "sand",
+    },
+  },
   direction = 0,
   breed = "leever",
   treasure_name = "random_with_charm",
@@ -11163,6 +11186,12 @@ enemy{
   layer = 1,
   x = 128,
   y = 685,
+  properties = {
+    {
+      key = "area",
+      value = "sand",
+    },
+  },
   direction = 0,
   breed = "leever",
   treasure_name = "random_with_charm",
@@ -11172,6 +11201,12 @@ enemy{
   layer = 1,
   x = 392,
   y = 661,
+  properties = {
+    {
+      key = "area",
+      value = "sand",
+    },
+  },
   direction = 0,
   breed = "leever",
   treasure_name = "random_with_charm",
@@ -11181,6 +11216,12 @@ enemy{
   layer = 1,
   x = 336,
   y = 693,
+  properties = {
+    {
+      key = "area",
+      value = "sand",
+    },
+  },
   direction = 0,
   breed = "leever",
   treasure_name = "random_with_charm",
