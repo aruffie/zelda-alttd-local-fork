@@ -48,13 +48,28 @@ local before_respawn_delay = 1000
 -- Return a random position on the border of the screen.
 local function get_random_position_on_screen_border()
 
-  local x, y = camera:get_position()
-  local width, height = camera:get_size()
+  local x, y, width, height = camera:get_bounding_box()
   local mid_point = width + height
   local random_point = math.random(mid_point * 2)
 
   return x + (random_point > mid_point + width and 0 or math.min(width, random_point % mid_point)), 
           y + math.min(height, math.max(0, random_point - width) % mid_point)
+end
+
+-- Return true if the given sprite is fully visible on the screen.
+local function is_fully_watched(sprite)
+
+  -- Workaround : No way to use camera:overlaps() with containing mode and a sprite bounding box, calculate manually.
+  
+  local camera_x, camera_y, camera_width, camera_height = camera:get_bounding_box()
+  local x, y, _ = enemy:get_position()
+  local width, height = sprite:get_size()
+  local origin_x, origin_y = sprite:get_origin()
+  local offset_x, offset_y = sprite:get_xy()
+  x, y = x - origin_x + offset_x, y - origin_y + offset_y
+
+  return x >= camera_x and x + width <= camera_x + camera_width 
+      and y >= camera_y and y + height <= camera_y + camera_height
 end
 
 -- Replace the enemy position on the sprite and remove the sprite offset.
@@ -177,7 +192,7 @@ function enemy:start_moving(angle)
 
     -- Clip and change the angle if the enemy has a part out screen.
     movement:register_event("on_position_changed", function(movement)
-      if not is_charging and not enemy:is_watched(sprite, true) then
+      if not is_charging and not is_fully_watched(sprite) then
         clip_sprite_into(sprite, camera:get_bounding_box())
         enemy:start_moving(movement:get_direction4() * quarter - quarter)
         return false

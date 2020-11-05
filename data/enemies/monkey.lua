@@ -58,18 +58,28 @@ local function bounce(enemy, maximum_bounce, height, angle, minimum_speed, maxim
     end)
     movement:set_ignore_obstacles(true)
   else
+
+    -- Set the projectile on the lowest layer on bounces finished.
+    local x, y = enemy:get_position()
+    for ground_layer = enemy:get_layer(), map:get_min_layer(), -1 do
+      if map:get_ground(x, y, ground_layer) ~= "empty" then
+        enemy:set_layer(ground_layer)
+        break
+      end
+    end
+
     if on_bounce_finished then
       on_bounce_finished()
     end
   end
 end
 
--- Start throwing animation and create a coconut or bomb enemy when finished.
+-- Start throwing animation and create a coconut or a bomb when finished.
 function enemy:start_throwing_projectile(direction, angle, on_throwed_callback)
 
   sprite:set_direction(direction)
   sprite:set_animation("throwing", function()
-    local projectile_breed = math.random() > bomb_probability and "coconut" or "bomb" -- Throw a bomb once in a while.
+    local projectile_breed = math.random() < bomb_probability and "bomb" or "coconut"
     local projectile = enemy:create_enemy({
       name = (enemy:get_name() or enemy:get_breed()) .. "_" .. projectile_breed,
       breed = "projectiles/" .. projectile_breed

@@ -17,6 +17,7 @@ require("enemies/lib/common_actions").learn(enemy)
 local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
+local camera = map:get_camera()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local is_hero_on_left = true
 local is_jumping_forward = true
@@ -249,12 +250,11 @@ enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
       end
     end
 
-    local map_width, map_height = map:get_size()
     function ejecting_movement:on_position_changed(x, y, layer)
       hero:set_layer(map:get_max_layer()) -- Workaround: Avoid the hero falling on ground layer each time the position change.
 
-      -- Call the enemy:on_hero_ejected() once hero is out the room or the map. 
-      if x < 0 or y < 0 or x > map_width or y > map_height then
+      -- Call the enemy:on_hero_ejected() once hero is out of the room or map before a possible separator is triggered. 
+      if not hero:overlaps(camera:get_bounding_box()) then
         ejected()
         return
       end

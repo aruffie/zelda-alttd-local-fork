@@ -23,14 +23,13 @@ local walking_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
 local walking_speeds = {80, 16, 80, 16}
 local walking_minimum_distance = 16
 local walking_maximum_distance = 96
-local crushed_duration = 500
 
 -- Start the enemy movement.
-function enemy:start_walking()
+local function start_walking()
 
   local direction = math.random(4)
   enemy:start_straight_walking(walking_angles[direction], walking_speeds[direction], math.random(walking_minimum_distance, walking_maximum_distance), function()
-    enemy:start_walking()
+    start_walking()
   end)
 end
 
@@ -54,5 +53,5 @@ enemy:register_event("on_restarted", function(enemy)
   -- States.
   enemy:set_can_attack(true)
   enemy:set_damage(2)
-  enemy:start_walking()
+  start_walking()
 end)

@@ -7,6 +7,11 @@ local sprite = enemy:create_sprite("enemies/sea_urchin")
 local game = enemy:get_game()
 local map = game:get_map()
 
+enemy:register_event("on_dying", function(enemy)
+
+  enemy:set_traversable()
+end)
+
 enemy:register_event("on_created", function(enemy)
 
   enemy:set_traversable(false)

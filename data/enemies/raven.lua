@@ -18,6 +18,7 @@ require("enemies/lib/common_actions").learn(enemy)
 local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
+local camera = map:get_camera()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
 local circle = math.pi * 2.0
@@ -102,7 +103,7 @@ local function start_flying()
 
   -- Remove the enemy when off screen.
   function movement:on_position_changed()
-    if not is_targeting_hero and not enemy:is_watched(sprite, true) then
+    if not is_targeting_hero and not camera:overlaps(enemy:get_max_bounding_box()) then
       enemy:remove()
     end
   end

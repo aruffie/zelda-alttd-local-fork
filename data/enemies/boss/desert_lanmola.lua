@@ -50,8 +50,7 @@ local circle = math.pi * 2.0
 -- Return a random visible position.
 local function get_random_visible_position()
 
-  local x, y, _ =  camera:get_position()
-  local width, height = camera:get_size()
+  local x, y, width, height = camera:get_bounding_box()
   return math.random(x, x + width), math.random(y, y + height)
 end
 
@@ -243,8 +242,7 @@ end
 function enemy:appear()
 
   -- Target a random point at the opposite side of the room.
-  local region_x, region_y, _ =  camera:get_position()
-  local region_width, region_height = camera:get_size()
+  local region_x, region_y, region_width, region_height = camera:get_bounding_box()
   local angle_variance = math.random() * angle_amplitude_from_center * 2 - angle_amplitude_from_center
   local angle = enemy:get_angle(region_x + region_width / 2.0, region_y + region_height / 2.0) + angle_variance
   local movement = enemy:start_straight_walking(angle, jumping_speed)

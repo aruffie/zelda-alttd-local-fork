@@ -40,9 +40,7 @@ end
 -- Make the enemy appear at the opposite of the camera.
 function enemy:appear()
 
-  local camera_x, camera_y = camera:get_position()
-  local camera_width, camera_height = camera:get_size()
-
+  local camera_x, camera_y, camera_width, camera_height = camera:get_bounding_box()
   enemy:set_position(enemy:get_central_symmetry_position(camera_x + camera_width / 2.0, camera_y + camera_height / 2.0))
   enemy:set_visible()
   set_direction2()

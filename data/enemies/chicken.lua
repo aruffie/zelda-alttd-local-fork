@@ -43,8 +43,7 @@ local flying_speed = 160
 -- Return a random position on the border of the screen.
 local function get_random_position_on_screen_border()
 
-  local x, y = camera:get_position()
-  local width, height = camera:get_size()
+  local x, y, width, height = camera:get_bounding_box()
   local mid_point = width + height
   local random_point = math.random(mid_point * 2)
 
@@ -111,8 +110,9 @@ local function start_flying()
   sprite:set_animation("flying")
   sprite:set_direction(angle > quarter and angle < 3.0 * quarter and 2 or 0)
 
+  -- Restart when off screen.
   function movement:on_position_changed()
-    if not enemy:is_watched(sprite) then
+    if not camera:overlaps(enemy:get_max_bounding_box()) then
       enemy:restart()
     end
   end

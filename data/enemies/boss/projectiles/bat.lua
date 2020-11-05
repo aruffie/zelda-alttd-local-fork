@@ -13,10 +13,12 @@
 --
 ----------------------------------
 
+-- Global variables
 local enemy = ...
 require("enemies/lib/common_actions").learn(enemy)
 
--- Global variables
+local map = enemy:get_map()
+local camera = map:get_camera()
 local sprite = enemy:create_sprite("enemies/boss/grim_creeper/minion")
 local quarter = math.pi * 0.5
 
@@ -86,7 +88,7 @@ function enemy:start_throwed(entity)
 
   -- Remove the bat without killing him and call the on_off_screen() event when off screen.
   function movement:on_position_changed()
-    if not enemy:is_watched(sprite, true) then
+    if not camera:overlaps(enemy:get_max_bounding_box()) then
       enemy:remove()
       if enemy.on_off_screen then
         enemy:on_off_screen()

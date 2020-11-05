@@ -39,7 +39,7 @@ local function go_away()
 
   -- Die if fully out of the screen while moving away.
   function movement:on_position_changed()
-    if not enemy:is_watched(sprite, false) then
+    if not camera:overlaps(enemy:get_max_bounding_box()) then
       enemy:start_death()
     end
   end
@@ -55,9 +55,8 @@ local function on_inoffensive_attack()
   sprite:set_animation("respawning")
   sol.timer.start(enemy, blinking_duration, function()
     if not is_weak then
-      local camera_x, camera_y = camera:get_position()
-      local camera_width, camera_height = camera:get_size()
-      enemy:set_position(enemy:get_central_symmetry_position(camera_x + camera_width / 2.0, camera_y + camera_height / 2.0))
+      local x, y, width, height = camera:get_bounding_box()
+      enemy:set_position(enemy:get_central_symmetry_position(x + width / 2.0, y + height / 2.0))
       enemy:restart()
     end
   end)
@@ -104,7 +103,7 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_damage(4)
   enemy:set_layer_independent_collisions(true)
 
-  if is_weak then
+  if not is_weak then
     enemy:set_hero_weapons_reactions(on_inoffensive_attack, {
       arrow = 1,
       fire = 4,

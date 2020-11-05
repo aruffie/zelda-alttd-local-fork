@@ -177,7 +177,8 @@ function enemy:throw_hero()
   sol.timer.stop_all(enemy)
 
   local x, y, layer = enemy:get_position()
-  local center_x = camera:get_position() + camera:get_size() / 2.0
+  local camera_x, _, camera_width = camera:get_bounding_box()
+  local center_x = camera_x + camera_width / 2.0
   local is_right_hand_throw = center_x > x
   local hand_offset_x = is_right_hand_throw and right_hand_offset_x or 0 - right_hand_offset_x
 
@@ -191,8 +192,7 @@ function enemy:throw_hero()
   start_holding(is_right_hand_throw, hero_holding_duration, function()
 
     -- Throw the hero to the center of the room.
-    local camera_x, camera_y = camera:get_position()
-    local camera_width, camera_height = camera:get_size()
+    local camera_x, camera_y, camera_width, camera_height = camera:get_bounding_box()
     local angle = sol.main.get_angle(x + hand_offset_x, y + right_hand_offset_y, camera_x + camera_width / 2.0, camera_y + camera_height / 2.0)
     local movement = enemy:start_throwing(hero, hero_throwing_duration, -right_hand_offset_y, hero_throwing_height, angle, hero_throwing_speed, function()
 

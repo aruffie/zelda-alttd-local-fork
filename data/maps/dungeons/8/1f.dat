@@ -28235,8 +28235,9 @@ destination{
   name = "dungeon_8_1_B",
   layer = 0,
   x = 1120,
-  y = 1877,
+  y = 1893,
   direction = 1,
+  default = true,
 }
 
 teletransporter{
@@ -29436,6 +29437,17 @@ destination{
   x = 1120,
   y = 1813,
   direction = -1,
+}
+
+wall{
+  layer = 0,
+  x = 1112,
+  y = 1880,
+  width = 16,
+  height = 16,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
 }
 
 tile{

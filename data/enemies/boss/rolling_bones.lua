@@ -19,11 +19,13 @@ local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
 local camera = map:get_camera()
+local hurt_shader = sol.shader.create("hurt")
+local spike
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
 local eighth = math.pi * 0.25
 local moving_angle = nil
-local spike
+local is_hurt = false
 
 -- Configuration variables
 local waiting_duration = 500
@@ -33,36 +35,49 @@ local jumping_speed = 120
 local jumping_speed_increase_by_hp = 5
 local jumping_height = 12
 local jumping_duration = 500
-local between_jumps_duration = 100
+local between_jumps_duration = 300
+local hurt_duration = 300
 
--- Return the direction to the further left/right or up/down side of the camera.
-local function get_further_direction(direction4)
+-- Return the direction to the further left/right of the camera.
+local function get_horizontal_further_direction()
 
-  local index = direction4 % 2 + 1
-  local position = {enemy:get_position()}
-  local camera_position = {camera:get_position()}
-  local camera_size = {camera:get_size()}
-  return ((position[index] - camera_position[index] > camera_position[index] + camera_size[index] - position[index] and 2 or 0) - index + 1) % 4
+  local x = enemy:get_position()
+  local camera_x, _, camera_width = camera:get_bounding_box()
+  return x > camera_x + camera_width / 2.0 and 2 or 0
+end
+
+-- Return the direction to the further up/down side of the camera.
+local function get_vertical_further_direction()
+
+  local _, y = enemy:get_position()
+  local _, camera_y, _, camera_height = camera:get_bounding_box()
+  return y > camera_y + camera_height / 2.0 and 1 or 3
 end
 
 -- Check if the custom death as to be started before triggering the built-in hurt behavior.
 local function hurt(damage)
+
+  if is_hurt then
+    return
+  end
+  is_hurt = true
 
   -- Custom die if no more life.
   if enemy:get_life() - damage < 1 then
 
     -- Wait a few time, start 2 sets of explosions close from the enemy, wait a few time again and finally make the final explosion and enemy die.
     enemy:start_death(function()
+      local _, offset_y = sprite:get_xy()
       sprite:set_animation("hurt")
       sol.timer.start(enemy, 1500, function()
-        enemy:start_close_explosions(32, 2500, "entities/explosion_boss", 0, -13, function()
+        enemy:start_close_explosions(32, 2500, "entities/explosion_boss", 0, offset_y - 14, function()
           sol.timer.start(enemy, 1000, function()
-            enemy:start_brief_effect("entities/explosion_boss", nil, 0, -13)
+            enemy:start_brief_effect("entities/explosion_boss", nil, 0, offset_y - 14)
             finish_death()
           end)
         end)
         sol.timer.start(enemy, 200, function()
-          enemy:start_close_explosions(32, 2300, "entities/explosion_boss", 0, -13)
+          enemy:start_close_explosions(32, 2300, "entities/explosion_boss", 0, offset_y - 14)
         end)
       end)
     end)
@@ -70,13 +85,24 @@ local function hurt(damage)
   end
 
   -- Else hurt normally.
-  enemy:hurt(damage)
+  enemy:set_life(enemy:get_life() - damage)
+  enemy:start_pushed_back(hero, 300, 100, sprite)
+  sprite:set_shader(hurt_shader)
+  if enemy.on_hurt then
+    enemy:on_hurt()
+  end
+
+  -- Just stop the hurt animation at the end of timer.
+  sol.timer.start(map, hurt_duration, function()
+    is_hurt = false
+    sprite:set_shader(nil)
+  end)
 end
 
 -- Start the enemy jumping movement to the opposite side of the room.
 function enemy:start_moving()
 
-  local jumping_angle = sol.main.get_angle(0, 0, math.cos(moving_angle), -math.sin(get_further_direction(1) * quarter))
+  local jumping_angle = sol.main.get_angle(0, 0, math.cos(moving_angle), -math.sin(get_vertical_further_direction() * quarter))
   local jumping_final_speed = jumping_speed + jumping_speed_increase_by_hp * (8 - enemy:get_life())
   local movement = enemy:start_jumping(jumping_duration, jumping_height, jumping_angle, jumping_final_speed, function()
     if moving_angle then
@@ -104,7 +130,7 @@ function enemy:start_pushing(angle)
 
       -- Start spike movement on punching animation finished.
       moving_angle = angle -- Set the global direction angle here to not start pushing again if hurt.
-      sprite:set_animation("immobilized")
+      sprite:set_animation("waiting")
       spike:start_straight_walking(angle, spike_speed, nil, function()
 
         -- Start an earthquake when the spike hit the wall and slightly move back.
@@ -156,7 +182,7 @@ enemy:register_event("on_created", function(enemy)
     name = (enemy:get_name() or enemy:get_breed()) .. "_spike",
     breed = "boss/projectiles/spike",
     direction = 2,
-    x = get_further_direction(0) == 2 and -30 or 30
+    x = get_horizontal_further_direction() == 2 and -30 or 30
   })
 end)
 
@@ -178,7 +204,7 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_can_attack(true)
   enemy:set_damage(4)
   if not moving_angle then
-    local direction = get_further_direction(0)
+    local direction = get_horizontal_further_direction()
     sprite:set_direction(direction)
     enemy:start_pushing(direction * quarter)
   else

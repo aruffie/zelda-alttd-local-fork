@@ -8,7 +8,6 @@
 --           enemy:is_near(entity, triggering_distance, [sprite])
 --           enemy:is_entity_in_front(entity, [front_angle, [sprite]])
 --           enemy:is_over_grounds(grounds)
---           enemy:is_watched([sprite, [fully_visible]])
 --           enemy:get_central_symmetry_position(x, y)
 --           enemy:get_obstacles_normal_angle()
 --           enemy:get_obstacles_bounce_angle([angle])
@@ -126,31 +125,6 @@ function common_actions.learn(enemy)
         and is_position_over_grounds(x + width - 1, y)
         and is_position_over_grounds(x, y + height - 1)
         and is_position_over_grounds(x + width - 1, y + height - 1)
-  end
-
-  -- Return true if the enemy or its given sprite is partially visible at the camera, or fully visible if requested.
-  function enemy:is_watched(sprite, fully_visible)
-
-    local camera_x, camera_y = camera:get_position()
-    local camera_width, camera_height = camera:get_size()
-    local target = sprite or enemy
-    local x, y, _ = enemy:get_position()
-    local width, height = target:get_size()
-    local origin_x, origin_y = target:get_origin()
-    x, y = x - origin_x, y - origin_y
-
-    if sprite then
-      local offset_x, offset_y = sprite:get_xy()
-      x, y = x + offset_x, y + offset_y
-    end
-
-    if fully_visible then
-      x, y = x + width, y + height
-      width, height = -width, -height
-    end
-
-    return x + width >= camera_x and x <= camera_x + camera_width 
-        and y + height >= camera_y and y <= camera_y + camera_height
   end
 
   -- Return the central symmetry position over the given central point.

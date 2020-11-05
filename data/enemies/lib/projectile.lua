@@ -24,6 +24,7 @@ function behavior.apply(enemy, sprite)
   local game = enemy:get_game()
   local map = enemy:get_map()
   local hero = map:get_hero()
+  local camera = map:get_camera()
 
   local is_initialized = false
   local default_speed = 192
@@ -57,7 +58,7 @@ function behavior.apply(enemy, sprite)
   enemy:register_event("on_position_changed", function(enemy)
 
     if is_initialized then -- Workaround: on_position_changed() is called before on_restarted(), make sure it won't.
-      if not enemy:is_watched(sprite) then
+      if not camera:overlaps(enemy:get_max_bounding_box()) then
         enemy:start_death()
       end
     end
