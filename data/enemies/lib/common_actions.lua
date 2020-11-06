@@ -7,8 +7,9 @@
 --           enemy:is_aligned(entity, thickness, [sprite])
 --           enemy:is_near(entity, triggering_distance, [sprite])
 --           enemy:is_entity_in_front(entity, [front_angle, [sprite]])
---           enemy:is_over_grounds(grounds, [x_offset, [y_offset]])
+--           enemy:is_over_grounds(grounds, [x, [y]])
 --           enemy:get_central_symmetry_position(x, y)
+--           enemy:get_random_point_in_area(area)
 --           enemy:get_obstacles_normal_angle()
 --           enemy:get_obstacles_bounce_angle([angle])
 --
@@ -105,12 +106,12 @@ function common_actions.learn(enemy)
   end
 
   -- Return true if the four corners of the enemy are all over one of the given ground, or would be if the enemy would move by the given offset.
-  function enemy:is_over_grounds(grounds, x_offset, y_offset)
+  function enemy:is_over_grounds(grounds, x, y)
 
-    local x, y, width, height = enemy:get_bounding_box()
+    local enemy_x, enemy_y, width, height = enemy:get_bounding_box()
     local layer = enemy:get_layer()
-    x = x + (x_offset or 0)
-    y = y + (y_offset or 0)
+    x = enemy_x + (x or 0)
+    y = enemy_y + (y or 0)
 
     local function is_position_over_grounds(x, y)
       for _, ground in pairs(grounds) do
@@ -132,6 +133,42 @@ function common_actions.learn(enemy)
 
     local enemy_x, enemy_y, _ = enemy:get_position()
     return 2.0 * x - enemy_x, 2.0 * y - enemy_y
+  end
+
+  -- Get a random point in the given area, which may be a string or an entity.
+  -- If the given area is a string the actual area is formed by all entities marked with the same area custom property, except enemies.
+  function enemy:get_random_point_in_area(area)
+
+    local sub_areas = {}
+    local total_weight = 0
+
+    local function add_area_entity(entity)
+      local width, height = entity:get_size()
+      local weight = width * height
+      table.insert(sub_areas, {entity = entity, weight = weight})
+      total_weight = total_weight + weight
+    end
+
+    -- Get all entites that have the same area custom properties except enemies if area is a string, else just add the given area entity to the list
+    if type(area) == "string" then
+      for entity in map:get_entities_in_region(enemy) do
+        if entity:get_type() ~= "enemy" and entity:get_property("area") == area then
+          add_area_entity(entity)
+        end
+      end
+    else
+      add_area_entity(area)
+    end
+
+    -- Choose a random point in all possible entities.
+    local random_point = math.random(total_weight)
+    for _, sub_area in pairs(sub_areas) do
+      total_weight = total_weight - sub_area.weight
+      if random_point > total_weight then
+        local x, y, width, height = sub_area.entity:get_bounding_box()
+        return math.random(x, x + width), math.random(y, y + height)
+      end
+    end
   end
 
   -- Return the normal angle of close obstacles as a multiple of pi/4, or nil if none.

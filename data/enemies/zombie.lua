@@ -4,7 +4,6 @@
 --
 -- Start invisible and appear after a random time at a random position, then go to the hero direction.
 -- The apparition point may be restricted to an area if the corresponding custom property is filled with a valid area, else the point will always be a visible one.
--- The area is the surface made by all other other entities with the same area property, except enemies.
 -- Disappear after some time or obstacle reached.
 --
 -- Properties : area
@@ -23,7 +22,6 @@ local camera = map:get_camera()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
 local eighth = math.pi * 0.25
-local area_entities = {}
 
 -- Configuration variables
 local area = enemy:get_property("area")
@@ -32,36 +30,6 @@ local walking_minimum_duration = 2000
 local walking_maximum_duration = 4000
 local waiting_minimum_duration = 2000
 local waiting_maximum_duration = 4000
-
--- Returns a table filled with accepted area entites to move on, or camera if no area requested.
-local function get_area_entities(area)
-
-  local entities = {}
-
-  if area then
-    for entity in map:get_entities_in_region(enemy) do
-      if entity:get_type() ~= "enemy" and entity:get_property("area") == area then
-        table.insert(entities, entity)
-      end
-    end
-  end
-
-  -- Insert camera if no area found.
-  if #entities == 0 then
-    table.insert(entities, camera)
-  end
-
-  return entities
-end
-
--- Get a random point over possible area.
-local function get_random_point_in_area()
-
-  local area_entity = area_entities[math.random(#area_entities)]
-  local x, y, width, height = area_entity:get_bounding_box()
-
-  return math.random(x, x + width), math.random(y, y + height)
-end
 
 -- Return the layer of the given position.
 local function get_ground_layer(x, y)
@@ -108,7 +76,7 @@ local function appear()
 
   -- Postpone to the next frame if the random position would be over an obstacle.
   local x, y = enemy:get_position()
-  local random_x, random_y = get_random_point_in_area()
+  local random_x, random_y = enemy:get_random_point_in_area(area or camera)
   local layer = get_ground_layer(random_x, random_y)
   enemy:set_layer(layer or enemy:get_layer())
   if not layer or enemy:test_obstacles(random_x - x, random_y - y) then
@@ -147,9 +115,6 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(1)
   enemy:set_size(16, 8)
   enemy:set_origin(8, 5)
-
-  -- Get accepted area to move on.
-  area_entities = get_area_entities(area)
 end)
 
 -- Restart settings.

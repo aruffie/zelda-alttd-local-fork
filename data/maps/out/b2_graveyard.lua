@@ -19,6 +19,7 @@ local function initialize_graves()
           if entity:get_type() == "hero" then
             enemy:wake_up()
             grave:clear_collision_tests()
+            grave:set_traversable_by(true)
           end
         end)
       end
