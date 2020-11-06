@@ -402,18 +402,22 @@ function common_actions.learn(enemy)
     end
   end
 
-  -- Start a straight move to the given target and apply a constant acceleration and deceleration (px/s²).
-  -- The movemement will start decelerating when the targeted point is crossed on both axis, and finished when the movement on each axis is less than 1px/s.
-  function enemy:start_impulsion(x, y, speed, acceleration, deceleration)
+  -- Start a straight movement to the given angle for the given distance, applying a constant acceleration and deceleration (px/s²)
+  -- Start decelerating when the distance is reached, and the movement finishes when ended normally without reaching an obstacle.
+  -- The movement is stopped for both axis as soon as an obstacle is reached, no smooth movement possible for now nor angle and distance changes.
+  function enemy:start_impulsion(angle, speed, distance, acceleration, deceleration)
 
     -- Don't use solarus movements to be able to start several movements at the same time.
+    angle = angle % circle
     local movement = {}
     local timers = {}
-    local angle = enemy:get_angle(x, y)
-    local start = {enemy:get_position()}
-    local target = {x, y}
-    local accelerations = {acceleration, acceleration}
+    local step_axis_speeds = {}
+    local maximum_axis_speeds = {math.abs(math.cos(angle) * speed), math.abs(math.sin(angle) * speed)}
+    local current_acceleration = acceleration
+    local distance_traveled = 0
     local ignore_obstacles = false
+    step_axis_speeds[1] = (angle < quarter or angle > 3.0 * quarter) and 1 or (angle > quarter and angle < 3.0 * quarter) and -1 or 0
+    step_axis_speeds[2] = (angle > 0 and angle < math.pi) and -1 or (angle > math.pi and angle < circle) and 1 or 0
 
     -- Call given event on the movement table.
     local function call_event(event)
@@ -426,48 +430,37 @@ function common_actions.learn(enemy)
     local function move_on_axis(axis)
 
       local axis_current_speed = 0
-      local axis_maximum_speed = math.abs(trigonometric_functions[axis](angle) * speed)
-      local axis_move = {[axis % 2 + 1] = 0, [axis] = math.max(-1, math.min(1, target[axis] - start[axis]))}
-
       return sol.timer.start(enemy, 10, function() -- Start a frame later to let the time to set settings from outside such as ignore obstacles.
 
         -- Move enemy if it wouldn't reach an obstacle.
-        local position = {enemy:get_position()}
-        if ignore_obstacles or not enemy:test_obstacles(axis_move[1], axis_move[2]) then
-          enemy:set_position(position[1] + axis_move[1], position[2] + axis_move[2], position[3])
+        local x, y, layer = enemy:get_position()
+        local step_move = {0, 0}
+        step_move[axis] = step_axis_speeds[axis]
+        if ignore_obstacles or not enemy:test_obstacles(step_move[1], step_move[2]) then
+          enemy:set_position(x + step_move[1], y + step_move[2], layer)
+          distance_traveled = distance_traveled + 1
           call_event(movement.on_position_changed)
         else
+          local other_timer = timers[axis % 2 + 1]
+          if other_timer then
+            other_timer:stop()
+          end
           call_event(movement.on_obstacle_reached)
-          timers[axis] = nil
           return false
         end
 
-        local axis_position = position[axis] + axis_move[axis]
-        if accelerations[axis] > 0 then
-
-          -- Replace axis acceleration by the deceleration if beyond the axis target.
-          if math.min(start[axis], axis_position) <= target[axis] and target[axis] <= math.max(start[axis], axis_position) then
-            accelerations[axis] = -deceleration
-            call_event(movement.on_changed)
-
-            -- Call decelerating callback when both axis timers are decelerating.
-            if accelerations[axis % 2 + 1] <= 0 then
-              call_event(movement.on_decelerating)
-            end
-
-          -- Correct the angle when both axis are still accelerating in case another movement is running at the same time.
-          elseif accelerations[axis % 2 + 1] > 0 then
-            angle = enemy:get_angle(x, y)
-            axis_maximum_speed = math.abs(trigonometric_functions[axis](angle) * speed)
-          end
+        -- Replace axis acceleration by the deceleration if the distance is reached.
+        if current_acceleration > 0 and distance_traveled > distance then
+          current_acceleration = -deceleration
+          call_event(movement.on_decelerating)
         end
 
         -- Update speed between 0 and maximum speed (px/s) depending on acceleration.
-        axis_current_speed = math.min(math.sqrt(math.max(0, math.pow(axis_current_speed, 2.0) + 2.0 * accelerations[axis])), axis_maximum_speed)     
+        axis_current_speed = math.min(math.sqrt(math.max(0, math.pow(axis_current_speed, 2.0) + 2.0 * current_acceleration)), maximum_axis_speeds[axis])     
 
         -- Schedule the next pixel move and avoid too low timers when decelerating (less than 1px/s).
-        if accelerations[axis] > 0 or axis_current_speed >= 1 then
-          return 1000.0 / axis_current_speed
+        if current_acceleration > 0 or axis_current_speed >= 1 then
+          return 1000.0 / math.max(1, axis_current_speed)
         end
 
         -- Call on_finished() event when the last axis timers finished normally.

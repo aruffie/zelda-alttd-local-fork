@@ -33,8 +33,8 @@ local after_awake_delay = 1000
 local take_off_duration = 1000
 local flying_speed = 80
 local flying_height = 16
-local flying_acceleration = 16
-local flying_deceleration = 48
+local flying_acceleration = 32
+local flying_deceleration = 32
 
 -- Returns a table filled with accepted area entites to move on, or camera if no area requested.
 local function get_area_entities(area)
@@ -69,11 +69,13 @@ end
 -- Start the enemy flying movement.
 local function start_moving()
 
-  local x = enemy:get_position()
+  local x, y = enemy:get_position()
   local target_x, target_y = get_random_point_in_area()
+  local angle = enemy:get_angle(target_x, target_y)
+  local distance = enemy:get_distance(target_x, target_y)
 
   -- Start moving to the target with acceleration.
-  local movement = enemy:start_impulsion(target_x, target_y, flying_speed, flying_acceleration, flying_deceleration)
+  local movement = enemy:start_impulsion(angle, flying_speed, distance, flying_acceleration, flying_deceleration)
   movement:set_ignore_obstacles(true)
   sprite:set_direction(target_x < x and 2 or 0)
 

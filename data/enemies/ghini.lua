@@ -69,11 +69,13 @@ end
 -- Start the enemy flying movement.
 local function start_moving()
 
-  local x = enemy:get_position()
+  local x, y = enemy:get_position()
   local target_x, target_y = get_random_point_in_area()
+  local angle = enemy:get_angle(target_x, target_y)
+  local distance = enemy:get_distance(target_x, target_y)
 
   -- Start moving to the target with acceleration.
-  local movement = enemy:start_impulsion(target_x, target_y, flying_speed, flying_acceleration, flying_deceleration)
+  local movement = enemy:start_impulsion(angle, flying_speed, distance, flying_acceleration, flying_deceleration)
   movement:set_ignore_obstacles(true)
   sprite:set_direction(target_x < x and 2 or 0)
 
