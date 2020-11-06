@@ -33,8 +33,8 @@ local after_awake_delay = 1000
 local take_off_duration = 1000
 local flying_speed = 80
 local flying_height = 16
-local flying_acceleration = 16
-local flying_deceleration = 48
+local flying_acceleration = 32
+local flying_deceleration = 32
 
 -- Returns a table filled with accepted area entites to move on, or camera if no area requested.
 local function get_area_entities(area)
