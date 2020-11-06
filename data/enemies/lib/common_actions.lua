@@ -7,7 +7,7 @@
 --           enemy:is_aligned(entity, thickness, [sprite])
 --           enemy:is_near(entity, triggering_distance, [sprite])
 --           enemy:is_entity_in_front(entity, [front_angle, [sprite]])
---           enemy:is_over_grounds(grounds)
+--           enemy:is_over_grounds(grounds, [x_offset, [y_offset]])
 --           enemy:get_central_symmetry_position(x, y)
 --           enemy:get_obstacles_normal_angle()
 --           enemy:get_obstacles_bounce_angle([angle])
@@ -104,13 +104,13 @@ function common_actions.learn(enemy)
     return math.cos(math.abs(sprite:get_direction() * quarter - enemy:get_angle(entity))) >= math.cos(front_angle / 2.0)
   end
 
-  -- Return true if the four corners of the enemy are over one of the given ground, not necessarily the same.
-  function enemy:is_over_grounds(grounds)
+  -- Return true if the four corners of the enemy are all over one of the given ground, or would be if the enemy would move by the given offset.
+  function enemy:is_over_grounds(grounds, x_offset, y_offset)
 
-    local x, y, layer = enemy:get_position()
-    local width, height = enemy:get_size()
-    local origin_x, origin_y = enemy:get_origin()
-    x, y = x - origin_x, y - origin_y
+    local x, y, width, height = enemy:get_bounding_box()
+    local layer = enemy:get_layer()
+    x = x + (x_offset or 0)
+    y = y + (y_offset or 0)
 
     local function is_position_over_grounds(x, y)
       for _, ground in pairs(grounds) do

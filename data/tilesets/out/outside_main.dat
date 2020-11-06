@@ -27577,7 +27577,7 @@ tile_pattern{
 
 tile_pattern{
   id = "1951",
-  ground = "traversable",
+  ground = "wall",
   default_layer = 1,
   x = 960,
   y = 216,
