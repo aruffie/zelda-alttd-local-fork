@@ -261,7 +261,6 @@ local function hurt(damage)
     enemy:on_hurt()
   end
 
-  -- Just stop the hurt animation at the end of timer.
   sol.timer.start(map, hurt_duration, function()
     is_hurt = false
     legs_sprite:set_shader(nil)
