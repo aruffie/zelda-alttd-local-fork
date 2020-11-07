@@ -7,8 +7,9 @@
 --           enemy:is_aligned(entity, thickness, [sprite])
 --           enemy:is_near(entity, triggering_distance, [sprite])
 --           enemy:is_entity_in_front(entity, [front_angle, [sprite]])
---           enemy:is_over_grounds(grounds)
+--           enemy:is_over_grounds(grounds, [x, [y]])
 --           enemy:get_central_symmetry_position(x, y)
+--           enemy:get_random_point_in_area(area)
 --           enemy:get_obstacles_normal_angle()
 --           enemy:get_obstacles_bounce_angle([angle])
 --
@@ -20,7 +21,7 @@
 --           enemy:stop_flying(landing_duration, [on_finished_callback])
 --           enemy:start_attracting(entity, speed, [moving_condition_callback])
 --           enemy:stop_attracting([entity])
---           enemy:start_impulsion(x, y, speed, acceleration, deceleration)
+--           enemy:start_impulsion(angle, speed, acceleration, deceleration, [distance])
 --           enemy:start_throwing(entity, duration, start_height, [maximum_height, [angle, speed, [on_finished_callback]]])
 --           enemy:start_welding(entity, [x, [y]])
 --           enemy:start_leashed_by(entity, maximum_distance)
@@ -104,13 +105,13 @@ function common_actions.learn(enemy)
     return math.cos(math.abs(sprite:get_direction() * quarter - enemy:get_angle(entity))) >= math.cos(front_angle / 2.0)
   end
 
-  -- Return true if the four corners of the enemy are over one of the given ground, not necessarily the same.
-  function enemy:is_over_grounds(grounds)
+  -- Return true if the four corners of the enemy are all over one of the given ground, or would be if the enemy would move by the given offset.
+  function enemy:is_over_grounds(grounds, x, y)
 
-    local x, y, layer = enemy:get_position()
-    local width, height = enemy:get_size()
-    local origin_x, origin_y = enemy:get_origin()
-    x, y = x - origin_x, y - origin_y
+    local enemy_x, enemy_y, width, height = enemy:get_bounding_box()
+    local layer = enemy:get_layer()
+    x = enemy_x + (x or 0)
+    y = enemy_y + (y or 0)
 
     local function is_position_over_grounds(x, y)
       for _, ground in pairs(grounds) do
@@ -132,6 +133,42 @@ function common_actions.learn(enemy)
 
     local enemy_x, enemy_y, _ = enemy:get_position()
     return 2.0 * x - enemy_x, 2.0 * y - enemy_y
+  end
+
+  -- Get a random point in the given area, which may be a string or an entity.
+  -- If the given area is a string the actual area is formed by all entities marked with the same area custom property, except enemies.
+  function enemy:get_random_point_in_area(area)
+
+    local sub_areas = {}
+    local total_weight = 0
+
+    local function add_area_entity(entity)
+      local width, height = entity:get_size()
+      local weight = width * height
+      table.insert(sub_areas, {entity = entity, weight = weight})
+      total_weight = total_weight + weight
+    end
+
+    -- Get all entites that have the same area custom properties except enemies if area is a string, else just add the given area entity to the list
+    if type(area) == "string" then
+      for entity in map:get_entities_in_region(enemy) do
+        if entity:get_type() ~= "enemy" and entity:get_property("area") == area then
+          add_area_entity(entity)
+        end
+      end
+    else
+      add_area_entity(area)
+    end
+
+    -- Choose a random point in all possible entities.
+    local random_point = math.random(total_weight)
+    for _, sub_area in pairs(sub_areas) do
+      total_weight = total_weight - sub_area.weight
+      if random_point > total_weight then
+        local x, y, width, height = sub_area.entity:get_bounding_box()
+        return math.random(x, x + width), math.random(y, y + height)
+      end
+    end
   end
 
   -- Return the normal angle of close obstacles as a multiple of pi/4, or nil if none.
@@ -402,17 +439,22 @@ function common_actions.learn(enemy)
     end
   end
 
-  -- Start a straight move to the given target and apply a constant acceleration and deceleration (px/s²).
-  function enemy:start_impulsion(x, y, speed, acceleration, deceleration)
+  -- Start a straight movement to the given angle for the given distance, applying a constant acceleration and deceleration (px/s²)
+  -- Start decelerating when the distance is reached, and the movement finishes when ended normally without reaching an obstacle.
+  -- The movement is stopped for both axis as soon as an obstacle is reached, no smooth movement possible for now nor angle and distance changes.
+  function enemy:start_impulsion(angle, speed, acceleration, deceleration, distance)
 
     -- Don't use solarus movements to be able to start several movements at the same time.
+    angle = angle % circle
     local movement = {}
     local timers = {}
-    local angle = enemy:get_angle(x, y)
-    local start = {enemy:get_position()}
-    local target = {x, y}
-    local accelerations = {acceleration, acceleration}
+    local step_axis_speeds = {}
+    local maximum_axis_speeds = {math.abs(math.cos(angle) * speed), math.abs(math.sin(angle) * speed)}
+    local current_acceleration = acceleration
+    local distance_traveled = 0
     local ignore_obstacles = false
+    step_axis_speeds[1] = (angle < quarter or angle > 3.0 * quarter) and 1 or (angle > quarter and angle < 3.0 * quarter) and -1 or 0
+    step_axis_speeds[2] = (angle > 0 and angle < math.pi) and -1 or (angle > math.pi and angle < circle) and 1 or 0
 
     -- Call given event on the movement table.
     local function call_event(event)
@@ -424,47 +466,38 @@ function common_actions.learn(enemy)
     -- Schedule 1 pixel moves on each axis depending on the given acceleration.
     local function move_on_axis(axis)
 
-      local axis_current_speed = math.abs(trigonometric_functions[axis](angle) * 2.0 * acceleration)
-      local axis_maximum_speed = math.abs(trigonometric_functions[axis](angle) * speed)
-      local axis_move = {[axis % 2 + 1] = 0, [axis] = math.max(-1, math.min(1, target[axis] - start[axis]))}
-
-      -- Avoid too low speed (less than 1px/s).
-      if axis_current_speed < 1 then
-        accelerations[axis] = 0
-        return
-      end
-
-      return sol.timer.start(enemy, 1000.0 / axis_current_speed, function()
+      local axis_current_speed = 0
+      return sol.timer.start(enemy, 10, function() -- Start a frame later to let the time to set settings from outside such as ignore obstacles.
 
         -- Move enemy if it wouldn't reach an obstacle.
-        local position = {enemy:get_position()}
-        if ignore_obstacles or not enemy:test_obstacles(axis_move[1], axis_move[2]) then
-          enemy:set_position(position[1] + axis_move[1], position[2] + axis_move[2], position[3])
+        local x, y, layer = enemy:get_position()
+        local step_move = {0, 0}
+        step_move[axis] = step_axis_speeds[axis]
+        if ignore_obstacles or not enemy:test_obstacles(step_move[1], step_move[2]) then
+          enemy:set_position(x + step_move[1], y + step_move[2], layer)
+          distance_traveled = distance_traveled + 1
           call_event(movement.on_position_changed)
         else
+          local other_timer = timers[axis % 2 + 1]
+          if other_timer then
+            other_timer:stop()
+          end
           call_event(movement.on_obstacle_reached)
-          timers[axis] = nil
           return false
         end
 
-        -- Replace axis acceleration by negative deceleration if beyond axis target.
-        local axis_position = position[axis] + axis_move[axis]
-        if accelerations[axis] > 0 and math.min(start[axis], axis_position) <= target[axis] and target[axis] <= math.max(start[axis], axis_position) then
-          accelerations[axis] = -deceleration
-          call_event(movement.on_changed)
-
-          -- Call decelerating callback if both axis timers are decelerating.
-          if accelerations[axis % 2 + 1] <= 0 then
-            call_event(movement.on_decelerating)
-          end
+        -- Replace axis acceleration by the deceleration if the distance is reached, if any.
+        if current_acceleration > 0 and distance and distance_traveled > distance then
+          current_acceleration = -deceleration
+          call_event(movement.on_decelerating)
         end
 
         -- Update speed between 0 and maximum speed (px/s) depending on acceleration.
-        axis_current_speed = math.min(math.sqrt(math.max(0, math.pow(axis_current_speed, 2.0) + 2.0 * accelerations[axis])), axis_maximum_speed)     
+        axis_current_speed = math.min(math.sqrt(math.max(0, math.pow(axis_current_speed, 2.0) + 2.0 * current_acceleration)), maximum_axis_speeds[axis])     
 
-        -- Schedule the next pixel move and avoid too low timers (less than 1px/s).
-        if axis_current_speed >= 1 then
-          return 1000.0 / axis_current_speed
+        -- Schedule the next pixel move and avoid too low timers when decelerating (less than 1px/s).
+        if current_acceleration > 0 or axis_current_speed >= 1 then
+          return 1000.0 / math.max(1, axis_current_speed)
         end
 
         -- Call on_finished() event when the last axis timers finished normally.

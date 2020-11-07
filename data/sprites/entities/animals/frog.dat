@@ -1,18 +1,18 @@
 animation{
-  name = "stopped",
+  name = "waiting",
   src_image = "entities/animals/frog.png",
   directions = {
     { x = 0, y = 0, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21 },
-    { x = 112, y = 0, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21 },
-    { x = 48, y = 0, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21 },
-    { x = 80, y = 0, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21 },
+    { x = 96, y = 0, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21 },
+    { x = 32, y = 0, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21 },
+    { x = 64, y = 0, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21 },
   },
 }
 animation{
-  name = "walking",
+  name = "jumping",
   src_image = "entities/animals/frog.png",
-  frame_delay = 200,
-  frame_to_loop_on = 0,
+  frame_delay = 100,
+  frame_to_loop_on = 1,
   directions = {
     { x = 0, y = 0, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21, num_frames = 2 },
     { x = 96, y = 0, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21, num_frames = 2 },

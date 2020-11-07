@@ -23,7 +23,7 @@ local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
 local circle = math.pi * 2.0
 local is_awake = false
-local turning_time = 0
+local turning_time = 0.02
 
 -- Configuration variables
 local is_heavy_sleeper = enemy:get_property("is_heavy_sleeper") == "true"
@@ -35,6 +35,7 @@ local flying_speed = 120
 local flying_height = 24
 local turning_speed = 100
 local triggering_distance = 60
+local turning_angle = 0.02
 
 -- Set the sprite direction to 0 if the given angle in the left half circle, to 2 in the right half circle.
 -- Keep the same direction if the angle is in the slight dead zone between both half circles.
@@ -79,7 +80,7 @@ local function start_flying()
   -- Slightly turn to the hero for some time, then turn away from him for some time and finish straight.
   local is_targeting_hero = true
   local is_turning_away = false
-  local angle_step = 0.02
+  local angle_step = turning_angle
   sol.timer.start(enemy, 10, function()
     local angle_to_hero = get_angle_from_sprite(sprite, hero)
     local is_hero_on_left = (angle - angle_to_hero) % circle > math.pi

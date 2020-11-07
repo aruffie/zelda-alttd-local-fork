@@ -5,10 +5,7 @@
 -- Moves randomly over horizontal and vertical axis.
 -- Eat the hero and steal the equiped shield if any, then wait for eight actions before free the hero.
 --
--- Methods : enemy:start_walking()
---           enemy:steal_item(item_name, [variant, [only_if_assigned, [drop_when_dead]]])
---           enemy:free_hero()
---           enemy:eat_hero()
+-- Methods : enemy:is_eating_hero()
 --
 ----------------------------------
 
@@ -42,6 +39,17 @@ local function set_sprite_opacity(sprite, opacity)
   end
 end
 
+-- Return true if no like-like enemy is currenly eating the hero on the map.
+local function is_hero_eatable()
+
+  for likelike in map:get_entities_by_type("enemy") do
+    if likelike:get_breed() == enemy:get_breed() and likelike:is_eating_hero() then
+      return false
+    end
+  end
+  return true
+end
+
 -- Workaround : No proper way to set an unique hero animation and keep the ability to interact, use another entity instead.
 local function create_eaten_hero_entity()
 
@@ -64,16 +72,8 @@ local function create_eaten_hero_entity()
   return entity, sprite
 end
 
--- Start the enemy movement.
-function enemy:start_walking()
-
-  enemy:start_straight_walking(walking_angles[math.random(4)], walking_speed, math.random(walking_minimum_distance, walking_maximum_distance), function()
-    enemy:start_walking()
-  end)
-end
-
 -- Steal an item and drop it when died, possibly conditionned on the variant and the assignation to a slot.
-function enemy:steal_item(item_name, variant, only_if_assigned, drop_when_dead)
+local function steal_item(item_name, variant, only_if_assigned, drop_when_dead)
 
   if game:has_item(item_name) then
     local item = game:get_item(item_name)
@@ -91,9 +91,20 @@ function enemy:steal_item(item_name, variant, only_if_assigned, drop_when_dead)
   end
 end
 
--- Free the hero.
-function enemy:free_hero()
+-- Start the enemy movement.
+local function start_walking()
 
+  enemy:start_straight_walking(walking_angles[math.random(4)], walking_speed, math.random(walking_minimum_distance, walking_maximum_distance), function()
+    start_walking()
+  end)
+end
+
+-- Free the hero.
+local function free_hero()
+
+  if not is_eating then
+    return
+  end
   is_eating = false
   is_exhausted = true
 
@@ -108,9 +119,13 @@ function enemy:free_hero()
 end
 
 -- Make the enemy eat the hero.
-function enemy:eat_hero()
+local function eat_hero()
 
+  if is_eating or is_exhausted or not is_hero_eatable() then
+    return
+  end
   is_eating = true
+
   command_pressed_count = 0
   enemy:stop_movement()
   enemy:set_invincible()
@@ -123,7 +138,13 @@ function enemy:eat_hero()
   enemy:set_drawn_in_y_order(false) -- Ensure the eaten hero is drawn over the enemy.
 
   -- Eat the shield if it is the first variant and assigned to a slot.
-  enemy:steal_item("shield", 1, true, true)
+  steal_item("shield", 1, true, true)
+end
+
+-- Return true if the enemy is currently eating the hero.
+function enemy:is_eating_hero()
+
+  return is_eating
 end
 
 -- Store the number of command pressed while eaten, and free the hero once 8 item commands are pressed.
@@ -136,7 +157,7 @@ map:register_event("on_command_pressed", function(map, command)
   if is_eating and (command == "attack" or command == "item_1" or command == "item_2") then
     command_pressed_count = command_pressed_count + 1
     if command_pressed_count == 8 then
-      enemy:free_hero()
+      free_hero()
     end
   end
 end)
@@ -144,18 +165,14 @@ end)
 -- Eat the hero on attacking him.
 enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
 
-  if not is_eating and not is_exhausted then
-    enemy:eat_hero()
-  end
+  eat_hero()
   return true
 end)
 
 -- Free hero on dying.
 enemy:register_event("on_dying", function(enemy)
 
-  if is_eating then
-    enemy:free_hero()
-  end
+  free_hero()
 end)
 
 -- Passive behaviors needing constant checking.
@@ -186,7 +203,7 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
-  -- Schedule the damage rules setup once not in collision with the hero.
+  -- Schedule the damage rules setup once not in collision with the hero, in case he was just released and still overlaps.
   sol.timer.start(enemy, 50, function()
     if enemy:overlaps(hero, "sprite") then
       return true
@@ -207,5 +224,5 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_damage(0)
   enemy:set_can_attack(false)
   command_pressed_count = 0
-  enemy:start_walking()
+  start_walking()
 end)

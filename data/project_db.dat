@@ -1701,7 +1701,7 @@ file{ path = "enemies/zora.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "entities", author = "Benjamin Schweitzer, Christopho, Phoenixll54, Vlag", license = "GPL v3" }
 file{ path = "entities/arrow.lua", license = "GPL v3" }
 file{ path = "entities/ball.lua", author = "Vlag", license = "GPL v3" }
-file{ path = "entities/bird.lua", license = "GPL v3" }
+file{ path = "entities/bird.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "entities/bomb_arrow.lua", license = "GPL v3" }
 file{ path = "entities/bottle.lua", license = "GPL v3" }
 file{ path = "entities/bowwow.lua", license = "GPL v3" }
@@ -1714,7 +1714,7 @@ file{ path = "entities/dice.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "entities/eye_switch.lua", license = "GPL v3" }
 file{ path = "entities/fire.lua", license = "GPL v3" }
 file{ path = "entities/follower.lua", license = "GPL v3" }
-file{ path = "entities/frog.lua", license = "GPL v3" }
+file{ path = "entities/frog.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "entities/green_crystal.lua", license = "GPL v3" }
 file{ path = "entities/hook_bridge.lua", license = "GPL v3" }
 file{ path = "entities/hookable.lua", license = "GPL v3" }
@@ -1724,7 +1724,7 @@ file{ path = "entities/lib/carriable.lua", author = "Vlag", }
 file{ path = "entities/light.lua", license = "GPL v3" }
 file{ path = "entities/magnet.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "entities/midpoint_teletransporter.lua", author = "PhoenixII54", license = "GPL v3" }
-file{ path = "entities/mouse.lua", license = "GPL v3" }
+file{ path = "entities/mouse.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "entities/mr_write_and_christine.lua", license = "GPL v3" }
 file{ path = "entities/mushroom.lua", author = "Benjamin Schweitzer", }
 file{ path = "entities/non_diggable.lua", license = "GPL v3" }

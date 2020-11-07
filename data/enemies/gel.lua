@@ -6,10 +6,6 @@
 -- Slow down the hero on touched and forbid him to use his items.
 --
 -- Methods : enemy:is_leashed_by(entity)
---           enemy:start_walking()
---           enemy:start_pouncing([offensive])
---           enemy:free_hero()
---           enemy:attach_hero()
 --
 ----------------------------------
 
@@ -49,32 +45,8 @@ local function is_hero_free()
   return true
 end
 
--- Return true if the enemy is currently leashed by the hero.
-function enemy:is_leashed_by_hero()
-
-  return is_leashed
-end
-
--- Start moving to the hero, and jump when he is close enough.
-function enemy:start_walking()
-  
-  local movement = enemy:start_target_walking(hero, walking_speed)
-  function movement:on_position_changed()
-    if not is_attacking and not is_exhausted and enemy:is_near(hero, attack_triggering_distance) then
-      is_attacking = true
-      movement:stop()
-      
-      -- Shake for a short duration then start attacking.
-      sprite:set_animation("shaking")
-      sol.timer.start(enemy, shaking_duration, function()
-         enemy:start_pouncing(true)
-      end)
-    end
-  end
-end
-
 -- Start pouncing to or away to the hero.
-function enemy:start_pouncing(offensive)
+local function start_pouncing(offensive)
 
   local hero_x, hero_y, _ = hero:get_position()
   local enemy_x, enemy_y, _ = enemy:get_position()
@@ -85,8 +57,26 @@ function enemy:start_pouncing(offensive)
   sprite:set_animation("jumping")
 end
 
+-- Start moving to the hero, and jump when he is close enough.
+local function start_walking()
+  
+  local movement = enemy:start_target_walking(hero, walking_speed)
+  function movement:on_position_changed()
+    if not is_attacking and not is_exhausted and enemy:is_near(hero, attack_triggering_distance) then
+      is_attacking = true
+      movement:stop()
+      
+      -- Shake for a short duration then start attacking.
+      sprite:set_animation("shaking")
+      sol.timer.start(enemy, shaking_duration, function()
+        start_pouncing(true)
+      end)
+    end
+  end
+end
+
 -- Let go the hero.
-function enemy:free_hero()
+local function free_hero()
 
   is_leashed = false
   enemy:stop_leashed_by(hero)
@@ -98,7 +88,7 @@ function enemy:free_hero()
 end
 
 -- Make the hero slow down and unable to use weapons. 
-function enemy:attach_hero()
+local function attach_hero()
 
   is_leashed = true
 
@@ -119,9 +109,15 @@ function enemy:attach_hero()
 
   -- Jump away after some time.
   sol.timer.start(enemy, math.random(stuck_minimum_duration, stuck_maximum_duration), function()
-    enemy:free_hero()
-    enemy:start_pouncing(false)
+    free_hero()
+    start_pouncing(false)
   end)
+end
+
+-- Return true if the enemy is currently leashed by the hero.
+function enemy:is_leashed_by_hero()
+
+  return is_leashed
 end
 
 -- Passive behaviors needing constant checking.
@@ -133,13 +129,13 @@ enemy:register_event("on_update", function(enemy)
 
   -- If the hero touches the center of the enemy, slow him down.
   if not is_leashed and enemy:get_life() > 0 and enemy:overlaps(hero, "origin") then
-    enemy:attach_hero()
+    attach_hero()
   end
 end)
 
 -- Free the hero on dying
 enemy:register_event("on_dying", function(enemy)
-  enemy:free_hero()
+  free_hero()
 end)
 
 -- Initialization.
@@ -167,5 +163,5 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_obstacle_behavior("normal")
   enemy:set_can_attack(false)
   enemy:set_damage(0)
-  enemy:start_walking()
+  start_walking()
 end)

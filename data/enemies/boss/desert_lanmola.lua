@@ -210,7 +210,6 @@ local function hurt(damage)
     enemy:on_hurt()
   end
 
-  -- Just stop the hurt animation at the end of timer.
   sol.timer.start(enemy, hurt_duration, function()
     head_sprite:set_animation("walking")
   end)

@@ -84,7 +84,7 @@ local function hurt(damage)
     return
   end
 
-  -- Else hurt normally.
+  -- Else manually hurt, to not interrupt a possible jump.
   enemy:set_life(enemy:get_life() - damage)
   enemy:start_pushed_back(hero, 300, 100, sprite)
   sprite:set_shader(hurt_shader)
@@ -92,7 +92,6 @@ local function hurt(damage)
     enemy:on_hurt()
   end
 
-  -- Just stop the hurt animation at the end of timer.
   sol.timer.start(map, hurt_duration, function()
     is_hurt = false
     sprite:set_shader(nil)

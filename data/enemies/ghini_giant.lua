@@ -4,7 +4,6 @@
 --
 -- Target a random point on the map and go to it with acceleration and deceleration, then target another point.
 -- The targeted point may be restricted to an area if the corresponding custom property is filled with a valid area, else the targeted point will always be a visible one.
--- The area is the surface made by all other other entities with the same area property, except enemies.
 -- May start disabled and manually wake_up() from outside this script, in which case it will elevate slowly before starting its fly.
 --
 -- Methods : enemy:wake_up()
@@ -24,7 +23,6 @@ local camera = map:get_camera()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
 local circle = math.pi * 2.0
-local area_entities = {}
 local is_waking_up = false
 
 -- Configuration variables
@@ -33,47 +31,19 @@ local after_awake_delay = 1000
 local take_off_duration = 1000
 local flying_speed = 80
 local flying_height = 16
-local flying_acceleration = 16
-local flying_deceleration = 48
-
--- Returns a table filled with accepted area entites to move on, or camera if no area requested.
-local function get_area_entities(area)
-
-  local entities = {}
-
-  if area then
-    for entity in map:get_entities_in_region(enemy) do
-      if entity:get_type() ~= "enemy" and entity:get_property("area") == area then
-        table.insert(entities, entity)
-      end
-    end
-  end
-
-  -- Insert camera if no area found.
-  if #entities == 0 then
-    table.insert(entities, camera)
-  end
-
-  return entities
-end
-
--- Get a random point over possible area.
-local function get_random_point_in_area()
-
-  local area_entity = area_entities[math.random(#area_entities)]
-  local x, y, width, height = area_entity:get_bounding_box()
-
-  return math.random(x, x + width), math.random(y, y + height)
-end
+local flying_acceleration = 32
+local flying_deceleration = 32
 
 -- Start the enemy flying movement.
 local function start_moving()
 
-  local x = enemy:get_position()
-  local target_x, target_y = get_random_point_in_area()
+  local x, y = enemy:get_position()
+  local target_x, target_y = enemy:get_random_point_in_area(area or camera)
+  local angle = enemy:get_angle(target_x, target_y)
+  local distance = enemy:get_distance(target_x, target_y)
 
   -- Start moving to the target with acceleration.
-  local movement = enemy:start_impulsion(target_x, target_y, flying_speed, flying_acceleration, flying_deceleration)
+  local movement = enemy:start_impulsion(angle, flying_speed, flying_acceleration, flying_deceleration, distance)
   movement:set_ignore_obstacles(true)
   sprite:set_direction(target_x < x and 2 or 0)
 
@@ -104,9 +74,6 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)
   enemy:start_shadow()
-
-  -- Get accepted area to move on.
-  area_entities = get_area_entities(area)
 end)
 
 -- Restart settings.
