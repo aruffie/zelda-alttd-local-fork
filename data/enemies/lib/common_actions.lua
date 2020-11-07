@@ -21,7 +21,7 @@
 --           enemy:stop_flying(landing_duration, [on_finished_callback])
 --           enemy:start_attracting(entity, speed, [moving_condition_callback])
 --           enemy:stop_attracting([entity])
---           enemy:start_impulsion(x, y, speed, acceleration, deceleration)
+--           enemy:start_impulsion(angle, speed, acceleration, deceleration, [distance])
 --           enemy:start_throwing(entity, duration, start_height, [maximum_height, [angle, speed, [on_finished_callback]]])
 --           enemy:start_welding(entity, [x, [y]])
 --           enemy:start_leashed_by(entity, maximum_distance)
@@ -442,7 +442,7 @@ function common_actions.learn(enemy)
   -- Start a straight movement to the given angle for the given distance, applying a constant acceleration and deceleration (px/s²)
   -- Start decelerating when the distance is reached, and the movement finishes when ended normally without reaching an obstacle.
   -- The movement is stopped for both axis as soon as an obstacle is reached, no smooth movement possible for now nor angle and distance changes.
-  function enemy:start_impulsion(angle, speed, distance, acceleration, deceleration)
+  function enemy:start_impulsion(angle, speed, acceleration, deceleration, distance)
 
     -- Don't use solarus movements to be able to start several movements at the same time.
     angle = angle % circle
@@ -486,8 +486,8 @@ function common_actions.learn(enemy)
           return false
         end
 
-        -- Replace axis acceleration by the deceleration if the distance is reached.
-        if current_acceleration > 0 and distance_traveled > distance then
+        -- Replace axis acceleration by the deceleration if the distance is reached, if any.
+        if current_acceleration > 0 and distance and distance_traveled > distance then
           current_acceleration = -deceleration
           call_event(movement.on_decelerating)
         end

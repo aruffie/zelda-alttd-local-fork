@@ -54,7 +54,7 @@ local function start_walking()
 
   -- Wait a few time then start accelerating.
   sol.timer.start(enemy, math.random(waiting_minimum_duration, waiting_maximum_duration), function()
-    local movement = enemy:start_impulsion(angle, walking_speed, distance, walking_acceleration, walking_deceleration)
+    local movement = enemy:start_impulsion(angle, walking_speed, walking_acceleration, walking_deceleration, distance)
 
     -- Stop movement if ground is not water anymore or obstacle reached.
     function movement:on_position_changed()

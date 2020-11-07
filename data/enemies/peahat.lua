@@ -4,11 +4,6 @@
 --
 -- Flying enemy that regularly land off, move clockwise around the hero and land where he becomes vulnerable.
 --
--- Methods : enemy:start_taking_off()
---           enemy:start_landing()
---           enemy:start_moving()
---           enemy:wait()
---
 ----------------------------------
 
 -- Global variables
@@ -35,6 +30,7 @@ local before_landing_delay = 500
 local before_restarting_delay = 1000
 local flying_height = 32
 local flying_speed = 24
+local turning_angle = 0.0075
 
 -- Start a frame delay that will change later depending on the given table.
 local function start_dynamic_frame_delay(steps_table, current_step, on_finished_callback)
@@ -43,27 +39,15 @@ local function start_dynamic_frame_delay(steps_table, current_step, on_finished_
   sprite:set_frame_delay(steps_table[step])
   sol.timer.start(enemy, frame_delay_step_duration, function()
     if steps_table[step + 1] then
-      start_dynamic_frame_delay(steps_table, step, finished_callback)
+      start_dynamic_frame_delay(steps_table, step, on_finished_callback)
     elseif on_finished_callback then
       on_finished_callback()
     end
   end)
 end
 
--- Make the flying animation start and gradually decrease the frame delay.
-function enemy:start_taking_off()
-
-    sprite:set_animation("walking")
-    start_dynamic_frame_delay(taking_off_frame_delay_steps, 0, function()
-      enemy:start_flying(take_off_duration, flying_height, function()
-        enemy:start_moving()
-      end)
-      enemy:set_invincible()
-    end)
-end
-
 -- Start the enemy landing.
-function enemy:start_landing()
+local function start_landing()
 
   enemy:stop_flying(landing_duration, function()
     sol.timer.start(enemy, before_restarting_delay, function()
@@ -74,36 +58,54 @@ function enemy:start_landing()
 end
 
 -- Start moving after some time.
-function enemy:start_moving()
+local function start_moving()
 
   -- Start movements after some time.
   sol.timer.start(enemy, before_moving_in_the_air_delay, function()
 
-    -- Start a straight movement and always slighty change the angle.
+    -- Start a straight movement.
+    local angle = enemy:get_angle(hero) + quarter
     local movement = sol.movement.create("straight")
     movement:set_speed(flying_speed)
-    movement:set_angle(enemy:get_angle(hero) + quarter)
+    movement:set_angle(angle)
     movement:set_smooth(true)
     movement:start(enemy)
-    function movement:on_position_changed()
-      movement:set_angle(movement:get_angle() - 0.02)
-    end
+
+    -- Slightly change the angle to make a circle movement.
+    local turning_timer = sol.timer.start(enemy, 10, function()
+      angle = angle - turning_angle
+      movement:set_angle(angle)
+      return true
+    end)
 
     -- Start landing after some time.
     sol.timer.start(enemy, math.random(flying_minimum_duration, flying_maximum_duration), function()
+      turning_timer:stop()
       movement:stop()
       sol.timer.start(enemy, before_landing_delay, function()
-        enemy:start_landing()
+        start_landing()
       end)
     end)
   end)
 end
 
+-- Make the flying animation start and gradually decrease the frame delay.
+local function start_taking_off()
+
+    sprite:set_animation("walking")
+    start_dynamic_frame_delay(taking_off_frame_delay_steps, 0, function()
+      enemy:start_flying(take_off_duration, flying_height, function()
+        start_moving()
+      end)
+      enemy:set_invincible()
+    end)
+end
+
 -- Wait before taking off.
-function enemy:wait()
+local function wait()
 
   sol.timer.start(enemy, before_taking_off_delay, function()
-    enemy:start_taking_off()
+    start_taking_off()
   end)
 end
 
@@ -129,5 +131,5 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_layer_independent_collisions(true)
   sprite:set_animation("stopped")
   sprite:set_xy(0, 0)
-  enemy:wait()
+  wait()
 end)

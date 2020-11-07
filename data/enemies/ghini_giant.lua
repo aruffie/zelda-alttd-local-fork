@@ -43,7 +43,7 @@ local function start_moving()
   local distance = enemy:get_distance(target_x, target_y)
 
   -- Start moving to the target with acceleration.
-  local movement = enemy:start_impulsion(angle, flying_speed, distance, flying_acceleration, flying_deceleration)
+  local movement = enemy:start_impulsion(angle, flying_speed, flying_acceleration, flying_deceleration, distance)
   movement:set_ignore_obstacles(true)
   sprite:set_direction(target_x < x and 2 or 0)
 
