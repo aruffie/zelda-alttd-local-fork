@@ -74,7 +74,7 @@ enemy:register_event("on_created", function(enemy)
   -- Create a welded npc to be able to talk to cukeman with action command.
   local x, y, layer = enemy:get_position()
   local width, height = enemy:get_size()
-  npc = map:create_npc({
+  local npc = map:create_npc({
     direction = 0,
     x = x,
     y = y,
@@ -97,7 +97,7 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_hero_weapons_reactions(4, {
     hookshot = "immobilized",
     thrust = electrocute,
-    sword = electrocute
+    sword = electrocute -- TODO Talk when hit from near enough.
   })
 
   -- States.

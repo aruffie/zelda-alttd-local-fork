@@ -14,7 +14,7 @@ local jumping_speed = 50
 local jumping_duration = 200
 local jumping_height = 4
 local jumping_minimum_count = 4
-local jumping_maximum_count = 8
+local jumping_maximum_count = 6
 
 -- Create the shadow sprite below the enemy.
 local function create_shadow()
@@ -31,7 +31,7 @@ local function start_jumping(angle, count, on_finished_callback)
   movement:set_angle(angle)
   movement:set_smooth(false)
   movement:start(entity)
-  sprite:set_animation("jumping_" .. (count % 2 == 1 and "left" or "right")) -- Alternate left and right paw for the jump.
+  sprite:set_animation("jumping")
   sprite:set_direction(movement:get_direction4())
 
   -- Schedule an update of the sprite vertical offset by frame.
@@ -69,4 +69,32 @@ entity:register_event("on_created", function()
   create_shadow()
   entity:set_drawn_in_y_order()
   start_jumping(math.random() * circle, math.random(jumping_minimum_count, jumping_maximum_count), start_waiting)
+
+  -- Workaround : Create a welded npc welded to the entity to trigger the action command on the hud when facing the entity.
+  local x, y, layer = entity:get_position()
+  local width, height = entity:get_size()
+  local npc = map:create_npc({
+    direction = 0,
+    x = x,
+    y = y,
+    layer = layer,
+    subtype = 1,
+    width = width,
+    height = height
+  })
+  npc:set_traversable(true)
+  entity:register_event("on_position_changed", function(entity, x, y, layer)
+    npc:set_position(x, y, layer)
+  end)
+  entity:register_event("on_removed", function(entity)
+    if npc:exists() then
+      npc:remove()
+    end
+  end)
+  entity:register_event("on_enabled", function(entity)
+    npc:set_enabled()
+  end)
+  entity:register_event("on_disabled", function(entity)
+    npc:set_enabled(false)
+  end)
 end)

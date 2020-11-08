@@ -383,6 +383,7 @@ sprite{ id = "enemies/zol_red", description = "Zol red" }
 sprite{ id = "enemies/zombie", description = "Zombie" }
 sprite{ id = "enemies/zora", description = "Zora" }
 sprite{ id = "entities/animals/bird", description = "Bird" }
+sprite{ id = "entities/animals/bird_green", description = "Bird green" }
 sprite{ id = "entities/animals/fishing_big_fish", description = "Fishing big fish" }
 sprite{ id = "entities/animals/fishing_small_fish", description = "Fishing small fish" }
 sprite{ id = "entities/animals/frog", description = "Frog" }
@@ -594,6 +595,7 @@ sprite{ id = "entities/shadows/giant_shadow", description = "Giant shadow" }
 sprite{ id = "entities/shadows/owl", description = "Owl" }
 sprite{ id = "entities/shadows/pickable_flying", description = "Pickable flying" }
 sprite{ id = "entities/shadows/shadow", description = "Shadow" }
+sprite{ id = "entities/shadows/walrus_shadow", description = "Walrus shadow" }
 sprite{ id = "entities/star", description = "Star" }
 sprite{ id = "entities/statues/block" }
 sprite{ id = "entities/statues/pillar", description = "Pillar base" }
@@ -741,6 +743,7 @@ sprite{ id = "npc/animals/fox", description = "Fox" }
 sprite{ id = "npc/animals/hippopotamus", description = "Hippopotamus" }
 sprite{ id = "npc/animals/kiki", description = "Kiki" }
 sprite{ id = "npc/animals/mambo", description = "Mambo" }
+sprite{ id = "npc/animals/miss_bowwow", description = "Miss bowwow" }
 sprite{ id = "npc/animals/mole", description = "Mole" }
 sprite{ id = "npc/animals/owl", description = "Owl" }
 sprite{ id = "npc/animals/painter", description = "Painter" }
@@ -1509,6 +1512,7 @@ entity{ id = "platform_thwomp", description = "Platform (Spiked Thwomp top)" }
 entity{ id = "powder", description = "Powder" }
 entity{ id = "pull_handle", description = "Pull handle" }
 entity{ id = "seagull", description = "Seagull" }
+entity{ id = "small_bowwow", description = "Small Bowwow" }
 entity{ id = "spawner", description = "Spawner" }
 entity{ id = "spike_sideview", description = "Sideview spike" }
 entity{ id = "statue", description = "Statue" }
@@ -1741,6 +1745,7 @@ file{ path = "entities/platform_thwomp.lua", author = "PhoenixII54", license = "
 file{ path = "entities/powder.lua", license = "GPL v3" }
 file{ path = "entities/pull_handle.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "entities/seagull.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "entities/small_bowwow.lua", author = "Vlag", }
 file{ path = "entities/spawner.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "entities/spike_sideview.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "entities/statue.lua", license = "GPL v3" }
