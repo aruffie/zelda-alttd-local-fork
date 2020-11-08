@@ -52,9 +52,10 @@ end
 -- Start the enemy movement.
 function enemy:start_walking()
 
-  enemy:start_straight_walking(walking_angles[math.random(4)], walking_speed, math.random(walking_minimum_distance, walking_maximum_distance), function()
+  local movement = enemy:start_straight_walking(walking_angles[math.random(4)], walking_speed, math.random(walking_minimum_distance, walking_maximum_distance), function()
     enemy:start_walking()
   end)
+  movement:set_ignore_obstacles()
 end
 
 -- Start throwing bomb.
@@ -91,9 +92,10 @@ end
 -- Start the enemy stand off movement.
 function enemy:start_stand_off()
 
-  enemy:start_straight_walking(get_angle_from_sprite(sprite, hero) + math.pi, stand_off_speed, stand_off_distance, function()
+  local movement = enemy:start_straight_walking(get_angle_from_sprite(sprite, hero) + math.pi, stand_off_speed, stand_off_distance, function()
     enemy:start_walking()
   end)
+  movement:set_ignore_obstacles()
 end
 
 -- Go away when attacking too close.
@@ -104,7 +106,7 @@ map:register_event("on_command_pressed", function(map, command)
   end
 
   if not enemy.is_exhausted then
-    if enemy:is_near(hero, stand_off_triggering_distance) and (command == "attack" or command == "item_1" or command == "item_2") then
+    if enemy:is_near(hero, stand_off_triggering_distance, sprite) and (command == "attack" or command == "item_1" or command == "item_2") then
       enemy:start_stand_off()
     end
   end

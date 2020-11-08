@@ -97,14 +97,15 @@ function enemy:split()
       end)
       gel:get_sprite():set_animation("jumping")
     end
+
+    return gel
   end
 
   -- Start hurt behavior for some time then split into gels.
   sprite:set_animation("hurt")
   sol.timer.start(enemy, before_split_duration, function()
-    create_gel(-5)
-    create_gel(5)
-    enemy:set_treasure(enemy:get_treasure()) -- The treasure will be dropped one time by each Gels.
+    local gels = {create_gel(-5), create_gel(5)}
+    gels[math.random(2)]:set_treasure(enemy:get_treasure()) -- The treasure will be dropped randomly by one of the gel.
     enemy:start_death()
   end)
   

@@ -30,6 +30,7 @@ local walking_speed = 32
 local walking_minimum_distance = 16
 local walking_maximum_distance = 96
 local before_walking_delay = 500
+local projectile_invincible_duration = 300
 
 -- Start the enemy movement.
 function enemy:start_walking()
@@ -56,10 +57,16 @@ function enemy:detach_body()
 
   -- Create bouncing body enemy.
   if life > 1 then
-    enemy:create_enemy({
+    local projectile = enemy:create_enemy({
       name = (enemy:get_name() or enemy:get_breed()) .. "_cactus",
       breed = "projectiles/cactus"
     })
+
+    -- Make the cactus invincible for some time.
+    projectile:set_invincible()
+    sol.timer.start(projectile, projectile_invincible_duration, function()
+      projectile:set_hero_weapons_reactions(1, {jump_on = "ignored"})
+    end)
   end
 
   enemy:hurt(1)
