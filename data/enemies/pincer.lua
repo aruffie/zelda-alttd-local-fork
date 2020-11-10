@@ -95,12 +95,21 @@ function enemy:appear()
   head_sprite:set_direction(enemy:get_direction4_to(hero))
   sol.timer.start(enemy, appearing_duration, function()
 
-    -- Behavior for each items.
-    enemy:set_hero_weapons_reactions(2, {
-      sword = 1,
-      magic_powder = "immobilized",
-      jump_on = "ignored"
+    enemy:set_hero_weapons_reactions({
+    	arrow = 2,
+    	boomerang = 2,
+    	explosion = 2,
+    	sword = 1,
+    	thrown_item = 2,
+    	fire = 2,
+    	jump_on = "ignored",
+    	hammer = 2,
+    	hookshot = 2,
+    	magic_powder = "immobilized",
+    	shield = "protected",
+    	thrust = 2
     })
+
     enemy:set_can_attack(true)
     head_sprite:set_animation("walking")
 
@@ -139,6 +148,8 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
+  enemy:set_invincible()
+
   -- States.
   if before_go_back_timer then
     before_go_back_timer:stop()
@@ -152,7 +163,6 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_visible(false)
   enemy:set_can_attack(false)
   enemy:set_damage(4)
-  enemy:set_invincible()
   enemy:set_pushed_back_when_hurt(false)
   enemy:wait()
 end)

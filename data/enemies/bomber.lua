@@ -5,10 +5,6 @@
 -- Flying enemy moving randomly over horizontal and vertical axis, and stand off when the hero attacks too close.
 -- Regularly throw a bomb to the hero.
 --
--- Methods : enemy:start_walking()
---           enemy:start_attacking()
---           enemy:start_stand_off()
---
 ----------------------------------
 
 -- Global variables
@@ -23,10 +19,10 @@ local quarter = math.pi * 0.5
 local attacking_timer = nil
 
 -- Configuration variables
-local walking_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
-local walking_speed = 32
-local walking_minimum_distance = 16
-local walking_maximum_distance = 96
+local flying_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
+local flying_speed = 32
+local flying_minimum_distance = 16
+local flying_maximum_distance = 96
 local flying_height = 16
 local throwing_bomb_minimum_delay = 1500
 local throwing_bomb_maximum_delay = 3000
@@ -50,15 +46,17 @@ local function get_angle_from_sprite(sprite, entity)
 end
 
 -- Start the enemy movement.
-function enemy:start_walking()
+local function start_flying()
 
-  enemy:start_straight_walking(walking_angles[math.random(4)], walking_speed, math.random(walking_minimum_distance, walking_maximum_distance), function()
-    enemy:start_walking()
+  sprite:set_animation("flying")
+  local movement = enemy:start_straight_walking(flying_angles[math.random(4)], flying_speed, math.random(flying_minimum_distance, flying_maximum_distance), function()
+    start_flying()
   end)
+  movement:set_ignore_obstacles()
 end
 
 -- Start throwing bomb.
-function enemy:start_attacking()
+local function start_attacking()
 
   if attacking_timer then
     attacking_timer:stop()
@@ -81,7 +79,7 @@ function enemy:start_attacking()
 
     sprite:set_animation("firing")
     sol.timer.start(enemy, firing_duration, function()
-      sprite:set_animation("walking")
+      sprite:set_animation("flying")
     end)
 
     return math.random(throwing_bomb_minimum_delay, throwing_bomb_maximum_delay)
@@ -89,11 +87,12 @@ function enemy:start_attacking()
 end
 
 -- Start the enemy stand off movement.
-function enemy:start_stand_off()
+local function start_stand_off()
 
-  enemy:start_straight_walking(get_angle_from_sprite(sprite, hero) + math.pi, stand_off_speed, stand_off_distance, function()
-    enemy:start_walking()
+  local movement = enemy:start_straight_walking(get_angle_from_sprite(sprite, hero) + math.pi, stand_off_speed, stand_off_distance, function()
+    start_flying()
   end)
+  movement:set_ignore_obstacles()
 end
 
 -- Go away when attacking too close.
@@ -104,8 +103,8 @@ map:register_event("on_command_pressed", function(map, command)
   end
 
   if not enemy.is_exhausted then
-    if enemy:is_near(hero, stand_off_triggering_distance) and (command == "attack" or command == "item_1" or command == "item_2") then
-      enemy:start_stand_off()
+    if enemy:is_near(hero, stand_off_triggering_distance, sprite) and (command == "attack" or command == "item_1" or command == "item_2") then
+      start_stand_off()
     end
   end
 end)
@@ -122,18 +121,26 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
-  -- Behavior for each items.
-  enemy:set_hero_weapons_reactions(3, {
-    sword = 1,
-    thrust = 2,
-    explosion = "ignored",
-    jump_on = "ignored"
+  enemy:set_hero_weapons_reactions({
+  	arrow = 3,
+  	boomerang = 3,
+  	explosion = "ignored",
+  	sword = 1,
+  	thrown_item = "protected",
+  	fire = 3,
+  	jump_on = "ignored",
+  	hammer = "protected",
+  	hookshot = "protected",
+  	magic_powder = 3,
+  	shield = "protected",
+  	thrust = 2
   })
 
   -- States.
+  enemy:set_layer_independent_collisions(true)
   enemy:set_can_attack(true)
   enemy:set_damage(4)
-  enemy:start_walking()
-  enemy:start_attacking()
+  start_flying()
+  start_attacking()
   sprite:set_xy(0, -flying_height) -- Directly fly without taking off movement.
 end)

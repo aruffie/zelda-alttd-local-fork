@@ -21,7 +21,7 @@ local quarter = math.pi * 0.5
 
 -- Configuration variables
 local waiting_minimum_duration = 500
-local waiting_maximum_duration = 4000
+local waiting_maximum_duration = 2000
 local shaking_duration = 1000
 local jumping_duration = 700
 local jumping_height = 16
@@ -51,17 +51,27 @@ end
 enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(2)
-  enemy:set_size(32, 24)
-  enemy:set_origin(16, 21)
+  enemy:set_size(24, 16)
+  enemy:set_origin(12, 13)
   enemy:start_shadow()
 end)
 
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
-  -- Behavior for each items.
-  enemy:set_hero_weapons_reactions(2, {
-    sword = 1
+  enemy:set_hero_weapons_reactions({
+  	arrow = 2,
+  	boomerang = 2,
+  	explosion = 2,
+  	sword = 1,
+  	thrown_item = 2,
+  	fire = 2,
+  	jump_on = "ignored",
+  	hammer = 2,
+  	hookshot = 2,
+  	magic_powder = 2,
+  	shield = "protected",
+  	thrust = 2
   })
 
   -- States.

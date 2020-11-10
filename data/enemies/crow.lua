@@ -62,12 +62,17 @@ end
 -- Start the flying movement.
 local function start_flying()
 
-  -- Behavior for each items.
-  enemy:set_hero_weapons_reactions(1, {
-    boomerang = 2,
-    hookshot = 2,
-    thrust = 2,
-    jump_on = "ignored"
+  -- Update behavior on some weapons.
+  enemy:set_hero_weapons_reactions({
+  	arrow = 1,
+  	boomerang = 2,
+  	explosion = 1,
+  	sword = 1,
+  	thrown_item = 2,
+  	fire = 2,
+  	hookshot = 2,
+  	magic_powder = 1,
+  	thrust = 2
   })
 
   -- Begin by going to the hero.
@@ -151,7 +156,20 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
-  enemy:set_invincible()
+  enemy:set_hero_weapons_reactions({
+  	arrow = "protected",
+  	boomerang = "protected",
+  	explosion = "ignored",
+  	sword = "protected",
+  	thrown_item = "protected",
+  	fire = "protected",
+  	jump_on = "ignored",
+  	hammer = "protected",
+  	hookshot = "protected",
+  	magic_powder = "ignored",
+  	shield = "protected",
+  	thrust = "protected"
+  })
 
   -- States.
   sprite:set_xy(0, is_awake and -flying_height or 0)

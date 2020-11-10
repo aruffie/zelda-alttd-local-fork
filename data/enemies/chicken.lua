@@ -123,7 +123,7 @@ function enemy:start_angry()
 
   enemy:stop_movement()
   sol.timer.stop_all(enemy)
-  enemy:set_hero_weapons_reactions("protected")
+  enemy:set_invincible()
   enemy:set_layer(map:get_max_layer())
   enemy:set_obstacle_behavior("flying")
   sprite:set_animation("flying")
@@ -147,15 +147,27 @@ end
 -- The enemy appears: set its properties.
 enemy:register_event("on_created", function(enemy)
 
-  enemy:set_life(4)
+  enemy:set_life(1)
   enemy:start_shadow()
 end)
 
 -- The enemy appears: set its properties.
 enemy:register_event("on_restarted", function(enemy)
 
-  -- Behavior for each items.
-  enemy:set_hero_weapons_reactions(on_attack_received, {jump_on = "ignored"})
+  enemy:set_hero_weapons_reactions({
+  	arrow = on_attack_received,
+  	boomerang = on_attack_received,
+  	explosion = on_attack_received,
+  	sword = on_attack_received,
+  	thrown_item = on_attack_received,
+  	fire = on_attack_received,
+  	jump_on = "ignored",
+  	hammer = on_attack_received,
+  	hookshot = "immobilized",
+  	magic_powder = "ignored",
+  	shield = "ignored",
+  	thrust = on_attack_received
+  })
 
   -- States.
   enemy:set_damage(2)

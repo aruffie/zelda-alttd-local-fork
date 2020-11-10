@@ -39,8 +39,20 @@ function enemy:appear()
   sprite:set_animation("appearing")
   sol.timer.start(enemy, appearing_duration, function()
 
-    -- Behavior for each items.
-    enemy:set_hero_weapons_reactions(1, {jump_on = "ignored"})
+    enemy:set_hero_weapons_reactions({
+    	arrow = 1,
+    	boomerang = 1,
+    	explosion = 1,
+    	sword = 1,
+    	thrown_item = 1,
+    	fire = 1,
+    	jump_on = "ignored",
+    	hammer = 1,
+    	hookshot = 1,
+    	magic_powder = 1,
+    	shield = "protected",
+    	thrust = 1
+    })
     enemy:set_can_attack(true)
 
     sprite:set_animation("immobilized")
@@ -83,11 +95,12 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
+  enemy:set_invincible()
+
   -- States.
   enemy:set_visible(false)
   enemy:set_can_attack(false)
   enemy:set_damage(2)
-  enemy:set_invincible()
   enemy:set_pushed_back_when_hurt(false)
   enemy:wait()
 end)

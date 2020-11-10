@@ -42,10 +42,19 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
-  -- Behavior for each items.
-  enemy:set_hero_weapons_reactions("ignored", {
-    boomerang = 1,
-    magic_powder = 1
+  enemy:set_hero_weapons_reactions({
+  	arrow = "ignored",
+  	boomerang = 1,
+  	explosion = "ignored",
+  	sword = "ignored",
+  	thrown_item = "ignored",
+  	fire = "protected",
+  	jump_on = "ignored",
+  	hammer = "ignored",
+  	hookshot = "ignored",
+  	magic_powder = "ignored",
+  	shield = "protected", -- TODO Change direction on shield touched.
+  	thrust = "ignored"
   })
 
   -- States.

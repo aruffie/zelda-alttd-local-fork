@@ -321,8 +321,22 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
+  enemy:set_hero_weapons_reactions({
+  	arrow = "protected",
+  	boomerang = "protected",
+  	explosion = "ignored",
+  	sword = "protected",
+  	thrown_item = function() hurt(1) end,
+  	fire = "protected",
+  	jump_on = "ignored",
+  	hammer = "protected",
+  	hookshot = "protected",
+  	magic_powder = "ignored",
+  	shield = "protected",
+  	thrust = "protected"
+  })
+
   sprite:set_xy(0, 0)
-  enemy:set_hero_weapons_reactions("protected", {thrown_item = function() hurt(1) end})
   enemy:set_can_attack(true)
   enemy:set_damage(4)
   enemy:set_drawn_in_y_order()

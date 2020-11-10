@@ -53,6 +53,8 @@ function map:init_map_entities()
   -- Travel
   travel_transporter:set_enabled(false)
   -- Walrus
+  local walrus_shadow = walrus:create_sprite("entities/shadows/walrus_shadow")
+  walrus:bring_sprite_to_back(walrus_shadow)
   if game:is_step_done("walrus_awakened") then
     walrus:set_enabled(false)
     walrus_invisible:set_enabled(false)

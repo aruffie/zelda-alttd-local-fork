@@ -75,9 +75,23 @@ end)
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
 
+  enemy:set_hero_weapons_reactions({
+  	arrow = "protected",
+  	boomerang = "protected",
+  	explosion = "ignored",
+  	sword = "protected",
+  	thrown_item = "protected",
+  	fire = "protected",
+  	jump_on = "ignored",
+  	hammer = "protected",
+  	hookshot = "protected",
+  	magic_powder = "ignored",
+  	shield = "protected",
+  	thrust = "protected"
+  })
+
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)
-  enemy:set_invincible()
   enemy:set_damage(2)
   enemy.is_exhausted = false -- True after a shoot and before a delay.
 end)

@@ -271,11 +271,19 @@ function enemy:appear()
   appearing_dust = enemy:start_brief_effect("enemies/" .. enemy:get_breed() .. "/dust", "projections", 0, 0, tail_frame_lag * 10 + 150)
   appearing_dust:bring_to_back()
 
-  -- Behavior for each items.
-  enemy:set_hero_weapons_reactions("ignored", {
-    sword = function() hurt(1) end,
-    thrust = function() hurt(2) end,
-    arrow = function() hurt(4) end
+  enemy:set_hero_weapons_reactions({
+  	arrow = function() hurt(4) end,
+  	boomerang = "protected",
+  	explosion = "ignored",
+  	sword = function() hurt(1) end,
+  	thrown_item = "protected",
+  	fire = "protected",
+  	jump_on = "ignored",
+  	hammer = "protected",
+  	hookshot = "protected",
+  	magic_powder = "ignored",
+  	shield = "protected",
+  	thrust = function() hurt(2) end
   })
   enemy:set_can_attack(true)
 end

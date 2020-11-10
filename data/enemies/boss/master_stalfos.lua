@@ -111,6 +111,25 @@ local function update_sprites_direction()
   legs_sprite:set_direction(hero_x < x and 2 or 0)
 end
 
+-- Set the given entity protected.
+local function set_protected(entity)
+
+  entity:set_hero_weapons_reactions({
+  	arrow = "protected",
+  	boomerang = "protected",
+  	explosion = "ignored",
+  	sword = "protected",
+  	thrown_item = "protected",
+  	fire = "protected",
+  	jump_on = "ignored",
+  	hammer = "protected",
+  	hookshot = "protected",
+  	magic_powder = "ignored",
+  	shield = "protected",
+  	thrust = "protected"
+  })
+end
+
 -- Create a sub enemy, then echo some of the enemy and sprite events and methods to it.
 local function create_sub_enemy(sprite_suffix_name)
 
@@ -135,7 +154,7 @@ local function create_sub_enemy(sprite_suffix_name)
 end
 
 -- Repulse the whole enemy using the angle from the given entity to the enemy head.
-function start_pushed_back(entity, on_finished_callback)
+local function start_pushed_back(entity, on_finished_callback)
 
   local movement = sol.movement.create("straight")
   local head_x, head_y = head:get_position()
@@ -490,18 +509,17 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_damage(0)
 
   -- The head part collapse on sword hit and can hurt the hero.
-  head:set_hero_weapons_reactions("ignored", {
-    sword = on_head_hurt
-  })
+  set_protected(head)
+  head:set_hero_weapons_reactions({sword = on_head_hurt})
   head:set_can_attack(true)
   head:set_damage(4)
 
   -- The sword and shield are both protected to hero weapons and can hurt the hero.
-  shield:set_hero_weapons_reactions("protected", {jump_on = "ignored"})
+  set_protected(shield)
   shield:set_can_attack(true)
   shield:set_damage(4)
 
-  sword:set_hero_weapons_reactions("protected", {jump_on = "ignored"})
+  set_protected(sword)
   sword:set_can_attack(true)
   sword:set_damage(4)
 

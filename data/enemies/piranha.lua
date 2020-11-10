@@ -56,7 +56,7 @@ end
 -- Wait for some time then jump out of the water.
 function enemy:dive()
 
-  enemy:set_hero_weapons_reactions("ignored")
+  enemy:set_invincible()
   sprite:set_animation("walking")
   sol.timer.start(enemy, math.random(waiting_minimum_duration, waiting_maximum_duration), function()
     enemy:jump()
@@ -66,8 +66,22 @@ end
 -- Jump out of the water.
 function enemy:jump()
 
+  enemy:set_hero_weapons_reactions({
+  	arrow = 1,
+  	boomerang = 1,
+  	explosion = 1,
+  	sword = 1,
+  	thrown_item = 1,
+  	fire = 1,
+  	jump_on = "ignored",
+  	hammer = 1,
+  	hookshot = 1,
+  	magic_powder = 1,
+  	shield = "protected",
+  	thrust = 1
+  })
+
   -- Jump and dive when finished.
-  enemy:set_hero_weapons_reactions(1)
   sprite:set_animation("jumping")
   enemy:start_jumping(jumping_duration, jumping_height, nil, nil, function()
     local effect = enemy:start_brief_effect("entities/effects/fishing_water_effect", "normal")

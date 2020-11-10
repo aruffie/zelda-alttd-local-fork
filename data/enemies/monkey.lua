@@ -168,7 +168,6 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
-  -- Behavior for each items.
   enemy:set_invincible(true)
 
   -- States.

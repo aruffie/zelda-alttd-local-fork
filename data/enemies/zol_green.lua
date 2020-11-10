@@ -59,6 +59,22 @@ function enemy:appear()
 
   enemy:set_visible()
   sprite:set_animation("appearing", function()
+
+    enemy:set_hero_weapons_reactions({
+    	arrow = 1,
+    	boomerang = 1,
+    	explosion = 1,
+    	sword = 1,
+    	thrown_item = 1,
+    	fire = 1,
+    	jump_on = "ignored",
+    	hammer = 1,
+    	hookshot = 1,
+    	magic_powder = 1,
+    	shield = "protected",
+    	thrust = 1
+    })
+
     sprite:set_animation("shaking")
     enemy:set_can_attack(true)
     sol.timer.start(enemy, 1000, function()
@@ -73,9 +89,7 @@ end
 function enemy:disappear()
 
   sprite:set_animation("disappearing", function()
-    enemy:set_visible(false)
-    enemy:set_can_attack(false)
-    enemy:wait()
+    enemy:restart()
   end)
 end
 
@@ -103,8 +117,7 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
-  -- Behavior for each items.
-  enemy:set_hero_weapons_reactions(1, {jump_on = "ignored"})
+  enemy:set_invincible()
 
   -- States.
   sprite:set_xy(0, 0)

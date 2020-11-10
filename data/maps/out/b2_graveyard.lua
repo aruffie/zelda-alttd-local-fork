@@ -11,15 +11,31 @@ local audio_manager = require("scripts/audio_manager")
 local function initialize_graves()
 
   for grave in map:get_entities("grave_") do
+    grave:set_size(32, 32) -- Workaround : No way to set the correct size to the bloc directly on the editor, so do it here.
+    grave:set_origin(16, 29)
     for enemy in map:get_entities_by_type("enemy") do
       if (enemy:get_breed() == "ghini" or enemy:get_breed() == "ghini_giant") and enemy:overlaps(grave) then
 
+        -- Create a custom entity on the grave entity to add a collision test on it.
+        local x, y, layer = grave:get_position()
+        local width, height = grave:get_size()
+        local trigger = map:create_custom_entity({
+          x = x,
+          y = y,
+          layer = layer,
+          width = width,
+          height = height,
+          direction = 0
+        })
+        trigger:set_origin(width / 2.0, height - 3)
+        trigger:set_position(grave:get_position()) -- Set the position again that have changed with the set_origin()
+
+        -- Disable the ghini and wake him up when the grave is faced.
         enemy:set_enabled(false)
-        grave:add_collision_test("facing", function(grave, entity)
+        trigger:add_collision_test("facing", function(trigger, entity)
           if entity:get_type() == "hero" then
             enemy:wake_up()
-            grave:clear_collision_tests()
-            grave:set_traversable_by(true)
+            trigger:remove()
           end
         end)
       end

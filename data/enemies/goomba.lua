@@ -18,6 +18,7 @@ local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
 local is_sideview = string.find(map:get_id(), "sideview") and true or false -- Workaround: Sideview flag is set too late here, use the map id instead.
+local is_crushed = false
 
 -- Configuration variables
 local walking_angles = is_sideview and {0, 0, 2 * quarter, 2 * quarter} or {0, quarter, 2.0 * quarter, 3.0 * quarter}
@@ -45,30 +46,32 @@ enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
   end
 end)
 
--- Make enemy crushed when hero walking on him.
-enemy:register_event("on_custom_attack_received", function(enemy, attack)
+-- Make enemy crushed when hero jumping on him.
+local function crushed()
 
-  if attack == "jump_on" then
-
-    -- Make enemy unable to interact.
-    enemy:stop_movement()
-    enemy:set_invincible()
-    enemy:set_can_attack(false)
-    enemy:set_damage(0)
-    
-    -- Set the "crushed" animation to its sprite if existing.
-    if sprite:has_animation("crushed") then
-      sprite:set_animation("crushed")
-    end
-
-    -- Hurt after a delay.
-    sol.timer.start(enemy, crushed_duration, function()
-      enemy:set_pushed_back_when_hurt(false)
-      enemy:hurt(1)
-      sprite:set_animation("hurt_crushed")
-    end)
+  if is_crushed then
+    return
   end
-end)
+  is_crushed = true
+
+  -- Make enemy unable to interact.
+  enemy:stop_movement()
+  enemy:set_invincible()
+  enemy:set_can_attack(false)
+  enemy:set_damage(0)
+  
+  -- Set the "crushed" animation to its sprite if existing.
+  if sprite:has_animation("crushed") then
+    sprite:set_animation("crushed")
+  end
+
+  -- Hurt after a delay.
+  sol.timer.start(enemy, crushed_duration, function()
+    enemy:set_pushed_back_when_hurt(false)
+    enemy:hurt(1)
+    sprite:set_animation("hurt_crushed")
+  end)
+end
 
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
@@ -81,8 +84,20 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
-  -- Behavior for each items.
-  enemy:set_hero_weapons_reactions(1, {jump_on = "custom"})
+  enemy:set_hero_weapons_reactions({
+  	arrow = 1,
+  	boomerang = 1,
+  	explosion = 1,
+  	sword = 1,
+  	thrown_item = 1,
+  	fire = 1,
+  	jump_on = crushed,
+  	hammer = 1,
+  	hookshot = 1,
+  	magic_powder = 1,
+  	shield = "protected",
+  	thrust = 1
+  })
 
   -- States.
   enemy:set_can_attack(true)

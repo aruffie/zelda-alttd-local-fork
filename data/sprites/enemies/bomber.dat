@@ -1,5 +1,5 @@
 animation{
-  name = "walking",
+  name = "flying",
   src_image = "enemies/bomber.png",
   frame_delay = 150,
   frame_to_loop_on = 0,

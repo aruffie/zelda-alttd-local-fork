@@ -128,13 +128,19 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
-  -- TODO Check if mask collision test is needed for distance weapons.
-  -- Behavior for each items.
-  enemy:set_hero_weapons_reactions(2, {
-    hookshot = on_hookshot_attack_received,
-    sword = on_sword_attack_received,
-    thrust = on_thrust_attack_received,
-    jump_on = "ignored"
+  enemy:set_hero_weapons_reactions({
+  	arrow = 2,
+  	boomerang = 2,
+  	explosion = 2,
+  	sword = on_sword_attack_received,
+  	thrown_item = 2,
+  	fire = 2,
+  	jump_on = "ignored",
+  	hammer = 2,
+  	hookshot = on_hookshot_attack_received,
+  	magic_powder = 2,
+  	shield = "protected",
+  	thrust = on_thrust_attack_received
   })
 
   -- States.
