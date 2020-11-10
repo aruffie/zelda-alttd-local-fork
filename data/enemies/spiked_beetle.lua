@@ -3,7 +3,7 @@
 -- Spiked Beetle.
 --
 -- Moves randomly over horizontal and vertical axis, and charges the hero when aligned with him.
--- Bounce and flip the enemy on collision with the shield while charging, and make it vulnerable
+-- Bounce and flip the enemy on collision with the shield while charging, and make it vulnerable.
 --
 -- Methods : enemy:start_walking()
 --           enemy:start_charging()
@@ -97,11 +97,22 @@ local function on_shield_collision()
     is_upside_down = true
     is_charging = false
     enemy:stop_movement()
-    enemy:set_hero_weapons_reactions(2, {
-      sword = 1,
-      shield = "protected"
-    })
     enemy:start_brief_effect("entities/effects/impact_projectile", "default")
+
+    enemy:set_hero_weapons_reactions({
+    	arrow = 2,
+    	boomerang = 2,
+    	explosion = 2,
+    	sword = 1,
+    	thrown_item = 2,
+    	fire = 2,
+    	jump_on = 2,
+    	hammer = 2,
+    	hookshot = 2,
+    	magic_powder = 2,
+    	shield = "protected",
+    	thrust = 2
+    })
 
     -- Make the enemy jump while flipping.
     local angle = sprite:get_direction() * quarter + math.pi
@@ -150,10 +161,19 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
-  -- Behavior for each items.
-  enemy:set_hero_weapons_reactions("protected", {
-    shield = on_shield_collision,
-    jump_on = "ignored"
+  enemy:set_hero_weapons_reactions({
+  	arrow = "protected",
+  	boomerang = "protected",
+  	explosion = "ignored",
+  	sword = "protected",
+  	thrown_item = "protected",
+  	fire = "protected",
+  	jump_on = "ignored",
+  	hammer = "protected",
+  	hookshot = "protected",
+  	magic_powder = "ignored",
+  	shield = on_shield_collision,
+  	thrust = "protected"
   })
 
   -- States.

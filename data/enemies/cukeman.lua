@@ -93,11 +93,19 @@ end)
 -- The enemy appears: set its properties.
 enemy:register_event("on_restarted", function(enemy)
 
-  -- Behavior for each items.
-  enemy:set_hero_weapons_reactions(4, {
-    hookshot = "immobilized",
-    thrust = electrocute,
-    sword = electrocute -- TODO Talk when hit from near enough.
+  enemy:set_hero_weapons_reactions({
+  	arrow = 4,
+  	boomerang = 4,
+  	explosion = 4,
+  	sword = electrocute, -- TODO Talk when hit from near enough.
+  	thrown_item = "protected",
+  	fire = 4,
+  	jump_on = "ignored",
+  	hammer = "protected",
+  	hookshot = "immobilized",
+  	magic_powder = "ignored",
+  	shield = "protected",
+  	thrust = electrocute
   })
 
   -- States.

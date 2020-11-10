@@ -112,8 +112,20 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
-  -- Behavior for each items.
-  enemy:set_hero_weapons_reactions(on_attack_received, {jump_on = "ignored"})
+  enemy:set_hero_weapons_reactions({
+  	arrow = "protected",
+  	boomerang = "immobilized",
+  	explosion = on_attack_received,
+  	sword = on_attack_received,
+  	thrown_item = "protected",
+  	fire = "protected",
+  	jump_on = "ignored",
+  	hammer = "protected",
+  	hookshot = "immobilized",
+  	magic_powder = "ignored",
+  	shield = "protected",
+  	thrust = on_attack_received
+  })
 
   -- States.
   enemy:set_can_attack(true)

@@ -97,26 +97,29 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
-  -- States.
+  enemy:set_hero_weapons_reactions({
+  	arrow = is_weak and 1 or 4,
+  	boomerang = "protected",
+  	explosion = "ignored",
+  	sword = is_weak and on_inoffensive_attack or 4,
+  	thrown_item = "protected",
+  	fire = 4,
+  	jump_on = "ignored",
+  	hammer = "protected",
+  	hookshot = "protected",
+  	magic_powder = "ignored",
+  	shield = is_weak and "ignored" or "protected",
+  	thrust = is_weak and on_inoffensive_attack or 4
+  })
+
   sprite:set_xy(0, -flying_height)
   enemy:set_can_attack(true)
   enemy:set_damage(4)
   enemy:set_layer_independent_collisions(true)
 
   if not is_weak then
-    enemy:set_hero_weapons_reactions(on_inoffensive_attack, {
-      arrow = 1,
-      fire = 4,
-      jump_on = "ignored"
-    })
     enemy:start_walking()
   else
-    enemy:set_hero_weapons_reactions("ignored", {
-      sword = 4,
-      arrow = 4,
-      fire = 4,
-      thrust = 4
-    })
     go_away()
   end
 end)

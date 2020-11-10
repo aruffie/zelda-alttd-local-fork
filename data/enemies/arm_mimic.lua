@@ -18,7 +18,7 @@ local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local is_pushed_back = false
 
 -- Only hurt the enemy if the sword attack is a spin attack or sword better than level 1, else push the enemy back.
-local function on_sword_attack_received(damage)
+local function on_sword_attack_received()
 
   local hero_animation = hero:get_sprite():get_animation()
 
@@ -29,7 +29,7 @@ local function on_sword_attack_received(damage)
 
   local sword_variant = game:get_item("sword"):get_variant()
   if hero_animation == "spin_attack" or sword_variant > 1 then
-    enemy:hurt(damage)
+    enemy:hurt(1)
 
   elseif not is_pushed_back then
     is_pushed_back = true
@@ -97,12 +97,20 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
-  -- Behavior for each items.
-  enemy:set_hero_weapons_reactions(1, {
-    sword = function() on_sword_attack_received(1) end,
-    hookshot = "immobilized",
+  enemy:set_hero_weapons_reactions({
+    arrow = "protected",
     boomerang = "immobilized",
-    jump_on = "ignored"})
+    explosion = "ignored",
+    sword = on_sword_attack_received,
+    thrown_item = "protected",
+    fire = "protected",
+    jump_on = "ignored",
+    hammer = "protected",
+    hookshot = "immobilized",
+    magic_powder = "ignored",
+    shield = "protected",
+    thrust = 1
+  })
 
   -- States.
   reverse_move() -- Reverse move on restarted in case the hero is already running when the map is loaded or separator crossed.

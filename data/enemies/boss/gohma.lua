@@ -165,8 +165,7 @@ function enemy:start_firing()
   sol.timer.start(enemy, before_seeking_duration, function()
     eye_sprite:set_animation("opening", function()
 
-      -- Behavior for each items.
-      enemy:set_hero_weapons_reactions("ignored", {
+      enemy:set_hero_weapons_reactions({
         arrow = function() hurt(2) end,
         hookshot = function() hurt(1) end
       })
@@ -214,11 +213,25 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
+  enemy:set_hero_weapons_reactions({
+  	arrow = "protected",
+  	boomerang = "protected",
+  	explosion = "ignored",
+  	sword = "protected",
+  	thrown_item = "protected",
+  	fire = "protected",
+  	jump_on = "ignored",
+  	hammer = "protected",
+  	hookshot = "protected",
+  	magic_powder = "ignored",
+  	shield = "protected",
+  	thrust = "protected"
+  })
+
   -- States.
   is_attacking = false
   eye_sprite:set_opacity(0)
   eye_sprite:set_animation("closed") -- Set an existing animation to avoid error on non-existing walking one.
-  enemy:set_invincible()
   enemy:set_pushed_back_when_hurt(false)
   enemy:set_can_attack(true)
   enemy:set_damage(4)

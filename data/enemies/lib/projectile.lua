@@ -71,11 +71,9 @@ function behavior.apply(enemy, sprite)
   -- Check if the projectile should be destroyed when the hero is touched. 
   enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
 
-    -- TODO adapt and move in the shield script for all enemy.
-    if not hero:is_shield_protecting_from_enemy(enemy, enemy_sprite) or not game:has_item("shield") or game:get_item("shield"):get_variant() < enemy:get_minimum_shield_needed() then
+    if not hero:is_shield_protecting(enemy, enemy_sprite) then
       hero:start_hurt(enemy, enemy_sprite, enemy:get_damage())
     end
-
     hit_behavior()
   end)
 end

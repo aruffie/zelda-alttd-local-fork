@@ -36,9 +36,19 @@ local function appear()
   sprite:set_animation("appearing", function()
 
     -- Behavior for each items.
-    enemy:set_hero_weapons_reactions("ignored", {
-      sword = 1,
-      arrow = 1
+    enemy:set_hero_weapons_reactions({
+    	arrow = 1,
+    	boomerang = "protected",
+    	explosion = "ignored",
+    	sword = 1,
+    	thrown_item = 1,
+    	fire = 1,
+    	jump_on = "ignored",
+    	hammer = "protected",
+    	hookshot = 1,
+    	magic_powder = "ignored",
+    	shield = "protected",
+    	thrust = 1
     })
     enemy:set_can_attack(true)
     sprite:set_animation("walking")

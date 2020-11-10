@@ -212,7 +212,7 @@ end)
 enemy:register_event("on_restarted", function(enemy)
 
   -- Schedule the damage rules setup once not in collision with the hero, in case he was just released and still overlaps.
-  sol.timer.start(enemy, 50, function()
+  sol.timer.start(enemy, 10, function()
     if enemy:overlaps(hero, "sprite") then
       return true
     end
@@ -220,10 +220,19 @@ enemy:register_event("on_restarted", function(enemy)
     enemy:set_damage(1)
     enemy:set_can_attack(true)
 
-    -- Behavior for each items.
-    enemy:set_hero_weapons_reactions(2, {
-      sword = 1,
-      jump_on = "ignored"
+    enemy:set_hero_weapons_reactions({
+    	arrow = 2,
+    	boomerang = 2,
+    	explosion = 2,
+    	sword = 1,
+    	thrown_item = 2,
+    	fire = 2,
+    	jump_on = "ignored",
+    	hammer = 2,
+    	hookshot = 2,
+    	magic_powder = 2,
+    	shield = "protected",
+    	thrust = 2
     })
   end)
 

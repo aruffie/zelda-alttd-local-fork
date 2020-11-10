@@ -1383,7 +1383,6 @@ enemy{ id = "camo_goblin_green", description = "Camo Goblin Green" }
 enemy{ id = "camo_goblin_red", description = "Camo Goblin Red" }
 enemy{ id = "cheep_cheep", description = "Cheep Cheep" }
 enemy{ id = "chicken", description = "Chicken" }
-enemy{ id = "chicken_mortal", description = "Chicken Mortal" }
 enemy{ id = "crow", description = "Crow" }
 enemy{ id = "cukeman", description = "Cukeman" }
 enemy{ id = "darknut", description = "Darknut (Sword)" }
@@ -1610,7 +1609,6 @@ file{ path = "enemies/camo_goblin_green.lua", license = "GPL v3" }
 file{ path = "enemies/camo_goblin_red.lua", license = "GPL v3" }
 file{ path = "enemies/cheep_cheep.lua", license = "GPL v3" }
 file{ path = "enemies/chicken.lua", author = "Vlag", license = "GPL v3" }
-file{ path = "enemies/chicken_mortal.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "enemies/crow.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/cukeman.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/darknut.lua", author = "Vlag", license = "GPL v3" }

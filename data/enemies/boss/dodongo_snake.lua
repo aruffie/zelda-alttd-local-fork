@@ -138,8 +138,9 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
-  -- States.
   enemy:set_invincible()
+
+  -- States.
   enemy:set_pushed_back_when_hurt(false)
   enemy:set_can_attack(true)
   enemy:set_damage(4)

@@ -21,10 +21,10 @@ local is_hero_pushed_back = false
 local front_angle = math.pi
 
 -- Only hurt the enemy if the sword attack is a spin attack throwed from behind, else push the hero back.
-local function on_sword_attack_received(damage)
+local function on_sword_attack_received()
 
   if hero:get_sprite():get_animation() == "spin_attack" and not enemy:is_entity_in_front(hero, front_angle) then
-    enemy:hurt(damage)
+    enemy:hurt(2)
 
   elseif not is_hero_pushed_back then
     is_hero_pushed_back = true
@@ -92,13 +92,20 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
-  -- Behavior for each items.
-  enemy:set_hero_weapons_reactions(2, {
+  enemy:set_hero_weapons_reactions({
     arrow = 1,
-    sword = function() on_sword_attack_received(1) end,
+    boomerang = 2,
+    explosion = 2,
+    sword = on_sword_attack_received,
+    thrown_item = "protected",
+    fire = 2,
+    jump_on = "ignored",
+    hammer = "protected",
     hookshot = "immobilized",
-    boomerang = "immobilized",
-    jump_on = "ignored"})
+    magic_powder = "ignored",
+    shield = "protected",
+    thrust = 2
+  })
 
   -- States.
   reverse_move() -- Reverse move on restarted in case the hero is already running when the map is loaded or separator crossed.

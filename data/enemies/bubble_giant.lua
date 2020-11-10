@@ -42,6 +42,21 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
+  enemy:set_hero_weapons_reactions({
+  	arrow = "ignored",
+  	boomerang = 1,
+  	explosion = "ignored",
+  	sword = "ignored",
+  	thrown_item = "ignored",
+  	fire = "protected",
+  	jump_on = "ignored",
+  	hammer = "ignored",
+  	hookshot = "ignored",
+  	magic_powder = "ignored",
+  	shield = "protected",
+  	thrust = "ignored"
+  })
+
   -- States.
   enemy:set_can_attack(true)
   enemy:set_damage(2)

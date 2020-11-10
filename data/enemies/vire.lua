@@ -226,20 +226,21 @@ function enemy:start_taking_off(angle)
   enemy:start_attacking()
 end
 
--- On hit by boomerang, fire or magic powder, make the enemy fall down and die without splitting into bats.
-enemy:register_event("on_custom_attack_received", function(enemy, attack)
+-- Make the enemy fall down and die without splitting into bats.
+local function fall_and_die()
 
-  if attack == "boomerang" or attack == "fire" or attack == "magic_powder" then
-
-    is_executed = true
-    enemy:stop_flying(fall_down_duration, function()
-      enemy:start_jumping(fall_down_bounce_duration, fall_down_bounce_height, nil, nil, function()
-        enemy:set_pushed_back_when_hurt(false)
-        enemy:hurt(3)
-      end)
-    end)
+  if is_executed then
+    return
   end
-end)
+  is_executed = true
+
+  enemy:stop_flying(fall_down_duration, function()
+    enemy:start_jumping(fall_down_bounce_duration, fall_down_bounce_height, nil, nil, function()
+      enemy:set_pushed_back_when_hurt(false)
+      enemy:hurt(3)
+    end)
+  end)
+end
 
 -- Replace on sprite position and create two bats projectiles on dying.
 enemy:register_event("on_dying", function(enemy)
@@ -263,14 +264,20 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
-  -- Behavior for each items.
-  enemy:set_hero_weapons_reactions(1, {
-    thrust = 2,
-    hookshot = 2,
-    boomerang = "custom",
-    magic_powder = "custom",
-    fire = "custom",
-    jump_on = "ignored"})
+  enemy:set_hero_weapons_reactions({
+  	arrow = 1,
+  	boomerang = fall_and_die,
+  	explosion = 1,
+  	sword = 1,
+  	thrown_item = 1,
+  	fire = fall_and_die,
+  	jump_on = "ignored",
+  	hammer = 1,
+  	hookshot = 2,
+  	magic_powder = fall_and_die,
+  	shield = "protected",
+  	thrust = 2
+  })
 
   -- States.
   sprite:set_xy(0, 0)

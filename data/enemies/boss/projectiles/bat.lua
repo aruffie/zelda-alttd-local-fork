@@ -82,9 +82,21 @@ function enemy:start_throwed(entity)
   movement:set_ignore_obstacles(true)
   sprite:set_animation("attacking")
 
-  -- Make the enemy vulnerable and harmful.
+  enemy:set_hero_weapons_reactions({
+  	arrow = die,
+  	boomerang = die,
+  	explosion = die,
+  	sword = die,
+  	thrown_item = die,
+  	fire = die,
+  	jump_on = "ignored",
+  	hammer = die,
+  	hookshot = die,
+  	magic_powder = die,
+  	shield = "protected",
+  	thrust = die
+  })
   enemy:set_can_attack(true)
-  enemy:set_hero_weapons_reactions(function() die() end, {jump_on = "ignored"})
 
   -- Remove the bat without killing him and call the on_off_screen() event when off screen.
   function movement:on_position_changed()
@@ -117,8 +129,9 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
-  enemy:set_can_attack(false)
   enemy:set_invincible()
+
+  enemy:set_can_attack(false)
   enemy:set_damage(2)
   enemy:set_obstacle_behavior("flying")
   enemy:set_layer_independent_collisions(true)
