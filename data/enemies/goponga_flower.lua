@@ -18,18 +18,6 @@ local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
 
--- Make hero pushed back on sword attack received.
-local function on_sword_attack_received()
-
-  -- Make sure to only trigger this event once by attack.
-  enemy:set_invincible()
-
-  enemy:start_pushing_back(hero, 200, 100, sprite, nil)
-  sprite:set_animation("bounce", function()
-    enemy:restart()
-  end)
-end
-
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
 
@@ -41,12 +29,19 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
-  -- Behavior for each items.
-  enemy:set_hero_weapons_reactions("ignored", {
-    hookshot = 1,
-    boomerang = 1,
-    fire = 1,
-    sword = on_sword_attack_received
+  enemy:set_hero_weapons_reactions({
+  	arrow = "protected",
+  	boomerang = 1,
+  	explosion = "ignored",
+  	sword = "protected",
+  	thrown_item = "protected",
+  	fire = 1,
+  	jump_on = "ignored",
+  	hammer = "protected",
+  	hookshot = 1,
+  	magic_powder = "ignored",
+  	shield = "protected",
+  	thrust = "protected"
   })
 
   -- States.

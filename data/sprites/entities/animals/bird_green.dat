@@ -1,6 +1,6 @@
 animation{
   name = "jumping",
-  src_image = "entities/animals/bird.png",
+  src_image = "entities/animals/bird_green.png",
   frame_delay = 100,
   frame_to_loop_on = 1,
   directions = {
@@ -12,7 +12,7 @@ animation{
 }
 animation{
   name = "flying",
-  src_image = "entities/animals/bird.png",
+  src_image = "entities/animals/bird_green.png",
   frame_delay = 100,
   frame_to_loop_on = 0,
   directions = {
@@ -24,7 +24,7 @@ animation{
 }
 animation{
   name = "waiting",
-  src_image = "entities/animals/bird.png",
+  src_image = "entities/animals/bird_green.png",
   frame_delay = 200,
   frame_to_loop_on = 0,
   directions = {

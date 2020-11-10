@@ -132,8 +132,21 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
-  -- Default behavior for each items.
-  enemy:set_hero_weapons_reactions(is_protected and "protected" or 1)
+  local reaction = is_protected and "protected" or 1
+  enemy:set_hero_weapons_reactions({
+  	arrow = reaction,
+  	boomerang = reaction,
+  	explosion = reaction,
+  	sword = reaction,
+  	thrown_item = reaction,
+  	fire = reaction,
+  	jump_on = "ignored",
+  	hammer = reaction,
+  	hookshot = reaction,
+  	magic_powder = reaction,
+  	shield = "protected",
+  	thrust = reaction
+  })
 
   -- States.
   enemy:set_drawn_in_y_order(false)

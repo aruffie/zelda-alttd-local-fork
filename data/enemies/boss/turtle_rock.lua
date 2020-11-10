@@ -275,15 +275,24 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
-  -- Make the enemy vulnerable and harmful once positioned
-  enemy:set_hero_weapons_reactions("protected", {
-    sword = function() hurt(1) end,
-    jump_on = "ignored"
+  enemy:set_hero_weapons_reactions({
+  	arrow = "protected",
+  	boomerang = "protected",
+  	explosion = "ignored",
+  	sword = function() hurt(1) end,
+  	thrown_item = "protected",
+  	fire = "protected",
+  	jump_on = "ignored",
+  	hammer = "protected",
+  	hookshot = "protected",
+  	magic_powder = "ignored",
+  	shield = "protected",
+  	thrust = "protected"
   })
-  enemy:set_can_attack(true)
-  enemy:set_traversable(true)
 
   -- States.
+  enemy:set_can_attack(true)
+  enemy:set_traversable(true)
   if not is_awake then
     start_sleeping()
   else

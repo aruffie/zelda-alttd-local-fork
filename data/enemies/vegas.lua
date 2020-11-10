@@ -19,7 +19,6 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_attack_consequence("boomerang", 1)
   enemy:set_attack_consequence("fire", 1)
   enemy:set_attack_consequence("thrown_item", 1)
-  enemy:set_default_behavior_on_hero_shield("normal_shield_push")
 
   sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
   

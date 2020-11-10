@@ -18,13 +18,14 @@ local map = enemy:get_map()
 local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
+local is_firing = false
 
 -- Configuration variables
 local walking_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
 local walking_speed = 32
 local walking_minimum_distance = 16
 local walking_maximum_distance = 96
-local stalfos_shaking_duration = 500
+local stalfos_shaking_duration = 1000
 
 -- Start the enemy movement.
 function enemy:start_walking()
@@ -35,32 +36,35 @@ function enemy:start_walking()
 end
 
 -- On hit by fire, the gibdo become a red Stalfos.
-enemy:register_event("on_custom_attack_received", function(enemy, attack)
+local function transform_into_stalfos()
 
-  if attack == "fire" then
-    local x, y, layer = enemy:get_position()
-    local stalfos = enemy:create_enemy({
-      name = (enemy:get_name() or enemy:get_breed()) .. "_stalfos",
-      breed = "stalfos_red"
-    })
-
-    -- Make the Stalfos immobile, then shake for some time, and then restart.
-    if stalfos and stalfos:exists() then -- If the Stalfos was not immediatly removed from the on_created() event.
-      stalfos:set_invincible()
-      stalfos:stop_movement()
-      stalfos:set_exhausted(true)
-      sol.timer.stop_all(stalfos)
-      stalfos:set_treasure(enemy:get_treasure())
-      stalfos:get_sprite():set_animation("shaking")
-      sol.timer.start(stalfos, stalfos_shaking_duration, function()
-        stalfos:restart()
-      end)
-    end
-
-    enemy:set_treasure() -- Treasure will be dropped by the Stalfos.
-    enemy:start_death()
+  if is_firing then
+    return
   end
-end)
+  is_firing = true
+
+  local x, y, layer = enemy:get_position()
+  local stalfos = enemy:create_enemy({
+    name = (enemy:get_name() or enemy:get_breed()) .. "_stalfos",
+    breed = "stalfos_red"
+  })
+
+  -- Make the Stalfos immobile, then shake for some time, and then restart.
+  if stalfos and stalfos:exists() then -- If the Stalfos was not immediatly removed from the on_created() event.
+    stalfos:set_invincible()
+    stalfos:stop_movement()
+    stalfos:set_exhausted(true)
+    sol.timer.stop_all(stalfos)
+    stalfos:set_treasure(enemy:get_treasure())
+    stalfos:get_sprite():set_animation("shaking")
+    sol.timer.start(stalfos, stalfos_shaking_duration, function()
+      stalfos:restart()
+    end)
+  end
+
+  enemy:set_treasure() -- Treasure will be dropped by the Stalfos.
+  enemy:start_death()
+end
 
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
@@ -73,15 +77,20 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
-  -- Behavior for each items.
-  enemy:set_hero_weapons_reactions(1, {
-    boomerang = 2,
-    hammer = 2,
-    explosion = 3,
-    jump_on = "ignored",
-    thrown_item = "ignored",
-    hookshot = "immobilized",
-    fire = "custom"})
+  enemy:set_hero_weapons_reactions({
+  	arrow = 1,
+  	boomerang = 2,
+  	explosion = 3,
+  	sword = 1,
+  	thrown_item = 1,
+  	fire = transform_into_stalfos,
+  	jump_on = "ignored",
+  	hammer = 2,
+  	hookshot = "immobilized",
+  	magic_powder = 1,
+  	shield = "protected",
+  	thrust = 1
+  })
 
   -- States.
   enemy:set_can_attack(true)

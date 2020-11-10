@@ -18,6 +18,25 @@ map:register_event("on_started", function(map, destination)
 
 end)
 
+-- Remove the given entity and replace it by a small_bowwow with the miss_bowwow sprite.
+local function upgrade_to_fashioned_bowwow(entity, sprite)
+
+  local x, y, layer = entity:get_position()
+  local width, height = entity:get_size()
+  local bowwow = map:create_custom_entity({
+    model = "small_bowwow",
+    sprite = "npc/animals/miss_bowwow",
+    x = x,
+    y = y,
+    layer = layer,
+    width = width,
+    height = height,
+    direction = entity:get_sprite():get_direction()
+  })
+  bowwow.on_interaction = entity.on_interaction
+  entity:remove()
+end
+
 -- Initialize the music of the map
 function map:init_music()
 
@@ -39,7 +58,7 @@ function map:init_map_entities()
   end
   local item = game:get_item("magnifying_lens")
   if item:get_variant() > 2 then
-    small_bowwow_2:get_sprite():set_animation("ruban")
+    upgrade_to_fashioned_bowwow(small_bowwow_2)
   end
   map:repeat_meow_meow_direction_check()
 
@@ -95,7 +114,7 @@ function map:talk_to_small_bowwow_2()
       if answer == 1 then
         audio_manager:play_sound("misc/bowwow")
         game:start_dialog("maps.houses.mabe_village.meow_meow_house.small_bowwow_2_4", function()
-          small_bowwow_2:get_sprite():set_animation("ruban")
+          upgrade_to_fashioned_bowwow(small_bowwow_2)
           hero:start_treasure("magnifying_lens", 3, "magnifying_lens_3")
         end)
       else

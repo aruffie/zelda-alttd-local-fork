@@ -68,10 +68,25 @@ function enemy:wake_up()
   sol.timer.stop_all(enemy)
   enemy:stop_movement()
   enemy:set_enabled(true)
-  enemy:set_hero_weapons_reactions("protected")
   enemy:set_drawn_in_y_order(false) -- Draw the enemy below the explosion that woke him up.
   sprite:set_animation("immobilized")
   sprite:set_direction(waking_up_direction)
+
+  enemy:set_hero_weapons_reactions({
+  	arrow = "protected",
+  	boomerang = "protected",
+  	explosion = "ignored",
+  	sword = "protected",
+  	thrown_item = "protected",
+  	fire = "protected",
+  	jump_on = "ignored",
+  	hammer = "protected",
+  	hookshot = "protected",
+  	magic_powder = "ignored",
+  	shield = "protected",
+  	thrust = "protected"
+  })
+
   sol.timer.start(enemy, waking_up_duration, function()
     local movement = enemy:start_straight_walking(waking_up_direction * quarter, walking_speed, waking_up_distance, function()
       is_waking_up = false
@@ -107,10 +122,20 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
-  -- Behavior for each items.
-  enemy:set_hero_weapons_reactions(2, {
-    sword = 1, 
-    jump_on = "ignored"})
+  enemy:set_hero_weapons_reactions({
+  	arrow = 2,
+  	boomerang = 2,
+  	explosion = 2,
+  	sword = 1,
+  	thrown_item = 2,
+  	fire = 2,
+  	jump_on = "ignored",
+  	hammer = 2,
+  	hookshot = 2,
+  	magic_powder = 2,
+  	shield = "protected",
+  	thrust = 2
+  })
 
   -- States.
   is_charging = false

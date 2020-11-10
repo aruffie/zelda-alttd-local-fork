@@ -24,18 +24,6 @@ local quarter = math.pi * 0.5
 local waiting_minimum_time = 4000
 local waiting_maximum_time = 5000
 
--- Make hero pushed back on sword attack received.
-local function on_sword_attack_received()
-
-  -- Make sure to only trigger this event once by attack.
-  enemy:set_invincible()
-
-  enemy:start_pushing_back(hero, 200, 100, sprite, nil)
-  sprite:set_animation("bounce", function()
-    enemy:restart()
-  end)
-end
-
 -- Make enemy wait for attacking.
 function enemy:wait()
 
@@ -75,12 +63,19 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
-  -- Behavior for each items.
-  enemy:set_hero_weapons_reactions("ignored", {
-    hookshot = 1,
-    boomerang = 2,
-    fire = 2,
-    sword = on_sword_attack_received
+  enemy:set_hero_weapons_reactions({
+  	arrow = "protected",
+  	boomerang = 2,
+  	explosion = "ignored",
+  	sword = "protected",
+  	thrown_item = "protected",
+  	fire = 2,
+  	jump_on = "ignored",
+  	hammer = "protected",
+  	hookshot = 1,
+  	magic_powder = "ignored",
+  	shield = "protected",
+  	thrust = "protected"
   })
 
   -- States.

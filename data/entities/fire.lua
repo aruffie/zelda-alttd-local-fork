@@ -143,7 +143,7 @@ end
 -- Hurt enemies.
 fire:add_collision_test("sprite", function(fire, entity, fire_sprite, entity_sprite)
 
-  if is_active and entity:get_type() == "enemy" and entity:get_fire_reaction(entity) ~= "ignored" then
+  if is_active and entity:get_type() == "enemy" and entity:get_fire_reaction() ~= "ignored" then
     local enemy = entity
     local reaction = enemy:get_fire_reaction()
 
@@ -202,7 +202,7 @@ fire:add_collision_test("sprite", function(fire, entity, fire_sprite, entity_spr
     -- Then hurt after a delay.
     sol.timer.start(sol.main, 1000, function()
       if enemy then
-        enemy:set_hero_weapons_reactions(nil, reactions) -- Restore damage settings.
+        enemy:set_hero_weapons_reactions(reactions) -- Restore damage settings.
         enemy:receive_attack_consequence("fire", reaction)
       end
     end)

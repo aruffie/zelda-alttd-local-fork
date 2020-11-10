@@ -84,8 +84,20 @@ end)
 -- The enemy appears: set its properties.
 enemy:register_event("on_restarted", function(enemy)
 
-  -- Behavior for each items.
-  enemy:set_hero_weapons_reactions(on_attack_received, {jump_on = "ignored"})
+  enemy:set_hero_weapons_reactions({
+  	arrow = on_attack_received,
+  	boomerang = on_attack_received,
+  	explosion = on_attack_received,
+  	sword = on_attack_received,
+  	thrown_item = on_attack_received,
+  	fire = on_attack_received,
+  	jump_on = "ignored",
+  	hammer = on_attack_received,
+  	hookshot = "immobilized",
+  	magic_powder = "ignored",
+  	shield = "ignored",
+  	thrust = on_attack_received
+  })
 
   -- States.
   enemy:set_damage(2)

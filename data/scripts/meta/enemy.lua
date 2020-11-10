@@ -10,7 +10,7 @@ local entity_manager= require("scripts/maps/entity_manager")
 function enemy_meta:get_hero_weapons_reactions()
 
   local reactions = {}
-  reactions.arrow = self:get_arrow_reaction("arrow")
+  reactions.arrow = self:get_arrow_reaction()
   reactions.boomerang = self:get_attack_consequence("boomerang")
   reactions.explosion = self:get_attack_consequence("explosion")
   reactions.sword = self:get_attack_consequence("sword")
@@ -20,34 +20,70 @@ function enemy_meta:get_hero_weapons_reactions()
   reactions.hammer = self:get_hammer_reaction()
   reactions.hookshot = self:get_hookshot_reaction()
   reactions.magic_powder = self:get_magic_powder_reaction()
+  reactions.shield = self:get_shield_reaction()
   reactions.thrust = self:get_thrust_reaction()
 
   return reactions
 end
 
--- Set a reaction to all weapons, default_reaction applied for each specific one not set.
-function enemy_meta:set_hero_weapons_reactions(default_reaction, reactions)
+-- Set a reaction to given weapons.
+function enemy_meta:set_hero_weapons_reactions(reactions)
 
-  reactions = reactions or {}
-  self:set_arrow_reaction(reactions.arrow or default_reaction)
-  self:set_attack_consequence("boomerang", reactions.boomerang or default_reaction)
-  self:set_attack_consequence("explosion", reactions.explosion or default_reaction)
-  self:set_attack_consequence("sword", reactions.sword or default_reaction)
-  self:set_attack_consequence("thrown_item", reactions.thrown_item or default_reaction)
-  self:set_fire_reaction(reactions.fire or default_reaction)
-  self:set_jump_on_reaction(reactions.jump_on or default_reaction)
-  self:set_hammer_reaction(reactions.hammer or default_reaction)
-  self:set_hookshot_reaction(reactions.hookshot or default_reaction)
-  self:set_magic_powder_reaction(reactions.magic_powder or default_reaction)
-  self:set_thrust_reaction(reactions.thrust or default_reaction)
+  if reactions.arrow then
+    self:set_arrow_reaction(reactions.arrow)
+  end
+  if reactions.boomerang then
+    self:set_attack_consequence("boomerang", reactions.boomerang)
+  end
+  if reactions.explosion then
+    self:set_attack_consequence("explosion", reactions.explosion)
+  end
+  if reactions.sword then
+    self:set_attack_consequence("sword", reactions.sword)
+  end
+  if reactions.thrown_item then
+    self:set_attack_consequence("thrown_item", reactions.thrown_item)
+  end
+  if reactions.fire then
+    self:set_fire_reaction(reactions.fire)
+  end
+  if reactions.jump_on then
+    self:set_jump_on_reaction(reactions.jump_on)
+  end
+  if reactions.hammer then
+    self:set_hammer_reaction(reactions.hammer)
+  end
+  if reactions.hookshot then
+    self:set_hookshot_reaction(reactions.hookshot)
+  end
+  if reactions.magic_powder then
+    self:set_magic_powder_reaction(reactions.magic_powder)
+  end
+  if reactions.shield then
+    self:set_shield_reaction(reactions.shield)
+  end
+  if reactions.thrust then
+    self:set_thrust_reaction(reactions.thrust)
+  end
 end
 
--- Notify the map through a map:on_enemy_created() event on enemy created.
 function enemy_meta:on_created()
 
   local map = self:get_map()
+  local hero = map:get_hero()
+
+  -- Notify the map through a map:on_enemy_created() event on enemy created.
   if map.on_enemy_created then
     map:on_enemy_created(self)
+  end
+
+  -- Prevent the hero to be hurt if he is protected by the shield, or let the enemy decide if its on_attacking_hero() event is defined.
+  if not self.on_attacking_hero then
+    function self:on_attacking_hero(hero, enemy_sprite)
+      if not hero:is_shield_protecting(self) and not hero:is_blinking() then
+        hero:start_hurt(self, self:get_damage())
+      end
+    end
   end
 end
 
@@ -182,26 +218,6 @@ function enemy_meta:launch_boss_dead()
   heart_container:set_enabled(true)
 
 end
-
---[[enemy_meta:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
-    -- Do nothing if enemy sprite cannot hurt hero.
-    local collision_mode = enemy:get_attacking_collision_mode()
-    if not enemy:overlaps(hero, collision_mode) then return end
-    -- Do nothing when shield is protecting.
-    if hero.is_shield_protecting_from_enemy
-    and hero:is_shield_protecting_from_enemy(enemy, enemy_sprite) then
-      return
-    end
-
-    -- Otherwise, hero is not protected. Use built-in behavior.
-    local damage = enemy:get_damage()
-    if enemy_sprite then
-      hero:start_hurt(enemy, enemy_sprite, damage)
-    else
-      hero:start_hurt(enemy, damage)
-    end
-
-  end)--]]
 
 -- Check if the enemy should fall in hole on switching to normal obstacle behavior mode.
 enemy_meta:register_event("set_obstacle_behavior", function(enemy)

@@ -63,6 +63,7 @@ local function create_eaten_hero_entity()
     height = 16,
     direction = hero:get_direction()
   })
+  entity:set_drawn_in_y_order()
   entity:set_weight(-1)
   entity:set_enabled(false)
 
@@ -79,7 +80,14 @@ local function steal_item(item_name, variant, only_if_assigned, drop_when_dead)
     local item = game:get_item(item_name)
     local is_stealable = not only_if_assigned or (game:get_item_assigned(1) == item and 1) or (game:get_item_assigned(2) == item and 2)
 
-    if (not variant or item:get_variant() == variant) and is_stealable then 
+    if (not variant or item:get_variant() == variant) and is_stealable then
+      if item:is_being_used() then
+        if item == game:get_item("shield") then -- Workaround: No event called when the item finished being used, use this method instead of item:set_finished() to properly finish using shield.
+          item:stop_using()
+        else
+          item:set_finished()
+        end
+      end
       if drop_when_dead then
         enemy:set_treasure(item_name, item:get_variant()) -- TODO savegame variable
       end
@@ -204,7 +212,7 @@ end)
 enemy:register_event("on_restarted", function(enemy)
 
   -- Schedule the damage rules setup once not in collision with the hero, in case he was just released and still overlaps.
-  sol.timer.start(enemy, 50, function()
+  sol.timer.start(enemy, 10, function()
     if enemy:overlaps(hero, "sprite") then
       return true
     end
@@ -212,10 +220,19 @@ enemy:register_event("on_restarted", function(enemy)
     enemy:set_damage(1)
     enemy:set_can_attack(true)
 
-    -- Behavior for each items.
-    enemy:set_hero_weapons_reactions(2, {
-      sword = 1,
-      jump_on = "ignored"
+    enemy:set_hero_weapons_reactions({
+    	arrow = 2,
+    	boomerang = 2,
+    	explosion = 2,
+    	sword = 1,
+    	thrown_item = 2,
+    	fire = 2,
+    	jump_on = "ignored",
+    	hammer = 2,
+    	hookshot = 2,
+    	magic_powder = 2,
+    	shield = "protected",
+    	thrust = 2
     })
   end)
 

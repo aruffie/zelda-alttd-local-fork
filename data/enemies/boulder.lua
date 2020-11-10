@@ -57,12 +57,26 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
+  enemy:set_hero_weapons_reactions({
+  	arrow = "protected",
+  	boomerang = "protected",
+  	explosion = "ignored",
+  	sword = "protected",
+  	thrown_item = "protected",
+  	fire = "protected",
+  	jump_on = "ignored",
+  	hammer = "protected",
+  	hookshot = "protected",
+  	magic_powder = "ignored",
+  	shield = "protected",
+  	thrust = "protected"
+  })
+
   sprite:set_xy(0, 0)
   sprite:set_animation("walking")
   enemy:set_damage(2)
   enemy:set_obstacle_behavior("flying")
   enemy:set_layer_independent_collisions(true)
-  enemy:set_invincible()
   enemy:set_can_hurt_hero_running(true)
   enemy:start_bouncing()
 end)

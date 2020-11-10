@@ -51,11 +51,19 @@ enemy:register_event("on_update", function(enemy)
       sol.timer.start(enemy, before_moving_delay, function()
         enemy:set_traversable(true)
         enemy:set_can_attack(true)
-        enemy:set_hero_weapons_reactions("ignored", {
-          boomerang = 1,
-          arrow = 2,
-          explosion = 2,
-          hookshot = "immobilized"
+        enemy:set_hero_weapons_reactions({
+        	arrow = 2,
+        	boomerang = 1,
+        	explosion = 2,
+        	sword = "protected",
+        	thrown_item = "protected",
+        	fire = "protected",
+        	jump_on = "ignored",
+        	hammer = "protected",
+        	hookshot = "immobilized",
+        	magic_powder = "ignored",
+        	shield = "protected",
+        	thrust = "protected"
         })
         enemy:start_walking()
       end)
@@ -74,7 +82,20 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
-  enemy:set_hero_weapons_reactions("ignored")
+  enemy:set_hero_weapons_reactions({
+  	arrow = "protected",
+  	boomerang = "protected",
+  	explosion = "ignored",
+  	sword = "ignored",
+  	thrown_item = "protected",
+  	fire = "protected",
+  	jump_on = "ignored",
+  	hammer = "ignored",
+  	hookshot = "protected",
+  	magic_powder = "ignored",
+  	shield = "ignored",
+  	thrust = "protected"
+  })
 
   -- States.
   is_awake = false

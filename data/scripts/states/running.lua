@@ -95,13 +95,19 @@ local function begin_run()
     for enemy in map:get_entities_by_type("enemy") do
       if enemy:overlaps(entity, "sprite") and enemy:get_life() > 0 and not enemy:is_immobilized() then
 
-        -- TODO Check original behavior on protected enemies like helmasaur.
         local reaction = enemy:get_thrust_reaction()
         if reaction ~= "ignored" then -- Do nothing if the enemy ignore thrust attack.
-          if reaction ~= "protected" then
-            enemy:receive_attack_consequence("thrust", reaction) -- TODO if hurt animation or shader is not running.
-          elseif enemy:get_can_attack() then -- Hurt the hero if the enemy can attack and is protected against thrust attack.
-            hero:start_hurt(enemy, enemy:get_damage())
+          local enemy_sprite = enemy:get_sprite()
+
+          -- Propagate the attack consequence if the enemy is not protected against thrust attack and is not currently hurt.
+          if reaction ~= "protected" and enemy_sprite:get_animation() ~= "hurt" and enemy_sprite:get_shader() ~= "hurt" then
+            enemy:receive_attack_consequence("thrust", reaction)
+          else
+            -- On the protected case, hurt the hero if the enemy can attack and the enemy touches the hero tunic sprite.
+            if enemy:get_can_attack() and enemy:overlaps(entity, "sprite", nil, entity:get_sprite("tunic")) then 
+              hero:start_hurt(enemy, enemy:get_damage())
+            else -- TODO Else repulse
+            end
           end
         end
       end
