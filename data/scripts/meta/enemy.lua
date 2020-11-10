@@ -10,7 +10,7 @@ local entity_manager= require("scripts/maps/entity_manager")
 function enemy_meta:get_hero_weapons_reactions()
 
   local reactions = {}
-  reactions.arrow = self:get_arrow_reaction("arrow")
+  reactions.arrow = self:get_arrow_reaction()
   reactions.boomerang = self:get_attack_consequence("boomerang")
   reactions.explosion = self:get_attack_consequence("explosion")
   reactions.sword = self:get_attack_consequence("sword")
@@ -20,6 +20,7 @@ function enemy_meta:get_hero_weapons_reactions()
   reactions.hammer = self:get_hammer_reaction()
   reactions.hookshot = self:get_hookshot_reaction()
   reactions.magic_powder = self:get_magic_powder_reaction()
+  reactions.shield = self:get_shield_reaction()
   reactions.thrust = self:get_thrust_reaction()
 
   return reactions
@@ -39,15 +40,27 @@ function enemy_meta:set_hero_weapons_reactions(default_reaction, reactions)
   self:set_hammer_reaction(reactions.hammer or default_reaction)
   self:set_hookshot_reaction(reactions.hookshot or default_reaction)
   self:set_magic_powder_reaction(reactions.magic_powder or default_reaction)
+  self:set_shield_reaction(reactions.shield or default_reaction)
   self:set_thrust_reaction(reactions.thrust or default_reaction)
 end
 
--- Notify the map through a map:on_enemy_created() event on enemy created.
 function enemy_meta:on_created()
 
   local map = self:get_map()
+  local hero = map:get_hero()
+
+  -- Notify the map through a map:on_enemy_created() event on enemy created.
   if map.on_enemy_created then
     map:on_enemy_created(self)
+  end
+
+  -- Prevent the hero to be hurt if he is protected by the shield, or let the enemy decide if its on_attacking_hero() event is defined.
+  if not self.on_attacking_hero then
+    function self:on_attacking_hero(hero, enemy_sprite)
+      if not hero:is_shield_protecting(self) and not hero:is_blinking() then
+        hero:start_hurt(self, self:get_damage())
+      end
+    end
   end
 end
 

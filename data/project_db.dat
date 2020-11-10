@@ -634,10 +634,9 @@ sprite{ id = "hero/ground1", description = "Grass under hero" }
 sprite{ id = "hero/ground2", description = "Shallow water under hero" }
 sprite{ id = "hero/link_sad", description = "Link sad" }
 sprite{ id = "hero/magic_powder_effect", description = "Magic powder effect" }
+sprite{ id = "hero/shield1", description = "Hero shield 1" }
 sprite{ id = "hero/shield2", description = "Hero shield 2" }
 sprite{ id = "hero/shield3", description = "Hero shield 3" }
-sprite{ id = "hero/shield_1_above", description = "Shield 1 above" }
-sprite{ id = "hero/shield_collision_mask", description = "Shield Collision Mask" }
 sprite{ id = "hero/sword1", description = "Hero sword 1" }
 sprite{ id = "hero/sword2", description = "Hero sword 2" }
 sprite{ id = "hero/sword3", description = "Hero sword 3" }
@@ -1685,7 +1684,7 @@ file{ path = "enemies/projectiles/stone.lua", author = "Vlag", license = "GPL v3
 file{ path = "enemies/raven.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/rope.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/sand_crab.lua", author = "Vlag", license = "GPL v3" }
-file{ path = "enemies/sea_urchin.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "enemies/sea_urchin.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/shrouded_stalfos.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/shrouded_stalfos_sword.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/spiked_beetle.lua", author = "Vlag", license = "GPL v3" }
@@ -1817,7 +1816,7 @@ file{ path = "items/rupee.lua", license = "GPL v3" }
 file{ path = "items/rupee_bag.lua", license = "GPL v3" }
 file{ path = "items/seashell.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/seashells_counter.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "items/shield.lua", license = "GPL v3" }
+file{ path = "items/shield.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "items/shovel.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "items/slim_key.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/small_key.lua", license = "GPL v3" }

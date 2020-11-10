@@ -64,7 +64,7 @@ function behavior.apply(enemy, sprite)
     end
   end)
 
-  enemy:register_event("on_restarted", function(enemy, shield)
+  enemy:register_event("on_restarted", function(enemy)
     is_initialized = true
   end)
 

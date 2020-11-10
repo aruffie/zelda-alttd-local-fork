@@ -135,7 +135,7 @@ local function create_sub_enemy(sprite_suffix_name)
 end
 
 -- Repulse the whole enemy using the angle from the given entity to the enemy head.
-function start_pushed_back(entity, on_finished_callback)
+local function start_pushed_back(entity, on_finished_callback)
 
   local movement = sol.movement.create("straight")
   local head_x, head_y = head:get_position()

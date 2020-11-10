@@ -13,7 +13,6 @@
 -- Global variables
 local enemy = ...
 require("enemies/lib/common_actions").learn(enemy)
-require("scripts/multi_events")
 local audio_manager = require("scripts/audio_manager")
 
 local game = enemy:get_game()
@@ -92,13 +91,16 @@ function enemy:start_charging()
 end
 
 -- Flip the enemy on collision with the shield and make it vulnerable.
-enemy:register_event("on_shield_collision", function(enemy, shield)
+local function on_shield_collision()
 
   if not is_upside_down then
     is_upside_down = true
     is_charging = false
     enemy:stop_movement()
-    enemy:set_hero_weapons_reactions(2, {sword = 1})
+    enemy:set_hero_weapons_reactions(2, {
+      sword = 1,
+      shield = "protected"
+    })
     enemy:start_brief_effect("entities/effects/impact_projectile", "default")
 
     -- Make the enemy jump while flipping.
@@ -121,7 +123,7 @@ enemy:register_event("on_shield_collision", function(enemy, shield)
     sprite:set_animation("renverse")
     audio_manager:play_entity_sound(enemy, "enemies/bounce")
   end
-end)
+end
 
 -- Passive behaviors needing constant checking.
 enemy:register_event("on_update", function(enemy)
@@ -140,8 +142,8 @@ end)
 enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(2)
-  enemy:set_size(24, 24)
-  enemy:set_origin(12, 21)
+  enemy:set_size(16, 16)
+  enemy:set_origin(8, 13)
   enemy:start_shadow()
 end)
 
@@ -149,7 +151,10 @@ end)
 enemy:register_event("on_restarted", function(enemy)
 
   -- Behavior for each items.
-  enemy:set_hero_weapons_reactions("protected", {jump_on = "ignored"})
+  enemy:set_hero_weapons_reactions("protected", {
+    shield = on_shield_collision,
+    jump_on = "ignored"
+  })
 
   -- States.
   sprite:set_xy(0, 0)
