@@ -101,10 +101,7 @@ function item:on_using()
     local map = item:get_map() -- Update map in case it changes while holding the shield.
     for enemy in map:get_entities_by_type("enemy") do
       if hero:is_shield_protecting(enemy) then
-        local reaction = enemy:get_shield_reaction()
-        if reaction ~= "ignored" then
-          enemy:receive_attack_consequence("shield", reaction)
-        end
+        enemy:receive_attack_consequence("shield", enemy:get_shield_reaction())
       end
     end
 
