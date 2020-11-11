@@ -56,14 +56,9 @@ enemy:register_event("on_update", function(enemy)
         	boomerang = 1,
         	explosion = 2,
         	sword = "protected",
-        	thrown_item = "protected",
-        	fire = "protected",
-        	jump_on = "ignored",
         	hammer = "protected",
         	hookshot = "immobilized",
-        	magic_powder = "ignored",
         	shield = "protected",
-        	thrust = "protected"
         })
         enemy:start_walking()
       end)

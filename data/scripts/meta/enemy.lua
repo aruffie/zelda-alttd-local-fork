@@ -145,6 +145,108 @@ function enemy_meta:on_hurt_by_sword(hero, enemy_sprite)
 
 end
 
+-- Push the given entity.
+local is_pushed = {}
+local function push(entity, pushing_entity, speed, duration, entity_sprite, pushing_entity_sprite)
+
+  if is_pushed[entity] then
+    return
+  end
+  is_pushed[entity] = true
+
+  speed = speed or 150
+  duration = duration or 100
+  entity_sprite = entity_sprite or entity:get_sprite()
+  pushing_entity_sprite = pushing_entity_sprite or pushing_entity:get_sprite()
+
+  -- Take the sprite positions as reference for the angle instead of the global positions.
+  local trigonometric_functions = {math.cos, math.sin}
+  local entity_x, entity_y = entity:get_position()
+  local entity_offset_x, entity_offset_y = entity_sprite:get_xy()
+  local pushing_entity_x, pushing_entity_y = pushing_entity:get_position()
+  local pushing_entity_offset_x, pushing_entity_offset_y = pushing_entity_sprite:get_xy()
+  pushing_entity_x = pushing_entity_x + pushing_entity_offset_x
+  pushing_entity_y = pushing_entity_y + pushing_entity_offset_y
+  entity_x = entity_x + entity_offset_x
+  entity_y = entity_y + entity_offset_y
+
+  local angle = math.atan2(pushing_entity_y - entity_y, entity_x - pushing_entity_x)
+  local step_axis = {math.max(-1, math.min(1, entity_x - pushing_entity_x)), math.max(-1, math.min(1, entity_y - pushing_entity_y))}
+
+  local function attract_on_axis(axis)
+
+    -- Clean the timer if the entity was removed from outside.
+    if not entity:exists() then
+      return
+    end
+    
+    local axis_move = {0, 0}
+    local axis_move_delay = 10 -- Default timer delay if no move
+    entity_x, entity_y = entity:get_position()
+
+    -- Always move pixel by pixel.
+    axis_move[axis] = step_axis[axis]
+    if axis_move[axis] ~= 0 then
+
+      -- Schedule the next move on this axis depending on the remaining distance and the speed value, avoiding too high and low timers.
+      axis_move_delay = 1000.0 / math.max(1, math.min(1000, math.abs(speed * trigonometric_functions[axis](angle))))
+
+      -- Move the entity.
+      if not entity:test_obstacles(axis_move[1], axis_move[2]) then
+        entity:set_position(entity_x + axis_move[1], entity_y + axis_move[2])
+      end
+    end
+
+    return axis_move_delay
+  end
+
+  -- Start the pixel move schedule.
+  local timers = {}
+  for i = 1, 2 do
+    local initial_delay = attract_on_axis(i)
+    if initial_delay then
+      timers[i] = sol.timer.start(entity, initial_delay, function()
+        return attract_on_axis(i)
+      end)
+    end
+  end
+
+  -- Schedule the end of the push.
+  local map = entity:get_map()
+  sol.timer.start(map, duration, function() -- Start this timer on the map to take care of timers canceled on entity restart.
+    is_pushed[entity] = false
+    for i = 1, 2 do
+      if timers[i] then
+        timers[i]:stop()
+      end
+    end
+  end)
+end
+
+-- Some items needs to push the enemy, the hero or both on a protected reaction.
+local function on_protected(enemy, attack)
+
+  local hero = enemy:get_map():get_hero()
+
+  -- Shield attack
+  if attack == "shield" then
+    push(hero, enemy, 150, 100)
+    if enemy:is_pushed_back_when_hurt() then -- Workaround : Use the pushed back when hurt behavior to know if the enemy should be pushed by the shield.
+      push(enemy, hero, 150, 100)
+    end
+
+  elseif attack == "sword" then
+    -- TODO
+
+  elseif attack == "thrust" then
+    -- TODO
+
+  elseif attack == "thrown_item" then
+    -- TODO
+
+  end
+end
+
 -- Helper function to inflict an explicit reaction from a scripted weapon.
 -- TODO this should be in the Solarus API one day
 function enemy_meta:receive_attack_consequence(attack, reaction)
@@ -165,6 +267,7 @@ function enemy_meta:receive_attack_consequence(attack, reaction)
         self:restart()
       end)
   elseif reaction == "protected" then
+    on_protected(self, attack)
     audio_manager:play_sound("sword_tapping")
   elseif reaction == "custom" then
     if self.on_custom_attack_received ~= nil then

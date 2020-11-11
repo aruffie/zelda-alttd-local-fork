@@ -123,15 +123,21 @@ function enemy:start_angry()
 
   enemy:stop_movement()
   sol.timer.stop_all(enemy)
-  enemy:set_invincible()
   enemy:set_layer(map:get_max_layer())
   enemy:set_obstacle_behavior("flying")
   sprite:set_animation("flying")
+
+  enemy:set_invincible()
+  enemy:set_hero_weapons_reactions({
+  	shield = "protected",
+  	thrust = "protected"
+  })
 
   -- Make the chicken take off before flying if visible, else position it randomly on the border of the camera.
   if not is_angry then
     enemy:start_flying(take_off_duration, flying_height, function()
       sol.timer.start(enemy, pause_duration, function()
+        enemy:set_can_attack(true)
         start_flying()
       end)
     end)
@@ -154,26 +160,26 @@ end)
 -- The enemy appears: set its properties.
 enemy:register_event("on_restarted", function(enemy)
 
-  enemy:set_hero_weapons_reactions({
-  	arrow = on_attack_received,
-  	boomerang = on_attack_received,
-  	explosion = on_attack_received,
-  	sword = on_attack_received,
-  	thrown_item = on_attack_received,
-  	fire = on_attack_received,
-  	jump_on = "ignored",
-  	hammer = on_attack_received,
-  	hookshot = "immobilized",
-  	magic_powder = "ignored",
-  	shield = "ignored",
-  	thrust = on_attack_received
-  })
-
   -- States.
   enemy:set_damage(2)
   enemy:set_can_attack(is_angry)
   enemy:set_layer_independent_collisions(true)
   if not is_angry then
+
+    enemy:set_hero_weapons_reactions({
+    	arrow = on_attack_received,
+    	boomerang = on_attack_received,
+    	explosion = on_attack_received,
+    	sword = on_attack_received,
+    	thrown_item = on_attack_received,
+    	fire = on_attack_received,
+    	jump_on = "ignored",
+    	hammer = on_attack_received,
+    	hookshot = "immobilized",
+    	magic_powder = "ignored",
+    	shield = "ignored",
+    	thrust = on_attack_received
+    })
 
     -- Start making all chickens of the map angry if the hurt count is too high.
     if hurt_count >= hurt_count_before_angry then

@@ -98,12 +98,10 @@ function item:on_using()
   sol.timer.start(item, 10, function()
 
     -- Check collision with enemies.
+    local map = item:get_map() -- Update map in case it changes while holding the shield.
     for enemy in map:get_entities_by_type("enemy") do
       if hero:is_shield_protecting(enemy) then
-        local reaction = enemy:get_shield_reaction()
-        if reaction ~= "ignored" then
-          enemy:receive_attack_consequence("shield", reaction)
-        end
+        enemy:receive_attack_consequence("shield", enemy:get_shield_reaction())
       end
     end
 
@@ -131,12 +129,6 @@ function item:stop_using()
   game:set_ability("shield", 0)
   set_grabing_abilities_level(1)
 end
-
--- Stop using when map changed.
-item:register_event("on_map_changed", function(item, map)
-
-  item:stop_using()
-end)
 
 -- Initialize the metatable of hero entity.
 local function initialize_hero_meta()

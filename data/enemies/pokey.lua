@@ -65,7 +65,7 @@ function enemy:detach_body()
     -- Make the cactus invincible for some time.
     projectile:set_invincible()
     sol.timer.start(projectile, projectile_invincible_duration, function()
-      projectile:set_hero_weapons_reactions(1, {jump_on = "ignored"})
+      projectile:set_invincible()
     end)
   end
 

@@ -38,7 +38,7 @@ local awakening_speed = 22
 local swinging_speed = 44
 local attacking_speed = 160
 local attacking_maximum_distance = 100
-local attacking_probability = 0.3
+local attacking_probability = 0.6
 local base_offset = {x = 0, y = 25}
 local swinging_offsets = {{x = 50, y = 25}, {x = -50, y = 25}}
 local neck_entities_number = 7
@@ -82,6 +82,12 @@ local function start_positioning(speed)
 
   local distance = enemy:get_distance(initial_position.x + base_offset.x, initial_position.y + base_offset.y)
   local angle = enemy:get_angle(initial_position.x + base_offset.x, initial_position.y + base_offset.y)
+
+  if distance == 0 then
+    enemy:restart()
+    return
+  end
+
   local movement = enemy:start_straight_walking(angle, speed, distance, function()
     sol.timer.start(enemy, after_positioned_duration, function()
       enemy:restart()

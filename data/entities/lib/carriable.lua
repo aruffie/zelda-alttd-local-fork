@@ -237,10 +237,7 @@ function carriable_behavior.apply(carriable, properties)
           table.insert(unhittable_entities, entity) -- Avoid the entity being hit twice a throw.
 
           if entity:get_type() == "enemy" then
-            local reaction = entity:get_attack_consequence("thrown_item")
-            if reaction ~= "ignored" and reaction ~= "protected" then
-              entity:receive_attack_consequence("thrown_item", reaction)
-            end
+            entity:receive_attack_consequence("thrown_item", entity:get_attack_consequence("thrown_item"))
           elseif entity:get_type() == "crystal" then
             map:set_crystal_state(not map:get_crystal_state())
           end
