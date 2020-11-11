@@ -52,7 +52,7 @@ enemy:register_event("on_restarted", function(enemy)
   	jump_on = "ignored",
   	hammer = "ignored",
   	hookshot = "ignored",
-  	magic_powder = "ignored",
+  	magic_powder = 1,
   	shield = "protected", -- TODO Change direction on shield touched.
   	thrust = "ignored"
   })

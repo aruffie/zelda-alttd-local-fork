@@ -98,18 +98,18 @@ end)
 enemy:register_event("on_restarted", function(enemy)
 
   enemy:set_hero_weapons_reactions({
-  	arrow = is_weak and 1 or 4,
+  	arrow = is_weak and 4 or 1,
   	boomerang = "protected",
   	explosion = "ignored",
-  	sword = is_weak and on_inoffensive_attack or 4,
+  	sword = is_weak and 4 or on_inoffensive_attack,
   	thrown_item = "protected",
   	fire = 4,
   	jump_on = "ignored",
   	hammer = "protected",
   	hookshot = "protected",
   	magic_powder = "ignored",
-  	shield = is_weak and "ignored" or "protected",
-  	thrust = is_weak and on_inoffensive_attack or 4
+  	shield = is_weak and "protected" or "ignored",
+  	thrust = is_weak and 4 or on_inoffensive_attack
   })
 
   sprite:set_xy(0, -flying_height)

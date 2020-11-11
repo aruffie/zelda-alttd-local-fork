@@ -4,8 +4,6 @@
 --
 -- Go towards a diagonal direction and bounce on obstacle reached.
 --
--- Methods : enemy:start_walking([angle])
---
 ----------------------------------
 -- Variables
 local enemy = ...
@@ -20,12 +18,12 @@ local walking_angles = {eighth, 3.0 * eighth, 5.0 * eighth, 7.0 * eighth}
 local walking_speed = 80
 
 -- Makes the enemy go towards a diagonal direction and bounce on obstacle reached.
-function enemy:start_walking(angle)
+local function start_walking(angle)
 
   angle = angle or walking_angles[math.random(4)]
 
   local movement = enemy:start_straight_walking(angle, walking_speed, nil, function()
-    enemy:start_walking(enemy:get_obstacles_bounce_angle(angle))
+    start_walking(enemy:get_obstacles_bounce_angle(angle))
   end)
   movement:set_smooth(false)
 end
@@ -41,11 +39,23 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
-  -- Behavior for each items.
-  enemy:set_hero_weapons_reactions(1, {jump_on = "ignored"})
+  enemy:set_hero_weapons_reactions({
+  	arrow = 1,
+  	boomerang = 1,
+  	explosion = 1,
+  	sword = 1,
+  	thrown_item = 1,
+  	fire = 1,
+  	jump_on = "ignored",
+  	hammer = 1,
+  	hookshot = 1,
+  	magic_powder = 1,
+  	shield = "protected",
+  	thrust = 1
+  })
 
   -- States.
   enemy:set_can_attack(true)
   enemy:set_damage(2)
-  enemy:start_walking()
+  start_walking()
 end)

@@ -44,7 +44,7 @@ enemy:register_event("on_restarted", function(enemy)
 
   enemy:set_hero_weapons_reactions({
   	arrow = "ignored",
-  	boomerang = 1,
+  	boomerang = "protected",
   	explosion = "ignored",
   	sword = "ignored",
   	thrown_item = "ignored",
@@ -53,13 +53,12 @@ enemy:register_event("on_restarted", function(enemy)
   	hammer = "ignored",
   	hookshot = "ignored",
   	magic_powder = "ignored",
-  	shield = "protected",
+  	shield = "ignored",
   	thrust = "ignored"
   })
 
   -- States.
   enemy:set_can_attack(true)
   enemy:set_damage(2)
-  enemy:set_invincible()
   enemy:start_walking()
 end)

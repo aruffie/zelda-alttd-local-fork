@@ -82,7 +82,7 @@ enemy:register_event("on_restarted", function(enemy)
   	boomerang = 2,
   	explosion = 3,
   	sword = 1,
-  	thrown_item = 1,
+  	thrown_item = "ignored",
   	fire = transform_into_stalfos,
   	jump_on = "ignored",
   	hammer = 2,
