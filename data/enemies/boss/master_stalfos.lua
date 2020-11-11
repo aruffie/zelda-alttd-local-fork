@@ -305,14 +305,12 @@ local function on_head_hurt()
   sword:set_can_attack(false)
 
   -- Make body and head parts vulnerable to explosion.
-  enemy:set_hero_weapons_reactions("ignored", {
+  enemy:set_hero_weapons_reactions({
     explosion = function() hurt(1) end,
   })
-  head:set_hero_weapons_reactions("ignored", {
+  head:set_hero_weapons_reactions({
     explosion = function() hurt(1) end,
   })
-  shield:set_hero_weapons_reactions("ignored")
-  sword:set_hero_weapons_reactions("ignored")
 
   -- Repulse the enemy and make it collapse.
   start_pushed_back(hero, function()
