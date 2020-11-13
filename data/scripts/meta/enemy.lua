@@ -145,7 +145,7 @@ function enemy_meta:on_hurt_by_sword(hero, enemy_sprite)
 
 end
 
--- Push the given entity.
+-- Push the given entity, not using the built-in movement to not stop a possible running movement.
 local is_pushed = {}
 local function push(entity, pushing_entity, speed, duration, entity_sprite, pushing_entity_sprite)
 
@@ -214,7 +214,7 @@ local function push(entity, pushing_entity, speed, duration, entity_sprite, push
   -- Schedule the end of the push.
   local map = entity:get_map()
   sol.timer.start(map, duration, function() -- Start this timer on the map to take care of timers canceled on entity restart.
-    is_pushed[entity] = false
+    is_pushed[entity] = nil
     for i = 1, 2 do
       if timers[i] then
         timers[i]:stop()
@@ -228,19 +228,22 @@ local function on_protected(enemy, attack)
 
   local hero = enemy:get_map():get_hero()
 
-  -- Shield attack
+  -- Shield attack.
   if attack == "shield" then
     push(hero, enemy, 150, 100)
     if enemy:is_pushed_back_when_hurt() then -- Workaround : Use the pushed back when hurt behavior to know if the enemy should be pushed by the shield.
       push(enemy, hero, 150, 100)
     end
 
+  -- Sword attack.
   elseif attack == "sword" then
     -- TODO
 
+  -- Thrust attack (running trough).
   elseif attack == "thrust" then
     -- TODO
 
+  -- Thrown items.
   elseif attack == "thrown_item" then
     -- TODO
 

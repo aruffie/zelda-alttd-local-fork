@@ -40,7 +40,7 @@ explosion:add_collision_test("sprite", function(explosion, entity)
   -- TODO Cut grass on touched.
 end)
 
--- Explode at creation.
+-- Explode on created.
 explosion:register_event("on_created", function(explosion)
 
   sprite:set_animation("explosion", function()
