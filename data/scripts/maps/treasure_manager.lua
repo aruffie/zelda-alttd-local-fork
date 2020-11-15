@@ -59,10 +59,10 @@ function treasure_manager:appear_chest_when_horse_heads_upright(map, entity_pref
         -- Else play error song and reset direction.
         audio_manager:play_sound("misc/error")
         sol.timer.start(500, function()
-            for entity in map:get_entities(entity_prefix) do
-              entity:set_direction(0)
-            end
-          end)
+          for entity in map:get_entities(entity_prefix) do
+            entity:set_direction(0)
+          end
+        end)
       end
       -- Make all horse heads liftable again.
       for entity in map:get_entities(entity_prefix) do

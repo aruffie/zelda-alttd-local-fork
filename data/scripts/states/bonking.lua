@@ -55,6 +55,10 @@ function state:on_started()
   if sword_sprite then
     entity:remove_sprite(sword_sprite)
   end
+  local shield = state:get_game():get_item("shield")
+  if shield:is_being_used() then
+    shield:stop_using()
+  end
   if map:is_sideview() then
     entity.vspeed=-4
     sol.timer.start(entity, 10, function()
