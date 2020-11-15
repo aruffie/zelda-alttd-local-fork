@@ -46,6 +46,7 @@ enemy:register_event("on_restarted", function(enemy)
 
   -- States.
   enemy:set_pushed_back_when_hurt(false)
+  enemy:set_push_hero_on_sword(true)
   enemy:set_attacking_collision_mode("touching")
   enemy:set_traversable(false)
   enemy:set_can_attack(true)

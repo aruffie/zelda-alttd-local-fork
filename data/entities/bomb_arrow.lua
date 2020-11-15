@@ -44,11 +44,15 @@ function entity:on_created()
     --Will it explode on it's own ? no :(
     local x,y,layer=entity:get_position()
     audio_manager:play_entity_sound(entity,"items/bomb_explode")
-    map:create_explosion({
-        x=x, 
-        y=y,
-        layer=layer,
-      })
+    map:create_custom_entity({
+      model = "explosion",
+      direction = 0,
+      x = x,
+      y = y,
+      layer = layer,
+      width = 16,
+      height = 16
+    })
     entity:remove()
   end
   m:start(entity)
