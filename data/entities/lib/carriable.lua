@@ -2,7 +2,7 @@
 --
 -- Undestructible destructible map entity, behaving the same way than build-in destructible except it bounces on obstacle reached instead of breaking.
 -- A hit may happen when the entity reaches an obstacle or when the carriable sprite overlaps another entity sprite while the throw is running.
--- An entity can only be hit once in a throw, however the throw will still bonk on obstacles entites without triggering the hit behavior.
+-- An entity can only be hit once in a throw, however the throw will still bonk on obstacles entites without triggering the hit behavior if already triggered.
 -- 
 -- Methods : carriable:throw(direction)
 --
@@ -343,6 +343,16 @@ function carriable_behavior.apply(carriable, properties)
   carriable:set_drawn_in_y_order()
   carriable:set_weight(0)
   set_animation_if_exists("stopped")
+
+  carriable:set_traversable_by(true)
+  carriable:set_can_traverse_ground("deep_water", true)
+  carriable:set_can_traverse_ground("grass", true)
+  carriable:set_can_traverse_ground("hole", true)
+  carriable:set_can_traverse_ground("lava", true)
+  carriable:set_can_traverse_ground("low_wall", true)
+  carriable:set_can_traverse_ground("prickles", true)
+  carriable:set_can_traverse_ground("shallow_water", true)
+  carriable:set_can_traverse(true) -- No way to get traversable entities later, make them all traversable.
 
   -- Start a custom lifting on interaction to not destroy the carriable and keep events registered outside the entity script alive.
   carriable:register_event("on_interaction", function(carriable)

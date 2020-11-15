@@ -70,6 +70,5 @@ end)
 -- Setup traversable rules and start the bomb timer before exploding.
 bomb:register_event("on_created", function(bomb)
 
-  bomb:set_traversable_by(true)
   start_countdown()
 end)

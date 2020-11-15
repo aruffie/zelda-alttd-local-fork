@@ -5,9 +5,7 @@
 -- Moves randomly over horizontal and vertical axis.
 -- Propelled across the room when attacked and bounce on obstacle, exploding after some time or hitting another enemy.
 --
--- Methods : enemy:explode()
---           enemy:start_walking()
---           enemy:start_propelled([angle])
+-- Methods : enemy:start_propelled([angle])
 --
 ----------------------------------
 
@@ -31,21 +29,8 @@ local walking_maximum_distance = 96
 local propelled_speed = 300
 local propelled_duration = 2000
 
--- Behavior on effective shot received.
-local function on_attack_received()
-
-  -- Start propelled and a timer before explosion.
-  if not is_propelled then
-    is_propelled = true
-    enemy:start_propelled()
-    sol.timer.start(enemy, propelled_duration, function()
-      enemy:explode()
-    end)
-  end
-end
-
 -- Make the enemy explode
-function enemy:explode()
+local function explode()
 
   if is_explosing then
     return
@@ -75,17 +60,34 @@ function enemy:explode()
   end
 end
 
+-- Start propelling on effective attack received.
+local function on_attack_received()
+
+  if not is_propelled then
+    enemy:start_propelled()
+  end
+end
+
 -- Start the enemy movement.
-function enemy:start_walking()
+local function start_walking()
 
   enemy:start_straight_walking(walking_angles[math.random(4)], walking_speed, math.random(walking_minimum_distance, walking_maximum_distance), function()
-    enemy:start_walking()
+    start_walking()
   end)
 end
 
--- Start propelled away to the hero and bounce.
+-- Start propelled away to the hero and bounce against obstacles, .
 function enemy:start_propelled(angle)
 
+  -- Start a timer before explosion the first time the enemy is propelled.
+  if not is_propelled then
+    is_propelled = true
+    sol.timer.start(enemy, propelled_duration, function()
+      explode()
+    end)
+  end
+
+  -- Start the movement.
   angle = angle or hero:get_angle(enemy)
   local movement = enemy:start_straight_walking(angle, propelled_speed, nil, function()
     enemy:start_propelled(enemy:get_obstacles_bounce_angle(angle))
@@ -94,10 +96,13 @@ function enemy:start_propelled(angle)
 end
 
 -- Explode on collision with another enemy while propelled.
-enemy:register_event("on_collision_enemy", function(enemy, other_enemy, other_sprite, my_sprite)
+enemy:register_event("on_collision_enemy", function(enemy, other_enemy, other_sprite, sprite)
 
-  if is_propelled then
-    enemy:explode()
+  if is_propelled and enemy:get_can_attack() and other_enemy:get_can_attack() then -- If both enemies are able to attack.
+    if other_enemy:get_breed() == enemy:get_breed() then
+      other_enemy:start_propelled(enemy:get_angle(other_enemy))
+    end
+    explode()
   end
 end)
 
@@ -130,5 +135,5 @@ enemy:register_event("on_restarted", function(enemy)
   -- States.
   enemy:set_can_attack(true)
   enemy:set_damage(4)
-  enemy:start_walking()
+  start_walking()
 end)
