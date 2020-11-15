@@ -1471,6 +1471,7 @@ enemy{ id = "zora", description = "Zora" }
 entity{ id = "arrow", description = "Arrow" }
 entity{ id = "ball", description = "Ball" }
 entity{ id = "bird", description = "Bird" }
+entity{ id = "bomb", description = "Bomb" }
 entity{ id = "bomb_arrow", description = "Bomb Arrow" }
 entity{ id = "bottle", description = "Bottle" }
 entity{ id = "bowwow", description = "Bowwow" }
@@ -1705,6 +1706,7 @@ file{ path = "entities", author = "Benjamin Schweitzer, Christopho, Phoenixll54,
 file{ path = "entities/arrow.lua", license = "GPL v3" }
 file{ path = "entities/ball.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "entities/bird.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "entities/bomb.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "entities/bomb_arrow.lua", license = "GPL v3" }
 file{ path = "entities/bottle.lua", license = "GPL v3" }
 file{ path = "entities/bowwow.lua", license = "GPL v3" }
