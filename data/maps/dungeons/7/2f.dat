@@ -10626,7 +10626,7 @@ chest{
   x = 1056,
   y = 565,
   treasure_name = "shield",
-  treasure_variant = 2,
+  treasure_variant = 3,
   treasure_savegame_variable = "dungeon_7_mirror_shield",
   sprite = "entities/chests/chest_big",
 }
