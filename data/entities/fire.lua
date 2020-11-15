@@ -143,7 +143,7 @@ end
 -- Hurt enemies.
 fire:add_collision_test("sprite", function(fire, entity, fire_sprite, entity_sprite)
 
-  if is_active and entity:get_type() == "enemy" and entity:get_fire_reaction() ~= "ignored" then
+  if is_active and entity:get_type() == "enemy" then
     local enemy = entity
     local reaction = enemy:get_fire_reaction()
 

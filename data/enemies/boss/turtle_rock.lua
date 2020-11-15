@@ -82,12 +82,6 @@ local function start_positioning(speed)
 
   local distance = enemy:get_distance(initial_position.x + base_offset.x, initial_position.y + base_offset.y)
   local angle = enemy:get_angle(initial_position.x + base_offset.x, initial_position.y + base_offset.y)
-
-  if distance == 0 then
-    enemy:restart()
-    return
-  end
-
   local movement = enemy:start_straight_walking(angle, speed, distance, function()
     sol.timer.start(enemy, after_positioned_duration, function()
       enemy:restart()
@@ -127,11 +121,6 @@ local function start_swinging(step_number)
   local step = swinging_offsets[step_number]
   local x, y = enemy:get_position()
   local target_x, target_y = initial_position.x + step.x, initial_position.y + step.y
-  if x == target_x and y == target_y then
-    start_swinging((step_number % #swinging_offsets) + 1)
-    return
-  end
-
   local angle = enemy:get_angle(target_x, target_y)
   local distance = enemy:get_distance(target_x, target_y)
   

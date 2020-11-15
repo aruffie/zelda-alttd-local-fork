@@ -122,7 +122,7 @@ function carriable_behavior.apply(carriable, properties)
     for _, entity in pairs(entities) do
       -- Workaround: No fucking way to get traversable entities, hardcode ones that will have a triggered behavior or have the on_hit_by_carriable event defined...
       local type = entity:get_type()
-      if type == "enemy" or type == "crystal" or entity.on_hit_by_carriable then
+      if (type == "enemy" and entity:get_attack_consequence("thrown_item") ~= "ignored") or type == "crystal" or entity.on_hit_by_carriable then
         return true
       end
     end

@@ -127,9 +127,14 @@ enemy:register_event("on_update", function(enemy)
     return
   end
 
-  -- If the hero touches the center of the enemy, slow him down.
-  if not is_leashed and enemy:get_life() > 0 and enemy:overlaps(hero, "origin") then
+  -- If the hero touches the center of the enemy and is not currently respawning, slow him down.
+  if not is_leashed and enemy:get_life() > 0 and enemy:overlaps(hero, "origin") and hero:get_state() ~= "back to solid ground" then
     attach_hero()
+  end
+
+  -- Free the hero if leashed and he or the enemy is over a bad ground.
+  if is_leashed and (map:is_bad_ground(enemy:get_position()) or map:is_bad_ground(hero:get_position())) then
+    free_hero()
   end
 end)
 
