@@ -98,6 +98,7 @@ local function start_taking_off()
         start_moving()
       end)
       enemy:set_invincible()
+      enemy:set_hero_weapons_reactions({shield = "protected"}) -- Still repulse on shield collision.
     end)
 end
 
@@ -135,6 +136,7 @@ enemy:register_event("on_restarted", function(enemy)
   	shield = "protected",
   	thrust = 1
   })
+  enemy:set_shield_minimum_level(1)
 
   -- States.
   enemy:set_can_attack(true)

@@ -142,9 +142,7 @@ local function initialize_hero_meta()
   function hero_meta:is_shield_protecting(enemy, enemy_sprite)
     local item = self:get_game():get_item("shield")
     local is_strong_enough = item:get_variant() >= enemy:get_shield_minimum_level()
-    local is_not_ignored = enemy:get_shield_reaction() ~= "ignored"
-    local is_collision = enemy:overlaps(self, enemy:get_attacking_collision_mode(), enemy_sprite, self:get_sprite("shield"))
-    return item.is_used and is_strong_enough and is_not_ignored and is_collision
+    return item.is_used and is_strong_enough and enemy:overlaps(self, enemy:get_attacking_collision_mode(), enemy_sprite, self:get_sprite("shield"))
   end
 end
 
