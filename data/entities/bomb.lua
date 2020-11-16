@@ -8,7 +8,7 @@
 -- Global variables.
 local bomb = ...
 local carriable_behavior = require("entities/lib/carriable")
-carriable_behavior.apply(bomb, {bounce_sound = "items/shield"})
+carriable_behavior.apply(bomb, {bounce_sound = "items/shield", is_offensive = false})
 
 local map = bomb:get_map()
 local sprite = bomb:get_sprite()
