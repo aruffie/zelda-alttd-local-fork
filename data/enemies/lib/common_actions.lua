@@ -890,7 +890,7 @@ function common_actions.learn(enemy)
       end
       shadow:set_traversable_by(true)
       shadow:set_drawn_in_y_order(false) -- Display the shadow as a flat entity.
-      shadow:bring_to_back()
+      shadow:bring_to_front() -- Display it over other flat entities, such as grass.
       
       -- Always display the shadow on the lowest possible layer.
       function shadow:on_position_changed(x, y, layer)

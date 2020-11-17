@@ -46,6 +46,24 @@ local function is_hero_free()
   return true
 end
 
+-- Workaround fucking function to make the hero speed changes effective even if he is on a tile that modify its speed.
+--[[local function set_hero_speed(speed)
+
+  local x, y, layer = hero:get_position()
+  local ground = map:create_destructible({
+    x = x,
+    y = y,
+    layer = layer,
+    sprite = "entities/destructibles/grass",
+    ground = "traversable"
+  })
+  hero:set_walking_speed(speed)
+  ground:set_visible(false)
+  sol.timer.start(map, 10, function()
+    ground:remove()
+  end)
+end--]]
+
 -- Start pouncing to or away to the hero.
 local function start_pouncing(offensive)
 
