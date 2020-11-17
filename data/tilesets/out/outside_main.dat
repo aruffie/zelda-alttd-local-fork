@@ -1,5 +1,15 @@
 background_color{ 222, 148, 222 }
 tile_pattern{
+  id = "1",
+  ground = "wall_top_left",
+  default_layer = 0,
+  x = 176,
+  y = 24,
+  width = 8,
+  height = 8,
+}
+
+tile_pattern{
   id = "100",
   ground = "empty",
   default_layer = 0,
@@ -28111,6 +28121,16 @@ tile_pattern{
 }
 
 tile_pattern{
+  id = "2",
+  ground = "wall_top_right",
+  default_layer = 0,
+  x = 184,
+  y = 24,
+  width = 8,
+  height = 8,
+}
+
+tile_pattern{
   id = "2000",
   ground = "wall_top_right",
   default_layer = 0,
@@ -39248,6 +39268,16 @@ tile_pattern{
 }
 
 tile_pattern{
+  id = "3",
+  ground = "wall_bottom_left",
+  default_layer = 0,
+  x = 176,
+  y = 32,
+  width = 8,
+  height = 8,
+}
+
+tile_pattern{
   id = "3000",
   ground = "wall",
   default_layer = 0,
@@ -50179,6 +50209,16 @@ tile_pattern{
   width = 16,
   height = 24,
   repeat_mode = "none",
+}
+
+tile_pattern{
+  id = "4",
+  ground = "wall_bottom_right",
+  default_layer = 0,
+  x = 184,
+  y = 32,
+  width = 8,
+  height = 8,
 }
 
 tile_pattern{
