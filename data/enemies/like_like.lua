@@ -113,6 +113,7 @@ local function free_hero()
   set_sprite_opacity(hero:get_sprite("shadow"), 255)
   set_sprite_opacity(hero:get_sprite("shadow_override"), 255)
 
+  enemy:set_drawn_in_y_order()
   enemy:restart()
 end
 
@@ -128,6 +129,8 @@ local function eat_hero()
   command_pressed_count = 0
   enemy:stop_movement()
   enemy:set_invincible()
+  enemy:set_drawn_in_y_order(false) -- Workaround : Ensure the enemy is displayed below the hero while eaten.
+  enemy:bring_to_front()
 
   -- Make the hero eaten, but still able to interact.
   set_sprite_opacity(hero_eaten_sprite, 255)

@@ -382,10 +382,25 @@ game_meta:register_event("on_map_changed", function(game, map)
 
   end)
 
+-- Workaround function to make the fucking hero walking speed changes effective immediately even if he is on a tile that modify its speed, such as grass.
+hero_meta:register_event("set_walking_speed", function(hero, speed)
 
+  local map = hero:get_map()
+  local x, y, layer = hero:get_position()
+  local ground = map:create_destructible({
+    x = x,
+    y = y,
+    layer = layer,
+    sprite = "entities/destructibles/grass",
+    ground = "traversable"
+  })
+  ground:set_visible(false)
+  sol.timer.start(map, 100, function()
+    ground:remove()
+  end)
+end)
 
 -- Initialize hero behavior specific to this quest.
-
 hero_meta:register_event("on_created", function(hero)
     hero:set_previous_state("NONE", "")
     hero:remove_sprite(hero:get_sprite("shadow"))
@@ -396,7 +411,6 @@ hero_meta:register_event("on_created", function(hero)
       hero:create_sprite("hero/sword"..variant, "sword_override"):stop_animation()
       hero:create_sprite("hero/sword_stars"..variant, "sword_stars_override"):stop_animation()
     end
-
 
   end)
 
