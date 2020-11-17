@@ -106,8 +106,6 @@ local function attach_hero()
 
   -- TODO Make the hero unable to use weapon while slowed down.
   --game:set_ability("sword", 0)
-  --game:set_item_assigned(1, nil)
-  --game:set_item_assigned(2, nil)
 
   -- Jump away after some time.
   sol.timer.start(enemy, math.random(stuck_minimum_duration, stuck_maximum_duration), function()

@@ -209,9 +209,10 @@ function jump_manager.start(entity, initial_vspeed, success_callback, failure_ca
     return
   end
 
-
-  local s=entity:get_sprite("shadow_override")
-
+  audio_manager:play_sound("hero/jump")
+  if entity.is_eaten then -- Only play the sound and don't jump if the hero is currently eaten.
+    return
+  end
 
   -- Apply appropriate state properties on a dedicated jumping state if not running or loading sword, and on the current state else.
   if not entity:is_running() and not string.find(entity:get_sprite():get_animation(), "sword_loading") then
@@ -222,8 +223,8 @@ function jump_manager.start(entity, initial_vspeed, success_callback, failure_ca
   --  debug_print "Starting custom jump"
   debug_start_x, debug_start_y=entity:get_position() --Temporary, remove me once everything has been finalized
 
-  audio_manager:play_sound("hero/jump")
   entity.jumping = true
+  local s=entity:get_sprite("shadow_override")
   local x,y, w,h=entity:get_bounding_box()
   for e in entity:get_map():get_entities_in_rectangle(x,y,w,h) do
     if e:get_type()=="custom_entity" and e:get_model()=="crystal_block" then
