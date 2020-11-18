@@ -5,10 +5,10 @@
 -- Protect against enemies if the shield collide with a given enemy and the shield variant is high enough for him.
 -- Prevent calling the enemy on_attacking_hero() event if defined and the hero is protected by the shield.
 --
--- Methods : item:finish_using()
+-- Methods : item:stop_using()
 --           hero:is_shield_protecting(enemy, [enemy_sprite])
 --           enemy:get_shield_minimum_level()
---           enemy:set_shield_minimum_level()
+--           enemy:set_shield_minimum_level(level)
 --           enemy:get_shield_reaction([sprite])
 --           enemy:set_shield_reaction(reaction)
 --           enemy:set_shield_reaction_sprite(sprite, reaction)
@@ -141,8 +141,8 @@ local function initialize_hero_meta()
   -- True if there is a pixel collision between the shield and the given enemy.
   function hero_meta:is_shield_protecting(enemy, enemy_sprite)
     local item = self:get_game():get_item("shield")
-    local is_collision = enemy:overlaps(self, enemy:get_attacking_collision_mode(), enemy_sprite, self:get_sprite("shield"))
-    return item.is_used and enemy:get_shield_minimum_level() >= item:get_variant() and is_collision
+    local is_strong_enough = item:get_variant() >= enemy:get_shield_minimum_level()
+    return item.is_used and is_strong_enough and enemy:overlaps(self, enemy:get_attacking_collision_mode(), enemy_sprite, self:get_sprite("shield"))
   end
 end
 
@@ -160,8 +160,8 @@ local function initialize_enemy_meta()
     return self.shield_minimum_level
   end
 
-  function enemy_meta:set_shield_minimum_level(minimum_level)
-    self.shield_minimum_level = minimum_level
+  function enemy_meta:set_shield_minimum_level(level)
+    self.shield_minimum_level = level
   end
 
   -- Shield reactions.

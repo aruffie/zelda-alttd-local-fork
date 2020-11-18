@@ -221,6 +221,14 @@ function common_actions.learn(enemy)
     movement:set_max_distance(distance or 0)
     movement:set_angle(angle)
     movement:set_smooth(true)
+
+    -- Stop the movement right now if the given distance is 0.
+    if distance == 0 then
+      if on_stopped_callback then
+        on_stopped_callback()
+      end
+      return movement
+    end
     movement:start(enemy)
 
     -- Consider the current move as stopped if finished or stuck.

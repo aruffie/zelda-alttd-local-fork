@@ -32,7 +32,7 @@ function behavior.apply(enemy, sprite)
   -- Call the enemy:on_hit() callback if the enemy still can attack, and remove the entity if it doesn't return false.
   local function hit_behavior()
 
-    if enemy:get_can_attack() and not enemy.on_hit or enemy:on_hit() ~= false then
+    if enemy:get_can_attack() and (not enemy.on_hit or enemy:on_hit() ~= false) then
       enemy:start_death()
     end
   end
@@ -71,7 +71,7 @@ function behavior.apply(enemy, sprite)
   -- Check if the projectile should be destroyed when the hero is touched. 
   enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
 
-    if not hero:is_shield_protecting(enemy, enemy_sprite) then
+    if not hero:is_shield_protecting(enemy) and not hero:is_blinking() then
       hero:start_hurt(enemy, enemy_sprite, enemy:get_damage())
     end
     hit_behavior()

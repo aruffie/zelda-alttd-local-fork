@@ -48,7 +48,19 @@ function item:start_using()
     local hero=item:get_game():get_hero()
     if not hero:is_jumping() and (hero.vspeed==0 or hero.vspeed==nil) then --not jumping
       item:remove_amount(1)
-      local bomb = item:create_bomb()
+      local map = item:get_map()
+      local x, y, layer = hero:get_position()
+      local direction4 = hero:get_direction()
+      local bomb = map:create_custom_entity({
+        model = "bomb",
+        sprite = "entities/bomb",
+        direction = 0,
+        x = x + (direction4 == 0 and 16 or direction4 == 2 and -16 or 0),
+        y = y + (direction4 == 1 and -16 or direction4 == 3 and 16 or 0),
+        layer = layer,
+        width = 16,
+        height = 16
+      })
       audio_manager:play_sound("items/bomb_drop")
     end
   end

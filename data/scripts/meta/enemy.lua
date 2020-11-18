@@ -145,7 +145,7 @@ function enemy_meta:on_hurt_by_sword(hero, enemy_sprite)
 
 end
 
--- Push the given entity.
+-- Push the given entity, not using a built-in movement to not stop a possible running movement.
 local is_pushed = {}
 local function push(entity, pushing_entity, speed, duration, entity_sprite, pushing_entity_sprite)
 
@@ -214,7 +214,7 @@ local function push(entity, pushing_entity, speed, duration, entity_sprite, push
   -- Schedule the end of the push.
   local map = entity:get_map()
   sol.timer.start(map, duration, function() -- Start this timer on the map to take care of timers canceled on entity restart.
-    is_pushed[entity] = false
+    is_pushed[entity] = nil
     for i = 1, 2 do
       if timers[i] then
         timers[i]:stop()
@@ -228,22 +228,16 @@ local function on_protected(enemy, attack)
 
   local hero = enemy:get_map():get_hero()
 
-  -- Shield attack
-  if attack == "shield" then
+  -- Push the hero if attacked by close range hand weapon.
+  if attack == "sword" or attack == "shield" or attack == "thrust" or attack == "hammer" then
     push(hero, enemy, 150, 100)
-    if enemy:is_pushed_back_when_hurt() then -- Workaround : Use the pushed back when hurt behavior to know if the enemy should be pushed by the shield.
+  end
+
+  -- Push the enemy on all weapon type except fire and magic powder, and if the enemy allow it.
+  if attack ~= "fire" and attack ~= "magic_powder" then
+    if enemy:is_pushed_back_when_hurt() then -- Workaround : Use the pushed back when hurt behavior to know if the enemy should be pushed by the attack.
       push(enemy, hero, 150, 100)
     end
-
-  elseif attack == "sword" then
-    -- TODO
-
-  elseif attack == "thrust" then
-    -- TODO
-
-  elseif attack == "thrown_item" then
-    -- TODO
-
   end
 end
 
@@ -255,17 +249,6 @@ function enemy_meta:receive_attack_consequence(attack, reaction)
     self:hurt(reaction)
   elseif reaction == "immobilized" then
     self:immobilize()
-  elseif reaction == "scared" then
-    sol.timer.stop_all(self)  -- Stop the towards_hero behavior.
-    local hero = self:get_map():get_hero()
-    local angle = hero:get_angle(self)
-    local movement = sol.movement.create("straight")
-    movement:set_speed(128)
-    movement:set_angle(angle)
-    movement:start(self)
-    sol.timer.start(self, 400, function()
-        self:restart()
-      end)
   elseif reaction == "protected" then
     on_protected(self, attack)
     audio_manager:play_sound("sword_tapping")
@@ -274,7 +257,7 @@ function enemy_meta:receive_attack_consequence(attack, reaction)
       self:on_custom_attack_received(attack)
     end
   elseif type(reaction) == "function" then
-    reaction()
+    reaction(attack)
   end
 
 end

@@ -28,8 +28,12 @@ function enemy:explode()
     width = 16,
     height = 16,
     properties = {
-      {key = "strength", value = "4"},
-      {key = "hurtable_type_1", value = "hero"}
+      {key = "damage_on_hero", value = "4"},
+      {key = "explosive_type_1", value = "crystal"},
+      {key = "explosive_type_2", value = "destructible"},
+      {key = "explosive_type_3", value = "door"},
+      {key = "explosive_type_4", value = "hero"},
+      {key = "explosive_type_5", value = "sensor"}
     }
   })
   enemy:start_death()

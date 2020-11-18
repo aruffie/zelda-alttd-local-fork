@@ -76,7 +76,20 @@ local function on_attack_received()
   -- Don't hurt and only repulse if the hero sword sprite doesn't collide with the tail sprite.
   if not enemy:overlaps(hero, "sprite", tail_sprite, hero:get_sprite("sword")) then
     enemy:start_pushing_back(hero, 200, 100, sprite, nil, function()
-      enemy:set_hero_weapons_reactions(on_attack_received, {jump_on = "ignored"})
+      enemy:set_hero_weapons_reactions({
+      	arrow = on_attack_received,
+      	boomerang = on_attack_received,
+      	explosion = on_attack_received,
+      	sword = on_attack_received,
+      	thrown_item = on_attack_received,
+      	fire = on_attack_received,
+      	jump_on = "ignored",
+      	hammer = on_attack_received,
+      	hookshot = on_attack_received,
+      	magic_powder = on_attack_received,
+      	shield = "protected",
+      	thrust = on_attack_received
+      })
     end)
     return
   end

@@ -22,11 +22,6 @@ enemy:register_event("on_hit", function(enemy)
   enemy:start_brief_effect("entities/effects/impact_stone", "default", sprite:get_xy())
 end)
 
--- Directly remove the enemy on attacking hero
-enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
-  enemy:start_death()
-end)
-
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
 

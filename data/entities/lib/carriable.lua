@@ -6,7 +6,8 @@
 -- 
 -- Methods : carriable:throw(direction)
 --
--- Events :  carriable:on_thrown(direction)
+-- Events :  carriable:on_carrying()
+--           carriable:on_thrown(direction)
 --           carriable:on_bounce(num_bounce)
 --           carriable:on_finish_throw()
 --           carriable:on_hit(entity)
@@ -104,25 +105,12 @@ function carriable_behavior.apply(carriable, properties)
     end
   end
 
-  -- Function to make the carriable not traversable by the hero and vice versa. 
-  -- Delay this moment if the hero would get stuck.
-  local function set_hero_not_traversable_safely(entity)
-    if not entity:overlaps(map:get_hero()) then
-      entity:set_traversable_by("hero", false)
-      entity:set_can_traverse("hero", false)
-      return
-    end
-    sol.timer.start(entity, 10, function() -- Retry later.
-      set_hero_not_traversable_safely(entity)
-    end)
-  end
-
   -- Returns true if there is at least one obstacle in given entities.
   local function is_obstacle_in(entities)
     for _, entity in pairs(entities) do
       -- Workaround: No fucking way to get traversable entities, hardcode ones that will have a triggered behavior or have the on_hit_by_carriable event defined...
       local type = entity:get_type()
-      if type == "enemy" or type == "crystal" or entity.on_hit_by_carriable then
+      if (type == "enemy" and entity:get_attack_consequence("thrown_item") ~= "ignored") or type == "crystal" or entity.on_hit_by_carriable then
         return true
       end
     end
@@ -152,9 +140,6 @@ function carriable_behavior.apply(carriable, properties)
     local unhittable_entities = {}
 
     carriable:set_direction(direction)
-    carriable:set_traversable_by("hero", true)
-    carriable:set_can_traverse("hero", true)
-    set_hero_not_traversable_safely(carriable)
     sprite:set_xy(0, -hero_height - 6)
     set_animation_if_exists("thrown")
 
@@ -351,36 +336,22 @@ function carriable_behavior.apply(carriable, properties)
     end
   end)
 
-  carriable:register_event("on_created", function(carriable)
+  -- Apply default properties before a possible on_created event is called.
+  local x, y, layer = carriable:get_position()
+  carriable.respawn_position = {x = x, y = y, layer = layer}
+  carriable:set_follow_streams(true)
+  carriable:set_drawn_in_y_order()
+  carriable:set_weight(0)
+  set_animation_if_exists("stopped")
 
-    -- General properties.
-    local x, y, layer = carriable:get_position()
-    carriable.respawn_position = {x = x, y = y, layer = layer}
-    carriable:set_follow_streams(true)
-    carriable:set_traversable_by(false)
-    carriable:set_drawn_in_y_order(true)
-    carriable:set_weight(0)
-    set_animation_if_exists("stopped")
-
-    -- Traversable rules.
-    carriable:set_can_traverse_ground("deep_water", true)
-    carriable:set_can_traverse_ground("grass", true)
-    carriable:set_can_traverse_ground("hole", true)
-    carriable:set_can_traverse_ground("lava", true)
-    carriable:set_can_traverse_ground("low_wall", true)
-    carriable:set_can_traverse_ground("prickles", true)
-    carriable:set_can_traverse_ground("shallow_water", true)
-    carriable:set_can_traverse(true) -- No way to get traversable entities later, make them all traversable.
-
-    -- Set the hero not traversable as soon as possible, to avoid being stuck if the carriable is (re)created on the hero.
-    carriable:set_traversable_by("hero", true)
-    carriable:set_can_traverse("hero", true)
-    set_hero_not_traversable_safely(carriable)
-
-    -- Start a custom lifting on interaction to not destroy the carriable and keep events registered outside the entity script alive.
-    carriable:register_event("on_interaction", function(carriable)
+  -- Start a custom lifting on interaction to not destroy the carriable and keep events registered outside the entity script alive.
+  carriable:register_event("on_interaction", function(carriable)
+    if game:get_ability("lift") >= carriable:get_weight() and carriable:get_weight() ~= -1 then
       carrying_state.start(hero, carriable, sprite)
-    end)
+      if carriable.on_carrying then
+        carriable:on_carrying() -- Call event
+      end
+    end
   end)
 end
 
