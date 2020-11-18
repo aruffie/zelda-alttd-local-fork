@@ -50,19 +50,6 @@ local function is_hero_eatable()
   return true
 end
 
--- Create another hero sprite to use when eaten, to be able to use all items while eaten but always display this sprite as the tunic one for every actions.
-local function create_hero_eaten_sprite()
-
-  hero_eaten_sprite = hero:get_sprite("eaten")
-  if hero_eaten_sprite then -- Don't recreate the sprite if already existing.
-    return 
-  end
-
-  hero_eaten_sprite = hero:create_sprite(hero_tunic_sprite:get_animation_set(), "eaten")
-  hero_eaten_sprite:set_animation("eaten")
-  hero_eaten_sprite:set_opacity(0)
-end
-
 -- Steal an item and drop it when died, possibly conditionned on the variant and the assignation to a slot.
 local function steal_item(item_name, variant, only_if_assigned, drop_when_dead)
 
@@ -107,8 +94,11 @@ local function free_hero()
   is_exhausted = true
   hero.is_eaten = false
 
+  -- Remove hero eaten sprite
+  hero:remove_sprite(hero_eaten_sprite)
+  hero_eaten_sprite = nil
+
   -- Reset hero opacity.
-  set_sprite_opacity(hero_eaten_sprite, 0)
   set_sprite_opacity(hero_tunic_sprite, 255)
   set_sprite_opacity(hero:get_sprite("shadow"), 255)
   set_sprite_opacity(hero:get_sprite("shadow_override"), 255)
@@ -132,8 +122,11 @@ local function eat_hero()
   enemy:set_drawn_in_y_order(false) -- Workaround : Ensure the enemy is displayed below the hero while eaten.
   enemy:bring_to_front()
 
+  -- Create the hero eaten sprite.
+  hero_eaten_sprite = hero:create_sprite(hero_tunic_sprite:get_animation_set(), "eaten")
+  hero_eaten_sprite:set_animation("eaten")
+
   -- Make the hero eaten, but still able to interact.
-  set_sprite_opacity(hero_eaten_sprite, 255)
   set_sprite_opacity(hero_tunic_sprite, 0)
   set_sprite_opacity(hero:get_sprite("shadow"), 0)
   set_sprite_opacity(hero:get_sprite("shadow_override"), 0)
@@ -166,7 +159,9 @@ end)
 -- Eat the hero on attacking him.
 enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
 
-  eat_hero()
+  if not hero:is_shield_protecting(enemy) then
+    eat_hero()
+  end
   return true
 end)
 
@@ -187,6 +182,26 @@ enemy:register_event("on_update", function(enemy)
   if is_eating then
     hero:set_position(enemy:get_position())
     hero_eaten_sprite:set_direction(hero:get_direction())
+
+    -- Workaround: No fucking way to make additional hero sprites blink when hurt, make the eaten sprite blink here if needed.
+    if hero:is_blinking() and not hero_eaten_sprite.is_blinking then
+      hero_eaten_sprite.is_blinking = true
+      local blinking_timer = sol.timer.start(hero, 50, function()
+        if not hero_eaten_sprite then
+          return
+        end
+        hero_eaten_sprite:set_opacity(math.abs(hero_eaten_sprite:get_opacity() - 255))
+        return true
+      end)
+      sol.timer.start(hero, 2000, function()
+        if not hero_eaten_sprite then
+          return
+        end
+        hero_eaten_sprite.is_blinking = false
+        hero_eaten_sprite:set_opacity(255)
+        blinking_timer:stop()
+      end)
+    end
   end
 end)
 
@@ -196,8 +211,6 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(2)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)
-
-  create_hero_eaten_sprite()
 end)
 
 -- Restart settings.

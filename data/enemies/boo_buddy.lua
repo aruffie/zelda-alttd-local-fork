@@ -113,6 +113,7 @@ enemy:register_event("on_restarted", function(enemy)
   })
 
   sprite:set_xy(0, -flying_height)
+  enemy:set_obstacle_behavior("flying")
   enemy:set_can_attack(true)
   enemy:set_damage(4)
   enemy:set_layer_independent_collisions(true)

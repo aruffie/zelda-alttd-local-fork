@@ -382,7 +382,7 @@ game_meta:register_event("on_map_changed", function(game, map)
 
   end)
 
--- Workaround function to make the fucking hero walking speed changes effective immediately even if he is on a tile that modify its speed, such as grass.
+-- Ugly workaround to make the fucking hero walking speed changes effective immediately even if he is on a tile that modify its speed, such as grass.
 hero_meta:register_event("set_walking_speed", function(hero, speed)
 
   local map = hero:get_map()

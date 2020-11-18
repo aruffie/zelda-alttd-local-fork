@@ -55,6 +55,9 @@ map:register_event("on_started", function(map, destination)
 
   -- Initialize grave connected to ghinis.
   initialize_graves()
+
+  -- Make lower area invisible.
+  graveyard_pit_1:set_visible(false)
 end)
 
 -- Initializes Entities based on player's progress

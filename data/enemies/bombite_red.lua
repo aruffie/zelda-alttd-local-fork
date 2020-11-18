@@ -18,8 +18,11 @@ local map = enemy:get_map()
 local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
+local circle = math.pi * 2.0
+local propelled_angle
 local is_propelled = false
 local is_explosing = false
+local is_hero_pushed = false
 
 -- Configuration variables
 local walking_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
@@ -60,20 +63,37 @@ local function explode()
   end
 end
 
--- Start propelling on effective attack received.
-local function on_attack_received()
-
-  if not is_propelled then
-    enemy:start_propelled()
-  end
-end
-
 -- Start the enemy movement.
 local function start_walking()
 
   enemy:start_straight_walking(walking_angles[math.random(4)], walking_speed, math.random(walking_minimum_distance, walking_maximum_distance), function()
     start_walking()
   end)
+end
+
+-- Make the enemy bounce on the shield.
+local function bounce_on_shield()
+
+  if is_hero_pushed then
+    return
+  end
+  is_hero_pushed = true
+
+  local normal_angle = hero:get_direction() * quarter
+  if math.cos(math.abs(normal_angle - propelled_angle)) <= 0 then -- Don't bounce if the enemy is walking away the hero.
+    enemy:start_propelled((2.0 * normal_angle - propelled_angle + math.pi) % circle)
+  end
+  enemy:start_pushing_back(hero, 150, 100, sprite, nil, function()
+    is_hero_pushed = false
+  end)
+end
+
+-- Start propelling on effective attack received.
+local function on_attack_received()
+
+  if not is_propelled then
+    enemy:start_propelled()
+  end
 end
 
 -- Start propelled away to the hero and bounce against obstacles, .
@@ -88,11 +108,13 @@ function enemy:start_propelled(angle)
   end
 
   -- Start the movement.
-  angle = angle or hero:get_angle(enemy)
-  local movement = enemy:start_straight_walking(angle, propelled_speed, nil, function()
-    enemy:start_propelled(enemy:get_obstacles_bounce_angle(angle))
+  propelled_angle = angle or hero:get_angle(enemy)
+  local movement = enemy:start_straight_walking(propelled_angle, propelled_speed, nil, function()
+    enemy:start_propelled(enemy:get_obstacles_bounce_angle(propelled_angle))
   end)
   movement:set_smooth(false)
+
+  enemy:set_hero_weapons_reactions({shield = bounce_on_shield}) -- Bounce on shield attack once propelled.
 end
 
 -- Explode on collision with another enemy while propelled.

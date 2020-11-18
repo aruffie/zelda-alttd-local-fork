@@ -24094,6 +24094,23 @@ tile{
   pattern = "stairs_inner_up.2.top.border.1-1",
 }
 
+dynamic_tile{
+  name = "area_pit",
+  layer = 0,
+  x = 1992,
+  y = 520,
+  properties = {
+    {
+      key = "area",
+      value = "pit",
+    },
+  },
+  width = 208,
+  height = 160,
+  pattern = "10349",
+  tileset = "out/outside_special",
+}
+
 block{
   layer = 0,
   x = 72,
@@ -26902,6 +26919,12 @@ enemy{
   layer = 0,
   x = 2072,
   y = 629,
+  properties = {
+    {
+      key = "area",
+      value = "pit",
+    },
+  },
   direction = 3,
   breed = "zombie",
 }
@@ -26911,6 +26934,12 @@ enemy{
   layer = 0,
   x = 2120,
   y = 605,
+  properties = {
+    {
+      key = "area",
+      value = "pit",
+    },
+  },
   direction = 3,
   breed = "zombie",
 }
