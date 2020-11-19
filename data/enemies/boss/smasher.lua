@@ -98,33 +98,29 @@ end
 -- Return the angle after bouncing against close obstacles towards the given angle, or nil if no obstacles.
 local function get_obstacles_bounce_angle(entity, angle)
 
-  -- Return the result of the xor operation.
-  local function xor(a, b)
-    return (a or b) and not (a and b)
-  end
-
   local collisions = {
-    [0] = entity:test_obstacles(-1,  0),
-    [1] = entity:test_obstacles(-1,  1),
-    [2] = entity:test_obstacles( 0,  1),
-    [3] = entity:test_obstacles( 1,  1),
-    [4] = entity:test_obstacles( 1,  0),
-    [5] = entity:test_obstacles( 1, -1),
-    [6] = entity:test_obstacles( 0, -1),
-    [7] = entity:test_obstacles(-1, -1)
+    [0] = entity:test_obstacles( 1,  0),
+    [1] = entity:test_obstacles( 1, -1),
+    [2] = entity:test_obstacles( 0, -1),
+    [3] = entity:test_obstacles(-1, -1),
+    [4] = entity:test_obstacles(-1,  0),
+    [5] = entity:test_obstacles(-1,  1),
+    [6] = entity:test_obstacles( 0,  1),
+    [7] = entity:test_obstacles( 1,  1)
   }
 
-  -- Return the normal angle for this direction if collision on the direction or the two surrounding ones, and no obstacle in the two next or obstacle in both.
+  -- Return the normal angle for the given direction8 if collision on the direction and not on the two surrounding ones if direction is a diagonal.
   local function check_normal_angle(direction8)
-    return ((collisions[direction8] or collisions[(direction8 - 1) % 8] and collisions[(direction8 + 1) % 8]) 
-        and not xor(collisions[(direction8 - 2) % 8], collisions[(direction8 + 2) % 8])
-        and direction8 * eighth)
+    return collisions[direction8] and (direction8 % 2 == 0 or not collisions[(direction8 - 1) % 8] and not collisions[(direction8 + 1) % 8])
   end
 
   -- Check for obstacles on each direction8 and return the normal angle if it is the correct one.
   local normal_angle
   for direction8 = 0, 7 do
-    normal_angle = normal_angle or check_normal_angle(direction8)
+    if math.cos(angle - direction8 * eighth) > math.cos(quarter) and check_normal_angle(direction8) then
+      normal_angle = (direction8 * eighth + math.pi) % circle
+      break
+    end
   end
 
   return (2.0 * normal_angle - angle + math.pi) % circle
