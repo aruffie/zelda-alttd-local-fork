@@ -74,6 +74,9 @@ function map:on_started()
 
   -- Ennemies
   enemy_manager:create_teletransporter_if_small_boss_dead(map, false)
+
+  -- Make area invisible.
+  area_pit:set_visible(false)
 end
 
 

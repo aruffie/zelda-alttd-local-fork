@@ -62,10 +62,19 @@ function enemy:start_countdown(number)
   sol.timer.start(enemy, number_duration, function()
     if number == 0 then
       local x, y, layer = enemy:get_position()
-      map:create_explosion({
+      map:create_custom_entity({
+        model = "explosion",
+        direction = 0,
         x = x,
         y = y,
-        layer = layer
+        layer = layer,
+        width = 16,
+        height = 16,
+        properties = {
+          {key = "damage_on_hero", value = enemy:get_damage()},
+          {key = "hurtable_type_1", value = "hero"},
+          {key = "hurtable_type_2", value = "enemy"}
+        }
       })
       enemy:start_death()
       return

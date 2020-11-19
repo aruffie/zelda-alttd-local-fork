@@ -5,9 +5,7 @@
 -- Moves randomly over horizontal and vertical axis.
 -- Propelled across the room when attacked and bounce on obstacle, exploding after some time or hitting another enemy.
 --
--- Methods : enemy:explode()
---           enemy:start_walking()
---           enemy:start_propelled([angle])
+-- Methods : enemy:start_propelled([angle])
 --
 ----------------------------------
 
@@ -20,8 +18,11 @@ local map = enemy:get_map()
 local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
+local circle = math.pi * 2.0
+local propelled_angle
 local is_propelled = false
 local is_explosing = false
+local is_hero_pushed = false
 
 -- Configuration variables
 local walking_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
@@ -31,21 +32,8 @@ local walking_maximum_distance = 96
 local propelled_speed = 300
 local propelled_duration = 2000
 
--- Behavior on effective shot received.
-local function on_attack_received()
-
-  -- Start propelled and a timer before explosion.
-  if not is_propelled then
-    is_propelled = true
-    enemy:start_propelled()
-    sol.timer.start(enemy, propelled_duration, function()
-      enemy:explode()
-    end)
-  end
-end
-
 -- Make the enemy explode
-function enemy:explode()
+local function explode()
 
   if is_explosing then
     return
@@ -76,28 +64,67 @@ function enemy:explode()
 end
 
 -- Start the enemy movement.
-function enemy:start_walking()
+local function start_walking()
 
   enemy:start_straight_walking(walking_angles[math.random(4)], walking_speed, math.random(walking_minimum_distance, walking_maximum_distance), function()
-    enemy:start_walking()
+    start_walking()
   end)
 end
 
--- Start propelled away to the hero and bounce.
+-- Make the enemy bounce on the shield.
+local function bounce_on_shield()
+
+  if is_hero_pushed then
+    return
+  end
+  is_hero_pushed = true
+
+  local normal_angle = hero:get_direction() * quarter
+  if math.cos(math.abs(normal_angle - propelled_angle)) <= 0 then -- Don't bounce if the enemy is walking away the hero.
+    enemy:start_propelled((2.0 * normal_angle - propelled_angle + math.pi) % circle)
+  end
+  enemy:start_pushing_back(hero, 150, 100, sprite, nil, function()
+    is_hero_pushed = false
+  end)
+end
+
+-- Start propelling on effective attack received.
+local function on_attack_received()
+
+  if not is_propelled then
+    enemy:start_propelled()
+  end
+end
+
+-- Start propelled away to the hero and bounce against obstacles, .
 function enemy:start_propelled(angle)
 
-  angle = angle or hero:get_angle(enemy)
-  local movement = enemy:start_straight_walking(angle, propelled_speed, nil, function()
-    enemy:start_propelled(enemy:get_obstacles_bounce_angle(angle))
+  -- Start a timer before explosion the first time the enemy is propelled.
+  if not is_propelled then
+    is_propelled = true
+    sol.timer.start(enemy, propelled_duration, function()
+      explode()
+    end)
+  end
+
+  -- Start the movement.
+  propelled_angle = angle or hero:get_angle(enemy)
+  local movement = enemy:start_straight_walking(propelled_angle, propelled_speed, nil, function()
+    enemy:start_propelled(enemy:get_obstacles_bounce_angle(propelled_angle))
   end)
   movement:set_smooth(false)
+
+  enemy:set_hero_weapons_reactions({shield = bounce_on_shield}) -- Bounce on shield attack once propelled.
 end
 
 -- Explode on collision with another enemy while propelled.
-enemy:register_event("on_collision_enemy", function(enemy, other_enemy, other_sprite, my_sprite)
+enemy:register_event("on_collision_enemy", function(enemy, other_enemy, other_sprite, sprite)
 
-  if is_propelled then
-    enemy:explode()
+  if is_propelled and enemy:get_can_attack() and other_enemy:get_can_attack() then -- If both enemies are able to attack.
+    if other_enemy:get_breed() == enemy:get_breed() then
+      other_enemy:start_propelled(enemy:get_angle(other_enemy))
+    end
+    explode()
   end
 end)
 
@@ -130,5 +157,5 @@ enemy:register_event("on_restarted", function(enemy)
   -- States.
   enemy:set_can_attack(true)
   enemy:set_damage(4)
-  enemy:start_walking()
+  start_walking()
 end)

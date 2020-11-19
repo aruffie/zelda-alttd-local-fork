@@ -103,13 +103,14 @@ function enemy:update_attack()
   else
       enemy:set_invincible()
   end
-
+  enemy:set_can_attack(is_appear)
 end
 
 -- The enemy was stopped for some reason and should restart.
 enemy:register_event("on_restarted", function(enemy)
 
   if is_appear == false then
+    enemy:set_can_attack(false)
     local sprite = enemy:get_sprite()
     enemy:set_visible(false)
     sol.timer.start(enemy, 2000, function()

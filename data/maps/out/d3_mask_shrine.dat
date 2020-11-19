@@ -9046,28 +9046,6 @@ wall{
 }
 
 custom_entity{
-  name = "shrine_slabs_16",
-  layer = 1,
-  x = 56,
-  y = 109,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/mask_shrine_slabs",
-}
-
-custom_entity{
-  name = "shrine_slabs_23",
-  layer = 1,
-  x = 104,
-  y = 109,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/mask_shrine_slabs",
-}
-
-custom_entity{
   name = "face_shrine_2",
   layer = 1,
   x = 24,
@@ -11527,6 +11505,26 @@ teletransporter{
   destination = "dungeon_6_1_B",
 }
 
+enemy{
+  name = "armos",
+  layer = 1,
+  x = 56,
+  y = 109,
+  direction = 0,
+  breed = "armos",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "armos_2",
+  layer = 1,
+  x = 104,
+  y = 109,
+  direction = 0,
+  breed = "armos",
+  treasure_name = "random_with_charm",
+}
+
 tile{
   layer = 2,
   x = 80,
@@ -13573,26 +13571,6 @@ wall{
   width = 16,
   height = 16,
   stops_enemies = true,
-}
-
-enemy{
-  name = "armos",
-  layer = 2,
-  x = 56,
-  y = 109,
-  direction = 0,
-  breed = "armos",
-  treasure_name = "random_with_charm",
-}
-
-enemy{
-  name = "armos_2",
-  layer = 2,
-  x = 104,
-  y = 109,
-  direction = 0,
-  breed = "armos",
-  treasure_name = "random_with_charm",
 }
 
 enemy{
