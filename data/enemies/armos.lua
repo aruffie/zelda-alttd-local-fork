@@ -18,6 +18,7 @@ local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local eighth = math.pi * 0.25
 local is_awake = false
+local is_pushed_back = false
 
 -- Configuration variables
 local walking_angles = {0, eighth, 2.0 * eighth, 3.0 * eighth, 4.0 * eighth, 5.0 * eighth, 6.0 * eighth, 7.0 * eighth}
@@ -26,6 +27,17 @@ local walking_minimum_distance = 16
 local walking_maximum_distance = 96
 local shaking_duration = 1000
 local before_moving_delay = 1000
+
+-- Push the enemy back on sword attack received.
+local function on_sword_attack_received()
+
+  if not is_pushed_back then
+    is_pushed_back = true
+    enemy:start_pushed_back(hero, 150, 100, sprite, nil, function()
+      is_pushed_back = false
+    end)
+  end
+end
 
 -- Start the enemy movement.
 function enemy:start_walking()
@@ -55,7 +67,7 @@ enemy:register_event("on_update", function(enemy)
         	arrow = 2,
         	boomerang = 1,
         	explosion = 2,
-        	sword = "protected",
+        	sword = on_sword_attack_received,
         	hammer = "protected",
         	hookshot = "immobilized",
         	shield = "protected",

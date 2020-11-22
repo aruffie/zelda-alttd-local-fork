@@ -9,8 +9,15 @@ local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
 
--- COnfiguration variables
+-- Configuration variables
 local before_removing_delay = 500
+
+-- Remove the projectile on shield collision.
+local function on_shield_collision()
+
+  enemy:on_hit()
+  enemy:start_death()
+end
 
 -- Start going to the hero by an horizontal or vertical move.
 function enemy:go()
@@ -38,5 +45,6 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_damage(2)
   enemy:set_obstacle_behavior("flying")
   enemy:set_invincible()
+  enemy:set_hero_weapons_reactions({shield = on_shield_collision})
   enemy:go()
 end)

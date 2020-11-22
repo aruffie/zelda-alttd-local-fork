@@ -14,7 +14,10 @@ map:register_event("on_started", function(map, destination)
   map:init_music()
   -- Digging
   map:set_digging_allowed(true)
-
+  
+  -- Make areas invisible.
+  mask_shrine_area_1:set_visible(false)
+  mask_shrine_area_2:set_visible(false)
 end)
 
 -- Initialize the music of the map

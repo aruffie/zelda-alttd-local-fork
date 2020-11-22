@@ -7237,14 +7237,6 @@ destination{
   direction = 1,
 }
 
-enemy{
-  layer = 0,
-  x = 496,
-  y = 821,
-  direction = 0,
-  breed = "star",
-}
-
 tile{
   layer = 1,
   x = 64,

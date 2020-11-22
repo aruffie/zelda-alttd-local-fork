@@ -15,11 +15,12 @@ local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
-local quarter = math.pi * 0.5
+local eighth = math.pi * 0.25
+local sixteenth = math.pi * 0.125
 local attacking_timer = nil
 
 -- Configuration variables
-local flying_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
+local area = enemy:get_property("area")
 local flying_speed = 32
 local flying_minimum_distance = 16
 local flying_maximum_distance = 96
@@ -48,8 +49,12 @@ end
 -- Start the enemy movement.
 local function start_flying()
 
+  -- Choose an angle in pi/4 multiples depending on a random position of the enemy's area.
+  local random_x, random_y = enemy:get_random_position_in_area(area or camera)
+  local angle = math.floor((enemy:get_angle(random_x, random_y) + sixteenth) / eighth) * eighth
+
   sprite:set_animation("flying")
-  local movement = enemy:start_straight_walking(flying_angles[math.random(4)], flying_speed, math.random(flying_minimum_distance, flying_maximum_distance), function()
+  local movement = enemy:start_straight_walking(angle, flying_speed, math.random(flying_minimum_distance, flying_maximum_distance), function()
     start_flying()
   end)
   movement:set_ignore_obstacles()
@@ -73,7 +78,30 @@ local function start_attacking()
     if bomb and bomb:exists() then -- If the bomb was not immediatly removed from the on_created() event.
       local angle = get_angle_from_sprite(sprite, hero)
       enemy:start_throwing(bomb, bomb_throw_duration, flying_height, bomb_throw_height, angle, bomb_throw_speed, function()
-        bomb:explode()
+
+        -- Check the ground on the lowest possible layer.
+        local x, y, layer = bomb:get_position()
+        local ground = "empty"
+        for ground_layer = enemy:get_layer(), map:get_min_layer(), -1 do
+          ground = map:get_ground(x, y, ground_layer)
+          if ground ~= "empty" then
+            break
+          end
+        end
+
+        -- Remove the bomb on bouncing on a bad ground, else make it explode.
+        if ground == "deep_water" then
+          bomb:start_brief_effect("entities/ground_effects/water")
+          bomb:start_death()
+        elseif ground == "hole" then
+          bomb:start_brief_effect("entities/ground_effects/falling_on_hole")
+          bomb:start_death()
+        elseif ground == "lava" then
+          bomb:start_brief_effect("entities/ground_effects/lava")
+          bomb:start_death()
+        else
+          bomb:explode()
+        end
       end)
     end
 
