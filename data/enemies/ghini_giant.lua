@@ -38,7 +38,7 @@ local flying_deceleration = 32
 local function start_moving()
 
   local x, y = enemy:get_position()
-  local target_x, target_y = enemy:get_random_point_in_area(area or camera)
+  local target_x, target_y = enemy:get_random_position_in_area(area or camera)
   local angle = enemy:get_angle(target_x, target_y)
   local distance = enemy:get_distance(target_x, target_y)
 

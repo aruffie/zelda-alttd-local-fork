@@ -242,10 +242,6 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_can_attack(true)
   enemy:set_damage(4)
   if is_awake then
-    enemy:set_hero_weapons_reactions("ignored", {
-      sword = on_sword_attack_received,
-      arrow = function() hurt(1) end
-    })
     enemy:set_traversable(true)
     start_walking()
   else

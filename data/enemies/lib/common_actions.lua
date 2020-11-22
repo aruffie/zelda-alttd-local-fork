@@ -9,7 +9,7 @@
 --           enemy:is_entity_in_front(entity, [front_angle, [sprite]])
 --           enemy:is_over_grounds(grounds, [x, [y]])
 --           enemy:get_central_symmetry_position(x, y)
---           enemy:get_random_point_in_area(area)
+--           enemy:get_random_position_in_area(area)
 --           enemy:get_obstacles_normal_angle(angle)
 --           enemy:get_obstacles_bounce_angle(angle)
 --
@@ -135,9 +135,9 @@ function common_actions.learn(enemy)
     return 2.0 * x - enemy_x, 2.0 * y - enemy_y
   end
 
-  -- Get a random point in the given area, which may be a string or an entity.
+  -- Get a random position in the given area, which may be a string or an entity.
   -- If the given area is a string the actual area is formed by all entities marked with the same area custom property, except enemies.
-  function enemy:get_random_point_in_area(area)
+  function enemy:get_random_position_in_area(area)
 
     local sub_areas = {}
     local total_weight = 0
@@ -166,7 +166,7 @@ function common_actions.learn(enemy)
       total_weight = total_weight - sub_area.weight
       if random_point > total_weight then
         local x, y, width, height = sub_area.entity:get_bounding_box()
-        return math.random(x, x + width), math.random(y, y + height)
+        return math.random(x, x + width), math.random(y, y + height), sub_area.entity:get_layer()
       end
     end
   end
@@ -185,7 +185,7 @@ function common_actions.learn(enemy)
       [7] = enemy:test_obstacles( 1,  1)
     }
 
-    -- Return the normal angle for the given direction8 if collision on the direction and not on the two surrounding ones if direction is a diagonal.
+    -- Return the normal angle for the given direction8 if there is an obstacle on the direction, and not on the two surrounding ones if direction is a diagonal.
     local function check_normal_angle(direction8)
       return collisions[direction8] and (direction8 % 2 == 0 or not collisions[(direction8 - 1) % 8] and not collisions[(direction8 + 1) % 8])
     end

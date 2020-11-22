@@ -9832,8 +9832,8 @@ teletransporter{
 destination{
   name = "cave_d3_1_south",
   layer = 1,
-  x = 816,
-  y = 245,
+  x = 728,
+  y = 69,
   direction = 3,
 }
 

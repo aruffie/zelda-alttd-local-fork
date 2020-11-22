@@ -1845,6 +1845,23 @@ enemy{
   breed = "zora",
 }
 
+dynamic_tile{
+  name = "east_prairie_area_1",
+  layer = 0,
+  x = 152,
+  y = 40,
+  properties = {
+    {
+      key = "area",
+      value = "north_east",
+    },
+  },
+  width = 256,
+  height = 272,
+  pattern = "10255",
+  tileset = "out/outside_special",
+}
+
 tile{
   layer = 1,
   x = 0,
@@ -14514,6 +14531,12 @@ enemy{
   layer = 2,
   x = 280,
   y = 149,
+  properties = {
+    {
+      key = "area",
+      value = "north_east",
+    },
+  },
   direction = 1,
   breed = "bomber",
   treasure_name = "random_with_charm",
