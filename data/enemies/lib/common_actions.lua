@@ -149,7 +149,7 @@ function common_actions.learn(enemy)
       total_weight = total_weight + weight
     end
 
-    -- Get all entites that have the same area custom properties except enemies if area is a string, else just add the given area entity to the list
+    -- Get all entites but enemies that have the same area custom properties if area is a string, else just add the given area entity to the list
     if type(area) == "string" then
       for entity in map:get_entities_in_region(enemy) do
         if entity:get_type() ~= "enemy" and entity:get_property("area") == area then

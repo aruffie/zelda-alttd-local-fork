@@ -639,7 +639,7 @@ tile{
   layer = 0,
   x = 576,
   y = 80,
-  width = 64,
+  width = 80,
   height = 24,
   pattern = "7664",
   tileset = "out/outside_buildings",
@@ -10430,7 +10430,7 @@ wall{
 
 wall{
   layer = 1,
-  x = 608,
+  x = 600,
   y = 368,
   width = 64,
   height = 8,

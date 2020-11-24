@@ -27,7 +27,7 @@ local flying_maximum_distance = 96
 local flying_height = 16
 local throwing_bomb_minimum_delay = 1500
 local throwing_bomb_maximum_delay = 3000
-local stand_off_triggering_distance = 32
+local stand_off_triggering_distance = 48
 local stand_off_speed = 200
 local stand_off_distance = 32
 
