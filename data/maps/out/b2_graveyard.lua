@@ -43,6 +43,28 @@ local function initialize_graves()
   end
 end
 
+-- Create another enemy on dead, to make it infinitely respawn.
+local function make_enemy_undead(enemy)
+
+  enemy:register_event("on_dead", function(enemy)
+    local area = enemy:get_property("area")
+    local properties = {
+      area and {key = "area", value = area} or nil
+    }
+    local x, y, layer = enemy:get_position()
+    local new_enemy = map:create_enemy({
+      name = enemy:get_name() or enemy:get_breed(),
+      breed = enemy:get_breed(),
+      x = x,
+      y = y,
+      layer = layer,
+      direction = 0,
+      properties = properties
+    })
+    make_enemy_undead(new_enemy)
+  end)
+end
+
 -- Map events
 map:register_event("on_started", function(map, destination)
 
@@ -55,6 +77,13 @@ map:register_event("on_started", function(map, destination)
 
   -- Initialize grave connected to ghinis.
   initialize_graves()
+
+  -- Make all zombies of this map undead.
+  for enemy in map:get_entities_by_type("enemy") do
+    if enemy:get_breed() == "zombie" then
+      make_enemy_undead(enemy)
+    end
+  end
 
   -- Make lower area invisible.
   graveyard_pit_1:set_visible(false)

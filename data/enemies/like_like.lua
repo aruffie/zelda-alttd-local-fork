@@ -159,7 +159,7 @@ end)
 -- Eat the hero on attacking him.
 enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
 
-  if not hero:is_shield_protecting(enemy) then
+  if not hero:is_shield_protecting(self) and not hero:is_blinking() then
     eat_hero()
   end
   return true

@@ -1530,10 +1530,6 @@ enemy{
       key = "area",
       value = "pit_1",
     },
-    {
-      key = "is_undead",
-      value = "true",
-    },
   },
   direction = 1,
   breed = "zombie",
@@ -1548,10 +1544,6 @@ enemy{
     {
       key = "area",
       value = "pit_1",
-    },
-    {
-      key = "is_undead",
-      value = "true",
     },
   },
   direction = 2,
@@ -23206,10 +23198,6 @@ enemy{
       key = "area",
       value = "pit_2",
     },
-    {
-      key = "is_undead",
-      value = "true",
-    },
   },
   direction = 3,
   breed = "zombie",
@@ -23671,10 +23659,6 @@ enemy{
       key = "area",
       value = "graveyard_3",
     },
-    {
-      key = "is_undead",
-      value = "true",
-    },
   },
   direction = 1,
   breed = "zombie",
@@ -23689,10 +23673,6 @@ enemy{
     {
       key = "area",
       value = "graveyard_3",
-    },
-    {
-      key = "is_undead",
-      value = "true",
     },
   },
   direction = 1,

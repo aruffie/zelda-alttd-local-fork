@@ -245,19 +245,21 @@ end
 -- TODO this should be in the Solarus API one day
 function enemy_meta:receive_attack_consequence(attack, reaction)
 
-  if type(reaction) == "number" then
-    self:hurt(reaction)
-  elseif reaction == "immobilized" then
-    self:immobilize()
-  elseif reaction == "protected" then
-    on_protected(self, attack)
-    audio_manager:play_sound("sword_tapping")
-  elseif reaction == "custom" then
-    if self.on_custom_attack_received ~= nil then
-      self:on_custom_attack_received(attack)
+  if self:is_enabled() then
+    if type(reaction) == "number" then
+      self:hurt(reaction)
+    elseif reaction == "immobilized" then
+      self:immobilize()
+    elseif reaction == "protected" then
+      on_protected(self, attack)
+      audio_manager:play_sound("sword_tapping")
+    elseif reaction == "custom" then
+      if self.on_custom_attack_received ~= nil then
+        self:on_custom_attack_received(attack)
+      end
+    elseif type(reaction) == "function" then
+      reaction(attack)
     end
-  elseif type(reaction) == "function" then
-    reaction(attack)
   end
 
 end

@@ -7,7 +7,6 @@
 -- Disappear after some time or obstacle reached.
 --
 -- Properties : area
---              is_undead
 --
 ----------------------------------
 
@@ -26,7 +25,6 @@ local eighth = math.pi * 0.25
 
 -- Configuration variables
 local area = enemy:get_property("area")
-local is_undead = enemy:get_property("is_undead")
 local walking_speed = 32
 local walking_minimum_duration = 2000
 local walking_maximum_duration = 4000
@@ -122,27 +120,6 @@ local function wait()
     appear()
   end)
 end
-
--- Create another zombie on dead if needed, to make them infinitely respawn.
-enemy:register_event("on_dead", function(enemy)
-
-  if is_undead then
-    local properties = {
-      area and {key = "area", value = area} or nil,
-      is_undead and {key = "is_undead", value = "true"} or nil
-    }
-    local x, y, layer = enemy:get_position()
-    map:create_enemy({
-      name = enemy:get_name() or enemy:get_breed(),
-      breed = enemy:get_breed(),
-      x = x,
-      y = y,
-      layer = layer,
-      direction = 0,
-      properties = properties
-    })
-  end
-end)
 
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
