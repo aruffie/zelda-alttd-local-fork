@@ -2785,6 +2785,15 @@ tile{
   pattern = "924",
 }
 
+tile{
+  layer = 0,
+  x = 200,
+  y = 264,
+  width = 16,
+  height = 16,
+  pattern = "924",
+}
+
 teletransporter{
   name = "to_d2",
   layer = 0,
