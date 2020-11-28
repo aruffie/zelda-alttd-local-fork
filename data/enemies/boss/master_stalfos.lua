@@ -482,6 +482,7 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_origin(16, 13)
   enemy:start_shadow("enemies/" .. enemy:get_breed() .. "/shadow")
   enemy:set_drawn_in_y_order(false) -- Display the legs and body part as a flat entity.
+  enemy:bring_to_front()
 
   -- Add body sprite to the main enemy as they behaves the same way.
   body_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/body")

@@ -302,7 +302,7 @@ function item:start_using()
   -- Catch the given entity.
   function item:catch_entity(entity)
 
-    if not hooked and not going_back then
+    if not hooked then
       entities_caught[#entities_caught + 1] = entity
       entity:set_position(hookshot:get_position())
       hookshot:set_modified_ground("traversable")  -- Don't let the caught entity fall in holes.
