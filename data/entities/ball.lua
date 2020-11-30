@@ -37,14 +37,6 @@ ball:register_event("on_created", function(ball)
 
   -- Traversable rules.
   ball:set_traversable_by(false)
-  ball:set_can_traverse_ground("deep_water", true)
-  ball:set_can_traverse_ground("grass", true)
-  ball:set_can_traverse_ground("hole", true)
-  ball:set_can_traverse_ground("lava", true)
-  ball:set_can_traverse_ground("low_wall", true)
-  ball:set_can_traverse_ground("prickles", true)
-  ball:set_can_traverse_ground("shallow_water", true)
-  ball:set_can_traverse(true) -- No way to get traversable entities later, make them all traversable.
 
   -- Set the hero not traversable as soon as possible, to avoid being stuck if the carriable is (re)created on the hero.
   set_hero_not_traversable_safely(ball)

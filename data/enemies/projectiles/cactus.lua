@@ -8,8 +8,10 @@ local map = enemy:get_map()
 local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/pokey/body")
 local quarter = math.pi * 0.5
+local circle = math.pi * 2.0
 local bounce_count = 0
 local angle
+local is_hero_pushed = false
 
 -- Configuration variables
 local speed = 200
@@ -20,6 +22,23 @@ function enemy:go(new_angle)
 
   angle = new_angle or hero:get_angle(enemy)
   enemy:straight_go(angle, speed)
+end
+
+-- Make the enemy bounce on the shield.
+local function bounce_on_shield()
+
+  if is_hero_pushed then
+    return
+  end
+  is_hero_pushed = true
+
+  local normal_angle = hero:get_direction() * quarter
+  if math.cos(math.abs(normal_angle - angle)) <= 0 then -- Don't bounce if the enemy is walking away the hero.
+    enemy:go((2.0 * normal_angle - angle + math.pi) % circle)
+  end
+  enemy:go(hero, 150, 100, sprite, nil, function()
+    is_hero_pushed = false
+  end)
 end
 
 -- Create an impact effect on hit.
@@ -46,6 +65,8 @@ end)
 
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
+
+  enemy:set_hero_weapons_reactions({shield = bounce_on_shield}) -- Bounce on shield attack once propelled.
 
   sprite:set_animation("walking")
   enemy:set_damage(2)

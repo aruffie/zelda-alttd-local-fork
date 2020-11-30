@@ -2,7 +2,7 @@
 --
 -- Undestructible destructible map entity, behaving the same way than build-in destructible except it bounces on obstacle reached instead of breaking.
 -- A hit may happen when the entity reaches an obstacle or when the carriable sprite overlaps another entity sprite while the throw is running.
--- An entity can only be hit once in a throw, however the throw will still bonk on obstacles entites without triggering the hit behavior.
+-- An entity can only be hit once in a throw, however the throw will still bonk on obstacles entites without triggering the hit behavior if already triggered.
 -- 
 -- Methods : carriable:throw(direction)
 --
@@ -32,8 +32,30 @@ local default_properties = {
   respawn_delay = nil, -- Time before respawn when removed by bad grounds. Nil means no respawn.
   slowdown_ratio = 0.5, -- Speed and distance decrease ratio at each obstacle hit.
   is_bounding_box_collision_sensitive = true, -- Trigger a hit on bounding box collision.
-  is_sprite_collision_sensitive = true -- Trigger a hit on sprite collision.
+  is_sprite_collision_sensitive = true, -- Trigger a hit on sprite collision.
+  is_offensive = true -- True if the carriable has the offensive behavior on thrown, such as hitting enemies or crystals.
 }
+
+-- Returns true if there is at least one obstacle in given entities.
+local function is_obstacle_in(entities)
+  for _, entity in pairs(entities) do
+    -- Workaround: No fucking way to get traversable entities, hardcode ones that will have a triggered behavior or have the on_hit_by_carriable event defined...
+    local type = entity:get_type()
+    if (type == "enemy" and entity:get_attack_consequence("thrown_item") ~= "ignored") or type == "crystal" or entity.on_hit_by_carriable then
+      return true
+    end
+  end
+  return false
+end
+
+-- Return the value if not nil, else return default.
+local function get_existing(value, default)
+
+  if value ~= nil then
+    return value
+  end
+  return default
+end
 
 function carriable_behavior.apply(carriable, properties)
 
@@ -105,18 +127,6 @@ function carriable_behavior.apply(carriable, properties)
     end
   end
 
-  -- Returns true if there is at least one obstacle in given entities.
-  local function is_obstacle_in(entities)
-    for _, entity in pairs(entities) do
-      -- Workaround: No fucking way to get traversable entities, hardcode ones that will have a triggered behavior or have the on_hit_by_carriable event defined...
-      local type = entity:get_type()
-      if (type == "enemy" and entity:get_attack_consequence("thrown_item") ~= "ignored") or type == "crystal" or entity.on_hit_by_carriable then
-        return true
-      end
-    end
-    return false
-  end
-
   -- Throwing method, define behavior for the thrown carriable.
   carriable:register_event("throw", function(carriable, direction)
 
@@ -127,8 +137,9 @@ function carriable_behavior.apply(carriable, properties)
     local bounce_sound = properties.bounce_sound or default_properties.bounce_sound
     local respawn_delay = properties.respawn_delay or default_properties.respawn_delay
     local slowdown_ratio = properties.slowdown_ratio or default_properties.slowdown_ratio
-    local is_bounding_box_collision_sensitive = properties.is_bounding_box_collision_sensitive or default_properties.is_bounding_box_collision_sensitive
-    local is_sprite_collision_sensitive = properties.is_sprite_collision_sensitive or default_properties.is_sprite_collision_sensitive
+    local is_bounding_box_collision_sensitive = get_existing(properties.is_bounding_box_collision_sensitive, default_properties.is_bounding_box_collision_sensitive)
+    local is_sprite_collision_sensitive = get_existing(properties.is_sprite_collision_sensitive, default_properties.is_sprite_collision_sensitive)
+    local is_offensive = get_existing(properties.is_offensive, default_properties.is_offensive)
 
     -- Initialize throwing state.
     local num_bounces = #bounce_distances
@@ -221,10 +232,12 @@ function carriable_behavior.apply(carriable, properties)
         if entity and entity:is_enabled() then
           table.insert(unhittable_entities, entity) -- Avoid the entity being hit twice a throw.
 
-          if entity:get_type() == "enemy" then
-            entity:receive_attack_consequence("thrown_item", entity:get_attack_consequence("thrown_item"))
-          elseif entity:get_type() == "crystal" then
-            map:set_crystal_state(not map:get_crystal_state())
+          if is_offensive then
+            if entity:get_type() == "enemy" then
+              entity:receive_attack_consequence("thrown_item", entity:get_attack_consequence("thrown_item"))
+            elseif entity:get_type() == "crystal" then
+              map:set_crystal_state(not map:get_crystal_state())
+            end
           end
 
           call_hit_events(entity)
@@ -290,7 +303,7 @@ function carriable_behavior.apply(carriable, properties)
         function movement:on_position_changed(x, y, layer)
           local entities = get_overlapping_entities()
           if #entities > 0 then
-            if is_obstacle_in(entities) then -- Only reverse the move if at least one entity is an obstacle.
+            if is_offensive and is_obstacle_in(entities) then -- Only reverse the move if at least one entity is an obstacle.
               reverse_direction(slowdown_ratio)
             end
             hit(entities)
@@ -343,6 +356,16 @@ function carriable_behavior.apply(carriable, properties)
   carriable:set_drawn_in_y_order()
   carriable:set_weight(0)
   set_animation_if_exists("stopped")
+
+  carriable:set_traversable_by(true)
+  carriable:set_can_traverse_ground("deep_water", true)
+  carriable:set_can_traverse_ground("grass", true)
+  carriable:set_can_traverse_ground("hole", true)
+  carriable:set_can_traverse_ground("lava", true)
+  carriable:set_can_traverse_ground("low_wall", true)
+  carriable:set_can_traverse_ground("prickles", true)
+  carriable:set_can_traverse_ground("shallow_water", true)
+  carriable:set_can_traverse(true) -- No way to get traversable entities later, make them all traversable.
 
   -- Start a custom lifting on interaction to not destroy the carriable and keep events registered outside the entity script alive.
   carriable:register_event("on_interaction", function(carriable)

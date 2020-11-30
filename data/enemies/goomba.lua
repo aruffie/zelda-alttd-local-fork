@@ -39,10 +39,12 @@ end
 -- Don't hurt the hero if enemy is below on sideview maps.
 enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
 
-  local _, y, _ = enemy:get_position()
-  local _, hero_y, _ = hero:get_position()
-  if not is_sideview or hero_y >= y then
-    hero:start_hurt(enemy, enemy:get_damage())
+  if not hero:is_shield_protecting(enemy) and not hero:is_blinking() then
+    local _, y, _ = enemy:get_position()
+    local _, hero_y, _ = hero:get_position()
+    if not is_sideview or hero_y >= y then
+      hero:start_hurt(enemy, enemy:get_damage())
+    end
   end
 end)
 

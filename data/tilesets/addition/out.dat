@@ -28,7 +28,7 @@ tile_pattern{
   x = 432,
   y = 0,
   width = 80,
-  height = 8,
+  height = 24,
   repeat_mode = "none",
 }
 
@@ -38,7 +38,7 @@ tile_pattern{
   default_layer = 0,
   x = 488,
   y = 72,
-  width = 16,
+  width = 8,
   height = 16,
   repeat_mode = "vertical",
 }
@@ -47,9 +47,9 @@ tile_pattern{
   id = "102",
   ground = "wall",
   default_layer = 0,
-  x = 440,
+  x = 448,
   y = 72,
-  width = 16,
+  width = 8,
   height = 16,
   repeat_mode = "vertical",
 }
@@ -78,23 +78,23 @@ tile_pattern{
 
 tile_pattern{
   id = "105",
-  ground = "wall",
+  ground = "wall_top_right",
   default_layer = 0,
   x = 432,
   y = 72,
-  width = 8,
-  height = 8,
+  width = 16,
+  height = 16,
   repeat_mode = "vertical",
 }
 
 tile_pattern{
   id = "106",
-  ground = "wall",
+  ground = "wall_top_left",
   default_layer = 0,
-  x = 504,
+  x = 496,
   y = 72,
-  width = 8,
-  height = 8,
+  width = 16,
+  height = 16,
   repeat_mode = "vertical",
 }
 
@@ -2166,9 +2166,9 @@ tile_pattern{
   ground = "wall",
   default_layer = 1,
   x = 432,
-  y = 8,
+  y = 24,
   width = 80,
-  height = 64,
+  height = 48,
   repeat_mode = "vertical",
 }
 

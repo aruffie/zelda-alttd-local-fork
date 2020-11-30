@@ -157,9 +157,9 @@ tile{
 
 tile{
   layer = 0,
-  x = 1464,
+  x = 1480,
   y = 1368,
-  width = 352,
+  width = 336,
   height = 24,
   pattern = "wall.2-2",
 }
@@ -13450,7 +13450,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 1456,
+  x = 1464,
   y = 1400,
   width = 24,
   height = 24,
@@ -13459,7 +13459,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 1456,
+  x = 1464,
   y = 1384,
   width = 24,
   height = 16,
@@ -13468,7 +13468,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 1456,
+  x = 1464,
   y = 1368,
   width = 24,
   height = 24,
@@ -14278,7 +14278,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 1488,
+  x = 1496,
   y = 1360,
   width = 16,
   height = 24,
@@ -14287,7 +14287,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 1480,
+  x = 1488,
   y = 1360,
   width = 8,
   height = 24,
@@ -14341,7 +14341,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 1504,
+  x = 1512,
   y = 1360,
   width = 8,
   height = 24,
@@ -17540,7 +17540,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 1448,
+  x = 1456,
   y = 1392,
   width = 8,
   height = 8,
@@ -17549,7 +17549,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 1448,
+  x = 1456,
   y = 1368,
   width = 8,
   height = 24,
@@ -17576,7 +17576,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 1512,
+  x = 1520,
   y = 1360,
   width = 8,
   height = 8,
@@ -17585,7 +17585,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 1512,
+  x = 1520,
   y = 1352,
   width = 8,
   height = 8,
@@ -17594,7 +17594,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 1480,
+  x = 1488,
   y = 1352,
   width = 32,
   height = 8,
@@ -17603,7 +17603,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 1472,
+  x = 1480,
   y = 1360,
   width = 8,
   height = 8,
@@ -17612,7 +17612,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 1448,
+  x = 1456,
   y = 1360,
   width = 8,
   height = 8,
@@ -17621,16 +17621,16 @@ tile{
 
 tile{
   layer = 0,
-  x = 1456,
+  x = 1464,
   y = 1360,
-  width = 24,
+  width = 16,
   height = 8,
   pattern = "hole.2",
 }
 
 tile{
   layer = 0,
-  x = 1472,
+  x = 1480,
   y = 1352,
   width = 8,
   height = 8,
@@ -23540,7 +23540,7 @@ tile{
   layer = 0,
   x = 1432,
   y = 1392,
-  width = 16,
+  width = 24,
   height = 8,
   pattern = "hole.2",
 }
@@ -24078,7 +24078,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 1504,
+  x = 1512,
   y = 1384,
   width = 8,
   height = 8,
@@ -24087,11 +24087,28 @@ tile{
 
 tile{
   layer = 0,
-  x = 1480,
+  x = 1488,
   y = 1384,
   width = 8,
   height = 8,
   pattern = "stairs_inner_up.2.top.border.1-1",
+}
+
+dynamic_tile{
+  name = "area_pit",
+  layer = 0,
+  x = 1992,
+  y = 520,
+  properties = {
+    {
+      key = "area",
+      value = "pit",
+    },
+  },
+  width = 208,
+  height = 160,
+  pattern = "10349",
+  tileset = "out/outside_special",
 }
 
 block{
@@ -26902,6 +26919,12 @@ enemy{
   layer = 0,
   x = 2072,
   y = 629,
+  properties = {
+    {
+      key = "area",
+      value = "pit",
+    },
+  },
   direction = 3,
   breed = "zombie",
 }
@@ -26911,6 +26934,12 @@ enemy{
   layer = 0,
   x = 2120,
   y = 605,
+  properties = {
+    {
+      key = "area",
+      value = "pit",
+    },
+  },
   direction = 3,
   breed = "zombie",
 }
@@ -29329,7 +29358,7 @@ stairs{
 
 stairs{
   layer = 0,
-  x = 1488,
+  x = 1496,
   y = 1368,
   direction = 3,
   subtype = 4,
@@ -31650,18 +31679,18 @@ tile{
 
 tile{
   layer = 1,
-  x = 1480,
+  x = 1488,
   y = 1392,
-  width = 72,
+  width = 64,
   height = 96,
   pattern = "1064",
 }
 
 tile{
   layer = 1,
-  x = 1472,
+  x = 1488,
   y = 1392,
-  width = 80,
+  width = 64,
   height = 96,
   pattern = "floor.21-Alpha",
 }
@@ -31929,7 +31958,7 @@ tile{
 
 tile{
   layer = 1,
-  x = 1480,
+  x = 1488,
   y = 1408,
   width = 8,
   height = 24,
@@ -31938,7 +31967,7 @@ tile{
 
 tile{
   layer = 1,
-  x = 1480,
+  x = 1488,
   y = 1432,
   width = 32,
   height = 8,
@@ -31947,7 +31976,7 @@ tile{
 
 tile{
   layer = 1,
-  x = 1488,
+  x = 1496,
   y = 1408,
   width = 16,
   height = 24,
@@ -31956,7 +31985,7 @@ tile{
 
 tile{
   layer = 1,
-  x = 1504,
+  x = 1512,
   y = 1408,
   width = 8,
   height = 24,
@@ -31965,7 +31994,7 @@ tile{
 
 tile{
   layer = 1,
-  x = 1488,
+  x = 1496,
   y = 1384,
   width = 16,
   height = 8,
@@ -33686,7 +33715,7 @@ jumper{
 
 wall{
   layer = 1,
-  x = 1472,
+  x = 1480,
   y = 1392,
   width = 8,
   height = 32,
@@ -33969,7 +33998,7 @@ wall{
 
 wall{
   layer = 1,
-  x = 1480,
+  x = 1488,
   y = 1360,
   width = 8,
   height = 32,
@@ -33982,7 +34011,7 @@ wall{
 
 wall{
   layer = 1,
-  x = 1504,
+  x = 1512,
   y = 1360,
   width = 8,
   height = 32,
@@ -35038,7 +35067,7 @@ tile{
 
 tile{
   layer = 2,
-  x = 1472,
+  x = 1480,
   y = 1424,
   width = 8,
   height = 8,
@@ -35047,7 +35076,7 @@ tile{
 
 tile{
   layer = 2,
-  x = 1472,
+  x = 1480,
   y = 1432,
   width = 8,
   height = 8,

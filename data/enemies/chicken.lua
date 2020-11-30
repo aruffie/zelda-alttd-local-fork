@@ -161,6 +161,7 @@ end)
 enemy:register_event("on_restarted", function(enemy)
 
   -- States.
+  sprite:set_xy(0, is_angry and -flying_height or 0)
   enemy:set_damage(2)
   enemy:set_can_attack(is_angry)
   enemy:set_layer_independent_collisions(true)

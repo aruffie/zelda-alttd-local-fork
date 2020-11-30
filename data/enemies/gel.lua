@@ -18,6 +18,7 @@ local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
 local is_leashed = false
+local is_jumping_away = false
 local is_attacking, is_exhausted
 local hero_speed = hero:get_walking_speed()
 
@@ -48,6 +49,7 @@ end
 -- Start pouncing to or away to the hero.
 local function start_pouncing(offensive)
 
+  is_jumping_away = not offensive
   local hero_x, hero_y, _ = hero:get_position()
   local enemy_x, enemy_y, _ = enemy:get_position()
   local angle = math.atan2(hero_y - enemy_y, enemy_x - hero_x) + (offensive and math.pi or 0)
@@ -104,8 +106,6 @@ local function attach_hero()
 
   -- TODO Make the hero unable to use weapon while slowed down.
   --game:set_ability("sword", 0)
-  --game:set_item_assigned(1, nil)
-  --game:set_item_assigned(2, nil)
 
   -- Jump away after some time.
   sol.timer.start(enemy, math.random(stuck_minimum_duration, stuck_maximum_duration), function()
@@ -128,7 +128,7 @@ enemy:register_event("on_update", function(enemy)
   end
 
   -- If the hero touches the center of the enemy and is not currently respawning, slow him down.
-  if not is_leashed and enemy:get_life() > 0 and enemy:overlaps(hero, "origin") and hero:get_state() ~= "back to solid ground" then
+  if not is_leashed and not is_jumping_away and enemy:get_life() > 0 and hero:overlaps(enemy, "origin") and hero:get_state() ~= "back to solid ground" then
     attach_hero()
   end
 
@@ -173,6 +173,7 @@ enemy:register_event("on_restarted", function(enemy)
   -- States.
   is_attacking = false
   is_exhausted = true
+  is_jumping_away = false
   sprite:set_xy(0, 0)
   sol.timer.start(enemy, math.random(exhausted_minimum_duration, exhausted_maximum_duration), function()
     is_exhausted = false

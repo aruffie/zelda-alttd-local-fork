@@ -9,9 +9,9 @@
 --           enemy:is_entity_in_front(entity, [front_angle, [sprite]])
 --           enemy:is_over_grounds(grounds, [x, [y]])
 --           enemy:get_central_symmetry_position(x, y)
---           enemy:get_random_point_in_area(area)
---           enemy:get_obstacles_normal_angle()
---           enemy:get_obstacles_bounce_angle([angle])
+--           enemy:get_random_position_in_area(area)
+--           enemy:get_obstacles_normal_angle(angle)
+--           enemy:get_obstacles_bounce_angle(angle)
 --
 --           Movements and positioning :
 --           enemy:start_straight_walking(angle, speed, [distance, [on_stopped_callback]])
@@ -61,10 +61,6 @@ function common_actions.learn(enemy)
   local attracting_timers = {}
   local leashing_timers = {}
   local shadow = nil
-  
-  local function xor(a, b)
-    return (a or b) and not (a and b)
-  end
 
   -- Return true if the entity is on the same row or column than the entity.
   function enemy:is_aligned(entity, thickness, sprite)
@@ -95,14 +91,18 @@ function common_actions.learn(enemy)
       and (layer == entity_layer or enemy:has_layer_independent_collisions())
   end
 
-  -- Return true if the angle between the enemy sprite direction and the enemy to entity direction is less than or equals to the front_angle.
+  -- Return true if the angle between the enemy sprite direction and the sprite to entity angle is less than or equals to the front_angle.
   function enemy:is_entity_in_front(entity, front_angle, sprite)
 
     front_angle = front_angle or quarter
     sprite = sprite or enemy:get_sprite()
 
+    local x, y = enemy:get_position()
+    local x_offset, y_offset = sprite:get_xy()
+    local sprite_to_entity_angle = entity:get_angle(x + x_offset, y + y_offset) + math.pi
+
     -- Check the difference on the cosinus axis to easily consider angles from enemy to hero like pi and 3pi as the same.
-    return math.cos(math.abs(sprite:get_direction() * quarter - enemy:get_angle(entity))) >= math.cos(front_angle / 2.0)
+    return math.cos(sprite:get_direction() * quarter - sprite_to_entity_angle) >= math.cos(front_angle / 2.0)
   end
 
   -- Return true if the four corners of the enemy are all over one of the given ground, or would be if the enemy would move by the given offset.
@@ -135,9 +135,9 @@ function common_actions.learn(enemy)
     return 2.0 * x - enemy_x, 2.0 * y - enemy_y
   end
 
-  -- Get a random point in the given area, which may be a string or an entity.
+  -- Get a random position in the given area, which may be a string or an entity.
   -- If the given area is a string the actual area is formed by all entities marked with the same area custom property, except enemies.
-  function enemy:get_random_point_in_area(area)
+  function enemy:get_random_position_in_area(area)
 
     local sub_areas = {}
     local total_weight = 0
@@ -149,7 +149,7 @@ function common_actions.learn(enemy)
       total_weight = total_weight + weight
     end
 
-    -- Get all entites that have the same area custom properties except enemies if area is a string, else just add the given area entity to the list
+    -- Get all entites but enemies that have the same area custom properties if area is a string, else just add the given area entity to the list
     if type(area) == "string" then
       for entity in map:get_entities_in_region(enemy) do
         if entity:get_type() ~= "enemy" and entity:get_property("area") == area then
@@ -166,50 +166,42 @@ function common_actions.learn(enemy)
       total_weight = total_weight - sub_area.weight
       if random_point > total_weight then
         local x, y, width, height = sub_area.entity:get_bounding_box()
-        return math.random(x, x + width), math.random(y, y + height)
+        return math.random(x, x + width), math.random(y, y + height), sub_area.entity:get_layer()
       end
     end
   end
 
   -- Return the normal angle of close obstacles as a multiple of pi/4, or nil if none.
-  function enemy:get_obstacles_normal_angle()
+  function enemy:get_obstacles_normal_angle(angle)
 
     local collisions = {
-      [0] = enemy:test_obstacles(-1,  0),
-      [1] = enemy:test_obstacles(-1,  1),
-      [2] = enemy:test_obstacles( 0,  1),
-      [3] = enemy:test_obstacles( 1,  1),
-      [4] = enemy:test_obstacles( 1,  0),
-      [5] = enemy:test_obstacles( 1, -1),
-      [6] = enemy:test_obstacles( 0, -1),
-      [7] = enemy:test_obstacles(-1, -1)
+      [0] = enemy:test_obstacles( 1,  0),
+      [1] = enemy:test_obstacles( 1, -1),
+      [2] = enemy:test_obstacles( 0, -1),
+      [3] = enemy:test_obstacles(-1, -1),
+      [4] = enemy:test_obstacles(-1,  0),
+      [5] = enemy:test_obstacles(-1,  1),
+      [6] = enemy:test_obstacles( 0,  1),
+      [7] = enemy:test_obstacles( 1,  1)
     }
 
-    -- Return the normal angle for this direction if collision on the direction or the two surrounding ones, and no obstacle in the two next or obstacle in both.
+    -- Return the normal angle for the given direction8 if there is an obstacle on the direction, and not on the two surrounding ones if direction is a diagonal.
     local function check_normal_angle(direction8)
-      return ((collisions[direction8] or collisions[(direction8 - 1) % 8] and collisions[(direction8 + 1) % 8]) 
-          and not xor(collisions[(direction8 - 2) % 8], collisions[(direction8 + 2) % 8])
-          and direction8 * eighth)
+      return collisions[direction8] and (direction8 % 2 == 0 or not collisions[(direction8 - 1) % 8] and not collisions[(direction8 + 1) % 8])
     end
 
     -- Check for obstacles on each direction8 and return the normal angle if it is the correct one.
-    local normal_angle
     for direction8 = 0, 7 do
-      normal_angle = normal_angle or check_normal_angle(direction8)
+      if math.cos(angle - direction8 * eighth) > math.cos(quarter) and check_normal_angle(direction8) then
+        return (direction8 * eighth + math.pi) % circle
+      end
     end
-
-    return normal_angle
   end
 
   -- Return the angle after bouncing against close obstacles towards the given angle, or nil if no obstacles.
   function enemy:get_obstacles_bounce_angle(angle)
 
-    local normal_angle = enemy:get_obstacles_normal_angle()
-    if not normal_angle then
-      return
-    end
-    angle = angle or enemy:get_movement():get_angle()
-
+    local normal_angle = enemy:get_obstacles_normal_angle(angle)
     return (2.0 * normal_angle - angle + math.pi) % circle
   end
 
@@ -890,7 +882,7 @@ function common_actions.learn(enemy)
       end
       shadow:set_traversable_by(true)
       shadow:set_drawn_in_y_order(false) -- Display the shadow as a flat entity.
-      shadow:bring_to_back()
+      shadow:bring_to_front() -- Display it over other flat entities, such as grass.
       
       -- Always display the shadow on the lowest possible layer.
       function shadow:on_position_changed(x, y, layer)

@@ -118,7 +118,7 @@ enemy:register_event("on_update", function(enemy)
 
   -- Eat the bomb when the bomb sprite hit the center of the head.
   for entity in map:get_entities_in_region(enemy) do
-    if entity:get_type() == "custom_entity" and entity:get_model() == "bomb" and entity:overlaps(enemy, "center") then
+    if entity:get_type() == "custom_entity" and entity:get_model() == "bomb" and enemy:overlaps(entity, "center") then
       local x, y = entity:get_sprite():get_xy()
       if x == 0 and y == 0 then -- Only eat a bomb on the floor.
         eat_bomb(entity)

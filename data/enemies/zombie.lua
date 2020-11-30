@@ -76,7 +76,7 @@ local function appear()
 
   -- Postpone to the next frame if the random position would be over an obstacle.
   local x, y = enemy:get_position()
-  local random_x, random_y = enemy:get_random_point_in_area(area or camera)
+  local random_x, random_y = enemy:get_random_position_in_area(area or camera)
   local layer = get_ground_layer(random_x, random_y)
   enemy:set_layer(layer or enemy:get_layer())
   if not layer or enemy:test_obstacles(random_x - x, random_y - y) then

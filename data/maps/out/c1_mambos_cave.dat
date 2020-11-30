@@ -19,6 +19,23 @@ tile{
   pattern = "14667",
 }
 
+dynamic_tile{
+  name = "mambos_cave_area_1",
+  layer = -2,
+  x = 728,
+  y = 480,
+  properties = {
+    {
+      key = "area",
+      value = "west",
+    },
+  },
+  width = 224,
+  height = 216,
+  pattern = "10255",
+  tileset = "out/outside_special",
+}
+
 tile{
   layer = -1,
   x = 0,
@@ -19042,6 +19059,12 @@ enemy{
   layer = 1,
   x = 872,
   y = 605,
+  properties = {
+    {
+      key = "area",
+      value = "west",
+    },
+  },
   direction = 2,
   breed = "bomber",
   treasure_name = "random_with_charm",

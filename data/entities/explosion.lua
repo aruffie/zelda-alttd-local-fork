@@ -27,26 +27,40 @@ if #explosive_types == 0 then
   explosive_types = {"crystal", "destructible", "door", "enemy", "hero", "sensor"}
 end
 
--- Interact with explosive entities..
-explosion:add_collision_test("sprite", function(explosion, entity)
+-- Return true if the entity is already exploded.
+local function is_already_exploded(entity)
 
-  -- Ensure to explode an entity only once by explosion.
   for _, explosed_entity in pairs(explosed_entities) do 
     if entity == explosed_entity then
-      return
+      return true
     end
   end
   table.insert(explosed_entities, entity)
+  return false
+end
 
-  -- Only try to explode the entity if this explosion can interact with its type.
-  local type
+-- Return true if the entity type can be exploded by this explosion.
+local function is_entity_type_explosive(entity_type)
+
   for _, explosive_type in pairs(explosive_types) do
-    if entity:get_type() == explosive_type then
-      type = explosive_type
-      break
+    if entity_type == explosive_type then
+      return true
     end
   end
-  if not type then
+  return false
+end
+
+-- Interact with explosive entities on sprite collision.
+explosion:add_collision_test("sprite", function(explosion, entity)
+
+  -- Ensure to explode an entity only once by explosion.
+  if is_already_exploded(entity) then
+    return
+  end
+
+  -- Only try to explode the entity if this explosion can interact with its type.
+  local type = entity:get_type()
+  if not is_entity_type_explosive(type) then
     return
   end
 
@@ -58,12 +72,14 @@ explosion:add_collision_test("sprite", function(explosion, entity)
     entity:get_sprite():set_animation("destroy", function()
       entity:remove()
     end)
+    if entity.on_exploded then
+      entity:on_exploded()
+    end
 
   elseif type == "door" then
-    -- TODO No fucking way to know if the door can be opened with an explosion.
-    --[[if entity:get_can_explode() then
+    if string.find(entity:get_name(), "weak") then -- Workaround : No fucking way to know if the door can be opened with an explosion, hardcode the name.
       entity:open()
-    end--]]
+    end
 
   elseif type == "enemy" then
     entity:receive_attack_consequence("explosion", entity:get_attack_consequence("explosion"))
@@ -71,15 +87,35 @@ explosion:add_collision_test("sprite", function(explosion, entity)
   elseif type == "hero" and not entity:is_invincible() and not entity:is_blinking() then
     entity:start_hurt(explosion, damage_on_hero)
 
-  elseif type == "sensor" then 
-    -- TODO Use another collision mode as sensor has no sprite.
-    --[[if entity.on_collision_explosion then
-      entity:on_collision_explosion()
-    end--]]
-
-  else -- Else can interact with any type of entity if the on_explosion() method is registered.
+  else -- Else interact with any other type of entity if the on_explosion() method is registered.
     if entity.on_explosion then
       entity:on_explosion()
+    end
+  end
+end)
+
+-- Interact with explosive entities on overlapping collision for entities that can't have sprite.
+explosion:add_collision_test("overlapping", function(explosion, entity)
+
+  -- Don't try to interact with entities that have a sprite.
+  if entity:get_sprite() then
+    return
+  end
+
+  -- Ensure to explode an entity only once by explosion.
+  if is_already_exploded(entity) then
+    return
+  end
+
+  -- Only try to explode the entity if this explosion can interact with its type.
+  local type = entity:get_type()
+  if not is_entity_type_explosive(type) then
+    return
+  end
+
+  if type == "sensor" then 
+    if entity.on_collision_explosion then
+      entity:on_collision_explosion()
     end
   end
 end)

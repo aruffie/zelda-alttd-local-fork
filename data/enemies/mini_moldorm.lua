@@ -45,7 +45,7 @@ function enemy:start_walking()
 
   -- Take the obstacle normal as angle on obstacle reached.
   function walking_movement:on_obstacle_reached()
-    walking_movement:set_angle(enemy:get_obstacles_normal_angle())
+    walking_movement:set_angle(enemy:get_obstacles_normal_angle(walking_movement:get_angle()))
   end
 
   -- Slightly change the angle when walking.

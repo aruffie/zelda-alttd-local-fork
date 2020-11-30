@@ -1243,6 +1243,23 @@ tile{
   pattern = "127",
 }
 
+dynamic_tile{
+  name = "graveyard_pit_1",
+  layer = 0,
+  x = 40,
+  y = 552,
+  properties = {
+    {
+      key = "area",
+      value = "pit_1",
+    },
+  },
+  width = 352,
+  height = 184,
+  pattern = "10349",
+  tileset = "out/outside_special",
+}
+
 destructible{
   layer = 0,
   x = 304,
@@ -1508,6 +1525,12 @@ enemy{
   layer = 0,
   x = 224,
   y = 645,
+  properties = {
+    {
+      key = "area",
+      value = "pit_1",
+    },
+  },
   direction = 1,
   breed = "zombie",
   treasure_name = "random_with_charm",
@@ -1517,6 +1540,12 @@ enemy{
   layer = 0,
   x = 96,
   y = 677,
+  properties = {
+    {
+      key = "area",
+      value = "pit_1",
+    },
+  },
   direction = 2,
   breed = "zombie",
   treasure_name = "random_with_charm",
@@ -1724,6 +1753,23 @@ dynamic_tile{
   width = 168,
   height = 128,
   pattern = "10247",
+  tileset = "out/outside_special",
+}
+
+dynamic_tile{
+  name = "graveyard_pit_2",
+  layer = 0,
+  x = 392,
+  y = 552,
+  properties = {
+    {
+      key = "area",
+      value = "pit_2",
+    },
+  },
+  width = 80,
+  height = 184,
+  pattern = "10347",
   tileset = "out/outside_special",
 }
 
@@ -23147,6 +23193,12 @@ enemy{
   layer = 1,
   x = 416,
   y = 613,
+  properties = {
+    {
+      key = "area",
+      value = "pit_2",
+    },
+  },
   direction = 3,
   breed = "zombie",
   treasure_name = "random_with_charm",
@@ -23602,6 +23654,12 @@ enemy{
   layer = 1,
   x = 656,
   y = 637,
+  properties = {
+    {
+      key = "area",
+      value = "graveyard_3",
+    },
+  },
   direction = 1,
   breed = "zombie",
   treasure_name = "random_with_charm",
@@ -23611,6 +23669,12 @@ enemy{
   layer = 1,
   x = 552,
   y = 661,
+  properties = {
+    {
+      key = "area",
+      value = "graveyard_3",
+    },
+  },
   direction = 1,
   breed = "zombie",
   treasure_name = "random_with_charm",
