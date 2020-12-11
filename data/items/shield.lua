@@ -3,7 +3,7 @@
 -- Shield.
 --
 -- Protect against enemies if the shield collide with a given enemy and the shield variant is high enough for him.
--- Prevent calling the enemy on_attacking_hero() event if defined and the hero is protected by the shield.
+-- Prevent calling the enemy:on_attacking_hero() event if defined and the hero is protected by the shield.
 --
 -- Methods : item:stop_using()
 --           hero:is_shield_protecting(enemy, [enemy_sprite])
@@ -138,7 +138,7 @@ local function initialize_hero_meta()
     return
   end
 
-  -- True if there is a pixel collision between the shield and the given enemy.
+  -- True if there is a pixel collision between the shield and the given enemy, and if the shield is strong enough and not ignored by the enemy.
   function hero_meta:is_shield_protecting(enemy, enemy_sprite)
     local item = self:get_game():get_item("shield")
     local is_strong_enough = item:get_variant() >= enemy:get_shield_minimum_level()

@@ -6,6 +6,13 @@ local projectile_behavior = require("enemies/lib/projectile")
 -- Global variables
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 
+-- Remove the projectile on shield collision.
+local function on_shield_collision()
+
+  enemy:on_hit()
+  enemy:start_death()
+end
+
 -- Start going to the hero.
 function enemy:go()
   enemy:straight_go()
@@ -32,5 +39,6 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_damage(2)
   enemy:set_obstacle_behavior("flying")
   enemy:set_pushed_back_when_hurt(false)
+  enemy:set_hero_weapons_reactions({shield = on_shield_collision})
   enemy:go()
 end)
