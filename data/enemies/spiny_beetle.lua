@@ -4,10 +4,8 @@
 --
 -- Hides below any overlapping entity when created, then move to the hero and keep carry these entities when the he gets too close
 --
--- Methods : enemy:start_walking()
---           enemy:start_carrying(entity)
---           enemy:start_carrying_overlapping_entities()
---           enemy:wait()
+-- Methods : enemy:start_carrying(entity)
+-- Properties : carried_entity_[1 to 10]
 --
 ----------------------------------
 
@@ -29,7 +27,6 @@ local waiting_timer = nil
 local walking_speed = 32
 local walking_minimum_distance = 16
 local walking_maximum_distance = 96
-
 local thickness = 16
 
 -- Update protection state depending on current carried objects.
@@ -47,10 +44,9 @@ local function update_protection()
 end
 
 -- Start the enemy movement.
-function enemy:start_walking(direction)
+local function start_walking(direction)
 
   for entity, sprite in pairs(carried_sprites) do
-    entity:set_layer(enemy:get_layer() + 1) -- Workaround: Move the layer up to allow the enemy to move even if entity is an obstacle.
     sprite:set_xy(0, -4)
   end
   last_direction = direction or enemy:get_direction4_to(hero)
@@ -61,7 +57,7 @@ function enemy:start_walking(direction)
       if entity:get_type() == "hero" or entity:get_type() == "enemy" then
         for carried_entity, _ in pairs(carried_sprites) do
           if entity:overlaps(carried_entity:get_bounding_box()) then
-            enemy:start_walking(math.random(4) - 1)
+            start_walking(math.random(4) - 1)
             return
           end
         end
@@ -71,23 +67,8 @@ function enemy:start_walking(direction)
   end)
 end
 
--- Start carrying the given entity.
-function enemy:start_carrying(entity)
-
-  carried_sprites[entity] = entity:get_sprite()
-  local entity_x, entity_y, _ = entity:get_position()
-  enemy:start_welding(entity, entity_x - x, entity_y - y)
-
-  -- Update protection state once carried object removed.
-  entity:register_event("on_removed", function(entity)
-    carried_sprites[entity] = nil
-    update_protection()
-  end)
-  enemy:update_protection()
-end
-
 -- Start carrying any entity that overlaps the enemy at this moment.
-function enemy:start_carrying_overlapping_entities()
+local function start_carrying_overlapping_entities()
 
   local x, y, _ = enemy:get_position()
   for entity in map:get_entities_in_region(enemy) do
@@ -98,11 +79,10 @@ function enemy:start_carrying_overlapping_entities()
 end
 
 -- Make enemy immobilized and wait for the hero to be close enough.
-function enemy:wait()
+local function wait()
 
   sprite:set_animation("immobilized")
   for entity, sprite in pairs(carried_sprites) do
-    entity:set_layer(enemy:get_layer())
     sprite:set_xy(0, 0)
     if sprite:has_animation("on_ground") then
       sprite:set_animation("on_ground")
@@ -116,8 +96,29 @@ function enemy:wait()
     if not enemy:is_aligned(hero, thickness) or enemy:get_direction4_to(hero) == last_direction then
       return true
     end
-    enemy:start_walking()
+    start_walking()
   end)
+end
+
+-- Start carrying the given entity.
+function enemy:start_carrying(entity)
+
+  carried_sprites[entity] = entity:get_sprite()
+  local x, y = enemy:get_position()
+  local entity_x, entity_y = entity:get_position()
+  enemy:start_welding(entity, entity_x - x, entity_y - y)
+  enemy:register_event("on_dying", function(enemy)
+    if entity:exists() then
+      entity:remove()
+    end
+  end)
+
+  -- Update protection state once carried object removed.
+  entity:register_event("on_removed", function(entity)
+    carried_sprites[entity] = nil
+    update_protection()
+  end)
+  update_protection()
 end
 
 -- Initialization.
@@ -126,7 +127,15 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(1)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)
-  enemy:start_carrying_overlapping_entities()
+
+  -- Start carrying entites given by custom properties.
+  for i = 1, 10 do
+    local entity_name = enemy:get_property("carried_entity_" .. i)
+    if not entity_name then
+      break
+    end
+    enemy:start_carrying(map:get_entity(entity_name))
+  end
 end)
 
 -- Restart settings.
@@ -153,5 +162,5 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:bring_to_back()
   enemy:set_can_attack(true)
   enemy:set_damage(1)
-  enemy:wait()
+  wait()
 end)

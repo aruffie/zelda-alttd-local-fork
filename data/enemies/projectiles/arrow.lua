@@ -12,6 +12,11 @@ local quarter = math.pi * 0.5
 -- Configuration variables
 local planted_duration = 1000
 
+-- Remove the projectile on shield collision.
+local function on_shield_collision()
+  enemy:on_hit()
+end
+
 -- Start another movement if direction changed.
 function sprite:on_direction_changed()
   enemy:go()
@@ -60,5 +65,6 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_damage(2)
   enemy:set_obstacle_behavior("flying")
   enemy:set_invincible()
+  enemy:set_hero_weapons_reactions({shield = on_shield_collision})
   enemy:go()
 end)

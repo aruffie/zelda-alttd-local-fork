@@ -135,8 +135,9 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_size(48, 48)
   enemy:set_origin(24, 24)
   enemy:set_position(get_grid_position()) -- Set the position to the center of the current 16*16 case instead of 8, 13.
-  enemy:set_drawn_in_y_order(false) -- Display the enemy as a flat entity.
   enemy:start_shadow("enemies/boss/cue_ball/shadow")
+  enemy:set_drawn_in_y_order(false) -- Display the enemy as a flat entity.
+  enemy:bring_to_front()
 
   -- Add the splash effect as sub entity to not hurt the hero.
   local x, y, layer = enemy:get_position()
