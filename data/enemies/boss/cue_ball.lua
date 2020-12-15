@@ -3,7 +3,7 @@
 -- Cue Ball.
 --
 -- Charge to a direction 4 and turn right on obstacle reached.
--- Spin around himself on hurt, and 
+-- Spin around himself on hurt, and charge to a random direction.
 --
 -- Methods : enemy:start_charging([direction4])
 --           enemy:start_spinning()

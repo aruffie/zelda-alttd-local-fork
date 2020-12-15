@@ -148,10 +148,10 @@ tile{
 
 tile{
   layer = 0,
-  x = 2032,
-  y = 576,
-  width = 96,
-  height = 64,
+  x = 2000,
+  y = 592,
+  width = 160,
+  height = 32,
   pattern = "floor_low.10-1",
 }
 
@@ -3614,7 +3614,7 @@ tile{
 tile{
   layer = 0,
   x = 2032,
-  y = 592,
+  y = 576,
   width = 16,
   height = 16,
   pattern = "torch_big.bottom",
@@ -3623,7 +3623,7 @@ tile{
 tile{
   layer = 0,
   x = 2112,
-  y = 592,
+  y = 576,
   width = 16,
   height = 16,
   pattern = "torch_big.bottom",
@@ -14756,9 +14756,9 @@ tile{
 tile{
   layer = 0,
   x = 2048,
-  y = 640,
+  y = 624,
   width = 64,
-  height = 32,
+  height = 48,
   pattern = "floor_low.10-1",
 }
 
@@ -14767,7 +14767,7 @@ tile{
   x = 2048,
   y = 528,
   width = 64,
-  height = 48,
+  height = 64,
   pattern = "floor_low.10-1",
 }
 
@@ -14786,24 +14786,6 @@ tile{
   y = 576,
   width = 32,
   height = 96,
-  pattern = "floor_low.10-1",
-}
-
-tile{
-  layer = 0,
-  x = 2000,
-  y = 608,
-  width = 32,
-  height = 32,
-  pattern = "floor_low.10-1",
-}
-
-tile{
-  layer = 0,
-  x = 2128,
-  y = 608,
-  width = 32,
-  height = 32,
   pattern = "floor_low.10-1",
 }
 
@@ -16420,7 +16402,7 @@ tile{
 tile{
   layer = 0,
   x = 2064,
-  y = 592,
+  y = 584,
   width = 32,
   height = 32,
   pattern = "14",
@@ -19634,7 +19616,7 @@ destination{
   name = "dungeon_2_1_B",
   layer = 0,
   x = 800,
-  y = 1653,
+  y = 1637,
   direction = 1,
 }
 
@@ -20244,7 +20226,7 @@ custom_entity{
   name = "placeholder_boss",
   layer = 0,
   x = 2080,
-  y = 557,
+  y = 573,
   width = 16,
   height = 16,
   direction = 0,
@@ -20254,7 +20236,7 @@ pickable{
   name = "heart_container",
   layer = 0,
   x = 2080,
-  y = 613,
+  y = 605,
   treasure_name = "heart_container",
   treasure_savegame_variable = "dungeon_2_heart_container",
 }
@@ -22168,24 +22150,6 @@ wall{
   stops_blocks = true,
 }
 
-destination{
-  name = "destination",
-  layer = 0,
-  x = 2080,
-  y = 661,
-  direction = 1,
-}
-
-custom_entity{
-  name = "placeholder_bottle",
-  layer = 0,
-  x = 2080,
-  y = 613,
-  width = 16,
-  height = 16,
-  direction = 0,
-}
-
 sensor{
   name = "sensor_5",
   layer = 0,
@@ -22586,7 +22550,7 @@ tile{
 tile{
   layer = 1,
   x = 2032,
-  y = 576,
+  y = 560,
   width = 16,
   height = 16,
   pattern = "torch_big.top",
@@ -22595,7 +22559,7 @@ tile{
 tile{
   layer = 1,
   x = 2112,
-  y = 576,
+  y = 560,
   width = 16,
   height = 16,
   pattern = "torch_big.top",

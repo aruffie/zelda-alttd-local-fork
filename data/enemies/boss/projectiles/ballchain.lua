@@ -1,6 +1,6 @@
 ----------------------------------
 --
--- Ballchain Soldier.
+-- Soldier's Ballchain.
 --
 -- Weapon of the ballchain soldier.
 --

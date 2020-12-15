@@ -1,12 +1,11 @@
 ----------------------------------
 --
--- Bat.
+-- Grim Creeper's Bat.
 --
 -- Bat invoked by the Grim Creeper, invincible and harmless until charging.
 --
 -- Methods : enemy:start_positioning(target_x, target_y)
 --           enemy:start_throwed(entity)
---           
 --
 -- Events :  enemy:on_positioned()
 --           enemy:on_off_screen()
