@@ -305,8 +305,8 @@ function carriable_behavior.apply(carriable, properties)
           if #entities > 0 then
             if is_offensive and is_obstacle_in(entities) then -- Only reverse the move if at least one entity is an obstacle.
               reverse_direction(slowdown_ratio)
+              hit(entities)
             end
-            hit(entities)
           end
         end
         is_bounce_movement_starting = false

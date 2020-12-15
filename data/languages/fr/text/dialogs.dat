@@ -985,10 +985,9 @@ Ta petite épée ne pourra pas briser cette bouteille !
 dialog{
   id = "maps.dungeons.2.boss_message_3",
   text = [[
-. . . . !
-Je ne peux pas bouger !
-Mais je vais bien.
-Ta petite épée ne pourra pas briser cette bouteille !
+Quoi ? Tu as osé ?
+Tu as cassé ma jarre. Alors là !
+Je suis furax !!
 ]],
 }
 

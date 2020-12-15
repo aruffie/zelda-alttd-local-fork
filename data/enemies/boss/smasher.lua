@@ -74,8 +74,8 @@ local function create_ball()
   end)
 
   -- Add the collision test to hurt the hero if the ball is controlled by the enemy.
-  ball:add_collision_test("sprite", function(ball, entity)
-    if is_ball_controlled_by_enemy and entity:get_type() == "hero" and not entity:is_blinking() then
+  ball:add_collision_test("sprite", function(ball, entity, ball_sprite, entity_sprite)
+    if is_ball_controlled_by_enemy and entity:get_type() == "hero" and entity_sprite == entity:get_sprite("tunic") and not entity:is_blinking() then
       entity:start_hurt(ball, enemy:get_damage())
     end
   end)
