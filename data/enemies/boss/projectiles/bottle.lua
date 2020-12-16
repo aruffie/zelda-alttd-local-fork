@@ -2,7 +2,8 @@
 --
 -- Genie's Bottle.
 --
--- TODO
+-- Bottle used by the genie to hide.
+-- Invincible until set_stunnable() is called to make it vulnerable to sword attack, then can be carried and throwed while stunned.
 --
 -- Methods : enemy:set_stunnable(stunnable)
 --

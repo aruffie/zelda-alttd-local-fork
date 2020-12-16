@@ -19616,7 +19616,7 @@ destination{
   name = "dungeon_2_1_B",
   layer = 0,
   x = 800,
-  y = 1637,
+  y = 1653,
   direction = 1,
 }
 

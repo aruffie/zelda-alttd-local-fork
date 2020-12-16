@@ -1579,7 +1579,7 @@ file{ path = "enemies/boss/dodongo_snake.lua", author = "Vlag", license = "GPL v
 file{ path = "enemies/boss/evil_eagle.lua", license = "GPL v3" }
 file{ path = "enemies/boss/evil_orb.lua", license = "GPL v3" }
 file{ path = "enemies/boss/facade.lua", license = "GPL v3" }
-file{ path = "enemies/boss/genie.lua", license = "GPL v3" }
+file{ path = "enemies/boss/genie.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/giant_buzz_blob.lua", license = "GPL v3" }
 file{ path = "enemies/boss/gohma.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/grim_creeper.lua", author = "Vlag", license = "GPL v3" }

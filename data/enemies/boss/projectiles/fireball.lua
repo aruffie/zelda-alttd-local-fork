@@ -1,4 +1,12 @@
--- Fireball projectile, used by the Genie enemy.
+----------------------------------
+--
+-- Genie's Fireball.
+--
+-- Projectile throwed by the genie.
+--
+-- Methods : enemy:extinguish()
+--
+----------------------------------
 
 local enemy = ...
 local projectile_behavior = require("enemies/lib/projectile")
@@ -40,6 +48,7 @@ enemy:register_event("on_restarted", function(enemy)
 
   sprite:set_animation("walking")
   enemy:set_damage(4)
+  enemy:set_invincible()
   enemy:set_layer_independent_collisions(true)
   enemy:set_obstacle_behavior("flying")
   enemy:set_pushed_back_when_hurt(false)
