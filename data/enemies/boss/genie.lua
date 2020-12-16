@@ -2,9 +2,15 @@
 --
 -- Genie.
 --
--- TODO
+-- Flying enemy that have 5 fighting steps and comes with a bottle sub enemy.
+-- Starts hidden into the bottle which will go to the middle of the room, then appear and throw some fireballs to the hero, and finally hide into its bottle again to chase the hero.
+-- The bottle is stunnable with a sword attack during the chasing step, and is carriable and vulnerable to a throw against obstacles while stunned.
+-- Go back to the fireball steps when the bottle is hurt or stun duration finished normally.
+-- Break the bottle after some hits, to make the boss appear again and chase the hero while being vulnerable to sword attacks.
+-- Spin around the center of the room when hurt then throw a fireball, and finally go back to chase step again.
 --
 -- Events : enemy:on_step_started(step)
+--          enemy:on_stunned()
 --
 ----------------------------------
 
@@ -25,7 +31,7 @@ local room_center_x, room_center_y
 local current_step = 0
 
 -- Configuration variables.
-local before_steps_duration = {1500, 500, 500, 1000, 200}
+local before_steps_duration = {1500, 500, 500, 200, 200}
 local before_genie_appear_duration = 1000
 local bottle_slow_speed = 22
 local vertical_oscillation_duration = 1200
@@ -43,7 +49,9 @@ local before_throwing_fireballs_duration = 4000
 local between_fireball_throw_duration = 800
 local back_to_center_speed = 44
 local bottle_speed = 56
-local chasing_speed = 64
+local chasing_speed = 88
+local chasing_acceleration = 88
+local chasing_deceleration = 88
 local blinking_step_duration = 50
 local circle_duration = 1000
 local circle_radius_diminution = 0.1
@@ -131,6 +139,13 @@ local function create_bottle()
       start_step(4)
     end)
   end)
+
+  -- Propagate stun event.
+  bottle:register_event("on_stunned", function(bottle)
+    if enemy.on_stunned then
+      enemy:on_stunned()
+    end
+  end)
 end
 
 -- Check if the custom death as to be started before triggering the built-in hurt behavior.
@@ -214,6 +229,23 @@ local function start_throwing_fireball(on_throwed_callback)
     end)
     on_throwed_callback()
   end)
+end
+
+-- Start targetting the hero with acceleration.
+local function start_target_impulsion()
+
+  local target_x, target_y = hero:get_position()
+  local angle = enemy:get_angle(target_x, target_y)
+
+  -- Start moving to the target with acceleration.
+  local movement = enemy:start_impulsion(angle, chasing_speed, chasing_acceleration, chasing_deceleration, 16) -- Retarget every 16px traveled.
+  movement:set_ignore_obstacles(true)
+  sprite:set_direction(angle > quarter and angle < 3.0 * quarter and 2 or 0)
+
+  -- Target a new random point when target reached.
+  function movement:on_decelerating()
+    start_target_impulsion()
+  end
 end
 
 -- Step 1, make the bottle walk to the center of the room and make the Genie appear.
@@ -310,7 +342,7 @@ end
 -- Step 4, make the boss vulnerable and chasing the hero.
 local function start_step_4()
 
-  enemy:start_target_walking(hero, chasing_speed)
+  start_target_impulsion()
   enemy:set_can_attack(true)
   enemy:set_hero_weapons_reactions({
     sword = function() hurt(1) end
