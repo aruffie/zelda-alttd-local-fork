@@ -52,7 +52,6 @@ function common_actions.learn(enemy)
   local game = enemy:get_game()
   local map = enemy:get_map()
   local hero = map:get_hero()
-  local camera = map:get_camera()
   local trigonometric_functions = {math.cos, math.sin}
   local circle = 2.0 * math.pi
   local quarter = 0.5 * math.pi
@@ -871,10 +870,11 @@ function common_actions.learn(enemy)
         x = enemy_x + (x or 0),
         y = enemy_y + (y or 0),
         layer = enemy_layer,
-        width = 16,
-        height = 16,
+        width = 8,
+        height = 8,
         sprite = sprite_name or "entities/shadows/shadow"
       })
+      shadow:set_weight(-1)
       enemy:start_welding(shadow, x, y)
 
       if animation_name then
@@ -967,11 +967,11 @@ function common_actions.learn(enemy)
           end
         end
       end)
-      explosion:set_layer(enemy:get_layer() + 1)
       local sprite = explosion:get_sprite()
       elapsed_time = elapsed_time + sprite:get_frame_delay() * sprite:get_num_frames()
     end
     start_close_explosion()
+    enemy:set_drawn_in_y_order(false) -- Display as a flat entity to draw explosions over it.
   end
 
   -- Make the given enemy sprites explode one after the other in the given order, and remove exploded sprite.
@@ -994,10 +994,10 @@ function common_actions.learn(enemy)
           end
         end
       end)
-      explosion:set_layer(enemy:get_layer() + 1)
       enemy:remove_sprite(sprite)
     end
     start_sprite_explosion(1)
+    enemy:set_drawn_in_y_order(false) -- Display as a flat entity to draw explosions over it.
   end
 
   -- Stop all running actions and prevent interactions with other entities.

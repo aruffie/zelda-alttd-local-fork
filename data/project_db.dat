@@ -240,9 +240,9 @@ sprite{ id = "enemies/boss/evil_eagle", description = "Evil eagle" }
 sprite{ id = "enemies/boss/evil_orb/evil_orb", description = "Evil orb" }
 sprite{ id = "enemies/boss/evil_orb/evil_orb_head", description = "Orb evil orb" }
 sprite{ id = "enemies/boss/facade", description = "Facade" }
-sprite{ id = "enemies/boss/genie/genie", description = "Genie" }
-sprite{ id = "enemies/boss/genie/genie_bottle", description = "Genie bottle" }
-sprite{ id = "enemies/boss/genie/genie_fire_ball", description = "Genie fire ball" }
+sprite{ id = "enemies/boss/genie", description = "Genie" }
+sprite{ id = "enemies/boss/genie/bottle", description = "Genie bottle" }
+sprite{ id = "enemies/boss/genie/fireball", description = "Genie fire ball" }
 sprite{ id = "enemies/boss/genie_enemies/genie_bottle", description = "Genie bottle" }
 sprite{ id = "enemies/boss/gohma", description = "Gohma red" }
 sprite{ id = "enemies/boss/gohma/blue", description = "Gohma blue" }
@@ -1366,6 +1366,7 @@ enemy{ id = "boss/projectiles/bat", description = "Grim Creeper's Bat" }
 enemy{ id = "boss/projectiles/bottle", description = "Genie's Bottle" }
 enemy{ id = "boss/projectiles/boulder", description = "Stone Hinox's Boulder" }
 enemy{ id = "boss/projectiles/brick", description = "Angler Fish's Brick" }
+enemy{ id = "boss/projectiles/fireball", description = "Genie's Fireball" }
 enemy{ id = "boss/projectiles/fry", description = "Angler Fish's Fry" }
 enemy{ id = "boss/projectiles/spike", description = "Rolling Bones's Spike" }
 enemy{ id = "boss/rolling_bones", description = "Rolling bones" }
@@ -1473,7 +1474,6 @@ entity{ id = "ball", description = "Ball" }
 entity{ id = "bird", description = "Bird" }
 entity{ id = "bomb", description = "Bomb" }
 entity{ id = "bomb_arrow", description = "Bomb Arrow" }
-entity{ id = "bottle", description = "Bottle" }
 entity{ id = "bowwow", description = "Bowwow" }
 entity{ id = "bubble", description = "Bubble" }
 entity{ id = "butterfly", description = "Butterfly" }
@@ -1579,7 +1579,7 @@ file{ path = "enemies/boss/dodongo_snake.lua", author = "Vlag", license = "GPL v
 file{ path = "enemies/boss/evil_eagle.lua", license = "GPL v3" }
 file{ path = "enemies/boss/evil_orb.lua", license = "GPL v3" }
 file{ path = "enemies/boss/facade.lua", license = "GPL v3" }
-file{ path = "enemies/boss/genie.lua", license = "GPL v3" }
+file{ path = "enemies/boss/genie.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/giant_buzz_blob.lua", license = "GPL v3" }
 file{ path = "enemies/boss/gohma.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/grim_creeper.lua", author = "Vlag", license = "GPL v3" }
@@ -1590,9 +1590,10 @@ file{ path = "enemies/boss/moblin_chief.lua", author = "Vlag", license = "GPL v3
 file{ path = "enemies/boss/moldorm.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/projectiles/ballchain.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/projectiles/bat.lua", author = "Vlag", }
-file{ path = "enemies/boss/projectiles/bottle.lua", license = "GPL v3" }
+file{ path = "enemies/boss/projectiles/bottle.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/projectiles/boulder.lua", license = "GPL v3" }
 file{ path = "enemies/boss/projectiles/brick.lua", license = "GPL v3" }
+file{ path = "enemies/boss/projectiles/fireball.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/projectiles/fry.lua", license = "GPL v3" }
 file{ path = "enemies/boss/projectiles/spike.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/rolling_bones.lua", author = "Vlag", license = "GPL v3" }
@@ -1708,7 +1709,6 @@ file{ path = "entities/ball.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "entities/bird.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "entities/bomb.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "entities/bomb_arrow.lua", license = "GPL v3" }
-file{ path = "entities/bottle.lua", license = "GPL v3" }
 file{ path = "entities/bowwow.lua", license = "GPL v3" }
 file{ path = "entities/bubble.lua", license = "GPL v3" }
 file{ path = "entities/butterfly.lua", license = "GPL v3" }

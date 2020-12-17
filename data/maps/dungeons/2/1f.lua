@@ -4,6 +4,8 @@ local game = map:get_game()
 local is_small_boss_active = false
 local is_boss_active = false
 local boss_key_enemies_index = 0
+local is_boss_message_2_displayed = false
+local is_boss_message_3_displayed = false
 
 -- Include scripts
 require("scripts/multi_events")
@@ -177,6 +179,22 @@ sensor_boss:register_event("on_activated", function()
   if is_boss_active == false then
     is_boss_active = true
     enemy_manager:launch_boss_if_not_dead(map)
+
+    -- Display dialogs related to boss steps.
+    function boss:on_step_started(step)
+      if step == 2 then
+        game:start_dialog("maps.dungeons.2.boss_message_1")
+      elseif step == 4 and not is_boss_message_3_displayed then
+        is_boss_message_3_displayed = true
+        game:start_dialog("maps.dungeons.2.boss_message_3")
+      end
+    end
+    function boss:on_stunned()
+      if not is_boss_message_2_displayed then
+        is_boss_message_2_displayed = true
+        game:start_dialog("maps.dungeons.2.boss_message_2")
+      end
+    end
   end
 
 end)

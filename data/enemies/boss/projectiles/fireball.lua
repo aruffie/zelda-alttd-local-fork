@@ -1,21 +1,31 @@
--- Bone projectile, mainly used by the red Stalfos enemy.
+----------------------------------
+--
+-- Genie's Fireball.
+--
+-- Projectile throwed by the genie.
+--
+-- Methods : enemy:extinguish()
+--
+----------------------------------
 
 local enemy = ...
 local projectile_behavior = require("enemies/lib/projectile")
 
 -- Global variables
-local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
-
--- Remove the projectile on shield collision.
-local function on_shield_collision()
-
-  enemy:on_hit()
-  enemy:start_death()
-end
+local sprite = enemy:create_sprite("enemies/boss/genie/fireball")
 
 -- Start going to the hero.
 function enemy:go()
-  enemy:straight_go()
+
+  local movement = enemy:straight_go(nil, 80)
+  movement:set_ignore_obstacles(true)
+end
+
+function enemy:extinguish()
+
+  sprite:set_animation("extinguish", function()
+    enemy:start_death()
+  end)
 end
 
 -- Create an impact effect on hit.
@@ -30,15 +40,16 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(1)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 8)
+  enemy:start_shadow()
 end)
 
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
   sprite:set_animation("walking")
-  enemy:set_damage(2)
+  enemy:set_damage(4)
+  enemy:set_invincible()
+  enemy:set_layer_independent_collisions(true)
   enemy:set_obstacle_behavior("flying")
   enemy:set_pushed_back_when_hurt(false)
-  enemy:set_hero_weapons_reactions({shield = on_shield_collision})
-  enemy:go()
 end)
