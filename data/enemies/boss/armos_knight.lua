@@ -140,11 +140,10 @@ local function start_jumping()
 
         -- Stun the hero if not in the air.
         local is_hero_freezed = false
-        local hero_sprite = hero:get_sprite()
         if not hero:is_jumping() then
           is_hero_freezed = true
           hero:freeze()
-          hero_sprite:set_animation("scared")
+          hero:get_sprite():set_animation("scared")
         end
 
         -- Wait for some time then unfreeze the hero if needed and restart the enemy.

@@ -103,10 +103,11 @@ local function begin_run()
           if reaction ~= "protected" and enemy_sprite:get_animation() ~= "hurt" and enemy_sprite:get_shader() ~= "hurt" then
             enemy:receive_attack_consequence("thrust", reaction)
           else
-            -- On the protected case, hurt the hero if the enemy can attack and the enemy touches the hero tunic sprite.
+            -- Else hurt the hero if the enemy can attack and the enemy touches the hero tunic sprite.
             if enemy:get_can_attack() and enemy:overlaps(entity, "sprite", nil, entity:get_sprite("tunic")) then 
               hero:start_hurt(enemy, enemy:get_damage())
-            else -- TODO Else repulse
+            else
+              -- TODO Else repulse
             end
           end
         end

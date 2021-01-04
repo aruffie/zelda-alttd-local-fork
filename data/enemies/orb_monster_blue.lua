@@ -37,7 +37,7 @@ end)
 enemy:register_event("on_restarted", function(enemy)
 
   -- Behavior for each items.
-  enemy:set_hero_weapons_reactions(2, {
+  enemy:set_hero_weapons_reactions({
     sword = 1
   })
 

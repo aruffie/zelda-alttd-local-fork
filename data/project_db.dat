@@ -273,6 +273,7 @@ sprite{ id = "enemies/boss/rolling_bones", description = "Rolling bones" }
 sprite{ id = "enemies/boss/rolling_bones/spike", description = "Rolling bones Spike" }
 sprite{ id = "enemies/boss/slime_eel", description = "Slime eel" }
 sprite{ id = "enemies/boss/slime_eye", description = "Slime eye" }
+sprite{ id = "enemies/boss/slime_eye/splitted_eye", description = "Splitted Eye" }
 sprite{ id = "enemies/boss/smasher", description = "Smasher" }
 sprite{ id = "enemies/boss/stone_hinox/stone_hinox", description = "Stone hinox" }
 sprite{ id = "enemies/boss/stone_hinox/stone_hinox_boulder", description = "Stone hinox boulder" }
@@ -1369,6 +1370,8 @@ enemy{ id = "boss/projectiles/brick", description = "Angler Fish's Brick" }
 enemy{ id = "boss/projectiles/fireball", description = "Genie's Fireball" }
 enemy{ id = "boss/projectiles/fry", description = "Angler Fish's Fry" }
 enemy{ id = "boss/projectiles/spike", description = "Rolling Bones's Spike" }
+enemy{ id = "boss/projectiles/splitted_eye", description = "Slime Eye's Splitted Eye" }
+enemy{ id = "boss/projectiles/zol", description = "Slime Eye's Zol" }
 enemy{ id = "boss/rolling_bones", description = "Rolling bones" }
 enemy{ id = "boss/slime_eel", description = "Slime Eel" }
 enemy{ id = "boss/slime_eye", description = "Slime eye" }
@@ -1596,6 +1599,8 @@ file{ path = "enemies/boss/projectiles/brick.lua", license = "GPL v3" }
 file{ path = "enemies/boss/projectiles/fireball.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/projectiles/fry.lua", license = "GPL v3" }
 file{ path = "enemies/boss/projectiles/spike.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/boss/projectiles/splitted_eye.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/boss/projectiles/zol.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/rolling_bones.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/slime_eel.lua", license = "GPL v3" }
 file{ path = "enemies/boss/slime_eye.lua", license = "GPL v3" }
@@ -2684,6 +2689,7 @@ file{ path = "sprites/enemies/boss/dethl/ganon_form/bat.dat", author = "JulioTan
 file{ path = "sprites/enemies/boss/dethl/ganon_form/fork.dat", author = "JulioTanaka", }
 file{ path = "sprites/enemies/boss/dethl/ganon_form/ganon.dat", author = "JulioTanaka", }
 file{ path = "sprites/enemies/boss/grim_creeper/minion.dat", author = "JulioTanaka", }
+file{ path = "sprites/enemies/boss/slime_eye/splitted_eye.dat", author = "Vlag", license = "GPL v3" }
 file{ path = "sprites/enemies/boulder.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/bubble.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/bubble_giant.png", license = "Proprietary, Fair use" }
