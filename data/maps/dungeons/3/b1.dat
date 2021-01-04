@@ -6595,8 +6595,8 @@ stairs{
 destination{
   name = "stairs_1_B",
   layer = 0,
-  x = 1152,
-  y = 845,
+  x = 1104,
+  y = 1637,
   direction = 3,
 }
 

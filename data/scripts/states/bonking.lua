@@ -92,6 +92,11 @@ function state:on_started()
     movement:set_angle(movement:get_angle()+math.pi)
   end
   movement:start(entity)
+
+  -- Call on_bonking event.
+  if entity.on_bonking then
+    entity:on_bonking()
+  end
 end
 
 return function(_jump_manager)
