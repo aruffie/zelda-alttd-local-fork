@@ -13,6 +13,15 @@ properties{
 
 tile{
   layer = 0,
+  x = 688,
+  y = 280,
+  width = 224,
+  height = 160,
+  pattern = "floor_low.3-1",
+}
+
+tile{
+  layer = 0,
   x = 2160,
   y = 640,
   width = 32,
@@ -3321,15 +3330,6 @@ tile{
   width = 240,
   height = 24,
   pattern = "wall.2-2",
-}
-
-tile{
-  layer = 0,
-  x = 688,
-  y = 288,
-  width = 224,
-  height = 144,
-  pattern = "floor_low.3-1",
 }
 
 tile{
@@ -7780,16 +7780,16 @@ tile{
 
 tile{
   layer = 0,
-  x = 752,
+  x = 768,
   y = 328,
-  width = 96,
+  width = 64,
   height = 64,
   pattern = "hole",
 }
 
 tile{
   layer = 0,
-  x = 752,
+  x = 768,
   y = 384,
   width = 8,
   height = 8,
@@ -7798,7 +7798,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 840,
+  x = 824,
   y = 384,
   width = 8,
   height = 8,
@@ -7807,7 +7807,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 840,
+  x = 824,
   y = 328,
   width = 8,
   height = 8,
@@ -7816,7 +7816,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 752,
+  x = 768,
   y = 328,
   width = 8,
   height = 8,
@@ -7825,18 +7825,18 @@ tile{
 
 tile{
   layer = 0,
-  x = 760,
+  x = 776,
   y = 328,
-  width = 80,
+  width = 48,
   height = 8,
   pattern = "hole.1",
 }
 
 tile{
   layer = 0,
-  x = 760,
+  x = 776,
   y = 384,
-  width = 80,
+  width = 48,
   height = 8,
   pattern = "hole.2",
 }
@@ -7942,7 +7942,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 752,
+  x = 768,
   y = 336,
   width = 8,
   height = 48,
@@ -7951,7 +7951,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 840,
+  x = 824,
   y = 336,
   width = 8,
   height = 48,
@@ -12976,6 +12976,36 @@ tile{
   pattern = "door.1",
 }
 
+dynamic_tile{
+  name = "boss_collapsing_floor_3",
+  layer = 0,
+  x = 768,
+  y = 328,
+  width = 64,
+  height = 64,
+  pattern = "floor_low.22-1",
+}
+
+dynamic_tile{
+  name = "boss_collapsing_floor_2",
+  layer = 0,
+  x = 768,
+  y = 328,
+  width = 64,
+  height = 64,
+  pattern = "floor_low.cracked.4-1",
+}
+
+dynamic_tile{
+  name = "boss_collapsing_floor_1",
+  layer = 0,
+  x = 768,
+  y = 328,
+  width = 64,
+  height = 64,
+  pattern = "floor_low.3-1",
+}
+
 wall{
   layer = 0,
   x = 792,
@@ -16720,8 +16750,8 @@ enemy{
 destination{
   name = "dungeon_5_1_B",
   layer = 0,
-  x = 2080,
-  y = 1893,
+  x = 784,
+  y = 437,
   direction = 1,
 }
 
@@ -18302,7 +18332,7 @@ custom_entity{
   name = "placeholder_boss",
   layer = 0,
   x = 800,
-  y = 317,
+  y = 365,
   width = 16,
   height = 16,
   direction = 0,
@@ -19760,6 +19790,46 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
+}
+
+dynamic_tile{
+  name = "boss_collapsing_wall_1",
+  layer = 0,
+  x = 704,
+  y = 256,
+  width = 48,
+  height = 24,
+  pattern = "wall.1-2",
+}
+
+dynamic_tile{
+  name = "boss_collapsing_wall_2",
+  layer = 0,
+  x = 848,
+  y = 256,
+  width = 48,
+  height = 24,
+  pattern = "wall.1-2",
+}
+
+dynamic_tile{
+  name = "boss_collapsing_wall_3",
+  layer = 0,
+  x = 704,
+  y = 440,
+  width = 48,
+  height = 24,
+  pattern = "wall.2-2",
+}
+
+dynamic_tile{
+  name = "boss_collapsing_wall_4",
+  layer = 0,
+  x = 848,
+  y = 440,
+  width = 48,
+  height = 24,
+  pattern = "wall.2-2",
 }
 
 tile{

@@ -15,6 +15,7 @@ local enemy_manager = require("scripts/maps/enemy_manager")
 local switch_manager = require("scripts/maps/switch_manager")
 local treasure_manager = require("scripts/maps/treasure_manager")
 local separator_manager = require("scripts/maps/separator_manager")
+local map_tools = require("scripts/maps/map_tools")
 
 -- Master Stalfos appearing.
 local function appear_master_stalfos(placeholder, on_step_finished_callback)
@@ -31,8 +32,10 @@ local function appear_master_stalfos(placeholder, on_step_finished_callback)
     y = y,
     layer = layer,
     treasure_name = placeholder:get_property("treasure"),
-    properties = {{key = "falling_dialog", value = placeholder:get_property("falling_dialog") or ""},
-                  {key = "escaping_dialog", value = "maps.dungeons.5.master_stalfos_escaping"}}
+    properties = {
+      {key = "falling_dialog", value = placeholder:get_property("falling_dialog") or ""},
+      {key = "escaping_dialog", value = "maps.dungeons.5.master_stalfos_escaping"}
+    }
   }
   enemy:set_life(master_stalfos_life)
 
@@ -64,6 +67,37 @@ local function appear_master_stalfos(placeholder, on_step_finished_callback)
   audio_manager:play_music("21_mini_boss_battle")
 end
 
+-- Make some entity collapse in the boss room.
+local function start_boss_room_collapsing()
+
+  sol.timer.start(map, 2000, function()
+    map_tools.start_earthquake({count = 180, amplitude = 4, speed = 90})
+    sol.timer.start(map, 1000, function()
+      boss_collapsing_floor_1:remove()
+      sol.timer.start(map, 500, function()
+        boss_collapsing_floor_2:remove()
+        sol.timer.start(map, 500, function()
+          boss_collapsing_floor_3:remove()
+          sol.timer.start(map, 2000, function()
+            sol.timer.start(map, 1000, function()
+              boss_collapsing_wall_1:remove()
+              sol.timer.start(map, 1000, function()
+                boss_collapsing_wall_2:remove()
+                sol.timer.start(map, 1000, function()
+                  boss_collapsing_wall_3:remove()
+                  sol.timer.start(map, 1000, function()
+                    boss_collapsing_wall_4:remove()
+                  end)
+                end)
+              end)
+            end)
+          end)
+        end)
+      end)
+    end)
+  end)
+end
+
 -- Map events
 map:register_event("on_started", function()
 
@@ -84,6 +118,7 @@ map:register_event("on_started", function()
   game:play_dungeon_music()
   -- Pickables
   treasure_manager:disappear_pickable(map, "pickable_small_key_1")
+  treasure_manager:disappear_pickable(map, "heart_container")
   treasure_manager:appear_pickable_when_blocks_moved(map, "auto_block_group_1_", "pickable_small_key_1")
   treasure_manager:appear_heart_container_if_boss_dead(map)
   -- Separators
@@ -176,6 +211,7 @@ function sensor_8:on_activated()
   if is_boss_active == false then
     is_boss_active = true
     enemy_manager:launch_boss_if_not_dead(map)
+    start_boss_room_collapsing()
   end
 
 end

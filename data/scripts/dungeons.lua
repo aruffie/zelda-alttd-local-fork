@@ -220,6 +220,7 @@ local function initialize_dungeon_features(game)
         floor = 0,
         x = 640 + 1440,
         y = 720 + 365,
+        breed = "boss/slime_eel",
         savegame_variable = "dungeon_5_boss",
       }
     },

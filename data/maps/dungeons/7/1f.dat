@@ -7233,7 +7233,7 @@ destination{
   name = "dungeon_7_1_B",
   layer = 0,
   x = 480,
-  y = 917,
+  y = 933,
   direction = 1,
 }
 
