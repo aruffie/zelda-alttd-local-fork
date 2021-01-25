@@ -2298,16 +2298,6 @@ teletransporter{
   destination = "from_1f_b",
 }
 
-jumper{
-  layer = -1,
-  x = 528,
-  y = 112,
-  width = 8,
-  height = 16,
-  direction = 4,
-  jump_length = 40,
-}
-
 stairs{
   layer = -1,
   x = 1088,
@@ -2426,21 +2416,12 @@ stairs{
 }
 
 stairs{
+  name = "solid_lava_wall",
   layer = -1,
   x = 512,
   y = 88,
   direction = 0,
   subtype = 4,
-}
-
-jumper{
-  layer = -1,
-  x = 528,
-  y = 64,
-  width = 8,
-  height = 16,
-  direction = 4,
-  jump_length = 40,
 }
 
 door{
@@ -21097,8 +21078,8 @@ custom_entity{
 custom_entity{
   name = "lava_pond_bubble_17",
   layer = 0,
-  x = 520,
-  y = 125,
+  x = 504,
+  y = 117,
   width = 16,
   height = 16,
   direction = 0,
@@ -21134,7 +21115,7 @@ custom_entity{
   name = "lava_pond_bubble_20",
   layer = 0,
   x = 520,
-  y = 101,
+  y = 69,
   width = 16,
   height = 16,
   direction = 0,
@@ -24102,42 +24083,6 @@ enemy{
 }
 
 enemy{
-  name = "keese_3_1",
-  layer = 0,
-  x = 2368,
-  y = 1037,
-  direction = 0,
-  breed = "keese",
-}
-
-enemy{
-  name = "keese_3_3",
-  layer = 0,
-  x = 2432,
-  y = 1037,
-  direction = 0,
-  breed = "keese",
-}
-
-enemy{
-  name = "keese_3_2",
-  layer = 0,
-  x = 2368,
-  y = 1053,
-  direction = 0,
-  breed = "keese",
-}
-
-enemy{
-  name = "keese_3_4",
-  layer = 0,
-  x = 2432,
-  y = 1053,
-  direction = 0,
-  breed = "keese",
-}
-
-enemy{
   name = "moldorm_1_1",
   layer = 0,
   x = 2120,
@@ -24220,6 +24165,116 @@ enemy{
   y = 597,
   direction = 0,
   breed = "mini_moldorm",
+}
+
+jumper{
+  name = "solid_lava_wall_6",
+  layer = 0,
+  x = 528,
+  y = 64,
+  width = 8,
+  height = 16,
+  direction = 4,
+  jump_length = 40,
+}
+
+jumper{
+  name = "solid_lava_wall_7",
+  layer = 0,
+  x = 528,
+  y = 112,
+  width = 8,
+  height = 16,
+  direction = 4,
+  jump_length = 40,
+}
+
+enemy{
+  name = "evil_tile_group_enemy_3",
+  layer = 0,
+  x = 1424,
+  y = 1781,
+  enabled_at_start = false,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "evil_tile_group_enemy_4",
+  layer = 0,
+  x = 1400,
+  y = 1781,
+  enabled_at_start = false,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "evil_tile_group_enemy_5",
+  layer = 0,
+  x = 1400,
+  y = 1829,
+  enabled_at_start = false,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "evil_tile_group_enemy_6",
+  layer = 0,
+  x = 1480,
+  y = 1829,
+  enabled_at_start = false,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "evil_tile_group_enemy_7",
+  layer = 0,
+  x = 1480,
+  y = 1781,
+  enabled_at_start = false,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "evil_tile_group_enemy_8",
+  layer = 0,
+  x = 1456,
+  y = 1781,
+  enabled_at_start = false,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "evil_tile_group_enemy_9",
+  layer = 0,
+  x = 1456,
+  y = 1829,
+  enabled_at_start = false,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
+}
+
+enemy{
+  name = "evil_tile_group_enemy_10",
+  layer = 0,
+  x = 1424,
+  y = 1829,
+  enabled_at_start = false,
+  direction = 0,
+  breed = "flying_tile",
+  treasure_name = "random",
 }
 
 tile{
@@ -30273,14 +30328,6 @@ custom_entity{
   tiled = true,
 }
 
-destination{
-  name = "entrance",
-  layer = 2,
-  x = 2400,
-  y = 1285,
-  direction = 1,
-}
-
 custom_entity{
   name = "pipe_lava_32",
   layer = 2,
@@ -30399,5 +30446,49 @@ custom_entity{
   direction = 0,
   sprite = "dungeons/owl/pipes/straight_gel",
   tiled = true,
+}
+
+enemy{
+  name = "keese_3_1",
+  layer = 2,
+  x = 2368,
+  y = 1037,
+  direction = 0,
+  breed = "keese",
+}
+
+enemy{
+  name = "keese_3_2",
+  layer = 2,
+  x = 2368,
+  y = 1053,
+  direction = 0,
+  breed = "keese",
+}
+
+enemy{
+  name = "keese_3_3",
+  layer = 2,
+  x = 2432,
+  y = 1037,
+  direction = 0,
+  breed = "keese",
+}
+
+enemy{
+  name = "keese_3_4",
+  layer = 2,
+  x = 2432,
+  y = 1053,
+  direction = 0,
+  breed = "keese",
+}
+
+destination{
+  name = "entrance",
+  layer = 2,
+  x = 72,
+  y = 549,
+  direction = 1,
 }
 
