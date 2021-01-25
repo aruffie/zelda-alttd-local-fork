@@ -30487,8 +30487,8 @@ enemy{
 destination{
   name = "entrance",
   layer = 2,
-  x = 72,
-  y = 549,
+  x = 480,
+  y = 293,
   direction = 1,
 }
 
