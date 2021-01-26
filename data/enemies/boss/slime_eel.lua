@@ -1,37 +1,35 @@
--- Lua script of enemy boss/slim_eel.
+-- Lua script of enemy orb monster blue.
 -- This script is executed every time an enemy with this model is created.
 
--- Feel free to modify the code below.
--- You can add more events and remove the ones you don't need.
-
--- See the Solarus Lua API documentation for the full specification
--- of types, events and methods:
--- http://www.solarus-games.org/doc/latest
-
+-- Global variables
 local enemy = ...
+require("enemies/lib/common_actions").learn(enemy)
+
 local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
-local sprite
-local movement
+local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+local quarter = math.pi * 0.5
 
--- Event called when the enemy is initialized.
-function enemy:on_created()
+-- Configuration variables
 
-  -- Initialize the properties of your enemy here,
-  -- like the sprite, the life and the damage.
-  sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
-  enemy:set_life(1)
+-- Initialization.
+enemy:register_event("on_created", function(enemy)
+
+  enemy:set_life(2)
+  enemy:set_size(16, 16)
+  enemy:set_origin(8, 13)
+end)
+
+-- Restart settings.
+enemy:register_event("on_restarted", function(enemy)
+
+  -- Behavior for each items.
+  enemy:set_hero_weapons_reactions({
+    sword = 1
+  })
+
+  -- States.
+  enemy:set_can_attack(true)
   enemy:set_damage(1)
-end
-
--- Event called when the enemy should start or restart its movements.
--- This is called for example after the enemy is created or after
--- it was hurt or immobilized.
-function enemy:on_restarted()
-
-  movement = sol.movement.create("target")
-  movement:set_target(hero)
-  movement:set_speed(48)
-  movement:start(enemy)
-end
+end)

@@ -19,7 +19,6 @@ local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
-local jump_count, current_max_jump
 local shadow
 
 -- Configuration variables.
@@ -29,11 +28,31 @@ local jumping_height = 12
 local jumping_duration = 600
 local shaking_duration = 1000
 local between_jump_duration = 500
-local max_jump_combo = 8
+local maximum_jump_in_a_row = 8
 local triggering_distance = 60
 
--- Start pouncing to the hero.
-function enemy:start_pouncing()
+-- Make the enemy vulnerable and hurtful.
+local function set_vulnerable()
+
+  enemy:set_can_attack(true)
+  enemy:set_hero_weapons_reactions({
+  	arrow = 1,
+  	boomerang = 1,
+  	explosion = 1,
+  	sword = 1,
+  	thrown_item = 1,
+  	fire = 1,
+  	jump_on = "ignored",
+  	hammer = 1,
+  	hookshot = 1,
+  	magic_powder = 1,
+  	shield = "protected",
+  	thrust = 1
+  })
+end
+
+-- Start a single jump of the serie.
+local function start_jumping(current_jump_number, jump_in_a_row)
 
   local hero_x, hero_y, _ = hero:get_position()
   local enemy_x, enemy_y, _ = enemy:get_position()
@@ -42,44 +61,32 @@ function enemy:start_pouncing()
 
     -- Contine jumping or disappear on jump finished.
     sprite:set_animation("shaking")
-    if enemy:get_distance(hero) > triggering_distance or jump_count >= current_max_jump then
+    if enemy:get_distance(hero) > triggering_distance or current_jump_number >= jump_in_a_row then
       enemy:disappear()
     else
       sol.timer.start(enemy, between_jump_duration, function()
-        jump_count = jump_count + 1
-        enemy:start_pouncing()
+        start_jumping(current_jump_number + 1, jump_in_a_row)
       end)
     end
   end)
   sprite:set_animation("jumping")
 end
 
+-- Start pouncing to the hero.
+function enemy:start_pouncing(jump_in_a_row)
+
+  set_vulnerable()
+  start_jumping(1, math.random(maximum_jump_in_a_row))
+end
+
 -- Make the enemy appear.
 function enemy:appear()
 
   enemy:set_visible()
-  sprite:set_animation("appearing", function()
-
-    enemy:set_hero_weapons_reactions({
-    	arrow = 1,
-    	boomerang = 1,
-    	explosion = 1,
-    	sword = 1,
-    	thrown_item = 1,
-    	fire = 1,
-    	jump_on = "ignored",
-    	hammer = 1,
-    	hookshot = 1,
-    	magic_powder = 1,
-    	shield = "protected",
-    	thrust = 1
-    })
-
+  sprite:set_animation("appearing", function() 
+    set_vulnerable()
     sprite:set_animation("shaking")
-    enemy:set_can_attack(true)
     sol.timer.start(enemy, 1000, function()
-      jump_count = 1
-      current_max_jump = math.random(max_jump_combo)
       enemy:start_pouncing()
     end)
   end)

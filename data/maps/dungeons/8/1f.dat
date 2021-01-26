@@ -24620,7 +24620,7 @@ chest{
   properties = {
     {
       key = "breed",
-      value = "zol_green",
+      value = "boss/projectiles/zol",
     },
   },
   treasure_name = "enemy_ambush",

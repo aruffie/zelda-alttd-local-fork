@@ -19,7 +19,7 @@ local game = item:get_game()
 local audio_manager = require("scripts/audio_manager")
 
 -- Configuration variables default value.
-local breed = "zol_green"
+local breed = "boss/projectiles/zol"
 local waiting_duration = 1000
 local jumping_duration = 1000
 local jumping_height = 16
