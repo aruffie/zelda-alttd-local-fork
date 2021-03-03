@@ -1,5 +1,6 @@
 -- Global variables
 local entity = ...
+local audio_manager = require("scripts/audio_manager")
 require("scripts/multi_events")
 
 local game = entity:get_game()
@@ -98,3 +99,26 @@ entity:register_event("on_created", function()
     npc:set_enabled(false)
   end)
 end)
+
+
+-- Create an exclamation symbol near enemy
+function entity:create_symbol_exclamation(sound)
+
+  local map = self:get_map()
+  local x, y, layer = self:get_position()
+  if sound then
+    audio_manager:play_sound("menus/menu_select")
+  end
+  local symbol = map:create_custom_entity({
+      sprite = "entities/symbols/exclamation",
+      x = x - 16,
+      y = y - 16,
+      width = 16,
+      height = 16,
+      layer = layer + 1,
+      direction = 0
+    })
+
+  return symbol
+
+end

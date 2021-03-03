@@ -94,7 +94,7 @@ return {
     end
   },
   shield = {
-    price = 50,
+    price = 20,
     quantity = 1,
     placeholder = 3,
     variant = 1,
