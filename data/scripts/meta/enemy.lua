@@ -252,7 +252,7 @@ function enemy_meta:receive_attack_consequence(attack, reaction)
       self:immobilize()
     elseif reaction == "protected" then
       on_protected(self, attack)
-      audio_manager:play_sound("sword_tapping")
+      audio_manager:play_sound("items/sword_tap")
     elseif reaction == "custom" then
       if self.on_custom_attack_received ~= nil then
         self:on_custom_attack_received(attack)

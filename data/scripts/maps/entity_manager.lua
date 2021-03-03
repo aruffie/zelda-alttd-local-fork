@@ -18,7 +18,7 @@ end
 function entity_manager:fall(entity)
   local sprite = entity:get_sprite()
   if sprite:has_animation("falling") then
-    audio_manager:play_sound("enemies/falling")
+    audio_manager:play_sound("enemies/enemy_fall")
     sprite:set_animation("falling", function()
         on_fall_finished(entity)
       end)

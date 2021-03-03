@@ -375,10 +375,11 @@ function map_submenu:draw_dungeon_map_rooms(dst_surface, rooms_x, rooms_y)
     if  self.game:has_explored_dungeon_room(self.dungeon_index, self.selected_floor, i) then
       if self.game:has_dungeon_map() then
         -- If the room is visited, show it in another color.
+        self.rooms_sprite:set_direction(i)
         self.rooms_sprite:draw(self.rooms_surface, src_x, src_y)
       else
         -- If the room is visited, show it in another color.
-        self.rooms_no_map_sprite:draw(self.rooms_surface, src_x, src_y)
+       -- self.rooms_no_map_sprite:draw(self.rooms_surface, src_x, src_y)
       end
     end
     if self.game:has_dungeon_compass() and self.game:is_secret_room(self.dungeon_index, self.selected_floor, i) then
