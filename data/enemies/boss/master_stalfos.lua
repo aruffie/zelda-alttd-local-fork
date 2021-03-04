@@ -150,6 +150,24 @@ local function create_sub_enemy(sprite_suffix_name)
   local sub_sprite = sub_enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/" .. sprite_suffix_name)
   synchronize_sprite(sub_sprite, legs_sprite)
 
+  -- Echo some of the main enemy methods
+  enemy:register_event("on_removed", function(enemy)
+    if sub_enemy:exists() then
+      sub_enemy:remove()
+    end
+  end)
+  enemy:register_event("on_enabled", function(enemy)
+    sub_enemy:set_enabled()
+  end)
+  enemy:register_event("on_disabled", function(enemy)
+    sub_enemy:set_enabled(false)
+  end)
+  enemy:register_event("on_dead", function(enemy)
+    if sub_enemy:exists() then
+      sub_enemy:remove()
+    end
+  end)
+
   return sub_enemy, sub_sprite
 end
 

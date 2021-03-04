@@ -55,7 +55,7 @@ local function get_random_visible_position()
 end
 
 -- Remove dust and tunnel effects.
-function remove_effects()
+local function remove_effects()
 
   local function remove_effect(effect)
     if effect and effect:exists() then
@@ -82,15 +82,39 @@ local function synchronize_sprite(sprite, reference_sprite)
 end
 
 -- Return a table with only visible sprites and without the head, sorted from tail to head.
-function get_exploding_tied_sprites()
+local function get_exploding_tied_parts()
 
-	local exploding_sprites = {}
+	local exploding_parts = {}
 	for i = parts_count, 2, -1 do
     if parts[i]:is_visible() then
-  		exploding_sprites[i] = parts[i]:get_sprite()
+  		exploding_parts[#exploding_parts + 1] = parts[i]
     end
 	end
-  return exploding_sprites
+  return exploding_parts
+end
+
+-- Make the visible enemy parts explode one after the other in the given order, and remove exploded ones.
+local function start_part_explosions(on_finished_callback)
+
+  parts = get_exploding_tied_parts()
+
+  -- Start chained explosion.
+  local function start_part_explosion(index)
+    local part = parts[index]
+    local sprite_x, sprite_y = part:get_sprite():get_xy()
+    local explosion = part:start_brief_effect("entities/explosion_boss", nil, sprite_x, sprite_y, nil, function()
+      if index < #parts then
+        start_part_explosion(index + 1)
+      else
+        if on_finished_callback then
+          on_finished_callback()
+        end
+      end
+    end)
+    explosion:set_layer(map:get_max_layer())
+    part:remove()
+  end
+  start_part_explosion(1)
 end
 
 -- Update body and tail sub entities position and offset.
@@ -190,7 +214,7 @@ local function hurt(damage)
       remove_effects()
       head_sprite:set_animation("hurt")
       sol.timer.start(enemy, 2000, function()
-        enemy:start_sprite_explosions(get_exploding_tied_sprites(), "entities/explosion_boss", 0, 0, function()
+        start_part_explosions(function()
           sol.timer.start(enemy, 1000, function()
             local x, y = head_sprite:get_xy()
             enemy:start_brief_effect("entities/explosion_boss", nil, x, y)
