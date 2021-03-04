@@ -20518,6 +20518,42 @@ tile{
   tileset = "addition/dungeon",
 }
 
+tile{
+  layer = 1,
+  x = 704,
+  y = 256,
+  width = 48,
+  height = 8,
+  pattern = "door_cache.1-2",
+}
+
+tile{
+  layer = 1,
+  x = 848,
+  y = 256,
+  width = 48,
+  height = 8,
+  pattern = "door_cache.1-2",
+}
+
+tile{
+  layer = 1,
+  x = 848,
+  y = 456,
+  width = 48,
+  height = 8,
+  pattern = "door_cache.2-2",
+}
+
+tile{
+  layer = 1,
+  x = 704,
+  y = 456,
+  width = 48,
+  height = 8,
+  pattern = "door_cache.2-2",
+}
+
 custom_entity{
   layer = 1,
   x = 1848,

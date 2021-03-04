@@ -169,7 +169,7 @@ function enemy:start_charging()
 
       -- TODO Stop and laugh on hero touched.
 
-      enemy:set_hero_weapons_reactions(function() hurt(1) end, {jump_on = "ignored"})
+      enemy:set_hero_weapons_reactions({sword = function() hurt(1) end})
     end
     sprite:set_animation("attacking")
   end)
@@ -212,9 +212,23 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
+  enemy:set_hero_weapons_reactions({
+    arrow = "protected",
+    boomerang = "protected",
+    explosion = "ignored",
+    sword = "protected",
+    thrown_item = "protected",
+    fire = "protected",
+    jump_on = "ignored",
+    hammer = "protected",
+    hookshot = "protected",
+    magic_powder = "ignored",
+    shield = "protected",
+    thrust = "protected"
+  })
+
   sai_count = math.random(minimum_sai, maximum_sai)
   sprite:set_xy(0, 0)
-  enemy:set_invincible()
   enemy:set_can_attack(true)
   enemy:set_damage(4)
   if first_start then

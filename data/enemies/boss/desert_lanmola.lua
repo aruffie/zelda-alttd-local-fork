@@ -86,8 +86,8 @@ function get_exploding_tied_sprites()
 
 	local exploding_sprites = {}
 	for i = parts_count, 2, -1 do
-    if parts[i].enemy:is_visible() then
-  		exploding_sprites[i] = parts[i].sprite
+    if parts[i]:is_visible() then
+  		exploding_sprites[i] = parts[i]:get_sprite()
     end
 	end
   return exploding_sprites

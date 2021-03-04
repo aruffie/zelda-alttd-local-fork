@@ -3,6 +3,7 @@
 -- Slime Eye.
 --
 -- Start by falling from the ceiling, then slightly move until the hero split it into two enemies with sword or thrust attack.
+-- Once splitted, randomly jump accross the room and die when the two splitted parts are defeated.
 --
 ----------------------------------
 

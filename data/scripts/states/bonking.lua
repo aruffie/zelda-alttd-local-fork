@@ -44,10 +44,12 @@ function state:on_started()
     end
   end
 
-  --Shake the camera 
+  --Shake the camera, unless it is already shaking to not stop it too early during map animations.
   --Note, the current implementation of the shake function was intended to be used on static screens, so until it's reworked, there will be some visual mishaps at the end of the effect (the camera will abruptly go back to the the hero)
-  local camera=map:get_camera()
-  camera:dynamic_shake({count = 50, amplitude = 2, speed = 90, entity=entity})
+  local camera = map:get_camera()
+  if not camera:is_shaking() then
+    camera:dynamic_shake({count = 50, amplitude = 2, speed = 90, entity=entity})
+  end
 
   --Play funny animation
   local collapse_sprite=entity:get_sprite("tunic"):set_animation("collapse")
