@@ -12,6 +12,15 @@ properties{
 
 tile{
   layer = 0,
+  x = 224,
+  y = 200,
+  width = 16,
+  height = 96,
+  pattern = "floor.16-2",
+}
+
+tile{
+  layer = 0,
   x = 64,
   y = 304,
   width = 512,
@@ -980,15 +989,6 @@ tile{
   width = 16,
   height = 16,
   pattern = "door_blast.1",
-}
-
-tile{
-  layer = 0,
-  x = 224,
-  y = 192,
-  width = 16,
-  height = 96,
-  pattern = "floor.16-2",
 }
 
 tile{
@@ -2965,7 +2965,7 @@ enemy{
   layer = 0,
   x = 168,
   y = 349,
-  direction = 0,
+  direction = 2,
   breed = "fireball",
 }
 

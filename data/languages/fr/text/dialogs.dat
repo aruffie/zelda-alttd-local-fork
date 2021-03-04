@@ -2272,6 +2272,16 @@ dialog{
   text = [[
 DRING DRING !!   
 Pépé le Ramollo à l'appareil... 
+Va vite à la Cave aux Clés, située dans la Prairie.     
+Salut ! CLIC !
+]],
+}
+
+dialog{
+  id = "maps.houses.phone_booth.11",
+  text = [[
+DRING DRING !!   
+Pépé le Ramollo à l'appareil... 
 Apparemment, dans les Dunes de Yarna, au Sud-Est de l'île, se trouve la Clé-Poisson.    
 Ecoute, je ne peux pas être plus explicite que cela...     
 Salut ! CLIC !
@@ -2279,7 +2289,7 @@ Salut ! CLIC !
 }
 
 dialog{
-  id = "maps.houses.phone_booth.11",
+  id = "maps.houses.phone_booth.11_old",
   text = [[
 DRING DRING !!   
 Pépé le Ramollo à l'appareil... 
@@ -2509,22 +2519,12 @@ CLIC !
 }
 
 dialog{
-  id = "maps.houses.phone_booth.8_old",
+  id = "maps.houses.phone_booth.9",
   text = [[
 DRING DRING !!   
 Pépé le Ramollo à l'appareil... 
 As-tu acheté une Pelle ?      
 Creuse le sol, peut-être auras-tu de la chance ?   
-Salut ! CLIC !
-]],
-}
-
-dialog{
-  id = "maps.houses.phone_booth.9",
-  text = [[
-DRING DRING !!   
-Pépé le Ramollo à l'appareil... 
-Va vite à la Cave aux Clés, située dans la Prairie.     
 Salut ! CLIC !
 ]],
 }

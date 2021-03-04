@@ -2267,7 +2267,7 @@ destination{
 wall{
   layer = 0,
   x = 256,
-  y = 352,
+  y = 328,
   width = 128,
   height = 16,
   stops_npcs = true,
