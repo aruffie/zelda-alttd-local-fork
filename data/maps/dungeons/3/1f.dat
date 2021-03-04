@@ -14351,7 +14351,7 @@ chest{
   x = 1888,
   y = 293,
   treasure_name = "boss_key",
-  treasure_savegame_variable = "dungeon_5_boss_key",
+  treasure_savegame_variable = "dungeon_3_boss_key",
   sprite = "entities/chests/chest_big",
 }
 

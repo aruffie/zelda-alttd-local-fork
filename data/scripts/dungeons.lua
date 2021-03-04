@@ -168,15 +168,83 @@ local function initialize_dungeon_features(game)
         destination_name = "dungeon_3_2_A"
       },
       secrets = {
+        [-1] = {
+          [20] = {
+            savegame = "dungeon_3_small_key_3",
+            signal = true
+          },
+          [27] = {
+            savegame = "dungeon_3_small_key_9",
+            signal = true
+          },
+          [36] = {
+            savegame = "dungeon_3_small_key_8",
+            signal = true
+          },
+          [60] = {
+            savegame = "dungeon_3_small_key_7",
+            signal = true
+          },          
+        },
+        [0] = {   
+          [4] = {
+            savegame = "dungeon_3_small_key_5",
+            signal = false
+          },
+          [5] = {
+            savegame = "dungeon_3_compass",
+            signal = false
+          },
+          [11] = {
+            savegame = "dungeon_3_rupee_2",
+            signal = false
+          },
+          [13] = {
+            savegame = "dungeon_3_pegasus_shoes",
+            signal = false
+          },
+          [14] = {
+            savegame = "dungeon_3_boss_key",
+            signal = true
+          },
+          [19] = {
+            savegame = "dungeon_3_small_key_6",
+            signal = true
+          },
+          [28] = {
+            savegame = "dungeon_3_beak_of_stone",
+            signal = false
+          },
+          [29] = {
+            savegame = "dungeon_3_small_key_4",
+            signal = true
+          },
+          [36] = {
+            savegame = "dungeon_3_rupee_1",
+            signal = false
+          },
+          [45] = {
+            savegame = "dungeon_3_map",
+            signal = false
+          },
+          [52] = {
+            savegame = "dungeon_3_small_key_1",
+            signal = true
+          },
+          [61] = {
+            savegame = "dungeon_3_small_key_2",
+            signal = true
+          },
+        },
       },
       small_boss = {
-        floor = 0,
+        floor = 12,
         breed = "boss/dodongo_snake",
       },
       boss = {
-        floor = 0,
+        floor = -1,
         breed = "boss/slime_eye",
-        room = 2,
+        room = 52,
       }
     },
     [4] = {

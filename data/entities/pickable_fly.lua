@@ -61,7 +61,7 @@ entity:register_event("on_picked", function()
       audio_manager:play_sound("items/get_item")
     else
       audio_manager:play_sound("items/get_item2")
-      bombs_counter:add_amount(1)
+      bombs_counter:add_amount(10)
     end
   -- Arrow item.
   elseif sprite_name == "entities/items/arrow_fly" then

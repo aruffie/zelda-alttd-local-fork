@@ -365,17 +365,3 @@ function map:launch_cinematic_2()
   end)
   
 end
-
-function honey:on_enabled()
-  
-  x,y,layer = honey:get_position()
-  print(layer)
-  print("enabled")
-  
-end
-
-function honey:on_disabled()
-  
-  print("disabled")
-  
-end
