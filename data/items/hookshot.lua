@@ -36,7 +36,8 @@ Lua script of item "hookshot".
  A list of entity types that can be caught is defined in
  hookshot_config.lua, feel free to change it.
  You can also allow individual entities to be caught by defining a method
- is_catchable_with_hookshot() returning true.
+ is_catchable_with_hookshot() returning true, or by manually call
+ the item:catch_entity(entity) method when needed.
 
  * Transporting the hero:
 
@@ -299,13 +300,15 @@ function item:start_using()
     end
   end
 
-  -- Catch the given entity.
+  -- Catch the given entity, or just go back if the entity is nil.
   function item:catch_entity(entity)
 
     if not hooked then
-      entities_caught[#entities_caught + 1] = entity
-      entity:set_position(hookshot:get_position())
-      hookshot:set_modified_ground("traversable")  -- Don't let the caught entity fall in holes.
+      if entity then
+        entities_caught[#entities_caught + 1] = entity
+        entity:set_position(hookshot:get_position())
+        hookshot:set_modified_ground("traversable")  -- Don't let the caught entity fall in holes.
+      end
       go_back()
     end
   end
