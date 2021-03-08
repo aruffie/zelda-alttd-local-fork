@@ -1161,6 +1161,14 @@ Anguille Insatiable
 }
 
 dialog{
+  id = "maps.dungeons.5.boss_dying",
+  text = [[
+AHHH !
+Tu ne connais pas encore cette île ! Tu es vraiment naïf ... AHHH !
+]],
+}
+
+dialog{
   id = "maps.dungeons.5.boss_name",
   text = [[
 Tantalosar

@@ -1348,7 +1348,6 @@ enemy{ id = "boss/angler_fish", description = "Angler Fish" }
 enemy{ id = "boss/armos_knight", description = "Armos Knight" }
 enemy{ id = "boss/ballchain_soldier", description = "Ballchain Soldier" }
 enemy{ id = "boss/blaino", description = "Blaino" }
-enemy{ id = "boss/buzz_blob_giant", description = "Buzz Blob Giant" }
 enemy{ id = "boss/cue_ball", description = "Cue Ball" }
 enemy{ id = "boss/desert_lanmola", description = "Desert Lanmola" }
 enemy{ id = "boss/dodongo_snake", description = "Dodongo_Snake" }
@@ -1369,6 +1368,7 @@ enemy{ id = "boss/projectiles/bottle", description = "Genie's Bottle" }
 enemy{ id = "boss/projectiles/boulder", description = "Stone Hinox's Boulder" }
 enemy{ id = "boss/projectiles/brick", description = "Angler Fish's Brick" }
 enemy{ id = "boss/projectiles/eel_flail", description = "Slime Eel's Flail" }
+enemy{ id = "boss/projectiles/eel_moldorm", description = "Slime Eel's Moldorm" }
 enemy{ id = "boss/projectiles/fireball", description = "Genie's Fireball" }
 enemy{ id = "boss/projectiles/flail", description = "Ballchain Soldier's Flail" }
 enemy{ id = "boss/projectiles/fry", description = "Angler Fish's Fry" }
@@ -1578,7 +1578,6 @@ file{ path = "enemies/boss/angler_fish.lua", license = "GPL v3" }
 file{ path = "enemies/boss/armos_knight.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/ballchain_soldier.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/blaino.lua", author = "Vlag", license = "GPL v3" }
-file{ path = "enemies/boss/buzz_blob_giant.lua", license = "GPL v3" }
 file{ path = "enemies/boss/cue_ball.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/desert_lanmola.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/dodongo_snake.lua", author = "Vlag", license = "GPL v3" }
@@ -1599,6 +1598,7 @@ file{ path = "enemies/boss/projectiles/bottle.lua", author = "Vlag", license = "
 file{ path = "enemies/boss/projectiles/boulder.lua", license = "GPL v3" }
 file{ path = "enemies/boss/projectiles/brick.lua", license = "GPL v3" }
 file{ path = "enemies/boss/projectiles/eel_flail.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/boss/projectiles/eel_moldorm.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/projectiles/fireball.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/projectiles/flail.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/projectiles/fry.lua", license = "GPL v3" }

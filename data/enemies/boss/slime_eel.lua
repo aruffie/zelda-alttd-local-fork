@@ -17,10 +17,11 @@ require("enemies/lib/common_actions").learn(enemy)
 local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
-local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+local sprites = {}
 local quarter = math.pi * 0.5
 local tail
 local apertures = {}
+local current_aperture
 local is_catchable = false
 local is_catched = false
 
@@ -32,15 +33,168 @@ local biting_duration = 500
 local hidden_minimum_duration = 1000
 local hidden_maximum_duration = 2000
 local peeking_duration = 1000
-local front_angle = math.pi * 0.25
+local stunned_speed = 5
+local stunned_duration = 2500
+local return_speed = 88
+local grabbing_moldorm_probability = 0.2
+local hurt_duration = 600
+
+-- Start returning to the aperture in a hurry.
+local function start_hurry_back(length, direction)
+
+  local movement = enemy:start_straight_walking((direction + 2) % 4 * quarter, return_speed, length + arise_distance, function()
+    for i = 2, #sprites, 1 do
+      enemy:remove_sprite(sprites[i])
+      sprites[i] = nil
+    end
+    enemy:start_fighting()
+  end)
+  movement:set_ignore_obstacles()
+  sprites[1]:set_direction(direction)
+  tail:start_rising(return_speed)
+end
+
+-- Hurt behavior of the enemy.
+local function on_hurt()
+
+  for _, sprite in ipairs(sprites) do
+    if sprite.base_animation == "weak" then
+      enemy:set_attack_consequence_sprite(sprite, "sword", "protected")
+      enemy:set_thrust_reaction_sprite(sprite, "protected")
+    end
+  end
+  sol.timer.stop_all(enemy)
+  enemy:stop_movement()
+  tail:stop_moving()
+
+  -- Custom die if only one more life point.
+  if enemy:get_life() < 2 then
+
+    enemy:start_death(function()
+      local sorted_tied_sprites = {}
+      for i = #sprites, 2, -1 do
+        sprites[i]:set_animation(sprites[i].base_animation .. "_hurt")
+        table.insert(sorted_tied_sprites, sprites[i])
+      end
+      sprites[1]:set_animation("hurt")
+
+      -- Start a chained explosion starting by the tail end to the tail base, then to main enemy head.
+      function tail:on_dead()
+        enemy:start_sprite_explosions(sorted_tied_sprites, "entities/explosion_boss", 0, 0, function()
+          sol.timer.start(enemy, 1500, function()
+            enemy:start_brief_effect("entities/explosion_boss")
+            finish_death()
+          end)
+        end)
+      end
+      tail:start_exploding()
+    end)
+    return
+  end
+
+  -- Manually hurt to not trigger the built-in behavior.
+  enemy:set_life(enemy:get_life() - 1)
+  sprites[1]:set_animation("hurt")
+  for i = 2, #sprites, 1 do
+    sprites[i]:set_animation(sprites[i].base_animation .. "_hurt")
+  end
+  if enemy.on_hurt then
+    enemy:on_hurt()
+  end
+
+  -- Then return hidding to the aperture in a hurry.
+  sol.timer.start(enemy, hurt_duration, function()
+    start_hurry_back((#sprites - 1) * 22 + 26, sprites[1]:get_direction())
+    sprites[1]:set_animation("walking")
+    for i = 2, #sprites, 1 do
+      if sprites[i].base_animation == "weak" then
+        enemy:set_attack_consequence_sprite(sprites[i], "sword", on_hurt)
+        enemy:set_thrust_reaction_sprite(sprites[i], on_hurt)
+      end
+      sprites[i]:set_animation(sprites[i].base_animation)
+    end
+  end)
+end
+
+-- Create a body sprite to the enemy.
+local function create_body_sprite(is_weak)
+
+  local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/body")
+
+  if is_weak then
+    sprite.base_animation = "weak"
+    enemy:set_attack_consequence_sprite(sprite, "sword", on_hurt)
+    enemy:set_thrust_reaction_sprite(sprite, on_hurt)
+  else
+    sprite.base_animation = "body"
+  end
+  sprite:set_animation(sprite.base_animation)
+
+  return sprite
+end
+
+-- Grab a moldorm from the aperture.
+local function start_grabbing_moldorm()
+
+  enemy:set_invincible()
+  enemy:set_visible(false)
+  enemy:set_can_attack(false)
+  tail:stop_moving()
+  local moldorm = enemy:create_enemy({
+    name = (enemy:get_name() or enemy:get_breed()) .. "_moldorm",
+    breed = "boss/projectiles/eel_moldorm",
+    direction = sprites[1]:get_direction()
+  })
+  moldorm:start_catched(32, 256) -- TODO Get hookshot speed dynamically
+
+  function moldorm:on_dead()
+    enemy:start_fighting()
+    tail:start_rising()
+    tail:start_spinning()
+  end
+end
 
 -- Make the enemy vertically pulled by the hookshot, and pull the tail by the same length.
 local function start_pulled(length, speed, direction)
 
-  local movement = enemy:start_straight_walking(direction * quarter, speed, length, function()
+  -- Randomly grab a moldorm from the aperture.
+  if math.random() < grabbing_moldorm_probability then
+    start_grabbing_moldorm()
+    return
+  end
 
+  -- Make body parts follow the head, creating it if needed.
+  local head_gap = (direction == 1) and 26 or -26
+  local sprite_gap = (direction == 1) and 22 or -22
+  local body_count = math.ceil((length + arise_distance) / 24)
+  local function follow_head(enemy)
+    for i = 2, body_count, 1 do
+      if not sprites[i] then
+        sprites[i] = create_body_sprite(i == 2)
+      end
+      sprites[i]:set_xy(0, head_gap + sprite_gap * (i - 2))
+    end
+  end
+
+  -- Start grabbing the head.
+  local grabbing_movement = enemy:start_straight_walking(direction * quarter, speed, length, function()
+
+    -- Slowly go back while stunned.
+    local stunned_movement = enemy:start_straight_walking((direction + 2) % 4 * quarter, stunned_speed)
+    stunned_movement:set_ignore_obstacles()
+    stunned_movement.on_position_changed = follow_head
+    sprites[1]:set_direction(direction)
+    tail:start_rising(stunned_speed)
+
+    -- Then return to aperture at an higher speed after some time.
+    sol.timer.start(enemy, stunned_duration, function()
+      start_hurry_back(length, direction)
+    end)
   end)
-  movement:set_ignore_obstacles()
+  grabbing_movement:set_ignore_obstacles()
+  grabbing_movement.on_position_changed = follow_head
+
+  -- Also pull the tail to the ground.
   tail:start_pulled(length, speed)
 end
 
@@ -51,14 +205,14 @@ local function on_catched()
 
   -- Hook the enemy head if it is in front of the hero.
   local hookshot = game:get_item("hookshot")
+  local width = enemy:get_size()
   hookshot:catch_entity(nil) -- Make the hookshot go back.
-  if is_catchable and enemy:is_entity_in_front(hero, front_angle) then
+  if is_catchable and enemy:is_aligned(hero, width) then
     
     local _, y = enemy:get_position()
     local _, hero_y = hero:get_position()
-    local _, height = enemy:get_size()
-    local direction = sprite:get_direction()
-    local length = math.abs(hero_y - y) - (direction == 3 and height or height * 0.5)
+    local direction = sprites[1]:get_direction()
+    local length = math.abs(hero_y - y) - (direction == 3 and 32 or 20)
     local speed = 256 -- TODO Get hooshot speed dynamically
     sol.timer.stop_all(enemy)
     enemy:stop_movement()
@@ -66,8 +220,8 @@ local function on_catched()
   end
 end
 
--- Extends the visible function with vulnerability settings.
-local function start_visible()
+-- Make the enemy vulnerable to hookshot only.
+local function start_catchable()
 
   enemy:set_hero_weapons_reactions({
     arrow = "protected",
@@ -83,14 +237,6 @@ local function start_visible()
     shield = "protected",
     thrust = "protected"
   })
-  enemy:set_visible()
-end
-
--- Make the enemy invisible, invincible and harmless.
-local function start_hidding()
-
-  enemy:set_invincible()
-  enemy:set_visible(false)
 end
 
 -- Make the enemy arise from an aperture.
@@ -106,37 +252,47 @@ local function start_arising(x, y, direction, on_finished_callback)
         end
       end)
       movement:set_ignore_obstacles()
-      sprite:set_direction(direction)
-      sprite:set_animation("walking")
+      sprites[1]:set_direction(direction)
+      sprites[1]:set_animation("walking")
     end)
   end)
   movement:set_ignore_obstacles()
-  sprite:set_animation("biting")
+  sprites[1]:set_animation("biting")
 end
 
--- Make the enemy appear.
+-- Make the enemy tail appear.
 enemy:register_event("start_appearing", function(enemy)
 
-  tail:start_appearing()
+  tail = enemy:create_enemy({
+    name = (enemy:get_name() or enemy:get_breed()) .. "_tail",
+    breed = "boss/projectiles/eel_flail",
+    direction = 2
+  })
 end)
 
 -- Make the enemy start the fighting step.
 enemy:register_event("start_fighting", function(enemy)
+
+  enemy:set_invincible()
+  enemy:set_visible(false)
+  enemy:set_can_attack(false)
+  tail:start_spinning()
 
   sol.timer.start(enemy, math.random(hidden_minimum_duration, hidden_maximum_duration), function()
 
     -- Make the enemy immobile and peek out from the aperture for some time.
     local x, y, direction = unpack(apertures[math.random(1, 4)])
     enemy:set_position(x, y + (direction == 1 and -10 or 10))
-    sprite:set_animation("peeking")
-    sprite:set_direction(direction)
-    start_visible()
+    enemy:set_can_attack(true)
+    enemy:set_visible()
+    sprites[1]:set_animation("peeking")
+    sprites[1]:set_direction(direction)
+    start_catchable()
 
     -- Then arise from the hole after some time to bite.
     sol.timer.start(enemy, peeking_duration, function()
       is_catchable = true
       start_arising(x, y, direction, function()
-        start_hidding()
         enemy:start_fighting()
       end)
     end)
@@ -149,10 +305,13 @@ enemy:register_event("create_aperture", function(enemy, x, y, direction, broken_
   table.insert(apertures, {x, y, direction})
 
   -- Make the enemy arise from the aperture, and possibly break the entity if given.
-  start_visible()
+  start_catchable()
   start_arising(x, y, direction, function()
-    start_hidding()
+    enemy:set_invincible()
+    enemy:set_visible(false)
+    enemy:set_can_attack(false)
   end)
+  enemy:set_visible()
   enemy:start_brief_effect("entities/effects/sparkle_small", "default", 0, direction == 1 and -32 or 32)
   broken_entity:remove()
 end)
@@ -165,19 +324,17 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_origin(16, 29)
   enemy:set_visible(false)
 
-  tail = enemy:create_enemy({
-    name = (enemy:get_name() or enemy:get_breed()) .. "_tail",
-    breed = "boss/projectiles/eel_flail",
-    direction = 2
-  })
+  sprites[1] = enemy:create_sprite("enemies/" .. enemy:get_breed())
 end)
 
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
   is_catched = false
-  start_hidding()
-  enemy:set_damage(4)
+  enemy:set_invincible()
+  enemy:set_visible(false)
   enemy:set_can_attack(false)
+  enemy:set_damage(4)
   enemy:set_obstacle_behavior("flying") -- Don't fall in holes.
+  enemy:set_pushed_back_when_hurt(false)
 end)
