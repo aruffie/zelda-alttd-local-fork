@@ -16750,8 +16750,8 @@ enemy{
 destination{
   name = "dungeon_5_1_B",
   layer = 0,
-  x = 784,
-  y = 437,
+  x = 2080,
+  y = 1893,
   direction = 1,
 }
 

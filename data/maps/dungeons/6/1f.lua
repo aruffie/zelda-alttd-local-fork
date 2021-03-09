@@ -195,6 +195,14 @@ function sensor_13:on_activated()
 
 end
 
+function sensor_14:on_activated()
+
+  if is_boss_active == false then
+    is_boss_active = true
+    enemy_manager:launch_boss_if_not_dead(map)
+  end
+end
+
 function sensor_16:on_activated()
 
   flying_tile_manager:reset(map, "enemy_group_29")

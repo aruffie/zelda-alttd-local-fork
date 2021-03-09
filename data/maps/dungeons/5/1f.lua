@@ -79,15 +79,15 @@ local function start_boss_room_collapsing()
         sol.timer.start(map, 500, function()
           boss_collapsing_floor_3:remove()
           boss:start_appearing()
-          sol.timer.start(map, 2500, function()
+          sol.timer.start(map, 1000, function()
             boss:create_aperture(728, 248, 3, boss_collapsing_wall_1)
-            sol.timer.start(map, 2500, function()
+            sol.timer.start(map, 2000, function()
               boss:create_aperture(872, 248, 3, boss_collapsing_wall_2)
-              sol.timer.start(map, 2500, function()
+              sol.timer.start(map, 2000, function()
                 boss:create_aperture(728, 472, 1, boss_collapsing_wall_3)
-                sol.timer.start(map, 2500, function()
+                sol.timer.start(map, 2000, function()
                   boss:create_aperture(872, 472, 1, boss_collapsing_wall_4)
-                  sol.timer.start(map, 2500, function()
+                  sol.timer.start(map, 2000, function()
                     boss:start_fighting()
                   end)
                 end)
@@ -98,6 +98,20 @@ local function start_boss_room_collapsing()
       end)
     end)
   end)
+end
+
+-- Make boss room collapsed if boss already dead.
+local function collapse_boss_room_if_boss_dead()
+
+  if game:get_value("dungeon_5_boss") == true then
+    boss_collapsing_floor_1:remove()
+    boss_collapsing_floor_2:remove()
+    boss_collapsing_floor_3:remove()
+    boss_collapsing_wall_1:remove()
+    boss_collapsing_wall_2:remove()
+    boss_collapsing_wall_3:remove()
+    boss_collapsing_wall_4:remove()
+  end
 end
 
 -- Map events
@@ -136,8 +150,9 @@ map:register_event("on_started", function()
   master_stalfos_step = game:get_value("dungeon_5_master_stalfos_step") or 1
   master_stalfos_life = 12 - (master_stalfos_step - 1) * 3
 
-  -- Move the placeholder at the exact center of the room.
+  -- Boss room.
   placeholder_boss:set_position(800, 360)
+  collapse_boss_room_if_boss_dead()
 end)
 
 function map:on_obtaining_treasure(item, variant, savegame_variable)
@@ -217,6 +232,10 @@ function sensor_8:on_activated()
     is_boss_active = true
     enemy_manager:launch_boss_if_not_dead(map)
     start_boss_room_collapsing()
+
+    function boss:on_dying()
+      game:start_dialog("maps.dungeons.5.boss_dying")
+    end
   end
 
 end
