@@ -2701,18 +2701,18 @@ tile{
 tile{
   layer = 0,
   x = 1328,
-  y = 560,
-  width = 32,
-  height = 80,
+  y = 544,
+  width = 16,
+  height = 112,
   pattern = "floor.20-1",
 }
 
 tile{
   layer = 0,
   x = 1328,
-  y = 640,
-  width = 192,
-  height = 32,
+  y = 656,
+  width = 224,
+  height = 16,
   pattern = "floor.20-1",
 }
 
@@ -2720,17 +2720,17 @@ tile{
   layer = 0,
   x = 1328,
   y = 528,
-  width = 192,
-  height = 32,
+  width = 224,
+  height = 16,
   pattern = "floor.20-1",
 }
 
 tile{
   layer = 0,
-  x = 1520,
-  y = 528,
-  width = 32,
-  height = 144,
+  x = 1536,
+  y = 544,
+  width = 16,
+  height = 112,
   pattern = "floor.20-1",
 }
 
@@ -21321,16 +21321,6 @@ destructible{
 destructible{
   layer = 0,
   x = 1352,
-  y = 557,
-  treasure_name = "random",
-  sprite = "entities/destructibles/pot",
-  destruction_sound = "stone",
-  weight = 1,
-}
-
-destructible{
-  layer = 0,
-  x = 1352,
   y = 541,
   treasure_name = "random",
   sprite = "entities/destructibles/pot",
@@ -21362,26 +21352,6 @@ destructible{
   layer = 0,
   x = 1544,
   y = 557,
-  treasure_name = "random",
-  sprite = "entities/destructibles/pot",
-  destruction_sound = "stone",
-  weight = 1,
-}
-
-destructible{
-  layer = 0,
-  x = 1528,
-  y = 557,
-  treasure_name = "random",
-  sprite = "entities/destructibles/pot",
-  destruction_sound = "stone",
-  weight = 1,
-}
-
-destructible{
-  layer = 0,
-  x = 1528,
-  y = 653,
   treasure_name = "random",
   sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
@@ -21441,16 +21411,6 @@ destructible{
 destructible{
   layer = 0,
   x = 1336,
-  y = 653,
-  treasure_name = "random",
-  sprite = "entities/destructibles/pot",
-  destruction_sound = "stone",
-  weight = 1,
-}
-
-destructible{
-  layer = 0,
-  x = 1352,
   y = 653,
   treasure_name = "random",
   sprite = "entities/destructibles/pot",
@@ -22367,8 +22327,8 @@ stream{
 destination{
   name = "dungeon_6_1_B",
   layer = 0,
-  x = 1120,
-  y = 1653,
+  x = 1424,
+  y = 677,
   direction = 1,
 }
 
@@ -22793,7 +22753,7 @@ block{
 enemy{
   name = "enemy_group_7_1",
   layer = 0,
-  x = 808,
+  x = 824,
   y = 797,
   direction = 0,
   breed = "zol_green",
@@ -24856,16 +24816,6 @@ custom_entity{
   model = "dice",
 }
 
-enemy{
-  name = "facade",
-  layer = 0,
-  x = 1440,
-  y = 637,
-  enabled_at_start = false,
-  direction = 0,
-  breed = "boss/facade",
-}
-
 wall{
   layer = 0,
   x = 872,
@@ -25374,6 +25324,25 @@ teletransporter{
   height = 16,
   destination_map = "out/d3_mask_shrine",
   destination = "dungeon_6_2_A",
+}
+
+sensor{
+  name = "sensor_14",
+  layer = 0,
+  x = 1440,
+  y = 677,
+  width = 16,
+  height = 16,
+}
+
+custom_entity{
+  name = "placeholder_boss",
+  layer = 0,
+  x = 1440,
+  y = 597,
+  width = 16,
+  height = 16,
+  direction = 0,
 }
 
 tile{

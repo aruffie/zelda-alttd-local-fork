@@ -8,7 +8,7 @@
 --
 -- Methods : enemy:stop_moving()
 --           enemy:start_rising([speed])
---           enemy:start_spinning()
+--           enemy:start_spinning([spinning])
 --           enemy:start_pulled([length, [speed]])
 --           enemy:start_exploding()
 --
@@ -117,9 +117,9 @@ enemy:register_event("start_rising", function(enemy, speed)
 end)
 
 -- Make the tail start spinning.
-enemy:register_event("start_spinning", function(enemy)
+enemy:register_event("start_spinning", function(enemy, spinning)
 
-  is_spinning = true
+  is_spinning = (spinning ~= nil) and spinning or true
 end)
 
 -- Pull the tail onto the ground.
@@ -186,7 +186,7 @@ enemy:register_event("on_restarted", function(enemy)
     thrust = "protected"
   })
 
-  enemy:set_damage(4)
+  enemy:set_damage(2)
   enemy:set_can_attack(true)
   enemy:set_obstacle_behavior("flying") -- Don't fall in holes.
   enemy:set_pushed_back_when_hurt(false)

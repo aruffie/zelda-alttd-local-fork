@@ -2,7 +2,9 @@
 --
 -- Slime Eel.
 --
--- Description
+-- Caterpillar enemy that can arise from apertures in the wall to bite the hero, and use its tail as a flail from the center of the room.
+-- Can be partially pulled out the aperture with the hookshot while its mouth is open to reveal the weak point on its first body, hurtable with the sword or thrust attack.
+-- Sometimes a small Slime Eel is fully pulled out instead of the enemy, which behaves as a Moldorm.
 --
 -- Methods : enemy:start_appearing()
 --           enemy:start_fighting()
@@ -22,7 +24,6 @@ local quarter = math.pi * 0.5
 local tail
 local apertures = {}
 local current_aperture
-local is_catchable = false
 local is_catched = false
 
 -- Configuration variables.
@@ -38,6 +39,25 @@ local stunned_duration = 2500
 local return_speed = 88
 local grabbing_moldorm_probability = 0.2
 local hurt_duration = 600
+
+-- Make the enemy protected against all.
+local function start_invulnerable()
+
+  enemy:set_hero_weapons_reactions({
+    arrow = "protected",
+    boomerang = "protected",
+    explosion = "ignored",
+    sword = "protected",
+    thrown_item = "protected",
+    fire = "protected",
+    jump_on = "ignored",
+    hammer = "protected",
+    hookshot = "protected",
+    magic_powder = "ignored",
+    shield = "protected",
+    thrust = "protected"
+  })
+end
 
 -- Start returning to the aperture in a hurry.
 local function start_hurry_back(length, direction)
@@ -94,7 +114,7 @@ local function on_hurt()
 
   -- Manually hurt to not trigger the built-in behavior.
   enemy:set_life(enemy:get_life() - 1)
-  sprites[1]:set_animation("hurt")
+  sprites[1]:set_animation("hooked_hurt")
   for i = 2, #sprites, 1 do
     sprites[i]:set_animation(sprites[i].base_animation .. "_hurt")
   end
@@ -145,12 +165,11 @@ local function start_grabbing_moldorm()
     breed = "boss/projectiles/eel_moldorm",
     direction = sprites[1]:get_direction()
   })
-  moldorm:start_catched(32, 256) -- TODO Get hookshot speed dynamically
+  moldorm:start_catched(40, 256) -- TODO Get hookshot speed dynamically
 
   function moldorm:on_dead()
-    enemy:start_fighting()
     tail:start_rising()
-    tail:start_spinning()
+    enemy:start_fighting()
   end
 end
 
@@ -160,6 +179,7 @@ local function start_pulled(length, speed, direction)
   -- Randomly grab a moldorm from the aperture.
   if math.random() < grabbing_moldorm_probability then
     start_grabbing_moldorm()
+    tail:start_pulled()
     return
   end
 
@@ -184,6 +204,7 @@ local function start_pulled(length, speed, direction)
     stunned_movement:set_ignore_obstacles()
     stunned_movement.on_position_changed = follow_head
     sprites[1]:set_direction(direction)
+    sprites[1]:set_animation("hooked")
     tail:start_rising(stunned_speed)
 
     -- Then return to aperture at an higher speed after some time.
@@ -193,6 +214,7 @@ local function start_pulled(length, speed, direction)
   end)
   grabbing_movement:set_ignore_obstacles()
   grabbing_movement.on_position_changed = follow_head
+  sprites[1]:set_animation("hooked")
 
   -- Also pull the tail to the ground.
   tail:start_pulled(length, speed)
@@ -207,7 +229,7 @@ local function on_catched()
   local hookshot = game:get_item("hookshot")
   local width = enemy:get_size()
   hookshot:catch_entity(nil) -- Make the hookshot go back.
-  if is_catchable and enemy:is_aligned(hero, width) then
+  if (sprites[1]:get_direction() + 2) % 4 == hero:get_direction() and enemy:is_aligned(hero, width) then
     
     local _, y = enemy:get_position()
     local _, hero_y = hero:get_position()
@@ -245,7 +267,7 @@ local function start_arising(x, y, direction, on_finished_callback)
   enemy:set_position(x, y)
   local movement = enemy:start_straight_walking(direction * quarter, arise_speed, arise_distance, function()
     sol.timer.start(enemy, biting_duration, function()
-      is_catchable = false
+      enemy:set_hero_weapons_reactions({hookshot = "ignored"})
       local movement = enemy:start_straight_walking((direction + 2) % 4 * quarter, go_back_speed, arise_distance, function()
         if on_finished_callback then
           on_finished_callback()
@@ -268,6 +290,10 @@ enemy:register_event("start_appearing", function(enemy)
     breed = "boss/projectiles/eel_flail",
     direction = 2
   })
+  tail:start_brief_effect("entities/effects/boulder_explosion", "default", -24, -24)
+  tail:start_brief_effect("entities/effects/boulder_explosion", "default", -24, 24)
+  tail:start_brief_effect("entities/effects/boulder_explosion", "default", 24, -24)
+  tail:start_brief_effect("entities/effects/boulder_explosion", "default", 24, 24)
 end)
 
 -- Make the enemy start the fighting step.
@@ -285,13 +311,13 @@ enemy:register_event("start_fighting", function(enemy)
     enemy:set_position(x, y + (direction == 1 and -10 or 10))
     enemy:set_can_attack(true)
     enemy:set_visible()
+    start_invulnerable()
     sprites[1]:set_animation("peeking")
     sprites[1]:set_direction(direction)
-    start_catchable()
 
     -- Then arise from the hole after some time to bite.
     sol.timer.start(enemy, peeking_duration, function()
-      is_catchable = true
+      start_catchable()
       start_arising(x, y, direction, function()
         enemy:start_fighting()
       end)
@@ -305,14 +331,14 @@ enemy:register_event("create_aperture", function(enemy, x, y, direction, broken_
   table.insert(apertures, {x, y, direction})
 
   -- Make the enemy arise from the aperture, and possibly break the entity if given.
-  start_catchable()
+  start_invulnerable()
   start_arising(x, y, direction, function()
     enemy:set_invincible()
     enemy:set_visible(false)
     enemy:set_can_attack(false)
   end)
   enemy:set_visible()
-  enemy:start_brief_effect("entities/effects/sparkle_small", "default", 0, direction == 1 and -32 or 32)
+  enemy:start_brief_effect("entities/effects/boulder_explosion", "default", 0, direction == 1 and -32 or 32)
   broken_entity:remove()
 end)
 
@@ -334,7 +360,7 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_invincible()
   enemy:set_visible(false)
   enemy:set_can_attack(false)
-  enemy:set_damage(4)
+  enemy:set_damage(6)
   enemy:set_obstacle_behavior("flying") -- Don't fall in holes.
   enemy:set_pushed_back_when_hurt(false)
 end)

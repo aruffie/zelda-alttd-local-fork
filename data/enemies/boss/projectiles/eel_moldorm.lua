@@ -115,20 +115,22 @@ function enemy:start_catched(length, speed)
   local movement = enemy:start_straight_walking(sprites[1]:get_direction() * quarter, speed, length, function()
 
     start_walking()
-    enemy:set_hero_weapons_reactions({
-    	arrow = on_attack_received,
-    	boomerang = on_attack_received,
-    	explosion = on_attack_received,
-    	sword = on_attack_received,
-    	thrown_item = on_attack_received,
-    	fire = on_attack_received,
-    	jump_on = "ignored",
-    	hammer = on_attack_received,
-    	hookshot = on_attack_received,
-    	magic_powder = on_attack_received,
-    	shield = "protected",
-    	thrust = on_attack_received
-    })
+    sol.timer.start(enemy, 100, function() -- Workaround : Make sure the enemy won't be hurt with the hookshot return movement.
+      enemy:set_hero_weapons_reactions({
+      	arrow = on_attack_received,
+      	boomerang = on_attack_received,
+      	explosion = on_attack_received,
+      	sword = on_attack_received,
+      	thrown_item = on_attack_received,
+      	fire = on_attack_received,
+      	jump_on = "ignored",
+      	hammer = on_attack_received,
+      	hookshot = on_attack_received,
+      	magic_powder = on_attack_received,
+      	shield = "protected",
+      	thrust = on_attack_received
+      })
+    end)
   end)
   movement:set_ignore_obstacles()
 
