@@ -73,8 +73,9 @@ local function on_attack_received()
 
     sol.timer.start(enemy, 1000, function()
       local x, y = head_sprite:get_xy()
-      enemy:start_brief_effect("entities/explosion_boss", nil, x, y)
-      finish_death()
+      enemy:start_brief_effect("entities/explosion_boss", nil, x, y, nil, function()
+        finish_death()
+      end)
     end)
   end)
 end
