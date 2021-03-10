@@ -1,6 +1,7 @@
 -- Variables
 local map = ...
 local game = map:get_game()
+local walrus_sprite
 
 
 -- Include scripts
@@ -14,7 +15,7 @@ local parchment = require("scripts/menus/parchment")
 map:register_event("on_started", function(map, destination)
 
   -- Music
-  map:init_music()
+  map:init_music(destination)
   -- Entities
   map:init_map_entities()
   -- Digging
@@ -27,9 +28,14 @@ map:register_event("on_started", function(map, destination)
 end)
 
 -- Initialize the music of the map
-function map:init_music()
+function map:init_music(destination)
   
-  audio_manager:play_music("40_animal_village")
+  if destination ~= nil and destination:get_name() == 'cave_d4_2' then
+    audio_manager:play_music("10_overworld")
+  else
+    audio_manager:play_music("40_animal_village")
+  end
+
 
 end
 
@@ -53,6 +59,7 @@ function map:init_map_entities()
   -- Travel
   travel_transporter:set_enabled(false)
   -- Walrus
+  walrus_sprite = walrus:get_sprite()
   local walrus_shadow = walrus:create_sprite("entities/shadows/walrus_shadow")
   walrus:bring_sprite_to_back(walrus_shadow)
   if game:is_step_done("walrus_awakened") then
@@ -378,11 +385,11 @@ function map:launch_cinematic_1()
     marin_2:sing_start()
     wait(1000)
     snores:remove()
-    animation(walrus:get_sprite(), 'awakening')
+    animation(walrus_sprite, 'awakening')
     for i=1,5 do
       audio_manager:play_sound("hero/jump")
-      animation(walrus:get_sprite(), 'jumping')
-      walrus:get_sprite():set_animation("waiting")
+      animation(walrus_sprite, 'jumping')
+      walrus_sprite:set_animation("waiting")
       wait(1500)
     end
     local movement3 = sol.movement.create("jump")
@@ -392,9 +399,9 @@ function map:launch_cinematic_1()
     movement3:set_ignore_suspend(true)
     movement3:set_ignore_obstacles(true)
     movement3:start(walrus)
-    animation(walrus:get_sprite(), 'diving')
+    animation(walrus_sprite, 'diving')
     audio_manager:play_sound("hero/cliff_jump")
-    walrus:get_sprite():set_animation("sinking")
+    walrus_sprite:set_animation("sinking")
     wait(500)
     x_walrus, y_walrus, layer_walrus = walrus:get_position()
     local splash_walrus = map:create_custom_entity({

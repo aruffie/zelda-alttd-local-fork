@@ -1140,6 +1140,13 @@ Ta route passe par la baie.
 }
 
 dialog{
+  id = "maps.dungeons.4.owl_1",
+  text = [[
+La lueur des tuiles sera ton guide...
+]],
+}
+
+dialog{
   id = "maps.dungeons.4.welcome_description",
   text = [[
 Niveau 4
@@ -3487,6 +3494,13 @@ Tu déposes l'écaille qui manquait sur la petite sirène !
 }
 
 dialog{
+  id = "maps.out.martha_bay.sign_1",
+  text = [[
+\[arrow_right\] Enfin ! Vill. des Animaux
+]],
+}
+
+dialog{
   id = "maps.out.prairie.dungeon_3_lock",
   text = [[
 Une serrure ici ?
@@ -3780,13 +3794,6 @@ Marine est-elle en vie ?
 
 dialog{
   id = "maps.out.yarna_desert.sign_1",
-  text = [[
-\[arrow_right\] Enfin ! Vill. des Animaux
-]],
-}
-
-dialog{
-  id = "maps.out.yarna_desert.sign_2",
   text = [[
 \[arrow_right\] Entrée des Dunes de Yarna
 ]],

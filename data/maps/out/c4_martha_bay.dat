@@ -15846,6 +15846,10 @@ npc{
       key = "model",
       value = "sign",
     },
+    {
+      key = "dialog_id",
+      value = "maps.out.martha_bay.sign_1",
+    },
   },
   direction = 3,
   subtype = 0,
