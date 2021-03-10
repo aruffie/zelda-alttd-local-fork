@@ -32,8 +32,6 @@ local running_speed = 140
 local tied_sprites_frame_lags = {20, 35, 50, 62}
 local keeping_angle_duration = 1500
 local angry_duration = 3000
-local before_explosion_delay = 2000
-local between_explosion_delay = 500
 
 -- Constants
 local highest_frame_lag = tied_sprites_frame_lags[#tied_sprites_frame_lags] + 1

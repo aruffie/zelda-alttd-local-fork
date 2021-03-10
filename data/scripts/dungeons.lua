@@ -238,7 +238,7 @@ local function initialize_dungeon_features(game)
         },
       },
       small_boss = {
-        floor = 12,
+        floor = 0,
         breed = "boss/dodongo_snake",
       },
       boss = {
@@ -339,9 +339,9 @@ local function initialize_dungeon_features(game)
       },
       boss = {
         floor = 0,
+        breed = "boss/slime_eel",
         x = 640 + 1440,
         y = 720 + 365,
-        breed = "boss/slime_eel",
         savegame_variable = "dungeon_5_boss",
       }
     },
@@ -362,6 +362,7 @@ local function initialize_dungeon_features(game)
       },
       boss = {
         floor = 0,
+        breed = "boss/facade",
         x = 640 + 1440,
         y = 720 + 365,
         savegame_variable = "dungeon_6_boss",
@@ -446,7 +447,7 @@ local function initialize_dungeon_features(game)
       },
       boss = {
         floor = 3,
-        breed = "zol_red",
+        breed = "boss/evil_eagle",
         x = 640 + 1440,
         y = 720 + 365
       }
@@ -475,9 +476,8 @@ local function initialize_dungeon_features(game)
         y = 720 + 365
       },
       boss = {
-        -- TODO
         floor = 3,
-        breed = "zol_red",
+        breed = "boss/hot_head",
         x = 640 + 1440,
         y = 720 + 365
       }

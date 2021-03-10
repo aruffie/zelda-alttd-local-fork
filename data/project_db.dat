@@ -482,6 +482,7 @@ sprite{ id = "entities/doors/door_weak_wall_out", description = "Outside weak wa
 sprite{ id = "entities/dungeons/dungeon_6", description = "Dungeon 6" }
 sprite{ id = "entities/dungeons/dungeon_7", description = "Dungeon 7" }
 sprite{ id = "entities/dungeons/eagle_tower_destruction", description = "Eagle tower destruction" }
+sprite{ id = "entities/effects/boulder_explosion", description = "Boulder explosion" }
 sprite{ id = "entities/effects/brake_smoke", description = "Brake Smoke" }
 sprite{ id = "entities/effects/bubble", description = "Bubble" }
 sprite{ id = "entities/effects/collapse_star", description = "Collapse star" }
@@ -502,10 +503,10 @@ sprite{ id = "entities/explosion_boss", description = "Explosion boss" }
 sprite{ id = "entities/fire", description = "Fire" }
 sprite{ id = "entities/fire_mask", description = "Fire mask" }
 sprite{ id = "entities/fisherman_ledger", description = "Fisheman ledger" }
-sprite{ id = "entities/ground_effects/grass", description = "ground_effects/leaves" }
+sprite{ id = "entities/ground_effects/grass", description = "Leaves" }
 sprite{ id = "entities/ground_effects/sand", description = "Sand" }
 sprite{ id = "entities/ground_effects/walrus_diving_effect", description = "Walrus diving effect" }
-sprite{ id = "entities/ground_effects/water", description = "ground_effects/water_splash" }
+sprite{ id = "entities/ground_effects/water", description = "Water splash" }
 sprite{ id = "entities/grounds/color_platform_green", description = "Color platform green" }
 sprite{ id = "entities/grounds/color_platform_orange", description = "Color platform orange" }
 sprite{ id = "entities/grounds/color_platform_red", description = "Color platform red" }
@@ -1348,7 +1349,6 @@ enemy{ id = "boss/angler_fish", description = "Angler Fish" }
 enemy{ id = "boss/armos_knight", description = "Armos Knight" }
 enemy{ id = "boss/ballchain_soldier", description = "Ballchain Soldier" }
 enemy{ id = "boss/blaino", description = "Blaino" }
-enemy{ id = "boss/buzz_blob_giant", description = "Buzz Blob Giant" }
 enemy{ id = "boss/cue_ball", description = "Cue Ball" }
 enemy{ id = "boss/desert_lanmola", description = "Desert Lanmola" }
 enemy{ id = "boss/dodongo_snake", description = "Dodongo_Snake" }
@@ -1369,6 +1369,7 @@ enemy{ id = "boss/projectiles/bottle", description = "Genie's Bottle" }
 enemy{ id = "boss/projectiles/boulder", description = "Stone Hinox's Boulder" }
 enemy{ id = "boss/projectiles/brick", description = "Angler Fish's Brick" }
 enemy{ id = "boss/projectiles/eel_flail", description = "Slime Eel's Flail" }
+enemy{ id = "boss/projectiles/eel_moldorm", description = "Slime Eel's Moldorm" }
 enemy{ id = "boss/projectiles/fireball", description = "Genie's Fireball" }
 enemy{ id = "boss/projectiles/flail", description = "Ballchain Soldier's Flail" }
 enemy{ id = "boss/projectiles/fry", description = "Angler Fish's Fry" }
@@ -1578,13 +1579,12 @@ file{ path = "enemies/boss/angler_fish.lua", license = "GPL v3" }
 file{ path = "enemies/boss/armos_knight.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/ballchain_soldier.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/blaino.lua", author = "Vlag", license = "GPL v3" }
-file{ path = "enemies/boss/buzz_blob_giant.lua", license = "GPL v3" }
 file{ path = "enemies/boss/cue_ball.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/desert_lanmola.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/dodongo_snake.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/evil_eagle.lua", license = "GPL v3" }
 file{ path = "enemies/boss/evil_orb.lua", license = "GPL v3" }
-file{ path = "enemies/boss/facade.lua", license = "GPL v3" }
+file{ path = "enemies/boss/facade.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/genie.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/giant_buzz_blob.lua", license = "GPL v3" }
 file{ path = "enemies/boss/gohma.lua", author = "Vlag", license = "GPL v3" }
@@ -1599,6 +1599,7 @@ file{ path = "enemies/boss/projectiles/bottle.lua", author = "Vlag", license = "
 file{ path = "enemies/boss/projectiles/boulder.lua", license = "GPL v3" }
 file{ path = "enemies/boss/projectiles/brick.lua", license = "GPL v3" }
 file{ path = "enemies/boss/projectiles/eel_flail.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/boss/projectiles/eel_moldorm.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/projectiles/fireball.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/projectiles/flail.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/projectiles/fry.lua", license = "GPL v3" }

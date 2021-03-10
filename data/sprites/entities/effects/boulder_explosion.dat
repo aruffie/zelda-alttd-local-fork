@@ -1,0 +1,8 @@
+animation{
+  name = "default",
+  src_image = "entities/effects/boulder_explosion.png",
+  frame_delay = 50,
+  directions = {
+    { x = 0, y = 0, frame_width = 48, frame_height = 48, origin_x = 24, origin_y = 24, num_frames = 8 },
+  },
+}
