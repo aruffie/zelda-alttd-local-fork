@@ -166,6 +166,10 @@ sensor_7:register_event("on_activated", function()
     map:close_doors("door_group_boss_3")
     map:close_doors("door_group_boss_6")
     enemy_manager:launch_boss_if_not_dead(map)
+
+    boss:register_event("on_dying", function(boss)
+      game:start_dialog("maps.dungeons.8.boss_dying")
+    end)
   end
 end)
 

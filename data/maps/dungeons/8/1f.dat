@@ -24484,7 +24484,7 @@ chest{
   properties = {
     {
       key = "breed",
-      value = "boss/projectiles/zol",
+      value = "zol_chest",
     },
   },
   treasure_name = "enemy_ambush",
@@ -28128,7 +28128,7 @@ destination{
   name = "dungeon_8_1_B",
   layer = 0,
   x = 1120,
-  y = 421,
+  y = 1893,
   direction = 1,
   default = true,
 }
@@ -29335,7 +29335,7 @@ destination{
 wall{
   layer = 0,
   x = 1112,
-  y = 1864,
+  y = 1880,
   width = 16,
   height = 16,
   stops_npcs = true,

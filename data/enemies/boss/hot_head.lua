@@ -6,6 +6,7 @@
 -- Can only be hurt with the fire rod. The first hit will make him vulnerable and fly over the room for some time, before dive again in lava.
 -- Each fire rod hit after the fly began hurt one damage until two left life point, which will make the enemy weak.
 -- Once weak the enemy won't fly again and can be hurt normally while jumping over lava.
+-- The lava area has to be an represented on the map by an unique entity with the custom property "area" set to "lava".
 --
 ----------------------------------
 
@@ -44,6 +45,7 @@ local flying_duration = 3000
 local diving_duration = 200
 local hurt_duration = 500
 local molt_falling_duration = 600
+local molt_falling_speed = 32
 
 local highest_frame_lag = trail_sprites_frame_lags[#trail_sprites_frame_lags] + 1
 
@@ -203,7 +205,7 @@ local function start_breaking()
     molt_sprite:set_animation("breaking")
     molt_sprite:set_direction(i)
 
-    molt:start_throwing(molt, molt_falling_duration, height, height + 6, quarter * i, 32, function()
+    molt:start_throwing(molt, molt_falling_duration, height, height + 6, quarter * i, molt_falling_speed, function()
       if lava:overlaps(molt) then
         molt:start_brief_effect("enemies/" .. enemy:get_breed() .. "/lava_splash", "default")
       end

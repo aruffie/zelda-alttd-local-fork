@@ -275,6 +275,7 @@ sprite{ id = "enemies/boss/slime_eel", description = "Slime eel" }
 sprite{ id = "enemies/boss/slime_eel/body", description = "Slime eel Body" }
 sprite{ id = "enemies/boss/slime_eye", description = "Slime eye" }
 sprite{ id = "enemies/boss/slime_eye/splitted_eye", description = "Splitted Eye" }
+sprite{ id = "enemies/boss/slime_eye/zol", description = "Zol salmon" }
 sprite{ id = "enemies/boss/smasher", description = "Smasher" }
 sprite{ id = "enemies/boss/stone_hinox/stone_hinox", description = "Stone hinox" }
 sprite{ id = "enemies/boss/stone_hinox/stone_hinox_boulder", description = "Stone hinox boulder" }
@@ -382,7 +383,6 @@ sprite{ id = "enemies/vire", description = "Vire" }
 sprite{ id = "enemies/wizzrobe", description = "Wizzrobe" }
 sprite{ id = "enemies/zol_green", description = "Zol green" }
 sprite{ id = "enemies/zol_red", description = "Zol red" }
-sprite{ id = "enemies/zol_salmon", description = "Zol salmon" }
 sprite{ id = "enemies/zombie", description = "Zombie" }
 sprite{ id = "enemies/zora", description = "Zora" }
 sprite{ id = "entities/animals/bird", description = "Bird" }
@@ -1472,6 +1472,7 @@ enemy{ id = "thwomp", description = "Thwomp" }
 enemy{ id = "vegas", description = "Vegas" }
 enemy{ id = "vire", description = "Vire" }
 enemy{ id = "wizzrobe", description = "Wizzrobe" }
+enemy{ id = "zol_chest", description = "Closed Zol" }
 enemy{ id = "zol_green", description = "Zol green" }
 enemy{ id = "zol_red", description = "Zol red" }
 enemy{ id = "zombie", description = "Zombie" }
@@ -1710,6 +1711,7 @@ file{ path = "enemies/thwomp.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "enemies/vegas.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "enemies/vire.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/wizzrobe.lua", author = "Christopho", license = "GPL v3" }
+file{ path = "enemies/zol_chest.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/zol_green.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/zol_red.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/zombie.lua", author = "Vlag", license = "GPL v3" }
