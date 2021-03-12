@@ -254,11 +254,65 @@ local function initialize_dungeon_features(game)
       cols= 6,
       music = "47_level_4_angler_tunnel",
       music_instrument = "48_the_surf_harp",
+      destination_ocarina = {
+        map_id = "dungeons/4/1f",
+        destination_name = "destination_ocarina"
+      },
       teletransporter_end_dungeon = {
         map_id = "out/c1_mambos_cave",
         destination_name = "dungeon_4_2_A"
       },
       secrets = {
+        [0] = {
+          [4] = {
+            savegame = "dungeon_4_flippers",
+            signal = false
+          },
+          [15] = {
+            savegame = "dungeon_4_small_key_3",
+            signal = true
+          },
+          [20] = {
+            savegame = "dungeon_4_small_key_4",
+            signal = true
+          },
+          [21] = {
+            savegame = "dungeon_4_small_key_1",
+            signal = true
+          },
+          [22] = {
+            savegame = "dungeon_4_map",
+            signal = false
+          },
+          [28] = {
+            savegame = "dungeon_4_rupee_2",
+            signal = false
+          },
+          [31] = {
+            savegame = "dungeon_4_small_key_2",
+            signal = true
+          },
+          [38] = {
+            savegame = "dungeon_4_rupee_1",
+            signal = false
+          },
+          [43] = {
+            savegame = "dungeon_4_boss_key",
+            signal = true
+          },
+          [45] = {
+            savegame = "dungeon_4_compass",
+            signal = false
+          },
+          [46] = {
+            savegame = "dungeon_4_beak_of_stone",
+            signal = false
+          },
+          [53] = {
+            savegame = "dungeon_4_small_key_1",
+            signal = true
+          },
+        }
       },
       small_boss = {
         floor = 0,
@@ -266,10 +320,8 @@ local function initialize_dungeon_features(game)
       },
       boss = {
         floor = 0,
-        breed = "boss/angler_fish",
-        x = 640 + 1440,
-        y = 720 + 365,
-        savegame_variable = "dungeon_4_boss",
+        breed = "boss/slime_eye",
+        room = 18,
       }
     },
     [5] = {
