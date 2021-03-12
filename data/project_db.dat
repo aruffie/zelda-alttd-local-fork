@@ -254,8 +254,8 @@ sprite{ id = "enemies/boss/hinox_master", description = "Hinox master" }
 sprite{ id = "enemies/boss/hinox_master/blue", description = "Hinox master blue" }
 sprite{ id = "enemies/boss/hinox_master/red", description = "Hinox master red" }
 sprite{ id = "enemies/boss/hot_head", description = "Hot head" }
-sprite{ id = "enemies/boss/hot_head/form_b", description = "Hot head form b" }
-sprite{ id = "enemies/boss/hot_head/form_c", description = "Hot head form c" }
+sprite{ id = "enemies/boss/hot_head/lava_drop", description = "Lava drop" }
+sprite{ id = "enemies/boss/hot_head/lava_splash", description = "Lava splash" }
 sprite{ id = "enemies/boss/master_stalfos", description = "Master stalfos" }
 sprite{ id = "enemies/boss/master_stalfos/body", description = "Master stalfos body" }
 sprite{ id = "enemies/boss/master_stalfos/head", description = "Master stalfos head" }
@@ -382,6 +382,7 @@ sprite{ id = "enemies/vire", description = "Vire" }
 sprite{ id = "enemies/wizzrobe", description = "Wizzrobe" }
 sprite{ id = "enemies/zol_green", description = "Zol green" }
 sprite{ id = "enemies/zol_red", description = "Zol red" }
+sprite{ id = "enemies/zol_salmon", description = "Zol salmon" }
 sprite{ id = "enemies/zombie", description = "Zombie" }
 sprite{ id = "enemies/zora", description = "Zora" }
 sprite{ id = "entities/animals/bird", description = "Bird" }
@@ -1351,18 +1352,18 @@ enemy{ id = "boss/ballchain_soldier", description = "Ballchain Soldier" }
 enemy{ id = "boss/blaino", description = "Blaino" }
 enemy{ id = "boss/cue_ball", description = "Cue Ball" }
 enemy{ id = "boss/desert_lanmola", description = "Desert Lanmola" }
-enemy{ id = "boss/dodongo_snake", description = "Dodongo_Snake" }
+enemy{ id = "boss/dodongo_snake", description = "Dodongo Snake" }
 enemy{ id = "boss/evil_eagle", description = "Evil Eagle" }
-enemy{ id = "boss/evil_orb", description = "Evil orb" }
+enemy{ id = "boss/evil_orb", description = "Evil Orb" }
 enemy{ id = "boss/facade", description = "Facade" }
 enemy{ id = "boss/genie", description = "Genie" }
-enemy{ id = "boss/giant_buzz_blob", description = "Giant buzz blob" }
+enemy{ id = "boss/giant_buzz_blob", description = "Giant Buzz Blob" }
 enemy{ id = "boss/gohma", description = "Gohma" }
 enemy{ id = "boss/grim_creeper", description = "Grim Creeper" }
-enemy{ id = "boss/hinox_master", description = "Hinox master" }
+enemy{ id = "boss/hinox_master", description = "Hinox Master" }
 enemy{ id = "boss/hot_head", description = "Hot Head" }
 enemy{ id = "boss/master_stalfos", description = "Master Stalfos" }
-enemy{ id = "boss/moblin_chief", description = "Moblin chief" }
+enemy{ id = "boss/moblin_chief", description = "Moblin Chief" }
 enemy{ id = "boss/moldorm", description = "Moldorm" }
 enemy{ id = "boss/projectiles/bat", description = "Grim Creeper's Bat" }
 enemy{ id = "boss/projectiles/bottle", description = "Genie's Bottle" }
@@ -1376,11 +1377,11 @@ enemy{ id = "boss/projectiles/fry", description = "Angler Fish's Fry" }
 enemy{ id = "boss/projectiles/spike", description = "Rolling Bones's Spike" }
 enemy{ id = "boss/projectiles/splitted_eye", description = "Slime Eye's Splitted Eye" }
 enemy{ id = "boss/projectiles/zol", description = "Slime Eye's Zol" }
-enemy{ id = "boss/rolling_bones", description = "Rolling bones" }
+enemy{ id = "boss/rolling_bones", description = "Rolling Bones" }
 enemy{ id = "boss/slime_eel", description = "Slime Eel" }
-enemy{ id = "boss/slime_eye", description = "Slime eye" }
+enemy{ id = "boss/slime_eye", description = "Slime Eye" }
 enemy{ id = "boss/smasher", description = "Smasher" }
-enemy{ id = "boss/stone_hinox", description = "Stone hinox" }
+enemy{ id = "boss/stone_hinox", description = "Stone Hinox" }
 enemy{ id = "boss/turtle_rock", description = "Turtle Rock" }
 enemy{ id = "boulder", description = "Boulder" }
 enemy{ id = "bubble", description = "Bubble" }
@@ -1590,7 +1591,7 @@ file{ path = "enemies/boss/giant_buzz_blob.lua", license = "GPL v3" }
 file{ path = "enemies/boss/gohma.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/grim_creeper.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/hinox_master.lua", author = "Vlag", license = "GPL v3" }
-file{ path = "enemies/boss/hot_head.lua", license = "GPL v3" }
+file{ path = "enemies/boss/hot_head.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/master_stalfos.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/moblin_chief.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/moldorm.lua", author = "Vlag", license = "GPL v3" }
@@ -1626,7 +1627,7 @@ file{ path = "enemies/cukeman.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/darknut.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/darknut_bow.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/death_ball.lua", author = "Vlag", license = "GPL v3" }
-file{ path = "enemies/dog.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "enemies/dog.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/eyegore_statue.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "enemies/face_lamp.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "enemies/fireball.lua", author = "Benjamin Schweitzer", license = "GPL v3" }

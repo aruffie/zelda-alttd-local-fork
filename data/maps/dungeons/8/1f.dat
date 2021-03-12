@@ -13,6 +13,24 @@ properties{
 
 tile{
   layer = 0,
+  x = 1008,
+  y = 288,
+  width = 224,
+  height = 144,
+  pattern = "1020",
+}
+
+tile{
+  layer = 0,
+  x = 1008,
+  y = 288,
+  width = 224,
+  height = 144,
+  pattern = "floor.3-Alpha",
+}
+
+tile{
+  layer = 0,
   x = 1344,
   y = 936,
   width = 8,
@@ -1926,42 +1944,6 @@ tile{
   width = 32,
   height = 8,
   pattern = "wall_border.1-2",
-}
-
-tile{
-  layer = 0,
-  x = 1008,
-  y = 288,
-  width = 224,
-  height = 144,
-  pattern = "1020",
-}
-
-tile{
-  layer = 0,
-  x = 1008,
-  y = 288,
-  width = 224,
-  height = 144,
-  pattern = "floor.3-Alpha",
-}
-
-tile{
-  layer = 0,
-  x = 1192,
-  y = 280,
-  width = 16,
-  height = 128,
-  pattern = "lava",
-}
-
-tile{
-  layer = 0,
-  x = 1064,
-  y = 312,
-  width = 128,
-  height = 96,
-  pattern = "lava",
 }
 
 tile{
@@ -6826,15 +6808,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 1000,
-  y = 280,
-  width = 64,
-  height = 128,
-  pattern = "lava",
-}
-
-tile{
-  layer = 0,
   x = 64,
   y = 544,
   width = 192,
@@ -11182,83 +11155,11 @@ tile{
 
 tile{
   layer = 0,
-  x = 1008,
-  y = 400,
-  width = 192,
-  height = 8,
-  pattern = "hole.2",
-}
-
-tile{
-  layer = 0,
-  x = 1200,
-  y = 288,
-  width = 8,
-  height = 112,
-  pattern = "hole.4",
-}
-
-tile{
-  layer = 0,
-  x = 1200,
-  y = 400,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.4",
-}
-
-tile{
-  layer = 0,
   x = 1064,
   y = 280,
   width = 128,
   height = 8,
   pattern = "wall_border.1-2",
-}
-
-tile{
-  layer = 0,
-  x = 1064,
-  y = 312,
-  width = 128,
-  height = 8,
-  pattern = "hole.1",
-}
-
-tile{
-  layer = 0,
-  x = 1192,
-  y = 312,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner_reverse.1",
-}
-
-tile{
-  layer = 0,
-  x = 1056,
-  y = 312,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner_reverse.2",
-}
-
-tile{
-  layer = 0,
-  x = 1056,
-  y = 288,
-  width = 8,
-  height = 24,
-  pattern = "hole.4",
-}
-
-tile{
-  layer = 0,
-  x = 1192,
-  y = 288,
-  width = 8,
-  height = 24,
-  pattern = "hole.3",
 }
 
 tile{
@@ -18449,51 +18350,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 1000,
-  y = 400,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.3",
-}
-
-tile{
-  layer = 0,
-  x = 1000,
-  y = 288,
-  width = 8,
-  height = 112,
-  pattern = "hole.3",
-}
-
-tile{
-  layer = 0,
-  x = 1000,
-  y = 280,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.1",
-}
-
-tile{
-  layer = 0,
-  x = 1008,
-  y = 280,
-  width = 48,
-  height = 8,
-  pattern = "hole.1",
-}
-
-tile{
-  layer = 0,
-  x = 1056,
-  y = 280,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.2",
-}
-
-tile{
-  layer = 0,
   x = 40,
   y = 1296,
   width = 16,
@@ -23421,24 +23277,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 1192,
-  y = 280,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.1",
-}
-
-tile{
-  layer = 0,
-  x = 1200,
-  y = 280,
-  width = 8,
-  height = 8,
-  pattern = "hole.corner.2",
-}
-
-tile{
-  layer = 0,
   x = 368,
   y = 1384,
   width = 8,
@@ -24092,6 +23930,32 @@ tile{
   width = 8,
   height = 8,
   pattern = "stairs_inner_up.2.top.border.1-1",
+}
+
+dynamic_tile{
+  name = "area_lava_1",
+  layer = 0,
+  x = 1008,
+  y = 320,
+  properties = {
+    {
+      key = "area",
+      value = "lava",
+    },
+  },
+  width = 192,
+  height = 80,
+  pattern = "10346",
+  tileset = "out/outside_special",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 1000,
+  y = 312,
+  width = 208,
+  height = 96,
+  pattern = "lava",
 }
 
 dynamic_tile{
@@ -28264,7 +28128,7 @@ destination{
   name = "dungeon_8_1_B",
   layer = 0,
   x = 1120,
-  y = 1893,
+  y = 421,
   direction = 1,
   default = true,
 }
@@ -29471,12 +29335,165 @@ destination{
 wall{
   layer = 0,
   x = 1112,
-  y = 1880,
+  y = 1864,
   width = 16,
   height = 16,
   stops_npcs = true,
   stops_enemies = true,
   stops_blocks = true,
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 1064,
+  y = 312,
+  width = 128,
+  height = 8,
+  pattern = "hole.1",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 1192,
+  y = 312,
+  width = 8,
+  height = 8,
+  pattern = "hole.corner_reverse.1",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 1056,
+  y = 312,
+  width = 8,
+  height = 8,
+  pattern = "hole.corner_reverse.2",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 1200,
+  y = 400,
+  width = 8,
+  height = 8,
+  pattern = "hole.corner.4",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 1000,
+  y = 400,
+  width = 8,
+  height = 8,
+  pattern = "hole.corner.3",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 1008,
+  y = 400,
+  width = 192,
+  height = 8,
+  pattern = "hole.2",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 1000,
+  y = 280,
+  width = 64,
+  height = 32,
+  pattern = "lava",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 1192,
+  y = 280,
+  width = 16,
+  height = 32,
+  pattern = "lava",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 1192,
+  y = 288,
+  width = 8,
+  height = 24,
+  pattern = "hole.3",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 1200,
+  y = 280,
+  width = 8,
+  height = 8,
+  pattern = "hole.corner.2",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 1192,
+  y = 280,
+  width = 8,
+  height = 8,
+  pattern = "hole.corner.1",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 1200,
+  y = 288,
+  width = 8,
+  height = 112,
+  pattern = "hole.4",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 1056,
+  y = 280,
+  width = 8,
+  height = 8,
+  pattern = "hole.corner.2",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 1056,
+  y = 288,
+  width = 8,
+  height = 24,
+  pattern = "hole.4",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 1008,
+  y = 280,
+  width = 48,
+  height = 8,
+  pattern = "hole.1",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 1000,
+  y = 280,
+  width = 8,
+  height = 8,
+  pattern = "hole.corner.1",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 1000,
+  y = 288,
+  width = 8,
+  height = 112,
+  pattern = "hole.3",
 }
 
 tile{
