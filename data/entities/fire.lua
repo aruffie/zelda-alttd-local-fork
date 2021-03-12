@@ -147,7 +147,7 @@ fire:add_collision_test("sprite", function(fire, entity, fire_sprite, entity_spr
     local enemy = entity
     local reaction = enemy:get_fire_reaction()
 
-    -- Remove the entity if fire has no effect on the enemy.
+    -- Don't continue if fire has no effect on the enemy.
     if reaction == "protected" then
       fire:extinguish()
       return
@@ -156,16 +156,24 @@ fire:add_collision_test("sprite", function(fire, entity, fire_sprite, entity_spr
       return
     end
 
-    -- Freeze the enemy.
+    -- Directly pass attack consequences if reaction is a function.
+    if type(reaction) == "function" then
+      fire:extinguish()
+      enemy:receive_attack_consequence("fire", reaction)
+      return
+    end
+
+    -- Freeze the enemy and make it unable to interact.
     local reactions = enemy:get_hero_weapons_reactions()
     sol.timer.stop_all(enemy)
     enemy:stop_movement()
     enemy:set_invincible()
+    enemy:set_can_attack(false)
 
+    -- Push it back.
     if enemy:is_pushed_back_when_hurt() then
       enemy:set_pushed_back_when_hurt(false) -- Avoid pushing back again.
-
-      -- Push it back.
+      
       local enemy_x, enemy_y, _ = enemy:get_position()
       local enemy_sprite_x, enemy_sprite_y = entity_sprite:get_xy()
       local fire_x, fire_y, _ = fire:get_position()

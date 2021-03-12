@@ -1,8 +1,8 @@
 -- Variables
 local map = ...
 local game = map:get_game()
-
-
+local is_small_boss_active = false
+local is_boss_active = false
 
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
@@ -49,6 +49,7 @@ function map:on_started()
   door_manager:open_if_small_boss_dead(map)
 
   -- Pickables
+  treasure_manager:disappear_pickable(map, "heart_container")
   treasure_manager:disappear_pickable(map, "pickable_small_key_1")
   treasure_manager:disappear_pickable(map, "pickable_small_key_2")
   treasure_manager:disappear_pickable(map, "pickable_small_key_3")
@@ -159,8 +160,13 @@ sensor_6:register_event("on_activated", function()
 end)
 
 sensor_7:register_event("on_activated", function()
-  map:close_doors("door_group_boss_3")
-  map:close_doors("door_group_boss_6")
+  
+  if is_boss_active == false then
+    is_boss_active = true
+    map:close_doors("door_group_boss_3")
+    map:close_doors("door_group_boss_6")
+    enemy_manager:launch_boss_if_not_dead(map)
+  end
 end)
 
 sensor_small_boss:register_event("on_activated", function()

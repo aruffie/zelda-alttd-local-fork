@@ -1350,9 +1350,31 @@ Tête Brûlée
 }
 
 dialog{
+  id = "maps.dungeons.8.boss_dying",
+  text = [[
+NON !!!...
+Si tu n'étais pas venu ici, rien n'aurait changé.
+Tu ne peux pas réveiller le Poisson-Rêve !
+N'oublie pas ...
+Nous faisons ...
+tous partie ...
+de son rêve ...
+]],
+}
+
+dialog{
   id = "maps.dungeons.8.boss_name",
   text = [[
 Inferno
+]],
+}
+
+dialog{
+  id = "maps.dungeons.8.boss_welcome",
+  text = [[
+SPLASHHH !
+Tu vas mourir !
+Jamais, je ne te laisserai jouer des Instruments des Sirènes !
 ]],
 }
 
