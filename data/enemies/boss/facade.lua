@@ -17,7 +17,27 @@ local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
 
 -- Configuration variables
-local between_throws_duration = 500
+local before_waking_up_duration = 2000
+local before_blinking_duration = 1000
+local after_blinking_duration = 3000
+
+-- Make the enemy wake up.
+local function start_waking_up()
+
+  sol.timer.start(enemy, before_waking_up_duration, function()
+    sprite:set_animation("appearing", function()
+      sprite:set_animation("stopped")
+      sol.timer.start(enemy, before_blinking_duration, function()
+        sprite:set_animation("blinking", function()
+          sprite:set_animation("waiting")
+          sol.timer.start(enemy, after_blinking_duration, function()
+            sprite:set_animation("disappearing")
+          end)
+        end)
+      end)
+    end)
+  end)
+end
 
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
@@ -49,4 +69,5 @@ enemy:register_event("on_restarted", function(enemy)
   -- States.
   enemy:set_damage(0)
   enemy:set_can_attack(false)
+  start_waking_up()
 end)

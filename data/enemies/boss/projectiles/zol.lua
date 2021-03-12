@@ -14,7 +14,7 @@
 local enemy = ...
 require("enemies/lib/common_actions").learn(enemy)
 
-local sprite = enemy:create_sprite("enemies/zol_green")
+local sprite = enemy:create_sprite("enemies/zol_salmon")
 local map = enemy:get_map()
 local hero = map:get_hero()
 local is_attacking
