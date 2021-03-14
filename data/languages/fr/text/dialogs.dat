@@ -1258,9 +1258,27 @@ Masque Espiègle
 }
 
 dialog{
+  id = "maps.dungeons.6.boss_dying",
+  text = [[
+Je parle trop ...
+Mais si le Poisson-Rêve s'éveille, tout ce qui se trouve sur cette île disparaîtra !    
+Oui ... TOUT !
+]],
+}
+
+dialog{
   id = "maps.dungeons.6.boss_name",
   text = [[
 Façade
+]],
+}
+
+dialog{
+  id = "maps.dungeons.6.boss_woke_up",
+  text = [[
+Hé petit ! Besoin d'un indice ?    
+Mon point faible c'est la ...     
+Ouh, j'ai failli trop en dire ...
 ]],
 }
 

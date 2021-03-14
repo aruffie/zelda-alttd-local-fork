@@ -42,6 +42,7 @@ function flying_tile_manager:launch(map, enemy_prefix)
     local function spawn_next()
       if map:get_entity(enemy_prefix .. "_enemy_" .. next_index) ~= nil then
         map:get_entity(enemy_prefix .. "_enemy_" .. next_index):set_enabled(true)
+        map:get_entity(enemy_prefix .. "_enemy_" .. next_index):start_attacking()
       end
       if map:get_entity(enemy_prefix .. "_after_" .. next_index) ~= nil then
         map:get_entity(enemy_prefix .. "_after_" .. next_index):set_enabled(true)
@@ -55,36 +56,37 @@ function flying_tile_manager:launch(map, enemy_prefix)
       next_index = next_index + 1
     end
     local total = map:get_entities_count(enemy_prefix .. "_enemy")
-    local spawn_delay = 1500 -- Delay between two flying tiles.
+    local spawn_delay = 1000 -- Delay between two flying tiles.
     map:set_entities_enabled(enemy_prefix .. "_enemy", false)
     map:set_entities_enabled(enemy_prefix .. "_after", false)
     map:set_entities_enabled(enemy_prefix .. "_before", true)
-      -- Spawn a tile and schedule the next one.
-      spawn_next()
-      flying_tile_manager.timer = sol.timer.start(map, spawn_delay, function()
-        spawn_next()
-        return next_index <= total
-      end)
 
-      -- Play a sound repeatedly as long as at least one tile is moving.
-      sol.timer.start(map, 150, function()
-        audio_manager:play_sound("hero/walk_on_grass")
-        -- Repeat the sound until the last tile starts animation "destroy".
-        local again = false
-        local remaining = map:get_entities_count(enemy_prefix .. "_enemy")
-        if remaining > 1 then
-          again = true
-        elseif remaining == 1 then
-          for enemy in map:get_entities(enemy_prefix .. "_enemy_") do
-            local sprite = enemy:get_sprite()
-            if sprite and sprite:get_animation() ~= "destroy" then
-              again = true
-              break
-            end
+    -- Spawn a tile and schedule the next one.
+    spawn_next()
+    flying_tile_manager.timer = sol.timer.start(map, spawn_delay, function()
+      spawn_next()
+      return next_index <= total
+    end)
+
+    -- Play a sound repeatedly as long as at least one tile is moving.
+    sol.timer.start(map, 150, function()
+      audio_manager:play_sound("hero/walk_on_grass")
+      -- Repeat the sound until the last tile starts animation "destroy".
+      local again = false
+      local remaining = map:get_entities_count(enemy_prefix .. "_enemy")
+      if remaining > 1 then
+        again = true
+      elseif remaining == 1 then
+        for enemy in map:get_entities(enemy_prefix .. "_enemy_") do
+          local sprite = enemy:get_sprite()
+          if sprite and sprite:get_animation() ~= "destroy" then
+            again = true
+            break
           end
         end
-        return again
-      end)
+      end
+      return again
+    end)
   end
 
 end

@@ -240,6 +240,7 @@ sprite{ id = "enemies/boss/evil_eagle", description = "Evil eagle" }
 sprite{ id = "enemies/boss/evil_orb/evil_orb", description = "Evil orb" }
 sprite{ id = "enemies/boss/evil_orb/evil_orb_head", description = "Orb evil orb" }
 sprite{ id = "enemies/boss/facade", description = "Facade" }
+sprite{ id = "enemies/boss/facade/hole", description = "Hole" }
 sprite{ id = "enemies/boss/genie", description = "Genie" }
 sprite{ id = "enemies/boss/genie/bottle", description = "Genie bottle" }
 sprite{ id = "enemies/boss/genie/fireball", description = "Genie fire ball" }

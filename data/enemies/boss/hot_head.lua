@@ -107,6 +107,7 @@ local function create_trail()
     trail_sprite:set_opacity(255 - 75 * i)
     trail_sprite:set_xy(sprite_x, sprite_y)
     enemy:bring_sprite_to_back(trail_sprite)
+    enemy:set_invincible_sprite(trail_sprite)
     table.insert(trail_sprites, trail_sprite)
   end
 
