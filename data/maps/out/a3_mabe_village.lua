@@ -232,7 +232,9 @@ function map:talk_to_marin()
       marin:launch_cinematic_marin_singing_with_hero(map)
     end)
   elseif game:is_step_done("dungeon_3_completed") then
-    game:start_dialog("maps.out.mabe_village.marin_8")
+    game:start_dialog("maps.out.mabe_village.marin_8", function()
+      marin:sing_start()
+    end)
   else
     game:start_dialog("maps.out.mabe_village.marin_3", game:get_player_name(), function()
       marin:sing_start()

@@ -12001,23 +12001,6 @@ teletransporter{
   destination = "empty_house_1_B",
 }
 
-npc{
-  name = "maps.out.yarna_desert.sign_1",
-  layer = 1,
-  x = 304,
-  y = 645,
-  properties = {
-    {
-      key = "model",
-      value = "sign",
-    },
-  },
-  direction = 3,
-  subtype = 0,
-  sprite = "entities/destructibles/sign",
-  behavior = "dialog#",
-}
-
 destructible{
   layer = 1,
   x = 888,
@@ -13789,6 +13772,26 @@ dynamic_tile{
   height = 256,
   pattern = "10215",
   tileset = "out/outside_special",
+}
+
+npc{
+  name = "dialog_1",
+  layer = 1,
+  x = 304,
+  y = 645,
+  properties = {
+    {
+      key = "model",
+      value = "sign",
+    },
+    {
+      key = "dialog_id",
+      value = "maps.out.yarna_desert.sign_1",
+    },
+  },
+  direction = 3,
+  subtype = 0,
+  sprite = "entities/destructibles/sign",
 }
 
 tile{

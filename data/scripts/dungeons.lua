@@ -168,15 +168,83 @@ local function initialize_dungeon_features(game)
         destination_name = "dungeon_3_2_A"
       },
       secrets = {
+        [-1] = {
+          [20] = {
+            savegame = "dungeon_3_small_key_3",
+            signal = true
+          },
+          [27] = {
+            savegame = "dungeon_3_small_key_9",
+            signal = true
+          },
+          [36] = {
+            savegame = "dungeon_3_small_key_8",
+            signal = true
+          },
+          [60] = {
+            savegame = "dungeon_3_small_key_7",
+            signal = true
+          },          
+        },
+        [0] = {   
+          [4] = {
+            savegame = "dungeon_3_small_key_5",
+            signal = false
+          },
+          [5] = {
+            savegame = "dungeon_3_compass",
+            signal = false
+          },
+          [11] = {
+            savegame = "dungeon_3_rupee_2",
+            signal = false
+          },
+          [13] = {
+            savegame = "dungeon_3_pegasus_shoes",
+            signal = false
+          },
+          [14] = {
+            savegame = "dungeon_3_boss_key",
+            signal = true
+          },
+          [19] = {
+            savegame = "dungeon_3_small_key_6",
+            signal = true
+          },
+          [28] = {
+            savegame = "dungeon_3_beak_of_stone",
+            signal = false
+          },
+          [29] = {
+            savegame = "dungeon_3_small_key_4",
+            signal = true
+          },
+          [36] = {
+            savegame = "dungeon_3_rupee_1",
+            signal = false
+          },
+          [45] = {
+            savegame = "dungeon_3_map",
+            signal = false
+          },
+          [52] = {
+            savegame = "dungeon_3_small_key_1",
+            signal = true
+          },
+          [61] = {
+            savegame = "dungeon_3_small_key_2",
+            signal = true
+          },
+        },
       },
       small_boss = {
         floor = 0,
         breed = "boss/dodongo_snake",
       },
       boss = {
-        floor = 0,
+        floor = -1,
         breed = "boss/slime_eye",
-        room = 2,
+        room = 52,
       }
     },
     [4] = {
@@ -186,11 +254,65 @@ local function initialize_dungeon_features(game)
       cols= 6,
       music = "47_level_4_angler_tunnel",
       music_instrument = "48_the_surf_harp",
+      destination_ocarina = {
+        map_id = "dungeons/4/1f",
+        destination_name = "destination_ocarina"
+      },
       teletransporter_end_dungeon = {
         map_id = "out/c1_mambos_cave",
         destination_name = "dungeon_4_2_A"
       },
       secrets = {
+        [0] = {
+          [4] = {
+            savegame = "dungeon_4_flippers",
+            signal = false
+          },
+          [15] = {
+            savegame = "dungeon_4_small_key_3",
+            signal = true
+          },
+          [20] = {
+            savegame = "dungeon_4_small_key_4",
+            signal = true
+          },
+          [21] = {
+            savegame = "dungeon_4_small_key_1",
+            signal = true
+          },
+          [22] = {
+            savegame = "dungeon_4_map",
+            signal = false
+          },
+          [28] = {
+            savegame = "dungeon_4_rupee_2",
+            signal = false
+          },
+          [31] = {
+            savegame = "dungeon_4_small_key_2",
+            signal = true
+          },
+          [38] = {
+            savegame = "dungeon_4_rupee_1",
+            signal = false
+          },
+          [43] = {
+            savegame = "dungeon_4_boss_key",
+            signal = true
+          },
+          [45] = {
+            savegame = "dungeon_4_compass",
+            signal = false
+          },
+          [46] = {
+            savegame = "dungeon_4_beak_of_stone",
+            signal = false
+          },
+          [53] = {
+            savegame = "dungeon_4_small_key_1",
+            signal = true
+          },
+        }
       },
       small_boss = {
         floor = 0,
@@ -198,9 +320,8 @@ local function initialize_dungeon_features(game)
       },
       boss = {
         floor = 0,
-        x = 640 + 1440,
-        y = 720 + 365,
-        savegame_variable = "dungeon_4_boss",
+        breed = "boss/slime_eye",
+        room = 18,
       }
     },
     [5] = {
@@ -218,9 +339,9 @@ local function initialize_dungeon_features(game)
       },
       boss = {
         floor = 0,
+        breed = "boss/slime_eel",
         x = 640 + 1440,
         y = 720 + 365,
-        breed = "boss/slime_eel",
         savegame_variable = "dungeon_5_boss",
       }
     },
@@ -241,6 +362,7 @@ local function initialize_dungeon_features(game)
       },
       boss = {
         floor = 0,
+        breed = "boss/facade",
         x = 640 + 1440,
         y = 720 + 365,
         savegame_variable = "dungeon_6_boss",
@@ -325,7 +447,7 @@ local function initialize_dungeon_features(game)
       },
       boss = {
         floor = 3,
-        breed = "zol_red",
+        breed = "boss/evil_eagle",
         x = 640 + 1440,
         y = 720 + 365
       }
@@ -354,9 +476,8 @@ local function initialize_dungeon_features(game)
         y = 720 + 365
       },
       boss = {
-        -- TODO
         floor = 3,
-        breed = "zol_red",
+        breed = "boss/hot_head",
         x = 640 + 1440,
         y = 720 + 365
       }

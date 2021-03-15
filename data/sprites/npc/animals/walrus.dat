@@ -13,7 +13,7 @@ animation{
 animation{
   name = "awakening",
   src_image = "npc/animals/walrus.png",
-  frame_delay = 300,
+  frame_delay = 290,
   directions = {
     { x = 0, y = 48, frame_width = 88, frame_height = 48, origin_x = 44, origin_y = 45, num_frames = 14 },
     { x = 0, y = 48, frame_width = 88, frame_height = 48, origin_x = 44, origin_y = 45, num_frames = 14 },

@@ -1140,6 +1140,13 @@ Ta route passe par la baie.
 }
 
 dialog{
+  id = "maps.dungeons.4.owl_1",
+  text = [[
+La lueur des tuiles sera ton guide...
+]],
+}
+
+dialog{
   id = "maps.dungeons.4.welcome_description",
   text = [[
 Niveau 4
@@ -1157,6 +1164,14 @@ dialog{
   id = "maps.dungeons.5.boss_description",
   text = [[
 Anguille Insatiable
+]],
+}
+
+dialog{
+  id = "maps.dungeons.5.boss_dying",
+  text = [[
+AHHH !
+Tu ne connais pas encore cette île ! Tu es vraiment naïf ... AHHH !
 ]],
 }
 
@@ -1243,9 +1258,27 @@ Masque Espiègle
 }
 
 dialog{
+  id = "maps.dungeons.6.boss_dying",
+  text = [[
+Je parle trop ...
+Mais si le Poisson-Rêve s'éveille, tout ce qui se trouve sur cette île disparaîtra !    
+Oui ... TOUT !
+]],
+}
+
+dialog{
   id = "maps.dungeons.6.boss_name",
   text = [[
 Façade
+]],
+}
+
+dialog{
+  id = "maps.dungeons.6.boss_woke_up",
+  text = [[
+Hé petit ! Besoin d'un indice ?    
+Mon point faible c'est la ...     
+Ouh, j'ai failli trop en dire ...
 ]],
 }
 
@@ -1279,9 +1312,26 @@ Vautour Malfaisant
 }
 
 dialog{
+  id = "maps.dungeons.7.boss_dying",
+  text = [[
+J'ai perdu ...
+Toi aussi, tu vas perdre si le Poisson-Rêve s'éveille ...    
+Tout comme moi, tu es...
+dans son rêve...
+]],
+}
+
+dialog{
   id = "maps.dungeons.7.boss_name",
   text = [[
 Urubos
+]],
+}
+
+dialog{
+  id = "maps.dungeons.7.boss_welcome",
+  text = [[
+Cette fois-ci, je vais t'avoir, c'est sûr ... Je vais t'écraser comme une vulgaire fourmi !
 ]],
 }
 
@@ -1342,9 +1392,31 @@ Tête Brûlée
 }
 
 dialog{
+  id = "maps.dungeons.8.boss_dying",
+  text = [[
+NON !!!...
+Si tu n'étais pas venu ici, rien n'aurait changé.
+Tu ne peux pas réveiller le Poisson-Rêve !
+N'oublie pas ...
+Nous faisons ...
+tous partie ...
+de son rêve ...
+]],
+}
+
+dialog{
   id = "maps.dungeons.8.boss_name",
   text = [[
 Inferno
+]],
+}
+
+dialog{
+  id = "maps.dungeons.8.boss_welcome",
+  text = [[
+SPLASHHH !
+Tu vas mourir !
+Jamais, je ne te laisserai jouer des Instruments des Sirènes !
 ]],
 }
 
@@ -2272,6 +2344,16 @@ dialog{
   text = [[
 DRING DRING !!   
 Pépé le Ramollo à l'appareil... 
+Va vite à la Cave aux Clés, située dans la Prairie.     
+Salut ! CLIC !
+]],
+}
+
+dialog{
+  id = "maps.houses.phone_booth.11",
+  text = [[
+DRING DRING !!   
+Pépé le Ramollo à l'appareil... 
 Apparemment, dans les Dunes de Yarna, au Sud-Est de l'île, se trouve la Clé-Poisson.    
 Ecoute, je ne peux pas être plus explicite que cela...     
 Salut ! CLIC !
@@ -2279,7 +2361,7 @@ Salut ! CLIC !
 }
 
 dialog{
-  id = "maps.houses.phone_booth.11",
+  id = "maps.houses.phone_booth.11_old",
   text = [[
 DRING DRING !!   
 Pépé le Ramollo à l'appareil... 
@@ -2509,22 +2591,12 @@ CLIC !
 }
 
 dialog{
-  id = "maps.houses.phone_booth.8_old",
+  id = "maps.houses.phone_booth.9",
   text = [[
 DRING DRING !!   
 Pépé le Ramollo à l'appareil... 
 As-tu acheté une Pelle ?      
 Creuse le sol, peut-être auras-tu de la chance ?   
-Salut ! CLIC !
-]],
-}
-
-dialog{
-  id = "maps.houses.phone_booth.9",
-  text = [[
-DRING DRING !!   
-Pépé le Ramollo à l'appareil... 
-Va vite à la Cave aux Clés, située dans la Prairie.     
 Salut ! CLIC !
 ]],
 }
@@ -3487,6 +3559,13 @@ Tu déposes l'écaille qui manquait sur la petite sirène !
 }
 
 dialog{
+  id = "maps.out.martha_bay.sign_1",
+  text = [[
+\[arrow_right\] Enfin ! Vill. des Animaux
+]],
+}
+
+dialog{
   id = "maps.out.prairie.dungeon_3_lock",
   text = [[
 Une serrure ici ?
@@ -3780,13 +3859,6 @@ Marine est-elle en vie ?
 
 dialog{
   id = "maps.out.yarna_desert.sign_1",
-  text = [[
-\[arrow_right\] Enfin ! Vill. des Animaux
-]],
-}
-
-dialog{
-  id = "maps.out.yarna_desert.sign_2",
   text = [[
 \[arrow_right\] Entrée des Dunes de Yarna
 ]],

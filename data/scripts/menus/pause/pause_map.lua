@@ -353,7 +353,8 @@ function map_submenu:draw_dungeon_map_floors(dst_surface, floors_x, floors_y)
   -- Show the boss icon near his floor.
   if self.game:has_dungeon_compass() and self.dungeon.boss ~= nil then
     dst_x = 116
-    dst_y = (2 - self.dungeon.boss.floor) * 16 + 72
+    --dst_y = (2 - self.dungeon.boss.floor) * 16 + 72
+    dst_y = old_dst_y + (self.highest_floor_displayed - self.dungeon.boss.floor) * 12 + 3
     self.boss_icon_img:draw(dst_surface, dst_x, dst_y)
   end
 
@@ -375,6 +376,7 @@ function map_submenu:draw_dungeon_map_rooms(dst_surface, rooms_x, rooms_y)
     if  self.game:has_explored_dungeon_room(self.dungeon_index, self.selected_floor, i) then
       if self.game:has_dungeon_map() then
         -- If the room is visited, show it in another color.
+        self.rooms_sprite:set_direction(i)
         self.rooms_sprite:draw(self.rooms_surface, src_x, src_y)
       else
         -- If the room is visited, show it in another color.
@@ -406,7 +408,7 @@ function map_submenu:draw_dungeon_map_rooms(dst_surface, rooms_x, rooms_y)
       local column = math.floor(x / room_width)
       local row = math.floor(y / room_height)
       local room = row * num_columns + column + 1
-      if self.dungeon.boss.room == i and self.hero_floor == self.selected_floor then
+      if self.dungeon.boss.room == i and self.dungeon.boss.floor == self.selected_floor then
         src_y = src_y + 3
         self.boss_icon_img:draw(self.rooms_surface, src_x + 4, src_y)
         src_y = src_y + 2

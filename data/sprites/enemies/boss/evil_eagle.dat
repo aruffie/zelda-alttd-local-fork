@@ -1,5 +1,5 @@
 animation{
-  name = "flying_on_place",
+  name = "flying",
   src_image = "enemies/boss/evil_eagle.png",
   frame_delay = 50,
   frame_to_loop_on = 0,
@@ -11,10 +11,8 @@ animation{
   },
 }
 animation{
-  name = "attack",
+  name = "attacking",
   src_image = "enemies/boss/evil_eagle.png",
-  frame_delay = 50,
-  frame_to_loop_on = 0,
   directions = {
     { x = 576, y = 96, frame_width = 96, frame_height = 96, origin_x = 48, origin_y = 93 },
     { x = 576, y = 96, frame_width = 96, frame_height = 96, origin_x = 48, origin_y = 93 },
@@ -23,7 +21,7 @@ animation{
   },
 }
 animation{
-  name = "flying_vertical",
+  name = "rushing",
   src_image = "enemies/boss/evil_eagle.png",
   frame_delay = 50,
   frame_to_loop_on = 0,

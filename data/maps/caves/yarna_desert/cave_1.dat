@@ -13,6 +13,51 @@ properties{
 tile{
   layer = 0,
   x = 64,
+  y = 176,
+  width = 160,
+  height = 24,
+  pattern = "wall_low.2-2",
+}
+
+tile{
+  layer = 0,
+  x = 248,
+  y = 176,
+  width = 16,
+  height = 24,
+  pattern = "wall_low.2-2",
+}
+
+tile{
+  layer = 0,
+  x = 248,
+  y = 280,
+  width = 16,
+  height = 24,
+  pattern = "wall_low.1-2",
+}
+
+tile{
+  layer = 0,
+  x = 408,
+  y = 280,
+  width = 144,
+  height = 24,
+  pattern = "wall_low.1-2",
+}
+
+tile{
+  layer = 0,
+  x = 224,
+  y = 200,
+  width = 16,
+  height = 96,
+  pattern = "floor.16-2",
+}
+
+tile{
+  layer = 0,
+  x = 64,
   y = 304,
   width = 512,
   height = 128,
@@ -41,7 +86,7 @@ tile{
   layer = 0,
   x = 64,
   y = 280,
-  width = 512,
+  width = 160,
   height = 24,
   pattern = "wall_low.1-2",
 }
@@ -984,15 +1029,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 224,
-  y = 192,
-  width = 16,
-  height = 96,
-  pattern = "floor.16-2",
-}
-
-tile{
-  layer = 0,
   x = 216,
   y = 200,
   width = 8,
@@ -1062,15 +1098,6 @@ tile{
   width = 24,
   height = 24,
   pattern = "wall_low.corner.3-2",
-}
-
-tile{
-  layer = 0,
-  x = 64,
-  y = 176,
-  width = 192,
-  height = 24,
-  pattern = "wall_low.2-2",
 }
 
 tile{
@@ -1801,16 +1828,6 @@ tile{
   width = 16,
   height = 16,
   pattern = "94",
-  tileset = "addition/dungeon",
-}
-
-tile{
-  layer = 0,
-  x = 200,
-  y = 504,
-  width = 16,
-  height = 16,
-  pattern = "97",
   tileset = "addition/dungeon",
 }
 
@@ -2651,28 +2668,6 @@ enemy{
   treasure_name = "random_with_charm",
 }
 
-dynamic_tile{
-  name = "floor_x_unstable_associate_",
-  layer = 0,
-  x = 184,
-  y = 504,
-  width = 16,
-  height = 16,
-  pattern = "926",
-}
-
-custom_entity{
-  name = "floor_x",
-  layer = 0,
-  x = 176,
-  y = 517,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/grounds/weak_floor_dark_1",
-  model = "unstable_floor",
-}
-
 teletransporter{
   layer = 0,
   x = 512,
@@ -2965,7 +2960,7 @@ enemy{
   layer = 0,
   x = 168,
   y = 349,
-  direction = 0,
+  direction = 2,
   breed = "fireball",
 }
 

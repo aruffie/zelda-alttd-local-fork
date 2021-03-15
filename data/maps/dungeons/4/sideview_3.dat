@@ -6,7 +6,7 @@ properties{
   min_layer = 0,
   max_layer = 2,
   world = "dungeon_4",
-  tileset = "sideview/sideview",
+  tileset = "sideview/sideview_dungeon",
   music = "same",
 }
 
@@ -16,34 +16,28 @@ tile{
   y = 0,
   width = 640,
   height = 240,
-  pattern = "20",
+  pattern = "156",
+  tileset = "sideview/sideview_dungeon",
 }
 
 tile{
   layer = 0,
   x = 0,
   y = 224,
-  width = 576,
+  width = 640,
   height = 16,
-  pattern = "61",
+  pattern = "206",
+  tileset = "sideview/sideview_dungeon",
 }
 
 tile{
   layer = 0,
-  x = 96,
-  y = 208,
-  width = 176,
-  height = 16,
-  pattern = "58",
-}
-
-tile{
-  layer = 0,
-  x = 64,
+  x = 576,
   y = 0,
-  width = 16,
-  height = 144,
-  pattern = "62",
+  width = 64,
+  height = 224,
+  pattern = "206",
+  tileset = "sideview/sideview_dungeon",
 }
 
 tile{
@@ -52,268 +46,148 @@ tile{
   y = 0,
   width = 64,
   height = 224,
-  pattern = "61",
-}
-
-tile{
-  layer = 0,
-  x = 96,
-  y = 0,
-  width = 16,
-  height = 8,
-  pattern = "10",
-}
-
-tile{
-  layer = 0,
-  x = 96,
-  y = 8,
-  width = 16,
-  height = 104,
-  pattern = "11",
-}
-
-tile{
-  layer = 0,
-  x = 96,
-  y = 112,
-  width = 16,
-  height = 16,
-  pattern = "12",
-}
-
-tile{
-  layer = 0,
-  x = 80,
-  y = 0,
-  width = 16,
-  height = 8,
-  pattern = "10",
-}
-
-tile{
-  layer = 0,
-  x = 80,
-  y = 8,
-  width = 16,
-  height = 104,
-  pattern = "11",
-}
-
-tile{
-  layer = 0,
-  x = 80,
-  y = 112,
-  width = 16,
-  height = 16,
-  pattern = "12",
+  pattern = "206",
+  tileset = "sideview/sideview_dungeon",
 }
 
 tile{
   layer = 0,
   x = 80,
   y = 128,
-  width = 8,
-  height = 8,
-  pattern = "37",
+  width = 80,
+  height = 16,
+  pattern = "33",
+  tileset = "sideview/sideview_dungeon",
 }
 
 tile{
   layer = 0,
-  x = 88,
+  x = 192,
   y = 128,
   width = 64,
-  height = 8,
-  pattern = "38",
-}
-
-tile{
-  layer = 0,
-  x = 152,
-  y = 128,
-  width = 8,
-  height = 8,
-  pattern = "39",
-}
-
-tile{
-  layer = 0,
-  x = 152,
-  y = 136,
-  width = 8,
-  height = 8,
-  pattern = "53",
-}
-
-tile{
-  layer = 0,
-  x = 88,
-  y = 136,
-  width = 64,
-  height = 8,
-  pattern = "52",
+  height = 16,
+  pattern = "33",
+  tileset = "sideview/sideview_dungeon",
 }
 
 tile{
   layer = 0,
   x = 80,
-  y = 136,
-  width = 8,
-  height = 8,
-  pattern = "51",
-}
-
-tile{
-  layer = 0,
-  x = 80,
-  y = 144,
-  width = 16,
-  height = 64,
-  pattern = "62",
-}
-
-tile{
-  layer = 0,
-  x = 64,
-  y = 144,
-  width = 16,
-  height = 64,
-  pattern = "61",
-}
-
-tile{
-  layer = 0,
-  x = 64,
-  y = 208,
+  y = 120,
   width = 32,
+  height = 8,
+  pattern = "31",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 80,
+  y = 8,
+  width = 32,
+  height = 112,
+  pattern = "30",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 80,
+  y = 0,
+  width = 32,
+  height = 8,
+  pattern = "29",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 152,
+  y = 40,
+  width = 32,
+  height = 32,
+  pattern = "134",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 240,
+  y = 40,
+  width = 32,
+  height = 32,
+  pattern = "134",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 64,
+  y = 0,
+  width = 16,
+  height = 144,
+  pattern = "207",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 64,
+  y = 144,
+  width = 16,
+  height = 80,
+  pattern = "206",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 80,
+  y = 208,
+  width = 16,
   height = 16,
-  pattern = "61",
+  pattern = "206",
+  tileset = "sideview/sideview_dungeon",
 }
 
 tile{
   layer = 0,
-  x = 192,
-  y = 128,
-  width = 8,
-  height = 8,
-  pattern = "37",
+  x = 96,
+  y = 208,
+  width = 176,
+  height = 16,
+  pattern = "202",
+  tileset = "sideview/sideview_dungeon",
 }
 
 tile{
   layer = 0,
-  x = 200,
-  y = 128,
-  width = 48,
-  height = 8,
-  pattern = "38",
-}
-
-tile{
-  layer = 0,
-  x = 248,
-  y = 128,
-  width = 8,
-  height = 8,
-  pattern = "39",
-}
-
-tile{
-  layer = 0,
-  x = 248,
-  y = 136,
-  width = 8,
-  height = 8,
-  pattern = "53",
-}
-
-tile{
-  layer = 0,
-  x = 200,
-  y = 136,
-  width = 48,
-  height = 8,
-  pattern = "52",
-}
-
-tile{
-  layer = 0,
-  x = 192,
-  y = 136,
-  width = 8,
-  height = 8,
-  pattern = "51",
-}
-
-tile{
-  layer = 0,
-  x = 256,
-  y = 136,
+  x = 80,
+  y = 144,
   width = 16,
-  height = 72,
-  pattern = "79",
+  height = 64,
+  pattern = "207",
+  tileset = "sideview/sideview_dungeon",
 }
 
 tile{
   layer = 0,
   x = 272,
   y = 128,
-  width = 8,
-  height = 8,
-  pattern = "37",
+  width = 96,
+  height = 16,
+  pattern = "33",
+  tileset = "sideview/sideview_dungeon",
 }
 
 tile{
   layer = 0,
-  x = 280,
+  x = 496,
   y = 128,
-  width = 80,
-  height = 8,
-  pattern = "38",
-}
-
-tile{
-  layer = 0,
-  x = 360,
-  y = 128,
-  width = 8,
-  height = 8,
-  pattern = "39",
-}
-
-tile{
-  layer = 0,
-  x = 360,
-  y = 136,
-  width = 8,
-  height = 8,
-  pattern = "53",
-}
-
-tile{
-  layer = 0,
-  x = 280,
-  y = 136,
-  width = 80,
-  height = 8,
-  pattern = "52",
-}
-
-tile{
-  layer = 0,
-  x = 272,
-  y = 136,
-  width = 8,
-  height = 8,
-  pattern = "51",
-}
-
-tile{
-  layer = 0,
-  x = 272,
-  y = 160,
-  width = 16,
-  height = 48,
-  pattern = "60",
+  width = 64,
+  height = 16,
+  pattern = "33",
+  tileset = "sideview/sideview_dungeon",
 }
 
 tile{
@@ -322,7 +196,18 @@ tile{
   y = 160,
   width = 64,
   height = 48,
-  pattern = "61",
+  pattern = "206",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 352,
+  y = 192,
+  width = 16,
+  height = 16,
+  pattern = "206",
+  tileset = "sideview/sideview_dungeon",
 }
 
 tile{
@@ -331,25 +216,28 @@ tile{
   y = 160,
   width = 16,
   height = 32,
-  pattern = "62",
+  pattern = "207",
+  tileset = "sideview/sideview_dungeon",
 }
 
 tile{
   layer = 0,
   x = 272,
-  y = 144,
+  y = 160,
   width = 16,
-  height = 16,
-  pattern = "57",
+  height = 48,
+  pattern = "205",
+  tileset = "sideview/sideview_dungeon",
 }
 
 tile{
   layer = 0,
-  x = 352,
-  y = 144,
-  width = 16,
+  x = 272,
+  y = 208,
+  width = 144,
   height = 16,
-  pattern = "59",
+  pattern = "206",
+  tileset = "sideview/sideview_dungeon",
 }
 
 tile{
@@ -358,340 +246,58 @@ tile{
   y = 144,
   width = 64,
   height = 16,
-  pattern = "58",
-}
-
-tile{
-  layer = 0,
-  x = 272,
-  y = 208,
-  width = 96,
-  height = 16,
-  pattern = "61",
-}
-
-tile{
-  layer = 0,
-  x = 368,
-  y = 208,
-  width = 64,
-  height = 16,
-  pattern = "61",
-}
-
-tile{
-  layer = 0,
-  x = 368,
-  y = 192,
-  width = 32,
-  height = 16,
-  pattern = "58",
-}
-
-tile{
-  layer = 0,
-  x = 352,
-  y = 192,
-  width = 16,
-  height = 16,
-  pattern = "61",
-}
-
-tile{
-  layer = 0,
-  x = 368,
-  y = 128,
-  width = 16,
-  height = 64,
-  pattern = "82",
-}
-
-tile{
-  layer = 0,
-  x = 408,
-  y = 128,
-  width = 8,
-  height = 16,
-  pattern = "85",
-}
-
-tile{
-  layer = 0,
-  x = 392,
-  y = 128,
-  width = 16,
-  height = 16,
-  pattern = "84",
-}
-
-tile{
-  layer = 0,
-  x = 384,
-  y = 128,
-  width = 8,
-  height = 16,
-  pattern = "83",
-}
-
-tile{
-  layer = 0,
-  x = 576,
-  y = 0,
-  width = 64,
-  height = 240,
-  pattern = "61",
-}
-
-tile{
-  layer = 0,
-  x = 560,
-  y = 0,
-  width = 16,
-  height = 144,
-  pattern = "60",
-}
-
-tile{
-  layer = 0,
-  x = 544,
-  y = 0,
-  width = 16,
-  height = 8,
-  pattern = "10",
-}
-
-tile{
-  layer = 0,
-  x = 544,
-  y = 8,
-  width = 16,
-  height = 104,
-  pattern = "11",
-}
-
-tile{
-  layer = 0,
-  x = 544,
-  y = 112,
-  width = 16,
-  height = 16,
-  pattern = "12",
-}
-
-tile{
-  layer = 0,
-  x = 528,
-  y = 0,
-  width = 16,
-  height = 8,
-  pattern = "10",
-}
-
-tile{
-  layer = 0,
-  x = 528,
-  y = 8,
-  width = 16,
-  height = 104,
-  pattern = "11",
-}
-
-tile{
-  layer = 0,
-  x = 528,
-  y = 112,
-  width = 16,
-  height = 16,
-  pattern = "12",
-}
-
-tile{
-  layer = 0,
-  x = 480,
-  y = 128,
-  width = 8,
-  height = 8,
-  pattern = "37",
-}
-
-tile{
-  layer = 0,
-  x = 488,
-  y = 128,
-  width = 64,
-  height = 8,
-  pattern = "38",
-}
-
-tile{
-  layer = 0,
-  x = 552,
-  y = 128,
-  width = 8,
-  height = 8,
-  pattern = "39",
-}
-
-tile{
-  layer = 0,
-  x = 552,
-  y = 136,
-  width = 8,
-  height = 8,
-  pattern = "53",
-}
-
-tile{
-  layer = 0,
-  x = 488,
-  y = 136,
-  width = 64,
-  height = 8,
-  pattern = "52",
-}
-
-tile{
-  layer = 0,
-  x = 480,
-  y = 136,
-  width = 8,
-  height = 8,
-  pattern = "51",
-}
-
-tile{
-  layer = 0,
-  x = 544,
-  y = 144,
-  width = 16,
-  height = 48,
-  pattern = "60",
-}
-
-tile{
-  layer = 0,
-  x = 560,
-  y = 144,
-  width = 16,
-  height = 64,
-  pattern = "61",
-}
-
-tile{
-  layer = 0,
-  x = 544,
-  y = 192,
-  width = 16,
-  height = 16,
-  pattern = "61",
-}
-
-tile{
-  layer = 0,
-  x = 432,
-  y = 208,
-  width = 112,
-  height = 16,
-  pattern = "58",
-}
-
-tile{
-  layer = 0,
-  x = 544,
-  y = 208,
-  width = 32,
-  height = 16,
-  pattern = "61",
+  pattern = "202",
+  tileset = "sideview/sideview_dungeon",
 }
 
 tile{
   layer = 0,
   x = 416,
-  y = 200,
+  y = 208,
   width = 128,
-  height = 8,
-  pattern = "80",
-}
-
-tile{
-  layer = 0,
-  x = 96,
-  y = 168,
-  width = 176,
-  height = 40,
-  pattern = "92",
-}
-
-tile{
-  layer = 0,
-  x = 96,
-  y = 160,
-  width = 176,
-  height = 8,
-  pattern = "96",
-}
-
-tile{
-  layer = 0,
-  x = 128,
-  y = 96,
-  width = 16,
   height = 16,
-  pattern = "7",
+  pattern = "202",
+  tileset = "sideview/sideview_dungeon",
 }
 
 tile{
   layer = 0,
-  x = 272,
-  y = 96,
-  width = 16,
-  height = 16,
-  pattern = "7",
-}
-
-tile{
-  layer = 0,
-  x = 352,
-  y = 96,
-  width = 16,
-  height = 16,
-  pattern = "7",
-}
-
-tile{
-  layer = 0,
-  x = 480,
-  y = 96,
-  width = 16,
-  height = 16,
-  pattern = "7",
-}
-
-tile{
-  layer = 0,
-  x = 528,
-  y = 144,
-  width = 16,
-  height = 16,
-  pattern = "9",
-}
-
-tile{
-  layer = 0,
-  x = 496,
-  y = 112,
-  width = 16,
-  height = 16,
-  pattern = "27",
-}
-
-tile{
-  layer = 0,
-  x = 512,
+  x = 560,
   y = 0,
   width = 16,
-  height = 128,
-  pattern = "82",
+  height = 224,
+  pattern = "206",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 544,
+  y = 208,
+  width = 16,
+  height = 16,
+  pattern = "206",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 544,
+  y = 144,
+  width = 16,
+  height = 64,
+  pattern = "205",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 368,
+  y = 192,
+  width = 32,
+  height = 16,
+  pattern = "202",
+  tileset = "sideview/sideview_dungeon",
 }
 
 tile{
@@ -700,34 +306,68 @@ tile{
   y = 192,
   width = 16,
   height = 16,
-  pattern = "59",
+  pattern = "203",
+  tileset = "sideview/sideview_dungeon",
 }
 
 tile{
   layer = 0,
-  x = 144,
-  y = 40,
-  width = 32,
-  height = 24,
-  pattern = "wall_torch.1",
+  x = 352,
+  y = 144,
+  width = 16,
+  height = 16,
+  pattern = "203",
+  tileset = "sideview/sideview_dungeon",
 }
 
 tile{
   layer = 0,
-  x = 240,
-  y = 40,
-  width = 32,
-  height = 24,
-  pattern = "wall_torch.1",
+  x = 272,
+  y = 144,
+  width = 16,
+  height = 16,
+  pattern = "201",
+  tileset = "sideview/sideview_dungeon",
 }
 
 tile{
   layer = 0,
-  x = 464,
+  x = 456,
   y = 40,
   width = 32,
-  height = 24,
-  pattern = "wall_torch.1",
+  height = 32,
+  pattern = "134",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 528,
+  y = 120,
+  width = 32,
+  height = 8,
+  pattern = "31",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 528,
+  y = 8,
+  width = 32,
+  height = 112,
+  pattern = "30",
+  tileset = "sideview/sideview_dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 528,
+  y = 0,
+  width = 32,
+  height = 8,
+  pattern = "29",
+  tileset = "sideview/sideview_dungeon",
 }
 
 separator{
@@ -738,12 +378,113 @@ separator{
   height = 240,
 }
 
-dynamic_tile{
+custom_entity{
   layer = 0,
-  x = 256,
-  y = 128,
+  x = 264,
+  y = 141,
+  width = 16,
+  height = 72,
+  origin_y = 5,
+  direction = 0,
+  sprite = "entities/grounds/ladder_wooden",
+  tiled = true,
+  model = "ladder",
+}
+
+custom_entity{
+  layer = 0,
+  x = 264,
+  y = 133,
   width = 16,
   height = 8,
-  pattern = "78",
+  origin_y = 5,
+  direction = 0,
+  sprite = "entities/grounds/ladder_wooden_top",
+  tiled = true,
+  model = "ladder",
+}
+
+custom_entity{
+  layer = 0,
+  x = 376,
+  y = 141,
+  width = 16,
+  height = 56,
+  origin_y = 5,
+  direction = 0,
+  sprite = "entities/grounds/ladder_wooden",
+  tiled = true,
+  model = "ladder",
+}
+
+custom_entity{
+  layer = 0,
+  x = 376,
+  y = 133,
+  width = 16,
+  height = 8,
+  origin_y = 5,
+  direction = 0,
+  sprite = "entities/grounds/ladder_wooden_top",
+  tiled = true,
+  model = "ladder",
+}
+
+custom_entity{
+  layer = 0,
+  x = 520,
+  y = 13,
+  width = 16,
+  height = 120,
+  origin_y = 5,
+  direction = 0,
+  sprite = "entities/grounds/ladder_wooden",
+  tiled = true,
+  model = "ladder",
+}
+
+custom_entity{
+  layer = 0,
+  x = 520,
+  y = 5,
+  width = 16,
+  height = 8,
+  origin_y = 5,
+  direction = 0,
+  sprite = "entities/grounds/ladder_wooden_top",
+  tiled = true,
+  model = "ladder",
+}
+
+custom_entity{
+  layer = 0,
+  x = 424,
+  y = 213,
+  width = 128,
+  height = 8,
+  direction = 0,
+  sprite = "entities/grounds/spike",
+  tiled = true,
+  model = "spike_sideview",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 96,
+  y = 160,
+  width = 176,
+  height = 8,
+  pattern = "197",
+  tileset = "sideview/sideview_dungeon",
+}
+
+dynamic_tile{
+  layer = 0,
+  x = 96,
+  y = 168,
+  width = 176,
+  height = 40,
+  pattern = "181",
+  tileset = "sideview/sideview_dungeon",
 }
 

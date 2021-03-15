@@ -23,6 +23,7 @@ local steps={
   "sandworm_killed",
   "dungeon_4_key_obtained",
   "dungeon_4_opened",
+  "dungeon_4_completed",
 }
 
 local index={}

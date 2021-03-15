@@ -93,6 +93,7 @@ end)
 function map:init_map_entities()
   
   ghost:set_enabled(false)
+  owl_9:set_enabled(false)
 
 end
 

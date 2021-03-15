@@ -16750,8 +16750,8 @@ enemy{
 destination{
   name = "dungeon_5_1_B",
   layer = 0,
-  x = 784,
-  y = 437,
+  x = 2080,
+  y = 1893,
   direction = 1,
 }
 
@@ -20516,6 +20516,42 @@ tile{
   height = 8,
   pattern = "148",
   tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 1,
+  x = 704,
+  y = 256,
+  width = 48,
+  height = 8,
+  pattern = "door_cache.1-2",
+}
+
+tile{
+  layer = 1,
+  x = 848,
+  y = 256,
+  width = 48,
+  height = 8,
+  pattern = "door_cache.1-2",
+}
+
+tile{
+  layer = 1,
+  x = 848,
+  y = 456,
+  width = 48,
+  height = 8,
+  pattern = "door_cache.2-2",
+}
+
+tile{
+  layer = 1,
+  x = 704,
+  y = 456,
+  width = 48,
+  height = 8,
+  pattern = "door_cache.2-2",
 }
 
 custom_entity{

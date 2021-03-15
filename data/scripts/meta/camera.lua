@@ -2,6 +2,11 @@
 
 -- Variables
 local camera_meta = sol.main.get_metatable("camera")
+local is_shaking = false
+
+function camera_meta:is_shaking()
+  return is_shaking
+end
 
 function camera_meta:shake(config, callback)
 
@@ -38,6 +43,7 @@ function camera_meta:shake(config, callback)
     shaking_count = shaking_count + 1
 
     -- Launch the movement and repeat if needed.
+    is_shaking = true
     movement:start(camera, function()
 
         -- Repeat shaking until the count_max is reached.
@@ -46,6 +52,7 @@ function camera_meta:shake(config, callback)
           shake_step()
         else
           -- Finished.
+          is_shaking = false
           camera:start_tracking(hero)
           if callback ~= nil then
             callback()
@@ -134,6 +141,7 @@ function camera_meta:dynamic_shake(config, callback)
       return true
     else
       -- Finished.
+      is_shaking = false
       camera:start_tracking(entity_to_track)
       if callback ~= nil then
         callback()
@@ -142,7 +150,7 @@ function camera_meta:dynamic_shake(config, callback)
 --      end)
   end
   sol.timer.start(camera, 10, shake_step)
-
+  is_shaking = true
 end
 
 return true

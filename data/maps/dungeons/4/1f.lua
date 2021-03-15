@@ -32,6 +32,7 @@ local function start_straight_movement(entity, angle, distance, speed)
   movement:set_speed(speed)
   movement:set_smooth(false)
   movement:start(entity)
+  
 end
 
 -- Move iron blocks on given angle each time the handle is pulling.
@@ -45,6 +46,7 @@ local function move_block_on_handle_pulled(block, angle, max_distance)
       start_straight_movement(block, angle, distance, 10)
     end
   end)
+
 end
 
 -- Start movement to make iron blocks close the way out.
@@ -54,6 +56,7 @@ local function start_blocks_closing()
   start_straight_movement(block_1_2, math.pi / 2, 16 - block_1_2.start_y + select(2, block_1_2:get_position()), 2)
   start_straight_movement(block_1_3, 0, 16 - select(1, block_1_3:get_position()) + block_1_3.start_x, 2)
   start_straight_movement(block_1_4, 2 * math.pi / 2, 16 - block_1_4.start_x + select(1, block_1_4:get_position()), 2)
+  
 end
 
 -- Call start_blocks_closing when the pull handle is dropped.
@@ -134,36 +137,43 @@ start_blocks_closing_on_handle_dropped()
 function sensor_1:on_activated()
 
   door_manager:close_if_enemies_not_dead(map, "enemy_group_4_", "door_group_1_")
+  
 end
 
 function sensor_2:on_activated()
 
   door_manager:close_if_enemies_not_dead(map, "enemy_group_2_", "door_group_2_")
+  
 end
 
 function sensor_3:on_activated()
 
   door_manager:close_if_enemies_not_dead(map, "enemy_group_2_", "door_group_2_")
+  
 end
 
 function sensor_4:on_activated()
 
   door_manager:close_if_enemies_not_dead(map, "enemy_group_4_", "door_group_1_")
+  
 end
 
 function sensor_5:on_activated()
 
   door_manager:close_if_enemies_not_dead(map, "enemy_group_4_", "door_group_1_")
+  
 end
 
 function sensor_6:on_activated()
 
   door_manager:close_if_enemies_not_dead(map, "enemy_group_4_", "door_group_1_")
+  
 end
 
 function sensor_7:on_activated()
 
   door_manager:close_if_enemies_not_dead(map,  "enemy_group_1_",  "door_group_3_")
+  
 end
 
 function sensor_8:on_activated()
@@ -172,6 +182,7 @@ function sensor_8:on_activated()
     is_small_boss_active = true
     enemy_manager:launch_small_boss_if_not_dead(map)
   end
+  
 end
 
 function sensor_9:on_activated()
@@ -180,23 +191,30 @@ function sensor_9:on_activated()
     is_boss_active = true
     enemy_manager:launch_boss_if_not_dead(map)
   end
+  
 end
 
 function sensor_10:on_activated()
 
   door_manager:close_if_enemies_not_dead(map,  "enemy_group_23_",  "door_group_6_")
+  
 end
 
 function sensor_11:on_activated()
 
   sensor_10:on_activated()
+  
 end
 
 -- Replace blocks when entering the pull handle room.
 function sensor_14:on_activated()
+  
   reset_blocks()
+  
 end
 
 function sensor_15:on_activated()
+  
   reset_blocks()
+  
 end

@@ -69,9 +69,13 @@ explosion:add_collision_test("sprite", function(explosion, entity)
     map:set_crystal_state(not map:get_crystal_state())
 
   elseif type == "destructible" and entity:get_can_explode() then
-    entity:get_sprite():set_animation("destroy", function()
+    if entity:has_animation("destroy") then
+      entity:get_sprite():set_animation("destroy", function()
+        entity:remove()
+      end)
+    else
       entity:remove()
-    end)
+    end
     if entity.on_exploded then
       entity:on_exploded()
     end

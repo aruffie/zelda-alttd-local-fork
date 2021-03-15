@@ -15723,8 +15723,8 @@ teletransporter{
 
 destructible{
   layer = 1,
-  x = 688,
-  y = 21,
+  x = 696,
+  y = 61,
   sprite = "entities/destructibles/bush",
   destruction_sound = "bush",
   weight = 1,

@@ -260,13 +260,13 @@ function map:launch_cinematic_2()
     -- Tarin search honey
     tarin:get_sprite():set_animation("searching_honey")
     stick_entity:remove()
-    audio_manager:play_sound("beehive_poke")
+    audio_manager:play_sound("misc/beehive_poke1")
     for i=1,4 do
       wait(500 * i)
       if i == 2 then
-          audio_manager:play_sound("beehive_poke")
+          audio_manager:play_sound("misc/beehive_poke2")
       end
-      audio_manager:play_sound("beehive_bees")
+      audio_manager:play_sound("misc/beehive_bees")
       local bee = map:create_custom_entity({
         name = "bee_chase_" .. i,
         sprite = "entities/insects/bee",
@@ -349,7 +349,7 @@ function map:launch_cinematic_2()
     movement3:set_ignore_obstacles(true)
     movement3:set_ignore_suspend(true)
     movement(movement3, honey)
-    audio_manager:play_sound("beehive_fall")
+    audio_manager:play_sound("misc/beehive_fall")
     tarin_chased_by_bees = false
     map:init_music()
     local movement_camera = sol.movement.create("target")
@@ -363,19 +363,5 @@ function map:launch_cinematic_2()
     game:set_step_done("tarin_bee_event_over")
     map:set_cinematic_mode(false, options)
   end)
-  
-end
-
-function honey:on_enabled()
-  
-  x,y,layer = honey:get_position()
-  print(layer)
-  print("enabled")
-  
-end
-
-function honey:on_disabled()
-  
-  print("disabled")
   
 end

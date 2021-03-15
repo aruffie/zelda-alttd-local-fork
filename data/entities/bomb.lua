@@ -1,7 +1,7 @@
 ----------------------------------
 --
 -- A carriable bomb entity that can be thrown and explode after some time.
--- The timer is reseted each time the bomb is carried.
+-- Reset the timer each time the bomb is carried.
 --
 ----------------------------------
 

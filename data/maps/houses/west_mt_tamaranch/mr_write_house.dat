@@ -704,13 +704,6 @@ wall{
   stops_blocks = true,
 }
 
-pickable{
-  layer = 0,
-  x = 144,
-  y = 165,
-  treasure_name = "acorn",
-}
-
 tile{
   layer = 1,
   x = 144,

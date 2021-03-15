@@ -25,7 +25,7 @@ tile{
   x = 1328,
   y = 288,
   width = 224,
-  height = 176,
+  height = 144,
   pattern = "water_shallow",
 }
 
@@ -96,7 +96,7 @@ tile{
   layer = 0,
   x = 832,
   y = 1336,
-  width = 112,
+  width = 96,
   height = 48,
   pattern = "water",
 }
@@ -7159,7 +7159,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 1176,
+  x = 1192,
   y = 1288,
   width = 32,
   height = 16,
@@ -7168,7 +7168,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 1384,
+  x = 1368,
   y = 1288,
   width = 32,
   height = 16,
@@ -7177,7 +7177,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 1464,
+  x = 1480,
   y = 1288,
   width = 32,
   height = 16,
@@ -7186,7 +7186,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 1752,
+  x = 1768,
   y = 1224,
   width = 32,
   height = 16,
@@ -7710,7 +7710,7 @@ tile{
   layer = 0,
   x = 832,
   y = 1376,
-  width = 112,
+  width = 96,
   height = 16,
   pattern = "water_shallow",
 }
@@ -11857,51 +11857,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 1040,
-  y = 320,
-  width = 16,
-  height = 16,
-  pattern = "floor_star.off",
-}
-
-tile{
-  layer = 0,
-  x = 1040,
-  y = 384,
-  width = 16,
-  height = 16,
-  pattern = "floor_star.off",
-}
-
-tile{
-  layer = 0,
-  x = 1120,
-  y = 352,
-  width = 16,
-  height = 16,
-  pattern = "floor_star.off",
-}
-
-tile{
-  layer = 0,
-  x = 1184,
-  y = 320,
-  width = 16,
-  height = 16,
-  pattern = "floor_star.off",
-}
-
-tile{
-  layer = 0,
-  x = 1184,
-  y = 384,
-  width = 16,
-  height = 16,
-  pattern = "floor_star.off",
-}
-
-tile{
-  layer = 0,
   x = 1088,
   y = 128,
   width = 8,
@@ -12356,6 +12311,132 @@ tile{
   width = 16,
   height = 16,
   pattern = "door.1",
+}
+
+tile{
+  layer = 0,
+  x = 928,
+  y = 1344,
+  width = 16,
+  height = 48,
+  pattern = "water_shallow",
+}
+
+tile{
+  layer = 0,
+  x = 864,
+  y = 1176,
+  width = 32,
+  height = 16,
+  pattern = "wall_torch.2",
+}
+
+tile{
+  layer = 0,
+  x = 1192,
+  y = 1096,
+  width = 32,
+  height = 16,
+  pattern = "wall_torch.2",
+}
+
+tile{
+  layer = 0,
+  x = 1368,
+  y = 1096,
+  width = 32,
+  height = 16,
+  pattern = "wall_torch.2",
+}
+
+tile{
+  layer = 0,
+  x = 1880,
+  y = 584,
+  width = 16,
+  height = 32,
+  pattern = "wall_torch.4",
+}
+
+tile{
+  layer = 0,
+  x = 1824,
+  y = 504,
+  width = 32,
+  height = 16,
+  pattern = "wall_torch.1",
+}
+
+tile{
+  layer = 0,
+  x = 1672,
+  y = 504,
+  width = 32,
+  height = 16,
+  pattern = "wall_torch.1",
+}
+
+tile{
+  layer = 0,
+  x = 1240,
+  y = 544,
+  width = 16,
+  height = 32,
+  pattern = "wall_torch.4",
+}
+
+tile{
+  layer = 0,
+  x = 1304,
+  y = 544,
+  width = 16,
+  height = 32,
+  pattern = "wall_torch.3",
+}
+
+tile{
+  layer = 0,
+  x = 984,
+  y = 312,
+  width = 16,
+  height = 32,
+  pattern = "wall_torch.3",
+}
+
+tile{
+  layer = 0,
+  x = 1392,
+  y = 24,
+  width = 32,
+  height = 16,
+  pattern = "wall_torch.1",
+}
+
+tile{
+  layer = 0,
+  x = 1456,
+  y = 24,
+  width = 32,
+  height = 16,
+  pattern = "wall_torch.1",
+}
+
+tile{
+  layer = 0,
+  x = 664,
+  y = 552,
+  width = 16,
+  height = 32,
+  pattern = "wall_torch.3",
+}
+
+tile{
+  layer = 0,
+  x = 664,
+  y = 1040,
+  width = 16,
+  height = 32,
+  pattern = "wall_torch.3",
 }
 
 wall{
@@ -12985,7 +13066,7 @@ wall{
 
 block{
   layer = 0,
-  x = 1408,
+  x = 1416,
   y = 157,
   sprite = "entities/blocks/block",
   pushable = false,
@@ -14408,7 +14489,7 @@ chest{
   properties = {
     {
       key = "breed",
-      value = "boss/projectiles/zol",
+      value = "zol_chest",
     },
   },
   treasure_name = "enemy_ambush",
@@ -14539,8 +14620,8 @@ door{
 enemy{
   name = "enemy_group_22_1",
   layer = 0,
-  x = 1408,
-  y = 141,
+  x = 1448,
+  y = 93,
   direction = 0,
   breed = "fireball",
 }
@@ -14793,12 +14874,12 @@ sensor{
 }
 
 pickable{
-  name = "pickable_small_key_1",
+  name = "pickable_small_key_5",
   layer = 0,
   x = 1376,
   y = 581,
   treasure_name = "small_key",
-  treasure_savegame_variable = "dungeon_4_small_key_1",
+  treasure_savegame_variable = "dungeon_4_small_key_5",
 }
 
 door{
@@ -14904,6 +14985,16 @@ npc{
   layer = 0,
   x = 1424,
   y = 893,
+  properties = {
+    {
+      key = "model",
+      value = "statue_owl_dungeon",
+    },
+    {
+      key = "dialog",
+      value = "maps.dungeons.4.owl_1",
+    },
+  },
   direction = 3,
   subtype = 1,
   sprite = "npc/statues/owl_dungeon",
@@ -15374,6 +15465,101 @@ destination{
   x = 1120,
   y = 1573,
   direction = 1,
+}
+
+custom_entity{
+  name = "slab_1_1",
+  layer = 0,
+  x = 1040,
+  y = 320,
+  properties = {
+    {
+      key = "order",
+      value = "",
+    },
+  },
+  width = 16,
+  height = 16,
+  origin_x = 0,
+  origin_y = 0,
+  direction = 0,
+  sprite = "entities/switchs/switch",
+}
+
+custom_entity{
+  name = "slab_1_2",
+  layer = 0,
+  x = 1040,
+  y = 384,
+  properties = {
+    {
+      key = "order",
+      value = "",
+    },
+  },
+  width = 16,
+  height = 16,
+  origin_x = 0,
+  origin_y = 0,
+  direction = 0,
+  sprite = "entities/switchs/switch",
+}
+
+custom_entity{
+  name = "slab_1_3",
+  layer = 0,
+  x = 1112,
+  y = 352,
+  properties = {
+    {
+      key = "order",
+      value = "",
+    },
+  },
+  width = 16,
+  height = 16,
+  origin_x = 0,
+  origin_y = 0,
+  direction = 0,
+  sprite = "entities/switchs/switch",
+}
+
+custom_entity{
+  name = "slab_1_4",
+  layer = 0,
+  x = 1184,
+  y = 320,
+  properties = {
+    {
+      key = "order",
+      value = "",
+    },
+  },
+  width = 16,
+  height = 16,
+  origin_x = 0,
+  origin_y = 0,
+  direction = 0,
+  sprite = "entities/switchs/switch",
+}
+
+custom_entity{
+  name = "slab_1_5",
+  layer = 0,
+  x = 1184,
+  y = 384,
+  properties = {
+    {
+      key = "order",
+      value = "",
+    },
+  },
+  width = 16,
+  height = 16,
+  origin_x = 0,
+  origin_y = 0,
+  direction = 0,
+  sprite = "entities/switchs/switch",
 }
 
 tile{
@@ -17203,7 +17389,7 @@ tile{
   layer = 2,
   x = 640,
   y = 1664,
-  width = 1928,
+  width = 1920,
   height = 256,
   pattern = "ceiling.1",
 }
