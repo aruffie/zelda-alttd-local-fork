@@ -240,6 +240,7 @@ sprite{ id = "enemies/boss/evil_eagle", description = "Evil eagle" }
 sprite{ id = "enemies/boss/evil_orb/evil_orb", description = "Evil orb" }
 sprite{ id = "enemies/boss/evil_orb/evil_orb_head", description = "Orb evil orb" }
 sprite{ id = "enemies/boss/facade", description = "Facade" }
+sprite{ id = "enemies/boss/facade/hole", description = "Hole" }
 sprite{ id = "enemies/boss/genie", description = "Genie" }
 sprite{ id = "enemies/boss/genie/bottle", description = "Genie bottle" }
 sprite{ id = "enemies/boss/genie/fireball", description = "Genie fire ball" }
@@ -275,6 +276,7 @@ sprite{ id = "enemies/boss/slime_eel", description = "Slime eel" }
 sprite{ id = "enemies/boss/slime_eel/body", description = "Slime eel Body" }
 sprite{ id = "enemies/boss/slime_eye", description = "Slime eye" }
 sprite{ id = "enemies/boss/slime_eye/splitted_eye", description = "Splitted Eye" }
+sprite{ id = "enemies/boss/slime_eye/zol", description = "Zol salmon" }
 sprite{ id = "enemies/boss/smasher", description = "Smasher" }
 sprite{ id = "enemies/boss/stone_hinox/stone_hinox", description = "Stone hinox" }
 sprite{ id = "enemies/boss/stone_hinox/stone_hinox_boulder", description = "Stone hinox boulder" }
@@ -382,7 +384,6 @@ sprite{ id = "enemies/vire", description = "Vire" }
 sprite{ id = "enemies/wizzrobe", description = "Wizzrobe" }
 sprite{ id = "enemies/zol_green", description = "Zol green" }
 sprite{ id = "enemies/zol_red", description = "Zol red" }
-sprite{ id = "enemies/zol_salmon", description = "Zol salmon" }
 sprite{ id = "enemies/zombie", description = "Zombie" }
 sprite{ id = "enemies/zora", description = "Zora" }
 sprite{ id = "entities/animals/bird", description = "Bird" }
@@ -421,6 +422,8 @@ sprite{ id = "entities/claw_crane", description = "Claw crane" }
 sprite{ id = "entities/claw_up", description = "Claw up" }
 sprite{ id = "entities/crystal", description = "Crystal" }
 sprite{ id = "entities/crystal_block", description = "Crystal block" }
+sprite{ id = "entities/decorations/aquarium_background", description = "Aquarium background" }
+sprite{ id = "entities/decorations/aquarium_background_2", description = "Aquarium background 2" }
 sprite{ id = "entities/decorations/background_introduction", description = "Background introduction" }
 sprite{ id = "entities/decorations/big_torch", description = "Big Torch" }
 sprite{ id = "entities/decorations/bubble_lava", description = "Bubble lava" }
@@ -614,6 +617,7 @@ sprite{ id = "entities/streams/stream_d3", description = "Stream 3" }
 sprite{ id = "entities/streams/stream_d4", description = "Stream 4" }
 sprite{ id = "entities/streams/water_stream", description = "Water stream" }
 sprite{ id = "entities/switchs/lever", description = "Lever" }
+sprite{ id = "entities/switchs/star", description = "Star Switch" }
 sprite{ id = "entities/switchs/switch", description = "Switch" }
 sprite{ id = "entities/switchs/switch_eye_blue", description = "Switch eye blue" }
 sprite{ id = "entities/switchs/switch_eye_red", description = "Switch eye red" }
@@ -1472,6 +1476,7 @@ enemy{ id = "thwomp", description = "Thwomp" }
 enemy{ id = "vegas", description = "Vegas" }
 enemy{ id = "vire", description = "Vire" }
 enemy{ id = "wizzrobe", description = "Wizzrobe" }
+enemy{ id = "zol_chest", description = "Closed Zol" }
 enemy{ id = "zol_green", description = "Zol green" }
 enemy{ id = "zol_red", description = "Zol red" }
 enemy{ id = "zombie", description = "Zombie" }
@@ -1583,7 +1588,7 @@ file{ path = "enemies/boss/blaino.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/cue_ball.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/desert_lanmola.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/dodongo_snake.lua", author = "Vlag", license = "GPL v3" }
-file{ path = "enemies/boss/evil_eagle.lua", license = "GPL v3" }
+file{ path = "enemies/boss/evil_eagle.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/evil_orb.lua", license = "GPL v3" }
 file{ path = "enemies/boss/facade.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/genie.lua", author = "Vlag", license = "GPL v3" }
@@ -1710,6 +1715,7 @@ file{ path = "enemies/thwomp.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "enemies/vegas.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "enemies/vire.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/wizzrobe.lua", author = "Christopho", license = "GPL v3" }
+file{ path = "enemies/zol_chest.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/zol_green.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/zol_red.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/zombie.lua", author = "Vlag", license = "GPL v3" }

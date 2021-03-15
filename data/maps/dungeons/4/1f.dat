@@ -14489,7 +14489,7 @@ chest{
   properties = {
     {
       key = "breed",
-      value = "boss/projectiles/zol",
+      value = "zol_chest",
     },
   },
   treasure_name = "enemy_ambush",

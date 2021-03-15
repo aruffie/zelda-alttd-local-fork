@@ -50,6 +50,7 @@ map:register_event("on_started", function()
   -- Music
   game:play_dungeon_music()
   -- Pickables
+  treasure_manager:disappear_pickable(map, "heart_container")
   treasure_manager:disappear_pickable(map, "pickable_small_key_1")
   treasure_manager:disappear_pickable(map, "pickable_small_key_2")
   treasure_manager:appear_pickable_when_enemies_dead(map, "enemy_group_9_", "pickable_small_key_1")
@@ -200,6 +201,13 @@ function sensor_14:on_activated()
   if is_boss_active == false then
     is_boss_active = true
     enemy_manager:launch_boss_if_not_dead(map)
+
+    function boss:on_woke_up()
+      game:start_dialog("maps.dungeons.6.boss_woke_up")
+    end
+    function boss:on_dying()
+      game:start_dialog("maps.dungeons.6.boss_dying")
+    end
   end
 end
 
