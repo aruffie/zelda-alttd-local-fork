@@ -1312,9 +1312,26 @@ Vautour Malfaisant
 }
 
 dialog{
+  id = "maps.dungeons.7.boss_dying",
+  text = [[
+J'ai perdu ...
+Toi aussi, tu vas perdre si le Poisson-Rêve s'éveille ...    
+Tout comme moi, tu es...
+dans son rêve...
+]],
+}
+
+dialog{
   id = "maps.dungeons.7.boss_name",
   text = [[
 Urubos
+]],
+}
+
+dialog{
+  id = "maps.dungeons.7.boss_welcome",
+  text = [[
+Cette fois-ci, je vais t'avoir, c'est sûr ... Je vais t'écraser comme une vulgaire fourmi !
 ]],
 }
 
