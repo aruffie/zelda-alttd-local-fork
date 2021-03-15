@@ -422,6 +422,8 @@ sprite{ id = "entities/claw_crane", description = "Claw crane" }
 sprite{ id = "entities/claw_up", description = "Claw up" }
 sprite{ id = "entities/crystal", description = "Crystal" }
 sprite{ id = "entities/crystal_block", description = "Crystal block" }
+sprite{ id = "entities/decorations/aquarium_background", description = "Aquarium background" }
+sprite{ id = "entities/decorations/aquarium_background_2", description = "Aquarium background 2" }
 sprite{ id = "entities/decorations/background_introduction", description = "Background introduction" }
 sprite{ id = "entities/decorations/big_torch", description = "Big Torch" }
 sprite{ id = "entities/decorations/bubble_lava", description = "Bubble lava" }
@@ -615,6 +617,7 @@ sprite{ id = "entities/streams/stream_d3", description = "Stream 3" }
 sprite{ id = "entities/streams/stream_d4", description = "Stream 4" }
 sprite{ id = "entities/streams/water_stream", description = "Water stream" }
 sprite{ id = "entities/switchs/lever", description = "Lever" }
+sprite{ id = "entities/switchs/star", description = "Star Switch" }
 sprite{ id = "entities/switchs/switch", description = "Switch" }
 sprite{ id = "entities/switchs/switch_eye_blue", description = "Switch eye blue" }
 sprite{ id = "entities/switchs/switch_eye_red", description = "Switch eye red" }
