@@ -63,7 +63,7 @@ function map:on_started()
   -- Doors
   map:set_doors_open("door_group_1_", true)
   door_manager:open_if_small_boss_dead(map)
---door_manager:open_if_boss_dead(map)
+  door_manager:open_if_boss_dead(map)
 
   -- Ennemies
   enemy_manager:create_teletransporter_if_small_boss_dead(map, false)
