@@ -1,0 +1,10 @@
+animation{
+  name = "waiting",
+  src_image = "enemies/boss/evil_eagle/grim_creeper.png",
+  directions = {
+    { x = 0, y = 0, frame_width = 22, frame_height = 22, origin_x = 11, origin_y = 19 },
+    { x = 0, y = 0, frame_width = 22, frame_height = 22, origin_x = 11, origin_y = 19 },
+    { x = 0, y = 0, frame_width = 22, frame_height = 22, origin_x = 11, origin_y = 19 },
+    { x = 0, y = 0, frame_width = 22, frame_height = 22, origin_x = 11, origin_y = 19 },
+  },
+}

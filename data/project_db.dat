@@ -237,6 +237,8 @@ sprite{ id = "enemies/boss/dethl/ganon_form/ganon", description = "Ganon" }
 sprite{ id = "enemies/boss/dodongo_snake", description = "Dodongo Snake" }
 sprite{ id = "enemies/boss/dodongo_snake/body", description = "Dodongo snake body" }
 sprite{ id = "enemies/boss/evil_eagle", description = "Evil eagle" }
+sprite{ id = "enemies/boss/evil_eagle/eagle", description = "Evil Eagle alone" }
+sprite{ id = "enemies/boss/evil_eagle/grim_creeper", description = "Grim Creeper alone" }
 sprite{ id = "enemies/boss/evil_orb/evil_orb", description = "Evil orb" }
 sprite{ id = "enemies/boss/evil_orb/evil_orb_head", description = "Orb evil orb" }
 sprite{ id = "enemies/boss/facade", description = "Facade" }
@@ -422,8 +424,6 @@ sprite{ id = "entities/claw_crane", description = "Claw crane" }
 sprite{ id = "entities/claw_up", description = "Claw up" }
 sprite{ id = "entities/crystal", description = "Crystal" }
 sprite{ id = "entities/crystal_block", description = "Crystal block" }
-sprite{ id = "entities/decorations/aquarium_background", description = "Aquarium background" }
-sprite{ id = "entities/decorations/aquarium_background_2", description = "Aquarium background 2" }
 sprite{ id = "entities/decorations/background_introduction", description = "Background introduction" }
 sprite{ id = "entities/decorations/big_torch", description = "Big Torch" }
 sprite{ id = "entities/decorations/bubble_lava", description = "Bubble lava" }

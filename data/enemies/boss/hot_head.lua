@@ -136,9 +136,9 @@ local function start_diving()
   enemy:stop_flying(diving_duration, function()
     if lava:overlaps(enemy) then
       enemy:start_brief_effect("enemies/" .. enemy:get_breed() .. "/lava_splash", "default")
-    end
-    for i = 0, 3, 1 do
-      create_lava_drop(eighth + quarter * i)
+      for i = 0, 3, 1 do
+        create_lava_drop(eighth + quarter * i)
+      end
     end
     if step == "extinct" then
       step = "burning"
@@ -213,6 +213,7 @@ local function start_breaking()
       molt:remove()
     end)
   end
+  sprite:set_animation(step)
 end
 
 -- Behavior on hit by fire.
