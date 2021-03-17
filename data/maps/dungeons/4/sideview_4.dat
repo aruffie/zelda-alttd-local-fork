@@ -178,6 +178,33 @@ tile{
   pattern = "135",
 }
 
+tile{
+  layer = 0,
+  x = 16,
+  y = 448,
+  width = 64,
+  height = 32,
+  pattern = "65",
+}
+
+tile{
+  layer = 0,
+  x = 192,
+  y = 448,
+  width = 128,
+  height = 32,
+  pattern = "66",
+}
+
+tile{
+  layer = 0,
+  x = 48,
+  y = 448,
+  width = 64,
+  height = 32,
+  pattern = "65",
+}
+
 dynamic_tile{
   layer = 0,
   x = 0,
