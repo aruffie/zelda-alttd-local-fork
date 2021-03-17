@@ -17,17 +17,9 @@ enemy:register_event("on_created", function(enemy)
 
   enemy:set_life(1)
   enemy:set_damage(2)
-  enemy:set_enabled(false)
   enemy:set_obstacle_behavior("flying")
   enemy.state = state
-
-  local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
-  function sprite:on_animation_finished(animation)
-    if enemy.state == "destroying" then
-      enemy:start_death()
-    end
-  end
-
+  enemy:create_sprite("enemies/" .. enemy:get_breed())
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)
   enemy:set_invincible()
@@ -40,28 +32,54 @@ end)
 -- The enemy was stopped for some reason and should restart.
 enemy:register_event("on_restarted", function(enemy)
 
+  enemy:set_can_attack(false)
+  enemy:set_invincible()
+  enemy:set_visible(false)
+end)
+
+-- Make the enemy start attacking.
+enemy:register_event("start_attacking", function(enemy)
+
   local x, y = enemy:get_position()
   initial_y = y
 
-  local m = sol.movement.create("path")
-  m:set_path{2,2}
+  local m = sol.movement.create("straight")
+  m:set_max_distance(16)
+  m:set_angle(math.pi * 0.5)
   m:set_speed(16)
-  m:start(enemy)
+  m:start(enemy:get_sprite()) -- Start the movement on the sprite instead of the enemy to be able to fly when the north of the enemy is against an obstacle.
   sol.timer.start(enemy, 2000, function() enemy:go_hero() end)
   enemy.state = "raising"
-  
+
+  enemy:set_visible()
+  enemy:set_can_attack(true)
+  enemy:set_hero_weapons_reactions({
+    sword = 1,
+    shield = function() enemy:disappear() end
+  })
 end)
 
 function enemy:go_hero()
 
-  local angle = enemy:get_angle(enemy:get_map():get_entity("hero"))
+  local hero = enemy:get_map():get_entity("hero")
+  local angle = enemy:get_angle(hero)
   local m = sol.movement.create("straight")
   m:set_speed(192)
   m:set_angle(angle)
   m:set_smooth(false)
   m:start(enemy)
   enemy.state = "attacking"
-  
+
+  -- Workaround : Manually use a sprite collision between the hero and the flying tile to be able to hurt when the south of the hero is against a obstacle.
+  local sprite = enemy:get_sprite()
+  local hero_sprite = hero:get_sprite("tunic")
+  enemy:set_can_attack(false)
+  function m:on_position_changed()
+    if enemy:overlaps(hero, "sprite", sprite, hero_sprite) then
+      enemy:on_attacking_hero(hero, sprite)
+      enemy:disappear()
+    end
+  end
 end
 
 enemy:register_event("on_obstacle_reached", function(enemy)
@@ -86,7 +104,10 @@ function enemy:disappear()
     enemy:set_attack_consequence("sword", "ignored")
     enemy:set_can_attack(false)
     enemy:stop_movement()
-    sprite:set_animation("destroy")
+    enemy:set_invincible()
+    sprite:set_animation("destroy", function()
+      enemy:start_death()
+    end)
     audio_manager:play_entity_sound(enemy, "stone")
     sol.timer.stop_all(enemy)
     if enemy.on_flying_tile_dead ~= nil then
@@ -101,11 +122,6 @@ enemy:register_event("on_pre_draw", function(enemy)
   -- Show the shadow.
   if enemy.state ~= "destroying" then
     local x, y = enemy:get_position()
-    if enemy.state == "attacking" then
-      y = y + 16
-    else
-      y = initial_y or y
-    end
     enemy:get_map():draw_visual(shadow_sprite, x, y)
   end
   

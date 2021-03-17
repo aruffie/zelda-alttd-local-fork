@@ -1918,6 +1918,30 @@ tile_pattern{
 }
 
 tile_pattern{
+  id = "65",
+  ground = "traversable",
+  default_layer = 0,
+  x = { 0, 64, 128, 192 },
+  y = { 416, 416, 416, 416 },
+  width = 64,
+  height = 32,
+  frame_delay = 150,
+  repeat_mode = "horizontal",
+}
+
+tile_pattern{
+  id = "66",
+  ground = "traversable",
+  default_layer = 0,
+  x = { 0, 128, 256, 384 },
+  y = { 448, 448, 448, 448 },
+  width = 128,
+  height = 32,
+  frame_delay = 150,
+  repeat_mode = "horizontal",
+}
+
+tile_pattern{
   id = "7",
   ground = "wall",
   default_layer = 0,

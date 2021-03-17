@@ -1258,9 +1258,27 @@ Masque Espiègle
 }
 
 dialog{
+  id = "maps.dungeons.6.boss_dying",
+  text = [[
+Je parle trop ...
+Mais si le Poisson-Rêve s'éveille, tout ce qui se trouve sur cette île disparaîtra !    
+Oui ... TOUT !
+]],
+}
+
+dialog{
   id = "maps.dungeons.6.boss_name",
   text = [[
 Façade
+]],
+}
+
+dialog{
+  id = "maps.dungeons.6.boss_woke_up",
+  text = [[
+Hé petit ! Besoin d'un indice ?    
+Mon point faible c'est la ...     
+Ouh, j'ai failli trop en dire ...
 ]],
 }
 
@@ -1294,9 +1312,26 @@ Vautour Malfaisant
 }
 
 dialog{
+  id = "maps.dungeons.7.boss_dying",
+  text = [[
+J'ai perdu ...
+Toi aussi, tu vas perdre si le Poisson-Rêve s'éveille ...    
+Tout comme moi, tu es...
+dans son rêve...
+]],
+}
+
+dialog{
   id = "maps.dungeons.7.boss_name",
   text = [[
 Urubos
+]],
+}
+
+dialog{
+  id = "maps.dungeons.7.boss_welcome",
+  text = [[
+Cette fois-ci, je vais t'avoir, c'est sûr ... Je vais t'écraser comme une vulgaire fourmi !
 ]],
 }
 
@@ -1357,9 +1392,31 @@ Tête Brûlée
 }
 
 dialog{
+  id = "maps.dungeons.8.boss_dying",
+  text = [[
+NON !!!...
+Si tu n'étais pas venu ici, rien n'aurait changé.
+Tu ne peux pas réveiller le Poisson-Rêve !
+N'oublie pas ...
+Nous faisons ...
+tous partie ...
+de son rêve ...
+]],
+}
+
+dialog{
   id = "maps.dungeons.8.boss_name",
   text = [[
 Inferno
+]],
+}
+
+dialog{
+  id = "maps.dungeons.8.boss_welcome",
+  text = [[
+SPLASHHH !
+Tu vas mourir !
+Jamais, je ne te laisserai jouer des Instruments des Sirènes !
 ]],
 }
 

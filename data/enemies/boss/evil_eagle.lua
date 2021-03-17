@@ -1,37 +1,62 @@
--- Lua script of enemy boss/lanmola.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Evil Eagle.
+--
+-- Description
+--
+-- Methods : enemy:start_fighting()
+--
+----------------------------------
 
--- Feel free to modify the code below.
--- You can add more events and remove the ones you don't need.
-
--- See the Solarus Lua API documentation for the full specification
--- of types, events and methods:
--- http://www.solarus-games.org/doc/latest
-
+-- Global variables
 local enemy = ...
+require("enemies/lib/common_actions").learn(enemy)
+
 local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
-local sprite
-local movement
+local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
+local quarter = math.pi * 0.5
 
--- Event called when the enemy is initialized.
-function enemy:on_created()
+-- Configuration variables
+local flying_speed = 32
 
-  -- Initialize the properties of your enemy here,
-  -- like the sprite, the life and the damage.
-  sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
-  enemy:set_life(1)
-  enemy:set_damage(1)
-end
+-- Make the boss start the fight.
+enemy:register_event("start_fighting", function(enemy)
 
--- Event called when the enemy should start or restart its movements.
--- This is called for example after the enemy is created or after
--- it was hurt or immobilized.
-function enemy:on_restarted()
+  enemy:set_visible(true)
+  enemy:set_can_attack(true)
+  enemy:set_hero_weapons_reactions({
+  	arrow = 2,
+  	boomerang = 3,
+  	explosion = 8,
+  	sword = 2,
+  	thrown_item = "protected",
+  	fire = 6,
+  	jump_on = "ignored",
+  	hammer = "protected",
+  	hookshot = 3,
+  	magic_powder = "ignored",
+  	shield = "protected",
+  	thrust = 8
+  })
+end)
 
-  movement = sol.movement.create("target")
-  movement:set_target(hero)
-  movement:set_speed(48)
-  movement:start(enemy)
-end
+-- Initialization.
+enemy:register_event("on_created", function(enemy)
+
+  enemy:set_life(24)
+  enemy:set_size(16, 16)
+  enemy:set_origin(8, 8)
+  enemy:set_damage(8)
+
+  enemy:set_visible(false)
+  enemy:set_can_attack(false)
+  enemy:set_invincible()
+end)
+
+-- Restart settings.
+enemy:register_event("on_restarted", function(enemy)
+
+  sprite:set_animation("flying")
+end)

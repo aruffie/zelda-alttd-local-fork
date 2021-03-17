@@ -2,7 +2,7 @@
 --
 -- Zol.
 --
--- A simple Zol used by the Slime Eye.
+-- A simple Zol used in fake chests.
 -- Behave pretty much like the Zol Red except it doesn't split into Gels and the jump doesn't depend on the distance to the hero.
 --
 -- Methods : enemy:start_walking()
@@ -14,7 +14,7 @@
 local enemy = ...
 require("enemies/lib/common_actions").learn(enemy)
 
-local sprite = enemy:create_sprite("enemies/boss/slime_eye/zol")
+local sprite = enemy:create_sprite("enemies/zol_green")
 local map = enemy:get_map()
 local hero = map:get_hero()
 local is_attacking
