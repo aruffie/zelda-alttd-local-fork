@@ -82,7 +82,7 @@ local function start_boss_cinematic()
   hero:freeze()
 
   -- Create the grim creeper and its minions.
-  local x, y, layer = placeholder_grim_creeper:get_position()
+  local x, y, layer = placeholder_boss:get_position()
   local grim_creeper = create_custom_entity(x, y, "enemies/boss/evil_eagle/grim_creeper")
   local minion_1 = create_custom_entity(x - 24, y - 24, "enemies/boss/grim_creeper/minion")
   local minion_2 = create_custom_entity(x + 24, y - 24, "enemies/boss/grim_creeper/minion")
@@ -90,11 +90,10 @@ local function start_boss_cinematic()
 
   -- Then make the eagle appear.
   sol.timer.start(map, 2000, function()
-    local x, y, layer = placeholder_boss:get_position()
     local eagle = map:create_custom_entity({
       direction = 2,
-      x = x + 224,
-      y = y,
+      x = 368,
+      y = 16,
       layer = hero:get_layer(),
       width = 16,
       height = 16,
@@ -103,16 +102,17 @@ local function start_boss_cinematic()
     local eagle_sprite = eagle:get_sprite()
     eagle_sprite:set_animation("rushing")
 
-    -- Start eagle movement to the grim creeper.
-    start_straight_movement(eagle, 240, math.pi, 448, function()
+    -- Start the actual cinematic.
+    --map:set_cinematic_mode(true, {entities_ignore_suspend = {grim_creeper, minion_1, minion_2, eagle}})
+    start_straight_movement(eagle, 240, math.pi, 416, function()
       sol.timer.start(map, 1000, function()
-        eagle:set_position(x - 224, y + 54)
+        eagle:set_position(-48, 70)
         eagle_sprite:set_direction(0)
-        start_straight_movement(eagle, 240, 0, 448, function()
+        start_straight_movement(eagle, 240, 0, 416, function()
           sol.timer.start(map, 1000, function()
-            eagle:set_position(x + 224, y + 108)
+            eagle:set_position(368, 124)
             eagle_sprite:set_direction(2)
-            start_straight_movement(eagle, 240, math.pi, 184, function()
+            start_straight_movement(eagle, 240, math.pi, 160, function()
               eagle_sprite:set_animation("flying")
               start_straight_movement(eagle, 120, math.pi, 48, function()
                 start_straight_movement(minion_1, 120, math.pi * 0.9, 240, function()
@@ -121,17 +121,20 @@ local function start_boss_cinematic()
                 start_straight_movement(minion_2, 120, math.pi * 0.9, 240, function()
                   minion_2:remove()
                 end)
-                start_jumping(grim_creeper, 700, 32, grim_creeper:get_angle(eagle), grim_creeper:get_distance(eagle) + 32, function()
-                  grim_creeper:remove()
-                  eagle:remove_sprite(eagle_sprite)
-                  eagle_sprite = eagle:create_sprite("enemies/boss/evil_eagle")
-                  eagle_sprite:set_animation("flying")
-                  eagle_sprite:set_direction(2)
-                  sol.timer.start(map, 1000, function()
-                    hero:unfreeze()
-                    start_straight_movement(eagle, 120, math.pi * 0.9, 240, function()
-                      eagle:remove()
-                      boss:start_fighting()
+                sol.timer.start(grim_creeper, 200, function()
+                  start_jumping(grim_creeper, 700, 32, grim_creeper:get_angle(eagle), grim_creeper:get_distance(eagle) + 32, function()
+                    grim_creeper:remove()
+                    eagle:remove_sprite(eagle_sprite)
+                    eagle_sprite = eagle:create_sprite("enemies/boss/evil_eagle")
+                    eagle_sprite:set_animation("flying")
+                    eagle_sprite:set_direction(2)
+                    sol.timer.start(map, 1000, function()
+                      --map:set_cinematic_mode(true, {entities_ignore_suspend = {grim_creeper, minion_1, minion_2, eagle}})
+                      hero:unfreeze()
+                      start_straight_movement(eagle, 120, math.pi * 0.9, 240, function()
+                        eagle:remove()
+                        boss:start_fighting()
+                      end)
                     end)
                   end)
                 end)
@@ -170,5 +173,7 @@ function sensor_1:on_activated()
     function boss:on_dying()
       game:start_dialog("maps.dungeons.7.boss_dying")
     end
+  else
+    boss:start_fighting() -- Restart the boss if coming up again after falling.
   end
 end

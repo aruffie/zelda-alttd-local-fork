@@ -2563,8 +2563,8 @@ dynamic_tile{
 custom_entity{
   name = "placeholder_boss",
   layer = 1,
-  x = 168,
-  y = 21,
+  x = 88,
+  y = 157,
   width = 16,
   height = 16,
   direction = 0,
@@ -2613,9 +2613,9 @@ custom_entity{
 sensor{
   name = "sensor_1",
   layer = 1,
-  x = 192,
+  x = 184,
   y = 245,
-  width = 16,
+  width = 32,
   height = 16,
 }
 
@@ -2650,16 +2650,6 @@ teletransporter{
   height = 16,
   destination_map = "dungeons/7/3f",
   destination = "stairs_12_B",
-}
-
-custom_entity{
-  name = "placeholder_grim_creeper",
-  layer = 1,
-  x = 88,
-  y = 157,
-  width = 16,
-  height = 16,
-  direction = 0,
 }
 
 separator{
