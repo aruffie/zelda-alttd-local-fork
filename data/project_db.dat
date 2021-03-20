@@ -238,6 +238,7 @@ sprite{ id = "enemies/boss/dodongo_snake", description = "Dodongo Snake" }
 sprite{ id = "enemies/boss/dodongo_snake/body", description = "Dodongo snake body" }
 sprite{ id = "enemies/boss/evil_eagle", description = "Evil eagle" }
 sprite{ id = "enemies/boss/evil_eagle/eagle", description = "Evil Eagle alone" }
+sprite{ id = "enemies/boss/evil_eagle/feather", description = "Feather" }
 sprite{ id = "enemies/boss/evil_eagle/grim_creeper", description = "Grim Creeper alone" }
 sprite{ id = "enemies/boss/evil_orb/evil_orb", description = "Evil orb" }
 sprite{ id = "enemies/boss/evil_orb/evil_orb_head", description = "Orb evil orb" }
