@@ -1329,7 +1329,7 @@ Urubos
 }
 
 dialog{
-  id = "maps.dungeons.7.boss_welcome",
+  id = "maps.dungeons.7.boss_threat",
   text = [[
 Cette fois-ci, je vais t'avoir, c'est sûr ... Je vais t'écraser comme une vulgaire fourmi !
 ]],
