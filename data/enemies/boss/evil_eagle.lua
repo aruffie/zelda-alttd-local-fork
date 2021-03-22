@@ -16,6 +16,7 @@ local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
 local camera = map:get_camera()
+local hurt_shader = sol.shader.create("hurt")
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
 local sixteenth = math.pi * 0.125
@@ -87,6 +88,7 @@ local function on_hurt(damage)
   local direction = sprite:get_direction()
   enemy:set_life(enemy:get_life() - damage)
   sprite:set_animation("hurt")
+  sprite:set_shader(hurt_shader)
   set_next_attack()
 
   if enemy.on_hurt then
@@ -96,6 +98,7 @@ local function on_hurt(damage)
   -- Start a movement to the north after some time then restart.
   sol.timer.start(enemy, hurt_duration, function()
     sprite:set_animation("flying")
+    sprite:set_shader(nil)
     local movement = enemy:start_straight_walking(quarter, flying_speed)
     movement:set_ignore_obstacles()
 
@@ -216,7 +219,7 @@ local function throw_feather()
   -- Go to the hero.
   local movement = sol.movement.create("straight")
   movement:set_speed(feather_speed)
-  movement:set_angle(enemy:get_angle(hero) + math.random() % 0.2 - 0.1)
+  movement:set_angle(enemy:get_angle(hero) + math.random() % 0.05 - 0.025)
   movement:set_ignore_obstacles()
   movement:start(feather)
 
@@ -326,6 +329,8 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
+  enemy:set_obstacle_behavior("flying")
+  enemy:set_pushed_back_when_hurt(false)
   start_vulnerable(false)
   if is_ready then
     sol.timer.start(enemy, between_attacks_duration, function()
