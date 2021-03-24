@@ -6,6 +6,7 @@ local map = ...
 local game = map:get_game()
 local is_small_boss_active = false
 local is_boss_active = false
+local slab_group_index = 0
 
 -----------------------
 -- Include scripts
@@ -65,6 +66,7 @@ local function start_blocks_closing_on_handle_dropped()
   pull_handle:register_event("on_released", function(pull_handle)
     start_blocks_closing()
   end)
+
 end
 
 -- Reset blocks position and start closing.
@@ -75,6 +77,44 @@ local function reset_blocks()
     block:set_position(block.start_x, block.start_y, block.start_layer)
   end
   start_blocks_closing()
+  
+end
+
+-- Reset slabs
+local function reset_slabs(group, index)
+
+  for i = 1, 5 do
+    local slab = map:get_entity("slab_" .. group .. "_" .. i)
+    if i <= index then
+      slab:set_activated(true)
+    else
+      slab:set_activated(false)
+    end
+  
+  end
+  slab_group_index = index
+  
+end
+
+-- Init slabs
+local function init_slabs(group)
+
+  for i = 1, 5 do
+    local slab = map:get_entity("slab_" .. group .. "_" .. i)
+    function slab:on_activated()
+      local order = tonumber(slab:get_property('order'))
+      print(order)
+      print(slab_group_index + 1)
+      if order == slab_group_index + 1 then
+        slab_group_index = slab_group_index + 1
+        reset_slabs(group, slab_group_index)
+      else
+        reset_slabs(group, 0)
+      end
+    end
+  end
+  reset_slabs(group, 0)
+  
 end
 
 map:register_event("on_started", function()
@@ -107,7 +147,12 @@ map:register_event("on_started", function()
     local block = map:get_entity("block_1_" .. i)
     block.start_x, block.start_y, block.start_layer = block:get_position()
   end
-
+  
+  -- Slabs
+  
+  init_slabs(1)
+  
+  
   -- Separators
   separator_manager:init(map)
   
@@ -118,6 +163,7 @@ function map:on_obtaining_treasure(item, variant, savegame_variable)
   if savegame_variable == "dungeon_4_big_treasure" then
     treasure_manager:get_instrument(map)
   end
+  
 end
 
 -----------------------
